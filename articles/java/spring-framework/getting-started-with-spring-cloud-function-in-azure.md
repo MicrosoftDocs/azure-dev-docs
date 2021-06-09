@@ -348,7 +348,7 @@ mvn azure-functions:run
 The Azure Function should now be available on your localhost, using port 7071. You can test the function by sending it a POST request, with a `User` object in JSON format. For example, using cURL:
 
 ```bash
-curl http://localhost:7071/api/hello -d "{\"name\":\"Azure\"}"
+curl -X POST http://localhost:7071/api/hello -d "{\"name\":\"Azure\"}"
 ```
 
 The Function should answer you with a `Greeting` object, still in JSON format:
@@ -362,6 +362,38 @@ The Function should answer you with a `Greeting` object, still in JSON format:
 Here is a screenshot of the cURL request on the top of the screen, and the local Azure Function at the bottom:
 
  ![Azure Function running locally][RFL01]
+
+## Debug the Function locally
+
+Open the project in Intellij IDEA, create a Remote JVM Debug run configuration to attach. For more information, see [Tutorial: Remote debug](https://www.jetbrains.com/help/idea/tutorial-remote-debug.html).
+
+![Create a Remote JVM Debug run configuration][create-remote-jvm-run-configuration]
+
+Copy the value form **Command line arguments for remote JVM**, set environment variable **MAVEN_OPTS**.
+
+```cmd
+set MAVEN_OPTS=-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005
+```
+
+Run the application using the `azure-functions` Maven plugin:
+
+```bash
+mvn azure-functions:run
+```
+
+When the application starts, you will see the following output:
+
+```text
+Listening for transport dt_socket at address: 5005
+```
+
+Start project debugging in Intellij IDEA, you will see the following output:
+
+```text
+Connected to the target VM, address: 'localhost:5005', transport: 'socket'
+```
+
+Mark the breakpoints you want to debug. After sending a request, the Idea will enter the remote debugging mode.
 
 ## Deploy the Function to Azure Functions
 
@@ -403,3 +435,4 @@ Congratulations, you have a Spring Cloud Function running on Azure Functions!
 <!-- IMG List -->
 
 [RFL01]: media/getting-started-with-spring-cloud-function-in-azure/RFL01.png
+[create-remote-jvm-run-configuration]: media/getting-started-with-spring-cloud-function-in-azure/create-remote-jvm-run-configuration.png
