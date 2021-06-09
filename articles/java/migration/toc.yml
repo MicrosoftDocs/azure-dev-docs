@@ -36,3 +36,5 @@
       href: migrate-websphere-to-wildfly-on-azure-kubernetes-service.md
     - name: JBoss EAP to WildFly on AKS
       href: migrate-jboss-eap-to-wildfly-on-azure-kubernetes-service.md
+    - name: JBoss EAP to Azure App Service
+      href: migrate-jboss-eap-to-jboss-eap-on-azure-app-service.md

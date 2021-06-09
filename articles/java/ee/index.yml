@@ -29,6 +29,8 @@ landingContent:
             url: /azure/virtual-machines/workloads/oracle/weblogic-aks?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/breadcrumb/toc.json
           - text: IBM WebSphere products on Azure
             url: websphere-family.md
+          - text: JBoss EAP on Azure
+            url: jboss-on-azure.md
           - text: Eclipse Microprofile on Azure
             url: ../eclipse-microprofile/index.yml
   - title: Deployment
@@ -67,6 +69,12 @@ landingContent:
             url: ../migration/migrate-weblogic-with-app-gateway.md?bc=/azure/developer/breadcrumb/toc.json&toc=/azure/developer/java/ee/toc.json
           - text: WebLogic with Elastic on Azure
             url: ../migration/migrate-weblogic-with-elk.md?bc=/azure/developer/breadcrumb/toc.json&toc=/azure/developer/java/ee/toc.json
+  - title: Migrate JBoss EAP to App Service
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: JBoss EAP to Azure App Service
+            url: ../migration/migrate-jboss-eap-to-jboss-eap-on-azure-app-service.md?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/breadcrumb/toc.json
   - title: Reference
     linkLists:
       - linkListType: reference
