@@ -367,7 +367,7 @@ Here is a screenshot of the cURL request on the top of the screen, and the local
 
 Open the project in Intellij IDEA, create a Remote JVM Debug run configuration to attach. For more information, see [Tutorial: Remote debug](https://www.jetbrains.com/help/idea/tutorial-remote-debug.html).
 
-![Create a Remote JVM Debug run configuration][create-remote-jvm-run-configuration]
+![Create a Remote JVM Debug run configuration][create-remote-jvm-debug-run-configuration]
 
 Copy the value form **Command line arguments for remote JVM**, set environment variable **MAVEN_OPTS**.
 
@@ -435,4 +435,4 @@ Congratulations, you have a Spring Cloud Function running on Azure Functions!
 <!-- IMG List -->
 
 [RFL01]: media/getting-started-with-spring-cloud-function-in-azure/RFL01.png
-[create-remote-jvm-run-configuration]: media/getting-started-with-spring-cloud-function-in-azure/create-remote-jvm-run-configuration.png
+[create-remote-jvm-debug-run-configuration]: media/getting-started-with-spring-cloud-function-in-azure/create-remote-jvm-debug-run-configuration.png
