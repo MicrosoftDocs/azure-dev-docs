@@ -239,8 +239,8 @@ Add the following tasks to your playbook to wait for the WinRM connection:
 ```
 
 **Key points**:
-*  The `azure_rm_virtualmachineextension` allows you to run a PowerShell script locally on the Azure Windows. Running the `ConfigureRemotingForAnsible.ps1` PowerShell script configures WinRM by creating self-signed certificates and opening the necessary ports for Ansible to connect.
-* The `azure_rm_publicipaddress_info` modules queries the public IP address from Azure. And `set_fact` stores the output in a variable for the `wait_for` module to use.
+* The `azure_rm_virtualmachineextension` module allows you to run a PowerShell script locally on the Azure Windows. Running the `ConfigureRemotingForAnsible.ps1` PowerShell script configures WinRM by creating self-signed certificates and opening the necessary ports for Ansible to connect.
+* The `azure_rm_publicipaddress_info` module queries the public IP address from Azure then `set_fact` stores the output in a variable for the `wait_for` module to use.
 
 ## Complete sample Ansible playbook
 
