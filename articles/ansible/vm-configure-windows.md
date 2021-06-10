@@ -65,7 +65,7 @@ Ansible needs a resource group to deploy your resources in.
 
 ## Create the virtual network and subnet
 
-Before you can create a VM you'll need a virtual network.
+Before you can create a VM, you'll need a virtual network.
 
 To create a virtual network, add the following tasks to the `azure_windows_vm.yml` Ansible playbook:
 
@@ -202,7 +202,7 @@ The `admin_password` value of `{{ password }}` is an Ansible variable that conta
 
 Ansible uses PowerShell to connect and configure Windows remote hosts via WinRM.
 
-To configure WinRM add teh following ext `azure_rm_virtualmachineextension`:
+To configure WinRM, add the following ext `azure_rm_virtualmachineextension`:
 
 ```yml
   - name: Create VM script extension to enable HTTPS WinRM listener
@@ -401,7 +401,7 @@ Replace `<publicIPaddress>` with your virtual machine's address.
 
 **Key Points**:
 * Ansible's configuration determines how Ansible connects and authenticates to remote hosts. The variables you need to define to connect to a Windows host depend on your WinRM connection type and the authentication option you've chosen. For more information, see [Connecting to a Windows Host](https://www.ansible.com/blog/connecting-to-a-windows-host) and [Windows Authentication Options](https://docs.ansible.com/ansible/latest/user_guide/windows_winrm.html#authentication-options).
-* Adding `,` after the public IP address bypasses Ansible's inventory parser. This syntax allows you to run playbooks against hosts not in an inventory file
+* Adding a comma after the public IP address bypasses Ansible's inventory parser which allows you to run playbooks without an inventory file.
 
 ## Clean up resources
 
