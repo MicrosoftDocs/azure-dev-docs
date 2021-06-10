@@ -31,7 +31,7 @@ In this quickstart, you'll complete these tasks:
 
 ## Add WinRM Support to Ansible
 
-To communicate over winRM Ansible control server needs the python package `pywinrm`.
+To communicate over WinRM, Ansible control server needs the python package `pywinrm`.
 
 Run the following command on the Ansible server to install `pywinrm`:
 
@@ -154,7 +154,7 @@ To open the WinRM and HTTP ports, add the following tasks to the `azure_windows_
           primary: True
 ```
 
-**Key Point**:
+**Key Points**:
 
 * A virtual network interface card connects your VM to its virtual network, public IP address, and security group.
 * The `azure_rm_securitygroup` creates an Azure network security group to allow WinRM traffic from the Ansible server to the remote host by allowing port `5985` and `5986`.
