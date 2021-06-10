@@ -32,19 +32,19 @@ landingContent:
           - text: JBoss EAP on Azure
             url: jboss-on-azure.md
           - text: Eclipse Microprofile on Azure
-            url: /azure/developer/java/eclipse-microprofile/
+            url: ../eclipse-microprofile/index.yml
   - title: Deployment
     linkLists:
       - linkListType: how-to-guide
         links:
           - text: Java app with Helidon to Azure App Service
-            url: /azure/developer/java/eclipse-microprofile/deploy-microprofile-helidon-java-app-with-maven-plugin?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/breadcrumb/toc.json
+            url: ../eclipse-microprofile/deploy-microprofile-helidon-java-app-with-maven-plugin.md?bc=/azure/developer/breadcrumb/toc.json&toc=/azure/developer/java/ee/toc.json
           - text: Java app with WebSphere Liberty/Open Liberty to Azure Red Hat OpenShift (ARO)
             url: /azure/openshift/howto-deploy-java-liberty-app?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/breadcrumb/toc.json
           - text: Java app with WebSphere Liberty/Open Liberty to AKS
             url: /azure/aks/howto-deploy-java-liberty-app?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/breadcrumb/toc.json
           - text: Java app with Payara Micro to Azure App Service
-            url: /azure/developer/java/eclipse-microprofile/deploy-microprofile-payara-micro-java-app-with-maven-plugin?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/breadcrumb/toc.json
+            url: ../eclipse-microprofile/deploy-microprofile-payara-micro-java-app-with-maven-plugin.md?bc=/azure/developer/breadcrumb/toc.json&toc=/azure/developer/java/ee/toc.json
   - title: Code samples
     linkLists:
       - linkListType: sample
@@ -62,19 +62,19 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: WebLogic to Azure Virtual Machines
-            url: /azure/developer/java/migration/migrate-weblogic-to-virtual-machines?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/breadcrumb/toc.json
+            url: ../migration/migrate-weblogic-to-virtual-machines.md?bc=/azure/developer/breadcrumb/toc.json&toc=/azure/developer/java/ee/toc.json
           - text: WebLogic with AAD via LDAP
-            url: /azure/developer/java/migration/migrate-weblogic-with-aad-ldap?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/breadcrumb/toc.json
+            url: ../migration/migrate-weblogic-with-aad-ldap.md?bc=/azure/developer/breadcrumb/toc.json&toc=/azure/developer/java/ee/toc.json
           - text: WebLogic with App Gateway
-            url: /azure/developer/java/migration/migrate-weblogic-with-app-gateway?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/breadcrumb/toc.json
+            url: ../migration/migrate-weblogic-with-app-gateway.md?bc=/azure/developer/breadcrumb/toc.json&toc=/azure/developer/java/ee/toc.json
           - text: WebLogic with Elastic on Azure
-            url: /azure/developer/java/migration/migrate-weblogic-with-elk?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/breadcrumb/toc.json
+            url: ../migration/migrate-weblogic-with-elk.md?bc=/azure/developer/breadcrumb/toc.json&toc=/azure/developer/java/ee/toc.json
   - title: Migrate JBoss EAP to App Service
     linkLists:
       - linkListType: how-to-guide
         links:
           - text: JBoss EAP to Azure App Service
-            url: /azure/developer/java/migration/migrate-jboss-eap-to-jboss-eap-on-azure-app-service?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/breadcrumb/toc.json
+            url: ../migration/migrate-jboss-eap-to-jboss-eap-on-azure-app-service.md?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/breadcrumb/toc.json
   - title: Reference
     linkLists:
       - linkListType: reference
