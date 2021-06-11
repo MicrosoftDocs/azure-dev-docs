@@ -34,7 +34,12 @@
       href: migrate-weblogic-to-wildfly-on-azure-kubernetes-service.md
     - name: WebSphere to WildFly on AKS
       href: migrate-websphere-to-wildfly-on-azure-kubernetes-service.md
-    - name: JBoss EAP to WildFly on AKS
-      href: migrate-jboss-eap-to-wildfly-on-azure-kubernetes-service.md
-    - name: JBoss EAP to Azure App Service
-      href: migrate-jboss-eap-to-jboss-eap-on-azure-app-service.md
+    - name: JBoss EAP to Azure
+      expanded: true
+      items:
+        - name: JBoss EAP to Azure App Service
+          href: migrate-jboss-eap-to-jboss-eap-on-azure-app-service.md
+        - name: JBoss EAP to Azure VMs
+          href: /azure/virtual-machines/workloads/redhat/jboss-eap-on-azure-migration?toc=/azure/developer/java/migration/toc.json&bc=/azure/developer/breadcrumb/toc.json
+        - name: JBoss EAP to WildFly on AKS
+          href: migrate-jboss-eap-to-wildfly-on-azure-kubernetes-service.md
