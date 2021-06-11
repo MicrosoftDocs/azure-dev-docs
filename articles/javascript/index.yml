@@ -34,7 +34,7 @@ landingContent:
           - text: Authenticate to Azure SDK
             url: core/node-sdk-azure-authenticate.md
           - text: Authenticate your web app users
-            url: how-to/with-authentication/getting-started?tabs=no-code%2Cno-code-credential.md
+            url: how-to/with-authentication/getting-started.md?tabs=no-code%2Cno-code-credential
           - text: Select a database
             url: how-to/with-database/getting-started.md
           - text: Azure SDK Blog
