@@ -31,8 +31,10 @@ landingContent:
             url: core/configure-local-development-environment.md
           - text: Select a hosting service
             url: how-to/deploy-web-app.md
-          - text: Authenticate to client library
+          - text: Authenticate to Azure SDK
             url: core/node-sdk-azure-authenticate.md
+          - text: Authenticate your web app users
+            url: how-to/with-authentication/getting-started?tabs=no-code%2Cno-code-credential
           - text: Azure SDK Blog
             url: https://devblogs.microsoft.com/azure-sdk/
           - text: Top tasks for JavaScript developers
