@@ -339,6 +339,8 @@ First you need to package your application into a Jar file:
 mvn package
 ```
 
+If you have not installed **Azure Functions Core Tools**, please go to [Install the Azure Functions Core Tools](https://aka.ms/azfunc-install) to install **Azure Functions Core Tools** first.
+
 Now that the application is packaged, you can run it using the `azure-functions` Maven plugin:
 
 ```bash
@@ -365,25 +367,21 @@ Here is a screenshot of the cURL request on the top of the screen, and the local
 
 ## Debug the Function locally
 
-Open the project in Intellij IDEA, create a Remote JVM Debug run configuration to attach. For more information, see [Tutorial: Remote debug](https://www.jetbrains.com/help/idea/tutorial-remote-debug.html).
+### Intellij IDEA based usage
+Open the project in Intellij IDEA, create a **Remote JVM Debug** run configuration to attach. For more information, see [Tutorial: Remote debug](https://www.jetbrains.com/help/idea/tutorial-remote-debug.html).
 
 ![Create a Remote JVM Debug run configuration][create-remote-jvm-debug-run-configuration]
 
-Copy the value form **Command line arguments for remote JVM**, set environment variable **MAVEN_OPTS**.
-
-```cmd
-set MAVEN_OPTS=-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005
-```
-
-Run the application using the `azure-functions` Maven plugin:
+Run the application with the following command:
 
 ```bash
-mvn azure-functions:run
+mvn azure-functions:run -DenableDebug
 ```
 
 When the application starts, you will see the following output:
 
 ```text
+Worker process started and initialized.
 Listening for transport dt_socket at address: 5005
 ```
 
@@ -393,7 +391,41 @@ Start project debugging in Intellij IDEA, you will see the following output:
 Connected to the target VM, address: 'localhost:5005', transport: 'socket'
 ```
 
-Mark the breakpoints you want to debug. After sending a request, the Idea will enter the remote debugging mode.
+Mark the breakpoints you want to debug. After sending a request, the Intellij IDEA will enter the debugging mode.
+
+### Visual Studio Code based usage
+
+Open the project in Visual Studio Code, configure the following *launch.json* file content:
+
+```json
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Attach to Remote Program",
+            "request": "attach",
+            "hostName": "127.0.0.1",
+            "port": 5005
+        }
+    ]
+}
+```
+
+Run the application with the following command:
+
+```bash
+mvn azure-functions:run -DenableDebug
+```
+
+When the application starts, you will see the following output:
+
+```text
+Worker process started and initialized.
+Listening for transport dt_socket at address: 5005
+```
+
+Start project debugging in Visual Studio Code, mark the breakpoints you want to debug. After sending a request, the Visual Studio Code will enter the debugging mode. For more information, see [Running and debugging Java](https://code.visualstudio.com/docs/java/java-debugging).
 
 ## Deploy the Function to Azure Functions
 
