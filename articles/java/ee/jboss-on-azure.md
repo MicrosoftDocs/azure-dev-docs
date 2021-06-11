@@ -32,6 +32,7 @@ Choose a VM image of your preference and scale to thousands of VMs based on usag
 
 The following articles provide more information on getting started with these technologies.
 
+- [Red Hat JBoss EAP on Azure best practices](/azure/virtual-machines/workloads/redhat/jboss-eap-on-azure-best-practices)
 - [Quickstart: Create a Java app on Azure App Service](/azure/app-service/quickstart-java?tabs=javase&pivots=platform-linux)
 - [Configure a Java app for Azure App Service](/azure/app-service/configure-language-java?pivots=platform-linux)
-- [Azure Marketplace: JBoss EAP on Azure Virtual Machines](https://azuremarketplace.microsoft.com/marketplace/apps/redhat.jboss-eap-rhel?tab=Overview)
+- [Deploy Red Hat JBoss EAP on Azure VMs and virtual machine scale sets using the Azure Marketplace offer](/azure/virtual-machines/workloads/redhat/jboss-eap-marketplace-image)
