@@ -183,4 +183,4 @@ localhost | CHANGED => {
 
 ## Next steps
 
-* [Configure Linux virtual machines in Azure using Ansible](https://docs.microsoft.com/azure/developer/ansible/vm-configure)
+* [Configure Linux virtual machines in Azure using Ansible](./vm-configure.md)
