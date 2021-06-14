@@ -24,6 +24,8 @@
         href: vm-manage.md
       - name: Configure Windows virtual machines
         href: vm-configure-windows.md
+      - name: Use Azure key vault with Ansible
+        href: key-vault-configure-secrets.md
 - name: Tutorials
   items:
   - name: Azure Application Gateway
