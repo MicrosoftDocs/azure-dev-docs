@@ -154,7 +154,7 @@ To open the WinRM and HTTP ports, add the following tasks to the `azure_windows_
           primary: True
 ```
 
-**Key Points**:
+**Key points**:
 
 * A virtual network interface card connects your VM to its virtual network, public IP address, and security group.
 * The `azure_rm_securitygroup` creates an Azure network security group to allow WinRM traffic from the Ansible server to the remote host by allowing port `5985` and `5986`.
