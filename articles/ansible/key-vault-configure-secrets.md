@@ -12,7 +12,7 @@ ms.custom: devx-track-ansible
 
 In this quickstart, you will create and get secrets from Azure key vault with Ansible.
 
-[!INCLUDE [ansible-29-note.md](includes/ansible-28-note.md)]
+[!INCLUDE [ansible-29-note.md](includes/ansible-29-note.md)]
 
 [!INCLUDE [ansible-tutorial-goals.md](includes/ansible-tutorial-goals.md)]
 
@@ -34,7 +34,7 @@ In this quickstart, you will create and get secrets from Azure key vault with An
 
 Ansible needs a resource group to deploy your resources in.
 
-1. **Create** an Ansible playbook named `azure_keyvault.yml` and copy the following contents into the playbook.
+1. Create an Ansible playbook named `create_kv.yml` add the following task to create a resource group:
 
     ```yml
     ---
@@ -64,7 +64,7 @@ Ansible needs a resource group to deploy your resources in.
     **key point**:
     * Azure key vault names must be globally universally unique. The key vault and keys/secrets inside it are accessed via `https://{vault-name}.vault.azure.net` URI.
 
-1. Configure the Azure key vault instance by adding the `azure_keyvault.yml` task.
+1. Configure the Azure key vault instance by adding the `create_kv.yml` task.
 
     ```yml
     ---
@@ -86,10 +86,10 @@ Ansible needs a resource group to deploy your resources in.
                 - delete
     ```
 
-1. Run the `azure_keyvault.yml` playbook.
+1. Run the `create_kv.yml` playbook.
 
     ```bash
-    ansible-playbook azure_keyvault.yml
+    ansible-playbook create_kv.yml
     ```
 
     ```output
@@ -149,7 +149,7 @@ This section lists the entire sample Ansible playbook for creating an Azure key 
 
 Before the secret can be created, you'll need the keyvault URI.
 
-1. **Create** another playbook named `azure_keyvault_create_secret.yml`. Copy the following code into the playbook:
+1. Create another playbook named `create_kv_secret.yml`. Copy the following code into the playbook:
 
     ```yml
     ---
@@ -179,10 +179,10 @@ Before the secret can be created, you'll need the keyvault URI.
     **Key point**:
     * The `azure_rm_keyvault_info` and `set_facts` modules registers the key vault URI as a variable. That variable is then passed to the `azure_rm_keyvaultsecret` module to create the secret.
 
-1. Run the `azure_keyvault_create_secret.yml` playbook.
+1. Run the `create_kv_secret.yml` playbook.
 
     ```bash
-    ansible-playbook azure_keyvault_secret.yml
+    ansible-playbook create_kv_secret.yml
     ```
 
     ```output
@@ -206,73 +206,110 @@ Before the secret can be created, you'll need the keyvault URI.
 
 ## Get secrets from key vault
 
-Secrets stored in Azure key vault can be used to populate Ansible variables. Use Ansible to retrieve the secret value `adminPassword` created previously from the key vault instance.
+Secrets stored in Azure key vault can be used to populate Ansible variables.
 
-Create a new playbook called `azure_keyvault_get_secret.yml` and copy the following code into the playbook:
+1. Create a new playbook called `get_kv_secrets.yml` to retrieve key vault secrets with Ansible.
 
-**Ansible 2.9 with azure_preview_modules**
+    **Ansible 2.9 with azure_preview_modules**
 
-```yml
----
-- hosts: localhost
-  connection: local
-  roles: 
-    -  { role: azure.azure_preview_modules }
-  
-  tasks:
-  - name: Get Key Vault by name
-    azure_rm_keyvault_info:
-      resource_group: ansible-kv-test-rg
-      name: ansible-kv-test-01
-    register: keyvault
+    ```yml
+    ---
+    - hosts: localhost
+      connection: local
+      roles: 
+        -  { role: azure.azure_preview_modules }
+    
+      vars:
+        tenant_id: <tenantId>
+        vault_name: <vaultName>
+        secret_name: adminPassword
+        client_id: <servicePrincipalApplicationId>
+        client_secret: <servicePrincipalSecret>
+      
+      tasks:
+      - name: Get Key Vault by name
+        azure_rm_keyvault_info:
+          resource_group: ansible-kv-test-rg
+          name: "{{ vault_name }}"
+        register: keyvault
+    
+      - name: Set key vault URI fact
+        set_fact: keyvaulturi="{{ keyvault | json_query('keyvaults[0].vault_uri')}}"
+      
+      - name: Set key vault secret fact
+        set_fact: secretValue={{ lookup('azure_keyvault_secret',secret_name,vault_url=keyvaulturi, client_id=client_id, secret=client_secret, tenant_id=tenant_id) }}
+      
+      - name: Output key vault secret
+        debug:
+          msg: "{{ secretValue }}"
+    ```
 
-  - name: Set key vault URI fact
-    set_fact: keyvaulturi="{{ keyvault | json_query('keyvaults[0].vault_uri')}}"
+    Replace `<tenantId>`, `<vaultName>`, `<servicePrincipalApplicationId>`, and `<servicePrincipalSecret>` with the appropriate values.
 
-  - name: Get secret without machine identity
-    vars:
-      url: "{{ keyvaulturi }}"
-      secretname: 'adminPassword'
-      client_id: 8dd5237a-816b-4a72-b605-446969e5f056
-      secret: 'P@ssw0rd1234!'
-      tenant: "{{ tenant_id }}"
-    debug: 
-      msg="the value of this secret is {{lookup('azure_keyvault_secret',secretname,vault_url=url, client_id=client_id, secret=secret, tenant_id=tenant)}}"
-```
+    To learn more about `azure_preview_modules`, see the [Ansible Galaxy](https://galaxy.ansible.com/Azure/azure_preview_modules) page.
 
-Replace `<vaultName>` with the name of your key vault created above and `<secretValue>` with the value for the secret.
+    **Ansible 2.10 with azure.azcollection**
 
-**Ansible 2.10 with azure.azcollection**
+    ```yml
+    ---
+    - hosts: localhost
+      connection: local
+      collections:
+        - azure.azcollection
+      
+      vars:
+        vault_name: ansible-kv-test-01
+        secret_name: adminPassword
+    
+      tasks:
+    
+      - name: Get Key Vault by name
+        azure_rm_keyvault_info:
+          resource_group: ansible-kv-test-rg
+          name: "{{ vault_name }}"
+        register: keyvault
+    
+      - name: Set key vault URI fact
+        set_fact: keyvaulturi="{{ keyvault | json_query('keyvaults[0].vault_uri')}}"
+    
+      - name: Get secret value
+        azure_rm_keyvaultsecret_info:
+          vault_uri: "{{ keyvaulturi }}"
+          name: "{{ secret_name }}"
+        register: secret
+    
+      - name: set secret fact
+        set_fact: secretValue="{{ secret | json_query('secrets[0].secret')}}"
+    
+      - name: Output key vault secret
+        debug: 
+          msg="{{ secretValue }}"
+    ```
 
-```yml
-  - name: Get Key Vault by name
-    azure_rm_keyvault_info:
-      resource_group: ansible-kv-test-rg
-      name: ansible-kv-test-01
-    register: keyvault
+    Replace `<vaultName>` with the appropriate value.
 
-  - name: Set key vault URI fact
-    set_fact: keyvaulturi="{{ keyvault | json_query('keyvaults[0].vault_uri')}}"
+    To learn more about `azcollection`, see [Ansible collection for Azure](https://galaxy.ansible.com/azure/azcollection).
 
-  - name: Get secret value
-    azure_rm_keyvaultsecret_info:
-      vault_uri: "{{ keyvaulturi }}"
-      name: adminPassword
-    register: secret
+1. Run the `get-secret-value.yml` playbook.
 
-  - name: set secret fact
-    set_fact: secretValue="{{ secret | json_query('secrets[0].secret')}}"
+    ```bash
+    ansible-playbook get-secret-value.yml
+    ```
 
-  - debug: msg="{{ secretValue }}"
-```
+    ```output
+    TASK [Output key vault secret] *************************************************
+    ok: [localhost] => {
+        "msg": "<plainTextPassword>"
+    }
+    ```
 
-Replace `<vaultName>` with the name of your key vault created above and `<secretValue>` with the value for the secret.
+    Confirm the output that replaced `<plainTextPassword>` is the plain text value of the secret previously created in Azure key vault.
 
-Run the `get-secret-value.yml` playbook.
+## Clean up resources
 
-```bash
-ansible-playbook 
-```
+[!INCLUDE [ansible-delete-resource-group.md](includes/ansible-delete-resource-group.md)]
 
+## Next steps
 
-To learn more about `azure_preview_modules`, see the [Ansible Galaxy](https://galaxy.ansible.com/Azure/azure_preview_modules) page.
+> [!div class="nextstepaction"]
+> [Ansible on Azure](./index.yml)
