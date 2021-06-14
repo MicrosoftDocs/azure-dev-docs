@@ -10,7 +10,7 @@ ms.custom: devx-track-ansible
 
 # Quickstart: Use Azure Key Vault with Ansible
 
-In this quickstart, you will create and get secrets from Azure key vault with Ansible.
+In this quickstart, you'll create and retrieve secrets from Azure key vault with Ansible.
 
 [!INCLUDE [ansible-29-note.md](includes/ansible-29-note.md)]
 
@@ -49,7 +49,7 @@ Ansible needs a resource group to deploy your resources in.
           location: eastus
     ```
 
-1. Define the required variables for the tenant Id, service principal object Id, and vault name.
+1. Define the required variables for the tenant ID, service principal object ID, and vault name.
 
     ```yml
     ---
