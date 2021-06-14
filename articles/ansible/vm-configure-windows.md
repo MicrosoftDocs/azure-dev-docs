@@ -399,7 +399,7 @@ ansible-playbook connect_azure_windows_vm.yml -i <publicIPaddress>,
 
 Replace `<publicIPaddress>` with your virtual machine's address.
 
-**Key Points**:
+**Key points**:
 * Ansible's configuration determines how Ansible connects and authenticates to remote hosts. The variables you need to define to connect to a Windows host depend on your WinRM connection type and the authentication option you've chosen. For more information, see [Connecting to a Windows Host](https://www.ansible.com/blog/connecting-to-a-windows-host) and [Windows Authentication Options](https://docs.ansible.com/ansible/latest/user_guide/windows_winrm.html#authentication-options).
 * Adding a comma after the public IP address bypasses Ansible's inventory parser which allows you to run playbooks without an inventory file.
 
