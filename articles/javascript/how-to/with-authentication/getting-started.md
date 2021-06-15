@@ -1,5 +1,5 @@
 ---
-title: Getting started with Authentication
+title: Getting started with User Authentication
 titleSuffix: Azure Developer Center
 description: The Microsoft identity platform allows a JavaScript developer to authenticate and authorize user identity in your browser, server, or serverless application.  
 ms.topic: how-to
@@ -7,7 +7,7 @@ ms.date: 06/15/2021
 ms.custom: devx-track-js
 ---
 
-# Getting started with authentication on Azure
+# Getting started with user authentication on Azure
 
 The Microsoft identity platform allows a JavaScript developer to authenticate and authorize user identity in your browser, server, or serverless application. 
 
@@ -48,6 +48,12 @@ Collect required information for the app registration from the [Azure portal](ht
 
 The fastest way to get started with the MSAL SDK is to [find your scenario](/azure/active-directory/develop/authentication-flows-app-scenarios), then locate your [framework and sample](/azure/active-directory/develop/sample-v2-code) associated with your scenario. 
 
+Top JS samples include:
+* [GitHub Tutorial: Deploy your React/API to Static web apps with MSAL integration](https://github.com/Azure-Samples/ms-identity-javascript-react-tutorial/tree/main/4-Deployment/2-deploy-static)
+* [GitHub Tutorial: Enable your Node.js web app to sign-in users and call APIs with the Microsoft identity platform](https://github.com/Azure-Samples/ms-identity-javascript-nodejs-tutorial)
+
+
+
 ## 4.Integration with DefaultAzureCredential
 
 Configure your runtime environment so your code can use the DefaultAzureCredential, on behalf of your users or system. This allows your same code to run in local, stage, and production environments, without managing credentials yourself. 
@@ -71,17 +77,20 @@ The value for the [MSAL SDK](https://www.npmjs.com/package/@azure/identity)'s De
 
 ---
 
+## Helpful tools
+
+* [JWT.ms](https://jwt.ms/) to inspect your tokens
+* Independent VS Code extension [jwt-decoder](https://marketplace.visualstudio.com/items?itemName=jflbr.jwt-decoder)
+* Microsoft Graph REST API for [@me](https://docs.microsoft.com/en-us/graph/api/user-get?view=graph-rest-1.0&tabs=http#code-try-4)
+
 ## Samples
 
 * [Microsoft identity platform code samples (v2.0 endpoint)](/azure/active-directory/develop/sample-v2-code)
 * [Azure Active Directory B2C code samples](/azure/active-directory-b2c/code-samples)
-* [GitHub Microsoft Authentication Library for JavaScript (MSAL.js) - includes many samples](https://github.com/AzureAD/microsoft-authentication-library-for-js)
-* [GitHub Tutorial: Deploy your React/API to Static web apps with MSAL integration](https://github.com/Azure-Samples/ms-identity-javascript-react-tutorial/tree/main/4-Deployment/2-deploy-static)
-* [GitHub Tutorial: Enable your Node.js web app to sign-in users and call APIs with the Microsoft identity platform](https://github.com/Azure-Samples/ms-identity-javascript-nodejs-tutorial)
-
 
 ## Next steps
 
+* [GitHub Microsoft Authentication Library for JavaScript (MSAL.js) - includes many samples](https://github.com/AzureAD/microsoft-authentication-library-for-js)
 * [JS: Add easy authentication to your web app](../with-web-app/add-authentication-to-web-app.md)
 * [JS: Add Microsoft login button to a single page application](../../tutorial/single-page-application-azure-login-button-sdk-msal.md)
 * [JS: Deploy Express.js with Microsoft Authentication (MSAL) to Azure App service](../with-web-app/deploy-msal-sdk-authentication-expressjs.md)

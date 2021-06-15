@@ -155,7 +155,7 @@
         href: how-to/with-web-app/add-authentication-to-web-app.md
       - name: Use Microsoft Identity provider (MSAL.js)
         href: how-to/with-web-app/deploy-msal-sdk-authentication-expressjs.md
-    - name: With authentication
+    - name: With user authentication
       items: 
       - name: Getting started
         href: how-to/with-authentication/getting-started.md
