@@ -163,7 +163,9 @@
         href: how-to/with-web-app/add-authentication-to-web-app.md
       - name: Add a simple Login button for Microsoft Identity provider
         href: tutorial/single-page-application-azure-login-button-sdk-msal.md
-      - name: Add Microsoft Identity provider integration
+      - name: Add to client app
+        href: how-to/with-authentication/add-msal-to-static-web-app-with-api.md
+      - name: Add to server app
         href: how-to/with-web-app/deploy-msal-sdk-authentication-expressjs.md
     - name: With Visual Studio Code
       items: 
