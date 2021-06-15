@@ -3,7 +3,7 @@ title: Getting started with Authentication
 titleSuffix: Azure Developer Center
 description: The Microsoft identity platform allows a JavaScript developer to authenticate and authorize user identity in your browser, server, or serverless application.  
 ms.topic: how-to
-ms.date: 06/11/2021
+ms.date: 06/15/2021
 ms.custom: devx-track-js
 ---
 
@@ -76,7 +76,9 @@ The value for the [MSAL SDK](https://www.npmjs.com/package/@azure/identity)'s De
 * [Microsoft identity platform code samples (v2.0 endpoint)](/azure/active-directory/develop/sample-v2-code)
 * [Azure Active Directory B2C code samples](/azure/active-directory-b2c/code-samples)
 * [GitHub Microsoft Authentication Library for JavaScript (MSAL.js) - includes many samples](https://github.com/AzureAD/microsoft-authentication-library-for-js)
+* [GitHub Tutorial: Deploy your React/API to Static web apps with MSAL integration](https://github.com/Azure-Samples/ms-identity-javascript-react-tutorial/tree/main/4-Deployment/2-deploy-static)
 * [GitHub Tutorial: Enable your Node.js web app to sign-in users and call APIs with the Microsoft identity platform](https://github.com/Azure-Samples/ms-identity-javascript-nodejs-tutorial)
+
 
 ## Next steps
 
