@@ -1,5 +1,5 @@
 ---
-title: Getting started with User Authentication
+title: Getting started with user authentication
 titleSuffix: Azure Developer Center
 description: The Microsoft identity platform allows a JavaScript developer to authenticate and authorize user identity in your browser, server, or serverless application.  
 ms.topic: how-to
