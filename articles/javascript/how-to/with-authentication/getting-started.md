@@ -81,7 +81,7 @@ The value for the [MSAL SDK](https://www.npmjs.com/package/@azure/identity)'s De
 
 * [JWT.ms](https://jwt.ms/) to inspect your tokens
 * Independent VS Code extension [jwt-decoder](https://marketplace.visualstudio.com/items?itemName=jflbr.jwt-decoder)
-* Microsoft Graph REST API for [@me](https://docs.microsoft.com/en-us/graph/api/user-get?view=graph-rest-1.0&tabs=http#code-try-4)
+* Microsoft Graph REST API for [@me](/graph/api/user-get?view=graph-rest-1.0&tabs=http#code-try-4)
 
 ## Samples
 
