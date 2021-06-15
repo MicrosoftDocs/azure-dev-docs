@@ -14,7 +14,7 @@ The main app in our scenario is a simple Flask app that's deployed to Azure App 
 
 To see the endpoint in action, visit 'https://msdocs-example-main-app.azurewebsites.net/api/v1/getcode' in a browser or make a request using curl.
 
-The main app also provides a simple home page that displays a link to the API endpoint. You can see this part of the app on [https://msdocs-example-main-app.azurewebsites.net](https://msdocs-example-main-app.azurewebsites.net).
+The main app also provides a simple home page that displays a link to the API endpoint. You can see this part of the app on 'https://msdocs-example-main-app.azurewebsites.net'.
 
 The sample's provisioning script performs the following steps:
 
