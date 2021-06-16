@@ -11,16 +11,16 @@ ms.custom: template-how-to article
 # Create a Azure Virtual Desktop with Terraform
 
 >[!IMPORTANT]
->This content applies to Azure Virtual Desktop with Azure Resource Manager Azure Virtual Desktop objects. If you're using Azure Virtual Desktop (classic) without Azure Resource Manager objects, see [this article](./virtual-desktop-fall-2019/create-host-pools-powershell-2019.md).
+>This content applies to Azure Virtual Desktop with Azure Resource Manager Azure Virtual Desktop objects. If you're using Azure Virtual Desktop (classic) without Azure Resource Manager objects, see [this article](../virtual-desktop-fall-2019/create-host-pools-powershell-2019.md).
 
 Host pools are a collection of one or more identical virtual machines within Azure Virtual Desktop tenant environments. Each host pool can be associated with multiple RemoteApp groups, one desktop app group, and multiple session hosts.
 
-If you're building landing zones, see [this article](.https://docs.microsoft.com/en-us/azure/cloud-adoption-framework/ready/landing-zone/terraform-landing-zone)
+If you're building landing zones, see [this article](../cloud-adoption-framework/ready/landing-zone/terraform-landing-zone.md)
 
 
 ## Prerequisites
 
-This article assumes you've already followed the instructions in [Configure Terraform using Azure Cloud Shell](/azure-dev-docs-pr/master/articles/terraform/includes/terraform-create-base-config-file.md). https://docs.microsoft.com/en-us/azure/developer/terraform/get-started-cloud-shell
+This article assumes you've already followed the instructions in [Configure Terraform using Azure Cloud Shell](../get-started-cloud-shell.md). 
 
 ## Use Terraform to create Azure Virtual Desktop 
 
