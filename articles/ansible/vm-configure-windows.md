@@ -45,7 +45,7 @@ For more information, see [Windows Remote Management for Ansible](https://docs.a
 
 Ansible needs a resource group to deploy your resources in.
 
-**Create** an Ansible playbook named `azure_windows_vm.yml` and copy the following contents into the playbook:
+Create an Ansible playbook named `azure_windows_vm.yml` and copy the following contents into the playbook:
 
 ```yaml
 ---
