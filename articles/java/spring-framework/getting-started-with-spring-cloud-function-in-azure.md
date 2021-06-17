@@ -28,21 +28,21 @@ To develop functions using Java, you must have the following installed:
 - [Azure Functions Core Tools](/azure/azure-functions/functions-run-local#v2) version 3.0.13901.0 or above
 
 > [!IMPORTANT]
-> The JAVA_HOME environment variable must be set to the install location of the JDK to complete this quickstart.
+> You must set the JAVA_HOME environment variable to the install location of the JDK to complete this quickstart.
 
 ## What we are going to build
 
 We are going to build a classical "Hello, World" function, that runs on Azure Functions, and which is configured with Spring Cloud Function.
 
-It will receive a simple `User` JSON object, which contains a user name, and sends back a `Greeting` object, which contains the welcome message to that user.
+It will receive a simple `User` JSON object, which contains a user name, and send back a `Greeting` object, which contains the welcome message to that user.
 
-The project we build here is available on [https://github.com/Azure-Samples/hello-spring-function-azure](https://github.com/Azure-Samples/hello-spring-function-azure), so you can use that sample repository directly if you want to see the final work that is detailed in this quickstart.
+The project we will build here is available in the [hello-spring-function-azure](https://github.com/Azure-Samples/hello-spring-function-azure) repository on GitHub. You can use that sample repository directly if you want to see the final work that is detailed in this quickstart.
 
 ## Create a new Maven project
 
 We are going to create an empty Maven project, and configure it with Spring Cloud Function and Azure Functions.
 
-In an empty folder, create a new *pom.xml* and copy/paste the content from our sample project at [https://github.com/Azure-Samples/hello-spring-function-azure/blob/master/pom.xml](https://github.com/Azure-Samples/hello-spring-function-azure/blob/master/pom.xml).
+In an empty folder, create a new *pom.xml* file and copy/paste the content from the sample project's [pom.xml](https://github.com/Azure-Samples/hello-spring-function-azure/blob/master/pom.xml) file.
 
 > [!NOTE]
 > This file uses Maven dependencies from both Spring Boot and Spring Cloud Function, and it configures
@@ -166,10 +166,10 @@ public class Greeting {
 ## Create the Spring Boot application
 
 This application will manage all business logic, and will have access to the full Spring Boot ecosystem.
-This gives you therefore two main benefits over a standard Azure Function:
+This gives you two main benefits over a standard Azure Function:
 
-- It doesn't rely on the Azure Functions APIs, so it can easily be ported to other systems. For example, it could be reused in a normal Spring Boot application.
-- It can use all the `@Enable` annotations from Spring Boot to easily add powerful new features.
+- It doesn't rely on the Azure Functions APIs, so you can easily port it to other systems. For example, you can reuse it in a normal Spring Boot application.
+- You can use all the `@Enable` annotations from Spring Boot to add new features.
 
 In the *src/main/java/com/example* folder, create the following file, which is a normal Spring Boot application:
 
@@ -216,14 +216,14 @@ public class Hello implements Function<Mono<User>, Mono<Greeting>> {
 > [!NOTE]
 > The `Hello` function is quite specific:
 >
-> - It is a `java.util.function.Function`, which is the function that will be used in this quickstart. It contains the business logic, and is uses a standard Java API to transform one object into another.
-> - As it has the `@Component` annotation, it is a Spring Bean, and by default its name is the one of the class starting with a lowercase character, `hello`. This is important if you want to create other functions in your application, as this name must match the Azure Functions name we will create in the next section.
+> - It is a `java.util.function.Function`. It contains the business logic, and it uses a standard Java API to transform one object into another.
+> - Because it has the `@Component` annotation, it's a Spring Bean, and by default its name is the same as the class, but starting with a lowercase character: `hello`. Following this naming convention is important if you want to create other functions in your application. The name must match the Azure Functions name we'll create in the next section.
 
 ## Create the Azure Function
 
-In order to benefit from the full Azure Functions API, we are now going to code a specific class: it is an Azure Function that will delegate its execution to the Spring Cloud Function we have created in the previous step.
+In order to benefit from the full Azure Functions API, we're now going to code a specific class: an Azure Function that will delegate its execution to the Spring Cloud Function we've created in the previous step.
 
-In the *src/main/java/com/example* folder, create the following Azure Function:
+In the *src/main/java/com/example* folder, create the following Azure Function class file:
 
 *HelloHandler.java*:
 
@@ -263,15 +263,15 @@ public class HelloHandler extends FunctionInvoker<User, Greeting> {
 
 This Java class is an Azure Function, with the following interesting features:
 
-- It extends `FunctionInvoker`, which does the link between Azure Functions and Spring Cloud Function. This is what provides the `handleRequest()` method that is used in its `body()` method.
+- It extends `FunctionInvoker`, which creates the link between Azure Functions and Spring Cloud Functions. This is what provides the `handleRequest()` method that's used in its `body()` method.
 - The name of the function, as defined by the `@FunctionName("hello")` annotation, is `hello`.
-- It is a real Azure Function, so you can use the full Azure Functions API here.
+- It's a real Azure Function, so you can use the full Azure Functions API here.
 
 ## Add unit tests
 
-Of course, this step is optional, but as good developers you should add unit tests to validate that the application works correctly.
+This step is optional but recommended to validate that the application works correctly.
 
-Create a *src/test/java/com/example* folder, and add the following JUnit tests:
+Create a *src/test/java/com/example* folder and add the following JUnit tests:
 
 *HelloTest.java*:
 
@@ -339,8 +339,6 @@ First you need to package your application into a Jar file:
 mvn package
 ```
 
-If you have not installed **Azure Functions Core Tools**, please go to [Install the Azure Functions Core Tools](https://aka.ms/azfunc-install) to install **Azure Functions Core Tools** first.
-
 Now that the application is packaged, you can run it using the `azure-functions` Maven plugin:
 
 ```bash
@@ -355,20 +353,23 @@ curl -X POST http://localhost:7071/api/hello -d "{\"name\":\"Azure\"}"
 
 The Function should answer you with a `Greeting` object, still in JSON format:
 
-```Output
+```output
 {
   "message": "Hello, Azure!\n"
 }
 ```
 
-Here is a screenshot of the cURL request on the top of the screen, and the local Azure Function at the bottom:
+Here's a screenshot of the cURL request on the top of the screen, and the local Azure Function at the bottom:
 
- ![Azure Function running locally][RFL01]
+![Azure Function running locally][RFL01]
 
 ## Debug the Function locally
 
-### Intellij IDEA based usage
-Open the project in Intellij IDEA, create a **Remote JVM Debug** run configuration to attach. For more information, see [Tutorial: Remote debug](https://www.jetbrains.com/help/idea/tutorial-remote-debug.html).
+The following sections describe how to debug the function.
+
+### Debug using Intellij IDEA
+
+Open the project in Intellij IDEA, then create a **Remote JVM Debug** run configuration to attach. For more information, see [Tutorial: Remote debug](https://www.jetbrains.com/help/idea/tutorial-remote-debug.html).
 
 ![Create a Remote JVM Debug run configuration][create-remote-jvm-debug-run-configuration]
 
@@ -378,24 +379,24 @@ Run the application with the following command:
 mvn azure-functions:run -DenableDebug
 ```
 
-When the application starts, you will see the following output:
+When the application starts, you'll see the following output:
 
-```text
+```output
 Worker process started and initialized.
 Listening for transport dt_socket at address: 5005
 ```
 
-Start project debugging in Intellij IDEA, you will see the following output:
+Start project debugging in Intellij IDEA. You'll see the following output:
 
-```text
+```output
 Connected to the target VM, address: 'localhost:5005', transport: 'socket'
 ```
 
-Mark the breakpoints you want to debug. After sending a request, the Intellij IDEA will enter the debugging mode.
+Mark the breakpoints you want to debug. After sending a request, the Intellij IDEA will enter debugging mode.
 
-### Visual Studio Code based usage
+### Debug using Visual Studio Code
 
-Open the project in Visual Studio Code, configure the following *launch.json* file content:
+Open the project in Visual Studio Code, then configure the following *launch.json* file content:
 
 ```json
 {
@@ -418,22 +419,22 @@ Run the application with the following command:
 mvn azure-functions:run -DenableDebug
 ```
 
-When the application starts, you will see the following output:
+When the application starts, you'll see the following output:
 
-```text
+```output
 Worker process started and initialized.
 Listening for transport dt_socket at address: 5005
 ```
 
-Start project debugging in Visual Studio Code, mark the breakpoints you want to debug. After sending a request, the Visual Studio Code will enter the debugging mode. For more information, see [Running and debugging Java](https://code.visualstudio.com/docs/java/java-debugging).
+Start project debugging in Visual Studio Code, then mark the breakpoints you want to debug. After sending a request, Visual Studio Code will enter debugging mode. For more information, see [Running and debugging Java](https://code.visualstudio.com/docs/java/java-debugging).
 
 ## Deploy the Function to Azure Functions
 
-Now you are going to publish the Azure Function to production. Remember that the `<functionAppName>`, `<functionAppRegion>` and `<functionResourceGroup>` properties you have defined in your *pom.xml* will be used to configure your function.
+Now you're going to publish the Azure Function to production. Remember that the `<functionAppName>`, `<functionAppRegion>`, and `<functionResourceGroup>` properties you've defined in your *pom.xml* file will be used to configure your function.
 
 > [!NOTE]
-> The Maven plugin needs to authenticate with Azure, if you have Azure CLI installed, use `az login` before continuing.
-> Check [here](https://github.com/microsoft/azure-maven-plugins/wiki/Authentication) for more authentication options.
+> The Maven plugin needs to authenticate with Azure. If you have Azure CLI installed, use `az login` before continuing.
+> For more authentication options, see [Authentication](https://github.com/microsoft/azure-maven-plugins/wiki/Authentication) in the [azure-maven-plugins](https://github.com/microsoft/azure-maven-plugins) repository.
 
 Run Maven to deploy your function automatically:
 
@@ -448,7 +449,7 @@ Click on the function:
 - In the function overview, note the function's URL.
 - Select the **Platform features** tab to find the **Log streaming** service, then select this service to check your running function.
 
-Now, as you did in the previous section, use cURL to access the running function. Please replace `your-function-name` by your real function name:
+Now, as you did in the previous section, use cURL to access the running function, as shown in the following example. Be sure to replace `your-function-name` by your real function name.
 
 ```bash
 curl https://your-function-name.azurewebsites.net/api/hello -d "{\"name\":\"Azure\"}"
@@ -456,13 +457,20 @@ curl https://your-function-name.azurewebsites.net/api/hello -d "{\"name\":\"Azur
 
 Like in the previous section, the Function should answer you with a `Greeting` object, still in JSON format:
 
-```Output
+```output
 {
   "message": "Welcome, Azure"
 }
 ```
 
 Congratulations, you have a Spring Cloud Function running on Azure Functions!
+
+## Next steps
+
+To learn more about Spring and Azure, continue to the Spring on Azure documentation center.
+
+> [!div class="nextstepaction"]
+> [Spring on Azure](./index.yml)
 
 <!-- IMG List -->
 
