@@ -103,7 +103,7 @@ PROTECTED_SETTINGS
 
 ## Session Host Registration
 
-Lastly we will register the host to the host pool.  For this we will need the registration token.  To do this, we will create a local variable for this token and then create a dsc extension.
+Lastly we will register the host to the host pool.  For this we will need the registration token from our hostpool.  To do this, we will create a local variable for this token and then create a dsc extension resource and pass the AVD configuration artifacts.
 
 ```terraform
 locals {
@@ -149,12 +149,9 @@ PROTECTED_SETTINGS
 }
 ```
 
-## Put it all together
-
-Firstly we will create a variable file called variables.tf.  You can learn more about using [variables in Terraform](https://www.terraform.io/docs/language/values/variables.html).  This is so that we don't need to hardcode the variables in the configuration file and can reuse the values in other parts of our deployment. 
-
-
 ## Variables file
+
+Firstly we will create a variable file called variables.tf.  You can learn more about using [variables in Terraform](https://www.terraform.io/docs/language/values/variables.html).  This is so that we don't need to hardcode the variables in the configuration file and can reuse the values in other parts of our deployment.   You may have already created one when you completed [Create Azure Virtual Desktop Infrastructure](../create-azure-virtual-desktop.md), in that case, append the variables that haven't already been created to the existing file. 
 
 ```hcl
 variable "deploylocation" {
@@ -248,7 +245,7 @@ These variables will need to be populated either using the default value or at r
 
 Here we are putting all of the above sections together.  You will also notice that we are now using the variables from the variables.tf file as well.  This isn't required but best practices would be to avoid hard coding the variables in the configuration files.  We have also create a random string resource for the local user password. 
 
-We also reference some resources that were created when we built the infrastructure - such as `azurerm_subnet.subnet.id` and `azurerm_virtual_desktop_host_pool.HP.name`.
+This file references some resources that were created when we built the infrastructure - such as `azurerm_subnet.subnet.id` and `azurerm_virtual_desktop_host_pool.HP.name`.  If you changed the name of these resources from that section, you would need to also update the references here. 
 
 ```terraform
 #----------------------------------
