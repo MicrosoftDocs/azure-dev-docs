@@ -44,8 +44,8 @@
       href: devtest-labs-configure.md
   - name: Azure Key Vault
     items:
-    - name: Configure VM security
-      href: key-vault-configure-vm-security.md
+    - name: Use Azure Key Vault with Ansible
+      href: key-vault-configure-secrets.md
   - name: Azure Kubernetes Service (AKS)
     items:
     - name: Configure AKS clusters

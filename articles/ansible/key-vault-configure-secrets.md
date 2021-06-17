@@ -165,11 +165,11 @@ Before the secret can be created, you'll need the keyvault URI.
         register: keyvault
     
       - name: set KeyVault uri fact
-        set_fact: keyvaulturi="{{ keyvault | json_query('keyvaults[0].vault_uri')}}"
+        set_fact: keyvaulturi="{{ keyvault['keyvaults'][0]['vault_uri'] }}"
     
       - name: Create a secret
         azure_rm_keyvaultsecret:
-          secret_name: adminPassword
+          secret_name: vaultSecret
           secret_value: <secretValue>
           keyvault_uri: "{{ keyvaulturi }}"
     ```
@@ -222,7 +222,7 @@ Secrets stored in Azure key vault can be used to populate Ansible variables.
       vars:
         tenant_id: <tenantId>
         vault_name: <vaultName>
-        secret_name: adminPassword
+        secret_name: vaultSecret
         client_id: <servicePrincipalApplicationId>
         client_secret: <servicePrincipalSecret>
       
@@ -234,7 +234,7 @@ Secrets stored in Azure key vault can be used to populate Ansible variables.
         register: keyvault
     
       - name: Set key vault URI fact
-        set_fact: keyvaulturi="{{ keyvault | json_query('keyvaults[0].vault_uri')}}"
+        set_fact: keyvaulturi="{{ keyvault['keyvaults'][0]['vault_uri'] }}"
       
       - name: Set key vault secret fact
         set_fact: secretValue={{ lookup('azure_keyvault_secret',secret_name,vault_url=keyvaulturi, client_id=client_id, secret=client_secret, tenant_id=tenant_id) }}
@@ -259,7 +259,7 @@ Secrets stored in Azure key vault can be used to populate Ansible variables.
       
       vars:
         vault_name: ansible-kv-test-01
-        secret_name: adminPassword
+        secret_name: vaultSecret
     
       tasks:
     
@@ -270,16 +270,16 @@ Secrets stored in Azure key vault can be used to populate Ansible variables.
         register: keyvault
     
       - name: Set key vault URI fact
-        set_fact: keyvaulturi="{{ keyvault | json_query('keyvaults[0].vault_uri')}}"
+        set_fact: keyvaulturi="{{ keyvault['keyvaults'][0]['vault_uri'] }}"
     
       - name: Get secret value
         azure_rm_keyvaultsecret_info:
           vault_uri: "{{ keyvaulturi }}"
           name: "{{ secret_name }}"
-        register: secret
+        register: kvSecret
     
       - name: set secret fact
-        set_fact: secretValue="{{ secret | json_query('secrets[0].secret')}}"
+        set_fact: secretValue="{{ kvSecret['secrets'][0]['secret'] }}"
     
       - name: Output key vault secret
         debug: 
@@ -304,6 +304,106 @@ Secrets stored in Azure key vault can be used to populate Ansible variables.
     ```
 
     Confirm the output that replaced `<plainTextPassword>` is the plain text value of the secret previously created in Azure key vault.
+
+## Example: Create an Azure VM with a key vault secret
+
+This section lists the entire sample Ansible playbook for configuring an Azure Windows VM using a key vault secret.
+
+```yml
+---
+- name: Create Azure VM
+  hosts: localhost
+  connection: local
+  gather_facts: false
+  collections:
+    - azure.azcollection
+
+  vars:
+    vault_uri: <key_vault_uri>
+    secret_name: <key_vault_secret_name>
+
+  tasks:
+
+  - name: Get latest version of a secret
+    azure_rm_keyvaultsecret_info:
+      vault_uri: "{{ vault_uri }}"
+      name: "{{ secret_name }}"
+    register: kvSecret
+
+  - name: Set secret fact
+    set_fact: secret_value="{{ kvSecret['secrets'][0]['secret'] }}"
+
+  - name: Create resource group
+    azure_rm_resourcegroup:
+      name: myResourceGroup
+      location: eastus
+
+  - name: Create virtual network
+    azure_rm_virtualnetwork:
+      resource_group: myResourceGroup
+      name: vNet
+      address_prefixes: "10.0.0.0/16"
+
+  - name: Add subnet
+    azure_rm_subnet:
+      resource_group: myResourceGroup
+      name: subnet
+      address_prefix: "10.0.1.0/24"
+      virtual_network: vNet
+
+  - name: Create public IP address
+    azure_rm_publicipaddress:
+      resource_group: myResourceGroup
+      allocation_method: Static
+      name: pip
+    register: output_ip_address
+
+  - name: Output public IP
+    debug:
+      msg: "The public IP is {{ output_ip_address.state.ip_address }}"
+  
+  - name: Create Network Security Group
+    azure_rm_securitygroup:
+      resource_group: myResourceGroup
+      name: networkSecurityGroup
+      rules:
+        - name: 'allow_rdp'
+          protocol: Tcp
+          destination_port_range: 3389
+          access: Allow
+          priority: 1001
+          direction: Inbound
+
+  - name: Create a network interface
+    azure_rm_networkinterface:
+      name: nic
+      resource_group: myResourceGroup
+      virtual_network: vNet
+      subnet_name: subnet
+      security_group: networkSecurityGroup
+      ip_configurations:
+        - name: default
+          public_ip_address_name: pip
+          primary: True
+
+  - name: Create VM
+    azure_rm_virtualmachine:
+      resource_group: myResourceGroup
+      name: win-vm
+      vm_size: Standard_DS1_v2
+      admin_username: azureuser
+      admin_password: "{{ secret_value }}"
+      network_interfaces: nic
+      os_type: Windows
+      image:
+          offer: WindowsServer
+          publisher: MicrosoftWindowsServer
+          sku: 2019-Datacenter
+          version: latest
+    no_log: true
+```
+
+Replace `<key_vault_uri>` and `<key_vault_secret_name>` with the appropriate values.
 
 ## Clean up resources
 
