@@ -225,7 +225,7 @@ resource "azurerm_linux_virtual_machine" "myterraformvm" {
 
     admin_ssh_key {
         username       = "azureuser"
-        public_key     = file("~/.ssh/id_rsa.pub")
+        public_key     = tls_private_key.example_ssh.public_key_openssh
     }
 
     boot_diagnostics {
@@ -243,7 +243,7 @@ resource "azurerm_linux_virtual_machine" "myterraformvm" {
 To bring all these sections together and see Terraform in action, create a file called `terraform_azure.tf` and paste the following content:
 
 > [!IMPORTANT]
-> The SSH public key file is specified in the `admin_ssh_key` block. If your SSH public key filename is different or in a different location, update the `public_key` value accordingly.
+> The machine will be created with a new ssh public key. To get the corresponding private key run `terraform output -raw tls_private_key`, save the output in a file on the local machine to use it later when you want to login on the machine.  
 
 ```hcl
 # Configure the Microsoft Azure Provider
