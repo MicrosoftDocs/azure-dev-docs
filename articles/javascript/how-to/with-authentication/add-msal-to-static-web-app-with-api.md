@@ -119,31 +119,68 @@ Add information to the user's **first authentication** to explain the scope requ
 1. Keep **State** as **Enabled**.
 1. Select **Add scope** to save this scope.
 
-## Review app registration scopes to Microsoft Graph and your Function API
+## Configure API permissions for your app
 
-1. Select the **API permissions**.
-   - Select the **Add a permission** button and then,
-     - Ensure that the **Microsoft APIs** tab is selected.
-     - In the *Commonly used Microsoft APIs* section, select **Microsoft Graph**
-     - In the **Delegated permissions** section, select the **User.Read** in the list. Use the search box if necessary.
-     - Select the **Add permissions** button at the bottom.
-   - Select the **Add a permission** button and then,
-     - Ensure that the **My APIs** tab is selected.
-     - In the list of APIs, select the API `msal-react-spa`.
-     - In the **Delegated permissions** section, select the **Access 'msal-react-spa'** in the list. Use the search box if necessary.
-     - Select the **Add permissions** button at the bottom.
+Your application, both the React client and the Azure Function, are authorized to call APIs when they are granted permissions by users/admins as part of the consent process. The list of configured permissions should include all the permissions the application needs.
 
-## Configure app registration to act on behalf of a user
+1. Select the **API permissions** blade. Notice the Microsoft Graph API's scope of **User.Read** is already added for you, by default. 
+1. Select the **Add a permission**, then select **My APIs**.
+1. From the list of APIs, select the API assocated with your current app registration.
+1. In the **Delegated permissions** section, select the **Access 'msal-react-spa'** in the list. 1. Select the **Add permissions** button at the bottom.
 
+    The app registration is now configured for both your local React client and your local Azure Function app.
 
+## Clone the GitHub repository for the sample project
 
-## Download the sample project
+The sample code is _part of_ a repository with several samples. While you are cloning the entire repo, make sure that in the rest of the article, you are focused on just a single sample.
 
-## Configure MSAL settings and secrets
+1. In a bash terminal on your local machine, clone the sample repository.
 
-### Configure React settings and secrets
+    ```bash
+    git clone https://github.com/Azure-Samples/ms-identity-javascript-react-tutorial
+    ```
 
-### Configure API settings and secrets
+1. Navigate to the sample for this article, install the dependencies and open in VS Code. 
+
+    ```bash
+    cd "ms-identity-javascript-react-tutorial\4-Deployment\2-deploy-static\App" && \
+    npm install && \
+    cd api && \
+    npm install && \
+    cd .. 
+    ```
+
+1. Open the project in VS Code
+
+    ```bash
+    code .
+    ```
+
+## Configure settings and secrets
+
+The React client and the Azure Function both need to have configuration settings to use the MSAL SDK. 
+
+You should have collected the following information from previous steps:
+
+* Application (client) ID
+* Directory (tenant) ID
+* Client secret
+* App ID URI
+
+1. Open the React file, `./src/authConfig.js`. and set the following values:
+
+    |Property|Value|
+    |--|--|
+    |msalConfig.auth.clientId|Application (client) ID|
+    |functionApi.scopes|`https://<App ID URI>/access_as_user`|
+
+1. Open the Function app file, `./api/HelloUser/index.js`, and set the following values:
+
+    |Property|Value|
+    |--|--|
+    |config.auth.clientId|Application (client) ID|
+    |config.auth.authority|`https://login.microsoftonline.com/<Directory (tenant) ID>`|
+    |config.auth.clientSecret|Client secret|
 
 ## Run client and API locally
 
