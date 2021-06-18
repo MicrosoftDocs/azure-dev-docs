@@ -114,4 +114,4 @@ Open the `./src/package.json` file and add the following property object to the 
 
 ## Next steps
 
-* [Learn how to deploy a Static web app](../../tutorial/static-web-app/create-static-web-app-visual-studio-code-extension.md)
+* [Learn how to deploy a Static web app]([5. Create Azure Static Web app resource](../../../tutorial/static-web-app/create-static-web-app-visual-studio-code-extension.md))
