@@ -46,7 +46,7 @@ The React client must pass the user's credentials to the API, then the API can u
 
 The [sample](https://github.com/Azure-Samples/ms-identity-javascript-react-tutorial/tree/main/4-Deployment/2-deploy-static) includes the following:
 
-|App|Purpose|GitHub<br>Repository<br>Location|
+|App|Purpose|GitHub<br>repository<br>location|
 |--|--|--|
 |Client|React app (presentation layer). It calls the Azure Function app. |[/src]()|
 |Server|Azure Function app (business layer) - calls the Azure Graph API on behalf of user |[/api]()|
