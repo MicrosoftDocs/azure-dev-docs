@@ -3,7 +3,7 @@ title: "3: Create the local authenticated Static web app"
 titleSuffix: Azure Developer Center
 description: In this article, learn to configure a Static web app and API to use the MSAL SDK to authenticate users both on the client app and on the Azure Function API. 
 ms.topic: how-to
-ms.date: 06/15/2021
+ms.date: 06/17/2021
 ms.custom: devx-track-js
 ---
 
@@ -57,6 +57,8 @@ You should have collected the following information from the [previous article i
     |Property|Value|Description|
     |--|--|--|
     |msalConfig.auth.clientId|Application (client) ID|Enter value as string.|
+    |msalconfig.auth.redirectUri|"http://localhost:3000"|
+    |msalconfig.auth.postLogoutRedirectUri|"http://localhost:3000"|    
     |functionApi.scopes|`https://<App ID URI>/access_as_user`|Enter value as part of the URI, `<App ID URI>`.|
 
 1. Open the Function API file, `./api/local.settings.json`, and set the following values:
@@ -67,38 +69,36 @@ You should have collected the following information from the [previous article i
     |CLIENT_SECRET|Client secret|Enter value as string.|
     |TENANT_INFO|Directory (tenant) ID|Enter value as string.|
 
-## Install the Static web app CLI
+    asdasdf
 
-1. In VS Code, use an integrated bash teriminal to install the Static web app CLI.
+## Run the app locally
 
-    ```bash
-    npm install -g @azure/static-web-apps-cli 
-    ```
-
-1. Build the React client app. 
+1. In a VSCode interactive bash terminal, build the React client app. 
 
     ```bash
-    npm run build
+    npm start
     ```
 
-1. Start both the React client and the Function API
+1. In a VSCode interactive bash terminal, build the Function API
 
     ```bash
-    swa start ./build --api ./api
+    cd ./api && npm start
     ```
 
-1. 
+## Sign in to use the app
 
-## Create Static web app
+1. Open a browser with the local client URL, `http://localhost:3000/`.
 
-## Configure Static web app settings and secrets
+1. The first time you sign in to the app, you (as the user) need to give the Authentication app (created in the Azure portal) permission to access your data. This is the same API permissions created in the authentication app:
 
-### Configure React settings and secrets
+    * Microsoft Graph - User.Read
+    * Your own API - access_as_user
 
-### Configure API settings and secrets
+1. Once you are logged in, select the **Profile** Menu item to access the Graph API from the React client. 
 
-## Configure app registration redirect URL
+    :::image type="content" source="../../../media/how-to-with-authentication-static-web-app-msal/msal-react-profile-microsoft-graph.png" alt-text="A browser screenshot show the Microsoft Graph profile information for the signed in user from the React client.":::
 
-## Deploy Static web app to Azure
+1. Select the **Function API** Menu item to access the Graph API from the Function API. 
 
-## Run client and API on Azure
+    :::image type="content" source="../../../media/how-to-with-authentication-static-web-app-msal/msal-react-function-api-microsoft-graph.png" alt-text="A browser screenshot show the Microsoft Graph profile information for the signed in user from the Function API.":::
+ 

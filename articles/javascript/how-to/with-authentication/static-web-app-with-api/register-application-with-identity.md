@@ -1,73 +1,36 @@
 ---
-title: Add MSAL to React
+title: "2: Register identity application"
 titleSuffix: Azure Developer Center
-description: In this article, learn to add the Microsoft Identity Provider SDK (MSAL.js) to a React client app, and integrate with an Azure Function API.
+description: In this article, register your identity application.
 ms.topic: how-to
 ms.date: 06/15/2021
 ms.custom: devx-track-js
 ---
 
-# How to authenticate users with Microsoft Authentication Library for React 
+# How to register your identity application for a Static web app
 
-In this article, learn how to authenticate users with the Microsoft Authentication Library for React (MSAL React) and call an Azure service on behalf of the user. 
-
-If your server-side app doesn't need to call into an Azure service _on behalf of an authenticated user_,  then your React client app wouldn't _need_ to pass the user's access to token to the Azure Function app. 
-
-## Application architecture
-
-The application architecture includes:
-
-* A React client, which provides the user authentication step and can call an Azure service on behalf of the user from either:
-    * The React client itself.
-    * or from an Azure Function app. 
-* An Azure Function app provides an API endpoint abstracting away the call into an Azure service. This is the suggested mechanism when the call to an Azure service includes information you don't want exposed in the browser or the call(s) require long-running operations. 
-* An Azure service used to demonstrate how to call an Azure service on behalf of a user. 
-
-## When to act on behalf of a user
-
-If your app requires user-level permissions to do something, such as retrieve images or files only they own, and you have secured those permissions in 
-
-### Authentication architecture
-
-This article explains how to authenticate users to your client app with a Microsoft Identity provider app. The authentication starts on the React client.
-
-|User steps to authenticate|Explanation|
-|--|--|
-|In the browser, the user selects the Login button with either the pop-up or redirect method.|The pop-up manages the redirect to the authentication flow without leaving the browser window for the React app. 
-|The authentication flow displays|Either a pop-up window displays or the web browser redirects to a page. |
-|The user logs into their Microsoft account.|The user has to provide correct authentication before the access token is returned to your web app.|
-|The browser continues to the React client app's root route, '/'.|The access token is managed by the MSAL React library and held in |
-
-Continued use of the app also includes authentication both on the client and the Function API. The **Profile** and **FunctionAPI** menu choices both call an API and pass the user's credentials, which are required to access that API. While this specific API is the Microsoft Graph API, it is just a demonstration of passing credentials to any API, including your own custom API. 
-
-The React client must pass the user's credentials to the API, then the API can use the credentials to call Microsoft Graph. 
-
-## Set up local development environment 
-
-* Azure subscription
-* Node.js
-* Visual Studio Code
-* Static web app extension
-* CosmosDB extension
+In this article, learn how to register your identity application necessary to authenticate users with the Microsoft Authentication Library for React (MSAL React) and call an Azure service on behalf of the user. 
 
 ## Create Microsoft Identity provider app registration
 
 Create your Microsoft Identity provider **app registration** to manage authentication. 
 
 1. Sign in to the Azure portal, and [register an application](https://ms.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps).
-1. If your account is present in more than one Azure AD tenant, select your profile at the top right corner in the menu on top of the page, and then **switch directory** to change your portal session to the desired Azure AD tenant.
+1. If your account is present in more than one Azure AD tenant, select your profile at the top-right corner in the menu on top of the page, and then **switch directory** to change your portal session to the desired Azure AD tenant.
 1. In the **Name** section, enter a meaningful application name that will be displayed to users of the app, for example `msal-react-spa`.
 1. For **Supported account types**, select **Accounts in this organizational directory only**.
 1. In the **Redirect URI** section, select **Single-page application** in the combo-box and enter the following redirect URI: `http://localhost:3000/`.
+
 1. Select **Register** to create the app registration for the authentication application.
 
 ## Get app registration settings
 
-1. In the app's registration **Overview** screen, find and note the following:
-    * **Application (client) ID**
-    * **Directory (tenant) ID**
+In the app's registration **Overview** screen, find and note the following:
 
-    You'll need these settings later in your React and API configuration files. 
+* **Application (client) ID**
+* **Directory (tenant) ID**
+
+You'll need these settings later in your React and API configuration files. 
 
 ## Function API configurations your app registration 
 
@@ -125,38 +88,12 @@ Your application, both the React client and the Azure Function, are authorized t
 
 1. Select the **API permissions** blade. Notice the Microsoft Graph API's scope of **User.Read** is already added for you, by default. 
 1. Select the **Add a permission**, then select **My APIs**.
-1. From the list of APIs, select the API assocated with your current app registration.
+1. From the list of APIs, select the API associated with your current app registration.
 1. In the **Delegated permissions** section, select the **Access 'msal-react-spa'** in the list. 1. Select the **Add permissions** button at the bottom.
 
     The app registration is now configured for both your local React client and your local Azure Function app.
 
-## Clone the GitHub repository for the sample project
-
-The sample code is _part of_ a repository with several samples. While you are cloning the entire repo, make sure that in the rest of the article, you are focused on just a single sample.
-
-1. In a bash terminal on your local machine, clone the sample repository.
-
-    ```bash
-    git clone https://github.com/Azure-Samples/ms-identity-javascript-react-tutorial
-    ```
-
-1. Navigate to the sample for this article, install the dependencies and open in VS Code. 
-
-    ```bash
-    cd "ms-identity-javascript-react-tutorial\4-Deployment\2-deploy-static\App" && \
-    npm install && \
-    cd api && \
-    npm install && \
-    cd .. 
-    ```
-
-1. Open the project in VS Code
-
-    ```bash
-    code .
-    ```
-
-## Configure settings and secrets
+## Review collected settings
 
 The React client and the Azure Function both need to have configuration settings to use the MSAL SDK. 
 
@@ -167,33 +104,6 @@ You should have collected the following information from previous steps:
 * Client secret
 * App ID URI
 
-1. Open the React file, `./src/authConfig.js`. and set the following values:
+## Next steps
 
-    |Property|Value|
-    |--|--|
-    |msalConfig.auth.clientId|Application (client) ID|
-    |functionApi.scopes|`https://<App ID URI>/access_as_user`|
-
-1. Open the Function app file, `./api/HelloUser/index.js`, and set the following values:
-
-    |Property|Value|
-    |--|--|
-    |config.auth.clientId|Application (client) ID|
-    |config.auth.authority|`https://login.microsoftonline.com/<Directory (tenant) ID>`|
-    |config.auth.clientSecret|Client secret|
-
-## Run client and API locally
-
-## Create Static web app
-
-## Configure Static web app settings and secrets
-
-### Configure React settings and secrets
-
-### Configure API settings and secrets
-
-## Configure app registration redirect URL
-
-## Deploy Static web app to Azure
-
-## Run client and API on Azure
+* [Create the local authenticated Static web app](configure-source-code-for-msal.md)
