@@ -71,7 +71,7 @@ You should have collected the following information from the [previous article i
 
 ## Configure local proxy
 
-When deployed to Azure Static web apps, the React client's calls to `/api/hello` are proxied to the Azure Function app without having to setup the proxy. For local development, you need to set up the proxy.  
+When deployed to Azure Static web apps, the React client's calls to `/api/hello` are proxied to the Azure Function app without having to set up the proxy. For local development, you need to set up the proxy.  
 
 Open the `./src/package.json` file and add the following property object to the root.
 
@@ -110,3 +110,8 @@ Open the `./src/package.json` file and add the following property object to the 
 
     :::image type="content" source="../../../media/how-to-with-authentication-static-web-app-msal/msal-react-function-api-microsoft-graph.png" alt-text="A browser screenshot show the Microsoft Graph profile information for the signed in user from the Function API.":::
  
+1. When you are done using the app, close both VS Code interactive terminals to stop the application.
+
+## Next steps
+
+* [Learn how to deploy a Static web app](../../tutorial/static-web-app/create-static-web-app-visual-studio-code-extension.md)
