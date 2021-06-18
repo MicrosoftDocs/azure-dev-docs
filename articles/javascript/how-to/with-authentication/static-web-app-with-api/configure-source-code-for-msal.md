@@ -69,7 +69,15 @@ You should have collected the following information from the [previous article i
     |CLIENT_SECRET|Client secret|Enter value as string.|
     |TENANT_INFO|Directory (tenant) ID|Enter value as string.|
 
-    asdasdf
+## Configure local proxy
+
+When deployed to Azure Static web apps, the React client's calls to `/api/hello` are proxied to the Azure Function app without having to setup the proxy. For local development, you need to set up the proxy.  
+
+Open the `./src/package.json` file and add the following property object to the root.
+
+```json
+"proxy": "http://localhost:7071",
+```
 
 ## Run the app locally
 
