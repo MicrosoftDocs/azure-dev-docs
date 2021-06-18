@@ -17,11 +17,12 @@ Create your Microsoft Identity provider **app registration** to manage authentic
 
 1. Sign in to the Azure portal, and [register an application](https://ms.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps).
 1. If your account is present in more than one Azure AD tenant, select your profile at the top-right corner in the menu on top of the page, and then **switch directory** to change your portal session to the desired Azure AD tenant.
-1. In the **Name** section, enter a meaningful application name that will be displayed to users of the app, for example `msal-react-spa`.
-1. For **Supported account types**, select **Accounts in this organizational directory only**.
-1. In the **Redirect URI** section, select **Single-page application** in the combo-box and enter the following redirect URI: `http://localhost:3000/`.
+1. In the **Name** section, enter a meaningful application name that will be displayed to users of the app, for example `msal-react-spa-YOUR-NAME`. 
+   Make sure to always add your email name or first name to your resources if you are not the only user of your Azure subscription. 
+2. For **Supported account types**, select **Accounts in this organizational directory only**.
+3. In the **Redirect URI** section, select **Single-page application** in the combo-box and enter the following redirect URI: `http://localhost:3000/`.
 
-1. Select **Register** to create the app registration for the authentication application.
+4. Select **Register** to create the app registration for the authentication application.
 
 ## Get app registration settings
 

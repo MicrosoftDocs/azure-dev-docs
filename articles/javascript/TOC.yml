@@ -165,7 +165,7 @@
               href: tutorial/single-page-application-azure-login-button-sdk-msal.md
             - name: Static web app with API
               items:
-                - name: Introduction and prerequisites
+                - name: Introduction
                   href: how-to/with-authentication/static-web-app-with-api/introduction.md
                 - name: Create app registration
                   href: how-to/with-authentication/static-web-app-with-api/register-application-with-identity.md

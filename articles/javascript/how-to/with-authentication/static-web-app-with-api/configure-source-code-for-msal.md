@@ -112,6 +112,16 @@ Open the `./src/package.json` file and add the following property object to the 
  
 1. When you are done using the app, close both VS Code interactive terminals to stop the application.
 
+## View user sign-ins from Azure portal
+
+As an administrator of your authentication app, you may want to see login history and errors. 
+
+1. Sign in to the Azure portal, then search for **Enterprise applications**.
+1. On the Enterprise applications page, search for the name of your app you registered [in this step](register-application-with-identity.md#create-microsoft-identity-provider-app-registration), such as `msal-react-spa-YOUR-NAME`. Or you can search with the client ID from the `./src/authConfig.js` file. 
+1. Select your app from the list. 
+1. Select **Users and groups** to see the people that are in your app. Because you just created the app and you are the only person that logged in, you should just see your own Identity record.
+1. If you need to see who has signed in, select **Sign-ins**.  
+
 ## Next steps
 
 * [Learn how to deploy a Static web app]([5. Create Azure Static Web app resource](../../../tutorial/static-web-app/create-static-web-app-visual-studio-code-extension.md))
