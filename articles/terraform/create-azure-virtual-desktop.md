@@ -219,4 +219,4 @@ Once Terraform completes, your VM infrastructure is ready. Obtain the public IP 
 ## Next steps
 
 > [!div class="nextstepaction"] 
-> [Learn more about Configuring Azure Virtual Desktop session hosts using Terraform in Azure](/azure/terraform/create-avd-session-host.md)
+> [Learn more about Configuring Azure Virtual Desktop session hosts using Terraform in Azure](/articles/terraform/create-avd-session-host.md)
