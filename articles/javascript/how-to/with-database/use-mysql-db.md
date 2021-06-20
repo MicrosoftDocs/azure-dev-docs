@@ -60,46 +60,8 @@ To connect and use your MySQL on Azure with JavaScript, use the following proced
 
 1. Copy the following JavaScript code into `index.js`:
 
-    ```nodejs
-    // To install npm package,
-    // run following command at terminal
-    // npm install promise-mysql
+    :::code language="JavaScript" source="~/../js-e2e/database/mysql/index.js" :::
 
-    // get MySQL SDK
-    const MySQL = require('promise-mysql');
-
-    // query server and close connection
-    const query = async (config) => {
-      // creation connection
-      const connection = await MySQL.createConnection(config);
-
-      // show databases on server
-      const databases = await connection.query('SHOW DATABASES;');
-      console.log(databases);
-
-      // show tables in the mysql database
-      const tables = await connection.query('SHOW TABLES FROM mysql;');
-      console.log(tables);
-
-      // show users configured for the server
-      const rows = await connection.query('select User from mysql.user;');
-      console.log(rows);
-
-      // close connection
-      connection.end();
-    };
-
-    const config = {
-      host: 'YOUR-RESOURCE_NAME.mysql.database.azure.com',
-      user: 'YOUR-ADMIN-NAME@YOUR-RESOURCE_NAME',
-      password: 'YOUR-ADMIN-PASSWORD',
-      port: 3306,
-    };
-
-    query(config)
-      .then(() => console.log('done'))
-      .catch((err) => console.log(err));
-    ```
 
 1. Replace the host, user, and password with your values in the script for your connection configuration object, `config`. 
 

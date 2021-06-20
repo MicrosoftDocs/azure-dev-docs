@@ -14,7 +14,9 @@ All the libraries share certain common characteristics and usage patterns, such 
 
 ## Library installation
 
-To install a specific library package, just use `pip install`:
+# [pip](#tab/pip)
+
+To install a specific library package, use `pip install`:
 
 ```cmd
 # Install the management library for Azure Storage
@@ -22,7 +24,7 @@ pip install azure-mgmt-storage
 ```
 
 ```cmd
-# Install the client library for Azure Storage
+# Install the client library for Azure Blob Storage
 pip install azure-storage-blob
 ```
 
@@ -30,8 +32,25 @@ pip install azure-storage-blob
 
 You can also use `pip` to uninstall libraries and install specific versions, including preview versions. For more information, see [How to install Azure library packages for Python](azure-sdk-install.md).
 
-> [!NOTE]
-> Azure Libraries for Python (Conda) packages are also available in preview. For more information, see the blog post, [Introducing the Azure SDK for Python (Conda) Preview](https://devblogs.microsoft.com/azure-sdk/python-conda-sdk-preview/).
+# [conda](#tab/conda)
+
+To install a specific library package in a Conda environment, use `conda install`:
+
+```cmd
+# Install the Azyre management library package
+conda install azure-mgmt
+```
+
+```cmd
+# Install the client library for Azure Storage
+conda install azure-storage
+```
+
+`conda install` retrieves the latest version of a package in your current Conda environment.
+
+For more information, including how to remove packages or install specific versions, see [How to install Azure library packages for Python](azure-sdk-install.md).
+
+---
 
 ## Asynchronous operations
 
@@ -76,7 +95,7 @@ To specify a proxy you can use environment variables or optional arguments. For 
 
 ## Optional arguments for client objects and methods
 
-In the library reference documentation, you often see a `**kwargs` or `**operation_config**` argument in the signature of a client object constructor or a specific operation method. These placeholders indicate that the object or method in question may support additional named arguments. Typically, the reference documentation indicates the specific arguments you can use. There are also some general arguments that are often supported as described in the following sections.
+In the library reference documentation, you often see a `**kwargs` or `**operation_config` argument in the signature of a client object constructor or a specific operation method. These placeholders indicate that the object or method in question may support additional named arguments. Typically, the reference documentation indicates the specific arguments you can use. There are also some general arguments that are often supported as described in the following sections.
 
 ### Arguments for libraries based on azure.core
 

@@ -46,7 +46,7 @@ The following common local workstation installations are recommended to help wit
 
 ## One-time configuration of service principal
 
-[Create a service principal](/azure/developer/javascript/how-to/with-sdk/set-up-development-environment?tabs=azure-sdk-for-javascript#1-create-a-service-principal) to create, use Azure resources _without_ using your personal account. 
+[Create a service principal](../how-to/with-sdk/set-up-development-environment.md?tabs=azure-sdk-for-javascript#1-create-a-service-principal) to create, use Azure resources _without_ using your personal account. 
 
 Learn more about a [service principals](/azure/active-directory/develop/app-objects-and-service-principals).
 
@@ -143,4 +143,3 @@ Visual Studio Code includes a number of built-in git features. For more informat
 
 * [Create and use a service principal](../how-to/with-sdk/set-up-development-environment.md)
 * [Authenticate with the Azure modules for Node.js](node-sdk-azure-authenticate.md)
-

@@ -75,31 +75,7 @@ Use the following steps to create an Azure VM with a system-assigned managed ide
        --location <your resource group region>
    ```
 
-1. Obtain the Uniform Resource Name (URN) for the VM you want to create. This example uses the certified Azul Zulu for Azure – Enterprise Edition VM image. For complete information about Azul Zulu for Azure, see [Download Java for Azure](https://www.azul.com/downloads/azure-only/zulu/).
-
-   ```azurecli
-   az vm image list \
-       --offer Zulu \
-       --location <your region> \
-       --all | grep urn
-   ```
-
-   This command may take a while to complete. When the command completes, it produces output similar to the following lines. Select the value for JDK 11 on Ubuntu.
-
-   ```output
-   "urn": "azul:azul-zulu11-ubuntu-2004:zulu-jdk11-ubtu2004:20.11.0",
-   ...
-   "urn": "azul:azul-zulu8-ubuntu-2004:zulu-jdk8-ubtu2004:20.11.0",
-   "urn": "azul:azul-zulu8-windows-2019:azul-zulu8-windows2019:20.11.0",
-   ```
-
-1. Accept the terms for the image to allow the VM to be created.
-
-   ```azurecli
-   az vm image terms accept --urn azul:azul-zulu11-ubuntu-2004:zulu-jdk11-ubtu2004:20.11.0
-   ```
-
-1. Create the VM instance with system-assigned managed identity enabled, assigning the **Owner** role in the resource group scope.
+1. Create the VM instance with system-assigned managed identity enabled, using the image `UbuntuLTS` provided by `UbuntuServer`.
 
    ```azurecli
    az vm create \
@@ -108,13 +84,66 @@ Use the following steps to create an Azure VM with a system-assigned managed ide
        --debug \
        --generate-ssh-keys \
        --assign-identity \
-       --image azul:azul-zulu11-ubuntu-2004:zulu-jdk11-ubtu2004:20.11.0 \
-       --scope "/subscriptions/<your subscription ID>/resourcegroups/<your resource group name>" \
-       --admin-username azureuser \
-       --role owner
+       --image UbuntuLTS \
+       --admin-username azureuser
    ```
 
    In the JSON output, note down the value of the `publicIpAddress` and `systemAssignedIdentity` properties. You'll use these values later in the tutorial.
+
+   > [!NOTE]
+   > The name `UbuntuLTS` is an Uniform Resource Name (URN) alias, which is a shortened version created for popular images like *UbuntuLTS*.
+   > Run the following command to display a cached list of popular images in table format:
+   > ```azurecli
+   > az vm image list --output table
+   > ```
+
+1. Install the Microsoft OpenJDK. For complete information about OpenJDK, see [Microsoft Build of OpenJDK](/java/openjdk).
+
+   ```shell
+   ssh azureuser@<your VM public IP address>
+   ```
+   
+   Add the repository. Replace the version placeholder in following commands and execute:
+   
+   ```shell
+   wget https://packages.microsoft.com/config/ubuntu/{version}/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
+   sudo dpkg -i packages-microsoft-prod.deb
+   ```
+   
+   Install the Microsoft Build of OpenJDK by running the following commands:
+   
+   ```shell
+   sudo apt install apt-transport-https
+   sudo apt update
+   sudo apt install msopenjdk-11
+   ```
+
+   > [!NOTE]
+   > Another, faster way to get set up the certified Azul Zulu for Azure – Enterprise Edition VM image, which can avoid the installation of Azure SDK. For complete information about Azul Zulu for Azure, see [Download Java for Azure](https://www.azul.com/downloads/azure-only/zulu/).
+   > Run the following command to obtain the URN name.
+   > 
+   > ```azurecli
+   >    az vm image list \
+   >        --offer Zulu \
+   >        --location <your region> \
+   >        --all | grep urn
+   > ```
+   > 
+   > This command may take a while to complete. When the command completes, it produces output similar to the following lines. Select the value for JDK 11 on Ubuntu.
+   > 
+   > ```output
+   > "urn": "azul:azul-zulu11-ubuntu-2004:zulu-jdk11-ubtu2004:20.11.0",
+   > ...
+   > "urn": "azul:azul-zulu8-ubuntu-2004:zulu-jdk8-ubtu2004:20.11.0",
+   > "urn": "azul:azul-zulu8-windows-2019:azul-zulu8-windows2019:20.11.0",
+   > ```
+   > 
+   > Use the following command to accept the terms for the image to allow the VM to be created.
+   >
+   > ```azurecli
+   > az vm image terms accept --urn azul:azul-zulu11-ubuntu-2004:zulu-jdk11-ubtu2004:20.11.0
+   > ```
+   > 
 
 ## Create and configure an Azure Key Vault
 
@@ -163,7 +192,7 @@ To create the application, use the following steps:
 1. Select the choices as shown in the picture following this list.
    * **Project**: **Maven Project**
    * **Language**: **Java**
-   * **Spring Boot**: **2.3.7**
+   * **Spring Boot**: **2.4.6**
    * **Group**: *com.contoso* (You can put any valid Java package name here.)
    * **Artifact**: *ssltest* (You can put any valid Java class name here.)
    * **Packaging**: **Jar**
@@ -173,7 +202,7 @@ To create the application, use the following steps:
 1. In the text field type *Azure Support* and press Enter. Your screen should look like the following.
    :::image type="content" source="media/configure-spring-boot-starter-java-app-with-azure-key-vault-certificates/spring-initializr-choices.png" alt-text="Spring Initializr with correct choices selected.":::
 1. At the bottom of the page, select **Generate**.
-1. When prompted, download the project to a path on your local computer. This tutorial uses an *ssltest* directory in the current user's home directory. The values above will give you a *ssltest.zip* file in that directory.
+1. When prompted, download the project to a path on your local computer. This tutorial uses an *ssltest* directory in the current user's home directory. The values above will give you an *ssltest.zip* file in that directory.
 
 ### Enable the Spring Boot app to load the TLS/SSL certificate
 
@@ -209,7 +238,7 @@ To enable the app to load the certificate, use the following steps:
    <dependency>
       <groupId>com.azure.spring</groupId>
       <artifactId>azure-spring-boot-starter-keyvault-certificates</artifactId>
-      <version>3.0.0-beta.2</version>
+      <version>3.0.0-beta.7</version>
    </dependency>
    ```
 
@@ -271,7 +300,7 @@ To create the REST controller, use the following steps:
    }
    ```
 
-   Note that calling `System.exit(0)` from within an unauthenticated REST GET call is only for demonstration purposes. Don't do this in a real application.
+   Calling `System.exit(0)` from within an unauthenticated REST GET call is only for demonstration purposes. Don't use `System.exit(0)` in a real application.
 
    This code illustrates the *present* action mentioned at the beginning of this tutorial. The following list highlights some details about this code:
 

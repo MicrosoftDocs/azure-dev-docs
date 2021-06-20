@@ -40,8 +40,6 @@ In a terminal or command prompt with the virtual environment activated, install 
 pip install -r requirements.txt
 ```
 
-
-
 ## 3: Write code to work with resource groups
 
 ### 3a. List resource groups in a subscription

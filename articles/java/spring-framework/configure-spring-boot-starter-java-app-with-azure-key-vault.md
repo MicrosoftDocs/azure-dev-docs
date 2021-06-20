@@ -233,7 +233,7 @@ This section shows how to use Spring Initializr to create and run a Spring Boot 
 1. Select the choices as shown in the picture following this list.
    * **Project**: **Maven Project**
    * **Language**: **Java**
-   * **Spring Boot**: **2.4.5**
+   * **Spring Boot**: **2.4.6**
    * **Group**: *com.contoso* (You can put any valid Java package name here.)
    * **Artifact**: *keyvault* (You can put any valid Java class name here.)
    * **Packaging**: **Jar**
@@ -331,7 +331,7 @@ To manually add the same the configuration that Spring Initializr generates, add
 
    ```xml
    <properties>
-        <azure.version>3.4.0</azure.version>
+        <azure.version>3.5.0</azure.version>
    </properties>
    <dependencies>
         <dependency>

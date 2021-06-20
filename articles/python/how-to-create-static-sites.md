@@ -20,4 +20,4 @@ The resources below provide all the details on creating static websites.
 
 - [How to use GitHub Actions to deploy a static website to Azure Storage](/azure/storage/blobs/storage-blobs-static-site-github-actions): A walkthrough on configuring GitHub Actions to automatically deploy updated files from a source repository into Azure Storage.
 
-- [Deploy a static website to Azure from Visual Studio Code](../javascript/tutorial/tutorial-vscode-static-website-node/tutorial-vscode-static-website-node-01.md): A tutorial that covers creating a simple SPA in Angular, React, Vue, and Svelte and then deploying that app to Azure Storage from within Visual Studio Code.
+- [Deploy a static website to Azure from Visual Studio Code](/azure/static-web-apps/getting-started?tabs=vanilla-javascript): A tutorial that covers creating a simple SPA in Angular, React, Vue, and Svelte and then deploying that app to Azure Storage from within Visual Studio Code.
