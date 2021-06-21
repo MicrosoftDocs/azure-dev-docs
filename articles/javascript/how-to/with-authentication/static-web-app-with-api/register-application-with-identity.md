@@ -19,7 +19,7 @@ Create your Microsoft Identity provider **app registration** to manage authentic
 1. If your account is present in more than one Azure AD tenant, select your profile at the top-right corner in the menu on top of the page, and then **switch directory** to change your portal session to the desired Azure AD tenant.
 1. In the **Name** section, enter a meaningful application name that will be displayed to users of the app, for example `msal-react-spa-YOUR-NAME`. 
    Make sure to always add your email name or first name to your resources if you are not the only user of your Azure subscription. 
-2. For **Supported account types**, select **Accounts in this organizational directory only**.
+2. For **Supported account types**, select **Accounts in this organizational directory only**. This supports a single tenant. 
 3. In the **Redirect URI** section, select **Single-page application** in the combo-box and enter the following redirect URI: `http://localhost:3000/`.
 
 4. Select **Register** to create the app registration for the authentication application.
@@ -93,6 +93,16 @@ Your application, both the React client and the Azure Function, are authorized t
 1. In the **Delegated permissions** section, select the **Access 'msal-react-spa'** in the list. 1. Select the **Add permissions** button at the bottom.
 
     The app registration is now configured for both your local React client and your local Azure Function app.
+
+## Configure token version for single tenant app
+
+1. Select the **Manifest** blade.
+1. Find the key `accessTokenAcceptedVersion` and replace the existing value (null) with `2`.
+
+    ```json
+    "accessTokenAcceptedVersion": 2
+    ```
+1. Select **Save**.
 
 ## Review collected settings
 
