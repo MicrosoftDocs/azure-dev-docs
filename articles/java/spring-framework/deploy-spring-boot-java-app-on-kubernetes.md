@@ -112,7 +112,7 @@ The following steps walk you through building a Spring Boot web application and 
 
    ```azurecli
    # set the default name for Azure Container Registry, otherwise you will need to specify the name in "az acr login"
-   az configure --defaults acr=wingtiptoysregistry
+   az config set defaults.acr=wingtiptoysregistry
    az acr login
    ```
 

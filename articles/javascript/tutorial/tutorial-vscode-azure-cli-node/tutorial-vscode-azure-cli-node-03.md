@@ -26,10 +26,10 @@ In this step, you use the Azure CLI to create the Azure App Service to host your
 
     Once the command runs successfully, it displays JSON output with the details of the resource group.
 
-1. Run the following Azure CLI command, [`az configure`](/cli/azure/config), to set the default resource group and region for subsequent commands. Doing so avoids the need to specify these values each time. (This command has no output on success.)
+1. Run the following Azure CLI command, [`az config`](/cli/azure/config), to set the default resource group and region for subsequent commands. Doing so avoids the need to specify these values each time. (This command has no output on success.)
 
     ```azurecli
-    az configure --defaults group=myResourceGroup location=westus
+    az config set defaults.group=myResourceGroup defaults.location=westus
     ```
 
 ## Create and deploy web app service with Azure CLI command
