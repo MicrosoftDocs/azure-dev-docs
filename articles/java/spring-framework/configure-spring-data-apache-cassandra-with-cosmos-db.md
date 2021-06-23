@@ -51,13 +51,14 @@ The following procedure creates and configures a Cosmos account in the Azure por
    
    >[!div class="mx-imgBorder"]
    >![Specify your Cosmos DB account settings][COSMOSDB02]
+   >![Specify your Cosmos DB account settings][COSMOSDB03]
    
 1. When you have entered all of the above information, click **Review + create**.
 
 1. If everything looks correct on the review page, click **Create**.
    
    >[!div class="mx-imgBorder"]
-   >![Review your Cosmos DB account settings][COSMOSDB03]
+   >![Review your Cosmos DB account settings][COSMOSDB04]
 
 It will take a few minutes to deploy the database.
 
@@ -196,6 +197,7 @@ For more information about using Azure with Java, see the [Azure for Java Develo
 [COSMOSDB01]: media/configure-spring-data-apache-cassandra-with-cosmos-db/create-cosmos-db-01.png
 [COSMOSDB02]: media/configure-spring-data-apache-cassandra-with-cosmos-db/create-cosmos-db-02.png
 [COSMOSDB03]: media/configure-spring-data-apache-cassandra-with-cosmos-db/create-cosmos-db-03.png
+[COSMOSDB04]: media/configure-spring-data-apache-cassandra-with-cosmos-db/create-cosmos-db-04.png
 [COSMOSDB05]: media/configure-spring-data-apache-cassandra-with-cosmos-db/create-cosmos-db-05.png
 [COSMOSDB05-1]: media/configure-spring-data-apache-cassandra-with-cosmos-db/create-cosmos-db-05-1.png
 [COSMOSDB06]: media/configure-spring-data-apache-cassandra-with-cosmos-db/create-cosmos-db-06.png

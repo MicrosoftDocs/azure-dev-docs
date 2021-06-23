@@ -44,13 +44,12 @@ The following prerequisites are required in order to complete the steps in this 
    - **Account name**: Choose a unique name for your Cosmos DB account; this will be used to create a fully-qualified domain name like *wingtiptoysmongodb.documents.azure.com*.
    - **API**: Specify `Azure Cosmos DB for MongoDB API` for this tutorial.
    - **Location**: Specify the closest geographic region for your database.
-
-   ![Specify your Cosmos DB account settings][COSMOSDB02]
    
 1. When you have entered all of the above information, click **Review + create**.
 
 1. If everything looks correct on the review page, click **Create**.
 
+   ![Specify your Cosmos DB account settings][COSMOSDB02]
    ![Review your Cosmos DB account settings][COSMOSDB03]
 
 ### Retrieve the connection string for your Azure Cosmos DB account

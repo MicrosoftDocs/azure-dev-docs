@@ -24,14 +24,6 @@ In this article, we will code a sample application. If you want to go faster, th
 
 [!INCLUDE [spring-data-mysql-setup.md](includes/spring-data-mysql-setup.md)]
 
-### Generate the application by using Spring Initializr
-
-Generate the application on the command line by entering:
-
-```bash
-curl https://start.spring.io/starter.tgz -d dependencies=web,data-jdbc,mysql -d baseDir=azure-database-workshop -d bootVersion=2.3.4.RELEASE -d javaVersion=8 | tar -xzvf -
-```
-
 ### Configure Spring Boot to use Azure Database for MySQL
 
 Open the *src/main/resources/application.properties* file, and add:

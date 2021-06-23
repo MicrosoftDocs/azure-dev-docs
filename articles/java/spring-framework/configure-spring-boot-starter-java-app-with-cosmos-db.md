@@ -31,12 +31,13 @@ This article demonstrates creating an Azure Cosmos DB using the Azure portal, th
 1. Select **Databases**, and then select **Azure Cosmos DB**.
 
     ![Selecting Azure Cosmos DB in the Azure portal.][AZ02]
+    ![Selecting Azure Cosmos DB in the Azure portal.][AZ02-01]
 
 1. On the **Azure Cosmos DB** page, enter the following information:
 
     * Choose the **Subscription** you want to use for your database.
     * Specify whether to create a new **Resource group** for your database, or choose an existing resource group.
-    * Enter a unique **Account Name**, which you will use as the URI for your database. For example: *contosoaccount*.
+    * Enter a unique **Account Name**, which you will use as the URI for your database. For example: *contosoaccounttest*.
     * Choose **Core (SQL)** for the API.
     * Specify the **Location** for your database.
 
@@ -93,17 +94,8 @@ Your simple Spring Boot application is now ready for editing.
     <dependency>
         <groupId>com.azure.spring</groupId>
         <artifactId>azure-spring-boot-starter-cosmos</artifactId>
-        <version>3.4.0</version> 
+        <version>3.5.0</version> 
     </dependency>
-    ```
-
-1. Verify that the *properties* element indicates the required versions of Java and Azure:
-
-    ```xml
-    <properties>
-        <java.version>11</java.version>
-        <azure.version>3.4.0</azure.version>
-    </properties>
     ```
 
 1. Save and close the *pom.xml* file.
@@ -122,13 +114,13 @@ Your simple Spring Boot application is now ready for editing.
 
     ```properties
     # Specify the DNS URI of your Azure Cosmos DB.
-    azure.cosmos.uri=https://contosoaccount.documents.azure.com:443/
+    azure.cosmos.uri=https://contosoaccounttest.documents.azure.com:443/
     
     # Specify the access key for your database.
     azure.cosmos.key=replace-your-access-key-here
     
     # Specify the name of your database. 
-    azure.cosmos.database=contosoaccount
+    azure.cosmos.database=contosoaccounttest
     azure.cosmos.populateQueryMetrics=true
     ```
 
@@ -396,6 +388,7 @@ The **[Spring Framework]** is an open-source solution that helps Java developers
 
 <!-- IMG List -->
 [AZ02]: media/configure-spring-boot-starter-java-app-with-cosmos-db/AZ02.png
+[AZ02-01]: media/configure-spring-boot-starter-java-app-with-cosmos-db/AZ02-01.png
 [AZ03]: media/configure-spring-boot-starter-java-app-with-cosmos-db/AZ03.png
 [AZ05]: media/configure-spring-boot-starter-java-app-with-cosmos-db/AZ05.png
 

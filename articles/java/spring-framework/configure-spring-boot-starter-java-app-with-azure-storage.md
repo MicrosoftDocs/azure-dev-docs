@@ -36,6 +36,7 @@ The following procedure creates an Azure storage account and container in the po
 1. Select **Create a resource**, then **Get started**, and then select **Storage Account**.
 
    ![Create Azure Storage Account][IMG01]
+   ![Create Azure Storage Account][IMG01-01]
 
 1. On the **Create storage account** page, enter the following information:
 
@@ -135,7 +136,7 @@ The following procedure configures the Spring boot application to use Azure stor
    <dependency>
       <groupId>com.azure.spring</groupId>
       <artifactId>azure-spring-boot-starter-storage</artifactId>
-      <version>3.4.0</version>
+      <version>3.5.0</version>
    </dependency>
    ```
 
@@ -298,6 +299,7 @@ For detailed information about additional Azure storage APIs that you can call f
 <!-- IMG List -->
 
 [IMG01]: media/configure-spring-boot-starter-java-app-with-azure-storage/create-storage-account-01.png
+[IMG01-01]: media/configure-spring-boot-starter-java-app-with-azure-storage/create-storage-account-01-01.png
 [IMG02]: media/configure-spring-boot-starter-java-app-with-azure-storage/create-storage-account-02.png
 
 [SI01]: media/configure-spring-boot-starter-java-app-with-azure-storage/create-project-01.png

@@ -26,15 +26,6 @@ In this article, we will code a sample application. If you want to go faster, th
 
 [!INCLUDE [spring-data-create-reactive.md](includes/spring-data-create-reactive.md)]
 
-### Generate the application by using Spring Initializr
-
-Generate the application on the command line by entering:
-
-```bash
-curl https://start.spring.io/starter.tgz -d dependencies=webflux,data-r2dbc -d baseDir=azure-database-workshop -d bootVersion=2.3.4.RELEASE -d javaVersion=8 | tar -xzvf -
-```
-
-
 ### Add the reactive MySQL driver implementation
 
 Open the generated project's *pom.xml* file to add the reactive MySQL driver from the [r2dbc-mysql repository on GitHub](https://github.com/mirromutth/r2dbc-mysql).
