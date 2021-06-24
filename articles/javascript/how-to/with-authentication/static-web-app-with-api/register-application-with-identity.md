@@ -3,7 +3,7 @@ title: "2: Register identity application"
 titleSuffix: Azure Developer Center
 description: In this article, register your identity application.
 ms.topic: how-to
-ms.date: 06/15/2021
+ms.date: 06/28/2021
 ms.custom: devx-track-js
 ---
 

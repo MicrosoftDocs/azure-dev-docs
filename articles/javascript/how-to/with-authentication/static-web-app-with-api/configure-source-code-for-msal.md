@@ -3,7 +3,7 @@ title: "3: Create the local authenticated Static web app"
 titleSuffix: Azure Developer Center
 description: In this article, learn to configure a Static web app and API to use the MSAL SDK to authenticate users both on the client app and on the Azure Function API. 
 ms.topic: how-to
-ms.date: 06/17/2021
+ms.date: 06/28/2021
 ms.custom: devx-track-js
 ---
 
@@ -124,4 +124,4 @@ As an administrator of your authentication app, you may want to see login histor
 
 ## Next steps
 
-* [Learn how to deploy a Static web app]([5. Create Azure Static Web app resource](../../../tutorial/static-web-app/create-static-web-app-visual-studio-code-extension.md))
+* [ Store custom app user information in MongoDB](./add-mongodb-database-to-api.md)
