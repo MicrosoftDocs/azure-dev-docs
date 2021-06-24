@@ -27,7 +27,7 @@ Be sure to create and activate a virtual environment for this project.
 
 Create a file named *requirements.txt* with the following contents:
 
-:::code language="text" source="~/../python-sdk-examples/resource_group/requirements.txt":::
+:::code language="txt" source="~/../python-sdk-examples/resource_group/requirements.txt":::
 
 Be sure to use these versions of the libraries. Using older versions will result in errors such as "'AzureCliCredential' object object has no attribute 'signed_session'."
 

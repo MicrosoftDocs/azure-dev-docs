@@ -25,7 +25,7 @@ Be sure to create a service principal for local development, and create and acti
 
 1. Create a *requirements.txt* file that lists the management libraries used in this example:
 
-    :::code language="text" source="~/../python-sdk-examples/vm/requirements.txt":::
+    :::code language="txt" source="~/../python-sdk-examples/vm/requirements.txt":::
 
 1. In your terminal or command prompt with the virtual environment activated, install the management libraries listed in *requirements.txt*:
 

@@ -22,7 +22,7 @@ Be sure to create a service principal for local development, and create and acti
 
 Create a file named *requirements.txt* with the following contents:
 
-:::code language="text" source="~/../python-sdk-examples/webapp/requirements.txt":::
+:::code language="txt" source="~/../python-sdk-examples/webapp/requirements.txt":::
 
 In a terminal or command prompt with the virtual environment activated, install the requirements:
 

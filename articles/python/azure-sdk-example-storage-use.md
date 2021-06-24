@@ -22,7 +22,7 @@ Be sure to create a service principal for local development, set environment var
 
 1. In your *requirements.txt* file, add line for the needed client library package and save the file:
 
-    :::code language="text" source="~/../python-sdk-examples/storage/requirements_use.txt":::
+    :::code language="txt" source="~/../python-sdk-examples/storage/requirements_use.txt":::
 
 1. In your terminal or command prompt, reinstall requirements:
 
@@ -34,7 +34,7 @@ Be sure to create a service principal for local development, set environment var
 
 Create a source file named *sample-source.txt* (as the code expects), with contents like the following:
 
-:::code language="text" source="~/../python-sdk-examples/storage/sample-source.txt":::
+:::code language="txt" source="~/../python-sdk-examples/storage/sample-source.txt":::
 
 ## 4: Use blob storage from app code
 

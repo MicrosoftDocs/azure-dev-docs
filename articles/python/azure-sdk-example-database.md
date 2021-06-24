@@ -24,7 +24,7 @@ Be sure to create a service principal for local development, and create and acti
 
 Create a file named *requirements.txt* with the following contents:
 
-:::code language="text" source="~/../python-sdk-examples/db/requirements.txt":::
+:::code language="txt" source="~/../python-sdk-examples/db/requirements.txt":::
 
 The specific version requirement for azure-mgmt-resource is to ensure that you use a version compatible with the current version of azure-mgmt-web. These versions are not based on azure.core and therefore use older methods for authentication.
 
