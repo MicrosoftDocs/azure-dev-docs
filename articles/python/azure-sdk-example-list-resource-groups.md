@@ -49,7 +49,7 @@ Create a Python file named *list_groups.py* with the following code. The comment
 
 Create a Python file named *list_resources.py* with the following code. The comments explain the details.
 
-By default, the code lists resources in "myResourceGroup". To use a different resource group, set the `RESOURCE_GROUP` environment variable to the desired group name.
+By default, the code lists resources in "myResourceGroup". To use a different resource group, set the `RESOURCE_GROUP_NAME` environment variable to the desired group name.
 
 :::code language="python" source="~/../python-sdk-examples/resource_group/list_resources.py":::
 
