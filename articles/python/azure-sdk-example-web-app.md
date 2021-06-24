@@ -14,7 +14,7 @@ All the commands in this article work the same in Linux/macOS bash and Windows c
 
 ## 1: Set up your local development environment
 
-If you haven't already, follow all the instructions on [Configure your local Python dev environment for Azure](configure-local-development-environment.md).
+If you haven't already, **follow all the instructions** on [Configure your local Python dev environment for Azure](configure-local-development-environment.md).
 
 Be sure to create a service principal for local development, and create and activate a virtual environment for this project.
 
@@ -23,8 +23,6 @@ Be sure to create a service principal for local development, and create and acti
 Create a file named *requirements.txt* with the following contents:
 
 :::code language="text" source="~/../python-sdk-examples/webapp/requirements.txt":::
-
-The specific version requirement for azure-mgmt-resource is to ensure that you use a version compatible with the current version of azure-mgmt-web. These versions are not based on azure.core and therefore use older methods for authentication.
 
 In a terminal or command prompt with the virtual environment activated, install the requirements:
 
@@ -60,9 +58,7 @@ Create a Python file named *provision_deploy_web_app.py* with the following code
 
 :::code language="python" source="~/../python-sdk-examples/webapp/provision_deploy_web_app.py":::
 
-This code uses the CLI-based authentication methods (`get_client_from_cli_profile`) because it demonstrates actions that you might otherwise do with the Azure CLI directly. In both cases you're using the same identity for authentication.
-
-To use such code in a production script, you should instead use `DefaultAzureCredential` (recommended) or a service principal based method as describe in [How to authenticate Python apps with Azure services](azure-sdk-authenticate.md).
+[!INCLUDE [cli-auth-note](includes/cli-auth-note.md)]
 
 ### Reference links for classes used in the code
 
