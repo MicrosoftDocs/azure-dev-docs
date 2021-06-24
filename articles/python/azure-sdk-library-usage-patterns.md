@@ -62,7 +62,7 @@ In either case, an [`AzureOperationPoller`](/python/api/msrestazure/msrestazure.
 
 The following code, taken from [Example: Provision and deploy a web app](azure-sdk-example-web-app.md), shows an example of using the poller to wait for a result:
 
-:::code language="python" source="~/../python-sdk-examples/webapp/provision_deploy_web_app.py" range="59-70""
+:::code language="python" source="~/../python-sdk-examples/webapp/provision_deploy_web_app.py" range="59-70":::
 
 In this case, the return value of `begin_create_or_update` is of type `AzureOperationPoller[Site]`, which means that the return value of `poller.result()` is a [Site](/python/api/azure-mgmt-web/azure.mgmt.web.v2021_01_01.models.site?view=azure-python) object.
 
