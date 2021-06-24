@@ -22,7 +22,7 @@ Be sure to create and activate a virtual environment for this project.
 
 Create a file named *requirements.txt* with the following contents:
 
-:::code language="text" source="~python-sdk-examples/resource_group/requirements.txt":::
+:::code language="text" source="~/python-sdk-examples/resource_group/requirements.txt":::
 
 Be sure to use these versions of the libraries. Using older versions will result in errors such as "'AzureCliCredential' object object has no attribute 'signed_session'."
 
@@ -36,7 +36,7 @@ pip install -r requirements.txt
 
 Create a Python file named *provision_rg.py* with the following code. The comments explain the details:
 
-:::code language="python" source="~python-sdk-examples/resource_group/provision_rg.py":::
+:::code language="python" source="~/python-sdk-examples/resource_group/provision_rg.py":::
 
 [!INCLUDE [cli-auth-note](includes/cli-auth-note.md)]
 
@@ -77,7 +77,7 @@ You can also use the [`ResourceManagementClient.resource_groups.delete`](/python
 
 The following Azure CLI commands complete the same provisioning steps as the Python script:
 
-:::code language="azurecli" source="~python-sdk-examples/resource_group/provision.cmd":::
+:::code language="azurecli" source="~/python-sdk-examples/resource_group/provision.cmd":::
 
 ## See also
 
