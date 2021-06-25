@@ -62,6 +62,7 @@ Install the following for your local development environment.
 - [Visual Studio Code](https://code.visualstudio.com/) and the following extensions
     - [Azure Resources](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureresourcegroups)
     - [Azure Static Web App](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestaticwebapps) 
+    - [Azure Databases](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb)
 
 ## Next steps
 
