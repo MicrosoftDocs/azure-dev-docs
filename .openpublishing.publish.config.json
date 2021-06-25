@@ -98,6 +98,12 @@
       "branch_mapping": {}
     },
     {
+      "path_to_root": "python-sdk-examples",
+      "url": "https://github.com/MicrosoftDocs/python-sdk-docs-examples",
+      "branch": "main",
+      "branch_mapping": {}
+    },    
+    {
       "path_to_root": "azure-docs",
       "url": "https://github.com/MicrosoftDocs/azure-docs",
       "branch": "master",
