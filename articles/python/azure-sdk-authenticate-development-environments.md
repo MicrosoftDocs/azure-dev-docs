@@ -13,7 +13,7 @@ This article describes methods for authenticating apps with Azure services withi
 - [CLI-based authentication](#cli-based-authentication) using `AzureCliCredential`.
 - [Interactive browser authentication](#interactive-browser-authentication) using `InteractiveBrowserCredential`.
 - [Device code authentication](#device-code-authentication) using `DeviceCodeCredential`.
-- [Authentication within Visual Studio Code](#authentication-within-visual-studio-code) using the Azure extension.
+- [Authentication through Visual Studio Code](#authentication-through-visual-studio-code) using the Azure extension.
 
 The authentication methods described here are convenient for development work because they don't require explicit role assignments. For this reason, however, they cannot be used with production code.
 
@@ -47,7 +47,7 @@ When using older Azure libraries that have not been updated for azure.core, you 
 
 This method interactively authenticates an application through [`InteractiveBrowserCredential`](/python/api/azure-identity/azure.identity.interactivebrowsercredential) by collecting user credentials in the default system.
 
-Interactive browser authentication enables the same broad permissions as [CLI-based authentication](#cld-based-authentication) and should be used with the same [precautions](#precautions) .
+Interactive browser authentication enables the same broad permissions as [CLI-based authentication](#cli-based-authentication) and should be used with the same [precautions](#precautions) .
 
 ### Enable applications for interactive browser authentication
 
@@ -75,13 +75,13 @@ For more exact control, such as setting redirect URIs, you can supply specific a
 This methods interactively authenticates a user on devices with limited UI (typically devices without a keyboard):
 
 1. When the app attempts to authenticate, the credential prompts the user with a URL and an authentication code.
-1. THe user visit the URL on a separate browser-enabled device (a computer, smartphone, etc.) and enters the code.
+1. The user visits the URL on a separate browser-enabled device (a computer, smartphone, etc.) and enters the code.
 1. The user follows a normal authentication process in the browser for the Microsoft Azure Cross-platform Command Line Interface (which means your terminal window).
 1. Upon successful authentication, the application is authenticated on the device.
 
 For more information, see [Microsoft identity platform and the OAuth 2.0 device authorization grant flow](/azure/active-directory/develop/v2-oauth2-device-code).
 
-Device code authentication in a development environment enables the same broad permissions as [CLI-based authentication](#cld-based-authentication) and should be used with the same [precautions](#precautions) .
+Device code authentication in a development environment enables the same broad permissions as [CLI-based authentication](#cli-based-authentication) and should be used with the same [precautions](#precautions) .
 
 ### Enable applications for device code authentication
 
@@ -93,7 +93,7 @@ The following example demonstrates using a [`DeviceCodeCredential`](/python/api/
 
 :::code language="python" source="~/../python-sdk-examples/show_subscription/use_device_code.py":::
 
-## Authentication from Visual Studio Code
+## Authentication through Visual Studio Code
 
 Applications being run within Visual Studio Code can use the ['VisualStudioCodeCredential](/python/api/azure-identity/azure.identity.visualstudiocodecredential) to authenticate with the same credentials with which the user signs in to the [Azure Account extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account).
 

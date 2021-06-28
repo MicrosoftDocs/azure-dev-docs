@@ -18,7 +18,7 @@ This method uses `InteractiveBrowserCredential`, which is described in [Azure Au
 
 ## Device code authentication
 
-This method uses `DeviceCodeCredential`, which is described in [Azure Authentication in Python development environments](azure-sdk-authenticate-development-environments.md#device-code-credential).
+This method uses `DeviceCodeCredential`, which is described in [Azure Authentication in Python development environments](azure-sdk-authenticate-development-environments.md#device-code-authentication).
 
 ## Authentication with a username and password
 

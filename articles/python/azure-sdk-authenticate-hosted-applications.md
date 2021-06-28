@@ -63,7 +63,6 @@ If the management library you want to use has not yet been updated, then you can
 - [Authentication overview](azure-sdk-authenticate.md)
 - [Configure your local Python dev environment for Azure](configure-local-development-environment.md)
 - [How to assign role permissions](/azure/role-based-access-control/role-assignments-steps)
-- [Alternate authentication methods for Python apps on Azure](azure-sdk-authenticate-alternate-methods.md)
 - [Example: Provision a resource group](azure-sdk-example-resource-group.md)
 - [Example: Provision and use Azure Storage](azure-sdk-example-storage.md)
 - [Example: Provision a web app and deploy code](azure-sdk-example-web-app.md)

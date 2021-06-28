@@ -1,5 +1,5 @@
 ---
-title: How to authenticate Python applications with Azure services (alternateusing service principals
+title: How to authenticate Python applications with Azure services using service principals
 description: Using service principals to authenticate a Python app with Azure services by using the Azure libraries
 ms.date: 06/28/2021
 ms.topic: conceptual
@@ -32,7 +32,7 @@ When using newer SDK libraries based on azure.core, use the [`ClientSecretCreden
 
 To migrate existing code that uses `ServicePrincipalCredentials` to a newer library version, replace uses of this class with `ClientSecretCredential` as illustrated in the following sections. Note the slight changes in the parameter names between the two constructors: `tenant` becomes `tenant_id` and `secret` becomes `client_secret`.
 
-### Using ClientSecretCredential (azure.common)
+### Using ClientSecretCredential (azure.identity)
 
 :::code language="python" source="~/../python-sdk-examples/show_subscription/use_client_secret.py":::
 

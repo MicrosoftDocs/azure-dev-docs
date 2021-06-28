@@ -26,7 +26,6 @@ Secondary articles then describe specific authentication methods:
 - [Authentication for Azure hosted apps](azure-sdk-authenticate-hosted-applications.md), using Managed Identity and `DefaultAzureCredential`.
 - [Authentication with service principals](azure-sdk-authenticate-service-principals.md)
 - [Authentication with user credentials](azure-sdk-authenticate-user-credentials.md)
-- [Alternate authentication methods](azure-sdk-authenticate-alternate-methods.md).
 
 ## How to assign an app identity
 

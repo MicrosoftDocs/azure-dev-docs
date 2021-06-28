@@ -21,7 +21,7 @@ number_url = os.environ["THIRD_PARTY_API_ENDPOINT"]
 ```
 
 Next, we obtain the [`DefaultAzureCredential`](/python/api/azure-identity/azure.identity.defaultazurecredential
-) object, which is the recommended credential to use when authenticating with Azure services. See [How to authenticate Python apps](azure-sdk-authenticate.md#authenticate-with-defaultazurecredential).
+) object, which is the recommended credential to use when authenticating with Azure services. See [Authenticate Azure hosted applications with DefaultAzureCredential](azure-sdk-authenticate-hosted-applications).
 
 ```python
 credential = DefaultAzureCredential()
