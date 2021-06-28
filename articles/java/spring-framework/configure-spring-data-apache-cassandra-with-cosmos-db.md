@@ -40,7 +40,8 @@ The following procedure creates and configures a Cosmos account in the Azure por
     
    >[!div class="mx-imgBorder"]
    >![Create an Azure Cosmos DB account][COSMOSDB01]
-
+   >![Specify your Cosmos DB account settings][COSMOSDB02]
+   
 1. Specify the following information:
 
    - **Subscription**: Specify your Azure subscription to use.
@@ -50,7 +51,6 @@ The following procedure creates and configures a Cosmos account in the Azure por
    - **Location**: Specify the closest geographic region for your database.
    
    >[!div class="mx-imgBorder"]
-   >![Specify your Cosmos DB account settings][COSMOSDB02]
    >![Specify your Cosmos DB account settings][COSMOSDB03]
    
 1. When you have entered all of the above information, click **Review + create**.

@@ -24,6 +24,14 @@ In this article, we will code a sample application. If you want to go faster, th
 
 [!INCLUDE [spring-data-sql-server-setup.md](includes/spring-data-sql-server-setup.md)]
 
+### Generate the application by using Spring Initializr
+
+Generate the application on the command line by running the following command:
+
+```bash
+curl https://start.spring.io/starter.tgz -d dependencies=web,data-jdbc,sqlserver -d baseDir=azure-database-workshop -d bootVersion=2.3.1.RELEASE -d javaVersion=8 | tar -xzvf -
+```
+
 ### Configure Spring Boot to use Azure SQL Database
 
 Open the *src/main/resources/application.properties* file, and add the following text:

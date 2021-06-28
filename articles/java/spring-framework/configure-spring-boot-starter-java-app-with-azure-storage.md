@@ -36,7 +36,6 @@ The following procedure creates an Azure storage account and container in the po
 1. Select **Create a resource**, then **Get started**, and then select **Storage Account**.
 
    ![Create Azure Storage Account][IMG01]
-   ![Create Azure Storage Account][IMG01-01]
 
 1. On the **Create storage account** page, enter the following information:
 
@@ -45,6 +44,9 @@ The following procedure creates an Azure storage account and container in the po
    * Enter a unique **Storage account name**, which will become part of the URI for your storage account. For example: if you entered **wingtiptoysstorage** for the **Name**, the URI would be *wingtiptoysstorage.core.windows.net*.
    * Specify the **Location** for your storage account.
 1. When you have specified the options listed above, select **Review + create**.
+   
+   ![Create Azure Storage Account][IMG01-01]
+   
 1. Review the specification, then select **Create** to create your storage account.
 1. When the deployment is complete, select **Go to resource**.
 1. Select **Containers**.

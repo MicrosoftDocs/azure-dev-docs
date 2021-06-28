@@ -33,9 +33,11 @@ The following prerequisites are required in order to complete the steps in this 
 
 1. Browse to the Azure portal at <https://portal.azure.com/> and sign in.
 
-1. Click **+Create a resource**, then **Databases**, and then click **Azure Cosmos DB**.
+1. Click **Create a resource**, then **Databases**, and then click **Azure Cosmos DB**.
 
    ![Create an Azure Cosmos DB account][COSMOSDB01]
+   ![Specify your Cosmos DB account settings][COSMOSDB02]
+   
 
 1. Specify the following information:
 
@@ -49,7 +51,6 @@ The following prerequisites are required in order to complete the steps in this 
 
 1. If everything looks correct on the review page, click **Create**.
 
-   ![Specify your Cosmos DB account settings][COSMOSDB02]
    ![Review your Cosmos DB account settings][COSMOSDB03]
 
 ### Retrieve the connection string for your Azure Cosmos DB account
