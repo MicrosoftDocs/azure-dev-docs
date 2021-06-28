@@ -24,7 +24,7 @@
         href: vm-manage.md
       - name: Configure Windows virtual machines
         href: vm-configure-windows.md
-      - name: Use Azure key vault with Ansible
+      - name: Configure VM secrets with Azure Key Vault
         href: key-vault-configure-secrets.md
 - name: Tutorials
   items:
@@ -44,7 +44,7 @@
       href: devtest-labs-configure.md
   - name: Azure Key Vault
     items:
-    - name: Use Azure Key Vault with Ansible
+    - name: Configure VM secrets with Azure Key Vault
       href: key-vault-configure-secrets.md
   - name: Azure Kubernetes Service (AKS)
     items:

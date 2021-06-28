@@ -1,6 +1,6 @@
 ---
-title: Use Azure Key Vault with Ansible
-description: In this quickstart, learn how to use secrets in Azure Key Vault with Ansible.
+title: Use Azure Key Vault to store VM secrets with Ansible
+description: In this quickstart, learn how to store secrets in Azure Key Vault for VMs with Ansible.
 keywords: ansible, azure, devops, bash, playbook, virtual machine
 ms.topic: quickstart
 ms.service: ansible
@@ -8,7 +8,7 @@ ms.date: 06/08/2021
 ms.custom: devx-track-ansible
 ---
 
-# Quickstart: Use Azure Key Vault with Ansible
+# Quickstart: Use Azure Key Vault to store VM secrets with Ansible
 
 In this quickstart, you'll create and retrieve secrets from Azure key vault with Ansible.
 
@@ -108,7 +108,7 @@ Ansible needs a resource group to deploy your resources in.
     localhost                  : ok=3    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
     ```
 
-## Complete Azure key vault Ansible playbook
+## Complete create Azure key vault playbook
 
 This section lists the entire sample Ansible playbook for creating an Azure key vault.
 
@@ -169,7 +169,7 @@ Before the secret can be created, you'll need the keyvault URI.
     
       - name: Create a secret
         azure_rm_keyvaultsecret:
-          secret_name: vaultSecret
+          secret_name: adminPassword
           secret_value: <secretValue>
           keyvault_uri: "{{ keyvaulturi }}"
     ```
@@ -222,7 +222,7 @@ Secrets stored in Azure key vault can be used to populate Ansible variables.
       vars:
         tenant_id: <tenantId>
         vault_name: <vaultName>
-        secret_name: vaultSecret
+        secret_name: adminPassword
         client_id: <servicePrincipalApplicationId>
         client_secret: <servicePrincipalSecret>
       
@@ -259,7 +259,7 @@ Secrets stored in Azure key vault can be used to populate Ansible variables.
       
       vars:
         vault_name: ansible-kv-test-01
-        secret_name: vaultSecret
+        secret_name: adminPassword
     
       tasks:
     
@@ -305,7 +305,7 @@ Secrets stored in Azure key vault can be used to populate Ansible variables.
 
     Confirm the output that replaced `<plainTextPassword>` is the plain text value of the secret previously created in Azure key vault.
 
-## Example: Create an Azure VM with a key vault secret
+## Complete sample Ansible playbook
 
 This section lists the entire sample Ansible playbook for configuring an Azure Windows VM using a key vault secret.
 
