@@ -459,7 +459,7 @@ Like in the previous section, the Function should answer you with a `Greeting` o
 
 ```output
 {
-  "message": "Welcome, Azure"
+  "message": "Hello, Azure!\n"
 }
 ```
 
