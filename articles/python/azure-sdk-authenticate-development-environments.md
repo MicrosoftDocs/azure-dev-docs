@@ -13,7 +13,7 @@ This article describes methods for authenticating apps with Azure services withi
 - [CLI-based authentication](#cli-based-authentication) using `AzureCliCredential`.
 - [Interactive browser authentication](#interactive-browser-authentication) using `InteractiveBrowserCredential`.
 - [Device code authentication](#device-code-authentication) using `DeviceCodeCredential`.
-- [Authentication through Visual Studio Code](#authentication-through-visual-studio-code) using the Azure extension.
+- [Authentication through Visual Studio Code](#authentication-through-visual-studio-code) using `VisualStudioCodeCredential`.
 
 The authentication methods described here are convenient for development work because they don't require explicit role assignments. For this reason, however, they cannot be used with production code.
 
