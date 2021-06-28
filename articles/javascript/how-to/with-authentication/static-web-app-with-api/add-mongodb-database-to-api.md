@@ -695,6 +695,9 @@ getSigningKeys = async (header) => {
 
     The page connects to the Function API, and adds the user's favoriteColor to the user's document.
 
+
+## View Cosmos DB data in Azure portal
+
 1. In VS Code, select the Azure explorer, then right-click on the Cosmos DB resource, and select **Open in Portal**.
 1. Go to the **Data Explorer** select the **test** catalog, then select the **users**. 
 1. Select the **id** to see the user document is shown in the list.
