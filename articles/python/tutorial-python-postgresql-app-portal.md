@@ -30,7 +30,7 @@ In a browser, navigate to [https://github.com/Azure-Samples/djangoapp](https://g
 
 You create a fork of this repository so you can make changes and redeploy the code in a later step.
 
-**(Optional) About the sample:** The djangoapp sample contains the data-driven Django polls app you get by following [Writing your first Django app](https://docs.djangoproject.com/en/2.1/intro/tutorial01/) in the Django documentation. The sample is also modified using the [Django deployment checklist](https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/) to run in a production environment like Azure App Service. (These changes are for any production environment and aren't specific to Azure.)
+**(Optional) About the sample:** The djangoapp sample contains the data-driven Django polls app you get by following [Writing your first Django app](https://docs.djangoproject.com/en/3.2/intro/tutorial01/) in the Django documentation. The sample is also modified using the [Django deployment checklist](https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/) to run in a production environment like Azure App Service. (These changes are for any production environment and aren't specific to Azure.)
 
 - Production settings are in the *azuresite/production.py* file. Development details are in *azuresite/settings.py*.
 - The app uses production settings when the `WEBSITE_HOSTNAME` environment variable is set. Azure App Service automatically sets this variable to the URL of the web app, such as `msdocs-django.azurewebsites.net`.

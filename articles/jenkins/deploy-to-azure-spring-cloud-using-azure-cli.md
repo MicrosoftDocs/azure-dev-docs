@@ -200,8 +200,8 @@ The sample pipeline uses Maven to build and Az CLI to deploy to the service inst
                az account set -s $AZURE_SUBSCRIPTION_ID
              '''  
              // Set default resource group name and service name. Replace <resource group name> and <service name> with the right values
-             sh 'az configure --defaults group=<resource group name>'
-             sh 'az configure --defaults spring-cloud=<service name>'
+             sh 'az config set defaults.group=<resource group name>'
+             sh 'az config set defaults.spring-cloud=<service name>'
              // Deploy applications
              sh 'az spring-cloud app deploy -n gateway --jar-path ./gateway/target/gateway.jar'
              sh 'az spring-cloud app deploy -n account-service --jar-path ./account-service/target/account-service.jar'
