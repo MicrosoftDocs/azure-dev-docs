@@ -39,8 +39,8 @@ The following procedure creates and configures a Cosmos account in the Azure por
 1. Select **Create a resource**, then **Get started**, and then select **Azure Cosmos DB**.
     
    >[!div class="mx-imgBorder"]
-   >![Create an Azure Cosmos DB account][COSMOSDB01]
-   >![Specify your Cosmos DB account settings][COSMOSDB02]
+   >![Create an Azure Cosmos DB account, step one.][COSMOSDB01]
+   >![Create an Azure Cosmos DB account, step two.][COSMOSDB02]
    
 1. Specify the following information:
 
