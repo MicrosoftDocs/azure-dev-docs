@@ -5,6 +5,7 @@ author: yevster
 ms.author: yebronsh
 ms.topic: conceptual
 ms.date: 6/16/2020
+recommendations: false
 ---
 
 # Migrate a Tomcat application to Azure Spring Cloud

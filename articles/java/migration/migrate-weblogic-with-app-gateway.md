@@ -5,6 +5,7 @@ author: edburns
 ms.author: edburns
 ms.topic: how-to
 ms.date: 04/28/2021
+recommendations: false
 ---
 
 # Tutorial: Migrate a WebLogic Server cluster to Azure with Azure Application Gateway as a load balancer

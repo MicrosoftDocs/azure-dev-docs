@@ -6,6 +6,7 @@ ms.author: yebronsh
 ms.topic: conceptual
 ms.date: 1/20/2020
 ms.custom: devx-track-java
+recommendations: false
 ---
 
 # Migrate Java applications to Azure
