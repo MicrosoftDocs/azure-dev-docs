@@ -35,8 +35,8 @@ The following prerequisites are required in order to complete the steps in this 
 
 1. Click **Create a resource**, then **Databases**, and then click **Azure Cosmos DB**.
 
-   ![Create an Azure Cosmos DB account][COSMOSDB01]
-   ![Specify your Cosmos DB account settings][COSMOSDB02]
+   ![Search Azure cosmos DB in the Azure portal.][COSMOSDB01]
+   ![Selecting Azure cosmos DB API for MongoDB, create a resource.][COSMOSDB02]
    
 
 1. Specify the following information:
