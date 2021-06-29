@@ -52,22 +52,115 @@ You should have collected the following information from the [previous article i
 * Client secret
 * App ID URI
 
-1. Open the React file, `./src/authConfig.js`. and set the following values:
+1. Create a React environment settings file, `./.env`, for local development and add the following fields to it:
 
-    |Property|Value|Description|
-    |--|--|--|
-    |msalConfig.auth.clientId|Application (client) ID|Enter value as string.|
-    |msalconfig.auth.redirectUri|"http://localhost:3000"|
-    |msalconfig.auth.postLogoutRedirectUri|"http://localhost:3000"|    
-    |functionApi.scopes|`https://<App ID URI>/access_as_user`|Enter value as part of the URI, `<App ID URI>`.|
+    ```text
+    REACT_APP_AAD_APP_CLIENT_ID=
+    REACT_APP_AAD_APP_TENANT_ID=
+    REACT_APP_AAD_APP_REDIRECT_URI=    
+    REACT_APP_AAD_APP_FUNCTION_SCOPE_URI=
+    ```
+
+1. Set the following values:
+
+    |Property|Value|
+    |--|--|
+    |REACT_APP_AAD_APP_CLIENT_ID|Application (client) ID|
+    |REACT_APP_AAD_APP_TENANT_ID|Directory (tenant) ID|
+    |REACT_APP_AAD_APP_REDIRECT_URI|http://localhost:3000|
+    |REACT_APP_AAD_APP_FUNCTION_SCOPE_URI|App ID URI|
 
 1. Open the Function API file, `./api/local.settings.json`, and set the following values:
 
     |Property|Value|Description|
     |--|--|--|
-    |CLIENT_ID|Application (client) ID|Enter value as string.|
-    |CLIENT_SECRET|Client secret|Enter value as string.|
-    |TENANT_INFO|Directory (tenant) ID|Enter value as string.|
+    |CLIENT_ID|Application (client) ID|Enter value as string, in quotes.|
+    |CLIENT_SECRET|Client secret|Enter value as string, in quotes.|
+    |TENANT_INFO|Directory (tenant) ID|Enter value as string, in quotes|
+
+1. Replace the `./src/authConfig.js` file with the following code to use the `./.env` file. 
+
+    ```javascript
+    /*
+    * Copyright (c) Microsoft Corporation. All rights reserved.
+    * Licensed under the MIT License.
+    */
+
+    import { LogLevel } from "@azure/msal-browser";
+
+    /**
+     * Configuration object to be passed to MSAL instance on creation. 
+     * For a full list of MSAL.js configuration parameters, visit:
+     * https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser/docs/configuration.md 
+     */
+    export const msalConfig = {
+        auth: {
+            clientId:  `${process.env[REACT_APP_AAD_APP_CLIENT_ID]}`, // This is the ONLY mandatory field that you need to supply.
+            authority: `https://login.microsoftonline.com/${process.env[REACT_APP_AAD_APP_TENANT_ID]}`, // Defaults to "https://login.microsoftonline.com/common"
+            redirectUri: `${process.env[REACT_APP_AAD_APP_REDIRECT_URI]}`, // You must register this URI on Azure Portal/App Registration. Defaults to window.location.origin
+            postLogoutRedirectUri: `${process.env[REACT_APP_AAD_APP_REDIRECT_URI]}`, // Indicates the page to navigate after logout.
+            navigateToLoginRequestUrl: false, // If "true", will navigate back to the original request location before processing the auth code response.
+        },
+        cache: {
+            cacheLocation: "sessionStorage", // Configures cache location. "sessionStorage" is more secure, but "localStorage" gives you SSO between tabs.
+            storeAuthStateInCookie: false, // Set this to "true" if you are having issues on IE11 or Edge
+        },
+        system: {
+            loggerOptions: {
+                loggerCallback: (level, message, containsPii) => {
+                    if (containsPii) {
+                        return;
+                    }
+                    switch (level) {
+                        case LogLevel.Error:
+                            console.error(message);
+                            return;
+                        case LogLevel.Info:
+                            console.info(message);
+                            return;
+                        case LogLevel.Verbose:
+                            console.debug(message);
+                            return;
+                        case LogLevel.Warning:
+                            console.warn(message);
+                            return;
+                    }
+                }
+            }
+        }
+    };
+
+    /**
+     * Scopes you add here will be prompted for user consent during sign-in.
+     * By default, MSAL.js will add OIDC scopes (openid, profile, email) to any login request.
+     * For more information about OIDC scopes, visit: 
+     * https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-permissions-and-consent#openid-connect-scopes
+     */
+    export const loginRequest = {
+        scopes: []
+    };
+
+    /**
+     * Add here the endpoints and scopes when obtaining an access token for protected web APIs. For more information, see:
+     * https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser/docs/resources-and-scopes.md
+     */
+    export const protectedResources = {
+        graphMe: {
+            endpoint: "https://graph.microsoft.com/v1.0/me",
+            scopes: ["User.Read"],
+        },
+        functionApi: {
+            endpoint: "/api/hello",
+            scopes: [`${process.env[REACT_APP_AAD_APP_FUNCTION_SCOPE_URI]}/access_as_user`], // e.g. api://xxxxxx/access_as_user
+        }
+    }
+    ```
+
+    It is important that all environment settings used in the build of the static web site are switched from hard-code strings to environment variables so that the GitHub action can add those settings to the build as part of the deployment process to Azure. 
+    
+    If you leave secrets in the source code, you:
+    * leak secrets into your code repository
+    * require a new PR to change them in the deployed site
 
 ## Configure local proxy
 
