@@ -28,16 +28,17 @@ The following prerequisites are required in order to complete the steps in this 
 ### Create a Cosmos DB account using the Azure portal
 
 > [!NOTE]
-> 
 > You can read more detailed information about creating Azure Cosmos DB accounts in [Azure Cosmos DB Documentation](/azure/cosmos-db/).
 
 1. Browse to the Azure portal at <https://portal.azure.com/> and sign in.
 
-1. Click **Create a resource**, then **Databases**, and then click **Azure Cosmos DB**.
+1. Select **Create a resource**, then **Databases**, then **Azure Cosmos DB**.
 
-   ![Search Azure cosmos DB in the Azure portal.][COSMOSDB01]
-   ![Selecting Azure cosmos DB API for MongoDB, create a resource.][COSMOSDB02]
-   
+   ![Azure portal, create a resource, search for Azure Cosmos DB.][COSMOSDB01]
+
+1. On the **Select API option** screen, select **Azure CosmosDB API for MongoDB**.
+
+   ![Azure portal, create a resource, select API option, Azure Cosmos DB API for MongoDB selected.][COSMOSDB02]
 
 1. Specify the following information:
 
@@ -46,12 +47,12 @@ The following prerequisites are required in order to complete the steps in this 
    - **Account name**: Choose a unique name for your Cosmos DB account; this will be used to create a fully-qualified domain name like *wingtiptoysmongodb.documents.azure.com*.
    - **API**: Specify `Azure Cosmos DB for MongoDB API` for this tutorial.
    - **Location**: Specify the closest geographic region for your database.
-   
+
 1. When you have entered all of the above information, click **Review + create**.
 
 1. If everything looks correct on the review page, click **Create**.
 
-   ![Review your Cosmos DB account settings][COSMOSDB03]
+   ![Review your Cosmos DB account settings.][COSMOSDB03]
 
 ### Retrieve the connection string for your Azure Cosmos DB account
 
@@ -61,7 +62,7 @@ The following prerequisites are required in order to complete the steps in this 
 
 1. Click **Connection strings**, and copy the value for the **Primary Connection String** field; you will use that value to configure your application later.
 
-   ![Retrieve your Cosmos DB connection string][COSMOSDB06]
+   ![Retrieve your Cosmos DB connection string.][COSMOSDB06]
 
 ## Configure the sample application
 
@@ -79,6 +80,7 @@ The following prerequisites are required in order to complete the steps in this 
    spring.data.mongodb.database=wingtiptoysmongodb
    spring.data.mongodb.uri=mongodb://wingtiptoysmongodb:AbCdEfGhIjKlMnOpQrStUvWxYz==@wingtiptoysmongodb.documents.azure.com:10255/?ssl=true&replicaSet=globaldb
    ```
+
    Where:
 
    | Parameter | Description |
@@ -103,7 +105,7 @@ To build the application, browse to the directory */gs-accessing-data-mongodb/co
    ```shell
    java -jar target/accessing-data-mongodb-0.0.1-SNAPSHOT.jar
    ```
-    
+
    Your application should return values like the following:
 
    ```json

@@ -30,8 +30,11 @@ This article demonstrates creating an Azure Cosmos DB using the Azure portal, th
 
 1. Select **Databases**, and then select **Azure Cosmos DB**.
 
-    ![Search Azure Cosmos DB in the Azure portal.][AZ02]
-    ![Selecting Core(SQL), create a resource.][AZ02-01]
+    ![Azure portal, create a resource, search for Azure Cosmos DB.][AZ02]
+
+1. On the **Select API option** screen, select **Core (SQL)**.
+
+   ![Azure portal, create a resource, select API option, Core (SQL) selected.][AZ02-01]
 
 1. On the **Azure Cosmos DB** page, enter the following information:
 
@@ -43,13 +46,13 @@ This article demonstrates creating an Azure Cosmos DB using the Azure portal, th
 
     When you have specified these options, select **Review + create**, review your specifications, and select **Create**.
 
-    ![Select Review + Create to proceed.][AZ03]
+    ![Azure portal, Azure Cosmos DB, create Azure Cosmos DB account - Core (SQL).][AZ03]
 
 1. When your database has been created, it is listed on your Azure **Dashboard**, and under the **All Resources** and **Azure Cosmos DB** pages. You can select your database for any of those locations to open the properties page for your cache.
 
 1. When the properties page for your database is displayed, select **Keys** and copy your URI and access keys for your database; you will use these values in your Spring Boot application.
 
-    ![Copy the URI and access keys in the Keys section.][AZ05]
+    ![Azure portal, Azure Cosmos DB account, keys section.][AZ05]
 
 ## Create a Spring Boot application with the Spring Initializr
 
