@@ -702,11 +702,14 @@ getSigningKeys = async (header) => {
 1. Go to the **Data Explorer** select the **test** catalog, then select the **users**. 
 1. Select the **id** to see the user document is shown in the list.
 
+    :::image type="content" source="../../../media/how-to-with-authentication-static-web-app-msal/azure-portal-cosmosdb-data-explorer-document-values.png" alt-text="A screenshot of the Azure portal for a Cosmos DB resource's Data Explorer, showing the values of the user's document in the test catalog.":::
+
 ## Design questions and issues
 
 |Question|Answer|
 |--|--|
 |Why didn't you create a virtual network to secure the database?|This was a design decision to secure the database with the least amount of effort for this short-lived article series. If you plan to keep these resources for a longer duration, moving to a [virtual network](/azure/virtual-network/virtual-networks-overview) is the suggested security choice.| 
+|Why is the catalog named **test**?|The Cosmos DB connection string didn't name a catalog so it used the default catalog name. If you would prefer to name a different catalog, add that to the connection string after the port number. For example, if you want the catalog name to be `msal-sample`, the connection string section might look like `mongodb://YOUR-RESOURCE-NAME:...:10255/msal-sample?ssl=true&replicaSet=globaldb&retrywrites=false&maxIdleTimeMS=120000&appName=YOUR-RESOURCE-NAME`|
 
 ## Troubleshooting
 
