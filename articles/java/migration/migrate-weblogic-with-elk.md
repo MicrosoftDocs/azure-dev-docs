@@ -5,6 +5,7 @@ author: edburns
 ms.author: edburns
 ms.topic: tutorial
 ms.date: 04/28/2021
+recommendations: false
 ---
 
 # Tutorial: Migrate a WebLogic Server cluster to Azure with Elastic on Azure as the logging solution

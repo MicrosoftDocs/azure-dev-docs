@@ -6,6 +6,7 @@ ms.author: yebronsh
 ms.topic: conceptual
 ms.date: 2/12/2020
 ms.custom: devx-track-java
+recommendations: false
 ---
 
 # Migrate Spring Cloud applications to Azure Spring Cloud

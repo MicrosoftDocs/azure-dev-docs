@@ -6,6 +6,7 @@ ms.author: yebronsh
 ms.topic: conceptual
 ms.date: 1/20/2020
 ms.custom: devx-track-java, devx-track-azurecli
+recommendations: false
 ---
 
 # Migrate Tomcat applications to containers on Azure Kubernetes Service
