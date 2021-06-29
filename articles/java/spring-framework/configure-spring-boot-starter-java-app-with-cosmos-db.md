@@ -30,7 +30,7 @@ This article demonstrates creating an Azure Cosmos DB using the Azure portal, th
 
 1. Select **Databases**, and then select **Azure Cosmos DB**.
 
-    ![Azure portal, create a resource, search for Azure Cosmos DB.][AZ02]
+   ![Azure portal, create a resource, search for Azure Cosmos DB.][AZ02]
 
 1. On the **Select API option** screen, select **Core (SQL)**.
 
