@@ -11,13 +11,15 @@ ms.custom: devx-track-java
 
 You can use any JDK to build Java applications for Azure. This article will help you get started with the Azul Zulu build of OpenJDK for Azure.
 
+> [!IMPORTANT]
+> **Update June 30th, 2021:** Zulu for Azure will no longer receive updates or support starting January 1st, 2022. For more information, see [End of Updates, Support and Availability of the Zulu for Azure builds of OpenJDK](https://devblogs.microsoft.com/java/end-of-updates-support-and-availability-of-zulu-for-azure/).
+
 The Azul Zulu builds are a no-cost, multi-platform, production-ready distribution of the OpenJDK that you can use for developing Java applications for Azure and Azure Stack. They contain all the components for building and running Java SE applications.
 
 There are [multiple download package types supported for each client OS](https://www.azul.com/downloads/azure-only/).
 
 > [!NOTE]
 > The following instructions target the 64-bit Java 11 version of the JDK.
->
 
 ## Windows and macOS
 
