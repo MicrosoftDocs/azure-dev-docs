@@ -11,7 +11,7 @@ ms.custom: devx-track-js
 
 In this article, learn to add a MongoDB database to the Static web app's API. Up to this point, the user information came from the Microsoft Identity platform using the MSAL.js libraries, or from Microsoft Graph. This article adds a common step of storing user information custom to the web app, that shouldn't be stored in the Identity account. 
 
-To store this web app data, specific to a user, create a CosmosDB for the MongoDB API, and use that database with the mongoose.js npm package.  
+To store this web app data, specific to a user, create a CosmosDB for the MongoDB API resource, and use that database with the [mongoose.js](https://mongoosejs.com/) npm package. All the code required to complete this step is provided in this article. 
 
 ## Create the CosmosDB resource for the MongoDB API
 
@@ -30,7 +30,7 @@ Use the VS Code extension, Azure Databases, to create the CosmosDB.
     |Account name|Enter an account name, which will become part of the connection string, such as `cosmosdb-mongodb-api-YOUR-ALIAS`, replacing `YOUR-ALIAS` with your email or company alias. |
     |Select a capacity model.|For this simple, low-use tutorial, select **Serverless** [throughput](/azure/cosmos-db/throughput-serverless)|
     |Select a resource group for new resources.|Create a new resource group.|
-    |Enter the name of the new resource group.|Accept the default value.| 
+    |Enter the name of the new resource group.|Accept the default value, which is the same as the account name you entered.| 
     |Select a location for new resources.|Select a location in your geographical area.|
 
 ## Secure database by limiting firewall access
@@ -44,7 +44,7 @@ Use the VS Code extension, Azure Databases, to create the CosmosDB.
 
 1. Select **Save**. Your database is now only accessible to your workstation. 
 
-    You can leave the browser open to the database resource. When you add database to your database, use the **Data Explorer** to see that data. 
+    You can leave the browser open to the database resource. When you add data to your database, use the **Data Explorer** to see that data. 
 
 
 ## React client: Add page and form for new user input
@@ -77,22 +77,29 @@ export const FavoriteColor = ({ accessToken, endpoint, user, changeFunctionData 
     const onFormSubmit = async (event) => {
         event.preventDefault();
         console.log('An color was submitted: ' + color);
-        updateUserOnServer().then(response => setUserData(response)).catch(error => console.log(error));
+        updateUserOnServer().then(response => setColor(response)).catch(error => console.log(error));
     }
 
     return (
-        <>
+        <> { user && 
             <center>
+                <hr></hr>
+                <h2>Your favorite Color?</h2>
                 <form onSubmit={onFormSubmit}>
-                    <input type="text" value={color} onChange={onColorChange} name="favoriteColor" placeholder="fav color?" />
+                    <input type="text" value={color} onChange={onColorChange} name="favoriteColor" />
                     <input type="submit" value="Submit" />
                 </form>
+                
             </center>
+            }
         </>
     );
 }
-
 ```
+
+This is the form to capture the user's favorite color.
+
+:::image type="content" source="../../../media/how-to-with-authentication-static-web-app-msal/msal-react-function-api-microsoft-graph-function-api-page-fav-color-form.png" alt-text="A partial browser screenshot displaying the form to capture a user's favorite color.":::
 
 ## React client: Add FavoriteColor component to Function component
 
@@ -102,8 +109,10 @@ Add the FavoriteColor component to the Function component and hold the accessTok
 
 ```javascript
 import { useEffect, useState } from "react";
+
 import { MsalAuthenticationTemplate, useMsal, useAccount } from "@azure/msal-react";
 import { InteractionRequiredAuthError, InteractionType } from "@azure/msal-browser";
+
 import { loginRequest, protectedResources } from "../authConfig";
 import { callOwnApiWithToken } from "../fetch";
 import { FunctionData } from "../components/DataDisplay";
@@ -127,7 +136,6 @@ const FunctionContent = () => {
                 scopes: protectedResources.functionApi.scopes,
                 account: account
             }).then((response) => {
-
                 setAccessToken(response.accessToken);
                 callOwnApiWithToken(response.accessToken, protectedResources.functionApi.endpoint)
                     .then(response => setFunctionData(response));
@@ -155,16 +163,18 @@ const FunctionContent = () => {
     return (
         <>
             { functionData ? <FunctionData functionData={functionData} /> : null }
-
-            <FavoriteColor 
-            changeFunctionData={changeFunctionData} 
-            accessToken={accessToken} 
-            user={(functionData && functionData.response)? functionData.response: null} 
-            endpoint={protectedResources.functionApi.endpoint}
-            />
+            <FavoriteColor changeFunctionData={changeFunctionData} accessToken={accessToken} user={(functionData && functionData.response)? functionData.response: null} endpoint={protectedResources.functionApi.endpoint}/>
         </>
     );
 };
+
+/**
+ * The `MsalAuthenticationTemplate` component will render its children if a user is authenticated 
+ * or attempt to sign a user in. Just provide it with the interaction type you would like to use 
+ * (redirect or popup) and optionally a [request object](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser/docs/request-response-object.md)
+ * to be passed to the login API, a component to display while authentication is in progress or a component to display if an error occurs. For more, visit:
+ * https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-react/docs/getting-started.md
+ */
 export const Function = () => {
     const authRequest = {
         ...loginRequest
@@ -180,6 +190,10 @@ export const Function = () => {
       )
 };
 ```
+
+The favorite color form displays under the access token information from the Function API.
+
+:::image type="content" source="../../../media/how-to-with-authentication-static-web-app-msal/msal-react-function-api-microsoft-graph-with-form.png" alt-text="A browser screenshot displaying the Function API response and the user's favorite color form.":::
 
 ## React client: Add new fetch method with favoriteColor
 
@@ -337,7 +351,7 @@ The sample uses the mongoose npm package and the required schema and utility met
     module.exports = User;
     ```
 
-1. Create a new file in the `API` directory named `user.service.js` and copy the following code into it. This file provides functionality the Function API's `index.js` calls to connect to the Cosmos DB with the mongoose SDK.
+1. Create a new file in the `API` directory named `user.service.js` and copy the following code into it. This file provides functionality for the Function API's `index.js` calls to connect to the Cosmos DB with the mongoose SDK.
 
     ```javascript
     const mongoose = require('mongoose');
@@ -661,7 +675,6 @@ getSigningKeys = async (header) => {
 
 ## Run the React client and Function API locally
 
-1. Add a proxy to the React app to proxy to the Function API. Open the file, `./package.json` and add `"proxy": "http://localhost:7071",` just under the version property. 
 1. Open an integrated terminal and run the React app with the following command:
    
    ```bash
