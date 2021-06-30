@@ -2,7 +2,7 @@
 title: "What's new for JavaScript docs"
 description: "What's new in JavaScript docs in the Developer Center"
 ms.topic: conceptual
-ms.date: 05/13/2021
+ms.date: 06/30/2021
 
 
 ---
@@ -13,12 +13,12 @@ Find new and updated content for JavaScript and TypeScript developers.
 
 ## 2021 June 
 
-
 ### New in June
 
 |Name|Description|
 |---------------------------------------|--|
 |[Getting started with authentication on Azure](./how-to/with-authentication/getting-started.md)|The Microsoft identity platform allows a JavaScript developer to authenticate and authorize user identity in your browser, server, or serverless application. |
+|[How to authenticate users with (MSAL for React static web app)](./how-to/with-authentication/static-web-app-with-api/introduction.md)|In this article series, learn how to authenticate users with the Microsoft Authentication Library for React (MSAL React) and call an Azure service on behalf of the user.|
 
 ## 2021 May 
 
