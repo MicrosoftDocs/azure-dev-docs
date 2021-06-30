@@ -21,6 +21,7 @@ Use the [JavaScript Community Hub](/javascript) to see more from the community.
 * [Beginner's Series to: JavaScript](https://channel9.msdn.com/Series/Beginners-Series-to-JavaScript)
 * [Awesome Azure Static web apps](https://github.com/staticwebdev/awesome-azure-static-web-apps) - GitHub repo
 * [Static Web Apps Code to Scale](https://aka.ms/SWAConfOnDemand)
+* [Azure Tips and Tricks: Static Web Apps](https://aka.ms/StaticWebAppsTips)
 
 ## 2021 June 
 
