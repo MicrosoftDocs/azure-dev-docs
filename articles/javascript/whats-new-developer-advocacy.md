@@ -33,7 +33,7 @@ Use the [JavaScript Community Hub](/javascript) to see more from the community.
 - [Azure Static Web Apps CLI](https://www.youtube.com/watch?v=0L2XS6INmwE) - YouTube video - Tartine & Tech - in **French** - Wassim Chegham
 - [How do I debug API REST Node.js App in VS Code?!](https://youtu.be/Lb20EoDja50) - YouTube video - in **Portuguese** - Glaucia Lemos
 - [SUPERCHARGING A WEB DEVS TOOLBOX](https://www.aaron-powell.com/posts/2021-06-03-supercharging-a-web-devs-toolbox/) - Microsoft Reactor Video - Aaron Powell
-- [Build a simple website using HTML, CSS, and JavaScript](https://docs.microsoft.com/en-us/learn/modules/build-simple-website/) - Microsoft Learn module - David Smith
+- [Build a simple website using HTML, CSS, and JavaScript](/learn/modules/build-simple-website/) - Microsoft Learn module - David Smith
 
 ## 2021 May
 
