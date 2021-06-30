@@ -34,7 +34,6 @@ Generate the application on the command line by using the following command:
 curl https://start.spring.io/starter.tgz -d dependencies=webflux,data-r2dbc -d baseDir=azure-database-workshop -d bootVersion=2.3.4.RELEASE -d javaVersion=8 | tar -xzvf -
 ```
 
-
 ### Add the reactive PostgreSQL driver implementation
 
 Open the generated project's *pom.xml* file, and then add the reactive PostgreSQL driver from the [r2dbc-postgresql repository on GitHub](https://github.com/pgjdbc/r2dbc-postgresql). After the `spring-boot-starter-webflux` dependency, add the following text:

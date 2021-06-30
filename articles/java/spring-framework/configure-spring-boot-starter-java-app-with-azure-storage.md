@@ -35,7 +35,7 @@ The following procedure creates an Azure storage account and container in the po
 
 1. Select **Create a resource**, then **Get started**, and then select **Storage Account**.
 
-   ![Create Azure Storage Account][IMG01]
+   ![Azure portal, create a resource, search for storage accounts.][IMG01]
 
 1. On the **Create storage account** page, enter the following information:
 
@@ -44,6 +44,9 @@ The following procedure creates an Azure storage account and container in the po
    * Enter a unique **Storage account name**, which will become part of the URI for your storage account. For example: if you entered **wingtiptoysstorage** for the **Name**, the URI would be *wingtiptoysstorage.core.windows.net*.
    * Specify the **Location** for your storage account.
 1. When you have specified the options listed above, select **Review + create**.
+
+   ![Azure portal, create a storage account.][IMG01-01]
+
 1. Review the specification, then select **Create** to create your storage account.
 1. When the deployment is complete, select **Go to resource**.
 1. Select **Containers**.
@@ -51,7 +54,7 @@ The following procedure creates an Azure storage account and container in the po
    * Name the container.
    * Select *Blob* from the drop-down list.
 
-   ![Create blob container][IMG02]
+   ![Azure portal, storage account, containers, new container pane.][IMG02]
 
 1. The Azure portal will list your blob container after is has been created.
 
@@ -135,7 +138,7 @@ The following procedure configures the Spring boot application to use Azure stor
    <dependency>
       <groupId>com.azure.spring</groupId>
       <artifactId>azure-spring-boot-starter-storage</artifactId>
-      <version>3.4.0</version>
+      <version>3.5.0</version>
    </dependency>
    ```
 
@@ -298,6 +301,7 @@ For detailed information about additional Azure storage APIs that you can call f
 <!-- IMG List -->
 
 [IMG01]: media/configure-spring-boot-starter-java-app-with-azure-storage/create-storage-account-01.png
+[IMG01-01]: media/configure-spring-boot-starter-java-app-with-azure-storage/create-storage-account-01-01.png
 [IMG02]: media/configure-spring-boot-starter-java-app-with-azure-storage/create-storage-account-02.png
 
 [SI01]: media/configure-spring-boot-starter-java-app-with-azure-storage/create-project-01.png
