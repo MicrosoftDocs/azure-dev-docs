@@ -34,7 +34,6 @@ Generate the application on the command line by running the following command:
 curl https://start.spring.io/starter.tgz -d dependencies=webflux,data-r2dbc -d baseDir=azure-database-workshop -d bootVersion=2.3.4.RELEASE -d javaVersion=8 | tar -xzvf -
 ```
 
-
 ### Add the reactive Azure SQL Database driver implementation
 
 Open the generated project's *pom.xml* file to add the reactive Azure SQL Database driver from the [r2dbc-mssql GitHub repository](https://github.com/r2dbc/r2dbc-mssql).
