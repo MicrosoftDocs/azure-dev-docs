@@ -29,7 +29,7 @@ Use the [JavaScript Community Hub](/javascript) to see more from the community.
 * [How to create your personal blog with Gatsby and SWA](https://www.youtube.com/watch?v=IZbcpUIke8s&list=PLlrxD0HtieHgMPeBaDQFx9yNuFxx6S1VG&index=6) - YouTube video - Yohan Lasorsa
 * [A clean dev env, working every time, everywhere](https://www.youtube.com/watch?v=vVX7LMCBnwA) - YouTube video and [URL list](https://www.theurlist.com/clean-dev) - Yohan Lasorsa
 * [Angular, PWA and SWA](https://aka.ms/spwa) - Yohan Lasorsa
-* [Starting with ES Modules](https://blog.lsantos.dev/os-ecmascript-modules-estao-aqui/) - blog - Lucas Santos - in **Spanish**
+* [Starting with ES Modules](https://blog.lsantos.dev/os-ecmascript-modules-estao-aqui/) - blog - Lucas Santos - in **Portuguese**
 * [The subtle art of being a developer advocate](https://m.twitch.tv/videos/1049691152) - twitch - Wassim Chegham 
 * [Type-safe GraphQL with TypeScript](https://github.com/aaronpowell/graphql-code-generator-sample) - GitHub - Aaron Powell
 * [Azure Static Web Apps CLI](https://www.youtube.com/watch?v=0L2XS6INmwE) - YouTube video - Tartine & Tech - in **French** - Wassim Chegham
