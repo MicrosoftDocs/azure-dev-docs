@@ -31,7 +31,7 @@ In this tutorial, you learn how to:
 ## Prerequisites
 
 * An Azure subscription. If you don't already have one, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-* A supported Java Development Kit (JDK). For more information about the JDKs available for use when developing on Azure, see <https://aka.ms/azure-jdks>.
+* A supported Java Development Kit (JDK). For more information about the JDKs available for use when developing on Azure, see [Java support on Azure and Azure Stack](/azure/developer/java/fundamentals/java-support-on-azure).
 * [Apache Maven](http://maven.apache.org/), version 3.0 or later.
 
 ## Create an app using Spring Initializr

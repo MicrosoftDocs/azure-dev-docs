@@ -22,7 +22,7 @@ This article demonstrates creating an Azure Cosmos DB using the Azure portal, th
 ## Prerequisites
 
 * An Azure subscription; if you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits] or sign up for a [free Azure account].
-* A supported Java Development Kit (JDK). For more information about the JDKs available for use when developing on Azure, see <https://aka.ms/azure-jdks>.
+* A supported Java Development Kit (JDK). For more information about the JDKs available for use when developing on Azure, see [Java support on Azure and Azure Stack](/azure/developer/java/fundamentals/java-support-on-azure).
 
 ## Create an Azure Cosmos DB by using the Azure portal
 

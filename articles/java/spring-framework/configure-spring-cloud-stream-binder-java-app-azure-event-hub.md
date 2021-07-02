@@ -17,7 +17,7 @@ This article demonstrates how to configure a Java-based Spring Cloud Stream Bind
 ## Prerequisites
 
 * An Azure subscription; if you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits] or sign up for a [free Azure account].
-* A supported Java Development Kit (JDK). For more information about the JDKs available for use when developing on Azure, see <https://aka.ms/azure-jdks>.
+* A supported Java Development Kit (JDK). For more information about the JDKs available for use when developing on Azure, see [Java support on Azure and Azure Stack](/azure/developer/java/fundamentals/java-support-on-azure).
 * [Apache Maven](http://maven.apache.org/), version 3.0 or later.
 
 > [!IMPORTANT]
