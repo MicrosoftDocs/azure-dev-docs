@@ -26,17 +26,15 @@ In this tutorial, you'll learn how to use Azure storage to store remote Terrafor
 
 Before you use Azure Storage as a back end, you must create a storage account.
 
-<!-- azcli, powershell, terraform -->
-
 Run the following commands or configuration to create an Azure storage account and container:
 
 # [Azure CLI](#tab/azure-cli)
 ```azurecli-interactive
 #!/bin/bash
 
-RESOURCE_GROUP_NAME=tstate
-STORAGE_ACCOUNT_NAME=tstate$RANDOM
-CONTAINER_NAME=tstate
+RESOURCE_GROUP_NAME=tfstate
+STORAGE_ACCOUNT_NAME=tfstate$RANDOM
+CONTAINER_NAME=tfstate
 
 # Create resource group
 az group create --name $RESOURCE_GROUP_NAME --location eastus
@@ -45,15 +43,15 @@ az group create --name $RESOURCE_GROUP_NAME --location eastus
 az storage account create --resource-group $RESOURCE_GROUP_NAME --name $STORAGE_ACCOUNT_NAME --sku Standard_LRS --encryption-services blob
 
 # Create blob container
-az storage container create --name $CONTAINER_NAME --account-name $STORAGE_ACCOUNT_NAME --account-key $ACCOUNT_KEY
+az storage container create --name $CONTAINER_NAME --account-name $STORAGE_ACCOUNT_NAME
 ```
 
 # [PowerShell](#tab/powershell)
 
 ```powershell-interactive
-$RESOURCE_GROUP_NAME='tstate'
-$STORAGE_ACCOUNT_NAME="tstate$(Get-Random)"
-$CONTAINER_NAME='tstate'
+$RESOURCE_GROUP_NAME='tfstate'
+$STORAGE_ACCOUNT_NAME="tfstate$(Get-Random)"
+$CONTAINER_NAME='tfstate'
 
 # Create resource group
 New-AzResourceGroup -Name $RESOURCE_GROUP_NAME -Location eastus
@@ -87,15 +85,15 @@ resource "random_string" "resource_code" {
   upper   = false
 }
 
-resource "azurerm_resource_group" "tstate" {
+resource "azurerm_resource_group" "tfstate" {
   name     = "tfstate"
   location = "East US"
 }
 
-resource "azurerm_storage_account" "tstate" {
+resource "azurerm_storage_account" "tfstate" {
   name                     = "tfstate${random_string.resource_code.result}"
-  resource_group_name      = azurerm_resource_group.tstate.name
-  location                 = azurerm_resource_group.tstate.location
+  resource_group_name      = azurerm_resource_group.tfstate.name
+  location                 = azurerm_resource_group.tfstate.location
   account_tier             = "Standard"
   account_replication_type = "LRS"
   allow_blob_public_access = true
@@ -105,9 +103,9 @@ resource "azurerm_storage_account" "tstate" {
   }
 }
 
-resource "azurerm_storage_container" "tstate" {
-  name                  = "tstate"
-  storage_account_name  = azurerm_storage_account.tstate.name
+resource "azurerm_storage_container" "tfstate" {
+  name                  = "tfstate"
+  storage_account_name  = azurerm_storage_account.tfstate.name
   container_access_type = "blob"
 }
 ```
@@ -117,6 +115,10 @@ Save the configuration as `create-remote-stroage.tf`.
 Run the command `terraform init`, then `terraform apply` to configure the Azure storage account and container.
 
 ---
+
+**Key points:**
+* Public access is allowed to Azure storage account for storing Terraform state.
+* Azure storage accounts require a globally unique name. To learn more about troubleshooting storage account names, see [Resolve errors for storage account names](/azure/azure-resource-manager/templates/error-storage-account-name).
 
 ## Configure terraform backend state
 
@@ -159,9 +161,9 @@ Create a Terraform configuration with a `backend` configuration block.
 ```hcl
 terraform {
   backend "azurerm" {
-    resource_group_name   = "tstate"
+    resource_group_name   = "tfstate"
     storage_account_name  = "<storage_account_name>"
-    container_name        = "tstate"
+    container_name        = "tfstate"
     key                   = "terraform.tfstate"
   }
 }
