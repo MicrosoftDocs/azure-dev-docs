@@ -1,19 +1,45 @@
 ---
-title: 'Tutorial: Deploy a Django app with PostgreSQL Flexible Server using the Azure portal'
-description: Provision a web app and PostgreSQL Flexible Server database on Azure and deploy app code from GitHub.
+title: 'Tutorial: Deploy a Django app with PostgreSQL using the Azure portal'
+description: Provision a web app and PostgreSQL database on Azure and deploy app code from GitHub.
 ms.devlang: python
 ms.topic: tutorial
-ms.date: 06/25/2021
+ms.date: 07/02/2021
 ms.custom: devx-track-python
+zone_pivot_groups: postgres-server-options
 ---
 
-# Tutorial: Deploy a Django web app with PostgreSQL Flexible Server using the Azure portal
+# Tutorial: Deploy a Django web app with PostgreSQL using the Azure portal
 
-Using the Azure portal, you can deploy a data-driven Python [Django](https://www.djangoproject.com/) web app to [Azure App Service](/azure/app-service/overview#app-service-on-linux) and connect it to an [Azure Database for PostgreSQL Flexible Server](/azure/postgresql/flexible-server) database. You can start with a free pricing tier that can be scaled up at any later time.
+::: zone pivot="postgres-single-server"
+
+Using the Azure portal, you can deploy a data-driven Python [Django](https://www.djangoproject.com/) web app to [Azure App Service](/azure/app-service/overview#app-service-on-linux) and connect it to an [Azure Database for PostgreSQL](/azure/postgresql/) database. You can start with a free pricing tier that can be scaled up at any later time. You can also try the PostgresSQL Flexible Server (Preview) by selecting the option above. Flexible Server provides a simpler deployment mechanism and lower ongoing costs.
+
+::: zone-end
+
+::: zone pivot="postgres-flexible-server"
+
+Using the Azure portal, you can deploy a data-driven Python [Django](https://www.djangoproject.com/) web app to [Azure App Service](/azure/app-service/overview#app-service-on-linux) and connect it to an [Azure Database for PostgreSQL Flexible Server (Preview)](/azure/postgresql/flexible-server) database. You can start with a free pricing tier that can be scaled up at any later time. If you cannot use PostgreSQL Flexible Server (Preview), then select the Single Server option above.
+
+::: zone-end
 
 The web app code in this case comes from a GitHub repository, and you configure the web app for continuous deployment from GitHub. Once configured, you can do further development on your local computer and commit changes to the repository. The web app on Azure then deploys those changes automatically.
 
 In this tutorial, you use the Azure portal to complete the following tasks:
+
+::: zone pivot="postgres-single-server"
+
+> [!div class="checklist"]
+> - Provision a web app in Azure that deploys from a GitHub repo
+> - Provision a PostgreSQL server and database in Azure and connect it to the web app.
+> - Update your code and commit changes to automatically redeploy from GitHub.
+> - View diagnostic logs
+> - Manage the web app in the Azure portal
+
+You can also use the **[Azure CLI-based version of this tutorial](/azure/app-service/tutorial-python-postgresql-app&pivots=postgres-single-server)**.
+
+::: zone-end
+
+::: zone pivot="postgres-flexible-server"
 
 > [!div class="checklist"]
 > - Provision a web app in Azure that deploys from a GitHub repo.
@@ -22,7 +48,9 @@ In this tutorial, you use the Azure portal to complete the following tasks:
 > - View diagnostic logs.
 > - Manage the web app in the Azure portal.
 
-You can also use the **[Azure CLI-based version of this tutorial](/azure/app-service/tutorial-python-postgresql-app)**.
+You can also use the **[Azure CLI-based version of this tutorial](/azure/app-service/tutorial-python-postgresql-app&pivots=postgres-flexible-server)**.
+
+::: zone-end
 
 ## Fork the sample repository
 
@@ -30,12 +58,45 @@ In a browser, navigate to [https://github.com/Azure-Samples/djangoapp](https://g
 
 You create a fork of this repository so you can make changes and redeploy the code in a later step.
 
-**(Optional) About the sample:** The djangoapp sample contains the data-driven Django polls app you get by following [Writing your first Django app](https://docs.djangoproject.com/en/2.1/intro/tutorial01/) in the Django documentation. The sample is also modified using the [Django deployment checklist](https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/) to run in a production environment like Azure App Service. (These changes are for any production environment and aren't specific to Azure.)
+**(Optional) About the sample:** The djangoapp sample contains the data-driven Django polls app you get by following [Writing your first Django app](https://docs.djangoproject.com/en/3.2/intro/tutorial01/) in the Django documentation. The sample is also modified using the [Django deployment checklist](https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/) to run in a production environment like Azure App Service. (These changes are for any production environment and aren't specific to Azure.)
 
 - Production settings are in the *azuresite/production.py* file. Development details are in *azuresite/settings.py*.
 - The app uses production settings when the `WEBSITE_HOSTNAME` environment variable is set. Azure App Service automatically sets this variable to the URL of the web app, such as `msdocs-django.azurewebsites.net`.
 
 [Having issues? Let us know.](https://aka.ms/DjangoPortalTutorialHelp)
+
+::: zone pivot="postgres-single-server"
+
+## Provision the PostgreSQL database server in Azure
+
+1. Open the [Azure portal](https://portal.azure.com).
+
+1. Select **Create a resource**, which opens the **New** page.
+
+1. Search for and select **Azure Database for PostgreSQL**, then select **Create**.
+
+1. On the next page, select **Create** under **Single server**.
+
+1. On the **Single server** page, enter the following information:
+
+    | Field | Value |
+    | --- | --- |
+    | Subscription | Select the subscription you want to use if different from the default. |
+    | Resource group | Select **Create new** and enter "DjangoPostgres-Tutorial-rg". |
+    | Server name | A name for the database server that's unique across all Azure (the database server's URL becomes `https://<server-name>.postgres.database.azure.com`). Allowed characters are `A`-`Z`, `0`-`9`, and `-`. A good pattern is to use a combination of your company name and and server identifier. |
+    | Data source | **None** |
+    | Location | Select a location near you. |
+    | Version | Keep the default (which is the latest version). |
+    | Compute + Storage | Select **Configure server**, then select **Basic** and **Gen 5**. Set **vCore** to 1, set **Storage** to 5GB, then select **OK**. These choices provision the least expensive server available for PostgreSQL on Azure. You might also have credit in your Azure account that covers the cost of the server. |
+    | Admin username, Password, Confirm password | Enter credentials for an administrator account on the database server. Record these credentials as you'll need them later in this tutorial. Note: do not use the `$` character in the username or password. Later you create environment variables with these values where the `$` character has special meaning within the Linux container used to run Python apps. |
+
+1. Select **Review + Create**, then **Create**. Azure takes a few minutes to provision the web app.
+
+1. After provisioning is complete, select **Go to resource** to open the overview page for the database server.
+
+::: zone-end
+
+::: zone pivot="postgres-flexible-server"
 
 ## Provision the PostgreSQL Flexible Server database server in Azure
 
@@ -52,7 +113,7 @@ You create a fork of this repository so you can make changes and redeploy the co
     | Field | Value |
     | --- | --- |
     | Subscription | Select the subscription you want to use if different from the default. |
-    | Resource group | Select the "DjangoPostgres-Tutorial-rg" group you created in the previous section. |
+    | Resource group | Select **Create new** and enter "DjangoPostgres-Tutorial-rg". |
     | Server name | A name for the database server that's unique across all Azure (the database server's URL becomes `https://<server-name>.postgres.database.azure.com`). Allowed characters are `A`-`Z`, `0`-`9`, and `-`. A good pattern is to use a combination of your company name and and server identifier. |
     | Region | Select a location near you. |
     | Workload type | **Development** if you're just experimenting, otherwise an appropriate **Production** option. |
@@ -60,17 +121,55 @@ You create a fork of this repository so you can make changes and redeploy the co
     | Availability zone, High availability, PostgreSQL version | Leave set to the defaults. |
     | Admin username, Password, Confirm password | Enter credentials for an administrator account on the database server. Record these credentials as you'll need them later in this tutorial. Note: do not use the `$` character in the username or password. Later you create environment variables with these values where the `$` character has special meaning within the Linux container used to run Python apps. |
 
-1. Select **Next: Networking >**, and on that page set **Connectivity method** to **Public access**, and then select **Add 0.0.0.0 - 255.255.255.255**.
+1. Select **Next: Networking >**, and on that page set **Connectivity method** to **Public access**, and then under **Firewall rules** check the box for **Allow public access from any Azure service within Azure to this server**.
 
 1. Select **Review + Create**, then **Create**. Azure takes a few minutes to provision the database server.
 
 1. After provisioning is complete, select **Go to resource** to open the overview page for the database server.
+
+::: zone-end
 
 Having issues? Refer first to the [Troubleshooting guide](/azure/app-service/configure-language-python#troubleshooting), otherwise, [let us know](https://aka.ms/DjangoPortalTutorialHelp).
 
 ## Create the pollsdb database on the PostgreSQL server
 
 In this section, you connect to the database server in the Azure Cloud Shell and use a PostgreSQL command to create a "pollsdb" database on the server. This database is expected by the sample app code.
+
+::: zone pivot="postgres-single-server"
+
+1. From the overview page for the PostgreSQL server, select select **Connection security** (under **Settings** on the left side).
+
+    ![Portal connection security page for firewall rules](media/tutorial-python-postgresql-app-portal/server-firewall-rules.png)
+
+1. For **Allow access to Azure service** Select **Yes** for Select the button labeled **Add 0.0.0.0 - 255.255.255.255**, then select **Continue** in the pop up message that appears, followed by **Save** at the top of the page. These actions add a rule that allows you to connect to the database server from the Cloud Shell as well as SSH (as you do in a later section to run Django data model migrations).
+
+1. Open the Azure Cloud Shell from the Azure portal by selecting the Cloud Shell icon at the top of the window:
+
+    ![Cloud Shell button on the Azure portal toolbar](media/tutorial-python-postgresql-app-portal/portal-launch-icon.png)
+
+1. In the Cloud Shell, run the following command:
+
+    ```bash
+    psql --host=<server-name>.postgres.database.azure.com --port=5432 --username=<user-name>@<server-name> --dbname=postgres
+    ```
+
+    Replace `<server-name>` and `<user-name>` with the names used in the previous section when configuring the server. Note that the full username value that's required by Postgres is `<user-name>@<server-name>`.
+
+    You can copy the command above and paste into the Cloud Shell by using a right-click and then selecting **Paste**.
+
+    Enter your administrator password when prompted.
+
+1. When the shell connects successfully, you should see the prompt `postgres=>`. This prompt indicates that you're connected to the default administrative database named "postgres". (The "postgres" database isn't intended for app usage.)
+
+1. At the prompt, run the command `CREATE DATABASE pollsdb;`. Be sure to include the ending semicolon, which completes the command.
+
+1. If the database is created successfully, the command should display `CREATE DATABASE`. To verify that the database was created, run `\c pollsdb`. This command should change the prompt to `pollsdb=>`, which indicates success.
+
+1. Exit psql by running the command `exit`.
+
+::: zone-end
+
+::: zone pivot="postgres-flexible-server"
 
 1. Open the Azure Cloud Shell from the Azure portal by selecting the Cloud Shell icon at the top of the window:
 
@@ -96,6 +195,8 @@ In this section, you connect to the database server in the Azure Cloud Shell and
 
 1. Exit psql by running the command `exit`.
 
+::: zone-end
+
 Having issues? Refer first to the [Troubleshooting guide](/azure/app-service/configure-language-python#troubleshooting), otherwise, [let us know](https://aka.ms/DjangoPortalTutorialHelp).
 
 ## Provision the web app in Azure
@@ -111,7 +212,7 @@ Having issues? Refer first to the [Troubleshooting guide](/azure/app-service/con
     | Field | Value |
     | --- | --- |
     | Subscription | Select the subscription you want to use if different from the default. |
-    | Resource group | Select **Create new** and enter "DjangoPostgres-Tutorial-rg". |
+    | Resource group | Select the "DjangoPostgres-Tutorial-rg" group you created in the previous section. |
     | App name | A name for your web app that's unique across all Azure (the app's URL is `https://<app-name>.azurewebsites.net`). Allowed characters are `A`-`Z`, `0`-`9`, and `-`. A good pattern is to use a combination of your company name and an app identifier. |
     | Publish | Select **Code**. |
     | Runtime stack | Select **Python 3.8** from the drop-down list. |
@@ -128,6 +229,32 @@ Having issues? Refer first to the [Troubleshooting guide](/azure/app-service/con
 ## Connect the app to the database
 
 In this section, you create settings for the web app that it needs to connect to the `pollsdb` database. These settings appear to the app code as environment variables. (For more information, see [Access environment variables](/azure/app-service/configure-language-python#access-environment-variables).)
+
+::: zone pivot ="postgres-single-server"
+
+1. On the portal page for the web app from the previous section, select **Configuration** (under **Settings** on the left side), then select **Application settings** at the top of the page.
+
+    ![Portal settings configuration for web apps](media/tutorial-python-postgresql-app-portal/web-app-settings.png)
+
+1. Use the **New application setting** button to create settings for each of the following values (which are expected by the djangoapp sample):
+
+    | Setting name | Value |
+    | --- | --- |
+    | DBHOST | The name of the database server from the previous section; that is, the `<server-name>` portion of the server's URL that precedes `.postgres.database.azure.com`. (The code in *azuresite/production.py* constructs the full URL automatically.) |
+    | DBNAME | `pollsdb` |
+    | DBUSER | The administrator user name used when you provisioned the database. (The sample code automatically adds the `@<server-name>` portion; see *azuresite/production.py*.) |
+    | DBPASS | The administrator password you created earlier. |
+
+    As noted earlier, you should not use the `$` character in the username or password because that character is escaped within environment variables on the Linux container that hosts Python apps.
+
+1. Select **Save** and then **Continue** to apply the settings.
+
+    > [!IMPORTANT]
+    > Selecting **Save** after making changes to settings is essential. Any settings you create with the **New application setting** button aren't applied until you use **Save**.
+
+::: zone-end
+
+::: zone pivot ="postgres-flexible-server"
 
 1. On the portal page for the web app from the previous section, select **Configuration** (under **Settings** on the left side), then select **Application settings** at the top of the page.
 
@@ -149,6 +276,8 @@ In this section, you create settings for the web app that it needs to connect to
     > [!IMPORTANT]
     > Selecting **Save** after making changes to settings is essential. Any settings you create with the **New application setting** button aren't applied until you use **Save**.
 
+::: zone-end
+
 Having issues? Refer first to the [Troubleshooting guide](/azure/app-service/configure-language-python#troubleshooting), otherwise, [let us know](https://aka.ms/DjangoPortalTutorialHelp).
 
 ## Deploy app code to the web app from a repository
@@ -167,7 +296,7 @@ With the database and connection settings in place, you can now configure the we
     | --- | --- |
     | Organization | The GitHub account to which you forked the sample repository. |
     | Repository | djangoapp |
-    | Branch | flexible-server |
+    | Branch | If using Single Server: master <br/>If using Flexible Server: flexible-server |
 
 1. Select **Save** to trigger the build and deployment workflow. Go to **Actions** in your GitHub repository for djangoapp to monitor progress. Azure should deploy the code and start the app.
 
@@ -183,7 +312,7 @@ With the code deployed and the database in place, the app is almost ready to use
 
     If the `ls` command shows only one file named *hostingstart.html*, then the deployment hasn't yet completed from the previous step. Check the **Actions** in your GitHub repository for status. Once the build is complete, the `ls` command should show the app's files, especially *manage.py*.
 
-1. In the SSH session, run database migrations:
+1. In the console, run database migrations:
 
     ```bash
     python manage.py migrate
