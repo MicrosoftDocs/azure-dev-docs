@@ -1,4 +1,4 @@
-### YamlMime:ZonePivotGroups
+# YamlMime:ZonePivotGroups
 groups:
 # Owner: kraigb
 - id: postgres-server-options

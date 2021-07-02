@@ -5,6 +5,7 @@ ms.devlang: python
 ms.topic: tutorial
 ms.date: 07/02/2021
 ms.custom: devx-track-python
+zone_pivot_group_filename: python/python-zone-pivot-groups.json
 zone_pivot_groups: postgres-server-options
 ---
 
