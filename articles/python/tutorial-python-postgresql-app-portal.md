@@ -318,7 +318,7 @@ With the code deployed and the database in place, the app is almost ready to use
     python manage.py migrate
     ```
 
-    If you encounter any errors related to connecting to the database, check the values of the application settings created in [Connect the database](#connect-the-database).
+    If you encounter any errors related to connecting to the database, check the values of the application settings created in [Connect the database](#connect-the-aoo-to-the-database).
 
 1. Create an administrator login for the app:
 
