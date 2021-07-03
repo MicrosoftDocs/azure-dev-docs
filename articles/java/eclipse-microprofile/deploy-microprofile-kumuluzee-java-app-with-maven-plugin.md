@@ -28,7 +28,7 @@ The simplest and easiest way to get the Maven Plugin deploying your KumuluzEE ap
 
 Sign into your Azure account by using the Azure CLI:
 
-```shell
+```azurecli
 az login
 ```
 

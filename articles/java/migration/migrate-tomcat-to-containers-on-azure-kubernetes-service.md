@@ -173,7 +173,7 @@ You can omit the `--build-arg APP_FILE...` parameter if your WAR file is named *
 
 Alternatively, you can use Docker CLI to build the image locally. This approach can simplify testing and refining the image before initial deployment to ACR. However, it requires Docker CLI to be installed and Docker daemon to be running.
 
-```bash
+```azurecli
 # Build the image locally
 sudo docker build . --build-arg APP_FILE=petclinic.war -t "${acrName}.azurecr.io/petclinic:1"
 
@@ -195,7 +195,7 @@ For more in-depth information on building and storing container images in Azure,
 
 If your application is to be accessible from outside your internal or virtual network(s), a public static IP address will be required. This IP address should be provisioned inside cluster's node resource group.
 
-```bash
+```azurecli
 nodeResourceGroup=$(az aks show -g $resourceGroup -n $aksName --query 'nodeResourceGroup' -o tsv)
 publicIp=$(az network public-ip create -g $nodeResourceGroup -n applicationIp --sku Standard --allocation-method Static --query 'publicIp.ipAddress' -o tsv)
 echo "Your public IP address is ${publicIp}."

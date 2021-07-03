@@ -153,7 +153,7 @@ The following steps walk you through building a Spring Boot web application and 
 
 1. Navigate to the completed project directory for your Spring Boot application and run the following command to build the image and push the image to the registry:
 
-   ```cmd
+   ```azurecli
    az acr login && mvn compile jib:build
    ```
 

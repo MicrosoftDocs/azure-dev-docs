@@ -631,7 +631,7 @@ The following steps will show how to create an Azure Spring Cloud resource and d
 
 1. Decide on a name for the service instance. To use Azure Spring Cloud within your Azure subscription, you must create an Azure resource of type Azure Spring Cloud. As with all other Azure resources, the service instance must stay within a resource group. Use the resource group you already created to hold the service instance, and choose a name for your Azure Spring Cloud instance. Create the service instance with the following command.
 
-   ```bash
+   ```azurecli
    az spring-cloud create --resource-group <your resource group name> --name <your Azure Spring Cloud instance name>
    ```
 
@@ -639,7 +639,7 @@ The following steps will show how to create an Azure Spring Cloud resource and d
 
 1. Create a Spring Cloud App within the service.
 
-   ```bash
+   ```azurecli
    az spring-cloud app create \
        --resource-group <your resource group name> \
        --service <your Azure Spring Cloud instance name> \
@@ -664,7 +664,7 @@ The following steps will show how to create an Azure Spring Cloud resource and d
 
 1. Use the following command to get the managed identity for the Azure resource and use it to configure the existing Key Vault to allow access from this App.
 
-   ```bash
+   ```azurecli
    SERVICE_IDENTITY=$(az spring-cloud app show --resource-group "contosorg" --name "contosoascsapp" --service "contososvc" | jq -r '.identity.principalId')
    az keyvault set-policy \
        --name <your Key Vault name> \
@@ -674,7 +674,7 @@ The following steps will show how to create an Azure Spring Cloud resource and d
 
 1. Because the existing Spring Boot app already has an *application.properties* file with the necessary configuration, we can deploy this app directly to Spring Cloud using the following command. Run the command in the directory containing the POM.
 
-   ```bash
+   ```azurecli
    az spring-cloud app deploy \
        --resource-group <your resource group name> \
        --name <your Spring Cloud app name> \
