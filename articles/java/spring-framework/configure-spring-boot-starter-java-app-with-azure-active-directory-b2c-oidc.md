@@ -31,7 +31,7 @@ In this tutorial, you learn how to:
 ## Prerequisites
 
 * An Azure subscription. If you don't already have one, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-* A supported Java Development Kit (JDK). For more information about the JDKs available for use when developing on Azure, see <https://aka.ms/azure-jdks>.
+* A supported Java Development Kit (JDK). For more information about the JDKs available for use when developing on Azure, see [Java support on Azure and Azure Stack](/azure/developer/java/fundamentals/java-support-on-azure).
 * [Apache Maven](http://maven.apache.org/), version 3.0 or later.
 
 ## Create an app using Spring Initializr
@@ -47,6 +47,9 @@ In this tutorial, you learn how to:
    * In the **Dependencies** pane, select **Add Dependencies**. Use the UI to add dependencies on **Spring Web** and **Spring Security**.
 
    :::image type="content" source="media/configure-spring-boot-starter-java-app-with-azure-active-directory-b2c-oidc/fill-in-the-values-to-generate-the-project.png" alt-text="Spring Initializr with values filled in.":::
+
+> [!NOTE]
+> Spring Security 5.5.1, 5.4.7, 5.3.10 and 5.2.11 have been released to address the following CVE report [CVE-2021-22119: Denial-of-Service attack with spring-security-oauth2-client](https://tanzu.vmware.com/security/cve-2021-22119). If you're using the older version, please upgrade it.
 
 3. Select **Generate Project**, then download the project to a path on your local computer. Move the downloaded file to a directory named after your project and unzip the file. The file layout should look something like the following, with the value you entered for **Group** in place of `yourProject`.
 
@@ -175,7 +178,10 @@ Now that you've created the Azure AD B2C instance and some user flows, you'll co
    </dependency>
    ```
 
-   For the `azure-spring-boot-starter-active-directory-b2c`, use the latest version available. You may be able to use [mvnrepository.com](https://mvnrepository.com/artifact/com.azure.spring/azure-spring-boot-starter-active-directory-b2c) to look this up. As of this updating the latest version is `3.4.0`.
+   For the `azure-spring-boot-starter-active-directory-b2c`, use the latest version available. You may be able to use [mvnrepository.com](https://mvnrepository.com/artifact/com.azure.spring/azure-spring-boot-starter-active-directory-b2c) to look this up. 
+
+> [!NOTE]
+> We've released Spring Boot Starter for Azure Active Directory [3.6.1](https://github.com/Azure/azure-sdk-for-java/blob/hotfix/azure-spring-boot_3.6.1/sdk/spring/azure-spring-boot-starter-active-directory/CHANGELOG.md) to address the following CVE report [CVE-2021-22119: Denial-of-Service attack with spring-security-oauth2-client](https://tanzu.vmware.com/security/cve-2021-22119). If you're using the older version, please upgrade it to 3.6.1 or above. 
 
    For the `spring-boot-starter-thymeleaf`, use the version corresponding to the version of Spring Boot you selected above, for example `2.3.4.RELEASE`.
 

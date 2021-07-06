@@ -20,7 +20,7 @@ The following prerequisites are required in order to follow the steps in this ar
 
 * An Azure subscription; if you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or sign up for a [free Azure account](https://azure.microsoft.com/pricing/free-trial/).
 * The [Azure Command-Line Interface (CLI)](/cli/azure/index).
-* A supported Java Development Kit (JDK). For more information about the JDKs available for use when developing on Azure, see <https://aka.ms/azure-jdks>.
+* A supported Java Development Kit (JDK). For more information about the JDKs available for use when developing on Azure, see [Java support on Azure and Azure Stack](/azure/developer/java/fundamentals/java-support-on-azure).
 * [Apache Maven](http://maven.apache.org/), version 3.0 or later.
 
 > [!IMPORTANT]

@@ -21,7 +21,7 @@ In order to complete the steps in this tutorial, you need to have the following 
 
 * An Azure subscription; if you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits] or sign up for a [free Azure account].
 * The [Azure Command-Line Interface (CLI)].
-* A supported Java Development Kit (JDK). For more information about the JDKs available for use when developing on Azure, see <https://aka.ms/azure-jdks>.
+* A supported Java Development Kit (JDK). For more information about the JDKs available for use when developing on Azure, see [Java support on Azure and Azure Stack](/azure/developer/java/fundamentals/java-support-on-azure).
 * [Apache Maven] build tool (Version 3).
 * A [Git] client.
 * A [Docker] client.
@@ -138,7 +138,7 @@ The following steps walk through using the Azure portal to create an Azure Conta
 
 1. Navigate to the completed project directory for your Spring Boot application and run the following command to rebuild the application and push the container to your Azure Container Registry:
 
-   ```bash
+   ```azurecli
    az acr login -n wingtiptoysregistry && mvn compile jib:build
    ```
 
@@ -221,13 +221,15 @@ When the deployment is complete, select **Go to resource**.  The deployment page
 The embedded Tomcat server in the sample Spring Boot application is configured to run on port 8080 by default. However, if you want to run the embedded Tomcat server to run on a different port, such as port 80 for local testing, you can configure the port by using the following steps.
 
 1. Go to the *resources* directory (or create the directory if it does not exist); for example:
-   ```shell
+
+   ```bash
    cd src/main/resources
    ```
 
 1. Open the *application.yml* file in a text editor if it exists, or create a new YAML file if it does not exist.
 
 1. Modify the **server** setting so that the server runs on port 80; for example:
+
    ```yaml
    server:
       port: 80

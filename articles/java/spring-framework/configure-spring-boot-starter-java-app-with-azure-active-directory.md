@@ -29,7 +29,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 The following prerequisites are required to complete the steps in this article:
 
-* A supported Java Development Kit (JDK). For more information about the JDKs available for use when developing on Azure, see <https://aka.ms/azure-jdks>.
+* A supported Java Development Kit (JDK). For more information about the JDKs available for use when developing on Azure, see [Java support on Azure and Azure Stack](/azure/developer/java/fundamentals/java-support-on-azure).
 * [Apache Maven](http://maven.apache.org/), version 3.0 or later.
 
 ## Create an app using Spring Initializr
@@ -44,6 +44,9 @@ The following prerequisites are required to complete the steps in this article:
    >![Specify Group and Artifact names, select dependencies][create-spring-app-01]
 
 1. When prompted, download the project to a path on your local computer.
+
+> [!NOTE]
+> We've released Spring Boot Starter for Azure Active Directory [3.6.1](https://github.com/Azure/azure-sdk-for-java/blob/hotfix/azure-spring-boot_3.6.1/sdk/spring/azure-spring-boot-starter-active-directory/CHANGELOG.md) to address the following CVE report [CVE-2021-22119: Denial-of-Service attack with spring-security-oauth2-client](https://tanzu.vmware.com/security/cve-2021-22119). If you're using the older version, please upgrade it to 3.6.1 or above. 
 
 ## Create Azure Active Directory instance
 

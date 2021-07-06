@@ -24,6 +24,9 @@ The following links provide access to the starter package, documentation, and sa
 - [Product documentation](./configure-spring-boot-starter-java-app-with-azure-active-directory.md)
 - [Samples](https://github.com/Azure/azure-sdk-for-java/tree/azure-spring-boot_3.1.0/sdk/spring/azure-spring-boot-samples)
 
+> [!NOTE]
+> We've released Spring Boot Starter for Azure Active Directory [3.6.1](https://github.com/Azure/azure-sdk-for-java/blob/hotfix/azure-spring-boot_3.6.1/sdk/spring/azure-spring-boot-starter-active-directory/CHANGELOG.md) to address the following CVE report [CVE-2021-22119: Denial-of-Service attack with spring-security-oauth2-client](https://tanzu.vmware.com/security/cve-2021-22119). If you're using the older version, please upgrade it to 3.6.1 or above. 
+
 ## Prerequisites
 
 To follow the instructions in this guide, you must have the following prerequisites:
@@ -62,7 +65,7 @@ To use the Azure AD starter in this scenario, use the following steps:
    <dependency>
        <groupId>com.azure.spring</groupId>
        <artifactId>azure-spring-boot-starter-active-directory</artifactId>
-       <version>3.5.0</version>
+       <version>3.6.1</version>
    </dependency>
    <dependency>
        <groupId>org.springframework.boot</groupId>
@@ -116,7 +119,7 @@ To use the Azure AD starter in this scenario, use the following steps:
    <dependency>
        <groupId>com.azure.spring</groupId>
        <artifactId>azure-spring-boot-starter-active-directory</artifactId>
-       <version>3.5.0</version>
+       <version>3.6.1</version>
    </dependency>
    <dependency>
        <groupId>org.springframework.boot</groupId>
@@ -169,7 +172,7 @@ To use the Azure AD starter in this scenario, use the following steps:
    <dependency>
        <groupId>com.azure.spring</groupId>
        <artifactId>azure-spring-boot-starter-active-directory</artifactId>
-       <version>3.5.0</version>
+       <version>3.6.1</version>
    </dependency>
    <dependency>
        <groupId>org.springframework.boot</groupId>
@@ -228,7 +231,7 @@ To use the Azure AD starter in this scenario, use the following steps:
    <dependency>
        <groupId>com.azure.spring</groupId>
        <artifactId>azure-spring-boot-starter-active-directory</artifactId>
-       <version>3.5.0</version>
+       <version>3.6.1</version>
    </dependency>
    <dependency>
        <groupId>org.springframework.boot</groupId>
