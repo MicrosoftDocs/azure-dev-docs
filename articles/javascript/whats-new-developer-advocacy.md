@@ -2,14 +2,113 @@
 title: "What's new with Cloud Developer Advocates"
 description: "What's new with JavaScript Cloud Developer Advocates (CDA)"
 ms.topic: conceptual
-ms.date: 01/29/2021
+ms.date: 06/30/2021
 ---
 
 # What's new with JavaScript Developer Advocates
 
+This content is primarily from Developer Advocates as well as other members of the Azure JavaScript community. 
+
+Use the [JavaScript Community Hub](/javascript) to see more from the community. 
+
+## Reoccurring events 
+
+* [Microsoft Learn TV](/learn/tv/)
+* [Web Wednesday - reoccurring](https://channel9.msdn.com/Shows/Web-Wednesday/)
+
+## Timeless
+
+* [Beginner's Series to: JavaScript](https://channel9.msdn.com/Series/Beginners-Series-to-JavaScript)
+* [Awesome Azure Static web apps](https://github.com/staticwebdev/awesome-azure-static-web-apps) - GitHub repo
+* [Static Web Apps Code to Scale](https://aka.ms/SWAConfOnDemand)
+* [Azure Tips and Tricks: Static Web Apps](https://aka.ms/StaticWebAppsTips)
+
+## 2021 June 
+
+* 16 Tips to Master Your Azure Static Web Apps -[blog](https://techcommunity.microsoft.com/t5/apps-on-azure/16-tips-to-master-your-azure-static-web-apps/ba-p/2457825) and [YouTube video series](https://aka.ms/StaticWebAppsTips) - Yohan Lasorsa
+* [How to create your personal blog with Gatsby and SWA](https://www.youtube.com/watch?v=IZbcpUIke8s&list=PLlrxD0HtieHgMPeBaDQFx9yNuFxx6S1VG&index=6) - YouTube video - Yohan Lasorsa
+* [A clean dev env, working every time, everywhere](https://www.youtube.com/watch?v=vVX7LMCBnwA) - YouTube video and [URL list](https://www.theurlist.com/clean-dev) - Yohan Lasorsa
+* [Angular, PWA and SWA](https://aka.ms/spwa) - Yohan Lasorsa
+* [Starting with ES Modules](https://blog.lsantos.dev/os-ecmascript-modules-estao-aqui/) - blog - Lucas Santos - in **Portuguese**
+* [The subtle art of being a developer advocate](https://m.twitch.tv/videos/1049691152) - twitch - Wassim Chegham 
+* [Type-safe GraphQL with TypeScript](https://github.com/aaronpowell/graphql-code-generator-sample) - GitHub - Aaron Powell
+* [Azure Static Web Apps CLI](https://www.youtube.com/watch?v=0L2XS6INmwE) - YouTube video - Tartine & Tech - in **French** - Wassim Chegham
+* [How do I debug API REST Node.js App in VS Code?!](https://youtu.be/Lb20EoDja50) - YouTube video - in **Portuguese** - Glaucia Lemos
+* [SUPERCHARGING A WEB DEVS TOOLBOX](https://www.aaron-powell.com/posts/2021-06-03-supercharging-a-web-devs-toolbox/) - Microsoft Reactor Video - Aaron Powell
+* [Build a simple website using HTML, CSS, and JavaScript](/learn/modules/build-simple-website/) - Microsoft Learn module - David Smith
+
+## 2021 May
+
+* [Playwright - Testes Inteligentes, Automatizados e Rápidos em Cross-Browser com Playwright!](https://github.com/glaucia86/demos-playwright-e2e) - in **Portuguese​** - Glaucia Lemos
+* [Local Dev With CosmosDB and devcontainers](https://www.aaron-powell.com/posts/2021-05-27-local-dev-with-cosmosdb-and-devcontainers/) - Blog - Aaron Powell
+* [Leveling up Static web apps with the CLI](https://www.aaron-powell.com/posts/2021-05-25-leveling-up-static-web-apps-with-the-cli/) - Blog - Aaron Powell
+* [Supercharge a Web Devs Toolbox](https://www.youtube.com/watch?v=1QQVQ8vTUXU)
+* Publicando Aplicações Estáticas com Static Web Apps & Azure DevOps! - [Blog](https://dev.to/glaucia86/publicando-aplicacoes-estaticas-com-static-web-apps-azure-devops-4c1o) and [YouTube](https://www.youtube.com/watch?v=3pnIBJWoRjM) - in **Portuguese** - Glaucia Lemos
+* Publicación de Aplicaciones Estáticas con Azure Static Web Apps y Azure DevOps - in **Spanish​** - [blog](https://dev.to/glaucia86/publicacion-de-aplicaciones-estaticas-con-azure-static-web-apps-y-azure-devops-5c63) - Glaucia Lemos
+* Azure Static Web Apps - Custom auth with Okta - [GitHub repo](https://github.com/aaronpowell/swa-custom-auth-okta) - [Blog](https://www.aaron-powell.com/posts/2021-05-13-using-okta-with-static-web-apps/) - Aaron Powell
+* Azure Static Web Apps - Custom auth with Auth0 - [GitHub repo](https://github.com/aaronpowell/swa-custom-auth-auth0) - [Blog](https://www.aaron-powell.com/posts/2021-05-13-using-auth0-with-static-web-apps/) - GitHub repo - Aaron Powell
+* [What's new in TypeScript 4.3](https://blog.lsantos.dev/o-que-ha-de-novo-no-beta-do-typescript-4-3/) - blog - in **Portuguese** - Lucas Santos
+
+ 
+## 2021 April 
+
+* [Deploying a Node.js Web App using GitHub Actions](https://github.com/Azure-Samples/azure-javascript-labs) - Burke Holland - GitHub
+* [Web Wednesday - Getting started with React & TypeScript](https://www.youtube.com/watch?v=BlaHWppdLpQ) - Aaron Powell and Christopher harrison - YouTube
+* [Azure Cosmos DB Conf - EMEA Live Stream](https://youtu.be/EQu4xtAicQg?list=PLmamF3YkHLoLN_24E41jSPVilv5B3GTBg&t=4328) - YouTube
+* [Static Web apps demo - Microsoft Developers France](https://www.youtube.com/watch?v=aI9XFDpsGaA) - 00:37
+* [Tutorial: Access data in Cosmos DB using Mongoose with Azure Static Web Apps](/azure/static-web-apps/add-mongoose) - Christopher Harrison
+* [Adapt your Angular apps for dual-screen devices with ngx-foldable](https://dev.to/angular/adapt-your-angular-apps-for-dual-screen-devices-with-ngx-foldable-4058) - Yohan Lasorsa
+* [Módulo 02 (Vídeos 13 à 18.1) - TypeScript Zero to Hero](https://dev.to/glaucia86/modulo-02-videos-13-a-18-1-typescript-zero-to-hero-5565) - in **Portuguese​** - Glaucia Lemos - Blog on dev.to
+
+## 2021 March 
+
+* [DevOps Lab - Deploying packages with GitHub Actions](https://aka.ms/DevOpsLab/DeployingPackageswithGitHub) - Aaron Powell
+* [Static Web Apps API Auth helper](https://www.aaron-powell.com/posts/2021-03-30-making-auth-simpler-for-static-web-app-apis/) - Aaron Powell
+* [Angular+Surface Duo- Gallery app demo](https://github.com/sinedied/surface-duo-photo-gallery) - GitHub repo - Yohan Lasorsa
+* [Cloud First Conference Talk: Highly available, distributed & resilient software](https://youtu.be/OGFkz81mKf8?t=7162) - YouTube - Yohan Lasorsa
+* [Utilise staticwebdev GitHub org](https://github.com/staticwebdev) - We're here to help you get started with Azure Static Web Apps, the easiest way to get a static web application deployed to Azure. - Aaron Powell
+* [GraphQL on Azure: Part 6 - Subscriptions with SignalR](https://dev.to/azure/graphql-on-azure-part-6-subscriptions-with-signalr-275b) - Aaron Powell
+* [Reset deployment tokens in Azure Static Web Apps](/azure/static-web-apps/deployment-token-management) - Burke Holland
+* [Deploy Rust/WASM on SWA - updated](https://dev.to/azure/angular-rust-webassembly-node-js-serverless-and-the-new-azure-static-web-apps-cnb) - Wassim Chegham
+* [GitHub template for building a shareable web components library with Svelte](https://github.com/sinedied/svelte-web-components-template) - Yohan Lasorsa
+* [Desenvolvendo a Intro do Star Wars com HTML, CSS, JavaScript & Node.js! - updated](https://dev.to/azure/desenvolvendo-a-intro-do-star-wars-com-html-css-javascript-node-js-oae) - in **Portuguese​** - Glaucia Lemos
+* Coding Stuff! JWT + Node + Mongo+ Vue Project in **Portuguese​** - Glaucia Lemos
+    * [Video #8](https://youtu.be/6fUcm4aSEjM) - YouTube
+* [Lançamento: Módulo 01 - TypeScript Zero to Hero](https://dev.to/glaucia86/lancamento-modulo-01-typescript-zero-to-hero-40n4) - in **Portuguese​** - Glaucia Lemos
+* TypeScript - Zero to Hero | E por que usar o TypeScript? E, próximos passos! - in **Portuguese​** - YouTube - Glaucia Lemos
+    * [Video #06](https://youtu.be/VIYnya9DUxg)
+    * [Video #05](https://youtu.be/iTCRgdEyq0k)
+    * [Video #04](https://youtu.be/iYXzT08sX5Y)
+    * [Video #03](https://youtu.be/J-sMh3DF10U)
+    * [Video #02](https://youtu.be/_pDsn0gE6ys)
+    * [Video #01](https://youtu.be/u7K1sdnCv5Y)
+* [Live Coding - Season 2021 & News](https://youtu.be/6TED799e0_g) - YouTube - Glaucia Lemos
+
+
+## 2021 February
+
+* [React Server Components running on Azure Static Web Apps](https://react-notes.anthonychu.com/) - Anthony Chu
+* [Beginner's Series to Node.js video series in **French**](https://www.youtube.com/watch?v=cPBzDqwMFFg&list=PLbl2SbVIi-Wo0EkNoLEnx4BE_xm4SsSRj&index=1) - Yohan Lasorsa and Maud Levy
+* [Beginner's Series to Node.js video series in **Japanese**](https://www.youtube.com/playlist?list=PLQEKit6tfVVKkp0ELOyKey_v7I89mxYZI) - Tomomi Imura
+* [GraphQL and TypeScript Workshop](https://github.com/aaronpowell/graphql-typescript-workshop) - Aaron Powell
+* Coding Stuff! JWT + Node + Mongo+ Vue Project in **Portuguese​** - Glaucia Lemos
+    * [Video #6](https://youtu.be/_-3DWpuXXvU)
+    * [Video #7](https://youtu.be/OckHsZPIRrQ)
+* [Back-End Migration to Serverless Architecture & Local Database PostGreSQL to CosmosDB - Day 02 - in **Portuguese​**](https://youtu.be/lUH5gzKq1YA) - 
+Glaucia Lemos
+* [Developing a CRUD Node.js Application with PostgreSQL](https://dev.to/glaucia86/developing-a-crud-node-js-application-with-postgresql-4c9o) - Glaucia Lemos
+* [TypeScript and Azure Functions in **Portuguese​**](https://www.youtube.com/watch?v=J9OoXt1dvm8&t=2772s)
+* [Deploy your JAMStack app on Azure Static Web Apps!](https://www.youtube.com/watch?v=I2Tg2MO-RP8&feature=youtu.be) - Wassim Chegham
+* [Web-Wednesday: What is Microsoft Graph Toolkit?](https://channel9.msdn.com/Shows/Web-Wednesday/What-is-Microsoft-Graph-Toolkit) - Christopher Harrison and Beth Pan
+* Azure Fundamentals - Serverless Session - Yohan Lasorsa
+    * [Session 1 video](https://www.youtube.com/watch?v=JIE_K_j-wGk)
+    * [Session 2 video](https://www.youtube.com/watch?v=iiem4ajj6EQ)
+* [GraphQL Subscriptions using SignalR OSS project](https://github.com/aaronpowell/graphql-azure-subscriptions) - Aaron Powell
+* [Angular Library for Surface Duo: ngx-foldable](https://github.com/sinedied/ngx-foldable) - Yohan Lasorsa
+
 ## 2021 January
 
-* Aaron Power: 
+* Aaron Powell: 
     * Blog: [Building dual-screen web experiences with React](https://devblogs.microsoft.com/surface-duo/dual-screen-react-web/)
 * Asim Hussain: 
     * Blog: [Adopting Azure serverless architectures to help reduce CO2 emissions – Part 2 (Extending to the Edge)](https://aka.ms/adopting-azure-serverless?WT.mc_id=green-12146-cxa)
@@ -22,6 +121,6 @@ ms.date: 01/29/2021
         * [Vide0 #1](https://youtu.be/JmUSx5wXU68)
         * [Video #2](https://youtu.be/Vr-UMoAv8pk)
         * [Video #3](https://youtu.be/6u4aM2eT-gg)
-    * YouTube: [Back-End Migration to Serverless Architecture & Local Database PostGreSQL to CosmosDB - Day 01](https://youtu.be/nVbU9BlF5hs)
+    * YouTube: [Back-End Migration to Serverless Architecture & Local Database PostGreSQL to Cosmos DB - Day 01](https://youtu.be/nVbU9BlF5hs)
 * Wassim Chegham:
     * Blog: [Angular, Rust, WebAssembly, Node.js, Serverless, and... the NEW Azure Static Web Apps!](https://dev.to/azure/angular-rust-webassembly-node-js-serverless-and-the-new-azure-static-web-apps-cnb)

@@ -4,7 +4,7 @@
   - name: Get Started - Web App
     href: create-hello-world-web-app.md
   - name: Get Started - Functions
-    href: quickstart-functions.md
+    href: /azure/azure-functions/functions-create-maven-intellij?toc=/azure/developer/java/toolkit-for-intellij/toc.json&bc=/azure/developer/breadcrumb/toc.json
   - name: Tutorials
     expanded: true
     items:

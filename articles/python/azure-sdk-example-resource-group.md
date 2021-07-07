@@ -1,7 +1,7 @@
 ---
 title: Provision a resource group using the Azure libraries for Python
 description: Use the resource management library in the Azure SDK for Python to create a resource group from Python code.
-ms.date: 01/28/2021
+ms.date: 06/24/2021
 ms.topic: conceptual
 ms.custom: devx-track-python
 ---
@@ -14,7 +14,7 @@ All the commands in this article work the same in Linux/macOS bash and Windows c
 
 ## 1: Set up your local development environment
 
-If you haven't already, follow all the instructions on [Configure your local Python dev environment for Azure](configure-local-development-environment.md).
+If you haven't already, **follow all the instructions** on [Configure your local Python dev environment for Azure](configure-local-development-environment.md).
 
 Be sure to create and activate a virtual environment for this project.
 
@@ -22,10 +22,9 @@ Be sure to create and activate a virtual environment for this project.
 
 Create a file named *requirements.txt* with the following contents:
 
-```text
-azure-mgmt-resource>=1.15.0
-azure-identity>=1.5.0
-```
+:::code language="txt" source="~/../python-sdk-examples/resource_group/requirements.txt":::
+
+Be sure to use these versions of the libraries. Using older versions will result in errors such as "'AzureCliCredential' object object has no attribute 'signed_session'."
 
 In a terminal or command prompt with the virtual environment activated, install the requirements:
 
@@ -37,60 +36,7 @@ pip install -r requirements.txt
 
 Create a Python file named *provision_rg.py* with the following code. The comments explain the details:
 
-```python
-# Import the needed credential and management objects from the libraries.
-from azure.mgmt.resource import ResourceManagementClient
-from azure.identity import AzureCliCredential
-import os
-
-# Acquire a credential object using CLI-based authentication.
-credential = AzureCliCredential()
-
-# Retrieve subscription ID from environment variable.
-subscription_id = os.environ["AZURE_SUBSCRIPTION_ID"]
-
-# Obtain the management object for resources.
-resource_client = ResourceManagementClient(credential, subscription_id)
-
-# Provision the resource group.
-rg_result = resource_client.resource_groups.create_or_update(
-    "PythonAzureExample-rg",
-    {
-        "location": "centralus"
-    }
-)
-
-# Within the ResourceManagementClient is an object named resource_groups,
-# which is of class ResourceGroupsOperations, which contains methods like
-# create_or_update.
-#
-# The second parameter to create_or_update here is technically a ResourceGroup
-# object. You can create the object directly using ResourceGroup(location=LOCATION)
-# or you can express the object as inline JSON as shown here. For details,
-# see Inline JSON pattern for object arguments at
-# https://docs.microsoft.com/azure/developer/python/azure-sdk-overview#inline-json-pattern-for-object-arguments.
-
-print(f"Provisioned resource group {rg_result.name} in the {rg_result.location} region")
-
-# The return value is another ResourceGroup object with all the details of the
-# new group. In this case the call is synchronous: the resource group has been
-# provisioned by the time the call returns.
-
-# Update the resource group with tags
-rg_result = resource_client.resource_groups.create_or_update(
-    "PythonAzureExample-rg",
-    {
-        "location": "centralus",
-        "tags": { "environment":"test", "department":"tech" }
-    }
-)
-
-print(f"Updated resource group {rg_result.name} with tags")
-
-# Optional lines to delete the resource group. begin_delete is asynchronous.
-# poller = resource_client.resource_groups.begin_delete(rg_result.name)
-# result = poller.result()
-```
+:::code language="python" source="~/../python-sdk-examples/resource_group/provision_rg.py":::
 
 [!INCLUDE [cli-auth-note](includes/cli-auth-note.md)]
 
@@ -131,9 +77,7 @@ You can also use the [`ResourceManagementClient.resource_groups.delete`](/python
 
 The following Azure CLI commands complete the same provisioning steps as the Python script:
 
-```azurecli
-az group create -n PythonAzureExample-rg -l centralus
-```
+:::code language="azurecli" source="~/../python-sdk-examples/resource_group/provision.cmd":::
 
 ## See also
 

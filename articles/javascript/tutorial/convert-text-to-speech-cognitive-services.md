@@ -3,7 +3,7 @@ title: Express.js app converts text to speech with Cognitive Services Speech
 description: Use Cognitive Services Speech to convert text to speech, demonstrated on the client and the server. 
 ms.topic: tutorial
 ms.date: 01/20/2021
-ms.custom: languages:JavaScript, devx-track-javascript
+ms.custom: languages:JavaScript, devx-track-javascript, devx-track-azurecli
 ---
 
 # Express.js app converts text to speech with Cognitive Services Speech
@@ -40,7 +40,7 @@ This application provides three different calls to convert speech to text:
 - Use [Azure Cloud Shell](/azure/cloud-shell/quickstart) using the bash 
    [![Embed launch](../../includes/media/cloud-shell-try-it/hdi-launch-cloud-shell.png "Launch Azure Cloud Shell")](https://shell.azure.com)   
 - If you prefer, [install](/cli/azure/install-azure-cli) the Azure CLI to run CLI reference commands.
-   - If you're using a local install, sign in with Azure CLI by using the [az login](/cli/azure/reference-index#az-login) command.  To finish the authentication process, follow the steps displayed in your terminal.  See [Sign in with Azure CLI](/cli/azure/authenticate-azure-cli) for more sign-in options.
+   - If you're using a local install, sign in with Azure CLI by using the [az login](/cli/azure/reference-index#az_login) command.  To finish the authentication process, follow the steps displayed in your terminal.  See [Sign in with Azure CLI](/cli/azure/authenticate-azure-cli) for more sign-in options.
   - When you're prompted, install Azure CLI extensions on first use.  For more information about extensions, see [Use extensions with Azure CLI](/cli/azure/azure-cli-extensions-overview).
   - Run [az version](/cli/azure/reference-index?#az_version) to find the version and dependent libraries that are installed. To upgrade to the latest version, run [az upgrade](/cli/azure/reference-index?#az_upgrade).
 
@@ -86,11 +86,11 @@ npm install microsoft-cognitiveservices-speech-sdk
     :::code language="javascript" source="~/../js-e2e-express-server-cognitive-services/text-to-speech/src/azure-cognitiveservices-speech.js" highlight="3,21,32" :::
 
     * Parameters - The file pulls in the dependencies for using the SDK, streams, buffers, and the file system (fs). The `textToSpeech` function takes four arguments. If a file name with local path is sent, the text is converted to an audio file. If a file name is not sent, an in-memory audio stream is created. 
-    * Speech SDK method - The Speech SDK method [synthesizer.speakTextAsync](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechsynthesizer#speakTextAsync_string___e__SpeechSynthesisResult_____void___e__string_____void__AudioOutputStream___PushAudioOutputStreamCallback___PathLike_) returns different types, based on the configuration it receives. 
+    * Speech SDK method - The Speech SDK method [synthesizer.speakTextAsync](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechsynthesizer#speakTextAsync_string___e__SpeechSynthesisResult_____void___e__string_____void__AudioOutputStream___PushAudioOutputStreamCallback___PathLike_) returns different types, based on the configuration it receives. 
         The method returns the result, which differs based on what the method was asked to do:
         * Create file 
         * Create in-memory stream as an array of Buffers
-    * Audio format - The audio format selected is MP3, but [other formats](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechsynthesisoutputformat?preserve-view=true&view=azure-node-latest) exists, along with other [Audio configuration methods](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/audioconfig?preserve-view=true&view=azure-node-latest#methods). 
+    * Audio format - The audio format selected is MP3, but [other formats](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechsynthesisoutputformat?preserve-view=true&view=azure-node-latest) exists, along with other [Audio configuration methods](/javascript/api/microsoft-cognitiveservices-speech-sdk/audioconfig?preserve-view=true&view=azure-node-latest#methods). 
 
     The local method, `textToSpeech`, wraps and converts the SDK call-back function into a promise. 
 

@@ -44,16 +44,22 @@ The following procedures describe how to use the Java Runtime Environment (JRE) 
 
 **Windows**
 
-1. Export Fiddler's certificate.
+1. Export Fiddler's certificate. The certificate is typically exported to the desktop.
 1. Find the JRE's keytool (usually `jre\bin`).
 1. Find the JRE's cacert (usually `jre\lib\security`).
-1. Open a command prompt and run the following command to import the certificate:
+1. Open a PowerShell window in administrator mode and run the following command to import the certificate:
 
    ```cmd
-   keytool.exe -import -file <location of Fiddler certificate> -keystore <location of cacert> -alias Fiddler
+   keytool.exe -import -trustcacerts -file <location of Fiddler certificate> -keystore <location of cacert> -alias Fiddler
    ```
 
-1. Enter a password.
+   For example, the following command uses some common values:
+
+   ```cmd
+   keytool.exe -import -trustcacerts -file "C:\Users\username\Desktop\FiddlerRootCertificate.crt" -keystore "C:\Program Files\AdoptOpenJDK\jdk-8.0.275.1-hotspot\jre\lib\security\cacerts" -alias Fiddler
+   ```
+
+1. Enter a password. If you have not set a password before, the default is 'changeit'. For more information, see [Working with Certificates and SSL](https://docs.oracle.com/cd/E19830-01/819-4712/ablqw/index.html) in the Oracle documentation.
 1. Trust the certificate.
 
 ## Wireshark

@@ -16,7 +16,6 @@ With [Azure Cosmos DB](/azure/cosmos-db/introduction), a globally distributed da
 
 - [Use the Spring Data MongoDB API with Azure Cosmos DB](./configure-spring-data-mongodb-with-cosmos-db.md)
 - [Use the Spring Data Apache Cassandra API with Azure Cosmos DB](./configure-spring-data-apache-cassandra-with-cosmos-db.md)
-- [Use the Spring Data Gremlin Starter with the Azure Cosmos DB SQL API](./configure-spring-data-gremlin-java-app-with-cosmos-db.md)
 
 The Spring Data Azure Cosmos DB SDK is available as open source on GitHub in the [azure-sdk-for-java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cosmos/azure-spring-data-cosmos) repository. This repo maintains an active [issues list](https://github.com/Azure/azure-sdk-for-java/issues) where you can file bugs or check for workarounds on issues that have already been filed. You can also check the [release history](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/cosmos/azure-spring-data-cosmos/CHANGELOG.md) page to see whether an issue has been fixed in a more recent version. 
 
@@ -60,6 +59,16 @@ public class TestRepositoryConfig extends AbstractCosmosConfiguration {
 You can define entities by adding the `@Container` annotation and specifying properties that are related to the collection, such as the collection name, request units (RUs), time to live, and autocreate collection flag.
 
 By default, the collection name is the class name of the user-domain class. To customize it, add the `@Container(containerName="myCustomCollectionName")` annotation to the domain class. The `containerName` field also supports [Spring Expression Language](https://docs.spring.io/spring/docs/3.0.x/reference/expressions.html) (SpEL) expressions, so you can provide collection names programmatically via configuration properties. For example, you can use expressions such as `containerName = "${dynamic.container.name}"` and `containerName = "#{@someBean.getContainerName()}"`.
+
+For SpEL expressions to work properly, you need to add `@DependsOn("expressionResolver")` to the Spring Application class, as shown in the following example:
+
+```java
+@SpringBootApplication
+@DependsOn("expressionResolver")
+public class SampleApplication {
+
+}
+```
 
 You can map a field in a domain class to the `id` field of an Azure Cosmos DB document in either of two ways:
 
@@ -231,6 +240,7 @@ public class AppConfiguration extends AbstractCosmosConfiguration {
     }
 
     @Bean
+    @Override
     public CosmosConfig cosmosConfig() {
         DirectConnectionConfig directConnectionConfig = DirectConnectionConfig.getDefaultConfig();        
         return CosmosConfig.builder()
@@ -311,6 +321,7 @@ You can also customize the configuration to change the connection mode, maximum 
 
 ```java
     @Bean
+    @Override
     public CosmosConfig cosmosConfig() {
 
         // Set the connection mode to Direct (TCP), which applies to data plane operations.

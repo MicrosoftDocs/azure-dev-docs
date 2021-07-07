@@ -82,9 +82,9 @@
         "java/**/*.yml": "bmitchell287",
         "go/**/*.md": "barbkess",
         "python/**/*.md": "kraigb",
-        "ansible/**/*.md": "TomArcherMsft",
-        "chef/**/*.md": "TomArcherMsft",
-        "jenkins/**/*.md": "TomArcherMsft",
+        "ansible/**/*.md": "Duffney",
+        "chef/**/*.md": "Duffney",
+        "jenkins/**/*.md": "Duffney",
         "terraform/**/*.md": "TomArcherMsft",
         "javascript/**/*.md": "diberry",
         "javascript/**/*.yml": "diberry",
@@ -101,7 +101,7 @@
         "java/**/*.md": "brendm",
         "go/**/*.md": "barbkess",
         "python/**/*.md": "kraigb",
-        "ansible/**/*.md": "tarcher",
+        "ansible/**/*.md": "jduffney",
         "chef/**/*.md": "tarcher",
         "jenkins/**/*.md": "tarcher",
         "terraform/**/*.md": "tarcher",
@@ -131,7 +131,9 @@
         "chef/**/*.yml" : "Chef",
         "jenkins/**/*.yml" : "Jenkins",
         "terraform/**/*.yml" : "Terraform",
-        "lab/**/*.md": "Dev Experience Lab"
+        "lab/**/*.md": "Dev Experience Lab",
+        "javascript/**/*.md": "Azure"
+        
       },
       "featureFlags": {
         "javascript/**/*-feedback.yml": [

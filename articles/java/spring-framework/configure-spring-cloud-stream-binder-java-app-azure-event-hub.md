@@ -7,7 +7,7 @@ ms.date: 02/08/2021
 ms.service: event-hubs
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.custom: devx-track-java, devx-track-azurecli
+ms.custom: devx-track-java
 ---
 
 # How to create a Spring Cloud Stream Binder application with Azure Event Hubs
@@ -17,7 +17,7 @@ This article demonstrates how to configure a Java-based Spring Cloud Stream Bind
 ## Prerequisites
 
 * An Azure subscription; if you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits] or sign up for a [free Azure account].
-* A supported Java Development Kit (JDK). For more information about the JDKs available for use when developing on Azure, see <https://aka.ms/azure-jdks>.
+* A supported Java Development Kit (JDK). For more information about the JDKs available for use when developing on Azure, see [Java support on Azure and Azure Stack](/azure/developer/java/fundamentals/java-support-on-azure).
 * [Apache Maven](http://maven.apache.org/), version 3.0 or later.
 
 > [!IMPORTANT]
@@ -98,7 +98,7 @@ The following procedure creates a Spring boot application.
 1. Specify the following options:
 
    * Generate a **Maven** project with **Java**.
-   * Specify a **Spring Boot** version that is equal to **2.3**.
+   * Specify a **Spring Boot** version that is equal to **2.4.6**.
    * Specify the **Group** and **Artifact** names for your application.
    * Select **8** for the Java version.
    * Add the *Web* dependency.
@@ -131,23 +131,7 @@ The following procedure creates a Spring boot application.
    <dependency>
      <groupId>com.azure.spring</groupId>
      <artifactId>azure-spring-cloud-stream-binder-eventhubs</artifactId>
-     <version>2.1.0</version>
-   </dependency>
-   ```
-
-1. If you're using JDK version 9 or greater, add the following dependencies:
-
-   ```xml
-   <dependency>
-       <groupId>javax.xml.bind</groupId>
-       <artifactId>jaxb-api</artifactId>
-       <version>2.3.1</version>
-   </dependency>
-   <dependency>
-       <groupId>org.glassfish.jaxb</groupId>
-       <artifactId>jaxb-runtime</artifactId>
-       <version>2.3.1</version>
-       <scope>runtime</scope>
+     <version>2.5.0</version>
    </dependency>
    ```
 
@@ -155,7 +139,7 @@ The following procedure creates a Spring boot application.
 
 ## Configure your Spring Boot app to use your Azure Event Hub
 
-1. Locate the *application.yaml* in the *resources* directory of your app; for example:
+1. Add an *application.yaml* in the *resources* directory of your app; for example:
 
    *C:\SpringBoot\eventhubs-sample\src\main\resources\application.yaml*
 
@@ -219,7 +203,7 @@ In this section, you create the necessary Java classes for sending events to you
 
 ### Modify the main application class
 
-1. Locate the main application Java file in the package directory of your app; for example:
+1. Add the main application Java file in the package directory of your app; for example:
 
    *C:\SpringBoot\eventhubs-sample\src\main\java\com\contoso\eventhubs\sample\EventhubSampleApplication.java*
 
@@ -230,42 +214,48 @@ In this section, you create the necessary Java classes for sending events to you
 1. Open the main application Java file in a text editor, and add the following lines to the file:
 
    ```java
-    package com.contoso.eventhubs.sample;
-    
-    import com.azure.spring.integration.core.api.reactor.Checkpointer;
-    import org.slf4j.Logger;
-    import org.slf4j.LoggerFactory;
-    import org.springframework.boot.SpringApplication;
-    import org.springframework.boot.autoconfigure.SpringBootApplication;
-    import org.springframework.context.annotation.Bean;
-    import org.springframework.messaging.Message;
-    
-    import java.util.function.Consumer;
-    
-    import static com.azure.spring.integration.core.AzureHeaders.CHECKPOINTER;
-    
-    @SpringBootApplication
-    public class EventhubSampleApplication {
-    
-        public static final Logger LOGGER = LoggerFactory.getLogger(EventhubSampleApplication.class);
-    
-    	public static void main(String[] args) {
-    		SpringApplication.run(EventhubSampleApplication.class, args);
-    	}
-    
-        @Bean
-        public Consumer<Message<String>> consume() {
-            return message -> {
-                Checkpointer checkpointer = (Checkpointer) message.getHeaders().get(CHECKPOINTER);
-                LOGGER.info("New message received: '{}'", message);
-                checkpointer.success()
-                            .doOnSuccess(success -> LOGGER.info("Message '{}' successfully checkpointed", message))
-                            .doOnError(error -> LOGGER.error("Exception: {}", error.getMessage()))
-                            .subscribe();
-            };
-        }
-    
-    }
+   package com.contoso.eventhubs.sample;
+   
+   import com.azure.spring.integration.core.EventHubHeaders;
+   import com.azure.spring.integration.core.api.reactor.Checkpointer;
+   import org.slf4j.Logger;
+   import org.slf4j.LoggerFactory;
+   import org.springframework.boot.SpringApplication;
+   import org.springframework.boot.autoconfigure.SpringBootApplication;
+   import org.springframework.context.annotation.Bean;
+   import org.springframework.messaging.Message;
+   
+   import java.util.function.Consumer;
+   
+   import static com.azure.spring.integration.core.AzureHeaders.CHECKPOINTER;
+   
+   @SpringBootApplication
+   public class EventhubSampleApplication {
+   
+       public static final Logger LOGGER = LoggerFactory.getLogger(EventhubSampleApplication.class);
+   
+       public static void main(String[] args) {
+           SpringApplication.run(EventhubSampleApplication.class, args);
+       }
+   
+       @Bean
+       public Consumer<Message<String>> consume() {
+           return message -> {
+               Checkpointer checkpointer = (Checkpointer) message.getHeaders().get(CHECKPOINTER);
+               LOGGER.info("New message received: '{}', partition key: {}, sequence number: {}, offset: {}, enqueued time: {}",
+                   message.getPayload(),
+                   message.getHeaders().get(EventHubHeaders.PARTITION_KEY),
+                   message.getHeaders().get(EventHubHeaders.SEQUENCE_NUMBER),
+                   message.getHeaders().get(EventHubHeaders.OFFSET),
+                   message.getHeaders().get(EventHubHeaders.ENQUEUED_TIME)
+               );
+               checkpointer.success()
+                           .doOnSuccess(success -> LOGGER.info("Message '{}' successfully checkpointed", message.getPayload()))
+                           .doOnError(error -> LOGGER.error("Exception found", error))
+                           .subscribe();
+           };
+       }
+   }
    ```
 
 1. Save and close the main application Java file.
@@ -274,37 +264,38 @@ In this section, you create the necessary Java classes for sending events to you
 
 1. Create a new Java file named *EventProducerConfiguration.java* in the package directory of your app, then open the file in a text editor and add the following lines:
 
-    ```java
-    package com.contoso.eventhubs.sample;
-    
-    import org.slf4j.Logger;
-    import org.slf4j.LoggerFactory;
-    import org.springframework.context.annotation.Bean;
-    import org.springframework.context.annotation.Configuration;
-    import org.springframework.messaging.Message;
-    import reactor.core.publisher.EmitterProcessor;
-    import reactor.core.publisher.Flux;
-    
-    import java.util.function.Supplier;
-    
-    @Configuration
-    public class EventProducerConfiguration {
-    
-        private static final Logger LOGGER = LoggerFactory.getLogger(EventProducerConfiguration.class);
-    
-        @Bean
-        public EmitterProcessor<Message<String>> emitter() {
-            return EmitterProcessor.create();
-        }
-    
-        @Bean
-        public Supplier<Flux<Message<String>>> supply(EmitterProcessor<Message<String>> emitter) {
-            return () -> Flux.from(emitter)
-                             .doOnNext(m -> LOGGER.info("Manually sending message {}", m))
-                             .doOnError(t -> LOGGER.error("Error encountered", t));
-        }
-    }
-    ```
+   ```java
+   package com.contoso.eventhubs.sample;
+   
+   import org.slf4j.Logger;
+   import org.slf4j.LoggerFactory;
+   import org.springframework.context.annotation.Bean;
+   import org.springframework.context.annotation.Configuration;
+   import org.springframework.messaging.Message;
+   import reactor.core.publisher.Flux;
+   import reactor.core.publisher.Sinks;
+   
+   import java.util.function.Supplier;
+   
+   @Configuration
+   public class EventProducerConfiguration {
+   
+       private static final Logger LOGGER = LoggerFactory.getLogger(EventProducerConfiguration.class);
+   
+       @Bean
+       public Sinks.Many<Message<String>> many() {
+           return Sinks.many().unicast().onBackpressureBuffer();
+       }
+   
+       @Bean
+       public Supplier<Flux<Message<String>>> supply(Sinks.Many<Message<String>> many) {
+           return () -> many.asFlux()
+                            .doOnNext(m -> LOGGER.info("Manually sending message {}", m))
+                            .doOnError(t -> LOGGER.error("Error encountered", t));
+       }
+   }
+   ```
+   
 1. Save and close the *EventProducerConfiguration.java* file.
 
 ### Create a new controller class
@@ -321,9 +312,9 @@ In this section, you create the necessary Java classes for sending events to you
    import org.springframework.messaging.Message;
    import org.springframework.messaging.support.MessageBuilder;
    import org.springframework.web.bind.annotation.PostMapping;
-   import org.springframework.web.bind.annotation.RequestBody;
+   import org.springframework.web.bind.annotation.RequestParam;
    import org.springframework.web.bind.annotation.RestController;
-   import reactor.core.publisher.EmitterProcessor;
+   import reactor.core.publisher.Sinks;
    
    @RestController
    public class EventProducerController {
@@ -331,13 +322,13 @@ In this section, you create the necessary Java classes for sending events to you
        public static final Logger LOGGER = LoggerFactory.getLogger(EventProducerController.class);
    
        @Autowired
-       private EmitterProcessor<Message<String>> emitterProcessor;
+       private Sinks.Many<Message<String>> many;
    
        @PostMapping("/messages")
-       public ResponseEntity<String> sendMessage(@RequestBody String message) {
-           LOGGER.info("Going to add message {} to emitter", message);
-           emitterProcessor.onNext(MessageBuilder.withPayload(message).build());
-           return ResponseEntity.ok("Sent!");
+       public ResponseEntity<String> sendMessage(@RequestParam String message) {
+           LOGGER.info("Going to add message {} to sendMessage.", message);
+           many.emitNext(MessageBuilder.withPayload(message).build(), Sinks.EmitFailureHandler.FAIL_FAST);
+           return ResponseEntity.ok(message);
        }
    }
    ```
@@ -369,13 +360,13 @@ Use the following procedures to build and test your application.
 1. Once your application is running, you can use `curl` to test your application; for example:
 
    ```bash
-   curl -X POST -H "Content-Type: text/plain" -d "hello" http://localhost:8080/messages
+   curl -X POST http://localhost:8080/messages?message=hello
    ```
    You should see "hello" posted to your application's logs. For example:
 
    ```output
-   2020-09-11 15:11:12.138  INFO 7616 --- [      elastic-4] c.contoso.eventhubs.sample.EventhubSampleApplication  : New message received: 'hello'
-   2020-09-11 15:11:12.406  INFO 7616 --- [ctor-http-nio-1] c.contoso.eventhubs.sample.EventhubSampleApplication  : Message 'hello' successfully checkpointed
+   New message received: 'hello', partition key: 2002572479, sequence number: 4, offset: 768, enqueued time: 2021-06-03T01:47:36.859Z
+   Message 'hello' successfully checkpointed
    ```
 
 ## Next steps

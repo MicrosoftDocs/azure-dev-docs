@@ -5,7 +5,8 @@ author: mnriem
 ms.author: manriem
 ms.topic: conceptual
 ms.date: 2/28/2020
-ms.custom: devx-track-java
+ms.custom: devx-track-java, devx-track-azurecli
+recommendations: false
 ---
 
 # Migrate WebSphere applications to WildFly on Azure Kubernetes Service

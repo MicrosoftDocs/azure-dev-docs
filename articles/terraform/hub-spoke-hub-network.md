@@ -2,7 +2,7 @@
 title: Tutorial - Create a hub virtual network in Azure by using Terraform
 description: Learn how to create a hub virtual network in Azure that acts as a common connection point between other networks.
 ms.topic: tutorial
-ms.date: 10/26/2019
+ms.date: 03/08/2021
 ms.custom: devx-track-terraform
 ---
 
@@ -66,7 +66,7 @@ Create the Terraform configuration file that declares the hub virtual network.
     ```hcl
     locals {
       prefix-hub         = "hub"
-      hub-location       = "CentralUS"
+      hub-location       = "eastus"
       hub-resource-group = "hub-vnet-rg"
       shared-key         = "4-v3ry-53cr37-1p53c-5h4r3d-k3y"
     }
@@ -91,21 +91,21 @@ Create the Terraform configuration file that declares the hub virtual network.
       name                 = "GatewaySubnet"
       resource_group_name  = azurerm_resource_group.hub-vnet-rg.name
       virtual_network_name = azurerm_virtual_network.hub-vnet.name
-      address_prefix       = "10.0.255.224/27"
+      address_prefixes     = ["10.0.255.224/27"]
     }
 
     resource "azurerm_subnet" "hub-mgmt" {
       name                 = "mgmt"
       resource_group_name  = azurerm_resource_group.hub-vnet-rg.name
       virtual_network_name = azurerm_virtual_network.hub-vnet.name
-      address_prefix       = "10.0.0.64/27"
+      address_prefixes       = ["10.0.0.64/27"]
     }
 
     resource "azurerm_subnet" "hub-dmz" {
       name                 = "dmz"
       resource_group_name  = azurerm_resource_group.hub-vnet-rg.name
       virtual_network_name = azurerm_virtual_network.hub-vnet.name
-      address_prefix       = "10.0.0.32/27"
+      address_prefixes       = ["10.0.0.32/27"]
     }
 
     resource "azurerm_network_interface" "hub-nic" {

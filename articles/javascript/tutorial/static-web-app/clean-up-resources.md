@@ -3,7 +3,7 @@ title: Remove Azure resource
 description: Clean up billable resources by removing the resource group with an Azure CLI command. 
 ms.topic: tutorial
 ms.date: 11/13/2020
-ms.custom: devx-track-js
+ms.custom: devx-track-js, devx-track-azurecli
 ---
 
 # 7. Clean up resources for static web app

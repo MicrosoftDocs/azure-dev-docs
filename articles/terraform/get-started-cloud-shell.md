@@ -4,7 +4,8 @@ description: In this quickstart, you learn how to install and configure Terrafor
 keywords: azure devops terraform install configure cloud shell init plan apply execution portal login rbac service principal automated script
 ms.topic: quickstart
 ms.date: 09/27/2020
-ms.custom: devx-track-terraform, devx-track-azurecli
+ms.custom: devx-track-terraform
+adobe-target: true
 # Customer intent: As someone new to Terraform and Azure, I want learn the basics of deploying Azure resources using Terraform from Cloud Shell.
 ---
 
@@ -40,7 +41,7 @@ In this article, you learn how to:
 
 1. If you haven't previously used Cloud Shell, configure the environment and storage settings. This article uses the Bash environment.
 
-**Notes**:
+**Key points**:
 - Cloud Shell automatically has the latest version of Terraform installed. Also, Terraform automatically uses information from the current Azure subscription. As a result, there's no installation or configuration required.
 
 ## Authenticate to Azure
@@ -60,7 +61,7 @@ Calling `az login` without any parameters displays a URL and a code. Browse to t
 az login
 ```
 
-**Notes**:
+**Key points**:
 
 - Upon successful login, `az login` displays a list of the Azure subscriptions associated with the logged-in Microsoft account.
 - A list of properties displays for each available Azure subscription. The `isDefault` property identifies which Azure subscription you're using. To learn how to switch to another Azure subscription, see the section, [Set the current Azure subscription](#set-the-current-azure-subscription).
@@ -71,7 +72,7 @@ az login
 
 Automated tools that deploy or use Azure services - such as Terraform - should always have restricted permissions. Instead of having applications log in as a fully privileged user, Azure offers service principals. But, what if you don't have a service principal with which to log in? In that scenario, you can log in using your user credentials and then create a service principal. Once the service principal is created, you can use its information for future login attempts.
 
-There are many options when [creating a service principal with the Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli?). For this article, we'll create use [az ad sp create-for-rbac](/cli/azure/ad/sp?#az-ad-sp-create-for-rbac) to create a service principal with a **Contributor** role. The **Contributor** role (the default) has full permissions to read and write to an Azure account. For more information about Role-Based Access Control (RBAC) and roles, see [RBAC: Built-in roles](/azure/active-directory/role-based-access-built-in-roles).
+There are many options when [creating a service principal with the Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli?). For this article, we'll use [az ad sp create-for-rbac](/cli/azure/ad/sp?#az_ad_sp_create_for_rbac) to create a service principal with a **Contributor** role. The **Contributor** role (the default) has full permissions to read and write to an Azure account. For more information about Role-Based Access Control (RBAC) and roles, see [RBAC: Built-in roles](/azure/active-directory/role-based-access-built-in-roles).
 
 Enter the following command, replacing `<subscription_id>` with the ID of the subscription account you want to use.
 
@@ -79,7 +80,7 @@ Enter the following command, replacing `<subscription_id>` with the ID of the su
 az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/<subscription_id>"
 ```
 
-**Notes**:
+**Key points**:
 
 - Upon successful completion, `az ad sp create-for-rbac` displays several values. The `name`, `password`, and `tenant` values are used in the next step.
 - The password can't be retrieved if lost. As such, you should store your password in a safe place. If you forget your password, you'll need to [reset the service principal credentials](/cli/azure/create-an-azure-service-principal-azure-cli#reset-credentials).
@@ -94,25 +95,25 @@ az login --service-principal -u <service_principal_name> -p "<service_principal_
 
 A Microsoft account can be associated with multiple Azure subscriptions. The following steps outline how you can switch between your subscriptions:
 
-1. To view the current Azure subscription, use [az account show](/cli/azure/account#az-account-show).
+1. To view the current Azure subscription, use [az account show](/cli/azure/account#az_account_show).
 
     ```azurecli
     az account show
     ```
 
-1. If you have access to multiple available Azure subscriptions, use [az account list](/cli/azure/account#az-account-list) to display a list of subscription name ID values:
+1. If you have access to multiple available Azure subscriptions, use [az account list](/cli/azure/account#az_account_list) to display a list of subscription name ID values:
 
     ```azurecli
     az account list --query "[].{name:name, subscriptionId:id}"
     ```
 
-1. To use a specific Azure subscription for the current Cloud Shell session, use [az account set](/cli/azure/account#az-account-set). Replace the `<subscription_id>` placeholder with the ID (or name) of the subscription you want to use:
+1. To use a specific Azure subscription for the current Cloud Shell session, use [az account set](/cli/azure/account#az_account_set). Replace the `<subscription_id>` placeholder with the ID (or name) of the subscription you want to use:
 
     ```azurecli
     az account set --subscription="<subscription_id>"
     ```
 
-    **Notes**:
+    **Key points**:
 
     - Calling `az account set` doesn't display the results of switching to the specified Azure subscription. However, you can use `az account show` to confirm that the current Azure subscription has changed.
 

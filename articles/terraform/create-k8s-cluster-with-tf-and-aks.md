@@ -4,7 +4,7 @@ description: Learn how to create a Kubernetes Cluster with Azure Kubernetes Serv
 keywords: azure devops terraform aks kubernetes
 ms.topic: how-to
 ms.date: 03/09/2020
-ms.custom: devx-track-terraform
+ms.custom: devx-track-terraform, devx-track-azurecli
 ---
 
 # Create a Kubernetes cluster with Azure Kubernetes Service using Terraform
@@ -157,8 +157,8 @@ Create the Terraform configuration file that declares the resources for the Kube
         }
         
         network_profile {
-        load_balancer_sku = "Standard"
-        network_plugin = "kubenet"
+            load_balancer_sku = "Standard"
+            network_plugin = "kubenet"
         }
 
         tags = {

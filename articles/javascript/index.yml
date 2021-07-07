@@ -11,7 +11,7 @@ metadata:
   description: Get started developing apps with the Azure SDK for JavaScript in the browser or Node.js through tutorials, tools, and the SDK reference.
   author: diberry
   ms.author: diberry
-  ms.date: 01/20/2021
+  ms.date: 06/11/2021
   ms.topic: landing-page
   ms.collection: collection
   ms.technology: azure
@@ -29,8 +29,14 @@ landingContent:
             url: core/install-nodejs-develop-azure-sdk-project.md
           - text: Set up development environment
             url: core/configure-local-development-environment.md
-          - text: Authenticate to client library
+          - text: Select a hosting service
+            url: how-to/deploy-web-app.md
+          - text: Authenticate to Azure SDK
             url: core/node-sdk-azure-authenticate.md
+          - text: Authenticate your web app users
+            url: how-to/with-authentication/getting-started.md?tabs=no-code%2Cno-code-credential
+          - text: Select a database
+            url: how-to/with-database/getting-started.md
           - text: Azure SDK Blog
             url: https://devblogs.microsoft.com/azure-sdk/
           - text: Top tasks for JavaScript developers
@@ -43,10 +49,14 @@ landingContent:
             url: whats-new-docs.md
           - text: What's new with Developer Advocates
             url: whats-new-developer-advocacy.md
+          - text: Top 10 docs for JS developers
+            url: whats-new-docs.md#top-10
   - title: Deploy and host
     linkLists:
       - linkListType: tutorial
         links:
+          - text: "Add search to website"
+            url: /azure/search/tutorial-javascript-overview
           - text: "Static web app: React with Cognitive Services"
             url: tutorial/static-web-app/introduction.md
           - text: "App service: React upload to Storage Blobs"
@@ -58,7 +68,7 @@ landingContent:
           - text: "App service: Express.js container"
             url: tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-01.md
           - text: "Azure Functions: HTTP serverless trigger"
-            url: tutorial/tutorial-vscode-serverless-node-install.md
+            url: tutorial/vscode-function-app-http-trigger/tutorial-vscode-serverless-node-install.md
           - text: "Azure Virtual Machine: NGINX/Express.js containers"
             url: tutorial/nodejs-virtual-machine-vm/introduction.md
   - title: Azure SDK client library tutorials

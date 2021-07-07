@@ -53,6 +53,8 @@
         href: tutorial-python-postgresql-app-portal.md
       - name: Using the Azure CLI
         href: /azure/app-service/tutorial-python-postgresql-app
+  - name: Static websites
+    href: how-to-create-static-sites.md
   - name: Set up CI/CD
     href: /azure/devops/pipelines/languages/python-webapp
   - name: Configure the Linux host

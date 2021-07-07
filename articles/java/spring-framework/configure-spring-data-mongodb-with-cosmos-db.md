@@ -19,7 +19,7 @@ This article demonstrates creating a sample application that uses [Spring Data] 
 The following prerequisites are required in order to complete the steps in this article:
 
 * An Azure subscription; if you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits] or sign up for a [free Azure account].
-* A supported Java Development Kit (JDK). For more information about the JDKs available for use when developing on Azure, see <https://aka.ms/azure-jdks>.
+* A supported Java Development Kit (JDK). For more information about the JDKs available for use when developing on Azure, see [Java support on Azure and Azure Stack](/azure/developer/java/fundamentals/java-support-on-azure).
 * Apache's [Maven](http://maven.apache.org/), version 3.0 or later.
 * A [Git](https://git-scm.com/downloads) client.
 
@@ -28,14 +28,17 @@ The following prerequisites are required in order to complete the steps in this 
 ### Create a Cosmos DB account using the Azure portal
 
 > [!NOTE]
-> 
 > You can read more detailed information about creating Azure Cosmos DB accounts in [Azure Cosmos DB Documentation](/azure/cosmos-db/).
 
 1. Browse to the Azure portal at <https://portal.azure.com/> and sign in.
 
-1. Click **+Create a resource**, then **Databases**, and then click **Azure Cosmos DB**.
+1. Select **Create a resource**, then **Databases**, then **Azure Cosmos DB**.
 
-   ![Create an Azure Cosmos DB account][COSMOSDB01]
+   ![Azure portal, create a resource, search for Azure Cosmos DB.][COSMOSDB01]
+
+1. On the **Select API option** screen, select **Azure CosmosDB API for MongoDB**.
+
+   ![Azure portal, create a resource, select API option, Azure Cosmos DB API for MongoDB selected.][COSMOSDB02]
 
 1. Specify the following information:
 
@@ -45,13 +48,11 @@ The following prerequisites are required in order to complete the steps in this 
    - **API**: Specify `Azure Cosmos DB for MongoDB API` for this tutorial.
    - **Location**: Specify the closest geographic region for your database.
 
-   ![Specify your Cosmos DB account settings][COSMOSDB02]
-   
 1. When you have entered all of the above information, click **Review + create**.
 
 1. If everything looks correct on the review page, click **Create**.
 
-   ![Review your Cosmos DB account settings][COSMOSDB03]
+   ![Review your Cosmos DB account settings.][COSMOSDB03]
 
 ### Retrieve the connection string for your Azure Cosmos DB account
 
@@ -61,7 +62,7 @@ The following prerequisites are required in order to complete the steps in this 
 
 1. Click **Connection strings**, and copy the value for the **Primary Connection String** field; you will use that value to configure your application later.
 
-   ![Retrieve your Cosmos DB connection string][COSMOSDB06]
+   ![Retrieve your Cosmos DB connection string.][COSMOSDB06]
 
 ## Configure the sample application
 
@@ -79,6 +80,7 @@ The following prerequisites are required in order to complete the steps in this 
    spring.data.mongodb.database=wingtiptoysmongodb
    spring.data.mongodb.uri=mongodb://wingtiptoysmongodb:AbCdEfGhIjKlMnOpQrStUvWxYz==@wingtiptoysmongodb.documents.azure.com:10255/?ssl=true&replicaSet=globaldb
    ```
+
    Where:
 
    | Parameter | Description |
@@ -103,7 +105,7 @@ To build the application, browse to the directory */gs-accessing-data-mongodb/co
    ```shell
    java -jar target/accessing-data-mongodb-0.0.1-SNAPSHOT.jar
    ```
-    
+
    Your application should return values like the following:
 
    ```json

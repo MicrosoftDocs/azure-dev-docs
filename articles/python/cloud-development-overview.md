@@ -1,7 +1,7 @@
 ---
 title: Cloud Development with Azure - What is Azure?
 description: An overview of developing cloud applications on Microsoft Azure, starting with how data centers, services, and resources relate.
-ms.date: 10/06/2020
+ms.date: 02/16/2021
 ms.topic: conceptual
 ms.custom: devx-track-python
 ---
@@ -12,17 +12,17 @@ You're a Python developer, and you're ready to develop cloud applications for Mi
 
 ## What is Azure? Data centers, services, and resources
 
-Microsoft's CEO, Satya Nadella, often refers to Azure as "the world's computer." A computer, as you well know, is a collection of hardware that's managed by an operating system, which provides a platform upon which you can build software that helps people apply the system's computing power to any number of tasks. (That's why we use the word "application" to describe such software.)
+Microsoft's CEO, Satya Nadella, often refers to Azure as "the world's computer." A computer, as you well know, is a collection of hardware that's managed by an operating system, which provides a platform upon which you can build software that helps people *apply* the system's computing power to any number of tasks. (That's why we use the word "application" to describe such software.)
 
 In the case of Azure, the computer's hardware is not a single machine but an enormous pool of virtualized server computers contained in [dozens of massive data centers around the world](https://azure.microsoft.com/global-infrastructure/regions/). The Azure "operating system" is then composed of *services* that dynamically allocate and de-allocate different parts of that resource pool as applications need them. Those dynamic allocations allow applications to respond quickly to any number of changing conditions, such as customer demand.
 
-Each allocation&mdash;be it computing power (CPU cores and memory), storage, databases, networks, and so on&mdash;is called a *resource*. And each discrete resource is accordingly assigned a unique *object identifier* (a GUID) and a unique URL.
+Each allocation is called a *resource*, and each resource is assigned both a unique *object identifier* (a GUID) and a unique URL. Types of resources include virtual machines (CPU cores and memory), storage, databases, virtual networks, container registries, container orchestrators, web hosts, AI and analytics engines, and so on.
 
 ![Layers of Azure, from the data center to Azure services to allocate resources](media/cloud-development/azure-layers.png)
 
-Resources are the building blocks of a cloud application. The cloud development process thus begins with creating the appropriate environment into which you can deploy the different parts of the application. Put simply, you cannot deploy any code or data to Azure until you've allocated and configured&mdash;that is *provisioned*&mdash;a suitable target resource, such as a virtual machine, a database, a storage account, a container registry, a container orchestrator, a web host, a virtual network, AI and analytics engines, and so on.
+Resources are the building blocks of a cloud application. The cloud development process thus begins with creating the appropriate environment into which you can deploy the different parts of the application. Put simply, you cannot deploy any code or data to Azure until you've allocated and configured&mdash;that is *provisioned*&mdash;the suitable target resources.
 
-The process of creating the environment for your application, then, involves identifying the relevant services and resource types involved, and then provisioning those resources (at which point you begin renting them from Azure). The provisioning process is essentially how you construct the computing system to which you deploy your application.
+The process of creating the environment for your application, then, involves identifying the relevant services and resource types involved, and then provisioning those resources. The provisioning process is essentially how you construct the computing system to which you deploy your application. Provisioning is also the point at which you begin renting those resources from Azure.
 
 There are hundreds of different types of resources at your disposal, from basic "infrastructure" resources like virtual machines, where you retain full control and responsibility for the software you deploy, to higher-level "platform" services that provide a more managed environment where you concern yourself with only data and application code.
 

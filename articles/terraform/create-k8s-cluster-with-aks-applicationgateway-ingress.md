@@ -3,8 +3,8 @@ title: Create an Application Gateway ingress controller in Azure Kubernetes Serv
 description: Learn how to create a Kubernetes Cluster with Azure Kubernetes Service with Application Gateway as ingress controller.
 keywords: azure devops terraform application gateway ingress aks kubernetes
 ms.topic: how-to
-ms.date: 10/30/2020
-ms.custom: devx-track-terraform
+ms.date: 05/17/2021
+ms.custom: devx-track-terraform, devx-track-azurecli
 ---
 
 # Create an Application Gateway ingress controller in Azure Kubernetes Service
@@ -73,16 +73,19 @@ Create the Terraform configuration file that declares the Azure provider.
 1. Paste the following code into the editor:
 
     ```hcl
+    terraform {
+      required_providers {
+        azurerm = {
+          source = "hashicorp/azurerm"
+          version = "~>2.0"
+        }
+      }
+    }
+    
     provider "azurerm" {
-      # The "feature" block is required for AzureRM provider 2.x. 
-      # If you are using version 1.x, the "features" block is not allowed.
-      version = "~>2.0"
       features {}
     }
 
-    terraform {
-        backend "azurerm" {}
-    }
     ```
 
 1. Save the file (**&lt;Ctrl>S**) and exit the editor (**&lt;Ctrl>Q**).
@@ -518,6 +521,7 @@ With AKS, you pay only for the worker nodes. The `agent_pool_profile` record con
 
     output "kube_config" {
         value = azurerm_kubernetes_cluster.k8s.kube_config_raw
+        sensitive = true
     }
 
     output "host" {
@@ -562,10 +566,33 @@ Terraform tracks state locally via the `terraform.tfstate` file. This pattern wo
 ## Create the Kubernetes cluster
 In this section, you see how to use the `terraform init` command to create the resources defined the configuration files you created in the previous sections.
 
+1. Update the `main.tf` to an Azure storage backend.
+
+     ```terraform
+      terraform {
+      required_providers {
+        azurerm = {
+          source = "hashicorp/azurerm"
+          version = "~>2.0"
+        }
+      }
+      backend "azurerm" {
+        resource_group_name = "<ResourceGroupName>"
+        storage_account_name = "<AzureStorageAccountName>"
+        container_name = "tfstate"
+        key = "codelab.microsoft.tfstate"
+      }
+    }
+    
+    provider "azurerm" {
+      features {}
+    }
+    ```
+
 1. In Cloud Shell, initialize Terraform. Replace the placeholders with the appropriate values for your Azure storage account.
 
     ```bash
-    terraform init -backend-config="storage_account_name=<YourAzureStorageAccountName>" -backend-config="container_name=tfstate" -backend-config="access_key=<YourStorageAccountAccessKey>" -backend-config="key=codelab.microsoft.tfstate" 
+    terraform init 
     ```
   
     The `terraform init` command displays the success of initializing the backend and provider plug-in:
@@ -640,16 +667,10 @@ If the Cloud Shell session times out, you can use the following steps to recover
 ## Test the Kubernetes cluster
 The Kubernetes tools can be used to verify the newly created cluster.
 
-1. Get the Kubernetes configuration from the Terraform state and store it in a file that kubectl can read.
+1. Get the Kubernetes configuration and access credentials from the Azure using the Azure CLI command `az aks get-credentials`.
 
-    ```bash
-    echo "$(terraform output kube_config)" > ./azurek8s
-    ```
-
-1. Set an environment variable so that kubectl picks up the correct config.
-
-    ```bash
-    export KUBECONFIG=./azurek8s
+    ```azcli
+    az aks get-credentials --name <AksCluserName>  --resource-group <ResourceGroupName>
     ```
 
 1. Verify the health of the cluster.
@@ -688,26 +709,12 @@ kubectl create -f https://raw.githubusercontent.com/Azure/aad-pod-identity/maste
 
 The code in this section uses [Helm](/azure/aks/kubernetes-helm) - Kubernetes package manager - to install the `application-gateway-kubernetes-ingress` package:
 
-1. If RBAC is **enabled**, run the following set of commands to install and configure Helm:
+Run the follow helm commands to add the AGIC Helm repository:
 
-    ```bash
-    kubectl create serviceaccount --namespace kube-system tiller-sa
-    kubectl create clusterrolebinding tiller-cluster-rule --clusterrole=cluster-admin --serviceaccount=kube-system:tiller-sa
-    helm init --tiller-namespace kube-system --service-account tiller-sa
-    ```
-
-1. If RBAC is **disabled**, run the following command to install and configure Helm:
-
-    ```bash
-    helm init
-    ```
-
-1. Add the AGIC Helm repository:
-
-    ```bash
-    helm repo add application-gateway-kubernetes-ingress https://appgwingress.blob.core.windows.net/ingress-azure-helm-package/
-    helm repo update
-    ```
+```bash
+helm repo add application-gateway-kubernetes-ingress https://appgwingress.blob.core.windows.net/ingress-azure-helm-package/
+helm repo update
+```
 
 ## Install Ingress Controller Helm Chart
 
@@ -746,7 +753,7 @@ The code in this section uses [Helm](/azure/aks/kubernetes-helm) - Kubernetes pa
 1. Install the Application Gateway ingress controller package:
 
     ```bash
-    helm install -f helm-config.yaml application-gateway-kubernetes-ingress/ingress-azure
+    helm install -f helm-config.yaml application-gateway-kubernetes-ingress/ingress-azure --generate-name
     ```
 
 ### Install a sample app

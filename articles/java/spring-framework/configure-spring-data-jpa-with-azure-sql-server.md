@@ -7,7 +7,7 @@ ms.service: sql-database
 ms.tgt_pltfrm: multiple
 ms.author: judubois
 ms.topic: article
-ms.custom: devx-track-java
+ms.custom: devx-track-java, devx-track-azurecli
 ---
 
 # Use Spring Data JPA with Azure SQL Database
@@ -31,7 +31,6 @@ Generate the application on the command line by entering:
 ```bash
 curl https://start.spring.io/starter.tgz -d dependencies=web,data-jpa,sqlserver -d baseDir=azure-database-workshop -d bootVersion=2.3.1.RELEASE -d javaVersion=8 | tar -xzvf -
 ```
-
 
 ### Configure Spring Boot to use Azure SQL Database
 

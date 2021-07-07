@@ -9,8 +9,12 @@
   items:
     - name: Configure Ansible using Azure Cloud Shell
       href: getting-started-cloud-shell.md
-    - name: Configure Ansible using Azure CLI
+    - name: Configure Ansible on an Azure VM
       href: install-on-linux-vm.md
+    - name: Configure Ansible in a Docker container
+      href: configure-in-docker-container.md
+    - name: Create Ansible service principal
+      href: create-ansible-service-principal.md
     - name: Work with Linux Virtual Machines
       expanded: true
       items:
@@ -18,6 +22,8 @@
         href: vm-configure.md
       - name: Manage Linux virtual machines
         href: vm-manage.md
+      - name: Configure Windows virtual machines
+        href: vm-configure-windows.md
 - name: Tutorials
   items:
   - name: Azure Application Gateway
@@ -110,7 +116,3 @@
     href: module-version-matrix.md
   - name: All modules for Azure
     href: https://docs.ansible.com/ansible/2.9/modules/list_of_cloud_modules.html#azure
-- name: Resources
-  items:
-  - name: Visual Studio Code extension for Ansible
-    href: https://marketplace.visualstudio.com/items?itemName=vscoss.vscode-ansible

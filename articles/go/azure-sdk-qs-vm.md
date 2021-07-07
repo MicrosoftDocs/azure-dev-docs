@@ -41,7 +41,7 @@ Set the environment variable `AZURE_AUTH_LOCATION` to be the full path to this f
 Get the quickstart code and all of its dependencies with `go get`.
 
 ```bash
-go get -u -d github.com/azure-samples/azure-sdk-for-go-samples/quickstarts/deploy-vm/...
+go get -u -d github.com/Azure-Samples/azure-sdk-for-go-samples/quickstarts/deploy-vm/...
 ```
 
 You don't need to make any source code modifications if the `AZURE_AUTH_LOCATION` variable is properly set. When the program runs, it loads all the necessary authentication information from there.
@@ -51,7 +51,7 @@ You don't need to make any source code modifications if the `AZURE_AUTH_LOCATION
 Run the quickstart with the `go run` command.
 
 ```bash
-cd $GOPATH/src/github.com/azure-samples/azure-sdk-for-go-samples/quickstarts/deploy-vm
+cd $GOPATH/src/github.com/Azure-Samples/azure-sdk-for-go-samples/quickstarts/deploy-vm
 go run main.go
 ```
 

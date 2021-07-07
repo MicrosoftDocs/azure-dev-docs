@@ -4,6 +4,7 @@ description: Pointers to the Python API reference documentation
 ms.date: 05/26/2020
 ms.topic: conceptual
 ms.custom: devx-track-python
+adobe-target: true
 ---
 
 # Azure libraries for Python API reference

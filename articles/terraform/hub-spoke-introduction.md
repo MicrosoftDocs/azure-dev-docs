@@ -2,7 +2,7 @@
 title: Tutorial - Create a hub and spoke hybrid network topology in Azure using Terraform
 description: Learn how to create an entire hybrid network reference architecture in Azure using Terraform.
 ms.topic: tutorial
-ms.date: 10/26/2019
+ms.date: 03/08/2021
 ms.custom: devx-track-terraform
 ---
 
@@ -109,8 +109,16 @@ Create the Terraform configuration file that declares the Azure provider.
 1. Paste the following code into the editor:
 
     ```hcl
+    terraform {
+      required_providers {
+          azurerm = {
+            source  = "hashicorp/azurerm"
+            version = "~>2.0"
+          }
+      }
+    }
     provider "azurerm" {
-        version = "~>1.22"
+      features {}
     }
     ```
 
@@ -131,7 +139,7 @@ Create the Terraform configuration file for common variables that are used acros
     ```hcl
     variable "location" {
       description = "Location of the network"
-      default     = "centralus"
+      default     = "eastus"
     }
     
     variable "username" {
@@ -149,6 +157,11 @@ Create the Terraform configuration file for common variables that are used acros
       default     = "Standard_DS1_v2"
     }
     ```
+
+    **Key points:**
+
+    - This tutorial uses a hard-coded password in the variables file for simplicity. In a real-world app, you might want to consider using a SSH public/private key pair. 
+    - For more information about SSH keys and Azure, see [How to use SSH keys with Windows on Azure](/azure/virtual-machines/linux/ssh-from-windows).
 
 1. Save the file and exit the editor.
 

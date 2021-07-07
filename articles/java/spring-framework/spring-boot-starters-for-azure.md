@@ -57,7 +57,7 @@ When you add this starter to a Spring Boot project, the following changes are ma
    <properties>
       <!-- Other properties will be listed here -->
       <java.version>1.8</java.version>
-      <azure.version>2.3.5</azure.version>
+      <azure.version>3.5.0</azure.version>
    </properties>
    ```
 
@@ -66,7 +66,7 @@ When you add this starter to a Spring Boot project, the following changes are ma
     ```xml
     <dependencies>
         <dependency>
-            <groupId>com.microsoft.azure</groupId>
+            <groupId>com.azure.spring</groupId>
             <artifactId>azure-spring-boot-starter</artifactId>
         </dependency>
     
@@ -90,7 +90,7 @@ When you add this starter to a Spring Boot project, the following changes are ma
    <dependencyManagement>
       <dependencies>
          <dependency>
-            <groupId>com.microsoft.azure</groupId>
+            <groupId>com.azure.spring</groupId>
             <artifactId>azure-spring-boot-bom</artifactId>
             <version>${azure.version}</version>
             <type>pom</type>
@@ -117,7 +117,7 @@ When you add this starter to a Spring Boot project, the following changes are ma
    <properties>
       <!-- Other properties will be listed here -->
       <java.version>1.8</java.version>
-      <azure.version>2.3.5</azure.version>
+      <azure.version>3.5.0</azure.version>
    </properties>
    ```
 
@@ -126,8 +126,8 @@ When you add this starter to a Spring Boot project, the following changes are ma
     ```xml
     <dependencies>
         <dependency>
-            <groupId>com.microsoft.azure</groupId>
-            <artifactId>azure-active-directory-spring-boot-starter</artifactId>
+            <groupId>com.azure.spring</groupId>
+            <artifactId>azure-spring-boot-starter-active-directory</artifactId>
         </dependency>
     
         <dependency>
@@ -150,7 +150,7 @@ When you add this starter to a Spring Boot project, the following changes are ma
    <dependencyManagement>
       <dependencies>
          <dependency>
-            <groupId>com.microsoft.azure</groupId>
+            <groupId>com.azure.spring</groupId>
             <artifactId>azure-spring-boot-bom</artifactId>
             <version>${azure.version}</version>
             <type>pom</type>
@@ -177,7 +177,7 @@ When you add this starter to a Spring Boot project, the following changes are ma
    <properties>
       <!-- Other properties will be listed here -->
       <java.version>1.8</java.version>
-      <azure.version>2.3.5</azure.version>
+      <azure.version>3.5.0</azure.version>
    </properties>
    ```
 
@@ -186,8 +186,8 @@ When you add this starter to a Spring Boot project, the following changes are ma
     ```xml
     <dependencies>
         <dependency>
-            <groupId>com.microsoft.azure</groupId>
-            <artifactId>azure-keyvault-secrets-spring-boot-starter</artifactId>
+            <groupId>com.azure.spring</groupId>
+            <artifactId>azure-spring-boot-starter-keyvault-secrets</artifactId>
         </dependency>
     
         <dependency>
@@ -210,7 +210,7 @@ When you add this starter to a Spring Boot project, the following changes are ma
    <dependencyManagement>
       <dependencies>
          <dependency>
-            <groupId>com.microsoft.azure</groupId>
+            <groupId>com.azure.spring</groupId>
             <artifactId>azure-spring-boot-bom</artifactId>
             <version>${azure.version}</version>
             <type>pom</type>
@@ -238,7 +238,7 @@ When you add this starter to a Spring Boot project, the following changes are ma
    <properties>
       <!-- Other properties will be listed here -->
       <java.version>1.8</java.version>
-      <azure.version>2.3.5</azure.version>
+      <azure.version>3.5.0</azure.version>
    </properties>
    ```
 
@@ -247,8 +247,8 @@ When you add this starter to a Spring Boot project, the following changes are ma
     ```xml
     <dependencies>
         <dependency>
-            <groupId>com.microsoft.azure</groupId>
-            <artifactId>spring-starter-azure-storage</artifactId>
+            <groupId>com.azure.spring</groupId>
+            <artifactId>azure-spring-boot-starter-storage</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -270,7 +270,7 @@ When you add this starter to a Spring Boot project, the following changes are ma
    <dependencyManagement>
       <dependencies>
          <dependency>
-            <groupId>com.microsoft.azure</groupId>
+            <groupId>com.azure.spring</groupId>
             <artifactId>azure-spring-boot-bom</artifactId>
             <version>${azure.version}</version>
             <type>pom</type>
@@ -279,6 +279,10 @@ When you add this starter to a Spring Boot project, the following changes are ma
       </dependencies>
    </dependencyManagement>
    ```
+
+## Application Insights
+
+Azure Monitor Application Insights can help you understand how your app is performing and how it's being used. Application Insights uses the Java agent to enable the application monitor. There are no code changes needed, and you can enable the Java agent with just a couple of configuration changes. For instructions and more information, see [Java codeless application monitoring Azure Monitor Application Insights](/azure/azure-monitor/app/java-in-process-agent#configuration-options).
 
 ## Next steps
 

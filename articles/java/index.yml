@@ -13,6 +13,21 @@ metadata:
 conceptualContent:
   items:
 
+    - title: Java learning resources
+      links:
+        - text: Overview
+          itemType: overview
+          url: learning-resources/overview.md
+        - text: Java on Azure samples
+          itemType: quickstart
+          url: learning-resources/samples.md
+        - text: Get Java help from Microsoft
+          itemType: overview
+          url: learning-resources/get-help.md
+      footerLink:
+        text: See more
+        url: learning-resources/index.yml
+
     - title: Azure for Java quickstarts
       links:
         - text: Deploy a Java SE web app to Linux
@@ -21,18 +36,18 @@ conceptualContent:
         - text: Create a serverless function
           itemType: quickstart
           url: /azure/azure-functions/functions-create-first-java-maven
-        - text: Manage storage blobs
+        - text: Deploy Spring Cloud microservices
           itemType: quickstart
-          url: /azure/storage/blobs/storage-quickstart-blobs-java
+          url: /azure/spring-cloud/quickstart-sample-app-introduction?pivots=programming-language-java
       footerLink:
         text: See more
         url: quickstarts/index.yml
 
     - title: Tools, IDEs, and supported JDKs
       links:
-        - text: Java long-term support
+        - text: Java support
           itemType: get-started
-          url: fundamentals/java-jdk-long-term-support.md
+          url: fundamentals/java-support-on-azure.md
         - text: Java JDK installation
           itemType: get-started
           url: fundamentals/java-jdk-install.md
@@ -68,7 +83,7 @@ conceptualContent:
           url: sdk/overview.md
         - text: Java API browser
           itemType: reference
-          url: /java/api/?view=azure-java
+          url: /java/api
       footerLink:
           text: See more
           url: sdk/index.yml
@@ -93,9 +108,9 @@ conceptualContent:
         - text: What is Azure Spring Cloud?
           itemType: overview
           url: /azure/spring-cloud/spring-cloud-overview
-        - text: Launch a Spring app using Azure CLI
+        - text: Launch your first app
           itemType: quickstart
-          url: /azure/spring-cloud/spring-cloud-quickstart-launch-app-portal
+          url: /azure/spring-cloud/quickstart?tabs=Azure-CLI&pivots=programming-language-java
         - text: Prepare a Spring app for deployment
           itemType: tutorial
           url: /azure/spring-cloud/spring-cloud-tutorial-prepare-app-deployment
@@ -122,7 +137,7 @@ conceptualContent:
       links:
         - text: Create an Azure Function
           itemType: quickstart
-          url: /azure/azure-functions/functions-create-first-function-vs-code?pivots=programming-language-java
+          url: /azure/azure-functions/create-first-function-vs-code-java
         - text: Create a Spring Cloud Function
           itemType: tutorial
           url: ./spring-framework/getting-started-with-spring-cloud-function-in-azure.md
@@ -162,6 +177,21 @@ conceptualContent:
       footerLink:
         text: See Active Directory documentation
         url: /azure/active-directory
+
+    - title: Java EE, Jakarta EE, and MicroProfile
+      links:
+        - text: Oracle WebLogic Server on Azure VMs
+          itemType: overview
+          url: /azure/virtual-machines/workloads/oracle/oracle-weblogic
+        - text: Deploy a Java EE app to AKS AKS
+          itemType: how-to-guide
+          url: /azure/aks/howto-deploy-java-liberty-app
+        - text: Deploy a MicroProfile App to Azure App Service
+          itemType: quickstart
+          url: eclipse-microprofile/deploy-microprofile-payara-micro-java-app-with-maven-plugin.md
+      footerLink:
+        text: See Java EE documentation
+        url: ee/index.yml
 
 tools:
   title: Tools

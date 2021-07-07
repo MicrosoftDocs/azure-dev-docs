@@ -20,7 +20,7 @@ With Key Vault and GitHub Actions, you have the benefits of a centralized secret
 ## Prerequisites 
 - A GitHub account. If you don't have one, sign up for [free](https://github.com/join).  
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- An Azure App connected to a GitHub repository. This example uses [Deploy containers to Azure App Service](/azure/developer/javascript/tutorial-vscode-docker-node-01). 
+- An Azure App connected to a GitHub repository. This example uses [Deploy containers to Azure App Service](../javascript/tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-01.md). 
 - An Azure key vault.  You can create an Azure Key Vault using the Azure portal, Azure CLI, or Azure PowerShell.
 
 ## Workflow file overview
@@ -36,7 +36,7 @@ The file has for authenticating with GitHub Actions two sections:
 
 ## Authentication
 
-You can create a [service principal](/azure/active-directory/develop/app-objects-and-service-principals#service-principal-object) with the [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac&preserve-view=true) command in the [Azure CLI](/cli/azure/). Run this command with [Azure Cloud Shell](https://shell.azure.com/) in the Azure portal or by selecting the **Try it** button.
+You can create a [service principal](/azure/active-directory/develop/app-objects-and-service-principals#service-principal-object) with the [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az_ad_sp_create_for_rbac&preserve_view=true) command in the [Azure CLI](/cli/azure/). Run this command with [Azure Cloud Shell](https://shell.azure.com/) in the Azure portal or by selecting the **Try it** button.
 
 ```azurecli-interactive
    az ad sp create-for-rbac --name {myApp} --role contributor --scopes /subscriptions/{subscription-id}/resourceGroups/{MyResourceGroup} --sdk-auth

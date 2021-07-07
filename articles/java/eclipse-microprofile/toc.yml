@@ -49,6 +49,8 @@
       - name: MicroProfile Project Generators
         expanded: false
         items: 
+          - name: Official MicroProfile Project Generator
+            href: https://start.microprofile.io/
           - name: WildFly Swarm (Thorntail) Generator
             href: https://thorntail.io/generator/
           - name: KumuluzEE Generator

@@ -29,7 +29,7 @@
     ansible-playbook delete_rg.yml --extra-vars "name=<resource_group>"
     ```
 
-    **Notes**:
+    **Key points**:
 
     - Due to the `register` variable and `debug` section of the playbook, the results display when the command finishes.
     

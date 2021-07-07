@@ -6,8 +6,11 @@ ms.topic: tutorial
 ms.service: chef
 author: tomarchermsft
 ms.author: tarcher
-ms.date: 02/22/2020
+recommendations: false
+ms.date: 06/03/2021
 ms.custom: devx-track-chef
 ---
+
+# Quickstart: Configure a Windows virtual machine in Azure using Chef
 
 [!INCLUDE [chef-software-redirect.md](includes/chef-software-redirect.md)]

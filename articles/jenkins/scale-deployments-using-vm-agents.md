@@ -4,7 +4,7 @@ description: Learn how to add additional capacity to your Jenkins pipelines usin
 keywords: jenkins, azure, devops, virtual machine, agents
 ms.topic: tutorial
 ms.date: 01/08/2021
-ms.custom: devx-track-jenkins,devx-track-jenkins
+ms.custom: devx-track-jenkins,devx-track-jenkins, devx-track-azurecli
 ---
 
 # Tutorial: Scale Jenkins deployments with VM running in Azure
@@ -39,7 +39,7 @@ In this tutorial, you will:
     az vm create --resource-group <resource-group> --name <vm_name> --image UbuntuLTS --admin-username azureuser --admin-password "<password>"
     ```
 
-    **Notes**:
+    **Jenkins**:
 
     - You can also upload your ssh key with the following command `--ssh-key-value <ssh_path>`.
 

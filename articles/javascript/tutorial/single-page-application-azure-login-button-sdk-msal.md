@@ -2,8 +2,11 @@
 title: "Tutorial: Add Microsoft login button to React SPA"
 description: Azure Active Directory authentication presented in this tutorial is a login and logout button, and access to a user's username (email). Develop the TypeScript application with an Azure client-side SDK, `@azure/msal-browser`, to manage the interaction of the user in the single page application (SPA).
 ms.topic: tutorial
-ms.date: 12/01/2020
+ms.date: 05/21/2021
 ms.custom: devx-track-js, "azure-sdk-javascript-@azure/msal-browser-2.7.0"
+ms.history: [
+"20210216:fix public issue 443"
+]
 ---
 
 # Add Microsoft login button to a single page application for authentication
@@ -17,7 +20,7 @@ Azure authentication presented in this TypeScript tutorial is a login and logout
 The SPA built in this tutorial is a React app (create-react-app) with the following tasks:
 
 - Login using a Microsoft-supported login such as Office 365 or Outlook.com
-- Log off the application
+- Log off from the application
 
 To provide a quick and simple single page application, the sample uses **create-react-app** with TypeScript. This front-end framework provides several shortcuts in typical client development with Azure SDKs:
 
@@ -26,7 +29,7 @@ To provide a quick and simple single page application, the sample uses **create-
 
 ## 1. Set up development environment
 
-Verify the following is installed on your local computer.
+Verify the following software is installed on your local computer.
 
 - An Azure user account with an active subscription. [Create one for free](https://azure.microsoft.com/free/).
 - [Node.js and npm](https://nodejs.org/en/download) - installed to your local machine.
@@ -74,7 +77,7 @@ Set aside a place to copy your App registration's client ID value, such as a tex
 
     The `.env` file is read as part of the create-react-app framework. This file is where you can store the client ID for local development. 
 
-1. Copy your Application (client) ID into the second value.
+1. Copy your Application (client) ID into the value.
 
 ## 5. Add login and logoff buttons
 
@@ -117,6 +120,22 @@ Set aside a place to copy your App registration's client ID value, such as a tex
     npm run start
     ```
 
+    Watch the VSCode integrated for the notice that the app is completely started.
+
+    ```console
+    Compiled successfully!
+    
+    You can now view js-e2e-client-azure-login-button in the browser.
+    
+      Local:            http://localhost:3000
+      On Your Network:  http://x.x.x.x:3000
+    
+    Note that the development build is not optimized.
+    To create a production build, use yarn build.
+    ```
+
+1. Open the web app in a browser, `http://localhost:3000`.
+
 1. Select the **Login** button in the web browser. 
 
     :::image type="content" source="../media/tutorial-login-button/create-react-app-before-authentication-login-button-display.png" alt-text="Select the **Login** button.":::  
@@ -135,7 +154,14 @@ Set aside a place to copy your App registration's client ID value, such as a tex
 
 1. Select the **Logout** button from the app. The app also provides convenient links to the Microsoft user apps to revoke permissions. 
 
-## 7. Clean up resources
+## 7. Store application-specific user information
+
+Optionally, you can store the user ID in your own application database to correlate between the Microsoft provider identity and the user's data required in your own application. The [token claim](/azure/active-directory/develop/id-tokens) contains two IDs you may want to keep track of are:
+
+* **sub**: The ID that is specific to the user, for your specific Active Directory app ID. This is the ID you should store in your own application database, if you need to correlate your custom app's data to your Microsoft Identity provider user. 
+* **oid**: This is the universal user ID across all apps in the Microsoft Identity provider. Store this value if you need to track your user across several apps in the Identity provider.
+
+## 8. Clean up resources
 
 When you are done using this tutorial, delete the application from the Azure portal [App registration list](https://portal.azure.com/?quickstart=True#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps).
 

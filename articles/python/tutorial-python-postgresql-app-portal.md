@@ -30,7 +30,7 @@ In a browser, navigate to [https://github.com/Azure-Samples/djangoapp](https://g
 
 You create a fork of this repository so you can make changes and redeploy the code in a later step.
 
-**(Optional) About the sample:** The djangoapp sample contains the data-driven Django polls app you get by following [Writing your first Django app](https://docs.djangoproject.com/en/2.1/intro/tutorial01/) in the Django documentation. The sample is also modified using the [Django deployment checklist](https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/) to run in a production environment like Azure App Service. (These changes are for any production environment and aren't specific to Azure.)
+**(Optional) About the sample:** The djangoapp sample contains the data-driven Django polls app you get by following [Writing your first Django app](https://docs.djangoproject.com/en/3.2/intro/tutorial01/) in the Django documentation. The sample is also modified using the [Django deployment checklist](https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/) to run in a production environment like Azure App Service. (These changes are for any production environment and aren't specific to Azure.)
 
 - Production settings are in the *azuresite/production.py* file. Development details are in *azuresite/settings.py*.
 - The app uses production settings when the `WEBSITE_HOSTNAME` environment variable is set. Azure App Service automatically sets this variable to the URL of the web app, such as `msdocs-django.azurewebsites.net`.
@@ -62,7 +62,7 @@ You create a fork of this repository so you can make changes and redeploy the co
 
 1. After provisioning is complete, select **Go to resource** to open the overview page for the web app. Keep this browser window or tab open for later steps.
 
-[Having issues? Let us know.](https://aka.ms/DjangoPortalTutorialHelp)
+Having issues? Refer first to the [Troubleshooting guide](/azure/app-service/configure-language-python#troubleshooting), otherwise, [let us know](https://aka.ms/DjangoPortalTutorialHelp).
 
 ## Provision the PostgreSQL database server in Azure
 
@@ -91,7 +91,7 @@ You create a fork of this repository so you can make changes and redeploy the co
 
 1. After provisioning is complete, select **Go to resource** to open the overview page for the database server.
 
-[Having issues? Let us know.](https://aka.ms/DjangoPortalTutorialHelp)
+Having issues? Refer first to the [Troubleshooting guide](/azure/app-service/configure-language-python#troubleshooting), otherwise, [let us know](https://aka.ms/DjangoPortalTutorialHelp).
 
 ## Create the pollsdb database on the PostgreSQL server
 
@@ -127,7 +127,7 @@ In this section, you connect to the database server in the Azure Cloud Shell and
 
 1. Exit psql by running the command `exit`.
 
-[Having issues? Let us know.](https://aka.ms/DjangoPortalTutorialHelp)
+Having issues? Refer first to the [Troubleshooting guide](/azure/app-service/configure-language-python#troubleshooting), otherwise, [let us know](https://aka.ms/DjangoPortalTutorialHelp).
 
 ## Connect the database
 
@@ -155,7 +155,7 @@ In this section, you create settings for the web app that it needs to connect to
     > [!IMPORTANT]
     > Selecting **Save** after making changes to settings is essential. Any settings you create with the **New application setting** button aren't applied until you use **Save**.
 
-[Having issues? Let us know.](https://aka.ms/DjangoPortalTutorialHelp)
+Having issues? Refer first to the [Troubleshooting guide](/azure/app-service/configure-language-python#troubleshooting), otherwise, [let us know](https://aka.ms/DjangoPortalTutorialHelp).
 
 ## Deploy app code to the web app from a repository
 
@@ -177,11 +177,11 @@ With the database and connection settings in place, you can now configure the we
     | Repository | djangoapp |
     | Branch | master |
 
-1. Select **Continue** to select the repository, then select **Finish**. Azure should deploy the code within a few seconds and start the app.
+1. Select **Save** to trigger the build and deployment workflow. Go to **Actions** in your GitHub repository for djangoapp to monitor progress. Azure should deploy the code and start the app.
 
     App Service detects a Django project by looking for a *wsgi.py* file in each subfolder. When App Service finds that file, it loads the Django web app. For more information, see [Configure built-in Python image](/azure/app-service/configure-language-python).
 
-[Having issues? Let us know.](https://aka.ms/DjangoPortalTutorialHelp)
+Having issues? Refer first to the [Troubleshooting guide](/azure/app-service/configure-language-python#troubleshooting), otherwise, [let us know](https://aka.ms/DjangoPortalTutorialHelp).
 
 ## Run Django database migrations
 
@@ -189,25 +189,7 @@ With the code deployed and the database in place, the app is almost ready to use
 
 1. In the browser window or tab for the web app, select **SSH** (under **Development Tools** on the left side), and then **Go** to open an SSH console on the web app server. It may take a minute to connect for the first time as the web app container needs to start.
 
-1. In the console, change into the web app's folder:
-
-    ```bash
-    cd $APP_PATH
-    ```
-
-1. Activate the virtual environment
-
-    ```bash
-    source /antenv/bin/activate
-    ```
-
-1. Install dependencies:
-
-    ```bash
-    pip install -r requirements.txt
-    ```
-
-1. Run database migrations:
+1. In the console, run database migrations:
 
     ```bash
     python manage.py migrate
@@ -223,7 +205,7 @@ With the code deployed and the database in place, the app is almost ready to use
 
     The `createsuperuser` command prompts you for Django superuser (or admin) credentials, which are used within the web app. For the purposes of this tutorial, use the default username `root`, press **Enter** for the email address to leave it blank, and enter `Pollsdb1` for the password.
 
-[Having issues? Let us know.](https://aka.ms/DjangoPortalTutorialHelp)
+Having issues? Refer first to the [Troubleshooting guide](/azure/app-service/configure-language-python#troubleshooting), otherwise, [let us know](https://aka.ms/DjangoPortalTutorialHelp).
 
 ### Create a poll question in the app
 
@@ -241,7 +223,7 @@ You're now ready to run a quick test of the app to demonstrate that it is workin
 
 **Congratulations!** You're running a Python Django web app in Azure App Service for Linux, with an active PostgreSQL database.
 
-[Having issues? Let us know.](https://aka.ms/DjangoPortalTutorialHelp)
+Having issues? Refer first to the [Troubleshooting guide](/azure/app-service/configure-language-python#troubleshooting), otherwise, [let us know](https://aka.ms/DjangoPortalTutorialHelp).
 
 ## Update the app and redeploy
 
@@ -251,15 +233,9 @@ If you change the Django app's data models, however, you must migrate those chan
 
 1. Connect to the web app again via SSH as described under [Run Django database migrations](#run-django-database-migrations).
 
-1. Change into the app folder with `cd $APP_PATH`.
-
-1. Activate the virtual environment with `source /antenv/bin/activate`.
-
-1. Install requirements with `pip install -r requirements.txt`.
-
 1. Run the migrations again with `python manage.py migrate`.
 
-[Having issues? Let us know.](https://aka.ms/DjangoPortalTutorialHelp)
+Having issues? Refer first to the [Troubleshooting guide](/azure/app-service/configure-language-python#troubleshooting), otherwise, [let us know](https://aka.ms/DjangoPortalTutorialHelp).
 
 ## View diagnostic logs
 
@@ -269,7 +245,7 @@ On the web app's page in the Azure portal, select **Log stream** (under **Monito
 
 You can also inspect the log files from the browser at `https://<app-name>.scm.azurewebsites.net/api/logs/docker`.
 
-[Having issues? Let us know.](https://aka.ms/DjangoPortalTutorialHelp)
+Having issues? Refer first to the [Troubleshooting guide](/azure/app-service/configure-language-python#troubleshooting), otherwise, [let us know](https://aka.ms/DjangoPortalTutorialHelp).
 
 ## Clean up resources
 
@@ -281,7 +257,7 @@ You can leave the app and database running as long as you want for further devel
 
 1. Enter the name of the resource group when prompted and select **Delete**.
 
-[Having issues? Let us know.](https://aka.ms/DjangoPortalTutorialHelp)
+Having issues? Refer first to the [Troubleshooting guide](/azure/app-service/configure-language-python#troubleshooting), otherwise, [let us know](https://aka.ms/DjangoPortalTutorialHelp).
 
 ## Next steps
 

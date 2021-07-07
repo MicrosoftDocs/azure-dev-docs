@@ -27,7 +27,7 @@ In order to complete the steps in this tutorial, you will need to have the follo
 
 * An Azure subscription; if you don't already have an Azure subscription, you can sign up for a [free Azure account].
 * The [Azure Command-Line Interface (CLI)].
-* A supported Java Development Kit (JDK). For more information about the JDKs available for use when developing on Azure, see <https://aka.ms/azure-jdks>.
+* A supported Java Development Kit (JDK). For more information about the JDKs available for use when developing on Azure, see [Java support on Azure and Azure Stack](/azure/developer/java/fundamentals/java-support-on-azure).
 * Apache's [Maven] build tool (version 3+).
 * A [Git] client.
 
@@ -157,7 +157,7 @@ For more information about the various technologies discussed in this article, s
 [free Azure account]: https://azure.microsoft.com/pricing/free-trial/
 [Git]: https://github.com/
 [Maven]: http://maven.apache.org/
-[Java Development Kit (JDK)]: ../fundamentals/java-jdk-long-term-support.md
+[Java Development Kit (JDK)]: ../fundamentals/java-support-on-azure.md
 <!-- http://www.oracle.com/technetwork/java/javase/downloads/ -->
 [Azure Container Instances]: /azure/container-instances/
 [Azure Container Registry]:  /azure/container-registry
