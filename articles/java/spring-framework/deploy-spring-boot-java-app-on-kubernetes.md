@@ -21,7 +21,7 @@ This tutorial walks you through combining these two popular, open-source technol
 
 * An Azure subscription; if you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits] or sign up for a [free Azure account].
 * The [Azure Command-Line Interface (CLI)].
-* A supported Java Development Kit (JDK). For more information about the JDKs available for use when developing on Azure, see [Java support on Azure and Azure Stack](/azure/developer/java/fundamentals/java-support-on-azure).
+* A supported Java Development Kit (JDK). For more information about the JDKs available for use when developing on Azure, see [Java support on Azure and Azure Stack](../fundamentals/java-support-on-azure.md).
 * Apache's [Maven] build tool (Version 3).
 * A [Git] client.
 * A [Docker] client.
