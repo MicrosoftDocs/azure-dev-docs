@@ -24,8 +24,6 @@
         href: vm-manage.md
       - name: Configure Windows virtual machines
         href: vm-configure-windows.md
-      - name: Configure VM secrets with Azure Key Vault
-        href: key-vault-configure-secrets.md
 - name: Tutorials
   items:
   - name: Azure Application Gateway
@@ -82,6 +80,8 @@
     items:
     - name: Create Shared Image Gallery
       href: vm-configure-from-azure-shared-image-gallery.md
+    - name: Configure VM secrets with Azure Key Vault
+      href: key-vault-configure-secrets.md
   - name: Virtual machine scale sets
     items:
     - name: Configure 

@@ -2,13 +2,13 @@
 title: Use Azure Key Vault to store VM secrets with Ansible
 description: In this quickstart, learn how to store secrets in Azure Key Vault for VMs with Ansible.
 keywords: ansible, azure, devops, bash, playbook, virtual machine
-ms.topic: quickstart
+ms.topic: tutorial
 ms.service: ansible
 ms.date: 06/08/2021
 ms.custom: devx-track-ansible
 ---
 
-# Quickstart: Use Azure Key Vault to store VM secrets with Ansible
+# Tutorial: Use Azure Key Vault to store VM secrets with Ansible
 
 In this quickstart, you'll create and retrieve secrets from Azure key vault with Ansible.
 
