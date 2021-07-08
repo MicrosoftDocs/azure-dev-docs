@@ -112,7 +112,7 @@ Add a `build` entry under the top-level `project` element to use the [maven-exec
 
 ### Install the Azure Toolkit for Intellij
 
-The [Azure toolkit](../toolkit-for-intellij/index.yml) is necessary if you plan to deploy web apps or APIs programmatically. For a quickstart with Azure Web Apps, see [Azure Toolkit for IntelliJ](../toolkit-for-intellij/create-hello-world-web-app.md). It also has a comprehensive SDK reference book embeded for any Azure development with Java SDK. The following steps summarize the installation process.
+The [Azure toolkit](../toolkit-for-intellij/index.yml) is necessary if you plan to deploy web apps or APIs programmatically. For a quickstart with Azure Web Apps, see [Azure Toolkit for IntelliJ](../toolkit-for-intellij/create-hello-world-web-app.md). It also has a comprehensive SDK reference book embedded for any Azure development with Java SDK. The following steps summarize the installation process.
 
 1. Select the **File** menu, and then select **Settings**.
 1. Select **Browse repositories**, and then search **Azure** and install the **Azure toolkit for Intellij**.
