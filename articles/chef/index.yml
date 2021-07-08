@@ -28,7 +28,7 @@ landingContent:
       - linkListType: architecture
         links:
           - text: Azure Chef Extension
-            url: https://docs.chef.io/azure_portal.html#azure-chef-extension
+            url: https://docs.chef.io/azure_chef_cli/#azure-chef-extension
 
   # Card
   - title: Install and configure Chef Software products 
