@@ -65,7 +65,7 @@ New-AzStorageContainer -Name $CONTAINER_NAME -Context $storageAccount.context -P
 
 # [Terraform](#tab/terraform)
 
-```terraform
+```hcl
 terraform {
   required_providers {
     azurerm = {
@@ -134,7 +134,6 @@ Each of these values can be specified in the Terraform configuration file or on 
 Run the following commands to get the storage access key and store it as an environment variable:
 
 # [Azure CLI](#tab/azure-cli)
-
 ```azurecli-interactive
 ACCOUNT_KEY=$(az storage account keys list --resource-group $RESOURCE_GROUP_NAME --account-name $STORAGE_ACCOUNT_NAME --query '[0].value' -o tsv)
 export ARM_ACCESS_KEY=$ACCOUNT_KEY
@@ -145,6 +144,10 @@ export ARM_ACCESS_KEY=$ACCOUNT_KEY
 ```azurepowershell
 $ACCOUNT_KEY=(Get-AzStorageAccountKey -ResourceGroupName $RESOURCE_GROUP_NAME -Name $STORAGE_ACCOUNT_NAME)[0].value
 $env:ARM_ACCESS_KEY=$ACCOUNT_KEY
+```
+
+# [Terraform](#tab/terraform)
+```terraform
 ```
 
 ---
