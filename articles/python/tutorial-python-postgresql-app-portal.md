@@ -373,7 +373,7 @@ Having issues? Refer first to the [Troubleshooting guide](/azure/app-service/con
 
 ## Clean up resources
 
-You can leave the app and database running as long as you want for further development work. Otherwise, to avoid incurring ongoing charges, delete the resource group create for this tutorial, which deletes all the resources contained within it:
+You can leave the app and database running as long as you want for further development work. Otherwise, to avoid incurring ongoing charges, delete the resource group created for this tutorial, which deletes all the resources contained within it:
 
 1. On the Azure portal, enter "DjangoPostgres-Tutorial-rg" in the search bar at the top of the window, then select the same name under **Resource Groups**.
 
