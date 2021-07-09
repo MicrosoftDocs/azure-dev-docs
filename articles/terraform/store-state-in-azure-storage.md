@@ -150,6 +150,8 @@ $env:ARM_ACCESS_KEY=$ACCOUNT_KEY
 ```terraform
 ```
 
+Terraform prevents sensitive information from being displayed within the terminal. It's recommended to use Azure CLI or Azure PowerShell to retrieve the access key.
+
 ---
 
 **Key points**:
