@@ -52,8 +52,6 @@ The following articles provide support to deploy apps from GitHub to Azure.
 
 - [Trigger a Pipeline run from GitHub Actions](/azure/devops/pipelines/ecosystems/github-actions)
 
-## Container scanning
-- [Scan container images using GitHub Actions](/azure/container-instances/container-instances-github-action-scan)
 
 ## Azure Resource Manager templates
 
