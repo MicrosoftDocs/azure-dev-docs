@@ -49,7 +49,7 @@ landingContent:
     - linkListType: sample
       links:
       - text: Spring Boot Samples for Azure
-        url: https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/spring/azure-spring-boot-samples
+        url: https://github.com/Azure-Samples/azure-spring-boot-samples
       - text: Spring Guides
         url: https://github.com/spring-guides/
   - title: Spring resources
@@ -66,3 +66,17 @@ landingContent:
         url: https://spring.io/projects/spring-boot
       - text: Spring Initializr
         url: https://start.spring.io/
+  - title: Azure App Configuration
+    linkLists:
+    - linkListType: get-started
+      links:
+      - text: Create an app
+        url: /azure/azure-app-configuration/quickstart-java-spring-app?toc=/azure/developer/java/spring-framework/toc.json&bc=/azure/developer/breadcrumb/toc.json
+      - text: Add feature flags
+        url: /azure/azure-app-configuration/quickstart-feature-flag-spring-boot?toc=/azure/developer/java/spring-framework/toc.json&bc=/azure/developer/breadcrumb/toc.json
+      - text: Use dynamic configuration
+        url: /azure/azure-app-configuration/enable-dynamic-configuration-java-spring-app?toc=/azure/developer/java/spring-framework/toc.json&bc=/azure/developer/breadcrumb/toc.json
+      - text: Use Key Vault references
+        url: /azure/azure-app-configuration/use-key-vault-references-spring-boot?toc=/azure/developer/java/spring-framework/toc.json&bc=/azure/developer/breadcrumb/toc.json
+      - text: Use feature flags
+        url: /azure/azure-app-configuration/use-feature-flags-spring-boot?toc=/azure/developer/java/spring-framework/toc.json&bc=/azure/developer/breadcrumb/toc.json

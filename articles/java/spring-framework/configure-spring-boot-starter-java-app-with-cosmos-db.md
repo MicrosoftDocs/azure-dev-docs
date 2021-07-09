@@ -22,7 +22,7 @@ This article demonstrates creating an Azure Cosmos DB using the Azure portal, th
 ## Prerequisites
 
 * An Azure subscription; if you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits] or sign up for a [free Azure account].
-* A supported Java Development Kit (JDK). For more information about the JDKs available for use when developing on Azure, see [Java support on Azure and Azure Stack](/azure/developer/java/fundamentals/java-support-on-azure).
+* A supported Java Development Kit (JDK). For more information about the JDKs available for use when developing on Azure, see [Java support on Azure and Azure Stack](../fundamentals/java-support-on-azure.md).
 
 ## Create an Azure Cosmos DB by using the Azure portal
 
@@ -56,7 +56,7 @@ This article demonstrates creating an Azure Cosmos DB using the Azure portal, th
 
 ## Create a Spring Boot application with the Spring Initializr
 
-Use the following steps to create a new Spring Boot application project with Azure support. As an alternative, you can use the [azure-spring-boot-sample-cosmosdb](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/spring/azure-spring-boot-samples/azure-spring-boot-sample-cosmos) sample in the [azure-sdk-for-java](https://github.com/Azure/azure-sdk-for-java) repo. Then, you can skip directly to [Build and test your app](#build-and-test-your-app).
+Use the following steps to create a new Spring Boot application project with Azure support. As an alternative, you can use the [azure-spring-boot-sample-cosmos](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/main/cosmos/azure-spring-boot-sample-cosmos) sample in the [azure-sdk-for-java](https://github.com/Azure/azure-sdk-for-java) repo. Then, you can skip directly to [Build and test your app](#build-and-test-your-app).
 
 1. Browse to <https://start.spring.io/>.
 
