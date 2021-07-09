@@ -49,7 +49,7 @@ landingContent:
     - linkListType: sample
       links:
       - text: Spring Boot Samples for Azure
-        url: https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/spring/azure-spring-boot-samples
+        url: https://github.com/Azure-Samples/azure-spring-boot-samples
       - text: Spring Guides
         url: https://github.com/spring-guides/
   - title: Spring resources
