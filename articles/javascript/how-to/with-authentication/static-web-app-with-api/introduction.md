@@ -3,7 +3,7 @@ title: "1: Add MSAL to React introduction"
 titleSuffix: Azure Developer Center
 description: In this article series, learn to add the Microsoft Identity Provider SDK (MSAL.js) to a React client app, and integrate with an Azure Function API.
 ms.topic: how-to
-ms.date: 06/28/2021
+ms.date: 07/12/2021
 ms.custom: devx-track-js
 ---
 
