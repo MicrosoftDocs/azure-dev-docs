@@ -9,11 +9,11 @@ ms.custom: devx-track-js
 
 # Create the local authenticated Static web app
 
-In this article, learn to configure a Static web app and API to use the MSAL SDK to authenticate users both on the client app and on the Azure Function API.
+In this article, learn to configure a Static web app and API to use the [MSAL.js SDK](https://github.com/AzureAD/microsoft-authentication-library-for-js) to authenticate users both on the client app and on the Azure Function API.
 
 The general steps for this article are:
 * Cloning the full client/API sample. 
-* Set the MSAL configuration values you obtained when you registered the identity application. 
+* Set the MSAL configuration values you obtained when you registered the Microsoft identity platform application. 
 * Run the application locally.
 
 The React app passes an authenticated user's access token to the Function API so that the API can act on behalf of the user. This specific API calls the Microsoft Graph, _as an example_ of calling an Azure service.
@@ -201,7 +201,7 @@ When deployed to Azure Static web apps, the React client's calls to `/api/hello`
 
 1. Open a browser with the local client URL, `http://localhost:3000/`.
 
-1. The first time you sign in to the app, you (as the user) need to give the Authentication app (created in the Azure portal) permission to access your data. This is the same API permission created in the authentication app:
+1. The first time you sign in to the app, you (as the user) need to give the Microsoft identity platform app (created in the Azure portal) permission to access your data. This is the same API permission created in the Microsoft identity platform app:
 
     * Microsoft Graph - User.Read
     * Your own API - access_as_user

@@ -17,7 +17,7 @@ If your server-side app doesn't need to call into an Azure service _on behalf of
 
 The application architecture includes:
 
-* A React client, which provides the user authentication step and can call an Azure service on behalf of the user from either:
+* A React client, which provides the user authentication step and can call an Azure service on behalf of ([OAuth on-behalf-of](/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow) flow) the user from either:
     * The React client itself.
     * or from an Azure Function app. 
 * A serverless Azure Function app provides an API endpoint abstracting away the call into an Azure service. This is the suggested mechanism when:
@@ -25,12 +25,9 @@ The application architecture includes:
   * Or the call(s) require long-running operations. 
 * An Azure service (Microsoft Graph) used to demonstrate how to call an Azure service on behalf of a user. 
 * An Azure database (Cosmos DB) used as the custom web app's database, storing information specific to the web app.
+* The HTTP call to an Azure service requires an access token with higher permissions. This token shouldn't be cached in the browser storage.
 
 :::image type="content" source="../../../media/how-to-with-authentication-static-web-app-msal/msal-react-function-api-microsoft-graph-architecture.png" alt-text="Architectural diagram showing the user, through a browser, connecting to a Static web app. The Static web app then connects to Microsoft Identity to get an access token, then to Microsoft Graph to get user information, then to Cosmos DB to store custom information specific to this web app.":::
-
-## When to act on behalf of a user
-
-If your app requires user-level permissions to do something, such as retrieve images or files only they own, and the images or files are secured with role-based access control (RBAC), then your application needs to act on behalf of the user to use those files. 
 
 ### Authentication architecture
 
@@ -38,7 +35,7 @@ This article explains how to authenticate users to your client app with a Micros
 
 |Steps to authenticate|Explanation|
 |--|--|
-|In the browser, the user selects the Login button with either the pop-up or redirect method.|The pop-up manages the redirect to the Microsoft Identity authentication flow. 
+|In the browser, the user selects the Login button with either the pop-up or redirect method.|The pop-up manages the redirect to the Microsoft identity platform [authorization endpoint](/azure/active-directory/develop/v2-oauth2-auth-code-flow#request-an-authorization-code). 
 |The authentication flow displays|Either a pop-up window displays or the web browser redirects to a page. |
 |The user logs into their Microsoft account.|The user has to provide correct credentials before the access token is returned to the React client, then to the user's browser session.|
 |The browser continues to the React client app's root route, '/'.|The access token is managed by the MSAL React library and held in session.|

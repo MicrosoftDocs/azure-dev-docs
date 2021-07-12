@@ -9,7 +9,7 @@ ms.custom: devx-track-js
 
 # How to register your identity application for a Static web app
 
-In this article, learn how to register your identity application. The application is necessary to authenticate users with the Microsoft Authentication Library for React (MSAL React) and call an Azure service on behalf of the user. 
+In this article, learn how to register your Azure AD (or Microsoft identity platform) application. The application is necessary to authenticate users with the [Microsoft Authentication Library for React](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-react) (MSAL React) and call an Azure service on behalf of the user.  
 
 ## Create Microsoft Identity provider app registration
 
