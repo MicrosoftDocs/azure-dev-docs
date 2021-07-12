@@ -12,9 +12,9 @@ ms.custom: devx-track-js
 In this article, learn to configure a Static web app and API to use the [MSAL.js SDK](https://github.com/AzureAD/microsoft-authentication-library-for-js) to authenticate users both on the client app and on the Azure Function API.
 
 The general steps for this article are:
-* Cloning the full client/API sample. 
-* Set the MSAL configuration values you obtained when you registered the Microsoft identity platform application. 
-* Run the application locally.
+1. Clone the full client/API sample. 
+1. Set the MSAL configuration values you obtained when you registered the Microsoft identity platform application. 
+1. Run the application locally.
 
 The React app passes an authenticated user's access token to the Function API so that the API can act on behalf of the user. This specific API calls the Microsoft Graph, _as an example_ of calling an Azure service.
 
@@ -142,7 +142,7 @@ You should have collected the following information from the [previous article i
     * Scopes you add here will be prompted for user consent during sign-in.
     * By default, MSAL.js will add OIDC scopes (openid, profile, email) to any login request.
     * For more information about OIDC scopes, visit: 
-    * https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-permissions-and-consent#openid-connect-scopes
+    * https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent#openid-connect-scopes
     */
     export const loginRequest = {
         scopes: []
@@ -210,7 +210,7 @@ When deployed to Azure Static web apps, the React client's calls to `/api/hello`
 
     :::image type="content" source="../../../media/how-to-with-authentication-static-web-app-msal/msal-react-function-api-microsoft-graph-home-page-after-authentication.png" alt-text="A browser screenshot show the sample app home page with the sign in button, after a user has authenticated.":::
 
-1. select the **Profile** Menu item to access the Graph API from the React client. 
+1. Select the **Profile** Menu item to access the Graph API from the React client. 
 
     :::image type="content" source="../../../media/how-to-with-authentication-static-web-app-msal/msal-react-profile-microsoft-graph.png" alt-text="A browser screenshot show the Microsoft Graph profile information for the signed in user from the React client.":::
 

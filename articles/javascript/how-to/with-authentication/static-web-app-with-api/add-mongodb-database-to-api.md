@@ -105,7 +105,7 @@ This is the form to capture the user's favorite color.
 
 Add the FavoriteColor component to the Function component and hold the accessToken, returned from the MSAL SDK, in local state. 
 
-1. Open the file, `./src/pages/Function.jsx`, and replace the code with the following code to include the new FavoriteColor component.
+Open the file, `./src/pages/Function.jsx`, and replace the code with the following code to include the new FavoriteColor component.
 
 ```javascript
 import { useEffect, useState } from "react";
