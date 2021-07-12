@@ -5,7 +5,7 @@ author: N-Usha
 ms.author: ushan 
 ms.topic: reference
 ms.service: azure 
-ms.date: 02/17/2021
+ms.date: 07/09/2021
 ms.custom: github-actions-azure
 ---
 
@@ -39,7 +39,8 @@ The following articles provide support to deploy apps from GitHub to Azure.
 ## Azure Container Instances
 
 - [Configure a GitHub action to create a container instance](/azure/container-instances/container-instances-github-action)
-
+## Azure Container Registry
+- [Scan container images using GitHub Actions](/azure/container-registry/github-action-scan)
 ## Azure Kubernetes Service
 
 - [Use GitHub Actions to deploy to Kubernetes](/azure/aks/kubernetes-action)  
