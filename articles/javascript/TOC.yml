@@ -171,6 +171,10 @@
                   href: how-to/with-authentication/static-web-app-with-api/register-application-with-identity.md
                 - name: Create local Static web app
                   href: how-to/with-authentication/static-web-app-with-api/configure-source-code-for-msal.md
+                - name: Add MongoDB to API
+                  href: how-to/with-authentication/static-web-app-with-api/add-mongodb-database-to-api.md
+                - name: Deploy to Azure
+                  href: how-to/with-authentication/static-web-app-with-api/deploy-static-web-app-to-azure.md
             - name: Add to server app
               href: how-to/with-web-app/deploy-msal-sdk-authentication-expressjs.md
         - name: With Visual Studio Code

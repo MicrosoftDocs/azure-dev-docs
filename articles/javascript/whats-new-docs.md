@@ -11,6 +11,25 @@ ms.date: 06/30/2021
 
 Find new and updated content for JavaScript and TypeScript developers.
 
+
+## 2021 July 
+
+
+### New in July
+
+|Name|Description|
+|---------------------------------------|--|
+|[How to authenticate users with Microsoft Authentication Library for React](./how-to/with-authentication/static-web-app-with-api/introduction.md)|In this article series, learn how to authenticate users with the Microsoft Authentication Library for React (MSAL React) and call an Azure service on behalf of the user.<br>The application architecture includes:
+
+* A React client, which provides the user authentication step and can call an Azure service on behalf of ([OAuth on-behalf-of](/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow) flow) the user from either:
+    * The React client itself.
+    * or from an Azure Function app. 
+* A serverless Azure Function app provides an API endpoint abstracting away the call into an Azure service. This is the suggested mechanism when:
+  *  The call to an Azure service includes information you don't want exposed in the browser
+  * Or the call(s) require long-running operations. 
+* An Azure service (Microsoft Graph) used to demonstrate how to call an Azure service on behalf of a user. 
+* An Azure database (Cosmos DB) used as the custom web app's database, storing information specific to the web app. |
+
 ## 2021 June 
 
 ### New in June
