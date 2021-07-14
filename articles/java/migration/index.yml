@@ -28,6 +28,8 @@ landingContent:
             url: migrate-spring-boot-to-app-service.md
           - text: Spring Boot to AKS
             url: migrate-spring-boot-to-azure-kubernetes-service.md
+          - text: Spring Boot to Azure Spring Cloud
+            url: migrate-spring-boot-to-azure-spring-cloud.md
           - text: Spring Cloud to Azure Spring Cloud
             url: migrate-spring-cloud-to-azure-spring-cloud.md
   - title: Migrate Tomcat to Azure
@@ -40,6 +42,9 @@ landingContent:
             url: migrate-tomcat-to-containers-on-azure-kubernetes-service.md
           - text: Tomcat to Azure Spring Cloud
             url: migrate-tomcat-to-azure-spring-cloud.md
+          - text: "Tutorial: Containerized Tomcat to AKS"
+            url: /azure/migrate/tutorial-app-containerization-java-kubernetes&toc=/azure/developer/java/migration/toc.json&bc=/azure/developer/breadcrumb/toc.json
+
   - title: Migrate WebLogic to Azure
     linkLists:
       - linkListType: how-to-guide
@@ -50,9 +55,9 @@ landingContent:
             url: migrate-weblogic-to-virtual-machines.md
           - text: WebLogic with AAD via LDAP
             url: migrate-weblogic-with-aad-ldap.md
-          - text: WebLogic with App Gateway
+          - text: "Tutorial: WebLogic with App Gateway"
             url: migrate-weblogic-with-app-gateway.md
-          - text: WebLogic with Elastic on Azure
+          - text: "Tutorial: WebLogic with Elastic on Azure"
             url: migrate-weblogic-with-elk.md
   - title: Migrate WildFly to Azure
     linkLists:
@@ -70,5 +75,9 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
+          - text: JBoss EAP to Azure App Service
+            url: migrate-jboss-eap-to-jboss-eap-on-azure-app-service.md
+          - text: JBoss EAP to Azure VMs
+            url: /azure/virtual-machines/workloads/redhat/jboss-eap-on-azure-migration?toc=/azure/developer/java/migration/toc.json&bc=/azure/developer/breadcrumb/toc.json
           - text: JBoss EAP to WildFly on AKS
             url: migrate-jboss-eap-to-wildfly-on-azure-kubernetes-service.md

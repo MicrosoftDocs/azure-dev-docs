@@ -5,6 +5,7 @@ author: edburns
 ms.author: edburns
 ms.topic: tutorial
 ms.date: 04/28/2021
+recommendations: false
 ---
 
 # Tutorial: Migrate a WebLogic Server cluster to Azure with Elastic on Azure as the logging solution
@@ -163,4 +164,4 @@ Follow the same steps as in the preceding section to delete Elastic on Azure, bu
 Continue your migration journey by exploring WebLogic to Azure Virtual Machines.
 
 > [!div class="nextstepaction"]
-> [WebLogic to Azure Virtual Machines](/azure/developer/java/migration/migrate-weblogic-to-virtual-machines)
+> [WebLogic to Azure Virtual Machines](./migrate-weblogic-to-virtual-machines.md)

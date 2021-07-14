@@ -9,6 +9,7 @@
       "moniker_ranges": [],
       "open_to_public_contributors": true,
       "type_mapping": {
+        "ZonePivotGroups": "Toc",
         "Conceptual": "Content",
         "Tutorial": "Content"
       },
@@ -97,6 +98,12 @@
       "branch": "main",
       "branch_mapping": {}
     },
+    {
+      "path_to_root": "python-sdk-examples",
+      "url": "https://github.com/MicrosoftDocs/python-sdk-docs-examples",
+      "branch": "main",
+      "branch_mapping": {}
+    },    
     {
       "path_to_root": "azure-docs",
       "url": "https://github.com/MicrosoftDocs/azure-docs",

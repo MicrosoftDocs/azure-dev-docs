@@ -2,7 +2,7 @@
 title: Use JavaScript with Cassandra on Azure Cosmos DB
 description: To create or move your Cassandra database to Azure, you need a Cosmos DB resource. 
 ms.topic: how-to
-ms.date: 02/17/2021
+ms.date: 05/24/2021
 ms.custom: devx-track-js, devx-track-azurecli
 ---
 
@@ -10,6 +10,10 @@ ms.custom: devx-track-js, devx-track-azurecli
 
 
 To create, move, or use a Cassandra DB database to Azure, you need a Cosmos DB resource. Learn how to create the resource and use your database.
+
+## Locally develop with the CosmosDB emulator
+
+Learn how to install the [CosmosDB emulator](/azure/cosmos-db/local-emulator) and [start the emulator for Cassandra development](/azure/cosmos-db/local-emulator?tabs=cli%2Cssl-netstd21#cassandra-api). 
 
 ## Create a Cosmos DB resource for a Cassandra DB database
 
@@ -88,109 +92,7 @@ To connect and use your Cassandra DB on Azure Cosmos DB with JavaScript and cass
 
 1. Copy the following JavaScript code into `index.js`:
 
-    ```nodejs
-    // install cassandra-driver SDK
-    // run at command line
-    // npm install cassandra-driver
-
-    const cassandra = require('cassandra-driver');
-    
-    const config = {
-      username: 'YOUR-USERNAME', // Your Cassandra user name is the resource name 
-      password:
-        'YOUR-PASSWORD',
-      contactPoint: 'YOUR-RESOURCE-NAME.cassandra.cosmos.azure.com',
-    };
-    
-    let client = null;
-    
-    const callCassandra = async () => {
-
-      // authentication 
-      const authProvider = new cassandra.auth.PlainTextAuthProvider(
-        config.username,
-        config.password
-      );
-    
-      // create client
-      client = new cassandra.Client({
-        contactPoints: [`${config.contactPoint}:10350`],
-        authProvider: authProvider,
-        localDataCenter: 'Central US',
-        sslOptions: {
-          secureProtocol: 'TLSv1_2_method',
-          rejectUnauthorized: false,
-        },
-      });
-    
-      await client.connect();
-      console.log("connected");
-      
-      // create keyspace
-      let query =
-        "CREATE KEYSPACE IF NOT EXISTS uprofile WITH replication = {\'class\': \'NetworkTopologyStrategy\', \'datacenter\' : \'1\' }";
-      await client.execute(query);
-      console.log('created keyspace');
-    
-      // create table
-      query =
-        'CREATE TABLE IF NOT EXISTS uprofile.user (name text, alias text, region text Primary Key)';
-      await client.execute(query);
-      console.log('created table');
-    
-      // insert 3 rows
-      console.log('insert');
-      const arr = [
-        "INSERT INTO uprofile.user (name, alias , region) VALUES ('Tim Jones', 'TJones', 'centralus')",
-        "INSERT INTO uprofile.user (name, alias , region) VALUES ('Joan Smith', 'JSmith', 'northus')",
-        "INSERT INTO uprofile.user (name, alias , region) VALUES ('Bob Wright', 'BWright', 'westus')"
-      ];
-      for (const element of arr) {
-        await client.execute(element);
-      }
-    
-      // get all rows
-      query = 'SELECT * FROM uprofile.user';
-      const resultSelect = await client.execute(query);
-    
-      for (const row of resultSelect.rows) {
-        console.log(
-          'Obtained row: %s | %s | %s ',
-          row.name,
-          row.alias,
-          row.region
-        );
-      }
-    
-      // get filtered row
-      console.log('Getting by region');
-      query = 'SELECT * FROM uprofile.user where region=\'westus\'';
-      const resultSelectWhere = await client.execute(query);
-    
-      for (const row of resultSelectWhere.rows) {
-        console.log(
-          'Obtained row: %s | %s | %s ',
-          row.name,
-          row.alias,
-          row.region
-        );
-      }
-    
-      client.shutdown();
-    };
-    
-    callCassandra()
-      .then(() => {
-        console.log('done');
-      })
-      .catch((err) => {
-        if (client) {
-          client.shutdown();
-        }
-        console.log(err);
-      });
-
-    ```
+    :::code language="JavaScript" source="~/../js-e2e/database/cassandra/index.js" :::
  
 1. Replace the following in the script with your Cosmos DB Cassandra connection information:
 

@@ -22,7 +22,7 @@ This article demonstrates creating an Azure Cosmos DB using the Azure portal, th
 ## Prerequisites
 
 * An Azure subscription; if you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits] or sign up for a [free Azure account].
-* A supported Java Development Kit (JDK). For more information about the JDKs available for use when developing on Azure, see <https://aka.ms/azure-jdks>.
+* A supported Java Development Kit (JDK). For more information about the JDKs available for use when developing on Azure, see [Java support on Azure and Azure Stack](../fundamentals/java-support-on-azure.md).
 
 ## Create an Azure Cosmos DB by using the Azure portal
 
@@ -30,29 +30,33 @@ This article demonstrates creating an Azure Cosmos DB using the Azure portal, th
 
 1. Select **Databases**, and then select **Azure Cosmos DB**.
 
-    ![Selecting Azure Cosmos DB in the Azure portal.][AZ02]
+   ![Azure portal, create a resource, search for Azure Cosmos DB.][AZ02]
+
+1. On the **Select API option** screen, select **Core (SQL)**.
+
+   ![Azure portal, create a resource, select API option, Core (SQL) selected.][AZ02-01]
 
 1. On the **Azure Cosmos DB** page, enter the following information:
 
     * Choose the **Subscription** you want to use for your database.
     * Specify whether to create a new **Resource group** for your database, or choose an existing resource group.
-    * Enter a unique **Account Name**, which you will use as the URI for your database. For example: *contosoaccount*.
+    * Enter a unique **Account Name**, which you will use as the URI for your database. For example: *contosoaccounttest*.
     * Choose **Core (SQL)** for the API.
     * Specify the **Location** for your database.
 
     When you have specified these options, select **Review + create**, review your specifications, and select **Create**.
 
-    ![Select Review + Create to proceed.][AZ03]
+    ![Azure portal, Azure Cosmos DB, create Azure Cosmos DB account - Core (SQL).][AZ03]
 
 1. When your database has been created, it is listed on your Azure **Dashboard**, and under the **All Resources** and **Azure Cosmos DB** pages. You can select your database for any of those locations to open the properties page for your cache.
 
 1. When the properties page for your database is displayed, select **Keys** and copy your URI and access keys for your database; you will use these values in your Spring Boot application.
 
-    ![Copy the URI and access keys in the Keys section.][AZ05]
+    ![Azure portal, Azure Cosmos DB account, keys section.][AZ05]
 
 ## Create a Spring Boot application with the Spring Initializr
 
-Use the following steps to create a new Spring Boot application project with Azure support. As an alternative, you can use the [azure-spring-boot-sample-cosmosdb](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/spring/azure-spring-boot-samples/azure-spring-boot-sample-cosmos) sample in the [azure-sdk-for-java](https://github.com/Azure/azure-sdk-for-java) repo. Then, you can skip directly to [Build and test your app](#build-and-test-your-app).
+Use the following steps to create a new Spring Boot application project with Azure support. As an alternative, you can use the [azure-spring-boot-sample-cosmos](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/main/cosmos/azure-spring-boot-sample-cosmos) sample in the [azure-sdk-for-java](https://github.com/Azure/azure-sdk-for-java) repo. Then, you can skip directly to [Build and test your app](#build-and-test-your-app).
 
 1. Browse to <https://start.spring.io/>.
 
@@ -93,17 +97,8 @@ Your simple Spring Boot application is now ready for editing.
     <dependency>
         <groupId>com.azure.spring</groupId>
         <artifactId>azure-spring-boot-starter-cosmos</artifactId>
-        <version>3.0.0</version>
+        <version>3.5.0</version> 
     </dependency>
-    ```
-
-1. Verify that the *properties* element indicates the required versions of Java and Azure:
-
-    ```xml
-    <properties>
-        <java.version>11</java.version>
-        <azure.version>3.0.0</azure.version>
-    </properties>
     ```
 
 1. Save and close the *pom.xml* file.
@@ -122,13 +117,13 @@ Your simple Spring Boot application is now ready for editing.
 
     ```properties
     # Specify the DNS URI of your Azure Cosmos DB.
-    azure.cosmos.uri=https://contosoaccount.documents.azure.com:443/
+    azure.cosmos.uri=https://contosoaccounttest.documents.azure.com:443/
     
     # Specify the access key for your database.
     azure.cosmos.key=replace-your-access-key-here
     
     # Specify the name of your database. 
-    azure.cosmos.database=contosoaccount
+    azure.cosmos.database=contosoaccounttest
     azure.cosmos.populateQueryMetrics=true
     ```
 
@@ -396,6 +391,7 @@ The **[Spring Framework]** is an open-source solution that helps Java developers
 
 <!-- IMG List -->
 [AZ02]: media/configure-spring-boot-starter-java-app-with-cosmos-db/AZ02.png
+[AZ02-01]: media/configure-spring-boot-starter-java-app-with-cosmos-db/AZ02-01.png
 [AZ03]: media/configure-spring-boot-starter-java-app-with-cosmos-db/AZ03.png
 [AZ05]: media/configure-spring-boot-starter-java-app-with-cosmos-db/AZ05.png
 

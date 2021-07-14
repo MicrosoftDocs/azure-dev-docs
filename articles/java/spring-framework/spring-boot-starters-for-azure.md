@@ -47,7 +47,7 @@ This Spring Boot Starter provides auto-configuration support for Azure Services;
 
 For examples of how to use the various Azure features that are provided by this starter, see the following:
 
-* <https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/spring/azure-spring-boot-samples>
+* The [azure-spring-boot-samples](https://github.com/Azure-Samples/azure-spring-boot-samples) repo on GitHub.
 
 When you add this starter to a Spring Boot project, the following changes are made to the *pom.xml* file:
 
@@ -57,7 +57,7 @@ When you add this starter to a Spring Boot project, the following changes are ma
    <properties>
       <!-- Other properties will be listed here -->
       <java.version>1.8</java.version>
-      <azure.version>2.3.5</azure.version>
+      <azure.version>3.5.0</azure.version>
    </properties>
    ```
 
@@ -107,7 +107,7 @@ This Spring Boot Starter provides auto-configuration support for Spring Security
 
 For examples of how to use the Azure Active Directory features that are provided by this starter, see the following:
 
-* <https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/spring/azure-spring-boot-samples/>
+* The [azure-spring-boot-samples](https://github.com/Azure-Samples/azure-spring-boot-samples) repo on GitHub.
 
 When you add this starter to a Spring Boot project, the following changes are made to the *pom.xml* file:
 
@@ -117,7 +117,7 @@ When you add this starter to a Spring Boot project, the following changes are ma
    <properties>
       <!-- Other properties will be listed here -->
       <java.version>1.8</java.version>
-      <azure.version>2.3.5</azure.version>
+      <azure.version>3.5.0</azure.version>
    </properties>
    ```
 
@@ -167,7 +167,7 @@ This Spring Boot Starter provides Spring value annotation support for integratio
 
 For examples of how to use the Azure Key Vault features that are provided by this starter, see the following:
 
-* <https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/spring/azure-spring-boot-samples/azure-spring-boot-sample-keyvault-secrets>
+* [Sample for Azure Key Vault Secrets Spring Boot Starter client library for Java](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/main/keyvault/azure-spring-boot-sample-keyvault-secrets)
 
 When you add this starter to a Spring Boot project, the following changes are made to the *pom.xml* file:
 
@@ -177,7 +177,7 @@ When you add this starter to a Spring Boot project, the following changes are ma
    <properties>
       <!-- Other properties will be listed here -->
       <java.version>1.8</java.version>
-      <azure.version>2.3.5</azure.version>
+      <azure.version>3.5.0</azure.version>
    </properties>
    ```
 
@@ -228,7 +228,7 @@ This Spring Boot Starter provides Spring Boot integration support for Azure Stor
 For examples of how to use the Azure Storage features that are provided by this starter, see the following:
 
 * [How to use the Spring Boot Starter for Azure Storage](configure-spring-boot-starter-java-app-with-azure-storage.md)
-* <https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/spring/azure-spring-boot-samples/azure-spring-cloud-sample-storage-queue-operation>
+* [Spring Cloud Azure Storage Queue Operation Code Sample shared library for Java](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/main/storage/azure-spring-cloud-sample-storage-queue-operation)
 
 When you add this starter to a Spring Boot project, the following changes are made to the *pom.xml* file:
 
@@ -238,7 +238,7 @@ When you add this starter to a Spring Boot project, the following changes are ma
    <properties>
       <!-- Other properties will be listed here -->
       <java.version>1.8</java.version>
-      <azure.version>2.3.5</azure.version>
+      <azure.version>3.5.0</azure.version>
    </properties>
    ```
 
@@ -247,8 +247,8 @@ When you add this starter to a Spring Boot project, the following changes are ma
     ```xml
     <dependencies>
         <dependency>
-            <groupId>com.microsoft.azure</groupId>
-            <artifactId>spring-starter-azure-storage</artifactId>
+            <groupId>com.azure.spring</groupId>
+            <artifactId>azure-spring-boot-starter-storage</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -279,6 +279,10 @@ When you add this starter to a Spring Boot project, the following changes are ma
       </dependencies>
    </dependencyManagement>
    ```
+
+## Application Insights
+
+Azure Monitor Application Insights can help you understand how your app is performing and how it's being used. Application Insights uses the Java agent to enable the application monitor. There are no code changes needed, and you can enable the Java agent with just a couple of configuration changes. For instructions and more information, see [Java codeless application monitoring Azure Monitor Application Insights](/azure/azure-monitor/app/java-in-process-agent#configuration-options).
 
 ## Next steps
 

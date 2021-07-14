@@ -14,19 +14,19 @@ In these examples, the `MY_ACR` environment variable holds the name of your Azur
 
 Build the WAR file:
 
-```shell
+```bash
 mvn package
 ```
 
 Log into your Azure container registry:
 
-```shell
+```azurecli
 az acr login -n ${MY_ACR}
 ```
 
 Build and push the image:
 
-```shell
+```azurecli
 az acr build -t ${MY_ACR}.azurecr.io/${MY_APP_NAME} -f src/main/docker/Dockerfile .
 ```
 
@@ -34,13 +34,13 @@ Alternatively, you can use Docker CLI to first build and test the image locally,
 
 Build the image:
 
-```shell
+```bash
 docker build -t ${MY_ACR}.azurecr.io/${MY_APP_NAME}
 ```
 
 Run the image locally:
 
-```shell
+```bash
 docker run -it -p 8080:8080 ${MY_ACR}.azurecr.io/${MY_APP_NAME}
 ```
 
@@ -48,13 +48,13 @@ Your can now access your application at `http://localhost:8080`.
 
 Log into your Azure container registry:
 
-```shell
+```azurecli
 az acr login -n ${MY_ACR}
 ```
 
 Push the image to your Azure container registry:
 
-```shell
+```bash
 docker push ${MY_ACR}.azurecr.io/${MY_APP_NAME}
 ```
 

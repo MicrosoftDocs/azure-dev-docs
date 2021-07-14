@@ -2,7 +2,7 @@
 title: "What's new for JavaScript docs"
 description: "What's new in JavaScript docs in the Developer Center"
 ms.topic: conceptual
-ms.date: 05/13/2021
+ms.date: 06/30/2021
 
 
 ---
@@ -11,22 +11,51 @@ ms.date: 05/13/2021
 
 Find new and updated content for JavaScript and TypeScript developers.
 
+
+## 2021 July 
+
+
+### New in July
+
+|Name|Description|
+|---------------------------------------|--|
+|[How to authenticate users with Microsoft Authentication Library for React](./how-to/with-authentication/static-web-app-with-api/introduction.md)|In this article series, learn how to authenticate users with the Microsoft Authentication Library for React (MSAL React) and call an Azure service on behalf of the user.<br>The application architecture includes:
+
+* A React client, which provides the user authentication step and can call an Azure service on behalf of ([OAuth on-behalf-of](/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow) flow) the user from either:
+    * The React client itself.
+    * or from an Azure Function app. 
+* A serverless Azure Function app provides an API endpoint abstracting away the call into an Azure service. This is the suggested mechanism when:
+  *  The call to an Azure service includes information you don't want exposed in the browser
+  * Or the call(s) require long-running operations. 
+* An Azure service (Microsoft Graph) used to demonstrate how to call an Azure service on behalf of a user. 
+* An Azure database (Cosmos DB) used as the custom web app's database, storing information specific to the web app. |
+
+## 2021 June 
+
+### New in June
+
+|Name|Description|
+|---------------------------------------|--|
+|[Getting started with authentication on Azure](./how-to/with-authentication/getting-started.md)|The Microsoft identity platform allows a JavaScript developer to authenticate and authorize user identity in your browser, server, or serverless application. |
+|[How to authenticate users with (MSAL for React static web app)](./how-to/with-authentication/static-web-app-with-api/introduction.md)|In this article series, learn how to authenticate users with the Microsoft Authentication Library for React (MSAL React) and call an Azure service on behalf of the user.|
+
 ## 2021 May 
 
 ### New in May
 
-|Name|
-|---------------------------------------|
-|[Deploy Express.js with Microsoft Authentication to Azure App service](./how-to/with-web-app/deploy-msal-sdk-authentication-expressjs.md)<br><br>Learn how to deploy an Express.js app, integrated with Microsoft Authentication Library (MSAL).The sample Express.js web app uses the Embedded JavaScript templates (EJS) template engine to deliver server-side rendered HTML to allow users to sign in with the Microsoft Identity provider. Authentication is provided with the @azure/msal-node npm package. |
+|Name|Description|
+|---------------------------------------|--|
+|[Deploy Express.js with Microsoft Authentication to Azure App service](./how-to/with-web-app/deploy-msal-sdk-authentication-expressjs.md)|Learn how to deploy an Express.js app, integrated with Microsoft Authentication Library (MSAL).The sample Express.js web app uses the Embedded JavaScript templates (EJS) template engine to deliver server-side rendered HTML to allow users to sign in with the Microsoft Identity provider. Authentication is provided with the @azure/msal-node npm package. |
 
 ### Updated in May
 
-|Name|
-|---------------------------------------|
-|[Logging, metrics, and telemetry in Azure](./how-to/node-sdk-logging.md)<br><br>Web app and Function app logging information.|
-|[Tutorial: Create a function with Visual Studio Code](./tutorial/vscode-function-app-http-trigger/tutorial-vscode-serverless-node-install.md)<br><br>Added streaming logs in VS Code, and querying Kusto log in Azure portal.|
-|[Tools update](./node-azure-tools.md)<br><br>Added several links to Microsoft or Azure specific tools. Added Azure service specific tips.|
-|[Add Microsoft login button to a single page application for authentication](./tutorial/single-page-application-azure-login-button-sdk-msal.md#7-store-application-specific-user-information)<br><br>Added Microsoft Identity provider and Active Directory app ID information. |
+|Name|Description|
+|---------------------------------------|--|
+|[Logging, metrics, and telemetry in Azure](./how-to/node-sdk-logging.md)|Web app and Function app logging information.|
+|[Tutorial: Create a function with Visual Studio Code](./tutorial/vscode-function-app-http-trigger/tutorial-vscode-serverless-node-install.md)|Added streaming logs in VS Code, and querying Kusto log in Azure portal.|
+|[Tools update](./node-azure-tools.md)|Added several links to Microsoft or Azure specific tools. Added Azure service specific tips.|
+|[Add Microsoft login button to a single page application for authentication](./tutorial/single-page-application-azure-login-button-sdk-msal.md#7-store-application-specific-user-information)|Added Microsoft Identity provider and Active Directory app ID information. |
+|Locally develop with the CosmosDB emulator|For [SQL API](./how-to/with-database/use-sql-api-as-cosmos-db.md#locally-develop-with-the-cosmosdb-emulator), [MongoDB](./how-to/with-database/use-mongodb-as-cosmosdb.md#locally-develop-with-the-cosmosdb-emulator), and [Cassandra](./how-to/with-database/use-cassandra-as-cosmos-db.md#locally-develop-with-the-cosmosdb-emulator). |
 
 
 ## 2021 April

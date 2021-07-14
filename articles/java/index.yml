@@ -36,9 +36,9 @@ conceptualContent:
         - text: Create a serverless function
           itemType: quickstart
           url: /azure/azure-functions/functions-create-first-java-maven
-        - text: Manage storage blobs
+        - text: Deploy Spring Cloud microservices
           itemType: quickstart
-          url: /azure/storage/blobs/storage-quickstart-blobs-java
+          url: /azure/spring-cloud/quickstart-sample-app-introduction?pivots=programming-language-java
       footerLink:
         text: See more
         url: quickstarts/index.yml
@@ -108,9 +108,9 @@ conceptualContent:
         - text: What is Azure Spring Cloud?
           itemType: overview
           url: /azure/spring-cloud/spring-cloud-overview
-        - text: Launch a Spring app using Azure CLI
+        - text: Launch your first app
           itemType: quickstart
-          url: /azure/spring-cloud/spring-cloud-quickstart-launch-app-portal
+          url: /azure/spring-cloud/quickstart?tabs=Azure-CLI&pivots=programming-language-java
         - text: Prepare a Spring app for deployment
           itemType: tutorial
           url: /azure/spring-cloud/spring-cloud-tutorial-prepare-app-deployment

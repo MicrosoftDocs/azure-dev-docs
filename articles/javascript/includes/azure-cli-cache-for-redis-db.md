@@ -7,7 +7,7 @@ ms.date: 02/18/2021
 
 ## Create an Azure Cache for Redis resource with Azure CLI
 
-Use the following Azure CLI [az redis create](/cli/azure/redis#az_redis_create) command in the [Azure Cloud Shell](https://shell.azure.com) to create a new MariaDB resource for your database. 
+Use the following Azure CLI [az redis create](/cli/azure/redis#az_redis_create) command in the [Azure Cloud Shell](https://shell.azure.com) to create a new Redis resource for your database. 
 
 ```azurecli
 az redis create \

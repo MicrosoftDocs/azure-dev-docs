@@ -1,7 +1,7 @@
 ---
 title: Java JDKs support for Azure development
 description: This article provides details of support for developing for or deploying Java applications to Azure and Azure Stack.
-ms.date: 04/09/2019
+ms.date: 05/25/2021
 ms.topic: conceptual
 ms.custom: seo-java-september2019, devx-track-java
 ---
@@ -9,6 +9,9 @@ ms.custom: seo-java-september2019, devx-track-java
 # Java support on Azure and Azure Stack
 
 Java developers can build, integrate, and deploy applications to a variety of Azure and Azure Stack services. Developers are free to use the distribution and version of Java of their choice for most Microsoft Azure services. Certain services will provide and manage a Java runtime on behalf of customers. This document will help you understand which services provide a Java runtime by default, and which services do not.
+
+> [!IMPORTANT]
+> **Update June 30th, 2021:** Zulu for Azure will no longer receive updates or support starting January 1st, 2022. For more information, see [End of Updates, Support and Availability of the Zulu for Azure builds of OpenJDK](https://devblogs.microsoft.com/java/end-of-updates-support-and-availability-of-zulu-for-azure/).
 
 ## Services with a managed or default Java runtime
 

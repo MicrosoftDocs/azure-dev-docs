@@ -21,7 +21,7 @@ In order to complete the steps in this tutorial, you need to have the following 
 
 * An Azure subscription; if you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits] or sign up for a [free Azure account].
 * The [Azure Command-Line Interface (CLI)].
-* A supported Java Development Kit (JDK). For more information about the JDKs available for use when developing on Azure, see <https://aka.ms/azure-jdks>.
+* A supported Java Development Kit (JDK). For more information about the JDKs available for use when developing on Azure, see [Java support on Azure and Azure Stack](../fundamentals/java-support-on-azure.md).
 * [Apache Maven] build tool (Version 3).
 * A [Git] client.
 * A [Docker] client.
@@ -63,7 +63,7 @@ The following steps walk through the steps that are required to create a simple 
 
    ```bash
    cd target
-   java -jar gs-spring-boot-docker-0.1.0.jar --server.port=80
+   java -jar spring-boot-docker-0.0.1-SNAPSHOT.jar --server.port=80
    ```
 
 1. Test the web app by browsing to it locally using a web browser. For example, if you have curl available and you configured the Tomcat server to run on port 80:
@@ -95,6 +95,10 @@ The following steps walk through using the Azure portal to create an Azure Conta
 1. When the **Create container registry** page is displayed, enter **Registry name**, **Subscription**, **Resource group**, and **Location**. Then select **Create**.
 
    ![Configure Azure Container Registry settings][AR03]
+
+1. Select **Access keys** under **Settings** and turn on the **Enabled** switch behind the **Admin user**.
+
+   ![Enable admin user UI in the Azure portal][enable-admin-user-for-containter-register]
 
 ## Configure Maven to build image to your Azure Container Registry
 
@@ -134,7 +138,7 @@ The following steps walk through using the Azure portal to create an Azure Conta
 
 1. Navigate to the completed project directory for your Spring Boot application and run the following command to rebuild the application and push the container to your Azure Container Registry:
 
-   ```bash
+   ```azurecli
    az acr login -n wingtiptoysregistry && mvn compile jib:build
    ```
 
@@ -147,7 +151,7 @@ The following steps walk through using the Azure portal to create an Azure Conta
 
 1. Browse to the [Azure portal] and sign in.
 
-2. Click the menu icon for **Create a resource**, select **Compute**, and then select **Web App for Containers**.
+2. Click the menu icon for **Create a resource**, select **Compute**, and then select **Web App**.
    
    ![Create a new web app in the Azure portal][LX01]
 
@@ -177,7 +181,7 @@ The following steps walk through using the Azure portal to create an Azure Conta
 
    * **Registry**: Choose your container, for example: "*wingtiptoysregistry*"
 
-   * **Image**: Select the image created previously, for example: "*gs-spring-boot-docker*"
+   * **Image**: Select the image created previously, for example: "*spring-boot-docker*"
 
    * **Tag**: Choose the tag for the image; for example: "*latest*"
 
@@ -217,13 +221,15 @@ When the deployment is complete, select **Go to resource**.  The deployment page
 The embedded Tomcat server in the sample Spring Boot application is configured to run on port 8080 by default. However, if you want to run the embedded Tomcat server to run on a different port, such as port 80 for local testing, you can configure the port by using the following steps.
 
 1. Go to the *resources* directory (or create the directory if it does not exist); for example:
-   ```shell
+
+   ```bash
    cd src/main/resources
    ```
 
 1. Open the *application.yml* file in a text editor if it exists, or create a new YAML file if it does not exist.
 
 1. Modify the **server** setting so that the server runs on port 80; for example:
+
    ```yaml
    server:
       port: 80
@@ -271,7 +277,7 @@ For additional examples for how to use custom Docker images with Azure, see [Usi
 [free Azure account]: https://azure.microsoft.com/pricing/free-trial/
 [Git]: https://github.com/
 [Working with Azure DevOps and Java]: /azure/devops/java/
-[Maven]: http://maven.apache.org/
+[Apache Maven]: http://maven.apache.org/
 [MSDN subscriber benefits]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/
 [Spring Boot]: http://projects.spring.io/spring-boot/
 [Spring Boot on Docker Getting Started]: https://github.com/spring-guides/gs-spring-boot-docker
@@ -283,9 +289,9 @@ For additional examples for how to use custom Docker images with Azure, see [Usi
 <!-- IMG List -->
 
 [SB01]: media/deploy-spring-boot-java-app-on-linux/SB01.png
-[SB02]: media/deploy-spring-boot-java-app-on-linux/SB02.png
 [AR01]: media/deploy-spring-boot-java-app-on-linux/AR01.png
 [AR03]: media/deploy-spring-boot-java-app-on-linux/AR03.png
+[enable-admin-user-for-containter-register]: media/deploy-spring-boot-java-app-on-linux/enable-admin-user-for-containter-register.png
 [LX01]: media/deploy-spring-boot-java-app-on-linux/LX01.png
 [LX02]: media/deploy-spring-boot-java-app-on-linux/LX02.png
 [LX02-A]: media/deploy-spring-boot-java-app-on-linux/LX02-A.png
