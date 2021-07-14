@@ -47,7 +47,13 @@
               href: tutorial/browser-file-upload-azure-storage-blob.md
             - name: "Add a Login button for Microsoft Identity provider"
               href: tutorial/single-page-application-azure-login-button-sdk-msal.md
-        - name: Serverless apis
+        - name: Client web apps with APIs
+          items:
+            - name: "GraphQL trivia game"
+              items: 
+                - name: Introduction
+                  href: tutorial/static-web-app-graphql.md
+        - name: Serverless APIs
           items:
             - name: "Create a function with Visual Studio Code"
               items:
