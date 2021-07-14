@@ -2,7 +2,7 @@
 title: Transition from Java 7 to Java 8
 titleSuffix: Azure
 description: A guide for managing the move from Java 7 to Java 8. 
-author: maverbur
+author: karianna
 manager: maverbur
 tags: java
 ms.service: azure
