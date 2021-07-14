@@ -26,7 +26,7 @@
       - name: Client web apps
         items: 
         - name: Getting started
-          href: tutorial/client/getting-started.md
+          href: tutorial/client/get-started.md
         - name: Add search to website
           href: /azure/search/tutorial-javascript-overview
         - name: Cognitive Services - Image analysis
