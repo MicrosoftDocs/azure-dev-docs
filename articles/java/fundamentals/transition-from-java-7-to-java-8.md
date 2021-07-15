@@ -64,11 +64,11 @@ details on use of JDK internal API and other warnings.
 
 To migrate your App Services from Java 7 to Java 8 or 11, sign in to Azure portal, navigate to the web app(s) you want to update,
 go to **Configuration** > **Settings** > **Stack Settings**. You'll see dropdowns for the Java major and minor
-versions, and the Tomcat version (if you're using Tomcat). Select Java 8 or 11. Remember, you can make this configuration change in a [Deployment Slot](https://docs.microsoft.com/azure/app-service/deploy-staging-slots) to safely test the configuration change, then swap the new environment into production. (Java 7 may be hidden to keep customers from taking dependencies on old runtimes.)
+versions, and the Tomcat version (if you're using Tomcat). Select Java 8 or 11. Remember, you can make this configuration change in a [Deployment Slot](/azure/app-service/deploy-staging-slots) to safely test the configuration change, then swap the new environment into production. (Java 7 may be hidden to keep customers from taking dependencies on old runtimes.)
 
 ![Use the selector to change your Java version](media/app-service-java-version-selector.png)
 
-If you need to specify any new runtime options, you can specify those options in the `JAVA_TOOLS` app setting, and they'll be applied when your application starts. For more information, see [the Java configuration guide](https://docs.microsoft.com/azure/app-service/configure-language-java?pivots=platform-linux).
+If you need to specify any new runtime options, you can specify those options in the `JAVA_TOOLS` app setting, and they'll be applied when your application starts. For more information, see [the Java configuration guide](/azure/app-service/configure-language-java?pivots=platform-linux).
 
 ## Next steps
 
