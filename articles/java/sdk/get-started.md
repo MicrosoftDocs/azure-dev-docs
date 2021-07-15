@@ -75,12 +75,12 @@ This step creates a basic Maven project under the *testAzureApp* directory. Add 
 <dependency>
     <groupId>com.azure</groupId>
     <artifactId>azure-identity</artifactId>
-    <version>1.2.0</version>
+    <version>1.3.2</version>
 </dependency>
 <dependency>
     <groupId>com.azure.resourcemanager</groupId>
     <artifactId>azure-resourcemanager</artifactId>
-    <version>2.1.0</version>
+    <version>2.6.0</version>
 </dependency>
 <dependency>
     <groupId>com.azure</groupId>
@@ -92,6 +92,16 @@ This step creates a basic Maven project under the *testAzureApp* directory. Add 
     <artifactId>mssql-jdbc</artifactId>
     <version>6.2.1.jre8</version>
 </dependency>
+<dependency>
+    <groupId>org.slf4j</groupId>
+    <artifactId>slf4j-api</artifactId>
+    <version>1.7.31</version>
+</dependency>
+<dependency>
+    <groupId>org.slf4j</groupId>
+    <artifactId>slf4j-simple</artifactId>
+    <version>1.7.31</version>
+</dependency>
 ```
 
 Add a `build` entry under the top-level `project` element to use the [maven-exec-plugin](https://www.mojohaus.org/exec-maven-plugin/) to run the samples.
@@ -99,13 +109,23 @@ Add a `build` entry under the top-level `project` element to use the [maven-exec
 ```XML
 <build>
     <plugins>
-        <plugin>
-            <groupId>org.codehaus.mojo</groupId>
-            <artifactId>exec-maven-plugin</artifactId>
-            <configuration>
-                <mainClass>com.fabrikam.AzureApp</mainClass>
-            </configuration>
-        </plugin>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>exec-maven-plugin</artifactId>
+        <version>3.0.0</version>
+        <configuration>
+          <mainClass>com.fabrikam.AzureApp</mainClass>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.8.1</version>
+        <configuration>
+          <source>11</source>
+          <target>11</target>
+        </configuration>
+      </plugin>
     </plugins>
 </build>
  ```
@@ -259,7 +279,7 @@ mvn clean compile exec:java
 Open a browser pointed to the application by using the CLI.
 
 ```azurecli-interactive
-az appservice web browse --resource-group sampleWebResourceGroup --name YOUR_APP_NAME
+az webapp browse --resource-group sampleWebResourceGroup --name YOUR_APP_NAME
 ```
 
 Remove the web app and plan from your subscription after you've verified the deployment.
@@ -288,7 +308,8 @@ This code creates a new SQL database with a firewall rule that allows remote acc
 
             AzureResourceManager azureResourceManager = AzureResourceManager.configure()
                     .withLogLevel(HttpLogDetailLevel.BASIC)
-                    .authenticate(credential, profile);
+                    .authenticate(credential, profile)
+                    .withDefaultSubscription();
 
             final String adminUser = "YOUR_USERNAME_HERE";
             final String sqlServerName = "YOUR_SERVER_NAME_HERE";
