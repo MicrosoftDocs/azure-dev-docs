@@ -92,16 +92,6 @@ This step creates a basic Maven project under the *testAzureApp* directory. Add 
     <artifactId>mssql-jdbc</artifactId>
     <version>6.2.1.jre8</version>
 </dependency>
-<dependency>
-    <groupId>org.slf4j</groupId>
-    <artifactId>slf4j-api</artifactId>
-    <version>1.7.31</version>
-</dependency>
-<dependency>
-    <groupId>org.slf4j</groupId>
-    <artifactId>slf4j-simple</artifactId>
-    <version>1.7.31</version>
-</dependency>
 ```
 
 Add a `build` entry under the top-level `project` element to use the [maven-exec-plugin](https://www.mojohaus.org/exec-maven-plugin/) to run the samples.
@@ -109,23 +99,14 @@ Add a `build` entry under the top-level `project` element to use the [maven-exec
 ```XML
 <build>
     <plugins>
-      <plugin>
-        <groupId>org.codehaus.mojo</groupId>
-        <artifactId>exec-maven-plugin</artifactId>
-        <version>3.0.0</version>
-        <configuration>
-          <mainClass>com.fabrikam.AzureApp</mainClass>
-        </configuration>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-compiler-plugin</artifactId>
-        <version>3.8.1</version>
-        <configuration>
-          <source>11</source>
-          <target>11</target>
-        </configuration>
-      </plugin>
+        <plugin>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>exec-maven-plugin</artifactId>
+            <version>3.0.0</version>
+            <configuration>
+                <mainClass>com.fabrikam.AzureApp</mainClass>
+            </configuration>
+        </plugin>
     </plugins>
 </build>
  ```
