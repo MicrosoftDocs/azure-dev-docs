@@ -30,8 +30,8 @@ and changes to permgen (part of garbage collection).
 
 In general, the approach is to try to run on Java 8 without recompiling first.
 
-If the goal is to get an application up and running as quickly as possible, just
-trying to run on Java 8 is often the best approach. For a library, the goal will
+To get an application up and running as quickly as possible, just
+trying to run on Java 8 is the best approach. For a library, the goal will
 be to publish an artifact that is compiled and tested with JDK 8.
 
 The [Oracle JDK Migration Guide](https://www.oracle.com/java/technologies/javase/jdk8-adoption-guide.html) is the canonical
@@ -63,12 +63,12 @@ details on use of JDK internal API and other warnings.
 ## Migration off Java 7 for Azure App Service
 
 To migrate your App Services from Java 7 to Java 8 or 11, sign in to Azure portal, navigate to the web app(s) you want to update,
-go to **Configuration** > **Settings** > **Stack Settings**. You will see dropdowns for the Java major and minor
+go to **Configuration** > **Settings** > **Stack Settings**. You'll see dropdowns for the Java major and minor
 versions, and the Tomcat version (if you're using Tomcat). Select Java 8 or 11. Remember, you can make this configuration change in a [Deployment Slot](https://docs.microsoft.com/azure/app-service/deploy-staging-slots) to safely test the configuration change, then swap the new environment into production. (Java 7 may be hidden to keep customers from taking dependencies on old runtimes.)
 
 ![Use the selector to change your Java version](media/app-service-java-version-selector.png)
 
-If you need to specify any new runtime options, you can specify those in the `JAVA_TOOLS` app setting, and they will be applied when your application starts. See [the Java configuration guide](https://docs.microsoft.com/azure/app-service/configure-language-java?pivots=platform-linux) for more information.
+If you need to specify any new runtime options, you can specify those options in the `JAVA_TOOLS` app setting, and they'll be applied when your application starts. For more information, see [the Java configuration guide](https://docs.microsoft.com/azure/app-service/configure-language-java?pivots=platform-linux).
 
 ## Next steps
 
