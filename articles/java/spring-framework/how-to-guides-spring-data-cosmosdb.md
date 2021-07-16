@@ -86,7 +86,7 @@ If you are using Maven, add the following dependency.
 ### Prerequisites
 
 - [Java Development Kit (JDK)][jdk_link], version 8 or later.
-- An active Azure account. If you don't have one, you can sign up for a [free account][azure_subscription]. Alternatively, you can use the [Azure Cosmos DB Emulator][local_emulator] for development and testing. As emulator https certificate is self signed, you need to import its certificate to java trusted cert store, [explained here][local_emulator_export_ssl_certificates]
+- An active Azure account. If you don't have one, you can sign up for a [free account][azure_subscription]. Alternatively, you can use the [Azure Cosmos DB Emulator][local_emulator] for development and testing. As emulator https certificate is self-signed, you need to import its certificate to java trusted cert store, [explained here][local_emulator_export_ssl_certificates]
 - (Optional) SLF4J is a logging facade.
 - (Optional) [SLF4J binding](https://www.slf4j.org/manual.html) is used to associate a specific logging framework with SLF4J.
 - (Optional) [Maven][maven_link]
@@ -250,7 +250,7 @@ public class User {
     }
 }
 ```
-- `id` field will be used as Item id in Azure Cosmos DB. If you want use another field like `firstName` as item `id`, just annotate that field with `@Id` annotation.
+- `id` field will be used as Item ID in Azure Cosmos DB. If you want to use another field like `firstName` as item `id`, just annotate that field with `@Id` annotation.
 
 - Annotation `@Container(containerName="myContainer")` specifies container name in Azure Cosmos DB.
 - Annotation `@PartitionKey` on `lastName` field specifies this field as partition key in Azure Cosmos DB.
@@ -404,7 +404,7 @@ public class SampleApplication implements CommandLineRunner {
   There are 2 ways to map a field in domain class to `id` field of Azure Cosmos DB Item.
     - annotate a field in domain class with `@Id`, this field will be mapped to Item `id` in Cosmos DB.
     - set name of this field to `id`, this field will be mapped to Item `id` in Azure Cosmos DB.
-- Supports auto generation of string type UUIDs using the @GeneratedValue annotation. The id field of an entity with a string
+- Supports auto generation of string type UUIDs using the @GeneratedValue annotation. The ID field of an entity with a string
   type id can be annotated with `@GeneratedValue` to automatically generate a random UUID prior to insertion.
  <!-- embedme src/samples/java/com/azure/spring/data/cosmos/GeneratedIdEntity.java#L8-L14 -->
  ```java
@@ -427,7 +427,7 @@ public class SampleApplication {
 }
 ```
 - Custom IndexingPolicy
-  By default, IndexingPolicy will be set by azure service. To customize it add annotation `@CosmosIndexingPolicy` to domain class. This annotation has 4 attributes to customize, see following:
+  By default, IndexingPolicy will be set by Azure service. To customize it add annotation `@CosmosIndexingPolicy` to domain class. This annotation has 4 attributes to customize, see following:
 <!-- embedme src/samples/java/com/azure/spring/data/cosmos/CosmosIndexingPolicyCodeSnippet.java#L15-L26 -->
 ```java
 // Indicate if indexing policy use automatic or not
@@ -909,7 +909,7 @@ To suggest a new feature or changes that could be made, file an issue the same w
 - Please refer to [Single account with Multi-database sample project][sample-for-multi-database-single-account].
 
 ## Next steps
-- Read more about azure spring data cosmos [here][azure_spring_data_cosmos_docs].
+- Read more about Azure spring data cosmos [here][azure_spring_data_cosmos_docs].
 - [Read more about Azure CosmosDB Service][cosmos_docs]
 
 ## Contributing
