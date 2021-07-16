@@ -11,7 +11,7 @@ ms.custom: devx-track-java
 # Azure Spring Data Cosmos client library for Java
 
 **Azure Spring Data Cosmos** provides Spring Data support for Azure Cosmos DB using the [SQL API][sql_api_query], based on Spring Data framework.
-[Azure Cosmos DB][cosmos_introduction] is a globally-distributed database service which allows developers to work with data using a variety of standard APIs, such as SQL, MongoDB, Cassandra, Graph, and Table.
+[Azure Cosmos DB][cosmos_introduction] is a globally distributed database service, which allows developers to work with data using a variety of standard APIs, such as SQL, MongoDB, Cassandra, Graph, and Table.
 
 ## Spring data version support
 This project supports both `spring-data-commons 2.2.x` and `spring-data-commons 2.3.x` versions. Maven users can inherit from the `spring-boot-starter-parent` project to obtain a dependency management section to let Spring manage the versions for dependencies.
@@ -394,9 +394,9 @@ public class SampleApplication implements CommandLineRunner {
 - Azure Spring Data Cosmos supports ReactiveCrudRepository and CrudRepository which provides basic CRUD functionality
     - save
     - findAll
-    - findOne by Id
+    - findOne by ID
     - deleteAll
-    - delete by Id
+    - delete by ID
     - delete entity
 
 ### Spring Data Annotations
@@ -405,7 +405,7 @@ public class SampleApplication implements CommandLineRunner {
     - annotate a field in domain class with `@Id`, this field will be mapped to Item `id` in Cosmos DB.
     - set name of this field to `id`, this field will be mapped to Item `id` in Azure Cosmos DB.
 - Supports auto generation of string type UUIDs using the @GeneratedValue annotation. The ID field of an entity with a string
-  type id can be annotated with `@GeneratedValue` to automatically generate a random UUID prior to insertion.
+  type ID can be annotated with `@GeneratedValue` to automatically generate a random UUID prior to insertion.
  <!-- embedme src/samples/java/com/azure/spring/data/cosmos/GeneratedIdEntity.java#L8-L14 -->
  ```java
  public class GeneratedIdEntity {
