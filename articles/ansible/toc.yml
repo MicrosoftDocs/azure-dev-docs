@@ -42,8 +42,8 @@
       href: devtest-labs-configure.md
   - name: Azure Key Vault
     items:
-    - name: Configure VM security
-      href: key-vault-configure-vm-security.md
+    - name: Configure VM secrets with Azure Key Vault
+      href: key-vault-configure-secrets.md
   - name: Azure Kubernetes Service (AKS)
     items:
     - name: Configure AKS clusters
@@ -80,6 +80,8 @@
     items:
     - name: Create Shared Image Gallery
       href: vm-configure-from-azure-shared-image-gallery.md
+    - name: Configure VM secrets with Azure Key Vault
+      href: key-vault-configure-secrets.md
   - name: Virtual machine scale sets
     items:
     - name: Configure 
