@@ -43,7 +43,7 @@ landingContent:
           - text: Tomcat to Azure Spring Cloud
             url: migrate-tomcat-to-azure-spring-cloud.md
           - text: "Tutorial: Containerized Tomcat to AKS"
-            url: /azure/migrate/tutorial-app-containerization-java-kubernetes&toc=/azure/developer/java/migration/toc.json&bc=/azure/developer/breadcrumb/toc.json
+            url: /azure/migrate/tutorial-app-containerization-java-kubernetes?toc=/azure/developer/java/migration/toc.json&bc=/azure/developer/breadcrumb/toc.json
 
   - title: Migrate WebLogic to Azure
     linkLists:
