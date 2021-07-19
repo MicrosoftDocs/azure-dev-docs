@@ -78,7 +78,7 @@ Use the following steps to create an Azure VM with a system-assigned managed ide
 1. Set default resource group.
 
    ```azurecli
-   az configure --defaults group=<your resource group region>
+   az configure --defaults group=<your resource group name>
    ```
 
 1. Create the VM instance with system-assigned managed identity enabled, using the image `UbuntuLTS` provided by `UbuntuServer`.
