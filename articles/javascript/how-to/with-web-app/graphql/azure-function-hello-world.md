@@ -87,6 +87,64 @@ The npm package `apollo-server-azure-functions` includes a GraphQL playground th
     ```
 1. View the response `{"data":{"hello":"Hello from GraphQL backend"}}`
 
+## Create your Azure Function resource from VS Code
+
+1. In VS Code, select the Azure explorer. 
+1. In the Azure Functions section, select the Azure subscription to create the Azure Function resource in, then right-click to select **Create Function App in Azure**.
+1. Complete the prompts:
+
+    |Prompt|Enter|
+    |--|--|
+    |Enter a globally unique name for the new function app.|Enter a unique name, which is used as the subdomain of the URL, such as `YOURALIAS-azure-function-graphql-hello`.|
+    |Select a runtime stack.|Node.js 14 LTS|
+    |Select a location for new resources.|Select a geographic location close to you.|
+    
+    VS Code notifies you when the deployment completes.
+
+
+## Deploy your GraphQL API from VS Code
+
+1. In VS Code, still in the Azure explorer, find your new Azure Function resource under your subscription.
+1. Right-click the resource and select **Deploy to Function App**.
+1. Select **output window** from the notification to watch the deployment. 
+
+    When the deployment completes, continue to the next section. 
+
+## Query your GraphQL API with cURL
+
+1. In VS Code, open an integrated terminal. 
+1. Change the cURL command from using your local function to your remove function. Change the URL in the following command to use your Azure Function URL:
+
+    ```bash
+    curl 'https://diberry-azure-function-graphql-hello.azurewebsites.net/api/graphql' \
+        -H 'content-type: application/json' \
+        --data-raw '{"query":"{hello}"}' |
+    ```
+
+    The API responds with:
+
+    ```json
+    {"data":{"hello":"Hello from our GraphQL backend!"}}
+    ```
+
+## Review the code
+
+The code used in this article requires the npm package [apollo-server-azure-functions](https://www.npmjs.com/package/apollo-server-azure-functions) to resolve your GraphQL query. 
+
+The code for this query is in the `./graphql/index.ts` file.
+
+:::code language="JavaScript" source="~/../js-e2e-azure-function-graphql-hello/graphql/index.ts" highlight="4,11,17":::
+
+## Troubleshooting
+
+Use the following troubleshooting guide to resolve any issues.
+
+|Issue|Possible fix|
+|--|--|
+|cURL command doesn't return anything|In VS Code, expand the Azure Function resource in the Azure explorer. Under the Files node, make sure all your local files have been moved to the remote location and the `/dist` folder has been generated. If the files are not present, redeploy the app and watch the deployment output for any errors. If the files do exist, run the cURL command again, adding `--verbose` to the end of the command to see what status code is returned.|
+
+Did you run into an issue not described in the preceding table? Open an issue to let us know. 
 
 ## Next steps
 
+* [Get started with databases in JavaScript](../../with-database/getting-started.md)

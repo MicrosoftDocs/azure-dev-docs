@@ -37,7 +37,7 @@ The server responds with JSON:
 }
 ```
 
-Learn how to deploy this GraphQL API as an [Azure Function]()
+Learn how to deploy this GraphQL API as an [Azure Function](azure-function-hello-world.md)
 
 
 

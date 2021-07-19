@@ -91,11 +91,12 @@ Data query languages, agnostic of a specific database, allow you to use the quer
 
 ## GraphQL data layer
 
-GraphQL is a database-agnostic query language. It allows a client to describe the data it is requesting from the data source, instead of the server deciding what it will return. It describes itself as:
+GraphQL is a database-agnostic query language. It allows a client to describe the data schema along with the data requested from the data source.
 
-```
-GraphQL is a query language for APIs and a runtime for fulfilling those queries with your existing data. GraphQL provides a complete and understandable description of the data in your API, gives clients the power to ask for exactly what they need and nothing more, makes it easier to evolve APIs over time, and enables powerful developer tools.
-```
+|Summary|
+|--|
+|GraphQL is a query language for APIs and a runtime for fulfilling those queries with your existing data. GraphQL provides a complete and understandable description of the data in your API, gives clients the power to ask for exactly what they need and nothing more, makes it easier to evolve APIs over time, and enables powerful developer tools.
+|
 
 Learn more about GraphQL with the [Azure Function graphQL function how-to](../with-web-app/graphql/get-started.md).
 
