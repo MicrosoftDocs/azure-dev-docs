@@ -30,9 +30,9 @@ In this article, you learn how to:
 
 ## Authenticate to Azure
 
-When you log in to the Azure portal with a Microsoft account, you automatically use the default Azure subscription for that account.
+When you log in to the Azure portal with a Microsoft account, the default Azure subscription for that account is used.
 
-Terraform automatically uses information from the default Azure subscription.
+Terraform automatically authenticates using information from the default Azure subscription.
 
 Run [az account show](/cli/azure/account?#az_account_show) to verify the current Microsoft account and Azure subscription.
 
@@ -44,8 +44,8 @@ If want to use the displayed default subscription, you can skip the rest of this
 
 If you want to authenticate using either a different Microsoft account or Azure subscription, the following options can be used:
 
-- [Option #1: Authenticate interactively using a Microsoft account](authenticate-interactive.md)
-- [Option #2: Authenticate from script using a service principal](authenticate-script.md)
+- [Option #1: Authenticate interactively using a Microsoft account](authenticate-interactive.md#log-in-to-azure-using-a-microsoft-account)
+- [Option #2: Authenticate from script using a service principal](authenticate-script.md#create-a-service-principal)
 
 ## Troubleshoot Terraform on Azure
 
