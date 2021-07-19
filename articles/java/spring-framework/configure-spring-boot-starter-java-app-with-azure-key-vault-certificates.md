@@ -75,6 +75,12 @@ Use the following steps to create an Azure VM with a system-assigned managed ide
        --location <your resource group region>
    ```
 
+1. Set default resource group.
+
+   ```azurecli
+   az configure --defaults group=<your resource group region>
+   ```
+
 1. Create the VM instance with system-assigned managed identity enabled, using the image `UbuntuLTS` provided by `UbuntuServer`.
 
    ```azurecli
@@ -156,7 +162,7 @@ Use the following steps to create an Azure Key Vault, and to grant permission fo
        --resource-group <your resource group name> \
        --name <your Key Vault name> \
        --location <your resource group region>
-   export KEY_VAULT_URI=$(az keyvault show --name ${KEY_VAULT} | jq -r '.properties.vaultUri')
+   export KEY_VAULT_URI=$(az keyvault show --name <your Key Vault name> | jq -r '.properties.vaultUri')
    ```
 
    Take note of the `KEY_VAULT_URI` value. You'll use it later.
@@ -192,7 +198,7 @@ To create the application, use the following steps:
 1. Select the choices as shown in the picture following this list.
    * **Project**: **Maven Project**
    * **Language**: **Java**
-   * **Spring Boot**: **2.4.6**
+   * **Spring Boot**: **2.5.2**
    * **Group**: *com.contoso* (You can put any valid Java package name here.)
    * **Artifact**: *ssltest* (You can put any valid Java class name here.)
    * **Packaging**: **Jar**
@@ -238,7 +244,7 @@ To enable the app to load the certificate, use the following steps:
    <dependency>
       <groupId>com.azure.spring</groupId>
       <artifactId>azure-spring-boot-starter-keyvault-certificates</artifactId>
-      <version>3.0.0-beta.7</version>
+      <version>3.0.1</version>
    </dependency>
    ```
 
@@ -341,15 +347,13 @@ Now that you've built the Spring Boot app and uploaded it to the VM, use the fol
 1. Open a new Bash shell and execute the following command to verify that the server presents the TLS/SSL certificate.
 
    ```bash
-   curl https://<your VM public IP address>:8443/ssl-test
+   curl --insecure https://<your VM public IP address>:8443/ssl-test
    ```
-
-   You should see message about the failed legitimacy of the server. Because the certificate is self-signed, the message is expected. Add the `--insecure` option to the `curl` command and you should see the message `Inbound TLS is working!!`.
 
 1. Invoke the `exit` path to kill the server and close the network sockets.
 
    ```bash
-   curl https://<your VM public IP address>:8443/exit
+   curl --insecure https://<your VM public IP address>:8443/exit
    ```
 
 Now that you've seen the *load* and *present* actions with a self-signed TLS/SSL certificate, you'll make some trivial changes to the app to see the *accept* action as well.
@@ -360,9 +364,19 @@ In this section, you'll modify the code in the previous section so that the TLS/
 
 ### Modify the SsltestApplication to illustrate outbound TLS connections
 
-First, you add a new rest endpoint called `ssl-test-outbound`. This endpoint opens up a TLS socket to itself and verifies that the TLS connection accepts the TLS/SSL certificate.
+1. Add the dependency on Apache HTTP Client by adding the following code to the `<dependencies>` section of the *pom.xml* file.
 
-Replace the contents of *SsltestApplication.java* with the following code.
+   ```xml
+   <dependency>
+      <groupId>org.apache.httpcomponents</groupId>
+      <artifactId>httpclient</artifactId>
+      <version>4.5.13</version>
+   </dependency>
+   ```
+
+1. Add a new rest endpoint called `ssl-test-outbound`. This endpoint opens up a TLS socket to itself and verifies that the TLS connection accepts the TLS/SSL certificate.
+
+   Replace the contents of *SsltestApplication.java* with the following code.
 
 ```java
    package com.contoso.ssltest;
@@ -438,17 +452,6 @@ Replace the contents of *SsltestApplication.java* with the following code.
    }
 ```
 
-Next, rebuild the app, upload it to the VM, and run it again.
-
-1. Add the dependency on Apache HTTP Client by adding the following code to the `<dependencies>` section of the *pom.xml* file.
-
-   ```xml
-   <dependency>
-      <groupId>org.apache.httpcomponents</groupId>
-      <artifactId>httpclient</artifactId>
-      <version>4.5.13</version>
-   </dependency>
-   ```
 
 1. Build the app.
 
