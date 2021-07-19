@@ -33,6 +33,15 @@ In this article, you learn how to:
 
 ## 2. Create an Azure resource group
 
+1. Create a Terraform configuration file. The filename can be any valid name for your environment. In the remaining steps of this article, substitute the filename you choose here for the placeholder `<terraform_plan>`.
+
+1. Insert the following code.
+
+    [!code-terraform[master](../../terraform_samples/quickstart/101-create-resource-group/main.tf)]
+
+
+
+
 ## 3. Initialize Terraform
 
 [!INCLUDE [terraform-init.md](includes/terraform-init.md)]
