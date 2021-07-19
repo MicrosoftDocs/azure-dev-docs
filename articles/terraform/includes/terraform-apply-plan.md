@@ -11,7 +11,7 @@ ms.author: tarcher
 Once you're ready to apply the execution plan to your cloud infrastructure, you run [terraform apply](https://www.terraform.io/docs/commands/apply.html).
 
 ```cmd
-terraform apply <terraform_plan>.tfplan
+terraform apply main.tfplan
 ```
 
 **Key points:**

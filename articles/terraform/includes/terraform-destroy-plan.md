@@ -11,7 +11,7 @@ ms.author: tarcher
 1. To reverse, or undo, the execution plan, you run [terraform plan](https://www.terraform.io/docs/commands/plan.html) and specify the `destroy` flag as follows:
 
     ```cmd
-    terraform plan -destroy -out <terraform_plan>.destroy.tfplan
+    terraform plan -destroy -out main.destroy.tfplan
     ```
 
     [!INCLUDE [terraform-plan-notes.md](terraform-plan-notes.md)]
@@ -19,5 +19,5 @@ ms.author: tarcher
 1. Run [terraform apply](https://www.terraform.io/docs/commands/apply.html) to apply the execution plan.
 
     ```cmd
-    terraform apply <terraform_plan>.destroy.tfplan
+    terraform apply main.destroy.tfplan
     ```
