@@ -173,10 +173,16 @@
             href: how-to/with-web-app/use-secret-environment-variables.md
           - name: Configure your web app
             href: how-to/configure-web-app-settings.md
+          - name: Static web apps
+            items: 
+            - name: Create static web app
+              href: how-to/create-static-web-app.md
           - name: Write serverless code
-            href: how-to/develop-serverless-apps.md
-          - name: Create static web app
-            href: how-to/create-static-web-app.md
+            items: 
+            - name: Develop Azure Functions
+              href: how-to/develop-serverless-apps.md
+            - name: GraphQL APIs
+              href: ./how-to/with-web-app/graphql/azure-function-hello-world.md
           - name: Deploy a web app
             href: how-to/deploy-web-app.md
           - name: Add easy authentication
