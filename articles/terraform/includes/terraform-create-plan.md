@@ -4,7 +4,7 @@ description: include file
 author: tomarchermsft
 ms.service: terraform
 ms.topic: include
-ms.date: 03/15/2021
+ms.date: 09/19/2021
 ms.author: tarcher
 ---
 

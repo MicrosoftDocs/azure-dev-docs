@@ -4,7 +4,7 @@ description: include file
 author: tomarchermsft
 ms.service: terraform
 ms.topic: include
-ms.date: 03/15/2021
+ms.date: 09/19/2021
 ms.author: tarcher
 ---
 
@@ -16,6 +16,6 @@ terraform apply main.tfplan
 
 **Key points:**
 
-- The usage of the `terraform apply` command above assumes you used the optional `-out` parameter when you ran `terraform plan`.
-- If you specified the `-out` parameter when you ran `terraform plan`, replace the `<terraform_plan>` placeholder with that parameter value.
-- If you didn't use the `-out` parameter when you ran `terraform plan`, simply call `terraform apply` without any parameters.
+- The `terraform apply` command above assumes you specified `-out main.tfplan` when you ran `terraform plan`
+- If you used the `-out` parameter, but specified a different filename, you'll need to change the call to `terraform apply` accordingly.
+- If you didn't use the `-out` parameter, simply call `terraform apply` without any parameters.
