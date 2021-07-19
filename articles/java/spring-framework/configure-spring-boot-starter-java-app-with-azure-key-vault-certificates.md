@@ -181,12 +181,12 @@ Use the following steps to create an Azure Key Vault, and to grant permission fo
 
 The steps in this tutorial apply to any TLS/SSL certificate (including self-signed) stored directly in Azure Key Vault. Self-signed certificates aren't suitable for use in production, but are useful for dev and test applications. This tutorial uses a self-signed certificate. To create the certificate, use the following command.
 
-```azurecli
-az keyvault certificate create \
-    --vault-name <your Key Vault name> \
-    --name mycert \
-    --policy "$(az keyvault certificate get-default-policy)"
-```
+   ```azurecli
+   az keyvault certificate create \
+       --vault-name <your Key Vault name> \
+       --name mycert \
+       --policy "$(az keyvault certificate get-default-policy)"
+   ```
 
 ## Run a Spring Boot application with secure inbound connections
 
@@ -378,7 +378,7 @@ In this section, you'll modify the code in the previous section so that the TLS/
 
    Replace the contents of *SsltestApplication.java* with the following code.
 
-```java
+   ```java
    package com.contoso.ssltest;
 
 
@@ -450,7 +450,7 @@ In this section, you'll modify the code in the previous section so that the TLS/
        }
 
    }
-```
+   ```
 
 1. Build the app.
 
@@ -494,9 +494,9 @@ You've now observed a simple illustration of the *load*, *present*, and *accept*
 
 When you're finished with the Azure resources you created in this tutorial, you can delete them using the following command:
 
-```azurecli
-az group delete --name <your resource group name>
-```
+   ```azurecli
+   az group delete --name <your resource group name>
+   ```
 
 ## Next steps
 
