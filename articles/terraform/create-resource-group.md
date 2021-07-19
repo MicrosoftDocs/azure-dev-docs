@@ -37,7 +37,7 @@ In this article, you learn how to:
 
 1. Insert the following code.
 
-    [!code-terraform[master](../../terraform_samples/quickstart/101-create-resource-group/main.tf)]
+    [!code-terraform[sample-create-resource-group](../../terraform_samples/quickstart/101-create-resource-group/main.tf)]
 
 
 
