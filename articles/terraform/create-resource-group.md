@@ -55,11 +55,24 @@ In this article, you learn how to:
 
 [!INCLUDE [terraform-apply-plan.md](includes/terraform-apply-plan.md)]
 
-## 6. Destroy a Terraform execution plan
+## 6. Verify results
+
+1. Run [az group show](/cli/azure/group?#az_group_show) to verify the resource group was created.
+
+```azurecli
+az group show --name <resource-group-name>
+```
+
+**Key points:**
+
+- Substitute the resource group name for the placeholder `<resource-group-name>`.
+- If the resource group is found, `az group show` displays information about resource group - such as its fully-qualified ID and location.
+
+## 7. Destroy a Terraform execution plan
 
 [!INCLUDE [terraform-destroy-plan.md](includes/terraform-destroy-plan.md)]
 
-## 7. Troubleshoot Terraform on Azure
+## 8. Troubleshoot Terraform on Azure
 
 [Troubleshoot common problems when using Terraform on Azure](troubleshoot.md)
 
