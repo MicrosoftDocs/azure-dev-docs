@@ -2,7 +2,7 @@
 title: Install Node.js for Azure SDK application development
 description: Learn how to install Node.js for common development scenarios with Azure.
 ms.topic: how-to
-ms.date: 04/16/2021
+ms.date: 07/19/2021
 ms.custom: devx-track-js
 ---
 
@@ -17,7 +17,7 @@ Your installation of Node.js for Azure development should consider both your loc
 
 The Azure SDK supports a minimum version of:
 
-* Node.js 8. 
+* Node.js 10. 
 
 ## Minimum version of Node.js for Azure services
 
