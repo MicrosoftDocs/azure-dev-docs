@@ -176,11 +176,11 @@ Setting environment variables helps Terraform use the intended Azure subscriptio
 
 ## 6. Create a Terraform execution plan
 
-[!INCLUDE [terraform-plan.md](includes/terraform-plan.md)]
+[!INCLUDE [terraform-create-plan.md](includes/terraform-create-plan.md)]
 
 ## 7. Apply the Terraform execution plan
 
-[!INCLUDE [terraform-apply.md](includes/terraform-apply.md)]
+[!INCLUDE [terraform-apply-plan.md](includes/terraform-apply-plan.md)]
 
 ## 8. Verify the results
 

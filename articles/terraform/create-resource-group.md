@@ -27,25 +27,29 @@ In this article, you learn how to:
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../includes/open-source-devops-prereqs-azure-subscription.md)]
 
-## Create an Azure resource group
+## 1. Configure your environment
 
-## Initialize Terraform
+[!INCLUDE [terraform-configuration-options.md](includes/terraform-configuration-options.md)]
+
+## 2. Create an Azure resource group
+
+## 3. Initialize Terraform
 
 [!INCLUDE [terraform-init.md](includes/terraform-init.md)]
 
-## Create a Terraform execution plan
+## 4. Create a Terraform execution plan
 
 [!INCLUDE [terraform-create-plan.md](includes/terraform-create-plan.md)]
 
-## Apply a Terraform execution plan
+## 5. Apply a Terraform execution plan
 
 [!INCLUDE [terraform-apply-plan.md](includes/terraform-apply-plan.md)]
 
-## Destroy a Terraform execution plan
+## 6. Destroy a Terraform execution plan
 
 [!INCLUDE [terraform-destroy-plan.md](includes/terraform-destroy-plan.md)]
 
-## Troubleshoot Terraform on Azure
+## 7. Troubleshoot Terraform on Azure
 
 [Troubleshoot common problems when using Terraform on Azure](troubleshoot.md)
 
