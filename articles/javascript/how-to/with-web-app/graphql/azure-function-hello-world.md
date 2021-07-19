@@ -137,6 +137,8 @@ The code for this query is in the `./graphql/index.ts` file.
 
 The highlighted lines are described in the following table:
 
+|Line|Description|
+|--|--|
 |`const typeDefs = gql`|Define the GraphQL schema the API supports.|
 |`const resolvers`|Define the resolver and API, `hello`, and the function that the API calls, `() => "Hello from our GraphQL backend!"`.|
 |`const server = new ApolloServer({ typeDefs, resolvers, debug: true,playground: true});`|Create an Azure Function version of the Apollo server with the typeDefs, resolvers, and the playground.|
