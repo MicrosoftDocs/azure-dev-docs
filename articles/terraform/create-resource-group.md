@@ -3,13 +3,47 @@ title: Quickstart - Create an Azure resource group using Terraform
 description: In this quickstart, you learn how to create an Azure resource group using Terraform
 keywords: azure devops terraform azure resource group
 ms.topic: quickstart
-ms.date: 04/21/2021
+ms.date: 07/19/2021
 ms.custom: devx-track-terraform, devx-track-azurecli, devx-track-powershell
 adobe-target: true
 # Customer intent: As someone new to Terraform and Azure, I want to do something simple to confirm my Terraform installation.
 ---
 
 # Quickstart: Create an Azure resource group using Terraform
+
+[!INCLUDE [terraform-intro.md](includes/terraform-intro.md)]
+
+This article presents you with the options to authenticate to Azure for use with Terraform.
+
+In this article, you learn how to:
+> [!div class="checklist"]
+> * Write Terraform code to create an Azure resource group
+> * Initialize Terraform
+> * Create a Terraform execution plan
+> * Apply a Terraform execution plan
+> * Destroy (undo) a Terraform execution plan
+
+## Prerequisites
+
+[!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../includes/open-source-devops-prereqs-azure-subscription.md)]
+
+## Create an Azure resource group
+
+## Initialize Terraform
+
+[!INCLUDE [terraform-init.md](includes/terraform-init.md)]
+
+## Create a Terraform execution plan
+
+[!INCLUDE [terraform-create-plan.md](includes/terraform-create-plan.md)]
+
+## Apply a Terraform execution plan
+
+[!INCLUDE [terraform-apply-plan.md](includes/terraform-apply-plan.md)]
+
+## Destroy a Terraform execution plan
+
+[!INCLUDE [terraform-destroy-plan.md](includes/terraform-destroy-plan.md)]
 
 ## Troubleshoot Terraform on Azure
 
