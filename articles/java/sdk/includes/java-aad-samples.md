@@ -6,8 +6,8 @@
 | [Manage users, groups, and roles with the Graph API][4] | Manage users, groups, roles, and service principals with the Graph API using the management API. |
 | [Manage service principals][5] | Create a service principal for an application, assign it a role, and use the service principal to access resources in the subscription |
 
-[1]: https://azure.microsoft.com/resources/samples/active-directory-java-webapp-openidconnect/
+[1]: https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect
 [2]: https://github.com/Azure-Samples/active-directory-java-graphapi-web/
-[3]: https://azure.microsoft.com/resources/samples/active-directory-java-native-headless/
+[3]: https://github.com/Azure-Samples/active-directory-java-native-headless
 [4]: https://github.com/Azure-Samples/aad-java-manage-users-groups-and-roles/
 [5]: https://github.com/Azure-Samples/aad-java-manage-service-principals/
