@@ -7,13 +7,13 @@
 - name: Quickstarts
   expanded: true
   items:
-    - name: Configure Cloud Shell in Bash
+    - name: Configure Terraform in Cloud Shell with Bash
       href: get-started-cloud-shell-bash.md
-    - name: Configure Cloud Shell in PowerShell
+    - name: Configure Terraform in Cloud Shell with PowerShell
       href: get-started-cloud-shell-powershell.md
-    - name: Configure Windows in Bash
+    - name: Configure Terraform in Windows with Bash
       href: get-started-windows-bash.md
-    - name: Configure Windows in PowerShell
+    - name: Configure Terraform in Windows with PowerShell
       href: get-started-windows-powershell.md
 - name: How-to guides
   items:
