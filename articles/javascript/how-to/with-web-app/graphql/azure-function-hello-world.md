@@ -73,7 +73,7 @@ The npm package `apollo-server-azure-functions` includes a GraphQL playground th
 1. Enter query `{hello}`
 1. View response `{"data":{"hello":"Hello from GraphQL backend"}}`
 
-    :::image type="content" source="../../../media/azure-function-graphql-hello/graphql_playground.png" alt-text="A browser screenshot showing the GraphQL playground hosted from an Azure Function API":::
+    :::image type="content" source="../../../media/azure-function-graphql-hello/graphql_playground.png" alt-text="A browser screenshot showing the GraphQL playground hosted from an Azure Function API" lightbox="../../../media/azure-function-graphql-hello/graphql_playground.png":::
     
 ## Query Azure Function with GraphQL using cURL
 
@@ -134,6 +134,12 @@ The code used in this article requires the npm package [apollo-server-azure-func
 The code for this query is in the `./graphql/index.ts` file.
 
 :::code language="JavaScript" source="~/../js-e2e-azure-function-graphql-hello/graphql/index.ts" highlight="4,11,17":::
+
+The highlighted lines are described in the following table:
+
+|`const typeDefs = gql`|Define the GraphQL schema the API supports.|
+|`const resolvers`|Define the resolver and API, `hello`, and the function that the API calls, `() => "Hello from our GraphQL backend!"`.|
+|`const server = new ApolloServer({ typeDefs, resolvers, debug: true,playground: true});`|Create an Azure Function version of the Apollo server with the typeDefs, resolvers, and the playground.|
 
 ## Troubleshooting
 
