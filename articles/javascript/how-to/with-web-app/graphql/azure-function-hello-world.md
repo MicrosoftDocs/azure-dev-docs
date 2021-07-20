@@ -154,9 +154,9 @@ Use the following troubleshooting guide to resolve any issues.
 
 Did you run into an issue not described in the preceding table? Open an issue to let us know. 
 
-## Add second GraphQL API to Azure Function
+## Design a second API to allow create, update, and read API endpoints
 
-Add a second API with create, update, and read API endpoints:
+Consider a new API with the following endpoint to manage messages:
 
 * `/api/mymessages/getMessage`
 * `/api/mymessages/getMessages`
@@ -196,6 +196,8 @@ If the query only requests _certain fields_ such as `id` and `content`, the Apol
 
 The key is that the resolver can reshape the data and the Apollo server can prune the data to match the query. 
 
+## Add second GraphQL API to Azure Function
+
 1. In VS Code, select **View**, then select the **Command Palette**.
 1. Search for and select **Azure Functions: Create Function**. 
 1. Complete the prompts:
@@ -206,13 +208,15 @@ The key is that the resolver can reshape the data and the Apollo server can prun
     |Provide a function name|mymessages|
     |Authorization|Anonymous|
     
+## Add code for new GraphQL API 
+
 1. In the `./mymessages/index.ts`, replace the entire file with the following code:
 
-    :::code language="JavaScript" source="~/../js-e2e-azure-function-graphql-hello/message/index.ts" highlight="4,6,29,42":::
+    :::code language="JavaScript" source="~/../js-e2e-azure-function-graphql-hello/message/index.ts" range="1-87" highlight="4,6,29,42":::
 
 1. In the `./mymessages/function.json` file, change the second name object to use `$return` so that the Apollo server can return functionality correctly through the Azure Function:
 
-    :::code language="JavaScript" source="~/../js-e2e-azure-function-graphql-hello/message/function.json" highlight="16":::
+    :::code language="JavaScript" source="~/../js-e2e-azure-function-graphql-hello/message/function.json" range="13-17 highlight="16":::
 
 1. In the VS Code integrated terminal, build and start the function:
 
