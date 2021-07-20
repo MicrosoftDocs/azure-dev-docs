@@ -15,5 +15,3 @@ In this article, learn the basics of GraphQL, based on the Apollo GraphQL server
 ## Next steps
 
 * [Local development of a GraphQL API with Azure Functions](local-development.md)
-
-

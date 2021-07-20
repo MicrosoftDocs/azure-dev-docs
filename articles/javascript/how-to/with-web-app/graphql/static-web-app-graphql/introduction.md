@@ -1,5 +1,5 @@
 ---
-title: Introduction and prerequisites 
+title: GraphQL Azure Function Introduction and prerequisites 
 description: Learn how to build a static web app and API that uses the Apollo GraphQL client and server libraries to build and run a trivia game app.
 ms.topic: how-to
 ms.date: 07/14/2021
@@ -12,7 +12,7 @@ In this article series, locally build then deploy a Trivia game, which uses Grap
 
 * [**Sample code**](https://github.com/Azure-Samples/js-e2e-graphql-cosmosdb-static-web-app)
 
-[!INCLUDE [Create or use existing Azure Subscription ](../../includes/environment-subscription-h2.md)]
+[!INCLUDE [Create or use existing Azure Subscription ](../../../../includes/environment-subscription-h2.md)]
 
 ## Prerequisites
 
@@ -27,7 +27,7 @@ In this article series, locally build then deploy a Trivia game, which uses Grap
 
 The application architecture is shown in the following diagram:
 
-:::image type="content" source="../../media/how-to-database-graphql/architectural-overview.png" alt-text="Architectural image of graphQL client and server in Azure.":::
+:::image type="content" source="../../../../media/how-to-database-graphql/architectural-overview.png" alt-text="Architectural image of graphQL client and server in Azure.":::
 
 The React client constructs a graphQL query using the Apollo client package and calls the API to retrieve the data. The API uses the Apollo server to resolve the graphQL query and pass the information to a SQL query. The SQL query is sent to the Cosmos DB and returns the SQL results. The graphQL resolver returns the results in a well-formatted graphQL data object. 
 
