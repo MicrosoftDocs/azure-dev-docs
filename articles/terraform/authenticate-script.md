@@ -54,8 +54,8 @@ In this article, you learn how to:
 
 The following options are some of the ways Terraform supports authenticating to Azure using a service principal:
 
-- [Option 1: Store service principal credentials as environment variables](#store-service-principal-credentials-as-environment-variables)
-- [Option 2: Specify service principal credentials in a code block](#specify-service-principal-credentials-in-a-code-block)
+- [Option 1: Store service principal credentials as environment variables](#option-1-store-service-principal-credentials-as-environment-variables)
+- [Option 2: Specify service principal credentials in a code block](#option-2-specify-service-principal-credentials-in-a-code-block)
 
 ### Option 1: Store service principal credentials as environment variables
 
