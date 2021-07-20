@@ -216,7 +216,7 @@ The key is that the resolver can reshape the data and the Apollo server can prun
 
 1. In the `./mymessages/function.json` file, change the second name object to use `$return` so that the Apollo server can return functionality correctly through the Azure Function:
 
-    :::code language="JavaScript" source="~/../js-e2e-azure-function-graphql-hello/message/function.json" range="13-17 highlight="16":::
+    :::code language="JavaScript" source="~/../js-e2e-azure-function-graphql-hello/message/function.json" range="13-17" highlight="16":::
 
 1. In the VS Code integrated terminal, build and start the function:
 
