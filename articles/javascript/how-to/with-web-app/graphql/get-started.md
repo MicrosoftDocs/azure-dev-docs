@@ -19,7 +19,7 @@ GraphQL provides a query language that allows you to ask for data from a server 
 
 It acts as a layer between the API endpoint and the database. You can use GraphQL providers to provide this functionality for you.  
 
-## Your first GraphQL API queryy 
+## Your first GraphQL API query
 
 A GraphQL query, asking for the value `hello` from the server, _looks like JSON_ but isn't a true JSON object:
 
