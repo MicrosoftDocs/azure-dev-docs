@@ -1,7 +1,7 @@
 ---
 title: Configure your local JavaScript environment for Azure development
 description: How to set up a local JavaScript dev environment for working with Azure, including an editor, the Azure SDK libraries, optional tools, and the necessary credentials for library authentication.
-ms.date: 04/16/2021
+ms.date: 07/19/2021
 ms.topic: conceptual
 ms.custom: devx-track-js, azure-sdk-javascript-ai-text-analytics-5.0.0
 ---
@@ -28,7 +28,7 @@ To develop using an Azure resource with JavaScript on your local workstation, yo
 
 |Name/Installer|Description|
 |--|--|
-|[Node.js 8+](https://www.npmjs.com/)|Install latest long-term support (LTS) runtime environment for local workstation development. A package manager is also required. Node.js installs NPM in the 8.x version. The Azure SDK generally requires a minimum version of Node.js of 8.x. Azure hosting services, such as Azure App service, provides runtimes with more recent versions of Node.js. If you target a minimum of 8.x for local and remove development, your code should run successfully.|
+|[Node.js 10+](https://www.npmjs.com/)|Install latest long-term support (LTS) runtime environment for local workstation development. A package manager is also required. Node.js installs NPM in the 10.x version. The Azure SDK generally requires a minimum version of Node.js of 10.x. Azure hosting services, such as Azure App service, provides runtimes with more recent versions of Node.js. If you target a minimum of 8.x for local and remove development, your code should run successfully.|
 |[Visual Studio Code](https://code.visualstudio.com/)| Visual Studio Code will give you a great JavaScript integration and coding experience but it is not required. You can use any code editor. For this document, if you are using a different editor, check for integration with Azure or use the Azure CLI.|
 
 > [!CAUTION]
