@@ -37,7 +37,7 @@ In this article, you learn how to:
 
 1. Insert the following code into the main Terraform configuration file.
 
-    [!code-terraform[sample-create-resource-group](../../terraform_samples/quickstart/101-create-resource-group/main.tf)]
+    [!code-terraform[master](../../terraform_samples/quickstart/101-create-resource-group/main.tf)]
 
 1. Create a variables file that will contain the values for Terraform. By convention, the name of this file is `variables.tf`. However, you can specify any valid name for your environment.
 
