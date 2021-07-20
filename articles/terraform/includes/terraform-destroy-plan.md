@@ -4,7 +4,7 @@ description: include file
 author: tomarchermsft
 ms.service: terraform
 ms.topic: include
-ms.date: 09/27/2020
+ms.date: 07/20/2021
 ms.author: tarcher
 ---
 
@@ -21,3 +21,7 @@ ms.author: tarcher
     ```cmd
     terraform apply main.destroy.tfplan
     ```
+
+**Key points:**
+
+- If you rerun the steps in the [Verify results](#verify_results) section, you see that the changes to your Azure subscription have been undone.
