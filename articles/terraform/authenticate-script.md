@@ -77,12 +77,7 @@ The following options are some of the ways Terraform supports authenticating to 
 
 - Creating and applying Terraform execution plans makes changes on the Azure subscription associated with the service principal. This fact can sometimes be confusing if you're logged into one Azure subscription and the environment variables point to a second Azure subscription. Let's look at the following example to explain. Let's say you have two Azure subscriptions: SubA and SubB. If you're using an interactive command-line tool - such as Cloud Shell - and the current Azure subscription is SubA (determined via `az account show`) while the environment variables point to SubB, any changes made by Terraform are on SubB. Therefore, you would need to log in to your SubB subscription to run Azure CLI commands or Azure PowerShell commands to view your changes.
 
-### Option 2: Specify service principal credentials in a code block
-
-1. Edit the Terraform config file 
-
-
-### Option 3: Log in to Azure using a service principal
+### Option 2: Log in to Azure using a service principal
 
 The [az login](/cli/azure/reference-index#az_login) command allows a robust set of ways to log in to Azure. The following syntax takes as parameters a service principal AppId, the service principal's password, and the tenant ID of the Azure subscription associated with the service principal.
 
@@ -93,6 +88,35 @@ az login --service-principal -u "<service_principal_appid>" -p "<service_princip
 **Key points**:
 
 - Creating and applying Terraform execution plans will affect changes on the Azure subscription associated with the service principal.
+
+### Option 3: Specify service principal credentials in a code block
+
+The Azure provider block defines syntax that allows you to specify your Azure subscription's authentication information.
+
+```terraform
+terraform {
+  required_providers {
+    azurerm = {
+      source = "hashicorp/azurerm"
+      version = "~>2.0"
+    }
+  }
+}
+
+provider "azurerm" {
+  features {}
+
+  subscription_id   = "<azure_subscription_id>"
+  tenant_id         = "<azure_subscription_tenant_id"
+  client_id         = "<service_principal_appid>"
+  client_secret     = "<service_principal_password>"
+}
+
+# Your code goes here
+```
+
+> [!CAUTION]
+> The ability to specify your Azure subscription credentials in a Terraform configuration file can be convenient - especially when testing. However, it is not advisable to store credentials in clear-text file that can be viewed by non-trusted individuals.
 
 #### [Windows](#tab/windows)
 

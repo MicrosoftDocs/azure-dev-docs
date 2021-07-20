@@ -53,7 +53,7 @@ In this article, you learn how to:
 To use a specific Azure subscription for the current Cloud Shell session, use [az account set](/cli/azure/account#az_account_set). Replace the placeholder with the ID (or name) of the subscription you want to use:
 
 ```azurecli
-az account set --subscription="<subscription_id_or_subscription_name>"
+az account set --subscription "<subscription_id_or_subscription_name>"
 ```
 
 **Key points**:
