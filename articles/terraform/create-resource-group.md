@@ -43,6 +43,10 @@ In this article, you learn how to:
 
     [!code-terraform[sample-create-resource-group](../../terraform_samples/quickstart/101-create-resource-group/variables.tf)]
 
+**Key points:**
+
+- The values used in the `variables.tf` file are arbitrary and can be changed as appropriate for your environment.
+
 ## 3. Initialize Terraform
 
 [!INCLUDE [terraform-init.md](includes/terraform-init.md)]
