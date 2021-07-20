@@ -2,7 +2,7 @@
 title: "What's new for JavaScript docs"
 description: "What's new in JavaScript docs in the Developer Center"
 ms.topic: conceptual
-ms.date: 06/30/2021
+ms.date: 07/20/2021
 
 
 ---
@@ -19,6 +19,7 @@ Find new and updated content for JavaScript and TypeScript developers.
 
 |Name|Description|
 |---------------------------------------|--|
+|[Deploy a GraphQL API as an Azure Function ](./how-to/with-web-app/graphql/azure-function-hello-world.md)|In this article, learn how to build and deploy an Apollo server-based GraphQL API endpoint. This article includes a simple `Hello World` API for those very new to GraphQL, along with a simple CRUD operations API using mutations.|
 |[How to authenticate users with Microsoft Authentication Library for React](./how-to/with-authentication/static-web-app-with-api/introduction.md)|In this article series, learn how to authenticate users with the Microsoft Authentication Library for React (MSAL React) and call an Azure service on behalf of the user.<br>The application architecture includes:
 
 * A React client, which provides the user authentication step and can call an Azure service on behalf of ([OAuth on-behalf-of](/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow) flow) the user from either:
