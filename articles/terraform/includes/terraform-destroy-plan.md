@@ -24,4 +24,4 @@ ms.author: tarcher
 
 **Key points:**
 
-- If you rerun the steps in the [Verify results](#6-verify_results) section, you see that the changes to your Azure subscription have been undone.
+- If you rerun the steps in the [Verify results](#6-verify-results) section, you see that the changes to your Azure subscription have been undone.
