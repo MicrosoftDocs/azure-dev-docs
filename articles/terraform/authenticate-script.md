@@ -3,7 +3,7 @@ title: Authenticate Terraform to Azure using a service principal
 description: In this article, you learn how to authenticate to Azure with a Service Principal
 keywords: terraform azure cli authenticate
 ms.topic: how-to
-ms.date: 05/11/2021
+ms.date: 07/20/2021
 ms.custom: devx-track-terraform
 # Customer intent: I want to authenticate to Azure from a script using a service principal.
 ---
@@ -32,7 +32,7 @@ In this article, you learn how to:
 
 ## 2. Create a service principal
 
-1. You first need to authenticate to an Azure subscription so that you can create a service principal for that subscription. Therefore, if you have not already logged in to the target subscription, follow the instructions in the article, [Authenticate interactively using a Microsoft account](./authenticate-interactive.md).
+1. You first need to authenticate to an Azure subscription to create a service principal for that subscription. Therefore, if you have not already logged in to the target subscription, follow the instructions in the article, [Authenticate interactively using a Microsoft account](./authenticate-interactive.md).
 
 1. To log into an Azure subscription using a service principal, you first need access to a service principal. If you already have a service principal you want to use, you can skip to the next section. If you want to create a service principal, run [az ad sp create-for-rbac](/cli/azure/ad/sp?#az_ad_sp_create_for_rbac).
     
@@ -49,6 +49,8 @@ In this article, you learn how to:
     - For more information about options when creating creating a service principal with the Azure CLI, see the article [Create an Azure service principal with the Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli?). 
     
 ## 3. Use a service principal to authenticate to Azure
+
+#### [Cloud Shell or Linux](#tab/linux)
 
 The following options are some of the ways Terraform supports authenticating to Azure using a service principal:
 
@@ -91,6 +93,12 @@ az login --service-principal -u "<service_principal_appid>" -p "<service_princip
 **Key points**:
 
 - Creating and applying Terraform execution plans will affect changes on the Azure subscription associated with the service principal.
+
+#### [Windows](#tab/windows)
+
+Windows instructions
+
+---
 
 ## Troubleshoot Terraform on Azure
 
