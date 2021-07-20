@@ -22,6 +22,4 @@ ms.author: tarcher
     terraform apply main.destroy.tfplan
     ```
 
-**Key points:**
-
-- If you rerun the steps in the [Verify results](#6-verify-results) section, you see that the changes to your Azure subscription have been undone.
+1. If you rerun the steps in the [Verify results](#6-verify-results) section, you see that the changes to your Azure subscription have been undone.
