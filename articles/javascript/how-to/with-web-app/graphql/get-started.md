@@ -10,32 +10,7 @@ ms.custom: devx-track-js
 
 In this article, learn how to use a GraphQL API and deploy to Azure using the Apollo server in an Azure Function. 
 
-## Use GraphQL to allow a client to query data
-
-GraphQL provides a query language that allows you to ask for data from a server in a declarative way. You can ask for:
-
-* The specific data you need in the schema you need it. 
-* Return the data in a nested schema representing a collection of objects, regardless of how many datasources are required from a single query. 
-
-It acts as a layer between the API endpoint and the database. You can use GraphQL providers to provide this functionality for you.  
-
-## Your first GraphQL API query
-
-A GraphQL query, asking for the value `hello` from the server, _looks like JSON_ but isn't a true JSON object:
-
-```graphql
-{
-    hello
-}
-```
-
-The server responds with JSON:
-
-```json
-{
-    "hello":"Hello from GraphQL backend"
-}
-```
+[!INCLUDE [GraphQL basics](includes/graphql-basics.md)]
 
 ## Next steps
 

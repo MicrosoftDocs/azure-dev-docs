@@ -80,13 +80,13 @@
             - name: "GraphQL trivia game"
               items: 
                 - name: 1. Introduction
-                  href: tutorial/static-web-app-graphql/introduction.md
+                  href: how-to/graphql/static-web-app-graphql/introduction.md
                 - name: 2. GraphQL basics
-                  href: tutorial/static-web-app-graphql/graphql-basics.md
+                  href: how-to/graphql//static-web-app-graphql/graphql-basics.md
                 - name: 3. Local typescript development
-                  href: tutorial/static-web-app-graphql/local-development.md 
+                  href: how-to/graphql//static-web-app-graphql/local-development.md 
                 - name: 4. Deploy to Azure Static web app
-                  href: tutorial/static-web-app-graphql/remote deployment.md                                     
+                  href: how-to/graphql//static-web-app-graphql/remote-deployment.md                                     
         - name: Serverless APIs
           items:
             - name: "Create a function with Visual Studio Code"
