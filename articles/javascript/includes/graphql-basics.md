@@ -114,7 +114,7 @@ mutation{createMessage(input:{author: "John Doe",content: "Oh happy day"}){id}}
 
 Notice that the last curly brace section, `{id}`, describes the schema the client wants in the response.
 
-### HTTP curl request
+### HTTP cURL request
 
 Your API endpoint may look like: `/apimessage` and the cURL request may look like:
 
@@ -143,7 +143,7 @@ The API response looks like:
 
 The preceding query hard-coded the values of the `author` and `content`. That preceding example isn't a recommended method but used to illustrate where the values are expected on the request. Now, change the same mutation request to allow variables, and help make client code maintenance easier. 
 
-### HTTP curl request body
+### HTTP cURL request body
 
 To pass variables, you need to send them in the `variables` property, and describe them in the mutation params with the `$` and non-nullable type, `String!`, then pass them to the mutation resolver, `createMessage`.
 
@@ -154,7 +154,7 @@ To pass variables, you need to send them in the `variables` property, and descri
 }
 ```
 
-### curl request
+### cURL request
 
 The following request body, `--data-raw` value, is stripped of all formatting.
 
