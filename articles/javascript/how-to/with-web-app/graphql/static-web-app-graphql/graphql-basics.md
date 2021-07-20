@@ -10,7 +10,7 @@ ms.custom: devx-track-js
 
 In this article, learn the basics of GraphQL, based on the Apollo GraphQL server. If you are familiar with GraphQL, continue to the next article, [Local development of a GraphQL API with Azure Functions](local-development.md).
 
-[!INCLUDE [GraphQL basics](includes/graphql-basics.md)]
+[!INCLUDE [GraphQL basics](../../../../includes/graphql-basics.md)]
 
 ## Next steps
 

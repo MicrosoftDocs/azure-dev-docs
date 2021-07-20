@@ -10,7 +10,7 @@ ms.custom: devx-track-js
 
 In this article, learn how to use a GraphQL API and deploy to Azure using the Apollo server in an Azure Function. 
 
-[!INCLUDE [GraphQL basics](includes/graphql-basics.md)]
+[!INCLUDE [GraphQL basics](../../../includes/graphql-basics.md)]
 
 ## Next steps
 
