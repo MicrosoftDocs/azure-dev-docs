@@ -3,9 +3,9 @@ title: Authenticate Terraform to Azure with a Microsoft Account
 description: In this article, you learn how to authenticate to Azure with a Microsoft Account
 keywords: terraform azure cli authenticate
 ms.topic: how-to
-ms.date: 05/11/2021
+ms.date: 07/20/2021
 ms.custom: devx-track-terraform
-# Customer intent: I want to authenticate to Azure using a Microsoft account.
+# Customer intent: I want to authenticate interactively to Azure using a Microsoft account.
 ---
 
 # Authenticate to Azure with a Microsoft Account
@@ -36,9 +36,7 @@ In this article, you learn how to:
     az login
     ```
     
-1. Upon successful login, `az login` displays a list of the Azure subscriptions associated with the logged-in Microsoft account, including the default subscription. If you want to use the default Azure subscription, skip the rest of this section. If you want to use one of the non-default Azure subscriptions, continue to the next step.
-
-1. To view the Azure subscription names and IDs for a specific Microsoft account, run the following command. Replace the placeholder with the Microsoft account email address whose Azure subscriptions you want to list.
+1. Upon successful login, `az login` displays a list of the Azure subscriptions associated with the logged-in Microsoft account, including the default subscription. You can also view the Azure subscription names and IDs for a specific Microsoft account by running [az account list](/cli/azure/account#az_account_list). Replace the `<microsoft_account_email>` placeholder with the Microsoft account email address whose Azure subscriptions you want to list.
 
     ```azurecli
     az account list --query "[?user.name=='<microsoft_account_email>'].{Name:name, ID:id, Default:isDefault}" --output Table
@@ -47,6 +45,8 @@ In this article, you learn how to:
     **Key points**:
 
     - With a Live account - such as a hotmail or outlook - you might need to specify the fully qualified email address. For example, if your email address is `admin@hotmail.com`, you might need to replace the placeholder with `live.com#admin@hotmail.com`.
+
+1.  If you want to use the default Azure subscription, skip the rest of this article. If you want to use one of the non-default Azure subscriptions, continue to the next section.
 
 ## Switch from the default Azure subscription
 
