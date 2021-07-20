@@ -5,7 +5,7 @@ keywords: terraform azure cli authenticate
 ms.topic: how-to
 ms.date: 05/11/2021
 ms.custom: devx-track-terraform
-# Customer intent: I want to authenticate to Azure using a service principal.
+# Customer intent: I want to authenticate to Azure from a script using a service principal.
 ---
 
 # Authenticate Terraform to Azure using a service principal
@@ -26,27 +26,29 @@ In this article, you learn how to:
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../includes/open-source-devops-prereqs-azure-subscription.md)]
 
-## Open Cloud Shell
+## 1. Open Cloud Shell
 
 [!INCLUDE [open-cloud-shell.md](../includes/open-cloud-shell.md)]
 
-## Create a service principal
+## 2. Create a service principal
 
-To log into an Azure subscription using a service principal, you first need access to a service principal. If you already have a service principal you want to use, you can skip this step. If you want to create a service principal, run [az ad sp create-for-rbac](/cli/azure/ad/sp?#az_ad_sp_create_for_rbac).
+1. You first need to authenticate to an Azure subscription so that you can create a service principal for that subscription. Therefore, if you have not already logged in to the target subscription, follow the instructions in the article, [Authenticate interactively using a Microsoft account](./authenticate-interactive.md).
+
+1. To log into an Azure subscription using a service principal, you first need access to a service principal. If you already have a service principal you want to use, you can skip to the next section. If you want to create a service principal, run [az ad sp create-for-rbac](/cli/azure/ad/sp?#az_ad_sp_create_for_rbac).
     
-```azurecli
-az ad sp create-for-rbac --name <service_principal_name> --role="Contributor" --scopes="/subscriptions/<azure_subscription_id>"
-```
-
-**Key points**:
-
-- Upon successful completion, `az ad sp create-for-rbac` displays several values. The `appId`, `password`, and `tenant` values are used in the next step.
-- The password can't be retrieved if lost. As such, you should store your password in a safe place. If you forget your password, you'll need to [reset the service principal credentials](/cli/azure/create-an-azure-service-principal-azure-cli#reset-credentials).
-- For this article, a service principal with a **Contributor** role is being used.
-- The **Contributor** role (the default) has full permissions to read and write to an Azure account. For more information about Role-Based Access Control (RBAC) and roles, see [RBAC: Built-in roles](/azure/active-directory/role-based-access-built-in-roles).
-- For more information about options when creating creating a service principal with the Azure CLI, see the article [Create an Azure service principal with the Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli?). 
-
-## Use a service principal to authenticate to Azure
+    ```azurecli
+    az ad sp create-for-rbac --name <service_principal_name> --role="Contributor" --scopes="/subscriptions/<azure_subscription_id>"
+    ```
+    
+    **Key points**:
+    
+    - Upon successful completion, `az ad sp create-for-rbac` displays several values. The `appId`, `password`, and `tenant` values are used in the next step.
+    - The password can't be retrieved if lost. As such, you should store your password in a safe place. If you forget your password, you'll need to [reset the service principal credentials](/cli/azure/create-an-azure-service-principal-azure-cli#reset-credentials).
+    - For this article, a service principal with a **Contributor** role is being used.
+    - The **Contributor** role (the default) has full permissions to read and write to an Azure account. For more information about Role-Based Access Control (RBAC) and roles, see [RBAC: Built-in roles](/azure/active-directory/role-based-access-built-in-roles).
+    - For more information about options when creating creating a service principal with the Azure CLI, see the article [Create an Azure service principal with the Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli?). 
+    
+## 3. Use a service principal to authenticate to Azure
 
 The following options are some of the ways Terraform supports authenticating to Azure using a service principal:
 

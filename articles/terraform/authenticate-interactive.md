@@ -24,11 +24,11 @@ In this article, you learn how to:
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../includes/open-source-devops-prereqs-azure-subscription.md)]
 
-## Open Cloud Shell
+## 1. Open Cloud Shell
 
 [!INCLUDE [open-cloud-shell.md](../includes/open-cloud-shell.md)]
 
-## Log in to Azure using a Microsoft account
+## 2. Log in to Azure using a Microsoft account
 
 1. Run [az login](/cli/azure/account#az_login) without any parameters and follow the instructions to log in to Azure.
 
@@ -48,7 +48,7 @@ In this article, you learn how to:
 
 1.  If you want to use the default Azure subscription, skip the rest of this article. If you want to use one of the non-default Azure subscriptions, continue to the next section.
 
-## Switch from the default Azure subscription
+## 3. Switch from the default Azure subscription
 
 To use a specific Azure subscription for the current Cloud Shell session, use [az account set](/cli/azure/account#az_account_set). Replace the placeholder with the ID (or name) of the subscription you want to use:
 
