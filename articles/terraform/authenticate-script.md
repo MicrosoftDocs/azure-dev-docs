@@ -75,7 +75,7 @@ The following options are some of the ways Terraform supports authenticating to 
 
 **Key points**:
 
-- Creating and applying Terraform execution plans makes changes on the Azure subscription associated with the service principal. This fact can sometimes be confusing if you're logged into one Azure subscription and the environment variables point to a second Azure subscription. Let's look at the following example to explain. Let's say you have two Azure subscriptions: SubA and SubB. If you're using an interactive command-line tool - such as Cloud Shell - and the current Azure subscription is SubA (determined via `az account show`) while the environment variables point to SubB, any changes made by Terraform are on SubB. Therefore, if you make changes and try to run Azure CLI commands or Azure PowerShell commands to view those changes, they won't show up unless you log in to your SubB subscription.
+- Creating and applying Terraform execution plans makes changes on the Azure subscription associated with the service principal. This fact can sometimes be confusing if you're logged into one Azure subscription and the environment variables point to a second Azure subscription. Let's look at the following example to explain. Let's say you have two Azure subscriptions: SubA and SubB. If you're using an interactive command-line tool - such as Cloud Shell - and the current Azure subscription is SubA (determined via `az account show`) while the environment variables point to SubB, any changes made by Terraform are on SubB. Therefore, you would need to log in to your SubB subscription to run Azure CLI commands or Azure PowerShell commands to view your changes.
 
 ### Option 2: Specify service principal credentials in a code block
 
