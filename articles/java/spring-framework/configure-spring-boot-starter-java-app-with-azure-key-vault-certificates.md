@@ -33,9 +33,9 @@ In this tutorial, you learn how to:
 ## Prerequisites
 
 - [!INCLUDE [free subscription](includes/quickstarts-free-trial-note.md)]
-  [!INCLUDE [curl](includes/prerequisites-curl.md)]
-  [!INCLUDE [jq](includes/prerequisites-jq.md)]
-  [!INCLUDE [Azure CLI](includes/prerequisites-azure-cli.md)]
+[!INCLUDE [curl](includes/prerequisites-curl.md)]
+[!INCLUDE [jq](includes/prerequisites-jq.md)]
+[!INCLUDE [Azure CLI](includes/prerequisites-azure-cli.md)]
 
 - A supported Java Development Kit (JDK), version 8. For more information, see [Java support on Azure and Azure Stack](../fundamentals/java-support-on-azure.md).
 
@@ -98,6 +98,7 @@ Use the following steps to create an Azure VM with a system-assigned managed ide
    > [!NOTE]
    > The name `UbuntuLTS` is an Uniform Resource Name (URN) alias, which is a shortened version created for popular images like *UbuntuLTS*.
    > Run the following command to display a cached list of popular images in table format:
+   >
    > ```azurecli
    > az vm image list --output table
    > ```
@@ -179,12 +180,12 @@ Use the following steps to create an Azure Key Vault, and to grant permission fo
 
 The steps in this tutorial apply to any TLS/SSL certificate (including self-signed) stored directly in Azure Key Vault. Self-signed certificates aren't suitable for use in production, but are useful for dev and test applications. This tutorial uses a self-signed certificate. To create the certificate, use the following command.
 
-   ```azurecli
-   az keyvault certificate create \
-       --vault-name <your Key Vault name> \
-       --name mycert \
-       --policy "$(az keyvault certificate get-default-policy)"
-   ```
+```azurecli
+az keyvault certificate create \
+    --vault-name <your Key Vault name> \
+    --name mycert \
+    --policy "$(az keyvault certificate get-default-policy)"
+```
 
 ## Run a Spring Boot application with secure inbound connections
 
@@ -492,9 +493,9 @@ You've now observed a simple illustration of the *load*, *present*, and *accept*
 
 When you're finished with the Azure resources you created in this tutorial, you can delete them using the following command:
 
-   ```azurecli
-   az group delete --name <your resource group name>
-   ```
+```azurecli
+az group delete --name <your resource group name>
+```
 
 ## Next steps
 
