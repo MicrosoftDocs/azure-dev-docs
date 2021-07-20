@@ -85,7 +85,6 @@ Use the following steps to create an Azure VM with a system-assigned managed ide
 
    ```azurecli
    az vm create \
-       --resource-group <your resource group name> \
        --name <your VM name> \
        --debug \
        --generate-ssh-keys \
@@ -159,7 +158,6 @@ Use the following steps to create an Azure Key Vault, and to grant permission fo
 
    ```azurecli
    az keyvault create \
-       --resource-group <your resource group name> \
        --name <your Key Vault name> \
        --location <your resource group region>
    export KEY_VAULT_URI=$(az keyvault show --name <your Key Vault name> | jq -r '.properties.vaultUri')
