@@ -42,6 +42,13 @@ In this article, you learn how to:
     terraform -version
     ```
 
+## 2. Authenticate to Azure
+
+There are several ways to authenticate to Azure depending on your needs, including the following options:
+
+- [Option #1: Authenticate interactively using a Microsoft account](authenticate-interactive.md#log-in-to-azure-using-a-microsoft-account)
+- [Option #2: Authenticate from script using a service principal](authenticate-script.md#create-a-service-principal)
+
 ## Troubleshoot Terraform on Azure
 
 [Troubleshoot common problems when using Terraform on Azure](troubleshoot.md)
