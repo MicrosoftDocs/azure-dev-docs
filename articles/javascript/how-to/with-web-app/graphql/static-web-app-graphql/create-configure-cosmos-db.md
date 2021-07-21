@@ -16,9 +16,6 @@ Use the VS Code extension, Azure Databases, to create the CosmosDB.
 
 1. In VS Code, select the Azure icon to open the Azure explorer.
 1. From the Azure explorer, select **+** in the Azure Databases section.
-
-    :::image type="content" source="../../../media/how-to-with-authentication-static-web-app-msal/vscode-create-azure-database.png" alt-text="A VS Code screenshot of the button to create a new CosmosDB.":::
-
 1. Follow the prompts using the following table to understand how to create your **Azure CosmosDB** resource.
 
     |Prompt|Value|
