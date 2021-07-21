@@ -426,7 +426,7 @@ Each file provides the Cosmos DB query functions that are called by the GraphQL 
 
 The `getGame` functionality requires a call to the Cosmos DB data source with the corresponding query:
 
-:::code language="JavaScript" source="~/../js-e2e-graphql-cosmosdb-static-web-app/api/graphql/data/cosmos/GameDataSource.ts" range="35-45" highlight="37:::
+:::code language="JavaScript" source="~/../js-e2e-graphql-cosmosdb-static-web-app/api/graphql/data/cosmos/GameDataSource.ts" range="35-45" highlight="37":::
 
 ## Troubleshooting
 
