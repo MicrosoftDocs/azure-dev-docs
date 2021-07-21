@@ -10,6 +10,11 @@ ms.custom: devx-track-js
 
 In this article, learn how to use a GraphQL API and deploy to Azure using the Apollo server in an Azure Function. 
 
+GraphQL samples include:
+* [Azure Function - Hello world](https://github.com/azure-samples/js-e2e-azure-function-graphql-hello) - simplest hello world API. 
+* [Azure Function - CRUD](https://github.com/azure-samples/js-e2e-azure-function-graphql-crud-operations) - In-memory database with create, read, and update (CRUD) operations.
+* [Azure Static web app](https://github.com/azure-samples/js-e2e-graphql-cosmosdb-static-web-app) - Trivia game built with React client and Azure Function API with data stored in Cosmos DB
+
 [!INCLUDE [GraphQL basics](../../../includes/graphql-basics.md)]
 
 ## Looking for a different Graph?
