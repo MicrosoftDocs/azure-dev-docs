@@ -83,7 +83,7 @@
                   href: how-to/with-web-app/graphql/static-web-app-graphql/introduction.md
                 - name: 2. GraphQL basics
                   href: how-to/with-web-app/graphql//static-web-app-graphql/graphql-basics.md
-                - name: 3. Local typescript development
+                - name: 3. Local TypeScript development
                   href: how-to/with-web-app/graphql//static-web-app-graphql/local-development.md 
                 - name: 4. Deploy to Azure Static web app
                   href: how-to/with-web-app/graphql//static-web-app-graphql/remote-deployment.md                                     

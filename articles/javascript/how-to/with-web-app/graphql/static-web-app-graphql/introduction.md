@@ -33,8 +33,6 @@ The React client constructs a graphQL query using the Apollo client package and 
 
 The React client and API are hosted in an Azure Static web app. The data is stored in a Cosmos DB SQL database.
 
-* New to graphQL? Start learning [graphQL concepts](https://graphql.org/learn/)
-
 ## Next steps
 
 * Learn the basic concepts of [GraphQL](graphql-basics.md) for this article series.
