@@ -86,8 +86,6 @@ productDirectory:
           text: Deploy an ASP.NET web app
         - url: /azure/azure-functions/functions-create-your-first-function-visual-studio
           text: Build a serverless function
-        - url: /visualstudio/containers/container-tools?view=vs-2019
-          text: ASP.NET Core and Docker
         - url: /dotnet/azure/sdk/azure-sdk-for-dotnet
           text: Azure SDK for .NET          
         - url: /dotnet/azure/
