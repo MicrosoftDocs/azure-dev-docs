@@ -30,4 +30,4 @@ ms.custom: devx-track-python
   - [Run your first Resource Graph query using Python](/azure/governance/resource-graph/first-query-python)
 
 - **Virtual machine management**:
-  - [Create and manage Windows VMs in Azure using Python](/azure/virtual-machines/windows/python)
+  - [Create and manage Windows VMs in Azure using Python](/samples/azure-samples/virtual-machines-python-manage/azure-virtual-machines-management-samples---python)
