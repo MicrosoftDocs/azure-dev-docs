@@ -163,7 +163,7 @@ The game selects ten random questions for you to answer. Each question is timed.
     }
     ```
 
-    The preceding JSON has been cleaned up for readability. The CreateGame in the query maps directly to the createGame mutation in `./api/resolvers.ts`.
+    The preceding JSON has been cleaned up for readability. The CreateGame in the query maps directly to the [createGame](https://github.com/Azure-Samples/js-e2e-graphql-cosmosdb-static-web-app/blob/main/api/graphql/resolvers.ts#L68) mutation in `./api/resolvers.ts`.
 
     :::code language="JavaScript" source="~/../js-e2e-graphql-cosmosdb-static-web-app/api/graphql/resolvers.ts" range="68-73" highlight="68":::
 
@@ -207,7 +207,7 @@ The game selects ten random questions for you to answer. Each question is timed.
     }
     ```
 
-    The preceding JSON has been cleaned up for readability. This GraphQL query has two request, `addPlayerToGame` and `startGame` which maps directly to mutations in `./api/resolvers.ts`.
+    The preceding JSON has been cleaned up for readability. This GraphQL query has two requests, [addPlayerToGame](https://github.com/Azure-Samples/js-e2e-graphql-cosmosdb-static-web-app/blob/main/api/graphql/resolvers.ts#L74) and [startGame](https://github.com/Azure-Samples/js-e2e-graphql-cosmosdb-static-web-app/blob/main/api/graphql/resolvers.ts#L82) which maps directly to mutations in `./api/resolvers.ts`.
 
     :::code language="JavaScript" source="~/../js-e2e-graphql-cosmosdb-static-web-app/api/graphql/resolvers.ts" range="74-81" highlight="74":::
 
@@ -262,7 +262,7 @@ The game selects ten random questions for you to answer. Each question is timed.
     }
     ```
 
-    The preceding JSON has been cleaned up for readability. This GraphQL query has two request, `getGame` which maps to the `game` query in `./api/resolvers.ts`.
+    The preceding JSON has been cleaned up for readability. This GraphQL query, `getGame` maps to the [game](https://github.com/Azure-Samples/js-e2e-graphql-cosmosdb-static-web-app/blob/main/api/graphql/resolvers.ts#L7) query in `./api/resolvers.ts`.
 
     :::code language="JavaScript" source="~/../js-e2e-graphql-cosmosdb-static-web-app/api/graphql/resolvers.ts" range="7-9" highlight="7":::
 
@@ -320,7 +320,7 @@ The game selects ten random questions for you to answer. Each question is timed.
     }
     ```
 
-    The preceding JSON has been cleaned up for readability. This GraphQL mutation, `submitAnswer` maps to the `submitAnswer` mutation in `./api/resolvers.ts`.
+    The preceding JSON has been cleaned up for readability. This GraphQL mutation, `submitAnswer` maps to the [submitAnswer](https://github.com/Azure-Samples/js-e2e-graphql-cosmosdb-static-web-app/blob/main/api/graphql/resolvers.ts#L87) mutation in `./api/resolvers.ts`.
 
     :::code language="JavaScript" source="~/../js-e2e-graphql-cosmosdb-static-web-app/api/graphql/resolvers.ts" range="87-110" highlight="7":::
 
@@ -367,7 +367,7 @@ The game selects ten random questions for you to answer. Each question is timed.
     }
     ```
 
-    The preceding JSON has been cleaned up for readability. This GraphQL mutation, `playerResults` maps to the `playerResults` query in `./api/resolvers.ts`.
+    The preceding JSON has been cleaned up for readability. This GraphQL mutation, `playerResults` maps to the [playerResults](https://github.com/Azure-Samples/js-e2e-graphql-cosmosdb-static-web-app/blob/main/api/graphql/resolvers.ts#L13) query in `./api/resolvers.ts`.
 
     :::code language="JavaScript" source="~/../js-e2e-graphql-cosmosdb-static-web-app/api/graphql/resolvers.ts" range="13-31":::
 
@@ -424,7 +424,7 @@ Each file provides the Cosmos DB query functions that are called by the GraphQL 
 * Then gets the player answers from the database response, `const playerAnswers = game.answers.filter((a) => a.user.id === playerId);` and
 * Then determines if the answers were correct.
 
-The `getGame` functionality requires a call to the Cosmos DB data source with the corresponding query:
+The [getGame](https://github.com/Azure-Samples/js-e2e-graphql-cosmosdb-static-web-app/blob/main/api/graphql/data/cosmos/GameDataSource.ts#L37) functionality requires a call to the Cosmos DB data source with the corresponding query:
 
 :::code language="JavaScript" source="~/../js-e2e-graphql-cosmosdb-static-web-app/api/graphql/data/cosmos/GameDataSource.ts" range="35-45" highlight="37":::
 
