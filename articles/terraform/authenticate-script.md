@@ -1,7 +1,7 @@
 ---
 title: Authenticate Terraform to Azure using a service principal
 description: In this article, you learn how to authenticate to Azure with a Service Principal
-keywords: terraform azure cli authenticate
+keywords: azure devops terraform cli powershell authentication rbac service principal automated script
 ms.topic: how-to
 ms.date: 07/20/2021
 ms.custom: devx-track-terraform
@@ -82,7 +82,7 @@ The following options are some of the ways Terraform supports authenticating to 
 
 **Key points**:
 
-- As with any environment variable, to access an Azure subscription value from within a Terraform script use the following syntax: `${env.<environment_variable>}`. For example, to access the `ARM_SUBSCRIPTION_ID` value, specify `${env.ARM_SUBSCRIPTION_ID}`.
+- As with any environment variable, to access an Azure subscription value from within a Terraform script, use the following syntax: `${env.<environment_variable>}`. For example, to access the `ARM_SUBSCRIPTION_ID` value, specify `${env.ARM_SUBSCRIPTION_ID}`.
 - Creating and applying Terraform execution plans makes changes on the Azure subscription associated with the service principal. This fact can sometimes be confusing if you're logged into one Azure subscription and the environment variables point to a second Azure subscription. Let's look at the following example to explain. Let's say you have two Azure subscriptions: SubA and SubB. If you're using an interactive command-line tool - such as Cloud Shell - and the current Azure subscription is SubA (determined via `az account show`) while the environment variables point to SubB, any changes made by Terraform are on SubB. Therefore, you would need to log in to your SubB subscription to run Azure CLI commands or Azure PowerShell commands to view your changes.
 
 ### Option 2: Specify service principal credentials in a code block
