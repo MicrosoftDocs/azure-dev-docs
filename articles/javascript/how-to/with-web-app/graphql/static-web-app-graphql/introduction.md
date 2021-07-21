@@ -20,6 +20,7 @@ In this article series, locally build then deploy a Trivia game, which uses Grap
 - [Visual Studio Code](https://code.visualstudio.com/) - installed to your local machine. 
     - [Azure Static Web Apps](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestaticwebapps) - used to deploy React app to Azure Static Web app.
     - [Azure Databases](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb) - used to create the Cosmos DB.
+- [Azure Cosmos DB local emulator](/azure/cosmos-db/local-emulator) - allows you to use a local Cosmos DB. 
 - [Git](https://git-scm.com/downloads) - used to push to GitHub - which activates the GitHub action.
 - [GitHub account](https://github.com/join) - to fork and push to a repo
 
