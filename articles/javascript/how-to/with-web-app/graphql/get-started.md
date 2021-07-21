@@ -1,6 +1,6 @@
 ---
 title: Get started with GraphQL on Azure
-description: Learn how to use a GraphQL API and deploy to Azure using the Apollo server in an Azure Function.  
+description: Learn GraphQL API basics.  
 ms.topic: how-to
 ms.date: 07/21/2021
 ms.custom: devx-track-js
@@ -8,7 +8,7 @@ ms.custom: devx-track-js
 
 # Get started with GraphQL on Azure
 
-In this article, learn how to use a GraphQL API and deploy to Azure using the Apollo server in an Azure Function. 
+In this article, learn GraphQL API basics. 
 
 [!INCLUDE [GraphQL basics](../../../includes/graphql-basics.md)]
 
