@@ -97,5 +97,5 @@ Run this command if you don't need to keep the resources created in this example
 
 The following resources contain more comprehensive examples using Python to create a virtual machine:
 
-- [Create and manage Windows VMs in Azure using Python](/azure/virtual-machines/windows/python). You can use this example to create Linux VMs by changing the `storage_profile` parameter.
+- [Create and manage Windows VMs in Azure using Python](/samples/azure-samples/virtual-machines-python-manage/azure-virtual-machines-management-samples---python). You can use this example to create Linux VMs by changing the `storage_profile` parameter.
 - [Azure Virtual Machines Management Samples - Python](https://github.com/Azure-Samples/virtual-machines-python-manage) (GitHub). The sample demonstrates additional management operations like starting and restarting a VM, stopping and deleting a VM, increasing the disk size, and managing data disks.
