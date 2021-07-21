@@ -45,7 +45,13 @@ Suppose you have a data source that contains messages with an ID, author, and co
 To query for all messages, your GraphQL query looks like:
 
 ```graphql
-{getMessages{id, content, author}}
+{
+  getMessages {
+    id
+    content
+    author
+  }
+}
 ```
 
 Your API endpoint may look like: `/api/message` and the cURL request may look like:
@@ -53,17 +59,25 @@ Your API endpoint may look like: `/api/message` and the cURL request may look li
 ```bash
 curl -X POST 'http://localhost:7071/api/message' \
     -H 'content-type: application/json' \
-    --data-raw '{"query":"{getMessages{id, content, author}}"}'
+    --data-raw '{"query":"{ getMessages { id content author } }"}'
 ```
 
 The API response looks like:
 
 ```json
-{"data": {
-    "getMessages": 
-        [
-            {"id": "d8732ed5-26d8-4975-98a5-8923e320a77f","author": "dina", "content": "good morning"},
-            {"id": "33febdf6-e618-4884-ae4d-90827280d2b2","author": "john", "content": "oh happy day"}
+{
+    "data": {
+        "getMessages": [
+            {
+                "id": "d8732ed5-26d8-4975-98a5-8923e320a77f",
+                "author": "dina",
+                "content": "good morning"
+            },
+            {
+                "id": "33febdf6-e618-4884-ae4d-90827280d2b2",
+                "author": "john",
+                "content": "oh happy day"
+            }
         ]
     }
 }
@@ -76,7 +90,13 @@ While this returned every message and every field within a message, there may be
 To query for all messages, your GraphQL query looks like:
 
 ```graphql
-{getMessages{id, author}}
+{
+  getMessages {
+    id
+    author
+  }
+}
+
 ```
 
 Your API endpoint may look like: `/api/mymessages/getMessages` and the cURL request may look like:
@@ -84,17 +104,23 @@ Your API endpoint may look like: `/api/mymessages/getMessages` and the cURL requ
 ```bash
 curl -X POST 'http://localhost:7071/api/message' \
     -H 'content-type: application/json' \
-    --data-raw '{"query":"{getMessages{id, author}}"}'
+    --data-raw '{"query":"{ getMessages { id author } }"}'
 ```
 
 The API response looks like:
 
 ```json
-{"data": {
-    "getMessages": 
-        [
-            {"id": "d8732ed5-26d8-4975-98a5-8923e320a77f","author": "dina"},
-            {"id": "33febdf6-e618-4884-ae4d-90827280d2b2","author": "john"}
+{
+    "data": {
+        "getMessages": [
+            {
+                "id": "d8732ed5-26d8-4975-98a5-8923e320a77f",
+                "author": "dina"
+            },
+            {
+                "id": "33febdf6-e618-4884-ae4d-90827280d2b2",
+                "author": "john"
+            }
         ]
     }
 }
@@ -109,7 +135,11 @@ To change the data, use a mutation that defines the change, _and_ defines what d
 To add a new message, your GraphQL mutation looks like:
 
 ```graphql
-mutation{createMessage(input:{author: "John Doe",content: "Oh happy day"}){id}}
+mutation {
+  createMessage(input: { author: "John Doe", content: "Oh happy day" }) {
+    id
+  }
+}
 ```
 
 Notice that the last curly brace section, `{id}`, describes the schema the client wants in the response.
@@ -122,7 +152,7 @@ Your API endpoint may look like: `/apimessage` and the cURL request may look lik
 curl 'http://localhost:7071/api/message' \
     -X POST \
     -H 'Content-Type: application/json' \
-    --data-raw '{"query": "mutation{createMessage(input:{author: \"John Doe\",content: \"Oh happy day\"}){id}}"}'
+    --data-raw '{"query": "mutation{ createMessage(input: { author: \"John Doe\", content: \"Oh happy day\" }){ id } }"}'
 ```
 
 ### HTTP response
@@ -131,8 +161,8 @@ The API response looks like:
 
 ```json
 {
-    "data":{
-        "createMessage":{
+    "data": {
+        "createMessage": {
             "id":"7f1413ec-4ffa-45bc-bce2-583072745d84"
         }
     }
@@ -150,7 +180,7 @@ To pass variables, you need to send them in the `variables` property, and descri
 ```json
 {
   "variables": { "author": "jimbob", "content": "sunny in the `ham" },
-  "query": "mutation ($author: String!, $content: String!) {createMessage(input:{author: $author,content: $content}){id}}"
+  "query": "mutation ($author: String!, $content: String!) { createMessage(input: { author: $author, content: $content }){ id }}"
 }
 ```
 
@@ -162,5 +192,5 @@ The following request body, `--data-raw` value, is stripped of all formatting.
 curl 'http://localhost:7071/api/message' \
     -X POST \
     -H 'Content-Type: application/json' \
-    --data-raw '{"variables": { "author": "jimbob", "content": "sunny in the `ham" },"query": "mutation ($author: String!, $content: String!){createMessage(input:{author: $author,content: $content}){id}}"}'
+    --data-raw '{"variables": { "author": "jimbob", "content": "sunny in the `ham" },"query": "mutation ($author: String!, $content: String!){ createMessage(input: { author: $author, content: $content }){ id } }"}'
 ```
