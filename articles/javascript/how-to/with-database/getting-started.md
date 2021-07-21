@@ -2,7 +2,7 @@
 title: Getting started with Azure Databases 
 description: Learn the common tasks to use any database hosted on Azure.  
 ms.topic: how-to
-ms.date: 02/09/2021
+ms.date: 07/19/2021
 ms.custom: devx-track-js
 ---
 
@@ -84,6 +84,22 @@ After you create or migrate a database, only your connection information to the 
 ## Configure an Azure web app's connection to database
 
 If your Azure web app connects to your database, you need to change the App setting for the connection information. 
+
+## Database-agnostic query languages
+
+Data query languages, agnostic of a specific database, allow you to use the query languages features with your data. Database-agnostic query languages can be used on Azure and require you to bring the translation layer.
+
+## GraphQL data layer
+
+GraphQL is a database-agnostic query language. It allows a client to describe the data schema along with the data requested from the data source.
+
+|Summary|
+|--|
+|GraphQL is a query language for APIs and a runtime for fulfilling those queries with your existing data. GraphQL provides a complete and understandable description of the data in your API, gives clients the power to ask for exactly what they need and nothing more, makes it easier to evolve APIs over time, and enables powerful developer tools.
+|
+
+Learn more about developing GraphQL for [Azure Functions](../with-web-app/graphql/get-started.md).
+
 
 ## Next steps
 

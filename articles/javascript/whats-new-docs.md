@@ -2,7 +2,7 @@
 title: "What's new for JavaScript docs"
 description: "What's new in JavaScript docs in the Developer Center"
 ms.topic: conceptual
-ms.date: 06/30/2021
+ms.date: 07/21/2021
 
 
 ---
@@ -19,16 +19,9 @@ Find new and updated content for JavaScript and TypeScript developers.
 
 |Name|Description|
 |---------------------------------------|--|
-|[How to authenticate users with Microsoft Authentication Library for React](./how-to/with-authentication/static-web-app-with-api/introduction.md)|In this article series, learn how to authenticate users with the Microsoft Authentication Library for React (MSAL React) and call an Azure service on behalf of the user.<br>The application architecture includes:
-
-* A React client, which provides the user authentication step and can call an Azure service on behalf of ([OAuth on-behalf-of](/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow) flow) the user from either:
-    * The React client itself.
-    * or from an Azure Function app. 
-* A serverless Azure Function app provides an API endpoint abstracting away the call into an Azure service. This is the suggested mechanism when:
-  *  The call to an Azure service includes information you don't want exposed in the browser
-  * Or the call(s) require long-running operations. 
-* An Azure service (Microsoft Graph) used to demonstrate how to call an Azure service on behalf of a user. 
-* An Azure database (Cosmos DB) used as the custom web app's database, storing information specific to the web app. |
+|[Get started with GraphQL on Azure](./how-to/with-web-app/graphql/get-started.md)|Learn how to use a GraphQL API and deploy to Azure using the Apollo server in an Azure Function.|
+|[Deploy a GraphQL API as an Azure Function ](./how-to/with-web-app/graphql/azure-function-hello-world.md)|Learn how to build and deploy an Apollo server-based GraphQL API endpoint. This article includes a simple `Hello World` API for those very new to GraphQL, along with a simple CRUD operations API using mutations.|
+|[How to authenticate users with Microsoft Authentication Library for React](./how-to/with-authentication/static-web-app-with-api/introduction.md)|Learn how to authenticate users with the Microsoft Authentication Library for React (MSAL React) and call an Azure service on behalf of the user.|
 
 ## 2021 June 
 
