@@ -27,8 +27,6 @@
         items: 
         - name: Getting started
           href: tutorial/client/get-started.md
-        - name: Add search to website
-          href: /azure/search/tutorial-javascript-overview
         - name: Cognitive Services - Image analysis
           items: 
             - name: 1. Introduction and prerequisites
@@ -49,6 +47,22 @@
           href: tutorial/browser-file-upload-azure-storage-blob.md
         - name: "Add a Login button for Microsoft Identity provider" 
           href: tutorial/single-page-application-azure-login-button-sdk-msal.md
+      - name: Client web apps with APIs
+        items:
+          - name: Add search to website
+            href: /azure/search/tutorial-javascript-overview
+          - name: Use GraphQL with trivia game
+            items: 
+              - name: 1. Introduction
+                href: how-to/with-web-app/graphql/static-web-app-graphql/introduction.md
+              - name: 2. GraphQL basics
+                href: how-to/with-web-app/graphql//static-web-app-graphql/graphql-basics.md
+              - name: 3. Local TypeScript development
+                href: how-to/with-web-app/graphql//static-web-app-graphql/local-development.md 
+              - name: 4. Create a Cosmos DB resource
+                href: how-to/with-web-app/graphql//static-web-app-graphql/create-configure-cosmos-db.md                                     
+              - name: 5. Deploy to Azure Static web app
+                href: how-to/with-web-app/graphql//static-web-app-graphql/remote-deployment.md          
       - name: Serverless apis
         items:               
         - name: "Create a function with Visual Studio Code"
@@ -74,19 +88,7 @@
             - name: "Upload image to Storage"
               href: tutorial/browser-file-upload-azure-storage-blob.md
             - name: "Add a Login button for Microsoft Identity provider"
-              href: tutorial/single-page-application-azure-login-button-sdk-msal.md
-        - name: Client web apps with APIs
-          items:
-            - name: "GraphQL trivia game"
-              items: 
-                - name: 1. Introduction
-                  href: how-to/with-web-app/graphql/static-web-app-graphql/introduction.md
-                - name: 2. GraphQL basics
-                  href: how-to/with-web-app/graphql//static-web-app-graphql/graphql-basics.md
-                - name: 3. Local TypeScript development
-                  href: how-to/with-web-app/graphql//static-web-app-graphql/local-development.md 
-                - name: 4. Deploy to Azure Static web app
-                  href: how-to/with-web-app/graphql//static-web-app-graphql/remote-deployment.md                                     
+              href: tutorial/single-page-application-azure-login-button-sdk-msal.md                                  
         - name: Serverless APIs
           items:
             - name: "Create a function with Visual Studio Code"
