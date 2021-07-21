@@ -82,8 +82,8 @@ The npm package `apollo-server-azure-functions` includes a GraphQL playground th
 
     ```bash
     curl 'http://localhost:7071/api/graphql' \
-        -H 'content-type: application/json' \
-        --data-raw '{"query":"{hello}"}' 
+         -H 'content-type: application/json' \
+         --data-raw '{"query":"{hello}"}' 
     ```
 1. View the response `{"data":{"hello":"Hello from GraphQL backend"}}`
 
@@ -117,8 +117,8 @@ The npm package `apollo-server-azure-functions` includes a GraphQL playground th
 
     ```bash
     curl 'https://diberry-azure-function-graphql-hello.azurewebsites.net/api/graphql' \
-        -H 'content-type: application/json' \
-        --data-raw '{"query":"{hello}"}' |
+         -H 'content-type: application/json' \
+         --data-raw '{"query":"{hello}"}' |
     ```
 
     The API responds with:
@@ -140,8 +140,8 @@ The highlighted lines are described in the following table:
 |Line|Description|
 |--|--|
 |`const typeDefs = gql`|Define the GraphQL schema the API supports.|
-|`const resolvers`|Define the resolver and API, `hello`, and the function that the API calls, `() => "Hello from our GraphQL backend!"`.|
-|`const server = new ApolloServer({ typeDefs, resolvers, debug: true,playground: true});`|Create an Azure Function version of the Apollo server with the typeDefs, resolvers, and the playground.|
+|`const resolvers`|Define the handlers for the GraphQL schema (known as **resolvers** in GraphQL). `hello`, from our schema, is given a resolver function to return data from the API: `() => "Hello from our GraphQL backend!"`.|
+|`const server = new ApolloServer({ typeDefs, resolvers });`|Create an Azure Function version of the Apollo server with the typeDefs, resolvers, and the playground.|
 
 ## Troubleshooting graphql API
 
