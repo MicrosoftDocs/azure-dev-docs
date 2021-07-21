@@ -2,7 +2,7 @@
 title: Top Azure tasks for JavaScript developers
 description: Find an example of your current tasks.
 ms.topic: how-to
-ms.date: 07/17/2021
+ms.date: 07/21/2021
 ms.custom: devx-track-js
 ---
 
@@ -278,6 +278,7 @@ Provide authentication.
 |Express.js app with MongoDB database|The tutorial demonstrates how to load and run the project locally with VSCode, using extensions, was well as how to run the code remotely on an App service. The tutorial includes creating a Cosmos DB resource for the Mongo API, getting the connection information and setting that in the app service configuration setting to connect to a cloud database.<br>[Tutorial](../tutorial/deploy-nodejs-mongodb-app-service-from-visual-studio-code.md) - [Sample code](https://github.com/Azure-Samples/js-e2e-express-mongo)|
 |Express.js app deployed to VM with cloud-init file|Create a Linux virtual machine (VM) for an Express.js app. The VM is configured with a cloud-init configuration file and includes NGINX and a GitHub repository for an Express.js app. Once the VM is running, you can connect to the VM with SSH, change the web app to including trace logging, and view the public Express.js server app in a web browser.<br>[Tutorial](../tutorial/nodejs-virtual-machine-vm/introduction.md) - [Sample code](https://github.com/Azure-Samples/js-e2e-express-mongo)|
 |GraphQL serverless function| Hello world with TypeScript, ready to deploy to Azure Function. [Sample code](https://github.com/azure-samples/js-e2e-azure-function-graphql-hello)|
+|GraphQL serverless CRUD function| CRUD operations with TypeScript, ready to deploy to Azure Function. [Sample code](https://github.com/azure-samples/js-e2e-azure-function-graphql-crud-operations)|
 |GraphQL static web app|Static web app with React client and Azure Function, both with shared TypeScript models demonstrating a Trivia game, with data held in Cosmos DB SQL API. [Sample code](https://github.com/azure-samples/js-e2e-graphql-cosmosdb-static-web-app)|
 
 Use the JavaScript end-to-end snippets collection, [https://github.com/azure-samples/js-e2e](https://github.com/azure-samples/js-e2e), to find or submit JavaScript or TypeScript code examples. 
