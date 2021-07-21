@@ -142,7 +142,7 @@ The game selects ten random questions for you to answer. Each question is timed.
 
 1. In the browser, select the **Start a new game** button.
 
-    :::image type="content" source="../../../../media/how-to-database-graphql/get-connection-string-from-local-cosmos-db-emulator.png" alt-text="Partial screenshot of browser showing the `Start a new game` button.":::
+    :::image type="content" source="../../../../media/how-to-database-graphql/web-browser-start-new-game.png" alt-text="Partial screenshot of browser showing the `Start a new game` button.":::
 
 1. Enter your name and select **Join the game**.
 
@@ -165,7 +165,7 @@ The game selects ten random questions for you to answer. Each question is timed.
 
     The preceding JSON has been cleaned up for readability. The CreateGame in the query maps directly to the createGame mutation in `./api/resolvers.ts`.
 
-    :::code language="JavaScript" source="~/../js-e2e-graphql-cosmosdb-static-web-app/api/index.ts" range="68-73" highlight="68":::
+    :::code language="JavaScript" source="~/../js-e2e-graphql-cosmosdb-static-web-app/api/graphql/index.ts" range="68-73" highlight="68":::
 
 1. The GraphQL API responds with the following JSON:
 
@@ -209,9 +209,9 @@ The game selects ten random questions for you to answer. Each question is timed.
 
     The preceding JSON has been cleaned up for readability. This GraphQL query has two request, `addPlayerToGame` and `startGame` which maps directly to mutations in `./api/resolvers.ts`.
 
-    :::code language="JavaScript" source="~/../js-e2e-graphql-cosmosdb-static-web-app/api/index.ts" range="74-81" highlight="74":::
+    :::code language="JavaScript" source="~/../js-e2e-graphql-cosmosdb-static-web-app/api/graphql/index.ts" range="74-81" highlight="74":::
 
-    :::code language="JavaScript" source="~/../js-e2e-graphql-cosmosdb-static-web-app/api/index.ts" range="82-86" highlight="82":::
+    :::code language="JavaScript" source="~/../js-e2e-graphql-cosmosdb-static-web-app/api/graphql/index.ts" range="82-86" highlight="82":::
 
 1. The GraphQL API responds with the following JSON:
 
@@ -264,7 +264,7 @@ The game selects ten random questions for you to answer. Each question is timed.
 
     The preceding JSON has been cleaned up for readability. This GraphQL query has two request, `getGame` which maps to the `game` query in `./api/resolvers.ts`.
 
-    :::code language="JavaScript" source="~/../js-e2e-graphql-cosmosdb-static-web-app/api/index.ts" range="7-9" highlight="7":::
+    :::code language="JavaScript" source="~/../js-e2e-graphql-cosmosdb-static-web-app/api/graphql/index.ts" range="7-9" highlight="7":::
 
 
 1. The GraphQL API responds with the following JSON:
@@ -322,7 +322,7 @@ The game selects ten random questions for you to answer. Each question is timed.
 
     The preceding JSON has been cleaned up for readability. This GraphQL mutation, `submitAnswer` maps to the `submitAnswer` mutation in `./api/resolvers.ts`.
 
-    :::code language="JavaScript" source="~/../js-e2e-graphql-cosmosdb-static-web-app/api/index.ts" range="87-110" highlight="7":::
+    :::code language="JavaScript" source="~/../js-e2e-graphql-cosmosdb-static-web-app/api/graphql/index.ts" range="87-110" highlight="7":::
 
 1. The GraphQL API responds with the following JSON:
 
@@ -369,7 +369,7 @@ The game selects ten random questions for you to answer. Each question is timed.
 
     The preceding JSON has been cleaned up for readability. This GraphQL mutation, `playerResults` maps to the `playerResults` query in `./api/resolvers.ts`.
 
-    :::code language="JavaScript" source="~/../js-e2e-graphql-cosmosdb-static-web-app/api/index.ts" range="13-31":::
+    :::code language="JavaScript" source="~/../js-e2e-graphql-cosmosdb-static-web-app/api/graphql/index.ts" range="13-31":::
 
 
 1. The GraphQL API responds with the following JSON:
