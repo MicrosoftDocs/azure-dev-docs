@@ -34,18 +34,31 @@ In this article, you learn how to:
 
 1. You first need to authenticate to an Azure subscription to create a service principal for that subscription. Therefore, if you have not already logged in to the target subscription, follow the instructions in the article, [Authenticate interactively using a Microsoft account](./authenticate-interactive.md#2-log-in-to-azure-using-a-microsoft-account).
 
-1. To log into an Azure subscription using a service principal, you first need access to a service principal. If you already have a service principal you want to use, you can skip to the next section. If you want to create a service principal, run [az ad sp create-for-rbac](/cli/azure/ad/sp?#az_ad_sp_create_for_rbac).
+1. To log into an Azure subscription using a service principal, you first need access to a service principal. If you already have a service principal you want to use, you can skip to the next section. 
+
+1. If you're creating a service principal from GitBash, set the `MSYS_NO_PATHCONV` environment variable. (This step is not necessary if you're using Cloud Shell.)
+
+    ```bash
+    set export MSYS_NO_PATHCONV=1    
+    ```
+
+    **Key points:**
+
+    - You can set the `MSYS_NO_PATHCONV` environment variable globally or locally for just the current session. As creating a service principal is not something you'll be doing very often, the example given above sets the value for the current session.
+
+1. To create a service principal, run [az ad sp create-for-rbac](/cli/azure/ad/sp?#az_ad_sp_create_for_rbac).
     
     ```azurecli
     az ad sp create-for-rbac --name <service_principal_name> --role="Contributor" --scopes="/subscriptions/<azure_subscription_id>"
     ```
     
-    **Key points**:
+    **Key points:**
     
     - Upon successful completion, `az ad sp create-for-rbac` displays several values. The `appId`, `password`, and `tenant` values are used in the next step.
     - The password can't be retrieved if lost. As such, you should store your password in a safe place. If you forget your password, you'll need to [reset the service principal credentials](/cli/azure/create-an-azure-service-principal-azure-cli#reset-credentials).
     - For this article, a service principal with a **Contributor** role is being used.
     - The **Contributor** role (the default) has full permissions to read and write to an Azure account. For more information about Role-Based Access Control (RBAC) and roles, see [RBAC: Built-in roles](/azure/active-directory/role-based-access-built-in-roles).
+    - The output from creating the service principal includes sensitive credentials. Be sure that you don't include these credentials in your code or check the credentials into your source control.
     - For more information about options when creating creating a service principal with the Azure CLI, see the article [Create an Azure service principal with the Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli?). 
     
 ## 3. Use a service principal to authenticate to Azure
