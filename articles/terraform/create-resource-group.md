@@ -33,6 +33,8 @@ In this article, you learn how to:
 
 ## 2. Create an Azure resource group
 
+1. Create a directory in which to test and run the sample Terraform code.
+
 1. Create your main Terraform configuration file. By convention, the name of this file is `main.tf`. However, you can specify any valid name for your environment.
 
 1. Insert the following code into the main Terraform configuration file.
