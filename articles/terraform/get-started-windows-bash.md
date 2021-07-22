@@ -56,4 +56,4 @@ There are several ways to authenticate to Azure depending on your needs, includi
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Create an Azure resource group using Terraform](./create-resource-group#2-create-an-azure-resource-group)
+> [Create an Azure resource group using Terraform](./create-resource-group.md#2-create-an-azure-resource-group)
