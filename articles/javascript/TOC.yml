@@ -61,7 +61,7 @@
                 href: how-to/with-web-app/graphql//static-web-app-graphql/local-development.md 
               - name: 4. Create a Cosmos DB resource
                 href: how-to/with-web-app/graphql//static-web-app-graphql/create-configure-cosmos-db.md                                     
-              - name: 5. Deploy to Azure Static web app
+              - name: 5. Deploy to Azure Static Web Apps
                 href: how-to/with-web-app/graphql//static-web-app-graphql/remote-deployment.md          
       - name: Serverless apis
         items:               

@@ -1,6 +1,6 @@
 ---
 title: Deploy GraphQL Azure static web app 
-description: Learn how to deploy a static web app to Azure with VS Code.
+description: Learn how to deploy to Azure Static Web Apps with VS Code.
 ms.topic: how-to
 ms.date: 07/14/2021
 ms.custom: devx-track-js
@@ -8,9 +8,9 @@ ms.custom: devx-track-js
 
 # 5. Deploy to Azure Static web app
 
-In this article, learn how to deploy a static web app to Azure with VS Code.
+In this article, learn how to deploy to Azure Static Web Apps with VS Code.
 
-The Static Web app pulls the information and files for deployment from GitHub using your fork of the samples repository.  
+Azure Static Web Apps pulls the information and files for deployment from GitHub using your fork of the samples repository.  
 
 
 ## Create a Static Web App in Visual Studio Code
