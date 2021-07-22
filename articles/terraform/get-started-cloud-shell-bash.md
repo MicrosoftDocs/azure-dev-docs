@@ -44,8 +44,8 @@ If want to use the displayed default subscription, you can skip the rest of this
 
 If you want to authenticate using either a different Microsoft account or Azure subscription, the following options can be used:
 
-- [Option #1: Authenticate interactively using a Microsoft account](authenticate-interactive.md#log-in-to-azure-using-a-microsoft-account)
-- [Option #2: Authenticate from script using a service principal](authenticate-script.md#create-a-service-principal)
+- [Option #1: Authenticate interactively using a Microsoft account](authenticate-interactive.md#2-log-in-to-azure-using-a-microsoft-account)
+- [Option #2: Authenticate from script using a service principal](authenticate-script.md#2-create-a-service-principal)
 
 ## Troubleshoot Terraform on Azure
 

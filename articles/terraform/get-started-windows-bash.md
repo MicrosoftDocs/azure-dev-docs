@@ -46,8 +46,8 @@ In this article, you learn how to:
 
 There are several ways to authenticate to Azure depending on your needs, including the following options:
 
-- [Option #1: Authenticate interactively using a Microsoft account](authenticate-interactive.md#log-in-to-azure-using-a-microsoft-account)
-- [Option #2: Authenticate from script using a service principal](authenticate-script.md#create-a-service-principal)
+- [Option #1: Authenticate interactively using a Microsoft account](authenticate-interactive.md#2-log-in-to-azure-using-a-microsoft-account)
+- [Option #2: Authenticate from script using a service principal](authenticate-script.md#2-create-a-service-principal)
 
 ## Troubleshoot Terraform on Azure
 
