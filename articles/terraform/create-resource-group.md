@@ -3,7 +3,7 @@ title: Quickstart - Create an Azure resource group using Terraform
 description: In this quickstart, you learn how to create an Azure resource group using Terraform
 keywords: azure devops terraform azure resource group
 ms.topic: quickstart
-ms.date: 07/19/2021
+ms.date: 07/22/2021
 ms.custom: devx-track-terraform, devx-track-azurecli, devx-track-powershell
 adobe-target: true
 # Customer intent: As someone new to Terraform and Azure, I want to do something simple to confirm my Terraform installation.
@@ -65,10 +65,10 @@ In this article, you learn how to:
 
 ## 6. Verify results
 
-1. Run [az group show](/cli/azure/group?#az_group_show) to verify the resource group was created.
+1. Run [az group show](/cli/azure/group?#az_group_show) to verify the resource group was created. (Change the `--name` parameter if you used a different resource group name.)
 
 ```azurecli
-az group show --name <resource-group-name>
+az group show --name sample-dev-rg
 ```
 
 **Key points:**
