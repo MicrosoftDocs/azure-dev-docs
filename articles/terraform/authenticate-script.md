@@ -63,7 +63,7 @@ In this article, you learn how to:
     
 ## 3. Use a service principal to authenticate to Azure
 
-#### [Cloud Shell or Linux](#tab/linux)
+#### [Cloud Shell with Bash](#tab/cloudshell-bash)
 
 The following options are some of the ways Terraform supports authenticating to Azure using a service principal:
 
@@ -126,6 +126,8 @@ provider "azurerm" {
 
 > [!CAUTION]
 > The ability to specify your Azure subscription credentials in a Terraform configuration file can be convenient - especially when testing. However, it is not advisable to store credentials in a clear-text file that can be viewed by non-trusted individuals.
+
+#### [Windows with Bash](#tab/windows-bash)
 
 #### [Windows](#tab/windows)
 
