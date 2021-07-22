@@ -39,12 +39,12 @@ In this article, you learn how to:
 1. If you're creating a service principal from GitBash, set the `MSYS_NO_PATHCONV` environment variable. (This step is not necessary if you're using Cloud Shell.)
 
     ```bash
-    set export MSYS_NO_PATHCONV=1    
+    export MSYS_NO_PATHCONV=1    
     ```
 
     **Key points:**
 
-    - You can set the `MSYS_NO_PATHCONV` environment variable globally or locally for just the current session. As creating a service principal is not something you'll be doing very often, the example given above sets the value for the current session.
+    - You can set the `MSYS_NO_PATHCONV` environment variable globally (for all terminal sessions) or locally (for just the current session). As creating a service principal is not something you'll be doing very often, the example given above sets the value for the current session. To set this value globally, add the setting to the `~/.bashrc` file.
 
 1. To create a service principal, run [az ad sp create-for-rbac](/cli/azure/ad/sp?#az_ad_sp_create_for_rbac).
     
