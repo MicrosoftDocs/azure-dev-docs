@@ -13,6 +13,7 @@ metadata:
   ms.topic: landing-page
   ms.collection: collection
   ms.devlang: golang
+  ms.custom: devx-track-go
 
 landingContent:
   - title: Get started with the Azure SDK for Go
