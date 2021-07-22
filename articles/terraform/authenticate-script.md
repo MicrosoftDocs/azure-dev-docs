@@ -44,7 +44,7 @@ In this article, you learn how to:
 
     **Key points:**
 
-    - You can set the `MSYS_NO_PATHCONV` environment variable globally (for all terminal sessions) or locally (for just the current session). As creating a service principal is not something you'll be doing very often, the example given above sets the value for the current session. To set this value globally, add the setting to the `~/.bashrc` file.
+    - You can set the `MSYS_NO_PATHCONV` environment variable globally (for all terminal sessions) or locally (for just the current session). As creating a service principal is not something you do often, the sample sets the value for the current session. To set this environment variable globally, add the setting to the `~/.bashrc` file.
 
 1. To create a service principal, run [az ad sp create-for-rbac](/cli/azure/ad/sp?#az_ad_sp_create_for_rbac).
     
