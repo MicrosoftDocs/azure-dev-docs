@@ -54,4 +54,4 @@ If you want to authenticate using either a different Microsoft account or Azure 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Create an Azure resource group using Terraform](create-resource-group.md)
+> [Create an Azure resource group using Terraform](./create-resource-group#2-create-an-azure-resource-group)
