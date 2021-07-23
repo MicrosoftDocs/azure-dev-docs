@@ -18,7 +18,7 @@ This article presents you with the options to authenticate to Azure for use with
 In this article, you learn how to:
 > [!div class="checklist"]
 > * Display current Azure account
-> * Link to options for authenticating to Azure
+> * Use various methods to authenticate to Azure
 
 ## Prerequisites
 

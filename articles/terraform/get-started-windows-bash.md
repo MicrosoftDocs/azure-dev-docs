@@ -17,6 +17,11 @@ This article presents you with the options to authenticate to Azure for use with
 
 In this article, you learn how to:
 > [!div class="checklist"]
+> * Install the Git Bash terminal emulator
+> * Install Azure CLI
+> * Install Terraform
+> * Configure your environment to run Terraform on Windows
+> * Use various methods to authenticate to Azure
 
 ## Prerequisites
 
@@ -24,7 +29,7 @@ In this article, you learn how to:
 
 ## 1. Configure your environment
 
-1. Download and install a terminal emulator for Windows - such as [GitBash](https://git-scm.com/download/win).
+1. Download and install a terminal emulator for Windows - such as [Git Bash](https://git-scm.com/download/win).
 
 1. [Install the Azure CLI](/cli/azure/install-azure-cli-windows). This demo was tested using Azure CLI version 2.26.1.
 

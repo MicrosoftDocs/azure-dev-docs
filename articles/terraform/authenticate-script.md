@@ -36,7 +36,7 @@ In this article, you learn how to:
 
 1. To log into an Azure subscription using a service principal, you first need access to a service principal. If you already have a service principal you want to use, you can skip to the next section. 
 
-1. If you're creating a service principal from GitBash, set the `MSYS_NO_PATHCONV` environment variable. (This step is not necessary if you're using Cloud Shell.)
+1. If you're creating a service principal from Git Bash, set the `MSYS_NO_PATHCONV` environment variable. (This step is not necessary if you're using Cloud Shell.)
 
     ```bash
     export MSYS_NO_PATHCONV=1    
