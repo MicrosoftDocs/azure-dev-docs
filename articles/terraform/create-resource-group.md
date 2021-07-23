@@ -63,7 +63,7 @@ In this article, you learn how to:
 
 [!INCLUDE [terraform-apply-plan.md](includes/terraform-apply-plan.md)]
 
-## 6. Verify results
+## 6. Verify the results
 
 1. Run [az group show](/cli/azure/group?#az_group_show) to verify the resource group was created. (Change the `--name` parameter if you used a different resource group name.)
 
