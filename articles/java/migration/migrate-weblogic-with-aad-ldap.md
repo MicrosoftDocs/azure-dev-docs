@@ -5,6 +5,7 @@ author: edburns
 ms.author: edburns
 ms.topic: tutorial
 ms.date: 08/10/2020
+recommendations: false
 ---
 
 # End-user authorization and authentication for migrating Java apps on WebLogic Server to Azure

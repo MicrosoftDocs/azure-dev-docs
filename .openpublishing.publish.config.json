@@ -9,6 +9,7 @@
       "moniker_ranges": [],
       "open_to_public_contributors": true,
       "type_mapping": {
+        "ZonePivotGroups": "Toc",
         "Conceptual": "Content",
         "Tutorial": "Content"
       },
@@ -102,6 +103,30 @@
       "branch": "main",
       "branch_mapping": {}
     },
+    {
+      "path_to_root": "js-e2e-azure-function-graphql-hello",
+      "url": "https://github.com/Azure-Samples/js-e2e-azure-function-graphql-hello",
+      "branch": "main",
+      "branch_mapping": {}
+    },   
+    {
+      "path_to_root": "js-e2e-azure-function-graphql-crud-operations",
+      "url": "https://github.com/Azure-Samples/js-e2e-azure-function-graphql-crud-operations",
+      "branch": "main",
+      "branch_mapping": {}
+    }, 
+    {
+      "path_to_root": "js-e2e-graphql-cosmosdb-static-web-app",
+      "url": "https://github.com/azure-samples/js-e2e-graphql-cosmosdb-static-web-app",
+      "branch": "main",
+      "branch_mapping": {}
+    },  
+    {
+      "path_to_root": "python-sdk-examples",
+      "url": "https://github.com/MicrosoftDocs/python-sdk-docs-examples",
+      "branch": "main",
+      "branch_mapping": {}
+    },    
     {
       "path_to_root": "azure-docs",
       "url": "https://github.com/MicrosoftDocs/azure-docs",

@@ -22,7 +22,10 @@ The following links provide access to the starter package, documentation, and sa
 - [The azure-spring-boot-starter-active-directory package (Maven)](https://mvnrepository.com/artifact/com.azure.spring/azure-spring-boot-starter-active-directory)
 - [API reference documentation](https://azure.github.io/azure-sdk-for-java/springboot.html#azure-spring-boot)
 - [Product documentation](./configure-spring-boot-starter-java-app-with-azure-active-directory.md)
-- [Samples](https://github.com/Azure/azure-sdk-for-java/tree/azure-spring-boot_3.1.0/sdk/spring/azure-spring-boot-samples)
+- [Samples](https://github.com/Azure-Samples/azure-spring-boot-samples)
+
+> [!NOTE]
+> We've released Spring Boot Starter for Azure Active Directory [3.6.1](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/spring/azure-spring-boot-starter-active-directory/CHANGELOG.md) to address the following CVE report [CVE-2021-22119: Denial-of-Service attack with spring-security-oauth2-client](https://tanzu.vmware.com/security/cve-2021-22119). If you're using the older version, please upgrade it to 3.6.1 or above. 
 
 ## Prerequisites
 
@@ -62,7 +65,7 @@ To use the Azure AD starter in this scenario, use the following steps:
    <dependency>
        <groupId>com.azure.spring</groupId>
        <artifactId>azure-spring-boot-starter-active-directory</artifactId>
-       <version>3.5.0</version>
+       <version>3.6.1</version>
    </dependency>
    <dependency>
        <groupId>org.springframework.boot</groupId>
@@ -116,7 +119,7 @@ To use the Azure AD starter in this scenario, use the following steps:
    <dependency>
        <groupId>com.azure.spring</groupId>
        <artifactId>azure-spring-boot-starter-active-directory</artifactId>
-       <version>3.5.0</version>
+       <version>3.6.1</version>
    </dependency>
    <dependency>
        <groupId>org.springframework.boot</groupId>
@@ -155,7 +158,7 @@ To use the Azure AD starter in this scenario, use the following steps:
 
    Here, `graph` is the client ID configured in the previous step. `OAuth2AuthorizedClient` contains the access token, which is used to access the resource server.
 
-For a complete sample demonstrating this scenario, see [OAuth 2.0 Sample for Azure AD Spring Boot Starter client library for Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/spring/azure-spring-boot-samples/azure-spring-boot-sample-active-directory-webapp).
+For a complete sample demonstrating this scenario, see [OAuth 2.0 Sample for Azure AD Spring Boot Starter client library for Java](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/main/aad/azure-spring-boot-sample-active-directory-webapp).
 
 ### Protect a resource server/API
 
@@ -169,7 +172,7 @@ To use the Azure AD starter in this scenario, use the following steps:
    <dependency>
        <groupId>com.azure.spring</groupId>
        <artifactId>azure-spring-boot-starter-active-directory</artifactId>
-       <version>3.5.0</version>
+       <version>3.6.1</version>
    </dependency>
    <dependency>
        <groupId>org.springframework.boot</groupId>
@@ -214,7 +217,7 @@ To use the Azure AD starter in this scenario, use the following steps:
    }
    ```
 
-For a complete sample demonstrating this scenario, see [OAuth 2.0 Sample for Azure AD Spring Boot Starter Resource Server library for Java](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/spring/azure-spring-boot-samples/azure-spring-boot-sample-active-directory-resource-server).
+For a complete sample demonstrating this scenario, see [Azure OAuth 2.0 Sample for Azure AD Spring Boot Starter Resource Server client library for Java](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/main/aad/azure-spring-boot-sample-active-directory-resource-server).
 
 ### Access other resource servers from a resource server
 
@@ -228,7 +231,7 @@ To use the Azure AD starter in this scenario, use the following steps:
    <dependency>
        <groupId>com.azure.spring</groupId>
        <artifactId>azure-spring-boot-starter-active-directory</artifactId>
-       <version>3.5.0</version>
+       <version>3.6.1</version>
    </dependency>
    <dependency>
        <groupId>org.springframework.boot</groupId>
@@ -265,7 +268,7 @@ To use the Azure AD starter in this scenario, use the following steps:
    }
    ```
 
-For a complete sample demonstrating this scenario, see [OAuth 2.0 Sample for azure-spring-boot-sample-active-directory-resource-server-obo library for Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/spring/azure-spring-boot-samples/azure-spring-boot-sample-active-directory-resource-server-obo).
+For a complete sample demonstrating this scenario, see [Azure OAuth 2.0 Sample for azure-spring-boot-sample-active-directory-resource-server-obo client library for Java](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/main/aad/azure-spring-boot-sample-active-directory-resource-server-obo).
 
 ## Configurable properties
 

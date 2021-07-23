@@ -6,6 +6,7 @@ ms.author: vaangadi
 ms.topic: conceptual
 ms.date: 05/27/2021
 ms.custom: devx-track-java
+recommendations: false
 ---
 
 # Migrate JBoss EAP applications to JBoss EAP on Azure App Service

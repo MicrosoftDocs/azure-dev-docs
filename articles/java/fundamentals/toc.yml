@@ -18,6 +18,8 @@
         href: reasons-to-move-to-java-11.md
       - name: Transition from Java 8 to Java 11
         href: transition-from-java-8-to-java-11.md
+      - name: Transition from Java 7 to Java 8
+        href: transition-from-java-7-to-java-8.md
     - name: Visual Studio Code
       href: https://code.visualstudio.com/docs/languages/java
     - name: IntelliJ IDEA

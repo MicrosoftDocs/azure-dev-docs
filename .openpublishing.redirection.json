@@ -869,6 +869,10 @@
       "redirect_url": "/azure/developer/ansible/getting-started-cloud-shell"
     },
     {
+      "source_path": "articles/ansible/key-vault-configure-vm-security.md",
+      "redirect_url": "/azure/developer/ansible/key-vault-configure-secrets"
+    },
+    {
       "source_path": "articles/terraform/install-configure.md",
       "redirect_url": "/azure/developer/terraform/getting-started-cloud-shell"
     },
