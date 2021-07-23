@@ -31,17 +31,26 @@ landingContent:
     linkLists:
       - linkListType: get-started
         links:
-          - text: Configure Terraform using Azure Cloud Shell
-            url: get-started-cloud-shell.md
-          - text: Configure Terraform using Azure PowerShell
-            url: get-started-powershell.md
+          - text: Configure Terraform in Cloud Shell with Bash
+            url: get-started-cloud-shell-bash.md
+          - text: Configure Terraform in Cloud Shell with PowerShell
+            url: get-started-cloud-shell-powershell.md
+          - text: Configure Terraform in Windows with Bash
+            url: get-started-windows-bash.md
+          - text: Configure Terraform in Windows with PowerShell
+            url: get-started-windows-powershell.md
       - linkListType: how-to-guide
         links:
           - text: Install the Terraform Visual Studio Code extension
             url: configure-vs-code-extension-for-terraform.md
-          - text: Create a Terraform base template using Yeoman
-            url: create-base-template-using-yeoman.md
-
+          - text: Authenticate with Microsoft account
+            url: authenticate-interactive.md
+          - text: Authenticate with Service Principal
+            url: authenticate-script.md
+          - text: Install latest Terraform version
+            url: install-latest-version.md
+          - text: Store Terraform state in Azure Storage
+            url: store-state-in-azure-storage.md
   # Card
   - title: Testing Terraform projects
     linkLists:

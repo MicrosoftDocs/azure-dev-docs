@@ -3,7 +3,7 @@ title: Quickstart - Configure Terraform in Windows with Bash
 description: In this quickstart, you learn how to configure Terraform in Windows with Bash
 keywords: terraform azure cli devops install configure windows interactive login rbac service principal automated script
 ms.topic: quickstart
-ms.date: 07/21/2021
+ms.date: 07/22/2021
 ms.custom: devx-track-terraform
 adobe-target: true
 # Customer intent: As a Windows user new to Terraform and Azure, I want configure Terraform in Windows using the Bash environment.
@@ -56,4 +56,4 @@ There are several ways to authenticate to Azure depending on your needs, includi
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Create an Azure resource group using Terraform](./create-resource-group)
+> [Create an Azure resource group using Terraform](create-resource-group.md)

@@ -4,13 +4,15 @@ description: include file
 author: tomarchermsft
 ms.service: terraform
 ms.topic: include
-ms.date: 05/02/2021
+ms.date: 07/22/2021
 ms.author: tarcher
 ---
 
 1. If you already have a Cloud Shell session open, you can skip to the next section.
 
-1. Browse to the [Azure portal](https://portal.azure.com) and, if necessary, log in to your Azure subscription and change the Azure directory.
+1. Browse to the [Azure portal](https://portal.azure.com)
+
+1. If necessary, log in to your Azure subscription and change the Azure directory.
 
 1. Open Cloud Shell.
 
