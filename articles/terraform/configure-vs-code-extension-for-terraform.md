@@ -19,7 +19,7 @@ In this article, you learn how to:
 ## Prerequisites
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../includes/open-source-devops-prereqs-azure-subscription.md)]
-- [Install Node.js](https://nodejs.org/) 6.0+.
+- [Install Node.js](https://nodejs.org/).
 - [Install GraphViz](https://graphviz.org/) to use the Terraform visualize function.
 
 ## 1. Configure your environment
@@ -45,7 +45,7 @@ In this exercise, you create and execute a basic Terraform configuration file th
 
     **Key points:**
     - When you select **Install** for the Azure Terraform extension, Visual Studio Code automatically installs the Azure Account extension. 
-    - Azure Account is a dependency file for the Azure Terraform extension. This file is used to perform Azure subscription authentications and Azure-related code extensions.
+    - Azure Account is a dependency file for the Azure Terraform extension. This file is used to authenticate to Azure and Azure-related code extensions.
 
 ### Verify the Terraform extension is installed in Visual Studio Code
 
@@ -220,7 +220,7 @@ Before you can begin using the Terraform commands from within Visual Studio Code
 1. When the confirmation appears, select **OK**, and follow the on-screen instructions.
 
     **Key points:**
-    - When you execute either the **lint** or **end to end** test, Azure uses a container service to provision a test machine to perform the actual test. For this reason, your test results may typically take several minutes to be returned.
+    - When you execute either the **lint** or **end to end** test, Azure uses a container service to provision a test machine to do the actual test. For this reason, your test results may typically take several minutes to be returned.
 
 After a few moments, you see a listing in the Terminal pane similar to this example:
 
@@ -237,7 +237,7 @@ After a few moments, you see a listing in the Terminal pane similar to this exam
 1. When the confirmation appears, select **OK**, and follow the on-screen instructions.
 
     **Key points:**
-    - When you execute either the **lint** or **end to end** test, Azure uses a container service to provision a test machine to perform the actual test. For this reason, your test results may typically take several minutes to be returned.
+    - When you execute either the **lint** or **end to end** test, Azure uses a container service to provision a test machine to do the actual test. For this reason, your test results may typically take several minutes to be returned.
 
 After a few moments, you see a listing in the Terminal pane similar to this example:
 
