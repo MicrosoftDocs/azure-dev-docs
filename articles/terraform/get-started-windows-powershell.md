@@ -65,7 +65,6 @@ When using PowerShell and Terraform, you must log in using a service principal. 
 - [Create an Azure service principal](#create-an-azure-service-principal)
 - [Log in to Azure using a service principal](#log-in-to-azure-using-a-service-principal)
 
-
 ### <span id="create-an-azure-service-principal"/>Create an Azure service principal
 
 To log into an Azure subscription using a service principal, you first need access to a service principal. If you already have a service principal, you can skip this section.
@@ -167,24 +166,6 @@ Setting environment variables helps Terraform use the intended Azure subscriptio
     gci env:ARM_*
     ```
 
-## 4. Create a base Terraform configuration file
-
-[!INCLUDE [terraform-create-base-config-file.md](includes/terraform-create-base-config-file.md)]
-
-## 5. Initialize Terraform
-
-[!INCLUDE [terraform-init.md](includes/terraform-init.md)]
-
-## 6. Create a Terraform execution plan
-
-[!INCLUDE [terraform-create-plan.md](includes/terraform-create-plan.md)]
-
-## 7. Apply the Terraform execution plan
-
-[!INCLUDE [terraform-apply-plan.md](includes/terraform-apply-plan.md)]
-
-## 8. Verify the results
-
 ## Troubleshoot Terraform on Azure
 
 [Troubleshoot common problems when using Terraform on Azure](troubleshoot.md)
@@ -192,4 +173,4 @@ Setting environment variables helps Terraform use the intended Azure subscriptio
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Create a Linux VM using Terraform](create-linux-virtual-machine-with-infrastructure.md)
+> [Create an Azure resource group using Terraform](create-resource-group.md)
