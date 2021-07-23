@@ -3,7 +3,7 @@ title: Quickstart - Configure Terraform in Azure Cloud Shell with Bash
 description: In this quickstart, you learn how to configure Terraform in Azure Cloud Shell with Bash
 keywords: azure devops terraform cloud shell cli install configure portal interactive login rbac service principal automated script
 ms.topic: quickstart
-ms.date: 07/19/2021
+ms.date: 07/22/2021
 ms.custom: devx-track-terraform
 adobe-target: true
 # Customer intent: As someone new to Terraform and Azure, I want configure Terraform in Azure Cloud Shell using the Bash environment.
@@ -54,4 +54,4 @@ If you want to authenticate using either a different Microsoft account or Azure 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Create an Azure resource group using Terraform](./create-resource-group)
+> [Create an Azure resource group using Terraform](create-resource-group.md)
