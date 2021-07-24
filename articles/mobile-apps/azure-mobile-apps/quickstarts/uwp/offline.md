@@ -14,7 +14,7 @@ This tutorial covers the offline sync feature of Azure Mobile Apps for the UWP q
 
 Before starting this tutorial, you should have completed the [Windows (UWP) Quickstart Tutorial](./index.md), which includes creating a suitable backend service.
 
-To learn more about the offline sync feature, see the topic [Offline Data Sync in Azure Mobile Apps](../../howto/datasync.md).
+To learn more about the offline sync feature, see the topic [Offline Data Sync in Azure Mobile Apps](../../howto/data-sync.md).
 
 In online operation, you read to and write from a `MobileServiceTable`.  When using offline sync, you read to and write from a `MobileServiceSyncTable` instead.  The `MobileServiceSyncTable` is backed by an on-device SQLite database, and synchronized with the backend database.
 
@@ -98,4 +98,4 @@ In the `DataModel/TodoService.cs` class:
 
 ## Next Steps
 
-Continue on to implement [authentication](./auth.md).
+Continue on to implement [authentication](./authentication.md).

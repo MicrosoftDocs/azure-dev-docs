@@ -12,7 +12,7 @@ ms.author: adhal
 
 In this tutorial, add Microsoft authentication to your app using Azure Active Directory. Before completing this tutorial, ensure you have [created the project](./index.md) and [enabled offline sync](./offline.md).
 
-[!INCLUDE [configure-auth](../../includes/quickstart-configure-auth.md)]
+[!INCLUDE [configure-auth](../../includes/quickstart-configure-authentication.md)]
 
 ## Test that authentication is being requested
 

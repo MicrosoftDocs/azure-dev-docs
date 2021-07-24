@@ -9,7 +9,7 @@
     - name: Add Offline Sync
       href: quickstarts/cordova/offline.md
     - name: Add Authentication
-      href: quickstarts/cordova/auth.md
+      href: quickstarts/cordova/authentication.md
   - name: Windows (UWP)
     items:
     - name: Introduction
@@ -17,7 +17,7 @@
     - name: Add Offline Sync
       href: quickstarts/uwp/offline.md
     - name: Add Authentication
-      href: quickstarts/uwp/auth.md     
+      href: quickstarts/uwp/authentication.md     
   - name: Windows (WPF)
     items:
     - name: Introduction
@@ -25,7 +25,7 @@
     - name: Add Offline Sync
       href: quickstarts/wpf/offline.md
     - name: Add Authentication
-      href: quickstarts/wpf/auth.md   
+      href: quickstarts/wpf/authentication.md   
   - name: Xamarin.Android
     items:
     - name: Introduction
@@ -33,7 +33,7 @@
     - name: Add Offline Sync
       href: quickstarts/xamarin-android/offline.md
     - name: Add Authentication
-      href: quickstarts/xamarin-android/auth.md
+      href: quickstarts/xamarin-android/authentication.md
   - name: Xamarin.Forms
     items:
     - name: Introduction
@@ -41,7 +41,7 @@
     - name: Add Offline Sync
       href: quickstarts/xamarin-forms/offline.md
     - name: Add Authentication
-      href: quickstarts/xamarin-forms/auth.md
+      href: quickstarts/xamarin-forms/authentication.md
   - name: Xamarin.iOS
     items:
     - name: Introduction
@@ -49,13 +49,13 @@
     - name: Add Offline Sync
       href: quickstarts/xamarin-ios/offline.md
     - name: Add Authentication
-      href: quickstarts/xamarin-ios/auth.md         
+      href: quickstarts/xamarin-ios/authentication.md         
 - name: How to
   items:
   - name: Authentication
-    href: howto/auth.md
+    href: howto/authentication.md
   - name: Offline Data Sync
-    href: howto/datasync.md
+    href: howto/data-sync.md
   - name: Client SDK
     items:
     - name: Apache Cordova

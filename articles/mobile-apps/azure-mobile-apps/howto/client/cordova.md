@@ -236,7 +236,7 @@ table
 
 ## <a id="auth"></a>Authenticate users
 
-Azure App Service supports authenticating and authorizing app users using various external identity providers: Facebook, Google, Microsoft Account, and Twitter. You can set permissions on tables to restrict access for specific operations to only authenticated users. You can also use the identity of authenticated users to implement authorization rules in server scripts. For more information, see the [Get started with authentication](../../quickstarts/cordova/auth.md) tutorial.
+Azure App Service supports authenticating and authorizing app users using various external identity providers: Facebook, Google, Microsoft Account, and Twitter. You can set permissions on tables to restrict access for specific operations to only authenticated users. You can also use the identity of authenticated users to implement authorization rules in server scripts. For more information, see the [Get started with authentication](../../quickstarts/cordova/authentication.md) tutorial.
 
 When using authentication in an Apache Cordova app, the following Cordova plugins must be available:
 
@@ -250,7 +250,7 @@ Two authentication flows are supported: a server flow and a client flow.  The se
 
 ### <a id="server-auth"></a>Authenticate with a provider (Server Flow)
 
-To have Mobile Apps manage the authentication process in your app, you must register your app with your identity provider. Then in your Azure App Service, you need to configure the application ID and secret provided by your provider. For more information, see the tutorial [Add authentication to your app](../../quickstarts/cordova/auth.md).
+To have Mobile Apps manage the authentication process in your app, you must register your app with your identity provider. Then in your Azure App Service, you need to configure the application ID and secret provided by your provider. For more information, see the tutorial [Add authentication to your app](../../quickstarts/cordova/authentication.md).
 
 Once you have registered your identity provider, call the `.login()` method with the name of your provider. For example, to sign in with Facebook use the following code:
 

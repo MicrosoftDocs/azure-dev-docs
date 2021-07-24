@@ -117,7 +117,7 @@ The azure-mobile-apps Node.js Server SDK provides mechanisms to expose data tabl
 | `PATCH /tables/tablename/:id` |Update a record in the table. |
 | `DELETE /tables/tablename/:id` |Delete a record in the table. |
 
-This Web API supports [OData v3](https://www.odata.org) and extends the table schema to support [offline data sync](../datasync.md).
+This Web API supports [OData v3](https://www.odata.org) and extends the table schema to support [offline data sync](../data-sync.md).
 
 ### Define tables by using a dynamic schema
 

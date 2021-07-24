@@ -447,7 +447,7 @@ private async Task ResolveConflict(TodoItem localItem, TodoItem serverItem)
 }
 ```
 
-For more information, see the [Offline Data Sync in Azure Mobile Apps](../datasync.md) topic.
+For more information, see the [Offline Data Sync in Azure Mobile Apps](../data-sync.md) topic.
 
 ### <a id="binding"></a>Bind Mobile Apps data to a Windows user interface
 

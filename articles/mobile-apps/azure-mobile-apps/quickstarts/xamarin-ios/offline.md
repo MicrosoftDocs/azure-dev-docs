@@ -14,7 +14,7 @@ This tutorial covers the offline sync feature of Azure Mobile Apps for Xamarin.i
 
 Prior to starting this tutorial, you should have completed the [Xamarin.iOS Quickstart Tutorial](./index.md), which includes creating a suitable backend service.
 
-To learn more about the offline sync feature, see the topic [Offline Data Sync in Azure Mobile Apps](../../howto/datasync.md).
+To learn more about the offline sync feature, see the topic [Offline Data Sync in Azure Mobile Apps](../../howto/data-sync.md).
 
 ## Update the app to support offline sync
 
@@ -101,4 +101,4 @@ In the `TodoService.cs` class:
 
 ## Next Steps
 
-Continue on to implement [authentication](./auth.md).
+Continue on to implement [authentication](./authentication.md).
