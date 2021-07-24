@@ -79,7 +79,7 @@ public void OpenUrlContexts(UIScene scene, NSSet<UIOpenUrlContext> urlContexts)
 }
 ```
 
-The `OpenUrlContexts` method handles the callback from the web authenticator on iOS 13 and later.  For other iOS versions, follow the instructions in the [Xamarin.Essentials documentation](https://docs.microsoft.com/xamarin/essentials/web-authenticator?context=xamarin%2Fios&tabs=ios).
+The `OpenUrlContexts` method handles the callback from the web authenticator on iOS 13 and later.  For other iOS versions, follow the instructions in the [Xamarin.Essentials documentation](/xamarin/essentials/web-authenticator?context=xamarin%2Fios&tabs=ios).
 
 Right-click on the `Info.plist` file, then select **Open with...**.  Select the **XML (Text) Editor**.  Add the following to the file right before the final `</dict>` line.
 
