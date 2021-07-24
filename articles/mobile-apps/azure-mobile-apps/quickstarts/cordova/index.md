@@ -93,7 +93,7 @@ cordova run android
 
 Once the initial startup is complete, you can add and delete items from the list.  Todo items are stored in the Azure SQL instance connected to your Azure Mobile Apps backend.
 
-If the emulator does not automatically start, otart Android Studio, then select **Configure** > **AVD Manager**.  This will allow you to start the device manually.  If you run `adb devices -l`, you should see your selected emulated device.  This allows you to run `cordova run android` successfully.
+If the emulator does not automatically start, open Android Studio, then select **Configure** > **AVD Manager**.  You can now start the emulator manually.  If you run `adb devices -l`, you should see your selected emulated device.  You should now be able to run `cordova run android`.
 
 
 ![Apache Cordova App](../../media/cordova-android-startup.png)
