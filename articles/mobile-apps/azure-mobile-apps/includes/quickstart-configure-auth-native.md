@@ -11,7 +11,7 @@ ms.prod: azure-mobile-apps
 To configure your backend for authentication, you must:
 
 * Create an app registration.
-* Configure [Azure App Service Authentication and Authorization](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-aad#-configure-with-advanced-settings).
+* Configure [Azure App Service Authentication and Authorization](/azure/app-service/configure-authentication-provider-aad#-configure-with-advanced-settings).
 
 During this tutorial, we'll configure your app to use Microsoft authentication, which uses configuration within Azure Active Directory.  An Azure Active Directory tenant has been configured automatically in your Azure subscription.
 
@@ -79,4 +79,4 @@ At this point, you have two pieces of information you need to transfer to the cl
 * The **Scope** (found under API permissions in the native client application registration - click on the user_impersonation permission tp see the full form).  A scope will look similar to `api://<client-id>/user_impersonation`. The client ID will not be the same as the client ID of the native client application.
 
 > **DID YOU KNOW?**
-> You can also authenticate users with organizational accounts in Azure Active Directory, Facebook, Google, Twitter, or any OpenID Connect compatible provider.  For more details, seethe [Azure App Service documentation](https://docs.microsoft.com/azure/app-service/app-service-authentication-how-to).
+> You can also authenticate users with organizational accounts in Azure Active Directory, Facebook, Google, Twitter, or any OpenID Connect compatible provider.  For more details, seethe [Azure App Service documentation](/azure/app-service/app-service-authentication-how-to).

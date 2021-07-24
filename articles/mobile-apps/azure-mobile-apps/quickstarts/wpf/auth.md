@@ -26,7 +26,7 @@ This exception happens because the app attempts to access the back end as an una
 
 There's no built-in authentication provider for WPF applications, so you must integrate the "provider" SDK for your authentication technique.  The provider SDK will authenticate the user through their normal mechanism, providing your app with an access token.  Your app then submits the access token or authorization code to the Azure App Service backend to get an appropriate access token for accessing the data in the backend.
 
-The provider SDK is the [Microsoft Authentication Library (MSAL)](https://docs.microsoft.com/azure/active-directory/develop/msal-overview) for Azure Active Directory and Microsoft accounts.  Request an `access_token` from Azure Active Directory:
+The provider SDK is the [Microsoft Authentication Library (MSAL)](/azure/active-directory/develop/msal-overview) for Azure Active Directory and Microsoft accounts.  Request an `access_token` from Azure Active Directory:
 
 1. Open the project in Visual Studio.
 

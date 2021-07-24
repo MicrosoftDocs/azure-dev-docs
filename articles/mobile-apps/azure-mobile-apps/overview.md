@@ -10,7 +10,7 @@ ms.author: adhal
 
 # About Azure Mobile Apps
 
-[Azure App Service](https://docs.microsoft.com/azure/app-service/overview) is a fully managed [platform as a service](https://azure.microsoft.com/overview/what-is-paas/) (PaaS) offering for professional developers. The service brings a rich set of capabilities to web, mobile, and integration scenarios.
+[Azure App Service](/azure/app-service/overview) is a fully managed [platform as a service](https://azure.microsoft.com/overview/what-is-paas/) (PaaS) offering for professional developers. The service brings a rich set of capabilities to web, mobile, and integration scenarios.
 
 Azure Mobile Apps gives enterprise developers and system integrators a mobile-application development platform that's highly scalable and globally available.  Using resources in the Azure cloud, it provides your mobile app with:
 
@@ -44,15 +44,15 @@ The following features are important to cloud-enabled mobile development:
 
 The following platform features are useful for mobile production sites:
 
-* [**Autoscaling**](https://docs.microsoft.com/azure/app-service/manage-scale-up): With App Service, you can quickly scale up or scale out to handle any incoming customer load. Manually select the number and size of VMs, or set up autoscaling to scale your service based on load or schedule.
+* [**Autoscaling**](/azure/app-service/manage-scale-up): With App Service, you can quickly scale up or scale out to handle any incoming customer load. Manually select the number and size of VMs, or set up autoscaling to scale your service based on load or schedule.
 
-* [**Staging environments**](https://docs.microsoft.com/azure/app-service/deploy-staging-slots): App Service can run multiple versions of your site, so you can perform A/B testing, test in production as part of a larger DevOps plan, and do in-place staging of a new mobile service.
+* [**Staging environments**](/azure/app-service/deploy-staging-slots): App Service can run multiple versions of your site, so you can perform A/B testing, test in production as part of a larger DevOps plan, and do in-place staging of a new mobile service.
 
-* [**Continuous deployment**](https://docs.microsoft.com/azure/app-service/deploy-continuous-deployment): App Service can integrate with common _source control management_ (SCM) systems, allowing you to easily deploy a new version of your mobile service.
+* [**Continuous deployment**](/azure/app-service/deploy-continuous-deployment): App Service can integrate with common _source control management_ (SCM) systems, allowing you to easily deploy a new version of your mobile service.
 
-* [**Virtual networking**](https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet): App Service can connect to on-premises resources by using virtual network, Azure ExpressRoute, or hybrid connections.
+* [**Virtual networking**](/azure/app-service/web-sites-integrate-with-vnet): App Service can connect to on-premises resources by using virtual network, Azure ExpressRoute, or hybrid connections.
 
-* [**Isolated and dedicated environments**](https://docs.microsoft.com/azure/app-service/environment/intro): For securely running Azure App Service apps, you can run App Service in a fully isolated and dedicated environment. This environment is ideal for application workloads that require high scale, isolation, or secure network access.
+* [**Isolated and dedicated environments**](/azure/app-service/environment/intro): For securely running Azure App Service apps, you can run App Service in a fully isolated and dedicated environment. This environment is ideal for application workloads that require high scale, isolation, or secure network access.
 
 ## Next steps
 

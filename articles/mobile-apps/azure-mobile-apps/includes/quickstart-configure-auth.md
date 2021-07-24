@@ -52,7 +52,7 @@ You will need the URL of the Azure Mobile Apps service. The backend URL was prov
 1. In the **Allowed External Redirect URLs**, enter `zumoquickstart://easyauth.callback`.
 1. Select **Save**.
 
-Step 10 requires that all users are authenticated before accessing your backend.  You can provide fine-grained controls by adding code to your backend.  For more information, see the Server SDK How-to for [Node.js](../../howto/server/nodejs.md) or [ASP.NET Framework](../../howto/server/dotnet-framework.md).
+Step 10 requires that all users are authenticated before accessing your backend.  You can provide fine-grained controls by adding code to your backend.  For more information, see the Server SDK How-to for [Node.js](~/mobile-apps/azure-mobile-apps/howto/server/nodejs.md) or [ASP.NET Framework](~/mobile-apps/azure-mobile-apps/howto/server/dotnet-framework.md).
 
 > **DID YOU KNOW?**
-> You can also allow users with organizational accounts in Azure Active Directory, Facebook, Google, Twitter, or any OpenID Connect compatible provider.  Follow the instructions in the [Azure App Service documentation](https://docs.microsoft.com/azure/app-service/app-service-authentication-how-to).
+> You can also allow users with organizational accounts in Azure Active Directory, Facebook, Google, Twitter, or any OpenID Connect compatible provider.  Follow the instructions in the [Azure App Service documentation](/azure/app-service/app-service-authentication-how-to).

@@ -286,7 +286,7 @@ client.login("facebook", {"access_token": token})
 });
 
 ```
-This example assumes that the token provided by the respective provider SDK is stored in the token variable.  The details required by each provider are slightly different.  Consult the [Azure App Service Authentication and Authorization documentation](https://docs.microsoft.com/azure/app-service/app-service-authentication-how-to#validate-tokens-from-providers) to determine the exact form of the payload.
+This example assumes that the token provided by the respective provider SDK is stored in the token variable.  The details required by each provider are slightly different.  Consult the [Azure App Service Authentication and Authorization documentation](/azure/app-service/app-service-authentication-how-to#validate-tokens-from-providers) to determine the exact form of the payload.
 
 ### <a id="auth-getinfo"></a>Obtain information about the authenticated user
 

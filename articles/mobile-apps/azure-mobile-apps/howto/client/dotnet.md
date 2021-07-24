@@ -637,7 +637,7 @@ Examples are provided for the following client-flow authentication patterns:
 
 You can use the Active Directory Authentication Library (ADAL) to initiate user authentication from the client using Azure Active Directory authentication.
 
-1. Configure your mobile app backend for AAD sign-on by following the [How to configure App Service for Active Directory login](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-aad) tutorial. Make sure to complete the optional step of registering a native client application.
+1. Configure your mobile app backend for AAD sign-on by following the [How to configure App Service for Active Directory login](/azure/app-service/configure-authentication-provider-aad) tutorial. Make sure to complete the optional step of registering a native client application.
 2. In Visual Studio, open your project and add a reference to the `Microsoft.IdentityModel.Clients.ActiveDirectory` NuGet package. When searching, include pre-release versions.
 3. Add the following code to your application, according to the platform you are using. In each, make the following replacements:
 
@@ -818,7 +818,7 @@ If you are using an identity provider other than Facebook, change the value of M
 
 In a server flow, Azure App Service manages the OAuth authentication flow by displaying the sign-in page of the selected provider.  Once the identity provider returns, Azure App Service generates an App Service authentication token. The [LoginAsync](https://msdn.microsoft.com/library/azure/dn296411(v=azure.10).aspx) method returns a [MobileServiceUser](https://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser(v=azure.10).aspx), which provides both the UserId of the authenticated user and the MobileServiceAuthenticationToken, as a JSON web token (JWT). This token can be cached and reused until it expires. For more information, see [Caching the authentication token](#caching).
 
-> Under the covers, Azure Mobile Apps uses a [Xamarin.Essentials](https://docs.microsoft.com/xamarin/essentials/web-authenticator?tabs=ios) WebAuthenticator to do the work.  You must handle the response from the service by calling back into Xamarin.Essentials, as per the documentation for WebAuthenticator.
+> Under the covers, Azure Mobile Apps uses a [Xamarin.Essentials](/xamarin/essentials/web-authenticator?tabs=ios) WebAuthenticator to do the work.  You must handle the response from the service by calling back into Xamarin.Essentials, as per the documentation for WebAuthenticator.
 
 ### <a id="caching"></a>Caching the authentication token
 

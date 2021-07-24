@@ -12,7 +12,7 @@ ms.author: adhal
 
 This article describes how authentication and authorization works when developing native mobile apps with an App Service back end. App Service provides integrated authentication and authorization, so your mobile apps can sign users in without changing any code in App Service. It provides an easy way to protect your application and work with per-user data.
 
-For information on how authentication and authorization work in App Service, see [Authentication and authorization in Azure App Service](https://docs.microsoft.com/azure/app-service/overview-authentication-authorization).
+For information on how authentication and authorization work in App Service, see [Authentication and authorization in Azure App Service](/azure/app-service/overview-authentication-authorization).
 
 ## Authentication with provider SDK
 
@@ -31,7 +31,7 @@ After a provider token is obtained, it needs to be sent to App Service for valid
 > [!NOTE]
 > Some platforms, such as Windows (WPF), will ONLY work with a client-directed flow.  Others will work equally well with both server and client flow.  If the platform only works with client-directed flow, the quickstart guide will show this.
 
-For more information on the authentication flow, see [App Service authentication flow](https://docs.microsoft.com/azure/app-service/overview-authentication-authorization#authentication-flow).
+For more information on the authentication flow, see [App Service authentication flow](/azure/app-service/overview-authentication-authorization#authentication-flow).
 
 ## Authentication without provider SDK
 
@@ -39,7 +39,7 @@ If you don't want to set up a provider SDK, you can allow the Azure App Service 
 
 ## Submitting a token from the client-directed flow
 
-When using the client-directed flow, first obtain the relevant information that Azure App Service needs to validate the token.  In most cases, the token will be an access token.  For more information, [consult the Azure App Service documentation](https://docs.microsoft.com/azure/app-service/app-service-authentication-how-to#validate-tokens-from-providers).
+When using the client-directed flow, first obtain the relevant information that Azure App Service needs to validate the token.  In most cases, the token will be an access token.  For more information, [consult the Azure App Service documentation](/azure/app-service/app-service-authentication-how-to#validate-tokens-from-providers).
 
 You can then build the appropriate JSON object.  For example, if you're using MSAL to do a client-directed flow on .NET in a WPF application, you might use the following code:
 
@@ -48,4 +48,4 @@ var requestBody = new JObject(new JProperty("access_token", authResult.AccessTok
 var userInfo = await mobileClient.login("aad", requestBody);
 ```
 
-The request body must match the expectations as laid out in [the documentation](https://docs.microsoft.com/azure/app-service/app-service-authentication-how-to#validate-tokens-from-providers).
+The request body must match the expectations as laid out in [the documentation](/azure/app-service/app-service-authentication-how-to#validate-tokens-from-providers).

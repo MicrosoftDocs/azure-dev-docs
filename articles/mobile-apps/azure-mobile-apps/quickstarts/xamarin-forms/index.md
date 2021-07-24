@@ -19,12 +19,12 @@ You must complete this tutorial before other Xamarin Forms tutorials using the M
 To complete this tutorial, you need:
 
 * An appropriate IDE:
-  * For Windows: install [Visual Studio 2019](https://docs.microsoft.com/xamarin/get-started/installation/windows).
-  * For Mac: install [Visual Studio for Mac](https://docs.microsoft.com/visualstudio/mac/installation).
+  * For Windows: install [Visual Studio 2019](/xamarin/get-started/installation/windows).
+  * For Mac: install [Visual Studio for Mac](/visualstudio/mac/installation).
 
 * An [Azure account](https://azure.microsoft.com/pricing/free-trial).
-* The [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
-  * [Log into your Azure account](https://docs.microsoft.com/cli/azure/authenticate-azure-cli) and [select a subscription](https://docs.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli) using the Azure CLI.
+* The [Azure CLI](/cli/azure/install-azure-cli).
+  * [Log into your Azure account](/cli/azure/authenticate-azure-cli) and [select a subscription](/cli/azure/manage-azure-subscriptions-azure-cli) using the Azure CLI.
 * An [Android Virtual Device](https://developer.android.com/studio/run/managing-avds), with the following settings:
   * Phone: Pixel 4 (includes Play Store)
   * System Image: Pie (API 28, x86, Google Play)
@@ -32,7 +32,7 @@ To complete this tutorial, you need:
   * Install [XCode](https://itunes.apple.com/us/app/xcode/id497799835?mt=12)
   * Open Xcode after installing so that it can add any extra required components.
   * Once open, select **XCode Preferences...** > **Components**, and install an iOS simulator.
-  * If completing the tutorial on Windows, follow the guide to [Pair to Mac](https://docs.microsoft.com/xamarin/ios/get-started/installation/windows/connecting-to-mac/).
+  * If completing the tutorial on Windows, follow the guide to [Pair to Mac](/xamarin/ios/get-started/installation/windows/connecting-to-mac/).
 
 You can complete this tutorial on Mac or Windows.  A windows system is required to compile and run the Universal Windows Platform (UWP) version. A mac is required to compile the iOS version.
 
@@ -81,7 +81,7 @@ Enter some text in the **Add New Item** field, then press enter or click the add
 ## Run the iOS app
 
 > [!NOTE] 
-> If you are running Visual Studio on Windows, you **MUST** follow the guide to [Pair to Mac](https://docs.microsoft.com/xamarin/ios/get-started/installation/windows/connecting-to-mac/).  You'll receive errors when compiling or running iOS applications without a paired Mac.
+> If you are running Visual Studio on Windows, you **MUST** follow the guide to [Pair to Mac](/xamarin/ios/get-started/installation/windows/connecting-to-mac/).  You'll receive errors when compiling or running iOS applications without a paired Mac.
 
 Right-click the `ZumoQuickStart.iOS` project and select **Set as Startup Project**.  The "start" button in the top ribbon will show an iOS device.  Ensure that the _iPhoneSimulator_ configuration is selected:
 

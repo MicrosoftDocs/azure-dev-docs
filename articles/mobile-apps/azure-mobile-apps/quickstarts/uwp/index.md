@@ -18,10 +18,10 @@ This tutorial is required for all other Windows (UWP) tutorials about using the 
 
 To complete this tutorial, you need:
 
-* [Visual Studio 2019](https://docs.microsoft.com/xamarin/get-started/installation/windows).
+* [Visual Studio 2019](/xamarin/get-started/installation/windows).
 * An [Azure account](https://azure.microsoft.com/pricing/free-trial).
-* The [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
-  * [Log into your Azure account](https://docs.microsoft.com/cli/azure/authenticate-azure-cli) and [select a subscription](https://docs.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli) using the Azure CLI.
+* The [Azure CLI](/cli/azure/install-azure-cli).
+  * [Log into your Azure account](/cli/azure/authenticate-azure-cli) and [select a subscription](/cli/azure/manage-azure-subscriptions-azure-cli) using the Azure CLI.
 
 This tutorial can only be completed on a Windows system.
 

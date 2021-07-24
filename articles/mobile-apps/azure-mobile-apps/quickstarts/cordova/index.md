@@ -21,8 +21,8 @@ To complete this tutorial, you need:
 * [A working Apache Cordova 8.1.2 installation](https://cordova.apache.org/docs/en/latest/).
 * A text editor (such as [Visual Studio Code](https://code.visualstudio.com/)).
 * An [Azure account](https://azure.microsoft.com/pricing/free-trial).
-* The [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
-  * [Log into your Azure account](https://docs.microsoft.com/cli/azure/authenticate-azure-cli) and [select a subscription](https://docs.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli) using the Azure CLI.
+* The [Azure CLI](/cli/azure/install-azure-cli).
+  * [Log into your Azure account](/cli/azure/authenticate-azure-cli) and [select a subscription](/cli/azure/manage-azure-subscriptions-azure-cli) using the Azure CLI.
 
 This tutorial can be completed on either Windows or Mac systems.  The iOS version of the app can only be run on a Mac.  This tutorial uses Windows (with the app running on Android) only.
 

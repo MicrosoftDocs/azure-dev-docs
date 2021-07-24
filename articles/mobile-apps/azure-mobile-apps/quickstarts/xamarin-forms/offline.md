@@ -97,14 +97,6 @@ In the `TodoService.cs` class:
     }
     ```
 
-## Test the app
-
-In this section, test the behavior with WiFi on, and then turn off WiFi to create an offline scenario.  Use the Android or iOS versions of the application, as it's easier to turn the simulated WiFi on and off.
-
-When you add data items, they're held in the local SQLite store, but not synced to the mobile service until you "pull to refresh" the list. Other apps may have different requirements about when data needs to be synchronized.  For demo purposes, the user chooses to refresh the data in this tutorial.
-
-When you "pull to refresh", a new background task starts. It first pushes all changes made to the local store using synchronization context, then pulls all changed data from Azure to the local table.
-
 [!INCLUDE [testing](../../includes/quickstart-offline-testing.md)]
 
 ## Next Steps

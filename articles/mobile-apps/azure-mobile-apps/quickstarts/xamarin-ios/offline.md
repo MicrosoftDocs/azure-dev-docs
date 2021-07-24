@@ -97,8 +97,6 @@ In the `TodoService.cs` class:
     }
     ```
 
-
-
 [!INCLUDE [testing](../../includes/quickstart-offline-testing.md)]
 
 ## Next Steps

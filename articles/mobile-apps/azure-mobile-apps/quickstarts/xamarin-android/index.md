@@ -19,12 +19,12 @@ You must complete this tutorial before other Xamarin Android tutorials about usi
 To complete this tutorial, you need:
 
 * An appropriate IDE:
-  * For Windows: install [Visual Studio 2019](https://docs.microsoft.com/xamarin/get-started/installation/windows).
-  * For Mac: install [Visual Studio for Mac](https://docs.microsoft.com/visualstudio/mac/installation).
+  * For Windows: install [Visual Studio 2019](/xamarin/get-started/installation/windows).
+  * For Mac: install [Visual Studio for Mac](/visualstudio/mac/installation).
 
 * An [Azure account](https://azure.microsoft.com/pricing/free-trial).
-* The [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
-  * [Log into your Azure account](https://docs.microsoft.com/cli/azure/authenticate-azure-cli) and [select a subscription](https://docs.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli) using the Azure CLI.
+* The [Azure CLI](/cli/azure/install-azure-cli).
+  * [Log into your Azure account](/cli/azure/authenticate-azure-cli) and [select a subscription](/cli/azure/manage-azure-subscriptions-azure-cli) using the Azure CLI.
 * An [Android Virtual Device](https://developer.android.com/studio/run/managing-avds), with the following settings:
   * Phone: Pixel 4 (includes Play Store)
   * System Image: Pie (API 28, x86, Google Play)

@@ -122,7 +122,7 @@ The following NuGet-based extension packages provide various mobile features tha
 
 ## Publish the server project
 
-This section shows you how to publish your .NET backend project from Visual Studio.  There are other methods by which you can publish your application.  For more information, see the [Azure App Service documentation](https://docs.microsoft.com/azure/app-service/deploy-continuous-deployment).
+This section shows you how to publish your .NET backend project from Visual Studio.  There are other methods by which you can publish your application.  For more information, see the [Azure App Service documentation](/azure/app-service/deploy-continuous-deployment).
 
 1. In Visual Studio, rebuild the project to restore NuGet packages.
 1. In Solution Explorer, right-click the project, click **Publish**.
@@ -138,7 +138,7 @@ This section shows you how to publish your .NET backend project from Visual Stud
     * Click **Finish**
 3. Click **Publish**
 
-It takes some time to publish to Azure.  For more information, see [the Visual Studio documentation](https://docs.microsoft.com/visualstudio/deployment/quickstart-deploy-to-azure).
+It takes some time to publish to Azure.  For more information, see [the Visual Studio documentation](/visualstudio/deployment/quickstart-deploy-to-azure).
 
 ## Define a table controller
 
@@ -398,9 +398,9 @@ The `Query()` method returns an `IQueryable` that can be manipulated by LINQ to 
 
 Azure App Service provides several debugging and troubleshooting techniques for ASP.NET applications:
 
-* [Monitoring Azure App Service](https://docs.microsoft.com/azure/app-service/web-sites-monitor)
-* [Enable diagnostic logging in Azure App Service](https://docs.microsoft.com/azure/app-service/troubleshoot-diagnostic-logs)
-* [Troubleshoot an Azure App Service in Visual Studio](https://docs.microsoft.com/azure/app-service/troubleshoot-dotnet-visual-studio)
+* [Monitoring Azure App Service](/azure/app-service/web-sites-monitor)
+* [Enable diagnostic logging in Azure App Service](/azure/app-service/troubleshoot-diagnostic-logs)
+* [Troubleshoot an Azure App Service in Visual Studio](/azure/app-service/troubleshoot-dotnet-visual-studio)
 
 ### Logging
 
@@ -408,7 +408,7 @@ You can write to App Service diagnostic logs by using the standard ASP.NET trace
 
 To enable diagnostics and write to the logs:
 
-1. Follow the steps in [Enable application logging (Windows)](https://docs.microsoft.com/azure/app-service/troubleshoot-diagnostic-logs).
+1. Follow the steps in [Enable application logging (Windows)](/azure/app-service/troubleshoot-diagnostic-logs).
 1. Add the following using statement in your code file:
 
     ``` csharp
@@ -423,7 +423,7 @@ To enable diagnostics and write to the logs:
     ```
 
 1. Republish your server project, and access the Azure Mobile Apps backend to execute the code path with the logging.
-1. Download and evaluate the logs, as described in [Access log files](https://docs.microsoft.com/azure/app-service/troubleshoot-dotnet-visual-studio#webserverlogs).
+1. Download and evaluate the logs, as described in [Access log files](/azure/app-service/troubleshoot-dotnet-visual-studio#webserverlogs).
 
 ### <a id="local-debug"></a>Local debugging with authentication
 

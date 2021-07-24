@@ -206,7 +206,7 @@ The Azure Mobile Apps Node.js SDK uses the [mssql Node.js package](https://www.n
    * Right-click **SQL Server (_instance-name_)** and select **Restart**.
    * Close Configuration Manager.
 
-You will also have to create a username and password that Azure Mobile Apps can use to connect to the database.  Ensure the user you create has the `dbcreator` server role.  For more information on configuring users, see the [SQL Server documentation](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/create-a-database-user)
+You will also have to create a username and password that Azure Mobile Apps can use to connect to the database.  Ensure the user you create has the `dbcreator` server role.  For more information on configuring users, see the [SQL Server documentation](/sql/relational-databases/security/authentication-access/create-a-database-user)
 
 Be sure to record the username and password that you selected. You  might need to assign more server roles or permissions, depending on your database requirements.
 
@@ -221,7 +221,7 @@ Access the database through a TCP/IP connection. Provide a username and password
 
 ### Configure your project for local development
 
-Azure Mobile Apps reads a JavaScript file called `azureMobile.js` from the local file system. Do not use this file to configure the Azure Mobile Apps SDK in production. Instead, use [**App settings** in the Azure portal](https://docs.microsoft.com/azure/app-service/configure-common).
+Azure Mobile Apps reads a JavaScript file called `azureMobile.js` from the local file system. Do not use this file to configure the Azure Mobile Apps SDK in production. Instead, use [**App settings** in the Azure portal](/azure/app-service/configure-common).
 
 The azureMobile.js file should export a configuration object. The most common settings are:
 
@@ -273,13 +273,13 @@ Using Azure SQL Database as a data store is identical across all Azure App Servi
 
 ### Require authentication for access to tables
 
-If you want to use App Service Authentication with the `tables` endpoint, you must [configure App Service Authentication in the Azure portal](https://docs.microsoft.com/azure/app-service/app-service-authentication-how-to) first. For more information, see the configuration guide for the identity provider that you intend to use:
+If you want to use App Service Authentication with the `tables` endpoint, you must [configure App Service Authentication in the Azure portal](/azure/app-service/app-service-authentication-how-to) first. For more information, see the configuration guide for the identity provider that you intend to use:
 
-* [Configure Azure Active Directory authentication](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-aad)
-* [Configure Facebook authentication](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-facebook)
-* [Configure Google authentication](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-google)
-* [Configure Microsoft authentication](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-microsoft)
-* [Configure Twitter authentication](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-twitter)
+* [Configure Azure Active Directory authentication](/azure/app-service/configure-authentication-provider-aad)
+* [Configure Facebook authentication](/azure/app-service/configure-authentication-provider-facebook)
+* [Configure Google authentication](/azure/app-service/configure-authentication-provider-google)
+* [Configure Microsoft authentication](/azure/app-service/configure-authentication-provider-microsoft)
+* [Configure Twitter authentication](/azure/app-service/configure-authentication-provider-twitter)
 
 Each table has an access property that you can use to control access to the table. The following sample shows a statically defined table with authentication required.
 
@@ -675,8 +675,8 @@ module.exports = api;
 
 Azure App Service provides several debugging and troubleshooting techniques for Node.js applications. To get started in troubleshooting your Node.js Azure Mobile Apps back end, see the following articles:
 
-* [Monitoring Azure App Service](https://docs.microsoft.com/azure/app-service/web-sites-monitor)
-* [Enable diagnostic logging in Azure App Service](https://docs.microsoft.com/azure/app-service/troubleshoot-diagnostic-logs)
-* [Troubleshoot node applications on Azure App Service](https://docs.microsoft.com/azure/app-service/app-service-web-nodejs-best-practices-and-troubleshoot-guide)
+* [Monitoring Azure App Service](/azure/app-service/web-sites-monitor)
+* [Enable diagnostic logging in Azure App Service](/azure/app-service/troubleshoot-diagnostic-logs)
+* [Troubleshoot node applications on Azure App Service](/azure/app-service/app-service-web-nodejs-best-practices-and-troubleshoot-guide)
 
 Node.js applications have access to a wide range of diagnostic log tools. Internally, the Azure Mobile Apps Node.js SDK uses [Winston] for diagnostic logging. Logging is automatically enabled when you enable debug mode or set the `MS_DebugMode` app setting to true in the Azure portal. Generated logs appear in the diagnostic logs in the Azure portal.

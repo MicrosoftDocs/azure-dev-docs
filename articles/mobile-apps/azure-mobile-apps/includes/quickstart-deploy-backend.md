@@ -16,7 +16,7 @@ az login
 
 A web browser will be opened to complete the authorization.
 
-If necessary, [select a subscription](https://docs.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli).
+If necessary, [select a subscription](/cli/azure/manage-azure-subscriptions-azure-cli).
 
 ### Create a resource group
 
