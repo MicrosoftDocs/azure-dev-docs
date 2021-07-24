@@ -97,7 +97,7 @@ In the `TodoService.cs` class:
     }
     ```
 
-[!INCLUDE [testing](../../includes/quickstart-offline-testing.md)]
+[!INCLUDE [testing](~/mobile-apps/azure-mobile-apps/includes/quickstart-offline-testing.md)]
 
 ## Next Steps
 

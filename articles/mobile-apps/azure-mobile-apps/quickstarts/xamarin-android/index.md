@@ -37,7 +37,7 @@ The Xamarin.Android quickstart project is located in the `samples/xamarin-androi
 
 Once downloaded, open a Terminal and change directory to the location of the files.
 
-[!INCLUDE [deploy-backend](../../includes/quickstart-deploy-backend.md)]
+[!INCLUDE [deploy-backend](~/mobile-apps/azure-mobile-apps/includes/quickstart-deploy-backend.md)]
 
 ## Configure the Xamarin.Android quickstart project
 

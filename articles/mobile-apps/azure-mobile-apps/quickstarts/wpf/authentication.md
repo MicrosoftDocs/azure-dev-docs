@@ -12,7 +12,7 @@ ms.author: adhal
 
 In this tutorial, you add Microsoft authentication to the quickstart project using Azure Active Directory. Before completing this tutorial, ensure you have [created the project](./index.md) and [enabled offline sync](./offline.md).
 
-[!INCLUDE [configure-auth](../../includes/quickstart-configure-auth-native.md)]
+[!INCLUDE [configure-auth](~/mobile-apps/azure-mobile-apps/includes/quickstart-configure-auth-native.md)]
 
 ## Test that authentication is being requested
 
@@ -130,7 +130,7 @@ Lines 64-66 will use the MSAL library to authenticate the user.  A web browser o
 
 From the **Run** menu, click **Run app** to start the app.  You'll be prompted for a Microsoft account.  When you are successfully signed in, the app should run as before without errors.
 
-[!INCLUDE [clean-up](../../includes/quickstart-clean-up.md)]
+[!INCLUDE [clean-up](~/mobile-apps/azure-mobile-apps/includes/quickstart-clean-up.md)]
 
 ## Next steps
 

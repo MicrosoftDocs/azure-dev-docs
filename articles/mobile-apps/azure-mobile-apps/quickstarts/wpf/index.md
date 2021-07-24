@@ -31,7 +31,7 @@ The WPF quickstart project is located in the `samples/wpf` folder of the [azure/
 
 Once downloaded, open a Terminal and change directory to the location of the files.
 
-[!INCLUDE [deploy-backend](../../includes/quickstart-deploy-backend.md)]
+[!INCLUDE [deploy-backend](~/mobile-apps/azure-mobile-apps/includes/quickstart-deploy-backend.md)]
 
 ## Configure the WPF quickstart project
 

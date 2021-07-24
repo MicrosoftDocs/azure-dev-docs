@@ -167,11 +167,11 @@ multiple predicates in one query&mdash;is more compact and recommended.
 
 The `Where` clause supports operations that be translated into the OData subset. Operations include:
 
-* Relational operators (==, !=, <, <=, >, >=),
-* Arithmetic operators (+, -, /, *, %),
-* Number precision (Math.Floor, Math.Ceiling),
-* String functions (Length, Substring, Replace, IndexOf, StartsWith, EndsWith),
-* Date properties (Year, Month, Day, Hour, Minute, Second),
+* Relational operators (`==`, `!=`, `<`, `<=`, `>`, `>=`),
+* Arithmetic operators (`+`, `-`, `/`, `*`, `%`),
+* Number precision (`Math.Floor`, `Math.Ceiling`),
+* String functions (`Length`, `Substring`, `Replace`, `IndexOf`, `StartsWith`, `EndsWith`),
+* Date properties (`Year`, `Month`, `Day`, `Hour`, `Minute`, `Second`),
 * Access properties of an object, and
 * Expressions combining any of these operations.
 
@@ -273,7 +273,7 @@ When executing a query using an untyped table object, you must explicitly specif
 JToken untypedItems = await untypedTodoTable.ReadAsync("$filter=complete eq 0&$orderby=text");
 ```
 
-You get back JSON values that you can use like a property bag. For more information on JToken and Newtonsoft Json, see the [Newtonsoft JSON](https://www.newtonsoft.com/json) site.
+You get back JSON values that you can use like a property bag. For more information on `JToken` and Newtonsoft Json, see the [Newtonsoft JSON](https://www.newtonsoft.com/json) site.
 
 ### <a id="inserting"></a>Insert data into a Mobile App backend
 

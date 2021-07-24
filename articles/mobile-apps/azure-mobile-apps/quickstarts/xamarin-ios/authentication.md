@@ -12,7 +12,7 @@ ms.author: adhal
 
 In this tutorial, you add Microsoft authentication to the quickstart project on Xamarin.iOS using Azure Active Directory. Before completing this tutorial, ensure you've [created the project](./index.md) and [enabled offline sync](./offline.md).
 
-[!INCLUDE [configure-auth](../../includes/quickstart-configure-authentication.md)]
+[!INCLUDE [configure-auth](~/mobile-apps/azure-mobile-apps/includes/quickstart-configure-authentication.md)]
 
 ## Test that authentication is being requested
 
@@ -105,7 +105,7 @@ iOS uses this information to redirect the user back to the app once they have si
 
 Press F5 to run the app.  When you're successfully signed in, the app should run as before without errors.
 
-[!INCLUDE [clean-up](../../includes/quickstart-clean-up.md)]
+[!INCLUDE [clean-up](~/mobile-apps/azure-mobile-apps/includes/quickstart-clean-up.md)]
 
 ## Next steps
 

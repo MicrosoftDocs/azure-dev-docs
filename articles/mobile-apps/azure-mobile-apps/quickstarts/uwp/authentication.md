@@ -12,7 +12,7 @@ ms.author: adhal
 
 In this tutorial, you add Microsoft authentication to the quickstart project using Azure Active Directory. Before completing this tutorial, ensure you have [created the project](./index.md) and [enabled offline sync](./offline.md).
 
-[!INCLUDE [configure-auth](../../includes/quickstart-configure-authentication.md)]
+[!INCLUDE [configure-auth](~/mobile-apps/azure-mobile-apps/includes/quickstart-configure-authentication.md)]
 
 ## Test that authentication is being requested
 
@@ -99,7 +99,7 @@ public Task AuthenticateAsync() => mClient.LoginAsync("aad", "zumoquickstart");
 
 From the **Run** menu, click **Local Machine** to start the app.  You will be prompted for a Microsoft account in a browser.  When you're signed in, the app should run as before without errors.
 
-[!INCLUDE [clean-up](../../includes/quickstart-clean-up.md)]
+[!INCLUDE [clean-up](~/mobile-apps/azure-mobile-apps/includes/quickstart-clean-up.md)]
 
 ## Next steps
 
