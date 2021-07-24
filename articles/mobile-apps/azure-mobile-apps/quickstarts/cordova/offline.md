@@ -101,7 +101,7 @@ cordova run android
 
 You can use the debugger within Visual Studio Code if you have the [Cordova Tools](https://marketplace.visualstudio.com/items?itemName=msjsdiag.cordova-tools) extension installed.  Click on the debugger, then create a `launch.json` file.  When prompted, select **Cordova**, then select the configurations (such as _Run Android on emulator_).  Once you have created a launch configuration, you can run the app in the debugger.  It will launch on your emulator of choice.  However, you will now be able to see the debug output in your debug console.
 
-[!INCLUDE (~/mobile-apps/azure-mobile-apps/includes/quickstart-offline-testing.md)]
+[!INCLUDE [testing](~/mobile-apps/azure-mobile-apps/includes/quickstart-offline-testing.md)]
 
 ## Next Steps
 

@@ -21,7 +21,7 @@ You can create an ASP.NET Framework app using Visual Studio 2019.
 
 ### Download and initialize the SDK
 
-To SDK is available on [NuGet.org](https://nuget.org), and provides the base functionality required to get started using Azure Mobile Apps.  To install the package:
+The SDK is available on [NuGet.org](https://nuget.org), and provides the base functionality required to get started using Azure Mobile Apps.  To install the package:
 
 1. Right-click on the project, then select **Manage NuGet Packages...**.  
 1. In the **Browse** tab, enter `Microsoft.Azure.Mobile.Server` in the search box, then press Enter.
