@@ -20,6 +20,9 @@ In this article, you learn how to:
 > * Authenticate to Azure using a Microsoft account
 > * Switch from the default Azure subscription
 
+> [!IMPORTANT]
+> When using Terraform with PowerShell, you must log in using a service principal. For information on how to authenticate to Azure using a service principal, see [Authenticate Terraform to Azure using a service principal](authenticate-script.md).
+
 ## Prerequisites
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../includes/open-source-devops-prereqs-azure-subscription.md)]
