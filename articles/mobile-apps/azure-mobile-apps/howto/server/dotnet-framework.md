@@ -8,7 +8,7 @@ ms.date: 05/05/2021
 ms.author: adhal
 ---
 
-# How to use the ASP.NET Framework backend server SDK
+# How to use the ASP.NET Framework SDK for Azure Mobile Apps
 
 This topic shows you how to use the .NET backend server SDK in key Azure App Service Mobile Apps scenarios. The Azure Mobile Apps SDK helps you work with mobile clients from your ASP.NET application.
 
@@ -23,24 +23,25 @@ You can create an ASP.NET Framework app using Visual Studio 2019.
 
 To SDK is available on [NuGet.org](https://nuget.org), and provides the base functionality required to get started using Azure Mobile Apps.  To install the package:
 
-* Right-click on the project, then select **Manage NuGet Packages...**.  
-* In the **Browse** tab, enter `Microsoft.Azure.Mobile.Server` in the search box, then press Enter.
-* Select the `Microsoft.Azure.Mobile.Server.Quickstart` package.
-* Click **Install**.
-* Follow the prompts to complete installation.
+1. Right-click on the project, then select **Manage NuGet Packages...**.  
+1. In the **Browse** tab, enter `Microsoft.Azure.Mobile.Server` in the search box, then press Enter.
+1. Select the `Microsoft.Azure.Mobile.Server.Quickstart` package.
+1. Click **Install**.
+1. Follow the prompts to complete installation.
 
 Repeat the process to install `Microsoft.Owin.Host.SystemWeb` as well.
 
-> **NOTE** Do not update the packages that are used as dependencies, such as Newtonsoft.JSON or System.IdentityModel.Jwt.  The APIs of these packages have, in many cases, changed and are now incompatible with Azure Mobile Apps for ASP.NET Framework.
+> [!NOTE] 
+> Do not update the packages that are used as dependencies, such as `Newtonsoft.JSON` or `System.IdentityModel.Jwt`.  The APIs of these packages have, in many cases, changed and are now incompatible with Azure Mobile Apps for ASP.NET Framework.
 
 ### Initialize the server project
 
 An Azure Mobile Apps server project is initialized similar to other ASP.NET Framework projects; by including an OWIN Startup class.  To add an OWIN Startup class:
 
-* Right-click on the project, then select **Add** > **New Item**
-* Select **Web** > **General**, then select the **OWIN Startup class** template.
-* Enter the name `Startup.cs` as the startup name.
-* The contents of the `Startup.cs` file should be similar to the following code:
+1. Right-click on the project, then select **Add** > **New Item**
+1. Select **Web** > **General**, then select the **OWIN Startup class** template.
+1. Enter the name `Startup.cs` as the startup name.
+1. The contents of the `Startup.cs` file should be similar to the following code:
 
     ``` csharp
     using Microsoft.Azure.Mobile.Server.Config;
@@ -126,16 +127,16 @@ This section shows you how to publish your .NET backend project from Visual Stud
 1. In Visual Studio, rebuild the project to restore NuGet packages.
 1. In Solution Explorer, right-click the project, click **Publish**.
 1. If you have not published this project before, you will configure publishing.
-  a. Select **Azure** for the target.
-  b. Select **Azure App Service (Windows) for the specific target.**
-  c. Select the app service instance you wish to deploy to.  If you don't have one, use the **+** to create one.
-  d. Click **Finish**.
-1. If you have not linked a SQL database before, click **Configure** next to the SQL Database.
-  a. Select **Azure SQL Database**
-  b. Select your database.  If you don't have one or wish to use a different one, click the **+** to create a new database and server.
-  c. Enter `MS_TableConnectionString` as the Database connection string name.  Fill in the username and password in the boxes provided.
-  d. Click **Finish**
-1. Click **Publish**
+    * Select **Azure** for the target.
+    * Select **Azure App Service (Windows) for the specific target.**
+    * Select the app service instance you wish to deploy to.  If you don't have one, use the **+** to create one.
+    * Click **Finish**.
+2. If you have not linked a SQL database before, click **Configure** next to the SQL Database.
+    * Select **Azure SQL Database**
+    * Select your database.  If you don't have one or wish to use a different one, click the **+** to create a new database and server.
+    * Enter `MS_TableConnectionString` as the Database connection string name.  Fill in the username and password in the boxes provided.
+    * Click **Finish**
+3. Click **Publish**
 
 It takes some time to publish to Azure.  For more information, see [the Visual Studio documentation](https://docs.microsoft.com/visualstudio/deployment/quickstart-deploy-to-azure).
 
@@ -144,8 +145,8 @@ It takes some time to publish to Azure.  For more information, see [the Visual S
 Define a Table Controller to expose a SQL table to mobile clients.  Configuring a Table Controller requires three steps:
 
 1. Create a Data Transfer Object (DTO) class.
-2. Configure a table reference in the Mobile DbContext class.
-3. Create a table controller.
+1. Configure a table reference in the Mobile DbContext class.
+1. Create a table controller.
 
 A Data Transfer Object (DTO) is a plain C# object that inherits from `EntityData`.  For example:
 
@@ -182,10 +183,10 @@ public class MobileServiceContext : DbContext
 
 Finally, create a new controller:
 
-* Right-click on the `Controllers` folder.
-* Select **Web API** > **Web API 2 Controller - Empty**
-* Enter a name for the controller.
-* Replace the contents of the new controller with the following code:
+1. Right-click on the `Controllers` folder.
+1. Select **Web API** > **Web API 2 Controller - Empty**
+1. Enter a name for the controller.
+1. Replace the contents of the new controller with the following code:
 
     ``` csharp
     public class TodoItemController : TableController<TodoItem>
@@ -265,23 +266,23 @@ Azure Mobile Apps uses App Service Authentication / Authorization to secure your
 * [Retrieve authenticated user information](#user-info)
 * [Restrict data access for authorized users](#authorize)
 
-### <a id="add-auth"/>Add authentication to a server project
+### <a id="add-auth"></a>Add authentication to a server project
 
 You can add authentication to your server project by extending the **MobileAppConfiguration** object and configuring OWIN middleware.
 
 1. In Visual Studio, install the [Microsoft.Azure.Mobile.Server.Authentication] package.
-2. In the `Startup.cs` project file, add the following line of code at the beginning of the **Configuration** method:
+1. In the `Startup.cs` project file, add the following line of code at the beginning of the **Configuration** method:
 
     ``` csharp
     app.UseAppServiceAuthentication(config);
     ```
 
     This OWIN middleware component validates tokens issued by the associated App Service gateway.
-3. Add the `[Authorize]` attribute to any controller or method that requires authentication.
+1. Add the `[Authorize]` attribute to any controller or method that requires authentication.
 
-### <a id="custom-auth"/>Use custom authentication for your application
+### <a id="custom-auth"></a>Use custom authentication for your application
 
-> **IMPORTANT**
+> [!IMPORTANT]
 > In order to enable custom authentication, you must first enable App Service Authentication without selecting a provider for your App Service in the Azure portal. This will enable the `WEBSITE_AUTH_SIGNING_KEY` environment variable when hosted.
 >
 > If you do not wish to use one of the App Service Authentication/Authorization providers, you can implement your own login system. Install the [Microsoft.Azure.Mobile.Server.Login] package to assist with authentication token generation.  Provide your own code for validating user credentials. For example, you might check against salted and hashed passwords in a database. In the example below, the `isValidAssertion()` method (defined elsewhere) is responsible for these checks.
@@ -337,7 +338,7 @@ config.Routes.MapHttpRoute("custom", ".auth/login/custom", new { controller = "C
 > [!TIP]
 > Using the `loginAsync()` approach ensures that the authentication token is attached to every subsequent call to the service.
 
-### <a id="user-info"/>Retrieve authenticated user information
+### <a id="user-info"></a>Retrieve authenticated user information
 
 When a user is authenticated by App Service, you can access the assigned user ID and other information in your .NET backend code. The user information can be used for making authorization decisions in the backend. The following code obtains the user ID associated with a request:
 
@@ -377,7 +378,7 @@ if (credentials.Provider == "Facebook")
 
 Add a using statement for `System.Security.Principal` to provide the **GetAppServiceIdentityAsync** extension method.
 
-### <a id="authorize"/>Restrict data access for authorized users
+### <a id="authorize"></a>Restrict data access for authorized users
 
 In the previous section, we showed how to retrieve the user ID of an authenticated user. You can restrict access to data and other resources based on this value. For example, adding a userId column to tables and filtering the query results by the user ID is a simple way to limit returned data only to authorized users. The following code returns data rows only when the SID matches the value in the UserId column on the TodoItem table:
 
@@ -424,7 +425,7 @@ To enable diagnostics and write to the logs:
 1. Republish your server project, and access the Azure Mobile Apps backend to execute the code path with the logging.
 1. Download and evaluate the logs, as described in [Access log files](https://docs.microsoft.com/azure/app-service/troubleshoot-dotnet-visual-studio#webserverlogs).
 
-### <a id="local-debug"/>Local debugging with authentication
+### <a id="local-debug"></a>Local debugging with authentication
 
 You can run your application locally to test changes before publishing them to the cloud. For most Azure Mobile Apps backends, press *F5* while in Visual Studio. However, there are some extra considerations when using authentication.
 
@@ -447,9 +448,9 @@ In the preceding example, you should configure the *authAudience* and *authIssue
 To obtain the signing key:
 
 1. Navigate to your app within the [Azure portal](https://portal.azure.com)
-2. Click **Tools** > **Kudu** > **Go**.
-3. In the Kudu Management site, click **Environment**.
-4. Find the value for `WEBSITE_AUTH_SIGNING_KEY`.
+1. Click **Tools** > **Kudu** > **Go**.
+1. In the Kudu Management site, click **Environment**.
+1. Find the value for `WEBSITE_AUTH_SIGNING_KEY`.
 
 Use the signing key for the *authSigningKey* parameter in your local application config.  Your mobile backend is now equipped to validate tokens when running locally, which the client obtains the token from the cloud-based endpoint.
 

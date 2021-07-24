@@ -8,7 +8,7 @@ ms.date: 05/05/2021
 ms.author: adhal
 ---
 
-# Create a Windows (WPF) app
+# Build a Windows (WPF) app with Azure Mobile Apps
 
 This tutorial shows you how to add a cloud-based backend service to a Windows Presentation Framework (WPF) desktop app by using Azure Mobile Apps and an Azure mobile app backend.  You will create both a new mobile app backend and a simple *Todo list* app that stores app data in Azure.
 
@@ -27,11 +27,11 @@ This tutorial can only be completed on a Windows system.
 
 ## Download the Windows (WPF) quickstart project
 
-The WPF quickstart project is located in the `samples/wpf` folder of the [azure/azure-mobile-apps](https://github.com/azure/azure-mobile-apps) GitHub repository.  You can [download the repository as a ZIP file](https://github.com/Azure/azure-mobile-apps/archive/master.zip), then unpack it.  The files will be created in the `azure-mobile-apps-master` folder.
+The WPF quickstart project is located in the `samples/wpf` folder of the [azure/azure-mobile-apps](https://github.com/azure/azure-mobile-apps) GitHub repository.  You can [download the repository as a ZIP file](https://github.com/Azure/azure-mobile-apps/archive/main.zip), then unpack it.  The files will be created in the `azure-mobile-apps-main` folder.
 
 Once downloaded, open a Terminal and change directory to the location of the files.
 
-[!INCLUDE (../../includes/quickstart-deploy-backend.md)]
+[!INCLUDE [deploy-backend](../../includes/quickstart-deploy-backend.md)]
 
 ## Configure the WPF quickstart project
 

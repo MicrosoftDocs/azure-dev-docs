@@ -3,6 +3,7 @@ ms.topic: include
 ms.date: 05/05/2021
 author: adrianhall
 ms.author: adhal
+ms.prod: azure-mobile-apps
 ---
 
 > **Deleting the resources**

@@ -8,7 +8,7 @@ ms.date: 05/05/2021
 ms.author: adhal
 ---
 
-# Create an Apache Cordova app
+# Build an Apache Cordova app with Azure Mobile Apps
 
 This tutorial shows you how to add a cloud-based backend service to an Apache Cordova cross-platform app by using Azure Mobile Apps and an Azure mobile app backend.  You'll create both a new mobile app backend and a simple *Todo list* app that stores app data in Azure.
 
@@ -19,29 +19,32 @@ Complete this tutorial before continuing with other Apache Cordova tutorials abo
 To complete this tutorial, you need:
 
 * [A working Apache Cordova 8.1.2 installation](https://cordova.apache.org/docs/en/latest/).
-* A text editor (such as [Visual Studio Code](https://visualstudio.com/code)).
+* A text editor (such as [Visual Studio Code](https://code.visualstudio.com/)).
 * An [Azure account](https://azure.microsoft.com/pricing/free-trial).
 * The [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
   * [Log into your Azure account](https://docs.microsoft.com/cli/azure/authenticate-azure-cli) and [select a subscription](https://docs.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli) using the Azure CLI.
 
-> **Apache Cordova 8.1.2 or earlier required**
-> Apache Cordova released an incompatible change to the tool in v9.0.0.  If you have Apache Cordova v9.0.0 or later installed, the plugin won't work, complaining of a dependency problem with the `q` module.
-
-> **Visual Studio Code**
-> There is an [Apache Cordova extension](https://marketplace.visualstudio.com/items?itemName=Msjsdiag.cordova-tools) for Visual Studio Code that allows you to run the application with debugging.  Visual Studio Code is highly recommended for Apache Cordova development.
-
 This tutorial can be completed on either Windows or Mac systems.  The iOS version of the app can only be run on a Mac.  This tutorial uses Windows (with the app running on Android) only.
 
-> **Gradle**
-> The most common error when configuring Apache Cordova on Windows is the Gradle requirement.  This is installed by default using Android Studio but is not available for normal usage.  Download and unpack the [latest release](https://gradle.org/releases/), then add the `bin` directory to your PATH manually.
+### Apache Cordova 8.1.2 or earlier required
+
+Apache Cordova released an incompatible change to the tool in v9.0.0.  If you have Apache Cordova v9.0.0 or later installed, the plugin won't work, complaining of a dependency problem with the `q` module.
+
+### Visual Studio Code
+
+There is an [Apache Cordova extension](https://marketplace.visualstudio.com/items?itemName=Msjsdiag.cordova-tools) for Visual Studio Code that allows you to run the application with debugging.  Visual Studio Code is highly recommended for Apache Cordova development.
+
+### Install Gradle
+
+The most common error when configuring Apache Cordova on Windows is the installing Gradle.  This is installed by default using Android Studio but is not available for normal usage.  Download and unpack the [latest release](https://gradle.org/releases/), then add the `bin` directory to your PATH manually.
 
 ## Download the Apache Cordova quickstart project
 
-The Apache Cordova quickstart project is located in the `samples/cordova` folder of the [azure/azure-mobile-apps](https://github.com/azure/azure-mobile-apps) GitHub repository.  You can [download the repository as a ZIP file](https://github.com/Azure/azure-mobile-apps/archive/master.zip), then unpack it.  The files will be created in the `azure-mobile-apps-master` folder.
+The Apache Cordova quickstart project is located in the `samples/cordova` folder of the [azure/azure-mobile-apps](https://github.com/azure/azure-mobile-apps) GitHub repository.  You can [download the repository as a ZIP file](https://github.com/Azure/azure-mobile-apps/archive/main.zip), then unpack it.  The files will be created in the `azure-mobile-apps-main` folder.
 
 Once downloaded, open a Terminal and change directory to the location of the files.  
 
-[!INCLUDE (../../includes/quickstart-deploy-backend.md)]
+[!INCLUDE [deploy-backend](../../includes/quickstart-deploy-backend.md)]
 
 ## Configure the Apache Cordova quickstart project
 
@@ -76,26 +79,22 @@ cordova build
 
 ## Run the app
 
-> **Enable CORS Support**
-> If running from a browser (using `cordova platform add browser`), then you must enable CORS support within Azure App Service.  To do this, run the following command:
->
-> ```bash
-> az webapp cors add -g zumo-quickstart --name ZUMOAPPNAME --allowed-origins "*"
-> ```
->
-> Replace the `ZUMPAPPNAME` with the name of your Azure App Service mobile backend.
+If running from a browser (using `cordova platform add browser`), then you must enable CORS support within Azure App Service.  To do this, run the following command:
 
-Run the following command:
+```bash
+az webapp cors add -g zumo-quickstart --name ZUMOAPPNAME --allowed-origins "*"
+```
+
+Replace the `ZUMPAPPNAME` with the name of your Azure App Service mobile backend.  Once the backend is configured, run the following command:
 
 ``` bash
 cordova run android
 ```
 
-> **What to do if the emulator does not start?**
->
-> On Windows, this is a common problem.  Start Android Studio, then select **Configure** > **AVD Manager**.  This will allow you to start the device manually.  If you run `adb devices -l`, you should see your selected emulated device.  This allows you to run `cordova run android` successfully.
-
 Once the initial startup is complete, you can add and delete items from the list.  Todo items are stored in the Azure SQL instance connected to your Azure Mobile Apps backend.
+
+If the emulator does not automatically start, otart Android Studio, then select **Configure** > **AVD Manager**.  This will allow you to start the device manually.  If you run `adb devices -l`, you should see your selected emulated device.  This allows you to run `cordova run android` successfully.
+
 
 ![Apache Cordova App](../../media/cordova-android-startup.png)
 

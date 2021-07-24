@@ -1,5 +1,5 @@
 ---
-title: Add Authentication to your Xamarin.Android app
+title: Add authentication to your Xamarin.Android app
 description: Add authentication to your Xamarin.Android app using Azure Mobile Apps with our tutorial.
 author: adrianhall
 ms.service: mobile-services
@@ -8,11 +8,11 @@ ms.date: 05/05/2021
 ms.author: adhal
 ---
 
-# Add Authentication to your Xamarin.Android app
+# Add authentication to your Xamarin.Android app
 
 In this tutorial, add Microsoft authentication to your app using Azure Active Directory. Before completing this tutorial, ensure you've [created the project](./index.md) and [enabled offline sync](./offline.md).
 
-[!INCLUDE (../../includes/quickstart-configure-auth.md)]
+[!INCLUDE [configure-auth](../../includes/quickstart-configure-auth.md)]
 
 ## Test that authentication is being requested
 
@@ -99,7 +99,7 @@ You can now run the Android app in the emulator.  It will prompt you for a Micro
 
 From the **Run** menu, press **Run app** to start the app.  You'll be prompted for a Microsoft account.  When you're signed in, the app should run as before without errors.
 
-[!INCLUDE (../../includes/quickstart-clean-up.md)]
+[!INCLUDE [clean-up](../../includes/quickstart-clean-up.md)]
 
 ## Next steps
 

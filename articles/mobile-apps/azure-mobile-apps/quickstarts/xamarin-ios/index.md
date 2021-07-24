@@ -8,7 +8,7 @@ ms.date: 05/05/2021
 ms.author: adhal
 ---
 
-# Create a Xamarin.iOS app
+# Build a Xamarin.iOS app with Azure Mobile Apps
 
 This tutorial shows you how to add a cloud-based backend service to an iOS mobile app by using Xamarin.iOS and an Azure mobile apps backend.  You will create both a new mobile app backend and a simple *Todo list* app that stores app data in Azure.
 
@@ -34,11 +34,11 @@ You can complete this tutorial on Mac or Windows, but you must have a Mac availa
 
 ## Download the Xamarin.iOS quickstart project
 
-The Xamarin.iOS quickstart project is located in the `samples/xamarin-ios` folder of the [azure/azure-mobile-apps](https://github.com/azure/azure-mobile-apps) GitHub repository.  You can [download the repository as a ZIP file](https://github.com/Azure/azure-mobile-apps/archive/master.zip), then unpack it.  The files will be created in the `azure-mobile-apps-master` folder.
+The Xamarin.iOS quickstart project is located in the `samples/xamarin-ios` folder of the [azure/azure-mobile-apps](https://github.com/azure/azure-mobile-apps) GitHub repository.  You can [download the repository as a ZIP file](https://github.com/Azure/azure-mobile-apps/archive/main.zip), then unpack it.  The files will be created in the `azure-mobile-apps-main` folder.
 
 Once downloaded, open a Terminal and change directory to the location of the files.
 
-{!quickstarts/includes/quickstart-deploy-backend.md!}
+[!INCLUDE [deploy-backend](../../includes/quickstart-deploy-backend.md)]
 
 ## Configure the Xamarin.iOS quickstart project
 
@@ -64,7 +64,8 @@ Save the file.
 
 ## Run the iOS app
 
-> **NOTE**: If you are running Visual Studio on Windows, you **MUST** follow the guide to [Pair to Mac](https://docs.microsoft.com/xamarin/ios/get-started/installation/windows/connecting-to-mac/).  You will receive errors when compiling or running iOS applications without a paired Mac.
+> [!NOTE] 
+> If you are running Visual Studio on Windows, you **MUST** follow the guide to [Pair to Mac](https://docs.microsoft.com/xamarin/ios/get-started/installation/windows/connecting-to-mac/).  You will receive errors when compiling or running iOS applications without a paired Mac.
 
 The "start" button in the top ribbon may show an iOS device.  Ensure that the _iPhoneSimulator_ configuration is selected:
 

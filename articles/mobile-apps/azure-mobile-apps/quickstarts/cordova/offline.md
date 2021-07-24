@@ -1,5 +1,5 @@
 ---
-title: Add Offline Data Sync to your Apache Cordova App
+title: Add offline data sync to your Apache Cordova app
 description: Add offline data sync to your Apache Cordova app using Azure Mobile Apps with our tutorial.
 author: adrianhall
 ms.service: mobile-services
@@ -8,7 +8,7 @@ ms.date: 05/05/2021
 ms.author: adhal
 ---
 
-# Add Offline Sync to your Apache Cordova app
+# Add offline data sync to your Apache Cordova app
 
 This tutorial covers the offline sync feature of Azure Mobile Apps for the Apache Cordova quickstart app. Offline sync allows end users to interact with a mobile app&mdash;viewing, adding, or modifying data&mdash;even when there is no network connection. Changes are stored in a local database. Once the device is back online, these changes are synced with the remote backend.
 
@@ -20,7 +20,7 @@ To learn more about the offline sync feature, see the topic [Offline Data Sync i
 
 In online operation, you use `getTable()` to get a reference to the online table.  When implementing offline capabilities, you use `getSyncTable()` to get a reference to the offline SQlite store.  The SQlite store is provided by the Apache Cordova [`cordova-sqlite-storage` plugin](https://www.npmjs.com/package/cordova-sqlite-storage/v/0.8.2).
 
-> **NOTE**
+> [!NOTE]
 > Offline synchronization is only available for Android and iOS.  It will not work within the browser platform specification.
 
 In the `www/js/index.js` file:
@@ -97,11 +97,9 @@ You can run the app:
 cordova run android
 ```
 
-> **Test within Visual Studio Code**
->
-> You can use the debugger within Visual Studio Code if you have the [Cordova Tools](https://marketplace.visualstudio.com/items?itemName=msjsdiag.cordova-tools) extension installed.  Click on the debugger, then create a `launch.json` file.  When prompted, select **Cordova**, then select the configurations (such as _Run Android on emulator_).
->
-> Now that you have a `launch.json`, you can run the app in the debugger.  It will launch on your emulator of choice.  However, you will now be able to see the debug output in your debug console.
+### Test within Visual Studio Code
+
+You can use the debugger within Visual Studio Code if you have the [Cordova Tools](https://marketplace.visualstudio.com/items?itemName=msjsdiag.cordova-tools) extension installed.  Click on the debugger, then create a `launch.json` file.  When prompted, select **Cordova**, then select the configurations (such as _Run Android on emulator_).  Once you have created a launch configuration, you can run the app in the debugger.  It will launch on your emulator of choice.  However, you will now be able to see the debug output in your debug console.
 
 [!INCLUDE (../../includes/quickstart-offline-testing.md)]
 

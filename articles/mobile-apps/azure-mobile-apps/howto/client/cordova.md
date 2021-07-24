@@ -81,7 +81,7 @@ Once you have a table reference, you can work further with your table:
 * [Modifying Data](#modifying)
 * [Deleting Data](#deleting)
 
-### <a id="querying"/>Query a table reference
+### <a id="querying"></a>Query a table reference
 
 Once you have a table reference, you can use it to query for data on the server.  Queries are made in a "LINQ-like" language.  To return all data from the table, use the following code:
 
@@ -117,7 +117,7 @@ when other query functions (such as `.includeTotalCount()`) are used.
 
 For more information on the Query syntax, see the [Query object documentation](https://msdn.microsoft.com/library/azure/jj613353.aspx).
 
-#### <a id="table-filter"/>Filtering data on the server
+#### <a id="table-filter"></a>Filtering data on the server
 
 You can use a `where` clause on the table reference:
 
@@ -141,7 +141,7 @@ table
     .then(success, failure);
 ```
 
-#### <a id="table-paging"/>Paging through data
+#### <a id="table-paging"></a>Paging through data
 
 Utilize the `take()` and `skip()` methods.  For example, if you wish to split the table into 100-row records:
 
@@ -170,7 +170,7 @@ The `.includeTotalCount()` method is used to add a totalCount field to the resul
 
 You can then use the pages variable and some UI buttons to provide a page list; use `loadPage()` to load the new records for each page.  Implement caching to speed access to records that have already been loaded.
 
-#### <a id="sorting-data"/>Return sorted data
+#### <a id="sorting-data"></a>Return sorted data
 
 Use the `.orderBy()` or `.orderByDescending()` query methods:
 
@@ -183,7 +183,7 @@ table
 
 For more information on the Query object, see the [Query object documentation].
 
-### <a id="inserting"/>Insert data
+### <a id="inserting"></a>Insert data
 
 Create a JavaScript object with the appropriate date and call `table.insert()` asynchronously:
 
@@ -204,7 +204,7 @@ On successful insertion, the inserted item is returned with extra fields that ar
 
 The Azure Mobile Apps Node.js Server SDK supports dynamic schema for development purposes.  Dynamic Schema allows you to add columns to the table by specifying them in an insert or update operation.  We recommend that you turn off dynamic schema before moving your application to production.
 
-### <a id="modifying"/>Modify data
+### <a id="modifying"></a>Modify data
 
 Similar to the `.insert()` method, you should create an Update object and then call `.update()`.  The update object must contain the ID of the record to be updated - the ID is obtained when reading the record or when calling `.insert()`.
 
@@ -221,7 +221,7 @@ table
     }, failure);
 ```
 
-### <a id="deleting"/>Delete data
+### <a id="deleting"></a>Delete data
 
 To delete a record, call the `.del()` method.  Pass the ID in an object reference:
 
@@ -234,7 +234,7 @@ table
 ```
 
 
-## <a id="auth"/>Authenticate users
+## <a id="auth"></a>Authenticate users
 
 Azure App Service supports authenticating and authorizing app users using various external identity providers: Facebook, Google, Microsoft Account, and Twitter. You can set permissions on tables to restrict access for specific operations to only authenticated users. You can also use the identity of authenticated users to implement authorization rules in server scripts. For more information, see the [Get started with authentication](../../quickstarts/cordova/auth.md) tutorial.
 
@@ -243,12 +243,12 @@ When using authentication in an Apache Cordova app, the following Cordova plugin
 * [cordova-plugin-device](https://www.npmjs.com/package/cordova-plugin-device)
 * [cordova-plugin-inappbrowser](https://www.npmjs.com/package/cordova-plugin-inappbrowser)
 
-> **NOTE**
+> [!NOTE]
 > Recent security changes in iOS and Android may render the server-flow authentication unavailable.  In these cases, you must use a client-flow.
 
 Two authentication flows are supported: a server flow and a client flow.  The server flow provides the simplest authentication experience, as it relies on the provider's web authentication interface. The client flow allows for deeper integration with device-specific capabilities such as single-sign-on as it relies on provider-specific device-specific SDKs.
 
-### <a id="server-auth"/>Authenticate with a provider (Server Flow)
+### <a id="server-auth"></a>Authenticate with a provider (Server Flow)
 
 To have Mobile Apps manage the authentication process in your app, you must register your app with your identity provider. Then in your Azure App Service, you need to configure the application ID and secret provided by your provider. For more information, see the tutorial [Add authentication to your app](../../quickstarts/cordova/auth.md).
 
@@ -269,7 +269,7 @@ The valid values for the provider are 'aad', 'facebook', 'google', 'microsoftacc
 
 In this case, Azure App Service manages the OAuth 2.0 authentication flow.  It displays the sign-in page of the selected provider and generates an App Service authentication token after successful sign-in with the identity provider. The login function, when complete, returns a JSON object that exposes both the user ID and App Service authentication token in the userId and authenticationToken fields, respectively. This token can be cached and reused until it expires.
 
-### <a id="client-auth"/>Authenticate with a provider (Client Flow)
+### <a id="client-auth"></a>Authenticate with a provider (Client Flow)
 
 Your app can also independently contact the identity provider and then provide the returned token to your App Service for authentication. This client flow enables you to provide a single sign-in experience for users or to retrieve extra user data from the identity provider.
 
@@ -288,7 +288,7 @@ client.login("facebook", {"access_token": token})
 ```
 This example assumes that the token provided by the respective provider SDK is stored in the token variable.  The details required by each provider are slightly different.  Consult the [Azure App Service Authentication and Authorization documentation](https://docs.microsoft.com/azure/app-service/app-service-authentication-how-to#validate-tokens-from-providers) to determine the exact form of the payload.
 
-### <a id="auth-getinfo"/>Obtain information about the authenticated user
+### <a id="auth-getinfo"></a>Obtain information about the authenticated user
 
 The authentication information can be retrieved from the `/.auth/me` endpoint using an HTTP call with any HTTP/REST library.  Ensure you set the `X-ZUMO-AUTH` header to your authentication token.  The authentication token is stored in `client.currentUser.mobileServiceAuthenticationToken`.  For example, to use the fetch API:
 
@@ -306,7 +306,7 @@ fetch(url, { headers: headers })
 
 Fetch is available as [an npm package](https://www.npmjs.com/package/isomorphic-fetch) or for browser download from [CDNJS](https://cdnjs.com/libraries/fetch).  Data is received as a JSON object.
 
-### <a id="configure-external-redirect-urls"/>Configure your Mobile App Service for external redirect URLs.
+### <a id="configure-external-redirect-urls"></a>Configure your Mobile App Service for external redirect URLs.
 
 Several types of Apache Cordova applications use a loopback capability to handle OAuth UI flows.  OAuth UI flows on localhost cause problems since the authentication service only knows how to utilize your service by default.  Examples of problematic OAuth UI flows include:
 
@@ -347,7 +347,3 @@ The settings are saved at this point.  Do not close the browser window until the
 7. Click **Save** to save the settings.
 
 It takes approximately 10-15 seconds for the new settings to take effect.
-
-## More information
-
-You can find detailed API details in our [API documentation](https://azure.github.io/azure-mobile-apps-js-client/).

@@ -1,5 +1,5 @@
 ---
-title: Add Authentication to your Windows (UWP) app
+title: Add authentication to your Windows (UWP) app
 description: Add authentication to your Windows (UWP) app using Azure Mobile Apps with our tutorial.
 author: adrianhall
 ms.service: mobile-services
@@ -8,11 +8,11 @@ ms.date: 05/05/2021
 ms.author: adhal
 ---
 
-# Add Authentication to your Windows (UWP) app
+# Add authentication to your Windows (UWP) app
 
 In this tutorial, you add Microsoft authentication to the quickstart project using Azure Active Directory. Before completing this tutorial, ensure you have [created the project](./index.md) and [enabled offline sync](./offline.md).
 
-[!INCLUDE (../../includes/quickstart-configure-auth.md)]
+[!INCLUDE [configure-auth](../../includes/quickstart-configure-auth.md)]
 
 ## Test that authentication is being requested
 
@@ -99,7 +99,7 @@ public Task AuthenticateAsync() => mClient.LoginAsync("aad", "zumoquickstart");
 
 From the **Run** menu, click **Local Machine** to start the app.  You will be prompted for a Microsoft account in a browser.  When you're signed in, the app should run as before without errors.
 
-[!INCLUDE (../../includes/quickstart-clean-up.md)]
+[!INCLUDE [clean-up](../../includes/quickstart-clean-up.md)]
 
 ## Next steps
 

@@ -8,7 +8,7 @@ ms.date: 05/05/2021
 ms.author: adhal
 ---
 
-# Create a Xamarin.Forms app
+# Build a Xamarin.Forms app with Azure Mobile Apps
 
 This tutorial shows you how to add a cloud-based backend service to a cross-platform mobile app by using Xamarin.Forms and an Azure mobile app backend.  You will create both a new mobile app backend and a simple *Todo list* app that stores app data in Azure.
 
@@ -38,11 +38,11 @@ You can complete this tutorial on Mac or Windows.  A windows system is required 
 
 ## Download the Xamarin.Forms quickstart project
 
-The Xamarin.Forms quickstart project is located in the `samples/xamarin-forms` folder of the [azure/azure-mobile-apps](https://github.com/azure/azure-mobile-apps) GitHub repository.  You can [download the repository as a ZIP file](https://github.com/Azure/azure-mobile-apps/archive/master.zip), then unpack it.  The files will be created in the `azure-mobile-apps-master` folder.
+The Xamarin.Forms quickstart project is located in the `samples/xamarin-forms` folder of the [azure/azure-mobile-apps](https://github.com/azure/azure-mobile-apps) GitHub repository.  You can [download the repository as a ZIP file](https://github.com/Azure/azure-mobile-apps/archive/main.zip), then unpack it.  The files will be created in the `azure-mobile-apps-main` folder.
 
 Once downloaded, open a Terminal and change directory to the location of the files.
 
-[!INCLUDE (../../includes/quickstart-deploy-backend.md)]
+[!INCLUDE [deploy-backend](../../includes/quickstart-deploy-backend.md)]
 
 ## Configure the Xamarin.Forms quickstart project
 
@@ -80,7 +80,8 @@ Enter some text in the **Add New Item** field, then press enter or click the add
 
 ## Run the iOS app
 
-> **NOTE**: If you are running Visual Studio on Windows, you **MUST** follow the guide to [Pair to Mac](https://docs.microsoft.com/xamarin/ios/get-started/installation/windows/connecting-to-mac/).  You'll receive errors when compiling or running iOS applications without a paired Mac.
+> [!NOTE] 
+> If you are running Visual Studio on Windows, you **MUST** follow the guide to [Pair to Mac](https://docs.microsoft.com/xamarin/ios/get-started/installation/windows/connecting-to-mac/).  You'll receive errors when compiling or running iOS applications without a paired Mac.
 
 Right-click the `ZumoQuickStart.iOS` project and select **Set as Startup Project**.  The "start" button in the top ribbon will show an iOS device.  Ensure that the _iPhoneSimulator_ configuration is selected:
 
@@ -94,7 +95,8 @@ Enter some text in the **Add New Item** field, then press enter or click the add
 
 ## Run the UWP app
 
-> **NOTE**: You must be using Visual Studio on Windows to run the UWP version of the app.
+> [!NOTE]
+> You must be using Visual Studio on Windows to run the UWP version of the app.
 
 Right-click on the `ZumoQuickStart.UWP` project and select **Set as Startup Project**.  The "start" button in the top ribbon will show.  Select the _x86_ configuration and the _Local Machine_:
 

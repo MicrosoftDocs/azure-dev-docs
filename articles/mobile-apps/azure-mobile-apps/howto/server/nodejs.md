@@ -8,7 +8,7 @@ ms.date: 05/05/2021
 ms.author: adhal
 ---
 
-# How to use the Node.js backend Server SDK
+# How to use the Node.js SDK for Azure Mobile Apps
 
 This article provides detailed information and examples that show how to work with a NodeJS backend for Azure Mobile Apps.
 
@@ -199,12 +199,12 @@ The Azure Mobile Apps Node.js SDK uses the [mssql Node.js package](https://www.n
 1. Download and install [Microsoft SQL Server 2019 Developer](https://www.microsoft.com/sql-server/sql-server-downloads).
 1. Run Configuration Manager:
 
-   a. Expand the **SQL Server Network Configuration** node in the tree menu.
-   b. Select **Protocols for _instance-name_**.
-   c. Right-click **TCP/IP** and select **Enable**. Select **OK** in the pop-up dialog box.
-   d. Select **SQL Server Services** in the tree menu.
-   e. Right-click **SQL Server (_instance-name_)** and select **Restart**.
-   f. Close Configuration Manager.
+   * Expand the **SQL Server Network Configuration** node in the tree menu.
+   * Select **Protocols for _instance-name_**.
+   * Right-click **TCP/IP** and select **Enable**. Select **OK** in the pop-up dialog box.
+   * Select **SQL Server Services** in the tree menu.
+   * Right-click **SQL Server (_instance-name_)** and select **Restart**.
+   * Close Configuration Manager.
 
 You will also have to create a username and password that Azure Mobile Apps can use to connect to the database.  Ensure the user you create has the `dbcreator` server role.  For more information on configuring users, see the [SQL Server documentation](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/create-a-database-user)
 
@@ -315,7 +315,8 @@ If the access property is undefined, unauthenticated access is allowed.
 
 You can set up various claims that are requested when authentication is set up. These claims are not normally available through the `context.user` object. However, you can retrieve them by using the `context.user.getIdentity()` method. The `getIdentity()` method returns a promise that resolves to an object. The object is keyed by the authentication method (`facebook`, `google`, `twitter`, `microsoftaccount`, or `aad`).
 
-> **Note** If using Microsoft authentication via Azure Active Directory, the authentication method is `aad`, not `microsoftaccount`.
+> [!NOTE] 
+> If using Microsoft authentication via Azure Active Directory, the authentication method is `aad`, not `microsoftaccount`.
 
 For example, if you set up Azure Active Directory authentication and request the email addresses claim, you can add the email address to the record with the following table controller:
 

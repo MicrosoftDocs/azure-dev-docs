@@ -1,5 +1,5 @@
 ---
-title: Add Authentication to your Xamarin.iOS app
+title: Add authentication to your Xamarin.iOS app
 description: Add authentication to your Xamarin.iOS app using Azure Mobile Apps with our tutorial.
 author: adrianhall
 ms.service: mobile-services
@@ -8,11 +8,11 @@ ms.date: 05/05/2021
 ms.author: adhal
 ---
 
-# Add Authentication to your Xamarin.iOS app
+# Add authentication to your Xamarin.iOS app
 
 In this tutorial, you add Microsoft authentication to the quickstart project on Xamarin.iOS using Azure Active Directory. Before completing this tutorial, ensure you've [created the project](./index.md) and [enabled offline sync](./offline.md).
 
-[!INCLUDE (../../includes/quickstart-configure-auth.md)]
+[!INCLUDE [configure-auth](../../includes/quickstart-configure-auth.md)]
 
 ## Test that authentication is being requested
 
@@ -105,7 +105,7 @@ iOS uses this information to redirect the user back to the app once they have si
 
 Press F5 to run the app.  When you're successfully signed in, the app should run as before without errors.
 
-[!INCLUDE (../../includes/quickstart-clean-up.md)]
+[!INCLUDE [clean-up](../../includes/quickstart-clean-up.md)]
 
 ## Next steps
 

@@ -1,5 +1,5 @@
 ---
-title: Add Authentication to your Apache Cordova app
+title: Add authentication to your Apache Cordova app
 description: Add authentication to your Apache Cordova app using Azure Mobile Apps with our tutorial.
 author: adrianhall
 ms.service: mobile-services
@@ -8,11 +8,11 @@ ms.date: 05/05/2021
 ms.author: adhal
 ---
 
-# Add Authentication to your Apache Cordova app
+# Add authentication to your Apache Cordova app
 
 In this tutorial, you add Microsoft authentication to the quickstart project using Azure Active Directory. Before completing this tutorial, ensure you've [created the project](./index.md) and [enabled offline sync](./offline.md).
 
-[! INCLUDE (../../includes/quickstart-configure-auth.md)]
+[!INCLUDE [portal-configure-auth](../../includes/quickstart-configure-auth.md)]
 
 ## Test that authentication is being requested
 
@@ -52,7 +52,7 @@ The content is multiple lines for readability.  Place all code on the same line.
 <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://login.microsoftonline.com https://ZUMOAPPNAME.azurewebsites.net; style-src 'self'; media-src *;">
 ```
 
-You have already replaced `ZUMOAPPNAME` with the name of your app.  For more information on the Content-Security-Policy meta tag, see the [Content-Security-Policy documentation](https://cordova.apache.org/docs/en/latest/guide/appdev/whitelist/index.html).
+You have already replaced `ZUMOAPPNAME` with the name of your app. 
 
 ## Call the authentication provider
 
@@ -79,13 +79,12 @@ Run the following command:
 cordova run android
 ```
 
-> **What to do if the emulator does not start?**
->
-> On Windows, this is a common problem.  Start Android Studio, then select **Configure** > **AVD Manager**.  This will allow you to start the device manually.  If you run `adb devices -l`, you should see your selected emulated device.  This allows you to run `cordova run android` successfully.
-
 Once the initial startup is complete, you'll be prompted to sign in with your Microsoft credentials.  Once complete, you can add and delete items from the list.  
 
-[!INCLUDE (../../includes/quickstart-clean-up.md)]
+> [!TIP]
+> If the emulator does not automatically start, open Android Studio, then select **Configure** > **AVD Manager**.  This will allow you to start the device manually.  If you run `adb devices -l`, you should see your selected emulated device.
+
+[!INCLUDE [clean-up](../../includes/quickstart-clean-up.md)]
 
 ## Next steps
 

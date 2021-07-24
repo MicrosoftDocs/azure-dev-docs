@@ -1,5 +1,5 @@
 ---
-title: Add Offline Data Sync to your Xamarin.iOS App
+title: Add offline data sync to your Xamarin.iOS app
 description: Add offline data sync to your Xamarin.iOS app using Azure Mobile Apps with our tutorial.
 author: adrianhall
 ms.service: mobile-services
@@ -8,7 +8,7 @@ ms.date: 05/05/2021
 ms.author: adhal
 ---
 
-# Add Offline Sync to your Xamarin.iOS app
+# Add offline data sync to your Xamarin.iOS app
 
 This tutorial covers the offline sync feature of Azure Mobile Apps for Xamarin.iOS. Offline sync allows end users to interact with a mobile app&mdash;viewing, adding, or modifying data&mdash;even when there is no network connection. Changes are stored in a local database. Once the device is back online, these changes are synced with the remote backend.
 
@@ -99,7 +99,7 @@ In the `TodoService.cs` class:
 
 
 
-[!INCLUDE (../../includes/quickstart-offline-testing.md)]
+[!INCLUDE [testing](../../includes/quickstart-offline-testing.md)]
 
 ## Next Steps
 

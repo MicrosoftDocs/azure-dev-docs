@@ -1,5 +1,5 @@
 ---
-title: Add Authentication to your Xamarin.Forms app
+title: Add authentication to your Xamarin.Forms app
 description: Add authentication to your Xamarin.Forms app using Azure Mobile Apps with our tutorial.
 author: adrianhall
 ms.service: mobile-services
@@ -8,11 +8,11 @@ ms.date: 05/05/2021
 ms.author: adhal
 ---
 
-# Add Authentication to your Xamarin.Forms app
+# Add authentication to your Xamarin.Forms app
 
 In this tutorial, add Microsoft authentication to your app using Azure Active Directory. Before completing this tutorial, ensure you have [created the project](./index.md) and [enabled offline sync](./offline.md).
 
-[!INCLUDE (../../includes/quickstart-configure-auth.md)]
+[!INCLUDE [configure-auth](../../includes/quickstart-configure-auth.md)]
 
 ## Test that authentication is being requested
 
@@ -211,7 +211,7 @@ You can now build and run the application.  When it runs, the sign-in process wi
 
 From the **Run** menu, press **Run app** to start the app.  You'll be prompted for a Microsoft account.  When you're signed in, the app should run as before without errors.
 
-[!INCLUDE (../../includes/quickstart-clean-up.md)]
+[!INCLUDE [clean-up](../../includes/quickstart-clean-up.md)]
 
 ## Next steps
 

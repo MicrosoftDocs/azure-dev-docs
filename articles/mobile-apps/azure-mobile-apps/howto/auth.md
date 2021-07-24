@@ -21,14 +21,14 @@ After everything is configured in App Service, you can modify mobile clients to 
 * Use an SDK that a given identity provider publishes to establish identity and then gain access to App Service.
 * Use a single line of code so that the Mobile Apps client SDK can sign in users.
 
-> **TIP**
+> [!TIP]
 > Most applications should use a provider SDK to get a more consistent experience when users sign in, to use token refresh support, and to get other benefits that the provider specifies.
 
 When you use a provider SDK, users can sign in to an experience that integrates more tightly with the operating system that the app is running on. This method also gives you a provider token and some user information on the client, which makes it much easier to consume graph APIs and customize the user experience. This method is known as the "client flow" or "client-directed flow" because code on the client signs in users.
 
 After a provider token is obtained, it needs to be sent to App Service for validation. Azure App Service validates the token. The service then creates a new token for the client. The Mobile Apps client SDK has helper methods to manage this exchange and automatically attach the token to all requests to the application back end. You can also keep a reference to the provider token.
 
-> **NOTE**
+> [!NOTE]
 > Some platforms, such as Windows (WPF), will ONLY work with a client-directed flow.  Others will work equally well with both server and client flow.  If the platform only works with client-directed flow, the quickstart guide will show this.
 
 For more information on the authentication flow, see [App Service authentication flow](https://docs.microsoft.com/azure/app-service/overview-authentication-authorization#authentication-flow).
