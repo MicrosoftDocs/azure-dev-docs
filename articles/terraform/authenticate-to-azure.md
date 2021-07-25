@@ -226,7 +226,7 @@ To log into an Azure subscription using a service principal, call [Connect-AzAcc
 
     **Option #1 : Interactive**
 
-    1. Call [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential) and enter a service principal name and password when requested:
+    Run [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential) and enter a service principal name and password when requested.
 
         ```powershell
         $spCredentials = Get-Credential
@@ -234,7 +234,7 @@ To log into an Azure subscription using a service principal, call [Connect-AzAcc
     
     **Option #2 : From script**
 
-    1. Construct a `PsCredential` object in memory. Replace the placeholders with the appropriate values for your service principal. This pattern is how you would log in from a script.
+    Construct a `PsCredential` object in memory. Replace the placeholders with the appropriate values for your service principal. This pattern is how you would log in from a script.
 
         ```powershell
         $spApplicationId = "<service_principal_application_id"
