@@ -7,17 +7,13 @@ ms.custom: devx-track-terraform
 ms.author: tarcher
 ---
 
-Automated tools that deploy or use Azure services - such as Terraform - should always have restricted permissions. Instead of having applications log in as a fully privileged user, Azure offers service principals. But, what if you don't have a service principal with which to log in? In that scenario, you can log in using your user credentials and then create a service principal. Once the service principal is created, you can use the service principal for future logins.
-
-The techniques illustrated in this article are how you generally authenticate from a script. For information on authenticating interactively, see [Authenticate Terraform to Azure with a Microsoft Account](authenticate-interactive.md).
-
 #### [Bash](#tab/bash)
 
 ### Create a service principal
 
-1. You first need to authenticate to an Azure subscription to create a service principal for that subscription. Therefore, if you have not already logged in to the target subscription, follow the instructions in the article, [Authenticate interactively using a Microsoft account](./authenticate-interactive.md#2-log-in-to-azure-using-a-microsoft-account).
+To log into an Azure subscription using a service principal, you first need access to a service principal. If you already have a service principal you want to use, skip to the next section.
 
-1. To log into an Azure subscription using a service principal, you first need access to a service principal. If you already have a service principal you want to use, you can skip to the next section.
+[!INCLUDE [authenticate-to-azure-interactive.md](authenticate-to-azure-interactive.md)]
 
 1. If you're creating a service principal from Git Bash, set the `MSYS_NO_PATHCONV` environment variable. (This step is not necessary if you're using Cloud Shell.)
 
@@ -112,9 +108,9 @@ provider "azurerm" {
 
 ### Create a service principal
 
-To log into an Azure subscription using a service principal, you first need access to a service principal. If you already have a service principal, you can skip this section.
+To log into an Azure subscription using a service principal, you first need access to a service principal. If you already have a service principal, skip this section.
 
-[!INCLUDE [authenticate-to-azure-interactive.md](includes/authenticate-to-azure-interactive.md)]
+[!INCLUDE [authenticate-to-azure-interactive.md](authenticate-to-azure-interactive.md)]
 
 1. Create a new service principal using [New-AzADServicePrincipal](/powershell/module/az.resources/new-azadserviceprincipal). Replace `<azure_subscription_id>` with the ID of the Azure subscription you want to use. Replace `<service_principal_name>` with the name you wish to give the principal.
 
