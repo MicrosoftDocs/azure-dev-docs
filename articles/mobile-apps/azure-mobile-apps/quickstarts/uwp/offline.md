@@ -96,6 +96,6 @@ In the `DataModel/TodoService.cs` class:
 
 [!INCLUDE [testing](~/mobile-apps/azure-mobile-apps/includes/quickstart-offline-testing.md)]
 
-## Next Steps
+## Next steps
 
 Continue on to implement [authentication](./authentication.md).

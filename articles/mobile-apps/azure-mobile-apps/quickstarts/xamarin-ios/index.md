@@ -77,6 +77,6 @@ Enter some text in the **Add New Item** field, then press enter or click the add
 
 ![Quickstart iOS](../../media/xamarin-ios-startup.png)
 
-## Next Steps
+## Next steps
 
 Continue on to implement [offline data synchronization](./offline.md).
