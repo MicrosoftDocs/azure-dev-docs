@@ -34,7 +34,7 @@ You will need the URL of the Azure Mobile Apps service. The backend URL was prov
 1. Under **Implicit grant**, enable **ID tokens**.
 1. Press **Save** at the top of the page.
 
-> **Important**
+> [!IMPORTANT]
 > The client secret value (password) is an important security credential.  Don't share the password with anyone or distribute it within a client application.
 
 ### Configure Azure App Service Authentication and Authorization
