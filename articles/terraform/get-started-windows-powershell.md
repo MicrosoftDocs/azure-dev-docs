@@ -34,7 +34,7 @@ In this article, you learn how to:
     $PSVersionTable.PSVersion
     ```
 
-1. [Install PowerShell](/powershell/scripting/install/installing-powershell-core-on-windows). This demo was tested using PowerShell 7.1.2 on Windows 10.
+1. [Install PowerShell](/powershell/scripting/install/installing-powershell-core-on-windows). This demo was tested using PowerShell 7.1.3 (x64) on Windows 10.
 
 ## 2. Install the Azure CLI
 
