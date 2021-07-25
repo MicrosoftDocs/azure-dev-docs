@@ -27,13 +27,17 @@ In this article, you learn how to:
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../includes/open-source-devops-prereqs-azure-subscription.md)]
 
-## 1. Configure your environment
+## 1. Install a terminal emulator
 
-1. Download and install a terminal emulator for Windows - such as [Git Bash](https://git-scm.com/download/win).
+There are many options on Windows to run bash commands, including Git Bash and Windows Terminal. This article has been tested using Git Bash. Download and install [Git Bash](https://git-scm.com/download/win).
 
-1. [Install the Azure CLI](/cli/azure/install-azure-cli-windows). This demo was tested using Azure CLI version 2.26.1.
+## 2. Install the Azure CLI
 
-1. [Download Terraform](https://www.terraform.io/downloads.html). This demo was tested using Terraform version 1.0.3.
+[Install the Azure CLI](/cli/azure/install-azure-cli-windows). This article was tested using Azure CLI version 2.26.1.
+
+## 3. Install Terraform for Windows
+
+1. [Download Terraform](https://www.terraform.io/downloads.html). This article was tested using Terraform version 1.0.3.
 
 1. From the download, extract the executable to a directory of your choosing (for example, `c:\terraform`).
 
@@ -47,13 +51,6 @@ In this article, you learn how to:
     terraform -version
     ```
 
-## 2. Authenticate to Azure
-
-There are several ways to authenticate to Azure depending on your needs, including the following options:
-
-- [Option #1: Authenticate interactively using a Microsoft account](authenticate-interactive.md#2-log-in-to-azure-using-a-microsoft-account)
-- [Option #2: Authenticate from script using a service principal](authenticate-script.md#2-create-a-service-principal)
-
 ## Troubleshoot Terraform on Azure
 
 [Troubleshoot common problems when using Terraform on Azure](troubleshoot.md)
@@ -61,4 +58,4 @@ There are several ways to authenticate to Azure depending on your needs, includi
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Create an Azure resource group using Terraform](create-resource-group.md)
+> [Authenticate Terraform to Azure](authenticate-to-azure.md)

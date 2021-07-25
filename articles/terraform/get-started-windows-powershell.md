@@ -21,18 +21,12 @@ In this article, you learn how to:
 > * Install the new PowerShell Az Module
 > * Install the Azure CLI
 > * Install Terraform
-> * Create an Azure service principal for authentication purposes
-> * Log in to Azure using the service principal 
-> * Set environment variables so that Terraform correctly authenticates to your Azure subscription
-> * Create a base Terraform configuration file
-> * Create and apply a Terraform execution plan
-> * Reverse an execution plan
 
 ## Prerequisites
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../includes/open-source-devops-prereqs-azure-subscription.md)]
 
-## 1. Configure your environment
+## 1. Install Azure PowerShell
 
 1. The latest PowerShell module that allows interaction with Azure resources is called the [Azure PowerShell Az module](/powershell/azure/new-azureps-module-az). When using the Azure PowerShell Az module, PowerShell 7 (or later) is the recommended version on all platforms. If you have PowerShell installed, you can verify the version by entering the following command at a PowerShell prompt.
 
@@ -42,21 +36,13 @@ In this article, you learn how to:
 
 1. [Install PowerShell](/powershell/scripting/install/installing-powershell-core-on-windows). This demo was tested using PowerShell 7.1.2 on Windows 10.
 
-1. For [Terraform to authenticate to Azure](https://www.terraform.io/docs/providers/azurerm/guides/azure_cli.html), you need to [install the Azure CLI](/cli/azure/install-azure-cli-windows). This demo was tested using Azure CLI version 2.26.1.
+## 2. Install the Azure CLI
 
-1. [Download Terraform](https://www.terraform.io/downloads.html). This demo was tested using Terraform version 1.0.3.
+For [Terraform to authenticate to Azure](https://www.terraform.io/docs/providers/azurerm/guides/azure_cli.html), you need to [install the Azure CLI](/cli/azure/install-azure-cli-windows). This demo was tested using Azure CLI version 2.26.1.
 
-1. From the download, extract the executable to a directory of your choosing (for example, `c:\terraform`).
+## 3. Download Terraform for Windows
 
-1. [Update your system's global path](https://stackoverflow.com/questions/1618280/where-can-i-set-path-to-make-exe-on-windows) to the executable.
-
-1. After setting the global path, close and reopen PowerShell.
-
-1. Verify the global path configuration with the `terraform` command.
-
-    ```powershell
-    terraform -version
-    ```
+[!INCLUDE [install-terraform-on-windows.md](../includes/install-terraform-on-windows.md)]
 
 ## 2. Authenticate to Azure
 
@@ -173,4 +159,4 @@ Setting environment variables helps Terraform use the intended Azure subscriptio
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Create an Azure resource group using Terraform](create-resource-group.md)
+> [Authenticate Terraform to Azure](authenticate-to-azure.md)

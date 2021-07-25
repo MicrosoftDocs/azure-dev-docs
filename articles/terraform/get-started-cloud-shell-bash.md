@@ -28,7 +28,7 @@ In this article, you learn how to:
 
 [!INCLUDE [open-cloud-shell.md](../includes/open-cloud-shell.md)]
 
-## 2. Authenticate to Azure
+## 2. Confirm the default Azure subscription
 
 When you log in to the Azure portal with a Microsoft account, the default Azure subscription for that account is used.
 
@@ -40,12 +40,9 @@ Run [az account show](/cli/azure/account?#az_account_show) to verify the current
 az account show
 ```
 
-If want to use the displayed default subscription, you can skip the rest of this section.
+Any changes you make via Terraform will be against the displayed Azure subscription. If that's what you want, skip the rest of this article.
 
-If you want to authenticate using either a different Microsoft account or Azure subscription, the following options can be used:
-
-- [Option #1: Authenticate interactively using a Microsoft account](authenticate-interactive.md#2-log-in-to-azure-using-a-microsoft-account)
-- [Option #2: Authenticate from script using a service principal](authenticate-script.md#2-create-a-service-principal)
+If you want to authenticate using either a different Microsoft account or Azure subscription, go to the [Next steps](#next-steps) section.
 
 ## Troubleshoot Terraform on Azure
 
@@ -54,4 +51,4 @@ If you want to authenticate using either a different Microsoft account or Azure 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Create an Azure resource group using Terraform](create-resource-group.md)
+> [Authenticate Terraform to Azure](authenticate-to-azure.md)
