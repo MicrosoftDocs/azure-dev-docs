@@ -8,6 +8,8 @@ ms.custom: devx-track-terraform
 # Customer intent: I want to authenticate to Azure.
 ---
 
+# Authenticate Terraform to Azure
+
 Terraform only supports authenticating to Azure via the Azure CLI. Azure PowerShell is not supported. Therefore, while you can use the Azure PowerShell module when doing your Terraform work, you'll first need to authenticate to Azure using the Azure CLI. The following options illustrate some typical scenarios:
 
 - Using Azure CLI to authenticate interactively
