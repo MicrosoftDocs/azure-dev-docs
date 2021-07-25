@@ -5,7 +5,7 @@ keywords: azure devops terraform cli powershell interactive authentication micro
 ms.topic: how-to
 ms.date: 07/24/2021
 ms.custom: devx-track-terraform
-# Customer intent: I want to authenticate to Azure.
+# Customer intent: I want to authenticate Terraform to Azure.
 ---
 
 # Authenticate Terraform to Azure
@@ -21,8 +21,10 @@ ms.custom: devx-track-terraform
 Terraform only supports authenticating to Azure via the Azure CLI. Authentication via Azure PowerShell is not supported. Therefore, while you can use the Azure PowerShell module when doing your Terraform work, you'll first need to authenticate to Azure using the Azure CLI.
 
 - [Authenticating interactively using Cloud Shell (with Bash or PowerShell) and ](#authenticate-to-azure-interactively)
-- [Authenticating interactively Using Windows (with Bash or PowerShell)](#authenticate-to-azure-interactively)
-- 
+- [Authenticating interactively using Windows (with Bash or PowerShell)](#authenticate-to-azure-interactively)
+- Authenticating from script with a service principal
+    1. If you don't have a service principal, [create a service principal](#create-a-service-principal).
+    1. [Authenticate to Azure using a service principal](#authenticate-to-azure-using-a-service-principal)
 
 ## Authenticate to Azure interactively
 
@@ -222,13 +224,13 @@ To log into an Azure subscription using a service principal, call [Connect-AzAcc
 
 1. Get a [PsCredential](/dotnet/api/system.management.automation.pscredential) object using one of the following techniques.
 
-1. Call [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential) and enter a service principal name and password when requested:
+    1. Call [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential) and enter a service principal name and password when requested:
 
     ```powershell
     $spCredentials = Get-Credential
     ```
 
-1. Construct a `PsCredential` object in memory. Replace the placeholders with the appropriate values for your service principal. This pattern is how you would log in from a script.
+    1. Construct a `PsCredential` object in memory. Replace the placeholders with the appropriate values for your service principal. This pattern is how you would log in from a script.
 
     ```powershell
     $spApplicationId = "<service_principal_application_id"
