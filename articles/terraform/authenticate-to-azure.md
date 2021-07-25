@@ -22,7 +22,7 @@ Terraform only supports authenticating to Azure via the Azure CLI. Authenticatio
 
 - [Authenticating interactively using Cloud Shell (with Bash or PowerShell) and ](#authenticate-to-azure-interactively)
 - [Authenticating interactively using Windows (with Bash or PowerShell)](#authenticate-to-azure-interactively)
-- Authenticating from script with a service principal
+- Authenticating interactively or from a script with a service principal:
     1. If you don't have a service principal, [create a service principal](#create-a-service-principal).
     1. [Authenticate to Azure using a service principal](#authenticate-to-azure-using-a-service-principal)
 
@@ -222,22 +222,26 @@ provider "azurerm" {
 
 To log into an Azure subscription using a service principal, call [Connect-AzAccount](/powershell/module/az.accounts/Connect-AzAccount) specifying an object of type [PsCredential](/dotnet/api/system.management.automation.pscredential).
 
-1. Get a [PsCredential](/dotnet/api/system.management.automation.pscredential) object using one of the following techniques.
+1. Get a [PsCredential](/dotnet/api/system.management.automation.pscredential) object using one of the following options:
+
+    **Option #1 : Interactive**
 
     1. Call [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential) and enter a service principal name and password when requested:
 
-    ```powershell
-    $spCredentials = Get-Credential
-    ```
+        ```powershell
+        $spCredentials = Get-Credential
+        ```
+    
+    **Option #2 : From script**
 
     1. Construct a `PsCredential` object in memory. Replace the placeholders with the appropriate values for your service principal. This pattern is how you would log in from a script.
 
-    ```powershell
-    $spApplicationId = "<service_principal_application_id"
-    $spPassword = ConvertTo-SecureString "<service_principal_password>" -AsPlainText -Force
-    $spCredentials = New-Object System.Management.Automation.PSCredential($spApplicationId , $spPassword)
-    ```
-
+        ```powershell
+        $spApplicationId = "<service_principal_application_id"
+        $spPassword = ConvertTo-SecureString "<service_principal_password>" -AsPlainText -Force
+        $spCredentials = New-Object System.Management.Automation.PSCredential($spApplicationId , $spPassword)
+        ```
+    
 1. Call `Connect-AzAccount`, passing the `PsCredential` object. Replace the `<azure_subscription_tenant_id>` placeholder with the Azure subscription tenant ID. If you don't know the tenant ID, see [How to find your Azure Active Directory tenant ID](/azure/active-directory/fundamentals/active-directory-how-to-find-tenant) for instructions.
 
     ```powershell
