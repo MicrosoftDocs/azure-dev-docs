@@ -7,13 +7,13 @@
 - name: Quickstarts
   expanded: true
   items:
-    - name: Configure Terraform in Cloud Shell with Bash
+    - name: Configure with Cloud Shell and Bash
       href: get-started-cloud-shell-bash.md
-    - name: Configure Terraform in Cloud Shell with PowerShell
+    - name: Configure with Cloud Shell and PowerShell
       href: get-started-cloud-shell-powershell.md
-    - name: Configure Terraform in Windows with Bash
+    - name: Configure with Windows and Bash
       href: get-started-windows-bash.md
-    - name: Configure Terraform in Windows with PowerShell
+    - name: Configure with Windows and PowerShell
       href: get-started-windows-powershell.md
     - name: Create an Azure resource group
       href: create-resource-group.md
