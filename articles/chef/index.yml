@@ -40,7 +40,7 @@ landingContent:
       - linkListType: download
         links:
           - text: Chef Azure DevOps Services extension
-            url: https://marketplace.visualstudio.com/items?itemName=chef-software.vsts-chef-tasks
+            url: https://marketplace.visualstudio.com/items?itemName=chef-software.chef-azdo
           - text: Habitat Azure DevOps Services Extension
             url: https://marketplace.visualstudio.com/items?itemName=chef-software.vsts-habitat-tasks
 
