@@ -225,7 +225,7 @@ Once you create a service principal, you can specify its credentials to Terrafor
     printenv | grep ^ARM*
     ```
 
-[!INCLUDE [terraform-environment-variables-notes.md](../includes/terraform-environment-variables-notes.md)]
+[!INCLUDE [terraform-environment-variables-notes.md](/includes/terraform-environment-variables-notes.md)]
 
 #### [Azure PowerShell](#tab/azure-powershell)
 
@@ -250,7 +250,7 @@ Once you create a service principal, you can specify its credentials to Terrafor
     gci env:ARM_*
     ```
 
-[!INCLUDE [terraform-environment-variables-notes.md](../includes/terraform-environment-variables-notes.md)]
+[!INCLUDE [terraform-environment-variables-notes.md](/includes/terraform-environment-variables-notes.md)]
 
 ---
 
