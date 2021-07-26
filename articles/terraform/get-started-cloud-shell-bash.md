@@ -18,7 +18,8 @@ This article presents you with the options to authenticate to Azure for use with
 In this article, you learn how to:
 > [!div class="checklist"]
 > * Configure Cloud Shell
-> * Display current Azure account[!INCLUDE [authenticate-to-azure-checklist.md](includes/authenticate-to-azure-checklist)]
+> * Display current Azure account
+abc[!INCLUDE [authenticate-to-azure-checklist.md](includes/authenticate-to-azure-checklist)]
 
 ## Prerequisites
 
