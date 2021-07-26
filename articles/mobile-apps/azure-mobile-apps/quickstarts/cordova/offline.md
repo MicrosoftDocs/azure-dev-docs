@@ -103,6 +103,6 @@ You can use the debugger within Visual Studio Code if you have the [Cordova Tool
 
 [!INCLUDE [testing](~/mobile-apps/azure-mobile-apps/includes/quickstart-offline-testing.md)]
 
-## Next Steps
+## Next steps
 
 Continue on to implement [authentication](./authentication.md).

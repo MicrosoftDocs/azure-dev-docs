@@ -98,6 +98,6 @@ If the emulator does not automatically start, open Android Studio, then select *
 
 ![Apache Cordova App](../../media/cordova-android-startup.png)
 
-## Next Steps
+## Next steps
 
 Continue on to implement [offline data synchronization](./offline.md).

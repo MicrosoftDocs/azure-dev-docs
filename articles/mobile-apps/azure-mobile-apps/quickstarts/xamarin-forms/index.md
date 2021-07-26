@@ -106,6 +106,6 @@ Press F5 to build and run the project.  If you select
 
 ![Quickstart UWP](../../media/xamarin-forms/uwp-startup.png)
 
-## Next Steps
+## Next steps
 
 Continue on to implement [offline data synchronization](./offline.md).
