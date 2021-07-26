@@ -58,6 +58,8 @@ Using a local Cosmos DB, via the [Cosmos DB emulator](/azure/cosmos-db/local-emu
 
     Accept defaults for all other values.
 
+    :::image type="content" source="../../../../media/how-to-database-graphql/azure-cosmos-db-emulator-new-container-trivia-game.png" alt-text="Screenshot of Cosmos DB Emulator, to create new container.":::
+
 1. Select **OK** to finish the local database creation process. 
 
 ## Load JSON file into local Cosmos DB emulator container
