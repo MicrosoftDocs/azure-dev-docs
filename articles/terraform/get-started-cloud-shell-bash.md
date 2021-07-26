@@ -37,19 +37,7 @@ In this article, you learn how to:
 
 ## 2. Confirm the default Azure subscription
 
-When you log in to the Azure portal with a Microsoft account, the default Azure subscription for that account is used.
-
-Terraform automatically authenticates using information from the default Azure subscription.
-
-Run [az account show](/cli/azure/account?#az_account_show) to verify the current Microsoft account and Azure subscription.
-
-```azurecli
-az account show
-```
-
-Any changes you make via Terraform will be against the displayed Azure subscription. If that's what you want, skip the rest of this article.
-
-If you want to authenticate using either a different Microsoft account or Azure subscription, go to the [Next steps](#next-steps) section.
+[!INCLUDE [confirm-default-azure-subscription-or-authenticate.md](includes/confirm-default-azure-subscription-or-authenticate.md)]
 
 ## 3. Authenticate Terraform to Azure
 

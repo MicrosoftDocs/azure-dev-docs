@@ -47,7 +47,7 @@ In this article, you learn how to:
 
 For [Terraform to authenticate to Azure](https://www.terraform.io/docs/providers/azurerm/guides/azure_cli.html), you need to [install the Azure CLI](/cli/azure/install-azure-cli-windows). This demo was tested using Azure CLI version 2.26.1.
 
-## 3. Download Terraform for Windows
+## 3. Install Terraform for Windows
 
 [!INCLUDE [install-terraform-on-windows.md](includes/install-terraform-on-windows.md)]
 
