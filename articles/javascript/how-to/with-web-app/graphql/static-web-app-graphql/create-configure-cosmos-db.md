@@ -12,7 +12,7 @@ In this article, learn how to create and configure your Cosmos DB resource to su
 
 ## Create the CosmosDB resource for Core (SQL)
 
-Use the VS Code extension, Azure Databases, to create the CosmosDB. 
+Use the VS Code extension, Azure Databases, to create the Cosmos DB. 
 
 1. In VS Code, select the Azure icon to open the Azure explorer.
 1. From the Azure explorer, select **+** in the Azure Databases section.
@@ -22,8 +22,8 @@ Use the VS Code extension, Azure Databases, to create the CosmosDB.
     |--|--|
     |Select an Azure Database Server|Core (SQL)|
     |Account name|Enter an account name, which will become part of the connection string, such as `cosmosdb-sql-YOUR-ALIAS`, replacing `YOUR-ALIAS` with your email or company alias. |
-    |Select a capacity model.|For this simple, low-use tutorial, select **Serverless** [throughput](/azure/cosmos-db/throughput-serverless)|
-    |Select a resource group for new resources.|Create a new resource group. Remember this resource group name, you'll use it again when you create the Azure Static web app.|
+    |Select a capacity model.|For this simple, low-use tutorial, select [**Serverless** throughput](/azure/cosmos-db/throughput-serverless)|
+    |Select a resource group for new resources.|Create a new resource group. Remember this resource group name, you'll use it again when you create the Azure Static Web App.|
     |Enter the name of the new resource group.|Accept the default value, which is the same as the account name you entered.| 
     |Select a location for new resources.|Select a location in your geographical area.|
 
@@ -87,14 +87,14 @@ Load the 100 trivia questions into the container.
 
 ## Copy and keep your connection string 
 
-In VS Code, for the Azure explorer, right-click your Cosmos DB resource, then select **Copy Connection String**. You'll need this to connection your Static web to your Cosmos DB resource.
+In VS Code, for the Azure explorer, right-click your Cosmos DB resource, then select **Copy Connection String**. You'll need this to connection your Static Web App to your Cosmos DB resource.
 
 ## Information you need moving forward
 
 You should have the following information before continuing:
 
-* Azure resource group name used to create your Cosmos DB resource. You'll use the same group name for your Azure Static web app
-* Cosmos DB connection string - you'll set an application setting for your Static web app's Function API to use this. 
+* Azure resource group name used to create your Cosmos DB resource. You'll use the same group name for your Azure Static Web App
+* Cosmos DB connection string - you'll set an application setting for your Static Web App, for the Function API to use. 
 
 ## Next steps
 
