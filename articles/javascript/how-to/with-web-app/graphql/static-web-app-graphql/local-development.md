@@ -18,7 +18,7 @@ Because Azure static web apps deploy from a GitHub repo and you need to be able 
 
 1. Fork the repository into your own account by selecting Fork.
 
-    :::image type="content" source="../../../../media/how-to-database-graphql/fork-github-sample-repo.png" alt-text="Partial screenshot of browser show the sample GitHub repository, with the `Fork` button highlighted.":::
+    :::image type="content" source="../../../../media/how-to-database-graphql/fork-github-sample-repo.png" alt-text="Partial screenshot of browser show the sample GitHub repository, with the `Fork` button highlighted." lightbox="../../../../media/how-to-database-graphql/fork-github-sample-repo.png":::
 
 1. In a bash terminal on your local machine, clone your fork. Replace `YOUR-ACCOUNT` with your own account name. 
 
@@ -58,7 +58,7 @@ Using a local Cosmos DB, via the [Cosmos DB emulator](/azure/cosmos-db/local-emu
 
     Accept defaults for all other values.
 
-    :::image type="content" source="../../../../media/how-to-database-graphql/azure-cosmos-db-emulator-new-container-trivia-game.png" alt-text="Screenshot of Cosmos DB Emulator, to create new container.":::
+    :::image type="content" source="../../../../media/how-to-database-graphql/azure-cosmos-db-emulator-new-container-trivia-game.png" alt-text="Screenshot of Cosmos DB Emulator, to create new container." lightbox="../../../../media/how-to-database-graphql/azure-cosmos-db-emulator-new-container-trivia-game.png":::
 
 1. Select **OK** to finish the local database creation process. 
 
@@ -69,7 +69,7 @@ Load the 100 trivia questions into the container.
 1. In the local Cosmos DB emulator, select the `trivia` database, then the `game`container, then **Items**. 
 1. Select **Upload item**, then select the folder icon in the side-panel, then select the location for the `./api/trivia.json` file, then select **Upload**. 
 
-    :::image type="content" source="../../../../media/how-to-database-graphql/upload-trivia-json-file-to-game-container.png" alt-text="Partial screenshot of browser showing the UI elements to select to upload the ./api/trivia.json file.":::
+    :::image type="content" source="../../../../media/how-to-database-graphql/upload-trivia-json-file-to-game-container.png" alt-text="Partial screenshot of browser showing the UI elements to select to upload the ./api/trivia.json file." lightbox="../../../../media/how-to-database-graphql/upload-trivia-json-file-to-game-container.png":::
 
 1. Refresh the container to see the 100 items with the modelType of `Question`.
 
@@ -101,7 +101,7 @@ Load the 100 trivia questions into the container.
 
 1. In the browser window for the emulator, `https://localhost:8081/_explorer/index.html`, copy the **Primary Connection String**
 
-    :::image type="content" source="../../../../media/how-to-database-graphql/get-connection-string-from-local-cosmos-db-emulator.png" alt-text="Partial screenshot of browser showing the local Cosmos DB emulator with the Primary Connection String highlighted.":::
+    :::image type="content" source="../../../../media/how-to-database-graphql/get-connection-string-from-local-cosmos-db-emulator.png" alt-text="Partial screenshot of browser showing the local Cosmos DB emulator with the Primary Connection String highlighted." lightbox="../../../../media/how-to-database-graphql/get-connection-string-from-local-cosmos-db-emulator.png":::
 
 1. Paste the value into the `./api/local.settings.json` file, for the `CosmosDB` property. 
     
@@ -396,7 +396,7 @@ The game selects ten random questions for you to answer. Each question is timed.
 
 1. This allows the React client to display the game results.
 
-    :::image type="content" source="../../../../media/how-to-database-graphql/web-browser-trivia-game-results.png" alt-text="Partial screenshot of browser showing the game results in the React client app.":::
+    :::image type="content" source="../../../../media/how-to-database-graphql/web-browser-trivia-game-results.png" alt-text="Partial screenshot of browser showing the game results in the React client app." lightbox="../../../../media/how-to-database-graphql/web-browser-trivia-game-results.png":::
 
 ## Viewing the data in the Cosmos DB emulator
 
@@ -408,7 +408,7 @@ The game selects ten random questions for you to answer. Each question is timed.
 
 1. Apply the filter to see the results.
 
-    :::image type="content" source="../../../../media/how-to-database-graphql/web-browser-cosmos-db-emulator-trivia-game-results.png" alt-text="Partial screenshot of browser showing the game results in the Cosmos DB emulator.":::
+    :::image type="content" source="../../../../media/how-to-database-graphql/web-browser-cosmos-db-emulator-trivia-game-results.png" alt-text="Partial screenshot of browser showing the game results in the Cosmos DB emulator." lightbox="../../../../media/how-to-database-graphql/web-browser-cosmos-db-emulator-trivia-game-results.png":::
 
 ## Translating GraphQL queries to Cosmos DB queries
 
