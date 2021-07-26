@@ -17,8 +17,9 @@ This article presents you with the options to authenticate to Azure for use with
 
 In this article, you learn how to:
 > [!div class="checklist"]
+> * Configure Cloud Shell
 > * Display current Azure account
-> * Use various methods to authenticate to Azure
+[!INCLUDE [authenticate-to-azure-checklist.md](includes/authenticate-to-azure-checklist)]
 
 ## Prerequisites
 
@@ -44,6 +45,10 @@ Any changes you make via Terraform will be against the displayed Azure subscript
 
 If you want to authenticate using either a different Microsoft account or Azure subscription, go to the [Next steps](#next-steps) section.
 
+## 3. Authenticate Terraform to Azure
+
+[!INCLUDE [authenticate-to-azure.md](includes/authenticate-to-azure.md)]
+
 ## Troubleshoot Terraform on Azure
 
 [Troubleshoot common problems when using Terraform on Azure](troubleshoot.md)
@@ -51,4 +56,4 @@ If you want to authenticate using either a different Microsoft account or Azure 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Authenticate Terraform to Azure](authenticate-to-azure.md)
+> [Create Azure resource group](create-resource-group.md)

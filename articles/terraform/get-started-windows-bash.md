@@ -21,7 +21,7 @@ In this article, you learn how to:
 > * Install Azure CLI
 > * Install Terraform
 > * Configure your environment to run Terraform on Windows
-> * Use various methods to authenticate to Azure
+[!INCLUDE [authenticate-to-azure-checklist.md](includes/authenticate-to-azure-checklist)]
 
 ## Prerequisites
 
@@ -39,6 +39,10 @@ There are many options on Windows to run bash commands, including Git Bash and W
 
 [!INCLUDE [install-terraform-on-windows.md](includes/install-terraform-on-windows.md)]
 
+## 4. Authenticate Terraform to Azure
+
+[!INCLUDE [authenticate-to-azure.md](includes/authenticate-to-azure.md)]
+
 ## Troubleshoot Terraform on Azure
 
 [Troubleshoot common problems when using Terraform on Azure](troubleshoot.md)
@@ -46,4 +50,4 @@ There are many options on Windows to run bash commands, including Git Bash and W
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Authenticate Terraform to Azure](authenticate-to-azure.md)
+> [Create Azure resource group](create-resource-group.md)

@@ -21,6 +21,7 @@ In this article, you learn how to:
 > * Install the new PowerShell Az Module
 > * Install the Azure CLI
 > * Install Terraform
+[!INCLUDE [authenticate-to-azure-checklist.md](includes/authenticate-to-azure-checklist)]
 
 ## Prerequisites
 
@@ -44,6 +45,10 @@ For [Terraform to authenticate to Azure](https://www.terraform.io/docs/providers
 
 [!INCLUDE [install-terraform-on-windows.md](includes/install-terraform-on-windows.md)]
 
+## 4. Authenticate Terraform to Azure
+
+[!INCLUDE [authenticate-to-azure.md](includes/authenticate-to-azure.md)]
+
 ## Troubleshoot Terraform on Azure
 
 [Troubleshoot common problems when using Terraform on Azure](troubleshoot.md)
@@ -51,4 +56,4 @@ For [Terraform to authenticate to Azure](https://www.terraform.io/docs/providers
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Authenticate Terraform to Azure](authenticate-to-azure.md)
+> [Create Azure resource group](create-resource-group.md)
