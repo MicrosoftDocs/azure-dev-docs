@@ -19,7 +19,13 @@ In this article, you learn how to:
 > [!div class="checklist"]
 > * Configure Cloud Shell
 > * Display current Azure account
-abc[!INCLUDE [authenticate-to-azure-checklist.md](includes/authenticate-to-azure-checklist)]
+> * Understand common Terraform and Azure authentication scenarios
+> * Authenticate via a Microsoft account from Cloud Shell (using Bash or PowerShell)
+> * Authenticate via a Microsoft account from Windows (using Bash or PowerShell)
+> * Create a service principal using the Azure CLI
+> * Create a service principal using Azure PowerShell
+> * Specify service principal credentials in environment variables
+> * Specify service principal credentials in a Terraform provider block
 
 ## Prerequisites
 

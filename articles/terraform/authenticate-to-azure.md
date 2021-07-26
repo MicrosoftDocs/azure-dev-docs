@@ -14,7 +14,13 @@ To use Terraform commands against your Azure subscription, you must first authen
 
 In this article, you learn how to:
 > [!div class="checklist"]
-[!INCLUDE [authenticate-to-azure-checklist.md](includes/authenticate-to-azure-checklist)]
+> * Understand common Terraform and Azure authentication scenarios
+> * Authenticate via a Microsoft account from Cloud Shell (using Bash or PowerShell)
+> * Authenticate via a Microsoft account from Windows (using Bash or PowerShell)
+> * Create a service principal using the Azure CLI
+> * Create a service principal using Azure PowerShell
+> * Specify service principal credentials in environment variables
+> * Specify service principal credentials in a Terraform provider block
 
 ## Prerequisites
 
@@ -24,7 +30,7 @@ In this article, you learn how to:
 
 [!INCLUDE [terraform-configuration-options.md](includes/terraform-configuration-options.md)]
 
-## 2    . Authenticate Terraform to Azure
+## 2. Authenticate Terraform to Azure
 
 [!INCLUDE [authenticate-to-azure.md](includes/authenticate-to-azure.md)]
 
