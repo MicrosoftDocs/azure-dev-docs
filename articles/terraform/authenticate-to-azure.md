@@ -3,22 +3,30 @@ title: Authenticate Terraform to Azure
 description: In this article, you learn the various options to authenticate to Azure with a Microsoft Account
 keywords: azure devops terraform cli powershell interactive authentication microsoft account subscription
 ms.topic: how-to
-ms.date: 07/24/2021
+ms.date: 07/25/2021
 ms.custom: devx-track-terraform
 # Customer intent: I want to authenticate Terraform to Azure.
 ---
 
 # Authenticate Terraform to Azure
 
- In this article, you learn how to do the following tasks:
+To use Terraform commands against your Azure subscription, you must first authenticate Terraform to that subscription. This article covers some common scenarios for authenticating to Azure.
+
+In this article, you learn how to do the following tasks:
 
 > [!div class="checklist"]
 > * Understand common Terraform and Azure authentication scenarios
-> * 
+> * Authenticate interactively from Cloud Shell using the Bash environment
+> * Authenticate interactively from Cloud Shell using the PowerShell environment
+> * Authenticate interactively from Windows using a Bash emulator
+> * Authenticate interactively from Windows using PowerShell
+> * Authenticate via a service principal (interactively or via a script)
 
 ## Terraform and Azure authentication scenarios
 
 Terraform only supports authenticating to Azure via the Azure CLI. Authentication via Azure PowerShell is not supported. Therefore, while you can use the Azure PowerShell module when doing your Terraform work, you'll first need to authenticate to Azure using the Azure CLI.
+
+This article explains how to authenticate Terraform to Azure for the following scenarios. For more information (and options) to authenticate Terraform to Azure, see [Authenticating using the Azure CLI](https://registry.terraform.io/providers/hashicorp/azuread/latest/docs/guides/azure_cli).
 
 - [Authenticating interactively using Cloud Shell (with Bash or PowerShell) and ](#authenticate-to-azure-interactively)
 - [Authenticating interactively using Windows (with Bash or PowerShell)](#authenticate-to-azure-interactively)
