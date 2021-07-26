@@ -21,7 +21,7 @@ In this article, you learn how to do the following tasks:
 > * Create a service principal using the Azure CLI
 > * Create a service principal using Azure PowerShell
 > * Specify service principal credentials in environment variables
-> * Specify service principal credentials in a Terraform code block
+> * Specify service principal credentials in a Terraform provider block
 
 ## Terraform and Azure authentication scenarios
 
@@ -248,7 +248,7 @@ Setting environment variables helps Terraform use the intended Azure subscriptio
 
 ---
 
-## Specify service principal credentials in a Terraform code block
+## Specify service principal credentials in a Terraform provider block
 
 The Azure provider block defines syntax that allows you to specify your Azure subscription's authentication information.
 
