@@ -103,44 +103,44 @@
                 href: tutorial/tutorial-vscode-azure-cli-node/tutorial-vscode-azure-cli-node-07.md
       - name: Container web apps
         items:
-          - name: "Express.js with VS Code"
-            items:
-              - name: Introduction and prerequisites
-                href: tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-01.md
-              - name: Use a container registry
-                href: tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-02.md
-              - name: Create a local Node.js app
-                href: tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-03.md
-              - name: Create the app image
-                href: tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-04.md
-              - name: Deploy the app image
-                href: tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-05.md
-              - name: Make changes and redeploy
-                href: tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-06.md
-              - name: Stream logs
-                href: tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-07.md
-              - name: Clean up resources
-                href: tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-08.md
-          - name: "Deno with Azure CLI"
-            href: tutorial/deploy-deno-app-azure-app-service-azure-cli.md
-        - name: Virtual machine web apps
+        - name: "Express.js with VS Code"
           items:
-            - name: "Deploy container with logging"
-              items:
-                - name: 1. Introduction and prerequisites
-                  href: tutorial/nodejs-virtual-machine-vm/introduction.md
-                - name: 2. Create Application Insights resource
-                  href: tutorial/nodejs-virtual-machine-vm/create-azure-monitoring-application-insights-web-resource.md
-                - name: 3. Create virtual machine
-                  href: tutorial/nodejs-virtual-machine-vm/create-linux-virtual-machine-azure-cli.md
-                - name: 4. Connect to Linux virtual machine
-                  href: tutorial/nodejs-virtual-machine-vm/connect-linux-virtual-machine-ssh.md
-                - name: 5. Add cloud logging to app
-                  href: tutorial/nodejs-virtual-machine-vm/azure-monitor-application-insights-nodejs-expressjs-code.md
-                - name: 6. View logs
-                  href: tutorial/nodejs-virtual-machine-vm/azure-monitor-application-insights-logs.md
-                - name: 7. Clean up resources
-                  href: tutorial/nodejs-virtual-machine-vm/clean-up-resources.md
+            - name: Introduction and prerequisites
+              href: tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-01.md
+            - name: Use a container registry
+              href: tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-02.md
+            - name: Create a local Node.js app
+              href: tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-03.md
+            - name: Create the app image
+              href: tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-04.md
+            - name: Deploy the app image
+              href: tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-05.md
+            - name: Make changes and redeploy
+              href: tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-06.md
+            - name: Stream logs
+              href: tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-07.md
+            - name: Clean up resources
+              href: tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-08.md
+        - name: "Deno with Azure CLI"
+          href: tutorial/deploy-deno-app-azure-app-service-azure-cli.md
+      - name: Virtual machine web apps
+        items:
+          - name: "Deploy container with logging"
+            items:
+              - name: 1. Introduction and prerequisites
+                href: tutorial/nodejs-virtual-machine-vm/introduction.md
+              - name: 2. Create Application Insights resource
+                href: tutorial/nodejs-virtual-machine-vm/create-azure-monitoring-application-insights-web-resource.md
+              - name: 3. Create virtual machine
+                href: tutorial/nodejs-virtual-machine-vm/create-linux-virtual-machine-azure-cli.md
+              - name: 4. Connect to Linux virtual machine
+                href: tutorial/nodejs-virtual-machine-vm/connect-linux-virtual-machine-ssh.md
+              - name: 5. Add cloud logging to app
+                href: tutorial/nodejs-virtual-machine-vm/azure-monitor-application-insights-nodejs-expressjs-code.md
+              - name: 6. View logs
+                href: tutorial/nodejs-virtual-machine-vm/azure-monitor-application-insights-logs.md
+              - name: 7. Clean up resources
+                href: tutorial/nodejs-virtual-machine-vm/clean-up-resources.md
   - name: Concepts
     items:
       - name: Identity, authentication, and users
