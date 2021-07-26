@@ -2,7 +2,7 @@
 title: Create and configure Cosmos DB resource
 description: Learn how to create and configure your Cosmos DB resource to support this GraphQL app.
 ms.topic: how-to
-ms.date: 07/14/2021
+ms.date: 07/26/2021
 ms.custom: devx-track-js
 ---
 

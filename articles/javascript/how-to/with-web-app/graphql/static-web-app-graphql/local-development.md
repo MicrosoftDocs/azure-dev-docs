@@ -2,7 +2,7 @@
 title: Azure static web app with GraphQL
 description: Learn how to locally build a static web app and API that uses the Apollo GraphQL client and server libraries.
 ms.topic: how-to
-ms.date: 07/14/2021
+ms.date: 07/26/2021
 ms.custom: devx-track-js
 ---
 
