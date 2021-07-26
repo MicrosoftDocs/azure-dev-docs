@@ -147,7 +147,7 @@ The most common pattern is to interactively log in to Azure, create a service pr
     
     - Replace the `<subscription_id_or_subscription_name>` placeholder with the ID or name of the subscription you want to use.
 
-1. Create a new service principal using [New-AzADServicePrincipal](/powershell/module/az.resources/new-azadserviceprincipal). Replace `<azure_subscription_id>` with the ID of the Azure subscription you want to use. Replace `<service_principal_name>` with the name you wish to give the principal.
+1. Run [New-AzADServicePrincipal](/powershell/module/az.resources/new-azadserviceprincipal) to create a new service principal.
 
     ```powershell
     $sp = New-AzADServicePrincipal -DisplayName <service_principal_name>    
