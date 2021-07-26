@@ -23,9 +23,17 @@ In this article, you learn how to do the following tasks:
 > * Specify service principal credentials in environment variables
 > * Specify service principal credentials in a Terraform provider block
 
+## Prerequisites
+
+[!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../includes/open-source-devops-prereqs-azure-subscription.md)]
+
+## Configure your environment
+
+[!INCLUDE [terraform-configuration-options.md](includes/terraform-configuration-options.md)]
+
 ## Terraform and Azure authentication scenarios
 
-Terraform only supports authenticating to Azure via the Azure CLI. Authentication via Azure PowerShell is not supported. Therefore, while you can use the Azure PowerShell module when doing your Terraform work, you'll first need to authenticate to Azure using the Azure CLI.
+Terraform only supports authenticating to Azure via the Azure CLI. Authenticating using Azure PowerShell is not supported. Therefore, while you can use the Azure PowerShell module when doing your Terraform work, you first need to authenticate to Azure using the Azure CLI.
 
 This article explains how to authenticate Terraform to Azure for the following scenarios. For more information about options to authenticate Terraform to Azure, see [Authenticating using the Azure CLI](https://registry.terraform.io/providers/hashicorp/azuread/latest/docs/guides/azure_cli).
 
@@ -37,7 +45,11 @@ This article explains how to authenticate Terraform to Azure for the following s
 
 ## Authenticate to Azure via a Microsoft account
 
-A Microsoft account is a username (associated with an email and its credentials) that is used to log in to Microsoft services - such as Azure. A Microsoft account can be associated with one or more Azure subscriptions, with one of those subscriptions being the default. The following steps show you how to log in to Azure interactively using a Microsoft account, list the account's associated Azure subscriptions (including the default), and set the current subscription.
+A Microsoft account is a username (associated with an email and its credentials) that is used to log in to Microsoft services - such as Azure. A Microsoft account can be associated with one or more Azure subscriptions, with one of those subscriptions being the default. 
+
+The following steps show you how to log in to Azure interactively using a Microsoft account, list the account's associated Azure subscriptions (including the default), and set the current subscription.
+
+1. Open a command line that has access to the Azure CLI.
 
 1. Run [az login](/cli/azure/account#az_login) without any parameters and follow the instructions to log in to Azure.
 
@@ -115,6 +127,8 @@ The most common pattern is to interactively log in to Azure, create a service pr
 
 #### [Azure PowerShell](#tab/azure-powershell)
 
+1. Open a PowerShell prompt.
+
 1. Run [Connect-AzAccount](/powershell/module/az.accounts/Connect-AzAccount).
 
     ```powershell
@@ -186,6 +200,8 @@ The most common pattern is to interactively log in to Azure, create a service pr
 
 ## Specify service principal credentials in environment variables
 
+Once you create a service principal, you can specify its credentials to Terraform via environment variables.
+
 #### [Bash](#tab/bash)
 
 1. Edit the `~/.bashrc` file by adding the following environment variables.
@@ -209,29 +225,17 @@ The most common pattern is to interactively log in to Azure, create a service pr
     printenv | grep ^ARM*
     ```
 
-**Key points**:
-
-- As with any environment variable, to access an Azure subscription value from within a Terraform script, use the following syntax: `${env.<environment_variable>}`. For example, to access the `ARM_SUBSCRIPTION_ID` value, specify `${env.ARM_SUBSCRIPTION_ID}`.
-- Creating and applying Terraform execution plans makes changes on the Azure subscription associated with the service principal. This fact can sometimes be confusing if you're logged into one Azure subscription and the environment variables point to a second Azure subscription. Let's look at the following example to explain. Let's say you have two Azure subscriptions: SubA and SubB. If the current Azure subscription is SubA (determined via `az account show`) while the environment variables point to SubB, any changes made by Terraform are on SubB. Therefore, you would need to log in to your SubB subscription to run Azure CLI commands or Azure PowerShell commands to view your changes.
+[!INCLUDE [terraform-environment-variables-notes.md](../includes/terraform-environment-variables-notes.md)]
 
 #### [Azure PowerShell](#tab/azure-powershell)
 
-Setting environment variables helps Terraform use the intended Azure subscription without you having to insert the information in every Terraform configuration file.
+1. There are two options for setting environment variables in PowerShell: globally for every PowerShell session or only for the current session.
 
-1. To set the environment variables for every PowerShell instance, create the following environment variables. Replace the placeholders with the appropriate values for your environment.
+    **Option #1 (globally)**
+    To set the environment variables for every PowerShell session, [create a PowerShell profile](/powershell/module/microsoft.powershell.core/about/about_profiles)
 
-    ```
-    ARM_CLIENT_ID = "<service_principal_app_id>"
-    ARM_SUBSCRIPTION_ID = "<azure_subscription_id>"
-    ARM_TENANT_ID = "<azure_subscription_tenant_id>"
-    ARM_CLIENT_SECRET = "<service_principal_password>"
-    ```
-
-    **Key points:**
-
-    - If you have a PowerShell session open, close the session and reopen it after creating the environment variables.
-
-1. To set the environment variables within a specific PowerShell session, use the following code. Replace the placeholders with the appropriate values for your environment.
+    **Option #2 (current session)**
+    To set the environment variables within a specific PowerShell session, use the following code. Replace the placeholders with the appropriate values for your environment.
 
     ```powershell
     $env:ARM_CLIENT_ID="<service_principal_app_id>"
@@ -240,11 +244,13 @@ Setting environment variables helps Terraform use the intended Azure subscriptio
     $env:ARM_CLIENT_SECRET="<service_principal_password>"
     ```
 
-1. To verify the environment variables, use the following PowerShell command:
+1. Run the following PowerShell command to verify the Azure environment variables:
 
     ```powershell
     gci env:ARM_*
     ```
+
+[!INCLUDE [terraform-environment-variables-notes.md](../includes/terraform-environment-variables-notes.md)]
 
 ---
 
