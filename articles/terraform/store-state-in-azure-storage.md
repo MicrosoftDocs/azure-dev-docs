@@ -110,7 +110,7 @@ resource "azurerm_storage_container" "tfstate" {
 }
 ```
 
-Save the configuration as `create-remote-stroage.tf`.
+Save the configuration as `create-remote-storage.tf`.
 
 Run the command `terraform init`, then `terraform apply` to configure the Azure storage account and container.
 

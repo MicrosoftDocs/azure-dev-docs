@@ -229,13 +229,7 @@ Once you create a service principal, you can specify its credentials to Terrafor
 
 #### [Azure PowerShell](#tab/azure-powershell)
 
-1. There are two options for setting environment variables in PowerShell: globally for every PowerShell session or only for the current session.
-
-    **Option #1 (globally)**
-    To set the environment variables for every PowerShell session, [create a PowerShell profile](/powershell/module/microsoft.powershell.core/about/about_profiles)
-
-    **Option #2 (current session)**
-    To set the environment variables within a specific PowerShell session, use the following code. Replace the placeholders with the appropriate values for your environment.
+1. To set the environment variables within a specific PowerShell session, use the following code. Replace the placeholders with the appropriate values for your environment.
 
     ```powershell
     $env:ARM_CLIENT_ID="<service_principal_app_id>"
@@ -249,6 +243,8 @@ Once you create a service principal, you can specify its credentials to Terrafor
     ```powershell
     gci env:ARM_*
     ```
+
+1. To set the environment variables for every PowerShell session, [create a PowerShell profile](/powershell/module/microsoft.powershell.core/about/about_profiles) and set the environment variables within your profile.
 
 [!INCLUDE [terraform-environment-variables-notes.md](includes/terraform-environment-variables-notes.md)]
 
