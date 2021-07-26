@@ -92,13 +92,13 @@ The following steps show you how to log in to Azure interactively using a Micros
     
 ## Create a service principal
 
-Automated tools that deploy or use Azure services - such as Terraform - should always have restricted permissions. Instead of having applications log in as a fully privileged user, Azure offers service principals. 
+Automated tools that deploy or use Azure services - such as Terraform - should always have restricted permissions. Instead of having applications log in as a fully privileged user, Azure offers service principals.
 
 The most common pattern is to interactively log in to Azure, create a service principal, test the service principal, and then use that service principal for future authentication (either interactively or from your scripts).
 
 #### [Bash](#tab/bash)
 
-1. [Log in to Azure](#authenticate-to-azure-via-a-microsoft-account).
+1. To create a service principal, log in to Azure. After [authenticating to Azure via a Microsoft account](#authenticate-to-azure-via-a-microsoft-account), return here.
 
 1. If you're creating a service principal from Git Bash, set the `MSYS_NO_PATHCONV` environment variable. (This step is not necessary if you're using Cloud Shell.)
 
