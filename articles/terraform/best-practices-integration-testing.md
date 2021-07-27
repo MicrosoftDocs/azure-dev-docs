@@ -8,7 +8,11 @@ ms.custom: devx-track-terraform
 
 # Tutorial: Configure integration tests for Terraform projects in Azure
 
-[!INCLUDE [terraform-intro.md](includes/terraform-intro.md)]
+Integration tests validate that a newly introduced code change doesn't break existing code. In DevOps, continuous integration (CI) refers to a process that builds the entire system whenever the code base is changed - such as someone wanting to merge a PR into a Git repo. The following list contains common examples of integration tests:
+
+- Static code analysis tools such as lint and format.
+- Run [terraform validate](https://www.terraform.io/docs/commands/validate.html) to verify the syntax of the configuration file.
+- Run [terraform plan](https://www.terraform.io/docs/commands/validate.html) to ensure the configuration will work as expected.
 
 In this article, you learn how to do the following tasks:
 

@@ -31,6 +31,12 @@
           href: authenticate-to-azure.md
         - name: Store Terraform state in Azure Storage
           href: store-state-in-azure-storage.md
+        - name: Integration testing
+          href: best-practices-integration-testing.md
+        - name: Compliance testing
+          href: best-practices-compliance-testing.md
+        - name: End-to-end testing
+          href: best-practices-end-to-end-testing.md
     - name: App Service
       items:
         - name: Terraform and Azure provider deployment slots
@@ -75,7 +81,7 @@
   items:
     - name: Networks
       items:
-      - name: Hub and spoke topology 
+      - name: Hub and spoke topology
         items:
           - name: 1. Create hub and spoke topology
             href: hub-spoke-introduction.md
@@ -89,16 +95,6 @@
             href: hub-spoke-spoke-network.md
           - name: 6. Validate network topology connectivity 
             href: hub-spoke-validation.md
-    - name: Testing Terraform projects
-      items:
-        - name: 1. Terraform testing overview
-          href: best-practices-testing-overview.md
-        - name: 2. Integration testing
-          href: best-practices-integration-testing.md
-        - name: 3. Compliance testing
-          href: best-practices-compliance-testing.md
-        - name: 4. End-to-end testing
-          href: best-practices-end-to-end-testing.md
 - name: Samples
   items:
     - name: Configuration templates

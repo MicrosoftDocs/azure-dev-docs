@@ -8,13 +8,14 @@ ms.custom: devx-track-terraform
 
 # Tutorial: Implement compliance testing with Terraform and Azure
 
-[!INCLUDE [terraform-intro.md](includes/terraform-intro.md)]
+Many times, compliance testing is part of the continuous integration process and is used to ensure that user-defined policies are followed. For example, you might define geopolitical naming conventions for your Azure resources. Another common example is creating virtual machines from a defined subset of images. Compliance testing would be used to enforce rules in these and many other scenarios.
 
 In this article, you learn how to do the following tasks:
 
 > [!div class="checklist"]
 > * Understand when to use compliance testing
-> * Learn how to do a compliance check
+> * Learn how to do a compliance test
+> * See and run an example compliance test
 
 ## 1. Configure your environment
 
