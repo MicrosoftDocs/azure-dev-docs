@@ -52,7 +52,7 @@ Our test should validate the following scenarios:
 
 ![Sample end-to-end test scenario](media/best-practices-end-to-end-testing/scenario.png)
 
-If you [downloaded the sample](#configure-your-environment), the Terraform configuration for this scenario can be found in the `src/main.tf` file. That file contains everything necessary to deploy the Azure infrastructure represented in the preceding figure.
+If you [downloaded the sample](#1-configure-your-environment), the Terraform configuration for this scenario can be found in the `src/main.tf` file. That file contains everything necessary to deploy the Azure infrastructure represented in the preceding figure.
 
 If you're unfamiliar with how to create virtual machines, see [Create a Linux VM with infrastructure in Azure using Terraform](create-linux-virtual-machine-with-infrastructure.md).
 
@@ -61,7 +61,7 @@ If you're unfamiliar with how to create virtual machines, see [Create a Linux VM
 
 ## 3. Understand the test example
 
-The end-to-end test is written in the Go language and uses the Terratest framework. If you [downloaded the sample](#configure-your-environment), it's defined in the `src/test/end2end_test.go` file.
+The end-to-end test is written in the Go language and uses the Terratest framework. If you [downloaded the sample](#1-configure-your-environment), it's defined in the `src/test/end2end_test.go` file.
 
 The following source code shows the standard structure of a Golang test using Terratest:
 
