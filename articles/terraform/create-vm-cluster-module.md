@@ -3,7 +3,7 @@ title: Configure an Azure VM cluster using Terraform
 description: Learn how to use Terraform modules to create a Windows virtual machine cluster in Azure.
 keywords: azure devops terraform vm virtual machine cluster module registry
 ms.topic: how-to
-ms.date: 09/27/2020
+ms.date: 07/27/2021
 ms.custom: devx-track-terraform
 ---
 
@@ -11,11 +11,12 @@ ms.custom: devx-track-terraform
 
 This article shows example Terraform code for creating a VM cluster on Azure.
 
-## Prerequisites
+## Configure your environment
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../includes/open-source-devops-prereqs-azure-subscription.md)]
+- *Policy Signing Certificate*: a file specifying a set of trusted signing keys in the form of a *.pem file.
 
-[!INCLUDE [terraform-configure-environment.md](includes/terraform-configure-environment.md)]
+[!INCLUDE [terraform-configure-options.md](includes/terraform-configure-options.md)]
 
 ## Configure an Azure VM cluster
 

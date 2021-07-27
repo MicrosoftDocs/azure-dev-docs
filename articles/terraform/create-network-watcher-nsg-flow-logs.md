@@ -3,7 +3,7 @@ title: Configure Azure Network Watcher using Terraform for use with traffic anal
 description: Learn how to use Terraform to configure a Network Watcher and NSG flow logs in Azure.
 keywords: azure devops terraform network watcher traffic analytics nsg
 ms.topic: how-to
-ms.date: 11/18/2020
+ms.date: 07/27/2021
 ms.custom: devx-track-terraform
 ---
 
@@ -11,11 +11,12 @@ ms.custom: devx-track-terraform
 
 This article shows example Terraform code for setting up [Network Watcher](/azure/network-watcher/network-watcher-monitoring-overview) on Azure to monitor the network health for a Network Security Group.
 
-## Prerequisites
+## Configure your environment
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../includes/open-source-devops-prereqs-azure-subscription.md)]
+- *Policy Signing Certificate*: a file specifying a set of trusted signing keys in the form of a *.pem file.
 
-[!INCLUDE [terraform-configure-environment.md](includes/terraform-configure-environment.md)]
+[!INCLUDE [terraform-configure-options.md](includes/terraform-configure-options.md)]
 
 ## Configure an Azure Network Watcher, flow logs and networking pre-requisites 
 
