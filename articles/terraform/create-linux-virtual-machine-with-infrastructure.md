@@ -33,7 +33,7 @@ In this article, you learn how to:
 
 1. Create your main Terraform configuration file. By convention, the name of this file is `main.tf`. However, you can specify any valid name for your environment.
 
-1. Insert the following code:
+1. Insert the following code into the main Terraform configuration file.
 
     > [!IMPORTANT]
     > The SSH public key file is specified in the `admin_ssh_key` block. If your SSH public key filename is different or in a different location, update the `public_key` value accordingly.
