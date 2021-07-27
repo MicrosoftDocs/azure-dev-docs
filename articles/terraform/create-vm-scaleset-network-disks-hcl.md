@@ -486,7 +486,7 @@ An SSH *jumpbox* is a single server that you "jump" through to access other serv
    terraform apply
    ```
 
-**Key points**:
+**Key points:**
 
 - The ability to log in with a password is disabled on the jumpbox and the virtual machine scale set that you deployed. Log in with SSH to access the virtual machine(s).
 

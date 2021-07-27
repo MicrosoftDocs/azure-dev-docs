@@ -31,7 +31,7 @@ resource "azurerm_resource_group" "rg" {
 
 ```
 
-**Key points**:
+**Key points:**
 
 - While the `version` attribute is optional, HashiCorp recommends pinning to a given version of the provider. 
 - If you're using Azure provider 1.x, the `features` block isn't allowed.

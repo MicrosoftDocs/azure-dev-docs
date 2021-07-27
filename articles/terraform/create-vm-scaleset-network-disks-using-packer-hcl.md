@@ -422,7 +422,7 @@ Deploy the jumpbox.
 terraform apply 
 ```
 
-**Key points**:
+**Key points:**
 
 - Log in with a password is disabled on the jumpbox and the virtual machine scale set that you deployed. Log in with SSH to access the VMs.
 

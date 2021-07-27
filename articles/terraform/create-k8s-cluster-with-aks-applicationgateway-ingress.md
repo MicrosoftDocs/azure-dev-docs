@@ -745,7 +745,8 @@ helm repo update
     - `armAuth.identityClientId`: The Client ID of the Identity.
     - `armAuth.secretJSON`: Only needed when Service Principal Secret type is chosen (when `armAuth.type` has been set to `servicePrincipal`).
 
-    Key notes:
+    **Key points:**
+
     - The `identityResourceID`  value is created in the terraform script and can be found by running: `echo "$(terraform output identity_resource_id)"`.
     - The `identityClientID` value is created in the terraform script and can be found by running: `echo "$(terraform output identity_client_id)"`.
     - The `<resource-group>` value is the resource group of your App Gateway.

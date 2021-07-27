@@ -49,7 +49,7 @@ The following steps show you how to log in to Azure interactively using a Micros
     az account list --query "[?user.name=='<microsoft_account_email>'].{Name:name, ID:id, Default:isDefault}" --output Table
     ```
 
-    **Key points**:
+    **Key points:**
 
     - Replace the `<microsoft_account_email>` placeholder with the Microsoft account email address whose Azure subscriptions you want to list.
     - With a Live account - such as a hotmail or outlook - you might need to specify the fully qualified email address. For example, if your email address is `admin@hotmail.com`, you might need to replace the placeholder with `live.com#admin@hotmail.com`.
@@ -60,7 +60,7 @@ The following steps show you how to log in to Azure interactively using a Micros
     az account set --subscription "<subscription_id_or_subscription_name>"
     ```
     
-    **Key points**:
+    **Key points:**
     
     - Replace the `<subscription_id_or_subscription_name>` placeholder with the ID or name of the subscription you want to use.
     - Calling `az account set` doesn't display the results of switching to the specified Azure subscription. However, you can use `az account show` to confirm that the current Azure subscription has changed.
@@ -134,7 +134,7 @@ The most common pattern is to interactively log in to Azure, create a service pr
     Set-AzContext -Subscription "<subscription_id_or_subscription_name>"
     ```
     
-    **Key points**:
+    **Key points:**
     
     - Replace the `<subscription_id_or_subscription_name>` placeholder with the ID or name of the subscription you want to use.
 
@@ -167,7 +167,7 @@ The most common pattern is to interactively log in to Azure, create a service pr
     $UnsecureSecret
     ```
 
-    **Key points**:
+    **Key points:**
     
     - Make note of the password as it's needed to use the service principal.
     - The password can't be retrieved if lost. As such, you should store your password in a safe place. If you forget your password, you'll need to [reset the service principal credentials](/powershell/azure/create-azure-service-principal-azureps#reset-credentials).

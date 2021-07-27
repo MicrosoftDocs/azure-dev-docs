@@ -154,7 +154,7 @@ Terraform prevents sensitive information from being displayed within the termina
 
 ---
 
-**Key points**:
+**Key points:**
 * To further protect the Azure Storage account access key, store it in Azure Key Vault. The environment variable can then be set by using a command similar to the following. For more information on Azure Key Vault, see the [Azure Key Vault documentation](/azure/key-vault/secrets/quick-create-cli).
 
     ```bash
