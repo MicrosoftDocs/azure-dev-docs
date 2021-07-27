@@ -28,11 +28,11 @@ In this article, you learn how to do the following tasks:
 
 [!INCLUDE [configure-terraform.md](includes/configure-terraform.md)]
 
-- **Azure resource group**: If you don't have an Azure resource group to use for the demo, [create an Azure resource group](create-resource-groups.md). Take note of the resource group name and location as those values are used in the demo.
-
 - **Azure service principal**: If you don't have a service principal, [create a service principal](authenticate-to-azure.md#create-a-service-principal). Make note of the values for the `appId`, `displayName`, `password`, and `tenant`.
 
 - **Get the service principal object ID**: Run the following command (in either Bash or PowerShell) replacing `<displayName>` with the displayName of your service principal: `az ad sp list --display-name <displayName>`
+
+- **Azure resource group**: If you don't have an Azure resource group to use for the demo, [create an Azure resource group](create-resource-groups.md). Take note of the resource group name and location as those values are used in the demo.
 
 ## 2. Create the directory structure
 
