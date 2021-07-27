@@ -200,5 +200,5 @@ In this section, you'll download and test the example.
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Create and run end-to-end tests in Terraform projects](best-practices-end-to-end-testing.md)
+> [!div class="nextstepaction"] 
+> [Learn more about using Terraform in Azure](/azure/terraform)

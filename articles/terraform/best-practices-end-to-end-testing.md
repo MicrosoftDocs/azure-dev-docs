@@ -164,5 +164,5 @@ ok      test    391.052s
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Terraform testing overview](best-practices-testing-overview.md)
+> [!div class="nextstepaction"] 
+> [Learn more about using Terraform in Azure](/azure/terraform)
