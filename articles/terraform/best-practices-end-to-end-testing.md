@@ -2,7 +2,7 @@
 title: Tutorial - Configure end-to-end Terratest testing on Terraform projects
 description: Learn more about end-to-end testing with Terratest on a Terraform project.
 ms.topic: tutorial
-ms.date: 03/15/2021
+ms.date: 07/27/2021
 ms.custom: devx-track-terraform
 ---
 
@@ -17,14 +17,17 @@ In this article, you learn how to do the following tasks:
 > * Learn how to write end-to-end test using Golang
 > * Learn how to use Azure DevOps to automatically trigger end-to-end tests when code is committed to your repo
 
-## Prerequisites
+## 1. Configure your environment
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../includes/open-source-devops-prereqs-azure-subscription.md)]
-- **Install Terraform**: Based on your environment, [download and install Terraform](https://www.terraform.io/downloads.html).
+
+[!INCLUDE [configure-terraform.md](includes/configure-terraform.md)]
+
 - **Fork testing samples:** to get started quickly, we recommend that you fork [this repository](https://github.com/Azure/terraform) into your own GitHub organization.
+
 - **Go programming language**: Terraform test cases are written in [Go](https://golang.org/dl/). The sample in this article uses [Go modules](https://blog.golang.org/using-go-modules). Go 1.13 (or later) is recommended for this article.
 
-## What is end-to-end testing
+## Understand end-to-end testing
 
 End-to-end tests validate a system works as a collective whole. This type of testing is as opposed to testing specific modules. For Terraform projects, end-to-end testing allows for the validation of what has been deployed. This type of testing differs from many other types that test pre-deployment scenarios. End-to-end tests are critical for testing complex systems that include multiple modules and act on multiple resources. In such scenarios, end-to-end testing is the only way to determine if the various modules are interacting correctly.
 
@@ -35,7 +38,7 @@ This article focuses on using [Terratest](https://github.com/gruntwork-io/terrat
 - Orchestrate the tests into stages
 - Tear down the deployed infrastructure
 
-## Tutorial scenario
+## 2. Download the test example
 
 For this tutorial, we're using a sample available in the [Azure/terraform sample repo](https://github.com/Azure/terraform/blob/master/samples/end-to-end-testing/README.md).
 
@@ -49,16 +52,16 @@ Our test should validate the following scenarios:
 
 ![Sample end-to-end test scenario](media/best-practices-end-to-end-testing/scenario.png)
 
-If you [downloaded the sample](#prerequisites), the Terraform configuration for this scenario can be found in the `src/main.tf` file. That file contains everything necessary to deploy the Azure infrastructure represented in the preceding figure.
+If you [downloaded the sample](#configure-your-environment), the Terraform configuration for this scenario can be found in the `src/main.tf` file. That file contains everything necessary to deploy the Azure infrastructure represented in the preceding figure.
 
 If you're unfamiliar with how to create virtual machines, see [Create a Linux VM with infrastructure in Azure using Terraform](create-linux-virtual-machine-with-infrastructure.md).
 
 > [!CAUTION]
 > The sample scenario presented in this article is for illustration purposes only. We've purposely kept things simple in order to focus on the steps of an end-to-end test. We don't recommend having production virtual machines that exposes SSH ports over a public IP address.
 
-## End-to-end test
+## 3. Understand the test example
 
-The end-to-end test is written in the Go language and uses the Terratest framework. If you [downloaded the sample](#prerequisites), it's defined in the `src/test/end2end_test.go` file.
+The end-to-end test is written in the Go language and uses the Terratest framework. If you [downloaded the sample](#configure-your-environment), it's defined in the `src/test/end2end_test.go` file.
 
 The following source code shows the standard structure of a Golang test using Terratest:
 
@@ -119,7 +122,7 @@ The following list shows some of the key functions provided by the Terratest fra
 - **test_structure.LoadTerraformOptions**: Loads Terraform options - such as configuration and variables - from the state
 - **test_structure.SaveTerraformOptions**: Saves Terraform options - such as configuration and variables - to the state
 
-## Run the end-to-end test
+## 4. Run the test example
 
 In this section, you run the test against the sample configuration and deployment. 
 
