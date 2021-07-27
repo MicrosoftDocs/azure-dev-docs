@@ -201,7 +201,7 @@ Once you create a service principal, you can specify its credentials to Terrafor
     printenv | grep ^ARM*
     ```
 
-[!INCLUDE [terraform-environment-variables-notes.md](terraform-environment-variables-notes.md)]
+[!INCLUDE [environment-variables-notes.md](environment-variables-notes.md)]
 
 #### [Azure PowerShell](#tab/azure-powershell)
 
@@ -222,7 +222,7 @@ Once you create a service principal, you can specify its credentials to Terrafor
 
 1. To set the environment variables for every PowerShell session, [create a PowerShell profile](/powershell/module/microsoft.powershell.core/about/about_profiles) and set the environment variables within your profile.
 
-[!INCLUDE [terraform-environment-variables-notes.md](terraform-environment-variables-notes.md)]
+[!INCLUDE [environment-variables-notes.md](environment-variables-notes.md)]
 
 ---
 

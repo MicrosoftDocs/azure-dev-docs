@@ -15,7 +15,7 @@ This article shows example Terraform code for creating an [Attestation provider]
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../includes/open-source-devops-prereqs-azure-subscription.md)]
 
-[!INCLUDE [terraform-configure-options.md](includes/terraform-configure-options.md)]
+[!INCLUDE [configure-terraform.md](includes/configure-terraform.md)]
 
 - *Policy Signing Certificate*: a file specifying a set of trusted signing keys in the form of a *.pem file.
 

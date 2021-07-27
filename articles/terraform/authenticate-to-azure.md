@@ -26,7 +26,7 @@ In this article, you learn how to:
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../includes/open-source-devops-prereqs-azure-subscription.md)]
 
-[!INCLUDE [terraform-configuration-options.md](includes/terraform-configuration-options.md)]
+[!INCLUDE [configure-terraform.md](includes/configure-terraform.md)]
 
 ## 2. Authenticate Terraform to Azure
 

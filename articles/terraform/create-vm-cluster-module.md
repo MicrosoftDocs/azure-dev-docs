@@ -15,7 +15,7 @@ This article shows example Terraform code for creating a VM cluster on Azure.
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../includes/open-source-devops-prereqs-azure-subscription.md)]
 
-[!INCLUDE [terraform-configure-options.md](includes/terraform-configure-options.md)]
+[!INCLUDE [configure-terraform.md](includes/configure-terraform.md)]
 
 ## Configure an Azure VM cluster
 

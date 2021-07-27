@@ -24,7 +24,7 @@ In this article, you learn how to:
 
 ## 1. Configure your environment
 
-[!INCLUDE [terraform-configuration-options.md](includes/terraform-configuration-options.md)]
+[!INCLUDE [configure-terraform.md](includes/configure-terraform.md)]
 
 ## 2. Exercise: Basic Terraform commands walk-through
 In this exercise, you create and execute a basic Terraform configuration file that provisions a new Azure resource group.

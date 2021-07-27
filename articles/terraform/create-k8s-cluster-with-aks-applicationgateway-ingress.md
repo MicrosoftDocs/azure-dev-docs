@@ -28,7 +28,7 @@ In this article, you learn how to do the following tasks:
 
 ## 1. Configure your environment
 
-[!INCLUDE [terraform-configuration-options.md](includes/terraform-configuration-options.md)]
+[!INCLUDE [configure-terraform.md](includes/configure-terraform.md)]
 
 - **Azure resource group**: If you don't have an Azure resource group to use for the demo, [create an Azure resource group](create-resource-groups.md). Take note of the resource group name and location as those values are used in the demo.
 
