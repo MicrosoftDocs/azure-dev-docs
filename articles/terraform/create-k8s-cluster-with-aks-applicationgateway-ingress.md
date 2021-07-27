@@ -26,9 +26,11 @@ In this article, you learn how to do the following tasks:
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../includes/open-source-devops-prereqs-azure-subscription.md)]
 
-- **Configure Terraform**: Follow the directions in the article, [Terraform and configure access to Azure](get-started-cloud-shell.md)
+## 1. Configure your environment
 
-- **Azure resource group**: If you don't have an Azure resource group to use for the demo, [create an Azure resource group](/azure/azure-resource-manager/manage-resource-groups-portal#create-resource-groups). Take note of the resource group name and location as those values are used in the demo.
+[!INCLUDE [terraform-configuration-options.md](includes/terraform-configuration-options.md)]
+
+- **Azure resource group**: If you don't have an Azure resource group to use for the demo, [create an Azure resource group](create-resource-groups.md). Take note of the resource group name and location as those values are used in the demo.
 
 - **Azure service principal**: Follow the directions in the section of the **Create the service principal** section in the article, [Create an Azure service principal with Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli). Take note of the values for the `appId`, `displayName`, and `password`.
 

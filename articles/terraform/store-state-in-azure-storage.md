@@ -2,7 +2,7 @@
 title: Tutorial - Store Terraform state in Azure Storage
 description: Learn how to store Terraform state in Azure Storage.
 ms.topic: tutorial
-ms.date: 11/07/2019
+ms.date: 07/27/2021
 ms.custom: devx-track-terraform, devx-track-azurecli
 ---
 
@@ -10,7 +10,7 @@ ms.custom: devx-track-terraform, devx-track-azurecli
 
 Terraform state is used to reconcile deployed resources with Terraform configurations. State allows Terraform to know what Azure resources to add, update, or delete.
 
-By default, Terraform state is stored which isn't ideal for the following reasons:
+By default, Terraform state is stored locally which isn't ideal for the following reasons:
 
 - Local state doesn't work well in a team or collaborative environment.
 - Terraform state can include sensitive information.
