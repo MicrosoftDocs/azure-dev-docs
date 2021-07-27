@@ -127,21 +127,21 @@ In this section, you create the following network infrastructure in a new Azure 
    }
    ```
 
-## 3. Initialize Terraform
+## 5. Initialize Terraform
 
 [!INCLUDE [terraform-init.md](includes/terraform-init.md)]
 
-## 4. Create a Terraform execution plan
+## 6. Create a Terraform execution plan
 
 [!INCLUDE [terraform-create-plan.md](includes/terraform-create-plan.md)]
 
-## 5. Apply a Terraform execution plan
+## 7. Apply a Terraform execution plan
 
 [!INCLUDE [terraform-apply-plan.md](includes/terraform-apply-plan.md)]
 
-## 6. Verify the results
+## 8. Verify the results
 
-Upon successful application of the execution plan, Terraform prints the output as defined in the `output.tf` file. As shown in the following screenshot, the FQDN takes the following form: `<ID>.<location>.cloudapp.azure.com`. The ID is a computed value and location is the value provide when running Terraform.
+1. Upon successful application of the execution plan, Terraform prints the output as defined in the `output.tf` file. As shown in the following screenshot, the FQDN takes the following form: `<ID>.<location>.cloudapp.azure.com`. The ID is a computed value and location is the value provide when running Terraform.
 
    ![Virtual machine scale set fully qualified domain name for Public IP address](./media/create-vm-scaleset-network-disks-hcl/fqdn.png)
 
@@ -150,7 +150,7 @@ Upon successful application of the execution plan, Terraform prints the output a
 1. On the **Resource groups** tab, select **myResourceGroup** to view the resources that were created by Terraform.
    ![Virtual machine scale set network resources](./media/create-vm-scaleset-network-disks-hcl/resource-group-resources.png)
 
-## 7. Add a virtual machine scale set
+## 9. Add a virtual machine scale set
 
 In this section, you learn how to add the following resources to the template:
 
@@ -327,7 +327,7 @@ In this section, you learn how to add the following resources to the template:
 
     ![Results of browsing to FQDN](./media/create-vm-scaleset-network-disks-hcl/browser-fqdn.png)
 
-## 8. Add an SSH jumpbox
+## 10. Add an SSH jumpbox
 
 An SSH *jumpbox* is a single server that you "jump" through to access other servers on the network. In this step, you configure the following resources:
 
@@ -421,11 +421,13 @@ An SSH *jumpbox* is a single server that you "jump" through to access other serv
    terraform apply
    ```
 
-**Key points:**
+## 11. Verify the results
 
-- The ability to log in with a password is disabled on the jumpbox and the virtual machine scale set that you deployed. Log in with SSH to access the virtual machine(s).
+The ability to log in with a password is disabled on the jumpbox and the virtual machine scale set that you deployed.
 
-## 9. Clean up resources
+To test what you've deployed, log in to the jumpbox with SSH to access the virtual machine(s).
+
+## 12. Clean up resources
 
 [!INCLUDE [terraform-destroy-plan.md](includes/terraform-destroy-plan.md)]
 
