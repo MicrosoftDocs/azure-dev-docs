@@ -2,7 +2,7 @@
 title: include file
 description: include file
 ms.topic: how-to
-ms.date: 07/26/2021
+ms.date: 07/27/2021
 ms.custom: devx-track-terraform
 ms.author: tarcher
 ---
@@ -21,7 +21,7 @@ This article explains how to authenticate Terraform to Azure for the following s
 
 ### Authenticate to Azure via a Microsoft account
 
-A Microsoft account is a username (associated with an email and its credentials) that is used to log in to Microsoft services - such as Azure. A Microsoft account can be associated with one or more Azure subscriptions, with one of those subscriptions being the default. 
+A Microsoft account is a username (associated with an email and its credentials) that is used to log in to Microsoft services - such as Azure. A Microsoft account can be associated with one or more Azure subscriptions, with one of those subscriptions being the default.
 
 The following steps show you how to log in to Azure interactively using a Microsoft account, list the account's associated Azure subscriptions (including the default), and set the current subscription.
 

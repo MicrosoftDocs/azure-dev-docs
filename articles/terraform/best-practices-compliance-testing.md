@@ -1,12 +1,12 @@
 ---
-title: Tutorial - Compliance testing with Terraform and Azure
-description: Learn how to apply behavior driven development (BDD) style compliance testing to Terraform configurations
+title: Tutorial - Implement compliance testing with Terraform and Azure
+description: Understand how to apply behavior driven development (BDD) style compliance testing to Terraform configurations
 ms.topic: tutorial
-ms.date: 07/31/2020
+ms.date: 07/27/2021
 ms.custom: devx-track-terraform
 ---
 
-# Tutorial: Compliance testing with Terraform and Azure
+# Tutorial: Implement compliance testing with Terraform and Azure
 
 [!INCLUDE [terraform-intro.md](includes/terraform-intro.md)]
 
@@ -16,25 +16,28 @@ In this article, you learn how to do the following tasks:
 > * Understand when to use compliance testing
 > * Learn how to do a compliance check
 
-## Prerequisites
+## 1. Configure your environment
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../includes/open-source-devops-prereqs-azure-subscription.md)]
-- **Install Terraform**: Based on your environment, [download and install Terraform](https://www.terraform.io/downloads.html).
+
+[!INCLUDE [configure-terraform.md](includes/configure-terraform.md)]
+
 - **Docker**: [Install Docker](https://docs.docker.com/get-docker/)
-- **Terraform-compliance**: [Install the Terraform compliance tool](https://terraform-compliance.com/pages/installation/docker).
+
+- **Terraform-compliance tool**: [Install the Terraform compliance tool](https://terraform-compliance.com/pages/installation/docker).
+
 - **Fork the testing samples**: Fork the [Terraform sample project on GitHub](https://github.com/Azure/terraform) and clone it to your dev/test machine.
 
-## What is compliance testing
+## 2. Understand compliance testing and checks
 
 Compliance testing is a nonfunctional testing technique to determine if a system meets prescribed standards. Compliance testing is also known as *conformance testing*.
 
 Most software teams do an analysis to check that the standards are properly enforced and implemented. Often working simultaneously to improve the standards that, in turn, lead to increased quality.
 
-Compliance testing ensures that the output of each development lifecycle phase conforms to agreed-upon requirements.
+With compliance testing, there are two important concepts to consider: compliance testing and compliance checks.
 
-Compliance checks should be integrated into the development cycle at the beginning of the projects. Attempting to add compliance checks at a later stage becomes increasingly more difficult when the requirement itself isn't adequately documented.
-
-## Understanding compliance checks
+- *Compliance testing* ensures that the output of each development lifecycle phase conforms to agreed-upon requirements.
+- *Compliance checks* should be integrated into the development cycle at the beginning of the projects. Attempting to add compliance checks at a later stage becomes increasingly more difficult when the requirement itself isn't adequately documented.
 
 Doing compliance checks is straight forward. A set of standards and procedures is developed and documented for each phase of the development lifecycle. The output of each phase is compared against the documented requirements. The results of the test are any "gaps" in not conforming to the predetermined standards. Compliance testing is done through the inspection process and the outcome of the review process should be documented.
 
@@ -54,7 +57,7 @@ The Terraform-compliance tool provides a test framework where you create policie
 
 Terraform-compliance allows you to apply BDD, or *behavior-driven development*, principles. BDD is a collaborative process where all stakeholders work together to define what a system should do. These stakeholders generally include the developers, testers, and anyone with a vested interest in - or who will be impacted by - the system being developed. The goal of BDD is to encourage teams to build concrete examples that express a common understanding of how the system should behave.
 
-## Looking at an example
+## 3. See a compliance-test example
 
 Previously in this article, you read about a compliance-testing example of creating a VM for a test environment. This section shows how to translate that example into a BDD Feature and Scenario. The rule is first expressed using *Cucumber*, which is a tool used to support BDD.
 
@@ -112,7 +115,7 @@ Scenario Outline: Ensure that specific tags are defined
       | Environment | ^(prod\|uat\|dev)$ |
 ```
 
-## Running the sample
+## 4. Run the compliance-test example
 
 In this section, you'll download and test the example.
 
