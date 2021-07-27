@@ -17,7 +17,7 @@ This article shows example Terraform code for creating a VM cluster on Azure.
 
 [!INCLUDE [configure-terraform.md](includes/configure-terraform.md)]
 
-## 2. Configure an Azure VM cluster
+## 2. Implement the code
 
 1. Create a directory in which to test and run the sample Terraform code.
 
