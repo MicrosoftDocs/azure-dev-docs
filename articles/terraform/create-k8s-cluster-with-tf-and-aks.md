@@ -24,7 +24,7 @@ In this article, you learn how to do the following tasks:
 
 [!INCLUDE [configure-terraform.md](includes/configure-terraform.md)]
 
-- **Azure service principal**: Follow the directions in the **Create the service principal** section in the article, [Create an Azure service principal with Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli). Take note of the values for the `appId`, `displayName`, `password`, and `tenant`.
+- **Azure service principal**: If you don't have a service principal, [create a service principal](authenticate-to-azure.md#create-a-service-principal). Make note of the values for the `appId`, `displayName`, `password`, and `tenant`.
 
 ## 2. Create an SSH key pair
 
