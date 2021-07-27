@@ -56,7 +56,7 @@ This article shows example Terraform code for creating an [Attestation provider]
 
 [!INCLUDE [terraform-apply-plan.md](includes/terraform-apply-plan.md)]
 
-## 6. Destroy a Terraform execution plan
+## 6. Clean up resources
 
 [!INCLUDE [terraform-destroy-plan.md](includes/terraform-destroy-plan.md)]
 

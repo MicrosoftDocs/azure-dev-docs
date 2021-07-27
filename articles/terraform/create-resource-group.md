@@ -74,7 +74,7 @@ az group show --name sample-dev-rg
 - Substitute the resource group name for the placeholder `<resource-group-name>`.
 - If the resource group is found, `az group show` displays information about resource group - such as its fully qualified ID and location.
 
-## 7. Destroy a Terraform execution plan
+## 7. Clean up resources
 
 [!INCLUDE [terraform-destroy-plan.md](includes/terraform-destroy-plan.md)]
 

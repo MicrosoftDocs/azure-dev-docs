@@ -2,7 +2,7 @@
 title: Create an Azure virtual machine scale set using Terraform
 description: Learn how to use Terraform to configure and version an Azure virtual machine scale set.
 ms.topic: how-to
-ms.date: 11/07/2019
+ms.date: 07/27/2021
 ms.custom: devx-track-terraform
 ---
 
@@ -22,56 +22,26 @@ In this article, you learn how to:
 > [!NOTE]
 > The most recent version of the Terraform configuration files used in this article are in the [Awesome Terraform repository on GitHub](https://github.com/Azure/awesome-terraform/tree/master/codelab-vmss).
 
-## Prerequisites
+## 1. Configure your environment
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../includes/open-source-devops-prereqs-azure-subscription.md)]
 
-- **Install Terraform**: Follow the directions in the article, [Terraform and configure access to Azure](get-started-cloud-shell.md)
+[!INCLUDE [configure-terraform.md](includes/configure-terraform.md)]
 
 - **Create an SSH key pair**: For more information, see [How to create and use an SSH public and private key pair for Linux VMs in Azure](/azure/virtual-machines/linux/mac-create-ssh-keys).
 
-## Create the directory structure
+## 2. Create the variables definitions file
 
-1. Browse to the [Azure portal](https://portal.azure.com).
+1. Create a directory in which to test and run the sample Terraform code.
 
-1. Open [Azure Cloud Shell](/azure/cloud-shell/overview). If you didn't select an environment previously, select **Bash** as your environment.
+1. Create a variables file that will contain the values for Terraform. By convention, the name of this file is `variables.tf`. However, you can specify any valid name for your environment.
 
-    ![Cloud Shell prompt](./media/create-vm-scaleset-network-disks-hcl/azure-portal-cloud-shell-button-min.png)
-
-1. Change directories to the `clouddrive` directory.
-
-    ```bash
-    cd clouddrive
-    ```
-
-1. Create a directory named `vmss`.
-
-    ```bash
-    mkdir vmss
-    ```
-
-1. Change directories to the new directory:
-
-    ```bash
-    cd vmss
-    ```
-
-## Create the variables definitions file
-In this section, you define the variables that customize the resources created by Terraform.
-
-Within the Azure Cloud Shell, do the following steps:
-
-1. Create a file named `variables.tf`.
-
-    ```bash
-    code variables.tf
-    ```
-
-1. Paste the following code into the editor:
+1. Insert the following code into the variables file.
 
    ```hcl
    variable "location" {
     description = "The location where resources will be created"
+    default = "eastus"
    }
 
    variable "tags" {
@@ -89,12 +59,7 @@ Within the Azure Cloud Shell, do the following steps:
    }
    ```
 
-1. Save the file (**&lt;Ctrl>S**) and exit the editor (**&lt;Ctrl>Q**).
-
-## Create the output definitions file
-In this section, you create the file that describes the output after deployment.
-
-Within the Azure Cloud Shell, do the following steps:
+## 3. Create the output definitions file
 
 1. Create a file named `output.tf`.
 
@@ -111,24 +76,17 @@ Within the Azure Cloud Shell, do the following steps:
     }
    ```
 
-1. Save the file (**&lt;Ctrl>S**) and exit the editor (**&lt;Ctrl>Q**).
+## 4. Define the network infrastructure in a template
 
-## Define the network infrastructure in a template
 In this section, you create the following network infrastructure in a new Azure resource group:
 
   - One virtual network (VNET) with the address space of 10.0.0.0/16
   - One subnet with the address space of 10.0.2.0/24
   - Two public IP addresses. One used by the virtual machine scale set load balancer, the other used to connect to the SSH jumpbox.
 
-Within the Azure Cloud Shell, do the following steps:
-
 1. Create a file named `vmss.tf` to describe the virtual machine scale set infrastructure.
 
-    ```bash
-    code vmss.tf
-    ```
-
-1. Paste the following code to the end of the file to expose the fully qualified domain name (FQDN) for the virtual machines.
+1. Paste the following code to expose the fully qualified domain name (FQDN) for the virtual machines.
 
    ```hcl
    resource "azurerm_resource_group" "vmss" {
@@ -169,26 +127,21 @@ Within the Azure Cloud Shell, do the following steps:
    }
    ```
 
-1. Save the file (**&lt;Ctrl>S**) and exit the editor (**&lt;Ctrl>Q**).
+## 3. Initialize Terraform
 
-## Provision the network infrastructure
-Using the Azure Cloud Shell from the directory where you created the configuration files (.tf) do the following steps:
+[!INCLUDE [terraform-init.md](includes/terraform-init.md)]
 
-1. Initialize Terraform.
+## 4. Create a Terraform execution plan
 
-   ```bash
-   terraform init
-   ```
+[!INCLUDE [terraform-create-plan.md](includes/terraform-create-plan.md)]
 
-1. Run the following command to deploy the defined infrastructure in Azure.
+## 5. Apply a Terraform execution plan
 
-   ```bash
-   terraform apply
-   ```
+[!INCLUDE [terraform-apply-plan.md](includes/terraform-apply-plan.md)]
 
-   Terraform prompts you for a `location` value as the `location` variable is defined in `variables.tf`, but it's never set. You can enter any valid location - such as "West US" followed by selecting Enter. (Use parentheses around any value with spaces.)
+## 6. Verify the results
 
-1. Terraform prints the output as defined in the `output.tf` file. As shown in the following screenshot, the FQDN takes the following form: `<ID>.<location>.cloudapp.azure.com`. The ID is a computed value and location is the value provide when running Terraform.
+Upon successful application of the execution plan, Terraform prints the output as defined in the `output.tf` file. As shown in the following screenshot, the FQDN takes the following form: `<ID>.<location>.cloudapp.azure.com`. The ID is a computed value and location is the value provide when running Terraform.
 
    ![Virtual machine scale set fully qualified domain name for Public IP address](./media/create-vm-scaleset-network-disks-hcl/fqdn.png)
 
@@ -197,7 +150,7 @@ Using the Azure Cloud Shell from the directory where you created the configurati
 1. On the **Resource groups** tab, select **myResourceGroup** to view the resources that were created by Terraform.
    ![Virtual machine scale set network resources](./media/create-vm-scaleset-network-disks-hcl/resource-group-resources.png)
 
-## Add a virtual machine scale set
+## 7. Add a virtual machine scale set
 
 In this section, you learn how to add the following resources to the template:
 
@@ -207,17 +160,7 @@ In this section, you learn how to add the following resources to the template:
 - A virtual machine scale set sitting behind the load balancer that runs on the VNET deployed earlier in this article
 - [Nginx](https://nginx.org/) on the nodes of the virtual machine scale using [cloud-init](https://cloudinit.readthedocs.io/en/latest/).
 
-In Cloud Shell, do the following steps:
-
-1. Open the `vmss.tf` configuration file.
-
-   ```bash
-   code vmss.tf
-   ```
-
-1. Go to the end of the file and enter append mode by selecting the A key.
-
-1. Paste the following code to the end of the file:
+1. Paste the following code to the end of the `vmss.tf` file:
 
    ```hcl
    resource "azurerm_lb" "vmss" {
@@ -384,22 +327,14 @@ In Cloud Shell, do the following steps:
 
     ![Results of browsing to FQDN](./media/create-vm-scaleset-network-disks-hcl/browser-fqdn.png)
 
-## Add an SSH jumpbox
+## 8. Add an SSH jumpbox
+
 An SSH *jumpbox* is a single server that you "jump" through to access other servers on the network. In this step, you configure the following resources:
 
 - A network interface (or jumpbox) connected to the same subnet as the virtual machine scale set.
-
 - A virtual machine connected with this network interface. This 'jumpbox' is remotely accessible. Once connected, you can SSH to any of the virtual machines in the scale set.
 
-1. Open the `vmss.tf` configuration file.
-
-   ```bash
-   code vmss.tf
-   ```
-
-1. Go to the end of the file.
-
-1. Paste the following code to the end of the file:
+1. Paste the following code to the end of the `vmss.tf` file:
 
    ```hcl
    resource "azurerm_public_ip" "jumpbox" {
@@ -490,15 +425,9 @@ An SSH *jumpbox* is a single server that you "jump" through to access other serv
 
 - The ability to log in with a password is disabled on the jumpbox and the virtual machine scale set that you deployed. Log in with SSH to access the virtual machine(s).
 
-## Environment cleanup
+## 9. Clean up resources
 
-To delete the Terraform resources that were created in this article, enter the following command into Cloud Shell:
-
-```bash
-terraform destroy
-```
-
-The destruction process can take several minutes to complete.
+[!INCLUDE [terraform-destroy-plan.md](includes/terraform-destroy-plan.md)]
 
 ## Troubleshoot Terraform on Azure
 
