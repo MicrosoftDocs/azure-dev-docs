@@ -14,7 +14,6 @@ This article shows example Terraform code for setting up [Network Watcher](/azur
 ## Configure your environment
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../includes/open-source-devops-prereqs-azure-subscription.md)]
-- *Policy Signing Certificate*: a file specifying a set of trusted signing keys in the form of a *.pem file.
 
 [!INCLUDE [terraform-configure-options.md](includes/terraform-configure-options.md)]
 

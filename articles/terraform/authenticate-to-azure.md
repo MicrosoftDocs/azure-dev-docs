@@ -22,11 +22,9 @@ In this article, you learn how to:
 > * Specify service principal credentials in environment variables
 > * Specify service principal credentials in a Terraform provider block
 
-## Prerequisites
+## 1. Configure your environment
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../includes/open-source-devops-prereqs-azure-subscription.md)]
-
-## 1. Configure your environment
 
 [!INCLUDE [terraform-configuration-options.md](includes/terraform-configuration-options.md)]
 
