@@ -78,7 +78,7 @@ az group show --name sample-dev-rg
 
 [!INCLUDE [terraform-destroy-plan.md](includes/terraform-destroy-plan.md)]
 
-## 8. Troubleshoot Terraform on Azure
+## Troubleshoot Terraform on Azure
 
 [Troubleshoot common problems when using Terraform on Azure](troubleshoot.md)
 

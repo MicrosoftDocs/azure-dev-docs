@@ -3,7 +3,7 @@ title: Create an Application Gateway ingress controller in Azure Kubernetes Serv
 description: Learn how to create a Kubernetes Cluster with Azure Kubernetes Service with Application Gateway as ingress controller.
 keywords: azure devops terraform application gateway ingress aks kubernetes
 ms.topic: how-to
-ms.date: 05/17/2021
+ms.date: 07/27/2021
 ms.custom: devx-track-terraform, devx-track-azurecli
 ---
 
@@ -16,17 +16,15 @@ An ingress controller provides various features for Kubernetes services. These f
 In this article, you learn how to do the following tasks:
 
 > [!div class="checklist"]
-> * Create a [Kubernetes](https://www.redhat.com/en/topics/containers/what-is-kubernetes) cluster using AKS with Application Gateway as Ingress Controller.
-> * Use HCL (HashiCorp Language) to define a Kubernetes cluster.
-> * Use Terraform to create Application Gateway resource.
-> * Use Terraform and AKS to create a Kubernetes cluster.
-> * Use the kubectl tool to test the availability of a Kubernetes cluster.
-
-## Prerequisites
-
-[!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../includes/open-source-devops-prereqs-azure-subscription.md)]
+> * Create a [Kubernetes](https://www.redhat.com/en/topics/containers/what-is-kubernetes) cluster using AKS with Application Gateway as Ingress Controller
+> * Define a Kubernetes cluster
+> * Create Application Gateway resource
+> * Create a Kubernetes cluster
+> * Test the availability of a Kubernetes cluster
 
 ## 1. Configure your environment
+
+[!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../includes/open-source-devops-prereqs-azure-subscription.md)]
 
 [!INCLUDE [configure-terraform.md](includes/configure-terraform.md)]
 
@@ -36,7 +34,7 @@ In this article, you learn how to do the following tasks:
 
 - **Obtain the Service Principal Object ID**: Run the following command in Cloud Shell: `az ad sp list --display-name <displayName>`
 
-## Create the directory structure
+## 2. Create the directory structure
 
 The first step is to create the directory that holds your Terraform configuration files for the exercise.
 
@@ -62,7 +60,7 @@ The first step is to create the directory that holds your Terraform configuratio
     cd terraform-aks-appgw-ingress
     ```
 
-## Declare the Azure provider
+## 3. Declare the Azure provider
 
 Create the Terraform configuration file that declares the Azure provider.
 
@@ -92,7 +90,7 @@ Create the Terraform configuration file that declares the Azure provider.
 
 1. Save the file (**&lt;Ctrl>S**) and exit the editor (**&lt;Ctrl>Q**).
 
-## Define input variables
+## 4. Define input variables
 
 Create the Terraform configuration file that lists all the variables required for this deployment.
 
@@ -235,7 +233,7 @@ Create the Terraform configuration file that lists all the variables required fo
 
 1. Save the file (**&lt;Ctrl>S**) and exit the editor (**&lt;Ctrl>Q**).
 
-## Define the resources
+## 5. Define the resources
 
 Create Terraform configuration file that creates all the resources.
 
@@ -488,7 +486,7 @@ The `linux_profile` record allows you to configure the settings that enable sign
 
 With AKS, you pay only for the worker nodes. The `agent_pool_profile` record configures the details for these worker nodes. The `agent_pool_profile record` includes the number of worker nodes to create and the type of worker nodes. If you need to scale up or scale down the cluster in the future, you modify the `count` value in this record.
 
-## Create a Terraform output file
+## 6. Create a Terraform output file
 
 [Terraform outputs](https://www.terraform.io/docs/configuration/outputs.html) allow you to define values that are highlighted to the user when Terraform applies a plan, and can be queried using the `terraform output` command. In this section, you create an output file that allows access to the cluster with [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/).
 
@@ -541,7 +539,7 @@ With AKS, you pay only for the worker nodes. The `agent_pool_profile` record con
 
 1. Save the file (**&lt;Ctrl>S**) and exit the editor (**&lt;Ctrl>Q**).
 
-## Configure Azure storage to store Terraform state
+## 7. Configure Azure storage to store Terraform state
 
 Terraform tracks state locally via the `terraform.tfstate` file. This pattern works well in a single-person environment. However, in a more practical multi-person environment, you need to track state on the server using [Azure storage](/azure/storage/). In this section, you learn to retrieve the necessary storage account information and create a storage container. The Terraform state information is then stored in that container.
 
@@ -565,7 +563,7 @@ Terraform tracks state locally via the `terraform.tfstate` file. This pattern wo
     az storage container create -n tfstate --account-name <YourAzureStorageAccountName> --account-key <YourAzureStorageAccountKey>
     ```
 
-## Create the Kubernetes cluster
+## 8. Create the Kubernetes cluster
 In this section, you see how to use the `terraform init` command to create the resources defined the configuration files you created in the previous sections.
 
 1. Update the `main.tf` to an Azure storage backend.
@@ -648,7 +646,7 @@ In this section, you see how to use the `terraform init` command to create the r
 
     ![Cloud Shell prompt](./media/terraform-k8s-cluster-appgw-with-tf-aks/k8s-resources-created.png)
 
-## Recover from a Cloud Shell timeout
+## 9. Recover from a Cloud Shell timeout
 
 If the Cloud Shell session times out, you can use the following steps to recover:
 
@@ -666,7 +664,8 @@ If the Cloud Shell session times out, you can use the following steps to recover
     export KUBECONFIG=./azurek8s
     ```
   
-## Test the Kubernetes cluster
+## 10. Test the Kubernetes cluster
+
 The Kubernetes tools can be used to verify the newly created cluster.
 
 1. Get the Kubernetes configuration and access credentials from the Azure using the Azure CLI command `az aks get-credentials`.
@@ -685,7 +684,7 @@ The Kubernetes tools can be used to verify the newly created cluster.
 
     ![The kubectl tool allows you to verify the health of your Kubernetes cluster](./media/terraform-k8s-cluster-appgw-with-tf-aks/kubectl-get-nodes.png)
 
-## Install Azure AD Pod Identity
+## 11. Install Azure AD Pod Identity
 
 Azure Active Directory Pod Identity provides token-based access to [Azure Resource Manager](/azure/azure-resource-manager/resource-group-overview).
 
@@ -718,7 +717,7 @@ helm repo add application-gateway-kubernetes-ingress https://appgwingress.blob.c
 helm repo update
 ```
 
-## Install Ingress Controller Helm Chart
+## 12. Install Ingress Controller Helm Chart
 
 1. Download `helm-config.yaml` to configure AGIC:
 
@@ -775,7 +774,7 @@ Once you have the App Gateway, AKS, and AGIC installed, you can install a sample
     kubectl apply -f aspnetapp.yaml
     ```
 
-## Clean up resources
+## 13. Clean up resources
 
 When no longer needed, delete the resources created in this article.  
 
