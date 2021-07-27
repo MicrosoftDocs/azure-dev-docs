@@ -4,11 +4,13 @@ description: include file
 author: tomarchermsft
 ms.service: terraform
 ms.topic: include
-ms.date: 07/20/2021
+ms.date: 07/27/2021
 ms.author: tarcher
 ---
 
-1. To reverse, or undo, the execution plan, run [terraform plan](https://www.terraform.io/docs/commands/plan.html) and specify the `destroy` flag.
+When no longer needed, you can undo the changes made in this article by doing the following steps:
+
+1. Run [terraform plan](https://www.terraform.io/docs/commands/plan.html) and specify the `destroy` flag.
 
     ```cmd
     terraform plan -destroy -out main.destroy.tfplan
