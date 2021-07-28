@@ -22,6 +22,12 @@ JBoss EAP is available on the Linux variants of Premium v3 and Isolated v2 App S
 
 JBoss EAP on Azure App Service is jointly supported by Red Hat and Microsoft. When you open a support case on the Azure portal about your JBoss EAP apps, Azure support will automatically contact Red Hat technical support when necessary. This integrated support is provided to all JBoss EAP applications running on App Service. Starting August 1st, all JBoss EAP sites will be billed $0.15/core/hour for the integrated technical support. JBoss EAP sites cannot opt-out of the integrated support.
 
+> [!VIDEO https://www.youtube.com/embed/8b_Wiuw8l-8]
+
+## JBoss EAP on Azure Red Hat Openshift (ARO)
+
+[Azure Red Hat OpenShift](https://azure.microsoft.com/en-us/services/openshift/#overview) provides highly available, fully managed OpenShift clusters on demand, monitored and operated jointly by Microsoft and Red Hat. If you are already using containers, using Kubernetes, or adopting microservices, then deploying JBoss EAP on ARO is a compelling option. You can use the [Source-2-Image feature](https://access.redhat.com/documentation/en-us/red_hat_software_collections/2/html/using_red_hat_software_collections_container_images/sti) to create container images from your application source code, meaning you do not have to create your own Dockerfiles and images for your applications. For stateful or clustered JBoss applications, the EAP Operator provides a **StatefulSet** for the EAP instances and guarentees the uniqueness and ordering of the instances for scenarios like distributed transactions, stateful EJBs, and shared session information.
+
 ## JBoss EAP on Azure Virtual Machines
 
 Virtual machine scale sets provide groups of load-balanced, highly scalable virtual machines for workloads of any size. For more information, see [Azure Virtual Machine Scale Sets](https://azure.microsoft.com/services/virtual-machine-scale-sets/).
@@ -35,4 +41,5 @@ The following articles provide more information on getting started with these te
 - [Red Hat JBoss EAP on Azure best practices](/azure/virtual-machines/workloads/redhat/jboss-eap-on-azure-best-practices)
 - [Quickstart: Create a Java app on Azure App Service](/azure/app-service/quickstart-java?tabs=javase&pivots=platform-linux)
 - [Configure a Java app for Azure App Service](/azure/app-service/configure-language-java?pivots=platform-linux)
+- [Getting Started with JBoss EAP for Openshift](https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.4/html/getting_started_with_jboss_eap_for_openshift_container_platform/index)
 - [Deploy Red Hat JBoss EAP on Azure VMs and virtual machine scale sets using the Azure Marketplace offer](/azure/virtual-machines/workloads/redhat/jboss-eap-marketplace-image)
