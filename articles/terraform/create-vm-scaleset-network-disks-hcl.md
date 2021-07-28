@@ -67,11 +67,11 @@ In this article, you learn how to:
 
 ## 6. Verify the results
 
-1. From the output of the `terraform apply` command, verify that the FQDN of the public IP addresses corresponds to your configuration.
+1. From the output of the `terraform apply` command, you'll see values for the VM FQDN, jumpbox FQDN, and jumpbox IP address.
 
-1. Browse to the URL to see a default page with the text **Welcome to nginx!**.
+1. Browse to the VM URL to confirm a default page with the text **Welcome to nginx!**.
 
-1. SSH to the jumpbox VM.
+1. Use SSH to connect to the jumpbox VM using the user name defined in the variables file and the password you specified when you ran `terraform apply`.
 
 ## 7. Clean up resources
 
