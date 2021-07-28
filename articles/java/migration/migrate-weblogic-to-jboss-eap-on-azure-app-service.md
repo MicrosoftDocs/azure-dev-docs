@@ -24,7 +24,6 @@ If any of the pre-migration requirements can't be met, see the companion migrati
 
 As the list below can seem a bit daunting, we've ordered it with the most common steps at the top of the list.
 
-
 1. [Inventory server capacity](#inventory-server-capacity)
 1. [Inventory all secrets](#inventory-all-secrets)
 1. [Inventory all certificates](#inventory-all-certificates)
@@ -50,41 +49,41 @@ As the list below can seem a bit daunting, we've ordered it with the most common
 1. [Determine whether WebLogic clustering is used](#determine-whether-weblogic-clustering-is-used)
 1. [Determine whether your application uses a Resource Adapter](#determine-whether-your-application-uses-a-resource-adapter)
 
-[!INCLUDE [inventory-server-capacity](includes/migration/inventory-server-capacity.md)]
+[!INCLUDE [inventory-server-capacity](includes/inventory-server-capacity.md)]
 
-[!INCLUDE [inventory-all-secrets](includes/migration/inventory-all-secrets.md)]
+[!INCLUDE [inventory-all-secrets](includes/inventory-all-secrets.md)]
 
-[!INCLUDE [inventory-all-certificates](includes/migration/inventory-all-certificates.md)]
+[!INCLUDE [inventory-all-certificates](includes/inventory-all-certificates.md)]
 
-[!INCLUDE [inventory-jndi-resources](includes/migration/inventory-jndi-resources.md)]
+[!INCLUDE [inventory-jndi-resources](includes/inventory-jndi-resources.md)]
 
-[!INCLUDE [domain-configuration](includes/migration/domain-configuration.md)]
+[!INCLUDE [domain-configuration](includes/domain-configuration.md)]
 
-[!INCLUDE [determine-whether-session-replication-is-used](includes/migration/determine-whether-session-replication-is-used.md)]
+[!INCLUDE [determine-whether-session-replication-is-used](includes/determine-whether-session-replication-is-used.md)]
 
-[!INCLUDE [document-datasources](includes/migration/document-datasources.md)]
+[!INCLUDE [document-datasources](includes/document-datasources.md)]
 
-[!INCLUDE [determine-whether-weblogic-has-been-customized](includes/migration/determine-whether-weblogic-has-been-customized.md)]
+[!INCLUDE [determine-whether-weblogic-has-been-customized](includes/determine-whether-weblogic-has-been-customized.md)]
 
-[!INCLUDE [determine-whether-management-over-rest-is-used](includes/migration/determine-whether-management-over-rest-is-used.md)]
+[!INCLUDE [determine-whether-management-over-rest-is-used](includes/determine-whether-management-over-rest-is-used.md)]
 
-[!INCLUDE [determine-whether-a-connection-to-on-premises-is-needed](includes/migration/determine-whether-a-connection-to-on-premises-is-needed.md)]
+[!INCLUDE [determine-whether-a-connection-to-on-premises-is-needed](includes/determine-whether-a-connection-to-on-premises-is-needed.md)]
 
-[!INCLUDE [determine-whether-jms-queues-or-topics-are-in-use](includes/migration/determine-whether-jms-queues-or-topics-are-in-use.md)]
+[!INCLUDE [determine-whether-jms-queues-or-topics-are-in-use](includes/determine-whether-jms-queues-or-topics-are-in-use.md)]
 
-[!INCLUDE [determine-whether-you-are-using-your-own-custom-created-shared-java-ee-libraries](includes/migration/determine-whether-you-are-using-your-own-custom-created-shared-java-ee-libraries.md)]
+[!INCLUDE [determine-whether-you-are-using-your-own-custom-created-shared-java-ee-libraries](includes/determine-whether-you-are-using-your-own-custom-created-shared-java-ee-libraries.md)]
 
-[!INCLUDE [determine-whether-osgi-bundles-are-used](includes/migration/determine-whether-osgi-bundles-are-used.md)]
+[!INCLUDE [determine-whether-osgi-bundles-are-used](includes/determine-whether-osgi-bundles-are-used.md)]
 
-[!INCLUDE [determine-whether-your-application-contains-os-specific-code](includes/migration/determine-whether-your-application-contains-os-specific-code.md)]
+[!INCLUDE [determine-whether-your-application-contains-os-specific-code](includes/determine-whether-your-application-contains-os-specific-code.md)]
 
-[!INCLUDE [determine-whether-oracle-service-bus-is-in-use](includes/migration/determine-whether-oracle-service-bus-is-in-use.md)]
+[!INCLUDE [determine-whether-oracle-service-bus-is-in-use](includes/determine-whether-oracle-service-bus-is-in-use.md)]
 
-[!INCLUDE [determine-whether-your-application-is-composed-of-multiple-wars](includes/migration/determine-whether-your-application-is-composed-of-multiple-wars.md)]
+[!INCLUDE [determine-whether-your-application-is-composed-of-multiple-wars](includes/determine-whether-your-application-is-composed-of-multiple-wars.md)]
 
-[!INCLUDE [determine-whether-your-application-is-packaged-as-an-ear](includes/migration/determine-whether-your-application-is-packaged-as-an-ear.md)]
+[!INCLUDE [determine-whether-your-application-is-packaged-as-an-ear](includes/determine-whether-your-application-is-packaged-as-an-ear.md)]
 
-[!INCLUDE [identify-all-outside-processes-and-daemons-running-on-the-production-servers](includes/migration/identify-all-outside-processes-and-daemons-running-on-the-production-servers.md)]
+[!INCLUDE [identify-all-outside-processes-and-daemons-running-on-the-production-servers](includes/identify-all-outside-processes-and-daemons-running-on-the-production-servers.md)]
 
 ### Validate that the supported Java version works correctly
 
