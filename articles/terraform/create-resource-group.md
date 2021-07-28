@@ -17,11 +17,9 @@ This article presents you with the options to authenticate to Azure for use with
 
 In this article, you learn how to:
 > [!div class="checklist"]
-> * Write Terraform code to create an Azure resource group
-> * Initialize Terraform
-> * Create a Terraform execution plan
-> * Apply a Terraform execution plan
-> * Destroy (undo) a Terraform execution plan
+> * Create an Azure resource group to hold other Azure resources
+> * Verify (using Azure CLI and Azure PowerShell) the resource group was created
+> * Delete the resource group when finished using it
 
 ## 1. Configure your environment
 
@@ -63,16 +61,22 @@ In this article, you learn how to:
 
 ## 6. Verify the results
 
-1. Run [az group show](/cli/azure/group?#az_group_show) to verify the resource group was created. (Change the `--name` parameter if you used a different resource group name.)
+#### [Azure CLI](#tab/azure-cli)
+
+Run [az group show](/cli/azure/group#az_group_show) to display the resource group.
 
 ```azurecli
-az group show --name sample-dev-rg
+az group show --name <resource_group>
 ```
 
-**Key points:**
+#### [Azure PowerShell](#tab/azure-powershell)
 
-- Substitute the resource group name for the placeholder `<resource-group-name>`.
-- If the resource group is found, `az group show` displays information about resource group - such as its fully qualified ID and location.
+[Get-AzResourceGroup](/powershell/module/az.resources/Get-AzResourceGroup) to display the resource group.
+
+```azurepowershell
+Get-AzResourceGroup -Name <resource_group>
+```
+---
 
 ## 7. Clean up resources
 
