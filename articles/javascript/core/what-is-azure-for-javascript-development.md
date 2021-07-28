@@ -85,6 +85,7 @@ In order to host your JavaScript apps in an Azure hosting environment, make sure
     ```azurecli-interactive
     az webapp list-runtimes | grep node
     ```
+* Azure [Static Web App run times](/azure/static-web-apps/apis) are only relevant to the Function APIs. 
 
 * Azure [Functions supported Node.js versions](/azure/azure-functions/functions-reference-node?tabs=v2#node-version) are based on which version of Functions you use. 
 
