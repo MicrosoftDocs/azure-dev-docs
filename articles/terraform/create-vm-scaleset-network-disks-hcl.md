@@ -19,9 +19,6 @@ In this article, you learn how to:
 > * Create and deploy a virtual machine scale set and attach it to the network
 > * Create and deploy a jumpbox to connect to the VMs via SSH
 
-> [!NOTE]
-> The most recent version of the Terraform configuration files used in this article are in the [Awesome Terraform repository on GitHub](https://github.com/Azure/awesome-terraform/tree/master/codelab-vmss).
-
 ## 1. Configure your environment
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../includes/open-source-devops-prereqs-azure-subscription.md)]
