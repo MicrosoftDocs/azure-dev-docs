@@ -4,7 +4,7 @@ description: In this quickstart, you learn how to create an Azure resource group
 keywords: azure devops terraform azure resource group
 ms.topic: quickstart
 ms.date: 07/27/2021
-ms.custom: devx-track-terraform, devx-track-azurecli, devx-track-powershell
+ms.custom: devx-track-terraform
 adobe-target: true
 # Customer intent: As someone new to Terraform and Azure, I want to do something simple to confirm my Terraform installation.
 ---
@@ -29,7 +29,7 @@ In this article, you learn how to:
 
 [!INCLUDE [configure-terraform.md](includes/configure-terraform.md)]
 
-## 2. Create an Azure resource group
+## 2. Implement the Terraform code
 
 1. Create a directory in which to test and run the sample Terraform code.
 
