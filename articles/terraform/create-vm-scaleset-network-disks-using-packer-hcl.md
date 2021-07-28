@@ -139,11 +139,7 @@ You also need a resource group where all the resources are created.
 
 1. On the **Resource groups** tab, select **myResourceGroup** to view the resources that were created by Terraform.
 
-1. Verify the resource group contains the following resources:
-
-    - Public IP address for the jumpbox
-    - Public IP address for the virtual machine scale set
-    - Virtual network  for the virtual machine scale set
+1. Verify the resource group contains the expected resources - such as the public IP address and virtual network for virtual machine scale set
 
 ## 9. Create an Azure image by using Packer
 

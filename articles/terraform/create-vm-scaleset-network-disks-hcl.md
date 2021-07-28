@@ -141,14 +141,13 @@ In this section, you create the following network infrastructure in a new Azure 
 
 ## 8. Verify the results
 
-1. Upon successful application of the execution plan, Terraform prints the output as defined in the `output.tf` file. As shown in the following screenshot, the FQDN takes the following form: `<ID>.<location>.cloudapp.azure.com`. The ID is a computed value and location is the value provide when running Terraform.
-
-   ![Virtual machine scale set fully qualified domain name for Public IP address](./media/create-vm-scaleset-network-disks-hcl/fqdn.png)
+1. From the output of the `terraform apply` command, verify that the FQDN of the public IP address corresponds to your configuration.
 
 1. In the Azure portal menu, select **Resource groups** from the main menu.
 
 1. On the **Resource groups** tab, select **myResourceGroup** to view the resources that were created by Terraform.
-   ![Virtual machine scale set network resources](./media/create-vm-scaleset-network-disks-hcl/resource-group-resources.png)
+
+1. Verify the resource group contains the expected resources - such as the public IP address and virtual network for virtual machine scale set
 
 ## 9. Add a virtual machine scale set
 
@@ -304,28 +303,6 @@ In this section, you learn how to add the following resources to the template:
        description = "Default password for admin account"
     }
     ```
-
-1. Save the file (**&lt;Ctrl>S**) and exit the editor (**&lt;Ctrl>Q**).
-
-1. Create a Terraform plan to visualize the virtual machine scale set deployment. (You need to specify a password and the location for your resources.)
-
-    ```bash
-    terraform plan
-    ```
-
-    The output of the command should be similar to the following screenshot:
-
-    ![Output from creating the virtual machine scale set](./media/create-vm-scaleset-network-disks-hcl/add-mvss-plan.png)
-
-1. Deploy the new resources in Azure.
-
-    ```bash
-    terraform apply
-    ```
-
-1. Open a browser and connect to the FQDN that was returned by the command.
-
-    ![Results of browsing to FQDN](./media/create-vm-scaleset-network-disks-hcl/browser-fqdn.png)
 
 ## 10. Add an SSH jumpbox
 
