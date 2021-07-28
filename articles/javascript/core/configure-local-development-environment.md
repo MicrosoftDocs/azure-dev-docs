@@ -19,7 +19,7 @@ This article provides setup instructions to create and validate a local developm
 |Type|Description|
 |--|--|
 |Trial subscription|Create a _free_ [trial subscription](https://azure.microsoft.com/free/).|
-|Existing subscription|If you already have a subscription, access your existing subscription in the [Azure portal](https://portal.azure.com), the [Azure CLI](/cli/azure/install-azure-cli), or [Azure SDKs for JavaScript](../azure-sdk-library-package-index).|
+|Existing subscription|If you already have a subscription, access your existing subscription in the [Azure portal](https://portal.azure.com), the [Azure CLI](/cli/azure/install-azure-cli), or [Azure SDKs for JavaScript](../azure-sdk-library-package-index.md).|
 |Across multiple subscriptions|If you need to manage multiple subscriptions, [learn how](/azure/governance/management-groups/create-management-group-javascript) to create a management group with JavaScript.|
 
 ## One-time software installation
@@ -42,7 +42,7 @@ The following common local workstation installations are recommended to help wit
 |Name|Description|
 |--|--|
 |[Azure CLI](/cli/azure/get-started-with-azure-cli)|Local or cloud-based CLI to create and use Azure resources.|
-|[Visual Studio Code extensions for Azure](../node-azure-tools#visual-studio-code-extensions) |VS Code extensions to the IDE.|
+|[Visual Studio Code extensions for Azure](../node-azure-tools.md#visual-studio-code-extensions) |VS Code extensions to the IDE.|
 |[Git](https://git-scm.com/downloads) or [Git for Windows](https://gitforwindows.org/)| Command-line tools for source control. You can use a different source control tool if you prefer. |
 
 ## One-time configuration for authentication
@@ -118,9 +118,9 @@ For every project, we recommend that you always create a separate folder, and it
     npm init -y
     ```
 
-    This command runs the NPM command to create the package.json file and initialize the minimum properties. As you install Azure SDK library packages with NPM or Yarn, the package.json file captures that installation information.
+    This creates the package.json file and initializes the minimum properties.
 
-1. Install the Azure SDK libraries you need for the quickstart. The following command is an example.
+1. Install the Azure SDK libraries you need, such as this example:
 
     ```console
     npm install @azure/ai-text-analytics@5.0.0
@@ -138,7 +138,7 @@ We recommend that you get into the habit of creating a source control repository
 
     ![Complete an initial commit to the repository](../media/setup-environment/initial-commit.png)
 
-1. Create a new repository on [GitHub](https://github.com/new) or [Azure DevOps](https://dev.azure.com/) and copy the repository URL for the next few steps. 
+1. Create a new repository on [GitHub](https://github.com/new) or [Azure DevOps](https://dev.azure.com/) and copy the repository URL for the next few step. 
 
 1. In the Visual Studio integrated terminal, use the following [git](https://git-scm.com/docs) command to add your remote repository to your local repository. Replace `YOUR-ALIAS` and `YOUR-REPOSITORY` with your own values.
 
@@ -146,7 +146,7 @@ We recommend that you get into the habit of creating a source control repository
     git remote add origin https://github.com/YOUR-ALIAS/YOUR-REPOSITORY
     ```
 
-Visual Studio Code includes a number of built-in git features. For more information, see [Using Version Control in VS Code](https://code.visualstudio.com/docs/editor/versioncontrol).
+Visual Studio Code includes many built-in git features. For more information, see [Using Version Control in VS Code](https://code.visualstudio.com/docs/editor/versioncontrol).
 
 ## Next steps
 
