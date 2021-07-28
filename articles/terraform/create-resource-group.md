@@ -71,7 +71,7 @@ az group show --name <resource_group>
 
 #### [Azure PowerShell](#tab/azure-powershell)
 
-[Get-AzResourceGroup](/powershell/module/az.resources/Get-AzResourceGroup) to display the resource group.
+Run [Get-AzResourceGroup](/powershell/module/az.resources/Get-AzResourceGroup) to display the resource group.
 
 ```azurepowershell
 Get-AzResourceGroup -Name <resource_group>
