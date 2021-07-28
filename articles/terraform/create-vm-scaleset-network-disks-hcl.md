@@ -5,7 +5,7 @@ ms.topic: how-to
 ms.date: 07/28/2021
 ms.custom: devx-track-terraform
 ---
-
+ 
 # Create an Azure virtual machine scale set using Terraform
 
 [Azure virtual machine scale sets](/azure/virtual-machine-scale-sets) allow you to configure identical VMs. The number of VM instances can adjust based on demand or a schedule. For more information, see [Automatically scale a virtual machine scale set in the Azure portal](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-portal).
