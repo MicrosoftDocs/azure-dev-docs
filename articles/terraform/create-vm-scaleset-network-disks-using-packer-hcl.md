@@ -133,25 +133,23 @@ You also need a resource group where all the resources are created.
 
 ## 8. Verify the results
 
-1. Verify that the fully qualified domain name of the public IP address corresponds to your configuration.
-
-    ![Virtual machine scale set Terraform fully qualified domain name for public IP address](./media/create-vm-scaleset-network-disks-using-packer-hcl/tf-create-vmss-step4-fqdn.png)
+1. From the output of the `terraform apply` command, verify that the FQDN of the public IP address corresponds to your configuration.
 
 1. In the Azure portal menu, select **Resource groups** from the main menu.
 
 1. On the **Resource groups** tab, select **myResourceGroup** to view the resources that were created by Terraform.
 
-1. The resource group contains the following resources:
+1. Verify the resource group contains the following resources:
 
-    ![Virtual machine scale set Terraform network resources](./media/create-vm-scaleset-network-disks-using-packer-hcl/tf-create-vmss-step4-rg.png)
+    - Public IP address for the jumpbox
+    - Public IP address for the virtual machine scale set
+    - Virtual network  for the virtual machine scale set
 
 ## 9. Create an Azure image by using Packer
 
 Create a custom Linux image by following the steps in the article [How to use Packer to create Linux virtual machine images in Azure](/azure/virtual-machines/linux/build-image-with-packer).
 
 After you create the Packer image, you have a deprovisioned Ubuntu image with Nginx installed.
-
-![After you create the Packer image, you have an image](./media/create-vm-scaleset-network-disks-using-packer-hcl/packerimagecreated.png)
 
 ## 10. Add the virtual machine scale set
 
