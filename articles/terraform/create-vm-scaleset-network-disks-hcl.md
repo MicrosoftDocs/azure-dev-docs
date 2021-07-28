@@ -61,7 +61,7 @@ In this article, you learn how to:
 
 ## 3. Create the output definitions file
 
-1. Create a file named `output.tf`.
+1. Create a file named `output.tf` and paste the following code:
 
     ```bash
     code output.tf
