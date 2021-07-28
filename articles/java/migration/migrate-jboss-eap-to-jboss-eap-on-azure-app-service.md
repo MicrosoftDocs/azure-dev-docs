@@ -12,6 +12,8 @@ recommendations: false
 
 This guide describes what you should be aware of when you want to migrate an existing JBoss EAP application to run on JBoss EAP in an Azure App Service instance.
 
+[!INCLUDE [java-redhat-migration-toolkit.md](includes/redhat-migration-toolkit.md)]
+
 ## Pre-migration
 
 To ensure a successful migration, before you start, complete the assessment and inventory steps described in the following sections.
