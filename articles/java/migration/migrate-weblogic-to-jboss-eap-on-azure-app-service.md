@@ -49,7 +49,7 @@ As the list below can seem a bit daunting, we've ordered it with the most common
 1. [Determine whether WebLogic clustering is used](#determine-whether-weblogic-clustering-is-used)
 1. [Determine whether your application uses a Resource Adapter](#determine-whether-your-application-uses-a-resource-adapter)
 
-[!INCLUDE [inventory-server-capacity](includes/inventory-server-capacity.md)]
+[!INCLUDE [inventory-server-capacity](includes/inventory-server-capacity-aks.md)]
 
 [!INCLUDE [inventory-all-secrets](includes/inventory-all-secrets.md)]
 
@@ -57,7 +57,7 @@ As the list below can seem a bit daunting, we've ordered it with the most common
 
 [!INCLUDE [inventory-jndi-resources](includes/inventory-jndi-resources.md)]
 
-[!INCLUDE [domain-configuration](includes/domain-configuration.md)]
+[!INCLUDE [domain-configuration](includes/inspect-your-domain-configuration.md)]
 
 [!INCLUDE [determine-whether-session-replication-is-used](includes/determine-whether-session-replication-is-used.md)]
 
