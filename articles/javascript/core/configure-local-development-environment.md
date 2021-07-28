@@ -1,54 +1,58 @@
 ---
 title: Configure your local JavaScript environment for Azure development
 description: How to set up a local JavaScript dev environment for working with Azure, including an editor, the Azure SDK libraries, optional tools, and the necessary credentials for library authentication.
-ms.date: 07/19/2021
+ms.date: 07/28/2021
 ms.topic: conceptual
 ms.custom: devx-track-js, azure-sdk-javascript-ai-text-analytics-5.0.0
 ---
 
 # Configure your local JavaScript dev environment for Azure
 
-When creating cloud applications, developers typically prefer to test code on their local workstations before deploying that code to a cloud environment like Azure. Local development gives you the advantage of a wider variety of tools along with a familiar development environment.
+When creating cloud applications, developers typically prefer to test code on their local workstations before deploying that code to a cloud environment like Azure. Local development gives you the advantage of a wider variety of tools along with a familiar environment.
 
-This article provides setup instructions to create and validate a local dev environment that's suitable for JavaScript with Azure.
+This article provides setup instructions to create and validate a local development environment that's suitable for JavaScript with Azure.
 
 ## One-time subscription creation
 
-Azure resources are created within a subscription, which is the billing unit for using Azure. While you can create free resources (each subscription offers a free resource for most services), you should create paid-tier resources when you expect to deploy your resource to production.
+[Azure resources](/azure/cloud-adoption-framework/ready/azure-setup-guide/organize-resources?tabs=AzureManagementGroupsAndHierarchy) are created within a subscription and resource group. 
 
 |Type|Description|
 |--|--|
 |Trial subscription|Create a _free_ [trial subscription](https://azure.microsoft.com/free/).|
-|Existing subscription|If you already have a subscription, access your existing subscription in the [Azure portal](https://portal.azure.com), the [Azure CLI](), or JavaScript.|
+|Existing subscription|If you already have a subscription, access your existing subscription in the [Azure portal](https://portal.azure.com), the [Azure CLI](/cli/azure/install-azure-cli), or [Azure SDKs for JavaScript](../azure-sdk-library-package-index).|
 |Across multiple subscriptions|If you need to manage multiple subscriptions, [learn how](/azure/governance/management-groups/create-management-group-javascript) to create a management group with JavaScript.|
 
 ## One-time software installation
 
-To develop using an Azure resource with JavaScript on your local workstation, you need the following installed once:
+Azure development with JavaScript on your local workstation, we suggest you install the following:
 
 |Name/Installer|Description|
 |--|--|
-|[Node.js 10+](https://www.npmjs.com/)|Install latest long-term support (LTS) runtime environment for local workstation development. A package manager is also required. Node.js installs NPM in the 10.x version. The Azure SDK generally requires a minimum version of Node.js of 10.x. Azure hosting services, such as Azure App service, provides runtimes with more recent versions of Node.js. If you target a minimum of 8.x for local and remove development, your code should run successfully.|
-|[Visual Studio Code](https://code.visualstudio.com/)| Visual Studio Code will give you a great JavaScript integration and coding experience but it is not required. You can use any code editor. For this document, if you are using a different editor, check for integration with Azure or use the Azure CLI.|
+|[Node.js LTS](https://www.npmjs.com/)|Install latest long-term support (LTS) runtime environment for local workstation development.|
+|[Visual Studio Code](https://code.visualstudio.com/)| Visual Studio Code will give you a great JavaScript integration and coding experience but it is not required. You can use any code editor.|
 
-> [!CAUTION]
-> If you plan to use an Azure resource as the runtime environment for your code, such as an Azure web app or an Azure Container Instance, you should verify your local Node.js development environment matches the Azure resource runtime you plan to use.
+### Azure hosting runtime 
+
+If you plan to use an Azure resource as the hosting environment for your application, such as an Azure web app or Azure Functions, you should [verify your local Node.js development environment runtime version of Node.js](what-is-azure-for-javascript-development.md#4-verify-runtime-for-javascript-apps-hosted-in-azure) matches the Azure resource runtime you plan to use.
 
 ### Recommended local installations
 
 The following common local workstation installations are recommended to help with your local development tasks.
 
-|Name/Installer|Description|
+|Name|Description|
 |--|--|
-|[Azure CLI](/cli/azure/get-started-with-azure-cli) or [Visual Studio Code extensions for Azure](https://marketplace.visualstudio.com/search?term=azure&target=VSCode&category=All%20categories&sortBy=Relevance) |Working with Azure is usually completed with the [Azure portal](https://ms.portal.azure.com/), the Azure CLI, or specific Visual Studio Code extensions to work with Azure. While you don't have to have the Azure CLI, unless specified in a quickstart or tutorial, it is a single tool to work with Azure while Visual Studio Code provides the same functionality on an extension-per-service basis.|
-| [git](https://git-scm.com/downloads) | Command-line tools for source control. You can use a different source control tool if you prefer. |
+|[Azure CLI](/cli/azure/get-started-with-azure-cli)|Local or cloud-based CLI to create and use Azure resources.|
+|[Visual Studio Code extensions for Azure](../node-azure-tools#visual-studio-code-extensions) |VS Code extensions to the IDE.|
+|[Git](https://git-scm.com/downloads) or [Git for Windows](https://gitforwindows.org/)| Command-line tools for source control. You can use a different source control tool if you prefer. |
 
+## One-time configuration for authentication
 
-## One-time configuration of service principal
+To use the same authentication code in local development and the remote Azure hosting environment, use the [DefaultAzureCredential](node-sdk-azure-authenticate.md#authentication-with-azure-services-while-developing).
 
-[Create a service principal](../how-to/with-sdk/set-up-development-environment.md?tabs=azure-sdk-for-javascript#1-create-a-service-principal) to create, use Azure resources _without_ using your personal account. 
+To use the same code in all environments: 
 
-Learn more about a [service principals](/azure/active-directory/develop/app-objects-and-service-principals).
+* For **local development**, [create a service principal](../how-to/with-sdk/set-up-development-environment.md?tabs=azure-sdk-for-javascript#1-create-a-service-principal) to create and manage Azure resources _without_ using your personal account. 
+* For **Azure hosting**, [learn more](https://github.com/Azure/azure-sdk-for-js/blob/main/documentation/using-azure-identity.md#getting-started).  
 
 ## Working with Azure and the Azure SDK client libraries
 
@@ -57,17 +61,18 @@ The [Azure SDK libraries](../azure-sdk-library-package-index.md) are provided in
 Each new project using Azure should:
 - Create Azure resources and save associated keys or configuration to a [secure location](#securing-configuration-information).
 - Install Azure SDK libraries from NPM or Yarn. 
-- Use Service Principal to authenticate to Azure SDKs, then use configuration information to access specific services.
+- Use your local Service Principal credential to authenticate to the Azure SDK, then use configuration information to access specific services.
 
 ## Securing configuration information
 
 You have several options to store configuration information:
+
+- Azure [Key Vault](/azure/key-vault/) to create and maintain keys that access and encrypt your cloud resources, apps, and solutions.
 - [Dotenv](https://www.npmjs.com/package/dotenv) is a popular npm package to read environment variables from a `.env` file. Make sure to add the `.env` file to the `.gitignore` file so the `.env` file is not checked into to source control. Learn more about [environment variables](../how-to/configure-web-app-settings.md) in web apps for Azure. 
-- Azure [Key Vault](/azure/key-vault/) to create and maintain keys that access and encrypt your cloud resources, apps, and solutions
 
 ### Create environment variables for the Azure libraries
 
-To use the Azure settings needed by the Azure SDK libraries to access the Azure cloud, set the most common values to [environment variables](../how-to/configure-web-app-settings.md). The following commands set the environment variables to the local workstation. Another common mechanism is to use the `DOTENV` NPM package to create a `.env` file for these settings. If you plan to use a `.env`, make sure to not check in the file to source control. Add the `.env` file to git's `.ignore` file is the standard way to ensure those settings are checked into source control.
+To use the Azure settings needed by the Azure SDK libraries to access the Azure cloud, set the most common values to [environment variables](../how-to/configure-web-app-settings.md). The following commands set the environment variables for the local workstation. 
 
 In the following examples, the client ID is the service principal ID and service principal secret.
 
@@ -92,6 +97,10 @@ set AZURE_CLIENT_SECRET=abcdef00-4444-5555-6666-1234567890ab
 ---
 
 Replace the values shown in these commands with those of your specific service principal.
+
+### Create `.env` file 
+
+Another common mechanism is to use the `DOTENV` NPM package to create a `.env` file for these settings. If you plan to use a `.env`, make sure to **not check in** the file to source control. Add the `.env` file to git's `.ignore` file is the standard way to ensure those settings are checked into source control.
 
 ## Install npm packages
 
