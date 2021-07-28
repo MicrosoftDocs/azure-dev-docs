@@ -22,7 +22,7 @@ JBoss EAP is available on the Linux variants of Premium v3 and Isolated v2 App S
 
 JBoss EAP on Azure App Service is jointly supported by Red Hat and Microsoft. When you open a support case on the Azure portal about your JBoss EAP apps, Azure support will automatically contact Red Hat technical support when necessary. This integrated support is provided to all JBoss EAP applications running on App Service. Starting August 1st, all JBoss EAP sites will be billed $0.15/core/hour for the integrated technical support. JBoss EAP sites cannot opt-out of the integrated support.
 
-[!VIDEO https://www.youtube.com/embed/8b_Wiuw8l-8]
+> [!VIDEO https://www.youtube.com/embed/8b_Wiuw8l-8]
 
 ## JBoss EAP on Azure Red Hat Openshift (ARO)
 
