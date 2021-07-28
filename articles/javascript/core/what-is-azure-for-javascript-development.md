@@ -64,7 +64,9 @@ Your development environment needs a few tools to have the best development expe
   * [NVM](https://github.com/nvm-sh/nvm/blob/master/README.md) 
   * [Docker Containers](https://www.docker.com/)
 * [Azure CLI](/cli/azure/install-azure-cli) to provide Azure resource creation and management. 
-* Local development hosting CLIs such as [Static web apps CLI](https://github.com/Azure/static-web-apps-cli) or [Azure Functions Core Tools](https://github.com/Azure/azure-functions-core-tools).
+* Local development hosting CLIs such as: 
+  * [Static web apps CLI](https://github.com/Azure/static-web-apps-cli)
+  * [Azure Functions Core Tools](https://github.com/Azure/azure-functions-core-tools).
 
 ## 3. Use Azure SDK with JavaScript
 
@@ -72,9 +74,7 @@ To use Azure services programmatically with JavaScript, find the [npm package](.
 
 All Azure SDKs run with JavaScript without any other tooling. While most modern SDKs are written in TypeScript and provide the `*.d.ts` file for type checking, TypeScript is not a requirement to use the Azure SDKs or the Azure cloud services. 
 
-Your JavaScript code can use Azure services, regardless of where your code is hosted (local, hybrid, cloud). The recommended way to use Azure services programmatically with JavaScript is the Azure SDKs. These SDKs expect a minimum Node.js with Long-term support (LTS). Currently, that version is:
-
-* Node.js v10
+Your JavaScript code can use Azure services, regardless of where your code is hosted (local, hybrid, cloud). The recommended way to use Azure services programmatically with JavaScript is the Azure SDKs. These SDKs expect a minimum Node.js with Long-term support (LTS). 
 
 ## 4. Verify runtime for JavaScript apps hosted in Azure 
 
