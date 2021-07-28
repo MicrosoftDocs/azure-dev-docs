@@ -106,7 +106,7 @@ Other samples include:
 
 * Azure SDK for JS [samples](https://github.com/Azure/azure-sdk-for-js/tree/main/samples)
 * Microsoft Authentication Library for JS (MSAL.js) [samples](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/samples)
-* JavaScript end-to-end [samples](https://review.docs.microsoft.com/en-us/azure/developer/javascript/how-to/common-javascript-tasks?branch=master#samples-supporting-these-tasks) 
+* JavaScript end-to-end [samples](/azure/developer/javascript/how-to/common-javascript-tasks.md#samples-supporting-these-tasks) 
 
 ## Playwright
 
