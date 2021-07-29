@@ -126,7 +126,7 @@ The following list includes tips and tricks Azure developers should know to be m
 * Most resources have at least one **free version** per subscription. Use this type of resource.
 * Some resources provide **two keys**, connection strings, or other securing devices. There are two so that **two different developers** can work on the project without sharing the key or connection string. Rotate these keys when a developer leaves the project.
 * The latest npm packages for Azure start with `@azure` scope. 
-* Most Azure npm packages can use the [DefaultAzureCredential](./core/node-sdk-azure-authenticate.md#authentication-with-azure-services-while-developing). While the setup looks complicated, the benefit of no longer having to manage your local _and_ remote authentication to the Azure platform is great for security and time savings. 
+* Most Azure npm packages can use the [DefaultAzureCredential](./core/nodejs-sdk-azure-authenticate.md#authentication-with-azure-services-while-developing). While the setup looks complicated, the benefit of no longer having to manage your local _and_ remote authentication to the Azure platform is great for security and time savings. 
 
 ## Next steps
 
