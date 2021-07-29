@@ -29,7 +29,8 @@ Use the [JavaScript Community Hub](/javascript) to see more from the community.
 |--|--|--|
 |Christopher Harrison|[Module 4] How to use Mongoose to connect to CosmosDB with SWA)|[YouTube](https://www.youtube.com/watch?v=-z1NHptprKg&list=PLlrxD0HtieHgMPeBaDQFx9yNuFxx6S1VG&index=14)|
 |Aaron Powell|Calling SWA authenticated API endpoints|[Blog](https://www.aaron-powell.com/posts/2021-07-02-calling-static-web-apps-authenticated-endpoints/)|
-|Aaron Powell|GraphQL on Azure: Part 7 - Authentication|[Blog](https://www.aaron-powell.com/posts/2021-07-05-graphql-on-azure-part-7-server-side-authentication/)|Aaron Powell|Demo app of SWA + identity info|[GitHub repo](https://github.com/aaronpowell/swa-github-auth-identity)|
+|Aaron Powell|GraphQL on Azure: Part 7 - Authentication|[Blog](https://www.aaron-powell.com/posts/2021-07-05-graphql-on-azure-part-7-server-side-authentication/)|
+|Aaron Powell|Demo app of SWA + identity info|[GitHub repo](https://github.com/aaronpowell/swa-github-auth-identity)|
 |Aaron Powell|SWA auth + more identity info|[Blog](https://www.aaron-powell.com/posts/2021-07-16-adding-user-profiles-to-swa/)|
 |Aaron Powell|VS Code Profile Switcher extension<br><br>A VS Code extension that allows you to switch customizations depending on the profile you want loaded. The use case is for different dev environments (JS or .NET or Python, etc.) or presentation/non-presentation mode.|[GitHub repo](https://github.com/aaronpowell/vscode-profile-switcher)|
 |Wassim Chegham|10 things to know to get started with Azure Static Web Apps|[Blog](https://dev.to/azure/10-things-to-know-about-azure-static-web-apps-3n4i)|
