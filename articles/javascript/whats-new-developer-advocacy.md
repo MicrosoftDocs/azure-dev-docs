@@ -19,6 +19,7 @@ Use the [JavaScript Community Hub](/javascript) to see more from the community.
 ## Timeless
 
 * [Beginner's Series to: JavaScript](https://channel9.msdn.com/Series/Beginners-Series-to-JavaScript)
+* [JavaScript 101 for Beginners - **Portuguese**](https://github.com/glaucia86/js-101-beginners-ms)
 * [Awesome Azure Static web apps](https://github.com/staticwebdev/awesome-azure-static-web-apps) - GitHub repo
 * [Static Web Apps Code to Scale](https://aka.ms/SWAConfOnDemand)
 * [Azure Tips and Tricks: Static Web Apps](https://aka.ms/StaticWebAppsTips)
@@ -43,9 +44,10 @@ Use the [JavaScript Community Hub](/javascript) to see more from the community.
 |Yohan Lasorsa|Build a shopping app with Azure Static Web Apps|[Blog](https://dev.to/azure/build-a-shopping-app-with-azure-static-web-apps-23a6)
 |Yohan Lasorsa|Build a shopping app with Azure Static Web Apps|[Blog](https://dev.to/azure/build-a-shopping-app-with-azure-static-web-apps-23a6)|
 |Yohan Lasorsa|Azure Tips & Tricks: Static Web Apps #2|[Blog](https://techcommunity.microsoft.com/t5/blogs/blogworkflowpage/blog-id/AppsonAzureBlog/article-id/439)|
-|Glaucia Lemos|Coding Stuff! JWT + Node + Mongo+ Vue Project - Video 10|**Portuguese** - [YouTube](https://youtu.be/oLXCKIvOPK4)|
-|Glaucia Lemos|TypeScript - Zero to Hero | Type Enum #19|**Portuguese** - [YouTube](https://youtu.be/oBlnDsKloAY)|
-|Glaucia Lemos|TypeScript - Zero to Hero | Demo - Type Enum #20|**Portuguese** - [YouTube](https://youtu.be/aU5rKsHyxHk)|
+|[Glaucia Lemos](https://linktr.ee/glaucia_lemos86)|Coding Stuff! JWT + Node + Mongo+ Vue Project - Video 10|**Portuguese** - [YouTube](https://youtu.be/oLXCKIvOPK4)|
+|[Glaucia Lemos](https://linktr.ee/glaucia_lemos86)|TypeScript - Zero to Hero - Type Enum #19|**Portuguese** - [YouTube](https://youtu.be/oBlnDsKloAY)|
+|[Glaucia Lemos](https://linktr.ee/glaucia_lemos86)|TypeScript - Zero to Hero - Demo - Type Enum #20|**Portuguese** - [YouTube](https://youtu.be/aU5rKsHyxHk)|
+|[Glaucia Lemos](https://linktr.ee/glaucia_lemos86)|JavaScript 101 for beginners|**Portuguese** - [GitHub repo and YouTube video series](https://github.com/glaucia86/js-101-beginners-ms)|
 
 ## 2021 June 
 
