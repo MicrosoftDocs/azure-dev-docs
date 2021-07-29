@@ -78,16 +78,16 @@ productDirectory:
     - title: .NET
       imageSrc: https://docs.microsoft.com/azure/media/index/net-logo.svg
       links:
-        - url: /dotnet/azure/sdk/
-          text: Azure SDK for .NET
         - url: /dotnet/azure/intro
           text: Introduction to Azure and .NET
+        - url: /dotnet/azure/dotnet-dev-env-checklist
+          text: Configure your .NET development environment for Azure
         - url: /azure/app-service/app-service-web-get-started-dotnet
           text: Deploy an ASP.NET web app
         - url: /azure/azure-functions/functions-create-your-first-function-visual-studio
           text: Build a serverless function
-        - url: /visualstudio/containers/container-tools?view=vs-2019
-          text: ASP.NET Core and Docker
+        - url: /dotnet/azure/sdk/azure-sdk-for-dotnet
+          text: Azure SDK for .NET          
         - url: /dotnet/azure/
           text: See more in the .NET developer center
     - title: Go
