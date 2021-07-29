@@ -33,19 +33,19 @@ In this article, you learn how to:
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../includes/open-source-devops-prereqs-azure-subscription.md)]
 
-## 1. Install a terminal emulator
+## 2. Install a terminal emulator
 
 There are many options on Windows to run bash commands, including Git Bash and Windows Terminal. This article has been tested using Git Bash. Download and install [Git Bash](https://git-scm.com/download/win).
 
-## 2. Install the Azure CLI
+## 3. Install the Azure CLI
 
 [Install the Azure CLI](/cli/azure/install-azure-cli-windows). This article was tested using Azure CLI version 2.26.1.
 
-## 3. Install Terraform for Windows
+## 4. Install Terraform for Windows
 
 [!INCLUDE [install-terraform-on-windows.md](includes/install-terraform-on-windows.md)]
 
-## 4. Authenticate Terraform to Azure
+## 5. Authenticate Terraform to Azure
 
 [!INCLUDE [authenticate-to-azure.md](includes/authenticate-to-azure.md)]
 

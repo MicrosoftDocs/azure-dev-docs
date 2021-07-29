@@ -26,7 +26,7 @@ In this article, you learn how to:
 
 [!INCLUDE [configure-terraform.md](includes/configure-terraform.md)]
 
-- **SSH key pair:** [Create an SSH key pair](/azure/virtual-machines/linux/mac-create-ssh-keys).
+- **SSH key pair:** [Create an SSH key pair](/azure/virtual-machines/linux/mac-create-ssh-keys). Make note of where you save the key.
 
 - **Packer:**  [Install Packer](https://learn.hashicorp.com/packer/getting-started/install).
 

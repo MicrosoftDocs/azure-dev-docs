@@ -31,15 +31,15 @@ In this article, you learn how to:
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../includes/open-source-devops-prereqs-azure-subscription.md)]
 
-## 1. Open Cloud Shell
+## 2. Open Cloud Shell
 
 [!INCLUDE [open-cloud-shell.md](../includes/open-cloud-shell.md)]
 
-## 2. Confirm the default Azure subscription
+## 3. Verify the default Azure subscription
 
 [!INCLUDE [confirm-default-azure-subscription-or-authenticate.md](includes/confirm-default-azure-subscription-or-authenticate.md)]
 
-## 3. Authenticate Terraform to Azure
+## 4. Authenticate Terraform to Azure
 
 [!INCLUDE [authenticate-to-azure.md](includes/authenticate-to-azure.md)]
 

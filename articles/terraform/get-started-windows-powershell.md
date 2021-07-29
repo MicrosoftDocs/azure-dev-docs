@@ -33,7 +33,7 @@ In this article, you learn how to:
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../includes/open-source-devops-prereqs-azure-subscription.md)]
 
-## 1. Install Azure PowerShell
+## 2. Install Azure PowerShell
 
 1. The latest PowerShell module that allows interaction with Azure resources is called the [Azure PowerShell Az module](/powershell/azure/new-azureps-module-az). When using the Azure PowerShell Az module, PowerShell 7 (or later) is the recommended version on all platforms. If you have PowerShell installed, you can verify the version by entering the following command at a PowerShell prompt.
 
@@ -43,15 +43,15 @@ In this article, you learn how to:
 
 1. [Install PowerShell](/powershell/scripting/install/installing-powershell-core-on-windows). This demo was tested using PowerShell 7.1.3 (x64) on Windows 10.
 
-## 2. Install the Azure CLI
+## 3. Install the Azure CLI
 
 For [Terraform to authenticate to Azure](https://www.terraform.io/docs/providers/azurerm/guides/azure_cli.html), you need to [install the Azure CLI](/cli/azure/install-azure-cli-windows). This demo was tested using Azure CLI version 2.26.1.
 
-## 3. Install Terraform for Windows
+## 4. Install Terraform for Windows
 
 [!INCLUDE [install-terraform-on-windows.md](includes/install-terraform-on-windows.md)]
 
-## 4. Authenticate Terraform to Azure
+## 5. Authenticate Terraform to Azure
 
 [!INCLUDE [authenticate-to-azure.md](includes/authenticate-to-azure.md)]
 
