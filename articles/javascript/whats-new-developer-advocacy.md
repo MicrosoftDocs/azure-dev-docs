@@ -28,7 +28,7 @@ Use the [JavaScript Community Hub](/javascript) to see more from the community.
 
 |Cloud Advocate|Contributions|Link|
 |--|--|--|
-|Christopher Harrison|[Module 4] How to use Mongoose to connect to CosmosDB with SWA)|[YouTube](https://www.youtube.com/watch?v=-z1NHptprKg&list=PLlrxD0HtieHgMPeBaDQFx9yNuFxx6S1VG&index=14)|
+|Christopher Harrison|How to use Mongoose to connect to CosmosDB with SWA - Module 4 in series|[YouTube](https://www.youtube.com/watch?v=-z1NHptprKg&list=PLlrxD0HtieHgMPeBaDQFx9yNuFxx6S1VG&index=14)|
 |Aaron Powell|Calling SWA authenticated API endpoints|[Blog](https://www.aaron-powell.com/posts/2021-07-02-calling-static-web-apps-authenticated-endpoints/)|
 |Aaron Powell|GraphQL on Azure: Part 7 - Authentication|[Blog](https://www.aaron-powell.com/posts/2021-07-05-graphql-on-azure-part-7-server-side-authentication/)|
 |Aaron Powell|Demo app of SWA + identity info|[GitHub repo](https://github.com/aaronpowell/swa-github-auth-identity)|
