@@ -28,7 +28,7 @@ As the list below can seem a bit daunting, we've ordered it with the most common
 1. [Inventory all certificates](#inventory-all-certificates)
 1. [Validate that the supported Java version works correctly](#validate-that-the-supported-java-version-works-correctly)
 1. [Inventory JNDI resources](#inventory-jndi-resources)
-1. [Domain configuration](#domain-configuration)
+1. [Domain configuration](#Inspect-your-domain-configuration)
 1. [Determine whether session replication is used](#determine-whether-session-replication-is-used)
 1. [Document datasources](#document-datasources)
 1. [Determine whether WebLogic has been customized](#determine-whether-weblogic-has-been-customized)
