@@ -32,7 +32,7 @@ landingContent:
           - text: Select a hosting service
             url: how-to/deploy-web-app.md
           - text: Authenticate to Azure SDK
-            url: core/node-sdk-azure-authenticate.md
+            url: core/nodejs-sdk-azure-authenticate.md
           - text: Authenticate your web app users
             url: how-to/with-authentication/getting-started.md?tabs=no-code%2Cno-code-credential
           - text: Select a database

@@ -20,7 +20,7 @@
     - name: Set up service principal
       href: how-to/with-sdk/set-up-development-environment.md
     - name: Authenticate to Azure
-      href: core/node-sdk-azure-authenticate.md
+      href: core/nodejs-sdk-azure-authenticate.md
   - name: Tutorials
     items:
       - name: Client web apps

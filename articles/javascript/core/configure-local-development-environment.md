@@ -47,7 +47,7 @@ The following common local workstation installations are recommended to help wit
 
 ## One-time configuration for authentication
 
-To use the same authentication code in local development and the remote Azure hosting environment, use the [DefaultAzureCredential](node-sdk-azure-authenticate.md#authentication-with-azure-services-while-developing).
+To use the same authentication code in local development and the remote Azure hosting environment, use the [DefaultAzureCredential](nodejs-sdk-azure-authenticate.md#authentication-with-azure-services-while-developing).
 
 To use the same code in all environments: 
 
@@ -151,4 +151,4 @@ Visual Studio Code includes many built-in git features. For more information, se
 ## Next steps
 
 * [Create and use a service principal](../how-to/with-sdk/set-up-development-environment.md)
-* [Authenticate with the Azure modules for Node.js](node-sdk-azure-authenticate.md)
+* [Authenticate with the Azure modules for Node.js](nodejs-sdk-azure-authenticate.md)
