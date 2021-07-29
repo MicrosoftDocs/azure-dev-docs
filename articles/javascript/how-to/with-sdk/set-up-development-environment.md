@@ -151,3 +151,6 @@ Use the new service principal to authenticate with Azure.
 ## Next steps
 
 * [Create web app with a secure domain name](../add-custom-domain-to-web-app.md)
+* You can also create a service principal with:
+  * [Azure portal](/azure/active-directory/develop/howto-create-service-principal-portal)
+  * [PowerShell](/azure/active-directory/develop/howto-authenticate-service-principal-powershell). 
