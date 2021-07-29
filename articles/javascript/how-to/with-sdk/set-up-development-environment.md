@@ -1,12 +1,12 @@
 ---
 title: Service principal for Azure SDK
-description: Create a service principal to locally authenticate to the Azure platform to use the Azure SDKs for JavaScript.
+description: Create a service principal to authenticate to the Azure platform to use the Azure SDKs for JavaScript.
 ms.topic: conceptual
 ms.date: 07/28/2021
 ms.custom: devx-track-js
 ---
 
-# Set up a service principal for the local development environment
+# Set up a service principal for development and runtime environments
 
 Create a service principal to locally authenticate to the Azure platform to use the Azure SDKs for JavaScript.
 
