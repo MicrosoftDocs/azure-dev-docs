@@ -30,7 +30,7 @@ In this article, you learn how to:
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../includes/open-source-devops-prereqs-azure-subscription.md)]
 
-## 2. Configure Cloud Shell
+## 2. Open Cloud Shell
 
 [!INCLUDE [open-cloud-shell.md](../includes/open-cloud-shell.md)]
 
