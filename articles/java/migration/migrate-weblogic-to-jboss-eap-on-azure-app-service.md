@@ -34,7 +34,7 @@ As the list below can seem a bit daunting, we've ordered it with the most common
 1. [Determine whether WebLogic has been customized](#determine-whether-weblogic-has-been-customized)
 1. [Determine whether Management over REST is used](#determine-whether-management-over-rest-is-used)
 1. [Determine whether a connection to on-premises is needed](#determine-whether-a-connection-to-on-premises-is-needed)
-1. [Determine whether JMS Queues or Topics are being used](#determine-whether-jms-queues-or-topics-are-in-use)
+1. [Determine whether JMS Queues or Topics are being used](#determine-whether-java-message-service-jms-queues-or-topics-are-in-use)
 1. [Determine whether you are using your own custom created shared Java EE libraries](#determine-whether-you-are-using-your-own-custom-created-shared-java-ee-libraries)
 1. [Determine whether OSGi bundles are used](#determine-whether-osgi-bundles-are-used)
 1. [Determine whether your application contains OS-specific code](#determine-whether-your-application-contains-os-specific-code)
