@@ -8,13 +8,13 @@ ms.topic: quickstart
 ms.prod: azure-python
 author: jess-johnson-msft
 ms.author: jejohn
-ms.date: 07/29/2021
+ms.date: 07/30/2021
 ---
 # Quickstart: Access Azure Blob Storage using Azure Key Vault with a Python function
 
 In this quickstart, you'll learn how to retrieve a secret from Azure Key Vault to access Azure Storage Blob, using a serverless Python function.
 
-![Relational Data Ingestion - Securely Extract Data diagram.](./media/quickstart-securely-retrieve-blob-data/qs_akv_asb_fun-INGESTION-Simplified.svg)
+![Relational Data Ingestion - Securely Extract Data diagram.](./media/quickstart-securely-retrieve-blob-data/qs_akv_asb_fun-INGESTION-Simplified.png)
 
 ## Prerequisites
 
