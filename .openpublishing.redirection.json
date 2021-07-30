@@ -1,6 +1,10 @@
 {
   "redirections": [
     {
+      "source_path": "articles/javascript/core/node-sdk-azure-authenticate.md",
+      "redirect_url": "/azure/developer/javascript/core/nodejs-sdk-azure-authenticate"
+    },
+    {
       "source_path": "articles/javascript/tutorial/tutorial-vscode-static-website-node/tutorial-vscode-static-website-node-01.md",
       "redirect_url": "/azure/static-web-apps/getting-started?tabs=vanilla-javascript"
     },

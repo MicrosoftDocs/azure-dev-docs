@@ -2,7 +2,7 @@
 title: "What's new with Cloud Developer Advocates"
 description: "What's new with JavaScript Cloud Developer Advocates (CDA)"
 ms.topic: conceptual
-ms.date: 06/30/2021
+ms.date: 07/30/2021
 ---
 
 # What's new with JavaScript Developer Advocates
@@ -19,9 +19,35 @@ Use the [JavaScript Community Hub](/javascript) to see more from the community.
 ## Timeless
 
 * [Beginner's Series to: JavaScript](https://channel9.msdn.com/Series/Beginners-Series-to-JavaScript)
+* [JavaScript 101 for Beginners - **Portuguese**](https://github.com/glaucia86/js-101-beginners-ms)
 * [Awesome Azure Static web apps](https://github.com/staticwebdev/awesome-azure-static-web-apps) - GitHub repo
 * [Static Web Apps Code to Scale](https://aka.ms/SWAConfOnDemand)
 * [Azure Tips and Tricks: Static Web Apps](https://aka.ms/StaticWebAppsTips)
+
+## 2021 July 
+
+|Cloud Advocate|Contributions|Link|
+|--|--|--|
+|Christopher Harrison|How to use Mongoose to connect to CosmosDB with SWA - Module 4 in series|[YouTube](https://www.youtube.com/watch?v=-z1NHptprKg&list=PLlrxD0HtieHgMPeBaDQFx9yNuFxx6S1VG&index=14)|
+|Aaron Powell|Calling SWA authenticated API endpoints|[Blog](https://www.aaron-powell.com/posts/2021-07-02-calling-static-web-apps-authenticated-endpoints/)|
+|Aaron Powell|GraphQL on Azure: Part 7 - Authentication|[Blog](https://www.aaron-powell.com/posts/2021-07-05-graphql-on-azure-part-7-server-side-authentication/)|
+|Aaron Powell|Demo app of SWA + identity info|[GitHub repo](https://github.com/aaronpowell/swa-github-auth-identity)|
+|Aaron Powell|SWA auth + more identity info|[Blog](https://www.aaron-powell.com/posts/2021-07-16-adding-user-profiles-to-swa/)|
+|Aaron Powell|VS Code Profile Switcher extension<br><br>A VS Code extension that allows you to switch customizations depending on the profile you want loaded. The use case is for different dev environments (JS or .NET or Python, etc.) or presentation/non-presentation mode.|[GitHub repo](https://github.com/aaronpowell/vscode-profile-switcher)|
+|Wassim Chegham|10 things to know to get started with Azure Static Web Apps|[Blog](https://dev.to/azure/10-things-to-know-about-azure-static-web-apps-3n4i)|
+|Wassim Chegham|Change Detection in Angular|[Angular Rocks Podcast](https://angularrocks.com/episodes/angular-change-detection)|
+|Yohan Lasorsa|Les web apps multi écran, c'est pas sec... mais on s'est jeté à l'eau|**French** - [Speaker deck](https://speakerdeck.com/sinedied/multi-screen-experiences-for-the-mobile-web)|
+|Yohan Lasorsa|SWA with SQL|**French** - [YouTube](https://www.youtube.com/watch?v=FyxRonVvEkg&list=PLlrxD0HtieHgMPeBaDQFx9yNuFxx6S1VG&index=17)|
+|Yohan Lasorsa|Angular apps for dual-screen devices with ngx-foldable|[Speaker deck](https://bit.ly/ngx-foldable)|
+|Yohan Lasorsa|Beginner's Series to Node.js|**German** [Video series](https://www.microsoft.com/de-de/techwiese/know-how/nodejs-fuer-anfanger.aspx)|
+|Yohan Lasorsa|Azure Tips and Tricks - Static Web Apps|[YouTube](https://www.youtube.com/watch?v=w-tLZjO6XMc&list=PLlrxD0HtieHgMPeBaDQFx9yNuFxx6S1VG&index=2)|
+|Yohan Lasorsa|Build a shopping app with Azure Static Web Apps|[Blog](https://dev.to/azure/build-a-shopping-app-with-azure-static-web-apps-23a6)
+|Yohan Lasorsa|Build a shopping app with Azure Static Web Apps|[Blog](https://dev.to/azure/build-a-shopping-app-with-azure-static-web-apps-23a6)|
+|Yohan Lasorsa|Azure Tips & Tricks: Static Web Apps #2|[Blog](https://techcommunity.microsoft.com/t5/blogs/blogworkflowpage/blog-id/AppsonAzureBlog/article-id/439)|
+|[Glaucia Lemos](https://linktr.ee/glaucia_lemos86)|Coding Stuff! JWT + Node + Mongo+ Vue Project - Video 10|**Portuguese** - [YouTube](https://youtu.be/oLXCKIvOPK4)|
+|[Glaucia Lemos](https://linktr.ee/glaucia_lemos86)|TypeScript - Zero to Hero - Type Enum #19|**Portuguese** - [YouTube](https://youtu.be/oBlnDsKloAY)|
+|[Glaucia Lemos](https://linktr.ee/glaucia_lemos86)|TypeScript - Zero to Hero - Demo - Type Enum #20|**Portuguese** - [YouTube](https://youtu.be/aU5rKsHyxHk)|
+|[Glaucia Lemos](https://linktr.ee/glaucia_lemos86)|JavaScript 101 for beginners|**Portuguese** - [GitHub repo and YouTube video series](https://github.com/glaucia86/js-101-beginners-ms)|
 
 ## 2021 June 
 
