@@ -139,7 +139,7 @@ Use the [JavaScript Community Hub](/javascript) to see more from the community.
 |Asim Hussain|Adopting Azure serverless architectures to help reduce CO2 emissions – Part 2 (Extending to the Edge)|[Blog](https://aka.ms/adopting-azure-serverless?WT.mc_id=green-12146-cxa)|
 |Chris Noring|Node.js Learn Module: Create a Node HTTP Server|[Microsoft Learn Module](/learn/modules/build-web-api-nodejs-express/)|
 |Chris Noring|Game engine developing Hex grid based educational games|[GitHub repo](https://github.com/softchris/hex-game)|
-|[Glaucia Lemos][Glaucia]|Backend Developer Guide 2021 - What should I know?|[YouTube](https://www.youtube.com/channel/UC2Qzw5aqCBk_z0lWJnumWQQ) and [Blog](https://dev.to/glaucia86/guia-para-pessoas-desenvolvedoras-back-end-2021-o-que-eu-preciso-saber-10c6)| 
+|[Glaucia Lemos][Glaucia]|Backend Developer Guide 2021 - What should I know?|**Portuguese​** - [YouTube](https://www.youtube.com/channel/UC2Qzw5aqCBk_z0lWJnumWQQ) and [Blog](https://dev.to/glaucia86/guia-para-pessoas-desenvolvedoras-back-end-2021-o-que-eu-preciso-saber-10c6)| 
 |[Glaucia Lemos][Glaucia]|JWT + Node + Mongo+ Vue Project|[YouTube Vide0 #1](https://youtu.be/JmUSx5wXU68), [YouTube Video #2](https://youtu.be/Vr-UMoAv8pk), [YouTube Video #3](https://youtu.be/6u4aM2eT-gg)|
 |[Glaucia Lemos][Glaucia]|Back-End Migration to Serverless Architecture & Local Database PostGreSQL to Cosmos DB - Day 01|[YouTube](https://youtu.be/nVbU9BlF5hs)|
 |[Wassim Chegham][Wassim]|Angular, Rust, WebAssembly, Node.js, Serverless, and... the NEW Azure Static Web Apps!]|[Blog](https://dev.to/azure/angular-rust-webassembly-node-js-serverless-and-the-new-azure-static-web-apps-cnb)|
