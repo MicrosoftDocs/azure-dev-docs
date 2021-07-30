@@ -29,11 +29,12 @@ In this quickstart, you'll learn how to retrieve a secret from Azure Key Vault t
   * azure-identity `terminal pip install azure-identity`
   * azure-keyvault-keys `terminal pip install azure-keyvault-secrets`
 
-* This quickstart assumes the following Azure Resources have **already been provisioned**:
-  * Azure Active Directory (Azure AD)
-  * Azure Storage Account, to create a new storage account you can use the [Azure portal](/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal), [Azure PowerShell](/azure/storage/common/storage-quickstart-create-account?tabs=azure-powershell), or [Azure CLI](/azure/storage/common/storage-quickstart-create-account?tabs=azure-cli)
-  * Azure KeyVault, to create a new function you can use the [Azure portal](/azure/key-vault/keys/quick-create-portal), [PowerShell](/azure/key-vault/keys/quick-create-powershell), or [Azure CLI](/azure/key-vault/keys/quick-create-cli)
-  * HTTP Trigger or Blob Trigger Azure Function App, to create a new function you can use the [Visual Studio Code](/azure/azure-functions/create-first-function-vs-code-python) , [Azure PowerShell](/azure/azure-functions/create-first-function-vs-code-powershell), or [Azure CLI](/azure/azure-functions/create-first-function-cli-python)
+This quickstart assumes the following Azure Resources have **already been provisioned**:
+
+* Azure Active Directory (Azure AD)
+* Azure Storage Account, to create a new storage account you can use the [Azure portal](/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal), [Azure PowerShell](/azure/storage/common/storage-quickstart-create-account?tabs=azure-powershell), or [Azure CLI](/azure/storage/common/storage-quickstart-create-account?tabs=azure-cli)
+* Azure KeyVault, to create a new function you can use the [Azure portal](/azure/key-vault/keys/quick-create-portal), [PowerShell](/azure/key-vault/keys/quick-create-powershell), or [Azure CLI](/azure/key-vault/keys/quick-create-cli)
+* HTTP Trigger or Blob Trigger Azure Function App, to create a new function you can use the [Visual Studio Code](/azure/azure-functions/create-first-function-vs-code-python) , [Azure PowerShell](/azure/azure-functions/create-first-function-vs-code-powershell), or [Azure CLI](/azure/azure-functions/create-first-function-cli-python)
 
 ## 1. Upload a CSV to a blob container
 
@@ -51,7 +52,7 @@ Create a file named '*financial_sample.csv*' locally that contains this data.
 
 Copy the below data into the file:
 
-```console
+```csv
 Segment,Country,Product,Units Sold,Manufacturing Price,Sale Price,Gross Sales,Date
 Government,Canada,Carretera,1618.5,$3.00,$20.00,"$32,370.00",1/1/2014
 Government,Germany,Carretera,1321,$3.00,$20.00,"$26,420.00",1/1/2014
@@ -62,13 +63,13 @@ Midmarket,Mexico,Carretera,2470,$3.00,$15.00,"$37,050.00",6/1/2014
 
 Run the following code from your favorite IDE to upload your data (blob) to the storage container (We recommend [VSCode](https://code.visualstudio.com/)).
 
-## [PowerShell](#tab/azure-powershell)
+### [PowerShell](#tab/azure-powershell)
 
 ```powershell
 Set-AzStorageBlobContent -File "<file-path>" -Container "<container-name>" -Blob "financial_sample.csv" -Context "<storage-account-context>" 
 ```
 
-## [Azure CLI](#tab/azure-cli)
+### [Azure CLI](#tab/azure-cli)
 
 ```azurecli
 az storage blob upload --account-name "<storage-account>" --container-name "<container>" --name "financial_sample" --file "financial_sample.csv" --auth-mode login
@@ -82,13 +83,13 @@ Create a 'secret' in Azure Key Vault to store the storage account access key.
 
 Run the following code from your favorite IDE to create a secret to store the access key.
 
-## [PowerShell](#tab/azure-powershell)
+### [PowerShell](#tab/azure-powershell)
 
 ``` powershell
 Set-AzKeyVaultSecret -VaultName "<keyvault-name>" -Name "BlobAccessKey" -SecretValue "<secret-value>"
 ```
 
-## [Azure CLI](#tab/azure-cli)
+### [Azure CLI](#tab/azure-cli)
 
 ``` azurecli
 az keyvault secret set --vault-name "<keyvault-name>" --name "BlobAccessKey" --value "<secret-value>"
@@ -96,8 +97,8 @@ az keyvault secret set --vault-name "<keyvault-name>" --name "BlobAccessKey" --v
 
 * * *
 
-[!IMPORTANT]
-A common approach for storing sensitive information is to remove the data from the application code, and into a 'config.json' file. However, this practice still stores the sensitive information in plain text. We recommend instead using [Azure Key Vault](https://azure.microsoft.com/services/key-vault/). Azure Key Vault is a secure centralized cloud solution for storing and managing sensitive information, such as passwords, certificates, and keys.
+>[!IMPORTANT]
+>A common approach for storing sensitive information is to remove the data from the application code, and into a 'config.json' file. However, this >practice still stores the sensitive information in plain text. We recommend instead using [Azure Key Vault](https://azure.microsoft.com/services/key-vault/). Azure Key Vault is a secure centralized cloud solution for storing and managing sensitive information, such as passwords, >certificates, and keys.
 
 ## 3. Configure access between Azure Storage Account and Azure Key Vault
 
@@ -105,7 +106,7 @@ Before Azure Key Vault can access and manage your storage account keys, you must
 
 Run the following code from your favorite IDE to configure access between the storage account and keyvault.
 
-## [PowerShell](#tab/azure-powershell)
+### [PowerShell](#tab/azure-powershell)
 
 ```powershell
 $regenPeriod = [System.Timespan]::FromDays(30)
@@ -120,7 +121,7 @@ Set-AzKeyVaultAccessPolicy -VaultName "<keyvault-name>" -UserPrincipalName "<use
 Add-AzKeyVaultManagedStorageAccount -VaultName "<keyvault-name>" -AccountName "<storage-account-name>" -AccountResourceId "<storage-account-id>" -ActiveKeyName "<key1>" -RegenerationPeriod $regenPeriod
 ```
 
-## [Azure CLI](#tab/azure-cli)
+### [Azure CLI](#tab/azure-cli)
 
 ```azurecli
 # Assign Azure role "Storage Account Key Operator Service Role" to Key Vault, limiting the access scope to your storage account
@@ -169,8 +170,8 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
             access_key_secret = client.get_secret(blob_secret_name)
 ```
 
-[!NOTE]
-In this quickstart, logged in user is used to authenticate to key vault, which is preferred method for local development. For applications deployed to Azure, managed identity should be assigned to App Service or Virtual Machine, for more information, see [Managed Identity Overview](/azure/active-directory/managed-identities-azure-resources/overview).
+>[!NOTE]
+>In this quickstart, logged in user is used to authenticate to key vault, which is preferred method for local development. For applications deployed to Azure, managed identity should be assigned to App Service or Virtual Machine, for more information, see [Managed Identity Overview](/azure/active-directory/managed-identities-azure-resources/overview).
 
 ## 5. Get data from Azure Storage with serverless function
 
