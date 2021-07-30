@@ -14,7 +14,7 @@ ms.date: 07/29/2021
 
 In this quickstart, you'll learn how to retrieve a secret from Azure Key Vault to access Azure Storage Blob, using a serverless Python function.
 
-![Relational Data Ingestion - Securely Extract Data diagram.](./media/quickstart-securely-retrieve-blob-data/qs_akv_asb_fun-INGESTION-Simplified.png)
+![Relational Data Ingestion - Securely Extract Data diagram.](./media/quickstart-securely-retrieve-blob-data/qs_akv_asb_fun-INGESTION-Simplified.svg)
 
 ## Prerequisites
 
@@ -25,20 +25,20 @@ In this quickstart, you'll learn how to retrieve a secret from Azure Key Vault t
 * The [PowerShell extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.PowerShell).
 * The [Azure Functions extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) for Visual Studio Code.
 * [Python 2.7+ or 3.6+](/azure/developer/python/configure-local-development-environment) is required and the following packages:
-  * azure-storage-blob `terminal pip install azure-storage-blob`
-  * azure-identity `terminal pip install azure-identity`
-  * azure-keyvault-keys `terminal pip install azure-keyvault-secrets`
+  * azure-storage-blob `pip install azure-storage-blob`
+  * azure-identity `pip install azure-identity`
+  * azure-keyvault-keys `pip install azure-keyvault-secrets`
 
 This quickstart assumes the following Azure Resources have **already been provisioned**:
 
 * Azure Active Directory (Azure AD)
 * Azure Storage Account, to create a new storage account you can use the [Azure portal](/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal), [Azure PowerShell](/azure/storage/common/storage-quickstart-create-account?tabs=azure-powershell), or [Azure CLI](/azure/storage/common/storage-quickstart-create-account?tabs=azure-cli)
-* Azure KeyVault, to create a new function you can use the [Azure portal](/azure/key-vault/keys/quick-create-portal), [PowerShell](/azure/key-vault/keys/quick-create-powershell), or [Azure CLI](/azure/key-vault/keys/quick-create-cli)
-* HTTP Trigger or Blob Trigger Azure Function App, to create a new function you can use the [Visual Studio Code](/azure/azure-functions/create-first-function-vs-code-python) , [Azure PowerShell](/azure/azure-functions/create-first-function-vs-code-powershell), or [Azure CLI](/azure/azure-functions/create-first-function-cli-python)
+* Azure KeyVault, to create a new key vault you can use the [Azure portal](/azure/key-vault/keys/quick-create-portal), [PowerShell](/azure/key-vault/keys/quick-create-powershell), or [Azure CLI](/azure/key-vault/keys/quick-create-cli)
+* HTTP Trigger or Blob Trigger Azure Function App, to create a new function you can use the [Visual Studio Code](/azure/azure-functions/create-first-function-vs-code-python), [Azure PowerShell](/azure/azure-functions/create-first-function-vs-code-powershell), or [Azure CLI](/azure/azure-functions/create-first-function-cli-python)
 
 ## 1. Upload a CSV to a blob container
 
-To ingest relational data with a Python Azure Function downstream, ensure data (blob) has been uploaded to an Azure Storage Container. If not, this section walks-through creating and uploading sample data (blob) to storage container.
+To ingest relational data using a serverless Python Azure Function downstream, a data (blob) needs to be uploaded to an Azure Storage container. If you already have you data (blob) uploaded to an Azure Storage container, you can skip to the next section.
 
 Create a file named '*financial_sample.csv*' locally that contains this data.
 
@@ -98,11 +98,11 @@ az keyvault secret set --vault-name "<keyvault-name>" --name "BlobAccessKey" --v
 * * *
 
 >[!IMPORTANT]
->A common approach for storing sensitive information is to remove the data from the application code, and into a 'config.json' file. However, this >practice still stores the sensitive information in plain text. We recommend instead using [Azure Key Vault](https://azure.microsoft.com/services/key-vault/). Azure Key Vault is a secure centralized cloud solution for storing and managing sensitive information, such as passwords, >certificates, and keys.
+>A common approach for storing sensitive information is to remove the data from the application code, and into a 'config.json' file. However, this practice still stores the sensitive information in plain text. We recommend instead using [Azure Key Vault](https://azure.microsoft.com/services/key-vault/). Azure Key Vault is a secure centralized cloud solution for storing and managing sensitive information, such as passwords, certificates, and keys.
 
 ## 3. Configure access between Azure Storage Account and Azure Key Vault
 
-Before Azure Key Vault can access and manage your storage account keys, you must authorize access to your storage account.
+Now, you need to authorize access for Azure Key Vault to your Azure Storage Account to manage your storage account access key.
 
 Run the following code from your favorite IDE to configure access between the storage account and keyvault.
 
@@ -175,12 +175,12 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
 
 ## 5. Get data from Azure Storage with serverless function
 
-Extract, Transform, and Load (ETL) is a common approach used in data movement processes. In this approach, data is extracted from one or more source systems, then transformed in a 'staging' area, and finally loaded into a data store to be consumed by analytic tools.
+Extract, Transform, and Load (ETL) is a common approach used in data processes solutions. In this approach, data is extracted from one or more source systems, then transformed in a 'staging' area. Finally, the processed data is loaded into a data store to be consumed by analytic tools.
 
-The below code begins the ETL process by *extracting* raw data from our blob storage into our function to be transformed later.
+The below code begins the ETL process by *extracting* raw data from blob storage into a serverless function.
 
-[!IMPORTANT]
-Be sure to add the Environment Variable values to both the 'local.setting.json' file for local development, and the [Azure Function appsettings configuration](/azure/azure-functions/functions-how-to-use-azure-function-app-settings).
+>[!IMPORTANT]
+>Be sure to add the Environment Variable values to both the 'local.setting.json' file for local development, and the [Azure Function appsettings configuration](/azure/azure-functions/functions-how-to-use-azure-function-app-settings).
 
 ``` Python
     blob_client = BlobClient( account_url=storage_account_url, 
@@ -225,4 +225,4 @@ Midmarket,Mexico,Carretera,2470,$3.00,$15.00,"$37,050.00",6/1/2014
 
 ## Next steps
 
-This quickstart used the Azure CLI or Powershell to create secure communication between your function app, key vault, and storage blob. The Python Azure SDK was used to retrieve a secret from key vault, then extract the raw file data in Azure Storage. In the next article, this function is expanded to include transforming and loading the extracted data into a relational database within Azure.
+This quickstart showed you how to use Azure CLI/Powershell to create secure access between a serverless function, key vault, and storage blob. You also learned how to use the Python Azure SDK to retrieve the secret from the key vault to securely extract the raw file data from Azure Storage. In the following article, we can expand this function to include transforming and loading the extracted data into an Azure relational database.
