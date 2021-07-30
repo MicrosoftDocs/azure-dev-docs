@@ -3,7 +3,7 @@ ms.custom: devx-track-js, devx-track-azurecli
 ms.topic: include
 ms.date: 02/08/2021
 ---
-
+<a name="create-a-cosmos-db-resource-for-mongodb"></a>
 
 ## Create a Cosmos DB resource for MongoDB with Azure CLI
 
@@ -134,6 +134,8 @@ az cosmosdb update \
     --ip-range-filter 123.123.123.123,456.456.456.456
 ```
 
+<a name="get-the-mongodb-connection-string-for-your-resource"></a>
+
 ## Get the MongoDB connection string for your resource with Azure CLI
 
 Retrieve the MongoDB connection string for this instance with the [az cosmosdb keys list](/cli/azure/cosmosdb/keys#az_cosmosdb_keys_list) command:
@@ -152,6 +154,8 @@ Connect to the mongoDB database with a connection string. Make sure your service
 
 * publicly available
 * firewall settings for your client's IP address
+
+<a name="configure-your-azure-web-app-with-the-connection-string"></a>
 
 ## Configure your Azure web app with the connection string with Azure CLI
 

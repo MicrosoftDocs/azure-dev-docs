@@ -25,6 +25,8 @@ To create, move, or use a mongoDB database to Azure, you need a Cosmos DB resour
 
 ---
 
+<a name="locally-develop-with-the-cosmosdb-emulator"></a>
+
 ## Use the Azure Cosmos DB emulator for local development
 
 Learn more about the Azure Cosmos DB emulator:
