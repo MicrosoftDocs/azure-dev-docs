@@ -5,7 +5,7 @@ services: python, azure-functions, azure-key-vault, azure-storage-accounts
 ms.custom: devx-track-python, devx-track-azurepowershell, devx-track-azurecli
 ms.devlang: python
 ms.topic: quickstart
-ms.prod: azure-python, devlang-python
+ms.prod: azure-python
 author: jess-johnson-msft
 ms.author: jejohn
 ms.date: 07/29/2021
