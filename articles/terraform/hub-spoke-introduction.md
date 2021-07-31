@@ -29,7 +29,7 @@ for all resources
 
 [!INCLUDE [configure-terraform.md](includes/configure-terraform.md)]
 
-## Understand hub and spoke topology architecture
+## 2. Understand hub and spoke topology architecture
 
 In the hub and spoke topology, the hub is a VNet. The VNet acts as a central point of connectivity to your on-premises network. The spokes are VNets that peer with the hub, and can be used to isolate workloads. Traffic flows between the on-premises datacenter and the hub through an ExpressRoute or VPN gateway connection. The following image demonstrates the components in a hub and spoke topology:
 
@@ -52,7 +52,7 @@ Some of the typical uses for a hub and spoke architecture include:
 - Enterprises that require central control over security aspects.
 - Enterprises that require segregated management for the workloads in each spoke.
 
-## Preview the demo components
+## 3. Preview the demo components
 
 As you work through each tutorial in this series, various components are defined in distinct Terraform scripts. The demo architecture created and deployed consists of the following components:
 
@@ -68,7 +68,7 @@ As you work through each tutorial in this series, various components are defined
 
 - **VNet peering**. Two VNets can be connected using a peering connection. Peering connections are non-transitive, low latency connections between VNets. Once peered, the VNets exchange traffic by using the Azure backbone, without needing a router. In a hub and spoke network topology, VNet peering is used to connect the hub to each spoke. You can peer VNets in the same region, or different regions.
 
-## Create the directory structure
+## 4. Implement the Terraform code
 
 1. Create a directory named `hub-spoke` in which to test and run the sample Terraform code in this multi-article series. If you use another name, you'll need to remember to use that directory name throughout the article series.
 
