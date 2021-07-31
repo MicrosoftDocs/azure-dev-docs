@@ -2,7 +2,7 @@
 title: Create an Azure virtual machine scale set using Terraform
 description: Learn how to use Terraform to configure and version an Azure virtual machine scale set.
 ms.topic: how-to
-ms.date: 07/28/2021
+ms.date: 07/30/2021
 ms.custom: devx-track-terraform
 ---
 
@@ -67,11 +67,15 @@ In this article, you learn how to:
 
 ## 6. Verify the results
 
-1. From the output of the `terraform apply` command, you'll see values for the VM FQDN, jumpbox FQDN, and jumpbox IP address.
+1. From the output of the `terraform apply` command, you'll see values for the following:
 
-1. Browse to the VM URL to confirm a default page with the text **Welcome to nginx!**.
+    - Virtual machine FQDN
+    - Jumpbox FQDN
+    - Jumpbox IP address
 
-1. Use SSH to connect to the jumpbox VM using the user name defined in the variables file and the password you specified when you ran `terraform apply`.
+1. Browse to the virtual machine URL to confirm a default page with the text **Welcome to nginx!**.
+
+1. Use SSH to connect to the jumpbox VM using the user name defined in the variables file and the password you specified when you ran `terraform apply`. For example: `ssh azureuser@<ip_address>`.
 
 ## 7. Clean up resources
 
