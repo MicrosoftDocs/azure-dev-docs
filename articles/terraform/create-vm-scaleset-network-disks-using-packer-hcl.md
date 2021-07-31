@@ -51,9 +51,20 @@ In this article, you learn how to:
 
     - Make note of the output values (`appId`, `client_secret`, `tenant_id`).
 
+1. Run [az account show](/cli/azure/account#az_account_show) to display the current Azure subscription.
+
+    ```azurecli
+    az account show --query "{ subscription_id: id }"
+    ```
+
 1. Create a Packer template file named `ubuntu.json` and paste the following code:
 
     [!code-terraform[tarcher-move-sample-code-to-github](../../terraform_samples/quickstart/201-vmss-packer-jumpbox/ubuntu.json)]
+
+    **Key points:**
+
+    - Set the `client_id`, `client_secret`, and `tenant_id` fields to the respective values from your service principal.
+    - Set the `subscription_id` field to the Azure subscription ID.
 
 1. Build the Packer image.
 
@@ -110,6 +121,12 @@ In this article, you learn how to:
 ## 8. Clean up resources
 
 [!INCLUDE [terraform-destroy-plan.md](includes/terraform-destroy-plan.md)]
+
+1. Run [az group delete](/cli/azure/group#az_group_delete) to delete the resource group used to contain the Packer image:
+
+```azurecli
+az group delete --name myPackerImages
+```
 
 ## Troubleshoot Terraform on Azure
 
