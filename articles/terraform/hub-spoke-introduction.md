@@ -86,7 +86,7 @@ As you work through each tutorial in this series, various components are defined
 
     **Key points:**
 
-    - This tutorial uses a password you enter when creating the execution plan. In a real-world app, you might consider using a SSH public/private key pair.
+    - This tutorial uses a password you enter when you call `terraform plan`. In a real-world app, you might consider using a SSH public/private key pair.
     - For more information about SSH keys and Azure, see [How to use SSH keys with Windows on Azure](/azure/virtual-machines/linux/ssh-from-windows).
 
 ## Troubleshoot Terraform on Azure
