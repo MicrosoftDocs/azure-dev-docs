@@ -15,9 +15,7 @@ Cloud Shell automatically updates to the latest version of Terraform within a co
     terraform version
     ```
 
-1. If the Terraform version installed in Cloud Shell isn't the latest version, you'll see information similar to the following:
-
-    :::image type="content" source="media/install-configure/terraform-version-not-current-bash.png" alt-text="Message displayed in Bash terminal when installed Terraform version is not the current version.":::
+1. If the Terraform version installed in Cloud Shell isn't the latest version, you'll see a message indicating that the version of Terraform is out of date.
 
 1. If you're fine working with the indicated version, skip to the next section. Otherwise, continue with the following steps.
 
@@ -26,8 +24,6 @@ Cloud Shell automatically updates to the latest version of Terraform within a co
 1. Scroll down to the **Linux** download links.
 
 1. Move your mouse over the **64-bit** link. This is the link for the latest 64-bit Linux AMD version, which is appropriate for Cloud Shell.
-
-    :::image type="content" source="media/install-configure/latest-terraform-version-for-linux-64-bit-amd.png" alt-text="Link to latest 64-bit Linux AMD version of Terraform.":::
 
 1. Copy the URL.
 
@@ -60,5 +56,3 @@ Cloud Shell automatically updates to the latest version of Terraform within a co
     ```bash
     terraform version
     ```
-
-    :::image type="content" source="media/install-configure/terraform-version-is-latest-version-bash.png" alt-text="Output in Bash when the current version of Terraform is current.":::
