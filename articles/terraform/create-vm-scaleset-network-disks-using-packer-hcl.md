@@ -120,12 +120,18 @@ In this article, you learn how to:
 
 ## 8. Clean up resources
 
-[!INCLUDE [terraform-destroy-plan.md](includes/terraform-destroy-plan.md)]1. Run [az group delete](/cli/azure/group#az_group_delete) to delete the resource group used to contain the Packer image:
+### Delete virtual machine scale set
 
-    ```azurecli
-    az group delete --name myPackerImages
-    ```
-    
+[!INCLUDE [terraform-destroy-plan.md](includes/terraform-destroy-plan.md)]
+
+### Delete Packer image and resource group
+
+Run [az group delete](/cli/azure/group#az_group_delete) to delete the resource group used to contain the Packer image:
+
+```azurecli
+az group delete --name myPackerImages
+```
+
 ## Troubleshoot Terraform on Azure
 
 [Troubleshoot common problems when using Terraform on Azure](troubleshoot.md)
