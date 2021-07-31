@@ -1,12 +1,12 @@
 ---
-title: Tutorial - Create a hub and spoke hybrid network topology in Azure using Terraform
+title: Create a hub and spoke hybrid network topology in Azure using Terraform
 description: Learn how to create an entire hybrid network reference architecture in Azure using Terraform.
 ms.topic: tutorial
-ms.date: 07/30/2021
+ms.date: 07/31/2021
 ms.custom: devx-track-terraform
 ---
 
-# Tutorial: Create a hub and spoke hybrid network topology in Azure using Terraform
+# Create a hub and spoke hybrid network topology in Azure using Terraform
 
 This tutorial series shows how to use Terraform to implement in Azure a [hub and spoke network topology](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke). 
 
@@ -23,19 +23,19 @@ for all resources
 > * Use Terraform to establish gateways and connections between on premises and Azure networks
 > * Use Terraform to create VNet peerings to spoke networks
 
-## Prerequisites
+## 1. Configure your environment
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../includes/open-source-devops-prereqs-azure-subscription.md)]
 
-- **Install and configure Terraform**: To provision VMs and other infrastructure in Azure, [install and configure Terraform](get-started-cloud-shell.md)
+[!INCLUDE [configure-terraform.md](includes/configure-terraform.md)]
 
-## Hub and spoke topology architecture
+## Understand hub and spoke topology architecture
 
 In the hub and spoke topology, the hub is a VNet. The VNet acts as a central point of connectivity to your on-premises network. The spokes are VNets that peer with the hub, and can be used to isolate workloads. Traffic flows between the on-premises datacenter and the hub through an ExpressRoute or VPN gateway connection. The following image demonstrates the components in a hub and spoke topology:
 
 ![Hub and spoke topology architecture in Azure](./media/hub-and-spoke-tutorial-series/hub-spoke-architecture.png)
 
-## Benefits of the hub and spoke topology
+### Benefits of the hub and spoke topology
 
 A hub and spoke network topology is a way to isolate workloads while sharing common services. These services include identity and security. The hub is a VNet that acts as a central connection point to an on-premises network. The spokes are VNets that peer with the hub. Shared services are deployed in the hub, while individual workloads are deployed inside spoke networks. Here are some benefits of the hub and spoke network topology:
 
@@ -43,7 +43,7 @@ A hub and spoke network topology is a way to isolate workloads while sharing com
 - **Overcome subscriptions limits** by peering VNets from different subscriptions to the central hub.
 - **Separation of concerns** between central IT (SecOps, InfraOps) and workloads (DevOps).
 
-## Typical uses for the hub and spoke architecture
+### Typical uses for the hub and spoke architecture
 
 Some of the typical uses for a hub and spoke architecture include:
 
@@ -70,100 +70,24 @@ As you work through each tutorial in this series, various components are defined
 
 ## Create the directory structure
 
-Create the directory that holds your Terraform configuration files for the demo.
+1. Create a directory named `hub-spoke` in which to test and run the sample Terraform code in this multi-article series. If you use another name, you'll need to remember to use that directory name throughout the article series.
 
-1. Browse to the [Azure portal](https://portal.azure.com).
+1. Create your main Terraform configuration file. By convention, the name of this file is `main.tf`. However, you can specify any valid name for your environment.
 
-1. Open [Azure Cloud Shell](/azure/cloud-shell/overview). If you didn't select an environment previously, select **Bash** as your environment.
+1. Insert the following code into the main Terraform configuration file.
 
-    ![Cloud Shell prompt](./media/common/azure-portal-cloud-shell-button-min.png)
+    [!code-terraform[tarcher-move-sample-code-to-github](../../terraform_samples/quickstart/301-hub-spoke/main.tf)]
 
-1. Change directories to the `clouddrive` directory.
+1. Create a variables file that will contain the values for Terraform. By convention, the name of this file is `variables.tf`. However, you can specify any valid name for your environment.
 
-    ```bash
-    cd clouddrive
-    ```
+1. Insert the following code into the variables file.
 
-1. Create a directory named `hub-spoke`.
-
-    ```bash
-    mkdir hub-spoke
-    ```
-
-1. Change directories to the new directory:
-
-    ```bash
-    cd hub-spoke
-    ```
-
-## Declare the Azure provider
-
-Create the Terraform configuration file that declares the Azure provider.
-
-1. In Cloud Shell, open a new file named `main.tf`.
-
-    ```bash
-    code main.tf
-    ```
-
-1. Paste the following code into the editor:
-
-    ```hcl
-    terraform {
-      required_providers {
-          azurerm = {
-            source  = "hashicorp/azurerm"
-            version = "~>2.0"
-          }
-      }
-    }
-    provider "azurerm" {
-      features {}
-    }
-    ```
-
-1. Save the file and exit the editor.
-
-## Create the variables file
-
-Create the Terraform configuration file for common variables that are used across different scripts.
-
-1. In Cloud Shell, open a new file named `variables.tf`.
-
-    ```bash
-    code variables.tf
-    ```
-
-1. Paste the following code into the editor:
-
-    ```hcl
-    variable "location" {
-      description = "Location of the network"
-      default     = "eastus"
-    }
-    
-    variable "username" {
-      description = "Username for Virtual Machines"
-      default     = "testadmin"
-    }
-    
-    variable "password" {
-      description = "Password for Virtual Machines"
-      default     = "Password1234!"
-    }
-    
-    variable "vmsize" {
-      description = "Size of the VMs"
-      default     = "Standard_DS1_v2"
-    }
-    ```
+    [!code-terraform[tarcher-move-sample-code-to-github](../../terraform_samples/quickstart/301-hub-spoke/variables.tf)]
 
     **Key points:**
 
-    - This tutorial uses a hard-coded password in the variables file for simplicity. In a real-world app, you might want to consider using a SSH public/private key pair. 
+    - This tutorial uses a password you enter when creating the execution plan. In a real-world app, you might consider using a SSH public/private key pair.
     - For more information about SSH keys and Azure, see [How to use SSH keys with Windows on Azure](/azure/virtual-machines/linux/ssh-from-windows).
-
-1. Save the file and exit the editor.
 
 ## Troubleshoot Terraform on Azure
 
