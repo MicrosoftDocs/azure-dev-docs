@@ -70,15 +70,19 @@ As you work through each tutorial in this series, various components are defined
 
 ## 4. Implement the Terraform code
 
-1. Create a directory named `hub-spoke` in which to test and run the sample Terraform code in this multi-article series. If you use another name, you'll need to remember to use that directory name throughout the article series.
+1. Create a directory to contain the example code for the entire multi-article series.
 
-1. Create your main Terraform configuration file. By convention, the name of this file is `main.tf`. However, you can specify any valid name for your environment.
+    **Key points:**
+
+    - You'll use this directory for every article in this series where it'll be referred to as the "example directory".
+
+1. In the example directory, create your main Terraform configuration file. By convention, the name of this file is `main.tf`. However, you can specify any valid name for your environment.
 
 1. Insert the following code into the main Terraform configuration file.
 
     [!code-terraform[tarcher-move-sample-code-to-github](../../terraform_samples/quickstart/301-hub-spoke/main.tf)]
 
-1. Create a variables file that will contain the values for Terraform. By convention, the name of this file is `variables.tf`. However, you can specify any valid name for your environment.
+1. In the example directory, create a variables file that will contain the values for Terraform. By convention, the name of this file is `variables.tf`. However, you can specify any valid name for your environment.
 
 1. Insert the following code into the variables file.
 
