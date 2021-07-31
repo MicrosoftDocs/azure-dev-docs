@@ -26,13 +26,42 @@ In this article, you learn how to:
 
 [!INCLUDE [configure-terraform.md](includes/configure-terraform.md)]
 
-- **SSH key pair:** [Create an SSH key pair](/azure/virtual-machines/linux/mac-create-ssh-keys). Make note of where you save the key.
+## 2. Create a Packer image
 
-- **Packer:**  [Install Packer](https://learn.hashicorp.com/packer/getting-started/install).
+1. [Install Packer](https://learn.hashicorp.com/packer/getting-started/install).
 
-- **Packer image:** Create a custom Linux image by following the steps in the article [How to use Packer to create Linux virtual machine images in Azure](/azure/virtual-machines/linux/build-image-with-packer).
+    **Key points:**
 
-## 2. Implement the Terraform code
+    - To confirm that you have access to the Packer executable, run the following command: `packer -v`.
+    - Depending on your environment, you might need to set your path and reopen the command-line.
+    
+1. Run [az group create](/cli/azure/group#az_group_create) to create a resource group to hold the Packer image.
+
+    ```azurecli
+    az group create -n myPackerImages -l eastus
+    ```
+
+1. Run [az ad sp create-for-rbac](/cli/azure/ad/sp?#az_ad_sp_create_for_rbac) to enable Packer to authenticate to Azure using a service principal. 
+
+    ```azurecli
+    az ad sp create-for-rbac --query "{ client_id: appId, client_secret: password, tenant_id: tenant }"
+    ```
+
+    **Key points:**
+
+    - Make note of the output values (`appId`, `client_secret`, `tenant_id`).
+
+1. Create a Packer template file named `ubuntu.json` and paste the following code:
+
+    [!code-terraform[tarcher-move-sample-code-to-github](../../terraform_samples/quickstart/201-vmss-packer-jumpbox/ubuntu.json)]
+
+1. Build the Packer image.
+
+    ```cmd
+    packer build ubuntu.json
+    ```
+
+## 3. Implement the Terraform code
 
 1. Create a directory in which to test and run the sample Terraform code.
 
@@ -54,21 +83,21 @@ In this article, you learn how to:
 
     [!code-terraform[tarcher-move-sample-code-to-github](../../terraform_samples/quickstart/201-vmss-packer-jumpbox/output.tf)]
 
-## 3. Initialize Terraform
+## 4. Initialize Terraform
 
 [!INCLUDE [terraform-init.md](includes/terraform-init.md)]
 
-## 4. Create a Terraform execution plan
+## 5. Create a Terraform execution plan
 
 [!INCLUDE [terraform-create-plan.md](includes/terraform-create-plan.md)]
 
-## 5. Apply a Terraform execution plan
+## 6. Apply a Terraform execution plan
 
 [!INCLUDE [terraform-apply-plan.md](includes/terraform-apply-plan.md)]
 
-## 6. Verify the results
+## 7. Verify the results
 
-## 7. Clean up resources
+## 8. Clean up resources
 
 [!INCLUDE [terraform-destroy-plan.md](includes/terraform-destroy-plan.md)]
 
