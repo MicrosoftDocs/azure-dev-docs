@@ -120,8 +120,7 @@ In this article, you learn how to:
 
 ## 8. Clean up resources
 
-[!INCLUDE [terraform-destroy-plan.md](includes/terraform-destroy-plan.md)]
-1. Run [az group delete](/cli/azure/group#az_group_delete) to delete the resource group used to contain the Packer image:
+[!INCLUDE [terraform-destroy-plan.md](includes/terraform-destroy-plan.md)]1. Run [az group delete](/cli/azure/group#az_group_delete) to delete the resource group used to contain the Packer image:
 
     ```azurecli
     az group delete --name myPackerImages
