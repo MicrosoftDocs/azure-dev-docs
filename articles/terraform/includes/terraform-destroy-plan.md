@@ -4,11 +4,11 @@ description: include file
 author: tomarchermsft
 ms.service: terraform
 ms.topic: include
-ms.date: 07/27/2021
+ms.date: 07/30/2021
 ms.author: tarcher
 ---
 
-When no longer needed, you can undo the changes made in this article by doing the following steps:
+When you no longer need the resources create via Terraform, do the following steps:
 
 1. Run [terraform plan](https://www.terraform.io/docs/commands/plan.html) and specify the `destroy` flag.
 
