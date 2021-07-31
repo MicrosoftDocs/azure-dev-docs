@@ -1,26 +1,13 @@
 ---
-title: Install latest version of Terraform in Azure Cloud Shell
-description: In this article, you learn how to install latest version of Terraform in Azure Cloud Shell
-keywords: terraform azure cli bash install curl
+title: include file
+description: include file
 ms.topic: how-to
-ms.date: 05/04/2021
+ms.date: 07/30/2021
 ms.custom: devx-track-terraform
-# Customer intent: As someone new to Terraform and Azure, I want install latest version of Terraform in Azure Cloud Shell.
+ms.author: tarcher
 ---
 
-# Install latest version of Terraform in Azure Cloud Shell
-
 Cloud Shell automatically updates to the latest version of Terraform within a couple of weeks of its release. However, if you need the most recent version sooner, this article shows you how to download and install the current version of Terraform.
-
-## Prerequisites
-
-[!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../includes/open-source-devops-prereqs-azure-subscription.md)]
-
-## Download and install latest version of Terraform
-
-1. Browse to the [Azure portal](https://portal.azure.com).
-
-1. Open Cloud Shell.
 
 1. Determine the version of Terraform being used in Cloud Shell.
 

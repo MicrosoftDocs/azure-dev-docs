@@ -45,8 +45,6 @@ landingContent:
             url: configure-vs-code-extension-for-terraform.md
           - text: Authenticate Terraform to Azure
             url: authenticate-to-azure.md
-          - text: Install latest Terraform version
-            url: install-latest-version.md
           - text: Store Terraform state in Azure Storage
             url: store-state-in-azure-storage.md
   # Card
