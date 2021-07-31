@@ -4,16 +4,16 @@
   items:
   - name: About Terraform on Azure
     href: overview.md
-- name: Quickstarts
+- name: Get started
   expanded: true
   items:
-    - name: Configure with Cloud Shell and Bash
+    - name: Install with Cloud Shell and Bash
       href: get-started-cloud-shell-bash.md
-    - name: Configure with Cloud Shell and PowerShell
+    - name: Install with Cloud Shell and PowerShell
       href: get-started-cloud-shell-powershell.md
-    - name: Configure with Windows and Bash
+    - name: Install with Windows and Bash
       href: get-started-windows-bash.md
-    - name: Configure with Windows and PowerShell
+    - name: Install with Windows and PowerShell
       href: get-started-windows-powershell.md
     - name: Create an Azure resource group
       href: create-resource-group.md
@@ -23,22 +23,24 @@
       href: best-practices-testing-overview.md
 - name: How-to guides
   items:
-    - name: Troubleshoot
-      items:
-        - name: Troubleshoot common problems
-          href: troubleshoot.md
-    - name: Setup and configuration
+    - name: Configure Terraform
       items:
         - name: Authenticate Terraform to Azure
           href: authenticate-to-azure.md
         - name: Store Terraform state in Azure Storage
           href: store-state-in-azure-storage.md
+    - name: Test Terraform projects
+      items:
         - name: Integration testing
           href: best-practices-integration-testing.md
         - name: Compliance testing
           href: best-practices-compliance-testing.md
         - name: End-to-end testing
           href: best-practices-end-to-end-testing.md
+    - name: Troubleshoot
+      items:
+        - name: Troubleshoot common problems
+          href: troubleshoot.md
     - name: App Service
       items:
         - name: Terraform and Azure provider deployment slots
