@@ -3,7 +3,7 @@ title: Troubleshoot common problems when using Terraform on Azure
 description: In this article, troubleshoot common problems when using Terraform on Azure
 keywords: terraform azure troubleshoot errors problems
 ms.topic: how-to
-ms.date: 05/14/2021
+ms.date: 07/31/2021
 ms.custom: devx-track-terraform
 # Customer intent: Find solutions to common problems encountered when using Terraform on Azure.
 ---
@@ -11,6 +11,10 @@ ms.custom: devx-track-terraform
 # Troubleshoot common problems when using Terraform on Azure
 
 This article lists common problems and possible solutions when using Terraform on Azure. If you encounter a problem that is specific to Terraform, use one of [HashiCorp's community support channels](#hashiCorp-terraform--specific-suppor-channels).
+
+- [HashiCorp Terraform-specific support channels](#hashicorp-terraform-specific-support-channels)
+- [Unable to list provider registration status](#unable-to-list-provider-registration-status)
+- [VPN errors](#vpn-errors)
 
 ## HashiCorp Terraform-specific support channels
 
@@ -33,3 +37,7 @@ This article lists common problems and possible solutions when using Terraform o
 | ARM_CLIENT_SECRET | Azure service principal password |
 
 **Cause**: As of this writing, the Terraform script that runs in Cloud Shell overwrites the `ARM_SUBSCRIPTION_ID` and `ARM_TENANT_ID` environment variables using values from the current Azure subscription. As a result, if the service principal referenced by the environment variables doesn't have rights to the current Azure subscription, any Terraform operations will fail.
+
+## VPN errors
+
+For information about resolving VPN errors, see the article, [Troubleshoot a hybrid VPN connection](/azure/architecture/reference-architectures/hybrid-networking/troubleshoot-vpn).
