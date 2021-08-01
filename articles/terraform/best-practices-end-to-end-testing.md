@@ -87,7 +87,7 @@ func TestEndToEndDeploymentScenario(t *testing.T) {
 
     fixtureFolder := "../"
 
-    // User Terratest to deploy the infrastructure
+    // Use Terratest to deploy the infrastructure
     test_structure.RunTestStage(t, "setup", func() {
         terraformOptions := &terraform.Options{
             // Indicate the directory that contains the Terraform configuration to deploy
@@ -137,10 +137,10 @@ The following steps run the test against the sample configuration and deployment
 
 1. Log in to your Azure account.
 
-1. To run this sample test, you need an SSH private/public key pair name `id_rsa` and `id_rsa.pub` in your home directory. Replace `USER` with the name of your home directory.
+1. To run this sample test, you need an SSH private/public key pair name `id_rsa` and `id_rsa.pub` in your home directory. Replace `<your_user_name>` with the name of your home directory.
 
     ```bash
-    export TEST_SSH_KEY_PATH="/home/USER/.ssh/id_rsa"
+    export TEST_SSH_KEY_PATH="/home/<your_user_name>/.ssh/id_rsa"
     ```
     
 1. Within the example directory, navigate to the `src/test` directory.
