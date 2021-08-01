@@ -26,9 +26,11 @@ In this article, you learn how to:
 
 - **Docker:** [Install Docker](https://docs.docker.com/get-docker/).
 
-- **Terraform-compliance tool:** [Install the Terraform compliance tool](https://terraform-compliance.com/pages/installation/docker).
+- **Python:** [Install Python](https://www.python.org/downloads/).
 
-- **Fork the testing samples:** Fork the [Terraform sample project on GitHub](https://github.com/Azure/terraform) and clone it to your dev/test machine.
+- **Terraform-compliance tool:** Install the Terraform compliance tool by running the following command: `pip install terraform-compliance`.
+
+- **Example code and resources:** Using the DownGit tool, download the [compliance-testing project](https://downgit.github.io/#/home?url=https:%2F%2Fgithub.com%2FAzure%2Fterraform%2Ftree%2Fmaster%2Fsamples%2Fcompliance-testing) and unzip into a new directory to contain the example code.
 
 ## 2. Understand compliance testing and checks
 
@@ -121,11 +123,9 @@ Scenario Outline: Ensure that specific tags are defined
 
 In this section, you'll download and test the example.
 
-1. [Download the compliance test sample](https://github.com/Azure/terraform/tree/master/samples/compliance-testing).
+1. Change directories to the example directory.
 
-1. Change directories to the `src` directory.
-
-1. Run [terraform init](https://www.terraform.io/docs/commands/init.html) to initialize the working directory. This step downloads the Azure modules required to create an Azure resource group.
+1. Run [terraform init](https://www.terraform.io/docs/commands/init.html) to initialize the working directory.
 
     ```bash
     terraform init
@@ -187,7 +187,7 @@ In this section, you'll download and test the example.
     terraform plan -out tf.out
     ```
 
-## 5. Verify the results    
+## 5. Verify the results
 
 Run [docker run](https://docs.docker.com/engine/reference/commandline/run/) again to test the configuration. If the full spec has been implemented, the test succeeds.
 
