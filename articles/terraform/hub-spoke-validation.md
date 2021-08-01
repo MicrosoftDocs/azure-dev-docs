@@ -25,26 +25,29 @@ In this article, you learn how to:
 
 [!INCLUDE [configure-terraform.md](includes/configure-terraform.md)]
 
-- [Create a hub and spoke hybrid network topology with Terraform in Azure](./hub-spoke-introduction.md).
+- [Create a hub and spoke hybrid network topology with Terraform in Azure](./hub-spoke-introduction.md)
 
-- [Create on-premises virtual network with Terraform in Azure](./hub-spoke-on-prem.md).
+- [Create on-premises virtual network with Terraform in Azure](./hub-spoke-on-prem.md)
 
-- [Create a hub virtual network with Terraform in Azure](./hub-spoke-hub-network.md).
+- [Create a hub virtual network with Terraform in Azure](./hub-spoke-hub-network.md)
 
-- [Create a hub virtual network appliance with Terraform in Azure](./hub-spoke-hub-nva.md).
+- [Create a hub virtual network appliance with Terraform in Azure](./hub-spoke-hub-nva.md)
 
-- [Create a spoke virtual networks with Terraform in Azure](./hub-spoke-spoke-network.md).
+- [Create a spoke virtual networks with Terraform in Azure](./hub-spoke-spoke-network.md)
 
 ## 2. Verify your configuration
 
-1. In the example directory, verify that all the files created in this article series are present:
+In the example directory, verify that all the files created in this article series are present:
 
-    - main.tf
-    - variables.tf
-    - on-prem.tf
-    - hub-vnet.tf
-    - spoke1.tf
-    - spoke2.tf
+| File name | Article in which file is created |
+| - | - |
+| main.tf | [Create a hub and spoke hybrid network topology with Terraform in Azure](./hub-spoke-introduction.md) |
+| variables.tf | [Create a hub and spoke hybrid network topology with Terraform in Azure](./hub-spoke-introduction.md) |
+| on-prem.tf | [Create on-premises virtual network with Terraform in Azure](./hub-spoke-on-prem.md) |
+| hub-vnet.tf | [Create a hub virtual network with Terraform in Azure](./hub-spoke-hub-network.md) |
+| hub-nva.tf | [Create a hub virtual network appliance with Terraform in Azure](./hub-spoke-hub-nva.md) |
+| spoke1.tf | [Create a spoke virtual networks with Terraform in Azure](./hub-spoke-spoke-network.md) |
+| spoke2.tf | [Create a spoke virtual networks with Terraform in Azure](./hub-spoke-spoke-network.md) |
 
 ## 3. Initialize Terraform
 
