@@ -208,7 +208,7 @@ In this section, you'll download and test the example.
 1. Run [docker run](https://docs.docker.com/engine/reference/commandline/run/) again to test the configuration. If the full spec has been implemented, the test succeeds.
 
     ```bash
-    docker run --rm -v $PWD:/target -it eerkunt/terraform-compliance -f features -p tf.out
+    docker run --rm -v $PWD:/target -it eerkunt/terraform-compliance -f features -p main.tfplan
     ```
     
     ![Example of a successful test](media/best-practices-compliance-testing/best-practices-compliance-testing-tagging-succeed.png)
