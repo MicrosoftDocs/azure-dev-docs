@@ -71,7 +71,7 @@ This article shows example Terraform code for creating a VM cluster on Azure.
 
 ## 4. Create a Terraform execution plan
 
-[!INCLUDE [terraform-create-plan.md](includes/terraform-create-plan.md)]
+[!INCLUDE [terraform-plan.md](includes/terraform-plan.md)]
 
 ## 5. Apply a Terraform execution plan
 

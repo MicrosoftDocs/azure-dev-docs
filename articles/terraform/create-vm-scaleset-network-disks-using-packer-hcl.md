@@ -100,7 +100,7 @@ In this article, you learn how to:
 
 ## 5. Create a Terraform execution plan
 
-[!INCLUDE [terraform-create-plan.md](includes/terraform-create-plan.md)]
+[!INCLUDE [terraform-plan.md](includes/terraform-plan.md)]
 
 ## 6. Apply a Terraform execution plan
 

@@ -180,7 +180,7 @@ You'll learn how to do the following tasks:
 
 ## 4. Create a Terraform execution plan
 
-[!INCLUDE [terraform-create-plan.md](includes/terraform-create-plan.md)]
+[!INCLUDE [terraform-plan.md](includes/terraform-plan.md)]
 
 ## 5. Apply a Terraform execution plan
 

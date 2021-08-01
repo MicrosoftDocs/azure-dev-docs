@@ -55,7 +55,7 @@ In the example directory, verify that all the files created in this article seri
 
 ## 4. Create a Terraform execution plan
 
-[!INCLUDE [terraform-create-plan.md](includes/terraform-create-plan.md)]
+[!INCLUDE [terraform-plan.md](includes/terraform-plan.md)]
 
 ## 5. Apply a Terraform execution plan
 
