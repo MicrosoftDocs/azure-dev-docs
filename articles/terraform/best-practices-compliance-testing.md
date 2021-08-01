@@ -123,7 +123,7 @@ Scenario Outline: Ensure that specific tags are defined
 
 In this section, you'll download and test the example.
 
-1. Change directories to the example directory.
+1. Within the example directory, change directories to the `src` directory.
 
 1. Run [terraform init](https://www.terraform.io/docs/commands/init.html) to initialize the working directory.
 
@@ -137,17 +137,25 @@ In this section, you'll download and test the example.
     terraform validate
     ```
     
+    **Key points:**
+
+    - You see a message indicating that the Terraform configuration is valid.
+
 1. Run [terraform plan](https://www.terraform.io/docs/commands/plan.html) to create an execution plan.
 
     ```bash
-    terraform plan -out tf.out
+    terraform plan -out main.tfplan
     ```
     
 1. Run [terraform apply](https://www.terraform.io/docs/commands/apply.html) to apply the execution plan.
 
     ```bash
-    terraform apply -target=random_uuid.uuid
+    terraform apply main.tfplan -target=random_uuid.uuid
     ```
+
+    **Key points:**
+
+    - A resource group is created with a name following the pattern: `rg-hello-tf-<random_number>`.
     
 1. Run [docker pull](https://docs.docker.com/engine/reference/commandline/pull/) to download the terraform-compliance image.
 
@@ -155,15 +163,19 @@ In this section, you'll download and test the example.
     docker pull eerkunt/terraform-compliance
     ```
     
-1. Run [docker run](https://docs.docker.com/engine/reference/commandline/run/) to run the tests in a docker container. **The test will fail**. The first rule requiring existence of tags succeeds. However, the second rule fails in that the `Role` and `Creator` tags are missing.
+1. Run [docker run](https://docs.docker.com/engine/reference/commandline/run/) to run the tests in a docker container.
 
     ```bash
-    docker run --rm -v $PWD:/target -it eerkunt/terraform-compliance -f features -p tf.out
+    docker run --rm -v $PWD:/target -it eerkunt/terraform-compliance -f features -p main
     ```
-    
+
+    **Key points:**
+
+    - The test will fail because - while the first rule requiring existence of tags succeeds - the second rule fails in that the `Role` and `Creator` tags are missing.
+
     ![Example of a failed test](media/best-practices-compliance-testing/best-practices-compliance-testing-tagging-fail.png)
 
-1. Modify `main.tf` as follows to fix the error.
+1. Fix the error by modifying `main.tf` as follows (where a `Role` and `Creator` tag are added).
 
     ```terraform
       tags = {
@@ -174,7 +186,13 @@ In this section, you'll download and test the example.
       } 
     
     ```
+
+    **Key points:**
+
+    - The configuration is now in compliance with the policy.
     
+## 5. Verify the results
+
 1. Run `terraform validate` again to verify the syntax.
 
     ```bash
@@ -184,19 +202,17 @@ In this section, you'll download and test the example.
 1. Run `terraform plan` again to create a new execution plan.
 
     ```bash
-    terraform plan -out tf.out
+    terraform plan -out main.tfplan
     ```
 
-## 5. Verify the results
+1. Run [docker run](https://docs.docker.com/engine/reference/commandline/run/) again to test the configuration. If the full spec has been implemented, the test succeeds.
 
-Run [docker run](https://docs.docker.com/engine/reference/commandline/run/) again to test the configuration. If the full spec has been implemented, the test succeeds.
-
-```bash
-docker run --rm -v $PWD:/target -it eerkunt/terraform-compliance -f features -p tf.out
-```
-
-![Example of a successful test](media/best-practices-compliance-testing/best-practices-compliance-testing-tagging-succeed.png)
-
+    ```bash
+    docker run --rm -v $PWD:/target -it eerkunt/terraform-compliance -f features -p tf.out
+    ```
+    
+    ![Example of a successful test](media/best-practices-compliance-testing/best-practices-compliance-testing-tagging-succeed.png)
+    
 ## Troubleshoot Terraform on Azure
 
 [Troubleshoot common problems when using Terraform on Azure](troubleshoot.md)
