@@ -17,7 +17,7 @@ This article shows example Terraform code for creating an [Attestation provider]
 
 [!INCLUDE [configure-terraform.md](includes/configure-terraform.md)]
 
-- *Policy Signing Certificate*: a file specifying a set of trusted signing keys in the form of a *.pem file.
+- **Policy Signing Certificate:** File specifying a set of trusted signing keys in the form of a *.pem file.
 
 ## 2. Configure an Azure Attestation provider
 
