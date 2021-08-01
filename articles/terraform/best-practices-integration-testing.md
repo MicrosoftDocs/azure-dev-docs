@@ -81,7 +81,7 @@ As you can see, Terraform has detected an issue in the syntax of the configurati
 
 It is a good practice to always run `terraform validate` against your Terraform files before pushing them to your version control system. Also, this level of validation should be a part of your continuous integration pipeline. Later in this tutorial, we'll explore how to [configure an Azure pipeline to automatically validate](#5-automate-integration-tests-using-azure-pipeline).
 
-## 3. Validate Terraform configuration can be deployed on Azure
+## 3. Validate Terraform configuration
 
 In the previous section, you saw how to validate a Terraform configuration. That level of testing was specific to syntax. That test didn't take into consideration what might already be deployed on Azure.
 
