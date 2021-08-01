@@ -1,7 +1,7 @@
 ---
 title: Create a spoke network in Azure using Terraform
 description: Learn how to implement two spoke virtual networks (VNets) connected to a hub in a hub-spoke topology.
-ms.topic: tutorial
+ms.topic: how-to
 ms.date: 07/31/2021
 ms.custom: devx-track-terraform
 ---

@@ -1,7 +1,7 @@
 ---
 title: Validate a hub and spoke network in Azure using Terraform
 description: Learn how to validate hub and spoke network topology with all virtual networks connected to one another.
-ms.topic: tutorial
+ms.topic: how-to
 ms.date: 07/31/2021
 ms.custom: devx-track-terraform
 ---

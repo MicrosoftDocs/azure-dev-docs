@@ -1,12 +1,12 @@
 ---
-title: Tutorial - Implement compliance testing with Terraform and Azure
+title: Implement compliance testing with Terraform and Azure
 description: Understand how to apply behavior driven development (BDD) style compliance testing to Terraform configurations
-ms.topic: tutorial
-ms.date: 07/27/2021
+ms.topic: how-to
+ms.date: 08/01/2021
 ms.custom: devx-track-terraform
 ---
 
-# Tutorial: Implement compliance testing with Terraform and Azure
+# Implement compliance testing with Terraform and Azure
 
 Many times, compliance testing is part of the continuous integration process and is used to ensure that user-defined policies are followed. For example, you might define geopolitical naming conventions for your Azure resources. Another common example is creating virtual machines from a defined subset of images. Compliance testing would be used to enforce rules in these and many other scenarios.
 
