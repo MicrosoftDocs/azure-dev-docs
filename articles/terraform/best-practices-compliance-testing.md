@@ -10,9 +10,10 @@ ms.custom: devx-track-terraform
 
 Many times, compliance testing is part of the continuous integration process and is used to ensure that user-defined policies are followed. For example, you might define geopolitical naming conventions for your Azure resources. Another common example is creating virtual machines from a defined subset of images. Compliance testing would be used to enforce rules in these and many other scenarios.
 
-In this article, you learn how to do the following tasks:
+In this article, you learn how to:
 
 > [!div class="checklist"]
+
 > * Understand when to use compliance testing
 > * Learn how to do a compliance test
 > * See and run an example compliance test
@@ -23,11 +24,11 @@ In this article, you learn how to do the following tasks:
 
 [!INCLUDE [configure-terraform.md](includes/configure-terraform.md)]
 
-- **Docker**: [Install Docker](https://docs.docker.com/get-docker/)
+- **Docker:** [Install Docker](https://docs.docker.com/get-docker/).
 
-- **Terraform-compliance tool**: [Install the Terraform compliance tool](https://terraform-compliance.com/pages/installation/docker).
+- **Terraform-compliance tool:** [Install the Terraform compliance tool](https://terraform-compliance.com/pages/installation/docker).
 
-- **Fork the testing samples**: Fork the [Terraform sample project on GitHub](https://github.com/Azure/terraform) and clone it to your dev/test machine.
+- **Fork the testing samples:** Fork the [Terraform sample project on GitHub](https://github.com/Azure/terraform) and clone it to your dev/test machine.
 
 ## 2. Understand compliance testing and checks
 
@@ -185,14 +186,16 @@ In this section, you'll download and test the example.
     ```bash
     terraform plan -out tf.out
     ```
-    
-1. Run [docker run](https://docs.docker.com/engine/reference/commandline/run/) again to test the configuration. This time, the test succeeds as the full spec has been implemented.
 
-    ```bash
-    docker run --rm -v $PWD:/target -it eerkunt/terraform-compliance -f features -p tf.out
-    ```
+## 5. Verify the results    
 
-    ![Example of a successful test](media/best-practices-compliance-testing/best-practices-compliance-testing-tagging-succeed.png)
+Run [docker run](https://docs.docker.com/engine/reference/commandline/run/) again to test the configuration. If the full spec has been implemented, the test succeeds.
+
+```bash
+docker run --rm -v $PWD:/target -it eerkunt/terraform-compliance -f features -p tf.out
+```
+
+![Example of a successful test](media/best-practices-compliance-testing/best-practices-compliance-testing-tagging-succeed.png)
 
 ## Troubleshoot Terraform on Azure
 
