@@ -81,7 +81,7 @@ This section shows how to test connectivity from the simulated on-premises envir
 
     **Key points:**
 
-    - If you changed the user name from `azureuser` in the `variables.tf` file, make sure to insert that value in the ssh command.
+    - If you changed the user name from `azureuser` in the `variables.tf` file, make sure to insert that value in the `ssh` command.
     - Use the password you specified when you ran `terraform plan`.
 
 1. Once connected to the **onprem-vm** virtual machine, run the `ping` command to test connectivity to the jumpbox VM in the hub VNet:

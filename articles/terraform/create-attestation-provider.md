@@ -3,7 +3,7 @@ title: Configure an Azure Attestation provider using Terraform
 description: Learn how to use Terraform to create an Attestation provider on Azure.
 keywords: azure devops terraform attestation
 ms.topic: how-to
-ms.date: 07/27/2021
+ms.date: 07/31/2021
 ms.custom: devx-track-terraform
 ---
 
@@ -23,26 +23,17 @@ This article shows example Terraform code for creating an [Attestation provider]
 
 1. Create a directory in which to test and run the sample Terraform code.
 
-1. Create your main Terraform configuration file. By convention, the name of this file is `main.tf`. However, you can specify any valid name for your environment.
+1. In the example directory, create your main Terraform configuration file. By convention, the name of this file is `main.tf`. However, you can specify any valid name for your environment.
 
 1. Insert the following code into the main Terraform configuration file.
 
-    [!code-terraform[sample-create-resource-group](../../terraform_samples/quickstart/101-create-resource-group/main.tf)]
+    [!code-terraform[tarcher-move-sample-code-to-github](../../terraform_samples/quickstart/101-attestation-provider/main.tf)]
 
-    ```hcl
-    resource "azurerm_resource_group" "corpAttestation" {
-      name                        = "corp-attestation"
-      location                    = "westus"
-    }
-    
-    resource "azurerm_attestation_provider" "corpAttestation" {
-      name                              = "attestationprovider007"
-      resource_group_name               = azurerm_resource_group.corpAttestation.name
-      location                          = azurerm_resource_group.corpAttestation.location
-    
-      policy_signing_certificate_data   = file("./certs/cert.pem")
-    }
-    ```
+1. In the example directory, create a variables file that will contain the values for Terraform. By convention, the name of this file is `variables.tf`. However, you can specify any valid name for your environment.
+
+1. Insert the following code into the variables file.
+
+    [!code-terraform[tarcher-move-sample-code-to-github](../../terraform_samples/quickstart/101-attestation-provider/variables.tf)]
 
 ## 3. Initialize Terraform
 

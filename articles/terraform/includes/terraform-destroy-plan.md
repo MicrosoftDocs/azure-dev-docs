@@ -4,7 +4,7 @@ description: include file
 author: tomarchermsft
 ms.service: terraform
 ms.topic: include
-ms.date: 07/30/2021
+ms.date: 07/31/2021
 ms.author: tarcher
 ---
 
@@ -23,5 +23,3 @@ When you no longer need the resources create via Terraform, do the following ste
     ```cmd
     terraform apply main.destroy.tfplan
     ```
-
-1. If you rerun the steps in the [Verify results](#6-verify-results) section, you see that the changes to your Azure subscription have been undone.
