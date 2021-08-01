@@ -30,7 +30,7 @@ In this article, you learn how to:
 
 - **Terraform-compliance tool:** Install the Terraform compliance tool by running the following command: `pip install terraform-compliance`.
 
-- **Example code and resources:** Using the DownGit tool, download the [compliance-testing project](https://downgit.github.io/#/home?url=https://github.com/Azure/terraform/tree/master/samples/compliance-testing) and unzip into a new directory to contain the example code.
+- **Example code and resources:** Using the DownGit tool, download from GitHub the [compliance-testing project](https://downgit.github.io/#/home?url=https://github.com/Azure/terraform/tree/master/samples/compliance-testing) and unzip into a new directory to contain the example code. This directory is referred to as the *example directory*.
 
 ## 2. Understand compliance testing and checks
 
@@ -123,7 +123,7 @@ Scenario Outline: Ensure that specific tags are defined
 
 In this section, you'll download and test the example.
 
-1. Within the directory where you unzipped the example code, navigate to the `src` directory.
+1. Within the example directory, navigate to the `src` directory.
 
 1. Run [terraform init](https://www.terraform.io/docs/commands/init.html) to initialize the working directory.
 

@@ -32,7 +32,7 @@ In this article, you learn how to:
 
 - **Go programming language**: [Install Go](https://golang.org/dl/).
 
-- **Example code and resources:** Using the DownGit tool, download the [compliance-testing project](https://downgit.github.io/#/home?url=https://github.com/Azure/terraform/tree/master/samples/end-to-end-testing) and unzip into a new directory to contain the example code.
+- **Example code and resources:** Using the DownGit tool, download from GitHub the [end-to-end-testing project](https://downgit.github.io/#/home?url=https://github.com/Azure/terraform/tree/master/samples/end-to-end-testing) and unzip into a new directory to contain the example code. This directory is referred to as the *example directory*.
 
 ## 2. Understand end-to-end testing
 
@@ -143,7 +143,7 @@ In this section, you run the test against the sample configuration and deploymen
     export TEST_SSH_KEY_PATH="/home/USER/.ssh/id_rsa"
     ```
     
-1. Within the directory where you unzipped the example code, navigate to the `src/test` directory.
+1. Within the example directory, navigate to the `src/test` directory.
 
 ## 6. Verify the results
 
