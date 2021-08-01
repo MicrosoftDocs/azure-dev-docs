@@ -45,13 +45,13 @@ This article focuses on using [Terratest](https://github.com/gruntwork-io/terrat
 - Orchestrate the tests into stages
 - Tear down the deployed infrastructure
 
-## 3. Download the test example
+## 3. Understand the test example
 
 For this article, we're using a sample available in the [Azure/terraform sample repo](https://github.com/Azure/terraform/blob/master/samples/end-to-end-testing/README.md).
 
 This sample defines a Terraform configuration that deploys two Linux virtual machines into the same virtual network. One VM - named `vm-linux-1` - has a public IP address. Only port 22 is opened to allow SSH connections. The second VM - `vm-linux-2` - has no defined public IP address.
 
-Our test should validate the following scenarios:
+The test validates the following scenarios:
 
 - The infrastructure is deployed correctly
 - Using port 22, it's possible to open an SSH session to `vm-linux-1`
@@ -59,16 +59,16 @@ Our test should validate the following scenarios:
 
 ![Sample end-to-end test scenario](media/best-practices-end-to-end-testing/scenario.png)
 
-If you [downloaded the sample](#1-configure-your-environment), the Terraform configuration for this scenario can be found in the `src/main.tf` file. That file contains everything necessary to deploy the Azure infrastructure represented in the preceding figure.
+If you [downloaded the sample](#1-configure-your-environment), the Terraform configuration for this scenario can be found in the `src/main.tf` file. The `main.tf` file contains everything necessary to deploy the Azure infrastructure represented in the preceding figure.
 
-If you're unfamiliar with how to create virtual machines, see [Create a Linux VM with infrastructure in Azure using Terraform](create-linux-virtual-machine-with-infrastructure.md).
+If you're unfamiliar with how to create a virtual machine, see [Create a Linux VM with infrastructure in Azure using Terraform](create-linux-virtual-machine-with-infrastructure.md).
 
 > [!CAUTION]
 > The sample scenario presented in this article is for illustration purposes only. We've purposely kept things simple in order to focus on the steps of an end-to-end test. We don't recommend having production virtual machines that exposes SSH ports over a public IP address.
 
 ## 4. Examine the test example
 
-The end-to-end test is written in the Go language and uses the Terratest framework. If you [downloaded the sample](#1-configure-your-environment), it's defined in the `src/test/end2end_test.go` file.
+The end-to-end test is written in the Go language and uses the Terratest framework. If you [downloaded the sample](#1-configure-your-environment), the test is defined in the `src/test/end2end_test.go` file.
 
 The following source code shows the standard structure of a Golang test using Terratest:
 
@@ -131,7 +131,7 @@ The following list shows some of the key functions provided by the Terratest fra
 
 ## 5. Run the test example
 
-In this section, you run the test against the sample configuration and deployment.
+The following steps run the test against the sample configuration and deployment.
 
 1. Open a bash/terminal window.
 
@@ -145,21 +145,21 @@ In this section, you run the test against the sample configuration and deploymen
     
 1. Within the example directory, navigate to the `src/test` directory.
 
-## 6. Verify the results
-
 1. Run the test.
 
     ```go
     go test -v ./ -timeout 10m
     ```
 
-1. The test will display results similar to the following output:
+## 6. Verify the results
+
+After successfully running `go test`, you see results similar to the following output:
     
-    ```output
-    --- PASS: TestEndToEndDeploymentScenario (390.99s)
-    PASS
-    ok      test    391.052s
-    ```
+```output
+--- PASS: TestEndToEndDeploymentScenario (390.99s)
+PASS
+ok      test    391.052s
+```
     
 ## Troubleshoot Terraform on Azure
 
