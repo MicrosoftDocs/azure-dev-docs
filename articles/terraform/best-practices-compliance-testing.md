@@ -127,13 +127,13 @@ In this section, you'll download and test the example.
 
 1. Run [terraform init](https://www.terraform.io/docs/commands/init.html) to initialize the working directory.
 
-    ```bash
+    ```cmd
     terraform init
     ```
     
 1. Run [terraform validate](https://www.terraform.io/docs/commands/validate.html) to validate the syntax of the configuration files.
 
-    ```bash
+    ```cmd
     terraform validate
     ```
     
@@ -143,13 +143,13 @@ In this section, you'll download and test the example.
 
 1. Run [terraform plan](https://www.terraform.io/docs/commands/plan.html) to create an execution plan.
 
-    ```bash
+    ```cmd
     terraform plan -out main.tfplan
     ```
     
 1. Run [terraform apply](https://www.terraform.io/docs/commands/apply.html) to apply the execution plan.
 
-    ```bash
+    ```cmd
     terraform apply main.tfplan -target=random_uuid.uuid
     ```
 
@@ -159,13 +159,13 @@ In this section, you'll download and test the example.
     
 1. Run [docker pull](https://docs.docker.com/engine/reference/commandline/pull/) to download the terraform-compliance image.
 
-    ```bash
+    ```cmd
     docker pull eerkunt/terraform-compliance
     ```
     
 1. Run [docker run](https://docs.docker.com/engine/reference/commandline/run/) to run the tests in a docker container.
 
-    ```bash
+    ```cmd
     docker run --rm -v $PWD:/target -it eerkunt/terraform-compliance -f features -p main
     ```
 
@@ -195,19 +195,19 @@ In this section, you'll download and test the example.
 
 1. Run `terraform validate` again to verify the syntax.
 
-    ```bash
+    ```cmd
     terraform validate
     ```
     
 1. Run `terraform plan` again to create a new execution plan.
 
-    ```bash
+    ```cmd
     terraform plan -out main.tfplan
     ```
 
 1. Run [docker run](https://docs.docker.com/engine/reference/commandline/run/) again to test the configuration. If the full spec has been implemented, the test succeeds.
 
-    ```bash
+    ```cmd
     docker run --rm -v $PWD:/target -it eerkunt/terraform-compliance -f features -p main.tfplan
     ```
     

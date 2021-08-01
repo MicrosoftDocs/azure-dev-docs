@@ -1,12 +1,12 @@
 ---
-title: Configure end-to-end Terratest testing on Terraform projects
+title: Implement end-to-end Terratest testing on Terraform projects
 description: Learn more about end-to-end testing with Terratest on a Terraform project.
 ms.topic: how-to
 ms.date: 08/01/2021
 ms.custom: devx-track-terraform
 ---
 
-# Configure end-to-end Terratest testing on Terraform projects
+# Implement end-to-end Terratest testing on Terraform projects
 
 End-to-end (E2E) testing is used to validate a program works before deploying it to production. An example scenario might be a Terraform module deploying two virtual machines into a virtual network. You might want to prevent the two machines from pinging each other. In this example, you could define a test to verify the intended outcome before deployment.
 
@@ -140,7 +140,7 @@ The following steps run the test against the sample configuration and deployment
 1. To run this sample test, you need an SSH private/public key pair name `id_rsa` and `id_rsa.pub` in your home directory. Replace `<your_user_name>` with the name of your home directory.
 
     ```bash
-    export TEST_SSH_KEY_PATH="/home/<your_user_name>/.ssh/id_rsa"
+    export TEST_SSH_KEY_PATH="~/.ssh/id_rsa"
     ```
     
 1. Within the example directory, navigate to the `src/test` directory.

@@ -31,11 +31,11 @@
           href: store-state-in-azure-storage.md
     - name: Test Terraform projects
       items:
-        - name: Integration testing
+        - name: Implement integration testing
           href: best-practices-integration-testing.md
-        - name: Compliance testing
+        - name: Implement compliance testing
           href: best-practices-compliance-testing.md
-        - name: End-to-end testing
+        - name: Implement end-to-end testing
           href: best-practices-end-to-end-testing.md
     - name: Troubleshoot
       items:
