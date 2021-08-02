@@ -17,7 +17,6 @@ E2E testing is typically a three-step process.
 1. The test environment is either reinitialized or taken down (such as deallocating a virtual machine).
 
 In this article, you learn how to:
-
 > [!div class="checklist"]
 
 > * Understand the basics of end-to-end testing with [Terratest](https://github.com/gruntwork-io/terratest)

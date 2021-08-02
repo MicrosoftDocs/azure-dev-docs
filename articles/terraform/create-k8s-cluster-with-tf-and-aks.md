@@ -12,8 +12,8 @@ ms.custom: devx-track-terraform
 [Azure Kubernetes Service (AKS)](/azure/aks/) manages your hosted Kubernetes environment. AKS allows you to deploy and manage containerized applications without container orchestration expertise. AKS also enables you to do many common maintenance operations without taking your app offline. These operations include provisioning, upgrading, and scaling resources on demand.
 
 In this article, you learn how to:
-
 > [!div class="checklist"]
+
 > * Use HCL (HashiCorp Language) to define a Kubernetes cluster
 > * Use Terraform and AKS to create a Kubernetes cluster
 > * Use the kubectl tool to test the availability of a Kubernetes cluster

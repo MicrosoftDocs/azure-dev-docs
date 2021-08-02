@@ -15,10 +15,10 @@ Azure supports a broad variety of network virtual appliances from which to selec
 In this article, you learn how to:
 > [!div class="checklist"]
 
-> * Use HCL (HashiCorp Language) to implement the Hub VNet in hub-spoke topology
-> * Use Terraform to create Hub Network Virtual Machine which acts as appliance
-> * Use Terraform to enable routes using CustomScript extensions
-> * Use Terraform to create Hub and Spoke gateway route tables
+> * Implement the Hub VNet in hub-spoke topology
+> * Create Hub Network Virtual Machine which acts as appliance
+> * Enable routes using CustomScript extensions
+> * Create Hub and Spoke gateway route tables
 
 ## 1. Configure your environment
 

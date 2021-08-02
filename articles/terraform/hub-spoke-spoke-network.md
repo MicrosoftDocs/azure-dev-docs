@@ -13,9 +13,9 @@ In this article, you implement two separate spoke networks to demonstrate separa
 In this article, you learn how to:
 > [!div class="checklist"]
 
-> * Use HCL (HashiCorp Language) to implement the Spoke VNets in hub-spoke topology
-> * Use Terraform to create Virtual machines in the spoke networks
-> * Use Terraform to establish virtual network peerings with the hub networks
+> * Implement the Spoke VNets in hub-spoke topology
+> * Create Virtual machines in the spoke networks
+> * Establish virtual network peerings with the hub networks
 
 ## 1. Configure your environment
 

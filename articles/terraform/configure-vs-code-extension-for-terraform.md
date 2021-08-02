@@ -12,6 +12,7 @@ The Azure Terraform Visual Studio Code extension enables you to work with Terraf
 
 In this article, you learn how to:
 > [!div class="checklist"]
+
 > * Automate the provisioning of Azure services using Terraform
 > * Install and use the Terraform Visual Studio Code extension for Azure services.
 > * Use Visual Studio Code to write, plan, and execute Terraform plans.

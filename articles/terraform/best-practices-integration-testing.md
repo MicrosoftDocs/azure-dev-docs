@@ -15,7 +15,6 @@ Integration tests validate that a newly introduced code change doesn't break exi
 - Run [terraform plan](https://www.terraform.io/docs/commands/validate.html) to ensure the configuration will work as expected.
 
 In this article, you learn how to:
-
 > [!div class="checklist"]
 
 > * Learn the basics of integration testing for Terraform projects.

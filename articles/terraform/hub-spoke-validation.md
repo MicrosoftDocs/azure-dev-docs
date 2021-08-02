@@ -13,11 +13,10 @@ In this article, you execute the terraform files created in the previous article
 In this article, you learn how to:
 > [!div class="checklist"]
 
-> * Use HCL (HashiCorp Language) to implement the Hub VNet in hub-spoke topology
-> * Use Terraform plan to verify the resources to be deployed
-> * Use Terraform apply to create the resources in Azure
+> * Implement the Hub VNet in hub-spoke topology
+> * Verify the resources to be deployed
+> * Create the resources in Azure
 > * Verify the connectivity between different networks
-> * Use Terraform to destroy all the resources
 
 ## 1. Configure your environment
 

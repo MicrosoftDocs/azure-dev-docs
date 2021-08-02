@@ -13,10 +13,10 @@ The hub virtual network acts as the central point of connectivity to the on-prem
 In this article, you learn how to:
 > [!div class="checklist"]
 
-> * Use the HashiCorp Configuration Language (HCL) to implement the hub virtual network in a hub-and-spoke topology.
-> * Use Terraform to create a hub jumpbox virtual machine.
-> * Use Terraform to create a hub virtual private network gateway.
-> * Use Terraform to create hub and on-premises gateway connections.
+> * Implement the hub virtual network in a hub-and-spoke topology.
+> * Create a hub jumpbox virtual machine.
+> * Create a hub virtual private network gateway.
+> * Create hub and on-premises gateway connections.
 
 ## 1. Configure your environment
 

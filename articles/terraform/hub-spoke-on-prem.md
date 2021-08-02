@@ -13,10 +13,10 @@ This article shows how to implement an on-premises network in Azure. You can rep
 In this article, you learn how to:
 > [!div class="checklist"]
 
-> * Use HCL (HashiCorp Language) to implement an on-premises VNet in hub-spoke topology
-> * Use Terraform to create hub network appliance resources
-> * Use Terraform to create on-premises virtual machine
-> * Use Terraform to create on-premises virtual private network gateway
+> * Implement an on-premises VNet in hub-spoke topology
+> * Create hub network appliance resources
+> * Create on-premises virtual machine
+> * Create on-premises virtual private network gateway
 
 ## 1. Configure your environment
 

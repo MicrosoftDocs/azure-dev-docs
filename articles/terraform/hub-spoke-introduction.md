@@ -15,13 +15,12 @@ A hub and spoke topology is a way to isolate workloads while sharing common serv
 In this article, you learn how to:
 > [!div class="checklist"]
 
-> * Use HCL (HashiCorp Language) to lay out hub and spoke hybrid network reference architecture resources
-> * Use Terraform to create hub network appliance resources
-> * Use Terraform to create hub network in Azure to act as common point 
-for all resources
-> * Use Terraform to create individual workloads as spoke VNets in Azure
-> * Use Terraform to establish gateways and connections between on premises and Azure networks
-> * Use Terraform to create VNet peerings to spoke networks
+> * Lay out hub and spoke hybrid network reference architecture resources
+> * Create hub network appliance resources
+> * Create hub network in Azure to act as common point for all resources
+> * Create individual workloads as spoke VNets in Azure
+> * Establish gateways and connections between on premises and Azure networks
+> * Create VNet peerings to spoke networks
 
 ## 1. Configure your environment
 

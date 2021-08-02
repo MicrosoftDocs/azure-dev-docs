@@ -12,7 +12,6 @@ ms.custom: devx-track-terraform
 Terraform allows you to define and create complete infrastructure deployments in Azure. You build Terraform templates in a human-readable format that create and configure Azure resources in a consistent, reproducible manner. This article shows you how to create a complete Linux environment and supporting resources with Terraform.
 
 In this article, you learn how to:
-
 > [!div class="checklist"]
 
 > * Create a virtual network

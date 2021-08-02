@@ -12,7 +12,6 @@ ms.custom: devx-track-terraform
 This article shows example Terraform code for setting up [Network Watcher](/azure/network-watcher/network-watcher-monitoring-overview) on Azure to monitor the network health for a Network Security Group.
 
 In this article, you learn how to:
-
 > [!div class="checklist"]
 
 > * Configure an Azure Network Watcher and flow logs

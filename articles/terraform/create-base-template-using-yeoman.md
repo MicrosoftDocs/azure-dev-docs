@@ -12,6 +12,7 @@ In this article, you'll learn how to use the combination of [Terraform](/azure/t
 
 In this article, you learn how to do the following tasks:
 > [!div class="checklist"]
+
 > * Create a base Terraform template using the Yeoman module generator.
 > * Test the Terraform template using two different methods.
 > * Run the Terraform module using a Docker file.
