@@ -23,7 +23,7 @@ In this article, you learn how to:
 
 [!INCLUDE [configure-terraform.md](includes/configure-terraform.md)]
 
-## Create first configuration
+## 2. Create first configuration
 
 In this section, you create the configuration for an Azure Cosmos DB instance.
 
@@ -72,7 +72,7 @@ In this section, you create the configuration for an Azure Cosmos DB instance.
 
 1. Save the file (**&lt;Ctrl>S**) and exit the editor (**&lt;Ctrl>Q**).
 
-## Run the configuration
+## 3. Run the configuration
 
 In this section, you use several Terraform commands to run the configuration.
 
@@ -96,7 +96,7 @@ In this section, you use several Terraform commands to run the configuration.
 
 1. To verify the results within the Azure portal, browse to the new resource group. The new Azure Cosmos DB instance is in the new resource group.
 
-## Update configuration
+## 4. Update configuration
 
 This section shows how to update the configuration to include an Azure Container Instance. The container runs an application that reads and writes data to the Cosmos DB.
 
@@ -158,13 +158,13 @@ This section shows how to update the configuration to include an Azure Container
 
 1. Make note of the container instance FQDN.
 
-## Test application
+## 5. Test application
 
 To test the application, navigate to the FQDN of the container instance. You should see results similar to the following output:
 
 ![Azure vote application](media/deploy-azure-cosmos-db-to-azure-container-instances/azure-vote.jpg)
 
-## Clean up resources
+## 6. Clean up resources
 
 When no longer needed, delete the resources created in this article.
 

@@ -16,15 +16,15 @@ In this article, you learn how to:
 > * Install and use the Terraform Visual Studio Code extension for Azure services.
 > * Use Visual Studio Code to write, plan, and execute Terraform plans.
 
-## Prerequisites
-
-[!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../includes/open-source-devops-prereqs-azure-subscription.md)]
-- [Install Node.js](https://nodejs.org/).
-- [Install GraphViz](https://graphviz.org/) to use the Terraform visualize function.
-
 ## 1. Configure your environment
 
+[!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../includes/open-source-devops-prereqs-azure-subscription.md)]
+
 [!INCLUDE [configure-terraform.md](includes/configure-terraform.md)]
+
+- [Install Node.js](https://nodejs.org/).
+
+- [Install GraphViz](https://graphviz.org/) to use the Terraform visualize function.
 
 ## 2. Exercise: Basic Terraform commands walk-through
 In this exercise, you create and execute a basic Terraform configuration file that provisions a new Azure resource group.

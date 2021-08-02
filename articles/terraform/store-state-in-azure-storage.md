@@ -21,14 +21,16 @@ In this article, you learn how to:
 
 > * Create an Azure storage account
 > * Use Azure storage to store remote Terraform state.
-> * Learn about state locking
-> * Learn about *encryption at rest*
+> * Understand state locking
+> * Understand *encryption at rest*
 
-## Prerequisites
+## 1. Configure your environment
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../includes/open-source-devops-prereqs-azure-subscription.md)]
 
-## Configure remote state storage account
+[!INCLUDE [configure-terraform.md](includes/configure-terraform.md)]
+
+## 2. Configure remote state storage account
 
 Before you use Azure Storage as a back end, you must create a storage account.
 
@@ -126,7 +128,7 @@ Run the command `terraform init`, then `terraform apply` to configure the Azure 
 * Public access is allowed to Azure storage account for storing Terraform state.
 * Azure storage accounts require a globally unique name. To learn more about troubleshooting storage account names, see [Resolve errors for storage account names](/azure/azure-resource-manager/templates/error-storage-account-name).
 
-## Configure terraform backend state
+## 3. Configure terraform backend state
 
 To configure the backend state you need the following Azure storage information:
 
@@ -212,7 +214,7 @@ terraform apply
 
 You can now find the state file in the Azure Storage blob.
 
-## State locking
+## 4. Understand state locking
 
 Azure Storage blobs are automatically locked before any operation that writes state. This pattern prevents concurrent state operations, which can cause corruption.
 
@@ -222,7 +224,7 @@ You can see the lock when you examine the blob through the Azure portal or other
 
 ![Azure blob with lock](media/store-state-in-azure-storage/lock.png)
 
-## Encryption at rest
+## 5. Understand encryption-at-rest
 
 Data stored in an Azure blob is encrypted before being persisted. When needed, Terraform retrieves the state from the backend and stores it in local memory. Using this pattern, state is never written to your local disk.
 

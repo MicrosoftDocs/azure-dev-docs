@@ -20,12 +20,15 @@ In this article, you learn how to:
 > * Create an App Service slot
 > * Swap in and out of the example deployment slots
 
-## Prerequisites
+## 1. Configure your environment
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../includes/open-source-devops-prereqs-azure-subscription.md)]
+
+[!INCLUDE [configure-terraform.md](includes/configure-terraform.md)]
+
 - **GitHub account**: You need a [GitHub](https://www.github.com) account to fork and use the test GitHub repo.
 
-## Create and apply the Terraform plan
+## 2. Create and apply the Terraform plan
 
 1. Browse to the [Azure portal](https://portal.azure.com).
 
@@ -149,7 +152,7 @@ You now see all the resources that Terraform has created.
 
 ![Resources created by Terraform](./media/provision-infrastructure-using-azure-deployment-slots/resources.png)
 
-## Fork the test project
+## 3. Fork the test project
 
 Before you can test the creation and swapping in and out of the deployment slots, you need to fork the test project from GitHub.
 
@@ -161,7 +164,7 @@ Before you can test the creation and swapping in and out of the deployment slots
 
 1. Follow any prompts to fork to your environment.
 
-## Deploy from GitHub to your deployment slots
+## 4. Deploy from GitHub to your deployment slots
 
 After you fork the test project repo, configure the deployment slots via the following steps:
 
@@ -209,7 +212,7 @@ At this point, you've deployed the production slot. To deploy the staging slot, 
 
     ![Choose the working branch](./media/provision-infrastructure-using-azure-deployment-slots/choose-branch-working.png)
 
-## Test the app deployments
+## 5. Test the app deployments
 
 In the previous sections, you set up two slots--**slotAppService** and **slotAppServiceSlotOne**--to deploy from different branches in GitHub. Let's preview the web apps to validate that they were successfully deployed.
 
@@ -229,7 +232,7 @@ In the previous sections, you set up two slots--**slotAppService** and **slotApp
 
     ![Preview the apps to test that they were deployed correctly](./media/provision-infrastructure-using-azure-deployment-slots/app-preview.png)
 
-## Swap the two deployment slots
+## 6. Swap the two deployment slots
 
 To test swapping the two deployment slots, do the following steps:
  

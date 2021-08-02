@@ -29,45 +29,13 @@ In this article, you learn how to do the following tasks:
 
 - **Go programming language**: [Install Go](https://golang.org/) as Yeoman-generated test cases are code using the Go language.
 
->[!NOTE]
-> Most of the procedures in this article involve the command line interface. The steps described apply to all operating systems and command line tools. For the examples, PowerShell was chosen for the local environment and Git Bash for the cloud shell environment.
+- **Nodejs:** [Install Node.js](https://nodejs.org/en/download/)
 
-## Prepare your environment
+- **Install Yeoman:** Run the following command: `npm install -g yo`.
 
-### Install Node.js
+- **Yeoman template:** Run the following command to install the Yeoman template for Terraform module: `npm install -g generator-az-terra-module`.
 
-To use Terraform in the Cloud Shell, you need to [install Node.js](https://nodejs.org/en/download/) 6.0+.
-
->[!NOTE]
->To verify that Node.js is installed, open a terminal window and enter `node --version`.
-
-### Install Yeoman
-
-Run the following command:
-
-```bash
-npm install -g yo
-```
-
-![Install Yeoman](media/create-a-base-template-using-yeoman/ymg-npm-install-yo.png)
-
-### Install the Yeoman template for Terraform module
-
-Run the following command:
-
-```bash
-npm install -g generator-az-terra-module
-```
-
-![Install generator-az-terra-module](media/create-a-base-template-using-yeoman/ymg-pm-install-generator-module.png)
-
-To verify that Yeoman is installed, run the following command:
-
-```bash
-yo --version
-```
-
-### Create a directory for the Yeoman-generated module
+## 2. Create directory for Yeoman-generated module
 
 The Yeoman template generates files in the current directory. For this reason, you need to create a directory.
 
@@ -91,7 +59,7 @@ This empty directory is required to be put under $GOPATH/src. For more informati
 
     ![Navigate to your new directory](media/create-a-base-template-using-yeoman/ymg-cd-GeneratorDocSample.png)
 
-## Create a base module template
+## 3. Create base module template
 
 1. Run the following command:
 
@@ -118,7 +86,7 @@ This empty directory is required to be put under $GOPATH/src. For more informati
 
     ![List created files](media/create-a-base-template-using-yeoman/ymg-ls-GeneratorDocSample-files.png)
 
-## Review the generated module code
+## 4. Review the generated module code
 
 1. Launch Visual Studio Code
 
@@ -143,7 +111,7 @@ The following files were created by the Yeoman module generator:
 
 For more information about the Yeoman generator for Azure https://github.com/Azure/generator-az-terra-module, see the [Terratest documentation](https://terratest.gruntwork.io/docs/).
 
-## Test your new Terraform module using a Docker file
+## 5. Test the Terraform module using a Docker file
 
 This section shows how to test a Terraform module using a Docker file.
 

@@ -28,17 +28,21 @@ In this article, you learn how to:
 > * Create a static webpage module
 > * Create a unit test
 > * Create an integration test
-> * Use maps to simplify running Terratest cases
+> * Use mage to simplify running Terratest cases
 
-## Prerequisites
+## 1. Configure your environment
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../includes/open-source-devops-prereqs-azure-subscription.md)]
-- **Go programming language**: Terraform test cases are written in [Go](https://golang.org/dl/).
-- **dep**: [dep](https://github.com/golang/dep#installation) is a dependency management tool for Go.
-- **Azure CLI**: The [Azure CLI](/cli/azure/install-azure-cli) is a command-line tool you can use to manage Azure resources. (Terraform supports authenticating to Azure through a service principal or [via the Azure CLI](https://www.terraform.io/docs/providers/azurerm/authenticating_via_azure_cli.html).)
-- **mage**: We use the [mage executable](https://github.com/magefile/mage/releases) to show you how to simplify running Terratest cases. 
 
-## Create a static webpage module
+[!INCLUDE [configure-terraform.md](includes/configure-terraform.md)]
+
+- **Go programming language**: [Install Go](https://golang.org/dl/).
+
+- **dep**: [Install dep](https://github.com/golang/dep#installation), which is a dependency management tool for Go.
+
+- **mage**: [Install mage](https://github.com/magefile/mage/releases) that simplifies running Terratest cases.
+
+## 2. Create a static webpage module
 
 In this article, you create a Terraform module that provisions a static webpage by uploading a single HTML file to an Azure Storage blob. This module gives users from around the world access to the webpage through a URL that the module returns.
 
@@ -395,7 +399,8 @@ go test
 
 Integration tests take much longer than unit tests (two minutes for one integration case compared to one minute for five unit cases). But it's your decision whether to use unit tests or integration tests in a scenario. Typically, we prefer to use unit tests for complex logic by using Terraform HCL functions. We usually use integration tests for the end-to-end perspective of a user.
 
-## Use mage to simplify running Terratest cases 
+## 3. Use mage to simplify running Terratest cases 
+
 Running test cases in Azure Cloud Shell requires executing different commands in various directories. To make this process more efficient, we introduce the build system in our project. In this section, we use a Go build system, mage, for the job.
 
 The only thing required by mage is `magefile.go` in your project's root directory (marked with `(+)` in the following example):
