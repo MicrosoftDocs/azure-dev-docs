@@ -26,18 +26,20 @@ In this article, you learn how to:
 
 ## 2. Implement the Terraform code
 
-[!INCLUDE [implement-code-main.md](includes/implement-code-main.md)]
+1. Create a directory in which to test and run the sample Terraform code.
 
-[!code-terraform[tarcher-move-sample-code-to-github](../../terraform_samples/quickstart/101-attestation-provider/main.tf)]
+1. In the example directory, create a file named `main.tf` and insert the following code:
 
-[!INCLUDE [implement-code-variables.md](includes/implement-code-variables.md)]
+    [!code-terraform[tarcher-move-sample-code-to-github](../../terraform_samples/quickstart/101-attestation-provider/main.tf)]
 
-[!code-terraform[tarcher-move-sample-code-to-github](../../terraform_samples/quickstart/101-attestation-provider/variables.tf)]
+1. In the example directory, create a file named `variables.tf` to contain the project variables and insert the following code:
 
-**Key points:**
-
-- Adjust the `policy_file` field as needed to point to your PEM file.
-
+    [!code-terraform[tarcher-move-sample-code-to-github](../../terraform_samples/quickstart/101-attestation-provider/variables.tf)]
+    
+    **Key points:**
+    
+    - Adjust the `policy_file` field as needed to point to your PEM file.
+    
 ## 3. Initialize Terraform
 
 [!INCLUDE [terraform-init.md](includes/terraform-init.md)]
