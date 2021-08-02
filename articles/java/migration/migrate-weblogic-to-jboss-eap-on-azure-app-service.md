@@ -21,33 +21,6 @@ If any of the pre-migration requirements can't be met, see the companion migrati
 
 ## Pre-migration
 
-As the list below can seem a bit daunting, we've ordered it with the most common steps at the top of the list.
-
-1. [Inventory server capacity](#inventory-server-capacity)
-1. [Inventory all secrets](#inventory-all-secrets)
-1. [Inventory all certificates](#inventory-all-certificates)
-1. [Validate that the supported Java version works correctly](#validate-that-the-supported-java-version-works-correctly)
-1. [Inventory JNDI resources](#inventory-jndi-resources)
-1. [Domain configuration](#inspect-your-domain-configuration)
-1. [Determine whether session replication is used](#determine-whether-session-replication-is-used)
-1. [Document datasources](#document-datasources)
-1. [Determine whether WebLogic has been customized](#determine-whether-weblogic-has-been-customized)
-1. [Determine whether Management over REST is used](#determine-whether-management-over-rest-is-used)
-1. [Determine whether a connection to on-premises is needed](#determine-whether-a-connection-to-on-premises-is-needed)
-1. [Determine whether JMS Queues or Topics are being used](#determine-whether-java-message-service-jms-queues-or-topics-are-in-use)
-1. [Determine whether you are using your own custom created shared Java EE libraries](#determine-whether-you-are-using-your-own-custom-created-shared-java-ee-libraries)
-1. [Determine whether OSGi bundles are used](#determine-whether-osgi-bundles-are-used)
-1. [Determine whether your application contains OS-specific code](#determine-whether-your-application-contains-os-specific-code)
-1. [Determine whether Oracle Service Bus is being used](#determine-whether-oracle-service-bus-is-in-use)
-1. [Determine whether your application is composed of multiple WARs](#determine-whether-your-application-is-composed-of-multiple-wars)
-1. [Determine whether your application is packaged as an EAR](#determine-whether-your-application-is-packaged-as-an-ear)
-1. [Identify all outside processes/daemons running on the production server(s)](#identify-all-outside-processes-and-daemons-running-on-the-production-servers)
-1. [Determine whether your application relies on scheduled jobs](#determine-whether-your-application-relies-on-scheduled-jobs)
-1. [Determine whether JCA connectors are used](#determine-whether-jca-connectors-are-used)
-1. [Determine whether JAAS is used](#determine-whether-jaas-is-used)
-1. [Determine whether WebLogic clustering is used](#determine-whether-weblogic-clustering-is-used)
-1. [Determine whether your application uses a Resource Adapter](#determine-whether-your-application-uses-a-resource-adapter)
-
 [!INCLUDE [inventory-server-capacity](includes/inventory-server-capacity-aks.md)]
 
 [!INCLUDE [inventory-all-secrets](includes/inventory-all-secrets.md)]
