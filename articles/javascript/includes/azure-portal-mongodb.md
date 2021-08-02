@@ -40,7 +40,7 @@ Add an Azure web app **MONGODB_URL** environment variable in the Azure portal
 1. In the Azure portal for your web app, select **Configuration**.
 2. In the **Application settings** section, select **New connection string**.
 
-    :::image type="content" source="../media/howto-database/azure-portal-web-app-connection-string-setting.png" alt-text="Screenshot of Azure Portal to copy connection string." lightbox="../media/howto-database/azure-portal-web-app-connection-string-setting.png":::
+    :::image type="content" source="../media/howto-database/azure-portal-web-app-connection-string-setting.png" alt-text="Screenshot of Azure Portal to add connection string to web app." lightbox="../media/howto-database/azure-portal-web-app-connection-string-setting.png":::
 
 3. In the **Add/Edit connection string** side panel, enter the settings:
 
@@ -51,6 +51,6 @@ Add an Azure web app **MONGODB_URL** environment variable in the Azure portal
    |Type|Select the **Custom**.|
    |Deployment slot setting|Only select this value if this connection string is different based on deployment slot.|
 
-    :::image type="content" source="../media/howto-database/azure-portal-web-app-connection-string-add-setting.png" alt-text="Partial screenshot of Azure Portal to set web app connection string." lightbox="../media/howto-database/azure-portal-web-app-connection-string-add-setting.png":::
+    :::image type="content" source="../media/howto-database/azure-portal-web-app-connection-string-add-setting.png" alt-text="Partial screenshot of Azure Portal to set web app connection string properties." lightbox="../media/howto-database/azure-portal-web-app-connection-string-add-setting.png":::
 
 4. Select **OK** to save the connection string for the web app.     
