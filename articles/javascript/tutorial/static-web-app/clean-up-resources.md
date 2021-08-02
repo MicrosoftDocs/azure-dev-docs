@@ -10,12 +10,4 @@ ms.custom: devx-track-js, devx-track-azurecli
 
 Once you have completed this tutorial, you need to remove the resource group, which includes the Computer Vision resource and Static web app, to make sure you are not billed for any more usage. 
 
-## Remove all the resources by removing resource group
-
-In the same terminal, use the [Azure CLI command](/cli/azure/group#az_group_delete) to delete the resource group:
-
-```azurecli
-az group delete --name rg-demo  -y
-```
-
-This command may take a few minutes. 
+[!INCLUDE [3 ways to delete resource group](../includes/resource-group-remove.md)]
