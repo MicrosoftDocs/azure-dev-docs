@@ -3,7 +3,7 @@ title: Configure an Azure Attestation provider using Terraform
 description: Learn how to use Terraform to create an Attestation provider on Azure.
 keywords: azure devops terraform attestation
 ms.topic: how-to
-ms.date: 07/31/2021
+ms.date: 08/01/2021
 ms.custom: devx-track-terraform
 ---
 
@@ -19,7 +19,31 @@ This article shows example Terraform code for creating an [Attestation provider]
 
 - **Policy Signing Certificate:** File specifying a set of trusted signing keys in the form of a *.pem file.
 
-## 2. Configure an Azure Attestation provider
+## 2. Getting a PEM fil
+
+There are many ways in which you might have a PEM file. If you don't already have a PEM file to use with the code in this article, do the following:
+
+1. Browse to the [Azure portal](https://portal.azure.com).
+
+1. Create a resource group named `myResourceGroup`. Input the values appropriate for your environment.
+
+1. Within the resource group from the previous step, create a virtual machine. Specify the following values:
+
+    - **Authentication type** = **SSH Public key**
+    - **SSH Public key source** = **Generate new key pair**
+    - Specify the remaining values as appropriate for your environment.
+
+1. Select **Review + Create**.
+
+1. Select **Create**.
+
+1. A window titled **Generate new key pair** displays. Select **Download private key and create resource**.
+
+    **Key points:**
+
+    - Based on your environment, the PEM file for the virtual machine is downloaded. For example, in Windows, the PEM file is downloaded to the `Downloads` folder.
+
+## 3. Implement the Terraform code
 
 1. Create a directory in which to test and run the sample Terraform code.
 
@@ -35,19 +59,26 @@ This article shows example Terraform code for creating an [Attestation provider]
 
     [!code-terraform[tarcher-move-sample-code-to-github](../../terraform_samples/quickstart/101-attestation-provider/variables.tf)]
 
-## 3. Initialize Terraform
+    **Key points:**
+
+    - Adjust the `policy_file` field as needed to point to your PEM file.
+
+## 4. Initialize Terraform
 
 [!INCLUDE [terraform-init.md](includes/terraform-init.md)]
 
-## 4. Create a Terraform execution plan
+## 5. Create a Terraform execution plan
 
 [!INCLUDE [terraform-plan.md](includes/terraform-plan.md)]
 
-## 5. Apply a Terraform execution plan
+## 6. Apply a Terraform execution plan
 
 [!INCLUDE [terraform-apply-plan.md](includes/terraform-apply-plan.md)]
 
-## 6. Clean up resources
+## 7. Verify the results
+
+
+## 8. Clean up resources
 
 [!INCLUDE [terraform-destroy-plan.md](includes/terraform-destroy-plan.md)]
 
