@@ -57,6 +57,8 @@ The mongoDB database on Cosmos DB uses npm packages already available, such as:
 * [Cosmos DB for mongoDB documentation](/azure/cosmos-db/mongodb-introduction)
 * [Cosmos DB for mongoDB quickstart](/azure/cosmos-db/create-mongodb-nodejs)
 * [Migration guide to move to Cosmos DB for mongoDB](/azure/cosmos-db/mongodb-pre-migration)
+* 
+* [Tutorial: Build a Node.js and MongoDB app in Azure](/azure/app-service/tutorial-nodejs-mongodb-app?pivots=platform-windows)
 * Learn about MongoDB versions:
    * [4.0](/azure/cosmos-db/mongodb-feature-support-40) 
    * [3.6](/azure/cosmos-db/mongodb-feature-support-36)

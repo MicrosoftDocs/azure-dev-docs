@@ -40,7 +40,7 @@ Add an Azure web app **MONGODB_URL** environment variable in the Azure portal
 1. In the Azure portal for your web app, select **Configuration**.
 2. In the **Application settings** section, select **New connection string**.
 
-    :::image type="content" source="../media/howto-database/azure-portal-cosmos-db-connection-string.png" alt-text="Screenshot of Azure Portal to copy connection string." lightbox="../media/howto-database/azure-portal-cosmos-db-connection-string.png":::
+    :::image type="content" source="../media/howto-database/azure-portal-web-app-connection-string-setting.png" alt-text="Screenshot of Azure Portal to copy connection string." lightbox="../media/howto-database/azure-portal-web-app-connection-string-setting.png":::
 
 3. In the **Add/Edit connection string** side panel, enter the settings:
 
