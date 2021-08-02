@@ -53,4 +53,4 @@ Add an Azure web app **MONGODB_URL** environment variable in the Azure portal
 
     :::image type="content" source="../media/howto-database/azure-portal-web-app-connection-string-add-setting.png" alt-text="Partial screenshot of Azure Portal to set web app connection string." lightbox="../media/howto-database/azure-portal-web-app-connection-string-add-setting.png":::
 
-   
+4. Select **OK** to save the connection string for the web app.     
