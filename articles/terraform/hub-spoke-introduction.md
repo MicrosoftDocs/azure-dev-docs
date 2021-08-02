@@ -73,7 +73,7 @@ As you work through each article in this series, various components are defined 
 
     **Key points:**
 
-    - You'll use this directory for every article in this series where it'll be referred to as the "example directory".
+    - You use this directory for every article in this series where it'll be referred to as the "example directory".
 
 1. In the example directory, create your main Terraform configuration file. By convention, the name of this file is `main.tf`. However, you can specify any valid name for your environment.
 
@@ -81,7 +81,7 @@ As you work through each article in this series, various components are defined 
 
     [!code-terraform[tarcher-move-sample-code-to-github](../../terraform_samples/quickstart/301-hub-spoke/main.tf)]
 
-1. In the example directory, create a variables file that will contain the values for Terraform. By convention, the name of this file is `variables.tf`. However, you can specify any valid name for your environment.
+1. In the example directory, create a variables file to contain the values for Terraform. By convention, the name of this file is `variables.tf`. However, you can specify any valid name for your environment.
 
 1. Insert the following code into the variables file.
 

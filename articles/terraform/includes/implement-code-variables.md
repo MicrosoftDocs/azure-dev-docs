@@ -7,6 +7,4 @@ ms.custom: devx-track-terraform
 ms.author: jduffney
 ---
 
-**Key points:**
-
-- The values used in the `variables.tf` file are arbitrary and can be changed as appropriate for your environment.
+1. In the example directory, create a file named `variables.tf` to contain the project variables and insert the following code:

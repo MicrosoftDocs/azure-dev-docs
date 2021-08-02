@@ -76,7 +76,7 @@ In this article, you learn how to:
     # Configure the Azure provider
     provider "azurerm" { 
         # The "feature" block is required for AzureRM provider 2.x. 
-        # If you are using version 1.x, the "features" block is not allowed.
+        # If you're using version 1.x, the "features" block is not allowed.
         version = "~>2.0"
         features {}
     }
@@ -236,7 +236,7 @@ In the previous sections, you set up two slots--**slotAppService** and **slotApp
 
 To test swapping the two deployment slots, do the following steps:
  
-1. Switch to the browser tab that's running **slotAppService** (the app with the blue page). 
+1. Switch to the browser tab that's running **slotAppService** (the app with the blue page).
 
 1. Return to the Azure portal on a separate tab.
 
@@ -260,7 +260,7 @@ To test swapping the two deployment slots, do the following steps:
     # Configure the Azure provider
     provider "azurerm" { 
         # The "feature" block is required for AzureRM provider 2.x. 
-        # If you are using version 1.x, the "features" block is not allowed.
+        # If you're using version 1.x, the "features" block is not allowed.
         version = "~>2.0"
         features {}
     }

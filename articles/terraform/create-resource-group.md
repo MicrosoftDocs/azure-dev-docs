@@ -38,16 +38,12 @@ In this article, you learn how to:
 
     [!code-terraform[tarcher-move-sample-code-to-github](../../terraform_samples/quickstart/101-resource-group/main.tf)]
 
-1. Create a variables file that will contain the values for Terraform. By convention, the name of this file is `variables.tf`. However, you can specify any valid name for your environment.
+1. Create a variables file to contain the values for Terraform. By convention, the name of this file is `variables.tf`. However, you can specify any valid name for your environment.
 
 1. Insert the following code into the variables file.
 
     [!code-terraform[tarcher-move-sample-code-to-github](../../terraform_samples/quickstart/101-resource-group/variables.tf)]
 
-    **Key points:**
-    
-    - The values used in the `variables.tf` file are arbitrary and can be changed as appropriate for your environment.
-    
 ## 3. Initialize Terraform
 
 [!INCLUDE [terraform-init.md](includes/terraform-init.md)]
@@ -81,7 +77,7 @@ Get-AzResourceGroup -Name <resource_group>
 
 ## 7. Clean up resources
 
-[!INCLUDE [terraform-destroy-plan.md](includes/terraform-destroy-plan.md)]
+[!INCLUDE [terraform-plan-destroy.md](includes/terraform-plan-destroy.md)]
 
 ## Troubleshoot Terraform on Azure
 

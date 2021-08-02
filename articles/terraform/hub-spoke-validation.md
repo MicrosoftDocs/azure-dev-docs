@@ -100,7 +100,7 @@ This section shows how to test connectivity from the simulated on-premises envir
 
 ## 7. Clean up resources
 
-[!INCLUDE [terraform-destroy-plan.md](includes/terraform-destroy-plan.md)]
+[!INCLUDE [terraform-plan-destroy.md](includes/terraform-plan-destroy.md)]
 
 ## Troubleshoot Terraform on Azure
 

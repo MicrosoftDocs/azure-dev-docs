@@ -26,17 +26,11 @@ In this article, you learn how to:
 
 ## 2. Implement the Terraform code
 
-1. Create a directory in which to test and run the sample Terraform code.
-
-1. In the example directory, create your main Terraform configuration file. By convention, the name of this file is `main.tf`. However, you can specify any valid name for your environment.
-
-1. Insert the following code into the main Terraform configuration file.
+[!INCLUDE [implement-code-main.md](includes/implement-code-main.md)]
 
     [!code-terraform[tarcher-move-sample-code-to-github](../../terraform_samples/quickstart/101-attestation-provider/main.tf)]
 
-1. In the example directory, create a variables file that will contain the values for Terraform. By convention, the name of this file is `variables.tf`. However, you can specify any valid name for your environment.
-
-1. Insert the following code into the variables file.
+[!INCLUDE [implement-code-variables.md](includes/implement-code-variables.md)]
 
     [!code-terraform[tarcher-move-sample-code-to-github](../../terraform_samples/quickstart/101-attestation-provider/variables.tf)]
 
@@ -58,7 +52,7 @@ In this article, you learn how to:
 
 ## 6. Clean up resources
 
-[!INCLUDE [terraform-destroy-plan.md](includes/terraform-destroy-plan.md)]
+[!INCLUDE [terraform-plan-destroy.md](includes/terraform-plan-destroy.md)]
 
 ## Troubleshoot Terraform on Azure
 

@@ -68,7 +68,7 @@ Terraform tracks state locally via the `terraform.tfstate` file. This pattern wo
 
     [!code-terraform[tarcher-move-sample-code-to-github](../../terraform_samples/quickstart/201-k8s-cluster-with-aks-applicationgateway-ingress/main.tf)]
 
-1. In the example directory, create a variables file that will contain the values for Terraform. By convention, the name of this file is `variables.tf`. However, you can specify any valid name for your environment.
+1. In the example directory, create a variables file to contain the values for Terraform. By convention, the name of this file is `variables.tf`. However, you can specify any valid name for your environment.
 
 1. Insert the following code into the variables file.
 
@@ -220,7 +220,7 @@ Once you have the App Gateway, AKS, and AGIC installed, install a sample app.
 
 ## 9. Clean up resources
 
-[!INCLUDE [terraform-destroy-plan.md](includes/terraform-destroy-plan.md)]
+[!INCLUDE [terraform-plan-destroy.md](includes/terraform-plan-destroy.md)]
 
 ## Troubleshoot Terraform on Azure
 

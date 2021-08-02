@@ -15,7 +15,7 @@ Cloud Shell automatically updates to the latest version of Terraform within a co
     terraform version
     ```
 
-1. If the Terraform version installed in Cloud Shell isn't the latest version, you'll see a message indicating that the version of Terraform is out of date.
+1. If the Terraform version installed in Cloud Shell isn't the latest version, you see a message indicating that the version of Terraform is out of date.
 
 1. If you're fine working with the indicated version, skip to the next section. Otherwise, continue with the following steps.
 

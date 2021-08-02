@@ -113,13 +113,13 @@ Static analysis is often executed part of a continuous integration pipeline. The
 
 ## 5. Automate integration tests using Azure Pipeline
 
-Continuous integration involves testing an entire system when a change is introduced. In this section, you'll see an Azure Pipeline configuration used to implement continuous integration.
+Continuous integration involves testing an entire system when a change is introduced. In this section, you see an Azure Pipeline configuration used to implement continuous integration.
 
 1. Using your editor of choice, browse to the local clone of the [Terraform sample project on GitHub](https://github.com/Azure/terraform).
 
 1. Open the `samples/integration-testing/src/azure-pipeline.yaml` file.
 
-1. Scroll down to the **steps** section where you'll see a standard set of steps used to run various installation and validation routines.
+1. Scroll down to the **steps** section where you see a standard set of steps used to run various installation and validation routines.
 
 1. Review the line that reads, **Step 1: run the Checkov Static Code Analysis**. In this step, the `Checkov` project mentioned earlier runs a static code analysis on the sample Terraform configuration. 
 
