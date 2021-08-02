@@ -1,11 +1,10 @@
 ---
 title: include file
 description: include file
-author: tomarchermsft
-ms.service: terraform
-ms.topic: include
-ms.date: 09/19/2021
-ms.author: tarcher
+ms.topic: how-to
+ms.date: 08/01/2021
+ms.custom: devx-track-terraform
+ms.author: jduffney
 ---
 
 Once you're ready to apply the execution plan to your cloud infrastructure, you run [terraform apply](https://www.terraform.io/docs/commands/apply.html).

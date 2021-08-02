@@ -2,7 +2,7 @@
 title: Create a hub and spoke hybrid network topology in Azure using Terraform
 description: Learn how to create an entire hybrid network reference architecture in Azure using Terraform.
 ms.topic: how-to
-ms.date: 07/31/2021
+ms.date: 08/01/2021
 ms.custom: devx-track-terraform
 ---
 
@@ -13,8 +13,8 @@ This articles series shows how to use Terraform to implement in Azure a [hub and
 A hub and spoke topology is a way to isolate workloads while sharing common services. These services include identity and security. The hub is a virtual network (VNet) that acts as a central connection point to an on-premises network. The spokes are VNets that peer with the hub. Shared services are deployed in the hub, while individual workloads are deployed inside spoke networks.
 
 In this article, you learn how to:
-
 > [!div class="checklist"]
+
 > * Use HCL (HashiCorp Language) to lay out hub and spoke hybrid network reference architecture resources
 > * Use Terraform to create hub network appliance resources
 > * Use Terraform to create hub network in Azure to act as common point 
@@ -33,7 +33,7 @@ for all resources
 
 In the hub and spoke topology, the hub is a VNet. The VNet acts as a central point of connectivity to your on-premises network. The spokes are VNets that peer with the hub, and can be used to isolate workloads. Traffic flows between the on-premises datacenter and the hub through an ExpressRoute or VPN gateway connection. The following image demonstrates the components in a hub and spoke topology:
 
-![Hub and spoke topology architecture in Azure](./media/hub-and-spoke-tutorial-series/hub-spoke-architecture.png)
+![Hub and spoke topology architecture in Azure](./media/hub-and-spoke-series/hub-spoke-architecture.png)
 
 ### Benefits of the hub and spoke topology
 
@@ -54,7 +54,7 @@ Some of the typical uses for a hub and spoke architecture include:
 
 ## 3. Preview the demo components
 
-As you work through each tutorial in this series, various components are defined in distinct Terraform scripts. The demo architecture created and deployed consists of the following components:
+As you work through each article in this series, various components are defined in distinct Terraform scripts. The demo architecture created and deployed consists of the following components:
 
 - **On-premises network**. A private local-area network running with an organization. For hub and spoke reference architecture, a VNet in Azure is used to simulate an on-premises network.
 
@@ -90,7 +90,7 @@ As you work through each tutorial in this series, various components are defined
 
     **Key points:**
 
-    - This tutorial uses a password you enter when you call `terraform plan`. In a real-world app, you might consider using a SSH public/private key pair.
+    - This article uses a password you enter when you call `terraform plan`. In a real-world app, you might consider using a SSH public/private key pair.
     - For more information about SSH keys and Azure, see [How to use SSH keys with Windows on Azure](/azure/virtual-machines/linux/ssh-from-windows).
 
 ## Troubleshoot Terraform on Azure

@@ -3,7 +3,7 @@ title: Create a Kubernetes cluster with Azure Kubernetes Service (AKS) using Ter
 description: Learn how to create a Kubernetes Cluster with Azure Kubernetes Service and Terraform.
 keywords: azure devops terraform aks kubernetes
 ms.topic: how-to
-ms.date: 07/27/2021
+ms.date: 08/01/2021
 ms.custom: devx-track-terraform
 ---
 
@@ -11,7 +11,7 @@ ms.custom: devx-track-terraform
 
 [Azure Kubernetes Service (AKS)](/azure/aks/) manages your hosted Kubernetes environment. AKS allows you to deploy and manage containerized applications without container orchestration expertise. AKS also enables you to do many common maintenance operations without taking your app offline. These operations include provisioning, upgrading, and scaling resources on demand.
 
-In this article, you learn how to do the following tasks:
+In this article, you learn how to:
 
 > [!div class="checklist"]
 > * Use HCL (HashiCorp Language) to define a Kubernetes cluster
@@ -28,7 +28,7 @@ In this article, you learn how to do the following tasks:
 
 ## 2. Create an SSH key pair
 
-The sample in this tutorial uses an SSH key pair to validate the user to the VM. 
+The sample in this article uses an SSH key pair to validate the user to the VM. 
 
 Generate an SSH key pair using one of the following articles depending on your environment:
 
@@ -56,7 +56,7 @@ Create the Terraform configuration file that declares the resources for the Kube
 
 1. Create a file named `k8s.tf`.
 
-1. Paste the following code into the new file:
+1. Insert the following code into the new file:
 
     ```hcl
     resource "azurerm_resource_group" "k8s" {
@@ -142,7 +142,7 @@ Create the Terraform configuration file that declares the resources for the Kube
 
 1. Create a file named `variables.tf`.
 
-1. Paste the following code into the new file:
+1. Insert the following code into the new file:
 
     ```hcl
     variable "client_id" {}
@@ -193,7 +193,7 @@ Create the Terraform configuration file that declares the resources for the Kube
 
 1. Create a file named `output.tf`.
 
-1. Paste the following code into the new file:
+1. Insert the following code into the new file:
 
     ```hcl
     output "client_key" {

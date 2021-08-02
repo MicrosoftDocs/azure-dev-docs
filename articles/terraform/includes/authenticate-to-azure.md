@@ -4,7 +4,7 @@ description: include file
 ms.topic: how-to
 ms.date: 08/01/2021
 ms.custom: devx-track-terraform
-ms.author: tarcher
+ms.author: jduffney
 ---
 
 ### Terraform and Azure authentication scenarios

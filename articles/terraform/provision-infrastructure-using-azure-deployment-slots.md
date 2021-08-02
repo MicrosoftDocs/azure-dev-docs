@@ -3,7 +3,7 @@ title: Provision infrastructure with Azure deployment slots using Terraform
 description: Learn how to use Terraform with Azure provider deployment slots.
 keywords: azure devops terraform deployment slots
 ms.topic: how-to
-ms.date: 01/07/2021
+ms.date: 08/01/2021
 ms.custom: devx-track-terraform
 ---
 
@@ -12,6 +12,13 @@ ms.custom: devx-track-terraform
 You can use [Azure deployment slots](/azure/app-service/deploy-staging-slots) to swap between different versions of your app. That ability helps you minimize the impact of broken deployments. 
 
 This article illustrates an example use of deployment slots by walking you through the deployment of two apps via GitHub and Azure. One app is hosted in a production slot. The second app is hosted in a staging slot. (The names "production" and "staging" are arbitrary. They can be whatever is appropriate for your scenario.) After you configure your deployment slots, you use Terraform to swap between the two slots as needed.
+
+In this article, you learn how to:
+> [!div class="checklist"]
+
+> * Create an App Service
+> * Create an App Service slot
+> * Swap in and out of the example deployment slots
 
 ## Prerequisites
 
@@ -60,7 +67,7 @@ This article illustrates an example use of deployment slots by walking you throu
     code deploy.tf
     ```
 
-1. Paste the following code into the editor:
+1. Insert the following code into the editor:
 
     ```hcl
     # Configure the Azure provider
@@ -244,7 +251,7 @@ To test swapping the two deployment slots, do the following steps:
     code swap.tf
     ```
 
-1. Paste the following code into the editor:
+1. Insert the following code into the editor:
 
     ```hcl
     # Configure the Azure provider

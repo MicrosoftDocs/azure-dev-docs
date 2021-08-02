@@ -4,13 +4,13 @@ title: Terraform on Azure documentation
 summary: Learn how to use Terraform to reliably provision virtual machines and other infrastructure on Azure.
 
 metadata:
-  title: Terraform on Azure documentation - Tutorials, samples, reference, and resources
+  title: Terraform on Azure documentation - Articles, samples, references, and resources
   description: Learn how to use Terraform to reliably provision virtual machines and other infrastructure on Azure.
   ms.service: terraform
   author: TomArcherMsft
   ms.author: tarcher
   ms.topic: landing-page
-  ms.date: 07/24/2021
+  ms.date: 08/01/2021
   ms.custom: devx-track-terraform
 
 landingContent:
@@ -50,7 +50,7 @@ landingContent:
   # Card
   - title: Testing Terraform projects
     linkLists:
-      - linkListType: tutorial
+      - linkListType: how-to-guide
         links:
           - text: Integration testing
             url: best-practices-integration-testing.md
@@ -90,7 +90,7 @@ landingContent:
   # Card
   - title: Manage networks
     linkLists:
-      - linkListType: tutorial
+      - linkListType: how-to-guide
         links:
           - text: 1. Create hub and spoke topology
             url: hub-spoke-introduction.md

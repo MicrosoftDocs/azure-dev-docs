@@ -1,15 +1,15 @@
 ---
-title: Quickstart - Create an Azure resource group using Terraform
-description: In this quickstart, you learn how to create an Azure resource group using Terraform
+title: Get Started - Create an Azure resource group using Terraform
+description: In this article, you learn how to create an Azure resource group using Terraform
 keywords: azure devops terraform azure resource group
 ms.topic: quickstart
-ms.date: 07/27/2021
+ms.date: 08/01/2021
 ms.custom: devx-track-terraform
 adobe-target: true
 # Customer intent: As someone new to Terraform and Azure, I want to do something simple to confirm my Terraform installation.
 ---
 
-# Quickstart: Create an Azure resource group using Terraform
+# Get Started: Create an Azure resource group using Terraform
 
 [!INCLUDE [terraform-intro.md](includes/terraform-intro.md)]
 
@@ -17,6 +17,7 @@ This article presents you with the options to authenticate to Azure for use with
 
 In this article, you learn how to:
 > [!div class="checklist"]
+
 > * Create an Azure resource group to hold other Azure resources
 > * Verify (using Azure CLI and Azure PowerShell) the resource group was created
 > * Delete the resource group when finished using it

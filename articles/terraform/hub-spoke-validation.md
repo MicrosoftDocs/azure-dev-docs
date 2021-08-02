@@ -2,7 +2,7 @@
 title: Validate a hub and spoke network in Azure using Terraform
 description: Learn how to validate hub and spoke network topology with all virtual networks connected to one another.
 ms.topic: how-to
-ms.date: 07/31/2021
+ms.date: 08/01/2021
 ms.custom: devx-track-terraform
 ---
 
@@ -11,8 +11,8 @@ ms.custom: devx-track-terraform
 In this article, you execute the terraform files created in the previous article in this series. The result is a validation of the connectivity between the demo virtual networks.
 
 In this article, you learn how to:
-
 > [!div class="checklist"]
+
 > * Use HCL (HashiCorp Language) to implement the Hub VNet in hub-spoke topology
 > * Use Terraform plan to verify the resources to be deployed
 > * Use Terraform apply to create the resources in Azure

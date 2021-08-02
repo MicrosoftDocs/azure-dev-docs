@@ -2,9 +2,9 @@
 title: include file
 description: include file
 ms.topic: how-to
-ms.date: 07/24/2021
+ms.date: 08/01/2021
 ms.custom: devx-track-terraform
-ms.author: tarcher
+ms.author: jduffney
 ---
 
 1. [Download Terraform](https://www.terraform.io/downloads.html). This article was tested using Terraform version 1.0.3.

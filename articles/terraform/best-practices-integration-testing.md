@@ -79,7 +79,7 @@ The [terraform validate](https://www.terraform.io/docs/commands/validate.html) c
 
 As you can see, Terraform has detected an issue in the syntax of the configuration code. This issue prevents the configuration from being deployed.
 
-It is a good practice to always run `terraform validate` against your Terraform files before pushing them to your version control system. Also, this level of validation should be a part of your continuous integration pipeline. Later in this tutorial, we'll explore how to [configure an Azure pipeline to automatically validate](#5-automate-integration-tests-using-azure-pipeline).
+It is a good practice to always run `terraform validate` against your Terraform files before pushing them to your version control system. Also, this level of validation should be a part of your continuous integration pipeline. Later in this article, we'll explore how to [configure an Azure pipeline to automatically validate](#5-automate-integration-tests-using-azure-pipeline).
 
 ## 3. Validate Terraform configuration
 
@@ -89,7 +89,7 @@ Terraform is a *declarative language* meaning that you declare what you want as 
 
 To generate the Terraform execution plan, you run [terraform plan](https://www.terraform.io/docs/commands/plan.html). This command connects to the target Azure subscription to check what part of the configuration is already deployed. Terraform then determines the necessary changes to meet the requirements stated in the Terraform file. At this stage, Terraform isn't deploying anything. It's telling you what will happen if you apply the plan.
 
-If you're following along with the tutorial and you've done the steps in the previous section, run the `terraform plan` command:
+If you're following along with the article and you've done the steps in the previous section, run the `terraform plan` command:
 
 ```cmd
 terraform plan

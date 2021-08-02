@@ -2,8 +2,8 @@
 title: Troubleshoot common problems when using Terraform on Azure
 description: In this article, troubleshoot common problems when using Terraform on Azure
 keywords: terraform azure troubleshoot errors problems
-ms.topic: how-to
-ms.date: 07/31/2021
+ms.topic: troubleshoot
+ms.date: 08/01/2021
 ms.custom: devx-track-terraform
 # Customer intent: Find solutions to common problems encountered when using Terraform on Azure.
 ---

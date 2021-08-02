@@ -1,19 +1,19 @@
 ---
-title: Tutorial - Test Terraform modules in Azure using Terratest
+title: Test Terraform modules in Azure using Terratest
 description: Learn how to use Terratest to test your Terraform modules.
 ms.topic: how-to
-ms.date: 10/26/2019
+ms.date: 08/01/2021
 ms.custom: devx-track-terraform
 ---
 
-# Tutorial: Test Terraform modules in Azure using Terratest
+# Test Terraform modules in Azure using Terratest
 
 > [!NOTE]
-> The sample code in this article does not work with version 0.12 (and greater).
+> The sample code in this article does not work with Terraform version 0.12 (and greater).
 
 You can use Azure Terraform modules to create reusable, composable, and testable components. Terraform modules incorporate encapsulation that's useful in implementing infrastructure as code processes.
 
-It's important to implement quality assurance when you create Terraform modules. Unfortunately, limited documentation is available to explain how to author unit tests and integration tests in Terraform modules. This tutorial introduces a testing infrastructure and best practices that we adopted when we built our [Azure Terraform modules](https://registry.terraform.io/browse?provider=azurerm).
+It's important to implement quality assurance when you create Terraform modules. Unfortunately, limited documentation is available to explain how to author unit tests and integration tests in Terraform modules. This article introduces a testing infrastructure and best practices that we adopted when we built our [Azure Terraform modules](https://registry.terraform.io/browse?provider=azurerm).
 
 We looked at all the most popular testing infrastructures and chose [Terratest](https://github.com/gruntwork-io/terratest) to use for testing our Terraform modules. Terratest is implemented as a Go library. Terratest provides a collection of helper functions and patterns for common infrastructure testing tasks, like making HTTP requests and using SSH to access a specific virtual machine. The following list describes some of the major advantages of using Terratest:
 
@@ -21,6 +21,14 @@ We looked at all the most popular testing infrastructures and chose [Terratest](
 - **Organized folder structure** - Your test cases are organized clearly and follow the [standard Terraform module folder structure](https://www.terraform.io/docs/modules/create.html#standard-module-structure).
 - **Test cases are written in Go** - Many developers who use Terraform are Go developers. If you're a Go developer, you don't have to learn another programming language to use Terratest.
 - **Extensible infrastructure** - You can extend additional functions on top of Terratest, including Azure-specific features.
+
+In this article, you learn how to:
+> [!div class="checklist"]
+
+> * Create a static webpage module
+> * Create a unit test
+> * Create an integration test
+> * Use maps to simplify running Terratest cases
 
 ## Prerequisites
 
@@ -32,12 +40,12 @@ We looked at all the most popular testing infrastructures and chose [Terratest](
 
 ## Create a static webpage module
 
-In this tutorial, you create a Terraform module that provisions a static webpage by uploading a single HTML file to an Azure Storage blob. This module gives users from around the world access to the webpage through a URL that the module returns.
+In this article, you create a Terraform module that provisions a static webpage by uploading a single HTML file to an Azure Storage blob. This module gives users from around the world access to the webpage through a URL that the module returns.
 
 > [!NOTE]
 > Create all files that are described in this section under your [GOPATH](https://github.com/golang/go/wiki/SettingGOPATH) location.
 
-First, create a new folder named `staticwebpage` under your GoPath `src` folder. The overall folder structure of this tutorial is shown in the following example. Files marked with an asterisk `(*)` are the primary focus in this section.
+First, create a new folder named `staticwebpage` under your GoPath `src` folder. The overall folder structure of this article is shown in the following example. Files marked with an asterisk `(*)` are the primary focus in this section.
 
 ```
  📁 GoPath/src/staticwebpage

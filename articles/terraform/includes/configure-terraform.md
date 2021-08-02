@@ -1,11 +1,10 @@
 ---
 title: include file
 description: include file
-author: tomarchermsft
-ms.service: terraform
-ms.topic: include
-ms.date: 07/27/2021
-ms.author: tarcher
+ms.topic: how-to
+ms.date: 08/01/2021
+ms.custom: devx-track-terraform
+ms.author: jduffney
 ---
 
 - **Configure Terraform:** If you haven't already done so, configure Terraform using one of the following options:

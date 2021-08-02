@@ -2,7 +2,7 @@
 title: Create a spoke network in Azure using Terraform
 description: Learn how to implement two spoke virtual networks (VNets) connected to a hub in a hub-spoke topology.
 ms.topic: how-to
-ms.date: 07/31/2021
+ms.date: 08/01/2021
 ms.custom: devx-track-terraform
 ---
 
@@ -11,8 +11,8 @@ ms.custom: devx-track-terraform
 In this article, you implement two separate spoke networks to demonstrate separation of workloads. The networks share common resources using hub virtual network. Spokes can be used to isolate workloads in their own VNets, managed separately from other spokes. Each workload might include multiple tiers, with multiple subnets connected through Azure load balancers.
 
 In this article, you learn how to:
-
 > [!div class="checklist"]
+
 > * Use HCL (HashiCorp Language) to implement the Spoke VNets in hub-spoke topology
 > * Use Terraform to create Virtual machines in the spoke networks
 > * Use Terraform to establish virtual network peerings with the hub networks

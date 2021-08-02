@@ -1,11 +1,10 @@
 ---
 title: include file
 description: include file
-author: tomarchermsft
-ms.service: terraform
-ms.topic: include
-ms.date: 07/31/2021
-ms.author: tarcher
+ms.topic: how-to
+ms.date: 08/01/2021
+ms.custom: devx-track-terraform
+ms.author: jduffney
 ---
 
 When you no longer need the resources create via Terraform, do the following steps:

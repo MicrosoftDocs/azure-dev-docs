@@ -1,3 +1,12 @@
+---
+title: include file
+description: include file
+ms.topic: how-to
+ms.date: 08/01/2021
+ms.custom: devx-track-terraform
+ms.author: jduffney
+---
+
 When you log in to the Azure portal with a Microsoft account, the default Azure subscription for that account is used.
 
 Terraform automatically authenticates using information from the default Azure subscription.

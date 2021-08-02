@@ -2,9 +2,9 @@
 title: include file
 description: include file
 ms.topic: how-to
-ms.date: 07/30/2021
+ms.date: 08/01/2021
 ms.custom: devx-track-terraform
-ms.author: tarcher
+ms.author: jduffney
 ---
 
 Cloud Shell automatically updates to the latest version of Terraform within a couple of weeks of its release. However, if you need the most recent version sooner, the following steps show you how to download and install the current version of Terraform.
