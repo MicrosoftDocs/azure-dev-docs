@@ -17,6 +17,10 @@
       href: get-started-windows-powershell.md
     - name: Create an Azure resource group
       href: create-resource-group.md
+- name: Samples
+  items:
+    - name: Configuration templates
+      href: https://github.com/terraform-providers/terraform-provider-azurerm/tree/master/examples
 - name: Concepts
   items:
     - name: Testing Terraform code
@@ -95,10 +99,6 @@
       items:
         - name: Azure Attestation
           href: create-attestation-provider.md
-- name: Samples
-  items:
-    - name: Configuration templates
-      href: https://github.com/terraform-providers/terraform-provider-azurerm/tree/master/examples
 - name: Reference
   items:
     - name: Azure module registry
