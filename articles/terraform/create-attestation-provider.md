@@ -17,33 +17,9 @@ This article shows example Terraform code for creating an [Attestation provider]
 
 [!INCLUDE [configure-terraform.md](includes/configure-terraform.md)]
 
-- **Policy Signing Certificate:** File specifying a set of trusted signing keys in the form of a *.pem file.
+- **Policy Signing Certificate:** A PEM file defines a set of trusted signing keys. As there are many scenarios in which to have a PEM file, this article assumes you have access to one. For example, you can download a PEM during the process of creating a virtual machine in the [Azure portal](https://portal.azure.com).
 
-## 2. Getting a PEM fil
-
-There are many ways in which you might have a PEM file. If you don't already have a PEM file to use with the code in this article, do the following:
-
-1. Browse to the [Azure portal](https://portal.azure.com).
-
-1. Create a resource group named `myResourceGroup`. Input the values appropriate for your environment.
-
-1. Within the resource group from the previous step, create a virtual machine. Specify the following values:
-
-    - **Authentication type** = **SSH Public key**
-    - **SSH Public key source** = **Generate new key pair**
-    - Specify the remaining values as appropriate for your environment.
-
-1. Select **Review + Create**.
-
-1. Select **Create**.
-
-1. A window titled **Generate new key pair** displays. Select **Download private key and create resource**.
-
-    **Key points:**
-
-    - Based on your environment, the PEM file for the virtual machine is downloaded. For example, in Windows, the PEM file is downloaded to the `Downloads` folder.
-
-## 3. Implement the Terraform code
+## 2. Implement the Terraform code
 
 1. Create a directory in which to test and run the sample Terraform code.
 
@@ -63,22 +39,19 @@ There are many ways in which you might have a PEM file. If you don't already hav
 
     - Adjust the `policy_file` field as needed to point to your PEM file.
 
-## 4. Initialize Terraform
+## 3. Initialize Terraform
 
 [!INCLUDE [terraform-init.md](includes/terraform-init.md)]
 
-## 5. Create a Terraform execution plan
+## 4. Create a Terraform execution plan
 
 [!INCLUDE [terraform-plan.md](includes/terraform-plan.md)]
 
-## 6. Apply a Terraform execution plan
+## 5. Apply a Terraform execution plan
 
 [!INCLUDE [terraform-apply-plan.md](includes/terraform-apply-plan.md)]
 
-## 7. Verify the results
-
-
-## 8. Clean up resources
+## 6. Clean up resources
 
 [!INCLUDE [terraform-destroy-plan.md](includes/terraform-destroy-plan.md)]
 
