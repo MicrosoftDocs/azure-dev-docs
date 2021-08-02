@@ -17,9 +17,11 @@ In this article, you learn how to:
 > * Create an Azure Container Instance
 > * Create an app that works across these two resources
 
-## Prerequisites
+## 1. Configure your environment
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../includes/open-source-devops-prereqs-azure-subscription.md)]
+
+[!INCLUDE [configure-terraform.md](includes/configure-terraform.md)]
 
 ## Create first configuration
 

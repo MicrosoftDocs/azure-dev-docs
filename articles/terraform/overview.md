@@ -39,5 +39,4 @@ Now that you have an overview of Terraform and its benefits, here are suggested 
 
 Based on your environment, install and configure Terraform:
 
-- [Configure Terraform using Azure Cloud Shell and Azure CLI](get-started-cloud-shell.md)
-- [Configure Terraform using Azure PowerShell](get-started-powershell.md)
+[!INCLUDE [configure-terraform.md](includes/configure-terraform.md)]

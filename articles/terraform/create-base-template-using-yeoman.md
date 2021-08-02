@@ -17,16 +17,20 @@ In this article, you learn how to do the following tasks:
 > * Run the Terraform module using a Docker file.
 > * Run the Terraform module natively in Azure Cloud Shell.
 
-## Prerequisites
+## 1. Configure your environment
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../includes/open-source-devops-prereqs-azure-subscription.md)]
+
+[!INCLUDE [configure-terraform.md](includes/configure-terraform.md)]
+
 - **Visual Studio Code**: [Download Visual Studio Code](https://code.visualstudio.com/download) for your platform.
-- **Terraform**: [Install Terraform](get-started-cloud-shell.md) to run the module created by Yeoman.
+
 - **Docker**: [Install Docker](https://www.docker.com/get-started) to run the module created by the Yeoman generator.
+
 - **Go programming language**: [Install Go](https://golang.org/) as Yeoman-generated test cases are code using the Go language.
 
 >[!NOTE]
->Most of the procedures in this article involve the command line interface. The steps described apply to all operating systems and command line tools. For the examples, PowerShell was chosen for the local environment and Git Bash for the cloud shell environment.
+> Most of the procedures in this article involve the command line interface. The steps described apply to all operating systems and command line tools. For the examples, PowerShell was chosen for the local environment and Git Bash for the cloud shell environment.
 
 ## Prepare your environment
 
