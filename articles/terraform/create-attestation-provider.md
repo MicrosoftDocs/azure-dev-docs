@@ -28,15 +28,15 @@ In this article, you learn how to:
 
 [!INCLUDE [implement-code-main.md](includes/implement-code-main.md)]
 
-    [!code-terraform[tarcher-move-sample-code-to-github](../../terraform_samples/quickstart/101-attestation-provider/main.tf)]
+[!code-terraform[tarcher-move-sample-code-to-github](../../terraform_samples/quickstart/101-attestation-provider/main.tf)]
 
 [!INCLUDE [implement-code-variables.md](includes/implement-code-variables.md)]
 
-    [!code-terraform[tarcher-move-sample-code-to-github](../../terraform_samples/quickstart/101-attestation-provider/variables.tf)]
+[!code-terraform[tarcher-move-sample-code-to-github](../../terraform_samples/quickstart/101-attestation-provider/variables.tf)]
 
-    **Key points:**
+**Key points:**
 
-    - Adjust the `policy_file` field as needed to point to your PEM file.
+- Adjust the `policy_file` field as needed to point to your PEM file.
 
 ## 3. Initialize Terraform
 
