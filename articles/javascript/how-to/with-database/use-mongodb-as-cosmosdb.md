@@ -2,7 +2,7 @@
 title: Use JavaScript on Azure Cosmos DB with MongoDB
 description: To create or move your mongoDB database to Azure, you need a Cosmos DB resource. 
 ms.topic: how-to
-ms.date: 07/30/2021
+ms.date: 08/02/2021
 ms.custom: devx-track-js, devx-track-azurecli
 ---
 
@@ -19,7 +19,7 @@ To create, move, or use a mongoDB database to Azure, you need a Cosmos DB resour
 
 [!INCLUDE [Azure CLI commands](../../includes/azure-cli-mongodb.md)]
 
-# [Azure CLI](#tab/azure-portal)
+# [Azure Portal](#tab/azure-portal)
 
 [!INCLUDE [Azure portal](../../includes/azure-portal-mongodb.md)]
 
