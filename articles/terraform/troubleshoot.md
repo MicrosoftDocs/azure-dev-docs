@@ -2,7 +2,7 @@
 title: Troubleshoot common problems when using Terraform on Azure
 description: In this article, troubleshoot common problems when using Terraform on Azure
 keywords: terraform azure troubleshoot errors problems
-ms.topic: troubleshoot
+ms.topic: troubleshooting
 ms.date: 08/01/2021
 ms.custom: devx-track-terraform
 # Customer intent: Find solutions to common problems encountered when using Terraform on Azure.
@@ -10,13 +10,14 @@ ms.custom: devx-track-terraform
 
 # Troubleshoot common problems when using Terraform on Azure
 
-This article lists common problems and possible solutions when using Terraform on Azure. If you encounter a problem that is specific to Terraform, use one of [HashiCorp's community support channels](#hashiCorp-terraform--specific-suppor-channels).
+This article lists common problems and possible solutions when using Terraform on Azure. 
 
-- [HashiCorp Terraform-specific support channels](#hashicorp-terraformspecific-support-channels)
+If you encounter a problem that is specific to Terraform, use one of [HashiCorp's community support channels](#hashiCorp-terraform--specific-support-channels).
+
 - [Unable to list provider registration status](#unable-to-list-provider-registration-status)
 - [VPN errors](#vpn-errors)
 
-## HashiCorp Terraform-specific support channels
+## HashiCorp Terraform specific support channels
 
 * Questions, use-cases, and useful patterns: [Terraform section of the HashiCorp community portal](https://discuss.hashicorp.com/c/terraform-core)
 * Provider-related questions: [Terraform Providers section of the HashiCorp community portal](https://discuss.hashicorp.com/c/terraform-providers)

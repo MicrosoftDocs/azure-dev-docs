@@ -181,4 +181,4 @@ terraform destroy -auto-approve
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Install and configure Terraform to provision Azure resources](get-started-cloud-shell.md).
+> [Learn more about using Terraform in Azure](/azure/terraform)
