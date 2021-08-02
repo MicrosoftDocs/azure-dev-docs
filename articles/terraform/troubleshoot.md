@@ -12,7 +12,7 @@ ms.custom: devx-track-terraform
 
 This article lists common problems and possible solutions when using Terraform on Azure. 
 
-If you encounter a problem that is specific to Terraform, use one of [HashiCorp's community support channels](#hashiCorp-terraform--specific-support-channels).
+If you encounter a problem that is specific to Terraform, use one of [HashiCorp's community support channels](#hashicorp-terraform-specific-support-channels).
 
 - [Unable to list provider registration status](#unable-to-list-provider-registration-status)
 - [VPN errors](#vpn-errors)
