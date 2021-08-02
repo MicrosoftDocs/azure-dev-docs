@@ -11,6 +11,11 @@ ms.custom: devx-track-terraform
 
 This article shows example Terraform code for creating an [Attestation provider](/azure/attestation/overview) on Azure.
 
+In this article, you learn how to:
+> [!div class="checklist"]
+
+> * Configure an Azure Attestatoin provider
+
 ## 1. Configure your environment
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../includes/open-source-devops-prereqs-azure-subscription.md)]
