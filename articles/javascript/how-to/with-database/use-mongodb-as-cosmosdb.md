@@ -19,7 +19,7 @@ To create, move, or use a mongoDB database to Azure, you need a Cosmos DB resour
 
 [!INCLUDE [Azure CLI commands](../../includes/azure-cli-mongodb.md)]
 
-# [Azure Portal](#tab/azure-portal)
+# [Azure portal](#tab/azure-portal)
 
 [!INCLUDE [Azure portal](../../includes/azure-portal-mongodb.md)]
 
