@@ -8,7 +8,7 @@ ms.custom: devx-track-js, devx-track-azurecli
 
 # 7. Clean up resources for static web app
 
-<a name="remove-all-the-resources-by-removing-resource-group"></a>
+<a href="#remove-all-the-resources-by-removing-resource-group"></a>
 
 Once you have completed this tutorial, you need to remove the resource group, which includes the Computer Vision resource and Static web app, to make sure you are not billed for any more usage. 
 
