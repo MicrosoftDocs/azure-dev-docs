@@ -31,7 +31,7 @@ In this quickstart, you'll learn how to retrieve a secret from Azure Key Vault t
 
 This quickstart assumes the following Azure Resources have **already been provisioned**:
 
-* Azure Active Directory (Azure AD), sign-up or learn more about [Azure AD](azure/active-directory/fundamentals/sign-up-organization)
+* Azure Active Directory (Azure AD), sign-up or learn more about [Azure AD](/azure/active-directory/fundamentals/sign-up-organization)
 * Azure Storage Account, to create a new Storage Account you can use the [Azure portal](/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal), [Azure PowerShell](/azure/storage/common/storage-quickstart-create-account?tabs=azure-powershell), or [Azure CLI](/azure/storage/common/storage-quickstart-create-account?tabs=azure-cli)
 * Azure Key Vault, to create a new Key Vault you can use the [Azure portal](/azure/key-vault/keys/quick-create-portal), [PowerShell](/azure/key-vault/keys/quick-create-powershell), or [Azure CLI](/azure/key-vault/keys/quick-create-cli)
 * HTTP Trigger or Blob Trigger Azure Function, to create a new Function you can use the [Visual Studio Code](/azure/azure-functions/create-first-function-vs-code-python), [Azure PowerShell](/azure/azure-functions/create-first-function-vs-code-powershell), or [Azure CLI](/azure/azure-functions/create-first-function-cli-python)
