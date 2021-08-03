@@ -10,7 +10,7 @@ ms.custom: devx-track-terraform, devx-track-azurecli
 
 Terraform state is used to reconcile deployed resources with Terraform configurations. State allows Terraform to know what Azure resources to add, update, or delete.
 
-By default, Terraform state is stored which isn't ideal for the following reasons:
+By default, Terraform state is stored ***there appears to be a missing word or phrase here*** which isn't ideal for the following reasons:
 
 - Local state doesn't work well in a team or collaborative environment.
 - Terraform state can include sensitive information.
