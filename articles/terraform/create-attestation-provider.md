@@ -26,13 +26,13 @@ In this article, you learn how to:
 
 ## 2. Implement the Terraform code
 
-1. Create a directory in which to test and run the sample Terraform code.
+1. Create a directory in which to test and run the sample Terraform code and make it the current directory.
 
-1. In the example directory, create a file named `main.tf` and insert the following code:
+1. Create a file named `main.tf` and insert the following code:
 
     [!code-terraform[tarcher-move-sample-code-to-github](../../terraform_samples/quickstart/101-attestation-provider/main.tf)]
 
-1. In the example directory, create a file named `variables.tf` to contain the project variables and insert the following code:
+1. Create a file named `variables.tf` to contain the project variables and insert the following code:
 
     [!code-terraform[tarcher-move-sample-code-to-github](../../terraform_samples/quickstart/101-attestation-provider/variables.tf)]
     

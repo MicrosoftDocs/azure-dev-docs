@@ -36,6 +36,8 @@ The hub network consists of the following components:
 - A hub virtual network gateway
 - Hub gateway connections
 
+1. Make the example directory created in the first article of this series the current directory.
+
 1. In the example directory, create a file named `hub-vnet.tf`.
 
 1. Insert the following code:

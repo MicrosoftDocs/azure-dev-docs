@@ -121,7 +121,7 @@ Scenario Outline: Ensure that specific tags are defined
 
 ## 4. Run the compliance-test example
 
-In this section, you'll download and test the example.
+In this section, you download and test the example.
 
 1. Within the example directory, navigate to the `src` directory.
 

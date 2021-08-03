@@ -140,9 +140,7 @@ Create the Terraform configuration file that declares the resources for the Kube
 
 ## 6. Declare the variables
 
-1. Create a file named `variables.tf`.
-
-1. Insert the following code into the new file:
+1. Create a file named `variables.tf` to contain the project variables and insert the following code:
 
     ```hcl
     variable "client_id" {}

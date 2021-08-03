@@ -60,21 +60,17 @@ Terraform tracks state locally via the `terraform.tfstate` file. This pattern wo
 
 ## 3. Implement the Terraform code
 
-1. Create a directory in which to test and run the sample Terraform code.
+1. Create a directory in which to test and run the sample Terraform code and make it the current directory.
 
-1. In the example directory, create your main Terraform configuration file. By convention, the name of this file is `main.tf`. However, you can specify any valid name for your environment.
-
-1. Insert the following code into the main Terraform configuration file.
+1. Create a file named `main.tf` and insert the following code:
 
     [!code-terraform[tarcher-move-sample-code-to-github](../../terraform_samples/quickstart/201-k8s-cluster-with-aks-applicationgateway-ingress/main.tf)]
 
-1. In the example directory, create a variables file to contain the values for Terraform. By convention, the name of this file is `variables.tf`. However, you can specify any valid name for your environment.
-
-1. Insert the following code into the variables file.
+1. Create a file named `variables.tf` to contain the project variables and insert the following code:
 
     [!code-terraform[tarcher-move-sample-code-to-github](../../terraform_samples/quickstart/201-k8s-cluster-with-aks-applicationgateway-ingress/variables.tf)]
 
-1. In the example directory, create a file named `resources.tf` and insert the following code.
+1. Create a file named `resources.tf` and insert the following code.
 
     [!code-terraform[tarcher-move-sample-code-to-github](../../terraform_samples/quickstart/201-k8s-cluster-with-aks-applicationgateway-ingress/resources.tf)]
 
@@ -88,7 +84,7 @@ Terraform tracks state locally via the `terraform.tfstate` file. This pattern wo
     - The `agent_pool_profile record` includes the number of worker nodes to create and the type of worker nodes.
     - If you need to scale up or scale down the cluster in the future, modify the `count` value in `agent_pool_profile record` record.
 
-1. In the example directory, create a file named `output.tf` and insert the following code.
+1. Create a file named `output.tf` and insert the following code.
 
     [!code-terraform[tarcher-move-sample-code-to-github](../../terraform_samples/quickstart/201-k8s-cluster-with-aks-applicationgateway-ingress/output.tf)]
 
@@ -98,7 +94,7 @@ Terraform tracks state locally via the `terraform.tfstate` file. This pattern wo
     - These values can be queried using the `terraform output` command. 
     - In this section, you create an output file that allows access to the cluster with [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/).
 
-1. In the example directory, create a file named `terraform.tfvars` and insert the following code.
+1. Create a file named `terraform.tfvars` and insert the following code.
 
     [!code-terraform[tarcher-move-sample-code-to-github](../../terraform_samples/quickstart/201-k8s-cluster-with-aks-applicationgateway-ingress/terraform.tfvars)]
 

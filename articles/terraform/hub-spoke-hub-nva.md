@@ -34,9 +34,9 @@ In this article, you learn how to:
 
 ## 2. Implement the Terraform code
 
-1. In the example directory, create a file named `hub-nva.tf`.
+1. Make the example directory created in the first article of this series the current directory.
 
-1. Insert the following code:
+1. Create a file named `hub-nva.tf` and insert the following code:
 
     [!code-terraform[tarcher-move-sample-code-to-github](../../terraform_samples/quickstart/301-hub-spoke/hub-nva.tf)]
 

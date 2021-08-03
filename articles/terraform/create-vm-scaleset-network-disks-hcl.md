@@ -29,25 +29,21 @@ In this article, you learn how to:
 
 ## 2. Implement the Terraform code
 
-1. Create a directory in which to test and run the sample Terraform code.
+1. Create a directory in which to test and run the sample Terraform code and make it the current directory.
 
-1. Create your main Terraform configuration file. By convention, the name of this file is `main.tf`. However, you can specify any valid name for your environment.
-
-1. Insert the following code into the main Terraform configuration file.
+1. Create a file named `main.tf` and insert the following code:
 
     [!code-terraform[tarcher-move-sample-code-to-github](../../terraform_samples/quickstart/201-vmss-jumpbox/main.tf)]
 
-1. Create a variables file to contain the values for Terraform. By convention, the name of this file is `variables.tf`. However, you can specify any valid name for your environment.
-
-1. Insert the following code into the variables file.
+1. Create a file named `variables.tf` to contain the project variables and insert the following code:
 
     [!code-terraform[tarcher-move-sample-code-to-github](../../terraform_samples/quickstart/201-vmss-jumpbox/variables.tf)]
 
-1. Create a file to specify what values to output when the Terraform plan is applied. By convention, the name of this file is `output.tf`. However, you can specify any valid name for your environment.
+1. Create a file named `output.tf` to specify what values Terraform displays and insert the following code:
 
     [!code-terraform[tarcher-move-sample-code-to-github](../../terraform_samples/quickstart/201-vmss-jumpbox/output.tf)]
 
-1. Create a file named `web.conf`. If you decide to use a different name, change the value in the main configuration file.
+1. Create a file named `web.conf` and insert the following code:
 
     [!code-terraform[tarcher-move-sample-code-to-github](../../terraform_samples/quickstart/201-vmss-jumpbox/web.conf)]
 

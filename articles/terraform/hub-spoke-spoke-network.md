@@ -35,15 +35,13 @@ In this article, you learn how to:
 
 Two spoke scripts are created in this section. Each script defines a spoke virtual network and a virtual machine for the workload. A peered virtual network from hub to spoke is then created.
 
-1. In the example directory, create a file named `spoke1.tf`.
+1. Make the example directory created in the first article of this series the current directory.
 
-1. Insert the following code:
+1. Create a file named `spoke1.tf` and insert the following code:
 
     [!code-terraform[tarcher-move-sample-code-to-github](../../terraform_samples/quickstart/301-hub-spoke/spoke1.tf)]
 
-1. In the example directory, create a file named `spoke2.tf`.
-
-1. Insert the following code:
+1. Create a file named `spoke2.tf` and insert the following code:
 
     [!code-terraform[tarcher-move-sample-code-to-github](../../terraform_samples/quickstart/301-hub-spoke/spoke2.tf)]
 
