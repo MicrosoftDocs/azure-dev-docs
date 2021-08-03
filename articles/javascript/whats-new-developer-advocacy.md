@@ -28,7 +28,7 @@ Use the [JavaScript Community Hub](/javascript) to see more from the community.
 
 |Cloud Advocate|Contributions|Link|
 |--|--|--|
-|Christopher Harrison|How to use Mongoose to connect to CosmosDB with SWA - Module 4 in series|[YouTube](https://www.youtube.com/watch?v=-z1NHptprKg&list=PLlrxD0HtieHgMPeBaDQFx9yNuFxx6S1VG&index=14)|
+|[Christopher Harrison][Christopher]|How to use Mongoose to connect to CosmosDB with SWA - Module 4 in series|[YouTube](https://www.youtube.com/watch?v=-z1NHptprKg&list=PLlrxD0HtieHgMPeBaDQFx9yNuFxx6S1VG&index=14)|
 |[Aaron Powell][Aaron]|Calling SWA authenticated API endpoints|[Blog](https://www.aaron-powell.com/posts/2021-07-02-calling-static-web-apps-authenticated-endpoints/)|
 |[Aaron Powell][Aaron]|GraphQL on Azure: Part 7 - Authentication|[Blog](https://www.aaron-powell.com/posts/2021-07-05-graphql-on-azure-part-7-server-side-authentication/)|
 |[Aaron Powell][Aaron]|Demo app of SWA + identity info|[GitHub repo](https://github.com/aaronpowell/swa-github-auth-identity)|
@@ -85,10 +85,10 @@ Use the [JavaScript Community Hub](/javascript) to see more from the community.
 |Cloud Advocate|Contributions|Link|
 |--|--|--|
 |Burke Holland|Deploying a Node.js Web App using GitHub Actions|[GitHub repo](https://github.com/Azure-Samples/azure-javascript-labs)|
-|[Aaron Powell][Aaron] and Christopher Harrison|Web Wednesday - Getting started with React & TypeScript|[YouTube](https://www.youtube.com/watch?v=BlaHWppdLpQ)|
+|[Aaron Powell][Aaron] and [Christopher Harrison][Christopher]|Web Wednesday - Getting started with React & TypeScript|[YouTube](https://www.youtube.com/watch?v=BlaHWppdLpQ)|
 |[Aaron Powell][Aaron]|Azure Cosmos DB Conf - EMEA Live Stream|[YouTube](https://youtu.be/EQu4xtAicQg?list=PLmamF3YkHLoLN_24E41jSPVilv5B3GTBg&t=4328)|
 |[Olivier Leplus][Olivier] and Maud Levy|Static Web apps demo - Microsoft Developers France|**French** - [YouTube](https://www.youtube.com/watch?v=aI9XFDpsGaA)|
-|Christopher Harrison|Tutorial: Access data in Cosmos DB using Mongoose with Azure Static Web Apps|[Docs](/azure/static-web-apps/add-mongoose)|
+|[Christopher Harrison][Christopher]|Tutorial: Access data in Cosmos DB using Mongoose with Azure Static Web Apps|[Docs](/azure/static-web-apps/add-mongoose)|
 |[Yohan Lasorsa][Yohan]|Adapt your Angular apps for dual-screen devices with ngx-foldable|[Blog](https://dev.to/angular/adapt-your-angular-apps-for-dual-screen-devices-with-ngx-foldable-4058)|
 |[Glaucia Lemos][Glaucia]|Módulo 02 (Vídeos 13 à 18.1) - TypeScript Zero to Hero|**Portuguese​** - [Blog](https://dev.to/glaucia86/modulo-02-videos-13-a-18-1-typescript-zero-to-hero-5565)|
 
@@ -126,7 +126,7 @@ Use the [JavaScript Community Hub](/javascript) to see more from the community.
 |[Glaucia Lemos][Glaucia]|Developing a CRUD Node.js Application with PostgreSQL|[Blog](https://dev.to/glaucia86/developing-a-crud-node-js-application-with-postgresql-4c9o)|
 |[Glaucia Lemos][Glaucia]|TypeScript and Azure Functions|**Portuguese​** - [YouTube](https://www.youtube.com/watch?v=J9OoXt1dvm8&t=2772s)|
 |[Wassim Chegham][Wassim]|Deploy your JAMStack app on Azure Static Web Apps!|[YouTube](https://www.youtube.com/watch?v=I2Tg2MO-RP8&feature=youtu.be)|
-|Christopher Harrison and Beth Pan|Web-Wednesday: What is Microsoft Graph Toolkit?|[Channel 9 video](https://channel9.msdn.com/Shows/Web-Wednesday/What-is-Microsoft-Graph-Toolkit)|
+|[Christopher Harrison][Christopher] and Beth Pan|Web-Wednesday: What is Microsoft Graph Toolkit?|[Channel 9 video](https://channel9.msdn.com/Shows/Web-Wednesday/What-is-Microsoft-Graph-Toolkit)|
 |[Yohan Lasorsa][Yohan]|Azure Fundamentals - Serverless Sessions|Session 1 [YouTube video](https://www.youtube.com/watch?v=JIE_K_j-wGk) and Session 2 [YouTube video](https://www.youtube.com/watch?v=iiem4ajj6EQ)|
 |[Aaron Powell][Aaron]|GraphQL Subscriptions using SignalR OSS project|[GitHub repo](https://github.com/aaronpowell/graphql-azure-subscriptions)|
 |[Yohan Lasorsa][Yohan]|Angular Library for Surface Duo: ngx-foldable|[GitHub repo](https://github.com/sinedied/ngx-foldable)|
@@ -149,3 +149,4 @@ Use the [JavaScript Community Hub](/javascript) to see more from the community.
 [Yohan]:https://twitter.com/sinedied 
 [Aaron]:https://www.aaron-powell.com/about
 [Olivier]:https://twitter.com/olivierleplus
+[Christopher]:https://twitter.com/geektrainer

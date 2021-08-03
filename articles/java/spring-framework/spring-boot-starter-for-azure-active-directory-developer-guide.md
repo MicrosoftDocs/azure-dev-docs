@@ -159,7 +159,7 @@ To use the Azure AD starter in this scenario, use the following steps:
 
    Here, `graph` is the client ID configured in the previous step. `OAuth2AuthorizedClient` contains the access token, which is used to access the resource server.
 
-For a complete sample demonstrating this scenario, see [OAuth 2.0 Sample for Azure AD Spring Boot Starter client library for Java](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/main/aad/azure-spring-boot-sample-active-directory-webapp).
+For a complete sample demonstrating this scenario, see [OAuth 2.0 Sample for Azure AD Spring Boot Starter client library for Java](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/main/aad/azure-spring-boot-starter-active-directory/aad-web-application).
 
 ### Protect a resource server/API
 
@@ -218,7 +218,7 @@ To use the Azure AD starter in this scenario, use the following steps:
    }
    ```
 
-For a complete sample demonstrating this scenario, see [Azure OAuth 2.0 Sample for Azure AD Spring Boot Starter Resource Server client library for Java](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/main/aad/azure-spring-boot-sample-active-directory-resource-server).
+For a complete sample demonstrating this scenario, see [Azure OAuth 2.0 Sample for Azure AD Spring Boot Starter Resource Server client library for Java](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/main/aad/azure-spring-boot-starter-active-directory/aad-resource-server).
 
 ### Access other resource servers from a resource server
 
@@ -269,7 +269,7 @@ To use the Azure AD starter in this scenario, use the following steps:
    }
    ```
 
-For a complete sample demonstrating this scenario, see [Azure OAuth 2.0 Sample for azure-spring-boot-sample-active-directory-resource-server-obo client library for Java](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/main/aad/azure-spring-boot-sample-active-directory-resource-server-obo).
+For a complete sample demonstrating this scenario, see [Azure OAuth 2.0 Sample for aad-resource-server-obo client library for Java](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/main/aad/azure-spring-boot-starter-active-directory/aad-resource-server-obo).
 
 ### Web application and resource server in one application
 
