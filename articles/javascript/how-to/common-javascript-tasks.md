@@ -30,7 +30,7 @@ Provide authentication.
 |Task|using|
 |--|--|
 |Create resource group|[Azure CLI](../tutorial/static-web-app/create-computer-vision-resource-use-in-code.md#create-azure-resources)|
-|Delete resource group|[Azure CLI](../tutorial/static-web-app/clean-up-resources.md#remove-all-the-resources-by-removing-resource-group)|
+|Delete resource group|[Azure CLI](../tutorial/static-web-app/clean-up-resources.md)|
 
 ## Apps
 
