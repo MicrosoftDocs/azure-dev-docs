@@ -34,6 +34,8 @@ Use the [JavaScript Community Hub](/javascript) to see more from the community.
 |[Aaron Powell][Aaron]|Demo app of SWA + identity info|[GitHub repo](https://github.com/aaronpowell/swa-github-auth-identity)|
 |[Aaron Powell][Aaron]|SWA auth + more identity info|[Blog](https://www.aaron-powell.com/posts/2021-07-16-adding-user-profiles-to-swa/)|
 |[Aaron Powell][Aaron]|VS Code Profile Switcher extension<br><br>A VS Code extension that allows you to switch customizations depending on the profile you want loaded. The use case is for different dev environments (JS or .NET or Python, etc.) or presentation/non-presentation mode.|[GitHub repo](https://github.com/aaronpowell/vscode-profile-switcher)|
+|[Lucas Santos][Lucas]|What is confirmed in ES2021|**Portuguese** - [Blog](https://blog.lsantos.dev/es2021/)|
+|[Lucas Santos][Lucas]|The Complete Guide to gRPC part 4 - Streams|**Portuguese** - [Blog](https://blog.lsantos.dev/o-guia-do-grpc-4/)|
 |[Wassim Chegham][Wassim]|10 things to know to get started with Azure Static Web Apps|[Blog](https://dev.to/azure/10-things-to-know-about-azure-static-web-apps-3n4i)|
 |[Wassim Chegham][Wassim]|Change Detection in Angular|[Angular Rocks Podcast](https://angularrocks.com/episodes/angular-change-detection)|
 |[Yohan Lasorsa][Yohan]|Les web apps multi écran, c'est pas sec... mais on s'est jeté à l'eau|**French** - [Speaker deck](https://speakerdeck.com/sinedied/multi-screen-experiences-for-the-mobile-web)|
@@ -57,7 +59,8 @@ Use the [JavaScript Community Hub](/javascript) to see more from the community.
 |[Yohan Lasorsa][Yohan]|How to create your personal blog with Gatsby and SWA|[YouTube](https://www.youtube.com/watch?v=IZbcpUIke8s&list=PLlrxD0HtieHgMPeBaDQFx9yNuFxx6S1VG&index=6)|
 |[Yohan Lasorsa][Yohan]|A clean dev env, working every time, everywhere|[YouTube](https://www.youtube.com/watch?v=vVX7LMCBnwA) and [URL list](https://www.theurlist.com/clean-dev)|
 |[Yohan Lasorsa][Yohan] and [Olivier Leplus][Olivier]|Angular, PWA and SWA|[Speaker deck](https://aka.ms/spwa)|
-|Lucas Santos|Starting with ES Modules|**Portuguese** - [Blog](https://blog.lsantos.dev/os-ecmascript-modules-estao-aqui/)|
+|[Lucas Santos][Lucas]|Starting with ES Modules|**Portuguese** - [Blog](https://blog.lsantos.dev/os-ecmascript-modules-estao-aqui/)|
+|[Wassim Chegham][Wassim] |The subtle art of being a developer advocate|[Twitch](https://m.twitch.tv/videos/1049691152)|
 |[Wassim Chegham][Wassim] |The subtle art of being a developer advocate|[Twitch](https://m.twitch.tv/)|
 |[Aaron Powell][Aaron]|Type-safe GraphQL with TypeScript|[GotHub repo](https://github.com/aaronpowell/graphql-code-generator-sample)|
 |[Wassim Chegham][Wassim]|Azure Static Web Apps CLI|**French** - [YouTube video:Tartine & Tech](https://www.youtube.com/watch?v=0L2XS6INmwE)|
@@ -77,8 +80,10 @@ Use the [JavaScript Community Hub](/javascript) to see more from the community.
 |[Glaucia Lemos][Glaucia]|Publicación de Aplicaciones Estáticas con Azure Static Web Apps y Azure DevOps|**Spanish​** - [Blog](https://dev.to/glaucia86/publicacion-de-aplicaciones-estaticas-con-azure-static-web-apps-y-azure-devops-5c63)|
 |[Aaron Powell][Aaron]|Azure Static Web Apps - Custom auth with Okta|[GitHub repo](https://github.com/aaronpowell/swa-custom-auth-okta) and [Blog](https://www.aaron-powell.com/posts/2021-05-13-using-okta-with-static-web-apps/)|
 |[Aaron Powell][Aaron]|Azure Static Web Apps - Custom auth with Auth0|[GitHub repo](https://github.com/aaronpowell/swa-custom-auth-auth0) and [Blog](https://www.aaron-powell.com/posts/2021-05-13-using-auth0-with-static-web-apps/)|
-|Lucas Santos|What's new in TypeScript 4.3|**Portuguese** - [Blog](https://blog.lsantos.dev/o-que-ha-de-novo-no-beta-do-typescript-4-3/)|
-
+|[Lucas Santos][Lucas]|What's new in Node 16|**Portuguese** - [Blog](https://blog.lsantos.dev/veja-o-que-ha-de-novo-no-node-js-16/)|
+|[Lucas Santos][Lucas]|What's new in TypeScript 4.3|**Portuguese** - [Blog](https://blog.lsantos.dev/o-que-ha-de-novo-no-beta-do-typescript-4-3/)|
+|[Lucas Santos][Lucas]|The Complete Guide to gRPC part 3 - gRPC and TypeScript|**Portuguese** - [Blog](https://blog.lsantos.dev/o-guia-do-grpc-3/)|
+|[Lucas Santos][Lucas]|The Complete Guide to gRPC part 2 - gRPC and JavaScript|**Portuguese** - [Blog](https://blog.lsantos.dev/o-guia-do-grpc-2/)|
  
 ## 2021 April 
 
@@ -91,6 +96,7 @@ Use the [JavaScript Community Hub](/javascript) to see more from the community.
 |[Christopher Harrison][Christopher]|Tutorial: Access data in Cosmos DB using Mongoose with Azure Static Web Apps|[Docs](/azure/static-web-apps/add-mongoose)|
 |[Yohan Lasorsa][Yohan]|Adapt your Angular apps for dual-screen devices with ngx-foldable|[Blog](https://dev.to/angular/adapt-your-angular-apps-for-dual-screen-devices-with-ngx-foldable-4058)|
 |[Glaucia Lemos][Glaucia]|Módulo 02 (Vídeos 13 à 18.1) - TypeScript Zero to Hero|**Portuguese​** - [Blog](https://dev.to/glaucia86/modulo-02-videos-13-a-18-1-typescript-zero-to-hero-5565)|
+|[Lucas Santos][Lucas]|The Complete Guide to gRPC - What is gRPC?|**Portuguese** - [Blog](https://blog.lsantos.dev/o-guia-do-grpc-1/)|
 
 
 ## 2021 March 
@@ -149,4 +155,5 @@ Use the [JavaScript Community Hub](/javascript) to see more from the community.
 [Yohan]:https://twitter.com/sinedied 
 [Aaron]:https://www.aaron-powell.com/about
 [Olivier]:https://twitter.com/olivierleplus
+[Lucas]:https://info.lsantos.dev
 [Christopher]:https://twitter.com/geektrainer
