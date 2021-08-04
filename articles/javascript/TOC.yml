@@ -252,7 +252,7 @@
       - name: Deploy containers
         href: how-to/deploy-containers.md
       - name: Integrate with databases
-        href: how-to/integrate-database.md
+        href: how-to/with-database/getting-started.md
       - name: Logging and metrics
         href: how-to/node-sdk-logging.md
       - name: Automate with Azure CLI

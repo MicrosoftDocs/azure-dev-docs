@@ -157,7 +157,7 @@ Typically, a connection to a database or data storage begins with a connection s
 
 Considerations for data connections:
 * Bring your current connection
-* New data storage - If your app needs a new storage mechanism, Azure provides [many different database](integrate-database.md) choices. The connection does need to be securely stored. 
+* New data storage - If your app needs a new storage mechanism, Azure provides [many different database](with-database/getting-started.md) choices. The connection does need to be securely stored. 
 
 ## Missing something? 
 
