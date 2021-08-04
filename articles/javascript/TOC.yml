@@ -103,14 +103,14 @@
         items:
           - name: Configure
             items: 
-            - name: Configure
+            - name: Configure app settings
               href: how-to/configure-web-app-settings.md
             - name: Create secure domain name
               href: how-to/add-custom-domain-to-web-app.md
             - name: Use Key Vault secrets in Express.js
               href: how-to/with-web-app/use-secret-environment-variables.md
-          - name: Configure
-            href: how-to/configure-web-app-settings.md
+          - name: Deploy to Azure 
+            href: how-to/deploy-web-app.md
           - name: Azure Static Web Apps
             items: 
             - name: Getting started
