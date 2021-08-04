@@ -23,20 +23,6 @@
       href: core/nodejs-sdk-azure-authenticate.md
   - name: Tutorials
     items:
-      - name: Serverless APIs
-        items:               
-        - name: "Create a function with Visual Studio Code"
-          items:
-          - name: 1. Introduction and prerequisites
-            href: tutorial/vscode-function-app-http-trigger/tutorial-vscode-serverless-node-install.md
-          - name: 2. Create the Functions app
-            href: tutorial/vscode-function-app-http-trigger/tutorial-vscode-serverless-node-create-local.md
-          - name: 3. Run the function locally
-            href: tutorial/vscode-function-app-http-trigger/tutorial-vscode-serverless-node-test-local.md
-          - name: 4. Deploy the Functions app
-            href: tutorial/vscode-function-app-http-trigger/tutorial-vscode-serverless-node-deploy-hosting.md
-          - name: 5. Clean up resources
-            href: tutorial/vscode-function-app-http-trigger/tutorial-vscode-serverless-node-remove-resource.md
       - name: Server web apps
         items:
           - name: "Express.js with VS Code"
@@ -115,13 +101,17 @@
             href: how-to/with-sdk/set-up-development-environment.md
       - name: With web apps
         items:
-          - name: Create web app with secure domain name
-            href: how-to/add-custom-domain-to-web-app.md
-          - name: Store and use Key Vault secrets in Express.js
-            href: how-to/with-web-app/use-secret-environment-variables.md
-          - name: Configure your web app
-            href: how-to/configure-web-app-settings.md
-          - name: Static web apps
+          - name: Configure
+            items: 
+            - name: Configure app settings
+              href: how-to/configure-web-app-settings.md
+            - name: Create secure domain name
+              href: how-to/add-custom-domain-to-web-app.md
+            - name: Use Key Vault secrets in Express.js
+              href: how-to/with-web-app/use-secret-environment-variables.md
+          - name: Deploy to Azure 
+            href: how-to/deploy-web-app.md
+          - name: Azure Static Web Apps
             items: 
             - name: Getting started
               href: how-to/create-static-web-app.md
@@ -159,14 +149,24 @@
                   href: how-to/with-web-app/graphql//static-web-app-graphql/create-configure-cosmos-db.md                                     
                 - name: 5. Deploy to Azure Static Web Apps
                   href: how-to/with-web-app/graphql//static-web-app-graphql/remote-deployment.md          
-          - name: Write serverless code
+          - name: Azure Functions
             items: 
             - name: Develop Azure Functions
               href: how-to/develop-serverless-apps.md
+            - name: "With Visual Studio Code"
+              items:
+              - name: 1. Introduction and prerequisites
+                href: tutorial/vscode-function-app-http-trigger/tutorial-vscode-serverless-node-install.md
+              - name: 2. Create the Functions app
+                href: tutorial/vscode-function-app-http-trigger/tutorial-vscode-serverless-node-create-local.md
+              - name: 3. Run the function locally
+                href: tutorial/vscode-function-app-http-trigger/tutorial-vscode-serverless-node-test-local.md
+              - name: 4. Deploy the Functions app
+                href: tutorial/vscode-function-app-http-trigger/tutorial-vscode-serverless-node-deploy-hosting.md
+              - name: 5. Clean up resources
+                href: tutorial/vscode-function-app-http-trigger/tutorial-vscode-serverless-node-remove-resource.md              
             - name: GraphQL APIs
               href: ./how-to/with-web-app/graphql/azure-function-hello-world.md
-          - name: Deploy a web app
-            href: how-to/deploy-web-app.md
           - name: Add easy authentication
             href: how-to/with-web-app/add-authentication-to-web-app.md
           - name: Use Microsoft Identity provider (MSAL.js)
