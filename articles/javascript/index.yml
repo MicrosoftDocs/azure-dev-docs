@@ -11,7 +11,7 @@ metadata:
   description: Get started developing apps with the Azure SDK for JavaScript in the browser or Node.js through tutorials, tools, and the SDK reference.
   author: diberry
   ms.author: diberry
-  ms.date: 06/11/2021
+  ms.date: 08/04/2021
   ms.topic: landing-page
   ms.collection: collection
   ms.technology: azure
@@ -49,8 +49,6 @@ landingContent:
             url: whats-new-docs.md
           - text: What's new with Developer Advocates
             url: whats-new-developer-advocacy.md
-          - text: Top 10 docs for JS developers
-            url: whats-new-docs.md#top-10
   - title: Deploy and host
     linkLists:
       - linkListType: tutorial
