@@ -23,46 +23,6 @@
       href: core/nodejs-sdk-azure-authenticate.md
   - name: Tutorials
     items:
-      - name: Client web apps
-        items: 
-        - name: Getting started
-          href: tutorial/client/get-started.md
-        - name: Cognitive Services - Image analysis
-          items: 
-            - name: 1. Introduction and prerequisites
-              href: tutorial/static-web-app/introduction.md
-            - name: 2. Application architecture
-              href: tutorial/static-web-app/application-architecture.md
-            - name: 3. Download and run app locally
-              href: tutorial/static-web-app/run-the-react-cognitive-services-image-analyzer-app-locally.md
-            - name: 4. Create Computer Vision resource
-              href: tutorial/static-web-app/create-computer-vision-resource-use-in-code.md
-            - name: 5. Build and deploy Static web app
-              href: tutorial/static-web-app/create-static-web-app-visual-studio-code-extension.md
-            - name: 6. Review Computer Vision React code
-              href: tutorial/static-web-app/add-computer-vision-react-app.md
-            - name: 7. Clean up resources
-              href: tutorial/static-web-app/clean-up-resources.md
-        - name: "Upload image to Storage"
-          href: tutorial/browser-file-upload-azure-storage-blob.md
-        - name: "Add a Login button for Microsoft Identity provider" 
-          href: tutorial/single-page-application-azure-login-button-sdk-msal.md
-      - name: Client web apps with APIs
-        items:
-          - name: Add search to website
-            href: /azure/search/tutorial-javascript-overview
-          - name: Use GraphQL with trivia game
-            items: 
-              - name: 1. Introduction
-                href: how-to/with-web-app/graphql/static-web-app-graphql/introduction.md
-              - name: 2. GraphQL basics
-                href: how-to/with-web-app/graphql//static-web-app-graphql/graphql-basics.md
-              - name: 3. Local TypeScript development
-                href: how-to/with-web-app/graphql//static-web-app-graphql/local-development.md 
-              - name: 4. Create a Cosmos DB resource
-                href: how-to/with-web-app/graphql//static-web-app-graphql/create-configure-cosmos-db.md                                     
-              - name: 5. Deploy to Azure Static Web Apps
-                href: how-to/with-web-app/graphql//static-web-app-graphql/remote-deployment.md          
       - name: Serverless APIs
         items:               
         - name: "Create a function with Visual Studio Code"
@@ -163,8 +123,42 @@
             href: how-to/configure-web-app-settings.md
           - name: Static web apps
             items: 
-            - name: Create static web app
+            - name: Getting started
               href: how-to/create-static-web-app.md
+            - name: Add search to website
+              href: /azure/search/tutorial-javascript-overview
+            - name: "Upload image to Storage"
+              href: tutorial/browser-file-upload-azure-storage-blob.md
+            - name: Add image analysis
+              items: 
+                - name: 1. Introduction and prerequisites
+                  href: tutorial/static-web-app/introduction.md
+                - name: 2. Application architecture
+                  href: tutorial/static-web-app/application-architecture.md
+                - name: 3. Download and run app locally
+                  href: tutorial/static-web-app/run-the-react-cognitive-services-image-analyzer-app-locally.md
+                - name: 4. Create Computer Vision resource
+                  href: tutorial/static-web-app/create-computer-vision-resource-use-in-code.md
+                - name: 5. Build and deploy Static web app
+                  href: tutorial/static-web-app/create-static-web-app-visual-studio-code-extension.md
+                - name: 6. Review Computer Vision React code
+                  href: tutorial/static-web-app/add-computer-vision-react-app.md
+                - name: 7. Clean up resources
+                  href: tutorial/static-web-app/clean-up-resources.md              
+            - name: "Add a Login button for Microsoft Identity provider" 
+              href: tutorial/single-page-application-azure-login-button-sdk-msal.md
+            - name: Use GraphQL with trivia game
+              items: 
+                - name: 1. Introduction
+                  href: how-to/with-web-app/graphql/static-web-app-graphql/introduction.md
+                - name: 2. GraphQL basics
+                  href: how-to/with-web-app/graphql//static-web-app-graphql/graphql-basics.md
+                - name: 3. Local TypeScript development
+                  href: how-to/with-web-app/graphql//static-web-app-graphql/local-development.md 
+                - name: 4. Create a Cosmos DB resource
+                  href: how-to/with-web-app/graphql//static-web-app-graphql/create-configure-cosmos-db.md                                     
+                - name: 5. Deploy to Azure Static Web Apps
+                  href: how-to/with-web-app/graphql//static-web-app-graphql/remote-deployment.md          
           - name: Write serverless code
             items: 
             - name: Develop Azure Functions
