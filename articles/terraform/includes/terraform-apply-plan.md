@@ -4,7 +4,7 @@ description: include file
 ms.topic: how-to
 ms.date: 08/01/2021
 ms.custom: devx-track-terraform
-ms.author: jduffney
+ms.author: tarcher
 ---
 
 Once you're ready to apply the execution plan to your cloud infrastructure, you run [terraform apply](https://www.terraform.io/docs/commands/apply.html).

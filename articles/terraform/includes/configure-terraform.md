@@ -4,7 +4,7 @@ description: include file
 ms.topic: how-to
 ms.date: 08/01/2021
 ms.custom: devx-track-terraform
-ms.author: jduffney
+ms.author: tarcher
 ---
 
 - **Configure Terraform:** If you haven't already done so, configure Terraform using one of the following options:

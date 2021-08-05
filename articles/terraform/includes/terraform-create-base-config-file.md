@@ -4,7 +4,7 @@ description: include file
 ms.topic: how-to
 ms.date: 08/01/2021
 ms.custom: devx-track-terraform
-ms.author: jduffney
+ms.author: tarcher
 ---
 
 A Terraform configuration file starts off with the specification of the provider. When using Azure, you specify the [Azure provider (azurerm)](https://www.terraform.io/docs/providers/azurerm/index.html) in the `provider` block.
