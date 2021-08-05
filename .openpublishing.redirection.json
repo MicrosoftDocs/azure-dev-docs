@@ -1,6 +1,10 @@
 {
   "redirections": [
     {
+      "source_path": "articles/javascript/how-to/deploy-containers.md",
+      "redirect_url": "/azure/developer/javascript/how-to/deploy-web-app"
+    },
+    {
       "source_path": "articles/javascript/how-to/integrate-database.md",
       "redirect_url": "/azure/developer/javascript/how-to/with-database/getting-started"
     },
