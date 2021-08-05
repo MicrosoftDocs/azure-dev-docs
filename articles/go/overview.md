@@ -7,7 +7,7 @@ ms.custom: devx-track-go
 ---
 # What is the Azure SDK for Go?
 
-## Key details
+## Management and Client Libraries
 
 - The Azure SDK for Go provides several libraries (grouped into *management* and *client*) that allow your Go code to communicates with Azure services. Your Go code can run either locally or in the cloud.
 - The management and client libraries support the two most recent major Go releases. For a list of all Go releases and to see how to update to a specific version, see [Go Release History](https://golang.org/doc/devel/release.html).
