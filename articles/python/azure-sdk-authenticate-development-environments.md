@@ -1,7 +1,7 @@
 ---
 title: How to authenticate Python applications with Azure services (alternate methods)
 description: Alternate methods to authenticate a Python app with Azure services by using the Azure libraries
-ms.date: 06/28/2021
+ms.date: 08/04/2021
 ms.topic: conceptual
 ms.custom: devx-track-python
 ---
@@ -29,7 +29,7 @@ The Azure libraries use the default subscription ID, or you can set the subscrip
 
 ### Precautions
 
-When using CLI-based authentication, the application is authorized for any and all operations allowed by the CLI login credentials. As a result, if you are the owner or administrator of your subscription, your code has inherent access to most resources in that subscription without having to assign any specific permissions. This behavior is convenient for experimentation. However, we highly recommend that you use specific service principals and assign specific permissions when you start writing production code because you learn how to assign exact permissions to different identities and can accurately validate those permissions in test environments before deploying to production.
+When using CLI-based authentication, the application is authorized for any and all operations allowed by the CLI login credentials. As a result, if you are the owner or administrator of your subscription, your code has inherent access to most resources in that subscription without having to assign any specific permissions. This behavior is convenient for experimentation. However, we highly recommend that you use [Azure managed identities](/azure/active-directory/managed-identities-azure-resources/overview) and assign specific permissions when writing production code because you learn how to assign exact permissions to different identities and can accurately validate those permissions in test environments before deploying to production. (You can also use specific service principals in a similar manner, but doing so required handling secrets in your application code, which is not needed with managed identities.)
 
 ### CLI-based authentication with azure.core libraries
 
@@ -72,11 +72,11 @@ For more exact control, such as setting redirect URIs, you can supply specific a
 
 ## Device code authentication
 
-This methods interactively authenticates a user on devices with limited UI (typically devices without a keyboard):
+This method interactively authenticates a user on devices with limited UI (typically devices without a keyboard):
 
 1. When the app attempts to authenticate, the credential prompts the user with a URL and an authentication code.
 1. The user visits the URL on a separate browser-enabled device (a computer, smartphone, etc.) and enters the code.
-1. The user follows a normal authentication process in the browser for the Microsoft Azure Cross-platform Command Line Interface (which means your terminal window).
+1. The user follows a normal authentication process in the browser for the "Microsoft Azure Cross-platform Command Line Interface", which is the generic name used for all uses of this method.
 1. Upon successful authentication, the application is authenticated on the device.
 
 For more information, see [Microsoft identity platform and the OAuth 2.0 device authorization grant flow](/azure/active-directory/develop/v2-oauth2-device-code).
@@ -95,9 +95,7 @@ The following example demonstrates using a [`DeviceCodeCredential`](/python/api/
 
 ## Authentication through Visual Studio Code
 
-Applications being run within Visual Studio Code can use the ['VisualStudioCodeCredential](/python/api/azure-identity/azure.identity.visualstudiocodecredential) to authenticate with the same credentials with which the user signs in to the [Azure Account extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account).
-
-The user must first sign in using the **Azure: Sign In** command in the Visual Studio Code command palette, which opens a browser to initiate a sign-in flow. Once sign-in is completed, applications run in the debugger or anywhere else on the development machine will use the same credential.
+The ['VisualStudioCodeCredential](/python/api/azure-identity/azure.identity.visualstudiocodecredential) authenticates using the credentials with which the user signs in to the [Azure Account extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account). The user must first sign in using the **Azure: Sign In** command in the Visual Studio Code command palette, which opens a browser to initiate a sign-in flow. Once sign-in is completed, any other independent application (such as other development tools) can use this credential to authenticate with Azure. Applications need not be running in Visual Studio Code, and Visual Studio Code itself doesn't need to be running.
 
 ### Example using VisualStudioCodeCredential
 

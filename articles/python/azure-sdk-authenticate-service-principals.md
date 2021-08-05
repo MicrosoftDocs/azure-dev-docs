@@ -1,7 +1,7 @@
 ---
 title: How to authenticate Python applications with Azure services using service principals
 description: Using service principals to authenticate a Python app with Azure services by using the Azure libraries
-ms.date: 06/28/2021
+ms.date: 08/04/2021
 ms.topic: conceptual
 ms.custom: devx-track-python
 ---
@@ -20,7 +20,7 @@ In all cases, the appropriate service principal or user must have appropriate pe
 
 ## Authenticate using environment variables
 
-The [`EnvironmentCredential`](/python/api/azure-identity/azure.identity.environmentcredential) class authenticates a service principle using either a client secret, certificate, or username and password as provided through environment variables.
+The [`EnvironmentCredential`](/python/api/azure-identity/azure.identity.environmentcredential) class authenticates a service principal using either a client secret, certificate, or username and password as provided through environment variables.
 
 :::code language="python" source="~/../python-sdk-examples/show_subscription/use_environment_variables.py":::
 
@@ -46,17 +46,7 @@ In this method, which is again used with older libraries not based on azure.core
 
 ### Use an Azure sovereign national cloud
 
-With either of these token credential methods, you can use an [Azure sovereign or national cloud](/azure/active-directory/develop/authentication-national-cloud) rather than the Azure public cloud by specifying a `base_url` argument for the client object:
-
-```python
-from msrestazure.azure_cloud import AZURE_CHINA_CLOUD
-
-#...
-
-subscription_client = SubscriptionClient(credentials, base_url=AZURE_CHINA_CLOUD.endpoints.resource_manager)
-```
-
-Sovereign cloud constants are found in the [msrestazure.azure_cloud library](https://github.com/Azure/msrestazure-for-python/blob/master/msrestazure/azure_cloud.py).
+With either of these token credential methods, you can use an [Azure sovereign or national cloud](/azure/active-directory/develop/authentication-national-cloud) rather than the Azure public cloud by specifying a `base_url` argument for the client object. For examples, see [Multi-cloud: Connect to all regions with the Azure libraries for Python](azure-sdk-sovereign-domain.md).
 
 ## See also
 
