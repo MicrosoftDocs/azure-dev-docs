@@ -19,7 +19,7 @@ Now that you've completed your migration, verify that your application works as 
               name: <your-application-name>
         ```
 
-  1. In the configuration Git repository, create a *<your-application-name>.yml* file, where `your-application-name` is the same as in the preceding step. Move the settings from *application.yml* file in *src/main/resources* to the new file you just created. If the settings were previously in a *.properties* file, converted them to YAML first. You can find online tools or IntelliJ plugins to perform this conversion.
+  1. In the configuration Git repository, create a *\<your-application-name>.yml* file, where `your-application-name` is the same as in the preceding step. Move the settings from *application.yml* file in *src/main/resources* to the new file you just created. If the settings were previously in a *.properties* file, converted them to YAML first. You can find online tools or IntelliJ plugins to perform this conversion.
 
   1. Create an *application.yml* file in the directory above. You can use this file to define settings and resources that will be shared among all applications on the Azure Spring Cloud instance. Such settings typically include data sources, logging settings, Spring Boot Actuator configuration, and others.
 
