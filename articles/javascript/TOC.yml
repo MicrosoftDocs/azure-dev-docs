@@ -205,6 +205,8 @@
             href: how-to/with-visual-studio-code/create-azure-database.md
       - name: With Azure CLI
         items:
+          - name: Get started
+            href: core/automate-tasks-with-azure-cli.md          
           - name: Container registry
             href: how-to/with-azure-cli/create-container-registry-resource.md
           - name: Configure web app domain name
@@ -243,14 +245,8 @@
             href: how-to/with-database/use-sql-api-as-cosmos-db.md
           - name: GraphQL data layer
             href: how-to/with-web-app/graphql/get-started.md
-      - name: Deploy containers
-        href: how-to/deploy-containers.md
-      - name: Integrate with databases
-        href: how-to/with-database/getting-started.md
       - name: Logging and metrics
         href: how-to/node-sdk-logging.md
-      - name: Automate with Azure CLI
-        href: core/automate-tasks-with-azure-cli.md
   - name: Learn
     href: learn-azure-javascript.md
   - name: Samples
