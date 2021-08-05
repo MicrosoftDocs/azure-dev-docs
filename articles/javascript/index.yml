@@ -19,6 +19,26 @@ metadata:
   ms.devlang: javascript
   ms.custom: 2020Aug21Redesign, devx-track-js
 landingContent:
+  - title: Learn JavaScript
+    linkLists:
+      - linkListType: learn
+        links:
+          - text: Learn TV
+            url: /learn/tv/
+          - text: JavaScript
+            url: https://channel9.msdn.com/Series/Beginners-Series-to-JavaScript
+          - text: JavaScript in Portuguese
+            url: https://www.youtube.com/watch?v=SXBNpzjusgY
+          - text: Simple website using HTML, CSS, and JavaScript
+            url: /learn/modules/build-simple-website/
+          - text: React
+            url: /learn/modules/react-get-started/
+          - text: Node.js
+            url: /learn/paths/build-javascript-applications-nodejs/
+          - text: Azure Fundamentals
+            url: /learn/modules/intro-to-azure-fundamentals/
+          - text: Azure Static Web Apps
+            url: /learn/paths/azure-static-web-apps/
   - title: New to Azure?
     linkLists:
       - linkListType: get-started
@@ -107,16 +127,6 @@ landingContent:
             url: /azure/cognitive-services/translator/quickstart-translator?pivots=programming-language-javascript
           - text: Detect objects in an image
             url: tutorial/static-web-app/introduction.md
-  - title: Learning paths and modules
-    linkLists:
-      - linkListType: learn
-        links:
-          - text: Azure Fundamentals
-            url: /learn/modules/intro-to-azure-fundamentals/
-          - text: Build JavaScript applications with Node.js
-            url: /learn/paths/build-javascript-applications-nodejs/
-          - text: Azure Static Web Apps
-            url: /learn/paths/azure-static-web-apps/
   - title: Use Azure client libraries (SDK)
     linkLists:
       - linkListType: get-started
