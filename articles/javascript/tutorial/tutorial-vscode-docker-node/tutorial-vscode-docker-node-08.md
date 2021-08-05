@@ -24,4 +24,4 @@ The App Service you created for the container includes a backing App Service Pla
 [!INCLUDE [tutorial-next-steps](../../includes/tutorial-next-steps.md)]
 
 > [!div class="nextstepaction"]
-> [I'm done](../../how-to/deploy-containers.md) [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=node-deployment-docker-extension&step=clean-up-resources)
+> [I'm done](../../how-to/deploy-web-app.md) [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=node-deployment-docker-extension&step=clean-up-resources)

@@ -115,7 +115,7 @@ The success function is called with the results.  Do not use `for (var i in resu
 the success function as that will iterate over information that is included in the results
 when other query functions (such as `.includeTotalCount()`) are used.
 
-For more information on the Query syntax, see the [Query object documentation](https://msdn.microsoft.com/library/azure/jj613353.aspx).
+For more information on the Query syntax, see the [Query object documentation](/previous-versions/azure/reference/jj613353(v=azure.100)).
 
 #### <a id="table-filter"></a>Filtering data on the server
 
