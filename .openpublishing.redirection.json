@@ -1,32 +1,44 @@
 {
   "redirections": [
     {
+      "source_path": "articles/javascript/how-to/deploy-containers.md",
+      "redirect_url": "/azure/developer/javascript/how-to/deploy-web-app"
+    },
+    {
+      "source_path": "articles/javascript/how-to/integrate-database.md",
+      "redirect_url": "/azure/developer/javascript/how-to/with-database/getting-started"
+    },
+    {
       "source_path": "articles/javascript/core/node-sdk-azure-authenticate.md",
       "redirect_url": "/azure/developer/javascript/core/nodejs-sdk-azure-authenticate"
     },
     {
       "source_path": "articles/javascript/tutorial/tutorial-vscode-static-website-node/tutorial-vscode-static-website-node-01.md",
-      "redirect_url": "/azure/static-web-apps/getting-started?tabs=vanilla-javascript"
+      "redirect_url": "/azure/developer/javascript/static-web-apps/getting-started?tabs=vanilla-javascript"
     },
     {
       "source_path": "articles/javascript/tutorial/tutorial-vscode-static-website-node/tutorial-vscode-static-website-node-02.md",
-      "redirect_url": "/azure/static-web-apps/getting-started?tabs=vanilla-javascript"
+      "redirect_url": "/azure/developer/javascript/static-web-apps/getting-started?tabs=vanilla-javascript"
     },
     {
       "source_path": "articles/javascript/tutorial/tutorial-vscode-static-website-node/tutorial-vscode-static-website-node-03.md",
-      "redirect_url": "/azure/static-web-apps/getting-started?tabs=vanilla-javascript"
+      "redirect_url": "/azure/developer/javascript/static-web-apps/getting-started?tabs=vanilla-javascript"
     },    
     {
       "source_path": "articles/javascript/tutorial/tutorial-vscode-static-website-node/tutorial-vscode-static-website-node-04.md",
-      "redirect_url": "/azure/static-web-apps/getting-started?tabs=vanilla-javascript"
+      "redirect_url": "/azure/developer/javascript/static-web-apps/getting-started?tabs=vanilla-javascript"
     },
     {
+      "source_path": "articles/javascript/tutorial/client/get-started.md",
+      "redirect_url": "/azure/developer/javascript/how-to/create-static-web-app"
+    },    
+    {
       "source_path": "articles/javascript/tutorial/tutorial-vscode-static-website-node/tutorial-vscode-static-website-node-05.md",
-      "redirect_url": "/azure/static-web-apps/getting-started?tabs=vanilla-javascript"
+      "redirect_url": "/azure/developer/javascript/static-web-apps/getting-started?tabs=vanilla-javascript"
     },
     {
       "source_path": "articles/javascript/tutorial/tutorial-vscode-static-website-node/tutorial-vscode-static-website-node-06.md",
-      "redirect_url": "/azure/static-web-apps/getting-started?tabs=vanilla-javascript"
+      "redirect_url": "/azure/developer/javascript/static-web-apps/getting-started?tabs=vanilla-javascript"
     },     
     {
       "source_path": "articles/javascript/core/node-sdk-azure-authenticate-principal.md",
