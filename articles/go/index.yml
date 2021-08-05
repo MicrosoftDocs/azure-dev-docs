@@ -1,12 +1,10 @@
 ### YamlMime:Landing
 
 title: Azure SDK for Go documentation
-summary: |
-  Learn about how to use the Azure SDK for Go, what features the SDK provides, and development tools that make
-  it easy to use Azure with Go.
+summary: Learn about how to use the Azure SDK for Go to create and manage Azure resources.
 metadata:
   title: Azure for Go developers
-  description: Get started developing with the Azure SDK for Go using the developer resources below.
+  description: Get started developing with the Azure SDK for Go.
   author: TomArcherMsft
   ms.author: tarcher
   ms.date: 08/04/2021
