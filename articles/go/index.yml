@@ -18,6 +18,10 @@ metadata:
 landingContent:
   - title: Get started with the Azure SDK for Go
     linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure SDK for Go?
+            url: overview.md
       - linkListType: download
         links:
           - text: Install the Azure SDK for Go
