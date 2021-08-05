@@ -25,6 +25,8 @@
       items:
         - name: Configure Azure Network Watcher
           href: create-network-watcher-nsg-flow-logs.md
+        - name: Upgrade to Azure Firewall Premium
+          href: firewall-upgrade-premium.md
     - name: Containers
       items:
         - name: Create a Kubernetes cluster with AKS
