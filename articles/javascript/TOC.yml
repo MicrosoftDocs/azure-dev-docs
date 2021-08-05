@@ -155,7 +155,7 @@
               href: tutorial/nodejs-virtual-machine-vm/introduction.md
           - name: Virtual machine web apps
             items:
-              - name: "Deploy container with logging"
+              - name: "Express.js"
                 items:
                   - name: 1. Introduction and prerequisites
                     href: tutorial/nodejs-virtual-machine-vm/introduction.md
