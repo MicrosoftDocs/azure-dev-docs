@@ -11,18 +11,22 @@ items:
       href: azure-sdk-tools.md
     - name: Authentication
       href: azure-sdk-authorization.md
-  - name: Quickstarts
+  - name: Azure services
     items:
-    - name: Virtual Machines and Resource Templates
-      href: azure-sdk-qs-vm.md
-    - name: Azure Blob Storage
-      href: /azure/storage/blobs/storage-quickstart-blobs-go?toc=/azure/developer/go/toc.json&bc=/azure/developer/breadcrumb/toc.json
-    - name: Azure Database for PostgreSQL
-      href: /azure/postgresql/connect-go?toc=/azure/developer/go/toc.json&bc=/azure/developer/breadcrumb/toc.json
-    - name: Azure Database for MySQL
-      href: /azure/mysql/connect-go?toc=/azure/developer/go/toc.json&bc=/azure/developer/breadcrumb/toc.json
-    - name: Azure SQL Database 
-      href: /azure/sql-database/sql-database-connect-query-go?toc=/azure/developer/go/toc.json&bc=/azure/developer/breadcrumb/toc.json
+    - name: Storage
+      items:
+      - name: Azure Blob Storage
+        href: /azure/storage/blobs/storage-quickstart-blobs-go?toc=/azure/developer/go/toc.json&bc=/azure/developer/breadcrumb/toc.json
+      - name: Azure Database for PostgreSQL
+        href: /azure/postgresql/connect-go?toc=/azure/developer/go/toc.json&bc=/azure/developer/breadcrumb/toc.json
+      - name: Azure Database for MySQL
+        href: /azure/mysql/connect-go?toc=/azure/developer/go/toc.json&bc=/azure/developer/breadcrumb/toc.json
+      - name: Azure SQL Database 
+        href: /azure/sql-database/sql-database-connect-query-go?toc=/azure/developer/go/toc.json&bc=/azure/developer/breadcrumb/toc.json
+    - name: Virtual machines
+      items:
+      - name: Virtual Machines and Resource Templates
+        href: azure-sdk-qs-vm.md
   - name: Samples
     items:
     - name: Authentication and Active Directory
