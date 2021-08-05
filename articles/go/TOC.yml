@@ -5,10 +5,10 @@ items:
     items:
     - name: What is the Azure SDK for Go?
       href: overview.md
+  - name: Get started
+    items:
     - name: Installation
       href: azure-sdk-install.md
-    - name: Tools
-      href: azure-sdk-tools.md
     - name: Authentication
       href: azure-sdk-authorization.md
   - name: Azure services
@@ -39,5 +39,11 @@ items:
       href: azure-sdk-sql-database-samples.md
     - name: All Go samples
       href: http://github.com/azure-samples/azure-sdk-for-go-samples
-  - name: Reference
-    href: https://godoc.org/github.com/Azure/azure-sdk-for-go
+- name: Reference
+  items:
+    - name: Azure module registry
+      href: https://godoc.org/github.com/Azure/azure-sdk-for-go
+- name: Resources
+  items:
+    - name: Tools
+      href: azure-sdk-tools.md
