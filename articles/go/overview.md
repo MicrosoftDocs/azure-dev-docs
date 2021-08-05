@@ -12,7 +12,7 @@ ms.custom: devx-track-go
 - The Azure SDK for Go provides several libraries (grouped into *management* and *client*) that allow your Go code to communicates with Azure services. Your Go code can run either locally or in the cloud.
 - The management and client libraries support the two most recent major Go releases. For a list of all Go releases and to see how to update to a specific version, see [Go Release History](https://golang.org/doc/devel/release.html).
 - You will sometimes see the management libraries referred to as the "management plane" and the client libraries referred to as the "data plane".
-- The key difference between the management plane and the data plane can best be explained with as follows:
+- The key difference between the management plane and the data plane can best be explained as follows:
     - You use the management plane to manage resources in your Azure subscription. This includes creating and deleting Azure resources such as resource groups, virtual machines, and so on.
     - You use the data plane to use capabilities exposed by an instance of a resource type.
     - Using the Azure Storage service as an example, you use the management plan to create a storage account and the data plane to read and write data in that storage account instance.
