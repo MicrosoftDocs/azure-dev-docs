@@ -9,4 +9,8 @@ ms.custom: devx-track-go
 
 ## Key details
 
-- The Azure libraries are how you communicate with Azure services from Go code that you run either locally or in the cloud.
+- The Azure SDK libraries are how you communicate with Azure services from Go code.
+- You can run your Go code either locally or in the cloud.
+- The Azure SDK libraries support the two most recent major Go releases. 
+- For a list of all Go releases and to see how to update to a , see [Go Release History](https://golang.org/doc/devel/release.html).
+- 

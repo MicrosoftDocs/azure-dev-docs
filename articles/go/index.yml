@@ -20,7 +20,7 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
-          - text: What is Azure SDK for Go?
+          - text: What is the Azure SDK for Go?
             url: overview.md
       - linkListType: download
         links:
