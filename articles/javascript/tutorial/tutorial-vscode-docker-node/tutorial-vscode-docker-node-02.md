@@ -2,7 +2,7 @@
 title: Use a container registry from Visual Studio Code
 description: Docker Tutorial part 2, use a container registry
 ms.topic: tutorial
-ms.date: 09/20/2019
+ms.date: 08/06/2021
 ms.custom: devx-track-js
 ---
 
