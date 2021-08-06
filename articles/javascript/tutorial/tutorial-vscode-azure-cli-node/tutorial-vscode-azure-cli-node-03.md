@@ -6,7 +6,7 @@ ms.date: 08/05/2021
 ms.custom: devx-track-js, devx-track-azurecli
 ---
 
-# Create the App Service
+# 3. Create the App Service
 
 In this step, you use the Azure CLI to create the Azure App Service to host your app code.
 

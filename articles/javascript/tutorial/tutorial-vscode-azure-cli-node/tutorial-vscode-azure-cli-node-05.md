@@ -6,7 +6,7 @@ ms.date: 08/05/2021
 ms.custom: devx-track-js, devx-track-azurecli
 ---
 
-# Stream logs from App Service
+# 5. Stream logs from App Service
 
 In this step, you view (or "tail") the logs from the running App Service. Any calls to `console.log` in the site code are displayed in the terminal.
 
@@ -25,12 +25,11 @@ In this step, you view (or "tail") the logs from the running App Service. Any ca
 1. Refresh the page a few times in the browser to generate additional output:
 
     <pre>
-    GET / 304 2.327 ms - -
-    GET / 304 0.957 ms - -
-    GET / 304 2.435 ms - -
+    GET / Thu Aug 05 2021 19:06:48 GMT-0700 (Pacific Daylight Time)
     </pre>
 
 1. Press **Ctrl**+**C** to end the logging session.
 
-> [!div class="nextstepaction"]
-> [I see the logs](tutorial-vscode-azure-cli-node-06.md) [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=node-deployment&step=tailing-logs)
+## Next steps
+
+* [Stream logs](tutorial-vscode-azure-cli-node-06.md)

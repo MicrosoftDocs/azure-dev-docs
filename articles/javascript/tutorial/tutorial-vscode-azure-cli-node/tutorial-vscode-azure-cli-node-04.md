@@ -6,7 +6,7 @@ ms.date: 08/05/2021
 ms.custom: devx-track-js, devx-track-azurecli
 ---
 
-# Deploy the app to App Service
+# 4. Deploy the app to App Service
 
 In this step, you deploy your Node.js app code to Azure App Service using a basic process of pushing your local Git repository to Azure.
 

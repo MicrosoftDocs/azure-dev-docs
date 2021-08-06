@@ -6,7 +6,7 @@ ms.date: 08/04/2021
 ms.custom: devx-track-js, devx-track-azurecli
 ---
 
-# Create the app code using Express
+# 2. Create the app code using Express
 
 Clone a GitHub repository with an example Express.js application, install the npm dependencies, and run the app locally.
 
