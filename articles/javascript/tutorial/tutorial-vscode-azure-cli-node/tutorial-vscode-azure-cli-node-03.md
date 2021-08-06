@@ -16,9 +16,9 @@ In this step, you use the Azure CLI to create the Azure App Service to host your
 
 In this optional step, if you have more than one subscription, you should set the default subscription, which will be used for the remaining Azure CLI commands. 
 
-    ```azurecli
-    az account set --subscription XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
-    ```
+```azurecli
+az account set --subscription XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
+```
 
 ## Create a resource group and set as default value
 
