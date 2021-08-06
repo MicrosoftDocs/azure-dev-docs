@@ -2,7 +2,7 @@
 title: Create a hub and spoke hybrid network topology in Azure using Terraform
 description: Learn how to create an entire hybrid network reference architecture in Azure using Terraform.
 ms.topic: how-to
-ms.date: 08/01/2021
+ms.date: 08/05/2021
 ms.custom: devx-track-terraform
 ---
 
@@ -73,11 +73,11 @@ As you work through each article in this series, various components are defined 
 
 1. Create a file named `main.tf` and insert the following code:
 
-    [!code-terraform[tarcher-move-sample-code-to-github](../../terraform_samples/quickstart/301-hub-spoke/main.tf)]
+    [!code-terraform[master](../../terraform_samples/quickstart/301-hub-spoke/main.tf)]
 
 1. Create a file named `variables.tf` to contain the project variables and insert the following code:
 
-    [!code-terraform[tarcher-move-sample-code-to-github](../../terraform_samples/quickstart/301-hub-spoke/variables.tf)]
+    [!code-terraform[master](../../terraform_samples/quickstart/301-hub-spoke/variables.tf)]
 
     **Key points:**
 

@@ -3,7 +3,6 @@ title: Use the Spring Boot Starter for Azure Active Directory B2C
 description: Learn how to configure a Spring Boot Initializr app with the Azure Active Directory B2C starter.
 services: active-directory-b2c
 documentationcenter: java
-author: panli
 manager: kevinzha
 ms.author: edburns
 ms.date: 10/23/2020
@@ -232,7 +231,7 @@ Now that you've created the Azure AD B2C instance and some user flows, you'll co
    >       user-name-attribute-name:
    > ```
    >
-   > The *application.yml* file is available in [Azure Active Directory B2C Spring Boot Sample](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/main/aad/azure-spring-boot-sample-active-directory-b2c-oidc/src/main/resources/application.yml) on GitHub.
+   > The *application.yml* file is available in [Azure Active Directory B2C Spring Boot Sample](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/main/aad/azure-spring-boot-starter-active-directory-b2c/aad-b2c-web-application/src/main/resources/application.yml) on GitHub.
 
 7. Save and close the *application.yml* file.
 
@@ -324,7 +323,7 @@ Now that you've created the Azure AD B2C instance and some user flows, you'll co
    }
    ```
 
-14. Copy the *home.html* file from [Azure AD B2C Spring Boot Sample](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/main/aad/azure-spring-boot-sample-active-directory-b2c-oidc/src/main/resources/templates) to *src/main/resources/templates*, and replace the `${your-profile-edit-user-flow}` and `${your-password-reset-user-flow}` with the names of the user flows that you created earlier.
+14. Copy the *home.html* file from [Azure AD B2C Spring Boot Sample](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/main/aad/azure-spring-boot-starter-active-directory-b2c/aad-b2c-web-application/src/main/resources/templates) to *src/main/resources/templates*, and replace the `${your-profile-edit-user-flow}` and `${your-password-reset-user-flow}` with the names of the user flows that you created earlier.
 
 ## Build and test your app
 

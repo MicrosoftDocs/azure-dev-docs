@@ -2,7 +2,7 @@
 title: Implement integration testing with Terraform and Azure
 description: Learn about integration tests and how to use Azure DevOps to configure continuous integration for Terraform projects.
 ms.topic: how-to
-ms.date: 08/01/2021
+ms.date: 08/05/2021
 ms.custom: devx-track-terraform
 ---
 

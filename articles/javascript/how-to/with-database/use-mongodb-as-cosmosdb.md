@@ -2,7 +2,7 @@
 title: Use JavaScript on Azure Cosmos DB with MongoDB
 description: To create or move your mongoDB database to Azure, you need a Cosmos DB resource. 
 ms.topic: how-to
-ms.date: 05/24/2021
+ms.date: 08/02/2021
 ms.custom: devx-track-js, devx-track-azurecli
 ---
 
@@ -10,31 +10,29 @@ ms.custom: devx-track-js, devx-track-azurecli
 
 To create, move, or use a mongoDB database to Azure, you need a Cosmos DB resource. Learn how to create the resource and use your database.
 
-## Locally develop with the CosmosDB emulator
 
-Learn how to install the [CosmosDB emulator](/azure/cosmos-db/local-emulator) and [start the emulator for MongoDB development](/azure/cosmos-db/local-emulator?tabs=cli%2Cssl-netstd21#azure-cosmos-dbs-api-for-mongodb). 
+# [VS Code extension](#tab/vscode)
 
-## Create a Cosmos DB resource for a MongoDB database
+[!INCLUDE [VSCode extension for Cosmos DB databases](../../includes/vscode-extension-mongodb.md)]
 
-You can create a resource with:
-
-* Azure CLI
-* [Azure portal](https://portal.azure.com)
-* Visual Studio Code [extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb)
+# [Azure CLI](#tab/azure-cli)
 
 [!INCLUDE [Azure CLI commands](../../includes/azure-cli-mongodb.md)]
 
-## View and use your mongoDB on Azure Cosmos DB
+# [Azure portal](#tab/azure-portal)
 
-While developing your mongoDB database with JavaScript, use [Cosmos explorer](https://cosmos.azure.com/) to work with your database. 
+[!INCLUDE [Azure portal](../../includes/azure-portal-mongodb.md)]
 
-:::image type="content" source="../../media/howto-database/cosmos-explorer.png" alt-text="Use the Cosmos explorer, found at https://cosmos.azure.com/, to view and work with your mongoDB database.":::
+---
 
+<a name="locally-develop-with-the-cosmosdb-emulator"></a>
 
-The Cosmos explorer is also available in the Azure portal, for your resource, as the **Data Explorer**.
+## Use the Azure Cosmos DB emulator for local development
 
+Learn more about the Azure Cosmos DB emulator:
 
-:::image type="content" source="../../media/howto-database/cosmos-explorer-azure-portal.png" alt-text="The Cosmos explorer is also available in the Azure portal, for your resource, as the `Data Explorer`.":::
+* [Install and use the Azure Cosmos DB Emulator for local development and testing](/azure/cosmos-db/local-emulator)
+* [Start the emulator from command prompt as an administrator](/azure/cosmos-db/local-emulator?tabs=cli%2Cssl-netstd21#azure-cosmos-dbs-api-for-mongodb)
 
 ## Use native SDK packages to connect to MongoDB on Azure
 
@@ -45,12 +43,13 @@ The mongoDB database on Cosmos DB uses npm packages already available, such as:
 
 # [MongoDB](#tab/mongodb)
 
-[!INCLUDE [Javascript MongoDB](../../includes/javascript-mongodb.md)]
+[!INCLUDE [JavaScript MongoDB](../../includes/javascript-mongodb.md)]
 
 # [Mongoose](#tab/mongoose)
 
-[!INCLUDE [Javascript Mongoose](../../includes/javascript-mongoose.md)]
+[!INCLUDE [JavaScript Mongoose](../../includes/javascript-mongoose.md)]
 
+---
 
 ## Next steps
 
@@ -58,3 +57,9 @@ The mongoDB database on Cosmos DB uses npm packages already available, such as:
 * [Cosmos DB for mongoDB documentation](/azure/cosmos-db/mongodb-introduction)
 * [Cosmos DB for mongoDB quickstart](/azure/cosmos-db/create-mongodb-nodejs)
 * [Migration guide to move to Cosmos DB for mongoDB](/azure/cosmos-db/mongodb-pre-migration)
+* 
+* [Tutorial: Build a Node.js and MongoDB app in Azure](/azure/app-service/tutorial-nodejs-mongodb-app?pivots=platform-windows)
+* Learn about MongoDB versions:
+   * [4.0](/azure/cosmos-db/mongodb-feature-support-40) 
+   * [3.6](/azure/cosmos-db/mongodb-feature-support-36)
+   * [3.2](/azure/cosmos-db/mongodb-feature-support)

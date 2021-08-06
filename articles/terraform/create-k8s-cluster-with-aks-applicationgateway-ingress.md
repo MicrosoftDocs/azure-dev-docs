@@ -3,7 +3,7 @@ title: Create an Application Gateway ingress controller in Azure Kubernetes Serv
 description: Learn how to create a Kubernetes Cluster with Azure Kubernetes Service with Application Gateway as ingress controller.
 keywords: azure devops terraform application gateway ingress aks kubernetes
 ms.topic: how-to
-ms.date: 08/01/2021
+ms.date: 08/05/2021
 ms.custom: devx-track-terraform, devx-track-azurecli
 ---
 
@@ -64,15 +64,15 @@ Terraform tracks state locally via the `terraform.tfstate` file. This pattern wo
 
 1. Create a file named `main.tf` and insert the following code:
 
-    [!code-terraform[tarcher-move-sample-code-to-github](../../terraform_samples/quickstart/201-k8s-cluster-with-aks-applicationgateway-ingress/main.tf)]
+    [!code-terraform[master](../../terraform_samples/quickstart/201-k8s-cluster-with-aks-applicationgateway-ingress/main.tf)]
 
 1. Create a file named `variables.tf` to contain the project variables and insert the following code:
 
-    [!code-terraform[tarcher-move-sample-code-to-github](../../terraform_samples/quickstart/201-k8s-cluster-with-aks-applicationgateway-ingress/variables.tf)]
+    [!code-terraform[master](../../terraform_samples/quickstart/201-k8s-cluster-with-aks-applicationgateway-ingress/variables.tf)]
 
 1. Create a file named `resources.tf` and insert the following code.
 
-    [!code-terraform[tarcher-move-sample-code-to-github](../../terraform_samples/quickstart/201-k8s-cluster-with-aks-applicationgateway-ingress/resources.tf)]
+    [!code-terraform[master](../../terraform_samples/quickstart/201-k8s-cluster-with-aks-applicationgateway-ingress/resources.tf)]
 
     **Key points:**
 
@@ -86,7 +86,7 @@ Terraform tracks state locally via the `terraform.tfstate` file. This pattern wo
 
 1. Create a file named `output.tf` and insert the following code.
 
-    [!code-terraform[tarcher-move-sample-code-to-github](../../terraform_samples/quickstart/201-k8s-cluster-with-aks-applicationgateway-ingress/output.tf)]
+    [!code-terraform[master](../../terraform_samples/quickstart/201-k8s-cluster-with-aks-applicationgateway-ingress/output.tf)]
 
     **Key points:**
 
@@ -96,7 +96,7 @@ Terraform tracks state locally via the `terraform.tfstate` file. This pattern wo
 
 1. Create a file named `terraform.tfvars` and insert the following code.
 
-    [!code-terraform[tarcher-move-sample-code-to-github](../../terraform_samples/quickstart/201-k8s-cluster-with-aks-applicationgateway-ingress/terraform.tfvars)]
+    [!code-terraform[master](../../terraform_samples/quickstart/201-k8s-cluster-with-aks-applicationgateway-ingress/terraform.tfvars)]
 
     **Key points:**
 

@@ -49,7 +49,10 @@ For Azure Compute services such as Azure Virtual Machines, Azure Kubernetes Serv
 While Java developers can bring their own Java runtimes from different vendors to Azure, Microsoft recommends that you use any of the following OpenJDK distributions:
 
 * [Microsoft Build of OpenJDK](https://www.microsoft.com/openjdk)
+* [Eclipse Adoptium Temurin](https://www.adoptium.net)
 * [Azul Zulu for Azure](https://www.azul.com/downloads/azure-only/zulu/)
+   > [!NOTE]
+   > Azul Zulu for Azure will no longer receive updates starting January 1st, 2022. For more information, see [End of Updates, Support and Availability of the Zulu for Azure builds of OpenJDK](https://devblogs.microsoft.com/java/end-of-updates-support-and-availability-of-zulu-for-azure/).
 
 For information on how to install and use OpenJDK, see the documentation for one of these distributions.
 

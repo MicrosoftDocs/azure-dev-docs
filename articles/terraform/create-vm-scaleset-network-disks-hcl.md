@@ -2,7 +2,7 @@
 title: Create an Azure virtual machine scale set using Terraform
 description: Learn how to use Terraform to configure and version an Azure virtual machine scale set.
 ms.topic: how-to
-ms.date: 08/01/2021
+ms.date: 08/05/2021
 ms.custom: devx-track-terraform
 ---
 
@@ -33,19 +33,19 @@ In this article, you learn how to:
 
 1. Create a file named `main.tf` and insert the following code:
 
-    [!code-terraform[tarcher-move-sample-code-to-github](../../terraform_samples/quickstart/201-vmss-jumpbox/main.tf)]
+    [!code-terraform[master](../../terraform_samples/quickstart/201-vmss-jumpbox/main.tf)]
 
 1. Create a file named `variables.tf` to contain the project variables and insert the following code:
 
-    [!code-terraform[tarcher-move-sample-code-to-github](../../terraform_samples/quickstart/201-vmss-jumpbox/variables.tf)]
+    [!code-terraform[master](../../terraform_samples/quickstart/201-vmss-jumpbox/variables.tf)]
 
 1. Create a file named `output.tf` to specify what values Terraform displays and insert the following code:
 
-    [!code-terraform[tarcher-move-sample-code-to-github](../../terraform_samples/quickstart/201-vmss-jumpbox/output.tf)]
+    [!code-terraform[master](../../terraform_samples/quickstart/201-vmss-jumpbox/output.tf)]
 
 1. Create a file named `web.conf` and insert the following code:
 
-    [!code-terraform[tarcher-move-sample-code-to-github](../../terraform_samples/quickstart/201-vmss-jumpbox/web.conf)]
+    [!code-terraform[master](../../terraform_samples/quickstart/201-vmss-jumpbox/web.conf)]
 
 ## 3. Initialize Terraform
 

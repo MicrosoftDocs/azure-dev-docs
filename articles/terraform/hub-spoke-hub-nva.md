@@ -2,7 +2,7 @@
 title: Create a hub virtual network appliance in Azure using Terraform
 description: Learn how to create a Hub virtual network (VNet) that acts as a common connection point between other networks.
 ms.topic: how-to
-ms.date: 08/01/2021
+ms.date: 08/05/2021
 ms.custom: devx-track-terraform
 ---
 
@@ -38,7 +38,7 @@ In this article, you learn how to:
 
 1. Create a file named `hub-nva.tf` and insert the following code:
 
-    [!code-terraform[tarcher-move-sample-code-to-github](../../terraform_samples/quickstart/301-hub-spoke/hub-nva.tf)]
+    [!code-terraform[master](../../terraform_samples/quickstart/301-hub-spoke/hub-nva.tf)]
 
 ## Troubleshoot Terraform on Azure
 

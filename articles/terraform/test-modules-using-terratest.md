@@ -2,7 +2,7 @@
 title: Test Terraform modules in Azure using Terratest
 description: Learn how to use Terratest to test your Terraform modules.
 ms.topic: how-to
-ms.date: 08/01/2021
+ms.date: 08/05/2021
 ms.custom: devx-track-terraform
 ---
 

@@ -197,7 +197,7 @@ Welcome to what's new in the JavaScript docs from October 2020. This article lis
 |Name|Notes|
 |---------------------------------------|--|
 |[How-to: Serverless functions](how-to/develop-serverless-apps.md)|Functions run on top of a web service, as code or a Docker container, which is abstracted away so you can focus on the code for your endpoint.|
-|[Get started: Authenticate with the Azure management modules for JavaScript](core/node-sdk-azure-authenticate.md)|There are multiple ways of authenticating and creating the required credentials.|
+|[Get started: Authenticate with the Azure management modules for JavaScript](core/nodejs-sdk-azure-authenticate.md)|There are multiple ways of authenticating and creating the required credentials.|
 
 ## Next steps
 

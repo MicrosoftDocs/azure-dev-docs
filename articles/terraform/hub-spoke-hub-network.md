@@ -2,7 +2,7 @@
 title: Create a hub virtual network in Azure by using Terraform
 description: Learn how to create a hub virtual network in Azure that acts as a common connection point between other networks.
 ms.topic: how-to
-ms.date: 08/01/2021
+ms.date: 08/05/2021
 ms.custom: devx-track-terraform
 ---
 
@@ -42,7 +42,7 @@ The hub network consists of the following components:
 
 1. Insert the following code:
 
-    [!code-terraform[tarcher-move-sample-code-to-github](../../terraform_samples/quickstart/301-hub-spoke/hub-vnet.tf)]
+    [!code-terraform[master](../../terraform_samples/quickstart/301-hub-spoke/hub-vnet.tf)]
     
 ## Troubleshoot Terraform on Azure
 

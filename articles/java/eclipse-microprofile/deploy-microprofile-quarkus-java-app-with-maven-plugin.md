@@ -117,7 +117,7 @@ In this section, you'll configure the Quarkus project *pom.xml* file so that Mav
    <plugin>
      <groupId>com.microsoft.azure</groupId>
      <artifactId>azure-webapp-maven-plugin</artifactId>
-     <version>2.0.0</version>
+     <version>2.1.0</version>
    </plugin>
    ```
 
@@ -179,7 +179,7 @@ In this section, you'll configure the Quarkus project *pom.xml* file so that Mav
       <plugin>
         <groupId>com.microsoft.azure</groupId>  
         <artifactId>azure-webapp-maven-plugin</artifactId>  
-        <version>2.0.0</version>  
+        <version>2.1.0</version>  
         <configuration>
           <schemaVersion>V2</schemaVersion>
           <resourceGroup>microprofile</resourceGroup>
@@ -188,8 +188,8 @@ In this section, you'll configure the Quarkus project *pom.xml* file so that Mav
           <region>japaneast</region>
           <runtime>
             <os>linux</os>
-            <javaVersion>java11</javaVersion>
-            <webContainer>java11</webContainer>
+            <javaVersion>java 11</javaVersion>
+            <webContainer>java SE</webContainer>
           </runtime>
           <appSettings>
             <property>

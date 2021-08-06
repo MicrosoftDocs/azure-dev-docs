@@ -3,7 +3,7 @@ title: Get Started - Create an Azure resource group using Terraform
 description: In this article, you learn how to create an Azure resource group using Terraform
 keywords: azure devops terraform azure resource group
 ms.topic: quickstart
-ms.date: 08/01/2021
+ms.date: 08/05/2021
 ms.custom: devx-track-terraform
 adobe-target: true
 # Customer intent: As someone new to Terraform and Azure, I want to do something simple to confirm my Terraform installation.
@@ -34,11 +34,11 @@ In this article, you learn how to:
 
 1. Create a file named `main.tf` and insert the following code:
 
-    [!code-terraform[tarcher-move-sample-code-to-github](../../terraform_samples/quickstart/101-resource-group/main.tf)]
+    [!code-terraform[master](../../terraform_samples/quickstart/101-resource-group/main.tf)]
 
 1. Create a file named `variables.tf` to contain the project variables and insert the following code:
 
-    [!code-terraform[tarcher-move-sample-code-to-github](../../terraform_samples/quickstart/101-resource-group/variables.tf)]
+    [!code-terraform[master](../../terraform_samples/quickstart/101-resource-group/variables.tf)]
 
 ## 3. Initialize Terraform
 

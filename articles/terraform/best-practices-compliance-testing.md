@@ -2,7 +2,7 @@
 title: Implement compliance testing with Terraform and Azure
 description: Understand how to apply behavior driven development (BDD) style compliance testing to Terraform configurations
 ms.topic: how-to
-ms.date: 08/01/2021
+ms.date: 08/05/2021
 ms.custom: devx-track-terraform
 ---
 

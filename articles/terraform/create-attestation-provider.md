@@ -3,7 +3,7 @@ title: Configure an Azure Attestation provider using Terraform
 description: Learn how to use Terraform to create an Attestation provider on Azure.
 keywords: azure devops terraform attestation
 ms.topic: how-to
-ms.date: 08/01/2021
+ms.date: 08/05/2021
 ms.custom: devx-track-terraform
 ---
 
@@ -30,11 +30,11 @@ In this article, you learn how to:
 
 1. Create a file named `main.tf` and insert the following code:
 
-    [!code-terraform[tarcher-move-sample-code-to-github](../../terraform_samples/quickstart/101-attestation-provider/main.tf)]
+    [!code-terraform[master](../../terraform_samples/quickstart/101-attestation-provider/main.tf)]
 
 1. Create a file named `variables.tf` to contain the project variables and insert the following code:
 
-    [!code-terraform[tarcher-move-sample-code-to-github](../../terraform_samples/quickstart/101-attestation-provider/variables.tf)]
+    [!code-terraform[master](../../terraform_samples/quickstart/101-attestation-provider/variables.tf)]
     
     **Key points:**
     

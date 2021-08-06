@@ -3,7 +3,7 @@ title: Create an Azure VM cluster with Terraform and HCL
 description: Learn how to use Terraform and HCL to create a Linux virtual machine cluster with a load balancer in Azure.
 keywords: azure devops terraform vm virtual machine cluster
 ms.topic: how-to
-ms.date: 08/01/2021
+ms.date: 08/05/2021
 ms.custom: devx-track-terraform
 ---
 

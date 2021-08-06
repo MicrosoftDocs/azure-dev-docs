@@ -2,7 +2,7 @@
 title: Create on-premises virtual network in Azure using Terraform
 description: Learn how to implement an on-premises virtual network (VNet) in Azure that houses local resources.
 ms.topic: how-to
-ms.date: 08/01/2021
+ms.date: 08/05/2021
 ms.custom: devx-track-terraform
 ---
 
@@ -32,7 +32,7 @@ In this article, you learn how to:
 
 1. Create a file named `on-prem.tf` and insert the following code:
 
-    [!code-terraform[tarcher-move-sample-code-to-github](../../terraform_samples/quickstart/301-hub-spoke/on-prem.tf)]
+    [!code-terraform[master](../../terraform_samples/quickstart/301-hub-spoke/on-prem.tf)]
     
 ## Troubleshoot Terraform on Azure
 

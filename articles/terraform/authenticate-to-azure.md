@@ -3,7 +3,7 @@ title: Authenticate Terraform to Azure
 description: In this article, you learn the various options to authenticate to Azure with a Microsoft Account
 keywords: azure devops terraform cli powershell authentication microsoft account subscription environment variables provider block
 ms.topic: how-to
-ms.date: 08/01/2021
+ms.date: 08/05/2021
 ms.custom: devx-track-terraform
 # Customer intent: I want to authenticate Terraform to Azure.
 ---
