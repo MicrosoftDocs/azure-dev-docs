@@ -1,7 +1,6 @@
 ---
 title: Migrate JBoss EAP applications to WildFly on Azure Kubernetes Service
 description: This guide describes what you should be aware of when you want to migrate an existing JBoss EAP application to run on WildFly in an Azure Kubernetes Service container.
-author: mnriem
 ms.author: manriem
 ms.topic: conceptual
 ms.date: 3/16/2020

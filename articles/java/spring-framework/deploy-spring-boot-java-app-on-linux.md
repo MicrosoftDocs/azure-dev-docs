@@ -28,7 +28,7 @@ In order to complete the steps in this tutorial, you need to have the following 
 
 > [!NOTE]
 >
-> Due to the virtualization requirements of this tutorial, you can follow the steps in this article on a virtual machine; you must use a physical computer with virtualization features enabled.
+> Due to the virtualization requirements of this tutorial, you cannot follow the steps in this article on a virtual machine; you must use a physical computer with virtualization features enabled.
 
 ## Create the Spring Boot on Docker Getting Started web app
 
