@@ -16,4 +16,4 @@ az group delete --name myResourceGroup
 
 ## Next steps
 
-* [Deploy container to Azure App Service](tutorial-vscode-docker-node-01.md)
+* [Deploy container to Azure App Service](../tutorial-vscode-docker-node/tutorial-vscode-docker-node-01.md)
