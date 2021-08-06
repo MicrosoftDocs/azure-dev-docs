@@ -1,7 +1,7 @@
 ---
 ms.custom: devx-track-js, devx-track-azurecli
 ms.topic: include
-ms.date: 02/08/2021
+ms.date: 08/06/2021
 ---
 
 
@@ -29,7 +29,7 @@ Create a Cosmos resource first because this will take several minutes.
 
 ## Add firewall rule for your client IP address 
 
-You need to use the [Azure CLI]() or the [Azure portal]() to configure a firewall rule.
+You need to use the [Azure CLI](/cli/azure/install-azure-cli) or the [Azure portal](https://portal.azure.com) to configure a firewall rule.
 
 ## Get the MongoDB connection string for your resource 
 
