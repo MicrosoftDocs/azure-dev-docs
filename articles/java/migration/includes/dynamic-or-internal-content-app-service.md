@@ -1,5 +1,4 @@
 ---
-author: VaijanathB
 ms.author: vaangadi
 ms.date: 05/27/2021
 ---

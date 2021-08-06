@@ -1,7 +1,6 @@
 ---
 title: Workshops and videos for Java on Azure
 description: Java on Azure workshops and videos.
-author: sadigopu
 ms.author: sreea
 ms.topic: article
 ms.date: 03/29/2021

@@ -6,7 +6,6 @@ ms.service: key-vault
 ms.topic: tutorial
 ms.custom: devx-track-java, devx-track-azurecli
 ms.author: edburns
-author: edburns
 ---
 
 # Tutorial: Read a secret from Azure Key Vault in a Spring Boot application

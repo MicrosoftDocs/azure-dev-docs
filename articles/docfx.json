@@ -78,8 +78,8 @@
       "author": {
         "**/*.md": "barbkess",
         "**/*.yml": "barbkess",
-        "java/**/*.md": "bmitchell287",
-        "java/**/*.yml": "bmitchell287",
+        "java/**/*.md": "karlerickson",
+        "java/**/*.yml": "karlerickson",
         "go/**/*.md": "barbkess",
         "python/**/*.md": "kraigb",
         "ansible/**/*.md": "Duffney",
@@ -97,8 +97,8 @@
       "ms.author": {
         "**/*.md": "barbkess",
         "**/*.yml": "barbkess",
-        "java/**/*.md": "brendm",
-        "java/**/*.md": "brendm",
+        "java/**/*.md": "karler",
+        "java/**/*.md": "karler",
         "go/**/*.md": "barbkess",
         "python/**/*.md": "kraigb",
         "ansible/**/*.md": "jduffney",

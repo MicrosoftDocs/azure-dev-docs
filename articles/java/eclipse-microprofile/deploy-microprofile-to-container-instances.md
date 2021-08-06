@@ -3,7 +3,6 @@ title: Deploy a MicroProfile app to the cloud with Docker and Azure
 description: Learn how to deploy a MicroProfile app to the cloud using Docker and Azure Container Instances.
 services: container-instances;container-retistry
 documentationcenter: java
-author: brunoborges
 ms.author: brborges
 ms.date: 11/21/2018
 ms.service: container-instances
