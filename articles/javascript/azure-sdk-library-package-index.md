@@ -1,9 +1,10 @@
 ---
 title: Azure SDK libraries for JavaScript
 description: Listing of the package names, NPM links, docs links, and source code links for all libraries in the Azure SDK for JavaScript.
-ms.date: 12/08/2020
+ms.date: 08/06/2021
 ms.topic: conceptual
 ms.custom: devx-track-js
+# This page's includes are auto-updated from Azure SDK team but they aren't changing this file's date.
 ---
 
 # Azure libraries packages for JavaScript
