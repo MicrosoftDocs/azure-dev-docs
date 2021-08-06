@@ -26,7 +26,7 @@ This tutorial uses [Azure Container Registry](https://azure.microsoft.com/servic
    |--|--|
    |**Registry name**|Enter a name that is unique in Azure and contains from 5 to 50 alphanumeric characters.|
    |**SKU**|**Basic**|
-   |**Resource group**|Create a new resource groupthat is unique within your subscription. Create all remaining Azure resources in this resource group.|
+   |**Resource group**|Create a new resource group that is unique within your subscription. Create all remaining Azure resources in this resource group.|
    |**Location**|Select a region close to you.|
 
     Visual Studio Code creates the registry in Azure. After it finishes, you'll see a notification like the following one. This notification confirms the registry was successfully created.

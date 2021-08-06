@@ -12,7 +12,7 @@ In this tutorial, you use Visual Studio Code to:
 
 * Create a containerized Node.js application using Docker.
 * Push the container image to an Azure Container registry.
-* *Deploy the image to Azure App Service.
+* Deploy the image to Azure App Service.
 
 ## Prerequisites
 
