@@ -10,6 +10,8 @@ ms.custom: devx-track-js, devx-track-azurecli
 
 In this step, you view (or "tail") the logs from the running App Service. Any calls to `console.log` in the site code are displayed in the terminal.
 
+## Watch remote Azure logs from local terminal
+
 1. Run the following command to start logging, replacing `<your_app_name>` with the name of your App Service:
 
     ```azurecli

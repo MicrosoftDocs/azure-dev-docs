@@ -10,6 +10,8 @@ ms.custom: devx-track-js, devx-track-azurecli
 
 In this step, you make changes to your app code, commit them to the local Git repository, and then redeploy your site by pushing to Azure.
 
+## Update source code and commit local change
+
 1. In the `myExpressApp` folder, open the *public/index.html* file and change the message on line 10 from `Welcome to Express` to `Welcome to Azure!` and save the file.
 
 1. In a terminal or command prompt, commit the changes to git by running the following command:
@@ -17,6 +19,8 @@ In this step, you make changes to your app code, commit them to the local Git re
     ```bash
     git commit -a -m "Edited message"
     ```
+
+## Push change from local source code to Azure App service
 
 1. Push the changes to the Git remote named Azure that we created earlier:
 
@@ -32,4 +36,4 @@ In this step, you make changes to your app code, commit them to the local Git re
 
 ## Next steps
 
-* []
+* [Clean up resources](tutorial-vscode-azure-cli-node-07.md)

@@ -8,6 +8,10 @@ ms.custom: devx-track-js, devx-track-azurecli
 
 # Part 7: Clean up resources
 
+Remove Azure resources from your subscription. 
+
+## Remove resource group with Azure CLI
+
 The App Service you created includes a backing App Service Plan that can incur costs. To clean up the resources, run the following command at a terminal or command prompt:
 
 ```azurecli
