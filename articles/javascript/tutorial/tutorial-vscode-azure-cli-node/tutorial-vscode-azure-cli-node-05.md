@@ -2,13 +2,11 @@
 title: Stream logs from Azure App Service
 description: Tutorial part 5, Azure CLI view logs
 ms.topic: tutorial
-ms.date: 09/24/2019
+ms.date: 08/05/2021
 ms.custom: devx-track-js, devx-track-azurecli
 ---
 
 # Stream logs from App Service
-
-[Previous step: Deploy the app](tutorial-vscode-azure-cli-node-04.md)
 
 In this step, you view (or "tail") the logs from the running App Service. Any calls to `console.log` in the site code are displayed in the terminal.
 

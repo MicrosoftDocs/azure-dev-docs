@@ -2,7 +2,7 @@
 title: Deploy Node.js apps to Azure App Service using the Azure CLI
 description: Tutorial part 1, Azure CLI introduction and prerequisites.
 ms.topic: tutorial
-ms.date: 09/24/2019
+ms.date: 08/04/2021
 ms.custom: devx-track-js, devx-track-azurecli
 ---
 
@@ -13,15 +13,10 @@ In this tutorial, you deploy a Node.js application to Azure App Service using th
 
 ## Prerequisites
 
-- An [Azure subscription](#azure-subscription).
-- [Node.js](https://nodejs.org/en/download), the Node.js package manager.
+- An [Azure subscription]((https://azure.microsoft.com/free/).
+- [Node.js LTS](https://nodejs.org/en/download), the Node.js package manager.
 - [Git](https://git-scm.com/downloads), after which the command `git --version` should show a version number.
 [!INCLUDE [Azure CLI](../../../includes/azure-cli-prepare-your-environment-no-header.md)]
-
-
-### Azure subscription
-
-If you don't have an Azure subscription, [sign up now](https://azure.microsoft.com/free/?utm_source=campaign&utm_campaign=vscode-tutorial-node-git&mktingSource=vscode-tutorial-node-git) for a free account with $200 in Azure credits to try out any combination of services.
 
 ### Sign in to Azure with Azure CLI
 
@@ -29,7 +24,8 @@ If you don't have an Azure subscription, [sign up now](https://azure.microsoft.c
 
 ## Check npm version
 
-If you already had Node.js installed, run the `node -v` command and verify that the version is 10.x or higher. If you have an older version, [upgrade](https://nodejs.org/en/download/) to the most current LTS ("Long Term Support") release.
+If you already had Node.js installed, run the `node -v` command and verify that the version is an LTS version or higher. If you have an older version, [upgrade](https://nodejs.org/en/download/) to the most current LTS ("Long Term Support") release.
 
-> [!div class="nextstepaction"]
-> [I installed the prerequisites](tutorial-vscode-azure-cli-node-02.md) [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=node-deployment&step=getting-started)
+## Next step
+
+* [Create the app](tutorial-vscode-azure-cli-node-02.md)
