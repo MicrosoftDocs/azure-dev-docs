@@ -6,11 +6,11 @@ ms.date: 08/06/2021
 ms.custom: devx-track-js
 ---
 
-# Make changes and redeploy a container using Visual Studio Code
-
-[Previous step: Deploy the app image](tutorial-vscode-docker-node-05.md)
+# 6. Make changes and redeploy a container using Visual Studio Code
 
 Because you inevitably make changes to your app, you end up rebuilding and redeploying your container many times. Fortunately, the process is simple:
+
+## Change and deploy your app again
 
 1. Make changes to your app and test locally.
 
@@ -22,5 +22,6 @@ Because you inevitably make changes to your app, you end up rebuilding and redep
 
 1. After about 15-20 seconds, visit the App Service URL again to check the updates.
 
-> [!div class="nextstepaction"]
-> [I see the changes](tutorial-vscode-docker-node-07.md) [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=node-deployment-docker-extension&step=deploy-changes)
+## Next steps
+
+* [Stream logs](tutorial-vscode-docker-node-07.md)

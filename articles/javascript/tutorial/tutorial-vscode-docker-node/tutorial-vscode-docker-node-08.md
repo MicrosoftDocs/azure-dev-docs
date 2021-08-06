@@ -6,9 +6,9 @@ ms.date: 08/06/2021
 ms.custom: devx-track-js
 ---
 
-# Part 8 Clean up resources
+# 8. Clean up resources
 
-[Previous step: Stream logs](tutorial-vscode-docker-node-07.md)
+Remove the Azure Container registry and the App service by removing the resource group which contains them.
 
 ## Delete resource group
 
@@ -22,6 +22,3 @@ The App Service you created for the container includes a backing App Service Pla
 ## Next steps
 
 [!INCLUDE [tutorial-next-steps](../../includes/tutorial-next-steps.md)]
-
-> [!div class="nextstepaction"]
-> [I'm done](../../how-to/deploy-web-app.md) [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=node-deployment-docker-extension&step=clean-up-resources)

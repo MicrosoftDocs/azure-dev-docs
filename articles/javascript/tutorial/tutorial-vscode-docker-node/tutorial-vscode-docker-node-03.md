@@ -1,14 +1,14 @@
 ---
-title: Create a container image for a JavaScript app from Visual Studio Code
-description: Docker Tutorial part 3, create and run a local Node.js app
+title: Clone and run Express.js app
+description: Docker Tutorial part 3, Clone the Express.js sample application then run the application locally.
 ms.topic: tutorial
 ms.date: 01/11/2021
 ms.custom: devx-track-js
 ---
 
-# Create and run a local Node.js app from Visual Studio Code
+# 3. Create and run a local Node.js app from Visual Studio Code
 
-[Previous step: Use a container registry](tutorial-vscode-docker-node-02.md)
+Clone the Express.js sample application then run the application locally. 
 
 ## Create a local Express.js app
 
@@ -18,5 +18,6 @@ ms.custom: devx-track-js
 
 [!INCLUDE [Run your local Express.js app](../../includes/run-node-app.md)]
 
-> [!div class="nextstepaction"]
-> [I've created the  Node.js app](tutorial-vscode-docker-node-04.md) [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=node-deployment-azureappservice&step=create-app)
+## Next steps
+
+* [Create the Docker image from the local Express.js app](tutorial-vscode-docker-node/tutorial-vscode-docker-node-04.md)
