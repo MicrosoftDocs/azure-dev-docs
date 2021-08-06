@@ -16,7 +16,7 @@ In this tutorial, you use Visual Studio Code to:
 
 ## Prerequisites
 
-- An [Azure subscription]([#azure-subscription](https://azure.microsoft.com/free/)).
+- An [Azure subscription](https://azure.microsoft.com/free/).
 - [Visual Studio Code](https://code.visualstudio.com/).
 - Visual Studio Code extensions
     - [Azure Account extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account)

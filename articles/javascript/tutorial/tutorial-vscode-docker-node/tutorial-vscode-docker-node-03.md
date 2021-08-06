@@ -20,4 +20,4 @@ Clone the Express.js sample application then run the application locally.
 
 ## Next steps
 
-* [Create the Docker image from the local Express.js app](tutorial-vscode-docker-node/tutorial-vscode-docker-node-04.md)
+* [Create the Docker image from the local Express.js app](tutorial-vscode-docker-node-04.md)
