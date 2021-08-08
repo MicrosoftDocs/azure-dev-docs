@@ -34,11 +34,15 @@ In this article, you learn how to:
 
 1. Create a file named `main.tf` and insert the following code:
 
-    [!code-terraform[master](../../terraform_samples/quickstart/101-resource-group/main.tf)]
+    [!code-terraform[UserStory1866077-Code](../../terraform_samples/quickstart/101-resource-group/main.tf)]
 
 1. Create a file named `variables.tf` to contain the project variables and insert the following code:
 
-    [!code-terraform[master](../../terraform_samples/quickstart/101-resource-group/variables.tf)]
+    [!code-terraform[UserStory1866077-Code](../../terraform_samples/quickstart/101-resource-group/variables.tf)]
+
+1. Create a file named `output.tf` to display the randomly generated resource group name and insert the following code:
+
+    [!code-terraform[UserStory1866077-Code](../../terraform_samples/quickstart/101-resource-group/output.tf)]
 
 ## 3. Initialize Terraform
 
@@ -62,6 +66,10 @@ Run [az group show](/cli/azure/group#az_group_show) to display the resource grou
 az group show --name <resource_group>
 ```
 
+**Key points:**
+
+- The resource group name is displayed in the `terraform apply` output.
+
 #### [Azure PowerShell](#tab/azure-powershell)
 
 Run [Get-AzResourceGroup](/powershell/module/az.resources/Get-AzResourceGroup) to display the resource group.
@@ -69,6 +77,11 @@ Run [Get-AzResourceGroup](/powershell/module/az.resources/Get-AzResourceGroup) t
 ```azurepowershell
 Get-AzResourceGroup -Name <resource_group>
 ```
+
+**Key points:**
+
+- The resource group name is displayed in the `terraform apply` output.
+
 ---
 
 ## 7. Clean up resources
