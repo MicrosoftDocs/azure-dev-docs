@@ -38,6 +38,11 @@
       "branch": "master"
     },
     {
+      "path_to_root": "terraform_samples",
+      "url": "https://github.com/TomArcherMsft/terraform",
+      "branch": "UserStory1866077-Code"
+    },
+    {
       "path_to_root": "_themes",
       "url": "https://github.com/Microsoft/templates.docs.msft",
       "branch": "master",
