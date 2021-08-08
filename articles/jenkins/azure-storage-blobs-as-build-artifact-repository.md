@@ -114,7 +114,7 @@ The following steps guide you through creating a pipeline job. The pipeline job 
     1. Copy the URL for either of these items and paste it in your browser. 
     1. You see the text file that was uploaded as a build artifact.
     
-    **Jenkins**:
+    **Key points**:
 
     - Container names and blob names are lowercase (and case-sensitive) in Azure storage.
 

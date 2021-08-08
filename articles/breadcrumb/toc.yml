@@ -6,12 +6,21 @@
     tocHref: /azure/developer
     topicHref: /azure/developer/index
     items:
+    - name: Ansible
+      tocHref: /azure/developer/ansible
+      topicHref: /azure/developer/ansible/index
+    - name: Chef
+      tocHref: /azure/developer/chef
+      topicHref: /azure/developer/chef/index
     - name: GitHub
       tocHref: /azure/developer/github
       topicHref: /azure/developer/github/index
     - name: Go
       tocHref: /azure/developer/go
       topicHref: /azure/developer/go/index
+    - name: Jenkins
+      tocHref: /azure/developer/jenkins
+      topicHref: /azure/developer/jenkins/index
     - name: Python
       tocHref: /azure/developer/python
       topicHref: /azure/developer/python/index
@@ -54,3 +63,6 @@
     - name: JavaScript
       tocHref: /azure/developer/javascript
       topicHref: /azure/developer/javascript/index
+    - name: Terraform
+      tocHref: /azure/developer/terraform
+      topicHref: /azure/developer/terraform/index
