@@ -4,13 +4,13 @@ title: Terraform on Azure documentation
 summary: Learn how to use Terraform to reliably provision virtual machines and other infrastructure on Azure.
 
 metadata:
-  title: Terraform on Azure documentation - Tutorials, samples, reference, and resources
+  title: Terraform on Azure documentation - Articles, samples, references, and resources
   description: Learn how to use Terraform to reliably provision virtual machines and other infrastructure on Azure.
   ms.service: terraform
   author: TomArcherMsft
   ms.author: tarcher
   ms.topic: landing-page
-  ms.date: 09/27/2020
+  ms.date: 08/07/2021
   ms.custom: devx-track-terraform
 
 landingContent:
@@ -31,25 +31,26 @@ landingContent:
     linkLists:
       - linkListType: get-started
         links:
-          - text: Configure Terraform using Azure Cloud Shell
-            url: get-started-cloud-shell.md
-          - text: Configure Terraform using Azure PowerShell
-            url: get-started-powershell.md
+          - text: Configure Terraform in Cloud Shell with Bash
+            url: get-started-cloud-shell-bash.md
+          - text: Configure Terraform in Cloud Shell with PowerShell
+            url: get-started-cloud-shell-powershell.md
+          - text: Configure Terraform in Windows with Bash
+            url: get-started-windows-bash.md
+          - text: Configure Terraform in Windows with PowerShell
+            url: get-started-windows-powershell.md
       - linkListType: how-to-guide
         links:
           - text: Install the Terraform Visual Studio Code extension
             url: configure-vs-code-extension-for-terraform.md
-          - text: Create a Terraform base template using Yeoman
-            url: create-base-template-using-yeoman.md
-
+          - text: Authenticate Terraform to Azure
+            url: authenticate-to-azure.md
+          - text: Store Terraform state in Azure Storage
+            url: store-state-in-azure-storage.md
   # Card
   - title: Testing Terraform projects
     linkLists:
-      - linkListType: overview
-        links:
-          - text: Terraform testing overview
-            url: best-practices-testing-overview.md
-      - linkListType: tutorial
+      - linkListType: how-to-guide
         links:
           - text: Integration testing
             url: best-practices-integration-testing.md
@@ -89,7 +90,7 @@ landingContent:
   # Card
   - title: Manage networks
     linkLists:
-      - linkListType: tutorial
+      - linkListType: how-to-guide
         links:
           - text: 1. Create hub and spoke topology
             url: hub-spoke-introduction.md
