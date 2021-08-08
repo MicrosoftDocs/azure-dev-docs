@@ -2,7 +2,7 @@
 title: Implement end-to-end Terratest testing on Terraform projects
 description: Learn more about end-to-end testing with Terratest on a Terraform project.
 ms.topic: how-to
-ms.date: 08/05/2021
+ms.date: 08/07/2021
 ms.custom: devx-track-terraform
 ---
 

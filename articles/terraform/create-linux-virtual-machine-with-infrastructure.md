@@ -3,7 +3,7 @@ title: Configure a Linux VM with infrastructure in Azure using Terraform
 description: Learn how to use Terraform to configure a complete Linux virtual machine environment in Azure.
 keywords: azure devops terraform linux vm virtual machine
 ms.topic: how-to
-ms.date: 08/05/2021
+ms.date: 08/07/2021
 ms.custom: devx-track-terraform
 ---
 

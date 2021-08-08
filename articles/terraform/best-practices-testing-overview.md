@@ -2,7 +2,7 @@
 title: Testing Terraform code
 description: Learn about the different testing options that you can implement to validate Terraform projects.
 ms.topic: conceptual
-ms.date: 08/05/2021
+ms.date: 08/07/2021
 ms.custom: devx-track-terraform
 adobe-target: true
 ---
@@ -52,4 +52,4 @@ E2E tests validate a program works before deploying to production. An example sc
 E2E testing is typically a three-step process. First, the configuration is applied to a test environment. Code would then be run to verify the results. Finally, the test environment is either reinitialized or taken down (such as deallocating a virtual machine).
 
 > [!div class="nextstepaction"]
-> [Learn more about End-to-end Testing](best-practices-end-to-end-testing.md)
+> [Learn more about end-to-end Testing](best-practices-end-to-end-testing.md)

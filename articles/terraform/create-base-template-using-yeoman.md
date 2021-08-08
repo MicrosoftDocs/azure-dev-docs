@@ -2,7 +2,7 @@
 title: Create a Terraform base template in Azure using Yeoman
 description: Learn how to create a Terraform base template in Azure using Yeoman.
 ms.topic: how-to
-ms.date: 08/05/2021
+ms.date: 08/07/2021
 ms.custom: devx-track-terraform
 ---
 
@@ -179,7 +179,7 @@ To confirm that Docker is actually running, enter `docker info`.
 
 1. Enter `exit` to complete the test and exit the Docker environment.
 
-## Use Yeoman generator to create and test a module in Cloud Shell
+## 6. Use Yeoman generator to create and test a module
 
 In this section, the Yeoman generator is used to create and test a module in Cloud Shell. Using Cloud Shell instead of using a Docker file greatly simplifies the process. Using Cloud Shell, the following products are all pre-installed:
 

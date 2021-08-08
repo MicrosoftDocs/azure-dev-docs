@@ -3,7 +3,7 @@ title: Configure an Azure Attestation provider using Terraform
 description: Learn how to use Terraform to create an Attestation provider on Azure.
 keywords: azure devops terraform attestation
 ms.topic: how-to
-ms.date: 08/05/2021
+ms.date: 08/07/2021
 ms.custom: devx-track-terraform
 ---
 

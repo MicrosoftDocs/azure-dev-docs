@@ -3,7 +3,7 @@ title: Provision infrastructure with Azure deployment slots using Terraform
 description: Learn how to use Terraform with Azure provider deployment slots.
 keywords: azure devops terraform deployment slots
 ms.topic: how-to
-ms.date: 08/05/2021
+ms.date: 08/07/2021
 ms.custom: devx-track-terraform
 ---
 

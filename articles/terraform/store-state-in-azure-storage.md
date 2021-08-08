@@ -2,7 +2,7 @@
 title: Store Terraform state in Azure Storage
 description: Learn how to store Terraform state in Azure Storage.
 ms.topic: how-to
-ms.date: 08/05/2021
+ms.date: 08/07/2021
 ms.custom: devx-track-terraform, devx-track-azurecli
 ---
 

@@ -3,7 +3,7 @@ title: Create a Kubernetes cluster with Azure Kubernetes Service (AKS) using Ter
 description: Learn how to create a Kubernetes Cluster with Azure Kubernetes Service and Terraform.
 keywords: azure devops terraform aks kubernetes
 ms.topic: how-to
-ms.date: 08/05/2021
+ms.date: 08/07/2021
 ms.custom: devx-track-terraform
 ---
 
