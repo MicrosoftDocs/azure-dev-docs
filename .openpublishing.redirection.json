@@ -923,6 +923,10 @@
     {
       "source_path": "articles/jenkins/deploy-to-aks-using-blue-green-deployment-pattern.md",
       "redirect_url": "/azure/developer/jenkins/deploy-from-github-to-aks"
+    },
+    {
+      "source_path": "articles/terraform/get-started-cloud-shell.md",
+      "redirect_url": "/azure/developer/terraform/get-started-cloud-shell-bash"
     }
   ]
 }
