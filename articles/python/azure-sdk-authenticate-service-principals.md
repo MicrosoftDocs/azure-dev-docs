@@ -20,7 +20,7 @@ In all cases, the appropriate service principal or user must have appropriate pe
 
 ## Authenticate using environment variables
 
-The [`EnvironmentCredential`](/python/api/azure-identity/azure.identity.environmentcredential) class authenticates a service principal using either a client secret, certificate, or username and password as provided through environment variables.
+The [`EnvironmentCredential`](/python/api/azure-identity/azure.identity.environmentcredential) class authenticates a service principal using either a client secret or certificate as provided through environment variables.
 
 :::code language="python" source="~/../python-sdk-examples/show_subscription/use_environment_variables.py":::
 

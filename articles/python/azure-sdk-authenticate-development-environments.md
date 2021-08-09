@@ -76,7 +76,7 @@ This method interactively authenticates a user on devices with limited UI (typic
 
 1. When the app attempts to authenticate, the credential prompts the user with a URL and an authentication code.
 1. The user visits the URL on a separate browser-enabled device (a computer, smartphone, etc.) and enters the code.
-1. The user follows a normal authentication process in the browser for the "Microsoft Azure Cross-platform Command Line Interface", which is the generic name used for all uses of this method.
+1. The user follows a normal authentication process in the browser.
 1. Upon successful authentication, the application is authenticated on the device.
 
 For more information, see [Microsoft identity platform and the OAuth 2.0 device authorization grant flow](/azure/active-directory/develop/v2-oauth2-device-code).
