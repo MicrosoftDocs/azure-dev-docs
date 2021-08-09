@@ -51,7 +51,7 @@ Interactive browser authentication enables the same broad permissions as [CLI-ba
 
 ### Enable applications for interactive browser authentication
 
-Perform the following steps to enable the application to authenticate through the interactive browser flow. (These steps also work for [device code authentication](#device-code-authentication) described later.)
+Perform the following steps to enable the application to authenticate through the interactive browser flow. (These steps also work for [device code authentication](#device-code-authentication) described later.) Following this process is necessary only if using `InteractiveBrowserCredential` in your code.
 
 1. On the [Azure portal](https://portal.azure.com), navigate to Azure Active Directory and select **App registrations** on the left-hand menu.
 1. Select the registration for your app, then select **Authentication**.
@@ -81,7 +81,7 @@ This method interactively authenticates a user on devices with limited UI (typic
 
 For more information, see [Microsoft identity platform and the OAuth 2.0 device authorization grant flow](/azure/active-directory/develop/v2-oauth2-device-code).
 
-Device code authentication in a development environment enables the same broad permissions as [CLI-based authentication](#cli-based-authentication) and should be used with the same [precautions](#precautions) .
+Device code authentication in a development environment enables the same broad permissions as [CLI-based authentication](#cli-based-authentication) and should be used with the same [precautions](#precautions). However, you can use this method with a specific client ID, rather than the default, for which you can assign specific permissions.
 
 ### Enable applications for device code authentication
 

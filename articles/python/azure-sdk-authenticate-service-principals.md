@@ -44,10 +44,6 @@ In this method, which is again used with newer libraries based on azure.core, yo
 
 In this method, which is again used with older libraries not based on azure.core, you create a [`ServicePrincipalCredentials`](/python/api/msrestazure/msrestazure.azure_active_directory.serviceprincipalcredentials) object using credentials obtained from secure storage such as Azure Key Vault or environment variables. The previous code assumes that you've created the environment variables described in [Configure your local dev environment](configure-local-development-environment.md#create-a-service-principal-and-environment-variables-for-development).
 
-### Use an Azure sovereign national cloud
-
-With either of these token credential methods, you can use an [Azure sovereign or national cloud](/azure/active-directory/develop/authentication-national-cloud) rather than the Azure public cloud by specifying a `base_url` argument for the client object. For examples, see [Multi-cloud: Connect to all regions with the Azure libraries for Python](azure-sdk-sovereign-domain.md).
-
 ## See also
 
 - [Authentication overview](azure-sdk-authenticate.md)

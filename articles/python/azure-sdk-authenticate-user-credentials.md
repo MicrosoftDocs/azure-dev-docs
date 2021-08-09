@@ -1,7 +1,7 @@
 ---
 title: How to use user credentials to authenticate Python applications with Azure services 
 description: Authenticating a Python app with Azure services by using the Azure libraries and user credentials
-ms.date: 08/04/2021
+ms.date: 08/09/2021
 ms.topic: conceptual
 ms.custom: devx-track-python
 ---
