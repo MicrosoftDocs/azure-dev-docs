@@ -25,7 +25,7 @@ ms.custom: devx-track-go
 
 ## 3. Set environment variables
 
-Once you have a service principal, you can specify its credentials to authenticate the library to Azure.
+Using your Azure authentication information, set the appropriate environment variables so that your code can authenticate to Azure.
 
 #### [Bash](#tab/bash)
 

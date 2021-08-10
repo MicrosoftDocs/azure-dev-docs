@@ -32,8 +32,8 @@ landingContent:
             url: management-libraries.md
       - linkListType: quickstart
         links:
-          - text: Create an Azure resource group
-            url: create-resource-group.md
+          - text: Manage Azure resource groups
+            url: manage-resource-groups.md
       - linkListType: how-to-guide
         links:
           - text: Authenticate your application

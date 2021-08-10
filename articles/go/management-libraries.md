@@ -101,7 +101,7 @@ The following example shows how to find the reference documentation for Azure re
 1. You know you want to work with resource groups, but don't know the name of the library or module.
 1. You browse to the main [Azure SDK for Go reference documentation](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk) page.
 1. You click `&lt;F>` and enter `resource`. Since you're searching for a module, you know that no spaces are allowed.
-1. As soon as you type the majority of the search term, you see a close match with the `resources` directory and [resource/armresources](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/resources/armresources) module.
+1. As soon as you type the majority of the search term, you see a close match with the `resources` library and [resource/armresources](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/resources/armresources) module.
 1. You select the appropriate module for your application.
 1. You now either read through "Getting Started" sections or search for the specific operation.
 1. For example, searching for the term "create" (if you want to create a resource group) leads you to the [CreateOrUpdate function](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/resources/armresources#ResourceGroupsClient.CreateOrUpdate).
