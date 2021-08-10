@@ -28,7 +28,7 @@ The [`EnvironmentCredential`](/python/api/azure-identity/azure.identity.environm
 
 You can authenticate with the Azure libraries using explicit subscription, tenant, and client identifiers along with a client secret.
 
-When using newer SDK libraries based on azure.core, use the [`ClientSecretCredential` object from the azure.identity library](#using-clientsecretcredential-azureidentity). When using older SDK libraries, use [`ServicePrincipalCredentials` from the azure.common library](#using-serviceprincipalcredentials-azurecommon).
+When using newer SDK libraries based on azure.core, use the [`ClientSecretCredential` object from the azure.identity library](#clientsecretcredential-azureidentity). When using older SDK libraries, use [`ServicePrincipalCredentials` from the azure.common library](#serviceprincipalcredentials-azurecommon).
 
 To migrate existing code that uses `ServicePrincipalCredentials` to a newer library version, replace uses of this class with `ClientSecretCredential` as illustrated in the following sections. Note the slight changes in the parameter names between the two constructors: `tenant` becomes `tenant_id` and `secret` becomes `client_secret`.
 

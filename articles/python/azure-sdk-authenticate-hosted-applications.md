@@ -56,7 +56,7 @@ If the management library you want to use hasn't yet been updated, then you can 
 
     :::code language="python" source="~/../python-sdk-examples/show_subscription/use_cred_wrapper.py":::
 
-    Again, once updated management libraries are available, you can use `DefaultAzureCredential` directly as shown in the [original code example](#using-defaultazurecredential-with-sdk-management-libraries).
+    Again, once updated management libraries are available, you can use `DefaultAzureCredential` directly as shown in the [original code example](#how-to-use-defaultazurecredential-with-sdk-management-libraries).
 
 ## See also
 
