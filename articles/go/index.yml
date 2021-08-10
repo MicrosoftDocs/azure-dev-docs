@@ -26,6 +26,14 @@ landingContent:
             url: azure-sdk-install.md
           - text: Developer tools
             url: azure-sdk-tools.md
+      - linkListType: concept
+        links:
+          - text: Working with the Management Libraries
+            url: management-libraries.md
+      - linkListType: quickstart
+        links:
+          - text: Create an Azure resource group
+            url: create-resource-group.md
       - linkListType: how-to-guide
         links:
           - text: Authenticate your application

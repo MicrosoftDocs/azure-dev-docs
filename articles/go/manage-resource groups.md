@@ -1,28 +1,21 @@
 ---
-title: Create a resource group with the Azure SDK for Go Management Library
+title: Manage resource groups with the Azure SDK for Go Management Library
 description: In this article, you learn how to create a resource group with the Azure SDK for Go Management Library.
-ms.date: 08/09/2021
+ms.date: 08/10/2021
 ms.topic: quickstart
 ms.custom: devx-track-go
 ---
 
-# Create a resource group with the Azure SDK for Go Management Library
-
-As explained in the article [What is the Azure SDK for Go?](overview.md), the Azure SDK for Go contains a set of management and client libraries.
-The management libraries share many features such as Azure Identity support, HTTP pipeline, and error-handling.
-You can find the full list of the management libraries on the [Azure SDK for Go package page](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk).
-
-In this article, you will learn how to authenticate to Azure and start interacting with Azure resources. There are several possible approaches to
-authentication. This document illustrates the most common scenario.
+# Manage resource groups with the Azure SDK for Go Management Library
 
 > [!IMPORTANT]
 > The packages for the current version of the Azure resource management libraries are located in `sdk/**/arm**`. The packages for the previous version of the management libraries are located under [`/services`](https://github.com/Azure/azure-sdk-for-go/tree/main/services). If you're using the older version, see the [this Azure SDK for Go Migration Guide](https://aka.ms/azsdk/go/mgmt/migration).
 
-## Configure your environment
+## 1. Configure your environment
 
 - **Azure subscription:** If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
 
-## Get authentication values
+## 2. Get authentication values
 
 1. [Get the Azure subscription ID](/azure/media-services/latest/setup-azure-subscription-how-to?tabs=portal).
 
@@ -30,7 +23,7 @@ authentication. This document illustrates the most common scenario.
 
 1. [Create a service principal](/azure/active-directory/develop/howto-create-service-principal-portal). Note the service principal's application (client) ID and secret.
 
-## Set environment variables
+## 3. Set environment variables
 
 Once you have a service principal, you can specify its credentials to authenticate the library to Azure.
 
@@ -65,82 +58,6 @@ Add the following environment variables to your Windows system with their approp
 - ARM_TENANT_ID
 - ARM_CLIENT_ID
 - ARM_CLIENT_SECRET
-
-## Install the packages
-
-This example project presented later in this article uses Go modules for versioning and dependency management.
-
-Install a Go package is done by running `go get <package>`.
-
-For example, to install the `armcompute` package, you include the following in your Go code:
-
-```go
-go get github.com/Azure/azure-sdk-for-go/sdk/compute/armcompute
-```
-
-In most Go apps, you will install the following packages for authentication and core functionality:
-
-- github.com/Azure/azure-sdk-for-go/sdk/armcore
-- github.com/Azure/azure-sdk-for-go/sdk/azcore
-- github.com/Azure/azure-sdk-for-go/sdk/azidentity
-- github.com/Azure/azure-sdk-for-go/sdk/to
-
-## Authenticate to Azure
-
-Before you can create a client to run code against an Azure subscription, you need to authenticate to Azure. The `azidentity` module provides facilities for various ways of authenticating with Azure including client/secret, certificate, and managed identity.
-
-The default authentication option is **DefaultAzureCredential**, which uses the environment variables set earlier in this article. In your Go code, you'll create an `azidentity` object as follows:
-
-```go
-cred, err := azidentity.NewDefaultAzureCredential(nil)
-```
-
-For more details on how authentication works in `azidentity`, see [Azure Identity Client Module for Go](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azidentity).
-
-## Connect to Azure
-
-Once you have a credential - such as an `azidentity` object - you create a connection to the desired Azure Resource Management endpoint. The `armcore` module provides facilities for connecting with ARM endpoints including public and sovereign clouds as well as Azure Stack.
-
-```go
-con := armcore.NewDefaultConnection(cred, nil)
-```
-
-For more information on ARM connections, please see the documentation for `armcore` at [pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/armcore](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/armcore).
-
-Creating a Resource Management Client
-
-
-Once you have a connection to ARM, you will need to decide what service to use and create a client to connect to that service. In this section, we will use `Compute` as our target service. The Compute modules consist of one or more clients. A client groups a set of related APIs, providing access to its functionality within the specified subscription. You will need to create one or more clients to access the APIs you require using your `armcore.Connection`.
-
-To show an example, we will create a client to manage Virtual Machines. The code to achieve this task would be:
-
-```go
-client := armcompute.NewVirtualMachinesClient(con, "<subscription ID>")
-```
-You can use the same pattern to connect with other Azure services that you are using. For example, in order to manage Virtual Network resources, you would install the Network package and create a `VirtualNetwork` Client:
-
-```go
-client := armnetwork.NewVirtualNetworksClient(acon, "<subscription ID>")
-```
-
-Interacting with Azure Resources
-
-
-Now that we are authenticated and have created our sub-resource clients, we can use our client to make API calls. For resource management scenarios, most of our cases are centered around creating / updating / reading / deleting Azure resources. Those scenarios correspond to what we call "operations" in Azure. Once you are sure of which operations you want to call, you can then implement the operation call using the management client we just created in previous section.
-
-To write the concrete code for the API call, you might need to look up the information of request parameters, types, and response body for a certain opertaion. We recommend using the following site for SDK reference:
-
-- [Official Go docs for new Azure Go SDK packages](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk) - This web-site contains the complete SDK references for each released package as well as embedded code snippets for some operation
-
-To see the reference for a certain package, you can either click into each package on the web-site, or directly add the SDK path to the end of URL. For example, to see the reference for Azure Compute package, you can use [https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/compute/armcompute](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/compute/armcompute). Certain development tool or IDE has features that allow you to directly look up API definitions as well.
-
-Let's illustrate the SDK usage by a few quick examples. In the following sample. we are going to create a resource group using the SDK. To achieve this scenario, we can take the follow steps
-
-- **Step 1** : Decide which client we want to use, in our case, we know that it's related to Resource Group so our choice is the [ResourceGroupsClient](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/resources/armresources#ResourceGroupsClient)
-- **Step 2** : Find out which operation is responsible for creating a resource group. By locating the client in previous step, we are able to see all the functions under `ResourceGroupsClient`, and we can see [the `CreateOrUpdate` function](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/resources/armresources#ResourceGroupsClient.CreateOrUpdate) is what need. 
-- **Step 3** : Using the information about this operation, we can then fill in the required parameters, and implement it using the Go SDK. If we need extra information on what those parameters mean, we can also use the [Azure service documentation](https://docs.microsoft.com/azure/?product=featured) on Microsoft Docs
-
-Let's show our what final code looks like
 
 Example: Creating a Resource Group
 
