@@ -14,7 +14,7 @@ items:
     - name: Authentication
       href: azure-sdk-authorization.md
     - name: Create an Azure resource group
-      href: create-resource-group.md
+      href: create-resource group-using-management-library.md
   - name: Azure services
     items:
     - name: Storage

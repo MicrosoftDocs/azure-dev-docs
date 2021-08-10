@@ -55,7 +55,7 @@ authentication. This document illustrates the most common scenario.
     ----
 
 Install the package
--------------------
+
 
 This project uses Go modules for versioning and dependency management.
 
@@ -88,7 +88,7 @@ For more details on how authentication works in `azidentity`, please see the doc
 
 
 Connecting to Azure 
--------------------
+
 
 Once you have a credential, create a connection to the desired ARM endpoint.  The `armcore` module provides facilities for connecting with ARM endpoints including public and sovereign clouds as well as Azure Stack.
 
@@ -99,7 +99,7 @@ con := armcore.NewDefaultConnection(cred, nil)
 For more information on ARM connections, please see the documentation for `armcore` at [pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/armcore](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/armcore).
 
 Creating a Resource Management Client
--------------------------------------
+
 
 Once you have a connection to ARM, you will need to decide what service to use and create a client to connect to that service. In this section, we will use `Compute` as our target service. The Compute modules consist of one or more clients. A client groups a set of related APIs, providing access to its functionality within the specified subscription. You will need to create one or more clients to access the APIs you require using your `armcore.Connection`.
 
@@ -115,7 +115,7 @@ client := armnetwork.NewVirtualNetworksClient(acon, "<subscription ID>")
 ```
 
 Interacting with Azure Resources
---------------------------------
+
 
 Now that we are authenticated and have created our sub-resource clients, we can use our client to make API calls. For resource management scenarios, most of our cases are centered around creating / updating / reading / deleting Azure resources. Those scenarios correspond to what we call "operations" in Azure. Once you are sure of which operations you want to call, you can then implement the operation call using the management client we just created in previous section.
 
@@ -134,7 +134,7 @@ Let's illustrate the SDK usage by a few quick examples. In the following sample.
 Let's show our what final code looks like
 
 Example: Creating a Resource Group
----------------------------------
+
 
 ***Import the packages***
 ```go
@@ -193,7 +193,7 @@ func main() {
 Let's demonstrate management client's usage by showing additional samples
 
 Example: Managing Resource Groups
----------------------------------
+
 
 ***Update a resource group***
 
@@ -286,13 +286,13 @@ func main() {
 ```
 
 Example: Managing Virtual Machines
----------------------------------
+
 In addition to resource groups, we will also use Virtual Machine as an example and show how to manage how to create a Virtual Machine which involves three Azure services (Resource Group, Network and Compute)
 
 Due to the complexity of this scenario, please [click here](https://aka.ms/azsdk/go/mgmt/samples) for the complete sample.
 
 Long Running Operations
------------------------
+
 In the samples above, you might notice that some operations has a ``Begin`` prefix (for example, ``BeginDelete``). This indicates the operation is a Long-Running Operation (In short, LRO). For resource managment libraries, this kind of operation is quite common since certain resource operations may take a while to finish. When you need to use those LROs, you will need to use a poller and keep polling for the result until it is done. To illustrate this pattern, here is an example
 
 ```go
@@ -350,4 +350,4 @@ more information see the Code of Conduct FAQ or contact
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Create Azure resource group](create-resource-group.md)
+> [Azure SDK for Go](/.)
