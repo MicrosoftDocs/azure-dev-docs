@@ -16,7 +16,7 @@ If you haven't already, review the [Authentication Overview](azure-sdk-authentic
 
 For most applications, the [`DefaultAzureCredential`](/python/api/azure-identity/azure.identity.defaultazurecredential) class from the [`azure.identity`](/python/api/azure-identity/azure.identity) library provides the simplest and recommended means of authentication.
 
-`DefaultAzureCredential` automatically uses a variety of underlying authentication methods, such as the app's managed identity (MSI) in the cloud or a local service principal from environment variables when running locally (as described on [Configure your local Python dev environment for Azure - Configure authentication](configure-local-development-environment.md#configure-authentication)). For more information, see the [`DefaultAzureCredential` class reference](/python/api/azure-identity/azure.identity.defaultazurecredential) and []
+`DefaultAzureCredential` automatically uses a variety of underlying authentication methods, such as the app's managed identity (MSI) in the cloud or a local service principal from environment variables when running locally (as described on [Configure your local Python dev environment for Azure - Configure authentication](configure-local-development-environment.md#configure-authentication)). For more information, see the [`DefaultAzureCredential` class reference](/python/api/azure-identity/azure.identity.defaultazurecredential).
 
 :::code language="python" source="~/../python-sdk-examples/auth/key_vault_example_short.py":::
 
