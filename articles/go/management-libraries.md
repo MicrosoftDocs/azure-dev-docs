@@ -48,7 +48,7 @@ import {
 
 ## Authenticating to Azure
 
-Before you can create a client to run code against an Azure subscription, you need to authenticate to Azure. The [azidentity](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azidentity) module provides facilities for various ways of authenticating with Azure including client/secret, certificate, and managed identity.
+To run code against an Azure subscription, you need to authenticate to Azure. The [azidentity](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azidentity) module provides facilities for various ways of authenticating with Azure including client/secret, certificate, and managed identity.
 
 The default authentication option is **DefaultAzureCredential**, which uses the environment variables set earlier in this article. In your Go code, you'll create an `azidentity` object as follows:
 
@@ -58,7 +58,7 @@ cred, err := azidentity.NewDefaultAzureCredential(nil)
 
 ## Connecting to Azure
 
-Once you have a credential - such as an `azidentity` object - you create a connection to the desired Azure Resource Management endpoint. The [armcore](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/armcore) module provides facilities for connecting with Azure Resource Manager endpoints. This endpoints include public and sovereign clouds, and [Azure Stack](https://azure.microsoft.com/overview/azure-stack/).
+Once you have a credential - such as an `azidentity` object - you create a connection to the desired Azure Resource Management endpoint. The [armcore](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/armcore) module provides facilities for connecting with Azure Resource Manager endpoints. These endpoints include public and sovereign clouds, and [Azure Stack](https://azure.microsoft.com/overview/azure-stack/).
 
 ```go
 con := armcore.NewDefaultConnection(cred, nil)
