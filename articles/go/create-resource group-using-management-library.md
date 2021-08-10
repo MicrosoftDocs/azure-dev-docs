@@ -18,11 +18,11 @@ authentication. This document illustrates the most common scenario.
 > [!IMPORTANT]
 > The packages for the current version of the Azure resource management libraries are located in `sdk/**/arm**`. The packages for the previous version of the management libraries are located under [`/services`](https://github.com/Azure/azure-sdk-for-go/tree/main/services). If you're using the older version, see the [this Azure SDK for Go Migration Guide](https://aka.ms/azsdk/go/mgmt/migration).
 
-## Configure your environment
+## 1. Configure your environment
 
 - **Azure subscription:** If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
 
-## Set environment variables
+## 2. Get authentication values
 
 1. [Get the Azure subscription ID](/azure/media-services/latest/setup-azure-subscription-how-to?tabs=portal).
 
@@ -30,31 +30,43 @@ authentication. This document illustrates the most common scenario.
 
 1. [Create a service principal](/azure/active-directory/develop/howto-create-service-principal-portal). Note the service principal's application (client) ID and secret.
 
-1. Set the following environment variables:
+## 3. Set environment variables
 
-    - AZURE_SUBSCRIPTION_ID
-    - AZURE_TENANT_ID
-    - AZURE_CLIENT_ID
-    - AZURE_CLIENT_SECRET
+Once you have a service principal, you can specify its credentials to authenticate the library to Azure.
 
-    #### [Windows](#tab/windows)
+#### [Bash](#tab/bash)
 
-    1. Open the Control Panel
-    1. Click System Security, then System
-    1. Click Advanced system settings on the left
-    1. Inside the System Properties window, click the `Environment Variables…` button.
-    1. Click on the property you would like to change, then click the `Edit…` button. If the property name is not listed, then click the `New…` button.
-    
-    #### [Bash](#tab/bash)
+1. Edit the `~/.bashrc` file by adding the following environment variables.
 
-    export AZURE_CLIENT_ID="__CLIENT_ID__"
-    export AZURE_CLIENT_SECRET="__CLIENT_SECRET__"
-    export AZURE_TENANT_ID="__TENANT_ID__"
-    export AZURE_SUBSCRIPTION_ID="__SUBSCRIPTION_ID__"
+    ```bash
+    export ARM_SUBSCRIPTION_ID="<azure_subscription_id>"
+    export ARM_TENANT_ID="<active_directory_tenant_id"
+    export ARM_CLIENT_ID="<service_principal_appid>"
+    export ARM_CLIENT_SECRET="<service_principal_password>"
+    ```
 
-    ----
+1. To execute the `~/.bashrc` script, run `source ~/.bashrc` (or its abbreviated equivalent `. ~/.bashrc`). You can also exit and reopen Cloud Shell for the script to run automatically.
 
-Install the package
+    ```bash
+    . ~/.bashrc
+    ```
+
+1. Once the environment variables have been set, you can verify their values as follows:
+
+    ```bash
+    printenv | grep ^ARM*
+    ```
+
+#### [Windows](#tab/windows)
+
+Add the following environment variables to your Windows system with their appropriate values from the previous section.
+
+- ARM_SUBSCRIPTION_ID
+- ARM_TENANT_ID
+- ARM_CLIENT_ID
+- ARM_CLIENT_SECRET
+
+## Install the package
 
 
 This project uses Go modules for versioning and dependency management.
