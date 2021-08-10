@@ -1,16 +1,16 @@
 ---
 title: How to authenticate Python applications with Azure services using service principals
-description: Using service principals to authenticate a Python app with Azure services by using the Azure libraries
-ms.date: 08/04/2021
+description: Using service principals to authenticate a Python application with Azure services by using the Azure libraries
+ms.date: 08/10/2021
 ms.topic: conceptual
 ms.custom: devx-track-python
 ---
 
-# Authenticating Python apps on Azure using service principals
+# Authenticate Python applications on Azure using service principals
 
-This article describes methods for authenticating apps with Azure services using explicit service principals.
+This article describes methods for authenticating applications with Azure services using explicit service principals.
 
-If you haven't already, review the [Authentication Overview](azure-sdk-authenticate.md#how-to-assign-an-app-identity) for important details that apply to all authentication methods, namely assigning app identity, granting permissions to an identity, and when authentication and authorization occur when using Azure libraries.
+If you haven't already, review the [Authentication Overview](azure-sdk-authenticate.md#how-to-assign-an-app-identity) for important details that apply to all authentication methods, namely assigning application identity, granting permissions to an identity, and when authentication and authorization occur when using Azure libraries.
 
 When using explicit service principals, you aren't able to take advantage of managed identity for code that's deployed to the cloud. When used with production code, then, you must manage and maintain distinct service principals for your cloud applications.
 
@@ -32,13 +32,13 @@ When using newer SDK libraries based on azure.core, use the [`ClientSecretCreden
 
 To migrate existing code that uses `ServicePrincipalCredentials` to a newer library version, replace uses of this class with `ClientSecretCredential` as illustrated in the following sections. Note the slight changes in the parameter names between the two constructors: `tenant` becomes `tenant_id` and `secret` becomes `client_secret`.
 
-### Using ClientSecretCredential (azure.identity)
+### ClientSecretCredential (azure.identity)
 
 :::code language="python" source="~/../python-sdk-examples/show_subscription/use_client_secret.py":::
 
 In this method, which is again used with newer libraries based on azure.core, you create a [`ClientSecretCredential`](/python/api/azure-identity/azure.identity.clientsecretcredential) object using credentials obtained from secure storage such as Azure Key Vault or environment variables. The previous code assumes that you've created the environment variables described in [Configure your local dev environment](configure-local-development-environment.md#create-a-service-principal-and-environment-variables-for-development).
 
-### Using ServicePrincipalCredentials (azure.common)
+### ServicePrincipalCredentials (azure.common)
 
 :::code language="python" source="~/../python-sdk-examples/show_subscription/use_service_principal.py":::
 
@@ -48,7 +48,7 @@ In this method, which is again used with older libraries not based on azure.core
 
 - [Authentication overview](azure-sdk-authenticate.md)
 - [Configure your local Python dev environment for Azure](configure-local-development-environment.md)
-- [How to authenticate and authorize Python apps on Azure](azure-sdk-authenticate.md)
+- [How to authenticate and authorize Python applications on Azure](azure-sdk-authenticate.md)
 - [How to assign role permissions](/azure/role-based-access-control/role-assignments-steps)
 - [Example: Provision a resource group](azure-sdk-example-resource-group.md)
 - [Example: Provision and use Azure Storage](azure-sdk-example-storage.md)

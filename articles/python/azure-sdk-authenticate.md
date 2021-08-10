@@ -1,12 +1,12 @@
 ---
 title: How to authenticate Python applications with Azure services
-description: How to acquire the necessary credential objects to authenticate a Python app with Azure services by using the Azure libraries
-ms.date: 06/28/2021
+description: How to acquire the necessary credential objects to authenticate a Python application with Azure services by using the Azure libraries
+ms.date: 08/10/2021
 ms.topic: conceptual
 ms.custom: devx-track-python
 ---
 
-# How to authenticate and authorize Python apps on Azure
+# How to authenticate and authorize Python applications on Azure
 
 Most cloud applications deployed to Azure need to access other Azure resources such as storage, databases, stored secrets, and so on. To access those resources, the application must be both authenticated and authorized:
 
@@ -23,7 +23,7 @@ This article explains the details of authentication and authorization:
 Secondary articles then describe specific authentication methods:
 
 - [Authentication in development environments](azure-sdk-authenticate-development-environments.md), using `AzureCliCredential` or the Azure Extension for Visual Studio Code.
-- [Authentication for Azure hosted apps](azure-sdk-authenticate-hosted-applications.md), using Managed Identity and `DefaultAzureCredential`.
+- [Authentication for Azure-hosted applications](azure-sdk-authenticate-hosted-applications.md), using Managed Identity and `DefaultAzureCredential`.
 - [Authentication with service principals](azure-sdk-authenticate-service-principals.md)
 - [Authentication with user credentials](azure-sdk-authenticate-user-credentials.md)
 

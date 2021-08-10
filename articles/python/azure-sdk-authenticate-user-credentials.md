@@ -1,16 +1,16 @@
 ---
 title: How to use user credentials to authenticate Python applications with Azure services 
-description: Authenticating a Python app with Azure services by using the Azure libraries and user credentials
-ms.date: 08/09/2021
+description: Authenticate a Python application with Azure services by using the Azure libraries and user credentials
+ms.date: 08/10/2021
 ms.topic: conceptual
 ms.custom: devx-track-python
 ---
 
-# Authenticating with user credentials for Python apps on Azure
+# Authenticate with user credentials for Python applications on Azure
 
-This article describes methods involving user credentials for authenticating apps with Azure services.
+This article describes methods involving user credentials for authenticating applications with Azure services.
 
-If you haven't already, review the [Authentication Overview](azure-sdk-authenticate.md#how-to-assign-an-app-identity) for important details that apply to all authentication methods, namely assigning app identity, granting permissions to an identity, and when authentication and authorization occur when using Azure libraries.
+If you haven't already, review the [Authentication Overview](azure-sdk-authenticate.md#how-to-assign-an-app-identity) for important details that apply to all authentication methods, namely assigning application identity, granting permissions to an identity, and when authentication and authorization occur when using Azure libraries.
 
 ## Interactive browser authentication
 
@@ -34,7 +34,7 @@ Furthermore, this method authenticates only work and school accounts; Microsoft 
 
 - [Authentication overview](azure-sdk-authenticate.md)
 - [Configure your local Python dev environment for Azure](configure-local-development-environment.md)
-- [How to authenticate and authorize Python apps on Azure](azure-sdk-authenticate.md)
+- [How to authenticate and authorize Python applications on Azure](azure-sdk-authenticate.md)
 - [How to assign role permissions](/azure/role-based-access-control/role-assignments-steps)
 - [Example: Provision a resource group](azure-sdk-example-resource-group.md)
 - [Example: Provision and use Azure Storage](azure-sdk-example-storage.md)
