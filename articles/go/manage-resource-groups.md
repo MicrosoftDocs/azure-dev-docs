@@ -13,54 +13,13 @@ ms.custom: devx-track-go
 
 ## 1. Configure your environment
 
-- **Azure subscription:** If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
+[!INCLUDE [configure-environment.md](includes/configure-environment.md)]
 
-## 2. Get authentication values
+## 2. Authenticate to Azure
 
-1. [Get the Azure subscription ID](/azure/media-services/latest/setup-azure-subscription-how-to?tabs=portal).
+[!INCLUDE [set-authentication-environment-variables.md](includes/set-authentication-environment-variables.md)]
 
-1. [Get the Azure Active Directory tenant ID](/azure/active-directory/fundamentals/active-directory-how-to-find-tenant).
-
-1. [Create a service principal](/azure/active-directory/develop/howto-create-service-principal-portal). Note the service principal's application (client) ID and secret.
-
-## 3. Set environment variables
-
-Using your Azure authentication information, set the appropriate environment variables so that your code can authenticate to Azure.
-
-#### [Bash](#tab/bash)
-
-1. Edit the `~/.bashrc` file by adding the following environment variables. Replace the placeholders with the appropriate values from the previous section.
-
-    ```bash
-    export ARM_SUBSCRIPTION_ID="<azure_subscription_id>"
-    export ARM_TENANT_ID="<active_directory_tenant_id"
-    export ARM_CLIENT_ID="<service_principal_appid>"
-    export ARM_CLIENT_SECRET="<service_principal_password>"
-    ```
-
-1. To execute the `~/.bashrc` script, run `source ~/.bashrc` (or its abbreviated equivalent `. ~/.bashrc`).
-
-    ```bash
-    . ~/.bashrc
-    ```
-
-1. Once the environment variables have been set, you can verify their values as follows:
-
-    ```bash
-    printenv | grep ^ARM*
-    ```
-
-#### [Windows](#tab/windows)
-
-Add the following environment variables to your Windows system with their appropriate values from the previous section.
-
-- ARM_SUBSCRIPTION_ID
-- ARM_TENANT_ID
-- ARM_CLIENT_ID
-- ARM_CLIENT_SECRET
-
-Example: Creating a Resource Group
-
+## 3. Create a Resource Group
 
 ***Import the packages***
 ```go
