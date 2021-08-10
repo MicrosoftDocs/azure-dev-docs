@@ -18,11 +18,11 @@ authentication. This document illustrates the most common scenario.
 > [!IMPORTANT]
 > The packages for the current version of the Azure resource management libraries are located in `sdk/**/arm**`. The packages for the previous version of the management libraries are located under [`/services`](https://github.com/Azure/azure-sdk-for-go/tree/main/services). If you're using the older version, see the [this Azure SDK for Go Migration Guide](https://aka.ms/azsdk/go/mgmt/migration).
 
-## 1. Configure your environment
+## Configure your environment
 
 - **Azure subscription:** If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
 
-## 2. Get authentication values
+## Get authentication values
 
 1. [Get the Azure subscription ID](/azure/media-services/latest/setup-azure-subscription-how-to?tabs=portal).
 
@@ -30,13 +30,13 @@ authentication. This document illustrates the most common scenario.
 
 1. [Create a service principal](/azure/active-directory/develop/howto-create-service-principal-portal). Note the service principal's application (client) ID and secret.
 
-## 3. Set environment variables
+## Set environment variables
 
 Once you have a service principal, you can specify its credentials to authenticate the library to Azure.
 
 #### [Bash](#tab/bash)
 
-1. Edit the `~/.bashrc` file by adding the following environment variables.
+1. Edit the `~/.bashrc` file by adding the following environment variables. Replace the placeholders with the appropriate values from the previous section.
 
     ```bash
     export ARM_SUBSCRIPTION_ID="<azure_subscription_id>"
@@ -45,7 +45,7 @@ Once you have a service principal, you can specify its credentials to authentica
     export ARM_CLIENT_SECRET="<service_principal_password>"
     ```
 
-1. To execute the `~/.bashrc` script, run `source ~/.bashrc` (or its abbreviated equivalent `. ~/.bashrc`). You can also exit and reopen Cloud Shell for the script to run automatically.
+1. To execute the `~/.bashrc` script, run `source ~/.bashrc` (or its abbreviated equivalent `. ~/.bashrc`).
 
     ```bash
     . ~/.bashrc
@@ -66,43 +66,40 @@ Add the following environment variables to your Windows system with their approp
 - ARM_CLIENT_ID
 - ARM_CLIENT_SECRET
 
-## Install the package
+## Install the packages
 
+This example project presented later in this article uses Go modules for versioning and dependency management.
 
-This project uses Go modules for versioning and dependency management.
+Install a Go package is done by running `go get <package>`.
 
-As an example, to install the Azure Compute module, you would run :
+For example, to install the `armcompute` package, you include the following in your Go code:
 
-```sh
+```go
 go get github.com/Azure/azure-sdk-for-go/sdk/compute/armcompute
 ```
-We also recommend installing other packages for authentication and core functionalities :
 
-```sh
-go get github.com/Azure/azure-sdk-for-go/sdk/armcore
-go get github.com/Azure/azure-sdk-for-go/sdk/azcore
-go get github.com/Azure/azure-sdk-for-go/sdk/azidentity
-go get github.com/Azure/azure-sdk-for-go/sdk/to
-```
+In most Go apps, you will install the following packages for authentication and core functionality:
 
-Authentication
+- github.com/Azure/azure-sdk-for-go/sdk/armcore
+- github.com/Azure/azure-sdk-for-go/sdk/azcore
+- github.com/Azure/azure-sdk-for-go/sdk/azidentity
+- github.com/Azure/azure-sdk-for-go/sdk/to
 
+## Authenticate to Azure
 
-Once the environment is setup, all you need to do is to create an authenticated client. Before creating a client, you will first need to authenticate to Azure. In specific, you will need to provide a credential for authenticating with the Azure service.  The `azidentity` module provides facilities for various ways of authenticating with Azure including client/secret, certificate, managed identity, and more.
+Before you can create a client to run code against an Azure subscription, you need to authenticate to Azure. The `azidentity` module provides facilities for various ways of authenticating with Azure including client/secret, certificate, and managed identity.
 
-Our default option is to use **DefaultAzureCredential** which will make use of the environment variables we have set and take care of the authentication flow for us.
+The default authentication option is **DefaultAzureCredential**, which uses the environment variables set earlier in this article. In your Go code, you'll create an `azidentity` object as follows:
 
 ```go
 cred, err := azidentity.NewDefaultAzureCredential(nil)
 ```
 
-For more details on how authentication works in `azidentity`, please see the documentation for `azidentity` at [pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azidentity](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azidentity).
+For more details on how authentication works in `azidentity`, see [Azure Identity Client Module for Go](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azidentity).
 
+## Connect to Azure
 
-Connecting to Azure 
-
-
-Once you have a credential, create a connection to the desired ARM endpoint.  The `armcore` module provides facilities for connecting with ARM endpoints including public and sovereign clouds as well as Azure Stack.
+Once you have a credential - such as an `azidentity` object - you create a connection to the desired Azure Resource Management endpoint.  The `armcore` module provides facilities for connecting with ARM endpoints including public and sovereign clouds as well as Azure Stack.
 
 ```go
 con := armcore.NewDefaultConnection(cred, nil)
