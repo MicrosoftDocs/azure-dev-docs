@@ -84,28 +84,30 @@ client := armnetwork.NewVirtualNetworksClient(acon, "<subscription ID>")
 
 ## Using the Azure SDK for Go reference documentation
 
-Once instantiated, clients are used to make API calls against your Azure resources. For resource management scenarios, most of the use-cases are based on CRUD - Create/Read/Update/Delete - operations.
+Once instantiated, clients are used to make API calls against your Azure resources. For resource management scenarios, most of the use-cases are CRUD (Create/Read/Update/Delete) operations.
 
 To look up types, parameters, and the response body for a given operation, you can:
 
 1. Browse to the [Azure SDK for Go reference documentation](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk).
-1. Search the page for the desired type. (Pressing &lt;F> automatically expands all nodes on the page for searching.)
+1. Search the page for the desired type. (Pressing **&lt;F>** automatically expands all nodes on the page for searching.)
 1. Select the module.
 1. Search the module's page for the desired type.
 1. Read the type's description and information about its usage in your Go code.
 
-You can also manually build the URL by appending the name of the module to `github.com/Azure/azure-sdk-for-go/sdk/`. For example, if you're looking for the `compute/armcompute` reference documentation, the URL is `github.com/Azure/azure-sdk-for-go/sdk/compute/armcompute`.
+You can also manually build the URL by appending the name of the module to `github.com/Azure/azure-sdk-for-go/sdk/`. 
+
+For example, if you're looking for the `compute/armcompute` reference documentation, the URL is `github.com/Azure/azure-sdk-for-go/sdk/compute/armcompute`.
 
 The following example shows how to find the reference documentation for Azure resource group operations:
 
 1. You know you want to work with resource groups, but don't know the name of the library or module.
 1. You browse to the main [Azure SDK for Go reference documentation](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk) page.
-1. You click `&lt;F>` and enter `resource`. Since you're searching for a module, you know that no spaces are allowed.
-1. As you type the search term, you see a close match with the `resources` library and [resource/armresources](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/resources/armresources) module.
+1. You click **&lt;F>** and enter `resource`. Since you're searching for a module, you know that no spaces are allowed.
+1. As you type the search term, you see a close match with the [resource/armresources](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/resources/armresources) module.
 1. You select the appropriate module for your application.
 1. You now either read through "Getting Started" sections or search for the specific operation.
 1. For example, searching for the term "create" (if you want to create a resource group) leads you to the [CreateOrUpdate function](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/resources/armresources#ResourceGroupsClient.CreateOrUpdate).
-1. At this point, you have the necessary information to make the API calls to create an Azure resource group.
+1. At this point, you can read how to make the API call to create an Azure resource group.
 
 ## Next steps
 
