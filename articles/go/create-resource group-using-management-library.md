@@ -37,7 +37,7 @@ authentication. This document illustrates the most common scenario.
     - AZURE_CLIENT_ID
     - AZURE_CLIENT_SECRET
 
-    #### Windows
+    #### [Windows](#tab/windows)
 
     1. Open the Control Panel
     1. Click System Security, then System
@@ -45,7 +45,7 @@ authentication. This document illustrates the most common scenario.
     1. Inside the System Properties window, click the `Environment Variables…` button.
     1. Click on the property you would like to change, then click the `Edit…` button. If the property name is not listed, then click the `New…` button.
     
-    #### Bash command line
+    #### [Bash](#tab/bash)
 
     export AZURE_CLIENT_ID="__CLIENT_ID__"
     export AZURE_CLIENT_SECRET="__CLIENT_SECRET__"
@@ -74,7 +74,7 @@ go get github.com/Azure/azure-sdk-for-go/sdk/to
 ```
 
 Authentication
---------------
+
 
 Once the environment is setup, all you need to do is to create an authenticated client. Before creating a client, you will first need to authenticate to Azure. In specific, you will need to provide a credential for authenticating with the Azure service.  The `azidentity` module provides facilities for various ways of authenticating with Azure including client/secret, certificate, managed identity, and more.
 
