@@ -99,7 +99,7 @@ For more details on how authentication works in `azidentity`, see [Azure Identit
 
 ## Connect to Azure
 
-Once you have a credential - such as an `azidentity` object - you create a connection to the desired Azure Resource Management endpoint.  The `armcore` module provides facilities for connecting with ARM endpoints including public and sovereign clouds as well as Azure Stack.
+Once you have a credential - such as an `azidentity` object - you create a connection to the desired Azure Resource Management endpoint. The `armcore` module provides facilities for connecting with ARM endpoints including public and sovereign clouds as well as Azure Stack.
 
 ```go
 con := armcore.NewDefaultConnection(cred, nil)
