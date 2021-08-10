@@ -15,7 +15,7 @@ ms.custom: devx-track-go
 - The key difference between the management plane and the data plane can best be explained as follows:
     - You use the management plane to manage resources in your Azure subscription.
     - You use the data plane to use capabilities exposed by an instance of a resource type.
-    - Let's take using the Azure Storage service as an example. The management plan is used to create a storage account.  The data plane is then used to read and write data in that storage account.
+    - Let's take using the Azure Storage service as an example. The management plane is used to create a storage account.  The data plane is then used to read and write data in that storage account.
 - The management and client libraries are built on top of the Azure REST API. This hierarchy allows you to access the functionality of the Azure REST API from the familiar Go lexicon. You can also use the Azure REST API directly from your Go code.
 - The source code for the management and client libraries in available via a [GitHub repository](https://github.com/Azure/azure-sdk-for-go). As an open-source project, contributions from the public are welcome!
 - The latest version of the management and client libraries share the common cloud patterns implemented in the [Azure core library](https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/azcore). These patterns include authentication protocols, logging, tracing, transport protocols, buffered responses, and retries.
