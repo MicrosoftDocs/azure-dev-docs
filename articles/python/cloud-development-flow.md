@@ -14,11 +14,11 @@ Now that you understand Azure's model of services and resources, you can underst
 
 | Step | Primary tools | Activities |
 | --- | --- | --- |
-| Provision | Azure CLI, Azure Portal, Cloud Shell, Python scripts using Azure management libraries | Provision resource groups; provision specific resources in those groups; configure resources to be ready for use from app code and/or ready to receive Python code in deployments. |
+| Provision | Azure CLI, Azure portal, Cloud Shell, Python scripts using Azure management libraries | Provision resource groups; provision specific resources in those groups; configure resources to be ready for use from app code and/or ready to receive Python code in deployments. |
 | Code | Code editor (such as Visual Studio Code), Azure libraries, reference documentation | Write Python code using the Azure client libraries to interact with provisioned resources. |
 | Test | Python runtime, debugger | Run Python code locally against active cloud resources (typically dev or test resources rather than production resources). The code itself is not yet hosted on Azure, which helps you debug and iterate quickly. |
 | Deploy | Azure CLI, GitHub, DevOps | Once code has been tested locally, deploy it to an appropriate Azure hosting service where the code itself can run in the cloud. Deployed code typically runs against staging or production resources. |
-| Manage | Azure CLI, Azure Portal, Python scripts, Azure Monitor | Monitor app performance and responsiveness, make adjustments in production environment, migrate improvements back to dev environment for the next round of provisioning and development. |
+| Manage | Azure CLI, Azure portal, Python scripts, Azure Monitor | Monitor app performance and responsiveness, make adjustments in production environment, migrate improvements back to dev environment for the next round of provisioning and development. |
 
 ## Step 1: Provision and configure resources
 
