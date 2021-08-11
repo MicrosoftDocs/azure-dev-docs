@@ -118,7 +118,7 @@ As these functions are asynchronous, your code doesn't block until the function 
 The following code snippet shows an example of this pattern.
 
 ```go
-// Call an asynchronous function to create a client. One of the return values is a poller object.
+// Call an asynchronous function to create a client. The return value is a poller object.
 poller, err := client.BeginCreate(context.Background(), "resource_identifier", "additonal_parameter")
 if err != nil {
 	// handle error...
@@ -131,7 +131,7 @@ if err != nil {
 	// handle error...
 }
 
-// Print the fact that the function as completed.
+// Print the fact that the LRO completed.
 fmt.Printf("LRO done")
 
 // Work with the response ("resp") object.
