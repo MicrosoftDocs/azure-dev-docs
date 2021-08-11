@@ -23,16 +23,6 @@ ms.custom: devx-track-go
 
 1. Create a directory in which to test and run the sample Terraform code and make it the current directory.
 
-1. From a command line, import the necessary Go modules.
-
-    ```cmd
-    go get github.com/Azure/azure-sdk-for-go/sdk/compute/armcompute
-    go get github.com/Azure/azure-sdk-for-go/sdk/armcore
-    go get github.com/Azure/azure-sdk-for-go/sdk/azcore
-    go get github.com/Azure/azure-sdk-for-go/sdk/azidentity
-    go get github.com/Azure/azure-sdk-for-go/sdk/to
-    ```
-
 1. Run the [go mod init](https://golang.org/ref/mod#go-mod-init) function to create a module in the current directory.
 
     ```cmd
@@ -43,6 +33,16 @@ ms.custom: devx-track-go
 
     - The `<module_path>` parameter is generally a location in a GitHub repo - such as `github.com/<your_github_account_name>/<directory>`.
     - When you're creating a command-line app as a test and won't publish the app, the `<module_path>` doesn't have to exist.
+
+1. From a command line, import the necessary Go modules.
+
+    ```cmd
+    go get github.com/Azure/azure-sdk-for-go/sdk/compute/armcompute
+    go get github.com/Azure/azure-sdk-for-go/sdk/armcore
+    go get github.com/Azure/azure-sdk-for-go/sdk/azcore
+    go get github.com/Azure/azure-sdk-for-go/sdk/azidentity
+    go get github.com/Azure/azure-sdk-for-go/sdk/to
+    ```
 
 1. Create a file named `main.go` and insert the following code. Each section of code is commented to explain its purpose.
 
