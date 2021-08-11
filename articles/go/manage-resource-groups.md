@@ -19,7 +19,7 @@ ms.custom: devx-track-go
 
 [!INCLUDE [set-authentication-environment-variables.md](includes/set-authentication-environment-variables.md)]
 
-## 3. Create a Resource Group
+## 3. Create a resource group
 
 1. Create a directory in which to test and run the sample Terraform code and make it the current directory.
 
@@ -81,7 +81,7 @@ ms.custom: devx-track-go
     	return rgClient.CreateOrUpdate(context.Background(), resourceGroupName, param, nil)
     }
     
-    // Define a standard 'main' function for an app that is called from the command line.
+    // Define the standard 'main' function for an app that is called from the command line.
     func main() {
     
     	// Create a credentials object.
@@ -264,10 +264,10 @@ func main() {
     log.Printf("Resource group deleted")
 })
 ```
-    
+
 [!INCLUDE [troubleshooting.md](includes/troubleshooting.md)]
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Azure SDK for Go](/.)
+> [!div class="nextstepaction"] 
+> [Learn more about using the Azure SDK for Go](/azure/go)
