@@ -48,7 +48,7 @@ import {
 
 ## Authenticating to Azure
 
-To run code against an Azure subscription, you need to authenticate to Azure. The [azidentity](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azidentity) module provides facilities for various ways of authenticating with Azure including client/secret, certificate, and managed identity.
+To run code against an Azure subscription, you need to authenticate to Azure. The [azidentity](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azidentity) module supports multiple options to authenticate to Azure. These options include client/secret, certificate, and managed identity.
 
 The default authentication option is **DefaultAzureCredential**, which uses the environment variables set earlier in this article. In your Go code, you'll create an `azidentity` object as follows:
 
@@ -58,7 +58,7 @@ cred, err := azidentity.NewDefaultAzureCredential(nil)
 
 ## Connecting to Azure
 
-Once you have a credential - such as an `azidentity` object - you create a connection to the desired Azure Resource Management endpoint. The [armcore](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/armcore) module provides facilities for connecting with Azure Resource Manager endpoints. These endpoints include public and sovereign clouds, and [Azure Stack](https://azure.microsoft.com/overview/azure-stack/).
+Once you have a credential - such as an `azidentity` object - you create a connection to the target Azure Resource Management endpoint. The [armcore](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/armcore) module provides facilities for connecting with Azure Resource Manager endpoints. These endpoints include public and sovereign clouds, and [Azure Stack](https://azure.microsoft.com/overview/azure-stack/).
 
 ```go
 con := armcore.NewDefaultConnection(cred, nil)
@@ -66,7 +66,7 @@ con := armcore.NewDefaultConnection(cred, nil)
 
 ## Creating a Resource Management Client
 
-Once you have a connection to the Azure Resource Manager, create a client to connect to the desired Azure service.
+Once you have a connection to the Azure Resource Manager, create a client to connect to the target Azure service.
 
 For example, let's say you want to connect to the [Azure Compute](https://azure.microsoft.com/product-categories/compute/) service. The [Compute module](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/compute/armcompute@v0.1.0) consist of one or more clients. A client groups a set of related APIs, providing access to its functionality within the specified subscription. You create one or more clients to access the APIs you require using an `armcore.Connection` object.
 
@@ -86,12 +86,12 @@ client := armnetwork.NewVirtualNetworksClient(acon, "<subscription ID>")
 
 Once instantiated, clients are used to make API calls against your Azure resources. For resource management scenarios, most of the use-cases are CRUD (Create/Read/Update/Delete) operations.
 
-To look up types, parameters, and the response body for a given operation, you can:
+To look up the operations for a specific type, do the following:
 
 1. Browse to the [Azure SDK for Go reference documentation](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk).
-1. Search the page for the desired type. (Pressing **&lt;F>** automatically expands all nodes on the page for searching.)
+1. Search the page for the type. (Pressing **&lt;F>** automatically expands all nodes on the page for searching.)
 1. Select the module.
-1. Search the module's page for the desired type.
+1. Search the module's page for the type.
 1. Read the type's description and information about its usage in your Go code.
 
 You can also manually build the URL by appending the name of the module to `github.com/Azure/azure-sdk-for-go/sdk/`. 
@@ -140,7 +140,7 @@ fmt.Printf("LRO done")
 **Key points:**
 
 - The `PollUntilDone` function requires a polling interval that specifies how often it should try to get the status.
-- The interval is typically short. Refer to the documentation for the specific Azure resource for best practices and recommended intervals.
+- The interval is typically short. See the documentation for the specific Azure resource for recommended intervals.
 - The [LRO section of the Go Azure SDK Design Guidelines page](https://azure.github.io/azure-sdk/golang_introduction.html#methods-invoking-long-running-operations) has a move advanced example and general guidelines for LRO.
 
 ## Next steps
