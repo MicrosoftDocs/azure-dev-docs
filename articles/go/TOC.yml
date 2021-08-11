@@ -17,7 +17,7 @@ items:
       href: manage-resource-groups.md
   - name: Concepts
     items:
-    - name: Working with the Management Libraries
+    - name: Working with the management libraries
       href: management-libraries.md
   - name: Azure services
     items:

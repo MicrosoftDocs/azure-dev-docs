@@ -1,18 +1,18 @@
 ---
-title: Working with the Azure SDK for Go Management Libraries 
-description: In this article, you learn the basic tasks of working with the Azure SDK for Go Management Libraries.
+title: Working with the Azure SDK for Go management libraries 
+description: In this article, you learn the basic tasks of working with the Azure SDK for Go management libraries.
 ms.date: 08/10/2021
 ms.topic: conceptual
 ms.custom: devx-track-go
 ---
 
-# Working with the Azure SDK for Go Management Libraries
+# Working with the Azure SDK for Go management libraries
 
 As explained in the article [What is the Azure SDK for Go?](overview.md), the Azure SDK for Go contains a set of management and client libraries.
 The management libraries share many features such as Azure Identity support, HTTP pipeline, and error-handling.
 You can find the full list of the management libraries on the [Azure SDK for Go module page](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk).
 
-In this article, you'll learn the basic steps of how to use the Management Libraries to interact with Azure resources.
+In this article, you'll learn the basic steps of how to use the management libraries to interact with Azure resources.
 
 ## Installing modules
 
@@ -111,7 +111,7 @@ The following example shows how to find the reference documentation for Azure re
 
 ## Long-running operations
 
-As some operations can take a long time to complete, the Management Libraries contain functions to support long-running operations (LRO) via asynchronous calls. These function names start with `Begin`. Examples of this pattern are `BeginCreate` and `BeginDelete`. 
+As some operations can take a long time to complete, the management libraries contain functions to support long-running operations (LRO) via asynchronous calls. These function names start with `Begin`. Examples of this pattern are `BeginCreate` and `BeginDelete`. 
 
 As these functions are asynchronous, your code doesn't block until the function finishes its task. Instead, the function returns a *poller* object immediately. Your code then calls a synchronous poller function that returns when the original asynchronous function has completed.
 

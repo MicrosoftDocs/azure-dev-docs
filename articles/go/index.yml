@@ -28,7 +28,7 @@ landingContent:
             url: azure-sdk-tools.md
       - linkListType: concept
         links:
-          - text: Working with the Management Libraries
+          - text: Working with the management libraries
             url: management-libraries.md
       - linkListType: quickstart
         links:
