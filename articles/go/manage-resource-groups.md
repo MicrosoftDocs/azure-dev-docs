@@ -219,51 +219,51 @@ Get-AzResourceGroup -Name <resource_group>
 
 In this article, you've seen how to create, update, and delete a resource group. You've also seen how to list all the resource groups of an Azure subscription. To run all these functions sequentially, replace the `main` function with the following code:
 
-    ```go
-    func main() {
+```go
+func main() {
 
-    	// Create a credentials object.
-    	cred, err := azidentity.NewDefaultAzureCredential(nil)
-    	if err != nil {
-    		log.Fatalf("authentication failure: %+v", err)
-    	}
+    // Create a credentials object.
+    cred, err := azidentity.NewDefaultAzureCredential(nil)
+    if err != nil {
+        log.Fatalf("authentication failure: %+v", err)
+    }
 
-    	// Establish a connection with the Azure subscription.
-    	conn := armcore.NewDefaultConnection(cred, &armcore.ConnectionOptions{
-    		Logging: azcore.LogOptions{
-    			IncludeBody: true,
-    		},
-    	})
-    
-    	// Call your function to create an Azure resource group.
-        resourceGroup, err := createResourceGroup(ctx, conn)
-        if err != nil {
-            log.Fatalf("cannot create resource group: %+v", err)
-        }
-    	// Print the name of the new resource group.
-        log.Printf("Resource Group %s created", *resourceGroup.ID)
-    
-    	// Call your function to add a tag to your new resource group.
-    	updatedRG, err := updateResourceGroup(ctx, conn)
-    	if err != nil {
-            log.Fatalf("cannot update resource group: %+v", err)
-    	}
-    	log.Printf("Resource Group %s updated", *updatedRG.ID)
-    
-    	// Call your function to list all the resource groups.
-    	rgList, err := listResourceGroups(ctx, conn)
-    	if err != nil {
-            log.Fatalf("cannot list resource group: %+v", err)
-    	}
-    	log.Printf("We totally have %d resource groups", len(rgList))
-    
-    	// Call your function to delete the resource group you created.
-    	if err := deleteResourceGroup(ctx, conn); err != nil {
-            log.Fatalf("cannot delete resource group: %+v", err)
-    	}
-    	log.Printf("Resource Group deleted")
+    // Establish a connection with the Azure subscription.
+    conn := armcore.NewDefaultConnection(cred, &armcore.ConnectionOptions{
+        Logging: azcore.LogOptions{
+            IncludeBody: true,
+        },
     })
-    ```
+
+    // Call your function to create an Azure resource group.
+    resourceGroup, err := createResourceGroup(ctx, conn)
+    if err != nil {
+        log.Fatalf("cannot create resource group: %+v", err)
+    }
+    // Print the name of the new resource group.
+    log.Printf("Resource Group %s created", *resourceGroup.ID)
+
+    // Call your function to add a tag to your new resource group.
+    updatedRG, err := updateResourceGroup(ctx, conn)
+    if err != nil {
+        log.Fatalf("cannot update resource group: %+v", err)
+    }
+    log.Printf("Resource Group %s updated", *updatedRG.ID)
+
+    // Call your function to list all the resource groups.
+    rgList, err := listResourceGroups(ctx, conn)
+    if err != nil {
+        log.Fatalf("cannot list resource group: %+v", err)
+    }
+    log.Printf("We totally have %d resource groups", len(rgList))
+
+    // Call your function to delete the resource group you created.
+    if err := deleteResourceGroup(ctx, conn); err != nil {
+        log.Fatalf("cannot delete resource group: %+v", err)
+    }
+    log.Printf("Resource Group deleted")
+})
+```
     
 [!INCLUDE [troubleshooting.md](includes/troubleshooting.md)]
 
