@@ -87,7 +87,7 @@ ms.custom: devx-track-go
     	// Create a credentials object.
     	cred, err := azidentity.NewDefaultAzureCredential(nil)
     	if err != nil {
-    		log.Fatalf("authentication failure: %+v", err)
+    		log.Fatalf("Authentication failure: %+v", err)
     	}
     
     	// Establish a connection with the Azure subscription.
@@ -100,11 +100,11 @@ ms.custom: devx-track-go
     	// Call your function to create an Azure resource group.
     	resourceGroup, err := createResourceGroup(ctx, conn)
     	if err != nil {
-    		log.Fatalf("cannot create resource group: %+v", err)
+    		log.Fatalf("Creation of resource group failed: %+v", err)
     	}
     
     	// Print the name of the new resource group.
-    	log.Printf("Resource Group %s created", *resourceGroup.ResourceGroup.ID)
+    	log.Printf("Resource group %s created", *resourceGroup.ResourceGroup.ID)
     }
     ```
 
@@ -225,7 +225,7 @@ func main() {
     // Create a credentials object.
     cred, err := azidentity.NewDefaultAzureCredential(nil)
     if err != nil {
-        log.Fatalf("authentication failure: %+v", err)
+        log.Fatalf("Authentication failure: %+v", err)
     }
 
     // Establish a connection with the Azure subscription.
@@ -238,30 +238,30 @@ func main() {
     // Call your function to create an Azure resource group.
     resourceGroup, err := createResourceGroup(ctx, conn)
     if err != nil {
-        log.Fatalf("cannot create resource group: %+v", err)
+        log.Fatalf("Creation of resource group failed: %+v", err)
     }
     // Print the name of the new resource group.
-    log.Printf("Resource Group %s created", *resourceGroup.ID)
+    log.Printf("Resource group %s created", *resourceGroup.ID)
 
     // Call your function to add a tag to your new resource group.
     updatedRG, err := updateResourceGroup(ctx, conn)
     if err != nil {
-        log.Fatalf("cannot update resource group: %+v", err)
+        log.Fatalf("Update of resource group failed: %+v", err)
     }
     log.Printf("Resource Group %s updated", *updatedRG.ID)
 
     // Call your function to list all the resource groups.
     rgList, err := listResourceGroups(ctx, conn)
     if err != nil {
-        log.Fatalf("cannot list resource group: %+v", err)
+        log.Fatalf("Listing of resource groups failed: %+v", err)
     }
-    log.Printf("We totally have %d resource groups", len(rgList))
+    log.Printf("Your Azure subscription has a total of %d resource groups", len(rgList))
 
     // Call your function to delete the resource group you created.
     if err := deleteResourceGroup(ctx, conn); err != nil {
-        log.Fatalf("cannot delete resource group: %+v", err)
+        log.Fatalf("Deletion of resource group failed: %+v", err)
     }
-    log.Printf("Resource Group deleted")
+    log.Printf("Resource group deleted")
 })
 ```
     
