@@ -109,11 +109,13 @@ The following example shows how to find the reference documentation for Azure re
 1. For example, searching for the term "create" (if you want to create a resource group) leads you to the [CreateOrUpdate function](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/resources/armresources#ResourceGroupsClient.CreateOrUpdate).
 1. At this point, you can read how to make the API call to create an Azure resource group.
 
-## Long Running (or Asynchronous) Operations
+## Long-running operations
 
-As some operations can take a long time to complete, the Management Libraries are built to support long running operations (LRO)via asynchronous calls. The discernable naming pattern for asynchronous functions is when the name starts with `Begin`. 
+As some operations can take a long time to complete, the Management Libraries contain functions to support long-running operations (LRO) via asynchronous calls. These function names start with `Begin`. Examples of this pattern are `BeginCreate` and `BeginDelete`. 
 
-Examples of this pattern are `BeginCreate` and `BeginDelete`. As these functions are asynchronous your code doesn't block until the function finishes its task. Instead, the function returns immediately and you must periodically poll for the result until the task has completed. The following code snippet shows an example of this pattern.
+As these functions are asynchronous, your code doesn't block until the function finishes its task. Instead, the function returns a *poller* object immediately. Your code then calls a synchronous poller function that returns when the original asynchronous function has completed.
+
+The following code snippet shows an example of this pattern.
 
 ```go
 // Call an asynchronous function to create a client. One of the return values is a poller object.
