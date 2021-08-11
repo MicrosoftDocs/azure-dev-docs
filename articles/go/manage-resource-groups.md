@@ -21,117 +21,187 @@ ms.custom: devx-track-go
 
 ## 3. Create a Resource Group
 
-***Import the packages***
-```go
-import {
-    "github.com/Azure/azure-sdk-for-go/sdk/armcore"
-    "github.com/Azure/azure-sdk-for-go/sdk/resources/armresources"
-    "github.com/Azure/azure-sdk-for-go/sdk/azidentity"
-    "github.com/Azure/azure-sdk-for-go/sdk/to"
-}
-```
+1. Create a directory in which to test and run the sample Terraform code and make it the current directory.
 
-***Define some global variables***
-```go
-var (
-	ctx               = context.Background()
-	subscriptionId    = os.Getenv("AZURE_SUBSCRIPTION_ID")
-	location          = "westus2"
-	resourceGroupName = "resourceGroupName"
-)
-```
+1. Run the [go mod init](https://golang.org/ref/mod#go-mod-init) function to create a module in the current directory.
 
-***Write a function to create a resource group***
-```go
-func createResourceGroup(ctx context.Context, connection *armcore.Connection) (armresources.ResourceGroupResponse, error) {
-	rgClient := armresources.NewResourceGroupsClient(connection, subscriptionId)
+    ```cmd
+    go mod init <module_path>
+    ```
 
-	param := armresources.ResourceGroup{
-		Location: to.StringPtr(location),
-	}
+    **Key points:**
 
-	return rgClient.CreateOrUpdate(context.Backgroud(), resourceGroupName, param, nil)
-}
-```
+    - The `<module_path>` parameter is generally a location in a GitHub repo - such as `github.com/<your_github_account_name>/<directory>`.
+    - When you're creating a command-line app as a test and won't publish the app, the `<module_path>` doesn't have to exist.
 
-***Invoking the `createResourceGroup` function in main***
-```go
-func main() {
-    cred, err := azidentity.NewDefaultAzureCredential(nil)
-    if err != nil {
-        log.Fatalf("authentication failure: %+v", err)
+1. Create a file named `main.go` and insert the following code. Each section of code is commented to explain its purpose.
+
+    ```go
+    package main
+    
+    // Import key modules.
+    import (
+    	"context"
+    	"log"
+    	"os"
+    
+    	"github.com/Azure/azure-sdk-for-go/sdk/armcore"
+    	"github.com/Azure/azure-sdk-for-go/sdk/azcore"
+    	"github.com/Azure/azure-sdk-for-go/sdk/azidentity"
+    	"github.com/Azure/azure-sdk-for-go/sdk/resources/armresources"
+    	"github.com/Azure/azure-sdk-for-go/sdk/to"
+    )
+    
+    // Define key global variables.
+    var (
+    	ctx               = context.Background()
+    	subscriptionId    = os.Getenv("ARM_SUBSCRIPTION_ID")
+    	location          = "eastus"
+    	resourceGroupName = "myResourceGroup" // !! IMPORTANT: Change this to a unique name in your subscription.
+    )
+    
+    // Define the function to create a resource group.
+    func createResourceGroup(ctx context.Context, connection *armcore.Connection) (armresources.ResourceGroupResponse, error) {
+    	rgClient := armresources.NewResourceGroupsClient(connection, subscriptionId)
+    
+    	param := armresources.ResourceGroup{
+    		Location: to.StringPtr(location),
+    	}
+    
+    	return rgClient.CreateOrUpdate(context.Background(), resourceGroupName, param, nil)
     }
-    conn := armcore.NewDefaultConnection(cred, &armcore.ConnectionOptions{
-        Logging: azcore.LogOptions{
-            IncludeBody: true,
-        },
-    })
     
-    resourceGroup, err := createResourceGroup(ctx, conn)
-    if err != nil {
-        log.Fatalf("cannot create resource group: %+v", err)
+    // Define a standard 'main' function for an app that is called from the command line.
+    func main() {
+    
+    	// Create a credentials object.
+    	cred, err := azidentity.NewDefaultAzureCredential(nil)
+    	if err != nil {
+    		log.Fatalf("authentication failure: %+v", err)
+    	}
+    
+    	// Establish a connection with the Azure subscription.
+    	conn := armcore.NewDefaultConnection(cred, &armcore.ConnectionOptions{
+    		Logging: azcore.LogOptions{
+    			IncludeBody: true,
+    		},
+    	})
+    
+    	// Call your function to create an Azure resource group.
+    	resourceGroup, err := createResourceGroup(ctx, conn)
+    	if err != nil {
+    		log.Fatalf("cannot create resource group: %+v", err)
+    	}
+    
+    	// Print the name of the new resource group.
+    	log.Printf("Resource Group %s created", *resourceGroup.ResourceGroup.ID)
     }
-    log.Printf("Resource Group %s created", *resourceGroup.ID)
-}
+    ```
+
+    **Key points:**
+
+    - The `subscriptionId` value is retrieved from the `ARM_SUBSCRIPTION_ID` environment variable.
+    - The `location` and `resourceGroupName` strings have been given test values. If necessary, change those values to something appropriate for your environment.
+
+1. Run the `go run` command to build and run the app.
+
+    ```cmd
+    go run .
+    ```
+
+## 4. Verify the results
+
+#### [Azure portal](#tab/azure-portal)
+
+1. Browse to the [Azure portal](https://portal.azure.com).
+
+1. Sign in and select your Azure subscription.
+
+1. In the left menu, select **Resource groups**.
+
+1. The new resource group will be listed amongst your Azure subscription's resource groups.
+
+#### [Azure CLI](#tab/azure-cli)
+
+Run [az group show](/cli/azure/group#az_group_show) to display the resource group.
+
+```azurecli
+az group show --name <resource_group>
 ```
 
-Let's demonstrate management client's usage by showing additional samples
+#### [Azure PowerShell](#tab/azure-powershell)
 
-Example: Managing Resource Groups
+Run [Get-AzResourceGroup](/powershell/module/az.resources/Get-AzResourceGroup) to display the resource group.
 
-
-***Update a resource group***
-
-```go
-func updateResourceGroup(ctx context.Context, connection *armcore.Connection) (armresources.ResourceGroupResponse, error) {
-    rgClient := armresources.NewResourceGroupsClient(connection, subscriptionId)
-    
-    update := armresources.ResourceGroupPatchable{
-        Tags: map[string]*string{
-            "new": to.StringPtr("tag"),
-        },
-    }
-    return rgClient.Update(ctx, resourceGroupName, update, nil)
-}
+```azurepowershell
+Get-AzResourceGroup -Name <resource_group>
 ```
 
-***List all resource groups***
+---
 
-```go
-func listResourceGroups(ctx context.Context, connection *armcore.Connection) ([]*armresources.ResourceGroup, error) {
-    rgClient := armresources.NewResourceGroupsClient(connection, subscriptionId)
-    
-    pager := rgClient.List(nil)
-    
-    var resourceGroups []*armresources.ResourceGroup
-    for pager.NextPage(ctx) {
-        resp := pager.PageResponse()
-        if resp.ResourceGroupListResult != nil {
-            resourceGroups = append(resourceGroups, resp.ResourceGroupListResult.Value...)
+## 5. Update a resource group
+
+1. Return to your `main.go` file.
+
+1. Insert the following code just above the `main` function.
+
+    ```go
+    func updateResourceGroup(ctx context.Context, connection *armcore.Connection) (armresources.ResourceGroupResponse, error) {
+        rgClient := armresources.NewResourceGroupsClient(connection, subscriptionId)
+        
+        update := armresources.ResourceGroupPatchable{
+            Tags: map[string]*string{
+                "new": to.StringPtr("tag"),
+            },
         }
+        return rgClient.Update(ctx, resourceGroupName, update, nil)
     }
-    return resourceGroups, pager.Err()
-}
-```
+    ```
 
-***Delete a resource group***
+## 6. List an Azure subscription's resource groups
 
-```go
-func deleteResourceGroup(ctx context.Context, connection *armcore.Connection) error {
-    rgClient := armresources.NewResourceGroupsClient(connection, subscriptionId)
-    
-    poller, err := rgClient.BeginDelete(ctx, resourceGroupName, nil)
-    if err != nil {
-        return err
+1. Return to your `main.go` file.
+
+1. Insert the following code just above the `main` function.
+
+    ```go
+    func listResourceGroups(ctx context.Context, connection *armcore.Connection) ([]*armresources.ResourceGroup, error) {
+        rgClient := armresources.NewResourceGroupsClient(connection, subscriptionId)
+        
+        pager := rgClient.List(nil)
+        
+        var resourceGroups []*armresources.ResourceGroup
+        for pager.NextPage(ctx) {
+            resp := pager.PageResponse()
+            if resp.ResourceGroupListResult != nil {
+                resourceGroups = append(resourceGroups, resp.ResourceGroupListResult.Value...)
+            }
+        }
+        return resourceGroups, pager.Err()
     }
-    if _, err := poller.PollUntilDone(ctx, interval); err != nil {
-        return err
-    }
-    return nil
-}
-```
+    ```
 
-***Invoking the update, list and delete of resource group in the main function***
+## 7. Delete a resource group
+
+1. Return to your `main.go` file.
+
+1. Insert the following code just above the `main` function.
+
+    ```go
+    func deleteResourceGroup(ctx context.Context, connection *armcore.Connection) error {
+        rgClient := armresources.NewResourceGroupsClient(connection, subscriptionId)
+        
+        poller, err := rgClient.BeginDelete(ctx, resourceGroupName, nil)
+        if err != nil {
+            return err
+        }
+        if _, err := poller.PollUntilDone(ctx, interval); err != nil {
+            return err
+        }
+        return nil
+    }
+    ```
+
 ```go
 func main() {
 	cred, err := azidentity.NewDefaultAzureCredential(nil)
@@ -143,7 +213,6 @@ func main() {
 			IncludeBody: true,
 		},
 	})
-
 
     resourceGroup, err := createResourceGroup(ctx, conn)
     if err != nil {
@@ -170,67 +239,7 @@ func main() {
 })
 ```
 
-Example: Managing Virtual Machines
-
-In addition to resource groups, we will also use Virtual Machine as an example and show how to manage how to create a Virtual Machine which involves three Azure services (Resource Group, Network and Compute)
-
-Due to the complexity of this scenario, please [click here](https://aka.ms/azsdk/go/mgmt/samples) for the complete sample.
-
-Long Running Operations
-
-In the samples above, you might notice that some operations has a ``Begin`` prefix (for example, ``BeginDelete``). This indicates the operation is a Long-Running Operation (In short, LRO). For resource managment libraries, this kind of operation is quite common since certain resource operations may take a while to finish. When you need to use those LROs, you will need to use a poller and keep polling for the result until it is done. To illustrate this pattern, here is an example
-
-```go
-poller, err := client.BeginCreate(context.Background(), "resource_identifier", "additonal_parameter")
-if err != nil {
-	// handle error...
-}
-resp, err = poller.PollUntilDone(context.Background(), 5*time.Second)
-if err != nil {
-	// handle error...
-}
-fmt.Printf("LRO done")
-// dealing with `resp`
-```
-Note that you will need to pass a polling interval to ```PollUntilDone``` and tell the poller how often it should try to get the status. This number is usually small but it's best to consult the [Azure service documentation](/azure/?product=featured) on best practices and recommdend intervals for your specific use cases.
-
-For more advanced usage of LRO and design guidelines of LRO, please visit [this documentation here](https://azure.github.io/azure-sdk/golang_introduction.html#methods-invoking-long-running-operations)
-
-## Code Samples
-
-More code samples for using the management library for Go SDK can be found in the following locations
-- [Go SDK Code Samples](https://aka.ms/azsdk/go/mgmt/samples)
-- Example files under each package. For example, examples for Network packages can be [found here](https://github.com/Azure/azure-sdk-for-go/blob/main/sdk/network/armnetwork/example_networkinterfaces_test.go)
-
-Need help?
-----------
-
--   File an issue via [Github
-    Issues](https://github.com/Azure/azure-sdk-for-go/issues)
--   Check [previous
-    questions](https://stackoverflow.com/questions/tagged/azure+go)
-    or ask new ones on StackOverflow using azure and Go tags.
-
-Contributing
-------------
-
-For details on contributing to this repository, see the contributing
-guide.
-
-This project welcomes contributions and suggestions. Most contributions
-require you to agree to a Contributor License Agreement (CLA) declaring
-that you have the right to, and actually do, grant us the rights to use
-your contribution. For details, visit <https://cla.microsoft.com>.
-
-When you submit a pull request, a CLA-bot will automatically determine
-whether you need to provide a CLA and decorate the PR appropriately
-(e.g., label, comment). Simply follow the instructions provided by the
-bot. You will only need to do this once across all repositories using
-our CLA.
-
-This project has adopted the Microsoft Open Source Code of Conduct. For
-more information see the Code of Conduct FAQ or contact
-<opencode@microsoft.com> with any additional questions or comments.
+[!INCLUDE [troubleshooting.md](includes/troubleshooting.md)]
 
 ## Next steps
 
