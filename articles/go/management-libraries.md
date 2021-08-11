@@ -86,7 +86,7 @@ client := armnetwork.NewVirtualNetworksClient(acon, "<subscription ID>")
 
 Once instantiated, clients are used to make API calls against your Azure resources. For resource management scenarios, most of the use-cases are CRUD (Create/Read/Update/Delete) operations.
 
-To look up the operations for a specific type, do the following:
+To look up the operations for a specific type, do the following steps:
 
 1. Browse to the [Azure SDK for Go reference documentation](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk).
 1. Search the page for the type. (Pressing **&lt;F>** automatically expands all nodes on the page for searching.)
