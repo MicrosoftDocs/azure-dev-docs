@@ -1,12 +1,12 @@
 ---
-title: Manage resource groups with the Azure SDK for Go Management Library
+title: Manage resource groups with the Azure SDK for Go
 description: In this article, you learn how to create a resource group with the Azure SDK for Go Management Library.
 ms.date: 08/10/2021
 ms.topic: quickstart
 ms.custom: devx-track-go
 ---
 
-# Manage resource groups with the Azure SDK for Go Management Library
+# Manage resource groups with the Azure SDK for Go
 
 > [!IMPORTANT]
 > The packages for the current version of the Azure resource management libraries are located in `sdk/**/arm**`. The packages for the previous version of the management libraries are located under [`/services`](https://github.com/Azure/azure-sdk-for-go/tree/main/services). If you're using the older version, see the [this Azure SDK for Go Migration Guide](https://aka.ms/azsdk/go/mgmt/migration).
