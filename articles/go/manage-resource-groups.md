@@ -119,7 +119,7 @@ ms.custom: devx-track-go
 
 1. In the left menu, select **Resource groups**.
 
-1. The new resource group will be listed amongst your Azure subscription's resource groups.
+1. The new resource group will be listed among your Azure subscription's resource groups.
 
 #### [Azure CLI](#tab/azure-cli)
 
