@@ -1,7 +1,6 @@
 ---
- author: judubois
- ms.date: 05/06/2020
- ms.author: judubois
+ms.date: 05/06/2020
+ms.author: judubois
 ---
 
 Inside the main `DemoApplication` class, configure a new Spring bean that will create a database schema, using the following code:
