@@ -72,7 +72,7 @@ Azure Cloud Shell is a hosted shell environment that runs on an Ubuntu container
 
 Cloud Shell provides two shell environments: Bash (with Azure CLI preinstalled) and PowerShell (with Azure PowerShell preinstalled). A dropdown list at the top of the Cloud Shell window allows you to easily switch between the two environments.
 
-Cloud Shell is accessible in a web browser and has integrations for [Windows Terminal](https://channel9.msdn.com/Shows/IT-Ops-Talk/Azure-Cloud-Shell-in-the-Windows-Terminal) and [Visual Studio Code](https://azure.microsoft.com/en-us/blog/cloudshelleditor/).
+Cloud Shell is accessible in a web browser and has integrations for [Windows Terminal](https://channel9.msdn.com/Shows/IT-Ops-Talk/Azure-Cloud-Shell-in-the-Windows-Terminal) and [Visual Studio Code](https://azure.microsoft.com/blog/cloudshelleditor/).
 
 ![Azure CloudShell Bash and PowerShell environments](./media/choosing-the-right-azure-tool/azure-cloud-shell-bash-powershell.png)
 
