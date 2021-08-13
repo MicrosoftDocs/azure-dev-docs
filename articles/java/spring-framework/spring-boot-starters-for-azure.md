@@ -16,7 +16,6 @@ This article describes the various Spring Boot Starters for the [Spring Initiali
 >[!div class="mx-imgBorder"]
 ![Configure Azure Spring Boot Starters with Initializr][configure-azure-spring-boot-starters-with-initializr]
 
-
 The following Spring Boot Starters are currently available for Azure:
 
 * **[Azure Support](#azure-support)**
