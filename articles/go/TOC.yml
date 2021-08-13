@@ -9,6 +9,8 @@ items:
       href: azure-sdk-tools.md
     - name: Authentication
       href: azure-sdk-authorization.md
+    - name: Use an HTTP pipeline
+      href: azure-sdk-http-pipeline.md      
   - name: Quickstarts
     items:
     - name: Virtual Machines and Resource Templates

@@ -28,6 +28,8 @@ landingContent:
         links:
           - text: Authenticate your application
             url: azure-sdk-authorization.md
+          - text: Use an HTTP pipeline
+            url: azure-sdk-http-pipeline.md
   - title: Azure SDK for Go examples
     linkLists:
       - linkListType: quickstart
