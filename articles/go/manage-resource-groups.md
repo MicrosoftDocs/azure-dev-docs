@@ -34,7 +34,7 @@ ms.custom: devx-track-go
     - The `<module_path>` parameter is generally a location in a GitHub repo - such as `github.com/<your_github_account_name>/<directory>`.
     - When you're creating a command-line app as a test and won't publish the app, the `<module_path>` doesn't have to exist.
 
-1. From a command line, import the necessary Go modules.
+1. Run [go get](https://golang.org/ref/mod#go-get) to download, build, and install the necessary Azure SDK for Go modules.
 
     ```cmd
     go get github.com/Azure/azure-sdk-for-go/sdk/compute/armcompute
@@ -114,7 +114,13 @@ ms.custom: devx-track-go
     - The `subscriptionId` value is retrieved from the `ARM_SUBSCRIPTION_ID` environment variable.
     - The `location` and `resourceGroupName` strings have been given test values. If necessary, change those values to something appropriate for your environment.
 
-1. Run the `go run` command to build and run the app.
+1. Run the [go mod tidy](https://golang.org/ref/mod#go-mod-tidy) command to clean up the dependencies in the `go.mod` file based on your source code.
+
+    ```cmd
+    go mod tidy
+    ```
+
+1. Run the [`go run`](https://pkg.go.dev/cmd/go/internal/run) command to build and run the app.
 
     ```cmd
     go run .
