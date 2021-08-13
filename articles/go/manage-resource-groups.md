@@ -269,7 +269,7 @@ func main() {
         log.Fatalf("Deletion of resource group failed: %+v", err)
     }
     log.Printf("Resource group deleted")
-})
+}
 ```
 
 [!INCLUDE [troubleshooting.md](includes/troubleshooting.md)]
