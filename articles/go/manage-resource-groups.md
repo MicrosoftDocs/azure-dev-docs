@@ -1,7 +1,7 @@
 ---
 title: Manage resource groups with the Azure SDK for Go
 description: In this article, you learn how to create a resource group with the Azure SDK for Go Management Library.
-ms.date: 08/10/2021
+ms.date: 08/13/2021
 ms.topic: quickstart
 ms.custom: devx-track-go
 ---
@@ -41,8 +41,9 @@ ms.custom: devx-track-go
     go get github.com/Azure/azure-sdk-for-go/sdk/armcore
     go get github.com/Azure/azure-sdk-for-go/sdk/azcore
     go get github.com/Azure/azure-sdk-for-go/sdk/azidentity
+    go get github.com/Azure/azure-sdk-for-go/sdk/resources/armresources
     go get github.com/Azure/azure-sdk-for-go/sdk/to
-    ```
+        ```
 
 1. Create a file named `main.go` and insert the following code. Each section of code is commented to explain its purpose.
 
