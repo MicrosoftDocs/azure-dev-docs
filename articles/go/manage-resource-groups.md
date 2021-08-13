@@ -23,7 +23,7 @@ ms.custom: devx-track-go
 
 1. Create a directory in which to test and run the sample Terraform code and make it the current directory.
 
-1. Run the [go mod init](https://golang.org/ref/mod#go-mod-init) function to create a module in the current directory.
+1. Run [go mod init](https://golang.org/ref/mod#go-mod-init) to create a module in the current directory.
 
     ```cmd
     go mod init <module_path>
@@ -114,13 +114,13 @@ ms.custom: devx-track-go
     - The `subscriptionId` value is retrieved from the `ARM_SUBSCRIPTION_ID` environment variable.
     - The `location` and `resourceGroupName` strings have been given test values. If necessary, change those values to something appropriate for your environment.
 
-1. Run the [go mod tidy](https://golang.org/ref/mod#go-mod-tidy) command to clean up the dependencies in the `go.mod` file based on your source code.
+1. Run [go mod tidy](https://golang.org/ref/mod#go-mod-tidy) to clean up the dependencies in the `go.mod` file based on your source code.
 
     ```cmd
     go mod tidy
     ```
 
-1. Run the [`go run`](https://pkg.go.dev/cmd/go/internal/run) command to build and run the app.
+1. Run [`go run`](https://pkg.go.dev/cmd/go/internal/run) to build and run the app.
 
     ```cmd
     go run .
