@@ -14,9 +14,9 @@ This article first describes the [HTTP pipeline flow](#http-pipeline-flow), desc
 
 ## HTTP pipeline flow
 
-HTTPs requests are made through an HTTP **pipeline**. The pipeline describes the sequence of steps executed for each HTTP request-response round trip.
+HTTP requests are made through an HTTP **pipeline**. The pipeline describes the sequence of steps executed for each HTTP request-response round trip.
 
-The pipeline is specifically composed of a transport along with any number of policies:
+The pipeline is composed of a transport along with any number of policies:
 
 - The **transport** sends the request to the service and receives the response.
 - Each **policy** performs a specific action within the pipeline.
@@ -42,7 +42,7 @@ Azure Core provides three commonly required HTTP policies that you can add to an
 - [Logging Policy](https://github.com/Azure/azure-sdk-for-go/blob/sdk/azcore/v0.18.0/sdk/azcore/policy_logging.go)
 - [Telemetry Policy](https://github.com/Azure/azure-sdk-for-go/blob/sdk/azcore/v0.18.0/sdk/azcore/policy_telemetry.go)
 
-To provide additional capabilities, such as authentication or specifying custom header parameters, you can implement a custom policy that can modify the request and/or response. When adding the policy to the pipeline, you can specify whether this policy should run on a per-call or per-retry retry.
+To provide other capabilities, such as authentication or specifying custom header parameters, you can implement a custom policy that can modify the request and/or response. When adding the policy to the pipeline, you can specify whether this policy should run on a per-call or per-retry retry.
 
 ### Implementing a custom policy
 
@@ -54,9 +54,9 @@ To create a custom HTTP pipeline policy, you implement the [`Policy`](https://pk
 Either way, the policy runs as follows:
 
 1. The pipeline calls the function or `Do` method with an [`azcore.Request`](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azcore@v0.18.0#Request) object.
-1. The policy perform any desired operations, such as logging the outgoing request, mutating the URL, modifying headers and/or query parameters, injecting a failure, and so on.
+1. The policy performs any desired operations, such as logging the outgoing request, mutating the URL, modifying headers and/or query parameters, injecting a failure, and so on.
 1. The policy forwards the request to the next policy in the pipeline by calling the request's `Next` method.
-1. The return value of `Next` is tuple consisting of an [`azcore.Response`](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azcore@v0.18.0#Response) object and an error object, with which the policy perform any desired operations on the response, such as logging the response, handling errors, and so forth.
+1. The return value of `Next` is tuple consisting of an [`azcore.Response`](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azcore@v0.18.0#Response) object and an error object, with which the policy performs any desired operations on the response, such as logging the response, handling errors, and so forth.
 1. The policy returns the possibly modified response and error objects, which the pipeline then passes to the next policy in the response pipeline.
 
 The following sections provide templates for both stateless and stateful policy implementations.
@@ -196,7 +196,7 @@ if err != nil {
 }
 ```
 
-The body must be a seekable stream iso that upon retry, the retry policy instance can seek the stream back to the beginning before retrying the network request and re-uploading the body.
+The body must be a seekable stream so that upon retry, the retry policy instance can seek the stream back to the beginning before retrying the network request and uploading the body again.
 
 ### Send an explicit null
 
@@ -208,7 +208,7 @@ Operations like `JSON-MERGE-PATCH` send a JSON `null` to indicate a value should
 }
 ```
 
-This requirement conflicts with the SDK's default marshalling that specifies `omitempty` as a means to resolve the ambiguity between a field to be excluded and its zero-value.
+This requirement conflicts with the SDK's default marshaling that specifies `omitempty` as a means to resolve the ambiguity between a field to be excluded and its zero-value.
 
 ```go
 type Widget struct {
@@ -233,11 +233,11 @@ This code set an explicit `null` for `Count`, indicating that any current value 
 
 ### Process the response
 
-The `Response` type, which is a wrapper for the underlying `*http.Response`, contains various convenience methods like testing the HTTP response code and unmarshalling the response body in a particular format.
+The `Response` type, which is a wrapper for the underlying `*http.Response`, contains various convenience methods like testing the HTTP response code and unmarshaling the response body in a particular format.
 
 The response is returned through the transport and all `Policy` instances. Each `Policy` instance can inspect or mutated the embedded `*http.Response`.
 
-### Cancel a requests
+### Cancel a request
 
 Cancellation is handled via the `context.Context` parameter, which is always the first method parameter. Any API that performs I/O of any kind, sleeps, or performs a significant amount of CPU-bound work will take a `context.Context` as its first parameter. For more information and examples, see the [context](https://pkg.go.dev/context) reference.
 
