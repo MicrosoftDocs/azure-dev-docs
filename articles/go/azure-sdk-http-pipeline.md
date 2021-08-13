@@ -14,9 +14,9 @@ This article first describes the [HTTP pipeline flow](#http-pipeline-flow), desc
 
 ## HTTP pipeline flow
 
-When you invoke a method though an SDK client object, the client object in turn generates an HTTP request to the Azure service associated with that client. The client then processes the service's response before returning data to your code.
+HTTPs requests are made through an HTTP **pipeline**. The pipeline describes the sequence of steps executed for each HTTP request-response round trip.
 
-An HTTP **pipeline** describes the sequence of steps executed for each HTTP request-response round trip. The pipeline is specifically composed of a transport along with any number of policies:
+The pipeline is specifically composed of a transport along with any number of policies:
 
 - The **transport** sends the request to the service and receives the response.
 - Each **policy** performs a specific action within the pipeline.
@@ -44,14 +44,12 @@ Azure Core provides three commonly required HTTP policies that you can add to an
 
 To provide additional capabilities, such as authentication or specifying custom header parameters, you can implement a custom policy that can modify the request and/or response. When adding the policy to the pipeline, you can specify whether this policy should run on a per-call or per-retry retry.
 
-To create a custom HTTP pipeline policy, extend the base `Policy` type and implement the required methods. You then add the policy to the appropriate position in the pipeline.
-
 ### Implementing a custom policy
 
-A custom policy is an object that implements the [`Policy`](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azcore@v0.18.0#Policy) interface. A policy can be implemented in two ways:
+To create a custom HTTP pipeline policy, you implement the [`Policy`](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azcore@v0.18.0#Policy) interface in one of two ways:
 
 - As a first-class function for a *stateless policy*.
-- As a `Do` method on a type for a *stateful policy*, which is defined by the abstract `Policy` interface. Because HTTP requests made via the same pipeline share the same policy instances, any stateful policy that mutates its state it must be properly synchronized to avoid race conditions.
+- As a `Do` method on a type for a *stateful policy*, which is defined by the `Policy` interface. Because HTTP requests made via the same pipeline share the same policy instances, any stateful policy that mutates its state it must be properly synchronized to avoid race conditions.
 
 Either way, the policy runs as follows:
 
@@ -331,7 +329,7 @@ if err != nil {
 process(w)
 ```
 
-#### Reume from a previous operation
+#### Resume from a previous operation
 
 ```go
 // Object the resume token from a previous poller instance
