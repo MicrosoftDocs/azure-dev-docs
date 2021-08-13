@@ -43,7 +43,7 @@ ms.custom: devx-track-go
     go get github.com/Azure/azure-sdk-for-go/sdk/azidentity
     go get github.com/Azure/azure-sdk-for-go/sdk/resources/armresources
     go get github.com/Azure/azure-sdk-for-go/sdk/to
-        ```
+    ```
 
 1. Create a file named `main.go` and insert the following code. Each section of code is commented to explain its purpose.
 
