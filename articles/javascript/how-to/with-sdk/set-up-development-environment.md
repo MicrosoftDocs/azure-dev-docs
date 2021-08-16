@@ -79,12 +79,15 @@ You can also create a service principal with:
 
 In both the local and Azure cloud environments, you need to configure the following environment variables. Do not change the name because the Azure Identity SDK requires these exact environment names. 
 
-These environment variables are **REQUIRED for the context to use DefaultAzureCredential**. 
+1. Create these environment variables. These environment variables are **REQUIRED for the context to use DefaultAzureCredential**. 
 
-* `AZURE_TENANT_ID`: `tenant` from the service principal output above. 
-* `AZURE_CLIENT_ID`: `appId` from the service principal output above.
-* `AZURE_CLIENT_SECRET`: `password` from the service principal output above.
-* `AZURE_SUBSCRIPTION`: Your default subscription containing your resource groups. This setting isn't required to use the DefaultAzureCredential.
+   * `AZURE_TENANT_ID`: `tenant` from the service principal output above. 
+   * `AZURE_CLIENT_ID`: `appId` from the service principal output above.
+   * `AZURE_CLIENT_SECRET`: `password` from the service principal output above.
+
+1. Create this environment variable. This setting isn't required to use the DefaultAzureCredential but is used in the code in the next section.
+
+   * `AZURE_SUBSCRIPTION`: Your default subscription containing your resource groups. 
 
 ## 3. List Azure resource groups with service principal 
 
