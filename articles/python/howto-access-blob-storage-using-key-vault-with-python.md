@@ -4,15 +4,15 @@ description: Learn how to retrieve a secret from Azure Key Vault to access Azure
 services: python, azure-functions, azure-key-vault, azure-storage-accounts
 ms.custom: devx-track-python, devx-track-azurepowershell, devx-track-azurecli
 ms.devlang: python
-ms.topic: quickstart
+ms.topic: how-to
 ms.prod: azure-python
 author: jess-johnson-msft
 ms.author: jejohn
-ms.date: 07/30/2021
+ms.date: 08/16/2021
 ---
 # Access Azure Blob Storage using Azure Key Vault with a Python Function
 
-In this quickstart, you'll learn how to retrieve a secret from Azure Key Vault to access Azure Storage Blob, using a serverless Python Function.
+In this article, you'll learn how to retrieve a secret from Azure Key Vault to access Azure Storage Blob, using a serverless Python Function.
 
 ![Relational Data Ingestion - Securely Extract Data diagram.](./media/quickstart-securely-retrieve-blob-data/qs_akv_asb_fun-INGESTION-Simplified.png)
 
@@ -30,7 +30,7 @@ In this quickstart, you'll learn how to retrieve a secret from Azure Key Vault t
   * azure-keyvault-keys `pip install azure-keyvault-secrets`
 
 ## 1. Configure your environment
-This quickstart assumes the following Azure Resources have **already been provisioned**:
+This article assumes the following Azure Resources have **already been provisioned**:
 
 * Azure Active Directory (Azure AD), sign-up or learn more about [Azure AD](/azure/active-directory/fundamentals/sign-up-organization)
 * Azure Storage Account, to create a new Storage Account you can use the [Azure portal](/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal), [Azure PowerShell](/azure/storage/common/storage-quickstart-create-account?tabs=azure-powershell), or [Azure CLI](/azure/storage/common/storage-quickstart-create-account?tabs=azure-cli)
@@ -194,7 +194,7 @@ except Exception as e:
 ```
 
 >[!NOTE]
->In this quickstart, the logged in user is used to authenticate to Key Vault, which is the preferred method for local development. For applications deployed to Azure, managed identity should be assigned to App Service or Virtual Machine, for more information, see [Managed Identity Overview](/azure/active-directory/managed-identities-azure-resources/overview).
+>In this article, the logged in user is used to authenticate to Key Vault, which is the preferred method for local development. For applications deployed to Azure, managed identity should be assigned to App Service or Virtual Machine, for more information, see [Managed Identity Overview](/azure/active-directory/managed-identities-azure-resources/overview).
 
 ## 6. Get data from Azure Storage with serverless Function
 
@@ -235,4 +235,4 @@ Midmarket,Mexico,Carretera,2470,$3.00,$15.00,"$37,050.00",6/1/2014
 
 ## Next steps
 
-This quickstart showed you how to use Azure CLI/Powershell to create secure access between a serverless Azure Function, Azure Key Vault, and Azure Storage Account. You also learned how to use the Python Azure SDK to retrieve the secret from the Key Vault to securely extract the raw file data from Azure Storage. In the following article, we can expand this Azure Function to include transforming and loading the extracted data into an Azure relational database.
+This article showed you how to use Azure CLI/Powershell to create secure access between a serverless Azure Function, Azure Key Vault, and Azure Storage Account. You also learned how to use the Python Azure SDK to retrieve the secret from the Key Vault to securely extract the raw file data from Azure Storage. In the following article, we can expand this Azure Function to include transforming and loading the extracted data into an Azure relational database.
