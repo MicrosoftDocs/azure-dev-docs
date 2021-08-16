@@ -72,7 +72,7 @@ Create a service principal and configure its access to Azure resources. The serv
 
 You can also create a service principal with:
 * [Azure portal](/azure/active-directory/develop/howto-create-service-principal-portal)
-* [PowerShell](/azure/active-directory/develop/howto-authenticate-service-principal-powershell). 
+* [PowerShell](/azure/active-directory/develop/howto-authenticate-service-principal-powershell) 
 
 
 ## 2. Configure your environment variables
