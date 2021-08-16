@@ -37,7 +37,7 @@ This article assumes the following Azure Resources have **already been provision
 * Azure Key Vault, to create a new Key Vault you can use the [Azure portal](/azure/key-vault/keys/quick-create-portal), [PowerShell](/azure/key-vault/keys/quick-create-powershell), or [Azure CLI](/azure/key-vault/keys/quick-create-cli)
 * HTTP Trigger or Blob Trigger Azure Function, to create a new Function you can use the [Visual Studio Code](/azure/azure-functions/create-first-function-vs-code-python), [Azure PowerShell](/azure/azure-functions/create-first-function-vs-code-powershell), or [Azure CLI](/azure/azure-functions/create-first-function-cli-python)
 
-The following names and IDs should be gathered for use later in this article:
+The following names and IDs are needed later use in this article:
 
 * Azure Function App ID
 * Azure Storage Account Name
