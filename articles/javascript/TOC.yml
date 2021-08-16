@@ -35,7 +35,7 @@
             href: how-to/with-sdk/set-up-development-environment.md
       - name: With web apps
         items:
-          - name: Configure 
+          - name: Configure
             items: 
             - name: Configure app settings
               href: how-to/configure-web-app-settings.md
