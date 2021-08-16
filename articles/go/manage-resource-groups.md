@@ -69,6 +69,7 @@ ms.custom: devx-track-go
     	subscriptionId    = os.Getenv("ARM_SUBSCRIPTION_ID")
     	location          = "eastus"
     	resourceGroupName = "myResourceGroup" // !! IMPORTANT: Change this to a unique name in your subscription.
+        interval          = 5 * time.Second
     )
     
     // Define the function to create a resource group.
@@ -248,14 +249,14 @@ func main() {
         log.Fatalf("Creation of resource group failed: %+v", err)
     }
     // Print the name of the new resource group.
-    log.Printf("Resource group %s created", *resourceGroup.ID)
+    log.Printf("Resource group %s created", *resourceGroup.ResourceGroup.ID)
 
     // Call your function to add a tag to your new resource group.
     updatedRG, err := updateResourceGroup(ctx, conn)
     if err != nil {
         log.Fatalf("Update of resource group failed: %+v", err)
     }
-    log.Printf("Resource Group %s updated", *updatedRG.ID)
+    log.Printf("Resource Group %s updated", *updatedRG.ResourceGroup.ID)
 
     // Call your function to list all the resource groups.
     rgList, err := listResourceGroups(ctx, conn)
