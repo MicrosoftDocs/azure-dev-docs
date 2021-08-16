@@ -4,6 +4,7 @@ description: Tutorial part 1, Azure CLI introduction and prerequisites.
 ms.topic: tutorial
 ms.date: 08/16/2021
 ms.custom: devx-track-js, devx-track-azurecli
+# Verified full run: diberry 08/16/2021
 ---
 
 
@@ -28,10 +29,6 @@ In this tutorial, you deploy a Node.js application to Azure App Service using th
 ### Sign in to Azure with Azure CLI
 
 [!INCLUDE [Sign in ](../../../azure-cli/includes/interactive-login.md)]
-
-## Check npm version
-
-If you already had Node.js installed, run the `node -v` command and verify that the version is an LTS version or higher. If you have an older version, [upgrade](https://nodejs.org/en/download/) to the most current LTS ("Long-Term Support") release.
 
 ## Next step
 
