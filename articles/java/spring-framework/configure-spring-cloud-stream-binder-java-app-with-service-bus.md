@@ -67,7 +67,7 @@ The following prerequisites are required for this article:
     <dependency>
         <groupId>com.azure.spring</groupId>
         <artifactId>azure-spring-cloud-stream-binder-servicebus-topic</artifactId>
-        <version>2.5.0</version>
+        <version>2.7.0</version>
     </dependency>
     ```
 
