@@ -100,7 +100,7 @@ Use the new service principal to authenticate with Azure.
 
 1. Create a JavaScript file, named `resource-groups-list.js`, with the following code:
 
-    :::code language="JavaScript" source="~/../js-e2e/resources/resource-groups-list.js"  :::
+    :::code language="JavaScript" source="~/../js-e2e/resources/resource-groups-list/resource-groups-list.js"  :::
 
 1. Run the file to view the resource group list:
 
