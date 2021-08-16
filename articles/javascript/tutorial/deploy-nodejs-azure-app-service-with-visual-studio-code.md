@@ -4,6 +4,7 @@ description: Deploy an Express.js Node.js web application to Azure App Service u
 ms.topic: tutorial
 ms.date: 08/16/2021
 ms.custom: devx-track-js
+# Verified full run: diberry 08/16/2021
 ---
 
 # Deploy Express.js to Azure App Service using Visual Studio Code
@@ -18,7 +19,7 @@ Deploy your Express.js app to Azure with the Visual Studio Code extension for Az
 ## 1. Set up your development environment
 
 * Create a free [Azure subscription](https://azure.microsoft.com/free/)
-* Install [Node.js 14+ and npm](https://nodejs.org/en/download)
+* Install [Node.js LTS and npm](https://nodejs.org/en/download)
 * Install [Visual Studio Code](https://code.visualstudio.com/) and use the following extensions:
     * [Azure App Service extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice)
 
@@ -36,47 +37,20 @@ Once you've installed an extension in Visual Studio Code, you need to sign into 
     
     ![VS Code Azure explorer showing subscriptions](../media/deploy-azure/azure-subscription-view.png)
 
-> [!NOTE]
-> If you see the error **"Cannot find subscription with name [subscription ID]"**, this may be because you are behind a proxy and unable to reach the Azure API. Configure `HTTP_PROXY` and `HTTPS_PROXY` environment variables with your proxy information in your terminal:
->
-> # [bash](#tab/bash)
->
-> ```bash
-> export HTTPS_PROXY=https://username:password@proxy:8080
-> export HTTP_PROXY=http://username:password@proxy:8080
-> ```
->
-> # [PowerShell](#tab/powershell)
->
-> ```powershell
-> $env: HTTPS_PROXY = "https://username:password@proxy:8080"
-> $env: HTTP_PROXY = "http://username:password@proxy:8080"
-> ```
->
-> # [Cmd](#tab/cmd)
->
-> ```cmd
-> set HTTPS_PROXY=https://username:password@proxy:8080
-> set HTTP_PROXY=http://username:password@proxy:8080
-> ```
->
-> ---
-
-
 ## 3. Create a local Express.js app
 
 Create and run an Express.js app by cloning an Azure sample repository. 
 
 1. At a terminal command prompt, go to the location where you want to create the app folder.
 
-1. Use the following base command with git to clone the repository, change into the repository folder named `myexpressapp`, then install the npm dependencies. 
+1. Use the following base command with git to clone the repository, change into the repository folder named `myexpressapp`, then install the npm dependencies, and open the project in Visual Studio Code from the terminal. 
 
     ```bash
     git clone https://github.com/Azure-Samples/js-e2e-express-server.git myexpressapp && \
         cd myexpressapp && \
-        npm install
+        npm install && \
+        code .
     ```
-
 ## 4. Run your local Express.js app
 
 1. Start the server:
@@ -118,17 +92,15 @@ Create and run an Express.js app by cloning an Azure sample repository.
 
 1. When prompted, select **LocalGit**.
 
-1. Select the blue up arrow icon to deploy your code to Azure:
+1. Select the deployment (up arrow) icon to deploy your code to Azure:
 
     ![Deploy to Web App icon](../media/deploy-azure/deploy.png)
 
 1. At the prompts, select the *myexpressapp* folder, select your **subscription** account again and then select the name of the web app created earlier.
 
-1. When deploying to Linux, select **Yes** when prompted to update your configuration to run `npm install` on the target server.
+    When this deployment is complete, it is listed in the Azure Explorer, under your web app's **Deployments Git** node.
 
-    ![Prompt to update configuration on the target Linux server](../media/deploy-azure/server-build.png)
-
-1. When prompted with **Always deploy the workspace "nodejs-docs-hello-world" to (app name)"**, select **Yes**. This tells VS Code to automatically target the same App Service web app with subsequent deployments.
+1. When prompted with **Always deploy the workspace to (app name)"**, select **Yes**. This tells VS Code to automatically target the same App Service web app with subsequent deployments.
 
 1. Once deployment is complete, select **Browse Website** in the prompt to view your freshly deployed web app. The browser should display "Hello World!"
 
@@ -140,23 +112,11 @@ View (tail) any output that the running app generates through calls to `console.
 
     ![View Streaming Logs](../media/deploy-azure/start-streaming-logs.png)
 
-1. When prompted, choose to enable logging and restart the application.
-
-    ![Prompt to enable logging and restart](../media/deploy-azure/enable-restart.png)
-
-1. Once the app is restarted, the VS Code **Output** window opens with a connection to the log stream that shows output.
-
-    <pre>
-    Connecting to log stream...
-    2020-03-04T19:29:44  Welcome, you are now connected to log-streaming service. The default timeout is 2 hours.
-    Change the timeout with the App Setting SCM_LOGSTREAM_TIMEOUT (in seconds).
-    </pre>
-
 1. Refresh the web page a few times in the browser to see additional log output.
 
 ## 8. Make changes and redeploy
 
-1. Make a small change to the app. Change `Welcome to Express` to `Welcome to Express with Visual Studio Code`. 
+1. Make a small change to the app. In `./public/client.html`, change `Welcome to Express` to `Welcome to Express with Visual Studio Code`. 
 
 1. Right-click your app service from the list of App services in the App service extension, then select **Deploy to Web App...**. 
 
@@ -168,6 +128,33 @@ View (tail) any output that the running app generates through calls to `console.
 When you want to clean up the resources, right-click on the App service in the Visual Studio Code's App Service extension, then select **Delete**.
 
 :::image type="content" source="../media/deploy-azure/delete-azure-app-service-with-visual-studio-code-extension.png" alt-text="When you want to clean up the resources, right-click on the App service in the Visual Studio Code's App Service extension, then select **Delete**.":::
+
+## Troubleshooting
+
+When trying to sign in to Azure, if you see the error **"Cannot find subscription with name [subscription ID]"**, this may be because you are behind a proxy and unable to reach the Azure API. Configure `HTTP_PROXY` and `HTTPS_PROXY` environment variables with your proxy information in your terminal:
+>
+> # [bash](#tab/bash)
+>
+> ```bash
+> export HTTPS_PROXY=https://username:password@proxy:8080
+> export HTTP_PROXY=http://username:password@proxy:8080
+> ```
+>
+> # [PowerShell](#tab/powershell)
+>
+> ```powershell
+> $env: HTTPS_PROXY = "https://username:password@proxy:8080"
+> $env: HTTP_PROXY = "http://username:password@proxy:8080"
+> ```
+>
+> # [Cmd](#tab/cmd)
+>
+> ```cmd
+> set HTTPS_PROXY=https://username:password@proxy:8080
+> set HTTP_PROXY=http://username:password@proxy:8080
+> ```
+>
+> ---
 
 ## Next steps
 
