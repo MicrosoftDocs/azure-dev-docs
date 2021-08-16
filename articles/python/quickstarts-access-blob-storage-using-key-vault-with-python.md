@@ -10,7 +10,7 @@ author: jess-johnson-msft
 ms.author: jejohn
 ms.date: 07/30/2021
 ---
-# Quickstart: Access Azure Blob Storage using Azure Key Vault with a Python Function
+# Access Azure Blob Storage using Azure Key Vault with a Python Function
 
 In this quickstart, you'll learn how to retrieve a secret from Azure Key Vault to access Azure Storage Blob, using a serverless Python Function.
 
@@ -29,6 +29,7 @@ In this quickstart, you'll learn how to retrieve a secret from Azure Key Vault t
   * azure-identity `pip install azure-identity`
   * azure-keyvault-keys `pip install azure-keyvault-secrets`
 
+## 1. Configure your environment
 This quickstart assumes the following Azure Resources have **already been provisioned**:
 
 * Azure Active Directory (Azure AD), sign-up or learn more about [Azure AD](/azure/active-directory/fundamentals/sign-up-organization)
@@ -36,7 +37,15 @@ This quickstart assumes the following Azure Resources have **already been provis
 * Azure Key Vault, to create a new Key Vault you can use the [Azure portal](/azure/key-vault/keys/quick-create-portal), [PowerShell](/azure/key-vault/keys/quick-create-powershell), or [Azure CLI](/azure/key-vault/keys/quick-create-cli)
 * HTTP Trigger or Blob Trigger Azure Function, to create a new Function you can use the [Visual Studio Code](/azure/azure-functions/create-first-function-vs-code-python), [Azure PowerShell](/azure/azure-functions/create-first-function-vs-code-powershell), or [Azure CLI](/azure/azure-functions/create-first-function-cli-python)
 
-## 1. Upload a CSV to a blob container
+The following names and IDs should be gathered for use later in this article:
+
+* Azure Function App ID
+* Azure Storage Account Name
+* Azure Storage Account ID
+* Azure Key Vault Name
+* Azure Active Directory User
+
+## 2. Upload a CSV to a blob container
 
 To ingest relational data using a serverless Python Azure Function, upload a data (blob) to an Azure Storage container. If you already have your data (blob) uploaded, you can skip to the next section.
 
@@ -61,9 +70,11 @@ Midmarket,Germany,Carretera,888,$3.00,$15.00,"$13,320.00",6/1/2014
 Midmarket,Mexico,Carretera,2470,$3.00,$15.00,"$37,050.00",6/1/2014
 ```
 
-Run the following code from your favorite IDE to upload your data (blob) to the storage container (We recommend [VSCode](https://code.visualstudio.com/)).
+Upload your data (blob) to your storage container.
 
 ### [PowerShell](#tab/azure-powershell)
+
+Run [Set-AzStorageBlobContent](/powershell/module/az.storage/set-AzStorageblobcontent) to upload data to an Azure Blob Storage container.
 
 ```powershell
 Set-AzStorageBlobContent -File "<file-path>" -Container "<container-name>" -Blob "financial_sample.csv" -Context "<storage-account-context>" 
@@ -71,25 +82,29 @@ Set-AzStorageBlobContent -File "<file-path>" -Container "<container-name>" -Blob
 
 ### [Azure CLI](#tab/azure-cli)
 
+Run [az storage blob upload](/cli/azure/storage/blobt#az_storage_blob_upload) to upload data to an Azure Blob Storage container.
+
 ```azurecli
 az storage blob upload --account-name "<storage-account>" --container-name "<container>" --name "financial_sample" --file "financial_sample.csv" --auth-mode login
 ```
 
 * * *
 
-## 2. Set a secret to the blob access key
+## 3. Set a secret to the blob access key
 
 Create a 'secret' in Azure Key Vault to store the Storage Account access key.
 
-Run the following code from your favorite IDE to create a secret to store the access key.
-
 ### [PowerShell](#tab/azure-powershell)
+
+Run [Set-AzKeyVaultSecret](/powershell/module/az.keyvault/set-azkeyvaultsecret) to create a secret in Azure Key Vault.
 
 ``` powershell
 Set-AzKeyVaultSecret -VaultName "<keyvault-name>" -Name "BlobAccessKey" -SecretValue "<secret-value>"
 ```
 
 ### [Azure CLI](#tab/azure-cli)
+
+Run [az keyvault secret set](/cli/azure/keyvault/secret?view=azure-cli-latest#az_keyvault_secret_set) to create a secret in Azure Key Vault.
 
 ``` azurecli
 az keyvault secret set --vault-name "<keyvault-name>" --name "BlobAccessKey" --value "<secret-value>"
@@ -100,13 +115,13 @@ az keyvault secret set --vault-name "<keyvault-name>" --name "BlobAccessKey" --v
 >[!IMPORTANT]
 >A common approach for storing sensitive information is to move the data from the application code into a 'config.json' file. However, this practice still stores the sensitive information in plain text. We recommend instead using [Azure Key Vault](https://azure.microsoft.com/services/key-vault/). Azure Key Vault is a secure centralized cloud solution for storing and managing sensitive information, such as passwords, certificates, and keys.
 
-## 3. Configure access between Azure Storage Account and Azure Key Vault
+## 4. Configure access between storage and key vault
 
 Next, you need to authorize Azure Key Vault to access your Azure Storage Account to manage your Storage Account access key. Learn more about the [built-in Azure roles](/azure/role-based-access-control/built-in-roles) and [Access Policies](/azure/key-vault/general/security-features#privileged-access).
 
-Run the following code from your favorite IDE to authorize Key Vault to access your Storage Account.
-
 ### [PowerShell](#tab/azure-powershell)
+
+Run [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment), [Set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy), [Add-AzKeyVaultManagedStorageAccount](/powershell/module/az.keyvault/add-azkeyvaultmanagedstorageaccount) to authorize Key Vault to access your Storage Account.
 
 ```powershell
 # Set the Storage Account keys regeneration period to 30 days
@@ -124,6 +139,8 @@ Add-AzKeyVaultManagedStorageAccount -VaultName "<keyvault-name>" -AccountName "<
 
 ### [Azure CLI](#tab/azure-cli)
 
+Run [az role assignment create](/cli/azure/role/assignment), [az keyvault set-policy](/azure/key-vault/general/assign-access-policy-cli), [az keyvault storage add](/cli/azure/keyvault/storage) to authorize Key Vault to access your Storage Account.
+
 ```azurecli
 # Assign Azure role "Storage Account Key Operator Service Role" to Key Vault, limiting the access scope to your Storage Account
 az role assignment create --role "Storage Account Key Operator Service Role" --assignee 'https://vault.azure.net' --scope "/subscriptions/<subscription-id>/resourceGroups/<storage-account-resource-group-name>/providers/Microsoft.Storage/storageAccounts/<storage-account-name>"
@@ -137,7 +154,7 @@ az keyvault storage add --vault-name "<keyvault-name>" -n "<storage-account-name
 
 * * *
 
-## 4. Retrieve Key Vault secret in an Azure Function
+## 5. Retrieve Key Vault secret in an Azure Function
 
 The storage access key is now securely stored in a centralized Key Vault. Now the secret value (blob access key) can be retrieved within the Azure Function.
 
@@ -179,7 +196,7 @@ except Exception as e:
 >[!NOTE]
 >In this quickstart, the logged in user is used to authenticate to Key Vault, which is the preferred method for local development. For applications deployed to Azure, managed identity should be assigned to App Service or Virtual Machine, for more information, see [Managed Identity Overview](/azure/active-directory/managed-identities-azure-resources/overview).
 
-## 5. Get data from Azure Storage with serverless Function
+## 6. Get data from Azure Storage with serverless Function
 
 Extract, Transform, and Load (ETL) is a common approach used in data processing solutions. In this approach, data is extracted from one or more source systems, then transformed in a 'staging' area. Finally, the processed data is loaded into a data store to be consumed by analytic tools.
 
@@ -187,9 +204,7 @@ Append the below code to your existing code to begin the ETL process. This funct
 
 ``` python
 .....
-
-from azure.keyvault.secrets import SecretClient
-from azure.identity import DefaultAzureCredential
+from azure.storage.blob import BlobClient
 
 blob_client = BlobClient( account_url=storage_account_url, 
                           container_name=blob_container_name, 
