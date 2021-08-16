@@ -104,7 +104,7 @@ Set-AzKeyVaultSecret -VaultName "<keyvault-name>" -Name "BlobAccessKey" -SecretV
 
 ### [Azure CLI](#tab/azure-cli)
 
-Run [az keyvault secret set](/cli/azure/keyvault/secret?view=azure-cli-latest#az_keyvault_secret_set) to create a secret in Azure Key Vault.
+Run [az keyvault secret set](/cli/azure/keyvault/secret) to create a secret in Azure Key Vault.
 
 ``` azurecli
 az keyvault secret set --vault-name "<keyvault-name>" --name "BlobAccessKey" --value "<secret-value>"
