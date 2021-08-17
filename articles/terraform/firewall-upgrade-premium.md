@@ -3,7 +3,7 @@ title: Upgrade Azure Firewall Standard to Premium using Terraform
 description: Learn how to upgrade an existing standard Azure Firewall to Azure Firewall Premium.
 keywords: azure, devops, terraform, firewall, upgrade
 ms.topic: how-to
-ms.date: 08/18/2021
+ms.date: 08/17/2021
 ms.custom: devx-track-terraform
 ---
 
@@ -29,19 +29,11 @@ In this article, you learn how to:
 
 ## 2. Implement the Terraform code
 
-<!--
-The source code for your article should be pulled from GitHub.
-The GitHub repo from which the code is pulled is defined in the ".openpublishing.publish.config.json" file.
-At the time of this writing, that repo is https://github.com/Azure/terraform
-You need to get your code merged into the master branch of appropriate directory in that repo.
-Contact PM Mark Gray for questions on this task - especially where to put your code and getting your code merged.
--->
-
 1. Create a directory in which to test and run the sample Terraform code and make it the current directory.
 
 1. Create a file named `main.tf` and insert the following code:
 
-    [!code-terraform[master](/quickstart/101-firewall-standard/main.tf)]
+    [!code-terraform[master](](../../terraform_samples/quickstart/101-firewall-standard/main.tf)]
 
 ## 3. Initialize Terraform
 
@@ -177,7 +169,7 @@ Open the `main.tf` file, and make the following changes:
 
 ## 10. Clean up resources
 
-[!INCLUDE [terraform-destroy-plan.md](includes/terraform-destroy-plan.md)]
+[!INCLUDE [terraform-plan-destroy.md](includes/terraform-plan-destroy.md)]
 
 ## Troubleshoot Terraform on Azure
 
