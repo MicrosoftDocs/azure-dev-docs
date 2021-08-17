@@ -1,9 +1,8 @@
 ---
- author: seanli1988
- ms.service: azure-java
- ms.topic: include
- ms.date: 08/12/2019
- ms.author: seal
+ms.service: azure-java
+ms.topic: include
+ms.date: 08/12/2019
+ms.author: seal
 ---
 
 > [!IMPORTANT]

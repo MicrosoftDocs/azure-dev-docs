@@ -1,7 +1,6 @@
 ---
 title: Get Java help from Microsoft
 description: Get Help from Microsoft in your journey to Azure.
-author: sadigopu
 ms.author: sreea
 ms.topic: article
 ms.date: 03/19/2021

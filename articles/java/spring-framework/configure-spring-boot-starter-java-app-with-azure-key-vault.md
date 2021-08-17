@@ -6,7 +6,6 @@ ms.service: key-vault
 ms.topic: tutorial
 ms.custom: devx-track-java, devx-track-azurecli
 ms.author: edburns
-author: edburns
 ---
 
 # Tutorial: Read a secret from Azure Key Vault in a Spring Boot application
@@ -331,7 +330,7 @@ To manually add the same the configuration that Spring Initializr generates, add
 
    ```xml
    <properties>
-        <azure.version>3.5.0</azure.version>
+        <azure.version>3.6.0</azure.version>
    </properties>
    <dependencies>
         <dependency>

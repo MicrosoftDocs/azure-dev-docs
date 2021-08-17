@@ -1,7 +1,6 @@
 ---
 title: Troubleshoot networking issues when using the Azure SDK for Java
 description: An overview of how to troubleshoot networking issues related to using the Azure SDK for Java
-author: alzimmermsft
 ms.date: 02/02/2021
 ms.topic: conceptual
 ms.custom: devx-track-java
