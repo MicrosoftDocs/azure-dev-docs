@@ -27,9 +27,9 @@ git commit -m "Initial Commit"
 
 1. To [set the user-level deployment credentials with Azure CLI](/azure/app-service/deploy-configure-credentials), run the following command. Replace `username` and `password` with credentials you created in the previous step. 
 
-```azurecli
-az webapp deployment user set --user-name <username> --password <password>
-```
+    ```azurecli
+    az webapp deployment user set --user-name <username> --password <password>
+    ```
 
     If your password doesn't meet your Tenant's password requirements, create a password that does and retry the command.
 
