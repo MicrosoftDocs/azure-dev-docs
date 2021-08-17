@@ -37,9 +37,9 @@ This content is primarily from Developer Advocates as well as other members of t
 
 |Cloud Advocate|Contributions|Link|
 |--|--|--|
-|[Glaucia Lemos][Glaucia]|TypeScript - Zero to Hero | Demo - Type Any #21|**Portuguese** - [YouTube](https://youtu.be/VWaPx-pvEn8)|
-|[Glaucia Lemos][Glaucia]|TypeScript - Zero to Hero | Demo - Type Unknown #23|**Portuguese** - [YouTube](https://youtu.be/7BLsEz7eP6s)|
-|[Glaucia Lemos][Glaucia]|TypeScript - Zero to Hero | Demo - Type Unknown #24|**Portuguese** - [YouTube](https://youtu.be/6XFn4Gny8WU)|
+|[Glaucia Lemos][Glaucia]|TypeScript - Zero to Hero, Type Any #21|**Portuguese** - [YouTube](https://youtu.be/VWaPx-pvEn8)|
+|[Glaucia Lemos][Glaucia]|TypeScript - Zero to Hero, Type Unknown #23|**Portuguese** - [YouTube](https://youtu.be/7BLsEz7eP6s)|
+|[Glaucia Lemos][Glaucia]|TypeScript - Zero to Hero, Type Unknown #24|**Portuguese** - [YouTube](https://youtu.be/6XFn4Gny8WU)|
 |[Glaucia Lemos][Glaucia]|Astro Framework/Vue.js + Azure Static Web Apps CLI|**Portuguese** - [Blog](https://dev.to/glaucia86/criando-aplicacoes-com-astro-build-azure-static-web-cli-39nb)|
 
 
