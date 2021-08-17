@@ -5,6 +5,8 @@ keywords: azure, devops, terraform, firewall, upgrade
 ms.topic: how-to
 ms.date: 08/17/2021
 ms.custom: devx-track-terraform
+author: vhorne
+ms.author: victorh
 ---
 
 # Upgrade Azure Firewall Standard to Premium using Terraform
