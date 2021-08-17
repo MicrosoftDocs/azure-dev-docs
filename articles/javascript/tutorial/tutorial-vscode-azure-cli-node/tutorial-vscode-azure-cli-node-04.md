@@ -51,7 +51,7 @@ The output from the command is similar to the following:
 
 ## Create local Git remote to push to Azure
 
-To set a new remote in Git named `azure`, run the following comman, replacing `REPLACE-WITH-URL-FROM-PREVIOUS-STEP` with your URL from the previous step. 
+To set a new remote in Git named `azure`, run the following command, replacing `REPLACE-WITH-URL-FROM-PREVIOUS-STEP` with your URL from the previous step. 
 
 ```bash
 git remote add azure REPLACE-WITH-URL-FROM-PREVIOUS-STEP
