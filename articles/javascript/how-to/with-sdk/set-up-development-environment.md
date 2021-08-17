@@ -2,7 +2,7 @@
 title: Service principal for Azure SDK
 description: Create a service principal to authenticate to the Azure platform to use the Azure SDKs for JavaScript.
 ms.topic: conceptual
-ms.date: 07/28/2021
+ms.date: 08/16/2021
 ms.custom: devx-track-js
 ---
 
@@ -72,18 +72,22 @@ Create a service principal and configure its access to Azure resources. The serv
 
 You can also create a service principal with:
 * [Azure portal](/azure/active-directory/develop/howto-create-service-principal-portal)
-* [PowerShell](/azure/active-directory/develop/howto-authenticate-service-principal-powershell). 
+* [PowerShell](/azure/active-directory/develop/howto-authenticate-service-principal-powershell) 
 
 
 ## 2. Configure your environment variables
 
 In both the local and Azure cloud environments, you need to configure the following environment variables. Do not change the name because the Azure Identity SDK requires these exact environment names. 
 
-These environment variables are **REQUIRED for the context to use DefaultAzureCredential**. 
+1. Create these environment variables. These environment variables are **REQUIRED for the context to use DefaultAzureCredential**. 
 
-* `AZURE_TENANT_ID`: `YOUR-TENANT-ID` from the service principal output above.
-* `AZURE_CLIENT_ID`: `YOUR-SERVICE-PRINCIPAL-ID` from the service principal output above.
-* `AZURE_CLIENT_SECRET`: `YOUR-TENANT-ID` from the service principal output above.
+   * `AZURE_TENANT_ID`: `tenant` from the service principal output above. 
+   * `AZURE_CLIENT_ID`: `appId` from the service principal output above.
+   * `AZURE_CLIENT_SECRET`: `password` from the service principal output above.
+
+1. Create this environment variable. This setting isn't required to use the DefaultAzureCredential but is used in the code in the next section.
+
+   * `AZURE_SUBSCRIPTION`: Your default subscription containing your resource groups. 
 
 ## 3. List Azure resource groups with service principal 
 
@@ -91,36 +95,25 @@ Use the new service principal to authenticate with Azure.
 
 # [Azure SDK for JavaScript](#tab/azure-sdk-for-javascript)
 
-1. Install the [Azure SDK for Identity](https://www.npmjs.com/package/@azure/identity).
+1. Install the dependencies: [Azure SDK for Identity](https://www.npmjs.com/package/@azure/identity), [Azure Resource Manager SDK](https://www.npmjs.com/package/@azure/arm-resources), and `stringify-object` (to provide readable JSON only).
 
     ```bash
-    npm install @azure/identity
+    npm install @azure/identity @azure/arm-resources stringify-object --save
     ```
 
-1. Install the [Azure Resource Manager SDK](https://www.npmjs.com/package/@azure/arm-resources). 
+1. Create a JavaScript file, named `resource-groups-list.js`, with the following code:
+
+    :::code language="JavaScript" source="~/../js-e2e/resources/resource-groups-list/resource-groups-list.js"  :::
+
+1. Run the file to view the resource group list:
 
     ```bash
-    npm install @azure/arm-resources
+    node  resource-groups-list.js
     ```
 
-1. Create a default credential in your JavaScript file.
+1. View complete sample code and package.json:
 
-    ```javascript
-    // import Azure npm dependency for Identity credential method
-    const { DefaultAzureCredential } = require("@azure/identity");
-    const credentials = new DefaultAzureCredential();
-    ```
-
-1. Pass the credential to any of the Azure Service SDKs in the client constructor parameter for the credential in your JavaScript file. The following code lists all resource groups.
-
-    ```javascript
-    const { ResourceManagementClient } = require("@azure/arm-resources");
-    const resourceManagement = new ResourceManagementClient(credentials, subscriptionId);
-
-    resourceManagement.resourceGroups.list()
-    .then(result=>{console.log(JSON.stringify(result))})
-    .catch(err=>{console.log(err)});
-    ```
+    * [https://github.com/Azure-Samples/js-e2e/tree/main/resources/resource-groups-list](https://github.com/Azure-Samples/js-e2e/tree/main/resources/resource-groups-list)
 
 # [Azure CLI](#tab/azure-cli-create-resource)
 
