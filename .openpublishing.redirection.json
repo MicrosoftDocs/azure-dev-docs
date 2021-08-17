@@ -1,6 +1,10 @@
 {
   "redirections": [
     {
+      "source_path": "articles/javascript/tutorial/tutorial-vscode-azure-cli-node/tutorial-vscode-azure-cli-node-06.md",
+      "redirect_url": "/azure/developer/javascript/tutorial/tutorial-vscode-azure-cli-node/tutorial-vscode-azure-cli-node-04#make-change-and-deploy-to-azure-app-service-from-local-git"
+    },    
+    {
       "source_path": "articles/javascript/how-to/deploy-containers.md",
       "redirect_url": "/azure/developer/javascript/how-to/deploy-web-app"
     },

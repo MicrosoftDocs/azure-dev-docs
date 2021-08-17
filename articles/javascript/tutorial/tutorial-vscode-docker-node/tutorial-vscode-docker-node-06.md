@@ -4,6 +4,7 @@ description: Docker Tutorial step 6, the simple steps to rebuild and redeploy a 
 ms.topic: tutorial
 ms.date: 08/06/2021
 ms.custom: devx-track-js
+# Verified full run: diberry 08/16/2021
 ---
 
 # 6. Make changes and redeploy a container using Visual Studio Code
@@ -12,7 +13,7 @@ Because you inevitably make changes to your app, you end up rebuilding and redep
 
 ## Change and deploy your app again
 
-1. Make changes to your app and test locally.
+1. Change the Welcome message, in `./public/client.html`, to `Welcome 2 Express`.
 
 1. In Visual Studio Code, open the **Command Palette** (**F1**) and run **Docker Images: Build Image** to rebuild the image). If you change only app code, the build should take only a few seconds.
 
