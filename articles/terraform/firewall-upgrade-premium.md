@@ -33,7 +33,7 @@ In this article, you learn how to:
 
 1. Create a file named `main.tf` and insert the following code:
 
-    [!code-terraform[master](](../../terraform_samples/quickstart/101-firewall-standard/main.tf)]
+    [!code-terraform[master](../../terraform_samples/quickstart/101-firewall-standard/main.tf)]
 
 ## 3. Initialize Terraform
 
