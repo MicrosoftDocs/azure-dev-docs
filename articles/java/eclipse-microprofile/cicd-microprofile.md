@@ -3,7 +3,6 @@ title: CI/CD for MicroProfile apps using Azure Pipelines
 description: Learn how to set up a CI/CD release cycle to deploy a MicroProfile app to an Azure Web App for Containers instance with Azure Pipelines.
 services: devops
 documentationcenter: MicroProfile
-author: ruyakubu
 manager: brunoborges
 ms.author: ruyakubu
 ms.date: 07/31/2019

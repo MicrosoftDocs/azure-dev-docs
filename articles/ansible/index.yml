@@ -57,7 +57,7 @@ landingContent:
       - linkListType: tutorial
         links:
           - text: Configure VM security using Azure Key Vault
-            url: key-vault-configure-vm-security.md
+            url: ./key-vault-configure-secrets.md
 
   # Card
   - title: Manage Virtual Machine Scale Sets
@@ -97,4 +97,4 @@ landingContent:
           - text: Configure kubenet networking
             url: aks-configure-kubenet-networking.md
           - text: Configure RBAC roles in AKS cluster
-            url: aks-configure-rbac.md  
+            url: aks-configure-rbac.md

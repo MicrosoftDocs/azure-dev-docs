@@ -247,4 +247,4 @@ In addition, the compound debugger concept is not limited to just two target pro
 
 ## Next steps
 
-* [Deploy containers](../deploy-containers.md)
+* [Deploy containers](../deploy-web-app.md)

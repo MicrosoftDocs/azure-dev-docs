@@ -1,5 +1,4 @@
 ---
-author: mnriem
 ms.author: manriem
 ms.date: 2/28/2020
 ---

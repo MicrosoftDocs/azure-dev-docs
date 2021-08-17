@@ -1,30 +1,39 @@
 ---
-title: Tutorial - Setup end-to-end Terratest testing on Terraform projects
+title: Implement end-to-end Terratest testing on Terraform projects
 description: Learn more about end-to-end testing with Terratest on a Terraform project.
-ms.topic: tutorial
-ms.date: 07/31/2020
+ms.topic: how-to
+ms.date: 08/07/2021
 ms.custom: devx-track-terraform
 ---
 
-# Tutorial: Setup end-to-end Terratest testing on Terraform projects
+# Implement end-to-end Terratest testing on Terraform projects
 
-[!INCLUDE [terraform-intro.md](includes/terraform-intro.md)]
+End-to-end (E2E) testing is used to validate a program works before deploying it to production. An example scenario might be a Terraform module deploying two virtual machines into a virtual network. You might want to prevent the two machines from pinging each other. In this example, you could define a test to verify the intended outcome before deployment.
 
-In this article, you learn how to do the following tasks:
+E2E testing is typically a three-step process.
 
+1. A configuration is applied to a test environment.
+1. Code is run to verify the results.
+1. The test environment is either reinitialized or taken down (such as deallocating a virtual machine).
+
+In this article, you learn how to:
 > [!div class="checklist"]
+
 > * Understand the basics of end-to-end testing with [Terratest](https://github.com/gruntwork-io/terratest)
 > * Learn how to write end-to-end test using Golang
 > * Learn how to use Azure DevOps to automatically trigger end-to-end tests when code is committed to your repo
 
-## Prerequisites
+## 1. Configure your environment
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../includes/open-source-devops-prereqs-azure-subscription.md)]
-- **Install Terraform**: Based on your environment, [download and install Terraform](https://www.terraform.io/downloads.html).
-- **Fork testing samples:** to get started quickly, we recommend that you fork [this repository](https://github.com/Azure/terraform) into your own GitHub organization.
-- **Go programming language**: Terraform test cases are written in [Go](https://golang.org/dl/). The sample in this article uses [Go modules](https://blog.golang.org/using-go-modules). Go 1.13 (or later) is recommended for this article.
 
-## What is end-to-end testing
+[!INCLUDE [configure-terraform.md](includes/configure-terraform.md)]
+
+- **Go programming language**: [Install Go](https://golang.org/dl/).
+
+- **Example code and resources:** Using the DownGit tool, download from GitHub the [end-to-end-testing project](https://downgit.github.io/#/home?url=https://github.com/Azure/terraform/tree/master/samples/end-to-end-testing) and unzip into a new directory to contain the example code. This directory is referred to as the *example directory*.
+
+## 2. Understand end-to-end testing
 
 End-to-end tests validate a system works as a collective whole. This type of testing is as opposed to testing specific modules. For Terraform projects, end-to-end testing allows for the validation of what has been deployed. This type of testing differs from many other types that test pre-deployment scenarios. End-to-end tests are critical for testing complex systems that include multiple modules and act on multiple resources. In such scenarios, end-to-end testing is the only way to determine if the various modules are interacting correctly.
 
@@ -35,13 +44,13 @@ This article focuses on using [Terratest](https://github.com/gruntwork-io/terrat
 - Orchestrate the tests into stages
 - Tear down the deployed infrastructure
 
-## Tutorial scenario
+## 3. Understand the test example
 
-For this tutorial, we're using a sample available in the [Azure/terraform sample repo](https://github.com/Azure/terraform/blob/master/samples/end-to-end-testing/README.md).
+For this article, we're using a sample available in the [Azure/terraform sample repo](https://github.com/Azure/terraform/blob/master/samples/end-to-end-testing/README.md).
 
 This sample defines a Terraform configuration that deploys two Linux virtual machines into the same virtual network. One VM - named `vm-linux-1` - has a public IP address. Only port 22 is opened to allow SSH connections. The second VM - `vm-linux-2` - has no defined public IP address.
 
-Our test should validate the following scenarios:
+The test validates the following scenarios:
 
 - The infrastructure is deployed correctly
 - Using port 22, it's possible to open an SSH session to `vm-linux-1`
@@ -49,16 +58,16 @@ Our test should validate the following scenarios:
 
 ![Sample end-to-end test scenario](media/best-practices-end-to-end-testing/scenario.png)
 
-If you [downloaded the sample](#prerequisites), the Terraform configuration for this scenario can be found in the `src/main.tf` file. That file contains everything necessary to deploy the Azure infrastructure represented in the preceding figure.
+If you [downloaded the sample](#1-configure-your-environment), the Terraform configuration for this scenario can be found in the `src/main.tf` file. The `main.tf` file contains everything necessary to deploy the Azure infrastructure represented in the preceding figure.
 
-If you're unfamiliar with how to create virtual machines, see [Create a Linux VM with infrastructure in Azure using Terraform](create-linux-virtual-machine-with-infrastructure.md).
+If you're unfamiliar with how to create a virtual machine, see [Create a Linux VM with infrastructure in Azure using Terraform](create-linux-virtual-machine-with-infrastructure.md).
 
 > [!CAUTION]
 > The sample scenario presented in this article is for illustration purposes only. We've purposely kept things simple in order to focus on the steps of an end-to-end test. We don't recommend having production virtual machines that exposes SSH ports over a public IP address.
 
-## End-to-end test
+## 4. Examine the test example
 
-The end-to-end test is written in the Go language and uses the Terratest framework. If you [downloaded the sample](#prerequisites), it's defined in the `src/test/end2end_test.go` file.
+The end-to-end test is written in the Go language and uses the Terratest framework. If you [downloaded the sample](#1-configure-your-environment), the test is defined in the `src/test/end2end_test.go` file.
 
 The following source code shows the standard structure of a Golang test using Terratest:
 
@@ -77,7 +86,7 @@ func TestEndToEndDeploymentScenario(t *testing.T) {
 
     fixtureFolder := "../"
 
-    // User Terratest to deploy the infrastructure
+    // Use Terratest to deploy the infrastructure
     test_structure.RunTestStage(t, "setup", func() {
         terraformOptions := &terraform.Options{
             // Indicate the directory that contains the Terraform configuration to deploy
@@ -119,39 +128,43 @@ The following list shows some of the key functions provided by the Terratest fra
 - **test_structure.LoadTerraformOptions**: Loads Terraform options - such as configuration and variables - from the state
 - **test_structure.SaveTerraformOptions**: Saves Terraform options - such as configuration and variables - to the state
 
-## Run the end-to-end test
+## 5. Run the test example
 
-In this section, you run the test against the sample configuration and deployment. 
+The following steps run the test against the sample configuration and deployment.
 
 1. Open a bash/terminal window.
 
-1. Log in to your Azure account. For information about logging into your Azure subscription, see [Azure authentication section](get-started-cloud-shell.md#authenticate-to-azure).
+1. Log in to your Azure account.
 
-1. To run this sample test, you need an SSH private/public key pair name `id_rsa` and `id_rsa.pub` in your home directory. Replace `USER` with the name of your home directory.
+1. To run this sample test, you need an SSH private/public key pair name `id_rsa` and `id_rsa.pub` in your home directory. Replace `<your_user_name>` with the name of your home directory.
 
-```bash
-export TEST_SSH_KEY_PATH="/home/USER/.ssh/id_rsa"
-```
-
-1. Change directories to the `test` directory.
+    ```bash
+    export TEST_SSH_KEY_PATH="~/.ssh/id_rsa"
+    ```
+    
+1. Within the example directory, navigate to the `src/test` directory.
 
 1. Run the test.
 
-```go
-go test -v ./ -timeout 10m
-```
+    ```go
+    go test -v ./ -timeout 10m
+    ```
 
-The test will display results similar to the following output:
+## 6. Verify the results
 
+After successfully running `go test`, you see results similar to the following output:
+    
 ```output
 --- PASS: TestEndToEndDeploymentScenario (390.99s)
 PASS
 ok      test    391.052s
 ```
+    
+## Troubleshoot Terraform on Azure
 
-[!INCLUDE [terraform-troubleshooting.md](includes/terraform-troubleshooting.md)]
+[Troubleshoot common problems when using Terraform on Azure](troubleshoot.md)
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Terraform testing overview](best-practices-testing-overview.md)
+> [!div class="nextstepaction"] 
+> [Learn more about using Terraform in Azure](/azure/terraform)

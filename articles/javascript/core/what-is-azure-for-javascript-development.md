@@ -44,7 +44,7 @@ Each service's page on the Azure portal includes connection information you will
 
 ### Pricing tiers
 
-Pricing tiers are how your resource is billed. Use the [Azure pricing calculator](https://azure.microsoft.com/en-us/pricing/calculator) to understand billing for your resource. 
+Pricing tiers are how your resource is billed. Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to understand billing for your resource. 
 
 ### Free tier resources
 

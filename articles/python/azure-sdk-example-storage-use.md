@@ -40,7 +40,7 @@ Create a source file named *sample-source.txt* (as the code expects), with conte
 
 The following sections (numbered 4a and 4b) demonstrate two means to access the blob container provisioned through [Example: Provision Azure Storage](azure-sdk-example-storage.md).
 
-The [first method (section 4a below)](#4a-use-blob-storage-with-authentication) authenticates the app with `DefaultAzureCredential` as described in [How to authenticate Python apps](azure-sdk-authenticate.md#authenticate-with-defaultazurecredential). With this method you must first assign the appropriate permissions to the app identity, which is the recommended practice.
+The [first method (section 4a below)](#4a-use-blob-storage-with-authentication) authenticates the app with `DefaultAzureCredential` as described in [Authenticate Azure hosted applications with DefaultAzureCredential](azure-sdk-authenticate-hosted-applications.md). With this method you must first assign the appropriate permissions to the app identity, which is the recommended practice.
 
 The [second method (section 4b below)](#4b-use-blob-storage-with-a-connection-string) uses a connection string to access the storage account directly. Although this method seems simpler, it has two significant drawbacks:
 
