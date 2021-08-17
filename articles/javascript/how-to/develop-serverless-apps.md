@@ -2,7 +2,7 @@
 title: Serverless Node.js code with Azure Functions
 description: Azure Functions provides serverless code infrastructure, allowing you to create responsive, on-demand HTTP endpoints.
 ms.topic: how-to
-ms.date: 10/27/2020
+ms.date: 08/17/2021
 ms.custom: seo-javascript-september2019, seo-javascript-october2019, devx-track-js, contperf-fy21q2
 ---
 
@@ -113,6 +113,13 @@ Functions are configured with the **function.json** file. This configuration all
 When you [create an Azure function using the Azure portal](https://ms.portal.azure.com/#create/Microsoft.FunctionApp), you can configure the function, write the code inside a pre-populated template, and test the function. 
 
 The portal creates JavaScript functions only, not TypeScript. If you want to develop with TypeScript, either download the function or create the function locally in Visual Studio Code with the Function extension. 
+
+## Low-code or high-code functions
+
+Serverless functions remove much of the server configuration and management so you can focus on just the code you need. 
+
+* Low-code functions: With Azure Functions, you can create functions that are triggered by other Azure services or that output to other Azure service using [trigger bindings](/azure/azure-functions/functions-triggers-bindings). 
+* High-code functions: For more control, use the Azure SDKs to coordinate and control other Azure services.
 
 ## Next steps
 
