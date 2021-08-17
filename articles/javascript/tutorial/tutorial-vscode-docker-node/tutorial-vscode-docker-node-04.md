@@ -4,6 +4,7 @@ description: Docker Tutorial part 4, create a Node.js application image
 ms.topic: tutorial
 ms.date: 08/06/2021
 ms.custom: devx-track-js
+# Verified full run: diberry 08/16/2021
 ---
 
 # 4. Create your Node.js application image
@@ -37,7 +38,7 @@ The `Dockerfile` describes the environment for your app including the location o
    
 ## Push the image to a registry
 
-1. To push the image to a registry, you must first tag it with the registry name. In the **DOCKER** explorer, Expand the `jse2eexpressserver` image node, then right-click the **latest** image.
+1. To push the image to a registry, you must first tag it with the registry name. In the **DOCKER** explorer, Expand the `jse2eexpressserver` image node, then right-click the **latest** image, and select **Tag**.
 
 1. In the prompt that follows, complete the tags and press **Enter**.
 

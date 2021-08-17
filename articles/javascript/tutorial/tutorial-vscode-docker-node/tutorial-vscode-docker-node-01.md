@@ -4,6 +4,7 @@ description: Deploy Docker containers to Azure App Service from Visual Studio Co
 ms.topic: tutorial
 ms.date: 08/06/2021
 ms.custom: devx-track-js
+# Verified full run: diberry 08/16/2021
 ---
 
 # 1. Introduction and prerequisites
