@@ -6,9 +6,9 @@ ms.topic: how-to
 ms.custom: devx-track-go
 ---
 
-# Azure authentication with the Go SDK
+# Azure authentication with the Azure SDK for Go
 
-In this how-to, you will use the Azure SDK's Go module [azidentity](https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/azidentity) to authenticate to Azure.
+In this how-to, you'll use the Azure SDK's Go module [azidentity](https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/azidentity) to authenticate to Azure.
 
 ## Prerequisites
 
@@ -19,15 +19,15 @@ In this how-to, you will use the Azure SDK's Go module [azidentity](https://gith
 
 The Azure Identity module (`azidentity`) is used to authenticate to Azure.
 
-Run the following `go get` command to download the `azidentity` module:
+Run the following command to download the `azidentity` module:
 
 ```bash
 go get -u github.com/Azure/azure-sdk-for-go/sdk/azidentity
 ```
 
-## 2. Authenticating with Azure
+## 2. Authenticate with Azure
 
-Azure's Go SDK identity module offers a variety of credential types that focus on OAuth with Azure Active Directory (AAD).
+Azure's Go SDK identity module offers a variety of credential types that focus on OAuth with Azure Active Directory (Azure AD).
 
 The `DefaultAzureCredential` type simplifies authentication by combining commonly used credentials types. It chains together types used to authenticate deployed Azure applications with credentials used to authenticate in a development environment.
 
@@ -37,24 +37,24 @@ Use the `DefaultAzureCredential` to authenticate to Azure with one of the follow
 
 * [Option 1: Define environment variables](#environment-variables)
 * [Option 2: Use a managed identity](#managed-identity)
-* [Option 3: Sign in with AzureCLI](#azureCLI)
+* [Option 3: Sign in with Azure CLI](#azureCLI)
 
- To learn more about the different credential types, see [credential types](/azure/developer/go/azure-sdk-authorization).
+To learn more about the different credential types, see [credential types](/azure/developer/go/azure-sdk-authorization).
 
 ### <span id="environment-variables"/> Option 1: Define environment variables
 
-The `DefaultAzureCredential` uses the `EnvironmentCredential` type to configure authentication using environment variables that supports three authentication types.
-
-Choose from the following authentication types and define the appropriate environment variables.
+The `DefaultAzureCredential` uses the `EnvironmentCredential` type to configure authentication using environment variables that supports three authentication types. Choose from the following authentication types and define the appropriate environment variables.
 
 #### Service principal with a secret
-|variable name|value
+
+|Variable name|Value
 |-|-
-|`AZURE_CLIENT_ID`|id of an Azure Active Directory application
-|`AZURE_TENANT_ID`|id of the application's Azure Active Directory tenant
-|`AZURE_CLIENT_SECRET`|one of the application's client secrets
+|`AZURE_CLIENT_ID`|ID of an Azure AD application
+|`AZURE_TENANT_ID`|ID of the application's Azure AD tenant
+|`AZURE_CLIENT_SECRET`|One of the application's client secrets
 
 # [Bash](#tab/bash)
+
 ```bash
 export ARM_SUBSCRIPTION_ID="<azure_subscription_id>"
 export ARM_TENANT_ID="<active_directory_tenant_id"
@@ -74,13 +74,15 @@ $env:ARM_CLIENT_SECRET="<service_principal_password>"
 ---
 
 #### Service principal with certificate
-|variable name|value
+
+|Variable name|Value
 |-|-
-|`AZURE_CLIENT_ID`|id of an Azure Active Directory application
-|`AZURE_TENANT_ID`|id of the application's Azure Active Directory tenant
-|`AZURE_CLIENT_CERTIFICATE_PATH`|path to a PEM-encoded certificate file including private key (without password protection)
+|`AZURE_CLIENT_ID`|ID of an Azure AD application
+|`AZURE_TENANT_ID`|ID of the application's Azure AD tenant
+|`AZURE_CLIENT_CERTIFICATE_PATH`|Path to a PEM-encoded certificate file including private key (without password protection)
 
 # [Bash](#tab/bash)
+
 ```bash
 export ARM_SUBSCRIPTION_ID="<azure_subscription_id>"
 export ARM_TENANT_ID="<active_directory_tenant_id"
@@ -100,13 +102,15 @@ $env:AZURE_CLIENT_CERTIFICATE_PATH="<azure_client_certificate_path>"
 ---
 
 #### Username and password
-|variable name|value
+
+|Variable name|Value
 |-|-
-|`AZURE_CLIENT_ID`|id of an Azure Active Directory application
-|`AZURE_USERNAME`|a username (usually an email address)
-|`AZURE_PASSWORD`|that user's password
+|`AZURE_CLIENT_ID`|ID of an Azure AD application
+|`AZURE_USERNAME`|A username (usually an email address)
+|`AZURE_PASSWORD`|That user's password
 
 # [Bash](#tab/bash)
+
 ```bash
 export AZURE_CLIENT_ID="<service_principal_appid>"
 export AZURE_USERNAME="<azure_username"
@@ -123,12 +127,11 @@ $env:AZURE_PASSWORD="<azure_user_password>"
 
 ---
 
-**Key points**:
-* Configuration is attempted in the above order. For example, if values for a client secret and certificate are both present, the client secret will be used.
+Configuration is attempted in the above order. For example, if values for a client secret and certificate are both present, the client secret will be used.
 
 ### <span id="managed-identity"/> Option 2: Use a Managed Identity
 
-Managed identities eliminate the need for developers to manage credentials. By connecting to resources that support Azure Active Directory (Azure AD) authentication application can use Azure AD tokens instead of credentials.
+Managed identities eliminate the need for developers to manage credentials. By connecting to resources that support Azure AD authentication, applications can use Azure AD tokens instead of credentials.
 
 If the required environment variables for the `EnvironmentCredential` credential type aren't present, the `DefaultAzureCredential` will attempt to authenticate using the `ManagedIdentityCredential` type.
 
@@ -151,25 +154,23 @@ To learn more about using managed identities, check out [Azure Go SDK authentica
 
 ---
 
-**Key points**:
-* The `DefaultAzureCredential` uses the user assigned managed identity assigned through an environment variable called AZURE_CLIENT_ID.
+The `DefaultAzureCredential` uses the user-assigned managed identity assigned through an environment variable called `AZURE_CLIENT_ID`.
 
-### <span id="azureCLI"/> Option 3: Sign in with AzureCLI
+### <span id="azureCLI"/> Option 3: Sign in with Azure CLI
 
-To support local development, the `DefaultAzureCredential` can authenticate as the user signed into Azure CLI.
+To support local development, the `DefaultAzureCredential` can authenticate as the user signed into the Azure CLI.
 
 Run the following command to sign into the Azure CLI.
 
-```bash
+```azurecli
 az login
 ```
 
-**Key points**:
-- The `azidentity` module supports authenticating through developer tools to simplify local development. Azure CLI authentication is not recommended for applications running in Azure.
+The `azidentity` module supports authenticating through developer tools to simplify local development. Azure CLI authentication isn't recommended for applications running in Azure.
 
 ## 3. Use DefaultAzureCredential to authenticate ResourceClient
 
-Create a new sample Go module named `azure-auth` to test authenticating to Azure with the `DefaultAzureCredential`
+Create a new sample Go module named `azure-auth` to test authenticating to Azure with the `DefaultAzureCredential`.
 
 1. Create a directory to test and run the sample Go code, then change into that directory.
 
@@ -233,7 +234,7 @@ Create a new sample Go module named `azure-auth` to test authenticating to Azure
 
 ## Authenticate to Azure with DefaultAzureCredential
 
-Use the following code in your applications to authenticate to Azure with the Azure identity Go module using the `DefaultAzureCredential` credential type.
+Use the following code in your applications to authenticate to Azure with the Azure Identity Go module using the `DefaultAzureCredential` credential type.
 
 ```go
 // The default credential checks environment variables for configuration.
