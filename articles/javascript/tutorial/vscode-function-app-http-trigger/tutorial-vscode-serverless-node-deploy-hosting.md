@@ -44,6 +44,9 @@ In this step, use the Visual Studio Code extension for Azure Functions to deploy
 
 1. Paste the URL into a browser. The URL includes the function key, `code` query parameter. 
 1. Append a querystring name/value pair,`name=YOUR-NAME`, to the URL. 1. The browser shows the successful function running in the cloud.
+
+    :::image type="content" source="../../media/functions-extension/api-request-succeeds-200.png" alt-text="Screenshot of a browser showing the result of the API returns successfully.":::
+
 1. Now remove the `code=` querystring parameter from the URL and submit the URL in the browser again. This simulates an unauthorized request to your secured API.
 
     :::image type="content" source="../../media/functions-extension/api-request-fails-401.png" alt-text="Screenshot of a browser showing the result of the API returns an HTTP error code of 401.":::
