@@ -1,10 +1,9 @@
 ---
 title: include file
 description: include file
-author: tomarchermsft
-ms.service: terraform
-ms.topic: include
-ms.date: 05/31/2020
+ms.topic: how-to
+ms.date: 08/07/2021
+ms.custom: devx-track-terraform
 ms.author: tarcher
 ---
 

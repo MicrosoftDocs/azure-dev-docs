@@ -1,7 +1,6 @@
 ---
 title: Certifications for Java developers
 description: Java - Certifications
-author: sadigopu
 ms.author: sreea
 ms.topic: article
 ms.date: 03/19/2021

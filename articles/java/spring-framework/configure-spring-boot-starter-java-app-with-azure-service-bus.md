@@ -1,7 +1,6 @@
 ---
 title: How to use the Spring Boot Starter for Azure Service Bus JMS
 description: This article demonstrates how to use the Spring JMS Starter to send messages to and receive messages from Azure Service Bus.
-author: seanli1988
 manager: kyliel
 ms.author: seal
 ms.date: 10/13/2019
@@ -11,13 +10,17 @@ ms.custom: devx-track-java
 
 # How to use the Spring Boot Starter for Azure Service Bus JMS
 
-[!INCLUDE [spring-boot-20-note.md](includes/spring-boot-20-note.md)]
+This article demonstrates how to use Spring Boot Starter for Azure Service Bus JMS to send messages to and receive messages from Service Bus `queues` and `topics`.
 
 Azure provides an asynchronous messaging platform called [Azure Service Bus](/azure/service-bus-messaging/service-bus-messaging-overview) ("Service Bus") that is based on the [Advanced Message Queueing Protocol 1.0](http://www.amqp.org/) ("AMQP 1.0") standard. Service Bus can be used across the range of supported Azure platforms.
 
 The Spring Boot Starter for Azure Service Bus JMS provides Spring integration with Service Bus.
 
-This article demonstrates how to use Spring Boot Starter for Azure Service Bus JMS to send messages to and receive messages from Service Bus `queues` and `topics`.
+The following video describes how to integrate Spring applications with Azure Service Bus using JMS 2.0.
+
+<br>
+
+> [!VIDEO https://www.youtube.com/embed/9O3CALyoZHE?list=PLPeZXlCR7ew8LlhnSH63KcM0XhMKxT1k_]
 
 ## Prerequisites
 
@@ -25,7 +28,7 @@ The following prerequisites are required for this article:
 
 1. An Azure subscription; if you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/) or sign up for a [free account](https://azure.microsoft.com/free/).
 
-1. A supported Java Development Kit (JDK), version 8 or later. For more information about the JDKs available for use when developing on Azure, see <https://aka.ms/azure-jdks>.
+1. A supported Java Development Kit (JDK), version 8 or later. For more information about the JDKs available for use when developing on Azure, see [Java support on Azure and Azure Stack](../fundamentals/java-support-on-azure.md).
 
 1. [Apache Maven](http://maven.apache.org/), version 3.2 or later.
 
@@ -58,7 +61,7 @@ The following prerequisites are required for this article:
     <dependency>
         <groupId>com.azure.spring</groupId>
         <artifactId>azure-spring-boot-starter-servicebus-jms</artifactId>
-        <version>3.5.0</version>
+        <version>3.7.0</version>
     </dependency>
     ```
 
@@ -95,7 +98,7 @@ In this section, you see how to configure your app to use either a Service Bus q
     |-------------------------------------------|-------------------------------------------------------------------------------------------------|
     | `spring.jms.servicebus.connection-string` | Specify the connection string you obtained in your Service Bus namespace from the Azure portal. |
     | `spring.jms.servicebus.idle-timeout`      | Specify the idle timeout in milliseconds. The recommended value for this tutorial is 1800000.   |
-    | `spring.jms.servicebus.pricing-tie`       | Specify the pricing tier of your service bus. Supported values are *premium*, *standard*, and *basic*. Premium uses Java Message Service (JMS) 2.0, while standard and basic use JMS 1.0 to interact with Azure Service Bus.  |
+    | `spring.jms.servicebus.pricing-tier`       | Specify the pricing tier of your service bus. Supported values are *premium*, *standard*, and *basic*. Premium uses Java Message Service (JMS) 2.0, while standard and basic use JMS 1.0 to interact with Azure Service Bus.  |
 
 1. Save and close the *application.properties* file.
 
@@ -127,7 +130,7 @@ In this section, you see how to configure your app to use either a Service Bus q
     | `spring.jms.servicebus.connection-string` | Specify the connection string you obtained in your Service Bus namespace from the Azure portal.   |
     | `spring.jms.servicebus.topic-client-id`   | Specify the JMS client ID, which is your Service Bus Subscription ID in the Azure portal.                | 
     | `spring.jms.servicebus.idle-timeout`      | Specify the idle timeout in milliseconds. The recommended value for this tutorial is 1800000.     |
-    | `spring.jms.servicebus.pricing-tie`       | Specify the pricing tier of your service bus. Supported values are *premium*, *standard*, and *basic*. Premium uses Java Message Service (JMS) 2.0, while standard and basic use JMS 1.0 to interact with Azure Service Bus. |
+    | `spring.jms.servicebus.pricing-tier`       | Specify the pricing tier of your service bus. Supported values are *premium*, *standard*, and *basic*. Premium uses Java Message Service (JMS) 2.0, while standard and basic use JMS 1.0 to interact with Azure Service Bus. |
 
 1. Save and close the *application.properties* file.
 

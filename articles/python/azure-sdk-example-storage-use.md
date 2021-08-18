@@ -1,7 +1,7 @@
 ---
 title: Use Azure Storage with the Azure SDK for Python
 description: Use the Azure SDK for Python libraries to access a pre-provisioned blob container in an Azure Storage account and then upload a file to that container.
-ms.date: 03/16/2021
+ms.date: 06/24/2021
 ms.topic: conceptual
 ms.custom: devx-track-python, devx-track-azurecli
 ---
@@ -14,27 +14,15 @@ All the commands in this article work the same in Linux/macOS bash and Windows c
 
 ## 1: Set up your local development environment
 
-If you haven't already, follow all the instructions on [Configure your local Python dev environment for Azure](configure-local-development-environment.md).
+If you haven't already, **follow all the instructions** on [Configure your local Python dev environment for Azure](configure-local-development-environment.md).
 
 Be sure to create a service principal for local development, set environment variables for the service principal (see below), and create and activate a virtual environment for this project.
-
-This example assumes you've already set the following environment variables:
-
-| Variable name | Expected value |
-| --- | --- |
-| AZURE_SUBSCRIPTION_ID | The GUID of your Azure subscription. |
-| AZURE_CLIENT_ID | The client ID of your local service principal. |
-| AZURE_CLIENT_SECRET | The client secret of your service principal. |
-| AZURE_TENANT_ID | The tenant ID for your service principal. |
 
 ## 2: Install library packages
 
 1. In your *requirements.txt* file, add line for the needed client library package and save the file:
 
-    ```text
-    azure-storage-blob
-    azure-identity
-    ```
+    :::code language="txt" source="~/../python-sdk-examples/storage/requirements_use.txt":::
 
 1. In your terminal or command prompt, reinstall requirements:
 
@@ -46,15 +34,13 @@ This example assumes you've already set the following environment variables:
 
 Create a source file named *sample-source.txt* (as the code expects), with contents like the following:
 
-```text
-Hello there, Azure Storage. I'm a friendly file ready to be stored in a blob.
-```
+:::code language="txt" source="~/../python-sdk-examples/storage/sample-source.txt":::
 
 ## 4: Use blob storage from app code
 
 The following sections (numbered 4a and 4b) demonstrate two means to access the blob container provisioned through [Example: Provision Azure Storage](azure-sdk-example-storage.md).
 
-The [first method (section 4a below)](#4a-use-blob-storage-with-authentication) authenticates the app with `DefaultAzureCredential` as described in [How to authenticate Python apps](azure-sdk-authenticate.md#authenticate-with-defaultazurecredential). With this method you must first assign the appropriate permissions to the app identity, which is the recommended practice.
+The [first method (section 4a below)](#4a-use-blob-storage-with-authentication) authenticates the app with `DefaultAzureCredential` as described in [Authenticate Azure hosted applications with DefaultAzureCredential](azure-sdk-authenticate-hosted-applications.md). With this method you must first assign the appropriate permissions to the app identity, which is the recommended practice.
 
 The [second method (section 4b below)](#4b-use-blob-storage-with-a-connection-string) uses a connection string to access the storage account directly. Although this method seems simpler, it has two significant drawbacks:
 
@@ -88,26 +74,7 @@ For these reasons, we recommend using the authentication method in production co
 
 1. Create a file named *use_blob_auth.py* with the following code. The comments explain the steps.
 
-    ```python
-    import os
-    from azure.identity import DefaultAzureCredential
-
-    # Import the client object from the Azure library
-    from azure.storage.blob import BlobClient
-
-    credential = DefaultAzureCredential()
-
-    # Retrieve the storage blob service URL, which is of the form
-    # https://pythonazurestorage12345.blob.core.windows.net/
-    storage_url = os.environ["STORAGE_BLOB_URL"]
-
-    # Create the client object using the storage URL and the credential
-    blob_client = BlobClient(storage_url, container_name="blob-container-01", blob_name="sample-blob.txt", credential=credential)
-
-    # Open a local file and upload its contents to Blob Storage
-    with open("./sample-source.txt", "rb") as data:
-        blob_client.upload_blob(data)
-    ```
+    :::code language="python" source="~/../python-sdk-examples/storage/use_blob_auth.py":::
 
     Reference links:
       - [DefaultAzureCredential (azure.identity)](/python/api/azure-identity/azure.identity.defaultazurecredential)
@@ -119,7 +86,7 @@ For these reasons, we recommend using the authentication method in production co
     python use_blob_auth.py
     ```
 
-    Because the local service principal that you're using does not have permission to access the blob container, you see the error: "This request is not authorized to perform this operation using this permission."
+1. Observe the error "This request is not authorized to perform this operation using this permission." The error is expected because the local service principal that you're using does not yet have permission to access the blob container.
 
 1. Grant container permissions to the service principal using the Azure CLI command [az role assignment create](/cli/azure/role/assignment#az_role_assignment_create) (it's a long one!):
 
@@ -149,7 +116,7 @@ For these reasons, we recommend using the authentication method in production co
 
     The `--scope` argument in this command also uses the AZURE_CLIENT_ID and AZURE_SUBSCRIPTION_ID environment variables, which you should already have set in your local environment for your service principal by following [Configure your local Python dev environment for Azure](configure-local-development-environment.md).
 
-1. After waiting a minute or two for the permissions to propagate, run the code again to verify that it now works. If you see the permissions error again, wait a little longer, then try the code again.
+1. **Wait a minute or two for the permissions to propagate**, then run the code again to verify that it now works. If you see the permissions error again, wait a little longer, then try the code again.
 
 For more information on role assignments, see [How to assign role permissions using the Azure CLI](/azure/role-based-access-control/role-assignments-cli).
 
@@ -159,23 +126,7 @@ For more information on role assignments, see [How to assign role permissions us
 
 1. Create a Python file named *use_blob_conn_string.py* with the following code. The comments explain the steps.
 
-    ```python
-    import os
-
-    # Import the client object from the Azure library
-    from azure.storage.blob import BlobClient
-
-    # Retrieve the connection string from an environment variable.
-    conn_string = os.environ["AZURE_STORAGE_CONNECTION_STRING"]
-
-    # Create the client object for the resource identified by the connection string,
-    # indicating also the blob container and the name of the specific blob we want.
-    blob_client = BlobClient.from_connection_string(conn_string, container_name="blob-container-01", blob_name="sample-blob.txt")
-
-    # Open a local file and upload its contents to Blob Storage
-    with open("./sample-source.txt", "rb") as data:
-        blob_client.upload_blob(data)
-    ```
+    :::code language="python" source="~/../python-sdk-examples/storage/use_blob_conn_string.py":::
 
 1. Run the code:
 

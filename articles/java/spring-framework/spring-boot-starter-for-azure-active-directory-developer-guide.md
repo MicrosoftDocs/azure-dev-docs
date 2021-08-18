@@ -4,7 +4,6 @@ description: This guide describes the features, issues, workarounds, and diagnos
 ms.date: 04/14/2021
 ms.service: active-directory
 ms.topic: article
-author: stliu
 ms.author: shaozliu
 ms.custom: devx-track-java
 ---
@@ -22,7 +21,10 @@ The following links provide access to the starter package, documentation, and sa
 - [The azure-spring-boot-starter-active-directory package (Maven)](https://mvnrepository.com/artifact/com.azure.spring/azure-spring-boot-starter-active-directory)
 - [API reference documentation](https://azure.github.io/azure-sdk-for-java/springboot.html#azure-spring-boot)
 - [Product documentation](./configure-spring-boot-starter-java-app-with-azure-active-directory.md)
-- [Samples](https://github.com/Azure/azure-sdk-for-java/tree/azure-spring-boot_3.1.0/sdk/spring/azure-spring-boot-samples)
+- [Samples](https://github.com/Azure-Samples/azure-spring-boot-samples)
+
+> [!NOTE]
+> We've released Spring Boot Starter for Azure Active Directory [3.6.1](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/spring/azure-spring-boot-starter-active-directory/CHANGELOG.md) to address the following CVE report [CVE-2021-22119: Denial-of-Service attack with spring-security-oauth2-client](https://tanzu.vmware.com/security/cve-2021-22119). If you're using the older version, please upgrade it to 3.6.1 or above. 
 
 ## Prerequisites
 
@@ -41,6 +43,7 @@ This guide describes how to use the Azure AD starter in the following scenarios:
 - [Access resource servers from a web application](#access-resource-servers-from-a-web-application)
 - [Protect a resource server/API](#protect-a-resource-serverapi)
 - [Access other resource servers from a resource server](#access-other-resource-servers-from-a-resource-server)
+- [Web application and resource server in one application](#web-application-and-resource-server-in-one-application)
 
 A *web application* is any web-based application that enables a user to sign in. A *resource server* will either accept or deny access after validating an access token.
 
@@ -62,7 +65,7 @@ To use the Azure AD starter in this scenario, use the following steps:
    <dependency>
        <groupId>com.azure.spring</groupId>
        <artifactId>azure-spring-boot-starter-active-directory</artifactId>
-       <version>3.5.0</version>
+       <version>3.7.0</version>
    </dependency>
    <dependency>
        <groupId>org.springframework.boot</groupId>
@@ -116,7 +119,7 @@ To use the Azure AD starter in this scenario, use the following steps:
    <dependency>
        <groupId>com.azure.spring</groupId>
        <artifactId>azure-spring-boot-starter-active-directory</artifactId>
-       <version>3.5.0</version>
+       <version>3.7.0</version>
    </dependency>
    <dependency>
        <groupId>org.springframework.boot</groupId>
@@ -155,7 +158,7 @@ To use the Azure AD starter in this scenario, use the following steps:
 
    Here, `graph` is the client ID configured in the previous step. `OAuth2AuthorizedClient` contains the access token, which is used to access the resource server.
 
-For a complete sample demonstrating this scenario, see [OAuth 2.0 Sample for Azure AD Spring Boot Starter client library for Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/spring/azure-spring-boot-samples/azure-spring-boot-sample-active-directory-webapp).
+For a complete sample demonstrating this scenario, see [OAuth 2.0 Sample for Azure AD Spring Boot Starter client library for Java](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/main/aad/azure-spring-boot-starter-active-directory/aad-web-application).
 
 ### Protect a resource server/API
 
@@ -169,7 +172,7 @@ To use the Azure AD starter in this scenario, use the following steps:
    <dependency>
        <groupId>com.azure.spring</groupId>
        <artifactId>azure-spring-boot-starter-active-directory</artifactId>
-       <version>3.5.0</version>
+       <version>3.7.0</version>
    </dependency>
    <dependency>
        <groupId>org.springframework.boot</groupId>
@@ -214,7 +217,7 @@ To use the Azure AD starter in this scenario, use the following steps:
    }
    ```
 
-For a complete sample demonstrating this scenario, see [OAuth 2.0 Sample for Azure AD Spring Boot Starter Resource Server library for Java](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/spring/azure-spring-boot-samples/azure-spring-boot-sample-active-directory-resource-server).
+For a complete sample demonstrating this scenario, see [Azure OAuth 2.0 Sample for Azure AD Spring Boot Starter Resource Server client library for Java](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/main/aad/azure-spring-boot-starter-active-directory/aad-resource-server).
 
 ### Access other resource servers from a resource server
 
@@ -228,7 +231,7 @@ To use the Azure AD starter in this scenario, use the following steps:
    <dependency>
        <groupId>com.azure.spring</groupId>
        <artifactId>azure-spring-boot-starter-active-directory</artifactId>
-       <version>3.5.0</version>
+       <version>3.7.0</version>
    </dependency>
    <dependency>
        <groupId>org.springframework.boot</groupId>
@@ -265,7 +268,95 @@ To use the Azure AD starter in this scenario, use the following steps:
    }
    ```
 
-For a complete sample demonstrating this scenario, see [OAuth 2.0 Sample for azure-spring-boot-sample-active-directory-resource-server-obo library for Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/spring/azure-spring-boot-samples/azure-spring-boot-sample-active-directory-resource-server-obo).
+For a complete sample demonstrating this scenario, see [Azure OAuth 2.0 Sample for aad-resource-server-obo client library for Java](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/main/aad/azure-spring-boot-starter-active-directory/aad-resource-server-obo).
+
+### Web application and resource server in one application
+
+This scenario supports [Access a web application](#access-a-web-application) and [Protect a resource server/API](#protect-a-resource-serverapi) in one application.
+
+To use **aad-starter** in this scenario, follow these steps:
+
+1. Add the following dependencies to your *pom.xml* file.
+
+    ```xml
+    <dependency>
+        <groupId>com.azure.spring</groupId>
+        <artifactId>azure-spring-boot-starter-active-directory</artifactId>
+        <version>3.7.0</version>
+    </dependency>
+    <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-oauth2-resource-server</artifactId>
+    </dependency>
+    <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-oauth2-client</artifactId>
+    </dependency>
+    ```
+
+2. Update your *application.yml* file. Set property `azure.activedirectory.application-type` to `web_application_and_resource_server`, and specify the authorization type for each authorization client, as shown in the following example. 
+
+    ```yaml
+    azure:
+      activedirectory:
+        tenant-id: <Tenant-id-registered-by-application>
+        client-id: <Web-API-C-client-id>
+        client-secret: <Web-API-C-client-secret>
+        app-id-uri: <Web-API-C-app-id-url>
+        application-type: web_application_and_resource_server  # This is required.
+        authorization-clients:
+          graph:
+            authorizationGrantType: authorization_code  # This is required.
+            scopes:
+              - https://graph.microsoft.com/User.Read
+              - https://graph.microsoft.com/Directory.Read.All
+    ```
+
+3. Write Java code to configure multiple `HttpSecurity` instances.
+
+   In the following example code, `AADWebApplicationAndResourceServerConfig` contains two security configurations, one for a resource server, and one for a web application. The `ApiWebSecurityConfigurationAdapter` class has a high priority to configure the resource server security adapter. The `HtmlWebSecurityConfigurerAdapter` class has a low priority to configure the web application security adapter. 
+
+    ```java
+    @EnableWebSecurity
+    @EnableGlobalMethodSecurity(prePostEnabled = true)
+    public class AADWebApplicationAndResourceServerConfig {
+    
+        @Order(1)
+        @Configuration
+        public static class ApiWebSecurityConfigurationAdapter extends AADResourceServerWebSecurityConfigurerAdapter {
+            protected void configure(HttpSecurity http) throws Exception {
+                super.configure(http);
+                // All the paths that match `/api/**`(configurable) work as the resource server. Other paths work as  the web application.
+                http.antMatcher("/api/**")
+                    .authorizeRequests().anyRequest().authenticated();
+            }
+        }
+    
+        @Configuration
+        public static class HtmlWebSecurityConfigurerAdapter extends AADWebSecurityConfigurerAdapter {
+    
+            @Override
+            protected void configure(HttpSecurity http) throws Exception {
+                super.configure(http);
+                // @formatter:off
+                http.authorizeRequests()
+                        .antMatchers("/login").permitAll()
+                        .anyRequest().authenticated();
+                // @formatter:on
+            }
+        }
+    }
+    ```
+
+### Application type
+
+The `azure.activedirectory.application-type` property is optional because its value can be inferred by dependencies. You must manually set the property only when you use the `web_application_and_resource_server` value.
+
+| Has dependency: spring-security-oauth2-client | Has dependency: spring-security-oauth2-resource-server |                  Valid values of application type                 | Default value               |
+|-----------------------------------------------|--------------------------------------------------------|-------------------------------------------------------------------|-----------------------------|
+|                      Yes                      |                          No                            |                       `web_application`                           |       `web_application`     |
+|                      No                       |                          Yes                           |                       `resource_server`                           |       `resource_server`     |
+|                      Yes                      |                          Yes                           | `resource_server_with_obo`, `web_application_and_resource_server` | `resource_server_with_obo`  |
 
 ## Configurable properties
 
@@ -273,18 +364,20 @@ The Spring Boot Starter for Azure AD provides the following properties:
 
 | Properties                                                              | Description                                                                                    |
 | ----------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| azure.activedirectory.app-id-uri                                    | Used by the resource server to validate the audience in the access token. The access token is valid only when the audience is equal to the *\<your-client-ID>* or *\<your-app-ID-URI>* values described previously.    |
-| azure.activedirectory.authorization-clients                         | A map that configures the resource APIs the application is going to visit. Each item corresponds to one resource API the application is going to visit. In your Spring code, each item corresponds to one `OAuth2AuthorizedClient` object.|
-| azure.activedirectory.authorization-clients.*\<your-client-name>*.scopes    | The API permissions of a resource server that the application is going to acquire.                 |
-| azure.activedirectory.authorization-clients.*\<your-client-name>*.on-demand | Used for incremental consent. The default value is *false*. If the value is *true*, the application doesn't request consent when the user signs in. When the application needs permission, it performs incremental consent with one OAuth2 authorization code flow.|
-| azure.activedirectory.base-uri                                      | The base URI for the authorization server. The default value is `https://login.microsoftonline.com/`.  |
-| azure.activedirectory.client-id                                     | The registered application ID in Azure AD.                                                         |
-| azure.activedirectory.client-secret                                 | The client secret of the registered application.                                                   |
-| azure.activedirectory.graph-membership-uri                          | Used to load the users' groups. The default value is `https://graph.microsoft.com/v1.0/me/memberOf`, which gets direct groups. To get all transitive membership, set it to `https://graph.microsoft.com/v1.0/me/transitiveMemberOf`. The two URIs are for Azure Global. If you want to use Azure China instead, see **Property example 1** below.|
-| azure.activedirectory.post-logout-redirect-uri                      | The redirect URI for posting the sign-out.                            |
-| azure.activedirectory.tenant-id                                     | The Azure tenant ID.                                             |
-| azure.activedirectory.user-group.allowed-groups                     | The expected user groups that an authority will be granted to if found in the response from the MemberOf Graph API Call. |
-| azure.activedirectory.user-name-attribute                           | Indicates which claim will be the principal's name. |
+| azure.activedirectory.app-id-uri                                                           | Used by the resource server to validate the audience in the access token. The access token is valid only when the audience is equal to the *\<your-client-ID>* or *\<your-app-ID-URI>* values described previously.    |
+| azure.activedirectory.authorization-clients                                                | A map that configures the resource APIs the application is going to visit. Each item corresponds to one resource API the application is going to visit. In your Spring code, each item corresponds to one `OAuth2AuthorizedClient` object.|
+| azure.activedirectory.authorization-clients.*\<your-client-name>*.scopes                   | The API permissions of a resource server that the application is going to acquire.                 |
+| azure.activedirectory.authorization-clients.*\<your-client-name>*.on-demand                | Used for incremental consent. The default value is *false*. If the value is *true*, the application doesn't request consent when the user signs in. When the application needs permission, it performs incremental consent with one OAuth2 authorization code flow.|
+| azure.activedirectory.authorization-clients.*\<your-client-name>*.authorization-grant-type | The type of authorization client. Supported types are [authorization_code](/azure/active-directory/develop/v2-oauth2-auth-code-flow) (default type for webapp), [on_behalf_of](/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow) (default type for resource-server), [client_credentials](/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow). |
+| azure.activedirectory.application-type                                                     | Refer to [Application type](#application-type).|
+| azure.activedirectory.base-uri                                                             | The base URI for the authorization server. The default value is `https://login.microsoftonline.com/`.  |
+| azure.activedirectory.client-id                                                            | The registered application ID in Azure AD.                                                         |
+| azure.activedirectory.client-secret                                                        | The client secret of the registered application.                                                   |
+| azure.activedirectory.graph-membership-uri                                                 | Used to load the users' groups. The default value is `https://graph.microsoft.com/v1.0/me/memberOf`, which gets direct groups. To get all transitive membership, set it to `https://graph.microsoft.com/v1.0/me/transitiveMemberOf`. The two URIs are for Azure Global. If you want to use Azure China instead, see **Property example 1** below.|
+| azure.activedirectory.post-logout-redirect-uri                                             | The redirect URI for posting the sign-out.                            |
+| azure.activedirectory.tenant-id                                                            | The Azure tenant ID.                                             |
+| azure.activedirectory.user-group.allowed-groups                                            | The expected user groups that an authority will be granted to if found in the response from the MemberOf Graph API Call. |
+| azure.activedirectory.user-name-attribute                                                  | Indicates which claim will be the principal's name. |
 
 The following examples show you how to use these properties:
 

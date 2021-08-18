@@ -1,7 +1,6 @@
 ---
 title: Configure logging in the Azure SDK for Java
 description: An overview of the Azure SDK for Java concepts related to logging
-author: srnagar
 ms.date: 02/02/2021
 ms.topic: conceptual
 ms.custom: devx-track-java

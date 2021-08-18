@@ -104,7 +104,7 @@ If you encounter any problems configuring Jenkins, refer to the [Cloudbees Jenki
     --output tsv
     ```
 
-    **Jenkins**:
+    **Key points**:
 
     - The `--query` parameter limits the output to the public IP addresses for the virtual machine.
 
@@ -114,7 +114,7 @@ If you encounter any problems configuring Jenkins, refer to the [Cloudbees Jenki
     ssh azureuser@<ip_address>
     ```
 
-    **Jenkins**:
+    **Key points**:
 
     - Upon successful connection, the Cloud Shell prompt includes the user name and virtual machine name: `azureuser@QuickstartJenkins-vm`.
 

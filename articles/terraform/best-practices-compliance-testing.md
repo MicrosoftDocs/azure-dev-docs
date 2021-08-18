@@ -1,40 +1,47 @@
 ---
-title: Tutorial - Compliance testing with Terraform and Azure
-description: Learn how to apply behavior driven development (BDD) style compliance testing to Terraform configurations
-ms.topic: tutorial
-ms.date: 07/31/2020
+title: Implement compliance testing with Terraform and Azure
+description: Understand how to apply behavior driven development (BDD) style compliance testing to Terraform configurations
+ms.topic: how-to
+ms.date: 08/07/2021
 ms.custom: devx-track-terraform
 ---
 
-# Tutorial: Compliance testing with Terraform and Azure
+# Implement compliance testing with Terraform and Azure
 
-[!INCLUDE [terraform-intro.md](includes/terraform-intro.md)]
+Many times, compliance testing is part of the continuous integration process and is used to ensure that user-defined policies are followed. For example, you might define geopolitical naming conventions for your Azure resources. Another common example is creating virtual machines from a defined subset of images. Compliance testing would be used to enforce rules in these and many other scenarios.
 
-In this article, you learn how to do the following tasks:
+In this article, you learn how to:
 
 > [!div class="checklist"]
-> * Understand when to use compliance testing
-> * Learn how to do a compliance check
 
-## Prerequisites
+> * Understand when to use compliance testing
+> * Learn how to do a compliance test
+> * See and run an example compliance test
+
+## 1. Configure your environment
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../includes/open-source-devops-prereqs-azure-subscription.md)]
-- **Install Terraform**: Based on your environment, [download and install Terraform](https://www.terraform.io/downloads.html).
-- **Docker**: [Install Docker](https://docs.docker.com/get-docker/)
-- **Terraform-compliance**: [Install the Terraform compliance tool](https://terraform-compliance.com/pages/installation/docker).
-- **Fork the testing samples**: Fork the [Terraform sample project on GitHub](https://github.com/Azure/terraform) and clone it to your dev/test machine.
 
-## What is compliance testing
+[!INCLUDE [configure-terraform.md](includes/configure-terraform.md)]
+
+- **Docker:** [Install Docker](https://docs.docker.com/get-docker/).
+
+- **Python:** [Install Python](https://www.python.org/downloads/).
+
+- **Terraform-compliance tool:** Install the Terraform compliance tool by running the following command: `pip install terraform-compliance`.
+
+- **Example code and resources:** Using the DownGit tool, download from GitHub the [compliance-testing project](https://downgit.github.io/#/home?url=https://github.com/Azure/terraform/tree/master/samples/compliance-testing) and unzip into a new directory to contain the example code. This directory is referred to as the *example directory*.
+
+## 2. Understand compliance testing and checks
 
 Compliance testing is a nonfunctional testing technique to determine if a system meets prescribed standards. Compliance testing is also known as *conformance testing*.
 
 Most software teams do an analysis to check that the standards are properly enforced and implemented. Often working simultaneously to improve the standards that, in turn, lead to increased quality.
 
-Compliance testing ensures that the output of each development lifecycle phase conforms to agreed-upon requirements.
+With compliance testing, there are two important concepts to consider: compliance testing and compliance checks.
 
-Compliance checks should be integrated into the development cycle at the beginning of the projects. Attempting to add compliance checks at a later stage becomes increasingly more difficult when the requirement itself isn't adequately documented.
-
-## Understanding compliance checks
+- *Compliance testing* ensures that the output of each development lifecycle phase conforms to agreed-upon requirements.
+- *Compliance checks* should be integrated into the development cycle at the beginning of the projects. Attempting to add compliance checks at a later stage becomes increasingly more difficult when the requirement itself isn't adequately documented.
 
 Doing compliance checks is straight forward. A set of standards and procedures is developed and documented for each phase of the development lifecycle. The output of each phase is compared against the documented requirements. The results of the test are any "gaps" in not conforming to the predetermined standards. Compliance testing is done through the inspection process and the outcome of the review process should be documented.
 
@@ -54,7 +61,7 @@ The Terraform-compliance tool provides a test framework where you create policie
 
 Terraform-compliance allows you to apply BDD, or *behavior-driven development*, principles. BDD is a collaborative process where all stakeholders work together to define what a system should do. These stakeholders generally include the developers, testers, and anyone with a vested interest in - or who will be impacted by - the system being developed. The goal of BDD is to encourage teams to build concrete examples that express a common understanding of how the system should behave.
 
-## Looking at an example
+## 3. Examine a compliance-test example
 
 Previously in this article, you read about a compliance-testing example of creating a VM for a test environment. This section shows how to translate that example into a BDD Feature and Scenario. The rule is first expressed using *Cucumber*, which is a tool used to support BDD.
 
@@ -112,53 +119,63 @@ Scenario Outline: Ensure that specific tags are defined
       | Environment | ^(prod\|uat\|dev)$ |
 ```
 
-## Running the sample
+## 4. Run the compliance-test example
 
-In this section, you'll download and test the example.
+In this section, you download and test the example.
 
-1. [Download the compliance test sample](https://github.com/Azure/terraform/tree/master/samples/compliance-testing).
+1. Within the example directory, navigate to the `src` directory.
 
-1. Change directories to the `src` directory.
+1. Run [terraform init](https://www.terraform.io/docs/commands/init.html) to initialize the working directory.
 
-1. Run [terraform init](https://www.terraform.io/docs/commands/init.html) to initialize the working directory. This step downloads the Azure modules required to create an Azure resource group.
-
-    ```bash
+    ```cmd
     terraform init
     ```
     
 1. Run [terraform validate](https://www.terraform.io/docs/commands/validate.html) to validate the syntax of the configuration files.
 
-    ```bash
+    ```cmd
     terraform validate
     ```
     
+    **Key points:**
+
+    - You see a message indicating that the Terraform configuration is valid.
+
 1. Run [terraform plan](https://www.terraform.io/docs/commands/plan.html) to create an execution plan.
 
-    ```bash
-    terraform plan -out tf.out
+    ```cmd
+    terraform plan -out main.tfplan
     ```
     
 1. Run [terraform apply](https://www.terraform.io/docs/commands/apply.html) to apply the execution plan.
 
-    ```bash
-    terraform apply -target=random_uuid.uuid
+    ```cmd
+    terraform apply main.tfplan -target=random_uuid.uuid
     ```
+
+    **Key points:**
+
+    - A resource group is created with a name following the pattern: `rg-hello-tf-<random_number>`.
     
 1. Run [docker pull](https://docs.docker.com/engine/reference/commandline/pull/) to download the terraform-compliance image.
 
-    ```bash
+    ```cmd
     docker pull eerkunt/terraform-compliance
     ```
     
-1. Run [docker run](https://docs.docker.com/engine/reference/commandline/run/) to run the tests in a docker container. **The test will fail**. The first rule requiring existence of tags succeeds. However, the second rule fails in that the `Role` and `Creator` tags are missing.
+1. Run [docker run](https://docs.docker.com/engine/reference/commandline/run/) to run the tests in a docker container.
 
-    ```bash
-    docker run --rm -v $PWD:/target -it eerkunt/terraform-compliance -f features -p tf.out
+    ```cmd
+    docker run --rm -v $PWD:/target -it eerkunt/terraform-compliance -f features -p main
     ```
-    
+
+    **Key points:**
+
+    - The test will fail because - while the first rule requiring existence of tags succeeds - the second rule fails in that the `Role` and `Creator` tags are missing.
+
     ![Example of a failed test](media/best-practices-compliance-testing/best-practices-compliance-testing-tagging-fail.png)
 
-1. Modify `main.tf` as follows to fix the error.
+1. Fix the error by modifying `main.tf` as follows (where a `Role` and `Creator` tag are added).
 
     ```terraform
       tags = {
@@ -169,30 +186,38 @@ In this section, you'll download and test the example.
       } 
     
     ```
+
+    **Key points:**
+
+    - The configuration is now in compliance with the policy.
     
+## 5. Verify the results
+
 1. Run `terraform validate` again to verify the syntax.
 
-    ```bash
+    ```cmd
     terraform validate
     ```
     
 1. Run `terraform plan` again to create a new execution plan.
 
-    ```bash
-    terraform plan -out tf.out
+    ```cmd
+    terraform plan -out main.tfplan
+    ```
+
+1. Run [docker run](https://docs.docker.com/engine/reference/commandline/run/) again to test the configuration. If the full spec has been implemented, the test succeeds.
+
+    ```cmd
+    docker run --rm -v $PWD:/target -it eerkunt/terraform-compliance -f features -p main.tfplan
     ```
     
-1. Run [docker run](https://docs.docker.com/engine/reference/commandline/run/) again to test the configuration. This time, the test succeeds as the full spec has been implemented.
-
-    ```bash
-    docker run --rm -v $PWD:/target -it eerkunt/terraform-compliance -f features -p tf.out
-    ```
-
     ![Example of a successful test](media/best-practices-compliance-testing/best-practices-compliance-testing-tagging-succeed.png)
+    
+## Troubleshoot Terraform on Azure
 
-[!INCLUDE [terraform-troubleshooting.md](includes/terraform-troubleshooting.md)]
+[Troubleshoot common problems when using Terraform on Azure](troubleshoot.md)
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Create and run end-to-end tests in Terraform projects](best-practices-end-to-end-testing.md)
+> [!div class="nextstepaction"] 
+> [Learn more about using Terraform in Azure](/azure/terraform)

@@ -1,7 +1,6 @@
 ---
 title: Books for Java developers
 description: Java - Curated list of books
-author: sadigopu
 ms.author: sreea
 ms.topic: article
 ms.date: 03/29/2021

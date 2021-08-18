@@ -29,7 +29,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 The following prerequisites are required to complete the steps in this article:
 
-* A supported Java Development Kit (JDK). For more information about the JDKs available for use when developing on Azure, see <https://aka.ms/azure-jdks>.
+* A supported Java Development Kit (JDK). For more information about the JDKs available for use when developing on Azure, see [Java support on Azure and Azure Stack](../fundamentals/java-support-on-azure.md).
 * [Apache Maven](http://maven.apache.org/), version 3.0 or later.
 
 ## Create an app using Spring Initializr
@@ -44,6 +44,9 @@ The following prerequisites are required to complete the steps in this article:
    >![Specify Group and Artifact names, select dependencies][create-spring-app-01]
 
 1. When prompted, download the project to a path on your local computer.
+
+> [!NOTE]
+> We've released Spring Boot Starter for Azure Active Directory [3.6.1](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/spring/azure-spring-boot-starter-active-directory/CHANGELOG.md) to address the following CVE report [CVE-2021-22119: Denial-of-Service attack with spring-security-oauth2-client](https://tanzu.vmware.com/security/cve-2021-22119). If you're using the older version, please upgrade it to 3.6.1 or above. 
 
 ## Create Azure Active Directory instance
 
@@ -192,10 +195,10 @@ The following prerequisites are required to complete the steps in this article:
    | `azure.activedirectory.tenant-id` | Contains your Active Directory's **Directory ID** from earlier. |
    | `azure.activedirectory.client-id` | Contains the **Application ID** from your app registration that you completed earlier. |
    | `azure.activedirectory.client-secret` | Contains the **Value** from your app registration key that you completed earlier. |
-   | `azure.activedirectory.user-group.allowed-groups` | Contains a list of Active Directory groups to use for authorization. |
+   | `azure.activedirectory.user-group.allowed-group-names` | You can specify users' group names in `@PreAuthorize("hasRole('ROLE_group_name_1')")`. <br>Only group names configured in this property will take effect. |
 
    > [!NOTE]
-   > For a full list of values that are available in your *application.properties* file, see the [Azure Active Directory Spring Boot Sample][AAD Spring Boot Sample] on GitHub.
+   > For a full list of values that are available in your *application.properties* file, see the [Configurable properties](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/spring/azure-spring-boot-starter-active-directory/README.md#configurable-properties) section of the [Azure AD Spring Boot Starter client library for Java](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/spring/azure-spring-boot-starter-active-directory) on GitHub.
 
 1. Save and close the *application.properties* file.
 
@@ -343,7 +346,6 @@ To learn more about Spring and Azure, continue to the Spring on Azure documentat
 [Spring Boot]: http://projects.spring.io/spring-boot/
 [Spring Initializr]: https://start.spring.io/
 [Spring Framework]: https://spring.io/
-[AAD Spring Boot Sample]: https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/spring/azure-spring-boot-samples/
 
 <!-- IMG List -->
 

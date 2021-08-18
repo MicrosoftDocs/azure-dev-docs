@@ -1,11 +1,11 @@
 ---
 title: Migrate Java applications to Azure
 description: This topic provides an overview of recommended strategies for migrating Java applications to Azure.
-author: yevster
 ms.author: yebronsh
 ms.topic: conceptual
 ms.date: 1/20/2020
 ms.custom: devx-track-java
+recommendations: false
 ---
 
 # Migrate Java applications to Azure
@@ -74,18 +74,18 @@ The following sections show you which service destinations meet your application
 
 Use the following grid to identify potential destinations for your application type. As you can see, AKS and Virtual Machines support all application types, but they require your team to take on more responsibilities, as shown in the next section.
 
-|Destination&nbsp;→<br><br>Application&nbsp;type&nbsp;↓|App<br>Service<br>Java SE|App<br>Service<br>Tomcat|Azure<br>Spring<br>Cloud|AKS|Virtual<br>Machines|
+|Destination&nbsp;→<br><br>Application&nbsp;type&nbsp;↓|App<br>Service<br>Java SE|App<br>Service<br>Tomcat|App<br>Service<br>JBoss EAP|Azure<br>Spring<br>Cloud|AKS|Virtual<br>Machines|
 |---|---|---|---|---|---|---|
-| Spring Boot / JAR applications                                    |&#x2714;|        |&#x2714;|&#x2714;|&#x2714;|
-| Spring Cloud / microservices                                      |        |        |&#x2714;|&#x2714;|&#x2714;|
-| Web applications                                                  |        |&#x2714;|        |&#x2714;|&#x2714;|
-| Java EE applications                                              |        |        |        |&#x2714;|&#x2714;|
-| Commercial application servers<br>(such as WebLogic or WebSphere) |        |        |        |&#x2714;|&#x2714;|
-| Long-term persistence on local filesystem                         |&#x2714;|&#x2714;|        |&#x2714;|&#x2714;|
-| Application server-level clustering                               |        |        |        |&#x2714;|&#x2714;|
-| Batch / scheduled jobs                                            |        |        |&#x2714;|&#x2714;|&#x2714;|
-| VNet Integration/Hybrid Connectivity                              |&#x2714;|&#x2714;|Preview |&#x2714;|&#x2714;|
-| Azure region availability                | [Details][10] | [Details][10] | [Details][11] |[Details][12]|[Details][13]|
+| Spring Boot / JAR applications                                    |&#x2714;|        |        |&#x2714;|&#x2714;|&#x2714;|
+| Spring Cloud / microservices                                      |        |        |        |&#x2714;|&#x2714;|&#x2714;|
+| Web applications                                                  |        |&#x2714;|&#x2714;|        |&#x2714;|&#x2714;|
+| Java EE applications                                              |        |        |&#x2714;|        |&#x2714;|&#x2714;|
+| Commercial application servers<br>(such as WebLogic or WebSphere) |        |        |        |        |&#x2714;|&#x2714;|
+| Long-term persistence on local filesystem                         |&#x2714;|&#x2714;|&#x2714;|        |&#x2714;|&#x2714;|
+| Application server-level clustering                               |        |        |        |        |&#x2714;|&#x2714;|
+| Batch / scheduled jobs                                            |        |        |        |&#x2714;|&#x2714;|&#x2714;|
+| VNet Integration/Hybrid Connectivity                              |&#x2714;|&#x2714;|&#x2714;|&#x2714;|&#x2714;|&#x2714;|
+| Azure region availability           |[Details][10]|[Details][10]|[Details][10]|[Details][11]|[Details][12]|[Details][13]|
 
 ### Ongoing responsibility grid
 
@@ -134,22 +134,22 @@ If you'd like to migrate a JBoss EAP app to Tomcat on App Service, first convert
 
 If you'd like to migrate a Web app on Tomcat to Azure Spring Cloud, first convert the app into Spring Cloud microservices, then follow the guidance indicated below.
 
-|Destination&nbsp;→<br><br>Application&nbsp;type&nbsp;↓|App<br>Service<br>Java SE|App<br>Service<br>Tomcat|Azure<br>Spring<br>Cloud|AKS|Virtual Machines|
+|Destination&nbsp;→<br><br>Application&nbsp;type&nbsp;↓|App<br>Service<br>Java SE|App<br>Service<br>Tomcat|App<br>Service<br>JBoss EAP|Azure<br>Spring<br>Cloud|AKS|Virtual Machines|
 |---|---|---|---|---|---|---|
-| Spring Boot /<br>JAR applications | [guidance][5] | guidance<br>planned | [guidance][16] | [guidance][14]      | guidance<br>planned |
-| Spring Cloud /<br>microservices   | N/A           | N/A                 | [guidance][15] | guidance<br>planned | guidance<br>planned |
-| Web applications<br>on Tomcat     | N/A           | [guidance][2]       | [guidance][17] | [guidance][3]       | guidance<br>planned |
+| Spring Boot /<br>JAR applications | [guidance][5] | guidance<br>planned | N/A | [guidance][16] | [guidance][14]      | guidance<br>planned |
+| Spring Cloud /<br>microservices   | N/A           | N/A                 | N/A | [guidance][15] | guidance<br>planned | guidance<br>planned |
+| Web applications<br>on Tomcat     | N/A           | [guidance][2]       | N/A | [guidance][17] | [guidance][3]       | guidance<br>planned |
 
 **Java EE applications**
 
 Use the rows below to find your Java EE application type running on a specific app server. Use the columns to find the Azure service destination that will host your application.
 
-|Destination&nbsp;→<br><br>App server&nbsp;↓|App<br>Service<br>Java SE|App<br>Service<br>Tomcat|Azure<br>Spring<br>Cloud|AKS|Virtual Machines|
+|Destination&nbsp;→<br><br>App server&nbsp;↓|App<br>Service<br>Java SE|App<br>Service<br>Tomcat|App<br>Service<br>JBoss EAP|Azure<br>Spring<br>Cloud|AKS|Virtual Machines|
 |---|---|---|---|---|---|---|
-| WildFly /<br>JBoss AS | N/A | N/A | N/A | [guidance][9] | guidance<br>planned |
-| WebLogic              | N/A | N/A | N/A | [guidance][6] | [guidance][4]       |
-| WebSphere             | N/A | N/A | N/A | [guidance][7] | guidance<br>planned |
-| JBoss EAP             | N/A | N/A | N/A | [guidance][8] | guidance<br>planned |
+| WildFly /<br>JBoss AS | N/A | N/A | [guidance][18]      | N/A | [guidance][9] | guidance<br>planned |
+| WebLogic              | N/A | N/A | guidance<br>planned | N/A | [guidance][6] | [guidance][4]       |
+| WebSphere             | N/A | N/A | guidance<br>planned | N/A | [guidance][7] | guidance<br>planned |
+| JBoss EAP             | N/A | N/A | [guidance][18]      | N/A | [guidance][8] | guidance<br>planned |
 
 <!-- reference links, for use with tables -->
 [1]: media/migration-overview/logo_azure.svg
@@ -169,3 +169,4 @@ Use the rows below to find your Java EE application type running on a specific a
 [15]: migrate-spring-cloud-to-azure-spring-cloud.md
 [16]: migrate-spring-boot-to-azure-spring-cloud.md
 [17]: migrate-tomcat-to-azure-spring-cloud.md
+[18]: migrate-jboss-eap-to-jboss-eap-on-azure-app-service.md

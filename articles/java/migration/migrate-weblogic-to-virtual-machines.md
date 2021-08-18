@@ -1,11 +1,11 @@
 ---
 title: Migrate WebLogic applications to Azure Virtual Machines
 description: This guide describes what you should be aware of when you want to migrate an existing WebLogic application to run on Azure Virtual Machines.
-author: edburns
 ms.author: edburns
 ms.topic: conceptual
 ms.date: 1/27/2020
 ms.custom: devx-track-java
+recommendations: false
 ---
 
 # Migrate WebLogic Server applications to Azure Virtual Machines

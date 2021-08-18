@@ -10,7 +10,7 @@ ms.custom: devx-track-python
 
 A static website is composed of HTML, CSS, JavaScript, and other static files such as images or fonts. A static site is typically a single-page application (SPA) written with any number of JavaScript frameworks such as Angular, React, or Vue.
 
-However you design the app, you can serve these files directly from Azure Storage rather than using a web server. Hosting in storage is simpler and significantly less expensive than maintaining a web server; static hosting typically costs only pennies month. To what extent you might need server-side processing, you can often meet those needs through serverless functions as supported by Azure Functions.
+However you design the app, you can serve these files directly from Azure Storage rather than using a web server. Hosting in storage is simpler and significantly less expensive than maintaining a web server; static hosting typically costs only pennies per month. To what extent you might need server-side processing, you can often meet those needs through serverless functions as supported by Azure Functions.
 
 The resources below provide all the details on creating static websites.
 

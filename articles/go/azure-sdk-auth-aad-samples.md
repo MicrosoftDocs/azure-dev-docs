@@ -3,6 +3,7 @@ title: Azure SDK for Go samples for authentication and AAD
 description: Selected samples for working with Azure Active Directory (AAD) and authentication from the Azure SDK for Go.
 ms.date: 09/05/2018
 ms.topic: sample
+ms.custom: devx-track-go
 ---
 # Azure SDK for Go samples for authentication and AAD
 

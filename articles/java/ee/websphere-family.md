@@ -1,7 +1,6 @@
 ---
 title: "What are solutions to run the IBM WebSphere family of products on Azure"
 description: WebSphere products are key components in enabling enterprise Java workloads on Azure. IBM and Microsoft are working on a complete set of jointly developed and supported solutions for the product family.
-author: m-reza-rahman
 ms.author: rezar
 ms.topic: overview
 ms.date: 04/28/2021
@@ -20,7 +19,7 @@ The currently available offers are linked at the bottom of this page.
 
 :::image type="content" border="false" source="media/websphere-family/websphere-family.svg" alt-text="Diagram showing the interaction of IBM products on Azure.":::
 
-If you want to provide feedback on these offers, stay-up-date on the roadmap, or work closely on your migration scenarios with the engineering team developing these offers, select the CONTACT ME button on the marketplace offer [overview page](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/ibm-usa-ny-armonk-hq-6275750-ibmcloud-aiops.2021-02-17_websphere_offerings_contact_me?tab=Overview). Program managers, architects, and engineers will reach out to you shortly to start collaboration. The opportunity to collaborate on a migration scenario is free while the offers are under active development.
+If you want to provide feedback on these offers, stay-up-date on the roadmap, or work closely on your migration scenarios with the engineering team developing these offers, select the CONTACT ME button on the marketplace offer [overview page](https://azuremarketplace.microsoft.com/marketplace/apps/ibm-usa-ny-armonk-hq-6275750-ibmcloud-aiops.2021-02-17_websphere_offerings_contact_me?tab=Overview). Program managers, architects, and engineers will reach out to you shortly to start collaboration. The opportunity to collaborate on a migration scenario is free while the offers are under active development.
 
 ## Open Liberty and WebSphere Liberty on ARO
 

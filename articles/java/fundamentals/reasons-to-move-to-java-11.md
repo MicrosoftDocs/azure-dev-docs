@@ -2,7 +2,6 @@
 title: Reasons to move to Java 11
 titleSuffix: Azure
 description: A summary-level document intended for decision makers who are weighing the benefits of moving from Java 8 to Java 11. 
-author: dsgrieve
 manager: maverbur
 tags: java
 ms.topic: article
@@ -144,7 +143,7 @@ The JVM sets GC defaults for the average use-case. Often,
 these defaults, and other GC settings, need to be tuned for optimum
 throughput or latency, according to the application's requirements.
 Properly tuning the GC requires deep knowledge of the GC, expertise
-that the [Microsoft Java Engineering Group](mailto:javaplatformgroup@microsoft.com)
+that the [Microsoft Java Engineering Group](mailto:openjdk-support@microsoft.com)
 provides.
 
 #### G1GC

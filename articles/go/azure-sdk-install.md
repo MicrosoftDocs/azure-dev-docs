@@ -3,6 +3,7 @@ title: Install the Azure SDK for Go
 description: How to install, vendor, and configure the Azure SDK for Go.
 ms.date: 03/14/2018
 ms.topic: conceptual
+ms.custom: devx-track-go
 ---
 
 # Install the Azure SDK for Go

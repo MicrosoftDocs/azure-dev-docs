@@ -64,12 +64,12 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
+          - text: Work with offline data using Azure Mobile Apps
+            url: azure-mobile-apps/overview.md
           - text: Store, sync, and query mobile application data from the cloud
             url: data-storage.md      
           - text: Cloud storage for highly secure, durable, scalable apps with Azure Storage   
-            url: azure-storage.md
-          - text: Content delivery with Azure Content Delivery Network
-            url: azure-content-delivery-network.md
+            url: azure-storage.md          
       - linkListType: quickstart
         links:
           - text: Save data with Azure Cosmos DB

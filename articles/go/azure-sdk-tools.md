@@ -3,6 +3,7 @@ title: Tools for developers using the Azure SDK for Go
 description: Tools for working with the Azure SDK for Go, and Azure services
 ms.date: 09/05/2018
 ms.topic: conceptual
+ms.custom: devx-track-go
 ---
 
 # Tools for developers using the Azure SDK for Go

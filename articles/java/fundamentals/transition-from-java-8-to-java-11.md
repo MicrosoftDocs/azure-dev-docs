@@ -2,7 +2,6 @@
 title: Transition from Java 8 to Java 11
 titleSuffix: Azure
 description: A guide for managing the move from Java 8 to Java 11. 
-author: dsgrieve
 manager: maverbur
 tags: java
 ms.service: azure

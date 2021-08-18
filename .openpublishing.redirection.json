@@ -1,28 +1,48 @@
 {
   "redirections": [
     {
+      "source_path": "articles/javascript/tutorial/tutorial-vscode-azure-cli-node/tutorial-vscode-azure-cli-node-06.md",
+      "redirect_url": "/azure/developer/javascript/tutorial/tutorial-vscode-azure-cli-node/tutorial-vscode-azure-cli-node-04#make-change-and-deploy-to-azure-app-service-from-local-git"
+    },    
+    {
+      "source_path": "articles/javascript/how-to/deploy-containers.md",
+      "redirect_url": "/azure/developer/javascript/how-to/deploy-web-app"
+    },
+    {
+      "source_path": "articles/javascript/how-to/integrate-database.md",
+      "redirect_url": "/azure/developer/javascript/how-to/with-database/getting-started"
+    },
+    {
+      "source_path": "articles/javascript/core/node-sdk-azure-authenticate.md",
+      "redirect_url": "/azure/developer/javascript/core/nodejs-sdk-azure-authenticate"
+    },
+    {
       "source_path": "articles/javascript/tutorial/tutorial-vscode-static-website-node/tutorial-vscode-static-website-node-01.md",
-      "redirect_url": "/azure/static-web-apps/getting-started?tabs=vanilla-javascript"
+      "redirect_url": "/azure/developer/javascript/static-web-apps/getting-started?tabs=vanilla-javascript"
     },
     {
       "source_path": "articles/javascript/tutorial/tutorial-vscode-static-website-node/tutorial-vscode-static-website-node-02.md",
-      "redirect_url": "/azure/static-web-apps/getting-started?tabs=vanilla-javascript"
+      "redirect_url": "/azure/developer/javascript/static-web-apps/getting-started?tabs=vanilla-javascript"
     },
     {
       "source_path": "articles/javascript/tutorial/tutorial-vscode-static-website-node/tutorial-vscode-static-website-node-03.md",
-      "redirect_url": "/azure/static-web-apps/getting-started?tabs=vanilla-javascript"
+      "redirect_url": "/azure/developer/javascript/static-web-apps/getting-started?tabs=vanilla-javascript"
     },    
     {
       "source_path": "articles/javascript/tutorial/tutorial-vscode-static-website-node/tutorial-vscode-static-website-node-04.md",
-      "redirect_url": "/azure/static-web-apps/getting-started?tabs=vanilla-javascript"
+      "redirect_url": "/azure/developer/javascript/static-web-apps/getting-started?tabs=vanilla-javascript"
     },
     {
+      "source_path": "articles/javascript/tutorial/client/get-started.md",
+      "redirect_url": "/azure/developer/javascript/how-to/create-static-web-app"
+    },    
+    {
       "source_path": "articles/javascript/tutorial/tutorial-vscode-static-website-node/tutorial-vscode-static-website-node-05.md",
-      "redirect_url": "/azure/static-web-apps/getting-started?tabs=vanilla-javascript"
+      "redirect_url": "/azure/developer/javascript/static-web-apps/getting-started?tabs=vanilla-javascript"
     },
     {
       "source_path": "articles/javascript/tutorial/tutorial-vscode-static-website-node/tutorial-vscode-static-website-node-06.md",
-      "redirect_url": "/azure/static-web-apps/getting-started?tabs=vanilla-javascript"
+      "redirect_url": "/azure/developer/javascript/static-web-apps/getting-started?tabs=vanilla-javascript"
     },     
     {
       "source_path": "articles/javascript/core/node-sdk-azure-authenticate-principal.md",
@@ -869,6 +889,10 @@
       "redirect_url": "/azure/developer/ansible/getting-started-cloud-shell"
     },
     {
+      "source_path": "articles/ansible/key-vault-configure-vm-security.md",
+      "redirect_url": "/azure/developer/ansible/key-vault-configure-secrets"
+    },
+    {
       "source_path": "articles/terraform/install-configure.md",
       "redirect_url": "/azure/developer/terraform/getting-started-cloud-shell"
     },
@@ -903,6 +927,10 @@
     {
       "source_path": "articles/jenkins/deploy-to-aks-using-blue-green-deployment-pattern.md",
       "redirect_url": "/azure/developer/jenkins/deploy-from-github-to-aks"
+    },
+    {
+      "source_path": "articles/terraform/get-started-cloud-shell.md",
+      "redirect_url": "/azure/developer/terraform/get-started-cloud-shell-bash"
     }
   ]
 }

@@ -1,7 +1,6 @@
 ---
 title: Azure Authentication in Java development environments
 description: An overview of the Azure SDK for Java concepts related to authenticating within dev environments
-author: g2vinay
 ms.date: 02/02/2021
 ms.topic: conceptual
 ms.custom: devx-track-java
@@ -94,25 +93,25 @@ The Visual Studio Code credential authenticates in a development environment wit
 
 Sign in as a user with the following [Azure CLI][azure_cli] command:
 
-```bash
+```azurecli
 az login
 ```
 
 Sign in as a service principal using the following command:
 
-```bash
+```azurecli
 az login --service-principal --username <client ID> --password <client secret> --tenant <tenant ID>
 ```
 
 If the account or service principal has access to multiple tenants, make sure the desired tenant or subscription is in the state "Enabled" in the output from the following command:
 
-```bash
+```azurecli
 az account list
 ```
 
 Before you use `AzureCliCredential` in code, run the following command to verify that the account has been successfully configured.
 
-```bash
+```azurecli
 az account get-access-token
 ```
 

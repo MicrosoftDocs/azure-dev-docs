@@ -1,7 +1,7 @@
 ---
 title: Usage patterns with the Azure libraries for Python
 description: An overview of common usage patterns with the Azure SDK libraries for Python
-ms.date: 11/12/2020
+ms.date: 06/24/2021
 ms.topic: conceptual
 ms.custom: devx-track-python
 ---
@@ -62,22 +62,9 @@ In either case, an [`AzureOperationPoller`](/python/api/msrestazure/msrestazure.
 
 The following code, taken from [Example: Provision and deploy a web app](azure-sdk-example-web-app.md), shows an example of using the poller to wait for a result:
 
-```python
-poller = app_service_client.web_apps.create_or_update(RESOURCE_GROUP_NAME,
-    WEB_APP_NAME,
-    {
-        "location": LOCATION,
-        "server_farm_id": plan_result.id,
-        "site_config": {
-            "linux_fx_version": "python|3.8"
-        }
-    }
-)
+:::code language="python" source="~/../python-sdk-examples/webapp/provision_deploy_web_app.py" range="59-70":::
 
-web_app_result = poller.result()
-```
-
-In this case, the return value of `create_or_update` is of type `AzureOperationPoller[Site]`, which means that the return value of `poller.result()` is a [Site](/python/api/azure-mgmt-web/azure.mgmt.web.v2019_08_01.models.site) object.
+In this case, the return value of `begin_create_or_update` is of type `AzureOperationPoller[Site]`, which means that the return value of `poller.result()` is a [Site](/python/api/azure-mgmt-web/azure.mgmt.web.v2021_01_01.models.site) object.
 
 ## Exceptions
 
@@ -159,56 +146,15 @@ Objects can also have nested object arguments, in which case you can also use ne
 
 For example, suppose you have an instance of the [`KeyVaultManagementClient`](/python/api/azure-mgmt-keyvault/azure.mgmt.keyvault.v2019_09_01.keyvaultmanagementclient) object, and are calling its [`create_or_update`](/python/api/azure-mgmt-keyvault/azure.mgmt.keyvault.v2019_09_01.operations.vaultsoperations#create-or-update-resource-group-name--vault-name--parameters--custom-headers-none--raw-false--polling-true----operation-config-) method. In this case, the third argument is of type [`VaultCreateOrUpdateParameters`](/python/api/azure-mgmt-keyvault/azure.mgmt.keyvault.v2019_09_01.models.vaultcreateorupdateparameters), which itself contains an argument of type [`VaultProperties`](/python/api/azure-mgmt-keyvault/azure.mgmt.keyvault.v2019_09_01.models.vaultproperties). `VaultProperties`, in turn, contains object arguments of type [`Sku`](/python/api/azure-mgmt-keyvault/azure.mgmt.keyvault.v2019_09_01.models.sku) and [`list[AccessPolicyEntry]`](/python/api/azure-mgmt-keyvault/azure.mgmt.keyvault.v2019_09_01.models.accesspolicyentry). A `Sku` contains a [`SkuName`](/python/api/azure-mgmt-keyvault/azure.mgmt.keyvault.v2019_09_01.models.skuname) object, and each `AccessPolicyEntry` contains a [`Permissions`](/python/api/azure-mgmt-keyvault/azure.mgmt.keyvault.v2019_09_01.models.permissions) object.
 
-To call `create_or_update` with embedded objects, you use code like the following (assuming `tenant_id` and `object_id` are already defined). You can also create the necessary objects before the function call.
+To call `begin_create_or_update` with embedded objects, you use code like the following (assuming `tenant_id` and `object_id` are already defined). You can also create the necessary objects before the function call.
 
-```python
-operation = keyvault_client.vaults.create_or_update(
-    "PythonSDKExample-rg",
-    "keyvault01",
-    VaultCreateOrUpdateParameters(
-        location="centralus",
-        properties=VaultProperties(
-            tenant_id=tenant_id,
-            sku=Sku(name="standard"),
-            access_policies=[
-                AccessPolicyEntry(
-                    tenant_id=tenant_id,
-                    object_id=object_id,
-                    permissions=Permissions(keys=['all'], secrets=['all'])
-                )
-            ]
-        )
-    )
-)
-```
+:::code language="python" source="~/../python-sdk-examples/key_vault/provision_key_vault.py" range="66-92":::
 
 The same call using inline JSON appears as follows:
 
-```python
-operation = keyvault_client.vaults.create_or_update(
-    "PythonSDKExample-rg",
-    "keyvault01",
-    {
-        'location': 'centralus',
-        'properties': {
-            'sku': {
-                'name': 'standard'
-            },
-            'tenant_id': tenant_id,
-            'access_policies': [{
-                'object_id': object_id,
-                'tenant_id': tenant_id,
-                'permissions': {
-                    'keys': ['all'],
-                    'secrets': ['all']
-                }
-            }]
-        }
-    }
-)
-```
+:::code language="python" source="~/../python-sdk-examples/key_vault/provision_key_vault.py" range="97-121":::
 
-Because both forms are equivalent, you can choose whichever you prefer and even intermix them.
+Because both forms are equivalent, you can choose whichever you prefer and even intermix them. (The full code for these examples can be found on [GitHub](https://github.com/MicrosoftDocs/python-sdk-docs-examples/blob/main/key_vault/provision_key_vault.py).)
 
 If your JSON isn't formed properly, you typically get the error, "DeserializationError: Unable to deserialize to object: type, AttributeError: 'str' object has no attribute 'get'". A common cause of this error is that you're providing a single string for a property when the library expects a nested JSON object. For example, using `"sku": "standard"` in the previous example generates this error because the `sku` parameter is a `Sku` object that expects inline object JSON, in this case `{ "name": "standard"}`, which maps to the expected `SkuName` type.
 

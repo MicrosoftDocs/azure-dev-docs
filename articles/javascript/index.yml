@@ -11,7 +11,7 @@ metadata:
   description: Get started developing apps with the Azure SDK for JavaScript in the browser or Node.js through tutorials, tools, and the SDK reference.
   author: diberry
   ms.author: diberry
-  ms.date: 06/11/2021
+  ms.date: 08/07/2021
   ms.topic: landing-page
   ms.collection: collection
   ms.technology: azure
@@ -19,6 +19,26 @@ metadata:
   ms.devlang: javascript
   ms.custom: 2020Aug21Redesign, devx-track-js
 landingContent:
+  - title: Learn JavaScript
+    linkLists:
+      - linkListType: learn
+        links:
+          - text: Learn TV
+            url: /learn/tv/
+          - text: JavaScript
+            url: https://channel9.msdn.com/Series/Beginners-Series-to-JavaScript
+          - text: JavaScript in Portuguese
+            url: https://www.youtube.com/watch?v=SXBNpzjusgY
+          - text: Simple website using HTML, CSS, and JavaScript
+            url: /learn/modules/build-simple-website/
+          - text: React
+            url: /learn/modules/react-get-started/
+          - text: Node.js
+            url: /learn/paths/build-javascript-applications-nodejs/
+          - text: Azure Fundamentals
+            url: /learn/modules/intro-to-azure-fundamentals/
+          - text: Azure Static Web Apps
+            url: /learn/paths/azure-static-web-apps/
   - title: New to Azure?
     linkLists:
       - linkListType: get-started
@@ -32,7 +52,7 @@ landingContent:
           - text: Select a hosting service
             url: how-to/deploy-web-app.md
           - text: Authenticate to Azure SDK
-            url: core/node-sdk-azure-authenticate.md
+            url: core/nodejs-sdk-azure-authenticate.md
           - text: Authenticate your web app users
             url: how-to/with-authentication/getting-started.md?tabs=no-code%2Cno-code-credential
           - text: Select a database
@@ -41,6 +61,22 @@ landingContent:
             url: https://devblogs.microsoft.com/azure-sdk/
           - text: Top tasks for JavaScript developers
             url: how-to/common-javascript-tasks.md
+  - title: Deploy and host
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Getting started
+            url: how-to/deploy-web-app.md
+          - text: Static Web App upload image to Storage
+            url: tutorial/browser-file-upload-azure-storage-blob.md
+          - text: "Azure Function"
+            url: tutorial/vscode-function-app-http-trigger/tutorial-vscode-serverless-node-install.md            
+          - text: "App service with MongoDB"
+            url: tutorial/deploy-nodejs-mongodb-app-service-from-visual-studio-code.md
+          - text: "App service with a container"
+            url: tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-01.md
+          - text: "Azure Virtual Machine with NGINX/Express.js"
+            url: tutorial/nodejs-virtual-machine-vm/introduction.md
   - title: Returning to Azure?
     linkLists:
       - linkListType: get-started
@@ -49,28 +85,6 @@ landingContent:
             url: whats-new-docs.md
           - text: What's new with Developer Advocates
             url: whats-new-developer-advocacy.md
-          - text: Top 10 docs for JS developers
-            url: whats-new-docs.md#top-10
-  - title: Deploy and host
-    linkLists:
-      - linkListType: tutorial
-        links:
-          - text: "Add search to website"
-            url: /azure/search/tutorial-javascript-overview
-          - text: "Static web app: React with Cognitive Services"
-            url: tutorial/static-web-app/introduction.md
-          - text: "App service: React upload to Storage Blobs"
-            url: tutorial/browser-file-upload-azure-storage-blob.md
-          - text: "App service: Express.js"
-            url: tutorial/deploy-nodejs-azure-app-service-with-visual-studio-code.md
-          - text: "App service: Express.js with MongoDB"
-            url: tutorial/deploy-nodejs-mongodb-app-service-from-visual-studio-code.md
-          - text: "App service: Express.js container"
-            url: tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-01.md
-          - text: "Azure Functions: HTTP serverless trigger"
-            url: tutorial/vscode-function-app-http-trigger/tutorial-vscode-serverless-node-install.md
-          - text: "Azure Virtual Machine: NGINX/Express.js containers"
-            url: tutorial/nodejs-virtual-machine-vm/introduction.md
   - title: Azure SDK client library tutorials
     linkLists: 
       - linkListType: tutorial
@@ -99,26 +113,18 @@ landingContent:
             url: /azure/azure-sql/database/connect-query-nodejs
           - text: Store files
             url: /azure/storage/blobs/storage-quickstart-blobs-nodejs?toc=/azure/developer/javascript/toc.json&bc=/azure/developer/breadcrumb/toc.json
-  - title: Cognitive Services
+  - title: AI/ML
     linkLists:
       - linkListType: quickstart
         links:
+          - text: Add search to website
+            url: /azure/search/tutorial-javascript-overview
           - text: Speech to text
             url: /azure/cognitive-services/speech-service/quickstarts/speech-to-text-from-file?tabs=linux%2Cbrowser%2Cwindowsinstall&pivots=programming-language-javascript
           - text: Translate text
             url: /azure/cognitive-services/translator/quickstart-translator?pivots=programming-language-javascript
           - text: Detect objects in an image
             url: tutorial/static-web-app/introduction.md
-  - title: Learning paths and modules
-    linkLists:
-      - linkListType: learn
-        links:
-          - text: Azure Fundamentals
-            url: /learn/modules/intro-to-azure-fundamentals/
-          - text: Build JavaScript applications with Node.js
-            url: /learn/paths/build-javascript-applications-nodejs/
-          - text: Azure Static Web Apps
-            url: /learn/paths/azure-static-web-apps/
   - title: Use Azure client libraries (SDK)
     linkLists:
       - linkListType: get-started
@@ -129,7 +135,7 @@ landingContent:
             url: /javascript/api/overview/azure/
           - text: JS/TS samples
             url: /samples/browse/?languages=javascript%2Cnodejs%2Ctypescript
-  - title: Explore developer tools
+  - title: Developer tools
     linkLists:
       - linkListType: get-started
         links:
