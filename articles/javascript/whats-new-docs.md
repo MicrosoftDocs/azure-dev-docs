@@ -16,9 +16,9 @@ Find new and updated content for JavaScript and TypeScript developers.
 
 |Name|Description|
 |---------------------------------------|--|
-|[Create and deploy an Azure Function API with VS Code](./tutorial/vscode-function-app-http-trigger/tutorial-vscode-serverless-node-install)|Previous version of document series focused on a public/anonymous API. The series now uses function-level security: local develop doesn't use the function key (`code` querystring param), the remote deployed function requires the function key.|
-|[Azure service principal](.how-to/with-sdk/set-up-development-environment)|Updated code sample and added code sample to **[JS-e2e](https://github.com/Azure-Samples/js-e2e/tree/main/resources/resource-groups-list)** repo.|
-|Updated [hosting and deployment services](/how-to/deploy-web-app)|Added Azure Web PubSub to list of services.|
+|[Create and deploy an Azure Function API with VS Code](tutorial/vscode-function-app-http-trigger/tutorial-vscode-serverless-node-install.md)|Previous version of document series focused on a public/anonymous API. The series now uses function-level security: local develop doesn't use the function key (`code` querystring param), the remote deployed function requires the function key.|
+|[Azure service principal](how-to/with-sdk/set-up-development-environment.md)|Updated code sample and added code sample to **[JS-e2e](https://github.com/Azure-Samples/js-e2e/tree/main/resources/resource-groups-list)** repo.|
+|Updated [hosting and deployment services](how-to/deploy-web-app.md)|Added Azure Web PubSub to list of services.|
 
 ## 2021 July 
 
