@@ -33,7 +33,7 @@ Run the Azure Functions project locally to test it before deploying to Azure. Se
 
 With your function running locally, set breakpoints on different parts of the code. 
 
-1. Open *index.js*, then click in the margin to the left of line 13, ``context.res`, in the editor window. 
+1. Open *index.js*, then click in the margin to the left of line 13, `context.res`, in the editor window. 
 1. A small red dot appears to indicate a breakpoint. 
 1. Remove the `?name=` argument from the URL in the browser and resubmit the browser request to the function. 
 1. When the browser makes that request, VS Code stops the function code on that breakpoint:
