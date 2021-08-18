@@ -204,6 +204,8 @@ Append the below code to your existing code to begin the ETL process. This funct
 
 ``` python
 .....
+from io import StringIO
+import pandas as pd
 from azure.storage.blob import BlobClient
 
 blob_client = BlobClient( account_url=storage_account_url, 
@@ -211,28 +213,28 @@ blob_client = BlobClient( account_url=storage_account_url,
                           blob_name=blob_csv_filename, 
                           credential=access_key_secret.value )
 
-# Store data stream from blob in Function.
-download_stream = blob_client.download_blob()
+# Download blob file as StorageStreamDownloader object (stored in memory)
+downloaded_blob = blob_client.download_blob()
 
-# Split the financial_data_blob string with newline.
-data_stream_arr = download_stream.readall().splitlines()
+# Load blob data into a Pandas DataFrame
+df = pd.read_csv(StringIO(downloaded_blob.content_as_text()))
 
-# Check the stored blob data by printing one line at a time.
-for line in data_stream_arr:
-    print(line)
-
+# Check the blob file data
+df
 .....
 ```
 
 ```console
-Segment,Country,Product,Units Sold,Manufacturing Price,Sale Price,Gross Sales,Date
-Government,Canada,Carretera,1618.5,$3.00,$20.00,"$32,370.00",1/1/2014
-Government,Germany,Carretera,1321,$3.00,$20.00,"$26,420.00",1/1/2014
-Midmarket,France,Carretera,2178,$3.00,$15.00,"$32,670.00",6/1/2014
-Midmarket,Germany,Carretera,888,$3.00,$15.00,"$13,320.00",6/1/2014
-Midmarket,Mexico,Carretera,2470,$3.00,$15.00,"$37,050.00",6/1/2014
+    Segment     Country  Product    Units Sold  Manufacturing Price  Sale Price   Gross Sales   Date
+0   Government  Canada   Carretera  1618.5      $3.00                $20.00       "$32,370.00"  1/1/2014
+1   Government  Germany  Carretera  1321        $3.00                $20.00       "$26,420.00"  1/1/2014
+2   Midmarket   France   Carretera  2178        $3.00                $15.00       "$32,670.00"  6/1/2014
+3   Midmarket   Germany  Carretera  888         $3.00                $15.00       "$13,320.00"  6/1/2014
+4   Midmarket   Mexico   Carretera  2470        $3.00                $15.00       "$37,050.00"  6/1/2014
 ```
 
 ## Next steps
 
-This article showed you how to use Azure CLI/Powershell to create secure access between a serverless Azure Function, Azure Key Vault, and Azure Storage Account. You also learned how to use the Python Azure SDK to retrieve the secret from the Key Vault to securely extract the raw file data from Azure Storage. In the following article, we can expand this Azure Function to include transforming and loading the extracted data into an Azure relational database.
+Continue your Python on Azure data journey with the below articles:
+
+* [Tasks to prepare data for enhanced machine learning](/azure/architecture/data-science-process/prepare-data)
