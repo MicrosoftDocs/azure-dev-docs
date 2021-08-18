@@ -2,7 +2,7 @@
 title: Top Azure tasks for JavaScript developers
 description: Find an example of your current tasks.
 ms.topic: how-to
-ms.date: 08/16/2021
+ms.date: 08/18/2021
 ms.custom: devx-track-js
 ---
 
@@ -60,7 +60,7 @@ Provide authentication.
 |HTTP trigger code|[JavaScript](../tutorial/vscode-function-app-http-trigger/tutorial-vscode-serverless-node-create-local.md#http-function-javascript-template-code)|
 |Debug/test function locally|[Visual Studio Code](../tutorial/vscode-function-app-http-trigger/tutorial-vscode-serverless-node-test-local.md)|
 |Deploy function to Azure cloud|[Visual Studio Code extension](../tutorial/vscode-function-app-http-trigger/tutorial-vscode-serverless-node-deploy-hosting.md)|
-|Verify function is available on public URL|[Visual Studio Code extension/Browser](../tutorial/vscode-function-app-http-trigger/tutorial-vscode-serverless-node-deploy-hosting.md#verify-functions-app-is-publicly-available-with-browser)|
+|Verify secure function API is available |[Visual Studio Code extension/Browser](../tutorial/vscode-function-app-http-trigger/tutorial-vscode-serverless-node-deploy-hosting.md#verify-functions-app-is-available-with-browser)|
 |Remove function app resource|[Visual Studio Code extension](../tutorial/vscode-function-app-http-trigger/tutorial-vscode-serverless-node-remove-resource.md)|
 
 ### App service - full-stack, server-only, or client-only apps
