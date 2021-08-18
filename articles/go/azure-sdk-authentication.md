@@ -13,11 +13,11 @@ In this how-to, you'll use the Azure SDK's Go module [azidentity](https://github
 ## Prerequisites
 
 [!INCLUDE [azure-subscription.md](includes/azure-subscription.md)]
-- [Go](https://golang.org/dl/) 1.13 or above
+- **Go installed**: Version 1.13 or [above](https://golang.org/dl/)
 
 ## 1. Install the Azure Identity Go module
 
-The Azure Identity module (`azidentity`) is used to authenticate to Azure.
+The Azure Identity module ([azidentity](https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/azidentity)) is used to authenticate to Azure.
 
 Run the following command to download the `azidentity` module:
 
@@ -232,7 +232,7 @@ Create a new sample Go module named `azure-auth` to test authenticating to Azure
     go run .
     ```
 
-## Authenticate to Azure with DefaultAzureCredential
+## DefaultAzureCredential sample code
 
 Use the following code in your applications to authenticate to Azure with the Azure Identity Go module using the `DefaultAzureCredential` credential type.
 
