@@ -8,7 +8,13 @@ ms.custom: devx-track-go
 
 # Azure authentication with the Azure SDK for Go
 
-In this how-to, you'll use the Azure SDK's Go module [azidentity](https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/azidentity) to authenticate to Azure.
+In this tutorial, you'll use the Default Azure Credential type from the Azure SDK for Go to authenticate to Azure with environment variables, a managed identity, or the Azure CLI.
+
+Azure's Go SDK identity module offers several different credential types that focus on OAuth with Azure Active Directory (Azure AD).
+
+The `DefaultAzureCredential` type simplifies authentication by combining commonly used credentials types. It chains together type used to authenticate deployed Azure applications with credentials used to authenticate in a development environment.
+
+![default azure credential workflow](./media\azure-sdk-authentication/default-azure-credential-workflow.png)
 
 ## Prerequisites
 
@@ -19,19 +25,13 @@ In this how-to, you'll use the Azure SDK's Go module [azidentity](https://github
 
 The Azure Identity module is used to authenticate to Azure.
 
-Run the following command to download the `azidentity` module:
+Run the following command to download the [azidentity](https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/azidentity) module:
 
 ```bash
 go get -u github.com/Azure/azure-sdk-for-go/sdk/azidentity
 ```
 
 ## 2. Authenticate with Azure
-
-Azure's Go SDK identity module offers a variety of credential types that focus on OAuth with Azure Active Directory (Azure AD).
-
-The `DefaultAzureCredential` type simplifies authentication by combining commonly used credentials types. It chains together types used to authenticate deployed Azure applications with credentials used to authenticate in a development environment.
-
-![Copy the Azure AD Object ID.](./media\azure-sdk-authentication/default-azure-credential-workflow.png)
 
 Use the `DefaultAzureCredential` to authenticate to Azure with one of the following techniques:
 
@@ -224,7 +224,7 @@ Create a new sample Go module named `azure-auth` to test authenticating to Azure
     }
     ```
 
-    Replace `<subscriptionId>` with your subscription Id.
+    Replace `<subscriptionId>` with your subscription ID.
 
 1. Run [`go run`](https://pkg.go.dev/cmd/go/internal/run) to build and run the app.
 
