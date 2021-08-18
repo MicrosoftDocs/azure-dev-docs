@@ -17,7 +17,7 @@ In this how-to, you'll use the Azure SDK's Go module [azidentity](https://github
 
 ## 1. Install the Azure Identity Go module
 
-The Azure Identity module ([azidentity](https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/azidentity)) is used to authenticate to Azure.
+The Azure Identity module is used to authenticate to Azure.
 
 Run the following command to download the `azidentity` module:
 
