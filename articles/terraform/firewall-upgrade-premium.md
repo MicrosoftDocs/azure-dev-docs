@@ -1,17 +1,17 @@
 ---
-title: Upgrade Azure Firewall Standard to Premium using Terraform
-description: Learn how to upgrade an existing standard Azure Firewall to Azure Firewall Premium.
-keywords: azure, devops, terraform, firewall, upgrade
+title: Migrate Azure Firewall Standard to Premium using Terraform
+description: Learn how to migrate an existing standard Azure Firewall to Azure Firewall Premium.
+keywords: azure, devops, terraform, firewall, migrate
 ms.topic: how-to
-ms.date: 08/17/2021
+ms.date: 08/18/2021
 ms.custom: devx-track-terraform
 author: vhorne
 ms.author: victorh
 ---
 
-# Upgrade Azure Firewall Standard to Premium using Terraform
+# Migrate Azure Firewall Standard to Premium using Terraform
 
-If you use Terraform to deploy standard Azure Firewall with classic rules, you can modify your Terraform configuration file to upgrade your firewall to Azure Firewall Premium using a Premium firewall policy.
+If you use Terraform to deploy standard Azure Firewall with classic rules, you can modify your Terraform configuration file to migrate your firewall to Azure Firewall Premium using a Premium firewall policy.
 
 In this article, you learn how to:
 
@@ -19,9 +19,7 @@ In this article, you learn how to:
 
 > * Deploy a standard Azure Firewall with classic rules using Terraform
 > * Import the firewall rules into a premium firewall policy
-> * Edit the Terraform configuration file to upgrade the firewall
-> * Apply the modified Terraform execution plan
-> * Verify the results
+> * Edit the Terraform configuration file to migrate the firewall
 
 ## 1. Configure your environment
 
@@ -36,6 +34,10 @@ In this article, you learn how to:
 1. Create a file named `main.tf` and insert the following code:
 
     [!code-terraform[master](../../terraform_samples/quickstart/101-firewall-standard/main.tf)]
+
+1. Create a file named `variables.tf` and insert the following code:
+
+    [!code-terraform[master](../../terraform_samples/quickstart/101-firewall-standard/variables.tf)]
 
 ## 3. Initialize Terraform
 
@@ -66,7 +68,7 @@ Now you have a standard firewall with classic rules. Next, create a premium Fire
 1. Select **Review + create**.
 1. Select **Create**.
 
-## 7. Edit the Terraform configuration file to upgrade the firewall
+## 7. Edit the Terraform configuration file to migrate the firewall
 
 Open the `main.tf` file, and make the following changes:
 
@@ -126,7 +128,7 @@ Open the `main.tf` file, and make the following changes:
    }
    
    resource "azurerm_firewall_network_rule_collection" "net-rc" {
-     name                = "apptestcollection"
+     name                = "nettestcollection"
      azure_firewall_name = azurerm_firewall.fw.name
      resource_group_name = azurerm_resource_group.rg.name
      priority            = 100
