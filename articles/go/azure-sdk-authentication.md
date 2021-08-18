@@ -232,7 +232,7 @@ Create a new sample Go module named `azure-auth` to test authenticating to Azure
     go run .
     ```
 
-## DefaultAzureCredential sample code
+## Authenticate to Azure with DefaultAzureCredential
 
 Use the following code in your applications to authenticate to Azure with the Azure Identity Go module using the `DefaultAzureCredential` credential type.
 
