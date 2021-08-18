@@ -1,5 +1,5 @@
 ---
-title: Azure authentication with the Go SDK
+title: Azure authentication with the Azure SDK for Go
 description: In this article, you learn how to authenticate to the Azure SDK with Go.
 ms.date: 08/16/2021
 ms.topic: how-to
