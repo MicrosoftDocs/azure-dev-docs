@@ -39,7 +39,7 @@ Use the `DefaultAzureCredential` to authenticate to Azure with one of the follow
 * [Option 2: Use a managed identity](#managed-identity)
 * [Option 3: Sign in with AzureCLI](#azureCLI)
 
- To learn more about the different credential types, see [credential types](https://docs.microsoft.com/azure/developer/go/azure-sdk-authorization).
+ To learn more about the different credential types, see [credential types](/azure/developer/go/azure-sdk-authorization).
 
 ### <span id="environment-variables"/> Option 1: Define environment variables
 
@@ -246,7 +246,8 @@ if err != nil {
 client := armresources.NewResourcesClient(armcore.NewDefaultConnection(cred, nil), "<subscription ID>")
 ```
 
-[!INCLUDE [troubleshooting.md](includes/troubleshooting.md)]
+<!-- TODO: Uncomment after manage resource groups with GO sdk is merged -->
+<!-- [!INCLUDE [troubleshooting.md](includes/troubleshooting.md)] -->
 
 ## Next steps
 
