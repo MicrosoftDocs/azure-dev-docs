@@ -24,7 +24,7 @@ Create a local Azure Functions (serverless) application that contains an [HTTP t
 
     ![Entering a function name](../../media/functions-extension/create-function-name.png)
 
-1. At the prompt, **Authorization Level**, select **Function**. This locks the remote API to requests the pass the function key with the request. While developing locally, you won't need the function key. 
+1. At the prompt, **Authorization Level**, select **Function**. This locks the remote API to requests that pass the function key with the request. While developing locally, you won't need the function key. 
 
 1. After a few moments, VS Code completes creation of the project. You have a folder named for the function, *HttpExample*, within which are three files:
 

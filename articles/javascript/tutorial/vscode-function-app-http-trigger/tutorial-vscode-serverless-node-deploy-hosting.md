@@ -54,7 +54,7 @@ In this step, use the Visual Studio Code extension for Azure Functions to deploy
 
 ## Query your Azure Function logs
 
-Streaming logs is good for in-the-moment scanning but generally you want to search across logs, which is available in the Azure portal. 
+Streaming logs is good for in-the-moment scanning but generally you want to search the logs, which is available in the Azure portal. 
 
 1. In VS Code, select the Azure logo to open the **Azure Explorer**, then under **Functions**, right-click on your function app, then select **Open in Portal**.
 
@@ -83,6 +83,12 @@ Streaming logs is good for in-the-moment scanning but generally you want to sear
 
     :::image type="content" source="../../media/functions-extension/azure-portal-application-insights-function-log-trace.png" alt-text="Browser screenshot showing Azure portal Kusto query result for Trace table." lightbox="../../media/functions-extension/azure-portal-application-insights-function-log-trace.png":::
 
+    You didn't need to do anything extra to get this logging information:
+
+    * The code used the standard `console.log` function.
+    * The Function app added Application Insights _for you_.
+    * The Query tool is included in the Azure portal.
+    * You can click on `traces` instead of having to learn to write a [Kusto query](/azure/data-explorer/kusto/concepts/) to get even the minimum information from your logs.
 
 ## Next steps
 
