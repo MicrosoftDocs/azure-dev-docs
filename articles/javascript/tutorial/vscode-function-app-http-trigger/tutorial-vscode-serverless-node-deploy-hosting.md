@@ -50,7 +50,7 @@ In this step, use the Visual Studio Code extension for Azure Functions to deploy
 
 1. Review the streaming log in VS Code to find your `context.log` output. 
 
-    :::image type="content" source="../../media/functions-extension/context-log-output.log" alt-text="Partial screenshot of VSCodes showing Remote Azure Function's streaming log, with the console.log output of the context value.":::
+    :::image type="content" source="../../media/functions-extension/context-log-output.png" alt-text="Partial screenshot of VSCodes showing Remote Azure Function's streaming log, with the console.log output of the context value.":::
 
 ## Query your Azure Function logs
 
