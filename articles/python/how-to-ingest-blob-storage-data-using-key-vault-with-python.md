@@ -1,5 +1,5 @@
 ---
-title: Securely ingest Azure Blob Storage data using Azure Key Vault with a Python Function
+title: Securely ingest Azure Blob Storage data using Azure Key Vault with a Python Azure Function
 description: Learn how to retrieve a secret from Azure Key Vault to access Azure Storage Blob, using a serverless Python Azure Function.
 services: python, azure-functions, azure-key-vault, azure-storage-accounts
 ms.custom: devx-track-python, devx-track-azurepowershell, devx-track-azurecli
@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.prod: azure-python
 author: jess-johnson-msft
 ms.author: jejohn
-ms.date: 08/16/2021
+ms.date: 08/19/2021
 ---
 # Ingest data from Azure Blob Storage using a Python Azure Function and Azure Key Vault
 
