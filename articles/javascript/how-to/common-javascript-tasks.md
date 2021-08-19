@@ -2,7 +2,7 @@
 title: Top Azure tasks for JavaScript developers
 description: Find an example of your current tasks.
 ms.topic: how-to
-ms.date: 08/18/2021
+ms.date: 08/19/2021
 ms.custom: devx-track-js
 ---
 
@@ -185,7 +185,13 @@ Provide authentication.
 |View Cosmos DB|[Cosmos DB Explorer](https://cosmos.azure.com/)|
 |Use SQL API for on Cosmos DB|[JavaScript](./with-database/use-sql-api-as-cosmos-db.md#use--sdk-to-connect-to-database)
 
+## Deployment to hosting environment
 
+|Task|using|
+|--|--|
+|Static Web App (SWA)|[VS Code](/azure/search/tutorial-javascript-deploy-static-web-app) [From Framework (Next.js)](/azure/static-web-apps/deploy-nextjs#deploy-your-static-website) [Azure DevOps Pipelines](/azure/static-web-apps/publish-devops#create-the-pipeline-task-in-azure-devops)|
+|Functions|[VS Code](../tutorial/vscode-function-app-http-trigger/tutorial-vscode-serverless-node-deploy-hosting.md#use-visual-studio-code-extension-to-deploy-to-hosting-environment) [Azure DevOps Pipelines](/azure/azure-functions/functions-how-to-azure-devops?tabs=javascript%2Cwindows) [GitHub Actions](/azure/azure-functions/functions-how-to-github-actions?tabs=javascript#deploy-the-function-app)|
+|App service|[Express.js with VS Code](../tutorial/deploy-nodejs-azure-app-service-with-visual-studio-code.md?tabs=bash#5-create-app-service-resource-in-visual-studio-code) [Git Push](../tutorial/tutorial-vscode-azure-cli-node/tutorial-vscode-azure-cli-node-04.md#make-change-and-deploy-to-azure-app-service-from-local-git) [GitHub Actions](/azure/app-service/deploy-github-actions?tabs=applevel) [Azure DevOps](/azure/app-service/deploy-continuous-deployment?tabs=repos)|
 
 ## Git
 
