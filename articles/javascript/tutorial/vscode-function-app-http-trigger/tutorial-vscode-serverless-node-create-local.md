@@ -2,7 +2,7 @@
 title: Create the Azure Functions 3.x application from Visual Studio Code
 description: Create a local Azure Functions (serverless) application that contains a function that uses an HTTP trigger. An Azure Functions app can contain many Functions with different triggers. The HTTP trigger specifically handles incoming HTTP traffic.
 ms.topic: tutorial
-ms.date: 05/13/2021
+ms.date: 08/18/2021
 ms.custom: devx-track-js, contperf-fy21q2
 ---
 
@@ -24,9 +24,7 @@ Create a local Azure Functions (serverless) application that contains an [HTTP t
 
     ![Entering a function name](../../media/functions-extension/create-function-name.png)
 
-1. At the prompt, **Authorization Level**, select **Anonymous**:
-
-    ![ At the prompt, `Authorization Level`, select `Anonymous`](../../media/functions-extension/create-function-anonymous-auth.png)
+1. At the prompt, **Authorization Level**, select **Function**. This locks the remote API to requests that pass the function key with the request. While developing locally, you won't need the function key. 
 
 1. After a few moments, VS Code completes creation of the project. You have a folder named for the function, *HttpExample*, within which are three files:
 
@@ -88,8 +86,6 @@ module.exports = async function (context, req) {
     };
 }
 ```
-
-:::image type="content" source="../../media/functions-extension/vscode-local-function-log.png" alt-text="Screenshot of VSCode showing code with new context.log" lightbox="../../media/functions-extension/vscode-local-function-log.png":::
 
 ## Next steps
 
