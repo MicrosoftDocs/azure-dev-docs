@@ -52,3 +52,7 @@ These choices are tailored to specific use cases.
 |--|--|
 |[Storage](/azure/storage/blobs/storage-blob-static-website-how-to?tabs=azure-portal)|Azure Storage can also host a static web app. This is helpful if you need tight integration between robust Storage and your client application.|
 |[Content Delivery Network ](/azure/cdn/) (CDN)|Deliver pre-rendered websites. Cache static objects loaded from Azure Blob storage, a web application, or any publicly accessible web server, by using the closest point of presence (POP) server. Azure CDN can also accelerate dynamic content, which cannot be cached, by using various network and routing optimizations.|
+
+## Next steps
+
+* [Cofigure app settings](configure-web-app-settings.md)
