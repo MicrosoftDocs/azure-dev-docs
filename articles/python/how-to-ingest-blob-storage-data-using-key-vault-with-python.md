@@ -33,6 +33,7 @@ In this article, you'll learn how to retrieve a secret from Azure Key Vault to a
 This article assumes the following Azure Resources have **already been provisioned**:
 
 * Azure Active Directory (Azure AD), sign-up or learn more about [Azure AD](/azure/active-directory/fundamentals/sign-up-organization)
+* Azure Resource Group, to create a new Resource Group you can use the [Azure portal](/azure/azure-resource-manager/management/manage-resource-groups-portal), [Azure PowerShell](/powershell/module/az.resources/new-azresourcegroup), or [Azure CLI](/cli/azure/group)
 * Azure Storage Account, to create a new Storage Account you can use the [Azure portal](/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal), [Azure PowerShell](/azure/storage/common/storage-quickstart-create-account?tabs=azure-powershell), or [Azure CLI](/azure/storage/common/storage-quickstart-create-account?tabs=azure-cli)
 * Azure Key Vault, to create a new Key Vault you can use the [Azure portal](/azure/key-vault/keys/quick-create-portal), [PowerShell](/azure/key-vault/keys/quick-create-powershell), or [Azure CLI](/azure/key-vault/keys/quick-create-cli)
 * HTTP Trigger or Blob Trigger Azure Function, to create a new Function you can use the [Visual Studio Code](/azure/azure-functions/create-first-function-vs-code-python), [Azure PowerShell](/azure/azure-functions/create-first-function-vs-code-powershell), or [Azure CLI](/azure/azure-functions/create-first-function-cli-python)
@@ -232,6 +233,28 @@ df
 3   Midmarket   Germany  Carretera  888         $3.00                $15.00       "$13,320.00"  6/1/2014
 4   Midmarket   Mexico   Carretera  2470        $3.00                $15.00       "$37,050.00"  6/1/2014
 ```
+
+## 7. Clean up resources
+
+When no longer needed, remove the resource group, and all related resources:
+
+### [PowerShell](#tab/azure-powershell)
+
+Run [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) to delete the Azure Resource Group.
+
+``` powershell
+Set-AzResourceGroup -Name "MyResourceGroup"
+```
+
+### [Azure CLI](#tab/azure-cli)
+
+Run [az group delete](/cli/azure/group) to delete the Azure Resource Group.
+
+```azurecli
+az group delete --name myresourcegroup
+```
+
+* * *
 
 ## Next steps
 
