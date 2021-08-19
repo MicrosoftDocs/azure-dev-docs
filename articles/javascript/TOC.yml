@@ -35,6 +35,8 @@
             href: how-to/with-sdk/set-up-development-environment.md
       - name: With web apps
         items:
+          - name: Select a hosting service
+            href: how-to/select-hosting-service.md
           - name: Configure
             items: 
             - name: Configure app settings
@@ -43,7 +45,7 @@
               href: how-to/add-custom-domain-to-web-app.md
             - name: Use Key Vault secrets in Express.js
               href: how-to/with-web-app/use-secret-environment-variables.md
-          - name: Deploy to Azure 
+          - name: Select deployment process for Azure 
             href: how-to/deploy-web-app.md
           - name: Azure Static Web Apps
             items: 
