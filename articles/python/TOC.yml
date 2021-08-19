@@ -83,11 +83,17 @@
     - name: Deploy a Kubernetes cluster
       href: /azure/aks/kubernetes-walkthrough
 
-- name: Deploy machine learning models
-  href: quickstarts-machine-learning.md
+- name: Deploy data engineering solutions
+  items:
+    - name: Ingest data from Azure Blob Storage using a Python Azure Function and Azure Key Vault
+      href: how-to-ingest-blob-storage-data-using-key-vault-with-python.md
+    - name: Additional data and storage solutions
+      href: quickstarts-data-solutions.md
 
-- name: Deploy data and storage
-  href: quickstarts-data-solutions.md
+- name: Deploy data science solutions
+  items:
+    - name: Deploy machine learning models
+      href: quickstarts-machine-learning.md
 
 - name: Use the Azure libraries (SDK)
   items:
