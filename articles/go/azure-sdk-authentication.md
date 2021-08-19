@@ -150,7 +150,7 @@ $env:AZURE_CLIENT_ID="<service_principal_appid>"
 ```
 
 <!-- TODO: Add link to new Azure Go SDK authentication with a service principal article -->
-To learn more about using managed identities, check out [Azure Go SDK authentication with a service principal]().
+<!-- To learn more about using managed identities, check out [Azure Go SDK authentication with a service principal](). -->
 
 ---
 
