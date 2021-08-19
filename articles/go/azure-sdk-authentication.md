@@ -10,7 +10,7 @@ ms.custom: devx-track-go
 
 In this tutorial, you'll use the Default Azure Credential type from the Azure SDK for Go to authenticate to Azure with environment variables, a managed identity, or the Azure CLI.
 
-Azure's Go SDK identity module offers several different credential types that focus on OAuth with Azure Active Directory (Azure AD).
+The Azure Identity module for Go offers several different credential types that focus on OAuth with Azure Active Directory (Azure AD).
 
 The `DefaultAzureCredential` type simplifies authentication by combining commonly used credentials types. It chains together type used to authenticate deployed Azure applications with credentials used to authenticate in a development environment.
 
@@ -21,7 +21,7 @@ The `DefaultAzureCredential` type simplifies authentication by combining commonl
 [!INCLUDE [azure-subscription.md](includes/azure-subscription.md)]
 - **Go installed**: Version 1.13 or [above](https://golang.org/dl/)
 
-## 1. Install the Azure Identity Go module
+## 1. Install the Azure Identity module for Go
 
 The Azure Identity module is used to authenticate to Azure.
 
@@ -129,9 +129,9 @@ $env:AZURE_PASSWORD="<azure_user_password>"
 
 Configuration is attempted in the above order. For example, if values for a client secret and certificate are both present, the client secret will be used.
 
-### <span id="managed-identity"/> Option 2: Use a Managed Identity
+### <span id="managed-identity"/> Option 2: Use a managed identity
 
-Managed identities eliminate the need for developers to manage credentials. By connecting to resources that support Azure AD authentication, applications can use Azure AD tokens instead of credentials.
+[Managed identities](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) eliminate the need for developers to manage credentials. By connecting to resources that support Azure AD authentication, applications can use Azure AD tokens instead of credentials.
 
 If the required environment variables for the `EnvironmentCredential` credential type aren't present, the `DefaultAzureCredential` will attempt to authenticate using the `ManagedIdentityCredential` type.
 
@@ -205,7 +205,7 @@ Create a new sample Go module named `azure-auth` to test authenticating to Azure
 
     // Define key global variables.
     var (
-      subscriptionId    = "<subscriptionId>"
+      subscriptionId = "<subscriptionId>"
     )
 
     // Define the function to create a resource group.
