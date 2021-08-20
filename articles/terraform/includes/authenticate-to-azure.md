@@ -94,7 +94,7 @@ The most common pattern is to interactively log in to Azure, create a service pr
 
     **Key points:**
 
-    - You can replace the `<service-principal-name` with a custom name for your environment or omit the parameter entirely. If you omit the parameter, the service principal name is generated based on the current date and time.
+    - You can replace the `<service-principal-name>` with a custom name for your environment or omit the parameter entirely. If you omit the parameter, the service principal name is generated based on the current date and time.
     - Upon successful completion, `az ad sp create-for-rbac` displays several values. The `appId`, `password`, and `tenant` values are used in the next step.
     - The password can't be retrieved if lost. As such, you should store your password in a safe place. If you forget your password, you can [reset the service principal credentials](/cli/azure/create-an-azure-service-principal-azure-cli#reset-credentials).
     - The **Contributor** role is the default role and has full permissions to read and write to an Azure account. For this article, a service principal with a **Contributor** role is being used. For more information about Role-Based Access Control (RBAC) and roles, see [RBAC: Built-in roles](/azure/active-directory/role-based-access-built-in-roles).
@@ -146,7 +146,7 @@ The most common pattern is to interactively log in to Azure, create a service pr
 
     **Key points:**
 
-    - You can replace the `<service-principal-name` with a custom name for your environment or omit the parameter entirely. If you omit the parameter, the service principal name is generated based on the current date and time.
+    - You can replace the `<service-principal-name>` with a custom name for your environment or omit the parameter entirely. If you omit the parameter, the service principal name is generated based on the current date and time.
     - The **Contributor** role is the default role and has full permissions to read and write to an Azure account. For this article, a service principal with a **Contributor** role is being used. For more information about Role-Based Access Control (RBAC) and roles, see [RBAC: Built-in roles](/azure/active-directory/role-based-access-built-in-roles).
 
 1. Display the service principal ID.
@@ -184,7 +184,7 @@ Once you create a service principal, you can specify its credentials to Terrafor
 
     ```bash
     export ARM_SUBSCRIPTION_ID="<azure_subscription_id>"
-    export ARM_TENANT_ID="<azure_subscription_tenant_id"
+    export ARM_TENANT_ID="<azure_subscription_tenant_id>"
     export ARM_CLIENT_ID="<service_principal_appid>"
     export ARM_CLIENT_SECRET="<service_principal_password>"
     ```
@@ -244,7 +244,7 @@ provider "azurerm" {
   features {}
 
   subscription_id   = "<azure_subscription_id>"
-  tenant_id         = "<azure_subscription_tenant_id"
+  tenant_id         = "<azure_subscription_tenant_id>"
   client_id         = "<service_principal_appid>"
   client_secret     = "<service_principal_password>"
 }
