@@ -2,7 +2,7 @@
 title: Host web apps - configuration settings
 description: Learn how to set common configurations for your web app.
 ms.topic: conceptual
-ms.date: 01/21/2021
+ms.date: 08/19/2021
 ms.custom: devx-track-js
 ---
 
@@ -148,8 +148,7 @@ Platform logs are provided for you:
 * To understand the health of the environment.
 * Let you scale to a different pricing tier, or across regions. 
 
-Application logs aren't provided for you. You can add your own logging for internal app behavior:
-* [Azure Monitor](/azure/azure-monitor/overview) provides npm libraries for [Application Insights](/azure/azure-monitor/app/app-insights-overview) to provide logging and the storage resource where the logs are archived. 
+Application logs _may_ be provided for you if you use the [default logging functions](node-sdk-logging.md#custom-logging-to-azure).
 
 ## Configure database and storage
 
