@@ -2,12 +2,12 @@
 title: include file
 description: include file
 ms.topic: how-to
-ms.date: 08/07/2021
+ms.date: 08/18/2021
 ms.custom: devx-track-terraform
 ms.author: tarcher
 ---
 
-When you no longer need the resources create via Terraform, do the following steps:
+When you no longer need the resources created via Terraform, do the following steps:
 
 1. Run [terraform plan](https://www.terraform.io/docs/commands/plan.html) and specify the `destroy` flag.
 
