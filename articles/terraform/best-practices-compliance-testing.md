@@ -2,7 +2,7 @@
 title: Implement compliance testing with Terraform and Azure
 description: Understand how to apply behavior driven development (BDD) style compliance testing to Terraform configurations
 ms.topic: how-to
-ms.date: 08/07/2021
+ms.date: 08/23/2021
 ms.custom: devx-track-terraform
 ---
 
@@ -146,7 +146,13 @@ In this section, you download and test the example.
     ```cmd
     terraform plan -out main.tfplan
     ```
-    
+
+1. Run [terraform show](https://www.terraform.io/docs/commands/show.html) to convert the execution plan to JSON for the compliance step.
+
+    ```bash
+    terraform show -json main.tfplan > main.tfplan.json
+    ```
+
 1. Run [terraform apply](https://www.terraform.io/docs/commands/apply.html) to apply the execution plan.
 
     ```cmd
@@ -166,7 +172,7 @@ In this section, you download and test the example.
 1. Run [docker run](https://docs.docker.com/engine/reference/commandline/run/) to run the tests in a docker container.
 
     ```cmd
-    docker run --rm -v $PWD:/target -it eerkunt/terraform-compliance -f features -p main
+    docker run --rm -v $PWD:/target -it eerkunt/terraform-compliance -f features -p main.tfplan.json
     ```
 
     **Key points:**
@@ -205,10 +211,16 @@ In this section, you download and test the example.
     terraform plan -out main.tfplan
     ```
 
+1. Run [terraform show](https://www.terraform.io/docs/commands/show.html) to convert the execution plan to JSON for the compliance step.
+
+    ```bash
+    terraform show -json main.tfplan > main.tfplan.json
+    ```
+
 1. Run [docker run](https://docs.docker.com/engine/reference/commandline/run/) again to test the configuration. If the full spec has been implemented, the test succeeds.
 
     ```cmd
-    docker run --rm -v $PWD:/target -it eerkunt/terraform-compliance -f features -p main.tfplan
+    docker run --rm -v $PWD:/target -it eerkunt/terraform-compliance -f features -p main.tfplan.json
     ```
     
     ![Example of a successful test](media/best-practices-compliance-testing/best-practices-compliance-testing-tagging-succeed.png)
