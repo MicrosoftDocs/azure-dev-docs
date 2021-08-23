@@ -147,7 +147,7 @@ In this section, you download and test the example.
     terraform plan -out main.tfplan
     ```
 
-1. Run [terraform show](https://www.terraform.io/docs/commands/show.html) to convert the execution plan to JSOn for the compliance step.
+1. Run [terraform show](https://www.terraform.io/docs/commands/show.html) to convert the execution plan to JSON for the compliance step.
 
     ```bash
     terraform show -json main.tfplan > main.tfplan.json
@@ -211,7 +211,7 @@ In this section, you download and test the example.
     terraform plan -out main.tfplan
     ```
 
-1. Run [terraform show](https://www.terraform.io/docs/commands/show.html) to convert the execution plan to JSOn for the compliance step.
+1. Run [terraform show](https://www.terraform.io/docs/commands/show.html) to convert the execution plan to JSON for the compliance step.
 
     ```bash
     terraform show -json main.tfplan > main.tfplan.json
