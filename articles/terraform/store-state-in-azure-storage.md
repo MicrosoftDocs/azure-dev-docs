@@ -2,7 +2,7 @@
 title: Store Terraform state in Azure Storage
 description: Learn how to store Terraform state in Azure Storage.
 ms.topic: how-to
-ms.date: 08/07/2021
+ms.date: 08/23/2021
 ms.custom: devx-track-terraform, devx-track-azurecli
 ---
 
@@ -32,7 +32,7 @@ In this article, you learn how to:
 
 ## 2. Configure remote state storage account
 
-Before you use Azure Storage as a back end, you must create a storage account.
+Before you use Azure Storage as a backend, you must create a storage account.
 
 Run the following commands or configuration to create an Azure storage account and container:
 
