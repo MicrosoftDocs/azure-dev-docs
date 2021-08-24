@@ -20,49 +20,17 @@ These environment variables are ignored if you pass the parameter `use_env_setti
 
 ### From Python code
 
-```python
-import os
-os.environ["HTTP_PROXY"] = "http://10.10.1.10:1180"
-
-# Alternate URL and variable forms:
-# os.environ["HTTP_PROXY"] = "http://username:password@10.10.1.10:1180"
-# os.environ["HTTPS_PROXY"] = "http://10.10.1.10:1180"
-# os.environ["HTTPS_PROXY"] = "http://username:password@10.10.1.10:1180"
-```
+:::code language="python" source="~/../python-sdk-docs-examples/proxy/set_http_proxy.py" range="1-7:::
 
 ### From the CLI
 
 # [cmd](#tab/cmd)
 
-```cmd
-rem Non-authenticated HTTP server:
-set HTTP_PROXY=http://10.10.1.10:1180
-
-rem Authenticated HTTP server:
-set HTTP_PROXY=http://username:password@10.10.1.10:1180
-
-rem Non-authenticated HTTPS server:
-set HTTPS_PROXY=http://10.10.1.10:1180
-
-rem Authenticated HTTPS server:
-set HTTPS_PROXY=http://username:password@10.10.1.10:1180
-```
+:::code language="cmd" source="~/../python-sdk-docs-examples/proxy/set_proxy.cmd":::
 
 # [bash](#tab/bash)
 
-```bash
-# Non-authenticated HTTP server:
-HTTP_PROXY=http://10.10.1.10:1180
-
-# Authenticated HTTP server:
-HTTP_PROXY=http://username:password@10.10.1.10:1180
-
-# Non-authenticated HTTPS server:
-HTTPS_PROXY=http://10.10.1.10:1180
-
-# Authenticated HTTPS server:
-HTTPS_PROXY=http://username:password@10.10.1.10:1180
-```
+:::code language="bash" source="~/../python-sdk-docs-examples/proxy/set_proxy.sh":::
 
 ---
 
@@ -72,16 +40,4 @@ To configure a proxy for a specific client object or operation method, specify a
 
 For example, the following code from the article [Example: use Azure storage](azure-sdk-example-storage.md) specifies an HTTPS proxy with user credentials with the `BlobClient` constructor. In this case, the object comes from the azure.storage.blob library, which is based on azure.core.
 
-```python
-# Earlier code omitted for brevity
-
-blob_client = BlobClient(storage_url, container_name="blob-container-01",
-    blob_name="sample-blob.txt", credential=credential,
-    proxies={ "https": "https://username:password@10.10.1.10:1180" }
-)
-
-# Other forms that the proxy URL might take:
-# proxies={ "http": "http://10.10.1.10:1180" }
-# proxies={ "http": "http://username:password@10.10.1.10:1180" }
-# proxies={ "https": "https://10.10.1.10:1180" }
-```
+:::code language="python" source="~/../python-sdk-docs-examples/proxy/set_http_proxy.py" range="9-26:::

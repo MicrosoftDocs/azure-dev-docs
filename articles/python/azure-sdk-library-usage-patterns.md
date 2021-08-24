@@ -122,23 +122,11 @@ For example, suppose you have a [`ResourceManagementClient`](/python/api/azure-m
 
 To call `create_or_update` you can create a discrete instance of `ResourceGroup` directly with its required arguments (`location` in this case):
 
-```python
-rg_result = resource_client.resource_groups.create_or_update(
-    "PythonSDKExample-rg",
-    ResourceGroup(location="centralus")
-)
-```
+:::code language="python" source="~/../python-sdk-docs-examples/resource_group/provision_rg_objs.py" range="17-20":::
 
 Alternately, you can pass the same parameters as inline JSON:
 
-```python
-rg_result = resource_client.resource_groups.create_or_update(
-    "PythonSDKExample-rg",
-    {
-      "location": "centralus"
-    }
-)
-```
+:::code language="python" source="~/../python-sdk-docs-examples/resource_group/provision_rg.py" range="16-21:::
 
 When using JSON, the Azure libraries automatically convert the inline JSON to the appropriate object type for the argument in question.
 
