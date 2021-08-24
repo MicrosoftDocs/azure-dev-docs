@@ -126,7 +126,7 @@ To call `create_or_update` you can create a discrete instance of `ResourceGroup`
 
 Alternately, you can pass the same parameters as inline JSON:
 
-:::code language="python" source="~/../python-sdk-docs-examples/resource_group/provision_rg.py" range="16-21:::
+:::code language="python" source="~/../python-sdk-docs-examples/resource_group/provision_rg.py" range="16-21":::
 
 When using JSON, the Azure libraries automatically convert the inline JSON to the appropriate object type for the argument in question.
 

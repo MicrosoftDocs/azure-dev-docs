@@ -20,7 +20,7 @@ These environment variables are ignored if you pass the parameter `use_env_setti
 
 ### From Python code
 
-:::code language="python" source="~/../python-sdk-docs-examples/proxy/set_http_proxy.py" range="1-7:::
+:::code language="python" source="~/../python-sdk-docs-examples/proxy/set_http_proxy.py" range="1-7":::
 
 ### From the CLI
 
@@ -40,4 +40,4 @@ To configure a proxy for a specific client object or operation method, specify a
 
 For example, the following code from the article [Example: use Azure storage](azure-sdk-example-storage.md) specifies an HTTPS proxy with user credentials with the `BlobClient` constructor. In this case, the object comes from the azure.storage.blob library, which is based on azure.core.
 
-:::code language="python" source="~/../python-sdk-docs-examples/proxy/set_http_proxy.py" range="9-26:::
+:::code language="python" source="~/../python-sdk-docs-examples/proxy/set_http_proxy.py" range="9-26":::
