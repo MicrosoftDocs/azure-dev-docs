@@ -2,6 +2,12 @@
 
 This [Static web app](https://docs.microsoft.com/azure/static-web-apps/) using the [SWA CLI](https://github.com/Azure/static-web-apps-cli) to run the app locally.
 
+The app consists of:
+* React app in the `app` directory, served from `http://localhost:3000`
+* Azure Function API in the `api` directory served from `http://localhost:7071`
+
+Once the two apps are created, use the Static Web App CLI to proxy local requests from the React app to the Function API. The URL in the React looks like `/api/hello` without using the server or port number for the API. This is successful because the SWA CLI manages the proxy for you.  
+
 ## Features
 
 This project framework provides the following features:
@@ -13,19 +19,37 @@ This project framework provides the following features:
 
 Install the following:
 
-* Node.js - 14.17.1 with nvm
-* VSCode
+* [Azure CLI](/cli/azure/install-azure-cli) - v2.27.2
+* [Visual Studio Code](https://code.visualstudio.com/Download) (VS Code)
+* [Node.js](https://nodejs.org/en/download/) - this process was developed with v14.17.1. Other versions may introduce issues with create-react-app. 
 * SWA CLI
-* Azure Functions Core Tools
+
+    ```bash
+    npm install -g @azure/static-web-apps-cli
+    ```
+
+* [Azure Functions Core Tools](/azure/azure-functions/functions-run-local?tabs=windows%2Ccsharp%2Cportal%2Cbash%2Ckeda#install-the-azure-functions-core-tools) - v3.0.3477+
 
 
-## Steps to recreate 
+## Steps to Create app
 
+### Sign in to Azure CLI
 
+1. Open VS Code at the directory which will become the root of your Static web app. 
+
+1. In VS Code, open an integrated bash terminal and sign in to the Azure CLI:
+
+    ```bash
+    az login
+    ```
+
+    This opens a browser for you to continue your authentication. 
+
+1. When authentication is complete, close the browser and return to VS Code. 
 
 ### Create React app
 
-1. In the root of the project, create create-react-app in `/app` directory:
+1. In the root of the project, create a _create-react-app_ in `/app` directory with the following command:
 
     ```bash
     npx create-react-app app --template typescript
@@ -121,6 +145,8 @@ Install the following:
     * Your build environment doesn't match your local development environment and that difference is causing a problem.
     * Your locations for your assets inside your project, app location of `app` and asset directory such as `build`, are not correct. 
 
+### Pull GitHub action file to your local environment
+
 1. Pull your remote GitHub action file to your local environment:
    
    ```bash
@@ -129,7 +155,7 @@ Install the following:
 
 1. Review the `.yml` file in the `./github/workflows` directory:
 
-    ```YMAL
+    ```YML
     name: Azure Static Web Apps CI/CD
 
     on:
@@ -177,26 +203,58 @@ Install the following:
             action: "close"
     ```
 
-
 ### Create Function api
+
+The Azure Function API provides serverless APIs. This allows you to focus on your TypeScript code and _not_ have to configure a full back-end web server. 
 
 1. In the root of the project, create create-react-app in `/api` directory:
 
+    ```bashfunc init api --typescript
+    func init api --typescript
+    ```
+1. Move into the directory to create an API:
+
     ```bash
-    func init api --worker-runtime node --language typescript
+    cd api
     ```
 
-2. Create http trigger API:
+1. Create http trigger API with a route of `/api/hello` (`--name hello`) that allows all request (`--authlevel anonymous`):
 
     ```bash 
-    func new --name HttpHello --worker-runtime node --template "HTTP trigger" --language TypeScript --authlevel anonymous
+    func new --name hello --template "HTTP trigger" --authlevel "anonymous" 
     ```
 
-3. Install dependencies:
+1. Install dependencies:
 
     ```bash
-    cd api && npm install && cd ..
+    cd api && npm install 
     ```
+
+1. Start the Azure function API:
+
+    ```bash 
+    npm start
+    ```
+
+1. Query the API in a browser with the following URL:
+
+    ```bash
+    http://localhost:7071/api/hello?name=joesmith
+    ```
+
+1. When you see the successful message below browser, stop the run time in the terminal with `cntrl-c`.
+
+    ```text
+    Hello, joesmith. This HTTP triggered function executed successfully.
+    ```
+
+1. Check the new API code into your repo and push to the remote:
+   
+   ```bash
+   git add . && git commit -m "hello api" && git push origin main
+   ```
+
+1. In a web browser, go back to your GitHub repo, ``, and make sure the next build of your Action succeeds with these new changes. 
 
 ### Create parent package.json file
 
