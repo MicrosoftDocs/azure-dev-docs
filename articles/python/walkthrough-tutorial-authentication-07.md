@@ -14,46 +14,23 @@ The app's */api/v1/getcode* API generates a JSON response that contains an alpha
 
 First, the `@app.route` decorator tells Flask that the `get_code` function handles requests to the */api/v1/getcode* URL.
 
-```python
-@app.route('/api/v1/getcode', methods=['GET'])
-def get_code():
-```
+:::code language="python" source="~/../python-integrated-authentication/main_app/app.py" range="44-45":::
 
 Next, we call the third-party API, the URL of which is in `number_url`, providing the access key that we retrieve from the key vault in the header.
 
-```python
-    headers = {
-        'Content-Type': 'application/json',
-        'x-functions-key': access_key
-        }
-
-    r = requests.get(url = number_url, headers = headers)
-
-    if (r.status_code != 200):
-        return "Could not get you a code.", r.status_code
-```
+:::code language="python" source="~/../python-integrated-authentication/main_app/app.py" range="46-54":::
 
 The `x-functions-key` property in the header is specifically how Azure Functions (where this example third-party API is deployed) expects an access key to appear in a header. For more information, see [Azure Functions HTTP trigger - Authorization keys](/azure/azure-functions/functions-bindings-http-webhook-trigger?tabs=csharp#authorization-keys). If calling the API fails for any reason, we return an error message and the status code.
 
 Assuming that the API call succeeds and returns a numerical value, we then construct a more complex code using that number plus some random characters (using our own `random_char` function).
 
-```python
-    data = r.json()
-    chars1 = random_char(3)
-    chars2 = random_char(3)
-    code_value = f"{chars1}-{data['value']}-{chars2}"
-    code = { "code": code_value, "timestamp" : str(datetime.utcnow()) }
-```
+:::code language="python" source="~/../python-integrated-authentication/main_app/app.py" range="56-60":::
 
 The `code` variable here contains the full JSON response for the app's API, which includes the code value as well as a timestamp. An example response would be `{"code":"ojE-161-pTv","timestamp":"2020-04-15 16:54:48.816549"}`.
 
 Before returning that response, however, we write a message with it in our storage queue using the Queue client's [`send_message`](/python/api/azure-storage-queue/azure.storage.queue.queueclient#send-message-content----kwargs-) method:
 
-```python
-    queue_client.send_message(code)
-
-    return jsonify(code)
-```
+:::code language="python" source="~/../python-integrated-authentication/main_app/app.py" range="64-66":::
 
 ## Processing queue messages
 

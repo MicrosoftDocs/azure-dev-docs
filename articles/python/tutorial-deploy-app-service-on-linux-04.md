@@ -87,17 +87,11 @@ If you use any of the following variations, then your custom startup command mus
 
     In this situation, create a simple shim file that imports the app object from the module, and then have Gunicorn launch the app using the shim. The [python-sample-vscode-flask-tutorial](https://github.com/Microsoft/python-sample-vscode-flask-tutorial) code, for example, contains *startup.py* with the following contents:
 
-    ```python
-    # startup.py shim
-    from hello_app.webapp import app
-    ```
+    :::code language="python" source="~/../python-sample-vscode-flask-tutorial/startup.py" range="12":::
 
     The startup command is then the following:
 
-    ```text
-    gunicorn --bind=0.0.0.0 --timeout 600 startup:app
-    ```
-
+    :::code language="txt" source="~/../python-sample-vscode-flask-tutorial/startup.txt" :::
 
 ## Startup commands for other frameworks and web servers
 

@@ -27,7 +27,7 @@ Be sure to create and activate a virtual environment for this project.
 
 Create a file named *requirements.txt* with the following contents:
 
-:::code language="txt" source="~/../python-sdk-examples/resource_group/requirements.txt":::
+:::code language="txt" source="~/../python-sdk-docs-examples/resource_group/requirements.txt":::
 
 Be sure to use these versions of the libraries. Using older versions will result in errors such as "'AzureCliCredential' object object has no attribute 'signed_session'."
 
@@ -43,7 +43,7 @@ pip install -r requirements.txt
 
 Create a Python file named *list_groups.py* with the following code. The comments explain the details:
 
-:::code language="python" source="~/../python-sdk-examples/resource_group/list_groups.py":::
+:::code language="python" source="~/../python-sdk-docs-examples/resource_group/list_groups.py":::
 
 ### 3b. List resources within a specific resource group
 
@@ -51,7 +51,7 @@ Create a Python file named *list_resources.py* with the following code. The comm
 
 By default, the code lists resources in "myResourceGroup". To use a different resource group, set the `RESOURCE_GROUP_NAME` environment variable to the desired group name.
 
-:::code language="python" source="~/../python-sdk-examples/resource_group/list_resources.py":::
+:::code language="python" source="~/../python-sdk-docs-examples/resource_group/list_resources.py":::
 
 ### Authentication in the code
 

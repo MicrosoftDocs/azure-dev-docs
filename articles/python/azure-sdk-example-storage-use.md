@@ -22,7 +22,7 @@ Be sure to create a service principal for local development, set environment var
 
 1. In your *requirements.txt* file, add line for the needed client library package and save the file:
 
-    :::code language="txt" source="~/../python-sdk-examples/storage/requirements_use.txt":::
+    :::code language="txt" source="~/../python-sdk-docs-examples/storage/requirements_use.txt":::
 
 1. In your terminal or command prompt, reinstall requirements:
 
@@ -34,7 +34,7 @@ Be sure to create a service principal for local development, set environment var
 
 Create a source file named *sample-source.txt* (as the code expects), with contents like the following:
 
-:::code language="txt" source="~/../python-sdk-examples/storage/sample-source.txt":::
+:::code language="txt" source="~/../python-sdk-docs-examples/storage/sample-source.txt":::
 
 ## 4: Use blob storage from app code
 
@@ -74,7 +74,7 @@ For these reasons, we recommend using the authentication method in production co
 
 1. Create a file named *use_blob_auth.py* with the following code. The comments explain the steps.
 
-    :::code language="python" source="~/../python-sdk-examples/storage/use_blob_auth.py":::
+    :::code language="python" source="~/../python-sdk-docs-examples/storage/use_blob_auth.py":::
 
     Reference links:
       - [DefaultAzureCredential (azure.identity)](/python/api/azure-identity/azure.identity.defaultazurecredential)
@@ -126,7 +126,7 @@ For more information on role assignments, see [How to assign role permissions us
 
 1. Create a Python file named *use_blob_conn_string.py* with the following code. The comments explain the steps.
 
-    :::code language="python" source="~/../python-sdk-examples/storage/use_blob_conn_string.py":::
+    :::code language="python" source="~/../python-sdk-docs-examples/storage/use_blob_conn_string.py":::
 
 1. Run the code:
 

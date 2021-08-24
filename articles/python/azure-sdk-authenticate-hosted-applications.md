@@ -18,7 +18,7 @@ For most applications, the [`DefaultAzureCredential`](/python/api/azure-identity
 
 `DefaultAzureCredential` automatically uses a variety of underlying authentication methods, such as the app's managed identity (sometimes referred to as MSI) in the cloud or a local service principal from environment variables when running locally (as described on [Configure your local Python dev environment for Azure - Configure authentication](configure-local-development-environment.md#configure-authentication)). For more information, see the [`DefaultAzureCredential` class reference](/python/api/azure-identity/azure.identity.defaultazurecredential).
 
-:::code language="python" source="~/../python-sdk-examples/auth/key_vault_example_short.py":::
+:::code language="python" source="~/../python-sdk-docs-examples/auth/key_vault_example_short.py":::
 
 The preceding code uses a `DefaultAzureCredential` object when accessing Azure Key Vault, where the URL of the Key Vault is available in an environment variable named `KEY_VAULT_URL`. The code clearly implements the typical library usage pattern described earlier: acquire a credential object, create an appropriate client object for the Azure resource, then attempt to perform an operation on that resource using that client object. Again, authentication and authorization don't happen until this final step.
 
@@ -34,7 +34,7 @@ In both cases, the identity involved must be assigned permissions for the approp
 
 For example, you can use `DefaultAzureCredential` with version 15.0.0 or higher of `azure-mgmt-resource`:
 
-:::code language="python" source="~/../python-sdk-examples/show_subscription/use_default.py":::
+:::code language="python" source="~/../python-sdk-docs-examples/show_subscription/use_default.py":::
 
 Most management client objects (other than `SubscriptionClient`) also require an Azure subscription ID to manage resources on that subscription. You can set the subscription ID using the `AZURE_SUBSCRIPTION_ID` environment variable. See [Configure your local Python dev environment for Azure - Configure authentication](configure-local-development-environment.md#configure-authentication).
 
@@ -54,7 +54,7 @@ If the management library you want to use hasn't yet been updated, then you can 
 
     Assuming that you've downloaded a copy of *cred_wrapper.py* into your project folder, the previous code would appear as follows:
 
-    :::code language="python" source="~/../python-sdk-examples/show_subscription/use_cred_wrapper.py":::
+    :::code language="python" source="~/../python-sdk-docs-examples/show_subscription/use_cred_wrapper.py":::
 
     Again, once updated management libraries are available, you can use `DefaultAzureCredential` directly as shown in the [original code example](#how-to-use-defaultazurecredential-with-sdk-management-libraries).
 
