@@ -263,7 +263,7 @@ The Azure Function API provides serverless APIs. This allows you to focus on you
    
    Another way to verify the API was successfully deployed is to use VS Code. Look at the functions in your Azure explorer for Static Web Apps. 
 
-   :::image type="content" source="../../media/static-web-app-with-swa-cli/visual-studio-code-azure-explorer-function-list.png" alt-text="{alt-text}":::
+   :::image type="content" source="../../../media/static-web-app-with-swa-cli/visual-studio-code-azure-explorer-function-list.png" alt-text="{alt-text}":::
 
 ## Connecting the client and serverless API to each other
 
@@ -381,11 +381,11 @@ The React client and the Azure Function API have separate local development serv
 
 1. Return to the web browser for the React app, ``, and use the new form to enter your name and pass that name to the Function API.
    
-   :::image type="content" source="../../media/static-web-app-with-swa-cli/react-app-with-form-pass-name-api.png" alt-text="{alt-text}":::
+   :::image type="content" source="../../../media/static-web-app-with-swa-cli/react-app-with-form-pass-name-api.png" alt-text="{alt-text}":::
 
 1. The React app responds with the success message:
    
-   :::image type="content" source="../../media/static-web-app-with-swa-cli/react-app-with-form-results-pass-name-api.png" alt-text="{alt-text}":::
+   :::image type="content" source="../../../media/static-web-app-with-swa-cli/react-app-with-form-results-pass-name-api.png" alt-text="{alt-text}":::
 
 ## What did the SWA CLI do for you? 
 
