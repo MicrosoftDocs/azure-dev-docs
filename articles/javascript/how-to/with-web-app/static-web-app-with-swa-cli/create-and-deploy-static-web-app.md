@@ -230,6 +230,11 @@ The Azure Function API provides serverless APIs. This allows you to focus on you
     cd api && npm install 
     ```
 
+1. Open the `./api/index.ts` file and replace contents with the following so that the function returns a JSON object:
+   
+   ```typescript
+   ```
+
 1. Start the Azure function API:
 
     ```bash 
@@ -255,10 +260,23 @@ The Azure Function API provides serverless APIs. This allows you to focus on you
    ```
 
 1. In a web browser, go back to your GitHub repo, ``, and make sure the next build of your Action succeeds with these new changes. 
+   
+   Another way to verify the API was successfully deployed is to use VS Code. Look at the functions in your Azure explorer for Static Web Apps. 
 
-### Create parent package.json file
+   :::image type="content" source="../../media/static-web-app-with-swa-cli/visual-studio-code-azure-explorer-function-list.png" alt-text="{alt-text}":::
 
-1. In order to control both app and api projects, create a `./package.json` file in the root of the project.
+## Connecting the client and serverless API to each other
+
+At this point both the React client and the Azure Function API work both locally and remotely, _but_ they don't work together in either environment. The remote environment provides a proxy between the two environments but the local environment doesn't. 
+
+Use the Static Web App CLI (SWA CLI) to provide the cloud-based combined environment to your local computer.
+
+To use the SWA CLI, this process is going to run both environments then provide those run time URLs to the SWA CLI to provide the proxy between the two. This allows the local and remote code to use relative URLs in the React app to refer to the API. 
+
+
+### Create parent proxied project
+
+1. In order to control both React app and API projects, create a `./package.json` file in the root of the project.
 
     ```bash
     npm init -y
@@ -273,35 +291,99 @@ The Azure Function API provides serverless APIs. This allows you to focus on you
 1. Replace the current `package.json` file's `scripts` section with the following script entries:
 
     ```bash
-    "start-api": "cd api & npm start",
-    "start-app": "cd app & npm start",
+    "start-api": "cd api && npm start",
+    "start-app": "cd app && npm start",
     "start-dev": "concurrently \"npm:start-api\" \"npm:start-app\" ",
     "start-swa": "swa start http://localhost:3000 --api http://localhost:7071",
     "start": " npm run start-dev && npm run swa-up"
     ```
 
+    These scripts separate out the development server of each environment from the SWA CLI call to join those two environments. 
 
-## Start local development servers
+    |Script|Purpose|
+    |`start-api`|Start local Azure Functions runtime.|
+    |`start-app`|Start React app's local runtime.|
+    |`start-dev`|Start both local runtimes.|
+    |`start-swa`|Start SWA across both apps. Use the `http://locahost:4280` base URL to request the proxied app.|
+    |`start`|Start everything.|
 
-The React client and the Azure Function API have separate local development servers. 1. In order to debug both client and API at the same time, open two separate instances of VS Code. 
-1. In one instance, open the `./app` folder. In the second instance, open the `./api` folder. 
-1. In the integrated terminal for each instance, start the development server:
+## Start local development servers for full-stack debugging
+
+The React client and the Azure Function API have separate local development servers. 
+1. In order to debug both client and API at the same time, open two separate instances of VS Code. 
+1. In one instance, open the `./app` folder. In the second instance, open the `./api` folder. In each project, open an integrated terminal and start the project:
+   
     ```bash
     npm start
     ```
 
+    When both the React app and the Function API have started correctly, continue to the next step. 
 
-## Verify installation
-
-1. At the root, start the full stack, both api and app, with the following script command:
-
+1. In one of the VS Code instances (it doesn't matter which), open a second integrated terminal, change to the root directory and start the proxy:
+   
     ```bash
-    npm start
+    npm run start-swa
     ```
 
-1. Verify the React client is running at `http://localhost:3000/` and is open in a browser.
-1. Verify the Function is running at `http://localhost:7071/` with the following command:
+    The React client is now available on both port 3000 (with a proxy to the API) and on port 4280. For the rest of the article , use port 4280 when you want to use the React app.  
 
-    ```bash
-    curl http://localhost:7071/api/hello --verbose
+## Add code to the React app to use the Function API
+
+1. In VS Code for the React app, find the `./src/App.tsx file` and replace the entire file with the following code:
+
+    ```TypeScript
+    import React from 'react';
+    import logo from './logo.svg';
+    import './App.css';
+
+    function App() {
+
+    const [name, setName] = React.useState('');
+    const [message, setMessage] = React.useState('');
+
+    const getDataFromApi = async(e: any)=>{
+        e.preventDefault();
+        const data = await fetch(`/api/hello?name=${name}`);
+        const json = await data.json();
+
+        if (json.message){
+            setMessage(json.message);
+        }
+    };
+
+    return (
+        <div className="App">
+        <header className="App-header">
+            <img src={logo} className="App-logo" alt="logo" />
+            <p>
+            Static Web App: React App with Azure Function API
+            </p>
+            <form id="form1" className="App-form" onSubmit={e => getDataFromApi(e)}>
+            <div>
+                <input 
+                type="text" 
+                id="name" 
+                className="App-input" 
+                placeholder="Name" 
+                value={name} 
+                onChange={e=>setName(e.target.value)} />
+                <button type="submit" className="App-button">Submit</button>
+            </div>
+            </form>
+            <div><h5>Message: {message} </h5></div>
+        </header>
+        </div>
+    );
+    }
+
+    export default App;
     ```
+
+1. Return to the web browser for the React app, ``, and use the new form to enter your name and pass that name to the Function API.
+   
+   :::image type="content" source="../../media/static-web-app-with-swa-cli/react-app-with-form-pass-name-api.png" alt-text="{alt-text}":::
+
+1. The React app responds with the success message:
+   
+   :::image type="content" source="../../media/static-web-app-with-swa-cli/react-app-with-form-results-pass-name-api.png" alt-text="{alt-text}":::
+
