@@ -42,7 +42,7 @@ Install the following:
 
 Because you will be pushing and pulling between your local development and your remote GitHub repo, it is important that both your local git environment and remote repo have the same `default` branch. If you are new to Git and GitHub, both branches are `main`. If both default branches are not `main`, you need to configure both branches to be the same name and any time you see `main` referenced in this document, use your own default branch name instead. 
 
-## Steps to Create app
+## Create Static Web app
 
 ### Create React app
 
@@ -92,7 +92,7 @@ Because you will be pushing and pulling between your local development and your 
 
     Leave this bash terminal open, you will return to it in a later step. 
    
-## Create a GitHub repo
+## Create new GitHub repo
 
 1. Use [this GitHub link](https://github.com/new) to go to your account on GitHub and create a new repo. For this procedure, create the repo as a public repo.  
    
@@ -436,7 +436,7 @@ Run both the React and Functions development environments, provided by each fram
     |`start-swa`|Start SWA across both apps. Use the `http://locahost:4280` base URL to request the proxied app.|
     |`start`|Start everything.|
 
-## Start local development servers for full-stack debugging
+## Start local app for full-stack debugging
 
 The React client and the Azure Function API have separate local development servers. 
 1. In order to debug both client and API at the same time, open two separate instances of VS Code. 
@@ -461,7 +461,7 @@ The React client and the Azure Function API have separate local development serv
 
 ## Add form to the React app to use the Function API
 
-1. In VS Code for the React app, find the `./src/App.tsx file` and replace the entire file with the following code:
+In VS Code for the React app, find the `./src/App.tsx file` and replace the entire file with the following code:
 
     ```TypeScript
     import React from 'react';
@@ -510,6 +510,8 @@ The React client and the Azure Function API have separate local development serv
 
     export default App;
     ```
+
+## Use static web app in browser
 
 1. Return to the web browser for the React app, ``, and use the new form to enter your name and pass that name to the Function API.
    
