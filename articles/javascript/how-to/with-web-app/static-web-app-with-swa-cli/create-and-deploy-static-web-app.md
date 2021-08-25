@@ -1,18 +1,18 @@
 # Static web app using CLI
 
-This [Static web app](https://docs.microsoft.com/azure/static-web-apps/) using the [SWA CLI](https://github.com/Azure/static-web-apps-cli) to run the app locally.
+Learn how to create a [Static Web App](https://docs.microsoft.com/azure/static-web-apps/) and locally develop using the [SWA CLI](https://github.com/Azure/static-web-apps-cli). Run the same code locally and deploy remotely without changes to ensure the same quality of experience for your customers that you see in your local development environment.
 
-The app consists of:
-* React app in the `app` directory, served from `http://localhost:3000`
-* Azure Function API in the `api` directory served from `http://localhost:7071`
+The Static Web app consists of:
+* A client React app in the `app` directory, served from `http://localhost:3000`
+* An Azure Function API in the `api` directory served from `http://localhost:7071`
 
-Once the two apps are created, use the Static Web App CLI to proxy local requests from the React app to the Function API. The URL in the React looks like `/api/hello` without using the server or port number for the API. This is successful because the SWA CLI manages the proxy for you.  
+Once the two apps are created, use the Static Web App CLI to proxy local requests from the React app to the Function API. The URL in the React looks like `/api/hello`, without specifying the server or port number for the API. Requests using this URL are successful locally because the SWA CLI manages the proxy for you.  
 
 ## Features
 
 This project framework provides the following features:
 
-* React app and Api are in TypeScript
+* React app and API are in TypeScript
 * Parent package.json with scripts to control full-stack locally
 
 ## Prepare your development environment
@@ -33,11 +33,85 @@ Install the following:
 
 ## Steps to Create app
 
+### Create React app
+
+1. Open VS Code in the directory which will become the root of the project. 
+1. In VS Code, open an integrated **bash** terminal. All remaining terminal commands should be run from the same terminal unless otherwise specified. 
+
+1. In the root of the project, create a _create-react-app_ in `/app` directory with the following command:
+
+    ```bash
+    npx create-react-app app --template typescript
+    ```
+
+1. Install dependencies for the local React app:
+
+    ```bash
+    cd app && npm install typescript --save-dev && npm install && cd ..
+    ```
+
+1. Change `tsconfig.json` to ignore compile errors for any variables without a specified type:
+
+    ```json
+    "noImplicitAny": false
+    ```
+
+    This specific step is to bypass any issues with create-react-app. In your professional projects, once you are comfortable with your build and deployment of the app, return to this setting and set it to `true`. Resolve any compile-time errors for TypeScript before committing these changes to source control. 
+
+1. Verify local React app builds successfully:
+
+    ```bash
+    npm run build
+    ```
+
+    If you run into errors, which may happen depending on the version of various packages and your environment, fix the errors before continuing. It is important to know that your project successfully builds locally before moving deployment to Azure Static web apps.
+
+1. Run the project, which should open the project in a browser to `http://localhost:3000/`:
+   
+    ```bash 
+    npm start
+    ```
+
+1. When you see the project successfully loaded in the browser, stop the run time with <kbd>Ctrl</kbd> + <kbd>c</kbd>.
+1. Move back to the root of the project:
+
+    ```bash 
+    cd ..
+    ```
+
+    Leave this bash terminal open, you will return to it in a later step. 
+   
+## Create a GitHub repo
+
+1. Use [this GitHub link](https://github.com/new) to go to your account on GitHub and create a new repo. For this procedure, create the repo as a public repo.  
+   
+1. After your create repo, copy the repo URL, such as `https://github.com/YOUR-ACCOUNT/YOUR-REPO-NAME`.
+
+1. Create a **Personal Access Token** (PAT) for this repo using [GitHub documentation found here](https://help.github.com/en/articles/creating-a-personal-access-token-for-the-command-line).
+
+1. If you intend to create your Azure Static Web app using the Azure CLI (one of the choices below), you need to copy this PAT for that step. If you intend to create your Azure Static Web app with the VS Code extension for SWA, you don't need the PAT. 
+
+1. In VS Code, return to your bash window at the root of your project. 
+1. Initialize Git:
+
+    ```bash
+    git init
+    ```
+1. Change the following command to use your account and repo name. This command adds your GitHub repo as a remote named `origin`. 
+   
+   ```bash
+   git add remote origin https://github.com/YOUR-ACCOUNT/YOUR-REPO-NAME
+   ```
+
+1. Commit and push your React app to your new repo:
+   
+   ```bash
+   git pull origin main && git add . && git commit -m "react app" && git push origin main
+   ```
+
 ### Sign in to Azure CLI
 
-1. Open VS Code at the directory which will become the root of your Static web app. 
-
-1. In VS Code, open an integrated bash terminal and sign in to the Azure CLI:
+1. In VS Code, in an integrated bash terminal, sign in to the Azure CLI:
 
     ```bash
     az login
@@ -47,82 +121,46 @@ Install the following:
 
 1. When authentication is complete, close the browser and return to VS Code. 
 
-### Create React app
-
-1. In the root of the project, create a _create-react-app_ in `/app` directory with the following command:
-
-    ```bash
-    npx create-react-app app --template typescript
-    ```
-
-1. Install dependencies:
-
-    ```bash
-    cd app && npm install typescript --save-dev && npm install && cd ..
-    ```
-
-1. Add to tsconfig.json:
-
-    ```json
-    "noImplicitAny": false
-    ```
-
-1. Verify app builds successfully:
-
-    ```bash
-    npm run build
-    ```
-
-    If you run into errors, which may happen depending on the version of various packages and your environment, fix the errors before continuing. It is important to know that your project successfully builds locally before moving deploying to Azure Static web apps.
-
-1. Run the project, which should open the project in a browser to `http://localhost:3000/`:
-   
-    ```bash 
-    npm start
-    ```
-
-1. When you see the project successfully loaded in the browser, stop the run time with `cntrl-c`.
-1. Using bash, move to the root of the project:
-
-    ```bash 
-    cd ..
-    ```
-    Leave this bash terminal open, you will return to it in a later step. 
-   
-## Create a GitHub repo
-
-1. Use [this GitHub link](https://github.com/new) to go to your account on GitHub and create a new repo. For this procedure, create the repo as a public repo. Don't add any files to the repo. 
-   
-1. After your create repo, copy the repo URL, such as `https://github.com/YOUR-ACCOUNT/YOUR-REPO-NAME`.
-
-1. Return to your bash window at the root of your project.
-1. Initialize Git:
-
-    ```bash
-    git init
-    ```
-1. Add your repo as a remote named origin. Change the following command to use your account and repo name.
-   
-   ```bash
-   git add remote origin https://github.com/YOUR-ACCOUNT/YOUR-REPO-NAME
-   ```
-
 ### Create Static Web App
 
-1. In VS Code, find the Azure Explorer's Static Web App section, right-click on the `+` to create a new Static Web App. Use the following information to complete the prompts:
+# [Visual Studio Code](#tab/create-swa-vscode)
 
-    |Prompt|Setting|
-    |--|--|
-    |Enter a name for the new static web app.|Enter a name that you can find and identify as yours, such as `YOUR-ALIAS-static-web-app-react-api` where your replace YOUR-ALIAS with your email alias. |
-    |Choose a build preset to configure default project structure.|Select `React`|
-    |Enter a location of your application code.|Enter `/app` because the app needs to be referenced from the root.|
-    |Enter a location of your build output relative to your app's location.| Enter `build`. **Do not** preface this with a forward slash.|
+In VS Code, find the Azure Explorer's Static Web App section, right-click on the `+` to create a new Static Web App. Use the following information to complete the prompts:
 
-    If this is your first Azure resource, you may be asked other questions such as resource group or location. Use naming conventions to create the resource group, such as `YOUR-ALIAS-westus-rg` then select the location you specified in the name.
+|Prompt|Setting|
+|--|--|
+|Enter a name for the new static web app.|Enter a name that you can find and identify as yours, such as `YOUR-ALIAS-static-web-app-react-api` where your replace YOUR-ALIAS with your email alias. |
+|Choose a build preset to configure default project structure.|Select `React`|
+|Enter a location of your application code.|Enter `app` because the app needs to be referenced from the root.|
+|Enter a location of your build output relative to your app's location.| Enter `build`. **Do not** preface this with a forward slash.|
+
+If this is your first Azure resource, you may be asked other questions such as resource group or location. Use naming conventions to create the resource group, such as `YOUR-ALIAS-westus-rg` then select the location you specified in the name.
+
+# [Azure CLI](#tab/create-swa-azure-cli)
+
+
+In the VS Code integrated terminal, where you logged into the Azure CLI in a previous section of this article, use the following Azure CLI command, [az staticwebapp create](/cli/staticwebapp?view=azure-cli-latest#az_staticwebapp_create), to create your Static Web App:
+
+```azurecli
+az staticwebapp create \
+    --subscription YOUR-SUBSCRIPTION-ID-OR-NAME
+    --resource-group YOUR-RESOURCE_GROUP_NAME \
+    --name YOUR-ALIAS-static-web-app-react-api \
+    --source https://github.com/YOUR-ACCOUNT/YOUR-REPO-NAME \
+    --token YOUR-GITHUB-REPO-PERSONAL-ACCESS-TOKEN
+    --location YOUR-LOCATION \
+    --branch main \
+    --app-location "app"
+    --app-artifact-location "build"
+```
+
+---
+
+
 
 ### Verify GitHub Action Build
 
-1. In a web browser, return to your repo and select the **Actions** area. 
+1. In a web browser, return to your GitHub repo and select the **Actions** area. 
 1. Select the workflow, then select the **Build and Deploy** job. 
 1. Find the end of this job and make sure it was successful:
 
@@ -142,8 +180,11 @@ Install the following:
     ```
 
     If your app didn't build successfully, there are usually a few top issues:
-    * Your build environment doesn't match your local development environment and that difference is causing a problem.
     * Your locations for your assets inside your project, app location of `app` and asset directory such as `build`, are not correct. 
+    * Your build environment doesn't match your local development environment and that difference is causing a problem.
+    * Your project size, with dependencies, exceeds the size limitation [quota](/static-web-apps/quotas) for Static Web apps. 
+    * Other [troubleshooting steps](/azure/static-web-apps/troubleshooting) for Static Web apps.
+
 
 ### Pull GitHub action file to your local environment
 
@@ -224,7 +265,7 @@ The Azure Function API provides serverless APIs. This allows you to focus on you
     func new --name hello --template "HTTP trigger" --authlevel "anonymous" 
     ```
 
-1. Install dependencies:
+1. Install dependencies for the Azure Function API:
 
     ```bash
     cd api && npm install 
@@ -406,3 +447,6 @@ The React client and the Azure Function API have separate local development serv
 ## Push changes to remote app
 
 ## Next steps
+
+* [Static Web apps troubleshooting](/azure/static-web-apps/troubleshooting)
+* [Azure Functions diagnostics](/azure/azure-functions/functions-diagnostics)
