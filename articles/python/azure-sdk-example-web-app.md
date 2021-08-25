@@ -22,7 +22,7 @@ Be sure to create a service principal for local development, and create and acti
 
 Create a file named *requirements.txt* with the following contents:
 
-:::code language="txt" source="~/../python-sdk-examples/webapp/requirements.txt":::
+:::code language="txt" source="~/../python-sdk-docs-examples/webapp/requirements.txt":::
 
 In a terminal or command prompt with the virtual environment activated, install the requirements:
 
@@ -56,7 +56,7 @@ REPO_URL=<url_of_your_fork>
 
 Create a Python file named *provision_deploy_web_app.py* with the following code. The comments explain the details:
 
-:::code language="python" source="~/../python-sdk-examples/webapp/provision_deploy_web_app.py":::
+:::code language="python" source="~/../python-sdk-docs-examples/webapp/provision_deploy_web_app.py":::
 
 [!INCLUDE [cli-auth-note](includes/cli-auth-note.md)]
 
@@ -102,11 +102,11 @@ The following Azure CLI commands complete the same provisioning steps as the Pyt
 
 # [cmd](#tab/cmd)
 
-:::code language="azurecli" source="~/../python-sdk-examples/webapp/provision.cmd":::
+:::code language="azurecli" source="~/../python-sdk-docs-examples/webapp/provision.cmd":::
 
 # [bash](#tab/bash)
 
-:::code language="azurecli" source="~/../python-sdk-examples/webapp/provision.sh":::
+:::code language="azurecli" source="~/../python-sdk-docs-examples/webapp/provision.sh":::
 
 ---
 

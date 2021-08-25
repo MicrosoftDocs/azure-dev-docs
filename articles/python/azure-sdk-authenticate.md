@@ -68,7 +68,7 @@ When writing app code using the Azure libraries (SDK) for Python, you use the fo
 
 The following code describes and demonstrates these steps by attempting to access Azure Key Vault.
 
-:::code language="python" source="~/../python-sdk-examples/auth/key_vault_example.py":::
+:::code language="python" source="~/../python-sdk-docs-examples/auth/key_vault_example.py":::
 
 Again, no authentication or authorization takes place until your code makes a specific request to the Azure REST API through a client object. The statement to create the `DefaultAzureCredential` [see the next section) only creates a client-side object in memory, but performs no other checks.
 

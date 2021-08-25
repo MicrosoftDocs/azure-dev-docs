@@ -83,7 +83,7 @@ Set-AzStorageBlobContent -File "<file-path>" -Container "<container-name>" -Blob
 
 ### [Azure CLI](#tab/azure-cli)
 
-Run [az storage blob upload](/cli/azure/storage/blobt#az_storage_blob_upload) to upload data to an Azure Blob Storage container.
+Run [az storage blob upload](/cli/azure/storage/blob#az_storage_blob_upload) to upload data to an Azure Blob Storage container.
 
 ```azurecli
 az storage blob upload --account-name "<storage-account>" --container-name "<container>" --name "financial_sample" --file "financial_sample.csv" --auth-mode login
