@@ -387,3 +387,8 @@ The React client and the Azure Function API have separate local development serv
    
    :::image type="content" source="../../media/static-web-app-with-swa-cli/react-app-with-form-results-pass-name-api.png" alt-text="{alt-text}":::
 
+## What did the SWA CLI do for you? 
+
+## Push changes to remote app
+
+## Next steps
