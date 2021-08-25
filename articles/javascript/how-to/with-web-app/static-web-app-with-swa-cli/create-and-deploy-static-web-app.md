@@ -209,106 +209,13 @@ If your app didn't build successfully, there are usually a few top issues:
 
 1. Review the `.yml` file in the `./github/workflows` directory:
 
-    ```YML
-    name: Azure Static Web Apps CI/CD
+    :::code language="YAML" source="~/../js-e2e-static-web-app-with-cli/.github/workflows/azure-static-web-apps.yml.sample" highlight="28-33":::
 
-    on:
-    push:
-        branches:
-        - main
-    pull_request:
-        types: [opened, synchronize, reopened, closed]
-        branches:
-        - main
-
-    jobs:
-    build_and_deploy_job:
-        if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.action != 'closed')
-        runs-on: ubuntu-latest
-        name: Build and Deploy Job
-        steps:
-        - uses: actions/checkout@v2
-            with:
-            submodules: true
-        - name: Build And Deploy
-            id: builddeploy
-            uses: Azure/static-web-apps-deploy@v1
-            with:
-            azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_PURPLE_COAST_1234567 }}
-            repo_token: ${{ secrets.GITHUB_TOKEN }} # Used for Github integrations (i.e. PR comments)
-            action: "upload"
-            ###### Repository/Build Configurations - These values can be configured to match your app requirements. ######
-            # For more information regarding Static Web App workflow configurations, please visit: https://aka.ms/swaworkflowconfig
-            app_location: "app" # App source code path
-            api_location: "api" # Api source code path - optional
-            output_location: "build" # Built app content directory - optional
-            ###### End of Repository/Build Configurations ######
-
-    close_pull_request_job:
-        if: github.event_name == 'pull_request' && github.event.action == 'closed'
-        runs-on: ubuntu-latest
-        name: Close Pull Request Job
-        steps:
-        - name: Close Pull Request
-            id: closepullrequest
-            uses: Azure/static-web-apps-deploy@v1
-            with:
-            azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_PURPLE_COAST_1234567 }}
-            action: "close"
-    ```
+    Most of the file is generic to any Static Web app. The highlighted lines in the preceding source listing are specific to this app.
 
 1. If you need the Node.js version to stay the same, regardless of the ubuntu version, use the [Oryx configuration](https://github.com/microsoft/Oryx/blob/main/doc/configuration.md#oryx-configuration), `NODE_VERSION`, to set that value. The `.yml` needs an environment variable to pass that setting:
    
-    ```YML
-    name: Azure Static Web Apps CI/CD
-
-    on:
-    push:
-        branches:
-        - main
-    pull_request:
-        types: [opened, synchronize, reopened, closed]
-        branches:
-        - main
-
-    jobs:
-    build_and_deploy_job:
-        if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.action != 'closed')
-        runs-on: ubuntu-latest
-        name: Build and Deploy Job
-        steps:
-        - uses: actions/checkout@v2
-            with:
-            submodules: true
-        - name: Build And Deploy
-            id: builddeploy
-            uses: Azure/static-web-apps-deploy@v1
-            with:
-                azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_PURPLE_COAST_1234567 }}
-                repo_token: ${{ secrets.GITHUB_TOKEN }} # Used for Github integrations (i.e. PR comments)
-                action: "upload"
-                ###### Repository/Build Configurations - These values can be configured to match your app requirements. ######
-                # For more information regarding Static Web App workflow configurations, please visit: https://aka.ms/swaworkflowconfig
-                app_location: "app" # App source code path
-                api_location: "api" # Api source code path - optional
-                output_location: "build" # Built app content directory - optional
-                ###### End of Repository/Build Configurations 
-            env: # Add environment variables here
-                NODE_VERSION: 14.17.1
-            ######
-
-    close_pull_request_job:
-        if: github.event_name == 'pull_request' && github.event.action == 'closed'
-        runs-on: ubuntu-latest
-        name: Close Pull Request Job
-        steps:
-        - name: Close Pull Request
-            id: closepullrequest
-            uses: Azure/static-web-apps-deploy@v1
-            with:
-            azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_PURPLE_COAST_1234567 }}
-            action: "close"
-    ```
+    :::code language="YAML" source="~/../js-e2e-static-web-app-with-cli/.github/workflows/azure-static-web-apps-NODE_VERSION.yml.sample" highlight="34,35":::   
 
 ### Create Function API
 
@@ -340,29 +247,7 @@ The Azure Function service provides serverless APIs. This allows you to focus on
 
 1. Open the `./api/index.ts` file and replace all the contents with the following so that the function returns a JSON object:
    
-    ```typescript
-    import { AzureFunction, Context, HttpRequest } from "@azure/functions"
-
-    const httpTrigger: AzureFunction = async function (context: Context, req: HttpRequest): Promise<void> {
-        context.log('HTTP trigger function processed a request.');
-        const name = (req.query.name || (req.body && req.body.name));
-        const responseMessage = name
-            ? "Hello, " + name + ". This HTTP triggered function executed successfully."
-            : "This HTTP triggered function executed successfully. Pass a name in the query string or in the request body for a personalized response.";
-
-        context.res = {
-            // status: 200, /* Defaults to 200 */
-            body: {
-                input: name,
-                message: responseMessage
-            }
-
-        };
-
-    };
-
-    export default httpTrigger;   
-   ```
+    :::code language="TypeScript" source="~/../js-e2e-static-web-app-with-cli/api/hello/index.ts" highlight="12-15":::  
 
 1. Start the Azure function API:
 
@@ -425,6 +310,7 @@ Run both the React and Functions development environments, provided by each fram
     "start-swa": "swa start http://localhost:3000 --api http://localhost:7071",
     "start": " npm run start-dev && npm run swa-up"
     ```
+    :::code language="JSON" source="~/../js-e2e-static-web-app-with-cli/package.json" range="6-12":::  
 
     These scripts separate out the development server of each environment from the SWA CLI call to join those two environments. 
 
@@ -463,53 +349,7 @@ The React client and the Azure Function API have separate local development serv
 
 In VS Code for the React app, find the `./src/App.tsx file` and replace the entire file with the following code:
 
-    ```TypeScript
-    import React from 'react';
-    import logo from './logo.svg';
-    import './App.css';
-
-    function App() {
-
-    const [name, setName] = React.useState('');
-    const [message, setMessage] = React.useState('');
-
-    const getDataFromApi = async(e: any)=>{
-        e.preventDefault();
-        const data = await fetch(`/api/hello?name=${name}`);
-        const json = await data.json();
-
-        if (json.message){
-            setMessage(json.message);
-        }
-    };
-
-    return (
-        <div className="App">
-        <header className="App-header">
-            <img src={logo} className="App-logo" alt="logo" />
-            <p>
-            Static Web App: React App with Azure Function API
-            </p>
-            <form id="form1" className="App-form" onSubmit={e => getDataFromApi(e)}>
-            <div>
-                <input 
-                type="text" 
-                id="name" 
-                className="App-input" 
-                placeholder="Name" 
-                value={name} 
-                onChange={e=>setName(e.target.value)} />
-                <button type="submit" className="App-button">Submit</button>
-            </div>
-            </form>
-            <div><h5>Message: {message} </h5></div>
-        </header>
-        </div>
-    );
-    }
-
-    export default App;
-    ```
+    :::code language="TypeScript" source="~/../js-e2e-static-web-app-with-cli/app/src/App.tsx" range="7-18, 27-39":::  
 
 ## Use static web app in browser
 
