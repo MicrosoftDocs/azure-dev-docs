@@ -1,6 +1,14 @@
-# Static web app using CLI
+---
+title: Create Static web app using CLI
+description: Create a Static Web App and locally develop using the SWA CLI. Run the same code locally and remotely to ensure that customers get the correct web behavior.
+ms.topic: how-to
+ms.date: 08/25/2021
+ms.custom: devx-track-js
+#intent: Create Express.js web app with easy auth configured. 
+---
+# Create Static web app using CLI
 
-Learn how to create a [Static Web App](https://docs.microsoft.com/azure/static-web-apps/) and locally develop using the [SWA CLI](https://github.com/Azure/static-web-apps-cli). Run the same code locally and deploy remotely without changes to ensure the same quality of experience for your customers that you see in your local development environment.
+Learn how to create a [Static Web App](/azure/static-web-apps/) and locally develop using the [SWA CLI](https://github.com/Azure/static-web-apps-cli). Run the same code locally and deploy remotely without changes to ensure the same quality of experience for your customers that you see in your local development environment.
 
 The Static Web app consists of:
 * A client React app in the `app` directory, served from `http://localhost:3000`
@@ -30,6 +38,9 @@ Install the following:
 
 * [Azure Functions Core Tools](/azure/azure-functions/functions-run-local?tabs=windows%2Ccsharp%2Cportal%2Cbash%2Ckeda#install-the-azure-functions-core-tools) - v3.0.3477+
 
+### Git branches
+
+Because you will be pushing and pulling between your local development and your remote GitHub repo, it is important that both your local git environment and remote repo have the same `default` branch. If you are new to Git and GitHub, both branches are `main`. If both default branches are not `main`, you need to configure both branches to be the same name and any time you see `main` referenced in this document, use your own default branch name instead. 
 
 ## Steps to Create app
 
@@ -89,7 +100,7 @@ Install the following:
 
 1. Create a **Personal Access Token** (PAT) for this repo using [GitHub documentation found here](https://help.github.com/en/articles/creating-a-personal-access-token-for-the-command-line).
 
-1. If you intend to create your Azure Static Web app using the Azure CLI (one of the choices below), you need to copy this PAT for that step. If you intend to create your Azure Static Web app with the VS Code extension for SWA, you don't need the PAT. 
+1. If you intend to create your Azure Static Web app using the Azure CLI (one of the choices below), you need to create a personal access token (PAT) using [GitHub documentation found here](https://help.github.com/en/articles/creating-a-personal-access-token-for-the-command-line), then copy this PAT for that later step. 
 
 1. In VS Code, return to your bash window at the root of your project. 
 1. Initialize Git:
@@ -139,7 +150,7 @@ If this is your first Azure resource, you may be asked other questions such as r
 # [Azure CLI](#tab/create-swa-azure-cli)
 
 
-In the VS Code integrated terminal, where you logged into the Azure CLI in a previous section of this article, use the following Azure CLI command, [az staticwebapp create](/cli/staticwebapp?view=azure-cli-latest#az_staticwebapp_create), to create your Static Web App:
+In the VS Code integrated terminal, where you logged into the Azure CLI in a previous section of this article, use the following Azure CLI command, [az staticwebapp create](/cli/staticwebapp#az_staticwebapp_create), to create your Static Web App:
 
 ```azurecli
 az staticwebapp create \
@@ -179,11 +190,13 @@ az staticwebapp create \
     Exiting
     ```
 
-    If your app didn't build successfully, there are usually a few top issues:
-    * Your locations for your assets inside your project, app location of `app` and asset directory such as `build`, are not correct. 
-    * Your build environment doesn't match your local development environment and that difference is causing a problem.
-    * Your project size, with dependencies, exceeds the size limitation [quota](/static-web-apps/quotas) for Static Web apps. 
-    * Other [troubleshooting steps](/azure/static-web-apps/troubleshooting) for Static Web apps.
+### Troubleshooting GitHub Actions
+
+If your app didn't build successfully, there are usually a few top issues:
+ * Your locations for your assets inside your project, app location of `app` and asset directory such as `build`, are not correct. 
+ * Your build environment doesn't match your local development environment and that difference is causing a problem.
+ * Your project size, with dependencies, exceeds the size limitation [quota](/static-web-apps/quotas) for Static Web apps. 
+ * Other [troubleshooting steps](/azure/static-web-apps/troubleshooting) for Static Web apps.
 
 
 ### Pull GitHub action file to your local environment
@@ -226,7 +239,7 @@ az staticwebapp create \
             action: "upload"
             ###### Repository/Build Configurations - These values can be configured to match your app requirements. ######
             # For more information regarding Static Web App workflow configurations, please visit: https://aka.ms/swaworkflowconfig
-            app_location: "/app" # App source code path
+            app_location: "app" # App source code path
             api_location: "api" # Api source code path - optional
             output_location: "build" # Built app content directory - optional
             ###### End of Repository/Build Configurations ######
@@ -244,22 +257,76 @@ az staticwebapp create \
             action: "close"
     ```
 
-### Create Function api
+1. If you need the Node.js version to stay the same, regardless of the ubuntu version, use the [Oryx configuration](https://github.com/microsoft/Oryx/blob/main/doc/configuration.md#oryx-configuration), `NODE_VERSION`, to set that value. The `.yml` needs an environment variable to pass that setting:
+   
+    ```YML
+    name: Azure Static Web Apps CI/CD
 
-The Azure Function API provides serverless APIs. This allows you to focus on your TypeScript code and _not_ have to configure a full back-end web server. 
+    on:
+    push:
+        branches:
+        - main
+    pull_request:
+        types: [opened, synchronize, reopened, closed]
+        branches:
+        - main
 
-1. In the root of the project, create create-react-app in `/api` directory:
+    jobs:
+    build_and_deploy_job:
+        if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.action != 'closed')
+        runs-on: ubuntu-latest
+        name: Build and Deploy Job
+        steps:
+        - uses: actions/checkout@v2
+            with:
+            submodules: true
+        - name: Build And Deploy
+            id: builddeploy
+            uses: Azure/static-web-apps-deploy@v1
+            with:
+                azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_PURPLE_COAST_1234567 }}
+                repo_token: ${{ secrets.GITHUB_TOKEN }} # Used for Github integrations (i.e. PR comments)
+                action: "upload"
+                ###### Repository/Build Configurations - These values can be configured to match your app requirements. ######
+                # For more information regarding Static Web App workflow configurations, please visit: https://aka.ms/swaworkflowconfig
+                app_location: "app" # App source code path
+                api_location: "api" # Api source code path - optional
+                output_location: "build" # Built app content directory - optional
+                ###### End of Repository/Build Configurations 
+            env: # Add environment variables here
+                NODE_VERSION: 14.17.1
+            ######
 
-    ```bashfunc init api --typescript
+    close_pull_request_job:
+        if: github.event_name == 'pull_request' && github.event.action == 'closed'
+        runs-on: ubuntu-latest
+        name: Close Pull Request Job
+        steps:
+        - name: Close Pull Request
+            id: closepullrequest
+            uses: Azure/static-web-apps-deploy@v1
+            with:
+            azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_PURPLE_COAST_1234567 }}
+            action: "close"
+    ```
+
+### Create Function API
+
+The Azure Function service provides serverless APIs. This allows you to focus on your TypeScript code and _not_ have to configure a full back-end web server. 
+
+1. In the root of the project, create a create-react-app in a directory named `api`:
+
+    ```bash
     func init api --typescript
     ```
+
 1. Move into the directory to create an API:
 
     ```bash
     cd api
     ```
 
-1. Create http trigger API with a route of `/api/hello` (`--name hello`) that allows all request (`--authlevel anonymous`):
+1. Create http trigger API with a route of `/api/hello` (`--name hello`) that allows all requests (`--authlevel anonymous`):
 
     ```bash 
     func new --name hello --template "HTTP trigger" --authlevel "anonymous" 
@@ -268,12 +335,33 @@ The Azure Function API provides serverless APIs. This allows you to focus on you
 1. Install dependencies for the Azure Function API:
 
     ```bash
-    cd api && npm install 
+    npm install 
     ```
 
-1. Open the `./api/index.ts` file and replace contents with the following so that the function returns a JSON object:
+1. Open the `./api/index.ts` file and replace all the contents with the following so that the function returns a JSON object:
    
-   ```typescript
+    ```typescript
+    import { AzureFunction, Context, HttpRequest } from "@azure/functions"
+
+    const httpTrigger: AzureFunction = async function (context: Context, req: HttpRequest): Promise<void> {
+        context.log('HTTP trigger function processed a request.');
+        const name = (req.query.name || (req.body && req.body.name));
+        const responseMessage = name
+            ? "Hello, " + name + ". This HTTP triggered function executed successfully."
+            : "This HTTP triggered function executed successfully. Pass a name in the query string or in the request body for a personalized response.";
+
+        context.res = {
+            // status: 200, /* Defaults to 200 */
+            body: {
+                input: name,
+                message: responseMessage
+            }
+
+        };
+
+    };
+
+    export default httpTrigger;   
    ```
 
 1. Start the Azure function API:
@@ -288,11 +376,13 @@ The Azure Function API provides serverless APIs. This allows you to focus on you
     http://localhost:7071/api/hello?name=joesmith
     ```
 
-1. When you see the successful message below browser, stop the run time in the terminal with `cntrl-c`.
+1. The web browser returns the following successful message. 
 
     ```text
     Hello, joesmith. This HTTP triggered function executed successfully.
     ```
+
+1. Stop the local Azure Function runtime in the terminal with <kbd>Ctrl</kbd> + <kbd>c</kbd>.
 
 1. Check the new API code into your repo and push to the remote:
    
@@ -302,22 +392,19 @@ The Azure Function API provides serverless APIs. This allows you to focus on you
 
 1. In a web browser, go back to your GitHub repo, and make sure the next build of your Action succeeds with these new changes. 
    
-   Another way to verify the API was successfully deployed is to use VS Code. Look at the functions in your Azure explorer for Static Web Apps. 
+1. In VS Code, verify the successful build pushed to your Azure Static Web app. Look at the functions node in your Azure explorer for Static Web Apps. 
 
-   :::image type="content" source="../../../media/static-web-app-with-swa-cli/visual-studio-code-azure-explorer-function-list.png" alt-text="{alt-text}":::
+   :::image type="content" source="../../../media/static-web-app-with-swa-cli/visual-studio-code-azure-explorer-function-list.png" alt-text="Partial screenshot of VS Code displaying Azure Explorer's Static Web App `functions` node with `hello` displayed.":::
 
 ## Connecting the client and serverless API to each other
 
-At this point both the React client and the Azure Function API work both locally and remotely, _but_ they don't work together in either environment. The remote environment provides a proxy between the two environments but the local environment doesn't. 
+At this point, both the React client and the Azure Function API work both locally and remotely, _but_ they don't work together in either environment. The remote environment provides a proxy between the two environments but the local environment doesn't. Use the Static Web App CLI (SWA CLI) to provide the proxied environment for your local app.
 
-Use the Static Web App CLI (SWA CLI) to provide the cloud-based combined environment to your local computer.
-
-To use the SWA CLI, this process is going to run both environments then provide those run time URLs to the SWA CLI to provide the proxy between the two. This allows the local and remote code to use relative URLs in the React app to refer to the API. 
-
+Run both the React and Functions development environments, provided by each framework, then use those app URLs with the SWA CLI to provide the proxy between the two. 
 
 ### Create parent proxied project
 
-1. In order to control both React app and API projects, create a `./package.json` file in the root of the project.
+1. In order to control both the React app and API projects, create a `./package.json` file in the root of the project.
 
     ```bash
     npm init -y
@@ -342,6 +429,7 @@ To use the SWA CLI, this process is going to run both environments then provide 
     These scripts separate out the development server of each environment from the SWA CLI call to join those two environments. 
 
     |Script|Purpose|
+    |--|--|
     |`start-api`|Start local Azure Functions runtime.|
     |`start-app`|Start React app's local runtime.|
     |`start-dev`|Start both local runtimes.|
@@ -368,7 +456,10 @@ The React client and the Azure Function API have separate local development serv
 
     The React client is now available on both port 3000 (with a proxy to the API) and on port 4280. For the rest of the article , use port 4280 when you want to use the React app.  
 
-## Add code to the React app to use the Function API
+    :::image type="content" source="../../../media/static-web-app-with-swa-cli/run-both-client-and-api-locally-separate-vs-code.png" alt-text="Partial screenshot of Windows desktop with two separate VS Code instances running.":::
+
+
+## Add form to the React app to use the Function API
 
 1. In VS Code for the React app, find the `./src/App.tsx file` and replace the entire file with the following code:
 
@@ -422,11 +513,11 @@ The React client and the Azure Function API have separate local development serv
 
 1. Return to the web browser for the React app, ``, and use the new form to enter your name and pass that name to the Function API.
    
-   :::image type="content" source="../../../media/static-web-app-with-swa-cli/react-app-with-form-pass-name-api.png" alt-text="{alt-text}":::
+   :::image type="content" source="../../../media/static-web-app-with-swa-cli/react-app-with-form-pass-name-api.png" alt-text="Screenshot of web browser displaying React app form.":::
 
 1. The React app responds with the success message:
    
-   :::image type="content" source="../../../media/static-web-app-with-swa-cli/react-app-with-form-results-pass-name-api.png" alt-text="{alt-text}":::
+   :::image type="content" source="../../../media/static-web-app-with-swa-cli/react-app-with-form-results-pass-name-api.png" alt-text="Screenshot of web browser displaying React app form and API response.":::
 
 1. Check the new app code into your repo and push to the remote:
    
@@ -440,11 +531,7 @@ The React client and the Azure Function API have separate local development serv
 
 1. The same React app, as your local version, should appear. The same form functionality as your local version should work, returning a message from the API.  
    
-   You code now successfully works locally and remotely for an Azure Static Web App. 
-
-## What did the SWA CLI do for you? 
-
-## Push changes to remote app
+   Your code now successfully works locally and remotely for an Azure Static Web App. 
 
 ## Next steps
 
