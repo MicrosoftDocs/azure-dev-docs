@@ -259,7 +259,7 @@ The Azure Function API provides serverless APIs. This allows you to focus on you
    git add . && git commit -m "hello api" && git push origin main
    ```
 
-1. In a web browser, go back to your GitHub repo, ``, and make sure the next build of your Action succeeds with these new changes. 
+1. In a web browser, go back to your GitHub repo, and make sure the next build of your Action succeeds with these new changes. 
    
    Another way to verify the API was successfully deployed is to use VS Code. Look at the functions in your Azure explorer for Static Web Apps. 
 
@@ -386,6 +386,20 @@ The React client and the Azure Function API have separate local development serv
 1. The React app responds with the success message:
    
    :::image type="content" source="../../../media/static-web-app-with-swa-cli/react-app-with-form-results-pass-name-api.png" alt-text="{alt-text}":::
+
+1. Check the new app code into your repo and push to the remote:
+   
+   ```bash
+   git add . && git commit -m "hello api" && git push origin main
+   ```
+
+1. In a web browser, go back to your GitHub repo, and make sure the next build of your Action succeeds with these new changes. 
+
+1. In VS Code, in the Azure explorer, find your Static web app, then right-click and select **Browse site**.
+
+1. The same React app, as your local version, should appear. The same form functionality as your local version should work, returning a message from the API.  
+   
+   You code now successfully works locally and remotely for an Azure Static Web App. 
 
 ## What did the SWA CLI do for you? 
 
