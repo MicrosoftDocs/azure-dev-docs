@@ -80,7 +80,7 @@ This content is primarily from Developer Advocates as well as other members of t
 |[Yohan Lasorsa][Yohan]|A clean dev env, working every time, everywhere|[YouTube](https://www.youtube.com/watch?v=vVX7LMCBnwA) and [URL list](https://www.theurlist.com/clean-dev)|
 |[Yohan Lasorsa][Yohan] and [Olivier Leplus][Olivier]|Angular, PWA and SWA|[Speaker deck](https://aka.ms/spwa)|
 |[Lucas Santos][Lucas]|Starting with ES Modules|**Portuguese** - [Blog](https://blog.lsantos.dev/os-ecmascript-modules-estao-aqui/)|
-|[Wassim Chegham][Wassim] |The subtle art of being a developer advocate|[Twitch](https://m.twitch.tv/videos/1049691152)|
+|[Wassim Chegham][Wassim] |The subtle art of being a developer advocate|[Twitch](https://m.twitch.tv/)|
 |[Wassim Chegham][Wassim] |The subtle art of being a developer advocate|[Twitch](https://m.twitch.tv/)|
 |[Aaron Powell][Aaron]|Type-safe GraphQL with TypeScript|[GotHub repo](https://github.com/aaronpowell/graphql-code-generator-sample)|
 |[Wassim Chegham][Wassim]|Azure Static Web Apps CLI|**French** - [YouTube video:Tartine & Tech](https://www.youtube.com/watch?v=0L2XS6INmwE)|
@@ -116,7 +116,7 @@ This content is primarily from Developer Advocates as well as other members of t
 |[Christopher Harrison][Christopher]|Tutorial: Access data in Cosmos DB using Mongoose with Azure Static Web Apps|[Docs](/azure/static-web-apps/add-mongoose)|
 |[Yohan Lasorsa][Yohan]|Adapt your Angular apps for dual-screen devices with ngx-foldable|[Blog](https://dev.to/angular/adapt-your-angular-apps-for-dual-screen-devices-with-ngx-foldable-4058)|
 |[Glaucia Lemos][Glaucia]|Módulo 02 (Vídeos 13 à 18.1) - TypeScript Zero to Hero|**Portuguese​** - [Blog](https://dev.to/glaucia86/modulo-02-videos-13-a-18-1-typescript-zero-to-hero-5565)|
-|[Lucas Santos][Lucas]|The Complete Guide to gRPC - What is gRPC?|**Portuguese** - [Blog](https://blog.lsantos.dev/o-guia-do-grpc-1/)|
+|[Lucas Santos][Lucas]|The Complete Guide to gRPC - What is gRPC?|**Portuguese** - [Blog](https://blog.lsantos.dev/guia-grpc-1/)|
 
 
 ## 2021 March 

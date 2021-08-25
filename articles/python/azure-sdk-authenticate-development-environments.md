@@ -35,13 +35,13 @@ When using CLI-based authentication, the application is authorized for any and a
 
 When using [Azure libraries that are updated for azure.core](./azure-sdk-library-package-index.md#libraries-using-azurecore), use the the [`AzureCliCredential`](/python/api/azure-identity/azure.identity.azureclicredential) object from the azure-identity library (version 1.4.0+). For example, the following code can be used with azure-mgmt-resource versions 15.0.0+:
 
-:::code language="python" source="~/../python-sdk-examples/show_subscription/use_azure_cli.py":::
+:::code language="python" source="~/../python-sdk-docs-examples/show_subscription/use_azure_cli.py":::
 
 ### CLI-based authentication with older (non azure.core) libraries
 
 When using older Azure libraries that have not been updated for `azure.core`, you can use the [`get_client_from_cli_profile`](/python/api/azure-common/azure.common.client_factory#get-client-from-cli-profile-client-class----kwargs-) method from the `azure-cli-core` library. For example, the following code can be used with versions of `azure-mgmt-resource` below 15.0.0:
 
-:::code language="python" source="~/../python-sdk-examples/show_subscription/use_cli_profile.py":::
+:::code language="python" source="~/../python-sdk-docs-examples/show_subscription/use_cli_profile.py":::
 
 ## Interactive browser authentication
 
@@ -66,7 +66,7 @@ If you can't configure the device code flow option on your Active Directory, you
 
 The following example demonstrates using an [`InteractiveBrowserCredential`](/python/api/azure-identity/azure.identity.interactivebrowsercredential) to authenticate with the [`SubscriptionClient`](/python/api/azure-mgmt-resource/azure.mgmt.resource.subscriptions.v2019_06_01.subscriptionclient):
 
-:::code language="python" source="~/../python-sdk-examples/show_subscription/use_interactive_browser.py":::
+:::code language="python" source="~/../python-sdk-docs-examples/show_subscription/use_interactive_browser.py":::
 
 For more exact control, such as setting redirect URIs, you can supply specific arguments to `InteractiveBrowserCredential` such as `redirect_uri`.
 
@@ -91,7 +91,7 @@ To enable applications for device code authentication, follow the steps under [E
 
 The following example demonstrates using a [`DeviceCodeCredential`](/python/api/azure-identity/azure.identity.devicecodecredential) to authenticate with the [`SubscriptionClient`](/python/api/azure-mgmt-resource/azure.mgmt.resource.subscriptions.v2019_06_01.subscriptionclient):
 
-:::code language="python" source="~/../python-sdk-examples/show_subscription/use_device_code.py":::
+:::code language="python" source="~/../python-sdk-docs-examples/show_subscription/use_device_code.py":::
 
 ## Authentication through Visual Studio Code
 
@@ -101,7 +101,7 @@ The ['VisualStudioCodeCredential](/python/api/azure-identity/azure.identity.visu
 
 The following example demonstrates using a ['VisualStudioCodeCredential`](/python/api/azure-identity/azure.identity.visualstudiocodecredential) to authenticate with the [`SubscriptionClient`](/python/api/azure-mgmt-resource/azure.mgmt.resource.subscriptions.v2019_06_01.subscriptionclient):
 
-:::code language="python" source="~/../python-sdk-examples/show_subscription/use_vscode.py":::
+:::code language="python" source="~/../python-sdk-docs-examples/show_subscription/use_vscode.py":::
 
 ## See also
 

@@ -22,7 +22,7 @@ In all cases, the appropriate service principal or user must have appropriate pe
 
 The [`EnvironmentCredential`](/python/api/azure-identity/azure.identity.environmentcredential) class authenticates a service principal using either a client secret or certificate as provided through environment variables.
 
-:::code language="python" source="~/../python-sdk-examples/show_subscription/use_environment_variables.py":::
+:::code language="python" source="~/../python-sdk-docs-examples/show_subscription/use_environment_variables.py":::
 
 ## Authenticate with token credentials
 
@@ -34,13 +34,13 @@ To migrate existing code that uses `ServicePrincipalCredentials` to a newer libr
 
 ### ClientSecretCredential (azure.identity)
 
-:::code language="python" source="~/../python-sdk-examples/show_subscription/use_client_secret.py":::
+:::code language="python" source="~/../python-sdk-docs-examples/show_subscription/use_client_secret.py":::
 
 In this method, which is again used with newer libraries based on azure.core, you create a [`ClientSecretCredential`](/python/api/azure-identity/azure.identity.clientsecretcredential) object using credentials obtained from secure storage such as Azure Key Vault or environment variables. The previous code assumes that you've created the environment variables described in [Configure your local dev environment](configure-local-development-environment.md#create-a-service-principal-and-environment-variables-for-development).
 
 ### ServicePrincipalCredentials (azure.common)
 
-:::code language="python" source="~/../python-sdk-examples/show_subscription/use_service_principal.py":::
+:::code language="python" source="~/../python-sdk-docs-examples/show_subscription/use_service_principal.py":::
 
 In this method, which is again used with older libraries not based on azure.core, you create a [`ServicePrincipalCredentials`](/python/api/msrestazure/msrestazure.azure_active_directory.serviceprincipalcredentials) object using credentials obtained from secure storage such as Azure Key Vault or environment variables. The previous code assumes that you've created the environment variables described in [Configure your local dev environment](configure-local-development-environment.md#create-a-service-principal-and-environment-variables-for-development).
 

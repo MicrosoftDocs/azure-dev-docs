@@ -24,7 +24,7 @@ Be sure to create a service principal for local development, and create and acti
 
 Create a file named *requirements.txt* with the following contents:
 
-:::code language="txt" source="~/../python-sdk-examples/db/requirements.txt":::
+:::code language="txt" source="~/../python-sdk-docs-examples/db/requirements.txt":::
 
 The specific version requirement for azure-mgmt-resource is to ensure that you use a version compatible with the current version of azure-mgmt-web. These versions are not based on azure.core and therefore use older methods for authentication.
 
@@ -41,7 +41,7 @@ pip install -r requirements.txt
 
 Create a Python file named *provision_db.py* with the following code. The comments explain the details.
 
-:::code language="python" source="~/../python-sdk-examples/db/provision_db.py":::
+:::code language="python" source="~/../python-sdk-docs-examples/db/provision_db.py":::
 
 You must create an environment variable named `PUBLIC_IP_ADDRESS` with your workstation's IP address for this sample to run.
 
@@ -69,7 +69,7 @@ python provision_db.py
 
 1. Create a file named *use_db.py* with the following code. Note the dependencies on the `DB_SERVER_NAME`, `DB_ADMIN_NAME`, and `DB_ADMIN_PASSWORD` environment variables, which should be populated with the values from the provisioning code. This code work only for MySQL; you use different libraries for PostgreSQL and MariaDB.
 
-    :::code language="python" source="~/../python-sdk-examples/db/use_db.py":::
+    :::code language="python" source="~/../python-sdk-docs-examples/db/use_db.py":::
 
     All of this code uses the mysql.connector API. The only Azure-specific part is the full host domain for MySQL server (mysql.database.azure.com).
 
@@ -97,11 +97,11 @@ The following Azure CLI commands complete the same provisioning steps as the Pyt
 
 # [cmd](#tab/cmd)
 
-:::code language="azurecli" source="~/../python-sdk-examples/db/provision.cmd":::
+:::code language="azurecli" source="~/../python-sdk-docs-examples/db/provision.cmd":::
 
 # [bash](#tab/bash)
 
-:::code language="azurecli" source="~/../python-sdk-examples/db/provision.sh":::
+:::code language="azurecli" source="~/../python-sdk-docs-examples/db/provision.sh":::
 
 ---
 
