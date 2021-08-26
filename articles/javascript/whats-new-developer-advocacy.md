@@ -2,14 +2,14 @@
 title: "What's new with Cloud Developer Advocates"
 description: "What's new with JavaScript Cloud Developer Advocates (CDA)"
 ms.topic: conceptual
-ms.date: 07/30/2021
+ms.date: 08/17/2021
 ---
 
 # What's new with JavaScript Developer Advocates
 
 This content is primarily from Developer Advocates as well as other members of the Azure JavaScript community. 
 
-Use the [JavaScript Community Hub](/javascript) to see more from the community. 
+* [JavaScript Community Hub](/javascript) to see more from the community. 
 
 ## Reoccurring events 
 
@@ -18,16 +18,36 @@ Use the [JavaScript Community Hub](/javascript) to see more from the community.
 
 ## Timeless
 
-* [Beginner's Series to: JavaScript](https://channel9.msdn.com/Series/Beginners-Series-to-JavaScript)
-* [JavaScript 101 for Beginners - **Portuguese**](https://github.com/glaucia86/js-101-beginners-ms)
-* [Awesome Azure Static web apps](https://github.com/staticwebdev/awesome-azure-static-web-apps) - GitHub repo
-* [Static Web Apps Code to Scale](https://aka.ms/SWAConfOnDemand)
-* [Azure Tips and Tricks: Static Web Apps](https://aka.ms/StaticWebAppsTips)
+|Focus|Title|Link|
+|--|--|--|
+|JS|Beginner's Series to: JavaScript|[Video series](https://channel9.msdn.com/Series/Beginners-Series-to-JavaScript)|
+|JS|JavaScript 101 for Beginners|[Video series - **Portuguese**](https://github.com/glaucia86/js-101-beginners-ms)|
+|Node.js|Beginner's Series to: Node.js|[Video series](https://channel9.msdn.com/Series/Beginners-Series-to-NodeJS/?WT.mc_id=nodebeginner-ch9-cxa)|
+|Node.js|Build JavaScript applications with Node.js|[Learn path](/learn/paths/build-javascript-applications-nodejs/)|
+|Client web apps|Web Development for Beginners|[Curriculum on GitHub](https://dev.to/azure/announcing-a-free-curriculum-web-development-for-beginners-142k)|
+|Client web apps|Awesome Azure Static web apps|[Resource list](https://github.com/staticwebdev/awesome-azure-static-web-apps)|
+|Client web apps|Azure Tips and Tricks: Static Web Apps|[Beginner video series](https://aka.ms/StaticWebAppsTips)|
+|Client web apps|Static Web Apps Code to Scale|[Conference video series](https://aka.ms/SWAConfOnDemand)|
+|Client web apps|Take your first steps with Vue.js|[Learn path](/learn/paths/vue-first-steps/?WT.mc_id=javascript-27683-cxa)|
+|Client web apps|Beginner's Series to: Vue.js|[Beginner video series](https://youtu.be/LnngsOg014Y)|
+|Client web apps|Comparing Azure Static Web Apps vs Azure WebApps vs Azure Blob Storage Static Sites|[Blog post](https://devblogs.microsoft.com/devops/comparing-azure-static-web-apps-vs-azure-webapps-vs-azure-blob-storage-static-sites/)|
+|Microsoft Graph|Get started with Microsoft Graph and JavaScript|[Samples](https://developer.microsoft.com/graph/get-started/javascript)|
+
+## 2021 August
+
+|Cloud Advocate|Contributions|Link|
+|--|--|--|
+|[Glaucia Lemos][Glaucia]|TypeScript - Zero to Hero, Type Any #21|**Portuguese** - [YouTube](https://youtu.be/VWaPx-pvEn8)|
+|[Glaucia Lemos][Glaucia]|TypeScript - Zero to Hero, Type Unknown #23|**Portuguese** - [YouTube](https://youtu.be/7BLsEz7eP6s)|
+|[Glaucia Lemos][Glaucia]|TypeScript - Zero to Hero, Type Unknown #24|**Portuguese** - [YouTube](https://youtu.be/6XFn4Gny8WU)|
+|[Glaucia Lemos][Glaucia]|Astro Framework/Vue.js + Azure Static Web Apps CLI|**Portuguese** - [Blog](https://dev.to/glaucia86/criando-aplicacoes-com-astro-build-azure-static-web-cli-39nb)|
+
 
 ## 2021 July 
 
 |Cloud Advocate|Contributions|Link|
 |--|--|--|
+|[April Edwards][April]|Comparing Azure Static Web Apps vs Azure WebApps vs Azure Blob Storage Static Sites|[Blog post](https://devblogs.microsoft.com/devops/comparing-azure-static-web-apps-vs-azure-webapps-vs-azure-blob-storage-static-sites/)|
 |[Christopher Harrison][Christopher]|How to use Mongoose to connect to CosmosDB with SWA - Module 4 in series|[YouTube](https://www.youtube.com/watch?v=-z1NHptprKg&list=PLlrxD0HtieHgMPeBaDQFx9yNuFxx6S1VG&index=14)|
 |[Aaron Powell][Aaron]|Calling SWA authenticated API endpoints|[Blog](https://www.aaron-powell.com/posts/2021-07-02-calling-static-web-apps-authenticated-endpoints/)|
 |[Aaron Powell][Aaron]|GraphQL on Azure: Part 7 - Authentication|[Blog](https://www.aaron-powell.com/posts/2021-07-05-graphql-on-azure-part-7-server-side-authentication/)|
@@ -60,7 +80,7 @@ Use the [JavaScript Community Hub](/javascript) to see more from the community.
 |[Yohan Lasorsa][Yohan]|A clean dev env, working every time, everywhere|[YouTube](https://www.youtube.com/watch?v=vVX7LMCBnwA) and [URL list](https://www.theurlist.com/clean-dev)|
 |[Yohan Lasorsa][Yohan] and [Olivier Leplus][Olivier]|Angular, PWA and SWA|[Speaker deck](https://aka.ms/spwa)|
 |[Lucas Santos][Lucas]|Starting with ES Modules|**Portuguese** - [Blog](https://blog.lsantos.dev/os-ecmascript-modules-estao-aqui/)|
-|[Wassim Chegham][Wassim] |The subtle art of being a developer advocate|[Twitch](https://m.twitch.tv/videos/1049691152)|
+|[Wassim Chegham][Wassim] |The subtle art of being a developer advocate|[Twitch](https://m.twitch.tv/)|
 |[Wassim Chegham][Wassim] |The subtle art of being a developer advocate|[Twitch](https://m.twitch.tv/)|
 |[Aaron Powell][Aaron]|Type-safe GraphQL with TypeScript|[GotHub repo](https://github.com/aaronpowell/graphql-code-generator-sample)|
 |[Wassim Chegham][Wassim]|Azure Static Web Apps CLI|**French** - [YouTube video:Tartine & Tech](https://www.youtube.com/watch?v=0L2XS6INmwE)|
@@ -96,7 +116,7 @@ Use the [JavaScript Community Hub](/javascript) to see more from the community.
 |[Christopher Harrison][Christopher]|Tutorial: Access data in Cosmos DB using Mongoose with Azure Static Web Apps|[Docs](/azure/static-web-apps/add-mongoose)|
 |[Yohan Lasorsa][Yohan]|Adapt your Angular apps for dual-screen devices with ngx-foldable|[Blog](https://dev.to/angular/adapt-your-angular-apps-for-dual-screen-devices-with-ngx-foldable-4058)|
 |[Glaucia Lemos][Glaucia]|Módulo 02 (Vídeos 13 à 18.1) - TypeScript Zero to Hero|**Portuguese​** - [Blog](https://dev.to/glaucia86/modulo-02-videos-13-a-18-1-typescript-zero-to-hero-5565)|
-|[Lucas Santos][Lucas]|The Complete Guide to gRPC - What is gRPC?|**Portuguese** - [Blog](https://blog.lsantos.dev/o-guia-do-grpc-1/)|
+|[Lucas Santos][Lucas]|The Complete Guide to gRPC - What is gRPC?|**Portuguese** - [Blog](https://blog.lsantos.dev/guia-grpc-1/)|
 
 
 ## 2021 March 
@@ -157,3 +177,4 @@ Use the [JavaScript Community Hub](/javascript) to see more from the community.
 [Olivier]:https://twitter.com/olivierleplus
 [Lucas]:https://info.lsantos.dev
 [Christopher]:https://twitter.com/geektrainer
+[April]:https://twitter.com/TheAprilEdwards

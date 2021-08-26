@@ -80,13 +80,13 @@ set TOMCAT_HOME=<Tomcat install directory>
 ```
 ---
 
-Then, update *pom.xml* file for deploying the WAR file. Add the following XML as a child of the existing `<plugins>` element. If necessary, change `1.9.0` to the current version of the [Cargo Maven 2 Plugin](https://mvnrepository.com/artifact/org.codehaus.cargo/cargo-maven2-plugin).
+Then, update *pom.xml* file for deploying the WAR file. Add the following XML as a child of the existing `<plugins>` element. If necessary, change `1.9.6` to the current version of the [Cargo Maven 3 Plugin](https://mvnrepository.com/artifact/org.codehaus.cargo/cargo-maven3-plugin).
 
 ```xml
 <plugin>
     <groupId>org.codehaus.cargo</groupId>
-    <artifactId>cargo-maven2-plugin</artifactId>
-    <version>1.9.0</version>
+    <artifactId>cargo-maven3-plugin</artifactId>
+    <version>1.9.6</version>
     <configuration>
         <container>
             <containerId>tomcat9x</containerId>

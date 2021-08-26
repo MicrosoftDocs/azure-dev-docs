@@ -18,20 +18,7 @@ If the access key is valid, the endpoint returns a JSON response that contains a
 
 The endpoint is implemented in Python and deployed to Azure Functions. The code is as follows:
 
-```python
-import logging
-import random
-import json
-
-import azure.functions as func
-
-def main(req: func.HttpRequest) -> func.HttpResponse:
-    logging.info('RandomNumber invoked via HTTP trigger.')
-
-    random_value = random.randint(1, 1000)
-    dict = { "value" : random_value }
-    return func.HttpResponse(json.dumps(dict))
-```
+:::code language="python" source="~/../python-integrated-authentication/third_party_api/RandomNumber/__init__.py":::
 
 In the sample repository, this code is found under *third_party_api/RandomNumber/\_\_init\_\_.py*. The folder, *RandomNumber*, provides the name of the function and *\_\_init\_\_.py* contains the code. Another file in that folder, *function.json*, describes when the function is triggered. Other files in the *third_party_api* parent folder provide details for the Azure Function "app" that hosts the function itself.
 

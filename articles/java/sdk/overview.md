@@ -30,6 +30,12 @@ The open-source Azure SDK for Java simplifies provisioning, managing, and using 
   * This shared functionality is contained in the [azure-core](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/core/azure-core) library.
 * For more information on the guidelines we apply to the libraries, see the [Java Azure SDK Design Guidelines](https://azure.github.io/azure-sdk/java_introduction.html).
 
+## Supported platforms for Azure SDK for Java
+
+The Azure SDK for Java ships with support for Java 8 and later, but we recommend that developers always use the latest Java long-term support (LTS) release in development and when releasing to production. Using the latest LTS release ensures the availability of the latest improvements within Java, including bug fixes, performance improvements, and security fixes. Also, the Azure SDK for Java includes additional support for later releases of Java. This additional support improves performance and includes JDK-specific enhancements beyond the supported Java 8 baseline.
+
+The Azure SDK for Java is tested and supported on Windows, Linux, and macOS. It is not tested on other platforms that the JDK supports, and does not support Android deployments. For developers wanting to develop software for deployment on Android devices and which make use of Azure services, there are Android-specific libraries available in the [Azure SDK for Android](https://github.com/Azure/azure-sdk-for-android) project.
+
 ## Connect to and use Azure resources with client libraries
 
 The client (or "data plane") libraries help you write Java application code to interact with already-provisioned services. Client libraries exist only for those services that support a client API. You can identify them because their Maven group ID is `com.azure`.

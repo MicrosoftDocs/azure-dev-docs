@@ -2,7 +2,7 @@
 title: Top Azure tasks for JavaScript developers
 description: Find an example of your current tasks.
 ms.topic: how-to
-ms.date: 07/21/2021
+ms.date: 08/19/2021
 ms.custom: devx-track-js
 ---
 
@@ -60,7 +60,7 @@ Provide authentication.
 |HTTP trigger code|[JavaScript](../tutorial/vscode-function-app-http-trigger/tutorial-vscode-serverless-node-create-local.md#http-function-javascript-template-code)|
 |Debug/test function locally|[Visual Studio Code](../tutorial/vscode-function-app-http-trigger/tutorial-vscode-serverless-node-test-local.md)|
 |Deploy function to Azure cloud|[Visual Studio Code extension](../tutorial/vscode-function-app-http-trigger/tutorial-vscode-serverless-node-deploy-hosting.md)|
-|Verify function is available on public URL|[Visual Studio Code extension/Browser](../tutorial/vscode-function-app-http-trigger/tutorial-vscode-serverless-node-deploy-hosting.md#verify-functions-app-is-publicly-available-with-browser)|
+|Verify secure function API is available |[Visual Studio Code extension/Browser](../tutorial/vscode-function-app-http-trigger/tutorial-vscode-serverless-node-deploy-hosting.md#verify-functions-app-is-available-with-browser)|
 |Remove function app resource|[Visual Studio Code extension](../tutorial/vscode-function-app-http-trigger/tutorial-vscode-serverless-node-remove-resource.md)|
 
 ### App service - full-stack, server-only, or client-only apps
@@ -103,8 +103,7 @@ Provide authentication.
 |Create a container image from your local JavaScript project|[Visual Studio Code](./with-visual-studio-code/containerize-local-project.md#create-a-container)|
 |Create container registry resource|[Visual Studio Code extension](../tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-02.md#create-an-azure-container-registry)<br>[Azure CLI](./with-azure-cli/create-container-registry-resource.md#create-a-container-registry)|
 |Create Dockerfile|[Visual Studio Code extension](./with-visual-studio-code/containerize-local-project.md#create-a-dockerfile-in-your-project)|
-|Deploy image to app service|[Visual Studio Code extension](../tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-05.md#deploy-image)|
-|Enable admin access to registry|[Visual Studio Code extension](../tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-05.md#enable-admin-access-on-the-registry)|
+|Deploy image to app service|[Visual Studio Code extension](../tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-05.md#deploy-image-to-azure-web-app-from-vs-code)|
 |Get Azure container registry credentials|[Azure CLI](./with-azure-cli/create-container-registry-resource.md#get-container-registry-credentials)|
 |Login to container registry|[BASH - Docker CLI](./with-azure-cli/create-container-registry-resource.md#login-to-container-registry-with-docker-cli)|
 |Push image to Docker registry resource|[Visual Studio Code extension](./with-visual-studio-code/containerize-local-project.md#push-local-container-image-to-dockerhub)|
@@ -186,7 +185,13 @@ Provide authentication.
 |View Cosmos DB|[Cosmos DB Explorer](https://cosmos.azure.com/)|
 |Use SQL API for on Cosmos DB|[JavaScript](./with-database/use-sql-api-as-cosmos-db.md#use--sdk-to-connect-to-database)
 
+## Deployment to hosting environment
 
+|Task|using|
+|--|--|
+|Static Web App (SWA)|[VS Code](/azure/search/tutorial-javascript-deploy-static-web-app)<br>[From Framework (Next.js)](/azure/static-web-apps/deploy-nextjs#deploy-your-static-website)<br>[Azure DevOps Pipelines](/azure/static-web-apps/publish-devops#create-the-pipeline-task-in-azure-devops)|
+|Functions|[VS Code](../tutorial/vscode-function-app-http-trigger/tutorial-vscode-serverless-node-deploy-hosting.md#use-visual-studio-code-extension-to-deploy-to-hosting-environment)<br>[Azure DevOps Pipelines](/azure/azure-functions/functions-how-to-azure-devops?tabs=javascript%2Cwindows)<br>[GitHub Actions](/azure/azure-functions/functions-how-to-github-actions?tabs=javascript#deploy-the-function-app)|
+|App service|[Express.js with VS Code](../tutorial/deploy-nodejs-azure-app-service-with-visual-studio-code.md?tabs=bash#5-create-app-service-resource-in-visual-studio-code)<br>[Git Push](../tutorial/tutorial-vscode-azure-cli-node/tutorial-vscode-azure-cli-node-04.md#make-change-and-deploy-to-azure-app-service-from-local-git)<br>[GitHub Actions](/azure/app-service/deploy-github-actions?tabs=applevel)<br>[Azure DevOps](/azure/app-service/deploy-continuous-deployment?tabs=repos)|
 
 ## Git
 

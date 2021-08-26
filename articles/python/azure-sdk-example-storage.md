@@ -24,7 +24,7 @@ Be sure to create a service principal for local development, and create and acti
 
 1. Create a *requirements.txt* file that lists the management libraries used in this example:
 
-    :::code language="txt" source="~/../python-sdk-examples/storage/requirements_provision.txt":::
+    :::code language="txt" source="~/../python-sdk-docs-examples/storage/requirements_provision.txt":::
 
 1. In your terminal with the virtual environment activated, install the requirements:
 
@@ -38,7 +38,7 @@ This section describes how to provision storage resources from Python code. If y
 
 Create a Python file named *provision_blob.py* with the following code. The comments explain the details:
 
-:::code language="python" source="~/../python-sdk-examples/storage/provision_blob.py":::
+:::code language="python" source="~/../python-sdk-docs-examples/storage/provision_blob.py":::
 
 [!INCLUDE [cli-auth-note](includes/cli-auth-note.md)]
 
@@ -76,11 +76,11 @@ The following Azure CLI commands complete the same provisioning steps as the Pyt
 
 # [cmd](#tab/cmd)
 
-:::code language="azurecli" source="~/../python-sdk-examples/storage/provision.cmd":::
+:::code language="azurecli" source="~/../python-sdk-docs-examples/storage/provision.cmd":::
 
 # [bash](#tab/bash)
 
-:::code language="azurecli" source="~/../python-sdk-examples/storage/provision.sh":::
+:::code language="azurecli" source="~/../python-sdk-docs-examples/storage/provision.sh":::
 
 ---
 

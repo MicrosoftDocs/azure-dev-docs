@@ -2,7 +2,7 @@
 title: Deploy the Functions 3.x app to Azure cloud
 description: Use the Visual Studio Code extension for Azure Functions to deploy the Functions app to the Azure cloud. Verify the Functions app is publicly available with a browser. 
 ms.topic: tutorial
-ms.date: 05/13/2021
+ms.date: 08/18/2021
 ms.custom: devx-track-js, contperf-fy21q2
 ---
 
@@ -26,36 +26,38 @@ In this step, use the Visual Studio Code extension for Azure Functions to deploy
 
 1. Choose the Node.js version/runtime.
 
-    ![VS Code output panel showing Node.js version/runtime](../../media/functions-extension/nodejs-runtime-version.png)
-
 1. At the next prompt, select an Azure [region](https://azure.microsoft.com/regions/) close to you.
 
 1. The VS Code **Output** panel for **Azure Functions** shows progress:
 
     ![VS Code output panel showing deployment progres](../../media/functions-extension/deploy-progress.png)
 
+    When deploying, the entire Functions application is deployed, so changes to all individual Functions are deployed at once.
+
 1. In the notifications, select **Stream logs** and keep the view open while you make a request to the API in the next section.
 
-## Verify Functions app is publicly available with browser
+## Verify Functions app is available with browser
 
 1. Once deployment is completed, go to the **Azure Functions** explorer, expand the node for your Azure subscription, expand the node for your Functions app, then expand **Functions (read only)**. Right-click the function name and select **Copy Function Url**:
 
     ![Copy function URL command](../../media/functions-extension/copy-function-url-command.png)
 
-1. Paste the URL into a browser, and append a `?name=YOUR-NAME` argument. The browser shows the function running in the cloud:
+1. Paste the URL into a browser. The URL includes the function key, `code` query parameter. 
+1. Append a querystring name/value pair,`&name=YOUR-NAME`, to the URL. The browser shows the successful function running in the cloud.
 
-    ![Function running in the cloud](../../media/functions-extension/remote-test-browser.png)
+    :::image type="content" source="../../media/functions-extension/api-request-succeeds-200.png" alt-text="Screenshot of a browser showing the result of the API returns successfully.":::
 
-1. If you want, make some changes to the function code in *index.js* or add additional functions with other triggers. After testing locally, deploy the code again as in the earlier steps to test those changes in the cloud.
+1. Now remove the `code=` querystring parameter from the URL and submit the URL in the browser again. This simulates an unauthorized request to your secured API.
 
-    > [!TIP]
-    > When deploying, the entire Functions application is deployed, so changes to all individual Functions are deployed at once.
+    :::image type="content" source="../../media/functions-extension/api-request-fails-401.png" alt-text="Screenshot of a browser showing the result of the API returns an HTTP error code of 401.":::
 
 1. Review the streaming log in VS Code to find your `context.log` output. 
 
+    :::image type="content" source="../../media/functions-extension/context-log-output.png" alt-text="Partial screenshot of VSCodes showing Remote Azure Function's streaming log, with the console.log output of the context value.":::
+
 ## Query your Azure Function logs
 
-Streaming logs is good for in-the-moment scanning but generally you want to search across logs, which is available in the Azure portal. 
+Streaming logs is good for in-the-moment scanning but generally you want to search the logs, which is available in the Azure portal. 
 
 1. In VS Code, select the Azure logo to open the **Azure Explorer**, then under **Functions**, right-click on your function app, then select **Open in Portal**.
 
@@ -84,6 +86,12 @@ Streaming logs is good for in-the-moment scanning but generally you want to sear
 
     :::image type="content" source="../../media/functions-extension/azure-portal-application-insights-function-log-trace.png" alt-text="Browser screenshot showing Azure portal Kusto query result for Trace table." lightbox="../../media/functions-extension/azure-portal-application-insights-function-log-trace.png":::
 
+    You didn't need to do anything extra to get this logging information:
+
+    * The code used the standard `console.log` function.
+    * The Function app added Application Insights _for you_.
+    * The Query tool is included in the Azure portal.
+    * You can click on `traces` instead of having to learn to write a [Kusto query](/azure/data-explorer/kusto/concepts/) to get even the minimum information from your logs.
 
 ## Next steps
 

@@ -25,7 +25,7 @@ Be sure to create a service principal for local development, and create and acti
 
 1. Create a *requirements.txt* file that lists the management libraries used in this example:
 
-    :::code language="txt" source="~/../python-sdk-examples/vm/requirements.txt":::
+    :::code language="txt" source="~/../python-sdk-docs-examples/vm/requirements.txt":::
 
 1. In your terminal or command prompt with the virtual environment activated, install the management libraries listed in *requirements.txt*:
 
@@ -37,7 +37,7 @@ Be sure to create a service principal for local development, and create and acti
 
 Create a Python file named *provision_vm.py* with the following code. The comments explain the details:
 
-:::code language="python" source="~/../python-sdk-examples/vm/provision_vm.py":::
+:::code language="python" source="~/../python-sdk-docs-examples/vm/provision_vm.py":::
 
 [!INCLUDE [cli-auth-note](includes/cli-auth-note.md)]
 
@@ -66,11 +66,11 @@ Open the [Azure portal](https://portal.azure.com), navigate to the "PythonAzureE
 
 # [cmd](#tab/cmd)
 
-:::code language="azurecli" source="~/../python-sdk-examples/vm/provision.cmd":::
+:::code language="azurecli" source="~/../python-sdk-docs-examples/vm/provision.cmd":::
 
 # [bash](#tab/bash)
 
-:::code language="azurecli" source="~/../python-sdk-examples/vm/provision.sh":::
+:::code language="azurecli" source="~/../python-sdk-docs-examples/vm/provision.sh":::
 
 ---
 

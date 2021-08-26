@@ -2,13 +2,11 @@
 title: Remove costly remote Azure resources after deploying the Azure Functions 3.x application
 description: Remove (clean up) remote Azure resources so they don't cost money. To clean up the resources, right-click the Function App in the Azure Functions explorer and select **Delete Function App**.
 ms.topic: tutorial
-ms.date: 04/15/2021
+ms.date: 08/18/2021
 ms.custom: devx-track-js, contperf-fy21q2
 ---
 
 # 5. Clean up Azure resources for Azure Functions tutorial
-
-[Previous step: Deploy the Functions app](tutorial-vscode-serverless-node-deploy-hosting.md)
 
 ## Remove remote Azure resources
 

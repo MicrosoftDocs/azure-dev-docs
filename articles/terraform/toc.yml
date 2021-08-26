@@ -49,6 +49,12 @@
       items:
         - name: Terraform and Azure provider deployment slots
           href: provision-infrastructure-using-azure-deployment-slots.md
+    - name: Networks
+      items:
+        - name: Configure Azure Network Watcher
+          href: create-network-watcher-nsg-flow-logs.md
+        - name: Migrate to Azure Firewall Premium
+          href: firewall-upgrade-premium.md
     - name: Containers
       items:
         - name: Create a Kubernetes cluster with AKS
