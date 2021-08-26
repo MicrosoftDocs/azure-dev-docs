@@ -131,7 +131,7 @@ Configuration is attempted in the above order. For example, if values for a clie
 
 ### <span id="managed-identity"/> Option 2: Use a managed identity
 
-[Managed identities](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) eliminate the need for developers to manage credentials. By connecting to resources that support Azure AD authentication, applications can use Azure AD tokens instead of credentials.
+[Managed identities](/azure/active-directory/managed-identities-azure-resources/overview) eliminate the need for developers to manage credentials. By connecting to resources that support Azure AD authentication, applications can use Azure AD tokens instead of credentials.
 
 If the required environment variables for the `EnvironmentCredential` credential type aren't present, the `DefaultAzureCredential` will attempt to authenticate using the `ManagedIdentityCredential` type.
 
