@@ -401,6 +401,22 @@
       "redirect_url": "/azure/developer/java/fundamentals/java-support-on-azure"
     },
     {
+      "source_path": "articles/java/fundamentals/java-jdk-flight-recorder-and-mission-control.md",
+      "redirect_url": "/java/openjdk/java-jdk-flight-recorder-and-mission-control?toc=/azure/developer/java/fundamentals/toc.json&bc=/azure/developer/breadcrumb/toc.json"
+    },
+    {
+      "source_path": "articles/java/fundamentals/reasons-to-move-to-java-11.md",
+      "redirect_url": "/java/openjdk/reasons-to-move-to-java-11?toc=/azure/developer/java/fundamentals/toc.json&bc=/azure/developer/breadcrumb/toc.json"
+    },
+    {
+      "source_path": "articles/java/fundamentals/transition-from-java-7-to-java-8.md",
+      "redirect_url": "/java/openjdk/transition-from-java-7-to-java-8?toc=/azure/developer/java/fundamentals/toc.json&bc=/azure/developer/breadcrumb/toc.json"
+    },
+    {
+      "source_path": "articles/java/fundamentals/transition-from-java-8-to-java-11.md",
+      "redirect_url": "/java/openjdk/transition-from-java-8-to-java-11?toc=/azure/developer/java/fundamentals/toc.json&bc=/azure/developer/breadcrumb/toc.json"
+    },
+    {
       "source_path": "articles/java/java-sdk-add-certificate-ca-store.md",
       "redirect_url": "/azure/developer/java/sdk"
     },
