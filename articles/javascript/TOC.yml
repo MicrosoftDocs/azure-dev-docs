@@ -52,7 +52,19 @@
             - name: Getting started
               href: how-to/create-static-web-app.md
             - name: Create Static web app
-              href: how-to/with-web-app/static-web-app-with-swa-cli/create-and-deploy-static-web-app.md
+              items:
+                - name: 1. Introduction
+                  href: how-to/with-web-app/static-web-app-with-swa-cli/introduction.md
+                - name: 2. Create GitHub repo
+                  href: how-to/with-web-app/static-web-app-with-swa-cli/create-github-repo.md                  
+                - name: 3. Create React client app
+                  href: how-to/with-web-app/static-web-app-with-swa-cli/create-react-app.md                  
+                - name: 4. Create Azure Static Web app
+                  href: how-to/with-web-app/static-web-app-with-swa-cli/create-static-web-app.md                  
+                - name: 5. Create Azure Function API
+                  href: how-to/with-web-app/static-web-app-with-swa-cli/create-function-api-app.md  
+                - name: 6. Connect client to API
+                  href: how-to/with-web-app/static-web-app-with-swa-cli/connect-client-to-api.md                                    
             - name: Add search to website
               href: /azure/search/tutorial-javascript-overview
             - name: "Upload image to Storage"
