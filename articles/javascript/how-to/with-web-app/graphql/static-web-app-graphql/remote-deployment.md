@@ -32,23 +32,23 @@ Here's how:
     |Prompt|Enter|
     |--|--|
     |*Enter the name for the new static web app.*|Create a unique name for your resource. For example, you can prepend your name to the repository name, such as `joansmith-azure-graphql-trivia-game`. |
-    |*Select a resource group for new resources.*|Use the resource group that you created for your Azure Cosmos DB database.|
+    |*Select a resource group for new resources.*|Use the resource group that you created for your database created with Azure Cosmos DB.|
     |*Select a SKU*| Select the free SKU for this tutorial.|
     |*Choose build preset to configure default project structure.*|Select **React**.|
     |*Select the location of your application code*|`/`|
-    |*Select the location of your Azure Function code*|`/api`<br><br>This is the path from the root of the repository to your Azure Functions app. |
+    |*Select the location of your Azure Functions code*|`/api`<br><br>This is the path from the root of the repository to your function app. |
     |*Enter the path of your build output...*|`dist`<br><br>This is the path from your app to your generated files.|
     |*Select a location for new resources.*|Select a region close to you.|
 
 1. After the resource is created, select **Open Actions in GitHub** from the notifications. This opens a browser window pointed to your forked repo. 
 
-    The list of actions indicates that your web app, both client and functions, were successfully pushed to Static Web Apps. 
+    The list of actions indicates that your web app, both client and function, were successfully pushed to Static Web Apps. 
 
     Wait until the build and deployment complete before continuing. This might take a minute or two to finish.
 
 ## Add configuration settings in the Azure portal
 
-The Azure Functions app won't connect to your Azure Cosmos DB database until the connection string is configured for the remote Functions app. 
+The function app won't connect to your database created with Azure Cosmos DB until the connection string is configured for the remote function app. 
 
 1. Select **Azure** from the activity bar. 
 1. Right-click on your static web app resource, and then select **Open in Portal**.

@@ -44,7 +44,7 @@ Because static web apps deploy from a GitHub repo and you need to be able to pus
 
 ## Create a container in the emulator 
 
-In a local instance of Azure Cosmos DB, you can use the [Azure Cosmos DB emulator](/azure/cosmos-db/local-emulator), which allows you to develop your application without creating or using a cloud-based resource. 
+In a local container created with Azure Cosmos DB, you can use the [Azure Cosmos DB emulator](/azure/cosmos-db/local-emulator), which allows you to develop your application without creating or using a cloud-based resource. 
 
 1. Start your local Azure Cosmos DB emulator, if it isn't already running. 
 1. Select **New Container**.
@@ -97,7 +97,7 @@ Load the 100 trivia questions into the container.
     }
     ```
 
-## Configure the local API to connect to the local instance of Azure Cosmos DB
+## Configure the local API to connect to the local Azure Cosmos DB emulator
 
 1. In the browser window for the emulator, `https://localhost:8081/_explorer/index.html`, copy the **Primary Connection String**.
 
@@ -437,7 +437,7 @@ The most common reasons this doesn't work locally are:
 * Both the client and API aren't running. Make sure that both endpoints are available from a browser:
 
     * `http://localhost:3000` - React client
-    * `http://locahost:7071/api/graphql` - GraphQL Function API
+    * `http://locahost:7071/api/graphql` - GraphQL Functions API
 
 * The database and container aren't created or named, `trivia` and `game`.
 * The container doesn't have the *./api/trivia.json* data loaded.

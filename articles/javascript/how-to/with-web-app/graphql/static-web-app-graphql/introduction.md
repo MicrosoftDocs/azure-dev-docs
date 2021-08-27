@@ -19,8 +19,8 @@ In this article series, you'll create a GraphQL server and a web application to 
 - [Node.js and npm](https://nodejs.org/en/download) installed to your local machine.
 - [Visual Studio Code](https://code.visualstudio.com/) installed to your local machine. 
     - [Static Web Apps](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestaticwebapps) to deploy a React app to Static Web Apps.
-    - [Azure Databases](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb) to create the instance of Azure Cosmos DB.
-- [Azure Cosmos DB local emulator](/azure/cosmos-db/local-emulator) to use a local instance of Azure Cosmos DB. 
+    - [Azure Databases](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb) to create the database created with Azure Cosmos DB.
+- [Azure Cosmos DB local emulator](/azure/cosmos-db/local-emulator) to use a local database created with Azure Cosmos DB. 
 - [Git](https://git-scm.com/downloads) to push to GitHub, which activates the GitHub action.
 - [GitHub account](https://github.com/join) to fork and push to a repo.
 

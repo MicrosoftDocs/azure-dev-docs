@@ -57,9 +57,9 @@ Here's how:
 
 1. Select **OK** to finish the local database creation process. 
 
-## Load the JSON file into the remote Azure Cosmos DB container
+## Load the JSON file into the remote container
 
-Load the 100 trivia questions into the container. 
+Load the 100 trivia questions into the container created with Azure Cosmos DB. 
 
 1. Select the `trivia` database, then the `game`container, and then **Items**. 
 1. Select **Upload item**, then select the folder icon in the side panel, and then select the location for the `./api/trivia.json` file. Then select **Upload**. 
@@ -98,7 +98,7 @@ In VS Code, for the Azure explorer, right-click your Azure Cosmos DB resource. T
 You should have the following information before continuing:
 
 * The Azure resource group name you used to create your Azure Cosmos DB resource. You'll use the same group name for your static web app.
-* The Azure Cosmos DB connection string. You'll set an application setting for your static web app, for the Function API to use. 
+* The Azure Cosmos DB connection string. You'll set an application setting for your static web app, for the Azure Functions API to use. 
 
 ## Next steps
 
