@@ -105,13 +105,13 @@ You need to pull down the remote action definition file before moving to the nex
 
 1. Review the `.yml` file in the local `./github/workflows` directory:
 
-    :::code language="YAML" source="~/../js-e2e-static-web-app-with-cli/.github/workflows/azure-static-web-apps.yml.sample" highlight="28-33":::
+    :::code language="YAML" source="~/../js-e2e-static-web-app-with-cli-1-basic-app-with-api/.github/workflows/azure-static-web-apps.yml.sample" highlight="28-33":::
 
     Most of the file is generic to any Static Web app. The highlighted lines in the preceding source listing are specific to this app.
 
 1. If you need the Node.js version to stay the same, regardless of the ubuntu version, use the [Oryx configuration](https://github.com/microsoft/Oryx/blob/main/doc/configuration.md#oryx-configuration), `NODE_VERSION`, to set that value. The `.yml` needs an environment variable, `env`, to pass that setting:
    
-    :::code language="YAML" source="~/../js-e2e-static-web-app-with-cli/.github/workflows/azure-static-web-apps-NODE_VERSION.yml.sample" highlight="34,35"::: 
+    :::code language="YAML" source="~/../js-e2e-static-web-app-with-cli-1-basic-app-with-api/.github/workflows/azure-static-web-apps-NODE_VERSION.yml.sample" highlight="34,35"::: 
 
 ## Next steps
 

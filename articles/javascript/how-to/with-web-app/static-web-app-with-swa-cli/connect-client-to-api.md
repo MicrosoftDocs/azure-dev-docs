@@ -31,7 +31,7 @@ Run both the React and Functions development environments, provided by each fram
 
 1. Replace the current `package.json` file's `scripts` section with the following script entries:
 
-    :::code language="JSON" source="~/../js-e2e-static-web-app-with-cli/package.json" range="6-12":::  
+    :::code language="JSON" source="~/../js-e2e-static-web-app-with-cli-1-basic-app-with-api-1-basic-app-with-api/package.json" range="6-12":::  
 
     These scripts separate out the development server of each environment from the SWA CLI call to join those two environments. 
 
@@ -71,7 +71,7 @@ The React client and the Azure Function API have separate local development serv
 
 In VS Code for the React app, find the `./src/App.tsx file` and replace the entire file with the following code:
 
-:::code language="TypeScript" source="~/../js-e2e-static-web-app-with-cli/app/src/App.tsx" range="7-18, 27-39":::  
+:::code language="TypeScript" source="~/../js-e2e-static-web-app-with-cli-1-basic-app-with-api/app/src/App.tsx" range="7-18, 27-39":::  
 
 ## Use your Static Web app in browser
 

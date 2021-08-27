@@ -47,7 +47,7 @@ Create an Azure Function API for your React app. The Azure Function service prov
 
 Open the `./api/index.ts` file and replace all the contents with the following so that the function returns a JSON object:
    
-:::code language="TypeScript" source="~/../js-e2e-static-web-app-with-cli/api/hello/index.ts" highlight="12-15":::  
+:::code language="TypeScript" source="~/../js-e2e-static-web-app-with-cli-1-basic-app-with-api/api/hello/index.ts" highlight="12-15":::  
 
 ## Start the Azure Function app
 

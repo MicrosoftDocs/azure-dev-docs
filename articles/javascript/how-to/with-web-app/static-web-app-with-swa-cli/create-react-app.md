@@ -9,7 +9,7 @@ ms.custom: devx-track-js
 
 # 3. Create a React app for your web site
 
-The React app will be the user interface for this simple app. All of the code is provided for you, as part of the [complete sample](https://github.com/azure-samples/js-e2e-static-web-app-with-cli). 
+The React app will be the user interface for this simple app. All of the code is provided for you, as part of the [complete sample](https://github.com/azure-samples/js-e2e-static-web-app-with-cli-1-basic-app-with-api). 
 
 ## Create React app with npm targeting TypeScript
 
