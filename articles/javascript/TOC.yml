@@ -65,6 +65,8 @@
                   href: how-to/with-web-app/static-web-app-with-swa-cli/create-function-api-app.md  
                 - name: 6. Connect client to API
                   href: how-to/with-web-app/static-web-app-with-swa-cli/connect-client-to-api.md                                    
+                - name: 7. Add easy authentication
+                  href: how-to/with-web-app/static-web-app-with-swa-cli/add-authentication.md                                    
             - name: Add search to website
               href: /azure/search/tutorial-javascript-overview
             - name: "Upload image to Storage"

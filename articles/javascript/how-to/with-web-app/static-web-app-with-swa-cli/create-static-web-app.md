@@ -116,3 +116,4 @@ You need to pull down the remote action definition file before moving to the nex
 ## Next steps
 
 * [Create Azure Function API app](create-function-api-app.md)
+* [GitHub Action Workflow syntax](https://docs.github.com/actions/reference/workflow-syntax-for-github-actions)

@@ -105,5 +105,6 @@ In VS Code for the React app, find the `./src/App.tsx file` and replace the enti
 
 ## Next steps
 
+* [Add authentication](add-authentication.md)
 * [Static Web apps troubleshooting](/azure/static-web-apps/troubleshooting)
 * [Azure Functions diagnostics](/azure/azure-functions/functions-diagnostics)
