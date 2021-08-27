@@ -1,6 +1,6 @@
 ---
 title: "3-Client: Create React app"
-description: 
+description: The React app will be the user interface for this simple app. All of the code is provided for you, as part of the complete sample. 
 ms.topic: how-to
 ms.date: 08/27/2021
 ms.custom: devx-track-js

@@ -1,13 +1,13 @@
 ---
 title: "5-API: Create Function API"
-description: 
+description: Create an Azure Function API for your React app. The Azure Function service provides serverless APIs. This allows you to focus on your TypeScript code and _not_ have to configure a full back-end web server.
 ms.topic: how-to
 ms.date: 08/27/2021
 ms.custom: devx-track-js
 #intent: Create Express.js web app with easy auth configured. 
 ---
 
-## 5. Create Static Web app
+# 5. Create Static Web app
 
 Create an Azure Function API for your React app. The Azure Function service provides serverless APIs. This allows you to focus on your TypeScript code and _not_ have to configure a full back-end web server. 
 
