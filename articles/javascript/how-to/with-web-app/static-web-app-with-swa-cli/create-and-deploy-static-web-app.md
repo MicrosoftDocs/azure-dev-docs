@@ -349,7 +349,7 @@ The React client and the Azure Function API have separate local development serv
 
 In VS Code for the React app, find the `./src/App.tsx file` and replace the entire file with the following code:
 
-    :::code language="TypeScript" source="~/../js-e2e-static-web-app-with-cli/app/src/App.tsx" range="7-18, 27-39":::  
+:::code language="TypeScript" source="~/../js-e2e-static-web-app-with-cli/app/src/App.tsx" range="7-18, 27-39":::  
 
 ## Use static web app in browser
 
