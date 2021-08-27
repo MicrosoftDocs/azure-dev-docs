@@ -24,7 +24,7 @@ The local Static Web app CLI provides:
 * Route management and authorization 
 
 * Sample [basic app](https://github.com/azure-samples/js-e2e-static-web-app-with-cli-1-basic-app-with-api)
-* * Sample [basic app with auth](https://github.com/azure-samples/js-e2e-static-web-app-with-cli-2-basic-app-with-api-and-auth)
+* Sample [basic app with auth](https://github.com/azure-samples/js-e2e-static-web-app-with-cli-2-basic-app-with-api-and-auth)
 
 ## Prepare your development environment
 
