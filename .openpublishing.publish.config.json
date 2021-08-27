@@ -56,11 +56,23 @@
       "branch_mapping": {}
     },    
     {
-      "path_to_root": "js-e2e-browser-file-upload-storage-blob",
-      "url": "https://github.com/Azure-Samples/js-e2e-browser-file-upload-storage-blob",
+      "path_to_root": "js-e2e-static-web-app-with-cli",
+      "url": "https://github.com/Azure-Samples/js-e2e-static-web-app-with-cli",
       "branch": "main",
       "branch_mapping": {}
+    },      
+    {
+      "path_to_root": "js-e2e-browser-file-upload-storage-blob-1-basic-app-with-api",
+      "url": "https://github.com/Azure-Samples/js-e2e-browser-file-upload-storage-blob",
+      "branch": "1-basic-app-with-api",
+      "branch_mapping": {}
     },
+    {
+      "path_to_root": "js-e2e-browser-file-upload-storage-blob-2-basic-app-with-api-and-auth",
+      "url": "https://github.com/Azure-Samples/js-e2e-browser-file-upload-storage-blob",
+      "branch": "2-basic-app-with-api-and-auth",
+      "branch_mapping": {}
+    },    
     {
       "path_to_root": "js-e2e-vm",
       "url": "https://github.com/Azure-Samples/js-e2e-vm",
