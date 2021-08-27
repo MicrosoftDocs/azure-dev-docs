@@ -56,19 +56,19 @@ The `DefaultAzureCredential` uses the `EnvironmentCredential` type to configure 
 # [Bash](#tab/bash)
 
 ```bash
-export ARM_SUBSCRIPTION_ID="<azure_subscription_id>"
-export ARM_TENANT_ID="<active_directory_tenant_id"
-export ARM_CLIENT_ID="<service_principal_appid>"
-export ARM_CLIENT_SECRET="<service_principal_password>"
+export AZURE_SUBSCRIPTION_ID="<azure_subscription_id>"
+export AZURE_TENANT_ID="<active_directory_tenant_id"
+export AZURE_CLIENT_ID="<service_principal_appid>"
+export AZURE_CLIENT_SECRET="<service_principal_password>"
 ```
 
 # [PowerShell](#tab/powershell)
 
 ```powershell
-$env:ARM_SUBSCRIPTION_ID="<azure_subscription_id>"
-$env:ARM_TENANT_ID="<active_directory_tenant_id"
-$env:ARM_CLIENT_ID="<service_principal_appid>"
-$env:ARM_CLIENT_SECRET="<service_principal_password>"
+$env:AZURE_SUBSCRIPTION_ID="<azure_subscription_id>"
+$env:AZURE_TENANT_ID="<active_directory_tenant_id"
+$env:AZURE_CLIENT_ID="<service_principal_appid>"
+$env:AZURE_CLIENT_SECRET="<service_principal_password>"
 ```
 
 ---
@@ -84,18 +84,18 @@ $env:ARM_CLIENT_SECRET="<service_principal_password>"
 # [Bash](#tab/bash)
 
 ```bash
-export ARM_SUBSCRIPTION_ID="<azure_subscription_id>"
-export ARM_TENANT_ID="<active_directory_tenant_id"
-export ARM_CLIENT_ID="<service_principal_appid>"
+export AZURE_SUBSCRIPTION_ID="<azure_subscription_id>"
+export AZURE_TENANT_ID="<active_directory_tenant_id"
+export AZURE_CLIENT_ID="<service_principal_appid>"
 export AZURE_CLIENT_CERTIFICATE_PATH="<azure_client_certificate_path>"
 ```
 
 # [PowerShell](#tab/powershell)
 
 ```powershell
-$env:ARM_SUBSCRIPTION_ID="<azure_subscription_id>"
-$env:ARM_TENANT_ID="<active_directory_tenant_id"
-$env:ARM_CLIENT_ID="<service_principal_appid>"
+$env:AZURE_SUBSCRIPTION_ID="<azure_subscription_id>"
+$env:AZURE_TENANT_ID="<active_directory_tenant_id"
+$env:AZURE_CLIENT_ID="<service_principal_appid>"
 $env:AZURE_CLIENT_CERTIFICATE_PATH="<azure_client_certificate_path>"
 ```
 
@@ -183,9 +183,9 @@ Create a new sample Go module named `azure-auth` to test authenticating to Azure
 1. Run [go get](https://golang.org/ref/mod#go-get) to download, build, and install the necessary Azure SDK for Go modules.
 
     ```bash
-    go get github.com/Azure/azure-sdk-for-go/sdk/armcore
+    go get github.com/Azure/azure-sdk-for-go/sdk/AZUREcore
     go get github.com/Azure/azure-sdk-for-go/sdk/azidentity
-    go get github.com/Azure/azure-sdk-for-go/sdk/resources/armresources
+    go get github.com/Azure/azure-sdk-for-go/sdk/resources/AZUREresources
     ```
 
 1. Create a file named `main.go` and insert the following code.
@@ -198,9 +198,9 @@ Create a new sample Go module named `azure-auth` to test authenticating to Azure
       "context"
       "log"
 
-      "github.com/Azure/azure-sdk-for-go/sdk/armcore"
+      "github.com/Azure/azure-sdk-for-go/sdk/AZUREcore"
       "github.com/Azure/azure-sdk-for-go/sdk/azidentity"
-      "github.com/Azure/azure-sdk-for-go/sdk/resources/armresources"
+      "github.com/Azure/azure-sdk-for-go/sdk/resources/AZUREresources"
     )
 
     // Define key global variables.
@@ -218,7 +218,7 @@ Create a new sample Go module named `azure-auth` to test authenticating to Azure
       }
 
       // Azure SDK Azure Resource Management clients accept the credential as a parameter
-      client := armresources.NewResourcesClient(armcore.NewDefaultConnection(cred, nil), subscriptionId)
+      client := AZUREresources.NewResourcesClient(AZUREcore.NewDefaultConnection(cred, nil), subscriptionId)
 
       log.Printf("Authenticated to subscription", client)
     }
@@ -244,7 +244,7 @@ if err != nil {
 }
 
 // Azure SDK Azure Resource Management clients accept the credential as a parameter
-client := armresources.NewResourcesClient(armcore.NewDefaultConnection(cred, nil), "<subscription ID>")
+client := AZUREresources.NewResourcesClient(AZUREcore.NewDefaultConnection(cred, nil), "<subscription ID>")
 ```
 
 <!-- TODO: Uncomment after manage resource groups with GO sdk is merged -->
