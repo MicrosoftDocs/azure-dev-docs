@@ -20,7 +20,7 @@ Create a navigation component, which provides login and logout functionality.
 1. In VS Code, create a `components` directory under the React `./app/src` directory.
 1. Create a `NavBar.tsx` file and copy the following code into the file. 
 
-    :::code language="JSON" source="~/../js-e2e-static-web-app-with-cli-2-basic-app-with-api-and-auth/app/src/components/NavBar.tsx" range="8,11":::  
+    :::code language="JSON" source="~/../js-e2e-static-web-app-with-cli-2-basic-app-with-api-and-auth/app/src/components/NavBar.tsx" highlight="8,11":::  
 
 1. Create a `PublicHome.tsx` file and copy the following code into the file: 
 
@@ -28,11 +28,11 @@ Create a navigation component, which provides login and logout functionality.
 
 1. Create a `PrivateHome.tsx` file and copy the following code into the file: 
 
-    :::code language="JSON" source="~/../js-e2e-static-web-app-with-cli-2-basic-app-with-api-and-auth/app/src/components/PrivateHome.tsx" range="15-23":::  
+    :::code language="JSON" source="~/../js-e2e-static-web-app-with-cli-2-basic-app-with-api-and-auth/app/src/components/PrivateHome.tsx" highlight="15-23":::  
 
 1. Open the `./app/src/App.tsx` file and copy the following code into the file: 
 
-    :::code language="JSON" source="~/../js-e2e-static-web-app-with-cli-2-basic-app-with-api-and-auth/app/src/App.tsx" range="18-34":::  
+    :::code language="JSON" source="~/../js-e2e-static-web-app-with-cli-2-basic-app-with-api-and-auth/app/src/App.tsx" highlight="18-34":::  
 
     The highlighted code lines request the current authentication from the `/.auth/me` route provided by the Static Web app. 
 
