@@ -40,13 +40,13 @@ Install the following:
 
 ### Git branches
 
-Because you will be pushing and pulling between your local development and your remote GitHub repo, it is important that both your local git environment and remote repo have the same `default` branch. If you are new to Git and GitHub, both branches are `main`. If both default branches are not `main`, you need to configure both branches to be the same name and any time you see `main` referenced in this document, use your own default branch name instead. 
+Because you will be pushing and pulling between your local development and your remote GitHub repo, it is important that both your local git environment and remote repo have the same `default` branch. If you are new to Git and GitHub, both branches are `main`. If both default branches are not `main`, you need to configure both branches to be the same name and anytime you see `main` referenced in this document, use your own default branch name instead. 
 
 ## Create Static Web app
 
 ### Create React app
 
-1. Open VS Code in the directory which will become the root of the project. 
+1. Open VS Code in the directory, which will become the root of the project. 
 1. In VS Code, open an integrated **bash** terminal. All remaining terminal commands should be run from the same terminal unless otherwise specified. 
 
 1. In the root of the project, create a _create-react-app_ in `/app` directory with the following command:
@@ -334,13 +334,13 @@ The React client and the Azure Function API have separate local development serv
 
     When both the React app and the Function API have started correctly, continue to the next step. 
 
-1. In one of the VS Code instances (it doesn't matter which), open a second integrated terminal, change to the root directory and start the proxy:
+1. In one of the VS Code instances (it doesn't matter which instance), open a second integrated terminal, change to the root directory and start the proxy:
    
     ```bash
     npm run start-swa
     ```
 
-    The React client is now available on both port 3000 (with a proxy to the API) and on port 4280. For the rest of the article , use port 4280 when you want to use the React app.  
+    The React client is now available on both port 3000 (with a proxy to the API) and on port 4280. For the rest of the article, use port 4280 when you want to use the React app.  
 
     :::image type="content" source="../../../media/static-web-app-with-swa-cli/run-both-client-and-api-locally-separate-vs-code.png" alt-text="Partial screenshot of Windows desktop with two separate VS Code instances running." lightbox="../../../media/static-web-app-with-swa-cli/run-both-client-and-api-locally-separate-vs-code.png":::
 
