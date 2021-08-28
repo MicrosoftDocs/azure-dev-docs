@@ -14,7 +14,7 @@ In this quickstart, you'll create and retrieve secrets from Azure key vault with
 
 [!INCLUDE [ansible-29-note.md](includes/ansible-29-note.md)]
 
-[!INCLUDE [ansible-tutorial-goals.md](includes/ansible-tutorial-goals.md)]
+In this article, you learn how to:
 
 > [!div class="checklist"]
 >

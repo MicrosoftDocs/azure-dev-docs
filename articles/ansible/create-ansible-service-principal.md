@@ -3,13 +3,24 @@ title: Quickstart - Create an Azure service principal for Ansible
 description: In this quickstart, learn how to create an Azure Service Principal to authenticate to Azure.
 keywords: ansible, azure, devops, bash, cloudshell, playbook, azure cli, azure powershell, powershell
 ms.topic: quickstart
-ms.date: 04/23/2021
+ms.date: 08/28/2021
 ms.custom: devx-track-ansible, devx-track-azurecli, devx-track-azurepowershell
 ---
 
 # Quickstart: Create an Azure service principal for Ansible
 
 In this quickstart, you create an Azure service principal with AzureCLI or Azure PowerShell and authenticate to Azure from Ansible.
+
+In this article, you learn how to:
+
+> [!div class="checklist"]
+>
+> * Create an Azure service principal using the Azure CLI
+> * Create an Azure service principal using the Azure PowerShell
+> * Assign a role to the Azure service principal
+> * Get key information from the service principal
+> * Set environment variables so that Ansible can retrieve the service principal values
+> * Test the service principal
 
 ## Prerequisites
 

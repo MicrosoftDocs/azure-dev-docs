@@ -11,7 +11,7 @@ ms.custom: devx-track-ansible, devx-track-azurecli, devx-track-azurepowershell
 
 This quickstart shows how to install [Ansible](https://docs.ansible.com/) on a Centos VM in Azure.
 
-In this quickstart, you'll complete these tasks:
+In this article, you learn how to:
 
 > [!div class="checklist"]
 > * Create a resource group
