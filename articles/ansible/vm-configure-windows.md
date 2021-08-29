@@ -1,5 +1,5 @@
 ---
-title: Create a Windows virtual machines in Azure using Ansible
+title: Create a Windows virtual machine in Azure using Ansible
 description: Learn how to create Windows virtual machine in Azure using Ansible.
 keywords: ansible, azure, devops, bash, playbook, virtual machine
 ms.topic: tutorial
@@ -44,8 +44,6 @@ For more information, see [Windows Remote Management for Ansible](https://docs.a
 
 ## Create a resource group
 
-Ansible needs a resource group to deploy your resources in.
-
 Create an Ansible playbook named `azure_windows_vm.yml` and copy the following contents into the playbook:
 
 ```yaml
@@ -61,14 +59,13 @@ Create an Ansible playbook named `azure_windows_vm.yml` and copy the following c
       location: eastus
 ```
 
-**Key points**:
-* Setting `hosts` to _localhost_ and `connection` as _local_ runs the playbook locally on the Ansible server.
+**Key points:**
+
+- Setting `hosts` to _localhost_ and `connection` as `_local_` runs the playbook locally on the Ansible server.
 
 ## Create the virtual network and subnet
 
-Before you can create a VM, you'll need a virtual network.
-
-To create a virtual network, add the following tasks to the `azure_windows_vm.yml` Ansible playbook:
+Add the following tasks to the `azure_windows_vm.yml` Ansible playbook to create a virtual network:
 
 ```yml
   - name: Create virtual network
@@ -87,9 +84,7 @@ To create a virtual network, add the following tasks to the `azure_windows_vm.ym
 
 ## Create a public IP address
 
-A public IP address is needed to access the VM via the internet.
-
-To create a public IP address, add the following tasks to the `azure_windows_vm.yml` playbook:
+Add the following tasks to the `azure_windows_vm.yml` playbook to create a public IP address:
 
 ```yml
   - name: Create public IP address
@@ -104,8 +99,10 @@ To create a public IP address, add the following tasks to the `azure_windows_vm.
       msg: "The public IP is {{ output_ip_address.state.ip_address }}"
 ```
 
-**Key points**:
-* Ansible `register` module is used to store the output from `azure_rm_publicipaddress` in a variable called `output_ip_address`. Then the `debug` module is used to output the public IP address of the VM to the console.
+**Key points:**
+
+- Ansible `register` module is used to store the output from `azure_rm_publicipaddress` in a variable called `output_ip_address`. 
+- The `debug` module is used to output the public IP address of the VM to the console.
 
 ## Create network security group and NIC
 
@@ -371,9 +368,7 @@ This section lists the entire sample Ansible playbook that you've built up over 
 
 ## Connect to the Windows virtual machine
 
-Use Ansible to connect to the Windows Azure VM with WinRM.
-
-**Create** a new Ansible playbook named `connect_azure_windows_vm.yml` and copy the following contents into the playbook:
+Create a new Ansible playbook named `connect_azure_windows_vm.yml` and copy the following contents into the playbook:
 
 ```yml
 ---
@@ -400,9 +395,10 @@ ansible-playbook connect_azure_windows_vm.yml -i <publicIPaddress>,
 
 Replace `<publicIPaddress>` with your virtual machine's address.
 
-**Key points**:
-* Ansible's configuration determines how Ansible connects and authenticates to remote hosts. The variables you need to define to connect to a Windows host depend on your WinRM connection type and the authentication option you've chosen. For more information, see [Connecting to a Windows Host](https://www.ansible.com/blog/connecting-to-a-windows-host) and [Windows Authentication Options](https://docs.ansible.com/ansible/latest/user_guide/windows_winrm.html#authentication-options).
-* Adding a comma after the public IP address bypasses Ansible's inventory parser which allows you to run playbooks without an inventory file.
+**Key points:**
+
+- Ansible's configuration determines how Ansible connects and authenticates to remote hosts. The variables you need to define to connect to a Windows host depend on your WinRM connection type and the authentication option you've chosen. For more information, see [Connecting to a Windows Host](https://www.ansible.com/blog/connecting-to-a-windows-host) and [Windows Authentication Options](https://docs.ansible.com/ansible/latest/user_guide/windows_winrm.html#authentication-options).
+- Adding a comma after the public IP address bypasses Ansible's inventory parser. This technique allows you to run playbooks without an inventory file.
 
 ## Clean up resources
 
