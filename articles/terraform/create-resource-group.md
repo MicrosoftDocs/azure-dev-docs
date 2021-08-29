@@ -1,6 +1,6 @@
 ---
 title: Get Started - Create an Azure resource group using Terraform
-description: In this article, you learn how to create an Azure resource group using Terraform
+Learn how to create an Azure resource group using Terraform
 keywords: azure devops terraform azure resource group
 ms.topic: quickstart
 ms.date: 08/07/2021

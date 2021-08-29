@@ -35,9 +35,9 @@ landingContent:
             url: get-started-cloud-shell-bash.md
           - text: Configure Terraform in Cloud Shell with PowerShell
             url: get-started-cloud-shell-powershell.md
-          - text: Configure Terraform in Windows with Bash
+          - text: Install Terraform in Windows with Bash
             url: get-started-windows-bash.md
-          - text: Configure Terraform in Windows with PowerShell
+          - text: Install Terraform in Windows with PowerShell
             url: get-started-windows-powershell.md
       - linkListType: how-to-guide
         links:
