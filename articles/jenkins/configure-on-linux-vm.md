@@ -1,19 +1,20 @@
 ---
-title: Quickstart - Configure Jenkins using Azure CLI
+title: Get Started - Configure Jenkins using Azure CLI
 description: Learn how to install Jenkins on an Azure Linux virtual machine and build a sample Java application.
 keywords: jenkins, azure, devops, portal, linux, virtual machine
 ms.topic: quickstart
-ms.date: 08/21/2020
+ms.date: 08/28/2021
 ms.custom: devx-track-jenkins, devx-track-azurecli
 ---
 
-# Quickstart: Configure Jenkins using Azure CLI
+# Get Started: Configure Jenkins using Azure CLI
 
-This quickstart shows how to install [Jenkins](https://jenkins.io) on an Ubuntu Linux VM with the tools and plug-ins configured to work with Azure.
+This article shows how to install [Jenkins](https://jenkins.io) on an Ubuntu Linux VM with the tools and plug-ins configured to work with Azure.
 
-In this quickstart, you'll complete these tasks:
+In this article, you learn how to:
 
 > [!div class="checklist"]
+
 > * Create a setup file that downloads and installs Jenkins
 > * Create a resource group
 > * Create a virtual machine with the setup file
