@@ -12,9 +12,10 @@ ms.custom: devx-track-ansible
 
 This quickstart shows how to deploy a Windows Server 2019 VM in Azure with [Ansible](https://docs.ansible.com/).
 
-In this quickstart, you'll complete these tasks:
+In this article, you learn how to:
 
 > [!div class="checklist"]
+
 > * Create a resource group
 > * Create a virtual network, public IP, network security group, and network interface
 > * Deploy a Windows Server virtual machine
