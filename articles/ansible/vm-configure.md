@@ -107,17 +107,17 @@ In this article, you learn how to:
 
 Run [az vm list](/cli/azure/vm#az_vm_list) to verify the VM was created.
 
-    ```azurecli
-    az vm list -d -o table --query "[?name=='MyVM']"
-    ```
+  ```azurecli
+  az vm list -d -o table --query "[?name=='MyVM']"
+  ```
 
 ## 5. Connect to the VM
 
 Run the SSH command to connect to your new Linux VM. Replace the &lt;ip-address> placeholder with the IP address from the previous step.
 
-    ```bash
-    ssh azureuser@<ip-address>
-    ```
+  ```bash
+  ssh azureuser@<ip-address>
+  ```
 
 ## Clean up resources
 
