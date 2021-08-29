@@ -35,7 +35,7 @@ In this article, you learn how to:
     ssh-keygen -m PEM -t rsa -b 4096
     ```
 
-1. Copy the contents of the public key file. By default, the public key file is named `id_rsa.pub`. You will need this value in the next step.
+1. Copy the contents of the public key file. By default, the public key file is named `id_rsa.pub`. You'll need this value in the next step.
     
 ## 3. Implement the Ansible playbook
 
