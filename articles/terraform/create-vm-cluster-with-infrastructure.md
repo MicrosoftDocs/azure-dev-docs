@@ -199,6 +199,8 @@ In this article, you learn how to:
 
 ## 6. Verify the results
 
+Run the [az vm list](/cli/azure/vm#az_vm_list) command with a [JMESPath](/cli/azure/query-azure-cli) query to display the VMs created in the resource group.
+
 ```azurecli
 az vm list -g acctestrg --query "[].{\"VM Name\":name}" -o table
 ```
