@@ -1,16 +1,16 @@
 ---
-title: Quickstart - Configure Windows virtual machines in Azure using Ansible
-description: In this quickstart, learn how to create Windows virtual machine in Azure using Ansible.
+title: Create a Windows virtual machines in Azure using Ansible
+description: Learn how to create Windows virtual machine in Azure using Ansible.
 keywords: ansible, azure, devops, bash, playbook, virtual machine
-ms.topic: quickstart
+ms.topic: tutorial
 ms.service: ansible
-ms.date: 06/09/2021
+ms.date: 08/28/2021
 ms.custom: devx-track-ansible
 ---
 
-# Quickstart: Deploy a Windows Azure VM with Ansible
+# Create a Windows virtual machine in Azure using Ansible
 
-This quickstart shows how to deploy a Windows Server 2019 VM in Azure with [Ansible](https://docs.ansible.com/).
+This article shows how to deploy a Windows Server 2019 VM in Azure with [Ansible](https://docs.ansible.com/).
 
 In this article, you learn how to:
 
