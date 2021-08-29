@@ -1,15 +1,15 @@
 ---
-title: Quickstart - Configure Ansible in a Docker container
-description: In this quickstart, learn how to install and configure Ansible running in a Docker container to managing Azure resources.
+title: Get Started - Configure Ansible in a Docker container
+description: Learn how to install and configure Ansible running in a Docker container to managing Azure resources.
 keywords: ansible, azure, devops, bash, playbook, azure cli, azure powershell, powershell
 ms.topic: quickstart
 ms.date: 05/20/2021
 ms.custom: devx-track-ansible
 ---
 
-# Quickstart: Configure Ansible in a Docker container
+# Get Started: Configure Ansible in a Docker container
 
-This quickstart shows you how to install Ansible running in a Docker container. Using a container for Ansible development solves the problem of "It works on my machine." by providing a consistent experience across all your environments, locally or in production.
+This article shows you how to install Ansible running in a Docker container. Using a container for Ansible development solves the problem of "It works on my machine." by providing a consistent experience across all your environments, locally or in production.
 
 In this article, you learn to:
 
