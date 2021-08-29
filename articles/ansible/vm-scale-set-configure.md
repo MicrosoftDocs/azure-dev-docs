@@ -40,8 +40,9 @@ The playbook code in this section defines the following resources:
 
 There are two ways to get the sample playbook:
 
-* [Download the playbook](https://github.com/Azure-Samples/ansible-playbooks/blob/master/vmss/vmss-create.yml) and save it to `vmss-create.yml`.
-* Create a new file named `vmss-create.yml` and copy into it the following contents:
+* [Download the playbook](https://github.com/Azure-Samples/ansible-playbooks/blob/master/vmss/vmss-create.yml) and save the file as `vmss-create.yml`.
+
+* Create a new file named `vmss-create.yml`. Insert the following code into the new file:
 
 ```yml
 - hosts: localhost
@@ -225,7 +226,8 @@ The playbook code in this section retrieves information about the scale set and 
 There are two ways to get the sample playbook:
 
 * [Download the playbook](https://github.com/Azure-Samples/ansible-playbooks/blob/master/vmss/vmss-scale-out.yml) and save it to `vmss-scale-out.yml`.
-* Create a new file named `vmss-scale-out.yml` and copy into it the following contents:
+
+* Create a new file named `vmss-scale-out.yml`. Insert the following code into the new file:
 
 ```yml
 ---

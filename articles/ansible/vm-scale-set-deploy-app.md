@@ -118,7 +118,8 @@ The playbook code in this section is used to:
 There are two ways to get the sample playbook:
 
 * [Download the playbook](https://github.com/Azure-Samples/ansible-playbooks/blob/master/vmss/vmss-setup-deploy.yml) and save it to `vmss-setup-deploy.yml`.
-* Create a new file named `vmss-setup-deploy.yml` and copy into it the following contents:
+
+* Create a new file named `vmss-setup-deploy.yml`. Insert the following code into the new file:
 
 ```yml
 - hosts: localhost
