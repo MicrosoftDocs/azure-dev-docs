@@ -11,7 +11,7 @@ metadata:
   ms.topic: landing-page
   author: TomArcherMsft
   ms.author: tarcher
-  ms.date: 08/06/2021
+  ms.date: 08/28/2021
   ms.custom: devx-track-ansible
 
 landingContent:
@@ -46,16 +46,14 @@ landingContent:
   # Card
   - title: Manage Virtual Machines
     linkLists:
-      - linkListType: quickstart
-        links:
-          - text: Configure Linux virtual machines
-            url: vm-configure.md
-          - text: Manage Linux virtual machines
-            url: vm-manage.md
-          - text: Create a from Shared Image Gallery
-            url: vm-configure-from-azure-shared-image-gallery.md
       - linkListType: tutorial
         links:
+          - text: Create a Linux VM
+            url: vm-configure.md
+          - text: Manage a Linux VM
+            url: vm-manage.md
+          - text: Create a VM from a Shared Image Gallery
+            url: vm-configure-from-azure-shared-image-gallery.md
           - text: Configure VM security using Azure Key Vault
             url: ./key-vault-configure-secrets.md
 
