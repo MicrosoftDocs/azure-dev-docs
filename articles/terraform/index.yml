@@ -33,11 +33,11 @@ landingContent:
         links:
           - text: Configure Terraform in Cloud Shell with Bash
             url: get-started-cloud-shell-bash.md
-          - text: Configure Terraform in Cloud Shell with PowerShell
+          - text: Configure Terraform in Cloud Shell with Azure PowerShell
             url: get-started-cloud-shell-powershell.md
-          - text: Install Terraform in Windows with Bash
+          - text: Install Terraform on Windows with Bash
             url: get-started-windows-bash.md
-          - text: Install Terraform in Windows with PowerShell
+          - text: Install Terraform on Windows with Azure PowerShell
             url: get-started-windows-powershell.md
       - linkListType: how-to-guide
         links:

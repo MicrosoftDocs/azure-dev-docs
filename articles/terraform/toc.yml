@@ -7,13 +7,13 @@
 - name: Get started
   expanded: true
   items:
-    - name: Configure with Cloud Shell and Bash
+    - name: Configure in Cloud Shell with Bash
       href: get-started-cloud-shell-bash.md
-    - name: Configure with Cloud Shell and PowerShell
+    - name: Configure in Cloud Shell with Azure PowerShell
       href: get-started-cloud-shell-powershell.md
-    - name: Install with Windows and Bash
+    - name: Install on Windows with Bash
       href: get-started-windows-bash.md
-    - name: Install with Windows and PowerShell
+    - name: Install on Windows with Azure PowerShell
       href: get-started-windows-powershell.md
     - name: Create an Azure resource group
       href: create-resource-group.md
