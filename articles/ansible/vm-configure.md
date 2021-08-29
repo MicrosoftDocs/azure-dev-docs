@@ -29,7 +29,7 @@ In this article, you learn how to:
 
 ## 2. Create an SSH key pair
 
-1. Run the following command. When promped, specify the files to be created in the following directory: `/home/azureuser/.ssh/authorized_keys`.
+1. Run the following command. When prompted, specify the files to be created in the following directory: `/home/azureuser/.ssh/authorized_keys`.
 
     ```bash
     ssh-keygen -m PEM -t rsa -b 4096
@@ -125,9 +125,9 @@ Run [az vm list](/cli/azure/vm#az_vm_list) to verify the VM was created.
 
 Run the SSH command to connect to your new Linux VM. Replace the &lt;ip-address> placeholder with the IP address from the previous step.
 
-  ```bash
-  ssh azureuser@<ip-address>
-  ```
+```bash
+ssh azureuser@<ip_address> -i /home/azureuser/.ssh/authorized_keys/id_rsa
+```
 
 ## Clean up resources
 

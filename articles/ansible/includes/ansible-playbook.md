@@ -9,5 +9,5 @@
 Run [ansible-playbook](https://docs.ansible.com/ansible/latest/cli/ansible-playbook.html) to run the Ansible playbook.
 
    ```bash
-   ansible-playbook `main.yml`
+   ansible-playbook main.yml
    ```
