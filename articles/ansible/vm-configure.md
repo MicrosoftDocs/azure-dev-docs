@@ -9,7 +9,18 @@ ms.custom: devx-track-ansible
 
 # Create a Linux virtual machines in Azure using Ansible
 
-Using a declarative language, Ansible allows you to automate the creation, configuration, and deployment of Azure resources via Ansible *playbooks*. This article presents a sample Ansible playbook for configuring Linux virtual machines. The [complete Ansible playbook](#complete-sample-ansible-playbook) is listed at the end of this article.
+This article presents a sample Ansible playbook for configuring a Linux virtual machine.
+
+In this article, you learn how to:
+
+> [!div class="checklist"]
+
+> * Create a resource group
+> * Create a virtual network
+> * Create a public IP address
+> * Create a network security group
+> * Create a virtual network interface card
+> * Create a virtual machine
 
 ## 1. Configure your environment
 
@@ -22,75 +33,75 @@ Using a declarative language, Ansible allows you to automate the creation, confi
 
 1. Create a file named `main.yml` and insert the following code:
 
-    ```yaml
-    - name: Create Azure VM
-      hosts: localhost
-      connection: local
-      tasks:
-      - name: Create resource group
-        azure_rm_resourcegroup:
-          name: myResourceGroup
-          location: eastus
-      - name: Create virtual network
-        azure_rm_virtualnetwork:
-          resource_group: myResourceGroup
-          name: myVnet
-          address_prefixes: "10.0.0.0/16"
-      - name: Add subnet
-        azure_rm_subnet:
-          resource_group: myResourceGroup
-          name: mySubnet
-          address_prefix: "10.0.1.0/24"
-          virtual_network: myVnet
-      - name: Create public IP address
-        azure_rm_publicipaddress:
-          resource_group: myResourceGroup
-          allocation_method: Static
-          name: myPublicIP
-        register: output_ip_address
-      - name: Public IP of VM
-        debug:
-          msg: "The public IP is {{ output_ip_address.state.ip_address }}."
-      - name: Create Network Security Group that allows SSH
-        azure_rm_securitygroup:
-          resource_group: myResourceGroup
-          name: myNetworkSecurityGroup
-          rules:
-            - name: SSH
-              protocol: Tcp
-              destination_port_range: 22
-              access: Allow
-              priority: 1001
-              direction: Inbound
-      - name: Create virtual network interface card
-        azure_rm_networkinterface:
-          resource_group: myResourceGroup
-          name: myNIC
-          virtual_network: myVnet
-          subnet: mySubnet
-          public_ip_name: myPublicIP
-          security_group: myNetworkSecurityGroup
-      - name: Create VM
-        azure_rm_virtualmachine:
-          resource_group: myResourceGroup
-          name: myVM
-          vm_size: Standard_DS1_v2
-          admin_username: azureuser
-          ssh_password_enabled: false
-          ssh_public_keys:
-            - path: /home/azureuser/.ssh/authorized_keys
-              key_data: <your-key-data>
-          network_interfaces: myNIC
-          image:
-            offer: CentOS
-            publisher: OpenLogic
-            sku: '7.5'
-            version: latest
-    ```
+  ```yaml
+  - name: Create Azure VM
+    hosts: localhost
+    connection: local
+    tasks:
+    - name: Create resource group
+      azure_rm_resourcegroup:
+        name: myResourceGroup
+        location: eastus
+    - name: Create virtual network
+      azure_rm_virtualnetwork:
+        resource_group: myResourceGroup
+        name: myVnet
+        address_prefixes: "10.0.0.0/16"
+    - name: Add subnet
+      azure_rm_subnet:
+        resource_group: myResourceGroup
+        name: mySubnet
+        address_prefix: "10.0.1.0/24"
+        virtual_network: myVnet
+    - name: Create public IP address
+      azure_rm_publicipaddress:
+        resource_group: myResourceGroup
+        allocation_method: Static
+        name: myPublicIP
+      register: output_ip_address
+    - name: Public IP of VM
+      debug:
+        msg: "The public IP is {{ output_ip_address.state.ip_address }}."
+    - name: Create Network Security Group that allows SSH
+      azure_rm_securitygroup:
+        resource_group: myResourceGroup
+        name: myNetworkSecurityGroup
+        rules:
+          - name: SSH
+            protocol: Tcp
+            destination_port_range: 22
+            access: Allow
+            priority: 1001
+            direction: Inbound
+    - name: Create virtual network interface card
+      azure_rm_networkinterface:
+        resource_group: myResourceGroup
+        name: myNIC
+        virtual_network: myVnet
+        subnet: mySubnet
+        public_ip_name: myPublicIP
+        security_group: myNetworkSecurityGroup
+    - name: Create VM
+      azure_rm_virtualmachine:
+        resource_group: myResourceGroup
+        name: myVM
+        vm_size: Standard_DS1_v2
+        admin_username: azureuser
+        ssh_password_enabled: false
+        ssh_public_keys:
+          - path: /home/azureuser/.ssh/authorized_keys
+            key_data: <your-key-data>
+        network_interfaces: myNIC
+        image:
+          offer: CentOS
+          publisher: OpenLogic
+          sku: '7.5'
+          version: latest
+  ```
 
 ## 3. Run the playbook
 
-[!INCLUDE [ansible-playbook.md](../includes/ansible-playbook.md)]
+[!INCLUDE [ansible-playbook.md](includes/ansible-playbook.md)]
 
 ## 4. Verify the results
 
