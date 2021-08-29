@@ -22,7 +22,7 @@ This article describes getting started with Ansible from the [Azure Cloud Shell]
 
 ## Automatic credential configuration
 
-When signed into the Cloud Shell, Ansible authenticates with Azure to manage infrastructure without any additional configuration.
+When signed into the Cloud Shell, Ansible authenticates with Azure to manage infrastructure without any extra configuration.
 
 When working with multiple subscriptions, specify the subscription Ansible uses by exporting the `AZURE_SUBSCRIPTION_ID` environment variable.
 

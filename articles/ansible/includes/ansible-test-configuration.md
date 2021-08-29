@@ -34,7 +34,7 @@ This section shows how to create a test resource group within your new Ansible c
 
     **Key points**:
 
-    - Due to the `register` variable and `debug` section of the playbook, the results display when the command finishes.
+    - Because of the `register` variable and `debug` section of the playbook, the results display when the command finishes.
 
 ### Delete an Azure resource group
 
