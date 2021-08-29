@@ -1,6 +1,6 @@
 ---
 title: Create a Linux virtual machines in Azure using Ansible 
-description: In this quickstart, learn how to create a Linux virtual machine in Azure using Ansible
+description: Learn how to create a Linux virtual machine in Azure using Ansible
 keywords: ansible, azure, devops, virtual machine
 ms.topic: tutorial
 ms.date: 08/28/2021
@@ -90,11 +90,7 @@ Using a declarative language, Ansible allows you to automate the creation, confi
 
 ## 3. Run the playbook
 
-Run [ansible-playbook](https://docs.ansible.com/ansible/latest/cli/ansible-playbook.html) to run the Ansible playbook.
-
-   ```bash
-   ansible-playbook `ansible-create-vm.yml`
-   ```
+[!INCLUDE [ansible-playbook.md](../includes/ansible-playbook.md)]
 
 ## 4. Verify the results
 
@@ -119,4 +115,4 @@ Run the SSH command to connect to your new Linux VM. Replace the &lt;ip-address>
 ## Next steps
 
 > [!div class="nextstepaction"] 
-> [Quickstart: Manage a Linux virtual machine in Azure using Ansible](./vm-manage.md)
+> [Manage a Linux virtual machine in Azure using Ansible](./vm-manage.md)
