@@ -197,6 +197,16 @@ In this article, you learn how to:
 
 [!INCLUDE [terraform-apply-plan.md](includes/terraform-apply-plan.md)]
 
+## 6. Verify the results
+
+```azurecli
+az vm list -g acctestrg --query "[].{\"VM Name\":name}" -o table
+```
+
+## 7. Clean up resources
+
+[!INCLUDE [terraform-plan-destroy.md](includes/terraform-plan-destroy.md)]
+
 ## Troubleshoot Terraform on Azure
 
 [Troubleshoot common problems when using Terraform on Azure](troubleshoot.md)
