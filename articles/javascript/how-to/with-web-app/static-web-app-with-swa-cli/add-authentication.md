@@ -77,3 +77,6 @@ Create a navigation component, which provides login and logout functionality.
 ## Next steps
 
 * [Clean up resources](clean-up-swa-auth-resources.md)
+* Use your own [custom authentication](/azure/static-web-apps/authentication-custom) in your Static web app
+* Use [local configuration file](https://github.com/azure/static-web-apps-cli#use-a-configuration-file-staticwebappconfigjson) for SWA CLI
+* [SWA authentication and authorization emulation](https://github.com/azure/static-web-apps-cli#local-authentication--authorization-emulation)
