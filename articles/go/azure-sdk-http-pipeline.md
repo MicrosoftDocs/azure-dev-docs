@@ -1,20 +1,159 @@
 ---
 title: Core Concepts for the Azure SDK for Go
-description: An overview of the HTTP client and pipelines functionality in the Azure SDK for Go
-ms.date: 08/13/2021
+description: An overview of the common usage patterns in the Azure SDK for Go
+ms.date: 08/30/2021
 ms.topic: conceptual
 ms.custom: devx-track-go
 ---
 
-# HTTP pipelines in the Azure SDK for Go
+# Common concepts with the Azure SDK for Go
 
-The Azure Core (azcore) package in the Azure SDK for Go implements an HTTP request/response pipeline. The pipeline design provides common and consistent usage patterns across the SDK libraries, making it easier to diagnose problems when they occur.
+The Azure Core (azcore) package in the Azure SDK for Go implements several patterns that are applied throughout the SDK:
 
-This article first describes the [HTTP pipeline flow](#http-pipeline-flow), describes how to [implement a custom policy](#custom-http-pipeline-policy) and [implement a custom transport](#custom-http-transport), and then describes [common HTTP pipeline patterns](#common-http-pipeline-patterns).
+- [Pagination (methods that return collections)](#pagination-methods-that-return-collections)
+- [Long-running operations (LROs)](#long-running-operations)
+- The [HTTP pipeline flow](#http-pipeline-flow), which is the underlying HTTP mechanism used by the SDK's client libraries.
+- [Common HTTP pipeline patterns](#common-http-pipeline-patterns).
+
+## Pagination (methods that return collections)
+
+Many operations provided by the Azure Go SDK client libraries return more than one result. The Azure Go SDK defines a return type, [`Pager`](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azcore@v0.18.0#Pager), to ensure that developer experience is maximized through consistency.
+
+The methods of `Pager` that start with the prefix `List` return another `Pager` that you use to access an individual result:
+
+```go
+func (c *WidgetClient) ListWidgets(options *ListWidgetOptions) WidgetPager {
+    // ...
+}
+
+pager := client.ListWidgets(options)
+
+for pager.NextPage(ctx) {
+    for _,w := range pager.PageResponse().Widgets {
+        process(w)
+    }
+}
+
+if pager.Err() != nil {
+    // handle error...
+}
+```
+
+## Long running operations
+
+Some operations on Azure, such as copying data from a source URL to a Storage blob of training an AI model to recognize forms, can take a long time to complete, anywhere from a few seconds to a few days. Such **long running operations (LRO)** don't lend well to the standard HTTP flow of a relatively quick request and response.
+
+By convention, the names for all methods in the SDK libraries for LROs start with `Begin`. This prefix indicates that the return type from the operation is a [`Poller`](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azcore@v0.18.0#Poller) type that simplifies interactions with LROs.
+
+The following examples illustrate various patterns for handling LROs. You can also learn more from the [poller.go](https://github.com/Azure/azure-sdk-for-go/blob/main/sdk/azcore/poller.go) source code.
+
+### Blocking call to PollUntilDone
+
+```go
+resp,err := client.BeginCreate(context.Background(),"blue_widget",nil)
+
+if err != nil {
+    // handle error...
+}
+
+w,err **=** resp.PollUntilDone(context.Background(), 5*time.Second)
+
+if err != nil {}
+    // handle error...
+}
+
+process(w)
+```
+
+#### Customized poll loop
+
+```go
+resp,err := client.BeginCreate(context.Background(), "green_widget")
+
+if err != nil {
+    // handle error...
+}
+
+poller := resp.Poller
+
+for {
+    resp,err := poller.Poll(context.Background())
+
+    if err != nil {
+        // handle error ...
+    }
+
+    if poller.Done() {
+        break
+    }
+
+    if delay := azcore.RetryAfter(resp);delay > 0 {
+        time.Sleep(delay)
+    } else {
+        time.Sleep(frequency)
+    }
+}
+
+w,err := poller.FinalResponse(ctx)
+
+if err != nil {
+    // handle error ...
+}
+
+process(w)
+```
+
+### Resume from a previous operation
+
+```go
+// Object the resume token from a previous poller instance
+poller := resp.Poller
+tk,err := poller.ResumeToken()
+
+if err != nil {
+    // handle error ...
+}
+
+// resuming from the resume token that was previously saved
+
+poller,err := client.ResumeWidgetPoller(tk)
+
+if err != nil {
+    // handle error ...
+}
+
+for {
+    resp,err := poller.Poll(context.Background())
+
+    if err != nil {
+        // handle error ...
+    }
+
+    if poller.Done() {
+        break
+    }
+
+    if delay := azcore.RetryAfter(resp);delay > 0 {
+        time.Sleep(delay)
+    } else {
+        time.Sleep(frequency)
+    }
+}
+
+w,err := poller.FinalResponse(ctx)
+
+if err != nil {
+    // handle error ...
+}
+
+process(w)
+```
 
 ## HTTP pipeline flow
 
-HTTP requests are made through an HTTP **pipeline**. The pipeline describes the sequence of steps executed for each HTTP request-response round trip.
+The various client objects in the Azure SDK for Go provide an convenient object-oriented interface on top of Azure's underlying REST API, so typically you don't need to be concerned with the underlying HTTP transport. You can, however, customize that transport if needed.
+
+The SDK makes HTTP requests through an HTTP **pipeline**. The pipeline describes the sequence of steps executed for each HTTP request-response round trip.
 
 The pipeline is composed of a transport along with any number of policies:
 
@@ -34,7 +173,7 @@ Each policy is provided with the necessary request or response data along with a
 
 By default, each SDK client library creates a pipeline configured to work with that specific client library. You can also provide a custom HTTP pipeline when creating a client, as described in the following section.
 
-## Custom HTTP pipeline policy
+### Core HTTP pipeline policies
 
 Azure Core provides three commonly required HTTP policies that you can add to any pipeline:
 
@@ -42,9 +181,9 @@ Azure Core provides three commonly required HTTP policies that you can add to an
 - [Logging Policy](https://github.com/Azure/azure-sdk-for-go/blob/sdk/azcore/v0.18.0/sdk/azcore/policy_logging.go)
 - [Telemetry Policy](https://github.com/Azure/azure-sdk-for-go/blob/sdk/azcore/v0.18.0/sdk/azcore/policy_telemetry.go)
 
-To provide other capabilities, such as authentication or specifying custom header parameters, you can implement a custom policy that can modify the request and/or response. When adding the policy to the pipeline, you can specify whether this policy should run on a per-call or per-retry retry.
+### Custom HTTP pipeline policy
 
-### Implementing a custom policy
+To provide capabilities beyond the Core HTTP policies, such as authentication or specifying custom header parameters, you can implement a custom policy that can modify the request and/or response. When adding the policy to the pipeline, you can specify whether this policy should run on a per-call or per-retry retry.
 
 To create a custom HTTP pipeline policy, you implement the [`Policy`](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azcore@v0.18.0#Policy) interface in one of two ways:
 
@@ -240,140 +379,6 @@ The response is returned through the transport and all `Policy` instances. Each 
 ### Cancel a request
 
 Cancellation is handled via the `context.Context` parameter, which is always the first method parameter. Any API that performs I/O of any kind, sleeps, or performs a significant amount of CPU-bound work will take a `context.Context` as its first parameter. For more information and examples, see the [context](https://pkg.go.dev/context) reference.
-
-### Methods returning collections (paging)
-
-Many operations provided by the Azure Go SDK client libraries return more than one result. The Azure Go SDK defines a return type, [`Pager`](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azcore@v0.18.0#Pager), to ensure that developer experience is maximized through consistency.
-
-The methods of `Pager` that start with the prefix `List` return another `Pager` that you use to access an individual result:
-
-```go
-func (c *WidgetClient) ListWidgets(options *ListWidgetOptions) WidgetPager {
-    // ...
-}
-
-pager := client.ListWidgets(options)
-
-for pager.NextPage(ctx) {
-    for _,w := range pager.PageResponse().Widgets {
-        process(w)
-    }
-}
-
-if pager.Err() != nil {
-    // handle error...
-}
-```
-
-### Long running operations
-
-Some operations on Azure, such as copying data from a source URL to a Storage blob of training an AI model to recognize forms, can take a long time to complete, anywhere from a few seconds to a few days. Such **long running operations (LRO)** don't lend well to the standard HTTP flow of a relatively quick request and response.
-
-By convention, the names for all methods in the SDK libraries for LROs start with `Begin`. This prefix indicates that the return type from the operation is a [`Poller`](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azcore@v0.18.0#Poller) type that simplifies interactions with LROs.
-
-The following examples illustrate various patterns for handling LROs. You can also learn more from the [poller.go](https://github.com/Azure/azure-sdk-for-go/blob/main/sdk/azcore/poller.go) source code.
-
-#### Blocking call to PollUntilDone
-
-```go
-resp,err := client.BeginCreate(context.Background(),"blue_widget",nil)
-
-if err != nil {
-    // handle error...
-}
-
-w,err **=** resp.PollUntilDone(context.Background(), 5*time.Second)
-
-if err != nil {}
-    // handle error...
-}
-
-process(w)
-```
-
-#### Customized poll loop
-
-```go
-resp,err := client.BeginCreate(context.Background(), "green_widget")
-
-if err != nil {
-    // handle error...
-}
-
-poller := resp.Poller
-
-for {
-    resp,err := poller.Poll(context.Background())
-
-    if err != nil {
-        // handle error ...
-    }
-
-    if poller.Done() {
-        break
-    }
-
-    if delay := azcore.RetryAfter(resp);delay > 0 {
-        time.Sleep(delay)
-    } else {
-        time.Sleep(frequency)
-    }
-}
-
-w,err := poller.FinalResponse(ctx)
-
-if err != nil {
-    // handle error ...
-}
-
-process(w)
-```
-
-#### Resume from a previous operation
-
-```go
-// Object the resume token from a previous poller instance
-poller := resp.Poller
-tk,err := poller.ResumeToken()
-
-if err != nil {
-    // handle error ...
-}
-
-// resuming from the resume token that was previously saved
-
-poller,err := client.ResumeWidgetPoller(tk)
-
-if err != nil {
-    // handle error ...
-}
-
-for {
-    resp,err := poller.Poll(context.Background())
-
-    if err != nil {
-        // handle error ...
-    }
-
-    if poller.Done() {
-        break
-    }
-
-    if delay := azcore.RetryAfter(resp);delay > 0 {
-        time.Sleep(delay)
-    } else {
-        time.Sleep(frequency)
-    }
-}
-
-w,err := poller.FinalResponse(ctx)
-
-if err != nil {
-    // handle error ...
-}
-
-process(w)
-```
 
 ## See also
 
