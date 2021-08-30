@@ -28,9 +28,9 @@ In this article, you learn how:
 
 [!INCLUDE [configure-terraform.md](includes/configure-terraform.md)]
 
-- **Azure service principal**: If you don't have a service principal, [create a service principal](authenticate-to-azure.md#create-a-service-principal). Make note of the values for the `appId`, `displayName`, `password`, and `tenant`.
+- **Azure service principal:** If you don't have a service principal, [create a service principal](authenticate-to-azure.md#create-a-service-principal). Make note of the `appId`, `display_name`, `password`, and `tenant`.
 
-- **Service principal object ID**: Run the following command to get the object ID of the service principal: `az ad sp list --display-name <displayName>`
+- **Service principal object ID**: Run the following command to get the object ID of the service principal: `az ad sp list --display-name "<display_name" --query "[].{\"Object ID\":objectId}" --output table`
 
 ## 2. Configure Azure storage to store Terraform state
 
@@ -62,7 +62,7 @@ Terraform tracks state locally via the `terraform.tfstate` file. This pattern wo
     az storage container create -n tfstate --account-name <storage_account_name> --account-key <storage_account_key>
     ```
 
-1. When the command successfully completes, a JSON block with a key of **"created"** and a value of **true** displays. You can also run [az storage container list](/cli/azure/storage/container#az_storage_container_list).
+1. When the command successfully completes, a JSON block with a key of **"created"** and a value of **true** displays. You can also run [az storage container list](/cli/azure/storage/container#az_storage_container_list) to verify the container was successfully created.
 
     ```azurecli
     az storage container list --account-name <storage_account_name> --account-key <storage_account_key>
@@ -110,9 +110,21 @@ Terraform tracks state locally via the `terraform.tfstate` file. This pattern wo
 
     **Key points:**
 
-    - Run `az account list-locations` to get the location value of your environment
+    - Replace the placeholders in the code with the appropriate information from your resource group and service principal.
 
-## 4. Test the Kubernetes cluster
+## 4. Initialize Terraform
+
+[!INCLUDE [terraform-init.md](includes/terraform-init.md)]
+
+## 5. Create a Terraform execution plan
+
+[!INCLUDE [terraform-plan.md](includes/terraform-plan.md)]
+
+## 6. Apply a Terraform execution plan
+
+[!INCLUDE [terraform-apply-plan.md](includes/terraform-apply-plan.md)]
+
+## 7. Verify the results: Test the Kubernetes cluster
 
 The Kubernetes tools can be used to verify the newly created cluster.
 
@@ -134,7 +146,7 @@ The Kubernetes tools can be used to verify the newly created cluster.
 
     ![The kubectl tool allows you to verify the health of your Kubernetes cluster](./media/create-k8s-cluster-with-aks-applicationgateway-ingress/kubectl-get-nodes.png)
 
-## 5. Install Azure AD Pod Identity
+## 8. Install Azure AD Pod Identity
 
 Azure Active Directory Pod Identity provides token-based access to [Azure Resource Manager](/azure/azure-resource-manager/resource-group-overview).
 
@@ -156,7 +168,7 @@ If RBAC is **disabled**, run the following command to install Azure AD Pod Ident
 kubectl create -f https://raw.githubusercontent.com/Azure/aad-pod-identity/master/deploy/infra/deployment.yaml
 ```
 
-## 6. Install Helm
+## 9. Install Helm
 
 The code in this section uses [Helm](/azure/aks/kubernetes-helm) - Kubernetes package manager - to install the `application-gateway-kubernetes-ingress` package:
 
@@ -167,7 +179,7 @@ helm repo add application-gateway-kubernetes-ingress https://appgwingress.blob.c
 helm repo update
 ```
 
-## 7. Install Ingress Controller Helm Chart
+## 10. Install Ingress Controller Helm Chart
 
 1. Download `helm-config.yaml` to configure AGIC:
 
@@ -208,7 +220,7 @@ helm repo update
     helm install -f helm-config.yaml application-gateway-kubernetes-ingress/ingress-azure --generate-name
     ```
 
-## 8. Install a sample app
+## 11. Install a sample app
 
 Once you have the App Gateway, AKS, and AGIC installed, install a sample app.
 
@@ -224,7 +236,7 @@ Once you have the App Gateway, AKS, and AGIC installed, install a sample app.
     kubectl apply -f aspnetapp.yaml
     ```
 
-## 9. Clean up resources
+## 12. Clean up resources
 
 [!INCLUDE [terraform-plan-destroy.md](includes/terraform-plan-destroy.md)]
 
