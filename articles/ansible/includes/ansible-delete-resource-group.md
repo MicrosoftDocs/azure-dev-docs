@@ -31,7 +31,7 @@
 
     **Key points**:
 
-    - Due to the `register` variable and `debug` section of the playbook, the results display when the command finishes.
+    - Because of the `register` variable and `debug` section of the playbook, the results display when the command finishes.
     
 #### [Azure CLI](#tab/azure-cli)
 
