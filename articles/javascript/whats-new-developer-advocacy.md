@@ -145,7 +145,7 @@ This content is primarily from Developer Advocates as well as other members of t
 
 |Cloud Advocate|Contributions|Link|
 |--|--|--|
-|[Anthony Chu](Anthony)|React Server Components running on Azure Static Web Apps|[Blog](https://react-notes.anthonychu.com/)|
+|[Anthony Chu][Anthony]|React Server Components running on Azure Static Web Apps|[Blog](https://react-notes.anthonychu.com/)|
 |[Yohan Lasorsa][Yohan] and [Maud Levy][Maud]|Beginner's Series to Node.js video series|**French** - [YouTube](https://www.youtube.com/watch?v=cPBzDqwMFFg&list=PLbl2SbVIi-Wo0EkNoLEnx4BE_xm4SsSRj&index=1)<br>|
 |[Tomomi Imura][Tomomi]|Beginner's Series to Node.js video series|**Japanese** - [YouTube](https://www.youtube.com/playlist?list=PLQEKit6tfVVKkp0ELOyKey_v7I89mxYZI)|
 |[Aaron Powell][Aaron]|GraphQL and TypeScript Workshop|[GitHub repo](https://github.com/aaronpowell/graphql-typescript-workshop)|
