@@ -44,18 +44,28 @@ Terraform tracks state locally via the `terraform.tfstate` file. This pattern wo
 
 1. Note the selected storage account name.
 
-1. On the storage account page, select **Access keys**.
+1. On the **Storage account** page, in the left menu, select **Access keys**.
 
-    ![Storage account menu](./media/terraform-k8s-cluster-appgw-with-tf-aks/storage-account.png)
+    ![The Storage account page has a menu option to get the access keys.](./media/create-k8s-cluster-with-aks-applicationgateway-ingress/access-keys-menu-option.png)
 
-1. Note the **key1** **key** value. (Selecting the icon to the right of the key copies the value to the clipboard.)
+1. On the **Access keys** page, select **Show keys** to display the key values.
 
-    ![Storage account access keys](./media/terraform-k8s-cluster-appgw-with-tf-aks/storage-account-access-key.png)
+    ![The Access keys page has an option to display the key values.](./media/create-k8s-cluster-with-aks-applicationgateway-ingress/show-keys-option.png)
 
-1. Create a container in your Azure storage account. Replace the placeholders with the appropriate values for your Azure storage account.
+1. Locate the **key1** **key** on the page and select the icon to its right to copy the key value to the clipboard.
+
+    ![A handy icon button allows you to copy the key values to the clipboard.](./media/create-k8s-cluster-with-aks-applicationgateway-ingress/copy-key-value.png)
+
+1. From a command line prompt, run [az storage container create](/cli/azure/storage/container#az_storage_container_create). This command creates a container in your Azure storage account. Replace the placeholders with the appropriate values for your Azure storage account.
 
     ```azurecli
     az storage container create -n tfstate --account-name <storage_account_name> --account-key <storage_account_key>
+    ```
+
+1. When the command successfully completes, a JSON block with a key of **"created"** and a value of **true** displays. You can also run [az storage container list](/cli/azure/storage/container#az_storage_container_list).
+
+    ```azurecli
+    az storage container list --account-name <storage_account_name> --account-key <storage_account_key>
     ```
 
 ## 3. Implement the Terraform code
@@ -122,7 +132,7 @@ The Kubernetes tools can be used to verify the newly created cluster.
 
     - The details of your worker nodes are displayed with a status of **Ready**.
 
-    ![The kubectl tool allows you to verify the health of your Kubernetes cluster](./media/terraform-k8s-cluster-appgw-with-tf-aks/kubectl-get-nodes.png)
+    ![The kubectl tool allows you to verify the health of your Kubernetes cluster](./media/create-k8s-cluster-with-aks-applicationgateway-ingress/kubectl-get-nodes.png)
 
 ## 5. Install Azure AD Pod Identity
 
@@ -198,7 +208,7 @@ helm repo update
     helm install -f helm-config.yaml application-gateway-kubernetes-ingress/ingress-azure --generate-name
     ```
 
-### 8. Install a sample app
+## 8. Install a sample app
 
 Once you have the App Gateway, AKS, and AGIC installed, install a sample app.
 
