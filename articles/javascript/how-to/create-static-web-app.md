@@ -2,7 +2,7 @@
 title: Build Static Web App on Azure with JavaScript
 description: Build a JAMstack app (JavaScript, APIs, and Markup) on Azure
 ms.topic: how-to
-ms.date: 05/03/2021
+ms.date: 08/30/2021
 ms.custom: devx-track-js
 ---
 
@@ -12,6 +12,22 @@ Azure Static Web Apps is a service that automatically builds and deploys full st
 
 * **Client apps**: Static web apps are commonly built using libraries and frameworks like Angular, React, Svelte, Vue, or Blazor where server-side rendering is not required.
 * **APIs**: API endpoints are hosted using a serverless architecture, which avoids the need for a full back-end server all together.
+
+**Video series**:
+
+* [1: What is Azure Static Web Apps and what can it be used for?](https://www.youtube.com/watch?v=w-tLZjO6XMc&list=PLlrxD0HtieHgMPeBaDQFx9yNuFxx6S1VG&index=4)
+* [2: What tools do you need to work with Azure Static Web Apps?](https://www.youtube.com/watch?v=l3SBq7L13Mk&list=PLlrxD0HtieHgMPeBaDQFx9yNuFxx6S1VG&index=2)
+* [3: How to deploy your first Azure Static Web Apps](https://www.youtube.com/watch?v=ADVGIXciYn8&list=PLlrxD0HtieHgMPeBaDQFx9yNuFxx6S1VG&index=3)
+* [4: How CI/CD and preview branches work with Azure Static Web Apps](https://www.youtube.com/watch?v=A-eALdCkpTw&list=PLlrxD0HtieHgMPeBaDQFx9yNuFxx6S1VG&index=4)
+* [5: How to create your personal blog with Gatsby & Azure Static Web Apps](https://www.youtube.com/watch?v=IZbcpUIke8s&list=PLlrxD0HtieHgMPeBaDQFx9yNuFxx6S1VG&index=5)
+* [6: How to configure routing in Azure Static Web Apps](https://www.youtube.com/watch?v=A70tGiaHCTE&list=PLlrxD0HtieHgMPeBaDQFx9yNuFxx6S1VG&index=6)
+* [7: How to add an API to your Azure Static Web App](https://www.youtube.com/watch?v=VzML-6DClVU&list=PLlrxD0HtieHgMPeBaDQFx9yNuFxx6S1VG&index=7)
+* [8: How to integrate authentication](https://www.youtube.com/watch?v=TygnLOA68B0&list=PLlrxD0HtieHgMPeBaDQFx9yNuFxx6S1VG&index=8)
+* [9: How to configure authorization in Azure Static Web Apps](https://www.youtube.com/watch?v=r5yrxgc12q4&list=PLlrxD0HtieHgMPeBaDQFx9yNuFxx6S1VG&index=9)
+* [10: How to set up a custom domain name in Azure Static Web Apps](https://www.youtube.com/watch?v=SpQgKfJ87fE&list=PLlrxD0HtieHgMPeBaDQFx9yNuFxx6S1VG&index=10)
+* [14: Create JavaScript serverless apps with Azure Static Web Apps, etc](https://www.youtube.com/watch?v=-z1NHptprKg&list=PLlrxD0HtieHgMPeBaDQFx9yNuFxx6S1VG&index=14)
+* [15: How to create your Azure Static Web Apps from a GitHub template](https://www.youtube.com/watch?v=oV4XMevxpiM&list=PLlrxD0HtieHgMPeBaDQFx9yNuFxx6S1VG&index=15)
+* [16: Setup Cosmos DB w/ a MongoDB API to use w/ Azure Static Web Apps](https://www.youtube.com/watch?v=R9qhGra9FHs&list=PLlrxD0HtieHgMPeBaDQFx9yNuFxx6S1VG&index=16)
 
 **Samples**:
 

@@ -13,7 +13,7 @@ ms.custom: devx-track-ansible
 
 Azure automatically routes traffic between Azure subnets, virtual networks, and on-premises networks. If you need more control over your environment's routing, you can create a [route table](/azure/virtual-network/virtual-networks-udr-overview). 
 
-[!INCLUDE [ansible-tutorial-goals.md](includes/ansible-tutorial-goals.md)]
+In this article, you learn how to:
 
 > [!div class="checklist"]
 >
