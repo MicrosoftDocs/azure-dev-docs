@@ -155,7 +155,7 @@ To learn more about the `DefaultAzureCredential`, check out [Azure authenticatio
 Choosing one of the following options to configure your service principal credentials:
 
 * [Option 1: Authenticate with a secret](#authenticate-with-a-secret)
-* [Option 2: Authenticate with a certificate](authenticate-with-a-certificate)
+* [Option 2: Authenticate with a certificate](#authenticate-with-a-certificate)
 
 ### <span id="authenticate-with-a-secret"/> Option 1: Authenticate with a secret
 
@@ -167,7 +167,7 @@ Define the following environment variables:
 |`AZURE_TENANT_ID`|ID of the application's Azure AD tenant
 |`AZURE_CLIENT_SECRET`|One of the application's client secrets
 
-# [Bash](#tab/bash)
+# [Bash](#tab/azure-cli)
 
 ```bash
 export AZURE_SUBSCRIPTION_ID="<azure_subscription_id>"
@@ -195,7 +195,7 @@ $env:AZURE_CLIENT_SECRET="<service_principal_password>"
 |`AZURE_TENANT_ID`|ID of the application's Azure AD tenant
 |`AZURE_CLIENT_CERTIFICATE_PATH`|Path to a PEM-encoded certificate file including private key (without password protection)
 
-# [Bash](#tab/bash)
+# [Bash](#tab/azure-cli)
 
 ```bash
 export AZURE_SUBSCRIPTION_ID="<azure_subscription_id>"
