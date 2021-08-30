@@ -146,7 +146,7 @@ Replace `<pftPassword>` and `<servicePrincipalName>` with the appropriate value.
 
 ---
 
-## Authenticate to Azure with a service principal
+## 3. Authenticate to Azure with a service principal
 
 The `DefaultAzureCredential` is a chained credential that makes it easy to run your application with different credentials without reconfiguring the credential type. Use it to configure your service principal credentials by defining environment variables.
 
@@ -236,7 +236,7 @@ Replace `<subscriptionId>` with the subscription ID of the subscription you want
 
 - You can authenticate a service principal without using environment variables. To learn more, check out [Authenticating a service principal with a client secret](https://github.com/Azure/azure-sdk-for-go/wiki/Azure-Identity-Examples#authenticating-a-service-principal-with-a-client-secret) or [Authenticating a service principal with a client certificate](https://github.com/Azure/azure-sdk-for-go/wiki/Azure-Identity-Examples#authenticating-a-service-principal-with-a-client-certificate).
 
-## Create a resource group tag (sample)
+## 4. Create a resource group tag (sample)
 
 Use the following code sample to verify that your service principal authenticates to Azure and has the appropriate permissions to the resource group.
 
