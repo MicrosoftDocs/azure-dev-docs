@@ -194,7 +194,7 @@
           - name: Getting started
             href: how-to/with-authentication/getting-started.md
           - name: Easy auth with Static Web Apps
-            href: with-web-app/static-web-app-with-swa-cli/add-authentication.md
+            href: how-to/with-web-app/static-web-app-with-swa-cli/add-authentication.md
           - name: Easy auth with Express.js
             href: how-to/with-web-app/add-authentication-to-web-app.md
           - name: Add a simple MSAL.js Login button for Microsoft Identity provider
