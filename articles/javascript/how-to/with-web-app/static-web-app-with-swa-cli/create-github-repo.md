@@ -68,4 +68,4 @@ Configure the local directory to connect to the remote GitHub repository.
 
 ## Next steps
 
-* [Create the react app](create-react-app.md)
+* [Create the React app](create-react-app.md)

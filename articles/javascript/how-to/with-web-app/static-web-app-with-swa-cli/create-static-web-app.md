@@ -31,7 +31,7 @@ If this is your first Azure resource, you may be asked other questions such as r
 # [Azure CLI](#tab/create-swa-azure-cli)
 
 
-In the VS Code integrated terminal, where you logged into the Azure CLI in a previous section of this article, use the following Azure CLI command, [az staticwebapp create](/cli/staticwebapp#az_staticwebapp_create), to create your Static Web App:
+In the VS Code integrated terminal, where you logged into the Azure CLI in a previous section of this article, use the following Azure CLI command, [az staticwebapp create](/cli/azure/staticwebapp#az_staticwebapp_create), to create your Static Web App:
 
 ```azurecli
 az staticwebapp create \
