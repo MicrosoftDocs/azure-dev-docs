@@ -12,7 +12,7 @@ ms.custom: devx-track-js
 In this article, add authentication to the React client app, which uses the Static Web app authentication. 
 
 
-* Sample [basic app and API with authentication](https://github.com/Azure-Samples/js-e2e-static-web-app-with-cli/tree/2-basic-app-with-api-and-auth)
+* Sample [basic app and API with authentication](https://github.com/Azure-Samples/js-e2e-static-web-app-with-cli/tree/2-basic-app-with-api-and-auth) - on branch named `2-basic-app-with-api-and-auth`
 
 ## Create navigation bar for authentication
 

@@ -23,6 +23,8 @@ The local Static Web app CLI provides:
 * A local authentication emulator when accessing `/.auth/login/<provider>`
 * Route management and authorization 
 
+Complete sample code provided:
+
 * Sample [basic app](https://github.com/Azure-Samples/js-e2e-static-web-app-with-cli/tree/1-basic-app-with-api) - on branch named `1-basic-app-with-api`
 * Sample [basic app with auth](https://github.com/Azure-Samples/js-e2e-static-web-app-with-cli/tree/2-basic-app-with-api-and-auth) - on branch named `2-basic-app-with-api-and-auth`
 
