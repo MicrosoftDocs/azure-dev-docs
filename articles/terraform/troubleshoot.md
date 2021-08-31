@@ -39,24 +39,24 @@ If you encounter a problem that is specific to Terraform, use one of [HashiCorp'
 
 **Cause**: As of this writing, the Terraform script that runs in Cloud Shell overwrites the `ARM_SUBSCRIPTION_ID` and `ARM_TENANT_ID` environment variables using values from the current Azure subscription. As a result, if the service principal referenced by the environment variables doesn't have rights to the current Azure subscription, any Terraform operations will fail.
 
-## Error acquring the state lock
+## Error acquiring the state lock
 
 **Error message:**
 
-*Error: Error acquiring the state lock; Error message: 2 errors occurred:
-       * state blob is already locked
-       * blob metadata "terraformlockid" was empty
-Terraform acquires a state lock to protect the state from being written by multiple users at the same time. Please resolve the issue above and try again. For most commands, you can disable locking with the "-lock=false" flag, but this is not recommended.
+*Error: Error acquiring the state lock; Error message: 2 errors occurred:  
+\* state blob is already locked  
+\* blob metadata "terraformlockid" was empty  
+Terraform acquires a state lock to protect the state from being written by multiple users at the same time. Please resolve the issue above and try again. For most commands, you can disable locking with the "-lock=false" flag, but this is not recommended.*
 
-**Background:** If you're running Terraform commands against a Terraform state file and the above is the only message that appears. Applies to local and remote state files.
+**Background:** If you're running Terraform commands against a Terraform state file and this error is the only message that appears, the following causes might apply. Applies to local and remote state files.
 
-**Cause:** There are two potential causes for this error. The first would be a Terraform command is already running against the state file and has forced a lock on the file so it doesn't break anything. The second would be a connection interuption between the state file and the CLI while running commands, this is mostly common when using remote state files.
+**Cause:** There are two potential causes for this error. The first is that a Terraform command is already running against the state file and it has forced a lock on the file, so nothing breaks. The second potential cause is that a connection interruption occurred between the state file and the CLI when commands were running. This interruption most commonly occurs when you're using remote state files.
 
-**Resolution:** First make sure you are not already running any commands against the state file. If you are working with a local state file, check if you have terminals running any commands. Alternatively, check your deployment pipelines to see if you have something running that could be using the state file. If this doesn't resolve the issue then it's possible you are seeing the second cause listed above. For a remote state file stored in an Azure Storage Account Container you can locate the file and use the [Break Lease] button.
+**Resolution:** First, make sure that you aren't already running any commands against the state file. If you're working with a local state file, check to see whether you have terminals running any commands. Alternatively, check your deployment pipelines to see whether something running might be using the state file. If this doesn't resolve the issue, it's possible that the second cause triggered the error. For a remote state file stored in an Azure Storage account container, you can locate the file and use the **Break lease** button.
 
-![Azure Storage Container Break Lease](media//troubleshoot/terraform-statelock-resolved.png)
+![Screenshot that shows the Azure Storage container Break lease button.](media/troubleshoot/terraform-statelock-resolved.png)
 
-If you are using other backends to store your state file, then refer to the providers documentation on [HashiCorp's site](https://www.terraform.io/docs/cli/index.html) for recommendations.
+If you're using other back ends to store your state file, for recommendations, see the [HashiCorp documentation](https://www.terraform.io/docs/cli/index.html).
 
 ## VPN errors
 
