@@ -2,7 +2,7 @@
 title: "What's new for JavaScript docs"
 description: "What's new in JavaScript docs in the Developer Center"
 ms.topic: conceptual
-ms.date: 08/19/2021
+ms.date: 08/31/2021
 
 
 ---
@@ -11,8 +11,16 @@ ms.date: 08/19/2021
 
 Find new and updated content for JavaScript and TypeScript developers.
 
-
 ## 2021 August 
+
+### New in August
+
+|Name|Description|
+|---------------------------------------|--|
+|[Create Static Web app using CLI](how-to/with-web-app/static-web-app-with-swa-cli/introduction.md)|In this article series, learn how to create a Static Web App (SWA). Locally develop using the SWA CLI with a proxy between the local client and API, including authentication. Run the same code remotely on Azure without changes.|
+
+
+### Updates in August
 
 |Name|Description|
 |---------------------------------------|--|
