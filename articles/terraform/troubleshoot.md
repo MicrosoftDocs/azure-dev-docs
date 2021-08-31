@@ -54,7 +54,7 @@ Terraform acquires a state lock to protect the state from being written by multi
 
 **Resolution:** First make sure you are not already running any commands against the state file. If you are working with a local state file, check if you have terminals running any commands. Alternatively, check your deployment pipelines to see if you have something running that could be using the state file. If this doesn't resolve the issue then it's possible you are seeing the second cause listed above. For a remote state file stored in an Azure Storage Account Container you can locate the file and use the [Break Lease] button.
 
-![Azure Storage Container Break Lease](media//troubleshoot/terraform_statelock_resolved.png)
+![Azure Storage Container Break Lease](media//troubleshoot/terraform-statelock-resolved.png)
 
 If you are using other backends to store your state file, then refer to the providers documentation on [HashiCorp's site](https://www.terraform.io/docs/cli/index.html) for recommendations.
 
