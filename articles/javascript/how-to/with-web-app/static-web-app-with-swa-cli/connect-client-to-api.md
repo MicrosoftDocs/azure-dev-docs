@@ -11,7 +11,7 @@ ms.custom: devx-track-js
 
 Change the local React app code to use the Azure Function API. 
 
-At this point in the article series, both the React client and the Azure Function API work both locally and remotely, _but_ they don't work together in either environment. The remote environment provides a proxy between the two environments but the local environment doesn't. Use the Static Web App CLI (SWA CLI) to provide the proxied environment for your local app.
+At this point in the article series, both the React client and the Azure Function API work both locally and remotely. The remote Azure Static Web app provides a proxy between the React client and API. The local environment needs the same proxy so the local React client and API can work together. Use the Static Web App CLI (SWA CLI) to provide the proxied environment for your local app.
 
 Run both the React and Functions development environments, provided by each framework, then use those app URLs with the SWA CLI to provide the proxy between the two. 
 
@@ -23,10 +23,10 @@ Run both the React and Functions development environments, provided by each fram
     npm init -y
     ```
 
-1. Install concurrently to run `package.json` scripts:
+1. Install required dependencies to run `package.json` scripts:
 
     ```bash
-    npm install concurrently azure-functions-core-tools@3 --save-dev 
+    npm install concurrently azure-functions-core-tools@3 static-web-apps-cli --save-dev 
     ```
 
 1. Replace the current `package.json` file's `scripts` section with the following script entries:
@@ -62,7 +62,7 @@ The React client and the Azure Function API have separate local development serv
     npm run start-swa
     ```
 
-    The React client is now available on both port 3000 (with a proxy to the API) and on port 4280. For the rest of the article, use port 4280 when you want to use the React app.  
+    The React client is now available on both port 3000 and on port 4280 (with a proxy to the API) . For the rest of the article, use port 4280 when you want to use the React app.  
 
     :::image type="content" source="../../../media/static-web-app-with-swa-cli/run-both-client-and-api-locally-separate-vs-code.png" alt-text="Partial screenshot of Windows desktop with two separate VS Code instances running." lightbox="../../../media/static-web-app-with-swa-cli/run-both-client-and-api-locally-separate-vs-code.png":::
 
@@ -88,7 +88,7 @@ In VS Code for the React app, find the `./src/App.tsx file` and replace the enti
 1. Check the new app code into your local repo and push to the remote repo:
    
    ```bash
-   git add . && git commit -m "hello api" && git push origin main
+   git add . && git commit -m "hello swa cli" && git push origin main
    ```
 
 1. In a web browser, go back to your GitHub repo, and make sure the next build of your Action succeeds with these new changes. The actions URL should look like:

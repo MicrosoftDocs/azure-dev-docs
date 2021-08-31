@@ -20,7 +20,7 @@ The Static Web app consists of:
 
 The local Static Web app CLI provides:
 * A proxy local between from the React app to the Function API. The URL in the React looks like `/api/hello`, without specifying the server or port number for the API. Requests using this URL are successful locally because the SWA CLI manages the proxy for you.  
-* Mocked authentication routes 
+* A local authentication emulator when accessing `/.auth/login/<provider>`
 * Route management and authorization 
 
 * Sample [basic app](https://github.com/azure-samples/js-e2e-static-web-app-with-cli-1-basic-app-with-api)
@@ -35,11 +35,7 @@ Install the following:
 * [Visual Studio Code](https://code.visualstudio.com/Download) (VS Code)
 * [Node.js](https://nodejs.org/en/download/) - this create-react-app was developed with Node.js v14.17.1. 
 * [Azure Functions Core Tools](/azure/azure-functions/functions-run-local?tabs=windows%2Ccsharp%2Cportal%2Cbash%2Ckeda#install-the-azure-functions-core-tools) - v3.0.3477+
-* [SWA CLI](https://github.com/azure/static-web-apps-cli)
 
-    ```bash
-    npm install -g @azure/static-web-apps-cli
-    ```
 
 ### Sign in to Azure CLI
 

@@ -43,7 +43,7 @@ az staticwebapp create \
     --location YOUR-LOCATION \
     --branch main \
     --app-location "app" \
-    --app-artifact-location "build"
+    --output-location "build"
 ```
 
 ---
@@ -80,7 +80,7 @@ az staticwebapp create \
 ## Troubleshooting GitHub Actions for Static Web apps
 
 If your app didn't build successfully, there are usually a few top issues:
- * Your locations for your assets inside your project, app location of `app` and asset directory such as `build`, are not correct. 
+ * Your locations for your assets inside your project, app location of `app` and build outpu directory such as `build`, are not correct. 
  * Your build environment doesn't match your local development environment and that difference is causing a problem.
  * Your project size, with dependencies, exceeds the size limitation [quota](/static-web-apps/quotas) for Static Web apps. 
  * Other [troubleshooting steps](/azure/static-web-apps/troubleshooting) for Static Web apps.

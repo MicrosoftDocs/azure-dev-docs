@@ -42,6 +42,8 @@ Delete your GitHub repo, and all the files associated with it.
 
 ## Remove your authentication from the authentication provider
 
+If you deploy your app to the remote Static Web app, then want to remove your personal authentication approvals, you need to purge these approvals. This step isn't needed if you haven't deployed to Azure.
+
 Purge your authentication from your providers, using the following links:
 
 * [Twitter](https://identity.azurestaticapps.net/.auth/purge/twitter)

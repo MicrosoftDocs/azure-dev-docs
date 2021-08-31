@@ -25,10 +25,10 @@ The React app will be the user interface for this simple app. All of the code is
 1. Install dependencies for the local React app:
 
     ```bash
-    cd app && npm install typescript --save-dev && npm install && cd ..
+    cd app && npm install typescript --save-dev && npm install 
     ```
 
-1. Change `tsconfig.json` to ignore compile errors for any variables without a specified type:
+1. Change `./app/tsconfig.json` to ignore compile errors for any variables without a specified type:
 
     ```json
     "noImplicitAny": false
@@ -38,7 +38,7 @@ The React app will be the user interface for this simple app. All of the code is
 
 ## Build and run local React app
 
-1. Verify local React app builds successfully:
+1. Verify local React app builds successfully by running the following command from the `./app` directory:
 
     ```bash
     npm run build
@@ -52,7 +52,8 @@ The React app will be the user interface for this simple app. All of the code is
     npm start
     ```
 
-1. When you see the project successfully loaded in the browser, stop the run time with <kbd>Ctrl</kbd> + <kbd>c</kbd>.
+1. When you see the project successfully loaded in the browser, go back to bash terminal and stop the runtime with <kbd>Ctrl</kbd> + <kbd>c</kbd>.
+   
 1. In the bash terminal, move back to the root of the project:
 
     ```bash 
