@@ -4,10 +4,10 @@
   items:
   - name: About Jenkins on Azure
     href: overview.md
-- name: Quickstarts
+- name: Get started
   expanded: true
   items:
-  - name: Configure Jenkins using Azure CLI
+  - name: Install Jenkins on a Linux VM
     href: configure-on-linux-vm.md
 - name: Tutorials
   items:
