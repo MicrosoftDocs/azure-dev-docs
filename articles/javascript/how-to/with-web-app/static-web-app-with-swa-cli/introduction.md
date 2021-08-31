@@ -2,7 +2,7 @@
 title: "Intro: Create Static web app using CLI"
 description: Create a Static Web App (React and API) and locally develop using the SWA CLI. Run the same code locally and remotely to ensure that customers get the correct web behavior.
 ms.topic: how-to
-ms.date: 08/27/2021
+ms.date: 08/31/2021
 ms.custom: devx-track-js
 #intent: Create Express.js web app with easy auth configured. 
 ---

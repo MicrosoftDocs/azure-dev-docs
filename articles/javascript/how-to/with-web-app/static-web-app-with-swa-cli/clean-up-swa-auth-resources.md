@@ -2,7 +2,7 @@
 title: "8-Clean up: Remove resources"
 description: Clean up all resources created in this article series.
 ms.topic: how-to
-ms.date: 08/27/2021
+ms.date: 08/31/2021
 ms.custom: devx-track-js
 ---
 

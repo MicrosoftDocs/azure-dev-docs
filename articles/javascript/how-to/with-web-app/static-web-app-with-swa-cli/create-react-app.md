@@ -2,7 +2,7 @@
 title: "3-Client: Create React app"
 description: The React app will be the user interface for this simple app. All of the code is provided for you, as part of the complete sample. 
 ms.topic: how-to
-ms.date: 08/27/2021
+ms.date: 08/31/2021
 ms.custom: devx-track-js
 #intent: Create Express.js web app with easy auth configured. 
 ---

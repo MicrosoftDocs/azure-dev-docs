@@ -2,7 +2,7 @@
 title: "7-Auth: Add easy authentication"
 description: In this article, add authentication to the React client app, which uses the Static Web app authentication.
 ms.topic: how-to
-ms.date: 08/27/2021
+ms.date: 08/31/2021
 ms.custom: devx-track-js
 #intent: Create Express.js web app with easy auth configured. 
 ---
