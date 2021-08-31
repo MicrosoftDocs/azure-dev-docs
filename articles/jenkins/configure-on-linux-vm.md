@@ -1,17 +1,17 @@
 ---
-title: Get Started - Configure Jenkins using Azure CLI
+title: Get Started - Install Jenkins on an Azure Linux VM
 description: Learn how to install Jenkins on an Azure Linux virtual machine and build a sample Java application.
 keywords: jenkins, azure, devops, portal, linux, virtual machine
 ms.topic: quickstart
-ms.date: 08/28/2021
+ms.date: 08/30/2021
 ms.custom: devx-track-jenkins, devx-track-azurecli
 ---
 
-# Get Started: Configure Jenkins using Azure CLI
+# Get Started: Install Jenkins on an Azure Linux VM
 
 This article shows how to install [Jenkins](https://jenkins.io) on an Ubuntu Linux VM with the tools and plug-ins configured to work with Azure.
 
-In this article, you learn how to:
+In this article, you'll learn how to:
 
 > [!div class="checklist"]
 
@@ -23,25 +23,21 @@ In this article, you learn how to:
 > * Configure a sample Jenkins job based on a sample Java app in GitHub
 > * Build the sample Jenkins job
 
-## Prerequisites
+## 1. Configure your environment
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../includes/open-source-devops-prereqs-azure-subscription.md)]
 
-## Troubleshooting
+## 2. Open Cloud Shell
 
-If you encounter any problems configuring Jenkins, refer to the [Cloudbees Jenkins installation page](https://www.jenkins.io/doc/book/installing/) for the latest instructions and known issues.
+[!INCLUDE [open-cloud-shell.md](../includes/open-cloud-shell.md)]
 
-## Create a virtual machine
+## 3. Create a virtual machine
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Create a test directory called `jenkins-get-started`.
 
-1. Open [Azure Cloud Shell](/azure/cloud-shell/overview) and - if not done already - switch to **Bash**.
+1. Switch to the test directory.
 
 1. Create a file named `cloud-init-jenkins.txt`.
-
-    ```bash
-    code cloud-init-jenkins.txt
-    ```
 
 1. Paste the following code into the new file:
 
@@ -49,58 +45,55 @@ If you encounter any problems configuring Jenkins, refer to the [Cloudbees Jenki
     #cloud-config
     package_upgrade: true
     runcmd:
-      - apt install openjdk-8-jdk -y
+      - sudo apt install openjdk-8-jdk -y
       - wget -qO - https://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo apt-key add -
       - sh -c 'echo deb https://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list'
-      - apt-get update && apt-get install jenkins -y
-      - service jenkins restart
+      - sudo apt-get update && sudo apt-get install jenkins -y
+      - sudo service jenkins restart
     ```
-
-1. Save the file (**&lt;Ctrl>S**) and exit the editor (**&lt;Ctrl>Q**).
-
-1. Create a resource group using [az group create](/cli/azure/group#az_group_create). You might need to replace the `--location` parameter with the appropriate value for your environment.
+    
+1. Run [az group create](/cli/azure/group#az_group_create) to create a resource group.
 
     ```azurecli
-    az group create \
-    --name QuickstartJenkins-rg \
-    --location eastus
+    az group create --name jenkins-get-started-rg --location eastus
     ```
 
-1. Create a virtual machine using [az vm create](/cli/azure/vm#az_vm_create).
+1. Run [az vm create](/cli/azure/vm#az_vm_create) to create a virtual machine.
 
     ```azurecli
     az vm create \
-    --resource-group QuickstartJenkins-rg \
-    --name QuickstartJenkins-vm \
+    --resource-group jenkins-get-started-rg \
+    --name jenkins-get-started-vm \
     --image UbuntuLTS \
     --admin-username "azureuser" \
     --generate-ssh-keys \
+    --public-ip-sku Standard \
     --custom-data cloud-init-jenkins.txt
     ```
 
-1. Verify the creation (and state) of the new virtual machine using [az vm list](/cli/azure/vm#az_vm_list).
+1. Run [az vm list](/cli/azure/vm#az_vm_list) to verify the creation (and state) of the new virtual machine.
 
     ```azurecli
-    az vm list -d -o table --query "[?name=='QuickstartJenkins-vm']"
+    az vm list -d -o table --query "[?name=='jenkins-get-started-vm']"
     ```
 
-1. By default, Jenkins runs on port 8080. Therefore, open port 8080 on the new virtual machine using [az vm open](/cli/azure/vm#az_vm_open_port).
+1. As Jenkins runs on port 8080, run [az vm open](/cli/azure/vm#az_vm_open_port) to open port 8080 on the new virtual machine.
 
     ```azurecli
     az vm open-port \
-    --resource-group QuickstartJenkins-rg \
-    --name QuickstartJenkins-vm  \
+    --resource-group jenkins-get-started-rg \
+    --name jenkins-get-started-vm  \
     --port 8080 --priority 1010
     ```
 
-## Configure Jenkins
+## 4. Configure Jenkins
 
-1. Get the public IP address for the sample virtual machine using [az vm show](/cli/azure/vm#az_vm_show).
+1. Run [az vm show](/cli/azure/vm#az_vm_show) to get the public IP address for the sample virtual machine.
 
     ```azurecli
     az vm show \
-    --resource-group QuickstartJenkins-rg \
-    --name QuickstartJenkins-vm -d \
+    --resource-group jenkins-get-started-rg \
+    --name jenkins-get-started-vm -d \
     --query [publicIps] \
     --output tsv
     ```
@@ -117,7 +110,7 @@ If you encounter any problems configuring Jenkins, refer to the [Cloudbees Jenki
 
     **Key points**:
 
-    - Upon successful connection, the Cloud Shell prompt includes the user name and virtual machine name: `azureuser@QuickstartJenkins-vm`.
+    - Upon successful connection, the Cloud Shell prompt includes the user name and virtual machine name: `azureuser@jenkins-get-started-vm`.
 
 1. Verify that Jenkins is running by getting the status of the Jenkins service.
 
@@ -157,7 +150,7 @@ If you encounter any problems configuring Jenkins, refer to the [Cloudbees Jenki
 
     ![Jenkins is ready!](./media/configure-on-linux-vm/start-using-jenkins.png)
 
-## Create your first job
+## 5. Create your first job
 
 1. On the Jenkins home page, select **Create a job**.
 
@@ -189,7 +182,7 @@ If you encounter any problems configuring Jenkins, refer to the [Cloudbees Jenki
 
 1. Scroll to the bottom of the page, and select **Save**.
 
-## Build the sample Java app
+## 6. Build the sample Java app
 
 1. When the home page for your project displays, select **Build Now** to compile the code and package the sample app.
 
@@ -208,6 +201,10 @@ If you encounter any problems configuring Jenkins, refer to the [Cloudbees Jenki
     ![The target library verifies that the build succeeded](./media/configure-on-linux-vm/successful-build.png)
 
 1. Your Jenkins server is now ready to build your own projects in Azure!
+
+## Troubleshooting
+
+If you encounter any problems configuring Jenkins, refer to the [Cloudbees Jenkins installation page](https://www.jenkins.io/doc/book/installing/) for the latest instructions and known issues.
 
 ## Next steps
 
