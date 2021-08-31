@@ -81,7 +81,7 @@ resource "azurerm_virtual_desktop_host_pool" "example" {
   type                     = "<Pooled>" #[Pooled Personal]
   maximum_sessions_allowed = <MaxSessionLimit> 
   load_balancer_type       = "<BreadthFirst>" #[BreadthFirst DepthFirst]
-  friendly_name            = "<WVDHostPoolFriendlyName>"
+  friendly_name            = "<AVDHostPoolFriendlyName>"
   custom_rdp_properties    = "audiocapturemode:i:1;audiomode:i:0;"
   preferred_app_group_type = "<Desktop>" #[Desktop RemoteApp]
   start_vm_on_connect      = "true"
@@ -160,7 +160,7 @@ resource "azurerm_virtual_desktop_host_pool" "example" {
   type                     = "<Pooled>" #[Pooled Personal]
   maximum_sessions_allowed = <MaxSessionLimit> 
   load_balancer_type       = "<BreadthFirst>" #[BreadthFirst DepthFirst]
-  friendly_name            = "<WVDHostPoolFriendlyName>"
+  friendly_name            = "<AVDHostPoolFriendlyName>"
   custom_rdp_properties    = "audiocapturemode:i:1;audiomode:i:0;"
   preferred_app_group_type = "<Desktop>" #[Desktop RemoteApp]
   start_vm_on_connect      = "true"
