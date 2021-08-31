@@ -1,5 +1,5 @@
 ---
-title: "6-Integration: Connect app to api"
+title: "6-Integration: Connect app to API"
 description: Change the local React app code to use the Azure Function API.
 ms.topic: how-to
 ms.date: 08/31/2021
@@ -64,7 +64,7 @@ The React client and the Azure Function API have separate local development serv
 
     The React client is now available on both port 3000 and on port 4280 (with a proxy to the API) . For the rest of the article, use port 4280 when you want to use the React app.  
 
-    :::image type="content" source="../../../media/static-web-app-with-swa-cli/run-both-client-and-api-locally-separate-vs-code.png" alt-text="Partial screenshot of Windows desktop with two separate VS Code instances running." lightbox="../../../media/static-web-app-with-swa-cli/run-both-client-and-api-locally-separate-vs-code.png":::
+    :::image type="content" source="../../../media/static-web-app-with-swa-cli/run-both-client-and-api-locally-separate-visual-studio-code.png" alt-text="Partial screenshot of Windows desktop with two separate VS Code instances running." lightbox="../../../media/static-web-app-with-swa-cli/run-both-client-and-api-locally-separate-visual-studio-code.png":::
 
 
 ## Add an HTML form to the React app to use the Function API
