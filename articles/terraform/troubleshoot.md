@@ -41,7 +41,7 @@ If you encounter a problem that is specific to Terraform, use one of [HashiCorp'
 
 ## Error acquring the state lock
 
-**Error message:""
+**Error message:**
 
 *Error: Error acquiring the state lock; Error message: 2 errors occurred:
        * state blob is already locked
