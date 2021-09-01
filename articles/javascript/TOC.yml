@@ -193,11 +193,13 @@
         items:
           - name: Getting started
             href: how-to/with-authentication/getting-started.md
-          - name: Add easy authentication
+          - name: Easy auth with Static Web Apps
+            href: how-to/with-web-app/static-web-app-with-swa-cli/add-authentication.md
+          - name: Easy auth with Express.js
             href: how-to/with-web-app/add-authentication-to-web-app.md
-          - name: Add a simple Login button for Microsoft Identity provider
+          - name: Add a simple MSAL.js Login button for Microsoft Identity provider
             href: tutorial/single-page-application-azure-login-button-sdk-msal.md
-          - name: Static web app with API
+          - name: Add MSAL.js to Static web app with API
             items:
               - name: Introduction
                 href: how-to/with-authentication/static-web-app-with-api/introduction.md
@@ -209,7 +211,7 @@
                 href: how-to/with-authentication/static-web-app-with-api/add-mongodb-database-to-api.md
               - name: Deploy to Azure
                 href: how-to/with-authentication/static-web-app-with-api/deploy-static-web-app-to-azure.md
-          - name: Add to server app
+          - name: Add MSAL.js to server app
             href: how-to/with-web-app/deploy-msal-sdk-authentication-expressjs.md
       - name: With Visual Studio Code
         items:
