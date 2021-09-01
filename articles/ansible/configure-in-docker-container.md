@@ -29,89 +29,85 @@ In this article, you learn to:
 
 [!INCLUDE [ansible-service-principal.md](includes/ansible-service-principal.md)]
 
-## Create a Dockerfile
-
-From the terminal, create a new `Dockerfile`.
-
-# [Bash](#tab/bash)
-```bash
-touch Dockerfile
-```
-# [PowerShell](#tab/powershell)
-```powershell
-New-Item Dockerfile
-```
----
-
 ## Install Ansible with a Dockerfile
 
-Open the `Dockerfile` and copy the follow Docker commands into the file.
+1. Create a directory in which to test and run the sample code and make it the current directory.
 
-**Ansible 2.9**
+1. Create a new file named `Dockerfile`.
 
-```dockerfile
-FROM centos:7
+1. Based on the version of Ansible you're using, insert the following Docker commands into the new file.
 
-ENV ANSIBLE_VERSION 2.9.17
+    **Ansible 2.9**
 
-RUN yum check-update; \
-    yum install -y gcc libffi-devel python3 epel-release; \
-    yum install -y python3-pip; \
-    yum clean all
+    ```dockerfile
+    FROM centos:7
+    
+    ENV ANSIBLE_VERSION 2.9.17
+    
+    RUN yum check-update; \
+        yum install -y gcc libffi-devel python3 epel-release; \
+        yum install -y python3-pip; \
+        yum clean all
+    
+    RUN pip3 install --upgrade pip; \
+        pip3 install "ansible==${ANSIBLE_VERSION}"; \
+        pip3 install ansible[azure]
+    ```
 
-RUN pip3 install --upgrade pip; \
-    pip3 install "ansible==${ANSIBLE_VERSION}"; \
-    pip3 install ansible[azure]
-```
+    **Ansible 2.10**
 
-**Ansible 2.10**
-
-```dockerfile
-FROM centos:7
-
-RUN yum check-update; \
-    yum install -y gcc libffi-devel python3 epel-release; \
-    yum install -y python3-pip; \
-    yum install -y wget; \
-    yum clean all
-
-RUN pip3 install --upgrade pip; \
-    pip3 install "ansible"; \
-    wget -q https://raw.githubusercontent.com/ansible-collections/azure/dev/requirements-azure.txt; \
-    pip3 install -r requirements-azure.txt; \
-    rm requirements-azure.txt; \
-    ansible-galaxy collection install azure.azcollection
-```
+    ```dockerfile
+    FROM centos:7
+    
+    RUN yum check-update; \
+        yum install -y gcc libffi-devel python3 epel-release; \
+        yum install -y python3-pip; \
+        yum install -y wget; \
+        yum clean all
+    
+    RUN pip3 install --upgrade pip; \
+        pip3 install "ansible"; \
+        wget -q https://raw.githubusercontent.com/ansible-collections/azure/dev/requirements-azure.txt; \
+        pip3 install -r requirements-azure.txt; \
+        rm requirements-azure.txt; \
+        ansible-galaxy collection install azure.azcollection
+    ```
 
 ## Build an Ansible Docker image
 
-Within the directory containing the `Dockerfile`, run the following Docker command:
+Run [docker build](https://docs.docker.com/engine/reference/commandline/build/) to build the Docker image.
 
 ```cmd
 docker build . -t ansible
 ```
 
-The docker build command executes the commands defined within the `Dockerfile`, which produces the Docker image used to run Ansible within a container.
+**Key points:**
+
+- The [docker build](https://docs.docker.com/engine/reference/commandline/build/) command executes the commands defined within the `Dockerfile` to produce a Docker image.
+- In this article's example, that Docker image is used to run Ansible.
 
 ## Start an Ansible container
 
-Run the `docker run` command to start the Ansible container.
+1. Run the [`docker run`](https://docs.docker.com/engine/reference/commandline/run/) to start the Ansible container.
 
-```cmd
-docker run -it ansible
-```
+    ```cmd
+    docker run -it ansible
+    ```
 
-By default, Docker containers start detached from the terminal, running in the background. The `-it` option stands for interactive terminal allowing you to run commands inside the Docker container.
+    **Key points:**
 
-Confirm Ansible was installed by running the command `ansible --version` inside the Docker container.
+    - By default, Docker containers start detached from the terminal, running in the background. 
+    - The `-it` option stands for interactive terminal allowing you to run commands inside the Docker container.
 
-```bash
-ansible --version
-```
+1. Run `ansible --version` inside the Docker container to confirm Ansible was installed.
+
+    ```cmd
+    ansible --version
+    ```
 
 ## Connect to Azure from the Ansible container
 
-**Export** the following environment variables to connect to Azure:
+Assign the following environment variables to connect to Azure:
 
 ```bash
 export AZURE_SUBSCRIPTION_ID=<subscriptionId>
@@ -174,7 +170,7 @@ Get-AzResourceGroup -Name myResourceGroup
 
 ## Clean up resources
 
-**Delete** the resource group by adding `state=absent` to the argument list.
+Delete the resource group by adding `state=absent` to the argument list.
 
 ```bash
 ansible localhost -m azure_rm_resourcegroup -a 'name=myResourceGroup location=eastus state=absent'
