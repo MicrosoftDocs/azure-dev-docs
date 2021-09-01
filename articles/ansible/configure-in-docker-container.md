@@ -35,6 +35,12 @@ In this article, you learn to:
 
 1. Create a new file named `Dockerfile`.
 
+1. Get the version of Ansible.
+
+    ```cmd
+    ansible --version
+    ```
+
 1. Based on the version of Ansible you're using, insert the following Docker commands into the new file.
 
     **Ansible 2.9**
@@ -54,7 +60,7 @@ In this article, you learn to:
         pip3 install ansible[azure]
     ```
 
-    **Ansible 2.10**
+    **Ansible 2.10 (or later)**
 
     ```dockerfile
     FROM centos:7
@@ -99,7 +105,7 @@ docker build . -t ansible
     - By default, Docker containers start detached from the terminal, running in the background. 
     - The `-it` option stands for interactive terminal allowing you to run commands inside the Docker container.
 
-1. Run `ansible --version` inside the Docker container to confirm Ansible was installed.
+1. To confirm Ansible was installed in the container, run the Ansible command to print its version.
 
     ```cmd
     ansible --version
