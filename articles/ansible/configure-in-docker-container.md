@@ -35,13 +35,7 @@ In this article, you learn to:
 
 1. Create a new file named `Dockerfile`.
 
-1. Get the version of Ansible.
-
-    ```cmd
-    ansible --version
-    ```
-
-1. Based on the version of Ansible you're using, insert the following Docker commands into the new file.
+1. Based on the version of Ansible you want to install, insert the following Docker commands into the new file.
 
     **Ansible 2.9**
 
@@ -60,7 +54,7 @@ In this article, you learn to:
         pip3 install ansible[azure]
     ```
 
-    **Ansible 2.10 (or later)**
+    **Ansible 2.10**
 
     ```dockerfile
     FROM centos:7
