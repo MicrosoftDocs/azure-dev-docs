@@ -10,9 +10,9 @@ ms.custom: devx-track-go
 
 In this tutorial, you'll use the Azure SDK for Go to authenticate to Azure with an Azure service principal using either a secret or a certificate.
 
-The [Azure Identity](https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/azidentity) module for Go has two credential types that support the use of an Azure service principal for authentication; ClientSecretCredential, and CertificateCredential.
+Azure service principals define the access policy and permissions in an Azure AD tenant. Enabling core features such as authentication during sign-on and authorization during resource access. Removing the need to use personal accounts to access Azure resources. The [Azure Identity](https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/azidentity) Go module uses the Azure SDK to provide a convenient way to authenticate with Azure using a service principal using environment variables, a secret, or a certificate.
 
-By the end of this tutorial you'll have created an Azure service principal and authenticated to Azure with Azure SDK for Go using the authentication method of your choice.
+Follow this tutorial to create and authenticate with the Azure SDK for Go using a service principal.
 
 ## Prerequisites
 
@@ -42,8 +42,6 @@ Take note the `ResourceId` from the output, you'll use it for the scope of the s
 
 ## 2. Create an Azure service principal
 
-Azure service principals set the access policy and permissions for your applications in Azure AD. And you authenticate the service principal with either a secret or a certificate.
-
 Use one of the following techniques to create an Azure service principal:
 
 * [Option 1: Create an Azure service principal with a secret](#service-principal-secret)
@@ -62,19 +60,7 @@ az ad sp create-for-rbac --name `<servicePrincipalName>` --role Contributor --sc
 
 Replace `<servicePrincipalName>` and `<resourceGroupId>` with the appropriate values.
 
-```output
-{
-  "appId": "*****************",
-  "displayName": "servicePrincipalName",
-  "name": "http://servicePrincipalName",
-  "password": "*****************",
-  "tenant": "*****************"
-}
-```
-
-You'll find the secret for service principal listed in the output as `password`.
-
-Make sure you copy this value - it can't be retrieved. If you forget the password, [reset the service principal credentials](/cli/azure/create-an-azure-service-principal-azure-cli#reset-credentials).
+Make sure you copy the **password** value - it can't be retrieved. If you forget the password, [reset the service principal credentials](/cli/azure/create-an-azure-service-principal-azure-cli#reset-credentials).
 
 # [PowerShell](#tab/powershell)
 
@@ -103,15 +89,6 @@ New-AzRoleAssignment @roleAssignmentSplat
 ```
 
 Replace `<Password>`, `<servicePrincipalName>`, and `<resourceGroupId>` with the appropriate value.
-
-```output
-ServicePrincipalNames : {****************, http://servicePrincipalName}
-ApplicationId         : *****************
-ObjectType            : ServicePrincipal
-DisplayName           : servicePrincipalName
-Id                    : ****************
-Type                  : 
-```
 
 ---
 
@@ -148,14 +125,16 @@ Replace `<pftPassword>` and `<servicePrincipalName>` with the appropriate value.
 
 ## 3. Authenticate to Azure with a service principal
 
-The `DefaultAzureCredential` is a chained credential that makes it easy to run your application with different credentials without reconfiguring the credential type. Use it to configure your service principal credentials by defining environment variables.
+The `DefaultAzureCredential` is a chained credential that makes it easy to run your application with different credentials without reconfiguring the credential type.
 
-To learn more about the `DefaultAzureCredential`, check out [Azure authentication with the Azure SDK for Go](/azure/developer/go/azure-sdk-authentication)
+Use the `DefaultAzureCredential` to configure your service principal credentials by defining environment variables.
 
 Choosing one of the following options to configure your service principal credentials:
 
 * [Option 1: Authenticate with a secret](#authenticate-with-a-secret)
 * [Option 2: Authenticate with a certificate](#authenticate-with-a-certificate)
+
+To learn more about the `DefaultAzureCredential`, check out [Azure authentication with the Azure SDK for Go](/azure/developer/go/azure-sdk-authentication)
 
 ### <span id="authenticate-with-a-secret"/> Option 1: Authenticate with a secret
 
@@ -240,89 +219,89 @@ Replace `<subscriptionId>` with the subscription ID of the subscription you want
 
 Use the following code sample to verify that your service principal authenticates to Azure and has the appropriate permissions to the resource group.
 
-Create a file named `main.go` and add the following code:
+1. Create a file named `main.go` and add the following code:
 
-```go
-package main
+	```go
+	package main
 
-// Import key modules.
-import (
-  "context"
-	"log"
+	// Import key modules.
+	import (
+	"context"
+		"log"
 
-	"github.com/Azure/azure-sdk-for-go/sdk/armcore"
-	"github.com/Azure/azure-sdk-for-go/sdk/azcore"
-	"github.com/Azure/azure-sdk-for-go/sdk/azidentity"
-	"github.com/Azure/azure-sdk-for-go/sdk/resources/armresources"
-	"github.com/Azure/azure-sdk-for-go/sdk/to"
-)
+		"github.com/Azure/azure-sdk-for-go/sdk/armcore"
+		"github.com/Azure/azure-sdk-for-go/sdk/azcore"
+		"github.com/Azure/azure-sdk-for-go/sdk/azidentity"
+		"github.com/Azure/azure-sdk-for-go/sdk/resources/armresources"
+		"github.com/Azure/azure-sdk-for-go/sdk/to"
+	)
 
-// Define key global variables.
-var (
-	ctx               = context.Background()
-	subscriptionId    = "<subscriptionId>"
-	resourceGroupName = "go-on-azure" // !! IMPORTANT: Change this to a unique name in your subscription.
-)
+	// Define key global variables.
+	var (
+		ctx               = context.Background()
+		subscriptionId    = "<subscriptionId>"
+		resourceGroupName = "go-on-azure" // !! IMPORTANT: Change this to a unique name in your subscription.
+	)
 
-func addResourceGroupTag(ctx context.Context, connection *armcore.Connection) (armresources.ResourceGroupResponse, error) {
-	rgClient := armresources.NewResourceGroupsClient(connection, subscriptionId)
+	func addResourceGroupTag(ctx context.Context, connection *armcore.Connection) (armresources.ResourceGroupResponse, error) {
+		rgClient := armresources.NewResourceGroupsClient(connection, subscriptionId)
 
-	update := armresources.ResourceGroupPatchable{
-		Tags: map[string]*string{
-			"new": to.StringPtr("tag"),
-		},
-	}
-	return rgClient.Update(ctx, resourceGroupName, update, nil)
-}
-
-// Define the standard 'main' function for an app that is called from the command line.
-func main() {
-
-	// Create a credentials object.
-	cred, err := azidentity.NewDefaultAzureCredential(nil)
-	if err != nil {
-		log.Fatalf("Authentication failure: %+v", err)
+		update := armresources.ResourceGroupPatchable{
+			Tags: map[string]*string{
+				"new": to.StringPtr("tag"),
+			},
+		}
+		return rgClient.Update(ctx, resourceGroupName, update, nil)
 	}
 
-	// Establish a connection with the Azure subscription.
-	conn := armcore.NewDefaultConnection(cred, &armcore.ConnectionOptions{
-		Logging: azcore.LogOptions{
-			IncludeBody: true,
-		},
-	})
+	// Define the standard 'main' function for an app that is called from the command line.
+	func main() {
 
-	// Call your function to add a tag to your new resource group.
-	updatedRG, err := addResourceGroupTag(ctx, conn)
-	if err != nil {
-		log.Fatalf("Update of resource group failed: %+v", err)
+		// Create a credentials object.
+		cred, err := azidentity.NewDefaultAzureCredential(nil)
+		if err != nil {
+			log.Fatalf("Authentication failure: %+v", err)
+		}
+
+		// Establish a connection with the Azure subscription.
+		conn := armcore.NewDefaultConnection(cred, &armcore.ConnectionOptions{
+			Logging: azcore.LogOptions{
+				IncludeBody: true,
+			},
+		})
+
+		// Call your function to add a tag to your new resource group.
+		updatedRG, err := addResourceGroupTag(ctx, conn)
+		if err != nil {
+			log.Fatalf("Update of resource group failed: %+v", err)
+		}
+		log.Printf("Resource Group %s updated", *updatedRG.ResourceGroup.ID)
+
 	}
-	log.Printf("Resource Group %s updated", *updatedRG.ResourceGroup.ID)
+	```
 
-}
-```
+	Replace `<subscriptionId>` with the subscription ID of the subscription you want to authenticate with.
 
-Replace `<subscriptionId>` with the subscription ID of the subscription you want to authenticate with.
+2. Apply the new tag to the resource group.
 
-Run the `go run` to add the tag to the resource group.
+	```bash
+	go run main.go
+	```
 
-```bash
-go run main.go
-```
+3. Verify the tag was added:
 
-Run the following command to verify the tag was added:
+	# [Azure CLI](#tab/azure-cli)
+	```azurecli-interactive
+	az group show --resource-group go-on-azure --query 'tags'
+	```
 
-# [Azure CLI](#tab/azure-cli)
-```azurecli-interactive
-az group show --resource-group go-on-azure --query 'tags'
-```
+	# [PowerShell](#tab/powershell)
 
-# [PowerShell](#tab/powershell)
+	```powershell-interactive
+	(Get-AzResourceGroup -Name go-on-azure).Tags
+	```
 
-```powershell-interactive
-(Get-AzResourceGroup -Name go-on-azure).Tags
-```
-
----
+	---
 
 ## Next steps
 
