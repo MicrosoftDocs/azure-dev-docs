@@ -3,7 +3,7 @@ title: Get Started - Configure Ansible in a Docker container
 description: Learn how to install and configure Ansible running in a Docker container to managing Azure resources.
 keywords: ansible, azure, devops, bash, playbook, azure cli, azure powershell, powershell
 ms.topic: quickstart
-ms.date: 08/31/2021
+ms.date: 09/02/2021
 ms.custom: devx-track-ansible
 ---
 
@@ -35,26 +35,7 @@ In this article, you learn to:
 
 1. Create a new file named `Dockerfile`.
 
-1. Based on the version of Ansible you want to install, insert the following Docker commands into the new file.
-
-    **Ansible 2.9**
-
-    ```dockerfile
-    FROM centos:7
-    
-    ENV ANSIBLE_VERSION 2.9.17
-    
-    RUN yum check-update; \
-        yum install -y gcc libffi-devel python3 epel-release; \
-        yum install -y python3-pip; \
-        yum clean all
-    
-    RUN pip3 install --upgrade pip; \
-        pip3 install "ansible==${ANSIBLE_VERSION}"; \
-        pip3 install ansible[azure]
-    ```
-
-    **Ansible 2.10**
+1. Insert the following Docker commands into the new file.
 
     ```dockerfile
     FROM centos:7
@@ -75,16 +56,11 @@ In this article, you learn to:
 
 ## Build an Ansible Docker image
 
-Run [docker build](https://docs.docker.com/engine/reference/commandline/build/) to build the Docker image.
+Run [docker build](https://docs.docker.com/engine/reference/commandline/build/) to build the Docker image used to run Ansible.
 
 ```cmd
 docker build . -t ansible
 ```
-
-**Key points:**
-
-- The [docker build](https://docs.docker.com/engine/reference/commandline/build/) command executes the commands defined within the `Dockerfile` to produce a Docker image.
-- In this article's example, that Docker image is used to run Ansible.
 
 ## Start an Ansible container
 
@@ -96,7 +72,7 @@ docker build . -t ansible
 
     **Key points:**
 
-    - By default, Docker containers start detached from the terminal, running in the background. 
+    - By default, Docker containers start detached from the terminal, running in the background.
     - The `-it` option stands for interactive terminal allowing you to run commands inside the Docker container.
 
 1. To confirm Ansible was installed in the container, run the Ansible command to print its version.
@@ -110,40 +86,11 @@ docker build . -t ansible
 Assign the following environment variables to connect to Azure:
 
 ```bash
-export AZURE_SUBSCRIPTION_ID=<subscriptionId>
-export AZURE_CLIENT_ID=<servicePrincipal-appId>
-export AZURE_SECRET=<servicePrincipal-password>
-export AZURE_TENANT=<tenantId>
+export ARM_TENANT_ID="<azure_tenant_id>"
+export ARM_SUBSCRIPTION_ID="<azure_subscription_id>"
+export ARM_CLIENT_ID="<service_principal_app_id>"
+export ARM_CLIENT_SECRET="<service_principal_password>"
 ```
-
-> [!TIP]
-> You can start the Ansible container with pre-populated environment variable using the `--env` option of the `docker run` command.
-
-# [Bash](#tab/bash)
-```bash
-docker run -it \
---env "AZURE_SUBSCRIPTION_ID=<Azure_Subscription_ID>" \
---env "AZURE_CLIENT_ID=<Service_Principal_Application_ID>" \
---env "AZURE_SECRET=<Service_Principal_Password>" \
---env "AZURE_TENANT=<Azure_Tenant>" \
-ansible
-```
-
-Replace the values with your service principal and Azure subscription details.
-
-# [PowerShell](#tab/powershell)
-```powershell
-docker run -it `
---env "AZURE_SUBSCRIPTION_ID=<Azure_Subscription_ID>" `
---env "AZURE_CLIENT_ID=<Service_Principal_Application_ID>" `
---env "AZURE_SECRET=<Service_Principal_Password>" `
---env "AZURE_TENANT=<Azure_Tenant>" `
-ansible
-```
-
-Replace the values with your service principal and Azure subscription details.
-
----
 
 ## Create an Azure resource group
 
