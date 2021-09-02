@@ -140,7 +140,7 @@ Run the following command to set the `AZURE_CLIENT_ID` environment variable.
 # [Bash](#tab/bash)
 
 ```bash
-export AZURE_CLIENT_ID="<service_principal_appid>"
+export AZURE_CLIENT_ID="<user_assigned_managed_identity_client_id>"
 ```
 
 # [PowerShell](#tab/powershell)

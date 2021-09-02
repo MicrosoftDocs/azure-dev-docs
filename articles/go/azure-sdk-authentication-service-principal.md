@@ -28,7 +28,7 @@ Before you begin, create a new resource group in Azure.
 az group create --name go-on-azure --location eastus
 ```
 
-Take note the `Id` from the output, you'll use it for the scope of the service account.
+Take note of the `Id` from the output, you'll use it for the scope of the service account.
 
 # [PowerShell](#tab/powershell)
 
