@@ -47,12 +47,17 @@ In this article, you learn to:
         yum clean all
     
     RUN pip3 install --upgrade pip; \
-        pip3 install "ansible"; \
+        pip3 install --upgrade virtualenv; \
+        pip3 install pywinrm[kerberos]; \
+        pip3 install pywinrm; \
+        pip3 install jmspath; \
+        pip3 install requests; \
+        yum install ansible -y; \
         wget -q https://raw.githubusercontent.com/ansible-collections/azure/dev/requirements-azure.txt; \
         pip3 install -r requirements-azure.txt; \
         rm requirements-azure.txt; \
         ansible-galaxy collection install azure.azcollection
-    ```
+        ```
 
 ## Build an Ansible Docker image
 
