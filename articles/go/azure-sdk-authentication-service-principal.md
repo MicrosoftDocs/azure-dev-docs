@@ -149,7 +149,6 @@ Define the following environment variables:
 # [Bash](#tab/azure-cli)
 
 ```bash
-export AZURE_SUBSCRIPTION_ID="<azure_subscription_id>"
 export AZURE_TENANT_ID="<active_directory_tenant_id"
 export AZURE_CLIENT_ID="<service_principal_appid>"
 export AZURE_CLIENT_SECRET="<service_principal_password>"
@@ -158,7 +157,6 @@ export AZURE_CLIENT_SECRET="<service_principal_password>"
 # [PowerShell](#tab/powershell)
 
 ```powershell
-$env:AZURE_SUBSCRIPTION_ID="<azure_subscription_id>"
 $env:AZURE_TENANT_ID="<active_directory_tenant_id"
 $env:AZURE_CLIENT_ID="<service_principal_appid>"
 $env:AZURE_CLIENT_SECRET="<service_principal_password>"
@@ -177,7 +175,6 @@ $env:AZURE_CLIENT_SECRET="<service_principal_password>"
 # [Bash](#tab/azure-cli)
 
 ```bash
-export AZURE_SUBSCRIPTION_ID="<azure_subscription_id>"
 export AZURE_TENANT_ID="<active_directory_tenant_id"
 export AZURE_CLIENT_ID="<service_principal_appid>"
 export AZURE_CLIENT_CERTIFICATE_PATH="<azure_client_certificate_path>"
@@ -186,7 +183,6 @@ export AZURE_CLIENT_CERTIFICATE_PATH="<azure_client_certificate_path>"
 # [PowerShell](#tab/powershell)
 
 ```powershell
-$env:AZURE_SUBSCRIPTION_ID="<azure_subscription_id>"
 $env:AZURE_TENANT_ID="<active_directory_tenant_id"
 $env:AZURE_CLIENT_ID="<service_principal_appid>"
 $env:AZURE_CLIENT_CERTIFICATE_PATH="<azure_client_certificate_path>"
