@@ -62,7 +62,7 @@ If your application uses any databases, you need to capture the following inform
 
 ### Determine whether and how the file system is used
 
-Any usage of the file system on the application server will require reconfiguration or, in rare cases, architectural changes. File system may be used by WebLogic shared modules or by your application code. You may identify some or all of the following scenarios.
+Any usage of the file system on the application server will require reconfiguration or, in rare cases, architectural changes. File system may be used by WebSphere shared modules or by your application code. You may identify some or all of the following scenarios.
 
 #### Read-only static content
 
