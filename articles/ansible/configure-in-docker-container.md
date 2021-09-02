@@ -57,7 +57,7 @@ In this article, you learn to:
         pip3 install -r requirements-azure.txt; \
         rm requirements-azure.txt; \
         ansible-galaxy collection install azure.azcollection
-        ```
+    ```
 
 ## Build an Ansible Docker image
 
