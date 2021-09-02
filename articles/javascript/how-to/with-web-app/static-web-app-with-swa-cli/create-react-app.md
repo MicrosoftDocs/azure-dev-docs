@@ -45,7 +45,7 @@ The React app will be the user interface for this simple app. All of the code is
     npm run build
     ```
 
-    If you run into errors, which may happen depending on the version of various packages and your environment, fix the errors before continuing. It is important to know that your project successfully builds locally before moving deployment to Azure Static web apps.
+    If you run into errors, which may happen depending on the version of various packages and your environment, fix the errors before continuing. It is important to know that your project successfully builds locally before moving deployment to Azure Static Web Apps.
 
 1. Run the project, which should open the project in a browser to `http://localhost:3000/`:
    
@@ -75,4 +75,4 @@ git add . && \
 
 ## Next steps
 
-* [Create Azure Static Web app](create-static-web-app.md)
+* [Create an Azure Static Web Apps resource](create-static-web-app.md)

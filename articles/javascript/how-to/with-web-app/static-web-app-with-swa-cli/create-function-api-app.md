@@ -7,7 +7,7 @@ ms.custom: devx-track-js
 #intent: Create Express.js web app with easy auth configured. 
 ---
 
-# 5. Create Static Web app
+# 5. Create your Azure Function API
 
 Create an Azure Function API for your React app. The Azure Function service provides serverless APIs. This allows you to focus on your TypeScript code and _not_ have to configure a full back-end web server. 
 
@@ -91,9 +91,9 @@ Stop the local Azure Function runtime in the terminal with <kbd>Ctrl</kbd> + <kb
     https://github.com/YOUR-ACCOUNT/staticwebapp-with-api/actions
     ```
    
-1. In VS Code, verify the successful build pushed to your Azure Static Web app. Look at the functions node in your Azure explorer for Static Web Apps. 
+1. In VS Code, verify the successful build pushed to your Azure Static Web Apps resource. Look at the functions node in your Azure explorer for Static Web Apps. 
 
-   :::image type="content" source="../../../media/static-web-app-with-swa-cli/visual-studio-code-azure-explorer-function-list.png" alt-text="Partial screenshot of VS Code displaying Azure Explorer's Static Web App `functions` node with `hello` displayed.":::
+   :::image type="content" source="../../../media/static-web-app-with-swa-cli/visual-studio-code-azure-explorer-function-list.png" alt-text="Partial screenshot of VS Code displaying Azure Explorer's Static Web Apps `functions` node with `hello` displayed.":::
 
 
 ## Next steps

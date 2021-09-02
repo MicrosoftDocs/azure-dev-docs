@@ -11,7 +11,7 @@ ms.custom: devx-track-js
 
 Change the local React app code to use the Azure Function API. 
 
-At this point in the article series, both the React client and the Azure Function API work both locally and remotely. The remote Azure Static Web app provides a proxy between the React client and API. The local environment needs the same proxy so the local React client and API can work together. Use the Static Web App CLI (SWA CLI) to provide the proxied environment for your local app.
+At this point in the article series, both the React client and the Azure Function API work both locally and remotely. The remote Azure Static Web Apps resource provides a proxy between the React client and API. The local environment needs the same proxy so the local React client and API can work together. Use the Static Web Apps CLI (SWA CLI) to provide the proxied environment for your local app.
 
 Run both the React and Functions development environments, provided by each framework, then use those app URLs with the SWA CLI to provide the proxy between the two. 
 
@@ -73,7 +73,7 @@ In VS Code for the React app, find the `./src/App.tsx file` and replace the enti
 
 :::code language="TypeScript" source="~/../js-e2e-static-web-app-with-cli-1-basic-app-with-api/app/src/App.tsx" highlight="7-18, 27-39":::  
 
-## Use your Static Web app in browser
+## Use your static web app in browser
 
 1. Return to the web browser for the React app, and use the new form to enter your name and pass that name to the Function API.
    
@@ -97,7 +97,7 @@ In VS Code for the React app, find the `./src/App.tsx file` and replace the enti
     https://github.com/YOUR-ACCOUNT/staticwebapp-with-api/actions
     ```
 
-1. In VS Code, in the Azure explorer, find your Static web app, then right-click and select **Browse site**.
+1. In VS Code, in the Azure explorer, find your static web app, then right-click and select **Browse site**.
 
 1. The same React app, as your local version, should appear. The same form functionality as your local version should work, returning a message from the API.  
    
@@ -106,5 +106,5 @@ In VS Code for the React app, find the `./src/App.tsx file` and replace the enti
 ## Next steps
 
 * [Add authentication](add-authentication.md)
-* [Static Web apps troubleshooting](/azure/static-web-apps/troubleshooting)
+* [Static Web Apps troubleshooting](/azure/static-web-apps/troubleshooting)
 * [Azure Functions diagnostics](/azure/azure-functions/functions-diagnostics)

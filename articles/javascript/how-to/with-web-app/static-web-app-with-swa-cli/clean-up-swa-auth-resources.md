@@ -10,17 +10,17 @@ ms.custom: devx-track-js
 
 Clean up all resources created in this article series.
 
-## Remove the Azure Static Web app resource
+## Remove the Azure Static Web Apps resource
 
 
 # [Visual Studio Code](#tab/remove-swa-vscode)
 
-In VS Code, find the Azure Explorer's Static Web App section, right-click on the Static Web app and select **Delete**. In the pop-up window, **Are you sure...**, select **Delete** again. 
+In VS Code, find the Azure Explorer's Static Web Apps section, right-click on the Static Web Apps and select **Delete**. In the pop-up window, **Are you sure...**, select **Delete** again. 
 
 # [Azure CLI](#tab/remove-swa-azure-cli)
 
 
-In the VS Code integrated terminal, where you logged into the Azure CLI in a previous section of this article series, use the following Azure CLI command, [az staticwebapp delete](/cli/azure/staticwebapp/appsettings#az_staticwebapp_appsettings_delete), to delete your Static Web App:
+In the VS Code integrated terminal, where you logged into the Azure CLI in a previous section of this article series, use the following Azure CLI command, [az staticwebapp delete](/cli/azure/staticwebapp/appsettings#az_staticwebapp_appsettings_delete), to delete your Static Web Apps resource:
 
 ```azurecli
 az staticwebapp delete \
@@ -42,7 +42,7 @@ Delete your GitHub repo, and all the files associated with it.
 
 ## Remove your authentication from the authentication provider
 
-If you deploy your app to the remote Static Web app, then want to remove your personal authentication approvals, you need to purge these approvals. This step isn't needed if you haven't deployed to Azure.
+If you deploy your app to the remote Static Web Apps resource and have logged in, then want to remove your personal authentication approvals, you need to purge these approvals. This step isn't needed if you haven't deployed to Azure.
 
 Purge your authentication from your providers, using the following links:
 
