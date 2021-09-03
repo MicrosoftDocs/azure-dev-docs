@@ -35,7 +35,7 @@ Create a navigation component, which provides login and logout functionality.
 
     :::code language="JSON" source="~/../js-e2e-static-web-app-with-cli-2-basic-app-with-api-and-auth/app/src/App.tsx" highlight="18-34":::  
 
-    The highlighted code lines request the current authentication from the `/.auth/me` route provided by the Static Web app. 
+    The highlighted code lines request the current authentication from the `/.auth/me` route provided by the Static Web Apps environment. 
 
 ## Test the local authentication process provided by SWA CLI
 
@@ -71,13 +71,13 @@ Create a navigation component, which provides login and logout functionality.
     https://github.com/YOUR-ACCOUNT/staticwebapp-with-api/actions
     ```
 
-1. In VS Code, in the Azure explorer, find your Static web app, then right-click and select **Browse site**.
+1. In VS Code, in the Azure explorer, find your static web app, then right-click and select **Browse site**.
 
 1. The same React app, as your local version, should appear. The same form functionality as your local version should work, returning a message from the API.  
    
 ## Next steps
 
 * [Clean up resources](clean-up-swa-auth-resources.md)
-* Use your own [custom authentication](/azure/static-web-apps/authentication-custom) in your Static web app
+* Use your own [custom authentication](/azure/static-web-apps/authentication-custom) in your static web app
 * Use [local configuration file](https://github.com/azure/static-web-apps-cli#use-a-configuration-file-staticwebappconfigjson) for SWA CLI
 * [SWA authentication and authorization emulation](https://github.com/azure/static-web-apps-cli#local-authentication--authorization-emulation)

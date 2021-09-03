@@ -33,7 +33,7 @@ If you are new to Git and GitHub, both branches are `main`. If both default bran
 
 ## Create remote personal access token for GitHub
 
-If you intend to create your Azure Static Web app using the Azure CLI (your choices are with the Azure CLI or with VS Code), you need to create a personal access token (PAT). 
+If you intend to create your Azure Static Web Apps resource using the Azure CLI (your choices are with the Azure CLI or with VS Code), you need to create a personal access token (PAT). 
 
 1. In a web browser on GitHub, create a **Personal Access Token** (PAT) for this repo using [GitHub documentation found here](https://help.github.com/en/articles/creating-a-personal-access-token-for-the-command-line).
 
