@@ -1,7 +1,7 @@
 ---
 title: Core Concepts for the Azure SDK for Go
 description: An overview of the common usage patterns in the Azure SDK for Go
-ms.date: 08/30/2021
+ms.date: 09/03/2021
 ms.topic: conceptual
 ms.custom: devx-track-go
 ---
@@ -17,9 +17,9 @@ The Azure Core (azcore) package in the Azure SDK for Go implements several patte
 
 ## Pagination (methods that return collections)
 
-Many operations provided by the Azure Go SDK client libraries return more than one result. The Azure Go SDK defines a return type, [`Pager`](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azcore@v0.18.0#Pager), to ensure that developer experience is maximized through consistency.
+Many operations provided by the Azure Go SDK client libraries return more than one result, in which case the method returns a "Pager" type that supports paging operations. These types are individually defined for different contexts, but share common characteristics like a `NextPage` method.
 
-The methods of `Pager` that start with the prefix `List` return another `Pager` that you use to access an individual result:
+For example, suppose there's a function `ListWidgets` that returns a `WidgetPager` type. You'd then use that type as shown in the following code.
 
 ```go
 func (c *WidgetClient) ListWidgets(options *ListWidgetOptions) WidgetPager {
@@ -39,26 +39,30 @@ if pager.Err() != nil {
 }
 ```
 
+For an example of a paging object implementation, see the SDK source file [zz_generated_pages.go](https://github.com/Azure/autorest.go/blob/track2/test/autorest/paginggroup/zz_generated_pagers.go).
+
 ## Long running operations
 
 Some operations on Azure, such as copying data from a source URL to a Storage blob of training an AI model to recognize forms, can take a long time to complete, anywhere from a few seconds to a few days. Such **long running operations (LRO)** don't lend well to the standard HTTP flow of a relatively quick request and response.
 
-By convention, the names for all methods in the SDK libraries for LROs start with `Begin`. This prefix indicates that the return type from the operation is a [`Poller`](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azcore@v0.18.0#Poller) type that simplifies interactions with LROs.
+By convention, the names for all methods in the SDK libraries for LROs start with `Begin`. This prefix indicates that the return type from the operation is a "Poller" type that simplifies interactions with LROs.
 
-The following examples illustrate various patterns for handling LROs. You can also learn more from the [poller.go](https://github.com/Azure/azure-sdk-for-go/blob/main/sdk/azcore/poller.go) source code.
+The following examples illustrate various patterns for handling LROs. You can also learn more from the [poller.go](https://github.com/Azure/azure-sdk-for-go/blob/main/sdk/azcore/internal/pollers/poller.go) source code in the SDK.
 
 ### Blocking call to PollUntilDone
 
 ```go
-resp,err := client.BeginCreate(context.Background(),"blue_widget",nil)
+resp,err := client.BeginCreate(context.Background(), "blue_widget", nil)
 
 if err != nil {
     // handle error...
 }
 
-w,err **=** resp.PollUntilDone(context.Background(), 5*time.Second)
+// Second argument is the polling interval if the endpoint doesn't send a Retry-After header.
+// A good starting value is 30 second; some resources might work better with different intervals.
+w,err = resp.PollUntilDone(context.Background(), 5*time.Second)
 
-if err != nil {}
+if err != nil {
     // handle error...
 }
 
@@ -87,11 +91,7 @@ for {
         break
     }
 
-    if delay := azcore.RetryAfter(resp);delay > 0 {
-        time.Sleep(delay)
-    } else {
-        time.Sleep(frequency)
-    }
+    // Perform other work while waiting
 }
 
 w,err := poller.FinalResponse(ctx)
@@ -114,9 +114,13 @@ if err != nil {
     // handle error ...
 }
 
-// resuming from the resume token that was previously saved
+// To resume from the resume token that was previously saved, create an appropriate
+// *Response object as appropriate for the client and call it's resume method.
+// Example: https://github.com/Azure/autorest.go/blob/track2/test/autorest/lrogroup/lros_test.go#L48-L51
 
-poller,err := client.ResumeWidgetPoller(tk)
+resp = WidgetPollerResponse()
+
+err := resp.Resume(...)
 
 if err != nil {
     // handle error ...
@@ -133,11 +137,7 @@ for {
         break
     }
 
-    if delay := azcore.RetryAfter(resp);delay > 0 {
-        time.Sleep(delay)
-    } else {
-        time.Sleep(frequency)
-    }
+    // Perform other work while waiting
 }
 
 w,err := poller.FinalResponse(ctx)
@@ -151,7 +151,7 @@ process(w)
 
 ## HTTP pipeline flow
 
-The various client objects in the Azure SDK for Go provide an convenient object-oriented interface on top of Azure's underlying REST API, so typically you don't need to be concerned with the underlying HTTP transport. You can, however, customize that transport if needed.
+The various client objects in the Azure SDK for Go provide an convenient abstraction on top of Azure's underlying REST API, so typically you don't need to be concerned with the underlying HTTP transport. You can, however, customize that transport if needed.
 
 The SDK makes HTTP requests through an HTTP **pipeline**. The pipeline describes the sequence of steps executed for each HTTP request-response round trip.
 
@@ -177,25 +177,25 @@ By default, each SDK client library creates a pipeline configured to work with t
 
 Azure Core provides three commonly required HTTP policies that you can add to any pipeline:
 
-- [Retry Policy](https://github.com/Azure/azure-sdk-for-go/blob/sdk/azcore/v0.18.0/sdk/azcore/policy_retry.go)
-- [Logging Policy](https://github.com/Azure/azure-sdk-for-go/blob/sdk/azcore/v0.18.0/sdk/azcore/policy_logging.go)
-- [Telemetry Policy](https://github.com/Azure/azure-sdk-for-go/blob/sdk/azcore/v0.18.0/sdk/azcore/policy_telemetry.go)
+- [Retry Policy](https://github.com/Azure/azure-sdk-for-go/blob/sdk/azcore/v0.19.0/sdk/azcore/runtime/policy_retry.go)
+- [Logging Policy](https://github.com/Azure/azure-sdk-for-go/blob/sdk/azcore/v0.18.0/sdk/azcore/runtime/policy_logging.go)
+- [Telemetry Policy](https://github.com/Azure/azure-sdk-for-go/blob/sdk/azcore/v0.18.0/sdk/azcore/runtime/policy_telemetry.go)
 
 ### Custom HTTP pipeline policy
 
 To provide capabilities beyond the Core HTTP policies, such as authentication or specifying custom header parameters, you can implement a custom policy that can modify the request and/or response. When adding the policy to the pipeline, you can specify whether this policy should run on a per-call or per-retry retry.
 
-To create a custom HTTP pipeline policy, you implement the [`Policy`](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azcore@v0.18.0#Policy) interface in one of two ways:
+To create a custom HTTP pipeline policy, you implement the [`Policy`](https://github.com/Azure/azure-sdk-for-go/blob/main/sdk/azcore/policy/policy.go#L20) interface in one of two ways:
 
 - As a first-class function for a *stateless policy*.
-- As a `Do` method on a type for a *stateful policy*, which is defined by the `Policy` interface. Because HTTP requests made via the same pipeline share the same policy instances, any stateful policy that mutates its state it must be properly synchronized to avoid race conditions.
+- As a `Do` method on a type for a *stateful policy*, which is defined by the `Policy` interface. Because HTTP requests made via the same pipeline share the same policy instances, any stateful policy that mutates its state must be properly synchronized to avoid race conditions.
 
 Either way, the policy runs as follows:
 
-1. The pipeline calls the function or `Do` method with an [`azcore.Request`](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azcore@v0.18.0#Request) object.
+1. The pipeline calls the function or `Do` method with an [`policy.Request`](https://github.com/Azure/azure-sdk-for-go/blob/main/sdk/azcore/policy/policy.go#L27) object.
 1. The policy performs any desired operations, such as logging the outgoing request, mutating the URL, modifying headers and/or query parameters, injecting a failure, and so on.
 1. The policy forwards the request to the next policy in the pipeline by calling the request's `Next` method.
-1. The return value of `Next` is tuple consisting of an [`azcore.Response`](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azcore@v0.18.0#Response) object and an error object, with which the policy performs any desired operations on the response, such as logging the response, handling errors, and so forth.
+1. The return value of `Next` is tuple consisting of an `http.Response` object and an error object, with which the policy performs any desired operations on the response, such as logging the response, handling errors, and so forth.
 1. The policy returns the possibly modified response and error objects, which the pipeline then passes to the next policy in the response pipeline.
 
 The following sections provide templates for both stateless and stateful policy implementations.
@@ -252,13 +252,13 @@ A transport is responsible for sending the HTTP request and returning the corres
 
 The default transport implementation uses a shared `http.Client` from the standard library.
 
-You create a custom stateful or stateless transport in the same manner as a custom policy; in the stateful case, you implement the `Do` method inherited from the [`Transport`](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azcore@v0.18.0#Transport) interface. In both cases, your function or `Do` method again receives an `azcore.Request` and returns an `azCore.Response` and performs actions in the same order as a policy.
+You create a custom stateful or stateless transport in the same manner as a custom policy; in the stateful case, you implement the `Do` method inherited from the [`Transporter`](https://github.com/Azure/azure-sdk-for-go/blob/main/sdk/azcore/policy/policy.go#L23) interface. In both cases, your function or `Do` method again receives an `azcore.Request` and returns an `azCore.Response` and performs actions in the same order as a policy.
 
 ## Common HTTP pipeline patterns
 
 ### Create a pipeline
 
-A pipeline is created with the [`NewPipeline`](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azcore@v0.18.0#NewPipeline) function, to which you provide a transport and one or more policies:
+A pipeline is created with the [`NewPipeline`](https://github.com/Azure/azure-sdk-for-go/blob/main/sdk/azcore/runtime/request.go#L49) function, to which you provide a transport and one or more policies:
 
 ```go
 // Use the default transport and no policies
@@ -273,7 +273,7 @@ pipeline := NewPipeline(TransportA, PolicyA, PolicyB, PolicyC)
 
 As illustrated in the earlier diagram, the policies are invoked in the order they're provided to `NewPipeline`, followed by the transport.
 
-To send a request, create a [`Request`](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azcore@v0.18.0#Request) instance with the [`NewRequest`](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azcore@v0.18.0#Request) function and pass that request to pipeline's `Do` method. The `Pipeline.Do` method sends the specified request through the chain of `Policy` and `Transport` instances. The response/error is then sent through the same chain of `Policy` instances in reverse order.
+To send a request, create a [`policy.Request`](https://github.com/Azure/azure-sdk-for-go/blob/main/sdk/azcore/policy/policy.go#L27) instance with the [`NewRequest`](https://github.com/Azure/azure-sdk-for-go/blob/main/sdk/azcore/runtime/request.go#L43) function and pass that request to pipeline's `Do` method. The `Pipeline.Do` method sends the specified request through the chain of `Policy` and `Transport` instances. The response/error is then sent through the same chain of `Policy` instances in reverse order.
 
 ```go
 import (
@@ -328,7 +328,7 @@ if err != nil {
 
 body := strings.NewReader("this is seekable content to be uploaded")
 
-err = req.SetBody(azcore.NopCloser(body), "text/plain")
+err = req.SetBody(streaming.NopCloser(body), "text/plain")
 
 if err != nil {
     log.Fatal(err)
@@ -372,9 +372,7 @@ This code set an explicit `null` for `Count`, indicating that any current value 
 
 ### Process the response
 
-The `Response` type, which is a wrapper for the underlying `*http.Response`, contains various convenience methods like testing the HTTP response code and unmarshaling the response body in a particular format.
-
-The response is returned through the transport and all `Policy` instances. Each `Policy` instance can inspect or mutated the embedded `*http.Response`.
+An `http.Response` is returned through the transport and all `Policy` instances. Each `Policy` instance can inspect or mutated the embedded `http.Response`.
 
 ### Cancel a request
 
