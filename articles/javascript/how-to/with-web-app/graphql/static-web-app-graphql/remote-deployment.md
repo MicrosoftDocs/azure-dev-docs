@@ -1,6 +1,6 @@
 ---
 title: Deploy GraphQL to Static Web Apps 
-description: Learn how to deploy to Static Web Apps with VS Code.
+description: Learn how to deploy to Static Web Apps with Visual Studio Code.
 ms.topic: how-to
 ms.date: 07/26/2021
 ms.custom: devx-track-js
@@ -8,7 +8,7 @@ ms.custom: devx-track-js
 
 # 5. Deploy to Static Web Apps
 
-In this article, learn how to deploy to Static Web Apps with VS Code. Static Web Apps pulls the information and files for deployment from GitHub by using your fork of the samples repository.  
+In this article, learn how to deploy to Static Web Apps with Visual Studio Code. Static Web Apps pulls the information and files for deployment from GitHub by using your fork of the samples repository.  
 
 
 ## Create an app in Visual Studio Code
@@ -17,13 +17,13 @@ Here's how:
 
 1. Select **Azure** from the activity bar, and then select **Static Web Apps** from the side bar. 
 
-1. If you see a pop-up window in VS Code asking which branch you want to deploy from, select the default branch, **main**. 
+1. If you see a pop-up window in Visual Studio Code asking which branch you want to deploy from, select the default branch, **main**. 
 
     This setting means that only changes you commit to that branch are deployed to your static web app. 
 
 1. If you see a pop-up window asking you to commit your changes, don't do this. The sample should be ready to deploy without changes.
 
-    To roll back the changes, in VS Code, select the **Source Control** icon in the activity bar. Then select each changed file in the **Changes** list, and select the **Discard changes** icon.
+    To roll back the changes, in Visual Studio Code, select the **Source Control** icon in the activity bar. Then select each changed file in the **Changes** list, and select the **Discard changes** icon.
 
 1. Right-click on the subscription name, and then select **Create Static Web App (Advanced)**.    
 
@@ -60,7 +60,7 @@ The function app won't connect to your database created with Azure Cosmos DB unt
     |`CosmosDB`|Your `CosmosDB` connection string|
 
 1. Select **Save** to save the settings. 
-1. Return to VS Code. 
+1. Return to Visual Studio Code. 
 1. In the Azure explorer, refresh your static web app to see the application settings. 
 
 ## Use your static web app
