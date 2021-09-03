@@ -216,6 +216,7 @@ Create the Terraform configuration file that declares the resources for the Kube
 
     output "kube_config" {
         value = azurerm_kubernetes_cluster.k8s.kube_config_raw
+        sensitive = true
     }
 
     output "host" {
