@@ -2,7 +2,7 @@
 title: Top Azure tasks for JavaScript developers
 description: Find an example of your current tasks.
 ms.topic: how-to
-ms.date: 08/19/2021
+ms.date: 08/31/2021
 ms.custom: devx-track-js
 ---
 
@@ -19,8 +19,11 @@ Provide authentication.
 |Task|using|
 |--|--|
 |Create app registration|[Portal](../tutorial/single-page-application-azure-login-button-sdk-msal.md#3-create-app-registration-for-authentication)<br>[Azure CLI](/cli/azure/ad/app#az_ad_app_create)|
+|Easy authentication|[Static Web Apps](with-web-app/static-web-app-with-swa-cli/add-authentication.md)<br>[Express.js](with-web-app/add-authentication-to-web-app.md)|
 |List app registration|[Azure CLI](/cli/azure/ad/app#az_ad_app_list)
-|Microsoft Login/Logoff button using `@azure/msal-browser`|[React/TypeScript](../tutorial/single-page-application-azure-login-button-sdk-msal.md#5-add-login-and-logoff-buttons)|
+|MSAL Login/Logoff button using `@azure/msal-browser`|[React/TypeScript](../tutorial/single-page-application-azure-login-button-sdk-msal.md#5-add-login-and-logoff-buttons)|
+|MSAL React using `@azure/msal-browser` passing user credentials to Function API|[React and Azure Function API](with-authentication/static-web-app-with-api/add-mongodb-database-to-api.md#react-client-add-new-fetch-method-with-favoritecolor)|
+|MSAL Express.js using `@azure/msal-node`|[Express.js](./with-web-app/deploy-msal-sdk-authentication-expressjs.md#run-your-app-locally-to-verify-msal-authentication)|
 |Revoke AAD permission|[https://myapplications.microsoft.com/](https://myapplications.microsoft.com/)|
 |Revoke Consumer permission|[https://account.live.com/consent/manage](https://account.live.com/consent/manage)
 |Login|[Azure CLI](../tutorial/deploy-deno-app-azure-app-service-azure-cli.md#2-sign-in-to-azure-cli)<br>[Visual Studio Code extension](../tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-01.md#sign-in-to-azure)|
@@ -34,7 +37,7 @@ Provide authentication.
 
 ## Apps
 
-### Static web apps
+### Static Web Apps
 
 [Service documentation](/azure/static-web-apps/)
 
@@ -44,8 +47,10 @@ Provide authentication.
 |Create React app targeting JavaScript language|[Bash](/azure/static-web-apps/getting-started?tabs=react#create-a-static-web-app)|
 |Create React app targeting TypeScript language|[Bash](../tutorial/single-page-application-azure-login-button-sdk-msal.md#4-create-react-single-page-application-for-typescript)|
 |Create Vue app|[Bash](/azure/static-web-apps/getting-started?tabs=vue#create-a-static-web-app)|
-|Create Static web app|[Visual Studio Code extension](../tutorial/static-web-app/create-static-web-app-visual-studio-code-extension.md#create-a-static-web-app-resource)|
+|Create Static Web Apps|[Visual Studio Code extension](../tutorial/static-web-app/create-static-web-app-visual-studio-code-extension.md#create-a-static-web-app-resource)<br>[Azure CLI](with-web-app/static-web-app-with-swa-cli/create-static-web-app.md?tabs=create-swa-azure-cli)|
 |Browse site|[Visual Studio Code extension](../tutorial/static-web-app/create-static-web-app-visual-studio-code-extension.md#view-azure-static-web-site-in-browser)|
+|Proxy SWA locally with SWA CLI|[SWA CLI](./with-web-app/static-web-app-with-swa-cli/connect-client-to-api.md)|
+|Authenticate SWA locally with SWA CLI|[SWA CLI](with-web-app/static-web-app-with-swa-cli/add-authentication.md#test-the-local-authentication-process-provided-by-swa-cli)|
 |Set Static Web app local environment variables|[Bash](../tutorial/static-web-app/create-computer-vision-resource-use-in-code.md#add-environment-variables-to-your-local-environment)|
 
 
@@ -185,12 +190,19 @@ Provide authentication.
 |View Cosmos DB|[Cosmos DB Explorer](https://cosmos.azure.com/)|
 |Use SQL API for on Cosmos DB|[JavaScript](./with-database/use-sql-api-as-cosmos-db.md#use--sdk-to-connect-to-database)
 
+### GraphQL
+
+|Task|using|
+|--|--|
+|Deploy a `Hello World` GraphQL API as an Azure Function|[VSCode](with-web-app/graphql/azure-function-hello-world.md)|
+|Deploy CRUD operations in GraphQL API as an Azure Function|[VSCode](./with-web-app/graphql/azure-function-hello-world.md#design-a-second-api-to-allow-create-update-and-read-api-endpoints)|
+
 ## Deployment to hosting environment
 
 |Task|using|
 |--|--|
-|Static Web App (SWA)|[VS Code](/azure/search/tutorial-javascript-deploy-static-web-app)<br>[From Framework (Next.js)](/azure/static-web-apps/deploy-nextjs#deploy-your-static-website)<br>[Azure DevOps Pipelines](/azure/static-web-apps/publish-devops#create-the-pipeline-task-in-azure-devops)|
-|Functions|[VS Code](../tutorial/vscode-function-app-http-trigger/tutorial-vscode-serverless-node-deploy-hosting.md#use-visual-studio-code-extension-to-deploy-to-hosting-environment)<br>[Azure DevOps Pipelines](/azure/azure-functions/functions-how-to-azure-devops?tabs=javascript%2Cwindows)<br>[GitHub Actions](/azure/azure-functions/functions-how-to-github-actions?tabs=javascript#deploy-the-function-app)|
+|Static Web App (SWA)|[VS Code](/azure/search/tutorial-javascript-deploy-static-web-app)<br>[From Framework (Next.js)](/azure/static-web-apps/deploy-nextjs#deploy-your-static-website)<br>[Azure DevOps pipelines](/azure/static-web-apps/publish-devops#create-the-pipeline-task-in-azure-devops)|
+|Functions|[VS Code](../tutorial/vscode-function-app-http-trigger/tutorial-vscode-serverless-node-deploy-hosting.md#use-visual-studio-code-extension-to-deploy-to-hosting-environment)<br>[Azure DevOps pipelines](/azure/azure-functions/functions-how-to-azure-devops?tabs=javascript%2Cwindows)<br>[GitHub Actions](/azure/azure-functions/functions-how-to-github-actions?tabs=javascript#deploy-the-function-app)|
 |App service|[Express.js with VS Code](../tutorial/deploy-nodejs-azure-app-service-with-visual-studio-code.md?tabs=bash#5-create-app-service-resource-in-visual-studio-code)<br>[Git Push](../tutorial/tutorial-vscode-azure-cli-node/tutorial-vscode-azure-cli-node-04.md#make-change-and-deploy-to-azure-app-service-from-local-git)<br>[GitHub Actions](/azure/app-service/deploy-github-actions?tabs=applevel)<br>[Azure DevOps](/azure/app-service/deploy-continuous-deployment?tabs=repos)|
 
 ## Git
@@ -216,8 +228,6 @@ Provide authentication.
 |Task|using|
 |--|--|
 |Create resource|[Azure CLI](../tutorial/nodejs-virtual-machine-vm/create-azure-monitoring-application-insights-web-resource.md#create-azure-monitor-resource-with-azure-cli)|
-
-
 
 ## Storage
 
@@ -277,6 +287,7 @@ Provide authentication.
 
 |Name | Description|
 |--|--|
+|React app with Function API|Locally build and deploy a React/TypeScript client application with an Azure Function API to an Azure Static Web App with a GitHub action.<br>[Tutorial](./with-web-app/static-web-app-with-swa-cli/introduction.md) - [Sample code](https://github.com/Azure-Samples/js-e2e-static-web-app-with-cli)|
 |React app using Cognitive Services|Locally build and deploy a React/TypeScript client application to an Azure Static Web App with a GitHub action.<br>[Tutorial](../tutorial/static-web-app/introduction.md) - [Sample code](https://github.com/Azure-Samples/js-e2e-client-cognitive-services)|
 |React app uploading file to Azure Storage Blobs|This sample project is a TypeScript React (create-react-app) framework client app with an HTML form to select a file for upload to Azure Storage Blobs.<br>[Tutorial](../tutorial/browser-file-upload-azure-storage-blob.md) - [Sample code](https://github.com/Azure-Samples/js-e2e-browser-file-upload-storage-blob)|
 |React app with login button|The SPA built in this tutorial is a React app (create-react-app) with the following tasks:<br>* Login using a Microsoft-supported login such as Office 365 or Outlook.com<br>* Log off from the application<br>[Tutorial](../tutorial/single-page-application-azure-login-button-sdk-msal.md) - [Sample code](https://github.com/Azure-Samples/js-e2e-client-azure-login-button)|

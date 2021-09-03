@@ -3,7 +3,7 @@ title: Tutorial - Deploy from GitHub to Azure Kubernetes Service using Jenkins
 description: Learn how to configure Jenkins for continuous integration (CI) from GitHub and continuous deployment (CD) to Azure Kubernetes Service (AKS) 
 keywords: jenkins, azure, devops, aks, azure kubernetes service, github
 ms.topic: article
-ms.date: 02/05/2021
+ms.date: 08/31/2021
 ms.custom: devx-track-jenkins, devx-track-azurecli
 ---
 
@@ -94,7 +94,7 @@ redis                        latest     a1b99da73d05        7 days ago          
 tiangolo/uwsgi-nginx-flask   flask      788ca94b2313        9 months ago        694MB
 ```
 
-Sign in to your Azure Container Instance.
+Sign in to your Azure container registry.
 
 ```azurecli
 az login -n <acrLoginServer>

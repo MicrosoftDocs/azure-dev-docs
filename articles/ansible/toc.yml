@@ -4,7 +4,7 @@
   items:
   - name: About Ansible on Azure
     href: overview.md
-- name: Quickstarts
+- name: Get started
   expanded: true
   items:
     - name: Configure Ansible using Azure Cloud Shell
@@ -13,19 +13,12 @@
       href: install-on-linux-vm.md
     - name: Configure Ansible in a Docker container
       href: configure-in-docker-container.md
-    - name: Create Ansible service principal
-      href: create-ansible-service-principal.md
-    - name: Work with Linux Virtual Machines
-      expanded: true
-      items:
-      - name: Configure Linux virtual machines
-        href: vm-configure.md
-      - name: Manage Linux virtual machines
-        href: vm-manage.md
-      - name: Configure Windows virtual machines
-        href: vm-configure-windows.md
 - name: Tutorials
   items:
+  - name: Configure Ansible
+    items:
+    - name: Create Ansible service principal
+      href: create-ansible-service-principal.md
   - name: Azure Application Gateway
     items:
     - name: Manage web traffic
@@ -78,6 +71,12 @@
       href: dynamic-inventory-configure.md
   - name: Virtual machines
     items:
+    - name: Configure Linux virtual machines
+      href: vm-configure.md
+    - name: Manage Linux virtual machines
+      href: vm-manage.md
+    - name: Configure Windows virtual machines
+      href: vm-configure-windows.md
     - name: Create Shared Image Gallery
       href: vm-configure-from-azure-shared-image-gallery.md
     - name: Configure VM secrets with Azure Key Vault

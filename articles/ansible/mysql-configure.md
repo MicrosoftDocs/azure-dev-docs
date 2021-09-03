@@ -13,7 +13,7 @@ ms.custom: devx-track-ansible
 
 [Azure Database for MySQL](/azure/mysql/overview) is a relational database service based on the MySQL Community Edition. Azure Database for MySQL enables you to manage MySQL databases in your web apps.
 
-[!INCLUDE [ansible-tutorial-goals.md](includes/ansible-tutorial-goals.md)]
+In this article, you learn how to:
 
 > [!div class="checklist"]
 >
