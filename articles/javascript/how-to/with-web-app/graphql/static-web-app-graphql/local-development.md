@@ -36,7 +36,7 @@ Because static web apps deploy from a GitHub repo and you need to be able to pus
     cd .. 
     ```
 
-1. Open the project in VS Code. 
+1. Open the project in Visual Studio Code. 
 
     ```bash
     code .
@@ -120,7 +120,7 @@ Load the 100 trivia questions into the container.
 
 Both the client app and the Azure Functions API need to be started. The client runs on port 3000, the Functions API runs on port 7071, and the emulator runs on port 8081. 
 
-1. In a VS Code integrated terminal, build and run the Functions API:
+1. In a Visual Studio Code integrated terminal, build and run the Functions API:
 
     ```bash
     cd api && npm start
@@ -128,7 +128,7 @@ Both the client app and the Azure Functions API need to be started. The client r
 
     The API has to generate the TypeScript types and the GraphQL schema files, and then start the HTTP endpoint.
 
-1. In a separate VS Code integrated terminal, build and run the client React app:
+1. In a separate Visual Studio Code integrated terminal, build and run the client React app:
 
     ```bash
     npm start
