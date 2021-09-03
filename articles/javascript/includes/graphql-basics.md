@@ -7,14 +7,14 @@ ms.custom: devx-track-javascript
 # used in several places to explain graphql basic concepts
 ---
 
-## GraphQL APIs give client control of API results
+## GraphQL APIs give the client control of API results
 
 GraphQL provides a query language that allows you to ask for data from a server in a declarative way. You can ask for:
 
-* The specific data you need in the schema you need it. Changes to the data schema are done by the client in the schema definition based to the API.
-* Return the data in a nested schema representing a collection of objects, regardless of how many data sources are required. Contrast this with a typical REST API that needs several API requests to provide the same data.
+* The specific data you need, in the schema you need it. Changes to the data schema are done by the client in the schema definition for the API.
+* Returning the data in a nested schema representing a collection of objects, regardless of how many data sources are required. Contrast this with a typical REST API that needs several API requests to provide the same data.
 
-GraphQL acts as a layer between the API endpoint and the database. GraphQL providers, such as [Apollo](https://www.apollographql.com/), provide much of the functionality you need to build your GraphQL APIs. Like most software that uses databases, the provider can't write the actual database queries for you, because only you know your data. The providers do usually wire up much of the boilerplate code to use GraphQL so you are left with just your business or middleware logic.  
+GraphQL acts as a layer between the API endpoint and the database. GraphQL providers, such as [Apollo](https://www.apollographql.com/), provide much of the functionality you need to build your GraphQL APIs. Like most software that uses databases, the provider can't write the actual database queries for you, because only you know your data. The providers do usually generate much of the boilerplate code to use GraphQL, so you are left with just your business or middleware logic.  
 
 ## Your first Apollo GraphQL API query
 
@@ -36,15 +36,15 @@ The server responds with JSON:
 }
 ```
 
-## Reading and writing Apollo GraphQL with queries and mutations
+## Read and write Apollo GraphQL with queries and mutations
 
 * [Sample code](https://github.com/azure-samples/js-e2e-azure-function-graphql-crud-operations)
 
-In GraphQL, we perform read operations against data using _queries_ and write operations, such as inserts and updates, using _mutations_.
+In GraphQL, you perform read operations against data by using queries, and write operations, such as inserts and updates, by using mutations.
 
-## Get all with a Apollo GraphQL API query
+## Get all with an Apollo GraphQL API query
 
-Suppose you have a data source that contains messages with an ID, author, and content of each message. 
+Suppose you have a data source that contains messages with an ID, an author, and the content of each message. 
 
 To query for all messages, your GraphQL query looks like:
 
@@ -58,7 +58,7 @@ To query for all messages, your GraphQL query looks like:
 }
 ```
 
-Your API endpoint may look like: `/api/graphql` and the cURL request may look like:
+Your API endpoint might look like: `/api/graphql`, and the cURL request might look like:
 
 ```bash
 curl -X POST 'http://localhost:7071/api/graphql' \
@@ -87,11 +87,11 @@ The API response looks like:
 }
 ```
 
-## Returning a subset of the data with the client query
+## Return a subset of the data with the client query
 
-While the previous example returned every message and every field within a message, there may be times when the client knows it only wants certain fields. This doesn't require any new code for the API, but does require a new query from the client, describing the schema of the expected response:
+Although the previous example returned every message and every field within a message, there might be times when the client knows it only wants certain fields. This doesn't require any new code for the API, but does require a new query from the client, describing the schema of the expected response.
 
-Here's a query that will get all messages, but only the `id` and `author` fields of a message, telling the GraphQL server to not send the values for `content` to the client:
+Here's a query that gets all messages, but only the `id` and `author` fields of them. The query tells the GraphQL server not to send the values for `content` to the client:
 
 ```graphql
 {
@@ -103,7 +103,7 @@ Here's a query that will get all messages, but only the `id` and `author` fields
 
 ```
 
-Your API endpoint may look like: `/api/graphql` and the cURL request may look like:
+Your API endpoint might look like: `/api/graphql`, and the cURL request might look like:
 
 ```bash
 curl -X POST 'http://localhost:7071/api/graphql' \
@@ -132,7 +132,7 @@ The API response looks like:
 
 ## Change the data with a mutation
 
-To change the data, use a mutation that defines the change, _and_ defines what data to return from the change. Suppose you have a data source that contains messages with an ID, author, and content of each message and you want to add a new message. 
+To change the data, use a mutation that defines the change, and also defines what data to return from the change. Suppose you have a data source that contains messages with an ID, an author, and the content of each message, and you want to add a new message. 
 
 ### Apollo GraphQL syntax
 
@@ -150,7 +150,7 @@ Notice that the last curly brace section, `{ id }`, describes the schema the cli
 
 ### HTTP cURL request
 
-Your API endpoint may look like: `/api/graphql` and the cURL request may look like:
+Your API endpoint might look like: `/api/graphql`, and the cURL request might look like:
 
 ```bash
 curl 'http://localhost:7071/api/graphql' \
@@ -175,11 +175,11 @@ The API response looks like:
 
 ## Change the data with variables for an Apollo mutation
 
-The preceding query hard-coded the values of the `author` and `content`. That preceding example isn't a recommended method but used to illustrate where the values are expected on the request. Now, we can change the same mutation request to allow variables, and allow the client making the request to inject the appropriate values. 
+The preceding query hard-coded the values of the `author` and `content`. This method isn't recommended, but is used here to illustrate where the values are expected on the request. Now, you can change the same mutation request to allow variables, and allow the client making the request to inject the appropriate values. 
 
 ### HTTP cURL request body
 
-To pass variables, you need to send them in the `variables` property, and describe them in the mutation params with the `$` and a type that matches what the _mutation_ expects, such as `String!`, then pass them assign them to the mutation arguments as required.
+To pass variables, send them in the `variables` property. Describe them in the mutation parameters with the `$`, and a type that matches what the mutation expects, such as `String!`. Then assign them to the mutation arguments as required.
 
 ```json
 {
