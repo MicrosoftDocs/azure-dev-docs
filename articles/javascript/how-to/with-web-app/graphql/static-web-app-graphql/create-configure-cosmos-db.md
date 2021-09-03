@@ -12,9 +12,9 @@ In this article, learn how to create and configure your Azure Cosmos DB resource
 
 ## Create the resource for Core (SQL)
 
-Use the VS Code extension, Azure Databases, to create the resource. 
+Use the Visual Studio Code extension, Azure Databases, to create the resource. 
 
-1. In VS Code, select the **Azure** icon to open the Azure explorer.
+1. In Visual Studio Code, select the **Azure** icon to open the Azure explorer.
 1. From the Azure explorer, in the **Azure Databases** section, select **+**.
 1. Follow the prompts by using the following table to create your Azure Cosmos DB resource.
 
@@ -91,7 +91,7 @@ Load the 100 trivia questions into the container created with Azure Cosmos DB.
 
 ## Copy and keep your connection string 
 
-In VS Code, for the Azure explorer, right-click your Azure Cosmos DB resource. Then select **Copy Connection String**. You'll need this to connect your static web app to your resource.
+In Visual Studio Code, for the Azure explorer, right-click your Azure Cosmos DB resource. Then select **Copy Connection String**. You'll need this to connect your static web app to your resource.
 
 ## Note this information
 
