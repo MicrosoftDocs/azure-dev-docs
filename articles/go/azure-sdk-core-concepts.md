@@ -178,8 +178,8 @@ By default, each SDK client library creates a pipeline configured to work with t
 Azure Core provides three commonly required HTTP policies that you can add to any pipeline:
 
 - [Retry Policy](https://github.com/Azure/azure-sdk-for-go/blob/sdk/azcore/v0.19.0/sdk/azcore/runtime/policy_retry.go)
-- [Logging Policy](https://github.com/Azure/azure-sdk-for-go/blob/sdk/azcore/v0.18.0/sdk/azcore/runtime/policy_logging.go)
-- [Telemetry Policy](https://github.com/Azure/azure-sdk-for-go/blob/sdk/azcore/v0.18.0/sdk/azcore/runtime/policy_telemetry.go)
+- [Logging Policy](https://github.com/Azure/azure-sdk-for-go/blob/sdk/azcore/v0.19.0/sdk/azcore/runtime/policy_logging.go)
+- [Telemetry Policy](https://github.com/Azure/azure-sdk-for-go/blob/sdk/azcore/v0.19.0/sdk/azcore/runtime/policy_telemetry.go)
 
 ### Custom HTTP pipeline policy
 
@@ -380,5 +380,5 @@ Cancellation is handled via the `context.Context` parameter, which is always the
 
 ## See also
 
-- [Azure SDK for Go reference documentation](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azcore@v0.18.0#section-documentation)
-- [Azure SDK for Go source code (GitHub)](https://github.com/Azure/azure-sdk-for-go/tree/sdk/azcore/v0.18.0)
+- [Azure SDK for Go reference documentation](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azcore@v0.19.0#section-documentation)
+- [Azure SDK for Go source code (GitHub)](https://github.com/Azure/azure-sdk-for-go/tree/sdk/azcore/v0.19.0)
