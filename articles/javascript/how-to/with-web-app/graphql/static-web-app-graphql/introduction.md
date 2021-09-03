@@ -10,7 +10,7 @@ ms.custom: devx-track-js
 
 In this article series, you'll create a GraphQL server and a web application to communicate with it. Your GraphQL server will use Azure Cosmos DB to store data, and Static Web Apps to host the application.
 
-* See some [sample code](https://github.com/Azure-Samples/js-e2e-graphql-cosmosdb-static-web-app).
+* [Sample code](https://github.com/Azure-Samples/js-e2e-graphql-cosmosdb-static-web-app)
 
 [!INCLUDE [Create or use existing Azure Subscription ](../../../../includes/environment-subscription-h2.md)]
 

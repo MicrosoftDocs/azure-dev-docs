@@ -18,7 +18,7 @@ GraphQL acts as a layer between the API endpoint and the database. GraphQL provi
 
 ## Your first Apollo GraphQL API query
 
-* See some [sample code](https://github.com/azure-samples/js-e2e-azure-function-graphql-hello).
+* [Sample code](https://github.com/azure-samples/js-e2e-azure-function-graphql-hello)
 
 A GraphQL query, asking for the value `hello` from the server, _looks like JSON_ but isn't a true JSON object:
 
@@ -38,7 +38,7 @@ The server responds with JSON:
 
 ## Read and write Apollo GraphQL with queries and mutations
 
-* See some [sample code](https://github.com/azure-samples/js-e2e-azure-function-graphql-crud-operations).
+* [Sample code](https://github.com/azure-samples/js-e2e-azure-function-graphql-crud-operations)
 
 In GraphQL, you perform read operations against data by using queries, and write operations, such as inserts and updates, by using mutations.
 
