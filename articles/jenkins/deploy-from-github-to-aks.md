@@ -178,7 +178,7 @@ az login
 ```
 
    > [!NOTE]
-   > To manually install AzCLI, follow these [instructions](https://docs.microsoft.com/cli/azure/install-azure-cli).
+   > To manually install AzCLI, follow these [instructions](/cli/azure/install-azure-cli).
 
 ### Install Docker
 
