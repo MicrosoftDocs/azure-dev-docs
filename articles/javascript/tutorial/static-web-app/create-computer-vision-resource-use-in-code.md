@@ -10,6 +10,8 @@ ms.custom: devx-track-js, devx-track-azurecli
 
 In this step, create your Computer Vision resource and set to environment variables. At the end of this series of steps, you need to have **the key and endpoint** for your resource.
 
+<a name="#create-azure-resources"></a>
+
 ## Create your resource group
 
 At a terminal or bash shell, enter the [Azure CLI command to create an Azure resource group](/cli/azure/group#az_group_create), with the name `rg-demo`:
