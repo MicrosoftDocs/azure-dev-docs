@@ -238,7 +238,7 @@ Use the following code sample to verify that your service principal authenticate
 		resourceGroupName = "go-on-azure" // !! IMPORTANT: Change this to a unique name in your subscription.
 	)
 
-	func addResourceGroupTag(ctx context.Context, connection *armcore.Connection) (armresources.ResourceGroupResponse, error) {
+	func addResourceGroupTag(ctx, connection *armcore.Connection) (armresources.ResourceGroupResponse, error) {
 		rgClient := armresources.NewResourceGroupsClient(connection, subscriptionId)
 
 		update := armresources.ResourceGroupPatchable{
