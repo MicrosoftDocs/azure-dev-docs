@@ -2,7 +2,7 @@
 title: Create Computer Vision resource
 description: Create your Cognitive Services Computer Vision resource and set to environment variables.
 ms.topic: tutorial
-ms.date: 12/16/2020
+ms.date: 09/07/2021
 ms.custom: devx-track-js, devx-track-azurecli
 ---
 
