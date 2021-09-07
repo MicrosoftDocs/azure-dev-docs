@@ -1,7 +1,7 @@
 ---
 title: Core Concepts for the Azure SDK for Go
 description: An overview of the common usage patterns in the Azure SDK for Go
-ms.date: 09/03/2021
+ms.date: 09/07/2021
 ms.topic: conceptual
 ms.custom: devx-track-go
 ---
@@ -177,9 +177,9 @@ By default, each SDK client library creates a pipeline configured to work with t
 
 Azure Core provides three commonly required HTTP policies that you can add to any pipeline:
 
-- [Retry Policy](https://github.com/Azure/azure-sdk-for-go/blob/sdk/azcore/v0.19.0/sdk/azcore/runtime/policy_retry.go)
-- [Logging Policy](https://github.com/Azure/azure-sdk-for-go/blob/sdk/azcore/v0.19.0/sdk/azcore/runtime/policy_logging.go)
-- [Telemetry Policy](https://github.com/Azure/azure-sdk-for-go/blob/sdk/azcore/v0.19.0/sdk/azcore/runtime/policy_telemetry.go)
+- [Retry Policy](https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/azcore/runtime/policy_retry.go)
+- [Logging Policy](https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/azcore/runtime/policy_logging.go)
+- [Telemetry Policy](https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/azcore/runtime/policy_telemetry.go)
 
 ### Custom HTTP pipeline policy
 
@@ -203,8 +203,15 @@ The following sections provide templates for both stateless and stateful policy 
 #### Template for a stateless policy
 
 ```go
+type policyFunc func(*policy.Request) (*http.Response, error)
+
+// Do implements the Policy interface on policyFunc.
+func (pf policyFunc) Do(req *policy.Request) (*http.Response, error) {
+    return pf(req)
+}
+
 func NewMyStatelessPolicy() Policy {
-    return azcore.PolicyFunc(func(req *azcore.Request) (*azcore.Response, error) {
+    return policyFunc(func(req *policy.Request) (*http.Response, error) {
         // TODO: mutate/process Request
 
         // Forward the request to next policy in the pipeline
@@ -380,5 +387,5 @@ Cancellation is handled via the `context.Context` parameter, which is always the
 
 ## See also
 
-- [Azure SDK for Go reference documentation](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azcore@v0.19.0#section-documentation)
-- [Azure SDK for Go source code (GitHub)](https://github.com/Azure/azure-sdk-for-go/tree/sdk/azcore/v0.19.0)
+- [Azure SDK for Go reference documentation](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go)
+- [Azure SDK for Go source code (GitHub)](https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/azcore)
