@@ -21,7 +21,8 @@ At the end of this series of steps, you need to have **the key and endpoint** fo
     ```azurecli
     az group create \
         --location eastus \
-        --name rg-demo 
+        --name rg-demo \
+        --subscription YOUR-SUBSCRIPTION-NAME-OR-ID
     ```
 1. Run the following command to [create a Computer Vision resource](/cli/azure/cognitiveservices/account#az_cognitiveservices_account_create):
 
@@ -31,7 +32,7 @@ At the end of this series of steps, you need to have **the key and endpoint** fo
         --name demo-ComputerVision \
         --resource-group rg-demo \
         --kind ComputerVision \
-        --sku F0 \
+        --sku S1 \
         --location eastus \
         --yes
     ```
