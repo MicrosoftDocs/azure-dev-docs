@@ -8,34 +8,56 @@ ms.custom: devx-track-js, devx-track-azurecli
 
 # 4. Create Computer Vision resource and use in code
 
-In this step, create your Computer Vision resource and set to environment variables. 
+In this step, create your Computer Vision resource and set to environment variables. At the end of this series of steps, you need to have **the key and endpoint** for your resource.
 
-## Create Azure resources
+## Create your resource group
 
-Creating a resource group allows you to easily find the resources, and delete them when you are done.
+At a terminal or bash shell, enter the [Azure CLI command to create an Azure resource group](/cli/azure/group#az_group_create), with the name `rg-demo`:
 
-At the end of this series of steps, you need to have **the key and endpoint** for your resource.
+```azurecli
+az group create \
+    --location eastus \
+    --name rg-demo \
+    --subscription YOUR-SUBSCRIPTION-NAME-OR-ID
+```
 
-1. At a terminal or bash shell, enter the [Azure CLI command to create an Azure resource group](/cli/azure/group#az_group_create), with the name `rg-demo`:
+## Create a Computer Vision resource
 
-    ```azurecli
-    az group create \
-        --location eastus \
-        --name rg-demo \
-        --subscription YOUR-SUBSCRIPTION-NAME-OR-ID
-    ```
-1. Run the following command to [create a Computer Vision resource](/cli/azure/cognitiveservices/account#az_cognitiveservices_account_create):
+Creating a resource group allows you to easily find the resources, and delete them when you are done. This type of resource requires that you agree to the Responsible Use agreement. Use the following list to know how you can quickly create the correct resource:
+
+* [Your first Computer Vision resource](#create-your-first-computer-vision-resource) - agree to the Responsible Use agreement
+* [Additional Computer Vision](#create-an-additional-computer-vision-resource) - already agreed to the Responsible Use agreement
+
+### Create your first Computer Vision resource
+
+If this is your first AI service, you must create the service through the portal and agree to the Responsible Use agreement, as part of that resource creation. If this isn't your first resource requiring the Responsible Use agreement, you can create the resource with the Azure CLI, found in the next section.
+
+Use the following table to help [create the resource within the Azure portal](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision).
+
+|Setting|Value|
+|--|--|
+|Resource group|rg-demo|
+|Name|demo-ComputerVision|
+|Sku|S1|
+|Location|eastus|
 
 
-    ```azurecli
-    az cognitiveservices account create \
-        --name demo-ComputerVision \
-        --resource-group rg-demo \
-        --kind ComputerVision \
-        --sku S1 \
-        --location eastus \
-        --yes
-    ```
+## Create an additional Computer Vision resource
+
+Run the following command to [create a Computer Vision resource](/cli/azure/cognitiveservices/account#az_cognitiveservices_account_create):
+
+
+```azurecli
+az cognitiveservices account create \
+    --name demo-ComputerVision \
+    --resource-group rg-demo \
+    --kind ComputerVision \
+    --sku S1 \
+    --location eastus \
+    --yes
+```
+
+## Get resource endpoint and keys
 
 1. In the results, find and copy the `properties.endpoint`. You will need that later.
 
