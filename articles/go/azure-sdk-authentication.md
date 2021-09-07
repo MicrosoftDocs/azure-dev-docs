@@ -19,7 +19,7 @@ The `DefaultAzureCredential` type simplifies authentication by combining commonl
 ## Prerequisites
 
 [!INCLUDE [azure-subscription.md](includes/azure-subscription.md)]
-- **Go installed**: Version 1.13 or [above](https://golang.org/dl/)
+- **Go installed**: Version 1.16 or [above](https://golang.org/dl/)
 
 ## 1. Install the Azure Identity module for Go
 
@@ -49,9 +49,9 @@ The `DefaultAzureCredential` uses the `EnvironmentCredential` type to configure 
 
 |Variable name|Value
 |-|-
-|`AZURE_CLIENT_ID`|ID of an Azure AD application
+|`AZURE_CLIENT_ID`|Application Id of an Azure service principal
 |`AZURE_TENANT_ID`|ID of the application's Azure AD tenant
-|`AZURE_CLIENT_SECRET`|One of the application's client secrets
+|`AZURE_CLIENT_SECRET`|Password of the Azure service principal
 
 # [Bash](#tab/bash)
 
@@ -131,7 +131,7 @@ Configuration is attempted in the above order. For example, if values for a clie
 
 If the required environment variables for the `EnvironmentCredential` credential type aren't present, the `DefaultAzureCredential` will attempt to authenticate using the `ManagedIdentityCredential` type.
 
-Run the following command to set the `AZURE_CLIENT_ID` environment variable.
+If using a user assigned managed identity, run the following command to set the `AZURE_CLIENT_ID` environment variable.
 
 # [Bash](#tab/bash)
 
@@ -145,8 +145,8 @@ export AZURE_CLIENT_ID="<user_assigned_managed_identity_client_id>"
 $env:AZURE_CLIENT_ID="<service_principal_appid>"
 ```
 
-<!-- TODO: Add link to new Azure Go SDK authentication with a service principal article -->
-<!-- To learn more about using managed identities, check out [Azure Go SDK authentication with a service principal](). -->
+> [!NOTE]
+> To use a system assigned managed identity, make sure the `AZURE_CLIENT_ID` is not set.
 
 ---
 
@@ -207,7 +207,6 @@ Create a new sample Go module named `azure-auth` to test authenticating to Azure
     // Define the function to create a resource group.
 
     func main() {
-      // The default credential checks environment variables for configuration.
       cred, err := azidentity.NewDefaultAzureCredential(nil)
       if err != nil {
         log.Fatalf("Authentication failure: %+v", err)

@@ -10,14 +10,14 @@ ms.custom: devx-track-go
 
 In this tutorial, you'll use the Azure SDK for Go to authenticate to Azure with an Azure service principal using either a secret or a certificate.
 
-Azure service principals define the access policy and permissions in an Azure AD tenant. Enabling core features such as authentication during sign-on and authorization during resource access. Removing the need to use personal accounts to access Azure resources. The [Azure Identity](https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/azidentity) Go module uses the Azure SDK to provide a convenient way to authenticate with Azure using a service principal using environment variables, a secret, or a certificate.
+Azure service principals define the access policy and permissions in an Azure AD tenant. Enabling core features such as authentication during sign-on and authorization during resource access. Removing the need to use personal accounts to access Azure resources. The Azure SDK for Go's [Azure Identity](https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/azidentity) module provides a convenient way to authenticate with Azure using a service principal using environment variables, a secret, or a certificate
 
 Follow this tutorial to create and authenticate with the Azure SDK for Go using a service principal.
 
 ## Prerequisites
 
 [!INCLUDE [azure-subscription.md](includes/azure-subscription.md)]
-- **Go installed**: Version 1.13 or [above](https://golang.org/dl/)
+- **Go installed**: Version 1.16 or [above](https://golang.org/dl/)
 
 ## 1. Create an Azure resource group
 
@@ -125,7 +125,7 @@ Replace `<pftPassword>` and `<servicePrincipalName>` with the appropriate value.
 
 ## 3. Authenticate to Azure with a service principal
 
-The `DefaultAzureCredential` is a chained credential that makes it easy to run your application with different credentials without reconfiguring the credential type.
+By using the `DefaultAzureCredential`, you can avoid writing environment-specific code to authenticate to Azure.
 
 Use the `DefaultAzureCredential` to configure your service principal credentials by defining environment variables.
 
@@ -142,9 +142,9 @@ Define the following environment variables:
 
 |Variable name|Value
 |-|-
-|`AZURE_CLIENT_ID`|ID of an Azure AD application
-|`AZURE_TENANT_ID`|ID of the application's Azure AD tenant
-|`AZURE_CLIENT_SECRET`|One of the application's client secrets
+|`AZURE_CLIENT_ID`|Application Id of an Azure service principal
+|`AZURE_TENANT_ID`|Id of the application's Azure AD tenant
+|`AZURE_CLIENT_SECRET`|Password of the Azure service principal
 
 # [Bash](#tab/azure-cli)
 
@@ -168,7 +168,7 @@ $env:AZURE_CLIENT_SECRET="<service_principal_password>"
 
 |Variable name|Value
 |-|-
-|`AZURE_CLIENT_ID`|ID of an Azure AD application
+|`AZURE_CLIENT_ID`|Application Id of an Azure service principal
 |`AZURE_TENANT_ID`|ID of the application's Azure AD tenant
 |`AZURE_CLIENT_CERTIFICATE_PATH`|Path to a PEM-encoded certificate file including private key (without password protection)
 
@@ -229,7 +229,6 @@ Use the following code sample to verify that your service principal authenticate
 		"github.com/Azure/azure-sdk-for-go/sdk/azcore"
 		"github.com/Azure/azure-sdk-for-go/sdk/azidentity"
 		"github.com/Azure/azure-sdk-for-go/sdk/resources/armresources"
-		"github.com/Azure/azure-sdk-for-go/sdk/to"
 	)
 
 	// Define key global variables.
