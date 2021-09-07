@@ -116,11 +116,11 @@ if err != nil {
 
 // To resume from the resume token that was previously saved, create an appropriate
 // *Response object as appropriate for the client and call it's resume method.
-// Example: https://github.com/Azure/autorest.go/blob/track2/test/autorest/lrogroup/lros_test.go#L48-L51
 
 resp = WidgetPollerResponse()
 
-err := resp.Resume(...)
+// Resume takes the resume token as an arg
+err := resp.Resume(tk, ...)
 
 if err != nil {
     // handle error ...
