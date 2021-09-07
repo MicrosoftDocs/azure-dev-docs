@@ -12,9 +12,9 @@ ms.custom: devx-track-python, seo-python-october2019
 
 With a container image in a registry, you can use the Docker extension in VS Code to easily set up an Azure App Service running the container.
 
-1. In the **Docker** Explorer, expand **Registries**, expand the node for your registry (such as **Azure**), then expand the node for your image name until you see the image with the `:latest` tag.
+1. In Docker Explorer, expand **Registries**, expand the node for your registry (such as **Azure**), then expand the node for your image name until you see the image with the `:latest` tag.
 
-    ![Locate an image in the Docker explorer](media/deploy-containers/find-image-to-deploy-in-docker-explorer.png)
+    ![Locate an image in Docker Explorer.](media/deploy-containers/find-image-to-deploy-in-docker-explorer.png)
 
 1. Right-click the image and select **Deploy Image to Azure App Service**.
 
