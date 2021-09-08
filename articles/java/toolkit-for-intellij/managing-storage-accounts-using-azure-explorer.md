@@ -26,7 +26,7 @@ To create a storage account by using the Azure Explorer, do the following:
 
 1. Sign in to your Azure account by using the [Sign-in instructions for the Azure Toolkit for IntelliJ]. 
 
-2. In the **Azure Explorer** view, expand the **Azure** node, right-click **Storage Accounts**, and then click **Create Storage Account**.
+2. In the **Azure Explorer** view, expand the **Azure** node, right-click **Storage Accounts**, and then click **Create**.
 
 3. In the **Create Storage Account** dialog box, specify the following options:
 
@@ -42,7 +42,7 @@ To create a storage account by using the Azure Explorer, do the following:
 
    * **Location**: Specifies the location where your storage account will be created (for example, "West US").
 
-   * **Resource Group**: Specifies the resource group for your virtual machine. Select one of the following options:
+   * **Resource Group**: Specifies the resource group for your storage account. Select one of the following options:
       * **Create new**: Specifies that you want to create a new resource group.
       * **Use existing**: Specifies that you will select from a list of resource groups that are associated with your Azure account.
 
