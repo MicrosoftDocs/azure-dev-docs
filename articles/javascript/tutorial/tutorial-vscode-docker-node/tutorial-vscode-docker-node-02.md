@@ -19,7 +19,7 @@ This tutorial uses [Azure Container Registry](https://azure.microsoft.com/servic
 
 1. Enter **registry** in the search box. From the results, select **Azure Container Registry: Create Registry**.
 
-   ![The Docker explorer in Visual Studio Code](../../media/deploy-containers/docker-create-registry.jpg)
+   ![Screenshot that shows searching for the term registry in Visual Studio Code Explorer.](../../media/deploy-containers/docker-create-registry.jpg)
 
 1. Enter or select the following values:
 
@@ -45,8 +45,7 @@ While you can see your Azure registries in the Docker extension, you can't push 
 
 1. In Visual Studio, select **Ctrl**+**`** to open the integrated terminal.
 
-1. Run the following Azure CLI command to sign in to ContaDocker Explorer
-2. iner Registry. Replace `<your-registry-name>` with the name of the registry you created.
+1. Run the following Azure CLI command to sign in to Container Registry. Replace `<your-registry-name>` with the name of the registry you created.
 
     ```bash
     az acr login --name <your-registry-name>
