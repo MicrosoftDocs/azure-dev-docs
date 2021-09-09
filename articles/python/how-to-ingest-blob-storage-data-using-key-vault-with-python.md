@@ -24,7 +24,7 @@ In this article, you'll learn how to retrieve a secret from Azure Key Vault to a
 * [Visual Studio Code](https://code.visualstudio.com/) on one of the [supported platforms](https://code.visualstudio.com/docs/supporting/requirements#_platforms).
 * The [PowerShell extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.PowerShell).
 * The [Azure Functions extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) for Visual Studio Code.
-* [Python 3.6+](/azure/developer/python/configure-local-development-environment) is required and the following packages:
+* [Python 3.6+](./configure-local-development-environment.md) is required and the following packages:
   * azure-storage-blob `pip install azure-storage-blob`
   * azure-identity `pip install azure-identity`
   * azure-keyvault-keys `pip install azure-keyvault-secrets`
