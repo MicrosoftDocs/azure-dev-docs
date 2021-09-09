@@ -45,7 +45,7 @@ While you can see your Azure registries in the Docker extension, you can't push 
 
 1. In Visual Studio, select **Ctrl**+**`** to open the integrated terminal.
 
-1. Run the following Azure CLI command to sign in to ContaDocker explorer
+1. Run the following Azure CLI command to sign in to ContaDocker Explorer
 2. iner Registry. Replace `<your-registry-name>` with the name of the registry you created.
 
     ```bash
