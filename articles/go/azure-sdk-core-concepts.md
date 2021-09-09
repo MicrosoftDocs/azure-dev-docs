@@ -43,7 +43,7 @@ For an example of a paging object implementation, see the SDK source file [zz_ge
 
 ## Long running operations
 
-Some operations on Azure, such as copying data from a source URL to a Storage blob of training an AI model to recognize forms, can take a long time to complete, anywhere from a few seconds to a few days. Such **long running operations (LRO)** don't lend well to the standard HTTP flow of a relatively quick request and response.
+Some operations on Azure, such as copying data from a source URL to a Storage blob or training an AI model to recognize forms, can take a long time to complete, anywhere from a few seconds to a few days. Such **long running operations (LRO)** don't lend well to the standard HTTP flow of a relatively quick request and response.
 
 By convention, the names for all methods in the SDK libraries for LROs start with `Begin`. This prefix indicates that the return type from the operation is a "Poller" type that simplifies interactions with LROs.
 
@@ -52,7 +52,7 @@ The following examples illustrate various patterns for handling LROs. You can al
 ### Blocking call to PollUntilDone
 
 ```go
-resp,err := client.BeginCreate(context.Background(), "blue_widget", nil)
+resp, err := client.BeginCreate(context.Background(), "blue_widget", nil)
 
 if err != nil {
     // handle error...
@@ -72,7 +72,7 @@ process(w)
 #### Customized poll loop
 
 ```go
-resp,err := client.BeginCreate(context.Background(), "green_widget")
+resp, err := client.BeginCreate(context.Background(), "green_widget")
 
 if err != nil {
     // handle error...
@@ -81,7 +81,7 @@ if err != nil {
 poller := resp.Poller
 
 for {
-    resp,err := poller.Poll(context.Background())
+    resp, err := poller.Poll(context.Background())
 
     if err != nil {
         // handle error ...
@@ -94,7 +94,7 @@ for {
     // Perform other work while waiting
 }
 
-w,err := poller.FinalResponse(ctx)
+w, err := poller.FinalResponse(ctx)
 
 if err != nil {
     // handle error ...
@@ -108,7 +108,7 @@ process(w)
 ```go
 // Object the resume token from a previous poller instance
 poller := resp.Poller
-tk,err := poller.ResumeToken()
+tk, err := poller.ResumeToken()
 
 if err != nil {
     // handle error ...
@@ -127,7 +127,7 @@ if err != nil {
 }
 
 for {
-    resp,err := poller.Poll(context.Background())
+    resp, err := poller.Poll(context.Background())
 
     if err != nil {
         // handle error ...
@@ -140,7 +140,7 @@ for {
     // Perform other work while waiting
 }
 
-w,err := poller.FinalResponse(ctx)
+w, err := poller.FinalResponse(ctx)
 
 if err != nil {
     // handle error ...
