@@ -2,7 +2,7 @@
 title: "What's new with Cloud Developer Advocates"
 description: "What's new with JavaScript Cloud Developer Advocates (CDA)"
 ms.topic: conceptual
-ms.date: 08/30/2021
+ms.date: 09/09/2021
 ---
 
 # What's new with JavaScript Developer Advocates
@@ -81,8 +81,7 @@ This content is primarily from Developer Advocates as well as other members of t
 |[Yohan Lasorsa][Yohan]|A clean dev env, working every time, everywhere|[YouTube](https://www.youtube.com/watch?v=vVX7LMCBnwA) and [URL list](https://www.theurlist.com/clean-dev)|
 |[Yohan Lasorsa][Yohan] and [Olivier Leplus][Olivier]|Angular, PWA and SWA|[Speaker deck](https://aka.ms/spwa)|
 |[Lucas Santos][Lucas]|Starting with ES Modules|**Portuguese** - [Blog](https://blog.lsantos.dev/os-ecmascript-modules-estao-aqui/)|
-|[Wassim Chegham][Wassim] |The subtle art of being a developer advocate|[Twitch](https://m.twitch.tv/)|
-|[Wassim Chegham][Wassim] |The subtle art of being a developer advocate|[Twitch](https://m.twitch.tv/)|
+|[Wassim Chegham][Wassim] |The subtle art of being a developer advocate|[Twitch](https://www.youtube.com/watch?v=ahA8a5zNY6Y)|
 |[Aaron Powell][Aaron]|Type-safe GraphQL with TypeScript|[GotHub repo](https://github.com/aaronpowell/graphql-code-generator-sample)|
 |[Wassim Chegham][Wassim]|Azure Static Web Apps CLI|**French** - [YouTube video:Tartine & Tech](https://www.youtube.com/watch?v=0L2XS6INmwE)|
 |[Glaucia Lemos][Glaucia]|How do I debug API REST Node.js App in VS Code?!|**Portuguese** - [YouTube](https://youtu.be/Lb20EoDja50)|
