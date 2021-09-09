@@ -19,7 +19,7 @@ This tutorial uses [Azure Container Registry](https://azure.microsoft.com/servic
 
 1. Enter **registry** in the search box. From the results, select **Azure Container Registry: Create Registry**.
 
-   ![The Docker explorer in Visual Studio Code](../../media/deploy-containers/docker-create-registry.jpg)
+   ![Screenshot that shows searching for the term registry in Visual Studio Code Explorer.](../../media/deploy-containers/docker-create-registry.jpg)
 
 1. Enter or select the following values:
 
@@ -35,9 +35,9 @@ This tutorial uses [Azure Container Registry](https://azure.microsoft.com/servic
 
    ![Confirmation in Visual Studio Code that the registry was created](../../media/deploy-containers/registry-created.jpg)
 
-1. Open the **Docker** explorer. Ensure that the registry endpoint you just set up is visible under **Registries**.
+1. Open **Docker** Explorer. Ensure that the registry endpoint you just set up is visible under **Registries**.
 
-   ![Verification that the registry appears in the Docker explorer](../../media/deploy-containers/docker-explorer-registry.jpg)
+   ![Verification that the registry appears in Docker Explorer](../../media/deploy-containers/docker-explorer-registry.jpg)
 
 ## Sign in to Azure Container Registry
 
