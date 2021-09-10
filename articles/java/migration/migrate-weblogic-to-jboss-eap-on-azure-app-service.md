@@ -1,25 +1,24 @@
 ---
 title: Migrate WebLogic applications to JBoss EAP on Azure App Service
 description: This guide describes what you should be aware of when you want to migrate an existing WebLogic application to run on Azure App Service using JBoss EAP.
-author: jasonfreeberg
 ms.author: jafreebe
 ms.topic: conceptual
-ms.date: 7/28/2021
+ms.date: 09/09/2021
 ---
 
 # Migrate WebLogic applications to JBoss EAP on Azure App Service
 
 This guide describes what you should be aware of when you want to migrate an existing WebLogic application to run on Azure App Service using JBoss EAP.
 
-[!INCLUDE [java-redhat-migration-toolkit.md](includes/redhat-migration-toolkit.md)]
-
-## Before you start
-
-If any of the pre-migration requirements can't be met, see the companion migration guides:
-
-* [Migrate WebLogic applications to Azure Virtual Machines](migrate-weblogic-to-virtual-machines.md)
+[!INCLUDE [java-redhat-migration-toolkit](includes/redhat-migration-toolkit.md)]
 
 ## Pre-migration
+
+To ensure a successful migration, before you start, complete the assessment and inventory steps described in the following sections.
+
+If you can't meet any of these pre-migration requirements, see the companion migration guide:
+
+* [Migrate WebLogic applications to Azure Virtual Machines](migrate-weblogic-to-virtual-machines.md)
 
 [!INCLUDE [inventory-server-capacity](includes/inventory-server-capacity-aks.md)]
 
@@ -76,9 +75,9 @@ To execute scheduled jobs on Azure, consider using [Azure Functions with a Timer
 > [!NOTE]
 > To prevent malicious use, you'll likely need to ensure that the job invocation endpoint requires credentials. In this case, the trigger function will need to provide the credentials.
 
-### Determine whether WLST is used
+### Determine whether WebLogic Scripting Tool (WLST) is used
 
-If you currently use WebLogic Scripting Tool (WLST) to perform the deployment, you will need to assess what it is doing. If WLST is changing any (runtime) parameters of your application as part of the deployment, you will need to make sure those parameters conform to one of the following options:
+If you currently use WLST to perform the deployment, you will need to assess what it is doing. If WLST is changing any (runtime) parameters of your application as part of the deployment, you will need to make sure those parameters conform to one of the following options:
 
 1. They are externalized as app settings.
 2. They are embedded in your application.
@@ -86,7 +85,7 @@ If you currently use WebLogic Scripting Tool (WLST) to perform the deployment, y
 
 If WLST is doing more than what is mentioned above, you will have some additional work to do during migration.
 
-### Determine whether your application uses WebLogic specific APIs
+### Determine whether your application uses WebLogic-specific APIs
 
 If your application uses WebLogic-specific APIs, you will need to refactor your application to NOT use them. For example, if you have used a class mentioned in the [Java API Reference for Oracle WebLogic Server](https://docs.oracle.com/en/middleware/fusion-middleware/weblogic-server/12.2.1.4/wlapi/index.html?overview-summary.html), you have used a WebLogic-specific API in your application.
 
@@ -138,7 +137,6 @@ If your application is using JAAS, then you'll need to capture how JAAS is confi
 
 Most likely, you've deployed your application on multiple WebLogic servers to achieve high availability. Azure App Service is capable of scaling, but if you've used the WebLogic Cluster API, you'll need to refactor your code to eliminate the use of that API.
 
-
 ## Migration
 
 ### Provision an App Service plan
@@ -166,7 +164,7 @@ If your application is built from a Maven POM file, [use the Webapp plugin for M
 If you can't use the Maven plugin, you'll need to provision the Web App through other mechanisms, such as:
 
 * [Azure portal](https://portal.azure.com/#create/Microsoft.WebSite)
-* [Azure CLI](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create)
+* [Azure CLI](/cli/azure/webapp#az-webapp-create)
 * [Azure PowerShell](/powershell/module/az.websites/new-azwebapp)
 
 Once the Web App has been created, use one of the [available deployment mechanisms](/azure/app-service/deploy-zip) to deploy your application.
@@ -175,11 +173,11 @@ Once the Web App has been created, use one of the [available deployment mechanis
 
 If your application requires specific runtime options, [use the most appropriate mechanism to specify them](/azure/app-service/containers/configure-language-java#set-java-runtime-options).
 
-### Migrate externalized parameters 
+### Migrate externalized parameters
 
 If you need to use external parameters, you'll need to set them as app settings. For more information, see [Configure app settings](/azure/app-service/configure-common?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings).
 
-### Migrate startup scripts 
+### Migrate startup scripts
 
 If the original application used a custom startup script, you'll need to migrate it to a Bash script. For more information, see [Customize application server configuration](/azure/app-service/containers/configure-language-java#customize-application-server-configuration).
 
@@ -201,7 +199,7 @@ Migrate any additional server-level classpath dependencies by following the inst
 
 Migrate any additional [shared server-level JDNI resources](/azure/app-service/containers/configure-language-java#install-modules-and-dependencies).
 
-### Migrate JCA connectors and JAAS modules 
+### Migrate JCA connectors and JAAS modules
 
 Migrate any JCA connectors and JAAS modules by following the instructions at [Install modules and dependencies](/azure/app-service/containers/configure-language-java#install-modules-and-dependencies).
 
@@ -222,12 +220,12 @@ Now that you have your application migrated to Azure App Service you should veri
 
 ### Recommendations
 
-1. If you opted to use the */home* directory for file storage, consider [replacing it with Azure Storage](/azure/app-service/containers/how-to-serve-content-from-azure-storage).
+* If you opted to use the */home* directory for file storage, consider [replacing it with Azure Storage](/azure/app-service/containers/how-to-serve-content-from-azure-storage).
 
-1. If you have configuration in the */home* directory that contains connection strings, SSL keys, and other secret information, consider using a combination of [Azure Key Vault](/azure/app-service/app-service-key-vault-references) and/or [parameter injection with application settings](/azure/app-service/configure-common#configure-app-settings) where possible.
+* If you have configuration in the */home* directory that contains connection strings, SSL keys, and other secret information, consider using a combination of [Azure Key Vault](/azure/app-service/app-service-key-vault-references) and/or [parameter injection with application settings](/azure/app-service/configure-common#configure-app-settings) where possible.
 
-1. Consider [using Deployment Slots](/azure/app-service/deploy-staging-slots) for reliable deployments with zero downtime.
+* Consider [using Deployment Slots](/azure/app-service/deploy-staging-slots) for reliable deployments with zero downtime.
 
-1. Design and implement a DevOps strategy. To maintain reliability while increasing your development velocity, consider [automating deployments and testing with Azure Pipelines](/azure/devops/pipelines/ecosystems/java-webapp). If you're using Deployment Slots, you can [automate deployment to a slot](/azure/devops/pipelines/targets/webapp?view=azure-devops&tabs=yaml#deploy-to-a-slot) and the subsequent slot swap.
+* Design and implement a DevOps strategy. To maintain reliability while increasing your development velocity, consider [automating deployments and testing with Azure Pipelines](/azure/devops/pipelines/ecosystems/java-webapp). If you're using Deployment Slots, you can [automate deployment to a slot](/azure/devops/pipelines/targets/webapp#deploy-to-a-slot) and the subsequent slot swap.
 
-1. Design and implement a business continuity and disaster recovery strategy. For mission-critical applications, consider a [multi-region deployment architecture](/azure/architecture/reference-architectures/app-service-web-app/multi-region).
+* Design and implement a business continuity and disaster recovery strategy. For mission-critical applications, consider a [multi-region deployment architecture](/azure/architecture/reference-architectures/app-service-web-app/multi-region).
