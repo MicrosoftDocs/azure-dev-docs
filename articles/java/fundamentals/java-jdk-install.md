@@ -18,22 +18,24 @@ The Azul Zulu builds are a no-cost, multi-platform, production-ready distributio
 There are [multiple download package types supported for each client OS](https://www.azul.com/downloads/azure-only/).
 
 > [!NOTE]
-> The following instructions target the 64-bit Java 11 version of the JDK.
+> The following instructions target the 64-bit Java 8 and 11 versions of the JDK.
 
 ## Windows and macOS
 
 ### Download and install the Azul Zulu build of OpenJDK for Windows
 
-1. Visit the following URL and download the latest 64-bit Azul Zulu JDK 11 as an MSI.
+1. Visit one of the following URLs and download the latest 64-bit Azul Zulu JDK 8 or 11 as an MSI.
 
+   * [zulu-8-jdk_windows](https://www.azul.com/downloads/azure-only/?version=java-8-lts&os=windows&architecture=x86-64-bit&package=jdk)
    * [zulu-11-jdk_windows](https://www.azul.com/downloads/azure-only/?version=java-11-lts&os=windows&architecture=x86-64-bit&package=jdk)
 
 2. Navigate to the directory and double-click the downloaded MSI file to begin installation.
 
 ### Download and install the Azul Zulu build of OpenJDK for Mac
 
-1. Visit the following URL and download the latest 64-bit Azul Zulu JDK 11 as a DMG file.
+1. Visit one of the following URLs and download the latest 64-bit Azul Zulu JDK 8 or 11 as a DMG file.
 
+   * [zulu-8-azure-jdk_macosx](https://www.azul.com/downloads/azure-only/?version=java-8-lts&os=macos&architecture=x86-64-bit&package=jdk)
    * [zulu-11-azure-jdk_macosx](https://www.azul.com/downloads/azure-only/?version=java-11-lts&os=macos&architecture=x86-64-bit&package=jdk)
 
 2. Launch Finder, navigate to the download directory, and double-click the DMG file.
