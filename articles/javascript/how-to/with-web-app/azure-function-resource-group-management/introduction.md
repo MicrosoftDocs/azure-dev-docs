@@ -22,6 +22,8 @@ In this article series, you'll create a Azure Function app with APIs to manage A
     - [Azure Resources](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureresourcegroups) to view Azure resource groups.
 - [Azure CLI](/cli/azure/install-azure-cli) installed to your local machine.
 
+While the source code is written with TypeScript, the source code is very simple. If you are comfortable with modern JavaScript, the code in this article series will be familiar to you.
+
 ## Application architecture
 
 The app provides the following API endpoints.
@@ -62,6 +64,26 @@ An Azure service principal provides access to Azure without having to use your p
     ```
 1. Copy the entire output results to a temporary file. You will need these settings later.
 
+    ```json
+    {
+      "appId": "YOUR-SERVICE-PRINCIPAL-ID",
+      "displayName": "YOUR-SERVICE-PRINCIPAL-NAME",
+      "name": "http://YOUR-SERVICE-PRINCIPAL-NAME",
+      "password": "!@#$%",
+      "tenant": "YOUR-TENANT-ID"
+    }
+    ```
+
+## Get your Azure subscription ID
+
+1. In a bash terminal, get your subscriptions and find the subscription ID you want to use for this article series.
+
+```bash
+az account list --output table
+```
+
+1. Copy the subscription ID to the previous temporary file. You will need this setting later. 
+
 ## Next steps
 
-* [Create your local Azure Function app]()
+* [Create your local Azure Function app](create-function-app-for-resource-groups.md)

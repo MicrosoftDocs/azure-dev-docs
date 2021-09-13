@@ -119,6 +119,12 @@
                 href: tutorial/vscode-function-app-http-trigger/tutorial-vscode-serverless-node-deploy-hosting.md
               - name: 5. Clean up resources
                 href: tutorial/vscode-function-app-http-trigger/tutorial-vscode-serverless-node-remove-resource.md              
+            - name: Resource management API
+              items: 
+              - name: 1. Introduction and prerequisites
+                href: how-to/with-web-app/azure-function-resource-group-management/introduction.md
+              - name: 2. Create local Azure Function
+                href: how-to/with-web-app/azure-function-resource-group-management/create-function-app-for-resource-groups.md
             - name: GraphQL APIs
               href: ./how-to/with-web-app/graphql/azure-function-hello-world.md
           - name: Azure App service
