@@ -12,7 +12,7 @@ In this article series, you'll create a Azure Function app with APIs to manage A
 
 * [Sample code](https://github.com/Azure-Samples/js-e2e-azure-resource-management-functions)
 
-[!INCLUDE [Create or use existing Azure Subscription ](../../../../includes/environment-subscription-h2.md)]
+[!INCLUDE [Create or use existing Azure Subscription ](../../../includes/environment-subscription-h2.md)]
 
 ## Prerequisites
 
@@ -57,7 +57,7 @@ An Azure service principal provides access to Azure without having to use your p
     * Your department and date: `IT-2021-September`
     * A unique identifier: `1e8966d7-ba85-424b-9db4-c39e1ae9d0ca`
 
-1. In a bash terminal, create your service principal with [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az_ad_sp_create_for_rbac): 
+1. In a bash terminal, create your service principal with [az ad sp create-for-rbac](/cli/azure/ad/sp#az_ad_sp_create_for_rbac): 
 
     ```bash
     az ad sp create-for-rbac --name YOUR-SERVICE-PRINCIPAL-NAME

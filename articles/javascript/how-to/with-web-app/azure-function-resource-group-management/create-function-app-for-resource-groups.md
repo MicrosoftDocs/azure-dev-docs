@@ -73,14 +73,14 @@ npm install @azure/identity @azure/arm-resources
 
 1. Open the `./resource-groups/index.ts` file and replace the contents with the following: 
 
-    :::code language="javascript" source="~/../js-e2e-azure-resource-management-functions/main/resource-groups/index.ts" highlight=""7:::
+    :::code language="TypeScript" source="~/../js-e2e-azure-resource-management-functions/resource-groups/index.ts" highlight=""7:::
 
     This file responds to API requests. 
 
 1. Create a directory named `lib` and create a new file in that directory named `azure-resource-groups.ts`.
 1. Copy the following code into the `azure-resource-groups.ts` file:
 
-    :::code language="javascript" source="~/../js-e2e-azure-resource-management-functions/main/lib/azure-resource-groups.ts" range="1-17" highlight="6,9,12,15-17":::
+    :::code language="TypeScript" source="~/../js-e2e-azure-resource-management-functions/lib/azure-resource-groups.ts" range="1-17" highlight="6,9,12,15-17":::
 
     This file completes the following:
     * Gets the subscription ID
@@ -90,7 +90,7 @@ npm install @azure/identity @azure/arm-resources
 
 1. Create a new file in that directory named `environment-vars.ts` and copy the following code into that file. 
 
-    :::code language="javascript" source="~/../js-e2e-azure-resource-management-functions/main/lib/environment-vars.ts" highlight="1,16":::
+    :::code language="TypeScript" source="~/../js-e2e-azure-resource-management-functions/lib/environment-vars.ts" highlight="1,16":::
 
     This file checks the environment variables before returning the subscription ID.
 
@@ -113,6 +113,7 @@ npm install @azure/identity @azure/arm-resources
 If you didn't get any results, check the following table for issues. If your issue isn't listed in the table, open an issue on this documentation page.
 
 |Issue|Fix|
+|--|--|
 |The app didn't start.|Review the errors. Make sure you installed the required dependencies.|
 |The app started but you can't get a 200 response.|Make sure your curl command is requesting from the correct local route.|
 |The API returned a 200 response but returned no results.|Use the Visual Studio Code extension for Azure Resources to verify that your subscription has any resource groups. If you don't see any resource groups, don't worry. This article series adds an API to create and delete resource groups in your subscription. This API is added after the first deployment of the source code to Azure, so that you learn how to redeploy your code.|
