@@ -2,7 +2,7 @@
 title: Delete resource group
 description: Learn how to clean up after using an Azure Function app.
 ms.topic: how-to
-ms.date: 09/13/2021
+ms.date: 09/16/2021
 ms.custom: devx-track-js
 ---
 

@@ -2,7 +2,7 @@
 title: Query Azure Function logs
 description: Learn how to view and query Azure Function app logs in the Azure portal.
 ms.topic: how-to
-ms.date: 09/13/2021
+ms.date: 09/16/2021
 ms.custom: devx-track-js
 ---
 

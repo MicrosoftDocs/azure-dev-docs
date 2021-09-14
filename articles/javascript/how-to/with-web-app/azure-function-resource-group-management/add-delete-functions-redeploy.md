@@ -2,7 +2,7 @@
 title: Update Azure Function app and redeploy
 description: Learn how to add more APIs and redeploy an Azure Function app in Visual Studio Code to manage Azure resource groups.
 ms.topic: how-to
-ms.date: 09/13/2021
+ms.date: 09/16/2021
 ms.custom: devx-track-js
 ---
 

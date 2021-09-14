@@ -2,7 +2,7 @@
 title: Resource group management API
 description: Learn how to build an Azure Function API to manage Azure resource groups.
 ms.topic: how-to
-ms.date: 09/13/2021
+ms.date: 09/16/2021
 ms.custom: devx-track-js
 ---
 
@@ -11,6 +11,17 @@ ms.custom: devx-track-js
 In this article series, you'll create an Azure Function app with APIs to manage Azure resource groups.
 
 * [Sample code](https://github.com/Azure-Samples/js-e2e-azure-resource-management-functions)
+
+Features and functionality of this article series:
+
+* Create Azure Function app in Visual Studio Code
+* Create function APIs in Visual Studio Code
+* Deploy to Azure Functions
+* Create service principal
+* Configure local and remote application settings
+* Use DefaultAzureCredential in both local and remote environments
+* Use Azure SDKs to use Azure Identity and Azure Resource Management APIs
+* Use your local and cloud APIs to create, delete, and list resource groups in your subscription
 
 [!INCLUDE [Create or use existing Azure Subscription ](../../../includes/environment-subscription-h2.md)]
 
