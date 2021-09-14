@@ -50,7 +50,7 @@ Use Visual Studio Code to create a local Function app.
 
 1. Open the `local.settings.json` file in the project root directory and edit your **VALUES** section with the four following environment variables. 
 
-    :::code language=" source="~/../js-e2e-azure-resource-management-functions/local.settings.json" highlight="6-9":::
+    :::code language="JSON" source="~/../js-e2e-azure-resource-management-functions/local.settings.json" highlight="6-9":::
  
 1. Refer to your temporary copy of settings from the previous article to edit the _required_ environment variables. These environment variables are **REQUIRED for the context to use DefaultAzureCredential**. 
 
