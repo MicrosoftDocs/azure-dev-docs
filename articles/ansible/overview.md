@@ -38,7 +38,7 @@ Using the Ansible [dynamic inventory](https://docs.ansible.com/ansible/latest/us
 
 ## More Azure Marketplace options
 
-The [Ansible Tower](https://azuremarketplace.microsoft.com/marketplace/apps/redhat.ansible-tower) is an Azure Marketplace image by Red Hat. 
+The [Ansible Tower](https://azuremarketplace.microsoft.com/marketplace/apps/redhat.ansible-automation-platform?tab=Overview) is an Azure Marketplace image by Red Hat. 
 
 Ansible Tower is a web-based UI and dashboard for Ansible that has the following features:
 
