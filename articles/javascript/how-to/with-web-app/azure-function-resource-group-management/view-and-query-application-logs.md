@@ -39,7 +39,7 @@ Use the Azure portal to view and query your function logs.
 
     If the log doesn't display any results, it may be because there is a few minutes delay between the HTTP request to the Azure Function and the log availability in Kusto. Wait a few minutes and run the query again.
 
-    :::image type="content" source="../../../media/azure-function-resource-group-management/azure-portal-application-insights-query-function-execution-log-trace.png" alt-text="Browser screenshot showing Azure portal Kusto query result for Trace table." lightbox="../../media/azure-function-resource-group-management/azure-portal-application-insights-query-function-execution-log-trace.png":::
+    :::image type="content" source="../../../media/azure-function-resource-group-management/azure-portal-application-insights-query-function-execution-log-trace.png" alt-text="Browser screenshot showing Azure portal Kusto query result for Trace table." lightbox="../../../media/azure-function-resource-group-management/azure-portal-application-insights-query-function-execution-log-trace.png":::
 
     Because you added an Application Insights resource when you created the Azure Function app, you didn't need to do anything extra to get this logging information:
 
