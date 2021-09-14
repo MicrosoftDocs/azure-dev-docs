@@ -135,4 +135,4 @@ If you couldn't complete this article, check the following table for issues. If 
 
 ## Next steps
 
-* [Deploy your Azure Function app]()
+* [Deploy your Azure Function app](deploy-azure-function-with-visual-studio-code.md)
