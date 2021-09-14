@@ -83,16 +83,18 @@ In the following cURL commands, replace `YOUR-RESOURCE-NAME` with your Azure Fun
 
 1. Use the following curl command in an integrated bash terminal, to call to add a resource group to your subscription. Change the name of the resource and resource group to use your own naming conventions.
 
-    :::code language="bash" source="~/../js-e2e-azure-resource-management-functions/resource-group/README.md" range="59-61":::
+    :::code language="bash" source="~/../js-e2e-azure-resource-management-functions/README.md" range="59-61":::
 
 1. Use the following curl command to see the new resource group listed in your subscription.
 
-    :::code language="bash" source="~/../js-e2e-azure-resource-management-functions/resource-group/README.md" range="75":::
+    :::code language="bash" source="~/../js-e2e-azure-resource-management-functions/README.md" range="75":::
 
 1. Use the following curl command to delete the resource group you just added. 
 
-    :::code language="bash" source="~/../js-e2e-azure-resource-management-functions/resource-group/README.md" range="67-39":::
+    :::code language="bash" source="~/../js-e2e-azure-resource-management-functions/README.md" range="67-39":::
+
+    Deleting a resource group will delete all resources within the group and may take a minute to complete.
 
 ## Next steps
 
-* [View and query application logs]()
+* [View and query application logs](view-and-query-application-logs.md)
