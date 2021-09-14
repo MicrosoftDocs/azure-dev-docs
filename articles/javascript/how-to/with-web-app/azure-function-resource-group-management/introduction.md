@@ -14,8 +14,8 @@ In this article series, you'll create an Azure Function app with APIs to manage 
 
 Features and functionality of this article series:
 
-* Create Azure Function app in Visual Studio Code
-* Create function APIs in Visual Studio Code
+* Create local Azure Function app project in Visual Studio Code
+* Create function APIs boilerplate code in Visual Studio Code
 * Deploy to Azure Functions
 * Create service principal
 * Configure local and remote application settings
