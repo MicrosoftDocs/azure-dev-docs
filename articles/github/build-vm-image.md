@@ -28,7 +28,7 @@ The build virtual machine image action uses the [Azure Image Builder service](/a
     - This example uses the [Java Spring PetClinic Sample Application](https://github.com/spring-projects/spring-petclinic).
 - A Shared Image Gallery.
     - [Create a Shared Image Gallery with the Azure CLI](/azure/virtual-machines/share-gallery?tabs=cli)
-    - Create an Azure Shared Image Gallery using the portal ([Windows], [Linux](/azure/virtual-machines/linux/shared-images-portal))
+    - Create an Azure Shared Image Gallery using the portal (Windows, [Linux](/azure/virtual-machines/linux/shared-images-portal))
 
 ## Workflow file overview
 
