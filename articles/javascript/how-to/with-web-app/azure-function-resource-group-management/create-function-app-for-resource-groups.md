@@ -99,7 +99,7 @@ npm install @azure/identity @azure/arm-resources
 
 ## Test local functions
 
-1. Run the local project:
+1. In the Visual Studio Code integrated terminal, run the local project:
 
     ```bash
     npm start

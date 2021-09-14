@@ -6,7 +6,7 @@ ms.date: 09/13/2021
 ms.custom: devx-track-js
 ---
 
-# 3. Deploy resource manager function ap
+# 3. Deploy resource manager function app
 
 In this article of the series, you deploy an Azure Function app in Visual Studio Code to manage Azure resource groups. 
 
@@ -62,4 +62,4 @@ You need to configure your Azure app settings to connect to the Azure Function a
 
 ## Next steps
 
-* [Add new APIs and redeploy your function app](deploy-azure-function-with-visual-studio-code.md)
+* [Add new APIs and redeploy your function app](add-delete-functions-redeploy.md)
