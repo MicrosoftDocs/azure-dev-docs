@@ -125,6 +125,8 @@
                 href: how-to/with-web-app/azure-function-resource-group-management/introduction.md
               - name: 2. Create local Azure Function
                 href: how-to/with-web-app/azure-function-resource-group-management/create-function-app-for-resource-groups.md
+              - name: 3. Deploy function to Azure
+                href: how-to/with-web-app/azure-function-resource-group-management/deploy-azure-function-with-visual-studio-code.md
             - name: GraphQL APIs
               href: ./how-to/with-web-app/graphql/azure-function-hello-world.md
           - name: Azure App service
