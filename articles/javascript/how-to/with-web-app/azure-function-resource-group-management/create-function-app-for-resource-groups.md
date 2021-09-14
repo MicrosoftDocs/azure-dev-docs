@@ -73,7 +73,7 @@ npm install @azure/identity @azure/arm-resources
 
 1. Open the `./resource-groups/index.ts` file and replace the contents with the following: 
 
-    :::code language="TypeScript" source="~/../js-e2e-azure-resource-management-functions/resource-groups/index.ts" highlight=""7:::
+    :::code language="TypeScript" source="~/../js-e2e-azure-resource-management-functions/resource-groups/index.ts" highlight="7":::
 
     This file responds to API requests. 
 
