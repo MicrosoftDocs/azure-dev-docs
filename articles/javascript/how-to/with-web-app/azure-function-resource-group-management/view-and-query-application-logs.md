@@ -20,7 +20,7 @@ Use the Azure portal to view and query your function logs.
 
 1. Select **Application Insights** from the Settings, then select **View Application Insights data**.
 
-    :::image type="content" source="../../media/azure-function-resource-group-management/azure-portal-function-application-insights-link.png" alt-text="Browser screenshot showing menu choices. Select **Application Insights** from the Settings, then select **View Application Insights data**.":::
+    :::image type="content" source="../../../media/azure-function-resource-group-management/azure-portal-function-application-insights-link.png" alt-text="Browser screenshot showing menu choices. Select **Application Insights** from the Settings, then select **View Application Insights data**.":::
 
     This link takes you to your separate metrics resource created for you when you created your Azure Function with VS Code.
 
@@ -39,7 +39,7 @@ Use the Azure portal to view and query your function logs.
 
     If the log doesn't display any results, it may be because there is a few minutes delay between the HTTP request to the Azure Function and the log availability in Kusto. Wait a few minutes and run the query again.
 
-    :::image type="content" source="../../media/azure-function-resource-group-management/azure-portal-application-insights-query-function-execution-log-trace.png" alt-text="Browser screenshot showing Azure portal Kusto query result for Trace table." lightbox="../../media/azure-function-resource-group-management/azure-portal-application-insights-query-function-execution-log-trace.png":::
+    :::image type="content" source="../../../media/azure-function-resource-group-management/azure-portal-application-insights-query-function-execution-log-trace.png" alt-text="Browser screenshot showing Azure portal Kusto query result for Trace table." lightbox="../../media/azure-function-resource-group-management/azure-portal-application-insights-query-function-execution-log-trace.png":::
 
     Because you added an Application Insights resource when you created the Azure Function app, you didn't need to do anything extra to get this logging information:
 

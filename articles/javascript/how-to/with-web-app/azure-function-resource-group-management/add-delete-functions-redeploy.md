@@ -91,7 +91,7 @@ In the following cURL commands, replace `YOUR-RESOURCE-NAME` with your Azure Fun
 
 1. Use the following curl command to delete the resource group you just added. 
 
-    :::code language="bash" source="~/../js-e2e-azure-resource-management-functions/README.md" range="67-39":::
+    :::code language="bash" source="~/../js-e2e-azure-resource-management-functions/README.md" range="67-69":::
 
     Deleting a resource group will delete all resources within the group and may take a minute to complete.
 
