@@ -8,7 +8,7 @@ ms.custom: devx-track-js
 
 # 1. Manage Azure resource groups with Function API
 
-In this article series, you'll create a Azure Function app with APIs to manage Azure resource groups.
+In this article series, you'll create an Azure Function app with APIs to manage Azure resource groups.
 
 * [Sample code](https://github.com/Azure-Samples/js-e2e-azure-resource-management-functions)
 
@@ -22,7 +22,7 @@ In this article series, you'll create a Azure Function app with APIs to manage A
     - [Azure Resources](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureresourcegroups) to view Azure resource groups.
 - [Azure CLI](/cli/azure/install-azure-cli) installed to your local machine.
 
-While the source code is written with TypeScript, the source code is very simple. If you are comfortable with modern JavaScript, the code in this article series will be familiar to you.
+While the source code is written with TypeScript, the source code is simple. If you are comfortable with modern JavaScript, the code in this article series will be familiar to you.
 
 ## Application architecture
 

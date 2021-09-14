@@ -34,7 +34,7 @@ In this article of the series, you deploy an Azure Function app in Visual Studio
     |Select an Application Insights resource|Create a new Application Insights resource.|
     |Enter the name of the new Application Insights resource.|Accept the default name|
 
-    The Application Insights resource is optional but very important. This will help you to monitor your function app.
+    The Application Insights resource is optional but important. This will help you to monitor your function app.
 
 1. The VS Code **Output** panel for **Azure Functions** shows progress.  When deploying, the entire Functions application is deployed, so changes to all individual functions are deployed at once.
 
@@ -56,7 +56,7 @@ You need to configure your Azure app settings to connect to the Azure Function a
 
 1. While still in Visual Studio Code, use the **Azure Functions** explorer, expand the node for your Azure subscription, expand the node for your Functions app, then expand **Functions (read only)**. Right-click the function name and select **Copy Function Url**:
 
-    :::image type="content" source="../../../media/azure-function-resource-group-management/copy-function-url-command.png" alt-text="Partial screenshot of Visual Studio Code's Azure explorer showing the where to copy the Function's URL.":::
+    :::image type="content" source="../../../media/azure-function-resource-group-management/copy-function-url-command.png" alt-text="Partial screenshot of Visual Studio Code's Azure explorer showing where to copy the Function's URL.":::
 
 1. Paste the URL into a browser and press Enter to request the resource group list from the cloud API. 
 

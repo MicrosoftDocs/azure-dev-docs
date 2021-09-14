@@ -109,7 +109,7 @@ npm install @azure/identity @azure/arm-resources
 
     :::image type="content" source="../../../media/azure-function-resource-group-management/visual-studio-code-terminal-running-function.png" alt-text="Partial screenshot of Visual Studio Code's integrated bash terminal when the Azure Function is running locally and displaying the local URL for the APIs in the Function app.":::
 
-1. Open a second integrated bash terminal in Visual Studio Code, <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>5</kbd> , and use the following cURL command to use the API:
+1. Open a second integrated bash terminal in Visual Studio Code, <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>5</kbd>, and use the following cURL command to use the API:
 
     ```bash
     curl http://localhost:7071/api/resource-groups
