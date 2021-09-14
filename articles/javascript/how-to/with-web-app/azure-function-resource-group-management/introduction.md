@@ -78,9 +78,9 @@ An Azure service principal provides access to Azure without having to use your p
 
 1. In a bash terminal, get your subscriptions and find the subscription ID you want to use for this article series.
 
-```bash
-az account list --output table
-```
+    ```bash
+    az account list --output table
+    ```
 
 1. Copy the subscription ID to the previous temporary file. You will need this setting later. 
 

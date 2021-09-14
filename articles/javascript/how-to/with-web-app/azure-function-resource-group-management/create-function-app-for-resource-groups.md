@@ -55,11 +55,11 @@ Use Visual Studio Code to create a local Function app.
    * `AZURE_CLIENT_ID`: `appId` from the service principal output above.
    * `AZURE_CLIENT_SECRET`: `password` from the service principal output above.
 
-1. You also need to set the subscription ID. It isn't required for the DefaultAzureCredential context but it is required to use the Azure SDK for resource management. 
+1. You also need to set the subscription ID. It is required to use the Azure SDK for resource management. 
 
    * `AZURE_SUBSCRIPTION`: Your default subscription containing your resource groups. 
 
-This `local.settings.json` file is ignored on purpose so you don't accidentally commit it to your source code. 
+This `local.settings.json` file is ignored by your local **git** on purpose so you don't accidentally commit it to your source code. 
 
 ## Install npm dependencies for Azure Identity and Resource management
 
@@ -73,7 +73,7 @@ npm install @azure/identity @azure/arm-resources
 
 1. Open the `./resource-groups/index.ts` file and replace the contents with the following: 
 
-    :::code language="TypeScript" source="~/../js-e2e-azure-resource-management-functions/resource-groups/index.ts" highlight="7":::
+    :::code language="TypeScript" source="~/../js-e2e-azure-resource-management-functions/resource-groups/index.ts" highlight="14":::
 
     This file responds to API requests. 
 
@@ -108,9 +108,11 @@ npm install @azure/identity @azure/arm-resources
     curl http://localhost:7071/api/resource-groups
     ```
 
+    The response includes all resource groups in your subscription.
+
 ## Troubleshooting
 
-If you didn't get any results, check the following table for issues. If your issue isn't listed in the table, open an issue on this documentation page.
+If you couldn't complete this article, check the following table for issues. If your issue isn't listed in the table, open an issue on this documentation page.
 
 |Issue|Fix|
 |--|--|
