@@ -63,7 +63,7 @@ Use the Visual Studio Code extension for Azure Functions to add the APIs files t
 
 1. Use the following curl command to delete the resource group you just added. 
 
-    :::code language="TypeScript" source="~/../js-e2e-azure-resource-management-functions/resource-groups/index.ts" range="15-17":::
+    :::code language="TypeScript" source="~/../js-e2e-azure-resource-management-functions/resource-group/index.ts" range="15-17":::
 
 ## Redeploy your function app with new APIs to Azure
 

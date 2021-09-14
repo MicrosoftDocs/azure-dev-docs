@@ -6,7 +6,7 @@ ms.date: 09/16/2021
 ms.custom: devx-track-js
 ---
 
-# 6. View and query your Function app logs
+# 6. Clean up Azure resources
 
 In this article of the series, you remove all Azure resources.
 
