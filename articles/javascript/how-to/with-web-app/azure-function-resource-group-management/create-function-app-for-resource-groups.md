@@ -50,7 +50,7 @@ Use Visual Studio Code to create a local Function app.
 
 1. Open the `local.settings.json` file in the project root directory and edit your **VALUES** section with the four following environment variables. 
 
-    :::code language="JSON" source="~/../js-e2e-azure-resource-management-functions/local-settings.json" highlight="6-9":::
+    :::code language=" source="~/../js-e2e-azure-resource-management-functions/local.settings.json" highlight="6-9":::
  
 1. Refer to your temporary copy of settings from the previous article to edit the _required_ environment variables. These environment variables are **REQUIRED for the context to use DefaultAzureCredential**. 
 
@@ -107,7 +107,7 @@ npm install @azure/identity @azure/arm-resources
 
 1. Wait until the integrated bash terminal displays the running function's URL.
 
-    :::image type="content" source="../../media/azure-function-resource-group-management/visual-studio-code-terminal-running-function.png" alt-text="Partial screenshot of Visual Studio Code's integrated bash terminal when the Azure Function is running locally and displaying the local URL for the APIs in the Function app.":::
+    :::image type="content" source="../../../media/azure-function-resource-group-management/visual-studio-code-terminal-running-function.png" alt-text="Partial screenshot of Visual Studio Code's integrated bash terminal when the Azure Function is running locally and displaying the local URL for the APIs in the Function app.":::
 
 1. Open a second integrated bash terminal in Visual Studio Code, <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>5</kbd> , and use the following cURL command to use the API:
 
