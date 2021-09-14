@@ -40,7 +40,7 @@ Use Visual Studio Code to create a local Function app.
 
     The project boilerplate is created.
 
-1. In a Visual Studio Code **integrated bash terminal**, install the project dependencies:
+1. In a Visual Studio Code **integrated bash terminal**, opened with <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>`</kbd>, install the project dependencies:
 
     ```bash
     npm install
@@ -48,7 +48,10 @@ Use Visual Studio Code to create a local Function app.
 
 ## Add service principal settings to local.settings.json file
 
-1. Open the `local.settings.json` file in the project root directory. 
+1. Open the `local.settings.json` file in the project root directory and edit your **VALUES** section with the four following environment variables. 
+
+    :::code language="JSON" source="~/../js-e2e-azure-resource-management-functions/local-settings.json" highlight="6-9":::
+ 
 1. Refer to your temporary copy of settings from the previous article to edit the _required_ environment variables. These environment variables are **REQUIRED for the context to use DefaultAzureCredential**. 
 
    * `AZURE_TENANT_ID`: `tenant` from the service principal output above. 
@@ -77,7 +80,7 @@ npm install @azure/identity @azure/arm-resources
 
     This file responds to API requests. 
 
-1. Create a directory named `lib` and create a new file in that directory named `azure-resource-groups.ts`.
+1. Create a root-level directory named `lib` and create a new file in that directory named `azure-resource-groups.ts`.
 1. Copy the following code into the `azure-resource-groups.ts` file:
 
     :::code language="TypeScript" source="~/../js-e2e-azure-resource-management-functions/lib/azure-resource-groups.ts" range="1-17" highlight="6,9,12,15-17":::
@@ -102,13 +105,23 @@ npm install @azure/identity @azure/arm-resources
     npm start
     ```
 
-1. Use the following cURL command to use the API:
+1. Wait until the integrated bash terminal displays the running function's URL.
+
+    :::image type="content" source="../../media/azure-function-resource-group-management/visual-studio-code-terminal-running-function.png" alt-text="Partial screenshot of Visual Studio Code's integrated bash terminal when the Azure Function is running locally and displaying the local URL for the APIs in the Function app.":::
+
+1. Open a second integrated bash terminal in Visual Studio Code, <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>5</kbd> , and use the following cURL command to use the API:
 
     ```bash
     curl http://localhost:7071/api/resource-groups
     ```
 
-    The response includes all resource groups in your subscription.
+    If you have many resource groups in your subscription, you may want to pipe the output to a file for easier review.
+
+    ```bash
+    curl http://localhost:7071/api/resource-groups > resource-groups.json
+    ```
+
+    The response includes `status` and a `list` of all resource groups in your subscription.
 
 ## Troubleshooting
 
