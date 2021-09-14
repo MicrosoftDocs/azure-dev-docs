@@ -82,7 +82,7 @@ az staticwebapp create \
 If your app didn't build successfully, there are usually a few top issues:
  * Your locations for your assets inside your project, app location of `app` and build output directory such as `build`, are not correct. 
  * Your build environment doesn't match your local development environment and that difference is causing a problem.
- * Your project size, with dependencies, exceeds the size limitation [quota](/azure/static-web-apps/quotas) for Static Web apps. 
+ * Your project size, with dependencies, exceeds the size limitation [quota](/static-web-apps/quotas) for Static Web apps. 
  * Other [troubleshooting steps](/azure/static-web-apps/troubleshooting) for Static Web apps.
 
 
