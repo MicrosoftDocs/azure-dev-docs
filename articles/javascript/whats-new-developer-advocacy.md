@@ -2,7 +2,7 @@
 title: "What's new with Cloud Developer Advocates"
 description: "What's new with JavaScript Cloud Developer Advocates (CDA)"
 ms.topic: conceptual
-ms.date: 09/09/2021
+ms.date: 09/15/2021
 ---
 
 # What's new with JavaScript Developer Advocates
@@ -32,6 +32,14 @@ This content is primarily from Developer Advocates as well as other members of t
 |Client web apps|Beginner's Series to: Vue.js|[Beginner video series](https://youtu.be/LnngsOg014Y)|
 |Client web apps|Comparing Azure Static Web Apps vs Azure WebApps vs Azure Blob Storage Static Sites|[Blog post](https://devblogs.microsoft.com/devops/comparing-azure-static-web-apps-vs-azure-webapps-vs-azure-blob-storage-static-sites/)|
 |Microsoft Graph|Get started with Microsoft Graph and JavaScript|[Samples](https://developer.microsoft.com/graph/get-started/javascript)|
+
+## 2021 September
+
+|Cloud Advocate|Contributions|Link|
+|--|--|--|
+|[Glaucia Lemos][Glaucia]|TypeScript - Zero to Hero, Type VOid #25|**Portuguese** - [YouTube](https://www.youtube.com/watch?v=yLraF6_-85U)|
+|[Glaucia Lemos][Glaucia]|TypeScript - Zero to Hero, Type Void #26|**Portuguese** - [YouTube](https://www.youtube.com/watch?v=Aguo_gIIh7o)|
+|[Glaucia Lemos][Glaucia]|TypeScript - Zero to Hero, Type Null and Undefined #27|**Portuguese** - [YouTube](https://www.youtube.com/watch?v=vyOidIn_YfQ)|
 
 ## 2021 August
 
