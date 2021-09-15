@@ -97,4 +97,4 @@ In the following cURL commands, replace `YOUR-RESOURCE-NAME` with your Azure Fun
 
 ## Next steps
 
-* [View and query application logs](view-and-query-application-logs.md)
+* [View and query application logs](view-query-application-logs.md)
