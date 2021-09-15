@@ -2,7 +2,7 @@
 title: Clone GitHub repository with VSCode
 description: Clone a public repository from GitHub to your local computer using Visual Studio Code.
 ms.topic: how-to
-ms.date: 01/28/2021
+ms.date: 09/15/2021
 ms.custom: devx-track-js
 ---
 
@@ -10,11 +10,11 @@ ms.custom: devx-track-js
 
 Learn the steps to clone a public repository from GitHub to your local computer using Visual Studio Code.
 
-Working in Visual Studio Code with a repository uses separate tools:
+Working in Visual Studio Code with a repository uses separate tools.
 
 |Icon|Information|[Access from](https://code.visualstudio.com/docs/getstarted/userinterface)|
 |--|--|--|
-|| [Git CLI](https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette)|command palette - F1|
+|| [Git commands](https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette) in command palette|<kbd>F1</kbd>|
 |:::image type="content" source="../../media/how-to-clone-github-repo/git-commit-icon-activity-bar.png" alt-text="Icon for Source control.":::|Source control extension|Activity bar|
 |:::image type="content" source="../../media/how-to-clone-github-repo/github-icon-activity-bar.png" alt-text="Icon for GitHub Prs and Issues":::|GitHub extension|Activity bar|
 
