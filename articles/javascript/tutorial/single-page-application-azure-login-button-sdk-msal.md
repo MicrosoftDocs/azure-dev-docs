@@ -178,3 +178,5 @@ If you want to keep the app but revoke the permission given to the app by your s
 * [All MSAL samples](/azure/active-directory/develop/sample-v2-code)
 * Continue using the [MSAL library](/azure/active-directory/develop/msal-overview) to get the user profile and provide silent sign-on
 * Add [Microsoft Graph](/graph/overview) to access user accounts in Microsoft 365 include email and calendar appointments
+* [Azure Static web apps](/azure/static-web-apps/)
+* [Azure Web apps](/azure/app-service/)
