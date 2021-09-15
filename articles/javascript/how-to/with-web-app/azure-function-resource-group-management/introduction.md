@@ -97,4 +97,4 @@ An Azure service principal provides access to Azure without having to use your p
 
 ## Next steps
 
-* [Create your local Azure Function app](create-function-app-for-resource-groups.md)
+* [Create your local Azure Function app](create-function-app.md)
