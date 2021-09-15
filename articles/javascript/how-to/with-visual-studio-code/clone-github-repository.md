@@ -103,3 +103,5 @@ You can view the Git commands run when you use the Source control extension.
 ## Next steps
 
 * How to [deploy a web app](../deploy-web-app.md)
+* [Working with GitHub in Visual Studio Code](https://code.visualstudio.com/docs/editor/github)
+* [Using Visual Studio Code with other version control providers](https://code.visualstudio.com/docs/editor/versioncontrol)
