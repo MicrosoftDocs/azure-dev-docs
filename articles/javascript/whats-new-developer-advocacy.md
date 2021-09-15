@@ -38,7 +38,8 @@ This content is primarily from Developer Advocates as well as other members of t
 |Cloud Advocate|Contributions|Link|
 |--|--|--|
 |[Glaucia Lemos][Glaucia]|TypeScript - Zero to Hero, Type VOid #25|**Portuguese** - [YouTube](https://www.youtube.com/watch?v=yLraF6_-85U)|
-|[Glaucia Lemos][Glaucia]|TypeScript - Zero to Hero, Type Void #26|**Portuguese** - [YouTube](https://www.youtube.com/watch?v=yLraF6_-85U)|
+|[Glaucia Lemos][Glaucia]|TypeScript - Zero to Hero, Type Void #26|**Portuguese** - [YouTube](https://www.youtube.com/watch?v=Aguo_gIIh7o)|
+|[Glaucia Lemos][Glaucia]|TypeScript - Zero to Hero, Type Null and Undefined #27|**Portuguese** - [YouTube](https://www.youtube.com/watch?v=vyOidIn_YfQ)|
 
 ## 2021 August
 
