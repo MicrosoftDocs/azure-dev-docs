@@ -16,7 +16,8 @@ Working in Visual Studio Code with a repository uses separate tools.
 |--|--|--|
 || [Git commands](https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette) in command palette|<kbd>F1</kbd>|
 |:::image type="content" source="../../media/how-to-clone-github-repo/git-commit-icon-activity-bar.png" alt-text="Icon for Source control.":::|Source control extension|Activity bar|
-|:::image type="content" source="../../media/how-to-clone-github-repo/github-icon-activity-bar.png" alt-text="Icon for GitHub Prs and Issues":::|GitHub extension|Activity bar|
+|:::image type="content" source="../../media/how-to-clone-github-repo/github-icon-prs-issues.png" alt-text="Icon for GitHub Prs and Issues":::|[GitHub Pull Requests and Issues](https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github) extension|Activity bar|
+||[GitHub Repositories](https://marketplace.visualstudio.com/items?itemName=GitHub.remotehub) extension|You can quickly and easily open a GitHub repository either by searching for GitHub Repositories: Open Repository... from the Command Palette (press F1), or by choosing Open GitHub Repository... from the remote indicator (the green button in the lower left corner of the status bar).|
 
 The following procedures use the named parts of the [Visual Studio Code user interface](https://code.visualstudio.com/docs/getstarted/userinterface). 
 
@@ -30,11 +31,11 @@ To get started, download the sample project using the following steps:
 
     ![gitcl command in the Visual Studio Code command palette prompt](../../media/how-to-clone-github-repo/visual-studio-code-git-clone.png)
 
-1. When prompted for the **Repository URL**, enter a GitHub repository url, then press **Enter**.
-
+1. When prompted for the **Repository URL**, select clone from GitHub, then press **Enter**.
+1. If you are asked to sign into GitHub, complete the sign in process.
+1. Enter [azure-samples/js-e2e-express-server](https://github.com/Azure-Samples/js-e2e-express-server) in the **Repository URL** field. 
 1. Select (or create) the local directory into which you want to clone the project.
-
-    ![Visual Studio Code explorer](../../media/how-to-clone-github-repo/visual-studio-code-explorer.png)
+1. When you receive the notification asking if you want to open the cloned repository, select **Open**. 
 
 ## Create a branch for changes with Git CL
 
