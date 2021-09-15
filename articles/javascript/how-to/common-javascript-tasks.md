@@ -32,9 +32,9 @@ Provide authentication.
 
 |Task|using|
 |--|--|
-|Create resource group|[Azure CLI](../tutorial/static-web-app/create-computer-vision-resource-use-in-code.md#create-azure-resources)<br>[TypeScript](with-web-app/azure-function-resource-group-management/add-delete-functions-redeploy#add-typescript-code-to-add-and-delete-resource-groups)|
-|Delete resource group|[Azure CLI](../tutorial/static-web-app/clean-up-resources.md)<br>[TypeScript](with-web-app/azure-function-resource-group-management/add-delete-functions-redeploy#add-typescript-code-to-add-and-delete-resource-groups)|
-|List resource groups|[TypeScript](with-web-app/azure-function-resource-group-management/create-function-app#list-all-resource-groups-in-subscription-with-javascript)|
+|Create resource group|[Azure CLI](../tutorial/static-web-app/create-computer-vision-resource-use-in-code.md#create-azure-resource)<br>[TypeScript](with-web-app/azure-function-resource-group-management/add-delete-functions-redeploy.md#add-typescript-code-to-add-and-delete-resource-groups)|
+|Delete resource group|[Azure CLI](../tutorial/static-web-app/clean-up-resources.md)<br>[TypeScript](with-web-app/azure-function-resource-group-management/add-delete-functions-redeploy.md#add-typescript-code-to-add-and-delete-resource-groups)|
+|List resource groups|[TypeScript](with-web-app/azure-function-resource-group-management/create-function-app.md#list-all-resource-groups-in-subscription-with-javascript)|
 
 ## Apps
 
