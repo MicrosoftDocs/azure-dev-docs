@@ -1,22 +1,23 @@
 ---
 title: Upload image to Blob Storage with VSCode - App Service/Cosmos DB
 description: Use a React/TypeScript app to upload a file to Azure Storage blobs. This tutorial focuses on using local and remote environments with Visual Studio Code extensions.
-ms.topic: tutorial
-ms.date: 04/15/2021
+ms.topic: conceptual
+ms.date: 09/15/2021
 ms.custom: scenarios:getting-started, languages:JavaScript, devx-track-javascript, azure-sdk-storage-blob-typescript-version-12.2.1
 ---
 
 # Upload an image to an Azure Storage blob
 
-Use a client-side React app to upload an image file to an Azure Storage blob using an Azure Storage npm package. 
+Use a client-side React app to upload an image file to an Azure Storage blob using an Azure Storage [@azure/storage-blob](https://www.npmjs.com/package/@azure/storage-blob) npm package. 
 
 The TypeScript programming work is done for you, this tutorial focuses on using the local and remote Azure environments successfully from inside Visual Studio Code with Azure extensions.
 
 * [**Sample code**](https://github.com/Azure-Samples/js-e2e-browser-file-upload-storage-blob)
+* [Azure Blob Storage reference documentation](https://docs.microsoft.com/javascript/api/overview/azure/storage-overview)
 
 ## Application architecture and functionality
 
-This tutorial includes several top Azure tasks for JavaScript developers:
+This article includes several top Azure tasks for JavaScript developers:
 
 * Run a React/TypeScript app locally with Visual Studio Code
 * Create an **Azure Storage Blob** resource and configure for file uploads
@@ -26,15 +27,15 @@ This tutorial includes several top Azure tasks for JavaScript developers:
 
 The sample React app, [available on GitHub](https://github.com/Azure-Samples/js-e2e-browser-file-upload-storage-blob), consists of the following elements:
 
-* **React app** hosted on port 3000
-* **Azure SDK client library script** to upload to Storage blobs
+* **[React app](https://github.com/Azure-Samples/js-e2e-browser-file-upload-storage-blob/blob/main/src/App.tsx)** hosted on port 3000
+* **[Azure SDK client library script](https://github.com/Azure-Samples/js-e2e-browser-file-upload-storage-blob/blob/main/src/azure-storage-blob.ts)** to upload to Storage blobs
 
 :::image type="content" source="../media/tutorial-browser-file-upload/browser-react-app-azure-storage-resource-image-uploaded-displayed.png" alt-text="Simple React app connected to Azure Storage blobs.":::
 
 ## 1. Set up development environment
 
 - An Azure user account with an active subscription. [Create one for free](https://azure.microsoft.com/free/).
-- [Node.js 10 and npm ](https://nodejs.org/en/download), the Node.js package manager installed to your local machine.
+- [Node.js LTS with NPM](https://nodejs.org/en/download), the Node.js package manager installed to your local machine.
 - [Visual Studio Code](https://code.visualstudio.com/) installed to your local machine. 
 - Visual Studio Code extensions:
     - [Azure Storage](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestorage) - used to view Storage resource
@@ -42,7 +43,7 @@ The sample React app, [available on GitHub](https://github.com/Azure-Samples/js-
 ## 2. Clone and run the initial React app
 
 1. Open Visual Studio Code.
-1. Clone the GitHub repo by selecting the Git icon then selecting **Clone Repository**. This process requires you to log in to GitHub. Use the repository URL: 
+1. Select the Source Control icon then select **Clone Repository**. This process requires you to log in to GitHub. Use the repository URL: 
 
     `https://github.com/Azure-Samples/js-e2e-browser-file-upload-storage-blob`
 
@@ -72,7 +73,7 @@ The sample React app, [available on GitHub](https://github.com/Azure-Samples/js-
 
     :::image type="content" source="../media/tutorial-browser-file-upload/browser-react-app-no-azure-storage-resource-configured.png" alt-text="Simple Node.js app connected to MongoDB database.":::
 
-1. Stop the code with Control+C in the Visual Studio Code terminal.
+1. Stop the code with <kbd>Ctrl</kbd> + <kbd>C</kbd> in the Visual Studio Code terminal.
 
 ## 3. Create Storage resource with Visual Studio extension
 
@@ -92,11 +93,9 @@ The sample React app, [available on GitHub](https://github.com/Azure-Samples/js-
 
 ## 4. Set storage account name in code file
 
-Set the resource name from the previous step in `src/azure-storage-blob.ts`. 
+Set the resource name from the previous step in `[src/azure-storage-blob.ts](https://github.com/Azure-Samples/js-e2e-browser-file-upload-storage-blob/blob/main/src/azure-storage-blob.ts#L10)`. 
 
-```typescript
-const storageAccountName = process.env.storageresourcename || "fileuploaddemo"; 
-```
+:::code language="JSON" source="~/../js-e2e-browser-file-upload-storage-blob/src/azure-storage-blob.ts" range="10":::
 
 ## 5. Generate your shared access signature (SAS) token 
 
@@ -129,10 +128,7 @@ The SAS token is used when queries are made to your cloud-based resource.
 
 1. Set the SAS token into `src/azure-storage-blob.ts` for the sasToken value by adding the SAS token into the empty string. Leave the rest of the code as it is. 
 
-```typescript
-// remove `?` if it is first character of token
-const sasToken = process.env.storagesastoken || "";
-```
+:::code language="JSON" source="~/../js-e2e-browser-file-upload-storage-blob/src/azure-storage-blob.ts" range="8":::
 
 ## 6. Configure CORS for Azure Storage resource
 
@@ -189,7 +185,7 @@ The `src/App.tsx` TypeScript file is provided as part of that app creation with 
 
 The code connecting to the Azure Blob Storage code is highlighted. The call to `uploadFileToBlob` returns all blobs (files) in the container as a flat list. That list is displayed with the `DisplayImagesFromContainer` function.
 
-:::code language="typescript" source="~/../js-e2e-browser-file-upload-storage-blob/src/App.tsx" highlight="3,28":::
+:::code language="typescript" source="~/../js-e2e-browser-file-upload-storage-blob/src/App.tsx" highlight="5,25":::
 
 ## Upload file to Azure Storage blob with Azure SDK client library
 
@@ -211,17 +207,17 @@ The `azure-storage-blob.ts` TypeScript file loads the dependencies, and pulls in
 
 ### Security for Azure credentials
 
-In your own project, consider where to store secrets such as a SAS token. If your application requires you to secure your Azure information, consider hosting this storage code in an [Azure Function](/azure/azure-functions/) instead of on the client, then call the Azure Function from the react app.  
+In your own project, consider where to store secrets such as a SAS token. If your application requires you to secure your Azure information, consider hosting this storage code in an [Azure Function](/azure/azure-functions/) instead of on the client, then call the Azure Function from the React app.  
 
 ### Create Storage client and manage steps
 
 The `uploadFileToBlob` function is the main function of the file. It creates the client object for the Storage service, then creates the client to the container object, uploads the file, then gets a list of all the blobs in the container. 
 
-:::code language="typescript" source="~/../js-e2e-browser-file-upload-storage-blob/src/azure-storage-blob.ts" highlight="5,6,7" id="snippet_uploadFileToBlob":::
+:::code language="typescript" source="~/../js-e2e-browser-file-upload-storage-blob/src/azure-storage-blob.ts" highlight="5-7," id="snippet_uploadFileToBlob":::
 
 ### Upload file to blob
 
-The `createBlobInContainer` function uploads the file to the container with the `uploadBrowserData` client library method. The content type must be sent with the request if you intend to use browser functionality, which depends on the file type, such as displaying a picture. 
+The `createBlobInContainer` function uploads the file to the container, using the [ContainerClient](https://docs.microsoft.com/javascript/api/overview/azure/storage-overview), with the `uploadBrowserData` method. The content type must be sent with the request if you intend to use browser functionality, which depends on the file type, such as displaying a picture. 
 
 :::code language="typescript" source="~/../js-e2e-browser-file-upload-storage-blob/src/azure-storage-blob.ts" highlight="10" id="snippet_createBlobInContainer":::
 
