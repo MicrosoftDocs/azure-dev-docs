@@ -88,12 +88,12 @@
 | @autorest/codemodel | npm [4.17.0](https://www.npmjs.com/package/@autorest/codemodel/v/4.17.0) |  |  |
 | @autorest/common | npm [1.3.0](https://www.npmjs.com/package/@autorest/common/v/1.3.0) |  |  |
 | @autorest/configuration | npm [1.7.0](https://www.npmjs.com/package/@autorest/configuration/v/1.7.0) |  |  |
-| @autorest/csharp | npm [3.0.0-beta.20210913.4](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20210913.4) |  |  |
+| @autorest/csharp | npm [3.0.0-beta.20210914.1](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20210914.1) |  |  |
 | @autorest/csharp-v3 | npm [3.0.0-beta.20201217.1](https://www.npmjs.com/package/@autorest/csharp-v3/v/3.0.0-beta.20201217.1) |  |  |
 | @autorest/extension-base | npm [3.3.1](https://www.npmjs.com/package/@autorest/extension-base/v/3.3.1) |  |  |
 | @autorest/schemas | npm [1.3.0](https://www.npmjs.com/package/@autorest/schemas/v/1.3.0) |  |  |
 | @autorest/test-utils | npm [0.4.0](https://www.npmjs.com/package/@autorest/test-utils/v/0.4.0) |  |  |
-| @autorest/typescript | npm [6.0.0-beta.12](https://www.npmjs.com/package/@autorest/typescript/v/6.0.0-beta.12) |  |  |
+| @autorest/typescript | npm [6.0.0-beta.13](https://www.npmjs.com/package/@autorest/typescript/v/6.0.0-beta.13) |  |  |
 | @azure/arm-appservice-profile-2020-09-01-hybrid | npm [1.1.1](https://www.npmjs.com/package/@azure/arm-appservice-profile-2020-09-01-hybrid/v/1.1.1) |  |  |
 | @azure/arm-authorization-profile-2020-09-01-hybrid | npm [1.1.1](https://www.npmjs.com/package/@azure/arm-authorization-profile-2020-09-01-hybrid/v/1.1.1) |  |  |
 | @azure/arm-changeanalysis | npm [1.1.1](https://www.npmjs.com/package/@azure/arm-changeanalysis/v/1.1.1) |  |  |
