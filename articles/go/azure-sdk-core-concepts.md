@@ -59,7 +59,6 @@ if err != nil {
 }
 
 // Second argument is the polling interval if the endpoint doesn't send a Retry-After header.
-// A good starting value is 30 second; some resources might work better with different intervals.
 w, err = resp.PollUntilDone(context.Background(), 5*time.Second)
 
 if err != nil {
