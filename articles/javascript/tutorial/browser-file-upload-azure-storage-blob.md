@@ -43,15 +43,16 @@ The sample React app, [available on GitHub](https://github.com/Azure-Samples/js-
 ## 2. Clone and run the initial React app
 
 1. Open Visual Studio Code.
-1. Select the Source Control icon then select **Clone Repository**. This process requires you to log in to GitHub. Use the repository URL: 
+1. Select the Source Control icon then select the ellipsis, `...`, then select **Clone**. 
+1. Enter the GitHub URL for this sample application: 
 
     `https://github.com/Azure-Samples/js-e2e-browser-file-upload-storage-blob`
 
-1. Select a folder on your local computer to clone the sample to. When prompted, open the cloned repository. 
+    If you are asked to sign in to GitHub, complete that process. 
 
-    :::image type="content" source="../media/tutorial-browser-file-upload/vscode-git-clone-repository.png" alt-text="Clone the GitHub repo by selecting the Git icon then selecting `Clone Repository`.":::
-
-1. In Visual Studio Code, open a terminal window, and run the following command to install the sample's dependencies.
+1. Select a folder on your local computer to clone the sample to. 
+1. When prompted in the notification, **Open** the cloned repository. 
+1. In Visual Studio Code, open an integrated bash terminal, <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>`</kbd>, and run the following command to install the sample's dependencies.
 
     ```javascript
     npm install
@@ -93,7 +94,7 @@ The sample React app, [available on GitHub](https://github.com/Azure-Samples/js-
 
 ## 4. Set storage account name in code file
 
-Set the resource name from the previous step in `[src/azure-storage-blob.ts](https://github.com/Azure-Samples/js-e2e-browser-file-upload-storage-blob/blob/main/src/azure-storage-blob.ts#L10)`. 
+Set the resource name from the previous step in `[./src/azure-storage-blob.ts](https://github.com/Azure-Samples/js-e2e-browser-file-upload-storage-blob/blob/main/src/azure-storage-blob.ts#L10)`. 
 
 :::code language="JSON" source="~/../js-e2e-browser-file-upload-storage-blob/src/azure-storage-blob.ts" range="10":::
 
@@ -102,7 +103,7 @@ Set the resource name from the previous step in `[src/azure-storage-blob.ts](htt
 Generate the SAS token before configuring CORS. 
 
 1. In the Visual Studio Code extension for Storage, right-click the resource then select **Open in Portal**. This opens the Azure portal to your exact Storage resource.
-1. In the **Settings** section, select **Shared access signature**. 
+1. In the **Security + networking** section, select **Shared access signature**. 
 1. Configure the SAS token with the following settings. 
 
     | Property|Value|
@@ -110,7 +111,8 @@ Generate the SAS token before configuring CORS.
     |Allowed services|Blob|
     |Allowed resource types|Service, Container, Object|
     |Allowed permissions|Read, write, delete, list, add, create|
-    |Enable deletions of version|Checked|
+    |Blob versioning permissions|Checked|
+    |Allow blob index permissions|Read/Write and Filter should be checked|
     |Start and expiry date/time|Accept the start date/time and **set the end date time 24 hours in the future**. Your SAS token is only good for 24 hours.|
     |HTTPS only|Selected|
     |Preferred routing tier|Basic|
@@ -118,7 +120,8 @@ Generate the SAS token before configuring CORS.
 
     :::image type="content" source="../media/tutorial-browser-file-upload/azure-portal-storage-blob-generate-sas-token.png" alt-text="Configure the SAS token as show in the image. The settings are explained below the image.":::
 
-1. Select **Generate SAS and connection string**. Immediately copy the SAS token. You won't be able to list this token so if you don't have it copied, you will need to generate a new SAS token. 
+1. Select **Generate SAS and connection string**. 
+1. Immediately copy the SAS token. You won't be able to list this token so if you don't have it copied, you will need to generate a new SAS token. 
 
 ## Set SAS token in code file
 
@@ -134,8 +137,8 @@ The SAS token is used when queries are made to your cloud-based resource.
 
 Configure CORS for your resource so the client-side React code can access your storage account. 
 
-1. While still in the Azure portals, in the Settings section, select **CORS**. 
-1. Configure CORS as show in the image. The settings are explained below the image. 
+1. While still in the Azure portals, in the Settings section, select **Resource sharing (CORS)**. 
+1. Configure the Blob service CORS as show in the image. The settings are explained below the image. 
 
     | Property|Value|
     |--|--|
