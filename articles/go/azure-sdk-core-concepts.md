@@ -187,7 +187,6 @@ You can define your own custom policy to add capabilities beyond what's included
 
 To create a custom HTTP policy, define your own structure with a Do method implementing the [`Policy`](https://github.com/Azure/azure-sdk-for-go/blob/main/sdk/azcore/policy/policy.go#L20) interface. 
 
-- As a first-class function for a *stateless policy*.
 - As a `Do` method on a type for a *stateful policy*, which is defined by the `Policy` interface. Because HTTP requests made via the same pipeline share the same policy instances, any stateful policy that mutates its state must be properly synchronized to avoid race conditions.
 
 Either way, the policy runs as follows:
