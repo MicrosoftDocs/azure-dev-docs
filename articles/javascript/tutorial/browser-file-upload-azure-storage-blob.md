@@ -2,7 +2,7 @@
 title: Upload image to Blob Storage with VSCode - App Service/Cosmos DB
 description: Use a React/TypeScript app to upload a file to Azure Storage blobs. This tutorial focuses on using local and remote environments with Visual Studio Code extensions.
 ms.topic: conceptual
-ms.date: 09/15/2021
+ms.date: 09/16/2021
 ms.custom: scenarios:getting-started, languages:JavaScript, devx-track-javascript, azure-sdk-storage-blob-typescript-version-12.2.1
 ---
 
@@ -38,6 +38,7 @@ The sample React app, [available on GitHub](https://github.com/Azure-Samples/js-
 - [Node.js LTS with NPM](https://nodejs.org/en/download), the Node.js package manager installed to your local machine.
 - [Visual Studio Code](https://code.visualstudio.com/) installed to your local machine. 
 - Visual Studio Code extensions:
+    - [Azure Resource](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureresourcegroups)
     - [Azure Storage](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestorage) - used to view Storage resource
     - [Azure Static Web Apps](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestaticwebapps) - used to create and deploy the React app to Azure
 
@@ -318,7 +319,9 @@ The `getBlobsInContainer` function gets a list of URLs for the blobs in the cont
 
 ## Clean up resources
 
-In Visual Studio Code, use the Azure explorer for Storage, right-click on the resource then select **Delete Storage Account...**.
+In Visual Studio Code, use the Azure explorer for Resource Groups, right-click on the your resource group then select **Delete**.
+
+This deletes all resources in the group, including your Storage and Static Web app resources.
 
 ## Next steps
 
