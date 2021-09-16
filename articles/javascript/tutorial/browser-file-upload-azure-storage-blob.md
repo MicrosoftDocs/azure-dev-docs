@@ -94,7 +94,7 @@ The sample React app, [available on GitHub](https://github.com/Azure-Samples/js-
 
 ## 4. Set storage account name in code file
 
-Set the resource name from the previous step in `[./src/azure-storage-blob.ts](https://github.com/Azure-Samples/js-e2e-browser-file-upload-storage-blob/blob/main/src/azure-storage-blob.ts#L10)`. 
+Set the resource name from the previous step in [./src/azure-storage-blob.ts](https://github.com/Azure-Samples/js-e2e-browser-file-upload-storage-blob/blob/main/src/azure-storage-blob.ts#L10). 
 
 :::code language="JSON" source="~/../js-e2e-browser-file-upload-storage-blob/src/azure-storage-blob.ts" range="10":::
 
@@ -170,8 +170,10 @@ Your SAS token and storage account name are set in the `src/azure-storage-blob.t
 
 1. Select an image from the `images` folder to upload then select the **Upload!** button. 
 
-    The React front-end client code calls into the `src/azure-storage-blob.ts` to authenticate to Azure, then create a Storage Container (if it doesn't already exist), then uploads the file to that container. 
-
+1. The React front-end client code calls into the [./src/azure-storage-blob.ts](https://github.com/Azure-Samples/js-e2e-browser-file-upload-storage-blob/blob/main/src/azure-storage-blob.ts) to authenticate to Azure, then create a Storage Container (if it doesn't already exist), then uploads the file to that container. 
+  
+    :::code language="typescript" source="~/../js-e2e-browser-file-upload-storage-blob/src/azure-storage-blob.ts" :::
+    
     You have completed the steps of the tutorial. The remaining sections explain the app and help resolve issues.
 
 ## Troubleshoot local connection to Storage account
