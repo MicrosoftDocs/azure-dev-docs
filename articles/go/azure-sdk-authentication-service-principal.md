@@ -215,7 +215,34 @@ Replace `<subscriptionId>` with the subscription ID of the subscription you want
 
 Use the following code sample to verify that your service principal authenticates to Azure and has the appropriate permissions to the resource group.
 
-1. Create a file named `main.go` and add the following code:
+1. Make a new directory called `go-on-azure` in your home directory.
+
+    ```azurecli
+    mkidr ~/go-on-azure
+    ```
+
+1. Change to the `go-on-azure` directory.
+
+    ```azurecli
+    cd ~/go-on-azure
+    ```
+
+1. Run `go mod init` to create the `go.mod` file.
+
+    ```azurecli
+    go mod init go-on-azure
+    ```
+
+1. Run `go get` to install the required Go modules.
+
+    ```azurecli
+    go get "github.com/Azure/azure-sdk-for-go/sdk/azidentity"
+    go get "github.com/Azure/azure-sdk-for-go/sdk/resources/armresources"
+    go get "github.com/Azure/azure-sdk-for-go/sdk/azcore"
+    go get "github.com/Azure/azure-sdk-for-go/sdk/armcore"
+    ```
+
+1. Create a file named `main.go` and add the following code.
 
 	```go
 	package main
@@ -277,13 +304,13 @@ Use the following code sample to verify that your service principal authenticate
 
 	Replace `<subscriptionId>` with the subscription ID of the subscription you want to authenticate with.
 
-2. Apply the new tag to the resource group.
+1. Run the `go run` command to run apply the tag to your resource group.
 
 	```bash
 	go run main.go
 	```
 
-3. Verify the tag was added:
+1. Verify the tag was added.
 
 	# [Azure CLI](#tab/azure-cli)
 	```azurecli-interactive
