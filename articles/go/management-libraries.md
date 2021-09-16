@@ -135,6 +135,7 @@ if err != nil {
 fmt.Printf("LRO done")
 
 // Work with the response ("resp") object.
+```
 
 **Key points:**
 
