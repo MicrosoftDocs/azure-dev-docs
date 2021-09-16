@@ -88,7 +88,7 @@ The sample React app, [available on GitHub](https://github.com/Azure-Samples/js-
 
 1. Stop the code with <kbd>Ctrl</kbd> + <kbd>C</kbd> in the Visual Studio Code terminal.
 
-<a name="#3-create-storage-resource-with-visual-studio-extension"></a>
+<a name="3-create-storage-resource-with-visual-studio-extension"></a>
 
 ## 4. Create Storage resource with Visual Studio extension
 
