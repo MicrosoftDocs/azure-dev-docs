@@ -13,7 +13,7 @@ Use a client-side React app to upload an image file to an Azure Storage blob usi
 The TypeScript programming work is done for you, this tutorial focuses on using the local and remote Azure environments successfully from inside Visual Studio Code with Azure extensions.
 
 * [**Sample code**](https://github.com/Azure-Samples/js-e2e-browser-file-upload-storage-blob)
-* [Azure Blob Storage reference documentation](https://docs.microsoft.com/javascript/api/overview/azure/storage-overview)
+* [Azure Blob Storage reference documentation](/javascript/api/overview/azure/storage-overview)
 
 ## Application architecture and functionality
 
@@ -220,7 +220,7 @@ The `uploadFileToBlob` function is the main function of the file. It creates the
 
 ### Upload file to blob
 
-The `createBlobInContainer` function uploads the file to the container, using the [ContainerClient](https://docs.microsoft.com/javascript/api/overview/azure/storage-overview), with the `uploadBrowserData` method. The content type must be sent with the request if you intend to use browser functionality, which depends on the file type, such as displaying a picture. 
+The `createBlobInContainer` function uploads the file to the container, using the [ContainerClient](/javascript/api/overview/azure/storage-overview), with the `uploadBrowserData` method. The content type must be sent with the request if you intend to use browser functionality, which depends on the file type, such as displaying a picture. 
 
 :::code language="typescript" source="~/../js-e2e-browser-file-upload-storage-blob/src/azure-storage-blob.ts" highlight="10" id="snippet_createBlobInContainer":::
 
@@ -244,5 +244,5 @@ If you would like to continue with this app, learn how to deploy the app to Azur
 * Azure Blob Storage [documentation](/azure/storage/blobs/storage-blobs-introduction)
 * @azure/storage-blob
     * [NPM package](https://www.npmjs.com/package/@azure/storage-blob)
-    * [Reference documentation](https://docs.microsoft.com/javascript/api/@azure/storage-blob/?view=azure-node-latest)
+    * [Reference documentation](/javascript/api/@azure/storage-blob/?view=azure-node-latest)
 * [Azure Static Web app](/azure/static-web-apps/)
