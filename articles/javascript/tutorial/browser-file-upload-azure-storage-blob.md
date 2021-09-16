@@ -40,18 +40,28 @@ The sample React app, [available on GitHub](https://github.com/Azure-Samples/js-
 - Visual Studio Code extensions:
     - [Azure Storage](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestorage) - used to view Storage resource
 
-## 2. Clone and run the initial React app
+## 2. Fork and clone the sample application
 
-1. Open Visual Studio Code.
-1. Select the Source Control icon then select the ellipsis, `...`, then select **Clone**. 
-1. Enter the GitHub URL for this sample application: 
+1. Open this GitHub sample URL in a web browser: 
 
-    `https://github.com/Azure-Samples/js-e2e-browser-file-upload-storage-blob`
+    ```
+    https://github.com/Azure-Samples/js-e2e-browser-file-upload-storage-blob
+    ```
+1. Select **Fork** to create your own fork of this sample project. Your own GitHub fork is necessary to deploy this sample to Azure as a static web app.
+1. Select the **Code** button, then copy the Clone URL.
+1. In a bash terminal, clone your forked repository, replacing `REPLACE-WITH-YOUR-ACCOUNT-NAME` with your GitHub account name:
 
-    If you are asked to sign in to GitHub, complete that process. 
+    ```bash
+    git clone https://github.com/REPLACE-WITH-YOUR-ACCOUNT-NAME/js-e2e-browser-file-upload-storage-blob
 
-1. Select a folder on your local computer to clone the sample to. 
-1. When prompted in the notification, **Open** the cloned repository. 
+1. Change into the new directory and open Visual Studio Code.
+
+    ```bash
+    cd js-e2e-browser-file-upload-storage-blob && code .
+    ```
+
+## 3. Install dependencies and run local project
+
 1. In Visual Studio Code, open an integrated bash terminal, <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>`</kbd>, and run the following command to install the sample's dependencies.
 
     ```javascript
@@ -76,7 +86,7 @@ The sample React app, [available on GitHub](https://github.com/Azure-Samples/js-
 
 1. Stop the code with <kbd>Ctrl</kbd> + <kbd>C</kbd> in the Visual Studio Code terminal.
 
-## 3. Create Storage resource with Visual Studio extension
+## 4. Create Storage resource with Visual Studio extension
 
 1. Navigate to the Azure Storage extension. Right-click on the subscription then select `Create Storage Account...`.
 
@@ -92,13 +102,13 @@ The sample React app, [available on GitHub](https://github.com/Azure-Samples/js-
 
     :::image type="content" source="../media/tutorial-browser-file-upload/visualstudiocode-storage-extension-create-resource-complete.png" alt-text="When the app creation process is complete, a notification appears with information about the new resource.":::
 
-## 4. Set storage account name in code file
+## 5. Set storage account name in code file
 
 Set the resource name from the previous step in [./src/azure-storage-blob.ts](https://github.com/Azure-Samples/js-e2e-browser-file-upload-storage-blob/blob/main/src/azure-storage-blob.ts#L10). 
 
 :::code language="JSON" source="~/../js-e2e-browser-file-upload-storage-blob/src/azure-storage-blob.ts" range="10":::
 
-## 5. Generate your shared access signature (SAS) token 
+## 6. Generate your shared access signature (SAS) token 
 
 Generate the SAS token before configuring CORS. 
 
@@ -125,7 +135,7 @@ Generate the SAS token before configuring CORS.
 
 <a name="set-sas-token-in-code-file"></a>
 
-## 6. Set SAS token in code file
+## 7. Set SAS token in code file
 
 The SAS token is used when queries are made to your cloud-based resource.
 
@@ -137,7 +147,7 @@ The SAS token is used when queries are made to your cloud-based resource.
 
 <a name="6-configure-cors-for-azure-storage-resource"></a>
 
-## 7. Configure CORS for Azure Storage resource
+## 8. Configure CORS for Azure Storage resource
 
 Configure CORS for your resource so the client-side React code can access your storage account. 
 
@@ -156,7 +166,7 @@ Configure CORS for your resource so the client-side React code can access your s
 
 1. Select **Save** above the settings to save them to the resource. The code doesn't require any changes to work with these CORS settings. 
 
-## 8. Run project locally to verify connection to Storage account
+## 9. Run project locally to verify connection to Storage account
 
 Your SAS token and storage account name are set in the `src/azure-storage-blob.ts` file, so you are ready to run the application.
 
@@ -176,8 +186,6 @@ Your SAS token and storage account name are set in the `src/azure-storage-blob.t
 
 1. The React front-end client code calls into the [./src/azure-storage-blob.ts](https://github.com/Azure-Samples/js-e2e-browser-file-upload-storage-blob/blob/main/src/azure-storage-blob.ts) to authenticate to Azure, then create a Storage Container (if it doesn't already exist), then uploads the file to that container. 
 
-  
-    You have completed the steps of the tutorial. The remaining sections explain the app and help resolve issues.
 
 ## Troubleshoot local connection to Storage account
 
