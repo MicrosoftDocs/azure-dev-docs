@@ -88,6 +88,8 @@ The sample React app, [available on GitHub](https://github.com/Azure-Samples/js-
 
 1. Stop the code with <kbd>Ctrl</kbd> + <kbd>C</kbd> in the Visual Studio Code terminal.
 
+<a name="#3-create-storage-resource-with-visual-studio-extension"></a>
+
 ## 4. Create Storage resource with Visual Studio extension
 
 1. Navigate to the Azure Storage extension. Right-click on the subscription then select `Create Storage Account...`.
@@ -229,7 +231,7 @@ Edit the GitHub workflow and secrets to connect to Azure Storage.
 
 1. In Visual Studio Code, open the `.github/workflows` workflow YAML file and add the two storage environment variables after the `with` section to the `build_and_deploy_job`.
 
-    :::code language="YAML" source="~/../js-e2e-azure-resource-management-functions/build-and-deploy-sample-job.yml" highlight="23-25":::
+    :::code language="YAML" source="~/../js-e2e-browser-file-upload-storage-blob/build-and-deploy-sample-job.yml" highlight="23-25":::
 
     This pulls in the secrets to the build process.
 
