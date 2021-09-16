@@ -105,7 +105,7 @@ process(w)
 ### Resume from a previous operation
 
 ```go
-// Object the resume token from a previous poller instance
+// From an existing Poller, extract and save its resume token.
 poller := resp.Poller
 tk, err := poller.ResumeToken()
 
