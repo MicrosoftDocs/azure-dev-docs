@@ -22,7 +22,7 @@ To install a Go package, use the `go get` command.
 
 For example, to install the `armcompute` package, you run the following at the command line:
 
-```cmd
+```azurecli
 go get github.com/Azure/azure-sdk-for-go/sdk/compute/armcompute
 ```
 
