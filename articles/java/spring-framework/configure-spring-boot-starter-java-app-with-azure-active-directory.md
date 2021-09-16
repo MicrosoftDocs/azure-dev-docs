@@ -113,18 +113,6 @@ The following prerequisites are required to complete the steps in this article:
    >[!div class="mx-imgBorder"]
    >![Copy app registration key value][create-app-registration-04-5]
 
-1. Select **API permissions** in the left navigation pane.
-
-1. Select **Microsoft Graph** and tick **Access the directory as the signed-in user** and **Sign in and read user profile**. Select **Grant Permissions...** and **Yes** when prompted.
-
-   >[!div class="mx-imgBorder"]
-   >![Add access permissions][create-app-registration-08]
-
-1. Select **Grant admin consent for Azure Sample** and select **Yes**.
-
-   >[!div class="mx-imgBorder"]
-   >![Grant access permissions][create-app-registration-05]
-
 1. From the main page for your app registration, select **Authentication**, and select **Add a platform**.  Then select **Web applications**.
 
    >[!div class="mx-imgBorder"]
@@ -140,7 +128,7 @@ The following prerequisites are required to complete the steps in this article:
    >[!div class="mx-imgBorder"]
    >![Enable Id Tokens][create-app-registration-11]
 
-### Add a user account to your directory, and add that account to a group
+### Add a user account to your directory, and add that account to a appRole
 
 1. From the **Overview** page of your Active Directory, select **Users**, and then select **New user**.
 
@@ -157,12 +145,30 @@ The following prerequisites are required to complete the steps in this article:
    >
    > `test-user@azuresampledirectory.onmicrosoft.com`
 
-1. From the **Overview** page of your Active Directory, select **Groups**, then **New group**, which you'll use for authorization in your application.
-
-1. Select **No members selected**. (For the purposes of this tutorial, we'll create a group named *group1*.)  Search for the user created in the previous step.  Choose **Select** to add the user to the group.  Then select **Create** to create the new group.
+1. From the main page for your app registration, select **App roles**, and select **Create app role**. Specify your app role, and then select **Apply**.
 
    >[!div class="mx-imgBorder"]
-   >![Select the user for group][create-user-03]
+   >![Enter app role information][create-app-role-01]
+
+1. From the Overview page of your Active Directory, select **Enterprise applications**
+
+   >[!div class="mx-imgBorder"]
+   >![Select Enterprise application][create-app-role-02]
+
+1. Select **All applications** , select the application you added the app role in the previous step.
+
+   >[!div class="mx-imgBorder"]
+   >![Choose the application to assign app role][create-app-role-03]
+
+1. Select **Users and groups**, and then select **Add user/group**.
+
+   >[!div class="mx-imgBorder"]
+   >![Assign app role to user][create-app-role-04]
+
+1. Select **None Selected** under **Users**, Select the user you created before, and select **Select**. Then select **Assign**. If you created more than one app roles before, you need to select a role.
+
+   >[!div class="mx-imgBorder"]
+   >![Choose user account][create-app-role-05]
 
 1. Go back to the **Users** panel, select your test user, and select **Reset password**, and copy the password. You'll use the password when you log into your application later in this tutorial.
 
@@ -218,48 +224,14 @@ The following prerequisites are required to complete the steps in this article:
 
    @RestController
    public class HelloController {
-
-       @GetMapping("group1")
-       @ResponseBody
-       @PreAuthorize("hasRole('ROLE_group1')")
-       public String group1() {
-           return "Hello Group 1 Users!";
-       }
-
-       @GetMapping("group2")
-       @ResponseBody
-       @PreAuthorize("hasRole('ROLE_group2')")
-       public String group2() {
-           return "Hello Group 2 Users!";
-       }
+        @GetMapping("Admin")
+        @ResponseBody
+        @PreAuthorize("hasAuthority('APPROLE_Admin')")
+        public String Admin() {
+            return "Admin message";
+        }
    }
    ```
-
-   > [!NOTE]
-   > The group name that you specify for the `@PreAuthorize("hasRole('')")` method must contain one of the groups that you specified in the `azure.activedirectory.user-group.allowed-groups` field of your *application.properties* file.
-   >
-   > You can also specify different authorization settings for different request mappings. For example:
-   >
-   > ``` java
-   > public class HelloController {
-   >
-   >     @PreAuthorize("hasRole('ROLE_Users')")
-   >     @RequestMapping("/")
-   >     public String helloWorld() {
-   >         return "Hello Users!";
-   >     }
-   >     @PreAuthorize("hasRole('ROLE_group1')")
-   >     @RequestMapping("/Group1")
-   >     public String groupOne() {
-   >         return "Hello Group 1 Users!";
-   >     }
-   >     @PreAuthorize("hasRole('ROLE_group2')")
-   >     @RequestMapping("/Group2")
-   >     public String groupTwo() {
-   >         return "Hello Group 2 Users!";
-   >     }
-   > }
-   > ```
 
 1. Open your application class in a text editor.
 
@@ -297,7 +269,7 @@ The following prerequisites are required to complete the steps in this article:
    >[!div class="mx-imgBorder"]
    >![Build your application][build-application]
 
-1. After your application is built and started by Maven, open `http://localhost:8080/group1` in a web browser. You should be prompted for a user name and password.
+1. After your application is built and started by Maven, open `http://localhost:8080/Admin` in a web browser. You should be prompted for a user name and password.
 
    >[!div class="mx-imgBorder"]
    ![Logging into your application][application-login]
@@ -308,16 +280,10 @@ The following prerequisites are required to complete the steps in this article:
    >[!div class="mx-imgBorder"]
    >![Changing your password][update-password]
 
-1. After you've logged in successfully, you should see the sample "Hello Group 1 Users!" text from the controller.
+1. After you've logged in successfully, you should see the sample "Admin message" text from the controller.
 
    >[!div class="mx-imgBorder"]
-   >![Authorized_group1][hello-group1]
-
-   > [!NOTE]
-   > User accounts which are not authorized will receive an **HTTP 403 Unauthorized** message.
-
-   >[!div class="mx-imgBorder"]
-   >![UnAuthorized_group2][Unauthorized-group2]
+   >![Authorized_group1][hello-admin]
 
 ## Summary
 
@@ -363,19 +329,21 @@ To learn more about Spring and Azure, continue to the Spring on Azure documentat
 [create-app-registration-03-5]: media/configure-spring-boot-starter-java-app-with-azure-active-directory/create-app-registration-03-5.png
 [create-app-registration-04]: media/configure-spring-boot-starter-java-app-with-azure-active-directory/create-app-registration-04.png
 [create-app-registration-04-5]: media/configure-spring-boot-starter-java-app-with-azure-active-directory/create-app-registration-04-5.png
-[create-app-registration-05]: media/configure-spring-boot-starter-java-app-with-azure-active-directory/create-app-registration-05.png
-[create-app-registration-08]: media/configure-spring-boot-starter-java-app-with-azure-active-directory/create-app-registration-08.png
 [create-app-registration-09]: media/configure-spring-boot-starter-java-app-with-azure-active-directory/create-app-registration-09.png
 [create-app-registration-10]: media/configure-spring-boot-starter-java-app-with-azure-active-directory/create-app-registration-10.png
 [create-app-registration-11]: media/configure-spring-boot-starter-java-app-with-azure-active-directory/create-app-registration-11.png
 
 [create-user-01]: media/configure-spring-boot-starter-java-app-with-azure-active-directory/create-user-01.png
 [create-user-02]: media/configure-spring-boot-starter-java-app-with-azure-active-directory/create-user-02.png
-[create-user-03]: media/configure-spring-boot-starter-java-app-with-azure-active-directory/create-user-03.png
 [create-user-04]: media/configure-spring-boot-starter-java-app-with-azure-active-directory/create-user-04.png
+
+[create-app-role-01]: media/configure-spring-boot-starter-java-app-with-azure-active-directory/create-app-role-01.png
+[create-app-role-02]: media/configure-spring-boot-starter-java-app-with-azure-active-directory/create-app-role-02.png
+[create-app-role-03]: media/configure-spring-boot-starter-java-app-with-azure-active-directory/create-app-role-03.png
+[create-app-role-04]: media/configure-spring-boot-starter-java-app-with-azure-active-directory/create-app-role-04.png
+[create-app-role-05]: media/configure-spring-boot-starter-java-app-with-azure-active-directory/create-app-role-05.png
 
 [application-login]: media/configure-spring-boot-starter-java-app-with-azure-active-directory/application-login.png
 [build-application]: media/configure-spring-boot-starter-java-app-with-azure-active-directory/build-application.png
-[hello-group1]: media/configure-spring-boot-starter-java-app-with-azure-active-directory/hello-group1.png
+[hello-admin]: media/configure-spring-boot-starter-java-app-with-azure-active-directory/hello-admin.png
 [update-password]: media/configure-spring-boot-starter-java-app-with-azure-active-directory/update-password.png
-[Unauthorized-group2]: media/configure-spring-boot-starter-java-app-with-azure-active-directory/unauthorized-group2.png
