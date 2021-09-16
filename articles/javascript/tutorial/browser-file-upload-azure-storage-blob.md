@@ -223,7 +223,7 @@ Your SAS token and storage account name are set in the `src/azure-storage-blob.t
     https://github.com/YOUR-GITHUB-ACCOUNT/js-e2e-browser-file-upload-storage-blob/settings/secrets/actions
     ```
 
-    :::image type="content" source="../media/tutorial-browser-file-upload/github-fork-settings-secret-new-repository-secret.png" alt-text="In a web browser, return to your fork of the sample project to add the two secrets and their values.":::
+    :::image type="content" source="../media/tutorial-browser-file-upload/github-fork-settings-secret-new-repository-secret.png" alt-text="Screenshot of a web browser displaying https://github.com, on the Settings -> Secrets page, with the New repository secret button highlighted.":::
 
 ## 11. Configure static web app to connect to storage resource
 
