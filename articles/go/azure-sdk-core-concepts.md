@@ -199,31 +199,6 @@ Either way, the policy runs as follows:
 
 The following section demonstrates how to define a custom policy.
 
-#### Template for a stateless policy
-
-```go
-type policyFunc func(*policy.Request) (*http.Response, error)
-
-// Do implements the Policy interface on policyFunc.
-func (pf policyFunc) Do(req *policy.Request) (*http.Response, error) {
-    return pf(req)
-}
-
-func NewMyStatelessPolicy() Policy {
-    return policyFunc(func(req *policy.Request) (*http.Response, error) {
-        // TODO: mutate/process Request
-
-        // Forward the request to next policy in the pipeline
-        resp, err := req.Next()
-        
-        // TODO: mutate/process Response/error
-        
-        // Pass the Response and error to next policy in the response pipeline.
-        return resp, err        
-    })        
-}
-```
-
 #### Policy Template
 
 ```go
