@@ -9,5 +9,5 @@ ms.author: jduffney
 
 ## Troubleshooting
 
-- Check [previous questions posted to StackOverflow](https://stackoverflow.com/questions/tagged/azure+go) or ask new questions using the `Azure` and `Go` tags.
+- Check [previous questions posted to Stack Overflow](https://stackoverflow.com/questions/tagged/azure+go) or ask new questions using the `Azure` and `Go` tags.
 - For any errors you come across, file a [GitHub Issue](https://github.com/Azure/azure-sdk-for-go/issues)

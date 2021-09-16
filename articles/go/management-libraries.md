@@ -38,12 +38,12 @@ In most Go apps, you'll install the following packages for authentication and co
 Once downloaded, the package are imported into your app via the `import` statement:
 
 ```go
-import {
+import (
     "github.com/Azure/azure-sdk-for-go/sdk/armcore"
     "github.com/Azure/azure-sdk-for-go/sdk/resources/armresources"
     "github.com/Azure/azure-sdk-for-go/sdk/azidentity"
     "github.com/Azure/azure-sdk-for-go/sdk/to"
-}
+)
 ```
 
 ## Authenticating to Azure
@@ -79,7 +79,7 @@ client := armcompute.NewVirtualMachinesClient(con, "<subscription ID>")
 The same pattern is used to connect with other Azure services. For example, install the [armnetwork](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/network/armnetwork) package and create a [VirtualNetwork](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/network/armnetwork#VirtualNetworksClient) client to manage virtual network (VNET) resources.
 
 ```go
-client := armnetwork.NewVirtualNetworksClient(acon, "<subscription ID>")
+client := armnetwork.NewVirtualNetworksClient(con, "<subscription ID>")
 ```
 
 ## Using the Azure SDK for Go reference documentation
@@ -101,7 +101,7 @@ For example, if you're looking for the `compute/armcompute` reference documentat
 The following example shows how to find the reference documentation for Azure resource group operations:
 
 1. You know you want to work with resource groups, but don't know the name of the library or package.
-1. You browse to the main [Azure SDK for Go reference documentation](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk) page.
+1. You browse to the main [Azure SDK for Go reference](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go) on pkg.go.dev.
 1. You click **&lt;F>** and enter `resource`. Since you're searching for a package, you know that no spaces are allowed.
 1. As you type the search term, you see a close match with the [resource/armresources](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/resources/armresources) package.
 1. You select the appropriate package for your application.
@@ -118,15 +118,16 @@ As these functions are asynchronous, your code doesn't block until the function 
 The following code snippet shows an example of this pattern.
 
 ```go
+ctx := context.Background()
 // Call an asynchronous function to create a client. The return value is a poller object.
-poller, err := client.BeginCreate(context.Background(), "resource_identifier", "additonal_parameter")
+poller, err := client.BeginCreate(ctx, "resource_identifier", "additonal_parameter")
 if err != nil {
 	// handle error...
 }
 
 // Call the poller object's PollUntilDone function that will block until the poller object
 // has been updated to indicate the task has completed.
-resp, err = poller.PollUntilDone(context.Background(), 5*time.Second)
+resp, err = poller.PollUntilDone(ctx, 5*time.Second)
 if err != nil {
 	// handle error...
 }
@@ -135,7 +136,6 @@ if err != nil {
 fmt.Printf("LRO done")
 
 // Work with the response ("resp") object.
-```
 
 **Key points:**
 
