@@ -194,6 +194,9 @@ Either way, the policy runs as follows:
 1. `Next` returns the `http.Response` and an error. Your policy can perform any desired operation such as logging the response/error.
 1. Your policy must return a response and error back to the previous policy in the pipeline.
 
+> [!NOTE]
+> NOTE: Policies must be goroutine-safe as this allows multiple goroutines to access a single client object concurrently. It is common for a policy to be immutable once created; this ensures the goroutine safe.
+
 The following section demonstrates how to define a custom policy.
 
 #### Template for a stateless policy
