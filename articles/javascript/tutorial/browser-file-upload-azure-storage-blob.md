@@ -123,6 +123,8 @@ Generate the SAS token before configuring CORS.
 1. Select **Generate SAS and connection string**. 
 1. Immediately copy the SAS token. You won't be able to list this token so if you don't have it copied, you will need to generate a new SAS token. 
 
+<a name="set-sas-token-in-code-file"></a>
+
 ## 6. Set SAS token in code file
 
 The SAS token is used when queries are made to your cloud-based resource.
@@ -132,6 +134,8 @@ The SAS token is used when queries are made to your cloud-based resource.
 1. Set the SAS token into `src/azure-storage-blob.ts` for the sasToken value by adding the SAS token into the empty string. Leave the rest of the code as it is. 
 
 :::code language="JSON" source="~/../js-e2e-browser-file-upload-storage-blob/src/azure-storage-blob.ts" range="8":::
+
+<a name="6-configure-cors-for-azure-storage-resource"></a>
 
 ## 7. Configure CORS for Azure Storage resource
 
