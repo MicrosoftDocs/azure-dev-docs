@@ -246,5 +246,5 @@ If you would like to continue with this app, learn how to deploy the app to Azur
 * Azure Blob Storage [documentation](/azure/storage/blobs/storage-blobs-introduction)
 * @azure/storage-blob
     * [NPM package](https://www.npmjs.com/package/@azure/storage-blob)
-    * [Reference documentation](/javascript/api/@azure/storage-blob/?view=azure-node-latest)
+    * [Reference documentation](/javascript/api/@azure/storage-blob/)
 * [Azure Static Web app](/azure/static-web-apps/)
