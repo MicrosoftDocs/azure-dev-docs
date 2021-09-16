@@ -295,11 +295,7 @@ The [azure-storage-blob.ts](https://github.com/Azure-Samples/js-e2e-browser-file
 |`container`|The name of the container in Blob storage. You can think of this as equivalent to a folder or directory for a file system.|
 |`storageAccountName`|Your resource name.|
 
-:::code language="typescript" source="~/../js-e2e-browser-file-upload-storage-blob/src/azure-storage-blob.ts" highlight="2,5,16" id="snippet_package":::
-
-### Security for Azure credentials
-
-In your own project, consider where to store secrets such as a SAS token. If your application requires you to secure your Azure information, consider hosting this storage code in an [Azure Function](/azure/azure-functions/) instead of on the client, then call the Azure Function from the React app.  
+:::code language="typescript" source="~/../js-e2e-browser-file-upload-storage-blob/src/azure-storage-blob.ts" highlight="2,5,6" id="snippet_package":::
 
 ### Create Storage client and manage steps
 
@@ -309,7 +305,7 @@ The `uploadFileToBlob` function is the main function of the file. It creates the
 
 ### Upload file to blob
 
-The `createBlobInContainer` function uploads the file to the container, using the [ContainerClient](/javascript/api/overview/azure/storage-overview), with the `uploadBrowserData` method. The content type must be sent with the request if you intend to use browser functionality, which depends on the file type, such as displaying a picture. 
+The `createBlobInContainer` function uploads the file to the container, using the [ContainerClient](/javascript/api/overview/azure/storage-overview). The content type must be sent with the request if you intend to use browser functionality, which depends on the file type, such as displaying a picture. 
 
 :::code language="typescript" source="~/../js-e2e-browser-file-upload-storage-blob/src/azure-storage-blob.ts" highlight="10" id="snippet_createBlobInContainer":::
 
