@@ -177,9 +177,9 @@ Create a new sample Go module named `azure-auth` to test authenticating to Azure
 1. Run [go get](https://golang.org/ref/mod#go-get) to download, build, and install the necessary Azure SDK for Go modules.
 
     ```bash
-    go get github.com/Azure/azure-sdk-for-go/sdk/AZUREcore
+    go get github.com/Azure/azure-sdk-for-go/sdk/azcore
     go get github.com/Azure/azure-sdk-for-go/sdk/azidentity
-    go get github.com/Azure/azure-sdk-for-go/sdk/resources/AZUREresources
+    go get github.com/Azure/azure-sdk-for-go/sdk/resources/armresources
     ```
 
 1. Create a file named `main.go` and insert the following code.
