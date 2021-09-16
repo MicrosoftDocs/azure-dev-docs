@@ -187,15 +187,12 @@ You can define your own custom policy to add capabilities beyond what's included
 
 To create a custom HTTP policy, define your own structure with a Do method implementing the [`Policy`](https://github.com/Azure/azure-sdk-for-go/blob/main/sdk/azcore/policy/policy.go#L20) interface. 
 
-- As a `Do` method on a type for a *stateful policy*, which is defined by the `Policy` interface. Because HTTP requests made via the same pipeline share the same policy instances, any stateful policy that mutates its state must be properly synchronized to avoid race conditions.
-
 Either way, the policy runs as follows:
 
 1. Perform any desired operation on the incoming [`policy.Request`](https://github.com/Azure/azure-sdk-for-go/blob/main/sdk/azcore/policy/policy.go#L27) such as logging, injecting a failure, or modifying any of the request's URL, query parameters, or request headers.
-1. The policy performs any desired operations, such as logging the outgoing request, mutating the URL, modifying headers and/or query parameters, injecting a failure, and so on.
-2. Forward the (modified) request to the next policy in the pipeline by calling the request's `Next` method.
-3. `Next` returns the `http.Response` and an error. Your policy can perform any desired operation such as logging the response/error.
-4. Your policy must return a response and error back to the previous policy in the pipeline.
+1. Forward the (modified) request to the next policy in the pipeline by calling the request's `Next` method.
+1. `Next` returns the `http.Response` and an error. Your policy can perform any desired operation such as logging the response/error.
+1. Your policy must return a response and error back to the previous policy in the pipeline.
 
 The following section demonstrates how to define a custom policy.
 
