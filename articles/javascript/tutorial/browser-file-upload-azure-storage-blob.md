@@ -123,7 +123,7 @@ Generate the SAS token before configuring CORS.
 1. Select **Generate SAS and connection string**. 
 1. Immediately copy the SAS token. You won't be able to list this token so if you don't have it copied, you will need to generate a new SAS token. 
 
-## Set SAS token in code file
+## 6. Set SAS token in code file
 
 The SAS token is used when queries are made to your cloud-based resource.
 
@@ -133,7 +133,7 @@ The SAS token is used when queries are made to your cloud-based resource.
 
 :::code language="JSON" source="~/../js-e2e-browser-file-upload-storage-blob/src/azure-storage-blob.ts" range="8":::
 
-## 6. Configure CORS for Azure Storage resource
+## 7. Configure CORS for Azure Storage resource
 
 Configure CORS for your resource so the client-side React code can access your storage account. 
 
@@ -152,7 +152,7 @@ Configure CORS for your resource so the client-side React code can access your s
 
 1. Select **Save** above the settings to save them to the resource. The code doesn't require any changes to work with these CORS settings. 
 
-## 7. Run project locally to verify connection to Storage account
+## 8. Run project locally to verify connection to Storage account
 
 Your SAS token and storage account name are set in the `src/azure-storage-blob.ts` file, so you are ready to run the application.
 
@@ -171,9 +171,8 @@ Your SAS token and storage account name are set in the `src/azure-storage-blob.t
 1. Select an image from the `images` folder to upload then select the **Upload!** button. 
 
 1. The React front-end client code calls into the [./src/azure-storage-blob.ts](https://github.com/Azure-Samples/js-e2e-browser-file-upload-storage-blob/blob/main/src/azure-storage-blob.ts) to authenticate to Azure, then create a Storage Container (if it doesn't already exist), then uploads the file to that container. 
+
   
-    :::code language="typescript" source="~/../js-e2e-browser-file-upload-storage-blob/src/azure-storage-blob.ts" :::
-    
     You have completed the steps of the tutorial. The remaining sections explain the app and help resolve issues.
 
 ## Troubleshoot local connection to Storage account
@@ -200,7 +199,7 @@ The sample creates and uses a publicly accessible container and files. If you wa
 
 ### Dependencies and variables
 
-The `azure-storage-blob.ts` TypeScript file loads the dependencies, and pulls in the required variables by either environment variables or hard-coded strings.
+The [azure-storage-blob.ts](https://github.com/Azure-Samples/js-e2e-browser-file-upload-storage-blob/blob/main/src/azure-storage-blob.ts) TypeScript file loads the dependencies, and pulls in the required variables by either environment variables or hard-coded strings.
 
 | Variable | Description |
 |--|--|
