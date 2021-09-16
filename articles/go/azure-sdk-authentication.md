@@ -150,8 +150,6 @@ $env:AZURE_CLIENT_ID="<user_assigned_managed_identity_client_id>"
 
 ---
 
-The `DefaultAzureCredential` uses the user-assigned managed identity assigned through an environment variable called `AZURE_CLIENT_ID`.
-
 ### <span id="azureCLI"/> Option 3: Sign in with Azure CLI
 
 To support local development, the `DefaultAzureCredential` can authenticate as the user signed into the Azure CLI.
