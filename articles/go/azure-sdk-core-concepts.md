@@ -12,7 +12,7 @@ The Azure Core (azcore) package in the Azure SDK for Go implements several patte
 
 - The [HTTP pipeline flow](#http-pipeline-flow), which is the underlying HTTP mechanism used by the SDK's client libraries.
 - [Pagination (methods that return collections)](#pagination-methods-that-return-collections)
-- [Long-running operations (LROs)](#Long-running-operations-(LROs))
+- [Long-running operations (LROs)](#Long-running-operations-LROs)
 
 ## Pagination (methods that return collections)
 
@@ -40,7 +40,7 @@ if pager.Err() != nil {
 
 For an example of a Pager implementation, see the SDK source file [zz_generated_pages.go](https://github.com/Azure/autorest.go/blob/track2/test/autorest/paginggroup/zz_generated_pagers.go).
 
-## Long running operations (LROs)
+## Long running operations LROs
 
 Some operations on Azure, such as copying data from a source URL to a Storage blob or training an AI model to recognize forms, can take a long time to complete, anywhere from a few seconds to a few days. Such **long running operations (LRO)** don't lend well to the standard HTTP flow of a relatively quick request and response.
 
