@@ -10,7 +10,7 @@ ms.custom: devx-track-go
 
 As explained in the article [What is the Azure SDK for Go?](overview.md), the Azure SDK for Go contains a set of management and client libraries.
 The management libraries share many features such as Azure Identity support, HTTP pipeline, and error-handling.
-You can find the full list of the management libraries on the [Azure SDK for Go module page](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk).
+You can find the full list of the management libraries on the [Azure SDK for Go module page](https://azure.github.io/azure-sdk/releases/latest/mgmt/go.html).
 
 In this article, you'll learn the basic steps of how to use the management libraries to interact with Azure resources.
 
