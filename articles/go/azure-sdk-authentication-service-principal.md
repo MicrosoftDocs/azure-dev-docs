@@ -195,13 +195,11 @@ $env:AZURE_CLIENT_CERTIFICATE_PATH="<azure_client_certificate_path>"
 Use the `NewDefaultAzureCredential` function of the Azure Identity module to authenticate a ResourceClient.
 
 ```go
-// The default credential checks environment variables for configuration.
 cred, err := azidentity.NewDefaultAzureCredential(nil)
 if err != nil {
   // handle error
 }
 
-// Azure SDK Azure Resource Management clients accept the credential as a parameter
 client := armresources.NewResourcesClient(armcore.NewDefaultConnection(cred, nil), "<subscriptionId>")
 ```
 
