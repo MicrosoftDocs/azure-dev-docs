@@ -8,11 +8,11 @@ ms.custom: devx-track-go
 
 # Authentication with the Azure SDK for Go using a managed identity
 
-In this tutorial, you'll use a managed identity to authenticate to Azure and create a secret in Azure key vault using Go.
+In this tutorial. you'll configure an Azure virtual machine with a managed identity to authenticate to Azure using the Azure SDK for Go.
 
-Managed identities eliminate the need for you to manage credentials by providing an identity directly to an Azure resource. Permissions to other Azure resource can then be assigned to the resource's identity instead of to a user account. Authentication is then handled verifying the permissions of an identity rather than a set of credentials loaded into an application.
+Managed identities eliminate the need for you to manage credentials by providing an identity directly to an Azure resource. Permissions assigned to the identity grant the resource access to other Azure resources that support managed identities. Removing the need for you to pass credentials to your application.
 
-Follow this tutorial to learn how to assign a managed identity to a virtual machine and authenticate to Azure using a managed identity with the Azure Identity module for Go.
+Follow this tutorial to assign a managed identity to a virtual machine and authenticate to Azure using a managed identity.
 
 ## Prerequisites
 
@@ -82,7 +82,7 @@ Deploy a virtual machine to Azure. You'll run the Go code to create a secret in 
 
     ---
 
-Azure virtual machines are one of several resources that support the usage of managed identities. To learn more about other services that support managed identities, see [Services that support managed identities for Azure resources](/azure/active-directory/managed-identities-azure-resources/services-support-managed-identities).
+To learn more about other services that support managed identities, see [Services that support managed identities for Azure resources](/azure/active-directory/managed-identities-azure-resources/services-support-managed-identities).
 
 ### Deploy a key vault instance
 
@@ -109,7 +109,7 @@ Replace `<keyVaultName>` with a globally unique name.
 
 Two types of managed identities are supported in Azure; system-assigned and user-assigned.
 
-System-assigned identities are directly attached to an Azure resource and limit the use of the identity to only that resource. User-assigned identities are stand-alone resources that can be assigned to one or more Azure resources.
+System-assigned identities are directly attached to an Azure resource and limited to only that resource. User-assigned identities are stand-alone resources that can be assigned to one or more Azure resources.
 
 To learn more about the difference between system-assigned and user-assigned, check out [Managed identity types](/azure/active-directory/managed-identities-azure-resources/overview#managed-identity-types).
 
@@ -149,7 +149,7 @@ az identity create -g go-on-azure -n GoUserIdentity
 az vm identity assign -g go-on-azure -n go-on-azure-vm --identities <UserIdentityId>
 ```
 
-Replace `<UserIdentityId>` with the managed user identity's Id.
+Replace `<UserIdentityId>` with the managed user identity's ID.
 
 To learn more, check out [Configure managed identities for Azure resources on an Azure VM using Azure CLI](/azure/active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm).
 
@@ -271,7 +271,7 @@ Next SSH into the Azure virtual machine, install Go, and built the Go package.
 
 ### Create the Go package
 
-1. Make a new directory called `go-on-azure` in your home directory.
+1. Make a new directory with the name `go-on-azure` in your home directory.
 
     ```azurecli
     mkidr ~/go-on-azure
