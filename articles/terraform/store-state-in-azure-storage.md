@@ -1,30 +1,38 @@
 ---
-title: Tutorial - Store Terraform state in Azure Storage
+title: Store Terraform state in Azure Storage
 description: Learn how to store Terraform state in Azure Storage.
-ms.topic: tutorial
-ms.date: 11/07/2019
+ms.topic: how-to
+ms.date: 08/31/2021
 ms.custom: devx-track-terraform, devx-track-azurecli
 ---
 
-# Tutorial: Store Terraform state in Azure Storage
+# Store Terraform state in Azure Storage
 
 Terraform state is used to reconcile deployed resources with Terraform configurations. State allows Terraform to know what Azure resources to add, update, or delete.
 
-By default, Terraform state is stored which isn't ideal for the following reasons:
+By default, Terraform state is stored locally, which isn't ideal for the following reasons:
 
 - Local state doesn't work well in a team or collaborative environment.
 - Terraform state can include sensitive information.
 - Storing state locally increases the chance of inadvertent deletion.
 
-In this tutorial, you'll learn how to use Azure storage to store remote Terraform state.
+In this article, you learn how to:
+> [!div class="checklist"]
 
-## Prerequisites
+> * Create an Azure storage account
+> * Use Azure storage to store remote Terraform state.
+> * Understand state locking
+> * Understand *encryption at rest*
+
+## 1. Configure your environment
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../includes/open-source-devops-prereqs-azure-subscription.md)]
 
-## Configure remote state storage account
+[!INCLUDE [configure-terraform.md](includes/configure-terraform.md)]
 
-Before you use Azure Storage as a back end, you must create a storage account.
+## 2. Configure remote state storage account
+
+Before you use Azure Storage as a backend, you must create a storage account.
 
 Run the following commands or configuration to create an Azure storage account and container:
 
@@ -110,7 +118,7 @@ resource "azurerm_storage_container" "tfstate" {
 }
 ```
 
-Save the configuration as `create-remote-stroage.tf`.
+Save the configuration as `create-remote-storage.tf`.
 
 Run the command `terraform init`, then `terraform apply` to configure the Azure storage account and container.
 
@@ -120,9 +128,9 @@ Run the command `terraform init`, then `terraform apply` to configure the Azure 
 * Public access is allowed to Azure storage account for storing Terraform state.
 * Azure storage accounts require a globally unique name. To learn more about troubleshooting storage account names, see [Resolve errors for storage account names](/azure/azure-resource-manager/templates/error-storage-account-name).
 
-## Configure terraform backend state
+## 3. Configure terraform backend state
 
-To configure the backend state you need the following Azure storage information:
+To configure the backend state, you need the following Azure storage information:
 
 - **storage_account_name**: The name of the Azure Storage account.
 - **container_name**: The name of the blob container.
@@ -154,7 +162,7 @@ Terraform prevents sensitive information from being displayed within the termina
 
 ---
 
-**Key points**:
+**Key points:**
 * To further protect the Azure Storage account access key, store it in Azure Key Vault. The environment variable can then be set by using a command similar to the following. For more information on Azure Key Vault, see the [Azure Key Vault documentation](/azure/key-vault/secrets/quick-create-cli).
 
     ```bash
@@ -174,7 +182,7 @@ terraform {
     backend "azurerm" {
         resource_group_name  = "tfstate"
         storage_account_name = "<storage_account_name>"
-        container_name       = "tstate"
+        container_name       = "tfstate"
         key                  = "terraform.tfstate"
     }
 
@@ -206,7 +214,7 @@ terraform apply
 
 You can now find the state file in the Azure Storage blob.
 
-## State locking
+## 4. Understand state locking
 
 Azure Storage blobs are automatically locked before any operation that writes state. This pattern prevents concurrent state operations, which can cause corruption.
 
@@ -216,13 +224,15 @@ You can see the lock when you examine the blob through the Azure portal or other
 
 ![Azure blob with lock](media/store-state-in-azure-storage/lock.png)
 
-## Encryption at rest
+## 5. Understand encryption-at-rest
 
 Data stored in an Azure blob is encrypted before being persisted. When needed, Terraform retrieves the state from the backend and stores it in local memory. Using this pattern, state is never written to your local disk.
 
 For more information on Azure Storage encryption, see [Azure Storage service encryption for data at rest](/azure/storage/common/storage-service-encryption).
 
-[!INCLUDE [terraform-troubleshooting.md](includes/terraform-troubleshooting.md)]
+## Troubleshoot Terraform on Azure
+
+[Troubleshoot common problems when using Terraform on Azure](troubleshoot.md)
 
 ## Next steps
 

@@ -1,7 +1,6 @@
 ---
- author: judubois
- ms.date: 05/06/2020
- ms.author: judubois
+ms.date: 05/06/2020
+ms.author: judubois
 ---
 
 Create a new `Todo` Java class, next to the `DemoApplication` class, and add the following code:

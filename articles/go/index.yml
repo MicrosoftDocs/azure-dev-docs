@@ -9,6 +9,7 @@ metadata:
   ms.author: tarcher
   ms.date: 08/04/2021
   ms.topic: landing-page
+  ms.service: azure
   ms.collection: collection
   ms.devlang: golang
   ms.custom: devx-track-go

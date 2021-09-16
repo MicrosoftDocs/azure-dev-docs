@@ -62,7 +62,7 @@ In either case, an [`AzureOperationPoller`](/python/api/msrestazure/msrestazure.
 
 The following code, taken from [Example: Provision and deploy a web app](azure-sdk-example-web-app.md), shows an example of using the poller to wait for a result:
 
-:::code language="python" source="~/../python-sdk-examples/webapp/provision_deploy_web_app.py" range="59-70":::
+:::code language="python" source="~/../python-sdk-docs-examples/webapp/provision_deploy_web_app.py" range="59-70":::
 
 In this case, the return value of `begin_create_or_update` is of type `AzureOperationPoller[Site]`, which means that the return value of `poller.result()` is a [Site](/python/api/azure-mgmt-web/azure.mgmt.web.v2021_01_01.models.site) object.
 
@@ -122,23 +122,11 @@ For example, suppose you have a [`ResourceManagementClient`](/python/api/azure-m
 
 To call `create_or_update` you can create a discrete instance of `ResourceGroup` directly with its required arguments (`location` in this case):
 
-```python
-rg_result = resource_client.resource_groups.create_or_update(
-    "PythonSDKExample-rg",
-    ResourceGroup(location="centralus")
-)
-```
+:::code language="python" source="~/../python-sdk-docs-examples/resource_group/provision_rg_objs.py" range="17-20":::
 
 Alternately, you can pass the same parameters as inline JSON:
 
-```python
-rg_result = resource_client.resource_groups.create_or_update(
-    "PythonSDKExample-rg",
-    {
-      "location": "centralus"
-    }
-)
-```
+:::code language="python" source="~/../python-sdk-docs-examples/resource_group/provision_rg.py" range="16-21":::
 
 When using JSON, the Azure libraries automatically convert the inline JSON to the appropriate object type for the argument in question.
 
@@ -148,11 +136,11 @@ For example, suppose you have an instance of the [`KeyVaultManagementClient`](/p
 
 To call `begin_create_or_update` with embedded objects, you use code like the following (assuming `tenant_id` and `object_id` are already defined). You can also create the necessary objects before the function call.
 
-:::code language="python" source="~/../python-sdk-examples/key_vault/provision_key_vault.py" range="66-92":::
+:::code language="python" source="~/../python-sdk-docs-examples/key_vault/provision_key_vault.py" range="66-92":::
 
 The same call using inline JSON appears as follows:
 
-:::code language="python" source="~/../python-sdk-examples/key_vault/provision_key_vault.py" range="97-121":::
+:::code language="python" source="~/../python-sdk-docs-examples/key_vault/provision_key_vault.py" range="97-121":::
 
 Because both forms are equivalent, you can choose whichever you prefer and even intermix them. (The full code for these examples can be found on [GitHub](https://github.com/MicrosoftDocs/python-sdk-docs-examples/blob/main/key_vault/provision_key_vault.py).)
 

@@ -33,6 +33,11 @@
   "contribution_branch_mappings": {},
   "dependent_repositories": [
     {
+      "path_to_root": "terraform_samples",
+      "url": "https://github.com/Azure/terraform",
+      "branch": "master"
+    },
+    {
       "path_to_root": "_themes",
       "url": "https://github.com/Microsoft/templates.docs.msft",
       "branch": "master",
@@ -44,6 +49,30 @@
       "branch": "master",
       "branch_mapping": {}
     },
+    {
+      "path_to_root": "js-e2e-azure-resource-management-functions",
+      "url": "https://github.com/Azure-Samples/js-e2e-azure-resource-management-functions",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "js-e2e-static-web-app-with-cli",
+      "url": "https://github.com/Azure-Samples/js-e2e-static-web-app-with-cli",
+      "branch": "main",
+      "branch_mapping": {}
+    }, 
+    {
+      "path_to_root": "js-e2e-static-web-app-with-cli-1-basic-app-with-api",
+      "url": "https://github.com/Azure-Samples/js-e2e-static-web-app-with-cli",
+      "branch": "1-basic-app-with-api",
+      "branch_mapping": {}
+    },      
+    {
+      "path_to_root": "js-e2e-static-web-app-with-cli-2-basic-app-with-api-and-auth",
+      "url": "https://github.com/Azure-Samples/js-e2e-static-web-app-with-cli",
+      "branch": "2-basic-app-with-api-and-auth",
+      "branch_mapping": {}
+    },        
     {
       "path_to_root": "js-e2e-browser-file-upload-storage-blob",
       "url": "https://github.com/Azure-Samples/js-e2e-browser-file-upload-storage-blob",
@@ -117,8 +146,26 @@
       "branch_mapping": {}
     },  
     {
-      "path_to_root": "python-sdk-examples",
+      "path_to_root": "python-sdk-docs-examples",
       "url": "https://github.com/MicrosoftDocs/python-sdk-docs-examples",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "python-docs-flask-minimal",
+      "url": "https://github.com/Azure-Samples/python-docs-flask-minimal",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "python-sample-vscode-flask-tutorial",
+      "url": "https://github.com/microsoft/python-sample-vscode-flask-tutorial",
+      "branch": "main",
+      "branch_mapping": {}
+    },    
+    {
+      "path_to_root": "python-integrated-authentication",
+      "url": "https://github.com/Azure-Samples/python-integrated-authentication",
       "branch": "main",
       "branch_mapping": {}
     },    
@@ -127,7 +174,13 @@
       "url": "https://github.com/MicrosoftDocs/azure-docs",
       "branch": "master",
       "branch_mapping": {}
-    }
+    },
+    {
+      "path_to_root": "azure-docs-pr",
+      "url": "https://github.com/MicrosoftDocs/azure-docs-pr",
+      "branch": "master",
+      "branch_mapping": {}
+    }    
   ],
   "branch_target_mapping": {
     "live": [

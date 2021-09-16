@@ -1,7 +1,6 @@
 ---
 title: Getting started with Logz.io for Java apps running on Azure
 description: This tutorial shows how to integrate and configure Logz.io for Java apps running on Azure.
-author: jdubois
 manager: bborges
 ms.topic: tutorial
 ms.date: 11/05/2019

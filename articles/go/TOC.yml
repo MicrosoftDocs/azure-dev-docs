@@ -16,9 +16,21 @@ items:
     - name: Manage Azure resource groups
       href: manage-resource-groups.md
   - name: Concepts
+    expanded: true
     items:
-    - name: Working with the management libraries
-      href: management-libraries.md
+      - name: Working with the management libraries
+        href: management-libraries.md
+      - name: Authentication
+        expanded: false
+        items:
+          - name: Overview
+            href: azure-sdk-authorization.md
+          - name: Auth with Azure Identity
+            href: azure-sdk-authentication.md
+          - name: Auth with service principals
+            href: azure-sdk-authentication-service-principal.md
+          - name: Auth with managed identities
+            href: azure-sdk-authentication-managed-identity.md
   - name: Azure services
     items:
     - name: Storage

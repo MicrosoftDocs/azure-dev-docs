@@ -2,7 +2,7 @@
 title: "What's new for JavaScript docs"
 description: "What's new in JavaScript docs in the Developer Center"
 ms.topic: conceptual
-ms.date: 07/21/2021
+ms.date: 09/15/2021
 
 
 ---
@@ -11,6 +11,32 @@ ms.date: 07/21/2021
 
 Find new and updated content for JavaScript and TypeScript developers.
 
+## 2021 August 
+
+
+### New in September
+
+|Name|Description|
+|---------------------------------------|--|
+|[Create an Azure Function to manage resource groups](how-to/with-web-app/azure-function-resource-group-management/introduction.md)|In this article series, you'll create an Azure Function app with APIs to manage Azure resource groups.<br><br>Features and functionality of this article series:<br><br>* Create local Azure Function app project in Visual Studio Code<br>* Create function APIs boilerplate code in Visual Studio Code<br>* Deploy to Azure Functions<br>* Create service principal<br>* Configure local and remote application settings<br>* Use DefaultAzureCredential in both local and remote environments<br>* Use Azure SDKs to use Azure Identity and Azure Resource Management APIs<br>* Use your local and cloud APIs to create, delete, and list resource groups in your subscription|
+
+
+### New in August
+
+|Name|Description|
+|---------------------------------------|--|
+|[Create Static Web app using CLI](how-to/with-web-app/static-web-app-with-swa-cli/introduction.md)|In this article series, learn how to create a Static Web App (SWA). Locally develop using the SWA CLI with a proxy between the local client and API, including authentication. Run the same code remotely on Azure without changes.|
+
+
+### Updates in August
+
+|Name|Description|
+|---------------------------------------|--|
+|[Create and deploy an Azure Function API with VS Code](tutorial/vscode-function-app-http-trigger/tutorial-vscode-serverless-node-install.md)|Previous version of document series focused on a public/anonymous API. The series now uses function-level security: local develop doesn't use the function key (`code` querystring param), the remote deployed function requires the function key.|
+|[Azure service principal](how-to/with-sdk/set-up-development-environment.md)|Updated code sample and added code sample to **[JS-e2e](https://github.com/Azure-Samples/js-e2e/tree/main/resources/resource-groups-list)** repo.|
+|Updated [hosting and deployment services](how-to/deploy-web-app.md)|Added Azure Web PubSub to list of services.|
+|Updated [Azure Functions](how-to/develop-serverless-apps.md#common-security-settings-you-need-to-configure-for-your-azure-function)|Added **Common security settings you need to configure for your Azure Function**| 
+|Updated [Top JS Tasks](how-to/common-javascript-tasks.md)|Added [Deployment](how-to/common-javascript-tasks.md#deployment-to-hosting-environment)| 
 
 ## 2021 July 
 

@@ -2,10 +2,9 @@
 title: Getting started with Spring Cloud Function in Azure
 description: Learn about using Spring Cloud Function in Azure.
 documentationcenter: java
-author: jdubois
 manager: brborges
 ms.author: judubois
-ms.date: 07/17/2019
+ms.date: 09/07/2021
 ms.service: azure-functions
 ms.tgt_pltfrm: multiple
 ms.topic: article

@@ -4,7 +4,7 @@ description: This tutorial shows you how to use the Azure Toolkit for IntelliJ t
 services: app-service
 keywords: java, intellij, web app, azure app service, hello world, quick start
 documentationcenter: java
-author: yucwan
+ms.author: yucwan
 ms.assetid: 75ce7b36-e3ae-491d-8305-4b42ce37db4e
 ms.reviewer: yucwan
 ms.date: 09/09/2020

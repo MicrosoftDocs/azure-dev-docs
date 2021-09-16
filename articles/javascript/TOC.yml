@@ -21,72 +21,6 @@
       href: how-to/with-sdk/set-up-development-environment.md
     - name: Authenticate to Azure
       href: core/nodejs-sdk-azure-authenticate.md
-  - name: Tutorials
-    items:
-      - name: Server web apps
-        items:
-          - name: "Express.js with VS Code"
-            href: tutorial/deploy-nodejs-azure-app-service-with-visual-studio-code.md
-          - name: "Convert text to speech with Cognitive Services"
-            href: tutorial/convert-text-to-speech-cognitive-services.md
-          - name: "Express.js with a MongoDB (Cosmos) database"
-            href: tutorial/deploy-nodejs-mongodb-app-service-from-visual-studio-code.md
-          - name: "Create with Azure CLI, deploy with Git"
-            items:
-              - name: Introduction and prerequisites
-                href: tutorial/tutorial-vscode-azure-cli-node/tutorial-vscode-azure-cli-node-01.md
-              - name: Create the app
-                href: tutorial/tutorial-vscode-azure-cli-node/tutorial-vscode-azure-cli-node-02.md
-              - name: Create the App Service
-                href: tutorial/tutorial-vscode-azure-cli-node/tutorial-vscode-azure-cli-node-03.md
-              - name: Deploy with git push
-                href: tutorial/tutorial-vscode-azure-cli-node/tutorial-vscode-azure-cli-node-04.md
-              - name: Stream logs
-                href: tutorial/tutorial-vscode-azure-cli-node/tutorial-vscode-azure-cli-node-05.md
-              - name: Make changes and redeploy
-                href: tutorial/tutorial-vscode-azure-cli-node/tutorial-vscode-azure-cli-node-06.md
-              - name: Clean up resources
-                href: tutorial/tutorial-vscode-azure-cli-node/tutorial-vscode-azure-cli-node-07.md
-      - name: Container web apps
-        items:
-        - name: "Express.js with VS Code"
-          items:
-            - name: Introduction and prerequisites
-              href: tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-01.md
-            - name: Use a container registry
-              href: tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-02.md
-            - name: Create a local Node.js app
-              href: tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-03.md
-            - name: Create the app image
-              href: tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-04.md
-            - name: Deploy the app image
-              href: tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-05.md
-            - name: Make changes and redeploy
-              href: tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-06.md
-            - name: Stream logs
-              href: tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-07.md
-            - name: Clean up resources
-              href: tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-08.md
-        - name: "Deno with Azure CLI"
-          href: tutorial/deploy-deno-app-azure-app-service-azure-cli.md
-      - name: Virtual machine web apps
-        items:
-          - name: "Deploy container with logging"
-            items:
-              - name: 1. Introduction and prerequisites
-                href: tutorial/nodejs-virtual-machine-vm/introduction.md
-              - name: 2. Create Application Insights resource
-                href: tutorial/nodejs-virtual-machine-vm/create-azure-monitoring-application-insights-web-resource.md
-              - name: 3. Create virtual machine
-                href: tutorial/nodejs-virtual-machine-vm/create-linux-virtual-machine-azure-cli.md
-              - name: 4. Connect to Linux virtual machine
-                href: tutorial/nodejs-virtual-machine-vm/connect-linux-virtual-machine-ssh.md
-              - name: 5. Add cloud logging to app
-                href: tutorial/nodejs-virtual-machine-vm/azure-monitor-application-insights-nodejs-expressjs-code.md
-              - name: 6. View logs
-                href: tutorial/nodejs-virtual-machine-vm/azure-monitor-application-insights-logs.md
-              - name: 7. Clean up resources
-                href: tutorial/nodejs-virtual-machine-vm/clean-up-resources.md
   - name: Concepts
     items:
       - name: Identity, authentication, and users
@@ -101,6 +35,10 @@
             href: how-to/with-sdk/set-up-development-environment.md
       - name: With web apps
         items:
+          - name: Select hosting service
+            href: how-to/select-hosting-service.md
+          - name: Select deployment process
+            href: how-to/deploy-web-app.md
           - name: Configure
             items: 
             - name: Configure app settings
@@ -109,12 +47,28 @@
               href: how-to/add-custom-domain-to-web-app.md
             - name: Use Key Vault secrets in Express.js
               href: how-to/with-web-app/use-secret-environment-variables.md
-          - name: Deploy to Azure 
-            href: how-to/deploy-web-app.md
           - name: Azure Static Web Apps
             items: 
             - name: Getting started
               href: how-to/create-static-web-app.md
+            - name: Create Static web app
+              items:
+                - name: 1. Introduction
+                  href: how-to/with-web-app/static-web-app-with-swa-cli/introduction.md
+                - name: 2. Create GitHub repo
+                  href: how-to/with-web-app/static-web-app-with-swa-cli/create-github-repo.md                  
+                - name: 3. Create React client app
+                  href: how-to/with-web-app/static-web-app-with-swa-cli/create-react-app.md                  
+                - name: 4. Create Azure Static Web app
+                  href: how-to/with-web-app/static-web-app-with-swa-cli/create-static-web-app.md                  
+                - name: 5. Create Azure Function API
+                  href: how-to/with-web-app/static-web-app-with-swa-cli/create-function-api-app.md  
+                - name: 6. Connect client to API
+                  href: how-to/with-web-app/static-web-app-with-swa-cli/connect-client-to-api.md                                    
+                - name: 7. Add easy authentication
+                  href: how-to/with-web-app/static-web-app-with-swa-cli/add-authentication.md                                    
+                - name: 8. Clean up resources
+                  href: how-to/with-web-app/static-web-app-with-swa-cli/clean-up-swa-auth-resources.md                                    
             - name: Add search to website
               href: /azure/search/tutorial-javascript-overview
             - name: "Upload image to Storage"
@@ -165,21 +119,101 @@
                 href: tutorial/vscode-function-app-http-trigger/tutorial-vscode-serverless-node-deploy-hosting.md
               - name: 5. Clean up resources
                 href: tutorial/vscode-function-app-http-trigger/tutorial-vscode-serverless-node-remove-resource.md              
+            - name: Resource management API
+              items: 
+              - name: 1. Introduction and prerequisites
+                href: how-to/with-web-app/azure-function-resource-group-management/introduction.md
+              - name: 2. Create local Azure Function
+                href: how-to/with-web-app/azure-function-resource-group-management/create-function-app.md
+              - name: 3. Deploy function to Azure
+                href: how-to/with-web-app/azure-function-resource-group-management/deploy-azure-function-with-visual-studio-code.md
+              - name: 4. Add APIs and redeploy
+                href: how-to/with-web-app/azure-function-resource-group-management/add-delete-functions-redeploy.md
+              - name: 5. View and query application logs
+                href: how-to/with-web-app/azure-function-resource-group-management/view-query-application-logs.md
+              - name: 6. Clean up resources
+                href: how-to/with-web-app/azure-function-resource-group-management/clean-up-resources.md
             - name: GraphQL APIs
               href: ./how-to/with-web-app/graphql/azure-function-hello-world.md
-          - name: Add easy authentication
-            href: how-to/with-web-app/add-authentication-to-web-app.md
-          - name: Use Microsoft Identity provider (MSAL.js)
-            href: how-to/with-web-app/deploy-msal-sdk-authentication-expressjs.md
+          - name: Azure App service
+            items:
+            - name: "Express.js with VS Code"
+              href: tutorial/deploy-nodejs-azure-app-service-with-visual-studio-code.md
+            - name: "Express.js with Azure CLI"
+              items:
+                - name: Introduction and prerequisites
+                  href: tutorial/tutorial-vscode-azure-cli-node/tutorial-vscode-azure-cli-node-01.md
+                - name: Create the app
+                  href: tutorial/tutorial-vscode-azure-cli-node/tutorial-vscode-azure-cli-node-02.md
+                - name: Create the App Service
+                  href: tutorial/tutorial-vscode-azure-cli-node/tutorial-vscode-azure-cli-node-03.md
+                - name: Deploy with git push
+                  href: tutorial/tutorial-vscode-azure-cli-node/tutorial-vscode-azure-cli-node-04.md
+                - name: Stream logs
+                  href: tutorial/tutorial-vscode-azure-cli-node/tutorial-vscode-azure-cli-node-05.md
+                - name: Clean up resources
+                  href: tutorial/tutorial-vscode-azure-cli-node/tutorial-vscode-azure-cli-node-07.md
+            - name: "Express.js convert text to speech"
+              href: tutorial/convert-text-to-speech-cognitive-services.md
+            - name: "Express.js with a MongoDB database"
+              href: tutorial/deploy-nodejs-mongodb-app-service-from-visual-studio-code.md
+            - name: Add easy authentication
+              href: how-to/with-web-app/add-authentication-to-web-app.md
+            - name: Use Microsoft Identity provider (MSAL.js)
+              href: how-to/with-web-app/deploy-msal-sdk-authentication-expressjs.md
+          - name: Container web apps
+            items:
+            - name: "Express.js with VS Code"
+              items:
+                - name: Introduction and prerequisites
+                  href: tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-01.md
+                - name: Use a container registry
+                  href: tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-02.md
+                - name: Create a local Node.js app
+                  href: tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-03.md
+                - name: Create the app image
+                  href: tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-04.md
+                - name: Deploy the app image
+                  href: tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-05.md
+                - name: Make changes and redeploy
+                  href: tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-06.md
+                - name: Stream logs
+                  href: tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-07.md
+                - name: Clean up resources
+                  href: tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-08.md
+            - name: "Deno with Azure CLI"
+              href: tutorial/deploy-deno-app-azure-app-service-azure-cli.md
+            - name: "Deploy container on a VM"
+              href: tutorial/nodejs-virtual-machine-vm/introduction.md
+          - name: Virtual machine web apps
+            items:
+              - name: "Express.js"
+                items:
+                  - name: 1. Introduction and prerequisites
+                    href: tutorial/nodejs-virtual-machine-vm/introduction.md
+                  - name: 2. Create Application Insights resource
+                    href: tutorial/nodejs-virtual-machine-vm/create-azure-monitoring-application-insights-web-resource.md
+                  - name: 3. Create virtual machine
+                    href: tutorial/nodejs-virtual-machine-vm/create-linux-virtual-machine-azure-cli.md
+                  - name: 4. Connect to Linux virtual machine
+                    href: tutorial/nodejs-virtual-machine-vm/connect-linux-virtual-machine-ssh.md
+                  - name: 5. Add cloud logging to app
+                    href: tutorial/nodejs-virtual-machine-vm/azure-monitor-application-insights-nodejs-expressjs-code.md
+                  - name: 6. View logs
+                    href: tutorial/nodejs-virtual-machine-vm/azure-monitor-application-insights-logs.md
+                  - name: 7. Clean up resources
+                    href: tutorial/nodejs-virtual-machine-vm/clean-up-resources.md          
       - name: With user authentication
         items:
           - name: Getting started
             href: how-to/with-authentication/getting-started.md
-          - name: Add easy authentication
+          - name: Easy auth with Static Web Apps
+            href: how-to/with-web-app/static-web-app-with-swa-cli/add-authentication.md
+          - name: Easy auth with Express.js
             href: how-to/with-web-app/add-authentication-to-web-app.md
-          - name: Add a simple Login button for Microsoft Identity provider
+          - name: Add a simple MSAL.js Login button for Microsoft Identity provider
             href: tutorial/single-page-application-azure-login-button-sdk-msal.md
-          - name: Static web app with API
+          - name: Add MSAL.js to Static web app with API
             items:
               - name: Introduction
                 href: how-to/with-authentication/static-web-app-with-api/introduction.md
@@ -191,7 +225,7 @@
                 href: how-to/with-authentication/static-web-app-with-api/add-mongodb-database-to-api.md
               - name: Deploy to Azure
                 href: how-to/with-authentication/static-web-app-with-api/deploy-static-web-app-to-azure.md
-          - name: Add to server app
+          - name: Add MSAL.js to server app
             href: how-to/with-web-app/deploy-msal-sdk-authentication-expressjs.md
       - name: With Visual Studio Code
         items:
@@ -205,6 +239,8 @@
             href: how-to/with-visual-studio-code/create-azure-database.md
       - name: With Azure CLI
         items:
+          - name: Get started
+            href: core/automate-tasks-with-azure-cli.md          
           - name: Container registry
             href: how-to/with-azure-cli/create-container-registry-resource.md
           - name: Configure web app domain name
@@ -243,14 +279,8 @@
             href: how-to/with-database/use-sql-api-as-cosmos-db.md
           - name: GraphQL data layer
             href: how-to/with-web-app/graphql/get-started.md
-      - name: Deploy containers
-        href: how-to/deploy-containers.md
-      - name: Integrate with databases
-        href: how-to/with-database/getting-started.md
       - name: Logging and metrics
         href: how-to/node-sdk-logging.md
-      - name: Automate with Azure CLI
-        href: core/automate-tasks-with-azure-cli.md
   - name: Learn
     href: learn-azure-javascript.md
   - name: Samples
