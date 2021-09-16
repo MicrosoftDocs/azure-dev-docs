@@ -255,7 +255,7 @@ Use the following code sample to verify that your service principal authenticate
 		// Create a credentials object.
 		cred, err := azidentity.NewDefaultAzureCredential(nil)
 		if err != nil {
-			log.Fatalf("Authentication failure: %+v", err)
+			log.Fatalf("Failed to configure credential: %+v", err)
 		}
 
 		// Establish a connection with the Azure subscription.

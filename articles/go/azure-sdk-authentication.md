@@ -77,7 +77,7 @@ $env:AZURE_CLIENT_SECRET="<service_principal_password>"
 |-|-
 |`AZURE_CLIENT_ID`|ID of an Azure AD application
 |`AZURE_TENANT_ID`|ID of the application's Azure AD tenant
-|`AZURE_CLIENT_CERTIFICATE_PATH`|Path to a PEM-encoded certificate file including private key (without password protection)
+|`AZURE_CLIENT_CERTIFICATE_PATH`|Path to a certificate file including private key (without password protection)
 
 # [Bash](#tab/bash)
 
@@ -142,7 +142,7 @@ export AZURE_CLIENT_ID="<user_assigned_managed_identity_client_id>"
 # [PowerShell](#tab/powershell)
 
 ```powershell
-$env:AZURE_CLIENT_ID="<service_principal_appid>"
+$env:AZURE_CLIENT_ID="<user_assigned_managed_identity_client_id>"
 ```
 
 > [!NOTE]
