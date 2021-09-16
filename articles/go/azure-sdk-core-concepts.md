@@ -11,9 +11,8 @@ ms.custom: devx-track-go
 The Azure Core (azcore) package in the Azure SDK for Go implements several patterns that are applied throughout the SDK:
 
 - The [HTTP pipeline flow](#http-pipeline-flow), which is the underlying HTTP mechanism used by the SDK's client libraries.
-- [Common HTTP pipeline patterns](#common-http-pipeline-patterns).
 - [Pagination (methods that return collections)](#pagination-methods-that-return-collections)
-- [Long-running operations (LROs)](#long-running-operations)
+- [Long-running operations (LROs)](#Long-running-operations-(LROs))
 
 ## Pagination (methods that return collections)
 
