@@ -170,7 +170,7 @@ $env:AZURE_CLIENT_SECRET="<service_principal_password>"
 |-|-
 |`AZURE_CLIENT_ID`|Application Id of an Azure service principal
 |`AZURE_TENANT_ID`|ID of the application's Azure AD tenant
-|`AZURE_CLIENT_CERTIFICATE_PATH`|Path to a PEM-encoded certificate file including private key (without password protection)
+|`AZURE_CLIENT_CERTIFICATE_PATH`|Path to a certificate file including private key (without password protection)
 
 # [Bash](#tab/azure-cli)
 
