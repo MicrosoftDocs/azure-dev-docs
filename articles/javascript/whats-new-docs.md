@@ -24,7 +24,7 @@ Find new and updated content for JavaScript and TypeScript developers.
 
 |Name|Description|
 |---------------------------------------|--|
-|[Upload an image to an Azure Storage blob](tutorial/browser-file-upload-azure-storage-blob.md)|* Updates based on Azure portal UI changes<br>* Added Static Web App resource creation and deployment<br>Moved environment variables from source code into `.env` file| 
+|[Upload an image to an Azure Storage blob](tutorial/browser-file-upload-azure-storage-blob.md)|* Updates based on Azure portal UI changes<br>* Added Static Web App resource creation and deployment<br>* Moved environment variables from source code into `.env` file| 
 
 
 ### New in August
