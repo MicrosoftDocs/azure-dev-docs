@@ -142,8 +142,8 @@ Define the following environment variables:
 
 |Variable name|Value
 |-|-
-|`AZURE_CLIENT_ID`|Application Id of an Azure service principal
-|`AZURE_TENANT_ID`|Id of the application's Azure AD tenant
+|`AZURE_CLIENT_ID`|Application ID of an Azure service principal
+|`AZURE_TENANT_ID`|ID of the application's Azure AD tenant
 |`AZURE_CLIENT_SECRET`|Password of the Azure service principal
 
 # [Bash](#tab/azure-cli)
@@ -168,7 +168,7 @@ $env:AZURE_CLIENT_SECRET="<service_principal_password>"
 
 |Variable name|Value
 |-|-
-|`AZURE_CLIENT_ID`|Application Id of an Azure service principal
+|`AZURE_CLIENT_ID`|Application ID of an Azure service principal
 |`AZURE_TENANT_ID`|ID of the application's Azure AD tenant
 |`AZURE_CLIENT_CERTIFICATE_PATH`|Path to a certificate file including private key (without password protection)
 

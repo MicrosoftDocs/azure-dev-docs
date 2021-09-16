@@ -115,10 +115,10 @@ To learn more about the difference between system-assigned and user-assigned, ch
 
 Choose one of the following options:
 
-* [Option 1: System-assigned](#system-assigned)
-* [Option 2: User-assigned](#user-assigned)
+* [Option 1: Create a system-assigned identity](#create-system-assigned)
+* [Option 2: Create a user-assigned identity](#create-user-assigned)
 
-### <span id="system-assigned"/> Option 1: System-assigned
+### <span id="create-system-assigned"/> Option 1: Create a system-assigned identity
 
 Run the following commands to create a system-assigned managed identity:
 
@@ -137,7 +137,7 @@ Update-AzVM -ResourceGroupName go-on-azure -VM $vm -IdentityType SystemAssigned
 
 ---
 
-### <span id="user-assigned"/> Option 2: User-assigned
+### <span id="create-user-assigned"/> Option 2: Create a user-assigned identity
 
 Run the following commands to create a user-assigned managed identity:
 
@@ -175,13 +175,19 @@ After a managed identity is created, you assign roles to grant the identity perm
 
 Choose one of the following options:
 
-### Option 1 (System-assigned)
+* [Option 1: Assign a role to a system-assigned identity](#add-role-system-assigned)
+* [Option 2: Assign a role to a user-assigned identity](#add-role-user-assigned)
+
+### <span id="add-role-system-assigned"/> Option 1: Assign a role to a system-assigned identity
 
 Run the following commands to assign the `Key Vault Contributor` role to the system-assigned managed identity:
 
 # [Azure CLI](#tab/azure-cli)
 ```azurecli
-principalId=$(az vm identity show --name go-on-azure-vm --resource-group go-on-azure --query 'principalId' -o tsv)
+#output system identity principal ID
+az vm identity show --name go-on-azure-vm --resource-group go-on-azure --query 'principalId' -o tsv
+
+#output key vault ID
 scope=$(az keyvault show --name go-on-azure-kv --query id -o tsv)
 
 az role assignment create --assignee '<principalId>' --role 'Key Vault Contributor' --scope '<keyVaultId>'
@@ -202,14 +208,17 @@ Replace `<KeyVaultName>` with the key vault name.
 
 ---
 
-### Option 2 (User-assigned)
+### <span id="add-role-user-assigned"/> Option 2: Assign a role to a user-assigned identity
 
 Run the following commands to assign the `Key Vault Contributor` role to the user-assigned managed identity:
 
 # [Azure CLI](#tab/azure-cli)
 ```azurecli
-principalId=$(az identity show --resource-group go-on-azure --name GoUserIdentity --query 'principalId' -o tsv)
-scope=$(az keyvault show --name go-on-azure-kv --query id -o tsv)
+#output user identity principal ID
+az identity show --resource-group go-on-azure --name GoUserIdentity --query 'principalId' -o tsv
+
+#output key vault ID
+az keyvault show --name go-on-azure-kv --query id -o tsv
 
 az role assignment create --assignee '<principalId>' --role 'Key Vault Contributor' --scope '<keyVaultId>'
 ```
