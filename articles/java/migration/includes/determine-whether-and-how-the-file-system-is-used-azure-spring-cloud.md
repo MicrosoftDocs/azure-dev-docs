@@ -1,5 +1,4 @@
 ---
-author: yevster
 ms.author: yebronsh
 ms.date: 5/26/2020
 ---

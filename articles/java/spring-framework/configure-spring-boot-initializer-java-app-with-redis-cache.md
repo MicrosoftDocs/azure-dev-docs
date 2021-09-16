@@ -19,7 +19,7 @@ This article walks you through creating a Redis cache in the cloud using the Azu
 The following prerequisites are required in order to complete the steps in this article:
 
 * An Azure subscription; if you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits] or sign up for a [free Azure account].
-* A supported Java Development Kit (JDK). For more information about the JDKs available for use when developing on Azure, see <https://aka.ms/azure-jdks>.
+* A supported Java Development Kit (JDK). For more information about the JDKs available for use when developing on Azure, see [Java support on Azure and Azure Stack](../fundamentals/java-support-on-azure.md).
 * [Apache Maven](http://maven.apache.org/), version 3.0 or later.
 
 ## Create a custom application using the Spring Initializr
@@ -38,10 +38,6 @@ The following prerequisites are required in order to complete the steps in this 
    > The Spring Initializr will use the **Group** and **Artifact** names to create the package name; for example: *com.contoso.myazuredemo*.
    >
 
-1. When prompted, download the project to a path on your local computer.
-
-   ![Download custom Spring Boot project][SI03]
-
 1. After you have extracted the files on your local system, your custom Spring Boot application will be ready for editing.
 
    ![Custom Spring Boot project files][SI04]
@@ -57,17 +53,20 @@ The following prerequisites are required in order to complete the steps in this 
 1. On the **New Redis Cache** page, specify the following information:
 
    * Enter the **DNS name** for your cache.
-   * Specify your **Subscription**, **Resource group**, **Location**, and **Pricing tier**.
-   * For this tutorial, choose **Unblock port 6379**.
+   * Specify your **Subscription**, **Resource group**, **Location**, and **Cache type**.
 
    > [!NOTE]
    >
    > You can use SSL with Redis caches, but you would need to use a different Redis client like Jedis. For more information, see [How to use Azure Redis Cache with Java][Redis Cache with Java].
    >
 
-   When you have specified these options, click **Create** to create your cache.
+   When you have specified these options, select **Advanced** tab.
 
    ![Create the cache in the Azure portal.][AZ03]
+
+   Select the checkbox next to **Non-TLS port**, then select **Review + create**, review your specifications, and select **Create**.
+
+   ![Select Non-TLS port when creating azure cache.][create-redis-cache-select-non-tls-port]
 
 1. Once your cache has been completed, you will see it listed on your Azure **Dashboard**, as well as under the **All Resources**, and **Redis Caches** pages. You can click on your cache on any of those locations to open the properties page for your cache.
 
@@ -85,7 +84,7 @@ The following prerequisites are required in order to complete the steps in this 
 
 1. Open the *application.properties* file in a text editor, and add the following lines to the file, and replace the sample values with the appropriate properties from your cache:
 
-   ```yaml
+   ```properties
    # Specify the DNS URI of your Redis cache.
    spring.redis.host=myspringbootcache.redis.cache.windows.net
 
@@ -93,7 +92,7 @@ The following prerequisites are required in order to complete the steps in this 
    spring.redis.port=6379
 
    # Specify the access key for your Redis cache.
-   spring.redis.password=57686f6120447564652c2049495320526f636b73=
+   spring.redis.password=<your-redis-access-key>
    ```
 
    ![Editing the application.properties file][RE02]
@@ -102,11 +101,11 @@ The following prerequisites are required in order to complete the steps in this 
    > 
    > If you were using a different Redis client like Jedis that enables SSL, you would specify that you want to use SSL in your *application.properties* file and use port 6380. For example:
    > 
-   > ```yaml
+   > ```properties
    > # Specify the DNS URI of your Redis cache.
    > spring.redis.host=myspringbootcache.redis.cache.windows.net
    > # Specify the access key for your Redis cache.
-   > spring.redis.password=57686f6120447564652c2049495320526f636b73=
+   > spring.redis.password=<your-redis-access-key>
    > # Specify that you want to use SSL.
    > spring.redis.ssl=true
    > # Specify the SSL port for your Redis cache.
@@ -216,15 +215,14 @@ The **[Spring Framework]** is an open-source solution that helps Java developers
 
 <!-- IMG List -->
 
-[AZ01]: media/configure-spring-boot-initializer-java-app-with-redis-cache/AZ01.png
 [AZ02]: media/configure-spring-boot-initializer-java-app-with-redis-cache/AZ02.png
 [AZ03]: media/configure-spring-boot-initializer-java-app-with-redis-cache/AZ03.png
 [AZ04]: media/configure-spring-boot-initializer-java-app-with-redis-cache/AZ04.png
 [AZ05]: media/configure-spring-boot-initializer-java-app-with-redis-cache/AZ05.png
+[create-redis-cache-select-non-tls-port]: media/configure-spring-boot-initializer-java-app-with-redis-cache/create-redis-cache-select-non-tls-port.png
 
 [SI01]: media/configure-spring-boot-initializer-java-app-with-redis-cache/SI01.png
 [SI02]: media/configure-spring-boot-initializer-java-app-with-redis-cache/SI02.png
-[SI03]: media/configure-spring-boot-initializer-java-app-with-redis-cache/SI03.png
 [SI04]: media/configure-spring-boot-initializer-java-app-with-redis-cache/SI04.png
 
 [RE01]: media/configure-spring-boot-initializer-java-app-with-redis-cache/RE01.png

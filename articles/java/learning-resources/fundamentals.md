@@ -1,7 +1,6 @@
 ---
 title: Java learning path
 description: Java - learning paths for Java developers.
-author: sadigopu
 ms.author: sreea
 ms.topic: article
 ms.date: 03/19/2021
@@ -18,39 +17,39 @@ The following sections provide links to resources that can help you learn Java f
 
 ### Language
 
-- [Core Platform - Part 1](https://www.linkedin.com/learning/5157019?u=3322)
+- [Core Platform - Part 1](https://learning.oreilly.com/videos/core-java/9780134540603)
 - [Core Platform - Part 2](https://www.linkedin.com/learning/advanced-java-programming-2/learn-advanced-java-programming?u=3322)
 
 ### IDE features
 
 - [IDE IntelliJ Fundamentals](https://www.linkedin.com/learning/intellij-idea-community-edition-essential-training/welcome?u=3322)
 - [IDE Eclipse Fundamentals](https://www.linkedin.com/learning/eclipse-essential-training/welcome?u=3322)
-- [Maven Fundamentals](https://www.linkedin.com/learning/5237111?u=3322)
+- [Apache Maven: A Practical Introduction](https://www.oreilly.com/videos/apache-maven-a/9781800203297/)
 
 ### Software development life cycle
 
 - [JDBC and Databases](https://www.linkedin.com/learning/learning-jdbc/get-going-with-data-access-in-java?u=3322)
 - [Logging](https://www.youtube.com/watch?v=oiaEP57nsmI)
 - [Debugging and Testing](https://learning.oreilly.com/library/view/java-for-absolute/9781484237786/html/463938_1_En_9_Chapter.xhtml)
-- [Unit testing with JUnit5](https://www.linkedin.com/learning/5179603?u=3322)
+- [Java Unit Testing with JUnit 5](https://www.oreilly.com/library/view/java-unit-testing/9781484230152/)
 
 ### Frameworks
 
 - [Java EE](https://www.linkedin.com/learning/learning-java-enterprise-edition?u=3322)
-- [Spring Framework](https://www.linkedin.com/learning/1281479?u=3322)
+- [Spring Framework](https://learning.oreilly.com/videos/spring-framework/9780133477252/)
 - [Java EE vs Spring](https://www.quora.com/What-are-the-differences-between-Java-EE-and-Spring)
 - [Java EE vs Spring : A Dev perspective](https://dzone.com/articles/developers-perspective-spring)
 
 ### Messaging
 
-- [Java Message Service (JMS)](https://www.linkedin.com/learning/5198222?u=3322)
+- [Java Message Service (JMS)](https://learning.oreilly.com/videos/enterprise-messaging-with/9781491917671/)
 
 ### Web
 
-- [Java Web Fundamentals](https://www.linkedin.com/learning/5181572?u=3322)
+- [Java Web Fundamentals](https://learning.oreilly.com/videos/beginning-java-web/9781771376051/)
 - [Spring MVC application](https://www.linkedin.com/learning/spring-spring-mvc-2/spring-mvc-for-robust-applications?u=3322)
 - [Spring Boot - Your first app](https://www.linkedin.com/learning/learning-spring-with-spring-boot-2?u=3322)
-- [Modern Web apps with Spring Boot 2.0](https://www.linkedin.com/learning/5121580?u=3322)
+- [Modern Web apps with Spring Boot 2.0](https://learning.oreilly.com/videos/modern-java-web/9781788993241/)
 
 ### Microservices
 
@@ -65,11 +64,11 @@ The following sections provide links to videos that can help you learn Java adva
 
 - [Multithreading and Concurrency](https://www.linkedin.com/learning/learning-java-threads/welcome?u=3322)
 - [Understanding Concurrency](https://learning.oreilly.com/playlists/d44bf7e8-56c4-415d-8d76-b621373d44ee/)
-- [Optimizing Java](https://www.linkedin.com/learning/5219237?u=3322)
+- [Optimizing Java](https://learning.oreilly.com/videos/optimizing-java/9781771374866/)
 
 ### Performance
 
-- [Performance](https://blogs.msdn.microsoft.com/azureossds/2016/02/05/profiling-java-process-on-azure-web-apps)
+- [Performance](/archive/blogs/azureossds/profiling-java-process-on-azure-web-apps)
 - [Memory Issues](https://www.linkedin.com/learning/java-memory-management?u=3322)
 - [Dump Analysis](https://www.linkedin.com/learning/java-concurrency-troubleshooting-latency-and-throughput?u=3322)
 - [Testing - sampler of methods](https://learning.oreilly.com/playlists/e1ec94ab-a912-4455-b8a7-eccb024d3c55/)
@@ -90,10 +89,10 @@ The following sections provide links to resources that can help you understand h
 
 ### Profiling on Azure
 
-- [Configure app for Zulu Flight Recorder](/azure/app-service/configure-language-java?pivots=platform-linux#flight-recorder)
+- [Configure app for JDK Flight Recorder](/azure/app-service/configure-language-java?pivots=platform-linux#flight-recorder)
 - [Profiling with New Relic](/azure/app-service/configure-language-java?pivots=platform-linux#configure-new-relic)
 - [Configure New Relic for Azure Spring Cloud](https://github.com/selvasingh/spring-petclinic-microservices)
 
 ### Support on Azure
 
-- [Support for JDK on Azure](/azure/java/jdk)
+- [Java support on Azure and Azure Stack](../fundamentals/java-support-on-azure.md)

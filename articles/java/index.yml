@@ -8,7 +8,7 @@ metadata:
   title: Azure for Java developer documentation
   description: Get started developing apps for the cloud with these tutorials and tools for Java developers.
   ms.topic: hub-page
-  ms.date: 04/08/2020
+  ms.date: 06/10/2021
 
 conceptualContent:
   items:
@@ -36,18 +36,18 @@ conceptualContent:
         - text: Create a serverless function
           itemType: quickstart
           url: /azure/azure-functions/functions-create-first-java-maven
-        - text: Manage storage blobs
+        - text: Deploy Spring Cloud microservices
           itemType: quickstart
-          url: /azure/storage/blobs/storage-quickstart-blobs-java
+          url: /azure/spring-cloud/quickstart-sample-app-introduction?pivots=programming-language-java
       footerLink:
         text: See more
         url: quickstarts/index.yml
 
     - title: Tools, IDEs, and supported JDKs
       links:
-        - text: Java long-term support
+        - text: Java support
           itemType: get-started
-          url: fundamentals/java-jdk-long-term-support.md
+          url: fundamentals/java-support-on-azure.md
         - text: Java JDK installation
           itemType: get-started
           url: fundamentals/java-jdk-install.md
@@ -108,9 +108,9 @@ conceptualContent:
         - text: What is Azure Spring Cloud?
           itemType: overview
           url: /azure/spring-cloud/spring-cloud-overview
-        - text: Launch a Spring app using Azure CLI
+        - text: Launch your first app
           itemType: quickstart
-          url: /azure/spring-cloud/spring-cloud-quickstart-launch-app-portal
+          url: /azure/spring-cloud/quickstart?tabs=Azure-CLI&pivots=programming-language-java
         - text: Prepare a Spring app for deployment
           itemType: tutorial
           url: /azure/spring-cloud/spring-cloud-tutorial-prepare-app-deployment
@@ -177,6 +177,21 @@ conceptualContent:
       footerLink:
         text: See Active Directory documentation
         url: /azure/active-directory
+
+    - title: Java EE, Jakarta EE, and MicroProfile
+      links:
+        - text: Oracle WebLogic Server on Azure VMs
+          itemType: overview
+          url: /azure/virtual-machines/workloads/oracle/oracle-weblogic
+        - text: Deploy a Java EE app to AKS AKS
+          itemType: how-to-guide
+          url: /azure/aks/howto-deploy-java-liberty-app
+        - text: Deploy a MicroProfile App to Azure App Service
+          itemType: quickstart
+          url: eclipse-microprofile/deploy-microprofile-payara-micro-java-app-with-maven-plugin.md
+      footerLink:
+        text: See Java EE documentation
+        url: ee/index.yml
 
 tools:
   title: Tools

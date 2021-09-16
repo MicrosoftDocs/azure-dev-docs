@@ -2,7 +2,7 @@
 title: Using Terraform with Azure
 description: Learn how Terraform can help you deploy and version your infrastructure on Azure.
 ms.topic: overview
-ms.date: 10/26/2019
+ms.date: 08/07/2021
 ms.custom: devx-track-terraform
 adobe-target: true
 ---
@@ -39,5 +39,4 @@ Now that you have an overview of Terraform and its benefits, here are suggested 
 
 Based on your environment, install and configure Terraform:
 
-- [Configure Terraform using Azure Cloud Shell and Azure CLI](get-started-cloud-shell.md)
-- [Configure Terraform using Azure PowerShell](get-started-powershell.md)
+[!INCLUDE [configure-terraform.md](includes/configure-terraform.md)]

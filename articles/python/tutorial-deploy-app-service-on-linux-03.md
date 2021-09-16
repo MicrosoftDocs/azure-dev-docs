@@ -2,7 +2,7 @@
 title: "Step 3: Create the App Service from Visual Studio Code"
 description: Tutorial step 3, creating the App Service from the VS Code extension.
 ms.topic: conceptual
-ms.date: 11/20/2020
+ms.date: 07/16/2021
 ms.custom: devx-track-python, seo-python-october2019
 ---
 
@@ -20,10 +20,15 @@ You do this step before deploying your code so you can configure a custom startu
 
     You can alternately use the **Azure App Service: Create New Web App** command from the VS Code Command Palette.
 
+    If you want to control the Azure region (location) in which you create the web app, run the **Azure App Service: Create New Web App...(Advanced)** command from the Command Palette.
+
 1. In the prompts that follow:
 
     - **Enter a name for your app**, which must be globally unique across all of Azure. To ensure uniqueness, you typically use your name or company name followed by the app name.
-    - **Select Python 3.7** as the runtime.
+    - Select **Python 3.8** as the runtime stack.
+    - Select **Basic (B1)** for the pricing tier, which provides a good balance between cost and performance for development work.
+
+    If you're using the **Advanced** option to select the region, select **Create new resource group** after entering the app name, followed by a name for the group. After selecting the **Python 3.8** runtime stack, select an Azure location. Then follow the prompts to create an App Service Plan before selecting the pricing tier.
 
 1. When a message appears indicating that the new App Service was created, select **View Output** to switch to the **Output** window in VS Code:
 
@@ -41,7 +46,7 @@ You do this step before deploying your code so you can configure a custom startu
 
 ## (Optional) Upload an environment variable definitions file
 
-If you have an environment variable definitions file, you can use that file to configure the App Service environment as well. (To learn more about such files, which typically have the *.env* extension, refer to [Visual Studio Code - Python Environments](https://code.visualstudio.com/docs/python/environments#environment-variable-definitions-file).)
+If you have an environment variable definitions file, you can use that file to configure the App Service environment as well. (To learn more about such files, which typically have the *.env* extension, refer to [Visual Studio Code - Python Environments](https://code.visualstudio.com/docs/python/environments#_environment-variable-definitions-file).)
 
 1. In the **Azure: App Service** explorer, expand the node for the desired App Service, then right-click the **Application Settings** node and select **Upload Local Settings**.
 

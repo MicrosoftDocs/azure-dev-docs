@@ -6,7 +6,7 @@ documentationcenter: java
 ms.date: 10/13/2018
 ms.service: event-hubs
 ms.topic: article
-ms.custom: devx-track-java, devx-track-azurecli
+ms.custom: devx-track-java
 ---
 
 # How to use the Spring Boot Starter for Apache Kafka with Azure Event Hubs
@@ -18,7 +18,7 @@ This article demonstrates how to configure a Java-based Spring Cloud Stream Bind
 The following prerequisites are required in order to follow the steps in this article:
 
 * An Azure subscription; if you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits] or sign up for a [free Azure account].
-* A supported Java Development Kit (JDK). For more information about the JDKs available for use when developing on Azure, see <https://aka.ms/azure-jdks>.
+* A supported Java Development Kit (JDK). For more information about the JDKs available for use when developing on Azure, see [Java support on Azure and Azure Stack](../fundamentals/java-support-on-azure.md).
 * [Apache Maven](http://maven.apache.org/), version 3.0 or later.
 
 > [!NOTE]
@@ -101,125 +101,140 @@ After your namespace is deployed, you can create an event hub in the namespace.
 
    ```xml
    <dependency>
-     <groupId>com.microsoft.azure</groupId>
-     <artifactId>spring-cloud-starter-azure-eventhubs-kafka</artifactId>
-     <version>1.2.8</version>
+     <groupId>com.azure.spring</groupId>
+     <artifactId>azure-spring-cloud-starter-eventhubs-kafka</artifactId>
+     <version>2.8.0</version>
    </dependency>
    ```
 
 1. Save and close the *pom.xml* file.
 
-## Create an Azure Credential File
+## Sign into Azure and set your subscription
 
-1. Open a command prompt.
+First, use the following steps to authenticate using the Azure CLI.
 
-1. Navigate to the *resources* directory of your Spring Boot app; for example:
+1. Optionally, sign out and delete some authentication files to remove any lingering credentials:
 
-   ```cmd
-   cd C:\SpringBoot\kafka\src\main\resources
+   ```azurecli
+   az logout
+   rm ~/.azure/accessTokens.json
+   rm ~/.azure/azureProfile.json
    ```
 
-   -or-
-
-   ```bash
-   cd /users/example/home/kafka/src/main/resources
-   ```
-
-1. Sign in to your Azure account:
+1. Sign into your Azure account by using the Azure CLI:
 
    ```azurecli
    az login
    ```
+
+   Follow the instructions to complete the sign-in process.
 
 1. List your subscriptions:
 
    ```azurecli
    az account list
    ```
-   Azure will return a list of your subscriptions, and you will need to copy the GUID for the subscription that you want to use; for example:
+
+   Azure will return a list of your subscriptions. Copy the `id` value for the subscription that you want to use; for example:
 
    ```json
    [
      {
        "cloudName": "AzureCloud",
-       "id": "11111111-1111-1111-1111-111111111111",
-       "isDefault": true,
+       "id": "ssssssss-ssss-ssss-ssss-ssssssssssss",
        "name": "Converted Windows Azure MSDN - Visual Studio Ultimate",
        "state": "Enabled",
-       "tenantId": "22222222-2222-2222-2222-222222222222",
+       "tenantId": "tttttttt-tttt-tttt-tttt-tttttttttttt",
        "user": {
-         "name": "gena.soto@wingtiptoys.com",
+         "name": "contoso@microsoft.com",
          "type": "user"
        }
      }
    ]
    ```
-   
+
 1. Specify the GUID for the subscription you want to use with Azure; for example:
 
    ```azurecli
-   az account set -s 11111111-1111-1111-1111-111111111111
+   az account set -s ssssssss-ssss-ssss-ssss-ssssssssssss
    ```
 
-1. Create your Azure Credential file:
+## Create a service principal
 
-   ```azurecli
-   az ad sp create-for-rbac --sdk-auth > my.azureauth
-   ```
+Azure AD *service principals* provide access to Azure resources within your subscription. You can think of a service principal as a user identity for a service. "Service" is any application, service, or platform that needs to access Azure resources. You can configure a service principal with access rights scoped only to those resources you specify. Then, configure your application or service to use the service principal's credentials to access those resources.
 
-   This command will create a *my.azureauth* file in your *resources* directory with contents that resemble the following example:
+To create a service principal, use the following command.
 
-   ```json
-   {
-     "clientId": "33333333-3333-3333-3333-333333333333",
-     "clientSecret": "44444444-4444-4444-4444-444444444444",
-     "subscriptionId": "11111111-1111-1111-1111-111111111111",
-     "tenantId": "22222222-2222-2222-2222-222222222222",
-     "activeDirectoryEndpointUrl": "https://login.microsoftonline.com",
-     "resourceManagerEndpointUrl": "https://management.azure.com/",
-     "activeDirectoryGraphResourceId": "https://graph.windows.net/",
-     "sqlManagementEndpointUrl": "https://management.core.windows.net:8443/",
-     "galleryEndpointUrl": "https://gallery.azure.com/",
-     "managementEndpointUrl": "https://management.core.windows.net/"
-   }
-   ```
+```azurecli
+az ad sp create-for-rbac --name contososp
+```
+
+The value of the `name` option must be unique within your subscription. Save aside the values returned from the command for use later in the tutorial. The return JSON will look similar to the following output:
+
+```output
+{
+  "appId": "sample-app-id",
+  "displayName": "contososp",
+  "name": "http://contososp",
+  "password": "sample-password",
+  "tenant": "sample-tenant"
+}
+```
 
 ## Configure your Spring Boot app to use your Azure Event Hub
 
-1. Locate the *application.properties* in the *resources* directory of your app; for example:
+1. Add an *application.yaml* in the *resources* directory of your app; for example:
 
-   *C:\SpringBoot\kafka\src\main\resources\application.properties*
+   *C:\SpringBoot\kafka\src\main\resources\application.yaml*
 
    -or-
 
-   */users/example/home/kafka/src/main/resources/application.properties*
+   */users/example/home/kafka/src/main/resources/application.yaml*
 
-2. Open the *application.properties* file in a text editor, add the following lines, and then replace the sample values with the appropriate properties for your event hub:
+2. Open the *application.yaml* file in a text editor, add the following lines, and then replace the sample values with the appropriate properties for your event hub:
 
    ```yaml
-   spring.cloud.azure.credential-file-path=my.azureauth
-   spring.cloud.azure.resource-group=wingtiptoysresources
-   spring.cloud.azure.region=West US
-   spring.cloud.azure.eventhub.namespace=wingtiptoys
-
-   spring.cloud.stream.bindings.input.destination=wingtiptoyshub
-   spring.cloud.stream.bindings.input.group=$Default
-   spring.cloud.stream.bindings.output.destination=wingtiptoyshub
+   spring:
+     cloud:
+       azure:
+         client-id: <your client ID>
+         client-secret: <your client secret>
+         tenant-id: <your tenant ID>
+         resource-group: <your resource group>
+         subscription-id: <your subscription ID>
+         eventhub:
+           namespace: wingtiptoys
+       stream:
+         function:
+           definition: consume;supply
+         bindings:
+           consume-in-0:
+             destination: wingtiptoyshub
+             group: $Default
+           supply-out-0:
+             destination: wingtiptoyshub
    ```
+   
    Where:
 
    |                       Field                       |                                                                                   Description                                                                                    |
    |---------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-   |     `spring.cloud.azure.credential-file-path`     |                                                    Specifies Azure credential file that you created earlier in this tutorial.                                                    |
+   |           `spring.cloud.azure.client-id`          |                                                    The `appId` from the return JSON from `az ad sp create-for-rbac`.                                                             |
+   |         `spring.cloud.azure.client-secret`        |                                                    The `password` from the return JSON from `az ad sp create-for-rbac`.                                                          |
+   |           `spring.cloud.azure.tenant-id`          |                                                    The `tenant` from the return JSON from `az ad sp create-for-rbac`.                                                            |
    |        `spring.cloud.azure.resource-group`        |                                                      Specifies the Azure Resource Group that contains your Azure Event Hub.                                                      |
+   |        `spring.cloud.azure.subscription-id`        |                                                     Specifies the Azure Subscription that contains your Azure Event Hub.                                                        |
    |            `spring.cloud.azure.region`            |                                           Specifies the geographical region that you specified when you created your Azure Event Hub.                                            |
+   |     `spring.cloud.azure.auto-create-resources`    |                                           Specifies true to enable automatic creation of related resources if they don't exist.                                                 |
    |      `spring.cloud.azure.eventhub.namespace`      |                                          Specifies the unique name that you specified when you created your Azure Event Hub Namespace.                                           |
    | `spring.cloud.stream.bindings.input.destination`  |                            Specifies the input destination Azure Event Hub, which for this tutorial is the  hub you created earlier in this tutorial.                            |
    |    `spring.cloud.stream.bindings.input.group `    | Specifies a Consumer Group from Azure Event Hub, which can be set to '$Default' in order to use the basic consumer group that was created when you created your Azure Event Hub. |
    | `spring.cloud.stream.bindings.output.destination` |                               Specifies the output destination Azure Event Hub, which for this tutorial will be the same as the input destination.                               |
 
+   > [!NOTE]
+   > If you enable automatic topic creation, be sure to add the configuration item `spring.cloud.stream.kafka.binder.replicationFactor`, with the value set to at least 1. For more information, see [Spring Cloud Stream Kafka Binder Reference Guide](https://docs.spring.io/spring-cloud-stream-binder-kafka/docs/3.1.2/reference/html/spring-cloud-stream-binder-kafka.html).
 
-3. Save and close the *application.properties* file.
+3. Save and close the *application.yaml* file.
 
 ## Add sample code to implement basic event hub functionality
 
@@ -239,15 +254,44 @@ In this section, you create the necessary Java classes for sending events to you
 
    ```java
    package com.wingtiptoys.kafka;
-
+   
+   import org.slf4j.Logger;
+   import org.slf4j.LoggerFactory;
    import org.springframework.boot.SpringApplication;
    import org.springframework.boot.autoconfigure.SpringBootApplication;
-
+   import org.springframework.context.annotation.Bean;
+   import org.springframework.messaging.Message;
+   import reactor.core.publisher.Flux;
+   import reactor.core.publisher.Sinks;
+   
+   import java.util.function.Consumer;
+   import java.util.function.Supplier;
+   
    @SpringBootApplication
-   public class EventhubApplication {
-      public static void main(String[] args) {
-         SpringApplication.run(EventhubApplication.class, args);
-      }
+   public class KafkaApplication {
+   
+       private static final Logger LOGGER = LoggerFactory.getLogger(KafkaApplication.class);
+   
+       public static void main(String[] args) {
+           SpringApplication.run(KafkaApplication.class, args);
+       }
+   
+       @Bean
+       public Sinks.Many<Message<String>> many() {
+           return Sinks.many().unicast().onBackpressureBuffer();
+       }
+   
+       @Bean
+       public Supplier<Flux<Message<String>>> supply(Sinks.Many<Message<String>> many) {
+           return () -> many.asFlux()
+                            .doOnNext(m -> LOGGER.info("Manually sending message {}", m))
+                            .doOnError(t -> LOGGER.error("Error encountered", t));
+       }
+   
+       @Bean
+       public Consumer<Message<String>> consume() {
+           return message -> LOGGER.info("New message received: '{}'", message.getPayload());
+       }
    }
    ```
 
@@ -260,57 +304,30 @@ In this section, you create the necessary Java classes for sending events to you
 
    ```java
    package com.wingtiptoys.kafka;
-
+   
    import org.springframework.beans.factory.annotation.Autowired;
-   import org.springframework.cloud.stream.annotation.EnableBinding;
-   import org.springframework.cloud.stream.messaging.Source;
+   import org.springframework.messaging.Message;
    import org.springframework.messaging.support.GenericMessage;
    import org.springframework.web.bind.annotation.PostMapping;
-   import org.springframework.web.bind.annotation.RequestBody;
    import org.springframework.web.bind.annotation.RequestParam;
    import org.springframework.web.bind.annotation.RestController;
-
-   @EnableBinding(Source.class)
+   import reactor.core.publisher.Sinks;
+   
    @RestController
    public class KafkaSource {
-      @Autowired
-      private Source source;
-
-      @PostMapping("/messages")
-      public String sendMessage(@RequestBody String message) {
-         this.source.output().send(new GenericMessage<>(message));
-         return message;
-      }
+   
+       @Autowired
+       private Sinks.Many<Message<String>> many;
+   
+       @PostMapping("/messages")
+       public String sendMessage(@RequestParam String message) {
+           many.emitNext(new GenericMessage<>(message), Sinks.EmitFailureHandler.FAIL_FAST);
+           return message;
+       }
    }
    ```
 
 1. Save and close the *KafkaSource.java* file.
-
-### Create a new class for the sink connector
-
-1. Create a new Java file named *KafkaSink.java* in the package directory of your app, then open the file in a text editor and add the following lines:
-
-   ```java
-   package com.wingtiptoys.kafka;
-
-   import org.slf4j.Logger;
-   import org.slf4j.LoggerFactory;
-   import org.springframework.cloud.stream.annotation.EnableBinding;
-   import org.springframework.cloud.stream.annotation.StreamListener;
-   import org.springframework.cloud.stream.messaging.Sink;
-
-   @EnableBinding(Sink.class)
-   public class KafkaSink {
-      private static final Logger LOGGER = LoggerFactory.getLogger(KafkaSink.class);
-
-      @StreamListener(Sink.INPUT)
-      public void handleMessage(String message) {
-         LOGGER.info("New message received: " + message);
-      }
-   }
-   ```
-
-1. Save and close the *KafkaSink.java* file.
 
 ## Build and test your application
 
@@ -336,66 +353,16 @@ In this section, you create the necessary Java classes for sending events to you
 1. Once your application is running, you can use *curl* to test your application; for example:
 
    ```shell
-   curl -X POST -H "Content-Type: text/plain" -d "hello" http://localhost:8080/messages
+   curl -X POST http://localhost:8080/messages?message=hello
    ```
    You should see "hello" posted to your application's logs. For example:
 
    ```output
-   2020-10-12 16:56:19.827  INFO 13272 --- [nio-8080-exec-1] o.a.kafka.common.utils.AppInfoParser     : Kafka version: 2.5.1
-   2020-10-12 16:56:19.828  INFO 13272 --- [nio-8080-exec-1] o.a.kafka.common.utils.AppInfoParser     : Kafka commitId: 0efa8fb0f4c73d92
-   2020-10-12 16:56:19.830  INFO 13272 --- [nio-8080-exec-1] o.a.kafka.common.utils.AppInfoParser     : Kafka startTimeMs: 1602492979827
-   2020-10-12 16:56:22.277  INFO 13272 --- [container-0-C-1] com.wingtiptoys.kafka.KafkaSink          : New message received: hello
+   2021-06-02 14:47:13.956  INFO 23984 --- [oundedElastic-1] o.a.kafka.common.utils.AppInfoParser     : Kafka version: 2.6.0
+   2021-06-02 14:47:13.957  INFO 23984 --- [oundedElastic-1] o.a.kafka.common.utils.AppInfoParser     : Kafka commitId: 62abe01bee039651
+   2021-06-02 14:47:13.957  INFO 23984 --- [oundedElastic-1] o.a.kafka.common.utils.AppInfoParser     : Kafka startTimeMs: 1622616433956
+   2021-06-02 14:47:16.668  INFO 23984 --- [container-0-C-1] com.wingtiptoys.kafka.KafkaApplication   : New message received: 'hello'
    ```
-
-
-> [!NOTE]
-> 
-> For testing purposes, you could modify your *KafkaSource.java* so that it contains a simple HTML form like the following example:
-> 
-> ```java
-> package com.wingtiptoys.kafka;
->    
-> import org.springframework.beans.factory.annotation.Autowired;
-> import org.springframework.cloud.stream.annotation.EnableBinding;
-> import org.springframework.cloud.stream.messaging.Source;
-> import org.springframework.messaging.support.GenericMessage;
-> import org.springframework.web.bind.annotation.GetMapping;
-> import org.springframework.web.bind.annotation.PostMapping;
-> import org.springframework.web.bind.annotation.RequestBody;
-> import org.springframework.web.bind.annotation.RequestParam;
-> import org.springframework.web.bind.annotation.RestController;
-> 
-> @EnableBinding(Source.class)
-> @RestController
-> public class KafkaSource {
->   @Autowired
->   private Source source;
-> 
->   @GetMapping("/")
->   public String sendForm() {
->     return "<html><body>" +
->       "<form action=\"/messages\" method=\"post\">" +
->       "<input type=\"text\" name=\"text\">" +
->       "<input type=\"submit\">" +
->       "</form></body><html>";
->     }
-> 
->   @PostMapping("/messages")
->   public String sendMessage(@RequestBody String message) {
->     this.source.output().send(new GenericMessage<>(message));
->     return message;
->   }
-> }
-> ```
-> 
-> This will allow you to use a web browser to test your application:
-> 
-> ![Testing your application using a web browser][TB01]
-> 
-> When you submit the form, your application will display the results:
-> 
-> ![Application response in a web browser][TB02]
-> 
 
 ## Clean up resources
 

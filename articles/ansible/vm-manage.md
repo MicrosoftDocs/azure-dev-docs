@@ -1,13 +1,13 @@
 ---
-title: Quickstart - Manage Linux virtual machines in Azure using Ansible 
-description: In this quickstart, learn how to manage a Linux virtual machine in Azure using Ansible
+title: Manage Linux virtual machines in Azure using Ansible 
+description: Learn how to manage a Linux virtual machine in Azure using Ansible
 keywords: ansible, azure, devops, bash, cloudshell, playbook, bash
-ms.topic: quickstart
-ms.date: 04/30/2019
+ms.topic: tutorial
+ms.date: 08/28/2021
 ms.custom: devx-track-ansible
 ---
 
-# Quickstart: Manage Linux virtual machines in Azure using Ansible
+# Manage Linux virtual machines in Azure using Ansible
 
 Ansible allows you to automate the deployment and configuration of resources in your environment. In this article, you use an Ansible playbook to start and stop a Linux virtual machine. 
 

@@ -20,7 +20,7 @@ The following articles provide support to deploy apps from GitHub to Azure.
 - [Deploy a custom container to App Service using GitHub Actions](/azure/app-service/deploy-container-github-action)
 - 9Deploy to App Service and connect to a database (without a container)](/azure/app-service/app-service-sql-asp-github-actions)
 - [Deploy to Azure App Service using Visual Studio Code](/azure/devops/pipelines/targets/deploy-to-azure-vscode)
-
+- [Tutorial: Use GitHub Actions to deploy to App Service for Containers and connect to a database](/azure/app-service/app-service-sql-github-actions)
 ## Azure Functions
 
 - [Deploy a function app continuously from GitHub](/azure/azure-functions/scripts/functions-cli-create-function-app-github-continuous)  
@@ -40,7 +40,8 @@ The following articles provide support to deploy apps from GitHub to Azure.
 ## Azure Container Instances
 
 - [Configure a GitHub action to create a container instance](/azure/container-instances/container-instances-github-action)
-
+## Azure Container Registry
+- [Scan container images using GitHub Actions](/azure/container-registry/github-action-scan)
 ## Azure Kubernetes Service
 
 - [Use GitHub Actions to deploy to Kubernetes](/azure/aks/kubernetes-action)  
@@ -52,6 +53,7 @@ The following articles provide support to deploy apps from GitHub to Azure.
 ## Azure Pipelines
 
 - [Trigger a Pipeline run from GitHub Actions](/azure/devops/pipelines/ecosystems/github-actions)
+
 
 ## Azure Resource Manager templates
 

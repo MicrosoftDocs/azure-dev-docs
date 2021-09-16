@@ -42,6 +42,8 @@ landingContent:
       url: https://github.com/search?q=topic%3Amicroprofile+org%3AAzure-Samples+fork%3Atrue
     - text: MicroProfile samples
       url: https://microprofile.io/project/eclipse/microprofile-samples
+    - text: PiggyMetrics on MicroProfile
+      url: https://aka.ms/microprofile-piggymetrics
 - title: MicroProfile resources
   linkLists:
   - linkListType: get-started

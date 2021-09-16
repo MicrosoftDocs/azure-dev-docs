@@ -19,7 +19,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 ## Prerequisites
 
 * The [Azure CLI](/cli/azure/), either locally or through [Azure Cloud Shell](https://shell.azure.com).
-* A supported Java Development Kit (JDK). For more information about the JDKs available for use when developing on Azure, see <https://aka.ms/azure-jdks>.
+* A supported Java Development Kit (JDK). For more information about the JDKs available for use when developing on Azure, see [Java support on Azure and Azure Stack](../fundamentals/java-support-on-azure.md).
 * Apache [Maven](https://maven.apache.org/), Version 3.
 
 ## Install and sign in to Azure CLI
@@ -296,7 +296,7 @@ For more information about the various technologies discussed in this article, s
 [MSDN subscriber benefits]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/
 [Maven Plugin for Azure Web Apps]: https://github.com/microsoft/azure-maven-plugins/blob/develop/azure-webapp-maven-plugin/README.md
 
-[Java Development Kit (JDK)]: ../fundamentals/java-jdk-long-term-support.md
+[Java Development Kit (JDK)]: ../fundamentals/java-support-on-azure.md
 <!-- http://www.oracle.com/technetwork/java/javase/downloads/ -->
 
 <!-- IMG List -->

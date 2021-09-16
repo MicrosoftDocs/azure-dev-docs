@@ -1,11 +1,11 @@
 ---
 title: Migrate Spring Boot applications to Azure Spring Cloud
 description: This guide describes what you should be aware of when you want to migrate an existing Spring Boot application to run on Azure Spring Cloud.
-author: yevster
 ms.author: yebronsh
 ms.topic: conceptual
 ms.date: 5/26/2020
 ms.custom: devx-track-java
+recommendations: false
 ---
 
 # Migrate Spring Boot applications to Azure Spring Cloud

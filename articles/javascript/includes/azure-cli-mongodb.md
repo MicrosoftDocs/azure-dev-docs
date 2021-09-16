@@ -1,11 +1,11 @@
 ---
-ms.custom: devx-track-js
+ms.custom: devx-track-js, devx-track-azurecli
 ms.topic: include
 ms.date: 02/08/2021
 ---
+<a name="create-a-cosmos-db-resource-for-mongodb"></a>
 
-
-## Create a Cosmos DB resource for MongoDB
+## Create a Cosmos DB resource for MongoDB with Azure CLI
 
 Use the following Azure CLI [az cosmosdb create](/cli/azure/cosmosdb#az_cosmosdb_create) command in the [Azure Cloud Shell](https://shell.azure.com) to create a new Cosmos DB resource for a mongoDB database. 
 
@@ -110,7 +110,7 @@ This command may take a couple of minutes to complete and creates a publicly ava
 }
 ```
 
-## Add firewall rule for your client IP address
+## Add firewall rule for your client IP address with Azure CLI
 
 By default, the firewall rules are not configured. You should add your client IP address so your client connection to the server with JavaScript is successful.
 
@@ -124,7 +124,7 @@ az cosmosdb update \
     --ip-range-filter 123.123.123.123
 ```
 
-To configure multiple IP addresses, use a comma separated list.
+To configure multiple IP addresses, use a comma-separated list.
 
 ```azurecli
 az cosmosdb update \
@@ -134,7 +134,9 @@ az cosmosdb update \
     --ip-range-filter 123.123.123.123,456.456.456.456
 ```
 
-## Get the MongoDB connection string for your resource
+<a name="get-the-mongodb-connection-string-for-your-resource"></a>
+
+## Get the MongoDB connection string for your resource with Azure CLI
 
 Retrieve the MongoDB connection string for this instance with the [az cosmosdb keys list](/cli/azure/cosmosdb/keys#az_cosmosdb_keys_list) command:
 
@@ -153,9 +155,11 @@ Connect to the mongoDB database with a connection string. Make sure your service
 * publicly available
 * firewall settings for your client's IP address
 
-## Configure your Azure web app with the connection string
+<a name="configure-your-azure-web-app-with-the-connection-string"></a>
 
-Add a Azure web app **MONGODB_URL** environment variable with the [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_set) so the web app connects to the Cosmos DB resource:
+## Configure your Azure web app with the connection string with Azure CLI
+
+Add an Azure web app **MONGODB_URL** environment variable with the [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_set) so the web app connects to the Cosmos DB resource:
 
 ```azurecli
 az webapp config appsettings set \

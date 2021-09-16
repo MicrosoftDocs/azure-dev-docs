@@ -12,6 +12,8 @@
     href: authentication.md
   - name: Data
     items:    
+    - name: Work with offline data using Azure Mobile Apps
+      href: azure-mobile-apps/overview.md
     - name: Data storage
       href: data-storage.md
     - name: Azure Storage

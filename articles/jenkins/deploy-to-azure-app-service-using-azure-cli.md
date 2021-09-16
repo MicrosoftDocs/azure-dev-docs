@@ -34,7 +34,7 @@ The following steps show how to install the required Java JDK and Maven on the J
 
 1. Sign in to Jenkins controller using SSH.
 
-1. [Download and install the Azul Zulu JDKs from an apt-get repository](../java/fundamentals/java-jdk-install.md#download-and-install-the-azul-zulu-jdks-from-an-apt-get-repository):
+1. Download and install the Azul Zulu build of OpenJDK for Azure from an apt-get repository:
 
     ```bash
     sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 0xB1998361219BD9C9
@@ -67,7 +67,7 @@ The following steps show how to specify your Azure credential:
 
 ## Create an Azure App Service for deploying the Java web app
 
-Use [az appservice plan create](/cli/azure/appservice/plan#az-appservice-plan-create) to create an Azure App Service plan with the **FREE** pricing tier:
+Use [az appservice plan create](/cli/azure/appservice/plan#az_appservice_plan_create) to create an Azure App Service plan with the **FREE** pricing tier:
 
 ```azurecli
 az appservice plan create \
@@ -76,7 +76,7 @@ az appservice plan create \
     --sku FREE
 ```
 
-**Notes**:
+**Key points**:
 
 - The appservice plan defines the physical resources used to host your apps.
 - All applications assigned to an appservice plan share these resources.
@@ -84,7 +84,7 @@ az appservice plan create \
 
 ## Create an Azure web app
 
-Use [az webapp create](/cli/azure/webapp#az-webapp-create) to create a web app definition in the `myAppServicePlan` App Service plan.
+Use [az webapp create](/cli/azure/webapp#az_webapp_create) to create a web app definition in the `myAppServicePlan` App Service plan.
 
 ```azurecli
 az webapp create \
@@ -93,7 +93,7 @@ az webapp create \
     --plan <app_service_plan>
 ```
 
-**Notes**:
+**Key points**:
 
 - The web app definition provides a URL to access your application with and configures several options to deploy your code to Azure.
 - Substitute the `<app_name>` placeholder with a unique app name.
@@ -124,7 +124,7 @@ az webapp config set \
 
 1. Select the pencil icon to edit the file.
 
-1. Update the subscription id and tenant id.
+1. Update the subscription ID and tenant ID.
     
     ```groovy
       withEnv(['AZURE_SUBSCRIPTION_ID=<subscription_id>',
@@ -214,7 +214,7 @@ You can modify the script to deploy to an Azure App Service on Linux. App Servic
 
 1. In the same [Simple Java Web App for Azure](https://github.com/azure-devops/javawebappsample) repo you forked, edit the **Jenkinsfile2** file as follows:
 
-    1. Update the subscription id and tenant id.
+    1. Update the subscription ID and tenant ID.
 
         ```groovy
          withEnv(['AZURE_SUBSCRIPTION_ID=<mySubscriptionId>',
