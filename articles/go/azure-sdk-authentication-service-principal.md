@@ -213,7 +213,7 @@ Replace `<subscriptionId>` with the subscription ID of the subscription you want
 
 Use the following code sample to verify that your service principal authenticates to Azure and has the appropriate permissions to the resource group.
 
-1. Make a new directory called `go-on-azure` in your home directory.
+1. Create a new directory called `go-on-azure` in your home directory.
 
     ```azurecli
     mkidr ~/go-on-azure
@@ -302,7 +302,7 @@ Use the following code sample to verify that your service principal authenticate
 
 	Replace `<subscriptionId>` with the subscription ID of the subscription you want to authenticate with.
 
-1. Run the `go run` command to run apply the tag to your resource group.
+1. Run the `go run` command to add the tag to your resource group.
 
 	```bash
 	go run main.go
