@@ -12,7 +12,7 @@ The Azure Core (azcore) package in the Azure SDK for Go implements several patte
 
 - The [HTTP pipeline flow](#http-pipeline-flow), which is the underlying HTTP mechanism used by the SDK's client libraries.
 - [Pagination (methods that return collections)](#pagination-methods-that-return-collections)
-- [Long-running operations (LROs)](#Long-running-operations-LROs)
+- [Long-running operations (LROs)](#long-running-operations-lros)
 
 ## Pagination (methods that return collections)
 
