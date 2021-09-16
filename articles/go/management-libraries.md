@@ -100,13 +100,12 @@ For example, if you're looking for the `compute/armcompute` reference documentat
 
 The following example shows how to find the reference documentation for Azure resource group operations:
 
-1. You know you want to work with resource groups, but don't know the name of the library or package.
-1. You browse to the main [Azure SDK for Go reference](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go) on pkg.go.dev.
-1. You click **&lt;F>** and enter `resource`. Since you're searching for a package, you know that no spaces are allowed.
-1. As you type the search term, you see a close match with the [resource/armresources](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/resources/armresources) package.
-1. You select the appropriate package for your application.
-1. You now either read through "Getting Started" sections or search for the specific operation.
-1. For example, searching for the term "create" (if you want to create a resource group) leads you to the [CreateOrUpdate function](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/resources/armresources#ResourceGroupsClient.CreateOrUpdate).
+1. Browse to the main [Azure SDK for Go reference](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go) on pkg.go.dev.
+1. Expand the `arm` directory
+1. Select `armresources`
+1. Click **&lt;F>** and enter `resourcegroup`. As you type the search term, you see a close match with the [resource/armresources](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/resources/armresources) package.
+1. Select the appropriate package for your application.
+1. Read through "Getting Started" sections or search for a specific operation. For example, searching for the term "create" (if you want to create a resource group) leads you to the [CreateOrUpdate function](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/resources/armresources#ResourceGroupsClient.CreateOrUpdate).
 1. At this point, you can read how to make the API call to create an Azure resource group.
 
 ## Long-running operations
