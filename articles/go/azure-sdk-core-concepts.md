@@ -343,14 +343,6 @@ w := Widget{
 
 This code sets `Count` to an explicit JSON `null`. When sent to the server, the resource's `Count` field will be deleted.
 
-### Process the response
-
-An `http.Response` is returned through the transport and all `Policy` instances. Each `Policy` instance can inspect or mutated the embedded `http.Response`.
-
-### Cancel a request
-
-Cancellation is handled via the `context.Context` parameter, which is always the first method parameter. Any API that performs I/O of any kind, sleeps, or performs a significant amount of CPU-bound work will take a `context.Context` as its first parameter. For more information and examples, see the [context](https://pkg.go.dev/context) reference.
-
 ## See also
 
 - [Azure SDK for Go reference documentation](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go)
