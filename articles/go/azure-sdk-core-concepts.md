@@ -205,14 +205,6 @@ The following section demonstrates how to define a custom policy.
 type MyPolicy struct {
     // TODO: add configuration, setting, and state fields
 }
-    
-// TODO: add initialization args to NewMyStatefulPolicy()
-
-func NewMyStatefulPolicy() Policy {
-    return &MyStatefulPolicy {
-        // TODO: initialize configuration/setting fields
-    }
-}
 
 func (p *MyPolicy) Do(req *azcore.Request) (resp *azcore.Response, err error) {
     // TODO: mutate/process 'req'
