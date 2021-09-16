@@ -65,7 +65,6 @@ ms.custom: devx-track-go
     
     // Define key global variables.
     var (
-    	ctx               = context.Background()
     	subscriptionId    = os.Getenv("ARM_SUBSCRIPTION_ID")
     	location          = "eastus"
     	resourceGroupName = "myResourceGroup" // !! IMPORTANT: Change this to a unique name in your subscription.
@@ -73,7 +72,7 @@ ms.custom: devx-track-go
     )
     
     // Define the function to create a resource group.
-    func createResourceGroup(ctx context.Context, connection *armcore.Connection) (armresources.ResourceGroupResponse, error) {
+    func createResourceGroup(connection *armcore.Connection) (armresources.ResourceGroupResponse, error) {
     	rgClient := armresources.NewResourceGroupsClient(connection, subscriptionId)
     
     	param := armresources.ResourceGroup{
