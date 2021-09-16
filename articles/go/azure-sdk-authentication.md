@@ -49,7 +49,7 @@ The `DefaultAzureCredential` uses the `EnvironmentCredential` type to configure 
 
 |Variable name|Value
 |-|-
-|`AZURE_CLIENT_ID`|Application Id of an Azure service principal
+|`AZURE_CLIENT_ID`|Application ID of an Azure service principal
 |`AZURE_TENANT_ID`|ID of the application's Azure AD tenant
 |`AZURE_CLIENT_SECRET`|Password of the Azure service principal
 
