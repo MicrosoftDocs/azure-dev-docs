@@ -83,11 +83,17 @@
     - name: Deploy a Kubernetes cluster
       href: /azure/aks/kubernetes-walkthrough
 
-- name: Deploy machine learning models
-  href: quickstarts-machine-learning.md
+- name: Deploy data engineering solutions
+  items:
+    - name: Ingest data from Azure Blob Storage using a Python Azure Function and Azure Key Vault
+      href: how-to-ingest-blob-storage-data-using-key-vault-with-python.md
+    - name: Additional data and storage solutions
+      href: quickstarts-data-solutions.md
 
-- name: Deploy data and storage
-  href: quickstarts-data-solutions.md
+- name: Deploy data science solutions
+  items:
+    - name: Deploy machine learning models
+      href: quickstarts-machine-learning.md
 
 - name: Use the Azure libraries (SDK)
   items:
@@ -99,8 +105,16 @@
       href: azure-sdk-library-usage-patterns.md   
     - name: Authentication
       items:
-      - name: Authenticate apps with Azure
+      - name: Overview
         href: azure-sdk-authenticate.md
+      - name: Auth in development environments
+        href: azure-sdk-authenticate-development-environments.md
+      - name: Auth in hosted applications
+        href: azure-sdk-authenticate-hosted-applications.md
+      - name: Auth with user credentials
+        href: azure-sdk-authenticate-user-credentials.md        
+      - name: Auth with service principals
+        href: azure-sdk-authenticate-service-principals.md        
       - name: Manage service principals
         href: how-to-manage-service-principals.md
       - name: Walkthrough tutorial

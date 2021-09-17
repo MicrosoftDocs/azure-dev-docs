@@ -2,13 +2,12 @@
 title: Get started with the Azure SDK for Java
 description: Learn how to create Azure cloud resources and connect and use them in your Java applications.
 keywords: Azure, Java, SDK, API, authenticate, get-started
-author: bmitchell287
-ms.author: brendm
+ms.author: karler
 ms.date: 11/20/2020
 ms.topic: article
 ms.service: multiple
 ms.assetid: b1e10b79-f75e-4605-aecd-eed64873e2d3
-ms.custom: seo-java-august2019, devx-track-java, devx-track-azurecli
+ms.custom: seo-java-august2019, devx-track-java
 ---
 
 # Get started with cloud development using Java on Azure
@@ -19,7 +18,7 @@ This article walks you through setting up a development environment for Azure de
 
 - An Azure account. If you don't have one, [get a free trial](https://azure.microsoft.com/free/).
 - [Azure Cloud Shell](/azure/cloud-shell/quickstart) or [Azure CLI 2.0](/cli/azure/install-az-cli2).
-- [Java 8](../fundamentals/java-jdk-long-term-support.md), which is included in Azure Cloud Shell.
+- [Java 8](../fundamentals/java-support-on-azure.md), which is included in Azure Cloud Shell.
 - [Maven 3](https://maven.apache.org/download.cgi), which is included in Azure Cloud Shell.
 
 ## Set up authentication
@@ -75,12 +74,12 @@ This step creates a basic Maven project under the *testAzureApp* directory. Add 
 <dependency>
     <groupId>com.azure</groupId>
     <artifactId>azure-identity</artifactId>
-    <version>1.2.0</version>
+    <version>1.3.2</version>
 </dependency>
 <dependency>
     <groupId>com.azure.resourcemanager</groupId>
     <artifactId>azure-resourcemanager</artifactId>
-    <version>2.1.0</version>
+    <version>2.6.0</version>
 </dependency>
 <dependency>
     <groupId>com.azure</groupId>
@@ -102,6 +101,7 @@ Add a `build` entry under the top-level `project` element to use the [maven-exec
         <plugin>
             <groupId>org.codehaus.mojo</groupId>
             <artifactId>exec-maven-plugin</artifactId>
+            <version>3.0.0</version>
             <configuration>
                 <mainClass>com.fabrikam.AzureApp</mainClass>
             </configuration>
@@ -112,11 +112,14 @@ Add a `build` entry under the top-level `project` element to use the [maven-exec
 
 ### Install the Azure Toolkit for Intellij
 
-The [Azure toolkit](../toolkit-for-intellij/index.yml) is necessary if you plan to deploy web apps or APIs programmatically. Currently, it isn't used for any other kinds of development. The following steps summarize the installation process. For a quickstart, see [Azure Toolkit for IntelliJ](../toolkit-for-intellij/create-hello-world-web-app.md).
+The [Azure toolkit](../toolkit-for-intellij/index.yml) is necessary if you plan to deploy web apps or APIs programmatically. For a quickstart with Azure Web Apps, see [Azure Toolkit for IntelliJ](../toolkit-for-intellij/create-hello-world-web-app.md). It also has a comprehensive SDK reference book embedded for any Azure development with Java SDK. The following steps summarize the installation process.
 
 1. Select the **File** menu, and then select **Settings**.
 1. Select **Browse repositories**, and then search **Azure** and install the **Azure toolkit for Intellij**.
 1. Restart Intellij.
+1. Open reference book from **Tools -> Azure -> Azure SDK Reference Book**
+
+  ![Azure SDK Reference Book in IntelliJ](./media/azure-sdk-reference-book-intellij.png)
 
 ### Install the Azure Toolkit for Eclipse
 
@@ -256,7 +259,7 @@ mvn clean compile exec:java
 Open a browser pointed to the application by using the CLI.
 
 ```azurecli-interactive
-az appservice web browse --resource-group sampleWebResourceGroup --name YOUR_APP_NAME
+az webapp browse --resource-group sampleWebResourceGroup --name YOUR_APP_NAME
 ```
 
 Remove the web app and plan from your subscription after you've verified the deployment.
@@ -285,7 +288,8 @@ This code creates a new SQL database with a firewall rule that allows remote acc
 
             AzureResourceManager azureResourceManager = AzureResourceManager.configure()
                     .withLogLevel(HttpLogDetailLevel.BASIC)
-                    .authenticate(credential, profile);
+                    .authenticate(credential, profile)
+                    .withDefaultSubscription();
 
             final String adminUser = "YOUR_USERNAME_HERE";
             final String sqlServerName = "YOUR_SERVER_NAME_HERE";

@@ -2,7 +2,7 @@
 title: Top Azure tasks for JavaScript developers
 description: Find an example of your current tasks.
 ms.topic: how-to
-ms.date: 03/03/2021
+ms.date: 09/15/2021
 ms.custom: devx-track-js
 ---
 
@@ -10,63 +10,51 @@ ms.custom: devx-track-js
 
 Find an example of your current task. If you can't find a task, leave feedback requesting your task. 
 
-## App registration
+## Active Directory App 
 
-[App registration Documentation](/azure/active-directory/develop/quickstart-register-app)
+Provide authentication. 
 
-|Task|using|
-|--|--|
-|Create app registration|[Portal](../tutorial/single-page-application-azure-login-button-sdk-msal.md#3-create-app-registration-for-authentication)|
-
-## Application settings
+[AD App registration Documentation](/azure/active-directory/develop/quickstart-register-app)
 
 |Task|using|
 |--|--|
-|Set local environment variables|[Bash](../tutorial/static-web-app/create-computer-vision-resource-use-in-code.md#add-environment-variables-to-your-local-environment)|
-|Create Storage container shared access signature (SAS) token|[Portal](../tutorial/browser-file-upload-azure-storage-blob.md#5-generate-your-shared-access-signature-sas-token)|
-|Set SAS token in code|[TypeScript](../tutorial/browser-file-upload-azure-storage-blob.md#set-sas-token-in-code-file)|
-|Configure CORS for Storage|[Portal](../tutorial/browser-file-upload-azure-storage-blob.md#6-configure-cors-for-azure-storage-resource)|
-
-## Authentication
-
-|Task|using|
-|--|--|
-|Microsoft Login/Logoff button using `@azure/msal-browser`|[React/TypeScript](../tutorial/single-page-application-azure-login-button-sdk-msal.md#5-add-login-and-logoff-buttons)|
+|Create app registration|[Portal](../tutorial/single-page-application-azure-login-button-sdk-msal.md#3-create-app-registration-for-authentication)<br>[Azure CLI](/cli/azure/ad/app#az_ad_app_create)|
+|Easy authentication|[Static Web Apps](with-web-app/static-web-app-with-swa-cli/add-authentication.md)<br>[Express.js](with-web-app/add-authentication-to-web-app.md)|
+|List app registration|[Azure CLI](/cli/azure/ad/app#az_ad_app_list)
+|MSAL Login/Logoff button using `@azure/msal-browser`|[React/TypeScript](../tutorial/single-page-application-azure-login-button-sdk-msal.md#5-add-login-and-logoff-buttons)|
+|MSAL React using `@azure/msal-browser` passing user credentials to Function API|[React and Azure Function API](with-authentication/static-web-app-with-api/add-mongodb-database-to-api.md#react-client-add-new-fetch-method-with-favoritecolor)|
+|MSAL Express.js using `@azure/msal-node`|[Express.js](./with-web-app/deploy-msal-sdk-authentication-expressjs.md#run-your-app-locally-to-verify-msal-authentication)|
 |Revoke AAD permission|[https://myapplications.microsoft.com/](https://myapplications.microsoft.com/)|
-|Revoke Consumer permission|[https://account.live.com/consent/manage](https://account.live.com/consent/manage)|
-
-## Azure login
-
-|Task|using|
-|--|--|
+|Revoke Consumer permission|[https://account.live.com/consent/manage](https://account.live.com/consent/manage)
 |Login|[Azure CLI](../tutorial/deploy-deno-app-azure-app-service-azure-cli.md#2-sign-in-to-azure-cli)<br>[Visual Studio Code extension](../tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-01.md#sign-in-to-azure)|
-
 
 ## Azure Resource Groups
 
 |Task|using|
 |--|--|
-|Create resource group|[Azure CLI](../tutorial/static-web-app/create-computer-vision-resource-use-in-code.md#create-azure-resources)|
-|Delete resource group|[Azure CLI](../tutorial/static-web-app/clean-up-resources.md#remove-all-the-resources-by-removing-resource-group)|
+|Create resource group|[Azure CLI](../tutorial/static-web-app/create-computer-vision-resource-use-in-code.md#create-your-resource-group)<br>[TypeScript](with-web-app/azure-function-resource-group-management/add-delete-functions-redeploy.md#add-typescript-code-to-add-and-delete-resource-groups)|
+|Delete resource group|[Azure CLI](../tutorial/static-web-app/clean-up-resources.md)<br>[TypeScript](with-web-app/azure-function-resource-group-management/add-delete-functions-redeploy.md#add-typescript-code-to-add-and-delete-resource-groups)|
+|List resource groups|[TypeScript](with-web-app/azure-function-resource-group-management/create-function-app.md#list-all-resource-groups-in-subscription-with-javascript)|
 
 ## Apps
 
-### Static web apps
+### Static Web Apps
 
 [Service documentation](/azure/static-web-apps/)
 
 |Task|using|
 |--|--|
-|Create Angular app|[Bash](../tutorial/tutorial-vscode-static-website-node/tutorial-vscode-static-website-node-02.md?tabs=angular)|
 |Create Deno app|[Bash](../tutorial/deploy-deno-app-azure-app-service-azure-cli.md#3-create-local-deno-api-app)|
-|Create React app targeting JavaScript language|[Bash](../tutorial/tutorial-vscode-static-website-node/tutorial-vscode-static-website-node-02.md?tabs=react)|
+|Create React app targeting JavaScript language|[Bash](/azure/static-web-apps/getting-started?tabs=react#create-a-static-web-app)|
 |Create React app targeting TypeScript language|[Bash](../tutorial/single-page-application-azure-login-button-sdk-msal.md#4-create-react-single-page-application-for-typescript)|
-|Create Vue app|[Bash](../tutorial/tutorial-vscode-static-website-node/tutorial-vscode-static-website-node-02.md?tabs=vue)|
-|Create Svelte app|[Bash](../tutorial/tutorial-vscode-static-website-node/tutorial-vscode-static-website-node-02.md?tabs=svelte)|
-|Create Static web app|[Visual Studio Code extension](../tutorial/static-web-app/create-static-web-app-visual-studio-code-extension.md#create-a-static-web-app-resource)|
-|Create Storage-hosted static app|[Visual Studio Code extension](../tutorial/tutorial-vscode-static-website-node/tutorial-vscode-static-website-node-03.md)|
-|Deploy Storage-hosted static app|[Visual Studio Code extension](../tutorial/tutorial-vscode-static-website-node/tutorial-vscode-static-website-node-04.md)|
+|Create Vue app|[Bash](/azure/static-web-apps/getting-started?tabs=vue#create-a-static-web-app)|
+|Create Static Web Apps|[Visual Studio Code extension](../tutorial/static-web-app/create-static-web-app-visual-studio-code-extension.md#create-a-static-web-app-resource)<br>[Azure CLI](with-web-app/static-web-app-with-swa-cli/create-static-web-app.md?tabs=create-swa-azure-cli)|
 |Browse site|[Visual Studio Code extension](../tutorial/static-web-app/create-static-web-app-visual-studio-code-extension.md#view-azure-static-web-site-in-browser)|
+|Proxy SWA locally with SWA CLI|[SWA CLI](./with-web-app/static-web-app-with-swa-cli/connect-client-to-api.md)|
+|Authenticate SWA locally with SWA CLI|[SWA CLI](with-web-app/static-web-app-with-swa-cli/add-authentication.md#test-the-local-authentication-process-provided-by-swa-cli)|
+|Set Static Web app local environment variables|[Bash](../tutorial/static-web-app/create-computer-vision-resource-use-in-code.md#add-environment-variables-to-your-local-environment)|
+
+
 
 ### Function (serverless) apps
 
@@ -74,12 +62,12 @@ Find an example of your current task. If you can't find a task, leave feedback r
 
 |Task|using|
 |--|--|
-|Create Functions app locally|[Visual Studio Code extension](../tutorial/tutorial-vscode-serverless-node-create-local.md)|
-|HTTP trigger code|[JavaScript](../tutorial/tutorial-vscode-serverless-node-create-local.md#http-function-javascript-template-code)|
-|Debug/test function locally|[Visual Studio Code](../tutorial/tutorial-vscode-serverless-node-test-local.md)|
-|Deploy function to Azure cloud|[Visual Studio Code extension](../tutorial/tutorial-vscode-serverless-node-deploy-hosting.md)|
-|Verify function is available on public URL|[Visual Studio Code extension/Browser](../tutorial/tutorial-vscode-serverless-node-deploy-hosting.md#verify-functions-app-is-publicly-available-with-browser)|
-|Remove function app resource|[Visual Studio Code extension](../tutorial/tutorial-vscode-serverless-node-remove-resource.md)|
+|Create Functions app locally|[Visual Studio Code extension](../tutorial/vscode-function-app-http-trigger/tutorial-vscode-serverless-node-create-local.md)|
+|HTTP trigger code|[JavaScript](../tutorial/vscode-function-app-http-trigger/tutorial-vscode-serverless-node-create-local.md#http-function-javascript-template-code)|
+|Debug/test function locally|[Visual Studio Code](../tutorial/vscode-function-app-http-trigger/tutorial-vscode-serverless-node-test-local.md)|
+|Deploy function to Azure cloud|[Visual Studio Code extension](../tutorial/vscode-function-app-http-trigger/tutorial-vscode-serverless-node-deploy-hosting.md)|
+|Verify secure function API is available |[Visual Studio Code extension/Browser](../tutorial/vscode-function-app-http-trigger/tutorial-vscode-serverless-node-deploy-hosting.md#verify-functions-app-is-available-with-browser)|
+|Remove function app resource|[Visual Studio Code extension](../tutorial/vscode-function-app-http-trigger/tutorial-vscode-serverless-node-remove-resource.md)|
 
 ### App service - full-stack, server-only, or client-only apps
 
@@ -89,7 +77,7 @@ Find an example of your current task. If you can't find a task, leave feedback r
 |--|--|
 |Create local Express.js app|[Bash](../tutorial/deploy-nodejs-azure-app-service-with-visual-studio-code.md?tabs=bash#3-create-a-local-expressjs-app)|
 |Create app resource - includes: deploy Express.js app, stream logs|[Visual Studio Code extension](../tutorial/deploy-nodejs-mongodb-app-service-from-visual-studio-code.md#create-web-app-resource-and-deploy-expressjs-app)|
-|Create app resource - includes: deploy Express.js app, configure app settings, run npm install, browse to deployed website|[Visual Studio Code extension](../tutorial/deploy-nodejs-azure-app-service-with-visual-studio-code.md?tabs=bash#6-create-app-service-resource-in-visual-studio-code)|
+|Create app resource - includes: deploy Express.js app, configure app settings, run npm install, browse to deployed website|[Visual Studio Code extension](../tutorial/deploy-nodejs-azure-app-service-with-visual-studio-code.md)|
 |Create app resource|[Azure CLI](../tutorial/tutorial-vscode-azure-cli-node/tutorial-vscode-azure-cli-node-03.md)|
 |Create app, deploy, browser app, view logs|[Azure CLI](../tutorial/tutorial-vscode-azure-cli-node/tutorial-vscode-azure-cli-node-03.md)|
 |Configure web app to use database connection string|[Azure CLI](./with-azure-cli/create-mongodb-cosmosdb.md#configure-your-azure-web-app-with-the-connection-string)|
@@ -121,8 +109,7 @@ Find an example of your current task. If you can't find a task, leave feedback r
 |Create a container image from your local JavaScript project|[Visual Studio Code](./with-visual-studio-code/containerize-local-project.md#create-a-container)|
 |Create container registry resource|[Visual Studio Code extension](../tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-02.md#create-an-azure-container-registry)<br>[Azure CLI](./with-azure-cli/create-container-registry-resource.md#create-a-container-registry)|
 |Create Dockerfile|[Visual Studio Code extension](./with-visual-studio-code/containerize-local-project.md#create-a-dockerfile-in-your-project)|
-|Deploy image to app service|[Visual Studio Code extension](../tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-05.md#deploy-image)|
-|Enable admin access to registry|[Visual Studio Code extension](../tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-05.md#enable-admin-access-on-the-registry)|
+|Deploy image to app service|[Visual Studio Code extension](../tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-05.md#deploy-image-to-azure-web-app-from-vs-code)|
 |Get Azure container registry credentials|[Azure CLI](./with-azure-cli/create-container-registry-resource.md#get-container-registry-credentials)|
 |Login to container registry|[BASH - Docker CLI](./with-azure-cli/create-container-registry-resource.md#login-to-container-registry-with-docker-cli)|
 |Push image to Docker registry resource|[Visual Studio Code extension](./with-visual-studio-code/containerize-local-project.md#push-local-container-image-to-dockerhub)|
@@ -204,13 +191,25 @@ Find an example of your current task. If you can't find a task, leave feedback r
 |View Cosmos DB|[Cosmos DB Explorer](https://cosmos.azure.com/)|
 |Use SQL API for on Cosmos DB|[JavaScript](./with-database/use-sql-api-as-cosmos-db.md#use--sdk-to-connect-to-database)
 
+### GraphQL
 
+|Task|using|
+|--|--|
+|Deploy a `Hello World` GraphQL API as an Azure Function|[VSCode](with-web-app/graphql/azure-function-hello-world.md)|
+|Deploy CRUD operations in GraphQL API as an Azure Function|[VSCode](./with-web-app/graphql/azure-function-hello-world.md#design-a-second-api-to-allow-create-update-and-read-api-endpoints)|
+
+## Deployment to hosting environment
+
+|Task|using|
+|--|--|
+|Static Web App (SWA)|[VS Code](/azure/search/tutorial-javascript-deploy-static-web-app)<br>[From Framework (Next.js)](/azure/static-web-apps/deploy-nextjs#deploy-your-static-website)<br>[Azure DevOps pipelines](/azure/static-web-apps/publish-devops#create-the-pipeline-task-in-azure-devops)|
+|Functions|[VS Code](../tutorial/vscode-function-app-http-trigger/tutorial-vscode-serverless-node-deploy-hosting.md#use-visual-studio-code-extension-to-deploy-to-hosting-environment)<br>[Azure DevOps pipelines](/azure/azure-functions/functions-how-to-azure-devops?tabs=javascript%2Cwindows)<br>[GitHub Actions](/azure/azure-functions/functions-how-to-github-actions?tabs=javascript#deploy-the-function-app)|
+|App service|[Express.js with VS Code](../tutorial/deploy-nodejs-azure-app-service-with-visual-studio-code.md?tabs=bash#5-create-app-service-resource-in-visual-studio-code)<br>[Git Push](../tutorial/tutorial-vscode-azure-cli-node/tutorial-vscode-azure-cli-node-04.md#make-change-and-deploy-to-azure-app-service-from-local-git)<br>[GitHub Actions](/azure/app-service/deploy-github-actions?tabs=applevel)<br>[Azure DevOps](/azure/app-service/deploy-continuous-deployment?tabs=repos)|
 
 ## Git
 
 |Task|using|
 |--|--|
-|Initialize local Git repository|[Visual Studio Code extension](../tutorial/deploy-nodejs-azure-app-service-with-visual-studio-code.md?tabs=bash#5-initialize-git-in-visual-studio-code-for-current-app)|
 |Create a local branch|[Visual Studio Code with Command Palette](./with-visual-studio-code/clone-github-repository.md#create-a-branch-for-changes-with-git-cl)<br>[Visual Studio Code with Status Bar](./with-visual-studio-code/clone-github-repository.md#create-a-branch-from-status-bar)|
 |Clone project from GitHub to local computer|[Visual Studio Code](with-visual-studio-code/install-run-debug-nodejs.md#clone-sample-project-to-local-computer)|
 |Push a local branch to remote repo|[Visual Studio Code with Status Bar](./with-visual-studio-code/clone-github-repository.md#push-a-local-branch-to-remote-from-status-bar)<br>[Visual Studio Code with Source Course extension](./with-visual-studio-code/clone-github-repository.md#push-a-local-branch-to-remote-from-the-source-control-extension)|
@@ -231,8 +230,6 @@ Find an example of your current task. If you can't find a task, leave feedback r
 |--|--|
 |Create resource|[Azure CLI](../tutorial/nodejs-virtual-machine-vm/create-azure-monitoring-application-insights-web-resource.md#create-azure-monitor-resource-with-azure-cli)|
 
-
-
 ## Storage
 
 [Service documentation](/azure/storage/)
@@ -241,8 +238,10 @@ Find an example of your current task. If you can't find a task, leave feedback r
 |--|--|
 |Create resource|[Visual Studio Code extension](../tutorial/browser-file-upload-azure-storage-blob.md#3-create-storage-resource-with-visual-studio-extension)|
 |Delete resource|[Visual Studio Code extension](../tutorial/browser-file-upload-azure-storage-blob.md#clean-up-resources)|
-|Create Storage-hosted static app|[Visual Studio Code extension](../tutorial/tutorial-vscode-static-website-node/tutorial-vscode-static-website-node-03.md)|
-|Deploy Storage-hosted static app|[Visual Studio Code extension](../tutorial/tutorial-vscode-static-website-node/tutorial-vscode-static-website-node-04.md)|
+|Create Storage container shared access signature (SAS) token|[Portal](../tutorial/browser-file-upload-azure-storage-blob.md#5-generate-your-shared-access-signature-sas-token)|
+|Set SAS token in code|[TypeScript](../tutorial/browser-file-upload-azure-storage-blob.md#set-sas-token-in-code-file)|
+|Configure CORS for Storage|[Portal](../tutorial/browser-file-upload-azure-storage-blob.md#6-configure-cors-for-azure-storage-resource)|
+
 
 ### Blobs
 
@@ -289,11 +288,18 @@ Find an example of your current task. If you can't find a task, leave feedback r
 
 |Name | Description|
 |--|--|
+|React app with Function API|Locally build and deploy a React/TypeScript client application with an Azure Function API to an Azure Static Web App with a GitHub action.<br>[Tutorial](./with-web-app/static-web-app-with-swa-cli/introduction.md) - [Sample code](https://github.com/Azure-Samples/js-e2e-static-web-app-with-cli)|
 |React app using Cognitive Services|Locally build and deploy a React/TypeScript client application to an Azure Static Web App with a GitHub action.<br>[Tutorial](../tutorial/static-web-app/introduction.md) - [Sample code](https://github.com/Azure-Samples/js-e2e-client-cognitive-services)|
 |React app uploading file to Azure Storage Blobs|This sample project is a TypeScript React (create-react-app) framework client app with an HTML form to select a file for upload to Azure Storage Blobs.<br>[Tutorial](../tutorial/browser-file-upload-azure-storage-blob.md) - [Sample code](https://github.com/Azure-Samples/js-e2e-browser-file-upload-storage-blob)|
 |React app with login button|The SPA built in this tutorial is a React app (create-react-app) with the following tasks:<br>* Login using a Microsoft-supported login such as Office 365 or Outlook.com<br>* Log off from the application<br>[Tutorial](../tutorial/single-page-application-azure-login-button-sdk-msal.md) - [Sample code](https://github.com/Azure-Samples/js-e2e-client-azure-login-button)|
+|Azure Function app to manage resource groups|In this article series, you'll create an Azure Function app with APIs to manage Azure resource groups.<br><br>Features and functionality of this article series:<br><br>* Create local Azure Function app project in Visual Studio Code<br>* Create function APIs boilerplate code in Visual Studio Code<br>* Deploy to Azure Functions<br>* Create service principal<br>* Configure local and remote application settings<br>* Use DefaultAzureCredential in both local and remote environments<br>* Use Azure SDKs to use Azure Identity and Azure Resource Management APIs<br>* Use your local and cloud APIs to create, delete, and list resource groups in your subscription.<br>[Article series](with-web-app/azure-function-resource-group-management/introduction.md) - [Sample code](https://github.com/Azure-Samples/js-e2e-azure-resource-management-functions)|
 |Express.js app with MongoDB database|The tutorial demonstrates how to load and run the project locally with VSCode, using extensions, was well as how to run the code remotely on an App service. The tutorial includes creating a Cosmos DB resource for the Mongo API, getting the connection information and setting that in the app service configuration setting to connect to a cloud database.<br>[Tutorial](../tutorial/deploy-nodejs-mongodb-app-service-from-visual-studio-code.md) - [Sample code](https://github.com/Azure-Samples/js-e2e-express-mongo)|
 |Express.js app deployed to VM with cloud-init file|Create a Linux virtual machine (VM) for an Express.js app. The VM is configured with a cloud-init configuration file and includes NGINX and a GitHub repository for an Express.js app. Once the VM is running, you can connect to the VM with SSH, change the web app to including trace logging, and view the public Express.js server app in a web browser.<br>[Tutorial](../tutorial/nodejs-virtual-machine-vm/introduction.md) - [Sample code](https://github.com/Azure-Samples/js-e2e-express-mongo)|
+|GraphQL serverless function| Hello world with TypeScript, ready to deploy to Azure Function. [Sample code](https://github.com/azure-samples/js-e2e-azure-function-graphql-hello)|
+|GraphQL serverless CRUD function| CRUD operations with TypeScript, ready to deploy to Azure Function. [Sample code](https://github.com/azure-samples/js-e2e-azure-function-graphql-crud-operations)|
+|GraphQL static web app|Static web app with React client and Azure Function, both with shared TypeScript models demonstrating a Trivia game, with data held in Cosmos DB SQL API. [Sample code](https://github.com/azure-samples/js-e2e-graphql-cosmosdb-static-web-app)|
+
+Use the JavaScript end-to-end snippets collection, [https://github.com/azure-samples/js-e2e](https://github.com/azure-samples/js-e2e), to find or submit JavaScript or TypeScript code examples. 
 
 Use the [Azure Samples browser](/samples/browse/?languages=javascript%2cnodejs%2ctypescript) to find more samples supporting your specific use case. 
 

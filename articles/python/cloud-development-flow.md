@@ -14,11 +14,11 @@ Now that you understand Azure's model of services and resources, you can underst
 
 | Step | Primary tools | Activities |
 | --- | --- | --- |
-| Provision | Azure CLI, Azure Portal, Cloud Shell, Python scripts using Azure management libraries | Provision resource groups; provision specific resources in those groups; configure resources to be ready for use from app code and/or ready to receive Python code in deployments. |
+| Provision | Azure CLI, Azure portal, Cloud Shell, Python scripts using Azure management libraries | Provision resource groups; provision specific resources in those groups; configure resources to be ready for use from app code and/or ready to receive Python code in deployments. |
 | Code | Code editor (such as Visual Studio Code), Azure libraries, reference documentation | Write Python code using the Azure client libraries to interact with provisioned resources. |
 | Test | Python runtime, debugger | Run Python code locally against active cloud resources (typically dev or test resources rather than production resources). The code itself is not yet hosted on Azure, which helps you debug and iterate quickly. |
 | Deploy | Azure CLI, GitHub, DevOps | Once code has been tested locally, deploy it to an appropriate Azure hosting service where the code itself can run in the cloud. Deployed code typically runs against staging or production resources. |
-| Manage | Azure CLI, Azure Portal, Python scripts, Azure Monitor | Monitor app performance and responsiveness, make adjustments in production environment, migrate improvements back to dev environment for the next round of provisioning and development. |
+| Manage | Azure CLI, Azure portal, Python scripts, Azure Monitor | Monitor app performance and responsiveness, make adjustments in production environment, migrate improvements back to dev environment for the next round of provisioning and development. |
 
 ## Step 1: Provision and configure resources
 
@@ -54,7 +54,7 @@ You don't need to modify your code at all for local testing: Azure fully support
 
 ## Step 4: Deploy your app code to Azure
 
-Once you've tested your code locally, you're ready to deploy the code to the Azure resource that you've provisioned to host it. For example, if you're writing a Django web application, you either deploy that code to a virtual machine (where you provide your own web server) or to Azure App Service (which provides the web server for you). Once deployed, that code is running on the server rather than on your local machine, and can access all the Azure resources for which it's authorized.
+Once you've tested your code locally, you're ready to deploy the code to the Azure resource that you've provisioned to host it. For example, if you're writing a Django web app, you either deploy that code to a virtual machine (where you provide your own web server) or to Azure App Service (which provides the web server for you). Once deployed, that code is running on the server rather than on your local machine, and can access all the Azure resources for which it's authorized.
 
 As noted in the previous section, in typical development processes you first deploy your code to the resources you've provisioned in a development environment. After a round of testing, you deploy your code to resources in a staging environment, making the application available to your test team and perhaps preview customers. Once you're satisfied with the application's performance, you can deploy the code to your production environment. All of these deployments can also be automated through continuous integration and continuous deployment using Azure DevOps.
 

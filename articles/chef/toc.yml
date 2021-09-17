@@ -25,7 +25,7 @@
 - name: Reference
   items:
     - name: Azure Chef Extension
-      href: https://docs.chef.io/azure_portal.html#azure-chef-extension
+      href: https://docs.chef.io/azure_chef_cli/#azure-chef-extension
 - name: Resources
   items:
   - name: Chef Automate

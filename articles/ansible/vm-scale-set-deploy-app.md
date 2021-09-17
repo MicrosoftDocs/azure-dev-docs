@@ -13,7 +13,7 @@ ms.custom: devx-track-ansible
 
 [!INCLUDE [open-source-devops-intro-vm-scale-set.md](../includes/open-source-devops-intro-vm-scale-set.md)]
 
-[!INCLUDE [ansible-tutorial-goals.md](includes/ansible-tutorial-goals.md)]
+In this article, you learn how to:
 
 > [!div class="checklist"]
 >
@@ -28,7 +28,7 @@ ms.custom: devx-track-ansible
 [!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation2.md](includes/ansible-prereqs-cloudshell-use-or-vm-creation2.md)] 
 [!INCLUDE [ansible-prereqs-vm-scale-set.md](includes/ansible-prereqs-vm-scale-set.md)]
 - **git** - [git](https://git-scm.com) is used to download a Java sample used in this tutorial.
-- **Java SE Development Kit (JDK)** - The [JDK](../java/fundamentals/java-jdk-long-term-support.md) is used to build the sample Java project.
+- **Java SE Development Kit (JDK)** - The [JDK](../java/fundamentals/java-support-on-azure.md) is used to build the sample Java project.
 - **Apache Maven** - [Apache Maven](https://maven.apache.org/download.cgi) is used to build the sample Java project.
 
 ## Get host information
@@ -118,7 +118,8 @@ The playbook code in this section is used to:
 There are two ways to get the sample playbook:
 
 * [Download the playbook](https://github.com/Azure-Samples/ansible-playbooks/blob/master/vmss/vmss-setup-deploy.yml) and save it to `vmss-setup-deploy.yml`.
-* Create a new file named `vmss-setup-deploy.yml` and copy into it the following contents:
+
+* Create a new file named `vmss-setup-deploy.yml`. Insert the following code into the new file:
 
 ```yml
 - hosts: localhost

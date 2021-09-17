@@ -2,7 +2,7 @@
  author: tomarchermsft
  ms.service: ansible
  ms.topic: include
- ms.date: 09/15/2020
+ ms.date: 08/28/2021
  ms.author: tarcher
 ---
 
@@ -32,9 +32,9 @@ This section shows how to create a test resource group within your new Ansible c
     ansible-playbook create_rg.yml --extra-vars "name=<resource_group_name> location=<resource_group_location>"
     ```
 
-    **Notes**:
+    **Key points**:
 
-    - Due to the `register` variable and `debug` section of the playbook, the results display when the command finishes.
+    - Because of the `register` variable and `debug` section of the playbook, the results display when the command finishes.
 
 ### Delete an Azure resource group
 

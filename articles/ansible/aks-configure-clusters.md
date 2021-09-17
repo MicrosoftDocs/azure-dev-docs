@@ -15,7 +15,7 @@ ms.custom: devx-track-ansible
 
 AKS can be configured to use [Azure Active Directory (AD)](/azure/active-directory/) for user authentication. Once configured, you use your Azure AD authentication token to sign into the AKS cluster. The RBAC can be based on a user's identity or directory group membership.
 
-[!INCLUDE [ansible-tutorial-goals.md](includes/ansible-tutorial-goals.md)]
+In this article, you learn how to:
 
 > [!div class="checklist"]
 >
@@ -78,7 +78,7 @@ Before running the playbook, see the following notes:
 - The first section within `tasks` defines a resource group named `myResourceGroup` within the `eastus` location.
 - The second section within `tasks` defines an AKS cluster named `myAKSCluster` within the `myResourceGroup` resource group.
 - For the `your_ssh_key` placeholder, enter your RSA public key in the single-line format - starting with "ssh-rsa" (without the quotes).
-- For the `aks_version` placeholder, use the [az aks get-versions](/cli/azure/aks#az-aks-get-versions) command.
+- For the `aks_version` placeholder, use the [az aks get-versions](/cli/azure/aks#az_aks_get_versions) command.
 
 Run the playbook using [ansible-playbook](https://docs.ansible.com/ansible/latest/cli/ansible-playbook.html)
 

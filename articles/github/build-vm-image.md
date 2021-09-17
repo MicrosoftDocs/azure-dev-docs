@@ -6,7 +6,7 @@ ms.author: jukullam
 ms.topic: quickstart
 ms.service: azure 
 ms.date: 03/23/2021
-ms.custom: github-actions-azure
+ms.custom: github-actions-azure, devx-track-azurecli
 ---
 
 
@@ -17,7 +17,7 @@ Get started with the [GitHub Actions](https://docs.github.com/en/actions/learn-g
 
 With GitHub Actions, you can speed up your CI/CD process by creating custom virtual machine images with artifacts from your workflows. You can both build images and distribute them to a [Shared Image Gallery](/azure/virtual-machines/shared-image-galleries).
 
- You can then use these images to create [virtual machines](https://azure.microsoft.com/services/virtual-machines/) and [virtual machine scale sets](https://docs.microsoft.com/azure/virtual-machine-scale-sets/overview).
+ You can then use these images to create [virtual machines](https://azure.microsoft.com/services/virtual-machines/) and [virtual machine scale sets](/azure/virtual-machine-scale-sets/overview).
 
 The build virtual machine image action uses the [Azure Image Builder service](/azure/virtual-machines/image-builder-overview).
 
@@ -27,8 +27,8 @@ The build virtual machine image action uses the [Azure Image Builder service](/a
 - A GitHub account with an active repository. If you don't have one, sign up for [free](https://github.com/join). 
     - This example uses the [Java Spring PetClinic Sample Application](https://github.com/spring-projects/spring-petclinic).
 - A Shared Image Gallery.
-    - [Create a Shared Image Gallery with the Azure CLI](/azure/virtual-machines/shared-images-cli)
-    - Create an Azure Shared Image Gallery using the portal ([Windows](/azure/virtual-machines/windows/shared-images-portal), [Linux](/azure/virtual-machines/linux/shared-images-portal))
+    - [Create a Shared Image Gallery with the Azure CLI](/azure/virtual-machines/share-gallery?tabs=cli)
+    - Create an Azure Shared Image Gallery using the portal (Windows, [Linux](/azure/virtual-machines/linux/shared-images-portal))
 
 ## Workflow file overview
 
@@ -311,4 +311,4 @@ As a last step, create a virtual machine from your image.
 ```
 
 ## Next steps
-- Learn how to [deploy to Azure](deploy-to-azure.md). 
+- Learn how to [deploy to Azure](deploy-to-azure.md).

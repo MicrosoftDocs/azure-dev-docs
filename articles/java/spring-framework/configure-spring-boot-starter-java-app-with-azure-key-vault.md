@@ -6,7 +6,6 @@ ms.service: key-vault
 ms.topic: tutorial
 ms.custom: devx-track-java, devx-track-azurecli
 ms.author: edburns
-author: edburns
 ---
 
 # Tutorial: Read a secret from Azure Key Vault in a Spring Boot application
@@ -139,7 +138,7 @@ To create and initialize the Azure Key Vault, use the following steps:
        --enabled-for-deployment true \
        --enabled-for-disk-encryption true \
        --enabled-for-template-deployment true \
-       --location eastus
+       --location eastus \
        --query properties.vaultUri \
        --sku standard
    ```
@@ -227,13 +226,13 @@ Now that you've created a Key Vault and stored a secret, the next section will s
 
 ## Create the app with Spring Initializr
 
-This section shows how to use Spring Initializr and `RestController` to create and run a Spring Boot application locally.
+This section shows how to use Spring Initializr to create and run a Spring Boot web application with key vault secrets included.
 
 1. Browse to <https://start.spring.io/>.
 1. Select the choices as shown in the picture following this list.
    * **Project**: **Maven Project**
    * **Language**: **Java**
-   * **Spring Boot**: **2.3.3**
+   * **Spring Boot**: **2.5.3**
    * **Group**: *com.contoso* (You can put any valid Java package name here.)
    * **Artifact**: *keyvault* (You can put any valid Java class name here.)
    * **Packaging**: **Jar**
@@ -323,9 +322,38 @@ Use the following steps to examine the application and run it locally.
 
 1. Kill the process that's running from `mvn spring-boot:run`. You can type Ctrl-C, or you can use the `jps` command to get the pid of the `Launcher` process and kill it.
 
-## Add Key Vault integration to the app
+## Create the app without Spring Initializr
 
-This section shows you how to add Key Vault integration to your locally running application by modifying the Spring Boot application `KeyvaultApplication`.
+This section shows how to include Azure Key Vault secrets to your existing Spring Boot project without using Spring Initializr.
+
+To manually add the same the configuration that Spring Initializr generates, add the following configuration to your *pom.xml* file.
+
+   ```xml
+   <properties>
+        <azure.version>3.8.0</azure.version>
+   </properties>
+   <dependencies>
+        <dependency>
+            <groupId>com.azure.spring</groupId>
+            <artifactId>azure-spring-boot-starter-keyvault-secrets</artifactId>
+        </dependency>
+   </dependencies>
+   <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.azure.spring</groupId>
+                <artifactId>azure-spring-boot-bom</artifactId>
+                <version>${azure.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+   </dependencyManagement> 
+   ```
+
+## Add Key Vault configuration to the app
+
+This section shows you how to add Key Vault configuration to your locally running application by modifying the Spring Boot application `KeyvaultApplication`.
 
 Just as Key Vault allows externalizing secrets from application code, Spring configuration allows externalizing configuration from code. The simplest form of Spring configuration is the *application.properties* file. In a Maven project, this file is located at *src/main/resources/application.properties*. Spring Initializr helpfully includes a zero length file at this location. Use the following steps to add the necessary configuration to this file.
 
@@ -401,7 +429,7 @@ The following steps show you how to deploy the `KeyvaultApplication` to Azure Ap
    <plugin>
      <groupId>com.microsoft.azure</groupId>
      <artifactId>azure-webapp-maven-plugin</artifactId>
-     <version>1.12.0</version>
+     <version>2.1.0</version>
    </plugin>
    ```
 
@@ -441,7 +469,7 @@ The following steps show you how to deploy the `KeyvaultApplication` to Azure Ap
      <plugin>
        <groupId>com.microsoft.azure</groupId>
        <artifactId>azure-webapp-maven-plugin</artifactId>
-       <version>1.12.0</version>
+       <version>2.1.0</version>
        <configuration>
          <schemaVersion>V2</schemaVersion>
          <subscriptionId>YOUR_SUBSCRIPTION_ID</subscriptionId>
@@ -602,7 +630,7 @@ The following steps will show how to create an Azure Spring Cloud resource and d
 
 1. Decide on a name for the service instance. To use Azure Spring Cloud within your Azure subscription, you must create an Azure resource of type Azure Spring Cloud. As with all other Azure resources, the service instance must stay within a resource group. Use the resource group you already created to hold the service instance, and choose a name for your Azure Spring Cloud instance. Create the service instance with the following command.
 
-   ```bash
+   ```azurecli
    az spring-cloud create --resource-group <your resource group name> --name <your Azure Spring Cloud instance name>
    ```
 
@@ -610,7 +638,7 @@ The following steps will show how to create an Azure Spring Cloud resource and d
 
 1. Create a Spring Cloud App within the service.
 
-   ```bash
+   ```azurecli
    az spring-cloud app create \
        --resource-group <your resource group name> \
        --service <your Azure Spring Cloud instance name> \
@@ -635,7 +663,7 @@ The following steps will show how to create an Azure Spring Cloud resource and d
 
 1. Use the following command to get the managed identity for the Azure resource and use it to configure the existing Key Vault to allow access from this App.
 
-   ```bash
+   ```azurecli
    SERVICE_IDENTITY=$(az spring-cloud app show --resource-group "contosorg" --name "contosoascsapp" --service "contososvc" | jq -r '.identity.principalId')
    az keyvault set-policy \
        --name <your Key Vault name> \
@@ -645,7 +673,7 @@ The following steps will show how to create an Azure Spring Cloud resource and d
 
 1. Because the existing Spring Boot app already has an *application.properties* file with the necessary configuration, we can deploy this app directly to Spring Cloud using the following command. Run the command in the directory containing the POM.
 
-   ```bash
+   ```azurecli
    az spring-cloud app deploy \
        --resource-group <your resource group name> \
        --name <your Spring Cloud app name> \

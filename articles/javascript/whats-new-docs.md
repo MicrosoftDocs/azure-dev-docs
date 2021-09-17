@@ -2,7 +2,7 @@
 title: "What's new for JavaScript docs"
 description: "What's new in JavaScript docs in the Developer Center"
 ms.topic: conceptual
-ms.date: 02/17/2021
+ms.date: 09/15/2021
 
 
 ---
@@ -11,9 +11,97 @@ ms.date: 02/17/2021
 
 Find new and updated content for JavaScript and TypeScript developers.
 
+## 2021 August 
+
+
+### New in September
+
+|Name|Description|
+|---------------------------------------|--|
+|[Create an Azure Function to manage resource groups](how-to/with-web-app/azure-function-resource-group-management/introduction.md)|In this article series, you'll create an Azure Function app with APIs to manage Azure resource groups.<br><br>Features and functionality of this article series:<br><br>* Create local Azure Function app project in Visual Studio Code<br>* Create function APIs boilerplate code in Visual Studio Code<br>* Deploy to Azure Functions<br>* Create service principal<br>* Configure local and remote application settings<br>* Use DefaultAzureCredential in both local and remote environments<br>* Use Azure SDKs to use Azure Identity and Azure Resource Management APIs<br>* Use your local and cloud APIs to create, delete, and list resource groups in your subscription|
+
+### Updates in September
+
+|Name|Description|
+|---------------------------------------|--|
+|[Upload an image to an Azure Storage blob](tutorial/browser-file-upload-azure-storage-blob.md)|* Updates based on Azure portal UI changes<br>* Added Static Web App resource creation and deployment<br>* Moved environment variables from source code into `.env` file| 
+
+
+### New in August
+
+|Name|Description|
+|---------------------------------------|--|
+|[Create Static Web app using CLI](how-to/with-web-app/static-web-app-with-swa-cli/introduction.md)|In this article series, learn how to create a Static Web App (SWA). Locally develop using the SWA CLI with a proxy between the local client and API, including authentication. Run the same code remotely on Azure without changes.|
+
+
+### Updates in August
+
+|Name|Description|
+|---------------------------------------|--|
+|[Create and deploy an Azure Function API with VS Code](tutorial/vscode-function-app-http-trigger/tutorial-vscode-serverless-node-install.md)|Previous version of document series focused on a public/anonymous API. The series now uses function-level security: local develop doesn't use the function key (`code` querystring param), the remote deployed function requires the function key.|
+|[Azure service principal](how-to/with-sdk/set-up-development-environment.md)|Updated code sample and added code sample to **[JS-e2e](https://github.com/Azure-Samples/js-e2e/tree/main/resources/resource-groups-list)** repo.|
+|Updated [hosting and deployment services](how-to/deploy-web-app.md)|Added Azure Web PubSub to list of services.|
+|Updated [Azure Functions](how-to/develop-serverless-apps.md#common-security-settings-you-need-to-configure-for-your-azure-function)|Added **Common security settings you need to configure for your Azure Function**| 
+|Updated [Top JS Tasks](how-to/common-javascript-tasks.md)|Added [Deployment](how-to/common-javascript-tasks.md#deployment-to-hosting-environment)| 
+
+## 2021 July 
+
+
+### New in July
+
+|Name|Description|
+|---------------------------------------|--|
+|[Get started with GraphQL on Azure](./how-to/with-web-app/graphql/get-started.md)|Learn how to use a GraphQL API and deploy to Azure using the Apollo server in an Azure Function.|
+|[Deploy a GraphQL API as an Azure Function ](./how-to/with-web-app/graphql/azure-function-hello-world.md)|Learn how to build and deploy an Apollo server-based GraphQL API endpoint. This article includes a simple `Hello World` API for those very new to GraphQL, along with a simple CRUD operations API using mutations.|
+|[How to authenticate users with Microsoft Authentication Library for React](./how-to/with-authentication/static-web-app-with-api/introduction.md)|Learn how to authenticate users with the Microsoft Authentication Library for React (MSAL React) and call an Azure service on behalf of the user.|
+
+## 2021 June 
+
+### New in June
+
+|Name|Description|
+|---------------------------------------|--|
+|[Getting started with authentication on Azure](./how-to/with-authentication/getting-started.md)|The Microsoft identity platform allows a JavaScript developer to authenticate and authorize user identity in your browser, server, or serverless application. |
+|[How to authenticate users with (MSAL for React static web app)](./how-to/with-authentication/static-web-app-with-api/introduction.md)|In this article series, learn how to authenticate users with the Microsoft Authentication Library for React (MSAL React) and call an Azure service on behalf of the user.|
+
+## 2021 May 
+
+### New in May
+
+|Name|Description|
+|---------------------------------------|--|
+|[Deploy Express.js with Microsoft Authentication to Azure App service](./how-to/with-web-app/deploy-msal-sdk-authentication-expressjs.md)|Learn how to deploy an Express.js app, integrated with Microsoft Authentication Library (MSAL).The sample Express.js web app uses the Embedded JavaScript templates (EJS) template engine to deliver server-side rendered HTML to allow users to sign in with the Microsoft Identity provider. Authentication is provided with the @azure/msal-node npm package. |
+
+### Updated in May
+
+|Name|Description|
+|---------------------------------------|--|
+|[Logging, metrics, and telemetry in Azure](./how-to/node-sdk-logging.md)|Web app and Function app logging information.|
+|[Tutorial: Create a function with Visual Studio Code](./tutorial/vscode-function-app-http-trigger/tutorial-vscode-serverless-node-install.md)|Added streaming logs in VS Code, and querying Kusto log in Azure portal.|
+|[Tools update](./node-azure-tools.md)|Added several links to Microsoft or Azure specific tools. Added Azure service specific tips.|
+|[Add Microsoft login button to a single page application for authentication](./tutorial/single-page-application-azure-login-button-sdk-msal.md#7-store-application-specific-user-information)|Added Microsoft Identity provider and Active Directory app ID information. |
+|Locally develop with the CosmosDB emulator|For [SQL API](./how-to/with-database/use-sql-api-as-cosmos-db.md#locally-develop-with-the-cosmosdb-emulator), [MongoDB](./how-to/with-database/use-mongodb-as-cosmosdb.md#locally-develop-with-the-cosmosdb-emulator), and [Cassandra](./how-to/with-database/use-cassandra-as-cosmos-db.md#locally-develop-with-the-cosmosdb-emulator). |
+
+
+## 2021 April
+
+### New in April
+
+|Name|
+|---------------------------------------|
+|[Add easy authentication to your Express.js web app](./how-to/with-web-app/add-authentication-to-web-app.md)<br><br>Add Microsoft authentication to your web app with an app registration and an Azure app service. The Azure app service provides an easy authentication ("easy auth") to your web app, doing most of the work for a simple authentication use case for you. |
+
+### Updated in April
+
+|Name|
+|---------------------------------------|
+|[Set up development environment to use Azure SDK for JavaScript](./how-to/with-sdk/set-up-development-environment.md)<br><br>Use the **DefaultAzureCredential** to authenticate to the Azure cloud. Once your environment is correctly configured, you won't need to interactively login or store and manage credentials.|
+|[Recommended actions for Monitor Azure resources](./how-to/node-sdk-logging.md)<br><br>When you create an Azure resource, configure proper monitoring, alerting, and logging. |
+|[View deployed files in App or Functions services](./how-to/deploy-web-app.md#view-files-in-azure-hosted-environment)<br><br>Quick and simple methods to view your deployed files in the Azure portal or VSCode.|
+
 ## 2021 March
 
-### What's new
+### New in March
 
 |Name|
 |---------------------------------------|
@@ -21,7 +109,7 @@ Find new and updated content for JavaScript and TypeScript developers.
 |[Store and use **Azure Key Vault** secrets in Express.js app](./how-to/add-custom-domain-to-web-app.md)<br><br>Store secrets in Azure Key Vault, then use those secrets programmatically from Key Vault in your Express.js app. Includes [full source code](https://github.com/Azure-Samples/js-e2e-express-mongodb/tree/keyvault).|
 |[Add **search functionality** to a Static Web app](/azure/search/tutorial-javascript-overview)<br><br>This tutorial builds a website to search through a catalog of books then deploys the website to an Azure Static Web App. A user can search the catalog by entering text in the search bar. While the user enters text, the website uses the Search Index's suggest feature to complete the text. Once the query finishes, the list of books is displayed with a portion of the details. A user can select a book to see all the details, stored in the Search Index, of the book. Includes [full source code](https://github.com/Azure-Samples/azure-search-javascript-samples/tree/master/search-website).|
 
-### What's updated
+### Updates in March
 
 |Name|
 |---------------------------------------|
@@ -31,7 +119,7 @@ Find new and updated content for JavaScript and TypeScript developers.
 
 ## 2021 February
 
-### What's new
+### New in February
 
 |Name|Notes|
 |---------------------------------------|--|
@@ -43,7 +131,7 @@ Find new and updated content for JavaScript and TypeScript developers.
 |[Develop a JavaScript application for Azure Cache for **Redis*](.//how-to/with-database/use-azure-cache-for-redis-db.md)|To create, move, or use a **Redis** database to Azure, you need an Azure Cache for Redis resource. Learn how to create the resource and use your database.|
 |[Develop a JavaScript application for Cosmos DB with SQL API](.//how-to/with-database/use-sql-api-as-cosmos-db.md)|To create or use **Cosmos DB** with the SQL API use a Cosmos DB resource. Learn how to create the Cosmos resource and use your database.|
 
-### What's updated
+### Updated in February
 
 |Name|Notes|
 |---------------------------------------|--|
@@ -60,15 +148,15 @@ Find new and updated content for JavaScript and TypeScript developers.
 |3|[Build, test, and deploy JavaScript and Node.js apps - Azure Pipelines](/azure/devops/pipelines/ecosystems/javascript?tabs=code)|
 |4|[Monitor Azure Functions](/azure/azure-functions/functions-monitoring)|
 |5|[Get started with speech-to-text](/azure/cognitive-services/speech-service/get-started-speech-to-text?tabs=script%2Cbrowser%2Cwindowsinstall&pivots=programming-language-javascript)|
-|6|[Call an ASP.NET Core web API with JavaScript](https://docs.microsoft.com/aspnet/core/tutorials/web-api-javascript?view=aspnetcore-5.0&preserve-view=true)|
-|7|[ASP.NET Core SignalR JavaScript client](https://docs.microsoft.com/aspnet/core/signalr/javascript-client?view=aspnetcore-5.0&preserve-view=true)|
+|6|[Call an ASP.NET Core web API with JavaScript](/aspnet/core/tutorials/web-api-javascript?preserve-view=true&view=aspnetcore-5.0)|
+|7|[ASP.NET Core SignalR JavaScript client](/aspnet/core/signalr/javascript-client?preserve-view=true&view=aspnetcore-5.0)|
 |8|[Azure Functions JavaScript developer guide](/azure/azure-functions/functions-reference-node?tabs=v2)|
 |9|[Sign in users and call the Microsoft Graph API from an Angular single-page application](/azure/active-directory/develop/tutorial-v2-angular)|
 |10|[Application Insights for web pages](/azure/azure-monitor/app/javascript)|
 
 ## 2021 January
 
-### What's new
+### New in January
 
 |Name|Notes|
 |---------------------------------------|--|
@@ -77,7 +165,7 @@ Find new and updated content for JavaScript and TypeScript developers.
 |How-to guide with Azure CLI|* [Create and use container registry](./how-to/with-azure-cli/create-container-registry-resource.md)<br>* [Configuring a custom domain name](./how-to/with-azure-cli/configure-app-service-custom-domain-name.md)<br>* [Create and use MongoDB on Azure with Cosmos DB](./how-to/with-azure-cli/create-mongodb-cosmosdb.md) |
 |How-to guide with Visual Studio Code|* [Develop and debug Node.js](./how-to/with-visual-studio-code/install-run-debug-nodejs.md)<br>* [Clone and use a GitHub repository](./how-to/with-visual-studio-code/clone-github-repository.md)<br>* [Create a container image from your local JavaScript project](./how-to/with-visual-studio-code/containerize-local-project.md)|
 
-### What's updated
+### Updated in January
 
 |Name|Notes|
 |---------------------------------------|--|
@@ -141,7 +229,7 @@ Welcome to what's new in the JavaScript docs from October 2020. This article lis
 |Name|Notes|
 |---------------------------------------|--|
 |[How-to: Serverless functions](how-to/develop-serverless-apps.md)|Functions run on top of a web service, as code or a Docker container, which is abstracted away so you can focus on the code for your endpoint.|
-|[Get started: Authenticate with the Azure management modules for JavaScript](core/node-sdk-azure-authenticate.md)|There are multiple ways of authenticating and creating the required credentials.|
+|[Get started: Authenticate with the Azure management modules for JavaScript](core/nodejs-sdk-azure-authenticate.md)|There are multiple ways of authenticating and creating the required credentials.|
 
 ## Next steps
 

@@ -4,7 +4,7 @@ description: This tutorial shows you how to use the Azure Toolkit for IntelliJ t
 services: app-service
 keywords: java, intellij, web app, azure app service, hello world, quick start
 documentationcenter: java
-author: yucwan
+ms.author: yucwan
 ms.assetid: 75ce7b36-e3ae-491d-8305-4b42ce37db4e
 ms.reviewer: yucwan
 ms.date: 09/09/2020
@@ -34,7 +34,7 @@ This article demonstrates the steps that are required to create a basic Hello Wo
 
 The following steps walk you through the Azure sign in process in your IntelliJ development environment.
 
-1. If you haven't installed the plugin, see [Installing the Azure Toolkit for IntelliJ](./index.yml).
+1. If you haven't installed the plugin, see [Azure Toolkit for IntelliJ](https://plugins.jetbrains.com/plugin/8053).
 
 1. To sign in to your Azure account, navigate to the left-hand **Azure Explorer** sidebar, and then click the **Azure Sign In** icon. Alternatively, you can navigate to **Tools**, expand **Azure**, and click **Azure Sign in**..
 
@@ -83,7 +83,7 @@ The following steps walk you through the Azure sign in process in your IntelliJ 
 
 1. In the Deploy to Azure dialog box, you can deploy the application to an existing Tomcat webapp or you can create a new one.
 
-   a. Click **+** to create a new webapp. Otherwise, choose **Create New WebApp** from the WebApp dropdown if there are existing webapps in your subscription.
+   a. Click **+** to create a new webapp. Otherwise, choose **WebApp** from the WebApp dropdown if there are existing webapps in your subscription.
 
       :::image type="content" source="media/create-hello-world-web-app/deploy-to-azure-webapps.png" alt-text="Deploy to Azure dialog window.":::
 

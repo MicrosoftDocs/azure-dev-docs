@@ -78,8 +78,8 @@
       "author": {
         "**/*.md": "barbkess",
         "**/*.yml": "barbkess",
-        "java/**/*.md": "bmitchell287",
-        "java/**/*.yml": "bmitchell287",
+        "java/**/*.md": "karlerickson",
+        "java/**/*.yml": "karlerickson",
         "go/**/*.md": "barbkess",
         "python/**/*.md": "kraigb",
         "ansible/**/*.md": "TomArcherMsft",
@@ -131,7 +131,9 @@
         "chef/**/*.yml" : "Chef",
         "jenkins/**/*.yml" : "Jenkins",
         "terraform/**/*.yml" : "Terraform",
-        "lab/**/*.md": "Dev Experience Lab"
+        "lab/**/*.md": "Dev Experience Lab",
+        "javascript/**/*.md": "Azure"
+        
       },
       "featureFlags": {
         "javascript/**/*-feedback.yml": [

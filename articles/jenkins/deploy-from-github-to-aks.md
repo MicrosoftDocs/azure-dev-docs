@@ -3,7 +3,7 @@ title: Tutorial - Deploy from GitHub to Azure Kubernetes Service using Jenkins
 description: Learn how to configure Jenkins for continuous integration (CI) from GitHub and continuous deployment (CD) to Azure Kubernetes Service (AKS) 
 keywords: jenkins, azure, devops, aks, azure kubernetes service, github
 ms.topic: article
-ms.date: 02/05/2021
+ms.date: 08/31/2021
 ms.custom: devx-track-jenkins, devx-track-azurecli
 ---
 
@@ -32,7 +32,7 @@ To complete this tutorial, you need these items:
 - Basic understanding of Kubernetes, Git, CI/CD, and container images
 
 - An [AKS cluster](/azure/aks/kubernetes-walkthrough) and `kubectl` configured with the 
-[AKS cluster credentials](/cli/azure/aks#az-aks-get-credentials).
+[AKS cluster credentials](/cli/azure/aks#az_aks_get_credentials).
 
 - An [Azure Container Registry (ACR) registry](/azure/container-registry/container-registry-get-started-azure-cli), 
 the ACR login server name, and the AKS cluster configured to 
@@ -94,7 +94,7 @@ redis                        latest     a1b99da73d05        7 days ago          
 tiangolo/uwsgi-nginx-flask   flask      788ca94b2313        9 months ago        694MB
 ```
 
-Sign in to your Azure Container Instance.
+Sign in to your Azure container registry.
 
 ```azurecli
 az login -n <acrLoginServer>
@@ -178,7 +178,7 @@ az login
 ```
 
    > [!NOTE]
-   > To manually install AzCLI, follow these [instructions](https://docs.microsoft.com/cli/azure/install-azure-cli).
+   > To manually install AzCLI, follow these [instructions](/cli/azure/install-azure-cli).
 
 ### Install Docker
 
@@ -233,7 +233,7 @@ For separation of roles and permissions, configure a service principal for Jenki
 
 ### Create a service principal for Jenkins to use ACR
 
-First, create a service principal using the [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) command:
+First, create a service principal using the [az ad sp create-for-rbac](/cli/azure/ad/sp#az_ad_sp_create_for_rbac) command:
 
 ```azurecli
 az ad sp create-for-rbac --skip-assignment
@@ -251,7 +251,7 @@ az ad sp create-for-rbac --skip-assignment
 
 Make a note of the *appId* and *password*. These values are used in following steps to configure the credential resource in Jenkins.
 
-Get the resource ID of your ACR registry using the [az acr show](/cli/azure/acr#az-acr-show) command, and store it as a variable.
+Get the resource ID of your ACR registry using the [az acr show](/cli/azure/acr#az_acr_show) command, and store it as a variable.
 
 ```azurecli
 ACR_ID=$(az acr show --resource-group <Resource_Group> --name <acrLoginServer> --query "id" --output tsv)

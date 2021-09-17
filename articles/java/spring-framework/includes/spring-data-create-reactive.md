@@ -1,7 +1,6 @@
 ---
- author: judubois
- ms.date: 10/10/2020
- ms.author: judubois
+ms.date: 10/10/2020
+ms.author: judubois
 ---
 
 ## Create a reactive Spring Boot application

@@ -1,0 +1,70 @@
+- name: Azure Mobile Apps Overview
+  href: overview.md
+- name: Get Started
+  items:
+  - name: Apache Cordova
+    items:
+    - name: Introduction
+      href: quickstarts/cordova/index.md
+    - name: Add Offline Sync
+      href: quickstarts/cordova/offline.md
+    - name: Add Authentication
+      href: quickstarts/cordova/authentication.md
+  - name: Windows (UWP)
+    items:
+    - name: Introduction
+      href: quickstarts/uwp/index.md
+    - name: Add Offline Sync
+      href: quickstarts/uwp/offline.md
+    - name: Add Authentication
+      href: quickstarts/uwp/authentication.md     
+  - name: Windows (WPF)
+    items:
+    - name: Introduction
+      href: quickstarts/wpf/index.md
+    - name: Add Offline Sync
+      href: quickstarts/wpf/offline.md
+    - name: Add Authentication
+      href: quickstarts/wpf/authentication.md   
+  - name: Xamarin.Android
+    items:
+    - name: Introduction
+      href: quickstarts/xamarin-android/index.md
+    - name: Add Offline Sync
+      href: quickstarts/xamarin-android/offline.md
+    - name: Add Authentication
+      href: quickstarts/xamarin-android/authentication.md
+  - name: Xamarin.Forms
+    items:
+    - name: Introduction
+      href: quickstarts/xamarin-forms/index.md
+    - name: Add Offline Sync
+      href: quickstarts/xamarin-forms/offline.md
+    - name: Add Authentication
+      href: quickstarts/xamarin-forms/authentication.md
+  - name: Xamarin.iOS
+    items:
+    - name: Introduction
+      href: quickstarts/xamarin-ios/index.md
+    - name: Add Offline Sync
+      href: quickstarts/xamarin-ios/offline.md
+    - name: Add Authentication
+      href: quickstarts/xamarin-ios/authentication.md         
+- name: How to
+  items:
+  - name: Authentication
+    href: howto/authentication.md
+  - name: Offline Data Sync
+    href: howto/data-sync.md
+  - name: Client SDK
+    items:
+    - name: Apache Cordova
+      href: howto/client/cordova.md
+    - name: .NET
+      href: howto/client/dotnet.md
+  - name: Server SDK
+    items:
+    - name: ASP.NET framework
+      href: howto/server/dotnet-framework.md
+    - name: Node.js
+      href: howto/server/nodejs.md

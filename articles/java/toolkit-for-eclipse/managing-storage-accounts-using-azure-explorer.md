@@ -32,7 +32,7 @@ Azure Explorer, which is part of the Azure Toolkit for Eclipse, provides Java de
 
    * **Subscription**: Specifies the Azure subscription that you want to use for the new storage account.
 
-   * **Resource Group**: Specifies the resource group for your virtual machine. Select one of the following options:
+   * **Resource Group**: Specifies the resource group for your storage account. Select one of the following options:
       * **Create New**: Specifies that you want to create a new resource group.
       * **Use Existing**: Specifies that you will select from a list of resource groups that are associated with your Azure account.
 

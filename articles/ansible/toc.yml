@@ -4,22 +4,21 @@
   items:
   - name: About Ansible on Azure
     href: overview.md
-- name: Quickstarts
+- name: Get started
   expanded: true
   items:
     - name: Configure Ansible using Azure Cloud Shell
       href: getting-started-cloud-shell.md
-    - name: Configure Ansible using Azure CLI
+    - name: Configure Ansible on an Azure VM
       href: install-on-linux-vm.md
-    - name: Work with Linux Virtual Machines
-      expanded: true
-      items:
-      - name: Configure Linux virtual machines
-        href: vm-configure.md
-      - name: Manage Linux virtual machines
-        href: vm-manage.md
+    - name: Configure Ansible in a Docker container
+      href: configure-in-docker-container.md
 - name: Tutorials
   items:
+  - name: Configure Ansible
+    items:
+    - name: Create Ansible service principal
+      href: create-ansible-service-principal.md
   - name: Azure Application Gateway
     items:
     - name: Manage web traffic
@@ -36,8 +35,8 @@
       href: devtest-labs-configure.md
   - name: Azure Key Vault
     items:
-    - name: Configure VM security
-      href: key-vault-configure-vm-security.md
+    - name: Configure VM secrets with Azure Key Vault
+      href: key-vault-configure-secrets.md
   - name: Azure Kubernetes Service (AKS)
     items:
     - name: Configure AKS clusters
@@ -72,8 +71,16 @@
       href: dynamic-inventory-configure.md
   - name: Virtual machines
     items:
+    - name: Configure Linux virtual machines
+      href: vm-configure.md
+    - name: Manage Linux virtual machines
+      href: vm-manage.md
+    - name: Configure Windows virtual machines
+      href: vm-configure-windows.md
     - name: Create Shared Image Gallery
       href: vm-configure-from-azure-shared-image-gallery.md
+    - name: Configure VM secrets with Azure Key Vault
+      href: key-vault-configure-secrets.md
   - name: Virtual machine scale sets
     items:
     - name: Configure 
