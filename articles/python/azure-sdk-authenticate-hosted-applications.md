@@ -48,7 +48,7 @@ This error happens because non-azure.core versions of SDK management libraries a
 
 If the management library you want to use hasn't yet been updated, then you can use the following alternate methods:
 
-- Use one of the other authentication methods describe in subsequent sections of this article, which can work well for code that uses *only* SDK management libraries and that won't be deployed to the cloud, in which case you can rely on local service principals only.
+- Use one of the other authentication methods described in subsequent sections of this article, which can work well for code that uses *only* SDK management libraries and that won't be deployed to the cloud, in which case you can rely on local service principals only.
 
 - Instead of `DefaultAzureCredential`, use the [CredentialWrapper class (cred_wrapper.py)](https://gist.github.com/lmazuel/cc683d82ea1d7b40208de7c9fc8de59d) that's provided by a member of the Azure SDK engineering team. Once the desired management library is available, switch back to `DefaultAzureCredential`. This method has the advantage that you can use the same credential with both client and management SDK libraries, and it works both locally and in the cloud.
 
