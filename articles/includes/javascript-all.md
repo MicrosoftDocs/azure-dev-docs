@@ -152,7 +152,7 @@
 | @azure-tools/tmlanguage-generator | npm [0.1.4](https://www.npmjs.com/package/@azure-tools/tmlanguage-generator/v/0.1.4) |  |  |
 | @azure-tools/yaml | npm [1.0.0](https://www.npmjs.com/package/@azure-tools/yaml/v/1.0.0) |  |  |
 | @cadl-lang/compiler | npm [0.19.0](https://www.npmjs.com/package/@cadl-lang/compiler/v/0.19.0) |  |  |
-| @cadl-lang/openapi3 | npm [0.1.0](https://www.npmjs.com/package/@cadl-lang/openapi3/v/0.1.0) |  |  |
+| @cadl-lang/openapi3 | npm [0.2.0](https://www.npmjs.com/package/@cadl-lang/openapi3/v/0.2.0) |  |  |
 | @cadl-lang/prettier-plugin-cadl | npm [0.3.2](https://www.npmjs.com/package/@cadl-lang/prettier-plugin-cadl/v/0.3.2) |  |  |
 | @cadl-lang/rest | npm [0.6.0](https://www.npmjs.com/package/@cadl-lang/rest/v/0.6.0) |  |  |
 | adl-vscode | npm [0.6.0](https://www.npmjs.com/package/adl-vscode/v/0.6.0) |  |  |
