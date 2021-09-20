@@ -64,7 +64,7 @@ const getResult = await client.getKey("MyKeyName");
 
 Not all services support authentication with Azure Active directory, in which case @azure/identity cannot be used. 
 
-Each SDK's npm package `README.md` file has instructions on how to authentication to the Azure service. 
+To learn the specific service authentication requirements, each SDK's npm `README.md` file has detailed instructions on how to authentication to the Azure service. 
 
 ## User Authentication with an App registration
 
