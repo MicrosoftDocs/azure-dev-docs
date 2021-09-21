@@ -6,7 +6,7 @@ ms.date: 09/21/2021
 ms.custom: devx-track-js, contperf-fy21q2
 ---
 
-# 4. Deploy the Functions app to Azure cloud
+# 5. Add integration Cosmos DB for MongoDB API
 
 [Previous step: Deploy the function](tutorial-vscode-serverless-node-test-local.md)
 
