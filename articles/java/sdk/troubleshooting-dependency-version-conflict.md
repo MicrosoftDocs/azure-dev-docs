@@ -9,7 +9,7 @@ ms.author: lmolkova
 
 # Troubleshooting Dependency Version Conflicts
 
-All Azure SDKs depend on several popular third-party libraries: [Jackson](https://github.com/FasterXML/jackson), [Netty](https://netty.io/), [Reactor](https://projectreactor.io/), [SLF4J](http://www.slf4j.org/).
+Azure SDKs depend on several popular third-party libraries: [Jackson](https://github.com/FasterXML/jackson), [Netty](https://netty.io/), [Reactor](https://projectreactor.io/), [SLF4J](http://www.slf4j.org/).
 
 Many Java applications and frameworks use these libraries directly or transitively, which leads to version conflicts. To resolve version conflict happens, package manager picks a single version, which is may be incompatible with some components. Check out [Maven](https://maven.apache.org/guides/introduction/introduction-to-dependency-mechanism.html) and [Gradle](https://docs.gradle.org/current/userguide/dependency_resolution.html) documentation for dependency version resolution.
 
