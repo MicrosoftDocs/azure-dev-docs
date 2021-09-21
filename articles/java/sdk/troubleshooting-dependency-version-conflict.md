@@ -9,7 +9,7 @@ ms.author: lmolkova
 
 # Troubleshooting Dependency Version Conflicts
 
-All Azure SDKs depend on several popular third-party libraries: [Jackson](https://github.com/FasterXML/jackson), [Netty](https://netty.io/), [Reactor](https://projectreactor.io/), [SLF4J](http://www.slf4j.org/).
+Azure SDKs depend on several popular third-party libraries: [Jackson](https://github.com/FasterXML/jackson), [Netty](https://netty.io/), [Reactor](https://projectreactor.io/), [SLF4J](http://www.slf4j.org/).
 
 Many Java applications and frameworks use these libraries directly or transitively, which leads to version conflicts. To resolve version conflict happens, package manager picks a single version, which is may be incompatible with some components. Check out [Maven](https://maven.apache.org/guides/introduction/introduction-to-dependency-mechanism.html) and [Gradle](https://docs.gradle.org/current/userguide/dependency_resolution.html) documentation for dependency version resolution.
 
@@ -60,7 +60,7 @@ Sometimes there's no combination of libraries that work together. In this case, 
 
 You may shade library that has conflicting transitive dependency or direct application dependency:
 
-1. **Transitive dependency conflict**: for example, third-party library `A` requires Jackson 2.9 Jackson 2.9 is not supported by Azure SDKs and it's not possible to update `A`. Create a new JAR, which includes `A` and shades Jackson 2.9 (you may include other dependencies in the same package).
+1. **Transitive dependency conflict**: for example, third-party library `A` requires Jackson 2.9, which is not supported by Azure SDKs, and it's not possible to update `A`. Create a new JAR, which includes `A` and shades Jackson 2.9 (you may include other dependencies in the same package).
 2. **Application dependency conflict**: your application uses Jackson 2.9 directly and while you're working on updating you code, you can shade Jackson 2.9. Check out the example below.
 
 **Note**: shading Jackson into application JAR doesn't resolve version conflict - it only forces single shaded version of Jackson.
