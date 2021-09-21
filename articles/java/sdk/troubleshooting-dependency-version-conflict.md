@@ -13,9 +13,7 @@ All Azure SDKs depend on several popular third-party libraries: [Jackson](https:
 
 Many Java applications and frameworks use these libraries directly or transitively, which leads to version conflicts. To resolve version conflict happens, package manager picks a single version, which is may be incompatible with some components. Check out [Maven](https://maven.apache.org/guides/introduction/introduction-to-dependency-mechanism.html) and [Gradle](https://docs.gradle.org/current/userguide/dependency_resolution.html) documentation for dependency version resolution.
 
-Incompatibility on APIs level results in runtime exceptions [NoClassDefFoundError](https://docs.oracle.com/javase/8/docs/api/java/lang/NoClassDefFoundError.html), [NoSuchMethodError](https://docs.oracle.com/javase/8/docs/api/java/lang/NoSuchMethodError.html), or other [LinkageError](https://docs.oracle.com/javase/8/docs/api/java/lang/LinkageError.html). Not all libraries strictly follow [Semantic Versioning](https://semver.org/) and breaking changes sometimes happen within the same major version.
-
-Behavior changes are more subtle and don't have common symptoms.
+When an incompatibility is encountered, it results in a runtime failure such as [NoClassDefFoundError](https://docs.oracle.com/javase/8/docs/api/java/lang/NoClassDefFoundError.html), [NoSuchMethodError](https://docs.oracle.com/javase/8/docs/api/java/lang/NoSuchMethodError.html), or other [LinkageError](https://docs.oracle.com/javase/8/docs/api/java/lang/LinkageError.html). Not all libraries strictly follow [Semantic Versioning](https://semver.org/) and breaking changes sometimes happen within the same major version.
 
 ## Troubleshooting
 
@@ -50,7 +48,7 @@ In Azure Core 1.21.0, we added runtime detection and better diagnostics of Jacks
 
 #### Use Azure SDK BOM
 
-Use latest stable [Azure SDK BOM](https://mvnrepository.com/artifact/com.azure/azure-sdk-bom) and don't specify versions on Azure SDKs and their dependencies in your POM file. When applicable, make sure you're also using [Azure Spring Boot BOM](https://mvnrepository.com/artifact/com.microsoft.azure/azure-spring-boot-bom). Using Azure BOMs avoids version conflicts within Azure ecosystem and between Azure ecosystem and application.
+Use latest stable [Azure SDK BOM](https://search.maven.org/artifact/com.azure/azure-sdk-bom) and don't specify versions on Azure SDKs and their dependencies in your POM file. When applicable, make sure you're also using [Azure Spring Boot BOM](https://search.maven.org/artifact/com.azure.spring/azure-spring-boot-bom/). Using Azure BOMs avoids version conflicts within Azure ecosystem and between Azure ecosystem and application.
 
 #### Adjust library versions
 
@@ -116,7 +114,7 @@ Example of shading Jackson libraries under a new JAR with Maven:
 
 ## Compatible dependency versions
 
-Refer to [Maven Central](https://mvnrepository.com/artifact/com.azure/azure-core) for details on `azure-core` specific dependencies and their versions. Here are some general considerations:
+Refer to [Maven](https://search.maven.org/artifact/com.azure/azure-core/) for details on `azure-core` specific dependencies and their versions. Here are some general considerations:
 
 | Dependency | Supported versions |
 | ---------- | ------------------ |
