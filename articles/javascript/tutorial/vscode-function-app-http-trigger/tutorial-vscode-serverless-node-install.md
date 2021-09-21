@@ -2,14 +2,21 @@
 title: Create and deploy JavaScript Functions 3.x
 description: In this tutorial, create a new serverless app in Visual Studio Code with extensions and JavaScript, then deploy the application to the Azure cloud for hosting with a public HTTP endpoint.
 ms.topic: tutorial
-ms.date: 08/18/2021
+ms.date: 09/21/2021
 ms.custom: devx-track-js, contperf-fy21q2
 adobe-target: true
 ---
 
 # 1. Create and deploy Azure Functions from Visual Studio Code
 
-In this tutorial, create a secure API in Visual Studio Code with VS Code extensions and JavaScript, then deploy the application to the Azure cloud for hosting with a public HTTP endpoint.
+In this tutorial, create a secure API in Visual Studio Code with VS Code extensions and JavaScript, then deploy the application to the Azure cloud for hosting with a public HTTP endpoint. The API integrates with a Cosmos DB database using the MongoDB API. The MongoDB API is accessed from the [mongoose](https://www.npmjs.com/package/mongoose) npm package.
+
+The MongoDB database functionality includes:
+
+* Add item
+* Delete item by ID
+* Get item by ID
+* Get all items
 
 ## Prepare you development environment 
 
@@ -19,6 +26,7 @@ Install the following software:
 * Install [Node.js LTS](https://nodejs.org/en/download)
 * Install [Visual Studio Code](https://code.visualstudio.com/) and use the following extensions:
     * [Azure Functions](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions)
+    * [Azure Databases](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb)
 
 The following software is installed as part of the tutorial later:
 
