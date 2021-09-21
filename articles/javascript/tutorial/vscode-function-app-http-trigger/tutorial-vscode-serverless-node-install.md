@@ -25,6 +25,7 @@ Install the following software:
 * Create a free [Azure subscription](https://azure.microsoft.com/free/)
 * Install [Node.js LTS](https://nodejs.org/en/download)
 * Install [Visual Studio Code](https://code.visualstudio.com/) and use the following extensions:
+    * [Azure Resources](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureresourcegroups)
     * [Azure Functions](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions)
     * [Azure Databases](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb)
 
@@ -38,13 +39,27 @@ The following software is installed as part of the tutorial later:
 
 ## Install the Azure Functions Core Tools V3
 
-1. In VS Code, open the integrated terminal at a location you want to create and run the local project.
+1. In Visual Studio Code, open the integrated terminal at a location you want to create and run the local project.
 
 1. Install Azure Functions Core Tools locally:
 
     ```bash
     npm install --global azure-functions-core-tools@3 --unsafe-perm true --save-dev
     ```
+
+## Create a resource group
+
+A resource group is a region-based collection of resources. By creating a resource group, then creating resources in that group, at the end of the tutorial, you can delete the resource group without having to delete each resource individually. 
+
+1. In Visual Studio Code, select Azure explorer, then your subscription under **Resource Groups**.
+1. Select **+** to create a new resource group.
+1. Use the following table to complete the prompts:
+
+    |Prompt|Value|
+    |--|--|
+    |Enter the name of the new resource group.|`cosmosdb-mongodb-function-resource-group`|
+    |Select a location for your new resources.|Select a geographical region close to you.|
+
 
 ## Next steps
 

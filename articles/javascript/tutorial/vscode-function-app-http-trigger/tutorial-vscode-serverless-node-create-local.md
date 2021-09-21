@@ -17,7 +17,7 @@ Create a local Azure Functions (serverless) application that contains an [HTTP t
     ![Create a local Function app in VS Code](../../media/functions-extension/create-function-app-project.png)
 
 1. At the first two prompts, select the current folder, then select **JavaScript** for the language.
-1. Use the following table to finish the prompts:
+1. Use the following table to finish creating the local Azure Function project:
 
     |Prompt|Value|Notes|
     |--|--|--|
@@ -26,6 +26,8 @@ Create a local Azure Functions (serverless) application that contains an [HTTP t
     |Provide a function name|`category`|API route is `/api/category`|
     |Authorization Level|Function|This locks the remote API to requests that pass the function key with the request. While developing locally, you won't need the function key.|
     |Select how you would like to open your project|Open in current window.||
+
+    This process doesn't create cloud-based Azure Function resource. That [step](tutorial-vscode-serverless-node-deploy-hosting.md) will come later.
 
 1. After a few moments, VS Code completes creation of the project. You have a folder named for the function, *category*, within which are three files:
 
