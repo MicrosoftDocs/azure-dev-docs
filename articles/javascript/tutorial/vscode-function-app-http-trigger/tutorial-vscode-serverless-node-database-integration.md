@@ -10,9 +10,11 @@ ms.custom: devx-track-js, contperf-fy21q2
 
 [Previous step: Deploy the function](tutorial-vscode-serverless-node-test-local.md)
 
-In this step, create a Cosmos DB resource and code to integrate a database with the Azure function. Use the mongoose npm package to connect to the Azure Cosmos DB for MongoDB API. 
+In this step, create a [Cosmos DB](/azure/cosmos-db/mongodb/mongodb-introduction) resource and code to integrate a database with the Azure function. Use the mongoose npm package to connect to the Azure Cosmos DB for MongoDB API. 
 
 ## Create an Azure Cosmos DB for MongoDB API resource
+
+Cosmos DB provides a MongoDB API to provide a familiar integration point. 
 
 1. In Visual Studio Code, select the Azure logo to open the **Azure Explorer**, then under **Databases**, select **+** to begin the creation process.
 
@@ -56,19 +58,157 @@ In Visual Studio Code, open the `./category/function.json` file and change the m
 
 :::code language="typescript" source="~/../js-e2e-azure-function-mongodb/category/function.json" highlight="11":::
   
-## Run the project locally
+## Add Cosmos DB connection string to local project
 
-In Visual Studio Code, press <kbd>F5</kbd>  to launch the debugger and attach to the Azure Functions host. 
+1. In Visual Studio Code, select the Azure logo to open the **Azure Explorer**, then under **Databases**, right-click your database and select **Copy Connection String**.
 
-You could also use the **Debug** > **Start Debugging** menu command.
+    :::image type="content" source="../../media/functions-extension/visual-studio-code-cosmos-db-copy-connection-string.png" alt-text="Partial screenshot of Visual Studio Code, showing the Azure explorer with a database selected and the right-click menu highlighting Copy Connection String.":::
 
-## Deploy the new mongoose code to Azure
+1. Open the `./local.settings.json` file and add a new property `CosmosDbConnectionString` and paste in the database connection string in as the value.
 
-## Verify remote function API with cURL commands
+    :::code language="json" source="~/../js-e2e-azure-function-mongodb/local.settings.json" highlight="6":::
 
-1. Select **Run**.
+## Add items to database by calling Azure Function API
+
+1. In Visual Studio Code, press <kbd>F5</kbd>  to launch the debugger and attach to the Azure Functions host. 
+
+    You could also use the **Debug** > **Start Debugging** menu command.
+
+1. Use the following curl command in the integrated bash terminal to add **John** to your database:
+
+    :::code language="bash" source="~/../js-e2e-azure-function-mongodb/curl.sh" range="3-5" :::
+ 
+1. The response includes the new item's ID:
+
+    ```console
+    {
+      "documentResponse": {
+        "_id": "614a45d97ccca62acd742550",
+        "categoryName": "John",
+        "createdAt": "2021-09-21T20:51:37.669Z",
+        "updatedAt": "2021-09-21T20:51:37.669Z",
+        "__v": 0
+      }
+    }
+    ```
+
+1. Use the following curl command in the integrated bash terminal to add **Sally** to your database:
+
+    :::code language="bash" source="~/../js-e2e-azure-function-mongodb/curl.sh" range="7-9" :::
+
+1. The response includes the new item's ID:
+
+    ```console
+    {
+      "documentResponse": {
+        "_id": "614a45d97bbba62acd742550",
+        "categoryName": "Sally",
+        "createdAt": "2021-09-21T20:51:37.669Z",
+        "updatedAt": "2021-09-21T20:51:37.669Z",
+        "__v": 0
+      }
+    }
+    ```
+
+## Get all items from database by calling Azure Function API
+
+1. Use the following curl command to get all items from the database:
+
+    :::code language="bash" source="~/../js-e2e-azure-function-mongodb/curl.sh" range="11-12" :::
+ 
+1. The response includes the new item's ID:
+
+    ```console
+    {
+      "documentResponse": [
+        {
+          "_id": "614a45d97ccca62acd742550",
+          "categoryName": "John",
+          "createdAt": "2021-09-21T20:51:25.288Z",
+          "updatedAt": "2021-09-21T20:51:25.288Z",
+          "__v": 0
+        },
+        {
+          "_id": "614a45d97bbba62acd742550",
+          "categoryName": "Sally",
+          "createdAt": "2021-09-21T20:51:37.669Z",
+          "updatedAt": "2021-09-21T20:51:37.669Z",
+          "__v": 0
+        }
+      ]
+    }
+    ```
+
+## Get one item from the database by calling Azure Function API
+
+1. Use the following curl command to get all items from the database. Replace `DOCUMENT_ID` with one of the IDs from a previous step's response:
+
+    :::code language="bash" source="~/../js-e2e-azure-function-mongodb/curl.sh" range="14-16" :::
+ 
+1. The response includes the new item's ID:
+
+    ```console
+    {
+      "documentResponse": {
+        "_id": "614a45cd7ccca62acd74254e",
+        "categoryName": "John",
+        "createdAt": "2021-09-21T20:51:25.288Z",
+        "updatedAt": "2021-09-21T20:51:25.288Z",
+        "__v": 0
+      }
+    }
+    ```
+
+## Delete one item from the database by calling Azure Function API
+
+1. Use the following curl command to get all items from the database. Replace `DOCUMENT_ID` with one of the IDs from a previous step's response:
+
+    :::code language="bash" source="~/../js-e2e-azure-function-mongodb/curl.sh" range="18-20" :::
+ 
+1. The response includes the new item's ID:
+
+    ```console
+    {
+      "documentResponse": {
+        "_id": "614a45cd7ccca62acd74254e",
+        "categoryName": "John",
+        "createdAt": "2021-09-21T20:51:25.288Z",
+        "updatedAt": "2021-09-21T20:51:25.288Z",
+        "__v": 0
+      }
+    }
+    ```
+
+## Redeploy the function app to include mongoose code
+
+1. In Visual Studio Code, select the Azure logo to open the **Azure Explorer**, then under **Functions**, select the deploy icon to begin the deployment process.
+
+    :::image type="content" source="../../media/functions-extension/visual-studio-code-function-redeploy-to-azure.png" alt-text="Partial screenshot of Visual Studio Code, showing the Azure explorer with the Functions deploy icon highlighted.":::
+
+1. In the pop-up window, select the same function app, `cosmosdb-mongodb-function-app`. 
+1. In the next pop-up window, select **Deploy**.
+1. Wait until deployment completes before continuing.
+
+## Add Cosmos DB connection string to remote function 
+
+1. In Visual Studio Code, select the Azure logo to open the **Azure Explorer**, then under **Databases**, right-click your database and select **Copy Connection String**.
+1. Still in the Azure Explorer, under **Functions**, select and expand your function.
+1. Right-click on **Application Settings** and select **Add New Setting**.
+
+    :::image type="content" source="../../media/functions-extension/visual-studio-code-function-application-setting-add-new.png" alt-text="Partial screenshot of Visual Studio Code, showing the Azure explorer with the Functions Application Settings, with the Add new setting menu item highlighted.":::
+
+1. Enter the app setting name, `CosmosDbConnectionString` and press enter. 
+1. Paste the value.
+
+## Copy the secure function's URL
+
+1. Still in the Azure Explorer, in the **Functions** area, select and expand your function then the **Functions** node, which lists the API, **category**.
+1. Right-click on the **category** item and select **Copy Function Url**.
+1. Use the URL and Code querystring name/value pair to replace `` and `` in the following cURL commands. Run each command in a bash terminal.
+
+    :::code language="bash" source="~/../js-e2e-azure-function-mongodb/curl.sh" range="24-41" :::
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Add database integration](tutorial-vscode-serverless-node-database-integration.md) 
+> [Clean up resources](tutorial-vscode-serverless-node-remove-resources.md) 
