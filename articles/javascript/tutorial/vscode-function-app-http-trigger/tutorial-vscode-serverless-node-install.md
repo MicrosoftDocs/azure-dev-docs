@@ -49,4 +49,4 @@ The following software is installed as part of the tutorial later:
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [I installed the prerequisites](tutorial-vscode-serverless-node-create-local.md) [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=node-deployment-azurefunctions&step=getting-started)
+> [Create the local function app](tutorial-vscode-serverless-node-create-local.md)
