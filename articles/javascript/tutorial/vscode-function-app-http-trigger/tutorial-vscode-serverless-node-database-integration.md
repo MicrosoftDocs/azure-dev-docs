@@ -10,7 +10,7 @@ ms.custom: devx-track-js, contperf-fy21q2
 
 [Previous step: Deploy the function](tutorial-vscode-serverless-node-test-local.md)
 
-In this step, create a [Cosmos DB](/azure/cosmos-db/mongodb/mongodb-introduction) resource and code to integrate a database with the Azure function. Use the mongoose npm package to connect to the Azure Cosmos DB for MongoDB API. 
+In this step, create a [Cosmos DB](/azure/cosmos-db/mongodb/mongodb-introduction) resource and code to integrate a database with the Azure function. Use the [mongoose](https://www.npmjs.com/package/mongoose) npm package to connect to the Azure Cosmos DB for MongoDB API. 
 
 ## Create an Azure Cosmos DB for MongoDB API resource
 
@@ -48,7 +48,7 @@ npm install mongoose
 
 ## Integrate mongoose code into Azure function API
 
-In Visual Studio Code, open the `./category/index.ts` file and copy the following code into the file.
+In Visual Studio Code, open the `./category/index.ts` file and replace the entire file's code with the following:
 
 :::code language="typescript" source="~/../js-e2e-azure-function-mongodb/category/index.ts" highlight="2,4-10,23,30,36,48":::
 
@@ -204,7 +204,7 @@ In Visual Studio Code, open the `./category/function.json` file and change the m
 
 1. Still in the Azure Explorer, in the **Functions** area, select and expand your function then the **Functions** node, which lists the API, **category**.
 1. Right-click on the **category** item and select **Copy Function Url**.
-1. Use the URL and Code querystring name/value pair to replace `` and `` in the following cURL commands. Run each command in a bash terminal.
+1. Use the URL and Code querystring name/value pair to replace `YOUR-FUNCTION-RESOURCE-NAME` and `YOUR-FUNCTION-KEY` in the following cURL commands. Run each command in a bash terminal in order.
 
     :::code language="bash" source="~/../js-e2e-azure-function-mongodb/curl.sh" range="24-41" :::
 

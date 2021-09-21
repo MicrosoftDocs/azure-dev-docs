@@ -18,6 +18,8 @@ The MongoDB database functionality includes:
 * Get item by ID
 * Get all items
 
+Full source code for this function app:
+
 * [Sample code](https://github.com/Azure-Samples/js-e2e-azure-function-mongodb)
 
 ## Prepare you development environment 
