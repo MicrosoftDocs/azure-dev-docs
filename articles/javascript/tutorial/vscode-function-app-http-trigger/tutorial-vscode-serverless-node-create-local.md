@@ -37,8 +37,6 @@ Create a local Azure Functions (serverless) application that contains an [HTTP t
     | *function.json* | The [binding configuration](/azure/azure-functions/functions-triggers-bindings) for the HTTP trigger. |
     | *sample.dat* | A placeholder data file to demonstrate that you can have other files in the folder. You can delete this file, if desired, as it's not used in this tutorial. |
 
-    :::image type="content" source="../../media/functions-extension/create-function-app-results.png" alt-text="Screenshot of VSCode showing result of creating a function app" lightbox="../../media/functions-extension/create-function-app-results.png":::
-
 ## Install npm package dependencies from bash terminal
 
 1. In Visual Studio Code, open an integrated bash terminal, <kbd>Ctrl</kbd> + <kbd>`</kbd>.
@@ -60,29 +58,9 @@ Create a new context.log message after the name variable and change it to appear
 context.log(`*** HTTPExample name: ${name}`);
 ```
 
-The final function code is:
+The new function code is:
 
-
-```javascript
-import { AzureFunction, Context, HttpRequest } from "@azure/functions"
-
-const httpTrigger: AzureFunction = async function (context: Context, req: HttpRequest): Promise<void> {
-    context.log('HTTP trigger function processed a request.');
-    const name = (req.query.name || (req.body && req.body.name));
-    console.log(`*** HTTPExample name: ${name}`);
-    const responseMessage = name
-        ? "Hello, " + name + ". This HTTP triggered function executed successfully."
-        : "This HTTP triggered function executed successfully. Pass a name in the query string or in the request body for a personalized response.";
-
-    context.res = {
-        // status: 200, /* Defaults to 200 */
-        body: responseMessage
-    };
-
-};
-
-export default httpTrigger;
-```
+:::code language="typescript" source="~/../js-e2e-azure-function-mongodb/edited-function-code.ts" highlight="6":::
 
 ## Next steps
 
