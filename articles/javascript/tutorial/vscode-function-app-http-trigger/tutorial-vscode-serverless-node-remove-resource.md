@@ -33,4 +33,4 @@ The Functions App you created includes resources that can incur minimal costs (r
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Create an Azure Function to manage Azure resources](../azure-function-resource-group-management/introduction.md)
+> [Create an Azure Function to manage Azure resources](../../how-to/with-web-app/azure-function-resource-group-management/introduction.md)

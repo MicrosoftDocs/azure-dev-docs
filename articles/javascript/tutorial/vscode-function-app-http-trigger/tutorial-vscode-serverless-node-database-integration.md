@@ -1,6 +1,6 @@
 ---
 title: Add Cosmos DB integration to Azure Function
-description: Use the Visual Studio Code extension for Azure Functions to deploy the Functions app to the Azure cloud. Verify the Functions app is publicly available with a browser. 
+description: Use the Visual Studio Code extension for Azure Functions to integrate a database with the Functions app.
 ms.topic: tutorial
 ms.date: 09/21/2021
 ms.custom: devx-track-js, contperf-fy21q2
@@ -211,4 +211,4 @@ In Visual Studio Code, open the `./category/function.json` file and change the m
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Clean up resources](tutorial-vscode-serverless-node-remove-resources.md) 
+> [Clean up resources](tutorial-vscode-serverless-node-remove-resource.md) 
