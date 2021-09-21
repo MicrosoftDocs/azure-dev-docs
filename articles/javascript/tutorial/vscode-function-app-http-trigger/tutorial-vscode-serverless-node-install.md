@@ -7,7 +7,7 @@ ms.custom: devx-track-js, contperf-fy21q2
 adobe-target: true
 ---
 
-# 1. Create and deploy Azure Functions from Visual Studio Code
+# 1. Create and deploy Azure Functions from Visual Studio Code with MongoDB integration
 
 In this tutorial, create a secure API in Visual Studio Code with VS Code extensions and JavaScript, then deploy the application to the Azure cloud for hosting with a public HTTP endpoint. The API integrates with a Cosmos DB database using the MongoDB API. The MongoDB API is accessed from the [mongoose](https://www.npmjs.com/package/mongoose) npm package.
 
