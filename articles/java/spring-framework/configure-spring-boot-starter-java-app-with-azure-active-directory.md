@@ -52,6 +52,8 @@ The following prerequisites are required to complete the steps in this article:
 
 ### Create the Active Directory instance
 
+If you are the administrator of this instance, you can skip this process.
+
 1. Log into <https://portal.azure.com>.
 
 1. Select **All services**, then **Identity**, and then **Azure Active Directory**.
