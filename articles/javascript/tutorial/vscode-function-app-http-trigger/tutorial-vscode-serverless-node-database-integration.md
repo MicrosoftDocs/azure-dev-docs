@@ -138,6 +138,14 @@ In Visual Studio Code, open the `./category/function.json` file and change the m
     }
     ```
 
+## View all data with Database extension
+
+1. In Visual Studio Code, select the Azure logo to open the **Azure Explorer**, then under **Databases**, right-click your Cosmos DB resource, then the **Test** database, then the **Bookstore** collection.
+1. Select one of the items listed. 
+
+    :::image type="content" source="../../media/functions-extension/visual-studio-code-databases-extension-showing-mongodb-doc.png" alt-text="Partial screenshot of Visual Studio Code, showing the Azure explorer with the Databases with a selected item displayed in the reading pane.":::
+
+
 ## Get one item from the database by calling Azure Function API
 
 1. Use the following curl command to get all items from the database. Replace `DOCUMENT_ID` with one of the IDs from a previous step's response:
