@@ -117,7 +117,7 @@
                 href: tutorial/vscode-function-app-http-trigger/tutorial-vscode-serverless-node-test-local.md
               - name: 4. Deploy the Functions app
                 href: tutorial/vscode-function-app-http-trigger/tutorial-vscode-serverless-node-deploy-hosting.md
-              - name: 5. MongoDB integration
+              - name: 5. MongoDB database integration
                 href: tutorial/vscode-function-app-http-trigger/tutorial-vscode-serverless-node-database-integration.md              
               - name: 6. Clean up resources
                 href: tutorial/vscode-function-app-http-trigger/tutorial-vscode-serverless-node-remove-resource.md              

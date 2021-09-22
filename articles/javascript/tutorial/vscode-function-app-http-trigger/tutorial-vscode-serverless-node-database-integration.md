@@ -1,16 +1,16 @@
 ---
 title: Add Cosmos DB integration to Azure Function
-description: Use the Visual Studio Code extension for Azure Functions to integrate a database with the Functions app.
+description: Create Cosmos DB resource and use mongoose npm package to add TypeScript code to integrate a database with the Azure function.
 ms.topic: tutorial
 ms.date: 09/21/2021
 ms.custom: devx-track-js, contperf-fy21q2
 ---
 
-# 5. Add integration Cosmos DB for MongoDB API
+# 5. Add Cosmos DB for MongoDB API integration 
 
 [Previous step: Deploy the function](tutorial-vscode-serverless-node-test-local.md)
 
-In this step, create a [Cosmos DB](/azure/cosmos-db/mongodb/mongodb-introduction) resource and code to integrate a database with the Azure function. Use the [mongoose](https://www.npmjs.com/package/mongoose) npm package to connect to the Azure Cosmos DB for MongoDB API. 
+In this step, create a [Cosmos DB](/azure/cosmos-db/mongodb/mongodb-introduction) resource and use [mongoose](https://www.npmjs.com/package/mongoose) npm package  to add TypeScript code to integrate a database with the Azure function. 
 
 ## Create an Azure Cosmos DB for MongoDB API resource
 
@@ -39,8 +39,7 @@ npm install mongoose
 ## Create database code file 
 
 1. In Visual Studio Code, create a subdirectory of the project named `lib`.
-1. Create a file in the directory named `./lib/azure-cosmosdb-mongodb.ts`.
-1. Copy the following code into the `./lib/azure-cosmosdb-mongodb.ts` file.
+1. Create a file in the directory named `./lib/azure-cosmosdb-mongodb.ts` and copy the following code into it.
 
     :::code language="typescript" source="~/../js-e2e-azure-function-mongodb/lib/azure-cosmosdb-mongodb.ts" :::
 
@@ -52,7 +51,7 @@ In Visual Studio Code, open the `./category/index.ts` file and replace the entir
 
 :::code language="typescript" source="~/../js-e2e-azure-function-mongodb/category/index.ts" highlight="2,4-10,23,30,36,48":::
 
-## Change function methods to include delete
+## Change function.json to include delete method
 
 In Visual Studio Code, open the `./category/function.json` file and change the methods property to include **delete**.
 
