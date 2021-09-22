@@ -10,7 +10,7 @@ ms.custom: devx-track-js, contperf-fy21q2
 
 [Previous step: Deploy the function](tutorial-vscode-serverless-node-test-local.md)
 
-In this step, create a [Cosmos DB](/azure/cosmos-db/mongodb/mongodb-introduction) resource and use [mongoose](https://www.npmjs.com/package/mongoose) npm package  to add TypeScript code to integrate a database with the Azure function. 
+In this step, create a [Cosmos DB](/azure/cosmos-db/mongodb/mongodb-introduction) for MongoDB API resource and the use [mongoose](https://www.npmjs.com/package/mongoose) npm package to add, delete, and list items in the database. 
 
 ## Create an Azure Cosmos DB for MongoDB API resource
 
@@ -144,7 +144,6 @@ In Visual Studio Code, open the `./category/function.json` file and change the m
 1. Select one of the items listed. 
 
     :::image type="content" source="../../media/functions-extension/visual-studio-code-databases-extension-showing-mongodb-doc.png" alt-text="Partial screenshot of Visual Studio Code, showing the Azure explorer with the Databases with a selected item displayed in the reading pane.":::
-
 
 ## Get one item from the database by calling Azure Function API
 
