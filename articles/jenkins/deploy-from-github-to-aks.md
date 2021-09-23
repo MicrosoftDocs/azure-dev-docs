@@ -97,7 +97,7 @@ tiangolo/uwsgi-nginx-flask   flask      788ca94b2313        9 months ago        
 Sign in to your Azure container registry.
 
 ```azurecli
-az login -n <acrLoginServer>
+az acr login -n <acrLoginServer>
 ```
 
 Replace `<acrLoginServer>` with your ACR login server.
