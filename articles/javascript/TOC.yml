@@ -17,14 +17,8 @@
       href: node-azure-tools.md
     - name: Set up your dev environment
       href: core/configure-local-development-environment.md
-    - name: Set up service principal
-      href: how-to/with-sdk/set-up-development-environment.md
     - name: Authenticate to Azure
       href: core/nodejs-sdk-azure-authenticate.md
-  - name: Concepts
-    items:
-      - name: Identity, authentication, and users
-        href: concepts/identity-authentication-users.md
   - name: How-To guides
     items:
       - name: Azure Tasks for JavaScript developers
@@ -32,7 +26,7 @@
       - name: With Azure SDKs
         items:
           - name: Set up environment
-            href: how-to/with-sdk/set-up-development-environment.md
+            href: core/nodejs-sdk-azure-authenticate.md
       - name: With web apps
         items:
           - name: Select hosting service
