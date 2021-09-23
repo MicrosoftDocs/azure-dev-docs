@@ -25,7 +25,7 @@ In this article, you learn to:
 ## Prerequisites
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../includes/open-source-devops-prereqs-azure-subscription.md)]
-- **Docker Desktop**: [Installs](https://www.docker.com/products/docker-desktop) are available for Windows, Mac, and Linux.
+- **Docker Desktop**: [Installation options](https://www.docker.com/products/docker-desktop) are available for Windows, Mac, and Linux.
 
 [!INCLUDE [ansible-service-principal.md](includes/ansible-service-principal.md)]
 
