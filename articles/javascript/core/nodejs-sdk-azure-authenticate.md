@@ -14,7 +14,7 @@ To authenticate to Azure, create a service principal to use the Azure SDKs for J
 
 Generally for most services and functionality, you need to authenticate with a [Identity credential method](https://www.npmjs.com/package/@azure/identity) to create a token. The token is passed to the SDK to authorize your use. There are several credential methods, some require more extensive setup but are built for production service use. 
 
-Find package-specific instructions to authenticate in each [npm Azure SDK package's](../../azure-sdk-library-package-index.md) `readme.md`. 
+Find package-specific instructions to authenticate in each [npm Azure SDK package's](../azure-sdk-library-package-index.md) `readme.md`. 
 
 ## Interactive authentication for quickstarts and tutorials
 
@@ -143,7 +143,7 @@ Use the new service principal to authenticate with Azure.
 
 ## Next steps
 
-* [Create web app with a secure domain name](../add-custom-domain-to-web-app.md)
+* [Create web app with a secure domain name](../how-to/add-custom-domain-to-web-app.md)
 * You can also create a service principal with:
   * [Azure portal](/azure/active-directory/develop/howto-create-service-principal-portal)
   * [PowerShell](/azure/active-directory/develop/howto-authenticate-service-principal-powershell). 

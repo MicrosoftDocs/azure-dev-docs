@@ -47,7 +47,7 @@ The following common local workstation installations are recommended to help wit
 
 ## One-time configuration for authentication
 
-To use the same authentication code in local development and the remote Azure hosting environment, use the [DefaultAzureCredential](nodejs-sdk-azure-authenticate.md#authentication-with-azure-services-while-developing).
+To use the same authentication code in local development and the remote Azure hosting environment, use the [DefaultAzureCredential](/javascript/api/overview/azure/identity-readme#defaultazurecredential).
 
 To use the same code in all environments: 
 
