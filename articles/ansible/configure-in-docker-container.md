@@ -3,7 +3,7 @@ title: Get Started - Configure Ansible in a Docker container
 description: Learn how to install and configure Ansible running in a Docker container to managing Azure resources.
 keywords: ansible, azure, devops, bash, playbook, azure cli, azure powershell, powershell
 ms.topic: quickstart
-ms.date: 09/09/2021
+ms.date: 09/23/2021
 ms.custom: devx-track-ansible
 ---
 
@@ -94,10 +94,10 @@ docker build . -t ansible
 Assign the following environment variables to connect to Azure:
 
 ```bash
-export ARM_TENANT_ID="<azure_tenant_id>"
-export ARM_SUBSCRIPTION_ID="<azure_subscription_id>"
-export ARM_CLIENT_ID="<service_principal_app_id>"
-export ARM_CLIENT_SECRET="<service_principal_password>"
+export AZURE_TENANT_ID="<azure_tenant_id>"
+export AZURE_SUBSCRIPTION_ID="<azure_subscription_id>"
+export AZURE_CLIENT_ID="<service_principal_app_id>"
+export AZURE_CLIENT_SECRET="<service_principal_password>"
 ```
 
 ## Create an Azure resource group
