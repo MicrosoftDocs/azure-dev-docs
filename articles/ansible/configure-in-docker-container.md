@@ -17,10 +17,10 @@ In this article, you learn to:
 
 > * Create an Azure service principal
 > * Create a Dockerfile
-> * Install Ansible in a Docker container
 > * Build a Docker image
+> * Install Ansible in a Docker container
+> * Use a Service Principal to authenticate Ansible to Azure from a Docker container
 > * Run Ansible commands from a Docker container
-> * Connect to Azure from Ansible in a Docker container
 
 ## Prerequisites
 
@@ -29,7 +29,7 @@ In this article, you learn to:
 
 [!INCLUDE [ansible-service-principal.md](includes/ansible-service-principal.md)]
 
-## Install Ansible with a Dockerfile
+## Create a Dockerfile that will install Ansible
 
 1. Create a directory in which to test and run the sample code and make it the current directory.
 
@@ -62,7 +62,7 @@ In this article, you learn to:
         ansible-galaxy collection install azure.azcollection
     ```
 
-## Build an Ansible Docker image
+## Build the Ansible Docker image
 
 Run [docker build](https://docs.docker.com/engine/reference/commandline/build/) to build the Docker image used to run Ansible.
 
@@ -70,7 +70,7 @@ Run [docker build](https://docs.docker.com/engine/reference/commandline/build/) 
 docker build . -t ansible
 ```
 
-## Start an Ansible container
+## Start the Ansible container
 
 1. Run the [`docker run`](https://docs.docker.com/engine/reference/commandline/run/) to start the Ansible container.
 
