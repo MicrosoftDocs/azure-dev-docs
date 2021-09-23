@@ -94,10 +94,10 @@ docker build . -t ansible
 Assign the following environment variables to connect to Azure:
 
 ```bash
-export AZURE_TENANT_ID="<azure_tenant_id>"
+export AZURE_TENANT="<azure_tenant_id>"
 export AZURE_SUBSCRIPTION_ID="<azure_subscription_id>"
 export AZURE_CLIENT_ID="<service_principal_app_id>"
-export AZURE_CLIENT_SECRET="<service_principal_password>"
+export AZURE_SECRET="<service_principal_password>"
 ```
 
 ## Create an Azure resource group
