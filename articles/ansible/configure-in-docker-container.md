@@ -102,35 +102,27 @@ export AZURE_SECRET="<service_principal_password>"
 
 ## Create an Azure resource group
 
-From inside the Ansible container, run the following Ansible command to create a resource group:
+Run the following Ansible command to create a resource group:
 
 ```bash
 ansible localhost -m azure_rm_resourcegroup -a 'name=myResourceGroup location=eastus'
 ```
 
-Confirm the resource group was created.
+**Key points:**
 
-# [Bash](#tab/bash)
-```bash
-az group show --resource-group myResourceGroup
-```
-
-Replace the values with your service principal and Azure subscription details.
-
-# [PowerShell](#tab/powershell)
-```powershell
-Get-AzResourceGroup -Name myResourceGroup
-```
----
+- Upon completion, the command displays whether it was successful in creating the resource group.
 
 ## Clean up resources
 
-Delete the resource group by adding `state=absent` to the argument list.
+Run the following Ansible command to delete the resource group.
 
 ```bash
 ansible localhost -m azure_rm_resourcegroup -a 'name=myResourceGroup location=eastus state=absent'
 ```
----
+
+**Key points:**
+
+- Upon completion, the command displays whether it was successful in creating the resource group.
 
 ## Next steps
 
