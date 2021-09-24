@@ -4,6 +4,8 @@
 | App Configuration | npm [1.3.0](https://www.npmjs.com/package/@azure/app-configuration/v/1.3.0) | [docs](/javascript/api/overview/azure/app-configuration-readme) | GitHub [1.3.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/app-configuration_1.3.0/sdk/appconfiguration/app-configuration/) |
 | Attestation | npm [1.0.0](https://www.npmjs.com/package/@azure/attestation/v/1.0.0) | [docs](/javascript/api/overview/azure/attestation-readme) | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/attestation_1.0.0/sdk/attestation/attestation/) |
 | Azure Confidential Ledger | npm [1.0.0-beta.2](https://www.npmjs.com/package/@azure-rest/confidential-ledger/v/1.0.0-beta.2) |  | GitHub [1.0.0-beta.2](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/confidential-ledger_1.0.0-beta.2/sdk/confidentialledger/confidential-ledger-rest) |
+| Azure Mixed Reality Authentication | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure/mixed-reality-authentication/v/1.0.0-beta.1) | [docs](/javascript/api/overview/azure/mixed-reality-authentication-readme) | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/mixed-reality-authentication_1.0.0-beta.1/sdk/mixedreality/mixed-reality-authentication/) |
+| Azure Remote Rendering | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure/mixed-reality-remote-rendering/v/1.0.0-beta.1) | [docs](/javascript/api/overview/azure/mixed-reality-remote-rendering-readme) | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/mixed-reality-remote-rendering_1.0.0-beta.1/sdk/remoterendering/mixed-reality-remote-rendering/) |
 | Azure Video Analyzer Edge | npm [1.0.0-beta.2](https://www.npmjs.com/package/@azure/video-analyzer-edge/v/1.0.0-beta.2) | [docs](/javascript/api/overview/azure/video-analyzer-edge-readme) | GitHub [1.0.0-beta.2](https://github.com/Azure/azure-sdk-for-js/tree/@azure/video-analyzer-edge_1.0.0-beta.2/sdk/videoanalyzer/video-analyzer-edge/) |
 | Cognitive Search | npm [11.2.1](https://www.npmjs.com/package/@azure/search-documents/v/11.2.1)<br>npm [11.3.0-beta.3](https://www.npmjs.com/package/@azure/search-documents/v/11.3.0-beta.3) | [docs](/javascript/api/overview/azure/search-documents-readme) | GitHub [11.2.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/search-documents_11.2.1/sdk/search/search-documents/)<br>GitHub [11.3.0-beta.3](https://github.com/Azure/azure-sdk-for-js/tree/@azure/search-documents_11.3.0-beta.3/sdk/search/search-documents/) |
 | Communication Chat | npm [1.1.0](https://www.npmjs.com/package/@azure/communication-chat/v/1.1.0) | [docs](/javascript/api/overview/azure/communication-chat-readme) | GitHub [1.1.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/communication-chat_1.1.0/sdk/communication/communication-chat/) |
@@ -89,7 +91,7 @@
 | @autorest/codemodel | npm [4.17.0](https://www.npmjs.com/package/@autorest/codemodel/v/4.17.0) |  |  |
 | @autorest/common | npm [1.3.0](https://www.npmjs.com/package/@autorest/common/v/1.3.0) |  |  |
 | @autorest/configuration | npm [1.7.1](https://www.npmjs.com/package/@autorest/configuration/v/1.7.1) |  |  |
-| @autorest/csharp | npm [3.0.0-beta.20210914.1](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20210914.1) |  |  |
+| @autorest/csharp | npm [3.0.0-beta.20210920.1](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20210920.1) |  |  |
 | @autorest/csharp-v3 | npm [3.0.0-beta.20201217.1](https://www.npmjs.com/package/@autorest/csharp-v3/v/3.0.0-beta.20201217.1) |  |  |
 | @autorest/extension-base | npm [3.3.1](https://www.npmjs.com/package/@autorest/extension-base/v/3.3.1) |  |  |
 | @autorest/schemas | npm [1.3.1](https://www.npmjs.com/package/@autorest/schemas/v/1.3.1) |  |  |
@@ -129,7 +131,7 @@
 | @azure/iot-modelsrepository | npm [1.0.0-beta.2](https://www.npmjs.com/package/@azure/iot-modelsrepository/v/1.0.0-beta.2) |  |  |
 | @azure/media-stream-library | npm [0.1.0](https://www.npmjs.com/package/@azure/media-stream-library/v/0.1.0) |  |  |
 | @azure/quantum-jobs | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure/quantum-jobs/v/1.0.0-beta.1) |  |  |
-| @azure/static-web-apps-cli | npm [0.7.1](https://www.npmjs.com/package/@azure/static-web-apps-cli/v/0.7.1) |  |  |
+| @azure/static-web-apps-cli | npm [0.7.2](https://www.npmjs.com/package/@azure/static-web-apps-cli/v/0.7.2) |  |  |
 | @azure/video-analyzer-player | npm [1.0.3](https://www.npmjs.com/package/@azure/video-analyzer-player/v/1.0.3) |  |  |
 | @azure/video-analyzer-widgets | npm [1.1.2](https://www.npmjs.com/package/@azure/video-analyzer-widgets/v/1.1.2) |  |  |
 | @azure-rest/core-client-lro | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure-rest/core-client-lro/v/1.0.0-beta.1) |  |  |
@@ -186,8 +188,10 @@
 | AutoRest - Test | npm [0.1.76](https://www.npmjs.com/package/@autorest/test/v/0.1.76) |  | GitHub [0.1.76](https://github.com/Azure/autorest.test) |
 | AutoRest - Test Server | npm [3.0.27](https://www.npmjs.com/package/@autorest/test-server/v/3.0.27) |  |  |
 | Autosuggest | npm [2.0.1](https://www.npmjs.com/package/@azure/cognitiveservices-autosuggest/v/2.0.1) |  | GitHub [2.0.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/cognitiveservices/cognitiveservices-autosuggest) |
-| Avocado | npm [0.8.3](https://www.npmjs.com/package/@azure/avocado/v/0.8.3) |  | GitHub [0.8.3](https://github.com/Azure/avocado) |
+| Avocado | npm [0.8.4](https://www.npmjs.com/package/@azure/avocado/v/0.8.4) |  | GitHub [0.8.4](https://github.com/Azure/avocado) |
 | Azure Confidential Ledger | npm [1.0.0-beta.2](https://www.npmjs.com/package/@azure-rest/confidential-ledger/v/1.0.0-beta.2) |  | GitHub [1.0.0-beta.2](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/confidential-ledger_1.0.0-beta.2/sdk/confidentialledger/confidential-ledger-rest) |
+| Azure Mixed Reality Authentication | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure/mixed-reality-authentication/v/1.0.0-beta.1) | [docs](/javascript/api/overview/azure/mixed-reality-authentication-readme) | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/mixed-reality-authentication_1.0.0-beta.1/sdk/mixedreality/mixed-reality-authentication/) |
+| Azure Remote Rendering | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure/mixed-reality-remote-rendering/v/1.0.0-beta.1) | [docs](/javascript/api/overview/azure/mixed-reality-remote-rendering-readme) | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/mixed-reality-remote-rendering_1.0.0-beta.1/sdk/remoterendering/mixed-reality-remote-rendering/) |
 | Azure Video Analyzer Edge | npm [1.0.0-beta.2](https://www.npmjs.com/package/@azure/video-analyzer-edge/v/1.0.0-beta.2) | [docs](/javascript/api/overview/azure/video-analyzer-edge-readme) | GitHub [1.0.0-beta.2](https://github.com/Azure/azure-sdk-for-js/tree/@azure/video-analyzer-edge_1.0.0-beta.2/sdk/videoanalyzer/video-analyzer-edge/) |
 | Batch | npm [10.0.1](https://www.npmjs.com/package/@azure/batch/v/10.0.1) |  | GitHub [10.0.1](https://github.com/azure/azure-sdk-for-js/tree/main/sdk/batch/batch) |
 | Cognitive Search | npm [11.2.1](https://www.npmjs.com/package/@azure/search-documents/v/11.2.1)<br>npm [11.3.0-beta.3](https://www.npmjs.com/package/@azure/search-documents/v/11.3.0-beta.3) | [docs](/javascript/api/overview/azure/search-documents-readme) | GitHub [11.2.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/search-documents_11.2.1/sdk/search/search-documents/)<br>GitHub [11.3.0-beta.3](https://github.com/Azure/azure-sdk-for-js/tree/@azure/search-documents_11.3.0-beta.3/sdk/search/search-documents/) |
@@ -275,12 +279,12 @@
 | MsRest - Azure JS | npm [2.1.0](https://www.npmjs.com/package/@azure/ms-rest-azure-js/v/2.1.0) |  | GitHub [2.1.0](https://github.com/Azure/ms-rest-azure-js) |
 | MsRest - Browser Auth | npm [1.0.2](https://www.npmjs.com/package/@azure/ms-rest-browserauth/v/1.0.2) |  | GitHub [1.0.2](https://github.com/Azure/ms-rest-browserauth) |
 | MsRest - JS | npm [2.6.0](https://www.npmjs.com/package/@azure/ms-rest-js/v/2.6.0) |  | GitHub [2.6.0](https://github.com/Azure/ms-rest-js) |
-| MsRest - Node Auth | npm [3.0.10](https://www.npmjs.com/package/@azure/ms-rest-nodeauth/v/3.0.10) |  | GitHub [3.0.10](https://github.com/Azure/ms-rest-nodeauth) |
+| MsRest - Node Auth | npm [3.1.0](https://www.npmjs.com/package/@azure/ms-rest-nodeauth/v/3.1.0) |  | GitHub [3.1.0](https://github.com/Azure/ms-rest-nodeauth) |
 | News Search | npm [3.0.1](https://www.npmjs.com/package/@azure/cognitiveservices-newssearch/v/3.0.1) |  | GitHub [3.0.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/cognitiveservices/cognitiveservices-newssearch) |
 | Ng Deploy | npm [0.2.3](https://www.npmjs.com/package/@azure/ng-deploy/v/0.2.3) |  | GitHub [0.2.3](https://github.com/Azure/ng-deploy-azure) |
 | Node Red Contrib Azure IoT Hub Node | npm [0.5.3](https://www.npmjs.com/package/node-red-contrib-azureiothubnode/v/0.5.3) |  |  |
 | Oad | npm [0.9.1](https://www.npmjs.com/package/@azure/oad/v/0.9.1) |  | GitHub [0.9.1](https://github.com/Azure/openapi-diff) |
-| OpenAPI Markdown | npm [0.9.2](https://www.npmjs.com/package/@azure/openapi-markdown/v/0.9.2) |  | GitHub [0.9.2](https://github.com/Azure/openapi-markdown) |
+| OpenAPI Markdown | npm [0.9.4](https://www.npmjs.com/package/@azure/openapi-markdown/v/0.9.4) |  | GitHub [0.9.4](https://github.com/Azure/openapi-markdown) |
 | Personalizer | npm [2.0.1](https://www.npmjs.com/package/@azure/cognitiveservices-personalizer/v/2.0.1) |  | GitHub [2.0.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/cognitiveservices/cognitiveservices-personalizer) |
 | Publish Pipeline Result | npm [0.1.2](https://www.npmjs.com/package/@azure/publish-pipeline-result/v/0.1.2) |  |  |
 | Purview Account | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure-rest/purview-account/v/1.0.0-beta.1) |  | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/purview-account_1.0.0-beta.1/sdk/purview/purview-account-rest) |
