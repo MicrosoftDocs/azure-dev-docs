@@ -34,31 +34,19 @@ In this exercise, you create and execute a basic Terraform configuration file th
 
 1. Launch Visual Studio Code.
 
-1. Select **Extensions**.
+1. From the left menu, select **Extensions**, and enter `Azure Terraform` in the search text box.
 
-	![Extensions button](media/configure-vs-code-extension-for-terraform/vscode-extensions-button.png)
+	![Search Visual Studio Code extensions in Marketplace](media/configure-vs-code-extension-for-terraform/search-for-azure-terraform-extension.png)
 
-1. Use the **Search Extensions in Marketplace** text box to search for the Azure Terraform extension:
-
-	![Search Visual Studio Code extensions in Marketplace](media/configure-vs-code-extension-for-terraform/search-extensions.png)
-
-1. Select **Install**.
+1. Under the **Azure Terraform** Visual Studio extension, Select **Install**.
 
     **Key points:**
-    - When you select **Install** for the Azure Terraform extension, Visual Studio Code automatically installs the Azure Account extension. 
+    - When you select **Install** for the Azure Terraform extension, Visual Studio Code automatically installs the Azure Account extension.
     - Azure Account is a dependency file for the Azure Terraform extension. This file is used to authenticate to Azure and Azure-related code extensions.
 
-### Verify the Terraform extension is installed in Visual Studio Code
+1. To confirm the installation of the extensions, enter `@installed` in the search text box. Both the Azure Terraform extension and the Azure Account extension will appear in the list of installed extensions.
 
-1. Select **Extensions**.
-
-1. Enter `@installed` in the search text box.
-
-    ![Installed extensions](media/configure-vs-code-extension-for-terraform/installed-extensions.png)
-
-The Azure Terraform extension will appear in the list of installed extensions.
-
-![Installed Terraform extensions](media/configure-vs-code-extension-for-terraform/installed-terraform-extension-button.png)
+    ![Installed Terraform extensions](media/configure-vs-code-extension-for-terraform/installed-terraform-extensions.png)
 
 You can now run all supported Terraform commands in your Cloud Shell environment from within Visual Studio Code.
 
