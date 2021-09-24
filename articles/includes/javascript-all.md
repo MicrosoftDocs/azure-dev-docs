@@ -4,6 +4,8 @@
 | App Configuration | npm [1.3.0](https://www.npmjs.com/package/@azure/app-configuration/v/1.3.0) | [docs](/javascript/api/overview/azure/app-configuration-readme) | GitHub [1.3.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/app-configuration_1.3.0/sdk/appconfiguration/app-configuration/) |
 | Attestation | npm [1.0.0](https://www.npmjs.com/package/@azure/attestation/v/1.0.0) | [docs](/javascript/api/overview/azure/attestation-readme) | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/attestation_1.0.0/sdk/attestation/attestation/) |
 | Azure Confidential Ledger | npm [1.0.0-beta.2](https://www.npmjs.com/package/@azure-rest/confidential-ledger/v/1.0.0-beta.2) |  | GitHub [1.0.0-beta.2](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/confidential-ledger_1.0.0-beta.2/sdk/confidentialledger/confidential-ledger-rest) |
+| Azure Mixed Reality Authentication | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure/mixed-reality-authentication/v/1.0.0-beta.1) | [docs](/javascript/api/overview/azure/mixed-reality-authentication-readme) | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/mixed-reality-authentication_1.0.0-beta.1/sdk/mixedreality/mixed-reality-authentication/) |
+| Azure Remote Rendering | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure/mixed-reality-remote-rendering/v/1.0.0-beta.1) | [docs](/javascript/api/overview/azure/mixed-reality-remote-rendering-readme) | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/mixed-reality-remote-rendering_1.0.0-beta.1/sdk/remoterendering/mixed-reality-remote-rendering/) |
 | Azure Video Analyzer Edge | npm [1.0.0-beta.2](https://www.npmjs.com/package/@azure/video-analyzer-edge/v/1.0.0-beta.2) | [docs](/javascript/api/overview/azure/video-analyzer-edge-readme) | GitHub [1.0.0-beta.2](https://github.com/Azure/azure-sdk-for-js/tree/@azure/video-analyzer-edge_1.0.0-beta.2/sdk/videoanalyzer/video-analyzer-edge/) |
 | Cognitive Search | npm [11.2.1](https://www.npmjs.com/package/@azure/search-documents/v/11.2.1)<br>npm [11.3.0-beta.3](https://www.npmjs.com/package/@azure/search-documents/v/11.3.0-beta.3) | [docs](/javascript/api/overview/azure/search-documents-readme) | GitHub [11.2.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/search-documents_11.2.1/sdk/search/search-documents/)<br>GitHub [11.3.0-beta.3](https://github.com/Azure/azure-sdk-for-js/tree/@azure/search-documents_11.3.0-beta.3/sdk/search/search-documents/) |
 | Communication Chat | npm [1.1.0](https://www.npmjs.com/package/@azure/communication-chat/v/1.1.0) | [docs](/javascript/api/overview/azure/communication-chat-readme) | GitHub [1.1.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/communication-chat_1.1.0/sdk/communication/communication-chat/) |
@@ -88,11 +90,11 @@
 | @autorest/cadl | npm [0.0.2](https://www.npmjs.com/package/@autorest/cadl/v/0.0.2) |  |  |
 | @autorest/codemodel | npm [4.17.0](https://www.npmjs.com/package/@autorest/codemodel/v/4.17.0) |  |  |
 | @autorest/common | npm [1.3.0](https://www.npmjs.com/package/@autorest/common/v/1.3.0) |  |  |
-| @autorest/configuration | npm [1.7.0](https://www.npmjs.com/package/@autorest/configuration/v/1.7.0) |  |  |
-| @autorest/csharp | npm [3.0.0-beta.20210914.1](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20210914.1) |  |  |
+| @autorest/configuration | npm [1.7.1](https://www.npmjs.com/package/@autorest/configuration/v/1.7.1) |  |  |
+| @autorest/csharp | npm [3.0.0-beta.20210920.1](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20210920.1) |  |  |
 | @autorest/csharp-v3 | npm [3.0.0-beta.20201217.1](https://www.npmjs.com/package/@autorest/csharp-v3/v/3.0.0-beta.20201217.1) |  |  |
 | @autorest/extension-base | npm [3.3.1](https://www.npmjs.com/package/@autorest/extension-base/v/3.3.1) |  |  |
-| @autorest/schemas | npm [1.3.0](https://www.npmjs.com/package/@autorest/schemas/v/1.3.0) |  |  |
+| @autorest/schemas | npm [1.3.1](https://www.npmjs.com/package/@autorest/schemas/v/1.3.1) |  |  |
 | @autorest/test-utils | npm [0.4.0](https://www.npmjs.com/package/@autorest/test-utils/v/0.4.0) |  |  |
 | @autorest/typescript | npm [6.0.0-beta.13](https://www.npmjs.com/package/@autorest/typescript/v/6.0.0-beta.13) |  |  |
 | @azure/arm-appservice-profile-2020-09-01-hybrid | npm [1.1.1](https://www.npmjs.com/package/@azure/arm-appservice-profile-2020-09-01-hybrid/v/1.1.1) |  |  |
@@ -123,12 +125,13 @@
 | @azure/arm-subscriptions-profile-2020-09-01-hybrid | npm [1.1.1](https://www.npmjs.com/package/@azure/arm-subscriptions-profile-2020-09-01-hybrid/v/1.1.1) |  |  |
 | @azure/arm-template | npm [1.0.0-beta.2](https://www.npmjs.com/package/@azure/arm-template/v/1.0.0-beta.2) |  |  |
 | @azure/communication-administration | npm [1.0.0-beta.4](https://www.npmjs.com/package/@azure/communication-administration/v/1.0.0-beta.4) |  |  |
-| @azure/communication-react | npm [1.0.0-beta.4](https://www.npmjs.com/package/@azure/communication-react/v/1.0.0-beta.4) |  |  |
+| @azure/communication-react | npm [1.0.0-beta.5](https://www.npmjs.com/package/@azure/communication-react/v/1.0.0-beta.5) |  |  |
 | @azure/core-crypto | npm [1.0.0-alpha.20210122.1](https://www.npmjs.com/package/@azure/core-crypto/v/1.0.0-alpha.20210122.1) |  |  |
+| @azure/fabric-react-jsonschema-form | npm [0.1.5](https://www.npmjs.com/package/@azure/fabric-react-jsonschema-form/v/0.1.5) |  |  |
 | @azure/iot-modelsrepository | npm [1.0.0-beta.2](https://www.npmjs.com/package/@azure/iot-modelsrepository/v/1.0.0-beta.2) |  |  |
 | @azure/media-stream-library | npm [0.1.0](https://www.npmjs.com/package/@azure/media-stream-library/v/0.1.0) |  |  |
 | @azure/quantum-jobs | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure/quantum-jobs/v/1.0.0-beta.1) |  |  |
-| @azure/static-web-apps-cli | npm [0.7.1](https://www.npmjs.com/package/@azure/static-web-apps-cli/v/0.7.1) |  |  |
+| @azure/static-web-apps-cli | npm [0.7.2](https://www.npmjs.com/package/@azure/static-web-apps-cli/v/0.7.2) |  |  |
 | @azure/video-analyzer-player | npm [1.0.3](https://www.npmjs.com/package/@azure/video-analyzer-player/v/1.0.3) |  |  |
 | @azure/video-analyzer-widgets | npm [1.1.2](https://www.npmjs.com/package/@azure/video-analyzer-widgets/v/1.1.2) |  |  |
 | @azure-rest/core-client-lro | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure-rest/core-client-lro/v/1.0.0-beta.1) |  |  |
@@ -138,11 +141,11 @@
 | @azure-tools/adl-rpaas-controller | npm [0.1.1](https://www.npmjs.com/package/@azure-tools/adl-rpaas-controller/v/0.1.1) |  |  |
 | @azure-tools/adl-vs | npm [0.2.0](https://www.npmjs.com/package/@azure-tools/adl-vs/v/0.2.0) |  |  |
 | @azure-tools/cadl | npm [0.16.0](https://www.npmjs.com/package/@azure-tools/cadl/v/0.16.0) |  |  |
-| @azure-tools/cadl-autorest | npm [0.6.0](https://www.npmjs.com/package/@azure-tools/cadl-autorest/v/0.6.0) |  |  |
+| @azure-tools/cadl-autorest | npm [0.7.0](https://www.npmjs.com/package/@azure-tools/cadl-autorest/v/0.7.0) |  |  |
 | @azure-tools/cadl-openapi | npm [0.4.1](https://www.npmjs.com/package/@azure-tools/cadl-openapi/v/0.4.1) |  |  |
 | @azure-tools/cadl-rest | npm [0.4.1](https://www.npmjs.com/package/@azure-tools/cadl-rest/v/0.4.1) |  |  |
-| @azure-tools/cadl-rpaas | npm [0.7.0](https://www.npmjs.com/package/@azure-tools/cadl-rpaas/v/0.7.0) |  |  |
-| @azure-tools/cadl-rpaas-controller | npm [0.3.2](https://www.npmjs.com/package/@azure-tools/cadl-rpaas-controller/v/0.3.2) |  |  |
+| @azure-tools/cadl-rpaas | npm [0.8.0](https://www.npmjs.com/package/@azure-tools/cadl-rpaas/v/0.8.0) |  |  |
+| @azure-tools/cadl-rpaas-controller | npm [0.4.0](https://www.npmjs.com/package/@azure-tools/cadl-rpaas-controller/v/0.4.0) |  |  |
 | @azure-tools/cadl-vs | npm [0.3.0](https://www.npmjs.com/package/@azure-tools/cadl-vs/v/0.3.0) |  |  |
 | @azure-tools/json | npm [1.2.0](https://www.npmjs.com/package/@azure-tools/json/v/1.2.0) |  |  |
 | @azure-tools/jsonschema | npm [1.1.0](https://www.npmjs.com/package/@azure-tools/jsonschema/v/1.1.0) |  |  |
@@ -151,10 +154,10 @@
 | @azure-tools/test-recorder | npm [1.0.1](https://www.npmjs.com/package/@azure-tools/test-recorder/v/1.0.1) |  |  |
 | @azure-tools/tmlanguage-generator | npm [0.1.4](https://www.npmjs.com/package/@azure-tools/tmlanguage-generator/v/0.1.4) |  |  |
 | @azure-tools/yaml | npm [1.0.0](https://www.npmjs.com/package/@azure-tools/yaml/v/1.0.0) |  |  |
-| @cadl-lang/compiler | npm [0.19.0](https://www.npmjs.com/package/@cadl-lang/compiler/v/0.19.0) |  |  |
+| @cadl-lang/compiler | npm [0.20.0](https://www.npmjs.com/package/@cadl-lang/compiler/v/0.20.0) |  |  |
 | @cadl-lang/openapi3 | npm [0.2.0](https://www.npmjs.com/package/@cadl-lang/openapi3/v/0.2.0) |  |  |
-| @cadl-lang/prettier-plugin-cadl | npm [0.3.2](https://www.npmjs.com/package/@cadl-lang/prettier-plugin-cadl/v/0.3.2) |  |  |
-| @cadl-lang/rest | npm [0.6.0](https://www.npmjs.com/package/@cadl-lang/rest/v/0.6.0) |  |  |
+| @cadl-lang/prettier-plugin-cadl | npm [0.4.0](https://www.npmjs.com/package/@cadl-lang/prettier-plugin-cadl/v/0.4.0) |  |  |
+| @cadl-lang/rest | npm [0.6.1](https://www.npmjs.com/package/@cadl-lang/rest/v/0.6.1) |  |  |
 | adl-vscode | npm [0.6.0](https://www.npmjs.com/package/adl-vscode/v/0.6.0) |  |  |
 | cadl-vs | npm [0.4.0](https://www.npmjs.com/package/cadl-vs/v/0.4.0) |  |  |
 | cadl-vscode | npm [0.8.0](https://www.npmjs.com/package/cadl-vscode/v/0.8.0) |  |  |
@@ -171,22 +174,24 @@
 | AutoRest - CLI | npm [0.1.889](https://www.npmjs.com/package/@autorest/cli/v/0.1.889) |  | GitHub [0.1.889](https://github.com/Azure/autorest.cli) |
 | AutoRest - CLI Common | npm [0.6.2](https://www.npmjs.com/package/@autorest/clicommon/v/0.6.2) |  | GitHub [0.6.2](https://github.com/Azure/autorest.clicommon/tree/0.4.12) |
 | AutoRest - Code Model | npm [3.0.137](https://www.npmjs.com/package/@azure/autorest.codemodel-v3/v/3.0.137) |  |  |
-| AutoRest - Compare | npm [0.4.1](https://www.npmjs.com/package/@autorest/compare/v/0.4.1) |  | GitHub [0.4.1](https://github.com/Azure/autorest.compare) |
-| AutoRest - Core | npm [3.6.0](https://www.npmjs.com/package/@autorest/core/v/3.6.0) |  | GitHub [3.6.0](https://github.com/Azure/autorest) |
+| AutoRest - Compare | npm [0.4.2](https://www.npmjs.com/package/@autorest/compare/v/0.4.2) |  | GitHub [0.4.2](https://github.com/Azure/autorest.compare) |
+| AutoRest - Core | npm [3.6.2](https://www.npmjs.com/package/@autorest/core/v/3.6.2) |  | GitHub [3.6.2](https://github.com/Azure/autorest) |
 | AutoRest - Functions CSharp | npm [0.2.0-preview-dev.321054549](https://www.npmjs.com/package/@autorest/azure-functions-csharp/v/0.2.0-preview-dev.321054549) |  |  |
 | AutoRest - Functions Java | npm [0.0.2-Preview](https://www.npmjs.com/package/@autorest/azure-functions-java/v/0.0.2-Preview) |  |  |
 | AutoRest - Functions Python | npm [0.1.0-preview](https://www.npmjs.com/package/@autorest/azure-functions-python/v/0.1.0-preview) |  |  |
 | AutoRest - Functions TypeScript | npm [0.0.1-preview](https://www.npmjs.com/package/@autorest/azure-functions-typescript/v/0.0.1-preview) |  |  |
 | AutoRest - Go | npm [4.0.0-preview.27](https://www.npmjs.com/package/@autorest/go/v/4.0.0-preview.27) |  |  |
-| AutoRest - Modeler Four | npm [4.21.0](https://www.npmjs.com/package/@autorest/modelerfour/v/4.21.0) |  | GitHub [4.21.0](https://github.com/Azure/autorest.modelerfour) |
-| AutoRest - Power Shell | npm [3.0.450](https://www.npmjs.com/package/@autorest/powershell/v/3.0.450) |  | GitHub [3.0.450](https://github.com/Azure/autorest.powershell) |
+| AutoRest - Modeler Four | npm [4.21.2](https://www.npmjs.com/package/@autorest/modelerfour/v/4.21.2) |  | GitHub [4.21.2](https://github.com/Azure/autorest.modelerfour) |
+| AutoRest - Power Shell | npm [3.0.453](https://www.npmjs.com/package/@autorest/powershell/v/3.0.453) |  | GitHub [3.0.453](https://github.com/Azure/autorest.powershell) |
 | AutoRest - Python | npm [5.8.4](https://www.npmjs.com/package/@autorest/python/v/5.8.4) |  | GitHub [5.8.4](https://github.com/Azure/autorest.python/tree/v5.1.0-preview.7) |
 | AutoRest - Remodeler | npm [2.1.27](https://www.npmjs.com/package/@autorest/remodeler/v/2.1.27) |  | GitHub [2.1.27](https://github.com/Azure/autorest.remodeler) |
 | AutoRest - Test | npm [0.1.76](https://www.npmjs.com/package/@autorest/test/v/0.1.76) |  | GitHub [0.1.76](https://github.com/Azure/autorest.test) |
 | AutoRest - Test Server | npm [3.0.27](https://www.npmjs.com/package/@autorest/test-server/v/3.0.27) |  |  |
 | Autosuggest | npm [2.0.1](https://www.npmjs.com/package/@azure/cognitiveservices-autosuggest/v/2.0.1) |  | GitHub [2.0.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/cognitiveservices/cognitiveservices-autosuggest) |
-| Avocado | npm [0.8.3](https://www.npmjs.com/package/@azure/avocado/v/0.8.3) |  | GitHub [0.8.3](https://github.com/Azure/avocado) |
+| Avocado | npm [0.8.4](https://www.npmjs.com/package/@azure/avocado/v/0.8.4) |  | GitHub [0.8.4](https://github.com/Azure/avocado) |
 | Azure Confidential Ledger | npm [1.0.0-beta.2](https://www.npmjs.com/package/@azure-rest/confidential-ledger/v/1.0.0-beta.2) |  | GitHub [1.0.0-beta.2](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/confidential-ledger_1.0.0-beta.2/sdk/confidentialledger/confidential-ledger-rest) |
+| Azure Mixed Reality Authentication | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure/mixed-reality-authentication/v/1.0.0-beta.1) | [docs](/javascript/api/overview/azure/mixed-reality-authentication-readme) | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/mixed-reality-authentication_1.0.0-beta.1/sdk/mixedreality/mixed-reality-authentication/) |
+| Azure Remote Rendering | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure/mixed-reality-remote-rendering/v/1.0.0-beta.1) | [docs](/javascript/api/overview/azure/mixed-reality-remote-rendering-readme) | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/mixed-reality-remote-rendering_1.0.0-beta.1/sdk/remoterendering/mixed-reality-remote-rendering/) |
 | Azure Video Analyzer Edge | npm [1.0.0-beta.2](https://www.npmjs.com/package/@azure/video-analyzer-edge/v/1.0.0-beta.2) | [docs](/javascript/api/overview/azure/video-analyzer-edge-readme) | GitHub [1.0.0-beta.2](https://github.com/Azure/azure-sdk-for-js/tree/@azure/video-analyzer-edge_1.0.0-beta.2/sdk/videoanalyzer/video-analyzer-edge/) |
 | Batch | npm [10.0.1](https://www.npmjs.com/package/@azure/batch/v/10.0.1) |  | GitHub [10.0.1](https://github.com/azure/azure-sdk-for-js/tree/main/sdk/batch/batch) |
 | Cognitive Search | npm [11.2.1](https://www.npmjs.com/package/@azure/search-documents/v/11.2.1)<br>npm [11.3.0-beta.3](https://www.npmjs.com/package/@azure/search-documents/v/11.3.0-beta.3) | [docs](/javascript/api/overview/azure/search-documents-readme) | GitHub [11.2.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/search-documents_11.2.1/sdk/search/search-documents/)<br>GitHub [11.3.0-beta.3](https://github.com/Azure/azure-sdk-for-js/tree/@azure/search-documents_11.3.0-beta.3/sdk/search/search-documents/) |
@@ -196,7 +201,7 @@
 | Communication Identity | npm [1.0.0](https://www.npmjs.com/package/@azure/communication-identity/v/1.0.0) | [docs](/javascript/api/overview/azure/communication-identity-readme) | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/communication-identity_1.0.0/sdk/communication/communication-identity/) |
 | Communication Network Traversal | npm [1.0.0-beta.2](https://www.npmjs.com/package/@azure/communication-network-traversal/v/1.0.0-beta.2) | [docs](/javascript/api/overview/azure/communication-network-traversal-readme) | GitHub [1.0.0-beta.2](https://github.com/Azure/azure-sdk-for-js/tree/@azure/communication-network-traversal_1.0.0-beta.2/sdk/communication/communication-network-traversal/) |
 | Communication Phone Numbers | npm [1.0.0](https://www.npmjs.com/package/@azure/communication-phone-numbers/v/1.0.0) | [docs](/javascript/api/overview/azure/communication-phone-numbers-readme) | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/communication-phone-numbers_1.0.0/sdk/communication/communication-phone-numbers/) |
-| Communication Signaling | npm [1.0.0-beta.8](https://www.npmjs.com/package/@azure/communication-signaling/v/1.0.0-beta.8) |  |  |
+| Communication Signaling | npm [1.0.0-beta.10](https://www.npmjs.com/package/@azure/communication-signaling/v/1.0.0-beta.10) |  |  |
 | Communication Sms | npm [1.0.0](https://www.npmjs.com/package/@azure/communication-sms/v/1.0.0) | [docs](/javascript/api/overview/azure/communication-sms-readme) | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/communication-sms_1.0.0/sdk/communication/communication-sms/) |
 | Computer Vision | npm [8.1.0](https://www.npmjs.com/package/@azure/cognitiveservices-computervision/v/8.1.0) |  | GitHub [8.1.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/cognitiveservices/cognitiveservices-computervision) |
 | Container Registry | npm [1.0.0-beta.5](https://www.npmjs.com/package/@azure/container-registry/v/1.0.0-beta.5) | [docs](/javascript/api/overview/azure/container-registry-readme) | GitHub [1.0.0-beta.5](https://github.com/Azure/azure-sdk-for-js/tree/@azure/container-registry_1.0.0-beta.5/sdk/containerregistry/container-registry/) |
@@ -274,12 +279,12 @@
 | MsRest - Azure JS | npm [2.1.0](https://www.npmjs.com/package/@azure/ms-rest-azure-js/v/2.1.0) |  | GitHub [2.1.0](https://github.com/Azure/ms-rest-azure-js) |
 | MsRest - Browser Auth | npm [1.0.2](https://www.npmjs.com/package/@azure/ms-rest-browserauth/v/1.0.2) |  | GitHub [1.0.2](https://github.com/Azure/ms-rest-browserauth) |
 | MsRest - JS | npm [2.6.0](https://www.npmjs.com/package/@azure/ms-rest-js/v/2.6.0) |  | GitHub [2.6.0](https://github.com/Azure/ms-rest-js) |
-| MsRest - Node Auth | npm [3.0.10](https://www.npmjs.com/package/@azure/ms-rest-nodeauth/v/3.0.10) |  | GitHub [3.0.10](https://github.com/Azure/ms-rest-nodeauth) |
+| MsRest - Node Auth | npm [3.1.0](https://www.npmjs.com/package/@azure/ms-rest-nodeauth/v/3.1.0) |  | GitHub [3.1.0](https://github.com/Azure/ms-rest-nodeauth) |
 | News Search | npm [3.0.1](https://www.npmjs.com/package/@azure/cognitiveservices-newssearch/v/3.0.1) |  | GitHub [3.0.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/cognitiveservices/cognitiveservices-newssearch) |
 | Ng Deploy | npm [0.2.3](https://www.npmjs.com/package/@azure/ng-deploy/v/0.2.3) |  | GitHub [0.2.3](https://github.com/Azure/ng-deploy-azure) |
 | Node Red Contrib Azure IoT Hub Node | npm [0.5.3](https://www.npmjs.com/package/node-red-contrib-azureiothubnode/v/0.5.3) |  |  |
 | Oad | npm [0.9.1](https://www.npmjs.com/package/@azure/oad/v/0.9.1) |  | GitHub [0.9.1](https://github.com/Azure/openapi-diff) |
-| OpenAPI Markdown | npm [0.9.2](https://www.npmjs.com/package/@azure/openapi-markdown/v/0.9.2) |  | GitHub [0.9.2](https://github.com/Azure/openapi-markdown) |
+| OpenAPI Markdown | npm [0.9.4](https://www.npmjs.com/package/@azure/openapi-markdown/v/0.9.4) |  | GitHub [0.9.4](https://github.com/Azure/openapi-markdown) |
 | Personalizer | npm [2.0.1](https://www.npmjs.com/package/@azure/cognitiveservices-personalizer/v/2.0.1) |  | GitHub [2.0.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/cognitiveservices/cognitiveservices-personalizer) |
 | Publish Pipeline Result | npm [0.1.2](https://www.npmjs.com/package/@azure/publish-pipeline-result/v/0.1.2) |  |  |
 | Purview Account | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure-rest/purview-account/v/1.0.0-beta.1) |  | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/purview-account_1.0.0-beta.1/sdk/purview/purview-account-rest) |
@@ -349,17 +354,17 @@
 | Resource Management - Commitment Plans | npm [1.3.1](https://www.npmjs.com/package/@azure/arm-commitmentplans/v/1.3.1) |  | GitHub [1.3.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/machinelearning/arm-commitmentplans) |
 | Resource Management - Communication | npm [2.1.1](https://www.npmjs.com/package/@azure/arm-communication/v/2.1.1) |  |  |
 | Resource Management - Compute | npm [16.2.0](https://www.npmjs.com/package/@azure/arm-compute/v/16.2.0)<br>npm [30.0.0-beta.3](https://www.npmjs.com/package/@azure/arm-compute/v/30.0.0-beta.3) | [docs](/javascript/api/overview/azure/arm-compute-readme) | GitHub [16.2.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/compute/arm-compute) |
-| Resource Management - Consumption | npm [8.0.0](https://www.npmjs.com/package/@azure/arm-consumption/v/8.0.0) |  | GitHub [8.0.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/consumption/arm-consumption) |
+| Resource Management - Consumption | npm [8.0.1](https://www.npmjs.com/package/@azure/arm-consumption/v/8.0.1) |  | GitHub [8.0.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/consumption/arm-consumption) |
 | Resource Management - Container Instances | npm [6.3.0](https://www.npmjs.com/package/@azure/arm-containerinstance/v/6.3.0) |  | GitHub [6.3.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/containerinstance/arm-containerinstance) |
 | Resource Management - Container Registry | npm [8.1.1](https://www.npmjs.com/package/@azure/arm-containerregistry/v/8.1.1) | [docs](/javascript/api/overview/azure/container-registry) | GitHub [8.1.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/containerregistry/arm-containerregistry) |
-| Resource Management - Container Service | npm [14.0.0](https://www.npmjs.com/package/@azure/arm-containerservice/v/14.0.0) | [docs](/javascript/api/overview/azure/container-service) | GitHub [14.0.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/containerservice/arm-containerservice) |
+| Resource Management - Container Service | npm [14.1.0](https://www.npmjs.com/package/@azure/arm-containerservice/v/14.1.0) | [docs](/javascript/api/overview/azure/container-service) | GitHub [14.1.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/containerservice/arm-containerservice) |
 | Resource Management - Content Delivery Network | npm [5.3.1](https://www.npmjs.com/package/@azure/arm-cdn/v/5.3.1) | [docs](/javascript/api/overview/azure/cdn) | GitHub [5.3.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/cdn/arm-cdn) |
 | Resource Management - Cosmos DB | npm [14.1.1](https://www.npmjs.com/package/@azure/arm-cosmosdb/v/14.1.1) | [docs](/javascript/api/overview/azure/cosmos-db) | GitHub [14.1.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/cosmosdb/arm-cosmosdb) |
 | Resource Management - Customer Insights | npm [3.2.1](https://www.npmjs.com/package/@azure/arm-customerinsights/v/3.2.1) |  | GitHub [3.2.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/customer-insights/arm-customerinsights) |
 | Resource Management - Data Box | npm [4.1.1](https://www.npmjs.com/package/@azure/arm-databox/v/4.1.1) |  | GitHub [4.1.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/databox/arm-databox) |
 | Resource Management - Data Box Edge | npm [1.1.1](https://www.npmjs.com/package/@azure/arm-databoxedge/v/1.1.1) |  |  |
 | Resource Management - Data Catalog | npm [1.2.1](https://www.npmjs.com/package/@azure/arm-datacatalog/v/1.2.1) |  | GitHub [1.2.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/datacatalog/arm-datacatalog) |
-| Resource Management - Data Factory | npm [7.9.0](https://www.npmjs.com/package/@azure/arm-datafactory/v/7.9.0) |  | GitHub [7.9.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/datafactory/arm-datafactory) |
+| Resource Management - Data Factory | npm [8.0.0](https://www.npmjs.com/package/@azure/arm-datafactory/v/8.0.0) |  | GitHub [8.0.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/datafactory/arm-datafactory) |
 | Resource Management - Data Migration | npm [2.1.1](https://www.npmjs.com/package/@azure/arm-datamigration/v/2.1.1) |  | GitHub [2.1.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/datamigration/arm-datamigration) |
 | Resource Management - Databricks | npm [2.0.0](https://www.npmjs.com/package/@azure/arm-databricks/v/2.0.0) |  | GitHub [2.0.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/databricks/arm-databricks) |
 | Resource Management - Deployment Manager | npm [3.1.1](https://www.npmjs.com/package/@azure/arm-deploymentmanager/v/3.1.1) |  | GitHub [3.1.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/deploymentmanager/arm-deploymentmanager) |
