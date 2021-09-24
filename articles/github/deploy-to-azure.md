@@ -5,7 +5,7 @@ author: N-Usha
 ms.author: ushan 
 ms.topic: reference
 ms.service: azure 
-ms.date: 09/16/2021
+ms.date: 09/24/2021
 ms.custom: github-actions-azure
 ---
 
@@ -58,6 +58,7 @@ The following articles provide support to deploy apps from GitHub to Azure.
 
 ## Azure Resource Manager templates
 
+- [Deploy Bicep files by using GitHub Actions](/azure/azure-resource-manager/bicep/deploy-github-actions)
 - [Deploy Azure Resource Manager templates by using GitHub Actions](/azure/azure-resource-manager/templates/deploy-github-actions)
 
 ## Azure Machine Learning
