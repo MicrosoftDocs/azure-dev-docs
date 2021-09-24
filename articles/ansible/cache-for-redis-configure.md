@@ -9,11 +9,11 @@ ms.custom: devx-track-ansible
 
 # Tutorial: Configure caches in Azure Cache for Redis using Ansible
 
-[!INCLUDE [ansible-28-note.md](includes/ansible-28-note.md)]
+[!INCLUDE [ansible-29-note.md](includes/ansible-29-note.md)]
 
 [Azure Cache for Redis](/azure/azure-cache-for-redis/) is an open-source compatible service that allows you to build responsive apps by providing fast access to data. 
 
-[!INCLUDE [ansible-tutorial-goals.md](includes/ansible-tutorial-goals.md)]
+In this article, you learn how to:
 
 > [!div class="checklist"]
 >
@@ -51,7 +51,7 @@ It can take several minutes to provision a cache. The following code tells Ansib
 
 ```yml
   - name: Wait for Redis provisioning to complete
-    azure_rm_rediscache_facts:
+    azure_rm_rediscache_info:
       resource_group: "{{ resource_group }}"
       name: "{{ redis_name }}"
     register: facts
@@ -96,7 +96,7 @@ It can take several minutes to scale a cache. The following code tells Ansible w
 
 ```yml
   - name: Wait for Redis scaling up to complete
-    azure_rm_rediscache_facts:
+    azure_rm_rediscache_info:
       resource_group: "{{ resource_group }}"
       name: "{{ redis_name }}"
     register: facts
@@ -183,7 +183,7 @@ There are two ways to get the complete sample playbook:
         size: C1
 
   - name: Wait for Redis provisioning to complete
-    azure_rm_rediscache_facts:
+    azure_rm_rediscache_info:
       resource_group: "{{ resource_group }}"
       name: "{{ redis_name }}"
     register: facts
@@ -200,7 +200,7 @@ There are two ways to get the complete sample playbook:
         size: C1
 
   - name: Wait for Redis scaling up to complete
-    azure_rm_rediscache_facts:
+    azure_rm_rediscache_info:
       resource_group: "{{ resource_group }}"
       name: "{{ redis_name }}"
     register: facts

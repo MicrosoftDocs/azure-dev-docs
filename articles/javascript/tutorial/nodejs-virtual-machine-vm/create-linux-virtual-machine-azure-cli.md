@@ -3,7 +3,7 @@ title: Create Linux virtual machine
 description: Use the Azure CLI to create and configure your virtual machine. At this point in the tutorial, you should have a terminal window open and signed into the Azure cloud with the Azure CLI on the subscription where you intend to create the virtual machine.
 ms.topic: tutorial
 ms.date: 01/05/2021
-ms.custom: devx-track-js
+ms.custom: devx-track-js, devx-track-azurecli
 ---
 
 # 3. Create Linux virtual machine using Azure CLI

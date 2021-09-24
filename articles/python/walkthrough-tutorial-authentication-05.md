@@ -16,26 +16,13 @@ This part examines the Python libraries brought into the main app and the enviro
 
 The app code requires on a number of libraries: Flask, the standard HTTP requests library, and the Azure libraries for Active Directory ([azure.identity](/python/api/overview/azure/identity-readme)), Key Vault ([azure.keyvault.secrets](/python/api/overview/azure/keyvault-secrets-readme)), and queue storage ([azure.storage.queue](/python/api/overview/azure/storage-queue-readme)). These libraries are included in the app's *requirements.txt* file:
 
-```txt
-flask
-requests
-azure.identity
-azure.keyvault.secrets
-azure.storage.queue
-```
+:::code language="txt" source="~/../python-integrated-authentication/main_app/requirements.txt"
 
 When your deploy the app to Azure App Service, Azure automatically installs these requirements on the host server. When running locally, you install them in your environment with `pip install -r requirements.txt`.
 
 At the top of the code, then, are the required import statements for the parts we're using from libraries:
 
-```python
-from flask import Flask, request, jsonify
-import requests, random, string, os
-from datetime import datetime
-from azure.identity import DefaultAzureCredential
-from azure.keyvault.secrets import SecretClient
-from azure.storage.queue import QueueClient
-```
+:::code language="python" source="~/../python-integrated-authentication/main_app/app.py" range="1-6":::
 
 ## Environment variables
 
@@ -52,7 +39,7 @@ When running the locally, you create these variables within whatever command she
 
 When deploying to Azure App Service, however, you don't have access to the server itself. In this case, you create *application settings* with the same names, which then appear to the app as environment variables. 
 
-The provisioning scripts create these settings using the Azure CLI command, [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings#az-webapp-config-appsettings-set). All four variables are set with a single command.
+The provisioning scripts create these settings using the Azure CLI command, [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_set). All four variables are set with a single command.
 
 To create settings through the Azure portal, see [Configure an App Service app in the Azure portal](/azure/app-service/configure-common).
 

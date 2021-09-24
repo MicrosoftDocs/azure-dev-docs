@@ -1,7 +1,6 @@
 ---
 title: Getting started with Logz.io for Java apps running on Azure
 description: This tutorial shows how to integrate and configure Logz.io for Java apps running on Azure.
-author: jdubois
 manager: bborges
 ms.topic: tutorial
 ms.date: 11/05/2019
@@ -23,7 +22,7 @@ In this tutorial, you'll learn how to:
 
 ## Prerequisites
 
-* [Java Developer Kit](./java-jdk-long-term-support.md), version 8 or greater
+* [Java Developer Kit](./java-support-on-azure.md), version 8 or greater
 * A Logz.io account from the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/logz.logzio-elk-as-a-service-pro)
 * An existing Java application that uses Log4J or Logback
 

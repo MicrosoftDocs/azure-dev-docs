@@ -1,9 +1,9 @@
 ---
 title: Using Ansible with Azure
-description: Introduction to using Ansible to automates cloud provisioning, configuration management, and application deployments.
+description: Introduction to using Ansible to automate cloud provisioning, configuration management, and application deployments.
 keywords: ansible, azure, devops, overview, cloud provision, configuration management, application deployment, ansible modules, ansible playbooks
 ms.topic: overview
-ms.date: 08/13/2020
+ms.date: 08/28/2021
 ms.custom: devx-track-ansible
 adobe-target: true
 ---
@@ -22,7 +22,7 @@ This article gives a basic overview of some of the benefits of using Ansible wit
 
 Ansible includes a suite of [Ansible modules](https://docs.ansible.com/ansible/2.9/modules/modules_by_category.html) that are run directly on remote hosts or via [playbooks](https://docs.ansible.com/ansible/latest/playbooks.html). Users can create their own modules. Modules are used to control system resources - such as services, packages, or files - or execute system commands.
 
-For interacting with Azure services, Ansible includes a suite of [Ansible cloud modules](https://docs.ansible.com/ansible/2.9/modules/list_of_cloud_modules.html#azure). These modules enable you to create and orchestrate your infrastructure on Azure. 
+For interacting with Azure services, Ansible includes a suite of [Ansible cloud modules](https://docs.ansible.com/ansible/2.9/modules/list_of_cloud_modules.html#azure). These modules enable you to create and orchestrate your infrastructure on Azure.
 
 ## Migrate existing workload to Azure
 
@@ -34,16 +34,16 @@ Ansible enables you to automate cloud-native applications in Azure using Azure m
 
 ## Manage deployments with dynamic inventory
 
-Via its [dynamic inventory](https://docs.ansible.com/ansible/latest/user_guide/intro_dynamic_inventory.html) feature, Ansible provides the ability to pull inventory from Azure resources. You can then tag your existing Azure deployments and manage those tagged deployments through Ansible.
+Using the Ansible [dynamic inventory](https://docs.ansible.com/ansible/latest/user_guide/intro_dynamic_inventory.html) feature, you can pull inventory from Azure resources. You can then tag your existing Azure deployments and manage those tagged deployments through Ansible.
 
-## Additional Azure Marketplace options
+## More Azure Marketplace options
 
-The [Ansible Tower](https://azuremarketplace.microsoft.com/marketplace/apps/redhat.ansible-tower) is an Azure Marketplace image by Red Hat. 
+The [Ansible Tower](https://azuremarketplace.microsoft.com/marketplace/apps/redhat.ansible-automation-platform?tab=Overview) is an Azure Marketplace image by Red Hat. 
 
 Ansible Tower is a web-based UI and dashboard for Ansible that has the following features:
 
-* Enables you to define role-based access control, job scheduling, and graphical inventory management. 
-* Includes a REST API and CLI so you can insert Tower into existing tools and processes. 
+* Enables you to define role-based access control, job scheduling, and graphical inventory management.
+* Includes a REST API and CLI so you can insert Tower into existing tools and processes.
 * Supports real-time output of playbook runs. 
 * Encrypts credentials - such as Azure and SSH keys - so you can delegate tasks without exposing credentials.
 

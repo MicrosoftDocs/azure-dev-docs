@@ -13,7 +13,7 @@ ms.custom: devx-track-ansible
 
 [Azure DevTest Labs](/azure/lab-services/devtest-lab-overview) allows developers to automate the creation of VM environments for their apps. These environments can be configured for app developing, testing, and training. 
 
-[!INCLUDE [ansible-tutorial-goals.md](includes/ansible-tutorial-goals.md)]
+In this article, you learn how to:
 
 > [!div class="checklist"]
 >

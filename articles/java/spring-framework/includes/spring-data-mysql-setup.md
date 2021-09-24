@@ -1,7 +1,6 @@
 ---
- author: judubois
- ms.date: 05/06/2020
- ms.author: judubois
+ms.date: 05/06/2020
+ms.author: judubois
 ---
 
 ## Prepare the working environment

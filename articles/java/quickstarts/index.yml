@@ -28,7 +28,7 @@ landingContent:
         - text: Create and publish a function to Azure
           url: /azure/azure-functions/functions-create-first-java-maven
         - text: Deploy using IntelliJ
-          url: ../toolkit-for-intellij/quickstart-functions.md
+          url: /azure/azure-functions/functions-create-maven-intellij
         - text: Deploy using Visual Studio Code
           url: /azure/azure-functions/functions-create-first-function-vs-code?pivots=programming-language-java
   - title: Azure Spring Cloud

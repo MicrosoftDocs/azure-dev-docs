@@ -10,7 +10,7 @@ ms.custom: devx-track-python
 
 A static website is composed of HTML, CSS, JavaScript, and other static files such as images or fonts. A static site is typically a single-page application (SPA) written with any number of JavaScript frameworks such as Angular, React, or Vue.
 
-However you design the app, you can serve these files directly from Azure Storage rather than using a web server. Hosting in storage is simpler and significantly less expensive than maintaining a web server; static hosting typically costs only pennies month. To what extent you might need server-side processing, you can often meet those needs through serverless functions as supported by Azure Functions.
+However you design the app, you can serve these files directly from Azure Storage rather than using a web server. Hosting in storage is simpler and significantly less expensive than maintaining a web server; static hosting typically costs only pennies per month. To what extent you might need server-side processing, you can often meet those needs through serverless functions as supported by Azure Functions.
 
 The resources below provide all the details on creating static websites.
 
@@ -20,4 +20,4 @@ The resources below provide all the details on creating static websites.
 
 - [How to use GitHub Actions to deploy a static website to Azure Storage](/azure/storage/blobs/storage-blobs-static-site-github-actions): A walkthrough on configuring GitHub Actions to automatically deploy updated files from a source repository into Azure Storage.
 
-- [Deploy a static website to Azure from Visual Studio Code](../javascript/tutorial/tutorial-vscode-static-website-node/tutorial-vscode-static-website-node-01.md): A tutorial that covers creating a simple SPA in Angular, React, Vue, and Svelte and then deploying that app to Azure Storage from within Visual Studio Code.
+- [Deploy a static website to Azure from Visual Studio Code](/azure/static-web-apps/getting-started?tabs=vanilla-javascript): A tutorial that covers creating a simple SPA in Angular, React, Vue, and Svelte and then deploying that app to Azure Storage from within Visual Studio Code.

@@ -9,6 +9,20 @@ items:
       href: azure-sdk-tools.md
     - name: Authentication
       href: azure-sdk-authorization.md
+  - name: Concepts
+    expanded: true
+    items:
+      - name: Authentication
+        expanded: false
+        items:
+          - name: Overview
+            href: azure-sdk-authorization.md
+          - name: Auth with Azure Identity
+            href: azure-sdk-authentication.md
+          - name: Auth with service principals
+            href: azure-sdk-authentication-service-principal.md
+          - name: Auth with managed identities
+            href: azure-sdk-authentication-managed-identity.md
   - name: Quickstarts
     items:
     - name: Virtual Machines and Resource Templates

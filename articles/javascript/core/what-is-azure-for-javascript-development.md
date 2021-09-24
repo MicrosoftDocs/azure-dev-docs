@@ -2,7 +2,7 @@
 title: What is Azure for JavaScript developers
 description: Azure concepts for JavaScript, TypeScript, and Node.js developers. 
 ms.topic: conceptual
-ms.date: 04/01/2021
+ms.date: 07/28/2021
 ms.custom: devx-track-js
 ---
 
@@ -44,7 +44,7 @@ Each service's page on the Azure portal includes connection information you will
 
 ### Pricing tiers
 
-Pricing tiers are how your resource is billed. Use the [Azure pricing calculator](https://azure.microsoft.com/en-us/pricing/calculator) to understand billing for your resource. 
+Pricing tiers are how your resource is billed. Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to understand billing for your resource. 
 
 ### Free tier resources
 
@@ -60,49 +60,41 @@ Your development environment needs a few tools to have the best development expe
 * [VS Code](https://code.visualstudio.com/) and the [Azure Tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack) extension
 * [Git](https://git-scm.com/)
 * [Node.js](https://nodejs.org/en/) - always use the Long-term support (LTS) version if possible. 
-* Runtime version management such as [NVM](https://github.com/nvm-sh/nvm/blob/master/README.md) or [Docker Containers](https://www.docker.com/) if you need to synchronize your local development runtime with your Azure hosted runtime using Azure App Service, Azure Functions, or Azure Static Web apps.
+* If you need to synchronize your local development runtime with your Azure hosted runtime (such as Azure App Service, Azure Functions, or Azure Static Web apps), use a runtime version management solution such as:
+  * [NVM](https://github.com/nvm-sh/nvm/blob/master/README.md) 
+  * [Docker Containers](https://www.docker.com/)
 * [Azure CLI](/cli/azure/install-azure-cli) to provide Azure resource creation and management. 
+* Local development hosting CLIs such as: 
+  * [Static web apps CLI](https://github.com/Azure/static-web-apps-cli)
+  * [Azure Functions Core Tools](https://github.com/Azure/azure-functions-core-tools).
 
 ## 3. Use Azure SDK with JavaScript
 
-To use Azure services programmatically with JavaScript, find the [service-specific npm package](../azure-sdk-library-package-index.md). Each npm package has service-specific connection information.
+To use Azure services programmatically with JavaScript, find the [npm package](../azure-sdk-library-package-index.md) specific to the service you will use. Each npm package has service-specific connection information.
 
 All Azure SDKs run with JavaScript without any other tooling. While most modern SDKs are written in TypeScript and provide the `*.d.ts` file for type checking, TypeScript is not a requirement to use the Azure SDKs or the Azure cloud services. 
 
-Your JavaScript code can use Azure services, regardless of where they are hosted (local, hybrid, cloud). The recommended way to use Azure services programmatically with JavaScript is the Azure SDKs. These SDKs expect a minimum Node.js runtime version of 8+. 
+Your JavaScript code can use Azure services, regardless of where your code is hosted (local, hybrid, cloud). The recommended way to use Azure services programmatically with JavaScript is the Azure SDKs. These SDKs expect a minimum Node.js with Long-term support (LTS). 
 
 ## 4. Verify runtime for JavaScript apps hosted in Azure 
 
-In order to host your JavaScript apps in Azure, make sure your local development environment Node.js runtime mimics the Azure hosting runtime your intend to use. 
-
-* Azure [App service](/azure/app-service/) uses the Node.js runtime engine. To show all supported Node.js versions, run the following command in the [Cloud Shell](https://shell.azure.com):
-
-    ```azurecli-interactive
-    az webapp list-runtimes | grep node
-    ```
-
-* Azure [Functions supported Node.js versions](/azure/azure-functions/functions-reference-node?tabs=v2#node-version) are based on which version of Functions you use. 
-
-* Custom runtimes - a custom runtime is supported in the following ways:
-
-    * [Virtual machines](/azure/virtual-machines/)
-    * Containers - [single](/azure/container-instances/), [web app](/azure/app-service/), [Kubernetes](/azure/aks/)
-    * (serverless) Functions - use [custom handlers](/azure/azure-functions/functions-custom-handlers)
+[!INCLUDE [Azure services Node.js minimum version](../includes/nodejs-runtime-for-azure-services.md)]
 
 ## 5. Try a JavaScript quickstart for your hosting scenario
 
 Hosting options allow you to quickly use Azure for your application. The following hosting quickstarts and tutorials guide you to the most common Azure first day experience:
 
-* **Front-end client with APIs** using Azure Static Web apps
+* **Front-end client with APIs** using [Azure Static Web apps](/azure/static-web-apps/)
     * [Vanilla JS](/azure/static-web-apps/getting-started?tabs=vanilla-javascript)
     * [React](/azure/static-web-apps/getting-started?tabs=react)
     * [Angular](/azure/static-web-apps/getting-started?tabs=angular)
     * [Vue](/azure/static-web-apps/getting-started?tabs=vue)
-* **Server application** using Azure App Service 
+* **Serverless APIs** using [Azure Functions](/azure/azure-functions/)
+* **Server application** using [Azure App Service](/azure/app-service/) 
     * [Deploy Express.js MongoDB app to App Service from Visual Studio Code](../tutorial/deploy-nodejs-mongodb-app-service-from-visual-studio-code.md)
-* **Container** application using Azure App Service
+* **Container** application using [Azure App Service](/azure/app-service/)
     * [Deploy Express.js containerized app to App Service from private container registry using Visual Studio Code](../tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-01.md?tabs=bash)
-* **Linux Virtual machine** application using Azure Virtual Machines
+* **Linux Virtual machine** application using [Azure Virtual Machines](/azure/virtual-machines/)
     * [Create and deploy Linux virtual machine with Express.js app using Azure CLI and GitHub actions](../tutorial/nodejs-virtual-machine-vm/create-linux-virtual-machine-azure-cli.md)
 
 Learn more about [hosting options](../how-to/deploy-web-app.md).

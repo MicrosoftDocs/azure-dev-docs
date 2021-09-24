@@ -1,10 +1,10 @@
 ---
 title: End-user Authorization and Authentication with Azure Active Directory for Migrating Java Apps on WebLogic Server to Azure
 description: This guide describes how to configure Oracle WebLogic Server to connect with Azure Active Directory Domain Services via LDAP
-author: edburns
 ms.author: edburns
 ms.topic: tutorial
 ms.date: 08/10/2020
+recommendations: false
 ---
 
 # End-user authorization and authentication for migrating Java apps on WebLogic Server to Azure

@@ -3,7 +3,7 @@ title: Create and use Redis on Azure
 description: Create a Redis resource and use for your Redis database. 
 ms.topic: how-to
 ms.date: 02/19/2021
-ms.custom: devx-track-js
+ms.custom: devx-track-js, devx-track-azurecli
 ---
 
 # Create and use Azure Cache for Redis
