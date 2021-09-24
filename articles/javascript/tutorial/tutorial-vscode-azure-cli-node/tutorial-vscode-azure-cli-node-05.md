@@ -27,4 +27,4 @@ In this step, you view the logs from the running App Service. Any calls to `cons
 
 ## Next steps
 
-* [Stream logs](./tutorial-vscode-azure-cli-node-04.md#make-change-and-deploy-to-azure-app-service-from-local-git)
+* [Clean up resources](tutorial-vscode-azure-cli-node-07.md)
