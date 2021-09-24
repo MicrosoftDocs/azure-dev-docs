@@ -3,7 +3,7 @@ title: Get Started - Install Jenkins on an Azure Linux VM
 description: Learn how to install Jenkins on an Azure Linux virtual machine and build a sample Java application.
 keywords: jenkins, azure, devops, portal, linux, virtual machine
 ms.topic: quickstart
-ms.date: 08/30/2021
+ms.date: 09/23/2021
 ms.custom: devx-track-jenkins, devx-track-azurecli
 ---
 
@@ -208,7 +208,7 @@ In this article, you'll learn how to:
 
 ## Troubleshooting
 
-If you encounter any problems configuring Jenkins, refer to the [Cloudbees Jenkins installation page](https://www.jenkins.io/doc/book/installing/) for the latest instructions and known issues.
+If you encounter any problems configuring Jenkins, refer to the [Jenkins installation page](https://www.jenkins.io/doc/book/installing/) for the latest instructions and known issues.
 
 ## Next steps
 
