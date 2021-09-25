@@ -27,10 +27,7 @@ In this article, you learn how to:
 
 - [Install GraphViz](https://graphviz.org/) to use the Terraform visualize function.
 
-## 2. Exercise: Basic Terraform commands walk-through
-
-
-### Install the Azure Terraform Visual Studio Code extension
+## 2. Install the Azure Terraform Visual Studio Code extension
 
 1. Launch Visual Studio Code.
 
@@ -50,7 +47,7 @@ In this article, you learn how to:
 
 You can now run all supported Terraform commands in your Cloud Shell environment from within Visual Studio Code.
 
-### Prepare a test plan file
+## 3. Prepare a test plan file
 
 1. From the **File** menu, select **New File**.
 
@@ -103,7 +100,7 @@ You can now run all supported Terraform commands in your Cloud Shell environment
 
 1. Navigate to the folder your saved the file into, and select **Select Folder**.
 
-### Initialize a Terraform project in Visual Studio Code
+## 4. Initialize a Terraform project in Visual Studio Code
 
 1. From the Explorer pane on the left, double-click the `main.tf` file to open it.
 
@@ -146,7 +143,7 @@ You can now run all supported Terraform commands in your Cloud Shell environment
 
     ![Terraform has been successfully initialized](media/configure-vs-code-extension-for-terraform/terraform-has-been-successfully-initialized.png)
 
-### Visualize the plan
+## 5. Visualize the plan
 
 Earlier in this article, you installed GraphViz. Terraform can use GraphViz to generate a visual representation of either a configuration or execution plan. The Azure Terraform Visual Studio Code extension implements this feature via the *visualize* command.
 
@@ -154,7 +151,7 @@ From the menu bar, select **View > Command Palette > Azure Terraform: Visualize*
 
 ![Visualize the plan](media/configure-vs-code-extension-for-terraform/graph.png)
 
-### Create the Terraform execution plan from Visual Studio
+## 6. Create the Terraform execution plan from Visual Studio
 
 The [terraform plan](https://www.terraform.io/docs/commands/plan.html) command is used to check whether the execution plan for a set of changes will do what you intended.
 
@@ -162,7 +159,7 @@ From the menu bar, select **View** > **Command Palette** > **Azure Terraform: pl
 
 ![Terraform plan](media/configure-vs-code-extension-for-terraform/terraform-plan.png)
 
-### Apply the Terraform execution plan from Visual Studio
+## 7. Apply the Terraform execution plan from Visual Studio
 
 Once you're ready to apply the execution plan to your cloud infrastructure, you run [terraform apply](https://www.terraform.io/docs/commands/apply.html).
 
@@ -178,7 +175,7 @@ Once you're ready to apply the execution plan to your cloud infrastructure, you 
 
     ![Verify your new resource](media/configure-vs-code-extension-for-terraform/verify-resource-group-created.png)
 
-### Destroy a Terraform execution plan from Visual Studio
+## 8. Destroy a Terraform execution plan from Visual Studio
 
 1. From the menu bar, select **View** > **Command Palette** > **Azure Terraform: destroy**.
 
@@ -191,7 +188,6 @@ Once you're ready to apply the execution plan to your cloud infrastructure, you 
 1. To confirm that Terraform successfully destroyed your new resource group, select **Refresh** on the Azure portal **Resource groups** page. Your resource group will no longer be listed.
 
     ![Verify resource group was destroyed](media/configure-vs-code-extension-for-terraform/refresh-resource-groups-button.png)
-
 
 ## Troubleshoot Terraform on Azure
 
