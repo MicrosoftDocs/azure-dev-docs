@@ -54,9 +54,30 @@ You can now run all supported Terraform commands in your Cloud Shell environment
 
 1. From the **File** menu, select **New File**.
 
-1. In your browser, navigate to the [Terraform azurerm_resource_group page](https://www.terraform.io/docs/providers/azurerm/r/resource_group.html#).
+1. Insert the following code into the new file:
 
-1. Copy the code in the **Example Usage** code block to the clipboard.
+    ```terraform
+    terraform {
+    
+      required_version = ">=0.12"
+      
+      required_providers {
+        azurerm = {
+          source = "hashicorp/azurerm"
+          version = "~>2.0"
+        }
+      }
+    }
+    
+    provider "azurerm" {
+      features {}
+    }
+    
+    resource "azurerm_resource_group" "rg" {
+      name = var.resource_group_name
+      location = var.resource_group_location
+    }    
+    ```
 
 1. Insert the copied code into the new file you created in Visual Studio Code.
 
@@ -66,7 +87,7 @@ You can now run all supported Terraform commands in your Cloud Shell environment
 
 1. From the **File** menu, select **Save As...**.
 
-1. In the **Save As** dialog, navigate to your home directory and then select **New folder**. (Change the name of the new folder to something more descriptive than *New folder*.)
+1. In the **Save As** dialog, navigate to your **home directory** and then select **New folder**. (Change the name of the new folder to something more descriptive than *New folder*.)
 
     **Key points:**
 
@@ -84,11 +105,19 @@ You can now run all supported Terraform commands in your Cloud Shell environment
 
 ### Initialize a Terraform project in Visual Studio Code
 
-1. From the Explore pane on the left, double-click the `main.tf` file to open it.
+1. From the Explorer pane on the left, double-click the `main.tf` file to open it.
 
 1. From the **View** menu, select **Command Palette...**.
 
-1. In the Command Palette text box, enter `Azure Terraform: Init`.
+1. In the Command Palette text box, start entering `Azure Terraform: Init` and select it when it displays.
+
+1. Follow the prompts to install any dependencies - such as the latest supported version of nodejs.
+
+1. If this is the first time you're using Cloud Shell with your default Azure subscription, follow the prompts to configure the environment.
+
+1. 
+
+
 
 1. When the confirmation appears to open Cloud Shell, select **OK**. (The confirmation dialog might display in the lower right corner.)
 
@@ -98,19 +127,10 @@ You can now run all supported Terraform commands in your Cloud Shell environment
 
     - If you need to install a new version of Node, you might need to reboot your operating system, reopen Visual Studio Code, and reopen your test folder (project).
 
-1. start here
+1. When Cloud Shell opens, 
 
 
-1. The first time you launch Cloud Shell from a new folder, you're prompted to create a web application. Select **Open**.
 
-    ![First launch of Cloud Shell](media/configure-vs-code-extension-for-terraform/first-launch-of-cloud-shell.png)
-
-1. When the **Welcome to Azure Cloud Shell** displays, select **Bash** or **PowerShell**. 
-
-    ![Welcome to Azure Cloud Shell](media/configure-vs-code-extension-for-terraform/welcome-to-azure-cloud-shell.png)
-
-    **Key points:**
-    - The **Bash (Linux)** environment was selected for this article.
 
 1. If you have not already set up an Azure storage account, the following screen appears. Select **Create storage**.
 
