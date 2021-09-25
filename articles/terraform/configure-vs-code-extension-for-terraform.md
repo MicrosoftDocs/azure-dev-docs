@@ -1,14 +1,14 @@
 ---
-title: Configure the Azure Terraform Visual Studio Code extension
-description: Learn how to install and use the Azure Terraform extension in Visual Studio Code.
-ms.topic: how-to
-ms.date: 09/23/2021
+title: Get Started - Install the Azure Terraform Visual Studio Code extension
+description: Learn how to install and use the Azure Terraform Visual Studio Code extension to create an Azure resource group
+ms.topic: quickstart
+ms.date: 09/24/2021
 ms.custom: devx-track-terraform
 ---
 
-# Configure the Azure Terraform Visual Studio Code extension
+# Get Started: Install the Azure Terraform Visual Studio Code extension
 
-The Azure Terraform Visual Studio Code extension enables you to work with Terraform from the editor. With this extension, you can author, test, and run Terraform configurations. The extension also supports resource graph visualization.
+The Visual Studio Code Terraform extension enables you to work with Terraform from the editor. With this extension, you can author, test, and run Terraform configurations. The extension also supports resource graph visualization.
 
 In this article, you learn how to:
 > [!div class="checklist"]
@@ -28,7 +28,7 @@ In this article, you learn how to:
 - [Install GraphViz](https://graphviz.org/) to use the Terraform visualize function.
 
 ## 2. Exercise: Basic Terraform commands walk-through
-In this exercise, you create and execute a basic Terraform configuration file that provisions a new Azure resource group.
+
 
 ### Install the Azure Terraform Visual Studio Code extension
 
@@ -192,72 +192,6 @@ Once you're ready to apply the execution plan to your cloud infrastructure, you 
 
     ![Verify resource group was destroyed](media/configure-vs-code-extension-for-terraform/refresh-resource-groups-button.png)
 
-## 3. Exercise: Terraform compute module
-
-In this exercise, you learn how to load the Terraform *compute* module into the Visual Studio Code environment.
-
-### Clone the terraform-azurerm-compute module
-
-1. Use [this link](https://github.com/Azure/terraform-azurerm-compute) to access the Terraform Azure Rm Compute module on GitHub.
-
-1. Select **Clone or download**.
-
-    ![Clone or download](media/configure-vs-code-extension-for-terraform/clone-with-https.png)
-
-**Key points:**
-- The folder name `terraform-azurerm-compute` was used in the example.
-
-### Open the folder in Visual Studio Code
-
-1. Launch Visual Studio Code.
-
-1. From the menu bar, select **File > Open Folder** and navigate to and select the folder you created in the previous step.
-
-    ![terraform-azurerm-compute folder](media/configure-vs-code-extension-for-terraform/terraform-azurerm-compute-folder.png)
-
-### Initialize Terraform
-
-Before you can begin using the Terraform commands from within Visual Studio Code, you download the plug-ins for two Azure providers: random and azurerm.
-
-1. In the Terminal pane of the Visual Studio Code IDE, enter `terraform init`.
-
-    ![terraform init command](media/configure-vs-code-extension-for-terraform/terraform-init-command.png)
-
-1. Enter `az login`, press **<Enter**, and follow the on-screen instructions.
-
-### Module test: Using the lint test option
-
-1. From the menu bar, select **View > Command Palette > Azure Terraform: Execute Test**.
-
-1. From the list of test-type options, select **lint**.
-
-    ![Select "lint" as the type of test](media/configure-vs-code-extension-for-terraform/select-type-of-test-lint.png)
-
-1. When the confirmation appears, select **OK**, and follow the on-screen instructions.
-
-    **Key points:**
-    - When you execute either the **lint** or **end to end** test, Azure uses a container service to provision a test machine to do the actual test. For this reason, your test results may typically take several minutes to be returned.
-
-After a few moments, you see a listing in the Terminal pane similar to this example:
-
-![Lint test results](media/configure-vs-code-extension-for-terraform/lint-test-results.png)
-
-### Test the module
-
-1. From the menu bar, select **View > Command Palette > Azure Terraform: Execute Test**.
-
-1. From the list of test type options, select **end to end**.
-
-    ![Select "end to end" as the type of test](media/configure-vs-code-extension-for-terraform/select-type-of-test-end-to-end.png)
-
-1. When the confirmation appears, select **OK**, and follow the on-screen instructions.
-
-    **Key points:**
-    - When you execute either the **lint** or **end to end** test, Azure uses a container service to provision a test machine to do the actual test. For this reason, your test results may typically take several minutes to be returned.
-
-After a few moments, you see a listing in the Terminal pane similar to this example:
-
-![Test results](media/configure-vs-code-extension-for-terraform/end-to-end-test-results.png)
 
 ## Troubleshoot Terraform on Azure
 
