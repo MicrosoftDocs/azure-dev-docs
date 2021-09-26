@@ -52,7 +52,7 @@ The following prerequisites are required to complete the steps in this article:
 
 ### Create the Active Directory instance
 
-If you are the administrator of this instance, you can skip this process.
+If you are the administrator of an existing instance, you can skip this process.
 
 1. Log into <https://portal.azure.com>.
 
@@ -130,7 +130,7 @@ If you are the administrator of this instance, you can skip this process.
    >[!div class="mx-imgBorder"]
    >![Enable Id Tokens][create-app-registration-11]
 
-### Add a user account to your directory, and add that account to a appRole
+### Add a user account to your directory, and add that account to an appRole
 
 1. From the **Overview** page of your Active Directory, select **Users**, and then select **New user**.
 
@@ -147,27 +147,27 @@ If you are the administrator of this instance, you can skip this process.
    >
    > `test-user@azuresampledirectory.onmicrosoft.com`
 
-1. From the main page for your app registration, select **App roles**, and select **Create app role**. Specify your app role, and then select **Apply**.
+1. From the main page for your app registration, select **App roles**, then select **Create app role**. Specify your app role, then select **Apply**.
 
    >[!div class="mx-imgBorder"]
    >![Enter app role information][create-app-role-01]
 
-1. From the Overview page of your Active Directory, select **Enterprise applications**
+1. From the **Overview** page of your Azure AD directory, select **Enterprise applications**
 
    >[!div class="mx-imgBorder"]
    >![Select Enterprise application][create-app-role-02]
 
-1. Select **All applications** , select the application you added the app role in the previous step.
+1. Select **All applications** , then select the application you added the app role to in a previous step.
 
    >[!div class="mx-imgBorder"]
    >![Choose the application to assign app role][create-app-role-03]
 
-1. Select **Users and groups**, and then select **Add user/group**.
+1. Select **Users and groups**, then select **Add user/group**.
 
    >[!div class="mx-imgBorder"]
    >![Assign app role to user][create-app-role-04]
 
-1. Select **None Selected** under **Users**, Select the user you created before, and select **Select**. Then select **Assign**. If you created more than one app roles before, you need to select a role.
+1. Under **Users**, select **None Selected**. Select the user you created earlier, select **Select**, then select **Assign**. If you created more than one app role earlier, select a role.
 
    >[!div class="mx-imgBorder"]
    >![Choose user account][create-app-role-05]
@@ -192,8 +192,6 @@ If you are the administrator of this instance, you can skip this process.
    azure.activedirectory.client-id=11111111-1111-1111-1111-1111111111111111
    # Specifies your App Registration's secret key:
    azure.activedirectory.client-secret=AbCdEfGhIjKlMnOpQrStUvWxYz==
-   # Specifies the list of Active Directory groups to use for authorization:
-   azure.activedirectory.user-group.allowed-groups=group1
    ```
 
    Where:
@@ -203,8 +201,7 @@ If you are the administrator of this instance, you can skip this process.
    | `azure.activedirectory.tenant-id` | Contains your Active Directory's **Directory ID** from earlier. |
    | `azure.activedirectory.client-id` | Contains the **Application ID** from your app registration that you completed earlier. |
    | `azure.activedirectory.client-secret` | Contains the **Value** from your app registration key that you completed earlier. |
-   | `azure.activedirectory.user-group.allowed-group-names` | You can specify users' group names in `@PreAuthorize("hasRole('ROLE_group_name_1')")`. <br>Only group names configured in this property will take effect. |
-
+   
    > [!NOTE]
    > For a full list of values that are available in your *application.properties* file, see the [Configurable properties](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/spring/azure-spring-boot-starter-active-directory/README.md#configurable-properties) section of the [Azure AD Spring Boot Starter client library for Java](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/spring/azure-spring-boot-starter-active-directory) on GitHub.
 
