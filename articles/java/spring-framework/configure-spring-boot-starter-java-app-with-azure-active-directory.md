@@ -40,8 +40,7 @@ The following prerequisites are required to complete the steps in this article:
 1. Add **Dependencies** for **Spring Web**, **Azure Active Directory**, and **OAuth2 Client**.
 1. At the bottom of the page, select the **GENERATE** button.
 
-   >[!div class="mx-imgBorder"]
-   >![Specify Group and Artifact names, select dependencies][create-spring-app-01]
+:::image type="content" source="media/create-spring-app-01.png" alt-text="Specify Group and Artifact names, select dependencies":::
 
 1. When prompted, download the project to a path on your local computer.
 
@@ -58,11 +57,9 @@ If you are the administrator of an existing instance, you can skip this process.
 
 1. Select **All services**, then **Identity**, and then **Azure Active Directory**.
 
-   >[!div class="mx-imgBorder"]
-   >![Create new Azure Active Directory instance_step1][create-directory-00]
+:::image type="content" source="media/create-directory-00.png" alt-text="Create new Azure Active Directory instance_step1":::
 
-   >[!div class="mx-imgBorder"]
-   >![Create new Azure Active Directory instance_step2][create-directory-01]
+:::image type="content" source="media/create-directory-01.png" alt-text="Create new Azure Active Directory instance_step2":::
 
 1. Enter your **Organization name** and your **Initial domain name**. Copy the full URL of your directory. You'll use the URL to add user accounts later in this tutorial. (For example: `azuresampledirectory.onmicrosoft.com`.)
 
@@ -70,112 +67,92 @@ If you are the administrator of an existing instance, you can skip this process.
 
    When you've finished, select **Create**. It will take a few minutes to create the new resource.
 
-   >[!div class="mx-imgBorder"]
-   >![Specify Azure Active Directory names][create-directory-02]
+:::image type="content" source="media/create-directory-02.png" alt-text="Specify Azure Active Directory names":::
 
 1. When complete, select to access the new directory.
 
-   >[!div class="mx-imgBorder"]
-   >![Select your Azure account name][create-directory-03]
+:::image type="content" source="media/create-directory-03.png" alt-text="Select your Azure account name":::
 
 1. Copy the **Tenant ID**. You'll use the ID value to configure your *application.properties* file later in this tutorial.
 
-   >[!div class="mx-imgBorder"]
-   >![Copy your Tenant ID][create-directory-04]
+:::image type="content" source="media/create-directory-04.png" alt-text="Copy your Tenant ID":::
 
 ### Add an application registration for your Spring Boot app
 
 1. From the portal menu, select **App registrations**, and then select **Register an application**.
 
-   >[!div class="mx-imgBorder"]
-   >![Add a new app registration][create-app-registration-01]
+:::image type="content" source="media/create-app-registration-01.png" alt-text="Add a new app registration":::
 
 1. Specify your application, and then select **Register**.
 
-   >[!div class="mx-imgBorder"]
-   >![Create new app registration][create-app-registration-02]
+:::image type="content" source="media/create-app-registration-02.png" alt-text="Create new app registration":::
 
 1. When the page for your app registration appears, copy your **Application ID** and the **Tenant ID**. You'll use these values to configure your *application.properties* file later in this tutorial.
 
-   >[!div class="mx-imgBorder"]
-   >![Copy app registration keys][create-app-registration-03]
+:::image type="content" source="media/create-app-registration-03.png" alt-text="Copy app registration keys":::
 
 1. Select **Certificates & secrets** in the left navigation pane.  Then select **New client secret**.
 
-   >[!div class="mx-imgBorder"]
-   >![Create app registration keys][create-app-registration-03-5]
+:::image type="content" source="media/create-app-registration-03-5.png" alt-text="Create app registration keys":::
 
 1. Add a **Description** and select duration in the **Expires** list. Select **Add**. The value for the key will be automatically filled in.
 
-   >[!div class="mx-imgBorder"]
-   >![Specify app registration key parameters][create-app-registration-04]
+:::image type="content" source="media/create-app-registration-04.png" alt-text="Specify app registration key parameters":::
 
 1. Copy and save the value of the client secret to configure your *application.properties* file later in this tutorial. (You won't be able to retrieve this value later.)
 
-   >[!div class="mx-imgBorder"]
-   >![Copy app registration key value][create-app-registration-04-5]
+:::image type="content" source="media/create-app-registration-04-5.png" alt-text="Copy app registration key value":::
 
 1. From the main page for your app registration, select **Authentication**, and select **Add a platform**.  Then select **Web applications**.
 
-   >[!div class="mx-imgBorder"]
-   >![Edit Reply URLs][create-app-registration-09]
+:::image type="content" source="media/create-app-registration-09.png" alt-text="Edit Reply URLse":::
 
 1. Enter *http://localhost:8080/login/oauth2/code/* as a new **Redirect URI**, and then select **Configure**.
 
-   >[!div class="mx-imgBorder"]
-   >![Add new Reply URL][create-app-registration-10]
+:::image type="content" source="media/create-app-registration-10.png" alt-text="Add new Reply URL":::
 
 1. If you've modified the *pom.xml* file to use an AAD starter version earlier than 3.0.0: under **Implicit grant and hybrid flows**, select **ID tokens (used for implicit and hybrid flows)**, then select **Save**.
 
-   >[!div class="mx-imgBorder"]
-   >![Enable Id Tokens][create-app-registration-11]
+:::image type="content" source="media/create-app-registration-11.png" alt-text="Enable Id Tokens":::
 
 ### Add a user account to your directory, and add that account to an appRole
 
 1. From the **Overview** page of your Active Directory, select **Users**, and then select **New user**.
 
-   >[!div class="mx-imgBorder"]
-   >![Add a new user account][create-user-01]
+:::image type="content" source="media/create-user-01.png" alt-text="Add a new user account":::
 
 1. When the **User** panel is displayed, enter the **User name** and **Name**.  Then select **Create**.
 
-   >[!div class="mx-imgBorder"]
-   >![Enter user account information][create-user-02]
+:::image type="content" source="media/create-user-02.png" alt-text="Enter user account information":::
 
    > [!NOTE]
    > You need to specify your directory URL from earlier in this tutorial when you enter the user name. For example:
    >
    > `test-user@azuresampledirectory.onmicrosoft.com`
 
-1. From the main page for your app registration, select **App roles**, then select **Create app role**. Specify your app role, then select **Apply**.
+1. From the main page for your app registration, select **App roles**, then select **Create app role**. Provide values for the form fields, select **Do you want to enable this app role?**, then select **Apply**.
 
-   >[!div class="mx-imgBorder"]
-   >![Enter app role information][create-app-role-01]
+:::image type="content" source="media/create-app-role-01.png" alt-text="Enter app role information":::
 
 1. From the **Overview** page of your Azure AD directory, select **Enterprise applications**
 
-   >[!div class="mx-imgBorder"]
-   >![Select Enterprise application][create-app-role-02]
+:::image type="content" source="media/create-app-role-02.png" alt-text="Select Enterprise application":::
 
 1. Select **All applications** , then select the application you added the app role to in a previous step.
 
-   >[!div class="mx-imgBorder"]
-   >![Choose the application to assign app role][create-app-role-03]
+:::image type="content" source="media/create-app-role-03.png" alt-text="Choose the application to assign app role":::
 
 1. Select **Users and groups**, then select **Add user/group**.
 
-   >[!div class="mx-imgBorder"]
-   >![Assign app role to user][create-app-role-04]
+:::image type="content" source="media/create-app-role-04.png" alt-text="Assign app role to user":::
 
 1. Under **Users**, select **None Selected**. Select the user you created earlier, select **Select**, then select **Assign**. If you created more than one app role earlier, select a role.
 
-   >[!div class="mx-imgBorder"]
-   >![Choose user account][create-app-role-05]
+:::image type="content" source="media/create-app-role-05.png" alt-text="Choose user account":::
 
 1. Go back to the **Users** panel, select your test user, and select **Reset password**, and copy the password. You'll use the password when you log into your application later in this tutorial.
 
-   >[!div class="mx-imgBorder"]
-   >![Show the password][create-user-04]
+:::image type="content" source="media/create-user-04.png" alt-text="Show the password":::
 
 ## Configure and compile your app
 
@@ -265,24 +242,20 @@ If you are the administrator of an existing instance, you can skip this process.
    mvn spring-boot:run
    ```
 
-   >[!div class="mx-imgBorder"]
-   >![Build your application][build-application]
+:::image type="content" source="media/build-application.png" alt-text="Build your application":::
 
 1. After your application is built and started by Maven, open `http://localhost:8080/Admin` in a web browser. You should be prompted for a user name and password.
 
-   >[!div class="mx-imgBorder"]
-   ![Logging into your application][application-login]
+:::image type="content" source="media/application-login.png" alt-text="Logging into your application":::
 
    > [!NOTE]
    > You may be prompted to change your password if this is the first login for a new user account.
 
-   >[!div class="mx-imgBorder"]
-   >![Changing your password][update-password]
+:::image type="content" source="media/update-passwor.png" alt-text="Changing your password":::
 
 1. After you've logged in successfully, you should see the sample "Admin message" text from the controller.
 
-   >[!div class="mx-imgBorder"]
-   >![Authorized_group1][hello-admin]
+:::image type="content" source="media/hello-admin.png" alt-text="Authorized admin":::
 
 ## Summary
 
