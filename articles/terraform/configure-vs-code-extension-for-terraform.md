@@ -2,7 +2,7 @@
 title: Get Started - Install the Azure Terraform Visual Studio Code extension
 description: Learn how to install and use the Azure Terraform Visual Studio Code extension to create an Azure resource group
 ms.topic: quickstart
-ms.date: 09/24/2021
+ms.date: 09/25/2021
 ms.custom: devx-track-terraform
 ---
 
@@ -47,7 +47,9 @@ In this article, you learn how to:
 
 You can now run all supported Terraform commands in your Cloud Shell environment from within Visual Studio Code.
 
-## 3. Prepare a test plan file
+## 3. Implement the Terraform code
+
+In this section, you'll create a simple Terraform configuration file to test with it. The Terraform code creates an Azure resource group named `myResourceGroup` in your default Azure subscription.
 
 1. From the **File** menu, select **New File**.
 
@@ -56,27 +58,32 @@ You can now run all supported Terraform commands in your Cloud Shell environment
     ```terraform
     terraform {
     
-      required_version = ">=0.12"
-      
-      required_providers {
-        azurerm = {
-          source = "hashicorp/azurerm"
-          version = "~>2.0"
+        required_version = ">=0.12"
+        
+        required_providers {
+            azurerm = {
+                source = "hashicorp/azurerm"
+                version = "~>2.0"
+            }
         }
-      }
     }
     
     provider "azurerm" {
-      features {}
+        features {}
     }
     
     resource "azurerm_resource_group" "rg" {
-      name = var.resource_group_name
-      location = var.resource_group_location
+        name = "myResourceGroup"
+        location = "eastus"
+    
+        tags {
+            environment = "Testing"
+
+        }
     }    
     ```
-
-1. Insert the copied code into the new file you created in Visual Studio Code.
+    
+    1. Insert the copied code into the new file you created in Visual Studio Code.
 
      **Key points:**
 
@@ -112,44 +119,15 @@ You can now run all supported Terraform commands in your Cloud Shell environment
 
 1. If this is the first time you're using Cloud Shell with your default Azure subscription, follow the prompts to configure the environment.
 
-1. 
+## 5. Visualize a test plan
 
+In the [Configure your environment](#configure-your-environment) section, you installed GraphViz. The Azure Terraform Visual Studio Code extension uses GraphWiz to display a visual representation of either a configuration or execution plan.
 
+1. From the **View** menu, select **Command Palette**.
 
-1. When the confirmation appears to open Cloud Shell, select **OK**. (The confirmation dialog might display in the lower right corner.)
+1. In the Command Palette text box, start entering `Azure Terraform: Visualize` and select it when it displays.
 
-1. After confirming the dialog, you might see additional messages about installing other tools. Follow those prompts as appropriate for your environment.
-
-    **Key points:**
-
-    - If you need to install a new version of Node, you might need to reboot your operating system, reopen Visual Studio Code, and reopen your test folder (project).
-
-1. When Cloud Shell opens, 
-
-
-
-
-1. If you have not already set up an Azure storage account, the following screen appears. Select **Create storage**.
-
-    ![You have no storage mounted](media/configure-vs-code-extension-for-terraform/you-have-no-storage-mounted.png)
-
-1. Azure Cloud Shell launches in the shell you previously selected and displays information for the cloud drive it just created for you.
-
-    ![Your cloud drive has been created](media/configure-vs-code-extension-for-terraform/your-cloud-drive-has-been-created-in.png)
-
-1. You can now exit the Cloud Shell.
-
-1. From the menu bar, select **View** > **Command Palette** > **Azure Terraform: init**.
-
-    ![Terraform has been successfully initialized](media/configure-vs-code-extension-for-terraform/terraform-has-been-successfully-initialized.png)
-
-## 5. Visualize the plan
-
-Earlier in this article, you installed GraphViz. Terraform can use GraphViz to generate a visual representation of either a configuration or execution plan. The Azure Terraform Visual Studio Code extension implements this feature via the *visualize* command.
-
-From the menu bar, select **View > Command Palette > Azure Terraform: Visualize**.
-
-![Visualize the plan](media/configure-vs-code-extension-for-terraform/graph.png)
+![Use GraphWiz to visualize the Terraform execution plan](media/configure-vs-code-extension-for-terraform/graph.png)
 
 ## 6. Create the Terraform execution plan from Visual Studio
 
