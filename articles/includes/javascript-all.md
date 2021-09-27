@@ -68,6 +68,7 @@
 | Web PubSub | npm [1.0.0-beta.3](https://www.npmjs.com/package/@azure/web-pubsub/v/1.0.0-beta.3) | [docs](/javascript/api/overview/azure/web-pubsub-readme) | GitHub [1.0.0-beta.3](https://github.com/Azure/azure-sdk-for-js/tree/@azure/web-pubsub_1.0.0-beta.3/sdk/web-pubsub/web-pubsub/) |
 | Web PubSub CloudEvents Handlers for Express | npm [1.0.0-beta.3](https://www.npmjs.com/package/@azure/web-pubsub-express/v/1.0.0-beta.3) | [docs](/javascript/api/overview/azure/web-pubsub-express-readme) | GitHub [1.0.0-beta.3](https://github.com/Azure/azure-sdk-for-js/tree/@azure/web-pubsub-express_1.0.0-beta.3/sdk/web-pubsub/web-pubsub-express/) |
 | Resouce Management - Resources Subscriptions | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure/arm-resources-subscriptions/v/1.0.0-beta.1) | [docs](/javascript/api/overview/azure/arm-resources-subscriptions-readme) | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-resources-subscriptions_1.0.0-beta.1/sdk/resources-subscriptions/arm-resources-subscriptions/) |
+| Resource Management - Api Management | npm [7.1.1](https://www.npmjs.com/package/@azure/arm-apimanagement/v/7.1.1)<br>npm [30.0.0-beta.1](https://www.npmjs.com/package/@azure/arm-apimanagement/v/30.0.0-beta.1) |  | GitHub [7.1.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/apimanagement/arm-apimanagement) |
 | Resource Management - App Service | npm [8.1.1](https://www.npmjs.com/package/@azure/arm-appservice/v/8.1.1)<br>npm [30.0.0-beta.2](https://www.npmjs.com/package/@azure/arm-appservice/v/30.0.0-beta.2) | [docs](/javascript/api/overview/azure/arm-appservice-readme) | GitHub [8.1.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/appservice/arm-appservice) |
 | Resource Management - Authorization | npm [8.4.1](https://www.npmjs.com/package/@azure/arm-authorization/v/8.4.1)<br>npm [30.0.0-beta.1](https://www.npmjs.com/package/@azure/arm-authorization/v/30.0.0-beta.1) | [docs](/javascript/api/overview/azure/arm-authorization-readme) | GitHub [8.4.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/authorization/arm-authorization) |
 | Resource Management - Compute | npm [16.2.0](https://www.npmjs.com/package/@azure/arm-compute/v/16.2.0)<br>npm [30.0.0-beta.3](https://www.npmjs.com/package/@azure/arm-compute/v/30.0.0-beta.3) | [docs](/javascript/api/overview/azure/arm-compute-readme) | GitHub [16.2.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/compute/arm-compute) |
@@ -90,8 +91,8 @@
 | @autorest/cadl | npm [0.0.2](https://www.npmjs.com/package/@autorest/cadl/v/0.0.2) |  |  |
 | @autorest/codemodel | npm [4.17.0](https://www.npmjs.com/package/@autorest/codemodel/v/4.17.0) |  |  |
 | @autorest/common | npm [1.3.0](https://www.npmjs.com/package/@autorest/common/v/1.3.0) |  |  |
-| @autorest/configuration | npm [1.7.1](https://www.npmjs.com/package/@autorest/configuration/v/1.7.1) |  |  |
-| @autorest/csharp | npm [3.0.0-beta.20210920.1](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20210920.1) |  |  |
+| @autorest/configuration | npm [1.7.2](https://www.npmjs.com/package/@autorest/configuration/v/1.7.2) |  |  |
+| @autorest/csharp | npm [3.0.0-beta.20210925.3](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20210925.3) |  |  |
 | @autorest/csharp-v3 | npm [3.0.0-beta.20201217.1](https://www.npmjs.com/package/@autorest/csharp-v3/v/3.0.0-beta.20201217.1) |  |  |
 | @autorest/extension-base | npm [3.3.1](https://www.npmjs.com/package/@autorest/extension-base/v/3.3.1) |  |  |
 | @autorest/schemas | npm [1.3.1](https://www.npmjs.com/package/@autorest/schemas/v/1.3.1) |  |  |
@@ -175,14 +176,14 @@
 | AutoRest - CLI Common | npm [0.6.2](https://www.npmjs.com/package/@autorest/clicommon/v/0.6.2) |  | GitHub [0.6.2](https://github.com/Azure/autorest.clicommon/tree/0.4.12) |
 | AutoRest - Code Model | npm [3.0.137](https://www.npmjs.com/package/@azure/autorest.codemodel-v3/v/3.0.137) |  |  |
 | AutoRest - Compare | npm [0.4.2](https://www.npmjs.com/package/@autorest/compare/v/0.4.2) |  | GitHub [0.4.2](https://github.com/Azure/autorest.compare) |
-| AutoRest - Core | npm [3.6.2](https://www.npmjs.com/package/@autorest/core/v/3.6.2) |  | GitHub [3.6.2](https://github.com/Azure/autorest) |
+| AutoRest - Core | npm [3.6.3](https://www.npmjs.com/package/@autorest/core/v/3.6.3) |  | GitHub [3.6.3](https://github.com/Azure/autorest) |
 | AutoRest - Functions CSharp | npm [0.2.0-preview-dev.321054549](https://www.npmjs.com/package/@autorest/azure-functions-csharp/v/0.2.0-preview-dev.321054549) |  |  |
 | AutoRest - Functions Java | npm [0.0.2-Preview](https://www.npmjs.com/package/@autorest/azure-functions-java/v/0.0.2-Preview) |  |  |
 | AutoRest - Functions Python | npm [0.1.0-preview](https://www.npmjs.com/package/@autorest/azure-functions-python/v/0.1.0-preview) |  |  |
 | AutoRest - Functions TypeScript | npm [0.0.1-preview](https://www.npmjs.com/package/@autorest/azure-functions-typescript/v/0.0.1-preview) |  |  |
 | AutoRest - Go | npm [4.0.0-preview.27](https://www.npmjs.com/package/@autorest/go/v/4.0.0-preview.27) |  |  |
 | AutoRest - Modeler Four | npm [4.21.2](https://www.npmjs.com/package/@autorest/modelerfour/v/4.21.2) |  | GitHub [4.21.2](https://github.com/Azure/autorest.modelerfour) |
-| AutoRest - Power Shell | npm [3.0.453](https://www.npmjs.com/package/@autorest/powershell/v/3.0.453) |  | GitHub [3.0.453](https://github.com/Azure/autorest.powershell) |
+| AutoRest - Power Shell | npm [3.0.454](https://www.npmjs.com/package/@autorest/powershell/v/3.0.454) |  | GitHub [3.0.454](https://github.com/Azure/autorest.powershell) |
 | AutoRest - Python | npm [5.8.4](https://www.npmjs.com/package/@autorest/python/v/5.8.4) |  | GitHub [5.8.4](https://github.com/Azure/autorest.python/tree/v5.1.0-preview.7) |
 | AutoRest - Remodeler | npm [2.1.27](https://www.npmjs.com/package/@autorest/remodeler/v/2.1.27) |  | GitHub [2.1.27](https://github.com/Azure/autorest.remodeler) |
 | AutoRest - Test | npm [0.1.76](https://www.npmjs.com/package/@autorest/test/v/0.1.76) |  | GitHub [0.1.76](https://github.com/Azure/autorest.test) |
@@ -334,7 +335,7 @@
 | Resouce Management - Resources Subscriptions | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure/arm-resources-subscriptions/v/1.0.0-beta.1) | [docs](/javascript/api/overview/azure/arm-resources-subscriptions-readme) | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-resources-subscriptions_1.0.0-beta.1/sdk/resources-subscriptions/arm-resources-subscriptions/) |
 | Resource Management - Advisor | npm [2.1.1](https://www.npmjs.com/package/@azure/arm-advisor/v/2.1.1) | [docs](/javascript/api/overview/azure/advisor) | GitHub [2.1.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/advisor/arm-advisor) |
 | Resource Management - Analysis Services | npm [2.4.1](https://www.npmjs.com/package/@azure/arm-analysisservices/v/2.4.1) | [docs](/javascript/api/overview/azure/analysis-services) | GitHub [2.4.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/analysisservices/arm-analysisservices) |
-| Resource Management - Api Management | npm [7.1.1](https://www.npmjs.com/package/@azure/arm-apimanagement/v/7.1.1) |  | GitHub [7.1.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/apimanagement/arm-apimanagement) |
+| Resource Management - Api Management | npm [7.1.1](https://www.npmjs.com/package/@azure/arm-apimanagement/v/7.1.1)<br>npm [30.0.0-beta.1](https://www.npmjs.com/package/@azure/arm-apimanagement/v/30.0.0-beta.1) |  | GitHub [7.1.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/apimanagement/arm-apimanagement) |
 | Resource Management - App Configuration | npm [2.0.0](https://www.npmjs.com/package/@azure/arm-appconfiguration/v/2.0.0) |  | GitHub [2.0.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/appconfiguration/arm-appconfiguration) |
 | Resource Management - App Platform | npm [1.4.0](https://www.npmjs.com/package/@azure/arm-appplatform/v/1.4.0) |  |  |
 | Resource Management - App Service | npm [8.1.1](https://www.npmjs.com/package/@azure/arm-appservice/v/8.1.1)<br>npm [30.0.0-beta.2](https://www.npmjs.com/package/@azure/arm-appservice/v/30.0.0-beta.2) | [docs](/javascript/api/overview/azure/arm-appservice-readme) | GitHub [8.1.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/appservice/arm-appservice) |
@@ -407,7 +408,7 @@
 | Resource Management - Mixed Reality | npm [3.1.1](https://www.npmjs.com/package/@azure/arm-mixedreality/v/3.1.1) | [docs](/javascript/api/overview/azure/mixed-reality) | GitHub [3.1.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/mixedreality/arm-mixedreality) |
 | Resource Management - Monitor | npm [6.1.1](https://www.npmjs.com/package/@azure/arm-monitor/v/6.1.1) | [docs](/javascript/api/overview/azure/monitor) | GitHub [6.1.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/monitor/arm-monitor) |
 | Resource Management - MySQL | npm [4.0.0](https://www.npmjs.com/package/@azure/arm-mysql/v/4.0.0) | [docs](/javascript/api/overview/azure/mysql) | GitHub [4.0.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/mysql/arm-mysql) |
-| Resource Management - NetApp | npm [14.2.0](https://www.npmjs.com/package/@azure/arm-netapp/v/14.2.0) |  | GitHub [14.2.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/netapp/arm-netapp) |
+| Resource Management - NetApp | npm [14.3.0](https://www.npmjs.com/package/@azure/arm-netapp/v/14.3.0) |  | GitHub [14.3.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/netapp/arm-netapp) |
 | Resource Management - Network | npm [25.1.0](https://www.npmjs.com/package/@azure/arm-network/v/25.1.0)<br>npm [30.0.0-beta.3](https://www.npmjs.com/package/@azure/arm-network/v/30.0.0-beta.3) | [docs](/javascript/api/overview/azure/arm-network-readme) | GitHub [25.1.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/network/arm-network) |
 | Resource Management - Notification Hubs | npm [1.3.1](https://www.npmjs.com/package/@azure/arm-notificationhubs/v/1.3.1) | [docs](/javascript/api/overview/azure/notification-hubs) | GitHub [1.3.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/notificationhubs/arm-notificationhubs) |
 | Resource Management - Operational Insights | npm [7.1.1](https://www.npmjs.com/package/@azure/arm-operationalinsights/v/7.1.1) | [docs](/javascript/api/overview/azure/operational-insights) | GitHub [7.1.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/operationalinsights/arm-operationalinsights) |
