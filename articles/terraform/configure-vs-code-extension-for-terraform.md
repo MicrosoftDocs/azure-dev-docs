@@ -2,7 +2,7 @@
 title: Get Started - Install the Azure Terraform Visual Studio Code extension
 description: Learn how to install and use the Azure Terraform Visual Studio Code extension to create an Azure resource group
 ms.topic: quickstart
-ms.date: 09/26/2021
+ms.date: 09/27/2021
 ms.custom: devx-track-terraform
 ---
 
@@ -41,6 +41,7 @@ In this article, you learn how to:
 1. If the extension isn't yet installed,  select the extension's **Install** option.
 
     **Key points:**
+
     - When you select **Install** for the Azure Terraform extension, Visual Studio Code automatically installs the Azure Account extension.
     - Azure Account is a dependency file for the Azure Terraform extension. This file is used to authenticate to Azure and Azure-related code extensions.
 
@@ -62,13 +63,13 @@ You can now run all supported Terraform commands in your Cloud Shell environment
 
     [!code-terraform[master](../../terraform_samples/quickstart/101-resource-group/variables.tf)]
 
-## 4. Initialize Terraform within Visual Studio Code
+1. The `resource_group_name` and `resource_group_location` values are shown with test values. You can set these values to whatever makes sense for your environment.
 
-1. From the Explorer pane on the left, double-click the `main.tf` file to open it.
+## 4. Initialize Terraform within Visual Studio Code
 
 1. From the **View** menu, select **Command Palette...**.
 
-1. In the Command Palette text box, start entering `Azure Terraform: Init` and select it when it displays. 
+1. In the Command Palette text box, start entering `Azure Terraform: Init` and select it when it displays.
 
     **Key points:**
 
@@ -81,43 +82,57 @@ You can now run all supported Terraform commands in your Cloud Shell environment
 
 ## 5. Create a Terraform execution plan within Visual Studio Code
 
-The [terraform plan](https://www.terraform.io/docs/commands/plan.html) command is used to check whether the execution plan for a set of changes will do what you intended.
+1. From the **View** menu, select **Command Palette...**.
 
-From the menu bar, select **View** > **Command Palette** > **Azure Terraform: plan**.
+1. In the Command Palette text box, start entering `Azure Terraform: Plan` and select it when it displays.
 
-![Terraform plan](media/configure-vs-code-extension-for-terraform/terraform-plan.png)
+    **Key points:**
+
+    - This command runs [terraform plan](https://www.terraform.io/docs/commands/plan.html) to create an execution plan from the Terraform configuration files in the current directory.
 
 ## 6. Apply a Terraform execution plan within Visual Studio Code
 
-Once you're ready to apply the execution plan to your cloud infrastructure, you run [terraform apply](https://www.terraform.io/docs/commands/apply.html).
+1. From the **View** menu, select **Command Palette...**.
 
-1. From the menu bar, select **View** > **Command Palette** > **Azure Terraform: apply**.
+1. In the Command Palette text box, start entering `Azure Terraform: Apply` and select it when it displays.
 
-    ![Terraform apply](media/configure-vs-code-extension-for-terraform/terraform-apply.png)
-
-1. Enter `yes`.
-
-    ![Terraform apply yes](media/configure-vs-code-extension-for-terraform/terraform-apply-yes.png)
+1. When prompted for confirmation, enter `yes` and press `<Enter>`.
 
 ## 7. Verify the results
 
-To see if your new Azure resource group was successfully created, open the Azure portal and select **Resource groups** in the left navigation pane.
+1. From the **View** menu, select **Command Palette...**.
 
-    ![Verify your new resource](media/configure-vs-code-extension-for-terraform/verify-resource-group-created.png)
+#### [Azure CLI](#tab/azure-cli)
+
+1. In the Command Palette text box, start entering `Azure: Open Bash in Cloud Shell` and select it when it displays.
+
+1. Run [az group show](/cli/azure/group#az_group_show) to display the resource group. Replace the `<resource_group_name>` placeholder with the name of the resource group you used in the `variables.tf` file.
+
+```azurecli
+az group show --name <resource_group_name>
+```
+
+#### [Azure PowerShell](#tab/azure-powershell)
+
+1. In the Command Palette text box, start entering `Azure: Open PowerShell in Cloud Shell` and select it when it displays.
+
+1. Run [Get-AzResourceGroup](/powershell/module/az.resources/Get-AzResourceGroup) to display the resource group.
+
+```azurepowershell
+Get-AzResourceGroup -Name <resource_group_name>
+```
+
+---
 
 ## 8. Clean up resources
 
-1. From the menu bar, select **View** > **Command Palette** > **Azure Terraform: destroy**.
+1. From the **View** menu, select **Command Palette...**.
 
-    ![Terraform destroy](media/configure-vs-code-extension-for-terraform/terraform-destroy.png)
+1. In the Command Palette text box, start entering `Azure Terraform: Destroy` and select it when it displays.
 
-1. Enter *yes*.
+1. When prompted for confirmation, enter `yes` and press `<Enter>`.
 
-    ![Terraform destroy yes](media/configure-vs-code-extension-for-terraform/terraform-destroy-yes.png)
-
-1. To confirm that Terraform successfully destroyed your new resource group, select **Refresh** on the Azure portal **Resource groups** page. Your resource group will no longer be listed.
-
-    ![Verify resource group was destroyed](media/configure-vs-code-extension-for-terraform/refresh-resource-groups-button.png)
+1. To confirm that Terraform successfully destroyed your new resource group, run the steps in the section, [Verify the results](#verify-the-results).
 
 ## Troubleshoot Terraform on Azure
 
