@@ -119,7 +119,7 @@ Now that the basic project directory structure and files are in place, add stora
 
 1. Open the `./upload/index.ts` file and replace the contents with the following code:
 
-    :::code language="TypeScript" source="~/../upload/index.ts" highlight="41-55":::
+    :::code language="TypeScript" source="~/../js-e2e-azure-function-upload-file/upload/index.ts" highlight="41-55":::
 
     The file name query string parameter is required because the _out_ binding needs to know the name of the file. The user name query string parameter is required because it becomes the Storage container name so it is a required query string parameter. For example, if the user name is `jsmith` and the file name is `tweets.txt`, the Storage location is `jsmith/tweets.txt`. 
 
@@ -129,13 +129,13 @@ Now that the basic project directory structure and files are in place, add stora
 
 1. Open the `./upload/function.json` file and replace the contents with the following code:
 
-    :::code language="JSON" source="~/../upload/function.json" highlight="13-24":::
+    :::code language="JSON" source="~/../js-e2e-azure-function-upload-file/upload/function.json" highlight="13-24":::
 
     These first object defines the out binding to read the returned object from the function. The second object defines how to use the read information. The connection string for the Storage resource is defined in the **connection** property with the `AzureWebJobsStorage` value. 
 
 1. Open the `./local.settings.json` file and find the **AzureWebJobsStorage** property to ensure that when you develop locally, the function uses the local Azurite storage emulator.:
 
-    :::code language="JSON" source="~/../sample.local.settings.json" highlight="5":::
+    :::code language="JSON" source="~/../js-e2e-azure-function-upload-file/sample.local.settings.json" highlight="5":::
 
 ## Run the local function with local storage emulation
 
@@ -159,11 +159,11 @@ Now that the basic project directory structure and files are in place, add stora
 
 1. Check the response for a status code of 200:
 
-    :::code language="TEXT" source="~/../response.txt" highlight="14":::
+    :::code language="TEXT" source="~/../js-e2e-azure-function-upload-file/response.txt" highlight="14":::
 
 1. In VS Code, in the file explorer, expand the **azureStorage/_blobstorage_** folder and view the contents of the file. It's name is a guid but the contents should be:
 
-    :::code language="TEXT" source="~/../test-file.txt" highlight="14":::
+    :::code language="TEXT" source="~/../js-e2e-azure-function-upload-file/test-file.txt" highlight="14":::
 
 ## Next steps
 
