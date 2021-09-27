@@ -135,7 +135,7 @@ Now that the basic project directory structure and files are in place, add stora
 
 1. Open the `./local.settings.json` file and find the **AzureWebJobsStorage** property to ensure that when you develop locally, the function uses the local Azurite storage emulator.:
 
-    :::code language="JSON" source="~/../local.settings.json" highlight="5":::
+    :::code language="JSON" source="~/../sample.local.settings.json" highlight="5":::
 
 ## Run the local function with local storage emulation
 
