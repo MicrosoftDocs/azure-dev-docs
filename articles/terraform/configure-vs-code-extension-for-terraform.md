@@ -68,7 +68,12 @@ You can now run all supported Terraform commands in your Cloud Shell environment
 
 1. From the **View** menu, select **Command Palette...**.
 
-1. In the Command Palette text box, start entering `Azure Terraform: Init` and select it when it displays.
+1. In the Command Palette text box, start entering `Azure Terraform: Init` and select it when it displays. 
+
+    **Key points:**
+
+    - Selecting this option is the same as running [terraform init](https://www.terraform.io/docs/commands/init.html) from the command line and will initialize your Terraform deployment.
+    - This command downloads the Azure modules required to create an Azure resource group.
 
 1. Follow the prompts to install any dependencies - such as the latest supported version of nodejs.
 
