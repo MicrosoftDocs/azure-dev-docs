@@ -53,7 +53,7 @@ You can now run all supported Terraform commands in your Cloud Shell environment
 
 ## 3. Implement the Terraform code
 
-1. Create a directory in which to test the sample Terraform code and open that directory in Visual Studio. The following files should be created in your new directory.
+1. Create a directory in which to test the sample Terraform code and open that directory in Visual Studio. The files you create in this section should be created in your new directory.
 
 1. Create a file named `main.tf` and insert the following code:
 
