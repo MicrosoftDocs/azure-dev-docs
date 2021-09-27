@@ -34,7 +34,6 @@ In this article, you learn how to:
 
 1. From the left menu, select **Extensions**, and enter `Azure Terraform` in the search text box.
 
-	![Search Visual Studio Code extensions in Marketplace](media/configure-vs-code-extension-for-terraform/search-for-azure-terraform-extension.png)
     :::image type="content" source="media/configure-vs-code-extension-for-terraform/search-for-azure-terraform-extension.png" alt-text="Search Visual Studio Code extensions in Marketplace.":::
 
 1. From the list of extensions, locate the `Azure Terraform` extension. (It should be the first extension listed.)
@@ -47,7 +46,7 @@ In this article, you learn how to:
 
 1. To confirm the installation of the extensions, enter `@installed` in the search text box. Both the Azure Terraform extension and the Azure Account extension will appear in the list of installed extensions.
 
-    ![Installed Terraform extensions](media/configure-vs-code-extension-for-terraform/installed-extensions.png)
+    :::image type="content" source="media/configure-vs-code-extension-for-terraform/installed-extensions.png" alt-text="View installed Terraform extensions.":::
 
 You can now run all supported Terraform commands in your Cloud Shell environment from within Visual Studio Code.
 
