@@ -216,6 +216,8 @@ To enable the app to load the certificate, use the following steps:
 
 1. Remove the *test* directory and its subdirectories. This tutorial ignores the test, so you can safely delete the directory.
 
+1. Rename *application.properties* in *src/main/resources* to *application.yml*.
+
 1. The file layout will look like the following.
 
    ```
@@ -231,7 +233,7 @@ To enable the app to load the certificate, use the following steps:
            │           └── ssltest
            │               └── SsltestApplication.java
            └── resources
-               ├── application.properties
+               ├── application.yml
                ├── static
                └── templates
    ```
@@ -242,18 +244,24 @@ To enable the app to load the certificate, use the following steps:
    <dependency>
       <groupId>com.azure.spring</groupId>
       <artifactId>azure-spring-boot-starter-keyvault-certificates</artifactId>
-      <version>3.0.1</version>
+      <version>3.1.0</version>
    </dependency>
    ```
 
-1. Edit the *src/main/resources/application.properties* file so that it has the following contents.
+1. Re
 
-   ```properties
-   server.port=8443
-   server.ssl.key-alias=mycert
-   server.ssl.key-store-type=AzureKeyVault
-   server.ssl.trust-store-type=AzureKeyVault
-   azure.keyvault.uri=https://<your Key Vault name>.vault.azure.net/
+1. Edit the *src/main/resources/application.yml* file so that it has the following contents.
+
+   ```yaml
+   server:
+     ssl:
+       key-alias: <the name of the certificate in Azure Key Vault to use>
+       key-store-type: AzureKeyVault
+       trust-store-type: AzureKeyVault
+     port: 8443
+   azure:
+     keyvault:
+       uri: <the URI of the Azure Key Vault to use>
    ```
 
    These values enable the Spring Boot app to perform the *load* action for the TLS/SSL certificate, as mentioned at the beginning of the tutorial. The following table describes the property values.
@@ -279,6 +287,7 @@ To create the REST controller, use the following steps:
    ```java
    package com.contoso.ssltest;
 
+   import org.springframework.boot.SpringApplication;
    import org.springframework.boot.autoconfigure.SpringBootApplication;
    import org.springframework.web.bind.annotation.GetMapping;
    import org.springframework.web.bind.annotation.RestController;
@@ -380,7 +389,6 @@ In this section, you'll modify the code in the previous section so that the TLS/
    package com.contoso.ssltest;
 
 
-   import java.security.GeneralSecurityException;
    import java.security.KeyStore;
    import javax.net.ssl.HostnameVerifier;
    import javax.net.ssl.SSLContext;
@@ -388,6 +396,7 @@ In this section, you'll modify the code in the previous section so that the TLS/
 
    import org.springframework.boot.SpringApplication;
    import org.springframework.boot.autoconfigure.SpringBootApplication;
+   import com.azure.security.keyvault.jca.KeyVaultLoadStoreParameter;
    import org.springframework.http.HttpStatus;
    import org.springframework.http.ResponseEntity;
    import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
@@ -415,11 +424,14 @@ In this section, you'll modify the code in the previous section so that the TLS/
        }
 
        @GetMapping(value = "/ssl-test-outbound")
-       public String outbound() throws GeneralSecurityException {
-           KeyStore ks = KeyStore.getInstance(KeyStore.getDefaultType());
-           SSLContext sslContext = SSLContexts.custom()
-               .loadTrustMaterial(ks, new TrustSelfSignedStrategy())
-               .build();
+       public String outbound() throws Exception {
+            KeyStore azureKeyVaultKeyStore = KeyStore.getInstance("AzureKeyVault");
+            KeyVaultLoadStoreParameter parameter = new KeyVaultLoadStoreParameter(
+                System.getProperty("azure.keyvault.uri"));
+            azureKeyVaultKeyStore.load(parameter);
+            SSLContext sslContext = SSLContexts.custom()
+                                               .loadTrustMaterial(azureKeyVaultKeyStore, null)
+                                               .build();
 
        HostnameVerifier allowAll = (String hostName, SSLSession session) -> true;
        SSLConnectionSocketFactory csf = new SSLConnectionSocketFactory(sslContext, allowAll);
@@ -483,7 +495,7 @@ In this section, you'll modify the code in the previous section so that the TLS/
 1. Invoke the `exit` path to kill the server and close the network sockets.
 
    ```bash
-   curl https://<your VM public IP address>:8443/exit
+   curl --insecure https://<your VM public IP address>:8443/exit
    ```
 
 You've now observed a simple illustration of the *load*, *present*, and *accept* actions with a self-signed TLS/SSL certificate stored in Azure Key Vault.
