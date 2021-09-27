@@ -63,7 +63,9 @@ You can now run all supported Terraform commands in your Cloud Shell environment
 
     [!code-terraform[master](../../terraform_samples/quickstart/101-resource-group/variables.tf)]
 
-1. The `resource_group_name` and `resource_group_location` values are shown with test values. You can set these values to whatever makes sense for your environment.
+    **Key points:**
+
+    - The `resource_group_name` and `resource_group_location` values are shown with test values. You can set these values to whatever makes sense for your environment.
 
 ## 4. Initialize Terraform within Visual Studio Code
 
