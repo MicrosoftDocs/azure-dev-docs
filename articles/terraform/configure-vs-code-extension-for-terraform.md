@@ -35,8 +35,11 @@ In this article, you learn how to:
 1. From the left menu, select **Extensions**, and enter `Azure Terraform` in the search text box.
 
 	![Search Visual Studio Code extensions in Marketplace](media/configure-vs-code-extension-for-terraform/search-for-azure-terraform-extension.png)
+    :::image type="content" source="media/configure-vs-code-extension-for-terraform/search-for-azure-terraform-extension.png" alt-text="Search Visual Studio Code extensions in Marketplace.":::
 
-1. Under the **Azure Terraform** Visual Studio extension, Select **Install**.
+1. From the list of extensions, locate the `Azure Terraform` extension. (It should be the first extension listed.)
+
+1. If the extension isn't yet installed,  select the extension's **Install** option.
 
     **Key points:**
     - When you select **Install** for the Azure Terraform extension, Visual Studio Code automatically installs the Azure Account extension.
