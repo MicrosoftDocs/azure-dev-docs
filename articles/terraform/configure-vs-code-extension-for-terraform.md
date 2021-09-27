@@ -100,9 +100,9 @@ You can now run all supported Terraform commands in your Cloud Shell environment
 
 ## 7. Verify the results
 
-1. From the **View** menu, select **Command Palette...**.
-
 #### [Azure CLI](#tab/azure-cli)
+
+1. From the **View** menu, select **Command Palette...**.
 
 1. In the Command Palette text box, start entering `Azure: Open Bash in Cloud Shell` and select it when it displays.
 
@@ -113,6 +113,8 @@ az group show --name <resource_group_name>
 ```
 
 #### [Azure PowerShell](#tab/azure-powershell)
+
+1. From the **View** menu, select **Command Palette...**.
 
 1. In the Command Palette text box, start entering `Azure: Open PowerShell in Cloud Shell` and select it when it displays.
 
@@ -132,7 +134,7 @@ Get-AzResourceGroup -Name <resource_group_name>
 
 1. When prompted for confirmation, enter `yes` and press `<Enter>`.
 
-1. To confirm that Terraform successfully destroyed your new resource group, run the steps in the section, [Verify the results](#verify-the-results).
+1. To confirm that Terraform successfully destroyed your new resource group, run the steps in the section, [Verify the results](#7-verify-the-results).
 
 ## Troubleshoot Terraform on Azure
 
