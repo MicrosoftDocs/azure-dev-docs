@@ -28,6 +28,8 @@ You get several benefits using Visual Studio Code:
 
 Visual Studio code provides of wealth of documentation for [JavaScript project use](https://code.visualstudio.com/docs/nodejs/working-with-javascript). 
 
+<a name="visual-studio-code-extensions"></a>
+
 ## Tools for Azure services
 
 Use the following free extensions to use Azure services directly in Visual Studio Code.
