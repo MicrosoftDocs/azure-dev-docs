@@ -23,12 +23,7 @@ API incompatibility of direct dependency results in compilation errors. Diamond 
 
 Run `mvn dependency:tree` or `gradle dependencies — scan` to show full dependency tree with versions. (Note: `mvn dependency:tree -Dverbose` gives more information, but [may be misleading](https://maven.apache.org/shared/maven-dependency-tree/)). Notice versions of library you suspect has version conflict and check which components depend on it.
 
-Dependency resolution in development and production environments may work differently. Here are some environments that may need extra configuration for custom dependencies:
-
-- [Apache Spark](https://spark.apache.org/docs/latest/submitting-applications.html#bundling-your-applications-dependencies)
-- [Apache Flink](https://ci.apache.org/projects/flink/flink-docs-release-1.13/docs/dev/datastream/project-configuration/)
-- [Databricks](https://kb.databricks.com/libraries/maven-library-version-mgmt.html)
-- IDE plugins
+Dependency resolution in development and production environments may work differently. [Apache Spark](https://spark.apache.org/docs/latest/submitting-applications.html#bundling-your-applications-dependencies), [Apache Flink](https://ci.apache.org/projects/flink/flink-docs-release-1.13/docs/dev/datastream/project-configuration/), [Databricks](https://kb.databricks.com/libraries/maven-library-version-mgmt.html), or IDE plugins need extra configuration for custom dependencies. They can also bring their own versions of Azure Client libraries or common components. Check out [Fat JAR](#fat-jar) section below for conflict resolution example for such environments.
 
 #### Azure Functions (Java 8) configuration
 
@@ -96,19 +91,10 @@ Example of shading Jackson libraries under a new JAR with Maven:
             <createDependencyReducedPom>true</createDependencyReducedPom>
             <!--Promotes transitive dependencies of removed dependencies to direct-->
             <promoteTransitiveDependencies>true</promoteTransitiveDependencies>
-            <artifactSet>
-                <includes>
-                    <include>com.fasterxml.jackson:*</include>
-                    <include>com.fasterxml.jackson.*:*</include>
-                </includes>
-            </artifactSet>
             <relocations>
                 <relocation>
                     <pattern>com.fasterxml.jackson</pattern>
                     <shadedPattern>org.example.shaded.com.fasterxml.jackson</shadedPattern>
-                    <includes>
-                        <include>com.fasterxml.jackson.**</include>
-                    </includes>
                 </relocation>
             </relocations>
         </configuration>
@@ -118,6 +104,31 @@ Example of shading Jackson libraries under a new JAR with Maven:
 ```
 
 - Run `mvn package` to create a Jackson wrapper JAR file: it doesn't depend on original Jackson libraries anymore, instead it includes renamed Jackson packages and classes. Make sure to update namespaces in your application code to `org.example.shaded.com.fasterxml.jackson.*` (or other prefix of your choice).
+
+##### Fat JAR
+
+When working with environments that have custom dependency management (for example, Databricks or Apache Spark), you may want to build a fat JAR that contains all the dependencies. Here's an example of `maven-shade-plugin` configuration building fat JAR and relocating Jackson and azure-core to avoid collisions with versions provided by environment.
+
+```xml
+<configuration>
+    <transformers>
+        <!--Transforms META-INF/services (essential for azure-core relocation)-->
+        <transformer implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer"/>
+    </transformers>
+    <relocations>
+        <relocation>
+            <pattern>com.fasterxml.jackson</pattern>
+            <shadedPattern>org.example.shaded.com.fasterxml.jackson</shadedPattern>
+        </relocation>
+        <relocation>
+            <!--Environment may bring its own version of azure-core which may be incompatible with your Azure client libraries.
+                Relocate azure-core to avoid collisions with it-->
+            <pattern>com.azure</pattern>
+            <shadedPattern>org.example.shaded.com.azure</shadedPattern>
+        </relocation>
+    </relocations>
+</configuration>
+```
 
 ## Compatible dependency versions
 
