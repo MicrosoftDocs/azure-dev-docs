@@ -1,6 +1,6 @@
 ---
-title: 
-description: 
+title: Upload file to Storage
+description: Create an Azure Function API, which uploads a file to Azure Storage.
 ms.topic: how-to
 ms.date: 09/24/2021
 ms.custom: devx-track-js
@@ -226,7 +226,7 @@ Now that the basic project folder structure and files are in place, add storage 
     |Prompt|Value|Notes|
     |--|--|--|
     |Enter a globally unique name for the new Storage resource|`blobstoragefunction`|The name must be 3 to 24 lowercase letters and numbers only.|
-    |Select a resource group for new resources.|`blob-storage-upload-function-group`|Select the [resource group](#create-a-resource-group) you created.||
+    |Select a resource group for new resources.|`blob-storage-upload-function-group`|Select the [resource group](#create-a-resource-group) you created.|
     |Would you like to enable static website hosting?|No.|| 
     |Select a location for new resources.|Select one of the recommended locations close to use.||
 
@@ -248,7 +248,7 @@ Once deployment is completed and the _AzureWebJobsStorage_ app setting have been
 
 1. In Visual Studio Code, select the Azure explorer, then expand the node for your Functions app, then expand **Functions**. Right-click the function name, `upload` and select **Copy Function Url**:
 
-    :::image type="content" source="../../media/azure-function-file-upload-binding/visual-studio-code-function-copy-url.png" alt-text="Screenshot of Visual Studio Code output window creating a function resource.":::
+    :::image type="content" source="../../media/azure-function-file-upload-binding/visual-studio-code-function-copy-url.png" alt-text="Screenshot of Visual Studio Code with Copy Function URL highlights in Azure Explorer for Functions.":::
 
 1. Paste the URL into a text file overwriting `REPLACE-WITH-YOUR-FUNCTION-URL`.
 1. Append the filename and username query string name/value pairs:
@@ -273,7 +273,7 @@ Once deployment is completed and the _AzureWebJobsStorage_ app setting have been
 
 1. In Visual Studio Code, open the Azure explorer, expand your Storage blob resource, under containers, and find the container name that matches your username value in the query string. 
 
-    :::image type="content" source="../../media/azure-function-file-upload-binding/visual-studio-code-storage-container-file.png" alt-text="Screenshot of Visual Studio Code output window creating a function resource.":::
+    :::image type="content" source="../../media/azure-function-file-upload-binding/visual-studio-code-storage-container-file.png" alt-text="Screenshot of Visual Studio Code showing the Azure explorer's Storage node with the file uploaded.":::
 
 ## Query your Azure Function logs
 
