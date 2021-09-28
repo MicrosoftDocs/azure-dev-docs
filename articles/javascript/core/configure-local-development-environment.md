@@ -47,11 +47,11 @@ The following common local workstation installations are recommended to help wit
 
 ## One-time configuration for authentication
 
-To use the same authentication code in local development and the remote Azure hosting environment, use the [DefaultAzureCredential](nodejs-sdk-azure-authenticate.md#authentication-with-azure-services-while-developing).
+To use the same authentication code in local development and the remote Azure hosting environment, use the [DefaultAzureCredential](/javascript/api/overview/azure/identity-readme#defaultazurecredential).
 
 To use the same code in all environments: 
 
-* For **local development**, [create a service principal](../how-to/with-sdk/set-up-development-environment.md?tabs=azure-sdk-for-javascript#1-create-a-service-principal) to create and manage Azure resources _without_ using your personal account. 
+* For **local development**, [create a service principal](../core/nodejs-sdk-azure-authenticate.md) to create and manage Azure resources _without_ using your personal account. 
 * For **Azure hosting**, [learn more](https://github.com/Azure/azure-sdk-for-js/blob/main/documentation/using-azure-identity.md#getting-started).  
 
 ## Working with Azure and the Azure SDK client libraries
@@ -150,5 +150,5 @@ Visual Studio Code includes many built-in git features. For more information, se
 
 ## Next steps
 
-* [Create and use a service principal](../how-to/with-sdk/set-up-development-environment.md)
+* [Create and use a service principal](../core/nodejs-sdk-azure-authenticate.md)
 * [Authenticate with the Azure modules for Node.js](nodejs-sdk-azure-authenticate.md)

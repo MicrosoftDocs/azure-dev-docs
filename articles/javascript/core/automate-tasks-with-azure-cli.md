@@ -36,7 +36,7 @@ Once the Azure CLI is installed, you must log in to continue running Azure CLI c
 az login --identity
 ```
 
-[Login with a user's Service Principal](/cli/azure/authenticate-azure-cli#sign-in-with-a-service-principal), after [the Service Principal is created](../how-to/with-sdk/set-up-development-environment.md#1-create-a-service-principal).
+[Login with a user's Service Principal](/cli/azure/authenticate-azure-cli#sign-in-with-a-service-principal), after [the Service Principal is created](../core/nodejs-sdk-azure-authenticate.md).
 
 ```dotnetcli
 read -sp "Azure password: " AZ_PASS && echo && \ 
