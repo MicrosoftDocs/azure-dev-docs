@@ -2,7 +2,7 @@
 title: Upload file to Storage
 description: Create an Azure Function API, which uploads a file to Azure Storage.
 ms.topic: how-to
-ms.date: 09/24/2021
+ms.date: 09/28/2021
 ms.custom: devx-track-js
 #intent: How to locally develop a file-upload serverless function then deploy that function to Azure. 
 ---
@@ -314,4 +314,4 @@ Once deployment is completed and the _AzureWebJobsStorage_ app setting have been
 
 ## Next steps
 
-* [Install and debug a local project](../with-visual-studio-code/install-run-debug-nodejs.md)
+* [Create a resource group with an Azure Function API](../azure-function-resource-group-management/introduction.md)
