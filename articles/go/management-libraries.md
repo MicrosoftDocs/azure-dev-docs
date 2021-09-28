@@ -33,7 +33,7 @@ In most Go apps, you'll install the following packages for authentication and co
 - github.com/Azure/azure-sdk-for-go/sdk/azidentity
 - github.com/Azure/azure-sdk-for-go/sdk/to
 
-## Importing packages in to your Go code
+## Importing packages into your Go code
 
 Once downloaded, the package are imported into your app via the `import` statement:
 
@@ -64,7 +64,7 @@ Once you have a credential - such as an `azidentity` object - you create a conne
 con := armcore.NewDefaultConnection(cred, nil)
 ```
 
-## Creating a Resource Management Client
+## Creating a Resource Management client
 
 Once you have a connection to the Azure Resource Manager, create a client to connect to the target Azure service.
 
