@@ -45,7 +45,7 @@ items:
         href: /azure/sql-database/sql-database-connect-query-go?toc=/azure/developer/go/toc.json&bc=/azure/developer/breadcrumb/toc.json
     - name: Virtual machines
       items:
-      - name: Virtual Machines and Resource Templates
+      - name: Virtual machines and resource templates
         href: azure-sdk-qs-vm.md
   - name: Samples
     items:
