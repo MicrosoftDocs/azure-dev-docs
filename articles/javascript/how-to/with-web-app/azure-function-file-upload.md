@@ -9,7 +9,7 @@ ms.custom: devx-track-js
 
 # Upload file to Azure Blob Storage with an Azure Function
 
-This article shows you how to create an Azure Function API which uploads a file to Azure Storage using an _out_ binding to move the file contents from the API to Storage.
+This article shows you how to create an Azure Function API, which uploads a file to Azure Storage using an _out_ binding to move the file contents from the API to Storage.
 
 * [Sample code](https://github.com/diberry/js-e2e-azure-function-upload-file.git)
 
@@ -182,7 +182,7 @@ Now that the basic project folder structure and files are in place, add storage 
 
     :::code language="TEXT" source="~/../js-e2e-azure-function-upload-file/response.txt" highlight="14":::
 
-1. In Visual Studio Code, in the file explorer, expand the **azureStorage/_blobstorage_** folder and view the contents of the file. It's name is a guid but the contents should be:
+1. In Visual Studio Code, in the file explorer, expand the **azureStorage/_blobstorage_** folder and view the contents of the file. Its name is a guid but the contents should be:
 
     :::code language="TEXT" source="~/../js-e2e-azure-function-upload-file/test-file.txt" :::
 
@@ -192,7 +192,7 @@ Now that the basic project folder structure and files are in place, add storage 
 
 1. In Visual Studio Code, open the **Azure Explorer**, then right-click the deployment icon under **Functions** to deploy your app:
 
-    :::image type="content" source="../../media/functions-extension/deploy-app.png" alt-text="Partial screenshot of Visual Studio Code to deploy to Azure Functions command.":::
+    :::image type="content" source="../../media/azure-function-file-upload-binding/visual-studio-code-function-deploy-app.png" alt-text="Partial screenshot of Visual Studio Code to deploy to Azure Functions command.":::
 
     Alternately, you can deploy by opening the **Command Palette** (**F1**), entering `deploy to function app`, and running the **Azure Functions: Deploy to Function App** command.
 
@@ -202,7 +202,7 @@ Now that the basic project folder structure and files are in place, add storage 
     |--|--|--|
     |Select Function App in Azure|Create new Function app in Azure (Advanced)|Create a cloud-based resource for your function.|
     |Enter a globally unique name for the new Function App|The name becomes part of the API's URL.|API is invoked with an HTTP request. Valid characters for a function app name are 'a-z', '0-9', and '-'. An example is `blob-storage-upload-function-app-jsmith`. You can replace `jsmith` with your own name, if you would prefer.|
-    |Select a runtime stack|Select a Node.js stack with the `LTS` descriptor.|LTS means long term support.|
+    |Select a runtime stack|Select a Node.js stack with the `LTS` descriptor.|LTS means long-term support.|
     |Select an OS.|Windows|Windows is selected specifically for the stream logs integration in Visual Studio Code. Linux log streaming is available from the Azure portal.|
     |Select a resource group for new resources.|`blob-storage-upload-function-group`|Select the [resource group](#create-a-resource-group) you created.|
     |Select a location for new resources.|Select the recommended region.||
@@ -214,11 +214,9 @@ Now that the basic project folder structure and files are in place, add storage 
 
 1. The Visual Studio Code **Output** panel for **Azure Functions** shows progress:
 
-    :::image type="content" source="../../media/functions-extension/visual-studio-code-function-create-resource-output.png" alt-text="Screenshot of Visual Studio Code output window creating a function resource.":::
+    :::image type="content" source="../../media/azure-function-file-upload-binding/visual-studio-code-function-create-resource-output.png" alt-text="Screenshot of Visual Studio Code output window creating a function resource.":::
 
     When deploying, the entire Functions application is deployed, any changes to individual APIs are deployed at once.
-
-1. In the notifications, select **Stream logs** and keep the view open while you continue to complete the steps in this article. 
 
 ## Create an Azure Storage Resource
 
@@ -248,14 +246,15 @@ Once deployment is completed and the _AzureWebJobsStorage_ app setting have been
     curl -X POST  -F 'filename=@test-file.txt' 'REPLACE-WITH-YOUR-FUNCTION-URL' --verbose
     ```
 
-1. In Visual Studio Code, select the Azure explorer, then expand the node for your Functions app, then expand **Functions**. Right-click the function name and select **Copy Function Url**:
+1. In Visual Studio Code, select the Azure explorer, then expand the node for your Functions app, then expand **Functions**. Right-click the function name, `upload` and select **Copy Function Url**:
 
-    :::image type="content" source="../../media/functions-extension/copy-function-url-command.png" alt-text="Screenshot of Visual Studio Code output window creating a function resource.":::
+    :::image type="content" source="../../media/azure-function-file-upload-binding/visual-studio-code-function-copy-url.png" alt-text="Screenshot of Visual Studio Code output window creating a function resource.":::
 
-1. Paste the URL into a text file overwritting `REPLACE-WITH-YOUR-FUNCTION-URL`.
+1. Paste the URL into a text file overwriting `REPLACE-WITH-YOUR-FUNCTION-URL`.
 1. Append the filename and username query string name/value pairs:
 
     |Name|Value|
+    |--|--|
     |username|`jsmith`|
     |filename|`test-file.txt`|
 
@@ -269,19 +268,22 @@ Once deployment is completed and the _AzureWebJobsStorage_ app setting have been
 
 1. Copy the complete cURL command and run it in a Visual Studio Code bash terminal at the root of your function app to upload the root file, `test-file.txt`.
 
+    :::code language="TEXT" source="~/../js-e2e-azure-function-upload-file/response.cloud.txt" :::
+
+
 1. In Visual Studio Code, open the Azure explorer, expand your Storage blob resource, under containers, and find the container name that matches your username value in the query string. 
+
+    :::image type="content" source="../../media/azure-function-file-upload-binding/visual-studio-code-storage-container-file.png" alt-text="Screenshot of Visual Studio Code output window creating a function resource.":::
 
 ## Query your Azure Function logs
 
-Streaming logs is good for in-the-moment scanning. To search the logs, use the Azure portal. 
-
-1. In Visual Studio Code, select the Azure logo to open the **Azure Explorer**, then under **Functions**, right-click on your function app, then select **Open in Portal**.
+1. In Visual Studio Code, select the Azure explorer, then under **Functions**, right-click on your function app, then select **Open in Portal**.
 
     This opens the Azure portal to your Azure Function.
 
 1. Select **Application Insights** from the Settings, then select **View Application Insights data**.
 
-    :::image type="content" source="../../media/functions-extension/azure-portal-function-application-insights-link.png" alt-text="Browser screenshot showing menu choices. Select **Application Insights** from the Settings, then select **View Application Insights data**." lightbox="../../media/functions-extension/azure-portal-function-application-insights-link.png":::
+    :::image type="content" source="../../media/azure-function-file-upload-binding/azure-portal-function-application-insights-link.png" alt-text="Browser screenshot showing menu choices. Select **Application Insights** from the Settings, then select **View Application Insights data**." lightbox="../../media/azure-function-file-upload-binding/azure-portal-function-application-insights-link.png":::
 
     This link takes you to your separate metrics resource created for you when you created your Azure Function with Visual Studio Code.
 
@@ -300,23 +302,15 @@ Streaming logs is good for in-the-moment scanning. To search the logs, use the A
 
     If the log doesn't display any results, it may be because there is a few minutes delay between the HTTP request to the Azure Function and the log availability in Kusto. Wait a few minutes and run the query again.
 
-    :::image type="content" source="../../media/functions-extension/azure-portal-application-insights-function-log-trace.png" alt-text="Browser screenshot showing Azure portal Kusto query result for Trace table." lightbox="../../media/functions-extension/azure-portal-application-insights-function-log-trace.png":::
-
-    You didn't need to do anything extra to get this logging information:
-
-    * The code used the standard `console.log` function.
-    * The Function app added Application Insights _for you_.
-    * The Query tool is included in the Azure portal.
-    * You can click on `traces` instead of having to learn to write a [Kusto query](/azure/data-explorer/kusto/concepts/) to get even the minimum information from your logs.
+    :::image type="content" source="../../media/azure-function-file-upload-binding/azure-portal-function-application-insight-trace-message.png" alt-text="Browser screenshot showing Azure portal Kusto query result for Trace table." lightbox="../../media/azure-function-file-upload-binding/azure-portal-function-application-insight-trace-message.png":::
+   
 
 ## Clean up Azure resources
 
-The Functions App you created includes resources that can incur minimal costs (refer to [Functions Pricing](https://azure.microsoft.com/pricing/details/functions/)).  
-
-1. Find the resource group name, `cosmosdb-mongodb-function-resource-group`, in the list.
+1. In Visual Studio Code, in the Azure explorer, find the resource group name, `blob-storage-upload-function-group`, in the list.
 1. Right-click the resource group name and select **Delete**.
 
-    :::image type="content" source="../../media/visual-studio-code-azure-resources-extension-remove-resource-group.png" alt-text="Use the Visual Studio Code extension, Azure Resource Groups, to delete the resource group and all resources within the group.":::
+    :::image type="content" source="../../media/azure-function-file-upload-binding/visual-studio-code-resource-group-delete.png" alt-text="Use the Visual Studio Code extension, Azure Resource Groups, to delete the resource group and all resources within the group.":::
 
 ## Next steps
 
