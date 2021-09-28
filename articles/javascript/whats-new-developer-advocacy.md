@@ -2,7 +2,7 @@
 title: "What's new with Cloud Developer Advocates"
 description: "What's new with JavaScript Cloud Developer Advocates (CDA)"
 ms.topic: conceptual
-ms.date: 09/15/2021
+ms.date: 09/28/2021
 ---
 
 # What's new with JavaScript Developer Advocates
@@ -37,9 +37,11 @@ This content is primarily from Developer Advocates as well as other members of t
 
 |Cloud Advocate|Contributions|Link|
 |--|--|--|
+|[Glaucia Lemos][Glaucia]|Developing Auth Application with Node.Js + JWT + VueJs|**Portuguese** - [YouTube](https://www.youtube.com/watch?v=5VSzUFIAh1U)|
 |[Glaucia Lemos][Glaucia]|TypeScript - Zero to Hero, Type VOid #25|**Portuguese** - [YouTube](https://www.youtube.com/watch?v=yLraF6_-85U)|
 |[Glaucia Lemos][Glaucia]|TypeScript - Zero to Hero, Type Void #26|**Portuguese** - [YouTube](https://www.youtube.com/watch?v=Aguo_gIIh7o)|
 |[Glaucia Lemos][Glaucia]|TypeScript - Zero to Hero, Type Null and Undefined #27|**Portuguese** - [YouTube](https://www.youtube.com/watch?v=vyOidIn_YfQ)|
+|[Yohan Lasorsa][Yohan]|QRS #31: Angular apps for dual-screen devices with ngx-foldable|**French** - [Twitch](https://www.twitch.tv/videos/1149284278)|
 
 ## 2021 August
 
