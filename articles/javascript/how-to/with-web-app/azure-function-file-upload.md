@@ -168,11 +168,11 @@ Now that the basic project folder structure and files are in place, add storage 
     upload: [POST] http://localhost:7071/api/upload
     ```
 
-1. Create a new file in the root of the project named `test-file.text` and copy in the text:
+1. Create a new file in the root of the project named `test-file.txt` and copy in the text:
 
     :::code language="TEXT" source="~/../js-e2e-azure-function-upload-file/test-file.txt" :::
 
-1. In Visual Studio Code, open a new bash terminal to use the function API to upload the `test-file.text`:
+1. In Visual Studio Code, open a new bash terminal at the root of the project to use the function API to upload the `test-file.txt`:
 
     ```bash
     curl -X POST  -F 'filename=@test-file.txt' 'http://localhost:7071/api/upload?filename=test-file.txt&username=jsmith' --verbose
@@ -182,11 +182,11 @@ Now that the basic project folder structure and files are in place, add storage 
 
     :::code language="TEXT" source="~/../js-e2e-azure-function-upload-file/response.txt" highlight="14":::
 
-1. In Visual Studio Code, in the file explorer, expand the **azureStorage/_blobstorage_** folder and view the contents of the file. Its name is a guid but the contents should be:
+1. In Visual Studio Code, in the file explorer, expand the **azureStorage/_blobstorage_** folder and view the contents of the file. 
 
-    :::code language="TEXT" source="~/../js-e2e-azure-function-upload-file/test-file.txt" :::
+    :::image type="content" source="../../media/azure-function-file-upload-binding/visual-studio-code-azurite-storage.png" alt-text="Screenshot of Visual Studio Code with file explorer showing Azurite storage with blob folder containing uploaded file.":::
 
-    Locally, you've called the function and the file was uploaded to the storage emulator successfully.
+    Locally, you've called the function and uploaded the file to the storage emulator successfully.
 
 ## Use Visual Studio Code extension to deploy to hosting environment
 
@@ -258,7 +258,7 @@ Once deployment is completed and the _AzureWebJobsStorage_ app setting have been
     |username|`jsmith`|
     |filename|`test-file.txt`|
 
-    The final curl command format should similar to the following, except for your own substitutions:
+    The final cURL command format should be similar to the following, except for your own substitutions for username and function resource name:
 
     ```TEXT
     curl -X POST -F 'filename=@test-file.txt' 'https://blob-storage-upload-function-app-jsmith.azurewebsites.net/api/randomnumber?code=12345&filename=test-file.txt&username=jsmith' --verbose

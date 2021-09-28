@@ -107,7 +107,7 @@
             items: 
             - name: Develop Azure Functions
               href: how-to/develop-serverless-apps.md
-            - name: "With Visual Studio Code"
+            - name: "With Visual Studio Code and database"
               items:
               - name: 1. Introduction and prerequisites
                 href: tutorial/vscode-function-app-http-trigger/tutorial-vscode-serverless-node-install.md
@@ -121,6 +121,8 @@
                 href: tutorial/vscode-function-app-http-trigger/tutorial-vscode-serverless-node-database-integration.md              
               - name: 6. Clean up resources
                 href: tutorial/vscode-function-app-http-trigger/tutorial-vscode-serverless-node-remove-resource.md              
+            - name: Upload file to Blob Storage
+              href: ./how-to/with-web-app/azure-function-file-upload.md
             - name: Resource management API
               items: 
               - name: 1. Introduction and prerequisites
