@@ -314,4 +314,4 @@ Once deployment is completed and the _AzureWebJobsStorage_ app setting have been
 
 ## Next steps
 
-* [Create a resource group with an Azure Function API](../azure-function-resource-group-management/introduction.md)
+* [Create a resource group with an Azure Function API](./azure-function-resource-group-management/introduction.md)
