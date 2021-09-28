@@ -83,7 +83,9 @@ A resource group holds both the Azure Function resource and the Azure Storage re
     | *function.json* | The [binding configuration](/azure/azure-functions/functions-triggers-bindings) for the HTTP trigger. |
     | *sample.dat* | A placeholder data file to demonstrate that you can have other files in the folder. You can delete this file, if desired, as it's not used in this tutorial. |
 
-## Install functions npm package dependencies from bash terminal
+<a name="install-functions-npm-package-dependencies-from-bash-terminal"></a>
+
+## Install Function dependencies from bash terminal
 
 1. In Visual Studio Code, open an integrated bash terminal, <kbd>Ctrl</kbd> + <kbd>`</kbd>.
 1. Install npm dependencies:
@@ -188,7 +190,9 @@ Now that the basic project folder structure and files are in place, add storage 
 
     Locally, you've called the function and uploaded the file to the storage emulator successfully.
 
-## Use Visual Studio Code extension to deploy to hosting environment
+<a name="use-visual-studio-code-extension-to-deploy-to-hosting-environment"></a>
+
+## Deploy to Azure with Visual Studio Code
 
 1. In Visual Studio Code, open the **Azure Explorer**, then right-click the deployment icon under **Functions** to deploy your app:
 
@@ -231,8 +235,9 @@ Now that the basic project folder structure and files are in place, add storage 
     |Select a location for new resources.|Select one of the recommended locations close to use.||
 
 <a name="copy-the-storage-connection-string-into-azure-function-application-setting"></a>
+<a name="copy-the-storage-connection-string-into-function-app-setting"></a>
 
-## Copy the Storage connection string into Function app setting
+## Set Storage connection string in Function app setting
 
 1. In Visual Studio Code, select the Azure explorer, then right-click on your new storage resource, and select **Copy Connection String**.
 1. Still in the Azure explorer, expand your Azure Function app, then expand the **Application Settings** node and right-click **AzureWebJobsStorage** to select **Edit Setting**.
