@@ -51,8 +51,8 @@ A resource group holds both the Azure Function resource and the Azure Storage re
 
     |Prompt|Value|Notes|
     |--|--|--|
-    |Enter the name of the new resource group.|`blob-storage-upload-function-group`|If you choose a different name, remember to use it as a replacement for this name when you see it in the rest of this article.|Select a location for new resources. |
-    Select a region close to you.|||
+    |Enter the name of the new resource group.|`blob-storage-upload-function-group`|If you choose a different name, remember to use it as a replacement for this name when you see it in the rest of this article.|
+    |Select a location for new resources. |Select a region close to you.||
 
 ## Create the local Functions app with the Visual Studio Code
 
@@ -60,7 +60,7 @@ A resource group holds both the Azure Function resource and the Azure Storage re
 
 1. In Visual Studio Code, select the Azure explorer, then expand the **Azure Functions** explorer, then select the **Create New Project** command:
 
-    ![Create a local Function app in Visual Studio Code](../../media/azure-function-file-upload-binding/create-function-app-project.png)
+    :::image type="content" source="../../media/azure-function-file-upload-binding/create-function-app-project.png" alt-text="Partial screenshot of Visual Studio Code to create a local Function project.":::
 
 1. Use the following table to finish creating the local Azure Function project:
 
@@ -170,7 +170,7 @@ Now that the basic project folder structure and files are in place, add storage 
 
 1. Create a new file in the root of the project named `test-file.text` and copy in the text:
 
-    :::code language="JSON" source="~/../js-e2e-azure-function-upload-file/test-file.text" :::
+    :::code language="TEXT" source="~/../js-e2e-azure-function-upload-file/test-file.txt" :::
 
 1. In Visual Studio Code, open a new bash terminal to use the function API to upload the `test-file.text`:
 
@@ -184,7 +184,7 @@ Now that the basic project folder structure and files are in place, add storage 
 
 1. In Visual Studio Code, in the file explorer, expand the **azureStorage/_blobstorage_** folder and view the contents of the file. It's name is a guid but the contents should be:
 
-    :::code language="TEXT" source="~/../js-e2e-azure-function-upload-file/test-file.txt" highlight="14":::
+    :::code language="TEXT" source="~/../js-e2e-azure-function-upload-file/test-file.txt" :::
 
     Locally, you've called the function and the file was uploaded to the storage emulator successfully.
 
@@ -192,7 +192,7 @@ Now that the basic project folder structure and files are in place, add storage 
 
 1. In Visual Studio Code, open the **Azure Explorer**, then right-click the deployment icon under **Functions** to deploy your app:
 
-    ![Deploy to Azure Functions command](../../media/functions-extension/deploy-app.png)
+    :::image type="content" source="../../media/functions-extension/deploy-app.png" alt-text="Partial screenshot of Visual Studio Code to deploy to Azure Functions command.":::
 
     Alternately, you can deploy by opening the **Command Palette** (**F1**), entering `deploy to function app`, and running the **Azure Functions: Deploy to Function App** command.
 
@@ -202,30 +202,19 @@ Now that the basic project folder structure and files are in place, add storage 
     |--|--|--|
     |Select Function App in Azure|Create new Function app in Azure (Advanced)|Create a cloud-based resource for your function.|
     |Enter a globally unique name for the new Function App|The name becomes part of the API's URL.|API is invoked with an HTTP request. Valid characters for a function app name are 'a-z', '0-9', and '-'. An example is `blob-storage-upload-function-app-jsmith`. You can replace `jsmith` with your own name, if you would prefer.|
-    |Select a runtime stack|Select a Node.js stack with the `LTS` descriptor.||
-    |Select an OS.|Windows||
+    |Select a runtime stack|Select a Node.js stack with the `LTS` descriptor.|LTS means long term support.|
+    |Select an OS.|Windows|Windows is selected specifically for the stream logs integration in Visual Studio Code. Linux log streaming is available from the Azure portal.|
     |Select a resource group for new resources.|`blob-storage-upload-function-group`|Select the [resource group](#create-a-resource-group) you created.|
     |Select a location for new resources.|Select the recommended region.||
     |Select a hosting plan.|Consumption||
     |Select a storage account.|+ Create new storage account||
     |Enter the name of the new storage account.|`blobstoragefunction`||
+    |Select an Application Insights resource for your app.|+ Create new Application Insights resource.||
     |Enter an Application Insights resource for your app.|`blob-storage-upload-function-app-insights`||
 
 1. The Visual Studio Code **Output** panel for **Azure Functions** shows progress:
 
-    ```console
-    12:26:48 PM: Creating new function app "Visual Studio Codeblob-storage-upload-function-app"...
-    12:27:09 PM: Successfully created function app "Visual Studio Codeblob-storage-upload-function-app": https://Visual Studio Codeblob-storage-upload-function-app.azurewebsites.net
-    12:27:38 PM Visual Studio Codeblob-storage-upload-function-app: Starting deployment...
-    12:27:40 PM Visual Studio Codeblob-storage-upload-function-app: Creating zip package...
-    12:27:41 PM Visual Studio Codeblob-storage-upload-function-app: Uploading zip package to storage container...
-    12:27:41 PM Visual Studio Codeblob-storage-upload-function-app: Zip package size: 2.73 kB
-    12:27:44 PM Visual Studio Codeblob-storage-upload-function-app: Deployment successful.
-    12:27:44 PM Visual Studio Codeblob-storage-upload-function-app: Started postDeployTask "npm install (functions)".
-    12:27:55 PM Visual Studio Codeblob-storage-upload-function-app: Syncing triggers...
-    12:27:57 PM Visual Studio Codeblob-storage-upload-function-app: Querying triggers...
-    12:28:01 PM Visual Studio Codeblob-storage-upload-function-app: WARNING: Some http trigger urls cannot be displayed in the output window because they require an authentication token. Instead, you may copy them from the Azure Functions explorer.
-    ```
+    :::image type="content" source="../../media/functions-extension/visual-studio-code-function-create-resource-output.png" alt-text="Screenshot of Visual Studio Code output window creating a function resource.":::
 
     When deploying, the entire Functions application is deployed, any changes to individual APIs are deployed at once.
 
@@ -261,7 +250,7 @@ Once deployment is completed and the _AzureWebJobsStorage_ app setting have been
 
 1. In Visual Studio Code, select the Azure explorer, then expand the node for your Functions app, then expand **Functions**. Right-click the function name and select **Copy Function Url**:
 
-    ![Copy function URL command](../../media/functions-extension/copy-function-url-command.png)
+    :::image type="content" source="../../media/functions-extension/copy-function-url-command.png" alt-text="Screenshot of Visual Studio Code output window creating a function resource.":::
 
 1. Paste the URL into a text file overwritting `REPLACE-WITH-YOUR-FUNCTION-URL`.
 1. Append the filename and username query string name/value pairs:
