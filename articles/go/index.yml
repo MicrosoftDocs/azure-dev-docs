@@ -55,7 +55,7 @@ landingContent:
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Deploy a Virtual Machine from a template
+          - text: Deploy a virtual machine from a template
             url: azure-sdk-qs-vm.md
   - title: Reference
     linkLists:
