@@ -230,7 +230,9 @@ Now that the basic project folder structure and files are in place, add storage 
     |Would you like to enable static website hosting?|No.|| 
     |Select a location for new resources.|Select one of the recommended locations close to use.||
 
-## Copy the Storage connection string into Azure Function application setting
+<a name="copy-the-storage-connection-string-into-azure-function-application-setting"></a>
+
+## Copy the Storage connection string into Function app setting
 
 1. In Visual Studio Code, select the Azure explorer, then right-click on your new storage resource, and select **Copy Connection String**.
 1. Still in the Azure explorer, expand your Azure Function app, then expand the **Application Settings** node and right-click **AzureWebJobsStorage** to select **Edit Setting**.
