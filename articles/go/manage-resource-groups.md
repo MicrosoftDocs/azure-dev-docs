@@ -8,6 +8,8 @@ ms.custom: devx-track-go
 
 # Manage resource groups with the Azure SDK for Go
 
+In this article, you learn how to create a resource group with the Azure SDK for Go management library.
+
 ## 1. Configure your environment
 
 [!INCLUDE [configure-environment.md](includes/configure-environment.md)]
