@@ -25,7 +25,7 @@
         href: how-to/common-javascript-tasks.md
       - name: With Azure SDKs
         items:
-          - name: Set up environment
+          - name: Set up authentication
             href: core/nodejs-sdk-azure-authenticate.md
       - name: With web apps
         items:
