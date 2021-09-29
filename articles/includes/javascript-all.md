@@ -94,7 +94,7 @@
 | @autorest/codemodel | npm [4.17.0](https://www.npmjs.com/package/@autorest/codemodel/v/4.17.0) |  |  |
 | @autorest/common | npm [1.3.0](https://www.npmjs.com/package/@autorest/common/v/1.3.0) |  |  |
 | @autorest/configuration | npm [1.7.2](https://www.npmjs.com/package/@autorest/configuration/v/1.7.2) |  |  |
-| @autorest/csharp | npm [3.0.0-beta.20210927.6](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20210927.6) |  |  |
+| @autorest/csharp | npm [3.0.0-beta.20210928.3](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20210928.3) |  |  |
 | @autorest/csharp-v3 | npm [3.0.0-beta.20201217.1](https://www.npmjs.com/package/@autorest/csharp-v3/v/3.0.0-beta.20201217.1) |  |  |
 | @autorest/extension-base | npm [3.3.1](https://www.npmjs.com/package/@autorest/extension-base/v/3.3.1) |  |  |
 | @autorest/schemas | npm [1.3.1](https://www.npmjs.com/package/@autorest/schemas/v/1.3.1) |  |  |
@@ -358,7 +358,7 @@
 | Resource Management - Communication | npm [2.1.1](https://www.npmjs.com/package/@azure/arm-communication/v/2.1.1) |  |  |
 | Resource Management - Compute | npm [16.2.0](https://www.npmjs.com/package/@azure/arm-compute/v/16.2.0)<br>npm [30.0.0-beta.3](https://www.npmjs.com/package/@azure/arm-compute/v/30.0.0-beta.3) | [docs](/javascript/api/overview/azure/arm-compute-readme) | GitHub [16.2.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/compute/arm-compute) |
 | Resource Management - Consumption | npm [8.0.1](https://www.npmjs.com/package/@azure/arm-consumption/v/8.0.1) |  | GitHub [8.0.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/consumption/arm-consumption) |
-| Resource Management - Container Instances | npm [6.3.0](https://www.npmjs.com/package/@azure/arm-containerinstance/v/6.3.0) |  | GitHub [6.3.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/containerinstance/arm-containerinstance) |
+| Resource Management - Container Instances | npm [7.0.0](https://www.npmjs.com/package/@azure/arm-containerinstance/v/7.0.0) |  | GitHub [7.0.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/containerinstance/arm-containerinstance) |
 | Resource Management - Container Registry | npm [8.1.1](https://www.npmjs.com/package/@azure/arm-containerregistry/v/8.1.1) | [docs](/javascript/api/overview/azure/container-registry) | GitHub [8.1.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/containerregistry/arm-containerregistry) |
 | Resource Management - Container Service | npm [14.1.0](https://www.npmjs.com/package/@azure/arm-containerservice/v/14.1.0) | [docs](/javascript/api/overview/azure/container-service) | GitHub [14.1.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/containerservice/arm-containerservice) |
 | Resource Management - Content Delivery Network | npm [5.3.1](https://www.npmjs.com/package/@azure/arm-cdn/v/5.3.1) | [docs](/javascript/api/overview/azure/cdn) | GitHub [5.3.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/cdn/arm-cdn) |
