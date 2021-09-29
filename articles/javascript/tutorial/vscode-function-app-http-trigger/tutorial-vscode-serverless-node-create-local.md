@@ -2,7 +2,7 @@
 title: Create the Azure Functions 3.x application from Visual Studio Code
 description: Create a local Azure Functions (serverless) application that contains a function that uses an HTTP trigger. An Azure Functions app can contain many Functions with different triggers. The HTTP trigger specifically handles incoming HTTP traffic.
 ms.topic: tutorial
-ms.date: 9/21/2021
+ms.date: 9/29/2021
 ms.custom: devx-track-js, contperf-fy21q2
 ---
 
@@ -16,11 +16,11 @@ Create a local Azure Functions (serverless) application that contains an [HTTP t
 
     ![Create a local Function app in VS Code](../../media/functions-extension/create-function-app-project.png)
 
-1. At the first two prompts, select the current folder, then select **JavaScript** for the language.
 1. Use the following table to finish creating the local Azure Function project:
 
     |Prompt|Value|Notes|
     |--|--|--|
+    |Select the folder that will contain your function project.|Select the current folder, which is the default value.||
     |Select a language|TypeScript||
     |Select a template for your project's first function|HTTP Trigger|API is invoked with an HTTP request.|
     |Provide a function name|`category`|API route is `/api/category`|
@@ -54,7 +54,7 @@ The basic code to respond to the HTTP request is provided for you. If you are fa
 
 Create a new context.log message after the name variable and change it to appear more obvious when scanning the logs.
 
-```javascript
+```typescript
 context.log(`*** HTTPExample name: ${name}`);
 ```
 
