@@ -24,6 +24,9 @@ Cover management plane and data plane
 
 ## Core packages
 
+* Long running operations (LRO)
+* Paging
+
 ## Iterating over arrays
 
 ## long running operations
