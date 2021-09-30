@@ -37,7 +37,7 @@ The following JavaScript example demonstrates asynchronous paging over a list of
 
 Learn more about page and iterators from:
 
-* [@azure/core-paging](https://docs.microsoft.com/en-us/javascript/api/@azure/core-paging/?view=azure-node-latest)
+* [@azure/core-paging](/javascript/api/@azure/core-paging/)
 
 ## Long running operations
 
