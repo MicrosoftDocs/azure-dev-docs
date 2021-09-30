@@ -2,7 +2,7 @@
 title: Get Started - Install the Azure Terraform Visual Studio Code extension
 description: Learn how to install and use the Azure Terraform Visual Studio Code extension to create an Azure resource group
 ms.topic: quickstart
-ms.date: 09/27/2021
+ms.date: 09/30/2021
 ms.custom: devx-track-terraform
 ---
 
@@ -25,8 +25,6 @@ In this article, you learn how to:
 [!INCLUDE [configure-terraform.md](includes/configure-terraform.md)]
 
 - [Install Node.js](https://nodejs.org/).
-
-- [Install GraphViz](https://graphviz.org/) to use the Terraform visualize function.
 
 ## 2. Install the Azure Terraform Visual Studio Code extension
 
@@ -57,16 +55,24 @@ You can now run all supported Terraform commands in your Cloud Shell environment
 
 1. Create a file named `main.tf` and insert the following code:
 
-    [!code-terraform[master](../../terraform_samples/quickstart/101-resource-group/main.tf)]
+    [!code-terraform[UserStory1866077-Code](../../terraform_samples/quickstart/101-resource-group/main.tf)]
 
 1. Create a file named `variables.tf` to contain the project variables and insert the following code:
 
-    [!code-terraform[master](../../terraform_samples/quickstart/101-resource-group/variables.tf)]
+    [!code-terraform[UserStory1866077-Code](../../terraform_samples/quickstart/101-resource-group/variables.tf)]
 
     **Key points:**
 
     - The `resource_group_name` and `resource_group_location` values are shown with test values. You can set these values to whatever makes sense for your environment.
 
+1. Create a file named `output.tf` to contain the project variables and insert the following code:
+
+    [!code-terraform[UserStory1866077-Code](../../terraform_samples/quickstart/101-resource-group/output.tf)]
+
+    **Key points:**
+
+    - Since the name of the resource group is randomized to ensure uniqueness in your Azure subscription, the `output.tf` displays the resource group name.
+    
 ## 4. Initialize Terraform within Visual Studio Code
 
 1. From the **View** menu, select **Command Palette...**.
@@ -82,7 +88,17 @@ You can now run all supported Terraform commands in your Cloud Shell environment
 
 1. If this is the first time you're using Cloud Shell with your default Azure subscription, follow the prompts to configure the environment.
 
-## 5. Create a Terraform execution plan within Visual Studio Code
+## 5. Push your code to Cloud Shell
+
+1. From the **View** menu, select **Command Palette...**.
+
+1. In the Command Palette text box, start entering `Azure Terraform: Push` and select it when it displays.
+
+    **Key points:**
+
+    - This command copies your workspace files that meet the filter defined in the azureTerraform.files setting in your configuration to Cloud Shell.
+    
+## 6. Create a Terraform execution plan within Visual Studio Code
 
 1. From the **View** menu, select **Command Palette...**.
 
@@ -92,7 +108,7 @@ You can now run all supported Terraform commands in your Cloud Shell environment
 
     - This command runs [terraform plan](https://www.terraform.io/docs/commands/plan.html) to create an execution plan from the Terraform configuration files in the current directory.
 
-## 6. Apply a Terraform execution plan within Visual Studio Code
+## 7. Apply a Terraform execution plan within Visual Studio Code
 
 1. From the **View** menu, select **Command Palette...**.
 
@@ -100,7 +116,7 @@ You can now run all supported Terraform commands in your Cloud Shell environment
 
 1. When prompted for confirmation, enter `yes` and press `<Enter>`.
 
-## 7. Verify the results
+## 8. Verify the results
 
 #### [Azure CLI](#tab/azure-cli)
 
@@ -128,7 +144,7 @@ Get-AzResourceGroup -Name <resource_group_name>
 
 ---
 
-## 8. Clean up resources
+## 9. Clean up resources
 
 1. From the **View** menu, select **Command Palette...**.
 
@@ -136,7 +152,7 @@ Get-AzResourceGroup -Name <resource_group_name>
 
 1. When prompted for confirmation, enter `yes` and press `<Enter>`.
 
-1. To confirm that Terraform successfully destroyed your new resource group, run the steps in the section, [Verify the results](#7-verify-the-results).
+1. To confirm that Terraform successfully destroyed your new resource group, run the steps in the section, [Verify the results](#8-verify-the-results).
 
 ## Troubleshoot Terraform on Azure
 
