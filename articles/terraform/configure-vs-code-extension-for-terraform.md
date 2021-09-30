@@ -14,7 +14,7 @@ In this article, you learn how to:
 > [!div class="checklist"]
 
 > * Install the Azure Terraform Visual Studio Code extension
-> * Use the extension's commands to create an Azure resource group
+> * Use the extension to create an Azure resource group
 > * Verify the resource group was created
 > * Delete the resource group when finished testing using the extension
 
@@ -73,7 +73,17 @@ You can now run all supported Terraform commands in your Cloud Shell environment
 
     - Since the name of the resource group is randomized to ensure uniqueness in your Azure subscription, the `output.tf` displays the resource group name.
     
-## 4. Initialize Terraform within Visual Studio Code
+## 4. Push your code to Cloud Shell
+
+1. From the **View** menu, select **Command Palette...**.
+
+1. In the Command Palette text box, start entering `Azure Terraform: Push` and select it when it displays.
+
+    **Key points:**
+
+    - This command copies your workspace files that meet the filter defined in the azureTerraform.files setting in your configuration to Cloud Shell.
+    
+## 5. Initialize Terraform within Visual Studio Code
 
 1. From the **View** menu, select **Command Palette...**.
 
@@ -88,16 +98,6 @@ You can now run all supported Terraform commands in your Cloud Shell environment
 
 1. If this is the first time you're using Cloud Shell with your default Azure subscription, follow the prompts to configure the environment.
 
-## 5. Push your code to Cloud Shell
-
-1. From the **View** menu, select **Command Palette...**.
-
-1. In the Command Palette text box, start entering `Azure Terraform: Push` and select it when it displays.
-
-    **Key points:**
-
-    - This command copies your workspace files that meet the filter defined in the azureTerraform.files setting in your configuration to Cloud Shell.
-    
 ## 6. Create a Terraform execution plan within Visual Studio Code
 
 1. From the **View** menu, select **Command Palette...**.
