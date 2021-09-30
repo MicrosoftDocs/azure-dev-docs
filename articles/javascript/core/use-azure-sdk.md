@@ -27,9 +27,19 @@ Cover management plane and data plane
 * Long running operations (LRO)
 * Paging
 
-## Iterating over arrays
+## Asynchronous paging of results
 
-## long running operations
+An SDK method returns an asynchronous iterator to allow for asynchronous results. The results may use paging and continuation tokens to break up result sets.
+
+The following JavaScript example demonstrates asynchronous paging over a list of Azure Storage files which exist in the file share. The code sets an artificially short paging size of 2 in order to quickly and visually demonstrate the process when you run the sample code in debug. 
+
+:::code language="JavaScript" source="~/../storage/file-paging/page-through-files.js" range="37-52,67-83":::
+
+Learn more about page and iterators from:
+
+* [@azure/core-paging](https://docs.microsoft.com/en-us/javascript/api/@azure/core-paging/?view=azure-node-latest)
+
+## Long running operations
 
 ## Handling timeouts to Azure
 
