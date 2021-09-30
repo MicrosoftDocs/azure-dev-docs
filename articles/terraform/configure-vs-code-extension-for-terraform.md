@@ -79,9 +79,13 @@ You can now run all supported Terraform commands in your Cloud Shell environment
 
 1. In the Command Palette text box, start entering `Azure Terraform: Push` and select it when it displays.
 
+1. Select **OK** to confirm opening of Cloud Shell.
+
+    :::image type="content" source="media/configure-vs-code-extension-for-terraform/confirm-opening-of-cloud-shell .png" alt-text="Confirm the opening of Cloud Shell.":::
+
     **Key points:**
 
-    - This command copies your workspace files that meet the filter defined in the azureTerraform.files setting in your configuration to Cloud Shell.
+    - Your workspace files that meet the filter defined in the azureTerraform.files setting in your configuration are copied to Cloud Shell.
     
 ## 5. Initialize Terraform within Visual Studio Code
 
