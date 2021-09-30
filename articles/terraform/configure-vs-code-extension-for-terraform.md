@@ -165,4 +165,4 @@ Get-AzResourceGroup -Name <resource_group_name>
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [List of the Terraform modules available for Azure (and other supported providers)](https://registry.terraform.io/)
+> [Read more about the Azure Terraform Visual Studio Code extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureterraform)
