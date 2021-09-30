@@ -13,10 +13,10 @@ The Visual Studio Code Terraform extension enables you to work with Terraform fr
 In this article, you learn how to:
 > [!div class="checklist"]
 
-> * Install the Terraform Visual Studio Code extension for Azure services
-> * Create an Azure resource group to hold other Azure resources
-> * Verify (using Azure CLI and Azure PowerShell within Visual Studio Code) the resource group was created
-> * Delete the resource group when finished using it
+> * Install the Azure Terraform Visual Studio Code extension
+> * Use the extension's commands to create an Azure resource group
+> * Verify the resource group was created
+> * Delete the resource group when finished testing using the extension
 
 ## 1. Configure your environment
 
