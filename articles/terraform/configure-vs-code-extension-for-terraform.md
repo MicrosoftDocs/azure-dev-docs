@@ -71,7 +71,7 @@ You can now run all supported Terraform commands in your Cloud Shell environment
 
     **Key points:**
 
-    - Since the name of the resource group is randomized to ensure uniqueness in your Azure subscription, the `output.tf` displays the resource group name.
+    - The `output.tf` file displays the randomized resource group name.
     
 ## 4. Push your code to Cloud Shell
 
