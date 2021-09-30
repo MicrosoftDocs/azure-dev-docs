@@ -55,11 +55,11 @@ You can now run all supported Terraform commands in your Cloud Shell environment
 
 1. Create a file named `main.tf` and insert the following code:
 
-    [!code-terraform[UserStory1866077-Code](../../terraform_samples/quickstart/101-resource-group/main.tf)]
+    [!code-terraform[master](../../terraform_samples/quickstart/101-resource-group/main.tf)]
 
 1. Create a file named `variables.tf` to contain the project variables and insert the following code:
 
-    [!code-terraform[UserStory1866077-Code](../../terraform_samples/quickstart/101-resource-group/variables.tf)]
+    [!code-terraform[master](../../terraform_samples/quickstart/101-resource-group/variables.tf)]
 
     **Key points:**
 
@@ -67,7 +67,7 @@ You can now run all supported Terraform commands in your Cloud Shell environment
 
 1. Create a file named `output.tf` to contain the project variables and insert the following code:
 
-    [!code-terraform[UserStory1866077-Code](../../terraform_samples/quickstart/101-resource-group/output.tf)]
+    [!code-terraform[master](../../terraform_samples/quickstart/101-resource-group/output.tf)]
 
     **Key points:**
 
@@ -79,13 +79,13 @@ You can now run all supported Terraform commands in your Cloud Shell environment
 
 1. In the Command Palette text box, start entering `Azure Terraform: Push` and select it when it displays.
 
-1. Select **OK** to confirm opening of Cloud Shell.
+1. Select **OK** to confirm the opening of Cloud Shell.
 
     :::image type="content" source="media/configure-vs-code-extension-for-terraform/confirm-opening-of-cloud-shell.png" alt-text="Confirm the opening of Cloud Shell.":::
 
     **Key points:**
 
-    - Your workspace files that meet the filter defined in the azureTerraform.files setting in your configuration are copied to Cloud Shell.
+    - Your workspace files that meet the filter defined in the `azureTerraform.files` setting in your configuration are copied to Cloud Shell.
     
 ## 5. Initialize Terraform within Visual Studio Code
 
@@ -128,7 +128,7 @@ You can now run all supported Terraform commands in your Cloud Shell environment
 
 1. In the Command Palette text box, start entering `Azure: Open Bash in Cloud Shell` and select it when it displays.
 
-1. Run [az group show](/cli/azure/group#az_group_show) to display the resource group. Replace the `<resource_group_name>` placeholder with the name of the resource group you used in the `variables.tf` file.
+1. Run [az group show](/cli/azure/group#az_group_show) to display the resource group. Replace the `<resource_group_name>` placeholder with the randomly generated name of the resource group displayed after applying the Terraform execution plan.
 
 ```azurecli
 az group show --name <resource_group_name>
