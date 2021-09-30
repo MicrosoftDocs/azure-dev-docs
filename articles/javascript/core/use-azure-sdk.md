@@ -18,7 +18,7 @@ Cover management plane and data plane
 
 ## Use Azure npm package sample code
 
-## Provide authentication to Azure platform with credentials
+## Provide authentication credentials
 
 ## Create an SDK client and call methods
 
