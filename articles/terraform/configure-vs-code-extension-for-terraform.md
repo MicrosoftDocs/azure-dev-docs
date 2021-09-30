@@ -81,7 +81,7 @@ You can now run all supported Terraform commands in your Cloud Shell environment
 
 1. Select **OK** to confirm opening of Cloud Shell.
 
-    :::image type="content" source="media/configure-vs-code-extension-for-terraform/confirm-opening-of-cloud-shell .png" alt-text="Confirm the opening of Cloud Shell.":::
+    :::image type="content" source="media/configure-vs-code-extension-for-terraform/confirm-opening-of-cloud-shell.png" alt-text="Confirm the opening of Cloud Shell.":::
 
     **Key points:**
 
