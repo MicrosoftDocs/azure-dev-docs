@@ -30,7 +30,7 @@ The following JavaScript example demonstrates asynchronous paging. The code sets
 
 :::code language="JavaScript" source="~/../js-e2e/storage/blob-paging/blob-paging.js" highlight="21-41":::
 
-Learn more about page and iterators from:
+Learn more about paging and iterators on Azure from:
 
 * [@azure/core-paging](/javascript/api/@azure/core-paging/)
 
@@ -42,7 +42,7 @@ The following JavaScript example demonstrates how to wait for a LRO until it is 
 
 :::code language="JavaScript" source="~/../js-e2e/storage/upload-url-to-blob-poll-until-done/upload-url-to-blob-poll-until-done.js" highlight="38-44":::
 
-Learn more about long running operations from:
+Learn more about long running operations on Azure from:
 
 * [@azure/core-lro](/javascript/api/@azure/core-lro)
 
