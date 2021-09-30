@@ -24,7 +24,7 @@ Cover management plane and data plane
 
 ## Asynchronous paging of results
 
-An SDK method can return an asynchronous iterator to allow for asynchronous results. The results may use paging and continuation tokens to break up result sets.
+An SDK method can return an asynchronous iterator, [PagedAsyncIterableIterator](/javascript/api/@azure/core-paging/pagedasynciterableiterator), to allow for asynchronous results. The results may use paging and continuation tokens to break up result sets.
 
 The following JavaScript example demonstrates asynchronous paging. The code sets an artificially short paging size of 2 in order to quickly and visually demonstrate the process when you run the sample code in debug. 
 
@@ -36,7 +36,7 @@ Learn more about paging and iterators on Azure from:
 
 ## Long running operations
 
-An SDK method can return a long running operation (LRO) [_response_](https://docs.microsoft.com/en-us/javascript/api/@azure/core-lro/lroresponse?view=azure-node-latest). This response includes information to know if your request completed or is still in process. 
+An SDK method can return a long running operation (LRO) [_response_](/javascript/api/@azure/core-lro/lroresponse). This response includes information to know if your request completed or is still in process. 
 
 The following JavaScript example demonstrates how to wait for a LRO until it is completing before continuing. 
 
