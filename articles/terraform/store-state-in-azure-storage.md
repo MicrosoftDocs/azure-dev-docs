@@ -2,7 +2,7 @@
 title: Store Terraform state in Azure Storage
 description: Learn how to store Terraform state in Azure Storage.
 ms.topic: how-to
-ms.date: 08/07/2021
+ms.date: 08/31/2021
 ms.custom: devx-track-terraform, devx-track-azurecli
 ---
 
@@ -10,7 +10,7 @@ ms.custom: devx-track-terraform, devx-track-azurecli
 
 Terraform state is used to reconcile deployed resources with Terraform configurations. State allows Terraform to know what Azure resources to add, update, or delete.
 
-By default, Terraform state is stored locally which isn't ideal for the following reasons:
+By default, Terraform state is stored locally, which isn't ideal for the following reasons:
 
 - Local state doesn't work well in a team or collaborative environment.
 - Terraform state can include sensitive information.
@@ -32,7 +32,7 @@ In this article, you learn how to:
 
 ## 2. Configure remote state storage account
 
-Before you use Azure Storage as a back end, you must create a storage account.
+Before you use Azure Storage as a backend, you must create a storage account.
 
 Run the following commands or configuration to create an Azure storage account and container:
 
@@ -130,7 +130,7 @@ Run the command `terraform init`, then `terraform apply` to configure the Azure 
 
 ## 3. Configure terraform backend state
 
-To configure the backend state you need the following Azure storage information:
+To configure the backend state, you need the following Azure storage information:
 
 - **storage_account_name**: The name of the Azure Storage account.
 - **container_name**: The name of the blob container.
@@ -182,7 +182,7 @@ terraform {
     backend "azurerm" {
         resource_group_name  = "tfstate"
         storage_account_name = "<storage_account_name>"
-        container_name       = "tstate"
+        container_name       = "tfstate"
         key                  = "terraform.tfstate"
     }
 

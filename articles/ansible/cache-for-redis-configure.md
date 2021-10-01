@@ -13,7 +13,7 @@ ms.custom: devx-track-ansible
 
 [Azure Cache for Redis](/azure/azure-cache-for-redis/) is an open-source compatible service that allows you to build responsive apps by providing fast access to data. 
 
-[!INCLUDE [ansible-tutorial-goals.md](includes/ansible-tutorial-goals.md)]
+In this article, you learn how to:
 
 > [!div class="checklist"]
 >

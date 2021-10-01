@@ -33,16 +33,18 @@ landingContent:
         links:
           - text: Configure Terraform in Cloud Shell with Bash
             url: get-started-cloud-shell-bash.md
-          - text: Configure Terraform in Cloud Shell with PowerShell
+          - text: Configure Terraform in Cloud Shell with Azure PowerShell
             url: get-started-cloud-shell-powershell.md
-          - text: Configure Terraform in Windows with Bash
+          - text: Install Terraform on Windows with Bash
             url: get-started-windows-bash.md
-          - text: Configure Terraform in Windows with PowerShell
+          - text: Install Terraform on Windows with Azure PowerShell
             url: get-started-windows-powershell.md
+          - text: Create Azure resource group
+            url: create-resource-group.md
+          - text: Install the Azure Terraform Visual Studio Code extension
+            url: configure-vs-code-extension-for-terraform.md
       - linkListType: how-to-guide
         links:
-          - text: Install the Terraform Visual Studio Code extension
-            url: configure-vs-code-extension-for-terraform.md
           - text: Authenticate Terraform to Azure
             url: authenticate-to-azure.md
           - text: Store Terraform state in Azure Storage

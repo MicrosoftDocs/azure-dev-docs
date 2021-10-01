@@ -4,7 +4,7 @@ description: WebSphere products are key components in enabling enterprise Java w
 ms.author: rezar
 ms.topic: overview
 ms.date: 04/28/2021
-ms.custom: template-overview, devx-track-java
+ms.custom: template-overview, devx-track-java, devx-track-javaee
 ---
 
 # What are solutions to run the IBM WebSphere family of products on Azure?
@@ -19,7 +19,7 @@ The currently available offers are linked at the bottom of this page.
 
 :::image type="content" border="false" source="media/websphere-family/websphere-family.svg" alt-text="Diagram showing the interaction of IBM products on Azure.":::
 
-If you want to provide feedback on these offers, stay-up-date on the roadmap, or work closely on your migration scenarios with the engineering team developing these offers, select the CONTACT ME button on the marketplace offer [overview page](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/ibm-usa-ny-armonk-hq-6275750-ibmcloud-aiops.2021-02-17_websphere_offerings_contact_me?tab=Overview). Program managers, architects, and engineers will reach out to you shortly to start collaboration. The opportunity to collaborate on a migration scenario is free while the offers are under active development.
+If you want to provide feedback on these offers, stay-up-date on the roadmap, or work closely on your migration scenarios with the engineering team developing these offers, select the CONTACT ME button on the marketplace offer [overview page](https://azuremarketplace.microsoft.com/marketplace/apps/ibm-usa-ny-armonk-hq-6275750-ibmcloud-aiops.2021-02-17_websphere_offerings_contact_me?tab=Overview). Program managers, architects, and engineers will reach out to you shortly to start collaboration. The opportunity to collaborate on a migration scenario is free while the offers are under active development.
 
 ## Open Liberty and WebSphere Liberty on ARO
 
@@ -27,7 +27,7 @@ This offer is aimed at automatically provisioning several Azure resources to qui
 
 ## WebSphere Application Server on VMs
 
-This offer is aimed at automatically provisioning several Azure resources to quickly move to WebSphere (Traditional) Application Server on Azure Virtual Machines. The automatically provisioned resources include virtual network, storage, network security group, Java, Linux, and WebSphere. The offer targets highly available WebSphere clusters. The offer is available as an [Azure solution template in the Portal](https://portal.azure.com/#create/ibm-usa-ny-armonk-hq-6275750-ibmcloud-aiops.2021-04-08-twas-clustercluster).
+This offer is aimed at automatically provisioning several Azure resources to quickly move to WebSphere (Traditional) Application Server on Azure Virtual Machines. The automatically provisioned resources include virtual network, storage, network security group, Java, Linux, and WebSphere. The offer targets highly available WebSphere clusters. You can have the offer provision and configure the IBM HTTP Server as a load-balancer. The offer is available as an [Azure solution template in the Portal](https://portal.azure.com/#create/ibm-usa-ny-armonk-hq-6275750-ibmcloud-aiops.2021-04-08-twas-clustercluster).
 
 ## Open Liberty and WebSphere Liberty on AKS
 

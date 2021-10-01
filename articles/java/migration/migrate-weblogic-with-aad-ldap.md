@@ -5,6 +5,7 @@ ms.author: edburns
 ms.topic: tutorial
 ms.date: 08/10/2020
 recommendations: false
+ms.custom: devx-track-java, devx-track-javaee
 ---
 
 # End-user authorization and authentication for migrating Java apps on WebLogic Server to Azure

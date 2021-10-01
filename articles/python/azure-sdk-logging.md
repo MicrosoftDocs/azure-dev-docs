@@ -22,48 +22,22 @@ As a general rule, the best resource for understanding logging usage within the 
 
 ## Set logging levels
 
-```python
-import logging
-
-# ...
-
-# Acquire the logger for a library (azure.mgmt.resource in this example)
-logger = logging.getLogger('azure.mgmt.resource')
-
-# Set the desired logging level
-logger.setLevel(logging.DEBUG)
-```
+:::code language="python" source="~/../python-sdk-docs-examples/logging/set_levels.py" range="1-9":::
 
 - This example acquires the logger for the `azure.mgmt.resource` library, then sets the logging level to `logging.DEBUG`.
-
 - You can call `logger.setLevel` at any time to change the logging level for different segments of code.
 
 To set a level for a different library, use that library's name in the `logging.getLogger` call. For example, the azure-eventhubs library provides a logger named `azure.eventhubs`, the azure-storage-queue library provides a logger named `azure.storage.queue`, and so on. (The SDK source code frequently uses the statement `logging.getLogger(__name__)`, which acquires a logger using the name of the containing module.)
 
 You can also use more general namespaces. For example,
 
-```python
-import logging
-
-# Set the logging level for all azure-storage-* libraries
-logger = logging.getLogger('azure.storage')
-logger.setLevel(logging.INFO)
-
-# Set the logging level for all azure-* libraries
-logger = logging.getLogger('azure')
-logger.setLevel(logging.ERROR)
-```
+:::code language="python" source="~/../python-sdk-docs-examples/logging/set_levels.py" range="1-2,11-17":::
 
 Note that the `azure` logger is used by some libraries instead of a specific logger. For example, the azure-storage-blob library uses the `azure` logger.
 
 You can use the `logger.isEnabledFor` method to check whether any given logging level is enabled:
 
-```python
-print(f"Logger enabled for ERROR={logger.isEnabledFor(logging.ERROR)}, " \
-    f"WARNING={logger.isEnabledFor(logging.WARNING)}, " \
-    f"INFO={logger.isEnabledFor(logging.INFO)}, " \
-    f"DEBUG={logger.isEnabledFor(logging.DEBUG)}")
-```
+:::code language="python" source="~/../python-sdk-docs-examples/storage/use_blob_auth_logging.py" range="10-13":::
 
 Logging levels are the same as the [standard logging library levels](https://docs.python.org/3/library/logging.html#levels). The following table describes the general use of these logging levels in the Azure libraries for Python:
 
@@ -94,14 +68,7 @@ The best way to examine the exact logging for a library is to search for the log
 
 To capture logging output, you must register at least one log stream handler in your code:
 
-```python
-import logging
-
-# Direct logging output to stdout. Without adding a handler,
-# no logging output is captured.
-handler = logging.StreamHandler(stream=sys.stdout)
-logger.addHandler(handler)
-```
+:::code language="python" source="~/../python-sdk-docs-examples/storage/use_blob_auth_logging.py" range="3,18-22":::
 
 This example registers a handler that directs log output to stdout. You can use other types of handlers as described on [logging.handlers](https://docs.python.org/3/library/logging.handlers.html) in the Python documentation or use the standard [logging.basicConfig](https://docs.python.org/3/library/logging.html#logging.basicConfig) method.
 
@@ -113,69 +80,25 @@ By default, logging within the Azure libraries does not include any HTTP informa
 
 ### Enable HTTP logging for a client object (DEBUG level)
 
-```python
-from azure.storage.blob import BlobClient
-from azure.identity import DefaultAzureCredential
-
-# Enable HTTP logging on the client object when using DEBUG level
-# endpoint is the Blob storage URL.
-client = BlobClient(endpoint, DefaultAzureCredential(), logging_enable=True)
-```
+:::code language="python" source="~/../python-sdk-docs-examples/logging/enable_for_client.py":::
 
 Enabling HTTP logging for a client object enables logging for all operations invoked through that object.
 
 ### Enable HTTP logging for a credential object (DEBUG level)
 
-```python
-from azure.storage.blob import BlobClient
-from azure.identity import DefaultAzureCredential
-
-# Enable HTTP logging on the credential object when using DEBUG level
-credential = DefaultAzureCredential(logging_enable=True)
-
-# endpoint is the Blob storage URL.
-client = BlobClient(endpoint, credential)
-```
+:::code language="python" source="~/../python-sdk-docs-examples/logging/enable_for_credential.py":::
 
 Enabling HTTP logging for a credential object enables logging for all operations invoked through that object, specifically, but not for operations in a client object that don't involve authentication.
 
 ### Enable logging for an individual method (DEBUG level)
 
-```python
-from azure.storage.blob import BlobClient
-from azure.identity import DefaultAzureCredential
-
-# endpoint is the Blob storage URL.
-client = BlobClient(endpoint, DefaultAzureCredential())
-
-# Enable HTTP logging for only this operation when using DEBUG level
-client.create_container("container01", logging_enable=True)
-```
+:::code language="python" source="~/../python-sdk-docs-examples/logging/enable_for_method.py":::
 
 ## Example logging output
 
-The following code is that shown in [Example: Use a storage account](azure-sdk-example-storage-use.md) with the addition of enabling DEBUG and HTTP logging (comments omitted for brevity):
+The following code is that shown in [Example: Use a storage account](azure-sdk-example-storage-use.md) with the addition of enabling DEBUG and HTTP logging:
 
-```python
-import os, sys, logging
-from azure.identity import DefaultAzureCredential
-from azure.storage.blob import BlobClient
-
-logger = logging.getLogger('azure.storage.blob')
-logger.setLevel(logging.DEBUG)
-
-handler = logging.StreamHandler(stream=sys.stdout)
-logger.addHandler(handler)
-
-credential = DefaultAzureCredential()
-storage_url = os.environ["AZURE_STORAGE_BLOB_URL"]
-
-blob_client = BlobClient(storage_url, container_name="blob-container-01",
-    blob_name="sample-blob.txt", credential=credential)
-
-with open("./sample-source.txt", "rb") as data:
-    blob_client.upload_blob(data, logging_enable=True)
-```
+:::code language="python" source="~/../python-sdk-docs-examples/storage/use_blob_auth_logging.py" range="1-9,15-32":::
 
 The logging output is as follows:
 

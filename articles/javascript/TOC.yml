@@ -17,14 +17,8 @@
       href: node-azure-tools.md
     - name: Set up your dev environment
       href: core/configure-local-development-environment.md
-    - name: Set up service principal
-      href: how-to/with-sdk/set-up-development-environment.md
     - name: Authenticate to Azure
       href: core/nodejs-sdk-azure-authenticate.md
-  - name: Concepts
-    items:
-      - name: Identity, authentication, and users
-        href: concepts/identity-authentication-users.md
   - name: How-To guides
     items:
       - name: Azure Tasks for JavaScript developers
@@ -32,9 +26,13 @@
       - name: With Azure SDKs
         items:
           - name: Set up environment
-            href: how-to/with-sdk/set-up-development-environment.md
+            href: core/nodejs-sdk-azure-authenticate.md
       - name: With web apps
         items:
+          - name: Select hosting service
+            href: how-to/select-hosting-service.md
+          - name: Select deployment process
+            href: how-to/deploy-web-app.md
           - name: Configure
             items: 
             - name: Configure app settings
@@ -43,12 +41,28 @@
               href: how-to/add-custom-domain-to-web-app.md
             - name: Use Key Vault secrets in Express.js
               href: how-to/with-web-app/use-secret-environment-variables.md
-          - name: Deploy to Azure 
-            href: how-to/deploy-web-app.md
           - name: Azure Static Web Apps
             items: 
             - name: Getting started
               href: how-to/create-static-web-app.md
+            - name: Create Static web app
+              items:
+                - name: 1. Introduction
+                  href: how-to/with-web-app/static-web-app-with-swa-cli/introduction.md
+                - name: 2. Create GitHub repo
+                  href: how-to/with-web-app/static-web-app-with-swa-cli/create-github-repo.md                  
+                - name: 3. Create React client app
+                  href: how-to/with-web-app/static-web-app-with-swa-cli/create-react-app.md                  
+                - name: 4. Create Azure Static Web app
+                  href: how-to/with-web-app/static-web-app-with-swa-cli/create-static-web-app.md                  
+                - name: 5. Create Azure Function API
+                  href: how-to/with-web-app/static-web-app-with-swa-cli/create-function-api-app.md  
+                - name: 6. Connect client to API
+                  href: how-to/with-web-app/static-web-app-with-swa-cli/connect-client-to-api.md                                    
+                - name: 7. Add easy authentication
+                  href: how-to/with-web-app/static-web-app-with-swa-cli/add-authentication.md                                    
+                - name: 8. Clean up resources
+                  href: how-to/with-web-app/static-web-app-with-swa-cli/clean-up-swa-auth-resources.md                                    
             - name: Add search to website
               href: /azure/search/tutorial-javascript-overview
             - name: "Upload image to Storage"
@@ -87,7 +101,7 @@
             items: 
             - name: Develop Azure Functions
               href: how-to/develop-serverless-apps.md
-            - name: "With Visual Studio Code"
+            - name: "With Visual Studio Code and database"
               items:
               - name: 1. Introduction and prerequisites
                 href: tutorial/vscode-function-app-http-trigger/tutorial-vscode-serverless-node-install.md
@@ -97,8 +111,26 @@
                 href: tutorial/vscode-function-app-http-trigger/tutorial-vscode-serverless-node-test-local.md
               - name: 4. Deploy the Functions app
                 href: tutorial/vscode-function-app-http-trigger/tutorial-vscode-serverless-node-deploy-hosting.md
-              - name: 5. Clean up resources
+              - name: 5. MongoDB database integration
+                href: tutorial/vscode-function-app-http-trigger/tutorial-vscode-serverless-node-database-integration.md              
+              - name: 6. Clean up resources
                 href: tutorial/vscode-function-app-http-trigger/tutorial-vscode-serverless-node-remove-resource.md              
+            - name: Upload file to Blob Storage
+              href: ./how-to/with-web-app/azure-function-file-upload.md
+            - name: Resource management API
+              items: 
+              - name: 1. Introduction and prerequisites
+                href: how-to/with-web-app/azure-function-resource-group-management/introduction.md
+              - name: 2. Create local Azure Function
+                href: how-to/with-web-app/azure-function-resource-group-management/create-function-app.md
+              - name: 3. Deploy function to Azure
+                href: how-to/with-web-app/azure-function-resource-group-management/deploy-azure-function-with-visual-studio-code.md
+              - name: 4. Add APIs and redeploy
+                href: how-to/with-web-app/azure-function-resource-group-management/add-delete-functions-redeploy.md
+              - name: 5. View and query application logs
+                href: how-to/with-web-app/azure-function-resource-group-management/view-query-application-logs.md
+              - name: 6. Clean up resources
+                href: how-to/with-web-app/azure-function-resource-group-management/clean-up-resources.md
             - name: GraphQL APIs
               href: ./how-to/with-web-app/graphql/azure-function-hello-world.md
           - name: Azure App service
@@ -117,8 +149,6 @@
                   href: tutorial/tutorial-vscode-azure-cli-node/tutorial-vscode-azure-cli-node-04.md
                 - name: Stream logs
                   href: tutorial/tutorial-vscode-azure-cli-node/tutorial-vscode-azure-cli-node-05.md
-                - name: Make changes and redeploy
-                  href: tutorial/tutorial-vscode-azure-cli-node/tutorial-vscode-azure-cli-node-06.md
                 - name: Clean up resources
                   href: tutorial/tutorial-vscode-azure-cli-node/tutorial-vscode-azure-cli-node-07.md
             - name: "Express.js convert text to speech"
@@ -175,11 +205,13 @@
         items:
           - name: Getting started
             href: how-to/with-authentication/getting-started.md
-          - name: Add easy authentication
+          - name: Easy auth with Static Web Apps
+            href: how-to/with-web-app/static-web-app-with-swa-cli/add-authentication.md
+          - name: Easy auth with Express.js
             href: how-to/with-web-app/add-authentication-to-web-app.md
-          - name: Add a simple Login button for Microsoft Identity provider
+          - name: Add a simple MSAL.js Login button for Microsoft Identity provider
             href: tutorial/single-page-application-azure-login-button-sdk-msal.md
-          - name: Static web app with API
+          - name: Add MSAL.js to Static web app with API
             items:
               - name: Introduction
                 href: how-to/with-authentication/static-web-app-with-api/introduction.md
@@ -191,7 +223,7 @@
                 href: how-to/with-authentication/static-web-app-with-api/add-mongodb-database-to-api.md
               - name: Deploy to Azure
                 href: how-to/with-authentication/static-web-app-with-api/deploy-static-web-app-to-azure.md
-          - name: Add to server app
+          - name: Add MSAL.js to server app
             href: how-to/with-web-app/deploy-msal-sdk-authentication-expressjs.md
       - name: With Visual Studio Code
         items:

@@ -12,7 +12,7 @@ ms.custom: devx-track-java, devx-track-azurecli
 
 # Use Spring Data R2DBC with Azure Database for PostgreSQL
 
-This topic demonstrates creating a sample application that uses [Spring Data R2DBC](https://spring.io/projects/spring-data-r2dbc) to store and retrieve information in an [Azure Database for PostgreSQL](/azure/postgresql/) database. The sample will use the R2DBC implementation for PostgreSQL from the [r2dbc-postgresql](https://github.com/pgjdbc/r2dbc-postgresql) repository on GitHub.
+This article demonstrates creating a sample application that uses [Spring Data R2DBC](https://spring.io/projects/spring-data-r2dbc) to store and retrieve information in an [Azure Database for PostgreSQL](/azure/postgresql/) database. The sample will use the R2DBC implementation for PostgreSQL from the [r2dbc-postgresql](https://github.com/pgjdbc/r2dbc-postgresql) repository on GitHub.
 
 [R2DBC](https://r2dbc.io/) brings reactive APIs to traditional relational databases. You can use it with Spring WebFlux to create fully reactive Spring Boot applications that use non-blocking APIs. It provides better scalability than the classic "one thread per connection" approach.
 

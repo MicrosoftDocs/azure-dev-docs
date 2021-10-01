@@ -330,7 +330,7 @@ To manually add the same the configuration that Spring Initializr generates, add
 
    ```xml
    <properties>
-        <azure.version>3.5.0</azure.version>
+        <azure.version>3.8.0</azure.version>
    </properties>
    <dependencies>
         <dependency>

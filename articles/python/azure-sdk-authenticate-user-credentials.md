@@ -28,7 +28,7 @@ We discourage using this method of authentication because it's less secure than 
 
 Furthermore, this method authenticates only work and school accounts; Microsoft accounts are not supported. For more information, see [Sign up your organization to use Azure Active Directory](/azure/active-directory/fundamentals/sign-up-organization).
 
-:::code language="python" source="~/../python-sdk-examples/show_subscription/use_username_password.py":::
+:::code language="python" source="~/../python-sdk-docs-examples/show_subscription/use_username_password.py":::
 
 ## See also
 

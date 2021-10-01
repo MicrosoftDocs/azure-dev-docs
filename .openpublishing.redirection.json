@@ -1,6 +1,18 @@
 {
   "redirections": [
     {
+      "source_path": "articles/javascript/how-to/with-web-app/azure-function-resource-group-management/view-and-query-application-logs.md",
+      "redirect_url": "/azure/developer/javascript/how-to/with-web-app/azure-function-resource-group-management/view-query-application-logs"
+    },
+    {
+      "source_path": "articles/javascript/how-to/with-web-app/azure-function-resource-group-management/create-function-app-for-resource-groups.md",
+      "redirect_url": "/azure/developer/javascript/how-to/with-web-app/azure-function-resource-group-management/create-function-app"
+    },      
+    {
+      "source_path": "articles/javascript/tutorial/tutorial-vscode-azure-cli-node/tutorial-vscode-azure-cli-node-06.md",
+      "redirect_url": "/azure/developer/javascript/tutorial/tutorial-vscode-azure-cli-node/tutorial-vscode-azure-cli-node-04#make-change-and-deploy-to-azure-app-service-from-local-git"
+    },    
+    {
       "source_path": "articles/javascript/how-to/deploy-containers.md",
       "redirect_url": "/azure/developer/javascript/how-to/deploy-web-app"
     },
@@ -14,19 +26,19 @@
     },
     {
       "source_path": "articles/javascript/tutorial/tutorial-vscode-static-website-node/tutorial-vscode-static-website-node-01.md",
-      "redirect_url": "/azure/developer/javascript/static-web-apps/getting-started?tabs=vanilla-javascript"
+      "redirect_url": "/azure/static-web-apps/getting-started"
     },
     {
       "source_path": "articles/javascript/tutorial/tutorial-vscode-static-website-node/tutorial-vscode-static-website-node-02.md",
-      "redirect_url": "/azure/developer/javascript/static-web-apps/getting-started?tabs=vanilla-javascript"
+      "redirect_url": "/azure/static-web-apps/getting-started"
     },
     {
       "source_path": "articles/javascript/tutorial/tutorial-vscode-static-website-node/tutorial-vscode-static-website-node-03.md",
-      "redirect_url": "/azure/developer/javascript/static-web-apps/getting-started?tabs=vanilla-javascript"
+      "redirect_url": "/azure/static-web-apps/getting-started"
     },    
     {
       "source_path": "articles/javascript/tutorial/tutorial-vscode-static-website-node/tutorial-vscode-static-website-node-04.md",
-      "redirect_url": "/azure/developer/javascript/static-web-apps/getting-started?tabs=vanilla-javascript"
+      "redirect_url": "/azure/static-web-apps/getting-started"
     },
     {
       "source_path": "articles/javascript/tutorial/client/get-started.md",
@@ -34,16 +46,25 @@
     },    
     {
       "source_path": "articles/javascript/tutorial/tutorial-vscode-static-website-node/tutorial-vscode-static-website-node-05.md",
-      "redirect_url": "/azure/developer/javascript/static-web-apps/getting-started?tabs=vanilla-javascript"
+      "redirect_url": "/azure/static-web-apps/getting-started"
     },
     {
       "source_path": "articles/javascript/tutorial/tutorial-vscode-static-website-node/tutorial-vscode-static-website-node-06.md",
-      "redirect_url": "/azure/developer/javascript/static-web-apps/getting-started?tabs=vanilla-javascript"
+      "redirect_url": "/azure/static-web-apps/getting-started"
     },     
     {
       "source_path": "articles/javascript/core/node-sdk-azure-authenticate-principal.md",
-      "redirect_url": "/azure/developer/javascript/how-to/with-sdk/set-up-development-environment"
+      "redirect_url": "/azure/developer/javascript/core/nodejs-sdk-azure-authenticate"
     },
+    {
+      "source_path": "articles/javascript/concepts/identity-authentication-users.md",
+      "redirect_url": "/azure/developer/javascript/core/nodejs-sdk-azure-authenticate"
+    },  
+    {
+      "source_path": "articles/javascript/how-to/with-sdk/set-up-development-environment.md",
+      "redirect_url": "/azure/developer/javascript/core/nodejs-sdk-azure-authenticate"
+    },  
+    
     {
       "source_path": "articles/javascript/how-to/create-static-site.md",
       "redirect_url": "/azure/developer/javascript/how-to/create-static-web-app"
@@ -114,27 +135,27 @@
     },
     {
       "source_path": "articles/javascript/tutorial-vscode-static-website-node-01.md",
-      "redirect_url": "/azure/developer/javascript/tutorial/tutorial-vscode-static-website-node/tutorial-vscode-static-website-node-01"
+      "redirect_url": "/azure/static-web-apps/getting-started"
     },
     {
       "source_path": "articles/javascript/tutorial-vscode-static-website-node-02.md",
-      "redirect_url": "/azure/developer/javascript/tutorial/tutorial-vscode-static-website-node/tutorial-vscode-static-website-node-02"
+      "redirect_url": "/azure/static-web-apps/getting-started"
     },
     {
       "source_path": "articles/javascript/tutorial-vscode-static-website-node-03.md",
-      "redirect_url": "/azure/developer/javascript/tutorial/tutorial-vscode-static-website-node/tutorial-vscode-static-website-node-03"
+      "redirect_url": "/azure/static-web-apps/getting-started"
     },
     {
       "source_path": "articles/javascript/tutorial-vscode-static-website-node-04.md",
-      "redirect_url": "/azure/developer/javascript/tutorial/tutorial-vscode-static-website-node/tutorial-vscode-static-website-node-04"
+      "redirect_url": "/azure/static-web-apps/getting-started"
     },
     {
       "source_path": "articles/javascript/tutorial-vscode-static-website-node-05.md",
-      "redirect_url": "/azure/developer/javascript/tutorial/tutorial-vscode-static-website-node/tutorial-vscode-static-website-node-05"
+      "redirect_url": "/azure/static-web-apps/getting-started"
     },
     {
       "source_path": "articles/javascript/tutorial-vscode-static-website-node-06.md",
-      "redirect_url": "/azure/developer/javascript/tutorial/tutorial-vscode-static-website-node/tutorial-vscode-static-website-node-06"
+      "redirect_url": "/azure/static-web-apps/getting-started"
     },
     {
       "source_path": "articles/javascript/tutorial-vscode-azure-app-service-node-01.md",
@@ -395,6 +416,22 @@
     {
       "source_path": "articles/java/fundamentals/java-jdk-long-term-support.md",
       "redirect_url": "/azure/developer/java/fundamentals/java-support-on-azure"
+    },
+    {
+      "source_path": "articles/java/fundamentals/java-jdk-flight-recorder-and-mission-control.md",
+      "redirect_url": "/java/openjdk/java-jdk-flight-recorder-and-mission-control?toc=/azure/developer/java/fundamentals/toc.json&bc=/azure/developer/breadcrumb/toc.json"
+    },
+    {
+      "source_path": "articles/java/fundamentals/reasons-to-move-to-java-11.md",
+      "redirect_url": "/java/openjdk/reasons-to-move-to-java-11?toc=/azure/developer/java/fundamentals/toc.json&bc=/azure/developer/breadcrumb/toc.json"
+    },
+    {
+      "source_path": "articles/java/fundamentals/transition-from-java-7-to-java-8.md",
+      "redirect_url": "/java/openjdk/transition-from-java-7-to-java-8?toc=/azure/developer/java/fundamentals/toc.json&bc=/azure/developer/breadcrumb/toc.json"
+    },
+    {
+      "source_path": "articles/java/fundamentals/transition-from-java-8-to-java-11.md",
+      "redirect_url": "/java/openjdk/transition-from-java-8-to-java-11?toc=/azure/developer/java/fundamentals/toc.json&bc=/azure/developer/breadcrumb/toc.json"
     },
     {
       "source_path": "articles/java/java-sdk-add-certificate-ca-store.md",

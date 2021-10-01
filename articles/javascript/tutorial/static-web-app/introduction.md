@@ -2,7 +2,7 @@
 title: Introduction and prerequisites 
 description: Locally build and deploy a React/TypeScript client application to an Azure Static Web App with a GitHub action. 
 ms.topic: tutorial
-ms.date: 12/17/2020
+ms.date: 09/07/2021
 ms.custom: devx-track-js
 ---
 
@@ -29,6 +29,8 @@ In this tutorial, locally build and deploy a React/TypeScript client application
    - If you're using a local install, sign in with Azure CLI by using the [az login](/cli/azure/reference-index#az_login) command.  To finish the authentication process, follow the steps displayed in your terminal.  See [Sign in with Azure CLI](/cli/azure/authenticate-azure-cli) for additional sign-in options.
   - When you're prompted, install Azure CLI extensions on first use.  For more information about extensions, see [Use extensions with Azure CLI](/cli/azure/azure-cli-extensions-overview).
   - Run [az version](/cli/azure/reference-index?#az_version) to find the version and dependent libraries that are installed. To upgrade to the latest version, run [az upgrade](/cli/azure/reference-index?#az_upgrade).
+- [!INCLUDE [contributor-requirement](~/../azure-docs-pr/articles/cognitive-services/includes/quickstarts/contributor-requirement.md)]
+- [!INCLUDE [terms-azure-portal](~/../azure-docs-pr/articles/cognitive-services/includes/quickstarts/terms-azure-portal.md)]
 
 ## Next step
 
