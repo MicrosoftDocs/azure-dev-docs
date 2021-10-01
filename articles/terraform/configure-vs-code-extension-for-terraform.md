@@ -2,7 +2,7 @@
 title: Get Started - Install the Azure Terraform Visual Studio Code extension
 description: Learn how to install and use the Azure Terraform Visual Studio Code extension to create an Azure resource group
 ms.topic: quickstart
-ms.date: 09/30/2021
+ms.date: 10/01/2021
 ms.custom: devx-track-terraform
 ---
 
