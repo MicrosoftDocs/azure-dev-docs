@@ -11,7 +11,7 @@
 | Communication Sms | PyPI [1.0.1](https://pypi.org/project/azure-communication-sms/1.0.1) | [docs](/python/api/overview/azure/communication-sms-readme) | GitHub [1.0.1](https://github.com/Azure/azure-sdk-for-python/tree/azure-communication-sms_1.0.1/sdk/communication/azure-communication-sms/) |
 | Confidential Ledger | PyPI [1.0.0b1](https://pypi.org/project/azure-confidentialledger/1.0.0b1) | [docs](/python/api/overview/azure/confidentialledger-readme) | GitHub [1.0.0b1](https://github.com/Azure/azure-sdk-for-python/tree/azure-confidentialledger_1.0.0b1/sdk/confidentialledger/azure-confidentialledger/) |
 | Container Registry | PyPI [1.0.0b6](https://pypi.org/project/azure-containerregistry/1.0.0b6) | [docs](/python/api/overview/azure/containerregistry-readme) | GitHub [1.0.0b6](https://github.com/Azure/azure-sdk-for-python/tree/azure-containerregistry_1.0.0b6/sdk/containerregistry/azure-containerregistry/) |
-| Core | PyPI [1.18.0](https://pypi.org/project/azure-core/1.18.0) | [docs](/python/api/overview/azure/core-readme) | GitHub [1.18.0](https://github.com/Azure/azure-sdk-for-python/tree/azure-core_1.18.0/sdk/core/azure-core/) |
+| Core | PyPI [1.19.0](https://pypi.org/project/azure-core/1.19.0) | [docs](/python/api/overview/azure/core-readme) | GitHub [1.19.0](https://github.com/Azure/azure-sdk-for-python/tree/azure-core_1.19.0/sdk/core/azure-core/) |
 | Core Tracing Opentelemetry | PyPI [1.0.0b9](https://pypi.org/project/azure-core-tracing-opentelemetry/1.0.0b9) | [docs](/python/api/overview/azure/core-tracing-opentelemetry-readme) | GitHub [1.0.0b9](https://github.com/Azure/azure-sdk-for-python/tree/azure-core-tracing-opentelemetry_1.0.0b9/sdk/core/azure-core-tracing-opentelemetry/) |
 | Cosmos DB | PyPI [4.2.0](https://pypi.org/project/azure-cosmos/4.2.0) | [docs](/python/api/overview/azure/cosmos-readme) | GitHub [4.2.0](https://github.com/Azure/azure-sdk-for-python/tree/azure-cosmos_4.2.0/sdk/cosmos/azure-cosmos/) |
 | Digital Twins - Core | PyPI [1.1.0](https://pypi.org/project/azure-digitaltwins-core/1.1.0) | [docs](/python/api/overview/azure/digitaltwins-core-readme) | GitHub [1.1.0](https://github.com/Azure/azure-sdk-for-python/tree/azure-digitaltwins-core_1.1.0/sdk/digitaltwins/azure-digitaltwins-core/) |
@@ -162,6 +162,7 @@
 | azure-mgmt-edgeorder | PyPI [1.0.0b1](https://pypi.org/project/azure-mgmt-edgeorder/1.0.0b1) |  |  |
 | azure-mgmt-elastic | PyPI [1.0.0](https://pypi.org/project/azure-mgmt-elastic/1.0.0)<br>PyPI [1.0.0b1](https://pypi.org/project/azure-mgmt-elastic/1.0.0b1) |  |  |
 | azure-mgmt-extendedlocation | PyPI [1.0.0](https://pypi.org/project/azure-mgmt-extendedlocation/1.0.0)<br>PyPI [1.0.0b2](https://pypi.org/project/azure-mgmt-extendedlocation/1.0.0b2) |  |  |
+| azure-mgmt-fluidrelay | PyPI [1.0.0b1](https://pypi.org/project/azure-mgmt-fluidrelay/1.0.0b1) |  |  |
 | azure-mgmt-guestconfig | PyPI [1.0.0b1](https://pypi.org/project/azure-mgmt-guestconfig/1.0.0b1) |  |  |
 | azure-mgmt-healthbot | PyPI [1.0.0b1](https://pypi.org/project/azure-mgmt-healthbot/1.0.0b1) |  |  |
 | azure-mgmt-hybridnetwork | PyPI [1.0.0](https://pypi.org/project/azure-mgmt-hybridnetwork/1.0.0)<br>PyPI [1.0.0b1](https://pypi.org/project/azure-mgmt-hybridnetwork/1.0.0b1) |  |  |
@@ -169,6 +170,7 @@
 | azure-mgmt-portal | PyPI [1.0.0](https://pypi.org/project/azure-mgmt-portal/1.0.0)<br>PyPI [1.0.0b1](https://pypi.org/project/azure-mgmt-portal/1.0.0b1) |  |  |
 | azure-mgmt-purview | PyPI [1.0.0](https://pypi.org/project/azure-mgmt-purview/1.0.0)<br>PyPI [1.0.0b1](https://pypi.org/project/azure-mgmt-purview/1.0.0b1) |  |  |
 | azure-mgmt-quantum | PyPI [1.0.0b2](https://pypi.org/project/azure-mgmt-quantum/1.0.0b2) |  |  |
+| azure-mgmt-quota | PyPI [1.0.0b1](https://pypi.org/project/azure-mgmt-quota/1.0.0b1) |  |  |
 | azure-mgmt-recoveryservicessiterecovery | PyPI [1.0.0b1](https://pypi.org/project/azure-mgmt-recoveryservicessiterecovery/1.0.0b1) |  |  |
 | azure-mgmt-redisenterprise | PyPI [1.0.0](https://pypi.org/project/azure-mgmt-redisenterprise/1.0.0)<br>PyPI [1.0.0b1](https://pypi.org/project/azure-mgmt-redisenterprise/1.0.0b1) |  |  |
 | azure-mgmt-resourcehealth | PyPI [1.0.0b1](https://pypi.org/project/azure-mgmt-resourcehealth/1.0.0b1) |  |  |
@@ -205,7 +207,7 @@
 | Confidential Ledger | PyPI [1.0.0b1](https://pypi.org/project/azure-confidentialledger/1.0.0b1) | [docs](/python/api/overview/azure/confidentialledger-readme) | GitHub [1.0.0b1](https://github.com/Azure/azure-sdk-for-python/tree/azure-confidentialledger_1.0.0b1/sdk/confidentialledger/azure-confidentialledger/) |
 | Container Registry | PyPI [1.0.0b6](https://pypi.org/project/azure-containerregistry/1.0.0b6) | [docs](/python/api/overview/azure/containerregistry-readme) | GitHub [1.0.0b6](https://github.com/Azure/azure-sdk-for-python/tree/azure-containerregistry_1.0.0b6/sdk/containerregistry/azure-containerregistry/) |
 | Content Moderator | PyPI [1.0.0](https://pypi.org/project/azure-cognitiveservices-vision-contentmoderator/1.0.0) |  | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-python/tree/azure-cognitiveservices-vision-contentmoderator_1.0.0/azure-cognitiveservices-vision-contentmoderator/) |
-| Core | PyPI [1.18.0](https://pypi.org/project/azure-core/1.18.0) | [docs](/python/api/overview/azure/core-readme) | GitHub [1.18.0](https://github.com/Azure/azure-sdk-for-python/tree/azure-core_1.18.0/sdk/core/azure-core/) |
+| Core | PyPI [1.19.0](https://pypi.org/project/azure-core/1.19.0) | [docs](/python/api/overview/azure/core-readme) | GitHub [1.19.0](https://github.com/Azure/azure-sdk-for-python/tree/azure-core_1.19.0/sdk/core/azure-core/) |
 | Core Namespace Package | PyPI [3.0.2](https://pypi.org/project/azure-nspkg/3.0.2) |  | GitHub [3.0.2](https://github.com/Azure/azure-sdk-for-python/tree/azure-nspkg_3.0.2/azure-nspkg/) |
 | Core Tracing Opencensus | PyPI [1.0.0b8](https://pypi.org/project/azure-core-tracing-opencensus/1.0.0b8) | [docs](/python/api/overview/azure/core-tracing-opencensus-readme) | GitHub [1.0.0b8](https://github.com/Azure/azure-sdk-for-python/tree/azure-core-tracing-opencensus_1.0.0b8/sdk/core/azure-core-tracing-opencensus/) |
 | Core Tracing Opentelemetry | PyPI [1.0.0b9](https://pypi.org/project/azure-core-tracing-opentelemetry/1.0.0b9) | [docs](/python/api/overview/azure/core-tracing-opentelemetry-readme) | GitHub [1.0.0b9](https://github.com/Azure/azure-sdk-for-python/tree/azure-core-tracing-opentelemetry_1.0.0b9/sdk/core/azure-core-tracing-opentelemetry/) |
