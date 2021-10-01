@@ -202,19 +202,28 @@ The following section demonstrates how to define a custom policy.
 
 ```go
 type MyPolicy struct {
-    // TODO: add configuration, setting, and state fields
+    LogPrefix string
 }
 
-func (p *MyPolicy) Do(req *azcore.Request) (resp *azcore.Response, err error) {
-    // TODO: mutate/process 'req'
-
-    // Forward the request to next policy in the pipeline
-    resp, err := req.Next()
-
-    // TODO: mutate/process 'resp'/'err'
-
-    // Return the response & error back to the previous policy in the pipeline.
-    return resp, err
+func (m *MyPolicy) Do(req *policy.Request) (*http.Response, error) {
+	// mutate/process req
+	start := time.Now()
+	// Forward the request to next policy in the pipeline
+	res, err := req.Next()
+	// mutate/process res
+	// Return the response & error back to the previous policy in the pipeline.
+	record := struct {
+		Policy   string
+		URL      string
+		Duration time.Duration
+	}{
+		Policy:   "MyPolicy",
+		URL:      req.Raw().URL.RequestURI(),
+		Duration: time.Duration(time.Since(start).Milliseconds()),
+	}
+	b, _ := json.Marshal(record)
+	log.Printf("%s %s\n", m.LogPrefix, b)
+	return res, err
 }
 ```
 
