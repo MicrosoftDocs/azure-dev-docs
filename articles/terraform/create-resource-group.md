@@ -30,7 +30,7 @@ In this article, you learn how to:
 
 ## 2. Implement the Terraform code
 
-1. Create a directory in which to test and run the sample Terraform code and make it the current directory.
+1. Create a directory in which to test the sample Terraform code and make it the current directory.
 
 1. Create a file named `main.tf` and insert the following code:
 
@@ -59,7 +59,7 @@ In this article, you learn how to:
 Run [az group show](/cli/azure/group#az_group_show) to display the resource group.
 
 ```azurecli
-az group show --name <resource_group>
+az group show --name <resource_group_name>
 ```
 
 #### [Azure PowerShell](#tab/azure-powershell)
@@ -67,8 +67,9 @@ az group show --name <resource_group>
 Run [Get-AzResourceGroup](/powershell/module/az.resources/Get-AzResourceGroup) to display the resource group.
 
 ```azurepowershell
-Get-AzResourceGroup -Name <resource_group>
+Get-AzResourceGroup -Name <resource_group_name>
 ```
+
 ---
 
 ## 7. Clean up resources
