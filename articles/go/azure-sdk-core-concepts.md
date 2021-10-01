@@ -225,6 +225,39 @@ func (m *MyPolicy) Do(req *policy.Request) (*http.Response, error) {
 	log.Printf("%s %s\n", m.LogPrefix, b)
 	return res, err
 }
+
+func ListResourcesWithPolicy(subscriptionID string) error {
+	cred, err := azidentity.NewDefaultAzureCredential(nil)
+	if err != nil {
+		return err
+	}
+
+	mp := &MyPolicy{
+		LogPrefix: "[MyPolicy]",
+	}
+	options := &arm.ConnectionOptions{}
+	options.PerCallPolicies = []policy.Policy{mp}
+	options.Retry = policy.RetryOptions{
+		RetryDelay: 20 * time.Millisecond,
+	}
+
+	con := arm.NewDefaultConnection(cred, options)
+	if err != nil {
+		return err
+	}
+
+	client := armresources.NewResourcesClient(con, subscriptionID)
+	pager := client.List(nil)
+	for pager.NextPage(context.Background()) {
+		if err := pager.Err(); err != nil {
+			log.Fatalf("failed to advance page: %v", err)
+		}
+		for _, r := range pager.PageResponse().ResourceListResult.Value {
+			printJSON(r)
+		}
+	}
+	return nil
+}
 ```
 
 ### Custom HTTP transport
