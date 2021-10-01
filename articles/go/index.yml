@@ -39,7 +39,7 @@ landingContent:
         links:
           - text: Authenticate your application
             url: azure-sdk-authorization.md
-          - text: Core Concepts
+          - text: Core concepts
             url: azure-sdk-core-concepts.md
   - title: Azure SDK for Go examples
   - title: Storage
