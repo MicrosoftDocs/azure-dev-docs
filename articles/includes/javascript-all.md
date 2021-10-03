@@ -310,7 +310,7 @@
 | Storage - Files Shares | npm [10.3.0](https://www.npmjs.com/package/@azure/storage-file/v/10.3.0) |  |  |
 | Storage - Files Shares | npm [12.8.0](https://www.npmjs.com/package/@azure/storage-file-share/v/12.8.0) | [docs](/javascript/api/overview/azure/storage-file-share-readme) | GitHub [12.8.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-file-share_12.8.0/sdk/storage/storage-file-share/) |
 | Storage - Queues | npm [12.7.0](https://www.npmjs.com/package/@azure/storage-queue/v/12.7.0) | [docs](/javascript/api/overview/azure/storage-queue-readme) | GitHub [12.7.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-queue_12.7.0/sdk/storage/storage-queue/) |
-| Stream Analytics CI/CD | npm [2.2.1](https://www.npmjs.com/package/azure-streamanalytics-cicd/v/2.2.1) |  |  |
+| Stream Analytics CI/CD | npm [2.2.2](https://www.npmjs.com/package/azure-streamanalytics-cicd/v/2.2.2) |  |  |
 | Swagger Validation Common | npm [0.1.2](https://www.npmjs.com/package/@azure/swagger-validation-common/v/0.1.2) |  |  |
 | Synapse - AccessControl | npm [1.0.0-beta.3](https://www.npmjs.com/package/@azure/synapse-access-control/v/1.0.0-beta.3) | [docs](/javascript/api/overview/azure/synapse-access-control-readme) | GitHub [1.0.0-beta.3](https://github.com/Azure/azure-sdk-for-js/tree/@azure/synapse-access-control_1.0.0-beta.3/sdk/synapse/synapse-access-control/) |
 | Synapse - Artifacts | npm [1.0.0-beta.5](https://www.npmjs.com/package/@azure/synapse-artifacts/v/1.0.0-beta.5) | [docs](/javascript/api/overview/azure/synapse-artifacts-readme) | GitHub [1.0.0-beta.5](https://github.com/Azure/azure-sdk-for-js/tree/@azure/synapse-artifacts_1.0.0-beta.5/sdk/synapse/synapse-artifacts/) |
