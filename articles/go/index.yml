@@ -41,7 +41,6 @@ landingContent:
         links:
           - text: Authenticate your application
             url: azure-sdk-authorization.md
-  - title: Azure SDK for Go examples
   - title: Storage
     linkLists:
       - linkListType: quickstart
