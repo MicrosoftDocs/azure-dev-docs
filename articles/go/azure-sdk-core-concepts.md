@@ -107,18 +107,17 @@ process(w)
 
 ### Resume from a previous operation
 
+From an existing Poller, extract and save its resume token.
+
+To resume polling (perhaps in another process or PC), create a new PollerRespone instance and then initialize it by calling its Resume method, passing it the previously-saved resume token.
+
 ```go
-// From an existing Poller, extract and save its resume token.
 poller := resp.Poller
 tk, err := poller.ResumeToken()
 
 if err != nil {
     // handle error ...
 }
-
-// To resume polling (perhaps in another process or PC), create a new PollerRespone instance 
-// and then initialize it by calling its Resume method, passing it the previously-saved resume token.
-// *Response object as appropriate for the client and call it's resume method.
 
 resp = WidgetPollerResponse()
 
@@ -154,7 +153,7 @@ process(w)
 
 ## HTTP pipeline flow
 
-The various clients provide an abstraction over an Azure service's HTTP API enabling code-completion and compile-time type-safety while also freeing you from dealing with lower-level transport mechanics.  However, you can customer the transport mechanics (such as retries and logging) if you so desire.
+The various clients provide an abstraction over an Azure service's HTTP API enabling code-completion and compile-time type-safety. wWhich frees you from dealing with lower-level transport mechanics.  But, you can customize the transport mechanics (such as retries and logging), if you so desire.
 
 The SDK makes HTTP requests through an HTTP **pipeline**. The pipeline describes the sequence of steps executed for each HTTP request-response round trip.
 
@@ -272,7 +271,7 @@ By default, clients use the shared `http.Client` from Go's standard library.
 
 You create a custom stateful or stateless transport in the same manner as a custom policy. In the stateful case, you implement the `Do` method inherited from the [`Transporter`](https://github.com/Azure/azure-sdk-for-go/blob/main/sdk/azcore/policy/policy.go#L23) interface. In both cases, your function or `Do` method again receives an `azcore.Request` and returns an `azCore.Response` and performs actions in the same order as a policy.
 
-### How to delete a JSON field when invoking an Azure operation that supports HTTP PATCH with a JSON Merge Patch request body
+### How to delete a JSON field when invoking an Azure operation
 
 Operations like `JSON-MERGE-PATCH` send a JSON `null` to indicate a field should be deleted (along with its value):
 
