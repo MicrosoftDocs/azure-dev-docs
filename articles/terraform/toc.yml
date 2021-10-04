@@ -17,6 +17,8 @@
       href: get-started-windows-powershell.md
     - name: Create an Azure resource group
       href: create-resource-group.md
+    - name: Install the Azure Terraform Visual Studio Code extension
+      href: configure-vs-code-extension-for-terraform.md
 - name: Samples
   items:
     - name: Configuration templates
@@ -81,8 +83,6 @@
             href: hub-spoke-validation.md
     - name: Tools
       items:
-        - name: Install the Terraform Visual Studio Code extension
-          href: configure-vs-code-extension-for-terraform.md
         - name: Create a Terraform base template using Yeoman
           href: create-base-template-using-yeoman.md
     - name: Virtual machines
