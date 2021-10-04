@@ -50,6 +50,8 @@ The following examples illustrate various patterns for handling LROs. You can al
 
 ### Blocking call to PollUntilDone
 
+`PollUntilDone` handles the entire span of the polling operation until a terminal state is reached. Then returns the final HTTP response for the polling operation with the content of the payload into the respType interface that is provided.
+
 ```go
 resp, err := client.BeginCreate(context.Background(), "blue_widget", nil)
 
