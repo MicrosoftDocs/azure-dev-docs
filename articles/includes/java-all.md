@@ -287,8 +287,8 @@
 | spark-mssql-connector_2.11_2.4 | Maven [1.0.2](https://search.maven.org/artifact/com.microsoft.azure/spark-mssql-connector_2.11_2.4/1.0.2/jar/) |  |  |
 | spark-mssql-connector_2.12 | Maven [1.2.0](https://search.maven.org/artifact/com.microsoft.azure/spark-mssql-connector_2.12/1.2.0/jar/) |  |  |
 | synapseutils | Maven [1.1](https://search.maven.org/artifact/com.microsoft.azure.synapse/synapseutils/1.1/jar/) |  |  |
-| synapseutils_2.11 | Maven [1.2](https://search.maven.org/artifact/com.microsoft.azure.synapse/synapseutils_2.11/1.2/jar/) |  |  |
-| synapseutils_2.12 | Maven [1.2](https://search.maven.org/artifact/com.microsoft.azure.synapse/synapseutils_2.12/1.2/jar/) |  |  |
+| synapseutils_2.11 | Maven [1.3](https://search.maven.org/artifact/com.microsoft.azure.synapse/synapseutils_2.11/1.3/jar/) |  |  |
+| synapseutils_2.12 | Maven [1.3](https://search.maven.org/artifact/com.microsoft.azure.synapse/synapseutils_2.12/1.3/jar/) |  |  |
 | Troposphere Maven Plugin | Maven [2.6.0.1](https://search.maven.org/artifact/com.azurenight.maven/troposphere-maven-plugin/2.6.0.1/jar/) |  |  |
 | Active Directory Authentication Library4J | Maven [1.6.7](https://search.maven.org/artifact/com.microsoft.azure/adal4j/1.6.7/jar/) | [docs](/java/api/overview/azure/activedirectory) |  |
 | Actors | Maven [1.0.0](https://search.maven.org/artifact/com.microsoft.azure.servicefabric/actors-preview/1.0.0/jar/) |  |  |
