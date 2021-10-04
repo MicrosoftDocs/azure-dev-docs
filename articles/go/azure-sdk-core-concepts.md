@@ -71,6 +71,8 @@ process(w)
 
 #### Customized poll loop
 
+Poll sends a polling request to the polling endpoint and returns the response or error.
+
 ```go
 resp, err := client.BeginCreate(context.Background(), "green_widget")
 
