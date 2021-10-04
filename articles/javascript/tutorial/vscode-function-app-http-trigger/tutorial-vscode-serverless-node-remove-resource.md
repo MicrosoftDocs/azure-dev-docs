@@ -20,16 +20,16 @@ The Functions App you created includes resources that can incur minimal costs (r
 
     :::image type="content" source="../../media/visual-studio-code-azure-resources-extension-remove-resource-group.png" alt-text="Use the Visual Studio Code extension, Azure Resource Groups, to delete the resource group and all resources within the group.":::
 
+## Learn more about Azure Functions
+
+* [Official YouTube Channel – Azure Functions](https://www.youtube.com/channel/UCtUYj6As_XFkOooUFnsJbYg)
+* [Video: Migrating Your API to Serverless using Azure Functions - YouTube](https://youtu.be/89WXgaY-NqY)
+* [Azure Functions JavaScript developer guide](/azure/azure-functions/functions-reference-node)
+* [Securing Azure Functions](/azure/azure-functions/security-concepts)
+
 [!INCLUDE [Next steps for using VSCode extensions](../../includes/tutorial-next-steps-vscode-extensions.md)]
 
 [!INCLUDE [Next steps for using JavaScript on Azure](../../includes/tutorial-next-steps-js-azure.md)]
-
-## Learn more about Azure Functions
-
-* [Azure Functions developer guide](/azure/azure-functions/functions-reference)
-* [Azure Functions JavaScript developer guide](/azure/azure-functions/functions-reference-node)
-* [Securing Azure Functions](/azure/azure-functions/security-concepts)
-* [Cosmos DB](/azure/azure-functions/storage-considerations) and [Performance](/azure/azure-functions/functions-best-practices) considerations
 
 ## Next steps
 
