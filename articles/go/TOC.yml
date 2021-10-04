@@ -13,14 +13,13 @@ items:
       href: azure-sdk-tools.md
     - name: Authentication
       href: azure-sdk-authorization.md
-    - name: Core concepts
-      href: azure-sdk-core-concepts.md
-  - name: Quickstarts
     - name: Manage Azure resource groups
       href: manage-resource-groups.md
   - name: Concepts
     expanded: true
     items:
+      - name: Core concepts
+        href: azure-sdk-core-concepts.md
       - name: Working with the management libraries
         href: management-libraries.md
       - name: Authentication
