@@ -137,7 +137,7 @@ To connect and use your MySQL on Azure with JavaScript, use the following proced
 
 ## Next steps
 
-* How to [deploy a JavaScript web app](../deploy-web-app.md)
+* How to [deploy a JavaScript web app](../how-to/deploy-web-app.md)
 * [Azure Database for MySQL](/azure/mysql/)
 * [Migration with dump and restore](/azure/mysql/concepts-migrate-dump-restore)
 * [Migration with MySQL Workbench](/azure/mysql/concepts-migrate-import-export)

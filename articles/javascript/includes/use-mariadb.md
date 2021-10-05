@@ -153,6 +153,6 @@ To connect and use your MariaDB on Azure with JavaScript, use the following proc
 
 ## Next steps
 
-* How to [deploy a JavaScript web app](../deploy-web-app.md)
+* How to [deploy a JavaScript web app](../how-to/deploy-web-app.md)
 * [Azure Database for MariaDB](/azure/mariadb/)
 * [Migration guide to move to Azure Database for MariaDB](/azure/mariadb/howto-migrate-dump-restore)
