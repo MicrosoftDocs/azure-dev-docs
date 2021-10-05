@@ -42,7 +42,7 @@ Creating a resource is accomplished with:
 
 |Tool|Purpose|
 |--|--|
-|Azure portal|Use for first or seldomly created database is the Azure portal.|
+|Azure portal|Use for first or infrequently used database is the Azure portal.|
 |Azure CLI|Use for repeatable/scriptable scenarios.|
 |Visual Studio Code extension (for that service)|Use to stay within the development IDE.|
 |npm ARM library (for that service)|Use to stay within the JavaScript language.| 
