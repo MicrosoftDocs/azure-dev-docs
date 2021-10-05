@@ -267,10 +267,8 @@
             href: how-to/with-database/use-cassandra-as-cosmos-db.md
           - name: MongoDB on Cosmos DB
             href: how-to/with-database/use-mongodb-as-cosmosdb.md
-          - name: MariaDB
-            href: how-to/with-database/use-mariadb.md
-          - name: MySQL
-            href: how-to/with-database/use-mysql-db.md
+          - name: MySQL and MariaDB
+            href: how-to/with-database/use-mysql-mariadb.md
           - name: PostgreSQL
             href: how-to/with-database/use-postgresql-db.md
           - name: SQL API on Cosmos DB
