@@ -14,7 +14,7 @@ You can create a resource with:
 * [Azure portal](https://ms.portal.azure.com/#create/Microsoft.MariaDBServer)
 * [@azure/arm-mariadb](https://www.npmjs.com/package/@azure/arm-mariadb)
 
-[!INCLUDE [Azure CLI commands](../../includes/azure-cli-mariadb.md)]
+[!INCLUDE [Azure CLI commands](azure-cli-mariadb.md)]
 
 ## View and use your MariaDB on Azure
 While developing your MariaDB database with JavaScript, use one of the following tools:

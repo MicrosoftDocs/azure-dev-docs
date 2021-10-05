@@ -14,7 +14,7 @@ You can create a resource with:
 * [Azure portal](https://ms.portal.azure.com/#create/Microsoft.MySQLServer)
 * [@azure/arm-mysql](https://www.npmjs.com/package/@azure/arm-mysql)
 
-[!INCLUDE [Azure CLI commands](../../includes/azure-cli-mysql-db.md)]
+[!INCLUDE [Azure CLI commands](azure-cli-mysql-db.md)]
 
 ## View and use your MySQL on Azure
 While developing your MySQL database with JavaScript, use one of the following tools:
