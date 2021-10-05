@@ -29,6 +29,8 @@ landingContent:
             url: azure-sdk-tools.md
       - linkListType: concept
         links:
+          - text: Core concepts
+            url: azure-sdk-core-concepts.md
           - text: Working with the management libraries
             url: management-libraries.md
       - linkListType: quickstart
