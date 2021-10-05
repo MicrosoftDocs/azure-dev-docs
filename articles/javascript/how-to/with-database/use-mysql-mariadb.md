@@ -14,10 +14,10 @@ To create, move, or use a MySQL or MariaDB database, you need an **Azure** resou
 
 # [MySQL](#tab/MySQL)
 
-[!INCLUDE [MySQL](../includes/use-mysql-db.md)]
+[!INCLUDE [MySQL](../../includes/use-mysql-db.md)]
 
 # [MariaDB](#tab/MariaDB)
 
-[!INCLUDE [MariaDB](../includes/use-mariadb.md)]
+[!INCLUDE [MariaDB](../../includes/use-mariadb.md)]
 
 ---
