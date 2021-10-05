@@ -1,22 +1,21 @@
 ---
-title: Secure JS website with domain and certificates
-titleSuffix: Azure 
+title: Secure JavaScript website with Azure domain and certificates
 description:  Learn how to create a web app on Azure with a custom domain name secured with an TLS/SSL certificate. 
 ms.topic: how-to
-ms.date: 03/23/2021
+ms.date: 10/05/2021
 ms.custom: devx-track-js
 ---
 
 # Secure JavaScript websites with custom domains and certificates
 
-Learn how to create a web app on Azure with a custom domain name secured with an TLS/SSL certificate.
+Learn how to create a web app on Azure with a custom domain name secured with an TLS/SSL certificate. The same process works for both Azure Function apps and Azure App service (web apps).
 
 ## 1. Create a new App Service Domain
 
 The domain resource is a separate resource from the web app resource. 
 
 1. In the Azure portal, use [this link](https://ms.portal.azure.com/#create/Microsoft.Domain) to begin creating a new domain. 
-1. Create a new resource group to contain all the resources for you secure and named web app. 
+1. As part of the creation process, create a **new resource group** to contain all the resources for your secured and named web app. 
 1. In the **Domain Details**, enter the domain name you want, such as `cats-flying-dogs.com`. You should have a few domain name choices with variations to try. 
 
     :::image type="content" source="../media/custom-domain/create-new-app-service-domain.png" alt-text="A new creation page opens. Create a new **App Service domain**.":::
@@ -31,19 +30,16 @@ The domain resource is a separate resource from the web app resource.
 
 1. When you are done, select **Review + create** at the bottom of the web site. 
 
-    The domain name is purchased for you and billed to your subscription.
+    The domain name is purchased for you and billed to your Azure subscription.
 
 ## 2. Create a new web app service
 
-|Service|
-|--|
-|[Azure App service](https://ms.portal.azure.com/#create/Microsoft.WebSite) (web app)|
-|[Azure Function](https://ms.portal.azure.com/#create/Microsoft.FunctionApp)|
+Create a new paid web resource using one of the following links. Do not create the resource using a free pricing tier. Create the resource in the resource group created in the previous section. 
 
-1. Create a new resource using one of the links in the preceding table. 
-1. Do not create the resource using a free pricing tier. 
+* [Azure App service](https://ms.portal.azure.com/#create/Microsoft.WebSite) (web app)
+* [Azure Function](https://ms.portal.azure.com/#create/Microsoft.FunctionApp)
 
-## 3. Configure App Service for new domain
+## 3. Configure service for new domain
 
 1. In the Azure portal, for your new web app, select the **Custom domains** setting, then select **+ Add custom domain**. 
 
