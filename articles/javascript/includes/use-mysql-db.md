@@ -1,14 +1,10 @@
 ---
 title: Use JavaScript on Azure MySQL 
 description: To create or move your MySQL database to Azure, you need a MySQL resource. 
-ms.topic: how-to
+ms.topic: include
 ms.date: 02/8/2021
 ms.custom: devx-track-js, devx-track-azurecli
 ---
-
-# Develop a JavaScript application with MySQL on Azure
-
-To create, move, or use a MySQL database to Azure, you need an **Azure Database for MySQL** resource. Learn how to create the resource and use your database.
 
 ## Create an Azure Database for MySQL resource 
 
@@ -18,7 +14,7 @@ You can create a resource with:
 * [Azure portal](https://ms.portal.azure.com/#create/Microsoft.MySQLServer)
 * [@azure/arm-mysql](https://www.npmjs.com/package/@azure/arm-mysql)
 
-[!INCLUDE [Azure CLI commands](../../includes/azure-cli-mysql-db.md)]
+[!INCLUDE [Azure CLI commands](azure-cli-mysql-db.md)]
 
 ## View and use your MySQL on Azure
 While developing your MySQL database with JavaScript, use one of the following tools:
@@ -141,7 +137,7 @@ To connect and use your MySQL on Azure with JavaScript, use the following proced
 
 ## Next steps
 
-* How to [deploy a JavaScript web app](../deploy-web-app.md)
+* How to [deploy a JavaScript web app](../how-to/deploy-web-app.md)
 * [Azure Database for MySQL](/azure/mysql/)
 * [Migration with dump and restore](/azure/mysql/concepts-migrate-dump-restore)
 * [Migration with MySQL Workbench](/azure/mysql/concepts-migrate-import-export)

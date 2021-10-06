@@ -1,6 +1,14 @@
 {
   "redirections": [
     {
+      "source_path": "articles/javascript/how-to/with-database/use-mariadb.md",
+      "redirect_url": "/azure/developer/javascript/how-to/with-database/use-mysql-mariadb"
+    },
+    {
+      "source_path": "articles/javascript/how-to/with-database/use-mysql-db.md",
+      "redirect_url": "/azure/developer/javascript/how-to/with-database/use-mysql-mariadb"
+    },
+    {
       "source_path": "articles/javascript/how-to/with-web-app/azure-function-resource-group-management/view-and-query-application-logs.md",
       "redirect_url": "/azure/developer/javascript/how-to/with-web-app/azure-function-resource-group-management/view-query-application-logs"
     },
