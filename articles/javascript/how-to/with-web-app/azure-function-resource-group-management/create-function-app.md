@@ -4,6 +4,7 @@ description: Learn how to create an Azure Function app in Visual Studio Code to 
 ms.topic: how-to
 ms.date: 10/06/2021
 ms.custom: devx-track-js
+
 ---
 
 # 2. Create local Azure Function app in Visual Studio Code
