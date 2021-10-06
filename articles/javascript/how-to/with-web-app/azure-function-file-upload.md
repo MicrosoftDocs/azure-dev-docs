@@ -2,7 +2,7 @@
 title: Upload file to Storage
 description: Create an Azure Function API, which uploads a file to Azure Storage.
 ms.topic: how-to
-ms.date: 09/28/2021
+ms.date: 10/06/2021
 ms.custom: devx-track-js
 #intent: How to locally develop a file-upload serverless function then deploy that function to Azure. 
 ---
@@ -11,7 +11,7 @@ ms.custom: devx-track-js
 
 This article shows you how to create an Azure Function API, which uploads a file to Azure Storage using an _out_ binding to move the file contents from the API to Storage.
 
-* [Sample code](https://github.com/diberry/js-e2e-azure-function-upload-file.git)
+* [Sample code](https://github.com/Azure-samples/js-e2e-azure-function-upload-file)
 
 ## Azure Storage considerations when using Azure Functions
 
