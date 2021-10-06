@@ -4,6 +4,7 @@ description: Learn how to add more APIs and redeploy an Azure Function app in Vi
 ms.topic: how-to
 ms.date: 10/06/2021
 ms.custom: devx-track-js
+
 ---
 
 # 4. Add APIs to function app and redeploy to Azure
