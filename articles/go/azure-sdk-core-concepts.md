@@ -50,20 +50,20 @@ The following examples illustrate various patterns for handling LROs. You can al
 
 ### Blocking call to `PollUntilDone`
 
-`PollUntilDone` handles the entire span of a polling operation until a terminal state is reached. It then returns the final HTTP response for the polling operation with the content of the payload into the respType interface that is provided.
+`PollUntilDone` handles the entire span of a polling operation until a terminal state is reached. It then returns the final HTTP response for the polling operation with the content of the payload in the `respType` interface that's provided.
 
 ```go
 resp, err := client.BeginCreate(context.Background(), "blue_widget", nil)
 
 if err != nil {
-    // handle error...
+    // Handle error...
 }
 
 // Second argument is the polling interval if the endpoint doesn't send a Retry-After header.
 w, err = resp.PollUntilDone(context.Background(), 5*time.Second)
 
 if err != nil {
-    // handle error...
+    // Handle error...
 }
 
 process(w)
@@ -71,13 +71,13 @@ process(w)
 
 #### Customized poll loop
 
-Poll sends a polling request to the polling endpoint and returns the response or error.
+`Poll` sends a polling request to the polling endpoint and returns the response or an error.
 
 ```go
 resp, err := client.BeginCreate(context.Background(), "green_widget")
 
 if err != nil {
-    // handle error...
+    // Handle error...
 }
 
 poller := resp.Poller
@@ -86,20 +86,20 @@ for {
     resp, err := poller.Poll(context.Background())
 
     if err != nil {
-        // handle error ...
+        // Handle error...
     }
 
     if poller.Done() {
         break
     }
 
-    // Perform other work while waiting
+    // Do other work while waiting.
 }
 
 w, err := poller.FinalResponse(ctx)
 
 if err != nil {
-    // handle error ...
+    // Handle error...
 }
 
 process(w)
@@ -107,45 +107,45 @@ process(w)
 
 ### Resume from a previous operation
 
-From an existing Poller, extract and save its resume token.
+Extract and save the resume token from an existing Poller.
 
-To resume polling (perhaps in another process or PC), create a new PollerRespone instance and then initialize it by calling its Resume method, passing it the previously-saved resume token.
+To resume polling, maybe in another process or on another computer, create a new `PollerResponse` instance and then initialize it by calling its `Resume` method, passing it the previously saved resume token.
 
 ```go
 poller := resp.Poller
 tk, err := poller.ResumeToken()
 
 if err != nil {
-    // handle error ...
+    // Handle error...
 }
 
 resp = WidgetPollerResponse()
 
-// Resume takes the resume token as an arg
+// Resume takes the resume token as an argument.
 err := resp.Resume(tk, ...)
 
 if err != nil {
-    // handle error ...
+    // Handle error...
 }
 
 for {
     resp, err := poller.Poll(context.Background())
 
     if err != nil {
-        // handle error ...
+        // Handle error...
     }
 
     if poller.Done() {
         break
     }
 
-    // Perform other work while waiting
+    // Do other work while waiting.
 }
 
 w, err := poller.FinalResponse(ctx)
 
 if err != nil {
-    // handle error ...
+    // Handle error...
 }
 
 process(w)
@@ -153,27 +153,27 @@ process(w)
 
 ## HTTP pipeline flow
 
-The various clients provide an abstraction over an Azure service's HTTP API enabling code-completion and compile-time type-safety. wWhich frees you from dealing with lower-level transport mechanics.  But, you can customize the transport mechanics (such as retries and logging), if you so desire.
+The various clients provide an abstraction over an Azure service's HTTP API to enable code completion and compile-time type safety. So you don't have to deal with lower-level transport mechanics. But you can customize the transport mechanics (like retries and logging).
 
-The SDK makes HTTP requests through an HTTP **pipeline**. The pipeline describes the sequence of steps executed for each HTTP request-response round trip.
+The SDK makes HTTP requests through an HTTP *pipeline*. The pipeline describes the sequence of steps performed for each HTTP request-response round trip.
 
-The pipeline is composed of a transport along with any number of policies:
+The pipeline is composed of a transport together with any number of policies:
 
-- The **transport** sends the request to the service and receives the response.
-- Each **policy** performs a specific action within the pipeline.
+- The *transport* sends the request to the service and receives the response.
+- Each *policy* completes a specific action in the pipeline.
 
-The following diagram illustrates the flow of a pipeline:
+This diagram illustrates the flow of a pipeline:
 
-![Request and response flow diagram](media/azure-sdk-core-concepts/request-response-pipeline-flow.png)
+![Diagram that shows the flow of a pipeline.](media/azure-sdk-core-concepts/request-response-pipeline-flow.png)
 
-All client packages share a "Core" package (named `azcore`). This package constructs the HTTP pipeline with its ordered set of policies ensuring that all client packages behave consistently.
+All client packages share a *Core* package named `azcore`. This package constructs the HTTP pipeline with its ordered set of policies, ensuring that all client packages behave consistently.
 
-- When sending an HTTP request, all policies run in the order that they were added to the pipeline before the request is sent to the HTTP endpoint. These policies typically add request headers or log the outgoing HTTP request.
-- After the Azure service responds, all policies run in the reverse order before the response returns to your code. Most policies ignore the response, but the logging policy records the response and the retry policy may re-issue the request making your app more resilient to network failures.
+- When an HTTP request is sent, all policies run in the order in which they were added to the pipeline before the request is sent to the HTTP endpoint. These policies typically add request headers or log the outgoing HTTP request.
+- After the Azure service responds, all policies run in the reverse order before the response returns to your code. Most policies ignore the response, but the logging policy records the response. The retry policy might re-issue the request, which makes your app more resilient to network failures.
 
-Each policy is provided with the necessary request or response data along with any necessary context to run the policy. The policy performs its operation with the given data and then passes control to the next policy in the pipeline.
+Each policy is provided with the needed request or response data together with any necessary context for running the policy. The policy completes its operation with the given data and then passes control to the next policy in the pipeline.
 
-By default, each client package creates a pipeline configured to work with that specific Azure service. You can also define and insert your own custom policies into the HTTP pipeline when creating a client (see the next section).
+By default, each client package creates a pipeline configured to work with that specific Azure service. You can also define your own custom policies and insert them into the HTTP pipeline when you create a client. (See the next section.)
 
 ### Core HTTP pipeline policies
 
@@ -185,19 +185,19 @@ The Core package provides three HTTP policies that are part of every pipeline:
 
 ### Custom HTTP pipeline policy
 
-You can define your own custom policy to add capabilities beyond what's included with the Core package. For example, you could create a policy that injects fault when making requests while testing to see how your app deals with network or service failures. Or, you could create a policy that mocks a service's behavior for testing.
+You can define your own custom policy to add capabilities beyond what's included with the Core package. For example, to see how your app deals with network or service failures, you could create a policy that injects fault when requests are made during testing. Or you could create a policy that mocks a service's behavior for testing.
 
-To create a custom HTTP policy, define your own structure with a `Do` method implementing the [`Policy`](https://github.com/Azure/azure-sdk-for-go/blob/main/sdk/azcore/policy/policy.go#L20) interface. 
+To create a custom HTTP policy, define your own structure with a `Do` method that implements the [`Policy`](https://github.com/Azure/azure-sdk-for-go/blob/main/sdk/azcore/policy/policy.go#L20) interface. 
 
-Your policy's `Do` method should do the following:
+Your policy's `Do` method should:
 
-1. Perform any desired operation on the incoming [`policy.Request`](https://github.com/Azure/azure-sdk-for-go/blob/main/sdk/azcore/policy/policy.go#L27). Operation examples include logging, injecting a failure, or modifying any of the request's URL, query parameters, or request headers.
+1. Perform operations as needed on the incoming [`policy.Request`](https://github.com/Azure/azure-sdk-for-go/blob/main/sdk/azcore/policy/policy.go#L27). Examples of operations include logging, injecting a failure, or modifying any of the request's URL, query parameters, or request headers.
 1. Forward the (modified) request to the next policy in the pipeline by calling the request's `Next` method.
-1. `Next` returns the `http.Response` and an error. Your policy can perform any desired operation such as logging the response/error.
+1. `Next` returns the `http.Response` and an error. Your policy can perform any necessary operation, like logging the response/error.
 1. Your policy must return a response and error back to the previous policy in the pipeline.
 
 > [!NOTE]
-> Policies must be goroutine-safe, as this allows multiple goroutines to access a single client object concurrently. It's common for a policy to be immutable once created; this ensures the goroutine is safe.
+> Policies must be goroutine-safe. Goroutine safety allows multiple goroutines to access a single client object concurrently. It's common for a policy to be immutable after it's created. This immutability ensures the goroutine is safe.
 
 The following section demonstrates how to define a custom policy.
 
@@ -209,11 +209,11 @@ type MyPolicy struct {
 }
 
 func (m *MyPolicy) Do(req *policy.Request) (*http.Response, error) {
-	// mutate/process req
+	// Mutate/process request.
 	start := time.Now()
-	// Forward the request to next policy in the pipeline
+	// Forward the request to the next policy in the pipeline.
 	res, err := req.Next()
-	// mutate/process res
+	// Mutate/process response.
 	// Return the response & error back to the previous policy in the pipeline.
 	record := struct {
 		Policy   string
@@ -265,13 +265,13 @@ func ListResourcesWithPolicy(subscriptionID string) error {
 
 ### Custom HTTP transport
 
-A transport sends an HTTP request and returns its response/error. The transport is invoked by the last policy in the pipeline and is the first to handle the response before returning the response/error back to the pipeline's policies (in reverse order).
+A transport sends an HTTP request and returns its response/error. The transport is invoked by the last policy in the pipeline. It's the first policy to handle the response before returning the response/error back to the pipeline's policies (in reverse order).
 
 By default, clients use the shared `http.Client` from Go's standard library.
 
-You create a custom stateful or stateless transport in the same manner as a custom policy. In the stateful case, you implement the `Do` method inherited from the [`Transporter`](https://github.com/Azure/azure-sdk-for-go/blob/main/sdk/azcore/policy/policy.go#L23) interface. In both cases, your function or `Do` method again receives an `azcore.Request` and returns an `azCore.Response` and performs actions in the same order as a policy.
+You create a custom stateful or stateless transport in the same way that you create a custom policy. In the stateful case, you implement the `Do` method inherited from the [Transporter](https://github.com/Azure/azure-sdk-for-go/blob/main/sdk/azcore/policy/policy.go#L23) interface. In both cases, your function or `Do` method again receives an `azcore.Request`, returns an `azCore.Response`, and performs actions in the same order as a policy.
 
-### How to delete a JSON field when invoking an Azure operation
+### How to delete a JSON field when you invoke an Azure operation
 
 Operations like `JSON-MERGE-PATCH` send a JSON `null` to indicate a field should be deleted (along with its value):
 
@@ -281,7 +281,7 @@ Operations like `JSON-MERGE-PATCH` send a JSON `null` to indicate a field should
 }
 ```
 
-This requirement conflicts with the SDK's default marshaling that specifies `omitempty` as a means to resolve the ambiguity between a field to be excluded and its zero-value.
+This behavior conflicts with the SDK's default marshaling that specifies `omitempty` as a way to resolve the ambiguity between a field to be excluded and its zero-value.
 
 ```go
 type Widget struct {
@@ -290,9 +290,9 @@ type Widget struct {
 }
 ```
 
-In the preceding example, `Name` and `Count` are defined as pointer-to-type to disambiguate between a missing value (`nil`) and a zero-value (0) which might have semantic differences.
+In the preceding example, `Name` and `Count` are defined as pointer-to-type to disambiguate between a missing value (`nil`) and a zero-value (0), which might have semantic differences.
 
-In an HTTP PATCH operation, any field whose value is `nil` won't impact the value in the server's resource. When updating a Widget's `Count` field, specify the new value for `Count`, leaving `Name` as `nil`.
+In an HTTP PATCH operation, any field whose value is `nil` won't affect the value in the server's resource. When updating a Widget's `Count` field, specify the new value for `Count`, leaving `Name` as `nil`.
 
 To fulfill the requirement for sending a JSON `null`, the `NullValue` function is used:
 
