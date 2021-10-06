@@ -1,24 +1,24 @@
 ---
-title: Core concepts for the Azure SDK for Go
-description: An overview of the common usage patterns in the Azure SDK for Go
+title: Common usage patterns in the Azure SDK for Go
+description: This article provides an overview of the common usage patterns in the Azure SDK for Go.
 ms.date: 09/07/2021
 ms.topic: conceptual
 ms.custom: devx-track-go
 ---
 
-# Common concepts with the Azure SDK for Go
+# Common usage patterns in the Azure SDK for Go
 
 The Azure Core (`azcore`) package in the Azure SDK for Go implements several patterns that are applied throughout the SDK:
 
 - The [HTTP pipeline flow](#http-pipeline-flow), which is the underlying HTTP mechanism used by the SDK's client libraries.
-- [Pagination (methods that return collections)](#pagination-methods-that-return-collections)
-- [Long-running operations (LROs)](#long-running-operations-lros)
+- [Pagination (methods that return collections)](#pagination-methods-that-return-collections).
+- [Long-running operations (LROs)](#long-running-operations-lros).
 
 ## Pagination (methods that return collections)
 
-Many Azure services return collections of items. Because the numbers of items can be enormous, these client methods return a "Pager", allowing your app to process one page of results at a time. These types are individually defined for different contexts but share common characteristics like a `NextPage` method.
+Many Azure services return collections of items. Because the number of items can be enormous, these client methods return a *Pager*, which allows your app to process one page of results at a time. These types are individually defined for various contexts but share common characteristics, like a `NextPage` method.
 
-For example, suppose there's a `ListWidgets` method that returns a `WidgetPager`. You'd then use the `WidgetPager` as shown in the following code:
+For example, suppose there's a `ListWidgets` method that returns a `WidgetPager`. You'd then use the `WidgetPager` as shown here:
 
 ```go
 func (c *WidgetClient) ListWidgets(options *ListWidgetOptions) WidgetPager {
@@ -34,23 +34,23 @@ for pager.NextPage(ctx) {
 }
 
 if pager.Err() != nil {
-    // handle error...
+    // Handle error...
 }
 ```
 
-For an example of a Pager implementation, see the SDK source file [zz_generated_pages.go](https://github.com/Azure/autorest.go/blob/track2/test/autorest/paginggroup/zz_generated_pagers.go).
+For an example of a Pager implementation, see the SDK source file [zz_generated_pagers.go](https://github.com/Azure/autorest.go/blob/track2/test/autorest/paginggroup/zz_generated_pagers.go).
 
 ## Long-running operations (LROs)
 
-Some operations on Azure can take a long time to complete&mdash;anywhere from a few seconds to a few days. Examples of such operations include copying data from a source URL to a Storage blob or training an AI model to recognize forms. These *long-running operations (LROs)* don't lend well to the standard HTTP flow of a relatively quick request and response.
+Some operations on Azure can take a long time to complete, anywhere from a few seconds to a few days. Examples of such operations include copying data from a source URL to a storage blob or training an AI model to recognize forms. These *long-running operations (LROs)* don't lend well to the standard HTTP flow of a relatively quick request and response.
 
-By convention, methods that start an LRO are prefixed with "Begin" and return a "Poller". The "Poller" is used to periodically poll the service until the operation completes.
+By convention, methods that start an LRO are prefixed with "Begin" and return a *Poller*. The Poller is used to periodically poll the service until the operation completes.
 
 The following examples illustrate various patterns for handling LROs. You can also learn more from the [poller.go](https://github.com/Azure/azure-sdk-for-go/blob/main/sdk/azcore/internal/pollers/poller.go) source code in the SDK.
 
-### Blocking call to PollUntilDone
+### Blocking call to `PollUntilDone`
 
-`PollUntilDone` handles the entire span of the polling operation until a terminal state is reached. Then returns the final HTTP response for the polling operation with the content of the payload into the respType interface that is provided.
+`PollUntilDone` handles the entire span of a polling operation until a terminal state is reached. It then returns the final HTTP response for the polling operation with the content of the payload into the respType interface that is provided.
 
 ```go
 resp, err := client.BeginCreate(context.Background(), "blue_widget", nil)
