@@ -1,14 +1,14 @@
 ---
-title: Common usage patterns in the Azure SDK for Go
-description: This article provides an overview of the common usage patterns in the Azure SDK for Go.
+title: Common usage patterns in Azure SDK for Go
+description: This article provides an overview of the common usage patterns in Azure SDK for Go.
 ms.date: 09/07/2021
 ms.topic: conceptual
 ms.custom: devx-track-go
 ---
 
-# Common usage patterns in the Azure SDK for Go
+# Common usage patterns in Azure SDK for Go
 
-The Azure Core (`azcore`) package in the Azure SDK for Go implements several patterns that are applied throughout the SDK:
+The Azure Core (`azcore`) package in Azure SDK for Go implements several patterns that are applied throughout the SDK:
 
 - The [HTTP pipeline flow](#http-pipeline-flow), which is the underlying HTTP mechanism used by the SDK's client libraries.
 - [Pagination (methods that return collections)](#pagination-methods-that-return-collections).
@@ -16,7 +16,7 @@ The Azure Core (`azcore`) package in the Azure SDK for Go implements several pat
 
 ## Pagination (methods that return collections)
 
-Many Azure services return collections of items. Because the number of items can be enormous, these client methods return a *Pager*, which allows your app to process one page of results at a time. These types are individually defined for various contexts but share common characteristics, like a `NextPage` method.
+Many Azure services return collections of items. Because the number of items can be large, these client methods return a *Pager*, which allows your app to process one page of results at a time. These types are individually defined for various contexts but share common characteristics, like a `NextPage` method.
 
 For example, suppose there's a `ListWidgets` method that returns a `WidgetPager`. You'd then use the `WidgetPager` as shown here:
 
@@ -169,7 +169,7 @@ This diagram illustrates the flow of a pipeline:
 All client packages share a *Core* package named `azcore`. This package constructs the HTTP pipeline with its ordered set of policies, ensuring that all client packages behave consistently.
 
 - When an HTTP request is sent, all policies run in the order in which they were added to the pipeline before the request is sent to the HTTP endpoint. These policies typically add request headers or log the outgoing HTTP request.
-- After the Azure service responds, all policies run in the reverse order before the response returns to your code. Most policies ignore the response, but the logging policy records the response. The retry policy might re-issue the request, which makes your app more resilient to network failures.
+- After the Azure service responds, all policies run in the reverse order before the response returns to your code. Most policies ignore the response, but the logging policy records the response. The retry policy might re-issue the request, making your app more resilient to network failures.
 
 Each policy is provided with the needed request or response data together with any necessary context for running the policy. The policy completes its operation with the given data and then passes control to the next policy in the pipeline.
 
@@ -183,7 +183,7 @@ The Core package provides three HTTP policies that are part of every pipeline:
 - [Logging Policy](https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/azcore/runtime/policy_logging.go)
 - [Telemetry Policy](https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/azcore/runtime/policy_telemetry.go)
 
-### Custom HTTP pipeline policy
+### Custom HTTP pipeline policies
 
 You can define your own custom policy to add capabilities beyond what's included with the Core package. For example, to see how your app deals with network or service failures, you could create a policy that injects fault when requests are made during testing. Or you could create a policy that mocks a service's behavior for testing.
 
