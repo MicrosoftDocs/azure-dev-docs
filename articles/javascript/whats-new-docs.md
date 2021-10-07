@@ -2,7 +2,7 @@
 title: "What's new for JavaScript docs"
 description: "What's new in JavaScript docs in the Developer Center"
 ms.topic: conceptual
-ms.date: 09/15/2021
+ms.date: 10/07/2021
 
 
 ---
@@ -11,7 +11,16 @@ ms.date: 09/15/2021
 
 Find new and updated content for JavaScript and TypeScript developers.
 
-## 2021 August 
+## 2021 October
+
+### Updates in October
+
+
+|Name|Description|
+|---------------------------------------|--|
+|[Azure Functions: Add Cosmos DB for MongoDB API integration](/tutorial/vscode-function-app-http-trigger/tutorial-vscode-serverless-node-database-integration.md)|Fixed connection pooling.|
+
+## 2021 September 
 
 
 ### New in September
