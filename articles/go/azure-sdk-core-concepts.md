@@ -40,15 +40,15 @@ if pager.Err() != nil {
 
 For an example of a Pager implementation, see the SDK source file [zz_generated_pagers.go](https://github.com/Azure/autorest.go/blob/track2/test/autorest/paginggroup/zz_generated_pagers.go).
 
-## Long-running operations (LROs)
+## Long-running operations
 
 Some operations on Azure can take a long time to complete, anywhere from a few seconds to a few days. Examples of such operations include copying data from a source URL to a storage blob or training an AI model to recognize forms. These *long-running operations (LROs)* don't lend well to the standard HTTP flow of a relatively quick request and response.
 
-By convention, methods that start an LRO are prefixed with "Begin" and return a *Poller*. The Poller is used to periodically poll the service until the operation completes.
+By convention, methods that start an LRO are prefixed with "Begin" and return a *Poller*. The Poller is used to periodically poll the service until the operation finishes.
 
 The following examples illustrate various patterns for handling LROs. You can also learn more from the [poller.go](https://github.com/Azure/azure-sdk-for-go/blob/main/sdk/azcore/internal/pollers/poller.go) source code in the SDK.
 
-### Blocking call to `PollUntilDone`
+### Blocking call to PollUntilDone
 
 `PollUntilDone` handles the entire span of a polling operation until a terminal state is reached. It then returns the final HTTP response for the polling operation with the content of the payload in the `respType` interface that's provided.
 
@@ -171,9 +171,9 @@ All client packages share a *Core* package named `azcore`. This package construc
 - When an HTTP request is sent, all policies run in the order in which they were added to the pipeline before the request is sent to the HTTP endpoint. These policies typically add request headers or log the outgoing HTTP request.
 - After the Azure service responds, all policies run in the reverse order before the response returns to your code. Most policies ignore the response, but the logging policy records the response. The retry policy might re-issue the request, making your app more resilient to network failures.
 
-Each policy is provided with the needed request or response data together with any necessary context for running the policy. The policy completes its operation with the given data and then passes control to the next policy in the pipeline.
+Each policy is provided with the needed request or response data, together with any necessary context for running the policy. The policy completes its operation with the given data and then passes control to the next policy in the pipeline.
 
-By default, each client package creates a pipeline configured to work with that specific Azure service. You can also define your own custom policies and insert them into the HTTP pipeline when you create a client. (See the next section.)
+By default, each client package creates a pipeline configured to work with that specific Azure service. You can also define your own [custom policies](#custom-http-pipeline-policies) and insert them into the HTTP pipeline when you create a client.
 
 ### Core HTTP pipeline policies
 
@@ -187,12 +187,10 @@ The Core package provides three HTTP policies that are part of every pipeline:
 
 You can define your own custom policy to add capabilities beyond what's included with the Core package. For example, to see how your app deals with network or service failures, you could create a policy that injects fault when requests are made during testing. Or you could create a policy that mocks a service's behavior for testing.
 
-To create a custom HTTP policy, define your own structure with a `Do` method that implements the [`Policy`](https://github.com/Azure/azure-sdk-for-go/blob/main/sdk/azcore/policy/policy.go#L20) interface. 
+To create a custom HTTP policy, define your own structure with a `Do` method that implements the [`Policy`](https://github.com/Azure/azure-sdk-for-go/blob/main/sdk/azcore/policy/policy.go#L20) interface: 
 
-Your policy's `Do` method should:
-
-1. Perform operations as needed on the incoming [`policy.Request`](https://github.com/Azure/azure-sdk-for-go/blob/main/sdk/azcore/policy/policy.go#L27). Examples of operations include logging, injecting a failure, or modifying any of the request's URL, query parameters, or request headers.
-1. Forward the (modified) request to the next policy in the pipeline by calling the request's `Next` method.
+1. Your policy's `Do` method should perform operations as needed on the incoming [`policy.Request`](https://github.com/Azure/azure-sdk-for-go/blob/main/sdk/azcore/policy/policy.go#L27). Examples of operations include logging, injecting a failure, or modifying any of the request's URL, query parameters, or request headers.
+1. The `Do` method forwards the (modified) request to the next policy in the pipeline by calling the request's `Next` method.
 1. `Next` returns the `http.Response` and an error. Your policy can perform any necessary operation, like logging the response/error.
 1. Your policy must return a response and error back to the previous policy in the pipeline.
 
