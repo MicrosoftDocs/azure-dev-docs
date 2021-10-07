@@ -302,7 +302,7 @@ w := Widget{
 }
 ```
 
-This code sets `Count` to an explicit JSON `null`. When sent to the server, the resource's `Count` field will be deleted.
+This code sets `Count` to an explicit JSON `null`. When the request is sent to the server, the resource's `Count` field will be deleted.
 
 ## See also
 
