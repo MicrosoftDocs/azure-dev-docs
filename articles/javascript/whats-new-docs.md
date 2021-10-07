@@ -38,6 +38,8 @@ Find new and updated content for JavaScript and TypeScript developers.
 |[Upload an image to an Azure Storage blob](tutorial/browser-file-upload-azure-storage-blob.md)|* Updates based on Azure portal UI changes<br>* Added Static Web App resource creation and deployment<br>* Moved environment variables from source code into `.env` file| 
 |[Clone and use a GitHub repository in Visual Studio Code](how-to/with-visual-studio-code/clone-github-repository.md)|Updated and clarified for new functionality.|
 
+## 2021 August
+
 ### New in August
 
 |Name|Description|
