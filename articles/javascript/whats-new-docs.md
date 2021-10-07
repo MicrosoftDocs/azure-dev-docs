@@ -2,7 +2,7 @@
 title: "What's new for JavaScript docs"
 description: "What's new in JavaScript docs in the Developer Center"
 ms.topic: conceptual
-ms.date: 09/15/2021
+ms.date: 10/07/2021
 
 
 ---
@@ -11,7 +11,16 @@ ms.date: 09/15/2021
 
 Find new and updated content for JavaScript and TypeScript developers.
 
-## 2021 August 
+## 2021 October
+
+### Updates in October
+
+
+|Name|Description|
+|---------------------------------------|--|
+|[Azure Functions: Add Cosmos DB for MongoDB API integration](/tutorial/vscode-function-app-http-trigger/tutorial-vscode-serverless-node-database-integration.md)|Fixed connection pooling.|
+
+## 2021 September 
 
 
 ### New in September
@@ -28,6 +37,8 @@ Find new and updated content for JavaScript and TypeScript developers.
 |[Create and deploy Azure Functions from Visual Studio Code with MongoDB integration](tutorial/vscode-function-app-http-trigger/tutorial-vscode-serverless-node-install.md)|Create a secure API in Visual Studio Code with VS Code extensions and JavaScript, then deploy the application to the Azure cloud for hosting with a public HTTP endpoint. The API integrates with a Cosmos DB database using the MongoDB API. The MongoDB API is accessed from the [mongoose](https://www.npmjs.com/package/mongoose) npm package.<br><br>The MongoDB database functionality includes:<br>* Add item<br>* Delete item by ID<br>* Get item by ID<br>* Get all items| 
 |[Upload an image to an Azure Storage blob](tutorial/browser-file-upload-azure-storage-blob.md)|* Updates based on Azure portal UI changes<br>* Added Static Web App resource creation and deployment<br>* Moved environment variables from source code into `.env` file| 
 |[Clone and use a GitHub repository in Visual Studio Code](how-to/with-visual-studio-code/clone-github-repository.md)|Updated and clarified for new functionality.|
+
+## 2021 August
 
 ### New in August
 
