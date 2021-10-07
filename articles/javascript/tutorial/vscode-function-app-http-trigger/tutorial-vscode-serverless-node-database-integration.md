@@ -49,7 +49,7 @@ npm install mongoose
 
 In Visual Studio Code, open the `./category/index.ts` file and replace the entire file's code with the following:
 
-:::code language="typescript" source="~/../js-e2e-azure-function-mongodb/category/index.ts" highlight="2,4-10,23,30,36,48":::
+:::code language="typescript" source="~/../js-e2e-azure-function-mongodb/category/index.ts" highlight="2,12,18,25,31,43":::
 
 ## Change function.json to include delete method
 
