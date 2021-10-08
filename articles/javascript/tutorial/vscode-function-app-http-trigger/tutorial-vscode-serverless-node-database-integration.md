@@ -2,7 +2,7 @@
 title: Add Cosmos DB integration to Azure Function
 description: Create Cosmos DB resource and use mongoose npm package to add TypeScript code to integrate a database with the Azure function.
 ms.topic: tutorial
-ms.date: 09/21/2021
+ms.date: 10/07/2021
 ms.custom: devx-track-js, contperf-fy21q2
 ---
 
@@ -49,7 +49,7 @@ npm install mongoose
 
 In Visual Studio Code, open the `./category/index.ts` file and replace the entire file's code with the following:
 
-:::code language="typescript" source="~/../js-e2e-azure-function-mongodb/category/index.ts" highlight="2,4-10,23,30,36,48":::
+:::code language="typescript" source="~/../js-e2e-azure-function-mongodb/category/index.ts" highlight="2,12,18,25,31,43":::
 
 ## Change function.json to include delete method
 
