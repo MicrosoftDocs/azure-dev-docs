@@ -40,7 +40,7 @@ The following prerequisites are required to complete the steps in this article:
 1. Add **Dependencies** for **Spring Web**, **Azure Active Directory**, and **OAuth2 Client**.
 1. At the bottom of the page, select the **GENERATE** button.
 
-   :::image type="content" source="media/configure-spring-boot-starter-java-app-with-azure-active-directory/create-spring-app-01.png" alt-text="Specify Group and Artifact names, select dependencies":::
+   :::image type="content" source="media/configure-spring-boot-starter-java-app-with-azure-active-directory/spring-initializr.png" alt-text="Screenshot of Spring Initializr with the indicated options selected" lightbox="media/configure-spring-boot-starter-java-app-with-azure-active-directory/spring-initializr.png":::
 
 1. When prompted, download the project to a path on your local computer.
 
@@ -51,15 +51,11 @@ The following prerequisites are required to complete the steps in this article:
 
 ### Create the Active Directory instance
 
-If you are the administrator of an existing instance, you can skip this process.
+If you're the administrator of an existing instance, you can skip this process.
 
 1. Log into <https://portal.azure.com>.
 
 1. Select **All services**, then **Identity**, and then **Azure Active Directory**.
-
-   :::image type="content" source="media/configure-spring-boot-starter-java-app-with-azure-active-directory/create-directory-00.png" alt-text="Create new Azure Active Directory instance_step1":::
-
-   :::image type="content" source="media/configure-spring-boot-starter-java-app-with-azure-active-directory/create-directory-01.png" alt-text="Create new Azure Active Directory instance_step2":::
 
 1. Enter your **Organization name** and your **Initial domain name**. Copy the full URL of your directory. You'll use the URL to add user accounts later in this tutorial. (For example: `azuresampledirectory.onmicrosoft.com`.)
 
@@ -67,63 +63,55 @@ If you are the administrator of an existing instance, you can skip this process.
 
    When you've finished, select **Create**. It will take a few minutes to create the new resource.
 
-   :::image type="content" source="media/configure-spring-boot-starter-java-app-with-azure-active-directory/create-directory-02.png" alt-text="Specify Azure Active Directory names":::
+   :::image type="content" source="media/configure-spring-boot-starter-java-app-with-azure-active-directory/specify-azure-active-directory-name.png" alt-text="Screenshot of Azure Active Directory with specified name" lightbox="media/configure-spring-boot-starter-java-app-with-azure-active-directory/specify-azure-active-directory-name.png":::
 
 1. When complete, select to access the new directory.
 
-   :::image type="content" source="media/configure-spring-boot-starter-java-app-with-azure-active-directory/create-directory-03.png" alt-text="Select your Azure account name":::
+   :::image type="content" source="media/configure-spring-boot-starter-java-app-with-azure-active-directory/select-your-azure-account-name.png" alt-text="Screenshot of Select your Azure account name":::
 
 1. Copy the **Tenant ID**. You'll use the ID value to configure your *application.properties* file later in this tutorial.
 
-   :::image type="content" source="media/configure-spring-boot-starter-java-app-with-azure-active-directory/create-directory-04.png" alt-text="Copy your Tenant ID":::
+   :::image type="content" source="media/configure-spring-boot-starter-java-app-with-azure-active-directory/your-tenant-id.png" alt-text="Screenshot of Azure Active Directory with Tenant Id" lightbox="media/configure-spring-boot-starter-java-app-with-azure-active-directory/your-tenant-id.png":::
 
 ### Add an application registration for your Spring Boot app
 
 1. From the portal menu, select **App registrations**, and then select **Register an application**.
 
-   :::image type="content" source="media/configure-spring-boot-starter-java-app-with-azure-active-directory/create-app-registration-01.png" alt-text="Add a new app registration":::
-
 1. Specify your application, and then select **Register**.
-
-   :::image type="content" source="media/configure-spring-boot-starter-java-app-with-azure-active-directory/create-app-registration-02.png" alt-text="Create new app registration":::
 
 1. When the page for your app registration appears, copy your **Application ID** and the **Tenant ID**. You'll use these values to configure your *application.properties* file later in this tutorial.
 
-   :::image type="content" source="media/configure-spring-boot-starter-java-app-with-azure-active-directory/create-app-registration-03.png" alt-text="Copy app registration keys":::
+   :::image type="content" source="media/configure-spring-boot-starter-java-app-with-azure-active-directory/your-application-id-and-tenant-id.png" alt-text="Screenshot of Application with application id and tenant id" lightbox="media/configure-spring-boot-starter-java-app-with-azure-active-directory/your-application-id-and-tenant-id.png":::
 
 1. Select **Certificates & secrets** in the left navigation pane.  Then select **New client secret**.
 
-   :::image type="content" source="media/configure-spring-boot-starter-java-app-with-azure-active-directory/create-app-registration-03-5.png" alt-text="Create app registration keys":::
+   :::image type="content" source="media/configure-spring-boot-starter-java-app-with-azure-active-directory/create-client-secret.png" alt-text="Screenshot of Application creating a new client secret" lightbox="media/configure-spring-boot-starter-java-app-with-azure-active-directory/create-client-secret.png":::
 
 1. Add a **Description** and select duration in the **Expires** list. Select **Add**. The value for the key will be automatically filled in.
 
-   :::image type="content" source="media/configure-spring-boot-starter-java-app-with-azure-active-directory/create-app-registration-04.png" alt-text="Specify app registration key parameters":::
-
 1. Copy and save the value of the client secret to configure your *application.properties* file later in this tutorial. (You won't be able to retrieve this value later.)
 
-   :::image type="content" source="media/configure-spring-boot-starter-java-app-with-azure-active-directory/create-app-registration-04-5.png" alt-text="Copy app registration key value":::
+   :::image type="content" source="media/configure-spring-boot-starter-java-app-with-azure-active-directory/copy-client-secret.png" alt-text="Screenshot of Application with created client secret" lightbox="media/configure-spring-boot-starter-java-app-with-azure-active-directory/copy-client-secret.png":::
 
 1. From the main page for your app registration, select **Authentication**, and select **Add a platform**.  Then select **Web applications**.
 
-   :::image type="content" source="media/configure-spring-boot-starter-java-app-with-azure-active-directory/create-app-registration-09.png" alt-text="Edit Reply URLse":::
+   :::image type="content" source="media/configure-spring-boot-starter-java-app-with-azure-active-directory/add-web-platforms.png" alt-text="Screenshot of Application adding a new web platform" lightbox="media/configure-spring-boot-starter-java-app-with-azure-active-directory/add-web-platforms.png":::
 
 1. Enter *http://localhost:8080/login/oauth2/code/* as a new **Redirect URI**, and then select **Configure**.
 
-   :::image type="content" source="media/configure-spring-boot-starter-java-app-with-azure-active-directory/create-app-registration-10.png" alt-text="Add new Reply URL":::
+   :::image type="content" source="media/configure-spring-boot-starter-java-app-with-azure-active-directory/specify-redirect-uri.png" alt-text="Screenshot of Application specifying Redirect URL" lightbox="media/configure-spring-boot-starter-java-app-with-azure-active-directory/specify-redirect-uri.png":::
 
 1. If you've modified the *pom.xml* file to use an AAD starter version earlier than 3.0.0: under **Implicit grant and hybrid flows**, select **ID tokens (used for implicit and hybrid flows)**, then select **Save**.
 
-   :::image type="content" source="media/configure-spring-boot-starter-java-app-with-azure-active-directory/create-app-registration-11.png" alt-text="Enable Id Tokens":::
+   :::image type="content" source="media/configure-spring-boot-starter-java-app-with-azure-active-directory/enable-id-tokens.png" alt-text="Screenshot of Application enabling id token" lightbox="media/configure-spring-boot-starter-java-app-with-azure-active-directory/enable-id-tokens.png":::
 
 ### Add a user account to your directory, and add that account to an appRole
 
 1. From the **Overview** page of your Active Directory, select **Users**, and then select **New user**.
 
-   :::image type="content" source="media/configure-spring-boot-starter-java-app-with-azure-active-directory/create-user-01.png" alt-text="Add a new user account":::
-
 1. When the **User** panel is displayed, enter the **User name** and **Name**.  Then select **Create**.
 
-   :::image type="content" source="media/configure-spring-boot-starter-java-app-with-azure-active-directory/create-user-02.png" alt-text="Enter user account information":::
+   :::image type="content" source="media/configure-spring-boot-starter-java-app-with-azure-active-directory/create-user-with-name.png" alt-text="Screenshot of New user with the specified name":::
 
    > [!NOTE]
    > You need to specify your directory URL from earlier in this tutorial when you enter the user name. For example:
@@ -132,27 +120,25 @@ If you are the administrator of an existing instance, you can skip this process.
 
 1. From the main page for your app registration, select **App roles**, then select **Create app role**. Provide values for the form fields, select **Do you want to enable this app role?**, then select **Apply**.
 
-   :::image type="content" source="media/configure-spring-boot-starter-java-app-with-azure-active-directory/create-app-role-01.png" alt-text="Enter app role information":::
+   :::image type="content" source="media/configure-spring-boot-starter-java-app-with-azure-active-directory/create-app-role-for-application.png" alt-text="Screenshot of application with a creating app role" lightbox="media/configure-spring-boot-starter-java-app-with-azure-active-directory/create-app-role-for-application.png":::
 
-1. From the **Overview** page of your Azure AD directory, select **Enterprise applications**
+1. From the **Overview** page of your Azure AD directory, select **Enterprise applications**.
 
-   :::image type="content" source="media/configure-spring-boot-starter-java-app-with-azure-active-directory/create-app-role-02.png" alt-text="Select Enterprise application":::
+   :::image type="content" source="media/configure-spring-boot-starter-java-app-with-azure-active-directory/select-enterprise-application.png" alt-text="Screenshot of Azure Active Directory choosing Enterprise application" lightbox="media/configure-spring-boot-starter-java-app-with-azure-active-directory/select-enterprise-application.png":::
 
-1. Select **All applications** , then select the application you added the app role to in a previous step.
+1. Select **All applications**, then select the application you added the app role to in a previous step.
 
-   :::image type="content" source="media/configure-spring-boot-starter-java-app-with-azure-active-directory/create-app-role-03.png" alt-text="Choose the application to assign app role":::
+   :::image type="content" source="media/configure-spring-boot-starter-java-app-with-azure-active-directory/select-application-to-add-role.png" alt-text="Screenshot of Enterprise application with applications" lightbox="media/configure-spring-boot-starter-java-app-with-azure-active-directory/select-application-to-add-role.png":::
 
 1. Select **Users and groups**, then select **Add user/group**.
 
-   :::image type="content" source="media/configure-spring-boot-starter-java-app-with-azure-active-directory/create-app-role-04.png" alt-text="Assign app role to user":::
-
 1. Under **Users**, select **None Selected**. Select the user you created earlier, select **Select**, then select **Assign**. If you created more than one app role earlier, select a role.
 
-   :::image type="content" source="media/configure-spring-boot-starter-java-app-with-azure-active-directory/create-app-role-05.png" alt-text="Choose user account":::
+   :::image type="content" source="media/configure-spring-boot-starter-java-app-with-azure-active-directory/assign-user-to-app-role.png" alt-text="Screenshot of application with user assigning to app role" lightbox="media/configure-spring-boot-starter-java-app-with-azure-active-directory/assign-user-to-app-role.png":::
 
 1. Go back to the **Users** panel, select your test user, and select **Reset password**, and copy the password. You'll use the password when you log into your application later in this tutorial.
 
-   :::image type="content" source="media/configure-spring-boot-starter-java-app-with-azure-active-directory/create-user-04.png" alt-text="Show the password":::
+   :::image type="content" source="media/configure-spring-boot-starter-java-app-with-azure-active-directory/reset-user-password.png" alt-text="Screenshot of user with temporary password":::
 
 ## Configure and compile your app
 
