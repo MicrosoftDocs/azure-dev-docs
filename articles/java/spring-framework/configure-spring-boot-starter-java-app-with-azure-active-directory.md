@@ -138,7 +138,7 @@ If you're the administrator of an existing instance, you can skip this process.
 
 1. Go back to the **Users** panel, select your test user, and select **Reset password**, and copy the password. You'll use the password when you log into your application later in this tutorial.
 
-   :::image type="content" source="media/configure-spring-boot-starter-java-app-with-azure-active-directory/reset-user-password.png" alt-text="Screenshot of user with temporary password":::
+   :::image type="content" source="media/configure-spring-boot-starter-java-app-with-azure-active-directory/reset-user-password.png" alt-text="Screenshot of user with temporary password" lightbox="media/configure-spring-boot-starter-java-app-with-azure-active-directory/reset-user-password.png":::
 
 ## Configure and compile your app
 
