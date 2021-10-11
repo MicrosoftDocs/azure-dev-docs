@@ -5,7 +5,7 @@ ms.author: edburns
 ms.topic: how-to
 ms.date: 04/28/2021
 recommendations: false
-ms.custom: devx-track-java, devx-track-javaee
+ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-wls, devx-track-javaee-wls-vm
 ---
 
 # Tutorial: Migrate a WebLogic Server cluster to Azure with Azure Application Gateway as a load balancer

@@ -103,7 +103,7 @@ After your namespace is deployed, you can create an event hub in the namespace.
    <dependency>
      <groupId>com.azure.spring</groupId>
      <artifactId>azure-spring-cloud-starter-eventhubs-kafka</artifactId>
-     <version>2.8.0</version>
+     <version>2.9.0</version>
    </dependency>
    ```
 
