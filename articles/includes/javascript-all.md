@@ -81,7 +81,7 @@
 | Resource Management - Locks | npm [1.2.2](https://www.npmjs.com/package/@azure/arm-locks/v/1.2.2) | [docs](/javascript/api/overview/azure/arm-locks-readme) | GitHub [1.2.2](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/locks/arm-locks) |
 | Resource Management - Managed Applications | npm [1.1.2](https://www.npmjs.com/package/@azure/arm-managedapplications/v/1.1.2) | [docs](/javascript/api/overview/azure/arm-managedapplications-readme) | GitHub [1.1.2](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/managedapplications/arm-managedapplications) |
 | Resource Management - Network | npm [25.2.0](https://www.npmjs.com/package/@azure/arm-network/v/25.2.0) | [docs](/javascript/api/overview/azure/arm-network-readme) | GitHub [25.2.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/network/arm-network) |
-| Resource Management - Policy | npm [4.1.2](https://www.npmjs.com/package/@azure/arm-policy/v/4.1.2) | [docs](/javascript/api/overview/azure/arm-policy-readme) | GitHub [4.1.2](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/policy/arm-policy) |
+| Resource Management - Policy | npm [4.2.0](https://www.npmjs.com/package/@azure/arm-policy/v/4.2.0) | [docs](/javascript/api/overview/azure/arm-policy-readme) | GitHub [4.2.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/policy/arm-policy) |
 | Resource Management - Purview | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure/arm-purview/v/1.0.0-beta.1) | [docs](/javascript/api/overview/azure/arm-purview-readme) | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-purview_1.0.0-beta.1/sdk/purview/arm-purview/) |
 | Resource Management - Quota | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure/arm-quota/v/1.0.0-beta.1) |  | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-quota_1.0.0-beta.1/sdk/quota/arm-quota/) |
 | Resource Management - Redis Cache | npm [5.0.0](https://www.npmjs.com/package/@azure/arm-rediscache/v/5.0.0) | [docs](/javascript/api/overview/azure/arm-rediscache-readme) | GitHub [5.0.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/redis/arm-rediscache) |
@@ -96,7 +96,7 @@
 | @autorest/codemodel | npm [4.17.0](https://www.npmjs.com/package/@autorest/codemodel/v/4.17.0) |  |  |
 | @autorest/common | npm [1.3.0](https://www.npmjs.com/package/@autorest/common/v/1.3.0) |  |  |
 | @autorest/configuration | npm [1.7.2](https://www.npmjs.com/package/@autorest/configuration/v/1.7.2) |  |  |
-| @autorest/csharp | npm [3.0.0-beta.20211008.1](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20211008.1) |  |  |
+| @autorest/csharp | npm [3.0.0-beta.20211011.1](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20211011.1) |  |  |
 | @autorest/csharp-v3 | npm [3.0.0-beta.20201217.1](https://www.npmjs.com/package/@autorest/csharp-v3/v/3.0.0-beta.20201217.1) |  |  |
 | @autorest/extension-base | npm [3.3.1](https://www.npmjs.com/package/@autorest/extension-base/v/3.3.1) |  |  |
 | @autorest/schemas | npm [1.3.1](https://www.npmjs.com/package/@autorest/schemas/v/1.3.1) |  |  |
@@ -115,7 +115,7 @@
 | @azure/arm-dns-profile-2020-09-01-hybrid | npm [1.1.1](https://www.npmjs.com/package/@azure/arm-dns-profile-2020-09-01-hybrid/v/1.1.1) |  |  |
 | @azure/arm-eventhub-profile-2020-09-01-hybrid | npm [1.1.1](https://www.npmjs.com/package/@azure/arm-eventhub-profile-2020-09-01-hybrid/v/1.1.1) |  |  |
 | @azure/arm-healthbot | npm [1.1.1](https://www.npmjs.com/package/@azure/arm-healthbot/v/1.1.1) |  |  |
-| @azure/arm-hybridkubernetes | npm [1.1.1](https://www.npmjs.com/package/@azure/arm-hybridkubernetes/v/1.1.1) |  |  |
+| @azure/arm-hybridkubernetes | npm [1.2.0](https://www.npmjs.com/package/@azure/arm-hybridkubernetes/v/1.2.0) |  |  |
 | @azure/arm-keyvault-profile-2020-09-01-hybrid | npm [1.1.1](https://www.npmjs.com/package/@azure/arm-keyvault-profile-2020-09-01-hybrid/v/1.1.1) |  |  |
 | @azure/arm-locks-profile-2020-09-01-hybrid | npm [1.1.1](https://www.npmjs.com/package/@azure/arm-locks-profile-2020-09-01-hybrid/v/1.1.1) |  |  |
 | @azure/arm-monitor-profile-2020-09-01-hybrid | npm [1.1.1](https://www.npmjs.com/package/@azure/arm-monitor-profile-2020-09-01-hybrid/v/1.1.1) |  |  |
@@ -138,7 +138,6 @@
 | @azure/media-stream-library | npm [0.1.0](https://www.npmjs.com/package/@azure/media-stream-library/v/0.1.0) |  |  |
 | @azure/quantum-jobs | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure/quantum-jobs/v/1.0.0-beta.1) |  |  |
 | @azure/static-web-apps-cli | npm [0.8.0](https://www.npmjs.com/package/@azure/static-web-apps-cli/v/0.8.0) |  |  |
-| @azure/video-analyzer-for-media-widgets | npm [0.2.1](https://www.npmjs.com/package/@azure/video-analyzer-for-media-widgets/v/0.2.1) |  |  |
 | @azure/video-analyzer-player | npm [1.0.4](https://www.npmjs.com/package/@azure/video-analyzer-player/v/1.0.4) |  |  |
 | @azure/video-analyzer-widgets | npm [1.1.2](https://www.npmjs.com/package/@azure/video-analyzer-widgets/v/1.1.2) |  |  |
 | @azure-rest/core-client-lro | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure-rest/core-client-lro/v/1.0.0-beta.1) |  |  |
@@ -182,7 +181,7 @@
 | AutoRest - CLI Common | npm [0.6.2](https://www.npmjs.com/package/@autorest/clicommon/v/0.6.2) |  | GitHub [0.6.2](https://github.com/Azure/autorest.clicommon/tree/0.4.12) |
 | AutoRest - Code Model | npm [3.0.137](https://www.npmjs.com/package/@azure/autorest.codemodel-v3/v/3.0.137) |  |  |
 | AutoRest - Compare | npm [0.4.2](https://www.npmjs.com/package/@autorest/compare/v/0.4.2) |  | GitHub [0.4.2](https://github.com/Azure/autorest.compare) |
-| AutoRest - Core | npm [3.6.5](https://www.npmjs.com/package/@autorest/core/v/3.6.5) |  | GitHub [3.6.5](https://github.com/Azure/autorest) |
+| AutoRest - Core | npm [3.6.6](https://www.npmjs.com/package/@autorest/core/v/3.6.6) |  | GitHub [3.6.6](https://github.com/Azure/autorest) |
 | AutoRest - Functions CSharp | npm [0.2.0-preview-dev.321054549](https://www.npmjs.com/package/@autorest/azure-functions-csharp/v/0.2.0-preview-dev.321054549) |  |  |
 | AutoRest - Functions Java | npm [0.0.2-Preview](https://www.npmjs.com/package/@autorest/azure-functions-java/v/0.0.2-Preview) |  |  |
 | AutoRest - Functions Python | npm [0.1.0-preview](https://www.npmjs.com/package/@autorest/azure-functions-python/v/0.1.0-preview) |  |  |
@@ -421,7 +420,7 @@
 | Resource Management - Operational Insights | npm [7.1.1](https://www.npmjs.com/package/@azure/arm-operationalinsights/v/7.1.1) | [docs](/javascript/api/overview/azure/operational-insights) | GitHub [7.1.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/operationalinsights/arm-operationalinsights) |
 | Resource Management - Operations | npm [3.0.0](https://www.npmjs.com/package/@azure/arm-operations/v/3.0.0) |  | GitHub [3.0.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/operationsmanagement/arm-operations) |
 | Resource Management - Peering | npm [1.1.1](https://www.npmjs.com/package/@azure/arm-peering/v/1.1.1) |  | GitHub [1.1.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/peering/arm-peering) |
-| Resource Management - Policy | npm [4.1.2](https://www.npmjs.com/package/@azure/arm-policy/v/4.1.2) | [docs](/javascript/api/overview/azure/arm-policy-readme) | GitHub [4.1.2](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/policy/arm-policy) |
+| Resource Management - Policy | npm [4.2.0](https://www.npmjs.com/package/@azure/arm-policy/v/4.2.0) | [docs](/javascript/api/overview/azure/arm-policy-readme) | GitHub [4.2.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/policy/arm-policy) |
 | Resource Management - Policy Insights | npm [4.1.1](https://www.npmjs.com/package/@azure/arm-policyinsights/v/4.1.1) |  | GitHub [4.1.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/policyinsights/arm-policyinsights) |
 | Resource Management - PostgreSQL | npm [5.2.0](https://www.npmjs.com/package/@azure/arm-postgresql/v/5.2.0) |  | GitHub [5.2.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/postgresql/arm-postgresql) |
 | Resource Management - Power BI Dedicated | npm [2.1.1](https://www.npmjs.com/package/@azure/arm-powerbidedicated/v/2.1.1) |  | GitHub [2.1.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/powerbidedicated/arm-powerbidedicated) |
@@ -456,7 +455,7 @@
 | Resource Management - Stream Analytics | npm [2.1.1](https://www.npmjs.com/package/@azure/arm-streamanalytics/v/2.1.1) |  | GitHub [2.1.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/streamanalytics/arm-streamanalytics) |
 | Resource Management - Subscriptions | npm [3.1.2](https://www.npmjs.com/package/@azure/arm-subscriptions/v/3.1.2) |  | GitHub [3.1.2](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/subscription/arm-subscriptions) |
 | Resource Management - Support | npm [1.1.1](https://www.npmjs.com/package/@azure/arm-support/v/1.1.1) |  | GitHub [1.1.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/support/arm-support) |
-| Resource Management - Synapse | npm [6.0.0](https://www.npmjs.com/package/@azure/arm-synapse/v/6.0.0) |  | GitHub [6.0.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/synapse/arm-synapse) |
+| Resource Management - Synapse | npm [6.1.0](https://www.npmjs.com/package/@azure/arm-synapse/v/6.1.0) |  | GitHub [6.1.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/synapse/arm-synapse) |
 | Resource Management - Template Specs | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure/arm-templatespecs/v/1.0.0-beta.1) | [docs](/javascript/api/overview/azure/arm-templatespecs-readme) | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-templatespecs_1.0.0-beta.1/sdk/templatespecs/arm-templatespecs/) |
 | Resource Management - Time Series Insights | npm [1.3.1](https://www.npmjs.com/package/@azure/arm-timeseriesinsights/v/1.3.1) |  | GitHub [1.3.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/timeseriesinsights/arm-timeseriesinsights) |
 | Resource Management - Traffic Manager | npm [5.1.1](https://www.npmjs.com/package/@azure/arm-trafficmanager/v/5.1.1) | [docs](/javascript/api/overview/azure/traffic-manager) | GitHub [5.1.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/trafficmanager/arm-trafficmanager) |
