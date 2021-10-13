@@ -1,0 +1,91 @@
+---
+title: Libraries, drivers, and Spring modules for Azure
+description: Links to the libraries, drivers, Spring modules, and related topics available for use with Azure.
+ms.date: 10/12/2021
+ms.topic: conceptual
+ms.custom: devx-track-java
+---
+
+# Libraries, drivers, and Spring modules for Azure
+
+The following table provides links to the libraries, drivers, Spring modules, and related topics available for use with Azure.
+
+<!-- In raw Markdown, this table is best viewed with word-wrap turned off. -->
+
+| Category  | Service                    | Java library or driver                             | Java getting started                                                                               | Spring module                                                            | Spring getting started                                                                                                                                                                        |
+|-----------|----------------------------|----------------------------------------------------|----------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Data      | SQL database               | [SQL Database JDBC driver]                         | [Use Java and JDBC with Azure SQL Database]                                                        | * [Spring Data JDBC] <br> * [Spring Data JPA] <br> * [Spring Data R2DBC] | * [Use Spring Data JDBC with Azure SQL Database] <br> * [Use Spring Data R2DBC with Azure SQL Database] <br> * [Use Spring Data JPA with Azure SQL Database]                                  |
+| Data      | MySQL                      | [MySQL JDBC driver]                                | [Quickstart: Use Java and JDBC with Azure Database for MySQL]                                      | * [Spring Data JDBC] <br> * [Spring Data JPA] <br> * [Spring Data R2DBC] | * [Use Spring Data JDBC with Azure Database for MySQL] <br> * [Use Spring Data R2DBC with Azure Database for MySQL] <br> * [Use Spring Data JPA with Azure Database for MySQL]                |
+| Data      | PostgreSQL                 | [PostgreSQL JDBC driver]                           | [Quickstart: Use Java and JDBC with Azure Database for PostgreSQL Flexible Server]                 | * [Spring Data JDBC] <br> * [Spring Data JPA] <br> * [Spring Data R2DBC] | * [Use Spring Data JDBC with Azure Database for PostgreSQL] <br> * [Use Spring Data R2DBC with Azure Database for PostgreSQL] <br> * [Use Spring Data JPA with Azure Database for PostgreSQL] |
+| Data      | MariaDB                    | [MariaDB driver]                                   | [MariaDB drivers and management tools compatible with Azure Database for MariaDB]                  | * [Spring Data JDBC] <br> * [Spring Data JPA] <br> * [Spring Data R2DBC] |                                                                                                                                                                                               |
+| Data      | Cosmos DB - SQL            | [Maven Repository: com.azure » azure-cosmos]       | [Quickstart: Build a Java app to manage Azure Cosmos DB SQL API data]                              |                                                                          | [How to use the Spring Boot Starter with the Azure Cosmos DB SQL API]                                                                                                                         |
+| Data      | Cosmos DB - MongoDB        |                                                    | [Quickstart: Create a console app with Java and the MongoDB API in Azure Cosmos DB]                | [Spring Data MongoDB]                                                    | [How to use Spring Data MongoDB API with Azure Cosmos DB]                                                                                                                                     |
+| Data      | Cosmos DB - Cassandra      | [Datastax Java Driver for Apache Cassandra]        | [Quickstart: Build a Java app to manage Azure Cosmos DB Cassandra API data (v4 Driver)]            | [Spring Data for Apache Cassandra]                                       | [How to use Spring Data Apache Cassandra API with Azure Cosmos DB]                                                                                                                            |
+| Data      | Cosmos DB - Gremlin        |                                                    | [Quickstart: Build a graph database with the Java SDK and the Azure Cosmos DB Gremlin API]         |                                                                          | [Quickstart: Build a graph database with the Java SDK and the Azure Cosmos DB Gremlin API]                                                                                                    |
+| Cache     | Redis                      | [JEDIS client]                                     | [Quickstart: Use Azure Cache for Redis in Java]                                                    | * [Spring Data Redis] <br> * [Reference]                                 | [Configure a Spring Boot Initializer app to use Redis in the cloud with Azure Redis Cache]                                                                                                    |
+| Cache     | Redis                      | [LETTUCE client]                                   | [Best Practices for using Azure Cache for Redis with Lettuce]                                      | * [Spring Data Redis] <br> * [Reference]                                 | [Configure a Spring Boot Initializer app to use Redis in the cloud with Azure Redis Cache]                                                                                                    |
+| Storage   | Azure Storage              | [Maven Repository: com.azure » azure-storage-blob] | [Quickstart: Manage blobs with Java v12 SDK]                                                       |                                                                          | [How to use the Spring Boot Starter for Azure Storage]                                                                                                                                        |
+| Messaging | Service Bus                | [JMS + AMQP]                                       | [Send messages to an Azure Service Bus topic and receive messages from subscriptions to the topic] | [Spring AMQP]                                                            | [How to use Spring Cloud Azure Stream Binder for Azure Service Bus]                                                                                                                           |
+| Messaging | Service Bus                | [Azure Service Bus client library for Java]        | [Azure Service Bus Samples client library for Java]                                                | [Spring AMQP]                                                            | [How to use Spring Cloud Azure Stream Binder for Azure Service Bus]                                                                                                                           |
+| Eventing  | Event Hubs                 | [Kafka]                                            | [Send and Receive Messages in Java using Azure Event Hubs for Apache Kafka Ecosystems]             | [Spring for Apache Kafka]                                                | [How to use the Spring Boot Starter for Apache Kafka with Azure Event Hubs]                                                                                                                   |
+| Eventing  | Event Hubs                 | [Azure Event Hub libraries for Java]               | [Use Java to send events to or receive events from Azure Event Hubs]                               |                                                                          | [How to create a Spring Cloud Stream Binder application with Azure Event Hubs]                                                                                                                |
+| Directory | Azure Active Directory     | [MSAL]                                             |                                                                                                    |                                                                          |                                                                                                                                                                                               |
+| Directory | Azure Active Directory B2C | [MSAL]                                             |                                                                                                    |                                                                          |                                                                                                                                                                                               |
+| Secrets   | Key Vault                  |                                                    |                                                                                                    |                                                                          |                                                                                                                                                                                               |
+
+[SQL Database JDBC driver]: /java/api/overview/azure/sql
+[MySQL JDBC driver]: https://dev.mysql.com/downloads/connector/j/
+[PostgreSQL JDBC driver]: https://jdbc.postgresql.org/download.html
+[MariaDB driver]: https://downloads.mariadb.org/connector-java/
+[Maven Repository: com.azure » azure-cosmos]: https://mvnrepository.com/artifact/com.azure/azure-cosmos
+[Datastax Java Driver for Apache Cassandra]: https://github.com/datastax/java-driver/tree/4.x
+[JEDIS client]: https://github.com/redis/jedis
+[LETTUCE client]: https://github.com/lettuce-io/lettuce-core
+[Maven Repository: com.azure » azure-storage-blob]: https://mvnrepository.com/artifact/com.azure/azure-storage-blob
+[JMS + AMQP]: /azure/service-bus-messaging/how-to-use-java-message-service-20#downloading-the-java-message-service-jms-client-library
+[Azure Service Bus client library for Java]: /java/api/overview/azure/messaging-servicebus-readme
+[Kafka]: https://kafka.apache.org/10/documentation.html
+[Azure Event Hub libraries for Java]: /java/api/overview/azure/eventhub
+[MSAL]: https://github.com/AzureAD/microsoft-authentication-library-for-java
+[Use Java and JDBC with Azure SQL Database]: /azure/azure-sql/database/connect-query-java
+[Quickstart: Use Java and JDBC with Azure Database for MySQL]: /azure/mysql/connect-java
+[Quickstart: Use Java and JDBC with Azure Database for PostgreSQL Flexible Server]: /azure/postgresql/flexible-server/connect-java
+[MariaDB drivers and management tools compatible with Azure Database for MariaDB]: /azure/mariadb/concepts-compatibility
+[Quickstart: Build a Java app to manage Azure Cosmos DB SQL API data]: /azure/cosmos-db/sql/create-sql-api-java
+[Quickstart: Create a console app with Java and the MongoDB API in Azure Cosmos DB]: /azure/cosmos-db/mongodb/create-mongodb-java
+[Quickstart: Build a Java app to manage Azure Cosmos DB Cassandra API data (v4 Driver)]: /azure/cosmos-db/cassandra/manage-data-java-v4-sdk
+[Quickstart: Build a graph database with the Java SDK and the Azure Cosmos DB Gremlin API]: /azure/cosmos-db/graph/create-graph-java
+[Quickstart: Use Azure Cache for Redis in Java]: /azure/azure-cache-for-redis/cache-java-get-started
+[Best Practices for using Azure Cache for Redis with Lettuce]: https://github.com/Azure/AzureCacheForRedis/blob/main/Lettuce%20Best%20Practices.md
+[Quickstart: Manage blobs with Java v12 SDK]: /azure/storage/blobs/storage-quickstart-blobs-java
+[Send messages to an Azure Service Bus topic and receive messages from subscriptions to the topic]: /azure/service-bus-messaging/service-bus-java-how-to-use-topics-subscriptions
+[Azure Service Bus Samples client library for Java]: https://github.com/Azure/azure-sdk-for-java/tree/azure-messaging-servicebus_7.4.1/sdk/servicebus/azure-messaging-servicebus/src/samples
+[Send and Receive Messages in Java using Azure Event Hubs for Apache Kafka Ecosystems]: https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/quickstart/java
+[Use Java to send events to or receive events from Azure Event Hubs]: /azure/event-hubs/event-hubs-java-get-started-send
+[Spring Data JDBC]: https://spring.io/projects/spring-data-jdbc
+[Spring Data JPA]: https://spring.io/projects/spring-data-jpa
+[Spring Data R2DBC]: https://spring.io/projects/spring-data-r2dbc
+[Spring Data MongoDB]: https://spring.io/projects/spring-data-mongodb
+[Spring Data for Apache Cassandra]: https://spring.io/projects/spring-data-cassandra
+[Spring Data Redis]: https://spring.io/projects/spring-data-redis
+[Reference]: https://docs.spring.io/spring-data/data-redis/docs/current/reference/html/#redis:requirements
+[Spring AMQP]: https://spring.io/projects/spring-amqp
+[Spring for Apache Kafka]: https://spring.io/projects/spring-kafka
+[Use Spring Data JDBC with Azure SQL Database]: /azure/developer/java/spring-framework/configure-spring-data-jdbc-with-azure-sql-server
+[Use Spring Data R2DBC with Azure SQL Database]: /azure/developer/java/spring-framework/configure-spring-data-r2dbc-with-azure-sql-server
+[Use Spring Data JPA with Azure SQL Database]: /azure/developer/java/spring-framework/configure-spring-data-jpa-with-azure-sql-server
+[Use Spring Data JDBC with Azure Database for MySQL]: /azure/developer/java/spring-framework/configure-spring-data-jdbc-with-azure-mysql
+[Use Spring Data R2DBC with Azure Database for MySQL]: /azure/developer/java/spring-framework/configure-spring-data-r2dbc-with-azure-mysql
+[Use Spring Data JPA with Azure Database for MySQL]: /azure/developer/java/spring-framework/configure-spring-data-jpa-with-azure-mysql
+[Use Spring Data JDBC with Azure Database for PostgreSQL]: /azure/developer/java/spring-framework/configure-spring-data-jdbc-with-azure-postgresql
+[Use Spring Data R2DBC with Azure Database for PostgreSQL]: /azure/developer/java/spring-framework/configure-spring-data-r2dbc-with-azure-postgresql
+[Use Spring Data JPA with Azure Database for PostgreSQL]: /azure/developer/java/spring-framework/configure-spring-data-jpa-with-azure-postgresql
+[How to use the Spring Boot Starter with the Azure Cosmos DB SQL API]: /azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db
+[How to use Spring Data MongoDB API with Azure Cosmos DB]: /azure/developer/java/spring-framework/configure-spring-data-mongodb-with-cosmos-db
+[How to use Spring Data Apache Cassandra API with Azure Cosmos DB]: /azure/developer/java/spring-framework/configure-spring-data-apache-cassandra-with-cosmos-db
+[Quickstart: Build a graph database with the Java SDK and the Azure Cosmos DB Gremlin API]: /azure/cosmos-db/graph/create-graph-java
+[Configure a Spring Boot Initializer app to use Redis in the cloud with Azure Redis Cache]: /azure/developer/java/spring-framework/configure-spring-boot-initializer-java-app-with-redis-cache
+[How to use the Spring Boot Starter for Azure Storage]: /azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-storage
+[How to use Spring Cloud Azure Stream Binder for Azure Service Bus]: /azure/developer/java/spring-framework/configure-spring-cloud-stream-binder-java-app-with-service-bus
+[How to use the Spring Boot Starter for Apache Kafka with Azure Event Hubs]: /azure/developer/java/spring-framework/configure-spring-cloud-stream-binder-java-app-kafka-azure-event-hub
+[How to create a Spring Cloud Stream Binder application with Azure Event Hubs]: /azure/developer/java/spring-framework/configure-spring-cloud-stream-binder-java-app-azure-event-hub
