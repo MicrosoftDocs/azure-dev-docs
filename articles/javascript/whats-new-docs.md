@@ -18,7 +18,7 @@ Find new and updated content for JavaScript and TypeScript developers.
 
 |Name|Description|
 |---------------------------------------|--|
-|[Azure Functions: Add Cosmos DB for MongoDB API integration](/azure/developer/javascript/tutorial/vscode-function-app-http-trigger/tutorial-vscode-serverless-node-database-integration.md)|Fixed connection pooling.|
+|[Azure Functions: Add Cosmos DB for MongoDB API integration](./azure/developer/javascript/tutorial/vscode-function-app-http-trigger/tutorial-vscode-serverless-node-database-integration.md)|Fixed connection pooling.|
 
 ## 2021 September 
 
