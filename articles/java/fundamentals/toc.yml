@@ -10,8 +10,6 @@
         href: java-support-on-azure.md
       - name: Java JDK installation
         href: java-jdk-install.md
-      - name: Java Docker images for Azure
-        href: java-jdk-docker-images.md
       - name: JDK Flight Recorder and Mission Control
         href: /java/openjdk/java-jdk-flight-recorder-and-mission-control?toc=/azure/developer/java/fundamentals/toc.json&bc=/azure/developer/breadcrumb/toc.json
       - name: Reasons to move to Java 11
