@@ -76,7 +76,7 @@
         - name: All Java samples
           href: /samples/browse/?products=azure&languages=java
     - name: Libraries, drivers, and modules
-      href: ../learning-resources/libraries-drivers-modules.md?toc=/azure/developer/java/sdk/toc.json&bc=/azure/developer/breadcrumb/toc.json
+      href: libraries-drivers-modules.md
     - name: Package index
       href: azure-sdk-library-package-index.md
     - name: Reference
