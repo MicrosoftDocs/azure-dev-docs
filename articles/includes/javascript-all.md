@@ -96,7 +96,7 @@
 | @autorest/codemodel | npm [4.17.0](https://www.npmjs.com/package/@autorest/codemodel/v/4.17.0) |  |  |
 | @autorest/common | npm [1.3.0](https://www.npmjs.com/package/@autorest/common/v/1.3.0) |  |  |
 | @autorest/configuration | npm [1.7.2](https://www.npmjs.com/package/@autorest/configuration/v/1.7.2) |  |  |
-| @autorest/csharp | npm [3.0.0-beta.20211012.1](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20211012.1) |  |  |
+| @autorest/csharp | npm [3.0.0-beta.20211013.1](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20211013.1) |  |  |
 | @autorest/csharp-v3 | npm [3.0.0-beta.20201217.1](https://www.npmjs.com/package/@autorest/csharp-v3/v/3.0.0-beta.20201217.1) |  |  |
 | @autorest/extension-base | npm [3.3.1](https://www.npmjs.com/package/@autorest/extension-base/v/3.3.1) |  |  |
 | @autorest/schemas | npm [1.3.1](https://www.npmjs.com/package/@autorest/schemas/v/1.3.1) |  |  |
@@ -135,7 +135,7 @@
 | @azure/core-crypto | npm [1.0.0-alpha.20210122.1](https://www.npmjs.com/package/@azure/core-crypto/v/1.0.0-alpha.20210122.1) |  |  |
 | @azure/fabric-react-jsonschema-form | npm [0.1.5](https://www.npmjs.com/package/@azure/fabric-react-jsonschema-form/v/0.1.5) |  |  |
 | @azure/iot-modelsrepository | npm [1.0.0-beta.2](https://www.npmjs.com/package/@azure/iot-modelsrepository/v/1.0.0-beta.2) |  |  |
-| @azure/media-stream-library | npm [0.1.0](https://www.npmjs.com/package/@azure/media-stream-library/v/0.1.0) |  |  |
+| @azure/media-stream-library | npm [1.1.0-beta.1](https://www.npmjs.com/package/@azure/media-stream-library/v/1.1.0-beta.1) |  |  |
 | @azure/quantum-jobs | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure/quantum-jobs/v/1.0.0-beta.1) |  |  |
 | @azure/static-web-apps-cli | npm [0.8.0](https://www.npmjs.com/package/@azure/static-web-apps-cli/v/0.8.0) |  |  |
 | @azure/video-analyzer-player | npm [1.0.4](https://www.npmjs.com/package/@azure/video-analyzer-player/v/1.0.4) |  |  |
@@ -386,7 +386,7 @@
 | Resource Management - Features | npm [2.0.0](https://www.npmjs.com/package/@azure/arm-features/v/2.0.0) | [docs](/javascript/api/overview/azure/arm-features-readme) | GitHub [2.0.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/features/arm-features) |
 | Resource Management - Frontdoor | npm [4.1.1](https://www.npmjs.com/package/@azure/arm-frontdoor/v/4.1.1) |  | GitHub [4.1.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/frontdoor/arm-frontdoor) |
 | Resource Management - HANA on Azure | npm [3.1.1](https://www.npmjs.com/package/@azure/arm-hanaonazure/v/3.1.1) |  | GitHub [3.1.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/hanaonazure/arm-hanaonazure) |
-| Resource Management - HDInsight | npm [0.23.1](https://www.npmjs.com/package/@azure/arm-hdinsight/v/0.23.1) | [docs](/javascript/api/overview/azure/hdinsight) | GitHub [0.23.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/hdinsight/arm-hdinsight) |
+| Resource Management - HDInsight | npm [0.24.0](https://www.npmjs.com/package/@azure/arm-hdinsight/v/0.24.0) | [docs](/javascript/api/overview/azure/hdinsight) | GitHub [0.24.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/hdinsight/arm-hdinsight) |
 | Resource Management - Health Care APIs | npm [1.1.1](https://www.npmjs.com/package/@azure/arm-healthcareapis/v/1.1.1) |  |  |
 | Resource Management - Hybrid Compute | npm [2.1.1](https://www.npmjs.com/package/@azure/arm-hybridcompute/v/2.1.1) |  |  |
 | Resource Management - IoT Central | npm [4.2.1](https://www.npmjs.com/package/@azure/arm-iotcentral/v/4.2.1) |  | GitHub [4.2.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/iotcentral/arm-iotcentral) |
@@ -447,7 +447,7 @@
 | Resource Management - SQL | npm [8.0.0](https://www.npmjs.com/package/@azure/arm-sql/v/8.0.0) | [docs](/javascript/api/overview/azure/arm-sql-readme) | GitHub [8.0.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/sql/arm-sql) |
 | Resource Management - Sql Virtual Machine | npm [4.1.1](https://www.npmjs.com/package/@azure/arm-sqlvirtualmachine/v/4.1.1) |  | GitHub [4.1.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/sqlvirtualmachine/arm-sqlvirtualmachine) |
 | Resource Management - Storage | npm [16.1.2](https://www.npmjs.com/package/@azure/arm-storage/v/16.1.2) | [docs](/javascript/api/overview/azure/arm-storage-readme) | GitHub [16.1.2](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/storage/arm-storage) |
-| Resource Management - Storage Cache | npm [4.2.0](https://www.npmjs.com/package/@azure/arm-storagecache/v/4.2.0) |  | GitHub [4.2.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/storagecache/arm-storagecache) |
+| Resource Management - Storage Cache | npm [4.3.0](https://www.npmjs.com/package/@azure/arm-storagecache/v/4.3.0) |  | GitHub [4.3.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/storagecache/arm-storagecache) |
 | Resource Management - Storage Import Export | npm [1.3.1](https://www.npmjs.com/package/@azure/arm-storageimportexport/v/1.3.1) |  | GitHub [1.3.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/storageimportexport/arm-storageimportexport) |
 | Resource Management - Storage Sync | npm [8.1.1](https://www.npmjs.com/package/@azure/arm-storagesync/v/8.1.1) |  | GitHub [8.1.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/storagesync/arm-storagesync) |
 | Resource Management - StorSimple1200Series | npm [1.2.1](https://www.npmjs.com/package/@azure/arm-storsimple1200series/v/1.2.1) |  | GitHub [1.2.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/storsimple1200series/arm-storsimple1200series) |
