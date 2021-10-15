@@ -4,8 +4,8 @@
   items:
   - name: About Terraform on Azure
     href: overview.md
-  - name: Terraform provider for Azure release history
-    href: provider-for-azure-release-manager-release-history.md
+  - name: Version history for Terraform provider for Azure Release Manager
+    href: version-history-terraform-provider-for-azure-release-manager.md
 - name: Get started
   expanded: true
   items:
