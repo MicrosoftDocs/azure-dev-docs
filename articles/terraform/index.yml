@@ -21,7 +21,7 @@ landingContent:
         links:
           - text: About Terraform on Azure
             url: overview.md
-      - linkListType: references
+      - linkListType: reference
         links:
           - text: Terraform provider for Azure release history
             url: provider-for-azure-release-manager-release-history.md
