@@ -12,38 +12,6 @@ ms.custom: devx-track-terraform
 
 This article contains the [changelog from the HashiCorp site](https://github.com/hashicorp/terraform-provider-azurerm/blob/main/CHANGELOG.md) showing the version history for the Terraform provider for Azure Resource Manager.
 
-| Version | Release date | Features | Improvements | Bug fixes |
-|---------|--------------|----------|--------------|-----------|  
-| 2.82.0  | Unreleased   |          | * dependencies: upgrading to `v58.0.0` of `github.com/Azure/azure-sdk-for-go` ([#13613](https://github.com/hashicorp/terraform-provider-azurerm/issues/13613))<br/>* `azurerm_lb_nat_pool` - support for the `floating_ip_enabled`, `tcp_reset_enabled`, and `idle_timeout_in_minutes` properties ([#12538](https://github.com/hashicorp/terraform-provider-azurerm/issues/12538)) | |
-
-:::row:::
-   :::column span="":::
-        **Version**
-   :::column-end:::
-   :::column span="":::
-        **Features**
-   :::column-end:::
-   :::column span="":::
-        **Improvements**
-:::column-end:::
-   :::column span="":::
-        **Bug fixes**
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="":::
-        2.82.0 (Unreleased)
-   :::column-end:::
-   :::column span="":::
-   :::column-end:::
-   :::column span="":::
-        - dependencies: upgrading to `v58.0.0` of `github.com/Azure/azure-sdk-for-go` ([#13613](https://github.com/hashicorp/terraform-provider-azurerm/issues/13613))
-        - `azurerm_lb_nat_pool` - support for the `floating_ip_enabled`, `tcp_reset_enabled`, and `idle_timeout_in_minutes` properties ([#12538](https://github.com/hashicorp/terraform-provider-azurerm/issues/12538))
-   :::column-end:::
-   :::column span="":::
-   :::column-end:::
-:::row-end:::
-
 ## 2.82.0 (Unreleased)
 
 FEATURES:
