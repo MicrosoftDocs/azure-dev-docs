@@ -10,7 +10,10 @@ ms.custom: devx-track-terraform
 
 # AzureRM 2.0 provider versions
 
-This article contains the [changelog from the HashiCorp site](https://github.com/hashicorp/terraform-provider-azurerm/blob/main/CHANGELOG.md) showing the version history for the Terraform provider for Azure Resource Manager.
+This article contains the following change logs from the HashiCorp site showing the Terraform AzureRM 2.0 provider versions:
+
+- [Versions 2.70.0 - current](https://github.com/hashicorp/terraform-provider-azurerm/blob/main/CHANGELOG.md)
+- [Versions 2.0.0 - v2.69.0](https://github.com/hashicorp/terraform-provider-azurerm/blob/main/CHANGELOG-2.md)
 
 ## 2.82.0 (Unreleased)
 
