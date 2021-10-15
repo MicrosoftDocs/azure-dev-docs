@@ -10,6 +10,4 @@ ms.custom: devx-track-terraform
 
 # Terraform provider for Azure Resource Manager release history
 
-[!code-terraform[master](../../terraform_samples/quickstart/101-resource-group/main.tf)]
-
-[!code-terraform[master](../../hashicorp-terraform-provider-azurerm/CHANGELOG.md)]
+[!code-markdown[master](../../hashicorp-terraform-provider-azurerm/CHANGELOG.md)]
