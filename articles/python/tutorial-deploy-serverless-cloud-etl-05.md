@@ -29,7 +29,7 @@ The final step of our solution **loads** the now processed data into the target 
 * Azure subscription, if you not, [create one for free](https://azure.microsoft.com/free/) before you begin.
 * The [Azure Functions Core Tools](/azure/azure-functions/functions-run-local) version 3.x
 * [Visual Studio Code](https://code.visualstudio.com/) on one of the [supported platforms](https://code.visualstudio.com/docs/supporting/requirements#_platforms).
-* The [PowerShell extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.!PowerShell)
+* The [PowerShell extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.PowerShell)
 * The [Azure Functions extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) for Visual Studio Code
 * [Python 3.7 or later](/azure/developer/python/configure-local-development-environment) installed
 
