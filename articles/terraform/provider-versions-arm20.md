@@ -17,8 +17,4 @@ This article contains the following change logs from the HashiCorp site showing 
 
 [!INCLUDE [hashicorp-provider-versions-arm-2-70-0-to-current.md](includes/hashicorp-provider-versions-arm-2-70-0-to-current.md)]
 
-abc
-
-[!INCLUDE [hashicorp-provider-versions-arm-2-0-0-to-2-69-0](includes/hashicorp-provider-versions-arm-2-0-0-to-2-69-0)]
-
-def
+[!INCLUDE [hashicorp-provider-versions-arm-2-0-0-to-2-69-0](includes/hashicorp-provider-versions-arm-2-0-0-to-2-69-0.md)]
