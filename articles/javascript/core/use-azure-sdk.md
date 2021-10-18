@@ -8,7 +8,7 @@ ms.custom: devx-track-js
 
 # Use Azure SDKs in JavaScript and TypeScript projects
 
-## Differences between npm packages and REST APIs
+## Differences between SDKs and REST APIs
 
 ## Azure resources and service data
 
@@ -32,7 +32,7 @@ The following [JavaScript example](https://github.com/Azure-Samples/js-e2e/blob/
 
 Learn more about paging and iterators on Azure from:
 
-* [@azure/core-paging](/javascript/api/@azure/core-paging/)
+* [Async Iterators in the Azure SDK for JavaScript/TypeScript](https://devblogs.microsoft.com/azure-sdk/async-iterators-in-the-azure-sdk-for-javascript-typescript/)
 
 ## Long running operations
 
