@@ -2,7 +2,7 @@
 title: "5-API: Create Function API"
 description: Create an Azure Function API for your React app. The Azure Function service provides serverless APIs. This allows you to focus on your TypeScript code and _not_ have to configure a full back-end web server.
 ms.topic: how-to
-ms.date: 08/31/2021
+ms.date: 10/18/2021
 ms.custom: devx-track-js
 #intent: Create Express.js web app with easy auth configured. 
 ---
@@ -122,7 +122,11 @@ Stop the local Azure Function runtime in the terminal with <kbd>Ctrl</kbd> + <kb
 
    :::image type="content" source="../../../media/static-web-app-with-swa-cli/visual-studio-code-swa-refresh.png" alt-text="Partial screenshot of VS Code displaying Azure Explorer's Static Web Apps command bar with the refresh icon highlighted.":::
 
+1. In the bash terminal, move back to the root of the project:
 
+    ```bash 
+    cd ..
+    ```
 
 
 ## Next steps
