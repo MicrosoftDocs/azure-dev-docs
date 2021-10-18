@@ -2,7 +2,7 @@
 title: "6-Integration: Connect app to API"
 description: Change the local React app code to use the Azure Function API.
 ms.topic: how-to
-ms.date: 08/31/2021
+ms.date: 10/18/2021
 ms.custom: devx-track-js
 #intent: Create Express.js web app with easy auth configured. 
 ---
