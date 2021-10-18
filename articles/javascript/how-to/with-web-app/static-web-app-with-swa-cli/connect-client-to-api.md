@@ -31,7 +31,15 @@ Run both the React and Functions development environments, provided by each fram
 
 1. Replace the current `package.json` file's `scripts` section with the following script entries:
 
-    :::code language="JSON" source="~/../js-e2e-static-web-app-with-cli-1-basic-app-with-api/package.json" range="6-12":::  
+    ```json
+    "scripts": {
+      "start-api": "cd api && npm start",
+      "start-app": "cd app && npm start",
+      "start-dev": "concurrently \"npm:start-api\" \"npm:start-app\" ",
+      "start-swa": "swa start http://localhost:3000 --api-location http://localhost:7071",
+      "start": " npm run start-dev && npm run swa-up"
+    }, 
+    ```
 
     These scripts separate out the development server of each environment from the SWA CLI call to join those two environments. 
 
