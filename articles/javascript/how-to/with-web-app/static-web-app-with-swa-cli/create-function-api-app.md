@@ -118,7 +118,7 @@ Stop the local Azure Function runtime in the terminal with <kbd>Ctrl</kbd> + <kb
 
    :::image type="content" source="../../../media/static-web-app-with-swa-cli/visual-studio-code-azure-explorer-function-list.png" alt-text="Partial screenshot of VS Code displaying Azure Explorer's Static Web Apps `functions` node with `hello` displayed.":::
 
-    You may ned to refresh using the Azure explorer's Static Web app bar in VS Code.
+    You may need to refresh using the Azure explorer's Static Web app bar in VS Code.
 
    :::image type="content" source="../../../media/static-web-app-with-swa-cli/visual-studio-code-swa-refresh.png" alt-text="Partial screenshot of VS Code displaying Azure Explorer's Static Web Apps command bar with the refresh icon highlighted.":::
 
