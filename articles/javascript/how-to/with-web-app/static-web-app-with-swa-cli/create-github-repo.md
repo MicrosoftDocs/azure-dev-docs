@@ -2,7 +2,7 @@
 title: "2-GitHub: Create GitHub repo"
 description: In this article, create a new GitHub repository (repo), then prepare your local development environment to use the repo for source control.
 ms.topic: how-to
-ms.date: 08/31/2021
+ms.date: 10/18/2021
 ms.custom: devx-track-js
 #intent: Create Express.js web app with easy auth configured. 
 ---
