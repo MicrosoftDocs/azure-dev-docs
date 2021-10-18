@@ -74,7 +74,7 @@ The React client and the Azure Function API have separate local development serv
 
 1. For the rest of the article, use port 4280, `http://locahost:4280/`, when you want to use the React app.  
 
-    The React client is now available on both port 3000 and on port 4280 (with a proxy to the API) . 
+    The React client is now available on both port 3000 and on port 4280 (with a proxy to the API). 
 
 ## Add an HTML form to the React app to use the Function API
 
