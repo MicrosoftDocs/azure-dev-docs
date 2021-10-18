@@ -2,7 +2,7 @@
 title: "5-API: Create Function API"
 description: Create an Azure Function API for your React app. The Azure Function service provides serverless APIs. This allows you to focus on your TypeScript code and _not_ have to configure a full back-end web server.
 ms.topic: how-to
-ms.date: 08/31/2021
+ms.date: 10/18/2021
 ms.custom: devx-track-js
 #intent: Create Express.js web app with easy auth configured. 
 ---
@@ -45,7 +45,7 @@ Create an Azure Function API for your React app. The Azure Function service prov
 
 ## Change the Function API to return JSON
 
-Open the `./api/index.ts` file and replace all the contents with the following so that the function returns a JSON object:
+Open the `./api/hello/index.ts` file and replace all the contents with the following so that the function returns a JSON object:
    
 :::code language="TypeScript" source="~/../js-e2e-static-web-app-with-cli-1-basic-app-with-api/api/hello/index.ts" highlight="12-15":::  
 
@@ -67,8 +67,11 @@ npm start
 
 1. The web browser returns the following successful message. 
 
-    ```text
-    Hello, joesmith. This HTTP triggered function executed successfully.
+    ```json
+    {
+      "input": "joesmith",
+      "message": "Hello, joesmith. This HTTP triggered function executed successfully."
+    }
     ```
 
 ## Stop the local Function app
@@ -91,9 +94,39 @@ Stop the local Azure Function runtime in the terminal with <kbd>Ctrl</kbd> + <kb
     https://github.com/YOUR-ACCOUNT/staticwebapp-with-api/actions
     ```
    
+    View the **Build and Deploy Job** to find the API successfully deployed:
+
+    ```text
+    Function Runtime Information. OS: Linux, Functions Runtime: v3, Node version: 12.X
+    Finished building function app with Oryx
+    Zipping Api Artifacts
+    Done Zipping Api Artifacts
+    Zipping App Artifacts
+    Done Zipping App Artifacts
+    Uploading build artifacts.
+    Finished Upload. Polling on deployment.
+    Status: InProgress. Time: 0.1977171(s)
+    Status: InProgress. Time: 15.3964651(s)
+    Status: Succeeded. Time: 31.3050572(s)
+    Deployment Complete :)
+    Visit your site at: https://purple-field-12345678.azurestaticapps.net
+    Thanks for using Azure Static Web Apps!
+    Exiting
+    ```
+
 1. In VS Code, verify the successful build pushed to your Azure Static Web Apps resource. Look at the functions node in your Azure explorer for Static Web Apps. 
 
    :::image type="content" source="../../../media/static-web-app-with-swa-cli/visual-studio-code-azure-explorer-function-list.png" alt-text="Partial screenshot of VS Code displaying Azure Explorer's Static Web Apps `functions` node with `hello` displayed.":::
+
+    You may need to refresh using the Azure explorer's Static Web app bar in VS Code.
+
+   :::image type="content" source="../../../media/static-web-app-with-swa-cli/visual-studio-code-swa-refresh.png" alt-text="Partial screenshot of VS Code displaying Azure Explorer's Static Web Apps command bar with the refresh icon highlighted.":::
+
+1. In the bash terminal, move back to the root of the project:
+
+    ```bash 
+    cd ..
+    ```
 
 
 ## Next steps
