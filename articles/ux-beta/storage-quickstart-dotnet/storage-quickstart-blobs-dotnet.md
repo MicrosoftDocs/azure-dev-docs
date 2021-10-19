@@ -3,6 +3,7 @@ title: Access Azure Blob Storage from .NET applications
 description: Learn how to connect your applications to Azure Blob Storage
 ms.date: 09/21/2021
 ms.topic: article
+ms.service: storage
 ms.custom: devx-track-dotnet
 ms.author: daberry
 ROBOTS: NOINDEX
@@ -185,7 +186,7 @@ dotnet add package Azure.Storage.Blobs
 
 The Azure SDK communicates with Azure using client objects to execute different operations against Azure.  The [BlobServiceClient](/dotnet/api/azure.storage.blobs.blobserviceclient) object is the top-level object used to communicate with a storage account.
 
-An application will typically create a single [BlobServiceClient](/dotnet/api/azure.storage.blobs.blobserviceclient) object per storage account to be used throughout the application.  It is recommended to use dependency injection (DI) and register the [BlobServiceClient](/dotnet/api/azure.storage.blobs.blobserviceclient) object as a singleton to accomplish this.  For more information about using DI with the Azure SDK, see [Dependency injection with the Azure SDK for .NET](../sdk/dependency-injection.md).
+An application will typically create a single [BlobServiceClient](/dotnet/api/azure.storage.blobs.blobserviceclient) object per storage account to be used throughout the application.  It is recommended to use dependency injection (DI) and register the [BlobServiceClient](/dotnet/api/azure.storage.blobs.blobserviceclient) object as a singleton to accomplish this.  For more information about using DI with the Azure SDK, see [Dependency injection with the Azure SDK for .NET](/dotnet/azure/sdk/dependency-injection).
 
 In the `Startup.cs` file of the application, first add the following using statement at the top of the file.
 
