@@ -37,7 +37,7 @@ The authentication in this sample provides:
     * Public and private routes based on user's authentication status
     * Private route has access to API, `await fetch(`/api/hello?name=${name}`)`
 
-This is an _easy auth_ implementation. The API can't act [_on behalf of_(OBO))[/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow] the logged in user. Acting on behalf of the user requires more configuration both in the Azure Active Directory app and the Azure Identity SDK in the API. 
+This is an _easy auth_ implementation. The API can't act [_on behalf of_(OBO))](/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow) the logged in user. Acting on behalf of the user requires more configuration both in the Azure Active Directory app and the Azure Identity SDK in the API. 
 
 ## Prepare your development environment
 
