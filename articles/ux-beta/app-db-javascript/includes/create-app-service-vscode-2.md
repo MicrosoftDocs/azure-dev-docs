@@ -1,0 +1,1 @@
+Find the **App Service** section in the Azure Tools extension and click on the plus (+) icon to create a new App Service for your web app.
