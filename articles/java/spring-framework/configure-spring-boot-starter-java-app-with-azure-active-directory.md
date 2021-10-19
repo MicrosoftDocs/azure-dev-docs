@@ -101,7 +101,7 @@ If you're the administrator of an existing instance, you can skip this process.
 
    :::image type="content" source="media/configure-spring-boot-starter-java-app-with-azure-active-directory/specify-redirect-uri.png" alt-text="Screenshot of application Authentication screen with 'Configure Web' section showing and 'Redirect URIs' highlighted" lightbox="media/configure-spring-boot-starter-java-app-with-azure-active-directory/specify-redirect-uri.png":::
 
-1. If you've modified the *pom.xml* file to use an AAD starter version earlier than 3.0.0: under **Implicit grant and hybrid flows**, select **ID tokens (used for implicit and hybrid flows)**, then select **Save**.
+1. If you've modified the *pom.xml* file to use an Azure AD starter version earlier than 3.0.0: under **Implicit grant and hybrid flows**, select **ID tokens (used for implicit and hybrid flows)**, then select **Save**.
 
    :::image type="content" source="media/configure-spring-boot-starter-java-app-with-azure-active-directory/enable-id-tokens.png" alt-text="Screenshot of application Authentication screen with 'ID tokens' selected" lightbox="media/configure-spring-boot-starter-java-app-with-azure-active-directory/enable-id-tokens.png":::
 
