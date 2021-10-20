@@ -1,0 +1,1 @@
+Locate and select the **Databases** component in the Azure Tools extension for VS Code.  Select the plus sign (+) to create a new database.
