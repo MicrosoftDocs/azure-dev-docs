@@ -46,6 +46,10 @@ Learn more about long running operations on Azure from:
 
 * [@azure/core-lro](/javascript/api/@azure/core-lro)
 
+## Canceling async operations
+
+The [@azure/abort-controller](https://www.npmjs.com/package/@azure/abort-controller) package provides AbortController and AbortSignal classes.
+
 ## Handling timeouts to Azure
 
 ## Verbose logging from the SDK
