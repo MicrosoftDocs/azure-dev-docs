@@ -48,7 +48,7 @@ There are two ways to get the sample playbook:
 - hosts: localhost
   vars:
     resource_group: myResourceGroup
-    vmss_name: myVMScaleSetName
+    vmss_name: myvmscalesetname
     vmss_lb_name: myScaleSetLb
     location: eastus
     admin_username: azureuser
