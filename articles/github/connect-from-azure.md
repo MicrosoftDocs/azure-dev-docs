@@ -21,9 +21,9 @@ By default, the login action logs in with the Azure CLI and sets up the GitHub a
 
 You can use Azure login to connect to public or sovereign clouds including Azure Government and Azure Stack Hub.
 
-## Use the Azure login action with an OIDC-based federated identity credential (public beta)
+## Use the Azure login action with a federated identity credential (public beta)
 
-In this example, you'll create an OIDC-based federated identity credential. To get started, you'll need to register your application in the Azure portal. After registering your application, you'll need to grant your app access to the Azure resources you'll use in your GitHub workflow. You'll then configure your federated identity credential. 
+In this example, you'll create an OIDC-based federated identity credential. To get started, you'll need to register your application in the Azure portal. You'll then configure your federated identity credential.
 
 1. [Register a new application with the Microsoft identity platform](/azure/active-directory/develop/quickstart-register-app). 
 
