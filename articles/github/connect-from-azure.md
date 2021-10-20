@@ -5,24 +5,39 @@ author: N-Usha
 ms.author: ushan 
 ms.topic: reference
 ms.service: azure 
-ms.date: 02/17/2021
+ms.date: 10/20/2021
 ms.custom: github-actions-azure, devx-track-azurecli
 ---
 
 # Use GitHub Actions to connect to Azure
 
-Learn how to use [Azure login](https://github.com/Azure/login) with either [Azure PowerShell](https://github.com/Azure/PowerShell) or [Azure CLI](https://github.com/Azure/CLI) to interact with your Azure resources.
+Learn how to use [Azure login](https://github.com/Azure/login) with either [Azure PowerShell](https://github.com/Azure/PowerShell) or [Azure CLI](https://github.com/Azure/CLI) to interact with your Azure resources. 
 
 To use Azure PowerShell or Azure CLI in a GitHub Actions workflow, you need to first log in with the [Azure login](https://github.com/marketplace/actions/azure-login) action.
-The Azure login action allows you to execute commands in a workflow in the context of an [Azure AD service principal](/azure/active-directory/develop/app-objects-and-service-principals#service-principal-object).
 
-By default, the action logs in with the Azure CLI and sets up the GitHub action runner environment for Azure CLI. You can use Azure PowerShell with `enable-AzPSSession` property of the Azure login action. This sets up the GitHub action runner environment with the Azure PowerShell module.
+There are two versions of the Azure login action. The Open ID Connect (OIDC)-based federated identity credentials version, which is in public beta, allows you to log in with federated identity credentials. The default version uses an [Azure AD service principal](/azure/active-directory/develop/app-objects-and-service-principals#service-principal-object).
+
+By default, the login action logs in with the Azure CLI and sets up the GitHub action runner environment for Azure CLI. You can use Azure PowerShell with `enable-AzPSSession` property of the Azure login action. This sets up the GitHub action runner environment with the Azure PowerShell module.
 
 You can use Azure login to connect to public or sovereign clouds including Azure Government and Azure Stack Hub.
 
-## Create a service principal and add it to GitHub secret
+## Use the Azure login action with an OIDC-based federated identity credential (public beta)
 
-To use [Azure login](https://github.com/marketplace/actions/azure-login), you first need to add your Azure service principal as a secret to your GitHub repository.
+In this example, you'll create an OIDC-based federated identity credential. To get started, you'll need to register your application in the Azure portal. After registering your application, you'll need to grant your app access to the Azure resources you'll use in your GitHub workflow. You'll then configure your federated identity credential. 
+
+1. [Register a new application with the Microsoft identity platform](/azure/active-directory/develop/quickstart-register-app). 
+
+1. In the Azure portal, search for **App registrations**. Open your application and copy the **Application (client) ID** and **Directory (tenant) ID**.
+
+1. Grant your app access to the Azure resources targeted by your GitHub workflow.
+
+1. [Configure your app to trust your GitHub repo (preview)](/en-us/azure/active-directory/develop/workload-identity-federation-create-trust-github). 
+
+## Use the Azure login action with a service principal
+
+To use [Azure login](https://github.com/marketplace/actions/azure-login) with a service principal, you first need to add your Azure service principal as a secret to your GitHub repository. 
+
+### Create a service principal and add it to GitHub secret
 
 In this example, you will create a secret named `AZURE_CREDENTIALS` that you can use to authenticate with Azure.  
 
@@ -77,7 +92,7 @@ In this example, you will create a secret named `AZURE_CREDENTIALS` that you can
 
 1. Save by selecting **Add secret**.
 
-## Use the Azure login action
+### Use the Azure login action
 
 Use the service principal secret with the [Azure Login action](https://github.com/Azure/login) to authenticate to Azure.
 
@@ -100,7 +115,7 @@ jobs:
           creds: '${{ secrets.AZURE_CREDENTIALS }}'
 ```
 
-## Use the Azure PowerShell action
+### Use the Azure PowerShell action
 
 In this example, you log in with the [Azure Login action](https://github.com/Azure/login) and then retrieve a resource group with the [Azure PowerShell action](https://github.com/azure/powershell).
 
@@ -125,7 +140,7 @@ jobs:
           azPSVersion: 3.1.0
 ```
 
-## Use the Azure CLI action
+### Use the Azure CLI action
 
 In this example, you log in with the [Azure Login action](https://github.com/Azure/login) and then retrieve a resource group with the [Azure CLI action](https://github.com/Azure/CLI).
 
@@ -154,7 +169,7 @@ build-and-deploy:
             az storage -h
 ```
 
-## Connect to Azure Government and Azure Stack Hub clouds
+### Connect to Azure Government and Azure Stack Hub clouds
 
 To log in to one of the Azure Government clouds, set the optional parameter environment with supported cloud names `AzureUSGovernment` or `AzureChinaCloud`. If this parameter is not specified, it takes the default value `AzureCloud` and connects to the Azure Public Cloud.
 
