@@ -4,6 +4,8 @@
   items:
   - name: About Terraform on Azure
     href: overview.md
+  - name: AzureRM 2.0 provider versions 
+    href: provider-versions-arm20.md
 - name: Get started
   expanded: true
   items:

@@ -3,7 +3,7 @@ title: "2: Register identity application"
 titleSuffix: Azure Developer Center
 description: In this article, register your identity application.
 ms.topic: how-to
-ms.date: 07/12/2021
+ms.date: 10/19/2021
 ms.custom: devx-track-js
 ---
 
@@ -61,7 +61,7 @@ The secret is used to authenticate requests from your Function API.
 
 ### Create and expose an authentication endpoint for API
 
-In order for the Azure Function API to act on behalf of your user when calling other APIs, you need to create an authentication endpoint for your Azure Function API. Create an application ID URI, which is used in the React client MSAL config object to request access on the user's behalf to your Azure Function API.
+In order for the Azure Function API to act [_on behalf of_(OBO))](/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow) your user when calling other APIs, you need to create an authentication endpoint for your Azure Function API. Create an application ID URI, which is used in the React client MSAL config object to request access on the user's behalf to your Azure Function API.
 
 1. In the app's registration screen, select the **Expose an API** blade to open the page where you can declare the parameters to expose this app as an API for which your web applications can obtain [access tokens](/azure/active-directory/develop/access-tokens).
 1. Select `Set` next to the **Application ID URI** to generate a URI that is unique for this app.
