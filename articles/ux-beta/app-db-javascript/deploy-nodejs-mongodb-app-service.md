@@ -11,7 +11,7 @@ ms.custom: scenarios:getting-started, languages:JavaScript, devx-track-js
 
 Azure provides a fully managed solution for hosting JavaScript web apps in the cloud. In this article, you will clone and deploy a basic **Express.js** app using a **MongoDB** database to Azure.  The Express.js app will be hosted in Azure App Service and the MongoDB database in Azure Cosmos DB, a cloud native database offering a [100% MongoDB compatible API](/azure/cosmos-db/mongodb/mongodb-introduction).
 
-[IMAGE]
+IMAGE
 
 In this tutorial, you will create the necessary Azure resources, deploy your code to Azure, browse to your application, and inspect the deployed app to see the log files and the environment that hosts your app. No application code changes will be necessary to host the applications in Azure.
 
@@ -34,7 +34,12 @@ cd js-e2e-express-mongo
 npm install
 ```
 
-To run the application locally...
+To run the application locally, set the `DATABASE_URL` variable to a connection string of a MongoDB database in the `.env` file in the root directory of the sample app. The sample app uses the [dotenv package](https://www.npmjs.com/package/dotenv) to support running the application locally.
+
+```bash
+ENVIRONMENT=development
+DATABASE_URL=<local MongoDB connection string>
+```
 
 ## 1 - Create the Azure App Service
 
@@ -72,7 +77,7 @@ To create Azure resources in VS Code, you must have the [Azure Tools extension p
 | [!INCLUDE [Create app service step 3](<./includes/create-app-service-vscode-3.md>)] | :::image type="content" source="./media/vscode-create-app-service-3-240px.png" alt-text="A screenshot showing the dialog box used to select the subscription for the new App Service in Azure." lightbox="./media/vscode-create-app-service-3.png"::: |
 | [!INCLUDE [Create app service step 4](<./includes/create-app-service-vscode-4.md>)] | :::image type="content" source="./media/vscode-create-app-service-4-240px.png" alt-text="A screenshot of dialog box used to enter the name of the new web app in Visual Studio Code." lightbox="./media/vscode-create-app-service-4.png"::: |
 | [!INCLUDE [Create app service step 5](<./includes/create-app-service-vscode-5.md>)] | :::image type="content" source="./media/vscode-create-app-service-5-240px.png" alt-text="A screenshot of the dialog box in VS Code used to select the runtime for the new web app." lightbox="./media/vscode-create-app-service-5.png"::: |
-| [!INCLUDE [Create app service step 5](<./includes/create-app-service-vscode-6.md>)] | :::image type="content" source="./media/vscode-create-app-service-6-240px.png" alt-text="A screenshot of the dialog in VS Code used to select the App Service plan for the new web app." lightbox="./media/vscode-create-app-service-5.png"::: |
+| [!INCLUDE [Create app service step 6](<./includes/create-app-service-vscode-6.md>)] | :::image type="content" source="./media/vscode-create-app-service-6-240px.png" alt-text="A screenshot of the dialog in VS Code used to select the App Service plan for the new web app." lightbox="./media/vscode-create-app-service-5.png"::: |
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -139,6 +144,16 @@ You must be signed in to the [Azure portal](https://portal.azure.com/) to comple
 
 ### [VS Code](#tab/vscode-aztools)
 
+| Instructions    | Screenshot |
+|:----------------|-----------:|
+| [!INCLUDE [Create Cosmos DB step 1](<./includes/create-cosmosdb-vscode-1.md>)] | :::image type="content" source="./media/vscode-create-cosmos-db-1-240px.png" alt-text="A screenshot showing the databases component of the Azure Tools VS Code extension and the location of the button to create a new database." lightbox="./media/vscode-create-cosmos-db-1.png"::: |
+| [!INCLUDE [Create Cosmos DB step 2](<./includes/create-cosmosdb-vscode-2.md>)] | :::image type="content" source="./media/vscode-create-cosmos-db-2-240px.png" alt-text="A screenshot showing the dialog box used to select the subscription for the new database in Azure." lightbox="./media/vscode-create-cosmos-db-2.png"::: |
+| [!INCLUDE [Create Cosmos DB step 3](<./includes/create-cosmosdb-vscode-3.md>)] | :::image type="content" source="./media/vscode-create-cosmos-db-3-240px.png" alt-text="A screenshot showing the dialog box used to select the type of database you want to create in Azure." lightbox="./media/vscode-create-cosmos-db-3.png"::: |
+| [!INCLUDE [Create Cosmos DB step 4](<./includes/create-cosmosdb-vscode-4.md>)] | :::image type="content" source="./media/vscode-create-cosmos-db-4-240px.png" alt-text="A screenshot of dialog box used to enter the name of the new database in Visual Studio Code." lightbox="./media/vscode-create-cosmos-db-4.png"::: |
+| [!INCLUDE [Create Cosmos DB step 5](<./includes/create-cosmosdb-vscode-5.md>)] | :::image type="content" source="./media/vscode-create-cosmos-db-5-240px.png" alt-text="A screenshot of the dialog to select the throughput mode of the database." lightbox="./media/vscode-create-cosmos-db-5.png"::: |
+| [!INCLUDE [Create Cosmos DB step 6](<./includes/create-cosmosdb-vscode-6.md>)] | :::image type="content" source="./media/vscode-create-cosmos-db-6-240px.png" alt-text="A screenshot of the dialog in VS Code used to select resource group to put the new database in." lightbox="./media/vscode-create-cosmos-db-5.png"::: |
+| [!INCLUDE [Create Cosmos DB step 7](<./includes/create-cosmosdb-vscode-7.md>)] | :::image type="content" source="./media/vscode-create-cosmos-db-6-240px.png" alt-text="A screenshot of the dialog in VS Code used to select location for the new database." lightbox="./media/vscode-create-cosmos-db-5.png"::: |
+
 ### [Azure CLI](#tab/azure-cli)
 
 A new Azure CosmosDB account is created by using the [az cosmosdb create](/cli/azure/cosmosdbaz_cosmosdb_create) command.
@@ -167,7 +182,6 @@ When running locally, this is done in the sample application using the [dotenv p
 
 Instead, the connection string will be stored as an *application setting* in App Service and made available to the application at runtime as an environment variable. In this way, the application accesses the connection string from `process.env` the same way whether being run locally or in Azure.
 
-
 ### [Azure portal](#tab/azure-portal)
 
 | Instructions    | Screenshot |
@@ -177,12 +191,40 @@ Instead, the connection string will be stored as an *application setting* in App
 | [!INCLUDE [Connection string step 3](<./includes/connection-string-azportal-3.md>)] | :::image type="content" source="./media/azportal-connection-string-3-240px.png" alt-text="A screenshot showing how to access the Application settings within an App Service." lightbox="./media/azportal-connection-string-3.png"::: |
 | [!INCLUDE [Connection string step 4](<./includes/connection-string-azportal-4.md>)] | :::image type="content" source="./media/azportal-connection-string-4-240px.png" alt-text="A screenshot showing the dialog used to set an application setting in Azure App Service." lightbox="./media/azportal-connection-string-4.png"::: |
 
-
-
 ### [VS Code](#tab/vscode-aztools)
 
 ### [Azure CLI](#tab/azure-cli)
 
+To get the connection string for a Cosmos DB database, use the [az cosmos keys list](/cli/azure/cosmosdb/keys) command.
+
+```azurecli
+az cosmosdb keys list \
+    --type connection-strings \
+    --resource-group $RESOURCE_GROUP_NAME \
+    --name $COSMOS_DB_NAME \
+    --query "connectionStrings[?description=='Primary MongoDB Connection String'].connectionString" \
+    --output tsv
+```
+
+Rather then copying and pasting the value, the connection string can be stored in a variable to make subsequent steps easier.
+
+```azurecli
+COSMOS_DB_CONNECTION_STRING=`az cosmosdb keys list \
+    --type connection-strings \
+    --resource-group $RESOURCE_GROUP_NAME \
+    --name $COSMOS_DB_NAME \
+    --query "connectionStrings[?description=='Primary MongoDB Connection String'].connectionString" \
+    --output tsv`
+```
+
+The [az webapp config appsettings](/cli/azure/webapp/config/appsettings) command is used to set application setting values for an App Service web app.  One or more key-value pairs are set using the `--settings` parameter. To set the `DATABASE_URL` value to the connection string for your web app, use the following command.
+
+```azurecli
+az webapp config appsettings set \
+    --name $APP_SERVICE_NAME \
+    --resource-group $RESOURCE_GROUP_NAME \
+    --settings DATABASE_URL=$COSMOS_DB_CONNECTION_STRING
+```
 
 ---
 
