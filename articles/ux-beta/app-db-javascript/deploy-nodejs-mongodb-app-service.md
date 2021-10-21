@@ -17,7 +17,7 @@ In this tutorial, you will create the necessary Azure resources, deploy your cod
 
 This article assumes you already are familiar with the Node.js development workflow and have Node and MongoDB installed locally.  You will also need an Azure account with an active subscription.  If you do not have an Azure account, you [can create one for free](https://azure.microsoft.com/free/nodejs/).
 
-Node versions supported
+Azure App Service supports Node versions 10, 12 and 14 on Linux and versions 10 and 12 on Windows.
 
 ## Sample application
 
@@ -228,9 +228,99 @@ az webapp config appsettings set \
 
 ---
 
-
 ## 4 - Deploy application code to Azure
 
+Azure App service supports multiple different methods to deploy your application code to Azure.
+
+### [Deploy using VS Code](#tab/vscode-deploy)
+
+Blah blah blah
+
+### [Deploy using Local git](#tab/local-git)
+
+Blah blah blah
+
+### [Deploy using FTPS](#tab/ftps)
+
+Blah blah blah
+
+### [Deploy using Azure CLI](#tab/azure-cli-deploy)
+
+Blah blah blah
+
+---
+
+Or do we stick with simple tabs
+
+### [VS Code](#tab/vscode-deploy2)
+
+Blah blah blah
+
+### [Local git](#tab/local-git2)
+
+Blah blah blah
+
+### [FTPS](#tab/ftps2)
+
+Blah blah blah
+
+### [Azure CLI](#tab/azure-cli-deploy2)
+
+Blah blah blah
+
+---
+
+What about options
+
+### [VS Code](#tab/vscode-deploy3)
+
+Blah blah blah
+
+### [Local git (Configure in Portal)](#tab/local-git-azportal)
+
+Blah blah blah
+
+### [Local git (Configure via Azure CLI)](#tab/local-git-azcli)
+
+Instructions for using local Git
+
+### [FTPS (Configure in Portal)](#tab/ftps-azportal)
+
+Blah blah blah
+
+### [FTPS (Configure via CLI)](#tab/ftps-azcli)
+
+Blah blah blah
+
+### [Azure CLI](#tab/azure-cli-deploy3)
+
+Blah blah blah
+
+---
+
+Oh say can you nest...
+
+### [VS Code](#tab/vscode-deploy4)
+
+Blah blah blah
+
+### [Local git](#tab/local-git4)
+
+This tab is about deploying with local Git.  You can configure this using the Azure portal or with the Azure CLI.
+
+[!INCLUDE [Deploy Local Git](<./includes/deplpoy-local-git.md>)]
+
+### [FTPS](#tab/ftps4)
+
+This tab is about deploying with FTPS.  You can configure this using the Azure portal or with the Azure CLI.
+
+[!INCLUDE [Deploy Local Git](<./includes/deplpoy-ftps.md>)]
+
+### [Azure CLI](#tab/azure-cli-deploy4)
+
+Blah blah blah
+
+---
 
 ## 5 - Browse to the application
 
