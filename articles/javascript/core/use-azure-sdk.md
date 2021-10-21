@@ -16,7 +16,7 @@ Use the following table to understand when to use which type of access mechanism
 
 |Azure SDKs (recommended)|Azure REST APIs|
 |--|--|
-|The [Azure SDKs](https://docs.microsoft.com/en-us/azure/developer/javascript/azure-sdk-library-package-index#modern-javascripttypescript-libraries) are the preferred method of accessing your Azure service. The Azure SDKs abstract away the boilerplate code required to manage cloud-based Azure platform REST requests.|[Azure REST APIs](https://docs.microsoft.com/en-us/rest/api/azure/) are the preferred method if you are working with preview services that do not have Azure SDKs available. Consider your code as preview, which should be updated when the service is generally available with SDKs.| 
+|The [Azure SDKs](/azure/developer/javascript/azure-sdk-library-package-index#modern-javascripttypescript-libraries) are the preferred method of accessing your Azure service. The Azure SDKs abstract away the boilerplate code required to manage cloud-based Azure platform REST requests.|[Azure REST APIs](/rest/api/azure/) are the preferred method if you are working with preview services that do not have Azure SDKs available. Consider your code as preview, which should be updated when the service is generally available with SDKs.| 
 
 ## Azure client and management 
 
