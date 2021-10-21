@@ -129,7 +129,7 @@ landingContent:
     linkLists:
       - linkListType: get-started
         links:
-          - text: Use the Azure SDKs for JavaScript
+          - text: Use the Azure SDKs for JS/TS
             url: core/use-azure-sdk.md
           - text: Latest client libraries
             url: https://azure.github.io/azure-sdk/releases/latest/index.html#javascript

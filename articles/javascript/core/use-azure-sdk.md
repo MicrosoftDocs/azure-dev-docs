@@ -1,14 +1,14 @@
 ---
-title: Use Azure SDK
-description: Use Azure SDK with JavaScript or TypeScript
+title: Azure SDK for JS/TS
+description: To programmatically access your Azure services, use the Azure SDKs for JavaScript or TypeScript development.
 ms.topic: conceptual
 ms.date: 10/20/2021
 ms.custom: devx-track-js
 ---
 
-# Use Azure SDKs in JavaScript and TypeScript projects
+# Use Azure SDKs for JavaScript and TypeScript
 
-To programmatically access your Azure services, use the Azure SDKs. Typically, these SDKs are scoped with the [@azure](https://www.npmjs.com/search?q=%40azure) npm package scope published by [azure-sdk](https://www.npmjs.com/~azure-sdk). 
+To programmatically access your Azure services, use the Azure SDKs for JavaScript. Typically, these SDKs are scoped with the [@azure](https://www.npmjs.com/search?q=%40azure) npm package scope published by [azure-sdk](https://www.npmjs.com/~azure-sdk). 
 
 ## Differences between SDKs and REST APIs
 
@@ -29,7 +29,7 @@ The Azure SDK [releases](https://azure.github.io/azure-sdk/releases/latest/js.ht
 
 ## Install Azure npm packages
 
-Azure SDKs are freely available from [NPM](https://www.npmjs.com/).  
+Azure SDKs are freely available from [NPM](https://www.npmjs.com/). Install individual SDKs needed. Each SDK provides TypeScript definitions. 
 
 ## Use Azure npm package sample code
 
