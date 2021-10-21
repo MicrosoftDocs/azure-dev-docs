@@ -308,13 +308,13 @@ Blah blah blah
 
 This tab is about deploying with local Git.  You can configure this using the Azure portal or with the Azure CLI.
 
-[!INCLUDE [Deploy Local Git](<./includes/deplpoy-local-git.md>)]
+[!INCLUDE [Deploy Local Git](<./includes/deploy-local-git.md>)]
 
 ### [FTPS](#tab/ftps4)
 
 This tab is about deploying with FTPS.  You can configure this using the Azure portal or with the Azure CLI.
 
-[!INCLUDE [Deploy Local Git](<./includes/deplpoy-ftps.md>)]
+[!INCLUDE [Deploy FTPS](<./includes/deploy-ftps.md>)]
 
 ### [Azure CLI](#tab/azure-cli-deploy4)
 
