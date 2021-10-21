@@ -11,7 +11,7 @@ metadata:
   description: Get started developing apps with the Azure SDK for JavaScript in the browser or Node.js through tutorials, tools, and the SDK reference.
   author: diberry
   ms.author: diberry
-  ms.date: 08/07/2021
+  ms.date: 10/21/2021
   ms.topic: landing-page
   ms.collection: collection
   ms.technology: azure
@@ -129,6 +129,8 @@ landingContent:
     linkLists:
       - linkListType: get-started
         links:
+          - text: Use the Azure SDKs for JavaScript
+            url: core/use-azure-sdk.md
           - text: Latest client libraries
             url: https://azure.github.io/azure-sdk/releases/latest/index.html#javascript
           - text: Reference Documentation

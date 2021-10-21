@@ -19,6 +19,8 @@
       href: core/configure-local-development-environment.md
     - name: Authenticate to Azure
       href: core/nodejs-sdk-azure-authenticate.md
+    - name: Use the Azure SDKs for JavaScript
+      href: core/use-azure-sdk.md
   - name: How-To guides
     items:
       - name: Azure Tasks for JavaScript developers
