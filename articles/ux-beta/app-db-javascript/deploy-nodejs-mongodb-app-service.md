@@ -230,69 +230,50 @@ az webapp config appsettings set \
 
 ## 4 - Deploy application code to Azure
 
-Azure App service supports multiple different methods to deploy your application code to Azure.
+Azure App service supports multiple different methods to deploy your application code to Azure including support for GitHub actions and all major CI/CD tools. This article focuses on how to deploy your code from your local workstation to Azure.
 
 ### [Deploy using VS Code](#tab/vscode-deploy)
 
-Blah blah blah
+To deploy your application code directly from VS Code, you must have the [Azure Tools extension pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack) installed and be signed into Azure from VS Code.
+
+| Instructions    | Screenshot |
+|:----------------|-----------:|
+| [!INCLUDE [Deploy from VS Code 1](<./includes/deploy-from-vscode-1.md>)] | :::image type="content" source="./media/deploy-from-vscode-1-240px.png" alt-text="A screenshot showing the location of the Azure Tool icon in Visual Studio Code." lightbox="./media/deploy-from-vscode-1.png"::: |
+| [!INCLUDE [Deploy from VS Code 2](<./includes/deploy-from-vscode-2.md>)] | :::image type="content" source="./media/deploy-from-vscode-db-2-240px.png" alt-text="A screenshot showing how you deploy an application to Azure by right-clicking on a web app in VS Code and selecting deploy from the context menu." lightbox="./media/deploy-from-vscode-2.png"::: |
+| [!INCLUDE [Deploy from VS Code 3](<./includes/deploy-from-vscode-3.md>)] | :::image type="content" source="./media/deploy-from-vscode-3-240px.png" alt-text="A screenshot showing the Output window of VS Code while deploying an application to Azure." lightbox="./media/deploy-from-vscode-3.png"::: |
 
 ### [Deploy using Local git](#tab/local-git)
 
-Blah blah blah
+You can deploy your code to Azure from a local Git repository by configuring a remote Git repository in Azure to push code to. This requires you to set up a *deployment user* in Azure which is different than the user you use to sign in to Azure with. A deployment user can se set up in either the Azure Portal or Azure CLI.
+
+Follow the instruction for either the Azure Portal or the Azure CLI to set up a deployment user.
+
+<details>
+    <summary>Azure portal</summary>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+</details>
+<details>
+    <summary>Azure CLI</summary>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+</details>
+
+Next, you need to add a [Git remote](https://git-scm.com/book/en/v2/Git-Basics-Working-with-Remotes) that points to Azure where you will deploy your code to. In the root directory of your application, run the following command:
+
+```bash
+git remote add azure <deploymentLocalGitUrl-from-create-step>
+```
+
+To deploy your application to Azure, use the `git push` command to push code from your local `main` branch to the `azure` remote.
+
+```bash
+git push azure main
+```
 
 ### [Deploy using FTPS](#tab/ftps)
 
 Blah blah blah
 
 ### [Deploy using Azure CLI](#tab/azure-cli-deploy)
-
-Blah blah blah
-
----
-
-Or do we stick with simple tabs
-
-### [VS Code](#tab/vscode-deploy2)
-
-Blah blah blah
-
-### [Local git](#tab/local-git2)
-
-Blah blah blah
-
-### [FTPS](#tab/ftps2)
-
-Blah blah blah
-
-### [Azure CLI](#tab/azure-cli-deploy2)
-
-Blah blah blah
-
----
-
-What about options
-
-### [VS Code](#tab/vscode-deploy3)
-
-Blah blah blah
-
-### [Local git (Configure in Portal)](#tab/local-git-azportal)
-
-Blah blah blah
-
-### [Local git (Configure via Azure CLI)](#tab/local-git-azcli)
-
-Instructions for using local Git
-
-### [FTPS (Configure in Portal)](#tab/ftps-azportal)
-
-Blah blah blah
-
-### [FTPS (Configure via CLI)](#tab/ftps-azcli)
-
-Blah blah blah
-
-### [Azure CLI](#tab/azure-cli-deploy3)
 
 Blah blah blah
 
