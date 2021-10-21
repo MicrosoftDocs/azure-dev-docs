@@ -3,7 +3,7 @@ title: "3: Create the local authenticated Static web app"
 titleSuffix: Azure Developer Center
 description: In this article, learn to configure a Static web app and API to use the MSAL SDK to authenticate users both on the client app and on the Azure Function API. 
 ms.topic: how-to
-ms.date: 07/12/2021
+ms.date: 10/19/2021
 ms.custom: devx-track-js
 ---
 
@@ -78,6 +78,8 @@ You should have collected the following information from the [previous article i
     |REACT_APP_AAD_APP_REDIRECT_URI|http://localhost:3000|
     |REACT_APP_AAD_APP_FUNCTION_SCOPE_URI|App ID URI|
 
+    The redirect URI and function scope URI are used in the React client, and _not_ the Function API.
+
 1. Open the Function API file, `./api/local.settings.json`, and set the following values:
 
     |Property|Value|Description|
@@ -85,6 +87,8 @@ You should have collected the following information from the [previous article i
     |CLIENT_ID|Application (client) ID|Enter value as string, in quotes.|
     |CLIENT_SECRET|Client secret|Enter value as string, in quotes.|
     |TENANT_INFO|Directory (tenant) ID|Enter value as string, in quotes|
+
+    The client secret is used in the Azure Function, and _not_ in the React client.
 
 1. Replace the `./src/authConfig.js` file with the following code to use the `./.env` file. 
 

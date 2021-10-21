@@ -70,14 +70,16 @@ In order for the Azure Function API to act [_on behalf of_(OBO))](/azure/active-
 
 ## Configure app registration API scope
 
+Create a scope and its explanatory text a user or admin needs to know when approving this application to act on behalf of the user. 
+
 Add the `access_as_user` [scope](/azure/active-directory/develop/v2-oauth2-auth-code-flow#request-an-authorization-code) for the React client application to obtain an access token with that scope successfully. Add information to the user's **first authentication** to explain the scope request.
 
 1. Still on the **Expose an API** blade, select **Add a scope**. 
 1. For **Scope name**, use `access_as_user`.
 1. Select **Admins and users** options for **Who can consent?**.
-1. For **Admin consent display name** type `Access Microsoft Identity Static web app - favorite color`.
+1. For **Admin consent display name** type `Admin: Access Microsoft Identity Static web app - favorite color`.
 1. For **Admin consent description** type `Allows the app to access Function API as the signed-in user`.
-1. For **User consent display name** type `Access Microsoft Identity Static web app - favorite color`.
+1. For **User consent display name** type `User: Access Microsoft Identity Static web app - favorite color`.
 1. For **User consent description** type `Allow the application to access Function API on your behalf`
 1. Keep **State** as **Enabled**.
 1. Select **Add scope** to save this scope.
@@ -87,15 +89,16 @@ Add the `access_as_user` [scope](/azure/active-directory/develop/v2-oauth2-auth-
 Your application, both the React client and the Azure Function, are authorized to call APIs when they are granted permissions by users/admins as part of the consent process. The list of configured permissions should include all the permissions the application needs.
 
 1. Select the **API permissions** blade. Notice the Microsoft Graph API's scope of **User.Read** is already added for you, by default. 
-1. Select the **Add a permission**, then select **My APIs**.
-1. From the list of APIs, select the API associated with your current app registration.
-1. In the **Delegated permissions** section, select the **Access Microsoft Identity Static web app - favorite color** in the list. 
-1. From the Request API permissions panel, select the permission. 
+1. Select the **Add a permission**, then select **My APIs**. The term, `API`, refers to the Active Directory App, `Microsoft Identity Static web app - favorite color`. 
+1. From the list of APIs, select your App name, `Microsoft Identity Static web app - favorite color`. 
+1. In the **Delegated permissions** section, select the **_access_as_user_** permission. 
 1. Select the **Add permissions** button at the bottom.
 
     The app registration is now configured for both your local React client and your local Azure Function app.
 
 ## Configure token version for single tenant app
+
+This step is required for single tenant Active Directory apps. 
 
 1. Select the **Manifest** blade.
 1. Find the key `accessTokenAcceptedVersion` and replace the existing value (null) with `2`.
