@@ -1,0 +1,1 @@
+Once you have selected, the page will refresh and display the address for the remote Git repository. Copy the value of the *Git Clone Uri* as this is the value you will use to set up a Git remote in a later step.

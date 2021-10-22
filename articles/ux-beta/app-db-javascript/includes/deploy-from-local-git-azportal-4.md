@@ -1,0 +1,3 @@
+Navigate to the *Local Git/FTPS credentials tab* within the *Deployment Center* page. In the middle of the screen, you will see a set of *Application Scope* credentials. 
+
+When you push code to the remote Git repository for the first time, you will need to authenticate to the remote repository with these credentials.  Git will cache your credentials to use on subsequent deployments. Keep this screen open so you can use these credentials momentarily when you push you deploy your code via Git.
