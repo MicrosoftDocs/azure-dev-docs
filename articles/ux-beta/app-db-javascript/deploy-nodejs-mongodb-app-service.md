@@ -151,8 +151,8 @@ You must be signed in to the [Azure portal](https://portal.azure.com/) to comple
 | [!INCLUDE [Create Cosmos DB step 3](<./includes/create-cosmos-db-vscode-3.md>)] | :::image type="content" source="./media/vscode-create-cosmos-db-3-240px.png" alt-text="A screenshot showing the dialog box used to select the type of database you want to create in Azure." lightbox="./media/vscode-create-cosmos-db-3.png"::: |
 | [!INCLUDE [Create Cosmos DB step 4](<./includes/create-cosmos-db-vscode-4.md>)] | :::image type="content" source="./media/vscode-create-cosmos-db-4-240px.png" alt-text="A screenshot of dialog box used to enter the name of the new database in Visual Studio Code." lightbox="./media/vscode-create-cosmos-db-4.png"::: |
 | [!INCLUDE [Create Cosmos DB step 5](<./includes/create-cosmos-db-vscode-5.md>)] | :::image type="content" source="./media/vscode-create-cosmos-db-5-240px.png" alt-text="A screenshot of the dialog to select the throughput mode of the database." lightbox="./media/vscode-create-cosmos-db-5.png"::: |
-| [!INCLUDE [Create Cosmos DB step 6](<./includes/create-cosmos-db-vscode-6.md>)] | :::image type="content" source="./media/vscode-create-cosmos-db-6-240px.png" alt-text="A screenshot of the dialog in VS Code used to select resource group to put the new database in." lightbox="./media/vscode-create-cosmos-db-5.png"::: |
-| [!INCLUDE [Create Cosmos DB step 7](<./includes/create-cosmos-db-vscode-7.md>)] | :::image type="content" source="./media/vscode-create-cosmos-db-6-240px.png" alt-text="A screenshot of the dialog in VS Code used to select location for the new database." lightbox="./media/vscode-create-cosmos-db-5.png"::: |
+| [!INCLUDE [Create Cosmos DB step 6](<./includes/create-cosmos-db-vscode-6.md>)] | :::image type="content" source="./media/vscode-create-cosmos-db-6-240px.png" alt-text="A screenshot of the dialog in VS Code used to select resource group to put the new database in." lightbox="./media/vscode-create-cosmos-db-6.png"::: |
+| [!INCLUDE [Create Cosmos DB step 7](<./includes/create-cosmos-db-vscode-7.md>)] | :::image type="content" source="./media/vscode-create-cosmos-db-7-240px.png" alt-text="A screenshot of the dialog in VS Code used to select location for the new database." lightbox="./media/vscode-create-cosmos-db-7.png"::: |
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -254,7 +254,7 @@ To deploy your application code directly from VS Code, you must have the [Azure 
 
 [!INCLUDE [Deploy using Local Git](<./includes/deploy-local-git.md>)]
 
-### [FTPS](#tab/ftps-deploy)
+### [Deploy using FTPS](#tab/ftps-deploy)
 
 This tab is about deploying with FTPS.  You can configure this using the Azure portal or with the Azure CLI.
 
@@ -274,7 +274,7 @@ Blah blah blah
 
 ## Things that did not work
 
-### [Deploy using VS Code](#tab/vscode-deploy)
+### [Deploy using VS Code](#tab/deploy-vscode-2)
 
 To deploy your application code directly from VS Code, you must have the [Azure Tools extension pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack) installed and be signed into Azure from VS Code.
 
@@ -284,7 +284,7 @@ To deploy your application code directly from VS Code, you must have the [Azure 
 | [!INCLUDE [Deploy from VS Code 2](<./includes/deploy-from-vscode-2.md>)] | :::image type="content" source="./media/deploy-from-vscode-2-240px.png" alt-text="A screenshot showing how you deploy an application to Azure by right-clicking on a web app in VS Code and selecting deploy from the context menu." lightbox="./media/deploy-from-vscode-2.png"::: |
 | [!INCLUDE [Deploy from VS Code 3](<./includes/deploy-from-vscode-3.md>)] | :::image type="content" source="./media/deploy-from-vscode-3-240px.png" alt-text="A screenshot showing the Output window of VS Code while deploying an application to Azure." lightbox="./media/deploy-from-vscode-3.png"::: |
 
-### [Deploy using Local Git](#tab/local-git)
+### [Deploy using Local Git](#tab/deploy-local-git-2)
 
 You can deploy your code to Azure from a local Git repository by configuring a remote Git repository in Azure to push code to. Pushing code to Azure via Git requires that you:
 
@@ -316,11 +316,11 @@ To deploy your application to Azure, use the `git push` command to push code fro
 git push azure main
 ```
 
-### [Deploy using FTPS](#tab/ftps)
+### [Deploy using FTPS](#tab/deploy-ftps-2)
 
 Blah blah blah
 
-### [Deploy using Azure CLI](#tab/azure-cli-deploy)
+### [Deploy using Azure CLI](#tab/deploy-cli-2)
 
 Blah blah blah
 
