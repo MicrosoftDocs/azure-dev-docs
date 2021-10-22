@@ -1,0 +1,1 @@
+A dialog will appear the the top of the VS Code editor window to enter the name of the setting.  This name needs to be the same as the environment variable name used to read the setting in code.  Enter a value of **DATABASE_URL** for this example.

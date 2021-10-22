@@ -180,7 +180,7 @@ To connect to your CosmosDB database, you need to provide the connection string 
 
 When running locally, this is done in the sample application using the [dotenv package](https://www.npmjs.com/package/dotenv) and the `.env` file. When deploying to Azure though, this approach is not recommended.
 
-Instead, the connection string will be stored as an *application setting* in App Service and made available to the application at runtime as an environment variable. In this way, the application accesses the connection string from `process.env` the same way whether being run locally or in Azure.
+Instead, the connection string will be stored as an *application setting* in App Service and made available to the application at runtime as an environment variable. In this way, the application accesses the connection string from `process.env` the same way whether being run locally or in Azure. This same technique can also be used to store any other application settings your app may have.
 
 ### [Azure portal](#tab/azure-portal)
 
@@ -192,6 +192,14 @@ Instead, the connection string will be stored as an *application setting* in App
 | [!INCLUDE [Connection string step 4](<./includes/connection-string-azportal-4.md>)] | :::image type="content" source="./media/azportal-connection-string-4-240px.png" alt-text="A screenshot showing the dialog used to set an application setting in Azure App Service." lightbox="./media/azportal-connection-string-4.png"::: |
 
 ### [VS Code](#tab/vscode-aztools)
+
+| Instructions    | Screenshot |
+|:----------------|-----------:|
+| [!INCLUDE [Connection string step 1](<./includes/connection-string-vscode-1.md>)] | :::image type="content" source="./media/vscode-connection-string-1-240px.png" alt-text="A screenshot showing how to copy the connection string for a Cosmos database to your clipboard in VS Code." lightbox="./media/vscode-connection-string-1.png"::: |
+| [!INCLUDE [Connection string step 2](<./includes/connection-string-vscode-2.md>)] | :::image type="content" source="./media/vscode-connection-string-2-240px.png" alt-text="A screenshot showing how add a config setting to an App Service in VS Code." lightbox="./media/vscode-connection-string-2.png"::: |
+| [!INCLUDE [Connection string step 3](<./includes/connection-string-vscode-3.md>)] | :::image type="content" source="./media/vscode-connection-string-3-240px.png" alt-text="A screenshot showing the dialog box used to give a name to an app setting in VS Code." lightbox="./media/vscode-connection-string-3.png"::: |
+| [!INCLUDE [Connection string step 4](<./includes/connection-string-vscode-4.md>)] | :::image type="content" source="./media/vscode-connection-string-4-240px.png" alt-text="A screenshot showing the dialog used to set the value of an app setting in VS Code." lightbox="./media/vscode-connection-string-4.png"::: |
+| [!INCLUDE [Connection string step 4](<./includes/connection-string-vscode-5.md>)] | :::image type="content" source="./media/vscode-connection-string-5-240px.png" alt-text="A screenshot showing how to view an app setting for an App Service in VS Code." lightbox="./media/vscode-connection-string-5.png"::: |
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -231,6 +239,40 @@ az webapp config appsettings set \
 ## 4 - Deploy application code to Azure
 
 Azure App service supports multiple different methods to deploy your application code to Azure including support for GitHub actions and all major CI/CD tools. This article focuses on how to deploy your code from your local workstation to Azure.
+
+### [Deploy using VS Code](#tab/vscode-deploy)
+
+To deploy your application code directly from VS Code, you must have the [Azure Tools extension pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack) installed and be signed into Azure from VS Code.
+
+| Instructions    | Screenshot |
+|:----------------|-----------:|
+| [!INCLUDE [Deploy from VS Code 1](<./includes/deploy-from-vscode-1.md>)] | :::image type="content" source="./media/deploy-from-vscode-1-240px.png" alt-text="A screenshot showing the location of the Azure Tool icon in Visual Studio Code." lightbox="./media/deploy-from-vscode-1.png"::: |
+| [!INCLUDE [Deploy from VS Code 2](<./includes/deploy-from-vscode-2.md>)] | :::image type="content" source="./media/deploy-from-vscode-2-240px.png" alt-text="A screenshot showing how you deploy an application to Azure by right-clicking on a web app in VS Code and selecting deploy from the context menu." lightbox="./media/deploy-from-vscode-2.png"::: |
+| [!INCLUDE [Deploy from VS Code 3](<./includes/deploy-from-vscode-3.md>)] | :::image type="content" source="./media/deploy-from-vscode-3-240px.png" alt-text="A screenshot showing the Output window of VS Code while deploying an application to Azure." lightbox="./media/deploy-from-vscode-3.png"::: |
+
+### [Deploy using Local git](#tab/local-git-deploy)
+
+[!INCLUDE [Deploy using Local Git](<./includes/deploy-local-git.md>)]
+
+### [FTPS](#tab/ftps-deploy)
+
+This tab is about deploying with FTPS.  You can configure this using the Azure portal or with the Azure CLI.
+
+[!INCLUDE [Deploy FTPS](<./includes/deploy-ftps.md>)]
+
+### [Deploy using Azure CLI](#tab/azure-cli-deploy)
+
+Blah blah blah
+
+---
+
+## 5 - Browse to the application
+
+## 6 - Inspect application logs
+
+## 7 - Something with Kudu
+
+## Things that did not work
 
 ### [Deploy using VS Code](#tab/vscode-deploy)
 
@@ -283,38 +325,3 @@ Blah blah blah
 Blah blah blah
 
 ---
-
-Oh say can you nest...
-
-### [VS Code](#tab/vscode-deploy4)
-
-To deploy your application code directly from VS Code, you must have the [Azure Tools extension pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack) installed and be signed into Azure from VS Code.
-
-| Instructions    | Screenshot |
-|:----------------|-----------:|
-| [!INCLUDE [Deploy from VS Code 1](<./includes/deploy-from-vscode-1.md>)] | :::image type="content" source="./media/deploy-from-vscode-1-240px.png" alt-text="A screenshot showing the location of the Azure Tool icon in Visual Studio Code." lightbox="./media/deploy-from-vscode-1.png"::: |
-| [!INCLUDE [Deploy from VS Code 2](<./includes/deploy-from-vscode-2.md>)] | :::image type="content" source="./media/deploy-from-vscode-2-240px.png" alt-text="A screenshot showing how you deploy an application to Azure by right-clicking on a web app in VS Code and selecting deploy from the context menu." lightbox="./media/deploy-from-vscode-2.png"::: |
-| [!INCLUDE [Deploy from VS Code 3](<./includes/deploy-from-vscode-3.md>)] | :::image type="content" source="./media/deploy-from-vscode-3-240px.png" alt-text="A screenshot showing the Output window of VS Code while deploying an application to Azure." lightbox="./media/deploy-from-vscode-3.png"::: |
-### [Local git](#tab/local-git4)
-
-This tab is about deploying with local Git.  You can configure this using the Azure portal or with the Azure CLI.
-
-[!INCLUDE [Deploy Local Git](<./includes/deploy-local-git.md>)]
-
-### [FTPS](#tab/ftps4)
-
-This tab is about deploying with FTPS.  You can configure this using the Azure portal or with the Azure CLI.
-
-[!INCLUDE [Deploy FTPS](<./includes/deploy-ftps.md>)]
-
-### [Azure CLI](#tab/azure-cli-deploy4)
-
-Blah blah blah
-
----
-
-## 5 - Browse to the application
-
-## 6 - Inspect application logs
-
-## 7 - Something with Kudu

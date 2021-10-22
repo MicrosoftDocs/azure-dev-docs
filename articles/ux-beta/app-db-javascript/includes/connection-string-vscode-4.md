@@ -1,0 +1,1 @@
+A second dialog box will appear for entering the value of the setting. Paste the value of your connection string in this dialog.
