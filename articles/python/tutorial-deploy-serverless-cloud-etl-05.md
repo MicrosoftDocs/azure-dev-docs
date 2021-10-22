@@ -31,13 +31,13 @@ The final step of our solution **loads** the now processed data into the target 
 * [Visual Studio Code](https://code.visualstudio.com/) on one of the [supported platforms](https://code.visualstudio.com/docs/supporting/requirements#_platforms).
 * The [PowerShell extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.PowerShell)
 * The [Azure Functions extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) for Visual Studio Code
-* [Python 3.7 or later](/azure/developer/python/configure-local-development-environment) installed
+* [Python 3.7 or later](./configure-local-development-environment.md) installed
 
 ## 1. Configure your dev environment
 
 If you haven't already, **follow all the instructions** and complete the following articles to set up your local and Azure dev environment:
 
-* [Configure your local Python dev environment for Azure](/azure/developer/python/configure-local-development-environment)
+* [Configure your local Python dev environment for Azure](./configure-local-development-environment.md)
 * [Create resources](tutorial-deploy-serverless-cloud-etl-02.md)
 * [Ingest relational data](tutorial-deploy-serverless-cloud-etl-03.md)
 * [Transform relational data](tutorial-deploy-serverless-cloud-etl-04.md)

@@ -56,7 +56,7 @@ Before you can begin the steps in this article, complete the tasks below:
 
 ## 1. Set up your dev environment
 
-If you haven't already, **follow all the instructions** on [Configure your local Python dev environment for Azure](/azure/developer/python/configure-local-development-environment).
+If you haven't already, **follow all the instructions** on [Configure your local Python dev environment for Azure](./configure-local-development-environment.md).
 
 * **Step 1:** Run [az login](/cli/azure/authenticate-azure-cli) to sign into Azure.
 

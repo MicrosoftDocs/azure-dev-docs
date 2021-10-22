@@ -141,7 +141,7 @@ Provide authentication.
 |Create MariaDB resource|[Azure portal](https://ms.portal.azure.com/#create/Microsoft.MariaDBServer)<br>[Azure CLI](./with-azure-cli/create-mariadb.md#create-a-mariadb-resource-with-azure-cli)<br>[@azure/arm-mariadb](https://www.npmjs.com/package/@azure/arm-mariadb)|
 |Create MariaDB database on resource|[Azure CLI](./with-azure-cli/create-mariadb.md#create-a-mariadb-resource-with-azure-cli)|
 |Get Connection string|[Azure CLI](./with-azure-cli/create-mariadb.md#get-the-mariadb-connection-string-with-azure-cli)|
-|Use and view database|[Azure Cloud Shell](https://shell.azure.com/)'s _mysql_ CLI<br>[MySQL Workbench](https://www.mysql.com/products/workbench/)<br>[Visual Studio Code extension](https://marketplace.visualstudio.com/items?itemName=mtxr.sqltools-driver-mysql)<br>[npm mariadb](https://www.npmjs.com/package/mariadb)<br>[JavaScript](./with-database/use-mariadb.md?tabs=MariaDB#use-mariadb-sdk-to-connect-to-mariadb-on-azure)|
+|Use and view database|[Azure Cloud Shell](https://shell.azure.com/)'s _mysql_ CLI<br>[MySQL Workbench](https://www.mysql.com/products/workbench/)<br>[Visual Studio Code extension](https://marketplace.visualstudio.com/items?itemName=mtxr.sqltools-driver-mysql)<br>[npm mariadb](https://www.npmjs.com/package/mariadb)<br>[JavaScript](./with-database/use-mysql-mariadb.md?tabs=MariaDB#use-mariadb-sdk-to-connect-to-mariadb-on-azure)|
 
 ### MongoDB API on Cosmos DB
 
@@ -161,10 +161,10 @@ Provide authentication.
 |Task|Using|
 |--|--|
 |Create resource|[Azure portal](https://ms.portal.azure.com/#create/Microsoft.MySQLServer)<br>[Azure CLI](./with-azure-cli/create-mysql-db.md#create-an-azure-database-for-mysql-resource-with-azure-cli)<br>[@azure/arm-mysql](https://www.npmjs.com/package/@azure/arm-mysql)|
-|Create database on resource|[Azure CLI](./with-database/use-mysql-db.md?tabs=MySQL#create-a-database-on-the-server-with-azure-cli)|
-|Get Connection string|[Azure CLI](./with-database/use-mysql-db.md?tabs=MySQL#get-the-mysql-connection-string-with-azure-cli)|
+|Create database on resource|[Azure CLI](./with-database/use-mysql-mariadb.md?tabs=MySQL#create-a-database-on-the-server-with-azure-cli)|
+|Get Connection string|[Azure CLI](./with-database/use-mysql-mariadb.md?tabs=MySQL#get-the-mysql-connection-string-with-azure-cli)|
 |Use and view database|[MySQL Workbench](https://www.mysql.com/products/workbench/)<br>[Visual Studio Code extension](https://marketplace.visualstudio.com/items?itemName=mtxr.sqltools-driver-mysql)<br>[npm mysql](https://www.npmjs.com/package/mysql)<br>[npm promise-mysql](https://www.npmjs.com/package/promise-mysql)|
-|Use promise-mysql API|[JavaScript](./with-database/use-mysql-db.md?tabs=MySQL#use-promise-mysql-sdk-to-connect-to-mysql-on-azure)|
+|Use promise-mysql API|[JavaScript](./with-database/use-mysql-mariadb.md?tabs=MySQL#use-promise-mysql-sdk-to-connect-to-mysql-on-azure)|
 
 ### PostgreSQL
 
