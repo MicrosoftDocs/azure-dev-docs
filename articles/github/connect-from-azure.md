@@ -34,12 +34,10 @@ To set up an Azure Login with OpenID Connect and use it in a GitHub Actions work
 
 1. Register a [new Active Directory application](/azure/active-directory/develop/) and service principal with the Contributor role that is tied to your subscription.
 
-    ```azurecli-interactive
-    appName="myApp"
-    
-    az ad app create \
-    --display-name $appName \
-    --homepage "http://localhost/$appName" 
+    ``azurecli-interactive
+    az ad sp create-for-rbac --name "myApp" --role contributor \
+                                    --scopes /subscriptions/{subscription-id} \
+                                    --sdk-auth
     ```
 
 1. Copy the JSON object for your service principal. You'll use the values for `clientId`, `subscriptionId`, and `tenantId` in your GitHub Actions workflow.
