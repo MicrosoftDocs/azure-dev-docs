@@ -26,21 +26,21 @@ You can use Azure login to connect to public or sovereign clouds including Azure
 > [!NOTE]
 > The OpenID Connect authentication feature for Azure Login is in public beta.
 
-To set up an Azure Login with OpenID Connect and use it in a GitHub Actions workflow, you'll need to:
+To set up an Azure Login with OpenID Connect and use it in a GitHub Actions workflow, you'll need:
 
-* Create a new app and service principal
-* Add federated (OpenID Connect credentials) generated in the Azure portal or with the Microsoft Graph REST API
-* Build a GitHub Actions workflow with the `azure/login@v1.4.0` action
+* An [Active Directory application](/azure/active-directory/develop/) and service principal that is tied to your subscription
+* Federated (OpenID Connect credentials) generated in the Azure portal or with the Microsoft Graph REST API
+* A GitHub Actions workflow with the `azure/login@v1.4.0` action
 
 1. Register a [new Active Directory application](/azure/active-directory/develop/) and service principal with the Contributor role that is tied to your subscription.
 
-```azurecli-interactive
-appName="myApp"
-
-az ad app create \
---display-name $appName \
---homepage "http://localhost/$appName" 
-```
+    ```azurecli-interactive
+    appName="myApp"
+    
+    az ad app create \
+    --display-name $appName \
+    --homepage "http://localhost/$appName" 
+    ```
 
 1. Copy the JSON object for your service principal. You'll use the values for `clientId`, `subscriptionId`, and `tenantId` in your GitHub Actions workflow.
 
@@ -98,11 +98,11 @@ You'll use secrets for `AZURE_CLIENTID`, `AZURE_TENANTID`, and `AZURE_SUBSCRIPTI
 
 1. Create secrets for `AZURE_CLIENTID`, `AZURE_TENANTID`, and `AZURE_SUBSCRIPTIONID`. Use these values from your JSON object for your GitHub secrets:
 
-|GitHub Secret  |JSON key  |
-|---------|---------|
-|AZURE_CLIENTID     |      ClientId   |
-|AZURE_TENANTID     |     tenantId    |
-|AZURE_SUBSCRIPTIONID     |     subscriptionId    |
+    |GitHub Secret  |JSON key  |
+    |---------|---------|
+    |AZURE_CLIENTID     |      ClientId   |
+    |AZURE_TENANTID     |     tenantId    |
+    |AZURE_SUBSCRIPTIONID     |     subscriptionId    |
 
 1. Save each secret by selecting **Add secret**.
 
