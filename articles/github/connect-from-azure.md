@@ -15,7 +15,7 @@ Learn how to use [Azure login](https://github.com/Azure/login) with either [Azur
 
 To use Azure PowerShell or Azure CLI in a GitHub Actions workflow, you need to first log in with the [Azure login](https://github.com/marketplace/actions/azure-login) action.
 
-There are two versions of the Azure login action. The Open ID Connect (OIDC) version, which is in public beta, allows you to log in with federated identity credentials. The default version uses an [Azure AD service principal](/azure/active-directory/develop/app-objects-and-service-principals#service-principal-object).
+There are two versions of the Azure login action. The Open ID Connect version, which is in public beta, allows you to log in with federated identity credentials. The default version uses an [Azure AD service principal](/azure/active-directory/develop/app-objects-and-service-principals#service-principal-object).
 
 By default, the login action logs in with the Azure CLI and sets up the GitHub action runner environment for Azure CLI. You can use Azure PowerShell with `enable-AzPSSession` property of the Azure login action. This sets up the GitHub action runner environment with the Azure PowerShell module.
 
@@ -32,6 +32,8 @@ To set up an Azure Login with OpenID Connect and use it in a GitHub Actions work
 * Federated (OpenID Connect credentials) generated in the Azure portal or with the Microsoft Graph REST API
 * A GitHub Actions workflow with the `azure/login@v1.4.0` action
 
+### Create an active directory application and service principal
+
 1. Open [Azure Cloud Shell](/azure/cloud-shell/overview) in the Azure portal or [Azure CLI](/cli/azure/install-azure-cli) locally.
 
 1. Register a [new Active Directory application](/azure/active-directory/develop/) and service principal with the Contributor role that is tied to your subscription.
@@ -44,7 +46,7 @@ To set up an Azure Login with OpenID Connect and use it in a GitHub Actions work
 
 1. Copy the JSON object for your service principal. You'll use the values for `clientId`, `subscriptionId`, and `tenantId` in your GitHub Actions workflow.
 
-### Add federated credentials in the Azure portal
+### Add federated credentials
 
 You can add federated credentials in the Azure portal or with the Microsoft Graph REST API.
 
