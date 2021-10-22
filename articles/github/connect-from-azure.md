@@ -26,63 +26,71 @@ You can use Azure login to connect to public or sovereign clouds including Azure
 > [!CAUTION]
 > The OpenID Connect authentication feature for Azure Login is in public beta.
 
-To set up an Azure Login with OpenID Connect and use it in a GitHub Actions workflow you'll need:
+To set up an Azure Login with OpenID Connect and use it in a GitHub Actions workflow you'll need to:
 
-* An app registered with the Microsoft identity platform
-* Federated (OpenID Connect credentials) generated in the Azure portal or with the Microsoft Graph REST API
-* A GitHub Actions workflow with the `azure/login@v1.4.0` action
-
-### Register your application with the Microsoft identity platform
-
-You'll need to register your [application with the Microsoft identity platform](/azure/active-directory/develop/quickstart-register-app).
-
-1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>.
-1. If you have access to multiple tenants, use the **Directories + subscriptions** filter :::image type="icon" source="/media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to the tenant in which you want to register the application.
-1. Search for and select **Azure Active Directory**.
-1. Under **Manage**, select **App registrations** > **New registration**.
-1. Enter a display **Name** for your application. Users of your application might see the display name when they use the app, for example during sign-in.
-1. Select **Register** to complete the initial app registration.
-1. Copy the values for `Application (client) ID`, `Object ID`, and `Directory (tenant) ID`. You'll use these later for GitHub secrets.
+* Create a new app and service principal
+* Add federated (OpenID Connect credentials) generated in the Azure portal or with the Microsoft Graph REST API
+* Build a GitHub Actions workflow with the `azure/login@v1.4.0` action
 
 
-### Add Azure federated credentials
+1. Use `az ad sp create-for-rbac` to create a [new Active Directory application](/azure/active-directory/develop/howto-create-service-principal-portal#register-an-application-with-azure-ad-and-create-a-service-principal&preserve-view=true) and service principal with the Contributor role that is tied to your subscription.
+
+ register a [new Active Directory application](/azure/active-directory/develop/howto-create-service-principal-portal#register-an-application-with-azure-ad-and-create-a-service-principal&preserve-view=true) to use with your service principal.
+
+```azurecli-interactive
+        appName="myApp"
+
+        az ad app create \
+        --display-name $appName \
+        --homepage "http://localhost/$appName" \
+        --identifier-uris http://localhost/$appName
+```
+
+1. Copy the JSON object for your service principal. You'll use the values for `clientId`, `subscriptionId`, and `tenantId` in your GitHub Actions workflow.
+
+### Add federated credentials in the Azure portal
 
 You can add federated credentials in the Azure portal or with the Microsoft Graph REST API.
 
 # [Azure portal](#tab/azure-portal)
 
-1. Go to **App registrations** in the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>.
-1. Open the app you want to configure.
-1. Within the app, go to **Certificates and secrets**.  In the **Federated credentials** tab, select **Add credential**.  
-1. In the **Federated credential scenario** box select **GitHub actions deploying Azure resources**.
-1. Specify the **Organization** and **Repository** for your GitHub Actions workflow.  
-1. For **Entity type**, select **Environment**, **Branch**, **Pull request**, or **Tag** and specify the value.
-1. Add a **Name** for the federated credential.
-1. Click **Add** to configure the federated credential.
+1. Go to **App registrations** in the <a href="https://portal.azure.com/" target="_blank">Azure portal</a> and open the app you want to configure.
+1. Within the app, go to **Certificates and secrets**.  
+    :::image type="content" source="media/federated-certificates-secrets.png" alt-text="Select Certificates & secrets.":::
+1. In the **Federated credentials** tab, select **Add credential**.
+    :::image type="content" source="media/add-federated-credential.png" alt-text="Add the federated credential":::
+1. Select the credential scenario **GitHub Actions deploying Azure resources**. Generate your credential by entering your credential details.
+    
+|Field  |Description  |Example  |
+|---------|---------|---------|
+|Organization     |    Your GitHub organization name or Github username.     |     `contoso`    |
+|Repository     |     Your GitHub Repository name.    |    `contoso-app`     |
+|Entity type     |     The filter used by Open ID for authentication. This field is used to generate the subject identifier.   |     `Environment`, `Branch`, `Pull request`, `Tag`    |
+|GitHub name     |     The name of the environment, branch, or tag.    |     `main`    |
+|Name     |     Identifier for the federated credential.    |    `contoso-deploy`     |
 
 For a more detailed overview, see [Configure an app to trust a GitHub repo](/azure/active-directory/develop/workload-identity-federation-create-trust-github).
 # [Microsoft Graph](#tab/microsoft-graph)
 
-1. Launch [Azure Cloud Shell](https://portal.azure.com/#cloudshell/) and sign in to your tenant.
-1. Run the following command to [create a new federated identity credential](/graph/api/application-post-federatedidentitycredentials?view=graph-rest-beta&preserve-view=true) on your app (specified by the object ID of the app). 
-    * Replace the `APPLICATION-ID` with your `Object ID`.
-    * Set a value for `CREDENTIAL-NAME` to reference later.
-    * Set the `subject`. The options for `subject` refer to your request filter. These are the conditions that OpenID Connect uses to determine when to issue an authentication token.  
-        * For Jobs tied to an environment: `repo:< Organization/Repository >:environment:< Name >`
-        * For Jobs not tied to an environment, include the ref path for branch/tag based on the ref path used for triggering the workflow: `repo:< Organization/Repository >:ref:< ref path>`.  For example, `repo:n-username/ node_express:ref:refs/heads/my-branch` or `repo:n-username/ node_express:ref:refs/tags/my-tag`.
-        * For workflows triggered by a pull request event: `repo:< Organization/Repository >:pull-request`.
+Run the following command to [create a new federated identity credential](/graph/api/application-post-federatedidentitycredentials?view=graph-rest-beta&preserve-view=true) for your active directory application.
 
-    ```azurecli
-    az rest --method POST --uri 'https://graph.microsoft.com/beta/applications/<APPLICATION-ID>/federatedIdentityCredentials' --body '{"name":"<CREDENTIAL-NAME>","issuer":"https://token.actions.githubusercontent.com/","subject":"repo:octo-org/octo-repo:environment:Production","description":"Testing","audiences":["api://AzureADTokenExchange"]}' 
-    ```
+* Replace `APPLICATION-ID` with your `clientId`.
+* Set a value for `CREDENTIAL-NAME` to reference later.
+* Set the `subject`. The options for `subject` refer to your request filter. These are the conditions that OpenID Connect uses to determine when to issue an authentication token.
+  * For Jobs tied to an environment: `repo:< Organization/Repository >:environment:< Name >`
+  * For Jobs not tied to an environment, include the ref path for branch/tag based on the ref path used for triggering the workflow: `repo:< Organization/Repository >:ref:< ref path>`.  For example, `repo:n-username/ node_express:ref:refs/heads/my-branch` or `repo:n-username/ node_express:ref:refs/tags/my-tag`.
+  * For workflows triggered by a pull request event: `repo:< Organization/Repository >:pull-request`.
+
+```azurecli
+    az rest --method POST --uri 'https://graph.microsoft.com/beta/applications/<APPLICATION-ID>/federatedIdentityCredentials' --body '{"name":"<CREDENTIAL-NAME>","issuer":"https://token.actions.githubusercontent.com/","subject":"repo:organization/repository:environment:Production","description":"Testing","audiences":["api://AzureADTokenExchange"]}' 
+```
+
 For a more detailed overview, see [Configure an app to trust a GitHub repo](/azure/active-directory/develop/workload-identity-federation-create-trust-github).
 
 ---
 ### Create GitHub secrets
 
-You'll need to create secrets for `AZURE_CLIENTID`, `AZURE_TENANTID`, and `AZURE_SUBSCRIPTIONID`.
-
-1. Get the *tenant-id* and *client-id* values of your app registration.  You can find these values in the Azure portal. Go to the list of [registered applications](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) and select your app registration.  In **Overview**->**Essentials**, find the **Application (client) ID** and **Directory (tenant) ID**. 
+You'll use secrets for `AZURE_CLIENTID`, `AZURE_TENANTID`, and `AZURE_SUBSCRIPTIONID` in your workflow. 
 
 1. Open your GitHub repository and go to **Settings**.
 
@@ -92,48 +100,48 @@ You'll need to create secrets for `AZURE_CLIENTID`, `AZURE_TENANTID`, and `AZURE
 
     :::image type="content" source="media/select-secrets.png" alt-text="Choose to add a secret":::
 
-1. Add secrets for `AZURE_CLIENTID`, `AZURE_TENANTID`, and `AZURE_SUBSCRIPTIONID`.
+1. Create secrets for `AZURE_CLIENTID` (`ClientId`), `AZURE_TENANTID` (`tenantId`), and `AZURE_SUBSCRIPTIONID` (`subscriptionId`) from the JSON object for your service principal.
+    * `AZURE_CLIENTID`: `ClientId`
+
+1. Save each secret by selecting **Add secret**.
 
 ### Set up Azure Login with OpenID Connect authentication
 
 Your GitHub Actions workflow will use OpenID Connect to generate a unique access token from Azure each time the workflow runs. To learn more about this interaction, see the [GitHub Actions documentation](https://docs.github.com/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-azure).
 
-In this example, you'll install the OIDC Azure CLI beta and authenticate with Azure.
+In this example, you'll install the OpenID Connect Azure CLI beta and authenticate with Azure.
 
 ```yaml
-name:  OpenID Connect Azure Login
-
+name: Run Azure Login with OpenID Connect
 on: [push]
 
 permissions:
-  id-token: write
-
-
-jobs:
-  build:
-    runs-on: ubuntu-latest
+      id-token: write
       
+jobs: 
+  build-and-deploy:
+    runs-on: ubuntu-latest
     steps:
-
-      - name: Installing CLI-beta for OIDC
-        run: |
-           CWD="$(pwd)"  
-           python3 -m venv oidc-venv
-           . oidc-venv/bin/activate
-           echo "activated environment" 
-           python3 -m pip install -q --upgrade pip
-           echo "started installing cli beta" 
-           pip install -q --extra-index-url https://azcliprod.blob.core.windows.net/beta/simple/ azure-cli 
-           echo "***************installed cli beta*******************" 
-           echo "$CWD/oidc-venv/bin" >> $GITHUB_PATH
- 
         
-      - name: 'Az CLI login'
-        uses: azure/login@oidc-support
-        with:
-          client-id: ${{ secrets.AZURE_CLIENTID }}
-          tenant-id: ${{ secrets.AZURE_TENANTID }}
-          allow-no-subscriptions: true
+    - name: Installing CLI-beta for OIDC
+      run: |
+        cd ../..
+        CWD="$(pwd)"
+        python3 -m venv oidc-venv
+        . oidc-venv/bin/activate
+        echo "activated environment"
+        python3 -m pip install -q --upgrade pip
+        echo "started installing cli beta"
+        pip install -q --extra-index-url https://azcliprod.blob.core.windows.net/beta/simple/ azure-cli
+        echo "***************installed cli beta*******************"
+        echo "$CWD/oidc-venv/bin" >> $GITHUB_PATH
+        
+    - name: 'Az CLI login'
+      uses: azure/login@v1.4.0
+      with:
+        client-id: ${{ secrets.AZURE_CLIENTID }}
+        tenant-id: ${{ secrets.AZURE_TENANTID }}
+        subscription-id: ${{ secrets.AZURE_SUBSCRIPTIONID }}
 ```
 
 ## Use the Azure login action with a service principal
