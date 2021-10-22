@@ -73,6 +73,7 @@
 | Resource Management - App Service | npm [9.0.0](https://www.npmjs.com/package/@azure/arm-appservice/v/9.0.0)<br>npm [10.0.0-beta.1](https://www.npmjs.com/package/@azure/arm-appservice/v/10.0.0-beta.1) | [docs](/javascript/api/overview/azure/arm-appservice-readme) | GitHub [9.0.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/appservice/arm-appservice) |
 | Resource Management - Authorization | npm [8.4.1](https://www.npmjs.com/package/@azure/arm-authorization/v/8.4.1)<br>npm [9.0.0-beta.1](https://www.npmjs.com/package/@azure/arm-authorization/v/9.0.0-beta.1) | [docs](/javascript/api/overview/azure/arm-authorization-readme) | GitHub [8.4.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/authorization/arm-authorization) |
 | Resource Management - Compute | npm [16.5.0](https://www.npmjs.com/package/@azure/arm-compute/v/16.5.0)<br>npm [17.0.0-beta.2](https://www.npmjs.com/package/@azure/arm-compute/v/17.0.0-beta.2) | [docs](/javascript/api/overview/azure/arm-compute-readme) | GitHub [16.5.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/compute/arm-compute) |
+| Resource Management - Container Registry | npm [8.1.1](https://www.npmjs.com/package/@azure/arm-containerregistry/v/8.1.1)<br>npm [9.0.0-beta.1](https://www.npmjs.com/package/@azure/arm-containerregistry/v/9.0.0-beta.1) | [docs](/javascript/api/overview/azure/container-registry) | GitHub [8.1.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/containerregistry/arm-containerregistry) |
 | Resource Management - Event Grid | npm [11.0.1](https://www.npmjs.com/package/@azure/arm-eventgrid/v/11.0.1)<br>npm [12.0.0-beta.1](https://www.npmjs.com/package/@azure/arm-eventgrid/v/12.0.0-beta.1) | [docs](/javascript/api/overview/azure/arm-eventgrid-readme) | GitHub [11.0.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/eventgrid/arm-eventgrid) |
 | Resource Management - Event Hubs | npm [4.0.0](https://www.npmjs.com/package/@azure/arm-eventhub/v/4.0.0)<br>npm [5.0.0-beta.1](https://www.npmjs.com/package/@azure/arm-eventhub/v/5.0.0-beta.1) | [docs](/javascript/api/overview/azure/arm-eventhub-readme) | GitHub [4.0.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/eventhub/arm-eventhub) |
 | Resource Management - Extendedlocation | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure/arm-extendedlocation/v/1.0.0-beta.1) | [docs](/javascript/api/overview/azure/arm-extendedlocation-readme) | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-extendedlocation_1.0.0-beta.1/sdk/extendedlocation/arm-extendedlocation/) |
@@ -142,7 +143,7 @@
 | @azure/media-stream-library | npm [1.1.0-beta.2](https://www.npmjs.com/package/@azure/media-stream-library/v/1.1.0-beta.2) |  |  |
 | @azure/quantum-jobs | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure/quantum-jobs/v/1.0.0-beta.1) |  |  |
 | @azure/static-web-apps-cli | npm [0.8.0](https://www.npmjs.com/package/@azure/static-web-apps-cli/v/0.8.0) |  |  |
-| @azure/video-analyzer-player | npm [1.0.4](https://www.npmjs.com/package/@azure/video-analyzer-player/v/1.0.4)<br>npm [1.1.0-beta.2](https://www.npmjs.com/package/@azure/video-analyzer-player/v/1.1.0-beta.2) |  |  |
+| @azure/video-analyzer-player | npm [1.0.4](https://www.npmjs.com/package/@azure/video-analyzer-player/v/1.0.4)<br>npm [1.1.0-beta.3](https://www.npmjs.com/package/@azure/video-analyzer-player/v/1.1.0-beta.3) |  |  |
 | @azure/video-analyzer-widgets | npm [1.1.2](https://www.npmjs.com/package/@azure/video-analyzer-widgets/v/1.1.2) |  |  |
 | @azure-rest/core-client-lro | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure-rest/core-client-lro/v/1.0.0-beta.1) |  |  |
 | @azure-tools/adl-openapi | npm [0.3.2](https://www.npmjs.com/package/@azure-tools/adl-openapi/v/0.3.2) |  |  |
@@ -159,6 +160,7 @@
 | @azure-tools/cadl-vs | npm [0.3.0](https://www.npmjs.com/package/@azure-tools/cadl-vs/v/0.3.0) |  |  |
 | @azure-tools/json | npm [1.2.0](https://www.npmjs.com/package/@azure-tools/json/v/1.2.0) |  |  |
 | @azure-tools/jsonschema | npm [1.1.0](https://www.npmjs.com/package/@azure-tools/jsonschema/v/1.1.0) |  |  |
+| @azure-tools/mock-service-host | npm [0.1.3](https://www.npmjs.com/package/@azure-tools/mock-service-host/v/0.1.3) |  |  |
 | @azure-tools/prettier-plugin-adl | npm [0.1.4](https://www.npmjs.com/package/@azure-tools/prettier-plugin-adl/v/0.1.4) |  |  |
 | @azure-tools/prettier-plugin-cadl | npm [0.2.1](https://www.npmjs.com/package/@azure-tools/prettier-plugin-cadl/v/0.2.1) |  |  |
 | @azure-tools/test-recorder | npm [1.0.1](https://www.npmjs.com/package/@azure-tools/test-recorder/v/1.0.1) |  |  |
@@ -171,7 +173,6 @@
 | adl-vscode | npm [0.6.0](https://www.npmjs.com/package/adl-vscode/v/0.6.0) |  |  |
 | cadl-vs | npm [0.4.1](https://www.npmjs.com/package/cadl-vs/v/0.4.1) |  |  |
 | cadl-vscode | npm [0.9.0](https://www.npmjs.com/package/cadl-vscode/v/0.9.0) |  |  |
-| mock-service-host | npm [0.1.3](https://www.npmjs.com/package/mock-service-host/v/0.1.3) |  |  |
 | tmlanguage-generator | npm [0.2.0](https://www.npmjs.com/package/tmlanguage-generator/v/0.2.0) |  |  |
 | AMQP Common | npm [1.0.0-preview.17](https://www.npmjs.com/package/@azure/amqp-common/v/1.0.0-preview.17) |  | GitHub [1.0.0-preview.17](https://github.com/Azure/azure-sdk-for-js/tree/@azure/amqp-common_1.0.0-preview.17/sdk/core/amqp-common/) |
 | Anomaly Detector | npm [3.0.0-beta.3](https://www.npmjs.com/package/@azure/ai-anomaly-detector/v/3.0.0-beta.3) | [docs](/javascript/api/overview/azure/ai-anomaly-detector-readme) | GitHub [3.0.0-beta.3](https://github.com/Azure/azure-sdk-for-js/tree/@azure/ai-anomaly-detector_3.0.0-beta.3/sdk/anomalydetector/ai-anomaly-detector/) |
@@ -193,7 +194,7 @@
 | AutoRest - Functions TypeScript | npm [0.0.1-preview](https://www.npmjs.com/package/@autorest/azure-functions-typescript/v/0.0.1-preview) |  |  |
 | AutoRest - Go | npm [4.0.0-preview.29](https://www.npmjs.com/package/@autorest/go/v/4.0.0-preview.29) |  |  |
 | AutoRest - Modeler Four | npm [4.21.4](https://www.npmjs.com/package/@autorest/modelerfour/v/4.21.4) |  | GitHub [4.21.4](https://github.com/Azure/autorest.modelerfour) |
-| AutoRest - Power Shell | npm [3.0.459](https://www.npmjs.com/package/@autorest/powershell/v/3.0.459) |  | GitHub [3.0.459](https://github.com/Azure/autorest.powershell) |
+| AutoRest - Power Shell | npm [3.0.460](https://www.npmjs.com/package/@autorest/powershell/v/3.0.460) |  | GitHub [3.0.460](https://github.com/Azure/autorest.powershell) |
 | AutoRest - Python | npm [5.9.3](https://www.npmjs.com/package/@autorest/python/v/5.9.3) |  | GitHub [5.9.3](https://github.com/Azure/autorest.python/tree/v5.1.0-preview.7) |
 | AutoRest - Remodeler | npm [2.1.27](https://www.npmjs.com/package/@autorest/remodeler/v/2.1.27) |  | GitHub [2.1.27](https://github.com/Azure/autorest.remodeler) |
 | AutoRest - Test | npm [0.1.76](https://www.npmjs.com/package/@autorest/test/v/0.1.76) |  | GitHub [0.1.76](https://github.com/Azure/autorest.test) |
@@ -368,7 +369,7 @@
 | Resource Management - Compute | npm [16.5.0](https://www.npmjs.com/package/@azure/arm-compute/v/16.5.0)<br>npm [17.0.0-beta.2](https://www.npmjs.com/package/@azure/arm-compute/v/17.0.0-beta.2) | [docs](/javascript/api/overview/azure/arm-compute-readme) | GitHub [16.5.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/compute/arm-compute) |
 | Resource Management - Consumption | npm [8.0.1](https://www.npmjs.com/package/@azure/arm-consumption/v/8.0.1) |  | GitHub [8.0.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/consumption/arm-consumption) |
 | Resource Management - Container Instances | npm [7.1.0](https://www.npmjs.com/package/@azure/arm-containerinstance/v/7.1.0) |  | GitHub [7.1.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/containerinstance/arm-containerinstance) |
-| Resource Management - Container Registry | npm [8.1.1](https://www.npmjs.com/package/@azure/arm-containerregistry/v/8.1.1) | [docs](/javascript/api/overview/azure/container-registry) | GitHub [8.1.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/containerregistry/arm-containerregistry) |
+| Resource Management - Container Registry | npm [8.1.1](https://www.npmjs.com/package/@azure/arm-containerregistry/v/8.1.1)<br>npm [9.0.0-beta.1](https://www.npmjs.com/package/@azure/arm-containerregistry/v/9.0.0-beta.1) | [docs](/javascript/api/overview/azure/container-registry) | GitHub [8.1.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/containerregistry/arm-containerregistry) |
 | Resource Management - Container Service | npm [14.1.0](https://www.npmjs.com/package/@azure/arm-containerservice/v/14.1.0) | [docs](/javascript/api/overview/azure/container-service) | GitHub [14.1.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/containerservice/arm-containerservice) |
 | Resource Management - Content Delivery Network | npm [5.3.1](https://www.npmjs.com/package/@azure/arm-cdn/v/5.3.1) | [docs](/javascript/api/overview/azure/cdn) | GitHub [5.3.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/cdn/arm-cdn) |
 | Resource Management - Cosmos DB | npm [14.1.1](https://www.npmjs.com/package/@azure/arm-cosmosdb/v/14.1.1) | [docs](/javascript/api/overview/azure/cosmos-db) | GitHub [14.1.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/cosmosdb/arm-cosmosdb) |
