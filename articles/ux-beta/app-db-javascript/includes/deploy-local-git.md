@@ -11,9 +11,9 @@ Configuring your Azure web app for local Git deployment and retrieving your cred
 | Instructions    | Screenshot |
 |:----------------|-----------:|
 | [!INCLUDE [Deploy from VS Code 1](<./deploy-from-local-git-azportal-1.md>)] | :::image type="content" source="../media/deploy-local-git-azportal-1-240px.png" alt-text="A screenshot showing how to navigate to a web app using the search box in Azure portal." lightbox="../media/deploy-local-git-azportal-1.png"::: |
-| [!INCLUDE [Deploy from VS Code 2](<./deploy-from-local-git-az-portal-2.md>)] | :::image type="content" source="../media/deploy-local-git-azportal-2-240px.png" alt-text="A screenshot showing te location of the deployment page and how to configure a web app for local Git deployment in the Azure portal." lightbox="../media/deploy-local-git-azportal-2.png"::: |
-| [!INCLUDE [Deploy from VS Code 3](<./deploy-from-local-git-az-portal-3.md>)] | :::image type="content" source="../media/deploy-local-git-azportal-3-240px.png" alt-text="A screenshot of the Azure portal showing the Git URL to push code to for local Git deployments." lightbox="../media/deploy-local-git-azportal-3.png"::: |
-| [!INCLUDE [Deploy from VS Code 3](<./deploy-from-local-git-az-portal-4.md>)] | :::image type="content" source="../media/deploy-local-git-azportal-4-240px.png" alt-text="A screenshot of the Azure portal showing where to retrieve the deployment credentials for local Git deployment." lightbox="../media/deploy-local-git-azportal-4.png"::: |
+| [!INCLUDE [Deploy from VS Code 2](<./deploy-from-local-git-azportal-2.md>)] | :::image type="content" source="../media/deploy-local-git-azportal-2-240px.png" alt-text="A screenshot showing te location of the deployment page and how to configure a web app for local Git deployment in the Azure portal." lightbox="../media/deploy-local-git-azportal-2.png"::: |
+| [!INCLUDE [Deploy from VS Code 3](<./deploy-from-local-git-azportal-3.md>)] | :::image type="content" source="../media/deploy-local-git-azportal-3-240px.png" alt-text="A screenshot of the Azure portal showing the Git URL to push code to for local Git deployments." lightbox="../media/deploy-local-git-azportal-3.png"::: |
+| [!INCLUDE [Deploy from VS Code 3](<./deploy-from-local-git-azportal-4.md>)] | :::image type="content" source="../media/deploy-local-git-azportal-4-240px.png" alt-text="A screenshot of the Azure portal showing where to retrieve the deployment credentials for local Git deployment." lightbox="../media/deploy-local-git-azportal-4.png"::: |
 
 ### [Azure CLI](#tab/deploy-instructions-azcli)
 
