@@ -32,6 +32,8 @@ To set up an Azure Login with OpenID Connect and use it in a GitHub Actions work
 * Federated (OpenID Connect credentials) generated in the Azure portal or with the Microsoft Graph REST API
 * A GitHub Actions workflow with the `azure/login@v1.4.0` action
 
+1. Open [Azure Cloud Shell](/azure/cloud-shell/overview) in the Azure portal or [Azure CLI](/cli/azure/install-azure-cli) locally.
+
 1. Register a [new Active Directory application](/azure/active-directory/develop/) and service principal with the Contributor role that is tied to your subscription.
 
     ``azurecli-interactive
@@ -150,17 +152,6 @@ To use [Azure login](https://github.com/marketplace/actions/azure-login) with a 
 ### Create a service principal and add it to GitHub secret
 
 In this example, you will create a secret named `AZURE_CREDENTIALS` that you can use to authenticate with Azure.  
-
-1. If you do not have an existing application, register a [new Active Directory application](/azure/active-directory/develop/howto-create-service-principal-portal#register-an-application-with-azure-ad-and-create-a-service-principal&preserve-view=true) to use with your service principal.
-
-    ```azurecli-interactive
-        appName="myApp"
-
-        az ad app create \
-        --display-name $appName \
-        --homepage "http://localhost/$appName" \
-        --identifier-uris http://localhost/$appName
-    ```
 
 1. Open [Azure Cloud Shell](/azure/cloud-shell/overview) in the Azure portal or [Azure CLI](/cli/azure/install-azure-cli) locally.
 
