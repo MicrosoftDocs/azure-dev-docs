@@ -257,9 +257,9 @@ Configuring your Azure web app for local Git deployment and retrieving your cred
     | Instructions    | Screenshot |
     |:----------------|-----------:|
     | [!INCLUDE [Deploy from VS Code 1](<./includes/deploy-from-local-git-azportal-1.md>)] | :::image type="content" source="./media/deploy-local-git-azportal-1-240px.png" alt-text="A screenshot showing how to navigate to a web app using the search box in Azure portal." lightbox="./media/deploy-local-git-azportal-1.png"::: |
-    | [!INCLUDE [Deploy from VS Code 2](<./includes/deploy-from-local-git-az-portal-2.md>)] | :::image type="content" source="./media/deploy-local-git-azportal-2-240px.png" alt-text="A screenshot showing te location of the deployment page and how to configure a web app for local Git deployment in the Azure portal." lightbox="./media/deploy-local-git-azportal-2.png"::: |
-    | [!INCLUDE [Deploy from VS Code 3](<./includes/deploy-from-local-git-az-portal-3.md>)] | :::image type="content" source="./media/deploy-local-git-azportal-3-240px.png" alt-text="A screenshot of the Azure portal showing the Git URL to push code to for local Git deployments." lightbox="./media/deploy-local-git-azportal-3.png"::: |
-    | [!INCLUDE [Deploy from VS Code 3](<./includes/deploy-from-local-git-az-portal-4.md>)] | :::image type="content" source="./media/deploy-local-git-azportal-4-240px.png" alt-text="A screenshot of the Azure portal showing where to retrieve the deployment credentials for local Git deployment." lightbox="./media/deploy-local-git-azportal-4.png"::: |
+    | [!INCLUDE [Deploy from VS Code 2](<./includes/deploy-from-local-git-azportal-2.md>)] | :::image type="content" source="./media/deploy-local-git-azportal-2-240px.png" alt-text="A screenshot showing te location of the deployment page and how to configure a web app for local Git deployment in the Azure portal." lightbox="./media/deploy-local-git-azportal-2.png"::: |
+    | [!INCLUDE [Deploy from VS Code 3](<./includes/deploy-from-local-git-azportal-3.md>)] | :::image type="content" source="./media/deploy-local-git-azportal-3-240px.png" alt-text="A screenshot of the Azure portal showing the Git URL to push code to for local Git deployments." lightbox="./media/deploy-local-git-azportal-3.png"::: |
+    | [!INCLUDE [Deploy from VS Code 3](<./includes/deploy-from-local-git-azportal-4.md>)] | :::image type="content" source="./media/deploy-local-git-azportal-4-240px.png" alt-text="A screenshot of the Azure portal showing where to retrieve the deployment credentials for local Git deployment." lightbox="./media/deploy-local-git-azportal-4.png"::: |
 
 </details>
 <details>
@@ -319,8 +319,13 @@ Oh say can you nest...
 
 ### [VS Code](#tab/vscode-deploy4)
 
-Blah blah blah
+To deploy your application code directly from VS Code, you must have the [Azure Tools extension pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack) installed and be signed into Azure from VS Code.
 
+| Instructions    | Screenshot |
+|:----------------|-----------:|
+| [!INCLUDE [Deploy from VS Code 1](<./includes/deploy-from-vscode-1.md>)] | :::image type="content" source="./media/deploy-from-vscode-1-240px.png" alt-text="A screenshot showing the location of the Azure Tool icon in Visual Studio Code." lightbox="./media/deploy-from-vscode-1.png"::: |
+| [!INCLUDE [Deploy from VS Code 2](<./includes/deploy-from-vscode-2.md>)] | :::image type="content" source="./media/deploy-from-vscode-2-240px.png" alt-text="A screenshot showing how you deploy an application to Azure by right-clicking on a web app in VS Code and selecting deploy from the context menu." lightbox="./media/deploy-from-vscode-2.png"::: |
+| [!INCLUDE [Deploy from VS Code 3](<./includes/deploy-from-vscode-3.md>)] | :::image type="content" source="./media/deploy-from-vscode-3-240px.png" alt-text="A screenshot showing the Output window of VS Code while deploying an application to Azure." lightbox="./media/deploy-from-vscode-3.png"::: |
 ### [Local git](#tab/local-git4)
 
 This tab is about deploying with local Git.  You can configure this using the Azure portal or with the Azure CLI.
