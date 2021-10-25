@@ -13,7 +13,7 @@ In this step, you deploy the Azure Container registry image to Azure App Service
 
 ## Deploy image to Azure web app from VS Code
 
-1. In the **Docker** Explorer, expand the nodes for your image under **Registries**, right-click `:latest`, and select **Deploy Image to Azure App Service**.
+1. In Docker Explorer, expand the nodes for your image under **Registries**, right-click `:latest`, and select **Deploy Image to Azure App Service**.
 
     ![Deploy From the Explorer](../../media/deploy-containers/deploy-image-command.png)
 
