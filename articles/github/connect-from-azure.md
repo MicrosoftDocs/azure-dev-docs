@@ -45,10 +45,13 @@ You'll need to create an active directory application and service principal and 
     * Register your application with Azure AD and create a service principal
     * Assign a role to the application
 
-1. Open your application in Azure portal. Copy the values for tenant and app ID.
+1. Open **App registrations** in Azure portal and find your application. Copy the values for **Application (client) ID** and **Directory (tenant) ID** to use in your GitHub Actions workflow.
+
 # [Azure CLI](#tab/azure-cli)
 
-1. Open [Azure Cloud Shell](/azure/cloud-shell/overview) in the Azure portal or [Azure CLI](/cli/azure/install-azure-cli) locally.
+Use the Azure portal to generate credentials during the OpenID Connect authentication feature beta phase.
+
+<!-- 1. Open [Azure Cloud Shell](/azure/cloud-shell/overview) in the Azure portal or [Azure CLI](/cli/azure/install-azure-cli) locally.
 
 1. Register a [new Active Directory application](/azure/active-directory/develop/) and service principal with the Contributor role that is tied to your subscription.
 
@@ -58,7 +61,7 @@ You'll need to create an active directory application and service principal and 
                                     --sdk-auth
     ```
 
-1. Copy the JSON object for your service principal. You'll use the values for `clientId`, `subscriptionId`, and `tenantId` in your GitHub Actions workflow.
+1. Copy the JSON object for your service principal. You'll use the values for `clientId`, `subscriptionId`, and `tenantId` in your GitHub Actions workflow. -->
 
 ---
 ### Add federated credentials
@@ -66,7 +69,6 @@ You'll need to create an active directory application and service principal and 
 You can add federated credentials in the Azure portal or with the Microsoft Graph REST API.
 
 # [Azure portal](#tab/azure-portal)
-# [Azure CLI](#tab/azure-cli)
 
 1. Go to **App registrations** in the <a href="https://portal.azure.com/" target="_blank">Azure portal</a> and open the app you want to configure.
 1. Within the app, go to **Certificates and secrets**.  
