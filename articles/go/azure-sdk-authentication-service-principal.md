@@ -134,7 +134,7 @@ Choosing one of the following options to configure your service principal creden
 * [Option 1: Authenticate with a secret](#authenticate-with-a-secret)
 * [Option 2: Authenticate with a certificate](#authenticate-with-a-certificate)
 
-To learn more about the `DefaultAzureCredential`, check out [Azure authentication with the Azure SDK for Go](/azure/developer/go/azure-sdk-authentication)
+To learn more about the `DefaultAzureCredential`, check out [Azure authentication with the Azure SDK for Go](./azure-sdk-authentication.md)
 
 ### <span id="authenticate-with-a-secret"/> Option 1: Authenticate with a secret
 
