@@ -36,6 +36,18 @@ To set up an Azure Login with OpenID Connect and use it in a GitHub Actions work
 
 ### Create an active directory application and service principal
 
+You'll need to create an active directory application and service principal and then assign a role to your application so that you can access it with your workflow.
+
+# [Azure portal](#tab/azure-portal)
+
+1. If you do not have an existing application, register a [new Active Directory application and service principal that can access resources](/azure/active-directory/develop/howto-create-service-principal-portal). As part of this process, make sure to:
+
+    * Register your application with Azure AD and create a service principal
+    * Assign a role to the application
+
+1. Open your application in Azure portal. Copy the values for tenant and app ID.
+# [Azure CLI](#tab/azure-cli)
+
 1. Open [Azure Cloud Shell](/azure/cloud-shell/overview) in the Azure portal or [Azure CLI](/cli/azure/install-azure-cli) locally.
 
 1. Register a [new Active Directory application](/azure/active-directory/develop/) and service principal with the Contributor role that is tied to your subscription.
@@ -48,11 +60,13 @@ To set up an Azure Login with OpenID Connect and use it in a GitHub Actions work
 
 1. Copy the JSON object for your service principal. You'll use the values for `clientId`, `subscriptionId`, and `tenantId` in your GitHub Actions workflow.
 
+---
 ### Add federated credentials
 
 You can add federated credentials in the Azure portal or with the Microsoft Graph REST API.
 
 # [Azure portal](#tab/azure-portal)
+# [Azure CLI](#tab/azure-cli)
 
 1. Go to **App registrations** in the <a href="https://portal.azure.com/" target="_blank">Azure portal</a> and open the app you want to configure.
 1. Within the app, go to **Certificates and secrets**.  
@@ -70,7 +84,7 @@ You can add federated credentials in the Azure portal or with the Microsoft Grap
 |Name     |     Identifier for the federated credential.    |    `contoso-deploy`     |
 
 For a more detailed overview, see [Configure an app to trust a GitHub repo](/azure/active-directory/develop/workload-identity-federation-create-trust-github).
-# [Microsoft Graph](#tab/microsoft-graph)
+# [Azure CLI](#tab/azure-cli)
 
 Run the following command to [create a new federated identity credential](/graph/api/application-post-federatedidentitycredentials?view=graph-rest-beta&preserve-view=true) for your active directory application.
 
