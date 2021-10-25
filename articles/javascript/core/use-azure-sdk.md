@@ -31,7 +31,7 @@ The Azure SDK [releases](https://azure.github.io/azure-sdk/releases/latest/js.ht
 
 Azure SDKs are freely available from [NPM](https://www.npmjs.com/). Install individual SDKs needed. Each SDK provides TypeScript definitions. 
 
-For client/browser usage, Azure SDKs need to be added to your [bundling](#Bundling) process. 
+For client/browser usage, Azure SDKs need to be added to your [bundling](#bundling) process. 
 
 ## Use Azure npm package sample code
 
