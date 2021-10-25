@@ -90,7 +90,7 @@ For a more detailed overview, see [Configure an app to trust a GitHub repo](/azu
 
 Run the following command to [create a new federated identity credential](/graph/api/application-post-federatedidentitycredentials?view=graph-rest-beta&preserve-view=true) for your active directory application.
 
-* Replace `APPLICATION-ID` with the `clientId` from the JSON object for your service principal.
+* Replace `APPLICATION-ID` with the **Application (client) ID** for your Active Directory application.
 * Set a value for `CREDENTIAL-NAME` to reference later.
 * Set the `subject`. The options for `subject` refer to your request filter. These are the conditions that OpenID Connect uses to determine when to issue an authentication token.
   * Jobs in your GitHub Actions workflows: `repo:< Organization/Repository >:environment:< Name >`
@@ -116,13 +116,13 @@ You'll use secrets for `AZURE_CLIENTID`, `AZURE_TENANTID`, and `AZURE_SUBSCRIPTI
 
     :::image type="content" source="media/select-secrets.png" alt-text="Choose to add a secret":::
 
-1. Create secrets for `AZURE_CLIENTID`, `AZURE_TENANTID`, and `AZURE_SUBSCRIPTIONID`. Use these values from your JSON object for your GitHub secrets:
+1. Create secrets for `AZURE_CLIENTID`, `AZURE_TENANTID`, and `AZURE_SUBSCRIPTIONID`. Use these values from your Active Directory application for your GitHub secrets:
 
-    |GitHub Secret  |JSON key  |
+    |GitHub Secret  | Active Directory Application  |
     |---------|---------|
-    |AZURE_CLIENTID     |      ClientId   |
-    |AZURE_TENANTID     |     tenantId    |
-    |AZURE_SUBSCRIPTIONID     |     subscriptionId    |
+    |AZURE_CLIENTID     |      Application (client) ID   |
+    |AZURE_TENANTID     |     Directory (tenant) ID    |
+    |AZURE_SUBSCRIPTIONID     |     Subscription ID    |
 
 1. Save each secret by selecting **Add secret**.
 
@@ -130,7 +130,9 @@ You'll use secrets for `AZURE_CLIENTID`, `AZURE_TENANTID`, and `AZURE_SUBSCRIPTI
 
 Your GitHub Actions workflow uses OpenID Connect to generate a unique access token each time the workflow runs. To learn more about this interaction, see the [GitHub Actions documentation](https://docs.github.com/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-azure).
 
-In this example, you'll install the OpenID Connect Azure CLI beta and authenticate with Azure.
+In this example, you'll install the OpenID Connect Azure CLI beta and authenticate with Azure. The CLI-beta installation step is a temporary part of the beta release.
+
+# [Linux](#tab/linux)
 
 ```yaml
 name: Run Azure Login with OpenID Connect
@@ -164,6 +166,49 @@ jobs:
         tenant-id: ${{ secrets.AZURE_TENANTID }}
         subscription-id: ${{ secrets.AZURE_SUBSCRIPTIONID }}
 ```
+# [Windows](#tab/windows)
+
+```yaml
+name: Run Azure Login with OpenID Connect
+on: [push]
+
+permissions:
+      id-token: write
+      
+jobs: 
+  Windows-latest:
+      runs-on: windows-latest
+      steps:
+
+        - name: Install CLI-beta
+          run: |
+              cd ../..
+              $CWD = Convert-Path .
+              echo $CWD
+              python --version
+              python -m venv oidc-venv
+              . .\oidc-venv\Scripts\Activate.ps1
+              python -m pip install -q --upgrade pip
+              echo "started installing cli beta" 
+              pip install -q --extra-index-url https://azcliprod.blob.core.windows.net/beta/simple/ azure-cli
+              echo "installed cli beta" 
+              echo "$CWD\oidc-venv\Scripts" >> $env:GITHUB_PATH
+
+        - name: Installing Az.accounts for powershell
+          shell: pwsh
+          run: |
+               Install-Module -Name Az.Accounts -Force -AllowClobber -Repository PSGallery
+  
+        - name: OIDC Login to Azure Public Cloud with AzPowershell (enableAzPSSession true)
+          uses: azure/login@v1.4.0
+          with:
+            client-id: ${{ secrets.AZURE_CLIENTID }}
+            tenant-id: ${{ secrets.AZURE_TENANTID }}
+            subscription-id: ${{ secrets.AZURE_SUBSCRIPTIONID }} 
+            enable-AzPSSession: true
+```
+
+---
 
 ## Use the Azure login action with a service principal
 
