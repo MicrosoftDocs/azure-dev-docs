@@ -22,7 +22,7 @@ ms.date: 10/02/2021
 
 This article assumes you have set up your environment as described in the previous articles:
 
-* [Configure your local Python dev environment for Azure](/azure/developer/python/configure-local-development-environment)
+* [Configure your local Python dev environment for Azure](./configure-local-development-environment.md)
 * [Create resources](tutorial-deploy-serverless-cloud-etl-02.md)
 
 >[!TIP]

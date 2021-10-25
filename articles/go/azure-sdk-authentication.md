@@ -39,7 +39,7 @@ Use the `DefaultAzureCredential` to authenticate to Azure with one of the follow
 * [Option 2: Use a managed identity](#managed-identity)
 * [Option 3: Sign in with Azure CLI](#azureCLI)
 
-To learn more about the different credential types, see [credential types](/azure/developer/go/azure-sdk-authorization).
+To learn more about the different credential types, see [credential types](./azure-sdk-authorization.md).
 
 ### <span id="environment-variables"/> Option 1: Define environment variables
 
