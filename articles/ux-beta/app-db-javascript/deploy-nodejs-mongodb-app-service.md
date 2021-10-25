@@ -11,7 +11,8 @@ ms.custom: scenarios:getting-started, languages:JavaScript, devx-track-js
 
 Azure provides a fully managed solution for hosting JavaScript web apps in the cloud. In this article, you will clone and deploy a basic **Express.js** app using a **MongoDB** database to Azure.  The Express.js app will be hosted in Azure App Service and the MongoDB database in Azure Cosmos DB, a cloud native database offering a [100% MongoDB compatible API](/azure/cosmos-db/mongodb/mongodb-introduction).
 
-IMAGE
+![A diagram showing how the Express.js app will be deployed to Azure App Service and the MongoDB data will be hosted inside of Azure Cosmos DB.](./media/app-diagram.png)
+
 
 In this tutorial, you will create the necessary Azure resources, deploy your code to Azure, browse to your application, and inspect the deployed app to see the log files and the environment that hosts your app. No application code changes will be necessary to host the applications in Azure.
 
@@ -280,12 +281,9 @@ Use the form elements in the application to add and complete tasks.
 
 [Kudu](/azure/app-service/resources-kudu) is the engine behind many of the automated deployment features in App Service. In addition, it provides a useful web-based console to view your deployed application in Azure.
 
-To access Kudu, navigate to one of the following URLs:
-
+To access Kudu, navigate to one of the following URLs. You will need to sign into the Kudu site with your Azure credentials.
 * For apps deployed in Free, Shared, Basic, Standard and Premium App Service plans - `https://<app-name>.scm.azurewebsites.net`
 * For apps deployed in Isolated service plans - `https://<app-name>.scm.<ase-name>.p.azurewebsites.net`
-
-You will need to sign into the Kudu site with your Azure credentials.
 
 From the main page in Kudu, you can access information about the application hosting environment, app settings, deployments and browse the files in the wwwroot directory.
 
@@ -297,7 +295,7 @@ Selecting the *Deployments* link under the REST API header will show you a histo
 
 Selecting the *Site wwwroot* link under the Browse Directory heading allows you to browse and view the files on the web server. This is useful when troubleshooting deployment problems and you need to see exactly what files are deployed on the server.
 
-![A screenshot of files in the wwwroot directory showing how Kudu allows you to see what has been deployed to Azure.](./media/kudu-deployments-list.png)
+![A screenshot of files in the wwwroot directory showing how Kudu allows you to see what has been deployed to Azure.](./media/kudu-wwwwroot-files.png)
 
 ## Clean up resources
 
