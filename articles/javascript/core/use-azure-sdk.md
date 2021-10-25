@@ -2,7 +2,7 @@
 title: Azure SDK for JS/TS
 description: To programmatically access your Azure services, use the Azure SDKs for JavaScript or TypeScript development.
 ms.topic: conceptual
-ms.date: 10/20/2021
+ms.date: 10/25/2021
 ms.custom: devx-track-js
 ---
 
@@ -16,9 +16,9 @@ Use the following table to understand when to use which type of access mechanism
 
 |Azure SDKs (recommended)|Azure REST APIs|
 |--|--|
-|The [Azure SDKs](/azure/developer/javascript/azure-sdk-library-package-index#modern-javascripttypescript-libraries) are the preferred method of accessing your Azure service. The Azure SDKs abstract away the boilerplate code required to manage cloud-based Azure platform REST requests.|[Azure REST APIs](/rest/api/azure/) are the preferred method if you are working with preview services that do not have Azure SDKs available. Consider your code as preview, which should be updated when the service is generally available with SDKs.| 
+|The [Azure SDKs](/azure/developer/javascript/azure-sdk-library-package-index#modern-javascripttypescript-libraries) are the preferred method of accessing your Azure service. The Azure SDKs abstract away the boilerplate code required to manage cloud-based Azure platform REST requests such as authentication, retries, and logging.|[Azure REST APIs](/rest/api/azure/) are the preferred method if you are:<br><br>* Working with preview services that do not have Azure SDKs available. Consider your code as preview, which should be updated when the service is generally available with SDKs.<br><br>* Want to make REST calls directly because you don't want the entire SDK to use a single REST API or you want deeper control over the HTTP requests.| 
 
-## Azure client and management 
+## Azure client and management libraries
 
 The Azure SDK [releases](https://azure.github.io/azure-sdk/releases/latest/js.html) are available as:
 
@@ -30,6 +30,8 @@ The Azure SDK [releases](https://azure.github.io/azure-sdk/releases/latest/js.ht
 ## Install Azure npm packages
 
 Azure SDKs are freely available from [NPM](https://www.npmjs.com/). Install individual SDKs needed. Each SDK provides TypeScript definitions. 
+
+For client/browser usage, Azure SDKs need to be added to your [bundling](#Bundling) process. 
 
 ## Use Azure npm package sample code
 
@@ -100,6 +102,10 @@ The [@azure/abort-controller](https://www.npmjs.com/package/@azure/abort-control
 * Aborted based on a parent task's signal
 * Aborted based on a parent task's signal _or_ a timeout limit
 
+Learn more:
+
+* [How to use abort signals to cancel operations in the Azure SDK for JavaScript/TypeScript](https://devblogs.microsoft.com/azure-sdk/how-to-use-abort-signals-to-cancel-operations-in-the-azure-sdk-for-javascript-typescript/ )
+
 ## Verbose logging from the SDK
 
 When using an Azure SDK, there may be times when you need to debug your application. 
@@ -115,13 +121,7 @@ When using an Azure SDK, there may be times when you need to debug your applicat
 
 ## Bundling
 
-1. To bundle the Azure SDKs into your application, install _only_ the Azure SDK npm packages used in your application. 
-1. Use a bundling package. 
+Learn about bundling with the Azure SDK:
 
-    |Package|Language|
-    |--|--|
-    |Webpack|[JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/main/documentation/Bundling.md#webpack-with-javascript) or [TypeScript](https://github.com/Azure/azure-sdk-for-js/blob/main/documentation/Bundling.md#webpack-with-typescript)|
-    |Rollup|[JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/main/documentation/Bundling.md#rollup-with-javascript) or [TypeScript](https://github.com/Azure/azure-sdk-for-js/blob/main/documentation/Bundling.md#rollup-with-typescript)|
-    |Parcel|[JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/main/documentation/Bundling.md#parcel-with-javascript) or [TypeScript](https://github.com/Azure/azure-sdk-for-js/blob/main/documentation/Bundling.md#parcel-with-typescript)|
-
-Learn more about bundling with the Azure SDK [bundling samples](https://github.com/Azure/azure-sdk-for-js/tree/main/samples/Bundling).
+* [To bundle the Azure SDKs](https://aka.ms/AzureSDKBundling)
+* [Bundling samples](https://github.com/Azure/azure-sdk-for-js/tree/main/samples/Bundling).
