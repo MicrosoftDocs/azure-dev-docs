@@ -295,7 +295,7 @@ Selecting the *Deployments* link under the REST API header will show you a histo
 
 Selecting the *Site wwwroot* link under the Browse Directory heading allows you to browse and view the files on the web server. This is useful when troubleshooting deployment problems and you need to see exactly what files are deployed on the server.
 
-![A screenshot of files in the wwwroot directory showing how Kudu allows you to see what has been deployed to Azure.](./media/kudu-wwwwroot-files.png)
+![A screenshot of files in the wwwroot directory showing how Kudu allows you to see what has been deployed to Azure.](./media/kudu-wwwroot-files.png)
 
 ## Clean up resources
 
