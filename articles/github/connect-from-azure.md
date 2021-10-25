@@ -16,7 +16,7 @@ Learn how to use [Azure login](https://github.com/Azure/login) with either [Azur
 To use Azure PowerShell or Azure CLI in a GitHub Actions workflow, you need to first log in with the [Azure login](https://github.com/marketplace/actions/azure-login) action.
 
 The Azure login action supports two different ways of authenticating with Azure:
-* [Service principal with secrets](#use-the-azure-login-action-with-a-service-principal)
+* [Service principal with secrets](#use-the-azure-login-action-with-a-service-principal-secret)
 * [(public beta) OpenID Connect (OIDC) with a Azure service principal using a Federated Identity Credential](#use-the-azure-login-action-with-openid-connect)
 
 By default, the login action logs in with the Azure CLI and sets up the GitHub action runner environment for Azure CLI. You can use Azure PowerShell with `enable-AzPSSession` property of the Azure login action. This sets up the GitHub action runner environment with the Azure PowerShell module.
@@ -224,7 +224,7 @@ jobs:
 
 To use [Azure login](https://github.com/marketplace/actions/azure-login) with a service principal, you first need to add your Azure service principal as a secret to your GitHub repository.
 
-### Create a service principal and add it to GitHub secret
+### Create a service principal and add it as a GitHub secret
 
 In this example, you will create a secret named `AZURE_CREDENTIALS` that you can use to authenticate with Azure.  
 
