@@ -92,7 +92,7 @@ Run the following command to [create a new federated identity credential](/graph
 
 * Replace `APPLICATION-ID` with the **Application (client) ID** for your Active Directory application.
 * Set a value for `CREDENTIAL-NAME` to reference later.
-* Set the `subject`. The options for `subject` refer to your request filter. These are the conditions that OpenID Connect uses to determine when to issue an authentication token.
+* Set the `subject`. The options for `subject` refer to your request filter. These are the conditions that OpenID Connect uses to determine when to issue an access token.
   * Jobs in your GitHub Actions workflows: `repo:< Organization/Repository >:environment:< Name >`
   * For Jobs not tied to an environment, include the ref path for branch/tag based on the ref path used for triggering the workflow: `repo:< Organization/Repository >:ref:< ref path>`.  For example, `repo:n-username/ node_express:ref:refs/heads/my-branch` or `repo:n-username/ node_express:ref:refs/tags/my-tag`.
   * For workflows triggered by a pull request event: `repo:< Organization/Repository >:pull-request`.
@@ -101,7 +101,7 @@ Run the following command to [create a new federated identity credential](/graph
 az rest --method POST --uri 'https://graph.microsoft.com/beta/applications/<APPLICATION-ID>/federatedIdentityCredentials' --body '{"name":"<CREDENTIAL-NAME>","issuer":"https://token.actions.githubusercontent.com/","subject":"repo:organization/repository:environment:Production","description":"Testing","audiences":["api://AzureADTokenExchange"]}' 
 ```
 
-For a more detailed overview, see [Configure an app to trust a GitHub repo](/azure/active-directory/develop/workload-identity-federation-create-trust-github).
+For a more detailed overview, see [Configure an app to trust a GitHub repo](/azure/active-directory/develop/workload-identity-federation-create-trust-github) and [Security hardening with OpenID Connect](https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect).
 
 ---
 ### Create GitHub secrets
