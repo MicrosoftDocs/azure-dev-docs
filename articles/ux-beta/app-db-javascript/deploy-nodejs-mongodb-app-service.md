@@ -268,9 +268,44 @@ Blah blah blah
 
 ## 5 - Browse to the application
 
-## 6 - Inspect application logs
+The application will have a url of the form `https://<app name>.azurewebsites.net`. Browse the this URL to view the application.
 
-## 7 - Something with Kudu
+Use the form elements in the application to add and complete tasks.
+
+![A screenshot showing the application running in a browser.](./media/sample-app-in-browser.png)
+
+## 6 - Configure and view application logs
+
+## 7 - Inspect deployed files using Kudu
+
+[Kudu](/azure/app-service/resources-kudu) is the engine behind many of the automated deployment features in App Service. In addition, it provides a useful web-based console to view your deployed application in Azure.
+
+To access Kudu, navigate to one of the following URLs:
+
+* For apps deployed in Free, Shared, Basic, Standard and Premium App Service plans - `https://<app-name>.scm.azurewebsites.net`
+* For apps deployed in Isolated service plans - `https://<app-name>.scm.<ase-name>.p.azurewebsites.net`
+
+You will need to sign into the Kudu site with your Azure credentials.
+
+From the main page in Kudu, you can access information about the application hosting environment, app settings, deployments and browse the files in the wwwroot directory.
+
+![A screenshot of the main page in the Kudu SCM app showing the different information available about the hosting environment.](./media/kudu-main-page.png)
+
+Selecting the *Deployments* link under the REST API header will show you a history of deployments of your web app.
+
+![A screenshot of the deployments JSON in the Kudu SCM app showing the history of deployments to this web app.](./media/kudu-deployments-list.png)
+
+Selecting the *Site wwwroot* link under the Browse Directory heading allows you to browse and view the files on the web server. This is useful when troubleshooting deployment problems and you need to see exactly what files are deployed on the server.
+
+![A screenshot of files in the wwwroot directory showing how Kudu allows you to see what has been deployed to Azure.](./media/kudu-deployments-list.png)
+
+## Clean up resources
+
+## Next steps
+
+* Managed identity
+* Performance monitoring
+* User authentication
 
 ## Things that did not work
 
