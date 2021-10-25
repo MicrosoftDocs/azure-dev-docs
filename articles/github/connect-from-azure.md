@@ -139,7 +139,7 @@ You need to provide your application's **Client ID**, **Tenant ID** and **Subscr
 Your GitHub Actions workflow uses OpenID Connect to authenticate with Azure.
 <!-- To learn more about this interaction, see the [GitHub Actions documentation](https://docs.github.com/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-azure). -->
 
-In this example, you'll install the OpenID Connect Azure CLI beta and authenticate with Azure. The CLI-beta installation step is a temporary part of the beta release.
+In this example, you'll install the OpenID Connect Azure CLI beta and authenticate with Azure with the [Azure login](https://github.com/marketplace/actions/azure-login) action. The CLI-beta installation step is a temporary part of the beta release. The example uses GitHub secrets for the `client-id`, `tenant-id`, and `subscription-id` values. You can also pass these values directly in the login action.
 
 # [Linux](#tab/linux)
 
@@ -175,6 +175,7 @@ jobs:
         tenant-id: ${{ secrets.AZURE_TENANTID }}
         subscription-id: ${{ secrets.AZURE_SUBSCRIPTIONID }}
 ```
+
 # [Windows](#tab/windows)
 
 ```yaml
@@ -219,7 +220,7 @@ jobs:
 
 ---
 
-## Use the Azure login action with service principal secret
+## Use the Azure login action with a service principal secret
 
 To use [Azure login](https://github.com/marketplace/actions/azure-login) with a service principal, you first need to add your Azure service principal as a secret to your GitHub repository.
 
