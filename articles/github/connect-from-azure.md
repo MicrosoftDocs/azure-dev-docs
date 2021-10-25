@@ -5,7 +5,7 @@ author: N-Usha
 ms.author: ushan 
 ms.topic: reference
 ms.service: azure 
-ms.date: 10/22/2021
+ms.date: 10/25/2021
 ms.custom: github-actions-azure, devx-track-azurecli
 ---
 
@@ -30,13 +30,13 @@ You can use Azure login to connect to public or sovereign clouds including Azure
 
 To set up an Azure Login with OpenID Connect and use it in a GitHub Actions workflow, you'll need:
 
-* An [Active Directory application](/azure/active-directory/develop/) and service principal that is tied to your subscription
-* Federated (OpenID Connect credentials) generated in the Azure portal or with the Microsoft Graph REST API
-* A GitHub Actions workflow with the `azure/login@v1.4.0` action
+* An [Active Directory application](/azure/active-directory/develop/), with a service principal that has contributor access to your subscription
+* An Active Directory application configured with a federated credential to trust tokens issued by GitHub Actions to your GitHub repository. You can configure this in the Azure portal or with Microsoft Graph REST APIs
+* A GitHub Actions workflow that requests GitHub issue tokens to the workflow, and uses the `azure/login@v1.4.0` action
 
 ### Create an active directory application and service principal
 
-You'll need to create an active directory application and service principal and then assign a role to your application so that you can access it with your workflow.
+You'll need to create an Azure Active Directory application and service principal and then assign a role on your subscription to your application so that your workflow has access to your subscription.
 
 # [Azure portal](#tab/azure-portal)
 
@@ -45,11 +45,31 @@ You'll need to create an active directory application and service principal and 
     * Register your application with Azure AD and create a service principal
     * Assign a role to the application
 
-1. Open **App registrations** in Azure portal and find your application. Copy the values for **Application (client) ID** and **Directory (tenant) ID** to use in your GitHub Actions workflow.
+1. Open **App registrations** in Azure portal and find your application. Copy the values for **Application (client) ID** and **Directory (tenant) ID** to use in your GitHub Actions workflow. 
+
+1. Open **Subscriptions** in Azure portal and find your subscription. Copy the **Subscription ID**.
 
 # [Azure CLI](#tab/azure-cli)
 
-Use the Azure portal to generate credentials during the OpenID Connect authentication feature beta phase.
+1. Create the Active Directory application.
+
+    ```azurecli-interactive
+    az ad app create --display-name myApp
+    ```
+
+1. Create a service principal.
+
+    ```azurecli-interactive
+    az ad sp create --id
+    ```
+
+1. Create a new role assignment by subscription and object. By default, the role assignment will be tied to your default subscription. 
+
+    ```azurecli-interactive
+    az role assignment create --role contributor --subscription --assignee-object-id
+    ```
+
+1. Copy the values for `clientId`, `subscriptionId`, and `tenantId` to use later in your GitHub Actions workflow.
 
 <!-- 1. Open [Azure Cloud Shell](/azure/cloud-shell/overview) in the Azure portal or [Azure CLI](/cli/azure/install-azure-cli) locally.
 
@@ -92,8 +112,8 @@ Run the following command to [create a new federated identity credential](/graph
 
 * Replace `APPLICATION-ID` with the **Application (client) ID** for your Active Directory application.
 * Set a value for `CREDENTIAL-NAME` to reference later.
-* Set the `subject`. The options for `subject` refer to your request filter. These are the conditions that OpenID Connect uses to determine when to issue an access token.
-  * Jobs in your GitHub Actions workflows: `repo:< Organization/Repository >:environment:< Name >`
+* Set the `subject`. The value of this is defined by GitHub depending on your workflow:
+  * Jobs in your GitHub Actions environment: `repo:< Organization/Repository >:environment:< Name >`
   * For Jobs not tied to an environment, include the ref path for branch/tag based on the ref path used for triggering the workflow: `repo:< Organization/Repository >:ref:< ref path>`.  For example, `repo:n-username/ node_express:ref:refs/heads/my-branch` or `repo:n-username/ node_express:ref:refs/tags/my-tag`.
   * For workflows triggered by a pull request event: `repo:< Organization/Repository >:pull-request`.
 
@@ -106,7 +126,7 @@ For a more detailed overview, see [Configure an app to trust a GitHub repo](/azu
 ---
 ### Create GitHub secrets
 
-You'll use secrets for `AZURE_CLIENTID`, `AZURE_TENANTID`, and `AZURE_SUBSCRIPTIONID` in your workflow. 
+You need to provide your application's **Client ID**, **Tenant ID** and **Subscription ID** to the login action. These values can either be provided directly in the workflow or can be stored in GitHub secrets and referenced in your workflow. Saving the values as GitHub secrets is the more secure option.
 
 1. Open your GitHub repository and go to **Settings**.
 
@@ -128,7 +148,7 @@ You'll use secrets for `AZURE_CLIENTID`, `AZURE_TENANTID`, and `AZURE_SUBSCRIPTI
 
 ### Set up Azure Login with OpenID Connect authentication
 
-Your GitHub Actions workflow uses OpenID Connect to generate a unique access token each time the workflow runs. To learn more about this interaction, see the [GitHub Actions documentation](https://docs.github.com/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-azure).
+Your GitHub Actions workflow uses OpenID Connect to authenticate with Azure. To learn more about this interaction, see the [GitHub Actions documentation](https://docs.github.com/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-azure).
 
 In this example, you'll install the OpenID Connect Azure CLI beta and authenticate with Azure. The CLI-beta installation step is a temporary part of the beta release.
 
@@ -210,7 +230,7 @@ jobs:
 
 ---
 
-## Use the Azure login action with a service principal
+## Use the Azure login action with service principal secret
 
 To use [Azure login](https://github.com/marketplace/actions/azure-login) with a service principal, you first need to add your Azure service principal as a secret to your GitHub repository.
 
