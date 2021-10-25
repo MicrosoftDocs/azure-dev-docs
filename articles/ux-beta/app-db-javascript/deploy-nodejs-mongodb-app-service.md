@@ -1,6 +1,6 @@
 ---
 title: Deploy Express.js/MongoDB app with VS Code - App Service/Cosmos DB
-description: In this tutorial, use a Node.js app with a MongoDB database using the MongoDB native API. Deploy the Node.js application to Azure App Service (on Linux) then verify the hosted app works.
+description: This article shows you have to deploy a Node.js app using Express.js and a MongoDB database to Azure.  Azure App Service is used to host the web application and Azure Cosmos DB to host the database using the 100% compatible MongoDB API built into Cosmos DB. 
 ms.topic: tutorial
 ms.date: 03/29/2021
 ms.service: app-service
@@ -48,9 +48,9 @@ Azure App Service is used to host the Express.js web application code. Azure App
 When setting up the App Service for the application, you will configure two individual components:
 
 * An **App Service plan** which defines the operating system and compute resources (CPU, memory) available for the application.
-* A **App Service web app** which defines the application name and runtime used by the application.
+* An **App Service web app** which defines the application name and runtime used by the application.
 
-All Azure resources must belong to a *resource group, which serves as a logical container to group related Azure resources together. As part of creating your App Service resources, you will also create a resource group used to group together all of the Azure resources needed for the application.
+All Azure resources must belong to a *resource group*, which serves as a logical container for related Azure resources. A common practice is to group all of the Azure resources used for an application together in a single resource group. As part of creating your App Service resources, you will also create a resource group to hold all of the Azure resources needed for the application.
 
 Azure resources can be created using the [Azure portal](https://portal.azure.com/), VS Code using the [Azure Tools extension pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack), or the Azure CLI.
 
