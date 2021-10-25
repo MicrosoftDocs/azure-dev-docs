@@ -15,7 +15,9 @@ Learn how to use [Azure login](https://github.com/Azure/login) with either [Azur
 
 To use Azure PowerShell or Azure CLI in a GitHub Actions workflow, you need to first log in with the [Azure login](https://github.com/marketplace/actions/azure-login) action.
 
-There are two versions of the Azure login action. The Open ID Connect version, which is in public beta, allows you to log in with federated identity credentials. The default version uses an [Azure AD service principal](/azure/active-directory/develop/app-objects-and-service-principals#service-principal-object).
+The Azure login action supports two different ways of authenticating with Azure:
+* [Service principal with secrets](#use-the-azure-login-action-with-a-service-principal)
+* [(public beta) OpenID Connect (OIDC) with a Azure service principal using a Federated Identity Credential](#use-the-azure-login-action-with-openid-connect)
 
 By default, the login action logs in with the Azure CLI and sets up the GitHub action runner environment for Azure CLI. You can use Azure PowerShell with `enable-AzPSSession` property of the Azure login action. This sets up the GitHub action runner environment with the Azure PowerShell module.
 
@@ -63,7 +65,7 @@ You can add federated credentials in the Azure portal or with the Microsoft Grap
 |---------|---------|---------|
 |Organization     |    Your GitHub organization name or GitHub username.     |     `contoso`    |
 |Repository     |     Your GitHub Repository name.    |    `contoso-app`     |
-|Entity type     |     The filter used by Open ID for authentication. This field is used to generate the subject identifier.   |     `Environment`, `Branch`, `Pull request`, `Tag`    |
+|Entity type     |     The filter used to scope the OIDC requests from GitHub workflows. This field is used to generate the `subject` claim.   |     `Environment`, `Branch`, `Pull request`, `Tag`    |
 |GitHub name     |     The name of the environment, branch, or tag.    |     `main`    |
 |Name     |     Identifier for the federated credential.    |    `contoso-deploy`     |
 
@@ -75,7 +77,7 @@ Run the following command to [create a new federated identity credential](/graph
 * Replace `APPLICATION-ID` with the `clientId` from the JSON object for your service principal.
 * Set a value for `CREDENTIAL-NAME` to reference later.
 * Set the `subject`. The options for `subject` refer to your request filter. These are the conditions that OpenID Connect uses to determine when to issue an authentication token.
-  * For Jobs tied to an environment: `repo:< Organization/Repository >:environment:< Name >`
+  * Jobs in your GitHub Actions workflows: `repo:< Organization/Repository >:environment:< Name >`
   * For Jobs not tied to an environment, include the ref path for branch/tag based on the ref path used for triggering the workflow: `repo:< Organization/Repository >:ref:< ref path>`.  For example, `repo:n-username/ node_express:ref:refs/heads/my-branch` or `repo:n-username/ node_express:ref:refs/tags/my-tag`.
   * For workflows triggered by a pull request event: `repo:< Organization/Repository >:pull-request`.
 
