@@ -9,16 +9,11 @@ ms.custom: scenarios:getting-started, languages:JavaScript, devx-track-js
 
 # Deploy a Node.js web app using MongoDB to Azure
 
-Azure provides a fully managed solution for hosting JavaScript web apps in the cloud. In this article, you will clone and deploy a basic **Express.js** app using a **MongoDB** database to Azure.  The Express.js app will be hosted in Azure App Service and the MongoDB database in Azure Cosmos DB, a cloud native database offering a [100% MongoDB compatible API](/azure/cosmos-db/mongodb/mongodb-introduction).
+Azure provides a fully managed solution for hosting JavaScript web apps in the cloud. In this article, you will clone and deploy a basic **Express.js** app using a **MongoDB** database to Azure.  The Express.js app will be hosted in Azure App Service and the MongoDB database in Azure Cosmos DB, a cloud native database offering a [100% MongoDB compatible API](/azure/cosmos-db/mongodb/mongodb-introduction). Azure supports hosting Node.js apps on both Linux (Node versions 10, 12, and 14) and Windows (versions 10 and 12) server environments.
 
 ![A diagram showing how the Express.js app will be deployed to Azure App Service and the MongoDB data will be hosted inside of Azure Cosmos DB.](./media/app-diagram.png)
 
-
-In this tutorial, you will create the necessary Azure resources, deploy your code to Azure, browse to your application, and inspect the deployed app to see the log files and the environment that hosts your app. No application code changes will be necessary to host the applications in Azure.
-
-This article assumes you already are familiar with the Node.js development workflow and have Node and MongoDB installed locally.  You will also need an Azure account with an active subscription.  If you do not have an Azure account, you [can create one for free](https://azure.microsoft.com/free/nodejs/).
-
-Azure App Service supports Node versions 10, 12 and 14 on Linux and versions 10 and 12 on Windows.
+In this tutorial, you will create the necessary Azure resources, deploy your code to Azure, browse to your application, and inspect the deployed app to see the log files and the environment that hosts your app. This article assumes you already are familiar with the [Node.js development workflow](/learn/paths/build-javascript-applications-nodejs/) and have Node and MongoDB installed locally.  You will also need an Azure account with an active subscription.  If you do not have an Azure account, you [can create one for free](https://azure.microsoft.com/free/nodejs/).
 
 ## Sample application
 
