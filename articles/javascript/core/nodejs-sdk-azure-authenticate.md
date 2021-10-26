@@ -2,7 +2,7 @@
 title: Authenticate to Azure with SDK
 description: To authenticate to Azure, create a service principal to use the Azure SDKs for JavaScript.
 ms.topic: conceptual
-ms.date: 09/23/2021
+ms.date: 10/26/2021
 ms.custom: devx-track-js
 ---
 
@@ -44,9 +44,76 @@ Because this code doesn't use any authentication secrets, you can check this cod
 
 ## Azure authentication for development and production use
 
-When you are ready to begin your development work, we recommend you select the **DefaultAzureCredential**. This credential method provides the benefit of using the same code in development and production without needing to store or use secrets.  
+When you are ready to _begin_ your development work, we recommend you select the following credentials: 
 
-This method requires setup on both the local development environment and the remote product environment. 
+|Local development|Deployed application|
+|--|--|
+|**ClientSecretCredential**. After you create your service principal and retrieve your client Id, tenant Id, and secret, this credential is quick to use and doesn't require environment variables.|When you plan to deploy to production, use the **DefaultAzureCredential** which requires environment variables. This credential method provides the benefit of not needing to store or use secrets in source control.  |
+
+There are other [credential classes](https://www.npmjs.com/package/@azure/identity#credential-classes), which allow you to control authentication for specific purposes. 
+
+## JavaScript development example with Azure credentials
+
+List subscriptions which this credential has access to read. 
+
+```javascript
+const { ClientSecretCredential, DefaultAzureCredential } = require("@azure/identity");
+const { SubscriptionClient } = require("@azure/arm-subscriptions");
+
+let credentials = null;
+
+if(process.env.production){
+
+    // production
+    credentials = new DefaultAzureCredential();
+
+}else{
+
+    // development
+    credentials = new ClientSecretCredential(tenantId, clientId, secret);
+}
+
+// use credential to authenticate with Azure SDKs
+let client = new SubscriptionClient(credentials);
+
+const subScriptions = async() =>{
+
+    // get list of Azure subscriptions
+    const listOfSubscriptions = await client.subscriptions.list(subscriptionId);
+    
+    // get details of each subscription
+    for (const item of listOfSubscriptions) {
+    
+        const subscriptionDetails = await client.subscriptions.get(item.subscriptionId);
+    
+        /*
+      
+        Each item looks like:
+      
+        {
+          id: '/subscriptions/123456',
+          subscriptionId: '123456',
+          displayName: 'YOUR-SUBSCRIPTION-NAME',
+          state: 'Enabled',
+          subscriptionPolicies: {
+            locationPlacementId: 'Internal_2014-09-01',
+            quotaId: 'Internal_2014-09-01',
+            spendingLimit: 'Off'
+          },
+          authorizationSource: 'RoleBased'
+        },
+      
+        */
+    
+        console.log(subscriptionDetails)
+    }
+}
+
+subscriptions()
+.then(()=>console.log("done"))
+.catch(ex=>console.log(ex))
+```
+
 
 ## 1. Create a service principal
 

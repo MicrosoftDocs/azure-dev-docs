@@ -39,7 +39,7 @@ Each package includes documentation to quickly get you started with the package.
 
 ## Provide authentication credentials
 
-The Azure SDKs require credentials to authenticate to the Azure platform. [Credential classes](https://www.npmjs.com/package/@azure/identity#credential-classes) provided by [@azure/identity](https://www.npmjs.com/package/@azure/identity) provide several benefits:
+The Azure SDKs require credentials [to authenticate to the Azure platform](nodejs-sdk-azure-authenticate.md). [Credential classes](https://www.npmjs.com/package/@azure/identity#credential-classes) provided by [@azure/identity](https://www.npmjs.com/package/@azure/identity) provide several benefits:
 * Fast onboarding
 * Most secure method
 * Separate the authentication mechanism from the code. This allows you to use the same code locally and on the Azure platform while the credentials are different. 
@@ -49,21 +49,64 @@ The Azure SDKs require credentials to authenticate to the Azure platform. [Crede
 
 Once you programmatically create a credential, pass the credential to your Azure SDK's client. The client may require additional information such as a subscription ID or service URL. These values are available in the Azure portal, for your resource. 
 
+List subscriptions which this credential has access to read. 
+
 ```javascript
-// The default credential first checks environment variables for configuration as described above.
-// If environment configuration is incomplete, it will try managed identity.
+const { ClientSecretCredential, DefaultAzureCredential } = require("@azure/identity");
+const { SubscriptionClient } = require("@azure/arm-subscriptions");
 
-// Azure Key Vault service to use
-const { KeyClient } = require("@azure/keyvault-keys");
+let credentials = null;
 
-// Azure authentication library to access Azure Key Vault
-const { DefaultAzureCredential } = require("@azure/identity");
+if(process.env.production){
 
-// Azure SDK clients accept the credential as a parameter
-const credential = new DefaultAzureCredential();
+    // production
+    credentials = new DefaultAzureCredential();
 
-// Create authenticated client
-const client = new KeyClient(vaultUrl, credential);
+}else{
+
+    // development
+    credentials = new ClientSecretCredential(tenantId, clientId, secret);
+}
+
+// use credential to authenticate with Azure SDKs
+let client = new SubscriptionClient(credentials);
+
+const subScriptions = async() =>{
+
+    // get list of Azure subscriptions
+    const listOfSubscriptions = await client.subscriptions.list(subscriptionId);
+    
+    // get details of each subscription
+    for (const item of listOfSubscriptions) {
+    
+        const subscriptionDetails = await client.subscriptions.get(item.subscriptionId);
+    
+        /*
+      
+        Each item looks like:
+      
+        {
+          id: '/subscriptions/123456',
+          subscriptionId: '123456',
+          displayName: 'YOUR-SUBSCRIPTION-NAME',
+          state: 'Enabled',
+          subscriptionPolicies: {
+            locationPlacementId: 'Internal_2014-09-01',
+            quotaId: 'Internal_2014-09-01',
+            spendingLimit: 'Off'
+          },
+          authorizationSource: 'RoleBased'
+        },
+      
+        */
+    
+        console.log(subscriptionDetails)
+    }
+}
+
+subscriptions()
+.then(()=>console.log("done"))
+.catch(ex=>console.log(ex))
 ```
 
 ## Asynchronous paging of results
