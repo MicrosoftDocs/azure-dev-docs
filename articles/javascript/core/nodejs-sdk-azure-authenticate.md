@@ -78,24 +78,17 @@ You can also create a service principal with:
 * [Azure portal](/azure/active-directory/develop/howto-create-service-principal-portal)
 * [PowerShell](/azure/active-directory/develop/howto-authenticate-service-principal-powershell) 
 
-
 ## 2. Configure your environment variables
 
-In both the local and Azure cloud environments, you need to configure the following environment variables. Do not change the name because the Azure Identity SDK requires these exact environment names. 
-
-1. Create these environment variables. These environment variables are **REQUIRED for the context to use DefaultAzureCredential**. 
+In the Azure cloud environments, you need to configure the following environment variables. Do not change the names because the Azure Identity SDK requires these exact environment names. These environment variables are **REQUIRED for the context to use DefaultAzureCredential**. 
 
    * `AZURE_TENANT_ID`: `tenant` from the service principal output above. 
    * `AZURE_CLIENT_ID`: `appId` from the service principal output above.
    * `AZURE_CLIENT_SECRET`: `password` from the service principal output above.
 
-1. Create this environment variable. This setting isn't required to use the DefaultAzureCredential but is used in the code in the next section.
+## 3. List Azure subscriptions with service principal 
 
-   * `AZURE_SUBSCRIPTION`: Your default subscription containing your resource groups. 
-
-## 3. List Azure resource groups with service principal 
-
-Use the new service principal to authenticate with Azure. 
+Use the new service principal to authenticate with Azure and list your subscriptions. 
 
 # [Azure SDK for JavaScript](#tab/azure-sdk-for-javascript)
 
@@ -127,7 +120,7 @@ Use the new service principal to authenticate with Azure.
 
     * [https://github.com/Azure-Samples/js-e2e/blob/main/resources/subscriptions/list.js](https://github.com/Azure-Samples/js-e2e/blob/main/resources/subscriptions/list.js)
 
-# [Azure CLI](#tab/azure-cli-create-resource)
+# [Azure CLI](#tab/azure-cli-list-subscriptions)
 
 1. In the same Azure CLI terminal you used to create the service principal, log off to stop using your personal account.
 
@@ -147,8 +140,7 @@ Use the new service principal to authenticate with Azure.
 1.  List all resource groups: 
 
     ```bash
-    az group list \
-        --subscription YOUR-SUBSCRIPTION-NAME-OR-ID
+    az account list --output table
     ```
 
 ---
