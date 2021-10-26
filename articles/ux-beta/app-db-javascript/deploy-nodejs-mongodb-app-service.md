@@ -172,7 +172,7 @@ Creating a new Azure Cosmos DB typically takes about 5 minutes.
 
 ## 3 - Connect your App Service to your Cosmos DB
 
-To connect to your Cosmos DB database, you need to provide the connection string for the database to your application. This is done in the sample application reading the `DATABASE_URL` environment variable. When running locally, the sample application uses the [dotenv package](https://www.npmjs.com/package/dotenv) to read the connection string value from the `.env` file.
+To connect to your Cosmos DB database, you need to provide the connection string for the database to your application. This is done in the sample application by reading the `DATABASE_URL` environment variable. When running locally, the sample application uses the [dotenv package](https://www.npmjs.com/package/dotenv) to read the connection string value from the `.env` file.
 
 When running in Azure, configuration values like connection strings can be stored in the *application setting* for an App Service. These values are then made available to your application as environment variables. In this way, the application accesses the connection string from `process.env` the same way whether being run locally or in Azure. Further, this eliminates the need to manage and deploy environment specific config files with your application.
 
@@ -269,6 +269,87 @@ Use the form elements in the application to add and complete tasks.
 ![A screenshot showing the application running in a browser.](./media/sample-app-in-browser.png)
 
 ## 6 - Configure and view application logs
+
+Azure App Service captures all messages logged to the console to assist you in diagnosing issues with your application. The sample app outputs console log messages in each of its endpoints to demonstrate this capability.  For example, the `get` endpoint outputs a message about the number of tasks retrieved from the database and an error message if something goes wrong.
+
+```javascript
+router.get('/', function(req, res, next) {
+  Task.find()
+    .then((tasks) => {      
+      const currentTasks = tasks.filter(task => !task.completed);
+      const completedTasks = tasks.filter(task => task.completed === true);
+
+      console.log(`Total tasks: ${tasks.length}   Current tasks: ${currentTasks.length}    Completed tasks:  ${completedTasks.length}`)
+      res.render('index', { currentTasks: currentTasks, completedTasks: completedTasks });
+    })
+    .catch((err) => {
+      console.log(err);
+      res.send('Sorry! Something went wrong.');
+    });
+});
+```
+
+The contents of the App Service diagnostic logs can be reviewed in the Azure portal, VS Code or using the Azure CLI.
+
+### [Azure portal](#tab/azure-portal)
+
+| Instructions    | Screenshot |
+|:----------------|-----------:|
+| [!INCLUDE [Stream logs from Azure Portal 1](<./includes/azportal-stream-logs-1.md>)] | :::image type="content" source="./media/azportal-stream-logs-1-240px.png" alt-text="A screenshot showing the location of the Azure Tool icon in Visual Studio Code." lightbox="./media/azportal-stream-logs-1.png"::: |
+| [!INCLUDE [Stream logs from Azure Portal 2](<./includes/azportal-stream-logs-2.md>)] | :::image type="content" source="./media/azportal-stream-logs-2-240px.png" alt-text="A screenshot showing how you deploy an application to Azure by right-clicking on a web app in VS Code and selecting deploy from the context menu." lightbox="./media/azportal-stream-logs-2.png"::: |
+
+### [VS Code](#tab/vscode-aztools)
+
+| Instructions    | Screenshot |
+|:----------------|-----------:|
+| [!INCLUDE [Stream logs from VS Code 1](<./includes/vscode-stream-logs-1.md>)] | :::image type="content" source="./media/vscode-stream-logs-1-240px.png" alt-text="A screenshot showing the location of the Azure Tool icon in Visual Studio Code." lightbox="./media/vscode-stream-logs-1.png"::: |
+| [!INCLUDE [Stream logs from VS Code 2](<./includes/vscode-stream-logs-2.md>)] | :::image type="content" source="./media/vscode-stream-logs-2-240px.png" alt-text="A screenshot showing how you deploy an application to Azure by right-clicking on a web app in VS Code and selecting deploy from the context menu." lightbox="./media/vscode-stream-logs-2.png"::: |
+
+
+### [Azure CLI](#tab/azure-cli)
+
+First, you need to configure Azure App Serivce to output logs to the App Service filesystem using the [az webapp log config](/cli/azure/webapp/log#az_webapp_log_config) command.
+
+```azurecli
+az webapp log config \
+    --web-server-logging 'filesystem' \
+    --name $APP_SERVICE_NAME \
+    --resource-group $RESOURCE_GROUP_NAME
+```
+
+The, to stream logs, use the [az webapp log tail](/cli/azure/webapp/log#az_webapp_log_tail) command.
+
+```azurecli
+az webapp log tail \
+    --name $APP_SERVICE_NAME \
+    --resource-group $RESOURCE_GROUP_NAME
+```
+
+Refresh the home page in the app or attempt other requests to generate some log messages. The output should look similar to the following.
+
+```Console
+2021-10-26T20:12:01.825485319Z npm start
+2021-10-26T20:12:04.478474807Z npm info it worked if it ends with ok
+2021-10-26T20:12:04.496736134Z npm info using npm@6.14.10
+2021-10-26T20:12:04.497958909Z npm info using node@v14.15.1
+2021-10-26T20:12:05.874225522Z npm info lifecycle todolist@0.0.0~prestart: todolist@0.0.0
+2021-10-26T20:12:05.891572192Z npm info lifecycle todolist@0.0.0~start: todolist@0.0.0
+2021-10-26T20:12:05.941127150Z
+2021-10-26T20:12:05.941161452Z > todolist@0.0.0 start /home/site/wwwroot
+2021-10-26T20:12:05.941168852Z > node ./bin/www
+2021-10-26T20:12:05.941173652Z
+2021-10-26T20:12:16.234642191Z Mongoose connection open to database
+2021-10-26T20:12:19.360371481Z GET /robots933456.txt 404 2144.146 ms - 1497
+
+2021-10-26T20:12:38.419182028Z Total tasks: 6   Current tasks: 3    Completed tasks:  3
+2021-10-26T20:12:38.799957538Z GET / 304 500.485 ms - -
+2021-10-26T20:12:38.900597945Z GET /stylesheets/style.css 304 2.574 ms - -
+2021-10-26T20:12:38.900637447Z GET /css/bootstrap.css 304 12.300 ms - -
+2021-10-26T20:12:38.903103684Z GET /images/Azure-A-48px-product.svg 304 8.896 ms - -
+2021-10-26T20:12:38.904441659Z GET /js/bootstrap.min.js 304 9.372 ms - -
+```
+
+---
 
 ## 7 - Inspect deployed files using Kudu
 
