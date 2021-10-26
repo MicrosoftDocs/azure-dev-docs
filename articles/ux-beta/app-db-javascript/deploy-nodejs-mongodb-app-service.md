@@ -1,5 +1,5 @@
 ---
-title: Deploy Express.js/MongoDB app with VS Code - App Service/Cosmos DB
+title: Deploy a Node.js web app using MongoDB to Azure
 description: This article shows you have to deploy a Node.js app using Express.js and a MongoDB database to Azure.  Azure App Service is used to host the web application and Azure Cosmos DB to host the database using the 100% compatible MongoDB API built into Cosmos DB. 
 ms.topic: tutorial
 ms.date: 03/29/2021
@@ -7,7 +7,7 @@ ms.service: app-service
 ms.custom: scenarios:getting-started, languages:JavaScript, devx-track-js
 ---
 
-# Deploy a Node.js web app using MongoDB to Azure
+# Deploy a Node.js + MongoDB web app to Azure
 
 Azure provides a fully managed solution for hosting JavaScript web apps in the cloud. In this article, you will clone and deploy a basic **Express.js** app using a **MongoDB** database to Azure.  The Express.js app will be hosted in Azure App Service and the MongoDB database in Azure Cosmos DB, a cloud native database offering a [100% MongoDB compatible API](/azure/cosmos-db/mongodb/mongodb-introduction). Azure supports hosting Node.js apps on both Linux (Node versions 10, 12, and 14) and Windows (versions 10 and 12) server environments.
 
