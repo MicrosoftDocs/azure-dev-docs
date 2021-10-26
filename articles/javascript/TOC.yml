@@ -27,6 +27,8 @@
         items:
           - name: Set up environment
             href: core/nodejs-sdk-azure-authenticate.md
+          - name: Create, delete virtual machine
+            href: how-to/with-azure-sdk/create-manage-virtual-machine.md
           - name: View operation history
             href: how-to/with-azure-sdk/list-resource-operation-history.md
       - name: With web apps

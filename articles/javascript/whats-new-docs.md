@@ -16,7 +16,8 @@ Find new and updated content for JavaScript and TypeScript developers.
 
 |Name|Description|
 |---------------------------------------|--|
-|[Azure SDK: Use Azure Monitor SDK to list recent resource operations](how-to/with-azure-sdk/list-resource-operation-history.md)|Use the Azure Monitor SDK to list the most recent resource operations in your subscription. Operations can be filtered by a date range (within the last 10 days), and a resource group. Examples of operations can include resource creation, stopping or starting a resource such as web app or virtual machine, and retrieving a connection string.|
+|[Azure SDK: Use the Azure SDKs to create and delete an Azure virtual machine. ](how-to/with-azure-sdk/list-resource-operation-history.md)|Use the Azure Monitor SDK to list the most recent resource operations in your subscription. Operations can be filtered by a date range (within the last 10 days), and a resource group. Examples of operations can include resource creation, stopping or starting a resource such as web app or virtual machine, and retrieving a connection string.|
+|[Azure SDK: Use Azure Monitor SDK to list recent resource operations](how-to/with-azure-sdk/create-manage-virtual-machine.md)|An Azure Virtual machine requires several resources to support the virtual machine. The best way to manage those resources is to create all the resources in a single resource group. The script creates the resource group and postpends a random number to make sure the resource group is unique, regardless of how many times you use the script.<br><br> Resources created in these scripts include:<br><br>* Resource group<br>* [Virtual machines](/azure/virtual-machines/)<br>* [Storage](/azure/storage/)<br>* [Virtual network](/azure/virtual-network/)<br>* [Network interface](/azure/virtual-network/virtual-network-network-interface)<br>* [Public IP address](/azure/virtual-network/ip-services/public-ip-addresses)|
 
 ### Updates in October
 
@@ -95,7 +96,7 @@ Find new and updated content for JavaScript and TypeScript developers.
 |---------------------------------------|--|
 |[Logging, metrics, and telemetry in Azure](./how-to/node-sdk-logging.md)|Web app and Function app logging information.|
 |[Tutorial: Create a function with Visual Studio Code](./tutorial/vscode-function-app-http-trigger/tutorial-vscode-serverless-node-install.md)|Added streaming logs in VS Code, and querying Kusto log in Azure portal.|
-|[Tools update](./node-azure-tools.md)|Added several links to Microsoft or Azure specific tools. Added Azure service specific tips.|
+|[Tools update](./node-azure-tools.md)|Added several links to Microsoft or Azure specific tools. Added Azure service-specific tips.|
 |[Add Microsoft login button to a single page application for authentication](./tutorial/single-page-application-azure-login-button-sdk-msal.md#7-store-application-specific-user-information)|Added Microsoft Identity provider and Active Directory app ID information. |
 |Locally develop with the CosmosDB emulator|For [SQL API](./how-to/with-database/use-sql-api-as-cosmos-db.md#locally-develop-with-the-cosmosdb-emulator), [MongoDB](./how-to/with-database/use-mongodb-as-cosmosdb.md#locally-develop-with-the-cosmosdb-emulator), and [Cassandra](./how-to/with-database/use-cassandra-as-cosmos-db.md#locally-develop-with-the-cosmosdb-emulator). |
 
