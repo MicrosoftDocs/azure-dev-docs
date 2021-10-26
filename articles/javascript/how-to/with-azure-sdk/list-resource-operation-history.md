@@ -8,7 +8,7 @@ ms.custom: devx-track-js
 
 # Use Azure Monitor SDK to list recent resource operations
 
-Use the Azure Monitor SDK to list the most recent resource operations in your subscription. Operations can be filtered by a date range (within the last 10 days), and a resource group.
+Use the Azure Monitor SDK to list the most recent resource operations in your subscription. Operations can be filtered by a date range (within the last 10 days), and a resource group. Examples of operations can include resource creation, stopping or starting a resource such as web app or virtual machine, and retrieving a connection string.
 
 ## Set up your development environment
 
