@@ -23,7 +23,7 @@ In order for the Azure Monitor to return results with this sample code, your sub
 
 If you are new to Azure, the [Azure portal](https://portal.azure.com) is the quickest way to create monitor entries to use this sample code.
 
-Find a [free resource](https://azure.microsoft.com/en-us/pricing/free-services/) then create it in the Azure portal.
+Find a [free resource](https://azure.microsoft.com/pricing/free-services/) then create it in the Azure portal.
 
 ## Use Azure Monitor SDK with JavaScript
 
