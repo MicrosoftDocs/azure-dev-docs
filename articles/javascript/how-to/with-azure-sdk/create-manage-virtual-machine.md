@@ -38,6 +38,22 @@ Resources created in these scripts include:
 
     :::code language="JavaScript" source="~/../js-e2e/resources/virtual-machines/create-vm.js"  :::
 
+    SDK methods used in this script include:
+    
+    * Resource groups
+        * [resourceClient.resourcegroups.createOrUpdate](/javascript/api/@azure/arm-resources/resourcegroups?view=azure-node-latest#createOrUpdate_string__ResourceGroup__msRest_RequestOptionsBase_)
+    * Storage    
+        * [storageClient.storageAccounts.create](/javascript/api/@azure/arm-storage/storageaccounts?view=azure-node-latest#create_string__string__StorageAccountCreateParameters__msRest_RequestOptionsBase_)
+    * Networks
+        * [networkClient.virtualNetworks.createOrUpdate](/javascript/api/@azure/arm-network/virtualnetworks?view=azure-node-latest#createOrUpdate_string__string__VirtualNetwork__msRest_RequestOptionsBase_)
+        * [networkClient.subnets.get](/javascript/api/@azure/arm-network/subnets?view=azure-node-latest#get_string__string__string__Models_SubnetsGetOptionalParams_)
+        * [networkClient.publicIPAddresses.createOrUpdate](/javascript/api/@azure/arm-network/publicipaddresses?view=azure-node-latest#createOrUpdate_string__string__PublicIPAddress__msRest_RequestOptionsBase_)
+        * [networkClient.networkInterfaces.createOrUpdate](/javascript/api/@azure/arm-network/networkinterfaces?view=azure-node-latest#createOrUpdate_string__string__NetworkInterface__msRest_RequestOptionsBase_)
+        * [networkClient.networkInterfaces.get](/javascript/api/@azure/arm-network/networkinterfaces?view=azure-node-latest#get_string__string__Models_NetworkInterfacesGetOptionalParams_)
+    * VMs
+        * [computeClient.virtualMachines.createOrUpdate](/javascript/api/@azure/arm-compute/virtualmachines?view=azure-node-latest#createOrUpdate_string__string__VirtualMachine__msRest_RequestOptionsBase_)
+        * [computeClient.virtualMachineImages.list](/javascript/api/@azure/arm-compute/virtualmachineimages?view=azure-node-latest#list_string__string__string__string__Models_VirtualMachineImagesListOptionalParams_)
+
 1. Install the npm packages used in the Azure work:
 
     ```bash
@@ -115,6 +131,11 @@ When you are done with the virtual machine, delete the resource group.
     ```
     
     The delete may take a few minutes.
+
+    SDK methods used in this script include:
+    
+    * Resource groups
+        * [resourceClient.resourcegroups.createOrUpdate](/javascript/api/@azure/arm-resources/resourcegroups?view=azure-node-latest#createOrUpdate_string__ResourceGroup__msRest_RequestOptionsBase_)
 
 ## Next steps
 
