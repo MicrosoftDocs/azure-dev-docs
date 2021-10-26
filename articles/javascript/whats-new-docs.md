@@ -2,8 +2,7 @@
 title: "What's new for JavaScript docs"
 description: "What's new in JavaScript docs in the Developer Center"
 ms.topic: conceptual
-ms.date: 10/07/2021
-
+ms.date: 10/26/2021
 
 ---
 
@@ -12,6 +11,12 @@ ms.date: 10/07/2021
 Find new and updated content for JavaScript and TypeScript developers.
 
 ## 2021 October
+
+### New in October
+
+|Name|Description|
+|---------------------------------------|--|
+|[Azure SDK: Use Azure Monitor SDK to list recent resource operations](how-to/with-azure-sdk/list-resource-operation-history.md)|Use the Azure Monitor SDK to list the most recent resource operations in your subscription. Operations can be filtered by a date range (within the last 10 days), and a resource group. Examples of operations can include resource creation, stopping or starting a resource such as web app or virtual machine, and retrieving a connection string.|
 
 ### Updates in October
 
