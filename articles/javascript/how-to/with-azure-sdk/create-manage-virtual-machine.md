@@ -49,7 +49,7 @@ Resources created in these scripts include:
         * [networkClient.subnets.get](/javascript/api/@azure/arm-network/subnets?view=azure-node-latest&preserve-view=true#get_string__string__string__Models_SubnetsGetOptionalParams_)
         * [networkClient.publicIPAddresses.createOrUpdate](/javascript/api/@azure/arm-network/publicipaddresses?view=azure-node-latest&preserve-view=true#createOrUpdate_string__string__PublicIPAddress__msRest_RequestOptionsBase_)
         * [networkClient.networkInterfaces.createOrUpdate](/javascript/api/@azure/arm-network/networkinterfaces?view=azure-node-latest&preserve-view=true#createOrUpdate_string__string__NetworkInterface__msRest_RequestOptionsBase_)
-        * [networkClient.networkInterfaces.get](/javascript/api/@azure/arm-network/networkinterfaces?view=azure-node-latest#get_string__string__Models_NetworkInterfacesGetOptionalParams_)
+        * [networkClient.networkInterfaces.get](/javascript/api/@azure/arm-network/networkinterfaces?view=azure-node-latest&preserve-view=true#get_string__string__Models_NetworkInterfacesGetOptionalParams_)
     * VMs
         * [computeClient.virtualMachines.createOrUpdate](/javascript/api/@azure/arm-compute/virtualmachines?view=azure-node-latest&preserve-view=true#createOrUpdate_string__string__VirtualMachine__msRest_RequestOptionsBase_)
         * [computeClient.virtualMachineImages.list](/javascript/api/@azure/arm-compute/virtualmachineimages?view=azure-node-latest&preserve-view=true#list_string__string__string__string__Models_VirtualMachineImagesListOptionalParams_)
