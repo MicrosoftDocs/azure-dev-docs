@@ -129,7 +129,7 @@ Azure Cosmos DB is a fully managed NoSQL database for modern app development. Am
 
 ### [Azure portal](#tab/azure-portal)
 
-You must be signed in to the [Azure portal](https://portal.azure.com/) to complete these steps to create a CosmosDB.
+You must be signed in to the [Azure portal](https://portal.azure.com/) to complete these steps to create a Cosmos DB.
 
 | Instructions    | Screenshot |
 |:----------------|-----------:|
@@ -152,10 +152,10 @@ You must be signed in to the [Azure portal](https://portal.azure.com/) to comple
 
 ### [Azure CLI](#tab/azure-cli)
 
-A new Azure CosmosDB account is created by using the [az cosmosdb create](/cli/azure/cosmosdbaz_cosmosdb_create) command.
+A new Azure Cosmos DB account is created by using the [az cosmosdb create](/cli/azure/cosmosdbaz_cosmosdb_create) command.
 
 * The name of the Cosmos DB account must be unique across Azure. The name may only contain lowercase letters, numbers, and the hyphen (-) character and must be between 3 and 50 characters long.
-* The `--kind MongoDB` flag tells Azure to create a CosmosDB that is compatible with the MongoDB API.  This flag must be included for your CosmosDB to work as a MongoDB database.
+* The `--kind MongoDB` flag tells Azure to create a Cosmos DB that is compatible with the MongoDB API.  This flag must be included for your Cosmos DB to work as a MongoDB database.
 
 ```azurecli
 COSMOS_DB_NAME='msdocs-expressjs-mongodb-database-123'   # Replace 123 with any three characters to form a unique name
@@ -166,17 +166,15 @@ az cosmosdb create \
     --kind MongoDB
 ```
 
-Creating a new Azure CosmosDB typically takes about 5 minutes.
+Creating a new Azure Cosmos DB typically takes about 5 minutes.
 
 ---
 
-## 3 - Connect your App Service with your CosmosDB with a connection string
+## 3 - Connect your App Service to your Cosmos DB
 
-To connect to your CosmosDB database, you need to provide the connection string for the database to your application as an environment variable.
+To connect to your Cosmos DB database, you need to provide the connection string for the database to your application. This is done in the sample application reading the `DATABASE_URL` environment variable. When running locally, the sample application uses the [dotenv package](https://www.npmjs.com/package/dotenv) to read the connection string value from the `.env` file.
 
-When running locally, this is done in the sample application using the [dotenv package](https://www.npmjs.com/package/dotenv) and the `.env` file. When deploying to Azure though, this approach is not recommended.
-
-Instead, the connection string will be stored as an *application setting* in App Service and made available to the application at runtime as an environment variable. In this way, the application accesses the connection string from `process.env` the same way whether being run locally or in Azure. This same technique can also be used to store any other application settings your app may have.
+When running in Azure, configuration values like connection strings can be stored in the *application setting* for an App Service. These values are then made available to your application as environment variables. In this way, the application accesses the connection string from `process.env` the same way whether being run locally or in Azure. Further, this eliminates the need to manage and deploy environment specific config files with your application.
 
 ### [Azure portal](#tab/azure-portal)
 
