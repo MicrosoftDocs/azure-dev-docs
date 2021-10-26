@@ -29,6 +29,8 @@
         items:
           - name: Set up authentication
             href: core/nodejs-sdk-azure-authenticate.md
+          - name: List subscriptions
+            href: core/nodejs-sdk-azure-authenticate.md?tabs=azure-sdk-for-javascript.md#3-list-azure-subscriptions-with-service-principal
       - name: With web apps
         items:
           - name: Select hosting service
