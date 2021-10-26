@@ -57,6 +57,10 @@ const { SubscriptionClient } = require("@azure/arm-subscriptions");
 
 let credentials = null;
 
+const tenantId = process.env["AZURE_TENANT_ID"];
+const clientId = process.env["AZURE_CLIENT_ID"];
+const secret = process.env["AZURE_CLIENT_SECRET"];
+
 if(process.env.production){
 
     // production
