@@ -56,67 +56,7 @@ There are other [credential classes](https://www.npmjs.com/package/@azure/identi
 
 List subscriptions which this credential has access to read. 
 
-```javascript
-const { ClientSecretCredential, DefaultAzureCredential } = require("@azure/identity");
-const { SubscriptionClient } = require("@azure/arm-subscriptions");
-
-let credentials = null;
-
-const tenantId = process.env["AZURE_TENANT_ID"];
-const clientId = process.env["AZURE_CLIENT_ID"];
-const secret = process.env["AZURE_CLIENT_SECRET"];
-
-if(process.env.production){
-
-    // production
-    credentials = new DefaultAzureCredential();
-
-}else{
-
-    // development
-    credentials = new ClientSecretCredential(tenantId, clientId, secret);
-}
-
-// use credential to authenticate with Azure SDKs
-let client = new SubscriptionClient(credentials);
-
-const subScriptions = async() =>{
-
-    // get list of Azure subscriptions
-    const listOfSubscriptions = await client.subscriptions.list(subscriptionId);
-    
-    // get details of each subscription
-    for (const item of listOfSubscriptions) {
-    
-        const subscriptionDetails = await client.subscriptions.get(item.subscriptionId);
-    
-        /*
-      
-        Each item looks like:
-      
-        {
-          id: '/subscriptions/123456',
-          subscriptionId: '123456',
-          displayName: 'YOUR-SUBSCRIPTION-NAME',
-          state: 'Enabled',
-          subscriptionPolicies: {
-            locationPlacementId: 'Internal_2014-09-01',
-            quotaId: 'Internal_2014-09-01',
-            spendingLimit: 'Off'
-          },
-          authorizationSource: 'RoleBased'
-        },
-      
-        */
-    
-        console.log(subscriptionDetails)
-    }
-}
-
-subscriptions()
-.then(()=>console.log("done"))
-.catch(ex=>console.log(ex))
-```
+:::code language="JavaScript" source="~/../js-e2e/resources/subscriptions/list.js" highlight="4-24"  :::
 
 
 ## 1. Create a service principal
