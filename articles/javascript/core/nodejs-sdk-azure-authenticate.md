@@ -52,13 +52,6 @@ When you are ready to _begin_ your development work, we recommend you select the
 
 There are other [credential classes](https://www.npmjs.com/package/@azure/identity#credential-classes), which allow you to control authentication for specific purposes. 
 
-## JavaScript development example with Azure credentials
-
-List subscriptions which this credential has access to read. 
-
-:::code language="JavaScript" source="~/../js-e2e/resources/subscriptions/list.js" highlight="4-24"  :::
-
-
 ## 1. Create a service principal
 
 Create a service principal and configure its access to Azure resources. The service principal is **required** to use the DefaultAzureCredential.
@@ -106,25 +99,33 @@ Use the new service principal to authenticate with Azure.
 
 # [Azure SDK for JavaScript](#tab/azure-sdk-for-javascript)
 
-1. Install the dependencies: [Azure SDK for Identity](https://www.npmjs.com/package/@azure/identity), [Azure Resource Manager SDK](https://www.npmjs.com/package/@azure/arm-resources), and `stringify-object` (to provide readable JSON only).
+1. Install the dependencies: [Azure SDK for Identity](https://www.npmjs.com/package/@azure/identity), [Azure Subscriptions SDK](https://www.npmjs.com/package/@azure/arm-subscriptions).
 
     ```bash
-    npm install @azure/identity @azure/arm-resources stringify-object --save
+    npm install @azure/identity @azure/arm-subscriptions --save
     ```
 
-1. Create a JavaScript file, named `resource-groups-list.js`, with the following code:
+1. Create a JavaScript file, named [list.js](https://github.com/Azure-Samples/js-e2e/blob/main/resources/subscriptions/list.js), with the following code:
 
-    :::code language="JavaScript" source="~/../js-e2e/resources/resource-groups-list/resource-groups-list.js"  :::
+    :::code language="JavaScript" source="~/../js-e2e/resources/subscriptions/list.js" highlight="4-24"  :::
+
+1. If you aren't setting environment variables, replace the credential strings with your values.
+ 
+    ```javascript
+    const tenantId = process.env["AZURE_TENANT_ID"] || "REPLACE-WITH-YOUR-TENANT-ID"; 
+    const clientId = process.env["AZURE_CLIENT_ID"] || "REPLACE-WITH-YOUR-CLIENT-ID"; 
+    const secret = process.env["AZURE_CLIENT_SECRET"] || "REPLACE-WITH-YOUR-CLIENT-SECRET";
+    ```
 
 1. Run the file to view the resource group list:
 
     ```bash
-    node  resource-groups-list.js
+    node list.js
     ```
 
 1. View complete sample code and package.json:
 
-    * [https://github.com/Azure-Samples/js-e2e/tree/main/resources/resource-groups-list](https://github.com/Azure-Samples/js-e2e/tree/main/resources/resource-groups-list)
+    * [https://github.com/Azure-Samples/js-e2e/blob/main/resources/subscriptions/list.js](https://github.com/Azure-Samples/js-e2e/blob/main/resources/subscriptions/list.js)
 
 # [Azure CLI](#tab/azure-cli-create-resource)
 
