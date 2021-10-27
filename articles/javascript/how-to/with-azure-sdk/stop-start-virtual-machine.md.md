@@ -1,14 +1,14 @@
 ---
-title: Create, and delete virtual machine
-description: Use Azure SDK to create and delete a virtual machine.
+title: Stop and start virtual machine
+description: Use Azure SDK to stop and start a virtual machine.
 ms.topic: conceptual
-ms.date: 10/26/2021
+ms.date: 10/27/2021
 ms.custom: devx-track-js
 ---
 
-# Use Azure SDKs to create a virtual machine.
+# Use Azure SDKs to manage a virtual machine.
 
-Use the Azure SDKs to create and delete an Azure virtual machine. 
+Use the Azure SDKs to create, manage, and delete an Azure virtual machine. 
 
 ## Set up your development environment
 
@@ -18,41 +18,37 @@ Use the Azure SDKs to create and delete an Azure virtual machine.
 - [Create a service principal](../../core/nodejs-sdk-azure-authenticate.md?tabs=azure-sdk-for-javascript#1-create-a-service-principal) and copy the `Tenant Id`, `Client ID`, `Client secret`.
 - Use the Azure portal's [subscription page](https://ms.portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) to find your subscription ID, copy that value to use in these scripts. 
 
-## Azure Virtual machines
+## Gather information about your Virtual machine
 
-An Azure Virtual machine requires several resources to support the virtual machine. The best way to manage those resources is to create all the resources in a single resource group. The script creates the resource group and postpends a random number to make sure the resource group is unique, regardless of how many times you use the script. 
+In order to programmatically stop and start your virtual machine, you need to collect and use several values:
 
-Resources created in these scripts include:
+* Service principal
+    * Tenant Id
+    * Client ID
+    * Client secret
+* Virtual machine
+    * Subscription ID
+    * Resource group
+    * Virtual machine resource name
 
-* Resource group
-* [Virtual machines](/azure/virtual-machines/)
-* [Storage](/azure/storage/)
-* [Virtual network](/azure/virtual-network/)
-    * [Network interface](/azure/virtual-network/virtual-network-network-interface)
-    * [Public IP address](/azure/virtual-network/ip-services/public-ip-addresses)
+## List of virtual machines in subscription
 
+To get the virtual machine resource name, use the following script to see all virtual machines in the subscription. Use the returned JSON's `name` value as the virtual machine resource name. 
 
-## Create a virtual machine
+:::code language="JavaScript" source="~/../js-e2e/resources/virtual-machines//list-vms.js"  :::
 
-1. Create a file named `create-vm.js` or [copy the file from GitHub](https://github.com/Azure-Samples/js-e2e/blob/main/resources/virtual-machines/create-vm.js).
+## Stop a virtual machine
 
-    :::code language="JavaScript" source="~/../js-e2e/resources/virtual-machines/create-vm.js"  :::
+You may want to set up your virtual machine to stop (power off) when you aren't using it. 
+
+1. Create a file named `stop-vm` or [copy the file from GitHub](https://github.com/Azure-Samples/js-e2e/blob/main/resources/virtual-machines/stop-vm.js).
+
+    :::code language="JavaScript" source="~/../js-e2e/resources/virtual-machines/stop-vm.js"  :::
 
     SDK methods used in this script include:
     
-    * Resource groups
-        * [resourceClient.resourcegroups.createOrUpdate](/javascript/api/@azure/arm-resources/resourcegroups?view=azure-node-latest&preserve-view=true#createOrUpdate_string__ResourceGroup__msRest_RequestOptionsBase_)
-    * Storage    
-        * [storageClient.storageAccounts.create](/javascript/api/@azure/arm-storage/storageaccounts?view=azure-node-latest&preserve-view=true#create_string__string__StorageAccountCreateParameters__msRest_RequestOptionsBase_)
-    * Networks
-        * [networkClient.virtualNetworks.createOrUpdate](/javascript/api/@azure/arm-network/virtualnetworks?view=azure-node-latest&preserve-view=true#createOrUpdate_string__string__VirtualNetwork__msRest_RequestOptionsBase_)
-        * [networkClient.subnets.get](/javascript/api/@azure/arm-network/subnets?view=azure-node-latest&preserve-view=true#get_string__string__string__Models_SubnetsGetOptionalParams_)
-        * [networkClient.publicIPAddresses.createOrUpdate](/javascript/api/@azure/arm-network/publicipaddresses?view=azure-node-latest&preserve-view=true#createOrUpdate_string__string__PublicIPAddress__msRest_RequestOptionsBase_)
-        * [networkClient.networkInterfaces.createOrUpdate](/javascript/api/@azure/arm-network/networkinterfaces?view=azure-node-latest&preserve-view=true#createOrUpdate_string__string__NetworkInterface__msRest_RequestOptionsBase_)
-        * [networkClient.networkInterfaces.get](/javascript/api/@azure/arm-network/networkinterfaces?view=azure-node-latest&preserve-view=true#get_string__string__Models_NetworkInterfacesGetOptionalParams_)
     * VMs
-        * [computeClient.virtualMachines.createOrUpdate](/javascript/api/@azure/arm-compute/virtualmachines?view=azure-node-latest&preserve-view=true#createOrUpdate_string__string__VirtualMachine__msRest_RequestOptionsBase_)
-        * [computeClient.virtualMachineImages.list](/javascript/api/@azure/arm-compute/virtualmachineimages?view=azure-node-latest&preserve-view=true#list_string__string__string__string__Models_VirtualMachineImagesListOptionalParams_)
+        * [computeClient.virtualMachines.poweroff](/javascript/api/@azure/arm-compute/virtualmachines?view=azure-node-latest&preserve-view=true#createOrUpdate_string__string__VirtualMachine__msRest_RequestOptionsBase_)
 
 1. Install the npm packages used in the Azure work:
 
