@@ -253,8 +253,6 @@ To deploy your application code directly from VS Code, you must have the [Azure 
 
 ### [Deploy using FTPS](#tab/ftps-deploy)
 
-This tab is about deploying with FTPS.  You can configure this using the Azure portal or with the Azure CLI.
-
 [!INCLUDE [Deploy FTPS](<./includes/deploy-ftps.md>)]
 
 ### [Deploy using Azure CLI](#tab/azure-cli-deploy)
@@ -381,57 +379,3 @@ Selecting the *Site wwwroot* link under the Browse Directory heading allows you 
 * Managed identity
 * Performance monitoring
 * User authentication
-
-## Things that did not work
-
-### [Deploy using VS Code](#tab/deploy-vscode-2)
-
-To deploy your application code directly from VS Code, you must have the [Azure Tools extension pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack) installed and be signed into Azure from VS Code.
-
-| Instructions    | Screenshot |
-|:----------------|-----------:|
-| [!INCLUDE [Deploy from VS Code 1](<./includes/deploy-from-vscode-1.md>)] | :::image type="content" source="./media/deploy-from-vscode-1-240px.png" alt-text="A screenshot showing the location of the Azure Tool icon in Visual Studio Code." lightbox="./media/deploy-from-vscode-1.png"::: |
-| [!INCLUDE [Deploy from VS Code 2](<./includes/deploy-from-vscode-2.md>)] | :::image type="content" source="./media/deploy-from-vscode-2-240px.png" alt-text="A screenshot showing how you deploy an application to Azure by right-clicking on a web app in VS Code and selecting deploy from the context menu." lightbox="./media/deploy-from-vscode-2.png"::: |
-| [!INCLUDE [Deploy from VS Code 3](<./includes/deploy-from-vscode-3.md>)] | :::image type="content" source="./media/deploy-from-vscode-3-240px.png" alt-text="A screenshot showing the Output window of VS Code while deploying an application to Azure." lightbox="./media/deploy-from-vscode-3.png"::: |
-
-### [Deploy using Local Git](#tab/deploy-local-git-2)
-
-You can deploy your code to Azure from a local Git repository by configuring a remote Git repository in Azure to push code to. Pushing code to Azure via Git requires that you:
-
-* Configure a Git remote in your local repository.
-* Configure your Azure web app for local Git deployment.
-* Retrieve the deployment credentials for the web app from Azure. These deployment credentials are different than the credentials you use to sign into the Azure portal with. They are auto-generated and scoped to only allow deployment to this web app.
-
-Configuring your Azure web app for local Git deployment and retrieving your credentials can be done in either the Azure portal or using the Azure CLI.
-
-<details>
-    <summary>Azure portal</summary>
-    [!INCLUDE [Deploy local Git Config Azure Portal](<./deploy-from-local-git-azportal-config-expandable.md>)]
-
-</details>
-<details>
-    <summary>Azure CLI</summary>
-    [!INCLUDE [Deploy local Git Config Azure CLI](<./deploy-from-local-git-azcli-config-expandable.md>)]
-</details>
-
-Next, you need to add a [Git remote](https://git-scm.com/book/en/v2/Git-Basics-Working-with-Remotes) that points to Azure where you will deploy your code to. In the root directory of your application, run the following command:
-
-```bash
-git remote add azure <deploymentLocalGitUrl-from-create-step>
-```
-
-To deploy your application to Azure, use the `git push` command to push code from your local `main` branch to the `azure` remote. The first time you push your code to Azure, Git will prompt you for the credentials to connect to the remote repository.  Enter the Azure deployment credentials you retrieved above.  Git will cache these credentials so you will not have to re-enter them on subsequent deployments.
-
-```bash
-git push azure main
-```
-
-### [Deploy using FTPS](#tab/deploy-ftps-2)
-
-Blah blah blah
-
-### [Deploy using Azure CLI](#tab/deploy-cli-2)
-
-Blah blah blah
-
----
