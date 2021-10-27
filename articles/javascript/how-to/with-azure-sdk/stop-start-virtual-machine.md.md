@@ -48,7 +48,7 @@ You may want to stop (power off) your virtual machine when you aren't using it.
     SDK methods used in this script include:
     
     * VMs
-        * [computeClient.virtualMachines.powerOff](/javascript/api/@azure/arm-compute/virtualmachines?view=azure-node-latest#powerOff_string__string__Models_VirtualMachinesPowerOffOptionalParams_)
+        * [computeClient.virtualMachines.powerOff](/javascript/api/@azure/arm-compute/virtualmachines?view=azure-node-latest&preserve-view=true#powerOff_string__string__Models_VirtualMachinesPowerOffOptionalParams_)
 
 1. Install the npm packages used in the Azure work:
 
@@ -101,7 +101,7 @@ You may want to start your virtual machine if it is powered off.
     SDK methods used in this script include:
     
     * VMs
-        * [computeClient.virtualMachines.start](/javascript/api/@azure/arm-compute/virtualmachines?view=azure-node-latest#start_string__string__msRest_RequestOptionsBase_)
+        * [computeClient.virtualMachines.start](/javascript/api/@azure/arm-compute/virtualmachines?view=azure-node-latest&preserve-view=true#start_string__string__msRest_RequestOptionsBase_)
 
 1. Install the npm packages used in the Azure work:
 
