@@ -42,6 +42,8 @@ az webapp deploy \
 
 ##### [curl](#tab/deploy-instructions--zip-curl)
 
+To use an HTTP client such as curl to upload your ZIP file to Azure, you must use the deployment username and password for your App Service. Follow the instructions on the *Deploy using FTPS* tab to get the deployment username and password to use with the following command. When this command is run, curl will prompt you for the password.
+
 ```bash
 curl -X POST \
     -u <username> \

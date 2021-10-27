@@ -21,6 +21,8 @@ az webapp deployment list-publishing-profiles \
     --output tsv  
 ```
 
+The Azure CLI returns an FTP endpoint for deployment.  To deploy securely using FTPS, you must change the protocol in this string from `ftp` to `ftps`.
+
 Then, get the application scoped user credentials by using the [az webapp deployment list-publishing-credentials](/cli/azure/webapp/deployment#az_webapp_deployment_list_publishing_credentials) command.
 
 ```azurecli
