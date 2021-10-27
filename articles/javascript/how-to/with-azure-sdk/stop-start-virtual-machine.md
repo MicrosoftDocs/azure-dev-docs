@@ -8,7 +8,7 @@ ms.custom: devx-track-js
 
 # Use Azure SDKs to manage a virtual machine.
 
-Use the Azure SDKs to create, manage, and delete an Azure virtual machine. 
+Use Azure SDK to stop, start, and list virtual machines.
 
 ## Set up your development environment
 
