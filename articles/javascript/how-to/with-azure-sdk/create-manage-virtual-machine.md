@@ -1,14 +1,14 @@
 ---
-title: Create, manage, delete virtual machine
-description: Use Azure SDK to create, manage, and delete a virtual machine.
+title: Create, and delete virtual machine
+description: Use Azure SDK to create and delete a virtual machine.
 ms.topic: conceptual
 ms.date: 10/26/2021
 ms.custom: devx-track-js
 ---
 
-# Use Azure SDKs to create, manage, and delete a virtual machine.
+# Use Azure SDKs to create a virtual machine.
 
-Use the Azure SDKs to create, manage, and delete an Azure virtual machine. 
+Use the Azure SDKs to create and delete an Azure virtual machine. 
 
 ## Set up your development environment
 
@@ -96,46 +96,7 @@ Resources created in these scripts include:
     success - resource group name: johnsmith-testrg1689
     ```
 
-## Clean up resources
-
-When you are done with the virtual machine, delete the resource group.
-
-1. Create a file named `delete-resources.js` or [copy the file from GitHub](https://github.com/Azure-Samples/js-e2e/blob/main/resources/virtual-machines/delete-resources.js).
-
-    :::code language="JavaScript" source="~/../js-e2e/resources/virtual-machines/delete-resources.js"  :::
-
-1. For local development, change variables in file for authentication:
-
-    ```javascript
-    // Azure authentication in environment variables for DefaultAzureCredential
-    const tenantId =
-      process.env["AZURE_TENANT_ID"] || "REPLACE-WITH-YOUR-TENANT-ID";
-    const clientId =
-      process.env["AZURE_CLIENT_ID"] || "REPLACE-WITH-YOUR-CLIENT-ID";
-    const secret =
-      process.env["AZURE_CLIENT_SECRET"] || "REPLACE-WITH-YOUR-CLIENT-SECRET";
-    const subscriptionId =
-      process.env["AZURE_SUBSCRIPTION_ID"] || "REPLACE-WITH-YOUR-SUBSCRIPTION_ID";    
-    ```
-
-1. Get the resource group name, which was returned as the last line from the creation script and change the variable in the delete script:
-
-    ```javascript
-    const resourceGroupName = "REPLACE-WITH-YOUR-RESOURCE_GROUP-NAME";
-    ```
-
-1. Run the code to create a VM:
-
-    ```bash
-    node delete-resources.js
-    ```
-    
-    The delete may take a few minutes.
-
-    SDK methods used in this script include:
-    
-    * Resource groups
-        * [resourceClient.resourcegroups.createOrUpdate](/javascript/api/@azure/arm-resources/resourcegroups?view=azure-node-latest&preserve-view=true#createOrUpdate_string__ResourceGroup__msRest_RequestOptionsBase_)
+[!INCLUDE [javascript-azure-sdk-delete-resource-group](../../includes/azure-sdk-virtual-machine-delete-resource-group.md)]
 
 ## Next steps
 
