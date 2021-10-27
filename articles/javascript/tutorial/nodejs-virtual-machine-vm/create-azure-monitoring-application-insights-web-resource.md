@@ -37,7 +37,7 @@ This tutorial includes several Azure resources. Creating a resource group allows
     az monitor app-insights component create \
       --app demoWebAppMonitor \
       --location eastus \
-      --resource-group rg-demo-vm-eastus
+      --resource-group rg-demo-vm-eastus \
       --query instrumentationKey --output table
     ```
 
