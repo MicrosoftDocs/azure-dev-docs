@@ -23,18 +23,21 @@ The sample application for this tutorial may be cloned or downloaded from the re
 git clone https://github.com/Azure-Samples/js-e2e-express-mongo
 ```
 
-After cloning the sample app, you need to install the required dependencies before running the application or deploying it to Azure.
+To run the application locally, you need to:
 
-```bash
-cd js-e2e-express-mongo
-npm install
-```
-
-To run the application locally, set the `DATABASE_URL` variable to a connection string of a MongoDB database in the `.env` file in the root directory of the sample app. The sample app uses the [dotenv package](https://www.npmjs.com/package/dotenv) to support running the application locally.
+* Run `npm install` to install the dependencies for the application
+* Create a local MongoDB database for the application to use
+* Set the `DATABASE_URL` variable to the connection string of the local MongoDB database in the `.env` file. The sample application used the [dotenv package](https://www.npmjs.com/package/dotenv) to read environment variables from the `.env` file for local development.
 
 ```bash
 ENVIRONMENT=development
-DATABASE_URL=<local MongoDB connection string>
+DATABASE_URL=mongodb://localhost:27017/<local database name>
+```
+
+You can then run the application locally by typing `npm start`.
+
+```bash
+npm start
 ```
 
 ## 1 - Create the Azure App Service
