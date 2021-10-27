@@ -2,9 +2,10 @@
 title: Deploy a Node.js web app using MongoDB to Azure
 description: This article shows you have to deploy a Node.js app using Express.js and a MongoDB database to Azure.  Azure App Service is used to host the web application and Azure Cosmos DB to host the database using the 100% compatible MongoDB API built into Cosmos DB. 
 ms.topic: tutorial
-ms.date: 03/29/2021
+ms.date: 10/27/2021
 ms.service: app-service
 ms.custom: scenarios:getting-started, languages:JavaScript, devx-track-js
+ROBOTS: NOINDEX
 ---
 
 # Deploy a Node.js + MongoDB web app to Azure
@@ -26,7 +27,6 @@ git clone https://github.com/Azure-Samples/js-e2e-express-mongo
 To run the application locally, you need to:
 
 * Run `npm install` to install the dependencies for the application
-* Create a local MongoDB database for the application to use
 * Set the `DATABASE_URL` variable to the connection string of the local MongoDB database in the `.env` file. The sample application used the [dotenv package](https://www.npmjs.com/package/dotenv) to read environment variables from the `.env` file for local development.
 
 ```bash
@@ -255,9 +255,9 @@ To deploy your application code directly from VS Code, you must have the [Azure 
 
 [!INCLUDE [Deploy FTPS](<./includes/deploy-ftps.md>)]
 
-### [Deploy using Azure CLI](#tab/azure-cli-deploy)
+### [Deploy using a ZIP file](#tab/azure-cli-deploy)
 
-Blah blah blah
+[!INCLUDE [Deploy ZIP](<./includes/deploy-zip-file.md>)]
 
 ---
 
@@ -305,7 +305,6 @@ The contents of the App Service diagnostic logs can be reviewed in the Azure por
 |:----------------|-----------:|
 | [!INCLUDE [Stream logs from VS Code 1](<./includes/vscode-stream-logs-1.md>)] | :::image type="content" source="./media/vscode-stream-logs-1-240px.png" alt-text="A screenshot showing the location of the Azure Tool icon in Visual Studio Code." lightbox="./media/vscode-stream-logs-1.png"::: |
 | [!INCLUDE [Stream logs from VS Code 2](<./includes/vscode-stream-logs-2.md>)] | :::image type="content" source="./media/vscode-stream-logs-2-240px.png" alt-text="A screenshot showing how you deploy an application to Azure by right-clicking on a web app in VS Code and selecting deploy from the context menu." lightbox="./media/vscode-stream-logs-2.png"::: |
-
 
 ### [Azure CLI](#tab/azure-cli)
 

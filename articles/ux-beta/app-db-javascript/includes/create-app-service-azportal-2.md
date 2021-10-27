@@ -1,1 +1,1 @@
-On the **App Services** page select **+ Create**
+On the **App Services** page, select **+ Create**
