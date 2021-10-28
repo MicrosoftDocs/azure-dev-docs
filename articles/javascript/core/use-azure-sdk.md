@@ -112,3 +112,10 @@ Learn about bundling with the Azure SDK:
 
 * [To bundle the Azure SDKs](https://aka.ms/AzureSDKBundling)
 * [Bundling samples](https://github.com/Azure/azure-sdk-for-js/tree/main/samples/Bundling)
+
+## Next steps
+
+* [List subscriptions with **@azure/arm-subscriptions** SDK](nodejs-sdk-azure-authenticate.md#3-list-azure-subscriptions-with-service-principal)
+* [List recent resource operations with **@azure/arm-monitor** SDK](../how-to/with-azure-sdk/list-resource-operation-history.md)
+* [Create a virtual machine with **@azure/arm-compute** SDK ](../how-to/with-azure-sdk/create-manage-virtual-machine.md)
+* [Stop, start, get status for your virtual machine with **@azure/arm-compute** SDK ](../how-to/with-azure-sdk/stop-start-virtual-machine.md)
