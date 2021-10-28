@@ -1,12 +1,12 @@
 ---
-title: Create, and delete virtual machine
+title: Create and delete virtual machine
 description: Use Azure SDK to create and delete a virtual machine.
 ms.topic: conceptual
 ms.date: 10/26/2021
 ms.custom: devx-track-js
 ---
 
-# Use Azure SDKs to create a virtual machine.
+# Use Azure SDKs to create a virtual machine
 
 Use the Azure SDKs to create and delete an Azure virtual machine. 
 
