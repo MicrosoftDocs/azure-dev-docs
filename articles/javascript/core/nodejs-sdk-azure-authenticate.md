@@ -48,7 +48,7 @@ When you are ready to _begin_ your development work, we recommend you select the
 
 |Local development|Deployed application|
 |--|--|
-|**ClientSecretCredential**. After you create your service principal and retrieve your client Id, tenant Id, and secret, this credential is quick to use and doesn't require environment variables.|When you plan to deploy to production, use the **DefaultAzureCredential** which requires environment variables. This credential method provides the benefit of not needing to store or use secrets in source control.  |
+|**ClientSecretCredential**. After you create your service principal and retrieve your client ID, tenant ID, and secret, this credential is quick to use and doesn't require environment variables.|When you plan to deploy to production, use the **DefaultAzureCredential** which requires environment variables. This credential method provides the benefit of not needing to store or use secrets in source control.  |
 
 There are other [credential classes](https://www.npmjs.com/package/@azure/identity#credential-classes), which allow you to control authentication for specific purposes. 
 
@@ -150,4 +150,4 @@ Use the new service principal to authenticate with Azure and list your subscript
 * [Create web app with a secure domain name](../how-to/add-custom-domain-to-web-app.md)
 * You can also create a service principal with:
   * [Azure portal](/azure/active-directory/develop/howto-create-service-principal-portal)
-  * [PowerShell](/azure/active-directory/develop/howto-authenticate-service-principal-powershell). 
+  * [PowerShell](/azure/active-directory/develop/howto-authenticate-service-principal-powershell)
