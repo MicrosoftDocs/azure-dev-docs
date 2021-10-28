@@ -10,11 +10,11 @@ ROBOTS: NOINDEX
 
 # Deploy a Node.js + MongoDB web app to Azure
 
-Azure provides a fully managed solution for hosting JavaScript web apps in the cloud. In this article, you will clone and deploy a basic **Express.js** app using a **MongoDB** database to Azure.  The Express.js app will be hosted in Azure App Service and the MongoDB database in Azure Cosmos DB, a cloud native database offering a [100% MongoDB compatible API](/azure/cosmos-db/mongodb/mongodb-introduction). Azure supports hosting Node.js apps on both Linux (Node versions 10, 12, and 14) and Windows (versions 10 and 12) server environments.
+In this tutorial, you will learn how to deploy a basic **Express.js** app using a **MongoDB** database to Azure.  The Express.js app will be hosted in Azure App Service and the MongoDB database in Azure Cosmos DB, a cloud native database offering a [100% MongoDB compatible API](/azure/cosmos-db/mongodb/mongodb-introduction). Azure supports hosting Node.js apps on both Linux (Node versions 10, 12, and 14) and Windows (versions 10 and 12) server environments.
 
 ![A diagram showing how the Express.js app will be deployed to Azure App Service and the MongoDB data will be hosted inside of Azure Cosmos DB.](./media/app-diagram.png)
 
-In this tutorial, you will create the necessary Azure resources, deploy your code to Azure, browse to your application, and inspect the deployed app to see the log files and the environment that hosts your app. This article assumes you already are familiar with the [Node.js development workflow](/learn/paths/build-javascript-applications-nodejs/) and have Node and MongoDB installed locally.  You will also need an Azure account with an active subscription.  If you do not have an Azure account, you [can create one for free](https://azure.microsoft.com/free/nodejs/).
+This article assumes you already are familiar with the [Node.js development workflow](/learn/paths/build-javascript-applications-nodejs/) and have Node and MongoDB installed locally.  You will also need an Azure account with an active subscription.  If you do not have an Azure account, you [can create one for free](https://azure.microsoft.com/free/nodejs/).
 
 ## Sample application
 
@@ -24,13 +24,17 @@ The sample application for this tutorial may be cloned or downloaded from the re
 git clone https://github.com/Azure-Samples/js-e2e-express-mongo
 ```
 
-To run the application locally, run `npm install` to install the package dependencies and `npm start` to run the application. The application will use the local MongoDB instance as a database. The application [dotenv package](https://www.npmjs.com/package/dotenv) for local development to read the connection string for the local database from the `.env` file.
+To run the application locally:
+
+* Run `npm install` to install the package dependencies.
+* Run `npm start` to start the application.
+* Browse to `http://localhost:3000` to view the app.
+
+The application uses the [dotenv package](https://www.npmjs.com/package/dotenv) to read the connection string  from the `.env` file for local development. By default, the connection string is set to use the local MongoDB instance as a database.
 
 ## 1 - Create the Azure App Service
 
-Azure App Service is used to host the Express.js web application code. Azure App service supports hosting JavaScript apps in both Linux and Windows server environments.
-
-When setting up the App Service for the application, you will configure two individual components:
+Azure App Service is used to host the Express.js web application code. Azure App service supports hosting JavaScript apps in both Linux and Windows server environments. When setting up the App Service for the application, you will configure two individual components:
 
 * An **App Service plan** which defines the operating system and compute resources (CPU, memory) available for the application.
 * An **App Service web app** which defines the application name and runtime used by the application.
@@ -163,7 +167,7 @@ Creating a new Azure Cosmos DB typically takes about 5 minutes.
 
 To connect to your Cosmos DB database, you need to provide the connection string for the database to your application. This is done in the sample application by reading the `DATABASE_URL` environment variable. When running locally, the sample application uses the [dotenv package](https://www.npmjs.com/package/dotenv) to read the connection string value from the `.env` file.
 
-When running in Azure, configuration values like connection strings can be stored in the *application setting* for an App Service. These values are then made available to your application as environment variables. In this way, the application accesses the connection string from `process.env` the same way whether being run locally or in Azure. Further, this eliminates the need to manage and deploy environment specific config files with your application.
+When running in Azure, configuration values like connection strings can be stored in the *application settings* for an App Service. These values are then made available to your application as environment variables. In this way, the application accesses the connection string from `process.env` the same way whether being run locally or in Azure. Further, this eliminates the need to manage and deploy environment specific config files with your application.
 
 ### [Azure portal](#tab/azure-portal)
 
@@ -221,7 +225,7 @@ az webapp config appsettings set \
 
 ## 4 - Deploy application code to Azure
 
-Azure App service supports multiple different methods to deploy your application code to Azure including support for GitHub actions and all major CI/CD tools. This article focuses on how to deploy your code from your local workstation to Azure.
+Azure App service supports multiple different methods to deploy your application code to Azure including support for GitHub Actions and all major CI/CD tools. This article focuses on how to deploy your code from your local workstation to Azure.
 
 ### [Deploy using VS Code](#tab/vscode-deploy)
 
@@ -342,6 +346,7 @@ Refresh the home page in the app or attempt other requests to generate some log 
 [Kudu](/azure/app-service/resources-kudu) is the engine behind many of the automated deployment features in App Service. In addition, it provides a useful web-based console to view your deployed application in Azure.
 
 To access Kudu, navigate to one of the following URLs. You will need to sign into the Kudu site with your Azure credentials.
+
 * For apps deployed in Free, Shared, Basic, Standard and Premium App Service plans - `https://<app-name>.scm.azurewebsites.net`
 * For apps deployed in Isolated service plans - `https://<app-name>.scm.<ase-name>.p.azurewebsites.net`
 
