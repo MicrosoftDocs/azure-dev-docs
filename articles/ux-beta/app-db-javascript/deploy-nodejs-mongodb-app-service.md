@@ -18,7 +18,7 @@ This article assumes you already are familiar with the [Node.js development work
 
 ## Sample application
 
-The sample application for this tutorial may be cloned or downloaded from the repository [https://github.com/Azure-Samples/js-e2e-express-mongo](https://github.com/Azure-Samples/js-e2e-express-mongo).
+To follow along with this tutorial, clone or download the sample application from the repository [https://github.com/Azure-Samples/js-e2e-express-mongo](https://github.com/Azure-Samples/js-e2e-express-mongo).
 
 ```bash
 git clone https://github.com/Azure-Samples/js-e2e-express-mongo
@@ -147,7 +147,7 @@ You must be signed in to the [Azure portal](https://portal.azure.com/) to comple
 
 A new Azure Cosmos DB account is created by using the [az cosmosdb create](/cli/azure/cosmosdbaz_cosmosdb_create) command.
 
-* The name of the Cosmos DB account must be unique across Azure. The name may only contain lowercase letters, numbers, and the hyphen (-) character and must be between 3 and 50 characters long.
+* The name of the Cosmos DB account must be unique across Azure. The name can only contain lowercase letters, numbers, and the hyphen (-) character and must be between 3 and 50 characters long.
 * The `--kind MongoDB` flag tells Azure to create a Cosmos DB that is compatible with the MongoDB API.  This flag must be included for your Cosmos DB to work as a MongoDB database.
 
 ```azurecli
@@ -237,7 +237,7 @@ To deploy your application code directly from VS Code, you must have the [Azure 
 | [!INCLUDE [Deploy from VS Code 2](<./includes/deploy-from-vscode-2.md>)] | :::image type="content" source="./media/deploy-from-vscode-2-240px.png" alt-text="A screenshot showing how you deploy an application to Azure by right-clicking on a web app in VS Code and selecting deploy from the context menu." lightbox="./media/deploy-from-vscode-2.png"::: |
 | [!INCLUDE [Deploy from VS Code 3](<./includes/deploy-from-vscode-3.md>)] | :::image type="content" source="./media/deploy-from-vscode-3-240px.png" alt-text="A screenshot showing the Output window of VS Code while deploying an application to Azure." lightbox="./media/deploy-from-vscode-3.png"::: |
 
-### [Deploy using Local git](#tab/local-git-deploy)
+### [Deploy using Local Git](#tab/local-git-deploy)
 
 [!INCLUDE [Deploy using Local Git](<./includes/deploy-local-git.md>)]
 
