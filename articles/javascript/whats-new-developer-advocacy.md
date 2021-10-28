@@ -2,7 +2,7 @@
 title: "What's new with Cloud Developer Advocates"
 description: "What's new with JavaScript Cloud Developer Advocates (CDA)"
 ms.topic: conceptual
-ms.date: 09/28/2021
+ms.date: 10/28/2021
 ---
 
 # What's new with JavaScript Developer Advocates
@@ -32,6 +32,19 @@ This content is primarily from Developer Advocates as well as other members of t
 |Client web apps|Beginner's Series to: Vue.js|[Beginner video series](https://youtu.be/LnngsOg014Y)|
 |Client web apps|Comparing Azure Static Web Apps vs Azure WebApps vs Azure Blob Storage Static Sites|[Blog post](https://devblogs.microsoft.com/devops/comparing-azure-static-web-apps-vs-azure-webapps-vs-azure-blob-storage-static-sites/)|
 |Microsoft Graph|Get started with Microsoft Graph and JavaScript|[Samples](https://developer.microsoft.com/graph/get-started/javascript)|
+
+## 2021 October
+
+|Cloud Advocate|Contributions|Link|
+|--|--|--|
+|[Aaron Powell][Aaron]|Deployment guide for Keystone v6|[GitHub](https://github.com/aaronpowell/keystone-6-azure-example)|
+|[Aaron Powell][Aaron]|Host Strapi 3 on Azure|[Blog](https://www.aaron-powell.com/posts/2021-10-14-host-strapi-3-on-azure/)|
+|[Yohan Lasorsa][Yohan]|Azure Check-In: a streamlined onboarding experience with Azure Pass for your events. You can use it for workshops, meetups or student classes. |[GitHub](https://azcheck.in)|
+|[Yohan Lasorsa][Yohan]|GitHub Template repo in sync with dev.to blog posts|[GitHub](https://github.com/sinedied/devto-github-template)|
+|[Glaucia Lemos][Glaucia]|Coding Stuff! JWT + Node + Mongo+ Vue Project - Video 12|**Portuguese** - [YouTube](https://youtu.be/LtSeR3jy28Y)|
+|[Glaucia Lemos][Glaucia]|Coding Stuff! JWT + Node + Mongo+ Vue Project - Video 11|**Portuguese** - [YouTube](https://youtu.be/5VSzUFIAh1U)|
+
+
 
 ## 2021 September
 
@@ -93,7 +106,7 @@ This content is primarily from Developer Advocates as well as other members of t
 |[Lucas Santos][Lucas]|Starting with ES Modules|**Portuguese** - [Blog](https://blog.lsantos.dev/os-ecmascript-modules-estao-aqui/)|
 |[Wassim Chegham][Wassim] |The subtle art of being a developer advocate|[Twitch](https://www.youtube.com/watch?v=ahA8a5zNY6Y)|
 |[Aaron Powell][Aaron]|Type-safe GraphQL with TypeScript|[GotHub repo](https://github.com/aaronpowell/graphql-code-generator-sample)|
-|[Wassim Chegham][Wassim]|Azure Static Web Apps CLI|**French** - [YouTube video:Tartine & Tech](https://www.youtube.com/watch?v=0L2XS6INmwE)|
+|[Wassim Chegham][Wassim]|Azure Static Web Apps CLI|**French** - [YouTube video:Tartine & Tech](https://www.youtube.com/watch?v=0L2XS6INmwE) [Slides](https://slides.com/wassimchegham/a-look-at-the-new-azure-static-web-apps-cli-swa-conf)|
 |[Glaucia Lemos][Glaucia]|How do I debug API REST Node.js App in VS Code?!|**Portuguese** - [YouTube](https://youtu.be/Lb20EoDja50)|
 |[Aaron Powell][Aaron]|SUPERCHARGING A WEB DEVS TOOLBOX|[Microsoft Reactor Video](https://www.aaron-powell.com/posts/2021-06-03-supercharging-a-web-devs-toolbox/)|
 |[David Smith][David]|Build a simple website using HTML, CSS, and JavaScript|[Microsoft Learn module](/learn/modules/build-simple-website/)|
@@ -197,3 +210,5 @@ This content is primarily from Developer Advocates as well as other members of t
 [Maud]:https://twitter.com/maudstweets
 [David]:https://twitter.com/revodavid
 [Anthony]:https://twitter.com/nthonyChu
+[Nitya]:https://twitter.com/nitya/
+[Jen]: https://twitter.com/jenlooper
