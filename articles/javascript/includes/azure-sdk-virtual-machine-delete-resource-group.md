@@ -42,4 +42,4 @@ When you are done with the virtual machine, delete the resource group.
 
     SDK methods used in this script include:
     
-    * Resource groups - [resourceClient.resourcegroups.delete](javascript/api/@azure/arm-resources/resourcegroups?preserve-view=true&view=azure-node-latest#deleteMethod_string__msRest_RequestOptionsBase_)
+    * Resource groups - [resourceClient.resourcegroups.delete](/javascript/api/@azure/arm-resources/resourcegroups?preserve-view=true&view=azure-node-latest#deleteMethod_string__msRest_RequestOptionsBase_)
