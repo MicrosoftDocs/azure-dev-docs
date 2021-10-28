@@ -10,7 +10,7 @@ When you are done with the virtual machine, delete the resource group.
 
 1. Create a file named `delete-resources.js` or [copy the file from GitHub](https://github.com/Azure-Samples/js-e2e/blob/main/resources/virtual-machines/delete-resources.js).
 
-    :::code language="JavaScript" source="~/../js-e2e/resources/virtual-machines/delete-resources.js"  :::
+    :::code language="JavaScript" source="~/../js-e2e/resources/virtual-machines/delete-resources.js" highlight="31" :::
 
 1. For local development, change variables in file for authentication:
 
