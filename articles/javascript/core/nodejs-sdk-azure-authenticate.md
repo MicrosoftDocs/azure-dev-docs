@@ -2,7 +2,7 @@
 title: Authenticate to Azure with SDK
 description: To authenticate to Azure, create a service principal to use the Azure SDKs for JavaScript.
 ms.topic: conceptual
-ms.date: 09/23/2021
+ms.date: 10/26/2021
 ms.custom: devx-track-js
 ---
 
@@ -44,9 +44,13 @@ Because this code doesn't use any authentication secrets, you can check this cod
 
 ## Azure authentication for development and production use
 
-When you are ready to begin your development work, we recommend you select the **DefaultAzureCredential**. This credential method provides the benefit of using the same code in development and production without needing to store or use secrets.  
+When you are ready to _begin_ your development work, we recommend you select the following credentials: 
 
-This method requires setup on both the local development environment and the remote product environment. 
+|Local development|Deployed application|
+|--|--|
+|**ClientSecretCredential**. After you create your service principal and retrieve your client ID, tenant ID, and secret, this credential is quick to use and doesn't require environment variables.|When you plan to deploy to production, use the **DefaultAzureCredential** which requires environment variables. This credential method provides the benefit of not needing to store or use secrets in source control.  |
+
+There are other [credential classes](https://www.npmjs.com/package/@azure/identity#credential-classes), which allow you to control authentication for specific purposes. 
 
 ## 1. Create a service principal
 
@@ -74,48 +78,49 @@ You can also create a service principal with:
 * [Azure portal](/azure/active-directory/develop/howto-create-service-principal-portal)
 * [PowerShell](/azure/active-directory/develop/howto-authenticate-service-principal-powershell) 
 
-
 ## 2. Configure your environment variables
 
-In both the local and Azure cloud environments, you need to configure the following environment variables. Do not change the name because the Azure Identity SDK requires these exact environment names. 
-
-1. Create these environment variables. These environment variables are **REQUIRED for the context to use DefaultAzureCredential**. 
+In the Azure cloud environments, you need to configure the following environment variables. Do not change the names because the Azure Identity SDK requires these exact environment names. These environment variables are **REQUIRED for the context to use DefaultAzureCredential**. 
 
    * `AZURE_TENANT_ID`: `tenant` from the service principal output above. 
    * `AZURE_CLIENT_ID`: `appId` from the service principal output above.
    * `AZURE_CLIENT_SECRET`: `password` from the service principal output above.
 
-1. Create this environment variable. This setting isn't required to use the DefaultAzureCredential but is used in the code in the next section.
+## 3. List Azure subscriptions with service principal 
 
-   * `AZURE_SUBSCRIPTION`: Your default subscription containing your resource groups. 
-
-## 3. List Azure resource groups with service principal 
-
-Use the new service principal to authenticate with Azure. 
+Use the new service principal to authenticate with Azure and list your subscriptions. 
 
 # [Azure SDK for JavaScript](#tab/azure-sdk-for-javascript)
 
-1. Install the dependencies: [Azure SDK for Identity](https://www.npmjs.com/package/@azure/identity), [Azure Resource Manager SDK](https://www.npmjs.com/package/@azure/arm-resources), and `stringify-object` (to provide readable JSON only).
+1. Install the dependencies: [Azure SDK for Identity](https://www.npmjs.com/package/@azure/identity), [Azure Subscriptions SDK](https://www.npmjs.com/package/@azure/arm-subscriptions).
 
     ```bash
-    npm install @azure/identity @azure/arm-resources stringify-object --save
+    npm install @azure/identity @azure/arm-subscriptions --save
     ```
 
-1. Create a JavaScript file, named `resource-groups-list.js`, with the following code:
+1. Create a JavaScript file, named [list.js](https://github.com/Azure-Samples/js-e2e/blob/main/resources/subscriptions/list.js), with the following code:
 
-    :::code language="JavaScript" source="~/../js-e2e/resources/resource-groups-list/resource-groups-list.js"  :::
+    :::code language="JavaScript" source="~/../js-e2e/resources/subscriptions/list.js" highlight="4-24"  :::
+
+1. If you aren't setting environment variables, replace the credential strings with your values.
+ 
+    ```javascript
+    const tenantId = process.env["AZURE_TENANT_ID"] || "REPLACE-WITH-YOUR-TENANT-ID"; 
+    const clientId = process.env["AZURE_CLIENT_ID"] || "REPLACE-WITH-YOUR-CLIENT-ID"; 
+    const secret = process.env["AZURE_CLIENT_SECRET"] || "REPLACE-WITH-YOUR-CLIENT-SECRET";
+    ```
 
 1. Run the file to view the resource group list:
 
     ```bash
-    node  resource-groups-list.js
+    node list.js
     ```
 
 1. View complete sample code and package.json:
 
-    * [https://github.com/Azure-Samples/js-e2e/tree/main/resources/resource-groups-list](https://github.com/Azure-Samples/js-e2e/tree/main/resources/resource-groups-list)
+    * [https://github.com/Azure-Samples/js-e2e/blob/main/resources/subscriptions/list.js](https://github.com/Azure-Samples/js-e2e/blob/main/resources/subscriptions/list.js)
 
-# [Azure CLI](#tab/azure-cli-create-resource)
+# [Azure CLI](#tab/azure-cli-list-subscriptions)
 
 1. In the same Azure CLI terminal you used to create the service principal, log off to stop using your personal account.
 
@@ -135,8 +140,7 @@ Use the new service principal to authenticate with Azure.
 1.  List all resource groups: 
 
     ```bash
-    az group list \
-        --subscription YOUR-SUBSCRIPTION-NAME-OR-ID
+    az account list --output table
     ```
 
 ---
@@ -146,4 +150,4 @@ Use the new service principal to authenticate with Azure.
 * [Create web app with a secure domain name](../how-to/add-custom-domain-to-web-app.md)
 * You can also create a service principal with:
   * [Azure portal](/azure/active-directory/develop/howto-create-service-principal-portal)
-  * [PowerShell](/azure/active-directory/develop/howto-authenticate-service-principal-powershell). 
+  * [PowerShell](/azure/active-directory/develop/howto-authenticate-service-principal-powershell)
