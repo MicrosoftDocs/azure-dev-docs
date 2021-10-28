@@ -2,7 +2,7 @@
 title: Stop and start virtual machine
 description: Use Azure SDK to stop and start a virtual machine.
 ms.topic: conceptual
-ms.date: 10/27/2021
+ms.date: 10/28/2021
 ms.custom: devx-track-js
 ---
 
@@ -35,7 +35,23 @@ In order to programmatically stop and start your virtual machine, you need to co
 
 To get the virtual machine resource name, use the following script to see all virtual machines in the subscription. Use the returned JSON's `name` value as the virtual machine resource name. 
 
-:::code language="JavaScript" source="~/../js-e2e/resources/virtual-machines//list-vms.js"  :::
+:::code language="JavaScript" source="~/../js-e2e/resources/virtual-machines/list-vms.js" highlight="23-28" range="1-34":::
+
+SDK methods used in this script include:
+    
+    * VMs
+        * [computeClient.virtualMachines.list](/javascript/api/@azure/arm-compute/virtualmachines?view=azure-node-latest&preserve-view=true#list_string__msRest_RequestOptionsBase_)
+
+## Get status of virtual machines in subscription 
+
+To get the virtual machine resource status, use the following script. Use the `statusOnly: "true"` parameter to return just the status values for each virtual machine in the subscription. 
+
+:::code language="JavaScript" source="~/../js-e2e/resources/virtual-machines/status.js" highlight="26-57" range="1-65" :::
+
+SDK methods used in this script include:
+    
+    * VMs
+        * [computeClient.virtualMachines.listAll](/javascript/api/@azure/arm-compute/virtualmachines?view=azure-node-latest&preserve-view=true#listAll_Models_VirtualMachinesListAllOptionalParams_)
 
 ## Stop a virtual machine
 
