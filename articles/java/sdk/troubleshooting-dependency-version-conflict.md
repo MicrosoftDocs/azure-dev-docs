@@ -53,7 +53,7 @@ The following sections describe how to mitigate version mismatch issues.
 
 Use the latest stable [Azure SDK BOM](https://search.maven.org/artifact/com.azure/azure-sdk-bom) and don't specify Azure SDK and dependency versions in your POM file. When applicable, use the [Azure Spring Boot BOM](https://search.maven.org/artifact/com.azure.spring/azure-spring-boot-bom/).
 
-The dependencies listed in the Azure SDK BOM are rigorously to avoid dependency conflicts.
+The dependencies listed in the Azure SDK BOM are tested rigorously to avoid dependency conflicts.
 
 ### Avoid unnecessary dependencies
 
