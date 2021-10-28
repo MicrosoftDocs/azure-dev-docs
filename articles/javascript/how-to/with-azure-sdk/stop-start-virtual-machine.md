@@ -39,8 +39,8 @@ To get the virtual machine resource name, use the following script to see all vi
 
 SDK methods used in this script include:
     
-    * VMs
-        * [computeClient.virtualMachines.list](/javascript/api/@azure/arm-compute/virtualmachines?view=azure-node-latest&preserve-view=true#list_string__msRest_RequestOptionsBase_)
+* VMs
+    * [computeClient.virtualMachines.list](/javascript/api/@azure/arm-compute/virtualmachines?view=azure-node-latest&preserve-view=true#list_string__msRest_RequestOptionsBase_)
 
 ## Get status of virtual machines in subscription 
 
@@ -50,8 +50,8 @@ To get the virtual machine resource status, use the following script. Use the `s
 
 SDK methods used in this script include:
     
-    * VMs
-        * [computeClient.virtualMachines.listAll](/javascript/api/@azure/arm-compute/virtualmachines?view=azure-node-latest&preserve-view=true#listAll_Models_VirtualMachinesListAllOptionalParams_)
+* VMs
+    * [computeClient.virtualMachines.listAll](/javascript/api/@azure/arm-compute/virtualmachines?view=azure-node-latest&preserve-view=true#listAll_Models_VirtualMachinesListAllOptionalParams_)
 
 ## Stop a virtual machine
 
