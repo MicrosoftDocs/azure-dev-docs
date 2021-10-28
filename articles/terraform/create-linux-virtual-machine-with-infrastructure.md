@@ -30,7 +30,7 @@ In this article, you learn how to:
 
 ## 2. Implement the Terraform code
 
-1. Create a directory in which to test and run the sample Terraform code and make it the current directory.
+1. Create a directory in which to test the sample Terraform code and make it the current directory.
 
 1. Create a file named `main.tf` and insert the following code:
 

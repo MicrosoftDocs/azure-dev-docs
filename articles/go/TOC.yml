@@ -18,6 +18,8 @@ items:
   - name: Concepts
     expanded: true
     items:
+      - name: Core concepts
+        href: azure-sdk-core-concepts.md
       - name: Working with the management libraries
         href: management-libraries.md
       - name: Authentication

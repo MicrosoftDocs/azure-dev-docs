@@ -2,8 +2,9 @@
 title: Create Azure Function app
 description: Learn how to create an Azure Function app in Visual Studio Code to manage Azure resource groups.
 ms.topic: how-to
-ms.date: 09/16/2021
+ms.date: 10/06/2021
 ms.custom: devx-track-js
+
 ---
 
 # 2. Create local Azure Function app in Visual Studio Code

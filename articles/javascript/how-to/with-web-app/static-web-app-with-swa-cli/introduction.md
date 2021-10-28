@@ -2,7 +2,7 @@
 title: "Intro: Create Static Web Apps using CLI"
 description: Create a static web app (React and API) and locally develop using the SWA CLI. Run the same code locally and remotely to ensure that customers get the correct web behavior.
 ms.topic: how-to
-ms.date: 08/31/2021
+ms.date: 10/19/2021
 ms.custom: devx-track-js
 #intent: Create Express.js web app with easy auth configured. 
 ---
@@ -27,6 +27,17 @@ Complete sample code provided:
 
 * Sample [basic app](https://github.com/Azure-Samples/js-e2e-static-web-app-with-cli/tree/1-basic-app-with-api) - on branch named `1-basic-app-with-api`
 * Sample [basic app with auth](https://github.com/Azure-Samples/js-e2e-static-web-app-with-cli/tree/2-basic-app-with-api-and-auth) - on branch named `2-basic-app-with-api-and-auth`
+
+
+## Authentication in this sample
+
+The authentication in this sample provides:
+* React client provides:
+    * Login/Logout
+    * Public and private routes based on user's authentication status
+    * Private route has access to API, `await fetch(`/api/hello?name=${name}`)`
+
+This is an _easy auth_ implementation. The API can't act [_on behalf of_(OBO))](/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow) the logged in user. Acting on behalf of the user requires more configuration both in the Azure Active Directory app and the Azure Identity SDK in the API. 
 
 ## Prepare your development environment
 

@@ -141,7 +141,7 @@ Provide authentication.
 |Create MariaDB resource|[Azure portal](https://ms.portal.azure.com/#create/Microsoft.MariaDBServer)<br>[Azure CLI](./with-azure-cli/create-mariadb.md#create-a-mariadb-resource-with-azure-cli)<br>[@azure/arm-mariadb](https://www.npmjs.com/package/@azure/arm-mariadb)|
 |Create MariaDB database on resource|[Azure CLI](./with-azure-cli/create-mariadb.md#create-a-mariadb-resource-with-azure-cli)|
 |Get Connection string|[Azure CLI](./with-azure-cli/create-mariadb.md#get-the-mariadb-connection-string-with-azure-cli)|
-|Use and view database|[Azure Cloud Shell](https://shell.azure.com/)'s _mysql_ CLI<br>[MySQL Workbench](https://www.mysql.com/products/workbench/)<br>[Visual Studio Code extension](https://marketplace.visualstudio.com/items?itemName=mtxr.sqltools-driver-mysql)<br>[npm mariadb](https://www.npmjs.com/package/mariadb)<br>[JavaScript](./with-database/use-mariadb.md#use-mariadb-sdk-to-connect-to-mariadb-on-azure)|
+|Use and view database|[Azure Cloud Shell](https://shell.azure.com/)'s _mysql_ CLI<br>[MySQL Workbench](https://www.mysql.com/products/workbench/)<br>[Visual Studio Code extension](https://marketplace.visualstudio.com/items?itemName=mtxr.sqltools-driver-mysql)<br>[npm mariadb](https://www.npmjs.com/package/mariadb)<br>[JavaScript](./with-database/use-mysql-mariadb.md?tabs=MariaDB#use-mariadb-sdk-to-connect-to-mariadb-on-azure)|
 
 ### MongoDB API on Cosmos DB
 
@@ -161,10 +161,10 @@ Provide authentication.
 |Task|Using|
 |--|--|
 |Create resource|[Azure portal](https://ms.portal.azure.com/#create/Microsoft.MySQLServer)<br>[Azure CLI](./with-azure-cli/create-mysql-db.md#create-an-azure-database-for-mysql-resource-with-azure-cli)<br>[@azure/arm-mysql](https://www.npmjs.com/package/@azure/arm-mysql)|
-|Create database on resource|[Azure CLI](./with-database/use-mysql-db.md#create-a-database-on-the-server-with-azure-cli)|
-|Get Connection string|[Azure CLI](./with-database/use-mysql-db.md#get-the-mysql-connection-string-with-azure-cli)|
+|Create database on resource|[Azure CLI](./with-database/use-mysql-mariadb.md?tabs=MySQL#create-a-database-on-the-server-with-azure-cli)|
+|Get Connection string|[Azure CLI](./with-database/use-mysql-mariadb.md?tabs=MySQL#get-the-mysql-connection-string-with-azure-cli)|
 |Use and view database|[MySQL Workbench](https://www.mysql.com/products/workbench/)<br>[Visual Studio Code extension](https://marketplace.visualstudio.com/items?itemName=mtxr.sqltools-driver-mysql)<br>[npm mysql](https://www.npmjs.com/package/mysql)<br>[npm promise-mysql](https://www.npmjs.com/package/promise-mysql)|
-|Use promise-mysql API|[JavaScript](./with-database/use-mysql-db.md#use-promise-mysql-sdk-to-connect-to-mysql-on-azure)|
+|Use promise-mysql API|[JavaScript](./with-database/use-mysql-mariadb.md?tabs=MySQL#use-promise-mysql-sdk-to-connect-to-mysql-on-azure)|
 
 ### PostgreSQL
 
@@ -202,8 +202,8 @@ Provide authentication.
 
 |Task|using|
 |--|--|
-|Static Web App (SWA)|[VS Code](/azure/search/tutorial-javascript-deploy-static-web-app)<br>[From Framework (Next.js)](/azure/static-web-apps/deploy-nextjs#deploy-your-static-website)<br>[Azure DevOps pipelines](/azure/static-web-apps/publish-devops#create-the-pipeline-task-in-azure-devops)|
-|Functions|[VS Code](../tutorial/vscode-function-app-http-trigger/tutorial-vscode-serverless-node-deploy-hosting.md#use-visual-studio-code-extension-to-deploy-to-hosting-environment)<br>[Azure DevOps pipelines](/azure/azure-functions/functions-how-to-azure-devops?tabs=javascript%2Cwindows)<br>[GitHub Actions](/azure/azure-functions/functions-how-to-github-actions?tabs=javascript#deploy-the-function-app)|
+|Static Web App (SWA)|[VS Code](/azure/search/tutorial-javascript-deploy-static-web-app)<br>[From Framework (Next.js)](/azure/static-web-apps/deploy-nextjs#deploy-your-static-website)<br>[Azure Pipelines](/azure/static-web-apps/publish-devops#create-the-pipeline-task-in-azure-devops)|
+|Functions|[VS Code](../tutorial/vscode-function-app-http-trigger/tutorial-vscode-serverless-node-deploy-hosting.md#use-visual-studio-code-extension-to-deploy-to-hosting-environment)<br>[Azure Pipelines](/azure/azure-functions/functions-how-to-azure-devops?tabs=javascript%2Cwindows)<br>[GitHub Actions](/azure/azure-functions/functions-how-to-github-actions?tabs=javascript#deploy-the-function-app)|
 |App service|[Express.js with VS Code](../tutorial/deploy-nodejs-azure-app-service-with-visual-studio-code.md?tabs=bash#5-create-app-service-resource-in-visual-studio-code)<br>[Git Push](../tutorial/tutorial-vscode-azure-cli-node/tutorial-vscode-azure-cli-node-04.md#make-change-and-deploy-to-azure-app-service-from-local-git)<br>[GitHub Actions](/azure/app-service/deploy-github-actions?tabs=applevel)<br>[Azure DevOps](/azure/app-service/deploy-continuous-deployment?tabs=repos)|
 
 ## Git

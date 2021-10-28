@@ -31,6 +31,12 @@
             href: core/nodejs-sdk-azure-authenticate.md
           - name: List subscriptions
             href: core/nodejs-sdk-azure-authenticate.md?tabs=azure-sdk-for-javascript.md#3-list-azure-subscriptions-with-service-principal
+          - name: View subscription history
+            href: how-to/with-azure-sdk/list-resource-operation-history.md            
+          - name: Create, delete virtual machine
+            href: how-to/with-azure-sdk/create-manage-virtual-machine.md
+          - name: Stop, start, list virtual machines
+            href: how-to/with-azure-sdk/stop-start-virtual-machine.md
       - name: With web apps
         items:
           - name: Select hosting service
@@ -271,10 +277,8 @@
             href: how-to/with-database/use-cassandra-as-cosmos-db.md
           - name: MongoDB on Cosmos DB
             href: how-to/with-database/use-mongodb-as-cosmosdb.md
-          - name: MariaDB
-            href: how-to/with-database/use-mariadb.md
-          - name: MySQL
-            href: how-to/with-database/use-mysql-db.md
+          - name: MySQL and MariaDB
+            href: how-to/with-database/use-mysql-mariadb.md
           - name: PostgreSQL
             href: how-to/with-database/use-postgresql-db.md
           - name: SQL API on Cosmos DB

@@ -60,7 +60,7 @@ Terraform tracks state locally via the `terraform.tfstate` file. This pattern wo
 
 ## 3. Implement the Terraform code
 
-1. Create a directory in which to test and run the sample Terraform code and make it the current directory.
+1. Create a directory in which to test the sample Terraform code and make it the current directory.
 
 1. Create a file named `main.tf` and insert the following code:
 

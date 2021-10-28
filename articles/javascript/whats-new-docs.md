@@ -2,8 +2,7 @@
 title: "What's new for JavaScript docs"
 description: "What's new in JavaScript docs in the Developer Center"
 ms.topic: conceptual
-ms.date: 09/15/2021
-
+ms.date: 10/26/2021
 
 ---
 
@@ -11,7 +10,24 @@ ms.date: 09/15/2021
 
 Find new and updated content for JavaScript and TypeScript developers.
 
-## 2021 August 
+## 2021 October
+
+### New in October
+
+|Name|Description|
+|---------------------------------------|--|
+|[Azure SDK: Use the Azure SDKs to create and delete an Azure virtual machine.](how-to/with-azure-sdk/create-manage-virtual-machine.md)|An Azure Virtual machine requires several resources to support the virtual machine. The best way to manage those resources is to create all the resources in a single resource group. The script creates the resource group and postpends a random number to make sure the resource group is unique, regardless of how many times you use the script.|
+|[Azure SDK: Use the Azure SDKs to stop, start, and list Azure virtual machines.](how-to/with-azure-sdk/stop-start-virtual-machine.md)|An Azure Virtual machine can be started and stopped programmatically with the **@azure/arm-compute** SDK.|
+|[Azure SDK: Use Azure Monitor SDK to list recent resource operations](how-to/with-azure-sdk/list-resource-operation-history.md)|Use the Azure Monitor SDK to list the most recent resource operations in your subscription. Operations can be filtered by a date range (within the last 10 days), and a resource group. Examples of operations can include resource creation, stopping or starting a resource such as web app or virtual machine, and retrieving a connection string.|
+
+### Updates in October
+
+
+|Name|Description|
+|---------------------------------------|--|
+|[Azure Functions: Add Cosmos DB for MongoDB API integration](tutorial/vscode-function-app-http-trigger/tutorial-vscode-serverless-node-database-integration.md)|Fixed connection pooling.|
+
+## 2021 September 
 
 
 ### New in September
@@ -28,6 +44,8 @@ Find new and updated content for JavaScript and TypeScript developers.
 |[Create and deploy Azure Functions from Visual Studio Code with MongoDB integration](tutorial/vscode-function-app-http-trigger/tutorial-vscode-serverless-node-install.md)|Create a secure API in Visual Studio Code with VS Code extensions and JavaScript, then deploy the application to the Azure cloud for hosting with a public HTTP endpoint. The API integrates with a Cosmos DB database using the MongoDB API. The MongoDB API is accessed from the [mongoose](https://www.npmjs.com/package/mongoose) npm package.<br><br>The MongoDB database functionality includes:<br>* Add item<br>* Delete item by ID<br>* Get item by ID<br>* Get all items| 
 |[Upload an image to an Azure Storage blob](tutorial/browser-file-upload-azure-storage-blob.md)|* Updates based on Azure portal UI changes<br>* Added Static Web App resource creation and deployment<br>* Moved environment variables from source code into `.env` file| 
 |[Clone and use a GitHub repository in Visual Studio Code](how-to/with-visual-studio-code/clone-github-repository.md)|Updated and clarified for new functionality.|
+
+## 2021 August
 
 ### New in August
 
@@ -79,7 +97,7 @@ Find new and updated content for JavaScript and TypeScript developers.
 |---------------------------------------|--|
 |[Logging, metrics, and telemetry in Azure](./how-to/node-sdk-logging.md)|Web app and Function app logging information.|
 |[Tutorial: Create a function with Visual Studio Code](./tutorial/vscode-function-app-http-trigger/tutorial-vscode-serverless-node-install.md)|Added streaming logs in VS Code, and querying Kusto log in Azure portal.|
-|[Tools update](./node-azure-tools.md)|Added several links to Microsoft or Azure specific tools. Added Azure service specific tips.|
+|[Tools update](./node-azure-tools.md)|Added several links to Microsoft or Azure specific tools. Added Azure service-specific tips.|
 |[Add Microsoft login button to a single page application for authentication](./tutorial/single-page-application-azure-login-button-sdk-msal.md#7-store-application-specific-user-information)|Added Microsoft Identity provider and Active Directory app ID information. |
 |Locally develop with the CosmosDB emulator|For [SQL API](./how-to/with-database/use-sql-api-as-cosmos-db.md#locally-develop-with-the-cosmosdb-emulator), [MongoDB](./how-to/with-database/use-mongodb-as-cosmosdb.md#locally-develop-with-the-cosmosdb-emulator), and [Cassandra](./how-to/with-database/use-cassandra-as-cosmos-db.md#locally-develop-with-the-cosmosdb-emulator). |
 
@@ -126,8 +144,8 @@ Find new and updated content for JavaScript and TypeScript developers.
 |---------------------------------------|--|
 |[How to use Cassandra on Azure Cosmos DB](./how-to/with-database/use-cassandra-as-cosmos-db.md)|To create, move, or use a Cassandra DB database to Azure, you need a Cosmos DB resource. Learn how to create the resource and use your database. |
 |[How to use MongoDB on Azure Cosmos DB](./how-to/with-database/use-mongodb-as-cosmosdb.md)|To create, move, or use a mongoDB database to Azure, you need a Cosmos DB resource. Learn how to create the resource and use your database. |
-|[How to use MariaDb on Azure](./how-to/with-database/use-mariadb.md)|To create, move, or use a MariaDB database to Azure, you need a **Azure Database for MariaDB** resource. Learn how to create the resource and use your database.|
-|[How to use MySql on Azure](./how-to/with-database/use-mysql-db.md)|To create, move, or use a MySQL database to Azure, you need a **Azure Database for MySQL** resource. Learn how to create the resource and use your database.|
+|[How to use MariaDb on Azure](./how-to/with-database/use-mysql-mariadb.md)|To create, move, or use a MariaDB database to Azure, you need a **Azure Database for MariaDB** resource. Learn how to create the resource and use your database.|
+|[How to use MySql on Azure](./how-to/with-database/use-mysql-mariadb.md)|To create, move, or use a MySQL database to Azure, you need a **Azure Database for MySQL** resource. Learn how to create the resource and use your database.|
 |[How to use PostgreSQL on Azure](./how-to/with-database/use-postgresql-db.md)|To create, move, or use a PostgreSQL database to Azure, you need a **Azure Database for PostgreSQL server** resource. Learn how to create the resource and use your database.|
 |[Develop a JavaScript application for Azure Cache for **Redis*](.//how-to/with-database/use-azure-cache-for-redis-db.md)|To create, move, or use a **Redis** database to Azure, you need an Azure Cache for Redis resource. Learn how to create the resource and use your database.|
 |[Develop a JavaScript application for Cosmos DB with SQL API](.//how-to/with-database/use-sql-api-as-cosmos-db.md)|To create or use **Cosmos DB** with the SQL API use a Cosmos DB resource. Learn how to create the Cosmos resource and use your database.|
