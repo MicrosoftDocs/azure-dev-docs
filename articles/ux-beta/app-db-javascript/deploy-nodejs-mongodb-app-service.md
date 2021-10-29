@@ -22,10 +22,10 @@ This article assumes you already are familiar with the [Node.js development work
 
 ## Sample application
 
-To follow along with this tutorial, clone or download the sample application from the repository [https://github.com/Azure-Samples/js-e2e-express-mongo](https://github.com/Azure-Samples/js-e2e-express-mongo).
+To follow along with this tutorial, clone or download the sample application from the repository [https://github.com/Azure-Samples/msdocs-nodejs-mongodb-azure-sample-app](https://github.com/Azure-Samples/msdocs-nodejs-mongodb-azure-sample-app).
 
 ```bash
-git clone https://github.com/Azure-Samples/js-e2e-express-mongo
+git clone https://github.com/Azure-Samples/msdocs-nodejs-mongodb-azure-sample-app.git
 ```
 
 To run the application locally:
@@ -74,7 +74,7 @@ To create Azure resources in VS Code, you must have the [Azure Tools extension p
 
 ### [Azure CLI](#tab/azure-cli)
 
-Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com) or on a workstation with the [Azure CLI installed](/cli/azure/install-azure-cli).
+Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com) or on a workstation with the [Azure CLI installed](/cli/azure/install-azure-cli). You can view or download the complete Azure CLI script to create all resources at [https://github.com/Azure-Samples/msdocs-nodejs-mongodb-azure-sample-app/blob/main/scripts/create-nodejs-mongodb-resources.sh](https://github.com/Azure-Samples/msdocs-nodejs-mongodb-azure-sample-app/blob/main/scripts/create-nodejs-mongodb-resources.sh).
 
 First, create a resource group to act as a container for all of the Azure resources related to this application.
 
