@@ -18,7 +18,7 @@ In this tutorial, you'll learn how to deploy a basic **Express.js** app using a 
 
 ![A diagram showing how the Express.js app will be deployed to Azure App Service and the MongoDB data will be hosted inside of Azure Cosmos DB.](./media/app-diagram.png)
 
-This article assumes you already are familiar with the [Node.js development workflow](/learn/paths/build-javascript-applications-nodejs/) and have Node and MongoDB installed locally.  You will also need an Azure account with an active subscription.  If you do not have an Azure account, you [can create one for free](https://azure.microsoft.com/free/nodejs/).
+This article assumes you are already familiar with [Node.js development](/learn/paths/build-javascript-applications-nodejs/) and have Node and MongoDB installed locally. You'll also need an Azure account with an active subscription.  If you do not have an Azure account, you [can create one for free](https://azure.microsoft.com/free/nodejs/).
 
 ## Sample application
 
@@ -43,7 +43,7 @@ Azure App Service is used to host the Express.js web application code. Azure App
 * An **App Service plan** which defines the operating system and compute resources (CPU, memory) available for the application.
 * An **App Service web app** which defines the application name and runtime used by the application.
 
-All Azure resources must belong to a *resource group*, a logical container for grouping Azure resources. A standard practice is to create a resource group per application to hold all of the Azure resources needed for the app. When creating the App Service, you will also create a resource group for the app.
+All Azure resources must belong to a *resource group*, a logical container for grouping Azure resources. A standard practice is to create a resource group per application to hold all of the Azure resources needed for the app. When creating the App Service, you'll also create a resource group for the app.
 
 Azure resources can be created using the [Azure portal](https://portal.azure.com/), VS Code using the [Azure Tools extension pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack), or the Azure CLI.
 
@@ -187,7 +187,7 @@ When running in Azure, configuration values like connection strings can be store
 | Instructions    | Screenshot |
 |:----------------|-----------:|
 | [!INCLUDE [Connection string step 1](<./includes/connection-string-vscode-1.md>)] | :::image type="content" source="./media/vscode-connection-string-1-240px.png" alt-text="A screenshot showing how to copy the connection string for a Cosmos database to your clipboard in VS Code." lightbox="./media/vscode-connection-string-1.png"::: |
-| [!INCLUDE [Connection string step 2](<./includes/connection-string-vscode-2.md>)] | :::image type="content" source="./media/vscode-connection-string-2-240px.png" alt-text="A screenshot showing how add a config setting to an App Service in VS Code." lightbox="./media/vscode-connection-string-2.png"::: |
+| [!INCLUDE [Connection string step 2](<./includes/connection-string-vscode-2.md>)] | :::image type="content" source="./media/vscode-connection-string-2-240px.png" alt-text="A screenshot showing how to add a config setting to an App Service in VS Code." lightbox="./media/vscode-connection-string-2.png"::: |
 | [!INCLUDE [Connection string step 3](<./includes/connection-string-vscode-3.md>)] | :::image type="content" source="./media/vscode-connection-string-3-240px.png" alt-text="A screenshot showing the dialog box used to give a name to an app setting in VS Code." lightbox="./media/vscode-connection-string-3.png"::: |
 | [!INCLUDE [Connection string step 4](<./includes/connection-string-vscode-4.md>)] | :::image type="content" source="./media/vscode-connection-string-4-240px.png" alt-text="A screenshot showing the dialog used to set the value of an app setting in VS Code." lightbox="./media/vscode-connection-string-4.png"::: |
 | [!INCLUDE [Connection string step 4](<./includes/connection-string-vscode-5.md>)] | :::image type="content" source="./media/vscode-connection-string-5-240px.png" alt-text="A screenshot showing how to view an app setting for an App Service in VS Code." lightbox="./media/vscode-connection-string-5.png"::: |
@@ -205,7 +205,7 @@ az cosmosdb keys list \
     --output tsv
 ```
 
-Rather then copying and pasting the value, the connection string can be stored in a variable to make subsequent steps easier.
+Rather then copying and pasting the value, the connection string can be stored in a variable to make the next step easier.
 
 ```azurecli
 COSMOS_DB_CONNECTION_STRING=`az cosmosdb keys list \
@@ -257,7 +257,7 @@ To deploy your application code directly from VS Code, you must have the [Azure 
 
 ## 5 - Browse to the application
 
-The application will have a url of the form `https://<app name>.azurewebsites.net`. Browse the this URL to view the application.
+The application will have a url of the form `https://<app name>.azurewebsites.net`. Browse to this URL to view the application.
 
 Use the form elements in the application to add and complete tasks.
 
@@ -287,7 +287,7 @@ The contents of the App Service diagnostic logs can be reviewed in the Azure por
 
 ### [Azure CLI](#tab/azure-cli)
 
-First, you need to configure Azure App Serivce to output logs to the App Service filesystem using the [az webapp log config](/cli/azure/webapp/log#az_webapp_log_config) command.
+First, you need to configure Azure App Service to output logs to the App Service filesystem using the [az webapp log config](/cli/azure/webapp/log#az_webapp_log_config) command.
 
 ```azurecli
 az webapp log config \
@@ -296,7 +296,7 @@ az webapp log config \
     --resource-group $RESOURCE_GROUP_NAME
 ```
 
-The, to stream logs, use the [az webapp log tail](/cli/azure/webapp/log#az_webapp_log_tail) command.
+To stream logs, use the [az webapp log tail](/cli/azure/webapp/log#az_webapp_log_tail) command.
 
 ```azurecli
 az webapp log tail \
@@ -332,7 +332,7 @@ Refresh the home page in the app or attempt other requests to generate some log 
 
 ## 7 - Inspect deployed files using Kudu
 
-[Kudu](/azure/app-service/resources-kudu) is the engine behind many of the automated deployment features in App Service. In addition, it provides a useful web-based console to view your deployed application in Azure.
+Azure App Service provides a web-based diagnostics console named [Kudu](/azure/app-service/resources-kudu) that allows you to examine the server hosting environment for your web app. Using Kudu, you can view the files deployed to Azure, review the deployment history of the application and even open an SSH session into the hosting environment.
 
 To access Kudu, navigate to one of the following URLs. You will need to sign into the Kudu site with your Azure credentials.
 
@@ -347,7 +347,7 @@ Selecting the *Deployments* link under the REST API header will show you a histo
 
 ![A screenshot of the deployments JSON in the Kudu SCM app showing the history of deployments to this web app.](./media/kudu-deployments-list.png)
 
-Selecting the *Site wwwroot* link under the Browse Directory heading allows you to browse and view the files on the web server. This is useful when troubleshooting deployment problems and you need to see exactly what files are deployed on the server.
+Selecting the *Site wwwroot* link under the Browse Directory heading allows you to browse and view the files on the web server.
 
 ![A screenshot of files in the wwwroot directory showing how Kudu allows you to see what has been deployed to Azure.](./media/kudu-wwwroot-files.png)
 
