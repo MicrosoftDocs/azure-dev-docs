@@ -85,8 +85,7 @@ Shading enables you to include dependencies within a JAR at build time, renaming
 
 ### Create a fat JAR
 
-Environments like Databricks or Apache Spark have custom dependency management and provide common libraries like Jackson. To avoid conflict with provided libraries, you may want to build a fat JAR that contains all the dependencies.
-See [Maven Shade Plugin](https://maven.apache.org/plugins/maven-shade-plugin/examples/executable-jar.html) documentation for more details. In many cases, relocating Jackson classes (`com.fasterxml.jackson`) mitigates the issue. Sometimes such environments also bring their own version of Azure SDKs, so you might be compelled to relocate `com.azure` namespace to work around version conflicts.
+Environments like Databricks or Apache Spark have custom dependency management and provide common libraries like Jackson. To avoid conflict with provided libraries, you may want to build a fat JAR that contains all the dependencies. For more information, see [Apache Maven Shade Plugin](https://maven.apache.org/plugins/maven-shade-plugin). In many cases, relocating Jackson classes (`com.fasterxml.jackson`) mitigates the issue. Sometimes such environments also bring their own version of Azure SDKs, so you might be compelled to relocate `com.azure` namespace to work around version conflicts.
 
 ## Understand compatible dependency versions
 
