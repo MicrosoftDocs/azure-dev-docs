@@ -2,7 +2,7 @@
 title: Stop and start virtual machine
 description: Use Azure SDK to stop and start a virtual machine.
 ms.topic: conceptual
-ms.date: 10/27/2021
+ms.date: 10/28/2021
 ms.custom: devx-track-js
 ---
 
@@ -31,11 +31,25 @@ In order to programmatically stop and start your virtual machine, you need to co
     * Resource group
     * Virtual machine resource name
 
-## List of virtual machines in subscription
+## List subscription virtual machines
 
 To get the virtual machine resource name, use the following script to see all virtual machines in the subscription. Use the returned JSON's `name` value as the virtual machine resource name. 
 
-:::code language="JavaScript" source="~/../js-e2e/resources/virtual-machines//list-vms.js"  :::
+:::code language="JavaScript" source="~/../js-e2e/resources/virtual-machines/list-vms.js" highlight="23-28" range="1-34":::
+
+SDK methods used in this script include:
+    
+* VMs -  [computeClient.virtualMachines.listAll](/javascript/api/@azure/arm-compute/virtualmachines?view=azure-node-latest&preserve-view=true#list_string__msRest_RequestOptionsBase_)
+
+## Get status of subscription virtual machines
+
+To get the virtual machine resource status, use the following script. Use the `statusOnly: "true"` parameter to return just the status values for each virtual machine in the subscription. 
+
+:::code language="JavaScript" source="~/../js-e2e/resources/virtual-machines/status.js" highlight="26-57" range="1-65" :::
+
+SDK methods used in this script include:
+    
+* VMs - [computeClient.virtualMachines.listAll](/javascript/api/@azure/arm-compute/virtualmachines?view=azure-node-latest&preserve-view=true#listAll_Models_VirtualMachinesListAllOptionalParams_)
 
 ## Stop a virtual machine
 
@@ -43,12 +57,11 @@ You may want to stop (power off) your virtual machine when you aren't using it.
 
 1. Create a file named `stop-vm` or [copy the file from GitHub](https://github.com/Azure-Samples/js-e2e/blob/main/resources/virtual-machines/stop-vm.js).
 
-    :::code language="JavaScript" source="~/../js-e2e/resources/virtual-machines/stop-vm.js"  :::
+    :::code language="JavaScript" source="~/../js-e2e/resources/virtual-machines/stop-vm.js" highlight="26-31" :::
 
     SDK methods used in this script include:
     
-    * VMs
-        * [computeClient.virtualMachines.powerOff](/javascript/api/@azure/arm-compute/virtualmachines?view=azure-node-latest&preserve-view=true#powerOff_string__string__Models_VirtualMachinesPowerOffOptionalParams_)
+    * VMs - [computeClient.virtualMachines.powerOff](/javascript/api/@azure/arm-compute/virtualmachines?view=azure-node-latest&preserve-view=true#powerOff_string__string__Models_VirtualMachinesPowerOffOptionalParams_)
 
 1. Install the npm packages used in the Azure work:
 
@@ -96,12 +109,11 @@ You may want to start your virtual machine if it is powered off.
 
 1. Create a file named `start-vm` or [copy the file from GitHub](https://github.com/Azure-Samples/js-e2e/blob/main/resources/virtual-machines/start-vm.js).
 
-    :::code language="JavaScript" source="~/../js-e2e/resources/virtual-machines/start-vm.js"  :::
+    :::code language="JavaScript" source="~/../js-e2e/resources/virtual-machines/start-vm.js" highlight="26-32" :::
 
     SDK methods used in this script include:
     
-    * VMs
-        * [computeClient.virtualMachines.start](/javascript/api/@azure/arm-compute/virtualmachines?view=azure-node-latest&preserve-view=true#start_string__string__msRest_RequestOptionsBase_)
+    * VMs - [computeClient.virtualMachines.start](/javascript/api/@azure/arm-compute/virtualmachines?view=azure-node-latest&preserve-view=true#start_string__string__msRest_RequestOptionsBase_)
 
 1. Install the npm packages used in the Azure work:
 

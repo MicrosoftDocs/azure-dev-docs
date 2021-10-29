@@ -19,20 +19,24 @@
       href: core/configure-local-development-environment.md
     - name: Authenticate to Azure
       href: core/nodejs-sdk-azure-authenticate.md
+    - name: Use the Azure SDKs for JavaScript
+      href: core/use-azure-sdk.md
   - name: How-To guides
     items:
       - name: Azure Tasks for JavaScript developers
         href: how-to/common-javascript-tasks.md
       - name: With Azure SDKs
         items:
-          - name: Set up environment
+          - name: Set up authentication
             href: core/nodejs-sdk-azure-authenticate.md
+          - name: List subscriptions
+            href: core/nodejs-sdk-azure-authenticate.md?tabs=azure-sdk-for-javascript.md#3-list-azure-subscriptions-with-service-principal
+          - name: View subscription history
+            href: how-to/with-azure-sdk/list-resource-operation-history.md            
           - name: Create, delete virtual machine
             href: how-to/with-azure-sdk/create-manage-virtual-machine.md
           - name: Stop, start, list virtual machines
             href: how-to/with-azure-sdk/stop-start-virtual-machine.md
-          - name: View operation history
-            href: how-to/with-azure-sdk/list-resource-operation-history.md
       - name: With web apps
         items:
           - name: Select hosting service

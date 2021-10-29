@@ -155,7 +155,7 @@
 | azure-mgmt-agfood | PyPI [1.0.0b1](https://pypi.org/project/azure-mgmt-agfood/1.0.0b1) |  |  |
 | azure-mgmt-agrifood | PyPI [1.0.0b1](https://pypi.org/project/azure-mgmt-agrifood/1.0.0b1) |  |  |
 | azure-mgmt-azureadb2c | PyPI [1.0.0b1](https://pypi.org/project/azure-mgmt-azureadb2c/1.0.0b1) |  |  |
-| azure-mgmt-azurearcdata | PyPI [1.0.0b1](https://pypi.org/project/azure-mgmt-azurearcdata/1.0.0b1) |  |  |
+| azure-mgmt-azurearcdata | PyPI [1.0.0](https://pypi.org/project/azure-mgmt-azurearcdata/1.0.0) |  |  |
 | azure-mgmt-changeanalysis | PyPI [1.0.0](https://pypi.org/project/azure-mgmt-changeanalysis/1.0.0) |  |  |
 | azure-mgmt-chaos | PyPI [1.0.0b2](https://pypi.org/project/azure-mgmt-chaos/1.0.0b2) |  |  |
 | azure-mgmt-confidentialledger | PyPI [1.0.0b1](https://pypi.org/project/azure-mgmt-confidentialledger/1.0.0b1) |  |  |
