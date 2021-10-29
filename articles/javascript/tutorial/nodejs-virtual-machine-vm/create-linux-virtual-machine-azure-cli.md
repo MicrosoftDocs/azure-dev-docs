@@ -31,20 +31,22 @@ This tutorial uses a cloud-init configuration file to create both the NGINX reve
 
 ## Create a virtual machine resource 
 
-Enter the [Azure CLI command](/cli/azure/vm#az_vm_create) at a terminal to create an Azure resource of a Linux virtual machine. The command creates the VM from the cloud-init file and generates the SSH keys for you. The running command displays where the keys are stored. 
+1. Enter the [Azure CLI command](/cli/azure/vm#az_vm_create) at a terminal to create an Azure resource of a Linux virtual machine. The command creates the VM from the cloud-init file and generates the SSH keys for you. The running command displays where the keys are stored. 
 
-```azurecli
-az vm create \
-  --resource-group rg-demo-vm-eastus \
-  --name demo-vm \
-  --location eastus \
-  --image UbuntuLTS \
-  --admin-username azureuser \
-  --generate-ssh-keys \
-  --custom-data cloud-init-github.txt
-```
+    ```azurecli
+    az vm create \
+      --resource-group rg-demo-vm-eastus \
+      --name demo-vm \
+      --location eastus \
+      --image UbuntuLTS \
+      --admin-username azureuser \
+      --generate-ssh-keys \
+      --custom-data cloud-init-github.txt
+    ```
 
-The process may take a few minutes. When the process is complete, the Azure CLI returns information about the new resource. Keep the `publicIpAddress` value, it is needed to view the web app in a browser and to connect to the VM. 
+    The process may take a few minutes. 
+
+1. Keep the **publicIpAddress** value from the response, it is needed to view the web app in a browser and to connect to the VM. 
      
 
 ## Open port for virtual machine
@@ -66,15 +68,15 @@ az vm open-port \
     http://YOUR-PUBLIC-IP-ADDRESS
     ```
 
-    The following image represents the web app, but your app will use a different Ip address. If the resource fails with a gateway error, try again in a minute, the web app may take a minute to start. 
+1. The virtual machine's web app returns the following information. Your app will use a different IP address.  
 
     :::image type="content" source="../../media/tutorial-vm/basic-web-app.png" alt-text="Simple app served from Linus virtual machine on Azure.":::
 
-    The initial code file for the web app has a single route displaying your client Ip address, passed through the NGINX proxy. 
+1. If the resource fails with a gateway error, try again in a minute, the web app may take a minute to start.
+
+1. The initial code file for the web app has a single route displaying your client Ip address, passed through the NGINX proxy. 
 
     :::code language="JavaScript" source="~/../js-e2e-vm/index.js" :::
-
-1. Leave the terminal open, you will use it throughout the tutorial.
 
 ## Next step
 
