@@ -16,10 +16,10 @@ Use the same terminal or shell window as with previous steps.
 
 1. Connect to your remote virtual machine with the following command. This process assumes that your SSH client can find your SSH keys, created as part of your VM creation and placed on your local machine. If you are asked if you want to continue connecting, answer `yes`. When the connection is complete, the terminal prompt should change to indicate the remote virtual machine. 
 
-    Replace `YOUR-PUBLIC-IP-ADDRESS` with your own virtual machine's public Ip. 
+    Replace `VM-PUBLIC-IP-ADDRESS` with your own virtual machine's public IP. 
 
     ```console
-    ssh azureuser@YOUR-PUBLIC-IP-ADDRESS
+    ssh azureuser@VM-PUBLIC-IP-ADDRESS
     ``` 
 
 1. Use the following command to understand where you are on the virtual machine. You should be at the azureuser root: `/home/azureuser`. 
