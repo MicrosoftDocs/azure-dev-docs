@@ -2,7 +2,7 @@
 title: Create Azure Monitor resource
 description: Create an Azure resource group for all your Azure resources and a Monitor resource to collect your web app's log files to the Azure cloud. Azure Monitor is the name of the Azure service, while Application Insights is the name of the client library the tutorial uses.
 ms.topic: tutorial
-ms.date: 04/15/2021
+ms.date: 10/29/2021
 ms.custom: devx-track-js, devx-track-azurecli
 ---
 
@@ -41,7 +41,7 @@ This tutorial includes several Azure resources. Creating a resource group allows
       --query instrumentationKey --output table
     ```
 
-    In the resulting table, copy the result, you will need that later. 
+    In the resulting table, copy the **Result**, you will need that value as your `instrumentationKey` later. 
 
 1. Leave the terminal open, you will use it in the next step.
 
