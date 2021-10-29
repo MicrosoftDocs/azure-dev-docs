@@ -4,13 +4,17 @@ description: This article shows you have to deploy a Node.js app using Express.j
 ms.topic: tutorial
 ms.date: 10/27/2021
 ms.service: app-service
+ms.role: developer
+ms.devlang: javascript
+ms.azure.dev-framework: expressjs
+ms.azure.devx-azure-tooling: ['azure-portal', 'vscode-azure-tools', 'azure-cli']
 ms.custom: scenarios:getting-started, languages:JavaScript, devx-track-js
 ROBOTS: NOINDEX
 ---
 
 # Deploy a Node.js + MongoDB web app to Azure
 
-In this tutorial, you will learn how to deploy a basic **Express.js** app using a **MongoDB** database to Azure.  The Express.js app will be hosted in Azure App Service and the MongoDB database in Azure Cosmos DB, a cloud native database offering a [100% MongoDB compatible API](/azure/cosmos-db/mongodb/mongodb-introduction). Azure supports hosting Node.js apps on both Linux (Node versions 10, 12, and 14) and Windows (versions 10 and 12) server environments.
+In this tutorial, you'll learn how to deploy a basic **Express.js** app using a **MongoDB** database to Azure.  The Express.js app will be hosted in Azure App Service and the MongoDB database in Azure Cosmos DB, a cloud native database offering a [100% MongoDB compatible API](/azure/cosmos-db/mongodb/mongodb-introduction). Azure supports hosting Node.js apps on both Linux (Node versions 10, 12, and 14) and Windows (versions 10 and 12) server environments.
 
 ![A diagram showing how the Express.js app will be deployed to Azure App Service and the MongoDB data will be hosted inside of Azure Cosmos DB.](./media/app-diagram.png)
 
@@ -39,7 +43,7 @@ Azure App Service is used to host the Express.js web application code. Azure App
 * An **App Service plan** which defines the operating system and compute resources (CPU, memory) available for the application.
 * An **App Service web app** which defines the application name and runtime used by the application.
 
-All Azure resources must belong to a *resource group*, which serves as a logical container for related Azure resources. A common practice is to group all of the Azure resources used for an application together in a single resource group. As part of creating your App Service resources, you will also create a resource group to hold all of the Azure resources needed for the application.
+All Azure resources must belong to a *resource group*, a logical container for grouping Azure resources. A standard practice is to create a resource group per application to hold all of the Azure resources needed for the app. When creating the App Service, you will also create a resource group for the app.
 
 Azure resources can be created using the [Azure portal](https://portal.azure.com/), VS Code using the [Azure Tools extension pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack), or the Azure CLI.
 
@@ -364,8 +368,17 @@ Selecting the *Site wwwroot* link under the Browse Directory heading allows you 
 
 ## Clean up resources
 
+### [Azure portal](#tab/azure-portal)
+
+### [VS Code](#tab/vscode-aztools)
+
+### [Azure CLI](#tab/azure-cli)
+
+---
+
 ## Next steps
 
 * Managed identity
 * Performance monitoring
 * User authentication
+* CI/CD Setup

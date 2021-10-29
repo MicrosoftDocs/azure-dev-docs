@@ -23,7 +23,7 @@ zip -r <file-name>.zip . -x '.??*'
 
 On Windows, use a program like 7-Zip to create a ZIP file needed to deploy the application.
 
-![A screenshot showing files being zipped into a ZIP file using 7-Zip.](./media/deploy-zip-file-windows-1.png)
+![A screenshot showing files being zipped into a ZIP file using 7-Zip.](../media/deploy-zip-file-windows-1.png)
 
 ---
 
