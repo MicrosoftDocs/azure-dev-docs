@@ -267,22 +267,7 @@ Use the form elements in the application to add and complete tasks.
 
 Azure App Service captures all messages logged to the console to assist you in diagnosing issues with your application. The sample app outputs console log messages in each of its endpoints to demonstrate this capability.  For example, the `get` endpoint outputs a message about the number of tasks retrieved from the database and an error message if something goes wrong.
 
-```javascript
-router.get('/', function(req, res, next) {
-  Task.find()
-    .then((tasks) => {      
-      const currentTasks = tasks.filter(task => !task.completed);
-      const completedTasks = tasks.filter(task => task.completed === true);
-
-      console.log(`Total tasks: ${tasks.length}   Current tasks: ${currentTasks.length}    Completed tasks:  ${completedTasks.length}`)
-      res.render('index', { currentTasks: currentTasks, completedTasks: completedTasks });
-    })
-    .catch((err) => {
-      console.log(err);
-      res.send('Sorry! Something went wrong.');
-    });
-});
-```
+:::code language="javascript" source="msdocs-nodejs-mongodb-azure-sample-app/src/routes/index.js" range="7-21" highlight="14,18":::
 
 The contents of the App Service diagnostic logs can be reviewed in the Azure portal, VS Code or using the Azure CLI.
 
