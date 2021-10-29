@@ -29,7 +29,7 @@ Dependency resolution in development and production environments may work differ
 * [Project Configuration](https://ci.apache.org/projects/flink/flink-docs-release-1.13/docs/dev/datastream/project-configuration/) for Apache Flink
 * [How to correctly update a Maven library in Databricks](https://kb.databricks.com/libraries/maven-library-version-mgmt.html) for Databricks
 
-See the [Create a fat JAR](#create-a-fat-jar) section later in this article for more information on conflict resolution in such environments.
+For more information on conflict resolution in such environments, see the [Create a fat JAR](#create-a-fat-jar) section later in this article.
 
 ### Configure Azure Functions
 
