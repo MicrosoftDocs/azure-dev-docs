@@ -2,7 +2,7 @@
 title: Create Linux virtual machine
 description: Use the Azure CLI to create and configure your virtual machine. At this point in the tutorial, you should have a terminal window open and signed into the Azure cloud with the Azure CLI on the subscription where you intend to create the virtual machine.
 ms.topic: tutorial
-ms.date: 01/05/2021
+ms.date: 10/29/2021
 ms.custom: devx-track-js, devx-track-azurecli
 ---
 
@@ -16,15 +16,18 @@ All of the Azure CLI steps can be completed from a single instance of the Azure 
 
 This tutorial uses a cloud-init configuration file to create both the NGINX reverse proxy server and the Express.js server. NGINX is used to forward the Express.js port (3000) to the public port (80). 
 
-The `runcmd` has several tasks:
-* download Node.js, and install it
-* clone the sample Express.js repository
-* install the Express.js dependencies
-* start the Express.js app with PM2
-
 1. Create a local file named `cloud-init-github.txt` and save the following contents to the file or you can [save the repository's file](https://github.com/Azure-Samples/js-e2e-vm/blob/main/cloud-init-github.txt) to your local computer. The [cloud-init](https://cloudinit.readthedocs.io/en/latest/topics/examples.html#yaml-examples) formatted file needs to exist in the same folder as the terminal path for your Azure CLI commands.
 
     :::code language="yaml" source="~/../js-e2e-vm/cloud-init-github.txt" :::
+
+1. Review the `runcmd` section of file to understand what it does. 
+
+    The `runcmd` has several tasks:
+
+    * Download Node.js, and install it
+    * Clone the sample Express.js repository from GitHub into `myapp` directory
+    * Install the Express.js dependencies
+    * Start the Express.js app with PM2
 
 ## Create a virtual machine resource 
 
