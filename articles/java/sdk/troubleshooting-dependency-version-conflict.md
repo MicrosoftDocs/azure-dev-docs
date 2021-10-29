@@ -27,15 +27,18 @@ Dependency resolution in development and production environments may work differ
 
 * [Bundling Your Application’s Dependencies](https://spark.apache.org/docs/latest/submitting-applications.html#bundling-your-applications-dependencies) for Apache Spark
 * [Project Configuration](https://ci.apache.org/projects/flink/flink-docs-release-1.13/docs/dev/datastream/project-configuration/) for Apache Flink
-* [How to correctly update a Maven library in Databricks](https://kb.databricks.com/libraries/maven-library-version-mgmt.html) for Databrinks
+* [How to correctly update a Maven library in Databricks](https://kb.databricks.com/libraries/maven-library-version-mgmt.html) for Databricks
 
-For a conflict resolution example for such environments, see the [Create a fat JAR](#create-a-fat-jar) section later in this article.
+See the [Create a fat JAR](#create-a-fat-jar) section later in this article for more information on conflict resolution in such environments.
 
-### Configure Azure Functions (Java 8)
+### Configure Azure Functions
 
 The internal dependency version on Azure Functions (running Java 8 only) takes precedence over a user-provided one. This dependency causes version conflicts, especially with Jackson, Netty, and Reactor.
 
 To solve this problem, set the `FUNCTIONS_WORKER_JAVA_LOAD_APP_LIBS` environment variable to `true` or `1`. Be sure to update the Azure Function Tools (v2 or v3) to the latest version.
+
+> [!NOTE]
+> This configuration applies to Azure Functions running Java 8 only, Functions running Java 11 don't need special configuration.
 
 ### Detect Jackson runtime version
 
@@ -67,78 +70,23 @@ Avoid downgrading the Azure SDK version because it may expose your application t
 
 ### Shade libraries
 
-Sometimes there's no combination of libraries that work together, and shading comes as the last resort. Shading enables you to include dependencies within a JAR at build time, renaming packages, and updating application code to use the code in the shaded location. Diamond dependency conflict is no longer an issue because there are two different copies of a dependency.
-
-You may shade a library that has a conflicting transitive dependency or a direct application dependency, as described in the following list:
-
-* **Transitive dependency conflict**: for example, third-party library `A` requires Jackson 2.9, which is not supported by Azure SDKs, and it's not possible to update `A`. Create a new JAR, which includes `A` and shades Jackson 2.9 (and optimally other dependencies of `A`).
-* **Application dependency conflict**: your application uses Jackson 2.9 directly and while you're working on updating your code, you can shade Jackson 2.9. For details, see the example below.
+Sometimes there's no combination of libraries that work together, and shading comes as the last resort.
 
 > [!NOTE]
-> Shading Jackson into the application JAR doesn't resolve a version conflict - it only forces a single shaded version of Jackson.
+> Shading has significant drawbacks: it increases package size and number of classes on the classpath, it makes code navigation and debugging hard, does not relocate JNI code, breaks reflection, and may violate code licenses among other things. It should be used only after other options are exhausted.
 
-The following steps show an example of shading Jackson libraries under a new JAR with Maven:
+Shading enables you to include dependencies within a JAR at build time, renaming packages, and updating application code to use the code in the shaded location. Diamond dependency conflict is no longer an issue because there are two different copies of a dependency. You may shade a library that has a conflicting transitive dependency or a direct application dependency, as described in the following list:
 
-1. Use [Maven Shade Plugin](https://maven.apache.org/plugins/maven-shade-plugin/).
-1. Create a new package that wraps the Jackson libraries.
-1. Configure the shading plugin using the following XML:
+* **Transitive dependency conflict**: for example, third-party library `A` requires Jackson 2.9, which is not supported by Azure SDKs, and it's not possible to update `A`. Create a new module, which includes `A` and shades (relocates) Jackson 2.9 and, optionally, other dependencies of `A`.
+* **Application dependency conflict**: your application uses Jackson 2.9 directly and while you're working on updating your code, you can shade and relocate  Jackson 2.9 into a new module with relocated Jackson classes instead.
 
-   ```xml
-   <plugin>
-   <groupId>org.apache.maven.plugins</groupId>
-   <artifactId>maven-shade-plugin</artifactId>
-   <version>${maven-shade-plugin-version}</version>
-   <executions>
-       <execution>
-           <phase>package</phase>
-           <goals>
-               <goal>shade</goal>
-           </goals>
-           <configuration>
-               <!--Create shaded JAR only-->
-               <shadedArtifactAttached>false</shadedArtifactAttached>
-               <!--Remove original replaced dependencies-->
-               <createDependencyReducedPom>true</createDependencyReducedPom>
-               <!--Promotes transitive dependencies of removed dependencies to direct-->
-               <promoteTransitiveDependencies>true</promoteTransitiveDependencies>
-               <relocations>
-                   <relocation>
-                       <pattern>com.fasterxml.jackson</pattern>
-                       <shadedPattern>org.example.shaded.com.fasterxml.jackson</shadedPattern>
-                   </relocation>
-               </relocations>
-           </configuration>
-       </execution>
-   </executions>
-   </plugin>
-   ```
-
-1. Run `mvn package` to create a Jackson wrapper JAR file. This JAR file doesn't depend on the original Jackson libraries anymore. Instead, it includes renamed Jackson packages and classes. Be sure to update the namespaces in your application code to `org.example.shaded.com.fasterxml.jackson.*` (or another prefix of your choice).
+> [!NOTE]
+> Creating fat JAR with relocated Jackson classes doesn't resolve a version conflict in these examples - it only forces a single shaded version of Jackson.
 
 ### Create a fat JAR
 
-When working with environments that have custom dependency management (for example, Databricks or Apache Spark), you may want to build a fat JAR that contains all the dependencies. The following example shows a `maven-shade-plugin` configuration for building a fat JAR and relocating Jackson and azure-core to avoid collisions with versions provided by the environment.
-
-```xml
-<configuration>
-    <transformers>
-        <!--Transforms META-INF/services (essential for azure-core relocation)-->
-        <transformer implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer"/>
-    </transformers>
-    <relocations>
-        <relocation>
-            <pattern>com.fasterxml.jackson</pattern>
-            <shadedPattern>org.example.shaded.com.fasterxml.jackson</shadedPattern>
-        </relocation>
-        <relocation>
-            <!--Environment may bring its own version of azure-core which may be incompatible with your Azure client libraries.
-                Relocate azure-core to avoid collisions with it-->
-            <pattern>com.azure</pattern>
-            <shadedPattern>org.example.shaded.com.azure</shadedPattern>
-        </relocation>
-    </relocations>
-</configuration>
-```
+Environments like Databricks or Apache Spark have custom dependency management and provide common libraries like Jackson. To avoid conflict with provided libraries, you may want to build a fat JAR that contains all the dependencies.
+See [Maven Shade Plugin](https://maven.apache.org/plugins/maven-shade-plugin/examples/executable-jar.html) documentation for more details. In many cases, relocating Jackson classes (`com.fasterxml.jackson`) mitigates the issue. Sometimes such environments also bring their own version of Azure SDKs, so you might be compelled to relocate `com.azure` namespace to work around version conflicts.
 
 ## Understand compatible dependency versions
 
