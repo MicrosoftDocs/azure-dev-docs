@@ -362,15 +362,15 @@ Follow these steps while signed-in to the Azure portal to delete a resource grou
 | Instructions    | Screenshot |
 |:----------------|-----------:|
 | [!INCLUDE [Remove resource group Azure portal 1](<./includes/azportal-remove-resource-group-1.md>)] | :::image type="content" source="./media/azportal-remove-resource-group-1-240px.png" alt-text="A screenshot showing how to search for and navigate to a resource group in teh Azure portal." lightbox="./media/azportal-remove-resource-group-1.png"::: |
-| [!INCLUDE [Remove resource group Azure portal 2](<./includes/azportal-remove-resource-group-2.md>)] | :::image type="content" source="./azportal-remove-resource-group-2-240px.png" alt-text="A screenshot showing the location of the Delete Resource Group button in the Azure portal." lightbox="./media/azportal-remove-resource-group-2.png"::: |
-| [!INCLUDE [Remove resource group Azure portal 3](<./includes/azportal-remove-resource-group-3.md>)] | :::image type="content" source="./azportal-remove-resource-group-3-240px.png" alt-text="A screenshot of the confirmation dialog for deleting a resource group in the Azure portal." lightbox="./media/azportal-remove-resource-group-3.png"::: |
+| [!INCLUDE [Remove resource group Azure portal 2](<./includes/azportal-remove-resource-group-2.md>)] | :::image type="content" source="./media/azportal-remove-resource-group-2-240px.png" alt-text="A screenshot showing the location of the Delete Resource Group button in the Azure portal." lightbox="./media/azportal-remove-resource-group-2.png"::: |
+| [!INCLUDE [Remove resource group Azure portal 3](<./includes/azportal-remove-resource-group-3.md>)] | :::image type="content" source="./media/azportal-remove-resource-group-3-240px.png" alt-text="A screenshot of the confirmation dialog for deleting a resource group in the Azure portal." lightbox="./media/azportal-remove-resource-group-3.png"::: |
 
 ### [VS Code](#tab/vscode-aztools)
 
 | Instructions    | Screenshot |
 |:----------------|-----------:|
 | [!INCLUDE [Remove resource group VS Code 1](<./includes/vscode-remove-resource-group-1.md>)] | :::image type="content" source="./media/vscode-remove-resource-group-1-240px.png" alt-text="A screenshot showing how to delete a resource group in VS Code using the Azure Tools extention." lightbox="./media/vscode-remove-resource-group-1.png"::: |
-| [!INCLUDE [Remove resource group VS Code 2](<./includes/vscode-remove-resource-group-2.md>)] | :::image type="content" source="./vscode-remove-resource-group-2-240px.png" alt-text="A screenshot of the confirmation dialog for deleting a resource group from VS Code." lightbox="./media/vscode-remove-resource-group-2.png"::: |
+| [!INCLUDE [Remove resource group VS Code 2](<./includes/vscode-remove-resource-group-2.md>)] | :::image type="content" source="./media/vscode-remove-resource-group-2-240px.png" alt-text="A screenshot of the confirmation dialog for deleting a resource group from VS Code." lightbox="./media/vscode-remove-resource-group-2.png"::: |
 
 ### [Azure CLI](#tab/azure-cli)
 
