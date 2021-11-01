@@ -166,7 +166,7 @@ Azure AD *service principals* provide access to Azure resources within your subs
 To create a service principal, use the following command.
 
 ```azurecli
-az ad sp create-for-rbac --name contososp
+az ad sp create-for-rbac --name contososp --role Contributor
 ```
 
 The value of the `name` option must be unique within your subscription. Save aside the values returned from the command for use later in the tutorial. The return JSON will look similar to the following output:

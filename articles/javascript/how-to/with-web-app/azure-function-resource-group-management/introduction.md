@@ -71,7 +71,7 @@ An Azure service principal provides access to Azure without having to use your p
 1. In a bash terminal, create your service principal with [az ad sp create-for-rbac](/cli/azure/ad/sp#az_ad_sp_create_for_rbac): 
 
     ```bash
-    az ad sp create-for-rbac --name YOUR-SERVICE-PRINCIPAL-NAME
+    az ad sp create-for-rbac --name YOUR-SERVICE-PRINCIPAL-NAME --role Contributor
     ```
 1. Copy the entire output results to a temporary file. You will need these settings later.
 
