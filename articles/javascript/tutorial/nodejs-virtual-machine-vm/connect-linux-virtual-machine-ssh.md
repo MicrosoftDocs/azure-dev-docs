@@ -55,9 +55,9 @@ Use the same terminal or shell window as with previous steps.
 
 1. In the SSH terminal which is connected to your virtual machine, install the [Azure SDK client library for Application Insights](https://www.npmjs.com/package/applicationinsights).
 
-```bash
-sudo npm install --save applicationinsights
-```
+    ```bash
+    sudo npm install --save applicationinsights
+    ```
 
 1. Wait until the command completes before continuing. 
 

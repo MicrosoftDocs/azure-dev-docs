@@ -21,7 +21,7 @@ In this step, add the Azure SDK client library to the code on the virtual machin
 
 1. Edit the `index.js` file to add the client library and logging code, highlighted below. Many bash shells allow you to copy and paste directly into Nano. 
 
-    :::code language="JavaScript" source="~/../js-e2e-vm/index-logging.js" highlight="5-28" :::
+    :::code language="JavaScript" source="~/../js-e2e-vm/index-logging.js" :::
 
 1. Still in the SSH terminal, save the file in the Nano editor with <kbd>control</kbd> + <kbd>X</kbd>. Enter **Y** to save, when prompted. Accept the file name when prompted.  
 
@@ -74,6 +74,14 @@ The Virtual machine collects logs for NGINX and PM2, which are available to view
     ```bash
     exit
     ```
+
+## Troubleshooting
+
+If you have issues, use the following table to understand how to resolve your issue:
+
+|Problem|Resolution|
+|--|--|
+|502 Gateway error|This could indicate your index.js or package.js file has an error. View your PM2 logs at `/var/log/pm2.log` for more information. The most recent error is at the bottom of the file. If you are sure those files are correct, stop and start the PM2 using the npm scripts in `package.json`.|
 
 ## Next step
 
