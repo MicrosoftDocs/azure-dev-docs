@@ -27,13 +27,19 @@ In this step, add the Azure SDK client library to the code on the virtual machin
 
     Changes to the web app are watched by PM2; this change caused a restart of the app, without having to restart the VM. 
 
+1. To have PM2 load the environment variable and have it available in the index.js, restart PM2 with the following command:
+
+    ```bash
+    sudo npm run-script restart
+    ```
+
 1. In a web browser, test the app with the new `trace` route:
 
     ```http
     http://YOUR-VM-PUBLIC-IP-ADDRESS/trace
     ```
 
-    The browser displays the response, `tracing...YOUR-VM-PUBLIC-IP-ADDRESS` with your IP address.
+    The browser displays the response, `trace route demo-vm YOUR-CLIENT-IP VM-DATE-TIME` with your IP address.
 
 <a name="viewing-the-vm-logs-for-nginx-and-pm2"></a>
 
@@ -75,7 +81,7 @@ The Virtual machine collects logs for PM2, which are available to view.
 1. The log includes the call from your local computer. 
 
     ```console
-    Hello world app listening on port 3000! 1635794284289
+    grep "Hello world app listening on port 3000!" /var/log/pm2.log
     ```
 
 1. The log also includes your environment variables, including your ApplicationInsights key, passed in the npm start script. use the following grep command to verify your key is in the environment variables. 
