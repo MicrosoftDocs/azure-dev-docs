@@ -37,27 +37,55 @@ In this step, add the Azure SDK client library to the code on the virtual machin
 
 <a name="viewing-the-vm-logs-for-nginx-and-pm2"></a>
 
-## Viewing the web app logs in PM2
+## Viewing the log for NGINX
+
+The Virtual machine collects logs for NGINX, which are available to view.
+
+| Service | Log location|
+|--|--|
+|NGINX| /var/log/nginx/access.log|
 
 
-1. View your web app log for the PM2 service. In the same bash shell, use the following command to view the log:
+Still in the SSH terminal, view VM log for the NGINX proxy service with the following command to view the log:
+
+```bash
+cat /var/log/nginx/access.log
+```
+
+The log includes the call from your local computer. 
+
+```console
+"GET /trace HTTP/1.1" 200 10 "-"
+```
+
+## Viewing the log for PM2
+
+The Virtual machine collects logs for PM2, which are available to view.
+
+| Service | Log location|
+|--|--|
+|PM2| /var/log/pm2.log|
+
+1 View VM log for the PM2 service, which is your Express.js Node web app. In the same bash shell, use the following command to view the log:
 
     ```bash
     cat /var/log/pm2.log
     ```
 
-    The log includes the call from your local computer. 
+1. The log includes the call from your local computer. 
 
     ```console
-    Hello world app listening on port 3000!
-    testing from trace route 76.22.73.183
+    Hello world app listening on port 3000! 1635794284289
     ```
 
-1. The tutorial won't connect to the VM again. Exit the ssh connection with the following command in the bash shell. 
+1. The log also includes your environment variables, including your ApplicationInsights key, passed in the npm start script. use the following grep command to verify your key is in the environment variables. 
 
     ```bash
-    exit
+    grep APPINSIGHTS_INSTRUMENTATIONKEY /var/log/pm2.log
     ```
+    
+    This displays your PM2 log with `APPINSIGHTS_INSTRUMENTATIONKEY` highlighted in a different color. 
+
 
 ## VM logging and cloud logging
 

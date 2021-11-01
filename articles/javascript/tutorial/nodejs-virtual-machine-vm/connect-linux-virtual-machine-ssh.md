@@ -93,23 +93,6 @@ Use the same terminal or shell window as with previous steps.
     sudo npm start
     ```
 
-## Verify the environment variable is running in your app
-
-1. Use the browser to request the web app again. 
-
-    ```bash
-    http://YOUR-VM-PUBLIC-IP-ADDRESS
-    ```
-
-1. Use the PM2 logs to find your Application Insights key in the process's environment variables. There are many environment variables so you may have to scan the logs
-
-    ```bash
-    grep APPINSIGHTS_INSTRUMENTATIONKEY /var/log/pm2.log
-    ```
-
-    This should display your log with `APPINSIGHTS_INSTRUMENTATIONKEY` highlighted in a different color. 
-
-1. Leave the terminal open and connected to your VM, you will use it in the next step.
 
 ## Next step
 

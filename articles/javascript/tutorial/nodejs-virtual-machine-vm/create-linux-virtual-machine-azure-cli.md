@@ -68,57 +68,19 @@ az vm open-port \
     http://YOUR-VM-PUBLIC-IP-ADDRESS
     ```
 
-1. The virtual machine's web app returns the following information. Your app will use a different IP address.  
+1. The virtual machine's web app returns the following information:
+
+    * VM name
+    * Your client IP
+    * Current Date/Time  
 
     :::image type="content" source="../../media/tutorial-vm/basic-web-app.png" alt-text="Simple app served from Linus virtual machine on Azure.":::
 
 1. If the resource fails with a gateway error, try again in a minute, the web app may take a minute to start.
 
-1. The initial code file for the web app has a single route displaying your client Ip address, passed through the NGINX proxy. 
+1. The initial code file for the web app has a single route, which passed through the NGINX proxy. 
 
     :::code language="JavaScript" source="~/../js-e2e-vm/index.js" :::
-
-## Viewing the log for NGINX
-
-The Virtual machine collects logs for NGINX, which are available to view.
-
-| Service | Log location|
-|--|--|
-|NGINX| /var/log/nginx/access.log|
-
-
-Still in the SSH terminal, view VM log for the NGINX proxy service with the following command to view the log:
-
-```bash
-cat /var/log/nginx/access.log
-```
-
-The log includes the call from your local computer. 
-
-```console
-"GET /trace HTTP/1.1" 200 10 "-"
-```
-
-
-## Viewing the log for PM2
-
-The Virtual machine collects logs for NGINX and PM2, which are available to view.
-
-| Service | Log location|
-|--|--|
-|PM2| /var/log/pm2.log|
-
-View VM log for the PM2 service, which is your Express.js Node web app. In the same bash shell, use the following command to view the log:
-
-```bash
-cat /var/log/pm2.log
-```
-
-The log includes the call from your local computer. 
-
-```console
-Hello world app listening on port 3000! 1635794284289
-```
 
 ## Next step
 
