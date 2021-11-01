@@ -35,28 +35,10 @@ In this step, add the Azure SDK client library to the code on the virtual machin
 
     The browser displays the response, `tracing...YOUR-VM-PUBLIC-IP-ADDRESS` with your IP address.
 
-## Viewing the VM logs for NGINX and PM2
+## Viewing the web app logs in PM2
 
-The Virtual machine collects logs for NGINX and PM2, which are available to view.
 
-| Service | Log location|
-|--|--|
-|NGINX| /var/log/nginx/access.log|
-|PM2| /var/log/pm2.log|
-
-1. Still in the SSH terminal, view VM log for the NGINX proxy service with the following command to view the log:
-
-    ```bash
-     cat /var/log/nginx/access.log
-    ```
-
-    The log includes the call from your local computer. 
-
-    ```console
-     "GET /trace HTTP/1.1" 200 10 "-"
-    ```
-
-1. View VM log for the PM2 service. In the same bash shell, use the following command to view the log:
+1. View your web app log for the PM2 service. In the same bash shell, use the following command to view the log:
 
     ```bash
     cat /var/log/pm2.log
