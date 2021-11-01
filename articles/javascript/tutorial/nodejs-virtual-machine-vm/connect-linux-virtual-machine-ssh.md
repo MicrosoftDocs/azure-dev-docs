@@ -22,11 +22,15 @@ Use the same terminal or shell window as with previous steps.
     ssh azureuser@VM-PUBLIC-IP-ADDRESS
     ``` 
 
+1. If you are asked if you are sure you want to connect, answer `y` or `yes` to continue. 
+
 1. Use the following command to understand where you are on the virtual machine. You should be at the azureuser root: `/home/azureuser`. 
 
     ```bash
     pwd
     ```
+
+1. The response should be `/home/azureuser`.
 
 1. Your web app is in the subdirectory, `myapp`. Change to the `myapp` directory and list the contents:
 
@@ -58,27 +62,51 @@ sudo npm install --save applicationinsights
 
 ## Add Monitoring instrumentation key
 
-1. In the SSH terminal which is connected to your virtual machine, use the [Nano](https://www.nano-editor.org/dist/latest/nano.html#Editor-Basics) editor to open the `package.json` file.
+1. In the SSH terminal, which is connected to your virtual machine, use the [Nano](https://www.nano-editor.org/dist/latest/nano.html#Editor-Basics) editor to open the `package.json` file.
 
     ```bash
     sudo nano package.json
     ```
 
-1. Add a `APPINSIGHTS_INSTRUMENTATIONKEY` environment variable to the beginning of your **Start** script. Replace `REPLACE-WITH-YOUR-KEY` in the following example with your instrumentation key value.
+1. Add a `APPINSIGHTS_INSTRUMENTATIONKEY` environment variable to the beginning of your **Start** script. In the following example, replace `REPLACE-WITH-YOUR-KEY` with your instrumentation key value.
 
     ```json
     "start": "APPINSIGHTS_INSTRUMENTATIONKEY=REPLACE-WITH-YOUR-KEY pm2 start index.js --watch --log /var/log/pm2.log"
     ```
 
-1. Still in the SSH terminal, save the file in the Nano editor with <kbd>control</kbd> + <kbd>X</kbd>. Enter **Y** to save, when prompted. Accept the file name when prompted.
+1. Still in the SSH terminal, save the file in the Nano editor with <kbd>control</kbd> + <kbd>X</kbd>. 
+1. In the Nano editor, enter **Y** to save, when prompted. 
+1. In the Nano editor, accept the file name when prompted. 
 
-1. Stop and restart PM2 with the following commands:
+1. Stop [PM2](https://www.npmjs.com/package/pm2), which is a production process manager for Node.js applications, with the following commands:
 
     ```bash
-    sudo npm run-script stop && sudo npm start
+    sudo npm run-script stop 
     ```
 
     The Azure client library is now in your _node_modules_ directory and the key is passed into the app as an environment variable. The next step is to add the required code to `index.js`. 
+
+1. Restart the app with PM2 to pick up the next environment variable.
+
+    ```bash
+    sudo npm start
+    ```
+
+## Verify the environment variable is running in your app
+
+1. Use the browser to request the web app again. 
+
+    ```bash
+    http://VM-PUBLIC-IP-ADDRESS
+    ```
+
+1. Use the PM2 logs to find your Application Insights key in the process's environment variables. There are many environment variables so you may have to scan the logs
+
+    ```bash
+    grep APPINSIGHTS_INSTRUMENTATIONKEY /var/log/pm2.log
+    ```
+
+    This should display your log with `APPINSIGHTS_INSTRUMENTATIONKEY` highlighted in a different color. 
 
 1. Leave the terminal open and connected to your VM, you will use it in the next step.
 
