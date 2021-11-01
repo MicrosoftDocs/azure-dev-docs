@@ -75,6 +75,12 @@ The Virtual machine collects logs for NGINX and PM2, which are available to view
     exit
     ```
 
+## VM logging and cloud logging
+
+In this article series, `console.log` posts into the PM2 logs found on the VM only. If you delete the logs or the VM, you lose that information. 
+
+If you want to retain the logs beyond the lifespan of your virtual machine, use Application Insights. 
+
 ## Troubleshooting
 
 If you have issues, use the following table to understand how to resolve your issue:
