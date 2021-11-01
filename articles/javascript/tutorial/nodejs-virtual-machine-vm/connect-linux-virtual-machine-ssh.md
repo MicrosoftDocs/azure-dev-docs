@@ -16,10 +16,10 @@ Use the same terminal or shell window as with previous steps.
 
 1. Connect to your remote virtual machine with the following command. This process assumes that your SSH client can find your SSH keys, created as part of your VM creation and placed on your local machine. If you are asked if you want to continue connecting, answer `yes`. When the connection is complete, the terminal prompt should change to indicate the remote virtual machine. 
 
-    Replace `VM-PUBLIC-IP-ADDRESS` with your own virtual machine's public IP. 
+    Replace `YOUR-VM-PUBLIC-IP-ADDRESS` with your own virtual machine's public IP. 
 
     ```console
-    ssh azureuser@VM-PUBLIC-IP-ADDRESS
+    ssh azureuser@YOUR-VM-PUBLIC-IP-ADDRESS
     ``` 
 
 1. If you are asked if you are sure you want to connect, answer `y` or `yes` to continue. 
@@ -97,7 +97,7 @@ sudo npm install --save applicationinsights
 1. Use the browser to request the web app again. 
 
     ```bash
-    http://VM-PUBLIC-IP-ADDRESS
+    http://YOUR-VM-PUBLIC-IP-ADDRESS
     ```
 
 1. Use the PM2 logs to find your Application Insights key in the process's environment variables. There are many environment variables so you may have to scan the logs

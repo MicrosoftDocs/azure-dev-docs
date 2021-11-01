@@ -65,7 +65,7 @@ az vm open-port \
 1. Use the public IP address in a web browser to make sure the virtual machine is available and running. Change the URL to use the value from `publicIpAddress`.
 
     ```HTTP
-    http://YOUR-PUBLIC-IP-ADDRESS
+    http://YOUR-VM-PUBLIC-IP-ADDRESS
     ```
 
 1. The virtual machine's web app returns the following information. Your app will use a different IP address.  

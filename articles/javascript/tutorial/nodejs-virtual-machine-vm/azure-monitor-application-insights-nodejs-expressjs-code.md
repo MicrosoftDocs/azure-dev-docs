@@ -30,10 +30,10 @@ In this step, add the Azure SDK client library to the code on the virtual machin
 1. In a web browser, test the app with the new `trace` route:
 
     ```http
-    http://REPLACE-WITH-YOUR-IP/trace
+    http://YOUR-VM-PUBLIC-IP-ADDRESS/trace
     ```
 
-    The browser displays the response, `tracing...` with your IP address.
+    The browser displays the response, `tracing...YOUR-VM-PUBLIC-IP-ADDRESS` with your IP address.
 
 ## Viewing the VM logs for NGINX and PM2
 
