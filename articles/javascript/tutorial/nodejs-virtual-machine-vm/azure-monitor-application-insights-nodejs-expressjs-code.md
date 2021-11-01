@@ -35,6 +35,8 @@ In this step, add the Azure SDK client library to the code on the virtual machin
 
     The browser displays the response, `tracing...YOUR-VM-PUBLIC-IP-ADDRESS` with your IP address.
 
+<a name="viewing-the-vm-logs-for-nginx-and-pm2"></a>
+
 ## Viewing the web app logs in PM2
 
 
