@@ -20,6 +20,7 @@ Use the same terminal or shell window as with previous steps.
 
     ```console
     ssh azureuser@YOUR-VM-PUBLIC-IP-ADDRESS
+
     ``` 
 
 1. If you are asked if you are sure you want to connect, answer `y` or `yes` to continue. 
