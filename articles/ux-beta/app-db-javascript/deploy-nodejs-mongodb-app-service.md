@@ -14,7 +14,7 @@ ROBOTS: NOINDEX
 
 # Deploy a Node.js + MongoDB web app to Azure
 
-In this tutorial, you'll learn how to deploy a basic **Express.js** app using a **MongoDB** database to Azure.  The Express.js app will be hosted in Azure App Service and the MongoDB database in Azure Cosmos DB, a cloud native database offering a [100% MongoDB compatible API](/azure/cosmos-db/mongodb/mongodb-introduction). Azure supports hosting Node.js apps on both Linux (Node versions 10, 12, and 14) and Windows (versions 10 and 12) server environments.
+In this tutorial, you'll deploy an **Express.js** app using a **MongoDB** database to Azure.  The Express.js app will be hosted in Azure App Service and the MongoDB database in Azure Cosmos DB, a cloud native database offering a [100% MongoDB compatible API](/azure/cosmos-db/mongodb/mongodb-introduction). Azure supports hosting Node.js apps on both Linux (Node versions 10, 12, and 14) and Windows (versions 10 and 12) server environments.
 
 ![A diagram showing how the Express.js app will be deployed to Azure App Service and the MongoDB data will be hosted inside of Azure Cosmos DB.](./media/app-diagram.png)
 
@@ -28,17 +28,17 @@ To follow along with this tutorial, clone or download the sample application fro
 git clone https://github.com/Azure-Samples/msdocs-nodejs-mongodb-azure-sample-app.git
 ```
 
-To run the application locally:
+Follow these steps to run the application locally:
 
-* Run `npm install` to install the package dependencies.
-* Run `npm start` to start the application.
-* Browse to `http://localhost:3000` to view the app.
+* To install the package dependencies, run `npm install`
+* To start the application, run `npm start`
+* To view the app, browse to `http://localhost:3000`
 
-The application uses the [dotenv package](https://www.npmjs.com/package/dotenv) to read the connection string  from the `.env` file for local development. By default, the connection string is set to use the local MongoDB instance as a database.
+The sample application uses the [dotenv package](https://www.npmjs.com/package/dotenv) to read the connection string  from the `.env` file for local development. By default, the connection string is set to use the local MongoDB instance as a database.
 
 ## 1 - Create the Azure App Service
 
-Azure App Service is used to host the Express.js web application code. Azure App service supports hosting JavaScript apps in both Linux and Windows server environments. When setting up the App Service for the application, you will configure two individual components:
+Azure App Service is used to host the Express.js web application code. When setting up the App Service for the application, you will configure two individual components:
 
 * An **App Service plan** which defines the operating system and compute resources (CPU, memory) available for the application.
 * An **App Service web app** which defines the application name and runtime used by the application.
@@ -353,11 +353,30 @@ Selecting the *Site wwwroot* link under the Browse Directory heading allows you 
 
 ## Clean up resources
 
+When you are finished, you can delete all of the resources from Azure by deleting the resource group for the application.
+
 ### [Azure portal](#tab/azure-portal)
+
+Follow these steps while signed-in to the Azure portal to delete a resource group.
+
+| Instructions    | Screenshot |
+|:----------------|-----------:|
+| [!INCLUDE [Remove resource group Azure portal 1](<./includes/azportal-remove-resource-group-1.md>)] | :::image type="content" source="./media/azportal-remove-resource-group-1-240px.png" alt-text="A screenshot showing how to search for and navigate to a resource group in teh Azure portal." lightbox="./media/azportal-remove-resource-group-1.png"::: |
+| [!INCLUDE [Remove resource group Azure portal 2](<./includes/azportal-remove-resource-group-2.md>)] | :::image type="content" source="./azportal-remove-resource-group-2-240px.png" alt-text="A screenshot showing the location of the Delete Resource Group button in the Azure portal." lightbox="./media/azportal-remove-resource-group-2.png"::: |
+| [!INCLUDE [Remove resource group Azure portal 3](<./includes/azportal-remove-resource-group-3.md>)] | :::image type="content" source="./azportal-remove-resource-group-3-240px.png" alt-text="A screenshot of the confirmation dialog for deleting a resource group in the Azure portal." lightbox="./media/azportal-remove-resource-group-3.png"::: |
 
 ### [VS Code](#tab/vscode-aztools)
 
+| Instructions    | Screenshot |
+|:----------------|-----------:|
+| [!INCLUDE [Remove resource group VS Code 1](<./includes/vscode-remove-resource-group-1.md>)] | :::image type="content" source="./media/vscode-remove-resource-group-1-240px.png" alt-text="A screenshot showing how to delete a resource group in VS Code using the Azure Tools extention." lightbox="./media/vscode-remove-resource-group-1.png"::: |
+| [!INCLUDE [Remove resource group VS Code 2](<./includes/vscode-remove-resource-group-2.md>)] | :::image type="content" source="./vscode-remove-resource-group-2-240px.png" alt-text="A screenshot of the confirmation dialog for deleting a resource group from VS Code." lightbox="./media/vscode-remove-resource-group-2.png"::: |
+
 ### [Azure CLI](#tab/azure-cli)
+
+Delete the resource group by using the [az group delete](/cli/azure/group#az_group_delete) command.
+
+:::code language="azurecli" source="~/../msdocs-nodejs-mongodb-azure-sample-app/scripts/delete-resource-group.sh":::
 
 ---
 
