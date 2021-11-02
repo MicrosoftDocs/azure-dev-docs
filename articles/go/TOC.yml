@@ -3,6 +3,8 @@ items:
     href: index.yml
   - name: Get started with Go on Azure
     items:
+    - name: Introduction to Azure and Go
+      href: 
   - name: Use the Azure SDK for Go
     items:
     - name: What is the Azure SDK for Go?
