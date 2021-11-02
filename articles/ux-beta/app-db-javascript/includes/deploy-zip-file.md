@@ -54,11 +54,14 @@ curl -X POST \
 
 #### Enable build automation (if required)
 
-By default, the deployment engine assumes that a ZIP package is ready to run as-is and doesn't run any build automation. To enable build automation, set the `SCM_DO_BUILD_DURING_DEPLOYMENT` app setting in either the Azure Portal or Azure CLI.
+By default, the deployment engine assumes that a ZIP package is ready to run as-is and doesn't run any build automation. To enable build automation, set the `SCM_DO_BUILD_DURING_DEPLOYMENT` app setting in either the Azure portal or Azure CLI.
 
 ##### [Azure portal](#tab/deploy-instructions-azportal)
 
-Coming soon
+| Instructions    | Screenshot |
+|:----------------|-----------:|
+| [!INCLUDE [Enable build automation from Azure portal 1](<./azportal-build-settings-1.md>)] | :::image type="content" source="../media/azportal-build-settings-1-240px.png" alt-text="A screenshot showing the app settings for a web app and how to add a new setting in the Azure portal." lightbox="../media/azportal-build-settings-1.png"::: |
+| [!INCLUDE [Enable build automation from Azure portal 2](<./azportal-build-settings-2.md>)] | :::image type="content" source="../media/azportal-build-settings-2-240px.png" alt-text="A screenshot showing the dialog box used to add an app settings in the Azure portal." lightbox="../media/azportal-build-settings-2.png"::: |
 
 ##### [Azure CLI](#tab/deploy-instructions-azcli)
 
