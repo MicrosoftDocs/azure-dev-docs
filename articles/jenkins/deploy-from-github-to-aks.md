@@ -236,7 +236,7 @@ For separation of roles and permissions, configure a service principal for Jenki
 First, create a service principal using the [az ad sp create-for-rbac](/cli/azure/ad/sp#az_ad_sp_create_for_rbac) command:
 
 ```azurecli
-az ad sp create-for-rbac --skip-assignment
+az ad sp create-for-rbac --role Contributor --skip-assignment
 ```
 
 ```bash

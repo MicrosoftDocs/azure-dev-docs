@@ -86,7 +86,7 @@ Each developer in your organization should perform these steps individually.
 1. Create the service principal:
 
     ```azurecli
-    az ad sp create-for-rbac --name localtest-sp-rbac --skip-assignment
+    az ad sp create-for-rbac --name localtest-sp-rbac --role Contributor --skip-assignment
     ```
 
     For more details on the command and its arguments, see [What the create-for-rbac command does](#what-the-create-for-rbac-command-does).
