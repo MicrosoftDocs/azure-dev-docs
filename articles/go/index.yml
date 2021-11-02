@@ -52,7 +52,7 @@ landingContent:
       - linkListType: quickstart
         links:
           - text: Create a Go Serverless function in Azure
-            url: azure/azure-functions/create-first-function-vs-code-other?tabs=go
+            url: azure/azure-functions/create-first-function-vs-code-other
   - title: Containers
     linkLists:
       - linkListType: quickstart
