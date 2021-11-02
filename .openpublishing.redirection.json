@@ -984,6 +984,10 @@
     {
       "source_path": "articles/go/azure-sdk-auth-aad-samples.md",
       "redirect_url": "/azure/developer/go/azure-sdk-authentication"
+    },
+    {
+      "source_path": "articles/go/azure-sdk-compute-networking-samples.md",
+      "redirect_url": "/azure/developer/go/management-libraries"
     }
   ]
 }
