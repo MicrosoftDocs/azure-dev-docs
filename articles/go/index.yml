@@ -25,8 +25,6 @@ landingContent:
         links:
           - text: Install the Azure SDK for Go
             url: azure-sdk-install.md
-          - text: Developer tools
-            url: azure-sdk-tools.md
       - linkListType: concept
         links:
           - text: Core concepts
