@@ -59,6 +59,8 @@
       items:
         - name: Network issues
           href: troubleshooting-network.md
+        - name: Dependency conflicts
+          href: troubleshooting-dependency-version-conflict.md
     - name: Code Samples
       items:
         - name: Virtual machines
