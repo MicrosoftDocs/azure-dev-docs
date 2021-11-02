@@ -26,7 +26,7 @@ This tutorial uses a cloud-init configuration file to create both the NGINX reve
 
     * Download Node.js, and install it
     * Clone the sample Express.js repository from GitHub into `myapp` directory
-    * Install the Express.js dependencies
+    * Install the application dependencies
     * Start the Express.js app with PM2
 
 ## Create a virtual machine resource 

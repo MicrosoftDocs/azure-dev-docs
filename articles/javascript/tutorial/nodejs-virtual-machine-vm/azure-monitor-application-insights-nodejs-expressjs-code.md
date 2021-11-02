@@ -45,7 +45,7 @@ In this step, add the Azure SDK client library to the code on the virtual machin
 
 ## Viewing the log for NGINX
 
-The Virtual machine collects logs for NGINX, which are available to view.
+The Virtual Machine (VM) collects logs for NGINX, which are available to view.
 
 | Service | Log location|
 |--|--|
@@ -72,7 +72,7 @@ The Virtual machine collects logs for PM2, which are available to view.
 |--|--|
 |PM2| /var/log/pm2.log|
 
-1 View VM log for the PM2 service, which is your Express.js Node web app. In the same bash shell, use the following command to view the log:
+1. View VM log for the PM2 service, which is your Express.js Node web app. In the same bash shell, use the following command to view the log:
 
     ```bash
     cat /var/log/pm2.log
@@ -95,7 +95,7 @@ The Virtual machine collects logs for PM2, which are available to view.
 
 ## VM logging and cloud logging
 
-In this article series, `console.log` posts into the PM2 logs found on the VM only. If you delete the logs or the VM, you lose that information. 
+In this application, using `console.log` writes the messages into the PM2 logs found on the VM only. If you delete the logs or the VM, you lose that information.
 
 If you want to retain the logs beyond the lifespan of your virtual machine, use Application Insights. 
 
