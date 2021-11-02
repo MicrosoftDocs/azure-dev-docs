@@ -2,7 +2,7 @@
 title: Remove Linux virtual machine resource
 description: Clean up Azure resources by removing the resource group with an Azure CLI command. 
 ms.topic: tutorial
-ms.date: 11/13/2020
+ms.date: 11/01/2021
 ms.custom: devx-track-js, devx-track-azurecli
 ---
 
