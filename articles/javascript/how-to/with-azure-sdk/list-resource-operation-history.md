@@ -1,7 +1,7 @@
 ---
 title: List resource operation history
 description: Use Azure SDK for Monitor to list recent resource operations. 
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/26/2021
 ms.custom: devx-track-js
 ---
