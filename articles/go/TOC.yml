@@ -32,5 +32,5 @@ items:
       href: http://github.com/azure-samples/azure-sdk-for-go-samples
   - name: Reference
     items:
-      - name: Azure SDK Go Docs
+      - name: Azure SDK for Go API reference
         href: https://pkg.go.dev/github.com/Azure/azure-sdk-for-go
