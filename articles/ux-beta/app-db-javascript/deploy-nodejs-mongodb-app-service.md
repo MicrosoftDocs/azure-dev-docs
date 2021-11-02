@@ -269,7 +269,7 @@ Azure App Service captures all messages logged to the console to assist you in d
 
 :::code language="javascript" source="~/../msdocs-nodejs-mongodb-azure-sample-app/src/routes/index.js" range="7-21" highlight="8,12":::
 
-The contents of the App Service diagnostic logs can be reviewed in the Azure portal, VS Code or using the Azure CLI.
+The contents of the App Service diagnostic logs can be reviewed in the Azure portal, VS Code, or using the Azure CLI.
 
 ### [Azure portal](#tab/azure-portal)
 
@@ -332,14 +332,14 @@ Refresh the home page in the app or attempt other requests to generate some log 
 
 ## 7 - Inspect deployed files using Kudu
 
-Azure App Service provides a web-based diagnostics console named [Kudu](/azure/app-service/resources-kudu) that allows you to examine the server hosting environment for your web app. Using Kudu, you can view the files deployed to Azure, review the deployment history of the application and even open an SSH session into the hosting environment.
+Azure App Service provides a web-based diagnostics console named [Kudu](/azure/app-service/resources-kudu) that allows you to examine the server hosting environment for your web app. Using Kudu, you can view the files deployed to Azure, review the deployment history of the application, and even open an SSH session into the hosting environment.
 
 To access Kudu, navigate to one of the following URLs. You will need to sign into the Kudu site with your Azure credentials.
 
-* For apps deployed in Free, Shared, Basic, Standard and Premium App Service plans - `https://<app-name>.scm.azurewebsites.net`
+* For apps deployed in Free, Shared, Basic, Standard, and Premium App Service plans - `https://<app-name>.scm.azurewebsites.net`
 * For apps deployed in Isolated service plans - `https://<app-name>.scm.<ase-name>.p.azurewebsites.net`
 
-From the main page in Kudu, you can access information about the application hosting environment, app settings, deployments and browse the files in the wwwroot directory.
+From the main page in Kudu, you can access information about the application hosting environment, app settings, deployments, and browse the files in the wwwroot directory.
 
 ![A screenshot of the main page in the Kudu SCM app showing the different information available about the hosting environment.](./media/kudu-main-page.png)
 
@@ -361,7 +361,7 @@ Follow these steps while signed-in to the Azure portal to delete a resource grou
 
 | Instructions    | Screenshot |
 |:----------------|-----------:|
-| [!INCLUDE [Remove resource group Azure portal 1](<./includes/azportal-remove-resource-group-1.md>)] | :::image type="content" source="./media/azportal-remove-resource-group-1-240px.png" alt-text="A screenshot showing how to search for and navigate to a resource group in teh Azure portal." lightbox="./media/azportal-remove-resource-group-1.png"::: |
+| [!INCLUDE [Remove resource group Azure portal 1](<./includes/azportal-remove-resource-group-1.md>)] | :::image type="content" source="./media/azportal-remove-resource-group-1-240px.png" alt-text="A screenshot showing how to search for and navigate to a resource group in the Azure portal." lightbox="./media/azportal-remove-resource-group-1.png"::: |
 | [!INCLUDE [Remove resource group Azure portal 2](<./includes/azportal-remove-resource-group-2.md>)] | :::image type="content" source="./media/azportal-remove-resource-group-2-240px.png" alt-text="A screenshot showing the location of the Delete Resource Group button in the Azure portal." lightbox="./media/azportal-remove-resource-group-2.png"::: |
 | [!INCLUDE [Remove resource group Azure portal 3](<./includes/azportal-remove-resource-group-3.md>)] | :::image type="content" source="./media/azportal-remove-resource-group-3-240px.png" alt-text="A screenshot of the confirmation dialog for deleting a resource group in the Azure portal." lightbox="./media/azportal-remove-resource-group-3.png"::: |
 
