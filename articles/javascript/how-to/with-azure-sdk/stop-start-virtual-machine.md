@@ -6,7 +6,7 @@ ms.date: 10/28/2021
 ms.custom: devx-track-js
 ---
 
-# Use Azure SDKs to manage a virtual machine.
+# Use Azure SDKs to manage a virtual machine
 
 Use Azure SDK to stop, start, and list virtual machines.
 
@@ -23,7 +23,7 @@ Use Azure SDK to stop, start, and list virtual machines.
 In order to programmatically stop and start your virtual machine, you need to collect and use several values:
 
 * Service principal
-    * Tenant Id
+    * Tenant ID
     * Client ID
     * Client secret
 * Virtual machine
