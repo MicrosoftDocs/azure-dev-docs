@@ -1,7 +1,7 @@
 ---
 title: Download sample React app
 description: The complete sample app is provided in a GitHub repository. Fork the repository, install the dependencies, and run locally.
-ms.topic: tow-to
+ms.topic: how-to
 ms.date: 09/07/2021
 ms.custom: devx-track-js
 ---
