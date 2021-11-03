@@ -269,7 +269,7 @@ Provide authentication.
 |Connect - with SSH|[Bash](../tutorial/nodejs-virtual-machine-vm/connect-linux-virtual-machine-ssh.md#connect-with-ssh-and-change-web-app)|
 |Get Status|[@azure/arm-compute](with-azure-sdk/stop-start-virtual-machine.md#get-status-of-subscription-virtual-machines)|
 |List VMs|[@azure/arm-compute](with-azure-sdk/stop-start-virtual-machine.md#list-subscription-virtual-machines)|
-|Stop VM|[@azure/arm-compute](with-azure-sdk/stop-start-virtual-machine#stop-a-virtual-machine)|
+|Stop VM|[@azure/arm-compute](with-azure-sdk/stop-start-virtual-machine.md#stop-a-virtual-machine)|
 |Start VM|[@azure/arm-compute](with-azure-sdk/stop-start-virtual-machine.md#start-a-virtual-machine)|
 |Logs - Install Monitoring SDK|[Bash](../tutorial/nodejs-virtual-machine-vm/connect-linux-virtual-machine-ssh.md#install-monitoring-sdk)|
 |Logs - Add monitoring code to Express.js app|[JavaScript](../tutorial/nodejs-virtual-machine-vm/azure-monitor-application-insights-nodejs-expressjs-code.md#edit-indexjs-for-logging-with-azure-monitor-application-insights)|
