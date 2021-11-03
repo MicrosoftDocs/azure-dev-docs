@@ -59,11 +59,15 @@ landingContent:
         links:
           - text: Build and Containerize a Go application
             url: https://github.com/azure-samples/azure-go-labs/blob/master/1-app-hello-echo/README.md
+          - text: Azure Container Apps
+            url: /azure/container-apps
   - title: Open Source
     linkLists:
       - linkListType: reference
         links:
-          - text: Dapr
+          - text: Dapr (Distributed Application Runtime)
             url: https://github.com/dapr/dapr
-          - text: Azure SDK for Go API reference
-            url: https://godoc.org/github.com/Azure/azure-sdk-for-go
+          - text: KEDA (Kubernetes Event Driven Autoscaler)
+            url: https://github.com/kedacore/keda
+          - text: KEDA HTTP Add-on
+            url: https://github.com/kedacore/http-add-on
