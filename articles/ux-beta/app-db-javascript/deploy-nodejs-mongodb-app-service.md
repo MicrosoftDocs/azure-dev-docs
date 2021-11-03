@@ -20,7 +20,7 @@ In this tutorial, you'll deploy a sample **Express.js** app using a **MongoDB** 
 
 This article assumes you are already familiar with [Node.js development](/learn/paths/build-javascript-applications-nodejs/) and have Node and MongoDB installed locally. You'll also need an Azure account with an active subscription.  If you do not have an Azure account, you [can create one for free](https://azure.microsoft.com/free/nodejs/).
 
-## 1 - Download the sample application
+## Sample application
 
 To follow along with this tutorial, clone or download the sample application from the repository [https://github.com/Azure-Samples/msdocs-nodejs-mongodb-azure-sample-app](https://github.com/Azure-Samples/msdocs-nodejs-mongodb-azure-sample-app).
 
@@ -62,6 +62,9 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps 
 ### [VS Code](#tab/vscode-aztools)
 
 To create Azure resources in VS Code, you must have the [Azure Tools extension pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack) installed and be signed into Azure from VS Code.
+
+> [!div class="nextstepaction"]
+> [Download Azure Tools extension pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack)
 
 | Instructions    | Screenshot |
 |:----------------|-----------:|
