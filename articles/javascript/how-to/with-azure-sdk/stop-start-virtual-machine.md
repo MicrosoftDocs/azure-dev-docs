@@ -23,7 +23,7 @@ Use Azure SDK to stop, start, and list virtual machines.
 In order to programmatically stop and start your virtual machine, you need to collect and use several values:
 
 * Service principal
-    * Tenant Id
+    * Tenant ID
     * Client ID
     * Client secret
 * Virtual machine
