@@ -1,7 +1,7 @@
 ---
 title: Stop and start virtual machine
 description: Use Azure SDK to stop and start a virtual machine.
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/28/2021
 ms.custom: devx-track-js
 ---

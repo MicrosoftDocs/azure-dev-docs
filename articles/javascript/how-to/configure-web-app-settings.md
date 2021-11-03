@@ -1,7 +1,7 @@
 ---
 title: Host web apps - configuration settings
 description: Learn how to set common configurations for your web app.
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 08/19/2021
 ms.custom: devx-track-js
 ---

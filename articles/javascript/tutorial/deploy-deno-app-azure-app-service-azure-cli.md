@@ -1,7 +1,7 @@
 ---
 title: Deploy Deno apps to Azure App Service from the Azure CLI
 description: In this tutorial, you deploy a Deno application to Azure App Service (on Linux or Windows) using the Azure CLI.
-ms.topic: tutorial
+ms.topic: how-to
 ms.date: 10/13/2020
 ms.custom: scenarios:getting-started, languages:JavaScript, devx-track-js, devx-track-azurecli
 ---

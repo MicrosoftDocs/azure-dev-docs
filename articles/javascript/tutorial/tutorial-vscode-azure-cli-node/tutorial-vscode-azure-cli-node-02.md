@@ -1,7 +1,7 @@
 ---
 title: Create a Node.js app to deploy to Azure using the Azure CLI
 description: Tutorial part 2, Azure CLI create the app code.
-ms.topic: tutorial
+ms.topic: how-to
 ms.date: 08/16/2021
 ms.custom: devx-track-js, devx-track-azurecli
 # Verified full run: diberry 08/16/2021

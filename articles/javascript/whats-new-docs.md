@@ -1,7 +1,7 @@
 ---
 title: "What's new for JavaScript docs"
 description: "What's new in JavaScript docs in the Developer Center"
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/26/2021
 
 ---

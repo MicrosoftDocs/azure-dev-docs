@@ -1,7 +1,7 @@
 ---
 title: Authenticate to Azure with SDK
 description: To authenticate to Azure, create a service principal to use the Azure SDKs for JavaScript.
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/26/2021
 ms.custom: devx-track-js
 ---
