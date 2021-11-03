@@ -2,7 +2,7 @@
 title: Secure JavaScript website with Azure domain and certificates
 description:  Learn how to create a web app on Azure with a custom domain name secured with an TLS/SSL certificate. 
 ms.topic: how-to
-ms.date: 10/05/2021
+ms.date: 11/03/2021
 ms.custom: devx-track-js
 ---
 
