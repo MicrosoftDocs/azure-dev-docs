@@ -5,7 +5,7 @@ author: N-Usha
 ms.author: ushan 
 ms.topic: reference
 ms.service: azure 
-ms.date: 10/26/2021
+ms.date: 11/03/2021
 ms.custom: github-actions-azure, devx-track-azurecli
 ---
 
@@ -220,6 +220,12 @@ jobs:
 
 ---
 
+### Verify successful Azure Login with OpenID 
+
+Open the `Az CLI login` action and verify that it ran successfully. You should see the message `Login successful`. If your login is unsuccessful, you'll see the message `Az CLI Login failed.`.
+
+:::image type="content" source="media/github-actions-successful-login.png" alt-text="GitHub Actions Azure Login successful.":::
+ 
 ## Use the Azure login action with a service principal secret
 
 To use [Azure login](https://github.com/marketplace/actions/azure-login) with a service principal, you first need to add your Azure service principal as a secret to your GitHub repository.
