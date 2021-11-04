@@ -20,7 +20,7 @@
 | Core - Auth | npm [1.3.2](https://www.npmjs.com/package/@azure/core-auth/v/1.3.2) | [docs](/javascript/api/overview/azure/core-auth-readme) | GitHub [1.3.2](https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-auth_1.3.2/sdk/core/core-auth/) |
 | Core - Client | npm [1.3.2](https://www.npmjs.com/package/@azure/core-client/v/1.3.2) | [docs](/javascript/api/overview/azure/core-client-readme) | GitHub [1.3.2](https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-client_1.3.2/sdk/core/core-client/) |
 | Core - Client Paging | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure-rest/core-client-paging/v/1.0.0-beta.1) |  | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/core-client-paging_1.0.0-beta.1/sdk/core/core-client-paging-rest) |
-| Core - HTTP | npm [2.2.1](https://www.npmjs.com/package/@azure/core-http/v/2.2.1) | [docs](/javascript/api/overview/azure/core-http-readme) | GitHub [2.2.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-http_2.2.1/sdk/core/core-http/) |
+| Core - HTTP | npm [2.2.2](https://www.npmjs.com/package/@azure/core-http/v/2.2.2) | [docs](/javascript/api/overview/azure/core-http-readme) | GitHub [2.2.2](https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-http_2.2.2/sdk/core/core-http/) |
 | Core - Logger | npm [1.0.3](https://www.npmjs.com/package/@azure/logger/v/1.0.3) | [docs](/javascript/api/overview/azure/logger-readme) | GitHub [1.0.3](https://github.com/Azure/azure-sdk-for-js/tree/@azure/logger_1.0.3/sdk/core/logger/) |
 | Core - LRO | npm [2.2.1](https://www.npmjs.com/package/@azure/core-lro/v/2.2.1) | [docs](/javascript/api/overview/azure/core-lro-readme) | GitHub [2.2.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-lro_2.2.1/sdk/core/core-lro/) |
 | Core - Rest | npm [1.0.0-beta.7](https://www.npmjs.com/package/@azure-rest/core-client/v/1.0.0-beta.7) |  | GitHub [1.0.0-beta.7](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/core-client_1.0.0-beta.7/sdk/core/core-client-rest) |
@@ -156,7 +156,7 @@
 | @azure/quantum-jobs | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure/quantum-jobs/v/1.0.0-beta.1) |  |  |
 | @azure/static-web-apps-cli | npm [0.8.0](https://www.npmjs.com/package/@azure/static-web-apps-cli/v/0.8.0) |  |  |
 | @azure/video-analyzer-player | npm [1.0.4](https://www.npmjs.com/package/@azure/video-analyzer-player/v/1.0.4)<br>npm [1.1.0-beta.5](https://www.npmjs.com/package/@azure/video-analyzer-player/v/1.1.0-beta.5) |  |  |
-| @azure/video-analyzer-widgets | npm [2.0.1](https://www.npmjs.com/package/@azure/video-analyzer-widgets/v/2.0.1) |  |  |
+| @azure/video-analyzer-widgets | npm [2.0.2](https://www.npmjs.com/package/@azure/video-analyzer-widgets/v/2.0.2) |  |  |
 | @azure-rest/core-client-lro | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure-rest/core-client-lro/v/1.0.0-beta.1) |  |  |
 | @azure-tools/adl-openapi | npm [0.3.2](https://www.npmjs.com/package/@azure-tools/adl-openapi/v/0.3.2) |  |  |
 | @azure-tools/adl-rest | npm [0.3.2](https://www.npmjs.com/package/@azure-tools/adl-rest/v/0.3.2) |  |  |
@@ -237,7 +237,7 @@
 | Core - Auth | npm [1.3.2](https://www.npmjs.com/package/@azure/core-auth/v/1.3.2) | [docs](/javascript/api/overview/azure/core-auth-readme) | GitHub [1.3.2](https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-auth_1.3.2/sdk/core/core-auth/) |
 | Core - Client | npm [1.3.2](https://www.npmjs.com/package/@azure/core-client/v/1.3.2) | [docs](/javascript/api/overview/azure/core-client-readme) | GitHub [1.3.2](https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-client_1.3.2/sdk/core/core-client/) |
 | Core - Client Paging | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure-rest/core-client-paging/v/1.0.0-beta.1) |  | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/core-client-paging_1.0.0-beta.1/sdk/core/core-client-paging-rest) |
-| Core - HTTP | npm [2.2.1](https://www.npmjs.com/package/@azure/core-http/v/2.2.1) | [docs](/javascript/api/overview/azure/core-http-readme) | GitHub [2.2.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-http_2.2.1/sdk/core/core-http/) |
+| Core - HTTP | npm [2.2.2](https://www.npmjs.com/package/@azure/core-http/v/2.2.2) | [docs](/javascript/api/overview/azure/core-http-readme) | GitHub [2.2.2](https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-http_2.2.2/sdk/core/core-http/) |
 | Core - Https | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure/core-https/v/1.0.0-beta.1) |  |  |
 | Core - Logger | npm [1.0.3](https://www.npmjs.com/package/@azure/logger/v/1.0.3) | [docs](/javascript/api/overview/azure/logger-readme) | GitHub [1.0.3](https://github.com/Azure/azure-sdk-for-js/tree/@azure/logger_1.0.3/sdk/core/logger/) |
 | Core - LRO | npm [2.2.1](https://www.npmjs.com/package/@azure/core-lro/v/2.2.1) | [docs](/javascript/api/overview/azure/core-lro-readme) | GitHub [2.2.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-lro_2.2.1/sdk/core/core-lro/) |

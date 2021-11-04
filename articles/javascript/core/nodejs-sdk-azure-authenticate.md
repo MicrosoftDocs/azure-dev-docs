@@ -147,6 +147,7 @@ Use the new service principal to authenticate with Azure and list your subscript
 
 ## Next steps
 
+* [View resource operation history](../how-to/with-azure-sdk/list-resource-operation-history.md)
 * [Create web app with a secure domain name](../how-to/add-custom-domain-to-web-app.md)
 * You can also create a service principal with:
   * [Azure portal](/azure/active-directory/develop/howto-create-service-principal-portal)

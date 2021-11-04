@@ -86,3 +86,6 @@ az vm open-port \
 
 > [!div class="nextstepaction"]
 > [Connect to VM with SSH](connect-linux-virtual-machine-ssh.md) 
+
+* [Create and delete a VM with the Azure SDK for JavaScript](../../how-to/with-azure-sdk/create-manage-virtual-machine.md)
+* [Manage a VM with the Azure SDK for JavaScript](../../how-to/with-azure-sdk/stop-start-virtual-machine.md)

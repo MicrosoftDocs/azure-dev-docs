@@ -51,4 +51,5 @@ Find a [free resource](https://azure.microsoft.com/pricing/free-services/) then 
 
 ## Next steps
 
+* [List Azure subscriptions with service principal](../../core/nodejs-sdk-azure-authenticate.md?tabs=azure-sdk-for-javascript#3-list-azure-subscriptions-with-service-principal)
 * [Selecting hosting for your app](../select-hosting-service.md)
