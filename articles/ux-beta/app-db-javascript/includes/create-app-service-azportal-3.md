@@ -1,6 +1,6 @@
 On the **Create Web App** page, fill out the form as follows.
 
-1. *Resource Group* &rarr; Select *Create new* and use a name of **msdocs-expressjs-mondgodb-quickstart**.
+1. *Resource Group* &rarr; Select *Create new* and use a name of **msdocs-expressjs-mongodb-tutorial**.
 1. *Name* &rarr; **msdocs-expressjs-mongodb-XYZ** where XYZ are any three random characters. This name must be unique across Azure.
 1. *Publish* &rarr; **Code**
 1. *Runtime stack* &rarr; **Node 14 LTS**
