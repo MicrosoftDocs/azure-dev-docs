@@ -8,7 +8,9 @@ ms.custom: devx-track-java
 
 # Libraries, drivers, and Spring modules for Azure
 
-The following table provides links to the libraries, drivers, Spring modules, and related topics available for use with Azure.
+This article provides links to the libraries, drivers, Spring modules, and related topics available for use with Azure.
+
+Microsoft’s goal is to empower every developer to achieve more, and our commitment to Java developers is no exception. Java and Spring developers want to use idiomatic libraries to simplify connections to their preferred cloud services. These libraries, drivers, and modules let you easily interact with Azure services across data, messaging, cache, storage, eventing, directory, and secrets management. Use the following table to find the right library, driver, or module and guides to get started.
 
 <!-- In raw Markdown, this table is best viewed with word-wrap turned off. -->
 
