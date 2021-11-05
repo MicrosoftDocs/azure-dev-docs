@@ -16,7 +16,7 @@ ROBOTS: NOINDEX
 
 In this tutorial, you'll deploy a sample **Express.js** app using a **MongoDB** database to Azure.  The Express.js app will be hosted in Azure App Service which supports hosting Node.js apps in both Linux (Node versions 10, 12, and 14) and Windows (versions 10 and 12) server environments. The MongoDB database will be hosted in Azure Cosmos DB, a cloud native database offering a [100% MongoDB compatible API](/azure/cosmos-db/mongodb/mongodb-introduction).
 
-![A diagram showing how the different components lay out in Azure.](./media/app-diagram.png)
+:::image type="content" source="media/app-diagram.png" alt-text="This is an architecture diagram about how the solution works in Azure":::
 
 This article assumes you are already familiar with [Node.js development](/learn/paths/build-javascript-applications-nodejs/) and have Node and MongoDB installed locally. You'll also need an Azure account with an active subscription.  If you do not have an Azure account, you [can create one for free](https://azure.microsoft.com/free/nodejs/).
 
@@ -60,6 +60,9 @@ az group list
 ```
 
 ### [Azure PowerShell](#tab/azure-powershell)
+
+Azure PowerShell commands can be run in the [Azure Cloud Shell](https://shell.azure.com) or on a workstation with [Azure PowerShell installed](/powershell/azure/install-az-ps).
+
 
 ```azurepowershell
 
@@ -109,8 +112,6 @@ To deploy your application code directly from VS Code, you must have the [Azure 
 > [Download Azure Tools extension pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack)
 
 Witness the awesomeness of VS Code!
-
-
 
 ### [Deploy using Local Git](#tab/deploy-local-git)
 
