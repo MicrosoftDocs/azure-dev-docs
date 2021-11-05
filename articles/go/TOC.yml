@@ -3,8 +3,6 @@ items:
     href: index.yml
   - name: Get started with Go on Azure
     items:
-    - name: Introduction to Azure and Go
-      href: intro-to-azure-with-go.md
     - name: Configure your development environment
       href: configure-vscode-for-go-development.md
     - name: Key Azure services for Go developers
