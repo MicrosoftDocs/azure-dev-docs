@@ -1,1 +1,1 @@
-Answer **Yes** to update your build configuration adn improve deployment performance.
+Answer **Yes** to update your build configuration and improve deployment performance.
