@@ -3,11 +3,13 @@ title: 'Quickstart: Create a Python app'
 description: Get started with Azure App Service by deploying your first Python app to a Linux container in App Service.
 ms.topic: quickstart
 ms.date: 11/03/2021
+ms-service: app-service
+robots: noindex
 ---
 
 # Quickstart: Create a Python app using Azure App Service on Linux
 
-In this quickstart, you'll deploy a Python web app to [Azure App Service](overview.md#app-service-on-linux). Azure App Service is a fully managed web hosting service that supports hosting Python 3.6 and higher apps in both Linux and Windows server environments.
+In this quickstart, you'll deploy a Python web app to [Azure App Service](/azure/app-service/overview.md#app-service-on-linux). Azure App Service is a fully managed web hosting service that supports hosting Python 3.6 and higher apps in both Linux and Windows server environments.
 
 To complete this quickstart, you should:
 1. Have an Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
@@ -35,21 +37,21 @@ To run the application locally:
 
 1. Create a virtual environment for the app:
 
-#### Mac/Linux
+    #### Mac/Linux
 
     ```Bash
     python3 -m venv .venv
     source .venv/bin/activate
     ```
 
-#### Windows
+    #### Windows
 
     ```Cmd
     py -3 -m venv .venv
     .venv\scripts\activate
    ```
 
----
+    ---
 
 1. Install the dependencies:
 
@@ -234,9 +236,9 @@ To deploy a web app from VS Code, you must have the [Azure Tools extension pack]
 |:----------------|-----------:|
 | [!INCLUDE [VS Code deploy step 1](<./includes/quickstart-python/deploy-vscode-1.md>)] | :::image type="content" source="./media/quickstart-python/vscode-deploy-1-240px.png" alt-text="A screenshot showing the location of the Azure Tools icon in the left toolbar of VS Code." lightbox="./media/quickstart-python/vscode-deploy-1.png"::: |
 | [!INCLUDE [VS Code deploy step 2](<./includes/quickstart-python/deploy-vscode-2.md>)] | :::image type="content" source="./media/quickstart-python/vscode-deploy-2-240px.png" alt-text="A screenshot showing the context menu of an App Service and the deploy to web app menu option." lightbox="./media/quickstart-python/vscode-deploy-2.png"::: |
-| [!INCLUDE [VS Code deploy step 3](<./includes/quickstart-python/deploy-vscode-3.md>)] | :::image type="content" source="./media/quickstart-python/vscode-deploy-3-240px.png" alt-text="A screenshot of output box in VS Code showing the deployment output." lightbox="./media/quickstart-python/vscode-deploy-3.png"::: |
-| [!INCLUDE [VS Code deploy step 4](<./includes/quickstart-python/deploy-vscode-4.md>)] | :::image type="content" source="./media/quickstart-python/vscode-deploy-4-240px.png" alt-text="A screenshot of output box in VS Code showing the deployment output." lightbox="./media/quickstart-python/vscode-deploy-4.png"::: |
-| [!INCLUDE [VS Code deploy step 5](<./includes/quickstart-python/deploy-vscode-5.md>)] | :::image type="content" source="./media/quickstart-python/vscode-deploy-5-240px.png" alt-text="A screenshot of output box in VS Code showing the deployment output." lightbox="./media/quickstart-python/vscode-deploy-5.png"::: |
+| [!INCLUDE [VS Code deploy step 3](<./includes/quickstart-python/deploy-vscode-3.md>)] | :::image type="content" source="./media/quickstart-python/vscode-deploy-3-240px.png" alt-text="A screenshot dialog in VS Code used to choose the app to deploy." lightbox="./media/quickstart-python/vscode-deploy-3.png"::: |
+| [!INCLUDE [VS Code deploy step 4](<./includes/quickstart-python/deploy-vscode-4.md>)] | :::image type="content" source="./media/quickstart-python/vscode-deploy-4-240px.png" alt-text="A screenshot of a dialog box in VS Code asking if you want to update your workspace to run build commands." lightbox="./media/quickstart-python/vscode-deploy-4.png"::: |
+| [!INCLUDE [VS Code deploy step 5](<./includes/quickstart-python/deploy-vscode-5.md>)] | :::image type="content" source="./media/quickstart-python/vscode-deploy-5-240px.png" alt-text="A screenshot showing the confirmation dialog when the app code has been deployed to Azure." lightbox="./media/quickstart-python/vscode-deploy-5.png"::: |
 
 ### [Deploy using Local Git](#tab/local-git-deploy)
 
@@ -246,7 +248,7 @@ To deploy a web app from VS Code, you must have the [Azure Tools extension pack]
 
 ---
 
-Having issues? Refer first to the [Troubleshooting guide](configure-language-python.md#troubleshooting), otherwise, [let us know](https://aka.ms/FlaskCLIQuickstartHelp).
+Having issues? Refer first to the [Troubleshooting guide](/azure/app-service/configure-language-python.md#troubleshooting), otherwise, [let us know](https://aka.ms/FlaskCLIQuickstartHelp).
 
 ## Browse to the app
 
@@ -258,7 +260,7 @@ The Python sample code is running a Linux container in App Service using a built
 
 **Congratulations!** You've deployed your Python app to App Service.
 
-Having issues? Refer first to the [Troubleshooting guide](configure-language-python.md#troubleshooting), otherwise, [let us know](https://aka.ms/FlaskCLIQuickstartHelp).
+Having issues? Refer first to the [Troubleshooting guide](/azure/app-service/configure-language-python.md#troubleshooting), otherwise, [let us know](https://aka.ms/FlaskCLIQuickstartHelp).
 
 ## Stream logs
 
@@ -278,7 +280,7 @@ You can also inspect the log files from the browser at `https://<app-name>.scm.a
 
 To stop log streaming at any time, press **Ctrl**+**C** in the terminal.
 
-Having issues? Refer first to the [Troubleshooting guide](configure-language-python.md#troubleshooting), otherwise, [let us know](https://aka.ms/FlaskCLIQuickstartHelp).
+Having issues? Refer first to the [Troubleshooting guide](/azure/app-service/configure-language-python.md#troubleshooting), otherwise, [let us know](https://aka.ms/FlaskCLIQuickstartHelp).
 
 ## Clean up resources
 
