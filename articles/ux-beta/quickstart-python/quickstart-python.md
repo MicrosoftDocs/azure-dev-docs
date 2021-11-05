@@ -19,7 +19,7 @@ To complete this quickstart, you should:
 
 This quickstart can be completed using either Flask or Django. A sample application in each framework is provided to help you follow along with this quickstart.
 
-### Flask
+### [Flask](#tab/flask)
 
 Download or clone the sample application to your local workstation.
 
@@ -57,7 +57,7 @@ To run the application locally:
 
 Having issues? [Let us know](https://aka.ms/FlaskCLIQuickstartHelp).
 
-### Django
+### [Django](#tab/django)
 
 Download or clone the sample application to your local workstation.
 
@@ -96,7 +96,6 @@ To run the application locally:
 Having issues? [Let us know](https://aka.ms/FlaskCLIQuickstartHelp).
 
 ---
-
 
 ## Create a web app in Azure
 
