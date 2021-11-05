@@ -12,7 +12,7 @@ ms.custom:
 ROBOTS: NOINDEX
 ---
 
-# Deploy a type-of-app with <something-else> web app to Azure
+# Deploy a type-of-app with something-else to Azure
 
 In this tutorial, you'll deploy a sample **Express.js** app using a **MongoDB** database to Azure.  The Express.js app will be hosted in Azure App Service which supports hosting Node.js apps in both Linux (Node versions 10, 12, and 14) and Windows (versions 10 and 12) server environments. The MongoDB database will be hosted in Azure Cosmos DB, a cloud native database offering a [100% MongoDB compatible API](/azure/cosmos-db/mongodb/mongodb-introduction).
 
@@ -73,9 +73,9 @@ Two services are better than one.
 
 ### [Azure portal](#tab/azure-portal)
 
-### [Azure CLI](#tab/azure-cli)
-
 ### [VS Code](#tab/vscode)
+
+### [Azure CLI](#tab/azure-cli)
 
 ### [Azure PowerShell](#tab/azure-powershell)
 
@@ -131,6 +131,8 @@ So cool I'll look at it even deeper!
 ## Clean up resources
 
 ### [Azure portal](#tab/azure-portal)
+
+### [VS Code](#tab/vscode)
 
 ### [Azure CLI](#tab/azure-cli)
 
