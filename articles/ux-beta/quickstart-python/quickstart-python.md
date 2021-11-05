@@ -3,7 +3,7 @@ title: 'Quickstart: Create a Python app'
 description: Get started with Azure App Service by deploying your first Python app to a Linux container in App Service.
 ms.topic: quickstart
 ms.date: 11/03/2021
-ms-service: app-service
+ms.service: app-service
 robots: noindex
 ---
 
@@ -27,33 +27,49 @@ Download or clone the sample application to your local workstation.
 git clone https://github.com/Azure-Samples/python-docs-hello-world
 ```
 
-To run the application locally:
+To run the application locally, you must:
 
-1. Navigate into in the *python-docs-hello-world* folder:
+* Create a virtual environment for the app.
+* Install dependencies
+* Run the app using the `flask run` command.
 
-    ```terminal
-    cd python-docs-hello-world
-    ```
+#### [Mac/Linux](#tab/mac-linux)
 
-1. Create a virtual environment for the app:
+```Bash
+cd python-docs-hello-world
 
-        [!INCLUDE [Virtual environment setup](<./includes/quickstart-python/virtual-environment-setup.md>)]
+# Create a virtual environment
+python3 -m venv .venv
+source .venv/bin/activate
 
-1. Install the dependencies:
+# Install dependencies
+pip install -r requirements.txt
 
-    ```terminal
-    pip install -r requirements.txt
-    ```
+# Run the app
+flask run
+```
 
-1. Run the development server.
+#### [Windows (CMD prompt)](#tab/windows)
 
-    ```terminal
-    flask run
-    ```
+```dos
+cd python-docs-hello-world
 
-1. Browse to the sample application at `http://localhost:5000` in a web browser.
+REM Create a virtual environment
+py -3 -m venv .venv
+.venv\scripts\activate
 
-    ![Run a sample Python app locally](./media/quickstart-python/run-hello-world-sample-python-app-in-browser-localhost.png)
+REM Install dependencies
+pip install -r requirements.txt
+
+REM Run the app
+flask run
+```
+
+---
+
+You can browse to the sample application at `http://localhost:5000`.
+
+![Run a sample Python app locally](./media/quickstart-python/run-hello-world-sample-python-app-in-browser-localhost.png)
 
 Having issues? [Let us know](https://aka.ms/FlaskCLIQuickstartHelp).
 
