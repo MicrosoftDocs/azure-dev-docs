@@ -186,20 +186,6 @@ To deploy a web app from VS Code, you must have the [Azure Tools extension pack]
 
 ---
 
-:::image type="content" source="./media/quickstart-python/vscode-deploy-1-240px.png" alt-text="" lightbox="./media/quickstart-python/vscode-deploy-1.png":::
-
-
-
-
-### [Azure portal](#tab/deploy-instructions-azportal)
-
-### [Azure CLI](#tab/deploy-instructions-azcli)
-
-### [Azure PowerShell](#tab/deploy-instructions-azps)
-
----
-
-
 Having issues? Refer first to the [Troubleshooting guide](/azure/app-service/configure-language-python.md#troubleshooting), otherwise, [let us know](https://aka.ms/FlaskCLIQuickstartHelp).
 
 ## Browse to the app
