@@ -1,19 +1,19 @@
 ---
-title: 'Quickstart: Create a Python app'
-description: Get started with Azure App Service by deploying your first Python app to a Linux container in App Service.
+title: 'Quickstart: Deploy a Python web app to Azure App Service'
+description: Get started with Azure App Service by deploying your first Python app to Azure App Service.
 ms.topic: quickstart
 ms.date: 11/03/2021
 ms.service: app-service
 robots: noindex
 ---
 
-# Quickstart: Create a Python app using Azure App Service on Linux
+# Quickstart: Deploy a Python web app to Azure App Service
 
 In this quickstart, you'll deploy a Python web app to [Azure App Service](/azure/app-service/overview.md#app-service-on-linux). Azure App Service is a fully managed web hosting service that supports hosting Python 3.6 and higher apps in both Linux and Windows server environments.
 
-To complete this quickstart, you should:
-1. Have an Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-1. Have <a href="https://www.python.org/downloads/" target="_blank">Python 3.6 or higher</a> installed locally.
+To complete this quickstart, you need:
+1. An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+1. <a href="https://www.python.org/downloads/" target="_blank">Python 3.6 or higher</a> installed locally.
 
 ## Sample application
 
@@ -22,7 +22,6 @@ This quickstart can be completed using either Flask or Django. A sample applicat
 ### [Flask](#tab/flask)
 
 [!INCLUDE [Flask local setup](<./includes/quickstart-python/flask-setup.md>)]
-
 
 You can browse to the sample application at `http://localhost:5000`.
 
@@ -34,7 +33,7 @@ Having issues? [Let us know](https://aka.ms/FlaskCLIQuickstartHelp).
 
 Download or clone the sample application to your local workstation.
 
-```terminal
+```Console
 git clone https://github.com/Azure-Samples/python-docs-hello-django
 ```
 
@@ -42,7 +41,7 @@ To run the application locally:
 
 1. Navigate into in the *python-docs-hello-world* folder:
 
-    ```terminal
+    ```Console
     cd python-docs-hello-world
     ```
 
@@ -52,13 +51,13 @@ To run the application locally:
 
 1. Install the dependencies:
 
-    ```terminal
+    ```Console
     pip install -r requirements.txt
     ```
 
 1. Run the development server.
 
-    ```terminal
+    ```Console
     python manage.py runserver
     ```
 
@@ -72,14 +71,7 @@ Having issues? [Let us know](https://aka.ms/FlaskCLIQuickstartHelp).
 
 ## Create a web app in Azure
 
-There are two components that work together in Azure App Service to host your web app in Azure:
-
-* An **App Service web app** which defines the application name and runtime used by the application.
-* An **App Service plan** which defines the operating system and compute resources (CPU, memory) available for the application.
-
-In addition, all Azure resources must belong to a resource group, a logical container used to group together all Azure resource for a single purpose.
-
-Azure resources can be created using the [Azure portal](https://portal.azure.com/), VS Code using the [Azure Tools extension pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack), or the Azure CLI. 
+To host your application in Azure, you need to create Azure App Service web app in Azure. You can create a web app using the [Azure portal](https://portal.azure.com/), VS Code using the [Azure Tools extension pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack), or the Azure CLI.
 
 ### [Azure portal](#tab/azure-portal)
 
@@ -186,11 +178,27 @@ To deploy a web app from VS Code, you must have the [Azure Tools extension pack]
 
 ### [Deploy using Local Git](#tab/local-git-deploy)
 
+[!INCLUDE [Deploy Local Git](<./includes/quickstart-python/deploy-local-git.md>)]
+
 ### [Deploy using FTPS](#tab/ftps-deploy)
 
 ### [Deploy using a ZIP file](#tab/zip-deploy)
 
 ---
+
+:::image type="content" source="./media/quickstart-python/vscode-deploy-1-240px.png" alt-text="" lightbox="./media/quickstart-python/vscode-deploy-1.png":::
+
+
+
+
+### [Azure portal](#tab/deploy-instructions-azportal)
+
+### [Azure CLI](#tab/deploy-instructions-azcli)
+
+### [Azure PowerShell](#tab/deploy-instructions-azps)
+
+---
+
 
 Having issues? Refer first to the [Troubleshooting guide](/azure/app-service/configure-language-python.md#troubleshooting), otherwise, [let us know](https://aka.ms/FlaskCLIQuickstartHelp).
 

@@ -4,11 +4,7 @@ Download or clone the sample application to your local workstation.
 git clone https://github.com/Azure-Samples/python-docs-hello-world
 ```
 
-To run the application locally, you must:
-
-* Create a virtual environment for the app.
-* Install dependencies
-* Run the app using the `flask run` command.
+Follow these instructions to run the sample app locally.
 
 #### [Mac/Linux](#tab/mac-linux)
 
