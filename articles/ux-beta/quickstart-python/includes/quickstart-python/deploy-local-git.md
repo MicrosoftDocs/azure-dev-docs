@@ -47,8 +47,10 @@ Next, in the root directory of your application, configure a [Git remote](https:
 git remote add azure <git-deployment-url>
 ```
 
-Now you can push code from your local Git repository to Azure using the Git remote you just configured. The first time you push code to Azure, Git will prompt you for the Azure deployment credentials you obtained in a previous step. Git will then cache these credentials so you will not have to re-enter them on subsequent deployments.
+Now you can push code from your local Git repository to Azure using the Git remote you just configured.
 
 ```bash
 git push azure main
 ```
+
+The first time you push code to Azure, Git will prompt you for the Azure deployment credentials you obtained in a previous step. Git will then cache these credentials so you will not have to re-enter them on subsequent deployments.

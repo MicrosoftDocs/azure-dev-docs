@@ -182,7 +182,9 @@ To deploy a web app from VS Code, you must have the [Azure Tools extension pack]
 
 ### [Deploy using FTPS](#tab/ftps-deploy)
 
-### [Deploy using a ZIP file](#tab/zip-deploy)
+[!INCLUDE [Deploy Local FTPS](<./includes/quickstart-python/deploy-ftps.md>)]
+
+### [Deploy using Azure CLI](#tab/azure-cli-deploy)
 
 ---
 
