@@ -38,12 +38,12 @@ The sample application uses the [dotenv package](https://www.npmjs.com/package/d
 
 ## 1 - Create the Azure App Service
 
-Azure App Service is used to host the Express.js web application code. When setting up the App Service for the application, you will configure two individual components:
+Azure App Service is used to host the Express.js web app. When setting up the App Service for the application, you will specify:
 
-* An **App Service plan** which defines the operating system and compute resources (CPU, memory) available for the application.
-* An **App Service web app** which defines the application name and runtime used by the application.
-
-All Azure resources must belong to a *resource group*, a logical container for grouping Azure resources. A standard practice is to create a resource group per application to hold all of the Azure resources needed for the app. When creating the App Service, you'll also create a resource group for the app.
+* The **Name** for the web app.  This name is used as part of the DNS name for your webapp in the form of `https://<app-name>.azurewebsites.net`.
+* The **Runtime** for the app.  This is where you select the version of Node to use for your app.
+* The **App Service plan** which defines the compute resources (CPU, memory) available for the application.
+* The **Resource Group** for the app.  A resource group lets you group all of the Azure resources needed for the application together in a logical container.
 
 Azure resources can be created using the [Azure portal](https://portal.azure.com/), VS Code using the [Azure Tools extension pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack), or the Azure CLI.
 
@@ -174,7 +174,7 @@ Creating a new Azure Cosmos DB typically takes about 5 minutes.
 
 To connect to your Cosmos DB database, you need to provide the connection string for the database to your application. This is done in the sample application by reading the `DATABASE_URL` environment variable. When running locally, the sample application uses the [dotenv package](https://www.npmjs.com/package/dotenv) to read the connection string value from the `.env` file.
 
-When running in Azure, configuration values like connection strings can be stored in the *application settings* for an App Service. These values are then made available to your application as environment variables. In this way, the application accesses the connection string from `process.env` the same way whether being run locally or in Azure. Further, this eliminates the need to manage and deploy environment specific config files with your application.
+When running in Azure, configuration values like connection strings can be stored in the *application settings* of the App Service hosting the web app. These values are then made available to your application as environment variables during runtime. In this way, the application accesses the connection string from `process.env` the same way whether being run locally or in Azure. Further, this eliminates the need to manage and deploy environment specific config files with your application.
 
 ### [Azure portal](#tab/azure-portal)
 
@@ -232,11 +232,14 @@ az webapp config appsettings set \
 
 ## 4 - Deploy application code to Azure
 
-Azure App service supports multiple different methods to deploy your application code to Azure including support for GitHub Actions and all major CI/CD tools. This article focuses on how to deploy your code from your local workstation to Azure.
+Azure App service supports multiple methods to deploy your application code to Azure including support for GitHub Actions and all major CI/CD tools. This article focuses on how to deploy your code from your local workstation to Azure.
 
 ### [Deploy using VS Code](#tab/vscode-deploy)
 
 To deploy your application code directly from VS Code, you must have the [Azure Tools extension pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack) installed and be signed into Azure from VS Code.
+
+> [!div class="nextstepaction"]
+> [Download Azure Tools extension pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack)
 
 | Instructions    | Screenshot |
 |:----------------|-----------:|

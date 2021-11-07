@@ -1,1 +1,4 @@
-In the *Databases* section of the Azure Tools extension for VS Code, locate the database for your application.  Right-click on the database and select *Copy Connection String* from the context menu to copy the connection string to your clipboard.
+In the *Databases* section of the Azure Tools extension for VS Code:
+
+1. Locate the database for your application and right-click on your database.
+1. Select *Copy Connection String* from the context menu to copy the connection string to your clipboard.
