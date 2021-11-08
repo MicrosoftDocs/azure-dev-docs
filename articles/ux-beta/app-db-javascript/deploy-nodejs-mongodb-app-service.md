@@ -243,9 +243,9 @@ To deploy your application code directly from VS Code, you must have the [Azure 
 
 | Instructions    | Screenshot |
 |:----------------|-----------:|
-| [!INCLUDE [Deploy from VS Code 1](<./includes/deploy-vscode/vscode-1.md>)] | :::image type="content" source="./media/deploy-from-vscode-1-240px.png" alt-text="A screenshot showing the location of the Azure Tool icon in Visual Studio Code." lightbox="./media/deploy-from-vscode-1.png"::: |
-| [!INCLUDE [Deploy from VS Code 2](<./includes/deploy-vscode/vscode-2.md>)] | :::image type="content" source="./media/deploy-from-vscode-2-240px.png" alt-text="A screenshot showing how you deploy an application to Azure by right-clicking on a web app in VS Code and selecting deploy from the context menu." lightbox="./media/deploy-from-vscode-2.png"::: |
-| [!INCLUDE [Deploy from VS Code 3](<./includes/deploy-vscode/vscode-3.md>)] | :::image type="content" source="./media/deploy-from-vscode-3-240px.png" alt-text="A screenshot showing the Output window of VS Code while deploying an application to Azure." lightbox="./media/deploy-from-vscode-3.png"::: |
+| [!INCLUDE [Deploy from VS Code 1](<./includes/nodejs-mongodb/deploy-vscode/vscode-1.md>)] | :::image type="content" source="./media/deploy-from-vscode-1-240px.png" alt-text="A screenshot showing the location of the Azure Tool icon in Visual Studio Code." lightbox="./media/deploy-from-vscode-1.png"::: |
+| [!INCLUDE [Deploy from VS Code 2](<./includes/nodejs-mongodb/deploy-vscode/vscode-2.md>)] | :::image type="content" source="./media/deploy-from-vscode-2-240px.png" alt-text="A screenshot showing how you deploy an application to Azure by right-clicking on a web app in VS Code and selecting deploy from the context menu." lightbox="./media/deploy-from-vscode-2.png"::: |
+| [!INCLUDE [Deploy from VS Code 3](<./includes/nodejs-mongodb/deploy-vscode/vscode-3.md>)] | :::image type="content" source="./media/deploy-from-vscode-3-240px.png" alt-text="A screenshot showing the Output window of VS Code while deploying an application to Azure." lightbox="./media/deploy-from-vscode-3.png"::: |
 
 ### [Deploy using Local Git](#tab/local-git-deploy)
 
