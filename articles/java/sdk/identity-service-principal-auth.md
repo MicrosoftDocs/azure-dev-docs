@@ -24,7 +24,7 @@ Use the [Azure CLI][azure_cli] examples below to create or get client secret cre
 Use the following command to create a service principal and configure its access to Azure resources:
 
 ```azurecli
-az ad sp create-for-rbac -n <your application name> --role Contributor --skip-assignment
+az ad sp create-for-rbac -n <your application name> --skip-assignment
 ```
 
 This command returns a value similar to the following output:
@@ -42,7 +42,7 @@ This command returns a value similar to the following output:
 Use the following command to create a service principal along with a certificate. Note down the path/location of this certificate.
 
 ```azurecli
-az ad sp create-for-rbac -n <your application name> --role Contributor --skip-assignment --cert <certificate name> --create-cert
+az ad sp create-for-rbac -n <your application name> --skip-assignment --cert <certificate name> --create-cert
 ```
 
 Check the returned credentials and to note down the following information:
