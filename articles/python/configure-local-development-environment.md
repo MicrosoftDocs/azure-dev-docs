@@ -86,7 +86,7 @@ Each developer in your organization should perform these steps individually.
 1. Create the service principal:
 
     ```azurecli
-    az ad sp create-for-rbac --name localtest-sp-rbac --role Contributor --skip-assignment
+    az ad sp create-for-rbac --name localtest-sp-rbac --skip-assignment
     ```
 
     For more details on the command and its arguments, see [What the create-for-rbac command does](#what-the-create-for-rbac-command-does).
@@ -142,7 +142,7 @@ The `az ad sp create-for-rbac` command creates a service principal for "role-bas
 
 - The `--skip-assignment` argument creates a service principal with no default permissions. You must then assign specific permissions to the service principal to allow locally-run code to access any resources. For more information, see [What is Azure role-based access control (RBAC)](/azure/role-based-access-control/overview) and [Steps to add a role assignment](/azure/role-based-access-control/role-assignments-steps). Different quickstarts and tutorials also provide details for authorizing a service principal for the specific resources involved.
 
-    Without `--skip-assignment`, the command assigns the [Contributor role](/azure/role-based-access-control/built-in-roles#contributor) to the service principal at subscription scope. This wide-ranging scope poses a risk if the security principal is compromised, which is why we recommend using `--skip-assignment` and then assign the exact roles at the exact scope that the service principal requires.
+    The `az ad sp create-for-rbac` command does not assign any roles to the service principal. This poses a risk if the security principal is compromised, which is why we recommend using `--skip-assignment` and then assign the exact roles at the exact scope that the service principal requires.
 
 - The command generates JSON output similar to the following values. Your `appId`, `tenant`, and `password` values will all be different:
 
