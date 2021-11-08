@@ -35,8 +35,6 @@ git clone https://github.com/Azure-Samples/python-docs-hello-django
 
 To run the application locally:
 
-1. Navigate into in the application folder:
-
 ### [Flask](#tab/flask)
 
 1. Navigate into in the application folder:
