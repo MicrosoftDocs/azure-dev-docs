@@ -3,7 +3,7 @@ title: Create a Linux virtual machines in Azure using Ansible
 description: Learn how to create a Linux virtual machine in Azure using Ansible
 keywords: ansible, azure, devops, virtual machine
 ms.topic: tutorial
-ms.date: 08/28/2021
+ms.date: 11/08/2021
 ms.custom: devx-track-ansible
 ---
 
@@ -39,7 +39,7 @@ In this article, you learn how to:
     
 ## 3. Implement the Ansible playbook
 
-1. Create a directory in which to test and run the sample Terraform code and make it the current directory.
+1. Create a directory in which to test and run the sample Ansible code and make it the current directory.
 
 1. Create a file named `main.yml` and insert the following code. Replace the `<key_data>` placeholder with the public key value from the previous step.
 
