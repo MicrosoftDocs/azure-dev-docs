@@ -2,13 +2,21 @@
 title: "What's new for JavaScript docs"
 description: "What's new in JavaScript docs in the Developer Center"
 ms.topic: how-to
-ms.date: 10/26/2021
+ms.date: 11/03/2021
 
 ---
 
 # JavaScript docs: What's new
 
 Find new and updated content for JavaScript and TypeScript developers.
+
+## 2021 November
+
+### Updates in November
+
+|Name|Description|
+|---------------------------------------|--|
+|[Virtual machine web app](tutorial/nodejs-virtual-machine-vm/introduction.md)|Updated article series.|
 
 ## 2021 October
 
