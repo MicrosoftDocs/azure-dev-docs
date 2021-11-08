@@ -17,33 +17,39 @@ To complete this quickstart, you need:
 
 ## Sample application
 
-This quickstart can be completed using either Flask or Django. A sample application in each framework is provided to help you follow along with this quickstart.
+This quickstart can be completed using either Flask or Django. A sample application in each framework is provided to help you follow along with this quickstart. Download or clone the sample application to your local workstation.
 
 ### [Flask](#tab/flask)
 
-[!INCLUDE [Flask local setup](<./includes/quickstart-python/flask-setup.md>)]
-
-You can browse to the sample application at `http://localhost:5000`.
-
-![Run a sample Python app locally](./media/quickstart-python/run-hello-world-sample-python-app-in-browser-localhost.png)
-
-Having issues? [Let us know](https://aka.ms/FlaskCLIQuickstartHelp).
+```terminal
+git clone https://github.com/Azure-Samples/python-docs-hello-world
+```
 
 ### [Django](#tab/django)
-
-Download or clone the sample application to your local workstation.
 
 ```Console
 git clone https://github.com/Azure-Samples/python-docs-hello-django
 ```
 
+---
+
 To run the application locally:
 
-1. Navigate into in the *python-docs-hello-world* folder:
+1. Navigate into in the application folder:
 
-    ```Console
-    cd python-docs-hello-world
-    ```
+### [Flask](#tab/flask)
+
+```Console
+cd python-docs-hello-world
+```
+
+### [Django](#tab/django)
+
+```Console
+cd python-docs-hello-django
+```
+
+---
 
 1. Create a virtual environment for the app:
 
@@ -55,15 +61,25 @@ To run the application locally:
     pip install -r requirements.txt
     ```
 
-1. Run the development server.
+1. Run the app.
 
-    ```Console
-    python manage.py runserver
-    ```
+### [Flask](#tab/flask)
 
-1. Browse to the sample application at `http://localhost:5000` in a web browser.
+```Console
+flask run
+```
 
-    ![Run a sample Python app locally](./media/quickstart-python/run-hello-world-sample-python-app-in-browser-localhost.png)
+### [Django](#tab/django)
+
+```Console
+python manage.py runserver
+```
+
+---
+
+Browse to the sample application at `http://localhost:5000` in a web browser.
+
+![Run a sample Python app locally](./media/quickstart-python/run-hello-world-sample-python-app-in-browser-localhost.png)
 
 Having issues? [Let us know](https://aka.ms/FlaskCLIQuickstartHelp).
 
