@@ -21,7 +21,7 @@ This quickstart can be completed using either Flask or Django. A sample applicat
 
 ### [Flask](#tab/flask)
 
-```terminal
+```Console
 git clone https://github.com/Azure-Samples/python-docs-hello-world
 ```
 
@@ -39,17 +39,11 @@ To run the application locally:
 
 ### [Flask](#tab/flask)
 
-```Console
-cd python-docs-hello-world
-```
+1. Navigate into in the application folder:
 
-### [Django](#tab/django)
-
-```Console
-cd python-docs-hello-django
-```
-
----
+    ```Console
+    cd python-docs-hello-world
+    ```
 
 1. Create a virtual environment for the app:
 
@@ -61,19 +55,35 @@ cd python-docs-hello-django
     pip install -r requirements.txt
     ```
 
-1. Run the app.
+1. Run the app:
 
-### [Flask](#tab/flask)
-
-```Console
-flask run
-```
+    ```Console
+    flask run
+    ```
 
 ### [Django](#tab/django)
 
-```Console
-python manage.py runserver
-```
+1. Navigate into in the application folder:
+
+    ```Console
+    cd python-docs-hello-django
+    ```
+
+1. Create a virtual environment for the app:
+
+    [!INCLUDE [Virtual environment setup](<./includes/quickstart-python/virtual-environment-setup.md>)]
+
+1. Install the dependencies:
+
+    ```Console
+    pip install -r requirements.txt
+    ```
+
+1. Run the app:
+
+    ```Console
+    python manage.py runserver
+    ```
 
 ---
 
@@ -82,8 +92,6 @@ Browse to the sample application at `http://localhost:5000` in a web browser.
 ![Run a sample Python app locally](./media/quickstart-python/run-hello-world-sample-python-app-in-browser-localhost.png)
 
 Having issues? [Let us know](https://aka.ms/FlaskCLIQuickstartHelp).
-
----
 
 ## Create a web app in Azure
 
