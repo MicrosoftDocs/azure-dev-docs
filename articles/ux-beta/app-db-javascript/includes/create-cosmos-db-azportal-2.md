@@ -1,1 +1,1 @@
-On the **Azure Cosmos DB** page select **+ Create**
+On the **Azure Cosmos DB** page, select **+ Create**
