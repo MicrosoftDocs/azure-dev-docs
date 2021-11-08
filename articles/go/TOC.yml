@@ -11,8 +11,6 @@ items:
     items:
     - name: What is the Azure SDK for Go?
       href: overview.md
-    - name: Core concepts
-      href: azure-sdk-core-concepts.md
     - name: Authentication
       expanded: false
       items:
@@ -21,9 +19,7 @@ items:
         - name: Auth with Azure hosted apps
           href: azure-sdk-authentication-managed-identity.md
         - name: Auth with credentials
-          href: azure-sdk-authentication-service-principal.md
-    - name: Use the management libraries
-      href: management-libraries.md
+          href: azure-sdk-authentication-service-principal.mdd
     - name: Package list
       href: https://azure.github.io/azure-sdk/releases/latest/all/go.html
     - name: SDK examples
