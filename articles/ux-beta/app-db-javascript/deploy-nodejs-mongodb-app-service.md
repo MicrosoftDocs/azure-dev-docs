@@ -53,11 +53,11 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps 
 
 | Instructions    | Screenshot |
 |:----------------|-----------:|
-| [!INCLUDE [Create app service step 1](<./includes/create-app-service-azportal-1.md>)] | :::image type="content" source="./media/azportal-create-app-service-1-240px.png" alt-text="A screenshot showing how to use the search box in the top tool bar to find App Services in Azure." lightbox="./media/azportal-create-app-service-1.png"::: |
-| [!INCLUDE [Create app service account step 2](<./includes/create-app-service-azportal-2.md>)] | :::image type="content" source="./media/azportal-create-app-service-2-240px.png" alt-text="A screenshot showing the create button on the App Services page used to create a new web app." lightbox="./media/azportal-create-app-service-2.png"::: |
-| [!INCLUDE [Create app service account step 3](<./includes/create-app-service-azportal-3.md>)] | :::image type="content" source="./media/azportal-create-app-service-3-240px.png" alt-text="A screenshot showing the form to fill out to create a web app in Azure." lightbox="./media/azportal-create-app-service-3.png"::: |
-| [!INCLUDE [Create app service step 4](<./includes/create-app-service-azportal-4.md>)] | :::image type="content" source="./media/azportal-create-app-service-4-240px.png" alt-text="A screenshot of the Spec Picker dialog that allows you to select the App Service plan to use for your web app." lightbox="./media/azportal-create-app-service-4.png"::: |
-| [!INCLUDE [Create app service step 4](<./includes/create-app-service-azportal-5.md>)] | :::image type="content" source="./media/azportal-create-app-service-5-240px.png" alt-text="A screenshot of the main web app create page showing the button to select on to create your web app in Azure." lightbox="./media/azportal-create-app-service-5.png"::: |
+| [!INCLUDE [Create app service step 1](<./includes/nodejs-mongodb/create-app-service/azure-portal-1.md>)] | :::image type="content" source="./media/azportal-create-app-service-1-240px.png" alt-text="A screenshot showing how to use the search box in the top tool bar to find App Services in Azure." lightbox="./media/azportal-create-app-service-1.png"::: |
+| [!INCLUDE [Create app service step 2](<./includes/nodejs-mongodb/create-app-service/azure-portal-2.md>)] | :::image type="content" source="./media/azportal-create-app-service-2-240px.png" alt-text="A screenshot showing the create button on the App Services page used to create a new web app." lightbox="./media/azportal-create-app-service-2.png"::: |
+| [!INCLUDE [Create app service step 3](<./includes/nodejs-mongodb/create-app-service/azure-portal-3.md>)] | :::image type="content" source="./media/azportal-create-app-service-3-240px.png" alt-text="A screenshot showing the form to fill out to create a web app in Azure." lightbox="./media/azportal-create-app-service-3.png"::: |
+| [!INCLUDE [Create app service step 4](<./includes/nodejs-mongodb/create-app-service/azure-portal-4.md>)] | :::image type="content" source="./media/azportal-create-app-service-4-240px.png" alt-text="A screenshot of the Spec Picker dialog that allows you to select the App Service plan to use for your web app." lightbox="./media/azportal-create-app-service-4.png"::: |
+| [!INCLUDE [Create app service step 4](<./includes/nodejs-mongodb/create-app-service/azure-portal-5.md>)] | :::image type="content" source="./media/azportal-create-app-service-5-240px.png" alt-text="A screenshot of the main web app create page showing the button to select on to create your web app in Azure." lightbox="./media/azportal-create-app-service-5.png"::: |
 
 ### [VS Code](#tab/vscode-aztools)
 
@@ -68,12 +68,12 @@ To create Azure resources in VS Code, you must have the [Azure Tools extension p
 
 | Instructions    | Screenshot |
 |:----------------|-----------:|
-| [!INCLUDE [Create app service step 1](<./includes/create-app-service-vscode-1.md>)] | :::image type="content" source="./media/vscode-create-app-service-1-240px.png" alt-text="A screenshot showing the location of the Azure Tools icon in the left toolbar." lightbox="./media/vscode-create-app-service-1.png"::: |
-| [!INCLUDE [Create app service step 2](<./includes/create-app-service-vscode-2.md>)] | :::image type="content" source="./media/vscode-create-app-service-2-240px.png" alt-text="A screenshot showing the App Service section of Azure Tools and the icon to select on to create a new web app." lightbox="./media/vscode-create-app-service-2.png"::: |
-| [!INCLUDE [Create app service step 3](<./includes/create-app-service-vscode-3.md>)] | :::image type="content" source="./media/vscode-create-app-service-3-240px.png" alt-text="A screenshot showing the dialog box used to select the subscription for the new App Service in Azure." lightbox="./media/vscode-create-app-service-3.png"::: |
-| [!INCLUDE [Create app service step 4](<./includes/create-app-service-vscode-4.md>)] | :::image type="content" source="./media/vscode-create-app-service-4-240px.png" alt-text="A screenshot of dialog box used to enter the name of the new web app in Visual Studio Code." lightbox="./media/vscode-create-app-service-4.png"::: |
-| [!INCLUDE [Create app service step 5](<./includes/create-app-service-vscode-5.md>)] | :::image type="content" source="./media/vscode-create-app-service-5-240px.png" alt-text="A screenshot of the dialog box in VS Code used to select the runtime for the new web app." lightbox="./media/vscode-create-app-service-5.png"::: |
-| [!INCLUDE [Create app service step 6](<./includes/create-app-service-vscode-6.md>)] | :::image type="content" source="./media/vscode-create-app-service-6-240px.png" alt-text="A screenshot of the dialog in VS Code used to select the App Service plan for the new web app." lightbox="./media/vscode-create-app-service-5.png"::: |
+| [!INCLUDE [Create app service step 1](<./includes/nodejs-mongodb/create-app-service/vscode-1.md>)] | :::image type="content" source="./media/vscode-create-app-service-1-240px.png" alt-text="A screenshot showing the location of the Azure Tools icon in the left toolbar." lightbox="./media/vscode-create-app-service-1.png"::: |
+| [!INCLUDE [Create app service step 2](<./includes/nodejs-mongodb/create-app-service/vscode-2.md>)] | :::image type="content" source="./media/vscode-create-app-service-2-240px.png" alt-text="A screenshot showing the App Service section of Azure Tools and the icon to select on to create a new web app." lightbox="./media/vscode-create-app-service-2.png"::: |
+| [!INCLUDE [Create app service step 3](<./includes/nodejs-mongodb/create-app-service/vscode-3.md>)] | :::image type="content" source="./media/vscode-create-app-service-3-240px.png" alt-text="A screenshot showing the dialog box used to select the subscription for the new App Service in Azure." lightbox="./media/vscode-create-app-service-3.png"::: |
+| [!INCLUDE [Create app service step 4](<./includes/nodejs-mongodb/create-app-service/vscode-4.md>)] | :::image type="content" source="./media/vscode-create-app-service-4-240px.png" alt-text="A screenshot of dialog box used to enter the name of the new web app in Visual Studio Code." lightbox="./media/vscode-create-app-service-4.png"::: |
+| [!INCLUDE [Create app service step 5](<./includes/nodejs-mongodb/create-app-service/vscode-5.md>)] | :::image type="content" source="./media/vscode-create-app-service-5-240px.png" alt-text="A screenshot of the dialog box in VS Code used to select the runtime for the new web app." lightbox="./media/vscode-create-app-service-5.png"::: |
+| [!INCLUDE [Create app service step 6](<./includes/nodejs-mongodb/create-app-service/vscode-6.md>)] | :::image type="content" source="./media/vscode-create-app-service-6-240px.png" alt-text="A screenshot of the dialog in VS Code used to select the App Service plan for the new web app." lightbox="./media/vscode-create-app-service-5.png"::: |
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -133,22 +133,22 @@ You must be signed in to the [Azure portal](https://portal.azure.com/) to comple
 
 | Instructions    | Screenshot |
 |:----------------|-----------:|
-| [!INCLUDE [Create Cosmos DB step 1](<./includes/create-cosmos-db-azportal-1.md>)] | :::image type="content" source="./media/azportal-create-cosmosdb-1-240px.png" alt-text="A screenshot showing how to use the search box in the top tool bar to find Cosmos DB in Azure." lightbox="./media/azportal-create-cosmosdb-1.png"::: |
-| [!INCLUDE [Create Cosmos DB step 2](<./includes/create-cosmos-db-azportal-2.md>)] | :::image type="content" source="./media/azportal-create-cosmosdb-2-240px.png" alt-text="A screenshot showing the create button on the Cosmos DB page used to create a database." lightbox="./media/azportal-create-cosmosdb-2.png"::: |
-| [!INCLUDE [Create Cosmos DB step 3](<./includes/create-cosmos-db-azportal-3.md>)] | :::image type="content" source="./media/azportal-create-cosmosdb-3-240px.png" alt-text="A screenshot showing the page where you select the MongoDB API for your Cosmos DB." lightbox="./media/azportal-create-cosmosdb-3.png"::: |
-| [!INCLUDE [Create Cosmos DB step 4](<./includes/create-cosmos-db-azportal-4.md>)] | :::image type="content" source="./media/azportal-create-cosmosdb-4-240px.png" alt-text="A screenshot showing how to fill out the page to create a new Cosmos DB." lightbox="./media/azportal-create-cosmosdb-4.png"::: |
+| [!INCLUDE [Create Cosmos DB step 1](<./includes/nodejs-mongodb/create-cosmos-db/azure-portal-1.md>)] | :::image type="content" source="./media/azportal-create-cosmosdb-1-240px.png" alt-text="A screenshot showing how to use the search box in the top tool bar to find Cosmos DB in Azure." lightbox="./media/azportal-create-cosmosdb-1.png"::: |
+| [!INCLUDE [Create Cosmos DB step 2](<./includes/nodejs-mongodb/create-cosmos-db/azure-portal-2.md>)] | :::image type="content" source="./media/azportal-create-cosmosdb-2-240px.png" alt-text="A screenshot showing the create button on the Cosmos DB page used to create a database." lightbox="./media/azportal-create-cosmosdb-2.png"::: |
+| [!INCLUDE [Create Cosmos DB step 3](<./includes/nodejs-mongodb/create-cosmos-db/azure-portal-3.md>)] | :::image type="content" source="./media/azportal-create-cosmosdb-3-240px.png" alt-text="A screenshot showing the page where you select the MongoDB API for your Cosmos DB." lightbox="./media/azportal-create-cosmosdb-3.png"::: |
+| [!INCLUDE [Create Cosmos DB step 4](<./includes/nodejs-mongodb/create-cosmos-db/azure-portal-4.md>)] | :::image type="content" source="./media/azportal-create-cosmosdb-4-240px.png" alt-text="A screenshot showing how to fill out the page to create a new Cosmos DB." lightbox="./media/azportal-create-cosmosdb-4.png"::: |
 
 ### [VS Code](#tab/vscode-aztools)
 
 | Instructions    | Screenshot |
 |:----------------|-----------:|
-| [!INCLUDE [Create Cosmos DB step 1](<./includes/create-cosmos-db-vscode-1.md>)] | :::image type="content" source="./media/vscode-create-cosmos-db-1-240px.png" alt-text="A screenshot showing the databases component of the Azure Tools VS Code extension and the location of the button to create a new database." lightbox="./media/vscode-create-cosmos-db-1.png"::: |
-| [!INCLUDE [Create Cosmos DB step 2](<./includes/create-cosmos-db-vscode-2.md>)] | :::image type="content" source="./media/vscode-create-cosmos-db-2-240px.png" alt-text="A screenshot showing the dialog box used to select the subscription for the new database in Azure." lightbox="./media/vscode-create-cosmos-db-2.png"::: |
-| [!INCLUDE [Create Cosmos DB step 3](<./includes/create-cosmos-db-vscode-3.md>)] | :::image type="content" source="./media/vscode-create-cosmos-db-3-240px.png" alt-text="A screenshot showing the dialog box used to select the type of database you want to create in Azure." lightbox="./media/vscode-create-cosmos-db-3.png"::: |
-| [!INCLUDE [Create Cosmos DB step 4](<./includes/create-cosmos-db-vscode-4.md>)] | :::image type="content" source="./media/vscode-create-cosmos-db-4-240px.png" alt-text="A screenshot of dialog box used to enter the name of the new database in Visual Studio Code." lightbox="./media/vscode-create-cosmos-db-4.png"::: |
-| [!INCLUDE [Create Cosmos DB step 5](<./includes/create-cosmos-db-vscode-5.md>)] | :::image type="content" source="./media/vscode-create-cosmos-db-5-240px.png" alt-text="A screenshot of the dialog to select the throughput mode of the database." lightbox="./media/vscode-create-cosmos-db-5.png"::: |
-| [!INCLUDE [Create Cosmos DB step 6](<./includes/create-cosmos-db-vscode-6.md>)] | :::image type="content" source="./media/vscode-create-cosmos-db-6-240px.png" alt-text="A screenshot of the dialog in VS Code used to select resource group to put the new database in." lightbox="./media/vscode-create-cosmos-db-6.png"::: |
-| [!INCLUDE [Create Cosmos DB step 7](<./includes/create-cosmos-db-vscode-7.md>)] | :::image type="content" source="./media/vscode-create-cosmos-db-7-240px.png" alt-text="A screenshot of the dialog in VS Code used to select location for the new database." lightbox="./media/vscode-create-cosmos-db-7.png"::: |
+| [!INCLUDE [Create Cosmos DB step 1](<./includes/nodejs-mongodb/create-cosmos-db/vscode-1.md>)] | :::image type="content" source="./media/vscode-create-cosmos-db-1-240px.png" alt-text="A screenshot showing the databases component of the Azure Tools VS Code extension and the location of the button to create a new database." lightbox="./media/vscode-create-cosmos-db-1.png"::: |
+| [!INCLUDE [Create Cosmos DB step 2](<./includes/nodejs-mongodb/create-cosmos-db/vscode-2.md>)] | :::image type="content" source="./media/vscode-create-cosmos-db-2-240px.png" alt-text="A screenshot showing the dialog box used to select the subscription for the new database in Azure." lightbox="./media/vscode-create-cosmos-db-2.png"::: |
+| [!INCLUDE [Create Cosmos DB step 3](<./includes/nodejs-mongodb/create-cosmos-db/vscode-3.md>)] | :::image type="content" source="./media/vscode-create-cosmos-db-3-240px.png" alt-text="A screenshot showing the dialog box used to select the type of database you want to create in Azure." lightbox="./media/vscode-create-cosmos-db-3.png"::: |
+| [!INCLUDE [Create Cosmos DB step 4](<./includes/nodejs-mongodb/create-cosmos-db/vscode-4.md>)] | :::image type="content" source="./media/vscode-create-cosmos-db-4-240px.png" alt-text="A screenshot of dialog box used to enter the name of the new database in Visual Studio Code." lightbox="./media/vscode-create-cosmos-db-4.png"::: |
+| [!INCLUDE [Create Cosmos DB step 5](<./includes/nodejs-mongodb/create-cosmos-db/vscode-5.md>)] | :::image type="content" source="./media/vscode-create-cosmos-db-5-240px.png" alt-text="A screenshot of the dialog to select the throughput mode of the database." lightbox="./media/vscode-create-cosmos-db-5.png"::: |
+| [!INCLUDE [Create Cosmos DB step 6](<./includes/nodejs-mongodb/create-cosmos-db/vscode-6.md>)] | :::image type="content" source="./media/vscode-create-cosmos-db-6-240px.png" alt-text="A screenshot of the dialog in VS Code used to select resource group to put the new database in." lightbox="./media/vscode-create-cosmos-db-6.png"::: |
+| [!INCLUDE [Create Cosmos DB step 7](<./includes/nodejs-mongodb/create-cosmos-db/vscode-7.md>)] | :::image type="content" source="./media/vscode-create-cosmos-db-7-240px.png" alt-text="A screenshot of the dialog in VS Code used to select location for the new database." lightbox="./media/vscode-create-cosmos-db-7.png"::: |
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -180,20 +180,20 @@ When running in Azure, configuration values like connection strings can be store
 
 | Instructions    | Screenshot |
 |:----------------|-----------:|
-| [!INCLUDE [Connection string step 1](<./includes/connection-string-azportal-1.md>)] | :::image type="content" source="./media/azportal-connection-string-1-240px.png" alt-text="A screenshot showing the location of the Cosmos DB connection string on the Cosmos DB quick start page." lightbox="./media/azportal-connection-string-1.png"::: |
-| [!INCLUDE [Connection string step 2](<./includes/connection-string-azportal-2.md>)] | :::image type="content" source="./media/azportal-connection-string-2-240px.png" alt-text="A screenshot showing how to search for and navigate to the App Service where the connection string needs to store the connection string." lightbox="./media/azportal-connection-string-2.png"::: |
-| [!INCLUDE [Connection string step 3](<./includes/connection-string-azportal-3.md>)] | :::image type="content" source="./media/azportal-connection-string-3-240px.png" alt-text="A screenshot showing how to access the Application settings within an App Service." lightbox="./media/azportal-connection-string-3.png"::: |
-| [!INCLUDE [Connection string step 4](<./includes/connection-string-azportal-4.md>)] | :::image type="content" source="./media/azportal-connection-string-4-240px.png" alt-text="A screenshot showing the dialog used to set an application setting in Azure App Service." lightbox="./media/azportal-connection-string-4.png"::: |
+| [!INCLUDE [Connection string step 1](<./includes/nodejs-mongodb/connection-string/azure-portal-1.md>)] | :::image type="content" source="./media/azportal-connection-string-1-240px.png" alt-text="A screenshot showing the location of the Cosmos DB connection string on the Cosmos DB quick start page." lightbox="./media/azportal-connection-string-1.png"::: |
+| [!INCLUDE [Connection string step 2](<./includes//nodejs-mongodb/connection-string/azure-portal-2.md>)] | :::image type="content" source="./media/azportal-connection-string-2-240px.png" alt-text="A screenshot showing how to search for and navigate to the App Service where the connection string needs to store the connection string." lightbox="./media/azportal-connection-string-2.png"::: |
+| [!INCLUDE [Connection string step 3](<./includes//nodejs-mongodb/connection-string/azure-portal-3.md>)] | :::image type="content" source="./media/azportal-connection-string-3-240px.png" alt-text="A screenshot showing how to access the Application settings within an App Service." lightbox="./media/azportal-connection-string-3.png"::: |
+| [!INCLUDE [Connection string step 4](<./includes//nodejs-mongodb/connection-string/azure-portal-4.md>)] | :::image type="content" source="./media/azportal-connection-string-4-240px.png" alt-text="A screenshot showing the dialog used to set an application setting in Azure App Service." lightbox="./media/azportal-connection-string-4.png"::: |
 
 ### [VS Code](#tab/vscode-aztools)
 
 | Instructions    | Screenshot |
 |:----------------|-----------:|
-| [!INCLUDE [Connection string step 1](<./includes/connection-string-vscode-1.md>)] | :::image type="content" source="./media/vscode-connection-string-1-240px.png" alt-text="A screenshot showing how to copy the connection string for a Cosmos database to your clipboard in VS Code." lightbox="./media/vscode-connection-string-1.png"::: |
-| [!INCLUDE [Connection string step 2](<./includes/connection-string-vscode-2.md>)] | :::image type="content" source="./media/vscode-connection-string-2-240px.png" alt-text="A screenshot showing how to add a config setting to an App Service in VS Code." lightbox="./media/vscode-connection-string-2.png"::: |
-| [!INCLUDE [Connection string step 3](<./includes/connection-string-vscode-3.md>)] | :::image type="content" source="./media/vscode-connection-string-3-240px.png" alt-text="A screenshot showing the dialog box used to give a name to an app setting in VS Code." lightbox="./media/vscode-connection-string-3.png"::: |
-| [!INCLUDE [Connection string step 4](<./includes/connection-string-vscode-4.md>)] | :::image type="content" source="./media/vscode-connection-string-4-240px.png" alt-text="A screenshot showing the dialog used to set the value of an app setting in VS Code." lightbox="./media/vscode-connection-string-4.png"::: |
-| [!INCLUDE [Connection string step 4](<./includes/connection-string-vscode-5.md>)] | :::image type="content" source="./media/vscode-connection-string-5-240px.png" alt-text="A screenshot showing how to view an app setting for an App Service in VS Code." lightbox="./media/vscode-connection-string-5.png"::: |
+| [!INCLUDE [Connection string step 1](<./includes/nodejs-mongodb/connection-string/vscode-1.md>)] | :::image type="content" source="./media/vscode-connection-string-1-240px.png" alt-text="A screenshot showing how to copy the connection string for a Cosmos database to your clipboard in VS Code." lightbox="./media/vscode-connection-string-1.png"::: |
+| [!INCLUDE [Connection string step 2](<./includes/nodejs-mongodb/connection-string/vscode-2.md>)] | :::image type="content" source="./media/vscode-connection-string-2-240px.png" alt-text="A screenshot showing how to add a config setting to an App Service in VS Code." lightbox="./media/vscode-connection-string-2.png"::: |
+| [!INCLUDE [Connection string step 3](<./includes/nodejs-mongodb/connection-string/vscode-3.md>)] | :::image type="content" source="./media/vscode-connection-string-3-240px.png" alt-text="A screenshot showing the dialog box used to give a name to an app setting in VS Code." lightbox="./media/vscode-connection-string-3.png"::: |
+| [!INCLUDE [Connection string step 4](<./includes/nodejs-mongodb/connection-string/vscode-4.md>)] | :::image type="content" source="./media/vscode-connection-string-4-240px.png" alt-text="A screenshot showing the dialog used to set the value of an app setting in VS Code." lightbox="./media/vscode-connection-string-4.png"::: |
+| [!INCLUDE [Connection string step 4](<./includes/nodejs-mongodb/connection-string/vscode-5.md>)] | :::image type="content" source="./media/vscode-connection-string-5-240px.png" alt-text="A screenshot showing how to view an app setting for an App Service in VS Code." lightbox="./media/vscode-connection-string-5.png"::: |
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -243,9 +243,9 @@ To deploy your application code directly from VS Code, you must have the [Azure 
 
 | Instructions    | Screenshot |
 |:----------------|-----------:|
-| [!INCLUDE [Deploy from VS Code 1](<./includes/deploy-from-vscode-1.md>)] | :::image type="content" source="./media/deploy-from-vscode-1-240px.png" alt-text="A screenshot showing the location of the Azure Tool icon in Visual Studio Code." lightbox="./media/deploy-from-vscode-1.png"::: |
-| [!INCLUDE [Deploy from VS Code 2](<./includes/deploy-from-vscode-2.md>)] | :::image type="content" source="./media/deploy-from-vscode-2-240px.png" alt-text="A screenshot showing how you deploy an application to Azure by right-clicking on a web app in VS Code and selecting deploy from the context menu." lightbox="./media/deploy-from-vscode-2.png"::: |
-| [!INCLUDE [Deploy from VS Code 3](<./includes/deploy-from-vscode-3.md>)] | :::image type="content" source="./media/deploy-from-vscode-3-240px.png" alt-text="A screenshot showing the Output window of VS Code while deploying an application to Azure." lightbox="./media/deploy-from-vscode-3.png"::: |
+| [!INCLUDE [Deploy from VS Code 1](<./includes/deploy-vscode/vscode-1.md>)] | :::image type="content" source="./media/deploy-from-vscode-1-240px.png" alt-text="A screenshot showing the location of the Azure Tool icon in Visual Studio Code." lightbox="./media/deploy-from-vscode-1.png"::: |
+| [!INCLUDE [Deploy from VS Code 2](<./includes/deploy-vscode/vscode-2.md>)] | :::image type="content" source="./media/deploy-from-vscode-2-240px.png" alt-text="A screenshot showing how you deploy an application to Azure by right-clicking on a web app in VS Code and selecting deploy from the context menu." lightbox="./media/deploy-from-vscode-2.png"::: |
+| [!INCLUDE [Deploy from VS Code 3](<./includes/deploy-vscode/vscode-3.md>)] | :::image type="content" source="./media/deploy-from-vscode-3-240px.png" alt-text="A screenshot showing the Output window of VS Code while deploying an application to Azure." lightbox="./media/deploy-from-vscode-3.png"::: |
 
 ### [Deploy using Local Git](#tab/local-git-deploy)
 
@@ -281,15 +281,15 @@ The contents of the App Service diagnostic logs can be reviewed in the Azure por
 
 | Instructions    | Screenshot |
 |:----------------|-----------:|
-| [!INCLUDE [Stream logs from Azure portal 1](<./includes/azportal-stream-logs-1.md>)] | :::image type="content" source="./media/azportal-stream-logs-1-240px.png" alt-text="A screenshot showing the location of the Azure Tool icon in Visual Studio Code." lightbox="./media/azportal-stream-logs-1.png"::: |
-| [!INCLUDE [Stream logs from Azure portal 2](<./includes/azportal-stream-logs-2.md>)] | :::image type="content" source="./media/azportal-stream-logs-2-240px.png" alt-text="A screenshot showing how you deploy an application to Azure by right-clicking on a web app in VS Code and selecting deploy from the context menu." lightbox="./media/azportal-stream-logs-2.png"::: |
+| [!INCLUDE [Stream logs from Azure portal 1](<./includes/nodejs-mongodb/stream-logs/azure-portal-1.md>)] | :::image type="content" source="./media/azportal-stream-logs-1-240px.png" alt-text="A screenshot showing the location of the Azure Tool icon in Visual Studio Code." lightbox="./media/azportal-stream-logs-1.png"::: |
+| [!INCLUDE [Stream logs from Azure portal 2](<./includes/nodejs-mongodb/stream-logs/azure-portal-2.md>)] | :::image type="content" source="./media/azportal-stream-logs-2-240px.png" alt-text="A screenshot showing how you deploy an application to Azure by right-clicking on a web app in VS Code and selecting deploy from the context menu." lightbox="./media/azportal-stream-logs-2.png"::: |
 
 ### [VS Code](#tab/vscode-aztools)
 
 | Instructions    | Screenshot |
 |:----------------|-----------:|
-| [!INCLUDE [Stream logs from VS Code 1](<./includes/vscode-stream-logs-1.md>)] | :::image type="content" source="./media/vscode-stream-logs-1-240px.png" alt-text="A screenshot showing the location of the Azure Tool icon in Visual Studio Code." lightbox="./media/vscode-stream-logs-1.png"::: |
-| [!INCLUDE [Stream logs from VS Code 2](<./includes/vscode-stream-logs-2.md>)] | :::image type="content" source="./media/vscode-stream-logs-2-240px.png" alt-text="A screenshot showing how you deploy an application to Azure by right-clicking on a web app in VS Code and selecting deploy from the context menu." lightbox="./media/vscode-stream-logs-2.png"::: |
+| [!INCLUDE [Stream logs from VS Code 1](<./includes/nodejs-mongodb/stream-logs/vscode-1.md>)] | :::image type="content" source="./media/vscode-stream-logs-1-240px.png" alt-text="A screenshot showing the location of the Azure Tool icon in Visual Studio Code." lightbox="./media/vscode-stream-logs-1.png"::: |
+| [!INCLUDE [Stream logs from VS Code 2](<./includes/nodejs-mongodb/stream-logs/vscode-2.md>)] | :::image type="content" source="./media/vscode-stream-logs-2-240px.png" alt-text="A screenshot showing how you deploy an application to Azure by right-clicking on a web app in VS Code and selecting deploy from the context menu." lightbox="./media/vscode-stream-logs-2.png"::: |
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -367,16 +367,16 @@ Follow these steps while signed-in to the Azure portal to delete a resource grou
 
 | Instructions    | Screenshot |
 |:----------------|-----------:|
-| [!INCLUDE [Remove resource group Azure portal 1](<./includes/azportal-remove-resource-group-1.md>)] | :::image type="content" source="./media/azportal-remove-resource-group-1-240px.png" alt-text="A screenshot showing how to search for and navigate to a resource group in the Azure portal." lightbox="./media/azportal-remove-resource-group-1.png"::: |
-| [!INCLUDE [Remove resource group Azure portal 2](<./includes/azportal-remove-resource-group-2.md>)] | :::image type="content" source="./media/azportal-remove-resource-group-2-240px.png" alt-text="A screenshot showing the location of the Delete Resource Group button in the Azure portal." lightbox="./media/azportal-remove-resource-group-2.png"::: |
-| [!INCLUDE [Remove resource group Azure portal 3](<./includes/azportal-remove-resource-group-3.md>)] | :::image type="content" source="./media/azportal-remove-resource-group-3-240px.png" alt-text="A screenshot of the confirmation dialog for deleting a resource group in the Azure portal." lightbox="./media/azportal-remove-resource-group-3.png"::: |
+| [!INCLUDE [Remove resource group Azure portal 1](<./includes/nodejs-mongodb/remove-resource-group/azure-portal-1.md>)] | :::image type="content" source="./media/azportal-remove-resource-group-1-240px.png" alt-text="A screenshot showing how to search for and navigate to a resource group in the Azure portal." lightbox="./media/azportal-remove-resource-group-1.png"::: |
+| [!INCLUDE [Remove resource group Azure portal 2](<./includes/nodejs-mongodb/remove-resource-group/azure-portal-2.md>)] | :::image type="content" source="./media/azportal-remove-resource-group-2-240px.png" alt-text="A screenshot showing the location of the Delete Resource Group button in the Azure portal." lightbox="./media/azportal-remove-resource-group-2.png"::: |
+| [!INCLUDE [Remove resource group Azure portal 3](<./includes/nodejs-mongodb/remove-resource-group/azure-portal-3.md>)] | :::image type="content" source="./media/azportal-remove-resource-group-3-240px.png" alt-text="A screenshot of the confirmation dialog for deleting a resource group in the Azure portal." lightbox="./media/azportal-remove-resource-group-3.png"::: |
 
 ### [VS Code](#tab/vscode-aztools)
 
 | Instructions    | Screenshot |
 |:----------------|-----------:|
-| [!INCLUDE [Remove resource group VS Code 1](<./includes/vscode-remove-resource-group-1.md>)] | :::image type="content" source="./media/vscode-remove-resource-group-1-240px.png" alt-text="A screenshot showing how to delete a resource group in VS Code using the Azure Tools extention." lightbox="./media/vscode-remove-resource-group-1.png"::: |
-| [!INCLUDE [Remove resource group VS Code 2](<./includes/vscode-remove-resource-group-2.md>)] | :::image type="content" source="./media/vscode-remove-resource-group-2-240px.png" alt-text="A screenshot of the confirmation dialog for deleting a resource group from VS Code." lightbox="./media/vscode-remove-resource-group-2.png"::: |
+| [!INCLUDE [Remove resource group VS Code 1](<./includes/nodejs-mongodb/remove-resource-group/vscode-1.md>)] | :::image type="content" source="./media/vscode-remove-resource-group-1-240px.png" alt-text="A screenshot showing how to delete a resource group in VS Code using the Azure Tools extention." lightbox="./media/vscode-remove-resource-group-1.png"::: |
+| [!INCLUDE [Remove resource group VS Code 2](<./includes/nodejs-mongodb/remove-resource-group/vscode-2.md>)] | :::image type="content" source="./media/vscode-remove-resource-group-2-240px.png" alt-text="A screenshot of the confirmation dialog for deleting a resource group from VS Code." lightbox="./media/vscode-remove-resource-group-2.png"::: |
 
 ### [Azure CLI](#tab/azure-cli)
 
