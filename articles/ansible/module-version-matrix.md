@@ -1,7 +1,7 @@
 ---
 title: Ansible module and version matrix for Azure | Microsoft Docs
 description: Ansible module and version matrix for Azure
-keywords: ansible, roles, matrix, version, azure, devops
+keywords: ansible, collect, matrix, version, azure, devops
 ms.topic: reference
 ms.date: 10/14/2019
 ms.custom: devx-track-ansible
@@ -15,12 +15,12 @@ Ansible includes a suite of modules for use in provisioning and configuring Azur
 
 The following modules can be executed directly on remote hosts or through playbooks.  
 
-These modules are available from the Ansible official release and from the following Microsoft playbook roles.
+These modules are available from the Ansible official release and from the following Microsoft Azure Collection.
 
 > [!NOTE]
 > From Ansible 2.9 onwards, we renamed all *_facts modules to *_info to adhere to Ansible naming convention. The old and renamed modules are linked so apart from seeing a deprecation warning, all modules work as before.
 
-| Ansible module for Azure                   |  Ansible 2.4 |  Ansible 2.5 |  Ansible 2.6 | Ansible 2.7 | Ansible 2.8 | Ansible 2.9 | Ansible Role | 
+| Ansible module for Azure                   |  Ansible 2.4 |  Ansible 2.5 |  Ansible 2.6 | Ansible 2.7 | Ansible 2.8 | Ansible 2.9 | Azure Collection | 
 |---------------------------------------------|--------------|--------------|-----------------------------|-------------------------------------|--------------|--------------|--------------|  
 | **Compute**                    |           |                          |                          |                            |           |           |           |
 | azure_rm_availabilityset                   | Yes          | Yes                         | Yes          | Yes          | Yes          | Yes          | Yes          |
@@ -211,12 +211,12 @@ These modules are available from the Ansible official release and from the follo
 | azure_rm_iothub_info              | -            | -                         | -          | -          | -          | Yes        | Yes          |
 | azure_rm_iothubconsumergroup      | -            | -                         | -          | -          | -          | Yes        | Yes          |
 
-## Introduction to playbook role for Azure
+## Introduction to the Ansible Collection for Azure
 
-The [azure_preview_module playbook role](https://galaxy.ansible.com/Azure/azure_preview_modules/) includes all the latest Azure modules. The updates and bug fixes are done in a more timely manner than the official Ansible release. If you use Ansible for Azure resource provisioning purposes, you're encouraged to install the `azure_preview_module` playbook role.
+The [Azure_preview_collection](https://galaxy.ansible.com/Azure/azure_preview_modules/) includes all the latest Azure modules. The updates and bug fixes are done in a more timely manner than the official Ansible release. If you use Ansible for Azure resource provisioning purposes, you're encouraged to install the `azure_preview_module` collection.
 
-The `azure_preview_module` playbook role is released every three weeks.
+The `azure_preview_module` collection is released every three weeks.
 
 ## Next steps
 
-For more information about playbook roles, see [Creating reusable playbooks](https://docs.ansible.com/ansible/latest/playbooks_reuse.html). 
+For more information about Ansible Collections, see [Using Collections](https://docs.ansible.com/ansible/latest/user_guide/collections_using.html). 
