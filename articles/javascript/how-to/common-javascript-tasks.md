@@ -223,6 +223,12 @@ Provide authentication.
 |Add secrets|[Visual Studio Code](../tutorial/static-web-app/create-static-web-app-visual-studio-code-extension.md#create-a-static-web-app-resource)|
 |View build process|[GitHub website](../tutorial/static-web-app/create-static-web-app-visual-studio-code-extension.md#view-the-github-action-build-process)|
 
+## Key Vault
+
+|Task|using|
+|--|--|
+|Get secrets|[@azure/keyvault-secrets](with-web-app/use-secret-environment-variables.md#get-secret-from-key-vault-with-javascript)|
+
 
 ## Monitoring
 
