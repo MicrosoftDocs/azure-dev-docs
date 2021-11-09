@@ -3,7 +3,7 @@ title: Some cool title here
 description: Enter description here
 ms.topic: tutorial
 ms.date: 10/27/2021
-ms.service: app-service
+ms.service: database
 ms.role: developer
 ms.devlang: javascript
 ms.azure.dev-framework: 
@@ -40,9 +40,11 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps 
 
 | Instructions    | Screenshot |
 |:----------------|-----------:|
-| [!INCLUDE [Azure portal create service 1](<./includes/azure-portal-1.md>)] | :::image type="content" source="./media/azure-portal-1-240px.png" alt-text="Be sure to include alt text." lightbox="./media/create-service/azure-portal-1.png"::: |
-| [!INCLUDE [Azure portal create service 2](<./includes/azure-portal-2.md>)] | :::image type="content" source="./media/azure-portal-2-240px.png" alt-text="Be sure to include alt text." lightbox="./media/create-service/azure-portal-2.png"::: |
-| [!INCLUDE [Azure portal create service 3](<./includes/azure-portal-3.md>)] | :::image type="content" source="./media/azure-portal-3-240px.png" alt-text="Be sure to include alt text." lightbox="./media/azure-portal-3.png"::: |
+| [!INCLUDE [Create app service step 1](<./includes/create-sql-database/azure-portal-1.md>)] | :::image type="content" source="./media/azportal-create-database-1-240px.png" alt-text="A screenshot showing how to use the search box in the top tool bar to find App Services in Azure." lightbox="./media/azportal-create-database-1.png"::: |
+| [!INCLUDE [Create app service step 2](<./includes/create-sql-database/azure-portal-2.md>)] | :::image type="content" source="./media/azportal-create-database-2-240px.png" alt-text="A screenshot showing the create button on the App Services page used to create a new web app." lightbox="./media/azportal-create-database-2.png"::: |
+| [!INCLUDE [Create app service step 3](<./includes/create-sql-database/azure-portal-3.md>)] | :::image type="content" source="./media/azportal-create-database-3-240px.png" alt-text="A screenshot showing the form to fill out to create a web app in Azure." lightbox="./media/azportal-create-database-3.png"::: |
+| [!INCLUDE [Create app service step 4](<./includes/create-sql-database/azure-portal-4.md>)] | :::image type="content" source="./media/azportal-create-database-4-240px.png" alt-text="A screenshot of the Spec Picker dialog that allows you to select the App Service plan to use for your web app." lightbox="./media/azportal-create-database-4.png"::: |
+| [!INCLUDE [Create app service step 4](<./includes/create-sql-database/azure-portal-5.md>)] | :::image type="content" source="./media/azportal-create-database-5-240px.png" alt-text="A screenshot of the main web app create page showing the button to select on to create your web app in Azure." lightbox="./media/azportal-create-database-5.png"::: |
 
 ### [VS Code](#tab/vscode)
 
@@ -62,6 +64,50 @@ az group list
 ```
 
 ### [Azure PowerShell](#tab/azure-powershell)
+
+Azure PowerShell commands can be run in the [Azure Cloud Shell](https://shell.azure.com) or on a workstation with [Azure PowerShell installed](/powershell/azure/install-az-ps).
+
+
+```azurepowershell
+
+```
+
+----
+
+
+## 2 - Create the Database
+Let's get this app started!
+
+### [Azure portal](#tab/azure-portal-database)
+
+Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps to create your Azure App Service resources.
+
+| Instructions    | Screenshot |
+|:----------------|-----------:|
+| [!INCLUDE [Create database step 1](<./includes/create-sql-database/azure-portal-sqldb-create-01.md>)] | :::image type="content" source="./media/azportal-create-cosmosdb-1-240px.png" alt-text="A screenshot showing how to use the search box in the top tool bar to find App Services in Azure." lightbox="./media/azportal-create-database-1.png"::: |
+| [!INCLUDE [Create database step 2](<./includes/create-sql-database/azure-portal-sqldb-create-02.md>)] | :::image type="content" source="./media/azportal-create-cosmosdb-2-240px.png" alt-text="A screenshot showing the create button on the App Services page used to create a new web app." lightbox="./media/azportal-create-database-2.png"::: |
+| [!INCLUDE [Create database step 3](<./includes/create-sql-database/azure-portal-sqldb-create-03.md>)] | :::image type="content" source="./media/azportal-create-cosmosdb-3-240px.png" alt-text="A screenshot showing the form to fill out to create a web app in Azure." lightbox="./media/azportal-create-database-3.png"::: |
+| [!INCLUDE [Create database step 4](<./includes/create-sql-database/azure-portal-sqldb-create-04.md>)] | :::image type="content" source="./media/azportal-create-cosmosdb-4-240px.png" alt-text="A screenshot of the Spec Picker dialog that allows you to select the App Service plan to use for your web app." lightbox="./media/azportal-create-database-4.png"::: |
+| [!INCLUDE [Create database step 4](<./includes/create-sql-database/azure-portal-sqldb-create-05.md>)] | :::image type="content" source="./media/azportal-create-cosmosdb-5-240px.png" alt-text="A screenshot of the main web app create page showing the button to select on to create your web app in Azure." lightbox="./media/azportal-create-database-5.png"::: |
+
+### [VS Code](#tab/vscode-database)
+
+To create Azure resources in VS Code, you must have the [Azure Tools extension pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack) installed and be signed into Azure from VS Code.
+
+> [!div class="nextstepaction"]
+> [Download Azure Tools extension pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack)
+
+Witness the awesomeness of VS Code!
+
+### [Azure CLI](#tab/azure-cli-database)
+
+Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com) or on a workstation with the [Azure CLI installed](/cli/azure/install-azure-cli).
+
+```azurecli
+az group list
+```
+
+### [Azure PowerShell](#tab/azure-powershell-database)
 
 Azure PowerShell commands can be run in the [Azure Cloud Shell](https://shell.azure.com) or on a workstation with [Azure PowerShell installed](/powershell/azure/install-az-ps).
 
