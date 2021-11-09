@@ -30,7 +30,7 @@ To follow along with this tutorial, clone or download the sample application fro
 git clone https://github.com/Azure-Samples/msdocs-nodejs-mongodb-azure-sample-app.git
 ```
 
-## 2 - Create the App Service
+## 2 - Create the First Azure Service
 
 Let's get this app started!
 
@@ -40,9 +40,9 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps 
 
 | Instructions    | Screenshot |
 |:----------------|-----------:|
-| [!INCLUDE [Azure portal create service 1](<./includes/azure-portal-1.md>)] | :::image type="content" source="./media/create-service/azure-portal-1-240px.png" alt-text="Be sure to include alt text." lightbox="./media/create-service/azure-portal-1.png"::: |
-| [!INCLUDE [Azure portal create service 2](<./includes/azure-portal-2.md>)]  | :::image type="content" source="./media/create-service/azure-portal-2-240px.png" alt-text="Be sure to include alt text." lightbox="./media/create-service/azure-portal-2.png"::: |
-| [!INCLUDE [Azure portal create service 3](<./includes/azure-portal-3.md>)]  | :::image type="content" source="./media/create-service/azure-portal-3-240px.png" alt-text="Be sure to include alt text." lightbox="./media/create-service/azure-portal-3.png"::: |
+| [!INCLUDE [Azure portal create service 1](<./includes/azure-portal-1.md>)] | :::image type="content" source="./media/azure-portal-1-240px.png" alt-text="Be sure to include alt text." lightbox="./media/create-service/azure-portal-1.png"::: |
+| [!INCLUDE [Azure portal create service 2](<./includes/azure-portal-2.md>)] | :::image type="content" source="./media/azure-portal-2-240px.png" alt-text="Be sure to include alt text." lightbox="./media/create-service/azure-portal-2.png"::: |
+| [!INCLUDE [Azure portal create service 3](<./includes/azure-portal-3.md>)] | :::image type="content" source="./media/azure-portal-3-240px.png" alt-text="Be sure to include alt text." lightbox="./media/azure-portal-3.png"::: |
 
 ### [VS Code](#tab/vscode)
 
@@ -51,24 +51,7 @@ To create Azure resources in VS Code, you must have the [Azure Tools extension p
 > [!div class="nextstepaction"]
 > [Download Azure Tools extension pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack)
 
-| Instructions    | Screenshot |
-|:----------------|-----------:|
-| [!INCLUDE [Azure portal create service 1](<./includes/azure-portal-1.md>)] | :::image type="content" source="./media/create-service/azure-portal-1-240px.png" alt-text="Be sure to include alt text." lightbox="./media/create-service/azure-portal-1.png"::: |
-| [!INCLUDE [Azure portal create service 2](<./includes/azure-portal-2.md>)]  | :::image type="content" source="./media/create-service/azure-portal-2-240px.png" alt-text="Be sure to include alt text." lightbox="./media/create-service/azure-portal-2.png"::: |
-| [!INCLUDE [Azure portal create service 3](<./includes/azure-portal-3.md>)]  | :::image type="content" source="./media/create-service/azure-portal-3-240px.png" alt-text="Be sure to include alt text." lightbox="./media/create-service/azure-portal-3.png"::: |
-
-### [Visual Studio](#tab/visualstudio)
-
-To create Azure resources in VS Code, you must have the [Azure Tools extension pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack) installed and be signed into Azure from VS Code.
-
-> [!div class="nextstepaction"]
-> [Download Azure Tools extension pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack)
-
-| Instructions    | Screenshot |
-|:----------------|-----------:|
-| [!INCLUDE [Azure portal create service 1](<./includes/azure-portal-1.md>)] | :::image type="content" source="./media/create-service/azure-portal-1-240px.png" alt-text="Be sure to include alt text." lightbox="./media/create-service/azure-portal-1.png"::: |
-| [!INCLUDE [Azure portal create service 2](<./includes/azure-portal-2.md>)]  | :::image type="content" source="./media/create-service/azure-portal-2-240px.png" alt-text="Be sure to include alt text." lightbox="./media/create-service/azure-portal-2.png"::: |
-| [!INCLUDE [Azure portal create service 3](<./includes/azure-portal-3.md>)]  | :::image type="content" source="./media/create-service/azure-portal-3-240px.png" alt-text="Be sure to include alt text." lightbox="./media/create-service/azure-portal-3.png"::: |
+Witness the awesomeness of VS Code!
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -77,11 +60,17 @@ Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com
 ```azurecli
 az group list
 ```
-| Instructions    | Screenshot |
-|:----------------|-----------:|
-| [!INCLUDE [Azure portal create service 1](<./includes/azure-portal-1.md>)] | :::image type="content" source="./media/create-service/azure-portal-1-240px.png" alt-text="Be sure to include alt text." lightbox="./media/create-service/azure-portal-1.png"::: |
-| [!INCLUDE [Azure portal create service 2](<./includes/azure-portal-2.md>)]  | :::image type="content" source="./media/create-service/azure-portal-2-240px.png" alt-text="Be sure to include alt text." lightbox="./media/create-service/azure-portal-2.png"::: |
-| [!INCLUDE [Azure portal create service 3](<./includes/azure-portal-3.md>)]  | :::image type="content" source="./media/create-service/azure-portal-3-240px.png" alt-text="Be sure to include alt text." lightbox="./media/create-service/azure-portal-3.png"::: |
+
+### [Azure PowerShell](#tab/azure-powershell)
+
+Azure PowerShell commands can be run in the [Azure Cloud Shell](https://shell.azure.com) or on a workstation with [Azure PowerShell installed](/powershell/azure/install-az-ps).
+
+
+```azurepowershell
+
+```
+
+----
 
 ## 6 - Stream Diagnostic Logs
 

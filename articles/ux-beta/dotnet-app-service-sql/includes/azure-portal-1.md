@@ -1,3 +1,3 @@
-The first image is almost always a screenshot showing how to navigate to the Azure service of interest.<br>
-<br>
-Using the top search bar is preferred because what services are listed on the main page and their location changes from time to time in the Azure portal.
+In the Azure portal:
+- Enter "app services" in the search bar at the top of the Azure portal.
+- select the item labeled App Services under the under Services heading on the menu that appears below the search bar.
