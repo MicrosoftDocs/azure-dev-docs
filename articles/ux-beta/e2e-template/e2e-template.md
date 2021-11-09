@@ -70,7 +70,6 @@ Azure PowerShell commands can be run in the [Azure Cloud Shell](https://shell.az
 
 ----
 
-<!--
 ## 2 - Create the Second Azure App
 
 Two services are better than one.
@@ -121,7 +120,6 @@ Witness the awesomeness of VS Code!
 ### [Deploy using Zip deploy](#tab/deploy-zip)
 
 ----
--->
 
 ## 5 - Look at what you built
 

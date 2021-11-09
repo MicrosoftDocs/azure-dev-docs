@@ -83,56 +83,8 @@ az group list
 | [!INCLUDE [Azure portal create service 2](<./includes/azure-portal-2.md>)]  | :::image type="content" source="./media/create-service/azure-portal-2-240px.png" alt-text="Be sure to include alt text." lightbox="./media/create-service/azure-portal-2.png"::: |
 | [!INCLUDE [Azure portal create service 3](<./includes/azure-portal-3.md>)]  | :::image type="content" source="./media/create-service/azure-portal-3-240px.png" alt-text="Be sure to include alt text." lightbox="./media/create-service/azure-portal-3.png"::: |
 
-## 3 - Create the SQL Database
-
-Two services are better than one.
-
-### [Azure portal](#tab/azure-portal)
-
-### [VS Code](#tab/vscode)
-
-### [Azure CLI](#tab/azure-cli)
-
-### [Azure PowerShell](#tab/azure-powershell)
-
 ----
 
-## 4 - Hook the services together
-
-Connected apps are better than unconnected apps!
-
-### [Azure portal](#tab/azure-portal)
-
-### [VS Code](#tab/vscode)
-
-### [Azure CLI](#tab/azure-cli)
-
-### [Azure PowerShell](#tab/azure-powershell)
-
-----
-
-## 5 - Browse the Deployment Files
-
-To the cloud! To the cloud!
-
-### [Deploy using Visual Studio](#tab/deploy-visual-studio)
-
-### [Deploy using VS Code](#tab/deploy-vscode)
-
-To deploy your application code directly from VS Code, you must have the [Azure Tools extension pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack) installed and be signed into Azure from VS Code.
-
-> [!div class="nextstepaction"]
-> [Download Azure Tools extension pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack)
-
-Witness the awesomeness of VS Code!
-
-### [Deploy using Local Git](#tab/deploy-local-git)
-
-### [Deploy using FTPS](#tab/deploy-ftps)
-
-### [Deploy using Zip deploy](#tab/deploy-zip)
-
-----
 
 ## 6 - Stream Diagnostic Logs
 
