@@ -83,9 +83,6 @@ az group list
 | [!INCLUDE [Azure portal create service 2](<./includes/azure-portal-2.md>)]  | :::image type="content" source="./media/create-service/azure-portal-2-240px.png" alt-text="Be sure to include alt text." lightbox="./media/create-service/azure-portal-2.png"::: |
 | [!INCLUDE [Azure portal create service 3](<./includes/azure-portal-3.md>)]  | :::image type="content" source="./media/create-service/azure-portal-3-240px.png" alt-text="Be sure to include alt text." lightbox="./media/create-service/azure-portal-3.png"::: |
 
-----
-
-
 ## 6 - Stream Diagnostic Logs
 
 Oh it is cool!
