@@ -2,15 +2,22 @@
 title: Secure JavaScript website with Azure domain and certificates
 description:  Learn how to create a web app on Azure with a custom domain name secured with an TLS/SSL certificate. 
 ms.topic: how-to
-ms.date: 10/05/2021
+ms.date: 11/03/2021
 ms.custom: devx-track-js
 ---
 
 # Secure JavaScript websites with custom domains and certificates
 
-Learn how to create a web app on Azure with a custom domain name secured with an TLS/SSL certificate. The same process works for both Azure Function apps and Azure App service (web apps).
+Learn how to create a web app on Azure and purchase an Azure Domain name secured with an TLS/SSL certificate. The same process works for both Azure Function apps and Azure App service (web apps). 
 
-## 1. Create a new App Service Domain
+If you want to bring your own domain name or SSL certificate, use these resources:
+
+* [Map an existing custom DNS name to Azure App service](/azure/app-service/app-service-web-tutorial-custom-domain?tabs=cname)
+* [Add custom SSL certificate to Azure App service](/azure/app-service/configure-ssl-bindings)
+
+## 1. Get an Azure domain for App Service
+
+You can purchase a domain name in the Azure portal, specifically for your Azure Web app, or you can bring your own domain. 
 
 The domain resource is a separate resource from the web app resource. 
 
@@ -39,7 +46,9 @@ Create a new paid web resource using one of the following links. Do not create t
 * [Azure App service](https://ms.portal.azure.com/#create/Microsoft.WebSite) (web app)
 * [Azure Function](https://ms.portal.azure.com/#create/Microsoft.FunctionApp)
 
-## 3. Configure service for new domain
+## 3. Configure domain for web app service
+
+# [Create Azure App Service Domain](#tab/configure-new-app-service-domain)
 
 1. In the Azure portal, for your new web app, select the **Custom domains** setting, then select **+ Add custom domain**. 
 
@@ -49,6 +58,22 @@ Create a new paid web resource using one of the following links. Do not create t
 1. Select the **Add custom domain** to connect the domain name to the app service's IP address. 
 
     :::image type="content" source="../media/custom-domain/azure-portal-app-service-setting-custom-domain-validate-custom-domain.png" alt-text="Select the **Add custom domain** to connect the domain name to the app service's IP address.":::
+
+# [Bring your own domain](#tab/configure-existing-external-domain)
+
+1. In the Azure portal, for your new web app, select the **Custom domains** setting, and copy your IP Address. 
+1. Select **+ Add custom domain**. 
+
+    :::image type="content" source="../media/custom-domain/azure-portal-app-service-setting-custom-domain-add-custom-domain.png" alt-text="Select the **Custom domains** setting, then select **+ Add custom domain**. " lightbox="../media/custom-domain/azure-portal-app-service-setting-custom-domain-add-custom-domain.png":::
+
+
+1. In the right panel, enter your domain name, such as `www.dinatests.me`, then select **Validate**.
+1. Select the **Hostname record type** to indicate if the domain name includes subdomains.
+1. From the Azure portal for your web app, copy the web app domain name, such as `https://web-app-test.azurewebsites.net`, but remove the `https://` when you copy the host name in the next step. 
+1. In your domain provider's site, create a new TXT record. Add the Verification ID as a TXT record with your domain provider.
+
+CNAME record and paste the web app domain name into the **Hostname** field.
+Copy the **Custom Domain Verification ID** and enter that CNAME record in your domain name provider's site. 
 
 ## 4. Create free managed private certificate
 
