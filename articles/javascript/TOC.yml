@@ -32,7 +32,9 @@
           - name: "Account: List subscriptions"
             href: core/nodejs-sdk-azure-authenticate.md?tabs=azure-sdk-for-javascript.md#3-list-azure-subscriptions-with-service-principal
           - name: "Account: View subscription history"
-            href: how-to/with-azure-sdk/list-resource-operation-history.md            
+            href: how-to/with-azure-sdk/list-resource-operation-history.md 
+          - name: "Key Vault: Get Secret"       
+            href: how-to/with-web-app/use-secret-environment-variables.md#get-secret-from-key-vault-with-javascript                       
           - name: "VM: Create and delete VM"
             href: how-to/with-azure-sdk/create-manage-virtual-machine.md
           - name: "VM: Manage"
