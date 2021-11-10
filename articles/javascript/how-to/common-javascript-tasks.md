@@ -2,7 +2,7 @@
 title: Top Azure tasks for JavaScript developers
 description: Find an example of your current tasks.
 ms.topic: how-to
-ms.date: 09/28/2021
+ms.date: 11/03/2021
 ms.custom: devx-track-js
 ---
 
@@ -223,6 +223,12 @@ Provide authentication.
 |Add secrets|[Visual Studio Code](../tutorial/static-web-app/create-static-web-app-visual-studio-code-extension.md#create-a-static-web-app-resource)|
 |View build process|[GitHub website](../tutorial/static-web-app/create-static-web-app-visual-studio-code-extension.md#view-the-github-action-build-process)|
 
+## Key Vault
+
+|Task|using|
+|--|--|
+|Get secrets|[@azure/keyvault-secrets](with-web-app/use-secret-environment-variables.md#get-secret-from-key-vault-with-javascript)|
+
 
 ## Monitoring
 
@@ -263,13 +269,18 @@ Provide authentication.
 
 |Task|using|
 |--|--|
-|Connect to VM with SSH|[Bash](../tutorial/nodejs-virtual-machine-vm/connect-linux-virtual-machine-ssh.md#connect-with-ssh-and-change-web-app)|
-|Install Monitoring SDK|[Bash](../tutorial/nodejs-virtual-machine-vm/connect-linux-virtual-machine-ssh.md#install-monitoring-sdk)|
-|Add monitoring code to Express.js app|[JavaScript](../tutorial/nodejs-virtual-machine-vm/azure-monitor-application-insights-nodejs-expressjs-code.md#edit-indexjs-for-logging-with-azure-monitor-application-insights)|
-|Create cloud-init file|[YAML](../tutorial/nodejs-virtual-machine-vm/create-linux-virtual-machine-azure-cli.md#create-a-cloud-init-file-to-expedite-linux-virtual-machine-creation)|
-|Create linux VM resource|[Azure CLI](../tutorial/nodejs-virtual-machine-vm/create-linux-virtual-machine-azure-cli.md#create-a-virtual-machine-resource)|
-|Open port of linux VM|[Azure CLI](../tutorial/nodejs-virtual-machine-vm/create-linux-virtual-machine-azure-cli.md#open-port-for-virtual-machine)|
+|Create - with cloud-init file|[YAML](../tutorial/nodejs-virtual-machine-vm/create-linux-virtual-machine-azure-cli.md#create-a-cloud-init-file-to-expedite-linux-virtual-machine-creation)|
+|Create - with Azure CLI - linux VM resource|[Azure CLI](../tutorial/nodejs-virtual-machine-vm/create-linux-virtual-machine-azure-cli.md#create-a-virtual-machine-resource)|
+|Connect - Open port of linux VM|[Azure CLI](../tutorial/nodejs-virtual-machine-vm/create-linux-virtual-machine-azure-cli.md#open-port-for-virtual-machine)|
+|Connect - with SSH|[Bash](../tutorial/nodejs-virtual-machine-vm/connect-linux-virtual-machine-ssh.md#connect-with-ssh-and-change-web-app)|
+|Get Status|[@azure/arm-compute](with-azure-sdk/stop-start-virtual-machine.md#get-status-of-subscription-virtual-machines)|
+|List VMs|[@azure/arm-compute](with-azure-sdk/stop-start-virtual-machine.md#list-subscription-virtual-machines)|
+|Stop VM|[@azure/arm-compute](with-azure-sdk/stop-start-virtual-machine.md#stop-a-virtual-machine)|
+|Start VM|[@azure/arm-compute](with-azure-sdk/stop-start-virtual-machine.md#start-a-virtual-machine)|
+|Logs - Install Monitoring SDK|[Bash](../tutorial/nodejs-virtual-machine-vm/connect-linux-virtual-machine-ssh.md#install-monitoring-sdk)|
+|Logs - Add monitoring code to Express.js app|[applicationinsights](../tutorial/nodejs-virtual-machine-vm/azure-monitor-application-insights-nodejs-expressjs-code.md#edit-indexjs-for-logging-with-azure-monitor-application-insights)|
 |View logs|[Azure CLI](../tutorial/nodejs-virtual-machine-vm/azure-monitor-application-insights-nodejs-expressjs-code.md#viewing-the-vm-logs-for-nginx-and-pm2)<br>[Portal](../tutorial/nodejs-virtual-machine-vm/azure-monitor-application-insights-logs.md#view-application-traces-in-azure-portal)|
+|Delete|[@azure/arm-resources](./with-azure-sdk/create-manage-virtual-machine.md#clean-up-resources)|
 
 
 ## Visual Studio Code: Develop and debug JavaScript apps 

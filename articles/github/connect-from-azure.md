@@ -5,7 +5,7 @@ author: N-Usha
 ms.author: ushan 
 ms.topic: reference
 ms.service: azure 
-ms.date: 10/25/2021
+ms.date: 11/03/2021
 ms.custom: github-actions-azure, devx-track-azurecli
 ---
 
@@ -93,7 +93,7 @@ You can add federated credentials in the Azure portal or with the Microsoft Grap
 |GitHub name     |     The name of the environment, branch, or tag.    |     `main`    |
 |Name     |     Identifier for the federated credential.    |    `contoso-deploy`     |
 
-<!-- For a more detailed overview, see [Configure an app to trust a GitHub repo](/azure/active-directory/develop/workload-identity-federation-create-trust-github). -->
+For a more detailed overview, see [Configure an app to trust a GitHub repo](/azure/active-directory/develop/workload-identity-federation-create-trust-github).
 # [Azure CLI](#tab/azure-cli)
 
 Run the following command to [create a new federated identity credential](/graph/api/application-post-federatedidentitycredentials?view=graph-rest-beta&preserve-view=true) for your active directory application.
@@ -109,7 +109,7 @@ Run the following command to [create a new federated identity credential](/graph
 az rest --method POST --uri 'https://graph.microsoft.com/beta/applications/<APPLICATION-ID>/federatedIdentityCredentials' --body '{"name":"<CREDENTIAL-NAME>","issuer":"https://token.actions.githubusercontent.com/","subject":"repo:organization/repository:environment:Production","description":"Testing","audiences":["api://AzureADTokenExchange"]}' 
 ```
 
-<!-- For a more detailed overview, see [Configure an app to trust a GitHub repo](/azure/active-directory/develop/workload-identity-federation-create-trust-github) and [Security hardening with OpenID Connect](https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect). -->
+For a more detailed overview, see [Configure an app to trust a GitHub repo](/azure/active-directory/develop/workload-identity-federation-create-trust-github).
 
 ---
 ### Create GitHub secrets
@@ -137,7 +137,7 @@ You need to provide your application's **Client ID**, **Tenant ID** and **Subscr
 ### Set up Azure Login with OpenID Connect authentication
 
 Your GitHub Actions workflow uses OpenID Connect to authenticate with Azure.
-<!-- To learn more about this interaction, see the [GitHub Actions documentation](https://docs.github.com/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-azure). -->
+To learn more about this interaction, see the [GitHub Actions documentation](https://docs.github.com/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-azure).
 
 In this example, you'll install the OpenID Connect Azure CLI beta and authenticate with Azure with the [Azure login](https://github.com/marketplace/actions/azure-login) action. The CLI-beta installation step is a temporary part of the beta release. The example uses GitHub secrets for the `client-id`, `tenant-id`, and `subscription-id` values. You can also pass these values directly in the login action.
 
@@ -220,6 +220,12 @@ jobs:
 
 ---
 
+### Verify successful Azure Login with OpenID 
+
+Open the `Az CLI login` action and verify that it ran successfully. You should see the message `Login successful`. If your login is unsuccessful, you'll see the message `Az CLI Login failed.`.
+
+:::image type="content" source="media/github-actions-successful-login.png" alt-text="GitHub Actions Azure Login successful.":::
+ 
 ## Use the Azure login action with a service principal secret
 
 To use [Azure login](https://github.com/marketplace/actions/azure-login) with a service principal, you first need to add your Azure service principal as a secret to your GitHub repository.

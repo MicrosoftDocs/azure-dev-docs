@@ -216,6 +216,7 @@ Create the Terraform configuration file that declares the resources for the Kube
 
     output "kube_config" {
         value = azurerm_kubernetes_cluster.k8s.kube_config_raw
+        sensitive = true
     }
 
     output "host" {
@@ -323,6 +324,11 @@ The Kubernetes tools can be used to verify the newly created cluster.
     ```bash
     echo "$(terraform output kube_config)" > ./azurek8s
     ```
+1. Check that the previous command did not add an EOT ASCII Character 
+    ```bash
+    cat ./azurek8s
+    ```
+   If you see `<< EOT` at the beginning and `EOT` at the end, edit the content of the file to remove these. This is necessary, otherwise you could receive the following message: `error: error loading config file "./azurek8s": yaml: line 2: mapping values ​​are not allowed in this context`
 
 1. Set an environment variable so that kubectl picks up the correct config.
 

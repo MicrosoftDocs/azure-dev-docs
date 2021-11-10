@@ -244,7 +244,7 @@ To enable the app to load the certificate, use the following steps:
    <dependency>
       <groupId>com.azure.spring</groupId>
       <artifactId>azure-spring-boot-starter-keyvault-certificates</artifactId>
-      <version>3.2.0</version>
+      <version>3.10.0</version>
    </dependency>
    ```
 

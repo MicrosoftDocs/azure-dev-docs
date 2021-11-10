@@ -1,9 +1,8 @@
 ---
 title: "What's new for JavaScript docs"
 description: "What's new in JavaScript docs in the Developer Center"
-ms.topic: conceptual
-ms.date: 10/07/2021
-
+ms.topic: how-to
+ms.date: 11/03/2021
 
 ---
 
@@ -11,7 +10,24 @@ ms.date: 10/07/2021
 
 Find new and updated content for JavaScript and TypeScript developers.
 
+## 2021 November
+
+### Updates in November
+
+|Name|Description|
+|---------------------------------------|--|
+|[Virtual machine web app](tutorial/nodejs-virtual-machine-vm/introduction.md)|Updated article series.|
+
 ## 2021 October
+
+### New in October
+
+|Name|Description|
+|---------------------------------------|--|
+|[Use Azure SDKs](core/use-azure-sdk.md)|To programmatically access your Azure services, use the Azure SDKs for JavaScript. Typically, these SDKs are scoped with the @azure npm package scope published by azure-sdk. Learn how to:<ul><li>[provide authentication credentials](core/use-azure-sdk.md#provide-authentication-credentials)<li>[page through asynchronous results](core/use-azure-sdk.md#asynchronous-paging-of-results)<li>[wait for long running asynchronous tasks](core/use-azure-sdk.md#long-running-operations)|
+|[Create virtual machine](how-to/with-azure-sdk/create-manage-virtual-machine.md)</ul>|An Azure Virtual machine requires several resources to support the virtual machine<ul><li>Resource group<li>Virtual machines<li>Storage<li>Virtual network<li>Network interface<li>Public IP address</ul><br>The best way to manage those resources is to create all the resources in a single resource group. The script creates the resource group and postpends a random number to make sure the resource group is unique, regardless of how many times you use the script.|
+|[Manage virtual machines](how-to/with-azure-sdk/stop-start-virtual-machine.md)|An Azure Virtual machine programmatically managing your VM with the **@azure/arm-compute** SDK:<ul><li>Stop<li>Start<li>Get status<li>List details</ul>|
+|[List recent operations](how-to/with-azure-sdk/list-resource-operation-history.md)|Use the Azure Monitor SDK to list the most recent resource operations in your subscription. Operations can be filtered by a date range (within the last 10 days), and a resource group. Examples of operations can include:<ul><li>Resource creation<li>Stopping<li>Starting a resource<li>Retrieve a connection string|
 
 ### Updates in October
 
@@ -90,7 +106,7 @@ Find new and updated content for JavaScript and TypeScript developers.
 |---------------------------------------|--|
 |[Logging, metrics, and telemetry in Azure](./how-to/node-sdk-logging.md)|Web app and Function app logging information.|
 |[Tutorial: Create a function with Visual Studio Code](./tutorial/vscode-function-app-http-trigger/tutorial-vscode-serverless-node-install.md)|Added streaming logs in VS Code, and querying Kusto log in Azure portal.|
-|[Tools update](./node-azure-tools.md)|Added several links to Microsoft or Azure specific tools. Added Azure service specific tips.|
+|[Tools update](./node-azure-tools.md)|Added several links to Microsoft or Azure specific tools. Added Azure service-specific tips.|
 |[Add Microsoft login button to a single page application for authentication](./tutorial/single-page-application-azure-login-button-sdk-msal.md#7-store-application-specific-user-information)|Added Microsoft Identity provider and Active Directory app ID information. |
 |Locally develop with the CosmosDB emulator|For [SQL API](./how-to/with-database/use-sql-api-as-cosmos-db.md#locally-develop-with-the-cosmosdb-emulator), [MongoDB](./how-to/with-database/use-mongodb-as-cosmosdb.md#locally-develop-with-the-cosmosdb-emulator), and [Cassandra](./how-to/with-database/use-cassandra-as-cosmos-db.md#locally-develop-with-the-cosmosdb-emulator). |
 
