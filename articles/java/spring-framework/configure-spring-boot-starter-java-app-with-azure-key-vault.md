@@ -622,7 +622,7 @@ Instead of returning `defaultValue`, the app gets `connectionString` from the Ke
 
 In this section, you'll deploy the app to Azure Spring Cloud.
 
-Azure Spring Cloud is a fully managed platform for deploying and running your Spring Boot applications in Azure. For an overview of Azure Spring Cloud, see [What is Azure Spring Cloud?](/azure/spring-cloud/spring-cloud-overview)
+Azure Spring Cloud is a fully managed platform for deploying and running your Spring Boot applications in Azure. For an overview of Azure Spring Cloud, see [What is Azure Spring Cloud?](/azure/spring-cloud/overview).
 
 This section will use the Spring Boot app and Key Vault that you created previously with a new instance of Azure Spring Cloud.
 
@@ -659,7 +659,7 @@ The following steps will show how to create an Azure Spring Cloud resource and d
    | is-public | Assign a public DNS domain name to the service. |
    | runtime-version | The Java runtime version. The value must match the value chosen in Spring Initializr above. |
 
-   To understand the difference between *service* and *app*, see [Understand app and deployment in Azure Spring Cloud](/azure/spring-cloud/spring-cloud-concept-understand-app-and-deployment).
+   To understand the difference between *service* and *app*, see [App and deployment in Azure Spring Cloud](/azure/spring-cloud/concept-understand-app-and-deployment).
 
 1. Use the following command to get the managed identity for the Azure resource and use it to configure the existing Key Vault to allow access from this App.
 
@@ -681,7 +681,7 @@ The following steps will show how to create an Azure Spring Cloud resource and d
        --service <your Azure Spring Cloud instance name>
    ```
 
-   This command creates a *Deployment* within the app, within the service. For more details on the concepts of service instances, apps, and Deployments see [Understand app and deployment in Azure Spring Cloud](/azure/spring-cloud/spring-cloud-concept-understand-app-and-deployment).
+   This command creates a *Deployment* within the app, within the service. For more details on the concepts of service instances, apps, and Deployments see [App and deployment in Azure Spring Cloud](/azure/spring-cloud/concept-understand-app-and-deployment).
 
    If the deployment isn't successful, configure the logs for troubleshooting as described in [Configure application logs](https://aka.ms/azure-spring-cloud-configure-logs). The logs will likely have useful information to diagnose and resolve the problem.
 
