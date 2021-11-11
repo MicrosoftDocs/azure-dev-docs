@@ -27,14 +27,19 @@ In a web browser:
 
 ## 2. Install the Go extension
 
-In Visual Studio Code:
+| Instructions    | Screenshot |
+|:----------------|-----------:|
+| In Visual Studio Code, bring up the Extensions view by clicking on the Extensions icon in the Activity Bar. Or use keyboard shortcut (Ctrl+Shift+X). | :::image type="content" source="./media/configure-vscode-for-go-development/search-extensions-240px.png" alt-text="A screenshot showing how search for the Go extension." lightbox="./media/configure-vscode-for-go-development/search-extensions.png"::: |
+| Search for the Go extension, then click install. | :::image type="content" source="./media/configure-vscode-for-go-development/install-go-extension-240px.png" alt-text="A screenshot showing how to use the search box in the top tool bar to find App Services in Azure." lightbox="./media/configure-vscode-for-go-development/install-go-extension.png"::: |
+
+## 3. Update the Go tools
 
 | Instructions    | Screenshot |
 |:----------------|-----------:|
-| Bring up the Extensions view by clicking on the Extensions icon in the Activity Bar. Or use keyboard shortcut (Ctrl+Shift+X). | :::image type="content" source="./media/configure-vscode-for-go-development/search-extensions-240px.png" alt-text="A screenshot showing how search for the Go extension." lightbox="./media/configure-vscode-for-go-development/search-extensions.png"::: |
-| Search for the Go extension, then click install. | :::image type="content" source="./media/configure-vscode-for-go-development/ install-go-extension-240px.png" alt-text="A screenshot showing how to use the search box in the top tool bar to find App Services in Azure." lightbox="./media/configure-vscode-for-go-development/install-go-extension.png"::: |
+| In Visual Studio Code, open the command pallet by going to *Help* > *Show All Commands*. Or use the keyboard shortcut (Ctrl+Shift+P) | :::image type="content" source="./media/configure-vscode-for-go-development/search-extensions-240px.png" alt-text="A screenshot showing how search for the Go extension." lightbox="./media/configure-vscode-for-go-development/search-extensions.png"::: |
+| Search for `Go: Install/Update tools` then run the command from the pallet | :::image type="content" source="./media/configure-vscode-for-go-development/install-go-tools-240px.png" alt-text="A screenshot showing how to use the search box in the top tool bar to find App Services in Azure." lightbox="./media/configure-vscode-for-go-development/install-go-tools.png"::: |
+| When prompted, select all the available Go tools then click OK.  | :::image type="content" source="./media/configure-vscode-for-go-development/select-all-go-tools-240px.png" alt-text="A screenshot showing how to use the search box in the top tool bar to find App Services in Azure." lightbox="./media/configure-vscode-for-go-development/select-all-go-tools.png"::: |
 
-## 3. Update the Go tools
 
 In Visual Studio Code:
 
