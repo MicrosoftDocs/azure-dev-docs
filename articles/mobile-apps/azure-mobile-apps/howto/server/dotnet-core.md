@@ -31,7 +31,7 @@ A data sync server uses the normal ASP.NET Core mechanisms for creating the serv
 1. Add Entity Framework Core
 1. Add Data sync Services
 
-In addition, you can optionally add identity (authentication and authorization) to your service.  For information on creating an ASP.NET Core service with Entity Framework Core, please see [the tutorial][6].
+In addition, you can optionally add identity (authentication and authorization) to your service.  For information on creating an ASP.NET Core service with Entity Framework Core, see [the tutorial][6].
 
 To enable data sync services, you need to add the following NuGet libraries:
 
@@ -59,7 +59,7 @@ The template includes a sample model and controller.
 
 ## Create a table controller for a SQL table
 
-The default repository uses Entity Framework Core. Creating a table controller is a three step process:
+The default repository uses Entity Framework Core. Creating a table controller is a three-step process:
 
 1. Create a model class for the data model.
 1. Add the model class to the `DbContext` for your application.
@@ -84,7 +84,7 @@ public class TodoItem : EntityTableData
 }
 ```
 
-The `ITableData` (which is implemented by `EntityTableData`) provides the ID of the record, together with additional properties for handling data sync services:
+The `ITableData` (which is implemented by `EntityTableData`) provides the ID of the record, together with extra properties for handling data sync services:
 
 * `UpdatedAt` (`DateTimeOffset?`) provides the date that the record was last updated.
 * `Version` (`byte[]`) provides an opaque value that changes on every write.
@@ -94,7 +94,7 @@ These values are maintained by the server, and should not be manually altered by
 
 ### Update the `DbContext`
 
-Entity Framework Core requires that each model in the database be registered in the `DbContext`.  For example:
+Each model in the database must be registered in the `DbContext`.  For example:
 
 ```csharp
 public class AppDbContext : DbContext
@@ -124,20 +124,20 @@ public class TodoItemController : TableController<TodoItem>
 
 Of note:
 
-* The controller must have a route.  By convention, tables are exposed on a sub-path of `/tables`, but they can be placed anywhere.  If you are using client libraries earlier than v5.0.0, then the table must be a sub-path of `/tables`.
+* The controller must have a route.  By convention, tables are exposed on a subpath of `/tables`, but they can be placed anywhere.  If you are using client libraries earlier than v5.0.0, then the table must be a subpath of `/tables`.
 * The controller must inherit from `TableController<T>`, where `<T>` is an implementation of the `ITableData` implementation for your repository type.
-* You must assign a repository based on the same type as your model.
+* Assign a repository based on the same type as your model.
 
 ### Implementing an in-memory repository
 
-In addition to the Entity Framework Core repository, we support an in-memory repository.  This must be exposed as a `Singleton`.  To configure an in-memory repository, add a singleton for the repository in your `Program.cs`:
+In addition to the Entity Framework Core repository, we support an in-memory repository. Add a singleton service for the repository in your `Program.cs`:
 
 ```csharp
 IEnumerable<Model> seedData = GenerateSeedData();
 builder.Services.AddSingleton<IRepository<Model>>(new InMemoryRepository<Model>(seedData));
 ```
 
-You can then set up your table controller as follows:
+Set up your table controller as follows:
 
 ```csharp
 [Route("tables/[controller]")]
@@ -167,19 +167,19 @@ public class MoodelController : TableController<Model>
 The options you can set include:
 
 * `PageSize` (`int`, default: 100) is the maximum number of items in a single page that will be returned by a query operation.
-* `MaxTop` (`int`, default: 512000) is the maximum value allowed for a `$top` query option.  This is equivalent to the LINQ `.Take()` value.
-* `EnableSoftDelete` (`bool`, default: false) enables soft-delete, which marks items as deleted instead of deleting them from the database.  This allows clients to update their offline cache, but requires that the items be purged periodically.
+* `MaxTop` (`int`, default: 512000) is the maximum number of items returned in a query operation without paging.
+* `EnableSoftDelete` (`bool`, default: false) enables soft-delete, which marks items as deleted instead of deleting them from the database.  Soft delete allows clients to update their offline cache, but requires that deleted items are purged from the database separately.
 * `UnauthorizedStatusCode` (`int`, default: 401 Unauthorized) is the status code that is returned if the user is not authorized to do a specific operation.  By default, it is `401 Unauthorized`, but can be set to anything you want.
 
 ## Configure access permissions
 
-By default, a user can do anything they want to entities within a table - create, read, update, and delete any record.  This is normally undesirable, so you will want to create an `AccessControlProvider`.  This object implements `IAccessControlProvider` to implement three methods:
+By default, a user can do anything they want to entities within a table - create, read, update, and delete any record.  For more fine-grained control over authorization, create a class that implements `IAccessControlProvider`.  The `IAccessControlProvider` uses three methods to implement authorization:
 
 * `GetDataView()` returns a lambda that limits what the connected user can see.
 * `IsAuthorizedAsync()` determines if the connected user can perform the action on the specific entity that is being requested.
 * `PreCommitHookAsync()` adjusts any entity immediately prior to being written to the repository.
 
-Between the three methods, you can effectively handle most access control cases.  If you need access to the `HttpContext`, you will need to [configure a HttpContextAccessor][4].
+Between the three methods, you can effectively handle most access control cases.  If you need access to the `HttpContext`, you will need to [configure an HttpContextAccessor][4].
 
 As an example, the following implements a personal table, where a user can only see their own records.
 
@@ -224,7 +224,7 @@ public class PrivateAccessControlProvider<T>: IAccessControlProvider<T>
 }
 ```
 
-The methods are async in case you need to do an additional database lookup to get the correct answer. You can implement the `IAccessControlProvider<T>` interface on the controller, but you still have to pass in the `IHttpContextAccessor` to access the `HttpContext` in a thread safe manner.
+The methods are async in case you need to do an extra database lookup to get the correct answer. You can implement the `IAccessControlProvider<T>` interface on the controller, but you still have to pass in the `IHttpContextAccessor` to access the `HttpContext` in a thread safe manner.
 
 To use this access control provider, update your `TableController` as follows:
 
@@ -245,7 +245,7 @@ If you want to allow both unauthenticated and authenticated access to a table, d
 
 ## Configure logging
 
-Logging is handled through [the normal logging mechanism][3] for ASP.NET Core.  You need to assign the appropriate `ILogger` to the `Logger` property:
+Logging is handled through [the normal logging mechanism][3] for ASP.NET Core.  Assign the `ILogger` object to the `Logger` property:
 
 ```csharp
 [Authorize]
