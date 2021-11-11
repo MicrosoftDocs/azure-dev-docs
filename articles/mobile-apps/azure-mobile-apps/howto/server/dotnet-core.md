@@ -10,7 +10,7 @@ ms.author: adhal
 
 # How to use the ASP.NET Core backend server SDK
 
-This topic shows you have to configure and use the ASP.NET Core backend server SDK to produce a datasync server.
+This topic shows you have to configure and use the ASP.NET Core backend server SDK to produce a data sync server.
 
 ## Supported Platforms
 
@@ -18,24 +18,24 @@ The ASP.NET Core backend server supports ASP.NET Core 6.0.
 
 Database servers must meet the following criteria:
 
-* Supported by [Entity Framework Core](https://docs.microsoft.com/ef/core/providers/?tabs=dotnet-core-cli).
+* Supported by [Entity Framework Core][5].
 * `DateTimeOffset` support with ms accuracy.
 
 Currently, all databases supported by Entity Framework Core except SQLite can be used "out of the box".  SQLite needs work to handle ms accuracy.
 
-## Create a new datasync server
+## Create a new data sync server
 
-A datasync server uses the normal ASP.NET Core mechanisms for creating the server.  It consists of three steps:
+A data sync server uses the normal ASP.NET Core mechanisms for creating the server.  It consists of three steps:
 
 1. Create an ASP.NET Core server project.
 1. Add Entity Framework Core
-1. Add Datasync Services
+1. Add Data sync Services
 
-In addition, you can optionally add identity (authentication and authorization) to your service.  For information on creating an ASP.NET Core service with Entity Framework Core, please see [the tutorial](https://docs.microsoft.com/aspnet/core/tutorials/first-web-api?view=aspnetcore-6.0).
+In addition, you can optionally add identity (authentication and authorization) to your service.  For information on creating an ASP.NET Core service with Entity Framework Core, please see [the tutorial][6].
 
-To enable datasync services, you need to add the following NuGet libraries:
+To enable data sync services, you need to add the following NuGet libraries:
 
-* [Microsoft.AspNetCore.Datasync](https://www.nuget.org/packages/Microsoft.AspNetCore.Datasync)
+* [Microsoft.AspNetCore.Datasync]
 * [Microsoft.AspNetCore.Datasync.EFCore](https://www.nuget.org/packages/Microsoft.AspNetCore.Datasync.EFCore) for Entity Framework Core based tables.
 * [Microsoft.AspNetCore.Datasync.InMemory](https://www.nuget.org/packages/Microsoft.AspNetCore.Datasync.InMemory) for in-memory tables.
 
@@ -45,7 +45,7 @@ Modify the `Program.cs` file.  Add the following line under all other service de
 builder.Services.AddDatasyncControllers();
 ```
 
-You can also use the ASP.NET Core datasync-server template:
+You can also use the ASP.NET Core `datasync-server` template:
 
 ```dotnetcli
 # This only needs to be done once
@@ -84,7 +84,7 @@ public class TodoItem : EntityTableData
 }
 ```
 
-The `ITableData` (which is implemented by `EntityTableData`) provides the ID of the record, together with additional properties for handling datasync services:
+The `ITableData` (which is implemented by `EntityTableData`) provides the ID of the record, together with additional properties for handling data sync services:
 
 * `UpdatedAt` (`DateTimeOffset?`) provides the date that the record was last updated.
 * `Version` (`byte[]`) provides an opaque value that changes on every write.
@@ -179,7 +179,7 @@ By default, a user can do anything they want to entities within a table - create
 * `IsAuthorizedAsync()` determines if the connected user can perform the action on the specific entity that is being requested.
 * `PreCommitHookAsync()` adjusts any entity immediately prior to being written to the repository.
 
-Between the three methods, you can effectively handle most access control cases.  If you need access to the `HttpContext`, you will need to [configure a HttpContextAccessor](https://docs.microsoft.com/aspnet/core/fundamentals/http-context?view=aspnetcore-6.0#use-httpcontext-from-custom-components).
+Between the three methods, you can effectively handle most access control cases.  If you need access to the `HttpContext`, you will need to [configure a HttpContextAccessor][4].
 
 As an example, the following implements a personal table, where a user can only see their own records.
 
@@ -245,7 +245,7 @@ If you want to allow both unauthenticated and authenticated access to a table, d
 
 ## Configure logging
 
-Logging is handled through [the normal logging mechanism](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-6.0) for ASP.NET Core.  You need to assign the appropriate `ILogger` to the `Logger` property:
+Logging is handled through [the normal logging mechanism][3] for ASP.NET Core.  You need to assign the appropriate `ILogger` to the `Logger` property:
 
 ```csharp
 [Authorize]
@@ -262,7 +262,7 @@ public class ModelController : TableController<Model>
 
 ## Enable Azure App Service Identity
 
-The ASP.NET Core datasync server supports [ASP.NET Core Identity](https://docs.microsoft.com/aspnet/core/security/authentication/identity?view=aspnetcore-6.0), or any other authentication and authorization scheme you wish to support.  To assist with upgrades from prior versions of Azure Mobile Apps, we also provide an identity provider that implements [Azure App Service Identity](https://docs.microsoft.com/azure/app-service/overview-authentication-authorization).  To configure Azure App Service Identity in your application, edit your `Program.cs`:
+The ASP.NET Core data sync server supports [ASP.NET Core Identity][1], or any other authentication and authorization scheme you wish to support.  To assist with upgrades from prior versions of Azure Mobile Apps, we also provide an identity provider that implements [Azure App Service Identity][2].  To configure Azure App Service Identity in your application, edit your `Program.cs`:
 
 ``` csharp
 builder.Services.AddAuthentication(AzureAppServiceAuthentication.AuthenticationScheme)
@@ -276,3 +276,15 @@ app.UseAuthorization();
 ## Limitations
 
 The ASP.NET Core edition of the service libraries implements OData v4 for the list operation.  When running in "backwards compatibility" mode, filtering on a substring is not supported.
+
+<!-- Links -->
+[1]: /aspnet/core/security/authentication/identity?view=aspnetcore-6.0&preserve-view=true
+[2]: /azure/app-service/overview-authentication-authorization
+[3]: /aspnet/core/fundamentals/logging/?view=aspnetcore-6.0&preserve-view=true
+[4]: /aspnet/core/fundamentals/http-context?view=aspnetcore-6.0&preserve-view=true#use-httpcontext-from-custom-components
+[5]: /ef/core/providers
+[6]: /aspnet/core/tutorials/first-web-api?view=aspnetcore-6.0&preserve-view=true
+
+[Microsoft.AspNetCore.Datasync]: https://www.nuget.org/packages/Microsoft.AspNetCore.Datasync
+[Microsoft.AspNetCore.Datasync.EFCore]: https://www.nuget.org/packages/Microsoft.AspNetCore.Datasync.EFCore
+[Microsoft.AspNetCore.Datasync.InMemory]: https://www.nuget.org/packages/Microsoft.AspNetCore.Datasync.InMemory
