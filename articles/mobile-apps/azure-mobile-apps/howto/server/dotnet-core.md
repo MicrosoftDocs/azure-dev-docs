@@ -10,7 +10,7 @@ ms.author: adhal
 
 # How to use the ASP.NET Core backend server SDK
 
-This topic shows you have to configure and use the ASP.NET Core backend server SDK to produce a data sync server.
+This article shows you have to configure and use the ASP.NET Core backend server SDK to produce a data sync server.
 
 ## Supported Platforms
 
@@ -31,7 +31,7 @@ A data sync server uses the normal ASP.NET Core mechanisms for creating the serv
 1. Add Entity Framework Core
 1. Add Data sync Services
 
-In addition, you can optionally add identity (authentication and authorization) to your service.  For information on creating an ASP.NET Core service with Entity Framework Core, see [the tutorial][6].
+For information on creating an ASP.NET Core service with Entity Framework Core, see [the tutorial][6].
 
 To enable data sync services, you need to add the following NuGet libraries:
 
@@ -67,7 +67,7 @@ The default repository uses Entity Framework Core. Creating a table controller i
 
 ### Create a model class
 
-All model classes must conform to `ITableData` and add the abstract class for the repository type you are using.  Entity Framework Core uses `EntityTableData`, as follows:
+All model classes must implement `ITableData`.  Each repository type has an abstract class that implements `ITableData`.  The Entity Framework Core repository uses `EntityTableData`:
 
 ``` csharp
 public class TodoItem : EntityTableData
@@ -90,7 +90,7 @@ The `ITableData` (which is implemented by `EntityTableData`) provides the ID of 
 * `Version` (`byte[]`) provides an opaque value that changes on every write.
 * `Deleted` (`bool`) is true if the record has been deleted but not yet purged.
 
-These values are maintained by the server, and should not be manually altered by your code.
+Do not change these properties in your code.  They are maintained by the repository.
 
 ### Update the `DbContext`
 
@@ -109,7 +109,7 @@ public class AppDbContext : DbContext
 
 ### Create a table controller
 
-A table controller is a specialized `ApiController`.  Here is a minimal table controller:
+A table controller is a specialized `ApiController`.  Here's a minimal table controller:
 
 ```csharp
 [Route("tables/[controller]")]
@@ -124,13 +124,13 @@ public class TodoItemController : TableController<TodoItem>
 
 Of note:
 
-* The controller must have a route.  By convention, tables are exposed on a subpath of `/tables`, but they can be placed anywhere.  If you are using client libraries earlier than v5.0.0, then the table must be a subpath of `/tables`.
+* The controller must have a route.  By convention, tables are exposed on a subpath of `/tables`, but they can be placed anywhere.  If you're using client libraries earlier than v5.0.0, then the table must be a subpath of `/tables`.
 * The controller must inherit from `TableController<T>`, where `<T>` is an implementation of the `ITableData` implementation for your repository type.
 * Assign a repository based on the same type as your model.
 
 ### Implementing an in-memory repository
 
-In addition to the Entity Framework Core repository, we support an in-memory repository. Add a singleton service for the repository in your `Program.cs`:
+You can also use an in-memory repository with no persistent storage. Add a singleton service for the repository in your `Program.cs`:
 
 ```csharp
 IEnumerable<Model> seedData = GenerateSeedData();
@@ -169,7 +169,7 @@ The options you can set include:
 * `PageSize` (`int`, default: 100) is the maximum number of items in a single page that will be returned by a query operation.
 * `MaxTop` (`int`, default: 512000) is the maximum number of items returned in a query operation without paging.
 * `EnableSoftDelete` (`bool`, default: false) enables soft-delete, which marks items as deleted instead of deleting them from the database.  Soft delete allows clients to update their offline cache, but requires that deleted items are purged from the database separately.
-* `UnauthorizedStatusCode` (`int`, default: 401 Unauthorized) is the status code that is returned if the user is not authorized to do a specific operation.  By default, it is `401 Unauthorized`, but can be set to anything you want.
+* `UnauthorizedStatusCode` (`int`, default: 401 Unauthorized) is the status code returned when the user isn't allowed to do an action.
 
 ## Configure access permissions
 
@@ -177,9 +177,9 @@ By default, a user can do anything they want to entities within a table - create
 
 * `GetDataView()` returns a lambda that limits what the connected user can see.
 * `IsAuthorizedAsync()` determines if the connected user can perform the action on the specific entity that is being requested.
-* `PreCommitHookAsync()` adjusts any entity immediately prior to being written to the repository.
+* `PreCommitHookAsync()` adjusts any entity immediately before being written to the repository.
 
-Between the three methods, you can effectively handle most access control cases.  If you need access to the `HttpContext`, you will need to [configure an HttpContextAccessor][4].
+Between the three methods, you can effectively handle most access control cases.  If you need access to the `HttpContext`, [configure an HttpContextAccessor][4].
 
 As an example, the following implements a personal table, where a user can only see their own records.
 
@@ -275,7 +275,7 @@ app.UseAuthorization();
 
 ## Limitations
 
-The ASP.NET Core edition of the service libraries implements OData v4 for the list operation.  When running in "backwards compatibility" mode, filtering on a substring is not supported.
+The ASP.NET Core edition of the service libraries implements OData v4 for the list operation.  When running in "backwards compatibility" mode, filtering on a substring isn't supported.
 
 <!-- Links -->
 [1]: /aspnet/core/security/authentication/identity?view=aspnetcore-6.0&preserve-view=true
