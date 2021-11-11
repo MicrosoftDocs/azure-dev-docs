@@ -6,4 +6,5 @@ On the **Create Web App** page, fill out the form as follows.
 1. *Runtime stack* &rarr; **Node 14 LTS**
 1. *Operating System* &rarr; **Linux**
 1. *Region* &rarr; Any Azure region near you.
-1. *App Service Plan* &rarr; Select **Change size** under *Sku and size setting* to select a different App Service plan.
+1. *Linux Plan* &rarr; Select *Create new* and use a name of **msdocs-expressjs-mongodb-plan**.
+1. *Sku and size* &rarr; Select **Change size** to select a different App Service plan.
