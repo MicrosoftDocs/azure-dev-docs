@@ -36,21 +36,10 @@ In a web browser:
 
 | Instructions    | Screenshot |
 |:----------------|-----------:|
-| In Visual Studio Code, open the command pallet by going to *Help* > *Show All Commands*. Or use the keyboard shortcut (Ctrl+Shift+P) | :::image type="content" source="./media/configure-vscode-for-go-development/search-extensions-240px.png" alt-text="A screenshot showing how search for the Go extension." lightbox="./media/configure-vscode-for-go-development/search-extensions.png"::: |
-| Search for `Go: Install/Update tools` then run the command from the pallet | :::image type="content" source="./media/configure-vscode-for-go-development/install-go-tools-240px.png" alt-text="A screenshot showing how to use the search box in the top tool bar to find App Services in Azure." lightbox="./media/configure-vscode-for-go-development/install-go-tools.png"::: |
-| When prompted, select all the available Go tools then click OK.  | :::image type="content" source="./media/configure-vscode-for-go-development/select-all-go-tools-240px.png" alt-text="A screenshot showing how to use the search box in the top tool bar to find App Services in Azure." lightbox="./media/configure-vscode-for-go-development/select-all-go-tools.png"::: |
-
-
-In Visual Studio Code:
-
-1. Open the command pallet by going to *Help* > *Show All Commands*. Or use the keyboard shortcut (Ctrl+Shift+P).
-1. Type `go tools` into the command pallet dialog box.
-1. Select *Go: Install/Update Tools* to update all the Go tools.
-    1. ![A screenshot showing how to install Go tools within VS code](./media/configure-vscode-for-go-development/install-go-tools.png)  
-1. Select all tools, then click OK.
-    1. ![A screenshot showing to select all the available Go tools to update](./media/configure-vscode-for-go-development/select-all-go-tools.png)
-1. Wait for the tools to update.
-    1. ![A screenshot showing the completed list of Go tools updated](./media/configure-vscode-for-go-development/go-tools-installed.png)
+| In Visual Studio Code, open the command pallet **Help** > **Show All Commands**. Or use the keyboard shortcut (Ctrl+Shift+P) | :::image type="content" source="./media/configure-vscode-for-go-development/search-extensions-240px.png" alt-text="A screenshot showing how search the command pallet" lightbox="./media/configure-vscode-for-go-development/search-extensions.png"::: |
+| Search for `Go: Install/Update tools` then run the command from the pallet | :::image type="content" source="./media/configure-vscode-for-go-development/install-go-tools-240px.png" alt-text="A screenshot showing how to run the Go: install/update tool from the command pallet" lightbox="./media/configure-vscode-for-go-development/install-go-tools.png"::: |
+| When prompted, select all the available Go tools then click OK.  | :::image type="content" source="./media/configure-vscode-for-go-development/select-all-go-tools-240px.png" alt-text="A screenshot showing how to update all the available Go tools" lightbox="./media/configure-vscode-for-go-development/select-all-go-tools.png"::: |
+| Wait for the Go tools to finish updating  | :::image type="content" source="./media/configure-vscode-for-go-development/go-tools-install-240x.png" alt-text="A screenshot showing all the Go tools that were updated." lightbox="./media/configure-vscode-for-go-development/go-tools-install.png"::: |
 
 ## 4. Write a sample Go program
 
