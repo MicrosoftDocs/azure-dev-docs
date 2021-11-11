@@ -31,14 +31,8 @@ In Visual Studio Code:
 
 | Instructions    | Screenshot |
 |:----------------|-----------:|
-| Bring up the Extensions view by clicking on the Extensions icon in the Activity Bar on the side of Visual Studio Code. Or use keyboard shortcut (Ctrl+Shift+X). | :::image type="content" source="./media/configure-vscode-for-go-development/ install-go-extension-240px.png" alt-text="A screenshot showing how to use the search box in the top tool bar to find App Services in Azure." lightbox="./media/configure-vscode-for-go-development/install-go-extension.png"::: |
-
-
-1. Bring up the Extensions view by clicking on the Extensions icon in the Activity Bar on the side of Visual Studio Code. Or use keyboard shortcut (Ctrl+Shift+X).
-1. Type `go` into the Extension search box.
-1. Select the *Go* extension, then click install.
-
-![A screenshot showing how to install the VS code Go extension](./media/configure-vscode-for-go-development/install-go-extension.png)
+| Bring up the Extensions view by clicking on the Extensions icon in the Activity Bar. Or use keyboard shortcut (Ctrl+Shift+X). | :::image type="content" source="./media/configure-vscode-for-go-development/search-extensions-240px.png" alt-text="A screenshot showing how search for the Go extension." lightbox="./media/configure-vscode-for-go-development/search-extensions.png"::: |
+| Search for the Go extension, then click install. | :::image type="content" source="./media/configure-vscode-for-go-development/ install-go-extension-240px.png" alt-text="A screenshot showing how to use the search box in the top tool bar to find App Services in Azure." lightbox="./media/configure-vscode-for-go-development/install-go-extension.png"::: |
 
 ## 3. Update the Go tools
 
