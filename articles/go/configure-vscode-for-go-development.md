@@ -29,6 +29,11 @@ In a web browser:
 
 In Visual Studio Code:
 
+| Instructions    | Screenshot |
+|:----------------|-----------:|
+| Bring up the Extensions view by clicking on the Extensions icon in the Activity Bar on the side of Visual Studio Code. Or use keyboard shortcut (Ctrl+Shift+X). | :::image type="content" source="./media/configure-vscode-for-go-development/ install-go-extension-240px.png" alt-text="A screenshot showing how to use the search box in the top tool bar to find App Services in Azure." lightbox="./media/configure-vscode-for-go-development/install-go-extension.png"::: |
+
+
 1. Bring up the Extensions view by clicking on the Extensions icon in the Activity Bar on the side of Visual Studio Code. Or use keyboard shortcut (Ctrl+Shift+X).
 1. Type `go` into the Extension search box.
 1. Select the *Go* extension, then click install.
