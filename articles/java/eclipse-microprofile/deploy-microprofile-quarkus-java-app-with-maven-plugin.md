@@ -68,7 +68,7 @@ In this section, you'll create a Quarkus application and test it locally.
 To create the Java 11 base project, use the following command:
 
    ```bash
-   mvn io.quarkus:quarkus-maven-plugin:2.1.3.Final:create \
+   mvn io.quarkus:quarkus-maven-plugin:2.4.1.Final:create \
      -DprojectGroupId=com.microsoft.azure.samples.quarkus \
      -DprojectArtifactId=quarkus-hello-azure  \
      -DclassName="com.microsoft.azure.samples.quarkus.App" \
@@ -117,7 +117,7 @@ In this section, you'll configure the Quarkus project *pom.xml* file so that Mav
    <plugin>
      <groupId>com.microsoft.azure</groupId>
      <artifactId>azure-webapp-maven-plugin</artifactId>
-     <version>2.1.0</version>
+     <version>2.2.1</version>
    </plugin>
    ```
 
@@ -144,7 +144,7 @@ In this section, you'll configure the Quarkus project *pom.xml* file so that Mav
    [INFO] Building quarkus-hello-azure 1.0-SNAPSHOT
    [INFO] --------------------------------[ jar ]---------------------------------
    [INFO] 
-   [INFO] --- azure-webapp-maven-plugin:2.1.0:config (default-cli) @ quarkus-hello-azure ---
+   [INFO] --- azure-webapp-maven-plugin:2.2.1:config (default-cli) @ quarkus-hello-azure ---
 
    Define value for OS(Default: Linux): 
    1. linux [*]
@@ -179,7 +179,7 @@ In this section, you'll configure the Quarkus project *pom.xml* file so that Mav
       <plugin>
         <groupId>com.microsoft.azure</groupId>  
         <artifactId>azure-webapp-maven-plugin</artifactId>  
-        <version>2.1.0</version>  
+        <version>2.2.1</version>  
         <configuration>
           <schemaVersion>V2</schemaVersion>
           <resourceGroup>microprofile</resourceGroup>
