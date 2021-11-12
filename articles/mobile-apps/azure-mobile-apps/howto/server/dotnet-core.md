@@ -123,7 +123,6 @@ public class TodoItemController : TableController<TodoItem>
 ```
 
 > [!NOTE]
-
 > * The controller must have a route.  By convention, tables are exposed on a subpath of `/tables`, but they can be placed anywhere.  If you're using client libraries earlier than v5.0.0, then the table must be a subpath of `/tables`.
 > * The controller must inherit from `TableController<T>`, where `<T>` is an implementation of the `ITableData` implementation for your repository type.
 > * Assign a repository based on the same type as your model.
