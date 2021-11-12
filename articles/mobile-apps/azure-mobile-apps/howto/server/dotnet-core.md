@@ -12,7 +12,7 @@ ms.author: adhal
 
 This article shows you have to configure and use the ASP.NET Core backend server SDK to produce a data sync server.
 
-## Supported Platforms
+## Supported platforms
 
 The ASP.NET Core backend server supports ASP.NET Core 6.0.
 
@@ -122,11 +122,11 @@ public class TodoItemController : TableController<TodoItem>
 }
 ```
 
-Of note:
+> [!NOTE]
 
-* The controller must have a route.  By convention, tables are exposed on a subpath of `/tables`, but they can be placed anywhere.  If you're using client libraries earlier than v5.0.0, then the table must be a subpath of `/tables`.
-* The controller must inherit from `TableController<T>`, where `<T>` is an implementation of the `ITableData` implementation for your repository type.
-* Assign a repository based on the same type as your model.
+> * The controller must have a route.  By convention, tables are exposed on a subpath of `/tables`, but they can be placed anywhere.  If you're using client libraries earlier than v5.0.0, then the table must be a subpath of `/tables`.
+> * The controller must inherit from `TableController<T>`, where `<T>` is an implementation of the `ITableData` implementation for your repository type.
+> * Assign a repository based on the same type as your model.
 
 ### Implementing an in-memory repository
 
