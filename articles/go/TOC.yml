@@ -19,7 +19,7 @@ items:
         - name: Auth with Azure hosted apps
           href: azure-sdk-authentication-managed-identity.md
         - name: Auth with credentials
-          href: azure-sdk-authentication-service-principal.mdd
+          href: azure-sdk-authentication-service-principal.md
     - name: Package list
       href: https://azure.github.io/azure-sdk/releases/latest/all/go.html
     - name: SDK examples
