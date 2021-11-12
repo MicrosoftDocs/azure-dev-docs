@@ -58,8 +58,9 @@ Download and install Visual Studio Code:
 | Click **New Folder** in the Explorer panel, then Create the root director for your sample Go application named `sample-app` | :::image type="content" source="./media/configure-vscode-for-go-development/create-folder-240px.png" alt-text="A screenshot showing how to create a folder in vs code" lightbox="./media/configure-vscode-for-go-development/create-folder.png"::: |
 | Click **New File** in the Explorer panel, then name the file `main.go` | :::image type="content" source="./media/configure-vscode-for-go-development/create-file-240px.png" alt-text="A screenshot showing how to create a file in vs code" lightbox="./media/configure-vscode-for-go-development/create-file.png"::: |
 | Open a terminal, **Terminal > New Terminal**, then run the command `go mod init sample-app` to initialize your sample Go app.   | :::image type="content" source="./media/configure-vscode-for-go-development/run-go-mod-240px.png" alt-text="A screenshot running the go mod init command" lightbox="./media/configure-vscode-for-go-development/run-go-mod.png"::: |
+| Copy the following code into the `main.go` file.   | :::image type="content" source="./media/configure-vscode-for-go-development/go-in-vscode-240px.png" alt-text="A screenshot displaying a sample Go program." lightbox="./media/configure-vscode-for-go-development/go-in-vscode.png"::: |
 
-Copy the following code into the `main.go` file:
+Sample code:
 
 ```go
 package main
@@ -78,7 +79,7 @@ func main() {
 |:----------------|-----------:|
 | Create a break point on line 7 by left clicking to the left of the numbered line. Or place your cursor on line 7 and hit F9. | :::image type="content" source="./media/configure-vscode-for-go-development/create-breakpoint-240px.png" alt-text="A screenshot showing how to set a breakpoint." lightbox="./media/configure-vscode-for-go-development/create-breakpoint.png"::: |
 | Bring up the Debug view by clicking on the debug icon in the Activity Bar on the side of Visual Studio Code. Or use keyboard shortcut (Ctrl+Shift+D). | :::image type="content" source="./media/configure-vscode-for-go-development/run-debugger-240px.png" alt-text="A screenshot showing how to navigate to the debug panel" lightbox="./media/configure-vscode-for-go-development/run-debugger.png"::: |
-| Click *Run and Debug*, or hit F5 to run the debugger. Then Hover over the variable `name` on line 7 to see its value. Exit the debugger by clicking **Continue** on the debugger bar or hit F5. | :::image type="content" source="./media/configure-vscode-for-go-development/debug-variable-240px.png" alt-text="A screenshot showing how to create a file in vs code" lightbox="./media/configure-vscode-for-go-development/debug-variable.png"::: |
+| Click *Run and Debug*, or hit F5 to run the debugger. Then Hover over the variable `name` on line 7 to see its value. Exit the debugger by clicking **Continue** on the debugger bar or hit F5. | :::image type="content" source="./media/configure-vscode-for-go-development/debug-variable-240px.png" alt-text="A screenshot showing running the debugger in VS code." lightbox="./media/configure-vscode-for-go-development/debug-variable.png"::: |
 
 ## Next steps
 
