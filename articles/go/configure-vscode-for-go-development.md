@@ -11,11 +11,11 @@ ms.author: jduffney
 
 In this quickstart, you'll install and configure the [Go for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=golang.Go) extension.
 
-In the [Go Developer Survey 2020 Results](https://go.dev/blog/survey2020-results), 41% of respondence chose Visual Studio Code as their most preferred editor for Go. Making Visual Studio Code the most popular editor for Go developers.
+Fun fact, in the [Go Developer Survey 2020 Results](https://go.dev/blog/survey2020-results), **41%** of respondence chose Visual Studio Code as their *most preferred editor* for Go. Making Visual Studio Code the most popular editor for Go developers.
 
 Visual Studio Code and the Go extension provide IntelliSense, code-navigation, and advanced debugging. In this quickstart, you'll configure Visual Studio Code then write, run, and debug and a sample Go program.
 
-![A screenshot showing a Go program within Visual Studio Code](./media/configure-vscode-for-go-development/go-in-vscode.png) 
+![A screenshot showing a Go program within Visual Studio Code](./media/configure-vscode-for-go-development/go-in-vscode.png)
 
 <!-- retake screenshot, dir name is sample-app now -->
 
@@ -48,7 +48,7 @@ Download and install Visual Studio Code:
 | In Visual Studio Code, open the command pallet **Help** > **Show All Commands**. Or use the keyboard shortcut (Ctrl+Shift+P) | :::image type="content" source="./media/configure-vscode-for-go-development/search-extensions-240px.png" alt-text="A screenshot showing how search the command pallet" lightbox="./media/configure-vscode-for-go-development/search-extensions.png"::: |
 | Search for `Go: Install/Update tools` then run the command from the pallet | :::image type="content" source="./media/configure-vscode-for-go-development/install-go-tools-240px.png" alt-text="A screenshot showing how to run the Go: install/update tool from the command pallet" lightbox="./media/configure-vscode-for-go-development/install-go-tools.png"::: |
 | When prompted, select all the available Go tools then click OK.  | :::image type="content" source="./media/configure-vscode-for-go-development/select-all-go-tools-240px.png" alt-text="A screenshot showing how to update all the available Go tools" lightbox="./media/configure-vscode-for-go-development/select-all-go-tools.png"::: |
-| Wait for the Go tools to finish updating  | :::image type="content" source="./media/configure-vscode-for-go-development/go-tools-install-240x.png" alt-text="A screenshot showing all the Go tools that were updated." lightbox="./media/configure-vscode-for-go-development/go-tools-install.png"::: |
+| Wait for the Go tools to finish updating.  | :::image type="content" source="./media/configure-vscode-for-go-development/go-tools-install-240x.png" alt-text="A screenshot showing all the Go tools that were updated." lightbox="./media/configure-vscode-for-go-development/go-tools-install.png"::: |
 
 ## 4. Write a sample Go program
 
