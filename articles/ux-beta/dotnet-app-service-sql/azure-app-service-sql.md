@@ -83,8 +83,8 @@ Next let's deploy our app to the app service we just created.
 
 | Instructions    | Screenshot |
 |:----------------|-----------:|
-| [!INCLUDE [Deploy app service step 1](<./includes/deploy-app-service/vscode-deploy-app-service-1.md>)] | :::image type="content" source="./media/azportal-create-app-service-1-240px.png" alt-text="A screenshot showing how to use the search box in the top tool bar to find App Services in Azure." lightbox="./media/azportal-create-app-service-1.png"::: |
-| [!INCLUDE [Deploy app service step 2](<./includes/deploy-app-service/vscode-deploy-app-service-2.md>)] | :::image type="content" source="./media/azportal-create-app-service-2-240px.png" alt-text="A screenshot showing the deploy button on the App Services page used to deploy a new web app." lightbox="./media/azportal-create-app-service-2.png"::: |
+| [!INCLUDE [Deploy app service step 1](<./includes/deploy-app-service/vscode-deploy-app-service-01.md>)] | :::image type="content" source="./media/azportal-create-app-service-1-240px.png" alt-text="A screenshot showing how to use the search box in the top tool bar to find App Services in Azure." lightbox="./media/azportal-create-app-service-1.png"::: |
+| [!INCLUDE [Deploy app service step 2](<./includes/deploy-app-service/vscode-deploy-app-service-02.md>)] | :::image type="content" source="./media/azportal-create-app-service-2-240px.png" alt-text="A screenshot showing the deploy button on the App Services page used to deploy a new web app." lightbox="./media/azportal-create-app-service-2.png"::: |
 
 ### [Visual Studio](#tab/visualstudio-deploy)
 
