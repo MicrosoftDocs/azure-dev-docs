@@ -18,7 +18,7 @@ Azure App Service provides a highly scalable, self-patching web hosting service 
 
 :::image type="content" source="media/azure-app-in-browser.png" alt-text="This is an architecture diagram about how the solution works in Azure":::
 
-This article assumes you are already familiar with [Node.js development](/learn/paths/build-javascript-applications-nodejs/) and have Node and MongoDB installed locally. You'll also need an Azure account with an active subscription.  If you do not have an Azure account, you [can create one for free](https://azure.microsoft.com/free/nodejs/).
+This article assumes you are already familiar with general [.NET development](/learn/paths/build-javascript-applications-nodejs/) and have it installed locally. You'll also need an Azure account with an active subscription.  If you do not have an Azure account, you [can create one for free](https://azure.microsoft.com/free/nodejs/).
 
 ## 1 - Setup the Sample Application
 
@@ -116,7 +116,7 @@ Azure PowerShell commands can be run in the [Azure Cloud Shell](https://shell.az
 
 
 ## 4 - Create the Database
-Let's get this app started!
+We are now ready to create the database that will manage to the data in our app.
 
 ### [Azure portal](#tab/azure-portal-database)
 
@@ -157,7 +157,6 @@ Azure PowerShell commands can be run in the [Azure Cloud Shell](https://shell.az
 ----
 
 ## 5 - Connect the App Service to the Database
-
 We need to allow our local computer to connect to Azure to finish setting up our database. For this step you'll need to know your local computer's IP Address.  You can discover that by clicking here or typing `ipconfig` into a command window.  Copy this IP Address for later use.
 
 ### [Azure portal](#tab/azure-portal-connect)

@@ -4,6 +4,8 @@ Inside of Visual Studio, we need to update the connection string of our app to p
 
 ---
       "ConnectionStrings": {
-        "MyDbConnection": "Server=tcp:MyDbServer.database.windows.net,1433;Initial Catalog=mySqlDb;Persist Security Info=False;User ID=<username>;Password=<password>;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"
+        "MyDbConnection": "Server=tcp:MyDbServer.database.windows.net,1433;
+        Initial Catalog=mySqlDb;Persist Security Info=False;
+        User ID=<username>;Password=<password>;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"
       }
 ---

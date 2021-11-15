@@ -1,1 +1,1 @@
-In your VS Code environment, ensure you have the Azure Account and Azure App Service extensions installed.  Use the Azure Account extension to log into Azure.
+In your VS Code environment, verify that you have the Azure Account and Azure App Service extensions installed.  Ensure you are logged into your Azure Account using the Account extension.
