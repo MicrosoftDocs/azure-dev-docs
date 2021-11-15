@@ -31,7 +31,7 @@ git clone https://github.com/azure-samples/dotnetcore-sqldb-tutorial
 cd dotnetcore-sqldb-tutorial
 ```
 
-## 2 - Create the Azure App Service
+## 2 - Create the App Service
 
 First let's create the Azure App Service that will host our deployed Web App. There are several different ways of creating an App Service depending on your desired workflow.
 
@@ -251,7 +251,7 @@ To access Kudu, navigate to one of the following URLs. You will need to sign int
 - For apps deployed in Isolated service plans - `https://<app-name>.scm.<ase-name>.p.azurewebsites.net`
 From the main page in Kudu, you can access information about the application hosting environment, app settings, deployments, and browse the files in the wwwroot directory.
 
-## 7 - Stream logs
+## 78 - Stream logs
 
 ## Stream diagnostic logs
 
