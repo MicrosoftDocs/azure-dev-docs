@@ -75,7 +75,7 @@ Azure PowerShell commands can be run in the [Azure Cloud Shell](https://shell.az
 
 ----
 
-## 4 - Create the Database
+## 3 - Create the Database
 We are now ready to create the database that will manage the data in our app.
 
 ### [Azure portal](#tab/azure-portal-database)
@@ -117,7 +117,7 @@ Azure PowerShell commands can be run in the [Azure Cloud Shell](https://shell.az
 ----
 
 
-## 3 - Deploy to the App Service
+## 4 - Deploy to the App Service
 
 Next let's deploy our app to the app service we just created.
 
@@ -158,7 +158,7 @@ Azure PowerShell commands can be run in the [Azure Cloud Shell](https://shell.az
 
 
 
-## 4 - Connect the App to the Database
+## 5 - Connect the App to the Database
 Next we must connect our local computer to Azure to finish setting up our database schema using Entity Framework Core migrations. 
 
 ### [Azure portal](#tab/azure-portal-connect)
@@ -198,7 +198,7 @@ Azure PowerShell commands can be run in the [Azure Cloud Shell](https://shell.az
 
 ----
 
-## 5 - Generate the Database Schema
+## 6 - Generate the Database Schema
 We need to allow our local computer to connect to Azure to finish setting up our database. For this step you'll need to know your local computer's IP Address.  You can discover that by clicking here or typing `ipconfig` into a command window.  Copy this IP Address for later use.
 
 ### [Azure portal](#tab/azure-portal-schema)
@@ -241,7 +241,7 @@ Azure PowerShell commands can be run in the [Azure Cloud Shell](https://shell.az
 
 ----
 
-## 6 - Browse with kudu
+## 7 - Browse with kudu
 
 Azure App Service provides a web-based diagnostics console named Kudu that allows you to examine the server hosting environment for your web app. Using Kudu, you can view the files deployed to Azure, review the deployment history of the application, and even open an SSH session into the hosting environment.
 
