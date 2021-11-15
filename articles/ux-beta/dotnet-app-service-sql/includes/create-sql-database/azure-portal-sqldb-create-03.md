@@ -3,7 +3,7 @@ On the Create Database page, fill out the form as follows.
 
 1. Enter a database name of coreDb.
 
-1. For the Server, enter a name of globally unique name, such as `coreDBServerXYZ` where XYZ are random numbers.
+1. For the Server, enter a globally unique name, such as `coreDBServerXYZ` where XYZ are random numbers.
 
 1. Leave the rest of the settings at their default, and then click Review + create.
 

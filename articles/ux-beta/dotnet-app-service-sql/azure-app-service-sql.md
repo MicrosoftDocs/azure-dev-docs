@@ -159,7 +159,7 @@ Azure PowerShell commands can be run in the [Azure Cloud Shell](https://shell.az
 
 
 ## 5 - Connect the App to the Database
-Next we must connect our local computer to Azure to finish setting up our database schema using Entity Framework Core migrations. 
+Next we must connect the App hosted in our App Service to our database using a Connection String.
 
 ### [Azure portal](#tab/azure-portal-connect)
 
@@ -284,7 +284,7 @@ The sample project already follows the guidance for the [Azure App Service loggi
 For more information on customizing the ASP.NET Core logs, see [Logging in .NET](/dotnet/core/extensions/logging).
 
 
-## Clean up resources
+## 8 - Clean up resources
 
 ### [Azure portal](#tab/azure-portal)
 

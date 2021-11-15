@@ -1,4 +1,4 @@
-After running these commands, switch your appsettings.json configuration back to the original MyDbConnection value.  This will ensure that the next time you deploy your code to Azure, it will pull the correct Connection String from your App Service configuration by name.  The *ConnectionStrings* settings should again look like the code below:
+After running these commands, switch your appsettings.json configuration back to the original MyDbConnection value.  This will ensure that the next time you deploy your code to Azure, it will pull the correct Connection String from your App Service configuration by name.  
 
 ---
       "ConnectionStrings": {

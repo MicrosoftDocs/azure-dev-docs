@@ -1,6 +1,5 @@
 Next, inside of your code editor's terminal we need to run the following commands to install Entity Framework Core tooling and create the schema of our database.
 
----
 1. First run the command below to install the necessary CLI tools for Entity Framework Core.
 
         dotnet tool install -g dotnet-ef
@@ -14,5 +13,6 @@ Next, inside of your code editor's terminal we need to run the following command
         dotnet ef database update
 
 The migration should complete successfully, and your database is now setup on Azure with the correct schema.
-
-If you receive a connection or authentication issue on this step, read the error carefully. It's possible the IP address you configured in Azure is not your actual external IP - this is common in corporate environments that use VPNs.  If there is a different IP address in this error, try updating your firewall rule in Azure with that value instead.
+<br />
+<br />
+If you receive a connection or authentication issue on this step, read the error carefully. It's possible the IP address you configured in Azure is not your actual external IP - this is common in corporate environments that use VPNs.  If there is a different IP address listed in this error, try updating your firewall rule in Azure with that value instead.
