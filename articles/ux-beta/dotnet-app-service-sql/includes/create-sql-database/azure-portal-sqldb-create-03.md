@@ -7,4 +7,4 @@ On the Create Database page, fill out the form as follows.
 
 1. Leave the rest of the settings at their default, and then click Review + create.
 
-1. Azure will take a moment to validate your settings.  Click the Create button once it's enabled, and Azure will begin provisioning your database.  This process may take a few minutes.
+1. Click the Create button once Azure validates your settings. Provisioning the database may take a few minutes.

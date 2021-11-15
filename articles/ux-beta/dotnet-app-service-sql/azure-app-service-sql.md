@@ -251,7 +251,7 @@ To access Kudu, navigate to one of the following URLs. You will need to sign int
 - For apps deployed in Isolated service plans - `https://<app-name>.scm.<ase-name>.p.azurewebsites.net`
 From the main page in Kudu, you can access information about the application hosting environment, app settings, deployments, and browse the files in the wwwroot directory.
 
-## 78 - Stream logs
+## 8 - Stream logs
 
 ## Stream diagnostic logs
 
