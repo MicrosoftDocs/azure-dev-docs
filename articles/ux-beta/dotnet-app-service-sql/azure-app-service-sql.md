@@ -156,8 +156,9 @@ Azure PowerShell commands can be run in the [Azure Cloud Shell](https://shell.az
 
 ----
 
-## 5 - Connect the App Service to the Database
-We need to allow our local computer to connect to Azure to finish setting up our database. For this step you'll need to know your local computer's IP Address.  You can discover that by clicking here or typing `ipconfig` into a command window.  Copy this IP Address for later use.
+
+## 4 - Connect the App to the Database
+Next we must connect our local computer to Azure to finish setting up our database schema using Entity Framework Core migrations. 
 
 ### [Azure portal](#tab/azure-portal-connect)
 
@@ -189,6 +190,49 @@ az group list
 ```
 
 ### [Azure PowerShell](#tab/azure-powershell-connect)
+
+Azure PowerShell commands can be run in the [Azure Cloud Shell](https://shell.azure.com) or on a workstation with [Azure PowerShell installed](/powershell/azure/install-az-ps).
+
+
+```azurepowershell
+
+```
+
+----
+
+## 5 - Generate the Database Schema
+We need to allow our local computer to connect to Azure to finish setting up our database. For this step you'll need to know your local computer's IP Address.  You can discover that by clicking here or typing `ipconfig` into a command window.  Copy this IP Address for later use.
+
+### [Azure portal](#tab/azure-portal-schema)
+
+Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps to create your Azure App Service resources.
+
+| Instructions    | Screenshot |
+|:----------------|-----------:|
+| [!INCLUDE [Connect Service step 1](<./includes/connect-service/azure-portal-connect-service-01.md>)] | :::image type="content" source="./media/azportal-create-cosmosdb-1-240px.png" alt-text="A screenshot showing how to use the search box in the top tool bar to find App Services in Azure." lightbox="./media/azportal-connect-service-1.png"::: |
+| [!INCLUDE [Connect Service step 2](<./includes/connect-service/azure-portal-connect-service-02.md>)] | :::image type="content" source="./media/azportal-create-cosmosdb-2-240px.png" alt-text="A screenshot showing the create button on the App Services page used to create a new web app." lightbox="./media/azportal-connect-service-2.png"::: |
+| [!INCLUDE [Connect Service step 3](<./includes/connect-service/azure-portal-connect-service-03.md>)] | :::image type="content" source="./media/azportal-create-cosmosdb-3-240px.png" alt-text="A screenshot showing the form to fill out to create a web app in Azure." lightbox="./media/azportal-connect-service-3.png"::: |
+| [!INCLUDE [Connect Service step 4](<./includes/connect-service/azure-portal-connect-service-04.md>)] | :::image type="content" source="./media/azportal-create-cosmosdb-4-240px.png" alt-text="A screenshot of the Spec Picker dialog that allows you to select the App Service plan to use for your web app." lightbox="./media/azportal-connect-service-4.png"::: |
+| [!INCLUDE [Connect Service step 5](<./includes/connect-service/azure-portal-connect-service-05.md>)] | :::image type="content" source="./media/azportal-create-cosmosdb-5-240px.png" alt-text="A screenshot of the main web app create page showing the button to select on to create your web app in Azure." lightbox="./media/azportal-connect-service-5.png"::: |
+
+### [VS Code](#tab/vscode-schema)
+
+To create Azure resources in VS Code, you must have the [Azure Tools extension pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack) installed and be signed into Azure from VS Code.
+
+> [!div class="nextstepaction"]
+> [Download Azure Tools extension pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack)
+
+Witness the awesomeness of VS Code!
+
+### [Azure CLI](#tab/azure-cli-schema)
+
+Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com) or on a workstation with the [Azure CLI installed](/cli/azure/install-azure-cli).
+
+```azurecli
+az group list
+```
+
+### [Azure PowerShell](#tab/azure-powershell-schema)
 
 Azure PowerShell commands can be run in the [Azure Cloud Shell](https://shell.azure.com) or on a workstation with [Azure PowerShell installed](/powershell/azure/install-az-ps).
 

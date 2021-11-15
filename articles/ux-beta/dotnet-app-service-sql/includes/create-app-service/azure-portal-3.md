@@ -1,9 +1,9 @@
 On the **Create Web App** page, fill out the form as follows.
 
-1. *Resource Group* &rarr; Select *Create new* and use a name of **msdocs-expressjs-mongodb-tutorial**.
+1. *Resource Group* &rarr; Select *Create new* and use a name of **msdocs-core-sql-tutorial**.
 1. *Name* &rarr; Enter a unique name of your choice - this name must be unique across Azure.
 1. *Publish* &rarr; **Code**
-1. *Runtime stack* &rarr; **Node 14 LTS**
+1. *Runtime stack* &rarr; **.NET 6.0**
 1. *Operating System* &rarr; **Linux**
 1. *Region* &rarr; Any Azure region near you.
 1. *App Service Plan* &rarr; Select **Create New* and give your App Service plan a name of "MyAppServicePlan"
