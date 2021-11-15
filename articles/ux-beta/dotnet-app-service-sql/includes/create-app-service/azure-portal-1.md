@@ -1,4 +1,1 @@
-In the Azure portal:
-
-   1. Enter "app services" in the search bar at the top of the Azure portal.
-   1. select the item labeled **App Services** under the under *Services* heading on the menu that appears below the search bar.
+In a local terminal window, type in the command *ipconfig* and hit enter.  Copy the IP4 address listed and paste it somewhere for later use.
