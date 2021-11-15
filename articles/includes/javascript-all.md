@@ -32,7 +32,7 @@
 | Digital Twins - Core | npm [1.0.3](https://www.npmjs.com/package/@azure/digital-twins-core/v/1.0.3) | [docs](/javascript/api/overview/azure/digital-twins-core-readme) | GitHub [1.0.3](https://github.com/Azure/azure-sdk-for-js/tree/@azure/digital-twins-core_1.0.3/sdk/digitaltwins/digital-twins-core/) |
 | Document Translation | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure-rest/ai-document-translator/v/1.0.0-beta.1) |  | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/ai-document-translator_1.0.0-beta.1/sdk/documenttranslator/ai-document-translator-rest) |
 | Event Grid | npm [4.5.0](https://www.npmjs.com/package/@azure/eventgrid/v/4.5.0) | [docs](/javascript/api/overview/azure/eventgrid-readme) | GitHub [4.5.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/eventgrid_4.5.0/sdk/eventgrid/eventgrid/) |
-| Event Hubs | npm [5.6.0](https://www.npmjs.com/package/@azure/event-hubs/v/5.6.0) | [docs](/javascript/api/overview/azure/event-hubs-readme) | GitHub [5.6.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/event-hubs_5.6.0/sdk/eventhub/event-hubs/) |
+| Event Hubs | npm [5.6.0](https://www.npmjs.com/package/@azure/event-hubs/v/5.6.0)<br>npm [5.7.0-beta.1](https://www.npmjs.com/package/@azure/event-hubs/v/5.7.0-beta.1) | [docs](/javascript/api/overview/azure/event-hubs-readme) | GitHub [5.6.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/event-hubs_5.6.0/sdk/eventhub/event-hubs/)<br>GitHub [5.7.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/event-hubs_5.7.0-beta.1/sdk/eventhub/event-hubs/) |
 | Event Hubs - Azure Blob Storage Checkpoint Store | npm [1.0.1](https://www.npmjs.com/package/@azure/eventhubs-checkpointstore-blob/v/1.0.1) | [docs](/javascript/api/overview/azure/eventhubs-checkpointstore-blob-readme) | GitHub [1.0.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/eventhubs-checkpointstore-blob_1.0.1/sdk/eventhub/eventhubs-checkpointstore-blob/) |
 | farmbeats | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure-rest/agrifood-farming/v/1.0.0-beta.1) |  | GitHub [1.0.0-beta.1](https://github.com/azure/azure-sdk-for-js/tree/@azure-rest/agrifood-farming_1.0.0-beta.1/sdk/agrifood/agrifood-farming-rest) |
 | Form Recognizer | npm [3.2.0](https://www.npmjs.com/package/@azure/ai-form-recognizer/v/3.2.0)<br>npm [4.0.0-beta.2](https://www.npmjs.com/package/@azure/ai-form-recognizer/v/4.0.0-beta.2) | [docs](/javascript/api/overview/azure/ai-form-recognizer-readme) | GitHub [3.2.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/ai-form-recognizer_3.2.0/sdk/formrecognizer/ai-form-recognizer/)<br>GitHub [4.0.0-beta.2](https://github.com/Azure/azure-sdk-for-js/tree/@azure/ai-form-recognizer_4.0.0-beta.2/sdk/formrecognizer/ai-form-recognizer/) |
@@ -116,14 +116,14 @@
 | @autorest/codemodel | npm [4.17.1](https://www.npmjs.com/package/@autorest/codemodel/v/4.17.1) |  |  |
 | @autorest/common | npm [1.3.0](https://www.npmjs.com/package/@autorest/common/v/1.3.0) |  |  |
 | @autorest/configuration | npm [1.7.3](https://www.npmjs.com/package/@autorest/configuration/v/1.7.3) |  |  |
-| @autorest/csharp | npm [3.0.0-beta.20211110.2](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20211110.2) |  |  |
+| @autorest/csharp | npm [3.0.0-beta.20211112.1](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20211112.1) |  |  |
 | @autorest/csharp-v3 | npm [3.0.0-beta.20201217.1](https://www.npmjs.com/package/@autorest/csharp-v3/v/3.0.0-beta.20201217.1) |  |  |
 | @autorest/extension-base | npm [3.3.2](https://www.npmjs.com/package/@autorest/extension-base/v/3.3.2) |  |  |
 | @autorest/gotest | npm [1.1.1](https://www.npmjs.com/package/@autorest/gotest/v/1.1.1) |  |  |
 | @autorest/schemas | npm [1.3.1](https://www.npmjs.com/package/@autorest/schemas/v/1.3.1) |  |  |
 | @autorest/testmodeler | npm [1.0.1](https://www.npmjs.com/package/@autorest/testmodeler/v/1.0.1) |  |  |
 | @autorest/test-utils | npm [0.4.0](https://www.npmjs.com/package/@autorest/test-utils/v/0.4.0) |  |  |
-| @autorest/typescript | npm [6.0.0-beta.14](https://www.npmjs.com/package/@autorest/typescript/v/6.0.0-beta.14) |  |  |
+| @autorest/typescript | npm [6.0.0-beta.15](https://www.npmjs.com/package/@autorest/typescript/v/6.0.0-beta.15) |  |  |
 | @azure/arm-appservice-profile-2020-09-01-hybrid | npm [1.1.1](https://www.npmjs.com/package/@azure/arm-appservice-profile-2020-09-01-hybrid/v/1.1.1) |  |  |
 | @azure/arm-authorization-profile-2020-09-01-hybrid | npm [1.1.1](https://www.npmjs.com/package/@azure/arm-authorization-profile-2020-09-01-hybrid/v/1.1.1) |  |  |
 | @azure/arm-changeanalysis | npm [1.1.1](https://www.npmjs.com/package/@azure/arm-changeanalysis/v/1.1.1) |  |  |
@@ -159,7 +159,7 @@
 | @azure/media-stream-library | npm [1.1.0-beta.3](https://www.npmjs.com/package/@azure/media-stream-library/v/1.1.0-beta.3) |  |  |
 | @azure/quantum-jobs | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure/quantum-jobs/v/1.0.0-beta.1) |  |  |
 | @azure/static-web-apps-cli | npm [0.8.0](https://www.npmjs.com/package/@azure/static-web-apps-cli/v/0.8.0) |  |  |
-| @azure/video-analyzer-player | npm [1.0.4](https://www.npmjs.com/package/@azure/video-analyzer-player/v/1.0.4)<br>npm [1.1.0-beta.6](https://www.npmjs.com/package/@azure/video-analyzer-player/v/1.1.0-beta.6) |  |  |
+| @azure/video-analyzer-player | npm [1.0.4](https://www.npmjs.com/package/@azure/video-analyzer-player/v/1.0.4)<br>npm [1.1.0-beta.7](https://www.npmjs.com/package/@azure/video-analyzer-player/v/1.1.0-beta.7) |  |  |
 | @azure/video-analyzer-widgets | npm [2.0.2](https://www.npmjs.com/package/@azure/video-analyzer-widgets/v/2.0.2) |  |  |
 | @azure-rest/core-client-lro | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure-rest/core-client-lro/v/1.0.0-beta.1) |  |  |
 | @azure-tools/adl-openapi | npm [0.3.2](https://www.npmjs.com/package/@azure-tools/adl-openapi/v/0.3.2) |  |  |
@@ -212,7 +212,7 @@
 | AutoRest - Functions TypeScript | npm [0.0.1-preview](https://www.npmjs.com/package/@autorest/azure-functions-typescript/v/0.0.1-preview) |  |  |
 | AutoRest - Go | npm [4.0.0-preview.31](https://www.npmjs.com/package/@autorest/go/v/4.0.0-preview.31) |  |  |
 | AutoRest - Modeler Four | npm [4.21.4](https://www.npmjs.com/package/@autorest/modelerfour/v/4.21.4) |  | GitHub [4.21.4](https://github.com/Azure/autorest.modelerfour) |
-| AutoRest - Power Shell | npm [3.0.461](https://www.npmjs.com/package/@autorest/powershell/v/3.0.461) |  | GitHub [3.0.461](https://github.com/Azure/autorest.powershell) |
+| AutoRest - PowerShell | npm [3.0.462](https://www.npmjs.com/package/@autorest/powershell/v/3.0.462) |  | GitHub [3.0.462](https://github.com/Azure/autorest.powershell) |
 | AutoRest - Python | npm [5.11.2](https://www.npmjs.com/package/@autorest/python/v/5.11.2) |  | GitHub [5.11.2](https://github.com/Azure/autorest.python/tree/v5.1.0-preview.7) |
 | AutoRest - Remodeler | npm [2.1.27](https://www.npmjs.com/package/@autorest/remodeler/v/2.1.27) |  | GitHub [2.1.27](https://github.com/Azure/autorest.remodeler) |
 | AutoRest - Test | npm [0.1.76](https://www.npmjs.com/package/@autorest/test/v/0.1.76) |  | GitHub [0.1.76](https://github.com/Azure/autorest.test) |
@@ -261,7 +261,7 @@
 | Document Translation | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure-rest/ai-document-translator/v/1.0.0-beta.1) |  | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/ai-document-translator_1.0.0-beta.1/sdk/documenttranslator/ai-document-translator-rest) |
 | Entity Search | npm [3.0.1](https://www.npmjs.com/package/@azure/cognitiveservices-entitysearch/v/3.0.1) |  | GitHub [3.0.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/cognitiveservices/cognitiveservices-entitysearch) |
 | Event Grid | npm [4.5.0](https://www.npmjs.com/package/@azure/eventgrid/v/4.5.0) | [docs](/javascript/api/overview/azure/eventgrid-readme) | GitHub [4.5.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/eventgrid_4.5.0/sdk/eventgrid/eventgrid/) |
-| Event Hubs | npm [5.6.0](https://www.npmjs.com/package/@azure/event-hubs/v/5.6.0) | [docs](/javascript/api/overview/azure/event-hubs-readme) | GitHub [5.6.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/event-hubs_5.6.0/sdk/eventhub/event-hubs/) |
+| Event Hubs | npm [5.6.0](https://www.npmjs.com/package/@azure/event-hubs/v/5.6.0)<br>npm [5.7.0-beta.1](https://www.npmjs.com/package/@azure/event-hubs/v/5.7.0-beta.1) | [docs](/javascript/api/overview/azure/event-hubs-readme) | GitHub [5.6.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/event-hubs_5.6.0/sdk/eventhub/event-hubs/)<br>GitHub [5.7.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/event-hubs_5.7.0-beta.1/sdk/eventhub/event-hubs/) |
 | Event Hubs - Azure Blob Storage Checkpoint Store | npm [1.0.1](https://www.npmjs.com/package/@azure/eventhubs-checkpointstore-blob/v/1.0.1) | [docs](/javascript/api/overview/azure/eventhubs-checkpointstore-blob-readme) | GitHub [1.0.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/eventhubs-checkpointstore-blob_1.0.1/sdk/eventhub/eventhubs-checkpointstore-blob/) |
 | Event Hubs - Event Processor | npm [2.1.1](https://www.npmjs.com/package/@azure/event-processor-host/v/2.1.1) |  | GitHub [2.1.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/event-processor-host_2.1.1/sdk/eventhub/event-processor-host/) |
 | Face | npm [4.2.0](https://www.npmjs.com/package/@azure/cognitiveservices-face/v/4.2.0) |  | GitHub [4.2.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/cognitiveservices/cognitiveservices-face) |
@@ -348,11 +348,11 @@
 | Tables | npm [13.0.0](https://www.npmjs.com/package/@azure/data-tables/v/13.0.0) | [docs](/javascript/api/overview/azure/data-tables-readme) | GitHub [13.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/data-tables_13.0.0/sdk/tables/data-tables/) |
 | Text Analytics | npm [5.1.0](https://www.npmjs.com/package/@azure/ai-text-analytics/v/5.1.0)<br>npm [5.2.0-beta.2](https://www.npmjs.com/package/@azure/ai-text-analytics/v/5.2.0-beta.2) | [docs](/javascript/api/overview/azure/ai-text-analytics-readme) | GitHub [5.1.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/ai-text-analytics_5.1.0/sdk/textanalytics/ai-text-analytics/)<br>GitHub [5.2.0-beta.2](https://github.com/Azure/azure-sdk-for-js/tree/@azure/ai-text-analytics_5.2.0-beta.2/sdk/textanalytics/ai-text-analytics/) |
 | Text Analytics | npm [4.0.0](https://www.npmjs.com/package/@azure/cognitiveservices-textanalytics/v/4.0.0) |  |  |
-| Tools - Azcopy Darwin | npm [10.12.2](https://www.npmjs.com/package/@azure-tools/azcopy-darwin/v/10.12.2) |  | GitHub [10.12.2](https://github.com/Azure/azure-storage-azcopy) |
-| Tools - Azcopy Linux | npm [10.12.2](https://www.npmjs.com/package/@azure-tools/azcopy-linux/v/10.12.2) |  | GitHub [10.12.2](https://github.com/Azure/azure-storage-azcopy) |
+| Tools - Azcopy Darwin | npm [10.13.0](https://www.npmjs.com/package/@azure-tools/azcopy-darwin/v/10.13.0) |  | GitHub [10.13.0](https://github.com/Azure/azure-storage-azcopy) |
+| Tools - Azcopy Linux | npm [10.13.0](https://www.npmjs.com/package/@azure-tools/azcopy-linux/v/10.13.0) |  | GitHub [10.13.0](https://github.com/Azure/azure-storage-azcopy) |
 | Tools - Azcopy Node | npm [2.4.0](https://www.npmjs.com/package/@azure-tools/azcopy-node/v/2.4.0) |  | GitHub [2.4.0](https://github.com/Azure/azure-storage-azcopy) |
-| Tools - Azcopy Win32 | npm [10.12.2](https://www.npmjs.com/package/@azure-tools/azcopy-win32/v/10.12.2) |  | GitHub [10.12.2](https://github.com/Azure/azure-storage-azcopy) |
-| Tools - Azcopy Win64 | npm [10.12.2](https://www.npmjs.com/package/@azure-tools/azcopy-win64/v/10.12.2) |  | GitHub [10.12.2](https://github.com/Azure/azure-storage-azcopy) |
+| Tools - Azcopy Win32 | npm [10.13.0](https://www.npmjs.com/package/@azure-tools/azcopy-win32/v/10.13.0) |  | GitHub [10.13.0](https://github.com/Azure/azure-storage-azcopy) |
+| Tools - Azcopy Win64 | npm [10.13.0](https://www.npmjs.com/package/@azure-tools/azcopy-win64/v/10.13.0) |  | GitHub [10.13.0](https://github.com/Azure/azure-storage-azcopy) |
 | Tools - Data Store | npm [4.5.1](https://www.npmjs.com/package/@azure-tools/datastore/v/4.5.1) |  | GitHub [4.5.1](https://github.com/Azure/perks) |
 | Tools - OpenAPI Tools Common | npm [1.2.2](https://www.npmjs.com/package/@azure-tools/openapi-tools-common/v/1.2.2) |  |  |
 | Translator | npm [1.0.1](https://www.npmjs.com/package/@azure/cognitiveservices-translatortext/v/1.0.1) |  | GitHub [1.0.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/cognitiveservices/cognitiveservices-translatortext) |

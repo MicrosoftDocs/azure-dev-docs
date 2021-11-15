@@ -5,7 +5,7 @@ author: N-Usha
 ms.author: ushan 
 ms.topic: reference
 ms.service: azure 
-ms.date: 11/03/2021
+ms.date: 11/15/2021
 ms.custom: github-actions-azure, devx-track-azurecli
 ---
 
@@ -17,16 +17,13 @@ To use Azure PowerShell or Azure CLI in a GitHub Actions workflow, you need to f
 
 The Azure login action supports two different ways of authenticating with Azure:
 * [Service principal with secrets](#use-the-azure-login-action-with-a-service-principal-secret)
-* [(public beta) OpenID Connect (OIDC) with a Azure service principal using a Federated Identity Credential](#use-the-azure-login-action-with-openid-connect)
+* [OpenID Connect (OIDC) with a Azure service principal using a Federated Identity Credential](#use-the-azure-login-action-with-openid-connect)
 
 By default, the login action logs in with the Azure CLI and sets up the GitHub action runner environment for Azure CLI. You can use Azure PowerShell with `enable-AzPSSession` property of the Azure login action. This sets up the GitHub action runner environment with the Azure PowerShell module.
 
 You can use Azure login to connect to public or sovereign clouds including Azure Government and Azure Stack Hub.
 
 ## Use the Azure login action with OpenID Connect
-
-> [!NOTE]
-> The OpenID Connect authentication feature for Azure Login is in public beta.
 
 To set up an Azure Login with OpenID Connect and use it in a GitHub Actions workflow, you'll need:
 
@@ -139,7 +136,7 @@ You need to provide your application's **Client ID**, **Tenant ID** and **Subscr
 Your GitHub Actions workflow uses OpenID Connect to authenticate with Azure.
 To learn more about this interaction, see the [GitHub Actions documentation](https://docs.github.com/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-azure).
 
-In this example, you'll install the OpenID Connect Azure CLI beta and authenticate with Azure with the [Azure login](https://github.com/marketplace/actions/azure-login) action. The CLI-beta installation step is a temporary part of the beta release. The example uses GitHub secrets for the `client-id`, `tenant-id`, and `subscription-id` values. You can also pass these values directly in the login action.
+In this example, you'll use OpenID Connect Azure CLI to authenticate with Azure with the [Azure login](https://github.com/marketplace/actions/azure-login) action. The example uses GitHub secrets for the `client-id`, `tenant-id`, and `subscription-id` values. You can also pass these values directly in the login action.
 
 # [Linux](#tab/linux)
 
@@ -154,19 +151,6 @@ jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-        
-    - name: Installing CLI-beta for OpenID Connect
-      run: |
-        cd ../..
-        CWD="$(pwd)"
-        python3 -m venv oidc-venv
-        . oidc-venv/bin/activate
-        echo "activated environment"
-        python3 -m pip install -q --upgrade pip
-        echo "started installing cli beta"
-        pip install -q --extra-index-url https://azcliprod.blob.core.windows.net/beta/simple/ azure-cli
-        echo "***************installed cli beta*******************"
-        echo "$CWD/oidc-venv/bin" >> $GITHUB_PATH
         
     - name: 'Az CLI login'
       uses: azure/login@v1.4.0
@@ -189,20 +173,6 @@ jobs:
   Windows-latest:
       runs-on: windows-latest
       steps:
-
-        - name: Install CLI-beta
-          run: |
-              cd ../..
-              $CWD = Convert-Path .
-              echo $CWD
-              python --version
-              python -m venv oidc-venv
-              . .\oidc-venv\Scripts\Activate.ps1
-              python -m pip install -q --upgrade pip
-              echo "started installing cli beta" 
-              pip install -q --extra-index-url https://azcliprod.blob.core.windows.net/beta/simple/ azure-cli
-              echo "installed cli beta" 
-              echo "$CWD\oidc-venv\Scripts" >> $env:GITHUB_PATH
 
         - name: Installing Az.accounts for powershell
           shell: pwsh
