@@ -1,9 +1,21 @@
 On the Create Database page, fill out the form as follows.
-1. For the Resource Group, choose the same resource group from the dropdown list as you used for your web app in App Service (msdocs-azure-app-sql-quickstart).
+1. *Resource Group* - choose the same resource group that you used for your web app in App Service.
 
-1. Enter a database name of coreDb.
+1. *Database name* - enter a value of of coreDb.
 
-1. For the Server, enter a globally unique name, such as `coreDBServerXYZ` where XYZ are random numbers.
+1. For the Server, select Create New to open the Create SQL Database Server screen.
+
+1. *Server name* - enter a globally unique name such as `coredbserverXYZ` where XYZ are random numbers.  
+
+1. *Location* - select a region near you.
+
+1. *Authentication method* - select use SQL Authentication
+
+1. *Server admin login* - enter a username of your choice.
+
+1. *Password* - enter a password you'll remember.
+
+1. Click Ok to return to the previous screen.
 
 1. Leave the rest of the settings at their default, and then click Review + create.
 
