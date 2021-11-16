@@ -138,7 +138,7 @@ To learn more about this interaction, see the [GitHub Actions documentation](htt
 
 In this example, you'll use OpenID Connect Azure CLI to authenticate with Azure with the [Azure login](https://github.com/marketplace/actions/azure-login) action. The example uses GitHub secrets for the `client-id`, `tenant-id`, and `subscription-id` values. You can also pass these values directly in the login action.
 
-The Azure login action includes an optional `audience` input parameters that defaults to `api://AzureADTokenExchange` for connecting to Azure.
+The Azure login action includes an optional `audience` input parameter that defaults to `api://AzureADTokenExchange`. You can update this parameter for custom audience values.
 
 # [Linux](#tab/linux)
 
@@ -155,7 +155,7 @@ jobs:
     steps:
         
     - name: 'Az CLI login'
-      uses: azure/login@v1.4.0
+      uses: azure/login@v1
       with:
         client-id: ${{ secrets.AZURE_CLIENTID }}
         tenant-id: ${{ secrets.AZURE_TENANTID }}
@@ -182,7 +182,7 @@ jobs:
                Install-Module -Name Az.Accounts -Force -AllowClobber -Repository PSGallery
   
         - name: OIDC Login to Azure Public Cloud with AzPowershell (enableAzPSSession true)
-          uses: azure/login@v1.4.0
+          uses: azure/login@v1
           with:
             client-id: ${{ secrets.AZURE_CLIENTID }}
             tenant-id: ${{ secrets.AZURE_TENANTID }}
