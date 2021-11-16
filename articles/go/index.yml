@@ -20,7 +20,7 @@ landingContent:
       - linkListType: overview
         links:
           - text: Take your first steps with Go
-            url: https://docs.microsoft.com/en-us/learn/paths/go-first-steps
+            url: https://docs.microsoft.com/learn/paths/go-first-steps
           - text: What is the Azure SDK for Go?
             url: overview.md
           - text: Configure your development environment
@@ -51,13 +51,13 @@ landingContent:
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Create a Go Serverless function in Azure
+          - text: Create a Go serverless function in Azure
             url: /azure/azure-functions/create-first-function-vs-code-other
   - title: Containers
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Build and Containerize a Go application
+          - text: Build and containerize a Go app
             url: https://github.com/azure-samples/azure-go-labs/blob/master/1-app-hello-echo/README.md
           - text: Azure Container Apps
             url: /azure/container-apps

@@ -9,7 +9,7 @@ ms.custom: devx-track-go
 # Authentication methods in the Azure SDK for Go
 
 > [!IMPORTANT]
-> Moving forward authentication for the Azure SDK for Go will be done using [Azure Identity](https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/azidentity) package.
+> Moving forward, authentication for the Azure SDK for Go will be done using the [Azure Identity](https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/azidentity) package.
 >
 > To learn how to authenticate using the Azure Identity package, see [Azure authentication with the Azure SDK for Go](azure-sdk-authentication.md).
 

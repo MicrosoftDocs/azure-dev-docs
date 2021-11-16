@@ -9,7 +9,7 @@ ms.author: jduffney
 
 # Key Azure services for Go developers
 
-While Azure contains over 100 services, the following Azure services are the services you will use most frequently as a Go developer.
+While Azure contains over 100 services, Go developers use the following Azure services the most frequently.
 
 | Icon | Service | Description |
 |:----:|:--------|:------------|
@@ -22,7 +22,7 @@ While Azure contains over 100 services, the following Azure services are the ser
 | ![Azure Key Vault Icon](./media/service-icons/key-vaults.svg) | **Azure Key Vault**   | [Azure Key Vault](/azure/key-vault/general/) helps you store and access secrets securely, in an encrypted vault with restricted access to make sure your secrets and your application are not compromised.   |
 | ![Cognitive Services Icon](./media/service-icons/cognitive-services.svg) | **Cognitive Services**   | [Azure Cognitive Services](/azure/cognitive-services/) are a collection of cloud-based services that allow you to add AI based capabilities to your application.  Examples include computer vision, speech recognition, language understanding, and anomaly detection. |
 
-For the full list of Azure products and services, visit the [Azure documentation home page](/azure/?product=all)
+For the full list of Azure products and services, visit the [Azure documentation home page](/azure/?product=all).
 
 ### Next steps
 
