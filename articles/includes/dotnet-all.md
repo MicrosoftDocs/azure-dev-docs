@@ -95,7 +95,7 @@
 | Microsoft.Azure.Cosmos.Templates | NuGet [1.0.0](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Templates/1.0.0) |  |  |
 | Microsoft.Azure.Functions.Analyzers | NuGet [1.0.0](https://www.nuget.org/packages/Microsoft.Azure.Functions.Analyzers/1.0.0) |  |  |
 | Microsoft.Azure.Functions.Authentication.WebAssembly | NuGet [1.0.0](https://www.nuget.org/packages/Microsoft.Azure.Functions.Authentication.WebAssembly/1.0.0)<br>NuGet [1.0.1-preview](https://www.nuget.org/packages/Microsoft.Azure.Functions.Authentication.WebAssembly/1.0.1-preview) |  |  |
-| Microsoft.Azure.Functions.Worker.Core | NuGet [1.4.0](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Core/1.4.0) |  |  |
+| Microsoft.Azure.Functions.Worker.Core | NuGet [1.4.0](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Core/1.4.0)<br>NuGet [1.5.0-preview1](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Core/1.5.0-preview1) |  |  |
 | Microsoft.Azure.Functions.Worker.Extensions.Abstractions | NuGet [1.1.0](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.Abstractions/1.1.0) |  |  |
 | Microsoft.Azure.Functions.Worker.Extensions.ApplicationInsights | NuGet [1.0.0-preview4](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.ApplicationInsights/1.0.0-preview4) |  |  |
 | Microsoft.Azure.Functions.Worker.Extensions.CosmosDB | NuGet [3.0.9](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.CosmosDB/3.0.9)<br>NuGet [4.0.0-preview2](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.CosmosDB/4.0.0-preview2) |  |  |
@@ -113,7 +113,7 @@
 | Microsoft.Azure.Functions.Worker.Extensions.Storage.Queues | NuGet [5.0.0-beta.4](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.Storage.Queues/5.0.0-beta.4) |  |  |
 | Microsoft.Azure.Functions.Worker.Extensions.Timer | NuGet [4.1.0](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.Timer/4.1.0) |  |  |
 | Microsoft.Azure.Functions.Worker.Extensions.Warmup | NuGet [4.0.2](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.Warmup/4.0.2) |  |  |
-| Microsoft.Azure.Functions.Worker.Grpc | NuGet [1.3.1](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Grpc/1.3.1) |  |  |
+| Microsoft.Azure.Functions.Worker.Grpc | NuGet [1.3.1](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Grpc/1.3.1)<br>NuGet [1.4.0-preview1](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Grpc/1.4.0-preview1) |  |  |
 | Microsoft.Azure.Functions.Worker.ItemTemplates | NuGet [4.0.1964](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.ItemTemplates/4.0.1964) |  |  |
 | Microsoft.Azure.Functions.Worker.ProjectTemplates | NuGet [4.0.1964](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.ProjectTemplates/4.0.1964) |  |  |
 | Microsoft.Azure.Functions.Worker.Sdk.Analyzers | NuGet [1.1.0](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Sdk.Analyzers/1.1.0) |  |  |
@@ -301,7 +301,7 @@
 | Microsoft.Azure.Devices.Provisioning.Transport.Http | NuGet [1.15.0](https://www.nuget.org/packages/Microsoft.Azure.Devices.Provisioning.Transport.Http/1.15.0)<br>NuGet [1.14.0-preview-001](https://www.nuget.org/packages/Microsoft.Azure.Devices.Provisioning.Transport.Http/1.14.0-preview-001) |  |  |
 | Microsoft.Azure.Devices.Provisioning.Transport.Mqtt | NuGet [1.17.0](https://www.nuget.org/packages/Microsoft.Azure.Devices.Provisioning.Transport.Mqtt/1.17.0)<br>NuGet [1.16.0-preview-001](https://www.nuget.org/packages/Microsoft.Azure.Devices.Provisioning.Transport.Mqtt/1.16.0-preview-001) |  |  |
 | Microsoft.Azure.Devices.Shared | NuGet [1.30.0](https://www.nuget.org/packages/Microsoft.Azure.Devices.Shared/1.30.0)<br>NuGet [1.29.0-preview-001](https://www.nuget.org/packages/Microsoft.Azure.Devices.Shared/1.29.0-preview-001) |  |  |
-| Microsoft.Azure.Functions.Worker | NuGet [1.6.0](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker/1.6.0) |  |  |
+| Microsoft.Azure.Functions.Worker | NuGet [1.6.0](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker/1.6.0)<br>NuGet [1.7.0-preview1](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker/1.7.0-preview1) |  |  |
 | Microsoft.Azure.Functions.Worker.Sdk | NuGet [1.3.0](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Sdk/1.3.0) |  |  |
 | Microsoft.Azure.uamqp | NuGet [1.2.11](https://www.nuget.org/packages/Microsoft.Azure.uamqp/1.2.11) |  |  |
 | Microsoft.Azure.umqtt | NuGet [1.1.11](https://www.nuget.org/packages/Microsoft.Azure.umqtt/1.1.11) |  |  |
@@ -480,7 +480,7 @@
 | Management - Billing Fluent | NuGet [1.9.1-beta](https://www.nuget.org/packages/Microsoft.Azure.Management.Billing.Fluent/1.9.1-beta) |  |  |
 | Management - Blueprint | NuGet [0.20.7-preview](https://www.nuget.org/packages/Microsoft.Azure.Management.Blueprint/0.20.7-preview) |  | GitHub [0.20.7-preview](https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.Management.Blueprint_0.20.7-preview/sdk/blueprint/Microsoft.Azure.Management.Blueprint/) |
 | Management - Bot Service | NuGet [0.9.3-preview](https://www.nuget.org/packages/Microsoft.Azure.Management.BotService/0.9.3-preview) |  | GitHub [0.9.3-preview](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/botservice/Microsoft.Azure.Management.BotService) |
-| Management - Cognitive Services | NuGet [8.0.0-preview](https://www.nuget.org/packages/Microsoft.Azure.Management.CognitiveServices/8.0.0-preview) |  | GitHub [8.0.0-preview](https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.Management.CognitiveServices_8.0.0-preview/sdk/cognitiveservices/Microsoft.Azure.Management.CognitiveServices/) |
+| Management - Cognitive Services | NuGet [8.1.0](https://www.nuget.org/packages/Microsoft.Azure.Management.CognitiveServices/8.1.0) |  | GitHub [8.1.0](https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.Management.CognitiveServices_8.1.0/sdk/cognitiveservices/Microsoft.Azure.Management.CognitiveServices/) |
 | Management - Cognitive Services Fluent | NuGet [1.9.1-beta](https://www.nuget.org/packages/Microsoft.Azure.Management.CognitiveServices.Fluent/1.9.1-beta) |  |  |
 | Management - Compute | NuGet [50.0.0](https://www.nuget.org/packages/Microsoft.Azure.Management.Compute/50.0.0) |  | GitHub [50.0.0](https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.Management.Compute_50.0.0/sdk/compute/Microsoft.Azure.Management.Compute/) |
 | Management - Compute Fluent | NuGet [1.38.0](https://www.nuget.org/packages/Microsoft.Azure.Management.Compute.Fluent/1.38.0) | [docs](/dotnet/api/overview/azure/virtualmachines) |  |

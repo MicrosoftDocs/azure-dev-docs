@@ -75,9 +75,11 @@
 | Resource Management - App Service | npm [9.0.0](https://www.npmjs.com/package/@azure/arm-appservice/v/9.0.0)<br>npm [10.0.0-beta.1](https://www.npmjs.com/package/@azure/arm-appservice/v/10.0.0-beta.1) | [docs](/javascript/api/overview/azure/arm-appservice-readme) | GitHub [9.0.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/appservice/arm-appservice) |
 | Resource Management - Authorization | npm [8.4.1](https://www.npmjs.com/package/@azure/arm-authorization/v/8.4.1)<br>npm [9.0.0-beta.1](https://www.npmjs.com/package/@azure/arm-authorization/v/9.0.0-beta.1) | [docs](/javascript/api/overview/azure/arm-authorization-readme) | GitHub [8.4.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/authorization/arm-authorization) |
 | Resource Management - Compute | npm [16.5.0](https://www.npmjs.com/package/@azure/arm-compute/v/16.5.0)<br>npm [17.0.0-beta.2](https://www.npmjs.com/package/@azure/arm-compute/v/17.0.0-beta.2) | [docs](/javascript/api/overview/azure/arm-compute-readme) | GitHub [16.5.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/compute/arm-compute) |
+| Resource Management - Consumption | npm [8.0.1](https://www.npmjs.com/package/@azure/arm-consumption/v/8.0.1)<br>npm [9.0.0-beta.1](https://www.npmjs.com/package/@azure/arm-consumption/v/9.0.0-beta.1) |  | GitHub [8.0.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/consumption/arm-consumption) |
 | Resource Management - Container Registry | npm [9.0.0](https://www.npmjs.com/package/@azure/arm-containerregistry/v/9.0.0)<br>npm [10.0.0-beta.1](https://www.npmjs.com/package/@azure/arm-containerregistry/v/10.0.0-beta.1) | [docs](/javascript/api/overview/azure/arm-containerregistry-readme) | GitHub [9.0.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/containerregistry/arm-containerregistry) |
 | Resource Management - Container Service | npm [14.2.0](https://www.npmjs.com/package/@azure/arm-containerservice/v/14.2.0)<br>npm [15.0.0-beta.1](https://www.npmjs.com/package/@azure/arm-containerservice/v/15.0.0-beta.1) | [docs](/javascript/api/overview/azure/arm-containerservice-readme) | GitHub [14.2.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/containerservice/arm-containerservice) |
 | Resource Management - Content Delivery Network | npm [5.3.1](https://www.npmjs.com/package/@azure/arm-cdn/v/5.3.1)<br>npm [6.0.0-beta.1](https://www.npmjs.com/package/@azure/arm-cdn/v/6.0.0-beta.1) | [docs](/javascript/api/overview/azure/cdn) | GitHub [5.3.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/cdn/arm-cdn) |
+| Resource Management - Cosmos DB | npm [14.2.0](https://www.npmjs.com/package/@azure/arm-cosmosdb/v/14.2.0)<br>npm [15.0.0-beta.1](https://www.npmjs.com/package/@azure/arm-cosmosdb/v/15.0.0-beta.1) | [docs](/javascript/api/overview/azure/cosmos-db) | GitHub [14.2.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/cosmosdb/arm-cosmosdb) |
 | Resource Management - Data Factory | npm [8.1.0](https://www.npmjs.com/package/@azure/arm-datafactory/v/8.1.0)<br>npm [9.0.0-beta.1](https://www.npmjs.com/package/@azure/arm-datafactory/v/9.0.0-beta.1) |  | GitHub [8.1.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/datafactory/arm-datafactory) |
 | Resource Management - Databricks | npm [2.0.0](https://www.npmjs.com/package/@azure/arm-databricks/v/2.0.0)<br>npm [3.0.0-beta.1](https://www.npmjs.com/package/@azure/arm-databricks/v/3.0.0-beta.1) | [docs](/javascript/api/overview/azure/arm-databricks-readme) | GitHub [2.0.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/databricks/arm-databricks) |
 | Resource Management - Desktopvirtualization | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure/arm-desktopvirtualization/v/1.0.0-beta.1) |  | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-desktopvirtualization_1.0.0-beta.1/sdk/desktopvirtualization/arm-desktopvirtualization/) |
@@ -116,12 +118,12 @@
 | @autorest/codemodel | npm [4.17.1](https://www.npmjs.com/package/@autorest/codemodel/v/4.17.1) |  |  |
 | @autorest/common | npm [1.3.0](https://www.npmjs.com/package/@autorest/common/v/1.3.0) |  |  |
 | @autorest/configuration | npm [1.7.3](https://www.npmjs.com/package/@autorest/configuration/v/1.7.3) |  |  |
-| @autorest/csharp | npm [3.0.0-beta.20211112.1](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20211112.1) |  |  |
+| @autorest/csharp | npm [3.0.0-beta.20211116.1](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20211116.1) |  |  |
 | @autorest/csharp-v3 | npm [3.0.0-beta.20201217.1](https://www.npmjs.com/package/@autorest/csharp-v3/v/3.0.0-beta.20201217.1) |  |  |
 | @autorest/extension-base | npm [3.3.2](https://www.npmjs.com/package/@autorest/extension-base/v/3.3.2) |  |  |
-| @autorest/gotest | npm [1.1.1](https://www.npmjs.com/package/@autorest/gotest/v/1.1.1) |  |  |
+| @autorest/gotest | npm [1.1.2](https://www.npmjs.com/package/@autorest/gotest/v/1.1.2) |  |  |
 | @autorest/schemas | npm [1.3.1](https://www.npmjs.com/package/@autorest/schemas/v/1.3.1) |  |  |
-| @autorest/testmodeler | npm [1.0.1](https://www.npmjs.com/package/@autorest/testmodeler/v/1.0.1) |  |  |
+| @autorest/testmodeler | npm [1.0.2](https://www.npmjs.com/package/@autorest/testmodeler/v/1.0.2) |  |  |
 | @autorest/test-utils | npm [0.4.0](https://www.npmjs.com/package/@autorest/test-utils/v/0.4.0) |  |  |
 | @autorest/typescript | npm [6.0.0-beta.15](https://www.npmjs.com/package/@autorest/typescript/v/6.0.0-beta.15) |  |  |
 | @azure/arm-appservice-profile-2020-09-01-hybrid | npm [1.1.1](https://www.npmjs.com/package/@azure/arm-appservice-profile-2020-09-01-hybrid/v/1.1.1) |  |  |
@@ -158,7 +160,7 @@
 | @azure/iot-modelsrepository | npm [1.0.0-beta.2](https://www.npmjs.com/package/@azure/iot-modelsrepository/v/1.0.0-beta.2) |  |  |
 | @azure/media-stream-library | npm [1.1.0-beta.3](https://www.npmjs.com/package/@azure/media-stream-library/v/1.1.0-beta.3) |  |  |
 | @azure/quantum-jobs | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure/quantum-jobs/v/1.0.0-beta.1) |  |  |
-| @azure/static-web-apps-cli | npm [0.8.0](https://www.npmjs.com/package/@azure/static-web-apps-cli/v/0.8.0) |  |  |
+| @azure/static-web-apps-cli | npm [0.8.1](https://www.npmjs.com/package/@azure/static-web-apps-cli/v/0.8.1) |  |  |
 | @azure/video-analyzer-player | npm [1.0.4](https://www.npmjs.com/package/@azure/video-analyzer-player/v/1.0.4)<br>npm [1.1.0-beta.7](https://www.npmjs.com/package/@azure/video-analyzer-player/v/1.1.0-beta.7) |  |  |
 | @azure/video-analyzer-widgets | npm [2.0.2](https://www.npmjs.com/package/@azure/video-analyzer-widgets/v/2.0.2) |  |  |
 | @azure-rest/core-client-lro | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure-rest/core-client-lro/v/1.0.0-beta.1) |  |  |
@@ -212,7 +214,7 @@
 | AutoRest - Functions TypeScript | npm [0.0.1-preview](https://www.npmjs.com/package/@autorest/azure-functions-typescript/v/0.0.1-preview) |  |  |
 | AutoRest - Go | npm [4.0.0-preview.31](https://www.npmjs.com/package/@autorest/go/v/4.0.0-preview.31) |  |  |
 | AutoRest - Modeler Four | npm [4.21.4](https://www.npmjs.com/package/@autorest/modelerfour/v/4.21.4) |  | GitHub [4.21.4](https://github.com/Azure/autorest.modelerfour) |
-| AutoRest - PowerShell | npm [3.0.462](https://www.npmjs.com/package/@autorest/powershell/v/3.0.462) |  | GitHub [3.0.462](https://github.com/Azure/autorest.powershell) |
+| AutoRest - PowerShell | npm [3.0.463](https://www.npmjs.com/package/@autorest/powershell/v/3.0.463) |  | GitHub [3.0.463](https://github.com/Azure/autorest.powershell) |
 | AutoRest - Python | npm [5.11.2](https://www.npmjs.com/package/@autorest/python/v/5.11.2) |  | GitHub [5.11.2](https://github.com/Azure/autorest.python/tree/v5.1.0-preview.7) |
 | AutoRest - Remodeler | npm [2.1.27](https://www.npmjs.com/package/@autorest/remodeler/v/2.1.27) |  | GitHub [2.1.27](https://github.com/Azure/autorest.remodeler) |
 | AutoRest - Test | npm [0.1.76](https://www.npmjs.com/package/@autorest/test/v/0.1.76) |  | GitHub [0.1.76](https://github.com/Azure/autorest.test) |
@@ -386,12 +388,12 @@
 | Resource Management - Commitment Plans | npm [1.3.1](https://www.npmjs.com/package/@azure/arm-commitmentplans/v/1.3.1) |  | GitHub [1.3.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/machinelearning/arm-commitmentplans) |
 | Resource Management - Communication | npm [2.1.1](https://www.npmjs.com/package/@azure/arm-communication/v/2.1.1) |  |  |
 | Resource Management - Compute | npm [16.5.0](https://www.npmjs.com/package/@azure/arm-compute/v/16.5.0)<br>npm [17.0.0-beta.2](https://www.npmjs.com/package/@azure/arm-compute/v/17.0.0-beta.2) | [docs](/javascript/api/overview/azure/arm-compute-readme) | GitHub [16.5.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/compute/arm-compute) |
-| Resource Management - Consumption | npm [8.0.1](https://www.npmjs.com/package/@azure/arm-consumption/v/8.0.1) |  | GitHub [8.0.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/consumption/arm-consumption) |
+| Resource Management - Consumption | npm [8.0.1](https://www.npmjs.com/package/@azure/arm-consumption/v/8.0.1)<br>npm [9.0.0-beta.1](https://www.npmjs.com/package/@azure/arm-consumption/v/9.0.0-beta.1) |  | GitHub [8.0.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/consumption/arm-consumption) |
 | Resource Management - Container Instances | npm [7.1.0](https://www.npmjs.com/package/@azure/arm-containerinstance/v/7.1.0) |  | GitHub [7.1.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/containerinstance/arm-containerinstance) |
 | Resource Management - Container Registry | npm [9.0.0](https://www.npmjs.com/package/@azure/arm-containerregistry/v/9.0.0)<br>npm [10.0.0-beta.1](https://www.npmjs.com/package/@azure/arm-containerregistry/v/10.0.0-beta.1) | [docs](/javascript/api/overview/azure/arm-containerregistry-readme) | GitHub [9.0.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/containerregistry/arm-containerregistry) |
 | Resource Management - Container Service | npm [14.2.0](https://www.npmjs.com/package/@azure/arm-containerservice/v/14.2.0)<br>npm [15.0.0-beta.1](https://www.npmjs.com/package/@azure/arm-containerservice/v/15.0.0-beta.1) | [docs](/javascript/api/overview/azure/arm-containerservice-readme) | GitHub [14.2.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/containerservice/arm-containerservice) |
 | Resource Management - Content Delivery Network | npm [5.3.1](https://www.npmjs.com/package/@azure/arm-cdn/v/5.3.1)<br>npm [6.0.0-beta.1](https://www.npmjs.com/package/@azure/arm-cdn/v/6.0.0-beta.1) | [docs](/javascript/api/overview/azure/cdn) | GitHub [5.3.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/cdn/arm-cdn) |
-| Resource Management - Cosmos DB | npm [14.2.0](https://www.npmjs.com/package/@azure/arm-cosmosdb/v/14.2.0) | [docs](/javascript/api/overview/azure/cosmos-db) | GitHub [14.2.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/cosmosdb/arm-cosmosdb) |
+| Resource Management - Cosmos DB | npm [14.2.0](https://www.npmjs.com/package/@azure/arm-cosmosdb/v/14.2.0)<br>npm [15.0.0-beta.1](https://www.npmjs.com/package/@azure/arm-cosmosdb/v/15.0.0-beta.1) | [docs](/javascript/api/overview/azure/cosmos-db) | GitHub [14.2.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/cosmosdb/arm-cosmosdb) |
 | Resource Management - Customer Insights | npm [3.2.1](https://www.npmjs.com/package/@azure/arm-customerinsights/v/3.2.1) |  | GitHub [3.2.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/customer-insights/arm-customerinsights) |
 | Resource Management - Data Box | npm [4.1.1](https://www.npmjs.com/package/@azure/arm-databox/v/4.1.1) |  | GitHub [4.1.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/databox/arm-databox) |
 | Resource Management - Data Box Edge | npm [1.1.1](https://www.npmjs.com/package/@azure/arm-databoxedge/v/1.1.1) |  |  |
