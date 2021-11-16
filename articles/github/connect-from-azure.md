@@ -138,6 +138,8 @@ To learn more about this interaction, see the [GitHub Actions documentation](htt
 
 In this example, you'll use OpenID Connect Azure CLI to authenticate with Azure with the [Azure login](https://github.com/marketplace/actions/azure-login) action. The example uses GitHub secrets for the `client-id`, `tenant-id`, and `subscription-id` values. You can also pass these values directly in the login action.
 
+The Azure login action includes an optional `audience` input parameters that defaults to `api://AzureADTokenExchange` for connecting to Azure.
+
 # [Linux](#tab/linux)
 
 ```yaml
