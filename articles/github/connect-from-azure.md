@@ -171,7 +171,7 @@ jobs:
 
 # [Windows](#tab/windows)
 
-This workflow authenticates with OpenID Connect and uses PowerShell to output a list of resource groups tied you the connected Azure subscription.
+This workflow authenticates with OpenID Connect and uses PowerShell to output a list of resource groups tied to the connected Azure subscription.
 
 ```yaml
 name: Run Azure Login with OpenID Connect and PowerShell
