@@ -24,7 +24,7 @@ If you want to provide feedback on these offers, stay-up-date on the roadmap, or
 
 ## Open Liberty and WebSphere Liberty on ARO
 
-This offer is aimed at automatically provisioning several Azure resources to quickly move to Open Liberty and WebSphere Liberty on ARO. The automatically provisioned resources include virtual networks, storage, ARO, the Open Liberty Operator, container registries, namespaces, Docker images, and Open Liberty/WebSphere Liberty. The solution also includes basic step-by-step guidance on getting started with Open Liberty/WebSphere Liberty and ARO, remaining as close as possible to a native OpenShift experience. For more information, see [Deploy a Java application with Open Liberty or WebSphere Liberty on an Azure Red Hat OpenShift (ARO) cluster](/azure/openshift/howto-deploy-java-liberty-app).
+This offer is aimed at automatically provisioning several Azure resources to quickly move to Open Liberty and WebSphere Liberty on ARO. The automatically provisioned resources include virtual networks, storage, ARO, the Open Liberty Operator, container registries, namespaces, Docker images, and Open Liberty/WebSphere Liberty. The offer is available as an [Azure solution template in the Portal](https://portal.azure.com/#create/ibm-usa-ny-armonk-hq-6275750-ibmcloud-aiops.20210823-liberty-aroliberty-aro). The solution also includes basic step-by-step guidance on getting started with Open Liberty/WebSphere Liberty and ARO, remaining as close as possible to a native OpenShift manual provisioning experience. For more information, see [Deploy a Java application with Open Liberty or WebSphere Liberty on an Azure Red Hat OpenShift (ARO) cluster](/azure/openshift/howto-deploy-java-liberty-app).
 
 ## WebSphere Application Server on VMs
 
@@ -32,7 +32,7 @@ This offer is aimed at automatically provisioning several Azure resources to qui
 
 ## Open Liberty and WebSphere Liberty on AKS
 
-This offer is aimed at automatically provisioning several Azure resources to quickly move to Open Liberty and WebSphere Liberty on AKS. The automatically provisioned resources include the Azure Container Registry (ACR), AKS, the Open Liberty Operator, Docker images, and Open Liberty/WebSphere Liberty. The solution also includes basic step-by-step guidance on getting started with Open Liberty/WebSphere Liberty and AKS, remaining as close as possible to a native Kubernetes experience. For more information, see [Deploy a Java application with Open Liberty or WebSphere Liberty on an Azure Kubernetes Service (AKS) cluster](/azure/aks/howto-deploy-java-liberty-app).
+This offer is aimed at automatically provisioning several Azure resources to quickly move to Open Liberty and WebSphere Liberty on AKS. The automatically provisioned resources include the Azure Container Registry (ACR), AKS, the Open Liberty Operator, Docker images, and Open Liberty/WebSphere Liberty. The offer is available as an [Azure solution template in the Portal](https://portal.azure.com/#create/ibm-usa-ny-armonk-hq-6275750-ibmcloud-aiops.20210924-liberty-aksliberty-aks). The solution also includes basic step-by-step guidance on getting started with Open Liberty/WebSphere Liberty and AKS, remaining as close as possible to a native Kubernetes manual provisioning experience. For more information, see [Deploy a Java application with Open Liberty or WebSphere Liberty on an Azure Kubernetes Service (AKS) cluster](/azure/aks/howto-deploy-java-liberty-app).
 
 ## Next steps
 
