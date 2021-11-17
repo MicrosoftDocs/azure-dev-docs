@@ -74,4 +74,4 @@ Note that if you use `client-id` and `client-secret` you should not pass a `mana
 
 ## Client/server side SSL examples
 
-If you need some examples for client/server side SSL, see [here](azure/developer/java/api/overview/azure/security-keyvault-jca-readme#examples) for more information.
+If you need some examples for client/server side SSL, see [here](https://docs.microsoft.com/en-us/java/api/overview/azure/security-keyvault-jca-readme?view=azure-java-stable#examples) for more information.
