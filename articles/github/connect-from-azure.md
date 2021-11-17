@@ -142,6 +142,8 @@ The Azure login action includes an optional `audience` input parameter that defa
 
 # [Linux](#tab/linux)
 
+This workflow authenticates with OpenID Connect and uses Azure CLI to get the details of the connected subscription and list resource group.
+
 ```yaml
 name: Run Azure Login with OpenID Connect
 on: [push]
@@ -153,41 +155,50 @@ jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-        
     - name: 'Az CLI login'
       uses: azure/login@v1
       with:
-        client-id: ${{ secrets.AZURE_CLIENTID }}
-        tenant-id: ${{ secrets.AZURE_TENANTID }}
-        subscription-id: ${{ secrets.AZURE_SUBSCRIPTIONID }}
+          client-id: ${{ secrets.AZURE_CLIENTID }}
+          tenant-id: ${{ secrets.AZURE_TENANTID }}
+          subscription-id: ${{ secrets.AZURE_SUBSCRIPTIONID }}
+  
+    - name: 'Run Azure CLI commands'
+      run: |
+          az account show
+          az group list
+          pwd 
 ```
 
 # [Windows](#tab/windows)
 
+This workflow authenticates with OpenID Connect and uses PowerShell to output a list of resource groups tied you the connected Azure subscription.
+
 ```yaml
-name: Run Azure Login with OpenID Connect
+name: Run Azure Login with OpenID Connect and PowerShell
 on: [push]
 
 permissions:
       id-token: write
+      contents: read
       
 jobs: 
   Windows-latest:
       runs-on: windows-latest
       steps:
-
-        - name: Installing Az.accounts for powershell
-          shell: pwsh
-          run: |
-               Install-Module -Name Az.Accounts -Force -AllowClobber -Repository PSGallery
-  
         - name: OIDC Login to Azure Public Cloud with AzPowershell (enableAzPSSession true)
           uses: azure/login@v1
           with:
-            client-id: ${{ secrets.AZURE_CLIENTID }}
-            tenant-id: ${{ secrets.AZURE_TENANTID }}
-            subscription-id: ${{ secrets.AZURE_SUBSCRIPTIONID }} 
+            client-id: ${{ secrets.AZURE_CLIENT_ID }}
+            tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+            subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }} 
             enable-AzPSSession: true
+
+        - name: 'Get resource group with PowerShell action'
+          uses: azure/powershell@v1
+          with:
+             inlineScript: |
+               Get-AzResourceGroup
+             azPSVersion: "latest"
 ```
 
 ---
