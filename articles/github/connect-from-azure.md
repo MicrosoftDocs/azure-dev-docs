@@ -138,7 +138,11 @@ To learn more about this interaction, see the [GitHub Actions documentation](htt
 
 In this example, you'll use OpenID Connect Azure CLI to authenticate with Azure with the [Azure login](https://github.com/marketplace/actions/azure-login) action. The example uses GitHub secrets for the `client-id`, `tenant-id`, and `subscription-id` values. You can also pass these values directly in the login action.
 
+The Azure login action includes an optional `audience` input parameter that defaults to `api://AzureADTokenExchange`. You can update this parameter for custom audience values.
+
 # [Linux](#tab/linux)
+
+This workflow authenticates with OpenID Connect and uses Azure CLI to get the details of the connected subscription and list resource group.
 
 ```yaml
 name: Run Azure Login with OpenID Connect
@@ -151,41 +155,50 @@ jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-        
     - name: 'Az CLI login'
-      uses: azure/login@v1.4.0
+      uses: azure/login@v1
       with:
-        client-id: ${{ secrets.AZURE_CLIENTID }}
-        tenant-id: ${{ secrets.AZURE_TENANTID }}
-        subscription-id: ${{ secrets.AZURE_SUBSCRIPTIONID }}
+          client-id: ${{ secrets.AZURE_CLIENTID }}
+          tenant-id: ${{ secrets.AZURE_TENANTID }}
+          subscription-id: ${{ secrets.AZURE_SUBSCRIPTIONID }}
+  
+    - name: 'Run Azure CLI commands'
+      run: |
+          az account show
+          az group list
+          pwd 
 ```
 
 # [Windows](#tab/windows)
 
+This workflow authenticates with OpenID Connect and uses PowerShell to output a list of resource groups tied to the connected Azure subscription.
+
 ```yaml
-name: Run Azure Login with OpenID Connect
+name: Run Azure Login with OpenID Connect and PowerShell
 on: [push]
 
 permissions:
       id-token: write
+      contents: read
       
 jobs: 
   Windows-latest:
       runs-on: windows-latest
       steps:
-
-        - name: Installing Az.accounts for powershell
-          shell: pwsh
-          run: |
-               Install-Module -Name Az.Accounts -Force -AllowClobber -Repository PSGallery
-  
         - name: OIDC Login to Azure Public Cloud with AzPowershell (enableAzPSSession true)
-          uses: azure/login@v1.4.0
+          uses: azure/login@v1
           with:
-            client-id: ${{ secrets.AZURE_CLIENTID }}
-            tenant-id: ${{ secrets.AZURE_TENANTID }}
-            subscription-id: ${{ secrets.AZURE_SUBSCRIPTIONID }} 
+            client-id: ${{ secrets.AZURE_CLIENT_ID }}
+            tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+            subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }} 
             enable-AzPSSession: true
+
+        - name: 'Get resource group with PowerShell action'
+          uses: azure/powershell@v1
+          with:
+             inlineScript: |
+               Get-AzResourceGroup
+             azPSVersion: "latest"
 ```
 
 ---
