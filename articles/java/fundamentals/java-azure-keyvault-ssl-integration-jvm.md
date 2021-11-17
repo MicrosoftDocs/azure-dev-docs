@@ -14,7 +14,7 @@ This article describes how to integrate Azure Key Vault into the JVM to deliver 
 
 1. Go to https://repo1.maven.org/maven2/com/azure/azure-security-keyvault-jca/
 2. Click on the version you want to download (e.g 2.2.0)
-3. Click on the JAR file to use (e.g azure-security-keyvault-jca-2.2.0.jar).
+3. Click on the JAR file to download it (e.g azure-security-keyvault-jca-2.2.0.jar).
 
 ## Create the bootstrap.jar
 
