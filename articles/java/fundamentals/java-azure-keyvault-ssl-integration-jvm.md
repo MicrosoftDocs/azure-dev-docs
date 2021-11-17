@@ -10,12 +10,6 @@ ms.date: 11/17/2021
 
 This article describes how to integrate Azure Key Vault into the JVM to deliver SSL certificates.
 
-## Download the Azure Key Vault JCA provider from Maven central
-
-1. Go to https://repo1.maven.org/maven2/com/azure/azure-security-keyvault-jca/
-2. Click on the version you want to download (e.g 2.2.0)
-3. Click on the JAR file to download it (e.g azure-security-keyvault-jca-2.2.0.jar).
-
 ## Create the bootstrap.jar
 
 The JCA provider JAR that we publish on Maven Central does not automatically register itself. Note this is by design so you can also programmatically enable the provider.
