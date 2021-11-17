@@ -1,10 +1,10 @@
 ---
 title: "What are solutions to run the IBM WebSphere family of products on Azure"
-description: WebSphere products are key components in enabling enterprise Java workloads on Azure. IBM and Microsoft are working on a complete set of jointly developed and supported solutions for the product family.
+description: WebSphere products are key components in enabling enterprise Java workloads on Azure. IBM and Microsoft are collaborating on a complete set of jointly developed and supported solutions for the product family.
 recommendations: false
 ms.author: rezar
 ms.topic: overview
-ms.date: 04/28/2021
+ms.date: 11/17/2021
 ms.custom: template-overview, devx-track-java, devx-track-javaee, devx-track-javaee-was
 ---
 
@@ -14,7 +14,7 @@ This article describes the solutions for running the IBM WebSphere family of pro
 
 The IBM WebSphere product portfolio is a set of industry-leading runtimes powering some of the most mission critical enterprise applications across geographies and environments. The WebSphere portfolio includes WebSphere (Traditional) Application Server, WebSphere Liberty, and Open Liberty.
 
-WebSphere products are key components in enabling enterprise Java workloads on Azure. The offers aim to cover a range of use cases from mission critical existing traditional workloads to cloud-native applications. The offers target Open Liberty on Azure Red Hat OpenShift (ARO), WebSphere Liberty on ARO, WebSphere Application Server on Virtual Machines, Open Liberty on the Azure Kubernetes Service (AKS), and WebSphere Liberty on AKS. All offers enable further customization of deployments such as integration with databases (Db2, Azure SQL, Azure PostgreSQL, Azure MySQL), Azure App Gateway, Azure Active Directory, and ELK.
+WebSphere products are key components in enabling enterprise Java workloads on Azure. The offers aim to cover a range of use cases from mission critical existing traditional workloads to cloud-native applications. The offers target Open Liberty on Azure Red Hat OpenShift (ARO), WebSphere Liberty on ARO, WebSphere Application Server on Virtual Machines, Open Liberty on the Azure Kubernetes Service (AKS), and WebSphere Liberty on AKS. All offers allow complete flexibility to customize your deployments such as integration with databases (Db2, Azure SQL, Azure PostgreSQL, Azure MySQL), Azure App Gateway, Azure Active Directory, and ELK.
 
 The currently available offers are linked at the bottom of this page.
 
@@ -39,10 +39,10 @@ This offer is aimed at automatically provisioning several Azure resources to qui
 Explore the currently available offers on Azure.
 
 > [!div class="nextstepaction"]
+> [Deploy Open Liberty and WebSphere Liberty on Azure Red Hat OpenShift](https://portal.azure.com/#create/ibm-usa-ny-armonk-hq-6275750-ibmcloud-aiops.20210823-liberty-aroliberty-aro)
+
+> [!div class="nextstepaction"]
 > [Deploy WebSphere Application Server on Azure Virtual Machines](https://portal.azure.com/#create/ibm-usa-ny-armonk-hq-6275750-ibmcloud-aiops.2021-04-08-twas-clustercluster)
 
 > [!div class="nextstepaction"]
-> [Deploy a Java app with Open Liberty or WebSphere Liberty on an ARO cluster](/azure/openshift/howto-deploy-java-liberty-app)
-
-> [!div class="nextstepaction"]
-> [Deploy a Java app with Open Liberty or WebSphere Liberty on an AKS cluster](/azure/aks/howto-deploy-java-liberty-app)
+> [Deploy Open Liberty and WebSphere Liberty on Azure Kubernetes Service](https://portal.azure.com/#create/ibm-usa-ny-armonk-hq-6275750-ibmcloud-aiops.20210924-liberty-aksliberty-aks)
