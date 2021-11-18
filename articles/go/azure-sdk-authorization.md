@@ -182,3 +182,8 @@ import "github.com/Azure/go-autorest/autorest/azure/auth"
 certificateAuthorizer := auth.NewClientCertificateConfig(certificatePath, certificatePassword, clientID, tenantID)
 authorizerToken, err := certificateAuthorizer.Authorizer()
 ```
+
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Deploy an Azure virtual machine from Go](azure-sdk-qs-vm.md).
