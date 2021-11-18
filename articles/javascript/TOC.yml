@@ -5,29 +5,25 @@
     href: whats-new-docs.md
   - name: What's new with Developer Advocates
     href: whats-new-developer-advocacy.md  
-  - name: Top tasks for developers
-    href: how-to/common-javascript-tasks.md    
   - name: Get started on Azure with JavaScript
     items:
-    - name: What is Azure for JavaScript developers?
+    - name: What is Azure?
       href: core/what-is-azure-for-javascript-development.md
     - name: Install Node.js
       href: core/install-nodejs-develop-azure-sdk-project.md
-    - name: Azure tools for JavaScript developers
+    - name: Recommended Tools
       href: node-azure-tools.md
-    - name: Set up your dev environment
+    - name: Development environment
       href: core/configure-local-development-environment.md
-    - name: Authenticate to Azure
-      href: core/nodejs-sdk-azure-authenticate.md
-    - name: Use the Azure SDKs for JavaScript
-      href: core/use-azure-sdk.md
   - name: How-To guides
     items:
-      - name: Azure Tasks for JavaScript developers
-        href: how-to/common-javascript-tasks.md
+      - name: Top developer tasks
+        href: how-to/common-javascript-tasks.md    
       - name: With Azure SDKs
         items:
-          - name: Set up authentication
+          - name: Azure SDK  
+            href: core/use-azure-sdk.md      
+          - name: Authenticate to Azure
             href: core/nodejs-sdk-azure-authenticate.md
           - name: "Account: List subscriptions"
             href: core/nodejs-sdk-azure-authenticate.md?tabs=azure-sdk-for-javascript.md#3-list-azure-subscriptions-with-service-principal
