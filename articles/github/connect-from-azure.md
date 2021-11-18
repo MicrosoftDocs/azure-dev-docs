@@ -29,7 +29,7 @@ To set up an Azure Login with OpenID Connect and use it in a GitHub Actions work
 
 * An [Active Directory application](/azure/active-directory/develop/), with a service principal that has contributor access to your subscription
 * An Active Directory application configured with a federated credential to trust tokens issued by GitHub Actions to your GitHub repository. You can configure this in the Azure portal or with Microsoft Graph REST APIs
-* A GitHub Actions workflow that requests GitHub issue tokens to the workflow, and uses the `azure/login@v1.4.0` action
+* A GitHub Actions workflow that requests GitHub issue tokens to the workflow, and uses the Azure login action
 
 ### Create an active directory application and service principal
 
@@ -190,7 +190,7 @@ jobs:
           with:
             client-id: ${{ secrets.AZURE_CLIENT_ID }}
             tenant-id: ${{ secrets.AZURE_TENANT_ID }}
-            subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }} 
+            subscription-id: ${{ secrets.AZURE_SUBSCRIPTIONID }} 
             enable-AzPSSession: true
 
         - name: 'Get resource group with PowerShell action'
