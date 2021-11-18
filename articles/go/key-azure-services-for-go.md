@@ -1,6 +1,6 @@
 ---
 title: Key Azure Services for Go developers
-description: Azure has over 100 services, but these are the 8 services most frequently used by Go developers
+description: Azure has over 100 services, but these are the 8 services most frequently used by Go developers.
 ms.date: 11/08/2021
 ms.topic: conceptual
 ms.custom: devx-track-go
@@ -9,7 +9,7 @@ ms.author: jduffney
 
 # Key Azure services for Go developers
 
-While Azure contains over 100 services, Go developers use the following Azure services the most frequently.
+While Azure offers over 100 services, Go developers use the following Azure services the most frequently.
 
 | Icon | Service | Description |
 |:----:|:--------|:------------|

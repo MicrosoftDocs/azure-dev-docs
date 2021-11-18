@@ -61,7 +61,7 @@ landingContent:
             url: https://github.com/azure-samples/azure-go-labs/blob/master/1-app-hello-echo/README.md
           - text: Azure Container Apps
             url: /azure/container-apps
-  - title: Open Source
+  - title: Open source
     linkLists:
       - linkListType: reference
         links:
