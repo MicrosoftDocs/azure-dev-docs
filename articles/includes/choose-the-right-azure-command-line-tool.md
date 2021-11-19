@@ -6,13 +6,13 @@
  ms.author: jduffney
 ---
 
-# Choose the right command-line tool for Azure
+# Choose the right Azure command-line tool
 
 When it comes to managing Azure, you have many options. This article compares the Azure CLI and Azure PowerShell language and gives a comparison of the shell environments on which they run.
 
 [Azure CLI](/cli/azure/install-azure-cli), [Azure PowerShell](/powershell/azure/install-az-ps), and [Azure Cloud Shell](/azure/cloud-shell/overview) have overlapping functionality. Each operates differently, and the language is sometimes confused with the environment. Use this guide to determine which is the right tool for you.
 
-## What's the advantage of using a command-line tool?
+## What's the advantage of using an Azure command-line tool?
 
 Azure runs on automation. Every action you take inside the portal translates somewhere to code being executed to read, create, modify, or delete resources.
 
@@ -20,9 +20,11 @@ Moving your workload to Azure lifts some of the administrative burden but not al
 
 By using the existing automation that runs Azure, command-line tools reduce that overhead.
 
-Command-line tools automate routine operations, standardize database failovers, and pull data that provide powerful insight. Command-line tools not only give you the ability to scale your tasks in Azure, but they also make much easier to share. Sharing a script is much easier than a lengthy wiki page with time consuming screenshots.
+## What are Azure command-line tools?
 
-Using a command-line tool isn't always necessary, but it's a useful skill to have.
+Azure command-line tools automate routine operations, standardize database failovers, and pull data that provide powerful insight. Command-line tools not only give you the ability to scale your tasks in Azure, but they also make much easier to share. Sharing a script is much easier than a lengthy wiki page with time consuming screenshots.
+
+Using an Azure command-line tool isn't always necessary, but it's a useful skill to have.
 
 ## Azure CLI vs Azure PowerShell
 
@@ -56,7 +58,7 @@ Azure CLI has an installer that makes its commands executable in all four shell 
 
 Azure PowerShell is set of cmdlets packaged as a PowerShell module named `Az`; not an executable. Windows PowerShell or PowerShell must be used to install the `Az` module. 
 
-Windows PowerShell is the standard scripting shell that comes preinstalled with most Windows operating systems. PowerShell is a stand-alone installation that uses .NET Core as it's run time, allowing allowing it to be installed on macOS, Linux, and Windows.
+Windows PowerShell is the standard scripting shell that comes preinstalled with most Windows operating systems. PowerShell is a stand-alone installation that uses .NET Core as it's run time, allowing it to be installed on macOS, Linux, and Windows.
 
 **Key points:**
 
@@ -70,11 +72,11 @@ Azure Cloud Shell is a hosted shell environment that runs on an Ubuntu container
 
 Cloud Shell provides two shell environments: Bash (with Azure CLI preinstalled) and PowerShell (with Azure PowerShell preinstalled). A dropdown list at the top of the Cloud Shell window allows you to easily switch between the two environments.
 
-Cloud Shell is accessible in a web browser and has integrations for [Windows Terminal](https://channel9.msdn.com/Shows/IT-Ops-Talk/Azure-Cloud-Shell-in-the-Windows-Terminal) and [Visual Studio Code](https://azure.microsoft.com/en-us/blog/cloudshelleditor/).
+Cloud Shell is accessible in a web browser and has integrations for [Windows Terminal](https://channel9.msdn.com/Shows/IT-Ops-Talk/Azure-Cloud-Shell-in-the-Windows-Terminal) and [Visual Studio Code](https://azure.microsoft.com/blog/cloudshelleditor/).
 
 ![Azure CloudShell Bash and PowerShell environments](./media/choosing-the-right-azure-tool/azure-cloud-shell-bash-powershell.png)
 
-## Which Command-line tool is right for you?
+## Which Azure command-line tool is right for you?
 
 When picking the right tool, consider your past experience and current work environment.
 
@@ -91,7 +93,7 @@ With that said, being open-minded will only improve your abilities. Use a differ
 
 * Feature parity for Azure services doesn't always exist between Azure CLI and Azure PowerShell.
 
-## Azure CLI and Azure PowerShell Side-by-side Command Comparison
+## Azure CLI vs Azure PowerShell: Side-by-side Command Comparison
 
 Sign in, Subscription, and Location Commands:
 

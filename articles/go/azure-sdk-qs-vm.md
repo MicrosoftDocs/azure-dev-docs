@@ -3,7 +3,9 @@ title: Deploy an Azure virtual machine from Go
 description: Deploy a virtual machine using the Azure SDK for Go.
 ms.date: 09/05/2018
 ms.topic: quickstart
+ms.custom: devx-track-go
 ---
+
 # Quickstart: Deploy an Azure virtual machine from a template with the Azure SDK for Go
 
 This quickstart shows you how to deploy resources from an Azure Resource Manager template, using the Azure SDK for Go. Templates are snapshots of all of the resources within an [Azure resource group](/azure/azure-resource-manager/resource-group-overview). Along the way, you'll become familiar with the functionality and conventions of the SDK.

@@ -1,11 +1,11 @@
 ---
 title: Migrate Spring Cloud applications to Azure Spring Cloud
 description: This guide describes what you should be aware of when you want to migrate an existing Spring Cloud application to run on Azure Spring Cloud.
-author: yevster
-ms.author: yebronsh
+ms.author: karler
 ms.topic: conceptual
 ms.date: 2/12/2020
 ms.custom: devx-track-java
+recommendations: false
 ---
 
 # Migrate Spring Cloud applications to Azure Spring Cloud
@@ -33,7 +33,7 @@ If you can't meet any of these pre-migration requirements, see the following com
 
 [!INCLUDE [identify-spring-boot-versions](includes/identify-spring-boot-versions.md)]
 
-For any applications using Spring Boot 1.x, follow the [Spring Boot 2.0 migration guide](https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-2.0-Migration-Guide) to update them to a supported Spring Boot version. For supported versions, see [Prepare a Java Spring app for deployment](/azure/spring-cloud/spring-cloud-tutorial-prepare-app-deployment#spring-boot-and-spring-cloud-versions).
+For any applications using Spring Boot 1.x, follow the [Spring Boot 2.0 migration guide](https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-2.0-Migration-Guide) to update them to a supported Spring Boot version. For supported versions, see the [Spring Boot and Spring Cloud versions](/azure/spring-cloud/how-to-prepare-app-deployment#spring-boot-and-spring-cloud-versions) section of [Prepare an application for deployment in Azure Spring Cloud](/azure/spring-cloud/how-to-prepare-app-deployment).
 
 #### Identify Spring Cloud versions
 
@@ -60,7 +60,7 @@ ext {
 }
 ```
 
-You'll need to update all applications to use supported versions of Spring Cloud. For a list of supported versions, see [Prepare a Java Spring app for deployment](/azure/spring-cloud/spring-cloud-tutorial-prepare-app-deployment#spring-boot-and-spring-cloud-versions).
+You'll need to update all applications to use supported versions of Spring Cloud. For a list of supported versions, see the [Spring Boot and Spring Cloud versions](/azure/spring-cloud/how-to-prepare-app-deployment#spring-boot-and-spring-cloud-versions) section of [Prepare an application for deployment in Azure Spring Cloud](/azure/spring-cloud/how-to-prepare-app-deployment).
 
 [!INCLUDE [identify-logs-metrics-apm-azure-spring-cloud.md](includes/identify-logs-metrics-apm-azure-spring-cloud.md)]
 
@@ -138,11 +138,11 @@ If a setting like this appears in your application configuration, remove it. Azu
 
 ### Create an Azure Spring Cloud instance and apps
 
-Provision an Azure Spring Cloud instance in your Azure subscription. Then, provision an app for every service you're migrating. Don't include the Spring Cloud registry and configuration servers. Do include the Spring Cloud Gateway service. For instructions, see [Quickstart: Launch an existing Azure Spring Cloud application using the Azure portal](/azure/spring-cloud/spring-cloud-quickstart-launch-app-portal).
+Provision an Azure Spring Cloud instance in your Azure subscription. Then, provision an app for every service you're migrating. Don't include the Spring Cloud registry and configuration servers. Do include the Spring Cloud Gateway service. For instructions, see [Quickstart: Deploy your first application to Azure Spring Cloud](/azure/spring-cloud/quickstart).
 
 ### Prepare the Spring Cloud Config server
 
-Configure the configuration server in your Azure Spring Cloud instance. For more information, see [Tutorial: Set up a Spring Cloud Config Server instance for your service](/azure/spring-cloud/spring-cloud-tutorial-config-server).
+Configure the configuration server in your Azure Spring Cloud instance. For more information, see [Set up a Spring Cloud Config Server instance for your service](/azure/spring-cloud/how-to-config-server).
 
 > [!NOTE]
 > If your current Spring Cloud Config repository is on the local file system or on premises, you'll first need to migrate or replicate your configuration files to a private cloud-based repository, such as GitHub, Azure Repos, or BitBucket.
@@ -168,7 +168,7 @@ Eliminate any integrations with APM tools/agents. For information on configuring
 
 ### Replace explicit Zipkin dependencies with Spring Cloud Starters
 
-If any of the migrated applications has explicit Zipkin dependencies, remove them and replace them with Spring Cloud Starters as described in the [Distributed Tracing Dependency](/azure/spring-cloud/spring-cloud-tutorial-prepare-app-deployment#distributed-tracing-dependency) section of [Prepare a Java Spring application for deployment in Azure Spring Cloud](/azure/spring-cloud/spring-cloud-tutorial-prepare-app-deployment). For information on distributed tracing with Azure App Insights, see the [Post-migration](#post-migration) section.
+If any of the migrated applications has explicit Zipkin dependencies, remove them and replace them with Spring Cloud Starters. For information on Azure Application Insights, see the [Post-migration](#post-migration) section.
 
 ### Disable metrics clients and endpoints in your applications
 
@@ -176,7 +176,7 @@ Remove any metrics clients used or any metrics endpoints exposed in your applica
 
 ### Deploy the services
 
-Deploy each of the migrated microservices (not including the Spring Cloud Config and Registry servers), as described in the [Quickstart: Launch an existing Azure Spring Cloud application using the Azure portal](/azure/spring-cloud/spring-cloud-quickstart-launch-app-portal).
+Deploy each of the migrated microservices (not including the Spring Cloud Config and Registry servers), as described in [Quickstart: Deploy your first application to Azure Spring Cloud](/azure/spring-cloud/quickstart).
 
 ### Configure per-service secrets and externalized settings
 
@@ -204,15 +204,15 @@ Update the configuration of all client applications to use the published Azure S
 
 ## Post-migration
 
-* Consider adding a deployment pipeline for automatic, consistent deployments. Instructions are available [for Azure Pipelines](/azure/spring-cloud/spring-cloud-howto-cicd), [for GitHub Actions](/azure/spring-cloud/spring-cloud-howto-github-actions), and [for Jenkins](/azure/jenkins/tutorial-jenkins-deploy-cli-spring-cloud-service).
+* Consider adding a deployment pipeline for automatic, consistent deployments. Instructions are available [for Azure Pipelines](/azure/spring-cloud/how-to-cicd), [for GitHub Actions](/azure/spring-cloud/how-to-github-actions), and [for Jenkins](/azure/jenkins/tutorial-jenkins-deploy-cli-spring-cloud-service).
 
-* Consider using staging deployments to test code changes in production before they're available to some or all of your end users. For more information, see [Set up a staging environment in Azure Spring Cloud](/azure/spring-cloud/spring-cloud-howto-staging-environment).
+* Consider using staging deployments to test code changes in production before they're available to some or all of your end users. For more information, see [Set up a staging environment in Azure Spring Cloud](/azure/spring-cloud/how-to-staging-environment).
 
 * Consider adding service bindings to connect your application to supported Azure databases. These service bindings would eliminate the need for you to provide connection information, including credentials, to your Spring Cloud applications.
 
-* Consider [using Distributed Tracing and Azure App Insights](/azure/spring-cloud/spring-cloud-tutorial-distributed-tracing) to monitor performance and interactions of your applications.
+* Consider using Azure Application Insights to monitor performance and interactions of your applications. For more information, see [Application Insights Java In-Process Agent in Azure Spring Cloud](/azure/spring-cloud/how-to-application-insights).
 
-* Consider adding Azure Monitor alert rules and action groups to quickly detect and address aberrant conditions. For more information, see [Tutorial: Monitor Spring Cloud resources using alerts and action groups](/azure/spring-cloud/spring-cloud-tutorial-alerts-action-groups).
+* Consider adding Azure Monitor alert rules and action groups to quickly detect and address aberrant conditions. For more information, see [Tutorial: Monitor Spring Cloud resources using alerts and action groups](/azure/spring-cloud/tutorial-alerts-action-groups).
 
 * Consider replicating the Azure Spring Cloud deployment in another region for lower latency and higher reliability and fault tolerance. Use [Azure Traffic Manager](/azure/traffic-manager) to load balance among deployments or use [Azure Front Door](/azure/frontdoor) to add SSL offloading and Web Application Firewall with DDoS protection.
 

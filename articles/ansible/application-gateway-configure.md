@@ -13,7 +13,7 @@ ms.custom: devx-track-ansible
 
 [Azure Application Gateway](/azure/application-gateway/overview) is a web traffic load balancer that enables you to manage traffic to your web applications. Based on the source IP address and port, traditional load balancers route traffic to a destination IP address and port. Application Gateway gives you a finer level of control where traffic can be routed based on the URL. For example, you could define that if `images` is URL's path, traffic is routed to a specific set of servers (known as a pool) configured for images.
 
-[!INCLUDE [ansible-tutorial-goals.md](includes/ansible-tutorial-goals.md)]
+In this article, you learn how to:
 
 > [!div class="checklist"]
 >

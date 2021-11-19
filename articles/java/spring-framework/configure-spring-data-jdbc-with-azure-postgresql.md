@@ -12,7 +12,7 @@ ms.custom: devx-track-java, devx-track-azurecli
 
 # Use Spring Data JDBC with Azure Database for PostgreSQL
 
-This topic demonstrates creating a sample application that uses [Spring Data JDBC](https://spring.io/projects/spring-data-jdbc) to store and retrieve information in an [Azure Database for PostgreSQL](/azure/postgresql/) database.
+This article demonstrates creating a sample application that uses [Spring Data JDBC](https://spring.io/projects/spring-data-jdbc) to store and retrieve information in an [Azure Database for PostgreSQL](/azure/postgresql/) database.
 
 [JDBC](https://en.wikipedia.org/wiki/Java_Database_Connectivity) is the standard Java API to connect to traditional relational databases.
 
@@ -30,7 +30,7 @@ Generate the application on the command line by using the following command:
 
 ```bash
 curl https://start.spring.io/starter.tgz -d dependencies=web,data-jdbc,postgresql -d baseDir=azure-database-workshop -d bootVersion=2.3.4.RELEASE -d javaVersion=8 | tar -xzvf -
-``` 
+```
  
 ### Configure Spring Boot to use Azure Database for PostgreSQL
 

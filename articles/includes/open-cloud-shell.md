@@ -4,18 +4,22 @@ description: include file
 author: tomarchermsft
 ms.service: terraform
 ms.topic: include
-ms.date: 08/31/2020
+ms.date: 07/22/2021
 ms.author: tarcher
 ---
 
-## Open Cloud Shell
+1. If you already have a Cloud Shell session open, you can skip to the next section.
 
-1. Browse to the [Azure portal](https://portal.azure.com).
+1. Browse to the [Azure portal](https://portal.azure.com)
 
-1. If you aren't already logged in, the Azure portal displays a list of available Microsoft accounts. Select a Microsoft account associated with one or more active Azure subscriptions and enter your credentials to continue.
+1. If necessary, log in to your Azure subscription and change the Azure directory.
 
 1. Open Cloud Shell.
 
-    ![Accessing Cloud Shell](media/open-cloud-shell/portal-cloud-shell.png)
+    :::image type="content" source="media/open-cloud-shell/portal-cloud-shell.png" alt-text="Open Cloud Shell from the top menu in the Azure portal.":::
 
-1. If you haven't previously used Cloud Shell, configure the environment and storage settings. This article uses the Bash environment.
+1. If you haven't previously used Cloud Shell, configure the environment and storage settings.
+
+1. Select the command-line environment.
+
+    :::image type="content" source="media/open-cloud-shell/choose-cloudshell-cli.png" alt-text="Select the CLI you want to use in Cloud Shell.":::

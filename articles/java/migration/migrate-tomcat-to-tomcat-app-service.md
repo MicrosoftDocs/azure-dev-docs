@@ -1,11 +1,11 @@
 ---
 title: Migrate Tomcat applications to Tomcat on Azure App Service
 description: This guide describes what you should be aware of when you want to migrate an existing Tomcat application to run on Azure App Service using Tomcat.
-author: yevster
 ms.author: yebronsh
 ms.topic: conceptual
 ms.date: 1/20/2020
 ms.custom: devx-track-java
+recommendations: false
 ---
 
 # Migrate Tomcat applications to Tomcat on Azure App Service

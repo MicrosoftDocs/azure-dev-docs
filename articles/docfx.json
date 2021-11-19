@@ -49,10 +49,10 @@
     "fileMetadata": {
       "feedback_product_url" : {
         "python/**/*.md": "https://github.com/Azure/azure-sdk-for-python/issues",
-        "ansible/**/*.md": "https://feedback.azure.com/forums/34192--general-feedback",
-        "chef/**/*.md": "https://feedback.azure.com/forums/34192--general-feedback",
-        "jenkins/**/*.md": "https://feedback.azure.com/forums/34192--general-feedback",
-        "terraform/**/*.md": "https://feedback.azure.com/forums/34192--general-feedback",
+        "ansible/**/*.md": "https://feedback.azure.com/d365community/forum/79b1327d-d925-ec11-b6e6-000d3a4f06a4",
+        "chef/**/*.md": "https://feedback.azure.com/d365community/forum/79b1327d-d925-ec11-b6e6-000d3a4f06a4",
+        "jenkins/**/*.md": "https://feedback.azure.com/d365community/forum/79b1327d-d925-ec11-b6e6-000d3a4f06a4",
+        "terraform/**/*.md": "https://feedback.azure.com/d365community/forum/79b1327d-d925-ec11-b6e6-000d3a4f06a4",
         "javascript/**/*.md": "https://github.com/Azure/azure-sdk-for-js/issues"
       },
       "product_feedback_url": {
@@ -78,13 +78,13 @@
       "author": {
         "**/*.md": "barbkess",
         "**/*.yml": "barbkess",
-        "java/**/*.md": "bmitchell287",
-        "java/**/*.yml": "bmitchell287",
+        "java/**/*.md": "karlerickson",
+        "java/**/*.yml": "karlerickson",
         "go/**/*.md": "barbkess",
         "python/**/*.md": "kraigb",
-        "ansible/**/*.md": "Duffney",
-        "chef/**/*.md": "Duffney",
-        "jenkins/**/*.md": "Duffney",
+        "ansible/**/*.md": "TomArcherMsft",
+        "chef/**/*.md": "TomArcherMsft",
+        "jenkins/**/*.md": "TomArcherMsft",
         "terraform/**/*.md": "TomArcherMsft",
         "javascript/**/*.md": "diberry",
         "javascript/**/*.yml": "diberry",
@@ -101,7 +101,7 @@
         "java/**/*.md": "brendm",
         "go/**/*.md": "barbkess",
         "python/**/*.md": "kraigb",
-        "ansible/**/*.md": "jduffney",
+        "ansible/**/*.md": "tarcher",
         "chef/**/*.md": "tarcher",
         "jenkins/**/*.md": "tarcher",
         "terraform/**/*.md": "tarcher",

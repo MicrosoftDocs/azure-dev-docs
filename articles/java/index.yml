@@ -8,7 +8,7 @@ metadata:
   title: Azure for Java developer documentation
   description: Get started developing apps for the cloud with these tutorials and tools for Java developers.
   ms.topic: hub-page
-  ms.date: 04/08/2020
+  ms.date: 06/10/2021
 
 conceptualContent:
   items:
@@ -53,7 +53,7 @@ conceptualContent:
           url: fundamentals/java-jdk-install.md
         - text: Java Docker images for Azure
           itemType: get-started
-          url: fundamentals/java-jdk-docker-images.md
+          url: /java/openjdk/containers
       footerLink:
           text: See more
           url: fundamentals/index.yml

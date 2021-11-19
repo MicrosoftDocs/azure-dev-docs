@@ -2,7 +2,7 @@
 title: Getting started with Azure Databases 
 description: Learn the common tasks to use any database hosted on Azure.  
 ms.topic: how-to
-ms.date: 02/09/2021
+ms.date: 10/05/2021
 ms.custom: devx-track-js
 ---
 
@@ -16,17 +16,16 @@ When you do use a database on Azure, there are several common tasks you need to 
 
 Microsoft provides managed services for the following databases:
 
-|Database|Azure Service|Learn more|
-|--|--|--|
-|Cassandra|[Azure Cosmos DB](/azure/cosmos-db/)|[Quickstart: Build a Cassandra app with Node.js SDK and Azure Cosmos DB](/azure/cosmos-db/create-cassandra-nodejs)|
-|Gremlin|[Azure Cosmos DB](/azure/cosmos-db/)|[Quickstart: Build a Node.js application by using Azure Cosmos DB Gremlin API account](/azure/cosmos-db/create-graph-nodejs)|
-|MongoDB|[Azure Cosmos DB](/azure/cosmos-db/)|[How to develop a JavaScript application with MongoDB on Azure](use-mongodb-as-cosmosdb.md)<br>[Quickstart: Migrate an existing MongoDB Node.js web app to Azure Cosmos DB](/azure/cosmos-db/create-mongodb-nodejs)|
-|MariaDB|[Azure Database for MariaDB](/azure/mariadb/)|[How to develop a JavaScript application with MariaDB on Azure](use-mariadb.md)|
-|MySQL|[Azure Database for MySQL](/azure/mysql/)|[Quickstart: Use Node.js to connect and query data in Azure Database for MySQL](/azure/mysql/connect-nodejs)<br>[How to develop a JavaScript application with MySQL on Azure](use-mysql-db.md)|
-|PostgreSQL|[Azure Database for PostgreSQL](/azure/postgresql/)|[Quickstart: Use Node.js to connect and query data in Azure Database for PostgreSQL - Single Server](/azure/postgresql/connect-nodejs)<br>[How to develop a JavaScript application with PostgreSQL on Azure](use-postgresql-db.md)|
-|Redis|[Azure Cache for Redis](/azure/azure-cache-for-redis/)|[Quickstart: Use Azure Cache for Redis in Node.js](/azure/azure-cache-for-redis/cache-nodejs-get-started)|
-|SQL|[Azure Cosmos DB](/azure/cosmos-db/)|[Quickstart: Use Node.js to connect and query data from Azure Cosmos DB SQL API account](/azure/cosmos-db/create-sql-api-nodejs)|
-|Tables|[Azure Cosmos DB](/azure/cosmos-db/)|[How to use Azure Table storage or the Azure Cosmos DB Table API from Node.js](/azure/cosmos-db/table-storage-how-to-use-nodejs)|
+|Database|Azure Service|
+|--|--|
+|[Cassandra](use-cassandra-as-cosmos-db.md)|[Azure Cosmos DB](/azure/cosmos-db/)|
+|Gremlin|[Azure Cosmos DB](/azure/cosmos-db/)|
+|[MongoDB](use-mongodb-as-cosmosdb.md)|[Azure Cosmos DB](/azure/cosmos-db/)|
+|MariaDB/MySQL|[Azure Database for MariaDB](/azure/mariadb/)|
+|[PostgreSQL](use-postgresql-db.md)|[Azure Database for PostgreSQL](/azure/postgresql/)|
+|[Redis](use-azure-cache-for-redis-db.md)|[Azure Cache for Redis](/azure/azure-cache-for-redis/)|
+|[SQL](use-sql-api-as-cosmos-db.md)|[Azure Cosmos DB](/azure/cosmos-db/)|
+|Tables|[Azure Cosmos DB](/azure/cosmos-db/)|
 
 **Need help with choosing?** 
 * Select your database based on [what you want to do](https://azure.microsoft.com/product-categories/databases/)
@@ -43,7 +42,7 @@ Creating a resource is accomplished with:
 
 |Tool|Purpose|
 |--|--|
-|Azure portal|Use for first or seldomly created database is the Azure portal.|
+|Azure portal|Use for first or infrequently used database is the Azure portal.|
 |Azure CLI|Use for repeatable/scriptable scenarios.|
 |Visual Studio Code extension (for that service)|Use to stay within the development IDE.|
 |npm ARM library (for that service)|Use to stay within the JavaScript language.| 
@@ -84,6 +83,22 @@ After you create or migrate a database, only your connection information to the 
 ## Configure an Azure web app's connection to database
 
 If your Azure web app connects to your database, you need to change the App setting for the connection information. 
+
+## Database-agnostic query languages
+
+Data query languages, agnostic of a specific database, allow you to use the query languages features with your data. Database-agnostic query languages can be used on Azure and require you to bring the translation layer.
+
+## GraphQL data layer
+
+GraphQL is a database-agnostic query language. It allows a client to describe the data schema along with the data requested from the data source.
+
+|Summary|
+|--|
+|GraphQL is a query language for APIs and a runtime for fulfilling those queries with your existing data. GraphQL provides a complete and understandable description of the data in your API, gives clients the power to ask for exactly what they need and nothing more, makes it easier to evolve APIs over time, and enables powerful developer tools.
+|
+
+Learn more about developing GraphQL for [Azure Functions](../with-web-app/graphql/get-started.md).
+
 
 ## Next steps
 

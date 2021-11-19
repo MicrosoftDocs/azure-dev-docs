@@ -20,7 +20,7 @@ The open-source Azure libraries for Python simplify provisioning, managing, and 
 
 - When running code locally, authenticating with Azure relies on environment variables as described on [Configure your local dev environment](configure-local-development-environment.md).
 
-- To install library packages with pip, use `pip install <library_name>` using library names from the [package index](azure-sdk-library-package-index.md). To install library packges in conda environments, use `conda install <package_name>` using names from the [Microsoft channel on anaconda.org](https://anaconda.org/microsoft/repo). For further details, see [Install Azure libraries](azure-sdk-install.md).
+- To install library packages with pip, use `pip install <library_name>` using library names from the [package index](azure-sdk-library-package-index.md). To install library packages in conda environments, use `conda install <package_name>` using names from the [Microsoft channel on anaconda.org](https://anaconda.org/microsoft/repo). For further details, see [Install Azure libraries](azure-sdk-install.md).
 
 - There are distinct **management** and **client** libraries (sometimes referred to as "management plane" and "data plane" libraries). Each set serves different purposes and is used by different kinds of code. For more details, see the following sections later in this article:
   - [Provision and manage Azure resources with management libraries](#provision-and-manage-azure-resources-with-management-libraries)
@@ -75,7 +75,7 @@ For details on working with each management library, see the *README.md* or *REA
 
 If you are migrating code from older versions of the management libraries, see the following details:
 
-- If you use the `ServicePrincipalCredentials` class, see [How to authenticate - use token credentials](azure-sdk-authenticate.md#authenticate-with-token-credentials).
+- If you use the `ServicePrincipalCredentials` class, see [Authenticate with token credentials](azure-sdk-authenticate-service-principals.md#authenticate-with-token-credentials).
 - The names of async APIs have changed as described on [Library usage patterns - asynchronous operations](azure-sdk-library-usage-patterns.md#asynchronous-operations). Simply said, the names of async APIs in newer libraries start with `begin_`. In most cases, the API signature remains the same.
 
 ## Connect to and use Azure resources with client libraries

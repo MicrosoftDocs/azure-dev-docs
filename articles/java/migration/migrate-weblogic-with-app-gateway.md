@@ -1,13 +1,14 @@
 ---
-title: How to migrate a WebLogic Server cluster to Azure with Azure Application Gateway as a load balancer
+title: "Tutorial: Migrate a WebLogic Server cluster to Azure with Azure Application Gateway as a load balancer"
 description: In this how-to guide, you walk through deploying WebLogic Server to Azure with Azure Application Gateway as a load balancer
-author: edburns
 ms.author: edburns
 ms.topic: how-to
 ms.date: 04/28/2021
+recommendations: false
+ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-wls, devx-track-javaee-wls-vm
 ---
 
-# Migrate a WebLogic Server cluster to Azure with Azure Application Gateway as a load balancer
+# Tutorial: Migrate a WebLogic Server cluster to Azure with Azure Application Gateway as a load balancer
 
 This tutorial walks you through the process of deploying WebLogic Server (WLS) with Azure Application Gateway.  It covers the specific steps for creating a Key Vault, storing a TLS/SSL certificate in the Key Vault, and using that certificate for TLS/SSL termination.  While all of these elements are well documented in their own right, this tutorial shows the specific way all of these elements come together to create a simple, yet powerful load-balancing solution for WLS on Azure.
 

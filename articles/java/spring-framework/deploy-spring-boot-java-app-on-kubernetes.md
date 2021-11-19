@@ -13,15 +13,15 @@ ms.custom: mvc, devx-track-java, devx-track-azurecli
 
 # Deploy Spring Boot Application to the Azure Kubernetes Service
 
-**[Kubernetes]** and **[Docker]** are open-source solutions that help developers automate the deployment, scaling, and management of their applications running in containers.
+This tutorial walks you through combining Kubernetes and Docker to develop and deploy a Spring Boot application to Microsoft Azure. More specifically, you use [Spring Boot] for application development, [Kubernetes] for container deployment, and the [Azure Kubernetes Service (AKS)] to host your application.
 
-This tutorial walks you through combining these two popular, open-source technologies to develop and deploy a Spring Boot application to Microsoft Azure. More specifically, you use *[Spring Boot]* for application development, *[Kubernetes]* for container deployment, and the [Azure Kubernetes Service (AKS)] to host your application.
+[Kubernetes] and [Docker] are open-source solutions that help developers automate the deployment, scaling, and management of their applications running in containers.
 
 ## Prerequisites
 
 * An Azure subscription; if you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits] or sign up for a [free Azure account].
 * The [Azure Command-Line Interface (CLI)].
-* A supported Java Development Kit (JDK). For more information about the JDKs available for use when developing on Azure, see <https://aka.ms/azure-jdks>.
+* A supported Java Development Kit (JDK). For more information about the JDKs available for use when developing on Azure, see [Java support on Azure and Azure Stack](../fundamentals/java-support-on-azure.md).
 * Apache's [Maven] build tool (Version 3).
 * A [Git] client.
 * A [Docker] client.
@@ -112,7 +112,7 @@ The following steps walk you through building a Spring Boot web application and 
 
    ```azurecli
    # set the default name for Azure Container Registry, otherwise you will need to specify the name in "az acr login"
-   az configure --defaults acr=wingtiptoysregistry
+   az config set defaults.acr=wingtiptoysregistry
    az acr login
    ```
 
@@ -153,7 +153,7 @@ The following steps walk you through building a Spring Boot web application and 
 
 1. Navigate to the completed project directory for your Spring Boot application and run the following command to build the image and push the image to the registry:
 
-   ```cmd
+   ```azurecli
    az acr login && mvn compile jib:build
    ```
 

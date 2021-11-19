@@ -1,12 +1,11 @@
 ---
 title: "Tutorial: Secure Spring Boot apps using Azure Key Vault certificates"
 description: In this tutorial, you secure your Spring Boot (including Azure Spring Cloud) apps with TLS/SSL certificates using Azure Key Vault and managed identities for Azure resources.
-ms.date: 03/11/2021
+ms.date: 07/19/2021
 ms.service: key-vault
 ms.topic: tutorial
 ms.custom: devx-track-java, devx-track-azurecli
 ms.author: edburns
-author: edburns
 ---
 
 # Tutorial: Secure Spring Boot apps using Azure Key Vault certificates
@@ -75,11 +74,16 @@ Use the following steps to create an Azure VM with a system-assigned managed ide
        --location <your resource group region>
    ```
 
+1. Set default resource group.
+
+   ```azurecli
+   az configure --defaults group=<your resource group name>
+   ```
+
 1. Create the VM instance with system-assigned managed identity enabled, using the image `UbuntuLTS` provided by `UbuntuServer`.
 
    ```azurecli
    az vm create \
-       --resource-group <your resource group name> \
        --name <your VM name> \
        --debug \
        --generate-ssh-keys \
@@ -93,6 +97,7 @@ Use the following steps to create an Azure VM with a system-assigned managed ide
    > [!NOTE]
    > The name `UbuntuLTS` is an Uniform Resource Name (URN) alias, which is a shortened version created for popular images like *UbuntuLTS*.
    > Run the following command to display a cached list of popular images in table format:
+   >
    > ```azurecli
    > az vm image list --output table
    > ```
@@ -102,16 +107,16 @@ Use the following steps to create an Azure VM with a system-assigned managed ide
    ```shell
    ssh azureuser@<your VM public IP address>
    ```
-   
+
    Add the repository. Replace the version placeholder in following commands and execute:
-   
+
    ```shell
    wget https://packages.microsoft.com/config/ubuntu/{version}/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
    sudo dpkg -i packages-microsoft-prod.deb
    ```
-   
+
    Install the Microsoft Build of OpenJDK by running the following commands:
-   
+
    ```shell
    sudo apt install apt-transport-https
    sudo apt update
@@ -121,29 +126,29 @@ Use the following steps to create an Azure VM with a system-assigned managed ide
    > [!NOTE]
    > Another, faster way to get set up the certified Azul Zulu for Azure – Enterprise Edition VM image, which can avoid the installation of Azure SDK. For complete information about Azul Zulu for Azure, see [Download Java for Azure](https://www.azul.com/downloads/azure-only/zulu/).
    > Run the following command to obtain the URN name.
-   > 
+   >
    > ```azurecli
    >    az vm image list \
    >        --offer Zulu \
    >        --location <your region> \
    >        --all | grep urn
    > ```
-   > 
+   >
    > This command may take a while to complete. When the command completes, it produces output similar to the following lines. Select the value for JDK 11 on Ubuntu.
-   > 
+   >
    > ```output
    > "urn": "azul:azul-zulu11-ubuntu-2004:zulu-jdk11-ubtu2004:20.11.0",
    > ...
    > "urn": "azul:azul-zulu8-ubuntu-2004:zulu-jdk8-ubtu2004:20.11.0",
    > "urn": "azul:azul-zulu8-windows-2019:azul-zulu8-windows2019:20.11.0",
    > ```
-   > 
+   >
    > Use the following command to accept the terms for the image to allow the VM to be created.
    >
    > ```azurecli
    > az vm image terms accept --urn azul:azul-zulu11-ubuntu-2004:zulu-jdk11-ubtu2004:20.11.0
    > ```
-   > 
+>
 
 ## Create and configure an Azure Key Vault
 
@@ -153,10 +158,9 @@ Use the following steps to create an Azure Key Vault, and to grant permission fo
 
    ```azurecli
    az keyvault create \
-       --resource-group <your resource group name> \
        --name <your Key Vault name> \
        --location <your resource group region>
-   export KEY_VAULT_URI=$(az keyvault show --name ${KEY_VAULT} | jq -r '.properties.vaultUri')
+   export KEY_VAULT_URI=$(az keyvault show --name <your Key Vault name> | jq -r '.properties.vaultUri')
    ```
 
    Take note of the `KEY_VAULT_URI` value. You'll use it later.
@@ -190,13 +194,13 @@ To create the application, use the following steps:
 
 1. Browse to <https://start.spring.io/>.
 1. Select the choices as shown in the picture following this list.
-   * **Project**: **Maven Project**
-   * **Language**: **Java**
-   * **Spring Boot**: **2.4.6**
-   * **Group**: *com.contoso* (You can put any valid Java package name here.)
-   * **Artifact**: *ssltest* (You can put any valid Java class name here.)
-   * **Packaging**: **Jar**
-   * **Java**: **11**
+    * **Project**: **Maven Project**
+    * **Language**: **Java**
+    * **Spring Boot**: **2.5.2**
+    * **Group**: *com.contoso* (You can put any valid Java package name here.)
+    * **Artifact**: *ssltest* (You can put any valid Java class name here.)
+    * **Packaging**: **Jar**
+    * **Java**: **11**
 1. Select **Add Dependencies...**.
 1. In the text field, type *Spring Web* and press Ctrl+Enter.
 1. In the text field type *Azure Support* and press Enter. Your screen should look like the following.
@@ -211,6 +215,8 @@ To enable the app to load the certificate, use the following steps:
 1. Unzip the *ssltest.zip* file.
 
 1. Remove the *test* directory and its subdirectories. This tutorial ignores the test, so you can safely delete the directory.
+
+1. Rename *application.properties* in *src/main/resources* to *application.yml*.
 
 1. The file layout will look like the following.
 
@@ -227,7 +233,7 @@ To enable the app to load the certificate, use the following steps:
            │           └── ssltest
            │               └── SsltestApplication.java
            └── resources
-               ├── application.properties
+               ├── application.yml
                ├── static
                └── templates
    ```
@@ -238,18 +244,24 @@ To enable the app to load the certificate, use the following steps:
    <dependency>
       <groupId>com.azure.spring</groupId>
       <artifactId>azure-spring-boot-starter-keyvault-certificates</artifactId>
-      <version>3.0.0-beta.7</version>
+      <version>3.10.0</version>
    </dependency>
    ```
 
-1. Edit the *src/main/resources/application.properties* file so that it has the following contents.
+1. Re
 
-   ```properties
-   server.port=8443
-   server.ssl.key-alias=mycert
-   server.ssl.key-store-type=AzureKeyVault
-   server.ssl.trust-store-type=AzureKeyVault
-   azure.keyvault.uri=https://<your Key Vault name>.vault.azure.net/
+1. Edit the *src/main/resources/application.yml* file so that it has the following contents.
+
+   ```yaml
+   server:
+     ssl:
+       key-alias: <the name of the certificate in Azure Key Vault to use>
+       key-store-type: AzureKeyVault
+       trust-store-type: AzureKeyVault
+     port: 8443
+   azure:
+     keyvault:
+       uri: <the URI of the Azure Key Vault to use>
    ```
 
    These values enable the Spring Boot app to perform the *load* action for the TLS/SSL certificate, as mentioned at the beginning of the tutorial. The following table describes the property values.
@@ -275,6 +287,7 @@ To create the REST controller, use the following steps:
    ```java
    package com.contoso.ssltest;
 
+   import org.springframework.boot.SpringApplication;
    import org.springframework.boot.autoconfigure.SpringBootApplication;
    import org.springframework.web.bind.annotation.GetMapping;
    import org.springframework.web.bind.annotation.RestController;
@@ -304,10 +317,10 @@ To create the REST controller, use the following steps:
 
    This code illustrates the *present* action mentioned at the beginning of this tutorial. The following list highlights some details about this code:
 
-   * There's now a `@RestController` annotation on the `SsltestApplication` class generated by Spring Initializr.
-   * There's a method annotated with `@GetMapping`, with a `value` for the HTTP call you'll make.
-   * The `inbound` method simply returns a greeting when a browser makes an HTTPS request to the `/ssl-test` path. The `inbound` method illustrates how the server presents the TLS/SSL certificate to the browser.
-   * The `exit` method will cause the JVM to exit when invoked. This method is a convenience to make the sample easy to run in the context of this tutorial.
+    * There's now a `@RestController` annotation on the `SsltestApplication` class generated by Spring Initializr.
+    * There's a method annotated with `@GetMapping`, with a `value` for the HTTP call you'll make.
+    * The `inbound` method simply returns a greeting when a browser makes an HTTPS request to the `/ssl-test` path. The `inbound` method illustrates how the server presents the TLS/SSL certificate to the browser.
+    * The `exit` method will cause the JVM to exit when invoked. This method is a convenience to make the sample easy to run in the context of this tutorial.
 
 1. Open a new Bash shell and navigate to the *ssltest* directory. Run the following command.
 
@@ -341,15 +354,13 @@ Now that you've built the Spring Boot app and uploaded it to the VM, use the fol
 1. Open a new Bash shell and execute the following command to verify that the server presents the TLS/SSL certificate.
 
    ```bash
-   curl https://<your VM public IP address>:8443/ssl-test
+   curl --insecure https://<your VM public IP address>:8443/ssl-test
    ```
-
-   You should see message about the failed legitimacy of the server. Because the certificate is self-signed, the message is expected. Add the `--insecure` option to the `curl` command and you should see the message `Inbound TLS is working!!`.
 
 1. Invoke the `exit` path to kill the server and close the network sockets.
 
    ```bash
-   curl https://<your VM public IP address>:8443/exit
+   curl --insecure https://<your VM public IP address>:8443/exit
    ```
 
 Now that you've seen the *load* and *present* actions with a self-signed TLS/SSL certificate, you'll make some trivial changes to the app to see the *accept* action as well.
@@ -360,15 +371,24 @@ In this section, you'll modify the code in the previous section so that the TLS/
 
 ### Modify the SsltestApplication to illustrate outbound TLS connections
 
-First, you add a new rest endpoint called `ssl-test-outbound`. This endpoint opens up a TLS socket to itself and verifies that the TLS connection accepts the TLS/SSL certificate.
+1. Add the dependency on Apache HTTP Client by adding the following code to the `<dependencies>` section of the *pom.xml* file.
 
-Replace the contents of *SsltestApplication.java* with the following code.
+   ```xml
+   <dependency>
+      <groupId>org.apache.httpcomponents</groupId>
+      <artifactId>httpclient</artifactId>
+      <version>4.5.13</version>
+   </dependency>
+   ```
 
-```java
+1. Add a new rest endpoint called `ssl-test-outbound`. This endpoint opens up a TLS socket to itself and verifies that the TLS connection accepts the TLS/SSL certificate.
+
+   Replace the contents of *SsltestApplication.java* with the following code.
+
+   ```java
    package com.contoso.ssltest;
 
 
-   import java.security.GeneralSecurityException;
    import java.security.KeyStore;
    import javax.net.ssl.HostnameVerifier;
    import javax.net.ssl.SSLContext;
@@ -376,6 +396,7 @@ Replace the contents of *SsltestApplication.java* with the following code.
 
    import org.springframework.boot.SpringApplication;
    import org.springframework.boot.autoconfigure.SpringBootApplication;
+   import com.azure.security.keyvault.jca.KeyVaultLoadStoreParameter;
    import org.springframework.http.HttpStatus;
    import org.springframework.http.ResponseEntity;
    import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
@@ -403,11 +424,14 @@ Replace the contents of *SsltestApplication.java* with the following code.
        }
 
        @GetMapping(value = "/ssl-test-outbound")
-       public String outbound() throws GeneralSecurityException {
-           KeyStore ks = KeyStore.getInstance(KeyStore.getDefaultType());
-           SSLContext sslContext = SSLContexts.custom()
-               .loadTrustMaterial(ks, new TrustSelfSignedStrategy())
-               .build();
+       public String outbound() throws Exception {
+            KeyStore azureKeyVaultKeyStore = KeyStore.getInstance("AzureKeyVault");
+            KeyVaultLoadStoreParameter parameter = new KeyVaultLoadStoreParameter(
+                System.getProperty("azure.keyvault.uri"));
+            azureKeyVaultKeyStore.load(parameter);
+            SSLContext sslContext = SSLContexts.custom()
+                                               .loadTrustMaterial(azureKeyVaultKeyStore, null)
+                                               .build();
 
        HostnameVerifier allowAll = (String hostName, SSLSession session) -> true;
        SSLConnectionSocketFactory csf = new SSLConnectionSocketFactory(sslContext, allowAll);
@@ -436,18 +460,6 @@ Replace the contents of *SsltestApplication.java* with the following code.
        }
 
    }
-```
-
-Next, rebuild the app, upload it to the VM, and run it again.
-
-1. Add the dependency on Apache HTTP Client by adding the following code to the `<dependencies>` section of the *pom.xml* file.
-
-   ```xml
-   <dependency>
-      <groupId>org.apache.httpcomponents</groupId>
-      <artifactId>httpclient</artifactId>
-      <version>4.5.13</version>
-   </dependency>
    ```
 
 1. Build the app.
@@ -483,7 +495,7 @@ Next, rebuild the app, upload it to the VM, and run it again.
 1. Invoke the `exit` path to kill the server and close the network sockets.
 
    ```bash
-   curl https://<your VM public IP address>:8443/exit
+   curl --insecure https://<your VM public IP address>:8443/exit
    ```
 
 You've now observed a simple illustration of the *load*, *present*, and *accept* actions with a self-signed TLS/SSL certificate stored in Azure Key Vault.

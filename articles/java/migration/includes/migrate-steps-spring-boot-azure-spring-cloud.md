@@ -1,12 +1,11 @@
 ---
-author: yevster
 ms.author: yebronsh
 ms.date: 8/25/2020
 ---
 
 ### Create an Azure Spring Cloud instance and apps
 
-Provision an Azure Spring Cloud instance in your Azure subscription, if one does not already exist. Then, create an application there. For more information, see [Quickstart: Launch an existing Azure Spring Cloud application using the Azure portal](/azure/spring-cloud/spring-cloud-quickstart-launch-app-portal).
+Provision an Azure Spring Cloud instance in your Azure subscription, if one does not already exist. Then, create an application there. For more information, see [Quickstart: Deploy your first application to Azure Spring Cloud](/azure/spring-cloud/quickstart).
 
 [!INCLUDE [ensure-console-logging-and-configure-diagnostic-settings-azure-spring-cloud](ensure-console-logging-and-configure-diagnostic-settings-azure-spring-cloud.md)]
 
@@ -24,7 +23,7 @@ Remove any metrics clients used or any metrics endpoints exposed in your applica
 
 ### Deploy the application
 
-Deploy each of the migrated microservices (not including the Spring Cloud Config and Registry servers), as described in [Quickstart: Launch an existing Azure Spring Cloud application using the Azure portal](/azure/spring-cloud/spring-cloud-quickstart-launch-app-portal).
+Deploy each of the migrated microservices (not including the Spring Cloud Config and Registry servers), as described in [Quickstart: Deploy your first application to Azure Spring Cloud](/azure/spring-cloud/quickstart).
 
 ### Configure per-service secrets and externalized settings
 

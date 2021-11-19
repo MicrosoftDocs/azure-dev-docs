@@ -16,7 +16,6 @@ This article describes the various Spring Boot Starters for the [Spring Initiali
 >[!div class="mx-imgBorder"]
 ![Configure Azure Spring Boot Starters with Initializr][configure-azure-spring-boot-starters-with-initializr]
 
-
 The following Spring Boot Starters are currently available for Azure:
 
 * **[Azure Support](#azure-support)**
@@ -47,7 +46,7 @@ This Spring Boot Starter provides auto-configuration support for Azure Services;
 
 For examples of how to use the various Azure features that are provided by this starter, see the following:
 
-* <https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/spring/azure-spring-boot-samples>
+* The [azure-spring-boot-samples](https://github.com/Azure-Samples/azure-spring-boot-samples) repo on GitHub.
 
 When you add this starter to a Spring Boot project, the following changes are made to the *pom.xml* file:
 
@@ -57,7 +56,7 @@ When you add this starter to a Spring Boot project, the following changes are ma
    <properties>
       <!-- Other properties will be listed here -->
       <java.version>1.8</java.version>
-      <azure.version>3.5.0</azure.version>
+      <azure.version>3.10.0</azure.version>
    </properties>
    ```
 
@@ -107,7 +106,7 @@ This Spring Boot Starter provides auto-configuration support for Spring Security
 
 For examples of how to use the Azure Active Directory features that are provided by this starter, see the following:
 
-* <https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/spring/azure-spring-boot-samples/>
+* The [azure-spring-boot-samples](https://github.com/Azure-Samples/azure-spring-boot-samples) repo on GitHub.
 
 When you add this starter to a Spring Boot project, the following changes are made to the *pom.xml* file:
 
@@ -117,7 +116,7 @@ When you add this starter to a Spring Boot project, the following changes are ma
    <properties>
       <!-- Other properties will be listed here -->
       <java.version>1.8</java.version>
-      <azure.version>3.5.0</azure.version>
+      <azure.version>3.10.0</azure.version>
    </properties>
    ```
 
@@ -167,7 +166,7 @@ This Spring Boot Starter provides Spring value annotation support for integratio
 
 For examples of how to use the Azure Key Vault features that are provided by this starter, see the following:
 
-* <https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/spring/azure-spring-boot-samples/azure-spring-boot-sample-keyvault-secrets>
+* [Sample for Azure Key Vault Secrets Spring Boot Starter client library for Java](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/main/keyvault/azure-spring-boot-starter-keyvault-secrets/keyvault-secrets)
 
 When you add this starter to a Spring Boot project, the following changes are made to the *pom.xml* file:
 
@@ -177,7 +176,7 @@ When you add this starter to a Spring Boot project, the following changes are ma
    <properties>
       <!-- Other properties will be listed here -->
       <java.version>1.8</java.version>
-      <azure.version>3.5.0</azure.version>
+      <azure.version>3.10.0</azure.version>
    </properties>
    ```
 
@@ -228,7 +227,7 @@ This Spring Boot Starter provides Spring Boot integration support for Azure Stor
 For examples of how to use the Azure Storage features that are provided by this starter, see the following:
 
 * [How to use the Spring Boot Starter for Azure Storage](configure-spring-boot-starter-java-app-with-azure-storage.md)
-* <https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/spring/azure-spring-boot-samples/azure-spring-cloud-sample-storage-queue-operation>
+* [Spring Cloud Azure Storage Queue Operation Code Sample shared library for Java](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/main/storage/azure-spring-cloud-starter-storage-queue/storage-queue-operation)
 
 When you add this starter to a Spring Boot project, the following changes are made to the *pom.xml* file:
 
@@ -238,7 +237,7 @@ When you add this starter to a Spring Boot project, the following changes are ma
    <properties>
       <!-- Other properties will be listed here -->
       <java.version>1.8</java.version>
-      <azure.version>3.5.0</azure.version>
+      <azure.version>3.10.0</azure.version>
    </properties>
    ```
 

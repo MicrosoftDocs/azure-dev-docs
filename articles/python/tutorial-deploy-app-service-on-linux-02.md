@@ -39,18 +39,11 @@ If your Django app uses a local SQLite database like this sample, it's easiest f
 
 ### Option 3: Create a minimal Flask app
 
-This section describes the minimal Flask app used in this walkthrough.
+This section describes the minimal Flask app used in this walkthrough. The code is available on [GitHub - python-docs-flask-minimal](https://github.com/Azure-Samples/python-docs-flask-minimal).
 
 1. Create a new folder, open it in VS Code, and add a file named *hello.py* with the contents below. The app object is purposely named `myapp` to demonstrate how the names are used in the startup command for the App Service, as you learn later.
 
-    ```python
-    from flask import Flask
-    myapp = Flask(__name__)
-
-    @myapp.route("/")
-    def hello():
-        return "Hello Flask, on Azure App Service for Linux"
-    ```
+    :::code language="python" source="~/../python-docs-flask-minimal/hello.py":::
 
 1. In the same folder, create a file named *requirements.txt* with the following contents:
 

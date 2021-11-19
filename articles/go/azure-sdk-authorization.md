@@ -3,6 +3,7 @@ title: Authentication with the Azure SDK for Go
 description: Learn about the authentication methods available in the Azure SDK for Go and how to use them.
 ms.date: 09/05/2018 
 ms.topic: conceptual
+ms.custom: devx-track-go
 ---
 # Authentication methods in the Azure SDK for Go
 

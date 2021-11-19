@@ -1,20 +1,21 @@
 ---
-title: Quickstart - Configure Windows virtual machines in Azure using Ansible
-description: In this quickstart, learn how to create Windows virtual machine in Azure using Ansible.
+title: Create a Windows virtual machine in Azure using Ansible
+description: Learn how to create Windows virtual machine in Azure using Ansible.
 keywords: ansible, azure, devops, bash, playbook, virtual machine
-ms.topic: quickstart
+ms.topic: tutorial
 ms.service: ansible
-ms.date: 05/19/2021
+ms.date: 08/28/2021
 ms.custom: devx-track-ansible
 ---
 
-# Quickstart: Deploy a Windows Azure VM with Ansible
+# Create a Windows virtual machine in Azure using Ansible
 
-This quickstart shows how to deploy a Windows Server 2019 VM in Azure with [Ansible](https://docs.ansible.com/).
+This article shows how to deploy a Windows Server 2019 VM in Azure with [Ansible](https://docs.ansible.com/).
 
-In this quickstart, you'll complete these tasks:
+In this article, you learn how to:
 
 > [!div class="checklist"]
+
 > * Create a resource group
 > * Create a virtual network, public IP, network security group, and network interface
 > * Deploy a Windows Server virtual machine
@@ -29,11 +30,21 @@ In this quickstart, you'll complete these tasks:
 
 [!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation1.md](includes/ansible-prereqs-cloudshell-use-or-vm-creation1.md)]
 
+## Add WinRM Support to Ansible
+
+To communicate over WinRM, Ansible control server needs the python package `pywinrm`.
+
+Run the following command on the Ansible server to install `pywinrm`:
+
+```bash
+pip install "pywinrm>=0.3.0"
+```
+
+For more information, see [Windows Remote Management for Ansible](https://docs.ansible.com/ansible/latest/user_guide/windows_winrm.html#windows-remote-management).
+
 ## Create a resource group
 
-Ansible needs a resource group to deploy your resources in.
-
-**Create** an Ansible playbook named `azure_windows_vm.yml` and copy the following contents into the playbook:
+Create an Ansible playbook named `azure_windows_vm.yml` and copy the following contents into the playbook:
 
 ```yaml
 ---
@@ -48,14 +59,13 @@ Ansible needs a resource group to deploy your resources in.
       location: eastus
 ```
 
-**Key points**:
-* Setting `hosts` to _localhost_ and `connection` as _local_ runs the playbook locally on the Ansible server.
+**Key points:**
+
+- Setting `hosts` to _localhost_ and `connection` as `_local_` runs the playbook locally on the Ansible server.
 
 ## Create the virtual network and subnet
 
-When you create an Azure virtual machine, you must create a virtual network or use an existing virtual network.
-
-Add the following tasks to the `azure_windows_vm.yml` Ansible playbook:
+Add the following tasks to the `azure_windows_vm.yml` Ansible playbook to create a virtual network:
 
 ```yml
   - name: Create virtual network
@@ -74,9 +84,7 @@ Add the following tasks to the `azure_windows_vm.yml` Ansible playbook:
 
 ## Create a public IP address
 
-To make the Azure VM accessible via the internet, add a public IP address.
-
-Add the following tasks to the `azure_windows_vm.yml` Ansible playbook:
+Add the following tasks to the `azure_windows_vm.yml` playbook to create a public IP address:
 
 ```yml
   - name: Create public IP address
@@ -91,16 +99,16 @@ Add the following tasks to the `azure_windows_vm.yml` Ansible playbook:
       msg: "The public IP is {{ output_ip_address.state.ip_address }}"
 ```
 
-**Key points**:
-* Ansible `register` module is used to store the output from `azure_rm_publicipaddress` in a variable called `output_ip_address`. Then the `debug` module is used to output the public IP address of the VM to the console.
+**Key points:**
+
+- Ansible `register` module is used to store the output from `azure_rm_publicipaddress` in a variable called `output_ip_address`. 
+- The `debug` module is used to output the public IP address of the VM to the console.
 
 ## Create network security group and NIC
 
-A virtual network interface card connects your VM to the virtual network, a public IP address, and a security group.
-
 Network security group defines what traffic is allowed and not allowed to reach the VM.
 
-Add the following tasks to the `azure_windows_vm.yml` Ansible playbook:
+To open the WinRM and HTTP ports, add the following tasks to the `azure_windows_vm.yml` Ansible playbook:
 
 ```yml
   - name: Create Network Security Group
@@ -144,7 +152,9 @@ Add the following tasks to the `azure_windows_vm.yml` Ansible playbook:
           primary: True
 ```
 
-**Key Point**:
+**Key points**:
+
+* A virtual network interface card connects your VM to its virtual network, public IP address, and security group.
 * The `azure_rm_securitygroup` creates an Azure network security group to allow WinRM traffic from the Ansible server to the remote host by allowing port `5985` and `5986`.
 
 ### Create a virtual machine
@@ -188,9 +198,9 @@ The `admin_password` value of `{{ password }}` is an Ansible variable that conta
 
 ## Configure the WinRM Listener
 
-Ansible uses PowerShell to connect and configure remote hosts. In order for Ansible to configure the remote host, the WinRM listener has to be configured.
+Ansible uses PowerShell to connect and configure Windows remote hosts via WinRM.
 
-Add the following tasks to the `azure_windows_vm.yml` Ansible playbook:
+To configure WinRM, add the following ext `azure_rm_virtualmachineextension`:
 
 ```yml
   - name: Create VM script extension to enable HTTPS WinRM listener
@@ -204,8 +214,6 @@ Add the following tasks to the `azure_windows_vm.yml` Ansible playbook:
       settings: '{"fileUris": ["https://raw.githubusercontent.com/ansible/ansible/devel/examples/scripts/ConfigureRemotingForAnsible.ps1"],"commandToExecute": "powershell -ExecutionPolicy Unrestricted -File ConfigureRemotingForAnsible.ps1"}'
       auto_upgrade_minor_version: true
 ```
-
-Using the `azure_rm_virtualmachineextension` allows you to run a PowerShell script locally on the Azure Windows VM without connect to it via Ansible to configure WinRM. The script `ConfigureRemotingForAnsible.ps1` configures WinRM so that all future configuration can be handled by Ansible.
 
 Ansible can't connect to the VM until WinRM is fully configured.
 
@@ -228,7 +236,9 @@ Add the following tasks to your playbook to wait for the WinRM connection:
       timeout: 600
 ```
 
-The `azure_rm_publicipaddress_info` modules queries the public IP address from Azure. And `set_fact` stores the output in a variable for the `wait_for` module to use.
+**Key points**:
+* The `azure_rm_virtualmachineextension` module allows you to run a PowerShell script locally on the Azure Windows. Running the `ConfigureRemotingForAnsible.ps1` PowerShell script configures WinRM by creating self-signed certificates and opening the necessary ports for Ansible to connect.
+* The `azure_rm_publicipaddress_info` module queries the public IP address from Azure then `set_fact` stores the output in a variable for the `wait_for` module to use.
 
 ## Complete sample Ansible playbook
 
@@ -356,27 +366,9 @@ This section lists the entire sample Ansible playbook that you've built up over 
       timeout: 600
 ```
 
-## Add WinRM Support to Ansible
-
-Ansible to communicate over WinRM, which requires the Python package `pywinrm`.
-
-Run the command following command on the Ansible server:
-
-```bash
-pip install "pywinrm>=0.3.0"
-```
-
-For more information, see [Windows Remote Management for Ansible](https://docs.ansible.com/ansible/latest/user_guide/windows_winrm.html#windows-remote-management).
-
 ## Connect to the Windows virtual machine
 
-Ansible's configuration determines how Ansible connects and authenticates to remote hosts. The variables you need to define to connect to a Windows host depend on your WinRM connection type and the authentication option you've chosen.
-
-In this tutorial, you'll use WinRM over HTTPS with self-signed certificates and NTLM for the authentication.
-
-For more information, see [Connecting to a Windows Host](https://www.ansible.com/blog/connecting-to-a-windows-host) and [Windows Authentication Options](https://docs.ansible.com/ansible/latest/user_guide/windows_winrm.html#authentication-options).
-
-**Create** a new Ansible playbook named `connect_azure_windows_vm.yml` and copy the following contents into the playbook:
+Create a new Ansible playbook named `connect_azure_windows_vm.yml` and copy the following contents into the playbook:
 
 ```yml
 ---
@@ -403,8 +395,10 @@ ansible-playbook connect_azure_windows_vm.yml -i <publicIPaddress>,
 
 Replace `<publicIPaddress>` with your virtual machine's address.
 
-**Key Point**:
-* Adding `,` after the public IP address bypasses Ansible's inventory parser. This syntax allows you to run playbooks against hosts not in an inventory file
+**Key points:**
+
+- Ansible's configuration determines how Ansible connects and authenticates to remote hosts. The variables you need to define to connect to a Windows host depend on your WinRM connection type and the authentication option you've chosen. For more information, see [Connecting to a Windows Host](https://www.ansible.com/blog/connecting-to-a-windows-host) and [Windows Authentication Options](https://docs.ansible.com/ansible/latest/user_guide/windows_winrm.html#authentication-options).
+- Adding a comma after the public IP address bypasses Ansible's inventory parser. This technique allows you to run playbooks without an inventory file.
 
 ## Clean up resources
 

@@ -1,8 +1,7 @@
 ---
-# Mandatory fields.
 title: Install a JDK for Azure development
 description: How to install a Java Development Kit (JDK) for Azure development with Windows, Linux, and Mac.
-ms.date: 04/19/2019
+ms.date: 09/13/2021
 ms.topic: conceptual
 ms.custom: devx-track-java
 ---
@@ -11,28 +10,32 @@ ms.custom: devx-track-java
 
 You can use any JDK to build Java applications for Azure. This article will help you get started with the Azul Zulu build of OpenJDK for Azure.
 
+> [!IMPORTANT]
+> **Update June 30th, 2021:** Zulu for Azure will no longer receive updates or support starting January 1st, 2022. Azure services are transitioning to [Microsoft Build of OpenJDK](/java/openjdk/install) for JDK 11 and [Eclipse Temurin](https://adoptium.net/releases.html?variant=openjdk8&jvmVariant=hotspot) for JDK 8. For more information, see [End of Updates, Support and Availability of the Zulu for Azure builds of OpenJDK](https://devblogs.microsoft.com/java/end-of-updates-support-and-availability-of-zulu-for-azure/).
+
 The Azul Zulu builds are a no-cost, multi-platform, production-ready distribution of the OpenJDK that you can use for developing Java applications for Azure and Azure Stack. They contain all the components for building and running Java SE applications.
 
 There are [multiple download package types supported for each client OS](https://www.azul.com/downloads/azure-only/).
 
 > [!NOTE]
-> The following instructions target the 64-bit Java 11 version of the JDK.
->
+> The following instructions target the 64-bit Java 8 and 11 versions of the JDK.
 
 ## Windows and macOS
 
 ### Download and install the Azul Zulu build of OpenJDK for Windows
 
-1. Visit the following URL and download the latest 64-bit Azul Zulu JDK 11 as an MSI.
+1. Visit one of the following URLs and download the latest 64-bit Azul Zulu JDK 8 or 11 as an MSI.
 
+   * [zulu-8-jdk_windows](https://www.azul.com/downloads/azure-only/?version=java-8-lts&os=windows&architecture=x86-64-bit&package=jdk)
    * [zulu-11-jdk_windows](https://www.azul.com/downloads/azure-only/?version=java-11-lts&os=windows&architecture=x86-64-bit&package=jdk)
 
 2. Navigate to the directory and double-click the downloaded MSI file to begin installation.
 
 ### Download and install the Azul Zulu build of OpenJDK for Mac
 
-1. Visit the following URL and download the latest 64-bit Azul Zulu JDK 11 as a DMG file.
+1. Visit one of the following URLs and download the latest 64-bit Azul Zulu JDK 8 or 11 as a DMG file.
 
+   * [zulu-8-azure-jdk_macosx](https://www.azul.com/downloads/azure-only/?version=java-8-lts&os=macos&architecture=x86-64-bit&package=jdk)
    * [zulu-11-azure-jdk_macosx](https://www.azul.com/downloads/azure-only/?version=java-11-lts&os=macos&architecture=x86-64-bit&package=jdk)
 
 2. Launch Finder, navigate to the download directory, and double-click the DMG file.
