@@ -3,7 +3,7 @@ title: Installing the Azure Toolkit for Eclipse
 description: Learn how to install the Azure Toolkit for Eclipse plug-in to create and deploy cloud applications to Azure.
 documentationcenter: java
 ms.assetid: 9e93ff6a-f42b-4d99-b55b-624136b4a730
-ms.date: 08/25/2020
+ms.date: 11/19/2021
 ms.service: multiple
 ms.tgt_pltfrm: multiple
 ms.topic: article
