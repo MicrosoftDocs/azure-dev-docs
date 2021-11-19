@@ -3,7 +3,7 @@ title: Installing the Azure Toolkit for Eclipse
 description: Learn how to install the Azure Toolkit for Eclipse plug-in to create and deploy cloud applications to Azure.
 documentationcenter: java
 ms.assetid: 9e93ff6a-f42b-4d99-b55b-624136b4a730
-ms.date: 08/25/2020
+ms.date: 11/19/2021
 ms.service: multiple
 ms.tgt_pltfrm: multiple
 ms.topic: article
@@ -12,7 +12,7 @@ ms.custom: devx-track-java
 
 # Installing the Azure Toolkit for Eclipse
 
-The Azure Toolkit for Eclipse provides functionality that allow you to easily create, develop, configure, test, and deploy lightweight, highly available and scalable Java web apps and HDInsight Spark jobs to Azure using the Eclipse development environment.
+The Azure Toolkit for Eclipse provides functionality that allows you to easily create, develop, configure, test, and deploy lightweight, highly available, and scalable Java web apps and HDInsight Spark jobs to Azure using the Eclipse development environment.
 
 > [!NOTE] 
 > 
@@ -47,7 +47,7 @@ The Eclipse Marketplace wizard in the Eclipse IDE allows users to browse the [Ec
    | **Azure Explorer for Eclipse** | Provides an explorer-style interface for managing your Azure resources. | 
    | **Azure HDInsight plugin for Java** | Enables Apache Spark application development in Scala. |
    | **Microsoft JDBC Driver 6.1 for SQL Server** | Provides JDBC API for SQL Server and Microsoft Azure SQL Database for Java Platform Enterprise Edition 8. | 
-   | **Package for Microsoft Azure Libraries for Java** | Provides APIs for accessing Microsoft Azure services, such as storage, service bus, service runtime, etc. | 
+   | **Package for Microsoft Azure Libraries for Java** | Provides APIs for accessing Microsoft Azure services, such as storage, service bus, and service runtime. | 
    | **WebApp Plugin for Eclipse** | Enables you to deploy your web applications as Azure App Services. | 
 
 1. In the **Review Licenses** dialog, review the terms of the license agreements. If you accept the terms of the license agreements, click **I accept the terms of the license agreements**, and then click **Finish**. 
@@ -55,7 +55,7 @@ The Eclipse Marketplace wizard in the Eclipse IDE allows users to browse the [Ec
    > [!NOTE]
    > You can check the installation progress on the lower-right corner of your Eclipse workspace.
 
-4. Once installation has completed, you will be prompted to restart the Eclipse IDE to apply the software update. Click **Restart Now**.
+4. Once installation has completed, you'll be prompted to restart the Eclipse IDE to apply the software update. Click **Restart Now**.
 
 ## Install new software
 
@@ -71,7 +71,7 @@ You can install the Azure Toolkit for Eclipse directly from the *Help* menu in t
 
    :::image type="content" source="media/installation/eclipse-installation-02.png" alt-text="Installing the Azure Toolkit for Eclipse":::
 
-1. If you expand **Azure Toolkit for Java**, you will see a list of components that will be installed; for example:
+1. If you expand **Azure Toolkit for Java**, you'll see a list of components that will be installed; for example:
 
    | Feature | Description | 
    |---|---| 
@@ -81,19 +81,19 @@ You can install the Azure Toolkit for Eclipse directly from the *Help* menu in t
    | **Azure Explorer for Eclipse** | Provides an explorer-style interface for managing your Azure resources. | 
    | **Azure HDInsight plugin for Java** | Enables Apache Spark application development in Scala. |
    | **Microsoft JDBC Driver 6.1 for SQL Server** | Provides JDBC API for SQL Server and Microsoft Azure SQL Database for Java Platform Enterprise Edition 8. | 
-   | **Package for Microsoft Azure Libraries for Java** | Provides APIs for accessing Microsoft Azure services, such as storage, service bus, service runtime, etc. | 
+   | **Package for Microsoft Azure Libraries for Java** | Provides APIs for accessing Microsoft Azure services, such as storage, service bus, and service runtime. | 
    | **WebApp Plugin for Eclipse** | Enables you to deploy your web applications as Azure App Services. | 
 
 1. Click **Next**. (If you experience unusual delays when installing the toolkit, ensure that **Contact all update sites during install to find required software** is unchecked.)
 
 1. In the **Install Details** dialog, click **Next**.
 
-1. In the **Review Licenses** dialog, review the terms of the license agreements. If you accept the terms of the license agreements, click **I accept the terms of the license agreements** and then click **Finish**. (The remaining steps assume you do accept the terms of the license agreements. If you do not accept the terms of the license agreements, exit the installation process.)
+1. In the **Review Licenses** dialog, review the terms of the license agreements. If you accept the terms of the license agreements, click **I accept the terms of the license agreements** and then click **Finish**. (The remaining steps assume you do accept the terms of the license agreements. If you don't accept the terms of the license agreements, exit the installation process.)
 
    > [!NOTE]
    > You can check the installation progress on the lower-right corner of your Eclipse workspace.
 
-1. If prompted to restart Eclipse to complete installation, click **Restart Now**.
+1. If prompted to restart Eclipse to complete the installation, click **Restart Now**.
 
 ## Next steps
 
