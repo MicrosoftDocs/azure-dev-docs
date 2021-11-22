@@ -237,9 +237,9 @@ In the Azure portal:
 
 Run the following command to add a firewall rule to your SQL Server instance.
 
----
+```
     az sql server firewall-rule create -resource-group $RESOURCE_GROUP_NAME -server <yoursqlserver> -name "LocalAccess" --start-ip-address <yourip> --end-ip-address <yourip>
----
+```
 
 ----
 
