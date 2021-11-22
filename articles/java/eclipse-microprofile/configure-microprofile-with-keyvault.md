@@ -53,7 +53,7 @@ We will use the Azure CLI to create the Azure Key Vault resource and populate it
 az login
 az account set --subscription <subscription_id>
 
-az ad sp create-for-rbac --name <service_principal_name>
+az ad sp create-for-rbac --name <service_principal_name> --role Contributor
 ```
 
 Lets say we use `microprofile-keyvault-service-principal` for the service principal name in the previous step. The response from Azure for doing this will be in the following, slightly censored, form:

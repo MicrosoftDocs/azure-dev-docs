@@ -28,7 +28,7 @@ Your Java application needs read and create permissions in your Azure subscripti
 [Create a service principal by using the Azure CLI 2.0](/cli/azure/create-an-azure-service-principal-azure-cli), and capture the output:
 
 ```azurecli-interactive
-az ad sp create-for-rbac --name AzureJavaTest
+az ad sp create-for-rbac --name AzureJavaTest --role Contributor
 ```
 
 Which gives you a reply in the following format:
