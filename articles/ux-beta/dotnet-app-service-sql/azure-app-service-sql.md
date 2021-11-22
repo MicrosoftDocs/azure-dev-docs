@@ -166,15 +166,15 @@ Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com
 
 This approach assumes you have cloned the sample project using Git.
 
-To enable git deployments via the clia, configure a local git deployment source on your App Service using the `az webapp deployment` command.
+To enable git deployments via the CLI, configure a local git deployment source on your App Service using the `az webapp deployment` command.
 
-This will return a Git deployment URL for your App Service.  Copy this URL for later use.
+This command will return a Git deployment URL for your App Service.  Copy this URL for later use.
 
 ```azurecli
     az webapp deployment source config-local-git --name <yourappname> --resource-group $RESOURCE_GROUP_NAME
 ```
 
-Next, let's add an Azure origin to our local Git repo using the App Service deployment URL.
+Next, let's add an Azure origin to our local Git repo using the App Service Git deployment URL.
 
 ```azurecli
     git remote add azure https://<yourusername>@<yourappName>.scm.azurewebsites.net/<yourappname>.git
@@ -186,7 +186,7 @@ Finally, push your code using the correct origin and branch name.
     git push azure master
 ```
 
-This command should deploy your app code accessfully, and may take a moment to run.
+This command may take a moment to run, but should deploy your app code successfully.
 
 ----
 
@@ -222,7 +222,7 @@ az webapp config connection-string set -g $RESOURCE_GROUP_NAME -n <yourappname> 
 ----
 
 ## 6 - Generate the Database Schema
-We need to allow our local computer to connect to Azure to finish setting up our database. For this step you'll need to know your local computer's IP Address.  You can discover that typing `ipconfig` into a command window.  Copy this IP Address for later use.  If you are on a corporate VPN, make sure to pick the IP Address for the VPN adpater.
+We need to allow our local computer to connect to Azure to finish setting up our database. For this step you'll need to know your local computer's IP Address.  You can discover that typing `ipconfig` into a command window.  Copy the IP4 Address for later use.  
 
 ### [Azure portal](#tab/azure-portal-schema)
 
@@ -232,6 +232,16 @@ In the Azure portal:
    1. On the left navigation, select *Firewalls and virtual networks*.
    1. In the Firewall Rules section, enter a *Rule name* of MyLocalAccess.  In the *Start IP* and *End IP* fields, paste the IP Address you copied from your terminal earlier.
    1. Click Save at the top of the screen to persist your changes.
+
+### [Azure CLI](#tab/azure-cli-schema)
+
+Run the following command to add a firewall rule to your SQL Server instance.
+
+---
+    az sql server firewall-rule create -resource-group $RESOURCE_GROUP_NAME -server <yoursqlserver> -name "LocalAccess" --start-ip-address <yourip> --end-ip-address <yourip>
+---
+
+----
 
 Inside of your local code editor, we need to temporarily update the connection string of our local app to point to the Azure SQL Database.  This will allow us to run Entity Framework Core migrations and generate the correct schema for our database.
 1. Open the appsettings.json file in your project.
@@ -267,47 +277,6 @@ After running these commands, switch your appsettings.json configuration back to
 
 Navigate back to your web app in the browser.  If you refresh the page, you should now be able to Create Todos and see them displayed on the home page.
 
-### [Azure CLI](#tab/azure-cli-schema)
-
-Run the following command to add a firewall rule to your SQL Server instance.
-
----
-    az sql server firewall-rule create -resource-group $RESOURCE_GROUP_NAME -server <yoursqlserver> -name "LocalAccess" --start-ip-address <yourip> --end-ip-address <yourip>
----
-
-Next, inside of your local code editor, we need to temporarily update the connection string of our local app to point to the Azure SQL Database.  This will allow us to run Entity Framework Core migrations and generate the correct schema for our database.
-1. Open the appsettings.json file in your project.
-1. Inside of this file, paste the connection string you copied earlier into the value of the *MyDbConnection* key. Make sure to replace the password with the value you chose when setting up your database.
-1.  Your *ConnectionStrings* settings should now look like the code below.
- 
----
-      "ConnectionStrings": {
-        "MyDbConnection": "Server=tcp:MyDbServer.database.windows.net,1433;
-                            Initial Catalog=mySqlDb;Persist Security Info=False;
-                            User ID=<username>;Password=<password>;
-                            MultipleActiveResultSets=False;
-                            Encrypt=True;TrustServerCertificate=False;
-                            Connection Timeout=30;"
-      }
----
-
-Nxt, run the commands below to install the necessary CLI tools for Entity Framework Core, create an intial database migration file, and apply those changes to update the database.
-
-        dotnet tool install -g dotnet-ef
-        dotnet ef migrations add InitialCreate
-        dotnet ef database update
-
-The migration should complete successfully, and your database is now setup on Azure with the correct schema.
-
-After running these commands, switch your appsettings.json configuration back to the original MyDbConnection value.  This will ensure that the next time you deploy your code to Azure, it will pull the correct Connection String from your App Service configuration by name.  
-
----
-      "ConnectionStrings": {
-        "MyDbConnection": "MyDbConnection"
-      }
----
-
-Navigate back to your web app in the browser.  If you refresh the page, you should now be able to Create Todos and see them displayed on the home page.
 
 ## 7 - Browse with kudu
 
