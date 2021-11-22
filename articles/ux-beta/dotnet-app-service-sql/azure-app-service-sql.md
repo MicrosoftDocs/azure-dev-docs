@@ -1,5 +1,5 @@
 ---
-title: Some cool title here
+title: Deploy ASP.NET Core SQL App to Azure
 description: Enter description here
 ms.topic: tutorial
 ms.date: 10/27/2021
@@ -83,7 +83,7 @@ az appservice plan create \
 Finally, create the App Service web app using the [az webapp create](/cli/azure/webapp#az_webapp_create) command.  
 
 * The *app service name* is used as both the name of the resource in Azure and to form the fully qualified domain name for your app in the form of `https://<app service name>.azurewebsites.com`.
-* The runtime specifies what version of Node your app is running. This example uses Node 14 LTS. To list all available runtimes, use the command `az webapp list-runtimes --linux --output table` for Linux and `az webapp list-runtimes --output table` for Windows.
+* The runtime specifies what version of .Net your app is running. This example uses .NET 6.0 LTS. To list all available runtimes, use the command `az webapp list-runtimes --linux --output table` for Linux and `az webapp list-runtimes --output table` for Windows.
 
 ```azurecli
 
@@ -164,9 +164,29 @@ Witness the awesomeness of VS Code!
 
 Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com) or on a workstation with the [Azure CLI installed](/cli/azure/install-azure-cli).
 
+This approach assumes you have cloned the sample project using Git.
+
+To enable git deployments via the clia, configure a local git deployment source on your App Service using the `az webapp deployment` command.
+
+This will return a Git deployment URL for your App Service.  Copy this URL for later use.
+
 ```azurecli
-az group list
+    az webapp deployment source config-local-git --name <yourappname> --resource-group $RESOURCE_GROUP_NAME
 ```
+
+Next, let's add an Azure origin to our local Git repo using the App Service deployment URL.
+
+```azurecli
+    git remote add azure https://<yourusername>@<yourappName>.scm.azurewebsites.net/<yourappname>.git
+```
+
+Finally, push your code using the correct origin and branch name.
+
+```azurecli
+    git push azure master
+```
+
+This command should deploy your app code accessfully, and may take a moment to run.
 
 ----
 
@@ -267,8 +287,6 @@ For more information on customizing the ASP.NET Core logs, see [Logging in .NET]
 ### [VS Code](#tab/vscode)
 
 ### [Azure CLI](#tab/azure-cli)
-
-### [Azure PowerShell](#tab/azure-powershell)
 
 ----
 
