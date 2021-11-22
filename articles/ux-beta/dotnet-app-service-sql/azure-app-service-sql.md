@@ -206,8 +206,17 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps 
 
 Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com) or on a workstation with the [Azure CLI installed](/cli/azure/install-azure-cli).
 
+We can retrieve the Connection String for our database using the command below.  This will allow us to add it to our App Service configuration settings. Copy this Connectiong String value for later use.
+
 ```azurecli
-az group list
+az sql db show-connection-string --client ado.net --name coreDb --server coredbserver001
+```
+
+Next, let's assign the Connection String to our App Service using the command below. `MyDbConnection` is the name of the Connection String in our appsettings.json file, which means it will be loaded by our app during startup.
+
+```azurecli
+az webapp config connection-string set -g $RESOURCE_GROUP_NAME -n <yourappname> -t SQLServer--settings MyDbConnection=<yourconnectionstring>
+
 ```
 
 ----
