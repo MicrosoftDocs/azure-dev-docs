@@ -226,25 +226,88 @@ We need to allow our local computer to connect to Azure to finish setting up our
 
 ### [Azure portal](#tab/azure-portal-schema)
 
-Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps to create your Azure App Service resources.
+In the Azure portal:
 
-| Instructions    | Screenshot |
-|:----------------|-----------:|
-| [!INCLUDE [Connect Service step 1](<./includes/generate-database-schema/azure-portal-generate-schema-01.md>)] | :::image type="content" source="./media/azportal-create-cosmosdb-1-240px.png" alt-text="A screenshot showing how to use the search box in the top tool bar to find App Services in Azure." lightbox="./media/azportal-connect-service-1.png"::: |
-| [!INCLUDE [Connect Service step 2](<./includes/generate-database-schema/azure-portal-generate-schema-02.md>)] | :::image type="content" source="./media/azportal-create-cosmosdb-2-240px.png" alt-text="A screenshot showing the create button on the App Services page used to create a new web app." lightbox="./media/azportal-connect-service-2.png"::: |
-| [!INCLUDE [Connect Service step 3](<./includes/generate-database-schema/azure-portal-generate-schema-03.md>)] | :::image type="content" source="./media/azportal-create-cosmosdb-3-240px.png" alt-text="A screenshot showing the form to fill out to create a web app in Azure." lightbox="./media/azportal-connect-service-3.png"::: |
-| [!INCLUDE [Connect Service step 4](<./includes/generate-database-schema/azure-portal-generate-schema-04.md>)] | :::image type="content" source="./media/azportal-create-cosmosdb-4-240px.png" alt-text="A screenshot of the Spec Picker dialog that allows you to select the App Service plan to use for your web app." lightbox="./media/azportal-connect-service-4.png"::: |
-| [!INCLUDE [Connect Service step 5](<./includes/generate-database-schema/azure-portal-generate-schema-05.md>)] | :::image type="content" source="./media/azportal-create-cosmosdb-5-240px.png" alt-text="A screenshot of the main web app create page showing the button to select on to create your web app in Azure." lightbox="./media/azportal-connect-service-5.png"::: |
+   1. In the top search bar, search for the "coredbserverXYZ" server you created earlier and select it from the results.
+   1. On the left navigation, select *Firewalls and virtual networks*.
+   1. In the Firewall Rules section, enter a *Rule name* of MyLocalAccess.  In the *Start IP* and *End IP* fields, paste the IP Address you copied from your terminal earlier.
+   1. Click Save at the top of the screen to persist your changes.
+
+Inside of your local code editor, we need to temporarily update the connection string of our local app to point to the Azure SQL Database.  This will allow us to run Entity Framework Core migrations and generate the correct schema for our database.
+1. Open the appsettings.json file in your project.
+1. Inside of this file, paste the connection string you copied earlier into the value of the *MyDbConnection* key. Make sure to replace the password with the value you chose when setting up your database.
+1.  Your *ConnectionStrings* settings should now look like the code below.
+ 
+---
+      "ConnectionStrings": {
+        "MyDbConnection": "Server=tcp:MyDbServer.database.windows.net,1433;
+                            Initial Catalog=mySqlDb;Persist Security Info=False;
+                            User ID=<username>;Password=<password>;
+                            MultipleActiveResultSets=False;
+                            Encrypt=True;TrustServerCertificate=False;
+                            Connection Timeout=30;"
+      }
+---
+
+Nxt, run the commands below to install the necessary CLI tools for Entity Framework Core, create an intial database migration file, and apply those changes to update the database.
+
+        dotnet tool install -g dotnet-ef
+        dotnet ef migrations add InitialCreate
+        dotnet ef database update
+
+The migration should complete successfully, and your database is now setup on Azure with the correct schema.
+
+After running these commands, switch your appsettings.json configuration back to the original MyDbConnection value.  This will ensure that the next time you deploy your code to Azure, it will pull the correct Connection String from your App Service configuration by name.  
+
+---
+      "ConnectionStrings": {
+        "MyDbConnection": "MyDbConnection"
+      }
+---
+
+Navigate back to your web app in the browser.  If you refresh the page, you should now be able to Create Todos and see them displayed on the home page.
 
 ### [Azure CLI](#tab/azure-cli-schema)
 
-Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com) or on a workstation with the [Azure CLI installed](/cli/azure/install-azure-cli).
+Run the following command to add a firewall rule to your SQL Server instance.
 
-```azurecli
-az group list
-```
+---
+    az sql server firewall-rule create -resource-group $RESOURCE_GROUP_NAME -server <yoursqlserver> -name "LocalAccess" --start-ip-address <yourip> --end-ip-address <yourip>
+---
 
-----
+Next, inside of your local code editor, we need to temporarily update the connection string of our local app to point to the Azure SQL Database.  This will allow us to run Entity Framework Core migrations and generate the correct schema for our database.
+1. Open the appsettings.json file in your project.
+1. Inside of this file, paste the connection string you copied earlier into the value of the *MyDbConnection* key. Make sure to replace the password with the value you chose when setting up your database.
+1.  Your *ConnectionStrings* settings should now look like the code below.
+ 
+---
+      "ConnectionStrings": {
+        "MyDbConnection": "Server=tcp:MyDbServer.database.windows.net,1433;
+                            Initial Catalog=mySqlDb;Persist Security Info=False;
+                            User ID=<username>;Password=<password>;
+                            MultipleActiveResultSets=False;
+                            Encrypt=True;TrustServerCertificate=False;
+                            Connection Timeout=30;"
+      }
+---
+
+Nxt, run the commands below to install the necessary CLI tools for Entity Framework Core, create an intial database migration file, and apply those changes to update the database.
+
+        dotnet tool install -g dotnet-ef
+        dotnet ef migrations add InitialCreate
+        dotnet ef database update
+
+The migration should complete successfully, and your database is now setup on Azure with the correct schema.
+
+After running these commands, switch your appsettings.json configuration back to the original MyDbConnection value.  This will ensure that the next time you deploy your code to Azure, it will pull the correct Connection String from your App Service configuration by name.  
+
+---
+      "ConnectionStrings": {
+        "MyDbConnection": "MyDbConnection"
+      }
+---
+
+Navigate back to your web app in the browser.  If you refresh the page, you should now be able to Create Todos and see them displayed on the home page.
 
 ## 7 - Browse with kudu
 
@@ -252,7 +315,7 @@ Azure App Service provides a web-based diagnostics console named Kudu that allow
 
 To access Kudu, navigate to one of the following URLs. You will need to sign into the Kudu site with your Azure credentials.
 
-- For apps deployed in Free, Shared, Basic, Standard, and Premium App Service plans - `https:/?<app-name>.scm.azurewebsites.net`
+- For apps deployed in Free, Shared, Basic, Standard, and Premium App Service plans - `https:/<app-name>.scm.azurewebsites.net`
 - For apps deployed in Isolated service plans - `https://<app-name>.scm.<ase-name>.p.azurewebsites.net`
 From the main page in Kudu, you can access information about the application hosting environment, app settings, deployments, and browse the files in the wwwroot directory.
 
