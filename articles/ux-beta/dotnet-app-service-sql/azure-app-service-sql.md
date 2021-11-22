@@ -88,24 +88,13 @@ Finally, create the App Service web app using the [az webapp create](/cli/azure/
 ```azurecli
 
 # Change 123 to any three characters to form a unique name across Azure
-APP_SERVICE_NAME='msdocs-expressjs-mongodb-123'     
+APP_SERVICE_NAME='msdocs-core-sql-tutorial-123'     
 
 az webapp create \
     --name $APP_SERVICE_NAME \
     --runtime 'DOTNET|6.0'
     --plan $APP_SERVICE_PLAN_NAME
     --resource-group $RESOURCE_GROUP_NAME 
-```
-
----
-
-### [Azure PowerShell](#tab/azure-powershell)
-
-Azure PowerShell commands can be run in the [Azure Cloud Shell](https://shell.azure.com) or on a workstation with [Azure PowerShell installed](/powershell/azure/install-az-ps).
-
-
-```azurepowershell
-
 ```
 
 ----
@@ -127,7 +116,7 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps 
 
 To create an Azure SQL database, we first must create a SQL Server to host it.
 
-A new Azure SQL datbase is created by using the [az sql db create](/cli/azure/cosmosdbaz_cosmosdb_create) command.
+A new Azure SQL Server is created by using the [az sql server create](/cli/azure/cosmosdbaz_cosmosdb_create) command.
 
 ```azurecli
 az sql server create 
@@ -138,7 +127,7 @@ az sql server create
     -p <yourPassword>
 ```
 
-A new Azure SQL datbase is created by using the [az sql db create](/cli/azure/cosmosdbaz_cosmosdb_create) command.
+A new Azure SQL database is created by using the [az sql db create](/cli/azure/cosmosdbaz_cosmosdb_create) command.
 
 ```azurecli
 az sql db create 
@@ -146,16 +135,6 @@ az sql db create
     -s <yourSQLServerName> 
     -n coreDb 
     --service-objective S0
-```
-
-
-### [Azure PowerShell](#tab/azure-powershell-database)
-
-Azure PowerShell commands can be run in the [Azure Cloud Shell](https://shell.azure.com) or on a workstation with [Azure PowerShell installed](/powershell/azure/install-az-ps).
-
-
-```azurepowershell
-
 ```
 
 ----
@@ -189,15 +168,6 @@ Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com
 az group list
 ```
 
-### [Azure PowerShell](#tab/azure-powershell-deploy)
-
-Azure PowerShell commands can be run in the [Azure Cloud Shell](https://shell.azure.com) or on a workstation with [Azure PowerShell installed](/powershell/azure/install-az-ps).
-
-
-```azurepowershell
-
-```
-
 ----
 
 ## 5 - Connect the App to the Database
@@ -218,15 +188,6 @@ Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com
 
 ```azurecli
 az group list
-```
-
-### [Azure PowerShell](#tab/azure-powershell-connect)
-
-Azure PowerShell commands can be run in the [Azure Cloud Shell](https://shell.azure.com) or on a workstation with [Azure PowerShell installed](/powershell/azure/install-az-ps).
-
-
-```azurepowershell
-
 ```
 
 ----
@@ -252,15 +213,6 @@ Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com
 
 ```azurecli
 az group list
-```
-
-### [Azure PowerShell](#tab/azure-powershell-schema)
-
-Azure PowerShell commands can be run in the [Azure Cloud Shell](https://shell.azure.com) or on a workstation with [Azure PowerShell installed](/powershell/azure/install-az-ps).
-
-
-```azurepowershell
-
 ```
 
 ----
