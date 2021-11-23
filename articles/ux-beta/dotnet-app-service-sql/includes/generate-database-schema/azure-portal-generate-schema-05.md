@@ -1,1 +1,0 @@
-Navigate back to your web app in the browser.  If you refresh the page, you should now be able to Create Todos and see them displayed on the home page.

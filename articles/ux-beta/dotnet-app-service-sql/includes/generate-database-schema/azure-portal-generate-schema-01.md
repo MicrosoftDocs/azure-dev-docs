@@ -1,6 +1,3 @@
 In the Azure portal:
 
    1. In the top search bar, search for the "coredbserverXYZ" server you created earlier and select it from the results.
-   1. On the left navigation, select *Firewalls and virtual networks*.
-   1. In the Firewall Rules section, enter a *Rule name* of MyLocalAccess.  In the *Start IP* and *End IP* fields, paste the IP Address you copied from your terminal earlier.
-   1. Click Save at the top of the screen to persist your changes.

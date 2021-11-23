@@ -115,7 +115,7 @@ Replace the <server-name> placeholder with a unique SQL Database name. This name
 
 ```azurecli
 az sql server create 
-    --location 'east-us''
+    --location 'east-us'
     --resource-group 'msdocs-core-sql-tutorial'
     --server <server-name>
     --admin-username <db-username>
@@ -131,9 +131,6 @@ az sql db create
     --name coreDb 
     --service-objective S0
 ```
-
-
-
 ----
 
 
@@ -196,8 +193,10 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps 
 
 | Instructions    | Screenshot |
 |:----------------|-----------:|
-| [!INCLUDE [Connect Service step 1](<./includes/connect-app-database/azure-portal-connect-database-01.md>)] | :::image type="content" source="./media/azportal-create-cosmosdb-1-240px.png" alt-text="A screenshot showing how to use the search box in the top tool bar to find App Services in Azure." lightbox="./media/azportal-connect-service-1.png"::: |
-| [!INCLUDE [Connect Service step 2](<./includes/connect-app-database/azure-portal-connect-database-02.md>)] | :::image type="content" source="./media/azportal-create-cosmosdb-2-240px.png" alt-text="A screenshot showing the create button on the App Services page used to create a new web app." lightbox="./media/azportal-connect-service-2.png"::: |
+| [!INCLUDE [Connect Service step 1](<./includes/connect-app-database/azure-portal-connect-sqldb-01.md>)] | :::image type="content" source="./media/azportal-connect-sqldb-01-240px.png" alt-text="A screenshot showing how to use the search box in the top tool bar to find App Services in Azure." lightbox="./media/azportal-connect-service-1.png"::: |
+| [!INCLUDE [Connect Service step 2](<./includes/connect-app-database/azure-portal-connect-sqldb-02.md>)] | :::image type="content" source="./media/azportal-connect-sqldb-02-240px.png" alt-text="A screenshot showing the create button on the App Services page used to create a new web app." lightbox="./media/azportal-connect-service-2.png"::: |
+| [!INCLUDE [Connect Service step 3](<./includes/connect-app-database/azure-portal-connect-sqldb-03.md>)] | :::image type="content" source="./media/azportal-connect-sqldb-03-240px.png" alt-text="A screenshot showing how to use the search box in the top tool bar to find App Services in Azure." lightbox="./media/azportal-connect-service-3.png"::: |
+| [!INCLUDE [Connect Service step 4](<./includes/connect-app-database/azure-portal-connect-sqldb-04.md>)] | :::image type="content" source="./media/azportal-connect-sqldb-04-240px.png" alt-text="A screenshot showing the create button on the App Services page used to create a new web app." lightbox="./media/azportal-connect-service-4.png"::: |
 
 ### [Azure CLI](#tab/azure-cli-connect)
 
@@ -229,6 +228,12 @@ In the Azure portal:
    1. On the left navigation, select *Firewalls and virtual networks*.
    1. In the Firewall Rules section, enter a *Rule name* of MyLocalAccess.  In the *Start IP* and *End IP* fields, paste the IP Address you copied from your terminal earlier.
    1. Click Save at the top of the screen to persist your changes.
+
+| Instructions    | Screenshot |
+|:----------------|-----------:|
+| [!INCLUDE [Generate schema step 1](<./includes/generate-database-schema/azure-portal-generate-schema-01.md>)] | :::image type="content" source="./media/azportal-generate-schema-01-240px.png" alt-text="A screenshot showing how to use the search box in the top tool bar to find App Services in Azure." lightbox="./media/azportal-connect-service-1.png"::: |
+| [!INCLUDE [Generate schema step 2](<./includes/generate-database-schema/azure-portal-generate-schema-02.md>)] | :::image type="content" source="./media/azportal-generate-schema-02-240px.png" alt-text="A screenshot showing the create button on the App Services page used to create a new web app." lightbox="./media/azportal-connect-service-2.png"::: |
+
 
 ### [Azure CLI](#tab/azure-cli-schema)
 
