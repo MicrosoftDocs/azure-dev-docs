@@ -174,6 +174,7 @@
 | azure-mgmt-healthbot | PyPI [1.0.0b1](https://pypi.org/project/azure-mgmt-healthbot/1.0.0b1) |  |  |
 | azure-mgmt-hybridnetwork | PyPI [1.0.0](https://pypi.org/project/azure-mgmt-hybridnetwork/1.0.0) |  |  |
 | azure-mgmt-logz | PyPI [1.0.0](https://pypi.org/project/azure-mgmt-logz/1.0.0) |  |  |
+| azure-mgmt-orbital | PyPI [1.0.0b1](https://pypi.org/project/azure-mgmt-orbital/1.0.0b1) |  |  |
 | azure-mgmt-portal | PyPI [1.0.0](https://pypi.org/project/azure-mgmt-portal/1.0.0) |  |  |
 | azure-mgmt-purview | PyPI [1.0.0](https://pypi.org/project/azure-mgmt-purview/1.0.0) |  |  |
 | azure-mgmt-quantum | PyPI [1.0.0b2](https://pypi.org/project/azure-mgmt-quantum/1.0.0b2) |  |  |
