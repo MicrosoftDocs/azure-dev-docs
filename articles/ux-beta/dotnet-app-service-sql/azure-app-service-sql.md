@@ -142,8 +142,8 @@ We are now ready to deploy our .NET app to the App Service.
 
 | Instructions    | Screenshot |
 |:----------------|-----------:|
-| [!INCLUDE [Deploy app service step 1](<./includes/deploy-app-service/vscode-deploy-app-service-01.md>)] | :::image type="content" source="./media/azportal-create-app-service-1-240px.png" alt-text="A screenshot showing how to use the search box in the top tool bar to find App Services in Azure." lightbox="./media/azportal-create-app-service-1.png"::: |
-| [!INCLUDE [Deploy app service step 2](<./includes/deploy-app-service/vscode-deploy-app-service-02.md>)] | :::image type="content" source="./media/azportal-create-app-service-2-240px.png" alt-text="A screenshot showing the deploy button on the App Services page used to deploy a new web app." lightbox="./media/azportal-create-app-service-2.png"::: |
+| [!INCLUDE [Deploy app service step 1](<./includes/deploy-app-service/vscode-deploy-app-service-01.md>)] | :::image type="content" source="./media/vscode-deploy-01-240px.png" alt-text="A screenshot showing how to use the search box in the top tool bar to find App Services in Azure." lightbox="./media/vscode-deploy-01.png"::: |
+| [!INCLUDE [Deploy app service step 2](<./includes/deploy-app-service/vscode-deploy-app-service-02.md>)] | :::image type="content" source="./media/vscode-deploy-02-240px.png" alt-text="A screenshot showing the deploy button on the App Services page used to deploy a new web app." lightbox="./media/vscode-deploy-02.png"::: |
 
 ### [Visual Studio](#tab/visualstudio-deploy)
 
@@ -223,11 +223,6 @@ We need to allow our local computer to connect to Azure to finish setting up our
 ### [Azure portal](#tab/azure-portal-schema)
 
 In the Azure portal:
-
-   1. In the top search bar, search for the "coredbserverXYZ" server you created earlier and select it from the results.
-   1. On the left navigation, select *Firewalls and virtual networks*.
-   1. In the Firewall Rules section, enter a *Rule name* of MyLocalAccess.  In the *Start IP* and *End IP* fields, paste the IP Address you copied from your terminal earlier.
-   1. Click Save at the top of the screen to persist your changes.
 
 | Instructions    | Screenshot |
 |:----------------|-----------:|
