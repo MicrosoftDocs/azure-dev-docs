@@ -14,7 +14,7 @@ ROBOTS: NOINDEX
 
 # Deploy an ASP.NET Core Web App with a SQL Database to Azure
 
-Azure App Service provides a highly scalable, self-patching web hosting service that you can use to easily deploy apps on Windows or Linux. In this tutorial, you'll learn how to deploy an ASP.NET Core app to Azure App Service and connect it to an Azure SQL Database.
+In this tutorial, you'll learn how to deploy an ASP.NET Core app to Azure App Service and connect it to an Azure SQL Database. Azure App Service provides a highly scalable, self-patching web hosting service that you can use to easily deploy apps on Windows or Linux. 
 
 :::image type="content" source="media/azure-app-in-browser.png" alt-text="This is an architecture diagram about how the solution works in Azure":::
 
@@ -22,9 +22,8 @@ This article assumes general familiarity with [.NET]("https://dotnet.microsoft.c
 
 ## 1 - Setup the Sample Application
 
-To follow along with this tutorial, clone or download the sample application from the repository [https://github.com/Azure-Samples/dotnetcore-sqldb-tutorial](https://github.com/Azure-Samples/dotnetcore-sqldb-tutorial).
+To follow along with this tutorial, [Download the Sample Project](https://github.com/Azure-Samples/dotnetcore-sqldb-tutorial/archive/refs/heads/master.zip) from the repository [https://github.com/Azure-Samples/dotnetcore-sqldb-tutorial](https://github.com/Azure-Samples/dotnetcore-sqldb-tutorial) or clone it using the Git command below.
 
-[Download Sample Project](https://github.com/Azure-Samples/dotnetcore-sqldb-tutorial/archive/refs/heads/master.zip)
 
 ```bash
 git clone https://github.com/azure-samples/dotnetcore-sqldb-tutorial
@@ -42,10 +41,10 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps 
 | Instructions    | Screenshot |
 |:----------------|-----------:|
 | [!INCLUDE [Create app service step 1](<./includes/create-app-service/azure-portal-1.md>)] | :::image type="content" source="./media/azportal-create-app-service-1-240px.png" alt-text="A screenshot showing how to use the search box in the top tool bar to find App Services in Azure." lightbox="./media/azportal-create-app-service-1.png"::: |
-| [!INCLUDE [Create app service step 2](<./includes/create-app-service/azure-portal-2.md>)] | :::image type="content" source="./media/azportal-create-app-service-2-240px.png" alt-text="A screenshot showing the create button on the App Services page used to create a new web app." lightbox="./media/azportal-create-database-2.png"::: |
-| [!INCLUDE [Create app service step 3](<./includes/create-app-service/azure-portal-3.md>)] | :::image type="content" source="./media/azportal-create-app-service-3-240px.png" alt-text="A screenshot showing the form to fill out to create a web app in Azure." lightbox="./media/azportal-create-database-3.png"::: |
-| [!INCLUDE [Create app service step 4](<./includes/create-app-service/azure-portal-4.md>)] | :::image type="content" source="./media/azportal-create-app-service-4-240px.png" alt-text="A screenshot of the Spec Picker dialog that allows you to select the App Service plan to use for your web app." lightbox="./media/azportal-create-database-4.png"::: |
-| [!INCLUDE [Create app service step 5](<./includes/create-app-service/azure-portal-5.md>)] | :::image type="content" source="./media/azportal-create-app-service-5-240px.png" alt-text="A screenshot of the main web app create page showing the button to select on to create your web app in Azure." lightbox="./media/azportal-create-database-5.png"::: |
+| [!INCLUDE [Create app service step 2](<./includes/create-app-service/azure-portal-2.md>)] | :::image type="content" source="./media/azportal-create-app-service-2-240px.png" alt-text="A screenshot showing the create button on the App Services page used to create a new web app." lightbox="./media/azportal-create-app-service-2.png"::: |
+| [!INCLUDE [Create app service step 3](<./includes/create-app-service/azure-portal-3.md>)] | :::image type="content" source="./media/azportal-create-app-service-3-240px.png" alt-text="A screenshot showing the form to fill out to create a web app in Azure." lightbox="./media/azportal-create-app-service-3.png"::: |
+| [!INCLUDE [Create app service step 4](<./includes/create-app-service/azure-portal-4.md>)] | :::image type="content" source="./media/azportal-create-app-service-4-240px.png" alt-text="A screenshot of the Spec Picker dialog that allows you to select the App Service plan to use for your web app." lightbox="./media/azportal-create-app-service-4.png"::: |
+| [!INCLUDE [Create app service step 5](<./includes/create-app-service/azure-portal-5.md>)] | :::image type="content" source="./media/azportal-create-app-service-5-240px.png" alt-text="A screenshot of the main web app create page showing the button to select on to create your web app in Azure." lightbox="./media/azportal-create-app-service-5.png"::: |
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -54,13 +53,9 @@ Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com
 First, create a resource group to act as a container for all of the Azure resources related to this application.
 
 ```azurecli
-LOCATION='eastus'                          # Use 'az account list-locations --output table' to list locations
-RESOURCE_GROUP_NAME='msdocs-core-sql-tutorial'
-
-# Create a resource group
-az group create \
-    --location $LOCATION \
-    --name $RESOURCE_GROUP_NAME
+    # Use 'az account list-locations --output table' to list available locations close to you
+    # Create a resource group
+    az group create --location 'east-us' --name 'msdocs-core-sql-tutorial'
 ```
 
 Next, create an App Service plan using the [az appservice plan create](/cli/azure/appservice/plan#az_appservice_plan_create) command.
@@ -73,17 +68,17 @@ Next, create an App Service plan using the [az appservice plan create](/cli/azur
  # Change 123 to any three characters to form a unique name across Azure
 APP_SERVICE_PLAN_NAME='msdocs-core-sql-tutorial-plan-123'    
 
-az appservice plan create \
-    --name $APP_SERVICE_PLAN_NAME \
-    --resource-group $RESOURCE_GROUP_NAME \
-    --sku B1 \
+az appservice plan create
+    --name $APP_SERVICE_PLAN_NAME
+    --resource-group 'msdocs-core-sql-tutorial'
+    --sku B1
     --is-linux
 ```
 
 Finally, create the App Service web app using the [az webapp create](/cli/azure/webapp#az_webapp_create) command.  
 
 * The *app service name* is used as both the name of the resource in Azure and to form the fully qualified domain name for your app in the form of `https://<app service name>.azurewebsites.com`.
-* The runtime specifies what version of .Net your app is running. This example uses .NET 6.0 LTS. To list all available runtimes, use the command `az webapp list-runtimes --linux --output table` for Linux and `az webapp list-runtimes --output table` for Windows.
+* The runtime specifies what version of .NET your app is running. This example uses .NET 6.0 LTS. To list all available runtimes, use the command `az webapp list-runtimes --linux --output table` for Linux and `az webapp list-runtimes --output table` for Windows.
 
 ```azurecli
 
@@ -94,7 +89,7 @@ az webapp create \
     --name $APP_SERVICE_NAME \
     --runtime 'DOTNET|6.0'
     --plan $APP_SERVICE_PLAN_NAME
-    --resource-group $RESOURCE_GROUP_NAME 
+    --resource-group 'msdocs-core-sql-tutorial'
 ```
 
 ----
@@ -110,32 +105,34 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps 
 |:----------------|-----------:|
 | [!INCLUDE [Create database step 1](<./includes/create-sql-database/azure-portal-sqldb-create-01.md>)] | :::image type="content" source="./media/azportal-create-cosmosdb-1-240px.png" alt-text="A screenshot showing how to use the search box in the top tool bar to find App Services in Azure." lightbox="./media/azportal-create-database-1.png"::: |
 | [!INCLUDE [Create database step 2](<./includes/create-sql-database/azure-portal-sqldb-create-02.md>)] | :::image type="content" source="./media/azportal-create-cosmosdb-2-240px.png" alt-text="A screenshot showing the create button on the App Services page used to create a new web app." lightbox="./media/azportal-create-database-2.png"::: |
-| [!INCLUDE [Create database step 3](<./includes/create-sql-database/azure-portal-sqldb-create-03.md>)] | :::image type="content" source="./media/azportal-create-cosmosdb-3-240px.png" alt-text="A screenshot showing the form to fill out to create a web app in Azure." lightbox="./media/azportal-create-database-3.png"::: |
+| [!INCLUDE [Create database step 3](<./includes/create-sql-database/azure-portal-sqldb-create-03.md>)] | :::image type="content" source="./media/azportal-create-cosmosdb-4-240px.png" alt-text="A screenshot showing the form to fill out to create a web app in Azure." lightbox="./media/azportal-create-cosmosdb-4.png"::: |
 
 ### [Azure CLI](#tab/azure-cli-database)
 
-To create an Azure SQL database, we first must create a SQL Server to host it.
+To create an Azure SQL database, we first must create a SQL Server to host it. A new Azure SQL Server is created by using the [az sql server create](/cli/azure/cosmosdbaz_cosmosdb_create) command.
 
-A new Azure SQL Server is created by using the [az sql server create](/cli/azure/cosmosdbaz_cosmosdb_create) command.
+Replace the <server-name> placeholder with a unique SQL Database name. This name is used as the part of the globally unique SQL Database endpoint, <server-name>.database.windows.net. Valid characters are a-z, 0-9, -. Also, replace <db-username> and <db-username> with a username and password of your choice.
 
 ```azurecli
 az sql server create 
-    -l $LOCATION
-    -g $RESOURCE_GROUP_NAME
-    -n <yourServerName>
-    -u <yourUsername> 
-    -p <yourPassword>
+    --location 'east-us''
+    --resource-group 'msdocs-core-sql-tutorial'
+    --server <server-name>
+    --admin-username <db-username>
+    --admin-password <db-password>
 ```
 
-A new Azure SQL database is created by using the [az sql db create](/cli/azure/cosmosdbaz_cosmosdb_create) command.
+Provisioning a SQL Server may take a few minutes.  Once the resource is available we can Create a database with an S0 performance level in the server using the `az sql db create` command.
 
 ```azurecli
 az sql db create 
-    -g $RESOURCE_GROUP_NAME 
-    -s <yourSQLServerName> 
-    -n coreDb 
+    --resource-group 'msdocs-core-sql-tutorial'
+    --server <server-name>
+    --name coreDb 
     --service-objective S0
 ```
+
+
 
 ----
 
@@ -171,13 +168,13 @@ To enable git deployments via the CLI, configure a local git deployment source o
 This command will return a Git deployment URL for your App Service.  Copy this URL for later use.
 
 ```azurecli
-    az webapp deployment source config-local-git --name <yourappname> --resource-group $RESOURCE_GROUP_NAME
+    az webapp deployment source config-local-git --name <app-name> --resource-group 'msdocs-core-sql-tutorial'
 ```
 
 Next, let's add an Azure origin to our local Git repo using the App Service Git deployment URL.
 
 ```azurecli
-    git remote add azure https://<yourusername>@<yourappName>.scm.azurewebsites.net/<yourappname>.git
+    git remote add azure https://<username>@<app-name>.scm.azurewebsites.net/<app-name>.git
 ```
 
 Finally, push your code using the correct origin and branch name.
@@ -209,7 +206,7 @@ Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com
 We can retrieve the Connection String for our database using the command below.  This will allow us to add it to our App Service configuration settings. Copy this Connectiong String value for later use.
 
 ```azurecli
-az sql db show-connection-string --client ado.net --name coreDb --server coredbserver001
+az sql db show-connection-string --client ado.net --name coreDb --server <server-name>
 ```
 
 Next, let's assign the Connection String to our App Service using the command below. `MyDbConnection` is the name of the Connection String in our appsettings.json file, which means it will be loaded by our app during startup.
@@ -243,10 +240,9 @@ Run the following command to add a firewall rule to your SQL Server instance.
 
 ----
 
-Inside of your local code editor, we need to temporarily update the connection string of our local app to point to the Azure SQL Database.  This will allow us to run Entity Framework Core migrations and generate the correct schema for our database.
+Inside of your local code editor, temporarily update the app Connection String to point to the Azure SQL Database.  This will allow us to generate the correct schema for the Azure SQL database by using Entity Framework Core migrations.
 1. Open the appsettings.json file in your project.
-1. Inside of this file, paste the connection string you copied earlier into the value of the *MyDbConnection* key. Make sure to replace the password with the value you chose when setting up your database.
-1.  Your *ConnectionStrings* settings should now look like the code below.
+1. Inside of this file, paste the connection string you copied earlier into the value of the *MyDbConnection* key. Replace the password with the value you chose when setting up your database.
  
 ---
       "ConnectionStrings": {
@@ -265,9 +261,9 @@ Nxt, run the commands below to install the necessary CLI tools for Entity Framew
         dotnet ef migrations add InitialCreate
         dotnet ef database update
 
-The migration should complete successfully, and your database is now setup on Azure with the correct schema.
+After the migration completes, your Azure SQL database will have the correct schema.
 
-After running these commands, switch your appsettings.json configuration back to the original MyDbConnection value.  This will ensure that the next time you deploy your code to Azure, it will pull the correct Connection String from your App Service configuration by name.  
+Next, switch your appsettings.json configuration back to the original MyDbConnection value.  This ensures that the next time you deploy your code to Azure, it will pull the Connection String from your App Service configuration by name.  
 
 ---
       "ConnectionStrings": {
