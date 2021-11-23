@@ -1,6 +1,6 @@
 ---
 title: Libraries, drivers, and Spring modules for Azure
-description: Links to the libraries, drivers, Spring modules, and related topics available for use with Azure.
+description: Links to the libraries, drivers, Spring modules, and related articles available for use with Azure.
 ms.date: 10/12/2021
 ms.topic: conceptual
 ms.custom: devx-track-java
@@ -8,7 +8,7 @@ ms.custom: devx-track-java
 
 # Libraries, drivers, and Spring modules for Azure
 
-This article provides links to the libraries, drivers, Spring modules, and related topics available for use with Azure.
+This article provides links to the libraries, drivers, Spring modules, and related articles available for use with Azure.
 
 Microsoft’s goal is to empower every developer to achieve more, and our commitment to Java developers is no exception. Java and Spring developers want to use idiomatic libraries to simplify connections to their preferred cloud services. These libraries, drivers, and modules let you easily interact with Azure services across data, messaging, cache, storage, eventing, directory, and secrets management. Use the following table to find the right library, driver, or module and guides to get started.
 
@@ -30,9 +30,9 @@ Microsoft’s goal is to empower every developer to achieve more, and our commit
 | Messaging    | Service Bus                | [JMS + AMQP]                                       | [Send messages to an Azure Service Bus topic and receive messages from subscriptions to the topic] | [Spring AMQP]                                          | [How to use Spring Cloud Azure Stream Binder for Azure Service Bus]                                                                              |
 | Messaging    | Service Bus                | [Azure Service Bus client library for Java]        | [Azure Service Bus Samples client library for Java]                                                | [Spring AMQP]                                          | [How to use Spring Cloud Azure Stream Binder for Azure Service Bus]                                                                              |
 | Eventing     | Event Hubs                 | [Kafka]                                            | [Send and Receive Messages in Java using Azure Event Hubs for Apache Kafka Ecosystems]             | [Spring for Apache Kafka]                              | [How to use the Spring Boot Starter for Apache Kafka with Azure Event Hubs]                                                                      |
-| Eventing     | Event Hubs                 | [Azure Event Hub libraries for Java]               | [Use Java to send events to or receive events from Azure Event Hubs]                               | [Spring Cloud Stream Binder for Event Hubs]            | [How to create a Spring Cloud Stream Binder application with Azure Event Hubs]                                                                   |
+| Eventing     | Event Hubs                 | [Azure Event Hubs libraries for Java]              | [Use Java to send events to or receive events from Azure Event Hubs]                               | [Spring Cloud Stream Binder for Event Hubs]            | [How to create a Spring Cloud Stream Binder application with Azure Event Hubs]                                                                   |
 | Directory    | Azure Active Directory     | [MSAL]                                             | [Enable Java Servlet apps to sign in users on Azure AD]                                            | [Azure AD Spring Boot Starter]                         | [Enable Spring Boot Web apps to sign in users on Azure AD]                                                                                       |
-| Directory    | Azure Active Directory B2C | [MSAL]                                             | [Enable Java Servlet apps to sign in users on Azure AD B2C]                                        | [Azure AD B2C Spring Boot Starter]                     | [Enable Spring Boot Web apps to sign-in users on Azure AD B2C]                                                                                   |
+| Directory    | Azure Active Directory B2C | [MSAL]                                             | [Enable Java Servlet apps to sign in users on Azure AD B2C]                                        | [Azure AD B2C Spring Boot Starter]                     | [Enable Spring Boot Web apps to sign in users on Azure AD B2C]                                                                                   |
 | Secrets      | Key Vault                  | [Key Vault Secrets]                                | [Manage secrets using Key Vault]                                                                   | [Key Vault Secrets Spring Boot Starter]                | [Manage secrets for Spring Boot apps]                                                                                                            |
 | Certificates | Key Vault                  | [Key Vault Certificates JCA]                       | Coming soon                                                                                        | [Key Vault Certificates Spring Boot Starter]           | [Manage certificates for Spring Boot apps]                                                                                                       |
 
@@ -50,7 +50,7 @@ Microsoft’s goal is to empower every developer to achieve more, and our commit
 [JMS + AMQP]: /azure/service-bus-messaging/how-to-use-java-message-service-20#downloading-the-java-message-service-jms-client-library
 [Azure Service Bus client library for Java]: /java/api/overview/azure/messaging-servicebus-readme
 [Kafka]: https://kafka.apache.org/10/documentation.html
-[Azure Event Hub libraries for Java]: /java/api/overview/azure/eventhub
+[Azure Event Hubs libraries for Java]: /java/api/overview/azure/eventhub
 [MSAL]: https://github.com/AzureAD/microsoft-authentication-library-for-java
 [Key Vault Secrets]: https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/keyvault/azure-security-keyvault-secrets
 [Key Vault Certificates JCA]: https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/keyvault/azure-security-keyvault-jca
@@ -106,6 +106,6 @@ Microsoft’s goal is to empower every developer to achieve more, and our commit
 [How to use the Spring Boot Starter for Apache Kafka with Azure Event Hubs]: /azure/developer/java/spring-framework/configure-spring-cloud-stream-binder-java-app-kafka-azure-event-hub
 [How to create a Spring Cloud Stream Binder application with Azure Event Hubs]: /azure/developer/java/spring-framework/configure-spring-cloud-stream-binder-java-app-azure-event-hub
 [Enable Spring Boot Web apps to sign in users on Azure AD]: https://github.com/Azure-Samples/ms-identity-java-spring-tutorial/tree/main/1-Authentication/sign-in#readme
-[Enable Spring Boot Web apps to sign-in users on Azure AD B2C]: https://github.com/Azure-Samples/ms-identity-java-spring-tutorial/tree/main/1-Authentication/sign-in-b2c#readme
+[Enable Spring Boot Web apps to sign in users on Azure AD B2C]: https://github.com/Azure-Samples/ms-identity-java-spring-tutorial/tree/main/1-Authentication/sign-in-b2c#readme
 [Manage secrets for Spring Boot apps]: /azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-key-vault
 [Manage certificates for Spring Boot apps]: /azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-key-vault-certificates
