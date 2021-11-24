@@ -1,7 +1,7 @@
 ---
 title: Migrate Tomcat applications to Azure Spring Cloud
 description: This guide describes what you should be aware of when you want to migrate an existing Tomcat application to Azure Spring Cloud
-ms.author: yebronsh
+ms.author: karler
 ms.topic: conceptual
 ms.date: 6/16/2020
 recommendations: false
@@ -65,7 +65,7 @@ To identify HTTP connectors used by your application, look for `<Connector>` ele
 
 #### Determine whether SSL session tracking is used
 
-On Azure Spring Cloud, the SSL session will terminate prior to reaching your application code, so you can't use [SSL session tracking](https://tomcat.apache.org/tomcat-9.0-doc/servletapi/javax/servlet/SessionTrackingMode.html#SSL). You will need to switch to using [Spring Session](https://docs.spring.io/spring-session/docs/current/reference/html5/index.html) instead.
+On Azure Spring Cloud, the SSL session will terminate prior to reaching your application code, so you can't use [SSL session tracking](https://tomcat.apache.org/tomcat-9.0-doc/servletapi/javax/servlet/SessionTrackingMode.html#SSL). You will need to switch to using [Spring Session](https://docs.spring.io/spring-session/reference/3.0/index.html) instead.
 
 #### Determine whether Tomcat realms are used
 
