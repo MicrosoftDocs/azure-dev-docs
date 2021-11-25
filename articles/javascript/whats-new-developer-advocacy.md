@@ -27,7 +27,7 @@ This content is primarily from Developer Advocates as well as other members of t
 |Client web apps|Web Development for Beginners|[Curriculum on GitHub](https://dev.to/azure/announcing-a-free-curriculum-web-development-for-beginners-142k)|
 |Client web apps|Awesome Azure Static web apps|[Resource list](https://github.com/staticwebdev/awesome-azure-static-web-apps)|
 |Client web apps|Azure Tips and Tricks: Static Web Apps|[Beginner video series](https://aka.ms/StaticWebAppsTips)|
-|Client web apps|Static Web Apps Code to Scale|[Conference video series](https://aka.ms/SWAConfOnDemand)|
+|Client web apps|Static Web Apps Code to Scale|[Conference video series](/events/learn-tv-static-web-apps-code-to-scale/?WT.mc_ID=swa-124587-memckenn)|
 |Client web apps|Take your first steps with Vue.js|[Learn path](/learn/paths/vue-first-steps/?WT.mc_id=javascript-27683-cxa)|
 |Client web apps|Beginner's Series to: Vue.js|[Beginner video series](https://youtu.be/LnngsOg014Y)|
 |Client web apps|Comparing Azure Static Web Apps vs Azure WebApps vs Azure Blob Storage Static Sites|[Blog post](https://devblogs.microsoft.com/devops/comparing-azure-static-web-apps-vs-azure-webapps-vs-azure-blob-storage-static-sites/)|
@@ -147,7 +147,7 @@ This content is primarily from Developer Advocates as well as other members of t
 
 |Cloud Advocate|Contributions|Link|
 |--|--|--|
-|[Aaron Powell][Aaron] and Abel Wang|DevOps Lab - Deploying packages with GitHub Actions|[Channel 9 video](https://aka.ms/DevOpsLab/DeployingPackageswithGitHub)|
+|[Aaron Powell][Aaron] and Abel Wang|DevOps Lab - Deploying packages with GitHub Actions|[Channel 9 video](/shows/DevOps-Lab/Deploying-packages-with-GitHub-Actions?WT.mc_id=devopslab-c9-cxa)|
 |[Aaron Powell][Aaron]|Static Web Apps API Auth helper|[Blog](https://www.aaron-powell.com/posts/2021-03-30-making-auth-simpler-for-static-web-app-apis/)|
 |[Yohan Lasorsa][Yohan]|[Angular+Surface Duo- Gallery app demo|[GitHub repo](https://github.com/sinedied/surface-duo-photo-gallery)|
 |[Yohan Lasorsa][Yohan]|Cloud First Conference Talk: Highly available, distributed & resilient software|[YouTube](https://youtu.be/OGFkz81mKf8?t=7162)|
