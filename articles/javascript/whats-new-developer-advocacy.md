@@ -14,15 +14,15 @@ This content is primarily from Developer Advocates as well as other members of t
 ## Reoccurring events 
 
 * [Microsoft Learn TV](/learn/tv/)
-* [Web Wednesday - reoccurring](https://channel9.msdn.com/Shows/Web-Wednesday/)
+* [Web Wednesday - reoccurring](/Shows/Web-Wednesday/)
 
 ## Timeless
 
 |Focus|Title|Link|
 |--|--|--|
-|JS|Beginner's Series to: JavaScript|[Video series](https://channel9.msdn.com/Series/Beginners-Series-to-JavaScript)|
+|JS|Beginner's Series to: JavaScript|[Video series](/shows/Beginners-Series-to-JavaScript)|
 |JS|JavaScript 101 for Beginners|[Video series - **Portuguese**](https://github.com/glaucia86/js-101-beginners-ms)|
-|Node.js|Beginner's Series to: Node.js|[Video series](https://channel9.msdn.com/Series/Beginners-Series-to-NodeJS/?WT.mc_id=nodebeginner-ch9-cxa)|
+|Node.js|Beginner's Series to: Node.js|[Video series](/shows/Beginners-Series-to-NodeJS/?WT.mc_id=nodebeginner-ch9-cxa)|
 |Node.js|Build JavaScript applications with Node.js|[Learn path](/learn/paths/build-javascript-applications-nodejs/)|
 |Client web apps|Web Development for Beginners|[Curriculum on GitHub](https://dev.to/azure/announcing-a-free-curriculum-web-development-for-beginners-142k)|
 |Client web apps|Awesome Azure Static web apps|[Resource list](https://github.com/staticwebdev/awesome-azure-static-web-apps)|
@@ -176,7 +176,7 @@ This content is primarily from Developer Advocates as well as other members of t
 |[Glaucia Lemos][Glaucia]|Developing a CRUD Node.js Application with PostgreSQL|[Blog](https://dev.to/glaucia86/developing-a-crud-node-js-application-with-postgresql-4c9o)|
 |[Glaucia Lemos][Glaucia]|TypeScript and Azure Functions|**Portuguese​** - [YouTube](https://www.youtube.com/watch?v=J9OoXt1dvm8&t=2772s)|
 |[Wassim Chegham][Wassim]|Deploy your JAMStack app on Azure Static Web Apps!|[YouTube](https://www.youtube.com/watch?v=I2Tg2MO-RP8&feature=youtu.be)|
-|[Christopher Harrison][Christopher] and Beth Pan|Web-Wednesday: What is Microsoft Graph Toolkit?|[Channel 9 video](https://channel9.msdn.com/Shows/Web-Wednesday/What-is-Microsoft-Graph-Toolkit)|
+|[Christopher Harrison][Christopher] and Beth Pan|Web-Wednesday: What is Microsoft Graph Toolkit?|[Channel 9 video](/Shows/Web-Wednesday/What-is-Microsoft-Graph-Toolkit)|
 |[Yohan Lasorsa][Yohan]|Azure Fundamentals - Serverless Sessions|Session 1 [YouTube video](https://www.youtube.com/watch?v=JIE_K_j-wGk) and Session 2 [YouTube video](https://www.youtube.com/watch?v=iiem4ajj6EQ)|
 |[Aaron Powell][Aaron]|GraphQL Subscriptions using SignalR OSS project|[GitHub repo](https://github.com/aaronpowell/graphql-azure-subscriptions)|
 |[Yohan Lasorsa][Yohan]|Angular Library for Surface Duo: ngx-foldable|[GitHub repo](https://github.com/sinedied/ngx-foldable)|

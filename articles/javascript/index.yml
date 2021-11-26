@@ -26,7 +26,7 @@ landingContent:
           - text: Learn TV
             url: /learn/tv/
           - text: JavaScript
-            url: https://channel9.msdn.com/Series/Beginners-Series-to-JavaScript
+            url: /Shows/Beginners-Series-to-JavaScript
           - text: JavaScript in Portuguese
             url: https://www.youtube.com/watch?v=SXBNpzjusgY
           - text: Simple website using HTML, CSS, and JavaScript
