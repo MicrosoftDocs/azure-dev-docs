@@ -984,6 +984,26 @@
       {
         "source_path": "articles/go/azure-sdk-compute-networking-samples.md",
         "redirect_url": "/azure/developer/go/management-libraries"
+      },
+      {
+        "source_path": "azure-sdk-auth-aad-samples.md",
+        "redirect_url": "/azure/developer/go"
+      },
+      {
+        "source_path": "articles/go/azure-sdk-compute-networking-samples.md",
+        "redirect_url": "/azure/developer/go"
+      },
+      {
+        "source_path": "articles/go/azure-sdk-containers-samples.md",
+        "redirect_url": "/azure/developer/go"
+      },
+      {
+        "source_path": "articles/go/azure-sdk-sql-database-samples.md",
+        "redirect_url": "/azure/developer/go"
+      },
+      {
+        "source_path": "articles/go/azure-sdk-tools.md",
+        "redirect_url": "/azure/developer/go/configure-visual-studio-code.md"
       }
     ]
   }

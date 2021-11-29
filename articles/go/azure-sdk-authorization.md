@@ -24,8 +24,8 @@ The Azure SDK for Go offers several different types of authentication, using dif
 | Certificate-based authentication | You have an X509 certificate that was configured for an Azure Active Directory (AAD) user or service principal. To learn more, see [Get started with certificate-based authentication in Azure Active Directory]. |
 | Client credentials | You have a configured service principal that is set up for this application or a class of applications it belongs to. To learn more, see [Create a service principal with Azure CLI]. |
 | Managed identities for Azure resources | Your application is running on an Azure resource that has been configured with a managed identity. To learn more, see [Managed identities for Azure resources]. |
-| Device token | Your application is meant to be used interactively __only__. Users may have multi-factor authentication enabled. Users have access to a web browser to sign in. For more information, see [Use device token authentication](#use-device-token-authentication).|
-| Username/password | You have an interactive application that can't use any other authentication method. Your users don't have multi-factor authentication enabled for their AAD sign-in. |
+| Device token | Your application is meant to be used interactively __only__. Users may have multifactor authentication enabled. Users have access to a web browser to sign in. For more information, see [Use device token authentication](#use-device-token-authentication).|
+| Username/password | You have an interactive application that can't use any other authentication method. Your users don't have multifactor authentication enabled for their AAD sign-in. |
 
 > [!IMPORTANT]
 > If you use an authentication type other than client credentials, your application must be registered in Azure Active Directory. To learn how,
@@ -138,7 +138,7 @@ For more on using service principals and managing their access permissions, see 
 
 ## Use device token authentication
 
-If you want users to sign in interactively, the best way is through device token authentication. This authentication flow passes the user a token to paste into a Microsoft sign-in site, where they then authenticate with an Azure Active Directory (AAD) account. This authentication method supports accounts that have multi-factor authentication enabled, unlike standard username/password authentication.
+If you want users to sign in interactively, the best way is through device token authentication. This authentication flow passes the user a token to paste into a Microsoft sign-in site, where they then authenticate with an Azure Active Directory (AAD) account. This authentication method supports accounts that have multifactor authentication enabled, unlike standard username/password authentication.
 
 To use device token authentication, create a [DeviceFlowConfig](https://godoc.org/github.com/Azure/go-autorest/autorest/azure/auth#DeviceFlowConfig) authorizer with the [NewDeviceFlowConfig](https://godoc.org/github.com/Azure/go-autorest/autorest/azure/auth#NewDeviceFlowConfig) function. Call [Authorizer](https://godoc.org/github.com/Azure/go-autorest/autorest/azure/auth#DeviceFlowConfig.Authorizer) on the resulting object to start the authentication process. Device flow authentication blocks program execution until the whole authentication flow is complete.
 
@@ -186,4 +186,4 @@ authorizerToken, err := certificateAuthorizer.Authorizer()
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Deploy an Azure virtual machine from Go](azure-sdk-qs-vm.md).
+> [Deploy an Azure virtual machine from Go](azure-sdk-qs-vm.md)
