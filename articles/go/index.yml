@@ -1,7 +1,7 @@
 ### YamlMime:Landing
 
-title: Azure SDK for Go documentation
-summary: Learn about how to use the Azure SDK for Go to create and manage Azure resources.
+title: Azure for Go developers
+summary: Learn to use the Azure SDK for Go, browse API references, sample code, tutorials, quickstarts, conceptual articles and more.
 metadata:
   title: Azure for Go developers
   description: Get started developing with the Azure SDK for Go.
@@ -19,29 +19,17 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
+          - text: Take your first steps with Go
+            url: https://docs.microsoft.com/learn/paths/go-first-steps
           - text: What is the Azure SDK for Go?
             url: overview.md
+          - text: Configure your development environment
+            url: configure-vscode-for-go-development.md
       - linkListType: download
         links:
           - text: Install the Azure SDK for Go
-            url: azure-sdk-install.md
-          - text: Developer tools
-            url: azure-sdk-tools.md
-      - linkListType: concept
-        links:
-          - text: Core concepts
-            url: azure-sdk-core-concepts.md
-          - text: Working with the management libraries
-            url: management-libraries.md
-      - linkListType: quickstart
-        links:
-          - text: Manage Azure resource groups
-            url: manage-resource-groups.md
-      - linkListType: how-to-guide
-        links:
-          - text: Authenticate your application
-            url: azure-sdk-authorization.md
-  - title: Storage
+            url: https://pkg.go.dev/github.com/Azure/azure-sdk-for-go
+  - title: Data
     linkLists:
       - linkListType: quickstart
         links:
@@ -57,13 +45,29 @@ landingContent:
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Deploy a virtual machine from a template
-            url: azure-sdk-qs-vm.md
-  - title: Reference
+          - text: Authenticate with a managed identity
+            url: azure-sdk-authentication-managed-identity.md
+  - title: Serverless
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Create a Go serverless function in Azure
+            url: /azure/azure-functions/create-first-function-vs-code-other
+  - title: Containers
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Build and containerize a Go app
+            url: https://github.com/azure-samples/azure-go-labs/blob/master/1-app-hello-echo/README.md
+          - text: Azure Container Apps
+            url: /azure/container-apps
+  - title: Open source
     linkLists:
       - linkListType: reference
         links:
-          - text: Azure SDK for Go code samples
-            url: https://github.com/azure-samples/azure-sdk-for-go-samples
-          - text: Azure SDK for Go API reference
-            url: https://godoc.org/github.com/Azure/azure-sdk-for-go
+          - text: Dapr (Distributed Application Runtime)
+            url: https://github.com/dapr/dapr
+          - text: KEDA (Kubernetes Event Driven Autoscaler)
+            url: https://github.com/kedacore/keda
+          - text: KEDA HTTP Add-on
+            url: https://github.com/kedacore/http-add-on

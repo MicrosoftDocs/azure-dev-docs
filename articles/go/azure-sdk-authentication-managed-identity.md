@@ -8,7 +8,7 @@ ms.custom: devx-track-go
 
 # Authentication with the Azure SDK for Go using a managed identity
 
-In this tutorial. you'll configure an Azure virtual machine with a managed identity to authenticate to Azure using the Azure SDK for Go.
+In this tutorial, you'll configure an Azure virtual machine with a managed identity to authenticate to Azure using the Azure SDK for Go.
 
 Managed identities eliminate the need for you to manage credentials by providing an identity directly to an Azure resource. Permissions assigned to the identity grant the resource access to other Azure resources that support managed identities. Removing the need for you to pass credentials to your application.
 
