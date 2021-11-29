@@ -2,7 +2,7 @@
 title: Azure tools for Python developers
 description: IDE integrations and command-line interfaces for Python developers working on Azure.
 ms.topic: conceptual
-ms.date: 08/06/2020
+ms.date: 11/29/2021
 ms.custom: devx-track-python
 ---
 
@@ -13,6 +13,12 @@ ms.custom: devx-track-python
 Python is fully supported in Visual Studio Code through the highly popular Python extension.
 
 [Install Visual Studio Code and the Python extension](https://code.visualstudio.com/docs/languages/python)
+
+## Azure Tools Extension Pack for VS Code
+
+The [Azure Tools Extension Pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack) provides the ability to create and manage Azure resources from Visual Studio Code.
+
+[Azure Tools Extension Pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack)
 
 ## Azure SDK for Python
 
