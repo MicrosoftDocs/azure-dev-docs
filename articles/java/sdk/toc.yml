@@ -3,6 +3,8 @@
   items:
     - name: Get started
       href: get-started.md
+    - name: Libraries, drivers, and modules
+      href: libraries-drivers-modules.md
     - name: Concepts
       expanded: true
       items:
@@ -75,8 +77,6 @@
           href: containers-samples.md
         - name: All Java samples
           href: /samples/browse/?products=azure&languages=java
-    - name: Libraries, drivers, and modules
-      href: libraries-drivers-modules.md
     - name: Package index
       href: azure-sdk-library-package-index.md
     - name: Reference
