@@ -77,7 +77,7 @@ conceptualContent:
       links:
         - text: Libraries, drivers, and modules
           itemType: reference
-          url: libraries-drivers-modules.md
+          url: sdk/libraries-drivers-modules.md
         - text: Azure development using Java
           itemType: get-started
           url: sdk/get-started.md
