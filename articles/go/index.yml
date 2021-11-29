@@ -24,7 +24,7 @@ landingContent:
           - text: What is the Azure SDK for Go?
             url: overview.md
           - text: Configure your development environment
-            url: configure-vscode-for-go-development.md
+            url: configure-visual-studio-code.md
       - linkListType: download
         links:
           - text: Install the Azure SDK for Go
