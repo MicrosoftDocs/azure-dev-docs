@@ -978,10 +978,6 @@
         "redirect_url": "/azure/developer/terraform/get-started-cloud-shell-bash"
       },
       {
-        "source_path": "articles/go/azure-sdk-qs-vm.md",
-        "redirect_url": "/azure/developer/go"
-      },
-      {
         "source_path": "articles/go/azure-sdk-auth-aad-samples.md",
         "redirect_url": "/azure/developer/go/azure-sdk-authentication"
       },
