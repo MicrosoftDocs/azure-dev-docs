@@ -5,7 +5,7 @@ author: N-Usha
 ms.author: ushan 
 ms.topic: reference
 ms.service: azure 
-ms.date: 11/15/2021
+ms.date: 11/29/2021
 ms.custom: github-actions-azure, devx-track-azurecli
 ---
 
@@ -54,16 +54,18 @@ You'll need to create an Azure Active Directory application and service principa
     az ad app create --display-name myApp
     ```
 
-1. Create a service principal.
+    This command will output JSON with an `appId` that is your `client-id`. The `objectId` is `APPLICATION-OBJECT-ID` and when creating federated credentials with Graph API calls.
+
+1. Create a service principal. Replace the `$appID` with the appId from your JSON output. This command generates JSON output with a different `objectId` will be used in the next step. The new  `objectId` is the `assignee-object-id`. 
 
     ```azurecli-interactive
-    az ad sp create --id
+     az ad sp create --id $appId
     ```
 
-1. Create a new role assignment by subscription and object. By default, the role assignment will be tied to your default subscription. 
+1. Create a new role assignment by subscription and object. By default, the role assignment will be tied to your default subscription. Replace `$subscriptionId` with your subscription ID and `$assigneeObjectId` with generated `assignee-object-id`.
 
     ```azurecli-interactive
-    az role assignment create --role contributor --subscription --assignee-object-id
+    az role assignment create --role contributor --subscription $subscriptionId --assignee-object-id  $assigneeObjectId --assignee-principal-type ServicePrincipal
     ```
 
 1. Copy the values for `clientId`, `subscriptionId`, and `tenantId` to use later in your GitHub Actions workflow.
@@ -95,7 +97,7 @@ For a more detailed overview, see [Configure an app to trust a GitHub repo](/azu
 
 Run the following command to [create a new federated identity credential](/graph/api/application-post-federatedidentitycredentials?view=graph-rest-beta&preserve-view=true) for your active directory application.
 
-* Replace `APPLICATION-ID` with the **Application (client) ID** for your Active Directory application.
+* Replace `APPLICATION-OBJECT-ID` with the **objectId (generated while creating app)** for your Active Directory application.
 * Set a value for `CREDENTIAL-NAME` to reference later.
 * Set the `subject`. The value of this is defined by GitHub depending on your workflow:
   * Jobs in your GitHub Actions environment: `repo:< Organization/Repository >:environment:< Name >`
@@ -103,7 +105,7 @@ Run the following command to [create a new federated identity credential](/graph
   * For workflows triggered by a pull request event: `repo:< Organization/Repository >:pull-request`.
 
 ```azurecli
-az rest --method POST --uri 'https://graph.microsoft.com/beta/applications/<APPLICATION-ID>/federatedIdentityCredentials' --body '{"name":"<CREDENTIAL-NAME>","issuer":"https://token.actions.githubusercontent.com/","subject":"repo:organization/repository:environment:Production","description":"Testing","audiences":["api://AzureADTokenExchange"]}' 
+az rest --method POST --uri 'https://graph.microsoft.com/beta/applications/<APPLICATION-OBJECT-ID>/federatedIdentityCredentials' --body '{"name":"<CREDENTIAL-NAME>","issuer":"https://token.actions.githubusercontent.com","subject":"repo:organization/repository:environment:Production","description":"Testing","audiences":["api://AzureADTokenExchange"]}' 
 ```
 
 For a more detailed overview, see [Configure an app to trust a GitHub repo](/azure/active-directory/develop/workload-identity-federation-create-trust-github).
@@ -121,13 +123,13 @@ You need to provide your application's **Client ID**, **Tenant ID** and **Subscr
 
     :::image type="content" source="media/select-secrets.png" alt-text="Choose to add a secret":::
 
-1. Create secrets for `AZURE_CLIENTID`, `AZURE_TENANTID`, and `AZURE_SUBSCRIPTIONID`. Use these values from your Active Directory application for your GitHub secrets:
+1. Create secrets for `AZURE_CLIENTID`, `AZURE_TENANTID`, and `AZURE_SUBSCRIPTION_ID`. Use these values from your Active Directory application for your GitHub secrets:
 
     |GitHub Secret  | Active Directory Application  |
     |---------|---------|
     |AZURE_CLIENTID     |      Application (client) ID   |
     |AZURE_TENANTID     |     Directory (tenant) ID    |
-    |AZURE_SUBSCRIPTIONID     |     Subscription ID    |
+    |AZURE_SUBSCRIPTION_ID     |     Subscription ID    |
 
 1. Save each secret by selecting **Add secret**.
 
@@ -150,6 +152,7 @@ on: [push]
 
 permissions:
       id-token: write
+      contents: read
       
 jobs: 
   build-and-deploy:
@@ -160,7 +163,7 @@ jobs:
       with:
           client-id: ${{ secrets.AZURE_CLIENTID }}
           tenant-id: ${{ secrets.AZURE_TENANTID }}
-          subscription-id: ${{ secrets.AZURE_SUBSCRIPTIONID }}
+          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
   
     - name: 'Run Azure CLI commands'
       run: |
@@ -190,7 +193,7 @@ jobs:
           with:
             client-id: ${{ secrets.AZURE_CLIENT_ID }}
             tenant-id: ${{ secrets.AZURE_TENANT_ID }}
-            subscription-id: ${{ secrets.AZURE_SUBSCRIPTIONID }} 
+            subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }} 
             enable-AzPSSession: true
 
         - name: 'Get resource group with PowerShell action'
