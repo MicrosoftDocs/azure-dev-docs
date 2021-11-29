@@ -26,5 +26,8 @@ Learn how the Azure SDK for Go can help you create and manage Azure resources.
 
 ## Next steps
 
-> [!div class="nextstepaction"] 
-> [Learn more about the Azure SDK for Go management libraries](management-libraries.md)
+> [!div class="nextstepaction"]
+> [Azure SDK for Go Core Concepts](azure-sdk-core-concepts.md)
+
+> [!div class="nextstepaction"]
+> [Azure SDK for Go management libraries](management-libraries.md)
