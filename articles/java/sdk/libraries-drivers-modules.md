@@ -112,5 +112,4 @@ Microsoft’s goal is to empower every developer to achieve more, and our commit
 
 ## Next steps
 
-* [Azure SDK for Java libraries](/azure/developer/java/sdk/azure-sdk-library-package-index)
-
+For all other libraries, see [Azure SDK for Java libraries](/azure/developer/java/sdk/azure-sdk-library-package-index).
