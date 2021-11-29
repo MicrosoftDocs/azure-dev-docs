@@ -1,5 +1,5 @@
 ---
-title: Configure Visual Studio Code for Go Development
+title: Configure Visual Studio Code for Go development
 description: This article helps you configure Visual Studio Code for Go development.
 ms.date: 11/11/2021
 ms.topic: quickstart
