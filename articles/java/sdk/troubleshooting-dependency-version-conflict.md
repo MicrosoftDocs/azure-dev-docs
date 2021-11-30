@@ -54,6 +54,11 @@ If you see `LinkageError` (or any of its subclasses) related to the Jackson API,
 
 Look for warning/error logs from `JacksonVersion`. For more information, see [Configure logging in the Azure SDK for Java](/azure/developer/java/sdk/logging-overview). For example: `[main] ERROR com.azure.core.implementation.jackson.JacksonVersion - Version '2.9.0' of package 'jackson-core' is not supported (too old), please upgrade.`
 
+> [!NOTE]
+> Please check that all the Jackson packages have the same version.
+
+See [Support for multiple Jackson versions](#support-for-multiple-jackson-versions) for the list of packages used by Azure SDK and supported versions.
+
 ## Mitigate version mismatch issues
 
 The following sections describe how to mitigate version mismatch issues.
