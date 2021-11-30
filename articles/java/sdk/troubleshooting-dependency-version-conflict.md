@@ -42,7 +42,7 @@ To solve this problem, set the `FUNCTIONS_WORKER_JAVA_LOAD_APP_LIBS` environment
 
 ### Configure Apache Spark
 
-Apache Spark 3.0.0 (and later) depends on Jackson 2.10, which is compatible with Azure SDKs. But depending on the resolution order, later version of Jackson can be used and it could be incompatible with Apache Spark causing errors. To mitigate it, you may pin a specific version of Jackson compatible with Spark. For more information about this topic, see [Support for multiple Jackson versions](#support-for-multiple-jackson-versions) section.
+The Azure SDK for Java [supports multiple versions of Jackson](#support-for-multiple-jackson-versions), but sometimes issues can arise depending on your build tooling and its dependency resolution ordering. A good example of this is with Apache Spark 3.0.0 (and later), which depends on Jackson 2.10. Whilst this is compatible with the Azure SDK for Java, it is often discovered by developers that a more recent version of Jackson is used instead, and this results in incompatibilities. To mitigate this problem, you may pin a specific version of Jackson (one that is compatible with Spark). For more information about this topic, see the [support for multiple Jackson versions] section below.
 
 If you use earlier version of Spark or some components you use require an earlier (not supported by Azure SDK) version of Jackson, please continue reading this document for possible mitigation steps.
 
