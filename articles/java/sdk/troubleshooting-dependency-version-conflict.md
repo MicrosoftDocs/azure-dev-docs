@@ -44,7 +44,7 @@ To solve this problem, set the `FUNCTIONS_WORKER_JAVA_LOAD_APP_LIBS` environment
 
 The Azure SDK for Java [supports multiple versions of Jackson](#support-for-multiple-jackson-versions), but sometimes issues can arise depending on your build tooling and its dependency resolution ordering. A good example of this is with Apache Spark 3.0.0 (and later), which depends on Jackson 2.10. Whilst this is compatible with the Azure SDK for Java, it is often discovered by developers that a more recent version of Jackson is used instead, and this results in incompatibilities. To mitigate this problem, you may pin a specific version of Jackson (one that is compatible with Spark). For more information about this topic, see the [support for multiple Jackson versions] section below.
 
-If you use earlier version of Spark or some components you use require an earlier (not supported by Azure SDK) version of Jackson, please continue reading this document for possible mitigation steps.
+If you use earlier versions of Spark, or if another library you use requires an even earlier version of Jackson that is not supported by the Azure SDK for Java, please continue reading this document for possible mitigation steps.
 
 ### Detect Jackson runtime version
 
