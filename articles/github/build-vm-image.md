@@ -6,7 +6,7 @@ ms.author: jukullam
 ms.topic: quickstart
 ms.service: azure 
 ms.date: 03/23/2021
-ms.custom: github-actions-azure, devx-track-azurecli
+ms.custom: github-actions-azure, devx-track-azurecli, mode-portal
 ---
 
 

@@ -4,7 +4,7 @@ description: In this quickstart, learn how to create an Azure Service Principal 
 keywords: ansible, azure, devops, bash, cloudshell, playbook, azure cli, azure powershell, powershell
 ms.topic: quickstart
 ms.date: 08/28/2021
-ms.custom: devx-track-ansible, devx-track-azurecli, devx-track-azurepowershell
+ms.custom: devx-track-ansible, devx-track-azurecli, devx-track-azurepowershell, mode-portal
 ---
 
 # Quickstart: Create an Azure service principal for Ansible
