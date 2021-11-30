@@ -42,7 +42,7 @@ To solve this problem, set the `FUNCTIONS_WORKER_JAVA_LOAD_APP_LIBS` environment
 
 ### Configure Apache Spark
 
-Apache Spark 3.0.0 and newer depend on Jackson 2.10, which is compatible with Azure SDKs. However, depending on the resolution order, later version of Jackson can be used, which may be incompatible with Apache Spark and cause errors. In this case, you may pin a specific version of Jackson compatible with Spark. See [Support for multiple Jackson versions](#support-for-multiple-jackson-versions) section below for more information.
+Apache Spark 3.0.0 (and later) depends on Jackson 2.10, which is compatible with Azure SDKs. But depending on the resolution order, later version of Jackson can be used and it could be incompatible with Apache Spark causing errors. To mitigate it, you may pin a specific version of Jackson compatible with Spark. For more information about this topic, see [Support for multiple Jackson versions](#support-for-multiple-jackson-versions) section.
 
 If you use earlier version of Spark or some components you use require an earlier (not supported by Azure SDK) version of Jackson, please continue reading this document for possible mitigation steps.
 
@@ -57,7 +57,7 @@ Look for warning/error logs from `JacksonVersion`. For more information, see [Co
 > [!NOTE]
 > Please check that all the Jackson packages have the same version.
 
-See [Support for multiple Jackson versions](#support-for-multiple-jackson-versions) for the list of packages used by Azure SDK and supported versions.
+Ror the list of packages used by Azure SDK and supported versions see [Support for multiple Jackson versions](#support-for-multiple-jackson-versions).
 
 ## Mitigate version mismatch issues
 
@@ -104,7 +104,7 @@ For details on `azure-core`-specific dependencies and their versions, see [azure
 
 | Dependency | Supported versions |
 | ---------- | ------------------ |
-| Jackson    | 2.10.0 and newer minor versions are compatible. For more information see [Support for multiple Jackson versions](#support-for-multiple-jackson-versions) |
+| Jackson    | 2.10.0 and newer minor versions are compatible. For more information, see [Support for multiple Jackson versions](#support-for-multiple-jackson-versions) |
 | SLF4J      | 1.7.* |
 | netty-tcnative-boringssl-static | 2.0.* |
 | netty-common | 4.1.* |
@@ -112,7 +112,7 @@ For details on `azure-core`-specific dependencies and their versions, see [azure
 
 ### Support for multiple Jackson versions
 
-Azure SDKs support working with multiple versions of Jackson starting with Jackson 2.10.0. SDKs adjust configuration and Jackson usage depending on the version that we detect at runtime. It helps to keep compatibility with older versions of Spring framework, Apache Spark and other common environments.
+Azure SDKs support working with multiple versions of Jackson starting with Jackson 2.10.0. SDKs adjust configuration and Jackson usage depending on the version that we detect at runtime. It helps to keep compatibility with older versions of Spring framework, Apache Spark, and other common environments.
 Applications can downgrade Jackson versions (to 2.10.0 or higher) without breaking Azure SDKs.
 
 > [!NOTE]
