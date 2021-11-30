@@ -1,1 +1,1 @@
-On the SQL databases page, select + Create.
+On the SQL Servers page, select + Create.
