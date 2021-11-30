@@ -3,7 +3,7 @@
   items:
     - name: Get started
       href: get-started.md
-    - name: Libraries, drivers, and modules
+    - name: Libraries, drivers, and Spring modules
       href: libraries-drivers-modules.md
     - name: Concepts
       expanded: true

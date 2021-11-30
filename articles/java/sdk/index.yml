@@ -20,6 +20,8 @@ landingContent:
             url: overview.md
       - linkListType: reference
         links:
+          - text: Libraries, drivers, and Spring modules
+            url: libraries-drivers-modules.md
           - text: Java API browser
             url: /java/api
       - linkListType: how-to-guide

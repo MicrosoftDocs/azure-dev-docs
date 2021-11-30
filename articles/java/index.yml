@@ -75,7 +75,7 @@ conceptualContent:
 
     - title: Azure SDK for Java
       links:
-        - text: Libraries, drivers, and modules
+        - text: Libraries, drivers, and Spring modules
           itemType: reference
           url: sdk/libraries-drivers-modules.md
         - text: Azure development using Java
