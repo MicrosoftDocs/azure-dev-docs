@@ -248,7 +248,7 @@
 | azure-data-confidentialledger | Maven [1.0.0-beta.1](https://search.maven.org/artifact/com.azure/azure-data-confidentialledger/1.0.0-beta.1/jar/) |  |  |
 | azure-gradle-plugins-common | Maven [1.1.1](https://search.maven.org/artifact/com.microsoft.azure/azure-gradle-plugins-common/1.1.1/jar/) |  |  |
 | azure-mariadb-connector-java | Maven [2.7.0](https://search.maven.org/artifact/com.microsoft.azure/azure-mariadb-connector-java/2.7.0/jar/) |  |  |
-| azure-maven-plugins | Maven [1.14.2](https://search.maven.org/artifact/com.microsoft.azure/azure-maven-plugins/1.14.2/jar/) |  |  |
+| azure-maven-plugins | Maven [1.14.3](https://search.maven.org/artifact/com.microsoft.azure/azure-maven-plugins/1.14.3/jar/) |  |  |
 | azure-mgmt-appplatform | Maven [1.0.0-beta](https://search.maven.org/artifact/com.microsoft.azure.appplatform.v2020_11_01_preview/azure-mgmt-appplatform/1.0.0-beta/jar/) |  |  |
 | azure-mgmt-appservice | Maven [1.0.0-beta](https://search.maven.org/artifact/com.microsoft.azure.appservice.v2020_09_01/azure-mgmt-appservice/1.0.0-beta/jar/) |  |  |
 | azure-mgmt-cdn | Maven [1.0.0-beta](https://search.maven.org/artifact/com.microsoft.azure.cdn.v2020_09_01/azure-mgmt-cdn/1.0.0-beta/jar/) |  |  |
@@ -438,7 +438,7 @@
 | Functions - Java Library SignalR | Maven [1.0.0](https://search.maven.org/artifact/com.microsoft.azure.functions/azure-functions-java-library-signalr/1.0.0/jar/) |  |  |
 | Functions - Java Llibrary | Maven [1.4.2](https://search.maven.org/artifact/com.microsoft.azure.functions/azure-functions-java-library/1.4.2/jar/) |  |  |
 | Functions - Kotlin Archetype | Maven [1.23](https://search.maven.org/artifact/com.microsoft.azure/azure-functions-kotlin-archetype/1.23/jar/) |  |  |
-| Functions - Maven Plugin | Maven [1.14.2](https://search.maven.org/artifact/com.microsoft.azure/azure-functions-maven-plugin/1.14.2/jar/) |  |  |
+| Functions - Maven Plugin | Maven [1.14.3](https://search.maven.org/artifact/com.microsoft.azure/azure-functions-maven-plugin/1.14.3/jar/) |  |  |
 | Gateway - Java Binding | Maven [1.1.0](https://search.maven.org/artifact/com.microsoft.azure.gateway/gateway-java-binding/1.1.0/jar/) |  |  |
 | Gateway - Linux | Maven [1.0.2](https://search.maven.org/artifact/com.microsoft.azure.gateway/gateway-linux/1.0.2/jar/) |  |  |
 | Gateway - Module Base | Maven [1.0.2](https://search.maven.org/artifact/com.microsoft.azure.gateway/gateway-module-base/1.0.2/jar/) |  |  |
@@ -471,7 +471,7 @@
 | Maven - Plugin | Maven [0.2.0](https://search.maven.org/artifact/com.microsoft.azure/azure-maven-plugin/0.2.0/jar/) |  |  |
 | Maven - Plugin Common | Maven [0.2.0](https://search.maven.org/artifact/com.microsoft.azure/azure-maven-plugin-common/0.2.0/jar/) |  |  |
 | Maven - Plugin Lib | Maven [0.1.1](https://search.maven.org/artifact/com.microsoft.azure/maven-plugin-lib/0.1.1/jar/) |  |  |
-| Maven - Plugin Library | Maven [1.14.2](https://search.maven.org/artifact/com.microsoft.azure/azure-maven-plugin-lib/1.14.2/jar/) |  |  |
+| Maven - Plugin Library | Maven [1.14.3](https://search.maven.org/artifact/com.microsoft.azure/azure-maven-plugin-lib/1.14.3/jar/) |  |  |
 | Maven - Plugins Pom | Maven [1.1.0](https://search.maven.org/artifact/com.microsoft.azure/azure-maven-plugins-pom/1.1.0/jar/) |  |  |
 | Media Services | Maven [0.9.8](https://search.maven.org/artifact/com.microsoft.azure/azure-media/0.9.8/jar/) |  | GitHub [0.9.8](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/mediaservices/microsoft-azure-media) |
 | Metrics Advisor | Maven [1.0.4](https://search.maven.org/artifact/com.azure/azure-ai-metricsadvisor/1.0.4/jar/) | [docs](/java/api/overview/azure/ai-metricsadvisor-readme) | GitHub [1.0.4](https://github.com/Azure/azure-sdk-for-java/tree/azure-ai-metricsadvisor_1.0.4/sdk/metricsadvisor/azure-ai-metricsadvisor/) |
@@ -512,7 +512,7 @@
 | Spark - Streaming Eventhubs Connector | Maven [2.1.4](https://search.maven.org/artifact/com.microsoft.azure/spark-streaming-eventhubs_connector_2.11/2.1.4/jar/) |  |  |
 | Spark - Streaming Eventhubs Examples | Maven [2.1.4](https://search.maven.org/artifact/com.microsoft.azure/spark-streaming-eventhubs_examples_2.11/2.1.4/jar/) |  |  |
 | Spell Check | Maven [1.0.2](https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-spellcheck/1.0.2/jar/) |  | GitHub [1.0.2](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/cognitiveservices/ms-azure-cs-spellcheck) |
-| Spring Cloud Maven Plugin | Maven [1.7.1](https://search.maven.org/artifact/com.microsoft.azure/azure-spring-cloud-maven-plugin/1.7.1/jar/) |  |  |
+| Spring Cloud Maven Plugin | Maven [1.7.2](https://search.maven.org/artifact/com.microsoft.azure/azure-spring-cloud-maven-plugin/1.7.2/jar/) |  |  |
 | Spring Data Azure CosmosDB DocumentDB | Maven [0.1.1](https://search.maven.org/artifact/com.microsoft.azure/spring-data-azure-cosmosdb-documentdb/0.1.1/jar/) |  |  |
 | Spring Data Azure DocumentDB | Maven [0.1.7](https://search.maven.org/artifact/com.microsoft.azure/spring-data-azure-documentdb/0.1.7/jar/) |  |  |
 | Spring Data Cosmos Core | Maven [3.0.0-beta.1](https://search.maven.org/artifact/com.azure/azure-spring-data-cosmos-core/3.0.0-beta.1/jar/) |  |  |
@@ -553,7 +553,7 @@
 | Visual Search | Maven [1.0.2-beta](https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-visualsearch/1.0.2-beta/jar/) |  | GitHub [1.0.2-beta](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/cognitiveservices/ms-azure-cs-visualsearch) |
 | Web PubSub | Maven [1.0.0](https://search.maven.org/artifact/com.azure/azure-messaging-webpubsub/1.0.0/jar/) | [docs](/java/api/overview/azure/messaging-webpubsub-readme) | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-java/tree/azure-messaging-webpubsub_1.0.0/sdk/webpubsub/azure-messaging-webpubsub/) |
 | Web Search | Maven [1.0.2](https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-websearch/1.0.2/jar/) |  | GitHub [1.0.2](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/cognitiveservices/ms-azure-cs-websearch) |
-| Webapp Maven Plugin | Maven [2.2.2](https://search.maven.org/artifact/com.microsoft.azure/azure-webapp-maven-plugin/2.2.2/jar/) |  |  |
+| Webapp Maven Plugin | Maven [2.2.3](https://search.maven.org/artifact/com.microsoft.azure/azure-webapp-maven-plugin/2.2.3/jar/) |  |  |
 | Webapp Maven Plugin | Maven [0.1.1](https://search.maven.org/artifact/com.microsoft.azure/webapp-maven-plugin/0.1.1/jar/) |  |  |
 | Websocket Transport Layer | Maven [0.1.3](https://search.maven.org/artifact/com.microsoft.azure.sdk.iot.deps/websocket-transport-layer/0.1.3/jar/) |  |  |
 | X509 Provider | Maven [1.1.6](https://search.maven.org/artifact/com.microsoft.azure.sdk.iot.provisioning.security/x509-provider/1.1.6/jar/)<br>Maven [2.0.0-preview-001](https://search.maven.org/artifact/com.microsoft.azure.sdk.iot.provisioning.security/x509-provider/2.0.0-preview-001/jar/) |  |  |

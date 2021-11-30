@@ -33,6 +33,22 @@ This content is primarily from Developer Advocates as well as other members of t
 |Client web apps|Comparing Azure Static Web Apps vs Azure WebApps vs Azure Blob Storage Static Sites|[Blog post](https://devblogs.microsoft.com/devops/comparing-azure-static-web-apps-vs-azure-webapps-vs-azure-blob-storage-static-sites/)|
 |Microsoft Graph|Get started with Microsoft Graph and JavaScript|[Samples](https://developer.microsoft.com/graph/get-started/javascript)|
 
+## 2021 November
+
+|Cloud Advocate|Contributions|Link|
+|--|--|--|
+|[Yohan Lasorsa][Yohan]|DevFest Nantes 2021: Highly available, distributed & resilient software. |**French** - [YouTube](https://www.youtube.com/watch?v=x3sQu31jGu4)|
+|[Yohan Lasorsa][Yohan] and [Olivier Leplus][Olivier]|DevFest Nantes 2021: Highly available, distributed & resilient software. |**French** - [YouTube](https://www.youtube.com/watch?v=p47z7rgRghQ)|
+|[Glaucia Lemos][Glaucia]|TypeScript - Zero to Hero, Type Never #29|**Portuguese** - [YouTube](https://youtu.be/B355hDt29q4)|
+|[Glaucia Lemos][Glaucia]|TypeScript - Zero to Hero, Type Never #30 - Demo|**Portuguese** - [YouTube](https://youtu.be/ZJt15H_MKLc)|
+|[Aaron Powell][Aaron]|GraphQL Summit panel: The State of Serverless|[YouTube](https://www.youtube.com/watch?v=MBPmOVR09kI)|
+|[Aaron Powell][Aaron]|Scaffolding Static Web Apps|[Blog](https://dev.to/azure/scaffolding-static-web-apps-4p97)|
+|[Aaron Powell][Aaron]|create-swa-app:a command line tool|[Blog](https://www.aaron-powell.com/posts/2021-11-16-scaffolding-static-web-apps/)|
+|[Glaucia Lemos][Glaucia]|Coding Stuff! JWT + Node + Mongo+ Vue Project - Video 13|**Portuguese** - [YouTube](https://youtu.be/8gG1OwMIDts)|
+|[Glaucia Lemos][Glaucia]|Coding Stuff! JWT + Node + Mongo+ Vue Project - Video 14|**Portuguese** - [YouTube](https://youtu.be/UcKm1ADpWlQ)|
+|[Glaucia Lemos][Glaucia]|Coding Stuff! JWT + Node + Mongo+ Vue Project - Video 15|**Portuguese** - [YouTube](https://youtu.be/cQxoBu2rexE)|
+
+
 ## 2021 October
 
 |Cloud Advocate|Contributions|Link|
