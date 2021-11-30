@@ -112,7 +112,7 @@ For details on `azure-core`-specific dependencies and their versions, see [azure
 
 ### Support for multiple Jackson versions
 
-Azure SDKs support working with multiple versions of Jackson starting with Jackson 2.10.0. SDKs adjust configuration and Jackson usage depending on the version that we detect at runtime. It helps to keep compatibility with older versions of Spring framework, Apache Spark, and other common environments.
+The Azure SDK for Java supports working with a range of Jackson versions. The lowest-supported version is Jackson 2.10.0. The Azure SDK for Java client libraries adjust their configuration and Jackson usage depending on the version that is detected at runtime, which enables greater compatibility with older versions of Spring framework, Apache Spark, and other common environments.
 Applications can downgrade Jackson versions (to 2.10.0 or higher) without breaking Azure SDKs.
 
 > [!NOTE]
