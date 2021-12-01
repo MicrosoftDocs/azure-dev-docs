@@ -266,7 +266,7 @@ After the migration completes, your Azure SQL database will have the correct sch
 Navigate back to your web app in the browser.  If you refresh the page, you should now be able to Create Todos and see them displayed on the home page.
 
 
-## 7 - Browse with kudu
+## Browse with kudu
 
 Azure App Service provides a web-based diagnostics console named Kudu that allows you to examine the server hosting environment for your web app. Using Kudu, you can view the files deployed to Azure, review the deployment history of the application, and even open an SSH session into the hosting environment.
 
@@ -276,7 +276,7 @@ To access Kudu, navigate to one of the following URLs. You will need to sign int
 - For apps deployed in Isolated service plans - `https://<app-name>.scm.<ase-name>.p.azurewebsites.net`
 From the main page in Kudu, you can access information about the application hosting environment, app settings, deployments, and browse the files in the wwwroot directory.
 
-## 8 - Stream logs
+## 8 Stream logs
 
 ## Stream diagnostic logs
 
@@ -309,14 +309,5 @@ The sample project already follows the guidance for the [Azure App Service loggi
 For more information on customizing the ASP.NET Core logs, see [Logging in .NET](/dotnet/core/extensions/logging).
 
 
-## 8 - Clean up resources
-
-### [Azure portal](#tab/azure-portal)
-
-### [VS Code](#tab/vscode)
-
-### [Azure CLI](#tab/azure-cli)
-
-----
 
 ## Next Steps
