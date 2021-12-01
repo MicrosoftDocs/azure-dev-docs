@@ -20,7 +20,7 @@ If you can't meet any of these pre-migration requirements, see the companion mig
 
 * [Migrate WebLogic applications to Azure Virtual Machines](migrate-weblogic-to-virtual-machines.md)
 
-[!INCLUDE [inventory-server-capacity](includes/inventory-server-capacity-aks.md)]
+[!INCLUDE [inventory-server-capacity-jboss-eap](includes/inventory-server-capacity-jboss-eap.md)]
 
 [!INCLUDE [inventory-all-secrets](includes/inventory-all-secrets.md)]
 
@@ -30,13 +30,13 @@ If you can't meet any of these pre-migration requirements, see the companion mig
 
 [!INCLUDE [domain-configuration](includes/inspect-your-domain-configuration.md)]
 
-[!INCLUDE [determine-whether-session-replication-is-used](includes/determine-whether-session-replication-is-used.md)]
+[!INCLUDE [determine-whether-session-replication-is-used-jboss-eap](includes/determine-whether-session-replication-is-used-jboss-eap.md)]
 
 [!INCLUDE [document-datasources](includes/document-datasources.md)]
 
 [!INCLUDE [determine-whether-weblogic-has-been-customized](includes/determine-whether-weblogic-has-been-customized.md)]
 
-[!INCLUDE [determine-whether-management-over-rest-is-used](includes/determine-whether-management-over-rest-is-used.md)]
+[!INCLUDE [determine-whether-management-over-rest-is-used-jboss-eap](includes/determine-whether-management-over-rest-is-used-jboss-eap.md)]
 
 [!INCLUDE [determine-whether-a-connection-to-on-premises-is-needed](includes/determine-whether-a-connection-to-on-premises-is-needed.md)]
 
