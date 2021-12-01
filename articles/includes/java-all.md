@@ -246,7 +246,7 @@
 | azure-cosmos-spark_3-0_2-12 | Maven [4.0.0-beta.1](https://search.maven.org/artifact/com.azure/azure-cosmos-spark_3-0_2-12/4.0.0-beta.1/jar/) |  |  |
 | azure-cosmos-spark_3-1_2-12 | Maven [4.4.2](https://search.maven.org/artifact/com.azure.cosmos.spark/azure-cosmos-spark_3-1_2-12/4.4.2/jar/) |  |  |
 | azure-data-confidentialledger | Maven [1.0.0-beta.1](https://search.maven.org/artifact/com.azure/azure-data-confidentialledger/1.0.0-beta.1/jar/) |  |  |
-| azure-gradle-plugins-common | Maven [1.1.1](https://search.maven.org/artifact/com.microsoft.azure/azure-gradle-plugins-common/1.1.1/jar/) |  |  |
+| azure-gradle-plugins-common | Maven [1.1.2](https://search.maven.org/artifact/com.microsoft.azure/azure-gradle-plugins-common/1.1.2/jar/) |  |  |
 | azure-mariadb-connector-java | Maven [2.7.0](https://search.maven.org/artifact/com.microsoft.azure/azure-mariadb-connector-java/2.7.0/jar/) |  |  |
 | azure-maven-plugins | Maven [1.14.3](https://search.maven.org/artifact/com.microsoft.azure/azure-maven-plugins/1.14.3/jar/) |  |  |
 | azure-mgmt-appplatform | Maven [1.0.0-beta](https://search.maven.org/artifact/com.microsoft.azure.appplatform.v2020_11_01_preview/azure-mgmt-appplatform/1.0.0-beta/jar/) |  |  |
