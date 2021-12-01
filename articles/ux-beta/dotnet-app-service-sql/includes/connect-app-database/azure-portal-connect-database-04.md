@@ -8,4 +8,4 @@
 
 1. Click `OK` to close the dialog, and then click `Save` at the top of the configuration screen.
 
-Your app can now connect to the SQL database.  However, we still need to generate the schema for our data using Entity Framework Core, so let's do that next.
+Your app can now connect to the SQL database.  Next let's generate the schema for our data using Entity Framework Core.

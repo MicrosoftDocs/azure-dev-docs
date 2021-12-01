@@ -66,10 +66,8 @@ Next, create an App Service plan using the [az appservice plan create](/cli/azur
 ```azurecli
 
  # Change 123 to any three characters to form a unique name across Azure
-APP_SERVICE_PLAN_NAME='msdocs-core-sql-tutorial-plan-123'    
-
 az appservice plan create
-    --name $APP_SERVICE_PLAN_NAME
+    --name 'msdocs-core-sql-tutorial-plan-123'    
     --resource-group 'msdocs-core-sql-tutorial'
     --sku B1
     --is-linux
@@ -83,12 +81,10 @@ Finally, create the App Service web app using the [az webapp create](/cli/azure/
 ```azurecli
 
 # Change 123 to any three characters to form a unique name across Azure
-APP_SERVICE_NAME='msdocs-core-sql-tutorial-123'     
-
 az webapp create \
-    --name $APP_SERVICE_NAME \
+    --name <your-app-service-name>   \
     --runtime 'DOTNET|6.0'
-    --plan $APP_SERVICE_PLAN_NAME
+    --plan <your-app-service-plan-name>  
     --resource-group 'msdocs-core-sql-tutorial'
 ```
 
@@ -103,12 +99,13 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps 
 
 | Instructions    | Screenshot |
 |:----------------|-----------:|
-| [!INCLUDE [Create database step 1](<./includes/create-sql-database/azure-portal-sqldb-create-01.md>)] | :::image type="content" source="./media/azportal-create-cosmosdb-1-240px.png" alt-text="A screenshot showing how to use the search box in the top tool bar to find App Services in Azure." lightbox="./media/azportal-create-database-1.png"::: |
-| [!INCLUDE [Create database step 2](<./includes/create-sql-database/azure-portal-sqldb-create-02.md>)] | :::image type="content" source="./media/azportal-create-cosmosdb-2-240px.png" alt-text="A screenshot showing the create button on the App Services page used to create a new web app." lightbox="./media/azportal-create-database-2.png"::: |
-| [!INCLUDE [Create database step 3](<./includes/create-sql-database/azure-portal-sqldb-create-03.md>)] | :::image type="content" source="./media/azportal-create-cosmosdb-4-240px.png" alt-text="A screenshot showing the form to fill out to create a web app in Azure." lightbox="./media/azportal-create-cosmosdb-4.png"::: |
-| [!INCLUDE [Create database step 4](<./includes/create-sql-database/azure-portal-sqldb-create-04.md>)] | :::image type="content" source="./media/azportal-create-cosmosdb-2-240px.png" alt-text="A screenshot showing the form to fill out to create a web app in Azure." lightbox="./media/azportal-create-cosmosdb-4.png"::: |
-| [!INCLUDE [Create database step 5](<./includes/create-sql-database/azure-portal-sqldb-create-05.md>)] | :::image type="content" source="./media/azportal-create-cosmosdb-2-240px.png" alt-text="A screenshot showing the form to fill out to create a web app in Azure." lightbox="./media/azportal-create-cosmosdb-4.png"::: |
-| [!INCLUDE [Create database step 6](<./includes/create-sql-database/azure-portal-sqldb-create-06.md>)] | :::image type="content" source="./media/azportal-create-cosmosdb-2-240px.png" alt-text="A screenshot showing the form to fill out to create a web app in Azure." lightbox="./media/azportal-create-cosmosdb-4.png"::: |
+| [!INCLUDE [Create database step 1](<./includes/create-sql-database/azure-portal-sqldb-create-01.md>)] | :::image type="content" source="./media/azportal-create-sql-01-240px.png" alt-text="A screenshot showing how to use the search box in the top tool bar to find App Services in Azure." lightbox="./media/azportal-create-sql-01.png"::: |
+| [!INCLUDE [Create database step 2](<./includes/create-sql-database/azure-portal-sqldb-create-02.md>)] | :::image type="content" source="./media/azportal-create-sql-02-240px.png" alt-text="A screenshot showing the create button on the App Services page used to create a new web app." lightbox="./media/azportal-create-sql-02.png"::: |
+| [!INCLUDE [Create database step 3](<./includes/create-sql-database/azure-portal-sqldb-create-03.md>)] | :::image type="content" source="./media/azportal-create-sql-03-240px.png" alt-text="A screenshot showing the form to fill out to create a web app in Azure." lightbox="./media/azportal-create-sql-03.png"::: |
+| [!INCLUDE [Create database step 4](<./includes/create-sql-database/azure-portal-sqldb-create-04.md>)] | :::image type="content" source="./media/azportal-create-sql-04-240px.png" alt-text="A screenshot showing the form to fill out to create a web app in Azure." lightbox="./media/azportal-create-sql-04.png"::: |
+| [!INCLUDE [Create database step 5](<./includes/create-sql-database/azure-portal-sqldb-create-05.md>)] | :::image type="content" source="./media/azportal-create-sql-05-240px.png" alt-text="A screenshot showing the form to fill out to create a web app in Azure." lightbox="./media/azportal-create-sql-05.png"::: |
+| [!INCLUDE [Create database step 6](<./includes/create-sql-database/azure-portal-sqldb-create-06.md>)] | :::image type="content" source="./media/azportal-create-sql-06-240px.png" alt-text="A screenshot showing the form to fill out to create a web app in Azure." lightbox="./media/azportal-create-sql-06.png"::: |
+| [!INCLUDE [Create database step 7](<./includes/create-sql-database/azure-portal-sqldb-create-07.md>)] | :::image type="content" source="./media/azportal-create-sql-07-240px.png" alt-text="A screenshot showing the form to fill out to create a web app in Azure." lightbox="./media/azportal-create-sql-07.png"::: |
 
 ### [Azure CLI](#tab/azure-cli-database)
 
@@ -258,7 +255,7 @@ Inside of your local code editor, update the app Connection String to point to t
       }
 ---
 
-Nxt, run the commands below to install the necessary CLI tools for Entity Framework Core, create an intial database migration file, and apply those changes to update the database.
+Next, run the commands below to install the necessary CLI tools for Entity Framework Core, create an intial database migration file, and apply those changes to update the database.
 
         dotnet tool install -g dotnet-ef
         dotnet ef migrations add InitialCreate
