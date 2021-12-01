@@ -95,7 +95,7 @@ az webapp create \
 ----
 
 ## 3 - Create the Database
-Next let's create the Azure SQL that will manage the data in our app.
+Next let's create the Azure SQL Database that will manage the data in our app.
 
 ### [Azure portal](#tab/azure-portal-database)
 
@@ -221,7 +221,7 @@ az webapp config connection-string set -g $RESOURCE_GROUP_NAME -n <yourappname> 
 ----
 
 ## 6 - Generate the Database Schema
-We need to allow our local computer to connect to Azure to finish setting up our database. For this step you'll need to know your local computer's IP Address.  You can discover that typing `ipconfig` into a command window.  Copy the IP4 Address for later use.  
+We need to allow our local computer to connect to Azure to finish setting up our database. For this step you'll need to know your local computer's IP Address, which you can discover [by clicking here](https://whatismyipaddress.com/)  
 
 ### [Azure portal](#tab/azure-portal-schema)
 
@@ -243,9 +243,9 @@ Run the following command to add a firewall rule to your SQL Server instance.
 
 ----
 
-Inside of your local code editor, temporarily update the app Connection String to point to the Azure SQL Database.  This will allow us to generate the correct schema for the Azure SQL database by using Entity Framework Core migrations.
+Inside of your local code editor, update the app Connection String to point to the Azure SQL Database.  This will allow us to generate the correct schema for the Azure SQL database by using Entity Framework Core migrations.
 1. Open the appsettings.json file in your project.
-1. Inside of this file, paste the connection string you copied earlier into the value of the *MyDbConnection* key. Replace the password with the value you chose when setting up your database.
+1. Inside of this file, paste the Connection String you copied earlier into the value of the *MyDbConnection* key. Replace the password with the value you chose when setting up your database.
  
 ---
       "ConnectionStrings": {
@@ -265,14 +265,6 @@ Nxt, run the commands below to install the necessary CLI tools for Entity Framew
         dotnet ef database update
 
 After the migration completes, your Azure SQL database will have the correct schema.
-
-Next, switch your appsettings.json configuration back to the original MyDbConnection value.  This ensures that the next time you deploy your code to Azure, it will pull the Connection String from your App Service configuration by name.  
-
----
-      "ConnectionStrings": {
-        "MyDbConnection": "MyDbConnection"
-      }
----
 
 Navigate back to your web app in the browser.  If you refresh the page, you should now be able to Create Todos and see them displayed on the home page.
 

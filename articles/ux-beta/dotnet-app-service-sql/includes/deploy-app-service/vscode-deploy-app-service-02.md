@@ -1,4 +1,4 @@
-1. Click on the Azure icon on the left navigation and expand the subscriptions to find the App Service you created previously.  
+1. Click on the Azure icon on the left navigation and expand the subscriptions to find the `coreSqlXYZ` App Service you created previously.
 
 1. Right click on the App Service node and select *Deploy to Web App*.
 

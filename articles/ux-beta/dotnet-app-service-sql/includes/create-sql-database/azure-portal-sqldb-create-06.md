@@ -1,5 +1,5 @@
 On the Create Database page, fill out the form as follows.
-1. *Resource Group* - choose the same resource group that you used for your web app in App Service.
+1. *Resource Group* - choose the `ms-docs-core-sql-tutorial` group you created earlier.
 
 1. *Database name* - enter a value of of coreDb.
 
