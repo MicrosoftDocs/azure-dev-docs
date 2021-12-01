@@ -42,9 +42,9 @@ To solve this problem, set the `FUNCTIONS_WORKER_JAVA_LOAD_APP_LIBS` environment
 
 ### Configure Apache Spark
 
-The Azure SDK for Java [supports multiple versions of Jackson](#support-for-multiple-jackson-versions), but sometimes issues can arise depending on your build tooling and its dependency resolution ordering. A good example of this is with Apache Spark 3.0.0 (and later), which depends on Jackson 2.10. Whilst this is compatible with the Azure SDK for Java, it is often discovered by developers that a more recent version of Jackson is used instead, and this results in incompatibilities. To mitigate this problem, you may pin a specific version of Jackson (one that is compatible with Spark). For more information about this topic, see the [support for multiple Jackson versions] section below.
+The Azure SDK for Java [supports multiple versions of Jackson](#support-for-multiple-jackson-versions), but issues can sometimes arise depending on your build tooling and its dependency resolution ordering. A good example of this is with Apache Spark 3.0.0 (and later), which depends on Jackson 2.10. While it is compatible with the Azure SDK for Java, developers often discover that a more recent version of Jackson is used instead, which results in incompatibilities. To mitigate this problem, you should pin a specific version of Jackson (one that is compatible with Spark). For more information about this topic, see the [support for multiple Jackson versions](#support-for-multiple-jackson-versions) section in this article.
 
-If you use earlier versions of Spark, or if another library you use requires an even earlier version of Jackson that is not supported by the Azure SDK for Java, please continue reading this document for possible mitigation steps.
+If you use earlier versions of Spark, or if another library you use requires an even earlier version of Jackson that isn't supported by the Azure SDK for Java, continue reading this document for possible mitigation steps.
 
 ### Detect Jackson runtime version
 
@@ -55,9 +55,9 @@ If you see `LinkageError` (or any of its subclasses) related to the Jackson API,
 Look for warning/error logs from `JacksonVersion`. For more information, see [Configure logging in the Azure SDK for Java](/azure/developer/java/sdk/logging-overview). For example: `[main] ERROR com.azure.core.implementation.jackson.JacksonVersion - Version '2.9.0' of package 'jackson-core' is not supported (too old), please upgrade.`
 
 > [!NOTE]
-> Please check that all the Jackson packages have the same version.
+> Check that all of the Jackson packages have the same version.
 
-Ror the list of packages used by Azure SDK and supported versions see [Support for multiple Jackson versions](#support-for-multiple-jackson-versions).
+For the list of packages used by Azure SDK and supported versions see [Support for multiple Jackson versions](#support-for-multiple-jackson-versions).
 
 ## Mitigate version mismatch issues
 
