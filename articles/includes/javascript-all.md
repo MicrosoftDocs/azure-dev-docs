@@ -170,7 +170,7 @@
 | @azure/quantum-jobs | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure/quantum-jobs/v/1.0.0-beta.1) |  |  |
 | @azure/static-web-apps-cli | npm [0.8.1](https://www.npmjs.com/package/@azure/static-web-apps-cli/v/0.8.1) |  |  |
 | @azure/video-analyzer-player | npm [1.0.4](https://www.npmjs.com/package/@azure/video-analyzer-player/v/1.0.4)<br>npm [1.1.0-beta.7](https://www.npmjs.com/package/@azure/video-analyzer-player/v/1.1.0-beta.7) |  |  |
-| @azure/video-analyzer-widgets | npm [2.0.3](https://www.npmjs.com/package/@azure/video-analyzer-widgets/v/2.0.3) |  |  |
+| @azure/video-analyzer-widgets | npm [2.0.4](https://www.npmjs.com/package/@azure/video-analyzer-widgets/v/2.0.4) |  |  |
 | @azure-rest/core-client-lro | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure-rest/core-client-lro/v/1.0.0-beta.1) |  |  |
 | @azure-tools/adl-openapi | npm [0.3.2](https://www.npmjs.com/package/@azure-tools/adl-openapi/v/0.3.2) |  |  |
 | @azure-tools/adl-rest | npm [0.3.2](https://www.npmjs.com/package/@azure-tools/adl-rest/v/0.3.2) |  |  |
@@ -178,11 +178,11 @@
 | @azure-tools/adl-rpaas-controller | npm [0.1.1](https://www.npmjs.com/package/@azure-tools/adl-rpaas-controller/v/0.1.1) |  |  |
 | @azure-tools/adl-vs | npm [0.2.0](https://www.npmjs.com/package/@azure-tools/adl-vs/v/0.2.0) |  |  |
 | @azure-tools/cadl | npm [0.16.0](https://www.npmjs.com/package/@azure-tools/cadl/v/0.16.0) |  |  |
-| @azure-tools/cadl-autorest | npm [0.9.1](https://www.npmjs.com/package/@azure-tools/cadl-autorest/v/0.9.1) |  |  |
+| @azure-tools/cadl-autorest | npm [0.9.2](https://www.npmjs.com/package/@azure-tools/cadl-autorest/v/0.9.2) |  |  |
 | @azure-tools/cadl-openapi | npm [0.4.1](https://www.npmjs.com/package/@azure-tools/cadl-openapi/v/0.4.1) |  |  |
 | @azure-tools/cadl-rest | npm [0.4.1](https://www.npmjs.com/package/@azure-tools/cadl-rest/v/0.4.1) |  |  |
-| @azure-tools/cadl-rpaas | npm [0.10.2](https://www.npmjs.com/package/@azure-tools/cadl-rpaas/v/0.10.2) |  |  |
-| @azure-tools/cadl-rpaas-controller | npm [0.5.2](https://www.npmjs.com/package/@azure-tools/cadl-rpaas-controller/v/0.5.2) |  |  |
+| @azure-tools/cadl-rpaas | npm [0.10.3](https://www.npmjs.com/package/@azure-tools/cadl-rpaas/v/0.10.3) |  |  |
+| @azure-tools/cadl-rpaas-controller | npm [0.6.0](https://www.npmjs.com/package/@azure-tools/cadl-rpaas-controller/v/0.6.0) |  |  |
 | @azure-tools/cadl-vs | npm [0.3.0](https://www.npmjs.com/package/@azure-tools/cadl-vs/v/0.3.0) |  |  |
 | @azure-tools/json | npm [1.2.1](https://www.npmjs.com/package/@azure-tools/json/v/1.2.1) |  |  |
 | @azure-tools/jsonschema | npm [1.1.0](https://www.npmjs.com/package/@azure-tools/jsonschema/v/1.1.0) |  |  |
@@ -193,15 +193,15 @@
 | @azure-tools/test-recorder | npm [1.0.1](https://www.npmjs.com/package/@azure-tools/test-recorder/v/1.0.1) |  |  |
 | @azure-tools/tmlanguage-generator | npm [0.1.4](https://www.npmjs.com/package/@azure-tools/tmlanguage-generator/v/0.1.4) |  |  |
 | @azure-tools/yaml | npm [1.0.0](https://www.npmjs.com/package/@azure-tools/yaml/v/1.0.0) |  |  |
-| @cadl-lang/compiler | npm [0.24.0](https://www.npmjs.com/package/@cadl-lang/compiler/v/0.24.0) |  |  |
-| @cadl-lang/openapi3 | npm [0.4.1](https://www.npmjs.com/package/@cadl-lang/openapi3/v/0.4.1) |  |  |
-| @cadl-lang/prettier-plugin-cadl | npm [0.5.3](https://www.npmjs.com/package/@cadl-lang/prettier-plugin-cadl/v/0.5.3) |  |  |
-| @cadl-lang/rest | npm [0.7.0](https://www.npmjs.com/package/@cadl-lang/rest/v/0.7.0) |  |  |
+| @cadl-lang/compiler | npm [0.24.1](https://www.npmjs.com/package/@cadl-lang/compiler/v/0.24.1) |  |  |
+| @cadl-lang/openapi3 | npm [0.4.2](https://www.npmjs.com/package/@cadl-lang/openapi3/v/0.4.2) |  |  |
+| @cadl-lang/prettier-plugin-cadl | npm [0.5.4](https://www.npmjs.com/package/@cadl-lang/prettier-plugin-cadl/v/0.5.4) |  |  |
+| @cadl-lang/rest | npm [0.7.1](https://www.npmjs.com/package/@cadl-lang/rest/v/0.7.1) |  |  |
 | adl-vscode | npm [0.6.0](https://www.npmjs.com/package/adl-vscode/v/0.6.0) |  |  |
 | cadl-msbuild-target | npm [0.1.0](https://www.npmjs.com/package/cadl-msbuild-target/v/0.1.0) |  |  |
-| cadl-vs | npm [0.4.2](https://www.npmjs.com/package/cadl-vs/v/0.4.2) |  |  |
-| cadl-vscode | npm [0.10.0](https://www.npmjs.com/package/cadl-vscode/v/0.10.0) |  |  |
-| tmlanguage-generator | npm [0.2.0](https://www.npmjs.com/package/tmlanguage-generator/v/0.2.0) |  |  |
+| cadl-vs | npm [0.4.3](https://www.npmjs.com/package/cadl-vs/v/0.4.3) |  |  |
+| cadl-vscode | npm [0.11.0](https://www.npmjs.com/package/cadl-vscode/v/0.11.0) |  |  |
+| tmlanguage-generator | npm [0.2.1](https://www.npmjs.com/package/tmlanguage-generator/v/0.2.1) |  |  |
 | AMQP Common | npm [1.0.0-preview.17](https://www.npmjs.com/package/@azure/amqp-common/v/1.0.0-preview.17) |  | GitHub [1.0.0-preview.17](https://github.com/Azure/azure-sdk-for-js/tree/@azure/amqp-common_1.0.0-preview.17/sdk/core/amqp-common/) |
 | Anomaly Detector | npm [3.0.0-beta.3](https://www.npmjs.com/package/@azure/ai-anomaly-detector/v/3.0.0-beta.3) | [docs](/javascript/api/overview/azure/ai-anomaly-detector-readme) | GitHub [3.0.0-beta.3](https://github.com/Azure/azure-sdk-for-js/tree/@azure/ai-anomaly-detector_3.0.0-beta.3/sdk/anomalydetector/ai-anomaly-detector/) |
 | Anomaly Detector | npm [2.1.0](https://www.npmjs.com/package/@azure/cognitiveservices-anomalydetector/v/2.1.0) |  | GitHub [2.1.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/cognitiveservices/cognitiveservices-anomalydetector) |
