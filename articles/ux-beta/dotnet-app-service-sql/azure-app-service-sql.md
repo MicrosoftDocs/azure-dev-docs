@@ -116,9 +116,9 @@ Replace the <server-name> placeholder with a unique SQL Database name. This name
 az sql server create 
     --location "eastus"
     --resource-group "msdocs-core-sql-tutorial"
-    --server <server-name>
-    --admin-user <db-username>
-    --admin-password <db-password>
+    --server <your-server-name>
+    --admin-user <your-db-username>
+    --admin-password <your-db-password>
 ```
 
 Provisioning a SQL Server may take a few minutes.  Once the resource is available we can create a database with the `az sql db create` command.
@@ -126,14 +126,14 @@ Provisioning a SQL Server may take a few minutes.  Once the resource is availabl
 ```azurecli
 az sql db create 
     --resource-group 'msdocs-core-sql-tutorial'
-    --server <server-name>
+    --server <your-server-name>
     --name "coreDb"
 ```
 
 We also need to add the following firewall rule to our database server to allow other Azure resources to access it.
 
 ```azurecli
-az sql server firewall-rule create --resource-group "msdocs-core-sql-tutorial" --server <yoursqlserver> --name "AzureAccess" --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
+az sql server firewall-rule create --resource-group "msdocs-core-sql-tutorial" --server <your-sql-server> --name "AzureAccess" --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
 ```
 
 ----
@@ -170,19 +170,19 @@ To enable git deployments via the CLI, configure a local git deployment source o
 This command will return a Git deployment URL for your App Service.  Copy this URL for later use.
 
 ```azurecli
-    az webapp deployment source config-local-git --name <app-name> --resource-group 'msdocs-core-sql-tutorial'
+az webapp deployment source config-local-git --name <your-app-name> --resource-group 'msdocs-core-sql-tutorial'
 ```
 
 Next, let's add an Azure origin to our local Git repo using the App Service Git deployment URL from the previous step.
 
 ```azurecli
-    git remote add azure https://<username>@<app-name>.scm.azurewebsites.net/<app-name>.git
+git remote add azure https://<username>@<app-name>.scm.azurewebsites.net/<your-app-name>.git
 ```
 
 Finally, push your code using the correct origin and branch name.
 
 ```azurecli
-    git push azure master
+git push azure master
 ```
 
 This command will take a moment to run as it deploys your app code to the Azure App Service.
@@ -210,7 +210,7 @@ Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com
 We can retrieve the Connection String for our database using the command below.  This will allow us to add it to our App Service configuration settings. Copy this Connectiong String value for later use.
 
 ```azurecli
-az sql db show-connection-string --client ado.net --name coreDb --server <server-name>
+az sql db show-connection-string --client ado.net --name coreDb --server <your-server-name>
 ```
 
 Next, let's assign the Connection String to our App Service using the command below. `MyDbConnection` is the name of the Connection String in our appsettings.json file, which means it will be loaded by our app during startup.
@@ -218,7 +218,7 @@ Next, let's assign the Connection String to our App Service using the command be
 Make sure to replace the username and password in the connection string with your own before running the command.
 
 ```azurecli
-az webapp config connection-string set -g "msdocs-core-sql-tutorial" -n <yourappname> -t SQLServer --settings MyDbConnection=<yourconnectionstring>
+az webapp config connection-string set -g "msdocs-core-sql-tutorial" -n <your-app-name> -t SQLServer --settings MyDbConnection=<your-connection-string>
 
 ```
 
@@ -241,8 +241,8 @@ In the Azure portal:
 
 Run the following command to add a firewall rule to your SQL Server instance.
 
-```
-    az sql server firewall-rule create -resource-group "msdocs-core-sql-tutorial" --server <yoursqlserver> --name "LocalAccess" --start-ip-address <yourip> --end-ip-address <yourip>
+```azurecli
+az sql server firewall-rule create -resource-group "msdocs-core-sql-tutorial" --server <yoursqlserver> --name "LocalAccess" --start-ip-address <yourip> --end-ip-address <yourip>
 ```
 
 ----
@@ -251,21 +251,23 @@ Inside of your local code editor, update the app Connection String to point to t
 1. Open the appsettings.json file in your project.
 1. Inside of this file, paste the Connection String you copied earlier into the value of the *MyDbConnection* key. Replace the password with the value you chose when setting up your database.
  
----
-      "ConnectionStrings": {
-        "MyDbConnection": "Server=tcp:MyDbServer.database.windows.net,1433;
-                            Initial Catalog=mySqlDb;Persist Security Info=False;
-                            User ID=<username>;Password=<password>;
-                            Encrypt=True;
-                            Connection Timeout=30;"
-      }
----
+```azurecli
+"ConnectionStrings": {
+    "MyDbConnection": "Server=tcp:MyDbServer.database.windows.net,1433;
+                    Initial Catalog=mySqlDb;Persist Security Info=False;
+                    User ID=<username>;Password=<password>;
+                    Encrypt=True;
+                    Connection Timeout=30;"
+}
+```
 
 Next, run the commands below to install the necessary CLI tools for Entity Framework Core, create an intial database migration file, and apply those changes to update the database.
-
-        dotnet tool install -g dotnet-ef
-        dotnet ef migrations add InitialCreate
-        dotnet ef database update
+ 
+```azurecli
+dotnet tool install -g dotnet-ef
+dotnet ef migrations add InitialCreate
+dotnet ef database update
+```
 
 After the migration completes, your Azure SQL database will have the correct schema.
 
