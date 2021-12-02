@@ -251,7 +251,7 @@ Inside of your local code editor, update the app Connection String to point to t
 1. Open the appsettings.json file in your project.
 1. Inside of this file, paste the Connection String you copied earlier into the value of the *MyDbConnection* key. Replace the password with the value you chose when setting up your database.
  
-```azurecli
+```json
 "ConnectionStrings": {
     "MyDbConnection": "Server=tcp:MyDbServer.database.windows.net,1433;
                     Initial Catalog=mySqlDb;Persist Security Info=False;
@@ -262,8 +262,8 @@ Inside of your local code editor, update the app Connection String to point to t
 ```
 
 Next, run the commands below to install the necessary CLI tools for Entity Framework Core, create an intial database migration file, and apply those changes to update the database.
- 
-```azurecli
+
+```dotnetcli
 dotnet tool install -g dotnet-ef
 dotnet ef migrations add InitialCreate
 dotnet ef database update
