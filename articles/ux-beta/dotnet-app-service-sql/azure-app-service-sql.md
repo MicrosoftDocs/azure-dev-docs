@@ -109,9 +109,9 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps 
 
 ### [Azure CLI](#tab/azure-cli-database)
 
-To create an Azure SQL database, we first must create a SQL Server to host it. A new Azure SQL Server is created by using the [az sql server create](/cli/azure/cosmosdbaz_cosmosdb_create) command.
+To create an Azure SQL database, we first must create a SQL Server to host it. A new Azure SQL Server is created by using the `az sql server create` command.
 
-Replace the <server-name> placeholder with a unique SQL Database name. This name is used as the part of the globally unique SQL Database endpoint, <server-name>.database.windows.net. Valid characters are a-z, 0-9, -. Also, replace <db-username> and <db-username> with a username and password of your choice.
+Replace the <server-name> placeholder with a unique SQL Database name. This name is used as the part of the globally unique SQL Database endpoint, <server-name>.database.windows.net. Also, replace <db-username> and <db-username> with a username and password of your choice.
 
 ```azurecli
 az sql server create 
@@ -122,7 +122,7 @@ az sql server create
     --admin-password <db-password>
 ```
 
-Provisioning a SQL Server may take a few minutes.  Once the resource is available we can Create a database with an S0 performance level in the server using the `az sql db create` command.
+Provisioning a SQL Server may take a few minutes.  Once the resource is available we can create a database with the `az sql db create` command.
 
 ```azurecli
 az sql db create 
@@ -133,8 +133,8 @@ az sql db create
 
 We also need to add the following firewall rule to our database server to allow other Azure resources to access it.
 
-```
-    az sql server firewall-rule create -resource-group "msdocs-core-sql-tutorial" --server <yoursqlserver> --name "AzureAccess" --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
+```azurecli
+az sql server firewall-rule create --resource-group "msdocs-core-sql-tutorial" --server <yoursqlserver> --name "AzureAccess" --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
 ```
 
 ----
@@ -174,7 +174,7 @@ This command will return a Git deployment URL for your App Service.  Copy this U
     az webapp deployment source config-local-git --name <app-name> --resource-group 'msdocs-core-sql-tutorial'
 ```
 
-Next, let's add an Azure origin to our local Git repo using the App Service Git deployment URL.
+Next, let's add an Azure origin to our local Git repo using the App Service Git deployment URL from the previous step.
 
 ```azurecli
     git remote add azure https://<username>@<app-name>.scm.azurewebsites.net/<app-name>.git
@@ -186,7 +186,7 @@ Finally, push your code using the correct origin and branch name.
     git push azure master
 ```
 
-This command may take a moment to run, but should deploy your app code successfully.
+This command will take a moment to run as it deploys your app code to the Azure App Service.
 
 ----
 
@@ -219,7 +219,7 @@ Next, let's assign the Connection String to our App Service using the command be
 Make sure to replace the username and password in the connection string with your own before running the command.
 
 ```azurecli
-az webapp config connection-string set -g "msdocs-core-sql-tutorial" -n <yourappname> -t SQLServer--settings MyDbConnection=<yourconnectionstring>
+az webapp config connection-string set -g "msdocs-core-sql-tutorial" -n <yourappname> -t SQLServer --settings MyDbConnection=<yourconnectionstring>
 
 ```
 
