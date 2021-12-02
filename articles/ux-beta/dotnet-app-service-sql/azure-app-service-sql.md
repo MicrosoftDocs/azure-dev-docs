@@ -175,13 +175,13 @@ az webapp deployment source config-local-git --name <your-app-name> --resource-g
 
 Next, let's add an Azure origin to our local Git repo using the App Service Git deployment URL from the previous step.
 
-```azurecli
+```bash
 git remote add azure https://<username>@<app-name>.scm.azurewebsites.net/<your-app-name>.git
 ```
 
 Finally, push your code using the correct origin and branch name.
 
-```azurecli
+```bash
 git push azure master
 ```
 
