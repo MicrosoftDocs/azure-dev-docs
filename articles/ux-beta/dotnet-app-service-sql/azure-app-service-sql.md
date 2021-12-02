@@ -193,10 +193,10 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps 
 
 | Instructions    | Screenshot |
 |:----------------|-----------:|
-| [!INCLUDE [Connect Service step 1](<./includes/connect-app-database/azure-portal-connect-database-01.md>)] | :::image type="content" source="./media/azportal-connect-sqldb-01-240px.png" alt-text="A screenshot showing how to use the search box in the top tool bar to find App Services in Azure." lightbox="./media/azportal-connect-service-1.png"::: |
-| [!INCLUDE [Connect Service step 2](<./includes/connect-app-database/azure-portal-connect-database-02.md>)] | :::image type="content" source="./media/azportal-connect-sqldb-02-240px.png" alt-text="A screenshot showing the create button on the App Services page used to create a new web app." lightbox="./media/azportal-connect-service-2.png"::: |
-| [!INCLUDE [Connect Service step 3](<./includes/connect-app-database/azure-portal-connect-database-03.md>)] | :::image type="content" source="./media/azportal-connect-sqldb-03-240px.png" alt-text="A screenshot showing how to use the search box in the top tool bar to find App Services in Azure." lightbox="./media/azportal-connect-service-3.png"::: |
-| [!INCLUDE [Connect Service step 4](<./includes/connect-app-database/azure-portal-connect-database-04.md>)] | :::image type="content" source="./media/azportal-connect-sqldb-04-240px.png" alt-text="A screenshot showing the create button on the App Services page used to create a new web app." lightbox="./media/azportal-connect-service-4.png"::: |
+| [!INCLUDE [Connect Service step 1](<./includes/connect-app-database/azure-portal-connect-database-01.md>)] | :::image type="content" source="./media/azportal-connect-sqldb-01-240px.png" alt-text="A screenshot showing how to use the search box in the top tool bar to find App Services in Azure." lightbox="./media/azportal-connect-service-01.png"::: |
+| [!INCLUDE [Connect Service step 2](<./includes/connect-app-database/azure-portal-connect-database-02.md>)] | :::image type="content" source="./media/azportal-connect-sqldb-02-240px.png" alt-text="A screenshot showing the create button on the App Services page used to create a new web app." lightbox="./media/azportal-connect-service-02.png"::: |
+| [!INCLUDE [Connect Service step 3](<./includes/connect-app-database/azure-portal-connect-database-03.md>)] | :::image type="content" source="./media/azportal-connect-sqldb-03-240px.png" alt-text="A screenshot showing how to use the search box in the top tool bar to find App Services in Azure." lightbox="./media/azportal-connect-service-03.png"::: |
+| [!INCLUDE [Connect Service step 4](<./includes/connect-app-database/azure-portal-connect-database-04.md>)] | :::image type="content" source="./media/azportal-connect-sqldb-04-240px.png" alt-text="A screenshot showing the create button on the App Services page used to create a new web app." lightbox="./media/azportal-connect-service-04.png"::: |
 
 ### [Azure CLI](#tab/azure-cli-connect)
 
@@ -275,8 +275,6 @@ To access Kudu, navigate to one of the following URLs. You will need to sign int
 - For apps deployed in Free, Shared, Basic, Standard, and Premium App Service plans - `https:/<app-name>.scm.azurewebsites.net`
 - For apps deployed in Isolated service plans - `https://<app-name>.scm.<ase-name>.p.azurewebsites.net`
 From the main page in Kudu, you can access information about the application hosting environment, app settings, deployments, and browse the files in the wwwroot directory.
-
-## 8 Stream logs
 
 ## Stream diagnostic logs
 
