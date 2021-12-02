@@ -102,7 +102,7 @@ Run the following command to [create a new federated identity credential](/graph
 * Set the `subject`. The value of this is defined by GitHub depending on your workflow:
   * Jobs in your GitHub Actions environment: `repo:< Organization/Repository >:environment:< Name >`
   * For Jobs not tied to an environment, include the ref path for branch/tag based on the ref path used for triggering the workflow: `repo:< Organization/Repository >:ref:< ref path>`.  For example, `repo:n-username/ node_express:ref:refs/heads/my-branch` or `repo:n-username/ node_express:ref:refs/tags/my-tag`.
-  * For workflows triggered by a pull request event: `repo:< Organization/Repository >:pull-request`.
+  * For workflows triggered by a pull request event: `repo:< Organization/Repository >:pull_request`.
 
 ```azurecli
 az rest --method POST --uri 'https://graph.microsoft.com/beta/applications/<APPLICATION-OBJECT-ID>/federatedIdentityCredentials' --body '{"name":"<CREDENTIAL-NAME>","issuer":"https://token.actions.githubusercontent.com","subject":"repo:organization/repository:environment:Production","description":"Testing","audiences":["api://AzureADTokenExchange"]}' 
