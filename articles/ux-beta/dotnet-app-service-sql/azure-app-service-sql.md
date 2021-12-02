@@ -130,6 +130,13 @@ az sql db create
     --server <server-name>
     --name "coreDb"
 ```
+
+We also need to add the following firewall rule to our database server to allow other Azure resources to access it.
+
+```
+    az sql server firewall-rule create -resource-group "msdocs-core-sql-tutorial" --server <yoursqlserver> --name "AzureAccess" --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
+```
+
 ----
 
 
@@ -236,7 +243,7 @@ In the Azure portal:
 Run the following command to add a firewall rule to your SQL Server instance.
 
 ```
-    az sql server firewall-rule create -resource-group $RESOURCE_GROUP_NAME --server <yoursqlserver> --name "LocalAccess" --start-ip-address <yourip> --end-ip-address <yourip>
+    az sql server firewall-rule create -resource-group "msdocs-core-sql-tutorial" --server <yoursqlserver> --name "LocalAccess" --start-ip-address <yourip> --end-ip-address <yourip>
 ```
 
 ----
