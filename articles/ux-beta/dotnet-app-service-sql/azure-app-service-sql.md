@@ -32,7 +32,7 @@ cd dotnetcore-sqldb-tutorial
 
 ## 2 - Create the App Service
 
-First let's create the Azure App Service that will host our deployed Web App. There are several different ways of creating an App Service depending on your desired workflow.
+Let's first create the Azure App Service that will host our deployed Web App. There are several different ways to create an App Service depending on your desired workflow.
 
 ### [Azure portal](#tab/azure-portal)
 
@@ -55,7 +55,7 @@ First, create a resource group to act as a container for all of the Azure resour
 ```azurecli
     # Use 'az account list-locations --output table' to list available locations close to you
     # Create a resource group
-    az group create --location 'east-us' --name 'msdocs-core-sql-tutorial'
+    az group create --location "eastus" --name "msdocs-core-sql-tutorial"
 ```
 
 Next, create an App Service plan using the [az appservice plan create](/cli/azure/appservice/plan#az_appservice_plan_create) command.
@@ -67,8 +67,8 @@ Next, create an App Service plan using the [az appservice plan create](/cli/azur
 
  # Change 123 to any three characters to form a unique name across Azure
 az appservice plan create
-    --name 'msdocs-core-sql-tutorial-plan-123'    
-    --resource-group 'msdocs-core-sql-tutorial'
+    --name "msdocs-core-sql-tutorial-plan-123"   
+    --resource-group "msdocs-core-sql-tutorial"
     --sku B1
     --is-linux
 ```
@@ -81,11 +81,11 @@ Finally, create the App Service web app using the [az webapp create](/cli/azure/
 ```azurecli
 
 # Change 123 to any three characters to form a unique name across Azure
-az webapp create \
-    --name <your-app-service-name>   \
-    --runtime 'DOTNET|6.0'
+az webapp create
+    --name <your-app-service-name>
+    --runtime "DOTNET|6.0"
     --plan <your-app-service-plan-name>  
-    --resource-group 'msdocs-core-sql-tutorial'
+    --resource-group "msdocs-core-sql-tutorial"
 ```
 
 ----
@@ -115,10 +115,10 @@ Replace the <server-name> placeholder with a unique SQL Database name. This name
 
 ```azurecli
 az sql server create 
-    --location 'east-us'
-    --resource-group 'msdocs-core-sql-tutorial'
+    --location "eastus"
+    --resource-group "msdocs-core-sql-tutorial"
     --server <server-name>
-    --admin-username <db-username>
+    --admin-user <db-username>
     --admin-password <db-password>
 ```
 
@@ -128,8 +128,7 @@ Provisioning a SQL Server may take a few minutes.  Once the resource is availabl
 az sql db create 
     --resource-group 'msdocs-core-sql-tutorial'
     --server <server-name>
-    --name coreDb 
-    --service-objective S0
+    --name "coreDb"
 ```
 ----
 
@@ -210,8 +209,10 @@ az sql db show-connection-string --client ado.net --name coreDb --server <server
 
 Next, let's assign the Connection String to our App Service using the command below. `MyDbConnection` is the name of the Connection String in our appsettings.json file, which means it will be loaded by our app during startup.
 
+Make sure to replace the username and password in the connection string with your own before running the command.
+
 ```azurecli
-az webapp config connection-string set -g $RESOURCE_GROUP_NAME -n <yourappname> -t SQLServer--settings MyDbConnection=<yourconnectionstring>
+az webapp config connection-string set -g "msdocs-core-sql-tutorial" -n <yourappname> -t SQLServer--settings MyDbConnection=<yourconnectionstring>
 
 ```
 
@@ -235,7 +236,7 @@ In the Azure portal:
 Run the following command to add a firewall rule to your SQL Server instance.
 
 ```
-    az sql server firewall-rule create -resource-group $RESOURCE_GROUP_NAME -server <yoursqlserver> -name "LocalAccess" --start-ip-address <yourip> --end-ip-address <yourip>
+    az sql server firewall-rule create -resource-group $RESOURCE_GROUP_NAME --server <yoursqlserver> --name "LocalAccess" --start-ip-address <yourip> --end-ip-address <yourip>
 ```
 
 ----
@@ -249,8 +250,7 @@ Inside of your local code editor, update the app Connection String to point to t
         "MyDbConnection": "Server=tcp:MyDbServer.database.windows.net,1433;
                             Initial Catalog=mySqlDb;Persist Security Info=False;
                             User ID=<username>;Password=<password>;
-                            MultipleActiveResultSets=False;
-                            Encrypt=True;TrustServerCertificate=False;
+                            Encrypt=True;
                             Connection Timeout=30;"
       }
 ---
