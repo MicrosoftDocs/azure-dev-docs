@@ -52,9 +52,9 @@ Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com
 First, create a resource group to act as a container for all of the Azure resources related to this application.
 
 ```azurecli
-    # Use 'az account list-locations --output table' to list available locations close to you
-    # Create a resource group
-    az group create --location "eastus" --name "msdocs-core-sql-tutorial"
+# Use 'az account list-locations --output table' to list available locations close to you
+# Create a resource group
+az group create --location "eastus" --name "msdocs-core-sql-tutorial"
 ```
 
 Next, create an App Service plan using the [az appservice plan create](/cli/azure/appservice/plan#az_appservice_plan_create) command.
@@ -79,7 +79,6 @@ Finally, create the App Service web app using the [az webapp create](/cli/azure/
 
 ```azurecli
 
-# Change 123 to any three characters to form a unique name across Azure
 az webapp create
     --name <your-app-service-name>
     --runtime "DOTNET|6.0"
@@ -133,7 +132,12 @@ az sql db create
 We also need to add the following firewall rule to our database server to allow other Azure resources to access it.
 
 ```azurecli
-az sql server firewall-rule create --resource-group "msdocs-core-sql-tutorial" --server <your-sql-server> --name "AzureAccess" --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
+az sql server firewall-rule create 
+--resource-group "msdocs-core-sql-tutorial" 
+--server <your-sql-server> 
+--name "AzureAccess" 
+--start-ip-address 0.0.0.0 
+--end-ip-address 0.0.0.0
 ```
 
 ----
@@ -173,7 +177,9 @@ To enable git deployments via the CLI, configure a local git deployment source o
 This command will return a Git deployment URL for your App Service.  Copy this URL for later use.
 
 ```azurecli
-az webapp deployment source config-local-git --name <your-app-name> --resource-group 'msdocs-core-sql-tutorial'
+az webapp deployment source config-local-git 
+--name <your-app-name> 
+--resource-group 'msdocs-core-sql-tutorial'
 ```
 
 Next, let's add an Azure origin to our local Git repo using the App Service Git deployment URL from the previous step.
@@ -213,7 +219,10 @@ Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com
 We can retrieve the Connection String for our database using the command below.  This will allow us to add it to our App Service configuration settings. Copy this Connectiong String value for later use.
 
 ```azurecli
-az sql db show-connection-string --client ado.net --name coreDb --server <your-server-name>
+az sql db show-connection-string 
+--client ado.net 
+--name coreDb 
+--server <your-server-name>
 ```
 
 Next, let's assign the Connection String to our App Service using the command below. `MyDbConnection` is the name of the Connection String in our appsettings.json file, which means it will be loaded by our app during startup.
@@ -221,7 +230,11 @@ Next, let's assign the Connection String to our App Service using the command be
 Make sure to replace the username and password in the connection string with your own before running the command.
 
 ```azurecli
-az webapp config connection-string set -g "msdocs-core-sql-tutorial" -n <your-app-name> -t SQLServer --settings MyDbConnection=<your-connection-string>
+az webapp config connection-string set 
+-g "msdocs-core-sql-tutorial" 
+-n <your-app-name> 
+-t SQLServer 
+--settings MyDbConnection=<your-connection-string>
 
 ```
 
