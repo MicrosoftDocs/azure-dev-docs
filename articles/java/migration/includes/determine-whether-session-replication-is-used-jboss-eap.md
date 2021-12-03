@@ -6,9 +6,8 @@ ms.date: 1/21/2020
 
 ### Determine whether session replication is used
 
-If your application relies on session replication, with or without Oracle Coherence*Web, you have three options:
+If your application relies on session replication, with or without Oracle Coherence*Web, you have two options:
 
-* Coherence*Web can run alongside a WebLogic Server in the Azure virtual machines, but you must manually configure this option after you provision the offer. If you are using standalone Coherence, you can also run it in an Azure virtual machine, but you must manually configure this option after you provision the offer.
 * Refactor your application to use a database for session management.
 * Refactor your application to externalize the session to Azure Redis Service. For more information, see [Azure Cache for Redis](/azure/azure-cache-for-redis/cache-overview).
 

@@ -4,6 +4,6 @@ ms.author: edburns
 ms.date: 1/21/2020
 ---
 
-### Determine whether Management over REST is used
+### Determine whether Management REST API is used
 
-If the lifecycle of your application includes using Management over REST, you need to capture which ports are used to access the REST API and determine how they are authenticated and exposed. After migration, you'll need to ensure that these same ports and authentication mechanisms are exposed so your application lifecycle can operate in a similar fashion as before the migration. For more information, see [Administering Oracle WebLogic Server with RESTful Management Services](https://docs.oracle.com/middleware/12213/wls/WLRUR/title.htm).
+If the lifecycle of your application includes using the  Management REST API, you need to delegate those management operations to ARM (Azure Resource Manager). The JBoss management interface and REST API is not exposed on App Service. Instead, the App Service platform handles the orchestration and lifecycle of your EAP instances.
