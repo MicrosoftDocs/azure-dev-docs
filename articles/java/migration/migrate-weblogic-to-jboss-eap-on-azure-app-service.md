@@ -10,15 +10,11 @@ ms.date: 09/09/2021
 
 This guide describes what you should be aware of when you want to migrate an existing WebLogic application to run on Azure App Service using JBoss EAP.
 
-[!INCLUDE [java-redhat-migration-toolkit](includes/redhat-migration-toolkit.md)]
-
 ## Pre-migration
 
 To ensure a successful migration, before you start, complete the assessment and inventory steps described in the following sections.
 
-If you can't meet any of these pre-migration requirements, see the companion migration guide:
-
-* [Migrate WebLogic applications to Azure Virtual Machines](migrate-weblogic-to-virtual-machines.md)
+If you can't meet any of these pre-migration requirements, see the companion migration guide to migrate your applications to Virtual Machines instead: [Migrate WebLogic applications to Azure Virtual Machines](migrate-weblogic-to-virtual-machines.md)
 
 [!INCLUDE [inventory-server-capacity-jboss-eap](includes/inventory-server-capacity-jboss-eap.md)]
 
@@ -138,6 +134,10 @@ If your application is using JAAS, then you'll need to capture how JAAS is confi
 Most likely, you've deployed your application on multiple WebLogic servers to achieve high availability. Azure App Service is capable of scaling, but if you've used the WebLogic Cluster API, you'll need to refactor your code to eliminate the use of that API.
 
 ## Migration
+
+### Migrate your application code to EAP
+
+[!INCLUDE [java-redhat-migration-toolkit](includes/redhat-migration-toolkit.md)]
 
 ### Provision an App Service plan
 

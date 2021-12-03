@@ -10,8 +10,6 @@ ms.date: 09/09/2021
 
 This guide describes what you should be aware of when you want to migrate an existing WebSphere application to run on Azure App Service using JBoss EAP.
 
-[!INCLUDE [java-redhat-migration-toolkit](includes/redhat-migration-toolkit.md)]
-
 ## Pre-migration
 
 To ensure a successful migration, before you start, complete the assessment and inventory steps described in the following sections.
@@ -141,6 +139,10 @@ If your application is packaged as an EAR file, be sure to examine the *applicat
 Processes running outside of Application Server, such as monitoring daemons, will need to be migrated elsewhere or eliminated.
 
 ## Migration
+
+### Migrate your application code to EAP
+
+[!INCLUDE [java-redhat-migration-toolkit](includes/redhat-migration-toolkit.md)]
 
 ### Provision an App Service plan
 
