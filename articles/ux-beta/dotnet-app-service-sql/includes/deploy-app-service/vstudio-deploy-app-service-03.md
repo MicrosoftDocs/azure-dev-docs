@@ -1,0 +1,1 @@
+If you are not already logged into an Azure account, you will be prompted to do so.  Click `Sign In` to launch the Azure login page and then sign in with your account. You can also click `Create an Account` to setup a new account if you do not have one already.

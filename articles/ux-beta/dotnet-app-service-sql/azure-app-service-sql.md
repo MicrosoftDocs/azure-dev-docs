@@ -152,12 +152,15 @@ We are now ready to deploy our .NET app to the App Service.
 
 ### [Visual Studio](#tab/visualstudio-deploy)
 
-To create Azure resources in VS Code, you must have the [Azure Tools extension pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack) installed and be signed into Azure from VS Code.
 
-> [!div class="nextstepaction"]
-> [Download Azure Tools extension pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack)
+| Instructions    | Screenshot |
+|:----------------|-----------:|
+| [!INCLUDE [Deploy app service step 1](<./includes/deploy-app-service/vstudio-deploy-app-service-01.md>)] | :::image type="content" source="./media/vstudio-deployapp-service-01-240px.png" alt-text="A screenshot showing how to use the search box in the top tool bar to find App Services in Azure." lightbox="./media/vstudio-deployapp-service-01.png"::: |
+| [!INCLUDE [Deploy app service step 2](<./includes/deploy-app-service/vstudio-deploy-app-service-02.md>)] | :::image type="content" source="./media/vstudio-deployapp-service-02-240px.png" alt-text="A screenshot showing the deploy button on the App Services page used to deploy a new web app." lightbox="./media/vstudio-deployapp-service-02.png"::: |
+| [!INCLUDE [Deploy app service step 3](<./includes/deploy-app-service/vstudio-deploy-app-service-03.md>)] | :::image type="content" source="./media/vstudio-deployapp-service-03-240px.png" alt-text="A screenshot showing the deploy button on the App Services page used to deploy a new web app." lightbox="./media/vstudio-deployapp-service-03.png"::: |
+| [!INCLUDE [Deploy app service step 4](<./includes/deploy-app-service/vstudio-deploy-app-service-04.md>)] | :::image type="content" source="./media/vstudio-deployapp-service-04-240px.png" alt-text="A screenshot showing the deploy button on the App Services page used to deploy a new web app." lightbox="./media/vstudio-deployapp-service-04.png"::: |
+| [!INCLUDE [Deploy app service step 5](<./includes/deploy-app-service/vstudio-deploy-app-service-05.md>)] | :::image type="content" source="./media/vstudio-deployapp-service-05-240px.png" alt-text="A screenshot showing the deploy button on the App Services page used to deploy a new web app." lightbox="./media/vstudio-deployapp-service-05.png"::: |
 
-Witness the awesomeness of VS Code!
 
 ### [Azure CLI](#tab/azure-cli-deploy)
 
