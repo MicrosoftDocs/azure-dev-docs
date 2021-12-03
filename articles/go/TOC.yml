@@ -4,7 +4,7 @@ items:
   - name: Get started with Go on Azure
     items:
     - name: Configure your development environment
-      href: configure-vscode-for-go-development.md
+      href: configure-visual-studio-code.md
     - name: Key Azure services for Go developers
       href: key-azure-services-for-go.md
   - name: Use the Azure SDK for Go

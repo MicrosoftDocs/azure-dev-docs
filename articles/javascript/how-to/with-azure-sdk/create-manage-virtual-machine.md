@@ -1,7 +1,7 @@
 ---
 title: Create and delete virtual machine
 description: Use Azure SDK to create and delete a virtual machine.
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/26/2021
 ms.custom: devx-track-js
 ---
@@ -100,4 +100,6 @@ Resources created in these scripts include:
 
 ## Next steps
 
+* [Create a VM with the Azure CLI and a cloud-init file](../../tutorial/nodejs-virtual-machine-vm/create-linux-virtual-machine-azure-cli.md)
+* [Manage a VM with Azure SDK for JavaScript](stop-start-virtual-machine.md)
 * [Selecting hosting for your app](../select-hosting-service.md)

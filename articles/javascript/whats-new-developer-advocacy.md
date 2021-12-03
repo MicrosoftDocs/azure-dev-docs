@@ -1,7 +1,7 @@
 ---
 title: "What's new with Cloud Developer Advocates"
 description: "What's new with JavaScript Cloud Developer Advocates (CDA)"
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/28/2021
 ---
 
@@ -27,11 +27,27 @@ This content is primarily from Developer Advocates as well as other members of t
 |Client web apps|Web Development for Beginners|[Curriculum on GitHub](https://dev.to/azure/announcing-a-free-curriculum-web-development-for-beginners-142k)|
 |Client web apps|Awesome Azure Static web apps|[Resource list](https://github.com/staticwebdev/awesome-azure-static-web-apps)|
 |Client web apps|Azure Tips and Tricks: Static Web Apps|[Beginner video series](https://aka.ms/StaticWebAppsTips)|
-|Client web apps|Static Web Apps Code to Scale|[Conference video series](https://aka.ms/SWAConfOnDemand)|
+|Client web apps|Static Web Apps Code to Scale|[Conference video series](/events/learn-tv-static-web-apps-code-to-scale/?WT.mc_ID=swa-124587-memckenn)|
 |Client web apps|Take your first steps with Vue.js|[Learn path](/learn/paths/vue-first-steps/?WT.mc_id=javascript-27683-cxa)|
 |Client web apps|Beginner's Series to: Vue.js|[Beginner video series](https://youtu.be/LnngsOg014Y)|
 |Client web apps|Comparing Azure Static Web Apps vs Azure WebApps vs Azure Blob Storage Static Sites|[Blog post](https://devblogs.microsoft.com/devops/comparing-azure-static-web-apps-vs-azure-webapps-vs-azure-blob-storage-static-sites/)|
 |Microsoft Graph|Get started with Microsoft Graph and JavaScript|[Samples](https://developer.microsoft.com/graph/get-started/javascript)|
+
+## 2021 November
+
+|Cloud Advocate|Contributions|Link|
+|--|--|--|
+|[Yohan Lasorsa][Yohan]|DevFest Nantes 2021: Highly available, distributed & resilient software. |**French** - [YouTube](https://www.youtube.com/watch?v=x3sQu31jGu4)|
+|[Yohan Lasorsa][Yohan] and [Olivier Leplus][Olivier]|DevFest Nantes 2021: Highly available, distributed & resilient software. |**French** - [YouTube](https://www.youtube.com/watch?v=p47z7rgRghQ)|
+|[Glaucia Lemos][Glaucia]|TypeScript - Zero to Hero, Type Never #29|**Portuguese** - [YouTube](https://youtu.be/B355hDt29q4)|
+|[Glaucia Lemos][Glaucia]|TypeScript - Zero to Hero, Type Never #30 - Demo|**Portuguese** - [YouTube](https://youtu.be/ZJt15H_MKLc)|
+|[Aaron Powell][Aaron]|GraphQL Summit panel: The State of Serverless|[YouTube](https://www.youtube.com/watch?v=MBPmOVR09kI)|
+|[Aaron Powell][Aaron]|Scaffolding Static Web Apps|[Blog](https://dev.to/azure/scaffolding-static-web-apps-4p97)|
+|[Aaron Powell][Aaron]|create-swa-app:a command line tool|[Blog](https://www.aaron-powell.com/posts/2021-11-16-scaffolding-static-web-apps/)|
+|[Glaucia Lemos][Glaucia]|Coding Stuff! JWT + Node + Mongo+ Vue Project - Video 13|**Portuguese** - [YouTube](https://youtu.be/8gG1OwMIDts)|
+|[Glaucia Lemos][Glaucia]|Coding Stuff! JWT + Node + Mongo+ Vue Project - Video 14|**Portuguese** - [YouTube](https://youtu.be/UcKm1ADpWlQ)|
+|[Glaucia Lemos][Glaucia]|Coding Stuff! JWT + Node + Mongo+ Vue Project - Video 15|**Portuguese** - [YouTube](https://youtu.be/cQxoBu2rexE)|
+
 
 ## 2021 October
 
@@ -147,7 +163,7 @@ This content is primarily from Developer Advocates as well as other members of t
 
 |Cloud Advocate|Contributions|Link|
 |--|--|--|
-|[Aaron Powell][Aaron] and Abel Wang|DevOps Lab - Deploying packages with GitHub Actions|[Channel 9 video](https://aka.ms/DevOpsLab/DeployingPackageswithGitHub)|
+|[Aaron Powell][Aaron] and Abel Wang|DevOps Lab - Deploying packages with GitHub Actions|[Channel 9 video](/shows/DevOps-Lab/Deploying-packages-with-GitHub-Actions?WT.mc_id=devopslab-c9-cxa)|
 |[Aaron Powell][Aaron]|Static Web Apps API Auth helper|[Blog](https://www.aaron-powell.com/posts/2021-03-30-making-auth-simpler-for-static-web-app-apis/)|
 |[Yohan Lasorsa][Yohan]|[Angular+Surface Duo- Gallery app demo|[GitHub repo](https://github.com/sinedied/surface-duo-photo-gallery)|
 |[Yohan Lasorsa][Yohan]|Cloud First Conference Talk: Highly available, distributed & resilient software|[YouTube](https://youtu.be/OGFkz81mKf8?t=7162)|

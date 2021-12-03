@@ -32,7 +32,7 @@ The following articles help you get started with various data solutions on Azure
   - [Build a Python application using an Azure Cosmos DB SQL API account](/azure/cosmos-db/create-sql-api-python)
   - [Build a Cassandra app with Python SDK and Azure Cosmos DB](/azure/cosmos-db/create-cassandra-python)
   - [Create a graph database in Azure Cosmos DB using Python and the Azure portal](/azure/cosmos-db/create-graph-python)
-  -[Build a Python app using Azure Cosmos DB's API for MongoDB](/azure/cosmos-db/create-mongodb-flask)
+  - [Build a Python app using the Azure Cosmos DB API for MongoDB](/azure/cosmos-db/create-mongodb-flask)
 
 - **Blob and file storage**:
   - [Manage Azure Storage blobs with Python](/azure/storage/blobs/storage-quickstart-blobs-python)

@@ -36,7 +36,7 @@ Run the following code to create an Azure service principal:
 
 # [Azure CLI](#tab/azure-cli)
 ```azurecli-interactive
-az ad sp create-for-rbac --name ansible
+az ad sp create-for-rbac --name ansible --role Contributor
 ```
 
 >[!NOTE]

@@ -1,7 +1,7 @@
 ---
 title: Authenticate to Azure with SDK
 description: To authenticate to Azure, create a service principal to use the Azure SDKs for JavaScript.
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/26/2021
 ms.custom: devx-track-js
 ---
@@ -58,8 +58,8 @@ Create a service principal and configure its access to Azure resources. The serv
 
 1. Create the service principal with the Azure [az ad sp create-for-rbac](/cli/azure/ad/sp#az_ad_sp_create_for_rbac) command with the Azure CLI or [Cloud Shell](https://shell.azure.com). 
 
-    ```bash
-    az ad sp create-for-rbac --name YOUR-SERVICE-PRINCIPAL-NAME
+    ```azurecli
+    az ad sp create-for-rbac --name YOUR-SERVICE-PRINCIPAL-NAME --role Contributor
     ```
 
 2. The response from the command includes secrets you need to store securely such as in [Azure Key Vault](/azure/key-vault/):
@@ -124,13 +124,13 @@ Use the new service principal to authenticate with Azure and list your subscript
 
 1. In the same Azure CLI terminal you used to create the service principal, log off to stop using your personal account.
 
-    ```bash
+    ```azurecli
     az logout
     ```
     
 1. Log in using your service principal. 
 
-    ```bash
+    ```azurecli
     az login --service-principal \
         --username YOUR-SERVICE-PRINCIPAL-ID \
         --password YOUR-PASSWORD \
@@ -139,7 +139,7 @@ Use the new service principal to authenticate with Azure and list your subscript
 
 1.  List all resource groups: 
 
-    ```bash
+    ```azurecli
     az account list --output table
     ```
 
@@ -147,6 +147,7 @@ Use the new service principal to authenticate with Azure and list your subscript
 
 ## Next steps
 
+* [View resource operation history](../how-to/with-azure-sdk/list-resource-operation-history.md)
 * [Create web app with a secure domain name](../how-to/add-custom-domain-to-web-app.md)
 * You can also create a service principal with:
   * [Azure portal](/azure/active-directory/develop/howto-create-service-principal-portal)

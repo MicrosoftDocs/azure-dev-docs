@@ -246,4 +246,4 @@ client := armresources.NewResourcesClient(azcore.NewDefaultConnection(cred, nil)
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn more about using the Azure SDK for Go](/azure/go).
+> [Learn more about using the Azure SDK for Go](/azure/go)

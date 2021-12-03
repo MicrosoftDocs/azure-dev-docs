@@ -3,6 +3,8 @@
   items:
     - name: Get started
       href: get-started.md
+    - name: Libraries, drivers, and Spring modules
+      href: libraries-drivers-modules.md
     - name: Concepts
       expanded: true
       items:
@@ -59,7 +61,9 @@
       items:
         - name: Network issues
           href: troubleshooting-network.md
-    - name: Code Samples
+        - name: Dependency conflicts
+          href: troubleshooting-dependency-version-conflict.md
+    - name: Code samples
       items:
         - name: Virtual machines
           href: virtual-machine-samples.md
