@@ -54,7 +54,7 @@ If you can't meet any of these pre-migration requirements, see the companion mig
 
 ### Validate that the supported Java version works correctly
 
-Using JBoss EAP on Azure App Service requires a specific version of Java. Therefore, you'll need to validate that your application is able to run correctly using that supported version. This validation is especially important if your current server is using a supported JDK (such as Oracle JDK or IBM OpenJ9).
+JBoss EAP on Azure App Service supports Java 8 and 11. Therefore, you'll need to validate that your application is able to run correctly using that supported version. This validation is especially important if your current server is using a supported JDK (such as Oracle JDK or IBM OpenJ9).
 
 To obtain your current version, sign in to your production server and run
 
@@ -83,7 +83,7 @@ If WLST is doing more than what is mentioned above, you will have some additiona
 
 ### Determine whether your application uses WebLogic-specific APIs
 
-If your application uses WebLogic-specific APIs, you will need to refactor your application to NOT use them. For example, if you have used a class mentioned in the [Java API Reference for Oracle WebLogic Server](https://docs.oracle.com/en/middleware/fusion-middleware/weblogic-server/12.2.1.4/wlapi/index.html?overview-summary.html), you have used a WebLogic-specific API in your application.
+If your application uses WebLogic-specific APIs, you will need to refactor your application to NOT use them. For example, if you have used a class mentioned in the [Java API Reference for Oracle WebLogic Server](https://docs.oracle.com/en/middleware/fusion-middleware/weblogic-server/12.2.1.4/wlapi/index.html?overview-summary.html), you have used a WebLogic-specific API in your application. The [Red Hat Migration Toolkit for Apps](https://marketplace.visualstudio.com/items?itemName=redhat.mta-vscode-extension) can assist with removing and refactoring these dependencies.
 
 ### Determine whether your application uses Entity Beans or EJB 2.x-style CMP Beans
 
@@ -99,7 +99,7 @@ If a deployment plan was used to perform the deployment, you'll need to assess w
 
 ### Determine whether EJB timers are in use
 
-If your application uses EJB timers, you'll need to validate that the EJB timer code can be triggered by each JBoss EAP instance independently. This validation is needed because, in the App Service deployment scenario, each EJB timer will be triggered on its own JBoss EAP instance.
+If your application uses EJB timers, you'll need to validate that the EJB timer code can be triggered by each JBoss EAP instance independently. This validation is needed because when your App Service is scaled our horizontally, each EJB timer will be triggered on its own JBoss EAP instance.
 
 ### Validate if and how the file system is used
 
