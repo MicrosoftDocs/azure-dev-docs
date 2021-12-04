@@ -14,30 +14,19 @@ This guide describes what you should be aware of when you want to migrate an exi
 
 To ensure a successful migration, before you start, complete the assessment and inventory steps described in the following sections.
 
-### Inventory server capacity
-
-Document the hardware (memory, CPU, disk) of the current production server(s) as well as the average and peak request counts and resource utilization. This information will be necessary regardless of the migration path chosen. For example, it's useful to guide selection of the target service plan, VMs, Kubernetes memory, and CPU shares.
+[!INCLUDE [inventory-server-capacity-jboss-eap](includes/inventory-server-capacity-jboss-eap.md)]
 
 ### Inventory all secrets
 
 Check all properties and configuration files on the production server(s) for any secrets and passwords. Be sure to check *ibm-web-bnd.xml* in your WARs. Configuration files that contain passwords or credentials may also be found inside your application. These files may include, for Spring (Boot) applications, *application.properties* or *application.yml* files.
 
-### Inventory all certificates
-
-Document all the certificates used for public SSL endpoints. You can view all certificates on the production server(s) by running the following command:
-
-```bash
-keytool -list -v -keystore <path to keystore>
-```
+[!INCLUDE [inventory-all-certificates](includes/inventory-all-certificates.md)]
 
 ### Validate that the supported Java version works correctly
 
-All of the migration paths for WebSphere to Azure require a specific Java version, which varies for each path. You'll need to validate that your application is able to run correctly using that supported version.
+JBoss EAP on Azure App Service supports Java 8 and 11. Therefore, you'll need to validate that your application is able to run correctly using that supported version. This validation is especially important if your current server is using a supported JDK (such as Oracle JDK or IBM OpenJ9).
 
-> [!NOTE]
-> This validation is especially important if your current server is running on an unsupported JDK (such as Oracle JDK or IBM OpenJ9).
-
-To obtain your current version, login to your production server and run this command:
+To obtain your current version, sign in to your production server and run
 
 ```bash
 java -version
@@ -84,19 +73,13 @@ To execute scheduled jobs on Azure, consider using [Azure Functions with a Timer
 > [!NOTE]
 > To prevent malicious use, you'll likely need to ensure that the job invocation endpoint requires credentials. In this case, the trigger function will need to provide the credentials.
 
-### Determine whether a connection to on-premises is needed
+[!INCLUDE [determine-whether-a-connection-to-on-premises-is-needed](includes/determine-whether-a-connection-to-on-premises-is-needed.md)]
 
-If your application needs to access any of your on-premises services, you'll need to provision one of [Azure's connectivity services](/azure/architecture/reference-architectures/hybrid-networking/). Alternatively, you'll need to refactor your application to use publicly available APIs that your on-premises resources expose.
-
-### Determine whether JMS Queues or Topics are being used
-
-If your application is using JMS Queues or Topics, you'll need to migrate them to an externally hosted JMS server (for example, to Azure Service Bus; for more information, see [Migrate a message-driven enterprise bean to Azure](/azure/service-bus-messaging/migrate-java-apps-wild-fly#migrate-a-message-driven-enterprise-bean-to-azure)).
-
-If JMS persistent stores have been configured, their configuration must be captured and applied after the migration.
+[!INCLUDE [determine-whether-jms-queues-or-topics-are-in-use](includes/determine-whether-jms-queues-or-topics-are-in-use.md)]
 
 ### Determine whether your application uses WebSphere-specific APIs
 
-If your application uses WebSphere-specific APIs, you'll need to refactor your application to NOT use them.
+If your application uses WebSphere-specific APIs, you'll need to refactor your application to NOT use them. The [Red Hat Migration Toolkit for Apps](https://marketplace.visualstudio.com/items?itemName=redhat.mta-vscode-extension) can assist with removing and refactoring these dependencies.
 
 ### Determine whether your application uses Entity Beans or EJB 2.x-style CMP Beans
 
@@ -106,13 +89,11 @@ If your application uses Entity Beans or EJB 2.x style CMP beans, you'll need to
 
 If you have client applications that connect to your (server) application using the JavaEE Application Client feature, you'll need to refactor both your client applications and your (server) application to use HTTP APIs.
 
-### Determine whether your application contains OS-specific code
-
-If your application contains any code with dependencies on the host OS, then you'll need to refactor it to remove those dependencies.
+[!INCLUDE [determine-whether-your-application-contains-os-specific-code](includes/determine-whether-your-application-contains-os-specific-code.md)]
 
 ### Determine whether EJB timers are in use
 
-If your application uses EJB timers, you'll need to validate that the EJB timer code can be triggered by each JBoss EAP instance independently. This validation is needed because, in the App Service deployment scenario, each EJB timer will be triggered on its own JBoss EAP instance.
+If your application uses EJB timers, you'll need to validate that the EJB timer code can be triggered by each JBoss EAP instance independently. This validation is needed because when your App Service is scaled our horizontally, each EJB timer will be triggered on its own JBoss EAP instance.
 
 ### Determine whether JCA connectors are in use
 
@@ -126,17 +107,13 @@ If your application is using JAAS, you'll need to capture how JAAS is configured
 
 If your application needs a Resource Adapter (RA), it needs to be compatible with JBoss EAP. Determine whether the RA works fine on a standalone instance of JBoss EAP by deploying it to the server and properly configuring it. If the RA works properly, you'll need to add the JARs to the server classpath of the App Service instance and put the necessary configuration files in the correct location in the JBoss EAP server directories for it to be available.
 
-### Determine whether your application is composed of multiple WARs
-
-If your application is composed of multiple WARs, you should treat each of those WARs as separate applications and go through this guide for each of them.
+[!INCLUDE [determine-whether-your-application-is-composed-of-multiple-wars](includes/determine-whether-your-application-is-composed-of-multiple-wars.md)]
 
 ### Determine whether your application is packaged as an EAR
 
 If your application is packaged as an EAR file, be sure to examine the *application.xml* and *ibm-application-bnd.xml* files and capture their configurations.
 
-### Identify all outside processes/daemons running on the production server(s)
-
-Processes running outside of Application Server, such as monitoring daemons, will need to be migrated elsewhere or eliminated.
+[!INCLUDE [identify-all-outside-processes-and-daemons-running-on-the-production-servers](includes/identify-all-outside-processes-and-daemons-running-on-the-production-servers.md)]
 
 ## Migration
 
@@ -180,7 +157,7 @@ If your application requires specific runtime options, [use the most appropriate
 
 ### Populate secrets
 
-Use Application Settings to store any secrets specific to your application. If you intend to use the same secret(s) among multiple applications or require fine-grained access policies and audit capabilities, [use Azure Key Vault](/azure/app-service/containers/configure-language-java#use-keyvault-references) instead.
+Use Application Settings to store any secrets specific to your application. If you intend to use the same secret(s) among multiple applications or require fine-grained access policies and audit capabilities, [use Azure Key Vault references](/azure/app-service/containers/configure-language-java#use-keyvault-references) instead.
 
 ### Configure custom domain and SSL
 
