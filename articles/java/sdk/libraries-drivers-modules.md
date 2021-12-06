@@ -85,7 +85,7 @@ Microsoft’s goal is to empower every developer to achieve more, and our commit
 [Spring Cloud Stream Binder for Event Hubs]: https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/spring/azure-spring-cloud-stream-binder-eventhubs
 [Azure AD Spring Boot Starter]: https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/spring/azure-spring-boot-starter-active-directory
 [Azure AD B2C Spring Boot Starter]: https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/spring/azure-spring-boot-starter-active-directory-b2c
-[Key Vault Secrets Spring Boot Starter]: https://github.com/Azure/azure-sdk-for-jav[a/tree/main/sdk/spring/azure-spring-boot-starter-keyvault-secrets
+[Key Vault Secrets Spring Boot Starter]: https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/spring/azure-spring-boot-starter-keyvault-secrets
 [Key Vault Certificates Spring Boot Starter]: https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/spring/azure-spring-boot-starter-keyvault-certificates
 [JDBC SQL]: /azure/developer/java/spring-framework/configure-spring-data-jdbc-with-azure-sql-server
 [JPA SQL]: /azure/developer/java/spring-framework/configure-spring-data-jpa-with-azure-sql-server
