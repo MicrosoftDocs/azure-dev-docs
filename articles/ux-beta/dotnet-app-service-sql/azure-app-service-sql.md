@@ -86,6 +86,46 @@ az webapp create
     --resource-group "msdocs-core-sql-tutorial"
 ```
 
+
+### [PowerShell](#tab/azure-powershell)
+
+Powershell commands can be run in the [Azure Cloud Shell](https://shell.azure.com) or on a workstation with the [Powershell installed](https://docs.microsoft.com/en-us/powershell/scripting/install/installing-powershell).
+
+Using the Install-Module cmdlet is the preferred installation method for the Az PowerShell module. Install the Az module for the current user only. This is the recommended installation scope. This method works the same on Windows, macOS, and Linux platforms. Run the following command from a PowerShell session:
+
+```powershell
+Install-Module -Name Az -Scope CurrentUser -Repository PSGallery -Force
+```
+
+
+First, create a resource group to act as a container for all of the Azure resources related to this application.
+
+```azurecli
+# Use 'az account list-locations --output table' to list available locations close to you
+# Create a resource group
+New-AzResourceGroup msdocs-core-sql-tutorial "eastus"
+```
+
+Next, create an App Service plan using the [New-AzAppServicePlan](/cli/azure/appservice/plan#az_appservice_plan_create) command.
+
+* The `-Tier` parameter defines the size (CPU, memory) and cost of the app service plan.  This example uses the F1 (Free) service plan.  For a full list of App Service plans, view the [App Service pricing](https://azure.microsoft.com/pricing/details/app-service/windows/) page.
+* The `-Linux` flag selects the Linux as the host operating system.  To use Windows, remove this flag from the command.
+
+```powershell
+
+ # Change 123 to any three characters to form a unique name across Azure
+New-AzAppServicePlan -ResourceGroupName "msdocs-core-sql-tutorial" -Name "myAppServicePlan123" -Location "eastus" -Tier "Basic" -Linux
+```
+
+Finally, create the App Service web app using the [az webapp create](/cli/azure/webapp#az_webapp_create) command.  
+
+* The `Name` is used as both the name of the resource in Azure and to form the fully qualified domain name for your app in the form of `https://<app service name>.azurewebsites.com`.
+* The runtime specifies what version of .NET your app is running. This example uses .NET 6.0 LTS. To list all available runtimes, use the command `az webapp list-runtimes --linux --output table` for Linux and `az webapp list-runtimes --output table` for Windows.
+
+```powershell
+New-AzWebApp "msdocs-core-sql-tutorial" -Name "coresql001" -Location "eastus" -AppServicePlan "myAppServicePlan123"
+```
+
 ----
 
 ## 3 - Create the Database
@@ -105,9 +145,10 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps 
 | [!INCLUDE [Create database step 6](<./includes/create-sql-database/azure-portal-sqldb-create-06.md>)] | :::image type="content" source="./media/azportal-create-sql-06-240px.png" alt-text="A screenshot showing the form to fill out to create a web app in Azure." lightbox="./media/azportal-create-sql-06.png"::: |
 | [!INCLUDE [Create database step 7](<./includes/create-sql-database/azure-portal-sqldb-create-07.md>)] | :::image type="content" source="./media/azportal-create-sql-07-240px.png" alt-text="A screenshot showing the form to fill out to create a web app in Azure." lightbox="./media/azportal-create-sql-07.png"::: |
 
+
 ### [Azure CLI](#tab/azure-cli-database)
 
-To create an Azure SQL database, we first must create a SQL Server to host it. A new Azure SQL Server is created by using the `az sql server create` command.
+To create an Azure SQL database, we first must create a SQL Server to host it. A new Azure SQL Server is created by using the `New-AzSqlServer` command.
 
 Replace the <server-name> placeholder with a unique SQL Database name. This name is used as the part of the globally unique SQL Database endpoint, <server-name>.database.windows.net. Also, replace <db-username> and <db-username> with a username and password of your choice.
 
@@ -140,6 +181,32 @@ az sql server firewall-rule create
 --end-ip-address 0.0.0.0
 ```
 
+### [Azure Powershell](#tab/azure-powershell-database)
+
+To create an Azure SQL database, we first must create a SQL Server to host it. A new Azure SQL Server is created by using the `New-AzSqlServer` command.  This command also requires a secure credentials object.
+
+```powershell
+## Create secure password
+$pw = ConvertTo-SecureString -String '<your-pw>' -AsPlainText -Force
+
+## Create secure credentials object
+$credential = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList 'admin123',$pw 
+
+## Create the Azure SQL Server
+New-AzSqlServer -ServerName '<your-server-name>' -ResourceGroupName 'msdocs-core-sql-tutorial' -Location 'eastus' -SqlAdministratorCredentials $credential
+```
+
+Provisioning a SQL Server may take a few minutes.  Once the resource is available we can create a database on the server with the `New-AzSqlDatabase` command.
+
+```powershell
+New-AzSqlDatabase -ResourceGroupName "msdocs-core-sql-tutorial" -ServerName "<your-server-name>" -DatabaseName "coredb"
+```
+
+We also need to add the following firewall rule to our database server to allow other Azure resources to access it.
+
+```powershell
+New-AzSqlServerFirewallRule -ResourceGroupName "msdocs-core-sql-tutorial" -ServerName "<your-server-name>" -FirewallRuleName "LocalAccess" -StartIpAddress "<your-ip>" -EndIpAddress "<your-ip>"
+```
 ----
 
 
@@ -156,7 +223,6 @@ We are now ready to deploy our .NET app to the App Service.
 
 ### [Visual Studio](#tab/visualstudio-deploy)
 
-
 | Instructions    | Screenshot |
 |:----------------|-----------:|
 | [!INCLUDE [Deploy app service step 1](<./includes/deploy-app-service/vstudio-deploy-app-service-01.md>)] | :::image type="content" source="./media/vstudio-deployapp-service-01-240px.png" alt-text="A screenshot showing how to use the search box in the top tool bar to find App Services in Azure." lightbox="./media/vstudio-deployapp-service-01.png"::: |
@@ -164,7 +230,6 @@ We are now ready to deploy our .NET app to the App Service.
 | [!INCLUDE [Deploy app service step 3](<./includes/deploy-app-service/vstudio-deploy-app-service-03.md>)] | :::image type="content" source="./media/vstudio-deployapp-service-03-240px.png" alt-text="A screenshot showing the deploy button on the App Services page used to deploy a new web app." lightbox="./media/vstudio-deployapp-service-03.png"::: |
 | [!INCLUDE [Deploy app service step 4](<./includes/deploy-app-service/vstudio-deploy-app-service-04.md>)] | :::image type="content" source="./media/vstudio-deployapp-service-04-240px.png" alt-text="A screenshot showing the deploy button on the App Services page used to deploy a new web app." lightbox="./media/vstudio-deployapp-service-04.png"::: |
 | [!INCLUDE [Deploy app service step 5](<./includes/deploy-app-service/vstudio-deploy-app-service-05.md>)] | :::image type="content" source="./media/vstudio-deployapp-service-05-240px.png" alt-text="A screenshot showing the deploy button on the App Services page used to deploy a new web app." lightbox="./media/vstudio-deployapp-service-05.png"::: |
-
 
 ### [Azure CLI](#tab/azure-cli-deploy)
 
@@ -180,6 +245,40 @@ This command will return a Git deployment URL for your App Service.  Copy this U
 az webapp deployment source config-local-git 
 --name <your-app-name> 
 --resource-group 'msdocs-core-sql-tutorial'
+```
+
+Next, let's add an Azure origin to our local Git repo using the App Service Git deployment URL from the previous step.
+
+```bash
+git remote add azure https://<username>@<app-name>.scm.azurewebsites.net/<your-app-name>.git
+```
+
+Finally, push your code using the correct origin and branch name.
+
+```bash
+git push azure master
+```
+
+This command will take a moment to run as it deploys your app code to the Azure App Service.
+
+----
+
+### [Azure Powershell](#tab/azure-powershell-deploy)
+
+This approach assumes you have cloned the sample project using Git.
+
+To enable git deployments via the CLI, configure a local git deployment source on your App Service using the `az webapp deployment` command.
+
+This command will return a Git deployment URL for your App Service.  Copy this URL for later use.
+
+```powershell
+# Configure GitHub deployment from your GitHub repo and deploy once.
+$PropertiesObject = @{
+    scmType = "LocalGit";
+    branch = "master";
+    isManualIntegration = "true";
+}
+Set-AzResource -Properties $PropertiesObject -ResourceGroupName myResourceGroup -ResourceType Microsoft.Web/sites/sourcecontrols -ResourceName $webappname/web -ApiVersion 2015-08-01 -Force
 ```
 
 Next, let's add an Azure origin to our local Git repo using the App Service Git deployment URL from the previous step.
@@ -238,10 +337,36 @@ az webapp config connection-string set
 
 ```
 
+### [Azure Powershell](#tab/azure-powershell-connect)
+
+Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com) or on a workstation with the [Azure CLI installed](/cli/azure/install-azure-cli).
+
+We can retrieve the Connection String for our database using the command below.  This will allow us to add it to our App Service configuration settings. Copy this Connectiong String value for later use.
+
+```azurecli
+az sql db show-connection-string 
+--client ado.net 
+--name coreDb 
+--server <your-server-name>
+```
+
+Next, let's assign the Connection String to our App Service using the command below. `MyDbConnection` is the name of the Connection String in our appsettings.json file, which means it will be loaded by our app during startup.
+
+Make sure to replace the username and password in the connection string with your own before running the command.
+
+```azurecli
+az webapp config connection-string set 
+-g "msdocs-core-sql-tutorial" 
+-n <your-app-name> 
+-t SQLServer 
+--settings MyDbConnection=<your-connection-string>
+
+```
+
 ----
 
 ## 6 - Generate the Database Schema
-We need to allow our local computer to connect to Azure to finish setting up our database. For this step you'll need to know your local computer's IP Address, which you can discover [by clicking here](https://whatismyipaddress.com/)  
+To generate our database schema, we need to set up a firewall rule on our Database Server to allow our local computer to connect to Azure. For this step you'll need to know your local computer's IP Address, which you can discover [by clicking here](https://whatismyipaddress.com/)  
 
 ### [Azure portal](#tab/azure-portal-schema)
 
