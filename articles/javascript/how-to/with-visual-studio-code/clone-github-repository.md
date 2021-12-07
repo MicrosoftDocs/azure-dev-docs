@@ -65,7 +65,7 @@ To get started, download the sample project using the following steps:
     ```
 ---
 
-## Create a branch for changes with Git CL
+## Create a branch for changes 
 
 # [From command palette](#tab/create-branch-command-palette)
 
@@ -115,6 +115,8 @@ Once you have made changes on your branch, commit the changes.
 1. In the command palette, filter with `Git` then select `Commit`.
 1. Enter your commit message, then press <kbd>Enter</kbd>.
 
+    ![Adding the yarn.lock file to Git](../../media/how-to-clone-github-repo/visual-studio-code-add-yarn-lock.png)
+
 
 # [From status bar](#tab/commit-changes-status-bar)
 
@@ -128,14 +130,14 @@ Once you have made changes on your branch, commit the changes.
 
 ## Push a local branch to GitHub
 
-# [From command palette](#tab/commit-changes-command-palette)
+# [From command palette](#tab/push-command-palette)
 
 1. Open the command palette with the key combination of <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd>. 
 1. In the command palette, filter with `Git` then select `Push`.
 1. If you have multiple upstream remotes, select the remote then press <kbd>Enter</kbd>.
 
 
-# [From status bar](#tab/create-branch-status-bar)
+# [From status bar](#tab/push-status-bar)
 
 1. On the Visual Studio Code status bar, select the push icon to the right of the branch name. 
 
@@ -143,7 +145,7 @@ Once you have made changes on your branch, commit the changes.
 
 1. Select the remote name from the pop-up box. If you have just one remote, you won't be asked to select the remote name. 
 
-# [From source control extension](#tab/push-branch-source-control-extension)
+# [From source control extension](#tab/push-source-control-extension)
 
 1. Select the Source Control icon from the activity bar. 
 1. Select the ellipsis (...) then select: `Push` or `Push to`.
