@@ -9,7 +9,7 @@ robots: noindex
 
 # Quickstart: Deploy a Python web app to Azure App Service
 
-In this quickstart, you'll deploy a Python web app to [Azure App Service](/azure/app-service/overview.md#app-service-on-linux). Azure App Service is a fully managed web hosting service that supports hosting Python 3.6 and higher apps in both Linux and Windows server environments.
+In this quickstart, you'll deploy a Python web app to [Azure App Service](/azure/app-service/overview.md#app-service-on-linux). Azure App Service is a fully managed web hosting service that supports Python 3.6 and higher apps hosted in a Linux server environments.
 
 To complete this quickstart, you need:
 1. An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
@@ -22,7 +22,7 @@ This quickstart can be completed using either Flask or Django. A sample applicat
 ### [Flask](#tab/flask)
 
 ```Console
-git clone https://github.com/Azure-Samples/python-docs-hello-world
+git clone https://github.com/Azure-Samples/msdocs-python-flask-webapp-quickstart
 ```
 
 ### [Django](#tab/django)
@@ -40,7 +40,7 @@ To run the application locally:
 1. Navigate into in the application folder:
 
     ```Console
-    cd python-docs-hello-world
+    cd msdocs-python-flask-webapp-quickstart/src
     ```
 
 1. Create a virtual environment for the app:
@@ -140,8 +140,8 @@ az group create \
 
 Next, create an App Service plan using the [az appservice plan create](/cli/azure/appservice/plan#az_appservice_plan_create) command.
 
-* The `--sku` parameter defines the size (CPU, memory) and cost of the app service plan.  This example uses the B1 (Basic) service plan which will incur a small cost in your Azure subscription. For a full list of App Service plans, view the [App Service pricing](https://azure.microsoft.com/pricing/details/app-service/windows/) page.
-* The `--is-linux` flag selects the Linux as the host operating system.  To use Windows, remove this flag from the command.
+* The `--sku` parameter defines the size (CPU, memory) and cost of the app service plan.  This example uses the B1 (Basic) service plan which will incur a small cost in your Azure subscription. For a full list of App Service plans, view the [App Service pricing](https://azure.microsoft.com/en-us/pricing/details/app-service/linux/) page.
+* The `--is-linux` flag selects the Linux as the host operating system.
 
 ```azurecli
 APP_SERVICE_PLAN_NAME='msdocs-python-webapp-quickstart'    
@@ -156,23 +156,18 @@ az appservice plan create \
 Finally, create the App Service web app using the [az webapp create](/cli/azure/webapp#az_webapp_create) command.  
 
 * The *app service name* is used as both the name of the resource in Azure and to form the fully qualified domain name for your app in the form of `https://<app service name>.azurewebsites.com`.
-* The runtime specifies what version of Python your app is running. This example uses Python 3.6. To list all available runtimes, use the command `az webapp list-runtimes --linux --output table` for Linux and `az webapp list-runtimes --output table` for Windows.
+* The runtime specifies what version of Python your app is running. This example uses Python 3.7. To list all available runtimes, use the command `az webapp list-runtimes --linux --output table`.
 
 ```azurecli
 APP_SERVICE_NAME='msdocs-python-webapp-quickstart-123'     # Change 123 to any three characters to form a unique name across Azure
 
 az webapp create \
     --name $APP_SERVICE_NAME \
-    --runtime 'PYTHON|3.6' \
+    --runtime 'PYTHON|3.7' \
     --plan $APP_SERVICE_PLAN_NAME \
     --resource-group $RESOURCE_GROUP_NAME \
     --query 'defaultHostName' \
     --output table
-
-az webapp delete \
-    --name $APP_SERVICE_NAME \
-    --resource-group $RESOURCE_GROUP_NAME 
-
 ```
 
 ---
