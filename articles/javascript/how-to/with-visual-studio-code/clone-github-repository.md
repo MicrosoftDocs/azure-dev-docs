@@ -10,20 +10,6 @@ ms.custom: devx-track-js
 
 Learn the steps to clone a public repository from GitHub to your local computer using Visual Studio Code.
 
-## Initialize new repository
-
-# [From activity bar](#tab/initialize-repo-activity-bar)
-
-1. Select source control from the activity bar, or use the key combination of <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>G</kbd>.
-1. Select **Initialize repository**. 
-
-# [From command palette](#tab/initialize-repo-command-palette)
-
-1. Open the command palette with the key combination of <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd>. 
-1. Filter with `Git`, then select `Initialize repository`.
-
----
-
 ## Clone repository
 
 To get started, download the sample project using the following steps:
@@ -65,6 +51,23 @@ To get started, download the sample project using the following steps:
     ```
 ---
 
+## Initialize new repository
+
+If you don't have a GitHub repository yet, but would like to start your project locally, initialize your folder with git. 
+
+# [From activity bar](#tab/initialize-repo-activity-bar)
+
+1. Select source control from the activity bar, or use the key combination of <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>G</kbd>.
+1. Select **Initialize repository**. 
+
+# [From command palette](#tab/initialize-repo-command-palette)
+
+1. Open the command palette with the key combination of <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd>. 
+1. Filter with `Git`, then select `Initialize repository`.
+
+---
+
+
 ## Create a branch for changes 
 
 # [From command palette](#tab/create-branch-command-palette)
@@ -105,7 +108,7 @@ To get started, download the sample project using the following steps:
 ---
 
 
-## Commit changes with Git 
+## Commit changes locally
 
 Once you have made changes on your branch, commit the changes.
 
@@ -158,7 +161,7 @@ Once you have made changes on your branch, commit the changes.
 
 ## View Git output
 
-You can view the Git commands run when you use the Source control extension.
+You can view the Git commands run when you use the Source control extension. This helps debug when a command fails. 
 
 1. Select the Source Control icon from the activity bar. 
 1. Select the ellipsis (...) then select **Show Git Output**.
