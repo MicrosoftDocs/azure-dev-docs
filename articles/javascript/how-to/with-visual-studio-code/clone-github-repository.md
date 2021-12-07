@@ -2,13 +2,15 @@
 title: Clone GitHub repository with VSCode
 description: Clone a public repository from GitHub to your local computer using Visual Studio Code.
 ms.topic: how-to
-ms.date: 09/15/2021
+ms.date: 12/07/2021
 ms.custom: devx-track-js
 ---
 
 # Clone and use a GitHub repository in Visual Studio Code
 
 Learn the steps to clone a public repository from GitHub to your local computer using Visual Studio Code.
+
+## Tools in Visual Studio Code to work with Git and GitHub
 
 Working in Visual Studio Code with a repository uses separate tools.
 
@@ -19,11 +21,12 @@ Working in Visual Studio Code with a repository uses separate tools.
 |:::image type="content" source="../../media/how-to-clone-github-repo/github-icon-prs-issues.png" alt-text="Icon for GitHub PRs and Issues":::|[GitHub Pull Requests and Issues](https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github) extension|Activity bar|
 ||[GitHub Repositories](https://marketplace.visualstudio.com/items?itemName=GitHub.remotehub) extension|You can quickly and easily open a GitHub repository either by searching for GitHub Repositories: Open Repository... from the Command Palette, <kbd>F1</kbd>, or by choosing Open GitHub Repository... from the remote indicator (the green button in the lower left corner of the status bar).|
 
-The following procedures use the named parts of the [Visual Studio Code user interface](https://code.visualstudio.com/docs/getstarted/userinterface). 
-
-## Use command palette to clone repository
+## Clone repository
 
 To get started, download the sample project using the following steps:
+
+# [From command palette](#tab/create-repo-command-palette)
+
 
 1. Press **F1** to display the command palette.
 
@@ -37,9 +40,33 @@ To get started, download the sample project using the following steps:
 1. Select (or create) the local directory into which you want to clone the project.
 1. When you receive the notification asking if you want to open the cloned repository, select **Open**. 
 
+# [From integrated terminal](#tab/create-repo-integrated-terminal)
+
+1. Open an integrated terminal from **Terminal -> New Terminal**. 
+1. Clone your repo with the following git command:
+
+    ```bash
+    git clone https://github.com/YOUR-NAME-OR-ORGANIZATION/YOUR-REPO-NAME
+    ```
+
+1. Change your terminal into that new subdirectory:
+
+    ```bash
+    cd YOUR-REPO-NAME
+    ```
+
+1. Then open in Visual Studio Code:
+
+    ```bash
+    code .
+    ```
+---
+
 ## Create a branch for changes with Git CL
 
 Use Git in the command palette to create a new branch.
+
+# [From command palette](#tab/create-branch-command-palette)
 
 1. Press <kbd>F1</kbd> to display the command palette.
 1. Search for `git branch` and select `Git: Create Branch`.
@@ -50,7 +77,7 @@ Use Git in the command palette to create a new branch.
 
     :::image type="content" source="../../media/how-to-clone-github-repo/git-branch-status-bar-visual-studio-code.png" alt-text="The branch name is visible in the status bar.":::
 
-## Create a branch from status bar
+# [From status bar](#tab/create-branch-status-bar)
 
 1. Select the branch name in the status bar. 
 
@@ -63,9 +90,24 @@ Use Git in the command palette to create a new branch.
 
     :::image type="content" source="../../media/how-to-clone-github-repo/git-branch-status-bar-visual-studio-code.png" alt-text="The branch name is visible in the status bar.":::
 
+
+# [From integrated terminal](#tab/create-branch-integrated-terminal)
+
+1. Open an integrated terminal from **Terminal -> New Terminal**. 
+1. Create a new branch named `MY-BRANCH` with the following git command:
+
+    ```bash
+    git checkout -b MY-BRANCH
+    ```
+
+---
+
+
 ## Commit changes with Git 
 
 Once you have made changes on your branch, commit the changes
+
+# [From status bar](#tab/create-branch-status-bar)
 
 1. Switch to the activity bar and select the Source control icon or use the keyboard commands: <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>G</kbd>.
 
@@ -73,8 +115,12 @@ Once you have made changes on your branch, commit the changes
 
     ![Adding the yarn.lock file to Git](../../media/how-to-clone-github-repo/visual-studio-code-add-yarn-lock.png)
 
+---
 
-## Push a local branch to remote from status bar
+## Push a local branch to remote
+
+
+# [From status bar](#tab/create-branch-status-bar)
 
 1. On the Visual Studio Code status bar, select the push icon to the right of the branch name. 
 
@@ -82,13 +128,22 @@ Once you have made changes on your branch, commit the changes
 
 1. Select the remote name from the pop-up box. If you have just one remote, you won't be asked to select the remote name. 
 
-## Push a local branch to remote from the Source Control extension
+---
+
+## Push a local branch to GitHub
+
+
+
+# [From source control extension](#tab/push-branch-source-control-extension)
+
 1. Select the Source Control icon from the activity bar. 
 1. Select the ellipsis (...) then select: `Push` or `Push to`.
 
     :::image type="content" source="../../media/how-to-clone-github-repo/visual-studio-code-push-branch-to-remote.png" alt-text="Visual Studio Code source control, with the push icon highlighted.":::
 
 1. Select the remote name from the pop-up box. If you have just one remote, you won't be asked to select the remote name. 
+
+---
 
 ## View Git output
 
