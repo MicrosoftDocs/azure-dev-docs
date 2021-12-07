@@ -97,7 +97,6 @@ Using the Install-Module cmdlet is the preferred installation method for the Az 
 Install-Module -Name Az -Scope CurrentUser -Repository PSGallery -Force
 ```
 
-
 First, create a resource group to act as a container for all of the Azure resources related to this application.
 
 ```azurecli
@@ -124,6 +123,8 @@ Finally, create the App Service web app using the [az webapp create](/cli/azure/
 
 ```powershell
 New-AzWebApp "msdocs-core-sql-tutorial" -Name "coresql001" -Location "eastus" -AppServicePlan "myAppServicePlan123"
+$propertiesObject = @{"CURRENT_STACK" = "DOTNET:6.0"}
+New-AzResource -PropertyObject $propertiesObject -ResourceGroupName "msdocs-core-sql-tutorial" -ResourceType Microsoft.Web/sites/config -ResourceName "<your-app>/metadata" -ApiVersion 2018-02-01 -Force
 ```
 
 ----
@@ -261,7 +262,6 @@ git push azure master
 
 This command will take a moment to run as it deploys your app code to the Azure App Service.
 
-----
 
 ### [Azure Powershell](#tab/azure-powershell-deploy)
 
@@ -339,8 +339,6 @@ az webapp config connection-string set
 
 ### [Azure Powershell](#tab/azure-powershell-connect)
 
-Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com) or on a workstation with the [Azure CLI installed](/cli/azure/install-azure-cli).
-
 We can retrieve the Connection String for our database using the command below.  This will allow us to add it to our App Service configuration settings. Copy this Connectiong String value for later use.
 
 ```azurecli
@@ -386,6 +384,13 @@ Run the following command to add a firewall rule to your SQL Server instance.
 az sql server firewall-rule create -resource-group "msdocs-core-sql-tutorial" --server <yoursqlserver> --name "LocalAccess" --start-ip-address <yourip> --end-ip-address <yourip>
 ```
 
+### [Azure Powershell](#tab/azure-powershell-schema)
+
+Run the following command to add a firewall rule to your SQL Server instance.
+
+```powershell
+New-AzSqlServerFirewallRule -ResourceGroupName "msdocs-core-sql-tutorial" -ServerName "<your-server-name" -FirewallRuleName "LocalAccess" -StartIpAddress "<your-ip>" -EndIpAddress "<your-ip>"
+```
 ----
 
 Inside of your local code editor, update the app Connection String to point to the Azure SQL Database.  This will allow us to generate the correct schema for the Azure SQL database by using Entity Framework Core migrations.
