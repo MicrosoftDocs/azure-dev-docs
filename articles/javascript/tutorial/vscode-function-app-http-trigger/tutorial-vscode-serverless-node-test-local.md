@@ -85,7 +85,7 @@ When you created the Functions app, the Azure Functions extension automatically 
 
 Other examples of running and debugging an Azure Function locally include:
 
-* [Run your local Function app as part of a Static web app](../../how-to/with-web-app/static-web-app-with-swa-cli/connect-client-to-api#start-local-app-for-full-stack-app.md)
+* [Run your local Function app as part of a Static web app](../../how-to/with-web-app/static-web-app-with-swa-cli/connect-client-to-api.md#start-local-app-for-full-stack-app)
 * [Run your local GraphQL Function app as part of a Static web app](../../how-to/with-web-app/graphql/static-web-app-graphql/local-development.md)
 * [Run your local Azure Blob Storage Function app](../../how-to/with-web-app/azure-function-file-upload.md#run-the-local-function-with-local-storage-emulation)
 * [Run your local Azure Resource Manager Function app](../../how-to/with-web-app/azure-function-resource-group-management/deploy-azure-function-with-visual-studio-code.md)
