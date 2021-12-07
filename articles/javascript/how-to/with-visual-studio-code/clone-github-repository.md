@@ -10,16 +10,19 @@ ms.custom: devx-track-js
 
 Learn the steps to clone a public repository from GitHub to your local computer using Visual Studio Code.
 
-## Tools in Visual Studio Code to work with Git and GitHub
+## Initialize new repository
 
-Working in Visual Studio Code with a repository uses separate tools.
+# [From activity bar](#tab/initialize-repo-activity-bar)
 
-|Icon|Information|[Access from](https://code.visualstudio.com/docs/getstarted/userinterface)|
-|--|--|--|
-|| [Git commands](https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette) in command palette|<kbd>F1</kbd>|
-|:::image type="content" source="../../media/how-to-clone-github-repo/git-commit-icon-activity-bar.png" alt-text="Icon for Source control.":::|Source control extension|Activity bar|
-|:::image type="content" source="../../media/how-to-clone-github-repo/github-icon-prs-issues.png" alt-text="Icon for GitHub PRs and Issues":::|[GitHub Pull Requests and Issues](https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github) extension|Activity bar|
-||[GitHub Repositories](https://marketplace.visualstudio.com/items?itemName=GitHub.remotehub) extension|You can quickly and easily open a GitHub repository either by searching for GitHub Repositories: Open Repository... from the Command Palette, <kbd>F1</kbd>, or by choosing Open GitHub Repository... from the remote indicator (the green button in the lower left corner of the status bar).|
+1. Select source control from the activity bar, or use the key combination of <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>G</kbd>.
+1. Select **Initialize repository**. 
+
+# [From command palette](#tab/initialize-repo-command-palette)
+
+1. Open the command palette with the key combination of <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd>. 
+1. Filter with `Git`, then select `Initialize repository`.
+
+---
 
 ## Clone repository
 
@@ -27,8 +30,8 @@ To get started, download the sample project using the following steps:
 
 # [From command palette](#tab/create-repo-command-palette)
 
+1. Open the command palette with the key combination of <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd>. 
 
-1. Press **F1** to display the command palette.
 
 1. At the command palette prompt, enter `gitcl`, select the **Git: Clone** command, and press **Enter**.
 
@@ -64,11 +67,10 @@ To get started, download the sample project using the following steps:
 
 ## Create a branch for changes with Git CL
 
-Use Git in the command palette to create a new branch.
-
 # [From command palette](#tab/create-branch-command-palette)
 
-1. Press <kbd>F1</kbd> to display the command palette.
+
+1. Open the command palette with the key combination of <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd>. 
 1. Search for `git branch` and select `Git: Create Branch`.
 
     :::image type="content" source="../../media/how-to-clone-github-repo/git-cli-branch-list.png" alt-text="Search for `git branch` and select `Git: Create Branch`.":::
@@ -79,7 +81,7 @@ Use Git in the command palette to create a new branch.
 
 # [From status bar](#tab/create-branch-status-bar)
 
-1. Select the branch name in the status bar. 
+1. Select the branch name in the status bar. This opens the command palette.
 
     The status bar is usually found at the bottom of Visual Studio code. 
 
@@ -105,9 +107,17 @@ Use Git in the command palette to create a new branch.
 
 ## Commit changes with Git 
 
-Once you have made changes on your branch, commit the changes
+Once you have made changes on your branch, commit the changes.
 
-# [From status bar](#tab/create-branch-status-bar)
+# [From command palette](#tab/commit-changes-command-palette)
+
+1. Open the command palette with the key combination of <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd>. 
+
+1. In the command palette, filter with `Git` then select `Commit`.
+1. Enter your commit message, 
+
+
+# [From status bar](#tab/commit-changes-status-bar)
 
 1. Switch to the activity bar and select the Source control icon or use the keyboard commands: <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>G</kbd>.
 
@@ -153,6 +163,17 @@ You can view the Git commands run when you use the Source control extension.
 1. Select the ellipsis (...) then select **Show Git Output**.
 
     :::image type="content" source="../../media/how-to-clone-github-repo/visual-studio-code-show-git-output.png" alt-text="Visual Studio Code source control, with the Show Git Output selection highlighted.":::
+
+## Visual Studio Code tools to work with Git and GitHub
+
+Working in Visual Studio Code with a repository uses separate tools.
+
+|Icon|Information|[Access from](https://code.visualstudio.com/docs/getstarted/userinterface)|
+|--|--|--|
+|| [Git commands](https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette) in command palette|<kbd>F1</kbd>|
+|:::image type="content" source="../../media/how-to-clone-github-repo/git-commit-icon-activity-bar.png" alt-text="Icon for Source control.":::|Source control extension|Activity bar|
+|:::image type="content" source="../../media/how-to-clone-github-repo/github-icon-prs-issues.png" alt-text="Icon for GitHub PRs and Issues":::|[GitHub Pull Requests and Issues](https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github) extension|Activity bar|
+||[GitHub Repositories](https://marketplace.visualstudio.com/items?itemName=GitHub.remotehub) extension|You can quickly and easily open a GitHub repository either by searching for GitHub Repositories: Open Repository... from the Command Palette, <kbd>F1</kbd>, or by choosing Open GitHub Repository... from the remote indicator (the green button in the lower left corner of the status bar).|
 
 
 ## Next steps
