@@ -19,7 +19,7 @@ Run the Azure Functions project locally to test it before deploying to Azure. Se
 
 1. Output from the Functions Core tools appears in the VS Code **Terminal** panel. 
 
-    :::image type="content" source="../../media/functions-extension/local-test-output.png" alt-text="Partial screenshot of VSCode output terminal panel when debugging locally":::
+    :::image type="content" source="../../media/functions-extension/local-test-output.png" alt-text="Partial screenshot of VSCode output terminal panel when debugging locally" lightbox="../../media/functions-extension/local-test-output.png":::
 
 1. To copy the URL of the local function, use the Azure Function extension, right-click the function name, **category**.
 
