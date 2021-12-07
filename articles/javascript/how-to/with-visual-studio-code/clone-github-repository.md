@@ -112,22 +112,27 @@ Once you have made changes on your branch, commit the changes.
 # [From command palette](#tab/commit-changes-command-palette)
 
 1. Open the command palette with the key combination of <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd>. 
-
 1. In the command palette, filter with `Git` then select `Commit`.
-1. Enter your commit message, 
+1. Enter your commit message, then press <kbd>Enter</kbd>.
 
 
 # [From status bar](#tab/commit-changes-status-bar)
 
 1. Switch to the activity bar and select the Source control icon or use the keyboard commands: <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>G</kbd>.
-
-1. In the **Message** box, enter a commit message, and press <kbd>Ctrl</kbd> + <kbd>Enter</kbd>, or select the check mark in the Source Control bar to commit the message.
+1. In the command palette, filter with `Git` then select `Commit`.
+1. Enter your commit message, then press <kbd>Enter</kbd>.
 
     ![Adding the yarn.lock file to Git](../../media/how-to-clone-github-repo/visual-studio-code-add-yarn-lock.png)
 
 ---
 
-## Push a local branch to remote
+## Push a local branch to GitHub
+
+# [From command palette](#tab/commit-changes-command-palette)
+
+1. Open the command palette with the key combination of <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd>. 
+1. In the command palette, filter with `Git` then select `Push`.
+1. If you have multiple upstream remotes, select the remote then press <kbd>Enter</kbd>.
 
 
 # [From status bar](#tab/create-branch-status-bar)
@@ -137,12 +142,6 @@ Once you have made changes on your branch, commit the changes.
     :::image type="content" source="../../media/how-to-clone-github-repo/visual-studio-code-status-bar-push-commits.png" alt-text="Visual Studio Code status bar, with the push icon highlighted.":::
 
 1. Select the remote name from the pop-up box. If you have just one remote, you won't be asked to select the remote name. 
-
----
-
-## Push a local branch to GitHub
-
-
 
 # [From source control extension](#tab/push-branch-source-control-extension)
 
