@@ -2,7 +2,7 @@
 title: Web app automation tasks with Azure CLI
 description: Automating Azure tasks is a common requirement for continuous deployment to hosting environments. Azure CLI is the recommended choice for JavaScript developers managing tasks and deploying from any location.
 ms.topic: how-to
-ms.date: 12/16/2020
+ms.date: 12/08/2021
 ms.custom: devx-track-js, devx-track-azurecli
 ---
 

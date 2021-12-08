@@ -2,7 +2,7 @@
 title: Computer Vision app architecture
 description: This section of the tutorial explains the client app and deployment process. 
 ms.topic: how-to
-ms.date: 12/17/2020
+ms.date: 12/08/2021
 ms.custom: devx-track-js
 ---
 
