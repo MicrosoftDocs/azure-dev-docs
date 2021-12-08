@@ -140,7 +140,7 @@ az group create \
 
 Next, create an App Service plan using the [az appservice plan create](/cli/azure/appservice/plan#az_appservice_plan_create) command.
 
-* The `--sku` parameter defines the size (CPU, memory) and cost of the app service plan.  This example uses the B1 (Basic) service plan which will incur a small cost in your Azure subscription. For a full list of App Service plans, view the [App Service pricing](https://azure.microsoft.com/en-us/pricing/details/app-service/linux/) page.
+* The `--sku` parameter defines the size (CPU, memory) and cost of the app service plan.  This example uses the B1 (Basic) service plan which will incur a small cost in your Azure subscription. For a full list of App Service plans, view the [App Service pricing](https://azure.microsoft.com/pricing/details/app-service/linux/) page.
 * The `--is-linux` flag selects the Linux as the host operating system.
 
 ```azurecli
@@ -201,7 +201,9 @@ To deploy a web app from VS Code, you must have the [Azure Tools extension pack]
 
 [!INCLUDE [Deploy Local FTPS](<./includes/quickstart-python/deploy-ftps.md>)]
 
-### [Deploy using Azure CLI](#tab/azure-cli-deploy)
+### [Deploy using a ZIP file](#tab/zip-deploy)
+
+[!INCLUDE [Deploy using ZIP file](<./includes/quickstart-python/deploy-zip-file.md>)]
 
 ---
 
