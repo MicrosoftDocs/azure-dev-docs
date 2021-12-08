@@ -9,7 +9,7 @@ robots: noindex
 
 # Quickstart: Deploy a Python web app to Azure App Service
 
-In this quickstart, you'll deploy a Python web app to [Azure App Service](/azure/app-service/overview.md#app-service-on-linux). Azure App Service is a fully managed web hosting service that supports Python 3.6 and higher apps hosted in a Linux server environments.
+In this quickstart, you'll deploy a Python web app to [Azure App Service](/azure/app-service/overview.md#app-service-on-linux). Azure App Service is a fully managed web hosting service that supports Python 3.6 and higher apps hosted in a Linux server environment.
 
 To complete this quickstart, you need:
 1. An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
@@ -156,14 +156,14 @@ az appservice plan create \
 Finally, create the App Service web app using the [az webapp create](/cli/azure/webapp#az_webapp_create) command.  
 
 * The *app service name* is used as both the name of the resource in Azure and to form the fully qualified domain name for your app in the form of `https://<app service name>.azurewebsites.com`.
-* The runtime specifies what version of Python your app is running. This example uses Python 3.7. To list all available runtimes, use the command `az webapp list-runtimes --linux --output table`.
+* The runtime specifies what version of Python your app is running. This example uses Python 3.8. To list all available runtimes, use the command `az webapp list-runtimes --linux --output table`.
 
 ```azurecli
 APP_SERVICE_NAME='msdocs-python-webapp-quickstart-123'     # Change 123 to any three characters to form a unique name across Azure
 
 az webapp create \
     --name $APP_SERVICE_NAME \
-    --runtime 'PYTHON|3.7' \
+    --runtime 'PYTHON|3.8' \
     --plan $APP_SERVICE_PLAN_NAME \
     --resource-group $RESOURCE_GROUP_NAME \
     --query 'defaultHostName' \
@@ -255,7 +255,7 @@ Follow these steps while signed-in to the Azure portal to delete a resource grou
 
 | Instructions    | Screenshot |
 |:----------------|-----------:|
-| [!INCLUDE [Remove resource group VS Code 1](<./includes/quickstart-python/remove-resource-group/vs-code-1.md>)] | :::image type="content" source="./media/quickstart-python/remove-resource-group/vs-code-1-240px.png" alt-text="A screenshot showing how to delete a resource group in VS Code using the Azure Tools extention." lightbox="./media/quickstart-python/remove-resource-group/vs-code-1.png"::: |
+| [!INCLUDE [Remove resource group VS Code 1](<./includes/quickstart-python/remove-resource-group/vs-code-1.md>)] | :::image type="content" source="./media/quickstart-python/remove-resource-group/vs-code-1-240px.png" alt-text="A screenshot showing how to delete a resource group in VS Code using the Azure Tools extension." lightbox="./media/quickstart-python/remove-resource-group/vs-code-1.png"::: |
 | [!INCLUDE [Remove resource group VS Code 2](<./includes/quickstart-python/remove-resource-group/vs-code-2.md>)] | :::image type="content" source="./media/quickstart-python/remove-resource-group/vs-code-2-240px.png" alt-text="A screenshot of the confirmation dialog for deleting a resource group from VS Code." lightbox="./media/quickstart-python/remove-resource-group/vs-code-2.png"::: |
 
 ### [Azure CLI](#tab/azure-cli)
