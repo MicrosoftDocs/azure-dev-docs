@@ -210,7 +210,7 @@ Provide authentication.
 
 |Task|using|
 |--|--|
-|Create a local branch|[Visual Studio Code with Command Palette](./with-visual-studio-code/clone-github-repository.md#create-a-branch-for-changes-with-git-cl)|
+|Create a local branch|[Visual Studio Code with Command Palette](./with-visual-studio-code/clone-github-repository.md#create-a-branch-for-changes)|
 |Clone project from GitHub to local computer|[Visual Studio Code](with-visual-studio-code/install-run-debug-nodejs.md#clone-sample-project-to-local-computer)|
 |Push a local branch to remote repo|[Visual Studio Code](./with-visual-studio-code/clone-github-repository.md#push-a-local-branch-to-github)|
 
