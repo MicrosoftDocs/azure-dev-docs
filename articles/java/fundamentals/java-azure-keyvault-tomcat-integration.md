@@ -17,7 +17,7 @@ Make sure you have followed all the steps outlined in [Use Azure Key Vault to de
 
 ## Add the SSL configuration to server.xml
 
-Add the following configuration to the `server.xml` file in Tomcat. Adjust the value of certificateKeyAlias to match to the name of the certificate in Azure Key Vault you want to use for server-side SSL.
+Add the following configuration to the `server.xml` file in Tomcat. Adjust the value of `certificateKeyAlias` to match to the name of the certificate in Azure Key Vault you want to use for server-side SSL.
 
 ```
 <Connector port="8443" 

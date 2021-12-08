@@ -66,6 +66,33 @@ To tell your application which Azure Key Vault to use you will need to pass the 
 
 Note that if you use `client-id` and `client-secret` you should not pass a `managed-identity` and vice versa.
 
+## Create a client ID and client secret
+
+To create an Azure client ID and an Azure client secret use the command line below. 
+
+Please store the values returned such as appId, password, tenant.
+
+```shell
+  export CLIENT_NAME=myclient
+  az ad sp create-for-rbac --skip-assignment --name ${CLIENT_NAME}
+  export CLIENT_ID=$(az ad sp list --display-name ${CLIENT_NAME} | jq -r '.[0].appId')
+  az ad app credential reset --id ${CLIENT_ID}
+```
+
+Store the values returned, which will be used later.
+
+Make sure the `client-id` can access target Key Vault. To grant access, use the command line below:
+
+```shell
+  az keyvault set-policy --name ${KEY_VAULT} \
+        --spn ${CLIENT_ID} \
+        --secret-permissions get list \
+        --certificate-permissions get list \
+        --key-permissions get list
+```
+
+Note `KEY_VAULT` refers to the name of the Key Vault you want to use:
+
 ## Client/server side SSL examples
 
 If you need some examples for client/server side SSL, see [here](https://docs.microsoft.com/en-us/java/api/overview/azure/security-keyvault-jca-readme?view=azure-java-stable#examples) for more information.
