@@ -247,7 +247,8 @@
       - name: With Azure CLI
         items:
           - name: Get started
-            href: core/automate-tasks-with-azure-cli.md          
+            href: core/automate-tasks-with-azure-cli.md
+            displayName: az login --identity, az login --service-principal, az login -u, az group create, az staticwebapp create, az staticwebapp delete, az storage account create, az functionapp create, az functionapp deployment slot create, az functionapp deployment source config, az functionapp deployment slot swap, az functionapp delete               
           - name: Container registry
             href: how-to/with-azure-cli/create-container-registry-resource.md
           - name: Configure web app domain name
