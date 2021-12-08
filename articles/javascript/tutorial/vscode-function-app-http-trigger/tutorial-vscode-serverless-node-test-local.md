@@ -7,7 +7,7 @@ ms.custom: devx-track-js, contperf-fy21q2
 
 ---
 
-# 3. Run and debug the Azure Function locally with VSCode
+# 3. Run and debug the Azure Function locally with Visual Studio Code
 
 Run the Azure Functions project locally to test it before deploying to Azure. Set a break point just before the serverless function returns the response. 
 
