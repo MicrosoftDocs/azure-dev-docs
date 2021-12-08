@@ -10,8 +10,8 @@ First, enable the build automation in Azure by setting the `SCM_DO_BUILD_DURING_
 
 | Instructions    | Screenshot |
 |:----------------|-----------:|
-| [!INCLUDE [Enable build automation from Azure portal 1](<../deploy-zip/azure-portal-1.md>)] | :::image type="content" source="../../media/quickstart-python/deploy-zip/azure-portal-build-1-240px.png" alt-text="A screenshot showing the app settings for a web app and how to add a new setting in the Azure portal." lightbox="../../media/quickstart-python/deploy-zip/azure-portal-build-1.png"::: |
-| [!INCLUDE [Enable build automation from Azure portal 2](<../deploy-zip/azure-portal-2.md>)] | :::image type="content" source="../../media/quickstart-python/deploy-zip/azure-portal-build-2-240px.png" alt-text="A screenshot showing the dialog box used to add an app settings in the Azure portal." lightbox="../../media/quickstart-python/deploy-zip/azure-portal-build-2.png"::: |
+| [!INCLUDE [Enable build automation from Azure portal 1](<./deploy-zip/azure-portal-1.md>)] | :::image type="content" source="../../media/quickstart-python/deploy-zip/azure-portal-build-1-240px.png" alt-text="A screenshot showing the app settings for a web app and how to add a new setting in the Azure portal." lightbox="../../media/quickstart-python/deploy-zip/azure-portal-build-1.png"::: |
+| [!INCLUDE [Enable build automation from Azure portal 2](<./deploy-zip/azure-portal-2.md>)] | :::image type="content" source="../../media/quickstart-python/deploy-zip/azure-portal-build-2-240px.png" alt-text="A screenshot showing the dialog box used to add an app settings in the Azure portal." lightbox="../../media/quickstart-python/deploy-zip/azure-portal-build-2.png"::: |
 
 ##### [Azure CLI](#tab/deploy-instructions-azcli)
 
@@ -40,7 +40,7 @@ zip -r <file-name>.zip . -x '.??*'
 
 On Windows, use a program like 7-Zip to create a ZIP file needed to deploy the application.
 
-![A screenshot showing files being zipped into a ZIP file using 7-Zip.](../..media/quickstart-python/deploy-zip-file-windows-1.png)
+:::image type="content" source="../..media/quickstart-python/deploy-zip/create-zip-windows-600px.png" alt-text="A screenshot showing files being zipped into a ZIP file using 7-Zip." lightbox="../..media/quickstart-python/deploy-zip/create-zip-windows.png":::
 
 ---
 
