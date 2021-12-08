@@ -83,7 +83,7 @@ Use the Visual Studio code [extension for Static Web Apps](https://marketplace.v
 
 * [Building your first static site](/azure/static-web-apps/getting-started?tabs=vanilla-javascript)
 * [Add search to a website with Azure Search](/azure/search/tutorial-javascript-overview)
-* [Analyze an image with Azure Computer Vision](../tutorial/static-web-app/introduction.md)
+* [Analyze an image with Azure Computer Vision](../tutorial/static-web-app-image-analysis.md)
 
 ## Configure client environment variables
 
