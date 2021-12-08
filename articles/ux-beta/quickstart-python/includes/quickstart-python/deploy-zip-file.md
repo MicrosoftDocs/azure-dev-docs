@@ -40,7 +40,7 @@ zip -r <file-name>.zip . -x '.??*'
 
 On Windows, use a program like 7-Zip to create a ZIP file needed to deploy the application.
 
-:::image type="content" source="../..media/quickstart-python/deploy-zip/create-zip-windows-600px.png" alt-text="A screenshot showing files being zipped into a ZIP file using 7-Zip." lightbox="../..media/quickstart-python/deploy-zip/create-zip-windows.png":::
+:::image type="content" source="../../media/quickstart-python/deploy-zip/create-zip-windows-600px.png" alt-text="A screenshot showing files being zipped into a ZIP file using 7-Zip." lightbox="../../media/quickstart-python/deploy-zip/create-zip-windows.png":::
 
 ---
 
