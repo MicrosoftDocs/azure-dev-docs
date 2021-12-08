@@ -13,7 +13,7 @@ In this tutorial, locally build and deploy a React/TypeScript client application
 
 * [**Sample code**](https://github.com/Azure-Samples/js-e2e-client-cognitive-services)
 
-[!INCLUDE [Create or use existing Azure Subscription ](../../includes/environment-subscription-h2.md)]
+[!INCLUDE [Create or use existing Azure Subscription ](../includes/environment-subscription-h2.md)]
 
 ## Prerequisites
 
@@ -40,7 +40,7 @@ The React (create-react-app) provides the following functionality:
         * Display image
         * Display Computer Vision JSON results 
 
-:::image type="content" source="../../media/static-web-app/browser-screenshot-react-computervision-app-image-analysis-result.png" alt-text="Partial browser screenshot of React Cognitive Service Computer Vision sample results.":::
+:::image type="content" source="../media/static-web-app/browser-screenshot-react-computervision-app-image-analysis-result.png" alt-text="Partial browser screenshot of React Cognitive Service Computer Vision sample results.":::
 
 ## Deploy to Azure with GitHub action
 
@@ -63,7 +63,7 @@ Fork the repository, instead of just cloning it to your local computer, in order
 1. On the top-right section of the page, select **Fork**. 
 1. Select **Code** then copy the location URL for your fork. 
 
-    :::image type="content" source="../../media/static-web-app/browser-screenshot-clone-github-sample-repository-fork.png" alt-text="Partial screenshot of GitHub website, select **Code** then copy the location for your fork.":::    
+    :::image type="content" source="../media/static-web-app/browser-screenshot-clone-github-sample-repository-fork.png" alt-text="Partial screenshot of GitHub website, select **Code** then copy the location for your fork.":::    
 
 ## Create local development environment
 
@@ -87,7 +87,7 @@ Fork the repository, instead of just cloning it to your local computer, in order
     npm start
     ```
 
-    :::image type="content" source="../../media/static-web-app/browser-screenshot-react-cognitive-services-app-before-authentication.png" alt-text="Partial browser screenshot of React Cognitive Service Computer Vision sample for image analysis before key and endpoint set.":::    
+    :::image type="content" source="../media/static-web-app/browser-screenshot-react-cognitive-services-app-before-authentication.png" alt-text="Partial browser screenshot of React Cognitive Service Computer Vision sample for image analysis before key and endpoint set.":::    
     
 1. Stop the app. Either close the terminal window or use `control+c` at the terminal. 
  
@@ -201,11 +201,11 @@ When using Azure Static web apps, environment variables such as secrets, need to
 
 1. In a web browser, on your GitHub repository, select **Settings**, then **Secrets**, then **New repository secret**..
 
-    :::image type="content" source="../../media/static-web-app/browser-screenshot-github-create-new-repository-secret.png" alt-text="Partial browser screenshot of React Cognitive Service Computer Vision sample for image analysis before key and endpoint set.":::
+    :::image type="content" source="../media/static-web-app/browser-screenshot-github-create-new-repository-secret.png" alt-text="Partial browser screenshot of GitHub repository, creating new repository secret.":::
 
 1. Enter the same name and value for the endpoint you used in the previous section. Then create another secret with the same name and value for the key as used in the previous section. 
     
-    :::image type="content" source="../../media/static-web-app/browser-screenshot-github-add-secret.png" alt-text="Enter the same name and value for the endpoint. Then create another secret with the same name and value for the key.":::
+    :::image type="content" source="../media/static-web-app/browser-screenshot-github-add-secret.png" alt-text="Enter the same name and value for the endpoint. Then create another secret with the same name and value for the key.":::
 
 ## Run react app with ComputerVision resource
 
@@ -215,11 +215,11 @@ When using Azure Static web apps, environment variables such as secrets, need to
     npm start
     ```
 
-    :::image type="content" source="../../media/static-web-app/browser-screenshot-react-computervision-app-start-up.png" alt-text="Partial browser screenshot of React Cognitive Service Computer Vision sample ready for URL or press enter.":::
+    :::image type="content" source="../media/static-web-app/browser-screenshot-react-computervision-app-start-up.png" alt-text="Partial browser screenshot of React Cognitive Service Computer Vision sample ready for URL or press enter.":::
 
 1. Leave the text field empty, to select an image from the default catalog, and select the **Analyze** button. 
 
-    :::image type="content" source="../../media/static-web-app/browser-screenshot-react-computervision-app-image-analysis-result.png" alt-text="Partial browser screenshot of React Cognitive Service Computer Vision sample results.":::
+    :::image type="content" source="../media/static-web-app/browser-screenshot-react-computervision-app-image-analysis-result.png" alt-text="Partial browser screenshot of React Cognitive Service Computer Vision sample results.":::
 
     The image is selected randomly from a catalog of images defined in `./src/DefaultImages.js`. 
 
@@ -247,7 +247,7 @@ You didn't need to commit any changes because no changes were made yet.
 
 1. Select the **Azure** icon, then right-click on the **Static Web Apps** service, then select **Create Static Web App (Advanced)**. 
 
-    :::image type="content" source="../../media/static-web-app/visualstudiocode-storage-extension-create-static-web-resource.png" alt-text="Visual Studio Code screenshot with Visual Studio extension":::
+    :::image type="content" source="../media/static-web-app/visualstudiocode-storage-extension-create-static-web-resource.png" alt-text="Visual Studio Code screenshot with Visual Studio extension":::
 
 1. If a pop-up window asks if you want to continue on the `Live` branch, select **Continue**.
 
@@ -297,13 +297,13 @@ The Computer Vision key and endpoint are in the repository's secrets collection 
 
 1. Select the top build in the list, then select **Build and Deploy Job** on the left-side menu to watch the build process. Wait until the **Build And Deploy** successfully finishes.
 
-    :::image type="content" source="../../media/static-web-app/browser-screenshot-github-action-build-react-computer-vision-app.png" alt-text=" Select the top build in the list, then select `Build and Deploy Job` on the left-side menu to watch the build process. Wait until the build successfully finishes.":::
+    :::image type="content" source="../media/static-web-app/browser-screenshot-github-action-build-react-computer-vision-app.png" alt-text=" Select the top build in the list, then select `Build and Deploy Job` on the left-side menu to watch the build process. Wait until the build successfully finishes.":::
 
 ## View Azure static web site in browser
 
 1. In Visual Studio Code, select the **Azure** icon in the far right menu, then select your Static web app, then right-click **Browse site**, then select **Open** to view the public static web site. 
 
-:::image type="content" source="../../media/static-web-app/visualstudiocode-browse-static-web-app.png" alt-text="Select `Browse site`, then select `Open` to view the public static web site. ":::
+:::image type="content" source="../media/static-web-app/visualstudiocode-browse-static-web-app.png" alt-text="Select `Browse site`, then select `Open` to view the public static web site. ":::
 
 You can also find the URL for the site at:
 * the Azure portal for your resource, on the **Overview** page.

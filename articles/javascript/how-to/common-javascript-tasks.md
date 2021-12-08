@@ -52,7 +52,7 @@ Provide authentication.
 |Browse site|[Visual Studio Code extension](../tutorial/static-web-app-image-analysis.md#view-azure-static-web-site-in-browser)|
 |Proxy SWA locally with SWA CLI|[SWA CLI](./with-web-app/static-web-app-with-swa-cli/connect-client-to-api.md)|
 |Authenticate SWA locally with SWA CLI|[SWA CLI](with-web-app/static-web-app-with-swa-cli/add-authentication.md#test-the-local-authentication-process-provided-by-swa-cli)|
-|Set Static Web app local environment variables|[Bash](../tutorial/-image-analysis.md#add-environment-variables-to-your-local-environment)|
+|Set Static Web app local environment variables|[Bash](../tutorial/static-web-app-image-analysis.md#add-environment-variables-to-your-local-environment)|
 
 
 
@@ -95,7 +95,7 @@ Provide authentication.
 
 |Task|using|
 |--|--|
-|Create Cognitive Services _ComputerVision_ resource|[Azure CLI](../tutorial/-image-analysis.md#create-azure-resources)|
+|Create Cognitive Services _ComputerVision_ resource|[Azure CLI](../tutorial/static-web-app-image-analysis.md#create-azure-resources)|
 |Get Cognitive Services _ComputerVision_ resource|[Azure CLI](../tutorial/static-web-app-image-analysis.md#create-azure-resources)|
 |Install Azure SDK|[Bash](../tutorial/static-web-app-image-analysis.md#add-computer-vision-to-local-react-app)|
 |Analyze image with [`@azure/cognitiveservices-computervision`](https://www.npmjs.com/package/@azure/cognitiveservices-computervision)|[Visual Studio Code](../tutorial/static-web-app-image-analysis.md#add-computer-vision-code-as-separate-module)|
@@ -210,9 +210,9 @@ Provide authentication.
 
 |Task|using|
 |--|--|
-|Create a local branch|[Visual Studio Code with Command Palette](./with-visual-studio-code/clone-github-repository.md#create-a-branch-for-changes-with-git-cl)<br>[Visual Studio Code with Status Bar](./with-visual-studio-code/clone-github-repository.md#create-a-branch-from-status-bar)|
+|Create a local branch|[Visual Studio Code with Command Palette](./with-visual-studio-code/clone-github-repository.md#create-a-branch-for-changes-with-git-cl)|
 |Clone project from GitHub to local computer|[Visual Studio Code](with-visual-studio-code/install-run-debug-nodejs.md#clone-sample-project-to-local-computer)|
-|Push a local branch to remote repo|[Visual Studio Code with Status Bar](./with-visual-studio-code/clone-github-repository.md#push-a-local-branch-to-remote-from-status-bar)<br>[Visual Studio Code with Source Course extension](./with-visual-studio-code/clone-github-repository.md#push-a-local-branch-to-remote-from-the-source-control-extension)|
+|Push a local branch to remote repo|[Visual Studio Code](./with-visual-studio-code/clone-github-repository.md#push-a-local-branch-to-github)|
 
 ## GitHub 
 
