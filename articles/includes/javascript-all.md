@@ -128,7 +128,7 @@
 | @autorest/cadl | npm [0.1.0](https://www.npmjs.com/package/@autorest/cadl/v/0.1.0) |  |  |
 | @autorest/codemodel | npm [4.17.2](https://www.npmjs.com/package/@autorest/codemodel/v/4.17.2) |  |  |
 | @autorest/common | npm [1.4.1](https://www.npmjs.com/package/@autorest/common/v/1.4.1) |  |  |
-| @autorest/configuration | npm [1.8.1](https://www.npmjs.com/package/@autorest/configuration/v/1.8.1) |  |  |
+| @autorest/configuration | npm [1.8.2](https://www.npmjs.com/package/@autorest/configuration/v/1.8.2) |  |  |
 | @autorest/csharp | npm [3.0.0-beta.20211207.2](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20211207.2) |  |  |
 | @autorest/csharp-v3 | npm [3.0.0-beta.20201217.1](https://www.npmjs.com/package/@autorest/csharp-v3/v/3.0.0-beta.20201217.1) |  |  |
 | @autorest/extension-base | npm [3.4.4](https://www.npmjs.com/package/@autorest/extension-base/v/3.4.4) |  |  |
@@ -217,7 +217,7 @@
 | AutoRest - CLI Common | npm [0.6.2](https://www.npmjs.com/package/@autorest/clicommon/v/0.6.2) |  | GitHub [0.6.2](https://github.com/Azure/autorest.clicommon/tree/0.4.12) |
 | AutoRest - Code Model | npm [3.0.137](https://www.npmjs.com/package/@azure/autorest.codemodel-v3/v/3.0.137) |  |  |
 | AutoRest - Compare | npm [0.4.2](https://www.npmjs.com/package/@autorest/compare/v/0.4.2) |  | GitHub [0.4.2](https://github.com/Azure/autorest.compare) |
-| AutoRest - Core | npm [3.7.2](https://www.npmjs.com/package/@autorest/core/v/3.7.2) |  | GitHub [3.7.2](https://github.com/Azure/autorest) |
+| AutoRest - Core | npm [3.7.3](https://www.npmjs.com/package/@autorest/core/v/3.7.3) |  | GitHub [3.7.3](https://github.com/Azure/autorest) |
 | AutoRest - Functions CSharp | npm [0.2.0-preview-dev.321054549](https://www.npmjs.com/package/@autorest/azure-functions-csharp/v/0.2.0-preview-dev.321054549) |  |  |
 | AutoRest - Functions Java | npm [0.0.2-Preview](https://www.npmjs.com/package/@autorest/azure-functions-java/v/0.0.2-Preview) |  |  |
 | AutoRest - Functions Python | npm [0.1.0-preview](https://www.npmjs.com/package/@autorest/azure-functions-python/v/0.1.0-preview) |  |  |
