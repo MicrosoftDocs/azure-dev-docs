@@ -90,7 +90,8 @@
                 - name: 6. Review Computer Vision React code
                   href: tutorial/static-web-app/add-computer-vision-react-app.md
                 - name: 7. Clean up resources
-                  href: tutorial/static-web-app/clean-up-resources.md              
+                  href: tutorial/static-web-app/clean-up-resources.md  
+                  displayName: az group delete            
             - name: "Add a Login button for Microsoft Identity provider" 
               href: tutorial/single-page-application-azure-login-button-sdk-msal.md
             - name: Use GraphQL with trivia game
