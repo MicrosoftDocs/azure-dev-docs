@@ -1,62 +1,63 @@
 ---
-title: Use Azure Key Vault to deliver SSL certificates to the JVM
-description: SSL, JVM, Azure Key Vault
+title: Use Azure Key Vault to deliver TLS/SSL certificates to the JVM
+description: Use Azure Key Vault to deliver TLS/SSL certificates to the JVM
 ms.author: manriem
 ms.topic: article
-ms.date: 11/17/2021
+ms.date: 12/09/2021
 ---
 
-# Use Azure Key Vault to deliver SSL certificates to the JVM
+# Use Azure Key Vault to deliver TLS/SSL certificates to the JVM
 
-This article describes how to integrate Azure Key Vault into the JVM to deliver SSL certificates.
+This article describes how to integrate Azure Key Vault into the JVM to deliver TLS/SSL certificates.
 
 ## Create the bootstrap.jar
 
-The JCA provider JAR that we publish on Maven Central does not automatically register itself. Note this is by design so you can also programmatically enable the provider.
+The JCA provider JAR published on Maven Central does not automatically register itself. This is by design so that you can programmatically enable the provider.
 
-In order for the JCA provider to be able to automatically register itself you will need to create a separate JAR file that contains the required metadata.
+For the JCA provider to be able to automatically register itself, you'll need to create a separate JAR file that contains the required metadata. To create this file, use the following steps:
 
-1. On your filesystem create a `bootstrap` directory. 
-2. Inside of the `bootstrap` directory, create the `META-INF/services` directory. 
-1. Inside of the `services` directory, create a file named `java.security.provider`.
-1. Add a single line with the following content to the `java.security.provider` file.
+1. On your filesystem, create a *bootstrap* directory.
+1. Inside the *bootstrap* directory, create the *META-INF/services* directory.
+1. Inside the *services* directory, create a file named *java.security.provider*.
+1. Add a single line with the following content to the *java.security.provider* file.
 
-```
-com.azure.security.keyvault.jca.KeyVaultJcaProvider
-```
+   ```
+   com.azure.security.keyvault.jca.KeyVaultJcaProvider
+   ```
 
-5. From the `bootstrap` directory use `java -jar ../bootstrap.jar *` to create the `bootstrap.jar` file.
+1. From the *bootstrap* directory, run the command `java -jar ../bootstrap.jar *` to create the *bootstrap.jar* file.
 
 ## Add the JCA Provider to the java.security file
 
-To register the JCA provider the JVM needs to know about it.
+To register the JCA provider, the JVM needs to know about it. To accomplish this task, use the following steps:
 
-Perform the following steps:
+1. Make a copy of the *java.security* file inside your JVM installation, and name the file *my.java.security*.
+1. Inside the file, look for the line `security.provider.1`.
+1. Increment the numbers for all the entries by 1. For example, `security.provider.1` should become `security.provider.2`.
+1. If you're on Java 8, add the following line:
 
-1. Make a copy of the `java.security` file inside of your JVM installation, name it `my.java.security`.
-1. Inside the file look for the line `security.provider.1`
-1. Move all the entries up one
-1. If you are on Java 8 add the following line:
+   ```
+   security.provider.1=com.azure.security.keyvault.jca.KeyVaultJcaProvider
+   ```
 
-```
-security.provider.1=com.azure.security.keyvault.jca.KeyVaultJcaProvider
-```
+1. If you're on Java 11, add the following line:
 
-5. If you are on Java 11 add the following line:
+   ```
+   security.provider.1=AzureKeyVault
+   ```
 
-```
-security.provider.1=AzureKeyVault
-```
-
-__Note make sure that each security.provider.X entry does not have the same value for X and keep them incrementally ordered starting with 1__
+> [!NOTE]
+> Be sure that each `security.provider.<X>` entry does not have the same value for `<X>`, and keep them incrementally ordered starting with 1.
 
 ## How to run your application
 
-1. Add the `bootstrap.jar` to the classpath.
-1. Add the `azure-security-keyvault-jca-X.Y.Z.jar` to the classpath.
+To run your application, use the following steps:
+
+1. Add the *bootstrap.jar* file to the classpath.
+1. Add the *azure-security-keyvault-jca-X.Y.Z.jar* to the classpath.
 1. Add `-Djava.security.file=my.java.security` to the command line.
 
-To tell your application which Azure Key Vault to use you will need to pass the following arguments to the command line:
+To tell your application which Azure Key Vault to use, you'll need to pass the following arguments to the command line:
 
 * `-Dazure.keyvault.uri=your-keyvault-uri`
 * `-Dazure.keyvault.tenant-id=your-tenant-id`
@@ -64,35 +65,39 @@ To tell your application which Azure Key Vault to use you will need to pass the 
 * `-Dazure.keyvault.client-secret=your-client-secret`
 * `-Dazure.keyvault.managed-identity=your-managed-identity`
 
-Note that if you use `client-id` and `client-secret` you should not pass a `managed-identity` and vice versa.
+> [!NOTE]
+> If you use `client-id` and `client-secret`, you shouldn't use `managed-identity`, and if you use `managed-identity`, you shouldn't use `client-id` and `client-secret`.
 
 ## Create a client ID and client secret
 
-To create an Azure client ID and an Azure client secret use the command line below. 
+To create an Azure client ID and an Azure client secret, use the following command, replacing the *`<...>`* placeholders with your own values. Be sure to store the values returned, such as `appId`, `password`, `tenant`.
 
-Please store the values returned such as appId, password, tenant.
-
-```shell
-  export CLIENT_NAME=myclient
-  az ad sp create-for-rbac --skip-assignment --name ${CLIENT_NAME}
-  export CLIENT_ID=$(az ad sp list --display-name ${CLIENT_NAME} | jq -r '.[0].appId')
-  az ad app credential reset --id ${CLIENT_ID}
+```azurecli
+CLIENT_NAME=<your-client-name>
+az ad sp create-for-rbac --skip-assignment --name ${CLIENT_NAME}
+CLIENT_ID=$(az ad sp list --display-name ${CLIENT_NAME} | jq -r '.[0].appId')
+az ad app credential reset --id ${CLIENT_ID}
+KEY_VAULT=<your-key-vault-name>
 ```
 
-Store the values returned, which will be used later.
+Store the values returned so you can use them later.
 
-Make sure the `client-id` can access target Key Vault. To grant access, use the command line below:
+Be sure the `client-id` can access the target Key Vault. To grant access, use the following command:
 
-```shell
-  az keyvault set-policy --name ${KEY_VAULT} \
-        --spn ${CLIENT_ID} \
-        --secret-permissions get list \
-        --certificate-permissions get list \
-        --key-permissions get list
+```azurecli
+az keyvault set-policy \
+    --name ${KEY_VAULT} \
+    --spn ${CLIENT_ID} \
+    --secret-permissions get list \
+    --certificate-permissions get list \
+    --key-permissions get list
 ```
 
-Note `KEY_VAULT` refers to the name of the Key Vault you want to use:
+## Client/server side TLS/SSL examples
 
-## Client/server side SSL examples
+For examples of client/server-side TLS/SSL, see the [Examples](/java/api/overview/azure/security-keyvault-jca-readme?view=azure-java-stable#examples) section of [Azure Key Vault JCA client library for Java](/java/api/overview/azure/security-keyvault-jca-readme?view=azure-java-stable).
 
-If you need some examples for client/server side SSL, see [here](https://docs.microsoft.com/en-us/java/api/overview/azure/security-keyvault-jca-readme?view=azure-java-stable#examples) for more information.
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Use Azure Key Vault to deliver TLS/SSL certificates to Apache Tomcat](java-azure-keyvault-tomcat-integration.md)

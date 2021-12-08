@@ -5,7 +5,7 @@
       href: java-azure-tools.md
     - name: Java support
       expanded: true
-      items: 
+      items:
       - name: Java support
         href: java-support-on-azure.md
       - name: Java JDK installation
