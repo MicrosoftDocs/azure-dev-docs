@@ -133,7 +133,7 @@ There isn't an Azure CLI command to create an Azure Function API endpoint for yo
 
 ## Create Azure Function deployment slot 
 
-Creating a deployment slot then swapping allows you to quickly revert a deployment. Create a deployment slow with the [az functionapp deployment slot create](/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az_functionapp_deployment_slot_create) command.
+Creating a deployment slot then swapping allows you to quickly revert a deployment. Create a deployment slow with the [az functionapp deployment slot create](/cli/azure/functionapp/deployment/slot#az_functionapp_deployment_slot_create) command.
 
 ```azurecli
 az functionapp deployment slot create \
