@@ -92,7 +92,7 @@ An example of this command is:
 git push origin main
 ```
 
-### Delete static web app 
+## Delete static web app 
 
 Use the [az staticwebapp delete](/cli/azure/staticwebapp#az_staticwebapp_delete) command to delete your static web app.
 
