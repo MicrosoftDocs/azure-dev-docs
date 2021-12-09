@@ -44,9 +44,11 @@ Use the `JAVA_OPTS` environment variable to set up your environment before start
 
 ```bash
 JAVA_OPTS='-Djava.security.properties==my.java.security -Dazure.keyvault.uri=xxx -Dazure.keyvault.client-id=xxx -Dazure.keyvault.client-secret=xxx -Dazure.keyvault.tenant-id=xxx'
- ```
+```
 
 For the meaning of each of these properties, see [Use Azure Key Vault to deliver TLS/SSL certificates to the JVM](/azure/developer/java/fundamentals/java-azure-keyvault-ssl-integration-jvm#how-to-run-your-application).
 
 ## Next steps
 
+> [!div class="nextstepaction"]
+> [Java on Azure developer tools documentation](Java on Azure developer tools documentation)
