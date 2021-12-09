@@ -69,7 +69,8 @@ This sample uses the [DefaultAzureCredential](/javascript/api/overview/azure/ide
 
     ```azurecli
     az ad sp create-for-rbac \
-    --name REPLACE-WITH-YOUR-NEW-SERVICE-PRINCIPAL-NAME
+    --name REPLACE-WITH-YOUR-NEW-SERVICE-PRINCIPAL-NAME \
+    --role Contributor
     ```
 
     An example service principal name is `demo-keyvault-service-principal-YOUR-NAME`, where `YOUR-NAME` is postpended to the string. 
