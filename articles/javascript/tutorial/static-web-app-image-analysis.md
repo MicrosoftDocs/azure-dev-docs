@@ -320,6 +320,16 @@ Once you have completed this tutorial, you need to remove the resource group, wh
 
 [!INCLUDE [3 ways to delete resource group](../includes/resource-group-remove.md)]
 
+<a name="add-computer-vision-to-local-react-app"></a>
+
+## Code: Add Computer Vision to local React app
+
+Use npm to add Computer Vision to the package.json file. 
+
+```bash
+npm install @azure/cognitiveservices-computervision 
+```
+
 <a name="add-computer-vision-code-as-separate-module"></a>
 
 ## Code: Add Computer Vision code as separate module
