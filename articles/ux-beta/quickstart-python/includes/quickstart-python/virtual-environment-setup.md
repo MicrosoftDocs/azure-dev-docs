@@ -1,4 +1,4 @@
-#### [Mac/Linux](#tab/mac-linux)
+#### [macOS/Linux](#tab/mac-linux)
 
 ```Bash
 python3 -m venv .venv
