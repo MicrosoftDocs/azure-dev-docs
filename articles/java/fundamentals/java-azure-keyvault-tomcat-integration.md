@@ -10,7 +10,7 @@ ms.date: 12/09/2021
 
 This article describes how to integrate Azure Key Vault into Apache Tomcat to deliver TLS/SSL certificates.
 
-## Be sure the JVM is able to access the TLS/SSL certificates
+## Be sure the JVM can access the TLS/SSL certificates
 
 Be sure you've followed all the steps outlined in [Use Azure Key Vault to deliver TLS/SSL certificates to the JVM](java-azure-keyvault-ssl-integration-jvm.md).
 

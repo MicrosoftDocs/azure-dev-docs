@@ -12,7 +12,7 @@ This article describes how to integrate Azure Key Vault into the JVM to deliver 
 
 ## Create the bootstrap.jar
 
-The JCA provider JAR published on Maven Central does not automatically register itself. This is by design so that you can programmatically enable the provider.
+The JCA provider JAR published on Maven Central doesn't automatically register itself. This behavior is by design so that you can programmatically enable the provider.
 
 For the JCA provider to be able to automatically register itself, you'll need to create a separate JAR file that contains the required metadata. To create this file, use the following steps:
 
@@ -47,7 +47,7 @@ To register the JCA provider, the JVM needs to know about it. To accomplish this
    ```
 
 > [!NOTE]
-> Be sure that each `security.provider.<X>` entry does not have the same value for `<X>`, and keep them incrementally ordered starting with 1.
+> Be sure that each `security.provider.<X>` entry has a different number value for `<X>`, and keep them incrementally ordered starting with 1.
 
 ## How to run your application
 
