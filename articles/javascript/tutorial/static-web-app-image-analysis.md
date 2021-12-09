@@ -77,7 +77,7 @@ Fork the repository, instead of just cloning it to your local computer, in order
 
     The installation step installs the required dependencies, including [@azure/cognitiveservices-computervision](https://www.npmjs.com/package/@azure/cognitiveservices-computervision).
 
-<a name="#run-the-sample"></a>
+<a name="run-the-sample"></a>
 
 ## 3. Run the local sample
 
@@ -92,6 +92,7 @@ Fork the repository, instead of just cloning it to your local computer, in order
 1. Stop the app. Either close the terminal window or use `control+c` at the terminal. 
  
 <a name="create-azure-resources"></a>
+<a name="create-your-resource-group"></a>
 
 ## 4. Create your resource group
 
@@ -103,6 +104,8 @@ az group create \
     --name rg-demo \
     --subscription YOUR-SUBSCRIPTION-NAME-OR-ID
 ```
+
+<a name="create-your-first-computer-vision-resource"></a>
 
 ## 5. Create a Computer Vision resource
 
@@ -124,6 +127,7 @@ Use the following table to help [create the resource within the Azure portal](ht
 |Sku|S1|
 |Location|eastus|
 
+<a name="create-an-additional-computer-vision-resource"></a>
 
 ## 7. Create an additional Computer Vision resource
 
@@ -170,6 +174,8 @@ az cognitiveservices account create \
       "key2": "c2067cea18254bdda71c8ba6428c1e1a"
     }
     ```
+
+<a name="add-environment-variables-to-your-local-environment"></a>
 
 ## 9. Add environment variables to your local environment
 
@@ -236,6 +242,8 @@ git push origin main
 
 You didn't need to commit any changes because no changes were made yet. 
 
+<a name="create-a-static-web-app-resource"></a>
+
 ## 13. Create a Static Web app resource
 
 1. Select the **Azure** icon, then right-click on the **Static Web Apps** service, then select **Create Static Web App (Advanced)**. 
@@ -284,6 +292,8 @@ The Computer Vision key and endpoint are in the repository's secrets collection 
     git push origin main
     ```
 
+<a name="view-the-github-action-build-process"></a>
+
 ## 15. View the GitHub Action build process
 
 1. In a web browser, open your GitHub repository for this tutorial, and select **Actions**. 
@@ -291,6 +301,8 @@ The Computer Vision key and endpoint are in the repository's secrets collection 
 1. Select the top build in the list, then select **Build and Deploy Job** on the left-side menu to watch the build process. Wait until the **Build And Deploy** successfully finishes.
 
     :::image type="content" source="../media/static-web-app/browser-screenshot-github-action-build-react-computer-vision-app.png" alt-text=" Select the top build in the list, then select `Build and Deploy Job` on the left-side menu to watch the build process. Wait until the build successfully finishes.":::
+
+<a name="view-azure-static-web-site-in-browser"></a>
 
 ## 16. View remote Azure static web site in browser
 
@@ -307,6 +319,8 @@ You can also find the URL for the site at:
 Once you have completed this tutorial, you need to remove the resource group, which includes the Computer Vision resource and Static web app, to make sure you are not billed for any more usage. 
 
 [!INCLUDE [3 ways to delete resource group](../includes/resource-group-remove.md)]
+
+<a name="add-computer-vision-code-as-separate-module"></a>
 
 ## Code: Add Computer Vision code as separate module
 
