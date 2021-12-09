@@ -336,19 +336,19 @@ npm install @azure/cognitiveservices-computervision
 
 The Computer Vision code is contained in a separate file named `./src/azure-cognitiveservices-computervision.js`. The main function of the module is highlighted. 
 
-:::code language="javascript" source="~/../js-e2e-client-cognitive-services/src/azure-cognitiveservices-computervision.js" highlight="55-75" :::
+:::code language="javascript" source="~/../js-e2e-client-cognitive-services/src/azure-cognitiveservices-computervision.js" highlight="57-77" :::
 
 ## Code: Add catalog of images as separate module
 
 The app selects a random image from a catalog if the user doesn't enter an image URL. The random selection function is highlighted 
 
-:::code language="javascript" source="~/../js-e2e-client-cognitive-services/src/DefaultImages.js" highlight="33-35" :::
+:::code language="javascript" source="~/../js-e2e-client-cognitive-services/src/DefaultImages.js" highlight="35-37" :::
 
 ## Code: Add custom Computer Vision module to React app
 
 Add methods to the React `app.js`. The image analysis and display of results are highlighted.
 
-:::code language="javascript" source="~/../js-e2e-client-cognitive-services/src/App.js" highlight="20-25, 29-42" :::
+:::code language="javascript" source="~/../js-e2e-client-cognitive-services/src/App.js" highlight="22-27, 31-44" :::
 
 
 
