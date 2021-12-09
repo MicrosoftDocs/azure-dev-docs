@@ -14,7 +14,7 @@ This article describes how to integrate Azure Key Vault into the JVM to deliver 
 
 The JCA provider JAR published on Maven Central doesn't automatically register itself. This behavior is by design so that you can programmatically enable the provider.
 
-For the JCA provider to be able to automatically register itself, you'll need to create a separate JAR file that contains the required metadata. To create this file, use the following steps:
+To enable the JCA provider to automatically register itself, you'll need to create a separate JAR file that contains the required metadata. To create this file, use the following steps:
 
 1. On your filesystem, create a *bootstrap* directory.
 1. Inside the *bootstrap* directory, create the *META-INF/services* directory.
