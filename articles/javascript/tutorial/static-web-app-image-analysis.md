@@ -49,8 +49,8 @@ To deploy the static web app, use a GitHub action, which  starts when a push to 
 
 Fork the repository, instead of just cloning it to your local computer, in order to have a GitHub repository of your own to push changes to. 
 
-1. Open a separate browser window or tab, and to sign in to <a href="https://github.com/login" target="_blank">GitHub</a>. 
-1. Navigate to the <a href="https://github.com/Azure-Samples/js-e2e-client-cognitive-services" target="_blank">GitHub sample repository</a> in the web browser. 
+1. Open a separate browser window or tab, and to sign in to [GitHub](https://github.com/login). 
+1. Navigate to the [GitHub sample repository](https://github.com/Azure-Samples/js-e2e-client-cognitive-services). 
 
     ```http
     https://github.com/Azure-Samples/js-e2e-client-cognitive-services
@@ -114,7 +114,7 @@ Creating a resource group allows you to easily find the resources, and delete th
 * [Your first Computer Vision resource](#create-your-first-computer-vision-resource) - agree to the Responsible Use agreement
 * [Additional Computer Vision](#create-an-additional-computer-vision-resource) - already agreed to the Responsible Use agreement
 
-### 6. Create your first Computer Vision resource
+## 6. Create your first Computer Vision resource
 
 If this is your first AI service, you must create the service through the portal and agree to the Responsible Use agreement, as part of that resource creation. If this isn't your first resource requiring the Responsible Use agreement, you can create the resource with the Azure CLI, found in the next section.
 
