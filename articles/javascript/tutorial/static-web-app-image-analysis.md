@@ -211,7 +211,7 @@ When using Azure Static web apps, environment variables such as secrets, need to
 
 1. Enter the same name and value for the endpoint you used in the previous section. Then create another secret with the same name and value for the key as used in the previous section. 
     
-    :::image type="content" source="../media/static-web-app/browser-screenshot-github-add-secret.png" alt-text="Enter the same name and value for the endpoint. Then create another secret with the same name and value for the key.":::
+    :::image type="content" source="../media/static-web-app/browser-screenshot-github-add-new-secret.png" alt-text="Enter the same name and value for the endpoint. Then create another secret with the same name and value for the key.":::
 
 ## 11. Run local react app with ComputerVision resource
 
