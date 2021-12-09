@@ -49,7 +49,7 @@ The GitHub action starts when a push to a specific branch happens:
 * Builds the React (create-react-app) client
 * Moves the resulting files to your Azure [**Static Web app**](/azure/static-web-apps) resource
 
-## Fork the sample repo
+## 1. Fork the sample repo
 
 Fork the repository, instead of just cloning it to your local computer, in order to have a GitHub repository of your own to push changes to. 
 
@@ -65,7 +65,7 @@ Fork the repository, instead of just cloning it to your local computer, in order
 
     :::image type="content" source="../media/static-web-app/browser-screenshot-clone-github-sample-repository-fork.png" alt-text="Partial screenshot of GitHub website, select **Code** then copy the location for your fork.":::    
 
-## Create local development environment
+## 2. Create local development environment
 
 1. In a terminal or bash window, clone your fork to your local computer. Replace `YOUR-ACCOUNT-NAME` with your GitHub account name.
 
@@ -79,7 +79,11 @@ Fork the repository, instead of just cloning it to your local computer, in order
     cd js-e2e-client-cognitive-services && npm install
     ```
 
-## Run sample
+    The installation step installs the required dependencies, including [@azure/cognitiveservices-computervision](https://www.npmjs.com/package/@azure/cognitiveservices-computervision).
+
+<a name="#run-the-sample"></a>
+
+## 3. Run the local sample
 
 1. Run the sample. 
 
@@ -93,7 +97,7 @@ Fork the repository, instead of just cloning it to your local computer, in order
  
 <a name="create-azure-resources"></a>
 
-## Create your resource group
+## 4. Create your resource group
 
 At a terminal or bash shell, enter the [Azure CLI command to create an Azure resource group](/cli/azure/group#az_group_create), with the name `rg-demo`:
 
@@ -104,14 +108,14 @@ az group create \
     --subscription YOUR-SUBSCRIPTION-NAME-OR-ID
 ```
 
-## Create a Computer Vision resource
+## 5. Create a Computer Vision resource
 
 Creating a resource group allows you to easily find the resources, and delete them when you are done. This type of resource requires that you agree to the Responsible Use agreement. Use the following list to know how you can quickly create the correct resource:
 
 * [Your first Computer Vision resource](#create-your-first-computer-vision-resource) - agree to the Responsible Use agreement
 * [Additional Computer Vision](#create-an-additional-computer-vision-resource) - already agreed to the Responsible Use agreement
 
-### Create your first Computer Vision resource
+### 6. Create your first Computer Vision resource
 
 If this is your first AI service, you must create the service through the portal and agree to the Responsible Use agreement, as part of that resource creation. If this isn't your first resource requiring the Responsible Use agreement, you can create the resource with the Azure CLI, found in the next section.
 
@@ -125,7 +129,7 @@ Use the following table to help [create the resource within the Azure portal](ht
 |Location|eastus|
 
 
-## Create an additional Computer Vision resource
+## 7. Create an additional Computer Vision resource
 
 Run the following command to [create a Computer Vision resource](/cli/azure/cognitiveservices/account#az_cognitiveservices_account_create):
 
@@ -140,7 +144,7 @@ az cognitiveservices account create \
     --yes
 ```
 
-## Get resource endpoint and keys
+## 8. Get Computer Vision resource endpoint and keys
 
 1. In the results, find and copy the `properties.endpoint`. You will need that later.
 
@@ -171,31 +175,31 @@ az cognitiveservices account create \
     }
     ```
 
-## Add environment variables to your local environment
+## 9. Add environment variables to your local environment
 
 To use your resource, the local code needs to have the key and endpoint available. This code base stores those in environment variables:
 
-* REACT_APP_COMPUTERVISIONKEY
-* REACT_APP_COMPUTERVISIONENDPOINT 
+* REACT_APP_AZURE_COMPUTER_VISION_KEY
+* REACT_APP_AZURE_COMPUTER_VISION_ENDPOINT
 
 1. Run the following command to add these variables to your environment.
 
     # [bash](#tab/bash)
     
     ```bash
-    export REACT_APP_COMPUTERVISIONKEY="REPLACE-WITH-YOUR-KEY"
-    export REACT_APP_COMPUTERVISIONENDPOINT="REPLACE-WITH-YOUR-ENDPOINT"
+    export REACT_APP_AZURE_COMPUTER_VISION_KEY="REPLACE-WITH-YOUR-KEY"
+    export REACT_APP_AZURE_COMPUTER_VISION_ENDPOINT="REPLACE-WITH-YOUR-ENDPOINT"
     ```
     
     # [cmd](#tab/cmd)
     
     ```cmd
-    set REACT_APP_COMPUTERVISIONKEY="REPLACE-WITH-YOUR-KEY"
-    set REACT_APP_COMPUTERVISIONENDPOINT="REPLACE-WITH-YOUR-ENDPOINT"
+    set REACT_APP_AZURE_COMPUTER_VISION_KEY="REPLACE-WITH-YOUR-KEY"
+    set REACT_APP_AZURE_COMPUTER_VISION_ENDPOINT="REPLACE-WITH-YOUR-ENDPOINT"
     ```
     ---
 
-## Add environment variables to your remote environment
+## 10. Add environment variables to your remote environment
 
 When using Azure Static web apps, environment variables such as secrets, need to be passed from the GitHub action to the Static web app. The GitHub action builds the app, including the Computer Vision key and endpoint passed in from the GitHub secrets for that repository, then pushes the code with the environment variables to the static web app.
 
@@ -207,7 +211,7 @@ When using Azure Static web apps, environment variables such as secrets, need to
     
     :::image type="content" source="../media/static-web-app/browser-screenshot-github-add-secret.png" alt-text="Enter the same name and value for the endpoint. Then create another secret with the same name and value for the key.":::
 
-## Run react app with ComputerVision resource
+## 11. Run local react app with ComputerVision resource
 
 1. Start the app again, at the command line:
 
@@ -225,31 +229,24 @@ When using Azure Static web apps, environment variables such as secrets, need to
 
 1. Continue to select the **Analyze** button to see the other images and results. 
 
-## Create a new branch dedicated to deployment
 
-The Azure Static web app receives a build from a specific branch of your GitHub repository. Currently, the tutorial used the `main` branch. In a new terminal in Visual Studio Code, create a `live` branch used only for building and deploying the app.
+## 12. Push the local branch to GitHub
 
-```bash
-git checkout -b live
-```
-
-## Push the live branch to GitHub
-
-In the Visual Studio Code terminal, push the local branch, `live` to your remote repository.
+In the Visual Studio Code terminal, push the local branch, `main` to your remote repository.
 
 ```bash
-git push origin live
+git push origin main
 ```
 
 You didn't need to commit any changes because no changes were made yet. 
 
-## Create a Static Web app resource
+## 13. Create a Static Web app resource
 
 1. Select the **Azure** icon, then right-click on the **Static Web Apps** service, then select **Create Static Web App (Advanced)**. 
 
     :::image type="content" source="../media/static-web-app/visualstudiocode-storage-extension-create-static-web-resource.png" alt-text="Visual Studio Code screenshot with Visual Studio extension":::
 
-1. If a pop-up window asks if you want to continue on the `Live` branch, select **Continue**.
+1. If a pop-up window asks if you want to continue on the `main` branch, select **Continue**.
 
 1. Enter the following information in the subsequent fields, presented one at a time. 
 
@@ -264,22 +261,22 @@ You didn't need to commit any changes because no changes were made yet.
     |Enter the location of your Azure Functions code.|Take the default value.|
     |Enter the path of your build output relative to your app's location.|`build`|
 
-## Update the GitHub action with secret environment variables
+## 14. Update the GitHub action with secret environment variables
 
 The Computer Vision key and endpoint are in the repository's secrets collection but are not in the GitHub action yet. This step adds the key and endpoint to the action.
 
 1. Pull down the changes made from creating the Azure resource, to get the GitHub action file.
 
     ```bash
-    git pull origin live
+    git pull origin main
     ```
 
 1. In the Visual Studio Code editor, edit the GitHub Action file found at `./.github/workflows/` to add the secrets. 
 
-    :::code language="yml" source="~/../js-e2e-client-cognitive-services/.github/workflows/sample-github-workflow.yml" highlight="34-36" :::
+    :::code language="yml" source="~/../js-e2e-client-cognitive-services/sample-github-workflow.yml" highlight="34-36" :::
 
     
-1. Add and commit the change to the local `live` branch.
+1. Add and commit the change to the local `main` branch.
 
     ```bash
     git add . && git commit -m "add secrets to action"
@@ -288,10 +285,10 @@ The Computer Vision key and endpoint are in the repository's secrets collection 
 1. Push the change to the remote repository, starting a new build-and-deploy action to your Azure Static web app.
 
     ```bash
-    git push origin live
+    git push origin main
     ```
 
-## View the GitHub Action build process
+## 15. View the GitHub Action build process
 
 1. In a web browser, open your GitHub repository for this tutorial, and select **Actions**. 
 
@@ -299,7 +296,7 @@ The Computer Vision key and endpoint are in the repository's secrets collection 
 
     :::image type="content" source="../media/static-web-app/browser-screenshot-github-action-build-react-computer-vision-app.png" alt-text=" Select the top build in the list, then select `Build and Deploy Job` on the left-side menu to watch the build process. Wait until the build successfully finishes.":::
 
-## View Azure static web site in browser
+## 16. View remote Azure static web site in browser
 
 1. In Visual Studio Code, select the **Azure** icon in the far right menu, then select your Static web app, then right-click **Browse site**, then select **Open** to view the public static web site. 
 
@@ -309,37 +306,31 @@ You can also find the URL for the site at:
 * the Azure portal for your resource, on the **Overview** page.
 * the GitHub action's build-and-deploy output has the site URL at the very end of the script 
 
-## Add Computer Vision to local React app
+## 17. Clean up resources for static web app
 
-Use npm to add Computer Vision to the package.json file. 
+Once you have completed this tutorial, you need to remove the resource group, which includes the Computer Vision resource and Static web app, to make sure you are not billed for any more usage. 
 
-```bash
-npm install @azure/cognitiveservices-computervision 
-```
+[!INCLUDE [3 ways to delete resource group](../includes/resource-group-remove.md)]
 
-## Add Computer Vision code as separate module
+## Code: Add Computer Vision code as separate module
 
 The Computer Vision code is contained in a separate file named `./src/azure-cognitiveservices-computervision.js`. The main function of the module is highlighted. 
 
 :::code language="javascript" source="~/../js-e2e-client-cognitive-services/src/azure-cognitiveservices-computervision.js" highlight="55-75" :::
 
-## Add catalog of images as separate module
+## Code: Add catalog of images as separate module
 
 The app selects a random image from a catalog if the user doesn't enter an image URL. The random selection function is highlighted 
 
 :::code language="javascript" source="~/../js-e2e-client-cognitive-services/src/DefaultImages.js" highlight="33-35" :::
 
-## Add custom Computer Vision module to React app
+## Code: Add custom Computer Vision module to React app
 
 Add methods to the React `app.js`. The image analysis and display of results are highlighted.
 
 :::code language="javascript" source="~/../js-e2e-client-cognitive-services/src/App.js" highlight="20-25, 29-42" :::
 
-## Clean up resources for static web app
 
-Once you have completed this tutorial, you need to remove the resource group, which includes the Computer Vision resource and Static web app, to make sure you are not billed for any more usage. 
-
-[!INCLUDE [3 ways to delete resource group](../includes/resource-group-remove.md)]
 
 ## Next steps
 
