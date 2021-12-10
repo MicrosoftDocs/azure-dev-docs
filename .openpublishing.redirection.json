@@ -1,6 +1,34 @@
 {
     "redirections": [
       {
+        "source_path": "articles/javascript/tutorial/static-web-app/introduction.md",
+        "redirect_url": "/azure/developer/javascript/tutorial/static-web-app-image-analysis"
+      },
+      {
+        "source_path": "articles/javascript/tutorial/static-web-app/application-architecture.md",
+        "redirect_url": "/azure/developer/javascript/tutorial/static-web-app-image-analysis"
+      },
+      {
+        "source_path": "articles/javascript/tutorial/static-web-app/run-the-react-cognitive-services-image-analyzer-app-locally.md",
+        "redirect_url": "/azure/developer/javascript/tutorial/static-web-app-image-analysis"
+      },
+      {
+        "source_path": "articles/javascript/tutorial/static-web-app/create-computer-vision-resource-use-in-code.md",
+        "redirect_url": "/azure/developer/javascript/tutorial/static-web-app-image-analysis"
+      },
+      {
+        "source_path": "articles/javascript/tutorial/static-web-app/create-static-web-app-visual-studio-code-extension.md",
+        "redirect_url": "/azure/developer/javascript/tutorial/static-web-app-image-analysis"
+      },
+      {
+        "source_path": "articles/javascript/tutorial/static-web-app/add-computer-vision-react-app.md",
+        "redirect_url": "/azure/developer/javascript/tutorial/static-web-app-image-analysis"
+      },
+      {
+        "source_path": "articles/javascript/tutorial/static-web-app/clean-up-resources.md",
+        "redirect_url": "/azure/developer/javascript/tutorial/static-web-app-image-analysis"
+      },
+      {
         "source_path": "articles/javascript/how-to/with-database/use-mariadb.md",
         "redirect_url": "/azure/developer/javascript/how-to/with-database/use-mysql-mariadb"
       },

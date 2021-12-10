@@ -23,15 +23,15 @@ This article walks you through setting up a development environment for Azure de
 
 ## Set up authentication
 
-Your Java application needs read and create permissions in your Azure subscription to run the sample code in this tutorial. Create a service principal, and configure your application to run with its credentials. Service principals provide a way to create a noninteractive account associated with your identity to which you grant only the privileges your app needs to run.
+Your Java application needs *read* and *create* permissions in your Azure subscription to run the sample code in this tutorial. Create a service principal, and configure your application to run with its credentials. Service principals provide a way to create a noninteractive account associated with your identity to which you grant only the privileges your app needs to run.
 
 [Create a service principal by using the Azure CLI 2.0](/cli/azure/create-an-azure-service-principal-azure-cli), and capture the output:
 
-```azurecli-interactive
+```azurecli
 az ad sp create-for-rbac --name AzureJavaTest --role Contributor
 ```
 
-Which gives you a reply in the following format:
+This command gives you a reply in the following format:
 
 ```json
 {
@@ -110,25 +110,6 @@ Add a `build` entry under the top-level `project` element to use the [maven-exec
 </build>
  ```
 
-### Install the Azure Toolkit for Intellij
-
-The [Azure toolkit](../toolkit-for-intellij/index.yml) is necessary if you plan to deploy web apps or APIs programmatically. For a quickstart with Azure Web Apps, see [Azure Toolkit for IntelliJ](../toolkit-for-intellij/create-hello-world-web-app.md). It also has a comprehensive SDK reference book embedded for any Azure development with Java SDK. The following steps summarize the installation process.
-
-1. Select the **File** menu, and then select **Settings**.
-1. Select **Browse repositories**, and then search **Azure** and install the **Azure toolkit for Intellij**.
-1. Restart Intellij.
-1. Open reference book from **Tools -> Azure -> Azure SDK Reference Book**
-
-  ![Azure SDK Reference Book in IntelliJ](./media/azure-sdk-reference-book-intellij.png)
-
-### Install the Azure Toolkit for Eclipse
-
-The [Azure toolkit](../toolkit-for-eclipse/index.yml) is necessary if you plan to deploy web apps or APIs programmatically. Currently, it isn't used for any other kinds of development. The following steps summarize the installation process. For a quickstart, see [Azure Toolkit for Eclipse](../toolkit-for-eclipse/create-hello-world-web-app.md).
-
-1. Select the **Help** menu, and then select **Install new software**.
-1. In the **Work with** box, enter `http://dl.microsoft.com/eclipse/` and select **Enter**.
-1. Select the check box next to **Azure toolkit for Java**. Clear the check box for **Contact all update sites during install to find required software**. Then select **Next**.
-
 ## Create a Linux virtual machine
 
 Create a new file named *AzureApp.java* in the project's *src/main/java/com/fabrikam* directory, and paste in the following block of code. Update the `userName` and `sshKey` variables with real values for your machine. The code creates a new Linux virtual machine (VM) with the name `testLinuxVM` in the resource group `sampleResourceGroup` running in the US East Azure region.
@@ -199,13 +180,13 @@ mvn compile exec:java
 
 You'll see some REST requests and responses in the console as the SDK makes the underlying calls to the Azure REST API to configure the VM and its resources. After the program finishes, verify the VM in your subscription with the Azure CLI 2.0.
 
-```azurecli-interactive
+```azurecli
 az vm list --resource-group sampleVmResourceGroup
 ```
 
 After you've verified that the code worked, use the CLI to delete the VM and its resources.
 
-```azurecli-interactive
+```azurecli
 az group delete --name sampleVmResourceGroup
 ```
 
@@ -258,13 +239,13 @@ mvn clean compile exec:java
 
 Open a browser pointed to the application by using the CLI.
 
-```azurecli-interactive
+```azurecli
 az webapp browse --resource-group sampleWebResourceGroup --name YOUR_APP_NAME
 ```
 
 Remove the web app and plan from your subscription after you've verified the deployment.
 
-```azurecli-interactive
+```azurecli
 az group delete --name sampleWebResourceGroup
 ```
 
@@ -351,7 +332,7 @@ mvn clean compile exec:java
 
 Then clean up the resources by using the CLI.
 
-```azurecli-interactive
+```azurecli
 az group delete --name sampleSqlResourceGroup
 ```
 
@@ -429,7 +410,7 @@ You can browse for the *helloazure.txt* file in your storage account through the
 
 Clean up the storage account by using the CLI.
 
-```azurecli-interactive
+```azurecli
 az group delete --name sampleStorageResourceGroup
 ```
 

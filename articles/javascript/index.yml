@@ -90,7 +90,7 @@ landingContent:
       - linkListType: tutorial
         links: 
           - text: "Static web app: Analyze image with Computer Vision"
-            url: ./tutorial/static-web-app/add-computer-vision-react-app.md#add-computer-vision-code-as-separate-module
+            url: ./tutorial/static-web-app-image-analysis.md#add-computer-vision-code-as-separate-module
           - text: "Static web app: Upload file to Storage Blob"
             url: tutorial/browser-file-upload-azure-storage-blob.md#upload-button-functionality
           - text: "Static web app: Login/Logoff button"
@@ -124,7 +124,7 @@ landingContent:
           - text: Translate text
             url: /azure/cognitive-services/translator/quickstart-translator?pivots=programming-language-javascript
           - text: Detect objects in an image
-            url: tutorial/static-web-app/introduction.md
+            url: tutorial/static-web-app-image-analysis.md
   - title: Use Azure client libraries (SDK)
     linkLists:
       - linkListType: get-started

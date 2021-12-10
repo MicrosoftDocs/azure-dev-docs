@@ -76,22 +76,7 @@
             - name: "Upload image to Storage"
               href: tutorial/browser-file-upload-azure-storage-blob.md
             - name: Add image analysis
-              items: 
-                - name: 1. Introduction and prerequisites
-                  href: tutorial/static-web-app/introduction.md
-                - name: 2. Application architecture
-                  href: tutorial/static-web-app/application-architecture.md
-                - name: 3. Download and run app locally
-                  href: tutorial/static-web-app/run-the-react-cognitive-services-image-analyzer-app-locally.md
-                - name: 4. Create Computer Vision resource
-                  href: tutorial/static-web-app/create-computer-vision-resource-use-in-code.md
-                - name: 5. Build and deploy Static web app
-                  href: tutorial/static-web-app/create-static-web-app-visual-studio-code-extension.md
-                - name: 6. Review Computer Vision React code
-                  href: tutorial/static-web-app/add-computer-vision-react-app.md
-                - name: 7. Clean up resources
-                  href: tutorial/static-web-app/clean-up-resources.md  
-                  displayName: az group delete            
+              href: tutorial/static-web-app-image-analysis.md   
             - name: "Add a Login button for Microsoft Identity provider" 
               href: tutorial/single-page-application-azure-login-button-sdk-msal.md
             - name: Use GraphQL with trivia game

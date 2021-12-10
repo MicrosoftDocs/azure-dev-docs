@@ -182,4 +182,4 @@ az functionapp delete \
 
 ## Next steps
 
-* [Tutorial: Build and deploy a Static Web app to Azure](../tutorial/static-web-app/introduction.md)
+* [Tutorial: Build and deploy a Static Web app to Azure](../tutorial/static-web-app-image-analysis.md)
