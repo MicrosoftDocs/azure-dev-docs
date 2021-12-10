@@ -99,7 +99,7 @@
         "**/*.yml": "barbkess",
         "java/**/*.md": "brendm",
         "java/**/*.md": "brendm",
-        "go/**/*.md": "Duffney",
+        "go/**/*.md": "jduffney",
         "python/**/*.md": "jejohn",
         "ansible/**/*.md": "tarcher",
         "chef/**/*.md": "tarcher",
