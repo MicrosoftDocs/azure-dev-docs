@@ -150,6 +150,7 @@
       },
       "ms.prod": {
         "python/**/*.md": "azure-python",
+        "go/**/*.md": "auzre-golang",
         "javascript/**/*.md": "azure-nodejs"
       }
     },
