@@ -244,7 +244,7 @@
 | azure-cosmos-cassandra-driver-4-extensions | Maven [1.1.0](https://search.maven.org/artifact/com.azure/azure-cosmos-cassandra-driver-4-extensions/1.1.0/jar/) |  |  |
 | azure-cosmos-cassandra-spring-data-extensions | Maven [1.1.0](https://search.maven.org/artifact/com.azure/azure-cosmos-cassandra-spring-data-extensions/1.1.0/jar/) |  |  |
 | azure-cosmos-spark_3-0_2-12 | Maven [4.0.0-beta.1](https://search.maven.org/artifact/com.azure/azure-cosmos-spark_3-0_2-12/4.0.0-beta.1/jar/) |  |  |
-| azure-cosmos-spark_3-1_2-12 | Maven [4.4.2](https://search.maven.org/artifact/com.azure.cosmos.spark/azure-cosmos-spark_3-1_2-12/4.4.2/jar/) |  |  |
+| azure-cosmos-spark_3-1_2-12 | Maven [4.5.0](https://search.maven.org/artifact/com.azure.cosmos.spark/azure-cosmos-spark_3-1_2-12/4.5.0/jar/) |  |  |
 | azure-data-confidentialledger | Maven [1.0.0-beta.1](https://search.maven.org/artifact/com.azure/azure-data-confidentialledger/1.0.0-beta.1/jar/) |  |  |
 | azure-gradle-plugins-common | Maven [1.1.2](https://search.maven.org/artifact/com.microsoft.azure/azure-gradle-plugins-common/1.1.2/jar/) |  |  |
 | azure-mariadb-connector-java | Maven [2.7.0](https://search.maven.org/artifact/com.microsoft.azure/azure-mariadb-connector-java/2.7.0/jar/) |  |  |
@@ -327,7 +327,7 @@
 | Anomaly Detector | Maven [3.0.0-beta.2](https://search.maven.org/artifact/com.azure/azure-ai-anomalydetector/3.0.0-beta.2/jar/) | [docs](/java/api/overview/azure/ai-anomalydetector-readme) | GitHub [3.0.0-beta.2](https://github.com/Azure/azure-sdk-for-java/tree/azure-ai-anomalydetector_3.0.0-beta.2/sdk/anomalydetector/azure-ai-anomalydetector/) |
 | Apache Spark Archetype | Maven [0.1.0](https://search.maven.org/artifact/com.microsoft.azure/apache-spark-archetype/0.1.0/jar/) |  |  |
 | App Configuration | Maven [1.2.4](https://search.maven.org/artifact/com.azure/azure-data-appconfiguration/1.2.4/jar/) | [docs](/java/api/overview/azure/data-appconfiguration-readme) | GitHub [1.2.4](https://github.com/Azure/azure-sdk-for-java/tree/azure-data-appconfiguration_1.2.4/sdk/appconfiguration/azure-data-appconfiguration/) |
-| Application Insights - Agent | Maven [3.2.3](https://search.maven.org/artifact/com.microsoft.azure/applicationinsights-agent/3.2.3/jar/) |  |  |
+| Application Insights - Agent | Maven [3.2.4](https://search.maven.org/artifact/com.microsoft.azure/applicationinsights-agent/3.2.4/jar/) |  |  |
 | Application Insights - Collectd | Maven [2.6.3](https://search.maven.org/artifact/com.microsoft.azure/applicationinsights-collectd/2.6.3/jar/)<br>Maven [2.6.3-BETA-HEYA-TEST](https://search.maven.org/artifact/com.microsoft.azure/applicationinsights-collectd/2.6.3-BETA-HEYA-TEST/jar/) |  |  |
 | Application Insights - Core | Maven [2.6.3](https://search.maven.org/artifact/com.microsoft.azure/applicationinsights-core/2.6.3/jar/)<br>Maven [2.6.3-BETA-HEYA-TEST](https://search.maven.org/artifact/com.microsoft.azure/applicationinsights-core/2.6.3-BETA-HEYA-TEST/jar/) |  |  |
 | Application Insights - Logging Log4j1_2 | Maven [2.6.3](https://search.maven.org/artifact/com.microsoft.azure/applicationinsights-logging-log4j1_2/2.6.3/jar/) |  |  |
