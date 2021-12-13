@@ -2,13 +2,23 @@
 title: "What's new for JavaScript docs"
 description: "What's new in JavaScript docs in the Developer Center"
 ms.topic: how-to
-ms.date: 11/19/2021
+ms.date: 12/13/2021
 
 ---
 
 # JavaScript docs: What's new
 
 Find new and updated content for JavaScript and TypeScript developers.
+
+## 2021 December
+
+### Updates in December
+
+|Name|Description|
+|---------------------------------------|--|
+|[Key Vault Certificates quickstart](/azure/key-vault/certificates/quick-create-node)|Updated article.|
+|[Key Vault Keys quickstart](/azure/key-vault/keys/quick-create-node)|Updated article.|
+
 
 ## 2021 November
 
@@ -17,7 +27,7 @@ Find new and updated content for JavaScript and TypeScript developers.
 |Name|Description|
 |---------------------------------------|--|
 |[Virtual machine web app](tutorial/nodejs-virtual-machine-vm/introduction.md)|Updated article series.|
-|[Key Vault secrets quickstart](/azure/key-vault/secrets/quick-create-node)|Updated article.|
+|[Key Vault Secrets quickstart](/azure/key-vault/secrets/quick-create-node)|Updated article.|
 
 
 ## 2021 October
