@@ -2,7 +2,7 @@
 title: "What's new with Cloud Developer Advocates"
 description: "What's new with JavaScript Cloud Developer Advocates (CDA)"
 ms.topic: how-to
-ms.date: 10/28/2021
+ms.date: 12/13/2021
 ---
 
 # What's new with JavaScript Developer Advocates
@@ -32,6 +32,16 @@ This content is primarily from Developer Advocates as well as other members of t
 |Client web apps|Beginner's Series to: Vue.js|[Beginner video series](https://youtu.be/LnngsOg014Y)|
 |Client web apps|Comparing Azure Static Web Apps vs Azure WebApps vs Azure Blob Storage Static Sites|[Blog post](https://devblogs.microsoft.com/devops/comparing-azure-static-web-apps-vs-azure-webapps-vs-azure-blob-storage-static-sites/)|
 |Microsoft Graph|Get started with Microsoft Graph and JavaScript|[Samples](https://developer.microsoft.com/graph/get-started/javascript)|
+
+## 2021 December
+
+|Cloud Advocate|Contributions|Link|
+|--|--|--|
+|[Nitya Narasimhan][Nitya]|#30DaysOfPlaywright|[Blog](https://dev.to/azure/hello-30daysofplaywright-2fl1)|
+|[Glaucia Lemos][Glaucia]TypeScript - Zero to Hero #31 - Type Object|**Portuguese** - [YouTube](https://youtu.be/SoZeG6p_Ass)|
+|[Glaucia Lemos][Glaucia]TypeScript - Zero to Hero #32 - Type Object|**Portuguese** - [YouTube](https://youtu.be/0cxJ1RQ7Gv0)|
+|[Glaucia Lemos][Glaucia]TypeScript - Zero to Hero #33 - Type Object|**Portuguese** - [YouTube](https://youtu.be/WNp44xb1M_s)|
+|[Aaron Powell][Aaron]|GRAPHQL ON AZURE: PART 8 - LOGGING|[Blog](https://www.aaron-powell.com/posts/2021-12-07-graphql-on-azure-part-8-logging/)|
 
 ## 2021 November
 
