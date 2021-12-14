@@ -417,6 +417,8 @@ dotnet ef database update
 
 After the migration completes, your Azure SQL database will have the correct schema.
 
+Note: If you receive an error stating `Client with IP address xxx.xxx.xxx.xxx is not allowed to access the server`, that means the IP address you entered into your Azure firewall rule is incorrect. To fix this issue, update the Azure firewall rule with the IP address provided in the error message.
+
 Navigate back to your web app in the browser.  If you refresh the page, you should now be able to Create Todos and see them displayed on the home page.
 
 
