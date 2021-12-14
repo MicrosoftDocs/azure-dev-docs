@@ -1,1 +1,1 @@
-On the publishing profile summary view, click `Publish` to deploy your app to Azure.  This process may take a few moments, but once it completes your app will be successfully published to Azure.
+On the publishing profile summary view, click **Publish** to deploy your app to Azure.  This process may take a few moments, but once it completes your app will be successfully published to Azure.

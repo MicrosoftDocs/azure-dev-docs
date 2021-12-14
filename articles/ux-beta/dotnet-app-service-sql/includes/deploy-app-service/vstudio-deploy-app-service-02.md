@@ -1,1 +1,1 @@
-Select `Azure App Service (Linux)` as the host of your app and then click `Next`.
+Select **Azure App Service (Linux)** as the host of your app and then click **Next**.

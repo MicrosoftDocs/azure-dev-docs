@@ -1,1 +1,1 @@
-On the SQL Servers page, select + Create.
+On the SQL Servers page, select **+ Create**.
