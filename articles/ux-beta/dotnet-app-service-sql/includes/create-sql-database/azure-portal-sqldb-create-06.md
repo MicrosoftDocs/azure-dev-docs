@@ -1,1 +1,1 @@
-On the SQL Databases page, select **+ Create**.
+On the **SQL Databases** page, select **+ Create**.

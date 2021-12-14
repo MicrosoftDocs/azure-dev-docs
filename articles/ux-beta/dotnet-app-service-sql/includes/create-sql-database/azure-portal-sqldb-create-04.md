@@ -2,4 +2,4 @@
 
 1. Click **Review + Create** screen.
 
-1. Once Azure validates your settings, click create. Provisioning the database may take a few minutes.
+1. Once Azure validates your settings, click **create**. Provisioning the database may take a few minutes.

@@ -1,4 +1,4 @@
-On the Create Database page, fill out the form as follows.
+On the **Create Database** page, fill out the form as follows.
 1. **Resource Group** - choose the **ms-docs-core-sql-tutorial** group you created earlier.
 
 1. **Database name** - enter a value of of *coreDb*.

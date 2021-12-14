@@ -1,3 +1,1 @@
-In the Visual Studio solution explorer, right click on the **DotNetCoreSqlDb** project node and select publish.
-
-A publishing workflow dialog will open. Select **Azure** as the deployment target and click **next**.
+In the Visual Studio solution explorer, right click on the **DotNetCoreSqlDb** project node and select publish. A publishing workflow dialog will open. Select **Azure** as the deployment target and click **next**.

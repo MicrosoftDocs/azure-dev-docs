@@ -1,6 +1,6 @@
 On the **Create Web App** page, fill out the form as follows.
 
-1. **Resource Group** &rarr; Select **Create new** and enter a name of *msdocs-core-sql-tutorial*.
+1. **Resource Group** &rarr; Select **Create new** and enter a name of *msdocs-core-sql*.
 1. **Name** &rarr; Enter a unique name of your choice, such as *coreSqlXYZ*, where XYZ are letters or numbers of your choosing. This App Service name must be unique across Azure.
 1. **Publish** &rarr; **Code**
 1. **Runtime stack** &rarr; **.NET 6.0**
