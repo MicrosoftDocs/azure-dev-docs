@@ -2,7 +2,7 @@
 title: "What's new for JavaScript docs"
 description: "What's new in JavaScript docs in the Developer Center"
 ms.topic: how-to
-ms.date: 12/13/2021
+ms.date: 12/15/2021
 
 ---
 
@@ -12,11 +12,17 @@ Find new and updated content for JavaScript and TypeScript developers.
 
 ## 2021 December
 
+### New in December
+
+|Name|Description|
+|---------------------------------------|--|
+|[Use Azure Key Vault with a virtual machine in JavaScript]()||
+
 ### Updates in December
 
 |Name|Description|
 |---------------------------------------|--|
-|[Key Vault Certificates quickstart](/azure/key-vault/certificates/quick-create-node)|Updated article.|
+|[Key Vault Certificates quickstart](/azure/key-vault/certificates/quick-create-node)|In this tutorial, you set up a Node.js application in an Azure Virtual Machine to read information from Azure Key Vault by using managed identities for Azure resources. <br><br>Learn how to:<br>* Create a key vault<br>* Store a secret in Key Vault<br> * Create an Azure Linux virtual machine<br> * Enable a [managed identity](../../active-directory/managed-identities-azure-resources/overview.md) for the virtual machine<br> * Grant the required permissions for the console application to read data from Key Vault<br> * Retrieve a secret from Key Vault|
 |[Key Vault Keys quickstart](/azure/key-vault/keys/quick-create-node)|Updated article.|
 
 
