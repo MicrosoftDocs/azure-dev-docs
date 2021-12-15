@@ -27,17 +27,17 @@ You can use Azure login to connect to public or sovereign clouds including Azure
 
 To set up an Azure Login with OpenID Connect and use it in a GitHub Actions workflow, you'll need:
 
-* An [Active Directory application](/azure/active-directory/develop/), with a service principal that has contributor access to your subscription
-* An Active Directory application configured with a federated credential to trust tokens issued by GitHub Actions to your GitHub repository. You can configure this in the Azure portal or with Microsoft Graph REST APIs
+* An [Azure Active Directory application](/azure/active-directory/develop/), with a service principal that has contributor access to your subscription
+* An Azure Active Directory application configured with a federated credential to trust tokens issued by GitHub Actions to your GitHub repository. You can configure this in the Azure portal or with Microsoft Graph REST APIs
 * A GitHub Actions workflow that requests GitHub issue tokens to the workflow, and uses the Azure login action
 
-### Create an active directory application and service principal
+### Create an Azure Active Directory application and service principal
 
 You'll need to create an Azure Active Directory application and service principal and then assign a role on your subscription to your application so that your workflow has access to your subscription.
 
 # [Azure portal](#tab/azure-portal)
 
-1. If you do not have an existing application, register a [new Active Directory application and service principal that can access resources](/azure/active-directory/develop/howto-create-service-principal-portal). As part of this process, make sure to:
+1. If you do not have an existing application, register a [new Azure Active Directory application and service principal that can access resources](/azure/active-directory/develop/howto-create-service-principal-portal). As part of this process, make sure to:
 
     * Register your application with Azure AD and create a service principal
     * Assign a role to the application
@@ -48,7 +48,7 @@ You'll need to create an Azure Active Directory application and service principa
 
 # [Azure CLI](#tab/azure-cli)
 
-1. Create the Active Directory application.
+1. Create the Azure Active Directory application.
 
     ```azurecli-interactive
     az ad app create --display-name myApp
@@ -95,9 +95,9 @@ You can add federated credentials in the Azure portal or with the Microsoft Grap
 For a more detailed overview, see [Configure an app to trust a GitHub repo](/azure/active-directory/develop/workload-identity-federation-create-trust-github).
 # [Azure CLI](#tab/azure-cli)
 
-Run the following command to [create a new federated identity credential](/graph/api/application-post-federatedidentitycredentials?view=graph-rest-beta&preserve-view=true) for your active directory application.
+Run the following command to [create a new federated identity credential](/graph/api/application-post-federatedidentitycredentials?view=graph-rest-beta&preserve-view=true) for your Azure Active Directory application.
 
-* Replace `APPLICATION-OBJECT-ID` with the **objectId (generated while creating app)** for your Active Directory application.
+* Replace `APPLICATION-OBJECT-ID` with the **objectId (generated while creating app)** for your Azure Active Directory application.
 * Set a value for `CREDENTIAL-NAME` to reference later.
 * Set the `subject`. The value of this is defined by GitHub depending on your workflow:
   * Jobs in your GitHub Actions environment: `repo:< Organization/Repository >:environment:< Name >`
@@ -123,9 +123,9 @@ You need to provide your application's **Client ID**, **Tenant ID** and **Subscr
 
     :::image type="content" source="media/select-secrets.png" alt-text="Choose to add a secret":::
 
-1. Create secrets for `AZURE_CLIENT_ID`, `AZURE_TENANT_ID`, and `AZURE_SUBSCRIPTION_ID`. Use these values from your Active Directory application for your GitHub secrets:
+1. Create secrets for `AZURE_CLIENT_ID`, `AZURE_TENANT_ID`, and `AZURE_SUBSCRIPTION_ID`. Use these values from your Azure Active Directory application for your GitHub secrets:
 
-    |GitHub Secret  | Active Directory Application  |
+    |GitHub Secret  | Azure Active Directory Application  |
     |---------|---------|
     |AZURE_CLIENT_ID     |      Application (client) ID   |
     |AZURE_TENANT_ID     |     Directory (tenant) ID    |
