@@ -99,8 +99,7 @@ Install-Module -Name Az -Scope CurrentUser -Repository PSGallery -Force
 
 First, create a resource group to act as a container for all of the Azure resources related to this application.
 
-```azurecli
-# Use 'az account list-locations --output table' to list available locations close to you
+```powershell
 # Create a resource group
 New-AzResourceGroup msdocs-core-sql "eastus"
 ```
@@ -116,10 +115,9 @@ Next, create an App Service plan using the [New-AzAppServicePlan](/cli/azure/app
 New-AzAppServicePlan -ResourceGroupName "msdocs-core-sql" -Name "myAppServicePlan123" -Location "eastus" -Tier "Basic" -Linux
 ```
 
-Finally, create the App Service web app using the [az webapp create](/cli/azure/webapp#az_webapp_create) command.  
+Finally, create the App Service web app using the [New-AzWebApp](/cli/azure/webapp#az_webapp_create) command.  
 
 * The `Name` is used as both the name of the resource in Azure and to form the fully qualified domain name for your app in the form of `https://<app service name>.azurewebsites.com`.
-* The runtime specifies what version of .NET your app is running. This example uses .NET 6.0 LTS. To list all available runtimes, use the command `az webapp list-runtimes --linux --output table` for Linux and `az webapp list-runtimes --output table` for Windows.
 
 ```powershell
 New-AzWebApp "msdocs-core-sql" -Name "coresql001" -Location "eastus" -AppServicePlan "myAppServicePlan123"
@@ -157,9 +155,9 @@ Replace the <server-name> placeholder with a unique SQL Database name. This name
 az sql server create 
     --location "eastus"
     --resource-group "msdocs-core-sql"
-    --server <your-server-name>
-    --admin-user <your-db-username>
-    --admin-password <your-db-password>
+    --server <server-name>
+    --admin-user <db-username>
+    --admin-password <db-password>
 ```
 
 Provisioning a SQL Server may take a few minutes.  Once the resource is available we can create a database with the [az sql db create](/cli/azure/sql/db?view=azure-cli-latest#az_sql_db_create) command.
@@ -167,7 +165,7 @@ Provisioning a SQL Server may take a few minutes.  Once the resource is availabl
 ```azurecli
 az sql db create 
     --resource-group 'msdocs-core-sql'
-    --server <your-server-name>
+    --server <server-name>
     --name "coreDb"
 ```
 
@@ -175,38 +173,38 @@ We also need to add the following firewall rule to our database server to allow 
 
 ```azurecli
 az sql server firewall-rule create 
---resource-group "msdocs-core-sql" 
---server <your-sql-server> 
---name "AzureAccess" 
---start-ip-address 0.0.0.0 
---end-ip-address 0.0.0.0
+    --resource-group "msdocs-core-sql" 
+    --server <server-name> 
+    --name "AzureAccess" 
+    --start-ip-address 0.0.0.0 
+    --end-ip-address 0.0.0.0
 ```
 
 ### [Azure Powershell](#tab/azure-powershell-database)
 
-To create an Azure SQL database, we first must create a SQL Server to host it. A new Azure SQL Server is created by using the `New-AzSqlServer` command.  This command also requires a secure credentials object.
+To create an Azure SQL database, we first must create a SQL Server to host it. A new Azure SQL Server is created by using the [New-AzSqlServer](/powershell/module/az.sql/new-azsqlserver?view=azps-7.0.0) command.  This command also requires a secure credentials object.
 
 ```powershell
 ## Create secure password
 $pw = ConvertTo-SecureString -String '<your-pw>' -AsPlainText -Force
 
 ## Create secure credentials object
-$credential = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList 'admin123',$pw 
+$credential = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList '<username>', $pw 
 
 ## Create the Azure SQL Server
-New-AzSqlServer -ServerName '<your-server-name>' -ResourceGroupName 'msdocs-core-sql' -Location 'eastus' -SqlAdministratorCredentials $credential
+New-AzSqlServer -ServerName '<server-name>' -ResourceGroupName 'msdocs-core-sql' -Location 'eastus' -SqlAdministratorCredentials $credential
 ```
 
-Provisioning a SQL Server may take a few minutes.  Once the resource is available we can create a database on the server with the `New-AzSqlDatabase` command.
+Provisioning a SQL Server may take a few minutes.  Once the resource is available we can create a database on the server with the [New-AzSqlDatabase](/powershell/module/az.sql/new-AzSqlDatabase?view=azps-7.0.0) command.
 
 ```powershell
-New-AzSqlDatabase -ResourceGroupName "msdocs-core-sql" -ServerName "<your-server-name>" -DatabaseName "coredb"
+New-AzSqlDatabase -ResourceGroupName "msdocs-core-sql" -ServerName "<server-name>" -DatabaseName "coredb"
 ```
 
-We also need to add the following firewall rule to our database server to allow other Azure resources to access it.
+We also need to add the following firewall rule to our database server to allow other Azure resources to access it with the [New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-AzSqlServerFirewallRule?view=azps-7.0.0) command.
 
 ```powershell
-New-AzSqlServerFirewallRule -ResourceGroupName "msdocs-core-sql" -ServerName "<your-server-name>" -FirewallRuleName "LocalAccess" -StartIpAddress "<your-ip>" -EndIpAddress "<your-ip>"
+New-AzSqlServerFirewallRule -ResourceGroupName "msdocs-core-sql" -ServerName "<server-name>" -FirewallRuleName "LocalAccess" -StartIpAddress "<your-ip>" -EndIpAddress "<your-ip>"
 ```
 ----
 
@@ -244,8 +242,8 @@ This command will return a Git deployment URL for your App Service.  Copy this U
 
 ```azurecli
 az webapp deployment source config-local-git 
---name <your-app-name> 
---resource-group 'msdocs-core-sql'
+    --name <your-app-name> 
+    --resource-group 'msdocs-core-sql'
 ```
 
 Next, let's add an Azure origin to our local Git repo using the App Service Git deployment URL from the previous step.
@@ -267,7 +265,7 @@ This command will take a moment to run as it deploys your app code to the Azure 
 
 This approach assumes you have cloned the sample project using Git.
 
-To enable git deployments via the CLI, configure a local git deployment source on your App Service using the `az webapp deployment` command.
+To enable git deployments via the CLI, configure a local git deployment source on your App Service using the `TBD` command.
 
 This command will return a Git deployment URL for your App Service.  Copy this URL for later use.
 
@@ -319,9 +317,9 @@ We can retrieve the Connection String for our database using the [az sql db show
 
 ```azurecli
 az sql db show-connection-string 
---client ado.net 
---name coreDb 
---server <your-server-name>
+    --client ado.net 
+    --name coreDb 
+    --server <your-server-name>
 ```
 
 Next, let's assign the Connection String to our App Service using the command below. `MyDbConnection` is the name of the Connection String in our appsettings.json file, which means it will be loaded by our app during startup.
@@ -330,35 +328,28 @@ Make sure to replace the username and password in the connection string with you
 
 ```azurecli
 az webapp config connection-string set 
--g "msdocs-core-sql" 
--n <your-app-name> 
--t SQLServer 
---settings MyDbConnection=<your-connection-string>
+    -g "msdocs-core-sql" 
+    -n <your-app-name> 
+    -t SQLServer 
+    --settings MyDbConnection=<your-connection-string>
 
 ```
 
 ### [Azure Powershell](#tab/azure-powershell-connect)
 
-We can retrieve the Connection String for our database using the command below.  This will allow us to add it to our App Service configuration settings. Copy this Connectiong String value for later use.
+We can retrieve the Connection String for our database using the command below.  This will allow us to add it to our App Service configuration settings. Copy this Connection String value for later use.
 
-```azurecli
-az sql db show-connection-string 
---client ado.net 
---name coreDb 
---server <your-server-name>
+```powershell
+# TBD
 ```
 
 Next, let's assign the Connection String to our App Service using the command below. `MyDbConnection` is the name of the Connection String in our appsettings.json file, which means it will be loaded by our app during startup.
 
 Make sure to replace the username and password in the connection string with your own before running the command.
 
-```azurecli
+```powershell
 az webapp config connection-string set 
--g "msdocs-core-sql" 
--n <your-app-name> 
--t SQLServer 
---settings MyDbConnection=<your-connection-string>
-
+# TBD
 ```
 
 ----
@@ -386,10 +377,10 @@ az sql server firewall-rule create -resource-group "msdocs-core-sql" --server <y
 
 ### [Azure Powershell](#tab/azure-powershell-schema)
 
-Run the following command to add a firewall rule to your SQL Server instance.
+Run the [New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule?view=azps-7.0.0) command to add a firewall rule to your SQL Server instance.
 
 ```powershell
-New-AzSqlServerFirewallRule -ResourceGroupName "msdocs-core-sql" -ServerName "<your-server-name" -FirewallRuleName "LocalAccess" -StartIpAddress "<your-ip>" -EndIpAddress "<your-ip>"
+New-AzSqlServerFirewallRule -ResourceGroupName "msdocs-core-sql" -ServerName "<server-name>" -FirewallRuleName "LocalAccess" -StartIpAddress "<your-ip>" -EndIpAddress "<your-ip>"
 ```
 ----
 
