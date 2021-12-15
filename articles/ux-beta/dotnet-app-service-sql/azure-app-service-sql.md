@@ -14,11 +14,11 @@ ROBOTS: NOINDEX
 
 # Deploy an ASP.NET Core Web App with a SQL Database to Azure
 
-In this tutorial, you'll learn how to deploy an ASP.NET Core app to Azure App Service and connect it to an Azure SQL Database. Azure App Service provides a highly scalable, self-patching web hosting service that you can use to easily deploy apps on Windows or Linux.
+In this tutorial, you'll learn how to deploy an ASP.NET Core app to Azure App Service and connect it to an Azure SQL Database. Azure App Service provides a highly scalable, self-patching web-hosting service that you can use to easily deploy apps on Windows or Linux.
 
 This article assumes general familiarity with [.NET]("https://dotnet.microsoft.com/download/dotnet/6.0") and assumes you have it installed locally. You'll also need an Azure account with an active subscription.  If you do not have an Azure account, you [can create one for free](https://azure.microsoft.com/free).
 
-## 1 - Setup the Sample Application
+## 1 - Set up the Sample Application
 
 To follow along with this tutorial, [Download the Sample Project](https://github.com/Azure-Samples/dotnetcore-sqldb-tutorial/archive/refs/heads/master.zip) from the repository [https://github.com/Azure-Samples/dotnetcore-sqldb-tutorial](https://github.com/Azure-Samples/dotnetcore-sqldb-tutorial) or clone it using the Git command below.
 
@@ -89,9 +89,9 @@ az webapp create
 
 ### [PowerShell](#tab/azure-powershell)
 
-Powershell commands can be run in the [Azure Cloud Shell](https://shell.azure.com) or on a workstation with the [Powershell installed](/powershell/scripting/install/installing-powershell).
+PowerShell commands can be run in the [Azure Cloud Shell](https://shell.azure.com) or on a workstation with the [PowerShell installed](/powershell/scripting/install/installing-powershell).
 
-Using the Install-Module cmdlet is the preferred installation method for the Az PowerShell module. Install the Az module for the current user only. This is the recommended installation scope. This method works the same on Windows, macOS, and Linux platforms. Run the following command from a PowerShell session:
+Using the Install-Module cmdlet is the preferred installation method for the Az PowerShell module. Install the Az module for the current user only, which is the recommended installation scope. This method works the same on Windows, macOS, and Linux platforms. Run the following command from a PowerShell session:
 
 ```powershell
 Install-Module -Name Az -Scope CurrentUser -Repository PSGallery -Force
@@ -160,7 +160,7 @@ az sql server create
     --admin-password <db-password>
 ```
 
-Provisioning a SQL Server may take a few minutes.  Once the resource is available we can create a database with the [az sql db create](/cli/azure/sql/db?view=azure-cli-latest#az_sql_db_create) command.
+Provisioning a SQL Server may take a few minutes.  Once the resource is available, we can create a database with the [az sql db create](/cli/azure/sql/db?view=azure-cli-latest#az_sql_db_create) command.
 
 ```azurecli
 az sql db create 
@@ -180,7 +180,7 @@ az sql server firewall-rule create
     --end-ip-address 0.0.0.0
 ```
 
-### [Azure Powershell](#tab/azure-powershell-database)
+### [Azure PowerShell](#tab/azure-powershell-database)
 
 To create an Azure SQL database, we first must create a SQL Server to host it. A new Azure SQL Server is created by using the [New-AzSqlServer](/powershell/module/az.sql/new-azsqlserver?view=azps-7.0.0) command.  This command also requires a secure credentials object.
 
@@ -261,7 +261,7 @@ git push azure master
 This command will take a moment to run as it deploys your app code to the Azure App Service.
 
 
-### [Azure Powershell](#tab/azure-powershell-deploy)
+### [Azure PowerShell](#tab/azure-powershell-deploy)
 
 This approach assumes you have cloned the sample project using Git.
 
@@ -313,7 +313,7 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps 
 
 Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com) or on a workstation with the [Azure CLI installed](/cli/azure/install-azure-cli).
 
-We can retrieve the Connection String for our database using the [az sql db show-connection-string](/cli/azure/sql/db?view=azure-cli-latest#az_sql_db_show_connection_string) command.  This will allow us to add it to our App Service configuration settings. Copy this Connectiong String value for later use.
+We can retrieve the Connection String for our database using the [az sql db show-connection-string](/cli/azure/sql/db?view=azure-cli-latest#az_sql_db_show_connection_string) command, which will allow us to add it to our App Service configuration settings. Copy this Connection String value for later use.
 
 ```azurecli
 az sql db show-connection-string 
@@ -335,9 +335,9 @@ az webapp config connection-string set
 
 ```
 
-### [Azure Powershell](#tab/azure-powershell-connect)
+### [Azure PowerShell](#tab/azure-powershell-connect)
 
-We can retrieve the Connection String for our database using the command below.  This will allow us to add it to our App Service configuration settings. Copy this Connection String value for later use.
+We can retrieve the Connection String for our database using the command below, which will allow us to add it to our App Service configuration settings. Copy this Connection String value for later use.
 
 ```powershell
 # TBD
@@ -375,7 +375,7 @@ Run the [az sql server firewall-rule create](/cli/azure/sql/server/firewall-rule
 az sql server firewall-rule create -resource-group "msdocs-core-sql" --server <yoursqlserver> --name "LocalAccess" --start-ip-address <yourip> --end-ip-address <yourip>
 ```
 
-### [Azure Powershell](#tab/azure-powershell-schema)
+### [Azure PowerShell](#tab/azure-powershell-schema)
 
 Run the [New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule?view=azps-7.0.0) command to add a firewall rule to your SQL Server instance.
 
@@ -384,7 +384,7 @@ New-AzSqlServerFirewallRule -ResourceGroupName "msdocs-core-sql" -ServerName "<s
 ```
 ----
 
-Inside of your local code editor, update the app Connection String to point to the Azure SQL Database.  This will allow us to generate the correct schema for the Azure SQL database by using Entity Framework Core migrations.
+Inside of your local code editor, update the app Connection String to point to the Azure SQL Database.  This Connection String will allow us to generate the correct schema for the Azure SQL database by using Entity Framework Core migrations.
 1. Open the appsettings.json file in your project.
 1. Inside of this file, paste the Connection String you copied earlier into the value of the *MyDbConnection* key. Replace the username and password with the value you chose when setting up your database.
  
@@ -398,7 +398,7 @@ Inside of your local code editor, update the app Connection String to point to t
 }
 ```
 
-Next, run the commands below to install the necessary CLI tools for Entity Framework Core, create an intial database migration file, and apply those changes to update the database.
+Next, run the commands below to install the necessary CLI tools for Entity Framework Core, create an initial database migration file, and apply those changes to update the database.
 
 ```dotnetcli
 dotnet tool install -g dotnet-ef
@@ -415,13 +415,13 @@ Navigate back to your web app in the browser.  If you refresh the page, you shou
 
 ## 7 - Browse with kudu
 
-Azure App Service provides a web-based diagnostics console named Kudu that allows you to examine the server hosting environment for your web app. Using Kudu, you can view the files deployed to Azure, review the deployment history of the application, and even open an SSH session into the hosting environment.
+Azure App Service provides a web-based diagnostics console named Kudu that allows you to examine the server-hosting environment for your web app. Using Kudu, you can view the files deployed to Azure, review the deployment history of the application, and even open an SSH session into the hosting environment.
 
 To access Kudu, navigate to one of the following URLs. You will need to sign into the Kudu site with your Azure credentials.
 
 - For apps deployed in Free, Shared, Basic, Standard, and Premium App Service plans - `https:/<app-name>.scm.azurewebsites.net`
 - For apps deployed in Isolated service plans - `https://<app-name>.scm.<ase-name>.p.azurewebsites.net`
-From the main page in Kudu, you can access information about the application hosting environment, app settings, deployments, and browse the files in the wwwroot directory.
+From the main page in Kudu, you can access information about the application-hosting environment, app settings, deployments, and browse the files in the wwwroot directory.
 
 ## 8 - Stream diagnostic logs
 
