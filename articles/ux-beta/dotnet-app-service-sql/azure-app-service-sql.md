@@ -51,10 +51,10 @@ Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com
 
 First, create a resource group using the [az group create](/cli/azure/group?view=azure-cli-latest#az_group_create) command. The resource group will act as a container for all of the Azure resources related to this application.
 
-```azurecli
+```azurecli-interactive
 # Use 'az account list-locations --output table' to list available locations close to you
 # Create a resource group
-az group create --location "eastus" --name "msdocs-core-sql"
+az group create --location eastus --name msdocs-core-sql
 ```
 
 Next, create an App Service plan using the [az appservice plan create](https://docs.microsoft.com/en-us/cli/azure/appservice/plan?view=azure-cli-latest#az_appservice_plan_create) command.
@@ -62,12 +62,12 @@ Next, create an App Service plan using the [az appservice plan create](https://d
 * The `--sku` parameter defines the size (CPU, memory) and cost of the app service plan.  This example uses the F1 (Free) service plan.  For a full list of App Service plans, view the [App Service pricing](https://azure.microsoft.com/pricing/details/app-service/windows/) page.
 * The `--is-linux` flag selects the Linux as the host operating system.  To use Windows, remove this flag from the command.
 
-```azurecli
+```azurecli-interactive
 
  # Change 123 to any three characters to form a unique name across Azure
 az appservice plan create
-    --name "msdocs-core-sql-plan-123"   
-    --resource-group "msdocs-core-sql"
+    --name msdocs-core-sql-plan-123 
+    --resource-group msdocs-core-sql
     --sku B1
     --is-linux
 ```
@@ -77,29 +77,29 @@ Finally, create the App Service web app using the [az webapp create](/cli/azure/
 * The *app service name* is used as both the name of the resource in Azure and to form the fully qualified domain name for your app in the form of `https://<app service name>.azurewebsites.com`.
 * The runtime specifies what version of .NET your app is running. This example uses .NET 6.0 LTS. To list all available runtimes, use the command `az webapp list-runtimes --linux --output table` for Linux and `az webapp list-runtimes --output table` for Windows.
 
-```azurecli
+```azurecli-interactive
 
 az webapp create
     --name <your-app-service-name>
     --runtime "DOTNET|6.0"
     --plan <your-app-service-plan-name>  
-    --resource-group "msdocs-core-sql"
+    --resource-group msdocs-core-sql
 ```
 
 
-### [PowerShell](#tab/azure-powershell)
+### [Azure PowerShell](#tab/azure-powershell)
 
 PowerShell commands can be run in the [Azure Cloud Shell](https://shell.azure.com) or on a workstation with [PowerShell installed](/powershell/scripting/install/installing-powershell).
 
 Using the Install-Module cmdlet is the preferred installation method for the Az PowerShell module. Install the Az module for the current user only. This method works the same on Windows, macOS, and Linux platforms. Run the following command from a PowerShell session:
 
-```powershell
+```azurepowershell-interactive
 Install-Module -Name Az -Scope CurrentUser -Repository PSGallery -Force
 ```
 
 First, create a resource group to act as a container for all of the Azure resources related to this application.
 
-```powershell
+```azurepowershell-interactive
 # Create a resource group
 New-AzResourceGroup msdocs-core-sql "eastus"
 ```
@@ -109,7 +109,7 @@ Next, create an App Service plan using the [New-AzAppServicePlan](/cli/azure/app
 * The `-Tier` parameter defines the size (CPU, memory) and cost of the app service plan.  This example uses the F1 (Free) service plan.  For a full list of App Service plans, view the [App Service pricing](https://azure.microsoft.com/pricing/details/app-service/windows/) page.
 * The `-Linux` flag selects the Linux as the host operating system.  To use Windows, remove this flag from the command.
 
-```powershell
+```azurepowershell-interactive
 
  # Change 123 to any three characters to form a unique name across Azure
 New-AzAppServicePlan -ResourceGroupName "msdocs-core-sql" -Name "myAppServicePlan123" -Location "eastus" -Tier "Basic" -Linux
@@ -119,7 +119,7 @@ Finally, create the App Service web app using the [New-AzWebApp](/cli/azure/weba
 
 * The `Name` is used as both the name of the resource in Azure and to form the fully qualified domain name for your app in the form of `https://<app service name>.azurewebsites.com`.
 
-```powershell
+```azurepowershell-interactive
 New-AzWebApp "msdocs-core-sql" -Name "coresql001" -Location "eastus" -AppServicePlan "myAppServicePlan123"
 $propertiesObject = @{"CURRENT_STACK" = "DOTNET:6.0"}
 New-AzResource -PropertyObject $propertiesObject -ResourceGroupName "msdocs-core-sql" -ResourceType Microsoft.Web/sites/config -ResourceName "<your-app>/metadata" -ApiVersion 2018-02-01 -Force
@@ -150,10 +150,10 @@ To create an Azure SQL database, we first must create a SQL Server to host it. A
 
 Replace the <server-name> placeholder with a unique SQL Database name. This name is used as the part of the globally unique SQL Database endpoint, <server-name>.database.windows.net. Also, replace <db-username> and <db-username> with a username and password of your choice.
 
-```azurecli
+```azurecli-interactive
 az sql server create 
-    --location "eastus"
-    --resource-group "msdocs-core-sql"
+    --location eastus
+    --resource-group msdocs-core-sql
     --server <server-name>
     --admin-user <db-username>
     --admin-password <db-password>
@@ -161,20 +161,20 @@ az sql server create
 
 Provisioning a SQL Server may take a few minutes.  Once the resource is available, we can create a database with the [az sql db create](/cli/azure/sql/db?view=azure-cli-latest#az_sql_db_create) command.
 
-```azurecli
+```azurecli-interactive
 az sql db create 
-    --resource-group 'msdocs-core-sql'
+    --resource-group msdocs-core-sql
     --server <server-name>
-    --name "coreDb"
+    --name coreDb
 ```
 
 We also need to add the following firewall rule to our database server to allow other Azure resources to access it.
 
-```azurecli
+```azurecli-interactive
 az sql server firewall-rule create 
-    --resource-group "msdocs-core-sql" 
+    --resource-group msdocs-core-sql
     --server <server-name> 
-    --name "AzureAccess" 
+    --name AzureAccess
     --start-ip-address 0.0.0.0 
     --end-ip-address 0.0.0.0
 ```
@@ -183,7 +183,7 @@ az sql server firewall-rule create
 
 To create an Azure SQL database, we first must create a SQL Server to host it. A new Azure SQL Server is created by using the [New-AzSqlServer](/powershell/module/az.sql/new-azsqlserver?view=azps-7.0.0) command.  This command also requires a secure credentials object.
 
-```powershell
+```azurepowershell-interactive
 ## Create secure password
 $pw = ConvertTo-SecureString -String '<your-pw>' -AsPlainText -Force
 
@@ -196,17 +196,16 @@ New-AzSqlServer -ServerName '<server-name>' -ResourceGroupName 'msdocs-core-sql'
 
 Provisioning a SQL Server may take a few minutes.  Once the resource is available, we can create a database on the server with the [New-AzSqlDatabase](/powershell/module/az.sql/new-AzSqlDatabase?view=azps-7.0.0) command.
 
-```powershell
+```azurepowershell-interactive
 New-AzSqlDatabase -ResourceGroupName "msdocs-core-sql" -ServerName "<server-name>" -DatabaseName "coredb"
 ```
 
 We also need to add the following firewall rule to our database server to allow other Azure resources to access it with the [New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-AzSqlServerFirewallRule?view=azps-7.0.0) command.
 
-```powershell
+```azurepowershell-interactive
 New-AzSqlServerFirewallRule -ResourceGroupName "msdocs-core-sql" -ServerName "<server-name>" -FirewallRuleName "LocalAccess" -StartIpAddress "<your-ip>" -EndIpAddress "<your-ip>"
 ```
 ----
-
 
 ## 4 - Deploy to the App Service
 
@@ -239,10 +238,10 @@ To enable git deployments via the CLI, configure a local git deployment source o
 
 This command will return a Git deployment URL for your App Service.  Copy this URL for later use.
 
-```azurecli
+```azurecli-interactive
 az webapp deployment source config-local-git 
     --name <your-app-name> 
-    --resource-group 'msdocs-core-sql'
+    --resource-group msdocs-core-sql
 ```
 
 Next, let's add an Azure origin to our local Git repo using the App Service Git deployment URL from the previous step.
@@ -268,7 +267,7 @@ To enable git deployments via the CLI, configure a local git deployment source o
 
 This command will return a Git deployment URL for your App Service.  Copy this URL for later use.
 
-```powershell
+```azurepowershell-interactive
 # Configure GitHub deployment from your GitHub repo and deploy once.
 $PropertiesObject = @{
     scmType = "LocalGit";
@@ -314,7 +313,7 @@ Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com
 
 We can retrieve the Connection String for our database using the [az sql db show-connection-string](/cli/azure/sql/db?view=azure-cli-latest#az_sql_db_show_connection_string) command.  This command allows us to add the Connection String to our App Service configuration settings. Copy this Connection String value for later use.
 
-```azurecli
+```azurecli-interactive
 az sql db show-connection-string 
     --client ado.net 
     --name coreDb 
@@ -325,9 +324,9 @@ Next, let's assign the Connection String to our App Service using the command be
 
 Make sure to replace the username and password in the connection string with your own before running the command.
 
-```azurecli
+```azurecli-interactive
 az webapp config connection-string set 
-    -g "msdocs-core-sql" 
+    -g msdocs-core-sql
     -n <your-app-name> 
     -t SQLServer 
     --settings MyDbConnection=<your-connection-string>
@@ -338,7 +337,7 @@ az webapp config connection-string set
 
 We can retrieve the Connection String for our database using the command below, which will allow us to add it to our App Service configuration settings. Copy this Connection String value for later use.
 
-```powershell
+```azurepowershell-interactive
 # TBD
 ```
 
@@ -346,7 +345,7 @@ Next, let's assign the Connection String to our App Service using the command be
 
 Make sure to replace the username and password in the connection string with your own before running the command.
 
-```powershell
+```azurepowershell-interactive
 az webapp config connection-string set 
 # TBD
 ```
@@ -370,15 +369,15 @@ In the Azure portal:
 
 Run the [az sql server firewall-rule create](/cli/azure/sql/server/firewall-rule?view=azure-cli-latest#az_sql_server_firewall_rule_create) command to add a firewall rule to your SQL Server instance.
 
-```azurecli
-az sql server firewall-rule create -resource-group "msdocs-core-sql" --server <yoursqlserver> --name "LocalAccess" --start-ip-address <yourip> --end-ip-address <yourip>
+```azurecli-interactive
+az sql server firewall-rule create -resource-group msdocs-core-sql --server <yoursqlserver> --name LocalAccess --start-ip-address <your-ip> --end-ip-address <your-ip>
 ```
 
 ### [Azure PowerShell](#tab/azure-powershell-schema)
 
 Run the [New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule?view=azps-7.0.0) command to add a firewall rule to your SQL Server instance.
 
-```powershell
+```azurepowershell-interactive
 New-AzSqlServerFirewallRule -ResourceGroupName "msdocs-core-sql" -ServerName "<server-name>" -FirewallRuleName "LocalAccess" -StartIpAddress "<your-ip>" -EndIpAddress "<your-ip>"
 ```
 ----
@@ -433,7 +432,7 @@ The sample project already follows the guidance for the [Azure App Service loggi
 
 1. To set the ASP.NET Core [log level](/dotnet/core/extensions/logging#log-level) in App Service to `Information` from the default level `Error`, use the [`az webapp log config`](/cli/azure/webapp/log#az_webapp_log_config) command in the Cloud Shell.
 
-    ```azurecli-interactive
+    ```azurecli-interactive-interactive
     az webapp log config --name <app-name> --resource-group myResourceGroup --application-logging filesystem --level information
     ```
 
@@ -442,7 +441,7 @@ The sample project already follows the guidance for the [Azure App Service loggi
 
 1. To start log streaming, use the [`az webapp log tail`](/cli/azure/webapp/log#az_webapp_log_tail) command in the Cloud Shell.
 
-    ```azurecli-interactive
+    ```azurecli-interactive-interactive
     az webapp log tail --name <app-name> --resource-group myResourceGroup
     ```
 
