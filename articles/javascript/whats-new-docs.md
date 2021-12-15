@@ -16,13 +16,13 @@ Find new and updated content for JavaScript and TypeScript developers.
 
 |Name|Description|
 |---------------------------------------|--|
-|[Use Azure Key Vault with a virtual machine in JavaScript]()||
+|[Key Vault Certificates quickstart](/azure/key-vault/certificates/quick-create-node)|In this tutorial, you set up a Node.js application in an Azure Virtual Machine to read information from Azure Key Vault by using managed identities for Azure resources. <br><br>Learn how to:<br>* Create a key vault<br>* Store a secret in Key Vault<br> * Create an Azure Linux virtual machine<br> * Enable a [managed identity](../../active-directory/managed-identities-azure-resources/overview.md) for the virtual machine<br> * Grant the required permissions for the console application to read data from Key Vault<br> * Retrieve a secret from Key Vault|
 
 ### Updates in December
 
 |Name|Description|
 |---------------------------------------|--|
-|[Key Vault Certificates quickstart](/azure/key-vault/certificates/quick-create-node)|In this tutorial, you set up a Node.js application in an Azure Virtual Machine to read information from Azure Key Vault by using managed identities for Azure resources. <br><br>Learn how to:<br>* Create a key vault<br>* Store a secret in Key Vault<br> * Create an Azure Linux virtual machine<br> * Enable a [managed identity](../../active-directory/managed-identities-azure-resources/overview.md) for the virtual machine<br> * Grant the required permissions for the console application to read data from Key Vault<br> * Retrieve a secret from Key Vault|
+|[Key Vault Certificates quickstart](/azure/key-vault/certificates/quick-create-node)|Updated article.|
 |[Key Vault Keys quickstart](/azure/key-vault/keys/quick-create-node)|Updated article.|
 
 
