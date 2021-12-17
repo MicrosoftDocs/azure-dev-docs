@@ -36,22 +36,23 @@ This process will create an **Application (client) ID** to identify your desktop
 1. Select **Expose an API** > **Set**.
 1. Press **Accept**.
 1. Select **Add a scope**.  Press **Save and continue** to confirm the Application ID URI.
-
-    a. In **Scope name**, enter `user_impersonation`.  
-    b. Leave the permission as **Admins only**.
-    c. In the text boxes, enter the consent scope name and description you want users to see on the consent page.  For example, "Access the Todo Items".
-    d. Select **Add scope**.
+  1. In **Scope name**, enter `user_impersonation`.  
+  1. Leave the permission as **Admins only**.
+  1. In the text boxes, enter the consent scope name and description you want users to see on the consent page.  For example, "Access the Todo Items".
+  1. Select **Add scope**.
 
 ### Enable Azure Active Directory in your App Service
 
-1. In the [Azure portal](https://portal.azure.com), search for and select **App Services**, then select your app.
-1. In the left pane, under **Settings**, select **Authentication / Authorization** > **On**.
-1. By default, App Service authentication allows anonymous access to your app.  To enforce user authentication, set **Action to take when request is not authenticated** to **Log in with Azure Active Directory**.
-1. Under **Authentication Providers**, select **Azure Active Directory**.
-1. In **Management mode**, select **Advanced**.
-1. In **Client ID**, enter the **Application (client) ID** for the app registration you configured earlier.
-1. In **Issuer Url**, enter `https://login.microsoftonline.com/9188040d-6c67-4c5b-b112-36a304b66dad/v2.0`.  This URL is the "magic tenant url" for Microsoft logins.
-1. Select **OK**, and then select **Save**.
+1. In the [Azure portal](https://portal.azure.com), select [**All Resources**](https://portal.azure.com/#blade/HubsExtension/BrowseAll), then your App Service.
+1. Select **Settings** > **Authentication**.
+1. Press **Add identity provider**.
+1. Select **Microsoft** as the identity provider.  This will provide a form to fill in.
+1. For **App registration type**, select **Provide the details of an existing app registration**.
+1. Paste the value you copied earlier into the **Application (client) ID** box.
+1. For **Issuer URL**, enter `https://login.microsoftonline.com/9188040d-6c67-4c5b-b112-36a304b66dad/v2.0`.  This URL is the "magic tenant url" for Microsoft logins.
+1. For **Restrict access**, select **Require authentication**.
+1. For **Unauthenticated request**, select **HTTP 401 Unauthorized**.
+1. Press **Add**.
 
 You are now ready to use Azure Active Directory for authentication in your app.
 
