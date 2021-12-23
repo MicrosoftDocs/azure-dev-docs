@@ -166,7 +166,7 @@
 | azure-mgmt-dataprotection | PyPI [1.0.0b1](https://pypi.org/project/azure-mgmt-dataprotection/1.0.0b1) |  |  |
 | azure-mgmt-desktopvirtualization | PyPI [1.0.0b1](https://pypi.org/project/azure-mgmt-desktopvirtualization/1.0.0b1) |  |  |
 | azure-mgmt-deviceupdate | PyPI [1.0.0b3](https://pypi.org/project/azure-mgmt-deviceupdate/1.0.0b3) |  |  |
-| azure-mgmt-edgeorder | PyPI [1.0.0b1](https://pypi.org/project/azure-mgmt-edgeorder/1.0.0b1) |  |  |
+| azure-mgmt-edgeorder | PyPI [1.0.0](https://pypi.org/project/azure-mgmt-edgeorder/1.0.0) |  |  |
 | azure-mgmt-elastic | PyPI [1.0.0](https://pypi.org/project/azure-mgmt-elastic/1.0.0) |  |  |
 | azure-mgmt-extendedlocation | PyPI [1.0.0](https://pypi.org/project/azure-mgmt-extendedlocation/1.0.0) |  |  |
 | azure-mgmt-fluidrelay | PyPI [1.0.0b1](https://pypi.org/project/azure-mgmt-fluidrelay/1.0.0b1) |  |  |
@@ -403,7 +403,7 @@
 | Resource Management - Private DNS | PyPI [1.0.0](https://pypi.org/project/azure-mgmt-privatedns/1.0.0) | [docs](/python/api/overview/azure/mgmt-privatedns-readme) | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-privatedns_0.1.0/azure-mgmt-privatedns/) |
 | Resource Management - Rdbms | PyPI [10.0.0](https://pypi.org/project/azure-mgmt-rdbms/10.0.0) | [docs](/python/api/overview/azure/mgmt-rdbms-readme) | GitHub [10.0.0](https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-rdbms_10.0.0/sdk/rdbms/azure-mgmt-rdbms/) |
 | Resource Management - Recovery Services | PyPI [2.0.0](https://pypi.org/project/azure-mgmt-recoveryservices/2.0.0) | [docs](/python/api/overview/azure/mgmt-recoveryservices-readme) | GitHub [2.0.0](https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-recoveryservices_2.0.0/sdk/recoveryservices/azure-mgmt-recoveryservices/) |
-| Resource Management - Recovery Services Backup | PyPI [3.0.0](https://pypi.org/project/azure-mgmt-recoveryservicesbackup/3.0.0) | [docs](/python/api/overview/azure/mgmt-recoveryservicesbackup-readme) | GitHub [3.0.0](https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-recoveryservicesbackup_3.0.0/sdk/recoveryservices/azure-mgmt-recoveryservicesbackup/) |
+| Resource Management - Recovery Services Backup | PyPI [4.0.0](https://pypi.org/project/azure-mgmt-recoveryservicesbackup/4.0.0) | [docs](/python/api/overview/azure/mgmt-recoveryservicesbackup-readme) | GitHub [4.0.0](https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-recoveryservicesbackup_4.0.0/sdk/recoveryservices/azure-mgmt-recoveryservicesbackup/) |
 | Resource Management - Red Hat OpenShift | PyPI [1.0.0](https://pypi.org/project/azure-mgmt-redhatopenshift/1.0.0) | [docs](/python/api/overview/azure/mgmt-redhatopenshift-readme) | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-redhatopenshift_1.0.0/sdk/redhatopenshift/azure-mgmt-redhatopenshift/) |
 | Resource Management - Redis | PyPI [13.1.0](https://pypi.org/project/azure-mgmt-redis/13.1.0) | [docs](/python/api/overview/azure/mgmt-redis-readme) | GitHub [13.1.0](https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-redis_13.1.0/sdk/redis/azure-mgmt-redis/) |
 | Resource Management - Region Move | PyPI [1.0.0b1](https://pypi.org/project/azure-mgmt-regionmove/1.0.0b1) |  | GitHub [1.0.0b1](https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-regionmove_1.0.0b1/sdk/regionmove/azure-mgmt-regionmove/) |
