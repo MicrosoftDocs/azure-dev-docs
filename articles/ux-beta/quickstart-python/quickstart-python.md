@@ -227,11 +227,11 @@ Azure App Service captures all messages output to the console to assist you in d
 
 ### [Flask](#tab/flask)
 
-:::code language="python" source="~/../msdocs-python-flask-webapp-quickstart/app.py" range="6-21" highlight="3,12, 15":::
+:::code language="python" source="~/../msdocs-python-flask-webapp-quickstart/app.py" range="6-21" highlight="3,12,15":::
 
 ### [Django](#tab/django)
 
-:::code language="python" source="~/../msdocs-python-flask-webapp-quickstart/app.py" range="6-21" highlight="3,12, 15":::
+:::code language="python" source="~/../msdocs-python-flask-webapp-quickstart/app.py" range="6-21" highlight="3,12,15":::
 
 ---
 
@@ -248,8 +248,8 @@ The contents of the App Service diagnostic logs can be reviewed in the Azure por
 
 | Instructions    | Screenshot |
 |:----------------|-----------:|
-| [!INCLUDE [Stream logs from VS Code 1](<./includes/quickstart-python/stream-logs/vscode-1.md>)] | :::image type="content" source="./media/quickstart-python/vscode-1-240px.png" alt-text="screenshot" lightbox="./media/quickstart-python/stream-logs/vscode-1.png"::: |
-| [!INCLUDE [Stream logs from VS Code 2](<./includes/quickstart-python/stream-logs/vscode-2.md>)] | :::image type="content" source="./media/quickstart-python/vscode-2-240px.png" alt-text="screenshot" lightbox="./media/quickstart-python/stream-logs/vscode-2.png"::: |
+| [!INCLUDE [Stream logs from VS Code 1](<./includes/quickstart-python/stream-logs/vscode-1.md>)] | :::image type="content" source="./media/quickstart-python/stream-logs/vs-code-1-240px.png" alt-text="screenshot" lightbox="./media/quickstart-python/stream-logs/vs-code-1.png"::: |
+| [!INCLUDE [Stream logs from VS Code 2](<./includes/quickstart-python/stream-logs/vscode-2.md>)] | :::image type="content" source="./media/quickstart-python/stream-logs/vs-code-2-240px.png" alt-text="screenshot" lightbox="./media/quickstart-python/stream-logs/vs-code-2.png"::: |
 
 ### [Azure CLI](#tab/azure-cli)
 
