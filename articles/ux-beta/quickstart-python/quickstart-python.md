@@ -223,21 +223,72 @@ Having issues? Refer first to the [Troubleshooting guide](/azure/app-service/con
 
 ## 4 - Stream logs
 
-You can access the console logs generated from inside the app and the container in which it runs. Logs include any output generated using `print` statements.
+Azure App Service captures all messages output to the console to assist you in diagnosing issues with your application. The sample apps include `print()` statements to demonstrate this capability.
 
-To stream logs, run the [az webapp log tail](/cli/azure/webapp/log#az_webapp_log_tail) command:
+### [Flask](#tab/flask)
+
+:::code language="python" source="~/../msdocs-python-flask-webapp-quickstart/app.py" range="6-21" highlight="3,12, 15":::
+
+### [Django](#tab/django)
+
+:::code language="python" source="~/../msdocs-python-flask-webapp-quickstart/app.py" range="6-21" highlight="3,12, 15":::
+
+---
+
+The contents of the App Service diagnostic logs can be reviewed in the Azure portal, VS Code, or using the Azure CLI.
+
+### [Azure portal](#tab/azure-portal)
+
+| Instructions    | Screenshot |
+|:----------------|-----------:|
+| [!INCLUDE [Stream logs from Azure portal 1](<./includes/quickstart-python/stream-logs/azure-portal-1.md>)] | :::image type="content" source="./media/quickstart-python/stream-logs/azure-portal-1-240px.png" alt-text="Screenshot" lightbox="./media/quickstart-python/stream-logs/azure-portal-1.png"::: |
+| [!INCLUDE [Stream logs from Azure portal 2](<./includes/quickstart-python/stream-logs/azure-portal-2.md>)] | :::image type="content" source="./media/quickstart-python/stream-logs/azure-portal-2-240px.png" alt-text="Screenshot" lightbox="./media/quickstart-python/stream-logs/azure-portal-2.png"::: |
+
+### [VS Code](#tab/vscode-aztools)
+
+| Instructions    | Screenshot |
+|:----------------|-----------:|
+| [!INCLUDE [Stream logs from VS Code 1](<./includes/quickstart-python/stream-logs/vscode-1.md>)] | :::image type="content" source="./media/quickstart-python/vscode-1-240px.png" alt-text="screenshot" lightbox="./media/quickstart-python/stream-logs/vscode-1.png"::: |
+| [!INCLUDE [Stream logs from VS Code 2](<./includes/quickstart-python/stream-logs/vscode-2.md>)] | :::image type="content" source="./media/quickstart-python/vscode-2-240px.png" alt-text="screenshot" lightbox="./media/quickstart-python/stream-logs/vscode-2.png"::: |
+
+### [Azure CLI](#tab/azure-cli)
+
+First, you need to configure Azure App Service to output logs to the App Service filesystem using the [az webapp log config](/cli/azure/webapp/log#az_webapp_log_config) command.
 
 ```azurecli
-az webapp log tail
+az webapp log config \
+    --web-server-logging 'filesystem' \
+    --name $APP_SERVICE_NAME \
+    --resource-group $RESOURCE_GROUP_NAME
 ```
 
-You can also include the `--logs` parameter with then `az webapp up` command to automatically open the log stream on deployment.
+To stream logs, use the [az webapp log tail](/cli/azure/webapp/log#az_webapp_log_tail) command.
 
-Refresh the app in the browser to generate console logs, which include messages describing HTTP requests to the app. If no output appears immediately, try again in 30 seconds.
+```azurecli
+az webapp log tail \
+    --name $APP_SERVICE_NAME \
+    --resource-group $RESOURCE_GROUP_NAME
+```
 
-You can also inspect the log files from the browser at `https://<app-name>.scm.azurewebsites.net/api/logs/docker`.
+Refresh the home page in the app or attempt other requests to generate some log messages. The output should look similar to the following.
 
-To stop log streaming at any time, press **Ctrl**+**C** in the terminal.
+```Output
+Starting Live Log Stream ---
+
+2021-12-23T02:15:52.740703322Z Request for index page received
+2021-12-23T02:15:52.740740222Z 169.254.130.1 - - [23/Dec/2021:02:15:52 +0000] "GET / HTTP/1.1" 200 1360 "https://msdocs-python-webapp-quickstart-123.azurewebsites.net/hello" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:95.0) Gecko/20100101 Firefox/95.0"
+2021-12-23T02:15:52.841043070Z 169.254.130.1 - - [23/Dec/2021:02:15:52 +0000] "GET /static/bootstrap/css/bootstrap.min.css HTTP/1.1" 200 0 "https://msdocs-python-webapp-quickstart-123.azurewebsites.net/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:95.0) Gecko/20100101 Firefox/95.0"
+2021-12-23T02:15:52.884541951Z 169.254.130.1 - - [23/Dec/2021:02:15:52 +0000] "GET /static/images/azure-icon.svg HTTP/1.1" 200 0 "https://msdocs-python-webapp-quickstart-123.azurewebsites.net/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:95.0) Gecko/20100101 Firefox/95.0"
+2021-12-23T02:15:53.043211176Z 169.254.130.1 - - [23/Dec/2021:02:15:53 +0000] "GET /favicon.ico HTTP/1.1" 404 232 "https://msdocs-python-webapp-quickstart-123.azurewebsites.net/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:95.0) Gecko/20100101 Firefox/95.0"
+
+2021-12-23T02:16:01.304306845Z Request for hello page received with name=David
+2021-12-23T02:16:01.304335945Z 169.254.130.1 - - [23/Dec/2021:02:16:01 +0000] "POST /hello HTTP/1.1" 200 695 "https://msdocs-python-webapp-quickstart-123.azurewebsites.net/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:95.0) Gecko/20100101 Firefox/95.0"
+2021-12-23T02:16:01.398399251Z 169.254.130.1 - - [23/Dec/2021:02:16:01 +0000] "GET /static/bootstrap/css/bootstrap.min.css HTTP/1.1" 304 0 "https://msdocs-python-webapp-quickstart-123.azurewebsites.net/hello" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:95.0) Gecko/20100101 Firefox/95.0"
+2021-12-23T02:16:01.430740060Z 169.254.130.1 - - [23/Dec/2021:02:16:01 +0000] "GET /static/images/azure-icon.svg HTTP/1.1" 304 0 "https://msdocs-python-webapp-quickstart-123.azurewebsites.net/hello" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:95.0) Gecko/20100101 Firefox/95.0"
+```
+
+---
+
 
 Having issues? Refer first to the [Troubleshooting guide](/azure/app-service/configure-language-python.md#troubleshooting), otherwise, [let us know](https://aka.ms/FlaskCLIQuickstartHelp).
 
