@@ -225,6 +225,9 @@ Having issues? Refer first to the [Troubleshooting guide](/azure/app-service/con
 
 Azure App Service captures all messages output to the console to assist you in diagnosing issues with your application. The sample apps include `print()` statements to demonstrate this capability.
 
+:::code language="python" source="~/../msdocs-python-flask-webapp-quickstart/app.py" range="6-21" highlight="3,12,15":::
+
+
 ### [Flask](#tab/flask)
 
 :::code language="python" source="~/../msdocs-python-flask-webapp-quickstart/app.py" range="6-21" highlight="3,12,15":::
