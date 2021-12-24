@@ -28,7 +28,7 @@ git clone https://github.com/Azure-Samples/msdocs-python-flask-webapp-quickstart
 ### [Django](#tab/django)
 
 ```Console
-git clone https://github.com/Azure-Samples/python-docs-hello-django
+git clone https://github.com/Azure-Samples/msdocs-python-django-webapp-quickstart
 ```
 
 ---
@@ -40,7 +40,7 @@ To run the application locally:
 1. Navigate into in the application folder:
 
     ```Console
-    cd msdocs-python-flask-webapp-quickstart/src
+    cd msdocs-python-flask-webapp-quickstart
     ```
 
 1. Create a virtual environment for the app:
@@ -64,7 +64,7 @@ To run the application locally:
 1. Navigate into in the application folder:
 
     ```Console
-    cd python-docs-hello-django
+    cd msdocs-python-django-webapp-quickstart
     ```
 
 1. Create a virtual environment for the app:
@@ -225,16 +225,13 @@ Having issues? Refer first to the [Troubleshooting guide](/azure/app-service/con
 
 Azure App Service captures all messages output to the console to assist you in diagnosing issues with your application. The sample apps include `print()` statements to demonstrate this capability.
 
-:::code language="python" source="~/../msdocs-python-flask-webapp-quickstart/app.py" range="6-21" highlight="3,12,15":::
-
-
 ### [Flask](#tab/flask)
 
 :::code language="python" source="~/../msdocs-python-flask-webapp-quickstart/app.py" range="6-21" highlight="3,12,15":::
 
 ### [Django](#tab/django)
 
-:::code language="python" source="~/../msdocs-python-flask-webapp-quickstart/app.py" range="6-21" highlight="3,12,15":::
+:::code language="python" source="~/../msdocs-python-django-webapp-quickstart/hello_azure/app.py" range="5-21" highlight="2,10,13":::
 
 ---
 
