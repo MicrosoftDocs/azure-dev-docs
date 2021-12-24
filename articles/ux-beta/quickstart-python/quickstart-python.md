@@ -87,7 +87,7 @@ To run the application locally:
 
 Browse to the sample application at `http://localhost:5000` in a web browser.
 
-![Run a sample Python app locally](./media/quickstart-python/run-hello-world-sample-python-app-in-browser-localhost.png)
+![Run a sample Python app locally](./media/quickstart-python/sample-app-localhost.png)
 
 Having issues? [Let us know](https://aka.ms/FlaskCLIQuickstartHelp).
 
@@ -215,7 +215,7 @@ Browse to the deployed application in your web browser at the URL `http://<app-n
 
 The Python sample code is running a Linux container in App Service using a built-in image.
 
-![Run a sample Python app in Azure](./media/quickstart-python/run-hello-world-sample-python-app-in-browser.png)
+![Run a sample Python app in Azure](./media/quickstart-python/sample-app-azure.png)
 
 **Congratulations!** You've deployed your Python app to App Service.
 
