@@ -61,7 +61,7 @@ To run the application locally:
 
 1. Browse to the sample application at `http://localhost:5000` in a web browser.
 
-    ![Run a sample Python app locally](./media/quickstart-python/run-flask-app-localhost.png)
+    :::image type="content" source="./media/quickstart-python/run-flask-app-localhost.png" alt-text="Screenshot of the Flask app running locally in a browser":::
 
 Having issues? [Let us know](https://aka.ms/FlaskCLIQuickstartHelp).
 
@@ -91,7 +91,7 @@ Having issues? [Let us know](https://aka.ms/FlaskCLIQuickstartHelp).
 
 1. Browse to the sample application at `http://localhost:8000` in a web browser.
 
-    ![Run a sample Python app locally](./media/quickstart-python/run-django-app-localhost.png)
+    :::image type="content" source="./media/quickstart-python/run-django-app-localhost.png" alt-text="Screenshot of the Django app running locally in a browser":::
 
 Having issues? [Let us know](https://aka.ms/FlaskCLIQuickstartHelp).
 
@@ -221,7 +221,7 @@ Browse to the deployed application in your web browser at the URL `http://<app-n
 
 The Python sample code is running a Linux container in App Service using a built-in image.
 
-![Run a sample Python app in Azure](./media/quickstart-python/run-app-azure.png)
+:::image type="content" source="./media/quickstart-python/run-app-azure.png" alt-text="Screenshot of the app running in Azure":::
 
 **Congratulations!** You've deployed your Python app to App Service.
 
