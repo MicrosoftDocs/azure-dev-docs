@@ -59,6 +59,12 @@ To run the application locally:
     flask run
     ```
 
+1. Browse to the sample application at `http://localhost:5000` in a web browser.
+
+    ![Run a sample Python app locally](./media/quickstart-python/run-flask-app-localhost.png)
+
+Having issues? [Let us know](https://aka.ms/FlaskCLIQuickstartHelp).
+
 ### [Django](#tab/django)
 
 1. Navigate into in the application folder:
@@ -83,13 +89,13 @@ To run the application locally:
     python manage.py runserver
     ```
 
----
+1. Browse to the sample application at `http://localhost:8000` in a web browser.
 
-Browse to the sample application at `http://localhost:5000` in a web browser.
-
-![Run a sample Python app locally](./media/quickstart-python/sample-app-localhost.png)
+    ![Run a sample Python app locally](./media/quickstart-python/run-django-app-localhost.png)
 
 Having issues? [Let us know](https://aka.ms/FlaskCLIQuickstartHelp).
+
+---
 
 ## 1 - Create a web app in Azure
 
@@ -215,7 +221,7 @@ Browse to the deployed application in your web browser at the URL `http://<app-n
 
 The Python sample code is running a Linux container in App Service using a built-in image.
 
-![Run a sample Python app in Azure](./media/quickstart-python/sample-app-azure.png)
+![Run a sample Python app in Azure](./media/quickstart-python/run-app-azure.png)
 
 **Congratulations!** You've deployed your Python app to App Service.
 
