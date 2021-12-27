@@ -12,7 +12,7 @@ In this tutorial, you'll use the Azure SDK for Go to deploy an Azure Resource Ma
 
 Azure Resource Manager is the deployment and management service for Azure. It enables you to create, update, and delete resources in your Azure account. Azure Resource Manager templates declaratively describe your infrastructure as code in JSON documents.
 
-By the end of this tutorial, you'll have written and deployed an Azure Resource Manager template using Go that deploys an Azure Storage Account.
+By the end of this tutorial, you'll have written and deployed an Azure Resource Manager template using Go.
 
 <!-- Screenshot of ARM template & Go code in VS Code -->
 
@@ -30,7 +30,7 @@ mkdir deployARM-how-to
 cd deployARM-how-to
 ```
 
-The Azure SDK for Go contains several packages for working with Azure. For this tutorial you'll need the `azcore/to`, `azidentity, and `armresources` packages:
+The Azure SDK for Go contains several packages for working with Azure, for this tutorial you'll need the `azcore/to`, `azidentity, and `arm resources` packages:
 
 Run the `go get` command to download these packages:
 
@@ -135,7 +135,7 @@ func main() {
 
 ## Create the Azure Resource Manager template
 
-Inside the `deployARM-how-to` directory create another file named `template.json`.
+Inside the `deployARM-how-to` directory, create another file named `template.json`.
 
 Open the `template.json` file and add the following code:
 
@@ -169,15 +169,15 @@ Replace `<StorageAccountName>` and `<StorageAccountDisplayName>` with a [valid s
 
 ## Run the application
 
-Before you can deploy the template with GO, you have to define the subscription Id. Without the subscription Id, the Resource Manager will not know where to deploy the template.
+Before you can deploy the template with GO, define the subscription ID as an environment variable.
 
-Create an environment named `AZURE_SUBSCRIPTION_ID` and your Azure subscription Id. To get the subscription Id, run the AzureCLI command `az account list`.
+Create an environment named `AZURE_SUBSCRIPTION_ID` and your Azure subscription ID. To get the subscription ID, run the AzureCLI command `az account list`.
 
 ```azurecli
 export AZURE_SUBSCRIPTION_ID=<AzureSubscriptionId>
 ```
 
-Replace `<AzureSubscriptionId>` with your subscription Id.
+Replace `<AzureSubscriptionId>` with your subscription ID.
 
 Next, run the `go run` command to deploy the template:
 
@@ -187,7 +187,7 @@ go run main.go
 
 ## Clean up resources
 
-Leaving resources in Azure costs you money. So, be sure to cleanup the resources you created in this how-to.
+Leaving resources in Azure costs you money. So, be sure to clean up the resources you created in this how-to.
 
 Deploying an empty template in complete mode deletes all the resources within a resource group. It's a neat way to clean up resources without deleting the resource group itself.
 
