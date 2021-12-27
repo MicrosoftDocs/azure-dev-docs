@@ -206,7 +206,7 @@ Open the `empty-template.json` in your editor and add the following code:
   }
 ```
 
-Next open your `main.go` file and change the deployment time to _complete_ instead of _incremental_. To learn more about deployment modes, check out [Azure Resource Manager deployment modes](azure/azure-resource-manager/templates/deployment-modes).
+Next open your `main.go` file and change the deployment time to _complete_ instead of _incremental_. To learn more about deployment modes, check out [Azure Resource Manager deployment modes](/azure/azure-resource-manager/templates/deployment-modes).
 
 Change the Mode in the deployment properties to `DeploymentModeComplete`. And update the `templateFile` constant value to `empty-template.json`. Be sure to save your changes.
 
@@ -252,11 +252,9 @@ az group delete --resource-group GoHowTo
 ```
 
 ## Next steps
-<!-- Add a context sentence for the following links -->
-- [Write how-to guides](contribute-how-to-write-howto.md)
-- [Links](links-how-to.md)
 
-<!--
-Remove all the comments in this template before you sign-off or merge to the 
-main branch.
--->
+> [!div class="nextstepaction"]
+> [Azure SDK for Go Core Concepts](azure-sdk-core-concepts.md)
+
+> [!div class="nextstepaction"]
+> [Azure SDK for Go management libraries](management-libraries.md)
