@@ -203,10 +203,6 @@ To deploy a web app from VS Code, you must have the [Azure Tools extension pack]
 
 [!INCLUDE [Deploy Local Git](<./includes/quickstart-python/deploy-local-git.md>)]
 
-### [Deploy using FTPS](#tab/ftps-deploy)
-
-[!INCLUDE [Deploy Local FTPS](<./includes/quickstart-python/deploy-ftps.md>)]
-
 ### [Deploy using a ZIP file](#tab/zip-deploy)
 
 [!INCLUDE [Deploy using ZIP file](<./includes/quickstart-python/deploy-zip-file.md>)]
@@ -299,6 +295,8 @@ Starting Live Log Stream ---
 Having issues? Refer first to the [Troubleshooting guide](/azure/app-service/configure-language-python.md#troubleshooting), otherwise, [let us know](https://aka.ms/FlaskCLIQuickstartHelp).
 
 ## Clean up resources
+
+When you are finished with the sample app, you can remove all of the resources for the app from Azure to insure you do not incur additional charges and keep your Azure subscription uncluttered. Removing the resource group also removes all resources in the resource group and is the fastest way to remove all Azure resources for your app.
 
 ### [Azure portal](#tab/azure-portal)
 
