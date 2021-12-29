@@ -171,7 +171,7 @@ Replace `<StorageAccountName>` and `<StorageAccountDisplayName>` with a [valid s
 
 Before you can deploy the template with GO, define the subscription ID as an environment variable.
 
-Create an environment named `AZURE_SUBSCRIPTION_ID` and your Azure subscription ID. To get the subscription ID, run the AzureCLI command `az account list`.
+Create an environment variable named `AZURE_SUBSCRIPTION_ID` set to your Azure subscription ID. To get the subscription ID, run the AzureCLI command `az account list`.
 
 ```azurecli
 export AZURE_SUBSCRIPTION_ID=<AzureSubscriptionId>
