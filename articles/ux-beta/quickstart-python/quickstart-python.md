@@ -233,7 +233,7 @@ Azure App Service captures all messages output to the console to assist you in d
 
 ### [Django](#tab/django)
 
-:::code language="python" source="~/../msdocs-python-django-webapp-quickstart/hello_azure/app.py" range="5-21" highlight="2,10,13":::
+:::code language="python" source="~/../msdocs-python-django-webapp-quickstart/hello_azure/views.py" range="5-21" highlight="2,10,13":::
 
 ---
 
