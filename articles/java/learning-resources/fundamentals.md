@@ -1,7 +1,6 @@
 ---
 title: Java learning path
 description: Java - learning paths for Java developers.
-author: sadigopu
 ms.author: sreea
 ms.topic: article
 ms.date: 03/19/2021
@@ -25,14 +24,14 @@ The following sections provide links to resources that can help you learn Java f
 
 - [IDE IntelliJ Fundamentals](https://www.linkedin.com/learning/intellij-idea-community-edition-essential-training/welcome?u=3322)
 - [IDE Eclipse Fundamentals](https://www.linkedin.com/learning/eclipse-essential-training/welcome?u=3322)
-- [Maven Fundamentals](https://learning.oreilly.com/videos/getting-started-with/9781782165729/)
+- [Apache Maven: A Practical Introduction](https://www.oreilly.com/videos/apache-maven-a/9781800203297/)
 
 ### Software development life cycle
 
 - [JDBC and Databases](https://www.linkedin.com/learning/learning-jdbc/get-going-with-data-access-in-java?u=3322)
 - [Logging](https://www.youtube.com/watch?v=oiaEP57nsmI)
 - [Debugging and Testing](https://learning.oreilly.com/library/view/java-for-absolute/9781484237786/html/463938_1_En_9_Chapter.xhtml)
-- [Unit testing with JUnit5](https://learning.oreilly.com/videos/introduction-to-junit/9781788292290/)
+- [Java Unit Testing with JUnit 5](https://www.oreilly.com/library/view/java-unit-testing/9781484230152/)
 
 ### Frameworks
 

@@ -3,24 +3,52 @@ items:
     href: index.yml
   - name: Overview
     items:
+    - name: What is the Azure SDK for Go?
+      href: overview.md
+  - name: Get started
+    items:
     - name: Installation
       href: azure-sdk-install.md
     - name: Tools
       href: azure-sdk-tools.md
     - name: Authentication
       href: azure-sdk-authorization.md
-  - name: Quickstarts
+    - name: Manage Azure resource groups
+      href: manage-resource-groups.md
+  - name: Concepts
+    expanded: true
     items:
-    - name: Virtual Machines and Resource Templates
-      href: azure-sdk-qs-vm.md
-    - name: Azure Blob Storage
-      href: /azure/storage/blobs/storage-quickstart-blobs-go?toc=/azure/developer/go/toc.json&bc=/azure/developer/breadcrumb/toc.json
-    - name: Azure Database for PostgreSQL
-      href: /azure/postgresql/connect-go?toc=/azure/developer/go/toc.json&bc=/azure/developer/breadcrumb/toc.json
-    - name: Azure Database for MySQL
-      href: /azure/mysql/connect-go?toc=/azure/developer/go/toc.json&bc=/azure/developer/breadcrumb/toc.json
-    - name: Azure SQL Database 
-      href: /azure/sql-database/sql-database-connect-query-go?toc=/azure/developer/go/toc.json&bc=/azure/developer/breadcrumb/toc.json
+      - name: Core concepts
+        href: azure-sdk-core-concepts.md
+      - name: Working with the management libraries
+        href: management-libraries.md
+      - name: Authentication
+        expanded: false
+        items:
+          - name: Overview
+            href: azure-sdk-authorization.md
+          - name: Auth with Azure Identity
+            href: azure-sdk-authentication.md
+          - name: Auth with service principals
+            href: azure-sdk-authentication-service-principal.md
+          - name: Auth with managed identities
+            href: azure-sdk-authentication-managed-identity.md
+  - name: Azure services
+    items:
+    - name: Storage
+      items:
+      - name: Azure Blob Storage
+        href: /azure/storage/blobs/storage-quickstart-blobs-go?toc=/azure/developer/go/toc.json&bc=/azure/developer/breadcrumb/toc.json
+      - name: Azure Database for PostgreSQL
+        href: /azure/postgresql/connect-go?toc=/azure/developer/go/toc.json&bc=/azure/developer/breadcrumb/toc.json
+      - name: Azure Database for MySQL
+        href: /azure/mysql/connect-go?toc=/azure/developer/go/toc.json&bc=/azure/developer/breadcrumb/toc.json
+      - name: Azure SQL Database 
+        href: /azure/sql-database/sql-database-connect-query-go?toc=/azure/developer/go/toc.json&bc=/azure/developer/breadcrumb/toc.json
+    - name: Virtual machines
+      items:
+      - name: Virtual machines and resource templates
+        href: azure-sdk-qs-vm.md
   - name: Samples
     items:
     - name: Authentication and Active Directory
@@ -34,4 +62,6 @@ items:
     - name: All Go samples
       href: http://github.com/azure-samples/azure-sdk-for-go-samples
   - name: Reference
-    href: https://godoc.org/github.com/Azure/azure-sdk-for-go
+    items:
+      - name: Azure module registry
+        href: https://godoc.org/github.com/Azure/azure-sdk-for-go

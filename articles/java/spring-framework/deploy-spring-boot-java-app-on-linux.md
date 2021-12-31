@@ -3,7 +3,7 @@ title: Deploy a Spring Boot Web App to Linux on Azure App Service
 description: This tutorial walks you though the steps to deploy a Spring Boot application as a Linux web app on Microsoft Azure.
 services: azure app service
 documentationcenter: java
-ms.date: 10/14/2020
+ms.date: 08/25/2021
 ms.service: app-service
 ms.tgt_pltfrm: multiple
 ms.topic: article
@@ -21,7 +21,7 @@ In order to complete the steps in this tutorial, you need to have the following 
 
 * An Azure subscription; if you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits] or sign up for a [free Azure account].
 * The [Azure Command-Line Interface (CLI)].
-* A supported Java Development Kit (JDK). For more information about the JDKs available for use when developing on Azure, see <https://aka.ms/azure-jdks>.
+* A supported Java Development Kit (JDK). For more information about the JDKs available for use when developing on Azure, see [Java support on Azure and Azure Stack](../fundamentals/java-support-on-azure.md).
 * [Apache Maven] build tool (Version 3).
 * A [Git] client.
 * A [Docker] client.
@@ -63,7 +63,7 @@ The following steps walk through the steps that are required to create a simple 
 
    ```bash
    cd target
-   java -jar spring-boot-docker-0.0.1-SNAPSHOT.jar --server.port=80
+   java -jar spring-boot-docker-complete-0.0.1-SNAPSHOT.jar --server.port=80
    ```
 
 1. Test the web app by browsing to it locally using a web browser. For example, if you have curl available and you configured the Tomcat server to run on port 80:
@@ -108,13 +108,13 @@ The following steps walk through using the Azure portal to create an Azure Conta
 
    ```xml
    <properties>
-      <jib-maven-plugin.version>2.5.2</jib-maven-plugin.version>
+      <jib-maven-plugin.version>3.1.1</jib-maven-plugin.version>
       <docker.image.prefix>wingtiptoysregistry.azurecr.io</docker.image.prefix>
       <java.version>1.8</java.version>
    </properties>
    ```
 
-1. Add [jib-maven-plugin](https://github.com/GoogleContainerTools/jib/tree/master/jib-maven-plugin) to the `<plugins>` collection in the *pom.xml* file.  This example uses version 2.2.0.
+1. Add [jib-maven-plugin](https://github.com/GoogleContainerTools/jib/tree/master/jib-maven-plugin) to the `<plugins>` collection in the *pom.xml* file.  This example uses version 3.1.1.
 
    Specify the base image at `<from>/<image>`, here `mcr.microsoft.com/java/jre:8-zulu-alpine`. Specify the name of the final image to be built from the base in `<to>/<image>`.  
 
@@ -138,7 +138,7 @@ The following steps walk through using the Azure portal to create an Azure Conta
 
 1. Navigate to the completed project directory for your Spring Boot application and run the following command to rebuild the application and push the container to your Azure Container Registry:
 
-   ```bash
+   ```azurecli
    az acr login -n wingtiptoysregistry && mvn compile jib:build
    ```
 
@@ -221,13 +221,15 @@ When the deployment is complete, select **Go to resource**.  The deployment page
 The embedded Tomcat server in the sample Spring Boot application is configured to run on port 8080 by default. However, if you want to run the embedded Tomcat server to run on a different port, such as port 80 for local testing, you can configure the port by using the following steps.
 
 1. Go to the *resources* directory (or create the directory if it does not exist); for example:
-   ```shell
+
+   ```bash
    cd src/main/resources
    ```
 
 1. Open the *application.yml* file in a text editor if it exists, or create a new YAML file if it does not exist.
 
 1. Modify the **server** setting so that the server runs on port 80; for example:
+
    ```yaml
    server:
       port: 80

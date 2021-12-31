@@ -86,7 +86,7 @@ Each developer in your organization should perform these steps individually.
 1. Create the service principal:
 
     ```azurecli
-    az ad sp create-for-rbac --name localtest-sp-rbac --skip-assignment
+    az ad sp create-for-rbac --name localtest-sp-rbac
     ```
 
     For more details on the command and its arguments, see [What the create-for-rbac command does](#what-the-create-for-rbac-command-does).
@@ -101,7 +101,7 @@ Each developer in your organization should perform these steps individually.
     set AZURE_SUBSCRIPTION_ID="aa11bb33-cc77-dd88-ee99-0918273645aa"
     set AZURE_TENANT_ID=00112233-7777-8888-9999-aabbccddeeff
     set AZURE_CLIENT_ID=12345678-1111-2222-3333-1234567890ab
-    set AZURE_CLIENT_SECRET=abcdef00-4444-5555-6666-1234567890ab
+    set AZURE_CLIENT_SECRET=oUBB11zz~JJJJ_~yyyyyyVVumumumumb_b
     ```
 
     # [bash](#tab/bash)
@@ -110,7 +110,7 @@ Each developer in your organization should perform these steps individually.
     AZURE_SUBSCRIPTION_ID="aa11bb33-cc77-dd88-ee99-0918273645aa"
     AZURE_TENANT_ID="00112233-7777-8888-9999-aabbccddeeff"
     AZURE_CLIENT_ID="12345678-1111-2222-3333-1234567890ab"
-    AZURE_CLIENT_SECRET="abcdef00-4444-5555-6666-1234567890ab"
+    AZURE_CLIENT_SECRET="oUBB11zz~JJJJ_~yyyyyyVVumumumumb_b"
     ```
 
     ---
@@ -140,9 +140,7 @@ The `az ad sp create-for-rbac` command creates a service principal for "role-bas
 
 - The `--name` argument should be unique within your organization and typically uses the name of the developer that uses the service principal. If you omit this argument, the Azure CLI uses a generic name of the form `azure-cli-<timestamp>`. You can rename the service principal on the Azure portal, if desired.
 
-- The `--skip-assignment` argument creates a service principal with no default permissions. You must then assign specific permissions to the service principal to allow locally-run code to access any resources. For more information, see [What is Azure role-based access control (RBAC)](/azure/role-based-access-control/overview) and [Steps to add a role assignment](/azure/role-based-access-control/role-assignments-steps). Different quickstarts and tutorials also provide details for authorizing a service principal for the specific resources involved.
-
-    Without `--skip-assignment`, the command assigns the [Contributor role](/azure/role-based-access-control/built-in-roles#contributor) to the service principal at subscription scope. This wide-ranging scope poses a risk if the security principal is compromised, which is why we recommend using `--skip-assignment` and then assign the exact roles at the exact scope that the service principal requires.
+- The `az ad sp create-for-rbac` command does not assign any roles to the service principal. This poses a risk if the security principal is compromised, which is why we recommend assigning the exact roles at the exact scope that the service principal requires. See [What is Azure role-based access control (RBAC)](/azure/role-based-access-control/overview) and [Steps to add a role assignment](/azure/role-based-access-control/role-assignments-steps). Different quickstarts and tutorials also provide details for authorizing a service principal for the specific resources involved.
 
 - The command generates JSON output similar to the following values. Your `appId`, `tenant`, and `password` values will all be different:
 
@@ -210,7 +208,7 @@ For every project, we recommend that you always create and activate a *virtual e
 
 A virtual environment is a folder within a project that isolates a copy of a specific Python interpreter. Once you activate that environment (which Visual Studio Code does automatically), running `pip install` installs a library into that environment only. When you then run your Python code, it runs in the environment's exact context with specific versions of every library. And when you run `pip freeze`, you get the exact list of the those libraries. (In many of the examples in this documentation, you create a *requirements.txt* file for the libraries you need, then use `pip install -r requirements.txt`. A requirements file is generally needed when you deploy code to Azure.)
 
-If you don't use a virtual environment, then Python runs in its *global environment*. Although using the global environment is quick and convenient, it tends to bloat over time with all the libraries you install for any project or experiment. Furthermore, if you update a library for one project, you might break others projects that depend on different versions of that library. And because the environment is shared by any number of projects, you can't use `pip freeze` to retrieve of a list of any one project's dependencies.
+If you don't use a virtual environment, then Python runs in its *global environment*. Although using the global environment is quick and convenient, it tends to bloat over time with all the libraries you install for any project or experiment. Furthermore, if you update a library for one project, you might break other projects that depend on different versions of that library. And because the environment is shared by any number of projects, you can't use `pip freeze` to retrieve of a list of any one project's dependencies.
 
 The global environment is where you do want to install tool packages that you want to use in multiple projects. For example, you might run `pip install gunicorn` in the global environment to make the gunicorn web server available everywhere.
 

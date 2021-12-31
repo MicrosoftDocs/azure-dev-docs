@@ -13,7 +13,7 @@ ms.custom: devx-track-ansible
 
 [Azure Cosmos DB](/azure/cosmos-db/) is a database service that supports several database types. These databases types include document, key-value, wide-column, and graph. Using Ansible, you can automate the deployment and configuration of resources in your environment.
 
-[!INCLUDE [ansible-tutorial-goals.md](includes/ansible-tutorial-goals.md)]
+In this article, you learn how to:
 
 > [!div class="checklist"]
 >

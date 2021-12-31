@@ -1,8 +1,8 @@
 ---
 title: View logs in Azure portal
 description: Learn how to see your logging with Azure Monitor and Application Insights.
-ms.topic: tutorial
-ms.date: 11/13/2020
+ms.topic: how-to
+ms.date: 11/01/2021
 ms.custom: devx-track-js
 ---
 

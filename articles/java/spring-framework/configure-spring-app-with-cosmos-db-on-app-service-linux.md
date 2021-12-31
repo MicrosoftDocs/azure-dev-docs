@@ -84,7 +84,7 @@ The name of the Cosmos DB must use only lower case letters. Make sure to note th
     az cosmosdb create --kind GlobalDocumentDB \
         -g <your-azure-group-name> \
         -n <your-azure-COSMOS-DB-name-in-lower-case-letters>
-     ```
+    ```
 
 5. Get your Azure Cosmos DB keys, record the `primaryMasterKey` value for later use.
 
@@ -129,7 +129,7 @@ set SUBSCRIPTION_ID=<put-your-SUBSCRIPTION_ID-here>
 
     ```bash
     cd initial/spring-todo-app
-    ``` 
+    ```
  
 3. Run the Spring Todo app locally with the following command:
 
@@ -260,12 +260,13 @@ The following procedure opens log files on Azure.
      --resource-group ${RESOURCEGROUP_NAME} \
      --web-server-logging filesystem
     ```
+
 2. Open Java Web app remote log stream from a local machine:
 
     ```azurecli
     az webapp log tail --name ${WEBAPP_NAME} \
      --resource-group ${RESOURCEGROUP_NAME}
-     ```
+    ```
 
 ```bash
 bash-3.2$ az webapp log tail --name ${WEBAPP_NAME}  --resource-group ${RESOURCEGROUP_NAME}
@@ -299,7 +300,6 @@ bash-3.2$ az webapp log tail --name ${WEBAPP_NAME}  --resource-group ${RESOURCEG
 
 3. When you are finished, you can check your results against the code in 
 [e2e-java-experience-in-app-service-linux-part-2/complete](https://github.com/Azure-Samples/e2e-java-experience-in-app-service-linux-part-2/tree/master/complete).
-
 
 ## Scale out the Spring Todo App
 

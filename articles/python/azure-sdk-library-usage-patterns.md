@@ -1,7 +1,7 @@
 ---
 title: Usage patterns with the Azure libraries for Python
 description: An overview of common usage patterns with the Azure SDK libraries for Python
-ms.date: 11/12/2020
+ms.date: 06/24/2021
 ms.topic: conceptual
 ms.custom: devx-track-python
 ---
@@ -56,28 +56,15 @@ For more information, including how to remove packages or install specific versi
 
 Many operations that you invoke through client and management client objects (such as [`ComputeManagementClient.virtual_machines.begin_create_or_update`](/python/api/azure-mgmt-compute/azure.mgmt.compute.v2020_06_01.operations.virtualmachinesoperations#begin-create-or-update-resource-group-name--vm-name--parameters----kwargs-) and [`WebSiteManagementClient.web_apps.create_or_update`](/python/api/azure-mgmt-web/azure.mgmt.web.v2019_08_01.operations.webappsoperations#create-or-update-resource-group-name--name--site-envelope--custom-headers-none--raw-false--polling-true----operation-config-)) return an object of type `AzureOperationPoller[<type>]` where `<type>` is specific to the operation in question.
 
-Both of these methods are asynchronous. The different in the method names is due to version differences. Older libraries that aren't based on azure.core typically use named like `create_or_update`. Libraries based on azure.core add the `begin_` prefix to method names to better indicate that they are asynchronous. Migrating old code to a newer azure.core-based library typically means adding the `begin_` prefix to method names, as most method signatures remain the same.
+Both of these methods are asynchronous. The difference in the method names is due to version differences. Older libraries that aren't based on azure.core typically use named like `create_or_update`. Libraries based on azure.core add the `begin_` prefix to method names to better indicate that they are asynchronous. Migrating old code to a newer azure.core-based library typically means adding the `begin_` prefix to method names, as most method signatures remain the same.
 
 In either case, an [`AzureOperationPoller`](/python/api/msrestazure/msrestazure.azure_operation.azureoperationpoller) return type definitely means that the operation is asynchronous. Accordingly, you must call that poller's `result` method to wait for the operation to finish and obtain its result.
 
 The following code, taken from [Example: Provision and deploy a web app](azure-sdk-example-web-app.md), shows an example of using the poller to wait for a result:
 
-```python
-poller = app_service_client.web_apps.create_or_update(RESOURCE_GROUP_NAME,
-    WEB_APP_NAME,
-    {
-        "location": LOCATION,
-        "server_farm_id": plan_result.id,
-        "site_config": {
-            "linux_fx_version": "python|3.8"
-        }
-    }
-)
+:::code language="python" source="~/../python-sdk-docs-examples/webapp/provision_deploy_web_app.py" range="59-70":::
 
-web_app_result = poller.result()
-```
-
-In this case, the return value of `create_or_update` is of type `AzureOperationPoller[Site]`, which means that the return value of `poller.result()` is a [Site](/python/api/azure-mgmt-web/azure.mgmt.web.v2019_08_01.models.site) object.
+In this case, the return value of `begin_create_or_update` is of type `AzureOperationPoller[Site]`, which means that the return value of `poller.result()` is a [Site](/python/api/azure-mgmt-web/azure.mgmt.web.v2021_01_01.models.site) object.
 
 ## Exceptions
 
@@ -135,23 +122,11 @@ For example, suppose you have a [`ResourceManagementClient`](/python/api/azure-m
 
 To call `create_or_update` you can create a discrete instance of `ResourceGroup` directly with its required arguments (`location` in this case):
 
-```python
-rg_result = resource_client.resource_groups.create_or_update(
-    "PythonSDKExample-rg",
-    ResourceGroup(location="centralus")
-)
-```
+:::code language="python" source="~/../python-sdk-docs-examples/resource_group/provision_rg_objs.py" range="17-20":::
 
 Alternately, you can pass the same parameters as inline JSON:
 
-```python
-rg_result = resource_client.resource_groups.create_or_update(
-    "PythonSDKExample-rg",
-    {
-      "location": "centralus"
-    }
-)
-```
+:::code language="python" source="~/../python-sdk-docs-examples/resource_group/provision_rg.py" range="16-21":::
 
 When using JSON, the Azure libraries automatically convert the inline JSON to the appropriate object type for the argument in question.
 
@@ -159,56 +134,15 @@ Objects can also have nested object arguments, in which case you can also use ne
 
 For example, suppose you have an instance of the [`KeyVaultManagementClient`](/python/api/azure-mgmt-keyvault/azure.mgmt.keyvault.v2019_09_01.keyvaultmanagementclient) object, and are calling its [`create_or_update`](/python/api/azure-mgmt-keyvault/azure.mgmt.keyvault.v2019_09_01.operations.vaultsoperations#create-or-update-resource-group-name--vault-name--parameters--custom-headers-none--raw-false--polling-true----operation-config-) method. In this case, the third argument is of type [`VaultCreateOrUpdateParameters`](/python/api/azure-mgmt-keyvault/azure.mgmt.keyvault.v2019_09_01.models.vaultcreateorupdateparameters), which itself contains an argument of type [`VaultProperties`](/python/api/azure-mgmt-keyvault/azure.mgmt.keyvault.v2019_09_01.models.vaultproperties). `VaultProperties`, in turn, contains object arguments of type [`Sku`](/python/api/azure-mgmt-keyvault/azure.mgmt.keyvault.v2019_09_01.models.sku) and [`list[AccessPolicyEntry]`](/python/api/azure-mgmt-keyvault/azure.mgmt.keyvault.v2019_09_01.models.accesspolicyentry). A `Sku` contains a [`SkuName`](/python/api/azure-mgmt-keyvault/azure.mgmt.keyvault.v2019_09_01.models.skuname) object, and each `AccessPolicyEntry` contains a [`Permissions`](/python/api/azure-mgmt-keyvault/azure.mgmt.keyvault.v2019_09_01.models.permissions) object.
 
-To call `create_or_update` with embedded objects, you use code like the following (assuming `tenant_id` and `object_id` are already defined). You can also create the necessary objects before the function call.
+To call `begin_create_or_update` with embedded objects, you use code like the following (assuming `tenant_id` and `object_id` are already defined). You can also create the necessary objects before the function call.
 
-```python
-operation = keyvault_client.vaults.create_or_update(
-    "PythonSDKExample-rg",
-    "keyvault01",
-    VaultCreateOrUpdateParameters(
-        location="centralus",
-        properties=VaultProperties(
-            tenant_id=tenant_id,
-            sku=Sku(name="standard"),
-            access_policies=[
-                AccessPolicyEntry(
-                    tenant_id=tenant_id,
-                    object_id=object_id,
-                    permissions=Permissions(keys=['all'], secrets=['all'])
-                )
-            ]
-        )
-    )
-)
-```
+:::code language="python" source="~/../python-sdk-docs-examples/key_vault/provision_key_vault.py" range="66-92":::
 
 The same call using inline JSON appears as follows:
 
-```python
-operation = keyvault_client.vaults.create_or_update(
-    "PythonSDKExample-rg",
-    "keyvault01",
-    {
-        'location': 'centralus',
-        'properties': {
-            'sku': {
-                'name': 'standard'
-            },
-            'tenant_id': tenant_id,
-            'access_policies': [{
-                'object_id': object_id,
-                'tenant_id': tenant_id,
-                'permissions': {
-                    'keys': ['all'],
-                    'secrets': ['all']
-                }
-            }]
-        }
-    }
-)
-```
+:::code language="python" source="~/../python-sdk-docs-examples/key_vault/provision_key_vault.py" range="97-121":::
 
-Because both forms are equivalent, you can choose whichever you prefer and even intermix them.
+Because both forms are equivalent, you can choose whichever you prefer and even intermix them. (The full code for these examples can be found on [GitHub](https://github.com/MicrosoftDocs/python-sdk-docs-examples/blob/main/key_vault/provision_key_vault.py).)
 
 If your JSON isn't formed properly, you typically get the error, "DeserializationError: Unable to deserialize to object: type, AttributeError: 'str' object has no attribute 'get'". A common cause of this error is that you're providing a single string for a property when the library expects a nested JSON object. For example, using `"sku": "standard"` in the previous example generates this error because the `sku` parameter is a `Sku` object that expects inline object JSON, in this case `{ "name": "standard"}`, which maps to the expected `SkuName` type.
 

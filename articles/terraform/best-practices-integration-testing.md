@@ -1,18 +1,22 @@
 ---
-title: Tutorial - Integration testing with Terraform and Azure
+title: Implement integration testing with Terraform and Azure
 description: Learn about integration tests and how to use Azure DevOps to configure continuous integration for Terraform projects.
-ms.topic: tutorial
-ms.date: 10/08/2020
+ms.topic: how-to
+ms.date: 08/07/2021
 ms.custom: devx-track-terraform
 ---
 
-# Tutorial: Configure integration tests for Terraform projects in Azure
+# Implement integration tests for Terraform projects in Azure
 
-[!INCLUDE [terraform-intro.md](includes/terraform-intro.md)]
+Integration tests validate that a newly introduced code change doesn't break existing code. In DevOps, continuous integration (CI) refers to a process that builds the entire system whenever the code base is changed - such as someone wanting to merge a PR into a Git repo. The following list contains common examples of integration tests:
 
-In this article, you learn how to do the following tasks:
+- Static code analysis tools such as lint and format.
+- Run [terraform validate](https://www.terraform.io/docs/commands/validate.html) to verify the syntax of the configuration file.
+- Run [terraform plan](https://www.terraform.io/docs/commands/validate.html) to ensure the configuration will work as expected.
 
+In this article, you learn how to:
 > [!div class="checklist"]
+
 > * Learn the basics of integration testing for Terraform projects.
 > * Use Azure DevOps to configure a continuous integration pipeline.
 > * Run static code analysis on Terraform code.
@@ -20,38 +24,43 @@ In this article, you learn how to do the following tasks:
 > * Run `terraform plan` to validate that Terraform configuration files from a remote services perspective.
 > * Use an Azure Pipeline to automate continuous integration.
 
-## Prerequisites
+## 1. Configure your environment
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../includes/open-source-devops-prereqs-azure-subscription.md)]
-- **Azure DevOps organization and project**: If you don't have one, [create an Azure DevOps organization](/azure/devops/organizations/projects/create-project).
-- **Terraform Build & Release Tasks extension**: [Install the Terraform build/release tasks extension](https://marketplace.visualstudio.com/items?itemName=charleszipp.azure-pipelines-tasks-terraform) into your Azure DevOps organization.
-- **Grant Azure DevOps access to your Azure Subscription**: Create an [Azure service connection](/azure/devops/pipelines/library/connect-to-azure) named `terraform-basic-testing-azure-connection` to allow Azure Pipelines to connect to your Azure subscriptions
-- **Install Terraform**: Based on your environment, [download and install Terraform](https://www.terraform.io/downloads.html).
-- **Fork the testing samples**: Fork the [Terraform sample project on GitHub](https://github.com/Azure/terraform) and clone it to your dev/test machine.
 
-## Validate a local Terraform configuration
+[!INCLUDE [configure-terraform.md](includes/configure-terraform.md)]
+
+- **Azure DevOps organization and project**: If you don't have one, [create an Azure DevOps organization](/azure/devops/organizations/projects/create-project).
+
+- **Terraform Build & Release Tasks extension**: [Install the Terraform build/release tasks extension](https://marketplace.visualstudio.com/items?itemName=charleszipp.azure-pipelines-tasks-terraform) into your Azure DevOps organization.
+
+- **Grant Azure DevOps access to your Azure Subscription**: Create an [Azure service connection](/azure/devops/pipelines/library/connect-to-azure) named `terraform-basic-testing-azure-connection` to allow Azure Pipelines to connect to your Azure subscriptions
+
+- **Example code and resources:** Using the DownGit tool, download from GitHub the [integration-testing project](https://downgit.github.io/#/home?url=https://github.com/Azure/terraform/tree/master/samples/integration-testing) and unzip into a new directory to contain the example code. This directory is referred to as the *example directory*.
+
+## 2. Validate a local Terraform configuration
 
 The [terraform validate](https://www.terraform.io/docs/commands/validate.html) command is run from the command line in the directory containing your Terraform files. This commands main goal is validating syntax.
 
-1. Open the command-line environment of your choice. Many code editors - such as Visual Studio Code - provide a command-line interface.
+1. Within the example directory, navigate to the `src` directory.
 
-1. Change directories to the local repo's `samples/integration-testing/src` directory. It contains a simple Terraform project.
+1. Run [terraform init](https://www.terraform.io/docs/commands/init.html) to initialize the working directory.
 
-1. Initialize the Terraform deployment with [terraform init](https://www.terraform.io/docs/commands/init.html). This step downloads the Azure modules required to create an Azure resource group.
-
-    ```bash
+    ```cmd
     terraform init
     ```
 
-1. Validate the test Terraform file with [terraform validate](https://www.terraform.io/docs/commands/validate.html).
+1. Run [terraform validate](https://www.terraform.io/docs/commands/validate.html) to validate the syntax of the configuration files.
 
-    ```bash
+    ```cmd
     terraform validate
     ```
 
-    You should see a message indicating that the configuration is valid.
+    **Key points:**
 
-1. In a code editor, open the `main.tf` file.
+    - You see a message indicating that the Terraform configuration is valid.
+
+1. Edit the `main.tf` file.
 
 1. On line 5, insert a typo that invalidates the syntax. For example, replace `var.location` with `var.loaction`
 
@@ -59,17 +68,19 @@ The [terraform validate](https://www.terraform.io/docs/commands/validate.html) c
 
 1. Run validation again.
 
-    ```bash
+    ```cmd
     terraform validate
     ```
 
-    This time, you should see an error message indicating the offending line and a description of the error.
+    **Key points:**
+
+    - You see an error message indicating the line of code in error and a description of the error.
 
 As you can see, Terraform has detected an issue in the syntax of the configuration code. This issue prevents the configuration from being deployed.
 
-It is a good practice to always run `terraform validate` against your Terraform files before pushing them to your version control system. Also, this level of validation should be a part of your continuous integration pipeline. Later in this tutorial, we'll explore how to [configure an Azure pipeline to automatically validate](#automate-integration-tests-using-azure-pipeline).
+It is a good practice to always run `terraform validate` against your Terraform files before pushing them to your version control system. Also, this level of validation should be a part of your continuous integration pipeline. Later in this article, we'll explore how to [configure an Azure pipeline to automatically validate](#5-automate-integration-tests-using-azure-pipeline).
 
-## Validate Terraform configuration can be deployed on Azure
+## 3. Validate Terraform configuration
 
 In the previous section, you saw how to validate a Terraform configuration. That level of testing was specific to syntax. That test didn't take into consideration what might already be deployed on Azure.
 
@@ -77,17 +88,17 @@ Terraform is a *declarative language* meaning that you declare what you want as 
 
 To generate the Terraform execution plan, you run [terraform plan](https://www.terraform.io/docs/commands/plan.html). This command connects to the target Azure subscription to check what part of the configuration is already deployed. Terraform then determines the necessary changes to meet the requirements stated in the Terraform file. At this stage, Terraform isn't deploying anything. It's telling you what will happen if you apply the plan.
 
-If you're following along with the tutorial and you've done the steps in the previous section, run the `terraform plan` command:
+If you're following along with the article and you've done the steps in the previous section, run the `terraform plan` command:
 
-```bash
+```cmd
 terraform plan
 ```
 
 After running `terraform plan`, Terraform displays the potential outcome of applying the execution plan. The output indicates the Azure resources that will be added, changed, and destroyed.
 
-By default, Terraform stores state in the same local directory as the Terraform file. This pattern works well in single-user scenarios. However, when multiple people work on the same Azure resources, local state files can get out of sync. To remedy this issue, Terraform supports writing state files to a remote data store (such as Azure Storage). In this scenario, it might be problematic to run `terraform plan` on a local machine and target a remote machine. As a result, it might make sense to [automate this validation step as part of your continuous integration pipeline](#automate-integration-tests-using-azure-pipeline).
+By default, Terraform stores state in the same local directory as the Terraform file. This pattern works well in single-user scenarios. However, when multiple people work on the same Azure resources, local state files can get out of sync. To remedy this issue, Terraform supports writing state files to a remote data store (such as Azure Storage). In this scenario, it might be problematic to run `terraform plan` on a local machine and target a remote machine. As a result, it might make sense to [automate this validation step as part of your continuous integration pipeline](#5-automate-integration-tests-using-azure-pipeline).
 
-## Run static code analysis
+## 4. Run static code analysis
 
 Static code analysis can be done directly on the Terraform configuration code, without executing it. This analysis can be useful to detect issues such as security problems and compliance inconsistency.
 
@@ -100,15 +111,15 @@ The following tools provide static analysis for Terraform files:
 
 Static analysis is often executed part of a continuous integration pipeline. These tests don't require the creation of an execution plan or deployment. As a result, they run faster than other tests and are generally run first in the continuous integration process.
 
-## Automate integration tests using Azure Pipeline
+## 5. Automate integration tests using Azure Pipeline
 
-Continuous integration involves testing an entire system when a change is introduced. In this section, you'll see an Azure Pipeline configuration used to implement continuous integration.
+Continuous integration involves testing an entire system when a change is introduced. In this section, you see an Azure Pipeline configuration used to implement continuous integration.
 
 1. Using your editor of choice, browse to the local clone of the [Terraform sample project on GitHub](https://github.com/Azure/terraform).
 
 1. Open the `samples/integration-testing/src/azure-pipeline.yaml` file.
 
-1. Scroll down to the **steps** section where you'll see a standard set of steps used to run various installation and validation routines.
+1. Scroll down to the **steps** section where you see a standard set of steps used to run various installation and validation routines.
 
 1. Review the line that reads, **Step 1: run the Checkov Static Code Analysis**. In this step, the `Checkov` project mentioned earlier runs a static code analysis on the sample Terraform configuration. 
 
@@ -117,7 +128,7 @@ Continuous integration involves testing an entire system when a change is introd
       displayName: Checkov Static Code Analysis
     ```
     
-    Note:
+    **Key points:**
     
     - This script is responsible for running Checkov in the Terraform workspace mounted inside a Docker container. Microsoft-managed agents are Docker enabled. Running tools inside a Docker container is easier and removes the need to install Checkov on the Azure Pipeline agent.
     - The `$(terraformWorkingDirectory)` variable is defined in the `azure-pipeline.yaml` file.
@@ -131,7 +142,7 @@ Continuous integration involves testing an entire system when a change is introd
         terraformVersion: $(terraformVersion)
     ```
     
-    Note:
+    **Key points:**
 
     - The version of Terraform to install is specified via an Azure Pipeline variable named `terraformVersion` and defined in the `azure-pipeline.yaml` file.
 
@@ -145,7 +156,7 @@ Continuous integration involves testing an entire system when a change is introd
         workingDirectory: $(terraformWorkingDirectory)
     ```
     
-    Notes:
+    **Key points:**
 
     - The `command` input specifies which Terraform command to run.
     - The `workingDirectory` input indicates the path of the Terraform directory.
@@ -173,9 +184,9 @@ Continuous integration involves testing an entire system when a change is introd
         commandOptions: -var location=$(azureLocation)
     ```
     
-    Notes:
+    **Key points:**
 
-    - The `environmentServiceName` input refers to the name of the Azure service connection created in [Prerequisites](#prerequisites). The connection allows Terraform to access your Azure subscription.
+    - The `environmentServiceName` input refers to the name of the Azure service connection created in [Configure your environment](#1-configure-your-environment). The connection allows Terraform to access your Azure subscription.
     - The `commandOptions` input is used to pass arguments to the Terraform command. In this case, a location is being specified. The `$(azureLocation)` variable is defined earlier in the YAML file.
 
 ### Import the pipeline into Azure DevOps
@@ -206,7 +217,7 @@ Continuous integration involves testing an entire system when a change is introd
 
     ![Run Azure Pipeline](media/best-practices-integration-testing/run-pipeline.png)
 
-### Run the pipeline
+### Verify the results
 
 You can run the pipeline manually from the Azure DevOps UI. However, the point of the article is to show automated continuous integration. Test the process by committing a change to the `samples/integration-testing/src` folder of your forked repository. The change will automatically trigger a new pipeline on the branch on which you're pushing the code.
 
@@ -216,9 +227,11 @@ Once you've done that step, access the details in Azure DevOps to ensure that ev
 
 ![Azure DevOps Green Pipeline](media/best-practices-integration-testing/azure-devops-green-pipeline.png)
 
-[!INCLUDE [terraform-troubleshooting.md](includes/terraform-troubleshooting.md)]
+## Troubleshoot Terraform on Azure
+
+[Troubleshoot common problems when using Terraform on Azure](troubleshoot.md)
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Create and run compliance tests in Terraform projects](best-practices-compliance-testing.md)
+> [!div class="nextstepaction"] 
+> [Learn more about using Terraform in Azure](/azure/terraform)

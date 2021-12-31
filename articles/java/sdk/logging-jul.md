@@ -1,7 +1,6 @@
 ---
 title: Log with the Azure SDK for Java and java.util.logging
 description: An overview of the Azure SDK for Java integration with java.util.logging
-author: srnagar
 ms.date: 02/02/2021
 ms.topic: conceptual
 ms.custom: devx-track-java

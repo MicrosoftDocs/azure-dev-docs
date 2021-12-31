@@ -3,7 +3,7 @@ title: Create an Azure VM cluster with Terraform and HCL
 description: Learn how to use Terraform and HCL to create a Linux virtual machine cluster with a load balancer in Azure.
 keywords: azure devops terraform vm virtual machine cluster
 ms.topic: how-to
-ms.date: 03/09/2020
+ms.date: 08/29/2021
 ms.custom: devx-track-terraform
 ---
 
@@ -11,9 +11,9 @@ ms.custom: devx-track-terraform
 
 In this article, you see how to create a small compute cluster using [HCL](https://www.terraform.io/docs/configuration/syntax.html). 
 
-You'll learn how to do the following tasks:
-
+In this article, you learn how to:
 > [!div class="checklist"]
+
 > * Set up Azure authentication.
 > * Create a Terraform configuration file.
 > * Use a Terraform configuration file to create a load balancer.
@@ -22,231 +22,196 @@ You'll learn how to do the following tasks:
 > * Create a Terraform execution plan.
 > * Apply the Terraform execution plan to create the Azure resources.
 
-## Prerequisites
+## 1. Configure your environment
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../includes/open-source-devops-prereqs-azure-subscription.md)]
 
-## 1. Create a Terraform configuration file
+[!INCLUDE [configure-terraform.md](includes/configure-terraform.md)]
 
-In this section, you create a file that contains resource definitions for your infrastructure.
+## 2. Implement the code
 
-1. Create a new file named `main.tf`. 
-
-2. Copy following sample resource definitions into the newly created `main.tf` file: 
+1. Create a directory in which to test the sample Terraform code and make it the current directory.
 
    ```hcl
-   resource "azurerm_resource_group" "test" {
-    name     = "acctestrg"
-    location = "West US 2"
-   }
-
-   resource "azurerm_virtual_network" "test" {
-    name                = "acctvn"
-    address_space       = ["10.0.0.0/16"]
-    location            = azurerm_resource_group.test.location
-    resource_group_name = azurerm_resource_group.test.name
-   }
-
-   resource "azurerm_subnet" "test" {
-    name                 = "acctsub"
-    resource_group_name  = azurerm_resource_group.test.name
-    virtual_network_name = azurerm_virtual_network.test.name
-    address_prefix       = "10.0.2.0/24"
-   }
-
-   resource "azurerm_public_ip" "test" {
-    name                         = "publicIPForLB"
-    location                     = azurerm_resource_group.test.location
-    resource_group_name          = azurerm_resource_group.test.name
-    allocation_method            = "Static"
-   }
-
-   resource "azurerm_lb" "test" {
-    name                = "loadBalancer"
-    location            = azurerm_resource_group.test.location
-    resource_group_name = azurerm_resource_group.test.name
-
-    frontend_ip_configuration {
-      name                 = "publicIPAddress"
-      public_ip_address_id = azurerm_public_ip.test.id
+    terraform {
+    
+      required_version = ">=0.12"
+      
+      required_providers {
+        azurerm = {
+          source = "hashicorp/azurerm"
+          version = "~>2.0"
+        }
+      }
     }
-   }
-
-   resource "azurerm_lb_backend_address_pool" "test" {
-    resource_group_name = azurerm_resource_group.test.name
-    loadbalancer_id     = azurerm_lb.test.id
-    name                = "BackEndAddressPool"
-   }
-
-   resource "azurerm_network_interface" "test" {
-    count               = 2
-    name                = "acctni${count.index}"
-    location            = azurerm_resource_group.test.location
-    resource_group_name = azurerm_resource_group.test.name
-
-    ip_configuration {
-      name                          = "testConfiguration"
-      subnet_id                     = azurerm_subnet.test.id
-      private_ip_address_allocation = "dynamic"
+    
+    provider "azurerm" {
+      features {}
     }
-   }
-
-   resource "azurerm_managed_disk" "test" {
-    count                = 2
-    name                 = "datadisk_existing_${count.index}"
-    location             = azurerm_resource_group.test.location
-    resource_group_name  = azurerm_resource_group.test.name
-    storage_account_type = "Standard_LRS"
-    create_option        = "Empty"
-    disk_size_gb         = "1023"
-   }
-
-   resource "azurerm_availability_set" "avset" {
-    name                         = "avset"
-    location                     = azurerm_resource_group.test.location
-    resource_group_name          = azurerm_resource_group.test.name
-    platform_fault_domain_count  = 2
-    platform_update_domain_count = 2
-    managed                      = true
-   }
-
-   resource "azurerm_virtual_machine" "test" {
-    count                 = 2
-    name                  = "acctvm${count.index}"
-    location              = azurerm_resource_group.test.location
-    availability_set_id   = azurerm_availability_set.avset.id
-    resource_group_name   = azurerm_resource_group.test.name
-    network_interface_ids = [element(azurerm_network_interface.test.*.id, count.index)]
-    vm_size               = "Standard_DS1_v2"
-
-    # Uncomment this line to delete the OS disk automatically when deleting the VM
-    # delete_os_disk_on_termination = true
-
-    # Uncomment this line to delete the data disks automatically when deleting the VM
-    # delete_data_disks_on_termination = true
-
-    storage_image_reference {
-      publisher = "Canonical"
-      offer     = "UbuntuServer"
-      sku       = "16.04-LTS"
-      version   = "latest"
+    
+    resource "azurerm_resource_group" "test" {
+      name     = "acctestrg"
+      location = "West US 2"
     }
-
-    storage_os_disk {
-      name              = "myosdisk${count.index}"
-      caching           = "ReadWrite"
-      create_option     = "FromImage"
-      managed_disk_type = "Standard_LRS"
+    
+    resource "azurerm_virtual_network" "test" {
+      name                = "acctvn"
+      address_space       = ["10.0.0.0/16"]
+      location            = azurerm_resource_group.test.location
+      resource_group_name = azurerm_resource_group.test.name
     }
-
-    # Optional data disks
-    storage_data_disk {
-      name              = "datadisk_new_${count.index}"
-      managed_disk_type = "Standard_LRS"
-      create_option     = "Empty"
-      lun               = 0
-      disk_size_gb      = "1023"
+    
+    resource "azurerm_subnet" "test" {
+      name                 = "acctsub"
+      resource_group_name  = azurerm_resource_group.test.name
+      virtual_network_name = azurerm_virtual_network.test.name
+      address_prefixes     = ["10.0.2.0/24"]
     }
-
-    storage_data_disk {
-      name            = element(azurerm_managed_disk.test.*.name, count.index)
-      managed_disk_id = element(azurerm_managed_disk.test.*.id, count.index)
-      create_option   = "Attach"
-      lun             = 1
-      disk_size_gb    = element(azurerm_managed_disk.test.*.disk_size_gb, count.index)
+    
+    resource "azurerm_public_ip" "test" {
+      name                         = "publicIPForLB"
+      location                     = azurerm_resource_group.test.location
+      resource_group_name          = azurerm_resource_group.test.name
+      allocation_method            = "Static"
     }
-
-    os_profile {
-      computer_name  = "hostname"
-      admin_username = "testadmin"
-      admin_password = "Password1234!"
+    
+    resource "azurerm_lb" "test" {
+      name                = "loadBalancer"
+      location            = azurerm_resource_group.test.location
+      resource_group_name = azurerm_resource_group.test.name
+      
+      frontend_ip_configuration {
+        name                 = "publicIPAddress"
+        public_ip_address_id = azurerm_public_ip.test.id
+      }
     }
-
-    os_profile_linux_config {
-      disable_password_authentication = false
+    
+    resource "azurerm_lb_backend_address_pool" "test" {
+      loadbalancer_id     = azurerm_lb.test.id
+      name                = "BackEndAddressPool"
     }
-
-    tags = {
-      environment = "staging"
+    
+    resource "azurerm_network_interface" "test" {
+      count               = 2
+      name                = "acctni${count.index}"
+      location            = azurerm_resource_group.test.location
+      resource_group_name = azurerm_resource_group.test.name
+        
+      ip_configuration {
+        name                          = "testConfiguration"
+        subnet_id                     = azurerm_subnet.test.id
+        private_ip_address_allocation = "dynamic"
+      }
     }
-   }
-   ```
+    
+    resource "azurerm_managed_disk" "test" {
+      count                = 2
+      name                 = "datadisk_existing_${count.index}"
+      location             = azurerm_resource_group.test.location
+      resource_group_name  = azurerm_resource_group.test.name
+      storage_account_type = "Standard_LRS"
+      create_option        = "Empty"
+      disk_size_gb         = "1023"
+    }
+    
+    resource "azurerm_availability_set" "avset" {
+      name                         = "avset"
+      location                     = azurerm_resource_group.test.location
+      resource_group_name          = azurerm_resource_group.test.name
+      platform_fault_domain_count  = 2
+      platform_update_domain_count = 2
+      managed                      = true
+    }
+    
+    resource "azurerm_virtual_machine" "test" {
+      count                 = 2
+      name                  = "acctvm${count.index}"
+      location              = azurerm_resource_group.test.location
+      availability_set_id   = azurerm_availability_set.avset.id
+      resource_group_name   = azurerm_resource_group.test.name
+      network_interface_ids = [element(azurerm_network_interface.test.*.id, count.index)]
+      vm_size               = "Standard_DS1_v2"
+      
+      # Uncomment this line to delete the OS disk automatically when deleting the VM
+      # delete_os_disk_on_termination = true
+      
+      # Uncomment this line to delete the data disks automatically when deleting the VM
+      # delete_data_disks_on_termination = true
+      
+      storage_image_reference {
+        publisher = "Canonical"
+        offer     = "UbuntuServer"
+        sku       = "16.04-LTS"
+        version   = "latest"
+      }
+      
+      storage_os_disk {
+        name              = "myosdisk${count.index}"
+        caching           = "ReadWrite"
+        create_option     = "FromImage"
+        managed_disk_type = "Standard_LRS"
+      }
+      
+      # Optional data disks
+      storage_data_disk {
+        name              = "datadisk_new_${count.index}"
+        managed_disk_type = "Standard_LRS"
+        create_option     = "Empty"
+        lun               = 0
+        disk_size_gb      = "1023"
+      }
+      
+      storage_data_disk {
+        name            = element(azurerm_managed_disk.test.*.name, count.index)
+        managed_disk_id = element(azurerm_managed_disk.test.*.id, count.index)
+        create_option   = "Attach"
+        lun             = 1
+        disk_size_gb    = element(azurerm_managed_disk.test.*.disk_size_gb, count.index)
+      }
+      
+      os_profile {
+        computer_name  = "hostname"
+        admin_username = "testadmin"
+        admin_password = "Password1234!"
+      }
+      
+      os_profile_linux_config {
+        disable_password_authentication = false
+      }
+      
+      tags = {
+        environment = "staging"
+      }
+    }
+    ```
+    
+## 3. Initialize Terraform
 
-## 2. Initialize Terraform
+[!INCLUDE [terraform-init.md](includes/terraform-init.md)]
 
-The [terraform init command](https://www.terraform.io/docs/commands/init.html) is used to initialize a directory that contains the Terraform configuration files - the files you created with the previous sections. It's a good practice to always run the `terraform init` command after writing a new Terraform configuration. 
+## 4. Create a Terraform execution plan
 
-> [!TIP]
-> The `terraform init` command is idempotent meaning that it can be called repeatedly while producing the same result. Therefore, if you're working in a collaborative environment, and you think the configuration files might have been changed, it's always a good idea to call the `terraform init` command before executing or applying a plan.
+[!INCLUDE [terraform-plan.md](includes/terraform-plan.md)]
 
-To initialize Terraform, run the following command:
+## 5. Apply a Terraform execution plan
 
-  ```bash
-  terraform init
-  ```
+[!INCLUDE [terraform-apply-plan.md](includes/terraform-apply-plan.md)]
 
-  ![Initializing Terraform](media/create-vm-cluster-with-infrastructure/terraform-init.png)
+## 6. Verify the results
 
-## 3. Create a Terraform execution plan
+Run the [az vm list](/cli/azure/vm#az_vm_list) command with a [JMESPath](/cli/azure/query-azure-cli) query to display the VMs created in the resource group.
 
-The [terraform plan command](https://www.terraform.io/docs/commands/plan.html) is used to create an execution plan. To generate an execution plan, Terraform aggregates all the `.tf` files in the current directory. 
-
-The [-out parameter](https://www.terraform.io/docs/commands/plan.html#out-path) saves the execution plan to an output file. This feature addresses concurrency issues common in multi-dev environments. One such problem solved by the output file is the following scenario:
-
-1. Dev 1 creates the configuration file.
-1. Dev 2 modifies the configuration file.
-1. Dev 1 applies (runs) the configuration file.
-1. Dev 1 gets unexpected results not knowing that Dev 2 modified the configuration.
-
-Dev 1 specifying an output file prevents Dev 2 from affecting Dev 1. 
-
-If you don't need to save your execution plan, run the following command:
-
-  ```bash
-  terraform plan
-  ```
-
-If you need to save your execution plan, run the following command. Replace the placeholders with appropriate values for your environment.
-
-  ```bash
-  terraform plan -out=<path>
-  ```
-
-Another useful parameter is [-var-file](https://www.terraform.io/docs/commands/plan.html#var-file-foo).
-
-By default Terraform tried to find your variables file as follows:
-- File named `terraform.tfvars`
-- File named with using the following pattern: `*.auto.tfvars`
-
-However, your variables file need not follow either of the two preceding conventions. In that case, specify your variables file name with the `-var-file` parameter where your variable file name does not carry an extension. The following example illustrates this point:
-
-```hcl
-terraform plan -var-file <my-variables-file>
+```azurecli
+az vm list -g acctestrg --query "[].{\"VM Name\":name}" -o table
 ```
 
-Terraform determines the actions necessary to achieve the state specified in the configuration file.
+## 7. Clean up resources
 
-![Creating a Terraform execution plan](media/create-vm-cluster-with-infrastructure/terraform-plan.png)
+[!INCLUDE [terraform-plan-destroy.md](includes/terraform-plan-destroy.md)]
 
-## 4. Apply the Terraform execution plan
+## Troubleshoot Terraform on Azure
 
-The final step of this article is to use the [terraform apply command](https://www.terraform.io/docs/commands/apply.html) to apply the set of actions generated by the `terraform plan` command.
-
-If you want to apply the latest execution plan, run the following command:
-
-  ```bash
-  terraform apply
-  ```
-
-If you want to apply a previously saved execution plan, run the following command. Replace the placeholders with appropriate values for your environment:
-
-  ```bash
-  terraform apply <path>
-  ```
-
-![Applying a Terraform execution plan](media/create-vm-cluster-with-infrastructure/terraform-apply.png)
-
-[!INCLUDE [terraform-troubleshooting.md](includes/terraform-troubleshooting.md)]
+[Troubleshoot common problems when using Terraform on Azure](troubleshoot.md)
 
 ## Next steps
 

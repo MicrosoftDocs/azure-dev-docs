@@ -2,6 +2,7 @@
 title: Manage Azure Policies with GitHub  
 description: Manage Azure Policies as code from GitHub 
 author: raiyanalam 
+ms.custom: github-actions-azure
 ms.author: moala 
 ms.topic: reference
 ms.service: azure 

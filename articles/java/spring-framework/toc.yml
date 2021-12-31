@@ -4,7 +4,7 @@
   - name: Getting Started Guides
     expanded: true
     items:
-      - name: Spring Boot 
+      - name: Spring Boot
         href: spring-boot-starters-for-azure.md
         expanded: true
         items:
@@ -16,7 +16,7 @@
             href: configure-spring-boot-starter-java-app-with-azure-key-vault-certificates.md
           - name: Azure Service Bus
             href: configure-spring-boot-starter-java-app-with-azure-service-bus.md
-      - name: Spring Data 
+      - name: Spring Data
         expanded: true
         items:
           - name: Azure Cosmos DB dev guide
@@ -24,7 +24,7 @@
           - name: Azure Cosmos DB Starter
             href: configure-spring-boot-starter-java-app-with-cosmos-db.md
           - name: Azure Cosmos DB with App Service on Linux
-            href: configure-spring-app-with-cosmos-db-on-app-service-linux.md           
+            href: configure-spring-app-with-cosmos-db-on-app-service-linux.md
           - name: Azure Cosmos DB Apache Cassandra API
             href: configure-spring-data-apache-cassandra-with-cosmos-db.md
           - name: Azure Cosmos DB MongoDB API
@@ -47,19 +47,19 @@
             href: configure-spring-data-jpa-with-azure-postgresql.md
           - name: JPA with Azure SQL Server
             href: configure-spring-data-jpa-with-azure-sql-server.md
-      - name: Spring Security 
+      - name: Spring Security
         expanded: true
         items:
           - name: Azure Active Directory dev guide
             href: spring-boot-starter-for-azure-active-directory-developer-guide.md
-          - name: Azure Active Directory 
+          - name: Azure Active Directory
             href: configure-spring-boot-starter-java-app-with-azure-active-directory.md
           - name: Azure Active Directory B2C
             href: configure-spring-boot-starter-java-app-with-azure-active-directory-b2c-oidc.md
-      - name: Spring Cloud 
+      - name: Spring Cloud
         expanded: true
         items:
-          - name: Azure Event Hub  
+          - name: Azure Event Hub
             href: configure-spring-cloud-stream-binder-java-app-azure-event-hub.md
           - name: Azure Event Hub Kafka API
             href: configure-spring-cloud-stream-binder-java-app-kafka-azure-event-hub.md
@@ -67,15 +67,28 @@
             href: getting-started-with-spring-cloud-function-in-azure.md
           - name: Azure Service Bus
             href: configure-spring-cloud-stream-binder-java-app-with-service-bus.md
+      - name: Azure App Configuration
+        expanded: true
+        items:
+          - name: Create an app
+            href: /azure/azure-app-configuration/quickstart-java-spring-app?toc=/azure/developer/java/spring-framework/toc.json&bc=/azure/developer/breadcrumb/toc.json
+          - name: Add feature flags
+            href: /azure/azure-app-configuration/quickstart-feature-flag-spring-boot?toc=/azure/developer/java/spring-framework/toc.json&bc=/azure/developer/breadcrumb/toc.json
+          - name: Use dynamic configuration
+            href: /azure/azure-app-configuration/enable-dynamic-configuration-java-spring-app?toc=/azure/developer/java/spring-framework/toc.json&bc=/azure/developer/breadcrumb/toc.json
+          - name: Use Key Vault references
+            href: /azure/azure-app-configuration/use-key-vault-references-spring-boot?toc=/azure/developer/java/spring-framework/toc.json&bc=/azure/developer/breadcrumb/toc.json
+          - name: Use feature flags
+            href: /azure/azure-app-configuration/use-feature-flags-spring-boot?toc=/azure/developer/java/spring-framework/toc.json&bc=/azure/developer/breadcrumb/toc.json
   - name: Tutorials
-    items:      
-      - name: Deploy to App Service with Maven
-        href: /azure/app-service/quickstart-java?pivots=platform-linux%252cplatform-linux
+    items:
+      - name: Deploy to App Service and Azure Spring Cloud
+        href: https://spring.io/guides/gs/spring-boot-for-azure/
       - name: Deploy to Kubernetes
         href: deploy-spring-boot-java-app-on-kubernetes.md
       - name: Deploy to Web App for Containers
         href: deploy-spring-boot-java-app-on-linux.md
-      - name: Azure Redis Cache 
+      - name: Azure Redis Cache
         href: configure-spring-boot-initializer-java-app-with-redis-cache.md
       - name: End-to-end App Service with MySQL
         href: spring-app-service-e2e.md

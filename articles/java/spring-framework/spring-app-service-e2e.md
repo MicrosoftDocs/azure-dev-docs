@@ -1,7 +1,6 @@
 ---
 title: Deploy a Spring/Tomcat app to App Service with Azure Database for MySQL
 description: End-to-end tutorial for Java App Service with MySQL
-author: KarlErickson
 ms.author: karler
 ms.date: 11/12/2019
 ms.service: app-service
@@ -28,7 +27,7 @@ This tutorial builds on the popular Spring PetClinic sample app. In this topic, 
 
 To get started with the sample app, clone and prepare the source repo using the following commands.
 
-# [bash](#tab/bash)
+# [Bash](#tab/bash)
 
 ```bash
 git clone https://github.com/spring-petclinic/spring-framework-petclinic.git
@@ -56,13 +55,13 @@ First, we'll test the sample locally by using HSQLDB as the database.
 
 Build the HSQLDB version of the sample app.
 
-``` azurecli
+```bash
 mvn package
 ```
 
 Next, set the TOMCAT_HOME environment variable to the location of your Tomcat installation.
 
-# [bash](#tab/bash)
+# [Bash](#tab/bash)
 
 ```bash
 export TOMCAT_HOME=<Tomcat install directory>
@@ -81,13 +80,13 @@ set TOMCAT_HOME=<Tomcat install directory>
 ```
 ---
 
-Then, update *pom.xml* file for deploying the WAR file. Add the following XML as a child of the existing `<plugins>` element. If necessary, change `1.8.5` to the current version of the [Cargo Maven 2 Plugin](https://mvnrepository.com/artifact/org.codehaus.cargo/cargo-maven2-plugin).
+Then, update *pom.xml* file for deploying the WAR file. Add the following XML as a child of the existing `<plugins>` element. If necessary, change `1.9.7` to the current version of the [Cargo Maven 3 Plugin](https://mvnrepository.com/artifact/org.codehaus.cargo/cargo-maven3-plugin).
 
 ```xml
 <plugin>
     <groupId>org.codehaus.cargo</groupId>
-    <artifactId>cargo-maven2-plugin</artifactId>
-    <version>1.8.5</version>
+    <artifactId>cargo-maven3-plugin</artifactId>
+    <version>1.9.7</version>
     <configuration>
         <container>
             <containerId>tomcat9x</containerId>
@@ -114,13 +113,13 @@ Then, update *pom.xml* file for deploying the WAR file. Add the following XML as
 
 With this configuration in place, you can deploy the app locally to Tomcat.
 
-```azurecli
+```bash
 mvn cargo:deploy
 ```
 
 Then, launch Tomcat.
 
-# [bash](#tab/bash)
+# [Bash](#tab/bash)
 
 ```bash
 ${TOMCAT_HOME}/bin/catalina.sh run
@@ -147,7 +146,7 @@ Now that you've seen it running locally, we'll deploy the app to Azure.
 
 First, set the following environment variables. For `REGION`, use `West US 2` or other regions you can find [here](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=app-service).
 
-# [bash](#tab/bash)
+# [Bash](#tab/bash)
 
 ```bash
 export RESOURCEGROUP_NAME=<resource group>
@@ -179,13 +178,13 @@ set SUBSCRIPTION_ID=<subscription_id>
 
 Maven will use these values to create the Azure resources with the names you provide. By using environment variables, you can keep your account secrets out of your project files.
 
-Next, update the *pom.xml* file to configure Maven for an Azure deployment. Add the following XML after the `<plugin>` element you added previously. If necessary, change `1.14.0` to the current version of the [Maven Plugin for Azure App Service](https://github.com/microsoft/azure-maven-plugins/blob/develop/azure-webapp-maven-plugin/README.md).
+Next, update the *pom.xml* file to configure Maven for an Azure deployment. Add the following XML after the `<plugin>` element you added previously. If necessary, change `2.1.0` to the current version of the [Maven Plugin for Azure App Service](https://github.com/microsoft/azure-maven-plugins/blob/develop/azure-webapp-maven-plugin/README.md).
 
 ```xml
 <plugin>
   <groupId>com.microsoft.azure</groupId>
   <artifactId>azure-webapp-maven-plugin</artifactId>
-  <version>1.14.0</version>
+  <version>2.1.0</version>
   <configuration>
     <schemaVersion>v2</schemaVersion>
     <subscriptionId>${SUBSCRIPTION_ID}</subscriptionId>
@@ -220,7 +219,7 @@ az login
 
 Then deploy the app to App Service Linux.
 
-```azurecli
+```bash
 mvn azure-webapp:deploy
 ```
 
@@ -232,7 +231,7 @@ Next, we'll switch to using MySQL instead of HSQLDB. We'll create a MySQL server
 
 First, set the following environment variables for use in later steps.
 
-# [bash](#tab/bash)
+# [Bash](#tab/bash)
 
 ```bash
 export MYSQL_SERVER_NAME=<server>
@@ -268,9 +267,9 @@ set DOLLAR=$
 
 Next, create and initialize the database server. Use [az mysql up](/cli/azure/mysql#az_mysql_up) for the initial configuration. Then use [az mysql server configuration set](/cli/azure/mysql/server/configuration#az_mysql_server_configuration_set) to increase the connection timeout and set the server timezone.
 
-# [bash](#tab/bash)
+# [Bash](#tab/bash)
 
-```bash
+```azurecli
 az extension add --name db-up
 
 az mysql up \
@@ -291,7 +290,7 @@ az mysql server configuration set --name time_zone \
 
 # [PowerShell](#tab/powershell)
 
-```ps
+```azurecli
 az extension add --name db-up
 
 az mysql up `
@@ -312,7 +311,7 @@ az mysql server configuration set --name time_zone `
 
 # [Cmd](#tab/cmd)
 
-```cmd
+```azurecli
 az extension add --name db-up
 
 az mysql up ^
@@ -334,7 +333,7 @@ az mysql server configuration set --name time_zone ^
 
 Then, use the MySQL CLI to connect to your database on Azure.
 
-# [bash](#tab/bash)
+# [Bash](#tab/bash)
 
 ```bash
 mysql -u ${MYSQL_SERVER_ADMIN_LOGIN_NAME}@${MYSQL_SERVER_NAME} \
@@ -388,13 +387,13 @@ Update the *pom.xml* file to make MySQL the active configuration. Remove the `<a
 </profile>
 ```
 
-Next, update the *pom.xml* file to configure Maven for an Azure deployment and for MySQL use. Add the following XML after the `<plugin>` element you added previously. If necessary, change `1.14.0` to the current version of the [Maven Plugin for Azure App Service](https://github.com/microsoft/azure-maven-plugins/blob/develop/azure-webapp-maven-plugin/README.md).
+Next, update the *pom.xml* file to configure Maven for an Azure deployment and for MySQL use. Add the following XML after the `<plugin>` element you added previously. If necessary, change `2.1.0` to the current version of the [Maven Plugin for Azure App Service](https://github.com/microsoft/azure-maven-plugins/blob/develop/azure-webapp-maven-plugin/README.md).
 
 ```xml
 <plugin>
   <groupId>com.microsoft.azure</groupId>
   <artifactId>azure-webapp-maven-plugin</artifactId>
-  <version>1.14.0</version>
+  <version>2.1.0</version>
   <configuration>
     <schemaVersion>v2</schemaVersion>
     <subscriptionId>${SUBSCRIPTION_ID}</subscriptionId>
@@ -441,7 +440,7 @@ Next, update the *pom.xml* file to configure Maven for an Azure deployment and f
 
 Next, build the app, then test it locally by deploying and running it with Tomcat.
 
-# [bash](#tab/bash)
+# [Bash](#tab/bash)
 
 ```bash
 mvn package
@@ -459,7 +458,7 @@ mvn cargo:deploy
 
 # [Cmd](#tab/cmd)
 
-```bash
+```cmd
 mvn package
 mvn cargo:deploy
 %TOMCAT_HOME%\bin\catalina.bat run
@@ -480,23 +479,23 @@ You can now navigate to `https://<app-name>.azurewebsites.net` to see the runnin
 
 If you need to troubleshoot, you can look at the app logs. To open the remote log stream on your local machine, use the following command.
 
-# [bash](#tab/bash)
+# [Bash](#tab/bash)
 
-```bash
+```azurecli
 az webapp log tail --name ${WEBAPP_NAME} \
     --resource-group ${RESOURCEGROUP_NAME}
 ```
 
 # [PowerShell](#tab/powershell)
 
-```ps
+```azurecli
 az webapp log tail --name $env:WEBAPP_NAME `
     --resource-group $env:RESOURCEGROUP_NAME
 ```
 
 # [Cmd](#tab/cmd)
 
-```bash
+```azurecli
 az webapp log tail --name %WEBAPP_NAME% ^
     --resource-group %RESOURCEGROUP_NAME%
 ```
@@ -510,9 +509,9 @@ The log stream is also available at `https://<app-name>.scm.azurewebsites.net/ap
 
 To support increased traffic to your app, you can scale out to multiple instances using the following command.
 
-# [bash](#tab/bash)
+# [Bash](#tab/bash)
 
-```bash
+```azurecli
 az appservice plan update --number-of-workers 2 \
     --name ${WEBAPP_PLAN_NAME} \
     --resource-group ${RESOURCEGROUP_NAME}
@@ -520,7 +519,7 @@ az appservice plan update --number-of-workers 2 \
 
 # [PowerShell](#tab/powershell)
 
-```ps
+```azurecli
 az appservice plan update --number-of-workers 2 `
     --name $env:WEBAPP_PLAN_NAME `
     --resource-group $env:RESOURCEGROUP_NAME
@@ -528,7 +527,7 @@ az appservice plan update --number-of-workers 2 `
 
 # [Cmd](#tab/cmd)
 
-```bash
+```azurecli
 az appservice plan update --number-of-workers 2 ^
     --name %WEBAPP_PLAN_NAME% ^
     --resource-group %RESOURCEGROUP_NAME%
@@ -541,22 +540,21 @@ Congratulations! You built and scaled out a Java Web app using Spring Framework,
 
 In the preceding sections, you created Azure resources in a resource group. If you don't expect to use these resources in the future, delete the resource group by running the following command.
 
+# [Bash](#tab/bash)
 
-# [bash](#tab/bash)
-
-```bash
+```azurecli
 az group delete --name ${RESOURCEGROUP_NAME}
 ```
 
 # [PowerShell](#tab/powershell)
 
-```ps
+```azurecli
 az group delete --name $env:RESOURCEGROUP_NAME
 ```
 
 # [Cmd](#tab/cmd)
 
-```bash
+```azurecli
 az group delete --name %RESOURCEGROUP_NAME%
 ```
 ---

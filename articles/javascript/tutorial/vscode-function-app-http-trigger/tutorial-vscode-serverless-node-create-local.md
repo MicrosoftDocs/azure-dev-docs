@@ -1,34 +1,36 @@
 ---
 title: Create the Azure Functions 3.x application from Visual Studio Code
 description: Create a local Azure Functions (serverless) application that contains a function that uses an HTTP trigger. An Azure Functions app can contain many Functions with different triggers. The HTTP trigger specifically handles incoming HTTP traffic.
-ms.topic: tutorial
-ms.date: 05/13/2021
+ms.topic: how-to
+ms.date: 10/06/2021
 ms.custom: devx-track-js, contperf-fy21q2
+
 ---
 
 # 2. Create the local Functions app with the Visual Studio Code _Functions_ extension
 
 Create a local Azure Functions (serverless) application that contains an [HTTP trigger](/azure/azure-functions/functions-reference-node#http-triggers-and-bindings) function. 
 
+1. Create a new directory on your local workstation, then open Visual Studio Code in this directory. 
+
 1. In Visual Studio Code, select the Azure logo to open the **Azure Functions** explorer, then select the **Create New Project** command:
 
     ![Create a local Function app in VS Code](../../media/functions-extension/create-function-app-project.png)
 
-1. At the first two prompts, select the current folder, then select **JavaScript** for the language.
+1. Use the following table to finish creating the local Azure Function project:
 
-1. At the prompt, **Select a template for your project's first function**, select **HTTP Trigger**:
+    |Prompt|Value|Notes|
+    |--|--|--|
+    |Select the folder that will contain your function project.|Select the current folder, which is the default value.||
+    |Select a language|TypeScript||
+    |Select a template for your project's first function|HTTP Trigger|API is invoked with an HTTP request.|
+    |Provide a function name|`category`|API route is `/api/category`|
+    |Authorization Level|Function|This locks the remote API to requests that pass the function key with the request. While developing locally, you won't need the function key.|
+    |Select how you would like to open your project|Open in current window.||
 
-    ![Select the trigger for the Function](../../media/functions-extension/create-function-choose-template.png)
+    This process doesn't create cloud-based Azure Function resource. That [step](tutorial-vscode-serverless-node-deploy-hosting.md) will come later.
 
-1. At the prompt, **Provide a function name**, enter **HttpExample**. (Avoid using the default "HttpTrigger" name because it's the same as the trigger, which can be confusing.)
-
-    ![Entering a function name](../../media/functions-extension/create-function-name.png)
-
-1. At the prompt, **Authorization Level**, select **Anonymous**:
-
-    ![ At the prompt, `Authorization Level`, select `Anonymous`](../../media/functions-extension/create-function-anonymous-auth.png)
-
-1. After a few moments, VS Code completes creation of the project. You have a folder named for the function, *HttpExample*, within which are three files:
+1. After a few moments, VS Code completes creation of the project. You have a folder named for the function, *category*, within which are three files:
 
     | Filename | Description |
     | --- | --- |
@@ -36,62 +38,32 @@ Create a local Azure Functions (serverless) application that contains an [HTTP t
     | *function.json* | The [binding configuration](/azure/azure-functions/functions-triggers-bindings) for the HTTP trigger. |
     | *sample.dat* | A placeholder data file to demonstrate that you can have other files in the folder. You can delete this file, if desired, as it's not used in this tutorial. |
 
-    :::image type="content" source="../../media/functions-extension/create-function-app-results.png" alt-text="Screenshot of VSCode showing result of creating a function app" lightbox="../../media/functions-extension/create-function-app-results.png":::
+## Install npm package dependencies from bash terminal
 
-## Change the logging message
+1. In Visual Studio Code, open an integrated bash terminal, <kbd>Ctrl</kbd> + <kbd>`</kbd>.
+1. Install npm dependencies:
+
+    ```bash
+    npm install
+    ```
+
+## Change the function's code
 
 The basic code to respond to the HTTP request is provided for you. If you are familiar with the HTTP request (the _req_ parameter) and response objects, the function should seem familiar. You return response information with the **context** object on the `res` property.  
 
 <a name="http-function-javascript-template-code"></a>
 
-```javascript
-module.exports = async function (context, req) {
-    context.log('JavaScript HTTP trigger function processed a request.');
-
-    const name = (req.query.name || (req.body && req.body.name));
-    const responseMessage = name
-        ? "Hello, " + name + ". This HTTP triggered function executed successfully."
-        : "This HTTP triggered function executed successfully. Pass a name in the query string or in the request body for a personalized response.";
-
-    context.res = {
-        // status: 200, /* Defaults to 200 */
-        body: responseMessage
-    };
-}
-```
-
 Create a new context.log message after the name variable and change it to appear more obvious when scanning the logs.
 
-```javascript
+```typescript
 context.log(`*** HTTPExample name: ${name}`);
 ```
 
-The final function code is:
+The new function code is:
 
-
-```javascript
-module.exports = async function (context, req) {
-
-    context.log('JavaScript HTTP trigger function processed a request.');
-
-    const name = (req.query.name || (req.body && req.body.name));
-
-    context.log(`*** HTTPExample name: ${name}`);
-
-    const responseMessage = name
-        ? "Hello, " + name + ". This HTTP triggered function executed successfully."
-        : "This HTTP triggered function executed successfully. Pass a name in the query string or in the request body for a personalized response.";
-
-    context.res = {
-        // status: 200, /* Defaults to 200 */
-        body: responseMessage
-    };
-}
-```
-
-:::image type="content" source="../../media/functions-extension/vscode-local-function-log.png" alt-text="Screenshot of VSCode showing code with new context.log" lightbox="../../media/functions-extension/vscode-local-function-log.png":::
+:::code language="typescript" source="~/../js-e2e-azure-function-mongodb/edited-function-code.ts" highlight="6":::
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [I created the Functions app](tutorial-vscode-serverless-node-test-local.md) [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=node-deployment-azurefunctions&step=create-app)
+> [Run the local function app](tutorial-vscode-serverless-node-test-local.md)

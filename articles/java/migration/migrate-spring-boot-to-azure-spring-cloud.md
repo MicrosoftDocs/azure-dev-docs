@@ -1,11 +1,11 @@
 ---
 title: Migrate Spring Boot applications to Azure Spring Cloud
 description: This guide describes what you should be aware of when you want to migrate an existing Spring Boot application to run on Azure Spring Cloud.
-author: yevster
-ms.author: yebronsh
+ms.author: karler
 ms.topic: conceptual
 ms.date: 5/26/2020
 ms.custom: devx-track-java
+recommendations: false
 ---
 
 # Migrate Spring Boot applications to Azure Spring Cloud
@@ -35,7 +35,7 @@ If you can't meet any of these pre-migration requirements, see the following com
 
 [!INCLUDE [identify-spring-boot-versions](includes/identify-spring-boot-versions.md)]
 
-For any applications using Spring Boot 1.x, follow the [Spring Boot 2.0 migration guide](https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-2.0-Migration-Guide) to update them to a supported Spring Boot version. For supported versions, see [Prepare a Java Spring app for deployment](/azure/spring-cloud/spring-cloud-tutorial-prepare-app-deployment#spring-boot-and-spring-cloud-versions).
+For any applications using Spring Boot 1.x, follow the [Spring Boot 2.0 migration guide](https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-2.0-Migration-Guide) to update them to a supported Spring Boot version. For supported versions, see the [Spring Boot and Spring Cloud versions](/azure/spring-cloud/how-to-prepare-app-deployment#spring-boot-and-spring-cloud-versions) section of [Prepare an application for deployment in Azure Spring Cloud](/azure/spring-cloud/how-to-prepare-app-deployment).
 
 [!INCLUDE [identify-logs-metrics-apm-azure-spring-cloud.md](includes/identify-logs-metrics-apm-azure-spring-cloud.md)]
 

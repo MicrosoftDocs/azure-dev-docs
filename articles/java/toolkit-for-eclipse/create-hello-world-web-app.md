@@ -4,7 +4,7 @@ description: This tutorial shows you how to use the Azure Toolkit for Eclipse to
 services: app-service
 keywords: java, eclipse, web app, azure app service, hello world, quick start
 documentationcenter: java
-author: selvasingh
+ms.author: asirveda 
 ms.assetid: 20d41e88-9eab-462e-8ee3-89da71e7a33f
 ms.reviewer: asirveda
 ms.date: 08/25/2020

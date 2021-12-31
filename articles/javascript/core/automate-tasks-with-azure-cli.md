@@ -1,7 +1,7 @@
 ---
 title: Web app automation tasks with Azure CLI
 description: Automating Azure tasks is a common requirement for continuous deployment to hosting environments. Azure CLI is the recommended choice for JavaScript developers managing tasks and deploying from any location.
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/16/2020
 ms.custom: devx-track-js, devx-track-azurecli
 ---
@@ -36,7 +36,7 @@ Once the Azure CLI is installed, you must log in to continue running Azure CLI c
 az login --identity
 ```
 
-[Login with a user's Service Principal](/cli/azure/authenticate-azure-cli#sign-in-with-a-service-principal), after [the Service Principal is created](../how-to/with-sdk/set-up-development-environment.md#1-create-a-service-principal).
+[Login with a user's Service Principal](/cli/azure/authenticate-azure-cli#sign-in-with-a-service-principal), after [the Service Principal is created](../core/nodejs-sdk-azure-authenticate.md).
 
 ```dotnetcli
 read -sp "Azure password: " AZ_PASS && echo && \ 

@@ -1,9 +1,9 @@
 ---
 title: Create Static web app resource
 description: Create the Static Web app resource with a Visual Studio Code extension for that service.
-ms.date: 10/13/2020
-ms.topic: tutorial
-ms.custom: devx-track-javascript
+ms.date: 09/07/2021
+ms.topic: how-to
+ms.custom: devx-track-js
 ---
 
 # 5. Create Azure Static Web app resource
@@ -26,22 +26,28 @@ In the Visual Studio Code terminal, push the local branch, `live` to your remote
 git push origin live
 ```
 
+You didn't need to commit any changes because no changes were made yet. 
+
 ## Create a Static Web app resource
 
-1. Select the **Azure** icon, then right-click on the **Static Web Apps** service, then select **Create Static web app...**. 
+1. Select the **Azure** icon, then right-click on the **Static Web Apps** service, then select **Create Static Web App (Advanced)**. 
 
     :::image type="content" source="../../media/static-web-app/visualstudiocode-storage-extension-create-static-web-resource.png" alt-text="Visual Studio Code screenshot with Visual Studio extension":::
+
+1. If a pop-up window asks if you want to continue on the `Live` branch, select **Continue**.
 
 1. Enter the following information in the subsequent fields, presented one at a time. 
 
     |Field name| value|
     |--|--|
-    |A name for your static web app.|`Demo-ComputerVisionAnalyzer`|
-    |Choose branch for repository|`live`| 
-    |Select the location of your application code.|`/`|
-    |Select the location of your Azure Functions code.|Select **Skip for now**|
+    |Select a resource group for new resources.|Select the resource group you created for your ComputerVision resource, `demo-ComputerVision`.|
+    |Enter a name for the new static web app.|`Demo-ComputerVisionAnalyzer`|
+    |Select pricing option|Select **free**.|
+    |Select the location of your application code.|Select the same location you selected when you created your resource group, `eastus`.|
+    |Choose build preset to configure default project structure.|`React`| 
+    |Choose the location of your application code.|`/`|
+    |Enter the location of your Azure Functions code.|Take the default value.|
     |Enter the path of your build output relative to your app's location.|`build`|
-    |Select a location for new resources|Select an Azure location close to you.|
 
 ## Update the GitHub action with secret environment variables
 
