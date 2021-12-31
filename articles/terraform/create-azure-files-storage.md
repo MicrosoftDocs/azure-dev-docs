@@ -77,7 +77,7 @@ output "storage_account_name" {
 }
 ```
 
-# Configure RBAC permission on Azure File Storage 
+## Configure RBAC permission on Azure File Storage 
 ```hcl
 resource "azurerm_role_assignment" "storageAccountRoleAssignment" {
   scope                = azurerm_storage_account.example.id

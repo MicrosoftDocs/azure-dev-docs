@@ -42,7 +42,7 @@ Next we will create the session host vms.  We reference the NIC here.
 ```terraform
 resource "azurerm_windows_virtual_machine" "avd_vm" {
   count                 = "2"
-  name                  = "<avd-prefix>}-${count.index + 1}"
+  name                  = "${<avd-prefix>}-${count.index + 1}"
   resource_group_name   = "<rgname>"
   location              = "<location>"
   size                  = "<vm_size>"

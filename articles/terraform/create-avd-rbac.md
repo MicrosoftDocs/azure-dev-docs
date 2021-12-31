@@ -61,7 +61,7 @@ resource "azurerm_role_assignment" "role" {
 }
 ```
 
-## Complete Terraform Script
+# Complete Terraform Script
 
 To bring all these sections together and see Terraform in action, create a new file called **rbac.tf** and paste the following content:
 

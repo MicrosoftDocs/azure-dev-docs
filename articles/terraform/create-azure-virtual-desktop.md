@@ -109,7 +109,7 @@ resource "azurerm_virtual_desktop_application_group" "example" {
 }
 ```
 
-# Associate Workspace and Desktop Application Group
+## Associate Workspace and Desktop Application Group
 ```hcl
 resource "azurerm_virtual_desktop_workspace_application_group_association" "example" {
   application_group_id = azurerm_virtual_desktop_application_group.example.id
