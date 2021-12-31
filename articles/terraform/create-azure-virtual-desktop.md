@@ -132,33 +132,35 @@ terraform {
 provider "azurerm" {
   features {}
 }
-resource "azurerm_resource_group" "rg" {
-  name = "<resource_group_name>"
-  location = "<location>"
+
+# Create AVD Resource Group
+resource "azurerm_resource_group" "<rg>" {
+  name     = var.rg_name
+  location = var.deploy_location
 }
 
-resource "time_rotating" "token" {
+resource "time_rotating" "avd_token" {
   rotation_days = 30
 }
 
-#Create workspace
+# Create AVD workspace
 resource "azurerm_virtual_desktop_workspace" "<example>" {
-  name                = "<workspace name>"
-  resource_group_name = azurerm_resource_group.rg.name
-  location            = azurerm_resource_group.rg.location
-  friendly_name       = "<Workspace Friendly Name>"
-  description         = "<A description of my workspace>"
+  name                = var.workspace
+  resource_group_name = azurerm_resource_group.<rg>.name
+  location            = var.deploy_location
+  friendly_name       = "<AVD Workspace>"
+  description         = "<AVD Workspace>"
 }
 
-# Create host pool
-resource "azurerm_virtual_desktop_host_pool" "example" {
-  resource_group_name      = azurerm_resource_group.rg.name
-  name                     = "<hostpoolname>"
+# Create AVD host pool
+resource "azurerm_virtual_desktop_host_pool" "<example>" {
+  resource_group_name      = azurerm_resource_group.<rg>.name
+  name                     = var.hostpool
   description              = "<A description for host pool>
-  location                 = azurerm_resource_group.rg.location
+  location                 = var.deploy_location
   validate_environment     = <false> #[true false]
   type                     = "<Pooled>" #[Pooled Personal]
-  maximum_sessions_allowed = <MaxSessionLimit> 
+  maximum_sessions_allowed = <16> 
   load_balancer_type       = "<BreadthFirst>" #[BreadthFirst DepthFirst]
   friendly_name            = "<AVDHostPoolFriendlyName>"
   custom_rdp_properties    = "audiocapturemode:i:1;audiomode:i:0;"
@@ -173,22 +175,22 @@ resource "azurerm_virtual_desktop_host_pool" "example" {
   }
 }
 
-# Create DAG
-resource "azurerm_virtual_desktop_application_group" "example" {
-  resource_group_name = azurerm_resource_group.rg.name
-  host_pool_id        = azurerm_virtual_desktop_host_pool.example.id
-  location            = azurerm_resource_group.rg.location
+# Create AVD DAG
+resource "azurerm_virtual_desktop_application_group" "<example>" {
+  resource_group_name = azurerm_resource_group.<rg>.name
+  host_pool_id        = azurerm_virtual_desktop_host_pool.<example>.id
+  location            = azurerm_resource_group.<rg>.location
   type                = "<Desktop>"
   name                = "<DAGname>"
   friendly_name       = "<AppGroupName>"
   description         = "<application group description>"
-  depends_on          = [azurerm_virtual_desktop_host_pool.example]
+  depends_on          = [azurerm_virtual_desktop_host_pool.<example> azurerm_virtual_desktop_workspace.<example>]
 }
 
 # Associate Workspace and DAG
-resource "azurerm_virtual_desktop_workspace_application_group_association" "example" {
-  application_group_id = azurerm_virtual_desktop_application_group.example.id
-  workspace_id         = azurerm_virtual_desktop_workspace.example.id
+resource "azurerm_virtual_desktop_workspace_application_group_association" "<example>" {
+  application_group_id = azurerm_virtual_desktop_application_group.<example>.id
+  workspace_id         = azurerm_virtual_desktop_workspace.<example>.id
 }
 ```
 ## Build and deploy the infrastructure

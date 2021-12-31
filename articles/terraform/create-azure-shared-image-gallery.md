@@ -1,5 +1,5 @@
 ---
-title: Configure Azure Virtual Desktop using Terraform - Azure
+title: Configure Azure Compute Gallery using Terraform - Azure
 description: Learn how to use Terraform to configure Azure Virtual Desktop with Terraform
 keywords: azure devops terraform avd virtual desktop session host
 ms.topic: how-to article
@@ -7,7 +7,7 @@ ms.date: 06/30/2021
 ms.custom: devx-track-terraform
 ---
 
-# Configure Azure Files with Terraform
+# Configure Azure Compute Gallery with Terraform
 
 Terraform allows you to define and create complete infrastructure deployments in Azure. You build Terraform templates in a human-readable format that create and configure Azure resources in a consistent, reproducible manner. This article shows you how to build Session Hosts and deploy to an AVD Host Pool with Terraform. You can also learn how to [install and configure Terraform](get-started-cloud-shell.md).
 
@@ -41,26 +41,26 @@ provider "azurerm" {
 The following section creates a resource group in the location:
 
 ```hcl
-resource "azurerm_resource_group" "rg" {
+resource "azurerm_resource_group" "<rg>" {
   location = var.location
   name     = "${var.prefix}-rg"
 }
 ```
-In other sections, you reference the resource group with `azurerm_resource_group.rg.name`.
+In other sections, you reference the resource group with `azurerm_resource_group.<rg>.name`.
 
 
 
-## Configure Shared Image Gallery
+## Configure Azure Compute Gallery formerly Shared Image Gallery
 ```hcl
-resource "azurerm_shared_image_gallery" "sig" {
-  name                = "AVDTFsig"
-  resource_group_name = azurerm_resource_group.rg.name
-  location            = azurerm_resource_group.rg.location
-  description         = "Shared images and things."
+resource "azurerm_shared_image_gallery" "<sig>" {
+  name                = "<AVDsig>"
+  resource_group_name = azurerm_resource_group.<rg>.name
+  location            = azurerm_resource_group.<rg>.location
+  description         = "<Shared images and things>"
 
   tags = {
-    Environment = "Demo"
-    Tech        = "Terraform"
+    Environment = "<Demo>"
+    Tech        = "<Terraform>"
   }
 }
 ```
@@ -68,17 +68,17 @@ resource "azurerm_shared_image_gallery" "sig" {
 ## Configure an Image Definition
 ```hcl
 
-resource "azurerm_shared_image" "example" {
-  name                = "avd-image"
-  gallery_name        = azurerm_shared_image_gallery.sig.name
-  resource_group_name = azurerm_resource_group.rg.name
-  location            = azurerm_resource_group.rg.location
-  os_type             = "Windows"
+resource "azurerm_shared_image" "<example>" {
+  name                = "<avd-image>"
+  gallery_name        = azurerm_shared_image_gallery.<sig>.name
+  resource_group_name = azurerm_resource_group.<rg>.name
+  location            = azurerm_resource_group.<rg>.location
+  os_type             = "<Windows>"
 
   identifier {
-    publisher = "MicrosoftWindowsDesktop"
-    offer     = "office-365"
-    sku       = "20h2-evd-o365pp"
+    publisher = "<MicrosoftWindowsDesktop>"
+    offer     = "<office-365>"
+    sku       = "<20h2-evd-o365pp>"
   }
 }
 ```
@@ -90,36 +90,36 @@ provider "azurerm" {
   features {}
 }
 
-resource "azurerm_resource_group" "rg" {
+resource "azurerm_resource_group" "<rg>" {
   location = var.location
   name     = "${var.prefix}-rg"
 }
 
 
-## Created Shared Image Gallery
-resource "azurerm_shared_image_gallery" "sig" {
-  name                = "AVDTFsig"
-  resource_group_name = azurerm_resource_group.rg.name
-  location            = azurerm_resource_group.rg.location
-  description         = "Shared images and things."
+## Created Azure Compute Gallery formerly Shared Image Gallery
+resource "azurerm_shared_image_gallery" "<sig>" {
+  name                = "<AVDsig>"
+  resource_group_name = azurerm_resource_group.<rg>.name
+  location            = azurerm_resource_group.<rg>.location
+  description         = "<Shared images and things>"
 
   tags = {
-    Environment = "Demo"
-    Tech        = "Terraform"
+    Environment = "<Demo>"
+    Tech        = "<Terraform>"
   }
 }
 
-resource "azurerm_shared_image" "example" {
-  name                = "avd-image"
-  gallery_name        = azurerm_shared_image_gallery.sig.name
-  resource_group_name = azurerm_resource_group.rg.name
-  location            = azurerm_resource_group.rg.location
-  os_type             = "Windows"
+resource "azurerm_shared_image" "<example>" {
+  name                = "<avd-image>"
+  gallery_name        = azurerm_shared_image_gallery.<sig>.name
+  resource_group_name = azurerm_resource_group.<rg>.name
+  location            = azurerm_resource_group.<rg>.location
+  os_type             = "<Windows>"
 
   identifier {
-    publisher = "MicrosoftWindowsDesktop"
-    offer     = "office-365"
-    sku       = "20h2-evd-o365pp"
+    publisher = "<MicrosoftWindowsDesktop>"
+    offer     = "<office-365>"
+    sku       = "<20h2-evd-o365pp>"
   }
 }
 ```
@@ -152,5 +152,5 @@ Once Terraform completes, your VM infrastructure is ready. Obtain the public IP 
 
 ## Next steps
 
-> [!div class="nextstepaction"] 
-> [Learn more about Configuring Azure Virtual Desktop session hosts using Terraform in Azure](/articles/terraform/create-avd-session-host.md)
+> [!div class="nextstepaction"]
+> [Learn more about using Terraform in Azure](/azure/terraform)

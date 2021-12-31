@@ -1,17 +1,15 @@
 ---
 title: Configure Azure Virtual Desktop using Terraform - Azure
 description: Learn how to use Terraform to configure Azure Virtual Desktop with Terraform
-keywords: azure devops terraform avd virtual desktop session host
+keywords: azure devops terraform log analytics
 ms.topic: how-to article
 ms.date: 06/30/2021
 ms.custom: devx-track-terraform
 ---
 
-# Configure Azure Files with Terraform
+# Create an Azure Log Analytics Workspace using Terraform
 
-Terraform allows you to define and create complete infrastructure deployments in Azure. You build Terraform templates in a human-readable format that create and configure Azure resources in a consistent, reproducible manner. This article shows you how to build Session Hosts and deploy to an AVD Host Pool with Terraform. You can also learn how to [install and configure Terraform](get-started-cloud-shell.md).
-
-Azure offers multiple storage solutions that you can use to store your FSLogix profile container. This article covers configuring Azure Files storage solutions for Azure Virtual Desktop FSLogix user profile containers using Terraform 
+Terraform allows you to define and create complete infrastructure deployments in Azure. You build Terraform templates in a human-readable format that create and configure Azure resources in a consistent, reproducible manner. This article shows you how to create a Log Analytics workspace using Terraform. You can also learn how to [install and configure Terraform](get-started-cloud-shell.md).
 
 ## Prerequisites
 
@@ -41,19 +39,19 @@ provider "azurerm" {
 The following section creates a resource group in the location:
 
 ```hcl
-resource "azurerm_resource_group" "rg" {
+resource "azurerm_resource_group" "<rg>" {
   location = var.location
   name     = "${var.prefix}-rg"
 }
 ```
-In other sections, you reference the resource group with `azurerm_resource_group.rg.name`.
+In other sections, you reference the resource group with `azurerm_resource_group.<rg>.name`.
 
 ## Configure Azure Log Analytics Workspace with Terraform
 ```hcl
-resource "azurerm_log_analytics_workspace" "lawksp" {
+resource "azurerm_log_analytics_workspace" "<lawksp>" {
   name                = "log${random_string.random.id}"
-  location            = azurerm_resource_group.log.location
-  resource_group_name = azurerm_resource_group.log.name
+  location            = azurerm_resource_group.<rg>.location
+  resource_group_name = azurerm_resource_group.<rg>.name
   sku                 = "PerGB2018"
 }
 ```
@@ -85,5 +83,5 @@ Once Terraform completes, your VM infrastructure is ready. Obtain the public IP 
 
 ## Next steps
 
-> [!div class="nextstepaction"] 
-> [Learn more about Configuring Azure Virtual Desktop session hosts using Terraform in Azure](/articles/terraform/create-avd-session-host.md)
+> [!div class="nextstepaction"]
+> [Learn more about using Terraform in Azure](/azure/terraform)

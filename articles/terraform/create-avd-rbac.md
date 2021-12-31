@@ -15,7 +15,7 @@ In this doc we will walk through adding our users and Azure AD group and then as
 
 ## Prerequisites
 
-This article assumes you have already deployed the [Azure Virtual Desktop Infrastructure](../create-azure-virtual-desktop.md)].
+This article assumes you have already deployed the [Azure Virtual Desktop Infrastructure](../create-azure-virtual-desktop.md).
 
 
 ## Data Sources
@@ -123,3 +123,7 @@ terraform {
 ```
 
 You are now ready to [build and deploy](../create-azure-virtual-desktop.md#build-and-deploy-the-infrastructure) your infrastructure with role based access control.
+## Next steps
+
+> [!div class="nextstepaction"] 
+> [Learn more about Configuring Azure Virtual Desktop session hosts using Terraform in Azure](/articles/terraform/create-avd-session-host.md)

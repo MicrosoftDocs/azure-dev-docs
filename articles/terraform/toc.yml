@@ -57,6 +57,22 @@
       items:
         - name: Azure Virtual Desktop
           href: create-azure-virtual-desktop.md
+        - name: Azure Virtual Desktop Session Host
+          href: create-avd-session-host.md
+        - name: Azure Virtual Desktop RBAC
+          href: create-avd-rbac.md
+    - name: Storage
+      items:
+        - name: Azure Files
+          href: create-azure-files-storage.md
+    - name: Azure Compute Gallery
+      items:
+        - name: Azure Compute Gallery
+          href: create-azure-shared-image-gallery.md
+    - name: Monitoring
+      items:
+        - name: Log Analytics Workspace
+          href: create-azure-log-analytics-workspace.md         
     - name: Security
       items:
         - name: Azure Attestation

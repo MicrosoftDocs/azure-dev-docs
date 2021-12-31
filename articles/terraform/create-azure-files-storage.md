@@ -1,7 +1,7 @@
 ---
-title: Configure Azure Virtual Desktop using Terraform - Azure
-description: Learn how to use Terraform to configure Azure Virtual Desktop with Terraform
-keywords: azure devops terraform avd virtual desktop session host
+title: Configure Azure Files for FSLogix profiles for Azure Virtual Desktop using Terraform - Azure
+description: Learn how to use Terraform to configure Azure Files for FSLogix profiles Azure Virtual Desktop with Terraform
+keywords: azure devops terraform avd virtual desktop storage fslogix
 ms.topic: how-to article
 ms.date: 06/30/2021
 ms.custom: devx-track-terraform
@@ -29,7 +29,7 @@ The following code defines the Azure Terraform provider:
 terraform {
   required_providers {
     azurerm = {
-      source = "hashicorp/azurerm"
+      source  = "hashicorp/azurerm"
       version = "~>2.0"
     }
   }
@@ -46,20 +46,20 @@ resource "azurerm_resource_group" "<rgStor>" {
   name     = "${var.prefix}-rg"
 }
 ```
-In other sections, you reference the resource group with `azurerm_resource_group.rgStor.name`.
+In other sections, you reference the resource group with `azurerm_resource_group.<rgStor>.name`.
 
 [More details on storage](.../azure/storage/common/storage-account-overview.md)
 
 ## Configure a File Storage Account 
 ```hcl
-resource "azurerm_storage_account" "Stor" {
+resource "azurerm_storage_account" "<Stor>" {
   name                     = "stor${random_string.random.id}"
-  resource_group_name      = azurerm_resource_group.rgStor.name
-  location                 = azurerm_resource_group.rgStor.location
+  resource_group_name      = azurerm_resource_group.<rgStor>.name
+  location                 = azurerm_resource_group.<rgStor>.location
   account_tier             = "Standard"
   account_replication_type = "LRS"
   account_kind             = "FileStorage"
-  tags = "Terraform Demo"
+  tags                     = "<Terraform Demo>"
 }
 ```
 
@@ -67,12 +67,12 @@ resource "azurerm_storage_account" "Stor" {
 ```hcl
 resource "azurerm_storage_share" "<FSShare>" {
   name                 = "<fslogix>"
-  storage_account_name = azurerm_storage_account.Stor.name
-  depends_on           = [azurerm_storage_account.Stor]
+  storage_account_name = azurerm_storage_account.<Stor>.name
+  depends_on           = [azurerm_storage_account.<Stor>]
 }
 
 output "storage_account_name" {
-  value = azurerm_storage_account.Stor.name
+  value = azurerm_storage_account.<Stor>.name
 
 }
 ```
@@ -92,7 +92,7 @@ To bring all these sections together and see Terraform in action, create a file 
 terraform {
   required_providers {
     azurerm = {
-      source = "hashicorp/azurerm"
+      source  = "hashicorp/azurerm"
       version = "~>2.0"
     }
   }
@@ -102,30 +102,30 @@ provider "azurerm" {
 }
 
 ## Create a Resource Group for Storage
-resource "azurerm_resource_group" "rgStor" {
+resource "azurerm_resource_group" "<rgStor>" {
   location = var.location
   name     = "${var.prefix}-rg"
 }
 
 ## Create a File Storage Account 
-resource "azurerm_storage_account" "Stor" {
+resource "azurerm_storage_account" "<Stor>" {
   name                     = "stor${random_string.random.id}"
-  resource_group_name      = azurerm_resource_group.rgStor.name
-  location                 = azurerm_resource_group.rgStor.location
+  resource_group_name      = azurerm_resource_group.<rgStor>.name
+  location                 = azurerm_resource_group.<rgStor>.location
   account_tier             = "Standard"
   account_replication_type = "LRS"
   account_kind             = "FileStorage"
   tags = "Terraform Demo"
 }
 
-resource "azurerm_storage_share" "FSShare2" {
-  name                 = "fslogix"
-  storage_account_name = azurerm_storage_account.Stor.name
-  depends_on           = [azurerm_storage_account.Stor]
+resource "azurerm_storage_share" "<FSShare>" {
+  name                 = "<fslogix>"
+  storage_account_name = azurerm_storage_account.<Stor>.name
+  depends_on           = [azurerm_storage_account.<Stor>]
 }
 
 output "storage_account_name" {
-  value = azurerm_storage_account.Stor.name
+  value = azurerm_storage_account.<Stor>.name
 
 }
 
@@ -164,5 +164,5 @@ Once Terraform completes, your VM infrastructure is ready. Obtain the public IP 
 
 ## Next steps
 
-> [!div class="nextstepaction"] 
-> [Learn more about Configuring Azure Virtual Desktop session hosts using Terraform in Azure](/articles/terraform/create-avd-session-host.md)
+> [!div class="nextstepaction"]
+> [Learn more about using Terraform in Azure](/azure/terraform)

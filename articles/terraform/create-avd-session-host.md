@@ -13,7 +13,7 @@ Terraform allows you to define and create complete infrastructure deployments in
 
 ## Prerequisites
 
-This article assumes you have already deployed the [Azure Virtual Desktop Infrastructure](../create-azure-virtual-desktop.md)].
+This article assumes you have already deployed the [Azure Virtual Desktop Infrastructure](../create-azure-virtual-desktop.md).
 
 ## Create a NIC 
 
