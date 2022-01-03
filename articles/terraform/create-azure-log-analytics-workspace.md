@@ -19,7 +19,7 @@ This article assumes you've already configured Terraform
 * [Configure Terraform using Azure Cloud Shell](../get-started-cloud-shell.md) 
 * [Configure the Azure Terraform Visual Studio Code extension](../terraform/configure-vs-code-extension-for-terraform)
 
-## Create Azure connection and resource group
+## 1. Create Azure connection and resource group
 
 The following code defines the Azure Terraform provider:
 
@@ -46,7 +46,7 @@ resource "azurerm_resource_group" "<rg>" {
 ```
 In other sections, you reference the resource group with `azurerm_resource_group.<rg>.name`.
 
-## Configure Azure Log Analytics Workspace with Terraform
+## 2. Configure Azure Log Analytics Workspace with Terraform
 ```hcl
 resource "azurerm_log_analytics_workspace" "<lawksp>" {
   name                = "log${random_string.random.id}"
@@ -56,7 +56,7 @@ resource "azurerm_log_analytics_workspace" "<lawksp>" {
 }
 ```
 
-## Build and deploy the infrastructure
+## 3. Build and deploy the infrastructure
 
 With your Terraform template created, the first step is to initialize Terraform. This step ensures that Terraform has all the prerequisites to build your template in Azure.
 
@@ -78,8 +78,9 @@ terraform apply terraform_azure.tfplan
 
 Once Terraform completes, your VM infrastructure is ready. Obtain the public IP address of your VM with [az vm show](/cli/azure/vm#az_vm_show):
 
+## Troubleshoot Terraform on Azure
 
-[!INCLUDE [terraform-troubleshooting.md](includes/terraform-troubleshooting.md)]
+[Troubleshoot common problems when using Terraform on Azure](troubleshoot.md)
 
 ## Next steps
 

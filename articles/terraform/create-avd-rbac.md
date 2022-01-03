@@ -18,7 +18,7 @@ In this doc we will walk through adding our users and Azure AD group and then as
 This article assumes you have already deployed the [Azure Virtual Desktop Infrastructure](../create-azure-virtual-desktop.md).
 
 
-## Data Sources
+## 1. Data Sources
 
 Firstly we need to access the information about our existing users and built in role definition using `data`.
 
@@ -34,7 +34,7 @@ data "azurerm_role_definition" "role" { # access an existing builtin role
 }
 ```
 
-## Azure AD Group
+## 2. Azure AD Group
 
 Next we will create our AAD group and a group member resource.  This will iterate through the set of users we have defined in our variables.
 
@@ -49,7 +49,7 @@ resource "azuread_group_member" "aadgroupmember" {
   member_object_id = each.value["id"]
 }
 ```
-## Role Assignment
+## 3. Role Assignment
 
 Lastly we need to assign the role to our application group.  `azurerm_virtual_desktop_application_group.remoteapp.id` references the application group that was created previousl. 
 
@@ -61,7 +61,7 @@ resource "azurerm_role_assignment" "role" {
 }
 ```
 
-# Complete Terraform Script
+# 4. Complete Terraform Script
 
 To bring all these sections together and see Terraform in action, create a new file called **rbac.tf** and paste the following content:
 

@@ -15,7 +15,7 @@ Terraform allows you to define and create complete infrastructure deployments in
 
 This article assumes you have already deployed the [Azure Virtual Desktop Infrastructure](../create-azure-virtual-desktop.md).
 
-## Create a NIC 
+## 1. Create a NIC 
 
 Firstly we need a NIC for each session host VM.  We are using `count` to indicate how many Nics will be created - this will be the same as the number of hosts and in this case is 2.  We also reference the subnet ID.  This will have been created when you created the infrastructure. 
 
@@ -35,7 +35,7 @@ resource "azurerm_network_interface" "avd_vm_nic"
 }
 ```
 
-## Create a VM
+## 2. Create a VM
 
 Next we will create the session host vms.  We reference the NIC here.  
 
@@ -65,7 +65,7 @@ resource "azurerm_windows_virtual_machine" "avd_vm" {
   }
 }
 ```
-## Domain Join VM
+## 3. Domain Join VM
 
 Once the session host is created it needs to be domain joined.  
 
@@ -101,7 +101,7 @@ PROTECTED_SETTINGS
 }
 ```
 
-## Session Host Registration
+## 4. Session Host Registration
 
 Lastly we will register the host to the host pool.  For this we will need the registration token from our hostpool.  To do this, we will create a local variable for this token and then create a dsc extension resource and pass the AVD configuration artifacts.
 
@@ -149,7 +149,7 @@ PROTECTED_SETTINGS
 }
 ```
 
-## Variables file
+## 5. Variables file
 
 Firstly we will create a variable file called variables.tf.  You can learn more about using [variables in Terraform](https://www.terraform.io/docs/language/values/variables.html).  This is so that we don't need to hardcode the variables in the configuration file and can reuse the values in other parts of our deployment.   You may have already created one when you completed [Create Azure Virtual Desktop Infrastructure](../create-azure-virtual-desktop.md), in that case, append the variables that haven't already been created to the existing file. 
 
@@ -241,7 +241,7 @@ variable "adVnetID"{
 
 These variables will need to be populated either using the default value or at runtime.
 
-## Create the session host configuration file
+## 6. Create the session host configuration file
 
 Here we are putting all of the above sections together.  You will also notice that we are now using the variables from the variables.tf file as well.  This isn't required but best practices would be to avoid hard coding the variables in the configuration files.  We have also create a random string resource for the local user password. 
 
@@ -376,7 +376,7 @@ PROTECTED_SETTINGS
 }
 ```
 
-## Build and deploy the infrastructure
+## 7. Build and deploy the infrastructure
 
 With your Terraform template created, the first step is to initialize Terraform. This step ensures that Terraform has all the prerequisites to build your template in Azure.
 
@@ -398,8 +398,9 @@ terraform apply terraform_azure.tfplan
 
 Once Terraform completes, your VM infrastructure is ready. Obtain the public IP address of your VM with [az vm show](/cli/azure/vm#az_vm_show):
 
+## Troubleshoot Terraform on Azure
 
-[!INCLUDE [terraform-troubleshooting.md](includes/terraform-troubleshooting.md)]
+[Troubleshoot common problems when using Terraform on Azure](troubleshoot.md)
 
 ## Next steps
 

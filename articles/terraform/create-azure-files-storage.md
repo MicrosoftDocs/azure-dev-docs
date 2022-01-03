@@ -21,7 +21,7 @@ This article assumes you've already configured Terraform
 * [Configure Terraform using Azure Cloud Shell](../get-started-cloud-shell.md) 
 * [Configure the Azure Terraform Visual Studio Code extension](../terraform/configure-vs-code-extension-for-terraform)
 
-## Create Azure connection and resource group
+## 1. Create Azure connection and resource group
 
 The following code defines the Azure Terraform provider:
 
@@ -50,7 +50,7 @@ In other sections, you reference the resource group with `azurerm_resource_group
 
 [More details on storage](.../azure/storage/common/storage-account-overview.md)
 
-## Configure a File Storage Account 
+## 2. Configure a File Storage Account 
 ```hcl
 resource "azurerm_storage_account" "<Stor>" {
   name                     = "stor${random_string.random.id}"
@@ -63,7 +63,7 @@ resource "azurerm_storage_account" "<Stor>" {
 }
 ```
 
-## Configure a File Share
+## 3. Configure a File Share
 ```hcl
 resource "azurerm_storage_share" "<FSShare>" {
   name                 = "<fslogix>"
@@ -77,7 +77,7 @@ output "storage_account_name" {
 }
 ```
 
-## Configure RBAC permission on Azure File Storage 
+## 4. Configure RBAC permission on Azure File Storage 
 ```hcl
 resource "azurerm_role_assignment" "storageAccountRoleAssignment" {
   scope                = azurerm_storage_account.example.id
@@ -86,7 +86,7 @@ resource "azurerm_role_assignment" "storageAccountRoleAssignment" {
 }
 ```
 
-# Complete Terraform script
+# 5. Complete Terraform script
 To bring all these sections together and see Terraform in action, create a file called main.tf and paste the following content:
 ```hcl
 terraform {
@@ -159,8 +159,9 @@ terraform apply terraform_azure.tfplan
 
 Once Terraform completes, your VM infrastructure is ready. Obtain the public IP address of your VM with [az vm show](/cli/azure/vm#az_vm_show):
 
+## Troubleshoot Terraform on Azure
 
-[!INCLUDE [terraform-troubleshooting.md](includes/terraform-troubleshooting.md)]
+[Troubleshoot common problems when using Terraform on Azure](troubleshoot.md)
 
 ## Next steps
 
