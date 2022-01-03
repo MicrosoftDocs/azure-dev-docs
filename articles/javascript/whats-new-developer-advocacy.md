@@ -2,7 +2,7 @@
 title: "What's new with Cloud Developer Advocates"
 description: "What's new with JavaScript Cloud Developer Advocates (CDA)"
 ms.topic: how-to
-ms.date: 12/13/2021
+ms.date: 01/03/2021
 ---
 
 # What's new with JavaScript Developer Advocates
@@ -42,6 +42,7 @@ This content is primarily from Developer Advocates as well as other members of t
 |[Glaucia Lemos][Glaucia]|TypeScript - Zero to Hero #32 - Type Object|**Portuguese** - [YouTube](https://youtu.be/0cxJ1RQ7Gv0)|
 |[Glaucia Lemos][Glaucia]|TypeScript - Zero to Hero #33 - Type Object|**Portuguese** - [YouTube](https://youtu.be/WNp44xb1M_s)|
 |[Aaron Powell][Aaron]|GRAPHQL ON AZURE: PART 8 - LOGGING|[Blog](https://www.aaron-powell.com/posts/2021-12-07-graphql-on-azure-part-8-logging/)|
+|[Aaron Powell][Aaron]|OpenAPI for Azure Functions: an extension for Azure Functions to generate OpenAPI spec files from annotated Azure Functions.|[GitHub](https://github.com/aaronpowell/azure-functions-nodejs-openapi)|
 
 ## 2021 November
 
