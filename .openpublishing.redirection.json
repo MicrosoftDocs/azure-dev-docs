@@ -1,6 +1,30 @@
 {
     "redirections": [
       {
+        "source_path": "articles/javascript/tutorial/vscode-function-app-http-trigger/tutorial-vscode-serverless-node-create-local.md",
+        "redirect_url": "/azure/developer/javascript/tutorial/vscode-function-app-http-trigger.md"
+      },
+      {
+        "source_path": "articles/javascript/tutorial/vscode-function-app-http-trigger/tutorial-vscode-serverless-node-database-integration.md",
+        "redirect_url": "/azure/developer/javascript/tutorial/vscode-function-app-http-trigger.md"
+      }, 
+      {
+        "source_path": "articles/javascript/tutorial/vscode-function-app-http-trigger/tutorial-vscode-serverless-node-deploy-hosting.md",
+        "redirect_url": "/azure/developer/javascript/tutorial/vscode-function-app-http-trigger.md"
+      }, 
+      {
+        "source_path": "articles/javascript/tutorial/vscode-function-app-http-trigger/tutorial-vscode-serverless-node-install.md",
+        "redirect_url": "/azure/developer/javascript/tutorial/vscode-function-app-http-trigger.md"
+      },      
+      {
+        "source_path": "articles/javascript/tutorial/vscode-function-app-http-trigger/tutorial-vscode-serverless-node-remove-resource.md",
+        "redirect_url": "/azure/developer/javascript/tutorial/vscode-function-app-http-trigger.md"
+      },  
+      {
+        "source_path": "articles/javascript/tutorial/vscode-function-app-http-trigger/tutorial-vscode-serverless-node-test-local.md",
+        "redirect_url": "/azure/developer/javascript/tutorial/vscode-function-app-http-trigger.md"
+      },                
+      {
         "source_path": "articles/javascript/tutorial/static-web-app/introduction.md",
         "redirect_url": "/azure/developer/javascript/tutorial/static-web-app-image-analysis"
       },

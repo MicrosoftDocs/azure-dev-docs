@@ -39,7 +39,7 @@ The following software is installed as part of the tutorial later:
 
 ## Sign in to Azure in Visual Studio Code
 
-[!INCLUDE [azure-sign-in](../../includes/azure-sign-in-vscode.md)]
+[!INCLUDE [azure-sign-in](../includes/azure-sign-in-vscode.md)]
 
 ## Install the Azure Functions Core Tools 
 
@@ -191,7 +191,7 @@ With your function running locally, set breakpoints on different parts of the co
 
 When you created the Functions app, the Azure Functions extension automatically added a VS Code launch configuration to your project, which is found in the *.vscode/launch.json* file. This configuration uses the same runtime that runs on Azure, so you can be sure that your source code works before deploying to the cloud.
 
-# Deploy the Functions app to Azure cloud
+## Deploy the Functions app to Azure cloud
 
 [Previous step: Test the function locally](tutorial-vscode-serverless-node-test-local.md)
 
@@ -297,7 +297,7 @@ Streaming logs is good for in-the-moment scanning. To search the logs, use the A
     * You can click on `traces` instead of having to learn to write a [Kusto query](/azure/data-explorer/kusto/concepts/) to get even the minimum information from your logs.
 
 
-# 5. Add Cosmos DB for MongoDB API integration 
+## Add Cosmos DB for MongoDB API integration 
 
 [Previous step: Deploy the function](tutorial-vscode-serverless-node-test-local.md)
 
@@ -525,11 +525,11 @@ The Functions App you created includes resources that can incur minimal costs (r
 * [Azure Functions JavaScript developer guide](/azure/azure-functions/functions-reference-node)
 * [Securing Azure Functions](/azure/azure-functions/security-concepts)
 
-[!INCLUDE [Next steps for using VSCode extensions](../../includes/tutorial-next-steps-vscode-extensions.md)]
+[!INCLUDE [Next steps for using VSCode extensions](../includes/tutorial-next-steps-vscode-extensions.md)]
 
-[!INCLUDE [Next steps for using JavaScript on Azure](../../includes/tutorial-next-steps-js-azure.md)]
+[!INCLUDE [Next steps for using JavaScript on Azure](../includes/tutorial-next-steps-js-azure.md)]
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Create an Azure Function to manage Azure resources](../../how-to/with-web-app/azure-function-resource-group-management/introduction.md)
+> [Create an Azure Function to manage Azure resources](../how-to/with-web-app/azure-function-resource-group-management/introduction.md)
