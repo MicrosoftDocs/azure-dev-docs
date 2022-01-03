@@ -2,7 +2,7 @@
 title: Add Cosmos DB integration to Azure Function
 description: Create Cosmos DB resource and use mongoose npm package to add TypeScript code to integrate a database with the Azure function.
 ms.topic: how-to
-ms.date: 10/07/2021
+ms.date: 01/03/2022
 ms.custom: devx-track-js, contperf-fy21q2
 ---
 

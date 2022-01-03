@@ -2,7 +2,7 @@
 title: Deploy the Functions 3.x app to Azure cloud
 description: Use the Visual Studio Code extension for Azure Functions to deploy the Functions app to the Azure cloud. Verify the Functions app is publicly available with a browser. 
 ms.topic: how-to
-ms.date: 09/21/2021
+ms.date: 01/03/2022
 ms.custom: devx-track-js, contperf-fy21q2
 ---
 

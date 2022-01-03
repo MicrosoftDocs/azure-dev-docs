@@ -2,7 +2,7 @@
 title: Create and deploy JavaScript Functions 3.x
 description: In this tutorial, create a new serverless app in Visual Studio Code with extensions and JavaScript, then deploy the application to the Azure cloud for hosting with a public HTTP endpoint.
 ms.topic: how-to
-ms.date: 09/21/2021
+ms.date: 01/03/2022
 ms.custom: devx-track-js, contperf-fy21q2
 adobe-target: true
 ---
