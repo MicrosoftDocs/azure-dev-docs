@@ -1,8 +1,17 @@
 - name: Azure SDK for Java documentation
   href: index.yml
   items:
-    - name: Get started
-      href: get-started.md
+    - name: Getting started
+      expanded: true
+      items:
+        - name: Get started with Apache Maven
+          href: get-started-maven.md
+        - name: Eclipse and IntelliJ integration
+          href: get-started-ide.md  
+        - name: Azure development using Java
+          href: get-started.md 
+    - name: Libraries, drivers, and Spring modules
+      href: libraries-drivers-modules.md
     - name: Concepts
       expanded: true
       items:
@@ -50,6 +59,10 @@
     - name: Integrations
       expanded: false
       items:
+        - name: IntelliJ
+          href: ../toolkit-for-intellij/index.yml
+        - name: Eclipse
+          href: ../toolkit-for-eclipse/index.yml  
         - name: Spring
           href: ../spring-framework/spring-boot-starters-for-azure.md
         - name: MicroProfile
@@ -61,7 +74,7 @@
           href: troubleshooting-network.md
         - name: Dependency conflicts
           href: troubleshooting-dependency-version-conflict.md
-    - name: Code Samples
+    - name: Code samples
       items:
         - name: Virtual machines
           href: virtual-machine-samples.md

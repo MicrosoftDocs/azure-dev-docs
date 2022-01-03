@@ -3,7 +3,7 @@ title: Migrate WebLogic applications to Azure Virtual Machines
 description: This guide describes what you should be aware of when you want to migrate an existing WebLogic application to run on Azure Virtual Machines.
 ms.author: edburns
 ms.topic: conceptual
-ms.date: 1/27/2020
+ms.date: 12/14/2021
 recommendations: false
 ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-wls, devx-track-javaee-wls-vm
 ---
@@ -122,7 +122,7 @@ After you've provisioned the offer, you can examine the domain configuration and
 
 ### Connect the databases
 
-After you've migrated the domains, you can connect the databases by following the instructions [in the offer documentation](https://wls-eng.github.io/arm-oraclelinux-wls/#connecting-a-database-to-a-cluster). These instructions will help you account for any database secrets and access strings involved.
+After you've migrated the domains, you can connect the databases by following the instructions [in the offer documentation](https://docs.oracle.com/en/middleware/standalone/weblogic-server/wlazu/deploy-oracle-weblogic-server-n-node-configured-cluster.html). These instructions will help you account for any database secrets and access strings involved.
 
 ### Account for KeyStores
 

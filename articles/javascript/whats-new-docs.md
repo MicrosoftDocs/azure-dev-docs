@@ -2,13 +2,29 @@
 title: "What's new for JavaScript docs"
 description: "What's new in JavaScript docs in the Developer Center"
 ms.topic: how-to
-ms.date: 11/03/2021
+ms.date: 12/17/2021
 
 ---
 
 # JavaScript docs: What's new
 
 Find new and updated content for JavaScript and TypeScript developers.
+
+## 2021 December
+
+### New in December
+
+|Name|Description|
+|---------------------------------------|--|
+|[Key Vault Certificates quickstart](/azure/key-vault/certificates/quick-create-node)|In this tutorial, you set up a Node.js application in an Azure Virtual Machine to read information from Azure Key Vault by using managed identities for Azure resources. <br><br>Learn how to:<br>* Create a key vault<br>* Store a secret in Key Vault<br> * Create an Azure Linux virtual machine<br> * Enable a [managed identity](/azure/active-directory/managed-identities-azure-resources/overview) for the virtual machine<br> * Grant the required permissions for the console application to read data from Key Vault<br> * Retrieve a secret from Key Vault|
+
+### Updates in December
+
+|Name|Description|
+|---------------------------------------|--|
+|[Key Vault Certificates quickstart](/azure/key-vault/certificates/quick-create-node)|Updated article.|
+|[Key Vault Keys quickstart](/azure/key-vault/keys/quick-create-node)|Updated article.|
+
 
 ## 2021 November
 
@@ -17,6 +33,8 @@ Find new and updated content for JavaScript and TypeScript developers.
 |Name|Description|
 |---------------------------------------|--|
 |[Virtual machine web app](tutorial/nodejs-virtual-machine-vm/introduction.md)|Updated article series.|
+|[Key Vault Secrets quickstart](/azure/key-vault/secrets/quick-create-node)|Updated article.|
+
 
 ## 2021 October
 
@@ -231,7 +249,7 @@ Welcome to what's new in the JavaScript docs from November 2020. This article li
 
 |Name|Notes|
 |---------------------------------------|--|
-|[Tutorial: Build and deploy a React Static Web app to Azure](./tutorial/static-web-app/introduction.md)|In this tutorial, build and deploy a React client application to an Azure Static Web App with a GitHub action.<br>The create-react-app allows you to analyze an image with Cognitive Services Computer Vision. The GitHub action starts when a push to a specific remote branch happens, building the React (create-react-app) client, and moving the resulting files to your Azure Static Web app resource.|
+|[Tutorial: Build and deploy a React Static Web app to Azure](./tutorial/static-web-app-image-analysis.md)|In this tutorial, build and deploy a React client application to an Azure Static Web App with a GitHub action.<br>The create-react-app allows you to analyze an image with Cognitive Services Computer Vision. The GitHub action starts when a push to a specific remote branch happens, building the React (create-react-app) client, and moving the resulting files to your Azure Static Web app resource.|
 |[Tutorial: Deploy app to Linux virtual machine](./tutorial/nodejs-virtual-machine-vm/introduction.md)|In this tutorial, create a Linux virtual machine (VM) for an Express.js app. The VM is configured with a cloud-init configuration file and includes NGINX and a GitHub repository for an Express.js app. Once the VM is running, you can connect to the VM with SSH, change the web app to including trace logging, and view the public Express.js server app in a web browser.|
 
 ### What's updated
