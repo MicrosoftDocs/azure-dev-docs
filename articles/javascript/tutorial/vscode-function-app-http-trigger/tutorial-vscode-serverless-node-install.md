@@ -22,7 +22,7 @@ Full source code for this function app:
 
 * [Sample code](https://github.com/Azure-Samples/js-e2e-azure-function-mongodb)
 
-## Prepare you development environment 
+## Prepare your development environment 
 
 Install the following software: 
 
@@ -41,14 +41,14 @@ The following software is installed as part of the tutorial later:
 
 [!INCLUDE [azure-sign-in](../../includes/azure-sign-in-vscode.md)]
 
-## Install the Azure Functions Core Tools V3
+## Install the Azure Functions Core Tools 
 
 1. In Visual Studio Code, open the integrated terminal at a location you want to create and run the local project.
 
-1. Install Azure Functions Core Tools locally:
+1. Install Azure Functions Core Tools with the npm [azure-functions-core-tools](https://www.npmjs.com/package/azure-functions-core-tools):
 
     ```bash
-    npm install --global azure-functions-core-tools@3 --unsafe-perm true --save-dev
+    npm install --global azure-functions-core-tools@4 --unsafe-perm true
     ```
 
 ## Create a resource group
