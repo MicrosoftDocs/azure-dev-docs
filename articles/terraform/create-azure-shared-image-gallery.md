@@ -83,7 +83,7 @@ resource "azurerm_shared_image" "<example>" {
 }
 ```
 
-# 4. Complete Terraform script
+## 4. Complete Terraform script
 To bring all these sections together and see Terraform in action, create a file called main.tf and paste the following content:
 ```hcl
 provider "azurerm" {
