@@ -21,7 +21,7 @@ This article assumes you've already configured Terraform
 * [Configure Terraform using Azure Cloud Shell](../get-started-cloud-shell.md) 
 * [Configure the Azure Terraform Visual Studio Code extension](../terraform/configure-vs-code-extension-for-terraform)
 
-## 1. Create Azure connection and resource group
+## 1. Define providers and create resource group
 
 The following code defines the Azure Terraform provider:
 
@@ -86,7 +86,7 @@ resource "azurerm_role_assignment" "storageAccountRoleAssignment" {
 }
 ```
 
-# 5. Complete Terraform script
+## 5. Complete Terraform script
 To bring all these sections together and see Terraform in action, create a file called main.tf and paste the following content:
 ```hcl
 terraform {
