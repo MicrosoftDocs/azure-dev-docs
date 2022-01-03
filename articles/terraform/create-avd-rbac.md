@@ -11,6 +11,8 @@ ms.custom: devx-track-terraform
 
 In this article we will walk through adding our users and Azure AD group and then assigning the group to the "Desktop Virtualization User" role, scoped to our host pool.  We could similarly assign permissions to the users that will manage AVD by assigning users or groups to other [Built in Roles for Azure Virtual Desktop](/virtual-desktop/virtual-desktop/rbac.md).
 
+This article assumes you have already deployed the [Azure Virtual Desktop Infrastructure](/virtual-desktop/create-azure-virtual-desktop.md).
+
 In this article, you learn how to:
 > [!div class="checklist"]
 
@@ -18,12 +20,13 @@ In this article, you learn how to:
 > * Use Terraform to create AAD group
 > * Role assignment for Azure Virtual Desktop
 
-## Prerequisites
+## 1. Configure your environment
 
-This article assumes you have already deployed the [Azure Virtual Desktop Infrastructure](/virtual-desktop/create-azure-virtual-desktop.md).
+[!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../includes/open-source-devops-prereqs-azure-subscription.md)]
 
+[!INCLUDE [configure-terraform.md](includes/configure-terraform.md)]
 
-## 1. Data Sources
+## 2. Data Sources
 
 Firstly we need to access the information about our existing users and built in role definition using `data`.
 
@@ -39,7 +42,7 @@ data "azurerm_role_definition" "role" { # access an existing builtin role
 }
 ```
 
-## 2. Azure AD Group
+## 3. Azure AD Group
 
 Next we will create our AAD group and a group member resource.  This will iterate through the set of users we have defined in our variables.
 
@@ -54,9 +57,10 @@ resource "azuread_group_member" "aadgroupmember" {
   member_object_id = each.value["id"]
 }
 ```
-## 3. Role Assignment
 
-Lastly we need to assign the role to our application group.  `azurerm_virtual_desktop_application_group.remoteapp.id` references the application group that was created previously. 
+## 4. Role Assignment
+
+Lastly we need to assign the role to our application group.  `azurerm_virtual_desktop_application_group.remoteapp.id` references the application group that was created previously.
 
 ```terraform
 resource "azurerm_role_assignment" "role" {
@@ -66,10 +70,11 @@ resource "azurerm_role_assignment" "role" {
 }
 ```
 
-## 4. Complete Terraform Script
+## 5. Implement the Terraform code
 
-To bring all these sections together and see Terraform in action, create a new file called **rbac.tf** and paste the following content:
+To bring all these sections together and see Terraform in action, create a directory in which to test and run the sample Terraform code and make it the current directory.
 
+1. Create a file named `main.tf` and insert the following code:
 
 ```terraform
 
@@ -100,7 +105,7 @@ resource "azurerm_role_assignment" "role" {
 }
 ```
 
-We can also create a **.tfvars** file to pass our list of users - in this case we will call it **env.auto.tfvars** and add the following block:
+We can also create a `.tfvars` file to pass our list of users - in this case we will call it `env.auto.tfvars` and add the following block:
 
 ```terraform
 avdusers = [
@@ -108,7 +113,8 @@ avdusers = [
     "user2@<domain.com>"
 ]
 ```
-We will also need to add variables to our variables.tf file for avdusers and aadgroupname.
+
+We will also need to add variables to our `variables.tf` file for "avdusers" and "aadgroupname".
 
 Lastly, we assume that the provider was declared in our main.tf file when we created our [infrastructure](/virtual-desktop/create-azure-virtual-desktop.md).  We will need to add the Azure AD provider as well, so that we can run the above.  The amended block will now look like:
 
@@ -127,7 +133,28 @@ terraform {
 }
 ```
 
+## 6. Initialize Terraform
+
+[!INCLUDE [terraform-init.md](includes/terraform-init.md)]
+
+## 7. Create a Terraform execution plan
+
+[!INCLUDE [terraform-plan.md](includes/terraform-plan.md)]
+
+## 8. Apply a Terraform execution plan
+
+[!INCLUDE [terraform-apply-plan.md](includes/terraform-apply-plan.md)]
+
 You are now ready to [build and deploy](/articles/terraform/create-azure-virtual-desktop.md#build-and-deploy-the-infrastructure) your infrastructure with role based access control.
+
+## 9. Clean up resources
+
+[!INCLUDE [terraform-plan-destroy.md](includes/terraform-plan-destroy.md)]
+
+## Troubleshoot Terraform on Azure
+
+[Troubleshoot common problems when using Terraform on Azure](troubleshoot.md)
+
 ## Next steps
 
 > [!div class="nextstepaction"] 

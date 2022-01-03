@@ -53,7 +53,7 @@ resource "azurerm_resource_group" "<rgStor>" {
 
 In other sections, you reference the resource group with `azurerm_resource_group.<rgStor>.name`.
 
-[More details on storage](.../storage/common/storage-account-overview.md)
+[More details on storage](.../storage/common/storage-account-create.md)
 
 ## 3. Configure a File Storage Account 
 
