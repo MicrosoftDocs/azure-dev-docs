@@ -118,7 +118,7 @@ resource "azurerm_virtual_desktop_workspace_application_group_association" "exam
 
 ```
 
-# 6. Complete Terraform script
+## 6. Complete Terraform script
 To bring all these sections together and see Terraform in action, create a file called main.tf and paste the following content:
 ```hcl
 terraform {
