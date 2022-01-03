@@ -1,27 +1,28 @@
 ---
 title: Configure Azure Compute Gallery using Terraform - Azure
-description: Learn how to use Terraform to configure Azure Virtual Desktop with Terraform
+description: Learn how to use Terraform to configure Azure Compute Gallery
 keywords: azure devops terraform avd virtual desktop session host
-ms.topic: how-to article
-ms.date: 06/30/2021
+ms.topic: how-to
+ms.date: 12/30/2021
 ms.custom: devx-track-terraform
 ---
 
 # Configure Azure Compute Gallery with Terraform
 
-Terraform allows you to define and create complete infrastructure deployments in Azure. You build Terraform templates in a human-readable format that create and configure Azure resources in a consistent, reproducible manner. This article shows you how to build Session Hosts and deploy to an AVD Host Pool with Terraform. You can also learn how to [install and configure Terraform](get-started-cloud-shell.md).
+This article shows you how to configure Azure Compute Gallery.
 
-Azure offers multiple storage solutions that you can use to store your FSLogix profile container. This article covers configuring Azure Files storage solutions for Azure Virtual Desktop FSLogix user profile containers using Terraform 
+In this article, you learn how to:
+> [!div class="checklist"]
 
-## Prerequisites
+> * Use Terraform to configure Azure Compute Gallery (formerly Shared Image Gallery)
+
+## 1. Configure your environment
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../includes/open-source-devops-prereqs-azure-subscription.md)]
 
-This article assumes you've already configured Terraform
-* [Configure Terraform using Azure Cloud Shell](../get-started-cloud-shell.md) 
-* [Configure the Azure Terraform Visual Studio Code extension](../terraform/configure-vs-code-extension-for-terraform)
+[!INCLUDE [configure-terraform.md](includes/configure-terraform.md)]
 
-## 1. Define providers and create resource group
+## 2. Define providers and create resource group
 
 The following code defines the Azure Terraform provider:
 
@@ -46,11 +47,11 @@ resource "azurerm_resource_group" "<rg>" {
   name     = "${var.prefix}-rg"
 }
 ```
+
 In other sections, you reference the resource group with `azurerm_resource_group.<rg>.name`.
 
+## 3. Configure Azure Compute Gallery formerly Shared Image Gallery
 
-
-## 2. Configure Azure Compute Gallery formerly Shared Image Gallery
 ```hcl
 resource "azurerm_shared_image_gallery" "<sig>" {
   name                = "<AVDsig>"
@@ -65,7 +66,8 @@ resource "azurerm_shared_image_gallery" "<sig>" {
 }
 ```
 
-## 3. Configure an Image Definition
+## 4. Configure an Image Definition
+
 ```hcl
 
 resource "azurerm_shared_image" "<example>" {
@@ -83,8 +85,12 @@ resource "azurerm_shared_image" "<example>" {
 }
 ```
 
-## 4. Complete Terraform script
-To bring all these sections together and see Terraform in action, create a file called main.tf and paste the following content:
+## 5. Implement the Terraform code
+
+To bring all these sections together and see Terraform in action, create a directory in which to test and run the sample Terraform code and make it the current directory.
+
+1. Create a file named `main.tf` and insert the following code:
+
 ```hcl
 provider "azurerm" {
   features {}
@@ -124,28 +130,21 @@ resource "azurerm_shared_image" "<example>" {
 }
 ```
 
+## 6. Initialize Terraform
 
-## 5. Build and deploy the infrastructure
+[!INCLUDE [terraform-init.md](includes/terraform-init.md)]
 
-With your Terraform template created, the first step is to initialize Terraform. This step ensures that Terraform has all the prerequisites to build your template in Azure.
+## 7. Create a Terraform execution plan
 
-```bash
-terraform init
-```
+[!INCLUDE [terraform-plan.md](includes/terraform-plan.md)]
 
-The next step is to have Terraform review and validate the template. This step compares the requested resources to the state information saved by Terraform and then outputs the planned execution. The Azure resources aren't created at this point. An execution plan is generated and stored in the file specified by the `-out` parameter.
+## 8. Apply a Terraform execution plan
 
-```bash
-terraform plan -out terraform_azure.tfplan
-```
+[!INCLUDE [terraform-apply-plan.md](includes/terraform-apply-plan.md)]
 
-When you're ready to build the infrastructure in Azure, apply the execution plan:
+## 9. Clean up resources
 
-```bash
-terraform apply terraform_azure.tfplan
-```
-
-Once Terraform completes, your VM infrastructure is ready. Obtain the public IP address of your VM with [az vm show](/cli/azure/vm#az_vm_show):
+[!INCLUDE [terraform-plan-destroy.md](includes/terraform-plan-destroy.md)]
 
 ## Troubleshoot Terraform on Azure
 

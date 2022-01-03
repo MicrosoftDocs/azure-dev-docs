@@ -3,19 +3,24 @@ title: Configure Azure Virtual Desktop Role Based access control using Terraform
 description: Learn how to use Terraform to configure role based access control for Azure Virtual Desktop.
 keywords: azure devops terraform avd virtual desktop rbac
 ms.topic: how-to
-ms.date: 18/06/2021
+ms.date: 12/18/2021
 ms.custom: devx-track-terraform
 ---
 
-# Configure Azure Virtual Desktop session hosts using Terraform
+# Configure Azure Virtual Desktop RBAC using Terraform
 
-Terraform allows you to define and create complete infrastructure deployments in Azure. You build Terraform templates in a human-readable format that create and configure Azure resources in a consistent, reproducible manner. This article shows you how to configure role based access control for AVD. You can also learn how to [install and configure Terraform](get-started-cloud-shell.md).
+In this article we will walk through adding our users and Azure AD group and then assigning the group to the "Desktop Virtualization User" role, scoped to our host pool.  We could similarly assign permissions to the users that will manage AVD by assigning users or groups to other [Built in Roles for Azure Virtual Desktop](/virtual-desktop/virtual-desktop/rbac.md).
 
-In this doc we will walk through adding our users and Azure AD group and then assigning the group to the "Desktop Virtualization User" role, scoped to our host pool.  We could similarly assign permissions to the users that will manage AVD by assigning users or groups to other [Built in Roles for Azure Virtual Desktop](https://docs.microsoft.com/en-us/azure/virtual-desktop/rbac).
+In this article, you learn how to:
+> [!div class="checklist"]
+
+> * Use Terraform to read Azure Active Directory (AAD) existing users
+> * Use Terraform to create AAD group
+> * Role assignment for Azure Virtual Desktop
 
 ## Prerequisites
 
-This article assumes you have already deployed the [Azure Virtual Desktop Infrastructure](../create-azure-virtual-desktop.md).
+This article assumes you have already deployed the [Azure Virtual Desktop Infrastructure](/virtual-desktop/create-azure-virtual-desktop.md).
 
 
 ## 1. Data Sources
@@ -51,7 +56,7 @@ resource "azuread_group_member" "aadgroupmember" {
 ```
 ## 3. Role Assignment
 
-Lastly we need to assign the role to our application group.  `azurerm_virtual_desktop_application_group.remoteapp.id` references the application group that was created previousl. 
+Lastly we need to assign the role to our application group.  `azurerm_virtual_desktop_application_group.remoteapp.id` references the application group that was created previously. 
 
 ```terraform
 resource "azurerm_role_assignment" "role" {
@@ -105,7 +110,7 @@ avdusers = [
 ```
 We will also need to add variables to our variables.tf file for avdusers and aadgroupname.
 
-Lastly, we assume that the provider was declared in our main.tf file when we created our [infrastructure](../create-azure-virtual-desktop.md).  We will need to add the Azure AD provider as well, so that we can run the above.  The amended block will now look like:
+Lastly, we assume that the provider was declared in our main.tf file when we created our [infrastructure](/virtual-desktop/create-azure-virtual-desktop.md).  We will need to add the Azure AD provider as well, so that we can run the above.  The amended block will now look like:
 
 ```terraform
 terraform {
@@ -122,7 +127,7 @@ terraform {
 }
 ```
 
-You are now ready to [build and deploy](../create-azure-virtual-desktop.md#build-and-deploy-the-infrastructure) your infrastructure with role based access control.
+You are now ready to [build and deploy](/articles/terraform/create-azure-virtual-desktop.md#build-and-deploy-the-infrastructure) your infrastructure with role based access control.
 ## Next steps
 
 > [!div class="nextstepaction"] 

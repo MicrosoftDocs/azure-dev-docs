@@ -1,25 +1,28 @@
 ---
-title: Configure Azure Virtual Desktop using Terraform - Azure
-description: Learn how to use Terraform to configure Azure Virtual Desktop with Terraform
+title: Configure Log Analytics Workspace using Terraform - Azure
+description: Learn how to use Terraform to configure Azure Log Analytics Workspace
 keywords: azure devops terraform log analytics
-ms.topic: how-to article
-ms.date: 06/30/2021
+ms.topic: how-to
+ms.date: 12/30/2021
 ms.custom: devx-track-terraform
 ---
 
 # Create an Azure Log Analytics Workspace using Terraform
 
-Terraform allows you to define and create complete infrastructure deployments in Azure. You build Terraform templates in a human-readable format that create and configure Azure resources in a consistent, reproducible manner. This article shows you how to create a Log Analytics workspace using Terraform. You can also learn how to [install and configure Terraform](get-started-cloud-shell.md).
+This article shows you how to create a Log Analytics workspace using Terraform.
 
-## Prerequisites
+In this article, you learn how to:
+> [!div class="checklist"]
+
+> * Use Terraform to configure Azure Log Analytics Workspace
+
+## 1. Configure your environment
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../includes/open-source-devops-prereqs-azure-subscription.md)]
 
-This article assumes you've already configured Terraform
-* [Configure Terraform using Azure Cloud Shell](../get-started-cloud-shell.md) 
-* [Configure the Azure Terraform Visual Studio Code extension](../terraform/configure-vs-code-extension-for-terraform)
+[!INCLUDE [configure-terraform.md](includes/configure-terraform.md)]
 
-## 1. Define providers and create resource group
+## 2. Define providers and create resource group
 
 The following code defines the Azure Terraform provider:
 
@@ -36,6 +39,7 @@ provider "azurerm" {
   features {}
 }
 ```
+
 The following section creates a resource group in the location:
 
 ```hcl
@@ -44,9 +48,13 @@ resource "azurerm_resource_group" "<rg>" {
   name     = "${var.prefix}-rg"
 }
 ```
+
 In other sections, you reference the resource group with `azurerm_resource_group.<rg>.name`.
 
-## 2. Configure Azure Log Analytics Workspace with Terraform
+## 3. Configure Azure Log Analytics Workspace with Terraform
+
+Create a file named `main.tf` and insert the following code:
+
 ```hcl
 resource "azurerm_log_analytics_workspace" "<lawksp>" {
   name                = "log${random_string.random.id}"
@@ -56,27 +64,21 @@ resource "azurerm_log_analytics_workspace" "<lawksp>" {
 }
 ```
 
-## 3. Build and deploy the infrastructure
+## 4. Initialize Terraform
 
-With your Terraform template created, the first step is to initialize Terraform. This step ensures that Terraform has all the prerequisites to build your template in Azure.
+[!INCLUDE [terraform-init.md](includes/terraform-init.md)]
 
-```bash
-terraform init
-```
+## 5. Create a Terraform execution plan
 
-The next step is to have Terraform review and validate the template. This step compares the requested resources to the state information saved by Terraform and then outputs the planned execution. The Azure resources aren't created at this point. An execution plan is generated and stored in the file specified by the `-out` parameter.
+[!INCLUDE [terraform-plan.md](includes/terraform-plan.md)]
 
-```bash
-terraform plan -out terraform_azure.tfplan
-```
+## 6. Apply a Terraform execution plan
 
-When you're ready to build the infrastructure in Azure, apply the execution plan:
+[!INCLUDE [terraform-apply-plan.md](includes/terraform-apply-plan.md)]
 
-```bash
-terraform apply terraform_azure.tfplan
-```
+## 7. Clean up resources
 
-Once Terraform completes, your VM infrastructure is ready. Obtain the public IP address of your VM with [az vm show](/cli/azure/vm#az_vm_show):
+[!INCLUDE [terraform-plan-destroy.md](includes/terraform-plan-destroy.md)]
 
 ## Troubleshoot Terraform on Azure
 
