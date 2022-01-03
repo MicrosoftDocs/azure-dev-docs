@@ -9,7 +9,7 @@ ms.custom: devx-track-terraform
 
 # Configure Azure Virtual Desktop session hosts using Terraform
 
- This article shows you how to build Session Hosts and deploy to an AVD Host Pool with Terraform. This article assumes you have already deployed the [Azure Virtual Desktop Infrastructure](../terraform/create-azure-virtual-desktop.md).
+This article shows you how to build Session Hosts and deploy them to an AVD Host Pool with Terraform. This article assumes you have already deployed the [Azure Virtual Desktop Infrastructure](../terraform/create-azure-virtual-desktop.md).
 
 In this article, you learn how to:
 > [!div class="checklist"]
@@ -28,7 +28,7 @@ In this article, you learn how to:
 
 ## 2. Create a NIC
 
-Firstly we need a NIC for each session host VM.  We are using `count` to indicate how many NICs will be created - this will be the same as the number of hosts and in this case is 2.  We also reference the subnet ID.  This will have been created when you created the infrastructure.
+Firstly we need a NIC for each session host VM. We are using `count` to indicate how many NICs will be created - this will be the same as the number of hosts and, in this case, is 2. We also reference the subnet ID. This will have been created when you created the infrastructure.
 
 ```terraform
 resource "azurerm_network_interface" "avd_vm_nic" 
@@ -48,7 +48,7 @@ resource "azurerm_network_interface" "avd_vm_nic"
 
 ## 3. Create a VM
 
-Next we will create the session host vms.  We reference the NIC here.  
+Next, we will create the session host vms. We reference the NIC here.  
 
 ```terraform
 resource "azurerm_windows_virtual_machine" "avd_vm" {
@@ -76,9 +76,10 @@ resource "azurerm_windows_virtual_machine" "avd_vm" {
   }
 }
 ```
+
 ## 4. Domain Join VM
 
-Once the session host is created it needs to be domain joined.  
+Once the session host is created, it needs to be domain joined.  
 
 ```terraform
 resource "azurerm_virtual_machine_extension" "domain_join" {
@@ -114,7 +115,7 @@ PROTECTED_SETTINGS
 
 ## 5. Session Host Registration
 
-Lastly we will register the host to the host pool.  For this we will need the registration token from our hostpool.  To do this, we will create a local variable for this token and then create a dsc extension resource and pass the AVD configuration artifacts.
+Lastly, we will register the host to the host pool. For this we will need the registration token from our hostpool. To do this, we will create a local variable for this token and then create a dsc extension resource and pass the AVD configuration artifacts.
 
 ```terraform
 locals {
@@ -122,7 +123,7 @@ locals {
 }
 ```
 
-Then we create the dsc extension resource.  We can see that we pass the registration token in the protected settings. 
+Then we create the dsc extension resource. We can see that we pass the registration token in the protected settings. 
 
 ```terraform
 resource "azurerm_virtual_machine_extension" "vmext_dsc" {
@@ -255,11 +256,11 @@ These variables will need to be populated either using the default value or at r
 
 ## 7. Implement the Terraform code
 
-Here we are putting all of the above sections together.  You will also notice that we are now using the variables from the `variables.tf` file as well.  This isn't required but best practices would be to avoid hard coding the variables in the configuration files.  We have also create a random string resource for the local user password.
+Here we are putting all of the above sections together. You will also notice that we are now using the variables from the `variables.tf` file as well. This isn't required, but best practices would be to avoid hard coding the variables in the configuration files. We have also created a random string resource for the local user password.
 
-This file references some resources that were created when we built the infrastructure - such as `azurerm_subnet.subnet.id` and `azurerm_virtual_desktop_host_pool.HP.name`.  If you changed the name of these resources from that section, you would need to also update the references here.
+This file references some resources that were created when we built the infrastructure - such as `azurerm_subnet.subnet.id` and `azurerm_virtual_desktop_host_pool.HP.name`.  If you changed the name of these resources from that section, you also need to update the references here.
 
-Create a directory in which to test and run the sample Terraform code and make it the current directory.
+Create a directory to test and run the sample Terraform code and make it the current directory.
 
 1. Create a file named `main.tf` and insert the following code:
 

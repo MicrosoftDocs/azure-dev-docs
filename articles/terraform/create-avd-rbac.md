@@ -1,23 +1,23 @@
 ---
-title: Configure Azure Virtual Desktop Role Based access control using Terraform
-description: Learn how to use Terraform to configure role based access control for Azure Virtual Desktop.
+title: Configure Azure Virtual Desktop Role-Based access control using Terraform
+description: Learn how to use Terraform to configure role-based access control for Azure Virtual Desktop.
 keywords: azure devops terraform avd virtual desktop rbac
 ms.topic: how-to
 ms.date: 12/18/2021
 ms.custom: devx-track-terraform
 ---
 
-# Configure Azure Virtual Desktop RBAC using Terraform
+# Configure Azure Virtual Desktop role-based access control using Terraform
 
-In this article we will walk through adding our users and Azure AD group and then assigning the group to the "Desktop Virtualization User" role, scoped to our host pool.  We could similarly assign permissions to the users that will manage AVD by assigning users or groups to other [Built in Roles for Azure Virtual Desktop](/virtual-desktop/virtual-desktop/rbac.md).
+This article will walk through adding our users and Azure AD group and then assign the group to the "Desktop Virtualization User" role, scoped to our host pool.  
 
 This article assumes you have already deployed the [Azure Virtual Desktop Infrastructure](/virtual-desktop/create-azure-virtual-desktop.md).
 
 In this article, you learn how to:
 > [!div class="checklist"]
 
-> * Use Terraform to read Azure Active Directory (AAD) existing users
-> * Use Terraform to create AAD group
+> * Use Terraform to read Azure Active Directory existing users
+> * Use Terraform to create Azure Active Directory group
 > * Role assignment for Azure Virtual Desktop
 
 ## 1. Configure your environment
@@ -28,7 +28,7 @@ In this article, you learn how to:
 
 ## 2. Data Sources
 
-Firstly we need to access the information about our existing users and built in role definition using `data`.
+Firstly we need to access the information about our existing users and built-in role definition using `data`.
 
 ```terraform
 
@@ -44,35 +44,35 @@ data "azurerm_role_definition" "role" { # access an existing builtin role
 
 ## 3. Azure AD Group
 
-Next we will create our AAD group and a group member resource.  This will iterate through the set of users we have defined in our variables.
+Next, we will create our Azure AD group and a group member resource. This will iterate through the set of users we have defined in our variables.
 
 ```terraform
-resource "azuread_group" "aadgroup" {
+resource "azuread_group" "<aadgroup>" {
     display_name = "$(var.aadgroupname)"
  }
 
 resource "azuread_group_member" "aadgroupmember" {
-  for_each         = data.azuread_user.aaduser
-  group_object_id  = azuread_group.aadgroup.id
+  for_each         = data.azuread_user.<aaduser>
+  group_object_id  = azuread_group.<aadgroup>.id
   member_object_id = each.value["id"]
 }
 ```
 
 ## 4. Role Assignment
 
-Lastly we need to assign the role to our application group.  `azurerm_virtual_desktop_application_group.remoteapp.id` references the application group that was created previously.
+We assign the role to our application group. `azurerm_virtual_desktop_application_group.remoteapp.id` references the application group that was created previously.
 
 ```terraform
-resource "azurerm_role_assignment" "role" {
+resource "azurerm_role_assignment" "<role>" {
   scope              = azurerm_virtual_desktop_application_group.remoteapp.id
-  role_definition_id = data.azurerm_role_definition.role.id
-  principal_id       = azuread_group.aadgroup.id
+  role_definition_id = data.azurerm_role_definition.<role>.id
+  principal_id       = azuread_group.<aadgroup>.id
 }
 ```
 
 ## 5. Implement the Terraform code
 
-To bring all these sections together and see Terraform in action, create a directory in which to test and run the sample Terraform code and make it the current directory.
+Create a directory to test and run the sample Terraform code and make it the current directory.
 
 1. Create a file named `main.tf` and insert the following code:
 
@@ -105,7 +105,7 @@ resource "azurerm_role_assignment" "role" {
 }
 ```
 
-We can also create a `.tfvars` file to pass our list of users - in this case we will call it `env.auto.tfvars` and add the following block:
+We can also create a `.tfvars` file to pass our list of users - in this case, we will call it `env.auto.tfvars` and add the following block:
 
 ```terraform
 avdusers = [
@@ -114,9 +114,9 @@ avdusers = [
 ]
 ```
 
-We will also need to add variables to our `variables.tf` file for "avdusers" and "aadgroupname".
+We will also need to add variables to our `variables.tf` file for `avdusers` and `aadgroupname`.
 
-Lastly, we assume that the provider was declared in our main.tf file when we created our [infrastructure](/virtual-desktop/create-azure-virtual-desktop.md).  We will need to add the Azure AD provider as well, so that we can run the above.  The amended block will now look like:
+Lastly, we assume that the provider was declared in our `main.tf` file when we created our [infrastructure](/virtual-desktop/create-azure-virtual-desktop.md). We will need to add the Azure AD provider as well to run the above.  The amended block will now look like this:
 
 ```terraform
 terraform {
