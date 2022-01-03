@@ -1,13 +1,13 @@
 ---
 title: Create and deploy Azure Function with JavaScript API
-description: In this tutorial, create a new serverless app in Visual Studio Code with extensions and JavaScript, then deploy the application to the Azure cloud for hosting with a public HTTP endpoint.
+description: In this tutorial, create a new serverless app in Visual Studio Code with extensions and TypeScript, then deploy the application to the Azure cloud for hosting with a public HTTP endpoint.
 ms.topic: how-to
 ms.date: 01/03/2022
 ms.custom: devx-track-js, contperf-fy21q2
 adobe-target: true
 ---
 
-# Create and deploy a JavaScript Azure Function 
+# Create and deploy a TypeScript Azure Function 
 
 In this tutorial, create a secure API in Visual Studio Code with VS Code extensions and JavaScript, then deploy the application to the Azure cloud for hosting with a public HTTP endpoint. The API integrates with a Cosmos DB database using the MongoDB API. The MongoDB API is accessed from the [mongoose](https://www.npmjs.com/package/mongoose) npm package.
 
@@ -37,21 +37,12 @@ The following software is installed as part of the tutorial later:
 
 * [Azure Functions Core Tools](https://github.com/Azure/azure-functions-core-tools) - to use Azure Functions 3.x
 
-## Sign in to Azure in Visual Studio Code
+## 1. Sign in to Azure in Visual Studio Code
 
 [!INCLUDE [azure-sign-in](../includes/azure-sign-in-vscode.md)]
 
-## Install the Azure Functions Core Tools 
 
-1. In Visual Studio Code, open the integrated terminal at a location you want to create and run the local project.
-
-1. Install Azure Functions Core Tools with the npm [azure-functions-core-tools](https://www.npmjs.com/package/azure-functions-core-tools):
-
-    ```bash
-    npm install --global azure-functions-core-tools@4 --unsafe-perm true
-    ```
-
-## Create a resource group
+## 2. Create an Azure resource group
 
 A resource group is a region-based collection of resources. By creating a resource group, then creating resources in that group, at the end of the tutorial, you can delete the resource group without having to delete each resource individually. 
 
@@ -64,13 +55,11 @@ A resource group is a region-based collection of resources. By creating a resour
     |Enter the name of the new resource group.|`cosmosdb-mongodb-function-resource-group`|
     |Select a location for your new resources.|Select a geographical region close to you.|
 
-## Create the local Functions app with the Visual Studio Code _Functions_ extension
+## 4. Create the local Functions app
 
 Create a local Azure Functions (serverless) application that contains an [HTTP trigger](/azure/azure-functions/functions-reference-node#http-triggers-and-bindings) function. 
 
-1. Create a new directory on your local workstation, then open Visual Studio Code in this directory. 
-
-1. In Visual Studio Code, select the Azure logo to open the **Azure Functions** explorer, then select the **Create New Project** command:
+1. In Visual Studio Code, select the Azure explorer, then select **Create New Project** in the **Azure Functions** section:
 
     ![Create a local Function app in VS Code](../media/functions-extension/create-function-app-project.png)
 
@@ -87,7 +76,7 @@ Create a local Azure Functions (serverless) application that contains an [HTTP t
 
     This process doesn't create cloud-based Azure Function resource. That [step](tutorial-vscode-serverless-node-deploy-hosting.md) will come later.
 
-1. After a few moments, VS Code completes creation of the project. You have a folder named for the function, *category*, within which are three files:
+1. After a few moments, Visual Studio Code completes creation of the project. You have a folder named for the function, *category*, within which are three files:
 
     | Filename | Description |
     | --- | --- |
@@ -95,36 +84,33 @@ Create a local Azure Functions (serverless) application that contains an [HTTP t
     | *function.json* | The [binding configuration](/azure/azure-functions/functions-triggers-bindings) for the HTTP trigger. |
     | *sample.dat* | A placeholder data file to demonstrate that you can have other files in the folder. You can delete this file, if desired, as it's not used in this tutorial. |
 
-## Install npm package dependencies from bash terminal
-
-1. In Visual Studio Code, open an integrated bash terminal, <kbd>Ctrl</kbd> + <kbd>`</kbd>.
-1. Install npm dependencies:
+1. In Visual Studio Code, open an integrated bash terminal, <kbd>Ctrl</kbd> + <kbd>`</kbd> and install the Azure Function app:
 
     ```bash
     npm install
     ```
 
-## Change the function's code
+1. Add the Azure Function core tools package:
 
-The basic code to respond to the HTTP request is provided for you. If you are familiar with the HTTP request (the _req_ parameter) and response objects, the function should seem familiar. You return response information with the **context** object on the `res` property.  
+    ```bash
+    npm install azure-functions-core-tools@4 
+    ```
 
 <a name="http-function-javascript-template-code"></a>
 
-Create a new context.log message after the name variable and change it to appear more obvious when scanning the logs.
+1. Create a new context.log message after the name variable and change it to appear more obvious when scanning the logs.
 
-```typescript
-context.log(`*** HTTPExample name: ${name}`);
-```
-
-The new function code is:
-
-:::code language="typescript" source="~/../js-e2e-azure-function-mongodb/edited-function-code.ts" highlight="6":::
-
-## Run and debug the Azure Function locally with Visual Studio Code
-
-Run the Azure Functions project locally to test it before deploying to Azure. Set a break point just before the serverless function returns the response. 
+    ```typescript
+    context.log(`*** HTTPExample name: ${name}`);
+    ```
+    
+    The new function code is:
+    
+    :::code language="typescript" source="~/../js-e2e-azure-function-mongodb/edited-function-code.ts" highlight="6":::
 
 ## Run the local serverless function
+
+Run the Azure Functions project locally to test it before deploying to Azure. Set a break point just before the serverless function returns the response. 
 
 1. In Visual Studio Code, press <kbd>F5</kbd>  to launch the debugger and attach to the Azure Functions host. 
 
@@ -187,19 +173,9 @@ With your function running locally, set breakpoints on different parts of the co
 
 1. Stop the debugger in Visual Studio Code, <kbd>Shift</kdb> + <kbd>F5</kbd>. 
 
-## Same Local and Azure Function runtime 
+## Create the Functions app and deploy to Azure
 
-When you created the Functions app, the Azure Functions extension automatically added a VS Code launch configuration to your project, which is found in the *.vscode/launch.json* file. This configuration uses the same runtime that runs on Azure, so you can be sure that your source code works before deploying to the cloud.
-
-## Deploy the Functions app to Azure cloud
-
-[Previous step: Test the function locally](tutorial-vscode-serverless-node-test-local.md)
-
-In this step, use the Visual Studio Code extension for Azure Functions to deploy the Functions app to the Azure cloud. Verify the Functions app is publicly available with a browser. 
-
-## Use Visual Studio Code extension to deploy to hosting environment
-
-1. In Visual Studio Code, select the Azure logo to open the **Azure Explorer**, then under **Functions**, select the **Deploy to Function app** icon to deploy your app:
+1. In Visual Studio Code, select the Azure explorer, then under **Functions**, select the **Deploy to Function app** icon to deploy your app:
 
     ![Deploy to Azure Functions command](../media/functions-extension/deploy-app.png)
 
@@ -240,7 +216,7 @@ In this step, use the Visual Studio Code extension for Azure Functions to deploy
 
 1. In the notifications, select **Stream logs** and keep the view open while you make a request to the API in the next section.
 
-## Verify Functions app is available with browser
+## View Functions app in browser
 
 1. Once deployment is completed, go to the **Azure Functions** explorer, expand the node for your Azure subscription, expand the node for your Functions app, then expand **Functions (read only)**. Right-click the function name and select **Copy Function Url**:
 
@@ -258,58 +234,13 @@ In this step, use the Visual Studio Code extension for Azure Functions to deploy
 
 1. Review the streaming log in Visual Studio Code to find your `context.log` output. 
 
-## Query your Azure Function logs
-
-Streaming logs is good for in-the-moment scanning. To search the logs, use the Azure portal. 
-
-1. In Visual Studio Code, select the Azure logo to open the **Azure Explorer**, then under **Functions**, right-click on your function app, then select **Open in Portal**.
-
-    This opens the Azure portal to your Azure Function.
-
-1. Select **Application Insights** from the Settings, then select **View Application Insights data**.
-
-    :::image type="content" source="../media/functions-extension/azure-portal-function-application-insights-link.png" alt-text="Browser screenshot showing menu choices. Select **Application Insights** from the Settings, then select **View Application Insights data**." lightbox="../media/functions-extension/azure-portal-function-application-insights-link.png":::
-
-    This link takes you to your separate metrics resource created for you when you created your Azure Function with Visual Studio Code.
-
-1. Select **Logs** in the Monitoring section. If a **Queries** pop-up window appears, select the **X** in the top-right corner of the pop-up to close it. 
-1. In the **New Query 1** pane, on the **Tables** tab, double-click the **traces** table. 
-
-    This enters the [Kusto query](/azure/data-explorer/kusto/query/), `traces` into the query window. 
-1. Edit the query to search for the custom logs:
-
-    ```kusto
-    traces 
-    | where message startswith "***"
-    ```
-
-1. Select **Run**.
-
-    If the log doesn't display any results, it may be because there is a few minutes delay between the HTTP request to the Azure Function and the log availability in Kusto. Wait a few minutes and run the query again.
-
-    :::image type="content" source="../media/functions-extension/azure-portal-application-insights-function-log-trace.png" alt-text="Browser screenshot showing Azure portal Kusto query result for Trace table." lightbox="../media/functions-extension/azure-portal-application-insights-function-log-trace.png":::
-
-    You didn't need to do anything extra to get this logging information:
-
-    * The code used the standard `console.log` function.
-    * The Function app added Application Insights _for you_.
-    * The Query tool is included in the Azure portal.
-    * You can click on `traces` instead of having to learn to write a [Kusto query](/azure/data-explorer/kusto/concepts/) to get even the minimum information from your logs.
-
-
 ## Add Cosmos DB for MongoDB API integration 
-
-[Previous step: Deploy the function](tutorial-vscode-serverless-node-test-local.md)
-
-In this step, create a [Cosmos DB](/azure/cosmos-db/mongodb/mongodb-introduction) for MongoDB API resource and the use [mongoose](https://www.npmjs.com/package/mongoose) npm package to add, delete, and list items in the database. 
-
-## Create an Azure Cosmos DB for MongoDB API resource
 
 Cosmos DB provides a MongoDB API to provide a familiar integration point. 
 
 1. In Visual Studio Code, select the Azure logo to open the **Azure Explorer**, then under **Databases**, select **+** to begin the creation process.
 
-1. Use the following table to complete the prompts to create a new Azure Cosmos DB resource. 
+    Use the following table to complete the prompts to create a new Azure Cosmos DB resource. 
 
     |Prompt|Value|Notes|
     |--|--|--|
@@ -319,15 +250,11 @@ Cosmos DB provides a MongoDB API to provide a familiar integration point.
     |Select a resource group for new resources.|`cosmosdb-mongodb-function-resource-group`|Select the [resource group](tutorial-vscode-serverless-node-install.md#create-a-resource-group) you created in the first article of this series.|
     |Select a location for new resources.|Select the recommended region.||
 
-## Install the mongoose npm package
+1. In a Visual Studio Code integrated bash terminal, install the npm package:
 
-In a Visual Studio Code integrated bash terminal, install the npm package:
-
-```bash
-npm install mongoose
-```
-
-## Create database code file 
+    ```bash
+    npm install mongoose
+    ```
 
 1. In Visual Studio Code, create a subdirectory of the project named `lib`.
 1. Create a file in the directory named `./lib/azure-cosmosdb-mongodb.ts` and copy the following code into it.
@@ -336,21 +263,18 @@ npm install mongoose
 
     This file contains a simple mongoose schema for a **Category** container. 
 
-## Integrate mongoose code into Azure function API
+1. In Visual Studio Code, open the `./category/index.ts` file and replace the entire file's code with the following:
 
-In Visual Studio Code, open the `./category/index.ts` file and replace the entire file's code with the following:
+    :::code language="typescript" source="~/../js-e2e-azure-function-mongodb/category/index.ts" highlight="2,12,18,25,31,43":::
 
-:::code language="typescript" source="~/../js-e2e-azure-function-mongodb/category/index.ts" highlight="2,12,18,25,31,43":::
 
-## Change function.json to include delete method
+1. In Visual Studio Code, open the `./category/function.json` file and change the methods property to include **delete**.
 
-In Visual Studio Code, open the `./category/function.json` file and change the methods property to include **delete**.
-
-:::code language="typescript" source="~/../js-e2e-azure-function-mongodb/category/function.json" highlight="11":::
+    :::code language="typescript" source="~/../js-e2e-azure-function-mongodb/category/function.json" highlight="11":::
   
 ## Add Cosmos DB connection string to local project
 
-1. In Visual Studio Code, select the Azure logo to open the **Azure Explorer**, then under **Databases**, right-click your database and select **Copy Connection String**.
+1. In Visual Studio Code, select the Azure explorer, then under **Databases**, right-click your database and select **Copy Connection String**.
 
     :::image type="content" source="../media/functions-extension/visual-studio-code-cosmos-db-copy-connection-string.png" alt-text="Partial screenshot of Visual Studio Code, showing the Azure explorer with a database selected and the right-click menu highlighting Copy Connection String.":::
 
@@ -358,9 +282,9 @@ In Visual Studio Code, open the `./category/function.json` file and change the m
 
     :::code language="json" source="~/../js-e2e-azure-function-mongodb/local.settings.json" highlight="6":::
 
-## Add items to database by calling Azure Function API
+## Add items to database with API
 
-1. In Visual Studio Code, press <kbd>F5</kbd>  to launch the debugger and attach to the Azure Functions host. 
+1. In Visual Studio Code, press <kbd>F5</kbd> to launch the debugger and attach to the Azure Functions host. 
 
     You could also use the **Debug** > **Start Debugging** menu command.
 
@@ -400,7 +324,7 @@ In Visual Studio Code, open the `./category/function.json` file and change the m
     }
     ```
 
-## Get all items from database by calling Azure Function API
+## Get all items from database with API
 
 1. Use the following curl command to get all items from the database:
 
@@ -429,14 +353,14 @@ In Visual Studio Code, open the `./category/function.json` file and change the m
     }
     ```
 
-## View all data with Database extension
+## View all data with Visual Studio Code extension
 
 1. In Visual Studio Code, select the Azure logo to open the **Azure Explorer**, then under **Databases**, right-click your Cosmos DB resource, then the **Test** database, then the **Bookstore** collection.
 1. Select one of the items listed. 
 
     :::image type="content" source="../media/functions-extension/visual-studio-code-databases-extension-showing-mongodb-doc.png" alt-text="Partial screenshot of Visual Studio Code, showing the Azure explorer with the Databases with a selected item displayed in the reading pane.":::
 
-## Get one item from the database by calling Azure Function API
+## Get one item from the database with API
 
 1. Use the following curl command to get all items from the database. Replace `DOCUMENT_ID` with one of the IDs from a previous step's response:
 
@@ -456,7 +380,7 @@ In Visual Studio Code, open the `./category/function.json` file and change the m
     }
     ```
 
-## Delete one item from the database by calling Azure Function API
+## Delete one item from the database with API
 
 1. Use the following curl command to get all items from the database. Replace `DOCUMENT_ID` with one of the IDs from a previous step's response:
 
@@ -476,7 +400,7 @@ In Visual Studio Code, open the `./category/function.json` file and change the m
     }
     ```
 
-## Redeploy the function app to include mongoose code
+## Redeploy the function app to include database code
 
 1. In Visual Studio Code, select the Azure logo to open the **Azure Explorer**, then under **Functions**, select the deploy icon to begin the deployment process.
 
@@ -497,7 +421,7 @@ In Visual Studio Code, open the `./category/function.json` file and change the m
 1. Enter the app setting name, `CosmosDbConnectionString` and press enter. 
 1. Paste the value.
 
-## Copy the secure function's URL
+## Use cloud-based Azure Function 
 
 1. Still in the Azure Explorer, in the **Functions** area, select and expand your function then the **Functions** node, which lists the API, **category**.
 1. Right-click on the **category** item and select **Copy Function Url**.
@@ -505,11 +429,7 @@ In Visual Studio Code, open the `./category/function.json` file and change the m
 
     :::code language="bash" source="~/../js-e2e-azure-function-mongodb/curl.sh" range="24-41" :::
 
-## Clean up Azure resources for Azure Functions tutorial
-
-Use the Visual Studio Code extension, Azure Resource Groups, to delete the resource group and all resources within the group.
-
-## Remove remote Azure resources
+## Clean up resources 
 
 The Functions App you created includes resources that can incur minimal costs (refer to [Functions Pricing](https://azure.microsoft.com/pricing/details/functions/)).  
 
