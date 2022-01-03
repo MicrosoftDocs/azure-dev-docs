@@ -80,8 +80,8 @@
         "**/*.yml": "barbkess",
         "java/**/*.md": "karlerickson",
         "java/**/*.yml": "karlerickson",
-        "go/**/*.md": "barbkess",
-        "python/**/*.md": "kraigb",
+        "go/**/*.md": "Duffney",
+        "python/**/*.md": "jess-johnson-msft",
         "ansible/**/*.md": "TomArcherMsft",
         "chef/**/*.md": "TomArcherMsft",
         "jenkins/**/*.md": "TomArcherMsft",
@@ -99,8 +99,8 @@
         "**/*.yml": "barbkess",
         "java/**/*.md": "brendm",
         "java/**/*.md": "brendm",
-        "go/**/*.md": "barbkess",
-        "python/**/*.md": "kraigb",
+        "go/**/*.md": "jduffney",
+        "python/**/*.md": "jejohn",
         "ansible/**/*.md": "tarcher",
         "chef/**/*.md": "tarcher",
         "jenkins/**/*.md": "tarcher",
@@ -112,7 +112,7 @@
       "ms.devlang": {
         "java/**/*.md": "java",
         "python/**/*.md": "python",
-        "go/**/*.md": "go",
+        "go/**/*.md": "golang",
         "javascript/**/*.md": "nodejs"
       },
       "ms.service": {

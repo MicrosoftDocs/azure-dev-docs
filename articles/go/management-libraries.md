@@ -1,7 +1,7 @@
 ---
 title: Working with the Azure SDK for Go management libraries 
 description: In this article, you learn the basic tasks of working with the Azure SDK for Go management libraries.
-ms.date: 08/10/2021
+ms.date: 12/13/2021
 ms.topic: conceptual
 ms.custom: devx-track-go
 ---
@@ -23,15 +23,15 @@ To install a Go package, use the `go get` command.
 For example, to install the `armcompute` package, you run the following at the command line:
 
 ```azurecli
-go get github.com/Azure/azure-sdk-for-go/sdk/compute/armcompute
+go get github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/compute/armcompute
 ```
 
 In most Go apps, you'll install the following packages for authentication and core functionality:
 
-- github.com/Azure/azure-sdk-for-go/sdk/armcore
+- github.com/Azure/azure-sdk-for-go/sdk/resoucemanager/compute/armcompute
 - github.com/Azure/azure-sdk-for-go/sdk/azcore
 - github.com/Azure/azure-sdk-for-go/sdk/azidentity
-- github.com/Azure/azure-sdk-for-go/sdk/to
+- github.com/Azure/azure-sdk-for-go/sdk/azcore/to
 
 ## Importing packages into your Go code
 
@@ -40,7 +40,7 @@ Once downloaded, the package are imported into your app via the `import` stateme
 ```go
 import (
     "github.com/Azure/azure-sdk-for-go/sdk/armcore"
-    "github.com/Azure/azure-sdk-for-go/sdk/resources/armresources"
+    "github.com/Azure/azure-sdk-for-go/sdk/resoucemanager/compute/armcompute"
     "github.com/Azure/azure-sdk-for-go/sdk/azidentity"
     "github.com/Azure/azure-sdk-for-go/sdk/to"
 )
@@ -56,30 +56,23 @@ The default authentication option is **DefaultAzureCredential**, which uses the 
 cred, err := azidentity.NewDefaultAzureCredential(nil)
 ```
 
-## Connecting to Azure
-
-Once you have a credential - such as an `azidentity` object - you create a connection to the target Azure Resource Management endpoint. The [armcore](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/armcore) package provides facilities for connecting with Azure Resource Manager endpoints. These endpoints include public and sovereign clouds, and [Azure Stack](https://azure.microsoft.com/overview/azure-stack/).
-
-```go
-con := armcore.NewDefaultConnection(cred, nil)
-```
-
 ## Creating a Resource Management client
 
-Once you have a connection to the Azure Resource Manager, create a client to connect to the target Azure service.
+<!--  -->
+Once you have a credential from Azure Identity, create a client to connect to the target Azure service.
 
-For example, let's say you want to connect to the [Azure Compute](https://azure.microsoft.com/product-categories/compute/) service. The [Compute package](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/compute/armcompute@v0.1.0) consist of one or more clients. A client groups a set of related APIs, providing access to its functionality within the specified subscription. You create one or more clients to access the APIs you require using an `armcore.Connection` object.
+For example, let's say you want to connect to the [Azure Compute](https://azure.microsoft.com/product-categories/compute/) service. The [Compute package](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/compute/armcompute) consist of one or more clients. A client groups a set of related APIs, providing access to its functionality within the specified subscription. You create one or more clients to access the APIs you require using an `armcore.Connection` object.
 
-In the following code snippet, the [armcompute.NewVirtualMachinesClient type](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/compute/armcompute@v0.1.0#VirtualMachinesClient) is used to create a client to manage virtual machines:
+In the following code snippet, the [armcompute.NewVirtualMachinesClient type](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/compute/armcompute#VirtualMachinesClient) is used to create a client to manage virtual machines:
 
 ```go
-client := armcompute.NewVirtualMachinesClient(con, "<subscription ID>")
+client := armcompute.NewVirtualMachinesClient("<subscription ID>",cred, nil)
 ```
 
-The same pattern is used to connect with other Azure services. For example, install the [armnetwork](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/network/armnetwork) package and create a [VirtualNetwork](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/network/armnetwork#VirtualNetworksClient) client to manage virtual network (VNET) resources.
+The same pattern is used to connect with other Azure services. For example, install the [armnetwork](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/network/armnetwork) package and create a [VirtualNetwork](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/network/armnetwork#VirtualNetworksClient) client to manage virtual network (VNET) resources.
 
 ```go
-client := armnetwork.NewVirtualNetworksClient(con, "<subscription ID>")
+client := armnetwork.NewVirtualNetworksClient("<subscription ID>",cred, nil)
 ```
 
 ## Using the Azure SDK for Go reference documentation
@@ -94,7 +87,7 @@ To look up the operations for a specific type, do the following steps:
 1. Search the package's page for the type.
 1. Read the type's description and information about its usage in your Go code.
 
-You can also manually build the URL by appending the name of the package to `github.com/Azure/azure-sdk-for-go/sdk/`. 
+You can also manually build the URL by appending the name of the package to `github.com/Azure/azure-sdk-for-go/sdk/`.
 
 For example, if you're looking for the `compute/armcompute` reference documentation, the URL is `github.com/Azure/azure-sdk-for-go/sdk/compute/armcompute`.
 
@@ -110,7 +103,7 @@ The following example shows how to find the reference documentation for Azure re
 
 ## Long-running operations
 
-As some operations can take a long time to complete, the management libraries contain functions to support long-running operations (LRO) via asynchronous calls. These function names start with `Begin`. Examples of this pattern are `BeginCreate` and `BeginDelete`. 
+As some operations can take a long time to complete, the management libraries contain functions to support long-running operations (LRO) via asynchronous calls. These function names start with `Begin`. Examples of this pattern are `BeginCreate` and `BeginDelete`.
 
 As these functions are asynchronous, your code doesn't block until the function finishes its task. Instead, the function returns a *poller* object immediately. Your code then calls a synchronous poller function that returns when the original asynchronous function has completed.
 

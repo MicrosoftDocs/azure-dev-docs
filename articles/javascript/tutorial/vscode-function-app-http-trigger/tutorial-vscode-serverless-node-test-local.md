@@ -1,13 +1,13 @@
 ---
 title: Run Azure Functions 3.x local app in Visual Studio Code
-description: Run the Azure Functions project locally to test it before deploying to Azure. Set a break point just before the serverless function returns the response.
+description: Run and debug the Azure Functions project locally to test it before deploying to Azure. Set a break point just before the serverless function returns the response.
 ms.topic: how-to
 ms.date: 08/28/2021
 ms.custom: devx-track-js, contperf-fy21q2
 
 ---
 
-# 3. Run the function locally
+# 3. Run and debug the Azure Function locally with Visual Studio Code
 
 Run the Azure Functions project locally to test it before deploying to Azure. Set a break point just before the serverless function returns the response. 
 
@@ -19,15 +19,15 @@ Run the Azure Functions project locally to test it before deploying to Azure. Se
 
 1. Output from the Functions Core tools appears in the VS Code **Terminal** panel. 
 
-    ![Output shown in VS Code Terminal panel when debugging locally](../../media/functions-extension/local-test-output.png)
+    :::image type="content" source="../../media/functions-extension/local-test-output.png" alt-text="Partial screenshot of VSCode output terminal panel when debugging locally" lightbox="../../media/functions-extension/local-test-output.png":::
 
 1. To copy the URL of the local function, use the Azure Function extension, right-click the function name, **category**.
 
-    :::image type="content" source="../../media/functions-extension/visual-studio-code-function-extension-get-function-url.png" alt-text="Partial screenshot of Visual Studio Code, in the Azure Explorer, with the Azure Function's button named Copy Function URL highlighted.":::
+    :::image type="content" source="../../media/functions-extension/visual-studio-code-function-extension-get-function-url.png" alt-text="Partial screenshot of Visual Studio Code, with the Azure Function's button named Copy Function URL highlighted." lightbox="../../media/functions-extension/visual-studio-code-function-extension-get-function-url.png":::
 
 1. In your browser, enter the URL displayed in the terminal, then add `?name=YOUR-NAME` to the end of URL, replacing `YOUR-NAME` with your name:
 
-    ![HTTP trigger function parsing URL parameters](../../media/functions-extension/local-test-browser.png)
+    :::image type="content" source="../../media/functions-extension/local-test-browser.png" alt-text="Screenshot of web browser displaying results of HTTP trigger function parsing URL parameters.":::
 
     Because the function is running locally, your local API doesn't need the function key to work successfully.
 
@@ -68,7 +68,7 @@ With your function running locally, set breakpoints on different parts of the co
 1. Change the `?name=` value for the URL in the integrated bash terminal and resubmit the request to the function. 
 1. When the browser makes that request, VS Code stops the function code on that breakpoint:
 
-    :::image type="content" source="../../media/functions-extension/visual-studio-code-function-break-point-request-variables.png" alt-text="Screenshot of Visual Studio Code with breakpoint activated and Closure variables displaying request values.":::
+    :::image type="content" source="../../media/functions-extension/visual-studio-code-function-break-point-request-variables.png" alt-text="Screenshot of Visual Studio Code with breakpoint activated and Closure variables displaying request values." lightbox="../../media/functions-extension/visual-studio-code-function-break-point-request-variables.png":::
 
     Expand the **Variables** element named **Closure** to see the request properties. You can view all the properties passed into the function.
 
@@ -82,3 +82,10 @@ When you created the Functions app, the Azure Functions extension automatically 
 
 > [!div class="nextstepaction"]
 > [Deploy the Function app to Azure](tutorial-vscode-serverless-node-deploy-hosting.md)
+
+Other examples of running and debugging an Azure Function locally include:
+
+* [Run your local Function app as part of a Static web app](../../how-to/with-web-app/static-web-app-with-swa-cli/connect-client-to-api.md#start-local-app-for-full-stack-app)
+* [Run your local GraphQL Function app as part of a Static web app](../../how-to/with-web-app/graphql/static-web-app-graphql/local-development.md)
+* [Run your local Azure Blob Storage Function app](../../how-to/with-web-app/azure-function-file-upload.md#run-the-local-function-with-local-storage-emulation)
+* [Run your local Azure Resource Manager Function app](../../how-to/with-web-app/azure-function-resource-group-management/deploy-azure-function-with-visual-studio-code.md)
