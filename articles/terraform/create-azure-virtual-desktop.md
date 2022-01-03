@@ -27,7 +27,7 @@ This article assumes you've already configured Terraform
 * [Configure Terraform using Azure Cloud Shell](../get-started-cloud-shell.md) 
 * [Configure the Azure Terraform Visual Studio Code extension](../terraform/configure-vs-code-extension-for-terraform)
 
-## 1. Create Azure connection and resource group
+## 1. Define providers and create resource group
 
 The following code defines the Azure Terraform provider:
 
