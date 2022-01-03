@@ -282,7 +282,9 @@ Cosmos DB provides a MongoDB API to provide a familiar integration point.
 
     :::code language="json" source="~/../js-e2e-azure-function-mongodb/local.settings.json" highlight="6":::
 
-## Add items to database with API
+## Use the Azure Function APIs
+
+### Add items to database with API
 
 1. In Visual Studio Code, press <kbd>F5</kbd> to launch the debugger and attach to the Azure Functions host. 
 
@@ -324,7 +326,7 @@ Cosmos DB provides a MongoDB API to provide a familiar integration point.
     }
     ```
 
-## Get all items from database with API
+### Get all items from database with API
 
 1. Use the following curl command to get all items from the database:
 
@@ -353,14 +355,14 @@ Cosmos DB provides a MongoDB API to provide a familiar integration point.
     }
     ```
 
-## View all data with Visual Studio Code extension
+### View all data with Visual Studio Code extension
 
 1. In Visual Studio Code, select the Azure logo to open the **Azure Explorer**, then under **Databases**, right-click your Cosmos DB resource, then the **Test** database, then the **Bookstore** collection.
 1. Select one of the items listed. 
 
     :::image type="content" source="../media/functions-extension/visual-studio-code-databases-extension-showing-mongodb-doc.png" alt-text="Partial screenshot of Visual Studio Code, showing the Azure explorer with the Databases with a selected item displayed in the reading pane.":::
 
-## Get one item from the database with API
+### Get one item from the database with API
 
 1. Use the following curl command to get all items from the database. Replace `DOCUMENT_ID` with one of the IDs from a previous step's response:
 
@@ -380,7 +382,7 @@ Cosmos DB provides a MongoDB API to provide a familiar integration point.
     }
     ```
 
-## Delete one item from the database with API
+### Delete one item from the database with API
 
 1. Use the following curl command to get all items from the database. Replace `DOCUMENT_ID` with one of the IDs from a previous step's response:
 
@@ -438,18 +440,31 @@ The Functions App you created includes resources that can incur minimal costs (r
 
     :::image type="content" source="../media/visual-studio-code-azure-resources-extension-remove-resource-group.png" alt-text="Use the Visual Studio Code extension, Azure Resource Groups, to delete the resource group and all resources within the group.":::
 
-## Learn more about Azure Functions
+
+
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Create an Azure Function to manage Azure resources](../how-to/with-web-app/azure-function-resource-group-management/introduction.md)
+
+
+Learn more about Azure Functions:
 
 * [Official YouTube Channel – Azure Functions](https://www.youtube.com/channel/UCtUYj6As_XFkOooUFnsJbYg)
 * [Video: Migrating Your API to Serverless using Azure Functions - YouTube](https://youtu.be/89WXgaY-NqY)
 * [Azure Functions JavaScript developer guide](/azure/azure-functions/functions-reference-node)
 * [Securing Azure Functions](/azure/azure-functions/security-concepts)
 
-[!INCLUDE [Next steps for using VSCode extensions](../includes/tutorial-next-steps-vscode-extensions.md)]
+Check out the other Azure extensions:
 
-[!INCLUDE [Next steps for using JavaScript on Azure](../includes/tutorial-next-steps-js-azure.md)]
+* [Azure Tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack)
+* [Azure Databases](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb)
+* [Azure Storage](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestorage)
+* [Azure Functions](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions)
+* [Docker Tools](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker)
+* [Azure CLI Tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azurecli)
+* [Azure Resource Manager tools](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)
 
-## Next steps
+To learn more about working with Azure using Node.js, visit the resources below:
 
-> [!div class="nextstepaction"]
-> [Create an Azure Function to manage Azure resources](../how-to/with-web-app/azure-function-resource-group-management/introduction.md)
+* [Azure SDK for JavaScript](https://github.com/Azure/azure-sdk-for-js)
