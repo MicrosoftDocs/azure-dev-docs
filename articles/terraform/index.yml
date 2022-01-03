@@ -118,3 +118,21 @@ landingContent:
         links:
           - text: Deploy an Azure Cosmos DB
             url: deploy-azure-cosmos-db-to-azure-container-instances.md
+
+  # Card
+  - title: Azure Virtual Desktop
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Deploy Azure Virtual Desktop
+            url: create-azure-virtual-desktop.md
+          - text: Azure Virtual Desktop Session Host
+            url: create-avd-session-host.md
+          - text: Azure Virtual Desktop RBAC
+            url: create-avd-rbac.md
+          - text: Azure Files
+            url: create-azure-files-storage.md
+          - text: Azure Compute Gallery
+            url: create-azure-shared-image-gallery.md
+          - text: Log Analytics Workspace
+            url: create-azure-log-analytics-workspace.md  
