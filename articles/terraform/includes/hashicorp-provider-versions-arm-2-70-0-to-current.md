@@ -1,9 +1,8 @@
 ---
-title: include file
-description: include file
-ms.date: 10/17/2021
-ms.custom: 3678e1eac7822fa4a7c660d8134188143b8cbf24
 ms.author: tarcher
+ms.topic: include
+ms.date: 01/04/2022
+ms.custom: devx-track-terraform
 ---
 
 ## 2.82.0 (Unreleased)

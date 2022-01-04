@@ -1,9 +1,8 @@
 ---
- author: Duffney
- ms.service: ansible
- ms.topic: include
- ms.date: 03/24/2021
- ms.author: jduffney
+ms.author: tarcher
+ms.topic: include
+ms.date: 01/04/2022
+ms.custom: devx-track-ansible
 ---
 
 ## Create an Azure Service Principal
