@@ -1,9 +1,8 @@
 ---
- author: tomarchermsft
- ms.service: ansible
- ms.topic: include
- ms.date: 08/28/2021
- ms.author: tarcher
+ms.author: tarcher
+ms.topic: include
+ms.date: 01/04/2022
+ms.custom: devx-track-ansible
 ---
 
 This section shows how to create a test resource group within your new Ansible configuration. If you don't need to do that, you can skip this section.
