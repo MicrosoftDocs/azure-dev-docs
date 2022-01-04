@@ -5,7 +5,7 @@ ms.date: 01/04/2022
 ms.custom: devx-track-terraform
 ---
 
-Cloud Shell automatically updates to the latest version of Terraform within a couple of weeks of its release. However, if you need the most recent version sooner, the following steps show you how to download and install the current version of Terraform.
+Cloud Shell automatically updates to the latest version of Terraform. However, the updates come within a couple of weeks of release. This article shows you how to download and install the current version of Terraform.
 
 1. Determine the version of Terraform being used in Cloud Shell.
 
