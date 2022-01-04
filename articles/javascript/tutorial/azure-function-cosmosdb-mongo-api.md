@@ -84,16 +84,16 @@ Create a local Azure Functions (serverless) application that contains an [HTTP t
     | *function.json* | The [binding configuration](/azure/azure-functions/functions-triggers-bindings) for the HTTP trigger. |
     | *sample.dat* | A placeholder data file to demonstrate that you can have other files in the folder. You can delete this file, if desired, as it's not used in this tutorial. |
 
-1. In Visual Studio Code, open an integrated bash terminal, <kbd>Ctrl</kbd> + <kbd>`</kbd> and install the Azure Function app:
+1. In Visual Studio Code, open an integrated bash terminal, <kbd>Ctrl</kbd> + <kbd>`</kbd> and install the Azure Function app dependencies:
 
     ```bash
     npm install
     ```
 
-1. Add the Azure Function core tools package:
+1. Add the Azure Function core tools package, required to run the Azure function locally:
 
     ```bash
-    npm install azure-functions-core-tools@4 
+    npm install azure-functions-core-tools@4 --save-dev
     ```
 
 <a name="http-function-javascript-template-code"></a>
