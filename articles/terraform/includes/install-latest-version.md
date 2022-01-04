@@ -1,13 +1,11 @@
 ---
-title: include file
-description: include file
-ms.topic: how-to
-ms.date: 08/07/2021
-ms.custom: devx-track-terraform
 ms.author: tarcher
+ms.topic: include
+ms.date: 01/04/2022
+ms.custom: devx-track-terraform
 ---
 
-Cloud Shell automatically updates to the latest version of Terraform within a couple of weeks of its release. However, if you need the most recent version sooner, the following steps show you how to download and install the current version of Terraform.
+Cloud Shell automatically updates to the latest version of Terraform. However, the updates come within a couple of weeks of release. This article shows you how to download and install the current version of Terraform.
 
 1. Determine the version of Terraform being used in Cloud Shell.
 
@@ -23,7 +21,7 @@ Cloud Shell automatically updates to the latest version of Terraform within a co
 
 1. Scroll down to the **Linux** download links.
 
-1. Move your mouse over the **64-bit** link. This is the link for the latest 64-bit Linux AMD version, which is appropriate for Cloud Shell.
+1. Move your mouse over the **64-bit** link. This link is for the latest 64-bit Linux AMD version, which is appropriate for Cloud Shell.
 
 1. Copy the URL.
 
@@ -50,6 +48,8 @@ Cloud Shell automatically updates to the latest version of Terraform within a co
     ```bash
     mv terraform bin/    
     ```
+
+1. Close and restart Cloud Shell.
 
 1. Verify that the downloaded version of Terraform is first in the path.
 
