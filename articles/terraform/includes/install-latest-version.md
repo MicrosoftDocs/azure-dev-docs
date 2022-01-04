@@ -2,7 +2,7 @@
 title: include file
 description: include file
 ms.topic: how-to
-ms.date: 08/07/2021
+ms.date: 01/04/2022
 ms.custom: devx-track-terraform
 ms.author: tarcher
 ---
@@ -50,6 +50,8 @@ Cloud Shell automatically updates to the latest version of Terraform within a co
     ```bash
     mv terraform bin/    
     ```
+
+1. Close and restart Cloud Shell.
 
 1. Verify that the downloaded version of Terraform is first in the path.
 
