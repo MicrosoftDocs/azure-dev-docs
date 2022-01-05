@@ -209,7 +209,7 @@ With your function running locally, set breakpoints on different parts of the co
 
 1. In the notifications, select **Stream logs** and keep the view open while you make a request to the API in the next section.
 
-## 7. View Functions app in browser
+## 7. Run the remote serverless function
 
 1. Once deployment is completed, go to the **Azure Functions** explorer, expand the node for your Azure subscription, expand the node for your Functions app, then expand **Functions (read only)**. Right-click the function name and select **Copy Function Url**:
 
@@ -433,7 +433,7 @@ Streaming logs is good for in-the-moment scanning. To search the logs, use the A
 
 1. Select **Application Insights** from the Settings, then select **View Application Insights data**.
 
-    :::image type="content" source="../media/functions-extension/azure-portal-function-application-insights-link.png" alt-text="Browser screenshot showing menu choices. Select **Application Insights** from the Settings, then select **View Application Insights data**." lightbox="../../media/functions-extension/azure-portal-function-application-insights-link.png":::
+    :::image type="content" source="../media/functions-extension/azure-portal-function-application-insights-link.png" alt-text="Browser screenshot showing menu choices. Select **Application Insights** from the Settings, then select **View Application Insights data**." lightbox="../media/functions-extension/azure-portal-function-application-insights-link.png":::
 
     This link takes you to your separate metrics resource created for you when you created your Azure Function with Visual Studio Code.
 
@@ -452,7 +452,7 @@ Streaming logs is good for in-the-moment scanning. To search the logs, use the A
 
     If the log doesn't display any results, it may be because there is a few minutes delay between the HTTP request to the Azure Function and the log availability in Kusto. Wait a few minutes and run the query again.
 
-    :::image type="content" source="../media/functions-extension/azure-portal-application-insights-function-log-trace.png" alt-text="Browser screenshot showing Azure portal Kusto query result for Trace table." lightbox="../../media/functions-extension/azure-portal-application-insights-function-log-trace.png":::
+    :::image type="content" source="../media/functions-extension/azure-portal-application-insights-function-log-trace.png" alt-text="Browser screenshot showing Azure portal Kusto query result for Trace table." lightbox="../media/functions-extension/azure-portal-application-insights-function-log-trace.png":::
 
     You didn't need to do anything extra to get this logging information:
 
@@ -468,7 +468,7 @@ The Functions App you created includes resources that can incur minimal costs (r
 1. Find the resource group name, `cosmosdb-mongodb-function-resource-group`, in the list.
 1. Right-click the resource group name and select **Delete**.
 
-    :::image type="content" source="../media/visual-studio-code-azure-resources-extension-remove-resource-group.png" alt-text="Use the Visual Studio Code extension, Azure Resource Groups, to delete the resource group and all resources within the group.":::
+    :::image type="content" source="../media/functions-extension/visual-studio-code-remove-resource-group" alt-text="Use the Visual Studio Code extension, Azure Resource Groups, to delete the resource group and all resources within the group.":::
 
 ## Next steps
 
