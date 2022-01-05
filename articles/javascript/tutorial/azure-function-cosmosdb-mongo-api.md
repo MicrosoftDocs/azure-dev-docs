@@ -29,7 +29,7 @@ Full source code for this Azure Function app:
 Install the following software: 
 
 * Create a free [Azure subscription](https://azure.microsoft.com/free/)
-* Install [Node.js LTS](https://nodejs.org/en/download)
+* Install [Node.js LTS](https://nodejs.org/en/download) - this article was written and tested with Node.js 14
 * Install [Visual Studio Code](https://code.visualstudio.com/) and use the following extensions:
     * [Azure Resources](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureresourcegroups)
     * [Azure Functions](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions)
@@ -94,7 +94,7 @@ Create a local Azure Functions (serverless) application that contains an [HTTP t
 1. Add the Azure Function core tools package, required to run the Azure Function app locally:
 
     ```bash
-    npm install azure-functions-core-tools@3 --save-dev
+    npm install --global azure-functions-core-tools@3
     ```
 
 <a name="http-function-javascript-template-code"></a>
@@ -113,21 +113,21 @@ Run the Azure Functions project locally to test it before deploying to Azure.
 
     You could also use the **Debug** > **Start Debugging** menu command.
 
-1. Output from the Functions Core tools appears in the VS Code **Terminal** panel. 
+1. Output from the Functions Core tools appears in the **Terminal** panel. 
 
     :::image type="content" source="../media/functions-extension/local-test-output.png" alt-text="Partial screenshot of VSCode output terminal panel when debugging locally" lightbox="../media/functions-extension/local-test-output.png":::
 
-1. To copy the URL of the local function, use the Azure Function extension, right-click the function name, **category**.
+1. To copy the URL of the local function, use the Azure explorer, right-click the function name, **category**, then select **Copy Function Url**.
 
     :::image type="content" source="../media/functions-extension/visual-studio-code-function-extension-get-function-url.png" alt-text="Partial screenshot of Visual Studio Code, with the Azure Function's button named Copy Function URL highlighted." lightbox="../media/functions-extension/visual-studio-code-function-extension-get-function-url.png":::
 
-1. In your browser, enter the URL displayed in the terminal, then add `?name=YOUR-NAME` to the end of URL, replacing `YOUR-NAME` with your name:
+1. In your browser, paste the URL, then add `?name=YOUR-NAME` to the end of URL, replacing `YOUR-NAME` with your name:
 
     :::image type="content" source="../media/functions-extension/local-test-browser.png" alt-text="Screenshot of web browser displaying results of HTTP trigger function parsing URL parameters.":::
 
     Because the function is running locally, your local API doesn't need the function key to work successfully.
 
-1. To see the entire HTTP response, use the following cURL command in a new integrated bash terminal:
+1. To see the entire HTTP response, use the following cURL command in the terminal:
 
     ```bash
     curl http://localhost:7071/api/category?name=john --verbose
@@ -184,7 +184,7 @@ With your function running locally, set breakpoints on different parts of the co
     |--|--|--|
     |Select Function App in Azure|Create new Function app in Azure (Advanced)|Create a cloud-based resource for your function.|
     |Enter a globally unique name for the new Function App|The name becomes part of the API's URL.|API is invoked with an HTTP request. Valid characters for a function app name are 'a-z', '0-9', and '-'. An example is `cosmosdb-mongodb-function-app`.|
-    |Select a runtime stack|Select a Node.js stack with the `LTS` descriptor.||
+    |Select a runtime stack|Select a Node.js stack with the `LTS` descriptor.|Select Node.js 14 LTS|
     |Select an OS.|Windows||
     |Select a resource group for new resources.|`cosmosdb-mongodb-function-resource-group`|Select the [resource group](tutorial-vscode-serverless-node-install.md#create-a-resource-group) you created in the first article of this series.|
     |Select a location for new resources.|Select the recommended region.||
@@ -210,15 +210,16 @@ With your function running locally, set breakpoints on different parts of the co
 
     When deploying, the entire Functions application is deployed, any changes to individual APIs are deployed at once.
 
-1. In the notifications, select **Stream logs** and keep the view open while you make a request to the API in the next section.
+1. When the resource is created, a notification pops up, usually in the lower left corner of Visual Studio Code.
+1. In the notification, select **Stream logs** and keep the view open while you make a request to the API in the next section.
 
 ## 7. Run the remote serverless function
 
-1. Once deployment is completed, go to the **Azure Functions** explorer, expand the node for your Azure subscription, expand the node for your Functions app, then expand **Functions (read only)**. Right-click the function name and select **Copy Function Url**:
+1. Once deployment is completed, go to the **Azure** explorer, expand the node for your Azure subscription, expand the node for your Functions app, then expand **Functions (read only)**. Right-click the function name, `category` and select **Copy Function Url**:
 
     ![Copy function URL command](../media/functions-extension/copy-function-url-command.png)
 
-1. Paste the URL into a browser. The URL includes the function key, `code` query parameter. 
+1. Paste the URL into a browser. The URL includes the function key, `code`, as a query parameter. 
 
 1. Append a querystring name/value pair,`&name=YOUR-NAME`, to the URL. The browser shows the successful function running in the cloud.
 
@@ -246,7 +247,7 @@ Cosmos DB provides a MongoDB API to provide a familiar integration point.
     |Select a resource group for new resources.|`cosmosdb-mongodb-function-resource-group`|Select the [resource group](tutorial-vscode-serverless-node-install.md#create-a-resource-group) you created in the first article of this series.|
     |Select a location for new resources.|Select the recommended region.||
 
-1. In a Visual Studio Code integrated bash terminal, install the npm package:
+1. In a Visual Studio Code terminal, install the npm package:
 
     ```bash
     npm install mongoose
@@ -353,13 +354,13 @@ Cosmos DB provides a MongoDB API to provide a familiar integration point.
 ### View all data with Visual Studio Code extension
 
 1. In Visual Studio Code, select the **Azure Explorer**, then under **Databases**, right-click your Cosmos DB resource, then the **Test** database, then the **Bookstore** collection.
-1. Select one of the items listed. 
+1. Select one of the items listed to view the data in the Cosmos DB. 
 
     :::image type="content" source="../media/functions-extension/visual-studio-code-databases-extension-showing-mongodb-doc.png" alt-text="Partial screenshot of Visual Studio Code, showing the Azure explorer with the Databases with a selected item displayed in the reading pane.":::
 
 ### Get one item from the database with API
 
-1. Use the following curl command to get all items from the database. Replace `DOCUMENT_ID` with one of the IDs from a previous step's response:
+1. Use the following curl command to get one item from the database. Replace `DOCUMENT_ID` with one of the IDs from a previous step's response:
 
     :::code language="bash" source="~/../js-e2e-azure-function-mongodb/curl.sh" range="14-16" :::
  
@@ -377,9 +378,11 @@ Cosmos DB provides a MongoDB API to provide a familiar integration point.
     }
     ```
 
+1. Return to the Database section of the Azure Explorer in Visual Studio Code, right-click on your Cosmos DB and select **Refresh** to verify that the item was removed from your cloud resource. 
+
 ### Delete one item from the database with API
 
-1. Use the following curl command to get all items from the database. Replace `DOCUMENT_ID` with one of the IDs from a previous step's response:
+1. Use the following curl command to delete one item from the database. Replace `DOCUMENT_ID` with one of the IDs from a previous step's response:
 
     :::code language="bash" source="~/../js-e2e-azure-function-mongodb/curl.sh" range="18-20" :::
  
@@ -403,26 +406,25 @@ Cosmos DB provides a MongoDB API to provide a familiar integration point.
 
     :::image type="content" source="../media/functions-extension/visual-studio-code-function-redeploy-to-azure.png" alt-text="Partial screenshot of Visual Studio Code, showing the Azure explorer with the Functions deploy icon highlighted.":::
 
-1. In the pop-up window, select the same function app, `cosmosdb-mongodb-function-app`. 
-1. In the next pop-up window, select **Deploy**.
+1. In the pop-up window, select the same function app, `cosmosdb-mongodb-function-app` to begin the deployment. 
 1. Wait until deployment completes before continuing.
 
 ## 12. Add database connection string to remote function 
 
-1. In Visual Studio Code, select the **Azure Explorer**, then under **Databases**, right-click your database and select **Copy Connection String**.
-1. Still in the Azure Explorer, under **Functions**, select and expand your function.
+1. In Visual Studio Code, in the Azure Explorer, under **Functions**, select and expand your Function app.
 1. Right-click on **Application Settings** and select **Add New Setting**.
 
     :::image type="content" source="../media/functions-extension/visual-studio-code-function-application-setting-add-new.png" alt-text="Partial screenshot of Visual Studio Code, showing the Azure explorer with the Functions Application Settings, with the Add new setting menu item highlighted.":::
 
-1. Enter the app setting name, `CosmosDbConnectionString` and press enter. 
-1. Paste the value.
+1. Enter the app setting name, `CosmosDbConnectionString` and press enter. Leave the next pop window up. 
+1. To get the connection string, select the **Azure Explorer**, then under **Databases**, right-click your database and select **Copy Connection String**.
+1. Paste the value into the still-open pop-up window.
 
 ## 13. Use cloud-based Azure Function 
 
 1. Still in the Azure Explorer, in the **Functions** area, select and expand your function then the **Functions** node, which lists the API, **category**.
 1. Right-click on the **category** item and select **Copy Function Url**.
-1. Use the URL and Code querystring name/value pair to replace `YOUR-FUNCTION-RESOURCE-NAME` and `YOUR-FUNCTION-KEY` in the following cURL commands. Run each command in a bash terminal in order.
+1. Use the following cURL commands, and replace **YOUR-FUNCTION-URL**. Run each command in a terminal in order.
 
     :::code language="bash" source="~/../js-e2e-azure-function-mongodb/curl.sh" range="24-26" :::
 
@@ -430,25 +432,27 @@ Cosmos DB provides a MongoDB API to provide a familiar integration point.
 
     :::code language="bash" source="~/../js-e2e-azure-function-mongodb/curl.sh" range="32-33" :::
 
+1.  Use the following cURL commands, and replace **YOUR-FUNCTION-URL** and **DOCUMENT_ID** with an ID from the previous command. Run each command in a terminal in order.
+
     :::code language="bash" source="~/../js-e2e-azure-function-mongodb/curl.sh" range="35-37" :::
 
     :::code language="bash" source="~/../js-e2e-azure-function-mongodb/curl.sh" range="39-41" :::
 
 ## 14. Query your Azure Function logs
 
-Streaming logs is good for in-the-moment scanning. To search the logs, use the Azure portal. 
+To search the logs, use the Azure portal. 
 
 1. In Visual Studio Code, select the **Azure Explorer**, then under **Functions**, right-click on your function app, then select **Open in Portal**.
 
     This opens the Azure portal to your Azure Function.
 
-1. Select **Application Insights** from the Settings, then select **View Application Insights data**.
+1. From **Settings**, select **Application Insights**, then select **View Application Insights data**.
 
     :::image type="content" source="../media/functions-extension/azure-portal-function-application-insights-link.png" alt-text="Browser screenshot showing menu choices. Select **Application Insights** from the Settings, then select **View Application Insights data**." lightbox="../media/functions-extension/azure-portal-function-application-insights-link.png":::
 
     This link takes you to your separate metrics resource created for you when you created your Azure Function with Visual Studio Code.
 
-1. Select **Logs** in the Monitoring section. If a **Queries** pop-up window appears, select the **X** in the top-right corner of the pop-up to close it. 
+1. From the **Monitoring** section, select **Logs**. If a **Queries** pop-up window appears, select the **X** in the top-right corner of the pop-up to close it. 
 1. In the **New Query 1** pane, on the **Tables** tab, double-click the **traces** table. 
 
     This enters the [Kusto query](/azure/data-explorer/kusto/query/), `traces` into the query window. 
@@ -461,22 +465,22 @@ Streaming logs is good for in-the-moment scanning. To search the logs, use the A
 
 1. Select **Run**.
 
-    If the log doesn't display any results, it may be because there is a few minutes delay between the HTTP request to the Azure Function and the log availability in Kusto. Wait a few minutes and run the query again.
+    If the log doesn't display any results, it may be because there is a few minute delay between the HTTP request to the Azure Function and the log availability in Kusto. Wait a few minutes and run the query again.
 
     :::image type="content" source="../media/functions-extension/azure-portal-application-insights-function-log-trace.png" alt-text="Browser screenshot showing Azure portal Kusto query result for Trace table." lightbox="../media/functions-extension/azure-portal-application-insights-function-log-trace.png":::
 
     You didn't need to do anything extra to get this logging information:
 
-    * The code used the standard `console.log` function.
+    * The code used the `context.log` function provided by the Function framework. By using `context`, instead of `console`, your logging can be filtered to the specific individual function. This is useful if your Function app has many functions. 
     * The Function app added Application Insights _for you_.
-    * The Query tool is included in the Azure portal.
+    * The Kusto Query tool is included in the Azure portal.
     * You can click on `traces` instead of having to learn to write a [Kusto query](/azure/data-explorer/kusto/concepts/) to get even the minimum information from your logs.
 
 ## 15. Clean up resources 
 
-The Functions App you created includes resources that can incur minimal costs (refer to [Functions Pricing](https://azure.microsoft.com/pricing/details/functions/)).  
+The Functions App you created includes resources that can incur minimal costs (refer to [Functions Pricing](https://azure.microsoft.com/pricing/details/functions/)). Remove the resource group to remove all the resources in a single action.  
 
-1. Find the resource group name, `cosmosdb-mongodb-function-resource-group`, in the list.
+1. In Visual Studio Code, from the Azure explorer, find the resource group in the **Resource Groups** section, `cosmosdb-mongodb-function-resource-group`.
 1. Right-click the resource group name and select **Delete**.
 
     :::image type="content" source="../media/functions-extension/visual-studio-code-remove-resource-group.png" alt-text="Use the Visual Studio Code extension, Azure Resource Groups, to delete the resource group and all resources within the group.":::
