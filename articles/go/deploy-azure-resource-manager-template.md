@@ -71,7 +71,7 @@ import (
 )
 
 const (
-	resourceGroupName     = "GoVMQuickstart"
+	resourceGroupName     = "deployARM-how-to"
 	resourceGroupLocation = "eastus"
 	deploymentName        = "deployARM-how-to"
 	templateFile          = "template.json"
@@ -214,7 +214,7 @@ Update the templateFile const:
 
 ```go
 const (
-	resourceGroupName     = "GoHowTo"
+	resourceGroupName     = "deployARM-how-to"
 	resourceGroupLocation = "eastus"
 	deploymentName        = "deployARM-how-to"
 	templateFile          = "empty-template.json"
@@ -248,7 +248,7 @@ go run main.go
 Optionally, you can delete the resource group and all its resources along with it.
 
 ```azurecli
-az group delete --resource-group GoHowTo
+az group delete --resource-group deployARM-how-to
 ```
 
 ## Next steps
