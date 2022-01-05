@@ -1,10 +1,8 @@
 ---
-title: include file
-description: include file
-ms.topic: how-to
-ms.date: 08/07/2021
-ms.custom: devx-track-terraform
 ms.author: tarcher
+ms.topic: include
+ms.date: 01/04/2022
+ms.custom: devx-track-terraform
 ---
 
 ### Terraform and Azure authentication scenarios
@@ -89,7 +87,7 @@ The most common pattern is to interactively log in to Azure, create a service pr
 1. To create a service principal, run [az ad sp create-for-rbac](/cli/azure/ad/sp?#az_ad_sp_create_for_rbac).
 
     ```azurecli
-    az ad sp create-for-rbac --name <service_principal_name>
+    az ad sp create-for-rbac --name <service_principal_name> --role Contributor
     ```
 
     **Key points:**
@@ -97,7 +95,7 @@ The most common pattern is to interactively log in to Azure, create a service pr
     - You can replace the `<service-principal-name>` with a custom name for your environment or omit the parameter entirely. If you omit the parameter, the service principal name is generated based on the current date and time.
     - Upon successful completion, `az ad sp create-for-rbac` displays several values. The `appId`, `password`, and `tenant` values are used in the next step.
     - The password can't be retrieved if lost. As such, you should store your password in a safe place. If you forget your password, you can [reset the service principal credentials](/cli/azure/create-an-azure-service-principal-azure-cli#reset-credentials).
-    - The **Contributor** role is the default role and has full permissions to read and write to an Azure account. For this article, a service principal with a **Contributor** role is being used. For more information about Role-Based Access Control (RBAC) and roles, see [RBAC: Built-in roles](/azure/active-directory/role-based-access-built-in-roles).
+    - For this article, a service principal with a **Contributor** role is being used. For more information about Role-Based Access Control (RBAC) and roles, see [RBAC: Built-in roles](/azure/active-directory/role-based-access-built-in-roles).
     - The output from creating the service principal includes sensitive credentials. Be sure that you don't include these credentials in your code or check the credentials into your source control.
     - For more information about options when creating creating a service principal with the Azure CLI, see the article [Create an Azure service principal with the Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli?).
 

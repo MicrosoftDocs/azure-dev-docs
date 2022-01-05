@@ -1,9 +1,8 @@
 ---
- author: Duffney
- ms.service: ansible
- ms.topic: include
- ms.date: 03/24/2021
- ms.author: jduffney
+ms.author: tarcher
+ms.topic: include
+ms.date: 01/04/2022
+ms.custom: devx-track-ansible
 ---
 
 ## Create an Azure Service Principal
@@ -13,7 +12,7 @@ Run the following commands to create an Azure Service Principal:
 # [Azure CLI](#tab/azure-cli)
 
 ```azurecli
-az ad sp create-for-rbac --name <service-principal-name>
+az ad sp create-for-rbac --name <service-principal-name> --role Contributor
 ```
 
 Replace `<service-principal-name>` with your service principal name.

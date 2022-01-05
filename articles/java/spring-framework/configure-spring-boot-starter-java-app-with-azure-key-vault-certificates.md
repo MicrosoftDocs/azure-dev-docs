@@ -244,11 +244,8 @@ To enable the app to load the certificate, use the following steps:
    <dependency>
       <groupId>com.azure.spring</groupId>
       <artifactId>azure-spring-boot-starter-keyvault-certificates</artifactId>
-      <version>3.10.0</version>
    </dependency>
    ```
-
-1. Re
 
 1. Edit the *src/main/resources/application.yml* file so that it has the following contents.
 
@@ -342,7 +339,7 @@ To create the REST controller, use the following steps:
 
 ### Run the app on the server
 
-Now that you've built the Spring Boot app and uploaded it to the VM, use the following steps run it on the VM and call the REST endpoint with curl.
+Now that you've built the Spring Boot app and uploaded it to the VM, use the following steps to run it on the VM and call the REST endpoint with curl.
 
 1. Use SSH to connect to the VM, then run the executable jar.
 
@@ -370,6 +367,8 @@ Now that you've seen the *load* and *present* actions with a self-signed TLS/SSL
 In this section, you'll modify the code in the previous section so that the TLS/SSL certificate for outbound connections comes from Azure Key Vault. Therefore, the *load*, *present*, and *accept* actions are satisfied from the Azure Key Vault.
 
 ### Modify the SsltestApplication to illustrate outbound TLS connections
+
+Use the following steps to modify the application:
 
 1. Add the dependency on Apache HTTP Client by adding the following code to the `<dependencies>` section of the *pom.xml* file.
 

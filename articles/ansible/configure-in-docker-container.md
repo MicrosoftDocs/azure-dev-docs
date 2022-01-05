@@ -4,7 +4,7 @@ description: Learn how to install and configure Ansible running in a Docker cont
 keywords: ansible, azure, devops, bash, playbook, azure cli, azure powershell, powershell
 ms.topic: quickstart
 ms.date: 09/23/2021
-ms.custom: devx-track-ansible
+ms.custom: devx-track-ansible, mode-portal
 ---
 
 # Get Started: Configure Ansible in a Docker container
