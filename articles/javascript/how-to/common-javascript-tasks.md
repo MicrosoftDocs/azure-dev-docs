@@ -62,12 +62,12 @@ Provide authentication.
 
 |Task|using|
 |--|--|
-|Create Functions app locally|[Visual Studio Code extension](../tutorial/vscode-function-app-http-trigger/tutorial-vscode-serverless-node-create-local.md)|
-|HTTP trigger code|[JavaScript](../tutorial/vscode-function-app-http-trigger/tutorial-vscode-serverless-node-create-local.md#http-function-javascript-template-code)|
-|Debug/test function locally|[Visual Studio Code](../tutorial/vscode-function-app-http-trigger/tutorial-vscode-serverless-node-test-local.md)|
-|Deploy function to Azure cloud|[Visual Studio Code extension](../tutorial/vscode-function-app-http-trigger/tutorial-vscode-serverless-node-deploy-hosting.md)|
-|Verify secure function API is available |[Visual Studio Code extension/Browser](../tutorial/vscode-function-app-http-trigger/tutorial-vscode-serverless-node-deploy-hosting.md#verify-functions-app-is-available-with-browser)|
-|Remove function app resource|[Visual Studio Code extension](../tutorial/vscode-function-app-http-trigger/tutorial-vscode-serverless-node-remove-resource.md)|
+|Create Functions app locally|[Visual Studio Code extension](../tutorial/azure-function-cosmosdb-mongo-api.md)|
+|HTTP trigger code|[JavaScript](../tutorial/azure-function-cosmosdb-mongo-api.md)|
+|Debug/test function locally|[Visual Studio Code](../tutorial/azure-function-cosmosdb-mongo-api.md)|
+|Deploy function to Azure cloud|[Visual Studio Code extension](../tutorial/azure-function-cosmosdb-mongo-api.md)|
+|Verify secure function API is available |[Visual Studio Code extension/Browser](../tutorial/azure-function-cosmosdb-mongo-api.md)|
+|Remove function app resource|[Visual Studio Code extension](../tutorial/azure-function-cosmosdb-mongo-api.md)|
 
 ### App service - full-stack, server-only, or client-only apps
 
@@ -203,7 +203,7 @@ Provide authentication.
 |Task|using|
 |--|--|
 |Static Web App (SWA)|[VS Code](/azure/search/tutorial-javascript-deploy-static-web-app)<br>[From Framework (Next.js)](/azure/static-web-apps/deploy-nextjs#deploy-your-static-website)<br>[Azure Pipelines](/azure/static-web-apps/publish-devops#create-the-pipeline-task-in-azure-devops)|
-|Functions|[VS Code](../tutorial/vscode-function-app-http-trigger/tutorial-vscode-serverless-node-deploy-hosting.md#use-visual-studio-code-extension-to-deploy-to-hosting-environment)<br>[Azure Pipelines](/azure/azure-functions/functions-how-to-azure-devops?tabs=javascript%2Cwindows)<br>[GitHub Actions](/azure/azure-functions/functions-how-to-github-actions?tabs=javascript#deploy-the-function-app)|
+|Functions|[VS Code](../tutorial/azure-function-cosmosdb-mongo-api.md)<br>[Azure Pipelines](/azure/azure-functions/functions-how-to-azure-devops?tabs=javascript%2Cwindows)<br>[GitHub Actions](/azure/azure-functions/functions-how-to-github-actions?tabs=javascript#deploy-the-function-app)|
 |App service|[Express.js with VS Code](../tutorial/deploy-nodejs-azure-app-service-with-visual-studio-code.md?tabs=bash#5-create-app-service-resource-in-visual-studio-code)<br>[Git Push](../tutorial/tutorial-vscode-azure-cli-node/tutorial-vscode-azure-cli-node-04.md#make-change-and-deploy-to-azure-app-service-from-local-git)<br>[GitHub Actions](/azure/app-service/deploy-github-actions?tabs=applevel)<br>[Azure DevOps](/azure/app-service/deploy-continuous-deployment?tabs=repos)|
 
 ## Git
@@ -303,7 +303,7 @@ Provide authentication.
 |React app using Cognitive Services|Locally build and deploy a React/TypeScript client application to an Azure Static Web App with a GitHub action.<br>[Tutorial](../tutorial/static-web-app-image-analysis.md) - [Sample code](https://github.com/Azure-Samples/js-e2e-client-cognitive-services)|
 |React app uploading file to Azure Storage Blobs|This sample project is a TypeScript React (create-react-app) framework client app with an HTML form to select a file for upload to Azure Storage Blobs.<br>[Tutorial](../tutorial/browser-file-upload-azure-storage-blob.md) - [Sample code](https://github.com/Azure-Samples/js-e2e-browser-file-upload-storage-blob)|
 |React app with login button|The SPA built in this tutorial is a React app (create-react-app) with the following tasks:<br>* Login using a Microsoft-supported login such as Office 365 or Outlook.com<br>* Log off from the application<br>[Tutorial](../tutorial/single-page-application-azure-login-button-sdk-msal.md) - [Sample code](https://github.com/Azure-Samples/js-e2e-client-azure-login-button)|
-|Azure Function app with MongoDB|The MongoDB database functionality includes:<br>* Add item<br>* Delete item by ID<br>* Get item by ID<br>* Get all items<br><br>[Tutorial](../tutorial/vscode-function-app-http-trigger/tutorial-vscode-serverless-node-install.md?tabs=bash) - [Sample code](https://github.com/Azure-Samples/js-e2e-azure-function-mongodb)|
+|Azure Function app with MongoDB|The MongoDB database functionality includes:<br>* Add item<br>* Delete item by ID<br>* Get item by ID<br>* Get all items<br><br>[Tutorial](../tutorial/azure-function-cosmosdb-mongo-api.mdh) - [Sample code](https://github.com/Azure-Samples/js-e2e-azure-function-mongodb)|
 |Azure Function app upload file to Blob Storage|This article shows you how to create an Azure Function API, which uploads a file to Azure Storage using an _out_ binding to move the file contents from the API to Storage.<br><br>* Locally develop and run with Azurite Storage emulation and Azure Functions Core tools.<br>* Deploy to Azure Functions with a Storage resource<br>* Review logs in Application Insights<br><br>[Tutorial](./with-web-app/azure-function-file-upload.md) - [Sample code](https://github.com/azure-Samples/js-e2e-azure-function-upload-file)|
 |Azure Function app to manage resource groups|In this article series, you'll create an Azure Function app with APIs to manage Azure resource groups.<br><br>Features and functionality of this article series:<br><br>* Create local Azure Function app project in Visual Studio Code<br>* Create function APIs boilerplate code in Visual Studio Code<br>* Deploy to Azure Functions<br>* Create service principal<br>* Configure local and remote application settings<br>* Use DefaultAzureCredential in both local and remote environments<br>* Use Azure SDKs to use Azure Identity and Azure Resource Management APIs<br>* Use your local and cloud APIs to create, delete, and list resource groups in your subscription.<br>[Article series](with-web-app/azure-function-resource-group-management/introduction.md) - [Sample code](https://github.com/Azure-Samples/js-e2e-azure-resource-management-functions)|
 |Express.js app with MongoDB database|The tutorial demonstrates how to load and run the project locally with VSCode, using extensions, was well as how to run the code remotely on an App service. The tutorial includes creating a Cosmos DB resource for the Mongo API, getting the connection information and setting that in the app service configuration setting to connect to a cloud database.<br>[Tutorial](../tutorial/deploy-nodejs-mongodb-app-service-from-visual-studio-code.md) - [Sample code](https://github.com/Azure-Samples/js-e2e-express-mongo)|
