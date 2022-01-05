@@ -27,7 +27,7 @@ You can use Azure login to connect to public or sovereign clouds including Azure
 
 To set up an Azure Login with OpenID Connect and use it in a GitHub Actions workflow, you'll need:
 
-* An [Active Directory application](/azure/active-directory/develop/), with a service principal that has contributor access to your resource
+* An [Active Directory application](/azure/active-directory/develop/), with a service principal that has contributor access to your subscription
 * An Active Directory application configured with a federated credential to trust tokens issued by GitHub Actions to your GitHub repository. You can configure this in the Azure portal or with Microsoft Graph REST APIs
 * A GitHub Actions workflow that requests GitHub issue tokens to the workflow, and uses the `azure/login@v1.4.0` action
 
