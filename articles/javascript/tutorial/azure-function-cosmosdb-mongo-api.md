@@ -9,14 +9,16 @@ adobe-target: true
 
 # Create and deploy a TypeScript Azure Function 
 
-In this tutorial, create a secure API in Visual Studio Code with VS Code extensions and JavaScript, then deploy the application to the Azure cloud for hosting with a public HTTP endpoint. The API integrates with a Cosmos DB database using the MongoDB API. The MongoDB API is accessed from the [mongoose](https://www.npmjs.com/package/mongoose) npm package.
+In this tutorial, create a secure API in Visual Studio Code, then deploy the application to the Azure cloud for hosting with a public HTTP endpoint. The API integrates with a Cosmos DB database using the MongoDB API. The MongoDB API is accessed from the [mongoose](https://www.npmjs.com/package/mongoose) npm package.
 
 The MongoDB database functionality includes:
 
-* Add item
-* Delete item by ID
-* Get item by ID
-* Get all items
+| Action | URL |
+|--|--|
+|Add item|POST `/api/category`|
+|Delete item by ID|DELETE `api/category?id=123`|
+|Get item by ID|GET `api/category?id=123`|
+|Get all items|GET `api/category`|
 
 Full source code for this Azure Function app:
 
@@ -59,7 +61,7 @@ A resource group is a region-based collection of resources. By creating a resour
 
 Create a local Azure Functions (serverless) application that contains an [HTTP trigger](/azure/azure-functions/functions-reference-node#http-triggers-and-bindings) function. 
 
-1. In Visual Studio Code, select the Azure explorer, then select **Create New Project** in the **Azure Functions** section:
+1. In Visual Studio Code, select the Azure explorer, then select **Create New Project** in the **Functions** section:
 
     ![Create a local Function app in VS Code](../media/functions-extension/create-function-app-project.png)
 
@@ -72,11 +74,10 @@ Create a local Azure Functions (serverless) application that contains an [HTTP t
     |Select a template for your project's first function|HTTP Trigger|API is invoked with an HTTP request.|
     |Provide a function name|`category`|API route is `/api/category`|
     |Authorization Level|Function|This locks the remote API to requests that pass the function key with the request. While developing locally, you won't need the function key.|
-    |Select how you would like to open your project|Open in current window.||
 
     This process doesn't create cloud-based Azure Function resource. That [step](#6-create-the-function-app-and-deploy-to-azure) will come later.
 
-1. After a few moments, Visual Studio Code completes creation of the project. You have a folder named for the function, *category*, within which are three files:
+1. When Visual Studio Code completes creation of the project, you have a folder named for the function, *category* with three files:
 
     | Filename | Description |
     | --- | --- |
@@ -90,7 +91,7 @@ Create a local Azure Functions (serverless) application that contains an [HTTP t
     npm install
     ```
 
-1. Add the Azure Function core tools package, required to run the Azure function locally:
+1. Add the Azure Function core tools package, required to run the Azure Function app locally:
 
     ```bash
     npm install azure-functions-core-tools@3 --save-dev
@@ -98,13 +99,15 @@ Create a local Azure Functions (serverless) application that contains an [HTTP t
 
 <a name="http-function-javascript-template-code"></a>
 
-1. Create a new `context.log` message to print the name to the function's log.
+1. In the `./category/index.ts` file, add a new `context.log` message to print the name to the function's log, highlighted in the following code:
     
     :::code language="typescript" source="~/../js-e2e-azure-function-mongodb/edited-function-code.ts" highlight="6":::
 
 ## 4. Run the local serverless function
 
-Run the Azure Functions project locally to test it before deploying to Azure. Set a break point just before the serverless function returns the response. 
+Run the Azure Functions project locally to test it before deploying to Azure. 
+
+1. In Visual Studio Code, `./category/index.ts` file, set a break point on the final `context.res` block, at the end of the function. 
 
 1. In Visual Studio Code, press <kbd>F5</kbd>  to launch the debugger and attach to the Azure Functions host. 
 
