@@ -18,7 +18,7 @@ The MongoDB database functionality includes:
 * Get item by ID
 * Get all items
 
-Full source code for this function app:
+Full source code for this Azure Function app:
 
 * [Sample code](https://github.com/Azure-Samples/js-e2e-azure-function-mongodb)
 
@@ -74,7 +74,7 @@ Create a local Azure Functions (serverless) application that contains an [HTTP t
     |Authorization Level|Function|This locks the remote API to requests that pass the function key with the request. While developing locally, you won't need the function key.|
     |Select how you would like to open your project|Open in current window.||
 
-    This process doesn't create cloud-based Azure Function resource. That [step](tutorial-vscode-serverless-node-deploy-hosting.md) will come later.
+    This process doesn't create cloud-based Azure Function resource. That [step](6-create-the-function-app-and-deploy-to-azure) will come later.
 
 1. After a few moments, Visual Studio Code completes creation of the project. You have a folder named for the function, *category*, within which are three files:
 
@@ -93,18 +93,12 @@ Create a local Azure Functions (serverless) application that contains an [HTTP t
 1. Add the Azure Function core tools package, required to run the Azure function locally:
 
     ```bash
-    npm install azure-functions-core-tools@4 --save-dev
+    npm install azure-functions-core-tools@3 --save-dev
     ```
 
 <a name="http-function-javascript-template-code"></a>
 
-1. Create a new context.log message after the name variable and change it to appear more obvious when scanning the logs.
-
-    ```typescript
-    context.log(`*** HTTPExample name: ${name}`);
-    ```
-    
-    The new function code is:
+1. Create a new `context.log` message to print the name to the function's log.
     
     :::code language="typescript" source="~/../js-e2e-azure-function-mongodb/edited-function-code.ts" highlight="6":::
 
@@ -162,24 +156,24 @@ Run the Azure Functions project locally to test it before deploying to Azure. Se
 
 With your function running locally, set breakpoints on different parts of the code. 
 
-1. Open *index.js*, then click in the margin to the left of last `context.res`, in the editor window. 
+1. Open *index.ts*, then click in the margin to the left of last `context.res`, in the editor window. 
 1. A small red dot appears to indicate a breakpoint. 
 1. Change the `?name=` value for the URL in the integrated bash terminal and resubmit the request to the function. 
 1. When the browser makes that request, VS Code stops the function code on that breakpoint:
 
-    :::image type="content" source="../media/functions-extension/visual-studio-code-function-break-point-request-variables.png" alt-text="Screenshot of Visual Studio Code with breakpoint activated and Closure variables displaying request values." lightbox="../media/functions-extension/visual-studio-code-function-break-point-request-variables.png":::
+    :::image type="content" source="../media/functions-extension/visual-studio-code-function-break-point-request-variables.png" alt-text="Screenshot of Visual Studio Code with breakpoint activated and Closure (httpTrigger) variables displaying request values." lightbox="../media/functions-extension/visual-studio-code-function-break-point-request-variables.png":::
 
-    Expand the **Variables** element named **Closure** to see the request properties. You can view all the properties passed into the function.
+    Expand the **Variables** element named **Closure (httpTrigger)** to see the request properties. You can view all the properties passed into the function.
 
-1. Stop the debugger in Visual Studio Code, <kbd>Shift</kdb> + <kbd>F5</kbd>. 
+1. Stop the debugger in Visual Studio Code, <kbd>Shift</kbd> + <kbd>F5</kbd>. 
 
-## 6. Create the Functions app and deploy to Azure
+## 6. Create the Function app and deploy to Azure
 
 1. In Visual Studio Code, select the Azure explorer, then under **Functions**, select the **Deploy to Function app** icon to deploy your app:
 
     ![Deploy to Azure Functions command](../media/functions-extension/deploy-app.png)
 
-    Alternately, you can deploy by opening the **Command Palette** (**F1**), entering 'deploy to function app', and running the **Azure Functions: Deploy to Function App** command.
+    Alternately, you can deploy by opening the **Command Palette** (**F1**), entering 'deploy to function app' to filter the commands, then select the **Azure Functions: Deploy to Function App** command.
 
 1. Use the following table to complete the prompts to create a new Azure Function resource. 
 
@@ -192,9 +186,8 @@ With your function running locally, set breakpoints on different parts of the co
     |Select a resource group for new resources.|`cosmosdb-mongodb-function-resource-group`|Select the [resource group](tutorial-vscode-serverless-node-install.md#create-a-resource-group) you created in the first article of this series.|
     |Select a location for new resources.|Select the recommended region.||
     |Select a hosting plan.|Consumption||
-    |Select a storage account.|+ Create new storage account||
-    |Enter the name of the new storage account.|`cosmosdbmongodbstorage`||
-    |Enter an Application Insights resource for your app.|`cosmosdb-mongodb-function-app-insights`||
+    |Select a storage account.|+ Create new storage account named `cosmosdbmongodbstorage`.||
+    |Select an Application Insights resource for your app.|Create a new Application Insights resource named `cosmosdb-mongodb-function-app-insights`.|
 
 1. The Visual Studio Code **Output** panel for **Azure Functions** shows progress:
 
@@ -238,7 +231,7 @@ With your function running locally, set breakpoints on different parts of the co
 
 Cosmos DB provides a MongoDB API to provide a familiar integration point. 
 
-1. In Visual Studio Code, select the Azure logo to open the **Azure Explorer**, then under **Databases**, select **+** to begin the creation process.
+1. In Visual Studio Code, select the **Azure Explorer**, then under **Databases**, select **+** to begin the creation process.
 
     Use the following table to complete the prompts to create a new Azure Cosmos DB resource. 
 
@@ -256,8 +249,7 @@ Cosmos DB provides a MongoDB API to provide a familiar integration point.
     npm install mongoose
     ```
 
-1. In Visual Studio Code, create a subdirectory of the project named `lib`.
-1. Create a file in the directory named `./lib/azure-cosmosdb-mongodb.ts` and copy the following code into it.
+1. In Visual Studio Code, create a subdirectory named `lib`, create a file named `./azure-cosmosdb-mongodb.ts` and copy the following code into it.
 
     :::code language="typescript" source="~/../js-e2e-azure-function-mongodb/lib/azure-cosmosdb-mongodb.ts" :::
 
@@ -357,7 +349,7 @@ Cosmos DB provides a MongoDB API to provide a familiar integration point.
 
 ### View all data with Visual Studio Code extension
 
-1. In Visual Studio Code, select the Azure logo to open the **Azure Explorer**, then under **Databases**, right-click your Cosmos DB resource, then the **Test** database, then the **Bookstore** collection.
+1. In Visual Studio Code, select the **Azure Explorer**, then under **Databases**, right-click your Cosmos DB resource, then the **Test** database, then the **Bookstore** collection.
 1. Select one of the items listed. 
 
     :::image type="content" source="../media/functions-extension/visual-studio-code-databases-extension-showing-mongodb-doc.png" alt-text="Partial screenshot of Visual Studio Code, showing the Azure explorer with the Databases with a selected item displayed in the reading pane.":::
@@ -404,7 +396,7 @@ Cosmos DB provides a MongoDB API to provide a familiar integration point.
 
 ## 11. Redeploy the function app to include database code
 
-1. In Visual Studio Code, select the Azure logo to open the **Azure Explorer**, then under **Functions**, select the deploy icon to begin the deployment process.
+1. In Visual Studio Code, select the **Azure Explorer**, then under **Functions**, select the deploy icon to begin the deployment process.
 
     :::image type="content" source="../media/functions-extension/visual-studio-code-function-redeploy-to-azure.png" alt-text="Partial screenshot of Visual Studio Code, showing the Azure explorer with the Functions deploy icon highlighted.":::
 
@@ -414,7 +406,7 @@ Cosmos DB provides a MongoDB API to provide a familiar integration point.
 
 ## 12. Add database connection string to remote function 
 
-1. In Visual Studio Code, select the Azure logo to open the **Azure Explorer**, then under **Databases**, right-click your database and select **Copy Connection String**.
+1. In Visual Studio Code, select the **Azure Explorer**, then under **Databases**, right-click your database and select **Copy Connection String**.
 1. Still in the Azure Explorer, under **Functions**, select and expand your function.
 1. Right-click on **Application Settings** and select **Add New Setting**.
 
@@ -435,7 +427,7 @@ Cosmos DB provides a MongoDB API to provide a familiar integration point.
 
 Streaming logs is good for in-the-moment scanning. To search the logs, use the Azure portal. 
 
-1. In Visual Studio Code, select the Azure logo to open the **Azure Explorer**, then under **Functions**, right-click on your function app, then select **Open in Portal**.
+1. In Visual Studio Code, select the **Azure Explorer**, then under **Functions**, right-click on your function app, then select **Open in Portal**.
 
     This opens the Azure portal to your Azure Function.
 
