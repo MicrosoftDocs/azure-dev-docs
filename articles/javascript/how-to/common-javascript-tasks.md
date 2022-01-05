@@ -26,7 +26,6 @@ Provide authentication.
 |MSAL Express.js using `@azure/msal-node`|[Express.js](./with-web-app/deploy-msal-sdk-authentication-expressjs.md#run-your-app-locally-to-verify-msal-authentication)|
 |Revoke AAD permission|[https://myapplications.microsoft.com/](https://myapplications.microsoft.com/)|
 |Revoke Consumer permission|[https://account.live.com/consent/manage](https://account.live.com/consent/manage)
-|Login|[Azure CLI](../tutorial/deploy-deno-app-azure-app-service-azure-cli.md#2-sign-in-to-azure-cli)<br>[Visual Studio Code extension](../tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-01.md#sign-in-to-azure)|
 
 ## Azure Resource Groups
 
@@ -44,7 +43,6 @@ Provide authentication.
 
 |Task|using|
 |--|--|
-|Create Deno app|[Bash](../tutorial/deploy-deno-app-azure-app-service-azure-cli.md#3-create-local-deno-api-app)|
 |Create React app targeting JavaScript language|[Bash](/azure/static-web-apps/getting-started?tabs=react#create-a-static-web-app)|
 |Create React app targeting TypeScript language|[Bash](../tutorial/single-page-application-azure-login-button-sdk-msal.md#4-create-react-single-page-application-for-typescript)|
 |Create Vue app|[Bash](/azure/static-web-apps/getting-started?tabs=vue#create-a-static-web-app)|
