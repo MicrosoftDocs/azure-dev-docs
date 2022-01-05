@@ -74,7 +74,7 @@ Create a local Azure Functions (serverless) application that contains an [HTTP t
     |Authorization Level|Function|This locks the remote API to requests that pass the function key with the request. While developing locally, you won't need the function key.|
     |Select how you would like to open your project|Open in current window.||
 
-    This process doesn't create cloud-based Azure Function resource. That [step](6-create-the-function-app-and-deploy-to-azure) will come later.
+    This process doesn't create cloud-based Azure Function resource. That [step](#6-create-the-function-app-and-deploy-to-azure) will come later.
 
 1. After a few moments, Visual Studio Code completes creation of the project. You have a folder named for the function, *category*, within which are three files:
 
@@ -421,7 +421,15 @@ Cosmos DB provides a MongoDB API to provide a familiar integration point.
 1. Right-click on the **category** item and select **Copy Function Url**.
 1. Use the URL and Code querystring name/value pair to replace `YOUR-FUNCTION-RESOURCE-NAME` and `YOUR-FUNCTION-KEY` in the following cURL commands. Run each command in a bash terminal in order.
 
-    :::code language="bash" source="~/../js-e2e-azure-function-mongodb/curl.sh" range="24-41" :::
+    :::code language="bash" source="~/../js-e2e-azure-function-mongodb/curl.sh" range="24-26" :::
+
+    :::code language="bash" source="~/../js-e2e-azure-function-mongodb/curl.sh" range="28-30" :::
+
+    :::code language="bash" source="~/../js-e2e-azure-function-mongodb/curl.sh" range="32-33" :::
+
+    :::code language="bash" source="~/../js-e2e-azure-function-mongodb/curl.sh" range="35-37" :::
+
+    :::code language="bash" source="~/../js-e2e-azure-function-mongodb/curl.sh" range="39-41" :::
 
 ## 14. Query your Azure Function logs
 
@@ -468,7 +476,7 @@ The Functions App you created includes resources that can incur minimal costs (r
 1. Find the resource group name, `cosmosdb-mongodb-function-resource-group`, in the list.
 1. Right-click the resource group name and select **Delete**.
 
-    :::image type="content" source="../media/functions-extension/visual-studio-code-remove-resource-group" alt-text="Use the Visual Studio Code extension, Azure Resource Groups, to delete the resource group and all resources within the group.":::
+    :::image type="content" source="../media/functions-extension/visual-studio-code-remove-resource-group.png" alt-text="Use the Visual Studio Code extension, Azure Resource Groups, to delete the resource group and all resources within the group.":::
 
 ## Next steps
 
