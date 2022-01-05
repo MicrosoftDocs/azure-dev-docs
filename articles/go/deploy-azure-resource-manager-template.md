@@ -30,7 +30,7 @@ mkdir deployARM-how-to
 cd deployARM-how-to
 ```
 
-The Azure SDK for Go contains several packages for working with Azure, for this tutorial you'll need the `azcore/to`, `azidentity, and `arm resources` packages:
+The Azure SDK for Go contains several packages for working with Azure, for this tutorial you'll need the `azcore/to`, `azidentity, and `armresources` packages:
 
 Run the `go get` command to download these packages:
 
@@ -49,7 +49,7 @@ go mod init deployARM-how-to
 Next create a file named `main.go`
 
 ```azurecli
-nano main.go
+touch main.go
 ```
 
 Open your `main.go` in your editor and add the following code:
