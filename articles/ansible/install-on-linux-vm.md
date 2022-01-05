@@ -148,11 +148,8 @@ sudo pip3 install --upgrade pip
 # Install Ansible az collection for interacting with Azure.
 ansible-galaxy collection install azure.azcollection
 
-# Get required modules for Ansible on Azure list
-wget https://raw.githubusercontent.com/ansible-collections/azure/dev/requirements-azure.txt
-
 # Install Ansible modules for Azure
-sudo pip3 install -r requirements-azure.txt
+sudo pip3 install -r ~/.ansible/collections/ansible_collections/azure/azcollection/requirements-azure.txt
 ```
 
 **Key points**:

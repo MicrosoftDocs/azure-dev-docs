@@ -21,4 +21,4 @@ Clone a GitHub repository with an example Express.js application, install the np
 
 ## Next step
 
-* [Create the app](tutorial-vscode-azure-cli-node-03.md)
+* [Create the app service](tutorial-vscode-azure-cli-node-03.md)
