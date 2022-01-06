@@ -246,13 +246,11 @@ After the migration completes, your Azure SQL database will have the correct sch
 Note: If you receive an error stating `Client with IP address xxx.xxx.xxx.xxx is not allowed to access the server`, that means the IP address you entered into your Azure firewall rule is incorrect. To fix this issue, update the Azure firewall rule with the IP address provided in the error message.
 
 
-
-
 ## 7 - Browse the Deployed Application and File Directory
 
 Navigate back to your web app in the browser. You can always get back to your site by clicking the **Browse** link at the top of the App Service overview page. If you refresh the page, you can now Create Todos and see them displayed on the home page. Congratulations!
 
-:::image type="content" source="../../media/app-success.png" alt-text="A screenshot showing the app successfully deployed to Azure." :::
+:::image type="content" source="./media/app-success.png" alt-text="A screenshot showing the app successfully deployed to Azure." :::
 
 Next, let's take a closer look at the deployed files of our app using a tool called Kudu.
 
@@ -264,9 +262,9 @@ To access Kudu, navigate to one of the following URLs. You'll need to sign into 
 - For apps deployed in Isolated service plans - `https://<app-name>.scm.<ase-name>.p.azurewebsites.net`
 From the main page in Kudu, you can access information about the application-hosting environment, app settings, deployments, and browse the files in the wwwroot directory.
 
-## 8 - Stream diagnostic logs
+:::image type="content" source="./media/kudu-main-page.png" alt-text="A screenshot showing the Kudu admin page." :::
 
-## 6 - Configure and view application logs
+## 8 - Configure and stream application logs
 
 Azure App Service captures all messages logged to the console to assist you in diagnosing issues with your application. The sample app outputs console log messages in each of its endpoints to demonstrate this capability. The contents of the App Service diagnostic logs can be reviewed in the Azure portal, VS Code, or using the Azure CLI.
 
