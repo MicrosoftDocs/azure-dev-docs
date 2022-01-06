@@ -14,7 +14,7 @@ ROBOTS: NOINDEX
 
 # Deploy an ASP.NET Core Web App with a SQL Database to Azure
 
-In this tutorial, you'll learn how to deploy an ASP.NET Core app to Azure App Service and connect to an Azure SQL Database. Azure App Service is a highly scalable, self-patching, web-hosting service that can easily deploy apps on Windows or Linux.
+In this tutorial, you'll learn how to deploy an ASP.NET Core app to Azure App Service and connect to an Azure SQL Database. Azure App Service is a highly scalable, self-patching, web-hosting service that can easily deploy apps on Windows or Linux.  Although this tutorial uses an ASP.NET Core 6.0 app, the process is the same for other versions of ASP.NET Core and ASP.NET Framework.
 
 This article assumes you're familiar with [.NET]("https://dotnet.microsoft.com/download/dotnet/6.0") and have it installed locally. You'll also need an Azure account with an active subscription.  If you don't have an Azure account, you [can create one for free](https://azure.microsoft.com/free).
 
@@ -68,8 +68,7 @@ Next, create an App Service plan using the [az appservice plan create](https://d
 az appservice plan create
     --name msdocs-core-sql-plan-123 
     --resource-group msdocs-core-sql
-    --sku B1
-    --is-linux
+    --sku F1
 ```
 
 Finally, create the App Service web app using the [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create) command.  
@@ -84,45 +83,6 @@ az webapp create
     --runtime "DOTNET|6.0"
     --plan <your-app-service-plan-name>  
     --resource-group msdocs-core-sql
-```
-
-
-### [Azure PowerShell](#tab/azure-powershell)
-
-PowerShell commands can be run in the [Azure Cloud Shell](https://shell.azure.com) or on a workstation with [PowerShell installed](/powershell/scripting/install/installing-powershell).
-
-Using the Install-Module cmdlet is the preferred installation method for the Az PowerShell module. Install the Az module for the current user only. This method works the same on Windows, macOS, and Linux platforms. Run the following command from a PowerShell session:
-
-```azurepowershell-interactive
-Install-Module -Name Az -Scope CurrentUser -Repository PSGallery -Force
-```
-
-First, create a resource group to act as a container for all of the Azure resources related to this application.
-
-```azurepowershell-interactive
-# Create a resource group
-New-AzResourceGroup msdocs-core-sql "eastus"
-```
-
-Next, create an App Service plan using the [New-AzAppServicePlan](/cli/azure/appservice/plan#az_appservice_plan_create) command.
-
-* The `-Tier` parameter defines the size (CPU, memory) and cost of the app service plan.  This example uses the F1 (Free) service plan.  For a full list of App Service plans, view the [App Service pricing](https://azure.microsoft.com/pricing/details/app-service/windows/) page.
-* The `-Linux` flag selects the Linux as the host operating system.  To use Windows, remove this flag from the command.
-
-```azurepowershell-interactive
-
- # Change 123 to any three characters to form a unique name across Azure
-New-AzAppServicePlan -ResourceGroupName "msdocs-core-sql" -Name "myAppServicePlan123" -Location "eastus" -Tier "Basic" -Linux
-```
-
-Finally, create the App Service web app using the [New-AzWebApp](/cli/azure/webapp#az_webapp_create) command.  
-
-* The `Name` is used as both the name of the resource in Azure and to form the fully qualified domain name for your app in the form of `https://<app service name>.azurewebsites.com`.
-
-```azurepowershell-interactive
-New-AzWebApp "msdocs-core-sql" -Name "coresql001" -Location "eastus" -AppServicePlan "myAppServicePlan123"
-$propertiesObject = @{"CURRENT_STACK" = "DOTNET:6.0"}
-New-AzResource -PropertyObject $propertiesObject -ResourceGroupName "msdocs-core-sql" -ResourceType Microsoft.Web/sites/config -ResourceName "<your-app>/metadata" -ApiVersion 2018-02-01 -Force
 ```
 
 ----
@@ -179,46 +139,14 @@ az sql server firewall-rule create
     --end-ip-address 0.0.0.0
 ```
 
-### [Azure PowerShell](#tab/azure-powershell-database)
-
-To create an Azure SQL database, we first must create a SQL Server to host it. A new Azure SQL Server is created by using the [New-AzSqlServer](/powershell/module/az.sql/new-azsqlserver?view=azps-7.0.0) command.  This command also requires a secure credentials object.
-
-```azurepowershell-interactive
-## Create secure password
-$pw = ConvertTo-SecureString -String '<your-pw>' -AsPlainText -Force
-
-## Create secure credentials object
-$credential = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList '<username>', $pw 
-
-## Create the Azure SQL Server
-New-AzSqlServer -ServerName '<server-name>' -ResourceGroupName 'msdocs-core-sql' -Location 'eastus' -SqlAdministratorCredentials $credential
-```
-
-Provisioning a SQL Server may take a few minutes.  Once the resource is available, we can create a database on the server with the [New-AzSqlDatabase](/powershell/module/az.sql/new-AzSqlDatabase?view=azps-7.0.0) command.
-
-```azurepowershell-interactive
-New-AzSqlDatabase -ResourceGroupName "msdocs-core-sql" -ServerName "<server-name>" -DatabaseName "coredb"
-```
-
-We also need to add the following firewall rule to our database server to allow other Azure resources to access it with the [New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-AzSqlServerFirewallRule?view=azps-7.0.0) command.
-
-```azurepowershell-interactive
-New-AzSqlServerFirewallRule -ResourceGroupName "msdocs-core-sql" -ServerName "<server-name>" -FirewallRuleName "LocalAccess" -StartIpAddress "<your-ip>" -EndIpAddress "<your-ip>"
-```
 ----
 
 ## 4 - Deploy to the App Service
 
 We're now ready to deploy our .NET app to the App Service.
 
-### [VS Code](#tab/vscode-deploy)
 
-| Instructions    | Screenshot |
-|:----------------|-----------:|
-| [!INCLUDE [Deploy app service step 1](<./includes/deploy-app-service/vscode-deploy-app-service-01.md>)] | :::image type="content" source="./media/vscode-deploy-01-240px.png" alt-text="A screenshot showing how to use the search box in the top tool bar to find App Services in Azure." lightbox="./media/vscode-deploy-01.png"::: |
-| [!INCLUDE [Deploy app service step 2](<./includes/deploy-app-service/vscode-deploy-app-service-02.md>)] | :::image type="content" source="./media/vscode-deploy-02-240px.png" alt-text="A screenshot showing the deploy button on the App Services page used to deploy a new web app." lightbox="./media/vscode-deploy-02.png"::: |
-
-### [Visual Studio](#tab/visualstudio-deploy)
+### [Deploy using Visual Studio](#tab/visualstudio-deploy)
 
 | Instructions    | Screenshot |
 |:----------------|-----------:|
@@ -228,70 +156,18 @@ We're now ready to deploy our .NET app to the App Service.
 | [!INCLUDE [Deploy app service step 4](<./includes/deploy-app-service/vstudio-deploy-app-service-04.md>)] | :::image type="content" source="./media/vstudio-deployapp-service-04-240px.png" alt-text="A screenshot showing the deploy button on the App Services page used to deploy a new web app." lightbox="./media/vstudio-deployapp-service-04.png"::: |
 | [!INCLUDE [Deploy app service step 5](<./includes/deploy-app-service/vstudio-deploy-app-service-05.md>)] | :::image type="content" source="./media/vstudio-deployapp-service-05-240px.png" alt-text="A screenshot showing the deploy button on the App Services page used to deploy a new web app." lightbox="./media/vstudio-deployapp-service-05.png"::: |
 
-### [Azure CLI](#tab/azure-cli-deploy)
+### [Deploy using VS Code](#tab/vscode-deploy)
 
-Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com) or on a workstation with the [Azure CLI installed](/cli/azure/install-azure-cli).
+| Instructions    | Screenshot |
+|:----------------|-----------:|
+| [!INCLUDE [Deploy app service step 1](<./includes/deploy-app-service/vscode-deploy-app-service-01.md>)] | :::image type="content" source="./media/vscode-deploy-01-240px.png" alt-text="A screenshot showing how to use the search box in the top tool bar to find App Services in Azure." lightbox="./media/vscode-deploy-01.png"::: |
+| [!INCLUDE [Deploy app service step 2](<./includes/deploy-app-service/vscode-deploy-app-service-02.md>)] | :::image type="content" source="./media/vscode-deploy-02-240px.png" alt-text="A screenshot showing the deploy button on the App Services page used to deploy a new web app." lightbox="./media/vscode-deploy-02.png"::: |
 
-This approach assumes you've cloned the sample project using Git.
+### [Deploy using Local Git](#tab/azure-cli-deploy)
 
-To enable git deployments via the CLI, configure a local git deployment source on your App Service. You can do this using the [az webapp deployment source config-local-git](/cli/azure/webapp/deployment/source?view=azure-cli-latest#az_webapp_deployment_source_config_local_git) command.
+[!INCLUDE [Deploy using Local Git](<./includes/deploy-app-service/deploy-local-git.md>)]
 
-This command will return a Git deployment URL for your App Service.  Copy this URL for later use.
-
-```azurecli-interactive
-az webapp deployment source config-local-git 
-    --name <your-app-name> 
-    --resource-group msdocs-core-sql
-```
-
-Next, let's add an Azure origin to our local Git repo using the App Service Git deployment URL from the previous step.
-
-```bash
-git remote add azure https://<username>@<app-name>.scm.azurewebsites.net/<your-app-name>.git
-```
-
-Finally, push your code using the correct origin and branch name.
-
-```bash
-git push azure master
-```
-
-This command will take a moment to run as it deploys your app code to the Azure App Service.
-
-
-### [Azure PowerShell](#tab/azure-powershell-deploy)
-
-This approach assumes you've cloned the sample project using Git.
-
-To enable git deployments via the CLI, configure a local git deployment source on your App Service using the `TBD` command.
-
-This command will return a Git deployment URL for your App Service.  Copy this URL for later use.
-
-```azurepowershell-interactive
-# Configure GitHub deployment from your GitHub repo and deploy once.
-$PropertiesObject = @{
-    scmType = "LocalGit";
-    branch = "master";
-    isManualIntegration = "true";
-}
-Set-AzResource -Properties $PropertiesObject -ResourceGroupName myResourceGroup -ResourceType Microsoft.Web/sites/sourcecontrols -ResourceName $webappname/web -ApiVersion 2015-08-01 -Force
-```
-
-Next, let's add an Azure origin to our local Git repo using the App Service Git deployment URL from the previous step.
-
-```bash
-git remote add azure https://<username>@<app-name>.scm.azurewebsites.net/<your-app-name>.git
-```
-
-Finally, push your code using the correct origin and branch name.
-
-```bash
-git push azure master
-```
-
-This command will take a moment to run as it deploys your app code to the Azure App Service.
-
-----
+---
 
 ## 5 - Connect the App to the Database
 Next we must connect the App hosted in our App Service to our database using a Connection String.
@@ -333,23 +209,6 @@ az webapp config connection-string set
 
 ```
 
-### [Azure PowerShell](#tab/azure-powershell-connect)
-
-We can retrieve the Connection String for our database using the command below, which will allow us to add it to our App Service configuration settings. Copy this Connection String value for later use.
-
-```azurepowershell-interactive
-# TBD
-```
-
-Next, let's assign the Connection String to our App Service using the command below. `MyDbConnection` is the name of the Connection String in our appsettings.json file, which means it will be loaded by our app during startup.
-
-Make sure to replace the username and password in the connection string with your own before running the command.
-
-```azurepowershell-interactive
-az webapp config connection-string set 
-# TBD
-```
-
 ----
 
 ## 6 - Generate the Database Schema
@@ -373,28 +232,7 @@ Run the [az sql server firewall-rule create](/cli/azure/sql/server/firewall-rule
 az sql server firewall-rule create -resource-group msdocs-core-sql --server <yoursqlserver> --name LocalAccess --start-ip-address <your-ip> --end-ip-address <your-ip>
 ```
 
-### [Azure PowerShell](#tab/azure-powershell-schema)
-
-Run the [New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule?view=azps-7.0.0) command to add a firewall rule to your SQL Server instance.
-
-```azurepowershell-interactive
-New-AzSqlServerFirewallRule -ResourceGroupName "msdocs-core-sql" -ServerName "<server-name>" -FirewallRuleName "LocalAccess" -StartIpAddress "<your-ip>" -EndIpAddress "<your-ip>"
-```
 ----
-
-In your local code editor, update the app Connection String to point to the Azure SQL Database.  This Connection String will allow us to generate the correct schema for the Azure SQL database by using Entity Framework Core migrations.
-1. Open the appsettings.json file in your project.
-1. Paste the Connection String you copied earlier into the value of the *MyDbConnection* key. Replace the username and password with the value you chose when setting up your database.
- 
-```json
-"ConnectionStrings": {
-    "MyDbConnection": "Server=tcp:MyDbServer.database.windows.net,1433;
-                    Initial Catalog=mySqlDb;Persist Security Info=False;
-                    User ID=<username>;Password=<password>;
-                    Encrypt=True;
-                    Connection Timeout=30;"
-}
-```
 
 Next, run the commands below to install the necessary CLI tools for Entity Framework Core, create an initial database migration file, and apply those changes to update the database.
 
