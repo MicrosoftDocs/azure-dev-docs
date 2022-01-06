@@ -1,6 +1,10 @@
 {
     "redirections": [
       {
+        "source_path": "articles/javascript/tutorial/deploy-deno-app-azure-app-service-azure-cli.md",
+        "redirect_url": "/azure/developer/javascript/tutorial/nodejs-virtual-machine-vm/introduction"
+      },
+      {
         "source_path": "articles/javascript/tutorial/static-web-app/introduction.md",
         "redirect_url": "/azure/developer/javascript/tutorial/static-web-app-image-analysis"
       },
