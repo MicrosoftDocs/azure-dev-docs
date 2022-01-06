@@ -233,7 +233,20 @@ az sql server firewall-rule create -resource-group msdocs-core-sql --server <you
 
 ----
 
-Next, run the commands below to install the necessary CLI tools for Entity Framework Core, create an initial database migration file, and apply those changes to update the database.
+Next we need to update the appsettings.json file in our local app code with the Connection String of our Azure SQL Database.  This will allow us to run migrations locally against our database hosted in Azure. Make sure to replace the username and password placeholders with the values you chose when creating your database.
+
+```json
+"ConnectionStrings": {
+    "MyDbConnection": "Server=tcp:coredbserver456.database.windows.net,1433;
+        Initial Catalog=coredb;
+        Persist Security Info=False;
+        User ID=<username>;Password=<password>;
+        Encrypt=True;
+        TrustServerCertificate=False;"
+  }
+```
+
+Finally, run the commands below to install the necessary CLI tools for Entity Framework Core, create an initial database migration file, and apply those changes to update the database.
 
 ```dotnetcli
 dotnet tool install -g dotnet-ef
