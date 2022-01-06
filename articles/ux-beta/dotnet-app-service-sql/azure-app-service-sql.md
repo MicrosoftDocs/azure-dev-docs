@@ -60,7 +60,6 @@ az group create --location eastus --name msdocs-core-sql
 Next, create an App Service plan using the [az appservice plan create](https://docs.microsoft.com/en-us/cli/azure/appservice/plan?view=azure-cli-latest#az_appservice_plan_create) command.
 
 * The `--sku` parameter defines the size (CPU, memory) and cost of the app service plan.  This example uses the F1 (Free) service plan.  For a full list of App Service plans, view the [App Service pricing](https://azure.microsoft.com/pricing/details/app-service/windows/) page.
-* The `--is-linux` flag selects the Linux as the host operating system.  To use Windows, remove this flag from the command.
 
 ```azurecli-interactive
 
