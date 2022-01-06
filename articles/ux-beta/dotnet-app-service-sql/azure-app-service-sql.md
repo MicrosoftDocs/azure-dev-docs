@@ -245,10 +245,16 @@ After the migration completes, your Azure SQL database will have the correct sch
 
 Note: If you receive an error stating `Client with IP address xxx.xxx.xxx.xxx is not allowed to access the server`, that means the IP address you entered into your Azure firewall rule is incorrect. To fix this issue, update the Azure firewall rule with the IP address provided in the error message.
 
-Navigate back to your web app in the browser.  If you refresh the page, you can now Create Todos and see them displayed on the home page.
 
 
-## 7 - Browse with kudu
+
+## 7 - Browse the Deployed Application and File Directory
+
+Navigate back to your web app in the browser. You can always get back to your site by clicking the **Browse** link at the top of the App Service overview page. If you refresh the page, you can now Create Todos and see them displayed on the home page. Congratulations!
+
+:::image type="content" source="../../media/app-success.png" alt-text="A screenshot showing the app successfully deployed to Azure." :::
+
+Next, let's take a closer look at the deployed files of our app using a tool called Kudu.
 
 Azure App Service provides a web-based diagnostics console named Kudu. Kudu allows you to examine the server-hosting environment for your web app. You can view the files deployed to Azure, review the deployment history, and even open an SSH session into the hosting environment.
 
@@ -260,32 +266,59 @@ From the main page in Kudu, you can access information about the application-hos
 
 ## 8 - Stream diagnostic logs
 
-While the ASP.NET Core app runs in Azure App Service, you can get the console logs piped to the Cloud Shell. That way, you can get the same diagnostic messages to help you debug application errors.
+## 6 - Configure and view application logs
 
-The sample project already follows the guidance for the [Azure App Service logging provider](/dotnet/core/extensions/logging-providers#azure-app-service) with two configuration changes:
+Azure App Service captures all messages logged to the console to assist you in diagnosing issues with your application. The sample app outputs console log messages in each of its endpoints to demonstrate this capability. The contents of the App Service diagnostic logs can be reviewed in the Azure portal, VS Code, or using the Azure CLI.
 
-- Includes a reference to `Microsoft.Extensions.Logging.AzureAppServices` in *DotNetCoreSqlDb.csproj*.
-- Calls `loggerFactory.AddAzureWebAppDiagnostics()` in *Program.cs*.
+### [Azure portal](#tab/azure-portal-stream)
 
-1. To set the ASP.NET Core [log level](/dotnet/core/extensions/logging#log-level) in App Service to `Information` from the default level `Error`, use the [`az webapp log config`](/cli/azure/webapp/log#az_webapp_log_config) command in the Cloud Shell.
+| Instructions    | Screenshot |
+|:----------------|-----------:|
+| [!INCLUDE [Stream logs from Azure portal 1](<./includes/stream-logs/azure-portal-1.md>)] | :::image type="content" source="./media/azportal-stream-logs-1-240px.png" alt-text="A screenshot showing the location of the Azure Tool icon in Visual Studio Code." lightbox="./media/azportal-stream-logs-1.png"::: |
+| [!INCLUDE [Stream logs from Azure portal 2](<./includes/stream-logs/azure-portal-2.md>)] | :::image type="content" source="./media/azportal-stream-logs-2-240px.png" alt-text="A screenshot showing how you deploy an application to Azure by right-clicking on a web app in VS Code and selecting deploy from the context menu." lightbox="./media/azportal-stream-logs-2.png"::: |
 
-    ```azurecli-interactive-interactive
-    az webapp log config --name <app-name> --resource-group myResourceGroup --application-logging filesystem --level information
-    ```
+### [VS Code](#tab/vscode-aztools-stream)
 
-    > [!NOTE]
-    > The project's log level is already set to `Information` in *appsettings.json*.
+| Instructions    | Screenshot |
+|:----------------|-----------:|
+| [!INCLUDE [Stream logs from VS Code 1](<./includes/stream-logs/vscode-stream-logs-1.md>)] | :::image type="content" source="./media/vscode-stream-logs-1-240px.png" alt-text="A screenshot showing the location of the Azure Tool icon in Visual Studio Code." lightbox="./media/vscode-stream-logs-1.png"::: |
+| [!INCLUDE [Stream logs from VS Code 2](<./includes/stream-logs/vscode-stream-logs-2.md>)] | :::image type="content" source="./media/vscode-stream-logs-2-240px.png" alt-text="A screenshot showing how you deploy an application to Azure by right-clicking on a web app in VS Code and selecting deploy from the context menu." lightbox="./media/vscode-stream-logs-2.png"::: |
 
-1. To start log streaming, use the [`az webapp log tail`](/cli/azure/webapp/log#az_webapp_log_tail) command in the Cloud Shell.
+### [Azure CLI](#tab/azure-cli-stream)
 
-    ```azurecli-interactive-interactive
-    az webapp log tail --name <app-name> --resource-group myResourceGroup
-    ```
+You can configure Azure App Service to output logs to the App Service filesystem using the [az webapp log config](/cli/azure/webapp/log#az_webapp_log_config) command.
 
-1. Once log streaming has started, refresh the Azure app in the browser to get some web traffic. You can now see console logs piped to the terminal. If you don't see console logs immediately, check again in 30 seconds.
+```azurecli
+az webapp log config \
+    --web-server-logging 'filesystem' \
+    --name $APP_SERVICE_NAME \
+    --resource-group $RESOURCE_GROUP_NAME
+```
 
-1. To stop log streaming at any time, type `Ctrl`+`C`.
+You can also stream logs directly to the console using the [az webapp log tail](/cli/azure/webapp/log#az_webapp_log_tail) command.
 
-For more information on customizing the ASP.NET Core logs, see [Logging in .NET](/dotnet/core/extensions/logging).
+```azurecli
+az webapp log tail \
+    --name $APP_SERVICE_NAME \
+    --resource-group $RESOURCE_GROUP_NAME
+```
+
+Refresh the home page in the app or attempt other requests to generate some log messages. The output should look similar to the following.
+
+```Console
+2022-01-06T22:37:11  Welcome, you are now connected to log-streaming service. The default timeout is 2 hours. Change the timeout with the App Setting SCM_LOGSTREAM_TIMEOUT (in seconds).
+2022-01-06 22:37:16.195 +00:00 [Information] Microsoft.AspNetCore.Hosting.Diagnostics: Request starting HTTP/1.1 GET https://coresql456.azurewebsites.net/ - -
+2022-01-06 22:37:16.195 +00:00 [Trace] Microsoft.AspNetCore.HostFiltering.HostFilteringMiddleware: All hosts are allowed.
+2022-01-06 22:37:16.195 +00:00 [Debug] Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware: The request path / does not match a supported file type
+2022-01-06 22:37:16.195 +00:00 [Debug] Microsoft.AspNetCore.Routing.Matching.DfaMatcher: 1 candidate(s) found for the request path '/'
+2022-01-06 22:37:16.195 +00:00 [Debug] Microsoft.AspNetCore.Routing.Matching.DfaMatcher: Endpoint 'DotNetCoreSqlDb.Controllers.TodosController.Index (DotNetCoreSqlDb)' with route pattern '{controller=Todos}/{action=Index}/{id?}' is valid for the request path '/'
+```
+
+---
+
+## Clean up resources
+
+TBD
+
 
 ## Next Steps
