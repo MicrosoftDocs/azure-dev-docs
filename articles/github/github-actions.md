@@ -59,7 +59,7 @@ The [Azure starter action workflows repository](https://github.com/Azure/actions
 
 Visit the [Marketplace for GitHub Actions for Azure](https://github.com/marketplace?query=Azure&type=actions) to see all the available GitHub Actions for Azure. Some of the most popular GitHub Actions for Azure are listed below:
 
-* [Deploy to a static web app](/azure/static-web-apps/getting-started?tabs=angular)
+* [Deploy to a static web app](https://github.com/Azure/static-web-apps-deploy)
 * [Azure App Service settings](https://github.com/Azure/appservice-settings)  
 * [Deploy to Azure Functions](https://github.com/Azure/functions-action)  
 * [Deploy to Azure Functions for Containers](https://github.com/Azure/webapps-container-deploy)  
