@@ -329,7 +329,34 @@ Refresh the home page in the app or attempt other requests to generate some log 
 
 ## Clean up resources
 
-TBD
+When you are finished, you can delete all of the resources from Azure by deleting the resource group for the application. This will delete all of the resources contained inside the group.
+
+### [Azure portal](#tab/azure-portal)
+
+Follow these steps while signed-in to the Azure portal to delete a resource group.
+
+| Instructions    | Screenshot |
+|:----------------|-----------:|
+| [!INCLUDE [Remove resource group Azure portal 1](<./includes/clean-resources/azure-portal-1.md>)] | :::image type="content" source="./media/azportal-remove-resource-group-1-240px.png" alt-text="A screenshot showing how to search for and navigate to a resource group in the Azure portal." lightbox="./media/azportal-remove-resource-group-1.png"::: |
+| [!INCLUDE [Remove resource group Azure portal 2](<./includes/clean-resources/azure-portal-2.md>)] | :::image type="content" source="./media/azportal-remove-resource-group-2-240px.png" alt-text="A screenshot showing the location of the Delete Resource Group button in the Azure portal." lightbox="./media/azportal-remove-resource-group-2.png"::: |
+| [!INCLUDE [Remove resource group Azure portal 3](<./includes/clean-resources/azure-portal-3.md>)] | :::image type="content" source="./media/azportal-remove-resource-group-3-240px.png" alt-text="A screenshot of the confirmation dialog for deleting a resource group in the Azure portal." lightbox="./media/azportal-remove-resource-group-3.png"::: |
+
+### [VS Code](#tab/vscode-aztools)
+
+| Instructions    | Screenshot |
+|:----------------|-----------:|
+| [!INCLUDE [Remove resource group VS Code 1](<./includes/clean-resources/vscode-1.md>)] | :::image type="content" source="./media/vscode-remove-resource-group-1-240px.png" alt-text="A screenshot showing how to delete a resource group in VS Code using the Azure Tools extention." lightbox="./media/vscode-remove-resource-group-1.png"::: |
+| [!INCLUDE [Remove resource group VS Code 2](<./includes/clean-resources/vscode-2.md>)] | :::image type="content" source="./media/vscode-remove-resource-group-2-240px.png" alt-text="A screenshot of the confirmation dialog for deleting a resource group from VS Code." lightbox="./media/vscode-remove-resource-group-2.png"::: |
+
+### [Azure CLI](#tab/azure-cli)
+
+You can delete the resource group you created by using the [az group delete](/cli/azure/group#az_group_delete) command.  This will delete all of the resources contained inside of it.
+
+```azurecli
+az group delete --name msdocs-core-sql
+```
+
+---
 
 
 ## Next Steps

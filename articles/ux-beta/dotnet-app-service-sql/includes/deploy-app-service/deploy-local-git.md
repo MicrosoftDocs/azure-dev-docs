@@ -33,4 +33,4 @@ Finally, push your code using the correct origin and branch name.
 git push azure master
 ```
 
-This command will take a moment to run as it deploys your app code to the Azure App Service.
+Enter your password if you are prompted to do so. This command will take a moment to run as it deploys your app code to the Azure App Service.
