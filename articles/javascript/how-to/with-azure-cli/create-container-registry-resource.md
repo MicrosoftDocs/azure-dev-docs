@@ -78,7 +78,7 @@ docker push YOUR-LOGIN_SERVER/YOURALIAS/IMAGENAME:v1
 
 ## Configure web app to use container 
 
-In configure the App Service web app to pull the image from your registry, run the following [`az webapp config container set`](/cli/azure/webapp/config/container?view=azure-cli-latest#az-webapp-config-container-set) command:
+In configure the App Service web app to pull the image from your registry, run the following [`az webapp config container set`](/cli/azure/webapp/config/container#az-webapp-config-container-set) command:
 
 ```azurecli
 az webapp config container set \
