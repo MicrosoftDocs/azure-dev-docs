@@ -61,7 +61,7 @@ docker login YOUR-LOGIN_SERVER \
 
 ## Tag your local image
 
-You need to tag your Docker container, with the [`docker tag`](https://docs.docker.com/engine/reference/commandline/login/)  commandto indicate that it's associated with your private registry (replacing `YOURALIAS/IMAGENAME` with the name you gave the container image).
+You need to tag your Docker container, with the [`docker tag`](https://docs.docker.com/engine/reference/commandline/login/)  command to indicate that it's associated with your private registry (replacing `YOURALIAS/IMAGENAME` with the name you gave the container image).
 
 ```bash
 docker tag YOURALIAS/IMAGENAME \
