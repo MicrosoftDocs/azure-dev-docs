@@ -171,7 +171,7 @@ We're now ready to deploy our .NET app to the App Service.
 ## 5 - Connect the App to the Database
 Next we must connect the App hosted in our App Service to our database using a Connection String.
 
-### [Azure portal](#tab/azure-portal-connect)
+### [Azure portal](#tab/azure-portal)
 
 Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps to create your Azure App Service resources.
 
@@ -182,7 +182,7 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps 
 | [!INCLUDE [Connect Service step 3](<./includes/connect-app-database/azure-portal-connect-database-03.md>)] | :::image type="content" source="./media/azportal-connect-sqldb-03-240px.png" alt-text="A screenshot showing how to use the search box in the top tool bar to find App Services in Azure." lightbox="./media/azportal-connect-sqldb-03.png"::: |
 | [!INCLUDE [Connect Service step 4](<./includes/connect-app-database/azure-portal-connect-database-04.md>)] | :::image type="content" source="./media/azportal-connect-sqldb-04-240px.png" alt-text="A screenshot showing the create button on the App Services page used to create a new web app." lightbox="./media/azportal-connect-sqldb-04.png"::: |
 
-### [Azure CLI](#tab/azure-cli-connect)
+### [Azure CLI](#tab/azure-cli)
 
 Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com) or on a workstation with the [Azure CLI installed](/cli/azure/install-azure-cli).
 
@@ -288,7 +288,7 @@ Azure App Service captures messages logged to the console to assist you in diagn
 | [!INCLUDE [Stream logs from Azure portal 1](<./includes/stream-logs/azportal-stream-logs-01.md>)] | :::image type="content" source="./media/azportal-stream-logs-1-240px.png" alt-text="A screenshot showing the location of the Azure Tool icon in Visual Studio Code." lightbox="./media/azportal-stream-logs-1.png"::: |
 | [!INCLUDE [Stream logs from Azure portal 2](<./includes/stream-logs/azportal-stream-logs-02.md>)] | :::image type="content" source="./media/azportal-stream-logs-2-240px.png" alt-text="A screenshot showing how you deploy an application to Azure by right-clicking on a web app in VS Code and selecting deploy from the context menu." lightbox="./media/azportal-stream-logs-2.png"::: |
 
-### [VS Code](#tab/vscode-aztools-stream)
+### [VS Code](#tab/vscode)
 
 | Instructions    | Screenshot |
 |:----------------|-----------:|
