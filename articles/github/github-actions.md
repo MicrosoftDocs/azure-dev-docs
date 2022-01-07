@@ -18,7 +18,7 @@ In GitHub Actions, a [workflow](https://docs.github.com/en/free-pro-team@latest/
 
 Each workflow is made up of individual [actions](https://docs.github.com/en/actions/learn-github-actions/introduction-to-github-actions) that run after a specific event (like a pull request) occur.  The individual actions are packaged scripts that automate software development tasks.
 
-With GitHub Actions for Azure, you can create workflows that you can set up in your repository to build, test, package, release, and deploy to Azure. GitHub Actions for Azure supports Azure services, including Azure App Service, Azure Functions, and Azure Key Vault.
+With [GitHub Actions for Azure](https://azure.github.io/actions), you can create workflows that you can set up in your repository to build, test, package, release, and deploy to Azure. GitHub Actions for Azure supports Azure services, including Azure App Service, Azure Kubernetes Service, Azure Pipelines, and Azure Static Web Apps.
 
 GitHub Actions also include support for utilities, including Azure Resource Manager templates, Azure CLI, and Azure Policy.
 
@@ -57,7 +57,7 @@ The [Azure starter action workflows repository](https://github.com/Azure/actions
 
 ## Where can I see all the available actions
 
-Visit the [Marketplace for GitHub Actions for Azure](https://github.com/marketplace?query=Azure&type=actions) to see all the available GitHub Actions for Azure.
+Visit the [Marketplace for GitHub Actions for Azure](https://github.com/marketplace?query=Azure&type=actions) to see all the available GitHub Actions for Azure. Some of the most popular GitHub Actions for Azure are listed below:
 
 * [Deploy to a static web app](/azure/static-web-apps/getting-started?tabs=angular)
 * [Azure App Service settings](https://github.com/Azure/appservice-settings)  
