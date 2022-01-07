@@ -94,7 +94,7 @@ Make sure to add the `https://` prefix to the beginning of the `--docker-registr
 
 If your Azure Container Registry password is in a password file, such as `~/azure_container_registry_password.txt`, you can pass the password with the following command:
 
-```azcli
+```azurecli
 az webapp config container set \
     --resource-group YOUR-RESOURCE-GROUP \
     --name YOUR-WEBAPP-NAME \
