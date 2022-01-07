@@ -1,6 +1,10 @@
 {
     "redirections": [
       {
+        "source_path": "articles/javascript/how-to/with-azure-cli/configure-app-service-custom-domain-name.md",
+        "redirect_url": "/azure/app-service/app-service-web-tutorial-custom-domain"
+      },      
+      {
         "source_path": "articles/javascript/tutorial/deploy-deno-app-azure-app-service-azure-cli.md",
         "redirect_url": "/azure/developer/javascript/tutorial/nodejs-virtual-machine-vm/introduction"
       },
