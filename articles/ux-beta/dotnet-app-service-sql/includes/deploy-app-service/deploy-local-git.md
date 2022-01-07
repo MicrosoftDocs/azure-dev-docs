@@ -1,4 +1,4 @@
-You can deploy your application code from a local Git repository to Azure by configuring a [Git remote](https://git-scm.com/book/en/v2/Git-Basics-Working-with-Remotes) in your local repo pointing at Azure to push code to. The URL of the remote repository and Git credentials needed for configuration can be retrieved using either the Azure portal or the Azure CLI.
+You can deploy your application code from a local Git repository to Azure by configuring a [Git remote](https://git-scm.com/book/en/v2/Git-Basics-Working-with-Remotes) in your local repo pointing at your Azure App Service. The URL of the remote repository and Git credentials needed for configuration can be retrieved using either the Azure portal or the Azure CLI.
 
 ### [Azure portal](#tab/deploy-instructions-azportal)
 
@@ -19,18 +19,28 @@ az webapp deployment source config-local-git \
     --output tsv
 ```
 
+Retrieve the deployment credentials for your application. These will be needed for Git to authenticate to Azure when you push code to Azure in a later step.
+
+```azurecli
+az webapp deployment list-publishing-credentials 
+        --name <app-service-name> 
+        --resource-group msdocs-core-sql
+        --query "{Username:join(`u005C`, [name,publishingUserName]), Password:publishingPassword}"
+```
+
 ---
 
-Next, let's add an Azure origin to our local Git repo using the App Service Git deployment URL from the step where we created our App Service.  Make sure to replace your username and app name in the url below.
+Next, let's add an Azure origin to our local Git repo using the App Service Git deployment URL from the step where we created our App Service.  Make sure to replace your app name in the url below.  You can also get this completed URL from the Azure Portal Local Git/FTPS Credentials tab.
 
 ```bash
-git remote add azure https://<username>@<app-name>.scm.azurewebsites.net/<your-app-name>.git
+git remote add azure https://<app-name>.scm.azurewebsites.net/<your-app-name>.git
 ```
 
 Finally, push your code using the correct origin and branch name.
 
 ```bash
-git push azure master
+## Master is the default deployment branch for App Service - this will ensure our local main branch works for the deployment
+git push azure main:master
 ```
 
 Enter your password if you are prompted to do so. This command will take a moment to run as it deploys your app code to the Azure App Service.

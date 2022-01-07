@@ -20,11 +20,11 @@ This article assumes you're familiar with [.NET]("https://dotnet.microsoft.com/d
 
 ## 1 - Set up the Sample Application
 
-To follow along with this tutorial, [Download the Sample Project](https://github.com/Azure-Samples/dotnetcore-sqldb-tutorial/archive/refs/heads/master.zip) from the repository [https://github.com/Azure-Samples/dotnetcore-sqldb-tutorial](https://github.com/Azure-Samples/dotnetcore-sqldb-tutorial) or clone it using the Git command below.
+To follow along with this tutorial, [Download the Sample Project](https://github.com/Azure-Samples/msdocs-app-service-sqldb-dotnetcore/archive/refs/heads/main.zip) from the repository [https://github.com/Azure-Samples/msdocs-app-service-sqldb-dotnetcore](https://github.com/Azure-Samples/msdocs-app-service-sqldb-dotnetcore) or clone it using the Git command below.
 
 ```bash
-git clone https://github.com/azure-samples/dotnetcore-sqldb-tutorial
-cd dotnetcore-sqldb-tutorial
+git clone https://github.com/Azure-Samples/msdocs-app-service-sqldb-dotnetcore.git
+cd msdocs-app-service-sqldb-dotnetcore
 ```
 
 :::image type="content" source="media/azure-app-in-browser.png" alt-text="This is an architecture diagram about how the solution works in Azure":::

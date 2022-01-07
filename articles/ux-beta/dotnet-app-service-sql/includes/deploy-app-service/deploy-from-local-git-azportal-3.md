@@ -1,3 +1,7 @@
-After saving, the page will refresh and display the address for the remote Git repository.
+After saving, on the Deployment Center page:
 
-Copy the value of the Git Clone Uri as this value will be used to set up a Git remote in a later step.
+1) Navigate to the Local Git/FTPS credentials tab.
+2) Locate the username and password under the Application Scope credentials.
+3) Keep this screen open or copy these credentials to use momentarily when you deploy your code to the remote repository.
+
+When you push code to the remote Git repository for the first time, these credentials are needed to authenticate to the remote repository.
