@@ -2,18 +2,20 @@
 title: 'Quickstart: Deploy a Python web app to Azure App Service'
 description: Get started with Azure App Service by deploying your first Python app to Azure App Service.
 ms.topic: quickstart
-ms.date: 11/03/2021
+ms.date: 01/07/2021
+author: DavidCBerry13
+ms.author: daberry
 ms.service: app-service
 robots: noindex
 ---
 
 # Quickstart: Deploy a Python web app to Azure App Service
 
-In this quickstart, you'll deploy a Python web app to [Azure App Service](/azure/app-service/overview.md#app-service-on-linux). Azure App Service is a fully managed web hosting service that supports Python 3.6 and higher apps hosted in a Linux server environment.
+In this quickstart, you'll deploy a Python web app to [Azure App Service](/azure/app-service/overview.md#app-service-on-linux). Azure App Service is a fully managed web hosting service that supports Python 3.7 and higher apps hosted in a Linux server environment.
 
 To complete this quickstart, you need:
 1. An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-1. <a href="https://www.python.org/downloads/" target="_blank">Python 3.6 or higher</a> installed locally.
+1. <a href="https://www.python.org/downloads/" target="_blank">Python 3.7 or higher</a> installed locally.
 
 ## Sample application
 
