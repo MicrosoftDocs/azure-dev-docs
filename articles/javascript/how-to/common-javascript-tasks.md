@@ -24,7 +24,7 @@ Provide authentication.
 |MSAL Login/Logoff button using `@azure/msal-browser`|[React/TypeScript](../tutorial/single-page-application-azure-login-button-sdk-msal.md#5-add-login-and-logoff-buttons)|
 |MSAL React using `@azure/msal-browser` passing user credentials to Function API|[React and Azure Function API](with-authentication/static-web-app-with-api/add-mongodb-database-to-api.md#react-client-add-new-fetch-method-with-favoritecolor)|
 |MSAL Express.js using `@azure/msal-node`|[Express.js](./with-web-app/deploy-msal-sdk-authentication-expressjs.md#run-your-app-locally-to-verify-msal-authentication)|
-|Revoke AAD permission|[https://myapplications.microsoft.com/](https://myapplications.microsoft.com/)|
+|Revoke Azure AD permission|[https://myapplications.microsoft.com/](https://myapplications.microsoft.com/)|
 |Revoke Consumer permission|[https://account.live.com/consent/manage](https://account.live.com/consent/manage)
 
 ## Azure Resource Groups
@@ -80,11 +80,11 @@ Provide authentication.
 |Create app, deploy, browser app, view logs|[Azure CLI](../tutorial/tutorial-vscode-azure-cli-node/tutorial-vscode-azure-cli-node-03.md)|
 |Configure web app to use database connection string|[Azure CLI](./with-azure-cli/create-mongodb-cosmosdb.md#configure-your-azure-web-app-with-the-connection-string)|
 |Configure web app to use container|[Azure CLI](./with-azure-cli/create-container-registry-resource.md#configure-web-app-to-use-container)|
-|Configure web app custom domain name|[Azure Portal and CLI](/azure/app-service/app-service-web-tutorial-custom-domain?tabs=a%2Cazurecli)|
+|Configure web app custom domain name|[Azure portal and CLI](/azure/app-service/app-service-web-tutorial-custom-domain?tabs=a%2Cazurecli)|
 |Delete app resource|[Visual Studio Code extension](../tutorial/deploy-nodejs-mongodb-app-service-from-visual-studio-code.md#clean-up-resources)<br>[Azure CLI](../tutorial/tutorial-vscode-azure-cli-node/tutorial-vscode-azure-cli-node-07.md)|
 |Deploy or reploy app|[Visual Studio Code extension](deploy-web-app.md#deploy-or-redeploy-to-app-service-with-visual-studio-code)|
-|Get web app external IP|[Azure Portal and CLI](/azure/app-service/app-service-web-tutorial-custom-domain?tabs=a%2Cazurecli)|
-|Purchase a domain name and configure DNS record|[Azure Portal and Azure CLI](/azure/app-service/app-service-web-tutorial-custom-domain?tabs=a%2Cazurecli)|
+|Get web app external IP|[Azure portal and CLI](/azure/app-service/app-service-web-tutorial-custom-domain?tabs=a%2Cazurecli)|
+|Purchase a domain name and configure DNS record|[Azure portal and Azure CLI](/azure/app-service/app-service-web-tutorial-custom-domain?tabs=a%2Cazurecli)|
 |Stream remote logs|[Visual Studio Code extension](../tutorial/deploy-nodejs-azure-app-service-with-visual-studio-code.md?tabs=bash#7-stream-remote-service-logs-in-visual-studio-code)<br>[Azure CLI](../tutorial/tutorial-vscode-azure-cli-node/tutorial-vscode-azure-cli-node-05.md)|
 
 ## Cognitive Services
