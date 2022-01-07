@@ -47,7 +47,9 @@
               href: how-to/configure-web-app-settings.md
             - name: Create secure domain name
               href: how-to/add-custom-domain-to-web-app.md
-            - name: Use Key Vault secrets in Express.js
+            - name: Configure domain name
+              href: /azure/app-service/app-service-web-tutorial-custom-domain?tabs=a%2Cazurecli              
+            - name: Use Key Vault secrets
               href: how-to/with-web-app/use-secret-environment-variables.md
           - name: Azure Static Web Apps
             items: 
@@ -232,8 +234,6 @@
             displayName: az login --identity, az login --service-principal, az login -u, az group create, az staticwebapp create, az staticwebapp delete, az storage account create, az functionapp create, az functionapp deployment slot create, az functionapp deployment source config, az functionapp deployment slot swap, az functionapp delete               
           - name: Container registry
             href: how-to/with-azure-cli/create-container-registry-resource.md
-          - name: Configure web app domain name
-            href: how-to/with-azure-cli/configure-app-service-custom-domain-name.md
           - name: Cassandra Cosmos DB resource
             href: how-to/with-azure-cli/create-cassandra-db.md
           - name: Cache for Redis
