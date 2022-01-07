@@ -49,7 +49,7 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps 
 
 Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com) or on a workstation with the [Azure CLI installed](/cli/azure/install-azure-cli).
 
-First, create a resource group using the [az group create](/cli/azure/group?view=azure-cli-latest#az_group_create) command. The resource group will act as a container for all of the Azure resources related to this application.
+First, create a resource group using the [az group create](/cli/azure/group#az_group_create) command. The resource group will act as a container for all of the Azure resources related to this application.
 
 ```azurecli-interactive
 # Use 'az account list-locations --output table' to list available locations close to you
@@ -57,7 +57,7 @@ First, create a resource group using the [az group create](/cli/azure/group?view
 az group create --location eastus --name msdocs-core-sql
 ```
 
-Next, create an App Service plan using the [az appservice plan create](https://docs.microsoft.com/en-us/cli/azure/appservice/plan?view=azure-cli-latest#az_appservice_plan_create) command.
+Next, create an App Service plan using the [az appservice plan create](/cli/azure/appservice/plan#az_appservice_plan_create) command.
 
 * The `--sku` parameter defines the size (CPU, memory) and cost of the app service plan.  This example uses the F1 (Free) service plan.  For a full list of App Service plans, view the [App Service pricing](https://azure.microsoft.com/pricing/details/app-service/windows/) page.
 
@@ -70,7 +70,7 @@ az appservice plan create
     --sku F1
 ```
 
-Finally, create the App Service web app using the [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create) command.  
+Finally, create the App Service web app using the [az webapp create](/cli/azure/webapp#az_webapp_create) command.  
 
 * The *app service name* is used as both the name of the resource in Azure and to form the fully qualified domain name for your app in the form of `https://<app service name>.azurewebsites.com`.
 * The runtime specifies what version of .NET your app is running. This example uses .NET 6.0 LTS. To list all available runtimes, use the command `az webapp list-runtimes --linux --output table` for Linux and `az webapp list-runtimes --output table` for Windows.
@@ -89,7 +89,7 @@ az webapp create
 ## 3 - Create the Database
 Next let's create the Azure SQL Database that will manage the data in our app.
 
-### [Azure portal](#tab/azure-portal-database)
+### [Azure portal](#tab/azure-portal)
 
 Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps to create your Azure App Service resources.
 
@@ -103,9 +103,9 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps 
 | [!INCLUDE [Create database step 6](<./includes/create-sql-database/azure-portal-sqldb-create-06.md>)] | :::image type="content" source="./media/azportal-create-sql-06-240px.png" alt-text="A screenshot showing the form to fill out to create a web app in Azure." lightbox="./media/azportal-create-sql-06.png"::: |
 | [!INCLUDE [Create database step 7](<./includes/create-sql-database/azure-portal-sqldb-create-07.md>)] | :::image type="content" source="./media/azportal-create-sql-07-240px.png" alt-text="A screenshot showing the form to fill out to create a web app in Azure." lightbox="./media/azportal-create-sql-07.png"::: |
 
-### [Azure CLI](#tab/azure-cli-database)
+### [Azure CLI](#tab/azure-cli)
 
-To create an Azure SQL database, we first must create a SQL Server to host it. A new Azure SQL Server is created by using the [az sql server create ](/cli/azure/sql/server?view=azure-cli-latest#az_sql_server_create) command.
+To create an Azure SQL database, we first must create a SQL Server to host it. A new Azure SQL Server is created by using the [az sql server create ](/cli/azure/sql/server#az_sql_server_create) command.
 
 Replace the <server-name> placeholder with a unique SQL Database name. This name is used as the part of the globally unique SQL Database endpoint, <server-name>.database.windows.net. Also, replace <db-username> and <db-username> with a username and password of your choice.
 
@@ -118,7 +118,7 @@ az sql server create
     --admin-password <db-password>
 ```
 
-Provisioning a SQL Server may take a few minutes.  Once the resource is available, we can create a database with the [az sql db create](/cli/azure/sql/db?view=azure-cli-latest#az_sql_db_create) command.
+Provisioning a SQL Server may take a few minutes.  Once the resource is available, we can create a database with the [az sql db create](/cli/azure/sql/db#az_sql_db_create) command.
 
 ```azurecli-interactive
 az sql db create 
@@ -186,7 +186,7 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps 
 
 Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com) or on a workstation with the [Azure CLI installed](/cli/azure/install-azure-cli).
 
-We can retrieve the Connection String for our database using the [az sql db show-connection-string](/cli/azure/sql/db?view=azure-cli-latest#az_sql_db_show_connection_string) command.  This command allows us to add the Connection String to our App Service configuration settings. Copy this Connection String value for later use.
+We can retrieve the Connection String for our database using the [az sql db show-connection-string](/cli/azure/sql/db#az_sql_db_show_connection_string) command.  This command allows us to add the Connection String to our App Service configuration settings. Copy this Connection String value for later use.
 
 ```azurecli-interactive
 az sql db show-connection-string 
@@ -213,19 +213,19 @@ az webapp config connection-string set
 ## 6 - Generate the Database Schema
 To generate our database schema, we need to configure a firewall rule on our Database Server.  This rule will allow our local computer to connect to Azure. For this step you'll need to know your local computer's IP Address, which you can discover [by clicking here](https://whatismyipaddress.com/)  
 
-### [Azure portal](#tab/azure-portal-schema)
+### [Azure portal](#tab/azure-portal)
 
 In the Azure portal:
 
 | Instructions    | Screenshot |
 |:----------------|-----------:|
-| [!INCLUDE [Generate schema step 1](<./includes/generate-database-schema/azure-portal-generate-schema-01.md>)] | :::image type="content" source="./media/azportal-generate-schema-01-240px.png" alt-text="A screenshot showing how to use the search box in the top tool bar to find App Services in Azure." lightbox="./media/azportal-connect-service-1.png"::: |
-| [!INCLUDE [Generate schema step 2](<./includes/generate-database-schema/azure-portal-generate-schema-02.md>)] | :::image type="content" source="./media/azportal-generate-schema-02-240px.png" alt-text="A screenshot showing the create button on the App Services page used to create a new web app." lightbox="./media/azportal-connect-service-2.png"::: |
+| [!INCLUDE [Generate schema step 1](<./includes/generate-database-schema/azure-portal-generate-schema-01.md>)] | :::image type="content" source="./media/azportal-generate-schema-01-240px.png" alt-text="A screenshot showing how to use the search box in the top tool bar to find App Services in Azure." lightbox="./media/azportal-generate-schema-01.png"::: |
+| [!INCLUDE [Generate schema step 2](<./includes/generate-database-schema/azure-portal-generate-schema-02.md>)] | :::image type="content" source="./media/azportal-generate-schema-02-240px.png" alt-text="A screenshot showing the create button on the App Services page used to create a new web app." lightbox="./media/azportal-generate-schema-02.png"::: |
 
 
-### [Azure CLI](#tab/azure-cli-schema)
+### [Azure CLI](#tab/azure-cli)
 
-Run the [az sql server firewall-rule create](/cli/azure/sql/server/firewall-rule?view=azure-cli-latest#az_sql_server_firewall_rule_create) command to add a firewall rule to your SQL Server instance.
+Run the [az sql server firewall-rule create](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_create) command to add a firewall rule to your SQL Server instance.
 
 ```azurecli-interactive
 az sql server firewall-rule create -resource-group msdocs-core-sql --server <yoursqlserver> --name LocalAccess --start-ip-address <your-ip> --end-ip-address <your-ip>
@@ -261,7 +261,7 @@ Note: If you receive an error stating `Client with IP address xxx.xxx.xxx.xxx is
 
 ## 7 - Browse the Deployed Application and File Directory
 
-Navigate back to your web app in the browser. You can always get back to your site by clicking the **Browse** link at the top of the App Service overview page. If you refresh the page, you can now Create Todos and see them displayed on the home page. Congratulations!
+Navigate back to your web app in the browser. You can always get back to your site by clicking the **Browse** link at the top of the App Service overview page. If you refresh the page, you can now create todos and see them displayed on the home page. Congratulations!
 
 :::image type="content" source="./media/app-success.png" alt-text="A screenshot showing the app successfully deployed to Azure." :::
 
@@ -277,11 +277,11 @@ From the main page in Kudu, you can access information about the application-hos
 
 :::image type="content" source="./media/kudu-main-page.png" alt-text="A screenshot showing the Kudu admin page." :::
 
-## 8 - Configure and stream application logs
+## 8 - Configure and Stream Application Logs
 
-Azure App Service captures all messages logged to the console to assist you in diagnosing issues with your application. The sample app outputs console log messages in each of its endpoints to demonstrate this capability. The contents of the App Service diagnostic logs can be reviewed in the Azure portal, VS Code, or using the Azure CLI.
+Azure App Service captures messages logged to the console to assist you in diagnosing issues with your application. The sample app outputs console log messages in each of its endpoints to demonstrate this capability. The contents of the App Service diagnostic logs can be reviewed in the Azure portal, VS Code, or using the Azure CLI.
 
-### [Azure portal](#tab/azure-portal-stream)
+### [Azure portal](#tab/azure-portal)
 
 | Instructions    | Screenshot |
 |:----------------|-----------:|
@@ -295,7 +295,7 @@ Azure App Service captures all messages logged to the console to assist you in d
 | [!INCLUDE [Stream logs from VS Code 1](<./includes/stream-logs/vscode-stream-logs-01.md>)] | :::image type="content" source="./media/vscode-stream-logs-1-240px.png" alt-text="A screenshot showing the location of the Azure Tool icon in Visual Studio Code." lightbox="./media/vscode-stream-logs-1.png"::: |
 | [!INCLUDE [Stream logs from VS Code 2](<./includes/stream-logs/vscode-stream-logs-02.md>)] | :::image type="content" source="./media/vscode-stream-logs-2-240px.png" alt-text="A screenshot showing how you deploy an application to Azure by right-clicking on a web app in VS Code and selecting deploy from the context menu." lightbox="./media/vscode-stream-logs-2.png"::: |
 
-### [Azure CLI](#tab/azure-cli-stream)
+### [Azure CLI](#tab/azure-cli)
 
 You can configure Azure App Service to output logs to the App Service filesystem using the [az webapp log config](/cli/azure/webapp/log#az_webapp_log_config) command.
 
@@ -331,7 +331,7 @@ Refresh the home page in the app or attempt other requests to generate some log 
 
 When you are finished, you can delete all of the resources from Azure by deleting the resource group for the application. This will delete all of the resources contained inside the group.
 
-### [Azure portal](#tab/azure-portal)
+### [Azure portal](#tab/azure-portal-resources)
 
 Follow these steps while signed-in to the Azure portal to delete a resource group.
 
@@ -341,14 +341,14 @@ Follow these steps while signed-in to the Azure portal to delete a resource grou
 | [!INCLUDE [Remove resource group Azure portal 2](<./includes/clean-resources/azure-portal-2.md>)] | :::image type="content" source="./media/azportal-remove-resource-group-2-240px.png" alt-text="A screenshot showing the location of the Delete Resource Group button in the Azure portal." lightbox="./media/azportal-remove-resource-group-2.png"::: |
 | [!INCLUDE [Remove resource group Azure portal 3](<./includes/clean-resources/azure-portal-3.md>)] | :::image type="content" source="./media/azportal-remove-resource-group-3-240px.png" alt-text="A screenshot of the confirmation dialog for deleting a resource group in the Azure portal." lightbox="./media/azportal-remove-resource-group-3.png"::: |
 
-### [VS Code](#tab/vscode-aztools)
+### [VS Code](#tab/vscode-aztools-resources)
 
 | Instructions    | Screenshot |
 |:----------------|-----------:|
 | [!INCLUDE [Remove resource group VS Code 1](<./includes/clean-resources/vscode-1.md>)] | :::image type="content" source="./media/vscode-remove-resource-group-1-240px.png" alt-text="A screenshot showing how to delete a resource group in VS Code using the Azure Tools extention." lightbox="./media/vscode-remove-resource-group-1.png"::: |
 | [!INCLUDE [Remove resource group VS Code 2](<./includes/clean-resources/vscode-2.md>)] | :::image type="content" source="./media/vscode-remove-resource-group-2-240px.png" alt-text="A screenshot of the confirmation dialog for deleting a resource group from VS Code." lightbox="./media/vscode-remove-resource-group-2.png"::: |
 
-### [Azure CLI](#tab/azure-cli)
+### [Azure CLI](#tab/azure-cli-resources)
 
 You can delete the resource group you created by using the [az group delete](/cli/azure/group#az_group_delete) command.  This will delete all of the resources contained inside of it.
 
