@@ -12,8 +12,6 @@ recommendations: false
 
 This guide describes what you should be aware of when you want to migrate an existing JBoss EAP application to run on JBoss EAP in an Azure App Service instance.
 
-[!INCLUDE [java-redhat-migration-toolkit](includes/redhat-migration-toolkit.md)]
-
 ## Pre-migration
 
 To ensure a successful migration, before you start, complete the assessment and inventory steps described in the following sections.
@@ -83,6 +81,8 @@ When using JBoss EAP on App Service, be sure to take the following notes into co
 * **Managed domain mode**: In a multi-server production environment, Managed Domain mode in JBoss EAP offers centralized managed capabilities. However with JBoss EAP on App Service, the App Service platform assumes the responsibility for configuration and management of your server instances. App Service eliminates the need for JBoss EAP’s managed domain mode. Domain mode is a good choice for virtual machine-based multi-server deployments. For more information, see [About managed domains](https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/6.4/html/administration_and_configuration_guide/about_managed_domains) in the Red Hat documentation.
 
 ## Migration
+
+[!INCLUDE [java-redhat-migration-toolkit](includes/redhat-migration-toolkit.md)]
 
 [!INCLUDE [provision-azure-app-service-for-jboss-eap-runtime](includes/provision-azure-app-service-for-jboss-eap-runtime.md)]
 
