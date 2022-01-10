@@ -69,6 +69,7 @@
 | Web PubSub | npm [1.0.0](https://www.npmjs.com/package/@azure/web-pubsub/v/1.0.0) | [docs](/javascript/api/overview/azure/web-pubsub-readme) | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/web-pubsub_1.0.0/sdk/web-pubsub/web-pubsub/) |
 | Web PubSub CloudEvents Handlers for Express | npm [1.0.0](https://www.npmjs.com/package/@azure/web-pubsub-express/v/1.0.0) | [docs](/javascript/api/overview/azure/web-pubsub-express-readme) | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/web-pubsub-express_1.0.0/sdk/web-pubsub/web-pubsub-express/) |
 | @azure/arm-changeanalysis | npm [2.0.0](https://www.npmjs.com/package/@azure/arm-changeanalysis/v/2.0.0) | [docs](/javascript/api/overview/azure/arm-changeanalysis-readme) | GitHub [2.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-changeanalysis_2.0.0/sdk/changeanalysis/arm-changeanalysis/) |
+| @azure/arm-confluent | npm [2.2.0](https://www.npmjs.com/package/@azure/arm-confluent/v/2.2.0)<br>npm [3.0.0-beta.1](https://www.npmjs.com/package/@azure/arm-confluent/v/3.0.0-beta.1) |  | GitHub [2.2.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-confluent_2.2.0/sdk/confluent/arm-confluent/)<br>GitHub [3.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-confluent_3.0.0-beta.1/sdk/confluent/arm-confluent/) |
 | @azure/arm-datalake-analytics | npm [1.1.1](https://www.npmjs.com/package/@azure/arm-datalake-analytics/v/1.1.1)<br>npm [2.0.0-beta.2](https://www.npmjs.com/package/@azure/arm-datalake-analytics/v/2.0.0-beta.2) | [docs](/javascript/api/overview/azure/arm-datalake-analytics-readme) | GitHub [1.1.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/datalake-analytics/arm-datalake-analytics) |
 | @azure/arm-servicefabric | npm [2.0.0](https://www.npmjs.com/package/@azure/arm-servicefabric/v/2.0.0) | [docs](/javascript/api/overview/azure/arm-servicefabric-readme) | GitHub [2.0.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/servicefabric/arm-servicefabric) |
 | Resouce Management - Resources Subscriptions | npm [2.0.0](https://www.npmjs.com/package/@azure/arm-resources-subscriptions/v/2.0.0) | [docs](/javascript/api/overview/azure/arm-resources-subscriptions-readme) | GitHub [2.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-resources-subscriptions_2.0.0/sdk/resources-subscriptions/arm-resources-subscriptions/) |
@@ -100,6 +101,7 @@
 | Resource Management - Extendedlocation | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure/arm-extendedlocation/v/1.0.0-beta.1) | [docs](/javascript/api/overview/azure/arm-extendedlocation-readme) | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-extendedlocation_1.0.0-beta.1/sdk/extendedlocation/arm-extendedlocation/) |
 | Resource Management - Features | npm [3.0.0](https://www.npmjs.com/package/@azure/arm-features/v/3.0.0) | [docs](/javascript/api/overview/azure/arm-features-readme) | GitHub [3.0.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/features/arm-features) |
 | Resource Management - HDInsight | npm [1.1.0](https://www.npmjs.com/package/@azure/arm-hdinsight/v/1.1.0) | [docs](/javascript/api/overview/azure/arm-hdinsight-readme) | GitHub [1.1.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/hdinsight/arm-hdinsight) |
+| Resource Management - Imagebuilder | npm [1.0.0](https://www.npmjs.com/package/@azure/arm-imagebuilder/v/1.0.0) |  | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-imagebuilder_1.0.0/sdk/imagebuilder/arm-imagebuilder/) |
 | Resource Management - IoT Hub | npm [6.0.0](https://www.npmjs.com/package/@azure/arm-iothub/v/6.0.0) | [docs](/javascript/api/overview/azure/arm-iothub-readme) | GitHub [6.0.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/iothub/arm-iothub) |
 | Resource Management - Key Vault | npm [1.3.2](https://www.npmjs.com/package/@azure/arm-keyvault/v/1.3.2)<br>npm [2.0.0-beta.1](https://www.npmjs.com/package/@azure/arm-keyvault/v/2.0.0-beta.1) | [docs](/javascript/api/overview/azure/arm-keyvault-readme) | GitHub [1.3.2](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/keyvault/arm-keyvault) |
 | Resource Management - Links | npm [2.0.0](https://www.npmjs.com/package/@azure/arm-links/v/2.0.0) | [docs](/javascript/api/overview/azure/arm-links-readme) | GitHub [2.0.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/links/arm-links) |
@@ -143,7 +145,7 @@
 | @autorest/codemodel | npm [4.17.2](https://www.npmjs.com/package/@autorest/codemodel/v/4.17.2) |  |  |
 | @autorest/common | npm [1.4.1](https://www.npmjs.com/package/@autorest/common/v/1.4.1) |  |  |
 | @autorest/configuration | npm [1.8.2](https://www.npmjs.com/package/@autorest/configuration/v/1.8.2) |  |  |
-| @autorest/csharp | npm [3.0.0-beta.20220106.2](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20220106.2) |  |  |
+| @autorest/csharp | npm [3.0.0-beta.20220107.2](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20220107.2) |  |  |
 | @autorest/csharp-v3 | npm [3.0.0-beta.20201217.1](https://www.npmjs.com/package/@autorest/csharp-v3/v/3.0.0-beta.20201217.1) |  |  |
 | @autorest/extension-base | npm [3.4.4](https://www.npmjs.com/package/@autorest/extension-base/v/3.4.4) |  |  |
 | @autorest/fixer | npm [1.0.0](https://www.npmjs.com/package/@autorest/fixer/v/1.0.0) |  |  |
@@ -156,7 +158,6 @@
 | @azure/arm-authorization-profile-2020-09-01-hybrid | npm [1.1.1](https://www.npmjs.com/package/@azure/arm-authorization-profile-2020-09-01-hybrid/v/1.1.1) |  |  |
 | @azure/arm-commerce-profile-2020-09-01-hybrid | npm [1.1.1](https://www.npmjs.com/package/@azure/arm-commerce-profile-2020-09-01-hybrid/v/1.1.1) |  |  |
 | @azure/arm-compute-profile-2020-09-01-hybrid | npm [1.1.0](https://www.npmjs.com/package/@azure/arm-compute-profile-2020-09-01-hybrid/v/1.1.0) |  |  |
-| @azure/arm-confluent | npm [2.2.0](https://www.npmjs.com/package/@azure/arm-confluent/v/2.2.0) |  |  |
 | @azure/arm-databoxedge-profile-2020-09-01-hybrid | npm [1.1.1](https://www.npmjs.com/package/@azure/arm-databoxedge-profile-2020-09-01-hybrid/v/1.1.1) |  |  |
 | @azure/arm-datadog | npm [2.1.1](https://www.npmjs.com/package/@azure/arm-datadog/v/2.1.1) |  |  |
 | @azure/arm-dns-profile-2020-09-01-hybrid | npm [1.1.1](https://www.npmjs.com/package/@azure/arm-dns-profile-2020-09-01-hybrid/v/1.1.1) |  |  |
@@ -201,7 +202,7 @@
 | @azure-tools/cadl-vs | npm [0.3.0](https://www.npmjs.com/package/@azure-tools/cadl-vs/v/0.3.0) |  |  |
 | @azure-tools/json | npm [1.2.1](https://www.npmjs.com/package/@azure-tools/json/v/1.2.1) |  |  |
 | @azure-tools/jsonschema | npm [1.1.0](https://www.npmjs.com/package/@azure-tools/jsonschema/v/1.1.0) |  |  |
-| @azure-tools/js-sdk-release-tools | npm [1.0.5](https://www.npmjs.com/package/@azure-tools/js-sdk-release-tools/v/1.0.5) |  |  |
+| @azure-tools/js-sdk-release-tools | npm [1.0.6](https://www.npmjs.com/package/@azure-tools/js-sdk-release-tools/v/1.0.6) |  |  |
 | @azure-tools/mock-service-host | npm [0.1.8](https://www.npmjs.com/package/@azure-tools/mock-service-host/v/0.1.8) |  |  |
 | @azure-tools/oav-traffic-converter | npm [0.1.0](https://www.npmjs.com/package/@azure-tools/oav-traffic-converter/v/0.1.0) |  |  |
 | @azure-tools/prettier-plugin-adl | npm [0.1.4](https://www.npmjs.com/package/@azure-tools/prettier-plugin-adl/v/0.1.4) |  |  |
@@ -388,6 +389,7 @@
 | Web PubSub CloudEvents Handlers for Express | npm [1.0.0](https://www.npmjs.com/package/@azure/web-pubsub-express/v/1.0.0) | [docs](/javascript/api/overview/azure/web-pubsub-express-readme) | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/web-pubsub-express_1.0.0/sdk/web-pubsub/web-pubsub-express/) |
 | Web Search | npm [3.0.1](https://www.npmjs.com/package/@azure/cognitiveservices-websearch/v/3.0.1) |  | GitHub [3.0.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/cognitiveservices/cognitiveservices-websearch) |
 | @azure/arm-changeanalysis | npm [2.0.0](https://www.npmjs.com/package/@azure/arm-changeanalysis/v/2.0.0) | [docs](/javascript/api/overview/azure/arm-changeanalysis-readme) | GitHub [2.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-changeanalysis_2.0.0/sdk/changeanalysis/arm-changeanalysis/) |
+| @azure/arm-confluent | npm [2.2.0](https://www.npmjs.com/package/@azure/arm-confluent/v/2.2.0)<br>npm [3.0.0-beta.1](https://www.npmjs.com/package/@azure/arm-confluent/v/3.0.0-beta.1) |  | GitHub [2.2.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-confluent_2.2.0/sdk/confluent/arm-confluent/)<br>GitHub [3.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-confluent_3.0.0-beta.1/sdk/confluent/arm-confluent/) |
 | @azure/arm-datalake-analytics | npm [1.1.1](https://www.npmjs.com/package/@azure/arm-datalake-analytics/v/1.1.1)<br>npm [2.0.0-beta.2](https://www.npmjs.com/package/@azure/arm-datalake-analytics/v/2.0.0-beta.2) | [docs](/javascript/api/overview/azure/arm-datalake-analytics-readme) | GitHub [1.1.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/datalake-analytics/arm-datalake-analytics) |
 | @azure/arm-servicefabric | npm [2.0.0](https://www.npmjs.com/package/@azure/arm-servicefabric/v/2.0.0) | [docs](/javascript/api/overview/azure/arm-servicefabric-readme) | GitHub [2.0.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/servicefabric/arm-servicefabric) |
 | Data Lake Storage | npm [3.1.2-preview](https://www.npmjs.com/package/azure-arm-datalake-store/v/3.1.2-preview) |  |  |
@@ -445,6 +447,7 @@
 | Resource Management - HDInsight | npm [1.1.0](https://www.npmjs.com/package/@azure/arm-hdinsight/v/1.1.0) | [docs](/javascript/api/overview/azure/arm-hdinsight-readme) | GitHub [1.1.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/hdinsight/arm-hdinsight) |
 | Resource Management - Health Care APIs | npm [1.1.1](https://www.npmjs.com/package/@azure/arm-healthcareapis/v/1.1.1) |  |  |
 | Resource Management - Hybrid Compute | npm [2.1.1](https://www.npmjs.com/package/@azure/arm-hybridcompute/v/2.1.1) |  |  |
+| Resource Management - Imagebuilder | npm [1.0.0](https://www.npmjs.com/package/@azure/arm-imagebuilder/v/1.0.0) |  | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-imagebuilder_1.0.0/sdk/imagebuilder/arm-imagebuilder/) |
 | Resource Management - IoT Central | npm [5.0.0](https://www.npmjs.com/package/@azure/arm-iotcentral/v/5.0.0) |  | GitHub [5.0.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/iotcentral/arm-iotcentral) |
 | Resource Management - IoT Hub | npm [6.0.0](https://www.npmjs.com/package/@azure/arm-iothub/v/6.0.0) | [docs](/javascript/api/overview/azure/arm-iothub-readme) | GitHub [6.0.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/iothub/arm-iothub) |
 | Resource Management - IoT Spaces | npm [1.2.1](https://www.npmjs.com/package/@azure/arm-iotspaces/v/1.2.1) |  | GitHub [1.2.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/iotspaces/arm-iotspaces) |
