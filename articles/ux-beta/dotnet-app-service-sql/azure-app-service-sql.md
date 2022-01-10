@@ -281,21 +281,21 @@ From the main page in Kudu, you can access information about the application-hos
 
 Azure App Service captures messages logged to the console to assist you in diagnosing issues with your application. The sample app outputs console log messages in each of its endpoints to demonstrate this capability. The contents of the App Service diagnostic logs can be reviewed in the Azure portal, VS Code, or using the Azure CLI.
 
-### [Azure portal](#tab/azure-portal)
+### [Azure portal](#tab/azure-portal-logs)
 
 | Instructions    | Screenshot |
 |:----------------|-----------:|
 | [!INCLUDE [Stream logs from Azure portal 1](<./includes/stream-logs/azportal-stream-logs-01.md>)] | :::image type="content" source="./media/azportal-stream-logs-1-240px.png" alt-text="A screenshot showing the location of the Azure Tool icon in Visual Studio Code." lightbox="./media/azportal-stream-logs-1.png"::: |
 | [!INCLUDE [Stream logs from Azure portal 2](<./includes/stream-logs/azportal-stream-logs-02.md>)] | :::image type="content" source="./media/azportal-stream-logs-2-240px.png" alt-text="A screenshot showing how you deploy an application to Azure by right-clicking on a web app in VS Code and selecting deploy from the context menu." lightbox="./media/azportal-stream-logs-2.png"::: |
 
-### [VS Code](#tab/vscode)
+### [VS Code](#tab/vscode-logs)
 
 | Instructions    | Screenshot |
 |:----------------|-----------:|
 | [!INCLUDE [Stream logs from VS Code 1](<./includes/stream-logs/vscode-stream-logs-01.md>)] | :::image type="content" source="./media/vscode-stream-logs-1-240px.png" alt-text="A screenshot showing the location of the Azure Tool icon in Visual Studio Code." lightbox="./media/vscode-stream-logs-1.png"::: |
 | [!INCLUDE [Stream logs from VS Code 2](<./includes/stream-logs/vscode-stream-logs-02.md>)] | :::image type="content" source="./media/vscode-stream-logs-2-240px.png" alt-text="A screenshot showing how you deploy an application to Azure by right-clicking on a web app in VS Code and selecting deploy from the context menu." lightbox="./media/vscode-stream-logs-2.png"::: |
 
-### [Azure CLI](#tab/azure-cli)
+### [Azure CLI](#tab/azure-cli-logs)
 
 You can configure Azure App Service to output logs to the App Service filesystem using the [az webapp log config](/cli/azure/webapp/log#az_webapp_log_config) command.
 
@@ -331,7 +331,7 @@ Refresh the home page in the app or attempt other requests to generate some log 
 
 When you are finished, you can delete all of the resources from Azure by deleting the resource group for the application. This will delete all of the resources contained inside the group.
 
-### [Azure portal](#tab/azure-portal)
+### [Azure portal](#tab/azure-portal-resources)
 
 Follow these steps while signed-in to the Azure portal to delete a resource group.
 
@@ -341,14 +341,14 @@ Follow these steps while signed-in to the Azure portal to delete a resource grou
 | [!INCLUDE [Remove resource group Azure portal 2](<./includes/clean-resources/azure-portal-2.md>)] | :::image type="content" source="./media/azportal-remove-resource-group-2-240px.png" alt-text="A screenshot showing the location of the Delete Resource Group button in the Azure portal." lightbox="./media/azportal-remove-resource-group-2.png"::: |
 | [!INCLUDE [Remove resource group Azure portal 3](<./includes/clean-resources/azure-portal-3.md>)] | :::image type="content" source="./media/azportal-remove-resource-group-3-240px.png" alt-text="A screenshot of the confirmation dialog for deleting a resource group in the Azure portal." lightbox="./media/azportal-remove-resource-group-3.png"::: |
 
-### [VS Code](#tab/vscode)
+### [VS Code](#tab/vscode-resources)
 
 | Instructions    | Screenshot |
 |:----------------|-----------:|
 | [!INCLUDE [Remove resource group VS Code 1](<./includes/clean-resources/vscode-1.md>)] | :::image type="content" source="./media/vscode-remove-resource-group-1-240px.png" alt-text="A screenshot showing how to delete a resource group in VS Code using the Azure Tools extention." lightbox="./media/vscode-remove-resource-group-1.png"::: |
 | [!INCLUDE [Remove resource group VS Code 2](<./includes/clean-resources/vscode-2.md>)] | :::image type="content" source="./media/vscode-remove-resource-group-2-240px.png" alt-text="A screenshot of the confirmation dialog for deleting a resource group from VS Code." lightbox="./media/vscode-remove-resource-group-2.png"::: |
 
-### [Azure CLI](#tab/azure-cli)
+### [Azure CLI](#tab/azure-cli-resources)
 
 You can delete the resource group you created by using the [az group delete](/cli/azure/group#az_group_delete) command.  This will delete all of the resources contained inside of it.
 
