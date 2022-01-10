@@ -1,9 +1,8 @@
 ---
 title: "What's new for JavaScript docs"
 description: "What's new in JavaScript docs in the Developer Center"
-ms.topic: conceptual
-ms.date: 10/07/2021
-
+ms.topic: how-to
+ms.date: 12/17/2021
 
 ---
 
@@ -11,7 +10,42 @@ ms.date: 10/07/2021
 
 Find new and updated content for JavaScript and TypeScript developers.
 
+## 2021 December
+
+### New in December
+
+|Name|Description|
+|---------------------------------------|--|
+|[Key Vault Certificates quickstart](/azure/key-vault/certificates/quick-create-node)|In this tutorial, you set up a Node.js application in an Azure Virtual Machine to read information from Azure Key Vault by using managed identities for Azure resources. <br><br>Learn how to:<br>* Create a key vault<br>* Store a secret in Key Vault<br> * Create an Azure Linux virtual machine<br> * Enable a [managed identity](/azure/active-directory/managed-identities-azure-resources/overview) for the virtual machine<br> * Grant the required permissions for the console application to read data from Key Vault<br> * Retrieve a secret from Key Vault|
+
+### Updates in December
+
+|Name|Description|
+|---------------------------------------|--|
+|[Key Vault Certificates quickstart](/azure/key-vault/certificates/quick-create-node)|Updated article.|
+|[Key Vault Keys quickstart](/azure/key-vault/keys/quick-create-node)|Updated article.|
+
+
+## 2021 November
+
+### Updates in November
+
+|Name|Description|
+|---------------------------------------|--|
+|[Virtual machine web app](tutorial/nodejs-virtual-machine-vm/introduction.md)|Updated article series.|
+|[Key Vault Secrets quickstart](/azure/key-vault/secrets/quick-create-node)|Updated article.|
+
+
 ## 2021 October
+
+### New in October
+
+|Name|Description|
+|---------------------------------------|--|
+|[Use Azure SDKs](core/use-azure-sdk.md)|To programmatically access your Azure services, use the Azure SDKs for JavaScript. Typically, these SDKs are scoped with the @azure npm package scope published by azure-sdk. Learn how to:<ul><li>[provide authentication credentials](core/use-azure-sdk.md#provide-authentication-credentials)<li>[page through asynchronous results](core/use-azure-sdk.md#asynchronous-paging-of-results)<li>[wait for long running asynchronous tasks](core/use-azure-sdk.md#long-running-operations)|
+|[Create virtual machine](how-to/with-azure-sdk/create-manage-virtual-machine.md)</ul>|An Azure Virtual machine requires several resources to support the virtual machine<ul><li>Resource group<li>Virtual machines<li>Storage<li>Virtual network<li>Network interface<li>Public IP address</ul><br>The best way to manage those resources is to create all the resources in a single resource group. The script creates the resource group and postpends a random number to make sure the resource group is unique, regardless of how many times you use the script.|
+|[Manage virtual machines](how-to/with-azure-sdk/stop-start-virtual-machine.md)|An Azure Virtual machine programmatically managing your VM with the **@azure/arm-compute** SDK:<ul><li>Stop<li>Start<li>Get status<li>List details</ul>|
+|[List recent operations](how-to/with-azure-sdk/list-resource-operation-history.md)|Use the Azure Monitor SDK to list the most recent resource operations in your subscription. Operations can be filtered by a date range (within the last 10 days), and a resource group. Examples of operations can include:<ul><li>Resource creation<li>Stopping<li>Starting a resource<li>Retrieve a connection string|
 
 ### Updates in October
 
@@ -90,7 +124,7 @@ Find new and updated content for JavaScript and TypeScript developers.
 |---------------------------------------|--|
 |[Logging, metrics, and telemetry in Azure](./how-to/node-sdk-logging.md)|Web app and Function app logging information.|
 |[Tutorial: Create a function with Visual Studio Code](./tutorial/vscode-function-app-http-trigger/tutorial-vscode-serverless-node-install.md)|Added streaming logs in VS Code, and querying Kusto log in Azure portal.|
-|[Tools update](./node-azure-tools.md)|Added several links to Microsoft or Azure specific tools. Added Azure service specific tips.|
+|[Tools update](./node-azure-tools.md)|Added several links to Microsoft or Azure specific tools. Added Azure service-specific tips.|
 |[Add Microsoft login button to a single page application for authentication](./tutorial/single-page-application-azure-login-button-sdk-msal.md#7-store-application-specific-user-information)|Added Microsoft Identity provider and Active Directory app ID information. |
 |Locally develop with the CosmosDB emulator|For [SQL API](./how-to/with-database/use-sql-api-as-cosmos-db.md#locally-develop-with-the-cosmosdb-emulator), [MongoDB](./how-to/with-database/use-mongodb-as-cosmosdb.md#locally-develop-with-the-cosmosdb-emulator), and [Cassandra](./how-to/with-database/use-cassandra-as-cosmos-db.md#locally-develop-with-the-cosmosdb-emulator). |
 
@@ -137,8 +171,8 @@ Find new and updated content for JavaScript and TypeScript developers.
 |---------------------------------------|--|
 |[How to use Cassandra on Azure Cosmos DB](./how-to/with-database/use-cassandra-as-cosmos-db.md)|To create, move, or use a Cassandra DB database to Azure, you need a Cosmos DB resource. Learn how to create the resource and use your database. |
 |[How to use MongoDB on Azure Cosmos DB](./how-to/with-database/use-mongodb-as-cosmosdb.md)|To create, move, or use a mongoDB database to Azure, you need a Cosmos DB resource. Learn how to create the resource and use your database. |
-|[How to use MariaDb on Azure](./how-to/with-database/use-mariadb.md)|To create, move, or use a MariaDB database to Azure, you need a **Azure Database for MariaDB** resource. Learn how to create the resource and use your database.|
-|[How to use MySql on Azure](./how-to/with-database/use-mysql-db.md)|To create, move, or use a MySQL database to Azure, you need a **Azure Database for MySQL** resource. Learn how to create the resource and use your database.|
+|[How to use MariaDb on Azure](./how-to/with-database/use-mysql-mariadb.md)|To create, move, or use a MariaDB database to Azure, you need a **Azure Database for MariaDB** resource. Learn how to create the resource and use your database.|
+|[How to use MySql on Azure](./how-to/with-database/use-mysql-mariadb.md)|To create, move, or use a MySQL database to Azure, you need a **Azure Database for MySQL** resource. Learn how to create the resource and use your database.|
 |[How to use PostgreSQL on Azure](./how-to/with-database/use-postgresql-db.md)|To create, move, or use a PostgreSQL database to Azure, you need a **Azure Database for PostgreSQL server** resource. Learn how to create the resource and use your database.|
 |[Develop a JavaScript application for Azure Cache for **Redis*](.//how-to/with-database/use-azure-cache-for-redis-db.md)|To create, move, or use a **Redis** database to Azure, you need an Azure Cache for Redis resource. Learn how to create the resource and use your database.|
 |[Develop a JavaScript application for Cosmos DB with SQL API](.//how-to/with-database/use-sql-api-as-cosmos-db.md)|To create or use **Cosmos DB** with the SQL API use a Cosmos DB resource. Learn how to create the Cosmos resource and use your database.|
@@ -174,14 +208,14 @@ Find new and updated content for JavaScript and TypeScript developers.
 |---------------------------------------|--|
 |[What's new with Developer Advocates](whats-new-developer-advocacy.md)|Blogs, videos, Learn modules|
 |[Tutorial: Convert text to speech](./tutorial/convert-text-to-speech-cognitive-services.md)|In this tutorial, add Cognitive Services Speech to an existing Express.js app to add conversion from text to speech using the Cognitive Services Speech service. Converting text to speech allows you to provide audio without the cost of manually generating the audio.|
-|How-to guide with Azure CLI|* [Create and use container registry](./how-to/with-azure-cli/create-container-registry-resource.md)<br>* [Configuring a custom domain name](./how-to/with-azure-cli/configure-app-service-custom-domain-name.md)<br>* [Create and use MongoDB on Azure with Cosmos DB](./how-to/with-azure-cli/create-mongodb-cosmosdb.md) |
+|How-to guide with Azure CLI|* [Create and use container registry](./how-to/with-azure-cli/create-container-registry-resource.md)<br>* [Configuring a custom domain name](/azure/app-service/app-service-web-tutorial-custom-domain?tabs=a%2Cazurecli)<br>* [Create and use MongoDB on Azure with Cosmos DB](./how-to/with-azure-cli/create-mongodb-cosmosdb.md) |
 |How-to guide with Visual Studio Code|* [Develop and debug Node.js](./how-to/with-visual-studio-code/install-run-debug-nodejs.md)<br>* [Clone and use a GitHub repository](./how-to/with-visual-studio-code/clone-github-repository.md)<br>* [Create a container image from your local JavaScript project](./how-to/with-visual-studio-code/containerize-local-project.md)|
 
 ### Updated in January
 
 |Name|Notes|
 |---------------------------------------|--|
-|[**For beginners**](learn-azure-javascript.md#getting-started)|Various collections of online materials to get started with JavaScript, Node.js, web development and other areas of interest to JavaScript developers.|
+|[**For beginners**](learn-azure-javascript.md)|Various collections of online materials to get started with JavaScript, Node.js, web development and other areas of interest to JavaScript developers.|
 |[Top tasks for JavaScript developers](how-to/common-javascript-tasks.md)|Find an example of your current tasks.|
 |[Configure Visual Studio Code launch file](./how-to/configure-web-app-settings.md#configure-browser-for-cors-to-connect-with-server)|If you need to connect to your own server, and need to ignore CORS security while running and debugging with the client locally, the recommended solution is to configure this setting in the Visual Studio Code debug file, `launch.json`, to pass settings to the browser to disable the security.|
 
@@ -215,7 +249,7 @@ Welcome to what's new in the JavaScript docs from November 2020. This article li
 
 |Name|Notes|
 |---------------------------------------|--|
-|[Tutorial: Build and deploy a React Static Web app to Azure](./tutorial/static-web-app/introduction.md)|In this tutorial, build and deploy a React client application to an Azure Static Web App with a GitHub action.<br>The create-react-app allows you to analyze an image with Cognitive Services Computer Vision. The GitHub action starts when a push to a specific remote branch happens, building the React (create-react-app) client, and moving the resulting files to your Azure Static Web app resource.|
+|[Tutorial: Build and deploy a React Static Web app to Azure](./tutorial/static-web-app-image-analysis.md)|In this tutorial, build and deploy a React client application to an Azure Static Web App with a GitHub action.<br>The create-react-app allows you to analyze an image with Cognitive Services Computer Vision. The GitHub action starts when a push to a specific remote branch happens, building the React (create-react-app) client, and moving the resulting files to your Azure Static Web app resource.|
 |[Tutorial: Deploy app to Linux virtual machine](./tutorial/nodejs-virtual-machine-vm/introduction.md)|In this tutorial, create a Linux virtual machine (VM) for an Express.js app. The VM is configured with a cloud-init configuration file and includes NGINX and a GitHub repository for an Express.js app. Once the VM is running, you can connect to the VM with SSH, change the web app to including trace logging, and view the public Express.js server app in a web browser.|
 
 ### What's updated

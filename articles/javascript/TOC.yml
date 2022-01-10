@@ -5,28 +5,36 @@
     href: whats-new-docs.md
   - name: What's new with Developer Advocates
     href: whats-new-developer-advocacy.md  
-  - name: Top tasks for developers
-    href: how-to/common-javascript-tasks.md    
   - name: Get started on Azure with JavaScript
     items:
-    - name: What is Azure for JavaScript developers?
+    - name: What is Azure?
       href: core/what-is-azure-for-javascript-development.md
     - name: Install Node.js
       href: core/install-nodejs-develop-azure-sdk-project.md
-    - name: Azure tools for JavaScript developers
+    - name: Recommended Tools
       href: node-azure-tools.md
-    - name: Set up your dev environment
+    - name: Development environment
       href: core/configure-local-development-environment.md
-    - name: Authenticate to Azure
-      href: core/nodejs-sdk-azure-authenticate.md
   - name: How-To guides
     items:
-      - name: Azure Tasks for JavaScript developers
-        href: how-to/common-javascript-tasks.md
+      - name: Top developer tasks
+        href: how-to/common-javascript-tasks.md    
       - name: With Azure SDKs
         items:
-          - name: Set up environment
+          - name: Azure SDK  
+            href: core/use-azure-sdk.md      
+          - name: Authenticate to Azure
             href: core/nodejs-sdk-azure-authenticate.md
+          - name: "Account: List subscriptions"
+            href: core/nodejs-sdk-azure-authenticate.md?tabs=azure-sdk-for-javascript.md#3-list-azure-subscriptions-with-service-principal
+          - name: "Account: View subscription history"
+            href: how-to/with-azure-sdk/list-resource-operation-history.md 
+          - name: "Key Vault: Get Secret"       
+            href: how-to/with-web-app/use-secret-environment-variables.md#get-secret-from-key-vault-with-javascript                       
+          - name: "VM: Create and delete VM"
+            href: how-to/with-azure-sdk/create-manage-virtual-machine.md
+          - name: "VM: Manage"
+            href: how-to/with-azure-sdk/stop-start-virtual-machine.md
       - name: With web apps
         items:
           - name: Select hosting service
@@ -39,7 +47,9 @@
               href: how-to/configure-web-app-settings.md
             - name: Create secure domain name
               href: how-to/add-custom-domain-to-web-app.md
-            - name: Use Key Vault secrets in Express.js
+            - name: Configure domain name
+              href: /azure/app-service/app-service-web-tutorial-custom-domain?tabs=a%2Cazurecli              
+            - name: Use Key Vault secrets
               href: how-to/with-web-app/use-secret-environment-variables.md
           - name: Azure Static Web Apps
             items: 
@@ -68,21 +78,7 @@
             - name: "Upload image to Storage"
               href: tutorial/browser-file-upload-azure-storage-blob.md
             - name: Add image analysis
-              items: 
-                - name: 1. Introduction and prerequisites
-                  href: tutorial/static-web-app/introduction.md
-                - name: 2. Application architecture
-                  href: tutorial/static-web-app/application-architecture.md
-                - name: 3. Download and run app locally
-                  href: tutorial/static-web-app/run-the-react-cognitive-services-image-analyzer-app-locally.md
-                - name: 4. Create Computer Vision resource
-                  href: tutorial/static-web-app/create-computer-vision-resource-use-in-code.md
-                - name: 5. Build and deploy Static web app
-                  href: tutorial/static-web-app/create-static-web-app-visual-studio-code-extension.md
-                - name: 6. Review Computer Vision React code
-                  href: tutorial/static-web-app/add-computer-vision-react-app.md
-                - name: 7. Clean up resources
-                  href: tutorial/static-web-app/clean-up-resources.md              
+              href: tutorial/static-web-app-image-analysis.md   
             - name: "Add a Login button for Microsoft Identity provider" 
               href: tutorial/single-page-application-azure-login-button-sdk-msal.md
             - name: Use GraphQL with trivia game
@@ -179,10 +175,10 @@
                   href: tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-07.md
                 - name: Clean up resources
                   href: tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-08.md
-            - name: "Deno with Azure CLI"
-              href: tutorial/deploy-deno-app-azure-app-service-azure-cli.md
-            - name: "Deploy container on a VM"
-              href: tutorial/nodejs-virtual-machine-vm/introduction.md
+            - name: Create container registry
+              href: how-to/with-azure-cli/create-container-registry-resource.md
+            - name: Create container from local project
+              href: how-to/with-visual-studio-code/containerize-local-project.md              
           - name: Virtual machine web apps
             items:
               - name: "Express.js"
@@ -231,18 +227,13 @@
             href: how-to/with-visual-studio-code/install-run-debug-nodejs.md
           - name: Clone a GitHub repo for changes
             href: how-to/with-visual-studio-code/clone-github-repository.md
-          - name: Create container from local project
-            href: how-to/with-visual-studio-code/containerize-local-project.md
           - name: Create an Azure database
             href: how-to/with-visual-studio-code/create-azure-database.md
       - name: With Azure CLI
         items:
           - name: Get started
-            href: core/automate-tasks-with-azure-cli.md          
-          - name: Container registry
-            href: how-to/with-azure-cli/create-container-registry-resource.md
-          - name: Configure web app domain name
-            href: how-to/with-azure-cli/configure-app-service-custom-domain-name.md
+            href: core/automate-tasks-with-azure-cli.md
+            displayName: az login --identity, az login --service-principal, az login -u, az group create, az staticwebapp create, az staticwebapp delete, az storage account create, az functionapp create, az functionapp deployment slot create, az functionapp deployment source config, az functionapp deployment slot swap, az functionapp delete               
           - name: Cassandra Cosmos DB resource
             href: how-to/with-azure-cli/create-cassandra-db.md
           - name: Cache for Redis

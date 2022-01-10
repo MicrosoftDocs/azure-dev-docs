@@ -49,7 +49,7 @@
     - name: Add Offline Sync
       href: quickstarts/xamarin-ios/offline.md
     - name: Add Authentication
-      href: quickstarts/xamarin-ios/authentication.md         
+      href: quickstarts/xamarin-ios/authentication.md
 - name: How to
   items:
   - name: Authentication
@@ -64,6 +64,8 @@
       href: howto/client/dotnet.md
   - name: Server SDK
     items:
+    - name: ASP.NET Core
+      href: howto/server/dotnet-core.md
     - name: ASP.NET framework
       href: howto/server/dotnet-framework.md
     - name: Node.js

@@ -58,7 +58,7 @@ Azure CLI has an installer that makes its commands executable in all four shell 
 
 Azure PowerShell is set of cmdlets packaged as a PowerShell module named `Az`; not an executable. Windows PowerShell or PowerShell must be used to install the `Az` module. 
 
-Windows PowerShell is the standard scripting shell that comes preinstalled with most Windows operating systems. PowerShell is a stand-alone installation that uses .NET Core as it's run time, allowing allowing it to be installed on macOS, Linux, and Windows.
+Windows PowerShell is the standard scripting shell that comes preinstalled with most Windows operating systems. PowerShell is a stand-alone installation that uses .NET Core as it's run time, allowing it to be installed on macOS, Linux, and Windows.
 
 **Key points:**
 
@@ -72,7 +72,7 @@ Azure Cloud Shell is a hosted shell environment that runs on an Ubuntu container
 
 Cloud Shell provides two shell environments: Bash (with Azure CLI preinstalled) and PowerShell (with Azure PowerShell preinstalled). A dropdown list at the top of the Cloud Shell window allows you to easily switch between the two environments.
 
-Cloud Shell is accessible in a web browser and has integrations for [Windows Terminal](https://channel9.msdn.com/Shows/IT-Ops-Talk/Azure-Cloud-Shell-in-the-Windows-Terminal) and [Visual Studio Code](https://azure.microsoft.com/blog/cloudshelleditor/).
+Cloud Shell is accessible in a web browser and has integrations for [Windows Terminal](/Shows/IT-Ops-Talk/Azure-Cloud-Shell-in-the-Windows-Terminal) and [Visual Studio Code](https://azure.microsoft.com/blog/cloudshelleditor/).
 
 ![Azure CloudShell Bash and PowerShell environments](./media/choosing-the-right-azure-tool/azure-cloud-shell-bash-powershell.png)
 

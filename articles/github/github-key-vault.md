@@ -2,7 +2,7 @@
 title: Quickstart -  Use Azure Key Vault secrets in GitHub Actions workflows
 description: Use Key Vault secrets in GitHub Actions to automate your software development workflows
 author: juliakm
-ms.custom: github-actions-azure
+ms.custom: github-actions-azure, mode-portal
 ms.author: jukullam
 ms.date: 02/04/2021
 ms.service: key-vault

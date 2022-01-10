@@ -21,6 +21,10 @@ landingContent:
         links:
           - text: About Terraform on Azure
             url: overview.md
+      - linkListType: reference
+        links:
+          - text: AzureRM 2.0 provider versions 
+            url: provider-versions-arm20.md
       - linkListType: architecture
         links:
           - text: Terraform Azure Provider
