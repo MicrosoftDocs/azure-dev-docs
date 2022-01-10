@@ -1,6 +1,34 @@
 {
     "redirections": [
       {
+        "source_path": "articles/javascript/how-to/with-azure-cli/create-postgresql-server-resource.md",
+        "redirect_url": "/azure/developer/javascript/how-to/with-database/use-postgresql-db"
+      },       
+      {
+        "source_path": "articles/javascript/how-to/with-azure-cli/create-mysql-db.md",
+        "redirect_url": "/azure/developer/javascript/how-to/with-database/use-mysql-mariadb?tabs=MySQL"
+      },      
+      {
+        "source_path": "articles/javascript/how-to/with-azure-cli/create-mariadb.md",
+        "redirect_url": "/azure/developer/javascript/how-to/with-database/use-mysql-mariadb?tabs=MySQL"
+      },
+      {
+        "source_path": "articles/javascript/how-to/with-azure-cli/create-cosmos-sql-api-resource.md",
+        "redirect_url": "/azure/developer/javascript/how-to/with-database/use-sql-api-as-cosmos-db"
+      },
+      {
+        "source_path": "articles/javascript/how-to/with-azure-cli/create-cassandra-db.md",
+        "redirect_url": "/azure/developer/javascript/how-to/with-database/use-cassandra-as-cosmos-db"
+      },
+      {
+        "source_path": "articles/javascript/how-to/with-azure-cli/create-cache-for-redis-db.md",
+        "redirect_url": "/azure/developer/javascript/how-to/with-database/use-azure-cache-for-redis-db"
+      },
+      {
+        "source_path": "articles/javascript/how-to/with-azure-cli/create-mongodb-cosmosdb.md",
+        "redirect_url": "/azure/developer/javascript/how-to/with-database/use-mongodb-as-cosmosdb?tabs=azure-cli%2Cmongodb"
+      },
+      {
         "source_path": "articles/javascript/how-to/with-azure-cli/configure-app-service-custom-domain-name.md",
         "redirect_url": "/azure/app-service/app-service-web-tutorial-custom-domain"
       },      
