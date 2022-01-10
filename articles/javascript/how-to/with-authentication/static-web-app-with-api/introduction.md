@@ -3,13 +3,13 @@ title: "1: Add MSAL to React introduction"
 titleSuffix: Azure Developer Center
 description: In this article series, learn to add the Microsoft Identity Provider SDK (MSAL.js) to a React client app, and integrate with an Azure Function API.
 ms.topic: how-to
-ms.date: 07/12/2021
+ms.date: 10/19/2021
 ms.custom: devx-track-js
 ---
 
 # How to authenticate users with Microsoft Authentication Library for React 
 
-In this article series, learn how to authenticate users with the Microsoft Authentication Library for React (MSAL React) and call an Azure service on behalf of the user. 
+In this article series, learn how to authenticate users with the Microsoft Authentication Library for React (MSAL React) and call an Azure service **[on behalf of (OBO)](/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow)** the user. 
 
 If your server-side app doesn't need to call into an Azure service _on behalf of an authenticated user_,  then your React client app wouldn't _need_ to pass the user's access to token to the Azure Function app. 
 

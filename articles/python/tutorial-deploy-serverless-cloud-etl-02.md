@@ -56,7 +56,7 @@ Before you can begin the steps in this article, complete the tasks below:
 
 ## 1. Set up your dev environment
 
-If you haven't already, **follow all the instructions** on [Configure your local Python dev environment for Azure](/azure/developer/python/configure-local-development-environment).
+If you haven't already, **follow all the instructions** on [Configure your local Python dev environment for Azure](./configure-local-development-environment.md).
 
 * **Step 1:** Run [az login](/cli/azure/authenticate-azure-cli) to sign into Azure.
 
@@ -216,7 +216,7 @@ A storage account is created the same for ADLS Gen 2 as for Azure Blob Storage. 
 >[!NOTE]
 > It is very easy to turn a data lake into a data swamp. So, it is important to govern the data that resides in your data lake.
 >
-> [Azure Purview](/services/purview/#overview) is a unified data governance service that helps you manage and govern your on-premises, multi-cloud, and software-as-a-service (SaaS) data. Easily create a holistic, up-to-date map of your data landscape with automated data discovery, sensitive data classification, and end-to-end data lineage.
+> [Azure Purview](/azure/purview/) is a unified data governance service that helps you manage and govern your on-premises, multi-cloud, and software-as-a-service (SaaS) data. Easily create a holistic, up-to-date map of your data landscape with automated data discovery, sensitive data classification, and end-to-end data lineage.
 
 ### Configure Data Lake Storage structure
 
@@ -253,7 +253,7 @@ A better approach is to use an Azure Key Vault. Azure Key Vault is a centralized
 
 Create a new Azure Key Vault within your resource group.
 
-* **Step 1:** Run [az keyvault create](/cli/azure/keyvault/create) to create an Azure Key Vault.
+* **Step 1:** Run [az keyvault create](/cli/azure/keyvault#az_keyvault_create) to create an Azure Key Vault.
 
     ```azurecli
     key_vault_name='kv-cloudetl-demo'

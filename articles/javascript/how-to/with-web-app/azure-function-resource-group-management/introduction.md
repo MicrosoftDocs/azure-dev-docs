@@ -59,7 +59,7 @@ An Azure service principal provides access to Azure without having to use your p
 
 1. In a bash terminal, [sign in to the Azure CLI](/cli/azure/authenticate-azure-cli):
 
-    ```bash
+    ```azurecli
     az login
     ```
 1. Determine a service principal name format so you can easily find your service principal later. For example, several format ideas are:
@@ -70,8 +70,8 @@ An Azure service principal provides access to Azure without having to use your p
 
 1. In a bash terminal, create your service principal with [az ad sp create-for-rbac](/cli/azure/ad/sp#az_ad_sp_create_for_rbac): 
 
-    ```bash
-    az ad sp create-for-rbac --name YOUR-SERVICE-PRINCIPAL-NAME
+    ```azurecli
+    az ad sp create-for-rbac --name YOUR-SERVICE-PRINCIPAL-NAME --role Contributor
     ```
 1. Copy the entire output results to a temporary file. You will need these settings later.
 
@@ -89,7 +89,7 @@ An Azure service principal provides access to Azure without having to use your p
 
 1. In a bash terminal, get your subscriptions and find the subscription ID you want to use for this article series.
 
-    ```bash
+    ```azurecli
     az account list --output table
     ```
 

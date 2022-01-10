@@ -28,7 +28,7 @@ There are different kinds of data problems that can occur in any data processing
 
 If you haven't already, **follow all the instructions** and complete the following articles to set up your local and Azure dev environment:
 
-* [Configure your local Python dev environment for Azure](/azure/developer/python/configure-local-development-environment)
+* [Configure your local Python dev environment for Azure](./configure-local-development-environment.md)
 * [Create resources](tutorial-deploy-serverless-cloud-etl-02.md)
 * [Ingest relational data](tutorial-deploy-serverless-cloud-etl-03.md)
 

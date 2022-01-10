@@ -39,7 +39,7 @@ Use the `DefaultAzureCredential` to authenticate to Azure with one of the follow
 * [Option 2: Use a managed identity](#managed-identity)
 * [Option 3: Sign in with Azure CLI](#azureCLI)
 
-To learn more about the different credential types, see [credential types](/azure/developer/go/azure-sdk-authorization).
+To learn more about the different credential types, see [credential types](./azure-sdk-authorization.md).
 
 ### <span id="environment-variables"/> Option 1: Define environment variables
 
@@ -177,9 +177,8 @@ Create a new sample Go module named `azure-auth` to test authenticating to Azure
 1. Run [go get](https://golang.org/ref/mod#go-get) to download, build, and install the necessary Azure SDK for Go modules.
 
     ```bash
-    go get github.com/Azure/azure-sdk-for-go/sdk/azcore
-    go get github.com/Azure/azure-sdk-for-go/sdk/azidentity
-    go get github.com/Azure/azure-sdk-for-go/sdk/resources/armresources
+    go get "github.com/Azure/azure-sdk-for-go/sdk/azidentity"
+    go get "github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/resources/armresources"
     ```
 
 1. Create a file named `main.go` and insert the following code.
@@ -189,17 +188,15 @@ Create a new sample Go module named `azure-auth` to test authenticating to Azure
 
     // Import key modules.
     import (
-      "context"
       "log"
 
-      "github.com/Azure/azure-sdk-for-go/sdk/azcore"
       "github.com/Azure/azure-sdk-for-go/sdk/azidentity"
-      "github.com/Azure/azure-sdk-for-go/sdk/resources/armresources"
+      "github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/resources/armresources"
     )
 
     // Define key global variables.
     var (
-      subscriptionId = "<subscriptionId>"
+      subscriptionId = "<subscription ID>"
     )
 
     // Define the function to create a resource group.
@@ -211,7 +208,7 @@ Create a new sample Go module named `azure-auth` to test authenticating to Azure
       }
 
       // Azure SDK Azure Resource Management clients accept the credential as a parameter
-      client := armresources.NewResourcesClient(azcore.NewDefaultConnection(cred, nil), subscriptionId)
+      client := armresources.NewResourcesClient(subscriptionId, cred, nil)
 
       log.Printf("Authenticated to subscription", client)
     }

@@ -2,7 +2,7 @@
 title: "2-GitHub: Create GitHub repo"
 description: In this article, create a new GitHub repository (repo), then prepare your local development environment to use the repo for source control.
 ms.topic: how-to
-ms.date: 08/31/2021
+ms.date: 10/18/2021
 ms.custom: devx-track-js
 #intent: Create Express.js web app with easy auth configured. 
 ---
@@ -53,7 +53,7 @@ Configure the local directory to connect to the remote GitHub repository.
 1. Connect your local repo to your remote. Change the following command to use your account and repo name. 
    
    ```bash
-   git add remote origin https://github.com/YOUR-ACCOUNT/YOUR-REPO-NAME
+   git remote add origin https://github.com/YOUR-ACCOUNT/YOUR-REPO-NAME
    ```
 
    The name `origin` refers to your connection to this local repo and your specific remote repo.
