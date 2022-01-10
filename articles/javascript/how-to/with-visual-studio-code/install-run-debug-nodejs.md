@@ -2,7 +2,7 @@
 title: Develop Node.js with Visual Studio Code
 description: Learn the steps to developer and debug your JavaScript Node.js project with Visual Studio.
 ms.topic: how-to
-ms.date: 01/28/2021
+ms.date: 01/10/2022
 ms.custom: devx-track-js
 ---
 
