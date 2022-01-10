@@ -47,7 +47,9 @@
               href: how-to/configure-web-app-settings.md
             - name: Create secure domain name
               href: how-to/add-custom-domain-to-web-app.md
-            - name: Use Key Vault secrets in Express.js
+            - name: Configure domain name
+              href: /azure/app-service/app-service-web-tutorial-custom-domain?tabs=a%2Cazurecli              
+            - name: Use Key Vault secrets
               href: how-to/with-web-app/use-secret-environment-variables.md
           - name: Azure Static Web Apps
             items: 
@@ -173,6 +175,10 @@
                   href: tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-07.md
                 - name: Clean up resources
                   href: tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-08.md
+            - name: Create container registry
+              href: how-to/with-azure-cli/create-container-registry-resource.md
+            - name: Create container from local project
+              href: how-to/with-visual-studio-code/containerize-local-project.md              
           - name: Virtual machine web apps
             items:
               - name: "Express.js"
@@ -221,8 +227,6 @@
             href: how-to/with-visual-studio-code/install-run-debug-nodejs.md
           - name: Clone a GitHub repo for changes
             href: how-to/with-visual-studio-code/clone-github-repository.md
-          - name: Create container from local project
-            href: how-to/with-visual-studio-code/containerize-local-project.md
           - name: Create an Azure database
             href: how-to/with-visual-studio-code/create-azure-database.md
       - name: With Azure CLI
@@ -230,10 +234,6 @@
           - name: Get started
             href: core/automate-tasks-with-azure-cli.md
             displayName: az login --identity, az login --service-principal, az login -u, az group create, az staticwebapp create, az staticwebapp delete, az storage account create, az functionapp create, az functionapp deployment slot create, az functionapp deployment source config, az functionapp deployment slot swap, az functionapp delete               
-          - name: Container registry
-            href: how-to/with-azure-cli/create-container-registry-resource.md
-          - name: Configure web app domain name
-            href: how-to/with-azure-cli/configure-app-service-custom-domain-name.md
           - name: Cassandra Cosmos DB resource
             href: how-to/with-azure-cli/create-cassandra-db.md
           - name: Cache for Redis
