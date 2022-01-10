@@ -82,7 +82,11 @@ When using JBoss EAP on App Service, be sure to take the following notes into co
 
 ## Migration
 
-[!INCLUDE [java-redhat-migration-toolkit](includes/redhat-migration-toolkit.md)]
+### Red Hat Migration Toolkit for Apps
+
+The [Red Hat Migration Toolkit for Applications](https://marketplace.visualstudio.com/items?itemName=redhat.mta-vscode-extension) is a free extension for Visual Studio Code. This extension analyzes your application code and configuration to provide recommendations for migrating to the cloud from on-premises. For more information, see [Migration Toolkit for Applications overview](https://developers.redhat.com/products/mta/overview).
+
+The contents of this guide will help you address the other components of the migration journey, such as choosing the correct App Service Plan type, externalizing your session state, and using Azure to manage your EAP instances instead of the JBoss Management interface.
 
 [!INCLUDE [provision-azure-app-service-for-jboss-eap-runtime](includes/provision-azure-app-service-for-jboss-eap-runtime.md)]
 
