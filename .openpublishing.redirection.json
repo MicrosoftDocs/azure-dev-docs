@@ -1,6 +1,10 @@
 {
     "redirections": [
       {
+        "source_path": "articles/javascript/how-to/with-azure-cli/create-mongodb-cosmosdb.md",
+        "redirect_url": "/azure/developer/javascript/how-to/with-database/use-mongodb-as-cosmosdb?tabs=azure-cli%2Cmongodb"
+      },
+      {
         "source_path": "articles/javascript/how-to/with-azure-cli/configure-app-service-custom-domain-name.md",
         "redirect_url": "/azure/app-service/app-service-web-tutorial-custom-domain"
       },      
