@@ -140,6 +140,44 @@ If a setting like this appears in your application configuration, remove it. Azu
 
 Provision an Azure Spring Cloud instance in your Azure subscription. Then, provision an app for every service you're migrating. Don't include the Spring Cloud registry and configuration servers. Do include the Spring Cloud Gateway service. For instructions, see [Quickstart: Deploy your first application to Azure Spring Cloud](/azure/spring-cloud/quickstart).
 
+### Migrate a Spring Cloud app to run in Enterprise Tier
+
+For an existing Spring Cloud app, there are a few extra steps required to deploy and run it in Azure Spring Cloud Enterprise Tier. The following sections explain the detailed steps to update your app.
+
+#### VMware Tanzu components
+
+In Enterprise tier, Application Configuration Service is provided to support externalized configuration for your apps. Managed Spring Cloud Config Server isn't available in Enterprise tier and is only available in Standard and Basic tier of Azure Spring Cloud.
+
+##### Application Configuration Service
+
+[Application Configuration Service](https://docs.pivotal.io/tcs-k8s/0-1/) (ACS) is one of the proprietary VMware Tanzu components. ACS is Kubernetes-native, and totally different from Spring Cloud Config Server. ACS enables the management of Kubernetes-native ConfigMap resources that are populated from properties defined in one or more Git repositories.
+
+In Enterprise tier, there's no Spring Cloud Config Server, but you can use Application Configuration Service to manage centralized configurations.
+
+To use Application Configuration Service, do the following steps for each of your apps:
+
+1. Add an explicit app binding to declare that your app needs to use Application Configuration Service.
+
+   > [!NOTE]
+   > When you change the bind/unbind status, you must restart or redeploy the app to make the change take effect.
+
+1. Set config file patterns. Config file patterns enable you to choose which application and profile the app will use. For more information, see the [Pattern](/azure/spring-cloud/how-to-enterprise-application-configuration-service#pattern) section of [Use Application Configuration Service](/azure/spring-cloud/how-to-enterprise-application-configuration-service).
+
+ACS runs on Kubernetes. To help enable a transparent local development experience, we provide the following suggestions.
+
+* If you already have a Git repository to store your externalized configuration, you can set up Spring Cloud Config Server locally as the centralized configuration for your application. After Config Server starts, it will clone the Git repository and provide the repository content through its web controller. For more information, see [Spring Cloud Config](https://cloud.spring.io/spring-cloud-config/reference/html) in the Spring documentation. The `spring-cloud-config-client` provides the ability for your application to automatically pick up the external configuration from the Config Server.
+
+* If you don't have a Git repository or you don't want to set up Config Server locally, you can use the configuration file directly in your project. We recommend that you use a profile to isolate the configuration file so that it's used only in your development environment. For example, use `dev` as the profile. Then, you can create an *application-dev.yml* file in the *src/main/resource* folder to store the configuration. To get your app to use this configuration, start the app locally with `--spring.profiles.active=dev`.
+
+##### Service Registry
+
+[Service Registry](https://docs.pivotal.io/spring-cloud-services/2-1/common/service-registry/index.html) is one of the proprietary VMware Tanzu components. Service Registry provides your apps with an implementation of the Service Discovery pattern, one of the key tenets of a microservice-based architecture. Your apps can use the Service Registry to dynamically discover and call registered services. Using Service Registry is preferable to hand-configuring each client of a service, which can be difficult, or adopting some form of access convention, which can be brittle in production.
+
+To use Service Registry, for each of your apps, add an explicit app binding to declare that your app needs to use Service Registry.
+
+   > [!NOTE]
+   > When you change the bind/unbind status, you must restart or redeploy the app to make the change take effect.
+
 ### Prepare the Spring Cloud Config server
 
 Configure the configuration server in your Azure Spring Cloud instance. For more information, see [Set up a Spring Cloud Config Server instance for your service](/azure/spring-cloud/how-to-config-server).
