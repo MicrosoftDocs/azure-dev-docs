@@ -117,8 +117,6 @@ If your application is packaged as an EAR file, be sure to examine the *applicat
 
 ## Migration
 
-### Migrate your application code to EAP
-
 [!INCLUDE [java-redhat-migration-toolkit](includes/redhat-migration-toolkit.md)]
 
 ### Provision an App Service plan
