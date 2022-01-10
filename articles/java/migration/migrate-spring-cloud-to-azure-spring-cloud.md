@@ -3,7 +3,7 @@ title: Migrate Spring Cloud applications to Azure Spring Cloud
 description: This guide describes what you should be aware of when you want to migrate an existing Spring Cloud application to run on Azure Spring Cloud.
 ms.author: karler
 ms.topic: conceptual
-ms.date: 2/12/2020
+ms.date: 01/18/2022
 ms.custom: devx-track-java
 recommendations: false
 ---
