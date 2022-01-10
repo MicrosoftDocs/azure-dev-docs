@@ -14,15 +14,15 @@ Next, configure the deployment source for your web app to be local Git using the
 
 ```azurecli
 az webapp deployment source config-local-git
-    --name $APP_SERVICE_NAME
-    --resource-group $RESOURCE_GROUP_NAME
+    --name <your-app-name>
+    --resource-group msdocs-core-sql
 ```
 
 Retrieve the deployment credentials for your application. These will be needed for Git to authenticate to Azure when you push code to Azure in a later step.
 
 ```azurecli
 az webapp deployment list-publishing-credentials 
-        --name <app-service-name> 
+        --name <your-app-name>
         --resource-group msdocs-core-sql
         --query "{Username:publishingUserName, Password:publishingPassword}"
 ```
@@ -32,7 +32,7 @@ az webapp deployment list-publishing-credentials
 Next, let's add an Azure origin to our local Git repo using the App Service Git deployment URL from the step where we created our App Service.  Make sure to replace your app name in the url below.  You can also get this completed URL from the Azure Portal Local Git/FTPS Credentials tab.
 
 ```bash
-git remote add azure https://<app-name>.scm.azurewebsites.net/<your-app-name>.git
+git remote add azure https://<your-app-name>.scm.azurewebsites.net/<your-app-name>.git
 ```
 
 Finally, push your code using the correct origin and branch name.

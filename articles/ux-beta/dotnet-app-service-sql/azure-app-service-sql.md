@@ -3,7 +3,7 @@ title: Deploy ASP.NET Core SQL App to Azure
 description: Enter description here
 ms.topic: tutorial
 ms.date: 10/27/2021
-ms.service: database
+ms.service: azure
 ms.role: developer
 ms.devlang: javascript
 ms.azure.dev-framework: 
@@ -107,7 +107,7 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps 
 
 To create an Azure SQL database, we first must create a SQL Server to host it. A new Azure SQL Server is created by using the [az sql server create ](/cli/azure/sql/server#az_sql_server_create) command.
 
-Replace the <server-name> placeholder with a unique SQL Database name. This name is used as the part of the globally unique SQL Database endpoint, <server-name>.database.windows.net. Also, replace <db-username> and <db-username> with a username and password of your choice.
+Replace the *server-name* placeholder with a unique SQL Database name. This name is used as the part of the globally unique SQL Database endpoint. Also, replace *db-username* and *db-username* with a username and password of your choice.
 
 ```azurecli-interactive
 az sql server create 
