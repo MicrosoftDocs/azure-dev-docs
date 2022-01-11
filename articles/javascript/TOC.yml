@@ -234,20 +234,6 @@
           - name: Get started
             href: core/automate-tasks-with-azure-cli.md
             displayName: az login --identity, az login --service-principal, az login -u, az group create, az staticwebapp create, az staticwebapp delete, az storage account create, az functionapp create, az functionapp deployment slot create, az functionapp deployment source config, az functionapp deployment slot swap, az functionapp delete               
-          - name: Cassandra Cosmos DB resource
-            href: how-to/with-azure-cli/create-cassandra-db.md
-          - name: Cache for Redis
-            href: how-to/with-azure-cli/create-cache-for-redis-db.md
-          - name: MongoDB Cosmos DB resource
-            href: how-to/with-azure-cli/create-mongodb-cosmosdb.md
-          - name: MariaDB resource
-            href: how-to/with-azure-cli/create-mariadb.md
-          - name: MySQL resource
-            href: how-to/with-azure-cli/create-mysql-db.md
-          - name: PostgreSQL resource
-            href: how-to/with-azure-cli/create-postgresql-server-resource.md
-          - name: SQL API on Cosmos DB
-            href: how-to/with-azure-cli/create-cosmos-sql-api-resource.md
       - name: With databases
         items:
           - name: Getting started
