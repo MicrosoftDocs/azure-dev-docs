@@ -4,7 +4,7 @@ description: Use Key Vault secrets in GitHub Actions to automate your software d
 author: juliakm
 ms.custom: github-actions-azure, mode-portal
 ms.author: jukullam
-ms.date: 02/04/2021
+ms.date: 01/11/2022
 ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
@@ -21,7 +21,7 @@ With Key Vault and GitHub Actions, you have the benefits of a centralized secret
 - A GitHub account. If you don't have one, sign up for [free](https://github.com/join).  
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - An Azure App connected to a GitHub repository. This example uses [Deploy containers to Azure App Service](../javascript/tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-01.md). 
-- An Azure key vault.  You can create an Azure Key Vault using the Azure portal, Azure CLI, or Azure PowerShell.
+- An Azure key vault.  You can create an Azure Key Vault using the [Azure portal](/azure/key-vault/secrets/quick-create-portal), [Azure CLI](/azure/key-vault/secrets/quick-create-cli), or [Azure PowerShell](/azure/key-vault/secrets/quick-create-powershell).
 
 ## Workflow file overview
 
