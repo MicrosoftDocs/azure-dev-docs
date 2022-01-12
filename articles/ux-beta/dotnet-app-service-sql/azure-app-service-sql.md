@@ -24,7 +24,7 @@ This article assumes you're familiar with [.NET]("https://dotnet.microsoft.com/d
 
 To follow along with this tutorial, [Download the Sample Project](https://github.com/Azure-Samples/msdocs-app-service-sqldb-dotnetcore/archive/refs/heads/main.zip) from the repository [https://github.com/Azure-Samples/msdocs-app-service-sqldb-dotnetcore](https://github.com/Azure-Samples/msdocs-app-service-sqldb-dotnetcore) or clone it using the Git command below.
 
-```bash
+```terminal
 git clone https://github.com/Azure-Samples/msdocs-app-service-sqldb-dotnetcore.git
 cd msdocs-app-service-sqldb-dotnetcore
 ```
