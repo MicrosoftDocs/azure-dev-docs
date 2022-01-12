@@ -7,7 +7,7 @@ ms.service: azure
 ms.role: developer
 ms.devlang: javascript
 author: alexwolfmsft
-ms.author: alexwolfmsft
+ms.author: alexwolf
 ms.azure.dev-framework: 
 ms.azure.devx-azure-tooling: ['azure-portal', 'vscode-azure-tools', 'azure-cli']
 ms.custom: 
@@ -18,7 +18,7 @@ ROBOTS: NOINDEX
 
 In this tutorial, you'll learn how to deploy an ASP.NET Core app to Azure App Service and connect to an Azure SQL Database. Azure App Service is a highly scalable, self-patching, web-hosting service that can easily deploy apps on Windows or Linux.  Although this tutorial uses an ASP.NET Core 6.0 app, the process is the same for other versions of ASP.NET Core and ASP.NET Framework.
 
-This article assumes you're familiar with [.NET]("https://dotnet.microsoft.com/download/dotnet/6.0") and have it installed locally. You'll also need an Azure account with an active subscription.  If you don't have an Azure account, you [can create one for free](https://azure.microsoft.com/free).
+This article assumes you're familiar with [.NET](https://dotnet.microsoft.com/download/dotnet/6.0) and have it installed locally. You'll also need an Azure account with an active subscription.  If you don't have an Azure account, you [can create one for free](https://azure.microsoft.com/free).
 
 ## 1 - Set up the Sample Application
 
