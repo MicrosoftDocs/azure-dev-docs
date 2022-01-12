@@ -67,7 +67,7 @@ In order to orient ourselves within the codebase, let's play around with some ex
 
 1. Clicking your mouse on a variable - such as **timestamp** - allows you to see all references to that variable within the same file. To view all references to a variable within the project, right-click the variable, and from the context menu, and select **Find All References**.
 
-    :::image type="content" source="../../media/node-howto-e2e/visual-studio-code-find-all-references.png" alt-text="Screenshot of Visual Studio Code with the `timestamp` variable highlighted." light:::
+    :::image type="content" source="../../media/node-howto-e2e/visual-studio-code-find-all-references.png" alt-text="Screenshot of Visual Studio Code with the `timestamp` variable highlighted." lightbox="../../media/node-howto-e2e/visual-studio-code-find-all-references.png":::
 
 ## Use Visual Studio Code autocompletion with mongoDB
 
@@ -118,7 +118,7 @@ While you were able to run and debug the Node.js code without any Visual Studio 
 
 This sample app includes a `launch.json` that includes these debug settings:
 
-:::code language="JavaScript" source="~/../js-e2e-express-mongodb-main/blob/main/.vscode/launch.json" range="{range}":::
+:::code language="JavaScript" source="~/../js-e2e-express-mongodb-main/blob/main/.vscode/launch.json":::
 
 Visual Studio Code was able to detect that the app's startup script is *server.js*.
 
