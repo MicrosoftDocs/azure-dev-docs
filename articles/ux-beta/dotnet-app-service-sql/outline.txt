@@ -1,0 +1,12 @@
+Prereqs
+Clone/Download App
+Deploy to App Service
+Create SQL Database
+Connect App to Database
+    - Add firewall rule to SQL Server
+    - Install EF Tools
+    - Create Initial Migration
+    - Update Database
+Browse with Kudu
+Stream Logs
+
