@@ -23,7 +23,7 @@ zip -r <file-name>.zip . -x '.??*'
 
 On Windows, use a program like 7-Zip to create a ZIP file needed to deploy the application.
 
-![A screenshot showing files being zipped into a ZIP file using 7-Zip.](../media/deploy-zip-file-windows-1.png)
+![A screenshot showing files being zipped into a ZIP file using 7-Zip.](../media/nodejs-mongodb/deploy-zip-file-windows-1.png)
 
 ---
 
@@ -60,8 +60,8 @@ By default, the deployment engine assumes that a ZIP package is ready to run as-
 
 | Instructions    | Screenshot |
 |:----------------|-----------:|
-| [!INCLUDE [Enable build automation from Azure portal 1](<./azportal-build-settings-1.md>)] | :::image type="content" source="../media/azportal-build-settings-1-240px.png" alt-text="A screenshot showing the app settings for a web app and how to add a new setting in the Azure portal." lightbox="../media/azportal-build-settings-1.png"::: |
-| [!INCLUDE [Enable build automation from Azure portal 2](<./azportal-build-settings-2.md>)] | :::image type="content" source="../media/azportal-build-settings-2-240px.png" alt-text="A screenshot showing the dialog box used to add an app settings in the Azure portal." lightbox="../media/azportal-build-settings-2.png"::: |
+| [!INCLUDE [Enable build automation from Azure portal 1](<./azportal-build-settings-1.md>)] | :::image type="content" source="../media/nodejs-mongodb/build-settings-azure-portal-1-240px.png" alt-text="A screenshot showing the app settings for a web app and how to add a new setting in the Azure portal." lightbox="../media/nodejs-mongodb/build-settings-azure-portal-1.png"::: |
+| [!INCLUDE [Enable build automation from Azure portal 2](<./azportal-build-settings-2.md>)] | :::image type="content" source="../media/nodejs-mongodb/build-settings-azure-portal-2-240px.png" alt-text="A screenshot showing the dialog box used to add an app settings in the Azure portal." lightbox="../media/nodejs-mongodb/build-settings-azure-portal-2.png"::: |
 
 ##### [Azure CLI](#tab/deploy-instructions-azcli)
 

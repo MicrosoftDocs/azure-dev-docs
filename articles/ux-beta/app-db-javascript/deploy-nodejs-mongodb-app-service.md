@@ -269,7 +269,7 @@ The application will have a url of the form `https://<app name>.azurewebsites.ne
 
 Use the form elements in the application to add and complete tasks.
 
-![A screenshot showing the application running in a browser.](./media/sample-app-in-browser.png)
+![A screenshot showing the application running in a browser.](./media/nodejs-mongodb/sample-app-in-browser.png)
 
 ## 6 - Configure and view application logs
 
