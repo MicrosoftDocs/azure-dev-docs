@@ -31,12 +31,10 @@ git clone https://github.com/Azure-Samples/msdocs-nodejs-mongodb-azure-sample-ap
 Follow these steps to run the application locally:
 
 * Change directories into the `src` folder
-* To install the package dependencies, run `npm install`
-* Copy the `.env.sample` file to `.env` and populate the DATABASE_URL value with your MongoDB URL (for example `mongodb://localhost:27017/`)
-* To start the application, run `npm start`
+* Install the package dependencies by running `npm install`
+* Copy the `.env.sample` file to `.env` and populate the DATABASE_URL value with your MongoDB URL (for example *mongodb://localhost:27017/*)
+* Start the application using `npm start`
 * To view the app, browse to `http://localhost:3000`
-
-The sample application uses the [dotenv package](https://www.npmjs.com/package/dotenv) to read the connection string  from the `.env` file for local development. By default, the connection string is set to use the local MongoDB instance as a database.
 
 ## 1 - Create the Azure App Service
 
