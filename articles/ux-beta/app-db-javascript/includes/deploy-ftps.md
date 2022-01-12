@@ -6,8 +6,8 @@ No configuration is necessary to enable FTPS. The FTPS endpoint for your app is 
 
 | Instructions    | Screenshot |
 |:----------------|-----------:|
-| [!INCLUDE [Deploy from VS Code 1](<./deploy-ftps-azportal-1.md>)] | :::image type="content" source="../media/deploy-ftps-azportal-1-240px.png" alt-text="A screenshot showing how to navigate to a web app using the search box in Azure portal." lightbox="../media/deploy-ftps-azportal-1.png"::: |
-| [!INCLUDE [Deploy from VS Code 2](<./deploy-ftps-azportal-2.md>)] | :::image type="content" source="../media/deploy-ftps-azportal-2-240px.png" alt-text="A screenshot showing te location of the deployment page and how to configure a web app for local Git deployment in the Azure portal." lightbox="../media/deploy-ftps-azportal-2.png"::: |
+| [!INCLUDE [Deploy from VS Code 1](<./deploy-ftps-azportal-1.md>)] | :::image type="content" source="../media/nodejs-mongodb/deploy-ftps-azure-portal-1-240px.png" alt-text="A screenshot showing how to navigate to a web app using the search box in Azure portal." lightbox="../media/nodejs-mongodb/deploy-ftps-azure-portal-1.png"::: |
+| [!INCLUDE [Deploy from VS Code 2](<./deploy-ftps-azportal-2.md>)] | :::image type="content" source="../media/nodejs-mongodb/deploy-ftps-azure-portal-2-240px.png" alt-text="A screenshot showing te location of the deployment page and how to configure a web app for local Git deployment in the Azure portal." lightbox="../media/nodejs-mongodb/deploy-ftps-azure-portal-2.png"::: |
 
 ### [Azure CLI](#tab/deploy-instructions-azcli)
 
