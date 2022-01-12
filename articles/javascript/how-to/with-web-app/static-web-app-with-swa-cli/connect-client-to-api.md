@@ -2,16 +2,16 @@
 title: "6-Integration: Connect app to API"
 description: Change the local React app code to use the Azure Function API.
 ms.topic: how-to
-ms.date: 08/31/2021
+ms.date: 10/18/2021
 ms.custom: devx-track-js
-#intent: Create Express.js web app with easy auth configured. 
+#intent: Create Express.js web app with easy auth configured.
 ---
 
 # 6. Connect React client app to Azure Function API
 
 Change the local React app code to use the Azure Function API. 
 
-At this point in the article series, both the React client and the Azure Function API work both locally and remotely. The remote Azure Static Web Apps resource provides a proxy between the React client and API. The local environment needs the same proxy so the local React client and API can work together. Use the Static Web Apps CLI (SWA CLI) to provide the proxied environment for your local app.
+At this point in the article series, both the React client and the Azure Function API work both locally and remotely. The **remote** Azure Static Web Apps resource provides a proxy between the React client and API. The **local** environment needs the same proxy so the local React client and API can work together. Use the Static Web Apps CLI (SWA CLI) to provide the **local proxied environment** for your local app.
 
 Run both the React and Functions development environments, provided by each framework, then use those app URLs with the SWA CLI to provide the proxy between the two. 
 
@@ -26,12 +26,20 @@ Run both the React and Functions development environments, provided by each fram
 1. Install required dependencies to run `package.json` scripts:
 
     ```bash
-    npm install concurrently azure-functions-core-tools@3 static-web-apps-cli --save-dev 
+    npm install concurrently azure-functions-core-tools@3 @azure/static-web-apps-cli --save-dev 
     ```
 
 1. Replace the current `package.json` file's `scripts` section with the following script entries:
 
-    :::code language="JSON" source="~/../js-e2e-static-web-app-with-cli-1-basic-app-with-api/package.json" range="6-12":::  
+    ```json
+    "scripts": {
+      "start-api": "cd api && npm start",
+      "start-app": "cd app && npm start",
+      "start-dev": "concurrently \"npm:start-api\" \"npm:start-app\" ",
+      "start-swa": "swa start http://localhost:3000 --api-location http://localhost:7071",
+      "start": " npm run start-dev && npm run swa-up"
+    }, 
+    ```
 
     These scripts separate out the development server of each environment from the SWA CLI call to join those two environments. 
 
@@ -56,16 +64,17 @@ The React client and the Azure Function API have separate local development serv
 
     When both the React app and the Function API have started correctly, continue to the next step. 
 
+    :::image type="content" source="../../../media/static-web-app-with-swa-cli/run-both-client-and-api-locally-separate-visual-studio-code.png" alt-text="Partial screenshot of Windows desktop with two separate VS Code instances running." lightbox="../../../media/static-web-app-with-swa-cli/run-both-client-and-api-locally-separate-visual-studio-code.png":::
+
 1. In one of the VS Code instances (it doesn't matter which instance), open a second integrated terminal, change to the root directory and start the proxy:
    
     ```bash
-    npm run start-swa
+    cd .. && npm run start-swa
     ```
 
-    The React client is now available on both port 3000 and on port 4280 (with a proxy to the API) . For the rest of the article, use port 4280 when you want to use the React app.  
+1. For the rest of the article, use port 4280, `http://locahost:4280/`, when you want to use the React app.  
 
-    :::image type="content" source="../../../media/static-web-app-with-swa-cli/run-both-client-and-api-locally-separate-visual-studio-code.png" alt-text="Partial screenshot of Windows desktop with two separate VS Code instances running." lightbox="../../../media/static-web-app-with-swa-cli/run-both-client-and-api-locally-separate-visual-studio-code.png":::
-
+    The React client is now available on both port 3000 and on port 4280 (with a proxy to the API). 
 
 ## Add an HTML form to the React app to use the Function API
 

@@ -5,7 +5,7 @@ ms.author: edburns
 ms.topic: conceptual
 ms.date: 1/27/2020
 recommendations: false
-ms.custom: devx-track-java, devx-track-javaee
+ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-wls, devx-track-javaee-wls-vm
 ---
 
 # Migrate WebLogic Server applications to Azure Virtual Machines

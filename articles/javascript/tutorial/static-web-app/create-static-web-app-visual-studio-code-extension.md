@@ -2,8 +2,8 @@
 title: Create Static web app resource
 description: Create the Static Web app resource with a Visual Studio Code extension for that service.
 ms.date: 09/07/2021
-ms.topic: tutorial
-ms.custom: devx-track-javascript
+ms.topic: how-to
+ms.custom: devx-track-js
 ---
 
 # 5. Create Azure Static Web app resource

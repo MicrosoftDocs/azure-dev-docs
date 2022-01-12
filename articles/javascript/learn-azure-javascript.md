@@ -1,7 +1,7 @@
 ---
 title: Learn to develop with Azure and JavaScript 
 description: Use the Microsoft Learn platform to expand your understanding of Azure with JavaScript
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/14/2021
 ms.custom: devx-track-js
 ---

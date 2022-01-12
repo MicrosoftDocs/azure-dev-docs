@@ -1,6 +1,14 @@
 {
   "redirections": [
     {
+      "source_path": "articles/javascript/how-to/with-database/use-mariadb.md",
+      "redirect_url": "/azure/developer/javascript/how-to/with-database/use-mysql-mariadb"
+    },
+    {
+      "source_path": "articles/javascript/how-to/with-database/use-mysql-db.md",
+      "redirect_url": "/azure/developer/javascript/how-to/with-database/use-mysql-mariadb"
+    },
+    {
       "source_path": "articles/javascript/how-to/with-web-app/azure-function-resource-group-management/view-and-query-application-logs.md",
       "redirect_url": "/azure/developer/javascript/how-to/with-web-app/azure-function-resource-group-management/view-query-application-logs"
     },
@@ -420,6 +428,10 @@
     {
       "source_path": "articles/java/fundamentals/java-jdk-flight-recorder-and-mission-control.md",
       "redirect_url": "/java/openjdk/java-jdk-flight-recorder-and-mission-control?toc=/azure/developer/java/fundamentals/toc.json&bc=/azure/developer/breadcrumb/toc.json"
+    },
+    {
+      "source_path": "articles/java/fundamentals/java-jdk-docker-images.md",
+      "redirect_url": "/java/openjdk/containers"
     },
     {
       "source_path": "articles/java/fundamentals/reasons-to-move-to-java-11.md",
