@@ -60,8 +60,8 @@ By default, the deployment engine assumes that a ZIP package is ready to run as-
 
 | Instructions    | Screenshot |
 |:----------------|-----------:|
-| [!INCLUDE [Enable build automation from Azure portal 1](<./azportal-build-settings-1.md>)] | :::image type="content" source="../media/nodejs-mongodb/build-settings-azure-portal-1-240px.png" alt-text="A screenshot showing the app settings for a web app and how to add a new setting in the Azure portal." lightbox="../media/nodejs-mongodb/build-settings-azure-portal-1.png"::: |
-| [!INCLUDE [Enable build automation from Azure portal 2](<./azportal-build-settings-2.md>)] | :::image type="content" source="../media/nodejs-mongodb/build-settings-azure-portal-2-240px.png" alt-text="A screenshot showing the dialog box used to add an app settings in the Azure portal." lightbox="../media/nodejs-mongodb/build-settings-azure-portal-2.png"::: |
+| [!INCLUDE [Enable build automation from Azure portal 1](<./build-settings-azure-portal-1.md>)] | :::image type="content" source="../media/nodejs-mongodb/build-settings-azure-portal-1-240px.png" alt-text="A screenshot showing the app settings for a web app and how to add a new setting in the Azure portal." lightbox="../media/nodejs-mongodb/build-settings-azure-portal-1.png"::: |
+| [!INCLUDE [Enable build automation from Azure portal 2](<./build-settings-azure-portal-2.md>)] | :::image type="content" source="../media/nodejs-mongodb/build-settings-azure-portal-2-240px.png" alt-text="A screenshot showing the dialog box used to add an app settings in the Azure portal." lightbox="../media/nodejs-mongodb/build-settings-azure-portal-2.png"::: |
 
 ##### [Azure CLI](#tab/deploy-instructions-azcli)
 
