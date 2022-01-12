@@ -11,16 +11,7 @@ You can deploy your application code from a local Git repository to Azure by con
 
 ### [Azure CLI](#tab/deploy-instructions-azcli)
 
-First, you need to tell Azure what branch to use for deployment. This value is stored in the app settings for the web app with a key of `DEPLOYMENT_BRANCH`. For this example, you will be deploying code from the `main` branch.
-
-```azurecli
-az webapp config appsettings set \
-    --name $APP_SERVICE_NAME \
-    --resource-group $RESOURCE_GROUP_NAME \
-    --settings DEPLOYMENT_BRANCH='main'
-```
-
-Next, configure the deployment source for your web app to be local Git using the `az webapp deployment source` command.  This command will output the URL of the remote Git repository that you will be pushing code to.  Make a copy of this value as you will need it in a later step.
+First, configure the deployment source for your web app to be local Git using the [az webapp deployment](/cli/azure/webapp/deployment?view=azure-cli-latest) command.  
 
 ```azurecli
 az webapp deployment source config-local-git \
@@ -35,22 +26,22 @@ Retrieve the deployment credentials for your application.  These will be needed 
 az webapp deployment list-publishing-credentials \
     --name $APP_SERVICE_NAME \
     --resource-group $RESOURCE_GROUP_NAME \
-    --query "{Username:join(\`\u005C\`, [name,publishingUserName]), Password:publishingPassword}" \
-    --output table
+    --query "{Username:publishingUserName, Password:publishingPassword}"
 ```
 
 ---
 
-Next, in the root directory of your application, configure a [Git remote](https://git-scm.com/book/en/v2/Git-Basics-Working-with-Remotes) that points to Azure using the Git URL of the Azure remote obtained in a previous step.
+Next, let's add an Azure origin to our local Git repo using the App Service Git deployment URL from the step where we created our App Service.  Make sure to replace your app name in the url below.  You can also get this completed URL from the Azure Portal Local Git/FTPS Credentials tab.
 
 ```bash
-git remote add azure <deploymentLocalGitUrl-from-create-step>
+git remote add azure https://<your-app-name>.scm.azurewebsites.net/<your-app-name>.git
 ```
 
 You can now push code from your local Git repository to Azure using the Git remote you just configured.
 
 ```bash
-git push azure main
+## Master is the default deployment branch for App Service - this will ensure our local main branch works for the deployment
+git push azure main:master
 ```
 
 The first time you push code to Azure, Git will prompt you for the Azure deployment credentials you obtained in a previous step. Git will then cache these credentials so you will not have to re-enter them on subsequent deployments.
