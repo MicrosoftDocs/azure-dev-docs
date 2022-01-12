@@ -96,9 +96,7 @@ productDirectory:
       links:
         - url: ./go/azure-sdk-install.md
           text: Install the Azure SDK for Go
-        - url: ./go/azure-sdk-tools.md
-          text: Tools for the Azure SDK for Go
-        - url: ./go/azure-sdk-authorization.md
+        - url: ./go/azure-sdk-authentication.md
           text: Authenticate your app
         - url: /azure/storage/blobs/storage-quickstart-blobs-go
           text: Use Blob storage

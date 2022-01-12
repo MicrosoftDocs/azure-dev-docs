@@ -3,7 +3,7 @@ title: Manage resource groups with the Azure SDK for Go
 description: In this article, you learn how to create a resource group with the Azure SDK for Go Management Library.
 ms.date: 08/13/2021
 ms.topic: quickstart
-ms.custom: devx-track-go
+ms.custom: devx-track-go, mode-api
 ---
 
 # Manage resource groups with the Azure SDK for Go

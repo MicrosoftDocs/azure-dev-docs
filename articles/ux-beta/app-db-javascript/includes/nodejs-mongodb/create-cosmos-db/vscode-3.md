@@ -1,0 +1,1 @@
+Select *Azure Cosmos DB for MongoDB API* as the type of database you want to create from the dialog.
