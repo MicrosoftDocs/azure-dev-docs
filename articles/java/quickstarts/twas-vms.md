@@ -1,6 +1,7 @@
 ---
 title: "Deploying WebSphere Application Server (traditional) with High Availability on Azure Virtual Machines"
 description: A quickstart of deploying WebSphere Application Server (traditional) with High Availability on Azure Virtual Machines.
+author: zhengchang907
 ms.author: zhengchang
 ms.topic: overview
 ms.date: 01/13/2022
@@ -111,7 +112,7 @@ You’re now ready to try the app. Point your browser at the DNS name of the IHS
 
 ![Test application via browser](./media/twas-vms/test-app-running-page.png)
 
-Refreshing the browser will cycle through the server instances using the `round robin` load-balancing policy (the default for the Static Cluster deployment).
+Refreshing the browser will cycle through the server instances using the **Round Robin load-balancing policy** (the default for the Static Cluster deployment).
 
 ## Conclusion and Next Steps
 

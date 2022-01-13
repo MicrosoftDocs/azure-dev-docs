@@ -47,6 +47,8 @@ landingContent:
             url: /azure/aks/howto-deploy-java-liberty-app-with-postgresql?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/breadcrumb/toc.json
           - text: Java app with Payara Micro to Azure App Service
             url: ../eclipse-microprofile/deploy-microprofile-payara-micro-java-app-with-maven-plugin.md?bc=/azure/developer/breadcrumb/toc.json&toc=/azure/developer/java/ee/toc.json
+          - text: Quick start for Traditional WebSphere on Azure VMs
+            url: ../quickstarts/twas-vms.md?bc=/azure/developer/breadcrumb/toc.json&toc=/azure/developer/java/ee/toc.json
   - title: Code samples
     linkLists:
       - linkListType: sample
