@@ -291,7 +291,7 @@
 | azure-toolkit-sqlserver-lib | Maven [0.15.0](https://search.maven.org/artifact/com.microsoft.azure/azure-toolkit-sqlserver-lib/0.15.0/jar/) |  |  |
 | azure-toolkit-storage-lib | Maven [0.15.0](https://search.maven.org/artifact/com.microsoft.azure/azure-toolkit-storage-lib/0.15.0/jar/) |  |  |
 | azure-verticals-agrifood-farming | Maven [1.0.0-beta.2](https://search.maven.org/artifact/com.azure/azure-verticals-agrifood-farming/1.0.0-beta.2/jar/) |  | GitHub [1.0.0-beta.2](https://github.com/Azure/azure-sdk-for-java/tree/azure-verticals-agrifood-farming_1.0.0-beta.2/sdk/farmbeats/azure-verticals-agrifood-farming/) |
-| codesnippet-maven-plugin | Maven [1.0.0-beta.4](https://search.maven.org/artifact/com.azure.tools/codesnippet-maven-plugin/1.0.0-beta.4/jar/) |  |  |
+| codesnippet-maven-plugin | Maven [1.0.0-beta.5](https://search.maven.org/artifact/com.azure.tools/codesnippet-maven-plugin/1.0.0-beta.5/jar/) |  |  |
 | IoT Models Repository | Maven [1.0.0-beta.1](https://search.maven.org/artifact/com.azure/azure-iot-modelsrepository/1.0.0-beta.1/jar/) |  |  |
 | notification-hubs-android-sdk | Maven [1.1.6](https://search.maven.org/artifact/com.microsoft.azure/notification-hubs-android-sdk/1.1.6/jar/) |  |  |
 | notification-hubs-android-sdk-fcm | Maven [1.1.6](https://search.maven.org/artifact/com.microsoft.azure/notification-hubs-android-sdk-fcm/1.1.6/jar/) |  |  |
@@ -311,12 +311,19 @@
 | spring-cloud-azure-starter-stream-eventhubs | Maven [4.0.0-beta.2](https://search.maven.org/artifact/com.azure.spring/spring-cloud-azure-starter-stream-eventhubs/4.0.0-beta.2/jar/) |  |  |
 | spring-cloud-azure-starter-stream-servicebus | Maven [4.0.0-beta.2](https://search.maven.org/artifact/com.azure.spring/spring-cloud-azure-starter-stream-servicebus/4.0.0-beta.2/jar/) |  |  |
 | synapseml | Maven [0.9.3](https://search.maven.org/artifact/com.microsoft.azure/synapseml/0.9.3/jar/) |  |  |
+| synapseml_2.12 | Maven [0.9.5](https://search.maven.org/artifact/com.microsoft.azure/synapseml_2.12/0.9.5/jar/) |  |  |
 | synapseml-cognitive | Maven [0.9.3](https://search.maven.org/artifact/com.microsoft.azure/synapseml-cognitive/0.9.3/jar/) |  |  |
+| synapseml-cognitive_2.12 | Maven [0.9.5](https://search.maven.org/artifact/com.microsoft.azure/synapseml-cognitive_2.12/0.9.5/jar/) |  |  |
 | synapseml-core | Maven [0.9.3](https://search.maven.org/artifact/com.microsoft.azure/synapseml-core/0.9.3/jar/) |  |  |
+| synapseml-core_2.12 | Maven [0.9.5](https://search.maven.org/artifact/com.microsoft.azure/synapseml-core_2.12/0.9.5/jar/) |  |  |
 | synapseml-deep-learning | Maven [0.9.3](https://search.maven.org/artifact/com.microsoft.azure/synapseml-deep-learning/0.9.3/jar/) |  |  |
+| synapseml-deep-learning_2.12 | Maven [0.9.5](https://search.maven.org/artifact/com.microsoft.azure/synapseml-deep-learning_2.12/0.9.5/jar/) |  |  |
 | synapseml-lightgbm | Maven [0.9.3](https://search.maven.org/artifact/com.microsoft.azure/synapseml-lightgbm/0.9.3/jar/) |  |  |
+| synapseml-lightgbm_2.12 | Maven [0.9.5](https://search.maven.org/artifact/com.microsoft.azure/synapseml-lightgbm_2.12/0.9.5/jar/) |  |  |
 | synapseml-opencv | Maven [0.9.3](https://search.maven.org/artifact/com.microsoft.azure/synapseml-opencv/0.9.3/jar/) |  |  |
+| synapseml-opencv_2.12 | Maven [0.9.5](https://search.maven.org/artifact/com.microsoft.azure/synapseml-opencv_2.12/0.9.5/jar/) |  |  |
 | synapseml-vw | Maven [0.9.3](https://search.maven.org/artifact/com.microsoft.azure/synapseml-vw/0.9.3/jar/) |  |  |
+| synapseml-vw_2.12 | Maven [0.9.5](https://search.maven.org/artifact/com.microsoft.azure/synapseml-vw_2.12/0.9.5/jar/) |  |  |
 | synapseutils | Maven [1.1](https://search.maven.org/artifact/com.microsoft.azure.synapse/synapseutils/1.1/jar/) |  |  |
 | synapseutils_2.11 | Maven [1.4](https://search.maven.org/artifact/com.microsoft.azure.synapse/synapseutils_2.11/1.4/jar/) |  |  |
 | synapseutils_2.12 | Maven [1.4](https://search.maven.org/artifact/com.microsoft.azure.synapse/synapseutils_2.12/1.4/jar/) |  |  |
