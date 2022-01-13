@@ -28,6 +28,8 @@ landingContent:
     links:
       - text: Deploy Quarkus
         url: deploy-microprofile-quarkus-java-app-with-maven-plugin.md
+      - text: Deploy Open Liberty
+        url: deploy-microprofile-openliberty-java-app-with-maven-plugin.md
       - text: Deploy Helidon
         url: deploy-microprofile-helidon-java-app-with-maven-plugin.md
       - text: Deploy Payara Micro
