@@ -44,7 +44,7 @@ In this section, you'll create an Open Liberty application and test it locally.
 
 1. Open Web Browser and access to the [MicroProfile Starter](https://start.microprofile.io/) site.
 
-   ![MicroProfile Starter for Open Liberty](./media/open-liberty/microprofile-starter-openliberty-micro.png)
+   ![MicroProfile Starter for Open Liberty](./media/open-liberty/microprofile-starter-open-liberty-micro.png)
 
 2. Use the values in the following table to fill in the MicroProfile Starter.
 
