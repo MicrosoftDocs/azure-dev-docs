@@ -152,7 +152,10 @@
       "ms.prod": {
         "python/**/*.md": "azure-python",
         "javascript/**/*.md": "azure-nodejs"
-      }
+      },
+      "ROBOTS": {
+        "ux-beta/**/*.md": "NOINDEX"
+      }      
     },
     "template": [],
     "dest": {

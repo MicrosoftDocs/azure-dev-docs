@@ -1,14 +1,16 @@
 ---
-title: Create container from local project
-description: Create a Dockerfile of your local development project with Visual Studio Code
+title: Create JavaScript container from local project
+description: Create a Dockerfile of your local JavaScript development project with Visual Studio Code
 ms.topic: how-to
-ms.date: 01/28/2021
+ms.date: 01/12/2022
 ms.custom: devx-track-js
 ---
 
 # Create a container image from your local JavaScript project
 
-Running an app in a container allows you to deploy a consistent experience for your web app users. Because Docker presents a steep-learning curve to some, Visual Studio Code provides an extension that simplifies common Docker tasks.
+Running a JavaScript app in a container allows you to deploy a consistent experience for your web app users. Because Docker presents a steep-learning curve, Visual Studio Code provides an extension that simplifies common Docker tasks.
+
+This article includes information for managing your containers with the Docker extension. Alternately, you can use Visual Studio Code to manage your container from [DevContainers](https://code.visualstudio.com/docs/remote/containers-tutorial).
 
 ## Prepare your environment 
 
@@ -18,7 +20,21 @@ Running an app in a container allows you to deploy a consistent experience for y
 docker system info
 ```
 
-This command returns an error if Docker isn't installed and running. 
+This command returns an error if Docker isn't installed and running. If Docker is running, it returns version and configuration information.
+
+```text
+Client:
+ Context:    default
+ Debug Mode: false
+ Plugins:
+  buildx: Build with BuildKit (Docker Inc., v0.6.3)
+  compose: Docker Compose (Docker Inc., v2.1.1)
+  scan: Docker Scan (Docker Inc., 0.9.0)
+
+... removed for brevity
+``` 
+
+
 
 ## Create a container
 
@@ -100,3 +116,4 @@ Read the steps to [authenticate and push to your own Azure Container Registry](.
 ## Next steps
 
 * [Create Azure Container Registry resource](../with-azure-cli/create-container-registry-resource.md)
+* Learn how to use [DevContainers](https://code.visualstudio.com/docs/remote/containers-tutorial)

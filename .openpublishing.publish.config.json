@@ -24,10 +24,13 @@
     "barbkess@microsoft.com",
     "diberry@microsoft.com"
   ],
-  "sync_notification_subscribers": [],
+  "sync_notification_subscribers": [
+    "karler@microsoft.com",
+    " barbkess@microsoft.com"
+  ],
   "branches_to_filter": [],
   "git_repository_url_open_to_public_contributors": "https://github.com/MicrosoftDocs/azure-dev-docs",
-  "git_repository_branch_open_to_public_contributors": "master",
+  "git_repository_branch_open_to_public_contributors": "main",
   "skip_source_output_uploading": false,
   "need_preview_pull_request": true,
   "contribution_branch_mappings": {},
@@ -35,18 +38,19 @@
     {
       "path_to_root": "terraform_samples",
       "url": "https://github.com/Azure/terraform",
-      "branch": "master"
+      "branch": "master",
+      "branch_mapping": {}
     },
     {
       "path_to_root": "_themes",
       "url": "https://github.com/Microsoft/templates.docs.msft",
-      "branch": "master",
+      "branch": "main",
       "branch_mapping": {}
     },
     {
       "path_to_root": "_themes.pdf",
       "url": "https://github.com/Microsoft/templates.docs.msft.pdf",
-      "branch": "master",
+      "branch": "main",
       "branch_mapping": {}
     },
     {
@@ -54,14 +58,12 @@
       "url": "https://github.com/Azure-Samples/js-e2e-azure-function-upload-file",
       "branch": "main",
       "branch_mapping": {}
-      
     },
     {
       "path_to_root": "js-e2e-azure-function-mongodb",
       "url": "https://github.com/Azure-Samples/js-e2e-azure-function-mongodb",
       "branch": "main",
       "branch_mapping": {}
-      
     },
     {
       "path_to_root": "js-e2e-azure-resource-management-functions",
@@ -74,19 +76,19 @@
       "url": "https://github.com/Azure-Samples/js-e2e-static-web-app-with-cli",
       "branch": "main",
       "branch_mapping": {}
-    }, 
+    },
     {
       "path_to_root": "js-e2e-static-web-app-with-cli-1-basic-app-with-api",
       "url": "https://github.com/Azure-Samples/js-e2e-static-web-app-with-cli",
       "branch": "1-basic-app-with-api",
       "branch_mapping": {}
-    },      
+    },
     {
       "path_to_root": "js-e2e-static-web-app-with-cli-2-basic-app-with-api-and-auth",
       "url": "https://github.com/Azure-Samples/js-e2e-static-web-app-with-cli",
       "branch": "2-basic-app-with-api-and-auth",
       "branch_mapping": {}
-    },        
+    },
     {
       "path_to_root": "js-e2e-browser-file-upload-storage-blob",
       "url": "https://github.com/Azure-Samples/js-e2e-browser-file-upload-storage-blob",
@@ -146,19 +148,19 @@
       "url": "https://github.com/Azure-Samples/js-e2e-azure-function-graphql-hello",
       "branch": "main",
       "branch_mapping": {}
-    },   
+    },
     {
       "path_to_root": "js-e2e-azure-function-graphql-crud-operations",
       "url": "https://github.com/Azure-Samples/js-e2e-azure-function-graphql-crud-operations",
       "branch": "main",
       "branch_mapping": {}
-    }, 
+    },
     {
       "path_to_root": "js-e2e-graphql-cosmosdb-static-web-app",
       "url": "https://github.com/azure-samples/js-e2e-graphql-cosmosdb-static-web-app",
       "branch": "main",
       "branch_mapping": {}
-    },  
+    },
     {
       "path_to_root": "python-sdk-docs-examples",
       "url": "https://github.com/MicrosoftDocs/python-sdk-docs-examples",
@@ -176,13 +178,13 @@
       "url": "https://github.com/microsoft/python-sample-vscode-flask-tutorial",
       "branch": "main",
       "branch_mapping": {}
-    },    
+    },
     {
       "path_to_root": "python-integrated-authentication",
       "url": "https://github.com/Azure-Samples/python-integrated-authentication",
       "branch": "main",
       "branch_mapping": {}
-    },    
+    },
     {
       "path_to_root": "azure-docs",
       "url": "https://github.com/MicrosoftDocs/azure-docs",
@@ -194,6 +196,12 @@
       "url": "https://github.com/MicrosoftDocs/azure-docs-pr",
       "branch": "master",
       "branch_mapping": {}
+    },
+    {
+      "path_to_root": "msdocs-nodejs-mongodb-azure-sample-app",
+      "url": "https://github.com/Azure-Samples/msdocs-nodejs-mongodb-azure-sample-app",
+      "branch": "main",
+      "branch_mapping": {}
     }    
   ],
   "branch_target_mapping": {
@@ -202,7 +210,7 @@
       "PDF",
       "Pdf"
     ],
-    "master": [
+    "main": [
       "Publish",
       "PDF"
     ]
