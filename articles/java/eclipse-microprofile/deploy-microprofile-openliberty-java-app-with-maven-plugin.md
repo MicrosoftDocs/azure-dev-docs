@@ -1,16 +1,16 @@
 ---
-title: Deploy a Open Liberty Web App to Azure App Service with Maven
+title: Deploy an Open Liberty Web App to Azure App Service with Maven
 description: Learn how to deploy a Open Liberty App to App Service on Linux using the Maven Plugin for Azure Web App.
 services: app-service
 documentationcenter: java
 ms.date: 01/13/2022
 ms.service: app-service
 ms.topic: article
-ms.custom:   
+ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-liberty
 #Customer intent: As a Java developer, I want to deploy MicroProfile apps to Azure so that I don't have to deal with app server configuration and management.
 ---
 
-# Deploy a Open Liberty Micro Web App to Azure App Service with Maven
+# Deploy an Open Liberty Micro Web App to Azure App Service with Maven
 
 In this quickstart, you'll use the [Maven Plugin for Azure App Service Web Apps](https://github.com/microsoft/azure-maven-plugins/blob/develop/azure-webapp-maven-plugin/README.md) to deploy a Open Liberty application to [Azure App Service on Linux](/azure/app-service/containers/). You'll want to choose Java SE deployment over [Tomcat and WAR files](/azure/app-service/containers/quickstart-java) when you want to consolidate your app's dependencies, runtime, and configuration into a single deployable artifact.
 
@@ -42,12 +42,12 @@ In this section, you'll create a Open Liberty application and test it locally.
 
    ![MicroProfile Starter for Open Liberty](./media/open-liberty/microprofile-starter-openliberty-micro.png)
 
-2. Input or Select the field like follows.  
+2. Use the values in the following table to fill in the MicroProfile Starter.
 
    | Field  |  Value  |
    | ---- | ---- |
-   |  groupId  |  com.microsoft.azure.samples.openlibery  |
-   |  artifactId  |  openlibery-hello-azure  |
+   |  groupId  |  com.microsoft.azure.samples.openliberty  |
+   |  artifactId  |  openliberty-hello-azure  |
    |  MicroProfile Version  |  MP 4.0  |
    |  Java SE Version  |  Java 11  |
    |  MicroProfile Runtime  |  Open Liberty  |
@@ -58,7 +58,7 @@ In this section, you'll create a Open Liberty application and test it locally.
 4. Unzip the archive file; for example:
 
    ```bash
-   unzip openlibery-hello-azure.zip
+   unzip openliberty-hello-azure.zip
    ```
 
 ### Run the application in Local environment
@@ -66,7 +66,7 @@ In this section, you'll create a Open Liberty application and test it locally.
 1. Change directory to the completed project; for example:
 
    ```bash
-   cd openlibery-hello-azure/
+   cd openliberty-hello-azure/
    ```
 
 2. Build the project using Maven; for example:
@@ -78,7 +78,7 @@ In this section, you'll create a Open Liberty application and test it locally.
 3. Run the project; for example:
 
    ```bash
-   java -jar target/openlibery-hello-azure.jar
+   java -jar target/openliberty-hello-azure.jar
    ```
 
 4. Test the web app by browsing to it locally using a web browser. For example, you could use the following command if you have curl available:
@@ -93,7 +93,7 @@ In this section, you'll create a Open Liberty application and test it locally.
 
 In this section, you'll configure the Open Liberty  project *pom.xml* file so that Maven can deploy the app to Azure App Service on Linux.
 
-1. You can configure the deployment, run the following maven command in the Command Prompt and use the **number** to choose these options in the prompt:
+1. To configure the deployment, run the following maven command in the Command Prompt and use the **number** to choose these options in the prompt:
 
    ```cmd
    mvn com.microsoft.azure:azure-webapp-maven-plugin:2.3.0:config
@@ -108,20 +108,23 @@ In this section, you'll configure the Open Liberty  project *pom.xml* file so th
    |  Define value for runtimeStack(Default: TOMCAT 8.5): | 2. TOMCAT 8.5 |
    |  Confirm (Y/N) | y |
 
-   [!NOTE]
-   Even though we don't use the Tomcat, select the `TOMCAT 8.5` in this time? During the detail configuration, we will modify the value from the `TOMCAT 8.5` to `Java` later.**
+  > [!NOTE]
+  > Even though we don't use the Tomcat, select the `TOMCAT 8.5` in this time? During the detail configuration, we will modify the value from the `TOMCAT 8.5` to `Java` later.**
 
-   You can configure with the following command:
+  > [!NOTE]
+  > This example uses a specific version of the Azure App Service Maven plugin, please consider using the latest version available. You can discover the number of the latest version by visiting a site such as [mvnrepository.com](https://mvnrepository.com/artifact/com.microsoft.azure/azure-webapp-maven-plugin)
+
+   A configuration session is shown next.
 
    ```cmd
     % mvn com.microsoft.azure:azure-webapp-maven-plugin:2.3.0:config
     [INFO] Scanning for projects...
     [INFO]
-    [INFO] ---< com.microsoft.azure.samples.openlibery:openlibery-hello-azure >----
-    [INFO] Building openlibery-hello-azure 1.0-SNAPSHOT
+    [INFO] ---< com.microsoft.azure.samples.openliberty:openliberty-hello-azure >----
+    [INFO] Building openliberty-hello-azure 1.0-SNAPSHOT
     [INFO] --------------------------------[ war ]---------------------------------
     [INFO]
-    [INFO] --- azure-webapp-maven-plugin:2.3.0:config (default-cli) @ openlibery-hello-azure ---
+    [INFO] --- azure-webapp-maven-plugin:2.3.0:config (default-cli) @ openliberty-hello-azure ---
     Auth type: AZURE_CLI
     Default subscription:
     Username:
@@ -163,8 +166,8 @@ In this section, you'll configure the Open Liberty  project *pom.xml* file so th
     Enter your choice:
     Please confirm webapp properties
     Subscription Id : ********-****-****-****-************
-    AppName : openlibery-hello-azure-1642075767899
-    ResourceGroup : openlibery-hello-azure-1642075767899-rg
+    AppName : openliberty-hello-azure-1642075767899
+    ResourceGroup : openliberty-hello-azure-1642075767899-rg
     Region : centralus
     PricingTier : P1v2
     OS : Linux
@@ -201,8 +204,8 @@ In this section, you'll configure the Open Liberty  project *pom.xml* file so th
         <configuration>
           <schemaVersion>v2</schemaVersion>
           <subscriptionId>********-****-****-****-************</subscriptionId>
-          <resourceGroup>openlibery-hello-azure-1642075767899-rg</resourceGroup>
-          <appName>openlibery-hello-azure-1642075767899</appName>
+          <resourceGroup>openliberty-hello-azure-1642075767899-rg</resourceGroup>
+          <appName>openliberty-hello-azure-1642075767899</appName>
           <pricingTier>P1v2</pricingTier>
           <region>japaneast</region>
           <runtime>
@@ -254,25 +257,25 @@ Once you have configured all of the settings in the preceding sections of this a
    mvn azure-webapp:deploy
    ```
 
-   If you succeeded the deployment, you can see the following message on console.
+  If the deployment succeeded, you can see the following message on console.
 
    ```bash
     % mvn azure-webapp:deploy
     [INFO] Scanning for projects...
     [INFO] 
-    [INFO] ---< com.microsoft.azure.samples.openlibery:openlibery-hello-azure >----
-    [INFO] Building openlibery-hello-azure 1.0-SNAPSHOT
+    [INFO] ---< com.microsoft.azure.samples.openliberty:openliberty-hello-azure >----
+    [INFO] Building openliberty-hello-azure 1.0-SNAPSHOT
     [INFO] --------------------------------[ war ]---------------------------------
     [INFO] 
-    [INFO] --- azure-webapp-maven-plugin:2.3.0:deploy (default-cli) @ openlibery-hello-azure ---
+    [INFO] --- azure-webapp-maven-plugin:2.3.0:deploy (default-cli) @ openliberty-hello-azure ---
     Auth type: AZURE_CLI
-    [INFO] Creating web app openlibery-hello-azure-1642075767899...
-    [INFO] Successfully created Web App openlibery-hello-azure-1642075767899.
-    [INFO] Trying to deploy external resources to openlibery-hello-azure-1642075767899...
-    [INFO] Successfully deployed the resources to openlibery-hello-azure-1642075767899
-    [INFO] Trying to deploy artifact to openlibery-hello-azure-1642075767899...
-    [INFO] Deploying (/Users/Downloads/openlibery-hello-azure/target/openlibery-hello-azure.jar)[jar]  ...
-    [INFO] Successfully deployed the artifact to https://openlibery-hello-azure-1642075767899.azurewebsites.net
+    [INFO] Creating web app openliberty-hello-azure-1642075767899...
+    [INFO] Successfully created Web App openliberty-hello-azure-1642075767899.
+    [INFO] Trying to deploy external resources to openliberty-hello-azure-1642075767899...
+    [INFO] Successfully deployed the resources to openliberty-hello-azure-1642075767899
+    [INFO] Trying to deploy artifact to openliberty-hello-azure-1642075767899...
+    [INFO] Deploying (/Users/Downloads/openliberty-hello-azure/target/openliberty-hello-azure.jar)[jar]  ...
+    [INFO] Successfully deployed the artifact to https://openliberty-hello-azure-1642075767899.azurewebsites.net
     [INFO] ------------------------------------------------------------------------
     [INFO] BUILD SUCCESS
     [INFO] ------------------------------------------------------------------------
@@ -285,7 +288,7 @@ Once you have configured all of the settings in the preceding sections of this a
 
    ![Front Page of Open Liberty](./media/open-liberty/open-liberty-front-page.png)
 
-   When your web has been deployed, you'll be able to manage it through the [Azure portal].
+   When your app has been deployed, you'll be able to manage it through the [Azure portal].
 
    * Your web app will be listed in the resource group:
 
@@ -301,7 +304,7 @@ Verify that the deployment was successful and Running. You should see the follow
 You can see (or "tail") the logs from the running App Service. Any calls to `console.log` in the site code are displayed in the terminal.
  
    ```azurecli
-   az webapp log tail -g openlibery-hello-azure-1642075767899-rg -n openlibery-hello-azure-1642075767899
+   az webapp log tail -g openliberty-hello-azure-1642075767899-rg -n openliberty-hello-azure-1642075767899
    ```
  
    ![Confirm the Log Stream](./media/open-liberty/azure-cli-app-service-log-stream.png)
