@@ -170,7 +170,7 @@ In this section, you'll configure the Helidon project *pom.xml* file so that Mav
    [INFO] ------------------------------------------------------------------------
    ```
 
-4. Add the `<appSettings>` section to the `<configuration>` section of `PORT`,  `WEBSITES_PORT` and `WEBSITES_CONTAINER_START_TIME_LIMIT`. And add the `<include>/libs/*.jar</include>` to the resources in deployment.
+4. Add the `<appSettings>` section to the `<configuration>` section of `PORT`,  `WEBSITES_PORT`, and `WEBSITES_CONTAINER_START_TIME_LIMIT`. Add the `<include>/libs/*.jar</include>` to the resources in deployment.
 
    ```xml
    <plugin>
@@ -232,9 +232,9 @@ After you've configured all of the settings in the preceding sections of this ar
    mvn azure-webapp:deploy
    ```
 
-Maven will deploy your web app to Azure; if the web app or web app plan does not already exist, it will be created for you. It might take a few minutes before the web app is visible at the URL shown in the output. Navigate to the URL in a Web browser.  You should see the message displayed: **Hello World**
+Maven will deploy your web app to Azure. If the web app or web app plan doesn't already exist, it will be created for you. It might take a few minutes before the web app is visible at the URL shown in the output. Navigate to the URL in a Web browser. You should see the message displayed: **Hello World**
 
-When your web has been deployed, you'll be able to manage it through the [Azure portal].
+When your web has been deployed, you can manage it through the [Azure portal].
 
 Your web app will be listed in **App Services**, as shown in the following screenshot:
 

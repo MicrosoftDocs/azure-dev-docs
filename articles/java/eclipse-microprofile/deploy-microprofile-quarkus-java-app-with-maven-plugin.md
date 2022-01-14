@@ -172,7 +172,7 @@ In this section, you'll configure the Quarkus project *pom.xml* file so that Mav
    [INFO] ------------------------------------------------------------------------
    ```
 
-4. Add the `<appSettings>` section to the `<configuration>` section of `PORT`, `WEBSITES_PORT` and `WEBSITES_CONTAINER_START_TIME_LIMIT`. Your XML entry for `azure-webapp-maven-plugin` will look similar to the following example:
+4. Add the `<appSettings>` section to the `<configuration>` section of `PORT`, `WEBSITES_PORT`, and `WEBSITES_CONTAINER_START_TIME_LIMIT`. Your XML entry for `azure-webapp-maven-plugin` will look similar to the following example:
 
    ```xml
       <plugin>
@@ -252,11 +252,11 @@ If the deployment succeeds, you'll see the following output:
 [INFO] ------------------------------------------------------------------------
 ```
 
-Maven will deploy your web application to Azure. If the web application or web application plan does not already exist, it'll be created for you. It might take a few minutes before the web application is visible at the URL shown in the output. Navigate to the URL in a web browser. You should see the following screen.
+Maven will deploy your web application to Azure. If the web application or web application plan doesn't already exist, it will be created for you. It might take a few minutes before the web application is visible at the URL shown in the output. Navigate to the URL in a web browser. You should see the following screen.
 
 ![Front Page for Quarkus](./media/quarkus/quarkus-front-page-11.png)
 
-When your web application has been deployed, you'll be able to manage it through the [Azure portal].
+When your web application has been deployed, you can manage it through the [Azure portal].
 
 Your web application will be listed in the **microprofile** resource group, as shown in the following screenshot:
 

@@ -161,7 +161,7 @@ In this section, you'll configure the KumuluzEE project *pom.xml* file so that M
    [INFO] ------------------------------------------------------------------------
    ```
 
-4. Add the `<appSettings>` section to the `<configuration>` section of `PORT`,  `WEBSITES_PORT` and `WEBSITES_CONTAINER_START_TIME_LIMIT`. Your XML entry for `azure-webapp-maven-plugin` will look similar to the following example:
+4. Add the `<appSettings>` section to the `<configuration>` section of `PORT`,  `WEBSITES_PORT`, and `WEBSITES_CONTAINER_START_TIME_LIMIT`. Your XML entry for `azure-webapp-maven-plugin` will look similar to the following example:
 
    ```xml
    <plugin>
@@ -235,11 +235,11 @@ If the deployment succeeded, you'll see the following output.
 [INFO] ------------------------------------------------------------------------
 ```
 
-Maven will deploy your web app to Azure; if the web app or web app plan does not already exist, it will be created for you. It might take a few minutes before the web app is visible at the URL shown in the output. Navigate to the URL in a Web browser.  You should see the following screen.
+Maven will deploy your web app to Azure. If the web app or web app plan doesn't already exist, it will be created for you. It might take a few minutes before the web app is visible at the URL shown in the output. Navigate to the URL in a Web browser. You should see the following screen.
 
 ![KumuluzEE Front Page](./media/kumuluzee/kumuluzee-front-page.png)
 
-When your web has been deployed, you'll be able to manage it through the [Azure portal].
+When your web has been deployed, you can manage it through the [Azure portal].
 
 Your web app will be listed in the **microprofile** resource group, as shown in the following screenshot:
 

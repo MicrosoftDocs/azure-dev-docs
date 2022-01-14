@@ -283,11 +283,11 @@ Auth type: AZURE_CLI
 [INFO] ------------------------------------------------------------------------
 ```
 
-Maven will deploy your web app to Azure; if the web app or web app plan does not already exist, it will be created for you. It might take a few minutes before the web app is visible at the URL shown in the output. Navigate to the URL in a Web browser.  You should see the following screen.
+Maven will deploy your web app to Azure. If the web app or web app plan doesn't already exist, it will be created for you. It might take a few minutes before the web app is visible at the URL shown in the output. Navigate to the URL in a Web browser. You should see the following screen.
 
 ![Front Page of Open Liberty](./media/open-liberty/open-liberty-front-page.png)
 
-When your app has been deployed, you'll be able to manage it through the [Azure portal].
+When your app has been deployed, you can manage it through the [Azure portal].
 
 Your web app will be listed in the resource group, as shown in the following screenshot:
 

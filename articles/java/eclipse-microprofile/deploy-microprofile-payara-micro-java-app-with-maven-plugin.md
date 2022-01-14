@@ -216,7 +216,7 @@ In this section, you'll configure the PayaraMicro project *pom.xml* file so that
 
 ## Deploy the app to Azure
 
-After you've configured all of the settings in the preceding sections of this article, yourre ready to deploy your web app to Azure. To do so, use the following steps:
+After you've configured all of the settings in the preceding sections of this article, you're ready to deploy your web app to Azure. To do so, use the following steps:
 
 1. From the command prompt or terminal window that you were using earlier, rebuild the JAR file using Maven if you made any changes to the *pom.xml* file; for example:
 
@@ -242,11 +242,11 @@ If you succeeded the deployment, you'll see the following output.
 [INFO] ------------------------------------------------------------------------
 ```
 
-Maven will deploy your web app to Azure; if the web app or web app plan does not already exist, it will be created for you. It might take a few minutes before the web app is visible at the URL shown in the output. Navigate to the URL in a Web browser.  You should see the following screen.
+Maven will deploy your web app to Azure. If the web app or web app plan doesn't already exist, it will be created for you. It might take a few minutes before the web app is visible at the URL shown in the output. Navigate to the URL in a Web browser. You should see the following screen.
 
 ![Front Page of Payara Micro](./media/payara-micro/payara-micro-front-page.png)
 
-When your web has been deployed, you'll be able to manage it through the [Azure portal].
+When your web has been deployed, you can manage it through the [Azure portal].
 
 Your web app will be listed in the **microprofile** resource group, as shown in the following screenshot:
 
