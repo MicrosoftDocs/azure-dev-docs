@@ -135,8 +135,6 @@ Most likely, you've deployed your application on multiple WebLogic servers to ac
 
 ## Migration
 
-### Migrate your application code to EAP
-
 [!INCLUDE [java-redhat-migration-toolkit](includes/redhat-migration-toolkit.md)]
 
 ### Provision an App Service plan
