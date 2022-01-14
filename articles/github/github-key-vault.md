@@ -48,7 +48,7 @@ You can create a [service principal](/azure/active-directory/develop/app-objects
    az ad sp create-for-rbac --name {myApp} --role contributor --scopes /subscriptions/{subscription-id}/resourceGroups/{MyResourceGroup} --sdk-auth
 ```
 
-In the the example above, replace the placeholders with your subscription ID and resource group name. Replace the placeholder `myApp` with the name of your application. The output is a JSON object with the role assignment credentials that provide access to your App Service app similar to below. Copy this JSON object for later. You can shorten the JSON object to only include the lines with the `clientId`, `clientSecret`, `subscriptionId`, and `tenantId` values.
+In the example above, replace the placeholders with your subscription ID and resource group name. Replace the placeholder `myApp` with the name of your application. The output is a JSON object with the role assignment credentials that provide access to your App Service app similar to below. Copy this JSON object for later. You can shorten the JSON object to only include the lines with the `clientId`, `clientSecret`, `subscriptionId`, and `tenantId` values.
 
 ```output 
   {
