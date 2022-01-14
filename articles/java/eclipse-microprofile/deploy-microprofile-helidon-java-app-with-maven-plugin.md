@@ -2,11 +2,10 @@
 title: Deploy a Helidon Web App to Azure App Service with Maven
 description: Learn how to deploy a Helidon App to App Service on Linux using the Maven Plugin for Azure Web App.
 services: app-service
-documentationcenter: java
 ms.date: 06/10/2020
 ms.service: app-service
 ms.topic: article
-ms.custom:   
+ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-helidon
 #Customer intent: As a Java developer, I want to deploy MicroProfile apps to Azure so that I don't have to deal with app server configuration and management.
 ---
 
@@ -22,7 +21,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 * A supported Java Development Kit (JDK). For more information about the JDKs available for use when developing on Azure, see [Java support on Azure and Azure Stack](../fundamentals/java-support-on-azure.md).
 * Apache [Maven](https://maven.apache.org/), Version 3.
 
-## Install and sign in to Azure CLI
+## Sign in to Azure CLI
 
 The simplest and easiest way to get the Maven Plugin deploying your Helidon application is by using [Azure CLI](/cli/azure/).
 
@@ -42,7 +41,7 @@ In this section, you'll create a Helidon application and test it locally.
 
    ![MicroProfile Starter](./media/helidon/microprofile-starter-helidon.png)
 
-1. Input or Select the field like follows.  
+1. Input or Select the field like follows.
 
    |  Field  | Value  |
    | ---- | ---- |
@@ -53,7 +52,7 @@ In this section, you'll create a Helidon application and test it locally.
    |  MicroProfile Runtime  |  Helidon  |
    |  Examples for Specifications  |  Metrics, OpenAPI  |
 
-1. Select the **DOWNLOAD** button to download the project.
+1. Select **DOWNLOAD** to download the project.
 
 1. Unzip the archive file; for example:
 
@@ -120,13 +119,13 @@ In this section, you'll configure the Helidon project *pom.xml* file so that Mav
    </build>
    ```
 
-3. Then you can configure the deployment, run the following maven command in the Command Prompt and use the **number** to choose these options in the prompt:
+3. Then you can configure the deployment, run the following Maven command:
 
    ```bash
    mvn azure-webapp:config
    ```
 
-   Options Parameter:  
+   Select the following options when prompted:
 
    |  Input Field  |  Input/Select Value  |
    | ---- | ---- |
@@ -134,23 +133,22 @@ In this section, you'll configure the Helidon project *pom.xml* file so that Mav
    |  Define value for javaVersion(Default: Java 8):   | 1. Java 11  |
    |  Confirm (Y/N) | y |
 
-   You can configure with the following command:
+   This command produces output similar to the following example:
 
-   ```bash
-   mvn azure-webapp:config
+   ```output
    [INFO] Scanning for projects...
    [INFO]
    [INFO] ------< com.microsoft.azure.samples.helidon:helidon-hello-azure >-------
    [INFO] Building myproject 1.0-SNAPSHOT
    [INFO] --------------------------------[ jar ]---------------------------------
-   [INFO] 
+   [INFO]
    [INFO] --- azure-webapp-maven-plugin:1.10.0:config (default-cli) @ helidon-hello-azure ---
-   Define value for OS(Default: Linux): 
+   Define value for OS(Default: Linux):
    1. linux [*]
    2. windows
    3. docker
    Enter index to use: 1
-   Define value for javaVersion(Default: Java 8): 
+   Define value for javaVersion(Default: Java 8):
    1. Java 11
    2. Java 8 [*]
    Enter index to use: 1
@@ -176,9 +174,9 @@ In this section, you'll configure the Helidon project *pom.xml* file so that Mav
 
    ```xml
    <plugin>
-     <groupId>com.microsoft.azure</groupId>  
-     <artifactId>azure-webapp-maven-plugin</artifactId>  
-     <version>1.10.0</version>  
+     <groupId>com.microsoft.azure</groupId>
+     <artifactId>azure-webapp-maven-plugin</artifactId>
+     <version>1.10.0</version>
      <configuration>
        <schemaVersion>V2</schemaVersion>
        <resourceGroup>microprofile</resourceGroup>
@@ -220,7 +218,7 @@ In this section, you'll configure the Helidon project *pom.xml* file so that Mav
 
 ## Deploy the app to Azure
 
-Once you have configured all of the settings in the preceding sections of this article, you are ready to deploy your web app to Azure. To do so, use the following steps:
+After you've configured all of the settings in the preceding sections of this article, you're ready to deploy your web app to Azure. To do so, use the following steps:
 
 1. From the command prompt or terminal window that you were using earlier, rebuild the JAR file using Maven if you made any changes to the *pom.xml* file; for example:
 
@@ -238,17 +236,17 @@ Maven will deploy your web app to Azure; if the web app or web app plan does not
 
 When your web has been deployed, you'll be able to manage it through the [Azure portal].
 
-* Your web app will be listed in **App Services**:
+Your web app will be listed in **App Services**, as shown in the following screenshot:
 
-   ![Web app listed in Azure portal App Services](./media/helidon/azure-portal-app-service-screen.png)
+![Web app listed in Azure portal App Services](./media/helidon/azure-portal-app-service-screen.png)
 
-* And you can access to your web app by click the `Browse` button in the **Overview** for your web app:
+You can access to your web app by selecting **Browse** on the **Overview** page for your web app:
 
-   ![Find the URL for your web app in Azure portal App Services](./media/helidon/azure-portal-app-service-overview.png)
+![Find the URL for your web app in Azure portal App Services](./media/helidon/azure-portal-app-service-overview.png)
 
 Verify that the deployment was successful by using the same cURL command as before(`/data/hello`), using your web app URL from the Portal instead of `localhost`. You should see the following message displayed: **Hello World**
 
-## Confirm the Log Stream from Running App Service
+## Confirm the log stream from the running App Service
 
 You can see (or "tail") the logs from the running App Service. Any calls to `console.log` in the site code are displayed in the terminal.
 
@@ -258,7 +256,7 @@ az webapp log tail -g microprofile -n helidon-hello-azure-1600998900939
 
 ![Terminal window showing log output](./media/helidon/azure-cli-app-service-log-stream.png)
 
-## Clean up Resources
+## Clean up resources
 
 When the Azure resources are no longer needed, clean up the resources you deployed by deleting the resource group.
 
@@ -274,7 +272,7 @@ To learn more about MicroProfile and Azure, continue to the MicroProfile on Azur
 > [!div class="nextstepaction"]
 > [MicroProfile on Azure](./index.yml)
 
-### Additional Resources
+### Additional resources
 
 For more information about the various technologies discussed in this article, see the following articles:
 
