@@ -193,7 +193,7 @@ In this section, you'll configure the Open Liberty  project *pom.xml* file so th
                     httpsPort="9443"/>
     ```
 
-3. Modify the Runtime from `TOMCAT 8.5` to `java` and Deployment file from `*.war` to `*.jar`. Then add the `<appSettings>` section to the `<configuration>` section of `PORT`, `WEBSITES_PORT` and `WEBSITES_CONTAINER_START_TIME_LIMIT`.  
+3. Modify the Runtime from `TOMCAT 8.5` to `java` and Deployment file from `*.war` to `*.jar` on `pom.xml` file. Then add the `<appSettings>` section to the `<configuration>` section of `PORT`, `WEBSITES_PORT` and `WEBSITES_CONTAINER_START_TIME_LIMIT`.  
  Finally you can see the following XML entry for `azure-webapp-maven-plugin`.
 
     ```xml
