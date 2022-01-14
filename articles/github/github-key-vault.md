@@ -4,7 +4,7 @@ description: Use Key Vault secrets in GitHub Actions to automate your software d
 author: juliakm
 ms.custom: github-actions-azure, mode-portal
 ms.author: jukullam
-ms.date: 01/11/2022
+ms.date: 01/14/2022
 ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
