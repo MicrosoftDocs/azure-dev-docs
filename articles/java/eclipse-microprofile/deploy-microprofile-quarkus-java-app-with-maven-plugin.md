@@ -271,7 +271,9 @@ You can access to your web application by selecting **Browse** in the **Overview
 You can see (or "tail") the logs from the running App Service. Any calls to `console.log` in the site code are displayed in the terminal.
 
 ```azurecli
-az webapp log tail -g microprofile -n quarkus-hello-azure-1601011883156
+az webapp log tail 
+    --resource-group microprofile \
+    --name quarkus-hello-azure-1601011883156
 ```
 
 ![Terminal window showing log output.](./media/Quarkus/azure-cli-app-service-log-stream.png)

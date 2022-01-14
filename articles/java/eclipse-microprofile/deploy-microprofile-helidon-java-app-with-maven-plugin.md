@@ -251,7 +251,9 @@ Verify that the deployment was successful by using the same cURL command as befo
 You can see (or "tail") the logs from the running App Service. Any calls to `console.log` in the site code are displayed in the terminal.
 
 ```azurecli
-az webapp log tail -g microprofile -n helidon-hello-azure-1600998900939
+az webapp log tail \
+    --resource-group microprofile \
+    --name helidon-hello-azure-1600998900939
 ```
 
 ![Terminal window showing log output](./media/helidon/azure-cli-app-service-log-stream.png)

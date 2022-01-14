@@ -254,7 +254,9 @@ You can access to your web app by selecting **Browse** on the **Overview** page 
 You can see (or "tail") the logs from the running App Service. Any calls to `console.log` in the site code are displayed in the terminal.
 
 ```azurecli
-az webapp log tail -g microprofile -n kumuluzEE-hello-azure-1601006602397
+az webapp log tail \
+    --resource-group microprofile \
+    --name kumuluzEE-hello-azure-1601006602397
 ```
 
 ![Confirm the Log Stream](./media/kumuluzee/azure-cli-app-service-log-stream.png)

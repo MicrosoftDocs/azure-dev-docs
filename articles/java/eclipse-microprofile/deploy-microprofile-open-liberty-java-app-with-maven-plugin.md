@@ -302,10 +302,12 @@ You can access your web app by selecting **Browse** on the **Overview** page for
 You can see (or "tail") the logs from the running App Service. Any calls to `console.log` in the site code are displayed in the terminal.
 
 ```azurecli
-az webapp log tail -g openliberty-hello-azure-1642075767899-rg -n openliberty-hello-azure-1642075767899
+az webapp log tail \
+    --resource-group openliberty-hello-azure-1642075767899-rg \
+    --name openliberty-hello-azure-1642075767899
 ```
 
-![Confirm the Log Stream](./media/open-liberty/azure-cli-app-service-log-stream.png)
+:::image type="content" source="media/open-liberty/azure-cli-app-service-log-stream.png" alt-text="Confirm the log stream" lightbox="media/open-liberty/azure-cli-app-service-log-stream.png":::
 
 ## Clean up resources
 
@@ -327,7 +329,7 @@ To learn more about MicroProfile and Azure, continue to the MicroProfile on Azur
 
 For more information about the various technologies discussed in this article, see the following articles:
 
-* [Maven Plugin for Azure Web Apps]
+* [Maven Plugin for Azure Web Apps](https://github.com/microsoft/azure-maven-plugins/blob/develop/azure-webapp-maven-plugin/README.md)
 
 * [Create an Azure service principal with Azure CLI 2.0](/cli/azure/create-an-azure-service-principal-azure-cli)
 
@@ -343,7 +345,6 @@ For more information about the various technologies discussed in this article, s
 [Working with Azure DevOps and Java]: /azure/devops/
 [Maven]: http://maven.apache.org/
 [MSDN subscriber benefits]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/
-[Maven Plugin for Azure Web Apps]: https://github.com/microsoft/azure-maven-plugins/blob/develop/azure-webapp-maven-plugin/README.md
 
 [Java Development Kit (JDK)]: ../fundamentals/java-support-on-azure.md
 <!-- http://www.oracle.com/technetwork/java/javase/downloads/ -->
