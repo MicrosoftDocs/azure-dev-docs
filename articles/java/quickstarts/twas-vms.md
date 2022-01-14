@@ -114,6 +114,14 @@ You’re now ready to try the app. Point your browser at the DNS name of the IHS
 
 Refreshing the browser will cycle through the server instances using the **Round Robin load-balancing policy** (the default for the Static Cluster deployment).
 
+## Clean up resources
+
+To avoid Azure charges, you should clean up unnecessary resources. When the cluster is no longer needed, use the [az group delete](/cli/azure/group#az_group_delete) command to remove the resource group, container service, container registry, and all related resources.
+
+```azurecli-interactive
+az group delete --name <RESOURCE_GROUP_NAME> --yes --no-wait
+```
+
 ## Conclusion and Next Steps
 
 To deploy a WebSphere Application Server (traditional) cluster to Azure Virtual Machines is now easier than ever. All the pain of spinning up VMs, configuring networking, storage, and more are taken care of for you and follow best practices, meaning you can focus on managing your application deployments.
