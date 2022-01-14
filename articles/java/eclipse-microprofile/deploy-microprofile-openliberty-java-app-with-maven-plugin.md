@@ -1,6 +1,6 @@
 ---
 title: Deploy an Open Liberty Web App to Azure App Service with Maven
-description: Learn how to deploy a Open Liberty App to App Service on Linux using the Maven Plugin for Azure Web App.
+description: Learn how to deploy an Open Liberty App to App Service on Linux using the Maven Plugin for Azure Web App.
 services: app-service
 ms.date: 01/13/2022
 ms.service: app-service
@@ -11,9 +11,14 @@ ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-liberty
 
 # Deploy an Open Liberty Micro Web App to Azure App Service with Maven
 
-In this quickstart, you'll use the [Maven Plugin for Azure App Service Web Apps](https://github.com/microsoft/azure-maven-plugins/blob/develop/azure-webapp-maven-plugin/README.md) to deploy a Open Liberty application to [Azure App Service on Linux](/azure/app-service/containers/). You'll want to choose Java SE deployment over [Tomcat and WAR files](/azure/app-service/containers/quickstart-java) when you want to consolidate your app's dependencies, runtime, and configuration into a single deployable artifact.
+In this quickstart, you'll use the [Maven Plugin for Azure App Service Web Apps](https://github.com/microsoft/azure-maven-plugins/blob/develop/azure-webapp-maven-plugin/README.md) to deploy an Open Liberty application to [Azure App Service on Linux](/azure/app-service/containers/). You'll want to choose Java SE deployment over [Tomcat and WAR files](/azure/app-service/containers/quickstart-java) when you want to consolidate your app's dependencies, runtime, and configuration into a single deployable artifact.
 
 If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+
+> [!IMPORTANT]
+> While Azure App Service is engineered, operated, and supported by Microsoft, the software you run on top of it is subject to its own support plan support and license terms. For details about support of the software described in this article, see the main pages for that software as listed in the article.
+> For support for Open Liberty, see [The Open Liberty support page](https://openliberty.io/support/).
+> For support for WebSphere Liberty, see [IBM Cloud Support](https://www.ibm.com/cloud/support).
 
 ## Prerequisites
 
@@ -35,7 +40,7 @@ Follow the instructions to complete the sign-in process.
 
 ## Create sample app from MicroProfile Starter
 
-In this section, you'll create a Open Liberty application and test it locally.
+In this section, you'll create an Open Liberty application and test it locally.
 
 1. Open Web Browser and access to the [MicroProfile Starter](https://start.microprofile.io/) site.
 
