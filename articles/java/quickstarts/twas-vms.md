@@ -10,15 +10,19 @@ ms.custom: java, jakartaee, javaee, websphere, devx-track-java, devx-track-javae
 
 # Deploying WebSphere Application Server (traditional) with High Availability on Azure Virtual Machines
 
-WebSphere Application Server (traditional) Cluster deployment on Azure Virtual Machines is now available through the Microsoft Azure Marketplace: This means that you are now able to quickly and easily provision all the Azure resources necessary to stand up a WebSphere Application Server (traditional) Cluster on Azure Virtual Machines. The automatically provisioned resources include virtual network, storage, network security group, Linux, Java, WebSphere, and IBM HTTP Server (IHS) load balancer.
+This article demonstrates how to quickly deploy a cluster of WebSphere Application Server (WAS) instances on Azure Virtual Machines (VMs).
 
-This article demonstrates how to quickly deploy a cluster of WebSphere Application Server (WAS) instances on Azure Virtual Machines (VMs). You can visit [Microsoft docs](../ee/websphere-family.md) to find out more about this capability and also options for deploying WebSphere Liberty and Open Liberty to Azure Red Hat OpenShift and Azure Kubernetes Service.
+## Prerequisites
+
+In order to complete the steps in this quickstart, you need to have the following prerequisites:
+
+* An Azure subscription; if you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits] or sign up for a [free Azure account].
+* An IBMid with necessary entitlement for WebSphere Traditional.  This offer is Bring-Your-Own-License. To deploy this offer, you must enter your registered IBMid and your IBMid must have active WebSphere entitlements associated with it. If provisioning fails due to lack of entitlements, ask the primary or secondary contacts for your IBM Passport Advantage site to grant you access or follow steps at IBM eCustomer Care for further assistance. This offer also assumes you are properly licensed to run offers in Microsoft Azure. For more information please see [IBM eCustomer Care](https://ibm.biz/IBMidEntitlement).
+
 
 ## Provisioning a Cluster
 
-You access the WAS cluster option from the [Azure Marketplace](https://azuremarketplace.microsoft.com/) [here](https://aka.ms/websphere-on-azure). This page provides more information regarding the offer and also a video tutorial on how to set up and access the VMs. You’ll need an Azure subscription and an IBM ID that has WebSphere Application Server entitlements associated with it.
-
-When you’re ready to get started, select **Get It Now**. You’ll need to sign in with your Azure account and review and accept the Microsoft terms. You will then be taken to the deployment page.
+For background regarding the offer and also a video tutorial on how to set up and access the VMs, visit the Azure portal offer for [IBM WebSphere Application Server Cluster ](https://aka.ms/websphere-on-azure-portal).
 
 The **IBM WebSphere Application Server Cluster** deployment page is where you’ll kick off the creating your deployment. By default, the deployment will consist of the following VMs:
 
@@ -38,7 +42,7 @@ This will take you to the **Create IBM WebSphere Application Server Cluster** pa
 
 ![Basic tab of WebSphere Application Server (traditional) Cluster deployment](./media/twas-vms/twas-cluster-deployment-basics-tab.png)
 
-Each field typically has an information icon which gives you more help with filling it out. The offer is Bring-Your-Own-License (BYOL) and so requires you to have purchased entitlements to WAS. Your entitlement is checked during installation into the VMs. You must provide an IBM ID which is associated with the entitlements. If the ID you provided does not have entitlements, then the deployment will fail to install WAS and you will see error messages that include this text: `The provided IBM ID does not have entitlement to install WebSphere Application Server.`
+Each field typically has an information icon which gives you more help with filling it out. The offer is Bring-Your-Own-License (BYOL) and so requires you to have purchased entitlements to WAS. Your entitlement is checked during installation into the VMs. You must provide an IBMid which is associated with the entitlements. If the ID you provided does not have entitlements, then the deployment will fail to install WAS and you will see error messages that include this text: `The provided IBMid does not have entitlement to install WebSphere Application Server.`
 
 Once you’ve completed this configuration, select **Next: Cluster configuration**.
 
