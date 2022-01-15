@@ -243,7 +243,7 @@ When your web has been deployed, you can manage it through the [Azure portal].
 
 Your web app will be listed in the **microprofile** resource group, as shown in the following screenshot:
 
-:::image type="content" source="media/kumuluzee/kumuluzee-azure-portal-rg.png" alt-text="Screenshot of Azure portal showing resource group contents." lightbox="media/kumuluzee/kumuluzee-azure-portal-rg.png:::
+:::image type="content" source="media/kumuluzee/kumuluzee-azure-portal-rg.png" alt-text="Screenshot of Azure portal showing resource group contents." lightbox="media/kumuluzee/kumuluzee-azure-portal-rg.png":::
 
 You can access to your web app by selecting **Browse** on the **Overview** page for your web app. Verify that the deployment was successful and Running. You should see the following screen displayed:
 

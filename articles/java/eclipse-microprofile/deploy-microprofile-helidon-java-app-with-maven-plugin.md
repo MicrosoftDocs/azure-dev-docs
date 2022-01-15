@@ -238,7 +238,7 @@ When your web has been deployed, you can manage it through the [Azure portal].
 
 Your web app will be listed in **App Services**, as shown in the following screenshot:
 
-:::image type="content" source="media/helidon/azure-portal-app-service-screen.png" alt-text="Screenshot of Azure portal with web app listed on App Services screen." lightbox=="media/helidon/azure-portal-app-service-screen.png":::
+:::image type="content" source="media/helidon/azure-portal-app-service-screen.png" alt-text="Screenshot of Azure portal with web app listed on App Services screen." lightbox="media/helidon/azure-portal-app-service-screen.png":::
 
 You can access to your web app by selecting **Browse** on the **Overview** page for your web app:
 
