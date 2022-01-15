@@ -39,9 +39,9 @@ In this section, you'll create a KumuluzEE application and test it locally.
 
 ### Create Java SE 8 base Project
 
-1. Open Web Browser and access to the [MicroProfile Starter](https://start.microprofile.io/) site.
+1. Open a web browser and navigate to the [MicroProfile Starter](https://start.microprofile.io/) site.
 
-   ![MicroProfile Starter for KumuluzEE](./media/kumuluzee/microprofile-starter-kumuluzee.png)
+   :::image type="content" source="media/kumuluzee/microprofile-starter-kumuluzee.png" alt-text="MicroProfile Starter for KumuluzEE":::
 
 2. Input or Select the field like follows.
 
@@ -237,17 +237,17 @@ If the deployment succeeded, you'll see the following output.
 
 Maven will deploy your web app to Azure. If the web app or web app plan doesn't already exist, it will be created for you. It might take a few minutes before the web app is visible at the URL shown in the output. Navigate to the URL in a Web browser. You should see the following screen.
 
-![KumuluzEE Front Page](./media/kumuluzee/kumuluzee-front-page.png)
+:::image type="content" source="media/kumuluzee/kumuluzee-front-page.png" alt-text="KumuluzEE Front Page":::
 
 When your web has been deployed, you can manage it through the [Azure portal].
 
 Your web app will be listed in the **microprofile** resource group, as shown in the following screenshot:
 
-![Web app listed in Azure portal App Services](./media/kumuluzee/kumuluzee-azure-portal-rg.png)
+:::image type="content" source="media/kumuluzee/kumuluzee-azure-portal-rg.png" alt-text="Web app listed in Azure portal App Services":::
 
 You can access to your web app by selecting **Browse** on the **Overview** page for your web app. Verify that the deployment was successful and Running. You should see the following screen displayed:
 
-![Find the URL for your web app in Azure portal App Services](./media/kumuluzee/kumuluzee-azure-portal-manage.png)
+:::image type="content" source="media/kumuluzee/kumuluzee-azure-portal-manage.png" alt-text="Find the URL for your web app in Azure portal App Services":::
 
 ## Confirm the log stream from the running App Service
 
@@ -259,7 +259,7 @@ az webapp log tail \
     --name kumuluzEE-hello-azure-1601006602397
 ```
 
-![Confirm the Log Stream](./media/kumuluzee/azure-cli-app-service-log-stream.png)
+:::image type="content" source="media/kumuluzee/azure-cli-app-service-log-stream.png" alt-text="Confirm the Log Stream":::
 
 ## Clean up resources
 

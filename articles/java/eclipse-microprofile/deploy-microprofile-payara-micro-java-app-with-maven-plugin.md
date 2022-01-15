@@ -37,9 +37,9 @@ Follow the instructions to complete the sign-in process.
 
 In this section, you'll create a PayaraMicro application and test it locally.
 
-1. Open Web Browser and access to the [MicroProfile Starter](https://start.microprofile.io/) site.
+1. Open a web browser and navigate to the [MicroProfile Starter](https://start.microprofile.io/) site.
 
-   ![MicroProfile Starter for Payara Micro](./media/payara-micro/microprofile-starter-payara-micro.png)
+   :::image type="content" source="media/payara-micro/microprofile-starter-payara-micro.png" alt-text="MicroProfile Starter for Payara Micro":::
 
 2. Input or Select the field like follows.
 
@@ -244,18 +244,18 @@ If you succeeded the deployment, you'll see the following output.
 
 Maven will deploy your web app to Azure. If the web app or web app plan doesn't already exist, it will be created for you. It might take a few minutes before the web app is visible at the URL shown in the output. Navigate to the URL in a Web browser. You should see the following screen.
 
-![Front Page of Payara Micro](./media/payara-micro/payara-micro-front-page.png)
+:::image type="content" source="media/payara-micro/payara-micro-front-page.png" alt-text="Front Page of Payara Micro":::
 
 When your web has been deployed, you can manage it through the [Azure portal].
 
 Your web app will be listed in the **microprofile** resource group, as shown in the following screenshot:
 
-![Web app listed in Azure portal App Services](./media/payara-micro/payara-micro-azure-portal-rg.png)
+:::image type="content" source="media/payara-micro/payara-micro-azure-portal-rg.png" alt-text="Web app listed in Azure portal App Services":::
 
 You can access to your web app by selecting **Browse** on the **Overview** page for your web app.
 Verify that the deployment was successful and Running. You should see the following screen displayed:
 
-![Find the URL for your web app in Azure portal App Services](./media/payara-micro/payara-micro-azure-portal-manage.png)
+:::image type="content" source="media/payara-micro/payara-micro-azure-portal-manage.png" alt-text="Find the URL for your web app in Azure portal App Services":::
 
 ## Confirm the log stream from the running App Service
 
@@ -267,7 +267,7 @@ az webapp log tail \
     --name payaramicro-hello-azure-1601009217863
 ```
 
-![Confirm the Log Stream](./media/payara-micro/azure-cli-app-service-log-stream.png)
+:::image type="content" source="media/payara-micro/azure-cli-app-service-log-stream.png" alt-text="Confirm the Log Stream":::
 
 ## Clean up resources
 

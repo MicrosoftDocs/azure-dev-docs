@@ -37,9 +37,9 @@ Follow the instructions to complete the sign-in process.
 
 In this section, you'll create a Helidon application and test it locally.
 
-1. Open Web Browser and access to the [MicroProfile Starter](https://start.microprofile.io/) site.
+1. Open a web browser and navigate to the [MicroProfile Starter](https://start.microprofile.io/) site.
 
-   ![MicroProfile Starter](./media/helidon/microprofile-starter-helidon.png)
+   :::image type="content" source="media/helidon/microprofile-starter-helidon.png" alt-text="MicroProfile Starter":::
 
 1. Input or Select the field like follows.
 
@@ -238,11 +238,11 @@ When your web has been deployed, you can manage it through the [Azure portal].
 
 Your web app will be listed in **App Services**, as shown in the following screenshot:
 
-![Web app listed in Azure portal App Services](./media/helidon/azure-portal-app-service-screen.png)
+:::image type="content" source="media/helidon/azure-portal-app-service-screen.png" alt-text="Web app listed in Azure portal App Services":::
 
 You can access to your web app by selecting **Browse** on the **Overview** page for your web app:
 
-![Find the URL for your web app in Azure portal App Services](./media/helidon/azure-portal-app-service-overview.png)
+:::image type="content" source="media/helidon/azure-portal-app-service-overview.png" alt-text="Find the URL for your web app in Azure portal App Services":::
 
 Verify that the deployment was successful by using the same cURL command as before(`/data/hello`), using your web app URL from the Portal instead of `localhost`. You should see the following message displayed: **Hello World**
 
@@ -256,7 +256,7 @@ az webapp log tail \
     --name helidon-hello-azure-1600998900939
 ```
 
-![Terminal window showing log output](./media/helidon/azure-cli-app-service-log-stream.png)
+:::image type="content" source="media/helidon/azure-cli-app-service-log-stream.png" alt-text="Terminal window showing log output":::
 
 ## Clean up resources
 
