@@ -44,7 +44,7 @@ In this section, you'll create an Open Liberty application and test it locally.
 
 1. Open a web browser and navigate to the [MicroProfile Starter](https://start.microprofile.io/) site.
 
-   :::image type="content" source="media/open-liberty/microprofile-starter-open-liberty-micro.png" alt-text="MicroProfile Starter for Open Liberty":::
+   :::image type="content" source="media/open-liberty/microprofile-starter-open-liberty-micro.png" alt-text="Screenshot showing MicroProfile Starter with Open Liberty runtime selected.":::
 
 2. Use the values in the following table to fill in the MicroProfile Starter.
 
@@ -285,17 +285,17 @@ Auth type: AZURE_CLI
 
 Maven will deploy your web app to Azure. If the web app or web app plan doesn't already exist, it will be created for you. It might take a few minutes before the web app is visible at the URL shown in the output. Navigate to the URL in a Web browser. You should see the following screen.
 
-:::image type="content" source="media/open-liberty/open-liberty-front-page.png" alt-text="Front Page of Open Liberty":::
+:::image type="content" source="media/open-liberty/open-liberty-front-page.png" alt-text="Screenshot of web browser showing front page of Open Liberty.":::
 
 When your app has been deployed, you can manage it through the [Azure portal].
 
 Your web app will be listed in the resource group, as shown in the following screenshot:
 
-:::image type="content" source="media/open-liberty/open-liberty-azure-portal-rg.png" alt-text="Web app listed in Azure portal App Services":::
+:::image type="content" source="media/open-liberty/open-liberty-azure-portal-rg.png" alt-text="Screenshot of Azure portal showing resource group contents.":::
 
 You can access your web app by selecting **Browse** on the **Overview** page for your web app. Verify that the deployment was successful and Running. You should see the following screen displayed:
 
-:::image type="content" source="media/open-liberty/open-liberty-azure-portal-manage.png" alt-text="Find the URL for your web app in Azure portal App Services":::
+:::image type="content" source="media/open-liberty/open-liberty-azure-portal-manage.png" alt-text="Screenshot of Azure portal showing web app overview page.":::
 
 ## Confirm the log stream from the running App Service
 
@@ -307,7 +307,7 @@ az webapp log tail \
     --name openliberty-hello-azure-1642075767899
 ```
 
-:::image type="content" source="media/open-liberty/azure-cli-app-service-log-stream.png" alt-text="Confirm the log stream" lightbox="media/open-liberty/azure-cli-app-service-log-stream.png":::
+:::image type="content" source="media/open-liberty/azure-cli-app-service-log-stream.png" alt-text="Screenshot of terminal window showing log stream." lightbox="media/open-liberty/azure-cli-app-service-log-stream.png":::
 
 ## Clean up resources
 

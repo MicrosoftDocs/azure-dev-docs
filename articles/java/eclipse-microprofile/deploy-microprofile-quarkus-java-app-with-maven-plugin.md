@@ -41,7 +41,7 @@ In this section, you'll create a Quarkus application and test it locally.
 
 1. Open a web browser and navigate to the [MicroProfile Starter](https://start.microprofile.io/) site.
 
-   :::image type="content" source="media/quarkus/microprofile-starter-quarkus.png" alt-text="MicroProfile Starter for Quarkus":::
+   :::image type="content" source="media/quarkus/microprofile-starter-quarkus.png" alt-text="Screenshot showing MicroProfile Starter with Quarkus runtime selected.":::
 
 2. Provide the following values for the indicated fields.
 
@@ -254,17 +254,17 @@ If the deployment succeeds, you'll see the following output:
 
 Maven will deploy your web application to Azure. If the web application or web application plan doesn't already exist, it will be created for you. It might take a few minutes before the web application is visible at the URL shown in the output. Navigate to the URL in a web browser. You should see the following screen.
 
-:::image type="content" source="media/quarkus/quarkus-front-page-11.png" alt-text="Front Page for Quarkus":::
+:::image type="content" source="media/quarkus/quarkus-front-page-11.png" alt-text="Screenshot of web browser showing front page of Quarkus.":::
 
 When your web application has been deployed, you can manage it through the [Azure portal].
 
 Your web application will be listed in the **microprofile** resource group, as shown in the following screenshot:
 
-:::image type="content" source="media/quarkus/quarkus-azure-portal-rg.png" alt-text="Web app listed in Azure portal App Services":::
+:::image type="content" source="media/quarkus/quarkus-azure-portal-rg.png" alt-text="Screenshot of Azure portal showing resource group contents.":::
 
 You can access to your web application by selecting **Browse** in the **Overview** page for your web app. Verify that the deployment was successful and is running. You should see the following screen displayed:
 
-:::image type="content" source="media/quarkus/quarkus-azure-portal-manage.png" alt-text="Find the URL for your web app in Azure portal App Services":::
+:::image type="content" source="media/quarkus/quarkus-azure-portal-manage.png" alt-text="Screenshot of Azure portal showing web app overview page.":::
 
 ## Confirm the log stream from the running App Service
 
@@ -276,7 +276,7 @@ az webapp log tail
     --name quarkus-hello-azure-1601011883156
 ```
 
-:::image type="content" source="media/quarkus/azure-cli-app-service-log-stream.png" alt-text="Terminal window showing log output.":::
+:::image type="content" source="media/quarkus/azure-cli-app-service-log-stream.png" alt-text="Screenshot of terminal window showing log stream.":::
 
 ## Clean up resources
 
