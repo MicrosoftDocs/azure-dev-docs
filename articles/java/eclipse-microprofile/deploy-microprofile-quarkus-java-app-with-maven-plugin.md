@@ -260,11 +260,11 @@ When your web application has been deployed, you can manage it through the [Azur
 
 Your web application will be listed in the **microprofile** resource group, as shown in the following screenshot:
 
-:::image type="content" source="media/quarkus/quarkus-azure-portal-rg.png" alt-text="Screenshot of Azure portal showing resource group contents.":::
+:::image type="content" source="media/quarkus/quarkus-azure-portal-rg.png" alt-text="Screenshot of Azure portal showing resource group contents." lightbox="media/quarkus/quarkus-azure-portal-rg.png":::
 
 You can access to your web application by selecting **Browse** in the **Overview** page for your web app. Verify that the deployment was successful and is running. You should see the following screen displayed:
 
-:::image type="content" source="media/quarkus/quarkus-azure-portal-manage.png" alt-text="Screenshot of Azure portal showing web app overview page.":::
+:::image type="content" source="media/quarkus/quarkus-azure-portal-manage.png" alt-text="Screenshot of Azure portal showing web app overview page." lightbox="media/quarkus/quarkus-azure-portal-manage.png":::
 
 ## Confirm the log stream from the running App Service
 
@@ -276,7 +276,7 @@ az webapp log tail
     --name quarkus-hello-azure-1601011883156
 ```
 
-:::image type="content" source="media/quarkus/azure-cli-app-service-log-stream.png" alt-text="Screenshot of terminal window showing log stream.":::
+:::image type="content" source="media/quarkus/azure-cli-app-service-log-stream.png" alt-text="Screenshot of terminal window showing log stream." lightbox="media/quarkus/azure-cli-app-service-log-stream.png":::
 
 ## Clean up resources
 

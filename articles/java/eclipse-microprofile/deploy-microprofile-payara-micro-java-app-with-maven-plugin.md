@@ -250,12 +250,12 @@ When your web has been deployed, you can manage it through the [Azure portal].
 
 Your web app will be listed in the **microprofile** resource group, as shown in the following screenshot:
 
-:::image type="content" source="media/payara-micro/payara-micro-azure-portal-rg.png" alt-text="Screenshot of Azure portal showing resource group contents.":::
+:::image type="content" source="media/payara-micro/payara-micro-azure-portal-rg.png" alt-text="Screenshot of Azure portal showing resource group contents." lightbox="media/payara-micro/payara-micro-azure-portal-rg.png":::
 
 You can access to your web app by selecting **Browse** on the **Overview** page for your web app.
 Verify that the deployment was successful and Running. You should see the following screen displayed:
 
-:::image type="content" source="media/payara-micro/payara-micro-azure-portal-manage.png" alt-text="Screenshot of Azure portal showing web app overview page.":::
+:::image type="content" source="media/payara-micro/payara-micro-azure-portal-manage.png" alt-text="Screenshot of Azure portal showing web app overview page." lightbox="media/payara-micro/payara-micro-azure-portal-manage.png":::
 
 ## Confirm the log stream from the running App Service
 
@@ -267,7 +267,7 @@ az webapp log tail \
     --name payaramicro-hello-azure-1601009217863
 ```
 
-:::image type="content" source="media/payara-micro/azure-cli-app-service-log-stream.png" alt-text="Screenshot of terminal window showing log stream.":::
+:::image type="content" source="media/payara-micro/azure-cli-app-service-log-stream.png" alt-text="Screenshot of terminal window showing log stream." lightbox="media/payara-micro/azure-cli-app-service-log-stream.png":::
 
 ## Clean up resources
 
