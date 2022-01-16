@@ -1,93 +1,1637 @@
----
-title: What is GitHub Actions for Azure?
-description: Create workflows within your repository to build, test, package, release, and deploy to Azure. 
-author: N-Usha 
-ms.author: ushan 
-ms.topic: conceptual
-ms.service: azure 
-ms.date: 10/30/2020
-ms.custom: github-actions-azure
----
+
+<!DOCTYPE html>
 
 
-# What is GitHub Actions for Azure
 
-[GitHub Actions](https://docs.github.com/en/free-pro-team@latest/actions) helps you automate your software development workflows from within GitHub. You can deploy workflows in the same place where you store code and collaborate on pull requests and issues.
 
-In GitHub Actions, a [workflow](https://docs.github.com/en/free-pro-team@latest/actions/learn-github-actions/introduction-to-github-actions) is an automated process that you set up in your GitHub repository. You can build, test, package, release, or deploy any project on GitHub with a workflow.
 
-Each workflow is made up of individual [actions](https://docs.github.com/en/actions/learn-github-actions/introduction-to-github-actions) that run after a specific event (like a pull request) occur.  The individual actions are packaged scripts that automate software development tasks.
 
-With GitHub Actions for Azure, you can create workflows that you can set up in your repository to build, test, package, release, and deploy to Azure. GitHub Actions for Azure supports Azure services, including Azure App Service, Azure Functions, and Azure Key Vault.
 
-GitHub Actions also include support for utilities, including Azure Resource Manager templates, Azure CLI, and Azure Policy.
 
-Watch this video from GitHub Universe 2020 to learn more about continuous delivery with GitHub Actions.  
 
-> [!VIDEO https://www.youtube.com/embed/36hY0-O4STg]
 
-## Why should I use GitHub Actions for Azure
 
-GitHub Actions for Azure are developed by Microsoft and designed to be used with Azure. You can see all of the GitHub Actions for Azure in the [GitHub Marketplace](https://github.com/marketplace?query=Azure&type=actions). See [Finding and customizing actions](https://docs.github.com/en/actions/learn-github-actions/finding-and-customizing-actions) to learn more about incorporating actions into your workflows.
 
-## What is the difference between GitHub Actions and Azure Pipelines
 
-Azure Pipelines and GitHub Actions both help you automate software development workflows. [Learn more](https://docs.github.com/en/actions/learn-github-actions/migrating-from-azure-pipelines-to-github-actions) about how the services differ and how to migrate from Azure Pipelines to GitHub Actions.
 
-## What do I need to use GitHub Actions for Azure
 
-You'll need Azure and GitHub accounts:
 
-* An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* A GitHub account. If you don't have one, sign up for [free](https://github.com/join).  
 
-## How do I connect GitHub Actions and Azure
 
-Depending on the action, you'll use a service principal or publish profile to connect to Azure from GitHub. You'll use a service principal each time you use the [Azure login](https://github.com/marketplace/actions/azure-login) action. The [Azure App Service action](https://github.com/marketplace/actions/azure-webapp) supports using a publish profile or service principal. See [Application and service principal objects in Azure Active Directory](/azure/active-directory/develop/app-objects-and-service-principals#service-principal-object) to learn more about service principals.  
 
-You can use the Azure login action in combination with both the [Azure CLI](https://github.com/marketplace/actions/azure-cli-action) and Azure [Azure PowerShell](https://github.com/marketplace/actions/azure-powershell-action) actions. The Azure login action also works with most other GitHub actions for Azure including [deploying to web apps](https://github.com/marketplace/actions/azure-webapp) and [accessing key vault secrets](https://github.com/marketplace/actions/azure-key-vault-get-secrets).
 
-## What is included in a GitHub Actions workflow
 
-Workflows are made up of one or more jobs. Within a job, there are steps made up of individual actions. See [Introduction to GitHub Actions](https://docs.github.com/en/actions/learn-github-actions/introduction-to-github-actions) to learn more about GitHub Actions concepts.  
 
-## Where can I see complete workflow examples
 
-The [Azure starter action workflows repository](https://github.com/Azure/actions-workflow-samples) includes end-to-end workflows to build and deploy Web apps of any language, any ecosystem to Azure.
 
-## Where can I see all the available actions
 
-Visit the [Marketplace for GitHub Actions for Azure](https://github.com/marketplace?query=Azure&type=actions) to see all the available GitHub Actions for Azure.
 
-* [Deploy to a static web app](/azure/static-web-apps/getting-started?tabs=angular)
-* [Azure App Service settings](https://github.com/Azure/appservice-settings)  
-* [Deploy to Azure Functions](https://github.com/Azure/functions-action)  
-* [Deploy to Azure Functions for Containers](https://github.com/Azure/webapps-container-deploy)  
-* [Docker login](https://github.com/Azure/docker-login)  
-* [Deploy to Azure Container Instances](https://github.com/Azure/aci-deploy)
-* [Container scanning action](https://github.com/Azure/container-scan)
-* [Kubectl tool installer](https://github.com/Azure/setup-kubectl)  
-* [Kubernetes set context](https://github.com/Azure/k8s-set-context)  
-* [AKS set context](https://github.com/Azure/aks-set-context)  
-* [Kubernetes create secret](https://github.com/Azure/k8s-create-secret)  
-* [Kubernetes deploy](https://github.com/Azure/k8s-deploy)  
-* [Setup Helm](https://github.com/Azure/setup-helm)  
-* [Kubernetes bake](https://github.com/Azure/k8s-bake)  
-* [Build Azure virtual machine images](https://github.com/Azure/build-vm-image)
-* [Machine learning login](https://github.com/Azure/aml-workspace)
-* [Machine learning training](https://github.com/Azure/aml-run)
-* [Machine learning - deploy model](https://github.com/Azure/aml-deploy)
-* [Deploy to Azure SQL database](https://github.com/Azure/sql-action)  
-* [Deploy to Azure MySQL action](https://github.com/Azure/mysql-action)  
-* [Azure Policy Compliance Scan](https://github.com/Azure/policy-compliance-scan)
-* [Manage Azure Policy](https://github.com/Azure/manage-azure-policy)
-* [Trigger an Azure Pipelines run](https://github.com/Azure/pipelines)  
-* [Variable substitution](https://github.com/Microsoft/variable-substitution)
 
-## Next Steps
 
-> [!div class="nextstepaction"]
-> [Learning path, Automate your workflow with GitHub Actions](/learn/modules/github-actions-automate-tasks/)
 
-> [!div class="nextstepaction"]
-> [Learning Lab, Continuous Delivery with Azure](https://lab.github.com/githubtraining/github-actions:-continuous-delivery-with-azure)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html class=" is-full  has-default-focus theme-light" lang="en-us" dir="ltr" data-css-variable-support="true" data-authenticated="false" data-auth-status-determined="false" data-target="docs" x-ms-format-detection="none">
+
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta property="og:title" content="Technical documentation" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://docs.microsoft.com/en-us/documentation/" />
+			<meta property="og:description" content="Search for in-depth articles on Microsoft developer tools and technologies." />
+		<meta property="og:image" content="https://docs.microsoft.com/en-us/media/logos/logo-ms-social.png" />
+		<meta property="og:image:alt" content="Microsoft Logo" />
+
+	<meta name="twitter:card" content="summary" />
+
+	<meta name="twitter:site" content="@docsmsft" />
+
+	<meta name="color-scheme" content="light dark">
+
+
+	<meta name="author" content="wibjorn" />
+<meta name="breadcrumb_path" content="/breadcrumb/toc.json" />
+<meta name="depot_name" content="MSDN.DocsCoreContent" />
+<meta name="description" content="Search for in-depth articles on Microsoft developer tools and technologies." />
+<meta name="document_id" content="0a1ab4eb-9d4a-7c5d-c8d5-731d5ce03719" />
+<meta name="document_version_independent_id" content="48a9707e-d6dd-9c65-4e32-687e1ccf8352" />
+<meta name="gitcommit" content="https://github.com/MicrosoftDocs/DocsRoot/blob/002186ec26c8abe1629aa4c5a6960cae0f7f9125/DocsCoreContent/documentation/index.yml" />
+<meta name="locale" content="en-us" />
+<meta name="ms.prod" content="multiple" />
+<meta name="ms.topic" content="hub-page" />
+<meta name="ms.translationtype" content="HT" />
+<meta name="original_content_git_url" content="https://github.com/MicrosoftDocs/DocsRoot/blob/live/DocsCoreContent/documentation/index.yml" />
+<meta name="page_type" content="directory" />
+<meta name="schema" content="Directory" />
+<meta name="site_name" content="Docs" />
+<meta name="updated_at" content="2021-11-08 07:03 PM" />
+
+
+<link href="https://docs.microsoft.com/en-us/documentation/" rel="canonical">
+	<title>Technical documentation | Microsoft Docs</title>
+
+		<link rel="stylesheet" href="/_themes/docs.theme/master/en-us/_themes/styles/72764e6f.site-ltr.css ">
+
+	
+
+	<script id="msdocs-script">
+	var msDocs = {
+		data: {
+			timeOrigin: Date.now(),
+			contentLocale: 'en-us',
+			contentDir: 'ltr',
+			userLocale: 'en-us',
+			userDir: 'ltr',
+			pageTemplate: 'Directory',
+			brand: '',
+			context: {
+
+			},
+			hasBinaryRating: false,
+			hasGithubIssues: false,
+			showFeedbackReport: false,
+			enableTutorialFeedback: false,
+			feedbackSystem: 'None',
+			feedbackGitHubRepo: '',
+			feedbackProductUrl: '',
+			contentGitUrl: 'https://github.com/MicrosoftDocs/DocsRoot/blob/live/DocsCoreContent/documentation/index.yml',
+			extendBreadcrumb: false,
+			isEditDisplayable: false,
+			hideViewSource: false,
+			hasPageActions: false,
+			hasBookmark: true,
+			hasShare: true,
+			hasRecommendations: false,
+			contributors: [
+						{ name: "v-savila", url: "https://github.com/v-savila" },
+						{ name: "huypub", url: "https://github.com/huypub" },
+						{ name: "KarlErickson", url: "https://github.com/KarlErickson" },
+						{ name: "isabelamhoban", url: "https://github.com/isabelamhoban" },
+						{ name: "IEvangelist", url: "https://github.com/IEvangelist" },
+						{ name: "Bradben", url: "https://github.com/Bradben" },
+						{ name: "cmcclister", url: "https://github.com/cmcclister" },
+						{ name: "kcpitt", url: "https://github.com/kcpitt" },
+						{ name: "ollips", url: "https://github.com/ollips" },
+						{ name: "buck1ey", url: "https://github.com/buck1ey" }
+],
+		},
+		functions:{}
+	};
+	</script>
+	<script src="https://wcpstatic.microsoft.com/mscc/lib/v2/wcp-consent.js"></script>
+	<script src="https://js.monitor.azure.com/scripts/c/ms.jsll-3.min.js"></script>
+
+	<script src="/_themes/docs.theme/master/en-us/_themes/global/5cce29c0.deprecation.js"></script>
+		<script src="/_themes/docs.theme/master/en-us/_themes/scripts/68408b14.index-docs.js"></script>
+</head>
+
+<body lang="en-us" dir="ltr">
+	<div class="header-holder has-default-focus">
+		<a href="#main" class="skip-to-main-link has-outline-color-text visually-hidden-until-focused position-fixed has-inner-focus focus-visible top-0 left-0 right-0 padding-xs has-text-centered has-body-background" tabindex="1">Skip to main content</a>
+
+		<div hidden id="cookie-consent-holder"></div>
+
+		<div id="unsupported-browser" style="
+			background-color: white;
+			color: black;
+			padding: 16px;
+			border-bottom: 1px solid grey;"
+			hidden
+		>
+			<div style="max-width: 800px; margin: 0 auto;">
+				<p style="font-size: 24px">This browser is no longer supported.</p>
+				<p style="font-size: 16px; margin-top: 16px;">Upgrade to Microsoft Edge to take advantage of the latest features, security updates, and technical support.</p>
+				<div style="margin-top: 12px;">
+					<a href="https://go.microsoft.com/fwlink/p/?LinkID=2092881 "
+						style="
+						background-color: #0078d4;
+						border: 1px solid #0078d4;
+						color: white;
+						padding: 6px 12px;
+						border-radius: 2px;
+						display: inline-block;
+						">
+Download Microsoft Edge					</a>
+					<a href="https://docs.microsoft.com/en-US/lifecycle/faq/internet-explorer-microsoft-edge"
+						style="
+							background-color: white;
+							padding: 6px 12px;
+							border: 1px solid #505050;
+							color: #171717;
+							border-radius: 2px;
+							display: inline-block;
+							">
+More info					</a>
+				</div>
+			</div>
+
+		</div>
+		<!-- liquid-tag banners global -->
+		<div id="headerAreaHolder" data-bi-name="header">
+<header role="banner" itemscope="itemscope" itemtype="http://schema.org/Organization">
+	<div class="nav-bar">
+		<div class="nav-bar-brand">
+			<a itemprop="url" href="https://www.microsoft.com" aria-label="Microsoft" class="nav-bar-button">
+				<div class="nav-bar-logo has-background-image theme-display is-light" role="presentation" aria-hidden="true" itemprop="logo" itemscope="itemscope"></div>
+				<div class="nav-bar-logo has-background-image theme-display is-dark is-high-contrast" role="presentation" aria-hidden="true" itemprop="logo" itemscope="itemscope"></div>
+			</a>
+		</div>
+	</div>
+	<div class="is-hidden"></div>
+</header>		</div>
+
+
+		<div id="disclaimer-holder" class="has-overflow-hidden has-default-focus">
+			<!-- liquid-tag banners sectional -->
+		</div>
+	</div>
+
+	<div class="mainContainer  uhf-container is-full  has-default-focus" data-bi-name="body">
+
+		<div class="columns has-large-gaps is-gapless-mobile  is-gapless">
+
+
+			<!-- .primary-holder -->
+			<section class="primary-holder column ">
+				<!--div.columns -->
+				<div class="columns is-gapless-mobile has-large-gaps  is-gapless">
+
+
+					<div id="main-column" class="column ">
+
+						<main id="main" role="main" class="" data-bi-name="content" lang="en-us" dir="ltr">
+
+
+
+							
+
+
+
+
+
+							<!-- <content> -->
+								<section id="directory" class="hero border-bottom has-background-docs has-background-image position-relative" style="
+		background-image: url(&quot;data:image/svg+xml,%3Csvg version='1.1' xmlns='http://www.w3.org/2000/svg' width='1440' height='300' viewBox='0 0 1440 300' fill='none'%3E%3Cpath fill='%23243A5E' d='M0 0h1440v300H0z'/%3E%3Cmask id='a' mask-type='alpha' maskUnits='userSpaceOnUse' x='0' y='0' width='1440' height='300'%3E%3Cpath fill='%23fff' d='M0 0h1440v300H0z'/%3E%3C/mask%3E%3Cg mask='url(%23a)'%3E%3Cmask id='b' mask-type='alpha' maskUnits='userSpaceOnUse' x='1044' y='0' width='396' height='301'%3E%3Cpath d='M1365.18 0H1440v300h-395.06c86.1-51.623 320.24-300 320.24-300z' fill='%23fff'/%3E%3C/mask%3E%3Cg mask='url(%23b)'%3E%3Cpath opacity='.1' fill-rule='evenodd' clip-rule='evenodd' d='M1415.66 279.858h29.32V250.61h-29.32v29.248zm-31.27 29.819V250.61h29.32v29.82l-29.32 29.247zm60.59 1.379h-59.21l29.32-29.248h29.89v29.248zm-62.55 0h-59.2l22.22-22.176h16.21v-16.17l20.77-20.721v59.067zm-36.4-24.126h13.68v-13.649h-13.68v13.649zm-24.19-36.32h59.21l-20.77 20.721h-16.21v16.171l-22.23 22.175V250.61zm-31.27 60.446h29.32V250.61h-29.32v60.446zm-1.95-22.985c-2.78-5.286-8.27-8.94-14.66-8.94h-14.66V250.61h29.32v37.461zm0 22.985h-13.68v-15.599h-15.64V281.08h14.66c8.08 0 14.66 6.562 14.66 14.625v15.351zm-29.32 0h13.68v-13.649h-13.68v13.649zm-1.96-31.925h-21.59c-.5-4.375-4.19-7.8-8.7-7.8-4.76 0-8.64 3.806-8.77 8.527h-21.53V250.61h60.59v28.521zm-37.13.975c0-3.763 3.07-6.825 6.84-6.825s6.84 3.062 6.84 6.825c0 3.763-3.07 6.824-6.84 6.824s-6.84-3.061-6.84-6.824zm37.13 15.351v15.599h-60.59v-29.248h21.68c.8 4.025 4.36 7.072 8.62 7.072 4.51 0 8.2-3.425 8.7-7.8h21.59v14.377zm-62.54-15.599h-27.94l27.94-27.869v27.869zm0 31.198h-27.94l27.94-27.869v27.869zm-58.48-29.248h57.1l-28.55 28.481-28.55-28.481zm-2.11 29.248v-28.597l28.67 28.597h-28.67zm-1.95-33.304l-27.21-27.142h27.21v27.142zm-37.14 33.304h37.14v-29.248h-37.14v29.248zm-1.95-31.198v31.198h-21.5V250.61h30.61l29.32 29.248h-38.43zm-23.46 31.198h-60.59v-29.248h30.3c13.93 0 25.79-8.879 30.29-21.251v50.499zm-91.712-31.198h29.172V250.61h-29.172v29.248zm29.172 31.198h-60.395c.523-16.212 13.87-29.248 30.246-29.248h30.149v29.248zm-60.594-29.248V250.61h29.467v29.298c-13.659.411-25.187 9.317-29.467 21.606v-19.706zm-31.272-1.95h29.318V250.61h-29.318v29.248zm29.318 31.198h-59.208l29.318-29.248h29.89v29.248zm-60.591-60.446h29.319v29.82l-29.319 29.247V250.61zm-1.954 60.446h-59.208l22.229-22.176h16.209v-16.17l20.77-20.721v59.067zM845.67 286.93h13.682v-13.649H845.67v13.649zm-24.182-36.32h59.207l-20.77 20.721h-16.209v16.171l-22.228 22.175V250.61zm-31.272 60.446h29.317V250.61h-29.317v60.446zm-1.955-22.985c-2.779-5.286-8.27-8.94-14.659-8.94h-14.659V250.61h29.318v37.461zm0 22.985h-13.682v-15.599h-15.636V281.08h14.659c8.081 0 14.659 6.562 14.659 14.625v15.351zm-29.318 0h13.681v-13.649h-13.681v13.649zm-1.955-31.925h-21.599c-.494-4.375-4.182-7.8-8.696-7.8-4.764 0-8.635 3.806-8.77 8.527h-21.524V250.61h60.589v28.521zm-37.136.975c0-3.763 3.07-6.825 6.841-6.825 3.772 0 6.841 3.062 6.841 6.825 0 3.763-3.069 6.824-6.841 6.824-3.771 0-6.841-3.061-6.841-6.824zm37.136 15.351v15.599h-60.589v-29.248h21.671c.799 4.025 4.359 7.072 8.623 7.072 4.514 0 8.202-3.425 8.696-7.8h21.599v14.377zm-62.544-15.599h-27.936l27.936-27.869v27.869zm0 31.198h-27.936l27.936-27.869v27.869zm-58.479-29.248h57.097l-28.549 28.481-28.548-28.481zm-2.111 29.248v-28.597l28.665 28.597h-28.665zm-1.955-33.304l-27.207-27.142h27.207v27.142zm-37.135 33.304h37.135v-29.248h-37.135v29.248zm-1.955-31.198v31.198h-21.5V250.61h30.619l29.318 29.248h-38.437zm-23.455 31.198h-60.59v-29.248h30.296c13.933 0 25.798-8.879 30.294-21.251v50.499zm-91.712-31.198h29.169V250.61h-29.169v29.248zm29.169 31.198h-60.392c.523-16.212 13.87-29.248 30.246-29.248h30.146v29.248zM446.22 250.61h29.467v29.298c-13.659.411-25.187 9.317-29.467 21.606V250.61zm0-38.998l6.799 6.783.691.689 22.114 22.062.691.689 6.799 6.783H446.22v-37.006zm0-23.44h29.467v7.609l-21.286 21.235-8.181-8.161v-20.683zm0-61.361l29.467 29.397V186.222H446.22v-59.411zm46.909-18.584h13.682V78.978h-13.682v29.249zm0 15.599h13.682v-13.65h-13.682v13.65zm-31.273-15.6h29.318V78.978h-29.318v29.248zm30.039 46.604h-14.826l-29.123-29.055h58.865v14.175l-14.916 14.88zm1.382 16.17v-14.792l13.534-13.501v41.794L493.277 171zm-15.636-.571h13.682V156.78h-13.682v13.649zm14.254 1.949l13.877 13.844h-28.131v-13.844h14.254zm7.139 45.042l-21.393-21.342v-7.906h29.17v29.248h-7.777zm-22.519 21.658l-20.732-20.683 20.732-20.683 20.733 20.683-20.733 20.683zm22.519-19.708h7.777v29.248h-20.733l-8.181-8.161 21.137-21.087zM446.22 63.38h60.591v13.648h-46.909v33.148h31.272v13.65H446.22V63.379zm0-46.798h14.254l44.954 44.847H446.22V16.582zm0-1.95h13.681V.982H446.22v13.65zm0-76.045H475.687v13.747c-8.7.517-15.636 7.67-15.636 16.476 0 4.18 1.61 7.96 4.178 10.879L446.22-2.345v-59.068zm0-62.397h29.318v60.447H446.22v-60.447zm31.471-1.949c.51-15.836 13.266-28.605 29.12-29.191v29.191h-29.12zm-.199 31.198h29.318v-29.249h-29.318v29.249zm0 31.198h29.318v-29.249h-29.318v29.249zM462.006-31.19c0-8.062 6.577-14.624 14.658-14.624s14.659 6.562 14.659 14.624c0 8.062-6.578 14.624-14.659 14.624s-14.658-6.562-14.658-14.624zM506.811.983V60.05l-44.955-44.848V.983h44.955zm-44.955-1.95h-14.254l17.995-17.952c2.946 2.646 6.801 4.303 11.067 4.303 9.162 0 16.613-7.434 16.613-16.574 0-8.807-6.936-15.96-15.636-16.476v-13.747h29.17V-.967h-44.955zM446.22-186.205h60.591v29.305c-16.931.586-30.563 14.231-31.075 31.141H446.22v-60.446zm0-62.397h29.467v29.298c-13.659.411-25.187 9.317-29.467 21.606v-50.904zm60.591 31.198v29.248h-60.392c.523-16.212 13.87-29.248 30.246-29.248h30.146zm-29.17-1.95h29.169v-29.248h-29.169v29.248zm31.123 438.724H540.037v-31.198h6.938a63.803 63.803 0 0022.379 22.326v38.12h-60.59V219.37zm0-30.162l13.682 13.649v14.563h-13.682v-28.212zm15.637 28.212h13.681v-13.649h-13.681v13.649zm-.229-15.599l-13.682-13.649h27.592v13.649h-13.91zm-15.408-76.046h37.022a62.875 62.875 0 00-7.704 30.224 62.871 62.871 0 007.704 30.223h-37.022v-60.447zm0-17.549V78.978h21.749c.494 4.374 4.181 7.8 8.695 7.8 4.849 0 8.796-3.939 8.796-8.775 0-4.503-3.434-8.182-7.818-8.675v-5.949h29.168v38.12a63.805 63.805 0 00-22.379 22.327h-38.211v-15.6zm30.444-37.047c3.772 0 6.842 3.062 6.842 6.824 0 3.763-3.07 6.825-6.842 6.825-3.771 0-6.84-3.062-6.84-6.825 0-3.762 3.069-6.824 6.84-6.824zm-30.444-7.8h29.467v5.949a8.742 8.742 0 00-7.718 7.7h-21.749V63.38zm0-39.972c0-8.063 6.578-14.624 14.659-14.624 8.082 0 14.659 6.562 14.659 14.624v15.598c0 9.14 7.452 16.575 16.614 16.575 5.705 0 11.672-3.017 14.658-10.713v16.562h-60.59V23.407zm0-22.424h60.59V33.015c0 12.716-5.614 20.615-14.658 20.615-8.081 0-14.659-6.562-14.659-14.625V23.407c0-9.14-7.451-16.574-16.614-16.574-6.387 0-11.88 3.653-14.659 8.94V.983zm0-62.396h60.59v29.82L538.655-.968h-29.891v-60.446zm0-33.149v-29.248h29.318v30.628l29.891 29.819h-59.209v-31.199zm0-60.404c15.992.434 28.904 13.272 29.417 29.207h-29.417v-29.207zm0-31.239h3.081c15.442 14.728 35.81 22.904 57.509 23.146v37.3h-29.218c-.515-17.009-14.302-30.721-31.372-31.157v-29.289zm0-31.199h30.296c13.933 0 25.798-8.879 30.294-21.251v50.499h-60.59v-29.248zm0-31.198h60.541c-.523 16.212-13.87 29.248-30.245 29.248h-30.296v-29.248zm60.59 83.593c-20.463-.232-39.674-7.738-54.544-21.196h54.544v21.196zm0 100.267L540.037-93.99v-29.82h29.317v59.068zm0 63.775h-27.935l27.935-27.87v27.87zm0 189.139v20.047a61.835 61.835 0 01-20.094-20.047h20.094zm-20.094-64.346a61.829 61.829 0 0120.094-20.048v20.048H549.26zm20.094 1.949v60.447h-21.283c-5.089-8.935-8.034-19.234-8.034-30.223 0-10.989 2.945-21.289 8.034-30.224h21.283zm-.049 124.835c-.523 16.212-13.87 29.248-30.245 29.248h-30.296V250.61h60.541zm2.004-38.925a63.263 63.263 0 0030.295 7.685h30.295v29.248h-29.203l-.401-.4-.401.4h-30.585v-36.933zm0-23.513h60.59v29.248h-30.295c-11.015 0-21.339-2.939-30.295-8.015v-21.233zm0-62.397h29.318v21.548c-4.384.493-7.818 4.172-7.818 8.676 0 4.836 3.947 8.774 8.795 8.774 4.515 0 8.202-3.425 8.696-7.799h21.599v29.248h-60.59v-60.447zm0-23.183a61.227 61.227 0 0129.91-7.995l1.362 1.36v-1.38h29.318v29.249h-60.59v-21.234zm0-37.834l28.051 27.984c-10.12.354-19.664 3.012-28.051 7.571V64.758zm0-32.577h14.659c3.688 0 7.025 1.413 9.603 3.666L571.309 60.05V32.18zm0-31.198h29.367c.247 8.131 3.52 15.502 8.75 21.041l-12.474 12.444c-2.933-2.605-6.756-4.237-10.984-4.237h-14.659V.983zm0-31.77l30.7-30.626h29.89v29.297c-16.998.512-30.709 14.19-31.223 31.15h-29.367v-29.82zm0-30.626h27.936l-27.936 27.869v-27.87zm0-1.95h29.318v-60.447h-29.318v60.447zm0-99.65h5.942c.412 8.777 7.637 15.805 16.535 15.805 4.228 0 8.051-1.632 10.985-4.237l4.655 4.644c-5.23 5.54-8.503 12.911-8.75 21.042h-29.367v-37.254zm0-23.192h21.5v5.948c-8.299.491-14.92 7.042-15.516 15.294h-5.984v-21.242zm0-62.397h30.619l29.318 29.248h-38.437v31.198h-21.5v-60.446zm60.59 0v27.142l-27.207-27.142h27.207zm1.955 468.021c15.922.511 28.756 13.314 29.268 29.199h-29.268v-29.199zm0-31.247h60.59v60.446h-29.368c-.513-16.959-14.223-30.636-31.222-31.149v-29.297zm0-31.198h45.053c.496 8.35 7.167 15.005 15.537 15.5v13.748h-60.59v-29.248zm0-31.199h60.59v13.749c-8.37.495-15.041 7.15-15.537 15.5h-45.053v-29.249zm0-31.769l30.699-30.627h29.891v13.748c-8.7.516-15.636 7.669-15.636 16.476 0 8.806 6.936 15.959 15.636 16.474v13.749h-60.59v-29.82zm0-30.627h27.936l-27.936 27.87v-27.87zm0-31.247a32.125 32.125 0 0021.091-8.729l38.117 38.026h-28.829l-.245-.244-.244.244h-29.89V32.132zm0-31.15h29.268c-.512 15.886-13.346 28.689-29.268 29.2V.982zm0-1.949h29.317v-29.248h-29.317V-.967zm0-31.198h29.317v-29.248h-29.317v29.248zm0-91.645h29.317v21.548c-4.384.493-7.818 4.172-7.818 8.675 0 4.504 3.434 8.183 7.818 8.676v21.548h-29.317v-60.447zm0-31.148c15.922.51 28.756 13.314 29.268 29.199h-29.268v-29.199zm0-31.247h30.619l29.971 29.899v30.547h-29.368c-.513-16.959-14.223-30.637-31.222-31.149v-29.297zm0-30.548l28.665 28.597h-28.665v-28.597zm0-31.849h59.208l-29.318 29.248H634.01l-.156-.156v-29.092zm60.59 29.248h-27.936l27.936-27.87v27.87zm0 33.149v27.141l-27.207-27.141h27.207zm-29.931-2.718l-28.548-28.481h57.097l-28.549 28.481zm29.931-27.103v27.87h-27.936l27.936-27.87zM665.076.983h29.368V60.05l-38.118-38.027c5.23-5.539 8.504-12.91 8.75-21.041zm5.913-94.57c0 3.763-3.069 6.825-6.841 6.825-3.771 0-6.84-3.062-6.84-6.825 0-3.762 3.069-6.824 6.84-6.824 3.772 0 6.841 3.062 6.841 6.824zm-1.382-6.824a8.713 8.713 0 00-4.481-1.851v-21.548h27.936l-23.455 23.399zm-4.481 37.048v-21.548c4.384-.493 7.818-4.172 7.818-8.676 0-2.067-.75-3.943-1.955-5.446l23.455-23.398v59.068h-29.318zm0 62.396h29.318v-29.248h-29.318V-.967zm0-31.198h29.318v-29.248h-29.318v29.248zm29.318 140.293c-7.62-.512-13.682-6.796-13.682-14.525 0-7.73 6.062-14.013 13.682-14.526v29.051zm0 62.396c-7.62-.512-13.682-6.796-13.682-14.525 0-7.73 6.062-14.013 13.682-14.526v29.051zm-60.59 80.086h59.208l-29.318 29.248H634.01l-.156-.156V250.61zM602.582-63.363h29.317v-60.447h-29.317v60.447zm29.317-91.595v29.199h-29.268c.512-15.885 13.346-28.689 29.268-29.199zm-37.136-33.198h37.136v-29.248h-37.136v29.248zm-.977 38.998c-8.081 0-14.659-6.562-14.659-14.625 0-8.061 6.578-14.623 14.659-14.623 8.082 0 14.659 6.562 14.659 14.623 0 8.063-6.577 14.625-14.659 14.625zm16.614-14.625c0-8.806-6.937-15.958-15.637-16.474v-5.948h37.136v29.297a32.127 32.127 0 00-21.091 8.729l-4.656-4.645c2.612-2.926 4.248-6.74 4.248-10.959zm-7.819 256.41h29.318V63.38h-29.318v29.248zm.05-93.594c.512-15.885 13.346-28.688 29.268-29.199v29.2h-29.268zm29.268 1.95v29.199c-15.922-.511-28.756-13.314-29.268-29.2h29.268zm-33.564 34.864l12.473-12.444a32.125 32.125 0 0021.091 8.729v29.297h-29.318V46.805c0-4.218-1.635-8.032-4.246-10.958zm2.292 27.532v27.87l-27.936-27.87h27.936zm-27.936-1.95l24.261-24.203c2.258 2.572 3.675 5.9 3.675 9.58v14.623h-27.936zM608.445 156c0 3.762-3.069 6.824-6.841 6.824-3.771 0-6.841-3.062-6.841-6.824 0-3.764 3.07-6.825 6.841-6.825 3.772 0 6.841 3.061 6.841 6.825zm-5.864-8.676v-21.548h29.318v29.249H610.3a8.743 8.743 0 00-7.719-7.701zm93.818 40.849h59.207l-59.207 59.068v-59.068zm0-15.698c8.369-.495 15.04-7.15 15.536-15.5h45.053v29.248h-60.589v-13.748zm0-31.001c7.619.513 13.681 6.796 13.681 14.526 0 7.729-6.062 14.013-13.681 14.525v-29.051zm0-15.698h29.317v29.249h-13.781c-.496-8.35-7.167-15.005-15.536-15.5v-13.749zm0-1.949h29.317V63.379h-29.317v60.447zm0-91.645h29.317V61.43h-29.317V32.18zm0-1.95h29.317V.984h-29.317v29.249zm0-31.198h29.317v-29.248h-29.317V-.967zm0-60.446h59.207l-29.318 29.247h-29.889v-29.247zm15.636-17.549h13.681v-13.65h-13.681v13.65zm-15.636-44.848h29.889l14.659 14.625-14.659 14.623H710.08v17.55h17.591v-16.17l14.659-14.625 14.658 14.625v29.819h-60.589v-60.447zm0-1.949h29.317v-60.446h-29.317v60.446zm0-91.645h21.671c.799 4.025 4.359 7.072 8.623 7.072 4.514 0 8.202-3.425 8.696-7.799h21.599v29.975h-60.589v-29.248zm37.135-1.702c0 3.762-3.069 6.824-6.841 6.824-3.771 0-6.841-3.062-6.841-6.824 0-3.763 3.07-6.825 6.841-6.825 3.772 0 6.841 3.062 6.841 6.825zm-37.135-29.496h60.589v28.521h-21.599c-.494-4.374-4.182-7.8-8.696-7.8-4.764 0-8.635 3.806-8.77 8.527h-21.524v-29.248zm60.589 124.792v27.87l-27.935-27.87h27.935zm-29.317-26.155h29.317v-36.24h-29.317v36.24zm0 24.206h29.317v-22.256h-29.317v22.256zm0 280.783h29.317v-29.249h-29.317v29.249zm0-31.198h29.317V94.577h-29.317v29.249zm0-31.198h29.317V63.379h-29.317v29.248zm0-93.595v-29.82l29.317-29.248V-.967h-29.317zm0 46.797h13.681V32.181h-13.681V45.83zm15.635 1.95V30.23h-15.635V.983h29.317v60.446h-29.317V47.78h15.635zM697.78 248.618l59.208-59.067v59.067H697.78zm61.163-60.446h29.367c.514 16.958 14.224 30.636 31.223 31.148v13.699h-37.254c-.495-4.374-4.182-7.799-8.697-7.799-4.848 0-8.795 3.938-8.795 8.774 0 2.072.754 3.953 1.964 5.456l-7.808 7.79v-59.068zm0-31.198h13.781a16.386 16.386 0 004.148 9.983l-17.929 17.886v-27.869zm0-31.199h29.318v13.749c-8.37.495-15.041 7.15-15.537 15.5h-13.781v-29.249zm0-31.148c15.922.51 28.756 13.314 29.268 29.199h-29.268v-29.2zm0-31.248h59.208l-38.117 38.026a32.126 32.126 0 00-21.091-8.728V63.379zm0-49.988l12.33 12.3 11.056 11.03-23.386 23.33V13.39zm0-12.408h44.954v14.22l-9.198 9.177c-3.043-2.7-6.881-4.233-10.989-4.233-4.107 0-7.946 1.532-10.988 4.233l-13.779-13.747V.983zm0-37.38c8.595 9.75 13.408 22.186 13.636 35.43h-13.636v-35.43zm0-25.016h29.367c.514 16.958 14.224 30.636 31.223 31.148v13.699h-15.636v15.6h-29.363c-.24-14.479-5.736-28.057-15.591-38.39v-22.057zm0-31.199h50.619c-12.107 4.38-20.843 15.775-21.252 29.249h-29.367v-29.249zm0-1.95h60.59v-29.248h-60.59v29.249zm13.613-54.429l9.673-9.65 9.673 9.65-9.673 9.651-9.673-9.651zm-13.613.975h11.826l11.46 11.434 12.437-12.409-12.437-12.407-11.46 11.432h-11.826v-36.239h29.403c.879 16.621 14.432 29.916 31.187 30.42v30.026h-60.59v-22.257zm0-40.14h13.681v-13.649h-13.681v13.649zm0-29.975h14.659c8.081 0 14.659 6.562 14.659 14.624v15.351h-13.682v-15.598h-15.636v-14.377zm0-30.471h29.318v37.461c-2.779-5.286-8.27-8.94-14.659-8.94h-14.659v-28.521zm31.273 60.446h29.317v-60.446h-29.317v60.446zm29.317 30.421c-15.678-.503-28.358-12.923-29.232-28.47h29.232v28.47zm-29.269 94.372c.512-15.885 13.346-28.689 29.269-29.2v29.2h-29.269zm29.269 1.95v29.199c-15.923-.51-28.757-13.315-29.269-29.2h29.269zm0 249.585v29.199c-15.923-.511-28.757-13.315-29.269-29.199h29.269zm-29.317-15.698c8.699-.516 15.635-7.669 15.635-16.475 0-8.807-6.936-15.96-15.635-16.475v-13.749h29.317v60.447h-29.317v-13.748zm-10.581-5.517l20.588-20.538c2.257 2.572 3.674 5.901 3.674 9.58 0 8.062-6.578 14.623-14.659 14.623-3.688 0-7.024-1.412-9.603-3.665zm8.626 5.517v13.748h-27.936l17.928-17.886a16.473 16.473 0 0010.008 4.138zm-6.845-69.69l38.117-38.026v59.068h-29.367c-.247-8.131-3.52-15.503-8.75-21.042zm17.424 42.256l-20.587 20.538c-2.258-2.572-3.674-5.9-3.674-9.579 0-8.063 6.577-14.624 14.659-14.624 3.687 0 7.024 1.413 9.602 3.665zM805.851-.967h13.682v-13.649h-13.682v13.65zm0 15.6h13.682V.982h-13.682v13.65zM774.06 25.714a14.55 14.55 0 019.65-3.619c3.588 0 6.979 1.276 9.651 3.619l-9.651 9.627-9.65-9.627zm22.087-.023l9.132-9.11h14.254V61.43h-59.208L783.71 38.1l12.437-12.407zm-29.405 208.302c0-3.763 3.069-6.824 6.84-6.824 3.772 0 6.841 3.061 6.841 6.824s-3.069 6.824-6.841 6.824c-3.771 0-6.84-3.061-6.84-6.824zm6.84 8.774c4.515 0 8.202-3.425 8.697-7.799h37.254v13.649h-59.208l7.81-7.792c1.503 1.196 3.38 1.942 5.447 1.942zm47.906-7.799h14.658c8.828 0 15.997-6.92 16.514-15.599h29.417v29.248h-60.589v-13.649zm0-15.599h29.218c-.514 7.601-6.812 13.649-14.56 13.649h-14.658V219.37zm0-1.95h29.317v-29.248h-29.317v29.248zm0-60.546c8.699-.515 15.635-7.667 15.635-16.474v-14.625h44.954v29.298c-16.999.513-30.709 14.19-31.222 31.149h-29.367v-29.348zm0-31.099h13.681V140.4c0 7.729-6.062 14.012-13.681 14.524v-29.149zm0-62.396h44.953v30.018c0 3.762-3.069 6.824-6.841 6.824-3.771 0-6.841-3.062-6.841-6.824 0-4.837-3.946-8.775-8.795-8.775-4.848 0-8.795 3.938-8.795 8.775v30.429h-13.681V63.379zm0-46.797V.982h14.254l30.699 30.628v29.82h-44.953V16.581zm0-33.148v-44.847h29.317v29.247h-15.636v31.2h-13.681v-15.6zm0-76.144c8.699-.517 15.635-7.669 15.635-16.475v-14.625h29.318v33.899c-9.087 5.48-15.247 15.285-15.586 26.548h-29.367V-92.71zm0-31.1h13.681v14.625c0 7.729-6.062 14.013-13.681 14.524v-29.149zm0-1.949h13.681v-29.976h-13.681v29.976zm29.317-30.429V-125.759h-13.682v-30.429c0-3.763 3.07-6.825 6.841-6.825 3.772 0 6.841 3.062 6.841 6.825zm-29.317-30.017h60.589V-141.359h-13.681v-15.804h-15.69c-.489-4.38-4.222-7.8-8.742-7.8-4.334 0-7.927 3.155-8.642 7.278h-13.834v-28.52zm0-62.397h59.207l-20.77 20.721h-16.209v16.17l-22.228 22.176v-59.067zm24.182 36.32h13.682v-13.649H845.67v13.649zm36.407 24.126h-59.208l22.229-22.176h16.209v-16.17l20.77-20.722v59.068zM868.396 61.429h13.681V32.181h-13.681v29.248zm13.681-122.842V-.967h-29.318v-60.446h29.318zm-13.681-64.346h13.681v-13.65h-13.681v13.65zm13.681 1.949v29.298a32.07 32.07 0 00-13.681 3.502v-32.8h13.681zm-29.317-1.949h13.681v-29.454H852.76v29.454zm29.317 33.197v29.199h-29.268c.511-15.885 13.346-28.689 29.268-29.2zM837.123-.967h13.682v-29.248h-13.682V-.967zm15.636 1.95h29.318V30.23h-14.254L838.505.983h14.254zm29.219 122.843h-29.119c.513-7.602 6.812-13.65 14.559-13.65 7.748 0 14.047 6.048 14.56 13.65zm-14.56-15.6c-8.827 0-15.997 6.92-16.514 15.6h-13.781v-30.43c0-3.762 3.07-6.824 6.841-6.824 3.772 0 6.841 3.062 6.841 6.825 0 4.837 3.947 8.774 8.795 8.774s8.796-3.937 8.796-8.774V63.379h13.681v53.788c-2.778-5.286-8.27-8.941-14.659-8.941zm-14.609 77.996c.511-15.886 13.344-28.7 29.268-29.208v29.208h-29.268zm-.049 31.198h29.317v-29.248H852.76v29.248zm31.271 1.999c15.923.511 28.758 13.314 29.269 29.199h-29.269v-29.199zm0-31.247h29.28c.562 16.947 14.3 30.598 31.311 31.061v29.385h-29.368c-.513-16.959-14.223-30.636-31.223-31.149v-29.297zm0-29.82l27.937 27.87h-27.937v-27.87zm0-25.917c2.78 5.285 8.272 8.94 14.66 8.94 8.828 0 15.997-6.92 16.514-15.6h29.417v29.203c-16.617.453-30.108 13.485-31.249 29.888l-29.342-29.271v-23.16zm29.219-6.66c-.513 7.602-6.812 13.65-14.559 13.65-7.748 0-14.047-6.048-14.56-13.65h29.119zm1.077-25.348c-3.772 0-6.84-3.062-6.84-6.824 0-3.763 3.068-6.825 6.84-6.825 3.771 0 6.841 3.062 6.841 6.825 0 3.762-3.07 6.824-6.841 6.824zm-30.296-37.048h60.591v60.447h-29.318v-21.548c4.384-.493 7.818-4.172 7.818-8.675 0-4.837-3.947-8.775-8.795-8.775s-8.795 3.938-8.795 8.775c0 4.503 3.433 8.182 7.818 8.675v21.548h-29.319V63.379zm0-31.099c7.621.512 13.683 6.796 13.683 14.525 0 7.73-6.062 14.013-13.683 14.526V32.28zm0-31.297h14.255l30.7 30.627v16.17h15.636v13.65h-53.915c5.298-2.773 8.961-8.252 8.961-14.625 0-8.806-6.936-15.959-15.637-16.475V.983zm44.955 0v27.87L901.05.983h27.936zm-44.955-62.396h13.683v14.624c0 9.14 7.451 16.574 16.613 16.574 8.834 0 16.079-6.913 16.587-15.6h13.708V-.966h-60.591v-60.446zm0-31.1c7.621.513 13.683 6.797 13.683 14.526v14.624h-13.683v-29.15zm44.955 31.1v14.624c0 8.062-6.578 14.623-14.659 14.623-8.082 0-14.659-6.561-14.659-14.623v-14.624h29.318zm-44.955-62.397h60.591v60.447h-44.954v-14.624c0-8.807-6.936-15.96-15.637-16.475v-29.348zm0-17.549v-13.649h29.319v29.249h-29.319v-15.6zm0-44.846h60.591v60.446h-29.318v-31.199h-31.273v-29.247zm0-62.397h29.319v29.819l-29.319 29.248v-59.067zm30.701 31.198h29.89v29.248h-59.208l29.318-29.248zm.572-1.95h29.318v-29.248h-29.318v29.248zm15.637 171.59h13.681v-13.65h-13.681v13.65zm0 77.995V.983h13.681V30.23h-13.681zm13.681 1.95V45.83h-13.681V32.181h13.681zm-29.364 154.041c.466-15.959 13.367-28.83 29.364-29.294v29.294h-29.364zm29.364 1.95v29.111c-15.934-.463-28.797-13.238-29.356-29.111h29.356zm1.954 23.44l6.799 6.783.691.689 22.114 22.062.691.689 6.8 6.783h-37.095v-37.006zm0-23.44h29.467v7.609l-21.286 21.235-8.181-8.161v-20.683zm0-61.361l29.467 29.397V186.222h-29.467v-59.411zm0-63.432h60.594v13.65h-46.912v33.147h31.273v13.65h-44.955V63.379zm0-15.6V16.583h14.254l44.95 44.847h-59.204V47.78zm0-33.147h13.682V.982h-13.682v13.65zm0-76.045H976.043v13.747c-8.7.517-15.636 7.67-15.636 16.476 0 4.18 1.611 7.96 4.178 10.879L946.576-2.345v-59.068zm0-62.397h29.318v60.447h-29.318v-60.447zm0-62.395h60.594v29.305c-16.934.586-30.566 14.231-31.078 31.141h-29.516v-60.446zm0-31.199v-31.198h29.467v29.298c-13.659.411-25.187 9.317-29.467 21.606v-19.706zm60.594 0v29.248h-60.395c.523-16.212 13.87-29.248 30.246-29.248h30.149zm-29.173-1.95h29.173v-29.248h-29.173v29.248zM962.213.983h44.957V60.05l-44.957-44.848V.983zm.148-32.173c0-8.062 6.578-14.624 14.66-14.624 8.081 0 14.658 6.562 14.658 14.624 0 8.062-6.577 14.624-14.658 14.624-8.082 0-14.66-6.562-14.66-14.624zm14.66 16.574c9.161 0 16.613-7.434 16.613-16.574 0-8.807-6.937-15.96-15.637-16.476v-13.747h29.173V-.967h-59.212l17.996-17.952c2.945 2.646 6.8 4.303 11.067 4.303zm.828-48.747h29.321v-29.249h-29.321v29.249zm.198-62.396c.51-15.836 13.266-28.605 29.123-29.191v29.191h-29.123zm-.198 31.197h29.321v-29.248h-29.321v29.248zM999.39 219.37h7.78v29.248h-20.736l-8.181-8.161 21.137-21.087zm-1.787-.975l-20.732 20.683-20.732-20.683 20.732-20.683 20.732 20.683zM993.634 171v-14.792l13.536-13.501v41.794L993.634 171zm13.536 17.172v29.248h-7.78l-21.393-21.342v-7.906h29.173zm-29.173-17.743h13.682V156.78h-13.682v13.649zm14.255 1.949l13.878 13.844h-28.133v-13.844h14.255zm1.233-64.151h13.685V78.978h-13.685v29.249zm0 15.599h13.685v-13.65h-13.685v13.65zm-31.272-15.6h29.318V78.978h-29.318v29.248zm44.957 17.549v14.175l-14.918 14.88h-14.827l-29.123-29.055H1007.17zm1.95 93.595h31.27v-31.198h6.94a63.838 63.838 0 0022.38 22.326v38.12h-60.59V219.37zm0-30.162l13.68 13.649v14.563h-13.68v-28.212zm15.64 28.212h13.68v-13.649h-13.68v13.649zm-.23-15.599l-13.68-13.649h27.59v13.649h-13.91zm-15.41-76.046h37.02a62.86 62.86 0 00-7.7 30.224 62.857 62.857 0 007.7 30.223h-37.02v-60.447zm0-17.549V78.978h21.75c.49 4.374 4.18 7.8 8.69 7.8 4.85 0 8.8-3.939 8.8-8.775 0-4.503-3.43-8.182-7.82-8.675v-5.949h29.17v38.12a63.841 63.841 0 00-22.38 22.327h-38.21v-15.6zm30.44-37.047c3.78 0 6.85 3.062 6.85 6.824 0 3.763-3.07 6.825-6.85 6.825-3.77 0-6.84-3.062-6.84-6.825 0-3.762 3.07-6.824 6.84-6.824zm-30.44-7.8h29.47v5.949a8.746 8.746 0 00-7.72 7.7h-21.75V63.38zm0-39.972c0-8.063 6.58-14.624 14.66-14.624s14.66 6.562 14.66 14.624v15.598c0 9.14 7.45 16.575 16.61 16.575 5.71 0 11.67-3.017 14.66-10.713v16.562h-60.59V23.407zm0-22.424h60.59V33.015c0 12.716-5.61 20.615-14.66 20.615-8.08 0-14.66-6.562-14.66-14.625V23.407c0-9.14-7.45-16.574-16.61-16.574-6.39 0-11.88 3.653-14.66 8.94V.983zm0-62.396h60.59v29.82l-30.7 30.626h-29.89v-60.446zm0-33.149v-29.248h29.32v30.628l29.89 29.819h-59.21v-31.199zm0-60.404c15.99.434 28.9 13.272 29.42 29.207h-29.42v-29.207zm0-31.239h3.08c15.44 14.728 35.81 22.904 57.51 23.146v37.3h-29.22c-.51-17.009-14.3-30.721-31.37-31.157v-29.289zm0-31.199h30.3c13.93 0 25.79-8.879 30.29-21.251v50.499h-60.59v-29.248zm0-31.198h60.54c-.52 16.212-13.87 29.248-30.24 29.248h-30.3v-29.248zm60.59 83.593c-20.46-.232-39.67-7.738-54.54-21.196h54.54v21.196zm0 100.267l-29.32-29.248v-29.82h29.32v59.068zm0 63.775h-27.93l27.93-27.87v27.87zm0 189.139v20.047a61.785 61.785 0 01-20.09-20.047h20.09zm-20.09-64.346a61.778 61.778 0 0120.09-20.048v20.048h-20.09zm20.09 1.949v60.447h-21.28c-5.09-8.935-8.04-19.234-8.04-30.223 0-10.989 2.95-21.289 8.04-30.224h21.28zm-.05 124.835c-.52 16.212-13.87 29.248-30.24 29.248h-30.3V250.61h60.54zm2.01-38.925a63.25 63.25 0 0030.29 7.685h30.3v29.248h-29.21l-.4-.4-.4.4h-30.58v-36.933zm0-23.513h60.59v29.248h-30.3c-11.01 0-21.34-2.939-30.29-8.015v-21.233zm0-62.397h29.31v21.548c-4.38.493-7.81 4.172-7.81 8.676 0 4.836 3.94 8.774 8.79 8.774 4.51 0 8.2-3.425 8.7-7.799h21.6v29.248h-60.59v-60.447zm0-23.183a61.198 61.198 0 0129.91-7.995l1.36 1.36v-1.38h29.32v29.249h-60.59v-21.234zm0-37.834l28.05 27.984c-10.12.354-19.67 3.012-28.05 7.571V64.758zm0-32.577h14.65c3.69 0 7.03 1.413 9.61 3.666l-24.26 24.204V32.18zm0-31.198h29.36c.25 8.131 3.52 15.502 8.75 21.041l-12.47 12.444c-2.93-2.605-6.76-4.237-10.99-4.237h-14.65V.983zm0-31.77l30.7-30.626h29.89v29.297c-17 .512-30.71 14.19-31.23 31.15h-29.36v-29.82zm0-30.626h27.93l-27.93 27.869v-27.87zm0-1.95h29.31v-60.447h-29.31v60.447zm0-99.65h5.94c.41 8.777 7.63 15.805 16.53 15.805 4.23 0 8.05-1.632 10.99-4.237l4.65 4.644c-5.23 5.54-8.5 12.911-8.75 21.042h-29.36v-37.254zm0-23.192h21.5v5.948c-8.3.491-14.93 7.042-15.52 15.294h-5.98v-21.242zm0-62.397h30.61l29.32 29.248h-38.43v31.198h-21.5v-60.446zm60.59 0v27.142l-27.21-27.142h27.21zm1.95 468.021c15.92.511 28.76 13.314 29.27 29.199h-29.27v-29.199zm0-31.247h60.59v60.446h-29.37c-.51-16.959-14.22-30.636-31.22-31.149v-29.297zm0-31.198h45.05c.5 8.35 7.17 15.005 15.54 15.5v13.748h-60.59v-29.248zm0-31.199h60.59v13.749c-8.37.495-15.04 7.15-15.54 15.5h-45.05v-29.249zm0-31.769l30.7-30.627h29.89v13.748c-8.7.516-15.64 7.669-15.64 16.476 0 8.806 6.94 15.959 15.64 16.474v13.749h-60.59v-29.82zm0-30.627h27.94l-27.94 27.87v-27.87zm0-31.247a32.118 32.118 0 0021.09-8.729l38.12 38.026h-28.83l-.25-.244-.24.244h-29.89V32.132zm0-31.15h29.27c-.51 15.886-13.35 28.689-29.27 29.2V.982zm0-1.949h29.32v-29.248h-29.32V-.967zm0-31.198h29.32v-29.248h-29.32v29.248zm0-91.645h29.32v21.548c-4.39.493-7.82 4.172-7.82 8.675 0 4.504 3.43 8.183 7.82 8.676v21.548h-29.32v-60.447zm0-31.148c15.92.51 28.76 13.314 29.27 29.199h-29.27v-29.199zm0-31.247h30.62l29.97 29.899v30.547h-29.37c-.51-16.959-14.22-30.637-31.22-31.149v-29.297zm0-30.548l28.67 28.597h-28.67v-28.597zm0-31.849h59.21l-29.32 29.248h-29.73l-.16-.156v-29.092zm60.59 29.248h-27.94l27.94-27.87v27.87zm0 33.149v27.141l-27.21-27.141h27.21zm-29.93-2.718l-28.55-28.481h57.1l-28.55 28.481zm29.93-27.103v27.87h-27.94l27.94-27.87zM1165.43.983h29.37V60.05l-38.12-38.027c5.23-5.539 8.51-12.91 8.75-21.041zm5.92-94.57c0 3.763-3.07 6.825-6.85 6.825-3.77 0-6.84-3.062-6.84-6.825 0-3.762 3.07-6.824 6.84-6.824 3.78 0 6.85 3.062 6.85 6.824zm-1.39-6.824a8.7 8.7 0 00-4.48-1.851v-21.548h27.94l-23.46 23.399zm-4.48 37.048v-21.548c4.39-.493 7.82-4.172 7.82-8.676 0-2.067-.75-3.943-1.95-5.446l23.45-23.398v59.068h-29.32zm0 62.396h29.32v-29.248h-29.32V-.967zm0-31.198h29.32v-29.248h-29.32v29.248zm29.32 140.293c-7.62-.512-13.68-6.796-13.68-14.525 0-7.73 6.06-14.013 13.68-14.526v29.051zm0 62.396c-7.62-.512-13.68-6.796-13.68-14.525 0-7.73 6.06-14.013 13.68-14.526v29.051zm-60.59 80.086h59.21l-29.32 29.248h-29.73l-.16-.156V250.61zm-31.27-313.973h29.32v-60.447h-29.32v60.447zm29.32-91.595v29.199h-29.27c.51-15.885 13.34-28.689 29.27-29.199zm-37.14-33.198h37.14v-29.248h-37.14v29.248zm-.98 38.998c-8.08 0-14.66-6.562-14.66-14.625 0-8.061 6.58-14.623 14.66-14.623s14.66 6.562 14.66 14.623c0 8.063-6.58 14.625-14.66 14.625zm16.62-14.625c0-8.806-6.94-15.958-15.64-16.474v-5.948h37.14v29.297c-8.15.246-15.54 3.512-21.1 8.729l-4.65-4.645c2.61-2.926 4.25-6.74 4.25-10.959zm-7.82 256.41h29.32V63.38h-29.32v29.248zm.05-93.594c.51-15.885 13.34-28.688 29.27-29.199v29.2h-29.27zm29.27 1.95v29.199c-15.93-.511-28.76-13.314-29.27-29.2h29.27zm-33.57 34.864l12.47-12.444c5.56 5.217 12.95 8.483 21.1 8.729v29.297h-29.32V46.805c0-4.218-1.64-8.032-4.25-10.958zm2.29 27.532v27.87l-27.93-27.87h27.93zm-27.93-1.95l24.26-24.203c2.26 2.572 3.67 5.9 3.67 9.58v14.623h-27.93zM1108.8 156c0 3.762-3.07 6.824-6.84 6.824s-6.84-3.062-6.84-6.824c0-3.764 3.07-6.825 6.84-6.825s6.84 3.061 6.84 6.825zm-5.86-8.676v-21.548h29.32v29.249h-21.6a8.746 8.746 0 00-7.72-7.701zm93.81 40.849h59.21l-59.21 59.068v-59.068zm0-15.698c8.37-.495 15.05-7.15 15.54-15.5h45.05v29.248h-60.59v-13.748zm0-31.001c7.62.513 13.69 6.796 13.69 14.526 0 7.729-6.07 14.013-13.69 14.525v-29.051zm0-15.698h29.32v29.249h-13.78c-.49-8.35-7.17-15.005-15.54-15.5v-13.749zm0-1.949h29.32V63.379h-29.32v60.447zm0-91.645h29.32V61.43h-29.32V32.18zm0-1.95h29.32V.984h-29.32v29.249zm0-31.198h29.32v-29.248h-29.32V-.967zm0-60.446h59.21l-29.32 29.247h-29.89v-29.247zm15.64-17.549h13.68v-13.65h-13.68v13.65zm-15.64-44.848h29.89l14.66 14.625-14.66 14.623h-16.2v17.55h17.59v-16.17l14.66-14.625 14.65 14.625v29.819h-60.59v-60.447zm0-1.949h29.32v-60.446h-29.32v60.446zm0-91.645h21.68c.8 4.025 4.36 7.072 8.62 7.072 4.51 0 8.2-3.425 8.7-7.799h21.59v29.975h-60.59v-29.248zm37.14-1.702c0 3.762-3.07 6.824-6.84 6.824s-6.84-3.062-6.84-6.824c0-3.763 3.07-6.825 6.84-6.825s6.84 3.062 6.84 6.825zm-37.14-29.496h60.59v28.521h-21.59c-.5-4.374-4.19-7.8-8.7-7.8-4.76 0-8.64 3.806-8.77 8.527h-21.53v-29.248zm60.59 124.792v27.87l-27.93-27.87h27.93zm-29.31-26.155h29.31v-36.24h-29.31v36.24zm0 24.206h29.31v-22.256h-29.31v22.256zm0 280.783h29.31v-29.249h-29.31v29.249zm0-31.198h29.31V94.577h-29.31v29.249zm0-31.198h29.31V63.379h-29.31v29.248zm0-93.595v-29.82l29.31-29.248V-.967h-29.31zm0 46.797h13.68V32.181h-13.68V45.83zm15.63 1.95V30.23h-15.63V.983h29.31v60.446h-29.31V47.78h15.63zm-45.52 200.838l59.2-59.067v59.067h-59.2zm61.16-60.446h29.37c.51 16.958 14.22 30.636 31.22 31.148v13.699h-37.26c-.49-4.374-4.18-7.799-8.69-7.799-4.85 0-8.8 3.938-8.8 8.774 0 2.072.76 3.953 1.97 5.456l-7.81 7.79v-59.068zm0-31.198h13.78a16.377 16.377 0 004.15 9.983l-17.93 17.886v-27.869zm0-31.199h29.32v13.749c-8.37.495-15.04 7.15-15.54 15.5h-13.78v-29.249zm0-31.148c15.92.51 28.76 13.314 29.27 29.199h-29.27v-29.2zm0-31.248h59.21l-38.12 38.026a32.12 32.12 0 00-21.09-8.728V63.379zm0-49.988l12.33 12.3 11.05 11.03-23.38 23.33V13.39zm0-12.408h44.95v14.22l-9.19 9.177c-3.05-2.7-6.89-4.233-10.99-4.233-4.11 0-7.95 1.532-10.99 4.233l-13.78-13.747V.983zm0-37.38c8.59 9.75 13.41 22.186 13.63 35.43h-13.63v-35.43zm0-25.016h29.37c.51 16.958 14.22 30.636 31.22 31.148v13.699h-15.64v15.6h-29.36c-.24-14.479-5.74-28.057-15.59-38.39v-22.057zm0-31.199h50.62c-12.11 4.38-20.85 15.775-21.25 29.249h-29.37v-29.249zm0-1.95h60.59v-29.248h-60.59v29.249zm13.61-54.429l9.68-9.65 9.67 9.65-9.67 9.651-9.68-9.651zm-13.61.975h11.83l11.46 11.434 12.43-12.409-12.43-12.407-11.46 11.432h-11.83v-36.239h29.4c.88 16.621 14.43 29.916 31.19 30.42v30.026h-60.59v-22.257zm0-40.14h13.68v-13.649h-13.68v13.649zm0-29.975h14.66c8.08 0 14.66 6.562 14.66 14.624v15.351h-13.68v-15.598h-15.64v-14.377zm0-30.471h29.32v37.461c-2.78-5.286-8.27-8.94-14.66-8.94h-14.66v-28.521zm31.27 60.446h29.32v-60.446h-29.32v60.446zm29.32 30.421c-15.68-.503-28.36-12.923-29.23-28.47h29.23v28.47zm-29.27 94.372c.51-15.885 13.35-28.689 29.27-29.2v29.2h-29.27zm29.27 1.95v29.199c-15.92-.51-28.76-13.315-29.27-29.2h29.27zm0 249.585v29.199c-15.92-.511-28.76-13.315-29.27-29.199h29.27zm-29.32-15.698c8.7-.516 15.64-7.669 15.64-16.475 0-8.807-6.94-15.96-15.64-16.475v-13.749h29.32v60.447h-29.32v-13.748zm-10.58-5.517l20.59-20.538c2.26 2.572 3.67 5.901 3.67 9.58 0 8.062-6.57 14.623-14.66 14.623-3.68 0-7.02-1.412-9.6-3.665zm8.63 5.517v13.748h-27.94l17.93-17.886a16.464 16.464 0 0010.01 4.138zm-6.85-69.69l38.12-38.026v59.068h-29.37c-.24-8.131-3.52-15.503-8.75-21.042zm17.43 42.256l-20.59 20.538c-2.26-2.572-3.67-5.9-3.67-9.579 0-8.063 6.57-14.624 14.65-14.624 3.69 0 7.03 1.413 9.61 3.665zm7.01-146.007h13.68v-13.649h-13.68v13.65zm0 15.6h13.68V.982h-13.68v13.65zm-31.79 11.082a14.543 14.543 0 019.65-3.619c3.58 0 6.97 1.276 9.65 3.619l-9.65 9.627-9.65-9.627zm22.08-.023l9.14-9.11h14.25V61.43h-59.21l23.39-23.33 12.43-12.407zm-29.4 208.302c0-3.763 3.07-6.824 6.84-6.824s6.84 3.061 6.84 6.824-3.07 6.824-6.84 6.824-6.84-3.061-6.84-6.824zm6.84 8.774c4.51 0 8.2-3.425 8.69-7.799h37.26v13.649h-59.21l7.81-7.792c1.5 1.196 3.38 1.942 5.45 1.942zm47.9-7.799h14.66c8.83 0 16-6.92 16.52-15.599h29.41v29.248h-60.59v-13.649zm0-15.599h29.22c-.51 7.601-6.81 13.649-14.56 13.649h-14.66V219.37zm0-1.95h29.32v-29.248h-29.32v29.248zm0-60.546c8.7-.515 15.64-7.667 15.64-16.474v-14.625h44.95v29.298c-17 .513-30.71 14.19-31.22 31.149h-29.37v-29.348zm0-31.099h13.69V140.4c0 7.729-6.07 14.012-13.69 14.524v-29.149zm0-62.396h44.96v30.018c0 3.762-3.07 6.824-6.84 6.824s-6.84-3.062-6.84-6.824c0-4.837-3.95-8.775-8.8-8.775-4.85 0-8.79 3.938-8.79 8.775v30.429h-13.69V63.379zm0-46.797V.982h14.26l30.7 30.628v29.82h-44.96V16.581zm0-33.148v-44.847h29.32v29.247h-15.63v31.2h-13.69v-15.6zm0-76.144c8.7-.517 15.64-7.669 15.64-16.475v-14.625h29.32v33.899c-9.09 5.48-15.25 15.285-15.59 26.548h-29.37V-92.71zm0-31.1h13.69v14.625c0 7.729-6.07 14.013-13.69 14.524v-29.149zm0-1.949h13.69v-29.976h-13.69v29.976zm29.32-30.429V-125.759h-13.68v-30.429c0-3.763 3.07-6.825 6.84-6.825s6.84 3.062 6.84 6.825zm-29.32-30.017h60.59V-141.359h-13.68v-15.804h-15.69c-.49-4.38-4.22-7.8-8.74-7.8-4.33 0-7.93 3.155-8.64 7.278h-13.84v-28.52zm0-62.397h59.21l-20.77 20.721h-16.21v16.17l-22.23 22.176v-59.067zm24.19 36.32h13.68v-13.649h-13.68v13.649zm36.4 24.126h-59.2l22.22-22.176h16.21v-16.17l20.77-20.722v59.068zm-13.68 249.585h13.68V32.181h-13.68v29.248zm13.68-122.842V-.967h-29.31v-60.446h29.31zm-13.68-64.346h13.68v-13.65h-13.68v13.65zm13.68 1.949v29.298a32.091 32.091 0 00-13.68 3.502v-32.8h13.68zm-29.31-1.949h13.68v-29.454h-13.68v29.454zm29.31 33.197v29.199h-29.26c.51-15.885 13.34-28.689 29.26-29.2zM1337.48-.967h13.68v-29.248h-13.68V-.967zm15.64 1.95h29.31V30.23h-14.25L1338.86.983h14.26zm29.21 122.843h-29.11c.51-7.602 6.81-13.65 14.55-13.65 7.75 0 14.05 6.048 14.56 13.65zm-14.56-15.6c-8.82 0-15.99 6.92-16.51 15.6h-13.78v-30.43c0-3.762 3.07-6.824 6.84-6.824s6.84 3.062 6.84 6.825c0 4.837 3.95 8.774 8.8 8.774 4.85 0 8.79-3.937 8.79-8.774V63.379h13.68v53.788c-2.78-5.286-8.27-8.941-14.66-8.941zm-14.6 77.996c.51-15.886 13.34-28.7 29.26-29.208v29.208h-29.26zm-.05 31.198h29.31v-29.248h-29.31v29.248zm31.27 1.999c15.92.511 28.75 13.314 29.27 29.199h-29.27v-29.199zm0-31.247h29.28c.56 16.947 14.3 30.598 31.31 31.061v29.385h-29.37c-.51-16.959-14.22-30.636-31.22-31.149v-29.297zm0-29.82l27.93 27.87h-27.93v-27.87zm0-25.917c2.78 5.285 8.27 8.94 14.66 8.94 8.82 0 15.99-6.92 16.51-15.6h29.42v29.203c-16.62.453-30.11 13.485-31.25 29.888l-29.34-29.271v-23.16zm29.22-6.66c-.52 7.602-6.82 13.65-14.56 13.65-7.75 0-14.05-6.048-14.56-13.65h29.12zm1.07-25.348c-3.77 0-6.84-3.062-6.84-6.824 0-3.763 3.07-6.825 6.84-6.825s6.84 3.062 6.84 6.825c0 3.762-3.07 6.824-6.84 6.824zm-30.29-37.048h60.59v60.447h-29.32v-21.548c4.38-.493 7.82-4.172 7.82-8.675 0-4.837-3.95-8.775-8.8-8.775-4.84 0-8.79 3.938-8.79 8.775 0 4.503 3.43 8.182 7.82 8.675v21.548h-29.32V63.379zm0-31.099c7.62.512 13.68 6.796 13.68 14.525 0 7.73-6.06 14.013-13.68 14.526V32.28zm0-31.297h14.25l30.7 30.627v16.17h15.64v13.65h-53.92c5.3-2.773 8.96-8.252 8.96-14.625 0-8.806-6.93-15.959-15.63-16.475V.983zm44.95 0v27.87L1401.41.983h27.93zm-44.95-62.396h13.68v14.624c0 9.14 7.45 16.574 16.61 16.574 8.84 0 16.08-6.913 16.59-15.6h13.71V-.966h-60.59v-60.446zm0-31.1c7.62.513 13.68 6.797 13.68 14.526v14.624h-13.68v-29.15zm44.95 31.1v14.624c0 8.062-6.58 14.623-14.66 14.623s-14.66-6.561-14.66-14.623v-14.624h29.32zm-44.95-62.397h60.59v60.447h-44.96v-14.624c0-8.807-6.93-15.96-15.63-16.475v-29.348zm0-17.549v-13.649h29.32v29.249h-29.32v-15.6zm0-44.846h60.59v60.446h-29.32v-31.199h-31.27v-29.247zm0-62.397h29.32v29.819l-29.32 29.248v-59.067zm30.7 31.198h29.89v29.248h-59.21l29.32-29.248zm16.21 169.64h13.68v-13.65h-13.68v13.65zm0 77.996h13.68V.982h-13.68v29.25zm13.68 1.949V45.83h-13.68V32.181h13.68zm-29.37 154.041c.47-15.959 13.37-28.83 29.37-29.294v29.294h-29.37zm29.37 1.95v29.111c-15.94-.463-28.8-13.238-29.36-29.111h29.36zm-29.32-407.526h29.32v-29.248h-29.32v29.248zm-1.95-31.64l-29.32.442H1103.09l-.44-.442-.44.442H602.738l-.443-.442-.442.442H444.266v563.558H1446.93V-250.994h-33.22z' fill='%2350E6FF'/%3E%3C/g%3E%3Cpath d='M1662.25-284.324l-542.63 542.605a197.64 197.64 0 01-139.8 57.907H223.359v-14.992H979.82a182.694 182.694 0 00129.22-53.514c216.04-216.043 337.17-337.17 553.21-553.212v21.206z' fill='%2350E6FF'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M1662.75-306.737v22.62l-542.77 542.752a198.174 198.174 0 01-140.16 58.053H222.859v-15.992H979.82c48.33.008 94.69-19.19 128.86-53.368l554.07-554.065zm-553.36 554.772a183.18 183.18 0 01-129.57 53.661H223.859v13.992H979.82a197.166 197.166 0 00139.45-57.761l542.48-542.458v-19.792l-552.36 552.358z' fill='%2350E6FF'/%3E%3Cpath d='M1108.52 266.602c4.44 0 8.03-3.593 8.03-8.025a8.024 8.024 0 00-8.03-8.025 8.022 8.022 0 00-8.02 8.025 8.022 8.022 0 008.02 8.025zM1331.52 44.05c4.44 0 8.03-3.593 8.03-8.025a8.024 8.024 0 00-8.03-8.025 8.022 8.022 0 00-8.02 8.025 8.022 8.022 0 008.02 8.025z' fill='%230078D4'/%3E%3Cpath d='M1668.91-355.519h-13.96L1250.42 49.035a111.315 111.315 0 00-32.6 79.151 111.323 111.323 0 0033.22 78.894l251.9 247.98h22.79l-263.47-259.382a95.324 95.324 0 01-.53-135.337l407.18-407.184v-8.676z' fill='%230078D4'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M1272.98 209.693a8.024 8.024 0 01-8.03 8.025 8.022 8.022 0 01-8.02-8.025c0-4.433 3.59-8.026 8.02-8.026 4.44 0 8.03 3.593 8.03 8.026zM1260.98 57.693a8.025 8.025 0 01-8.03 8.026c-4.43 0-8.02-3.594-8.02-8.026 0-4.433 3.59-8.026 8.02-8.026 4.44 0 8.03 3.593 8.03 8.026z' fill='%2350E6FF'/%3E%3C/g%3E%3C/svg%3E%0A&quot;);
+	">
+	<div class="uhf-container">
+		<div class="hero-head has-padding-top-extra-large has-padding-bottom-extra-large
+		">
+			<div class="columns">
+				<div class="column is-two-thirds-tablet is-7-desktop">
+					<p class="supertitle has-text-docs-invert has-margin-bottom-small letter-spacing-wide is-uppercase">
+						Welcome to Microsoft Documentation
+					</p>
+					<h1 class="title is-1 has-text-docs-invert">Technical documentation</h1>
+					<p class="font-size-lg has-line-height-reset has-text-docs-invert">Search for in-depth articles on Microsoft developer tools and technologies.</p>
+					<div class="has-margin-top-large">
+						<div class="columns">
+							<div class="column is-full-desktop">
+								<form method="GET" id="directory-search-form-replacement" name="directory-search-form" aria-label="Search" role="search" action="/search">
+									<div class="columns is-mobile is-gapless">
+										<div class="column">
+											<div id="autocomplete-replacement" class="autocomplete is-block">
+												<div class="control">
+													<input role="combobox" id="facet-search-input" class="autocomplete-input input control is-large" type="search" aria-label="Search" placeholder="Search documentation" data-bi-name="directory-search">
+												</div>
+											</div>
+										</div>
+										<div class="column is-narrow">
+											<button class="button button-primary button-filled button-lg has-margin-left-small" type="submit" data-bi-name="directory-search-submit" aria-label="Search" id="directory-search-submit">
+												<span class="icon" aria-hidden="true">
+													<span class="docon docon-search">Search</span>
+												</span>
+											</button>
+										</div>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="column">
+					<img class="image has-height-175 position-absolute bottom-0 is-hidden-touch" src="/en-us/media/home-and-directory/air-traffic-controller-doc-2x.png?branch=main" aria-hidden="true" data-linktype="absolute-path">
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<section id="listings" class="uhf-container" data-bi-name="listings">
+		<p class="supertitle is-uppercase font-size-xs letter-spacing-wide has-margin-top-extra-large">Index</p>
+		<h2 class="title is-2 margin-top-none margin-bottom-xs">Product Directory</h2>
+		<p class="font-size-lg margin-top-none">Explore our guides and articles by product.</p>
+		<div class="has-margin-top-extra-large has-margin-bottom-extra-large">
+			<ul class="has-three-text-columns">
+				<li class="has-three-text-columns-list-items">
+					<a class="bar-link" href="/en-us/dotnet/" data-linktype="absolute-path">
+						.NET
+					</a>
+				</li>
+				<li class="has-three-text-columns-list-items">
+					<a class="bar-link" href="/en-us/adaptive-cards/" data-linktype="absolute-path">
+						Adaptive Cards
+					</a>
+				</li>
+				<li class="has-three-text-columns-list-items">
+					<a class="bar-link" href="/en-us/windows/mixed-reality/altspace-vr/" data-linktype="absolute-path">
+						AltspaceVR
+					</a>
+				</li>
+				<li class="has-three-text-columns-list-items">
+					<a class="bar-link" href="/en-us/aspnet/core/" data-linktype="absolute-path">
+						ASP.NET
+					</a>
+				</li>
+				<li class="has-three-text-columns-list-items">
+					<a class="bar-link" href="/en-us/azure/" data-linktype="absolute-path">
+						Azure
+					</a>
+				</li>
+				<li class="has-three-text-columns-list-items">
+					<a class="bar-link" href="/en-us/azure/architecture/" data-linktype="absolute-path">
+						Azure Architecture Center
+					</a>
+				</li>
+				<li class="has-three-text-columns-list-items">
+					<a class="bar-link" href="/en-us/bot-framework/" data-linktype="absolute-path">
+						Azure Bot Service
+					</a>
+				</li>
+				<li class="has-three-text-columns-list-items">
+					<a class="bar-link" href="/en-us/azure/devops/" data-linktype="absolute-path">
+						Azure DevOps
+					</a>
+				</li>
+				<li class="has-three-text-columns-list-items">
+					<a class="bar-link" href="/en-us/azure/health-bot/" data-linktype="absolute-path">
+						Azure Health Bot
+					</a>
+				</li>
+				<li class="has-three-text-columns-list-items">
+					<a class="bar-link" href="/en-us/azure/iot-fundamentals/" data-linktype="absolute-path">
+						Azure IoT
+					</a>
+				</li>
+				<li class="has-three-text-columns-list-items">
+					<a class="bar-link" href="/en-us/azure/quantum" data-linktype="absolute-path">
+						Azure Quantum
+					</a>
+				</li>
+				<li class="has-three-text-columns-list-items">
+					<a class="bar-link" href="/en-us/azure-sphere/" data-linktype="absolute-path">
+						Azure Sphere
+					</a>
+				</li>
+				<li class="has-three-text-columns-list-items">
+					<a class="bar-link" href="/en-us/azure/virtual-desktop" data-linktype="absolute-path">
+						Azure Virtual Desktop
+					</a>
+				</li>
+				<li class="has-three-text-columns-list-items">
+					<a class="bar-link" href="/en-us/bingmaps/" data-linktype="absolute-path">
+						Bing Maps
+					</a>
+				</li>
+				<li class="has-three-text-columns-list-items">
+					<a class="bar-link" href="/en-us/biztalk/" data-linktype="absolute-path">
+						Biztalk Server
+					</a>
+				</li>
+				<li class="has-three-text-columns-list-items">
+					<a class="bar-link" href="/en-us/cpp/" data-linktype="absolute-path">
+						C++
+					</a>
+				</li>
+				<li class="has-three-text-columns-list-items">
+					<a class="bar-link" href="/en-us/dotnet/csharp/" data-linktype="absolute-path">
+						C#
+					</a>
+				</li>
+				<li class="has-three-text-columns-list-items">
+					<a class="bar-link" href="/en-us/clarity/" data-linktype="absolute-path">
+						Clarity
+					</a>
+				</li>
+				<li class="has-three-text-columns-list-items">
+					<a class="bar-link" href="/en-us/azure/cloud-adoption-framework/" data-linktype="absolute-path">
+						Cloud Adoption Framework for Azure
+					</a>
+				</li>
+				<li class="has-three-text-columns-list-items">
+					<a class="bar-link" href="/en-us/cognitive-toolkit/" data-linktype="absolute-path">
+						Cognitive Toolkit (CNTK)
+					</a>
+				</li>
+				<li class="has-three-text-columns-list-items">
+					<a class="bar-link" href="/en-us/common-data-service/" data-linktype="absolute-path">
+						Common Data Service
+					</a>
+				</li>
+				<li class="has-three-text-columns-list-items">
+					<a class="bar-link" href="/en-us/cortana/skills/" data-linktype="absolute-path">
+						Cortana Skills
+					</a>
+				</li>
+				<li class="has-three-text-columns-list-items">
+					<a class="bar-link" href="/en-us/partner-center/dashboard/" data-linktype="absolute-path">
+						Dashboard Services
+					</a>
+				</li>
+				<li class="has-three-text-columns-list-items">
+					<a class="bar-link" href="/en-us/dynamics365/" data-linktype="absolute-path">
+						Dynamics 365
+					</a>
+				</li>
+				<li class="has-three-text-columns-list-items">
+					<a class="bar-link" href="/en-us/enterprise-mobility-security/" data-linktype="absolute-path">
+						Enterprise Mobility + Security
+					</a>
+				</li>
+				<li class="has-three-text-columns-list-items">
+					<a class="bar-link" href="/en-us/ef/" data-linktype="absolute-path">
+						Entity Framework
+					</a>
+				</li>
+				<li class="has-three-text-columns-list-items">
+					<a class="bar-link" href="/en-us/exchange/" data-linktype="absolute-path">
+						Exchange
+					</a>
+				</li>
+				<li class="has-three-text-columns-list-items">
+					<a class="bar-link" href="/en-us/dotnet/fsharp/" data-linktype="absolute-path">
+						F#
+					</a>
+				</li>
+				<li class="has-three-text-columns-list-items">
+					<a class="bar-link" href="/en-us/gaming/" data-linktype="absolute-path">
+						Gaming
+					</a>
+				</li>
+				<li class="has-three-text-columns-list-items">
+					<a class="bar-link" href="/en-us/azure/developer/github/github-actions" data-linktype="absolute-path">
+						GitHub Actions for Azure
+					</a>
+				</li>
+				<li class="has-three-text-columns-list-items">
+					<a class="bar-link" href="/en-us/iis/" data-linktype="absolute-path">
+						Internet Information Services
+					</a>
+				</li>
+				<li class="has-three-text-columns-list-items">
+					<a class="bar-link" href="/en-us/java/" data-linktype="absolute-path">
+						Java
+					</a>
+				</li>
+				<li class="has-three-text-columns-list-items">
+					<a class="bar-link" href="/en-us/javascript/" data-linktype="absolute-path">
+						JavaScript
+					</a>
+				</li>
+				<li class="has-three-text-columns-list-items">
+					<a class="bar-link" href="/en-us/microsoft-365" data-linktype="absolute-path">
+						Microsoft 365
+					</a>
+				</li>
+				<li class="has-three-text-columns-list-items">
+					<a class="bar-link" href="/en-us/microsoft-365-business/" data-linktype="absolute-path">
+						Microsoft 365 Business
+					</a>
+				</li>
+				<li class="has-three-text-columns-list-items">
+					<a class="bar-link" href="/en-us/microsoft-365-enterprise/" data-linktype="absolute-path">
+						Microsoft 365 Enterprise
+					</a>
+				</li>
+				<li class="has-three-text-columns-list-items">
+					<a class="bar-link" href="/en-us/advertising/" data-linktype="absolute-path">
+						Microsoft Advertising
+					</a>
+				</li>
+				<li class="has-three-text-columns-list-items">
+					<a class="bar-link" href="/en-us/microsoft-365/bookings/" data-linktype="absolute-path">
+						Microsoft Bookings
+					</a>
+				</li>
+				<li class="has-three-text-columns-list-items">
+					<a class="bar-link" href="/en-us/java/openjdk" data-linktype="absolute-path">
+						Microsoft Build of OpenJDK
+					</a>
+				</li>
+				<li class="has-three-text-columns-list-items">
+					<a class="bar-link" href="/en-us/industry/financial-services/" data-linktype="absolute-path">
+						Microsoft Cloud for Financial Services
+					</a>
+				</li>
+				<li class="has-three-text-columns-list-items">
+					<a class="bar-link" href="/en-us/industry/healthcare/" data-linktype="absolute-path">
+						Microsoft Cloud for Healthcare
+					</a>
+				</li>
+				<li class="has-three-text-columns-list-items">
+					<a class="bar-link" href="/en-us/industry/nonprofit/" data-linktype="absolute-path">
+						Microsoft Cloud for Nonprofit
+					</a>
+				</li>
+				<li class="has-three-text-columns-list-items">
+					<a class="bar-link" href="/en-us/compliance/" data-linktype="absolute-path">
+						Microsoft Compliance
+					</a>
+				</li>
+				<li class="has-three-text-columns-list-items">
+					<a class="bar-link" href="/en-us/microsoft-edge/" data-linktype="absolute-path">
+						Microsoft Edge
+					</a>
+				</li>
+				<li class="has-three-text-columns-list-items">
+					<a class="bar-link" href="/en-us/education/" data-linktype="absolute-path">
+						Microsoft Education
+					</a>
+				</li>
+				<li class="has-three-text-columns-list-items">
+					<a class="bar-link" href="/en-us/configmgr/" data-linktype="absolute-path">
+						Microsoft Endpoint Configuration Manager
+					</a>
+				</li>
+				<li class="has-three-text-columns-list-items">
+					<a class="bar-link" href="/en-us/mem/" data-linktype="absolute-path">
+						Microsoft Endpoint Manager
+					</a>
+				</li>
+				<li class="has-three-text-columns-list-items">
+					<a class="bar-link" href="/en-us/fasttrack/" data-linktype="absolute-path">
+						Microsoft FastTrack
+					</a>
+				</li>
+				<li class="has-three-text-columns-list-items">
+					<a class="bar-link" href="/en-us/graph/" data-linktype="absolute-path">
+						Microsoft Graph
+					</a>
+				</li>
+				<li class="has-three-text-columns-list-items">
+					<a class="bar-link" href="/en-us/powershell/high-performance-computing/" data-linktype="absolute-path">
+						Microsoft HPC Pack 2016
+					</a>
+				</li>
+				<li class="has-three-text-columns-list-items">
+					<a class="bar-link" href="/en-us/office365/kaizala/" data-linktype="absolute-path">
+						Microsoft Kaizala
+					</a>
+				</li>
+				<li class="has-three-text-columns-list-items">
+					<a class="bar-link" href="/en-us/mem/intune/" data-linktype="absolute-path">
+						Microsoft Intune
+					</a>
+				</li>
+				<li class="has-three-text-columns-list-items">
+					<a class="bar-link" href="/en-us/lifecycle/" data-linktype="absolute-path">
+						Microsoft Lifecycle Policy
+					</a>
+				</li>
+				<li class="has-three-text-columns-list-items">
+					<a class="bar-link" href="/en-us/machine-learning-server/" data-linktype="absolute-path">
+						Microsoft Machine Learning Server
+					</a>
+				</li>
+				<li class="has-three-text-columns-list-items">
+					<a class="bar-link" href="/en-us/microsoft-365/managed-desktop/" data-linktype="absolute-path">
+						Microsoft Managed Desktop
+					</a>
+				</li>
+				<li class="has-three-text-columns-list-items">
+					<a class="bar-link" href="/en-us/microsoftsearch/" data-linktype="absolute-path">
+						Microsoft Search
+					</a>
+				</li>
+				<li class="has-three-text-columns-list-items">
+					<a class="bar-link" href="/en-us/security/" data-linktype="absolute-path">
+						Microsoft Security
+					</a>
+				</li>
+				<li class="has-three-text-columns-list-items">
+					<a class="bar-link" href="/en-us/security-updates/" data-linktype="absolute-path">
+						Microsoft Security Response Center
+					</a>
+				</li>
+				<li class="has-three-text-columns-list-items">
+					<a class="bar-link" href="/en-us/stream/" data-linktype="absolute-path">
+						Microsoft Stream
+					</a>
+				</li>
+				<li class="has-three-text-columns-list-items">
+					<a class="bar-link" href="/en-us/surface/" data-linktype="absolute-path">
+						Microsoft Surface
+					</a>
+				</li>
+				<li class="has-three-text-columns-list-items">
+					<a class="bar-link" href="/en-us/microsoftteams/" data-linktype="absolute-path">
+						Microsoft Teams
+					</a>
+				</li>
+				<li class="has-three-text-columns-list-items">
+					<a class="bar-link" href="/en-us/workplace-analytics/" data-linktype="absolute-path">
+						Microsoft Workplace Analytics and MyAnalytics
+					</a>
+				</li>
+				<li class="has-three-text-columns-list-items">
+					<a class="bar-link" href="/en-us/microsoft-365/viva/" data-linktype="absolute-path">
+						Microsoft Viva
+					</a>
+				</li>
+				<li class="has-three-text-columns-list-items">
+					<a class="bar-link" href="/en-us/windows/mixed-reality/" data-linktype="absolute-path">
+						Mixed Reality and HoloLens
+					</a>
+				</li>
+				<li class="has-three-text-columns-list-items">
+					<a class="bar-link" href="/en-us/dotnet/machine-learning/" data-linktype="absolute-path">
+						ML.NET
+					</a>
+				</li>
+				<li class="has-three-text-columns-list-items">
+					<a class="bar-link" href="/en-us/nuget/" data-linktype="absolute-path">
+						NuGet
+					</a>
+				</li>
+				<li class="has-three-text-columns-list-items">
+					<a class="bar-link" href="/en-us/office/" data-linktype="absolute-path">
+						Office
+					</a>
+				</li>
+				<li class="has-three-text-columns-list-items">
+					<a class="bar-link" href="/en-us/office365/" data-linktype="absolute-path">
+						Office 365
+					</a>
+				</li>
+				<li class="has-three-text-columns-list-items">
+					<a class="bar-link" href="/en-us/onedrive/" data-linktype="absolute-path">
+						OneDrive
+					</a>
+				</li>
+				<li class="has-three-text-columns-list-items">
+					<a class="bar-link" href="/en-us/openspecs/" data-linktype="absolute-path">
+						Open Specifications
+					</a>
+				</li>
+				<li class="has-three-text-columns-list-items">
+					<a class="bar-link" href="/en-us/playready/" data-linktype="absolute-path">
+						PlayReady
+					</a>
+				</li>
+				<li class="has-three-text-columns-list-items">
+					<a class="bar-link" href="/en-us/powerapps/" data-linktype="absolute-path">
+						Power Apps
+					</a>
+				</li>
+				<li class="has-three-text-columns-list-items">
+					<a class="bar-link" href="/en-us/power-automate/" data-linktype="absolute-path">
+						Power Automate
+					</a>
+				</li>
+				<li class="has-three-text-columns-list-items">
+					<a class="bar-link" href="/en-us/power-bi/" data-linktype="absolute-path">
+						Power BI
+					</a>
+				</li>
+				<li class="has-three-text-columns-list-items">
+					<a class="bar-link" href="/en-us/power-platform/" data-linktype="absolute-path">
+						Power Platform
+					</a>
+				</li>
+				<li class="has-three-text-columns-list-items">
+					<a class="bar-link" href="/en-us/power-query/" data-linktype="absolute-path">
+						Power Query
+					</a>
+				</li>
+				<li class="has-three-text-columns-list-items">
+					<a class="bar-link" href="/en-us/powershell/" data-linktype="absolute-path">
+						PowerShell
+					</a>
+				</li>
+				<li class="has-three-text-columns-list-items">
+					<a class="bar-link" href="/en-us/power-virtual-agents/" data-linktype="absolute-path">
+						Power Virtual Agents
+					</a>
+				</li>
+				<li class="has-three-text-columns-list-items">
+					<a class="bar-link" href="/en-us/project/" data-linktype="absolute-path">
+						Project
+					</a>
+				</li>
+				<li class="has-three-text-columns-list-items">
+					<a class="bar-link" href="/en-us/sharepoint/" data-linktype="absolute-path">
+						SharePoint
+					</a>
+				</li>
+				<li class="has-three-text-columns-list-items">
+					<a class="bar-link" href="/en-us/skypeforbusiness/" data-linktype="absolute-path">
+						Skype for Business
+					</a>
+				</li>
+				<li class="has-three-text-columns-list-items">
+					<a class="bar-link" href="/en-us/sql/" data-linktype="absolute-path">
+						SQL Server
+					</a>
+				</li>
+				<li class="has-three-text-columns-list-items">
+					<a class="bar-link" href="/en-us/system-center/" data-linktype="absolute-path">
+						System Center
+					</a>
+				</li>
+				<li class="has-three-text-columns-list-items">
+					<a class="bar-link" href="/en-us/virtualization/" data-linktype="absolute-path">
+						Virtualization
+					</a>
+				</li>
+				<li class="has-three-text-columns-list-items">
+					<a class="bar-link" href="/en-us/dotnet/visual-basic/" data-linktype="absolute-path">
+						Visual Basic
+					</a>
+				</li>
+				<li class="has-three-text-columns-list-items">
+					<a class="bar-link" href="/en-us/visualstudio/products/" data-linktype="absolute-path">
+						Visual Studio
+					</a>
+				</li>
+				<li class="has-three-text-columns-list-items">
+					<a class="bar-link" href="/en-us/appcenter/" data-linktype="absolute-path">
+						Visual Studio App Center
+					</a>
+				</li>
+				<li class="has-three-text-columns-list-items">
+					<a class="bar-link" href="/en-us/visualstudio/" data-linktype="absolute-path">
+						Visual Studio IDE
+					</a>
+				</li>
+				<li class="has-three-text-columns-list-items">
+					<a class="bar-link" href="/en-us/windows/" data-linktype="absolute-path">
+						Windows
+					</a>
+				</li>
+				<li class="has-three-text-columns-list-items">
+					<a class="bar-link" href="/en-us/xamarin/" data-linktype="absolute-path">
+						Xamarin
+					</a>
+				</li>
+				<li class="has-three-text-columns-list-items">
+					<a class="bar-link" href="/en-us/yammer/" data-linktype="absolute-path">
+						Yammer
+					</a>
+				</li>
+			</ul>
+		</div>
+</section>
+<section id="resources" class="hero position-relative" data-bi-name="resources">
+	<div class="hero-background-image is-full-max-height is-full-height">
+	 	<svg viewBox="0 0 800 500" preserveAspectRatio="xMinYMid slice" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="svg">
+		 <g fill="none" fill-rule="evenodd"><path fill="#none" d="M0 0h2312v390H0z"/>
+		 <use class="has-fill-body-background" xlink:href="#a"/><g mask="url(#b)" opacity=".504">
+		 <g transform="translate(-832 -135)"><rect class="has-fill-body-background-dark" x=".51" y="6.807" width="4348.322" height="850.877" rx="2.38"/>
+		 <path class="has-fill-body-background" d="M2156.012 388.766l-35.058
+		 96.132.306-.834zM3260.179 371.748v-34.035a3.403 3.403 0
+		 00-3.402-3.403h-94.423a3.401 3.401 0 00-2.415.987l-48.444 48.483a3.4 3.4 0
+		 00-1.004 2.4v94.48a3.403 3.403 0 003.402 3.404h34.905a3.403 3.403 0
+		 003.316-2.91c4.769-29.694 30.376-51.534 60.437-51.546h17.01a3.403 3.403 0
+		 003.402-3.404V381.96a6.805 6.805 0 016.804-6.807h17.01a3.401 3.401 0
+		 003.402-3.404zm-252.734-120.943l19.578-19.605a3.405 3.405 0
+		 00-2.398-5.803h-19.596a3.403 3.403 0 00-3.402 3.404v19.655a3.403 3.403 0 005.818
+		 2.349zm-164.401 351.242a120.727 120.727 0 0133.067-8.322 3.403 3.403 0
+		 003.045-3.403v-72.223c0-11.278-9.139-20.42-20.412-20.42h-17.01a3.403 3.403 0
+		 00-3.402 3.403v97.936a3.404 3.404 0 004.712 3.029zm141.573-213.281h-42.388c-25.277
+		 0-47.51 18.906-49.33 44.126a47.661 47.661 0 0013.82 37.228 47.616 47.616 0 0037.21
+		 13.825c25.21-1.804 44.107-24.063 44.107-49.351v-42.425a3.404 3.404 0
+		 00-3.419-3.403zm57.834 131.971V392.169a3.403 3.403 0 00-3.402-3.403h-34.02a3.403
+		 3.403 0 00-3.402 3.403v44.246a60.822 60.822 0 01-11.668 35.873 3.405 3.405 0 00.306
+		 4.39l46.386 46.407a3.4 3.4 0 005.8-2.348zm105.462-200.041a3.403 3.403 0
+		 003.402-3.404v-40.025c0-.899-.354-1.762-.987-2.4l-48.46-48.534a3.404 3.404 0
+		 00-2.4-.987h-45.926a3.402 3.402 0 00-2.416.987l-36.316 36.333a3.405 3.405 0
+		 00-.714 3.625 19.442 19.442 0 011.19 6.704 20.422 20.422 0 01-11.532 18.294
+		 3.506 3.506 0 00-2.076 3.115v77.293a3.403 3.403 0 003.402 3.404h34.02a3.403
+		 3.403 0 003.402-3.404V354.68c0-18.797 15.232-34.035 34.02-34.035l71.391.05z"/>
+		 <ellipse class="has-fill-body-background" cx="2994.823" cy="273.046" rx="6.804" ry="6.807"/><path class="has-fill-body-background" d="M3036.991 583.549a20.237
+		 20.237 0 000 32.452 3.4 3.4 0 005.46-2.757v-26.939a3.404 3.404 0
+		 00-5.46-2.756zM2896.166 592.976h33.101a20.408 20.408 0
+		 0014.305-5.854l39.464-38.834a34.012 34.012 0 0123.813-9.768h17.742a3.402 3.402 0
+		 002.398-5.82l-46.386-46.407a3.4 3.4 0 00-4.388-.289c-21.374 15.564-50.341
+		 15.564-71.714 0a3.4 3.4 0 00-4.389.29l-11.176 11.197a3.405 3.405 0 00-.493 4.135
+		 33.74 33.74 0 014.287 16.473v71.474a3.404 3.404 0 003.436
+		 3.403zm-94.423-163.367h74.844a3.404 3.404 0 003.317-2.911c4.768-29.694
+		 30.375-51.534 60.437-51.546h44.225a3.403 3.403 0 003.402-3.404v-34.035a3.403
+		 3.403 0 00-3.402-3.403h-94.422a3.402 3.402 0 00-2.415.987l-88.452 88.49a3.405
+		 3.405 0 002.466 5.822zm42.407-69.892l19.578-19.604a3.405 3.405 0
+		 00-2.399-5.803h-19.595a3.403 3.403 0 00-3.402 3.403v19.655a3.403 3.403 0 005.817
+		 2.349zm96.242-147.934h42.967a3.401 3.401 0
+		 003.402-4.05c-5.131-21.435-24.287-36.551-46.318-36.551-22.032 0-41.187
+		 15.116-46.319 36.551a3.405 3.405 0 003.402 4.05h42.866zm-47.628
+		 17.017v88.492a3.403 3.403 0 003.402 3.404h88.451a3.403 3.403 0
+		 003.402-3.404v-22.888a3.506 3.506 0 00-2.075-3.115 20.269 20.269 0
+		 01-11.538-18.294c0-7.813 4.49-14.93 11.538-18.293a3.523 3.523 0
+		 002.075-3.132V228.8a3.403 3.403 0 00-3.402-3.403h-88.451a3.403 3.403 0 00-3.402
+		 3.404zm-2.246 247.878a3.405 3.405 0 00.307-4.407 60.835 60.835 0 01-10.87-26.156
+		 3.402 3.402 0 00-3.317-2.893h-34.904a3.403 3.403 0 00-3.402 3.403v34.036a3.403
+		 3.403 0 003.402 3.403h17.01a33.702 33.702 0 0116.465 4.288 3.4 3.4 0
+		 004.15-.493l11.16-11.18zm-269.914 61.842h77.43a3.402 3.402 0
+		 002.398-5.82l-61.236-61.263a3.401 3.401 0 00-2.398-.987h-12.792a3.403 3.403 0
+		 00-3.402 3.404v64.666zm0 110.904a3.404 3.404 0 001.004 2.399l48.7 48.738a3.401
+		 3.401 0 002.415.987h18.71a3.4 3.4 0
+		 002.416-1.004l21.008-21.289c.628-.634.982-1.49.986-2.382v-94.107a3.403 3.403 0
+		 00-3.402-3.404h-6.804a3.403 3.403 0 00-3.402 3.404v44.245a6.806 6.806 0 01-6.804
+		 6.807H2641a6.805 6.805 0 01-6.804-6.807v-54.456a6.805 6.805 0
+		 016.804-6.807h71.442a3.403 3.403 0 003.402-3.403v-6.807a3.403 3.403 0
+		 00-3.402-3.404h-88.452a3.403 3.403 0 00-3.402 3.404l.017 93.886z"/>
+		 <rect class="has-fill-body-background" x="2620.604" y="443.222" width="13.608" height="13.614" rx="2"/>
+		 <ellipse class="has-fill-body-background" cx="2668.487" cy="381.959" rx="20.412" ry="20.421"/>
+		 <path class="has-fill-body-background" d="M2678.438 266.24h34.02a3.403 3.403 0
+		 003.402-3.404v-87.18a3.404 3.404 0 00-4.065-3.404c-21.388 5.14-36.476
+		 24.264-36.504 46.27h-.255v44.246a3.404 3.404 0 003.402 3.471zm34.02
+		 176.982h-61.236a3.403 3.403 0 00-3.402 3.403v12.849c0 .907.36 1.777 1.004
+		 2.416l61.236 61.263a3.4 3.4 0 005.8-2.416v-74.112a3.403 3.403 0
+		 00-3.402-3.403zm-76.426-19.485a3.405 3.405 0 002.416 5.82h74.01a3.403 3.403 0
+		 003.402-3.404V283.206a3.403 3.403 0 00-3.402-3.404h-34.02a3.403 3.403 0 00-3.402
+		 3.404v62.676a3.403 3.403 0 002.586 3.267 34.042 34.042 0 0110.525 60.57 34.007
+		 34.007 0 01-36.295 1.901 3.4 3.4 0 00-4.134.494l-11.686 11.623z"/>
+		 <rect class="has-fill-body-background" x="2647.82" y="579.362" width="40.824" height="40.842" rx="2"/>
+		 <path class="has-fill-body-background" d="M2715.86 157.77V62.029h-47.373c-26.304
+		 0-47.627 21.333-47.627 47.65h-.256v102.104h41.454c3.183-28.337 25.489-50.73
+		 53.802-54.013zm-102.349 269.37l26.536-26.547a33.74 33.74 0
+		 01-5.58-18.566c.009-15.1 9.961-28.39 24.444-32.64a3.403 3.403 0
+		 002.517-3.233V228.8a3.403 3.403 0 00-3.402-3.404h-44.515V427.14z"/>
+		 <rect class="has-fill-body-background" x="3110.491" y="497.678" width="40.824" height="13.614" rx="2"/>
+		 <path class="has-fill-body-background" d="M3151.315 119.889a3.403 3.403 0
+		 00-3.402-3.404h-34.02a3.403 3.403 0 00-3.402 3.404v94.532c0 .907.36 1.777 1.004
+		 2.417l48.444 48.466a3.404 3.404 0 002.415 1.004h94.423a3.403 3.403 0
+		 003.402-3.404v-34.035a3.403 3.403 0 00-3.402-3.404h-57.834c-26.304
+		 0-47.628-21.333-47.628-47.649V119.89zm-312.983 88.491a3.403 3.403 0 003.402
+		 3.403h34.904a3.402 3.402 0 003.317-2.91c4.834-29.634 30.424-51.396 60.437-51.396
+		 30.012 0 55.602 21.762 60.436 51.396a3.403 3.403 0 003.317 2.91h34.904a3.403 3.403
+		 0 003.402-3.403v-41.285c0-.899-.354-1.761-.986-2.4L2939.83 62.966a3.404 3.404 0
+		 00-2.398-.987h-51.472a6.805 6.805 0 00-6.804 6.807v27.228c0 11.278-9.139
+		 20.421-20.412 20.421h-17.01a3.403 3.403 0 00-3.402 3.404v88.542zm-51.03
+		 17.017a3.403 3.403 0 00-3.402 3.404v38.596a6.809 6.809 0 001.99 4.816l47.458
+		 47.479a3.404 3.404 0 002.415 1.004h39.99a3.403 3.403 0 003.403-3.404v-88.491a3.403
+		 3.403 0 00-3.402-3.404h-88.452zm272.159 422.035h30.618a6.806 6.806 0
+		 006.804-6.807v-85.087a3.403 3.403 0 00-3.402-3.404h-34.02a3.403 3.403 0 00-3.402
+		 3.404v88.49a3.403 3.403 0 003.402 3.404zm37.422-211.017v-44.246a3.403 3.403 0
+		 00-3.402-3.403h-34.02a3.403 3.403 0 00-3.402 3.403v88.492a3.403 3.403 0 003.402
+		 3.403h34.02a3.403 3.403 0 003.402-3.403v-44.246zm0 81.685v-17.018a3.403 3.403 0
+		 00-3.402-3.404h-34.02a3.403 3.403 0 00-3.402 3.404v34.035a3.403 3.403 0 003.402
+		 3.403h34.02a3.403 3.403 0 003.402-3.403v-17.018zm4.984-143.952l34.02-34.035a3.405
+		 3.405 0 00-2.398-5.803h-57.018c-11.273 0-20.412 9.142-20.412 20.42v17.018a3.403
+		 3.403 0 003.402 3.404h40.008a3.401 3.401 0 002.398-1.004zm-8.386-162.365a3.403
+		 3.403 0 003.402-3.403v-88.491a3.403 3.403 0 00-3.402-3.404h-17.01c-11.273 0-20.412
+		 9.143-20.412 20.421v71.474a3.403 3.403 0 003.402 3.403h34.02z"/>
+		 <path class="has-fill-body-background" d="M2729.468 218.59v98.702a3.403 3.403 0
+		 003.402 3.404h74.027a3.404 3.404 0 002.399-5.82l-33.033-33.031a20.426 20.426 0
+		 01-5.971-14.431V218.59h.255c-.024-22.218-15.394-41.47-37.047-46.406a3.4 3.4 0
+		 00-4.032 3.403v43.003zm309.582 428.843a3.403 3.403 0 003.401-3.404v-8.254a3.403
+		 3.403 0 00-2.568-3.284c-14.589-4.186-24.642-17.533-24.642-32.716 0-15.184
+		 10.053-28.53 24.642-32.716a3.403 3.403 0 002.568-3.268v-8.253a3.403 3.403 0
+		 00-3.402-3.404h-32.148a20.407 20.407 0 00-14.323 5.854l-39.463 38.834a34.012 34.012
+		 0 01-23.814 9.768h-40.211a106.206 106.206 0 00-79.403 35.09 3.405 3.405 0 002.5
+		 5.753H3039.1h-.05zm-309.582-102.106v17.018a3.403 3.403 0 003.402 3.403h23.083a3.504
+		 3.504 0 003.112-2.076 20.417 20.417 0 019.424-9.41 3.404 3.404 0
+		 002.058-3.115v-6.807h-.255v-27.228a20.425 20.425 0 00-7.489-15.825 20.405 20.405 0
+		 00-16.988-4.205c-9.696 1.89-16.347 10.96-16.347 20.83v27.415z"/>
+		 <path class="has-fill-body-background" d="M2729.468 154.74a3.403 3.403 0 002.926
+		 3.404c26.192 4.126 46.774 24.614 51.03 50.797a3.403 3.403 0 003.402
+		 2.91h34.632a3.403 3.403 0 003.402-3.403v-48.585a3.403 3.403 0 00-3.198-3.404 170.048
+		 170.048 0 01-86.75-28.725 3.4 3.4 0 00-5.342 2.757l-.102 24.25zm0 271.464a3.403
+		 3.403 0 003.402 3.404h40.008a3.401 3.401 0 002.398-1.004l48.461-48.466a3.405 3.405
+		 0 00.987-2.417v-40.008a3.403 3.403 0 00-3.402-3.403h-88.452a3.403 3.403 0 00-3.402
+		 3.403v88.491zm464.508 178.446a3.4 3.4 0 004.389-.306l46.386-46.407a3.405 3.405 0
+		 00-2.399-5.803h-70.625a20.404 20.404 0 01-8.743-2.042l-.17-.187a20.417 20.417 0
+		 01-9.27-9.275l-.188-.17a20.429 20.429 0
+		 01-2.041-8.747s.868-6.807-6.804-6.807h-30.618a3.403 3.403 0 00-3.402
+		 3.404v61.263a3.403 3.403 0 003.402 3.403h44.226a60.758 60.758 0 0135.857 11.674z"/>
+		 <ellipse class="has-fill-body-background" cx="2777.351" cy="572.555" rx="6.804" ry="6.807"/>
+		 <path class="has-fill-body-background" d="M2729.468 483.962a3.404 3.404 0 005.103 2.961
+		 33.089 33.089 0 0120.038-3.404c17.129 2.4 29.325 18.022 29.325
+		 35.312v25.628h.255v8.986a20.421 20.421 0 0113.65 20.85 20.41 20.41 0 01-38.825 7.126
+		 3.402 3.402 0 00-3.095-2.059h-23.1a3.403 3.403 0 00-3.402 3.404v61.263a3.403 3.403 0
+		 003.402 3.403h53.598a3.402 3.402 0 002.773-1.514 117.173 117.173 0 0134.02-33.644
+		 3.302 3.302 0 001.53-2.79v-162.86a3.403 3.403 0 00-3.401-3.403h-88.452a3.403 3.403
+		 0 00-3.402 3.403l-.017 37.337zm-1238.035-24.488v-12.78a3.403 3.403 0
+		 00-3.402-3.404h-17.01c-26.304 0-47.628 21.333-47.628 47.65v29.797a3.404 3.404 0
+		 005.8 2.416l61.236-61.263a3.404 3.404 0 001.004-2.416zm-50.213 79.046h74.027a3.403
+		 3.403 0 003.402-3.403v-61.263a3.403 3.403 0 00-3.402-3.404h-12.792c-.898
+		 0-1.76.354-2.398.987L1438.82 532.7a3.405 3.405 0 002.398 5.82z"/>
+		 <rect class="has-fill-body-background" x="1532.257" y="334.31" width="40.824" height="40.842" rx="2"/>
+		 <path class="has-fill-body-background" d="M1587.998 316.645a3.405 3.405 0 003.402
+		 4.05h59.926a3.403 3.403 0 003.402-3.403v-16.898a20.613 20.613 0 00-6.147-14.62
+		 20.594 20.594 0 00-14.707-5.92c-21.936.23-40.878 15.42-45.876 36.791zm-69.349
+		 55.103v-34.035a3.403 3.403 0 00-3.402-3.403h-94.44c-.898
+		 0-1.76.354-2.398.987l-48.444 48.483a3.4 3.4 0 00-1.004 2.4v94.48a3.403 3.403 0
+		 003.402 3.404h34.904a3.403 3.403 0 003.317-2.91c4.768-29.694 30.376-51.534
+		 60.437-51.546h17.01a3.403 3.403 0 003.402-3.404V381.96a6.805 6.805 0
+		 016.804-6.807h17.01a3.401 3.401 0 003.402-3.404z"/>
+		 <rect class="has-fill-body-background" x="1641.12" y="170.941" width="40.824" height="40.842" rx="2"/><path class="has-fill-body-background" d="M1624.11
+		 143.713h-6.804a3.403 3.403 0 00-3.402 3.404v61.263a3.403 3.403 0 003.402
+		 3.403h6.804a3.403 3.403 0 003.402-3.403v-61.263a3.403 3.403 0
+		 00-3.402-3.404zm-358.212 107.092l19.595-19.605a3.405 3.405 0
+		 00-2.415-5.803h-19.579a3.403 3.403 0 00-3.402 3.404v19.655a3.403 3.403 0 005.8
+		 2.349zm-164.384 351.242a120.727 120.727 0 0133.05-8.322 3.403 3.403 0
+		 003.045-3.403v-72.223c0-11.278-9.14-20.42-20.412-20.42h-17.01a3.403 3.403 0
+		 00-3.402 3.403v97.936a3.404 3.404 0 004.729 3.029zm141.573-213.281h-42.405c-25.26
+		 0-47.492 18.906-49.33 44.126a47.661 47.661 0 0013.82 37.228 47.616 47.616 0
+		 0037.21 13.825c25.21-1.804 44.124-24.063 44.124-49.351v-42.425a3.404 3.404 0
+		 00-3.419-3.403zm57.834 131.971V392.169a3.403 3.403 0 00-3.402-3.403h-34.02a3.403
+		 3.403 0 00-3.402 3.403v44.246a60.822 60.822 0 01-11.668 35.873 3.405 3.405 0
+		 00.289 4.39l46.403 46.407a3.4 3.4 0 005.8-2.348zm105.462-200.041a3.403 3.403 0
+		 003.402-3.404v-40.025a3.404 3.404 0 00-1.004-2.4l-48.444-48.534a3.401 3.401 0
+		 00-2.415-.987h-45.927c-.899 0-1.76.354-2.399.987l-36.316 36.333a3.405 3.405 0
+		 00-.714 3.625 19.85 19.85 0 011.19 6.704 20.422 20.422 0 01-11.617 18.345 3.506
+		 3.506 0 00-2.042 3.064v77.293a3.403 3.403 0 003.402 3.404h34.02a3.403 3.403 0
+		 003.402-3.404V354.68c0-18.797 15.231-34.035 34.02-34.035l71.442.05z"/>
+		 <ellipse class="has-fill-body-background" cx="1253.293" cy="273.046" rx="6.804" ry="6.807"/>
+		 <path class="has-fill-body-background" d="M1295.444 583.549a20.254 20.254 0 000
+		 32.452 3.4 3.4 0 005.477-2.757v-26.939a3.404 3.404 0 00-5.477-2.756zM1154.636
+		 592.976h33.101a20.408 20.408 0 0014.288-5.854l39.48-38.834a34.012 34.012 0
+		 0123.814-9.768h17.725a3.402 3.402 0 002.415-5.82l-46.386-46.407a3.4 3.4 0
+		 00-4.389-.289c-21.373 15.564-50.34 15.564-71.713 0a3.4 3.4 0 00-4.389.29l-11.176
+		 11.197a3.405 3.405 0 00-.493 4.135 33.74 33.74 0 014.287 16.473v71.474a3.404 3.404
+		 0 003.436 3.403zm-94.44-163.368h74.844a3.402 3.402 0 003.317-2.91c4.768-29.694
+		 30.375-51.534 60.436-51.546h44.226a3.403 3.403 0 003.402-3.404v-34.035a3.403 3.403
+		 0 00-3.402-3.403h-94.37c-.9 0-1.761.354-2.4.987l-88.451 88.49a3.405 3.405 0 002.398
+		 5.82zm42.406-69.891l19.596-19.604a3.405 3.405 0 00-2.416-5.803h-19.578a3.403 3.403
+		 0 00-3.402 3.403v19.655a3.403 3.403 0 005.8 2.349zm96.26-147.934h42.967a3.401 3.401
+		 0 003.402-4.05c-5.131-21.435-24.287-36.551-46.318-36.551-22.032 0-41.187
+		 15.116-46.319 36.551a3.405 3.405 0 003.402 4.05h42.866zm-47.628 17.017v88.492a3.403
+		 3.403 0 003.402 3.404h88.451a3.403 3.403 0 003.402-3.404v-22.888a3.506 3.506 0
+		 00-2.075-3.115 20.269 20.269 0 01-11.538-18.294c0-7.813 4.49-14.93
+		 11.538-18.293a3.523 3.523 0 002.075-3.132V228.8a3.403 3.403 0
+		 00-3.402-3.403h-88.451a3.403 3.403 0 00-3.402 3.404zm-2.246 247.878a3.405 3.405 0
+		 00.307-4.407 60.835 60.835 0 01-10.87-26.156 3.402 3.402 0
+		 00-3.317-2.893h-34.904a3.403 3.403 0 00-3.402 3.403v34.036a3.403 3.403 0 003.402
+		 3.403h17.01a33.702 33.702 0 0116.465 4.288 3.4 3.4 0
+		 004.134-.493l11.175-11.18zm-269.914 58.439a3.403 3.403 0 003.402 3.403h74.028a3.402
+		 3.402 0 002.398-5.82l-61.236-61.263a3.401 3.401 0 00-2.398-.987h-12.792a3.403 3.403
+		 0 00-3.402 3.404v61.263zm0 114.307a3.404 3.404 0 001.004 2.399l48.665 48.738a3.402
+		 3.402 0 002.416.987h18.71a3.402 3.402 0
+		 002.433-1.004l21.008-21.289c.628-.634.982-1.49.986-2.382v-94.107a3.403 3.403 0
+		 00-3.402-3.404h-6.804a3.403 3.403 0 00-3.402 3.404v44.245a6.805 6.805 0 01-6.804
+		 6.807h-54.432a6.806 6.806 0 01-6.804-6.807v-54.456a6.806 6.806 0
+		 016.804-6.807h71.442a3.403 3.403 0 003.402-3.403v-6.807a3.403 3.403 0
+		 00-3.402-3.404h-88.452a3.403 3.403 0 00-3.402 3.404l.034 93.886z"/>
+		 <rect class="has-fill-body-background" x="879.074" y="443.222" width="13.608" height="13.614" rx="2"/><ellipse class="has-fill-body-background" cx="926.957" cy="381.959" rx="20.412" ry="20.421"/><path class="has-fill-body-background" d="M936.908 266.24h34.02a3.403 3.403 0 003.402-3.404v-87.18a3.404 3.404 0
+		 00-4.065-3.404c-21.38 5.179-36.432 24.332-36.419 46.338h-.255v44.246a3.403 3.403
+		 0 003.317 3.403zm34.02 176.982h-61.236a3.403 3.403 0 00-3.402 3.403v12.849c0
+		 .907.36 1.777 1.004 2.416l61.236 61.263a3.4 3.4 0 005.8-2.416v-74.112a3.403 3.403
+		 0 00-3.402-3.403zm-76.426-19.485a3.405 3.405 0 002.416 5.82h74.01a3.403 3.403 0
+		 003.402-3.404V283.206a3.403 3.403 0 00-3.402-3.404h-34.02a3.403 3.403 0 00-3.402
+		 3.404v62.676a3.403 3.403 0 002.586 3.267 34.042 34.042 0 0110.641 60.66 34.007
+		 34.007 0 01-36.411 1.76 3.4 3.4 0 00-4.134.494l-11.686 11.674zm831.668
+		 19.485a3.403 3.403 0 00-3.402 3.403v61.264a3.403 3.403 0 003.402 3.403h6.804a3.403
+		 3.403 0 003.402-3.403v-61.264a3.403 3.403 0 00-3.402-3.403h-6.804zM1613.904
+		 228.8v36.367a3.404 3.404 0 004.202 3.302 59.799 59.799 0 0118.064-2.195c18.048.561
+		 32.166 15.928 32.166 34.035v17.017a3.403 3.403 0 003.402 3.404h47.628a3.403 3.403 0
+		 013.402 3.403v30.632a34.042 34.042 0 01-11.198 25.241 34.01 34.01 0 01-26.224
+		 8.624c-17.673-1.702-30.618-17.63-30.618-35.38v-15.503a3.403 3.403 0
+		 00-3.402-3.403h-61.236a3.403 3.403 0 00-3.402 3.403v44.246a6.805 6.805 0 01-6.804
+		 6.807h-71.441a3.403 3.403 0 00-3.402 3.403v61.263a3.403 3.403 0 003.402
+		 3.404h8.25a3.402 3.402 0 003.265-2.57c4.183-14.6 17.529-24.661
+		 32.71-24.658h190.852v-204.21h-126.214a3.403 3.403 0 00-3.402 3.369zm72.259
+		 214.422a3.402 3.402 0 00-2.399 5.803l19.596 19.604a3.4 3.4 0
+		 005.8-2.416v-19.588a3.403 3.403 0 00-3.402-3.403h-19.595zm12.791-231.439h34.02a3.403
+		 3.403 0 003.402-3.403v-88.491a3.403 3.403 0 00-3.402-3.404h-88.452a3.403 3.403 0
+		 00-3.402 3.404v34.035a3.403 3.403 0 003.402 3.403h44.226a6.806 6.806 0 016.804
+		 6.807v44.246a3.403 3.403 0 003.402 3.403zm-275.561-102.105v68.07c0 18.797 15.231
+		 34.035 34.02 34.035h57.834a3.403 3.403 0 003.402-3.403V172.2a3.403 3.403 0
+		 00-2.91-3.403c-29.626-4.804-51.426-30.352-51.522-60.378V81.19c0-11.279-9.139-20.421-20.412-20.421h-17.01a3.403
+		 3.403 0 00-3.402 3.403v45.505z"/>
+		 <rect class="has-fill-body-background" x="906.29" y="579.362" width="40.824" height="40.842" rx="2"/>
+		 <path class="has-fill-body-background" d="M1423.393 283.257v34.035a3.403 3.403 0
+		 003.402 3.404h146.626a61.267 61.267 0 0126.807-44.11v-139.68a6.805 6.805 0
+		 016.804-6.807h17.01a3.403 3.403 0 003.402-3.403v-6.807a3.403 3.403 0
+		 00-3.402-3.404h-88.451a3.403 3.403 0 00-3.402 3.404v32.775a3.403 3.403 0 003.402
+		 3.404h32.318a6.806 6.806 0 016.38 6.807v82.96c0 18.797-15.232 34.036-34.02
+		 34.036h-113.474a3.403 3.403 0 00-3.402 3.386z"/><path class="has-fill-body-background" d="M1540.32 266.24c11.273 0 20.411-9.143 20.411-20.422v-72.75a3.403 3.403 0
+		 00-3.402-3.403h-21.67a3.403 3.403 0 00-3.402 3.403v89.768a3.403 3.403 0 003.402
+		 3.403h4.66zm152.494 108.52c9.695-1.889 16.346-10.959 16.346-20.846v-16.2a3.403 3.403
+		 0 00-3.402-3.404h-34.02a3.403 3.403 0 00-3.402 3.403v17.018a20.425 20.425 0 007.489
+		 15.824 20.405 20.405 0 0016.989 4.205zM974.33 157.77V62.029h-47.288c-26.304 0-47.627
+		 21.333-47.627 47.65h-.256v102.104h41.488c3.172-28.298 25.416-50.679
+		 53.683-54.013zm642.976 380.75h17.01a20.408 20.408 0 0015.818-7.492 20.428 20.428 0
+		 004.203-16.996c-1.888-9.7-10.954-16.354-20.82-16.354h-16.21a3.403 3.403 0 00-3.403
+		 3.404v34.035a3.403 3.403 0 003.402 3.403zM1503.68 699.319a3.402 3.402 0 003.266
+		 2.57h18.507c11.273 0 20.412-9.143 20.412-20.421v-81.242c0-9.87 6.65-18.94
+		 16.346-20.83a20.405 20.405 0 0116.989 4.205 20.425 20.425 0 017.488 15.825 6.806
+		 6.806 0 006.804 6.807 6.806 6.806 0 006.804-6.807v-43.888a3.403 3.403 0
+		 00-3.402-3.404h-67.223c-.898 0-1.76.354-2.398.987l-60.81 60.855a3.405 3.405 0
+		 00-.307 4.39 60.822 60.822 0 0111.669 35.873v18.465a3.403 3.403 0 002.568 3.267
+		 34.215 34.215 0 0123.287 23.348zM871.981 427.14l26.536-26.547a33.74 33.74 0
+		 01-5.494-18.634c.008-15.1 9.96-28.39 24.443-32.64a3.403 3.403 0
+		 002.517-3.233V228.8a3.403 3.403 0 00-3.402-3.404h-44.6V427.14zm739.338
+		 56.924h12.791a3.403 3.403 0 003.402-3.403v-34.036a3.403 3.403 0
+		 00-3.402-3.403h-46.81a3.402 3.402 0 00-2.398 5.803l34.02 34.035c.635.64 1.497 1
+		 2.398 1.004zm-11.023 11.027a3.404 3.404 0 00-1.003-2.4l-47.9-47.92a3.401 3.401
+		 0 00-3.096-.987c-9.334 2.047-16 10.299-16.04 19.859v71.474a3.403 3.403 0 003.402
+		 3.403h61.235a3.403 3.403 0 003.402-3.403V495.09z"/>
+		 <path class="has-fill-body-background" d="M1732.974 552.134h-88.452a3.403 3.403
+		 0 00-3.402 3.404v97.936c0 9.887 6.651 18.957 16.347 20.846a20.405 20.405 0
+		 0016.988-4.205 20.425 20.425 0 007.49-15.824v-33.15a3.506 3.506 0 00-2.059-3.098
+		 20.425 20.425 0 01-11.028-22.944c2.122-9.284 10.378-15.869 19.899-15.869 9.52 0
+		 17.776 6.585 19.898 15.87 2.122 9.284-2.453 18.804-11.028 22.943a3.506 3.506 0
+		 00-2.075 3.097v31.534c0 17.75-12.944 33.66-30.618 35.38a34.01 34.01 0
+		 01-26.223-8.624 34.042 34.042 0 01-11.199-25.242v-98.701a3.403 3.403 0
+		 00-3.402-3.404h-6.804a3.403 3.403 0 00-3.402 3.404v43.071c0 9.887-6.65
+		 18.958-16.346 20.83a20.405 20.405 0 01-16.982-4.2 20.425 20.425 0 01-7.496-15.813
+		 6.805 6.805 0 00-6.803-6.807 6.806 6.806 0 00-6.804 6.807v82.041c0 18.798-15.232
+		 34.036-34.02 34.036h-18.371a3.402 3.402 0 00-3.402 2.688 34.18 34.18 0 01-23.338
+		 23.331 3.403 3.403 0 00-2.568 3.285v18.464c.026 22.112 15.255 41.3 36.775
+		 46.339a3.4 3.4 0 004.049-3.404v-29.39c0-11.277 9.138-20.42
+		 20.412-20.42h140.162a3.402 3.402 0 003.402-2.927c4.18-26.197 24.71-46.742
+		 50.893-50.934a3.403 3.403 0 002.926-3.318V555.538a3.404 3.404 0
+		 00-3.419-3.404zm0-27.228h-17.01a6.806 6.806 0 01-6.804-6.807v-23.008a3.404 3.404
+		 0 00-1.003-2.4l-48.445-48.533a3.401 3.401 0 00-2.415-.987h-12.775a3.403 3.403 0
+		 00-3.402 3.403v35.533c.01 1.49.99 2.801 2.416 3.233 14.667 4.131 24.799 17.515
+		 24.8 32.76a33.11 33.11 0 01-3.861 15.502 3.405 3.405 0 003.01 4.918h65.49a3.403
+		 3.403 0 003.401-3.403v-6.807a3.403 3.403 0 00-3.402-3.404z"/>
+		 <rect class="has-fill-body-background" x="1368.961" y="497.678" width="40.824" height="13.614" rx="2"/><path class="has-fill-body-background" d="M1409.785
+		 119.889a3.403 3.403 0 00-3.402-3.404h-34.02a3.403 3.403 0 00-3.402 3.404v94.532c0
+		 .907.36 1.777 1.004 2.417l48.444 48.466c.635.639 1.498 1 2.398 1.004h94.44a3.403
+		 3.403 0 003.402-3.404v-34.035a3.403 3.403 0 00-3.402-3.404h-57.834c-26.304
+		 0-47.628-21.333-47.628-47.649V119.89zm-312.983 88.491a3.403 3.403 0 003.402
+		 3.403h34.904a3.402 3.402 0 003.317-2.91c4.834-29.634 30.424-51.396 60.437-51.396
+		 30.012 0 55.602 21.762 60.436 51.396a3.403 3.403 0 003.317 2.91h34.904a3.403 3.403
+		 0 003.402-3.403v-41.285a3.404 3.404 0 00-1.003-2.4L1198.3 62.966a3.404 3.404 0
+		 00-2.398-.987h-51.472a6.806 6.806 0 00-6.804 6.807v27.228c0 11.278-9.139
+		 20.421-20.412 20.421h-17.01a3.403 3.403 0 00-3.402 3.404v88.542zm-51.03
+		 17.017a3.403 3.403 0 00-3.402 3.404v38.596a6.809 6.809 0 002.041 4.884l47.458
+		 47.479c.635.639 1.498 1 2.398 1.004h39.957a3.403 3.403 0
+		 003.402-3.404v-88.49a3.403 3.403 0 00-3.402-3.404h-88.452v-.068zm272.159
+		 422.035h30.618a6.806 6.806 0 006.804-6.807v-85.087a3.403 3.403 0
+		 00-3.402-3.404h-34.02a3.403 3.403 0 00-3.402 3.404v88.49a3.403 3.403 0 003.402
+		 3.404zm37.422-211.017v-44.246a3.403 3.403 0 00-3.402-3.403h-34.02a3.403 3.403 0
+		 00-3.402 3.403v88.492a3.403 3.403 0 003.402 3.403h34.02a3.403 3.403 0
+		 003.402-3.403v-44.246zm0 81.685v-17.018a3.403 3.403 0 00-3.402-3.404h-34.02a3.403
+		 3.403 0 00-3.402 3.404v34.035a3.403 3.403 0 003.402 3.403h34.02a3.403 3.403 0
+		 003.402-3.403v-17.018zm4.984-143.952l34.02-34.035a3.405 3.405 0
+		 00-2.416-5.803h-57c-11.273 0-20.412 9.142-20.412 20.42v17.018a3.403 3.403 0
+		 003.402 3.404h39.99c.907 0 1.777-.361 2.416-1.004zm-8.386-162.365a3.403 3.403 0
+		 003.402-3.403v-88.491a3.403 3.403 0 00-3.402-3.404h-17.01c-11.273 0-20.412
+		 9.143-20.412 20.421v71.474a3.403 3.403 0 003.402 3.403h34.02z"/>
+		 <path class="has-fill-body-background" d="M987.938 218.59v98.702a3.403 3.403 0
+		 003.402 3.404h74.01a3.402 3.402 0 002.416-5.82l-33.034-33.031a20.426 20.426 0
+		 01-5.97-14.431V218.59h.34c-.024-22.218-15.394-41.47-37.047-46.406a3.4 3.4 0
+		 00-4.032 3.403l-.085 43.003zm309.582 428.843a3.403 3.403 0
+		 003.401-3.404v-8.254a3.403 3.403 0
+		 00-2.568-3.284c-14.589-4.186-24.642-17.533-24.642-32.716 0-15.184 10.053-28.53
+		 24.642-32.716a3.403 3.403 0 002.568-3.268v-8.253a3.403 3.403 0
+		 00-3.402-3.404h-32.166a20.407 20.407 0 00-14.305 5.854l-39.463 38.834a34.012
+		 34.012 0 01-23.814 9.768h-40.263a106.189 106.189 0 00-79.402 35.09 3.405 3.405 0
+		 002.5 5.753h226.913zM987.938 545.327v17.018a3.403 3.403 0 003.402
+		 3.403h23.083a3.504 3.504 0 003.112-2.076 20.297 20.297 0 019.424-9.41 3.523 3.523
+		 0 002.058-3.115v-6.807h-.255v-27.228a20.425 20.425 0 00-7.489-15.825 20.405 20.405
+		 0 00-16.988-4.205c-9.696 1.89-16.347 10.96-16.347 20.83v27.415z"/>
+		 <path class="has-fill-body-background" d="M987.938 154.74a3.403 3.403 0 002.926
+		 3.404c26.197 4.116 46.784 24.61 51.03 50.797a3.403 3.403 0 003.402
+		 2.91h34.496a3.403 3.403 0 003.402-3.403v-48.585a3.403 3.403 0 00-3.198-3.404
+		 170.048 170.048 0 01-86.75-28.725 3.4 3.4 0 00-5.342 2.757l.034 24.25zm0
+		 271.464a3.403 3.403 0 003.402 3.404h39.99c.907 0 1.777-.36
+		 2.416-1.004l48.444-48.466a3.407 3.407 0 001.004-2.417v-40.008a3.403 3.403 0
+		 00-3.402-3.403H991.34a3.403 3.403 0 00-3.402 3.403v88.491zm464.508 178.446a3.4
+		 3.4 0 004.388-.306l46.387-46.407a3.405 3.405 0 00-2.399-5.803h-70.625a20.404
+		 20.404 0 01-8.743-2.042l-.187-.187a20.417 20.417 0 01-9.254-9.275l-.187-.17a20.156
+		 20.156 0 01-2.041-8.747s.867-6.807-6.804-6.807h-30.618a3.403 3.403 0 00-3.402
+		 3.404v61.263a3.403 3.403 0 003.402 3.403h44.226a60.758 60.758 0 0135.857 11.674z"/>
+		 <ellipse class="has-fill-body-background" cx="1035.821" cy="572.555" rx="6.804" ry="6.807"/>
+		 <path class="has-fill-body-background" d="M987.938 483.962a3.404 3.404 0 005.103
+		 2.961 33.089 33.089 0 0120.038-3.404c17.129 2.4 29.325 18.022 29.325
+		 35.312v25.628h.306v8.986a20.421 20.421 0 0113.728 20.815 20.41 20.41 0 01-38.817
+		 7.213 3.402 3.402 0 00-3.096-2.06H991.34a3.403 3.403 0 00-3.402 3.404v61.263a3.403
+		 3.403 0 003.402 3.404h53.581a3.402 3.402 0 002.773-1.515 117.394 117.394 0
+		 0134.02-33.644 3.302 3.302 0 001.53-2.79v-162.86a3.403 3.403 0
+		 00-3.401-3.403H991.39a3.403 3.403 0 00-3.402 3.403l-.05 37.286zm-133.256-40.74a3.403
+		 3.403 0 00-3.402 3.403v61.264a3.403 3.403 0 003.402 3.403h6.804a3.403 3.403 0
+		 003.402-3.403v-61.264a3.403 3.403 0 00-3.402-3.403h-6.804zM742.416 228.8v36.367a3.404
+		 3.404 0 004.219 3.302 59.697 59.697 0 0118.047-2.195c18.065.561 32.166 15.928 32.166
+		 34.035v17.017a3.403 3.403 0 003.402 3.404h47.628a3.403 3.403 0 013.402
+		 3.403v30.632a34.042 34.042 0 01-11.198 25.241 34.01 34.01 0 01-26.224
+		 8.624c-17.673-1.702-30.618-17.63-30.618-35.38v-15.503a3.403 3.403 0
+		 00-3.402-3.403h-61.236a3.403 3.403 0 00-3.401 3.403v44.246a6.806 6.806 0 01-6.804
+		 6.807h-71.442a3.403 3.403 0 00-3.402 3.403v61.263a3.403 3.403 0 003.402
+		 3.404h8.267a3.402 3.402 0 003.265-2.57c4.181-14.594 17.518-24.653
+		 32.694-24.658h190.8v-204.21H745.818a3.403 3.403 0 00-3.402 3.369zm72.361
+		 214.422a3.402 3.402 0 00-2.416 5.803l19.596 19.604a3.4 3.4 0
+		 005.8-2.416v-19.588a3.403 3.403 0
+		 00-3.402-3.403h-19.578zm12.689-231.439h34.02a3.403 3.403 0
+		 003.402-3.403v-88.491a3.403 3.403 0 00-3.402-3.404h-88.452a3.403 3.403 0 00-3.402
+		 3.404v34.035a3.403 3.403 0 003.402 3.403h44.226a6.806 6.806 0 016.804
+		 6.807v44.246a3.403 3.403 0 003.402 3.403z"/><path class="has-fill-body-background" d="M821.343 374.76c9.678-1.889 16.33-10.959 16.33-20.846v-16.2a3.403 3.403 0
+		 00-3.403-3.404h-34.02a3.403 3.403 0 00-3.402 3.403v17.018a20.425 20.425 0 007.494
+		 15.832 20.405 20.405 0 0017 4.197zm40.143 177.374h-88.452a3.403 3.403 0 00-3.402
+		 3.404v97.936c0 9.887 6.651 18.957 16.347 20.846a20.405 20.405 0 0016.989-4.205
+		 20.425 20.425 0 007.488-15.824v-33.15a3.404 3.404 0 00-2.058-3.098 20.425 20.425 0
+		 01-11.028-22.944c2.122-9.284 10.378-15.869 19.899-15.869 9.52 0 17.776 6.585 19.898
+		 15.87 2.122 9.284-2.453 18.804-11.028 22.943a3.506 3.506 0 00-2.075 3.114v31.534c0
+		 17.75-12.944 33.66-30.618 35.38a34.01 34.01 0 01-26.223-8.624 34.042 34.042 0
+		 01-11.199-25.242v-98.701a3.403 3.403 0 00-3.402-3.404h-6.804a3.403 3.403 0 00-3.402
+		 3.404v43.071c0 9.887-6.65 18.958-16.33 20.83a20.405 20.405 0 01-16.993-4.192 20.425
+		 20.425 0 01-7.5-15.821 6.806 6.806 0 00-6.804-6.807 6.806 6.806 0 00-6.804
+		 6.807v82.042c0 18.797-15.232 34.035-34.02 34.035h-18.456a3.402 3.402 0 00-3.266
+		 2.57 34.164 34.164 0 01-23.287 23.364 3.403 3.403 0 00-2.568 3.285v18.464c.028
+		 22.117 15.265 41.307 36.792 46.339a3.4 3.4 0 004.032-3.404v-29.321c0-11.278
+		 9.138-20.421 20.412-20.421h140.179a3.403 3.403 0 003.317-2.927c4.187-26.2
+		 24.723-46.744 50.91-50.934a3.403 3.403 0 002.91-3.318V555.538a3.405 3.405 0
+		 00-3.454-3.404zm0-27.228h-17.01a6.805 6.805 0
+		 01-6.804-6.807v-23.008c0-.898-.354-1.76-.986-2.4l-48.462-48.533a3.404 3.404 0
+		 00-2.398-.987h-12.792a3.403 3.403 0 00-3.402 3.403v35.533a3.403 3.403 0 002.433
+		 3.233c14.66 4.138 24.784 17.52 24.783 32.76a33.315 33.315 0 01-3.844 15.502 3.405
+		 3.405 0 002.994 4.918h65.488a3.403 3.403 0 003.402-3.403v-6.807a3.403 3.403 0
+		 00-3.402-3.404z"/>
+		 <ellipse class="has-fill-body-background" cx="2137.403" cy="450.029" rx="6.804" ry="6.807"/>
+		 <ellipse class="has-fill-body-background" cx="2151.011" cy="450.029" rx="6.804" ry="6.807"/>
+		 <ellipse class="has-fill-body-background" cx="2151.011" cy="463.643" rx="6.804" ry="6.807"/>
+		 <ellipse class="has-fill-body-background" cx="2137.403" cy="463.643" rx="6.804" ry="6.807"/>
+		 <path class="has-fill-body-background" d="M2062.559
+		 547h-40.705v13.614h40.705zm299.494-87.526v-12.78a3.403 3.403 0
+		 00-3.402-3.404h-17.01c-26.304 0-47.628 21.333-47.628 47.65v29.797a3.404 3.404 0
+		 005.818 2.416l61.236-61.263a3.405 3.405 0 00.986-2.416zm-50.196 79.046h74.01a3.403
+		 3.403 0 003.402-3.403v-61.263a3.403 3.403 0 00-3.402-3.404h-12.774a3.401 3.401 0
+		 00-2.416.987l-61.236 61.263a3.405 3.405 0 002.416 5.82z"/>
+		 <rect class="has-fill-body-background" x="2402.877" y="334.31" width="40.824" height="40.842" rx="2"/><path class="has-fill-body-background" d="M2458.619
+		 316.645a3.405 3.405 0 003.402 4.05h59.977a3.403 3.403 0
+		 003.402-3.403v-16.898a20.613 20.613 0 00-6.148-14.62 20.594 20.594 0
+		 00-14.706-5.92c-21.956.206-40.925 15.403-45.927 36.791z"/>
+		 <rect class="has-fill-body-background" x="2511.741" y="170.941" width="40.824" height="40.842" rx="2"/><path class="has-fill-body-background" d="M2494.73
+		 143.713h-6.803a3.403 3.403 0 00-3.402 3.404v61.263a3.403 3.403 0 003.402
+		 3.403h6.804a3.403 3.403 0 003.402-3.403v-61.263a3.403 3.403 0
+		 00-3.402-3.404zm-358.195 107.092l19.579-19.605a3.405 3.405 0
+		 00-2.399-5.803h-19.595a3.403 3.403 0 00-3.402 3.404v19.655a3.403 3.403 0
+		 005.817 2.349z"/>
+		 <ellipse class="has-fill-body-background" cx="2123.914" cy="273.046" rx="6.804" ry="6.807"/>
+		 <path class="has-fill-body-background" d="M2166.081 583.549a20.237 20.237 0 000 32.452
+		 3.4 3.4 0 005.46-2.757v-26.939a3.404 3.404 0
+		 00-5.46-2.756zm-96.599-371.766h42.967a3.401 3.401 0
+		 003.402-4.05c-5.131-21.435-24.287-36.551-46.318-36.551s-41.187 15.116-46.318
+		 36.551a3.405 3.405 0 003.402 4.05h42.865zm-47.628 17.017v88.492a3.403 3.403 0
+		 003.402 3.404h88.452a3.403 3.403 0 003.402-3.404v-22.888a3.506 3.506 0 00-2.075-3.115
+		 20.269 20.269 0 01-11.538-18.294c0-7.813 4.489-14.93 11.538-18.293a3.523 3.523 0
+		 002.075-3.132V228.8a3.403 3.403 0 00-3.402-3.403h-88.452a3.403 3.403 0 00-3.402
+		 3.404zm-272.159 306.317a3.403 3.403 0 003.402 3.403h74.027a3.402 3.402 0
+		 002.399-5.82l-61.236-61.263a3.401 3.401 0 00-2.399-.987h-12.791a3.403 3.403 0 00-3.402
+		 3.404v61.263zm0 114.307a3.404 3.404 0 001.003 2.399l48.7 48.738a3.402 3.402 0
+		 002.415.987h18.711c.907 0 1.776-.36
+		 2.416-1.004l21.007-21.289c.628-.634.983-1.49.987-2.382v-94.107a3.403 3.403 0
+		 00-3.402-3.404h-6.804a3.403 3.403 0 00-3.402 3.404v44.245a6.805 6.805 0 01-6.804
+		 6.807h-54.432a6.806 6.806 0 01-6.804-6.807v-54.456a6.806 6.806 0
+		 016.804-6.807h71.442a3.403 3.403 0 003.402-3.403v-6.807a3.403 3.403 0
+		 00-3.402-3.404h-88.452a3.403 3.403 0 00-3.402 3.404l.017 93.886z"/>
+		 <rect class="has-fill-body-background" x="1749.695" y="443.222" width="13.608" height="13.614" rx="2"/><path class="has-fill-body-background" d="M1807.529
+		 266.24h34.02a3.403 3.403 0 003.402-3.404v-87.18a3.404 3.404 0 00-4.066-3.404c-21.388
+		 5.14-36.475 24.264-36.503 46.27h-.255v44.246a3.404 3.404 0 003.402 3.471zm34.02
+		 176.982h-61.236a3.403 3.403 0 00-3.402 3.403v12.849a3.4 3.4 0 001.003 2.416l61.236
+		 61.263a3.4 3.4 0 005.8-2.416v-74.112a3.403 3.403 0 00-3.401-3.403zm755.241 0a3.403
+		 3.403 0 00-3.401 3.403v61.264a3.403 3.403 0 003.402 3.403h6.803a3.403 3.403 0
+		 003.402-3.403v-61.264a3.403 3.403 0 00-3.401-3.403h-6.804zM2484.525
+		 228.8v36.367a3.404 3.404 0 004.218 3.302 59.629 59.629 0 0118.048-2.195c18.064.561
+		 32.166 15.928 32.166 34.035v17.017a3.403 3.403 0 003.402 3.404h47.628a3.403 3.403 0
+		 013.402 3.403v30.632a34.042 34.042 0 01-11.199 25.241 34.01 34.01 0 01-26.223
+		 8.624c-17.674-1.702-30.618-17.63-30.618-35.38v-15.503a3.403 3.403 0
+		 00-3.402-3.403h-61.236a3.403 3.403 0 00-3.402 3.403v44.246a6.806 6.806 0 01-6.804
+		 6.807h-71.442a3.403 3.403 0 00-3.402 3.403v61.263a3.403 3.403 0 003.402
+		 3.404h8.25a3.402 3.402 0 003.283-2.57c4.18-14.594 17.518-24.653
+		 32.693-24.658h190.8v-204.21h-126.162a3.403 3.403 0 00-3.402 3.369zm72.275
+		 214.422a3.402 3.402 0 00-2.415 5.803l19.595 19.604a3.4 3.4 0
+		 005.8-2.416v-19.588a3.403 3.403 0 00-3.401-3.403H2556.8zm12.775-231.439h34.02a3.403
+		 3.403 0 003.401-3.403v-88.491a3.403 3.403 0 00-3.401-3.404h-88.452a3.403 3.403 0
+		 00-3.402 3.404v34.035a3.403 3.403 0 003.402 3.403h44.226a6.805 6.805 0 016.804
+		 6.807v44.246a3.403 3.403 0 003.402 3.403zm-275.562-102.105v68.07c0 18.797 15.232
+		 34.035 34.02 34.035h57.834a3.403 3.403 0 003.402-3.403V172.2a3.403 3.403 0
+		 00-2.892-3.403c-29.665-4.802-51.484-30.399-51.54-60.463V81.106c0-11.279-9.139-20.421-20.412-20.421h-17.01a3.403
+		 3.403 0 00-3.402 3.403v45.59z"/>
+		 <rect class="has-fill-body-background" x="1776.911" y="579.362" width="40.824" height="40.842" rx="2"/>
+		 <path class="has-fill-body-background" d="M2563.4 374.76c9.696-1.889 16.347-10.959
+		 16.347-20.846v-16.2a3.403 3.403 0 00-3.402-3.404h-34.02a3.403 3.403 0 00-3.402
+		 3.403v17.018a20.425 20.425 0 007.488 15.824 20.405 20.405 0 0016.989
+		 4.205zm-718.45-216.99V62.029h-47.372c-26.304 0-47.628 21.333-47.628
+		 47.65h-.255v102.104h41.453c3.183-28.337 25.489-50.73 53.803-54.013zm642.977
+		 380.75h17.01a20.408 20.408 0 0015.817-7.492 20.428 20.428 0
+		 004.203-16.996c-1.888-9.7-10.954-16.354-20.82-16.354h-16.21a3.403 3.403 0
+		 00-3.402 3.404v34.035a3.403 3.403 0 003.402 3.403zm-113.576 160.799a3.402 3.402 0
+		 003.266 2.57h18.456c11.273 0 20.412-9.143 20.412-20.421v-81.242c0-9.87 6.65-18.94
+		 16.347-20.83a20.405 20.405 0 0116.988 4.205 20.425 20.425 0 017.489 15.825 6.806
+		 6.806 0 006.804 6.807 6.805 6.805 0 006.804-6.807v-43.888a3.403 3.403 0
+		 00-3.402-3.404h-67.206a3.402 3.402 0 00-2.416.987l-60.725 60.855a3.405 3.405 0
+		 00-.307 4.39 60.822 60.822 0 0111.67 35.873v18.465a3.403 3.403 0 002.568 3.267
+		 34.18 34.18 0 0123.252 23.348zm107.605-215.255h12.775a3.403 3.403 0
+		 003.402-3.403v-34.036a3.403 3.403 0 00-3.402-3.403h-46.795a3.402 3.402 0 00-2.415
+		 5.803l34.02 34.035a3.401 3.401 0 002.415 1.004zm-11.039
+		 11.027c0-.898-.354-1.76-.987-2.4l-47.9-47.92a3.401 3.401 0 00-3.096-.987c-9.34
+		 2.04-16.014 10.294-16.057 19.859v71.474a3.403 3.403 0 003.402 3.403h61.236a3.403
+		 3.403 0 003.402-3.403V495.09z"/>
+		 <path class="has-fill-body-background" d="M2603.595 552.134h-88.452a3.403 3.403 0
+		 00-3.402 3.404v97.936c0 9.887 6.65 18.957 16.346 20.846a20.405 20.405 0
+		 0016.989-4.205 20.425 20.425 0 007.489-15.824v-33.15a3.404 3.404 0 00-2.059-3.098
+		 20.423 20.423 0 01-11.027-22.944c2.122-9.284 10.378-15.869 19.898-15.869s17.776
+		 6.585 19.899 15.87a20.424 20.424 0 01-11.028 22.943 3.506 3.506 0 00-2.075
+		 3.114v31.534c0 17.75-12.945 33.66-30.618 35.38a34.01 34.01 0 01-26.224-8.624
+		 34.042 34.042 0 01-11.198-25.242v-98.701a3.403 3.403 0 00-3.402-3.404h-6.804a3.403
+		 3.403 0 00-3.402 3.404v43.071c0 9.887-6.651 18.958-16.347 20.83a20.405 20.405 0
+		 01-16.982-4.2 20.425 20.425 0 01-7.495-15.813 6.806 6.806 0 00-6.804-6.807 6.805
+		 6.805 0 00-6.804 6.807v82.042c0 18.797-15.231 34.035-34.02 34.035h-18.456a3.402
+		 3.402 0 00-3.266 2.57 34.164 34.164 0 01-23.337 23.33 3.403 3.403 0 00-2.569
+		 3.285v18.464c.027 22.112 15.255 41.3 36.776 46.338a3.4 3.4 0
+		 004.048-3.403v-29.287c0-11.278 9.139-20.421 20.412-20.421h140.111a3.402 3.402 0
+		 003.402-2.927c4.188-26.2 24.723-46.744 50.91-50.934a3.403 3.403 0
+		 002.91-3.318V555.538a3.404 3.404 0 00-3.42-3.404zm17.009-27.228h-34.02a6.805 6.805
+		 0 01-6.803-6.807v-23.008c0-.898-.354-1.76-.987-2.4l-48.461-48.533a3.404 3.404 0
+		 00-2.399-.987h-12.791a3.403 3.403 0 00-3.402 3.403v35.533a3.403 3.403 0 002.568
+		 3.267c14.594 4.185 24.65 17.537 24.648 32.725a33.196 33.196 0 01-3.81 15.418 3.405
+		 3.405 0 002.96 5.003h82.497v-13.614zM1967.422 208.38a3.403 3.403 0 003.402
+		 3.403h34.905a3.403 3.403 0 003.317-2.91c4.833-29.634 30.423-51.396
+		 60.436-51.396s55.602 21.762 60.436 51.396a3.402 3.402 0 003.317 2.91h34.905a3.403
+		 3.403 0 003.402-3.403v-41.285c0-.899-.354-1.761-.987-2.4l-101.634-101.73a3.404
+		 3.404 0 00-2.399-.987h-51.472a6.806 6.806 0 00-6.804 6.807v27.228c0 11.278-9.139
+		 20.421-20.412 20.421h-17.01a3.403 3.403 0 00-3.402 3.404v88.542zm-51.03
+		 17.017a3.403 3.403 0 00-3.402 3.404v38.596a6.809 6.809 0 001.99 4.816l47.458
+		 47.479a3.404 3.404 0 002.416 1.004h39.99a3.403 3.403 0 003.402-3.404v-88.491a3.403
+		 3.403 0 00-3.402-3.404h-88.452zm272.16 422.035h30.618a6.805 6.805 0
+		 006.804-6.807v-85.087a3.403 3.403 0 00-3.402-3.404h-34.02a3.403 3.403 0 00-3.402
+		 3.404v88.49a3.403 3.403 0 003.402 3.404zm34.02-435.649a3.403 3.403 0
+		 003.402-3.403v-88.491a3.403 3.403 0 00-3.402-3.404h-17.01c-11.274 0-20.412
+		 9.143-20.412 20.421v71.474a3.403 3.403 0 003.402 3.403h34.02z"/>
+		 <path class="has-fill-body-background" d="M1858.558 218.59v98.702a3.403 3.403 0
+		 003.403 3.404h74.027a3.404 3.404 0 002.398-5.82l-33.033-33.031a20.426 20.426 0
+		 01-5.97-14.431V218.59h.255c-.025-22.218-15.394-41.47-37.048-46.406a3.4 3.4 0
+		 00-4.032 3.403v43.003zm309.582 428.843a3.403 3.403 0 003.402-3.404v-8.254a3.403
+		 3.403 0 00-2.569-3.284c-14.588-4.186-24.641-17.533-24.641-32.716 0-15.184
+		 10.053-28.53 24.641-32.716a3.403 3.403 0 002.569-3.268v-8.253a3.403 3.403 0
+		 00-3.402-3.404h-32.15a20.407 20.407 0 00-14.321 5.854l-39.464 38.834a34.012 34.012
+		 0 01-23.814 9.768h-40.211a106.206 106.206 0 00-79.403 35.09 3.405 3.405 0 002.5
+		 5.753h226.914-.051z"/>
+		 <path class="has-fill-body-background" d="M1858.558 154.74a3.403 3.403 0 002.926
+		 3.404c26.193 4.126 46.774 24.614 51.03 50.797a3.403 3.403 0 003.402
+		 2.91h34.632a3.403 3.403 0 003.402-3.403v-48.585a3.403 3.403 0 00-3.198-3.404
+		 170.048 170.048 0 01-86.75-28.725 3.4 3.4 0 00-5.341 2.757l-.103 24.25zm512.885
+		 397.394h-70.626a20.404 20.404 0 01-8.743-2.042l-.17-.187a20.416 20.416 0
+		 01-9.27-9.275l-.187-.17a20.429 20.429 0 01-2.042-8.747 7.49 7.49 0
+		 000-1.191v-56.668a3.403 3.403 0 00-3.402-3.404h-34.02a3.403 3.403 0 00-3.402
+		 3.404v115.719a3.403 3.403 0 003.402 3.403h44.226a60.758 60.758 0 0135.857 11.674
+		 3.4 3.4 0 004.389-.306l46.386-46.407a3.405 3.405 0 00-2.398-5.803z"/>
+		 <ellipse class="has-fill-body-background" cx="1906.442" cy="572.555" rx="6.804" ry="6.807"/>
+		 <rect class="has-fill-body-background" x="1926.479" y="443.222" width="13.608" height="40.842" rx="2"/><path class="has-fill-body-background" d="M1872.047
+		 375.152h13.608v54.456h-13.608z"/>
+		 <ellipse class="has-fill-body-background" cx="1906.067" cy="436.415" rx="6.804" ry="6.807"/>
+		 <path class="has-fill-body-background" d="M2355.13 409.085a61.152 61.152 0 01-3.64
+		 20.523h7.161a3.403 3.403 0 003.283-3.131v-50.679c-.062-13.56 8.852-25.523
+		 21.858-29.338a31.2 31.2 0 015.477-1.089v-7.658a3.403 3.403 0
+		 00-3.402-3.403h-94.422a3.402 3.402 0 00-2.416.987l-6.804 6.807a3.405 3.405 0
+		 002.416 5.803h9.083c33.83-.038 61.303 27.333 61.406
+		 61.178zm-61.236-6.705h-10.206a3.403 3.403 0 00-3.402 3.403v6.807a3.403 3.403 0
+		 003.402 3.404h10.206a6.806 6.806 0 006.804-6.807 6.806 6.806 0
+		 00-6.804-6.807zM1831.224 497.678c0 15.038 12.185 27.228 27.215
+		 27.228v-27.228h-27.215zM1831.224 361.538h-37.303a3.403 3.403 0
+		 01-3.402-3.404V229.618a3.88 3.88 0 00-3.402-4.22h-44.515v204.21h112.435a3.403
+		 3.403 0 003.402-3.404v-61.263a3.403 3.403 0 00-3.402-3.403h-23.813z"/>
+		 <path class="has-fill-body-background" d="M1848.353 334.31a3.403 3.403 0
+		 01-3.402-3.404v-47.649a3.403 3.403 0 00-3.402-3.403h-34.02a3.403 3.403 0 00-3.402
+		 3.403l-.102 61.263a3.403 3.403 0 003.402 3.404h47.627a3.403 3.403 0
+		 003.402-3.404v-6.807a3.403 3.403 0 00-3.402-3.403h-6.701zm295.922 12.967a43.821
+		 43.821 0 0125.668 8.254 1.003 1.003 0 001.599-.8c0-18.797 15.23-34.035
+		 34.02-34.035h71.441a3.403 3.403 0 003.402-3.404v-40.025a3.41 3.41 0
+		 00-.986-2.4l-48.462-48.534a3.404 3.404 0 00-2.398-.987h-45.927a3.401 3.401 0
+		 00-2.415.987l-36.316 36.333a3.405 3.405 0 00-.715 3.625 19.442 19.442 0 011.19
+		 6.704 20.422 20.422 0 01-11.668 18.362 3.404 3.404 0 00-1.94 3.047v53.57a1.004
+		 1.004 0 001.277.954 45.058 45.058 0 0112.23-1.651zM1916.392 538.52a3.403 3.403 0
+		 00-3.402 3.404v2.484h.256v6.722a3.404 3.404 0 001.956 3.063 20.423 20.423 0
+		 0111.637 21.478 20.41 20.41 0 01-38.734 5.614 3.402 3.402 0
+		 00-3.028-1.923h-23.1a3.403 3.403 0 00-3.401 3.404v61.263a3.403 3.403 0 003.402
+		 3.403h53.598a3.402 3.402 0 002.773-1.514 117.173 117.173 0 0134.02-33.644 3.302
+		 3.302 0 001.53-2.79v-67.56a3.403 3.403 0 00-3.402-3.404h-34.105z"/>
+		 <path class="has-fill-body-background" d="M1895.98 538.52h-34.02a3.403 3.403 0
+		 00-3.401 3.404v20.42a3.403 3.403 0 003.402 3.404h23.082a3.402 3.402 0
+		 003.045-1.906 20.314 20.314 0 019.644-9.666 3.404 3.404 0
+		 001.906-3.029v-6.807h-.256v-2.484a3.403 3.403 0 00-3.402-3.336zm71.442
+		 3.404v57.094a3.404 3.404 0 004.661 3.114 121.016 121.016 0 0133.118-8.339 3.403
+		 3.403 0 003.045-3.403v-48.466a3.403 3.403 0 00-3.402-3.404h-34.02a3.403 3.403 0
+		 00-3.402 3.404zm290.173-194.409l7.382-7.402a3.405 3.405 0
+		 00-2.398-5.803h-57.017c-11.274 0-20.412 9.142-20.412 20.42v17.018a3.403 3.403 0
+		 003.402 3.404h35.38a3.402 3.402 0 003.25-2.45 34.024 34.024 0 0128.406-24.234 3.571
+		 3.571 0 002.007-.953zm237.135-231.03h-88.451a3.403 3.403 0 00-3.402
+		 3.404v34.035a3.403 3.403 0 003.402 3.403h30.924a6.806 6.806 0 016.379
+		 6.807v81.684c0 18.797-15.231 34.036-34.02 34.036h-112.147a3.403 3.403 0 00-3.402
+		 3.403v34.035a3.403 3.403 0 003.402 3.404h146.694a61.267 61.267 0
+		 0126.808-44.11v-64.803h13.489V130.1h10.325a3.403 3.403 0
+		 003.402-3.403v-6.807a3.403 3.403 0 00-3.402-3.404zm-199.951 95.298a47.49 47.49 0
+		 01-14.374-34.035v-57.86a3.403 3.403 0 00-3.402-3.403h-34.02a3.403 3.403 0 00-3.402
+		 3.404v91.894h55.198z"/>
+		 <path class="has-fill-body-background" d="M2385.867 225.397H2249.21l39.82
+		 39.838a3.401 3.401 0 002.416 1.004h94.422a3.403 3.403 0 003.402-3.403v-34.035a3.403 3.403
+		 0 00-3.402-3.404zm44.039-13.614v-37.438a3.403 3.403 0 00-3.402-3.404h-20.225a3.403
+		 3.403 0 00-3.402 3.404v37.438h27.029zm-27.029 13.614v37.439a3.403 3.403 0 003.402
+		 3.403h4.678c11.273 0 20.412-9.142 20.412-20.42v-20.422h-28.492zM2304.066
+		 443.222h.068l-.05-.034z"/>
+		 <path class="has-fill-body-background" d="M2293.894
+		 361.436l-34.02.204c-11.233.056-20.31 9.182-20.31 20.42v71.372a3.403 3.403 0
+		 003.402 3.404h46.557a3.402 3.402 0 002.772-1.447 60.772 60.772 0 0142.321-25.066
+		 3.402 3.402 0 002.739-1.923 47.156 47.156 0 004.27-19.315 47.66 47.66 0
+		 00-13.987-33.73 47.618 47.618 0 00-33.744-13.92zm-.595 68.172h-23.219a3.403 3.403 0
+		 01-3.402-3.404V392.17a3.403 3.403 0 013.402-3.403h23.814a20.409 20.409 0 0115.172
+		 6.655 20.427 20.427 0 015.24 15.723c-1.215 10.643-10.3 18.63-21.007
+		 18.464zm-271.564-13.614h64.196c1.432 0 2.71-.899
+		 3.197-2.246l12.928-35.516.663-1.838c.153-.425.392-.817.562-1.242a43.973 43.973 0
+		 0112.536-17.46 3.217 3.217 0 001.174-2.485v-17.494a3.403 3.403 0
+		 00-3.402-3.403h-88.452a3.403 3.403 0 00-3.402 3.403v20.421a3.403 3.403 0 01-3.402
+		 3.404h-30.618c-18.789 0-34.02 15.238-34.02 34.035v17.017a3.403 3.403 0 003.402
+		 3.404h64.638zm200.837 81.684h-20.531a3.403 3.403 0 00-3.402 3.404v6.807a3.403 3.403
+		 0 01-3.402 3.403h-6.685a3.403 3.403 0 00-3.402 3.404v20.42a3.403 3.403 0 003.402
+		 3.404h34.02a3.403 3.403 0 003.402-3.403v-34.035a3.403 3.403 0
+		 00-3.402-3.404zm-364.632-3.625v-47.65c0-1.88-1.55-3.403-3.461-3.403h-76.018c-1.912
+		 0-3.461 1.524-3.461 3.404v12.848c0 .907.367 1.777 1.021 2.416l63.126 62.08a3.494
+		 3.494 0 002.457 1.004h85.553c7.645 0 13.843-6.095
+		 13.843-13.614v-10.21c0-1.88-1.55-3.404-3.46-3.404h-76.14a3.49 3.49 0 01-2.472-1.02
+		 3.374 3.374 0 01-.989-2.451z"/>
+		 <path class="has-fill-body-background" d="M1906.067 456.836a20.411 20.411 0
+		 01-18.353-11.691 3.555 3.555 0 00-3.232-1.923h-9.033a3.403 3.403 0 00-3.402
+		 3.403v34.036a3.403 3.403 0 003.402 3.403h34.02a3.403 3.403 0
+		 003.402-3.403v-20.71a3.405 3.405 0
+		 00-3.878-3.404c-.966.174-1.944.271-2.926.289zM1875.45 334.31a3.403 3.403 0
+		 00-3.403 3.403v88.491a3.403 3.403 0 003.402 3.405h9.033a3.54 3.54 0 003.232-1.941
+		 20.275 20.275 0 0118.362-11.682 20.275 20.275 0 0118.362 11.682 3.523 3.523 0
+		 003.215 1.94h9.032a3.403 3.403 0 003.402-3.404v-33.337c1.665-25.146 22.439-44.749
+		 47.628-44.943h17.01a3.403 3.403 0 003.402-3.404v-6.807a3.403 3.403 0
+		 00-3.402-3.403H1875.45z"/>
+		 <rect class="has-fill-body-background" x="1994.519" y="429.608" width="95.256" height="54.456" rx="2"/>
+		 <path class="has-fill-body-background" d="M2089.775 507.889v-6.807a3.403 3.403 0
+		 00-3.402-3.404h-20.412a3.403 3.403 0 00-3.402 3.404v30.631a6.805 6.805 0 01-6.804
+		 6.807h-30.499a3.403 3.403 0 00-3.402 3.404v47.649a3.403 3.403 0 003.402
+		 3.403h33.101a20.407 20.407 0 0014.306-5.854l39.463-38.834a34.012 34.012 0
+		 0123.814-9.768h32.064a3.403 3.403 0 003.402-3.403v-20.421a3.403 3.403 0
+		 00-3.402-3.404h-74.844a3.403 3.403 0 01-3.385-3.403z"/>
+		 <path class="has-fill-body-background" d="M1980.911 494.275V433.01a3.403 3.403 0
+		 00-3.402-3.403h-20.412a3.403 3.403 0 00-3.402 3.403v64.667c0 15.038 12.185 27.228
+		 27.216 27.228h64.638a3.403 3.403 0 003.402-3.403v-20.421a3.403 3.403 0
+		 00-3.402-3.404h-61.236a3.403 3.403 0 01-3.402-3.403zm241.541-105.509h-61.678a6.804
+		 6.804 0 00-6.395 4.475 6.81 6.81 0 00.819 6.236 6.803 6.803 0 005.576
+		 2.903h34.463a3.403 3.403 0 013.402 3.403v74.878a3.403 3.403 0 003.402
+		 3.403h20.411a3.403 3.403 0 003.402-3.403v-88.492a3.404 3.404 0 00-3.402-3.403z"/>
+		 <path class="has-fill-body-background" d="M2180.2 411.535h-27.743a6.804 6.804 0
+		 00-6.38 4.476l-3.401 9.121a6.804 6.804 0 01-6.396 4.476h-29.444a3.403 3.403 0
+		 00-3.402 3.403v61.264a3.403 3.403 0 003.402 3.403h73.296a3.403 3.403 0
+		 003.402-3.403v-79.336a3.403 3.403 0 00-3.334-3.404zm-17.061-44.092a30.17 30.17 0
+		 00-12.91-5.905h-6.022c-12.996 0-24.257 7.283-28.713 19.519l-11.074 30.478s.102 0
+		 0 0a5.665 5.665 0 005.852 4.425h15.037a10.375 10.375 0
+		 007.926-4.459l12.435-34.154a3.402 3.402 0 013.197-2.23h11.244a4.46 4.46 0
+		 003.028-7.675z"/>
+		 <ellipse class="has-fill-body-background" cx="2382.465" cy="368.345" rx="6.804" ry="6.807"/>
+		 </g></g></g></svg>
+	 </div>
+
+	<div class="uhf-container has-z-index-one">
+		<div class="has-padding-top-extra-large has-padding-bottom-extra-large">
+			<h2 class="font-size-h3 font-weight-semibold has-padding-bottom-large">Recommended Resources</h2>
+			<ul class="grid">
+<li class="grid-item has-body-background box-shadow-heavy border-radius border-high-contrast">
+	<article class="media align-items-center-tablet padding-xs" data-bi-name="card">
+		<figure class="media-left" aria-hidden="true">
+			<img src="/en-us/media/home-and-directory/end-user-support-icon.svg?branch=master" class ="image is-96x96-desktop is-64x64" alt="" data-linktype="absolute-path">
+		</figure>
+		<div class="media-content">
+			<a href="https://support.microsoft.com/" class="is-block" data-linktype="external">
+				<h3 class="has-margin-bottom-small has-line-height-reset font-size-h4">Microsoft End User Support</h3>
+			</a>
+			<p class="has-text-subtle font-size-md has-margin-bottom-small has-line-height-reset">Get end user support for Office, Windows, Surface, and more. Visit our Microsoft support site for assistance.</p>
+		</div>
+	</article>
+</li>
+<li class="grid-item has-body-background box-shadow-heavy border-radius border-high-contrast">
+	<article class="media align-items-center-tablet padding-xs" data-bi-name="card">
+		<figure class="media-left" aria-hidden="true">
+			<img src="/en-us/media/home-and-directory/end-user-community-icon.svg?branch=master" class ="image is-96x96-desktop is-64x64" alt="" data-linktype="absolute-path">
+		</figure>
+		<div class="media-content">
+			<a href="https://answers.microsoft.com/" class="is-block" data-linktype="external">
+				<h3 class="has-margin-bottom-small has-line-height-reset font-size-h4">Microsoft End User Community</h3>
+			</a>
+			<p class="has-text-subtle font-size-md has-margin-bottom-small has-line-height-reset">End user Questions, issues, discussions, and knowledge sharing. Visit our Microsoft answers community to begin.</p>
+		</div>
+	</article>
+</li>
+			</ul>
+		</div>
+	</div>
+</section>
+
+							<!-- </content> -->
+
+						</main>
+
+
+
+
+						<!-- recommendations section -->
+						<!-- end recommendations section -->
+
+						<!-- feedback section -->
+						<!-- end feedback section -->
+
+						<!-- feedback report section -->
+						<!-- end feedback report section -->
+
+						<div class="border-top is-visible-interactive has-default-focus has-margin-top-large  margin-top-none">
+
+
+
+	<footer id="footer-interactive" data-bi-name="footer" class="footer-layout">
+	<div class="display-flex is-full-height has-padding-right-extra-large-desktop">
+			<a
+				data-mscc-ic="false"
+				class="locale-selector-link button button-clear flex-shrink-0"
+				href="#"
+				data-bi-name="select-locale">
+					<span class="icon" aria-hidden="true">
+						<span class="docon docon-world"></span>
+					</span>
+					<span class="local-selector-link-text"></span></a>
+		<div class="margin-inline-xs flex-shrink-0">
+<div class="dropdown has-caret-up">
+	<button class="dropdown-trigger button button-clear button-sm has-inner-focus theme-dropdown-trigger"
+		aria-controls="theme-menu-interactive" aria-expanded="false" title="Theme" data-bi-name="theme">
+		<span class="icon">
+			<span class="docon docon-sun" aria-hidden="true"></span>
+		</span>
+		<span>Theme</span>
+	</button>
+	<div class="dropdown-menu" id="theme-menu-interactive" role="menu">
+		<ul class="theme-selector has-padding-small">
+			<li class="theme display-block">
+				<button class="button button-clear button-sm theme-control button-block justify-content-flex-start"
+					data-theme-to="light">
+					<span class="theme-light has-margin-right-small">
+						<span
+							class="theme-selector-icon css-variable-support border display-inline-block has-body-background"
+							aria-hidden="true">
+							<svg class="svg" xmlns="http://www.w3.org/2000/svg"
+								viewBox="0 0 22 14">
+								<rect width="22" height="14" class="has-fill-body-background" />
+								<rect x="5" y="5" width="12" height="4" class="has-fill-secondary" />
+								<rect x="5" y="2" width="2" height="1" class="has-fill-secondary" />
+								<rect x="8" y="2" width="2" height="1" class="has-fill-secondary" />
+								<rect x="11" y="2" width="3" height="1" class="has-fill-secondary" />
+								<rect x="1" y="1" width="2" height="2" class="has-fill-secondary" />
+								<rect x="5" y="10" width="7" height="2" rx="0.3" class="has-fill-primary" />
+								<rect x="19" y="1" width="2" height="2" rx="1" class="has-fill-secondary" />
+							</svg>
+						</span>
+					</span>
+					<span role="menuitem">
+Light					</span>
+				</button>
+			</li>
+			<li class="theme display-block">
+				<button class="button button-clear button-sm theme-control button-block justify-content-flex-start"
+					data-theme-to="dark">
+					<span class="theme-dark has-margin-right-small">
+						<span
+							class="border theme-selector-icon css-variable-support display-inline-block has-body-background"
+							aria-hidden="true">
+							<svg class="svg" xmlns="http://www.w3.org/2000/svg"
+								viewBox="0 0 22 14">
+								<rect width="22" height="14" class="has-fill-body-background" />
+								<rect x="5" y="5" width="12" height="4" class="has-fill-secondary" />
+								<rect x="5" y="2" width="2" height="1" class="has-fill-secondary" />
+								<rect x="8" y="2" width="2" height="1" class="has-fill-secondary" />
+								<rect x="11" y="2" width="3" height="1" class="has-fill-secondary" />
+								<rect x="1" y="1" width="2" height="2" class="has-fill-secondary" />
+								<rect x="5" y="10" width="7" height="2" rx="0.3" class="has-fill-primary" />
+								<rect x="19" y="1" width="2" height="2" rx="1" class="has-fill-secondary" />
+							</svg>
+						</span>
+					</span>
+					<span role="menuitem">
+Dark					</span>
+				</button>
+			</li>
+			<li class="theme display-block">
+				<button class="button button-clear button-sm theme-control button-block justify-content-flex-start"
+					data-theme-to="high-contrast">
+					<span class="theme-high-contrast has-margin-right-small">
+						<span
+							class="border theme-selector-icon css-variable-support display-inline-block has-body-background"
+							aria-hidden="true">
+							<svg class="svg" xmlns="http://www.w3.org/2000/svg"
+								viewBox="0 0 22 14">
+								<rect width="22" height="14" class="has-fill-body-background" />
+								<rect x="5" y="5" width="12" height="4" class="has-fill-secondary" />
+								<rect x="5" y="2" width="2" height="1" class="has-fill-secondary" />
+								<rect x="8" y="2" width="2" height="1" class="has-fill-secondary" />
+								<rect x="11" y="2" width="3" height="1" class="has-fill-secondary" />
+								<rect x="1" y="1" width="2" height="2" class="has-fill-secondary" />
+								<rect x="5" y="10" width="7" height="2" rx="0.3" class="has-fill-primary" />
+								<rect x="19" y="1" width="2" height="2" rx="1" class="has-fill-secondary" />
+							</svg>
+						</span>
+					</span>
+					<span role="menuitem">
+High contrast					</span>
+				</button>
+			</li>
+		</ul>
+	</div>
+</div>
+		</div>
+	</div>
+	<ul class="links" data-bi-name="footerlinks">
+		<li class="manage-cookies-holder" hidden></li>
+				<li><a data-mscc-ic="false" href="https://docs.microsoft.com/en-us/previous-versions/" data-bi-name="archivelink">Previous Version Docs</a></li>
+				<li><a data-mscc-ic="false" href="https://docs.microsoft.com/en-us/teamblog" data-bi-name="bloglink">Blog</a></li>
+				<li><a data-mscc-ic="false" href="https://docs.microsoft.com/en-us/contribute" data-bi-name="contributorGuide">Contribute</a></li>
+					<li><a data-mscc-ic="false" href="https://go.microsoft.com/fwlink/?LinkId=521839" data-bi-name="privacy">Privacy &amp; Cookies</a></li>
+				<li><a data-mscc-ic="false" href="https://docs.microsoft.com/en-us/legal/termsofuse" data-bi-name="termsofuse">Terms of Use</a></li>
+				<li><a data-mscc-ic="false" href="https://www.microsoft.com/en-us/legal/intellectualproperty/Trademarks/EN-US.aspx" data-bi-name="trademarks">Trademarks</a></li>
+		<li>&copy; Microsoft 2022</li>
+	</ul>
+</footer>
+						</div>
+					</div>
+
+
+				</div>
+				<!--end of div.columns -->
+
+			</section>
+			<!--end of .primary-holder -->
+
+			<!-- interactive container -->
+			<aside id="interactive-container" class="interactive-container is-visible-interactive column has-body-background-dark ">
+			</aside>
+			<!-- end of interactive container -->
+		</div>
+
+	</div>
+	<!--end of .mainContainer -->
+
+	<section class="border-top has-default-focus is-hidden-interactive margin-top-sm  margin-top-none">
+
+
+
+	<footer id="footer" data-bi-name="footer" class="footer-layout uhf-container has-padding" role="contentinfo">
+	<div class="display-flex is-full-height has-padding-right-extra-large-desktop">
+			<a
+				data-mscc-ic="false"
+				class="locale-selector-link button button-clear flex-shrink-0"
+				href="#"
+				data-bi-name="select-locale">
+					<span class="icon" aria-hidden="true">
+						<span class="docon docon-world"></span>
+					</span>
+					<span class="local-selector-link-text"></span></a>
+		<div class="margin-inline-xs flex-shrink-0">
+<div class="dropdown has-caret-up">
+	<button class="dropdown-trigger button button-clear button-sm has-inner-focus theme-dropdown-trigger"
+		aria-controls="theme-menu" aria-expanded="false" title="Theme" data-bi-name="theme">
+		<span class="icon">
+			<span class="docon docon-sun" aria-hidden="true"></span>
+		</span>
+		<span>Theme</span>
+	</button>
+	<div class="dropdown-menu" id="theme-menu" role="menu">
+		<ul class="theme-selector has-padding-small">
+			<li class="theme display-block">
+				<button class="button button-clear button-sm theme-control button-block justify-content-flex-start"
+					data-theme-to="light">
+					<span class="theme-light has-margin-right-small">
+						<span
+							class="theme-selector-icon css-variable-support border display-inline-block has-body-background"
+							aria-hidden="true">
+							<svg class="svg" xmlns="http://www.w3.org/2000/svg"
+								viewBox="0 0 22 14">
+								<rect width="22" height="14" class="has-fill-body-background" />
+								<rect x="5" y="5" width="12" height="4" class="has-fill-secondary" />
+								<rect x="5" y="2" width="2" height="1" class="has-fill-secondary" />
+								<rect x="8" y="2" width="2" height="1" class="has-fill-secondary" />
+								<rect x="11" y="2" width="3" height="1" class="has-fill-secondary" />
+								<rect x="1" y="1" width="2" height="2" class="has-fill-secondary" />
+								<rect x="5" y="10" width="7" height="2" rx="0.3" class="has-fill-primary" />
+								<rect x="19" y="1" width="2" height="2" rx="1" class="has-fill-secondary" />
+							</svg>
+						</span>
+					</span>
+					<span role="menuitem">
+Light					</span>
+				</button>
+			</li>
+			<li class="theme display-block">
+				<button class="button button-clear button-sm theme-control button-block justify-content-flex-start"
+					data-theme-to="dark">
+					<span class="theme-dark has-margin-right-small">
+						<span
+							class="border theme-selector-icon css-variable-support display-inline-block has-body-background"
+							aria-hidden="true">
+							<svg class="svg" xmlns="http://www.w3.org/2000/svg"
+								viewBox="0 0 22 14">
+								<rect width="22" height="14" class="has-fill-body-background" />
+								<rect x="5" y="5" width="12" height="4" class="has-fill-secondary" />
+								<rect x="5" y="2" width="2" height="1" class="has-fill-secondary" />
+								<rect x="8" y="2" width="2" height="1" class="has-fill-secondary" />
+								<rect x="11" y="2" width="3" height="1" class="has-fill-secondary" />
+								<rect x="1" y="1" width="2" height="2" class="has-fill-secondary" />
+								<rect x="5" y="10" width="7" height="2" rx="0.3" class="has-fill-primary" />
+								<rect x="19" y="1" width="2" height="2" rx="1" class="has-fill-secondary" />
+							</svg>
+						</span>
+					</span>
+					<span role="menuitem">
+Dark					</span>
+				</button>
+			</li>
+			<li class="theme display-block">
+				<button class="button button-clear button-sm theme-control button-block justify-content-flex-start"
+					data-theme-to="high-contrast">
+					<span class="theme-high-contrast has-margin-right-small">
+						<span
+							class="border theme-selector-icon css-variable-support display-inline-block has-body-background"
+							aria-hidden="true">
+							<svg class="svg" xmlns="http://www.w3.org/2000/svg"
+								viewBox="0 0 22 14">
+								<rect width="22" height="14" class="has-fill-body-background" />
+								<rect x="5" y="5" width="12" height="4" class="has-fill-secondary" />
+								<rect x="5" y="2" width="2" height="1" class="has-fill-secondary" />
+								<rect x="8" y="2" width="2" height="1" class="has-fill-secondary" />
+								<rect x="11" y="2" width="3" height="1" class="has-fill-secondary" />
+								<rect x="1" y="1" width="2" height="2" class="has-fill-secondary" />
+								<rect x="5" y="10" width="7" height="2" rx="0.3" class="has-fill-primary" />
+								<rect x="19" y="1" width="2" height="2" rx="1" class="has-fill-secondary" />
+							</svg>
+						</span>
+					</span>
+					<span role="menuitem">
+High contrast					</span>
+				</button>
+			</li>
+		</ul>
+	</div>
+</div>
+		</div>
+	</div>
+	<ul class="links" data-bi-name="footerlinks">
+		<li class="manage-cookies-holder" hidden></li>
+				<li><a data-mscc-ic="false" href="https://docs.microsoft.com/en-us/previous-versions/" data-bi-name="archivelink">Previous Version Docs</a></li>
+				<li><a data-mscc-ic="false" href="https://docs.microsoft.com/en-us/teamblog" data-bi-name="bloglink">Blog</a></li>
+				<li><a data-mscc-ic="false" href="https://docs.microsoft.com/en-us/contribute" data-bi-name="contributorGuide">Contribute</a></li>
+					<li><a data-mscc-ic="false" href="https://go.microsoft.com/fwlink/?LinkId=521839" data-bi-name="privacy">Privacy &amp; Cookies</a></li>
+				<li><a data-mscc-ic="false" href="https://docs.microsoft.com/en-us/legal/termsofuse" data-bi-name="termsofuse">Terms of Use</a></li>
+				<li><a data-mscc-ic="false" href="https://www.microsoft.com/en-us/legal/intellectualproperty/Trademarks/EN-US.aspx" data-bi-name="trademarks">Trademarks</a></li>
+		<li>&copy; Microsoft 2022</li>
+	</ul>
+</footer>
+	</section>
+
+	<div id="action-panel" role="region" aria-label="Action Panel" class="action-panel has-default-focus" tabindex="-1"></div>
+</body>
+</html>
