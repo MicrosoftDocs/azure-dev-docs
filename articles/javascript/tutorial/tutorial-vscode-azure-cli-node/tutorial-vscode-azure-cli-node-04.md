@@ -35,10 +35,10 @@ git commit -m "Initial Commit"
 
 ## Get Azure App service endpoint for Git
 
-To [retrieve the Git endpoint with Azure CLI](/cli/azure/webapp/deployment/source) to which we want to push the app code, run the following command. Replace `<your_app_name>` with the name you used when creating the App Service in the previous step:
+To [retrieve the Git endpoint with Azure CLI](/cli/azure/webapp/deployment/source) to which we want to push the app code, run the following command. Replace `<your_app_name>` with the name you used when creating the App Service in the previous step and replace <resource_group_name> with the name of the App Service Resource group:
 
 ```azurecli
-az webapp deployment source config-local-git --name <your_app_name>
+az webapp deployment source config-local-git --name <your_app_name> --resource-group <resource_group_name> 
 ```
 
 The output from the command is similar to the following:
