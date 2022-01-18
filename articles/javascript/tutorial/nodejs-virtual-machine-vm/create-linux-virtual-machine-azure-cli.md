@@ -31,7 +31,7 @@ This tutorial uses a cloud-init configuration file to create both the NGINX reve
 
 ## Create a virtual machine resource 
 
-1. Enter the [Azure CLI command](/cli/azure/vm#az_vm_create) at a terminal to create an Azure resource of a Linux virtual machine. The command creates the VM from the cloud-init file and generates the SSH keys for you. The running command displays where the keys are stored. 
+1. Enter the Azure CLI command, [az vm create](/cli/azure/vm#az_vm_create), at a terminal to create an Azure resource of a Linux virtual machine. The command creates the VM from the cloud-init file and generates the SSH keys for you. The running command displays where the keys are stored. 
 
     ```azurecli
     az vm create \
@@ -51,7 +51,7 @@ This tutorial uses a cloud-init configuration file to create both the NGINX reve
 
 ## Open port for virtual machine
 
-When first created, the virtual machine has _no_ open ports. Open port 80 with the following [Azure CLI command](/cli/azure/vm#az_vm_open_port) so the web app is publicly available:
+When first created, the virtual machine has _no_ open ports. Open port 80 with the following Azure CLI command, [az vm open-port](/cli/azure/vm#az_vm_open_port) so the web app is publicly available:
 
 ```azurecli
 az vm open-port \
