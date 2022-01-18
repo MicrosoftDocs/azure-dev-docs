@@ -3,7 +3,7 @@ title: How to use the Spring Boot Starter for Azure Storage
 description: Learn how to configure a Spring Boot Initializer app with the Azure Storage starter.
 services: storage
 documentationcenter: java
-ms.date: 10/14/2020
+ms.date: 01/19/2022
 ms.service: storage
 ms.topic: article
 ms.workload: storage
