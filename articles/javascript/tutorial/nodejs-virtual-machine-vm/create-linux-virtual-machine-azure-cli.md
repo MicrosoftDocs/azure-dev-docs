@@ -38,6 +38,7 @@ This tutorial uses a cloud-init configuration file to create both the NGINX reve
       --resource-group rg-demo-vm-eastus \
       --name demo-vm \
       --location eastus \
+      --public-ip-sku Standard \
       --image UbuntuLTS \
       --admin-username azureuser \
       --generate-ssh-keys \
@@ -59,6 +60,8 @@ az vm open-port \
   --resource-group rg-demo-vm-eastus \
   --name demo-vm
 ```
+
+If you want to use SSL on port 443, 
 
 ## Browse to web site
 
