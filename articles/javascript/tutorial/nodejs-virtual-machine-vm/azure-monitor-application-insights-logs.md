@@ -1,16 +1,16 @@
 ---
-title: View logs in Azure portal
-description: Learn how to see your logging with Azure Monitor and Application Insights.
+title: View Virtual machine logs in Azure portal
+description: Learn how to see your logging with Azure Monitor and Application Insights for your Linux virtual machine.
 ms.topic: how-to
-ms.date: 11/01/2021
+ms.date: 01/18/2022
 ms.custom: devx-track-js
 ---
 
-# 6. View logs in Azure portal
+# 6. View Virtual Machine logs
 
 In this section of the tutorial, learn how to see your logging with Azure Monitor and Application Insights. 
 
-## Count of traces in logs with Azure CLI
+## Virtual machine logs with Azure CLI
 
 Use Azure CLI to quickly see important pieces of your logs. For example, use the following command to see how many traces are in the logs. 
 
@@ -39,7 +39,7 @@ The response looks something like the following, with this example having a tota
 }
 ```
 
-## View application traces in Azure portal
+## Virtual machine logs in Azure portal
 
 To view your traces as a list, the easiest method is to use the Azure portal. 
 

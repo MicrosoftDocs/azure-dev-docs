@@ -1,5 +1,5 @@
 ---
-title: SSH to virtual machine
+title: SSH to Azure Virtual machine
 description: Use SSH to connect to your Linux virtual machine.  If you are using a modern Mac, Windows, or Linux operating system, the terminal-based client SSH should already be installed.
 ms.topic: how-to
 ms.date: 01/18/2022
