@@ -10,7 +10,7 @@ ms.custom: devx-track-js
 
 In this section of the tutorial, learn how to see your logging with Azure Monitor and Application Insights. 
 
-## Virtual machine logs with Azure CLI
+## Virtual machine traces with Azure CLI
 
 Use Azure CLI to quickly see important pieces of your logs. For example, use the following command to see how many traces are in the logs. 
 
@@ -39,7 +39,7 @@ The response looks something like the following, with this example having a tota
 }
 ```
 
-## Virtual machine logs in Azure portal
+## Virtual machine traces in Azure portal
 
 To view your traces as a list, the easiest method is to use the Azure portal. 
 
