@@ -127,6 +127,8 @@
 | Resource Management - Loadtestservice | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure/arm-loadtestservice/v/1.0.0-beta.1) | [docs](/javascript/api/overview/azure/arm-loadtestservice-readme) | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-loadtestservice_1.0.0-beta.1/sdk/loadtestservice/arm-loadtestservice/) |
 | Resource Management - Locks | npm [2.0.0](https://www.npmjs.com/package/@azure/arm-locks/v/2.0.0) | [docs](/javascript/api/overview/azure/arm-locks-readme) | GitHub [2.0.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/locks/arm-locks) |
 | Resource Management - Logic Apps | npm [8.0.0](https://www.npmjs.com/package/@azure/arm-logic/v/8.0.0) | [docs](/javascript/api/overview/azure/arm-logic-readme) | GitHub [8.0.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/logic/arm-logic) |
+| Resource Management - Machine Learning Compute | npm [2.1.1](https://www.npmjs.com/package/@azure/arm-machinelearningcompute/v/2.1.1)<br>npm [3.0.0-beta.1](https://www.npmjs.com/package/@azure/arm-machinelearningcompute/v/3.0.0-beta.1) |  | GitHub [2.1.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/machinelearningcompute/arm-machinelearningcompute) |
+| Resource Management - Machine Learning Experimentation | npm [1.2.1](https://www.npmjs.com/package/@azure/arm-machinelearningexperimentation/v/1.2.1)<br>npm [2.0.0-beta.1](https://www.npmjs.com/package/@azure/arm-machinelearningexperimentation/v/2.0.0-beta.1) |  | GitHub [1.2.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/machinelearningexperimentation/arm-machinelearningexperimentation) |
 | Resource Management - Managed Applications | npm [2.0.0](https://www.npmjs.com/package/@azure/arm-managedapplications/v/2.0.0) | [docs](/javascript/api/overview/azure/arm-managedapplications-readme) | GitHub [2.0.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/managedapplications/arm-managedapplications) |
 | Resource Management - Managed Service Identity | npm [2.0.0](https://www.npmjs.com/package/@azure/arm-msi/v/2.0.0) | [docs](/javascript/api/overview/azure/arm-msi-readme) | GitHub [2.0.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/msi/arm-msi) |
 | Resource Management - Management Groups | npm [2.0.0](https://www.npmjs.com/package/@azure/arm-managementgroups/v/2.0.0) | [docs](/javascript/api/overview/azure/arm-managementgroups-readme) | GitHub [2.0.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/managementgroups/arm-managementgroups) |
@@ -165,7 +167,7 @@
 | @autorest/codemodel | npm [4.17.2](https://www.npmjs.com/package/@autorest/codemodel/v/4.17.2) |  |  |
 | @autorest/common | npm [1.4.1](https://www.npmjs.com/package/@autorest/common/v/1.4.1) |  |  |
 | @autorest/configuration | npm [1.8.2](https://www.npmjs.com/package/@autorest/configuration/v/1.8.2) |  |  |
-| @autorest/csharp | npm [3.0.0-beta.20220117.2](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20220117.2) |  |  |
+| @autorest/csharp | npm [3.0.0-beta.20220118.2](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20220118.2) |  |  |
 | @autorest/csharp-v3 | npm [3.0.0-beta.20201217.1](https://www.npmjs.com/package/@autorest/csharp-v3/v/3.0.0-beta.20201217.1) |  |  |
 | @autorest/extension-base | npm [3.4.4](https://www.npmjs.com/package/@autorest/extension-base/v/3.4.4) |  |  |
 | @autorest/fixer | npm [1.0.0](https://www.npmjs.com/package/@autorest/fixer/v/1.0.0) |  |  |
@@ -220,8 +222,8 @@
 | @azure-tools/cadl-vs | npm [0.3.0](https://www.npmjs.com/package/@azure-tools/cadl-vs/v/0.3.0) |  |  |
 | @azure-tools/json | npm [1.2.1](https://www.npmjs.com/package/@azure-tools/json/v/1.2.1) |  |  |
 | @azure-tools/jsonschema | npm [1.1.0](https://www.npmjs.com/package/@azure-tools/jsonschema/v/1.1.0) |  |  |
-| @azure-tools/js-sdk-release-tools | npm [1.0.10](https://www.npmjs.com/package/@azure-tools/js-sdk-release-tools/v/1.0.10) |  |  |
-| @azure-tools/mock-service-host | npm [0.1.9](https://www.npmjs.com/package/@azure-tools/mock-service-host/v/0.1.9) |  |  |
+| @azure-tools/js-sdk-release-tools | npm [1.0.11](https://www.npmjs.com/package/@azure-tools/js-sdk-release-tools/v/1.0.11) |  |  |
+| @azure-tools/mock-service-host | npm [0.1.10](https://www.npmjs.com/package/@azure-tools/mock-service-host/v/0.1.10) |  |  |
 | @azure-tools/oav-traffic-converter | npm [0.1.0](https://www.npmjs.com/package/@azure-tools/oav-traffic-converter/v/0.1.0) |  |  |
 | @azure-tools/prettier-plugin-adl | npm [0.1.4](https://www.npmjs.com/package/@azure-tools/prettier-plugin-adl/v/0.1.4) |  |  |
 | @azure-tools/prettier-plugin-cadl | npm [0.2.1](https://www.npmjs.com/package/@azure-tools/prettier-plugin-cadl/v/0.2.1) |  |  |
@@ -479,8 +481,8 @@
 | Resource Management - Loadtestservice | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure/arm-loadtestservice/v/1.0.0-beta.1) | [docs](/javascript/api/overview/azure/arm-loadtestservice-readme) | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-loadtestservice_1.0.0-beta.1/sdk/loadtestservice/arm-loadtestservice/) |
 | Resource Management - Locks | npm [2.0.0](https://www.npmjs.com/package/@azure/arm-locks/v/2.0.0) | [docs](/javascript/api/overview/azure/arm-locks-readme) | GitHub [2.0.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/locks/arm-locks) |
 | Resource Management - Logic Apps | npm [8.0.0](https://www.npmjs.com/package/@azure/arm-logic/v/8.0.0) | [docs](/javascript/api/overview/azure/arm-logic-readme) | GitHub [8.0.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/logic/arm-logic) |
-| Resource Management - Machine Learning Compute | npm [2.1.1](https://www.npmjs.com/package/@azure/arm-machinelearningcompute/v/2.1.1) |  | GitHub [2.1.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/machinelearningcompute/arm-machinelearningcompute) |
-| Resource Management - Machine Learning Experimentation | npm [1.2.1](https://www.npmjs.com/package/@azure/arm-machinelearningexperimentation/v/1.2.1) |  | GitHub [1.2.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/machinelearningexperimentation/arm-machinelearningexperimentation) |
+| Resource Management - Machine Learning Compute | npm [2.1.1](https://www.npmjs.com/package/@azure/arm-machinelearningcompute/v/2.1.1)<br>npm [3.0.0-beta.1](https://www.npmjs.com/package/@azure/arm-machinelearningcompute/v/3.0.0-beta.1) |  | GitHub [2.1.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/machinelearningcompute/arm-machinelearningcompute) |
+| Resource Management - Machine Learning Experimentation | npm [1.2.1](https://www.npmjs.com/package/@azure/arm-machinelearningexperimentation/v/1.2.1)<br>npm [2.0.0-beta.1](https://www.npmjs.com/package/@azure/arm-machinelearningexperimentation/v/2.0.0-beta.1) |  | GitHub [1.2.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/machinelearningexperimentation/arm-machinelearningexperimentation) |
 | Resource Management - Machine Learning Services | npm [4.1.1](https://www.npmjs.com/package/@azure/arm-machinelearningservices/v/4.1.1) |  | GitHub [4.1.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/machinelearningservices/arm-machinelearningservices) |
 | Resource Management - Managed Applications | npm [2.0.0](https://www.npmjs.com/package/@azure/arm-managedapplications/v/2.0.0) | [docs](/javascript/api/overview/azure/arm-managedapplications-readme) | GitHub [2.0.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/managedapplications/arm-managedapplications) |
 | Resource Management - Managed Service Identity | npm [2.0.0](https://www.npmjs.com/package/@azure/arm-msi/v/2.0.0) | [docs](/javascript/api/overview/azure/arm-msi-readme) | GitHub [2.0.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/msi/arm-msi) |
