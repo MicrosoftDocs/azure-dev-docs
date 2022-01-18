@@ -39,6 +39,8 @@ The response looks something like the following, with this example having a tota
 }
 ```
 
+<a name="view-application-traces-in-azure-portal"></a>
+
 ## Virtual machine traces in Azure portal
 
 To view your traces as a list, the easiest method is to use the Azure portal. 
