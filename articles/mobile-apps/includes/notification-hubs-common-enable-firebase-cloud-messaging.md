@@ -8,7 +8,7 @@
 
 ### Create a Firebase project and enable Firebase Cloud Messaging for Android
 
-1. Sign in to the [Firebase console](https://firebase.google.com/console/). Create a new Firebase project entering **PushDemo** as the **Project name**.
+1. Sign in to the [Firebase console](https://console.firebase.google.com/). Create a new Firebase project entering **PushDemo** as the **Project name**.
 
     > [!NOTE]
     > A unique name will be generated for you. By default this is comprised of a lowercase variant of the name you provided plus a generated number separated by a dash. You can change this if you want provided it is still globally unique.
