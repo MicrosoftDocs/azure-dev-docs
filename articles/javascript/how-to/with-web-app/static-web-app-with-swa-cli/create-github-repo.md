@@ -53,7 +53,7 @@ Configure the local directory to connect to the remote GitHub repository.
 1. Connect your local repo to your remote. Change the following command to use your account and repo name. 
    
    ```bash
-   git add remote origin https://github.com/YOUR-ACCOUNT/YOUR-REPO-NAME
+   git remote add origin https://github.com/YOUR-ACCOUNT/YOUR-REPO-NAME
    ```
 
    The name `origin` refers to your connection to this local repo and your specific remote repo.

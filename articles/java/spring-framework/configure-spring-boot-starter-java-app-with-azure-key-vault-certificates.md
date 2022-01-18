@@ -244,11 +244,8 @@ To enable the app to load the certificate, use the following steps:
    <dependency>
       <groupId>com.azure.spring</groupId>
       <artifactId>azure-spring-boot-starter-keyvault-certificates</artifactId>
-      <version>3.2.0</version>
    </dependency>
    ```
-
-1. Re
 
 1. Edit the *src/main/resources/application.yml* file so that it has the following contents.
 
@@ -342,7 +339,7 @@ To create the REST controller, use the following steps:
 
 ### Run the app on the server
 
-Now that you've built the Spring Boot app and uploaded it to the VM, use the following steps run it on the VM and call the REST endpoint with curl.
+Now that you've built the Spring Boot app and uploaded it to the VM, use the following steps to run it on the VM and call the REST endpoint with curl.
 
 1. Use SSH to connect to the VM, then run the executable jar.
 
@@ -371,6 +368,8 @@ In this section, you'll modify the code in the previous section so that the TLS/
 
 ### Modify the SsltestApplication to illustrate outbound TLS connections
 
+Use the following steps to modify the application:
+
 1. Add the dependency on Apache HTTP Client by adding the following code to the `<dependencies>` section of the *pom.xml* file.
 
    ```xml
@@ -387,7 +386,6 @@ In this section, you'll modify the code in the previous section so that the TLS/
 
    ```java
    package com.contoso.ssltest;
-
 
    import java.security.KeyStore;
    import javax.net.ssl.HostnameVerifier;
@@ -425,33 +423,33 @@ In this section, you'll modify the code in the previous section so that the TLS/
 
        @GetMapping(value = "/ssl-test-outbound")
        public String outbound() throws Exception {
-            KeyStore azureKeyVaultKeyStore = KeyStore.getInstance("AzureKeyVault");
-            KeyVaultLoadStoreParameter parameter = new KeyVaultLoadStoreParameter(
-                System.getProperty("azure.keyvault.uri"));
-            azureKeyVaultKeyStore.load(parameter);
-            SSLContext sslContext = SSLContexts.custom()
-                                               .loadTrustMaterial(azureKeyVaultKeyStore, null)
-                                               .build();
+           KeyStore azureKeyVaultKeyStore = KeyStore.getInstance("AzureKeyVault");
+           KeyVaultLoadStoreParameter parameter = new KeyVaultLoadStoreParameter(
+               System.getProperty("azure.keyvault.uri"));
+           azureKeyVaultKeyStore.load(parameter);
+           SSLContext sslContext = SSLContexts.custom()
+                                              .loadTrustMaterial(azureKeyVaultKeyStore, null)
+                                              .build();
 
-       HostnameVerifier allowAll = (String hostName, SSLSession session) -> true;
-       SSLConnectionSocketFactory csf = new SSLConnectionSocketFactory(sslContext, allowAll);
+           HostnameVerifier allowAll = (String hostName, SSLSession session) -> true;
+           SSLConnectionSocketFactory csf = new SSLConnectionSocketFactory(sslContext, allowAll);
 
-       CloseableHttpClient httpClient = HttpClients.custom()
-           .setSSLSocketFactory(csf)
-           .build();
+           CloseableHttpClient httpClient = HttpClients.custom()
+               .setSSLSocketFactory(csf)
+               .build();
 
-       HttpComponentsClientHttpRequestFactory requestFactory =
-           new HttpComponentsClientHttpRequestFactory();
+           HttpComponentsClientHttpRequestFactory requestFactory =
+               new HttpComponentsClientHttpRequestFactory();
 
-       requestFactory.setHttpClient(httpClient);
-       RestTemplate restTemplate = new RestTemplate(requestFactory);
-       String sslTest = "https://localhost:8443/ssl-test";
+           requestFactory.setHttpClient(httpClient);
+           RestTemplate restTemplate = new RestTemplate(requestFactory);
+           String sslTest = "https://localhost:8443/ssl-test";
 
-       ResponseEntity<String> response
-           = restTemplate.getForEntity(sslTest, String.class);
+           ResponseEntity<String> response
+               = restTemplate.getForEntity(sslTest, String.class);
 
-       return "Outbound TLS " +
-           (response.getStatusCode() == HttpStatus.OK ? "is" : "is not")  + " Working!!";
+           return "Outbound TLS " +
+               (response.getStatusCode() == HttpStatus.OK ? "is" : "is not")  + " Working!!";
        }
 
        @GetMapping(value = "/exit")
