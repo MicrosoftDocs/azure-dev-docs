@@ -22,7 +22,7 @@ In this section of the tutorial, use SSH in a terminal to connect to your virtua
 
     The results include your public IP address:
 
-    :::code language="json" source="~/../js-e2e-vm/az-vm-public-ip.json":::
+    :::code language="json" source="~/../js-e2e-vm/az-vm-public-ip.json" highlight="12":::
 
 
 ## Connect with SSH and change web app
