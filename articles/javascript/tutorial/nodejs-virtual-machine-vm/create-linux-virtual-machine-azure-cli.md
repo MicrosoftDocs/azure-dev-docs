@@ -2,7 +2,7 @@
 title: Create Linux virtual machine
 description: Use the Azure CLI to create and configure your virtual machine. At this point in the tutorial, you should have a terminal window open and signed into the Azure cloud with the Azure CLI on the subscription where you intend to create the virtual machine.
 ms.topic: how-to
-ms.date: 12/16/2021
+ms.date: 01/18/2022
 ms.custom: devx-track-js, devx-track-azurecli
 ---
 
@@ -31,13 +31,14 @@ This tutorial uses a cloud-init configuration file to create both the NGINX reve
 
 ## Create a virtual machine resource 
 
-1. Enter the [Azure CLI command](/cli/azure/vm#az_vm_create) at a terminal to create an Azure resource of a Linux virtual machine. The command creates the VM from the cloud-init file and generates the SSH keys for you. The running command displays where the keys are stored. 
+1. Enter the Azure CLI command, [az vm create](/cli/azure/vm#az_vm_create), at a terminal to create an Azure resource of a Linux virtual machine. The command creates the VM from the cloud-init file and generates the SSH keys for you. The running command displays where the keys are stored. 
 
     ```azurecli
     az vm create \
       --resource-group rg-demo-vm-eastus \
       --name demo-vm \
       --location eastus \
+      --public-ip-sku Standard \
       --image UbuntuLTS \
       --admin-username azureuser \
       --generate-ssh-keys \
@@ -51,7 +52,7 @@ This tutorial uses a cloud-init configuration file to create both the NGINX reve
 
 ## Open port for virtual machine
 
-When first created, the virtual machine has _no_ open ports. Open port 80 with the following [Azure CLI command](/cli/azure/vm#az_vm_open_port) so the web app is publicly available:
+When first created, the virtual machine has _no_ open ports. Open port 80 with the following Azure CLI command, [az vm open-port](/cli/azure/vm#az_vm_open_port) so the web app is publicly available:
 
 ```azurecli
 az vm open-port \
