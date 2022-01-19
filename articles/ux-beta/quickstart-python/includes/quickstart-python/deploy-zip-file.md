@@ -41,7 +41,7 @@ zip -r <file-name>.zip . -x '.??*'
 
 On Windows, use a program like 7-Zip to create a ZIP file needed to deploy the application.
 
-:::image type="content" source="../../media/quickstart-python/deploy-zip-create-zip-windows-600px.png" alt-text="A screenshot showing files being zipped into a ZIP file using 7-Zip." lightbox="../../media/quickstart-python/deploy-zip/create-zip-windows.png":::
+:::image type="content" source="../../media/quickstart-python/deploy-zip-create-zip-windows-600px.png" alt-text="A screenshot showing files being zipped into a ZIP file using 7-Zip." lightbox="../../media/quickstart-python/deploy-zip-create-zip-windows.png":::
 
 ---
 
@@ -66,7 +66,7 @@ To use an HTTP client such as curl to upload your ZIP file to Azure, you will ne
 1. Select the *FTPS credentials* tab.
 1. The **Username** and **Password** are shown under the *Application scope* heading.  For zip file deployments, only use the part of the username after the `\` character that starts with a `$`, for example `$msdocs-python-webapp-quickstart-123`. These credentials will be needed in the cURL command below.
 
-:::image type="content" source="../../media/quickstart-python/deploy-zip-azure-portal-get-username-600px.png" alt-text="A screenshot showing the location of the deployment credentials in the Azure portal." lightbox="../../media/quickstart-python/deploy-zip/azure-portal-get-username.png":::
+:::image type="content" source="../../media/quickstart-python/deploy-zip-azure-portal-get-username-600px.png" alt-text="A screenshot showing the location of the deployment credentials in the Azure portal." lightbox="../../media/quickstart-python/deploy-zip-azure-portal-get-username.png":::
 
 Run the following `curl` command to upload your zip file to Azure and deploy your application.  The username is the deployment username obtained above.  When this command is run, you will be prompted for the deployment password.
 
