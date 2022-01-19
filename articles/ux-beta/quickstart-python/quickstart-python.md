@@ -2,7 +2,7 @@
 title: 'Quickstart: Deploy a Python web app to Azure App Service'
 description: Get started with Azure App Service by deploying your first Python app to Azure App Service.
 ms.topic: quickstart
-ms.date: 01/07/2021
+ms.date: 01/18/2021
 author: DavidCBerry13
 ms.author: daberry
 ms.service: app-service
@@ -109,11 +109,11 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps 
 
 | Instructions    | Screenshot |
 |:----------------|-----------:|
-| [!INCLUDE [Create app service step 1](<./includes/quickstart-python/create-app-service/azure-portal-1.md>)] | :::image type="content" source="./media/quickstart-python/create-app-service/azure-portal-1-240px.png" alt-text="A screenshot showing how to use the search box in the top tool bar to find App Services in Azure." lightbox="./media/quickstart-python/create-app-service/azure-portal-1.png"::: |
-| [!INCLUDE [Create app service step 1](<./includes/quickstart-python/create-app-service/azure-portal-2.md>)] | :::image type="content" source="./media/quickstart-python/create-app-service/azure-portal-2-240px.png" alt-text="A screenshot showing the location of the Create button on the App Services page in the Azure Portal." lightbox="./media/quickstart-python/create-app-service/azure-portal-2.png"::: |
-| [!INCLUDE [Create app service step 1](<./includes/quickstart-python/create-app-service/azure-portal-3.md>)] | :::image type="content" source="./media/quickstart-python/create-app-service/azure-portal-3-240px.png" alt-text="A screenshot showing how fill out the form to create a new App Service in the Azure portal." lightbox="./media/quickstart-python/create-app-service/azure-portal-3.png"::: |
-| [!INCLUDE [Create app service step 1](<./includes/quickstart-python/create-app-service/azure-portal-4.md>)] | :::image type="content" source="./media/quickstart-python/create-app-service/azure-portal-4-240px.png" alt-text="A screenshot showing how to select the basic app service plan in the Azure portal." lightbox="./media/quickstart-python/create-app-service/azure-portal-4.png"::: |
-| [!INCLUDE [Create app service step 1](<./includes/quickstart-python/create-app-service/azure-portal-5.md>)] | :::image type="content" source="./media/quickstart-python/create-app-service/azure-portal-5-240px.png" alt-text="A screenshot showing the location of the Review plus Create button in the Azure portal." lightbox="./media/quickstart-python/create-app-service/azure-portal-5.png"::: |
+| [!INCLUDE [Create app service step 1](<./includes/quickstart-python/create-app-service/azure-portal-1.md>)] | :::image type="content" source="./media/quickstart-python/create-app-service-azure-portal-1-240px.png" alt-text="A screenshot showing how to use the search box in the top tool bar to find App Services in Azure." lightbox="./media/quickstart-python/create-app-service-azure-portal-1.png"::: |
+| [!INCLUDE [Create app service step 1](<./includes/quickstart-python/create-app-service/azure-portal-2.md>)] | :::image type="content" source="./media/quickstart-python/create-app-service-azure-portal-2-240px.png" alt-text="A screenshot showing the location of the Create button on the App Services page in the Azure Portal." lightbox="./media/quickstart-python/create-app-service-azure-portal-2.png"::: |
+| [!INCLUDE [Create app service step 1](<./includes/quickstart-python/create-app-service/azure-portal-3.md>)] | :::image type="content" source="./media/quickstart-python/create-app-service-azure-portal-3-240px.png" alt-text="A screenshot showing how fill out the form to create a new App Service in the Azure portal." lightbox="./media/quickstart-python/create-app-service-azure-portal-3.png"::: |
+| [!INCLUDE [Create app service step 1](<./includes/quickstart-python/create-app-service/azure-portal-4.md>)] | :::image type="content" source="./media/quickstart-python/create-app-service-azure-portal-4-240px.png" alt-text="A screenshot showing how to select the basic app service plan in the Azure portal." lightbox="./media/quickstart-python/create-app-service-azure-portal-4.png"::: |
+| [!INCLUDE [Create app service step 1](<./includes/quickstart-python/create-app-service/azure-portal-5.md>)] | :::image type="content" source="./media/quickstart-python/create-app-service-azure-portal-5-240px.png" alt-text="A screenshot showing the location of the Review plus Create button in the Azure portal." lightbox="./media/quickstart-python/create-app-service-azure-portal-5.png"::: |
 
 ### [VS Code](#tab/vscode-aztools)
 
@@ -124,11 +124,11 @@ To create Azure resources in VS Code, you must have the [Azure Tools extension p
 
 | Instructions    | Screenshot |
 |:----------------|-----------:|
-| [!INCLUDE [Create app service step 1](<./includes/quickstart-python/create-app-service/vscode-1.md>)] | :::image type="content" source="./media/quickstart-python/create-app-service/vscode-1-240px.png" alt-text="A screenshot showing the location of the Azure Tools icon in the left toolbar of VS Code." lightbox="./media/quickstart-python/create-app-service/vscode-1.png"::: |
-| [!INCLUDE [Create app service step 2](<./includes/quickstart-python/create-app-service/vscode-2.md>)] | :::image type="content" source="./media/quickstart-python/create-app-service/vscode-2-240px.png" alt-text="A screenshot showing the App Service section of Azure Tools extension and the context menu used to create a new web app." lightbox="./media/quickstart-python/create-app-service/vscode-2.png"::: |
-| [!INCLUDE [Create app service step 4](<./includes/quickstart-python/create-app-service/vscode-3.md>)] | :::image type="content" source="./media/quickstart-python/create-app-service/vscode-3-240px.png" alt-text="A screenshot of dialog box used to enter the name of the new web app in Visual Studio Code." lightbox="./media/quickstart-python/create-app-service/vscode-3.png"::: |
-| [!INCLUDE [Create app service step 5](<./includes/quickstart-python/create-app-service/vscode-4.md>)] | :::image type="content" source="./media/quickstart-python/create-app-service/vscode-4-240px.png" alt-text="A screenshot of the dialog box in VS Code used to select the runtime for the new web app." lightbox="./media/quickstart-python/create-app-service/vscode-4.png"::: |
-| [!INCLUDE [Create app service step 6](<./includes/quickstart-python/create-app-service/vscode-5.md>)] | :::image type="content" source="./media/quickstart-python/create-app-service/vscode-5-240px.png" alt-text="A screenshot of the dialog in VS Code used to select the App Service plan for the new web app." lightbox="./media/quickstart-python/create-app-service/vscode-5.png"::: |
+| [!INCLUDE [Create app service step 1](<./includes/quickstart-python/create-app-service/vscode-1.md>)] | :::image type="content" source="./media/quickstart-python/create-app-service-vscode-1-240px.png" alt-text="A screenshot showing the location of the Azure Tools icon in the left toolbar of VS Code." lightbox="./media/quickstart-python/create-app-service-vscode-1.png"::: |
+| [!INCLUDE [Create app service step 2](<./includes/quickstart-python/create-app-service/vscode-2.md>)] | :::image type="content" source="./media/quickstart-python/create-app-service-vscode-2-240px.png" alt-text="A screenshot showing the App Service section of Azure Tools extension and the context menu used to create a new web app." lightbox="./media/quickstart-python/create-app-service-vscode-2.png"::: |
+| [!INCLUDE [Create app service step 4](<./includes/quickstart-python/create-app-service/vscode-3.md>)] | :::image type="content" source="./media/quickstart-python/create-app-service-vscode-3-240px.png" alt-text="A screenshot of dialog box used to enter the name of the new web app in Visual Studio Code." lightbox="./media/quickstart-python/create-app-service-vscode-3.png"::: |
+| [!INCLUDE [Create app service step 5](<./includes/quickstart-python/create-app-service/vscode-4.md>)] | :::image type="content" source="./media/quickstart-python/create-app-service-vscode-4-240px.png" alt-text="A screenshot of the dialog box in VS Code used to select the runtime for the new web app." lightbox="./media/quickstart-python/create-app-service-vscode-4.png"::: |
+| [!INCLUDE [Create app service step 6](<./includes/quickstart-python/create-app-service/vscode-5.md>)] | :::image type="content" source="./media/quickstart-python/create-app-service-vscode-5-240px.png" alt-text="A screenshot of the dialog in VS Code used to select the App Service plan for the new web app." lightbox="./media/quickstart-python/create-app-service-vscode-5.png"::: |
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -195,11 +195,11 @@ To deploy a web app from VS Code, you must have the [Azure Tools extension pack]
 
 | Instructions    | Screenshot |
 |:----------------|-----------:|
-| [!INCLUDE [VS Code deploy step 1](<./includes/quickstart-python/deploy-vscode/deploy-vscode-1.md>)] | :::image type="content" source="./media/quickstart-python/deploy-vscode/vscode-deploy-1-240px.png" alt-text="A screenshot showing the location of the Azure Tools icon in the left toolbar of VS Code." lightbox="./media/quickstart-python/deploy-vscode/vscode-deploy-1.png"::: |
-| [!INCLUDE [VS Code deploy step 2](<./includes/quickstart-python/deploy-vscode/deploy-vscode-2.md>)] | :::image type="content" source="./media/quickstart-python/deploy-vscode/vscode-deploy-2-240px.png" alt-text="A screenshot showing the context menu of an App Service and the deploy to web app menu option." lightbox="./media/quickstart-python/deploy-vscode/vscode-deploy-2.png"::: |
-| [!INCLUDE [VS Code deploy step 3](<./includes/quickstart-python/deploy-vscode/deploy-vscode-3.md>)] | :::image type="content" source="./media/quickstart-python/deploy-vscode/vscode-deploy-3-240px.png" alt-text="A screenshot dialog in VS Code used to choose the app to deploy." lightbox="./media/quickstart-python/deploy-vscode/vscode-deploy-3.png"::: |
-| [!INCLUDE [VS Code deploy step 4](<./includes/quickstart-python/deploy-vscode/deploy-vscode-4.md>)] | :::image type="content" source="./media/quickstart-python/deploy-vscode/vscode-deploy-4-240px.png" alt-text="A screenshot of a dialog box in VS Code asking if you want to update your workspace to run build commands." lightbox="./media/quickstart-python/deploy-vscode/vscode-deploy-4.png"::: |
-| [!INCLUDE [VS Code deploy step 5](<./includes/quickstart-python/deploy-vscode/deploy-vscode-5.md>)] | :::image type="content" source="./media/quickstart-python/deploy-vscode/vscode-deploy-5-240px.png" alt-text="A screenshot showing the confirmation dialog when the app code has been deployed to Azure." lightbox="./media/quickstart-python/deploy-vscode/vscode-deploy-5.png"::: |
+| [!INCLUDE [VS Code deploy step 1](<./includes/quickstart-python/deploy-vscode/deploy-vscode-1.md>)] | :::image type="content" source="./media/quickstart-python/deploy-vscode-1-240px.png" alt-text="A screenshot showing the location of the Azure Tools icon in the left toolbar of VS Code." lightbox="./media/quickstart-python/deploy-vscode-1.png"::: |
+| [!INCLUDE [VS Code deploy step 2](<./includes/quickstart-python/deploy-vscode/deploy-vscode-2.md>)] | :::image type="content" source="./media/quickstart-python/deploy-vscode-2-240px.png" alt-text="A screenshot showing the context menu of an App Service and the deploy to web app menu option." lightbox="./media/quickstart-python/deploy-vscode-2.png"::: |
+| [!INCLUDE [VS Code deploy step 3](<./includes/quickstart-python/deploy-vscode/deploy-vscode-3.md>)] | :::image type="content" source="./media/quickstart-python/deploy-vscode-3-240px.png" alt-text="A screenshot dialog in VS Code used to choose the app to deploy." lightbox="./media/quickstart-python/deploy-vscode-3.png"::: |
+| [!INCLUDE [VS Code deploy step 4](<./includes/quickstart-python/deploy-vscode/deploy-vscode-4.md>)] | :::image type="content" source="./media/quickstart-python/deploy-vscode-4-240px.png" alt-text="A screenshot of a dialog box in VS Code asking if you want to update your workspace to run build commands." lightbox="./media/quickstart-python/deploy-vscode-4.png"::: |
+| [!INCLUDE [VS Code deploy step 5](<./includes/quickstart-python/deploy-vscode/deploy-vscode-5.md>)] | :::image type="content" source="./media/quickstart-python/deploy-vscode-5-240px.png" alt-text="A screenshot showing the confirmation dialog when the app code has been deployed to Azure." lightbox="./media/quickstart-python/deploy-vscode-5.png"::: |
 
 ### [Deploy using Local Git](#tab/local-git-deploy)
 
@@ -245,15 +245,15 @@ The contents of the App Service diagnostic logs can be reviewed in the Azure por
 
 | Instructions    | Screenshot |
 |:----------------|-----------:|
-| [!INCLUDE [Stream logs from Azure portal 1](<./includes/quickstart-python/stream-logs/azure-portal-1.md>)] | :::image type="content" source="./media/quickstart-python/stream-logs/azure-portal-1-240px.png" alt-text="Screenshot" lightbox="./media/quickstart-python/stream-logs/azure-portal-1.png"::: |
-| [!INCLUDE [Stream logs from Azure portal 2](<./includes/quickstart-python/stream-logs/azure-portal-2.md>)] | :::image type="content" source="./media/quickstart-python/stream-logs/azure-portal-2-240px.png" alt-text="Screenshot" lightbox="./media/quickstart-python/stream-logs/azure-portal-2.png"::: |
+| [!INCLUDE [Stream logs from Azure portal 1](<./includes/quickstart-python/stream-logs/azure-portal-1.md>)] | :::image type="content" source="./media/quickstart-python/stream-logs-azure-portal-1-240px.png" alt-text="Screenshot" lightbox="./media/quickstart-python/stream-logs-azure-portal-1.png"::: |
+| [!INCLUDE [Stream logs from Azure portal 2](<./includes/quickstart-python/stream-logs/azure-portal-2.md>)] | :::image type="content" source="./media/quickstart-python/stream-logs-azure-portal-2-240px.png" alt-text="Screenshot" lightbox="./media/quickstart-python/stream-logs-azure-portal-2.png"::: |
 
 ### [VS Code](#tab/vscode-aztools)
 
 | Instructions    | Screenshot |
 |:----------------|-----------:|
-| [!INCLUDE [Stream logs from VS Code 1](<./includes/quickstart-python/stream-logs/vscode-1.md>)] | :::image type="content" source="./media/quickstart-python/stream-logs/vs-code-1-240px.png" alt-text="screenshot" lightbox="./media/quickstart-python/stream-logs/vs-code-1.png"::: |
-| [!INCLUDE [Stream logs from VS Code 2](<./includes/quickstart-python/stream-logs/vscode-2.md>)] | :::image type="content" source="./media/quickstart-python/stream-logs/vs-code-2-240px.png" alt-text="screenshot" lightbox="./media/quickstart-python/stream-logs/vs-code-2.png"::: |
+| [!INCLUDE [Stream logs from VS Code 1](<./includes/quickstart-python/stream-logs/vscode-1.md>)] | :::image type="content" source="./media/quickstart-python/stream-logs-vs-code-1-240px.png" alt-text="screenshot" lightbox="./media/quickstart-python/stream-logs-vs-code-1.png"::: |
+| [!INCLUDE [Stream logs from VS Code 2](<./includes/quickstart-python/stream-logs/vscode-2.md>)] | :::image type="content" source="./media/quickstart-python/stream-logs-vs-code-2-240px.png" alt-text="screenshot" lightbox="./media/quickstart-python/stream-logs-vs-code-2.png"::: |
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -306,16 +306,16 @@ Follow these steps while signed-in to the Azure portal to delete a resource grou
 
 | Instructions    | Screenshot |
 |:----------------|-----------:|
-| [!INCLUDE [Remove resource group Azure portal 1](<./includes/quickstart-python/remove-resource-group/azure-portal-1.md>)] | :::image type="content" source="./media/quickstart-python/remove-resource-group/azure-portal-1-240px.png" alt-text="A screenshot showing how to search for and navigate to a resource group in the Azure portal." lightbox="./media/quickstart-python/remove-resource-group/azure-portal-1.png"::: |
-| [!INCLUDE [Remove resource group Azure portal 2](<./includes/quickstart-python/remove-resource-group/azure-portal-2.md>)] | :::image type="content" source="./media/quickstart-python/remove-resource-group/azure-portal-2-240px.png" alt-text="A screenshot showing the location of the Delete Resource Group button in the Azure portal." lightbox="./media/quickstart-python/remove-resource-group/azure-portal-2.png"::: |
-| [!INCLUDE [Remove resource group Azure portal 3](<./includes/quickstart-python/remove-resource-group/azure-portal-3.md>)] | :::image type="content" source="./media/quickstart-python/remove-resource-group/azure-portal-3-240px.png" alt-text="A screenshot of the confirmation dialog for deleting a resource group in the Azure portal." lightbox="./media/quickstart-python/remove-resource-group/azure-portal-3.png"::: |
+| [!INCLUDE [Remove resource group Azure portal 1](<./includes/quickstart-python/remove-resource-group/azure-portal-1.md>)] | :::image type="content" source="./media/quickstart-python/remove-resource-group-azure-portal-1-240px.png" alt-text="A screenshot showing how to search for and navigate to a resource group in the Azure portal." lightbox="./media/quickstart-python/remove-resource-group-azure-portal-1.png"::: |
+| [!INCLUDE [Remove resource group Azure portal 2](<./includes/quickstart-python/remove-resource-group/azure-portal-2.md>)] | :::image type="content" source="./media/quickstart-python/remove-resource-group-azure-portal-2-240px.png" alt-text="A screenshot showing the location of the Delete Resource Group button in the Azure portal." lightbox="./media/quickstart-python/remove-resource-group-azure-portal-2.png"::: |
+| [!INCLUDE [Remove resource group Azure portal 3](<./includes/quickstart-python/remove-resource-group/azure-portal-3.md>)] | :::image type="content" source="./media/quickstart-python/remove-resource-group-azure-portal-3-240px.png" alt-text="A screenshot of the confirmation dialog for deleting a resource group in the Azure portal." lightbox="./media/quickstart-python/remove-resource-group-azure-portal-3.png"::: |
 
 ### [VS Code](#tab/vscode-aztools)
 
 | Instructions    | Screenshot |
 |:----------------|-----------:|
-| [!INCLUDE [Remove resource group VS Code 1](<./includes/quickstart-python/remove-resource-group/vs-code-1.md>)] | :::image type="content" source="./media/quickstart-python/remove-resource-group/vs-code-1-240px.png" alt-text="A screenshot showing how to delete a resource group in VS Code using the Azure Tools extension." lightbox="./media/quickstart-python/remove-resource-group/vs-code-1.png"::: |
-| [!INCLUDE [Remove resource group VS Code 2](<./includes/quickstart-python/remove-resource-group/vs-code-2.md>)] | :::image type="content" source="./media/quickstart-python/remove-resource-group/vs-code-2-240px.png" alt-text="A screenshot of the confirmation dialog for deleting a resource group from VS Code." lightbox="./media/quickstart-python/remove-resource-group/vs-code-2.png"::: |
+| [!INCLUDE [Remove resource group VS Code 1](<./includes/quickstart-python/remove-resource-group/vs-code-1.md>)] | :::image type="content" source="./media/quickstart-python/remove-resource-group-vs-code-1-240px.png" alt-text="A screenshot showing how to delete a resource group in VS Code using the Azure Tools extension." lightbox="./media/quickstart-python/remove-resource-group-vs-code-1.png"::: |
+| [!INCLUDE [Remove resource group VS Code 2](<./includes/quickstart-python/remove-resource-group/vs-code-2.md>)] | :::image type="content" source="./media/quickstart-python/remove-resource-group-vs-code-2-240px.png" alt-text="A screenshot of the confirmation dialog for deleting a resource group from VS Code." lightbox="./media/quickstart-python/remove-resource-group-vs-code-2.png"::: |
 
 ### [Azure CLI](#tab/azure-cli)
 
