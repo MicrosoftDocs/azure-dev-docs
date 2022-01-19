@@ -14,13 +14,13 @@ In this step of the tutorial, create an Azure resource group for all your Azure 
 
 This tutorial includes several Azure resources. Creating a resource group allows you to easily find the resources, and delete them when you are done.
 
-1. At a terminal or bash shell, enter the Azure CLI command to create an Azure resource group, [az group create](/cli/azure/group#az_group_create), with the name `rg-demo-vm-eastus`:
+At a terminal or bash shell, enter the Azure CLI command to create an Azure resource group, [az group create](/cli/azure/group#az_group_create), with the name `rg-demo-vm-eastus`:
 
-    ```azurecli
-    az group create \
-        --location eastus \
-        --name rg-demo-vm-eastus 
-    ```
+```azurecli
+az group create \
+    --location eastus \
+    --name rg-demo-vm-eastus 
+```
 
 ## Create Azure Monitor resource with Azure CLI
 

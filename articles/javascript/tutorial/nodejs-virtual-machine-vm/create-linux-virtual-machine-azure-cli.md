@@ -61,8 +61,6 @@ az vm open-port \
   --name demo-vm
 ```
 
-If you want to use SSL on port 443, 
-
 ## Browse to web site
 
 1. Use the public IP address in a web browser to make sure the virtual machine is available and running. Change the URL to use the value from `publicIpAddress`.

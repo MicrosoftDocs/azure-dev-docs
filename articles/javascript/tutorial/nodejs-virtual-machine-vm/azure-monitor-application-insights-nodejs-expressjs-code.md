@@ -45,7 +45,7 @@ In this step, add the Azure SDK client library to the code on the virtual machin
 
 ## Viewing the log for NGINX
 
-The Virtual Machine (VM) collects logs for NGINX, which are available to view.
+The virtual machine (VM) collects logs for NGINX, which are available to view.
 
 | Service | Log location|
 |--|--|
@@ -66,7 +66,7 @@ The log includes the call from your local computer.
 
 ## Viewing the log for PM2
 
-The Virtual machine collects logs for PM2, which are available to view.
+The virtual machine collects logs for PM2, which are available to view.
 
 | Service | Log location|
 |--|--|
