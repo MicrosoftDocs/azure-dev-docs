@@ -5,7 +5,7 @@ services: active-directory-b2c
 documentationcenter: java
 manager: kevinzha
 ms.author: edburns
-ms.date: 10/23/2020
+ms.date: 01/19/2022
 ms.service: active-directory-b2c
 ms.tgt_pltfrm: multiple
 ms.topic: article

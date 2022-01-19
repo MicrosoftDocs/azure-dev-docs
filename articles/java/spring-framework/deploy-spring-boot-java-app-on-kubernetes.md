@@ -4,7 +4,7 @@ titleSuffix: Azure Kubernetes Service
 description: This tutorial will walk you though the steps to deploy a Spring Boot application in a Kubernetes cluster on Microsoft Azure.
 services: container-service
 documentationcenter: java
-ms.date: 10/06/2020
+ms.date: 01/19/2022
 ms.service: multiple
 ms.tgt_pltfrm: multiple
 ms.topic: article
@@ -158,7 +158,7 @@ The following steps walk you through building a Spring Boot web application and 
    ```
 
 > [!NOTE]
-> Due to the security concern of Azure Cli and Azure Container Registry, the credential created by `az acr login` is valid for 1 hour, if you meet *401 Unauthorized* error, you can run the `az acr login -n <your registry name>` command again to reauthenticate.
+> Due to the security concern of Azure Cli and Azure Container Registry, the credential created by `az acr login` is valid for 1 hour. If you see a *401 Unauthorized* error, you can run the `az acr login -n <your registry name>` command again to reauthenticate. If you see a *Read timed out* error, you can try increasing timeouts with `mvn -Djib.httpTimeout=7200000 jib:dockerBuild`, or `-Djib.httpTimeout=0` for an infinite timeout.
 
 ## Create a Kubernetes Cluster on AKS using the Azure CLI
 
@@ -255,7 +255,15 @@ This tutorial deploys the app using `kubectl`, then allows you to explore the de
          containers:
          - name: gs-spring-boot-docker
            image: wingtiptoysregistry.azurecr.io/gs-spring-boot-docker:latest
-   ---
+   ```
+
+1. Select **Add** at the bottom of the YAML editor to deploy the application.
+
+   :::image type="content" source="media/deploy-spring-boot-java-app-on-kubernetes/KR02.png" alt-text="Kubernetes resources view, add resource":::
+
+   After deploying the `Deployment`, just like above, select **Add** at the bottom of the YAML editor to deploy `Service` using the following YAML:
+
+   ```yaml
    apiVersion: v1
    kind: Service
    metadata:
@@ -268,10 +276,6 @@ This tutorial deploys the app using `kubectl`, then allows you to explore the de
      selector:
        app: gs-spring-boot-docker
    ```
-
-1. Select **Add** at the bottom of the YAML editor to deploy the application.
-
-   :::image type="content" source="media/deploy-spring-boot-java-app-on-kubernetes/KR02.png" alt-text="Kubernetes resources view, add resource":::
 
 1. Once the YAML file is added, the resource viewer shows your Spring Boot application. The external service includes a linked external IP address so you can easily view the application in your browser.
 
