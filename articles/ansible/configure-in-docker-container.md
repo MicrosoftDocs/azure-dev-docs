@@ -4,7 +4,7 @@ description: Learn how to install and configure Ansible running in a Docker cont
 keywords: ansible, azure, devops, bash, playbook, azure cli, azure powershell, powershell
 ms.topic: quickstart
 ms.date: 09/23/2021
-ms.custom: devx-track-ansible
+ms.custom: devx-track-ansible, mode-portal
 ---
 
 # Get Started: Configure Ansible in a Docker container
@@ -56,10 +56,8 @@ In this article, you learn to:
         pip3 install jmspath; \
         pip3 install requests; \
         python3 -m pip install ansible; \
-        wget -q https://raw.githubusercontent.com/ansible-collections/azure/dev/requirements-azure.txt; \
-        pip3 install -r requirements-azure.txt; \
-        rm requirements-azure.txt; \
-        ansible-galaxy collection install azure.azcollection
+        ansible-galaxy collection install azure.azcollection; \
+        pip3 install -r ~/.ansible/collections/ansible_collections/azure/azcollection/requirements-azure.txt
     ```
 
 ## Build the Ansible Docker image

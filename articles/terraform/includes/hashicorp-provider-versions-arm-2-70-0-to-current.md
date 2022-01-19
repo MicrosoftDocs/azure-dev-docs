@@ -1,9 +1,8 @@
 ---
-title: include file
-description: include file
-ms.date: 10/17/2021
-ms.custom: 3678e1eac7822fa4a7c660d8134188143b8cbf24
 ms.author: tarcher
+ms.topic: include
+ms.date: 01/04/2022
+ms.custom: devx-track-terraform
 ---
 
 ## 2.82.0 (Unreleased)
@@ -74,7 +73,7 @@ BUG FIXES:
 
 BUG FIXES: 
 
-* `azurerm_managed_disk` - the `max_shares` propety is now `Computed` to account for managed disks that are already managed by Terraform ([#13587](https://github.com/hashicorp/terraform-provider-azurerm/issues/13587))
+* `azurerm_managed_disk` - the `max_shares` property is now `Computed` to account for managed disks that are already managed by Terraform ([#13587](https://github.com/hashicorp/terraform-provider-azurerm/issues/13587))
 
 ## 2.79.0 (October 01, 2021)
 
@@ -107,7 +106,7 @@ BUG FIXES:
 
 UPGRADE NOTES
 
-* The `azurerm_data_factory_dataset_snowflake` has been updated to set the correct `schema_column` api property with the correct schema - to retain the old behaviour please switch to the `structure_column` property ([#13344](https://github.com/hashicorp/terraform-provider-azurerm/issues/13344))
+* The `azurerm_data_factory_dataset_snowflake` has been updated to set the correct `schema_column` api property with the correct schema - to retain the old behavior please switch to the `structure_column` property ([#13344](https://github.com/hashicorp/terraform-provider-azurerm/issues/13344))
 
 FEATURES: 
 
@@ -181,7 +180,7 @@ BUG FIXES:
 ## 2.76.0 (September 10, 2021)
 
 NOTES
-* Opt-In Beta: Version 2.76 of the Azure Provider introduces an opt-in Beta for some of the new functionality coming in 3.0 - more information can be found [in the 3.0 Notes](https://github.com/hashicorp/terraform-provider-azurerm/blob/main/website/docs/guides/3.0-beta.html.markdown) and [3.0 Upgrade Guide](https://github.com/hashicorp/terraform-provider-azurerm/blob/main/website/docs/guides/3.0-upgrade-guide.html.markdown) ([#12132](https://github.com/hashicorp/terraform-provider-azurerm/issues/12132))
+* Opt-In Beta: Version 2.76 of the Azure Provider introduces an opt-in Beta for some of the new functionality coming in 3.0 - more information can be found [in the 3.0 Notes](https://github.com/hashicorp/terraform-provider-azurerm/blob/main/website/docs/guides/3.0-app-service-beta.html.markdown) and [3.0 Upgrade Guide](https://github.com/hashicorp/terraform-provider-azurerm/blob/8b1fe7300564ad46df0a355047b8b7a94d56ed42/website/docs/guides/3.0-upgrade-guide.html.markdown) ([#12132](https://github.com/hashicorp/terraform-provider-azurerm/issues/12132))
 
 FEATURES:
 
@@ -283,7 +282,7 @@ ENHANCEMENTS:
 
 BUG FIXES:
 
-* `azurerm_data_factory_dataset_delimited_text` - support empty values for the `column_delimiter`, `row_delimiter`, `quote_character`, `escape_character`, and `encoding` propeties ([#13149](https://github.com/hashicorp/terraform-provider-azurerm/issues/13149))
+* `azurerm_data_factory_dataset_delimited_text` - support empty values for the `column_delimiter`, `row_delimiter`, `quote_character`, `escape_character`, and `encoding` properties ([#13149](https://github.com/hashicorp/terraform-provider-azurerm/issues/13149))
 * `azurerm_cosmosdb_cassandra_table` - correctly update `throughput` ([#13102](https://github.com/hashicorp/terraform-provider-azurerm/issues/13102))
 * `azurerm_private_dns_a_record` - fix regression in `name` validation and add max recordset limit validation ([#13093](https://github.com/hashicorp/terraform-provider-azurerm/issues/13093))
 * `azurerm_postgresql_flexible_server_database` the `charset` and `collation` properties are now optional ([#13110](https://github.com/hashicorp/terraform-provider-azurerm/issues/13110))
@@ -318,7 +317,7 @@ ENHANCEMENTS:
 * `azurerm_application_security_group` - refactoring to use an ID Formatter/Parser ([#13028](https://github.com/hashicorp/terraform-provider-azurerm/issues/13028))
 * `azurerm_data_lake_store` - support for the `identity` block ([#13050](https://github.com/hashicorp/terraform-provider-azurerm/issues/13050))
 * `azurerm_kubernetes_cluster` - support for the `ultra_ssd_enabled` and `private_cluster_public_fqdn_enabled` properties ([#12780](https://github.com/hashicorp/terraform-provider-azurerm/issues/12780))
-* `azurerm_kubernetes_cluster_node_pool` - supportfor the `ultra_ssd_enabled` property ([#12780](https://github.com/hashicorp/terraform-provider-azurerm/issues/12780))
+* `azurerm_kubernetes_cluster_node_pool` - support for the `ultra_ssd_enabled` property ([#12780](https://github.com/hashicorp/terraform-provider-azurerm/issues/12780))
 * `azurerm_logic_app_trigger_http_request` - support for the `callback_url` attribute ([#13057](https://github.com/hashicorp/terraform-provider-azurerm/issues/13057))
 * `azurerm_netapp_volume` - support for the `snapshot_directory_visible` property ([#12961](https://github.com/hashicorp/terraform-provider-azurerm/issues/12961))
 * `azurerm_sql_server` - support for configuring `threat_detection_policy` ([#13048](https://github.com/hashicorp/terraform-provider-azurerm/issues/13048))
@@ -336,7 +335,7 @@ BUG FIXES:
 * `azurerm_kubernetes_cluster` - fix crash in update when previously configured AAD Profile is now `nil` ([#13043](https://github.com/hashicorp/terraform-provider-azurerm/issues/13043))
 * `azurerm_redis_enterprise_cluster` - changing the tags property no longer creates a new resource ([#12956](https://github.com/hashicorp/terraform-provider-azurerm/issues/12956))
 * `azurerm_storage_account` - allow 0 for the `cors.max_age_in_seconds` property ([#13010](https://github.com/hashicorp/terraform-provider-azurerm/issues/13010))
-* `azurerm_servicebus_topic` - correctyl validate the `name` property ([#13026](https://github.com/hashicorp/terraform-provider-azurerm/issues/13026))
+* `azurerm_servicebus_topic` - correctly validate the `name` property ([#13026](https://github.com/hashicorp/terraform-provider-azurerm/issues/13026))
 * `azurerm_virtual_hub_connection` - will not correctly lock it's cirtual network during updates ([#12999](https://github.com/hashicorp/terraform-provider-azurerm/issues/12999))
 * `azurerm_linux_virtual_machine_scale_set` - fix potential crash in updates to the `rolling_upgrade_policy` block ([#13029](https://github.com/hashicorp/terraform-provider-azurerm/issues/13029))
 
@@ -394,7 +393,7 @@ BUG FIXES:
 * `azurerm_kubernetes_cluster` - prevent nil panic when rbac config is empty ([#12881](https://github.com/hashicorp/terraform-provider-azurerm/issues/12881))
 * `azurerm_iot_dps` - fixing a crash during creation ([#12919](https://github.com/hashicorp/terraform-provider-azurerm/issues/12919))
 * `azurerm_local_network_gateway` - removing an unnecessary check during deletion ([#12879](https://github.com/hashicorp/terraform-provider-azurerm/issues/12879))
-* `azurerm_logic_app_trigger_recurrence` - update time zone strings to match API behaviour, and use the timezone even when `start_time` is not specified ([#12453](https://github.com/hashicorp/terraform-provider-azurerm/issues/12453))
+* `azurerm_logic_app_trigger_recurrence` - update time zone strings to match API behavior, and use the timezone even when `start_time` is not specified ([#12453](https://github.com/hashicorp/terraform-provider-azurerm/issues/12453))
 * `azurerm_mariadb_database` - removing an unnecessary check during deletion ([#12879](https://github.com/hashicorp/terraform-provider-azurerm/issues/12879))
 * `azurerm_mariadb_server` - removing an unnecessary check during deletion ([#12879](https://github.com/hashicorp/terraform-provider-azurerm/issues/12879))
 * `azurerm_mariadb_virtual_network_rule` - removing an unnecessary check during deletion ([#12879](https://github.com/hashicorp/terraform-provider-azurerm/issues/12879))
@@ -498,7 +497,7 @@ ENHANCEMENTS:
 * Data Source: `azurerm_storage_account_sas` - support for the property `ip_addresses` ([#12705](https://github.com/hashicorp/terraform-provider-azurerm/issues/12705))
 * `azurerm_api_management_diagnostic` - support for the property `operation_name_format` ([#12736](https://github.com/hashicorp/terraform-provider-azurerm/issues/12736))
 * `azurerm_automation_certificate` - the `exportable` property can now be set ([#12738](https://github.com/hashicorp/terraform-provider-azurerm/issues/12738))
-* `azurerm_data_factory_dataset_binary` - the blob `path` and `filename` propeties are now optional ([#12676](https://github.com/hashicorp/terraform-provider-azurerm/issues/12676))
+* `azurerm_data_factory_dataset_binary` - the blob `path` and `filename` properties are now optional ([#12676](https://github.com/hashicorp/terraform-provider-azurerm/issues/12676))
 * `azurerm_data_factory_trigger_blob_event` - support for the `activation` property ([#12644](https://github.com/hashicorp/terraform-provider-azurerm/issues/12644))
 * `azurerm_data_factory_pipeline` - support for the `concurrency` and `moniter_metrics_after_duration` properties ([#12685](https://github.com/hashicorp/terraform-provider-azurerm/issues/12685))
 * `azurerm_hdinsight_interactive_query_cluster` - support for the `encryption_in_transit_enabled` property ([#12767](https://github.com/hashicorp/terraform-provider-azurerm/issues/12767))

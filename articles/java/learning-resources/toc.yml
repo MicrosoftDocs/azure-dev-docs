@@ -5,6 +5,8 @@
       href: overview.md
     - name: Java learning path
       href: fundamentals.md
+    - name: Libraries, drivers, and modules
+      href: ../sdk/libraries-drivers-modules.md?toc=/azure/developer/java/learning-resources/toc.json&bc=/azure/developer/breadcrumb/toc.json
     - name: Java on Azure (Microsoft Learn)
       href: /learn/paths/java-on-azure/
     - name: Books

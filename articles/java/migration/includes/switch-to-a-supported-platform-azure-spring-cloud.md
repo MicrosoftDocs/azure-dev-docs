@@ -1,5 +1,5 @@
 ---
-ms.author: yebronsh
+ms.author: karler
 ms.date: 1/22/2020
 ---
 
@@ -9,4 +9,4 @@ Azure Spring Cloud offers specific versions of Java and specific versions of Spr
 
 [!INCLUDE [note-obtain-your-current-java-version](note-obtain-your-current-java-version.md)]
 
-For supported versions of Java, Spring Boot, and Spring Cloud, as well instructions for updating, see [Prepare a Java Spring application for deployment in Azure Spring Cloud](/azure/spring-cloud/spring-cloud-tutorial-prepare-app-deployment).
+For supported versions of Java, Spring Boot, and Spring Cloud, as well instructions for updating, see [Prepare an application for deployment in Azure Spring Cloud](/azure/spring-cloud/how-to-prepare-app-deployment).

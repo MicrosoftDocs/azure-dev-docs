@@ -1,7 +1,7 @@
 ---
 title: Migrate Tomcat Applications to containers on Azure Kubernetes Service
 description: This guide describes what you should be aware of when you want to migrate an existing Tomcat application to run in an Azure Kubernetes Service container.
-ms.author: yebronsh
+ms.author: karler
 ms.topic: conceptual
 ms.date: 1/20/2020
 ms.custom: devx-track-java, devx-track-azurecli

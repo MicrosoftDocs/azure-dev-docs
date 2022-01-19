@@ -1,0 +1,1 @@
+Select *Provisioned Throughouput* for the throughput dialog.

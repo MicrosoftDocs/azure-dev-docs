@@ -4,7 +4,7 @@ description: Learn how to carry out various Ansible tasks with Bash in Azure Clo
 keywords: ansible, azure, devops, bash, cloudshell, playbook, bash
 ms.topic: quickstart
 ms.date: 08/28/2021
-ms.custom: devx-track-ansible
+ms.custom: devx-track-ansible, mode-portal
 ---
 
 # Get Started: Configure Ansible using Azure Cloud Shell

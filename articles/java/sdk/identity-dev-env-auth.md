@@ -87,7 +87,7 @@ SecretClient client = new SecretClientBuilder()
 
 ## Azure CLI credential
 
-The Visual Studio Code credential authenticates in a development environment with the enabled user or service principal in Azure CLI. It uses the Azure CLI given a user that is already logged into it, and uses the CLI to authenticate the application against Azure Active Directory.
+The Azure CLI credential authenticates in a development environment with the enabled user or service principal in Azure CLI. It uses the Azure CLI given a user that is already logged into it, and uses the CLI to authenticate the application against Azure Active Directory.
 
 ### Sign in Azure CLI for AzureCliCredential
 
@@ -133,7 +133,7 @@ SecretClient client = new SecretClientBuilder()
 
 ## IntelliJ credential
 
-The Visual Studio Code credential authenticates in a development environment with the account in Azure Toolkit for IntelliJ. It uses the logged in user information on the IntelliJ IDE and uses it to authenticate the application against Azure Active Directory.
+The IntelliJ credential authenticates in a development environment with the account in Azure Toolkit for IntelliJ. It uses the logged in user information on the IntelliJ IDE and uses it to authenticate the application against Azure Active Directory.
 
 ## Sign in Azure Toolkit for IntelliJ for IntelliJCredential
 

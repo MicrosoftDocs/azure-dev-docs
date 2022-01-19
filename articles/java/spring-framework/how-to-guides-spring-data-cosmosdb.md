@@ -88,7 +88,7 @@ If you are using Maven, add the following dependency.
 <dependency>
     <groupId>com.azure</groupId>
     <artifactId>azure-spring-data-cosmos</artifactId>
-    <version>3.9.0</version>
+    <version>3.13.1</version>
 </dependency>
 ```
 [//]: # ({x-version-update-end})
@@ -980,7 +980,7 @@ Please refer to [Single account with Multi-database sample project][sample-for-m
 ## Next steps
 
 - Read more about Azure spring data cosmos [here][azure_spring_data_cosmos_docs].
-- [Read more about Azure CosmosDB Service][cosmos_docs]
+- [Read more about Azure Cosmos DB Service][cosmos_docs]
 
 ## Contributing
 

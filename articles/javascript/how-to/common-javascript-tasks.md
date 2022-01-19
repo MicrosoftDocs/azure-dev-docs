@@ -24,16 +24,15 @@ Provide authentication.
 |MSAL Login/Logoff button using `@azure/msal-browser`|[React/TypeScript](../tutorial/single-page-application-azure-login-button-sdk-msal.md#5-add-login-and-logoff-buttons)|
 |MSAL React using `@azure/msal-browser` passing user credentials to Function API|[React and Azure Function API](with-authentication/static-web-app-with-api/add-mongodb-database-to-api.md#react-client-add-new-fetch-method-with-favoritecolor)|
 |MSAL Express.js using `@azure/msal-node`|[Express.js](./with-web-app/deploy-msal-sdk-authentication-expressjs.md#run-your-app-locally-to-verify-msal-authentication)|
-|Revoke AAD permission|[https://myapplications.microsoft.com/](https://myapplications.microsoft.com/)|
+|Revoke Azure AD permission|[https://myapplications.microsoft.com/](https://myapplications.microsoft.com/)|
 |Revoke Consumer permission|[https://account.live.com/consent/manage](https://account.live.com/consent/manage)
-|Login|[Azure CLI](../tutorial/deploy-deno-app-azure-app-service-azure-cli.md#2-sign-in-to-azure-cli)<br>[Visual Studio Code extension](../tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-01.md#sign-in-to-azure)|
 
 ## Azure Resource Groups
 
 |Task|using|
 |--|--|
-|Create resource group|[Azure CLI](../tutorial/static-web-app/create-computer-vision-resource-use-in-code.md#create-your-resource-group)<br>[TypeScript](with-web-app/azure-function-resource-group-management/add-delete-functions-redeploy.md#add-typescript-code-to-add-and-delete-resource-groups)|
-|Delete resource group|[Azure CLI](../tutorial/static-web-app/clean-up-resources.md)<br>[TypeScript](with-web-app/azure-function-resource-group-management/add-delete-functions-redeploy.md#add-typescript-code-to-add-and-delete-resource-groups)|
+|Create resource group|[Azure CLI](../tutorial/static-web-app-image-analysis.md#create-your-resource-group)<br>[TypeScript](with-web-app/azure-function-resource-group-management/add-delete-functions-redeploy.md#add-typescript-code-to-add-and-delete-resource-groups)|
+|Delete resource group|[Azure CLI](../tutorial/static-web-app-image-analysis.md)<br>[TypeScript](with-web-app/azure-function-resource-group-management/add-delete-functions-redeploy.md#add-typescript-code-to-add-and-delete-resource-groups)|
 |List resource groups|[TypeScript](with-web-app/azure-function-resource-group-management/create-function-app.md#list-all-resource-groups-in-subscription-with-javascript)|
 
 ## Apps
@@ -44,15 +43,14 @@ Provide authentication.
 
 |Task|using|
 |--|--|
-|Create Deno app|[Bash](../tutorial/deploy-deno-app-azure-app-service-azure-cli.md#3-create-local-deno-api-app)|
 |Create React app targeting JavaScript language|[Bash](/azure/static-web-apps/getting-started?tabs=react#create-a-static-web-app)|
 |Create React app targeting TypeScript language|[Bash](../tutorial/single-page-application-azure-login-button-sdk-msal.md#4-create-react-single-page-application-for-typescript)|
 |Create Vue app|[Bash](/azure/static-web-apps/getting-started?tabs=vue#create-a-static-web-app)|
-|Create Static Web Apps|[Visual Studio Code extension](../tutorial/static-web-app/create-static-web-app-visual-studio-code-extension.md#create-a-static-web-app-resource)<br>[Azure CLI](with-web-app/static-web-app-with-swa-cli/create-static-web-app.md?tabs=create-swa-azure-cli)|
-|Browse site|[Visual Studio Code extension](../tutorial/static-web-app/create-static-web-app-visual-studio-code-extension.md#view-azure-static-web-site-in-browser)|
+|Create Static Web Apps|[Visual Studio Code extension](../tutorial/static-web-app-image-analysis.md#create-a-static-web-app-resource)<br>[Azure CLI](with-web-app/static-web-app-with-swa-cli/create-static-web-app.md?tabs=create-swa-azure-cli)|
+|Browse site|[Visual Studio Code extension](../tutorial/static-web-app-image-analysis.md#view-azure-static-web-site-in-browser)|
 |Proxy SWA locally with SWA CLI|[SWA CLI](./with-web-app/static-web-app-with-swa-cli/connect-client-to-api.md)|
 |Authenticate SWA locally with SWA CLI|[SWA CLI](with-web-app/static-web-app-with-swa-cli/add-authentication.md#test-the-local-authentication-process-provided-by-swa-cli)|
-|Set Static Web app local environment variables|[Bash](../tutorial/static-web-app/create-computer-vision-resource-use-in-code.md#add-environment-variables-to-your-local-environment)|
+|Set Static Web app local environment variables|[Bash](../tutorial/static-web-app-image-analysis.md#add-environment-variables-to-your-local-environment)|
 
 
 
@@ -82,11 +80,11 @@ Provide authentication.
 |Create app, deploy, browser app, view logs|[Azure CLI](../tutorial/tutorial-vscode-azure-cli-node/tutorial-vscode-azure-cli-node-03.md)|
 |Configure web app to use database connection string|[Azure CLI](./with-azure-cli/create-mongodb-cosmosdb.md#configure-your-azure-web-app-with-the-connection-string)|
 |Configure web app to use container|[Azure CLI](./with-azure-cli/create-container-registry-resource.md#configure-web-app-to-use-container)|
-|Configure web app custom domain name|[Azure CLI](./with-azure-cli/configure-app-service-custom-domain-name.md#register-a-domain-name-with-your-azure-app)|
+|Configure web app custom domain name|[Azure portal and CLI](/azure/app-service/app-service-web-tutorial-custom-domain?tabs=a%2Cazurecli)|
 |Delete app resource|[Visual Studio Code extension](../tutorial/deploy-nodejs-mongodb-app-service-from-visual-studio-code.md#clean-up-resources)<br>[Azure CLI](../tutorial/tutorial-vscode-azure-cli-node/tutorial-vscode-azure-cli-node-07.md)|
 |Deploy or reploy app|[Visual Studio Code extension](deploy-web-app.md#deploy-or-redeploy-to-app-service-with-visual-studio-code)|
-|Get web app external IP|[Azure CLI](./with-azure-cli/configure-app-service-custom-domain-name.md#register-a-domain-name-with-your-azure-app)|
-|Purchase a domain name and configure DNS record|[Azure CLI](./with-azure-cli/configure-app-service-custom-domain-name.md#purchase-a-domain-name-and-configure-dns-record)|
+|Get web app external IP|[Azure portal and CLI](/azure/app-service/app-service-web-tutorial-custom-domain?tabs=a%2Cazurecli)|
+|Purchase a domain name and configure DNS record|[Azure portal and Azure CLI](/azure/app-service/app-service-web-tutorial-custom-domain?tabs=a%2Cazurecli)|
 |Stream remote logs|[Visual Studio Code extension](../tutorial/deploy-nodejs-azure-app-service-with-visual-studio-code.md?tabs=bash#7-stream-remote-service-logs-in-visual-studio-code)<br>[Azure CLI](../tutorial/tutorial-vscode-azure-cli-node/tutorial-vscode-azure-cli-node-05.md)|
 
 ## Cognitive Services
@@ -95,10 +93,10 @@ Provide authentication.
 
 |Task|using|
 |--|--|
-|Create Cognitive Services _ComputerVision_ resource|[Azure CLI](../tutorial/static-web-app/create-computer-vision-resource-use-in-code.md#create-azure-resources)|
-|Get Cognitive Services _ComputerVision_ resource|[Azure CLI](../tutorial/static-web-app/create-computer-vision-resource-use-in-code.md#create-azure-resources)|
-|Install Azure SDK|[Bash](../tutorial/static-web-app/add-computer-vision-react-app.md#add-computer-vision-to-local-react-app)|
-|Analyze image with [`@azure/cognitiveservices-computervision`](https://www.npmjs.com/package/@azure/cognitiveservices-computervision)|[Visual Studio Code](../tutorial/static-web-app/add-computer-vision-react-app.md#add-computer-vision-code-as-separate-module)|
+|Create Cognitive Services _ComputerVision_ resource|[Azure CLI](../tutorial/static-web-app-image-analysis.md#create-azure-resources)|
+|Get Cognitive Services _ComputerVision_ resource|[Azure CLI](../tutorial/static-web-app-image-analysis.md#create-azure-resources)|
+|Install Azure SDK|[Bash](../tutorial/static-web-app-image-analysis.md#add-computer-vision-to-local-react-app)|
+|Analyze image with [`@azure/cognitiveservices-computervision`](https://www.npmjs.com/package/@azure/cognitiveservices-computervision)|[Visual Studio Code](../tutorial/static-web-app-image-analysis.md#add-computer-vision-code-as-separate-module)|
 
 ## Containers including Docker tasks
 
@@ -210,9 +208,9 @@ Provide authentication.
 
 |Task|using|
 |--|--|
-|Create a local branch|[Visual Studio Code with Command Palette](./with-visual-studio-code/clone-github-repository.md#create-a-branch-for-changes-with-git-cl)<br>[Visual Studio Code with Status Bar](./with-visual-studio-code/clone-github-repository.md#create-a-branch-from-status-bar)|
+|Create a local branch|[Visual Studio Code with Command Palette](./with-visual-studio-code/clone-github-repository.md#create-a-branch-for-changes)|
 |Clone project from GitHub to local computer|[Visual Studio Code](with-visual-studio-code/install-run-debug-nodejs.md#clone-sample-project-to-local-computer)|
-|Push a local branch to remote repo|[Visual Studio Code with Status Bar](./with-visual-studio-code/clone-github-repository.md#push-a-local-branch-to-remote-from-status-bar)<br>[Visual Studio Code with Source Course extension](./with-visual-studio-code/clone-github-repository.md#push-a-local-branch-to-remote-from-the-source-control-extension)|
+|Push a local branch to remote repo|[Visual Studio Code](./with-visual-studio-code/clone-github-repository.md#push-a-local-branch-to-github)|
 
 ## GitHub 
 
@@ -220,8 +218,14 @@ Provide authentication.
 
 |Task|using|
 |--|--|
-|Add secrets|[Visual Studio Code](../tutorial/static-web-app/create-static-web-app-visual-studio-code-extension.md#create-a-static-web-app-resource)|
-|View build process|[GitHub website](../tutorial/static-web-app/create-static-web-app-visual-studio-code-extension.md#view-the-github-action-build-process)|
+|Add secrets|[Visual Studio Code](../tutorial/static-web-app-image-analysis.md#create-a-static-web-app-resource)|
+|View build process|[GitHub website](../tutorial/static-web-app-image-analysis.md#view-the-github-action-build-process)|
+
+## Key Vault
+
+|Task|using|
+|--|--|
+|Get secrets|[@azure/keyvault-secrets](with-web-app/use-secret-environment-variables.md#get-secret-from-key-vault-with-javascript)|
 
 
 ## Monitoring
@@ -294,7 +298,7 @@ Provide authentication.
 |Name | Description|
 |--|--|
 |React app with Function API|Locally build and deploy a React/TypeScript client application with an Azure Function API to an Azure Static Web App with a GitHub action.<br>[Tutorial](./with-web-app/static-web-app-with-swa-cli/introduction.md) - [Sample code](https://github.com/Azure-Samples/js-e2e-static-web-app-with-cli)|
-|React app using Cognitive Services|Locally build and deploy a React/TypeScript client application to an Azure Static Web App with a GitHub action.<br>[Tutorial](../tutorial/static-web-app/introduction.md) - [Sample code](https://github.com/Azure-Samples/js-e2e-client-cognitive-services)|
+|React app using Cognitive Services|Locally build and deploy a React/TypeScript client application to an Azure Static Web App with a GitHub action.<br>[Tutorial](../tutorial/static-web-app-image-analysis.md) - [Sample code](https://github.com/Azure-Samples/js-e2e-client-cognitive-services)|
 |React app uploading file to Azure Storage Blobs|This sample project is a TypeScript React (create-react-app) framework client app with an HTML form to select a file for upload to Azure Storage Blobs.<br>[Tutorial](../tutorial/browser-file-upload-azure-storage-blob.md) - [Sample code](https://github.com/Azure-Samples/js-e2e-browser-file-upload-storage-blob)|
 |React app with login button|The SPA built in this tutorial is a React app (create-react-app) with the following tasks:<br>* Login using a Microsoft-supported login such as Office 365 or Outlook.com<br>* Log off from the application<br>[Tutorial](../tutorial/single-page-application-azure-login-button-sdk-msal.md) - [Sample code](https://github.com/Azure-Samples/js-e2e-client-azure-login-button)|
 |Azure Function app with MongoDB|The MongoDB database functionality includes:<br>* Add item<br>* Delete item by ID<br>* Get item by ID<br>* Get all items<br><br>[Tutorial](../tutorial/vscode-function-app-http-trigger/tutorial-vscode-serverless-node-install.md?tabs=bash) - [Sample code](https://github.com/Azure-Samples/js-e2e-azure-function-mongodb)|

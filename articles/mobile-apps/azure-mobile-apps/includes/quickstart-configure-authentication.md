@@ -31,7 +31,7 @@ You will need the URL of the Azure Mobile Apps service. The backend URL was prov
 1. Enter a suitable description, select a validity duration, then select **Add**.
 1. Copy the secret on the **Certificates & secrets** page.  The value won't be displayed again.
 1. Select **Authentication**. 
-1. Under **Implicit grant**, enable **ID tokens**.
+1. Under **Implicit grant and hybrid flows**, enable **ID tokens**.
 1. Press **Save** at the top of the page.
 
 > [!IMPORTANT]
@@ -40,17 +40,18 @@ You will need the URL of the Azure Mobile Apps service. The backend URL was prov
 ### Configure Azure App Service Authentication and Authorization
 
 1. In the [Azure portal](https://portal.azure.com), select [**All Resources**](https://portal.azure.com/#blade/HubsExtension/BrowseAll), then your App Service.
-1. Select **Settings** > **Authentication / Authorization**.
-1. Ensure that **App Service Authentication** is **On**.
-1. Under **Authentication Providers**, select **Azure Active Directory**.
-1. Select **Advanced** under **Management mode**.
-1. Paste the Application (client) ID that you obtained earlier.
-1. Enter `https://login.microsoftonline.com/9188040d-6c67-4c5b-b112-36a304b66dad/v2.0` into the **Issuer Url** field.  This URL is the "magic tenant url" for Microsoft logins.
-1. Press **Show secret**.  Paste the client secret value into the field that appears.
-1. Select **OK**.
-1. Set **Action to take when request is not authenticated** to **Log in with Azure Active Directory**.
-1. In the **Allowed External Redirect URLs**, enter `zumoquickstart://easyauth.callback`.
-1. Select **Save**.
+1. Select **Settings** > **Authentication**.
+1. Press **Add identity provider**.
+2. Select **Microsoft** as the identity provider.  This will provide a form to fill in.
+3. For **App registration type**, select **Provide the details of an existing app registration**.
+4. Paste the values you copied earlier into the **Application (client) ID** and **Client secret** boxes.
+5. For **Issuer URL**, enter `https://login.microsoftonline.com/9188040d-6c67-4c5b-b112-36a304b66dad/v2.0`.  This URL is the "magic tenant url" for Microsoft logins.
+6. For **Restrict access**, select **Require authentication**.
+7. For **Unauthenticated request**, select **HTTP 401 Unauthorized**.
+8. Press **Add**.
+9. Once the authentication screen returns, press **Edit** next to Authentication settings.
+10. In the **Allowed external redirect URLs** box, enter `zumoquickstart://easyauth.callback`.
+11. Press **Save**.
 
 Step 10 requires that all users are authenticated before accessing your backend.  You can provide fine-grained controls by adding code to your backend.  For more information, see the Server SDK How-to for [Node.js](~/mobile-apps/azure-mobile-apps/howto/server/nodejs.md) or [ASP.NET Framework](~/mobile-apps/azure-mobile-apps/howto/server/dotnet-framework.md).
 

@@ -40,6 +40,12 @@ To solve this problem, set the `FUNCTIONS_WORKER_JAVA_LOAD_APP_LIBS` environment
 > [!NOTE]
 > This configuration applies to Azure Functions running Java 8 only, Functions running Java 11 don't need special configuration.
 
+### Configure Apache Spark
+
+The Azure SDK for Java supports multiple versions of Jackson, but issues can sometimes arise depending on your build tooling and its dependency resolution ordering. A good example of this is with Apache Spark 3.0.0 (and later), which depends on Jackson 2.10. While it is compatible with the Azure SDK for Java, developers often discover that a more recent version of Jackson is used instead, which results in incompatibilities. To mitigate this problem, you should pin a specific version of Jackson (one that is compatible with Spark). For more information, see the [Support for multiple Jackson versions](#support-for-multiple-jackson-versions) section in this article.
+
+If you use earlier versions of Spark, or if another library you use requires an even earlier version of Jackson that isn't supported by the Azure SDK for Java, continue reading this document for possible mitigation steps.
+
 ### Detect Jackson runtime version
 
 In Azure Core 1.21.0, we added runtime detection and better diagnostics of the Jackson runtime version.
@@ -47,6 +53,11 @@ In Azure Core 1.21.0, we added runtime detection and better diagnostics of the J
 If you see `LinkageError` (or any of its subclasses) related to the Jackson API, check the message of the exception for runtime version information. For example: `com.azure.core.implementation.jackson.JacksonVersionMismatchError: com/fasterxml/jackson/databind/cfg/MapperBuilder Package versions: jackson-annotations=2.9.0, jackson-core=2.9.0, jackson-databind=2.9.0, jackson-dataformat-xml=2.9.0, jackson-datatype-jsr310=2.9.0, azure-core=1.19.0-beta.2`
 
 Look for warning/error logs from `JacksonVersion`. For more information, see [Configure logging in the Azure SDK for Java](/azure/developer/java/sdk/logging-overview). For example: `[main] ERROR com.azure.core.implementation.jackson.JacksonVersion - Version '2.9.0' of package 'jackson-core' is not supported (too old), please upgrade.`
+
+> [!NOTE]
+> Check that all of the Jackson packages have the same version.
+
+For the list of packages used by Azure SDK and the supported Jackson versions, see the [Support for multiple Jackson versions](#support-for-multiple-jackson-versions) section.
 
 ## Mitigate version mismatch issues
 
@@ -93,11 +104,27 @@ For details on `azure-core`-specific dependencies and their versions, see [azure
 
 | Dependency | Supported versions |
 | ---------- | ------------------ |
-| Jackson    | 2.10.0 and newer minor versions are compatible. |
+| Jackson    | 2.10.0 and newer minor versions are compatible. For more information, see the [Support for multiple Jackson versions](#support-for-multiple-jackson-versions) section. |
 | SLF4J      | 1.7.* |
 | netty-tcnative-boringssl-static | 2.0.* |
 | netty-common | 4.1.* |
 | reactor-core | 3.X.* - Major and minor version numbers must exactly match the ones your `azure-core` version depends on. For more information, see the Project Reactor [policy on deprecations](https://github.com/reactor/.github/blob/main/SUPPORT.adoc#our-policy-on-deprecations). |
+
+### Support for multiple Jackson versions
+
+The Azure SDK for Java supports working with a range of Jackson versions. The lowest-supported version is Jackson 2.10.0. The Azure SDK for Java client libraries adjust their configuration and Jackson usage depending on the version that is detected at runtime. This adjustment enables greater compatibility with older versions of the Spring framework, Apache Spark, and other common environments.
+Applications can downgrade Jackson versions (to 2.10.0 or higher) without breaking Azure SDK for Java client libraries.
+
+> [!NOTE]
+> Using old versions of Jackson may expose applications to known vulnerabilities and issues. For more information, see the [list of known vulnerabilities for Jackson libraries](https://www.cvedetails.com/product-list/vendor_id-15866/Fasterxml.html).
+
+When pinning a specific version of Jackson, make sure to do it for all modules used by Azure SDK, which are shown in the following list:
+
+* `jackson-annotations`
+* `jackson-core`
+* `jackson-databind`
+* `jackson-dataformat-xml`
+* `jackson-datatype-jsr310`
 
 ## Next steps
 
