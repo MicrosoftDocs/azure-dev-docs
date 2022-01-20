@@ -81,7 +81,7 @@ Create a local Azure Functions (serverless) application that contains an [HTTP t
 
     | Filename | Description |
     | --- | --- |
-    | *index.js* |  The source code that responds to the HTTP request. |
+    | *index.ts* |  The source code that responds to the HTTP request. |
     | *function.json* | The [binding configuration](/azure/azure-functions/functions-triggers-bindings) for the HTTP trigger. |
     | *sample.dat* | A placeholder data file to demonstrate that you can have other files in the folder. You can delete this file, if desired, as it's not used in this tutorial. |
 
