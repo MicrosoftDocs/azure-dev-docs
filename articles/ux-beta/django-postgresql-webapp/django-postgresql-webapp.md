@@ -255,6 +255,60 @@ pollsdb=>
 
 ----
 
+## 3- Deploy your application code to Azure
+
+Azure App service supports multiple methods to deploy your application code to Azure including support for GitHub Actions and all major CI/CD tools. This article focuses on how to deploy your code from your local workstation to Azure.
+
+### [Deploy using VS Code](#tab/vscode-deploy)
+
+To deploy a web app from VS Code, you must have the [Azure Tools extension pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack) installed and be signed into Azure from VS Code.
+
+> [!div class="nextstepaction"]
+> [Download Azure Tools extension pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack)
+
+| Instructions    | Screenshot |
+|:----------------|-----------:|
+| [!INCLUDE [VS Code deploy step 1](<./includes/django-postgresql-webapp/deploy-vscode-1.md>)] | :::image type="content" source="./media/django-postgresql-webapp/deploy-vscode-1-240px.png" alt-text="A screenshot showing the location of the Azure Tools icon in the left toolbar of VS Code." lightbox="./media/django-postgresql-webapp/deploy-vscode-1.png"::: |
+| [!INCLUDE [VS Code deploy step 2](<./includes/django-postgresql-webapp/deploy-vscode-2.md>)] | :::image type="content" source="./media/django-postgresql-webapp/deploy-vscode-2-240px.png" alt-text="A screenshot showing the context menu of an App Service and the deploy to web app menu option." lightbox="./media/django-postgresql-webapp/deploy-vscode-2.png"::: |
+| [!INCLUDE [VS Code deploy step 3](<./includes/django-postgresql-webapp/deploy-vscode-3.md>)] | :::image type="content" source="./media/django-postgresql-webapp/deploy-vscode-3-240px.png" alt-text="A screenshot dialog in VS Code used to choose the app to deploy." lightbox="./media/django-postgresql-webapp/deploy-vscode-3.png"::: |
+| [!INCLUDE [VS Code deploy step 4](<./includes/django-postgresql-webapp/deploy-vscode-4.md>)] | :::image type="content" source="./media/django-postgresql-webapp/deploy-vscode-4-240px.png" alt-text="A screenshot of a dialog box in VS Code asking if you want to update your workspace to run build commands." lightbox="./media/django-postgresql-webapp/deploy-vscode-4.png"::: |
+| [!INCLUDE [VS Code deploy step 5](<./includes/django-postgresql-webapp/deploy-vscode-5.md>)] | :::image type="content" source="./media/django-postgresql-webapp/deploy-vscode-5-240px.png" alt-text="A screenshot showing the confirmation dialog when the app code has been deployed to Azure." lightbox="./media/django-postgresql-webapp/deploy-vscode-5.png"::: |
+
+### [Deploy using Local Git](#tab/local-git-deploy)
+
+[!INCLUDE [Deploy Local Git](<./includes/django-postgresql-webapp/deploy-local-git.md>)]
+
+### [Deploy using a ZIP file](#tab/zip-deploy)
+
+[!INCLUDE [Deploy using ZIP file](<./includes/django-postgresql-webapp/deploy-zip-file.md>)]
+
+----
+
+## 4 - Connect the app to the database
+
+With the code now deployed to App Service, the next step is to connect the app to the Postgres database in Azure.
+
+The app code expects to find database information in four environment variables named `DBHOST`, `DBNAME`, `DBUSER`, and `DBPASS`
+
+### [Azure CLI](#tab/cli-connect-app-to-db)
+
+To set environment variables in App Service, create "app settings" with the following [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_set) command.
+
+```azurecli
+az webapp config appsettings set --settings DBHOST="msdocs-django-postgres-db" DBNAME="pollsdb"  DBUSER="demoadmin" DBPASS="<password>"
+```
+
+| Argument | Value |
+| --- | --- |
+| DBHOST | Replace *\<postgres-server-name>* with the name you used earlier with the `az postgres up` command. The code in *azuresite/production.py* automatically appends `.postgres.database.azure.com` to create the full Postgres server URL. |
+| DBNAME | Enter `pollsdb`. |
+| DBUSER, DBPASS | Replace *\<username>* and *\<password>* with the administrator credentials that you used with the earlier `az postgres up` command, or those that `az postgres up` generated for you. The code in *azuresite/production.py* automatically constructs the full Postgres username from `DBUSER` and `DBHOST`, so don't include the `@server` portion. |
+
+>[!NOTE]
+> The resource group and app names are drawn from the cached values in the *.azure/config* file.
+
+----
+
 ## Clean up resources
 
 You can leave the app and database running as long as you want for further development work and skip ahead to [Next steps](#next-steps). Otherwise, to avoid incurring ongoing charges, delete the resource group created for this tutorial, which deletes all the resources contained within it:
