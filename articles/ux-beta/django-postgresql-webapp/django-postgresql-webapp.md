@@ -87,13 +87,13 @@ python manage.py runserver
 
 To host your application in Azure, you need to create Azure App Service web app in Azure. You can create a web app using the [Azure portal](https://portal.azure.com/), VS Code using the [Azure Tools extension pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack), or the Azure CLI.
 
-### [Azure CLI](#tab/azure-cli)
+### [Azure CLI](#tab/azure-cli-create-app)
 
 Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com) or on a workstation with the [Azure CLI installed](/cli/azure/install-azure-cli).
 
 <br />
 
-**Step 1.** Create a *resource group* using the [az group create](cli/azure/group?view=azure-cli-latest#az-group-create) command. A *resource group* will act as a container for all of the Azure resources related to this application.
+**Step 1.** Create a *resource group* using the [az group create](/cli/azure/group?view=azure-cli-latest#az-group-create) command. A *resource group* will act as a container for all of the Azure resources related to this application.
 
 ```azurecli
 LOCATION='eastus'
@@ -161,6 +161,97 @@ az webapp create \
 ## 2 - Create the Postgres database in Azure
 
 You can create a Postgres database in Azure using the [Azure portal](https://portal.azure.com/), Visual Studio Code, or the Azure CLI.
+
+### [Azure CLI](#tab/azure-cli-create-db)
+
+Run `az login` to sign in to  and follow these steps to create your Azure Database for PostgreSQL resource.
+
+<br />
+
+**Step 1.** Run the [az postgres up](/cli/azure/postgres#az_postgres_up) command to create the PostgreSQL server and database in Azure using the values below. (*Note: It is not uncommon for this command to run for a few minutes*)
+
+```azurecli
+DB_SERVER_NAME='msdocs-django-postgres-webapp-db'
+DB_NAME='pollsdb'
+ADMIN_USERNAME='demoadmin'
+ADMIN_PWD='<enter-admin-password>'
+
+az postgres server create --resource-group $RESOURCE_GROUP_NAME \
+                          --name $DB_SERVER_NAME  \
+                          --location $LOCATION \
+                          --admin-user $ADMIN_USERNAME \
+                          --admin-password $ADMIN_PWD \
+                          --sku-name B_Gen5_1 \
+                          --ssl-enforcement Enabled
+```
+
+| Setting | Value | Description |
+| --- | --- | --- |
+| resource-group | msdocs-django-postgres-webapp-rg | Use the same resource group name from **Step 1**. |
+| name | msdocs-django-postgres-webapp-db |  The PostgreSQL database server name. This name must be **unique across all Azure** (the server endpoint becomes `https://<name>.postgres.database.azure.com`). Allowed characters are `A`-`Z`, `0`-`9`, and `-`. A good pattern is to use a combination of your company name and and server identifier. |
+| location | eastus | Use the same location from **Step 1**. |
+| sku-name | B_Gen5_1 | Configure server compute and storage; Name of the pricing tier and compute configuration. Follow the convention {pricing tier}{compute generation}{vCores} in shorthand. For more information, see [Azure Database for PostgreSQL pricing](/pricing/details/postgresql/server/). |
+| admin-user | demoadmin | Username for the administrator login. It can't be **azure_superuser, admin, administrator, root, guest, or public**. |
+| admin-password | *secure password* | Password of the administrator user. It must contain 8 to 128 characters from three of the following categories: English uppercase letters, English lowercase letters, numbers, and non-alphanumeric characters. |
+| SSL enforcement | **Enabled** |
+
+> [!IMPORTANT]
+> When creating usernames or passwords **do not** use the `$` character. Later you create environment variables with these values where the `$` character has special meaning within the Linux container used to run Python apps.
+
+<br />
+
+**Step 2.** Configure the firewall rules on your server by using the [az postgres server firewall-rule create](/cli/azure/postgres/server/firewall-rule) command to give your local environment access to connect to the server.
+
+```azurecli
+az postgres server firewall-rule create --resource-group $RESOURCE_GROUP_NAME \
+                                        --server $DB_SERVER_NAME \
+                                        --name AllowMyIP \
+                                        --start-ip-address 192.168.0.1 \
+                                        --end-ip-address 192.168.0.1
+```
+
+| Setting | Value | Description |
+| --- | --- | --- |
+| resource-group | msdocs-django-postgres-webapp-rg  | Name of resource group from earlier in this tutorial.|
+| server | msdocs-django-postgres-webapp-db | Name of the server from **Step 1**. |
+| name | AllowMyIP | Name for firewall rule. |
+| start-ip-address, end-ip-address | 192.168.0.1, 192.168.0.1 |Replace the IP address or range of IP addresses that corresponds to where you'll be connecting from. If you don't know your IP address, go to [WhatIsMyIPAddress.com](https://whatismyipaddress.com/) to get it. |
+
+<br />
+
+**Step 3.** Get the connection information by using the [az postgres server show](/cli/azure/postgres/server/az-postgres-server-show). This command outputs a JSON object that contains different connection strings for the database along with the server URL. **Copy the administratorLogin and fullyQualifiedDomainName values to a temporary text file** as you need them later in this tutorial.
+
+```azurecli
+az postgres server show --name $DB_SERVER_NAME \
+                        -- resource-group $RESOURCE_GROUP_NAME
+```
+
+| Setting | Value | Description |
+| --- | --- | --- |
+| resource-group | msdocs-django-postgres-webapp-rg  | Name of resource group from earlier in this tutorial.|
+| name | msdocs-django-postgres-webapp-db | Name of the server from **Step 1**. |
+
+<br />
+
+**Step 4.** Connect to PostgreSQL server and create `pollsdb` database.
+
+```Console
+psql --host=msdocs-django-postgres-webapp-db.postgres.database.azure.com \
+     --port=5432 \
+     --username=demoadmin@msdocs-django-postgres-webapp-db \
+     --dbname=postgres
+
+postgres=> CREATE DATABASE pollsdb;
+```
+
+<br />
+
+**Step 5.** *(optional)* Verify `pollsdb` was successfully created by running  `\c pollsdb` to change the prompt from `postgre`  (default) to the new `pollsdb`.
+
+```Console
+postgres=> \c pollsdb
+pollsdb=>
+```
 
 ----
 
