@@ -276,7 +276,9 @@ The app code expects to find database information in four environment variables 
 To set environment variables in App Service, create "app settings" with the following [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_set) command.
 
 ```azurecli
-az webapp config appsettings set --settings DBHOST="msdocs-django-postgres-db" DBNAME="pollsdb"  DBUSER="demoadmin" DBPASS="<password>"
+az webapp config appsettings set --resource-group $RESOURCE_GROUP_NAME \
+                                 --name $APP_SERVICE_NAME \
+                                 --settings DBHOST=$DB_SERVER_NAME DBNAME=$DB_NAME  DBUSER=$ADMIN_USERNAME DBPASS=$ADMIN_PWD
 ```
 
 | Argument | Value |
@@ -290,12 +292,117 @@ az webapp config appsettings set --settings DBHOST="msdocs-django-postgres-db" D
 
 ----
 
+## 5 - Migrate app database
+
+Django database migrations ensure that the schema in the PostgreSQL on Azure database match those described in your code.
+
+**Step 1.** Run `az webpp ssh` to open an SSH session for the web app in the browser:
+
+```azurecli
+az webapp ssh --resource-group $RESOURCE_GROUP_NAME \
+              --name $APP_SERVICE_NAME
+```
+
+**Step 2.** In the SSH session, run the following commands (you can paste commands using **Ctrl**+**Shift**+**V**):
+
+```bash
+# Run database migrations
+python manage.py migrate
+
+# Create the super user (follow prompts)
+python manage.py createsuperuser
+```
+
+If you encounter any errors related to connecting to the database, check the values of the application settings created in the previous section.
+
+**Step 3.** The `createsuperuser` command prompts you for superuser credentials. For the purposes of this tutorial, use the default username `root`, press **Enter** for the email address to leave it blank, and enter `Pollsdb1` for the password.
+
+**Step 4.** If you see an error that the database is locked, make sure that you ran the `az webapp settings` command in the previous section. Without those settings, the migrate command cannot communicate with the database, resulting in the error.
+
+> [!NOTE]
+> If you cannot connect to the SSH session, then the app itself has failed to start. **Check the diagnostic logs** for details. For example, if you haven't created the necessary app settings in the previous section, the logs will indicate `KeyError: 'DBNAME'`.
+
+## 6 - Browse to the app
+
+Browse to the deployed application in your web browser at the URL `http://<app-name>.azurewebsites.net`. It can take a minute or two for the the app to start, so if you see a default app page, wait a minute and refresh the browser.
+
+The Python sample code is running a Linux container in App Service using a built-in image.
+
+**Congratulations!** You've deployed your Python app to App Service.
+
+## 7 - Stream diagnostic logs
+
+You can access the console logs generated from inside the container that hosts the app on Azure.
+
+The contents of the App Service diagnostic logs can be reviewed in the Azure portal, VS Code, or using the Azure CLI.
+
+### [Azure CLI](#tab/azure-cli)
+
+Run the following Azure CLI commands to see the log stream. This command uses parameters cached in the .azure/config file.
+
+**Step 1.** Configure Azure App Service to output logs to the App Service filesystem using the [az webapp log config](/cli/azure/webapp/log#az_webapp_log_config) command.
+
+```azurecli
+az webapp log config \
+    --web-server-logging 'filesystem' \
+    --name $APP_SERVICE_NAME \
+    --resource-group $RESOURCE_GROUP_NAME
+```
+
+**Step 2.** To stream logs, use the [az webapp log tail](/cli/azure/webapp/log#az_webapp_log_tail) command.
+
+```azurecli
+az webapp log tail \
+    --name $APP_SERVICE_NAME \
+    --resource-group $RESOURCE_GROUP_NAME
+```
+
+**Step 3.** Refresh the home page in the app or attempt other requests to generate some log messages. The output should look similar to the following.
+
+```Output
+Starting Live Log Stream ---
+
+2021-12-23T02:15:52.740703322Z Request for index page received
+2021-12-23T02:15:52.740740222Z 169.254.130.1 - - [23/Dec/2021:02:15:52 +0000] "GET / HTTP/1.1" 200 1360 "https://msdocs-django-python-webapp.azurewebsites.net/hello" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:95.0) Gecko/20100101 Firefox/95.0"
+2021-12-23T02:15:52.841043070Z 169.254.130.1 - - [23/Dec/2021:02:15:52 +0000] "GET /static/bootstrap/css/bootstrap.min.css HTTP/1.1" 200 0 "https://msdocs-django-python-webapp.azurewebsites.net/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:95.0) Gecko/20100101 Firefox/95.0"
+2021-12-23T02:15:52.884541951Z 169.254.130.1 - - [23/Dec/2021:02:15:52 +0000] "GET /static/images/azure-icon.svg HTTP/1.1" 200 0 "https://msdocs-django-python-webapp.azurewebsites.net/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:95.0) Gecko/20100101 Firefox/95.0"
+2021-12-23T02:15:53.043211176Z 169.254.130.1 - - [23/Dec/2021:02:15:53 +0000] "GET /favicon.ico HTTP/1.1" 404 232 "https://msdocs-django-python-webapp.azurewebsites.net/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:95.0) Gecko/20100101 Firefox/95.0"
+
+2021-12-23T02:16:01.304306845Z Request for hello page received with name=David
+2021-12-23T02:16:01.304335945Z 169.254.130.1 - - [23/Dec/2021:02:16:01 +0000] "POST /hello HTTP/1.1" 200 695 "https://msdocs-django-python-webapp.azurewebsites.net/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:95.0) Gecko/20100101 Firefox/95.0"
+2021-12-23T02:16:01.398399251Z 169.254.130.1 - - [23/Dec/2021:02:16:01 +0000] "GET /static/bootstrap/css/bootstrap.min.css HTTP/1.1" 304 0 "https://msdocs-django-python-webapp.azurewebsites.net/hello" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:95.0) Gecko/20100101 Firefox/95.0"
+2021-12-23T02:16:01.430740060Z 169.254.130.1 - - [23/Dec/2021:02:16:01 +0000] "GET /static/images/azure-icon.svg HTTP/1.1" 304 0 "https://msdocs-django-python-webapp.azurewebsites.net/hello" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:95.0) Gecko/20100101 Firefox/95.0"
+```
+
+----
+
 ## Clean up resources
 
-You can leave the app and database running as long as you want for further development work and skip ahead to [Next steps](#next-steps). Otherwise, to avoid incurring ongoing charges, delete the resource group created for this tutorial, which deletes all the resources contained within it:
+You can leave the app and database running as long as you want for further development work and skip ahead to [Next steps](#next-steps).
+
+However, when you are finished with the sample app, you can remove all of the resources for the app from Azure to insure you do not incur additional charges and keep your Azure subscription uncluttered. Removing the resource group also removes all resources in the resource group and is the fastest way to remove all Azure resources for your app.
 
 ### [Azure CLI](#tab/azure-cli-cleanup)
+
+Delete the resource group by using the [az group delete](/cli/azure/group#az_group_delete) command.
+
+```azurecli
+az group delete \
+    --name msdocs-django-postgres-webapp-rg \
+    --no-wait
+```
+
+The `--no-wait` argument allows the command to return before the operation is complete.
 
 ----
 
 ## Next Steps
+
+> [!div class="nextstepaction"]
+> [Configure Python app](/azure/app-service/configure-language-python.md)
+
+> [!div class="nextstepaction"]
+> [Add user sign-in to a Python web app](/azure/active-directory/develop/quickstart-v2-python-webapp.md)
+
+> [!div class="nextstepaction"]
+> [Tutorial: Run Python app in custom container](/azure/app-service/tutorial-custom-container.md)
