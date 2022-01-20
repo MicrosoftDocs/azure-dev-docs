@@ -87,6 +87,17 @@ python manage.py runserver
 
 To host your application in Azure, you need to create Azure App Service web app in Azure. You can create a web app using the [Azure portal](https://portal.azure.com/), VS Code using the [Azure Tools extension pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack), or the Azure CLI.
 
+Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps to create your Azure Database for PostgreSQL resource.\
+&nbsp;
+
+| Instructions    | Screenshot |
+|:----------------|-----------:|
+| [!INCLUDE [Create a new Azure resource in the Azure Portal](<./includes/django-postgresql-webapp/create-app-service-azure-portal-1.md>)] | :::image type="content" source="./media/django-postgresql-webapp/create-app-service-azure-portal-1-240px.png" lightbox="./media/django-postgresql-webapp/create-app-service-azure-portal-1.png" alt-text="Create a new Azure resource in the Azure Portal." ::: |
+| [!INCLUDE [Choose Azure Database for PostgreSQL in the Azure Portal](<./includes/django-postgresql-webapp/create-app-service-azure-portal-2.md>)] | :::image type="content" source="./media/django-postgresql-webapp/create-app-service-azure-portal-2-240px.png" lightbox="./media/django-postgresql-webapp/create-app-service-azure-portal-2.png" alt-text="Choose Azure Database for PostgreSQL in the Azure Portal." ::: |
+| [!INCLUDE [Choose Single Server in the Azure Portal](<./includes/django-postgresql-webapp/create-app-service-azure-portal-3.md>)] | :::image type="content" source="./media/django-postgresql-webapp/create-app-service-azure-portal-3-240px.png" lightbox="./media/django-postgresql-webapp/create-app-service-azure-portal-3.png" alt-text="Choose Single Server in the Azure Portal." ::: |
+| [!INCLUDE [Configure Azure Database for PostgreSQL in the Azure Portal](<./includes/django-postgresql-webapp/create-app-service-azure-portal-4.md>)] | :::image type="content" source="./media/django-postgresql-webapp/create-app-service-azure-portal-4-240px.png" lightbox="./media/django-postgresql-webapp/create-app-service-azure-portal-4.png" alt-text="Configure Azure Database for PostgreSQL in the Azure Portal." ::: |
+| [!INCLUDE [Review Azure Database for PostgreSQL Configuration in the Azure Portal](<./includes/django-postgresql-webapp/create-app-service-azure-portal-5.md>)] | :::image type="content" source="./media/django-postgresql-webapp/create-app-service-azure-portal-5-240px.png" lightbox="./media/django-postgresql-webapp/create-app-service-azure-portal-5.png" alt-text="Review Azure Database for PostgreSQL Configuration in the Azure Portal." ::: |
+
 ### [Azure CLI](#tab/azure-cli-create-app)
 
 Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com) or on a workstation with the [Azure CLI installed](/cli/azure/install-azure-cli).
@@ -293,6 +304,8 @@ az webapp config appsettings set --resource-group $RESOURCE_GROUP_NAME \
 ----
 
 ## 5 - Migrate app database
+
+### [Azure CLI](#tab/azure-cli-db-migrate)
 
 Django database migrations ensure that the schema in the PostgreSQL on Azure database match those described in your code.
 
