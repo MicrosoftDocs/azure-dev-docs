@@ -87,6 +87,8 @@ python manage.py runserver
 
 To host your application in Azure, you need to create Azure App Service web app in Azure. You can create a web app using the [Azure portal](https://portal.azure.com/), VS Code using the [Azure Tools extension pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack), or the Azure CLI.
 
+### [Azure portal](#tab/azure-portal-create-app)
+
 Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps to create your Azure Database for PostgreSQL resource.\
 &nbsp;
 
@@ -282,6 +284,10 @@ pollsdb=>
 ## 3- Deploy your application code to Azure
 
 Azure App service supports multiple methods to deploy your application code to Azure including support for GitHub Actions and all major CI/CD tools. This article focuses on how to deploy your code from your local workstation to Azure.
+
+### [Deploy using Local Git](#tab/local-git-deploy)
+
+[!INCLUDE [Deploy Local Git](<./includes/django-postgresql-webapp/deploy-local-git.md>)]
 
 ### [Deploy using a ZIP file](#tab/zip-deploy)
 
