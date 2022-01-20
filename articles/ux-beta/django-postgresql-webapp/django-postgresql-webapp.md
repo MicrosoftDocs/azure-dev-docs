@@ -173,6 +173,19 @@ az webapp create \
 
 You can create a Postgres database in Azure using the [Azure portal](https://portal.azure.com/), Visual Studio Code, or the Azure CLI.
 
+### [Azure portal](#tab/azure-portal-create-webapp)
+
+Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps to create your Azure App Service resources.
+
+| Instructions    | Screenshot |
+|:----------------|-----------:|
+| [!INCLUDE [Create a new Azure resource in the Azure Portal](<./includes/e2e-python-django-app-postgresql/create-webapp-service/portal-create-webapp-1.md>)] | :::image type="content" source="./media/django-postgresql-webapp/create-postgres-service-azure-portal-1-240px.png" lightbox="./media/django-postgresql-webapp/create-postgres-service-azure-portal-1.png" alt-text="Create a new Azure resource in the Azure Portal." ::: |
+| [!INCLUDE [Create a new Azure resource in the Azure Portal](<./includes/django-postgresql-webapp/portal-create-webapp-2.md>)] | :::image type="content" source="./media/django-postgresql-webapp/create-postgres-service-azure-portal-2-240px.png" lightbox="./media/django-postgresql-webapp/create-postgres-service-azure-portal-2.png" alt-text="Create a new Azure resource in the Azure Portal." ::: |
+| [!INCLUDE [Create a new Azure resource in the Azure Portal](<./includes/django-postgresql-webapp/portal-create-webapp-3.md>)] | :::image type="content" source="./media/django-postgresql-webapp/create-postgres-service-azure-portal-3-240px.png" lightbox="./media/django-postgresql-webapp/create-postgres-service-azure-portal-3.png" alt-text="Create a new Azure resource in the Azure Portal." ::: |
+| [!INCLUDE [Create a new Azure resource in the Azure Portal](<./includes/e2e-python-django-app-postgresql/create-webapp-service/portal-create-webapp-4.md>)] | :::image type="content" source="./media/django-postgresql-webapp/create-postgres-service-azure-portal-4-240px.png" lightbox="./media/django-postgresql-webapp/create-postgres-service-azure-portal-4.png" alt-text="Create a new Azure resource in the Azure Portal." ::: |
+| [!INCLUDE [Create a new Azure resource in the Azure Portal](<./includes/django-postgresql-webapp/create-postgres-service-azure-portal-5.md>)] | :::image type="content" source="./media/django-postgresql-webapp/create-postgres-service-azure-portal-5-240px.png" lightbox="./media/django-postgresql-webapp/create-postgres-service-azure-portal-5.png" alt-text="Create a new Azure resource in the Azure Portal." ::: |
+| [!INCLUDE [Create a new Azure resource in the Azure Portal](<./includes/django-postgresql-webapp/create-postgres-service-azure-portal-6.md>)] | :::image type="content" source="./media/django-postgresql-webapp/create-postgres-service-azure-portal-6-240px.png" lightbox="./media/django-postgresql-webapp/create-postgres-service-azure-portal-6.png" alt-text="Create a new Azure resource in the Azure Portal." ::: |
+
 ### [Azure CLI](#tab/azure-cli-create-db)
 
 Run `az login` to sign in to  and follow these steps to create your Azure Database for PostgreSQL resource.
