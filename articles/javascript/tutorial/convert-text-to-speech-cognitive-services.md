@@ -121,7 +121,7 @@ Highlighted lines in the file:
 
 * Line 74: The Azure Speech SDK is pulled into the client library, using the `cdn.jsdelivr.net` site to deliver the NPM package. 
 * Line 102: The `updateSrc` method updates the audio controls' `src` URL with the querystring including the key, region, and text. 
-* Line 137: If a user selects the `Get directly from Azure` button, the web page calls directly to Azure from the client page and process the result. 
+* Line 137: If a user selects the `Get directly from Azure` button, the web page calls directly to Azure from the client page and processes the result. 
 
 ## Create Cognitive Services Speech resource
 
