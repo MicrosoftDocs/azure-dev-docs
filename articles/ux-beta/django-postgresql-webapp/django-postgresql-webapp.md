@@ -93,7 +93,7 @@ Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com
 
 <br />
 
-**Step 1.** Create a *resource group* using the [az group create](/cli/azure/group?view=azure-cli-latest#az-group-create) command. A *resource group* will act as a container for all of the Azure resources related to this application.
+**Step 1.** Create a *resource group* using the [az group create](/cli/azure/group/az-group-create) command. A *resource group* will act as a container for all of the Azure resources related to this application.
 
 ```azurecli
 LOCATION='eastus'
@@ -193,7 +193,7 @@ az postgres server create --resource-group $RESOURCE_GROUP_NAME \
 | sku-name | B_Gen5_1 | Configure server compute and storage; Name of the pricing tier and compute configuration. Follow the convention {pricing tier}{compute generation}{vCores} in shorthand. For more information, see [Azure Database for PostgreSQL pricing](/pricing/details/postgresql/server/). |
 | admin-user | demoadmin | Username for the administrator login. It can't be **azure_superuser, admin, administrator, root, guest, or public**. |
 | admin-password | *secure password* | Password of the administrator user. It must contain 8 to 128 characters from three of the following categories: English uppercase letters, English lowercase letters, numbers, and non-alphanumeric characters. |
-| SSL enforcement | **Enabled** |
+| SSL enforcement | **Enabled** | |
 
 > [!IMPORTANT]
 > When creating usernames or passwords **do not** use the `$` character. Later you create environment variables with these values where the `$` character has special meaning within the Linux container used to run Python apps.
@@ -233,7 +233,7 @@ az postgres server show --name $DB_SERVER_NAME \
 
 <br />
 
-**Step 4.** Connect to PostgreSQL server and create `pollsdb` database.
+**Step 4.** In the Azure Cloud Shell or in your local environment connect to the PostgreSQL server and create `pollsdb` database.
 
 ```Console
 psql --host=msdocs-django-postgres-webapp-db.postgres.database.azure.com \
