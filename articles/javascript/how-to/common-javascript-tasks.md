@@ -209,7 +209,7 @@ Provide authentication.
 |Task|using|
 |--|--|
 |Create a local branch|[Visual Studio Code with Command Palette](./with-visual-studio-code/clone-github-repository.md#create-a-branch-for-changes)|
-|Clone project from GitHub to local computer|[Visual Studio Code](with-visual-studio-code/install-run-debug-nodejs.md#clone-sample-project-to-local-computer)|
+|Clone project from GitHub to local computer|[Visual Studio Code](./with-visual-studio-code/install-run-debug-nodejs.md)|
 |Push a local branch to remote repo|[Visual Studio Code](./with-visual-studio-code/clone-github-repository.md#push-a-local-branch-to-github)|
 
 ## GitHub 
@@ -259,7 +259,7 @@ Provide authentication.
 
 |Task|using|
 |--|--|
-|Integrated terminal|[Visual Studio Code](./with-visual-studio-code/install-run-debug-nodejs.md#use-the-integrated-bash-terminal-to-install-dependencies)|
+|Integrated terminal|[Visual Studio Code](./with-visual-studio-code/install-run-debug-nodejs.md)|
 
 ## Virtual machines
 
