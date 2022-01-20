@@ -158,7 +158,7 @@ You must be signed in to the [Azure portal](https://portal.azure.com/) to comple
 
 ### [Azure CLI](#tab/azure-cli)
 
-A new Azure Cosmos DB account is created by using the [az cosmosdb create](/cli/azure/cosmosdbaz_cosmosdb_create) command.
+A new Azure Cosmos DB account is created by using the [az cosmosdb create](/cli/azure/cosmosdb#az-cosmosdb-create) command.
 
 * The name of the Cosmos DB account must be unique across Azure. The name can only contain lowercase letters, numbers, and the hyphen (-) character and must be between 3 and 50 characters long.
 * The `--kind MongoDB` flag tells Azure to create a Cosmos DB that is compatible with the MongoDB API.  This flag must be included for your Cosmos DB to work as a MongoDB database.
