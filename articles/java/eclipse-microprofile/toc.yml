@@ -11,6 +11,8 @@
         items:
         - name: Deploy Quarkus
           href: deploy-microprofile-quarkus-java-app-with-maven-plugin.md
+        - name: Deploy Open Liberty
+          href: deploy-microprofile-open-liberty-java-app-with-maven-plugin.md
         - name: Deploy Helidon
           href: deploy-microprofile-helidon-java-app-with-maven-plugin.md
         - name: Deploy Payara Micro

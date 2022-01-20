@@ -2,7 +2,7 @@
 title: Spring Boot Starters for Azure
 description: This article describes the various Spring Boot Starters that are available for Azure.
 documentationcenter: java
-ms.date: 09/29/2020
+ms.date: 01/19/2022
 ms.service: multiple
 ms.tgt_pltfrm: multiple
 ms.topic: article

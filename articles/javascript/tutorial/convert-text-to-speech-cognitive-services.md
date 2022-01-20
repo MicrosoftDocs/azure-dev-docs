@@ -28,7 +28,7 @@ The tutorial takes a minimal Express.js app and adds functionality using a combi
 This application provides three different calls to convert speech to text:
 
 * The first server call creates a file on the server then returns it to the client. You would typically use this for longer text or text you know should be served more than once. 
-* The second server call is for shorter term text and is help in-memory before returned to the client. 
+* The second server call is for shorter term text and is held in-memory before returned to the client. 
 * The client call demonstrates a direct call to the Speech service using the SDK. You may choose to make this call if you have a client-only application without a server. 
 
 ## Prerequisites
@@ -121,7 +121,7 @@ Highlighted lines in the file:
 
 * Line 74: The Azure Speech SDK is pulled into the client library, using the `cdn.jsdelivr.net` site to deliver the NPM package. 
 * Line 102: The `updateSrc` method updates the audio controls' `src` URL with the querystring including the key, region, and text. 
-* Line 137: If a user selects the `Get directly from Azure` button, the web page calls directly to Azure from the client page and process the result. 
+* Line 137: If a user selects the `Get directly from Azure` button, the web page calls directly to Azure from the client page and processes the result. 
 
 ## Create Cognitive Services Speech resource
 
