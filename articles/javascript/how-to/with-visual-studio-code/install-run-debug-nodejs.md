@@ -15,7 +15,7 @@ Learn the steps to developer and debug your JavaScript Node.js project with Visu
 1. Install [Visual Studio Code](https://code.visualstudio.com/). 
 1. Install [git](https://git-scm.com/). Visual Studio Code integrates with git to provide *Source Control* management in the [Side Bar](https://code.visualstudio.com/docs/getstarted/userinterface).
 
-1. Add environment variables needed. This article uses assumes a mongoDB database connection string.
+1. Add environment variables needed. The examples in this article use a mongoDB database connection string.
 
     If you don't have a mongoDB database available, you can:
     * Choose to run this local project in a multi-container configuration where one of the containers is a mongoDB database. Install the [Docker](https://www.docker.com/) and [Remote - Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) extension to get a multi-container configure with one of the containers running a local mongoDB database. 
@@ -37,7 +37,7 @@ To get started, clone the sample project using the following steps:
 
 1. Select (or create) the local directory into which you want to clone the project.
 
-    :::image type="content" source="../../media/node-howto-e2e/visual-studio-code-mongodb-explorer.png" alt-text="Partial screenshot of Visual Studio Code showing the file explorer for a Node.js and MongoDB project.":::
+    :::image type="content" source="../../media/node-howto-e2e/visual-studio-code-mongodb-explorer.png" alt-text="Partial screenshot of Visual Studio Code showing the file explorer for a Node J S and Mongo D B project.":::
 
 ## Install dependencies
 
@@ -97,7 +97,7 @@ Open a browser, and navigate to `http://localhost:8080` to see the running app. 
 
 In addition to being able to run the app and interact with it via the integrated console, you can set breakpoints directly within your code. For example, enter <kbd>Ctrl</kbd> + <kbd>P</kbd> to display the file picker. Once the file picker displays, and select the *server.js* file.
 
-Set a breakpoint on line 53, which is the if statement in the route for adding a new item. To set a breakpoint, simply click the area to the left of the line number within the editor as shown in the following figure.
+Set a breakpoint on line 53, which is the `if` statement in the route for adding a new item. To set a breakpoint, simply click the area to the left of the line number within the editor as shown in the following figure.
 
 ![Setting a breakpoint within Visual Studio Code](../../media/node-howto-e2e/visual-studio-code-set-breakpoint.png)
 
@@ -170,11 +170,11 @@ Return to the running app, add a new to-do entry, and notice that Visual Studio 
 
 Like Node.js debugging, you can hover your mouse over expressions, view locals/watches, evaluate expressions in the console, and so on. 
 
-There are two cools things to note:
+There are two cool things to notice:
 
-1. The **Call Stack** pane displays two different stacks: **Node** and **Chrome**, and indicates which one is currently paused.
+- The **Call Stack** pane displays two different stacks: **Node** and **Chrome**, and indicates which one is currently paused.
 
-1. You can step between front and back-end code: press **F5**, which will run and hit the breakpoint previously set in the Express route.
+- You can step between front and back-end code: press **F5**, which will run and hit the breakpoint previously set in the Express route.
 
 With this setup, you can now efficiently debug front, back, or full-stack JavaScript code directly within Visual Studio Code.
 
