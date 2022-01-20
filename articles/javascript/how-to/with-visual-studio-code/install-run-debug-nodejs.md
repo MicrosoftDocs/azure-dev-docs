@@ -118,7 +118,7 @@ While you were able to run and debug the Node.js code without any Visual Studio 
 
 This sample app includes a `launch.json` that includes these debug settings:
 
-:::code language="JavaScript" source="~/../js-e2e-express-mongodb/blob/main/.vscode/launch.json":::
+:::code language="JavaScript" source="~/../js-e2e-express-mongodb/main/.vscode/launch.json":::
 
 Visual Studio Code was able to detect that the app's startup script is *server.js*.
 
