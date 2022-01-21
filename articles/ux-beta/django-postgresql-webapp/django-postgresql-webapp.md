@@ -118,10 +118,10 @@ az group create \
     --name $RESOURCE_GROUP_NAME
 ```
 
-| Setting | Value |
-| --- | --- |
-| name | Enter `msdocs-django-postgres-webapp-rg`. You will use this resource to create all the Azure resources needed to complete this tutorial. |
-| location | A location near you. (Use `az account list-locations --output table` to list locations) |
+| Setting | Value | Description |
+| --- | --- | --- |
+| name | `msdocs-django-postgres-webapp-rg` | You will use this resource to create all the Azure resources needed to complete this tutorial. |
+| location | eastus | A location near you. (Use `az account list-locations --output table` to list locations) |
 
 <br />
 
@@ -137,12 +137,12 @@ az appservice plan create \
     --is-linux
 ```
 
-| Setting | Value |
-| --- | --- |
-| name | Enter a name for the Azure Web App plan.  |
-| resource-group | Use the same resource group name from **Step 1**. |
-| sku |  Defines the size (CPU, memory) and cost of the app service plan.  This example uses the B1 (Basic) service plan which will incur a small cost in your Azure subscription. For a full list of App Service plans, view the [App Service pricing](https://azure.microsoft.com/pricing/details/app-service/linux/) page. |
-| is-linux | Selects the Linux as the host operating system. |
+| Setting | Value | Description |
+| --- | --- | --- |
+| name | msdocs-django-postgres-webapp-plan | Enter a name for the Azure Web App plan.  |
+| resource-group | msdocs-django-postgres-webapp-rg | Use the same resource group name from **Step 1**. |
+| sku | B1 | Defines the size (CPU, memory) and cost of the app service plan.  This example uses the B1 (Basic) service plan which will incur a small cost in your Azure subscription. For a full list of App Service plans, view the [App Service pricing](https://azure.microsoft.com/pricing/details/app-service/linux/) page. |
+| is-linux | *N/A* | Selects Linux as the host operating system. |
 
 <br/>
 
@@ -160,14 +160,12 @@ az webapp create \
     --output table
 ```
 
-| Setting | Value |
-| --- | --- |
-| name | The *app service name* is used as both the name of the resource in Azure and to form the fully qualified domain name for your app in the form of the server endpoint `https://<app service name>.azurewebsites.com`. This name must be **unique across all Azure** and the only allowed characters are `A`-`Z`, `0`-`9`, and `-`.  |
-| runtime | The runtime specifies what version of Python your app is running. This example uses Python 3.8. To list all available runtimes, use the command `az webapp list-runtimes --linux --output table`. |
-| plan | Use the same *app service plan* name from **Step 2**. |
-| resource-group | Use the same resource group name from **Step 1**. |
-| query | JMESPath query string. See http://jmespath.org/ for more information and examples. |
-| output | Output format. |
+| Setting | Value | Description |
+| --- | --- | --- |
+| name | msdocs-django-postgres-webapp | The *app service name* is used as both the name of the resource in Azure and to form the fully qualified domain name for your app in the form of the server endpoint `https://<app service name>.azurewebsites.com`. This name must be **unique across all Azure** and the only allowed characters are `A`-`Z`, `0`-`9`, and `-`.  |
+| runtime | Python 3.9 | The runtime specifies what version of Python your app is running. This example uses Python 3.9. To list all available runtimes, use the command `az webapp list-runtimes --linux --output table`. |
+| plan | msdocs-django-postgres-webapp-plan | Use the same *app service plan* name from **Step 2**. |
+| resource-group | msdocs-django-postgres-webapp-rg | Use the same resource group name from **Step 1**. |
 
 ----
 
@@ -218,7 +216,7 @@ az postgres server create --resource-group $RESOURCE_GROUP_NAME \
 | sku-name | B_Gen5_1 | Configure server compute and storage; Name of the pricing tier and compute configuration. Follow the convention {pricing tier}{compute generation}{vCores} in shorthand. For more information, see [Azure Database for PostgreSQL pricing](/pricing/details/postgresql/server/). |
 | admin-user | demoadmin | Username for the administrator login. It can't be **azure_superuser, admin, administrator, root, guest, or public**. |
 | admin-password | *secure password* | Password of the administrator user. It must contain 8 to 128 characters from three of the following categories: English uppercase letters, English lowercase letters, numbers, and non-alphanumeric characters. |
-| SSL enforcement | **Enabled** | |
+| SSL enforcement | **Enabled** | Enable or disable ssl enforcement for connections to server. |
 
 > [!IMPORTANT]
 > When creating usernames or passwords **do not** use the `$` character. Later you create environment variables with these values where the `$` character has special meaning within the Linux container used to run Python apps.
@@ -280,11 +278,18 @@ pollsdb=>
 
 ----
 
-## 4 - Connect the app to the database
+## 3 - Connect the app to the database
 
 With the code now deployed to App Service, the next step is to connect the app to the Postgres database in Azure.
 
 The app code expects to find database information in four environment variables named `DBHOST`, `DBNAME`, `DBUSER`, and `DBPASS`
+
+### [Azure portal](#tab/azure-portal-connect-app-to-db)
+
+| Instructions    | Screenshot |
+|:----------------|-----------:|
+| [!INCLUDE [A screenshot showing how to navigate to App Settings](<./includes/django-postgresql-webapp/connect-postgres-to-app-azure-portal-1.md>)] | :::image type="content" source="./media/django-postgresql-webapp/connect-postgres-to-app-azure-portal-1-240px.png" lightbox="./media/django-postgresql-webapp/connect-postgres-to-app-azure-portal-1.png" alt-text="A screenshot showing how to navigate to App Settings." ::: |
+| [!INCLUDE [A screenshot showing how to configure the App Settings](<./includes/django-postgresql-webapp/connect-postgres-to-app-azure-portal-2.md>)] | :::image type="content" source="./media/django-postgresql-webapp/connect-postgres-to-app-azure-portal-2-240px.png" lightbox="./media/django-postgresql-webapp/connect-postgres-to-app-azure-portal-2.png" alt-text="A screenshot showing how to configure the App Settings." ::: |
 
 ### [Azure CLI](#tab/cli-connect-app-to-db)
 
