@@ -52,7 +52,7 @@ Find new and updated content for JavaScript and TypeScript developers.
 
 |Name|Description|
 |---------------------------------------|--|
-|[Azure Functions: Add Cosmos DB for MongoDB API integration](tutorial/vscode-function-app-http-trigger/tutorial-vscode-serverless-node-database-integration.md)|Fixed connection pooling.|
+|[Azure Functions: Add Cosmos DB for MongoDB API integration](tutorial/azure-function-cosmos-db-mongo-api.md)|Fixed connection pooling.|
 
 ## 2021 September 
 
@@ -68,7 +68,7 @@ Find new and updated content for JavaScript and TypeScript developers.
 
 |Name|Description|
 |---------------------------------------|--|
-|[Create and deploy Azure Functions from Visual Studio Code with MongoDB integration](tutorial/vscode-function-app-http-trigger/tutorial-vscode-serverless-node-install.md)|Create a secure API in Visual Studio Code with VS Code extensions and JavaScript, then deploy the application to the Azure cloud for hosting with a public HTTP endpoint. The API integrates with a Cosmos DB database using the MongoDB API. The MongoDB API is accessed from the [mongoose](https://www.npmjs.com/package/mongoose) npm package.<br><br>The MongoDB database functionality includes:<br>* Add item<br>* Delete item by ID<br>* Get item by ID<br>* Get all items| 
+|[Create and deploy Azure Functions from Visual Studio Code with MongoDB integration](tutorial/azure-function-cosmos-db-mongo-api.md)|Create a secure API in Visual Studio Code with VS Code extensions and JavaScript, then deploy the application to the Azure cloud for hosting with a public HTTP endpoint. The API integrates with a Cosmos DB database using the MongoDB API. The MongoDB API is accessed from the [mongoose](https://www.npmjs.com/package/mongoose) npm package.<br><br>The MongoDB database functionality includes:<br>* Add item<br>* Delete item by ID<br>* Get item by ID<br>* Get all items| 
 |[Upload an image to an Azure Storage blob](tutorial/browser-file-upload-azure-storage-blob.md)|* Updates based on Azure portal UI changes<br>* Added Static Web App resource creation and deployment<br>* Moved environment variables from source code into `.env` file| 
 |[Clone and use a GitHub repository in Visual Studio Code](how-to/with-visual-studio-code/clone-github-repository.md)|Updated and clarified for new functionality.|
 
@@ -85,7 +85,7 @@ Find new and updated content for JavaScript and TypeScript developers.
 
 |Name|Description|
 |---------------------------------------|--|
-|[Create and deploy an Azure Function API with VS Code](tutorial/vscode-function-app-http-trigger/tutorial-vscode-serverless-node-install.md)|Previous version of document series focused on a public/anonymous API. The series now uses function-level security: local develop doesn't use the function key (`code` querystring param), the remote deployed function requires the function key.|
+|[Create and deploy an Azure Function API with VS Code](tutorial/azure-function-cosmos-db-mongo-api.md)|Previous version of document series focused on a public/anonymous API. The series now uses function-level security: local develop doesn't use the function key (`code` querystring param), the remote deployed function requires the function key.|
 |Updated [hosting and deployment services](how-to/deploy-web-app.md)|Added Azure Web PubSub to list of services.|
 |Updated [Azure Functions](how-to/develop-serverless-apps.md#common-security-settings-you-need-to-configure-for-your-azure-function)|Added **Common security settings you need to configure for your Azure Function**| 
 |Updated [Top JS Tasks](how-to/common-javascript-tasks.md)|Added [Deployment](how-to/common-javascript-tasks.md#deployment-to-hosting-environment)| 
@@ -123,10 +123,10 @@ Find new and updated content for JavaScript and TypeScript developers.
 |Name|Description|
 |---------------------------------------|--|
 |[Logging, metrics, and telemetry in Azure](./how-to/node-sdk-logging.md)|Web app and Function app logging information.|
-|[Tutorial: Create a function with Visual Studio Code](./tutorial/vscode-function-app-http-trigger/tutorial-vscode-serverless-node-install.md)|Added streaming logs in VS Code, and querying Kusto log in Azure portal.|
+|[Tutorial: Create a function with Visual Studio Code](./tutorial/azure-function-cosmos-db-mongo-api.md)|Added streaming logs in VS Code, and querying Kusto log in Azure portal.|
 |[Tools update](./node-azure-tools.md)|Added several links to Microsoft or Azure specific tools. Added Azure service-specific tips.|
 |[Add Microsoft login button to a single page application for authentication](./tutorial/single-page-application-azure-login-button-sdk-msal.md#7-store-application-specific-user-information)|Added Microsoft Identity provider and Active Directory app ID information. |
-|Locally develop with the CosmosDB emulator|For [SQL API](./how-to/with-database/use-sql-api-as-cosmos-db.md#locally-develop-with-the-cosmosdb-emulator), [MongoDB](./how-to/with-database/use-mongodb-as-cosmosdb.md#locally-develop-with-the-cosmosdb-emulator), and [Cassandra](./how-to/with-database/use-cassandra-as-cosmos-db.md#locally-develop-with-the-cosmosdb-emulator). |
+|Locally develop with the Azure Cosmos DB emulator|For [SQL API](./how-to/with-database/use-sql-api-as-cosmos-db.md#locally-develop-with-the-cosmosdb-emulator), [MongoDB](./how-to/with-database/use-mongodb-as-cosmosdb.md#locally-develop-with-the-cosmosdb-emulator), and [Cassandra](./how-to/with-database/use-cassandra-as-cosmos-db.md#locally-develop-with-the-cosmosdb-emulator). |
 
 
 ## 2021 April

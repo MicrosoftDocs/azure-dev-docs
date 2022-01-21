@@ -1,6 +1,70 @@
 {
     "redirections": [
       {
+        "source_path": "articles/javascript/tutorial-vscode-serverless-node-01.md",
+        "redirect_url": "/azure/developer/javascript/tutorial/azure-function-cosmos-db-mongo-api"
+      },
+      {
+        "source_path": "articles/javascript/tutorial/tutorial-vscode-serverless-node-install.md",
+        "redirect_url": "/azure/developer/javascript/tutorial/azure-function-cosmos-db-mongo-api"
+      },
+      {
+        "source_path": "articles/javascript/tutorial-vscode-serverless-node-02.md",
+        "redirect_url": "/azure/developer/javascript/tutorial/azure-function-cosmos-db-mongo-api"
+      },
+      {
+        "source_path": "articles/javascript/tutorial/tutorial-vscode-serverless-node-create-local.md",
+        "redirect_url": "/azure/developer/javascript/tutorial/azure-function-cosmos-db-mongo-api"
+      },
+      {
+        "source_path": "articles/javascript/tutorial-vscode-serverless-node-03.md",
+        "redirect_url": "/azure/developer/javascript/tutorial/azure-function-cosmos-db-mongo-api"
+      },
+      {
+        "source_path": "articles/javascript/tutorial/tutorial-vscode-serverless-node-test-local.md",
+        "redirect_url": "/azure/developer/javascript/tutorial/azure-function-cosmos-db-mongo-api"
+      },
+      {
+        "source_path": "articles/javascript/tutorial-vscode-serverless-node-04.md",
+        "redirect_url": "/azure/developer/javascript/tutorial/azure-function-cosmos-db-mongo-api"
+      },
+      {
+        "source_path": "articles/javascript/tutorial/tutorial-vscode-serverless-node-deploy-hosting.md",
+        "redirect_url": "/azure/developer/javascript/tutorial/azure-function-cosmos-db-mongo-api"
+      },
+      {
+        "source_path": "articles/javascript/tutorial-vscode-serverless-node-05.md",
+        "redirect_url": "/azure/developer/javascript/tutorial/azure-function-cosmos-db-mongo-api"
+      },
+      {
+        "source_path": "articles/javascript/tutorial/tutorial-vscode-serverless-node-remove-resource.md",
+        "redirect_url": "/azure/developer/javascript/tutorial/azure-function-cosmos-db-mongo-api"
+      },      
+      {
+        "source_path": "articles/javascript/tutorial/vscode-function-app-http-trigger/tutorial-vscode-serverless-node-create-local.md",
+        "redirect_url": "/azure/developer/javascript/tutorial/azure-function-cosmos-db-mongo-api"
+      },
+      {
+        "source_path": "articles/javascript/tutorial/vscode-function-app-http-trigger/tutorial-vscode-serverless-node-database-integration.md",
+        "redirect_url": "/azure/developer/javascript/tutorial/azure-function-cosmos-db-mongo-api"
+      }, 
+      {
+        "source_path": "articles/javascript/tutorial/vscode-function-app-http-trigger/tutorial-vscode-serverless-node-deploy-hosting.md",
+        "redirect_url": "/azure/developer/javascript/tutorial/azure-function-cosmos-db-mongo-api"
+      }, 
+      {
+        "source_path": "articles/javascript/tutorial/vscode-function-app-http-trigger/tutorial-vscode-serverless-node-install.md",
+        "redirect_url": "/azure/developer/javascript/tutorial/azure-function-cosmos-db-mongo-api"
+      },      
+      {
+        "source_path": "articles/javascript/tutorial/vscode-function-app-http-trigger/tutorial-vscode-serverless-node-remove-resource.md",
+        "redirect_url": "/azure/developer/javascript/tutorial/azure-function-cosmos-db-mongo-api"
+      },  
+      {
+        "source_path": "articles/javascript/tutorial/vscode-function-app-http-trigger/tutorial-vscode-serverless-node-test-local.md",
+        "redirect_url": "/azure/developer/javascript/tutorial/azure-function-cosmos-db-mongo-api"
+      },  
+      {              
         "source_path": "articles/javascript/how-to/with-azure-cli/create-postgresql-server-resource.md",
         "redirect_url": "/azure/developer/javascript/how-to/with-database/use-postgresql-db"
       },       
@@ -261,46 +325,7 @@
         "source_path": "articles/javascript/tutorial/web-app-mongodb.yml",
         "redirect_url": "/azure/developer/javascript/tutorial/deploy-nodejs-mongodb-app-service-from-visual-studio-code"
       },
-      {
-        "source_path": "articles/javascript/tutorial-vscode-serverless-node-01.md",
-        "redirect_url": "/azure/developer/javascript/tutorial/vscode-function-app-http-trigger/tutorial-vscode-serverless-node-install"
-      },
-      {
-        "source_path": "articles/javascript/tutorial/tutorial-vscode-serverless-node-install.md",
-        "redirect_url": "/azure/developer/javascript/tutorial/vscode-function-app-http-trigger/tutorial-vscode-serverless-node-install"
-      },
-      {
-        "source_path": "articles/javascript/tutorial-vscode-serverless-node-02.md",
-        "redirect_url": "/azure/developer/javascript/tutorial/vscode-function-app-http-trigger/tutorial-vscode-serverless-node-create-local"
-      },
-      {
-        "source_path": "articles/javascript/tutorial/tutorial-vscode-serverless-node-create-local.md",
-        "redirect_url": "/azure/developer/javascript/tutorial/vscode-function-app-http-trigger/tutorial-vscode-serverless-node-create-local"
-      },
-      {
-        "source_path": "articles/javascript/tutorial-vscode-serverless-node-03.md",
-        "redirect_url": "/azure/developer/javascript/tutorial/vscode-function-app-http-trigger/tutorial-vscode-serverless-node-test-local"
-      },
-      {
-        "source_path": "articles/javascript/tutorial/tutorial-vscode-serverless-node-test-local.md",
-        "redirect_url": "/azure/developer/javascript/tutorial/vscode-function-app-http-trigger/tutorial-vscode-serverless-node-test-local"
-      },
-      {
-        "source_path": "articles/javascript/tutorial-vscode-serverless-node-04.md",
-        "redirect_url": "/azure/developer/javascript/tutorial/vscode-function-app-http-trigger/tutorial-vscode-serverless-node-deploy-hosting"
-      },
-      {
-        "source_path": "articles/javascript/tutorial/tutorial-vscode-serverless-node-deploy-hosting.md",
-        "redirect_url": "/azure/developer/javascript/tutorial/vscode-function-app-http-trigger/tutorial-vscode-serverless-node-deploy-hosting"
-      },
-      {
-        "source_path": "articles/javascript/tutorial-vscode-serverless-node-05.md",
-        "redirect_url": "/azure/developer/javascript/tutorial/vscode-function-app-http-trigger/tutorial-vscode-serverless-node-remove-resource"
-      },
-      {
-        "source_path": "articles/javascript/tutorial/tutorial-vscode-serverless-node-remove-resource.md",
-        "redirect_url": "/azure/developer/javascript/tutorial/vscode-function-app-http-trigger/tutorial-vscode-serverless-node-remove-resource"
-      },
+
       {
         "source_path": "articles/javascript/tutorial-visual-studio-code-azure-app-service-deno-04.md",
         "redirect_url": "/azure/developer/javascript/tutorial/deno-visual-studio-code-azure-app-service?preview=tutorialFeedback"
