@@ -19,7 +19,7 @@ source .venv/bin/activate
 #### [Windows](#tab/windows)
 
 ```Cmd
-py -3 -m venv .venv
+py -m venv .venv
 .venv\scripts\activate
 ```
 

@@ -15,7 +15,7 @@ ROBOTS: NOINDEX
 
 # Deploy a Django web app with PostgreSQL in Azure
 
-In this tutorial, you will deploy a data-driven Python **[Django](https://www.djangoproject.com/)** web app using an **[Azure Database for PostgreSQL](/azure/postgresql/)** database.  The Django app will be hosted in a fully managed **[Azure App Service](/azure/app-service/overview#app-service-on-linux)** in a Linux server environment. You can start with the **Basic (B1)** pricing tier that can be scaled up at any later time.
+In this tutorial, you will deploy a data-driven Python web app using the **[Django](https://www.djangoproject.com/)** framework and an **[Azure Database for PostgreSQL](/azure/postgresql/)** database.  The Django app will be hosted in a fully managed **[Azure App Service](/azure/app-service/overview#app-service-on-linux)** which supports [Python 3.7 or higher](https://www.python.org/downloads/) in a Linux server environment. You can start with the **Basic (B1)** pricing tier that can be scaled up at any later time.
 
 :::image type="content" border="False" source="./media/django-postgresql-webapp/django-postgresql-app-arch.png" alt-text="This is an architecture diagram about how the solution works in Azure":::
 
@@ -24,7 +24,6 @@ In this tutorial, you will deploy a data-driven Python **[Django](https://www.dj
 1. An Azure account with an active subscription exists. If you do not have an Azure account, you [can create one for free](https://azure.microsoft.com/free/python).
 1. Knowledge of [Python with Django development](/learn/paths/django-create-data-driven-websites/)
 1. [Python 3.7 or higher](https://www.python.org/downloads/) installed locally
-1. [Django](https://docs.djangoproject.com/en/4.0/topics/install/) installed locally
 1. [PostgreSQL](https://www.postgresql.org/download/) installed locally
 
 ## Sample application
@@ -89,8 +88,9 @@ To host your application in Azure, you need to create Azure App Service web app 
 
 ### [Azure portal](#tab/azure-portal-create-app)
 
-Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps to create your Azure Database for PostgreSQL resource.\
-&nbsp;
+Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps to create your Azure Database for PostgreSQL resource.
+
+<br />
 
 | Instructions    | Screenshot |
 |:----------------|-----------:|
