@@ -70,7 +70,7 @@ landingContent:
           - text: Static Web App upload image to Storage
             url: tutorial/browser-file-upload-azure-storage-blob.md
           - text: "Azure Function"
-            url: tutorial/azure-function-cosmosdb-mongo-api.md            
+            url: tutorial/azure-function-cosmos-db-mongo-api.md            
           - text: "App service with MongoDB"
             url: tutorial/deploy-nodejs-mongodb-app-service-from-visual-studio-code.md
           - text: "App service with a container"

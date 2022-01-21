@@ -97,9 +97,9 @@ Create a local Azure Functions (serverless) application that contains an [HTTP t
     npm install --global azure-functions-core-tools@3
     ```
 
-<a name="http-function-javascript-template-code"></a>
 
-1. In the `./category/index.ts` file, add a new `context.log` message to print the name to the function's log, highlighted in the following code:
+
+1. <a name="http-function-javascript-template-code"></a>In the `./category/index.ts` file, add a new `context.log` message to print the name to the function's log, highlighted in the following code:
     
     :::code language="typescript" source="~/../js-e2e-azure-function-mongodb/edited-function-code.ts" highlight="6":::
 
