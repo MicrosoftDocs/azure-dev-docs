@@ -48,8 +48,6 @@
             href: https://payara.fish/payara_micro
           - name: Red Hat JBoss EAP XP
             href: https://access.redhat.com/products/red-hat-jboss-enterprise-application-platform/
-          - name: Red Hat WildFly Swarm (Thorntail)
-            href: https://thorntail.io/
       - name: MicroProfile project generators
         expanded: false
         items: 
