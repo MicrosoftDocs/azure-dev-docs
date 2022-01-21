@@ -2,7 +2,7 @@
 author: jess-johnson-msft
 ms.author: jejohn
 ms.topic: include
-ms.date: 01/20/2022
+ms.date: 01/21/2022
 ms.service: app-service
 ms.role: developer
 ms.devlang: python
@@ -12,12 +12,10 @@ ms.custom: devx-track-python
 
 **Step 2.** Use the **New application setting** button to create settings for each of the following values (which are expected by the djangoapp sample):
 
-| Setting | Value | Description |
-| --- | --- | --- |
-| DBHOST | msdocs-django-postgres-webapp-db | The URL of the database server from the previous section; that is, the `<server-name>.postgres.database.azure.com`. |
-| DBNAME | `pollsdb` | Name of application database. |
-| DBUSER | demoadmin | The administrator user name used when you provisioned the database. |
-| DBPASS | **secure password**| The administrator password you created earlier. |
+1. *DBHOST* &rarr; The URL of the database server from the previous section; that is, the `<server-name>.postgres.database.azure.com`. <br /> Example: `msdocs-django-postgres-webapp-db`
+1. *DBNAME* &rarr;  Enter `pollsdb`; The name of the application database.
+1. *DBUSER* &rarr; The administrator user name used when you provisioned the database.
+1. *DBPASS* &rarr; The administrator **secure password** you created earlier. |
 
 <br />
 

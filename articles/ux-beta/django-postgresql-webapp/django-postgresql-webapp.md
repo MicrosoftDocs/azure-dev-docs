@@ -328,6 +328,16 @@ Azure App service supports multiple methods to deploy your application code to A
 
 ## 5 - Migrate app database
 
+With the code deployed and the database in place, the app is almost ready to use. The only piece that remains is to establish the necessary schema in the database itself. You do this by "migrating" the data models in the Django app to the database.
+
+### [Azure portal](#tab/azure-portal-db-migrate)
+
+| Instructions    | Screenshot |
+|:----------------|-----------:|
+| [!INCLUDE [A screenshot showing ](<./includes/django-postgresql-webapp/migrate-db-azure-portal-1.md>)] | :::image type="content" source="./media/django-postgresql-webapp/migrate-db-azure-portal-1-240px.png" lightbox="./media/django-postgresql-webapp/migrate-db-azure-portal-1.png" alt-text="A screenshot showing" ::: |
+| [!INCLUDE [A screenshot showing ](<./includes/django-postgresql-webapp/migrate-db-azure-portal-2.md>)] | :::image type="content" source="./media/django-postgresql-webapp/migrate-db-azure-portal-2-240px.png" lightbox="./media/django-postgresql-webapp/migrate-db-azure-portal-2.png" alt-text="A screenshot showing" ::: |
+| [!INCLUDE [A screenshot showing ](<./includes/django-postgresql-webapp/migrate-db-azure-portal-3.md>)] | :::image type="content" source="./media/django-postgresql-webapp/migrate-db-azure-portal-3-240px.png" lightbox="./media/django-postgresql-webapp/migrate-db-azure-portal-3.png" alt-text="A screenshot showing" ::: |
+
 ### [Azure CLI](#tab/azure-cli-db-migrate)
 
 Django database migrations ensure that the schema in the PostgreSQL on Azure database match those described in your code.
