@@ -1,6 +1,6 @@
 | Name | Package | Docs | Source |
 | ---- | ------- | ---- | ------ |
-| Anomaly Detector | npm [3.0.0-beta.4](https://www.npmjs.com/package/@azure/ai-anomaly-detector/v/3.0.0-beta.4) | [docs](/javascript/api/overview/azure/ai-anomaly-detector-readme) | GitHub [3.0.0-beta.4](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/anomalydetector/Azure.AI.AnomalyDetector) |
+| Anomaly Detector | npm [3.0.0-beta.5](https://www.npmjs.com/package/@azure/ai-anomaly-detector/v/3.0.0-beta.5) | [docs](/javascript/api/overview/azure/ai-anomaly-detector-readme) | GitHub [3.0.0-beta.5](https://github.com/Azure/azure-sdk-for-js/tree/@azure/ai-anomaly-detector_3.0.0-beta.5/sdk/anomalydetector/ai-anomaly-detector/) |
 | App Configuration | npm [1.3.1](https://www.npmjs.com/package/@azure/app-configuration/v/1.3.1) | [docs](/javascript/api/overview/azure/app-configuration-readme) | GitHub [1.3.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/app-configuration_1.3.1/sdk/appconfiguration/app-configuration/) |
 | Attestation | npm [1.0.0](https://www.npmjs.com/package/@azure/attestation/v/1.0.0) | [docs](/javascript/api/overview/azure/attestation-readme) | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/attestation_1.0.0/sdk/attestation/attestation/) |
 | Azure Confidential Ledger | npm [1.0.0-beta.2](https://www.npmjs.com/package/@azure-rest/confidential-ledger/v/1.0.0-beta.2) |  | GitHub [1.0.0-beta.2](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/confidential-ledger_1.0.0-beta.2/sdk/confidentialledger/confidential-ledger-rest) |
@@ -210,7 +210,7 @@
 | @autorest/codemodel | npm [4.17.2](https://www.npmjs.com/package/@autorest/codemodel/v/4.17.2) |  |  |
 | @autorest/common | npm [1.4.1](https://www.npmjs.com/package/@autorest/common/v/1.4.1) |  |  |
 | @autorest/configuration | npm [1.8.2](https://www.npmjs.com/package/@autorest/configuration/v/1.8.2) |  |  |
-| @autorest/csharp | npm [3.0.0-beta.20220121.1](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20220121.1) |  |  |
+| @autorest/csharp | npm [3.0.0-beta.20220121.2](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20220121.2) |  |  |
 | @autorest/csharp-v3 | npm [3.0.0-beta.20201217.1](https://www.npmjs.com/package/@autorest/csharp-v3/v/3.0.0-beta.20201217.1) |  |  |
 | @autorest/extension-base | npm [3.4.4](https://www.npmjs.com/package/@autorest/extension-base/v/3.4.4) |  |  |
 | @autorest/fixer | npm [1.0.0](https://www.npmjs.com/package/@autorest/fixer/v/1.0.0) |  |  |
@@ -280,7 +280,7 @@
 | cadl-vscode | npm [0.11.0](https://www.npmjs.com/package/cadl-vscode/v/0.11.0) |  |  |
 | tmlanguage-generator | npm [0.2.1](https://www.npmjs.com/package/tmlanguage-generator/v/0.2.1) |  |  |
 | AMQP Common | npm [1.0.0-preview.17](https://www.npmjs.com/package/@azure/amqp-common/v/1.0.0-preview.17) |  | GitHub [1.0.0-preview.17](https://github.com/Azure/azure-sdk-for-js/tree/@azure/amqp-common_1.0.0-preview.17/sdk/core/amqp-common/) |
-| Anomaly Detector | npm [3.0.0-beta.4](https://www.npmjs.com/package/@azure/ai-anomaly-detector/v/3.0.0-beta.4) | [docs](/javascript/api/overview/azure/ai-anomaly-detector-readme) | GitHub [3.0.0-beta.4](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/anomalydetector/Azure.AI.AnomalyDetector) |
+| Anomaly Detector | npm [3.0.0-beta.5](https://www.npmjs.com/package/@azure/ai-anomaly-detector/v/3.0.0-beta.5) | [docs](/javascript/api/overview/azure/ai-anomaly-detector-readme) | GitHub [3.0.0-beta.5](https://github.com/Azure/azure-sdk-for-js/tree/@azure/ai-anomaly-detector_3.0.0-beta.5/sdk/anomalydetector/ai-anomaly-detector/) |
 | Anomaly Detector | npm [2.1.0](https://www.npmjs.com/package/@azure/cognitiveservices-anomalydetector/v/2.1.0) |  | GitHub [2.1.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/cognitiveservices/cognitiveservices-anomalydetector) |
 | App Configuration | npm [1.3.1](https://www.npmjs.com/package/@azure/app-configuration/v/1.3.1) | [docs](/javascript/api/overview/azure/app-configuration-readme) | GitHub [1.3.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/app-configuration_1.3.1/sdk/appconfiguration/app-configuration/) |
 | Application Insights - Query | npm [1.1.0](https://www.npmjs.com/package/@azure/applicationinsights-query/v/1.1.0) |  | GitHub [1.1.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/applicationinsights/applicationinsights-query) |
