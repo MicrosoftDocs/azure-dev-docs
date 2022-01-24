@@ -75,7 +75,7 @@ Microsoft’s goal is to empower every developer to achieve more, and our commit
 [JDBC]: https://spring.io/projects/spring-data-jdbc
 [JPA]: https://spring.io/projects/spring-data-jpa
 [R2DBC]: https://spring.io/projects/spring-data-r2dbc
-[Spring Data Cosmos DB]: /azure/developer/java/spring-framework/how-to-guides-spring-data-cosmosdb
+[Spring Data Cosmos DB]: ../spring-framework/how-to-guides-spring-data-cosmosdb.md
 [Spring Data MongoDB]: https://spring.io/projects/spring-data-mongodb
 [Spring Data for Apache Cassandra]: https://spring.io/projects/spring-data-cassandra
 [Spring Data Redis]: https://spring.io/projects/spring-data-redis
@@ -87,30 +87,30 @@ Microsoft’s goal is to empower every developer to achieve more, and our commit
 [Azure AD B2C Spring Boot Starter]: https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/spring/azure-spring-boot-starter-active-directory-b2c
 [Key Vault Secrets Spring Boot Starter]: https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/spring/azure-spring-boot-starter-keyvault-secrets
 [Key Vault Certificates Spring Boot Starter]: https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/spring/azure-spring-boot-starter-keyvault-certificates
-[JDBC SQL]: /azure/developer/java/spring-framework/configure-spring-data-jdbc-with-azure-sql-server
-[JPA SQL]: /azure/developer/java/spring-framework/configure-spring-data-jpa-with-azure-sql-server
-[R2DBC SQL]: /azure/developer/java/spring-framework/configure-spring-data-r2dbc-with-azure-sql-server
-[JDBC MySQL]: /azure/developer/java/spring-framework/configure-spring-data-jdbc-with-azure-mysql
-[JPA MySQL]: /azure/developer/java/spring-framework/configure-spring-data-jpa-with-azure-mysql
-[R2DBC MySQL]: /azure/developer/java/spring-framework/configure-spring-data-r2dbc-with-azure-mysql
-[JDBC PostgreSQL]: /azure/developer/java/spring-framework/configure-spring-data-jdbc-with-azure-postgresql
-[JPA PostgreSQL]: /azure/developer/java/spring-framework/configure-spring-data-jpa-with-azure-postgresql
-[R2DBC PostgreSQL]: /azure/developer/java/spring-framework/configure-spring-data-r2dbc-with-azure-postgresql
-[How to use the Spring Boot Starter with the Azure Cosmos DB SQL API]: /azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db
-[How to use Spring Data MongoDB API with Azure Cosmos DB]: /azure/developer/java/spring-framework/configure-spring-data-mongodb-with-cosmos-db
-[How to use Spring Data Apache Cassandra API with Azure Cosmos DB]: /azure/developer/java/spring-framework/configure-spring-data-apache-cassandra-with-cosmos-db
+[JDBC SQL]: ../spring-framework/configure-spring-data-jdbc-with-azure-sql-server.md
+[JPA SQL]: ../spring-framework/configure-spring-data-jpa-with-azure-sql-server.md
+[R2DBC SQL]: ../spring-framework/configure-spring-data-r2dbc-with-azure-sql-server.md
+[JDBC MySQL]: ../spring-framework/configure-spring-data-jdbc-with-azure-mysql.md
+[JPA MySQL]: ../spring-framework/configure-spring-data-jpa-with-azure-mysql.md
+[R2DBC MySQL]: ../spring-framework/configure-spring-data-r2dbc-with-azure-mysql.md
+[JDBC PostgreSQL]: ../spring-framework/configure-spring-data-jdbc-with-azure-postgresql.md
+[JPA PostgreSQL]: ../spring-framework/configure-spring-data-jpa-with-azure-postgresql.md
+[R2DBC PostgreSQL]: ../spring-framework/configure-spring-data-r2dbc-with-azure-postgresql.md
+[How to use the Spring Boot Starter with the Azure Cosmos DB SQL API]: ../spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db.md
+[How to use Spring Data MongoDB API with Azure Cosmos DB]: ../spring-framework/configure-spring-data-mongodb-with-cosmos-db.md
+[How to use Spring Data Apache Cassandra API with Azure Cosmos DB]: ../spring-framework/configure-spring-data-apache-cassandra-with-cosmos-db.md
 [Quickstart: Build a graph database with the Java SDK and the Azure Cosmos DB Gremlin API]: /azure/cosmos-db/graph/create-graph-java
-[Configure a Spring Boot Initializer app to use Redis in the cloud with Azure Redis Cache]: /azure/developer/java/spring-framework/configure-spring-boot-initializer-java-app-with-redis-cache
-[How to use the Spring Boot Starter for Azure Storage]: /azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-storage
-[How to use Spring Boot Starter for Azure Service Bus JMS]: /azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-service-bus
-[How to use Spring Cloud Azure Stream Binder for Azure Service Bus]: /azure/developer/java/spring-framework/configure-spring-cloud-stream-binder-java-app-with-service-bus
-[How to use the Spring Boot Starter for Apache Kafka with Azure Event Hubs]: /azure/developer/java/spring-framework/configure-spring-cloud-stream-binder-java-app-kafka-azure-event-hub
-[How to create a Spring Cloud Stream Binder application with Azure Event Hubs]: /azure/developer/java/spring-framework/configure-spring-cloud-stream-binder-java-app-azure-event-hub
+[Configure a Spring Boot Initializer app to use Redis in the cloud with Azure Redis Cache]: ../spring-framework/configure-spring-boot-initializer-java-app-with-redis-cache.md
+[How to use the Spring Boot Starter for Azure Storage]: ../spring-framework/configure-spring-boot-starter-java-app-with-azure-storage.md
+[How to use Spring Boot Starter for Azure Service Bus JMS]: ../spring-framework/configure-spring-boot-starter-java-app-with-azure-service-bus.md
+[How to use Spring Cloud Azure Stream Binder for Azure Service Bus]: ../spring-framework/configure-spring-cloud-stream-binder-java-app-with-service-bus.md
+[How to use the Spring Boot Starter for Apache Kafka with Azure Event Hubs]: ../spring-framework/configure-spring-cloud-stream-binder-java-app-kafka-azure-event-hub.md
+[How to create a Spring Cloud Stream Binder application with Azure Event Hubs]: ../spring-framework/configure-spring-cloud-stream-binder-java-app-azure-event-hub.md
 [Enable Spring Boot Web apps to sign in users on Azure AD]: https://github.com/Azure-Samples/ms-identity-java-spring-tutorial/tree/main/1-Authentication/sign-in#readme
 [Enable Spring Boot Web apps to sign in users on Azure AD B2C]: https://github.com/Azure-Samples/ms-identity-java-spring-tutorial/tree/main/1-Authentication/sign-in-b2c#readme
-[Manage secrets for Spring Boot apps]: /azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-key-vault
-[Manage certificates for Spring Boot apps]: /azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-key-vault-certificates
+[Manage secrets for Spring Boot apps]: ../spring-framework/configure-spring-boot-starter-java-app-with-azure-key-vault.md
+[Manage certificates for Spring Boot apps]: ../spring-framework/configure-spring-boot-starter-java-app-with-azure-key-vault-certificates.md
 
 ## Next steps
 
-For all other libraries, see [Azure SDK for Java libraries](/azure/developer/java/sdk/azure-sdk-library-package-index).
+For all other libraries, see [Azure SDK for Java libraries](./azure-sdk-library-package-index.md).
