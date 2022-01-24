@@ -2,7 +2,7 @@ Applications can be deployed to Azure by creating and uploading a ZIP file of th
 
 ### Enable build automation
 
-When deploying a ZIP file of your Python code, you need to set a flag to enable Azure's build automation. The build automation will install any necessary requirements and package the application to run on Azure.
+When deploying a ZIP file of your Python code, you need to set a flag to enable Azure build automation. The build automation will install any necessary requirements and package the application to run on Azure.
 
 Build automation in Azure is enabled by setting the `SCM_DO_BUILD_DURING_DEPLOYMENT` app setting in either the Azure portal or Azure CLI.
 
@@ -17,6 +17,11 @@ Build automation in Azure is enabled by setting the `SCM_DO_BUILD_DURING_DEPLOYM
 ##### [Azure CLI](#tab/deploy-instructions-azcli)
 
 ```azurecli
+# Change these values to the ones used to create the App Service.
+LOCATION='eastus'
+RESOURCE_GROUP_NAME='msdocs-python-webapp-quickstart'
+APP_SERVICE_NAME='msdocs-python-webapp-quickstart-123'
+
 az webapp config appsettings set \
     --resource-group $RESOURCE_GROUP_NAME \
     --name $APP_SERVICE_NAME \
@@ -64,11 +69,11 @@ To use an HTTP client such as curl to upload your ZIP file to Azure, you will ne
 
 1. On the page for the web app, select *Deployment center* from the menu on the left side of the page.
 1. Select the *FTPS credentials* tab.
-1. The **Username** and **Password** are shown under the *Application scope* heading.  For zip file deployments, only use the part of the username after the `\` character that starts with a `$`, for example `$msdocs-python-webapp-quickstart-123`. These credentials will be needed in the cURL command below.
+1. The **Username** and **Password** are shown under the *Application scope* heading.  For zip file deployments, only use the part of the username after the `\` character that starts with a `$`, for example `$msdocs-python-webapp-quickstart-123`. These credentials will be needed in the cURL command.
 
 :::image type="content" source="../../media/quickstart-python/deploy-zip-azure-portal-get-username-600px.png" alt-text="A screenshot showing the location of the deployment credentials in the Azure portal." lightbox="../../media/quickstart-python/deploy-zip-azure-portal-get-username.png":::
 
-Run the following `curl` command to upload your zip file to Azure and deploy your application.  The username is the deployment username obtained above.  When this command is run, you will be prompted for the deployment password.
+Run the following `curl` command to upload your zip file to Azure and deploy your application.  The username is the deployment username obtained in step 3.  When this command is run, you will be prompted for the deployment password.
 
 ```bash
 curl -X POST \

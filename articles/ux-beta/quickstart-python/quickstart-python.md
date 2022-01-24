@@ -11,7 +11,7 @@ robots: noindex
 
 # Quickstart: Deploy a Python web app to Azure App Service
 
-In this quickstart, you'll deploy a Python web app to [Azure App Service](/azure/app-service/overview.md#app-service-on-linux). Azure App Service is a fully managed web hosting service that supports Python 3.7 and higher apps hosted in a Linux server environment.
+In this quickstart, you will deploy a Python web app to [Azure App Service](/azure/app-service/overview.md#app-service-on-linux). Azure App Service is a fully managed web hosting service that supports Python 3.7 and higher apps hosted in a Linux server environment.
 
 To complete this quickstart, you need:
 1. An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
@@ -111,7 +111,7 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps 
 |:----------------|-----------:|
 | [!INCLUDE [Create app service step 1](<./includes/quickstart-python/create-app-service-azure-portal-1.md>)] | :::image type="content" source="./media/quickstart-python/create-app-service-azure-portal-1-240px.png" alt-text="A screenshot showing how to use the search box in the top tool bar to find App Services in Azure." lightbox="./media/quickstart-python/create-app-service-azure-portal-1.png"::: |
 | [!INCLUDE [Create app service step 1](<./includes/quickstart-python/create-app-service-azure-portal-2.md>)] | :::image type="content" source="./media/quickstart-python/create-app-service-azure-portal-2-240px.png" alt-text="A screenshot showing the location of the Create button on the App Services page in the Azure Portal." lightbox="./media/quickstart-python/create-app-service-azure-portal-2.png"::: |
-| [!INCLUDE [Create app service step 1](<./includes/quickstart-python/create-app-service-azure-portal-3.md>)] | :::image type="content" source="./media/quickstart-python/create-app-service-azure-portal-3-240px.png" alt-text="A screenshot showing how fill out the form to create a new App Service in the Azure portal." lightbox="./media/quickstart-python/create-app-service-azure-portal-3.png"::: |
+| [!INCLUDE [Create app service step 1](<./includes/quickstart-python/create-app-service-azure-portal-3.md>)] | :::image type="content" source="./media/quickstart-python/create-app-service-azure-portal-3-240px.png" alt-text="A screenshot showing how to fill out the form to create a new App Service in the Azure portal." lightbox="./media/quickstart-python/create-app-service-azure-portal-3.png"::: |
 | [!INCLUDE [Create app service step 1](<./includes/quickstart-python/create-app-service-azure-portal-4.md>)] | :::image type="content" source="./media/quickstart-python/create-app-service-azure-portal-4-240px.png" alt-text="A screenshot showing how to select the basic app service plan in the Azure portal." lightbox="./media/quickstart-python/create-app-service-azure-portal-4.png"::: |
 | [!INCLUDE [Create app service step 1](<./includes/quickstart-python/create-app-service-azure-portal-5.md>)] | :::image type="content" source="./media/quickstart-python/create-app-service-azure-portal-5-240px.png" alt-text="A screenshot showing the location of the Review plus Create button in the Azure portal." lightbox="./media/quickstart-python/create-app-service-azure-portal-5.png"::: |
 
@@ -137,7 +137,8 @@ Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com
 First, create a resource group to act as a container for all of the Azure resources related to this application.
 
 ```azurecli
-LOCATION='eastus'                          # Use 'az account list-locations --output table' to list locations
+# Use 'az account list-locations --output table' to list locations
+LOCATION='eastus'
 RESOURCE_GROUP_NAME='msdocs-python-webapp-quickstart'
 
 # Create a resource group
@@ -148,7 +149,7 @@ az group create \
 
 Next, create an App Service plan using the [az appservice plan create](/cli/azure/appservice/plan#az_appservice_plan_create) command.
 
-* The `--sku` parameter defines the size (CPU, memory) and cost of the app service plan.  This example uses the B1 (Basic) service plan which will incur a small cost in your Azure subscription. For a full list of App Service plans, view the [App Service pricing](https://azure.microsoft.com/pricing/details/app-service/linux/) page.
+* The `--sku` parameter defines the size (CPU, memory) and cost of the app service plan.  This example uses the B1 (Basic) service plan, which will incur a small cost in your Azure subscription. For a full list of App Service plans, view the [App Service pricing](https://azure.microsoft.com/pricing/details/app-service/linux/) page.
 * The `--is-linux` flag selects the Linux as the host operating system.
 
 ```azurecli
@@ -167,7 +168,8 @@ Finally, create the App Service web app using the [az webapp create](/cli/azure/
 * The runtime specifies what version of Python your app is running. This example uses Python 3.9. To list all available runtimes, use the command `az webapp list-runtimes --linux --output table`.
 
 ```azurecli
-APP_SERVICE_NAME='msdocs-python-webapp-quickstart-123'     # Change 123 to any three characters to form a unique name across Azure
+# Change 123 to any three characters to form a unique name across Azure
+APP_SERVICE_NAME='msdocs-python-webapp-quickstart-123'
 
 az webapp create \
     --name $APP_SERVICE_NAME \
@@ -215,13 +217,13 @@ Having issues? Refer first to the [Troubleshooting guide](/azure/app-service/con
 
 ## 4 - Browse to the app
 
-Browse to the deployed application in your web browser at the URL `http://<app-name>.azurewebsites.net`. It can take a minute or two for the the app to start, so if you see a default app page, wait a minute and refresh the browser.
+Browse to the deployed application in your web browser at the URL `http://<app-name>.azurewebsites.net`. It can take a minute or two for the app to start, so if you see a default app page, wait a minute and refresh the browser.
 
 The Python sample code is running a Linux container in App Service using a built-in image.
 
 :::image type="content" source="./media/quickstart-python/run-app-azure.png" alt-text="Screenshot of the app running in Azure":::
 
-**Congratulations!** You've deployed your Python app to App Service.
+**Congratulations!** You have deployed your Python app to App Service.
 
 Having issues? Refer first to the [Troubleshooting guide](/azure/app-service/configure-language-python.md#troubleshooting), otherwise, [let us know](https://aka.ms/FlaskCLIQuickstartHelp).
 
@@ -298,7 +300,7 @@ Having issues? Refer first to the [Troubleshooting guide](/azure/app-service/con
 
 ## Clean up resources
 
-When you are finished with the sample app, you can remove all of the resources for the app from Azure to insure you do not incur additional charges and keep your Azure subscription uncluttered. Removing the resource group also removes all resources in the resource group and is the fastest way to remove all Azure resources for your app.
+When you are finished with the sample app, you can remove all of the resources for the app from Azure to ensure you do not incur additional charges and keep your Azure subscription uncluttered. Removing the resource group also removes all resources in the resource group and is the fastest way to remove all Azure resources for your app.
 
 ### [Azure portal](#tab/azure-portal)
 
