@@ -14,6 +14,9 @@ You can deploy your application code from a local Git repository to Azure by con
 First, you need to tell Azure what branch to use for deployment. This value is stored in the app settings for the web app with a key of `DEPLOYMENT_BRANCH`. For this example, you will be deploying code from the `main` branch.
 
 ```azurecli
+LOCATION='eastus'                          # Use 'az account list-locations --output table' to list locations
+RESOURCE_GROUP_NAME='msdocs-python-webapp-quickstart'
+
 az webapp config appsettings set \
     --name $APP_SERVICE_NAME \
     --resource-group $RESOURCE_GROUP_NAME \
@@ -50,7 +53,9 @@ git remote add azure <git-deployment-url>
 You can now push code from your local Git repository to Azure using the Git remote you just configured.
 
 ```bash
-git push azure main
+## Master is the default deployment branch for App Service.
+## Specify the local main branch and remote master branch for the deployment.
+git push azure main:master
 ```
 
 The first time you push code to Azure, Git will prompt you for the Azure deployment credentials you obtained in a previous step. Git will then cache these credentials so you will not have to re-enter them on subsequent deployments.
