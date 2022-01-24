@@ -14,7 +14,7 @@ To create, move, or use a PostgreSQL database to Azure, you need an **Azure Data
 
 Create a resource with:
 
-* [Azure CLI](../with-azure-cli/create-postgresql-server-resource.md)
+* [Azure CLI]()
 * [Visual Studio Code](../with-visual-studio-code/create-azure-database.md#create-a-postgresql-database)
 * [Azure portal](https://ms.portal.azure.com/#create/Microsoft.PostgreSQLServer)
 * [@azure/arm-postgresql](https://www.npmjs.com/package/@azure/arm-postgresql)

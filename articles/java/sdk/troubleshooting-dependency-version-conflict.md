@@ -52,7 +52,7 @@ In Azure Core 1.21.0, we added runtime detection and better diagnostics of the J
 
 If you see `LinkageError` (or any of its subclasses) related to the Jackson API, check the message of the exception for runtime version information. For example: `com.azure.core.implementation.jackson.JacksonVersionMismatchError: com/fasterxml/jackson/databind/cfg/MapperBuilder Package versions: jackson-annotations=2.9.0, jackson-core=2.9.0, jackson-databind=2.9.0, jackson-dataformat-xml=2.9.0, jackson-datatype-jsr310=2.9.0, azure-core=1.19.0-beta.2`
 
-Look for warning/error logs from `JacksonVersion`. For more information, see [Configure logging in the Azure SDK for Java](/azure/developer/java/sdk/logging-overview). For example: `[main] ERROR com.azure.core.implementation.jackson.JacksonVersion - Version '2.9.0' of package 'jackson-core' is not supported (too old), please upgrade.`
+Look for warning/error logs from `JacksonVersion`. For more information, see [Configure logging in the Azure SDK for Java](./logging-overview.md). For example: `[main] ERROR com.azure.core.implementation.jackson.JacksonVersion - Version '2.9.0' of package 'jackson-core' is not supported (too old), please upgrade.`
 
 > [!NOTE]
 > Check that all of the Jackson packages have the same version.

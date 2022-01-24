@@ -20,7 +20,7 @@ landingContent:
       - linkListType: overview
         links:
           - text: Take your first steps with Go
-            url: https://docs.microsoft.com/learn/paths/go-first-steps
+            url: /learn/paths/go-first-steps
           - text: What is the Azure SDK for Go?
             url: overview.md
           - text: Configure your development environment

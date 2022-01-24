@@ -78,7 +78,7 @@ Provide authentication.
 |Create app resource - includes: deploy Express.js app, configure app settings, run npm install, browse to deployed website|[Visual Studio Code extension](../tutorial/deploy-nodejs-azure-app-service-with-visual-studio-code.md)|
 |Create app resource|[Azure CLI](../tutorial/tutorial-vscode-azure-cli-node/tutorial-vscode-azure-cli-node-03.md)|
 |Create app, deploy, browser app, view logs|[Azure CLI](../tutorial/tutorial-vscode-azure-cli-node/tutorial-vscode-azure-cli-node-03.md)|
-|Configure web app to use database connection string|[Azure CLI](./with-azure-cli/create-mongodb-cosmosdb.md#configure-your-azure-web-app-with-the-connection-string)|
+|Configure web app to use database connection string|[Azure CLI](./with-database/use-mongodb-as-cosmosdb.md?tabs=azure-cli%2cmongodb#configure-your-azure-web-app-with-the-connection-string)|
 |Configure web app to use container|[Azure CLI](./with-azure-cli/create-container-registry-resource.md#configure-web-app-to-use-container)|
 |Configure web app custom domain name|[Azure portal and CLI](/azure/app-service/app-service-web-tutorial-custom-domain?tabs=a%2Cazurecli)|
 |Delete app resource|[Visual Studio Code extension](../tutorial/deploy-nodejs-mongodb-app-service-from-visual-studio-code.md#clean-up-resources)<br>[Azure CLI](../tutorial/tutorial-vscode-azure-cli-node/tutorial-vscode-azure-cli-node-07.md)|
@@ -124,10 +124,10 @@ Provide authentication.
 
 |Task|Using|
 |--|--|
-|Create resource|[Azure portal](https://ms.portal.azure.com/#create/Microsoft.DocumentDB)<br>[Azure CLI](./with-azure-cli/create-cassandra-db.md#create-a-cosmos-db-resource-for-cassandra-db)|
-|Create keystore on resource|[Azure CLI](./with-azure-cli/create-cassandra-db.md#create-a-keyspace-on-the-server-with-azure-cli)|
-|Create table on keystore|[Azure CLI](./with-azure-cli/create-cassandra-db.md#create-a-table-on-the-keyspace-with-azure-cli)|
-|Get connection information|[Azure CLI](./with-azure-cli/create-cassandra-db.md#get-the-cassandra-connection-string-with-azure-cli)|
+|Create resource|[Azure portal](https://ms.portal.azure.com/#create/Microsoft.DocumentDB)<br>[Azure CLI](./with-database/use-cassandra-as-cosmos-db.md#create-a-cosmos-db-resource-for-cassandra-db)|
+|Create keystore on resource|[Azure CLI](./with-database/use-cassandra-as-cosmos-db.md#create-a-keyspace-on-the-server-with-azure-cli)|
+|Create table on keystore|[Azure CLI](./with-database/use-cassandra-as-cosmos-db.md#create-a-table-on-the-keyspace-with-azure-cli)|
+|Get connection information|[Azure CLI](./with-database/use-cassandra-as-cosmos-db.md#get-the-cassandra-connection-string-with-azure-cli)|
 |Use cassandra-driver API on Cosmos DB|[JavaScript](./with-database/use-cassandra-as-cosmos-db.md#use-cassandra-driver-sdk-to-connect-to-cassandra-db-on-azure)|
 
 ### MariaDB
@@ -136,9 +136,9 @@ Provide authentication.
 
 |Task|Using|
 |--|--|
-|Create MariaDB resource|[Azure portal](https://ms.portal.azure.com/#create/Microsoft.MariaDBServer)<br>[Azure CLI](./with-azure-cli/create-mariadb.md#create-a-mariadb-resource-with-azure-cli)<br>[@azure/arm-mariadb](https://www.npmjs.com/package/@azure/arm-mariadb)|
-|Create MariaDB database on resource|[Azure CLI](./with-azure-cli/create-mariadb.md#create-a-mariadb-resource-with-azure-cli)|
-|Get Connection string|[Azure CLI](./with-azure-cli/create-mariadb.md#get-the-mariadb-connection-string-with-azure-cli)|
+|Create MariaDB resource|[Azure portal](https://ms.portal.azure.com/#create/Microsoft.MariaDBServer)<br>[Azure CLI](./with-database/use-mysql-mariadb.md?tabs=MySQL#create-a-mariadb-resource-with-azure-cli)<br>[@azure/arm-mariadb](https://www.npmjs.com/package/@azure/arm-mariadb)|
+|Create MariaDB database on resource|[Azure CLI](./with-database/use-mysql-mariadb.md?tabs=MySQL#create-a-mariadb-resource-with-azure-cli)|
+|Get Connection string|[Azure CLI](./with-database/use-mysql-mariadb.md?tabs=MySQL#get-the-mariadb-connection-string-with-azure-cli)|
 |Use and view database|[Azure Cloud Shell](https://shell.azure.com/)'s _mysql_ CLI<br>[MySQL Workbench](https://www.mysql.com/products/workbench/)<br>[Visual Studio Code extension](https://marketplace.visualstudio.com/items?itemName=mtxr.sqltools-driver-mysql)<br>[npm mariadb](https://www.npmjs.com/package/mariadb)<br>[JavaScript](./with-database/use-mysql-mariadb.md?tabs=MariaDB#use-mariadb-sdk-to-connect-to-mariadb-on-azure)|
 
 ### MongoDB API on Cosmos DB
@@ -147,8 +147,8 @@ Provide authentication.
 
 |Task|using|
 |--|--|
-|Create Cosmos DB - MongoDB resource|[Visual Studio Code extension](../tutorial/deploy-nodejs-mongodb-app-service-from-visual-studio-code.md)<br>[Azure CLI](./with-azure-cli/create-mongodb-cosmosdb.md#create-a-cosmos-db-resource-for-mongodb)|
-|Get Cosmos DB connection string|[Visual Studio Code extension](../tutorial/deploy-nodejs-mongodb-app-service-from-visual-studio-code.md#get-cosmos-db-connection-string)<br>[Azure CLI](./with-azure-cli/create-mongodb-cosmosdb.md#get-the-mongodb-connection-string-for-your-resource)|
+|Create Cosmos DB - MongoDB resource|[Visual Studio Code extension](../tutorial/deploy-nodejs-mongodb-app-service-from-visual-studio-code.md)<br>[Azure CLI](./with-database/use-mongodb-as-cosmosdb.md?tabs=azure-cli%2cmongodb#create-a-cosmos-db-resource-for-mongodb)|
+|Get Cosmos DB connection string|[Visual Studio Code extension](../tutorial/deploy-nodejs-mongodb-app-service-from-visual-studio-code.md#get-cosmos-db-connection-string)<br>[Azure CLI](./with-database/use-mongodb-as-cosmosdb.md?tabs=azure-cli%2cmongodb#get-the-mongodb-connection-string-for-your-resource)|
 |View Cosmos DB|[Cosmos DB Explorer](https://cosmos.azure.com/)|
 |Use Mongoose API for mongoDB on Cosmos DB|[JavaScript](./with-database/use-mongodb-as-cosmosdb.md#use-mongoose-sdk-to-connect-to-mongodb-on-azure)
 
@@ -158,7 +158,7 @@ Provide authentication.
 
 |Task|Using|
 |--|--|
-|Create resource|[Azure portal](https://ms.portal.azure.com/#create/Microsoft.MySQLServer)<br>[Azure CLI](./with-azure-cli/create-mysql-db.md#create-an-azure-database-for-mysql-resource-with-azure-cli)<br>[@azure/arm-mysql](https://www.npmjs.com/package/@azure/arm-mysql)|
+|Create resource|[Azure portal](https://ms.portal.azure.com/#create/Microsoft.MySQLServer)<br>[Azure CLI](./with-database/use-mysql-mariadb.md?tabs=MySQL#create-an-azure-database-for-mysql-resource-with-azure-cli)<br>[@azure/arm-mysql](https://www.npmjs.com/package/@azure/arm-mysql)|
 |Create database on resource|[Azure CLI](./with-database/use-mysql-mariadb.md?tabs=MySQL#create-a-database-on-the-server-with-azure-cli)|
 |Get Connection string|[Azure CLI](./with-database/use-mysql-mariadb.md?tabs=MySQL#get-the-mysql-connection-string-with-azure-cli)|
 |Use and view database|[MySQL Workbench](https://www.mysql.com/products/workbench/)<br>[Visual Studio Code extension](https://marketplace.visualstudio.com/items?itemName=mtxr.sqltools-driver-mysql)<br>[npm mysql](https://www.npmjs.com/package/mysql)<br>[npm promise-mysql](https://www.npmjs.com/package/promise-mysql)|
@@ -170,8 +170,8 @@ Provide authentication.
 
 |Task|using|
 |--|--|
-|Create resource|[Visual Studio Code extension](./with-visual-studio-code/create-azure-database.md#create-a-postgresql-database)<br>[Azure CLI](./with-azure-cli/create-postgresql-server-resource.md#create-an-azure-database-for-postgresql-server-resource-with-azure-cli)<br>[Azure portal](https://ms.portal.azure.com/#create/Microsoft.PostgreSQLServer)<br>[@azure/arm-postgresql](https://www.npmjs.com/package/@azure/arm-postgresql)|
-|Get connection string|[Azure CLI](./with-azure-cli/create-postgresql-server-resource.md#get-the-postgresql-connection-string-with-azure-cli)|
+|Create resource|[Visual Studio Code extension](./with-visual-studio-code/create-azure-database.md#create-a-postgresql-database)<br>[Azure CLI](./with-database/use-postgresql-db.md#create-an-azure-database-for-postgresql-server-resource-with-azure-cli)<br>[Azure portal](https://ms.portal.azure.com/#create/Microsoft.PostgreSQLServer)<br>[@azure/arm-postgresql](https://www.npmjs.com/package/@azure/arm-postgresql)|
+|Get connection string|[Azure CLI](./with-database/use-postgresql-db.md#get-the-postgresql-connection-string-with-azure-cli)|
 |View DB|[Visual Studio Code extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb)<br>[Azure Cloud Shell's psql](https://shell.azure.com/)|
 |Use pg API for DB|[JavaScript](./with-database/use-postgresql-db.md#use-pg-sdk-to-connect-to-postgresql-on-azure)
 
