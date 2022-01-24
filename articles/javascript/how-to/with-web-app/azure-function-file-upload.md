@@ -234,7 +234,7 @@ Now that the basic project folder structure and files are in place, add local st
     |Enter a globally unique name for the new Function App|The name becomes part of the API's URL.|API is invoked with an HTTP request. Valid characters for a function app name are 'a-z', '0-9', and '-'. An example is `blob-storage-upload-function-app-jsmith`. You can replace `jsmith` with your own name, if you would prefer.|
     |Select a runtime stack|Select a Node.js stack with the `LTS` descriptor.|LTS means long-term support.|
     |Select an OS.|Windows|Windows is selected specifically for the stream logs integration in Visual Studio Code. Linux log streaming is available from the Azure portal.|
-    |Select a resource group for new resources.|`blob-storage-upload-function-group`|Select the [resource group](#1-create-a-resource-group) you created.|
+    |Select a resource group for new resources.|`blob-storage-upload-function-group`|Select the resource group you created.|
     |Select a location for new resources.|Select the recommended region.||
     |Select a hosting plan.|Consumption||
     |Select a storage account.|+ Create new storage account||
@@ -256,7 +256,7 @@ Now that the basic project folder structure and files are in place, add local st
     |Prompt|Value|Notes|
     |--|--|--|
     |Enter a globally unique name for the new Storage resource|`blobstoragefunction`|The name must be 3 to 24 lowercase letters and numbers only.|
-    |Select a resource group for new resources.|`blob-storage-upload-function-group`|Select the [resource group](#1-create-a-resource-group) you created.|
+    |Select a resource group for new resources.|`blob-storage-upload-function-group`|Select the resource group you created.|
     |Would you like to enable static website hosting?|No.|| 
     |Select a location for new resources.|Select one of the recommended locations close to use.||
 
