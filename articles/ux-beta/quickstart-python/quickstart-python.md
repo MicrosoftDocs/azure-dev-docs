@@ -15,9 +15,9 @@ In this quickstart, you'll deploy a Python web app to [Azure App Service](/azure
 
 To complete this quickstart, you need:
 1. An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-1. <a href="https://www.python.org/downloads/" target="_blank">Python 3.7 or higher</a> installed locally.
+1. <a href="https://www.python.org/downloads/" target="_blank">Python 3.9 or higher</a> installed locally.
 
-## Sample application
+## 1 - Sample application
 
 This quickstart can be completed using either Flask or Django. A sample application in each framework is provided to help you follow along with this quickstart. Download or clone the sample application to your local workstation.
 
@@ -99,7 +99,7 @@ Having issues? [Let us know](https://aka.ms/FlaskCLIQuickstartHelp).
 
 ---
 
-## 1 - Create a web app in Azure
+## 2 - Create a web app in Azure
 
 To host your application in Azure, you need to create Azure App Service web app in Azure. You can create a web app using the [Azure portal](https://portal.azure.com/), VS Code using the [Azure Tools extension pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack), or the Azure CLI.
 
@@ -164,14 +164,14 @@ az appservice plan create \
 Finally, create the App Service web app using the [az webapp create](/cli/azure/webapp#az_webapp_create) command.  
 
 * The *app service name* is used as both the name of the resource in Azure and to form the fully qualified domain name for your app in the form of `https://<app service name>.azurewebsites.com`.
-* The runtime specifies what version of Python your app is running. This example uses Python 3.8. To list all available runtimes, use the command `az webapp list-runtimes --linux --output table`.
+* The runtime specifies what version of Python your app is running. This example uses Python 3.9. To list all available runtimes, use the command `az webapp list-runtimes --linux --output table`.
 
 ```azurecli
 APP_SERVICE_NAME='msdocs-python-webapp-quickstart-123'     # Change 123 to any three characters to form a unique name across Azure
 
 az webapp create \
     --name $APP_SERVICE_NAME \
-    --runtime 'PYTHON|3.8' \
+    --runtime 'PYTHON|3.9' \
     --plan $APP_SERVICE_PLAN_NAME \
     --resource-group $RESOURCE_GROUP_NAME \
     --query 'defaultHostName' \
@@ -182,7 +182,7 @@ az webapp create \
 
 Having issues? [Let us know](https://aka.ms/FlaskCLIQuickstartHelp).
 
-## 2 - Deploy your application code to Azure
+## 3 - Deploy your application code to Azure
 
 Azure App service supports multiple methods to deploy your application code to Azure including support for GitHub Actions and all major CI/CD tools. This article focuses on how to deploy your code from your local workstation to Azure.
 
@@ -213,7 +213,7 @@ To deploy a web app from VS Code, you must have the [Azure Tools extension pack]
 
 Having issues? Refer first to the [Troubleshooting guide](/azure/app-service/configure-language-python.md#troubleshooting), otherwise, [let us know](https://aka.ms/FlaskCLIQuickstartHelp).
 
-## 3 - Browse to the app
+## 4 - Browse to the app
 
 Browse to the deployed application in your web browser at the URL `http://<app-name>.azurewebsites.net`. It can take a minute or two for the the app to start, so if you see a default app page, wait a minute and refresh the browser.
 
@@ -225,7 +225,7 @@ The Python sample code is running a Linux container in App Service using a built
 
 Having issues? Refer first to the [Troubleshooting guide](/azure/app-service/configure-language-python.md#troubleshooting), otherwise, [let us know](https://aka.ms/FlaskCLIQuickstartHelp).
 
-## 4 - Stream logs
+## 5 - Stream logs
 
 Azure App Service captures all messages output to the console to assist you in diagnosing issues with your application. The sample apps include `print()` statements to demonstrate this capability.
 

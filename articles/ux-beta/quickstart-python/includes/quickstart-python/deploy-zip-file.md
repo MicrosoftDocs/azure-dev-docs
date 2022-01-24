@@ -29,6 +29,12 @@ az webapp config appsettings set \
 
 Next, create a ZIP file of your application. You only need to include components of the application itself. You do not need to include any files or directories that start with a dot (`.`) such as `.venv`, `.gitignore`, `.github`, or `.vscode`.
 
+##### [Windows](#tab/windows)
+
+On Windows, use a program like 7-Zip to create a ZIP file needed to deploy the application.
+
+:::image type="content" source="../../media/quickstart-python/deploy-zip-create-zip-windows-600px.png" alt-text="A screenshot showing files being zipped into a ZIP file using 7-Zip." lightbox="../../media/quickstart-python/deploy-zip-create-zip-windows.png":::
+
 ##### [macOS/Linux](#tab/mac-linux)
 
 On macOS or Linux, you can use the built in `zip` utility to create a ZIP file.
@@ -36,12 +42,6 @@ On macOS or Linux, you can use the built in `zip` utility to create a ZIP file.
 ```bash
 zip -r <file-name>.zip . -x '.??*'
 ```
-
-##### [Windows](#tab/windows)
-
-On Windows, use a program like 7-Zip to create a ZIP file needed to deploy the application.
-
-:::image type="content" source="../../media/quickstart-python/deploy-zip-create-zip-windows-600px.png" alt-text="A screenshot showing files being zipped into a ZIP file using 7-Zip." lightbox="../../media/quickstart-python/deploy-zip-create-zip-windows.png":::
 
 ---
 
