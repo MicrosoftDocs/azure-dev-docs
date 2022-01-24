@@ -1,4 +1,4 @@
-Applications can be deployed to Azure by creating and uploading a ZIP file of the application code to Azure. ZIP files can be uploaded to Azure using the Azure CLI or a HTTP client like [cURL](https://curl.se/).
+Applications can be deployed to Azure by creating and uploading a ZIP file of the application code to Azure. ZIP files can be uploaded to Azure using the Azure CLI or an HTTP client like [cURL](https://curl.se/).
 
 ### Enable build automation
 
@@ -11,7 +11,7 @@ Build automation in Azure is enabled by setting the `SCM_DO_BUILD_DURING_DEPLOYM
 | Instructions    | Screenshot |
 |:----------------|-----------:|
 | [!INCLUDE [Enable build automation from Azure portal 1](<./deploy-zip-azure-portal-1.md>)] | :::image type="content" source="../../media/quickstart-python/deploy-zip-azure-portal-build-1-240px.png" alt-text="A screenshot showing the app settings for a web app and how to add a new setting in the Azure portal." lightbox="../../media/quickstart-python/deploy-zip-azure-portal-build-1.png"::: |
-| [!INCLUDE [Enable build automation from Azure portal 2](<./deploy-zip-azure-portal-2.md>)] | :::image type="content" source="../../media/quickstart-python/deploy-zip-azure-portal-build-2-240px.png" alt-text="A screenshot showing the dialog box used to add an app settings in the Azure portal." lightbox="../../media/quickstart-python/deploy-zip-azure-portal-build-2.png"::: |
+| [!INCLUDE [Enable build automation from Azure portal 2](<./deploy-zip-azure-portal-2.md>)] | :::image type="content" source="../../media/quickstart-python/deploy-zip-azure-portal-build-2-240px.png" alt-text="A screenshot showing the dialog box used to add an app setting in the Azure portal." lightbox="../../media/quickstart-python/deploy-zip-azure-portal-build-2.png"::: |
 | [!INCLUDE [Enable build automation from Azure portal 3](<./deploy-zip-azure-portal-3.md>)] | :::image type="content" source="../../media/quickstart-python/deploy-zip-azure-portal-build-3-240px.png" alt-text="A screenshot showing the location of the save button." lightbox="../../media/quickstart-python/deploy-zip-azure-portal-build-3.png"::: |
 
 ##### [Azure CLI](#tab/deploy-instructions-azcli)
@@ -37,7 +37,7 @@ On Windows, use a program like 7-Zip to create a ZIP file needed to deploy the a
 
 ##### [macOS/Linux](#tab/mac-linux)
 
-On macOS or Linux, you can use the built in `zip` utility to create a ZIP file.
+On macOS or Linux, you can use the built-in `zip` utility to create a ZIP file.
 
 ```bash
 zip -r <file-name>.zip . -x '.??*'
