@@ -66,11 +66,11 @@ Use the copy icon to copy these URLs and paste them into browser address bars.
 
 After the Administrative Console page has loaded you should see the sign-in page.
 
-:::image type="content" source="media/traditional-websphere-application-server-virtual-machines/console-admin-console-login-page.png" alt-text="Screenshot of IBM WebSphere Integrated Solutions Console sign-in page.":::
+:::image type="content" source="media/traditional-websphere-application-server-virtual-machines/admin-console-login-page.png" alt-text="Screenshot of IBM WebSphere Integrated Solutions Console sign-in page.":::
 
 Log in using the WebSphere admin credentials you provided when setting up the **Cluster configuration**. After logging in, you will see the following **WebSphere Administrative console** page.
 
-:::image type="content" source="media/traditional-websphere-application-server-virtual-machines/console-admin-console-page.png" alt-text="Screenshot of IBM WebSphere administrative console page." lightbox="media/traditional-websphere-application-server-virtual-machines/console-admin-console-page.png":::
+:::image type="content" source="media/traditional-websphere-application-server-virtual-machines/admin-console-page.png" alt-text="Screenshot of IBM WebSphere administrative console page." lightbox="media/traditional-websphere-application-server-virtual-machines/admin-console-page.png":::
 
 After the IHS console has loaded, you should see the following page:
 
