@@ -22,7 +22,7 @@ landingContent:
         - text: Deploy to Linux using Visual Studio Code
           url: https://code.visualstudio.com/docs/java/java-webapp
         - text: Traditional WebSphere on Azure VMs
-          url: twas-vms.md
+          url: ../ee/traditional-websphere-application-server-virtual-machines.md
   - title: Serverless functions
     linkLists:
       - linkListType: quickstart

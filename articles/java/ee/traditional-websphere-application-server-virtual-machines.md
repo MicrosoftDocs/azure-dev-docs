@@ -4,7 +4,7 @@ description: Shows you how to deploy WebSphere Application Server (traditional) 
 ms.author: zhengchang
 ms.topic: overview
 ms.date: 01/24/2022
-ms.custom: java, jakartaee, javaee, websphere, devx-track-java, devx-track-javaee, devx-track-javaee-was
+ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-was
 ---
 
 # Deploy WebSphere Application Server (traditional) with High Availability on Azure Virtual Machines
