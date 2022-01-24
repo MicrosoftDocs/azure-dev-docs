@@ -358,7 +358,7 @@ Once deployment is completed and the _AzureWebJobsStorage_ app setting have been
 
     :::image type="content" source="../../media/azure-function-file-upload-binding/visual-studio-code-storage-container-file.png" alt-text="Screenshot of Visual Studio Code showing the Azure explorer's Storage node with the file uploaded.":::
 
-## Query your Azure Function logs
+## 11. Query your Azure Function logs
 
 1. In Visual Studio Code, select the Azure explorer, then under **Functions**, right-click on your function app, then select **Open in Portal**.
 
@@ -388,12 +388,17 @@ Once deployment is completed and the _AzureWebJobsStorage_ app setting have been
     :::image type="content" source="../../media/azure-function-file-upload-binding/azure-portal-function-application-insight-trace-message.png" alt-text="Browser screenshot showing Azure portal Kusto query result for Trace table." lightbox="../../media/azure-function-file-upload-binding/azure-portal-function-application-insight-trace-message.png":::
    
 
-## Clean up Azure resources
+## 12. Clean up Azure resources
 
 1. In Visual Studio Code, in the Azure explorer, find the resource group name, `blob-storage-upload-function-group`, in the list.
 1. Right-click the resource group name and select **Delete**.
 
     :::image type="content" source="../../media/azure-function-file-upload-binding/visual-studio-code-resource-group-delete.png" alt-text="Use the Visual Studio Code extension, Azure Resource Groups, to delete the resource group and all resources within the group.":::
+
+## Troubleshooting
+
+If you try to use this sample and run into an error regarding `split` from the `parse-multipart` library, verify that you are sending the `filename` property in your multiform data and that you are sending the `content-type` header into the function.NET
+
 
 ## Next steps
 
