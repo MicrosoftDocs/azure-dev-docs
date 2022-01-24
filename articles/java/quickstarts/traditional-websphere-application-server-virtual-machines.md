@@ -28,27 +28,27 @@ The **IBM WebSphere Application Server Cluster** deployment page is where you’
 
 Each of these VMs is automatically setup with the necessary networking and storage to support the deployment.
 
-:::image type="content" source="media/twas-vms/default-configuration-cluster-deployment.png" alt-text="Diagram showing default configuration of WebSphere Application Server (traditional) Cluster deployment.":::
+:::image type="content" source="media/traditional-websphere-application-server-virtual-machines/default-configuration-cluster-deployment.png" alt-text="Diagram showing default configuration of WebSphere Application Server (traditional) Cluster deployment.":::
 
 To begin defining your deployment, select **Create**.
 
-:::image type="content" source="media/twas-vms/cluster-create-page.png" alt-text="Azure portal screenshot showing IBM WebSphere Application Server Cluster offering.":::
+:::image type="content" source="media/traditional-websphere-application-server-virtual-machines/cluster-create-page.png" alt-text="Azure portal screenshot showing IBM WebSphere Application Server Cluster offering.":::
 
 This will take you to the **Create IBM WebSphere Application Server Cluster** page where you start configuring the deployment.
 
-:::image type="content" source="media/twas-vms/cluster-deployment-basics-tab.png" alt-text="Azure portal screenshot with IBM WebSphere Application Server Cluster offering showing Basics configuration pane." lightbox="media/twas-vms/cluster-deployment-basics-tab.png":::
+:::image type="content" source="media/traditional-websphere-application-server-virtual-machines/cluster-deployment-basics-tab.png" alt-text="Azure portal screenshot with IBM WebSphere Application Server Cluster offering showing Basics configuration pane." lightbox="media/traditional-websphere-application-server-virtual-machines/cluster-deployment-basics-tab.png":::
 
 Each field typically has an information icon which gives you more help with filling it out. The offer is Bring-Your-Own-License (BYOL) and so requires you to have purchased entitlements to WAS. Your entitlement is checked during installation into the VMs. You must provide an IBMid which is associated with the entitlements. If the ID you provided does not have entitlements, then the deployment will fail to install WAS and you will see error messages that include this text: `The provided IBMid does not have entitlement to install WebSphere Application Server.`
 
 After you’ve completed this configuration, select **Next: Cluster configuration**.
 
-:::image type="content" source="media/twas-vms/cluster-deployment-configuration-tab.png" alt-text="Azure portal screenshot with IBM WebSphere Application Server Cluster offering showing 'Cluster configuration' pane." lightbox="media/twas-vms/cluster-deployment-configuration-tab.png":::
+:::image type="content" source="media/traditional-websphere-application-server-virtual-machines/cluster-deployment-configuration-tab.png" alt-text="Azure portal screenshot with IBM WebSphere Application Server Cluster offering showing 'Cluster configuration' pane." lightbox="media/traditional-websphere-application-server-virtual-machines/cluster-deployment-configuration-tab.png":::
 
 This next page lets you configure the virtual machines and WebSphere Application Server cluster. The version of WebSphere which will be installed is the latest along with the most recent fixes to ensure your deployment is up-to-date.
 
 When specifying the cluster configuration, you have the option of creating a Dynamic Cluster which is a server cluster that uses weights and workload management to balance the workloads of its cluster members dynamically, based on performance information that is collected from the cluster members. Stick with the default Static Cluster option for this exercise. After you've filled out all the information, select **Next: IBM HTTP Server Load Balancer**.
 
-:::image type="content" source="media/twas-vms/cluster-deployment-load-balancer-configuration-tab.png" alt-text="Azure portal screenshot with IBM WebSphere Application Server Cluster offering showing 'IBM HTTP Server Load Balancer' pane." lightbox="media/twas-vms/cluster-deployment-load-balancer-configuration-tab.png":::
+:::image type="content" source="media/traditional-websphere-application-server-virtual-machines/cluster-deployment-load-balancer-configuration-tab.png" alt-text="Azure portal screenshot with IBM WebSphere Application Server Cluster offering showing 'IBM HTTP Server Load Balancer' pane." lightbox="media/traditional-websphere-application-server-virtual-machines/cluster-deployment-load-balancer-configuration-tab.png":::
 
 This next page gives you the option to deploy the **IBM HTTP Server (IHS) load balancer** into its own VM. IHS is the web server front-end for the cluster of application servers. It receives requests and routes then to one of the server instances. This allows you to have more than one instance of the application processing requests. The benefits of using IHS are that your deployment can scale to higher workloads and be resilient to failures (aka being Highly Available). Without IHS, you will have to set up your own load balancing across your cluster and
 
@@ -60,21 +60,21 @@ The deployment usually takes around 20 minutes.
 
 After the cluster deployment has successfully completed, select the **Outputs** section on the left panel to see the admin console and IHS console URLs, along with other details.
 
-:::image type="content" source="media/twas-vms/cluster-deployment-outputs.png" alt-text="Azure portal screenshot of cluster Deployment showing Outputs page with adminSecuredConsole and ihsConsole fields highlighted.":::
+:::image type="content" source="media/traditional-websphere-application-server-virtual-machines/cluster-deployment-outputs.png" alt-text="Azure portal screenshot of cluster Deployment showing Outputs page with adminSecuredConsole and ihsConsole fields highlighted.":::
 
 Use the copy icon to copy these URLs and paste them into browser address bars.
 
 After the Administrative Console page has loaded you should see the sign-in page.
 
-:::image type="content" source="media/twas-vms/console-admin-console-login-page.png" alt-text="Screenshot of IBM WebSphere Integrated Solutions Console sign-in page.":::
+:::image type="content" source="media/traditional-websphere-application-server-virtual-machines/console-admin-console-login-page.png" alt-text="Screenshot of IBM WebSphere Integrated Solutions Console sign-in page.":::
 
 Log in using the WebSphere admin credentials you provided when setting up the **Cluster configuration**. After logging in, you will see the following **WebSphere Administrative console** page.
 
-:::image type="content" source="media/twas-vms/console-admin-console-page.png" alt-text="Screenshot of IBM WebSphere administrative console page." lightbox="media/twas-vms/console-admin-console-page.png":::
+:::image type="content" source="media/traditional-websphere-application-server-virtual-machines/console-admin-console-page.png" alt-text="Screenshot of IBM WebSphere administrative console page." lightbox="media/traditional-websphere-application-server-virtual-machines/console-admin-console-page.png":::
 
 After the IHS console has loaded, you should see the following page:
 
-:::image type="content" source="media/twas-vms/ibm-http-server-console-page.png" alt-text="Screenshot of IBM WebSphere Integrated Solutions Console page.":::
+:::image type="content" source="media/traditional-websphere-application-server-virtual-machines/ibm-http-server-console-page.png" alt-text="Screenshot of IBM WebSphere Integrated Solutions Console page.":::
 
 ## Trying out an application
 
@@ -88,17 +88,17 @@ Follow these instructions if you’d like to try out an application in the clust
 
 You will be taken back to the page for selecting the application and it should look like this:
 
-:::image type="content" source="media/twas-vms/select-test-app-page.png" alt-text="Screenshot of IBM WebSphere 'Specify the EAR, WAR, JAR, or SAR module to upload and install' dialog.":::
+:::image type="content" source="media/traditional-websphere-application-server-virtual-machines/select-test-app-page.png" alt-text="Screenshot of IBM WebSphere 'Specify the EAR, WAR, JAR, or SAR module to upload and install' dialog.":::
 
 Select **Next** and then **Next** to go with the **Fast Path** deployment process.
 
 In the Fast Path wizard, you’ll go with the defaults for everything except **Step 2: map modules to servers**. On that page you need to select the **check box** for the **Default Web Application Module** then **Ctrl-Select** the options under **Clusters and servers** and finally you need to select **Apply**.
 
-:::image type="content" source="media/twas-vms/map-modules-to-servers-configuration-page.png" alt-text="Screenshot of IBM WebSphere 'Install New Application' dialog with 'Step 2: Map modules to servers' pane showing and 'Clusters and servers' field highlighted." lightbox="media/twas-vms/map-modules-to-servers-configuration-page.png":::
+:::image type="content" source="media/traditional-websphere-application-server-virtual-machines/map-modules-to-servers-configuration-page.png" alt-text="Screenshot of IBM WebSphere 'Install New Application' dialog with 'Step 2: Map modules to servers' pane showing and 'Clusters and servers' field highlighted." lightbox="media/traditional-websphere-application-server-virtual-machines/map-modules-to-servers-configuration-page.png":::
 
 You should see new entries under **Server** in the table that look as follows
 
-:::image type="content" source="media/twas-vms/map-modules-to-servers-outcome-page.png" alt-text="Screenshot of IBM WebSphere 'Install New Application' dialog with 'Step 2: Map modules to servers' pane showing and 'Server' table column highlighted." lightbox="media/twas-vms/map-modules-to-servers-outcome-page.png":::
+:::image type="content" source="media/traditional-websphere-application-server-virtual-machines/map-modules-to-servers-outcome-page.png" alt-text="Screenshot of IBM WebSphere 'Install New Application' dialog with 'Step 2: Map modules to servers' pane showing and 'Server' table column highlighted." lightbox="media/traditional-websphere-application-server-virtual-machines/map-modules-to-servers-outcome-page.png":::
 
 After you’ve completed all the steps, you can select **Finish** and then **Save** on the next page.
 
@@ -106,11 +106,11 @@ Next you need to start the application. Go to **Applications > All Applications*
 
 You should see messages that look similar to this. If you see errors, it may be that you were too quick and the app and config have not reached the nodes yet.
 
-:::image type="content" source="media/twas-vms/start-app-message-page.png" alt-text="Screenshot of IBM WebSphere Messages pane." lightbox="media/twas-vms/start-app-message-page.png":::
+:::image type="content" source="media/traditional-websphere-application-server-virtual-machines/start-app-message-page.png" alt-text="Screenshot of IBM WebSphere Messages pane." lightbox="media/traditional-websphere-application-server-virtual-machines/start-app-message-page.png":::
 
 You’re now ready to try the app. Point your browser at the DNS name of the IHS deployment and add `/snoop`. You should see information about the server instance that processed the request.
 
-:::image type="content" source="media/twas-vms/test-app-running-page.png" alt-text="Screenshot of test application running in a browser.":::
+:::image type="content" source="media/traditional-websphere-application-server-virtual-machines/test-app-running-page.png" alt-text="Screenshot of test application running in a browser.":::
 
 Refreshing the browser will cycle through the server instances using the **Round Robin load-balancing policy** (the default for the Static Cluster deployment).
 
