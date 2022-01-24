@@ -2,7 +2,7 @@
 title: Upload file to Storage
 description: Create an Azure Function API, which uploads a file to Azure Storage.
 ms.topic: how-to
-ms.date: 10/06/2021
+ms.date: 01/24/2022
 ms.custom: devx-track-js
 #intent: How to locally develop a file-upload serverless function then deploy that function to Azure. 
 ---
@@ -15,15 +15,15 @@ This article shows you how to create an Azure Function API, which uploads a file
 
 ## Azure Storage considerations when using Azure Functions
 
-The Azure Function **file upload limit is 100 MB**. If you need to upload larger files, consider either a browser-based approach or a web app. 
+The Azure Function **file upload limit is 100 MB**. If you need to upload larger files, consider either a browser-based approach or a server app. 
 
-This sample uses an **Azure Function _out_ binding** instead of the Azure Storage npm package. By using the binding, you have to configure your function to correctly use the outbound binding to move the file from our function to the storage resource. 
+This sample uses an **Azure Function _out_ binding** instead of the Azure Storage npm package. By using the binding, you have to configure your function to correctly use the outbound binding to move the file from this function to the storage resource _without writing code to interact with Azure Storage_. 
 
 The _out_ binding usage, used in this article, has some pros and cons:
 
 |Pros|Cons|
 |--|--|
-|* No code to write to move a file from the function to storage<br><br>* No npm dependency for storage|* function.json just be configured correctly<br><br>* Connection string to storage must be configured correctly in environment|
+|* No code to write to move a file from the function to storage<br><br>* No npm dependency for storage|* function.json must be configured correctly<br><br>* Connection string to storage must be configured correctly in environment|
 
 The code required to read the uploaded file and convert it into a format that can be sent to storage is required, regardless if you use an out binding or an npm package to integrate with Azure Storage directly.
 
@@ -32,8 +32,8 @@ The code required to read the uploaded file and convert it into a format that ca
 Make sure the following are installed on your local developer workstation:
 
 - An Azure account with **an active subscription which you own**. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). Ownership is required to provide the correct Azure Active folder permissions to complete these steps.
-- [Node.js LTS and npm](https://nodejs.org/en/download) - installed to your local machine.
-- [Visual Studio Code](https://code.visualstudio.com/) - installed to your local machine. 
+- [Node.js LTS and npm](https://nodejs.org/en/download) - for local development.
+- [Visual Studio Code](https://code.visualstudio.com/) - to develop locally and to deploy to Azure. 
 - Visual Studio Code extensions:
     - [Azure Resource extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureresourcegroups).
     - [Azure Function extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions).
@@ -41,7 +41,7 @@ Make sure the following are installed on your local developer workstation:
 
 ## Create a resource group
 
-A resource group holds both the Azure Function resource and the Azure Storage resource. By adding both resources to a single group, when you want to clean up, you just need to remove the resource group.
+A resource group holds both the Azure Function resource and the Azure Storage resource. Because both resources are in a single resource group, when you want to remove these resource, you remove the resource group. That action removes all resources in the resource group.
 
 1. In Visual Studio Code, select the Azure explorer, then select the **+** (Plus/Addition) icon under **Resource Groups**. 
 
@@ -79,7 +79,7 @@ A resource group holds both the Azure Function resource and the Azure Storage re
 
     | Filename | Description |
     | --- | --- |
-    | *index.js* |  The source code that responds to the HTTP request. |
+    | *index.ts* |  The source code that responds to the HTTP request. |
     | *function.json* | The [binding configuration](/azure/azure-functions/functions-triggers-bindings) for the HTTP trigger. |
     | *sample.dat* | A placeholder data file to demonstrate that you can have other files in the folder. You can delete this file, if desired, as it's not used in this tutorial. |
 
