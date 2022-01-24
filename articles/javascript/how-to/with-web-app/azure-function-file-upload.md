@@ -41,7 +41,7 @@ Make sure the following are installed on your local developer workstation:
 
 ## 1. Create a resource group
 
-A resource group holds both the Azure Function resource and the Azure Storage resource. Because both resources are in a single resource group, when you want to remove these resource, you remove the resource group. That action removes all resources in the resource group.
+A resource group holds both the Azure Function resource and the Azure Storage resource. Because both resources are in a single resource group, when you want to remove these resources, you remove the resource group. That action removes all resources in the resource group.
 
 1. In Visual Studio Code, select the Azure explorer, then select the **+** (Plus/Addition) icon under **Resource Groups**. 
 
@@ -110,7 +110,7 @@ Now that the basic project folder structure and files are in place, add local st
     mkdir azureStorage
     ```
 
-1. To start the Azurite emulator, add an npm script to the end of the `scripts` property items in the **package.json** file :
+1. To start the Azurite emulator, add an npm script to the end of the `scripts` property items in the **package.json** file:
 
     ```json
     "start-azurite": "azurite --silent --location azureStorage --debug azureStorage/debug.log"
@@ -152,7 +152,7 @@ Now that the basic project folder structure and files are in place, add local st
 
     The first highlighted object defines the _out_ binding to read the returned object from the function. The second highlighted object defines how to use the read information. The connection string for the Storage resource is defined in the **connection** property with the `AzureWebJobsStorage` value. 
 
-1. Open the `./local.settings.json` file and replace the **AzureWebJobsStorage** property's value with `UseDevelopmentStorage=true` to ensure that when you develop locally, the function uses the local Azurite storage emulator.:
+1. Open the `./local.settings.json` file and replace the **AzureWebJobsStorage** property's value with `UseDevelopmentStorage=true` to ensure that when you develop locally, the function uses the local Azurite storage emulator:
 
     :::code language="JSON" source="~/../js-e2e-azure-function-upload-file/sample.local.settings.json" highlight="5":::
 
