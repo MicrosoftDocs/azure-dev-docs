@@ -80,13 +80,13 @@ set TOMCAT_HOME=<Tomcat install directory>
 ```
 ---
 
-Then, update *pom.xml* file for deploying the WAR file. Add the following XML as a child of the existing `<plugins>` element. If necessary, change `1.9.8` to the current version of the [Cargo Maven 3 Plugin](https://mvnrepository.com/artifact/org.codehaus.cargo/cargo-maven3-plugin).
+Then, update *pom.xml* file for deploying the WAR file. Add the following XML as a child of the existing `<plugins>` element. If necessary, change `1.9.9` to the current version of the [Cargo Maven 3 Plugin](https://mvnrepository.com/artifact/org.codehaus.cargo/cargo-maven3-plugin).
 
 ```xml
 <plugin>
     <groupId>org.codehaus.cargo</groupId>
     <artifactId>cargo-maven3-plugin</artifactId>
-    <version>1.9.8</version>
+    <version>1.9.9</version>
     <configuration>
         <container>
             <containerId>tomcat9x</containerId>
@@ -178,13 +178,13 @@ set SUBSCRIPTION_ID=<subscription_id>
 
 Maven will use these values to create the Azure resources with the names you provide. By using environment variables, you can keep your account secrets out of your project files.
 
-Next, update the *pom.xml* file to configure Maven for an Azure deployment. Add the following XML after the `<plugin>` element you added previously. If necessary, change `2.2.3` to the current version of the [Maven Plugin for Azure App Service](https://github.com/microsoft/azure-maven-plugins/blob/develop/azure-webapp-maven-plugin/README.md).
+Next, update the *pom.xml* file to configure Maven for an Azure deployment. Add the following XML after the `<plugin>` element you added previously. If necessary, change `2.3.0` to the current version of the [Maven Plugin for Azure App Service](https://github.com/microsoft/azure-maven-plugins/blob/develop/azure-webapp-maven-plugin/README.md).
 
 ```xml
 <plugin>
   <groupId>com.microsoft.azure</groupId>
   <artifactId>azure-webapp-maven-plugin</artifactId>
-  <version>2.2.3</version>
+  <version>2.3.0</version>
   <configuration>
     <schemaVersion>v2</schemaVersion>
     <subscriptionId>${SUBSCRIPTION_ID}</subscriptionId>
@@ -387,13 +387,13 @@ Update the *pom.xml* file to make MySQL the active configuration. Remove the `<a
 </profile>
 ```
 
-Next, update the *pom.xml* file to configure Maven for an Azure deployment and for MySQL use. Add the following XML after the `<plugin>` element you added previously. If necessary, change `2.2.3` to the current version of the [Maven Plugin for Azure App Service](https://github.com/microsoft/azure-maven-plugins/blob/develop/azure-webapp-maven-plugin/README.md).
+Next, update the *pom.xml* file to configure Maven for an Azure deployment and for MySQL use. Add the following XML after the `<plugin>` element you added previously. If necessary, change `2.3.0` to the current version of the [Maven Plugin for Azure App Service](https://github.com/microsoft/azure-maven-plugins/blob/develop/azure-webapp-maven-plugin/README.md).
 
 ```xml
 <plugin>
   <groupId>com.microsoft.azure</groupId>
   <artifactId>azure-webapp-maven-plugin</artifactId>
-  <version>2.2.3</version>
+  <version>2.3.0</version>
   <configuration>
     <schemaVersion>v2</schemaVersion>
     <subscriptionId>${SUBSCRIPTION_ID}</subscriptionId>
