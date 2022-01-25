@@ -15,5 +15,6 @@ In the console, run database migrations: <br />
 ```bash
 python manage.py migrate
 ```
+<br />
 
 If you encounter any errors related to connecting to the database, check the values of the application settings created in [Connect the database](#connect-the-app-to-the-database).

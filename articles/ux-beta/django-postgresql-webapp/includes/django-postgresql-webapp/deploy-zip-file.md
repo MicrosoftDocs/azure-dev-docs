@@ -56,6 +56,7 @@ az webapp deploy \
     --name $APP_SERVICE_NAME \
     --resource-group $RESOURCE_GROUP_NAME  \
     --src-path <zip-file-path>
+    --type zip
 ```
 
 ##### [cURL](#tab/deploy-instructions--zip-curl)

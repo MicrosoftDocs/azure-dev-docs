@@ -2,7 +2,7 @@
 author: jess-johnson-msft
 ms.author: jejohn
 ms.topic: include
-ms.date: 01/19/2022
+ms.date: 01/21/2022
 ms.service: app-service
 ms.role: developer
 ms.devlang: python
@@ -20,7 +20,7 @@ source .venv/bin/activate
 
 ```Cmd
 py -m venv .venv
-.venv\scripts\activate
+.venv/scripts/activate
 ```
 
 ---

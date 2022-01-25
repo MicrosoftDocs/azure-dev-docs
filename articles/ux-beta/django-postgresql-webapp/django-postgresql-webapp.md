@@ -118,10 +118,8 @@ az group create \
     --name $RESOURCE_GROUP_NAME
 ```
 
-| Setting | Value | Description |
-| --- | --- | --- |
-| name | `msdocs-django-postgres-webapp-rg` | You will use this resource to create all the Azure resources needed to complete this tutorial. |
-| location | eastus | A location near you. (Use `az account list-locations --output table` to list locations) |
+* *name* &rarr; You will use this resource to create all the Azure resources needed to complete this tutorial. (`msdocs-django-postgres-webapp-rg`)
+* *location* &rarr; A location near you. (Use `az account list-locations --output table` to list locations) (ex: `eastus`)
 
 <br />
 
@@ -137,12 +135,10 @@ az appservice plan create \
     --is-linux
 ```
 
-| Setting | Value | Description |
-| --- | --- | --- |
-| name | msdocs-django-postgres-webapp-plan | Enter a name for the Azure Web App plan.  |
-| resource-group | msdocs-django-postgres-webapp-rg | Use the same resource group name from **Step 1**. |
-| sku | B1 | Defines the size (CPU, memory) and cost of the app service plan.  This example uses the B1 (Basic) service plan which will incur a small cost in your Azure subscription. For a full list of App Service plans, view the [App Service pricing](https://azure.microsoft.com/pricing/details/app-service/linux/) page. |
-| is-linux | *N/A* | Selects Linux as the host operating system. |
+* *name* &rarr; Name for the Azure Web App plan, `msdocs-django-postgres-webapp-plan`
+* *resource-group* &rarr; Use the same resource group name from **Step 1**, `msdocs-django-postgres-webapp-rg`
+* *sku* &rarr; Defines the size (CPU, memory) and cost of the app service plan.  This example uses the B1 (Basic) service plan which will incur a small cost in your Azure subscription. For a full list of App Service plans, view the [App Service pricing](https://azure.microsoft.com/pricing/details/app-service/linux/) page.
+* *is-linux* &rarr; Selects Linux as the host operating system.
 
 <br/>
 
@@ -153,19 +149,17 @@ APP_SERVICE_NAME='msdocs-django-postgres-webapp'
 
 az webapp create \
     --name $APP_SERVICE_NAME \
-    --runtime 'PYTHON|3.8' \
+    --runtime 'PYTHON|3.9' \
     --plan $APP_SERVICE_PLAN_NAME \
     --resource-group $RESOURCE_GROUP_NAME \
     --query 'defaultHostName' \
     --output table
 ```
 
-| Setting | Value | Description |
-| --- | --- | --- |
-| name | msdocs-django-postgres-webapp | The *app service name* is used as both the name of the resource in Azure and to form the fully qualified domain name for your app in the form of the server endpoint `https://<app service name>.azurewebsites.com`. This name must be **unique across all Azure** and the only allowed characters are `A`-`Z`, `0`-`9`, and `-`.  |
-| runtime | Python 3.9 | The runtime specifies what version of Python your app is running. This example uses Python 3.9. To list all available runtimes, use the command `az webapp list-runtimes --linux --output table`. |
-| plan | msdocs-django-postgres-webapp-plan | Use the same *app service plan* name from **Step 2**. |
-| resource-group | msdocs-django-postgres-webapp-rg | Use the same resource group name from **Step 1**. |
+* *name* &rarr; The *app service name* is used as both the name of the resource in Azure and to form the fully qualified domain name for your app in the form of the server endpoint `https://<app service name>.azurewebsites.com`. This name must be **unique across all Azure** and the only allowed characters are `A`-`Z`, `0`-`9`, and `-`. (ex: `msdocs-django-postgres-webapp`)
+* *runtime* &rarr; The runtime specifies what version of Python your app is running. This example uses **Python 3.9**. To list all available runtimes, use the command `az webapp list-runtimes --linux --output table`.
+* *plan* &rarr; Use the same *app service plan* name from **Step 2**. (`msdocs-django-postgres-webapp-plan`)
+* *resource-group* &rarr; Use the same resource group name from **Step 1**. (`msdocs-django-postgres-webapp-rg`)
 
 ----
 
@@ -208,15 +202,13 @@ az postgres server create --resource-group $RESOURCE_GROUP_NAME \
                           --ssl-enforcement Enabled
 ```
 
-| Setting | Value | Description |
-| --- | --- | --- |
-| resource-group | msdocs-django-postgres-webapp-rg | Use the same resource group name from **Step 1**. |
-| name | msdocs-django-postgres-webapp-db |  The PostgreSQL database server name. This name must be **unique across all Azure** (the server endpoint becomes `https://<name>.postgres.database.azure.com`). Allowed characters are `A`-`Z`, `0`-`9`, and `-`. A good pattern is to use a combination of your company name and and server identifier. |
-| location | eastus | Use the same location from **Step 1**. |
-| sku-name | B_Gen5_1 | Configure server compute and storage; Name of the pricing tier and compute configuration. Follow the convention {pricing tier}{compute generation}{vCores} in shorthand. For more information, see [Azure Database for PostgreSQL pricing](/pricing/details/postgresql/server/). |
-| admin-user | demoadmin | Username for the administrator login. It can't be **azure_superuser, admin, administrator, root, guest, or public**. |
-| admin-password | *secure password* | Password of the administrator user. It must contain 8 to 128 characters from three of the following categories: English uppercase letters, English lowercase letters, numbers, and non-alphanumeric characters. |
-| SSL enforcement | **Enabled** | Enable or disable ssl enforcement for connections to server. |
+* *resource-group* &rarr; Use the same resource group name from **Step 1**. (`msdocs-django-postgres-webapp-rg`)
+* *name* &rarr; The PostgreSQL database server name. This name must be **unique across all Azure** (the server endpoint becomes `https://<name>.postgres.database.azure.com`). Allowed characters are `A`-`Z`, `0`-`9`, and `-`. A good pattern is to use a combination of your company name and and server identifier. (`msdocs-django-postgres-webapp-db`)
+* *location* &rarr; Use the same location from **Step 1**. (ex: `eastus`)
+* *sku-name* &rarr; Configure server compute and storage; Name of the pricing tier and compute configuration. (`B_Gen5_1`) Follow the convention {pricing tier}{compute generation}{vCores} in shorthand. For more information, see [Azure Database for PostgreSQL pricing](/pricing/details/postgresql/server/).
+* *admin-user* &rarr; Username for the administrator login. It can't be **azure_superuser, admin, administrator, root, guest, or public**. (ex: `demoadmin`)
+* *admin-password* Password of the administrator user. It must contain 8 to 128 characters from three of the following categories: English uppercase letters, English lowercase letters, numbers, and non-alphanumeric characters.
+* *SSL enforcement* &rarr; Enable or disable ssl enforcement for connections to server.
 
 > [!IMPORTANT]
 > When creating usernames or passwords **do not** use the `$` character. Later you create environment variables with these values where the `$` character has special meaning within the Linux container used to run Python apps.
@@ -233,12 +225,10 @@ az postgres server firewall-rule create --resource-group $RESOURCE_GROUP_NAME \
                                         --end-ip-address 192.168.0.1
 ```
 
-| Setting | Value | Description |
-| --- | --- | --- |
-| resource-group | msdocs-django-postgres-webapp-rg  | Name of resource group from earlier in this tutorial.|
-| server | msdocs-django-postgres-webapp-db | Name of the server from **Step 1**. |
-| name | AllowMyIP | Name for firewall rule. |
-| start-ip-address, end-ip-address | 192.168.0.1, 192.168.0.1 |Replace the IP address or range of IP addresses that corresponds to where you'll be connecting from. If you don't know your IP address, go to [WhatIsMyIPAddress.com](https://whatismyipaddress.com/) to get it. |
+* *resource-group* &rarr; Name of resource group from earlier in this tutorial. (`msdocs-django-postgres-webapp-rg`)
+* *server* &rarr; Name of the server from **Step 1**. (`msdocs-django-postgres-webapp-db`)
+* *name* &rarr; Name for firewall rule. (ex: `AllowMyIP`)
+* *start-ip-address, end-ip-address* &rarr; IP address or range of IP addresses that corresponds to where you'll be connecting from. If you don't know your IP address, go to [WhatIsMyIPAddress.com](https://whatismyipaddress.com/) to get it.
 
 <br />
 
@@ -249,10 +239,8 @@ az postgres server show --name $DB_SERVER_NAME \
                         -- resource-group $RESOURCE_GROUP_NAME
 ```
 
-| Setting | Value | Description |
-| --- | --- | --- |
-| resource-group | msdocs-django-postgres-webapp-rg  | Name of resource group from earlier in this tutorial.|
-| name | msdocs-django-postgres-webapp-db | Name of the server from **Step 1**. |
+* *resource-group* &rarr; Name of resource group from earlier in this tutorial. (`msdocs-django-postgres-webapp-rg`)
+* *name* &rarr; Name of the server from **Step 1**. (`msdocs-django-postgres-webapp-db`)
 
 <br />
 
@@ -301,11 +289,9 @@ az webapp config appsettings set --resource-group $RESOURCE_GROUP_NAME \
                                  --settings DBHOST=$DB_SERVER_NAME DBNAME=$DB_NAME  DBUSER=$ADMIN_USERNAME DBPASS=$ADMIN_PWD
 ```
 
-| Argument | Value |
-| --- | --- |
-| DBHOST | Replace *\<postgres-server-name>* with the name you used earlier with the `az postgres up` command. The code in *azuresite/production.py* automatically appends `.postgres.database.azure.com` to create the full Postgres server URL. |
-| DBNAME | Enter `pollsdb`. |
-| DBUSER, DBPASS | Replace *\<username>* and *\<password>* with the administrator credentials that you used with the earlier `az postgres up` command, or those that `az postgres up` generated for you. The code in *azuresite/production.py* automatically constructs the full Postgres username from `DBUSER` and `DBHOST`, so don't include the `@server` portion. |
+* *DBHOST* &rarr; Replace *\<postgres-server-name>* with the name you used earlier with the `az postgres up` command. The code in *azuresite/production.py* automatically appends `.postgres.database.azure.com` to create the full Postgres server URL.
+* *DBNAME* &rarr; Enter `pollsdb`
+* *DBUSER, DBPASS* &rarr; Replace *\<username>* and *\<password>* with the administrator credentials that you used with the earlier `az postgres up` command, or those that `az postgres up` generated for you. The code in *azuresite/production.py* automatically constructs the full Postgres username from `DBUSER` and `DBHOST`, so don't include the `@server` portion. |
 
 >[!NOTE]
 > The resource group and app names are drawn from the cached values in the *.azure/config* file.
@@ -334,7 +320,7 @@ With the code deployed and the database in place, the app is almost ready to use
 
 | Instructions    | Screenshot |
 |:----------------|-----------:|
-| [!INCLUDE [A screenshot showing ](<./includes/django-postgresql-webapp/migrate-db-azure-portal-1.md>)] | :::image type="content" source="./media/django-postgresql-webapp/migrate-db-azure-portal-1-240px.png" lightbox="./media/django-postgresql-webapp/migrate-db-azure-portal-1.png" alt-text="A screenshot showing" ::: |
+| [!INCLUDE [A screenshot showing how to start an SSH session to the webapp in the Azure Portal. ](<./includes/django-postgresql-webapp/migrate-db-azure-portal-1.md>)] | :::image type="content" source="./media/django-postgresql-webapp/migrate-db-azure-portal-1-240px.png" lightbox="./media/django-postgresql-webapp/migrate-db-azure-portal-1.png" alt-text="A screenshot showing how to start an SSH session to the webapp in the Azure Portal." ::: |
 | [!INCLUDE [A screenshot showing ](<./includes/django-postgresql-webapp/migrate-db-azure-portal-2.md>)] | :::image type="content" source="./media/django-postgresql-webapp/migrate-db-azure-portal-2-240px.png" lightbox="./media/django-postgresql-webapp/migrate-db-azure-portal-2.png" alt-text="A screenshot showing" ::: |
 | [!INCLUDE [A screenshot showing ](<./includes/django-postgresql-webapp/migrate-db-azure-portal-3.md>)] | :::image type="content" source="./media/django-postgresql-webapp/migrate-db-azure-portal-3-240px.png" lightbox="./media/django-postgresql-webapp/migrate-db-azure-portal-3.png" alt-text="A screenshot showing" ::: |
 
