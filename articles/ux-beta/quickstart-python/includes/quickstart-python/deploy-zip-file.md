@@ -67,9 +67,9 @@ az webapp deploy \
 
 To use an HTTP client such as curl to upload your ZIP file to Azure, you will need the deployment username and password for your App Service. These credentials can be obtained from the Azure portal.
 
-1. On the page for the web app, select *Deployment center* from the menu on the left side of the page.
-1. Select the *FTPS credentials* tab.
-1. The **Username** and **Password** are shown under the *Application scope* heading.  For zip file deployments, only use the part of the username after the `\` character that starts with a `$`, for example `$msdocs-python-webapp-quickstart-123`. These credentials will be needed in the cURL command.
+1. On the page for the web app, select **Deployment center** from the menu on the left side of the page.
+1. Select the **FTPS credentials** tab.
+1. The **Username** and **Password** are shown under the **Application scope** heading.  For zip file deployments, only use the part of the username after the `\` character that starts with a `$`, for example `$msdocs-python-webapp-quickstart-123`. These credentials will be needed in the cURL command.
 
 :::image type="content" source="../../media/quickstart-python/deploy-zip-azure-portal-get-username-600px.png" alt-text="A screenshot showing the location of the deployment credentials in the Azure portal." lightbox="../../media/quickstart-python/deploy-zip-azure-portal-get-username.png":::
 
