@@ -1,13 +1,13 @@
 ---
-title: Create and deploy Azure Function with JavaScript API
+title: Store data in MongoDB with Azure Function
 description: In this tutorial, create a new serverless app in Visual Studio Code with extensions and TypeScript, then deploy the application to the Azure cloud for hosting with a public HTTP endpoint.
 ms.topic: how-to
-ms.date: 01/03/2022
+ms.date: 01/25/2022
 ms.custom: devx-track-js, contperf-fy21q2
 adobe-target: true
 ---
 
-# Create and deploy a TypeScript Azure Function 
+# Store data in MongoDB with Azure Function
 
 In this tutorial, create a secure API in Visual Studio Code, then deploy the application to the Azure cloud for hosting with a public HTTP endpoint. The API integrates with a Cosmos DB database using the MongoDB API. The MongoDB API is accessed from the [mongoose](https://www.npmjs.com/package/mongoose) npm package.
 
@@ -186,7 +186,7 @@ With your function running locally, set breakpoints on different parts of the co
     |Enter a globally unique name for the new Function App|The name becomes part of the API's URL.|API is invoked with an HTTP request. Valid characters for a function app name are 'a-z', '0-9', and '-'. An example is `cosmosdb-mongodb-function-app`.|
     |Select a runtime stack|Select a Node.js stack with the `LTS` descriptor.|Select Node.js 14 LTS|
     |Select an OS.|Windows||
-    |Select a resource group for new resources.|`cosmosdb-mongodb-function-resource-group`|Select the [resource group](#create-a-resource-group) you created in the first article of this series.|
+    |Select a resource group for new resources.|`cosmosdb-mongodb-function-resource-group`|Select the [resource group](#2-create-an-azure-resource-group) you created in the first article of this series.|
     |Select a location for new resources.|Select the recommended region.||
     |Select a hosting plan.|Consumption||
     |Select a storage account.|+ Create new storage account named `cosmosdbmongodbstorage`.||
@@ -244,7 +244,7 @@ Cosmos DB provides a MongoDB API to provide a familiar integration point.
     |Select an Azure Database Server|Azure Cosmos DB for MongoDB API||
     |Provide a Cosmos DB account name.|`cosmosdb-mongodb-database`|The name becomes part of the API's URL.|
     |Select a capacity model.|Provisioned Throughput||
-    |Select a resource group for new resources.|`cosmosdb-mongodb-function-resource-group`|Select the [resource group](#create-a-resource-group) you created in the first article of this series.|
+    |Select a resource group for new resources.|`cosmosdb-mongodb-function-resource-group`|Select the [resource group](#2-create-an-azure-resource-group) you created in the first article of this series.|
     |Select a location for new resources.|Select the recommended region.||
 
 1. In a Visual Studio Code terminal, install the npm package:
