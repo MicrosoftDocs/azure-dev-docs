@@ -186,7 +186,7 @@ With your function running locally, set breakpoints on different parts of the co
     |Enter a globally unique name for the new Function App|The name becomes part of the API's URL.|API is invoked with an HTTP request. Valid characters for a function app name are 'a-z', '0-9', and '-'. An example is `cosmosdb-mongodb-function-app`.|
     |Select a runtime stack|Select a Node.js stack with the `LTS` descriptor.|Select Node.js 14 LTS|
     |Select an OS.|Windows||
-    |Select a resource group for new resources.|`cosmosdb-mongodb-function-resource-group`|Select the [resource group](#create-a-resource-group) you created in the first article of this series.|
+    |Select a resource group for new resources.|`cosmosdb-mongodb-function-resource-group`|Select the [resource group](#2-create-an-azure-resource-group) you created in the first article of this series.|
     |Select a location for new resources.|Select the recommended region.||
     |Select a hosting plan.|Consumption||
     |Select a storage account.|+ Create new storage account named `cosmosdbmongodbstorage`.||
@@ -244,7 +244,7 @@ Cosmos DB provides a MongoDB API to provide a familiar integration point.
     |Select an Azure Database Server|Azure Cosmos DB for MongoDB API||
     |Provide a Cosmos DB account name.|`cosmosdb-mongodb-database`|The name becomes part of the API's URL.|
     |Select a capacity model.|Provisioned Throughput||
-    |Select a resource group for new resources.|`cosmosdb-mongodb-function-resource-group`|Select the [resource group](#create-a-resource-group) you created in the first article of this series.|
+    |Select a resource group for new resources.|`cosmosdb-mongodb-function-resource-group`|Select the [resource group](#2-create-an-azure-resource-group) you created in the first article of this series.|
     |Select a location for new resources.|Select the recommended region.||
 
 1. In a Visual Studio Code terminal, install the npm package:
