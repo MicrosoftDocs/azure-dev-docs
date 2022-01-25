@@ -12,7 +12,7 @@ ms.custom: template-overview, devx-track-java, devx-track-javaee, devx-track-jav
 
 This article describes the solutions for running the IBM WebSphere family of products on Azure. These solutions are jointly developed and supported by IBM and Microsoft.
 
-The IBM WebSphere product portfolio is a set of industry-leading runtimes powering some of the most mission critical enterprise applications across geographies and environments. The WebSphere portfolio includes WebSphere (Traditional) Application Server, WebSphere Liberty, and Open Liberty.
+The IBM WebSphere product portfolio is a set of industry-leading runtimes powering some of the most mission-critical enterprise applications across geographies and environments. The WebSphere portfolio includes WebSphere (Traditional) Application Server, WebSphere Liberty, and Open Liberty.
 
 WebSphere products are key components in enabling enterprise Java workloads on Azure. The jointly developed solutions aim to cover a range of use cases from mission-critical existing traditional workloads to cloud-native applications. The solutions target Open Liberty on Azure Red Hat OpenShift (ARO), WebSphere Liberty on ARO, Open Liberty on the Azure Kubernetes Service (AKS), WebSphere Liberty on AKS, and WebSphere Application Server on Virtual Machines. The solutions are aimed at making it as easy as possible to migrate your application to the cloud by automating most boilerplate Azure and Java resource provisioning and configuration tasks. Once initial provisioning is done, you're completely free to customize deployments further. Some examples of further customizations include integration with databases (Db2, Azure SQL, Azure PostgreSQL, Azure MySQL), Azure App Gateway, and Azure Active Directory.
 
