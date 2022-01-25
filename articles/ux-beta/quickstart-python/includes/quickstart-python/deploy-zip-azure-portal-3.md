@@ -1,1 +1,1 @@
-Select the *Save* button to save your settings.<br>
+Select the **Save** to save your settings.<br>

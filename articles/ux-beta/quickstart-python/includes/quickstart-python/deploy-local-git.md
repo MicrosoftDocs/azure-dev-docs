@@ -52,11 +52,9 @@ Next, in the root directory of your application, configure a [Git remote](https:
 git remote add azure <git-deployment-url>
 ```
 
-You can now push code from your local Git repository to Azure using the Git remote you just configured.
+You can now push code from your local Git repository to Azure using the Git remote you just configured. Master is the default deployment branch for App Service. You must specify the mapping from local branch name to remote branch name in the push.
 
 ```bash
-## Master is the default deployment branch for App Service.
-## Specify the mapping from local branch name to remote branch name as shown.
 git push azure main:master
 ```
 
