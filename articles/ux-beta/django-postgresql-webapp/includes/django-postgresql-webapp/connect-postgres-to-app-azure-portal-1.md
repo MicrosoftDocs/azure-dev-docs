@@ -10,7 +10,7 @@ ms.azure.devx-azure-tooling: ['azure-portal']
 ms.custom: devx-track-python
 ---
 
-In the portal:
+**Step 1.** In the portal:
 
     1. Select **Configuration** under **Settings** on the left side
     1. Select **Application settings** at the top of the page

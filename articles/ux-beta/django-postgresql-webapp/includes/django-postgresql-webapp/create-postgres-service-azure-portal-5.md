@@ -2,7 +2,7 @@
 author: jess-johnson-msft
 ms.author: jejohn
 ms.topic: include
-ms.date: 01/20/2022
+ms.date: 01/25/2022
 ms.service: app-service
 ms.role: developer
 ms.devlang: python
@@ -10,7 +10,7 @@ ms.azure.devx-azure-tooling: ['azure-portal']
 ms.custom: devx-track-python
 ---
 
-Under *Compute + storage*, select **Configure server** under *Sku and size setting* to select a different Compute + storage plan.
+**Step 5.** Under *Compute + storage*, select **Configure server** under *Sku and size setting* to select a different Compute + storage plan.
 
 The **Compute + storage** plan controls how many resources (CPU/memory/storage) are available to your database and the cost of those resources.<br>
 <br>
