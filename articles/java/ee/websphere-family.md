@@ -4,7 +4,7 @@ description: WebSphere products are key components in enabling enterprise Java w
 recommendations: false
 ms.author: rezar
 ms.topic: overview
-ms.date: 11/17/2021
+ms.date: 1/25/2022
 ms.custom: template-overview, devx-track-java, devx-track-javaee, devx-track-javaee-was
 ---
 
@@ -26,13 +26,13 @@ If you want to provide feedback on these offers, stay-up-date on the roadmap, or
 
 This offer automatically provisions several Azure resources to quickly move to WebSphere Liberty or Open Liberty on ARO. The automatically provisioned resources include virtual networks, an ARO cluster, along with the OpenShift Container Registry (OCR), and the Liberty Operator. A secure OpenShift project is set up to contain your application. The offer can also deploy a Docker image including Open Liberty or WebSphere Liberty. The offer is available as an [Azure solution template in the Portal](https://portal.azure.com/#create/ibm-usa-ny-armonk-hq-6275750-ibmcloud-aiops.20210823-liberty-aroliberty-aro). The solution also includes basic step-by-step guidance on getting started with [Open Liberty/WebSphere Liberty and ARO](/azure/openshift/howto-deploy-java-liberty-app). This guidance is intended for customers that would prefer a native OpenShift manual deployment experience instead of automated provisioning using the solution template.
 
-## WebSphere Application Server on VMs
-
-This offer automatically provisions several Azure resources to quickly move to WebSphere (Traditional) Application Server on Azure VMs. The automatically provisioned resources include virtual network, storage, network security group, Java, Linux, and WebSphere. With minimal effort you can provision a fully functional, highly available WebSphere Network Deployment cluster including the Deployment Manager and any number of servers you need. You can also have the offer provision and configure the IBM HTTP Server as a load-balancer. The Deployment Manager and all servers are started by default, which allows you to begin managing the cluster right away using the Admin Console. The offer is available as an [Azure solution template in the Portal](https://portal.azure.com/#create/ibm-usa-ny-armonk-hq-6275750-ibmcloud-aiops.2021-04-08-twas-clustercluster).
-
 ## Open Liberty and WebSphere Liberty on AKS
 
 This offer automatically provisions several Azure resources to quickly move to WebSphere Liberty or Open Liberty on AKS. The automatically provisioned resources include the Azure Container Registry (ACR), an AKS cluster and the Liberty Operator. The offer can also deploy a Docker image including Open Liberty or WebSphere Liberty. The offer is available as an [Azure solution template in the Portal](https://portal.azure.com/#create/ibm-usa-ny-armonk-hq-6275750-ibmcloud-aiops.20210924-liberty-aksliberty-aks). The solution also includes basic step-by-step guidance on getting started with [Open Liberty/WebSphere Liberty and AKS](/azure/aks/howto-deploy-java-liberty-app). This guidance is intended for customers that would prefer a native Kubernetes manual deployment experience instead of automated provisioning using the solution template.
+
+## WebSphere Application Server on VMs
+
+This offer automatically provisions several Azure resources to quickly move to WebSphere (Traditional) Application Server on Azure VMs. The automatically provisioned resources include virtual network, storage, network security group, Java, Linux, and WebSphere. With minimal effort you can provision a fully functional, highly available WebSphere Network Deployment cluster including the Deployment Manager and any number of servers you need. You can also have the offer provision and configure the IBM HTTP Server as a load-balancer. The Deployment Manager and all servers are started by default, which allows you to begin managing the cluster right away using the Admin Console. The offer is available as an [Azure solution template in the Portal](https://portal.azure.com/#create/ibm-usa-ny-armonk-hq-6275750-ibmcloud-aiops.2021-04-08-twas-clustercluster).
 
 ## Next steps
 
@@ -42,7 +42,10 @@ Explore the currently available offers on Azure.
 > [Deploy Open Liberty and WebSphere Liberty on Azure Red Hat OpenShift](https://portal.azure.com/#create/ibm-usa-ny-armonk-hq-6275750-ibmcloud-aiops.20210823-liberty-aroliberty-aro)
 
 > [!div class="nextstepaction"]
-> [Deploy WebSphere Application Server on Azure Virtual Machines](https://portal.azure.com/#create/ibm-usa-ny-armonk-hq-6275750-ibmcloud-aiops.2021-04-08-twas-clustercluster)
+> [Deploy Open Liberty and WebSphere Liberty on Azure Kubernetes Service](https://portal.azure.com/#create/ibm-usa-ny-armonk-hq-6275750-ibmcloud-aiops.20210924-liberty-aksliberty-aks)
 
 > [!div class="nextstepaction"]
-> [Deploy Open Liberty and WebSphere Liberty on Azure Kubernetes Service](https://portal.azure.com/#create/ibm-usa-ny-armonk-hq-6275750-ibmcloud-aiops.20210924-liberty-aksliberty-aks)
+> [Deploy WebSphere Application Server Cluster on Azure Virtual Machines](https://portal.azure.com/#create/ibm-usa-ny-armonk-hq-6275750-ibmcloud-aiops.2021-04-08-twas-clustercluster)
+
+> [!div class="nextstepaction"]
+> [Deploy WebSphere Application Server Instance on Azure Virtual Machines](https://ms.portal.azure.com/#create/ibm-usa-ny-armonk-hq-6275750-ibmcloud-aiops.2022-01-07-twas-base-single-server2022-01-07-twas-base-single-server)
