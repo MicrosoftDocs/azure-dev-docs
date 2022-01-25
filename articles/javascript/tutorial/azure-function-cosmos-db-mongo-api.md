@@ -1,13 +1,13 @@
 ---
-title: Create and deploy Azure Function with JavaScript API
+title: Store data in MongoDB with Azure Function
 description: In this tutorial, create a new serverless app in Visual Studio Code with extensions and TypeScript, then deploy the application to the Azure cloud for hosting with a public HTTP endpoint.
 ms.topic: how-to
-ms.date: 01/03/2022
+ms.date: 01/25/2022
 ms.custom: devx-track-js, contperf-fy21q2
 adobe-target: true
 ---
 
-# Create and deploy a TypeScript Azure Function 
+# Store data in MongoDB with Azure Function
 
 In this tutorial, create a secure API in Visual Studio Code, then deploy the application to the Azure cloud for hosting with a public HTTP endpoint. The API integrates with a Cosmos DB database using the MongoDB API. The MongoDB API is accessed from the [mongoose](https://www.npmjs.com/package/mongoose) npm package.
 

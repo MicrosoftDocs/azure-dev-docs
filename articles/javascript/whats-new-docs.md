@@ -2,13 +2,26 @@
 title: "What's new for JavaScript docs"
 description: "What's new in JavaScript docs in the Developer Center"
 ms.topic: how-to
-ms.date: 12/17/2021
+ms.date: 01/25/2022
 
 ---
 
 # JavaScript docs: What's new
 
 Find new and updated content for JavaScript and TypeScript developers.
+
+## 2022 January
+
+### Updated in January
+
+|Name|Description|
+|---------------------------------------|--|
+|[Upload file to Azure Storage with an Azure Function](how-to/with-web-app/azure-function-file-upload)|Updated article.|
+|[Store data in MongoDB with an Azure Function](tutorial/azure-function-cosmos-db-mongo-api)|Updated article.|
+|[Create Express.js virtual machine](tutorial/nodejs-virtual-machine-vm/introduction)|Updated article.|
+|[Develop and debug Node.js with Visual Studio Code](how-to/with-visual-studio-code/install-run-debug-nodejs)|Updated article.|
+|[Create a container image from your local JavaScript project](how-to/with-visual-studio-code/containerize-local-project)|Updated article.|
+|[Create and use a container registry](how-to/with-azure-cli/create-container-registry-resource)|Updated article.|
 
 ## 2021 December
 
