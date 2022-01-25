@@ -122,8 +122,4 @@ az group delete --name <resource-group-name> --yes --no-wait
 
 ## Next steps
 
-To deploy a WebSphere Application Server (traditional) cluster to Azure Virtual Machines is now easier than ever. All the pain of spinning up VMs, configuring networking, storage, and more are taken care of for you and follow best practices, meaning you can focus on managing your application deployments.
-
-This offering is just the start of the IBM and Microsoft collaboration around WebSphere and Liberty on Azure. Expect to see more Azure Marketplace offers to appear for Liberty in the not-too-distant future.
-
-If you’re interested in keeping up to date with latest developments, visit the [**Contact Me**](https://ibm.biz/WASAzureContactMe) offer and register to be notified when new offers are made available. Also feel free to review and provide feedback on the [offering](https://aka.ms/websphere-on-vms-review).
+Now that you've learned how to deploy a WebSphere Application Server (traditional) cluster to Azure Virtual Machines, feel free to review and provide feedback on the [offering](https://aka.ms/websphere-on-vms-review). If you’re interested in keeping up to date with latest developments, select **Contact Me** on the [offering overview page](https://ibm.biz/WASAzureContactMe) and register to be notified when new offers are made available.
