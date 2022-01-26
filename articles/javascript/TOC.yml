@@ -25,9 +25,9 @@
             href: core/use-azure-sdk.md      
           - name: Authenticate to Azure
             href: core/nodejs-sdk-azure-authenticate.md
-          - name: "Account: List subscriptions"
+          - name: "List subscriptions"
             href: core/nodejs-sdk-azure-authenticate.md?tabs=azure-sdk-for-javascript.md#3-list-azure-subscriptions-with-service-principal
-          - name: "Account: View subscription history"
+          - name: "View subscription history"
             href: how-to/with-azure-sdk/list-resource-operation-history.md 
       - name: With web apps
         items:
