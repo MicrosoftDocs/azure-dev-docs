@@ -16,7 +16,7 @@ Build automation in Azure is enabled by setting the `SCM_DO_BUILD_DURING_DEPLOYM
 
 ##### [Azure CLI](#tab/deploy-instructions-azcli)
 
-```bash
+```azurecli
 # Change these values to the ones used to create the App Service.
 RESOURCE_GROUP_NAME='msdocs-python-webapp-quickstart'
 APP_SERVICE_NAME='msdocs-python-webapp-quickstart-123'
