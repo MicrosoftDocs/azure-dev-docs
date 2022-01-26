@@ -22,7 +22,6 @@ az group create `
 LOCATION='eastus'
 RESOURCE_GROUP_NAME='msdocs-python-webapp-quickstart'
 
-# Create a resource group
 az group create \
     --location $LOCATION \
     --name $RESOURCE_GROUP_NAME
@@ -38,7 +37,7 @@ Next, create an App Service plan using the [az appservice plan create](/cli/azur
 #### [Windows (PS)](#tab/windows)
 
 ```azurecli
-APP_SERVICE_PLAN_NAME='msdocs-python-webapp-quickstart'    
+$APP_SERVICE_PLAN_NAME='msdocs-python-webapp-quickstart'    
 
 az appservice plan create `
     --name $APP_SERVICE_PLAN_NAME `
@@ -74,7 +73,7 @@ $APP_SERVICE_NAME='msdocs-python-webapp-quickstart-123'
 
 az webapp create `
     --name $APP_SERVICE_NAME `
-    --runtime 'PYTHON|3.9' `
+    --runtime 'PYTHON:3.9' `
     --plan $APP_SERVICE_PLAN_NAME `
     --resource-group $RESOURCE_GROUP_NAME `
     --query 'defaultHostName' `
