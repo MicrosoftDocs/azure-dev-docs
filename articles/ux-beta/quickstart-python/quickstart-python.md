@@ -132,7 +132,11 @@ To create Azure resources in VS Code, you must have the [Azure Tools extension p
 
 ### [Azure CLI](#tab/azure-cli)
 
-[!INCLUDE [Create CLI](<./includes/quickstart-python/create-cli.md>)]
+[!INCLUDE [Create CLI](<./includes/quickstart-python/create-app-cli.md>)]
+
+---
+
+Having issues? [Let us know](https://aka.ms/FlaskCLIQuickstartHelp).
 
 ## 3 - Deploy your application code to Azure
 

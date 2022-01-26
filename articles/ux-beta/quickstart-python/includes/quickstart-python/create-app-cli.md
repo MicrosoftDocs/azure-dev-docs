@@ -45,7 +45,3 @@ az webapp create \
     --query 'defaultHostName' \
     --output table
 ```
-
----
-
-Having issues? [Let us know](https://aka.ms/FlaskCLIQuickstartHelp).
