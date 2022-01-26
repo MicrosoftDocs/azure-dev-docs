@@ -17,7 +17,7 @@ First, configure the deployment source for your web app to be local Git using th
 
 Retrieve the deployment credentials for your application.  These will be needed for Git to authenticate to Azure when you push code to Azure in a later step.
 
-[!INCLUDE [CLI deploy retrieve credentials](<./includes/quickstart-python/deploy-instructions-azcli-configure.md>)]
+[!INCLUDE [CLI deploy retrieve credentials](<./includes/quickstart-python/deploy-instructions-azcli-retrieve.md>)]
 
 Next, in the root directory of your application, configure a [Git remote](https://git-scm.com/book/en/v2/Git-Basics-Working-with-Remotes) that points to Azure using the Git URL of the Azure remote obtained in a previous step.
 
