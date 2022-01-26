@@ -150,7 +150,7 @@ The most common pattern is to interactively log in to Azure, create a service pr
 1. Display the service principal ID.
 
     ```powershell
-    $sp.ApplicationId
+    $sp.AppId
     ```
 
     **Key points:**
