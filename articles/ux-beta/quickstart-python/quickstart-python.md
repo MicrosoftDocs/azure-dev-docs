@@ -215,11 +215,11 @@ The contents of the App Service diagnostic logs can be reviewed in the Azure por
 
 First, you need to configure Azure App Service to output logs to the App Service filesystem using the [az webapp log config](/cli/azure/webapp/log#az_webapp_log_config) command.
 
-[!INCLUDE [CLI stream logs configure](<./stream-logs-cli-1.md>)]
+[!INCLUDE [CLI stream logs configure](<./includes/quickstart-python/stream-logs-cli-1.md>)]
 
 To stream logs, use the [az webapp log tail](/cli/azure/webapp/log#az_webapp_log_tail) command.
 
-[!INCLUDE [CLI stream logs tail](<./stream-logs-cli-2.md>)]
+[!INCLUDE [CLI stream logs tail](<./includes/quickstart-python/stream-logs-cli-2.md>)]
 
 Refresh the home page in the app or attempt other requests to generate some log messages. The output should look similar to the following.
 
