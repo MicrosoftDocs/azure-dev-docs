@@ -37,7 +37,7 @@ This content is primarily from Developer Advocates as well as other members of t
 
 |Cloud Advocate|Contributions|Link|
 |--|--|--|
-|[Aysegul Yonet][Aysegul]|AI Show: Semantic Search and Speech updates|[Video](https://docs.microsoft.com/en-us/shows/ai-show/updates-to-semantic-search-and-speech-and-more-from-aysegul-and-bea?WT.mc_id=js-8567-ayyonet) and [GitHub](https://github.com/aiadvocates/AzureSpeechReactSample)|
+|[Aysegul Yonet][Aysegul]|AI Show: Semantic Search and Speech updates|[Video](/shows/ai-show/updates-to-semantic-search-and-speech-and-more-from-aysegul-and-bea?WT.mc_id=js-8567-ayyonet) and [GitHub](https://github.com/aiadvocates/AzureSpeechReactSample)|
 |[Aysegul Yonet][Aysegul]|Mixed Reality with Cognitive services, Speech|[Docs](https://yonet.gitbook.io/mixed-reality-docs/ai-lessons/speech)|
 |[Aysegul Yonet][Aysegul]|Intelligent Kiosk for Web - AI Playground|[GitHub](https://github.com/aiadvocates/AIPlayground)|
 |[Glaucia Lemos][Glaucia]|Coding Stuff! JWT + Node + Mongo+ Vue Project - Video 16|**Portuguese** - [YouTube](https://youtu.be/hQaDG-oZQ_g)|
