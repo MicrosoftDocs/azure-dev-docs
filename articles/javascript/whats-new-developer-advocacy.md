@@ -2,7 +2,7 @@
 title: "What's new with Cloud Developer Advocates"
 description: "What's new with JavaScript Cloud Developer Advocates (CDA)"
 ms.topic: how-to
-ms.date: 01/03/2022
+ms.date: 01/26/2022
 ---
 
 # What's new with JavaScript Developer Advocates
@@ -32,6 +32,24 @@ This content is primarily from Developer Advocates as well as other members of t
 |Client web apps|Beginner's Series to: Vue.js|[Beginner video series](https://youtu.be/LnngsOg014Y)|
 |Client web apps|Comparing Azure Static Web Apps vs Azure WebApps vs Azure Blob Storage Static Sites|[Blog post](https://devblogs.microsoft.com/devops/comparing-azure-static-web-apps-vs-azure-webapps-vs-azure-blob-storage-static-sites/)|
 |Microsoft Graph|Get started with Microsoft Graph and JavaScript|[Samples](https://developer.microsoft.com/graph/get-started/javascript)|
+
+## 2022 January
+
+|Cloud Advocate|Contributions|Link|
+|--|--|--|
+|[Aysegul Yonet][Aysegul]|AI Show: Semantic Search and Speech updates|[Video](https://docs.microsoft.com/en-us/shows/ai-show/updates-to-semantic-search-and-speech-and-more-from-aysegul-and-bea?WT.mc_id=js-8567-ayyonet) and [GitHub](https://github.com/aiadvocates/AzureSpeechReactSample)|
+|[Aysegul Yonet][Aysegul]|Mixed Reality with Cognitive services, Speech|[Docs](https://yonet.gitbook.io/mixed-reality-docs/ai-lessons/speech)|
+|[Aysegul Yonet][Aysegul]|Intelligent Kiosk for Web - AI Playground|[GitHub](https://github.com/aiadvocates/AIPlayground)|
+|[Glaucia Lemos][Glaucia]|Coding Stuff! JWT + Node + Mongo+ Vue Project - Video 16|**Portuguese** - [YouTube](https://youtu.be/hQaDG-oZQ_g)|
+|[Glaucia Lemos][Glaucia]|Coding Stuff! JWT + Node + Mongo+ Vue Project - Video 17|**Portuguese** - [YouTube](https://youtu.be/XykcWilTg68)|
+|[Glaucia Lemos][Glaucia]|Coding Stuff! JWT + Node + Mongo+ Vue Project - Video 18|**Portuguese** - [YouTube](https://youtu.be/TmGnuRhX_hI)|
+|[Aaron Powell][Aaron]|Web Wednesday - GraphQL and TypeScript|[GitHub](https://www.youtube.com/watch?v=WjFspnutTtI)|
+|[Yohan Lasorsa][Yohan]|Raspberry Pi usage in my mobile studio setup. |[RaspberryPi](https://www.youtube.com/watch?v=x3sQu31jGu4)|
+|[Glaucia Lemos][Glaucia]|TypeScript - Zero to Hero - #34 - If...else|**Portuguese** - [YouTube](https://youtu.be/sU9miGUUJrI)|
+|[Glaucia Lemos][Glaucia]|TypeScript - Zero to Hero - #35 - Demo: If...else|**Portuguese** - [YouTube](https://youtu.be/_KkjHVo4x_M)|
+|[Glaucia Lemos][Glaucia]|TypeScript - Zero to Hero - #36 - Switch...case|**Portuguese** - [YouTube](https://youtu.be/-rUHKfnbq7g)|
+|[Glaucia Lemos][Glaucia]|Cloud & AI Study Groups |**English, Spanish, Portuguese** - [YouTube](https://github.com/cyz/skilling)|
+
 
 ## 2021 December
 
@@ -239,3 +257,4 @@ This content is primarily from Developer Advocates as well as other members of t
 [Anthony]:https://twitter.com/nthonyChu
 [Nitya]:https://twitter.com/nitya/
 [Jen]: https://twitter.com/jenlooper
+[Aysegul]: https://twitter.com/AysSomething
