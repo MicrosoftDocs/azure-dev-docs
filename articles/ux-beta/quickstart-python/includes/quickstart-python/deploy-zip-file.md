@@ -16,9 +16,8 @@ Build automation in Azure is enabled by setting the `SCM_DO_BUILD_DURING_DEPLOYM
 
 ##### [Azure CLI](#tab/deploy-instructions-azcli)
 
-```azurecli
+```bash
 # Change these values to the ones used to create the App Service.
-LOCATION='eastus'
 RESOURCE_GROUP_NAME='msdocs-python-webapp-quickstart'
 APP_SERVICE_NAME='msdocs-python-webapp-quickstart-123'
 
@@ -77,7 +76,7 @@ Run the following `curl` command to upload your zip file to Azure and deploy you
 
 ```bash
 curl -X POST \
-    -u <username> \
+    -u <user:password> \
     --data-binary @"<zip-package-path>" https://<app-name>.scm.azurewebsites.net/api/publish&type=zip
 ```
 

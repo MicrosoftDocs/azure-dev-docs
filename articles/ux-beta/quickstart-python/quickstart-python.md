@@ -136,7 +136,7 @@ Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com
 
 First, create a resource group to act as a container for all of the Azure resources related to this application.
 
-```azurecli
+```bash
 # Use 'az account list-locations --output table' to list locations
 LOCATION='eastus'
 RESOURCE_GROUP_NAME='msdocs-python-webapp-quickstart'
@@ -152,7 +152,7 @@ Next, create an App Service plan using the [az appservice plan create](/cli/azur
 * The `--sku` parameter defines the size (CPU, memory) and cost of the app service plan.  This example uses the B1 (Basic) service plan, which will incur a small cost in your Azure subscription. For a full list of App Service plans, view the [App Service pricing](https://azure.microsoft.com/pricing/details/app-service/linux/) page.
 * The `--is-linux` flag selects the Linux as the host operating system.
 
-```azurecli
+```bash
 APP_SERVICE_PLAN_NAME='msdocs-python-webapp-quickstart'    
 
 az appservice plan create \
@@ -167,7 +167,7 @@ Finally, create the App Service web app using the [az webapp create](/cli/azure/
 * The *app service name* is used as both the name of the resource in Azure and to form the fully qualified domain name for your app in the form of `https://<app service name>.azurewebsites.com`.
 * The runtime specifies what version of Python your app is running. This example uses Python 3.9. To list all available runtimes, use the command `az webapp list-runtimes --linux --output table`.
 
-```azurecli
+```bash
 # Change 123 to any three characters to form a unique name across Azure
 APP_SERVICE_NAME='msdocs-python-webapp-quickstart-123'
 
