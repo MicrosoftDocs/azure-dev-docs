@@ -19,13 +19,13 @@ This article explains how to authenticate Terraform to Azure for the following s
 
 ### Authenticate to Azure via a Microsoft account
 
-A Microsoft account is a username (associated with an email and its credentials) that is used to log in to Microsoft services - such as Azure. A Microsoft account can be associated with one or more Azure subscriptions, with one of those subscriptions being the default.
+A Microsoft account is a username (associated with an email and its credentials) that is used to sign in to Microsoft services - such as Azure. A Microsoft account can be associated with one or more Azure subscriptions, with one of those subscriptions being the default.
 
-The following steps show you how to log in to Azure interactively using a Microsoft account, list the account's associated Azure subscriptions (including the default), and set the current subscription.
+The following steps show you how to sign in to Azure interactively using a Microsoft account, list the account's associated Azure subscriptions (including the default), and set the current subscription.
 
 1. Open a command line that has access to the Azure CLI.
 
-1. Run [az login](/cli/azure/account#az_login) without any parameters and follow the instructions to log in to Azure.
+1. Run [az login](/cli/azure/account#az_login) without any parameters and follow the instructions to sign in to Azure.
 
     ```azurecli
     az login
@@ -33,7 +33,7 @@ The following steps show you how to log in to Azure interactively using a Micros
 
     **Key points:**
 
-    - Upon successful login, `az login` displays a list of the Azure subscriptions associated with the logged-in Microsoft account, including the default subscription.
+    - Upon successful signin, `az login` displays a list of the Azure subscriptions associated with the logged-in Microsoft account, including the default subscription.
 
 1. To confirm the current Azure subscription, run [az account show](/cli/azure/account#az_account_show).
 
@@ -66,13 +66,13 @@ The following steps show you how to log in to Azure interactively using a Micros
     
 ### Create a service principal
 
-Automated tools that deploy or use Azure services - such as Terraform - should always have restricted permissions. Instead of having applications log in as a fully privileged user, Azure offers service principals.
+Automated tools that deploy or use Azure services - such as Terraform - should always have restricted permissions. Instead of having applications sign in as a fully privileged user, Azure offers service principals.
 
-The most common pattern is to interactively log in to Azure, create a service principal, test the service principal, and then use that service principal for future authentication (either interactively or from your scripts).
+The most common pattern is to interactively sign in to Azure, create a service principal, test the service principal, and then use that service principal for future authentication (either interactively or from your scripts).
 
 #### [Bash](#tab/bash)
 
-1. To create a service principal, log in to Azure. After [authenticating to Azure via a Microsoft account](#authenticate-to-azure-via-a-microsoft-account), return here.
+1. To create a service principal, sign in to Azure. After [authenticating to Azure via a Microsoft account](#authenticate-to-azure-via-a-microsoft-account), return here.
 
 1. If you're creating a service principal from Git Bash, set the `MSYS_NO_PATHCONV` environment variable. (This step isn't necessary if you're using Cloud Shell.)
 
@@ -111,7 +111,7 @@ The most common pattern is to interactively log in to Azure, create a service pr
 
     **Key points:**
 
-    - Upon successful login, `Connect-AzAccount` displays information about the default subscription.
+    - Upon successful signin, `Connect-AzAccount` displays information about the default subscription.
     - Make note of the `TenantId` as it's needed to use the service principal.
 
 1. To confirm the current Azure subscription, run [Get-AzContext](/powershell/module/az.accounts/get-azcontext).
