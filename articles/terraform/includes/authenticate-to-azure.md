@@ -50,7 +50,7 @@ The following steps show you how to log in to Azure interactively using a Micros
     **Key points:**
 
     - Replace the `<microsoft_account_email>` placeholder with the Microsoft account email address whose Azure subscriptions you want to list.
-    - With a Live account - such as a hotmail or outlook - you might need to specify the fully qualified email address. For example, if your email address is `admin@hotmail.com`, you might need to replace the placeholder with `live.com#admin@hotmail.com`.
+    - With a Live account - such as a Hotmail or Outlook - you might need to specify the fully qualified email address. For example, if your email address is `admin@hotmail.com`, you might need to replace the placeholder with `live.com#admin@hotmail.com`.
 
 1.  To use a specific Azure subscription, run [az account set](/cli/azure/account#az_account_set).
 
@@ -74,7 +74,7 @@ The most common pattern is to interactively log in to Azure, create a service pr
 
 1. To create a service principal, log in to Azure. After [authenticating to Azure via a Microsoft account](#authenticate-to-azure-via-a-microsoft-account), return here.
 
-1. If you're creating a service principal from Git Bash, set the `MSYS_NO_PATHCONV` environment variable. (This step is not necessary if you're using Cloud Shell.)
+1. If you're creating a service principal from Git Bash, set the `MSYS_NO_PATHCONV` environment variable. (This step isn't necessary if you're using Cloud Shell.)
 
     ```bash
     export MSYS_NO_PATHCONV=1    
@@ -82,7 +82,7 @@ The most common pattern is to interactively log in to Azure, create a service pr
 
     **Key points:**
 
-    - You can set the `MSYS_NO_PATHCONV` environment variable globally (for all terminal sessions) or locally (for just the current session). As creating a service principal is not something you do often, the sample sets the value for the current session. To set this environment variable globally, add the setting to the `~/.bashrc` file.
+    - You can set the `MSYS_NO_PATHCONV` environment variable globally (for all terminal sessions) or locally (for just the current session). As creating a service principal isn't something you do often, the sample sets the value for the current session. To set this environment variable globally, add the setting to the `~/.bashrc` file.
 
 1. To create a service principal, run [az ad sp create-for-rbac](/cli/azure/ad/sp?#az_ad_sp_create_for_rbac).
 
@@ -97,7 +97,7 @@ The most common pattern is to interactively log in to Azure, create a service pr
     - The password can't be retrieved if lost. As such, you should store your password in a safe place. If you forget your password, you can [reset the service principal credentials](/cli/azure/create-an-azure-service-principal-azure-cli#reset-credentials).
     - For this article, a service principal with a **Contributor** role is being used. For more information about Role-Based Access Control (RBAC) and roles, see [RBAC: Built-in roles](/azure/active-directory/role-based-access-built-in-roles).
     - The output from creating the service principal includes sensitive credentials. Be sure that you don't include these credentials in your code or check the credentials into your source control.
-    - For more information about options when creating creating a service principal with the Azure CLI, see the article [Create an Azure service principal with the Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli?).
+    - For more information about options when creating a service principal with the Azure CLI, see the article [Create an Azure service principal with the Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli?).
 
 #### [Azure PowerShell](#tab/azure-powershell)
 
@@ -251,4 +251,4 @@ provider "azurerm" {
 ```
 
 > [!CAUTION]
-> The ability to specify your Azure subscription credentials in a Terraform configuration file can be convenient - especially when testing. However, it is not advisable to store credentials in a clear-text file that can be viewed by non-trusted individuals.
+> The ability to specify your Azure subscription credentials in a Terraform configuration file can be convenient - especially when testing. However, it isn't advisable to store credentials in a clear-text file that can be viewed by non-trusted individuals.
