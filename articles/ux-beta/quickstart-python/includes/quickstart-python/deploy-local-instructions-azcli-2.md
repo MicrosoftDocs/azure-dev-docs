@@ -1,4 +1,4 @@
-#### [PowerShell terminal](#tab/terminal-powershell)
+#### [bash](#tab/terminal-bash)
 
 ```azurecli
 az webapp deployment list-publishing-credentials `
@@ -8,7 +8,7 @@ az webapp deployment list-publishing-credentials `
     --output table
 ```
 
-#### [bash](#tab/terminal-bash)
+#### [PowerShell terminal](#tab/terminal-powershell)
 
 ```azurecli
 az webapp deployment list-publishing-credentials `
