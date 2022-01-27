@@ -7,7 +7,7 @@ ms.custom: devx-track-terraform
 
 ### Terraform and Azure authentication scenarios
 
-Terraform only supports authenticating to Azure via the Azure CLI. Authenticating using Azure PowerShell is not supported. Therefore, while you can use the Azure PowerShell module when doing your Terraform work, you first need to authenticate to Azure using the Azure CLI.
+Terraform only supports authenticating to Azure via the Azure CLI. Authenticating using Azure PowerShell isn't supported. Therefore, while you can use the Azure PowerShell module when doing your Terraform work, you first need to authenticate to Azure using the Azure CLI.
 
 This article explains how to authenticate Terraform to Azure for the following scenarios. For more information about options to authenticate Terraform to Azure, see [Authenticating using the Azure CLI](https://registry.terraform.io/providers/hashicorp/azuread/latest/docs/guides/azure_cli).
 
@@ -33,7 +33,7 @@ The following steps show you how to sign in to Azure interactively using a Micro
 
     **Key points:**
 
-    - Upon successful signin, `az login` displays a list of the Azure subscriptions associated with the logged-in Microsoft account, including the default subscription.
+    - Upon successful sign in, `az login` displays a list of the Azure subscriptions associated with the logged-in Microsoft account, including the default subscription.
 
 1. To confirm the current Azure subscription, run [az account show](/cli/azure/account#az_account_show).
 
@@ -95,7 +95,7 @@ The most common pattern is to interactively sign in to Azure, create a service p
     - You can replace the `<service-principal-name>` with a custom name for your environment or omit the parameter entirely. If you omit the parameter, the service principal name is generated based on the current date and time.
     - Upon successful completion, `az ad sp create-for-rbac` displays several values. The `appId`, `password`, and `tenant` values are used in the next step.
     - The password can't be retrieved if lost. As such, you should store your password in a safe place. If you forget your password, you can [reset the service principal credentials](/cli/azure/create-an-azure-service-principal-azure-cli#reset-credentials).
-    - For this article, a service principal with a **Contributor** role is being used. For more information about Role-Based Access Control (RBAC) and roles, see [RBAC: Built-in roles](/azure/active-directory/role-based-access-built-in-roles).
+    - For this article, a service principal with a **Contributor** role is being used. For more information about Role-Based Access Control (RBAC) roles, see [RBAC: Built-in roles](/azure/active-directory/role-based-access-built-in-roles).
     - The output from creating the service principal includes sensitive credentials. Be sure that you don't include these credentials in your code or check the credentials into your source control.
     - For more information about options when creating a service principal with the Azure CLI, see the article [Create an Azure service principal with the Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli?).
 
@@ -111,7 +111,7 @@ The most common pattern is to interactively sign in to Azure, create a service p
 
     **Key points:**
 
-    - Upon successful signin, `Connect-AzAccount` displays information about the default subscription.
+    - Upon successful sign in, `Connect-AzAccount` displays information about the default subscription.
     - Make note of the `TenantId` as it's needed to use the service principal.
 
 1. To confirm the current Azure subscription, run [Get-AzContext](/powershell/module/az.accounts/get-azcontext).
@@ -145,7 +145,7 @@ The most common pattern is to interactively sign in to Azure, create a service p
     **Key points:**
 
     - You can replace the `<service-principal-name>` with a custom name for your environment or omit the parameter entirely. If you omit the parameter, the service principal name is generated based on the current date and time.
-    - The **Contributor** role is the default role and has full permissions to read and write to an Azure account. For this article, a service principal with a **Contributor** role is being used. For more information about Role-Based Access Control (RBAC) and roles, see [RBAC: Built-in roles](/azure/active-directory/role-based-access-built-in-roles).
+    - The **Contributor** role is the default role and has full permissions to read and write to an Azure account. For this article, a service principal with a **Contributor** role is being used. For more information about Role-Based Access Control (RBAC) roles, see [RBAC: Built-in roles](/azure/active-directory/role-based-access-built-in-roles).
 
 1. Display the service principal ID.
 
