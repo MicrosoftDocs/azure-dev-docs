@@ -1,4 +1,4 @@
-#### [Windows (PS)](#tab/windows)
+#### [PowerShell terminal](#tab/terminal-powershell)
 
 ```azurecli
 az webapp log tail `
@@ -6,7 +6,7 @@ az webapp log tail `
     --resource-group $RESOURCE_GROUP_NAME
 ```
 
-#### [macOS/Linux (Bash)](#tab/mac-linux)
+#### [bash](#tab/terminal-bash)
 
 ```azurecli
 az webapp log tail \

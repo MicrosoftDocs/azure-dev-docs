@@ -1,4 +1,4 @@
-#### [Windows (PS)](#tab/windows)
+#### [PowerShell terminal](#tab/terminal-powershell)
 
 ```azurecli
 # Change these values to the ones used to create the App Service.
@@ -11,7 +11,7 @@ az webapp deployment source config-local-git `
     --output tsv
 ```
 
-#### [macOS/Linux (Bash)](#tab/mac-linux)
+#### [bash](#tab/terminal-bash)
 
 ```azurecli
 # Change these values to the ones used to create the App Service.

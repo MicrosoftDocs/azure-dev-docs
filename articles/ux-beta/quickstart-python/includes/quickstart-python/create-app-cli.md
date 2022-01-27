@@ -2,7 +2,7 @@ Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com
 
 First, create a resource group to act as a container for all of the Azure resources related to this application.
 
-#### [Windows (PS)](#tab/windows)
+#### [PowerShell terminal](#tab/terminal-powershell)
 
 ```azurecli
 # Use 'az account list-locations --output table' to list locations
@@ -15,7 +15,7 @@ az group create `
     --name $RESOURCE_GROUP_NAME
 ```
 
-#### [macOS/Linux (Bash)](#tab/mac-linux)
+#### [bash](#tab/terminal-bash)
 
 ```azurecli
 # Use 'az account list-locations --output table' to list locations
@@ -34,7 +34,7 @@ Next, create an App Service plan using the [az appservice plan create](/cli/azur
 * The `--sku` parameter defines the size (CPU, memory) and cost of the app service plan.  This example uses the B1 (Basic) service plan, which will incur a small cost in your Azure subscription. For a full list of App Service plans, view the [App Service pricing](https://azure.microsoft.com/pricing/details/app-service/linux/) page.
 * The `--is-linux` flag selects the Linux as the host operating system.
 
-#### [Windows (PS)](#tab/windows)
+#### [PowerShell terminal](#tab/terminal-powershell)
 
 ```azurecli
 $APP_SERVICE_PLAN_NAME='msdocs-python-webapp-quickstart'    
@@ -46,7 +46,7 @@ az appservice plan create `
     --is-linux
 ```
 
-#### [macOS/Linux (Bash)](#tab/mac-linux)
+#### [bash](#tab/terminal-bash)
 
 ```azurecli
 APP_SERVICE_PLAN_NAME='msdocs-python-webapp-quickstart'    
@@ -65,7 +65,7 @@ Finally, create the App Service web app using the [az webapp create](/cli/azure/
 * The *app service name* is used as both the name of the resource in Azure and to form the fully qualified domain name for your app in the form of `https://<app service name>.azurewebsites.com`.
 * The runtime specifies what version of Python your app is running. This example uses Python 3.9. To list all available runtimes, use the command `az webapp list-runtimes --linux --output table`.
 
-#### [Windows (PS)](#tab/windows)
+#### [PowerShell terminal](#tab/terminal-powershell)
 
 ```azurecli
 # Change 123 to any three characters to form a unique name across Azure
@@ -80,7 +80,7 @@ az webapp create `
     --output table
 ```
 
-#### [macOS/Linux (Bash)](#tab/mac-linux)
+#### [bash](#tab/terminal-bash)
 
 ```azurecli
 # Change 123 to any three characters to form a unique name across Azure
