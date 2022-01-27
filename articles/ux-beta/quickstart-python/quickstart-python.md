@@ -110,7 +110,7 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps 
 | Instructions    | Screenshot |
 |:----------------|-----------:|
 | [!INCLUDE [Create app service step 1](<./includes/quickstart-python/create-app-service-azure-portal-1.md>)] | :::image type="content" source="./media/quickstart-python/create-app-service-azure-portal-1-240px.png" alt-text="A screenshot showing how to use the search box in the top tool bar to find App Services in Azure." lightbox="./media/quickstart-python/create-app-service-azure-portal-1.png"::: |
-| [!INCLUDE [Create app service step 1](<./includes/quickstart-python/create-app-service-azure-portal-2.md>)] | :::image type="content" source="./media/quickstart-python/create-app-service-azure-portal-2-240px.png" alt-text="A screenshot showing the location of the Create button on the App Services page in the Azure Portal." lightbox="./media/quickstart-python/create-app-service-azure-portal-2.png"::: |
+| [!INCLUDE [Create app service step 1](<./includes/quickstart-python/create-app-service-azure-portal-2.md>)] | :::image type="content" source="./media/quickstart-python/create-app-service-azure-portal-2-240px.png" alt-text="A screenshot showing the location of the Create button on the App Services page in the Azure portal." lightbox="./media/quickstart-python/create-app-service-azure-portal-2.png"::: |
 | [!INCLUDE [Create app service step 1](<./includes/quickstart-python/create-app-service-azure-portal-3.md>)] | :::image type="content" source="./media/quickstart-python/create-app-service-azure-portal-3-240px.png" alt-text="A screenshot showing how to fill out the form to create a new App Service in the Azure portal." lightbox="./media/quickstart-python/create-app-service-azure-portal-3.png"::: |
 | [!INCLUDE [Create app service step 1](<./includes/quickstart-python/create-app-service-azure-portal-4.md>)] | :::image type="content" source="./media/quickstart-python/create-app-service-azure-portal-4-240px.png" alt-text="A screenshot showing how to select the basic app service plan in the Azure portal." lightbox="./media/quickstart-python/create-app-service-azure-portal-4.png"::: |
 | [!INCLUDE [Create app service step 1](<./includes/quickstart-python/create-app-service-azure-portal-5.md>)] | :::image type="content" source="./media/quickstart-python/create-app-service-azure-portal-5-240px.png" alt-text="A screenshot showing the location of the Review plus Create button in the Azure portal." lightbox="./media/quickstart-python/create-app-service-azure-portal-5.png"::: |
@@ -132,53 +132,7 @@ To create Azure resources in VS Code, you must have the [Azure Tools extension p
 
 ### [Azure CLI](#tab/azure-cli)
 
-Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com) or on a workstation with the [Azure CLI installed](/cli/azure/install-azure-cli).
-
-First, create a resource group to act as a container for all of the Azure resources related to this application.
-
-```azurecli
-# Use 'az account list-locations --output table' to list locations
-LOCATION='eastus'
-RESOURCE_GROUP_NAME='msdocs-python-webapp-quickstart'
-
-# Create a resource group
-az group create \
-    --location $LOCATION \
-    --name $RESOURCE_GROUP_NAME
-```
-
-Next, create an App Service plan using the [az appservice plan create](/cli/azure/appservice/plan#az_appservice_plan_create) command.
-
-* The `--sku` parameter defines the size (CPU, memory) and cost of the app service plan.  This example uses the B1 (Basic) service plan, which will incur a small cost in your Azure subscription. For a full list of App Service plans, view the [App Service pricing](https://azure.microsoft.com/pricing/details/app-service/linux/) page.
-* The `--is-linux` flag selects the Linux as the host operating system.
-
-```azurecli
-APP_SERVICE_PLAN_NAME='msdocs-python-webapp-quickstart'    
-
-az appservice plan create \
-    --name $APP_SERVICE_PLAN_NAME \
-    --resource-group $RESOURCE_GROUP_NAME \
-    --sku B1 \
-    --is-linux
-```
-
-Finally, create the App Service web app using the [az webapp create](/cli/azure/webapp#az_webapp_create) command.  
-
-* The *app service name* is used as both the name of the resource in Azure and to form the fully qualified domain name for your app in the form of `https://<app service name>.azurewebsites.com`.
-* The runtime specifies what version of Python your app is running. This example uses Python 3.9. To list all available runtimes, use the command `az webapp list-runtimes --linux --output table`.
-
-```azurecli
-# Change 123 to any three characters to form a unique name across Azure
-APP_SERVICE_NAME='msdocs-python-webapp-quickstart-123'
-
-az webapp create \
-    --name $APP_SERVICE_NAME \
-    --runtime 'PYTHON|3.9' \
-    --plan $APP_SERVICE_PLAN_NAME \
-    --resource-group $RESOURCE_GROUP_NAME \
-    --query 'defaultHostName' \
-    --output table
-```
+[!INCLUDE [Create CLI](<./includes/quickstart-python/create-app-cli.md>)]
 
 ---
 
@@ -261,20 +215,11 @@ The contents of the App Service diagnostic logs can be reviewed in the Azure por
 
 First, you need to configure Azure App Service to output logs to the App Service filesystem using the [az webapp log config](/cli/azure/webapp/log#az_webapp_log_config) command.
 
-```azurecli
-az webapp log config \
-    --web-server-logging 'filesystem' \
-    --name $APP_SERVICE_NAME \
-    --resource-group $RESOURCE_GROUP_NAME
-```
+[!INCLUDE [CLI stream logs configure](<./includes/quickstart-python/stream-logs-cli-1.md>)]
 
 To stream logs, use the [az webapp log tail](/cli/azure/webapp/log#az_webapp_log_tail) command.
 
-```azurecli
-az webapp log tail \
-    --name $APP_SERVICE_NAME \
-    --resource-group $RESOURCE_GROUP_NAME
-```
+[!INCLUDE [CLI stream logs tail](<./includes/quickstart-python/stream-logs-cli-2.md>)]
 
 Refresh the home page in the app or attempt other requests to generate some log messages. The output should look similar to the following.
 
