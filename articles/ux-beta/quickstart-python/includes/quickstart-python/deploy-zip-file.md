@@ -16,16 +16,7 @@ Build automation in Azure is enabled by setting the `SCM_DO_BUILD_DURING_DEPLOYM
 
 ##### [Azure CLI](#tab/deploy-instructions-azcli)
 
-```azurecli
-# Change these values to the ones used to create the App Service.
-RESOURCE_GROUP_NAME='msdocs-python-webapp-quickstart'
-APP_SERVICE_NAME='msdocs-python-webapp-quickstart-123'
-
-az webapp config appsettings set \
-    --resource-group $RESOURCE_GROUP_NAME \
-    --name $APP_SERVICE_NAME \
-    --settings SCM_DO_BUILD_DURING_DEPLOYMENT=true
-```
+[!INCLUDE [Azure CLI build automation commands](<./deploy-zip-build-settings.md>)]
 
 ---
 
@@ -55,12 +46,8 @@ Once you have a ZIP file, the file can be uploaded to Azure using either Azure C
 
 #### [Azure CLI](#tab/deploy-instructions-zip-azcli)
 
-```azurecli
-az webapp deploy \
-    --name $APP_SERVICE_NAME \
-    --resource-group $RESOURCE_GROUP_NAME  \
-    --src-path <zip-file-path>
-```
+[!INCLUDE [Azure CLI deploy commands](<./deploy-zip-cli-commands.md>)]
+
 
 #### [Postman](#tab/deploy-instructions-zip-postman)
 
