@@ -316,6 +316,8 @@ Azure App service supports multiple methods to deploy your application code to A
 
 With the code deployed and the database in place, the app is almost ready to use. The only piece that remains is to establish the necessary schema in the database itself. You do this by "migrating" the data models in the Django app to the database.
 
+<br />**Instructions:** <br />
+
 ### [Azure portal](#tab/azure-portal-db-migrate)
 **Step 1.** In the browser window or tab for the web app:
 
@@ -336,7 +338,7 @@ az webapp ssh --resource-group $RESOURCE_GROUP_NAME \
 
 ----
 
-| Instructions    | Screenshot |
+| |  |
 |:----------------|-----------:|
 | [!INCLUDE [A screenshot showing](<./includes/django-postgresql-webapp/migrate-db-azure-portal-2.md>)] | :::image type="content" source="./media/django-postgresql-webapp/migrate-db-azure-portal-2-240px.png" lightbox="./media/django-postgresql-webapp/migrate-db-azure-portal-2.png" alt-text="A screenshot showing" ::: |
 | [!INCLUDE [A screenshot showing](<./includes/django-postgresql-webapp/migrate-db-azure-portal-3.md>)] | :::image type="content" source="./media/django-postgresql-webapp/migrate-db-azure-portal-3-240px.png" lightbox="./media/django-postgresql-webapp/migrate-db-azure-portal-3.png" alt-text="A screenshot showing" ::: |
