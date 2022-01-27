@@ -316,40 +316,27 @@ Azure App service supports multiple methods to deploy your application code to A
 
 With the code deployed and the database in place, the app is almost ready to use. The only piece that remains is to establish the necessary schema in the database itself. You do this by "migrating" the data models in the Django app to the database.
 
-### [Azure portal](#tab/azure-portal-db-migrate)
-
 | Instructions    | Screenshot |
 |:----------------|-----------:|
-| [!INCLUDE [A screenshot showing how to start an SSH session to the webapp in the Azure Portal. ](<./includes/django-postgresql-webapp/migrate-db-azure-portal-1.md>)] | :::image type="content" source="./media/django-postgresql-webapp/migrate-db-azure-portal-1-240px.png" lightbox="./media/django-postgresql-webapp/migrate-db-azure-portal-1.png" alt-text="A screenshot showing how to start an SSH session to the webapp in the Azure Portal." ::: |
-| [!INCLUDE [A screenshot showing ](<./includes/django-postgresql-webapp/migrate-db-azure-portal-2.md>)] | :::image type="content" source="./media/django-postgresql-webapp/migrate-db-azure-portal-2-240px.png" lightbox="./media/django-postgresql-webapp/migrate-db-azure-portal-2.png" alt-text="A screenshot showing" ::: |
-| [!INCLUDE [A screenshot showing ](<./includes/django-postgresql-webapp/migrate-db-azure-portal-3.md>)] | :::image type="content" source="./media/django-postgresql-webapp/migrate-db-azure-portal-3-240px.png" lightbox="./media/django-postgresql-webapp/migrate-db-azure-portal-3.png" alt-text="A screenshot showing" ::: |
+|
+
+### [Azure portal](#tab/azure-portal-db-migrate)
+[!INCLUDE [A screenshot showing how to start an SSH session to the webapp in the Azure Portal. ](<./includes/django-postgresql-webapp/migrate-db-azure-portal-1.md>)]
 
 ### [Azure CLI](#tab/azure-cli-db-migrate)
-
-Django database migrations ensure that the schema in the PostgreSQL on Azure database match those described in your code.
 
 **Step 1.** Run `az webpp ssh` to open an SSH session for the web app in the browser:
 
 ```azurecli
 az webapp ssh --resource-group $RESOURCE_GROUP_NAME \
               --name $APP_SERVICE_NAME
-```
 
-**Step 2.** In the SSH session, run the following commands (you can paste commands using **Ctrl**+**Shift**+**V**):
+----
 
-```bash
-# Run database migrations
-python manage.py migrate
-
-# Create the super user (follow prompts)
-python manage.py createsuperuser
-```
-
-If you encounter any errors related to connecting to the database, check the values of the application settings created in the previous section.
-
-**Step 3.** The `createsuperuser` command prompts you for superuser credentials. For the purposes of this tutorial, use the default username `root`, press **Enter** for the email address to leave it blank, and enter `Pollsdb1` for the password.
-
-**Step 4.** If you see an error that the database is locked, make sure that you ran the `az webapp settings` command in the previous section. Without those settings, the migrate command cannot communicate with the database, resulting in the error.
+| :::image type="content" source="./media/django-postgresql-webapp/migrate-db-azure-portal-1-240px.png" lightbox="./media/django-postgresql-webapp/migrate-db-azure-portal-1.png" alt-text="A screenshot showing how to start an SSH session to the webapp in the Azure Portal." ::: |
+| [!INCLUDE [A screenshot showing ](<./includes/django-postgresql-webapp/migrate-db-azure-portal-2.md>)] | :::image type="content" source="./media/django-postgresql-webapp/migrate-db-azure-portal-2-240px.png" lightbox="./media/django-postgresql-webapp/migrate-db-azure-portal-2.png" alt-text="A screenshot showing" ::: |
+| [!INCLUDE [A screenshot showing ](<./includes/django-postgresql-webapp/migrate-db-azure-portal-3.md>)] | :::image type="content" source="./media/django-postgresql-webapp/migrate-db-azure-portal-3-240px.png" lightbox="./media/django-postgresql-webapp/migrate-db-azure-portal-3.png" alt-text="A screenshot showing" ::: |
+| [!INCLUDE [A screenshot showing ](<./includes/django-postgresql-webapp/migrate-db-azure-portal-4.md>)] | :::image type="content" source="./media/django-postgresql-webapp/migrate-db-azure-portal-4-240px.png" lightbox="./media/django-postgresql-webapp/migrate-db-azure-portal-4.png" alt-text="A screenshot showing" ::: |
 
 > [!NOTE]
 > If you cannot connect to the SSH session, then the app itself has failed to start. **Check the diagnostic logs** for details. For example, if you haven't created the necessary app settings in the previous section, the logs will indicate `KeyError: 'DBNAME'`.
