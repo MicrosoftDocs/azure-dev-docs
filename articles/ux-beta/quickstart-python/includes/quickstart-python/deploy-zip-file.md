@@ -16,6 +16,8 @@ Build automation in Azure is enabled by setting the `SCM_DO_BUILD_DURING_DEPLOYM
 
 ##### [Azure CLI](#tab/deploy-instructions-azcli)
 
+Use the [az webapp config appsettings set](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) command to set the `SCM_DO_BUILD_DURING_DEPLOYMENT` setting to a value of `true`.
+
 [!INCLUDE [Azure CLI build automation commands](<./deploy-zip-build-settings.md>)]
 
 ---
@@ -46,8 +48,9 @@ Once you have a ZIP file, the file can be uploaded to Azure using either Azure C
 
 #### [Azure CLI](#tab/deploy-instructions-zip-azcli)
 
-[!INCLUDE [Azure CLI deploy commands](<./deploy-zip-cli-commands.md>)]
+The [az webapp deploy](/cli/azure/webapp?view=azure-cli-latest#az-webapp-deploy) command can be used to upload and deploy a zip file to Azure.
 
+[!INCLUDE [Azure CLI deploy commands](<./deploy-zip-cli-commands.md>)]
 
 #### [Postman](#tab/deploy-instructions-zip-postman)
 
