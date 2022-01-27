@@ -15,8 +15,8 @@ az webapp config appsettings set \
 
 ```azurecli
 REM Change these values to the ones used to create the App Service.
-SET RESOURCE_GROUP_NAME='msdocs-python-webapp-quickstart'
-SET APP_SERVICE_NAME='msdocs-python-webapp-quickstart-123'
+SET RESOURCE_GROUP_NAME=msdocs-python-webapp-quickstart
+SET APP_SERVICE_NAME=msdocs-python-webapp-quickstart-123
 
 az webapp config appsettings set ^
     --resource-group %RESOURCE_GROUP_NAME% ^
