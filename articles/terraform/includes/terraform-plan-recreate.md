@@ -1,10 +1,8 @@
 ---
-title: include file
-description: include file
-ms.topic: how-to
-ms.date: 08/18/2021
-ms.custom: devx-track-terraform
 ms.author: tarcher
+ms.topic: include
+ms.date: 01/28/2022
+ms.custom: devx-track-terraform
 ---
 
 After making the changes to your configuration, recreate and apply the Terraform execution plan:

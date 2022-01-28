@@ -1,7 +1,7 @@
 ---
 title: Stream logs from Azure App Service
 description: Tutorial part 5, Azure CLI view logs
-ms.topic: tutorial
+ms.topic: how-to
 ms.date: 08/16/2021
 ms.custom: devx-track-js, devx-track-azurecli
 # Verified full run: diberry 08/16/2021
@@ -27,4 +27,4 @@ In this step, you view the logs from the running App Service. Any calls to `cons
 
 ## Next steps
 
-* [Stream logs](tutorial-vscode-azure-cli-node-06.md)
+* [Clean up resources](tutorial-vscode-azure-cli-node-07.md)

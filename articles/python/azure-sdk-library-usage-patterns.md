@@ -56,13 +56,13 @@ For more information, including how to remove packages or install specific versi
 
 Many operations that you invoke through client and management client objects (such as [`ComputeManagementClient.virtual_machines.begin_create_or_update`](/python/api/azure-mgmt-compute/azure.mgmt.compute.v2020_06_01.operations.virtualmachinesoperations#begin-create-or-update-resource-group-name--vm-name--parameters----kwargs-) and [`WebSiteManagementClient.web_apps.create_or_update`](/python/api/azure-mgmt-web/azure.mgmt.web.v2019_08_01.operations.webappsoperations#create-or-update-resource-group-name--name--site-envelope--custom-headers-none--raw-false--polling-true----operation-config-)) return an object of type `AzureOperationPoller[<type>]` where `<type>` is specific to the operation in question.
 
-Both of these methods are asynchronous. The different in the method names is due to version differences. Older libraries that aren't based on azure.core typically use named like `create_or_update`. Libraries based on azure.core add the `begin_` prefix to method names to better indicate that they are asynchronous. Migrating old code to a newer azure.core-based library typically means adding the `begin_` prefix to method names, as most method signatures remain the same.
+Both of these methods are asynchronous. The difference in the method names is due to version differences. Older libraries that aren't based on azure.core typically use named like `create_or_update`. Libraries based on azure.core add the `begin_` prefix to method names to better indicate that they are asynchronous. Migrating old code to a newer azure.core-based library typically means adding the `begin_` prefix to method names, as most method signatures remain the same.
 
 In either case, an [`AzureOperationPoller`](/python/api/msrestazure/msrestazure.azure_operation.azureoperationpoller) return type definitely means that the operation is asynchronous. Accordingly, you must call that poller's `result` method to wait for the operation to finish and obtain its result.
 
 The following code, taken from [Example: Provision and deploy a web app](azure-sdk-example-web-app.md), shows an example of using the poller to wait for a result:
 
-:::code language="python" source="~/../python-sdk-examples/webapp/provision_deploy_web_app.py" range="59-70":::
+:::code language="python" source="~/../python-sdk-docs-examples/webapp/provision_deploy_web_app.py" range="59-70":::
 
 In this case, the return value of `begin_create_or_update` is of type `AzureOperationPoller[Site]`, which means that the return value of `poller.result()` is a [Site](/python/api/azure-mgmt-web/azure.mgmt.web.v2021_01_01.models.site) object.
 
@@ -122,23 +122,11 @@ For example, suppose you have a [`ResourceManagementClient`](/python/api/azure-m
 
 To call `create_or_update` you can create a discrete instance of `ResourceGroup` directly with its required arguments (`location` in this case):
 
-```python
-rg_result = resource_client.resource_groups.create_or_update(
-    "PythonSDKExample-rg",
-    ResourceGroup(location="centralus")
-)
-```
+:::code language="python" source="~/../python-sdk-docs-examples/resource_group/provision_rg_objs.py" range="17-20":::
 
 Alternately, you can pass the same parameters as inline JSON:
 
-```python
-rg_result = resource_client.resource_groups.create_or_update(
-    "PythonSDKExample-rg",
-    {
-      "location": "centralus"
-    }
-)
-```
+:::code language="python" source="~/../python-sdk-docs-examples/resource_group/provision_rg.py" range="16-21":::
 
 When using JSON, the Azure libraries automatically convert the inline JSON to the appropriate object type for the argument in question.
 
@@ -148,11 +136,11 @@ For example, suppose you have an instance of the [`KeyVaultManagementClient`](/p
 
 To call `begin_create_or_update` with embedded objects, you use code like the following (assuming `tenant_id` and `object_id` are already defined). You can also create the necessary objects before the function call.
 
-:::code language="python" source="~/../python-sdk-examples/key_vault/provision_key_vault.py" range="66-92":::
+:::code language="python" source="~/../python-sdk-docs-examples/key_vault/provision_key_vault.py" range="66-92":::
 
 The same call using inline JSON appears as follows:
 
-:::code language="python" source="~/../python-sdk-examples/key_vault/provision_key_vault.py" range="97-121":::
+:::code language="python" source="~/../python-sdk-docs-examples/key_vault/provision_key_vault.py" range="97-121":::
 
 Because both forms are equivalent, you can choose whichever you prefer and even intermix them. (The full code for these examples can be found on [GitHub](https://github.com/MicrosoftDocs/python-sdk-docs-examples/blob/main/key_vault/provision_key_vault.py).)
 

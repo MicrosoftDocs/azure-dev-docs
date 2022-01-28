@@ -6,7 +6,7 @@ ms.author: jukullam
 ms.topic: quickstart
 ms.service: azure 
 ms.date: 03/23/2021
-ms.custom: github-actions-azure, devx-track-azurecli
+ms.custom: github-actions-azure, devx-track-azurecli, mode-portal
 ---
 
 
@@ -27,8 +27,8 @@ The build virtual machine image action uses the [Azure Image Builder service](/a
 - A GitHub account with an active repository. If you don't have one, sign up for [free](https://github.com/join). 
     - This example uses the [Java Spring PetClinic Sample Application](https://github.com/spring-projects/spring-petclinic).
 - A Shared Image Gallery.
-    - [Create a Shared Image Gallery with the Azure CLI](/azure/virtual-machines/shared-images-cli)
-    - Create an Azure Shared Image Gallery using the portal ([Windows](/azure/virtual-machines/windows/shared-images-portal), [Linux](/azure/virtual-machines/linux/shared-images-portal))
+    - [Create a Shared Image Gallery with the Azure CLI](/azure/virtual-machines/share-gallery?tabs=cli)
+    - Create an Azure Shared Image Gallery using the portal (Windows, [Linux](/azure/virtual-machines/linux/shared-images-portal))
 
 ## Workflow file overview
 

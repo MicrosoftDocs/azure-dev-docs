@@ -1,13 +1,11 @@
 ---
-title: include file
-description: include file
-ms.topic: how-to
-ms.date: 08/18/2021
-ms.custom: devx-track-terraform
 ms.author: tarcher
+ms.topic: include
+ms.date: 01/28/2022
+ms.custom: devx-track-terraform
 ---
 
-To initialize the Terraform deployment, run [terraform init](https://www.terraform.io/docs/commands/init.html). This command downloads the Azure modules required to manage your Azure resources.
+Run [terraform init](https://www.terraform.io/docs/commands/init.html) to initialize the Terraform deployment. This command downloads the Azure modules required to manage your Azure resources.
 
 ```cmd
 terraform init

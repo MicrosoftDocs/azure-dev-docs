@@ -11,7 +11,7 @@ metadata:
   description: Get started developing apps with the Azure SDK for JavaScript in the browser or Node.js through tutorials, tools, and the SDK reference.
   author: diberry
   ms.author: diberry
-  ms.date: 08/07/2021
+  ms.date: 10/21/2021
   ms.topic: landing-page
   ms.collection: collection
   ms.technology: azure
@@ -26,7 +26,7 @@ landingContent:
           - text: Learn TV
             url: /learn/tv/
           - text: JavaScript
-            url: https://channel9.msdn.com/Series/Beginners-Series-to-JavaScript
+            url: /Shows/Beginners-Series-to-JavaScript
           - text: JavaScript in Portuguese
             url: https://www.youtube.com/watch?v=SXBNpzjusgY
           - text: Simple website using HTML, CSS, and JavaScript
@@ -70,7 +70,7 @@ landingContent:
           - text: Static Web App upload image to Storage
             url: tutorial/browser-file-upload-azure-storage-blob.md
           - text: "Azure Function"
-            url: tutorial/vscode-function-app-http-trigger/tutorial-vscode-serverless-node-install.md            
+            url: tutorial/azure-function-cosmos-db-mongo-api.md            
           - text: "App service with MongoDB"
             url: tutorial/deploy-nodejs-mongodb-app-service-from-visual-studio-code.md
           - text: "App service with a container"
@@ -90,7 +90,7 @@ landingContent:
       - linkListType: tutorial
         links: 
           - text: "Static web app: Analyze image with Computer Vision"
-            url: ./tutorial/static-web-app/add-computer-vision-react-app.md#add-computer-vision-code-as-separate-module
+            url: ./tutorial/static-web-app-image-analysis.md#add-computer-vision-code-as-separate-module
           - text: "Static web app: Upload file to Storage Blob"
             url: tutorial/browser-file-upload-azure-storage-blob.md#upload-button-functionality
           - text: "Static web app: Login/Logoff button"
@@ -124,11 +124,13 @@ landingContent:
           - text: Translate text
             url: /azure/cognitive-services/translator/quickstart-translator?pivots=programming-language-javascript
           - text: Detect objects in an image
-            url: tutorial/static-web-app/introduction.md
+            url: tutorial/static-web-app-image-analysis.md
   - title: Use Azure client libraries (SDK)
     linkLists:
       - linkListType: get-started
         links:
+          - text: Use the Azure SDKs for JS/TS
+            url: core/use-azure-sdk.md
           - text: Latest client libraries
             url: https://azure.github.io/azure-sdk/releases/latest/index.html#javascript
           - text: Reference Documentation

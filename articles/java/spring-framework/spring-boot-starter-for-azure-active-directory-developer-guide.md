@@ -65,7 +65,7 @@ To use the Azure AD starter in this scenario, use the following steps:
    <dependency>
        <groupId>com.azure.spring</groupId>
        <artifactId>azure-spring-boot-starter-active-directory</artifactId>
-       <version>3.7.0</version>
+       <version>3.10.0</version>
    </dependency>
    <dependency>
        <groupId>org.springframework.boot</groupId>
@@ -119,7 +119,7 @@ To use the Azure AD starter in this scenario, use the following steps:
    <dependency>
        <groupId>com.azure.spring</groupId>
        <artifactId>azure-spring-boot-starter-active-directory</artifactId>
-       <version>3.7.0</version>
+       <version>3.10.0</version>
    </dependency>
    <dependency>
        <groupId>org.springframework.boot</groupId>
@@ -172,7 +172,7 @@ To use the Azure AD starter in this scenario, use the following steps:
    <dependency>
        <groupId>com.azure.spring</groupId>
        <artifactId>azure-spring-boot-starter-active-directory</artifactId>
-       <version>3.7.0</version>
+       <version>3.10.0</version>
    </dependency>
    <dependency>
        <groupId>org.springframework.boot</groupId>
@@ -231,7 +231,7 @@ To use the Azure AD starter in this scenario, use the following steps:
    <dependency>
        <groupId>com.azure.spring</groupId>
        <artifactId>azure-spring-boot-starter-active-directory</artifactId>
-       <version>3.7.0</version>
+       <version>3.10.0</version>
    </dependency>
    <dependency>
        <groupId>org.springframework.boot</groupId>
@@ -282,7 +282,7 @@ To use **aad-starter** in this scenario, follow these steps:
     <dependency>
         <groupId>com.azure.spring</groupId>
         <artifactId>azure-spring-boot-starter-active-directory</artifactId>
-        <version>3.7.0</version>
+        <version>3.10.0</version>
     </dependency>
     <dependency>
         <groupId>org.springframework.boot</groupId>
@@ -352,11 +352,11 @@ To use **aad-starter** in this scenario, follow these steps:
 
 The `azure.activedirectory.application-type` property is optional because its value can be inferred by dependencies. You must manually set the property only when you use the `web_application_and_resource_server` value.
 
-| Has dependency: spring-security-oauth2-client | Has dependency: spring-security-oauth2-resource-server |                  Valid values of application type                 | Default value               |
-|-----------------------------------------------|--------------------------------------------------------|-------------------------------------------------------------------|-----------------------------|
-|                      Yes                      |                          No                            |                       `web_application`                           |       `web_application`     |
-|                      No                       |                          Yes                           |                       `resource_server`                           |       `resource_server`     |
-|                      Yes                      |                          Yes                           | `resource_server_with_obo`, `web_application_and_resource_server` | `resource_server_with_obo`  |
+| Has dependency: spring-security-oauth2-client | Has dependency: spring-security-oauth2-resource-server |                  Valid values of application type                                                     | Default value               |
+|-----------------------------------------------|--------------------------------------------------------|-------------------------------------------------------------------------------------------------------|-----------------------------|
+|                      Yes                      |                          No                            |                       `web_application`                                                               |       `web_application`     |
+|                      No                       |                          Yes                           |                       `resource_server`                                                               |       `resource_server`     |
+|                      Yes                      |                          Yes                           | `web_application`,`resource_server`,<br>`resource_server_with_obo`, `web_application_and_resource_server` | `resource_server_with_obo`  |
 
 ## Configurable properties
 

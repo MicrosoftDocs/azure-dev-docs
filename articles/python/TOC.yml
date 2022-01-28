@@ -5,43 +5,28 @@
   items:
     - name: What is Azure?
       href: cloud-development-overview.md
-    - name: Provision, access, and manage resources
+    - name: Create, access, and manage resources
       href: cloud-development-provisioning.md
     - name: The Azure development flow
       href: cloud-development-flow.md
 
-- name: Deploy serverless functions
-  items:
-    - name: Create a function
-      items:
-        - name: Using Visual Studio Code
-          href: /azure/azure-functions/create-first-function-vs-code-python
-        - name: Using the Azure CLI
-          href: /azure/azure-functions/create-first-function-cli-python?tabs=azure-cli%2Cbash%2Cbrowser
-    - name: Connect to Azure Storage
-      items:
-        - name: Using Visual Studio Code
-          href: /azure/azure-functions/functions-add-output-binding-storage-queue-vs-code?pivots=programming-language-python
-        - name: Using the Azure CLI
-          href: /azure/azure-functions/functions-add-output-binding-storage-queue-cli?tabs=bash%2Cbrowser&pivots=programming-language-python
-
-- name: Deploy web apps and databases
+- name: Web app solutions
   items:
   - name: Simple Flask app
     items:
       - name: Using Visual Studio Code
         items:
-        - name: 1 Configure your environment
+        - name: 1. Configure your environment
           href: tutorial-deploy-app-service-on-linux-01.md
-        - name: 2 Prepare your app
+        - name: 2. Prepare your app
           href: tutorial-deploy-app-service-on-linux-02.md
-        - name: 3 Create the App Service
+        - name: 3. Create the App Service
           href: tutorial-deploy-app-service-on-linux-03.md
-        - name: 4 Configure the startup file
+        - name: 4. Configure the startup file
           href: tutorial-deploy-app-service-on-linux-04.md
-        - name: 5 Deploy the app
+        - name: 5. Deploy the app
           href: tutorial-deploy-app-service-on-linux-05.md
-        - name: 6 Stream logs
+        - name: 6. Stream logs
           href: tutorial-deploy-app-service-on-linux-06.md
         - name: 7 Clean up resources
           href: tutorial-deploy-app-service-on-linux-07.md
@@ -59,35 +44,66 @@
     href: /azure/devops/pipelines/languages/python-webapp
   - name: Configure the Linux host
     href: /azure/app-service/configure-language-python
-  - name: Add sign-in
+  - name: Add sign in
     href: /azure/active-directory/develop/quickstart-v2-python-webapp
   - name: Store and retrieve secrets
     href: /azure/key-vault/quick-create-python
   - name: Set up Azure monitor
     href: /azure/azure-monitor/app/opencensus-python
 
-- name: Deploy containers
+- name: Serverless solutions
+  items:
+    - name: Create a function
+      items:
+        - name: Using Visual Studio Code
+          href: /azure/azure-functions/create-first-function-vs-code-python
+        - name: Using the Azure CLI
+          href: /azure/azure-functions/create-first-function-cli-python?tabs=azure-cli%2Cbash%2Cbrowser
+    - name: Connect to Azure Storage
+      items:
+        - name: Using Visual Studio Code
+          href: /azure/azure-functions/functions-add-output-binding-storage-queue-vs-code?pivots=programming-language-python
+        - name: Using the Azure CLI
+          href: /azure/azure-functions/functions-add-output-binding-storage-queue-cli?tabs=bash%2Cbrowser&pivots=programming-language-python
+
+- name: Data engineering solutions
+  items:
+    - name: Serverless, Cloud ETL
+      items:
+        - name: 1. Overview
+          href: tutorial-deploy-serverless-cloud-etl-01.md
+        - name: 2. Create solution resources
+          href: tutorial-deploy-serverless-cloud-etl-02.md
+        - name: 3. Securely ingest relational data
+          href: tutorial-deploy-serverless-cloud-etl-03.md
+        - name: 4. Process relational data for analytics
+          href: tutorial-deploy-serverless-cloud-etl-04.md
+        - name: 5. Load processed data to Data Lake
+          href: tutorial-deploy-serverless-cloud-etl-05.md
+    - name: More data and storage solutions
+      href: quickstarts-data-solutions.md
+
+- name: Containers solutions
   items:
     - name: Using Visual Studio Code
       items:
-        - name: 1 Configure your environment
+        - name: 1. Configure your environment
           href: tutorial-deploy-containers-01.md
-        - name: 2 Deploy the container image
+        - name: 2. Deploy the container image
           href: tutorial-deploy-containers-02.md
-        - name: 3 Make changes and redeploy
+        - name: 3. Make changes and redeploy
           href: tutorial-deploy-containers-03.md
-        - name: 4 Stream logs
+        - name: 4. Stream logs
           href: tutorial-deploy-containers-04.md
-        - name: 5 Clean up resources
+        - name: 5. Clean up resources
           href: tutorial-deploy-containers-05.md
     - name: Deploy a Kubernetes cluster
       href: /azure/aks/kubernetes-walkthrough
 
-- name: Deploy machine learning models
-  href: quickstarts-machine-learning.md
-
-- name: Deploy data and storage
-  href: quickstarts-data-solutions.md
+- name: Data science solutions
+  items:
+    - name: Deploy machine learning models
+      href: quickstarts-machine-learning.md
 
 - name: Use the Azure libraries (SDK)
   items:
@@ -95,8 +111,8 @@
       href: azure-sdk-overview.md
     - name: Set up your dev environment
       href: configure-local-development-environment.md
-    - name: Library usage patterns    
-      href: azure-sdk-library-usage-patterns.md   
+    - name: Library usage patterns
+      href: azure-sdk-library-usage-patterns.md
     - name: Authentication
       items:
       - name: Overview
@@ -106,48 +122,48 @@
       - name: Auth in hosted applications
         href: azure-sdk-authenticate-hosted-applications.md
       - name: Auth with user credentials
-        href: azure-sdk-authenticate-user-credentials.md        
+        href: azure-sdk-authenticate-user-credentials.md
       - name: Auth with service principals
-        href: azure-sdk-authenticate-service-principals.md        
+        href: azure-sdk-authenticate-service-principals.md
       - name: Manage service principals
         href: how-to-manage-service-principals.md
       - name: Walkthrough tutorial
         items:
-        - name: 1 Introduction and background
+        - name: 1. Introduction and background
           href: walkthrough-tutorial-authentication-01.md
-        - name: 2 Authentication requirements
+        - name: 2. Authentication requirements
           href: walkthrough-tutorial-authentication-02.md
-        - name: 3 Third-party API implementation
+        - name: 3. Third-party API implementation
           href: walkthrough-tutorial-authentication-03.md
-        - name: 4 Main app implementation
+        - name: 4. Main app implementation
           href: walkthrough-tutorial-authentication-04.md
-        - name: 5 Dependencies and environment variables
+        - name: 5. Dependencies and environment variables
           href: walkthrough-tutorial-authentication-05.md
-        - name: 6 Main app startup code
+        - name: 6. Main app startup code
           href: walkthrough-tutorial-authentication-06.md
-        - name: 7 Main app endpoint
+        - name: 7. Main app endpoint
           href: walkthrough-tutorial-authentication-07.md
     - name: Install packages
       href: azure-sdk-install.md
     - name: Package index
-      href: azure-sdk-library-package-index.md      
+      href: azure-sdk-library-package-index.md
     - name: Library API reference
-      href: sdk-library-api-reference.md      
-    - name: Examples      
+      href: sdk-library-api-reference.md
+    - name: Examples
       items:
-      - name: "Provision a resource group"
+      - name: "Create a resource group"
         href: azure-sdk-example-resource-group.md
       - name: "List groups and resources"
         href: azure-sdk-example-list-resource-groups.md
-      - name: "Provision Azure storage"
+      - name: "Create Azure storage"
         href: azure-sdk-example-storage.md
       - name: "Use Azure storage"
         href: azure-sdk-example-storage-use.md
-      - name: "Provision & deploy a web app"
+      - name: "Create & deploy a web app"
         href: azure-sdk-example-web-app.md
-      - name: "Provision & query a database"
+      - name: "Create & query a database"
         href: azure-sdk-example-database.md
-      - name: "Provision a virtual machine"
+      - name: "Create a virtual machine"
         href: azure-sdk-example-virtual-machines.md
       - name: "Use Azure Managed Disks with a VM"
         href: azure-sdk-samples-managed-disks.md
@@ -158,28 +174,31 @@
     - name: Use a sovereign domain
       href: azure-sdk-sovereign-domain.md
 
+- name: Library API reference
+  href: sdk-library-api-reference.md
+
 - name: Tools for Python developers
   href: azure-tools.md
 
 - name: Explore services supporting Python
-  items: 
+  items:
   - name: App hosting
     href: quickstarts-app-hosting.md
   - name: Data solutions
-    href: quickstarts-data-solutions.md    
+    href: quickstarts-data-solutions.md
   - name: Identity and security
-    href: quickstarts-identity-security.md  
+    href: quickstarts-identity-security.md
   - name: Machine learning
     href: quickstarts-machine-learning.md
   - name: AI (Cognitive Services)
     href: quickstarts-cognitive-services.md
   - name: Messaging & IoT
-    href: quickstarts-messaging-iot.md 
-  - name: Additional services
+    href: quickstarts-messaging-iot.md
+  - name: Other services
     href: quickstarts-other-services.md
 
 - name: Samples
-  items: 
+  items:
   - name: Web apps & serverless
     href: /samples/browse/?languages=python&products=azure-functions%2Cazure-app-service%2Cazure-logic-apps
   - name: Databases
@@ -196,7 +215,7 @@
     href: /samples/browse/?languages=python&products=azure-iot-hub%2Cazure-iot-edge%2Cazure-iot-central
   - name: Data science
     items:
-      - name: Machine Learning Service    
+      - name: Machine Learning Service
         href: /samples/browse/?languages=python&products=azure-machine-learning-service
       - name: Databricks
         href: /samples/browse/?languages=python&products=azure-databricks
@@ -208,5 +227,3 @@
     href: /samples/browse/?languages=python&products=azure-search
   - name: All Samples
     href: /samples/browse/?languages=python
-- name: Library API reference
-  href: sdk-library-api-reference.md

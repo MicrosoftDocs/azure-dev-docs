@@ -1,17 +1,17 @@
 ---
 title: "Tutorial: Add Microsoft login button to React SPA"
 description: Azure Active Directory authentication presented in this tutorial is a login and logout button, and access to a user's username (email). Develop the TypeScript application with an Azure client-side SDK, `@azure/msal-browser`, to manage the interaction of the user in the single page application (SPA).
-ms.topic: tutorial
-ms.date: 05/21/2021
+ms.topic: how-to
+ms.date: 9/15/2021
 ms.custom: devx-track-js, "azure-sdk-javascript-@azure/msal-browser-2.7.0"
 ms.history: [
 "20210216:fix public issue 443"
 ]
 ---
 
-# Add Microsoft login button to a single page application for authentication
+# Add Microsoft authentication login button to a single page application
 
-Azure authentication presented in this TypeScript tutorial is a login and logout button, and provides access to a user's account. Develop the application with an Azure client-side SDK, `@azure/msal-browser`, to manage the interaction of the user in the single page application (SPA).
+Add Microsoft authentication in this TypeScript tutorial to provide a login/logout button. Develop the application with the Azure client-side SDK, `@azure/msal-browser`, to provide authentication functionality.
 
 * [Sample code](https://github.com/Azure-Samples/js-e2e-client-azure-login-button)
 
@@ -172,11 +172,11 @@ If you want to keep the app but revoke the permission given to the app by your s
 
 ## Next steps
 
-This app provides user authentication for your app, and returns user information. The authentication functionality can stop here for a simple version of an app or you can add functionality to manage the app's user management and user authorization to app features. 
-
-User management can be stored in an Azure Active Directory or your own database, depending on the functionality and tools you select. 
-
-User authorization can be provided by Azure, or you can develop authorization without Azure, or you can combine the two for a custom experience of authorization, roles, and app features. 
-
-* Continuing using the [MSAL library](/azure/active-directory/develop/msal-overview) to get the user profile and provide silent sign-on
+* [Single sign-on with MSAL.js](/azure/active-directory/develop/msal-js-sso)
+* [MSAL.js](https://github.com/AzureAD/microsoft-authentication-library-for-js)
+* [MSAL.js samples](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/samples)
+* [All MSAL samples](/azure/active-directory/develop/sample-v2-code)
+* Continue using the [MSAL library](/azure/active-directory/develop/msal-overview) to get the user profile and provide silent sign-on
 * Add [Microsoft Graph](/graph/overview) to access user accounts in Microsoft 365 include email and calendar appointments
+* [Azure Static web apps](/azure/static-web-apps/)
+* [Azure Web apps](/azure/app-service/)

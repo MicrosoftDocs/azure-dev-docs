@@ -10,16 +10,14 @@
         href: java-support-on-azure.md
       - name: Java JDK installation
         href: java-jdk-install.md
-      - name: Java Docker images for Azure
-        href: java-jdk-docker-images.md
       - name: JDK Flight Recorder and Mission Control
-        href: java-jdk-flight-recorder-and-mission-control.md
+        href: /java/openjdk/java-jdk-flight-recorder-and-mission-control?toc=/azure/developer/java/fundamentals/toc.json&bc=/azure/developer/breadcrumb/toc.json
       - name: Reasons to move to Java 11
-        href: reasons-to-move-to-java-11.md
+        href: /java/openjdk/reasons-to-move-to-java-11?toc=/azure/developer/java/fundamentals/toc.json&bc=/azure/developer/breadcrumb/toc.json
       - name: Transition from Java 8 to Java 11
-        href: transition-from-java-8-to-java-11.md
+        href: /java/openjdk/transition-from-java-8-to-java-11?toc=/azure/developer/java/fundamentals/toc.json&bc=/azure/developer/breadcrumb/toc.json
       - name: Transition from Java 7 to Java 8
-        href: transition-from-java-7-to-java-8.md
+        href: /java/openjdk/transition-from-java-7-to-java-8?toc=/azure/developer/java/fundamentals/toc.json&bc=/azure/developer/breadcrumb/toc.json
     - name: Visual Studio Code
       href: https://code.visualstudio.com/docs/languages/java
     - name: IntelliJ IDEA

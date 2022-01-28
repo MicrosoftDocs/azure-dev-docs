@@ -4,19 +4,23 @@
   items:
   - name: About Terraform on Azure
     href: overview.md
+  - name: AzureRM 2.0 provider versions 
+    href: provider-versions-arm20.md
 - name: Get started
   expanded: true
   items:
-    - name: Install with Cloud Shell and Bash
+    - name: Configure in Cloud Shell with Bash
       href: get-started-cloud-shell-bash.md
-    - name: Install with Cloud Shell and PowerShell
+    - name: Configure in Cloud Shell with Azure PowerShell
       href: get-started-cloud-shell-powershell.md
-    - name: Install with Windows and Bash
+    - name: Install on Windows with Bash
       href: get-started-windows-bash.md
-    - name: Install with Windows and PowerShell
+    - name: Install on Windows with Azure PowerShell
       href: get-started-windows-powershell.md
     - name: Create an Azure resource group
       href: create-resource-group.md
+    - name: Install the Azure Terraform Visual Studio Code extension
+      href: configure-vs-code-extension-for-terraform.md
 - name: Samples
   items:
     - name: Configuration templates
@@ -35,12 +39,12 @@
           href: store-state-in-azure-storage.md
     - name: Test Terraform projects
       items:
-        - name: Implement integration testing
-          href: best-practices-integration-testing.md
-        - name: Implement compliance testing
+        - name: Compliance testing
           href: best-practices-compliance-testing.md
-        - name: Implement end-to-end testing
+        - name: End-to-end testing
           href: best-practices-end-to-end-testing.md
+        - name: Integration testing
+          href: best-practices-integration-testing.md
     - name: Troubleshoot
       items:
         - name: Troubleshoot common problems
@@ -49,26 +53,22 @@
       items:
         - name: Terraform and Azure provider deployment slots
           href: provision-infrastructure-using-azure-deployment-slots.md
-    - name: Networks
-      items:
-        - name: Configure Azure Network Watcher
-          href: create-network-watcher-nsg-flow-logs.md
-        - name: Migrate to Azure Firewall Premium
-          href: firewall-upgrade-premium.md
     - name: Containers
       items:
-        - name: Create a Kubernetes cluster with AKS
+        - name: Kubernetes cluster with AKS
           href: create-k8s-cluster-with-tf-and-aks.md
-        - name: Create an Application Gateway ingress controller in AKS
+        - name: Application Gateway ingress controller in AKS
           href: create-k8s-cluster-with-aks-applicationgateway-ingress.md
     - name: Database
       items:
-        - name: Deploy an Azure Cosmos DB
+        - name: Azure Cosmos DB
           href: deploy-azure-cosmos-db-to-azure-container-instances.md
     - name: Networks
       items:
-      - name: Configure Azure Network Watcher
+      - name: Azure Network Watcher
         href: create-network-watcher-nsg-flow-logs.md
+      - name: Azure Firewall Premium
+        href: firewall-upgrade-premium.md
       - name: Hub and spoke topology
         items:
           - name: 1. Create hub and spoke topology
@@ -85,8 +85,6 @@
             href: hub-spoke-validation.md
     - name: Tools
       items:
-        - name: Install the Terraform Visual Studio Code extension
-          href: configure-vs-code-extension-for-terraform.md
         - name: Create a Terraform base template using Yeoman
           href: create-base-template-using-yeoman.md
     - name: Virtual machines

@@ -11,7 +11,7 @@ ms.custom: seo-java-september2019, devx-track-java
 Java developers can build, integrate, and deploy applications to a variety of Azure and Azure Stack services. Developers are free to use the distribution and version of Java of their choice for most Microsoft Azure services. Certain services will provide and manage a Java runtime on behalf of customers. This document will help you understand which services provide a Java runtime by default, and which services do not.
 
 > [!IMPORTANT]
-> **Update June 30th, 2021:** Zulu for Azure will no longer receive updates or support starting January 1st, 2022. For more information, see [End of Updates, Support and Availability of the Zulu for Azure builds of OpenJDK](https://devblogs.microsoft.com/java/end-of-updates-support-and-availability-of-zulu-for-azure/).
+> **Update June 30th, 2021:** Zulu for Azure will no longer receive updates or support starting January 1st, 2022. Azure services are transitioning to [Microsoft Build of OpenJDK](/java/openjdk/install) for JDK 11 and [Eclipse Temurin](https://adoptium.net/releases.html?variant=openjdk8&jvmVariant=hotspot) for JDK 8. For more information, see [End of Updates, Support and Availability of the Zulu for Azure builds of OpenJDK](https://devblogs.microsoft.com/java/end-of-updates-support-and-availability-of-zulu-for-azure/).
 
 ## Services with a managed or default Java runtime
 
@@ -35,27 +35,34 @@ The following versions of Java are supported for Microsoft developer tools, and 
 
 * Java 8 ([OpenJDK 8u](https://wiki.openjdk.java.net/display/jdk8u)) 
 * Java 11 ([OpenJDK 11u](https://wiki.openjdk.java.net/display/JDKUpdates/JDK11u))
+* Java 17 ([OpenJDK 17u](https://wiki.openjdk.java.net/display/JDKUpdates/JDK+17u))
 
-Updates to OpenJDK 8u and OpenJDK 11u are released every quarter (January, April, July, and October). 
-
-Microsoft may use 3rd-party Java distributions and binaries for some managed services. Microsoft will keep those 3rd-party distributions up to date for as long as there are updates available.
+Updates to OpenJDK 8u, OpenJDK 11u, and OpenJDK 17u are released every quarter (January, April, July, and October). 
 
 For more information on the availability of other versions of Java, and for the support roadmap, see the specific Azure service documentation.
 
+### OpenJDK distributions deployed
+
+Microsoft may use 3rd-party Java distributions and binaries for a range of Java versions on some of the managed services - namely [Eclipse Temurin][temurin-link] and [Azul Zulu for Azure][zulu-link]. Microsoft will keep those 3rd-party distributions up to date for as long as there are updates available. For all other cases, Microsoft deploys the [Microsoft Build of OpenJDK][msjdk-link].
+
 ## Services without a managed or default Java runtime
 
-For Azure Compute services such as Azure Virtual Machines, Azure Kubernetes Services (AKS), Azure Container Instances (ACI), Azure Red Hat OpenShift, and Azure App Service Web App for Containers, the choice of the Java runtime is entirely up to you.
+For Azure Compute services such as Azure Virtual Machines, Azure Kubernetes Services (AKS), Azure Container Instances (ACI), Azure Red Hat OpenShift, and Azure App Service Web App for Containers, or services where users can manually configure the infrastructure and its components, the choice of the Java runtime is entirely up to you.
 
-While Java developers can bring their own Java runtimes from different vendors to Azure, Microsoft recommends that you use any of the following OpenJDK distributions:
+While Java developers can bring their own Java runtimes from different vendors to Azure on these services, Microsoft recommends that you use any of the following OpenJDK distributions:
 
-* [Microsoft Build of OpenJDK](https://www.microsoft.com/openjdk)
-* [Eclipse Adoptium Temurin](https://www.adoptium.net)
-* [Azul Zulu for Azure](https://www.azul.com/downloads/azure-only/zulu/)
+* [Microsoft Build of OpenJDK][msjdk-link]
+* [Eclipse Adoptium Temurin][temurin-link]
+* [Azul Zulu for Azure][zulu-link]
    > [!NOTE]
    > Azul Zulu for Azure will no longer receive updates starting January 1st, 2022. For more information, see [End of Updates, Support and Availability of the Zulu for Azure builds of OpenJDK](https://devblogs.microsoft.com/java/end-of-updates-support-and-availability-of-zulu-for-azure/).
 
 For information on how to install and use OpenJDK, see the documentation for one of these distributions.
 
+[msjdk-link]: https://www.microsoft.com/openjdk
+[temurin-link]: https://www.adoptium.net
+[zulu-link]: https://www.azul.com/downloads/azure-only/zulu/
+
 ## Customer support
 
-For issues related to the deployment of Java applications to Azure and Azure Stack services and integration with Azure REST APIs, Azure and Azure Stack customers with a [qualifying support plan](https://azure.microsoft.com/support/plans/) receive support without any extra cost.
+For issues related to the deployment of Java applications to Azure, Azure Stack services, Azure Arc enabled clusters, and integration with Azure REST APIs, customers with a [qualifying support plan](https://azure.microsoft.com/support/plans/) receive support without any extra cost.

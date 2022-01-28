@@ -1,17 +1,17 @@
 ---
-title: Quickstart - Configure Ansible on an Azure VM
-description: In this quickstart, learn how to install and configure Ansible on an Azure VM for managing Azure resources.
+title: Get Started - Configure Ansible on an Azure VM
+description: Learn how to install and configure Ansible on an Azure VM for managing Azure resources.
 keywords: ansible, azure, devops, bash, cloudshell, playbook, azure cli, powershell, azure powershell
 ms.topic: quickstart
 ms.date: 05/10/2021
-ms.custom: devx-track-ansible, devx-track-azurecli, devx-track-azurepowershell
+ms.custom: devx-track-ansible, devx-track-azurecli, devx-track-azurepowershell, mode-portal
 ---
 
-# Quickstart: Configure Ansible on an Azure VM
+# Get Started: Configure Ansible on an Azure VM
 
-This quickstart shows how to install [Ansible](https://docs.ansible.com/) on a Centos VM in Azure.
+This article shows how to install [Ansible](https://docs.ansible.com/) on a Centos VM in Azure.
 
-In this quickstart, you'll complete these tasks:
+In this article, you learn how to:
 
 > [!div class="checklist"]
 > * Create a resource group
@@ -148,11 +148,8 @@ sudo pip3 install --upgrade pip
 # Install Ansible az collection for interacting with Azure.
 ansible-galaxy collection install azure.azcollection
 
-# Get required modules for Ansible on Azure list
-wget https://raw.githubusercontent.com/ansible-collections/azure/dev/requirements-azure.txt
-
 # Install Ansible modules for Azure
-sudo pip3 install -r requirements-azure.txt
+sudo pip3 install -r ~/.ansible/collections/ansible_collections/azure/azcollection/requirements-azure.txt
 ```
 
 **Key points**:
