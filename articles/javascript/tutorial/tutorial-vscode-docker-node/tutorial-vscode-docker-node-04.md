@@ -1,9 +1,10 @@
 ---
 title: Create a container image for a Node.js app from Visual Studio Code
 description: Docker Tutorial part 4, create a Node.js application image
-ms.topic: tutorial
-ms.date: 08/06/2021
+ms.topic: how-to
+ms.date: 08/17/2021
 ms.custom: devx-track-js
+# Verified full run: diberry 08/16/2021
 ---
 
 # 4. Create your Node.js application image
@@ -33,23 +34,35 @@ The `Dockerfile` describes the environment for your app including the location o
 
 1. Once completed, the **Terminal** panel of Visual Studio Code opens to run the `docker build` command. The output also shows each step, or layer, that makes up the app environment.
 
-1. Once built, the image appears in the **DOCKER** explorer under **Images**, named `jse2eexpressserver`.
+1. Once built, the image appears in the **Docker Explorer** under **Images**, named `jse2eexpressserver`.
    
+## Modify build task to include tag
+
+To push the image to your registry, you must first tag it with the registry name. Change the build task to always build with your Azure registry name.
+
+1. Open your VS Code's task file, found at `./vscode/tasks.json`.
+1. Find the task with the type `docker-build`. 
+1. Add the `tag` property, using your registry name (YOUR-REGISTRY-NAME), in the `dockerBuild` property:
+
+    ```json
+    {
+        "type": "docker-build",
+        "label": "docker-build",
+        "platform": "node",
+        "dockerBuild": {
+            "dockerfile": "${workspaceFolder}/Dockerfile",
+            "context": "${workspaceFolder}",
+            "pull": true,
+            "tag": "YOUR-REGISTRY-NAME.azurecr.io/jse2eexpressserver:latest"
+        }
+    },
+    ```
+
+1. As a final step, rebuild so you have the image tagged with your registry. Open the **Command Palette** (**F1**) and run **Docker Images: Build Image** to build the image. 
+
 ## Push the image to a registry
 
-1. To push the image to a registry, you must first tag it with the registry name. In the **DOCKER** explorer, Expand the `jse2eexpressserver` image node, then right-click the **latest** image.
-
-1. In the prompt that follows, complete the tags and press **Enter**.
-
-    By convention, tagging uses the following format:
-
-    `[registry or username]/[image name]:[tag]`
-
-    Because you're using the Azure Container Registry, your image name should be similar to the following:
-
-    `YOURREGISTRYNAME.azurecr.io/jse2eexpressserver:latest`
-
-1. The newly-tagged image appears now as a _new_ node under **Images** and includes the registry name. Expand that node, right-click **latest**, and select **Push**. Accept the tag for that image by pressing **Enter**.
+1. The newly-tagged image appears now as a _new_ node in Docker explorer, under **Images** and includes the registry name. Expand that node, right-click **latest**, and select **Push**. Accept the tag for that image by pressing **Enter**.
 
 1. The **Terminal** panel shows the `docker push` commands used for this operation. The target registry is determined by the registry specified in the image name. 
 

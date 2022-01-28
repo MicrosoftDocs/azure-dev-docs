@@ -15,7 +15,7 @@ ms.custom: devx-track-ansible
 
 After a VM is deployed, you configure the VM with the software your app needs. Instead of doing this configuration task for each VM, you can create a custom image. A custom image is a snapshot of an existing VM that includes any installed software. When you [configure a scale set](./vm-scale-set-configure.md), you specify the image to use for that scale set's VMs. By using a custom image, each VM instance is identically configured for your app. Sometimes, you may need to update your scale set's custom image. That task is the focus of this tutorial.
 
-[!INCLUDE [ansible-tutorial-goals.md](includes/ansible-tutorial-goals.md)]
+In this article, you learn how to:
 
 > [!div class="checklist"]
 >
@@ -43,7 +43,8 @@ This string is meant to mimic configuring each VM with different software.
 There are two ways to get the sample playbook:
 
 * [Download the playbook](https://github.com/Azure-Samples/ansible-playbooks/blob/master/vmss_images/01-create-vms.yml) and save it to `create_vms.yml`.
-* Create a new file named `create_vms.yml` and copy into it the following contents:
+
+* Create a new file named `create_vms.yml`. Insert the following code into the new file.
 
 ```yml
 - name: Create two VMs (A and B) with HTTPS
@@ -191,7 +192,8 @@ The playbook code in this section creates a custom image for each VM:
 There are two ways to get the sample playbook:
 
 * [Download the playbook](https://github.com/Azure-Samples/ansible-playbooks/blob/master/vmss_images/02-capture-images.yml) and save it to `capture-images.yml`.
-* Create a new file named `capture-images.yml` and copy into it the following contents:
+
+* Create a new file named `capture-images.yml`. Insert the following code into the new file:
 
 ```yml
 - name: Capture VM Images
@@ -237,7 +239,8 @@ In this section, a playbook is used to configure the following Azure resources:
 There are two ways to get the sample playbook:
 
 * [Download the playbook](https://github.com/Azure-Samples/ansible-playbooks/blob/master/vmss_images/03-create-vmss.yml) and save it to `create-vmss.yml`.
-* Create a new file named `create-vmss.yml` and copy into it the following contents:"
+
+* Create a new file named `create-vmss.yml`. Insert the following code into the new file:
 
 ```yml
 ---
@@ -336,7 +339,8 @@ The playbook code in this section changes the scale set's image - from `image_vm
 There are two ways to get the sample playbook:
 
 * [Download the playbook](https://github.com/Azure-Samples/ansible-playbooks/blob/master/vmss_images/04-update-vmss-image.yml) and save it to `update-vmss-image.yml`.
-* Create a new file named `update-vmss-image.yml` and copy into it the following contents:
+
+* Create a new file named `update-vmss-image.yml`. Insert the following code into the new file:
 
 ```yml
 - name: Update scale set image reference

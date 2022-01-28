@@ -1,15 +1,15 @@
 ---
-title: Get Started - Configure Terraform in Windows with Azure PowerShell
-description: In this quickstart, you learn how to configure Terraform in Windows with Azure PowerShell
+title: Get Started - Install Terraform on Windows with Azure PowerShell
+description: Learn how to configure Terraform on Windows with Azure PowerShell
 keywords: terraform azure cli devops powershell install configure windows interactive login rbac service principal automated script
 ms.topic: quickstart 
 ms.date: 01/28/2022
-ms.custom: devx-track-terraform
+ms.custom: devx-track-terraform, mode-api
 adobe-target: true
-# Customer intent: As a Windows user new to Terraform and Azure, I want configure Terraform in Windows using Azure PowerShell.
+# Customer intent: As a Windows user new to Terraform and Azure, I want install Terraform on Windows using Azure PowerShell.
 ---
 
-# Get Started: Configure Terraform in Windows with Azure PowerShell
+# Get Started: Install Terraform on Windows with Azure PowerShell
 
 [!INCLUDE [terraform-intro.md](includes/terraform-intro.md)]
 
@@ -42,11 +42,11 @@ In this article, you learn how to:
     $PSVersionTable.PSVersion
     ```
 
-1. [Install PowerShell](/powershell/scripting/install/installing-powershell-core-on-windows). This demo was tested using PowerShell 7.1.3 (x64) on Windows 10.
+1. [Install PowerShell](/powershell/scripting/install/installing-powershell-core-on-windows). This demo was tested using PowerShell 7.2.1 (x64) on Windows 10.
 
 ## 3. Install the Azure CLI
 
-For [Terraform to authenticate to Azure](https://www.terraform.io/docs/providers/azurerm/guides/azure_cli.html), you need to [install the Azure CLI](/cli/azure/install-azure-cli-windows). This demo was tested using Azure CLI version 2.26.1.
+For [Terraform to authenticate to Azure](https://www.terraform.io/docs/providers/azurerm/guides/azure_cli.html), you need to [install the Azure CLI](/cli/azure/install-azure-cli-windows). This demo was tested using Azure CLI version 2.32.0.
 
 ## 4. Install Terraform for Windows
 

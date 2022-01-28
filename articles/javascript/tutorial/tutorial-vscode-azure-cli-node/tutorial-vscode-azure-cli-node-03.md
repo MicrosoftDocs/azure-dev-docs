@@ -1,9 +1,10 @@
 ---
 title: Create the Azure App Service from the Azure CLI to host the app
 description: Tutorial part 3, Azure CLI create the App Service
-ms.topic: tutorial
-ms.date: 08/05/2021
+ms.topic: how-to
+ms.date: 08/16/2021
 ms.custom: devx-track-js, devx-track-azurecli
+# Verified full run: diberry 08/16/2021
 ---
 
 # 3. Create the App Service

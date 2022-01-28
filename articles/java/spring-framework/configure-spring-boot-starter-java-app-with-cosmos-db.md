@@ -4,7 +4,7 @@ description: Learn how to configure an application created with the Spring Boot 
 services: cosmos-db
 documentationcenter: java
 ms.author: karler
-ms.date: 10/13/2020
+ms.date: 01/19/2022
 ms.service: cosmos-db
 ms.tgt_pltfrm: multiple
 ms.topic: article
@@ -14,9 +14,9 @@ ms.custom: devx-track-java
 
 # How to use the Spring Boot Starter with the Azure Cosmos DB SQL API
 
-Azure Cosmos DB is a globally distributed database service that allows developers to work with data using various standard APIs, such as SQL, MongoDB, Graph, and Table APIs. Microsoft's Spring Boot Starter enables developers to use Spring Boot applications that easily integrate with Azure Cosmos DB by using the SQL API.
+This article demonstrates adding the [Azure Spring Boot Starter for Azure Cosmos DB] to a custom application to store data in and retrieve data from your Azure Cosmos DB by using Spring Data and the Cosmos DB SQL API. The article starts by showing you how to create an Azure Cosmos DB using the Azure portal, then shows you how to use [Spring Initializr] to create a custom Spring Boot application that you can use with the Spring Boot Starter.
 
-This article demonstrates creating an Azure Cosmos DB using the Azure portal, then using the **[Spring Initializr]** to create a custom Spring Boot application, and then add the [Azure Spring Boot Starter for Azure Cosmos DB] to your custom application to store data in and retrieve data from your Azure Cosmos DB by using Spring Data and the Cosmos DB SQL API.
+Azure Cosmos DB is a globally distributed database service that allows developers to work with data using various standard APIs, such as SQL, MongoDB, Graph, and Table APIs. Microsoft's Spring Boot Starter enables developers to use Spring Boot applications that easily integrate with Azure Cosmos DB by using the SQL API.
 
 ## Prerequisites
 
@@ -96,7 +96,7 @@ Your simple Spring Boot application is now ready for editing.
     <dependency>
         <groupId>com.azure.spring</groupId>
         <artifactId>azure-spring-boot-starter-cosmos</artifactId>
-        <version>3.5.0</version> 
+        <version>3.10.0</version> 
     </dependency>
     ```
 

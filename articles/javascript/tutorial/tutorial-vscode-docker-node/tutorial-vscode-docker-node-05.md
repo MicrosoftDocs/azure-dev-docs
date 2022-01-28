@@ -1,34 +1,19 @@
 ---
 title: Deploy a container image for a Node.js app from Visual Studio Code
 description: Docker Tutorial part 5, deploy the image to Azure App Service
-ms.topic: tutorial
-ms.date: 08/06/2021
+ms.topic: how-to
+ms.date: 08/17/2021
 ms.custom: devx-track-js
+# Verified full run: diberry 08/16/2021
 ---
 
 # Deploy the Registry image to Azure App Service
 
 In this step, you deploy the Azure Container registry image to Azure App Service directly from Visual Studio Code.
 
-## Enable Admin access on the registry
+## Deploy image to Azure web app from VS Code
 
-In order to deploy your image to a web application, you need to enable "Admin" access on your registry in the Azure portal.
-
-1. In the **Docker** explorer, right-click your registry name and select "Open in portal". 
-
-    ![Open in portal command in VS Code](../../media/deploy-containers/open-in-portal.png)
-
-    This will open your registry in the Azure portal.
-
-1. Click on "Access keys" in the sidebar and then toggle the "Admin user" setting to "Enabled".  
-    
-    ![Enable admin user setting in Azure portal](../../media/deploy-containers/access-keys.png)
-
-1. Close the browser to the Azure portal. 
-
-## Deploy image
-
-1. In the **DOCKER** explorer, expand the nodes for your image under **Registries**, right-click `:latest`, and select **Deploy Image to Azure App Service**.
+1. In Docker Explorer, expand the nodes for your image under **Registries**, right-click `:latest`, and select **Deploy Image to Azure App Service**.
 
     ![Deploy From the Explorer](../../media/deploy-containers/deploy-image-command.png)
 
@@ -51,13 +36,6 @@ In order to deploy your image to a web application, you need to enable "Admin" a
 1. You can also see the results in the **Output** panel of Visual Studio Code, in the **Docker** section:
 
     ![Successful deployment output](../../media/deploy-containers/deploy-output.png)
-
-## Add application setting for port 3000
-
-1. In VSCode, in the Azure Explorer, expand the Azure app service you just created. 
-
-1. Right-click the **Application Settings**, then select **Add New Setting**.
-1. Enter the name **WEBSITES_PORT** with the value 3000. 
 
 ## View the web site in a browser
 

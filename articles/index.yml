@@ -8,6 +8,7 @@ metadata:
   title: Azure developer documentation
   description: Develop on Azure using your favorite languages and tools. Azure supports development with C# and .NET, Java, JavaScript, Python, Azure PowerShell, and Azure CLI.
   ms.topic: hub-page
+  ms.service: azure
   author: barbkess
   ms.author: barbkess
   manager: barbkess
@@ -95,9 +96,7 @@ productDirectory:
       links:
         - url: ./go/azure-sdk-install.md
           text: Install the Azure SDK for Go
-        - url: ./go/azure-sdk-tools.md
-          text: Tools for the Azure SDK for Go
-        - url: ./go/azure-sdk-authorization.md
+        - url: ./go/azure-sdk-authentication.md
           text: Authenticate your app
         - url: /azure/storage/blobs/storage-quickstart-blobs-go
           text: Use Blob storage

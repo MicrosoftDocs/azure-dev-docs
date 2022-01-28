@@ -1,9 +1,10 @@
 ---
 title: Clone and run Express.js app
 description: Docker Tutorial part 3, Clone the Express.js sample application then run the application locally.
-ms.topic: tutorial
-ms.date: 01/11/2021
+ms.topic: how-to
+ms.date: 08/16/2021
 ms.custom: devx-track-js
+# Verified full run: diberry 08/16/2021
 ---
 
 # 3. Create and run a local Node.js app from Visual Studio Code

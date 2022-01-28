@@ -1,9 +1,9 @@
 ---
 title: Deploy Express.js/MongoDB app with VS Code - App Service/Cosmos DB
 description: In this tutorial, use a Node.js app with a MongoDB database using the MongoDB native API. Deploy the Node.js application to Azure App Service (on Linux) then verify the hosted app works.
-ms.topic: tutorial
+ms.topic: how-to
 ms.date: 03/29/2021
-ms.custom: scenarios:getting-started, languages:JavaScript, devx-track-javascript
+ms.custom: scenarios:getting-started, languages:JavaScript, devx-track-js
 ---
 
 # Deploy Express.js MongoDB app to App Service from Visual Studio Code
@@ -64,7 +64,7 @@ Create a Cosmos resource first because this will take several minutes.
     |Select or create a resource group.|Create a new resource group named `js-demo-mongodb-web-app-resource-group-YOUR-NAME-HERE`.|
     |Location|The location of the resource. For this tutorial, select a regional location close to you.|
 
-    Creating the resource may take up to 15 minutes. You can move skip the next section if you are time-restricted but remember to back to finish this next section in a few minutes.
+    Creating the resource may take up to 15 minutes. You can skip to the next section if you are time-restricted but remember to come back to finish this section in a few minutes.
 
 ## Get Cosmos DB connection string
 

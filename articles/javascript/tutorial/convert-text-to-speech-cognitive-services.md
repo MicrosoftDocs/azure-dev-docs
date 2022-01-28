@@ -1,9 +1,10 @@
 ---
 title: Express.js app converts text to speech with Cognitive Services Speech
 description: Use Cognitive Services Speech to convert text to speech, demonstrated on the client and the server. 
-ms.topic: tutorial
-ms.date: 01/20/2021
-ms.custom: languages:JavaScript, devx-track-javascript, devx-track-azurecli
+ms.topic: how-to
+ms.date: 08/16/2021
+ms.custom: languages:JavaScript, devx-track-js, devx-track-azurecli
+# Verified full run: diberry 08/16/2021
 ---
 
 # Express.js app converts text to speech with Cognitive Services Speech
@@ -27,7 +28,7 @@ The tutorial takes a minimal Express.js app and adds functionality using a combi
 This application provides three different calls to convert speech to text:
 
 * The first server call creates a file on the server then returns it to the client. You would typically use this for longer text or text you know should be served more than once. 
-* The second server call is for shorter term text and is help in-memory before returned to the client. 
+* The second server call is for shorter term text and is held in-memory before returned to the client. 
 * The client call demonstrates a direct call to the Speech service using the SDK. You may choose to make this call if you have a client-only application without a server. 
 
 ## Prerequisites
@@ -81,7 +82,7 @@ npm install microsoft-cognitiveservices-speech-sdk
 ## Create a Speech module for the Express.js app
 
 1. To integrate the Speech SDK into the Express.js application, create a file in the `src` folder named `azure-cognitiveservices-speech.js`.
-1. Add the following code to pull in dependencies and create a function to convert text to speech.
+1. Add the following code, immediately after the default root route, to pull in dependencies and create a function to convert text to speech.
 
     :::code language="javascript" source="~/../js-e2e-express-server-cognitive-services/text-to-speech/src/azure-cognitiveservices-speech.js" highlight="3,21,32" :::
 
@@ -120,7 +121,7 @@ Highlighted lines in the file:
 
 * Line 74: The Azure Speech SDK is pulled into the client library, using the `cdn.jsdelivr.net` site to deliver the NPM package. 
 * Line 102: The `updateSrc` method updates the audio controls' `src` URL with the querystring including the key, region, and text. 
-* Line 137: If a user selects the `Get directly from Azure` button, the web page calls directly to Azure from the client page and process the result. 
+* Line 137: If a user selects the `Get directly from Azure` button, the web page calls directly to Azure from the client page and processes the result. 
 
 ## Create Cognitive Services Speech resource
 
@@ -160,7 +161,7 @@ Create the Speech resource with Azure CLI commands in an Azure Cloud Shell.
 
 1. Copy one of the keys. 
 
-    You use the key in the web form to authenticate to the Azure Speech service.
+    You use the key by pasting it into the web form of the Express app to authenticate to the Azure Speech service.
 
 ## Run the Express.js app to convert text to speech
 
@@ -199,10 +200,10 @@ Create the Speech resource with Azure CLI commands in an Azure Cloud Shell.
     - For **Enter a globally unique name** like `my-text-to-speech-app`. 
         - Enter a name that's unique across all of Azure. Use only alphanumeric characters ('A-Z', 'a-z', and '0-9') and hyphens ('-')
     - Select `tutorial-resource-group-eastus` for the resource group.
-    - **Select a runtime stack** of `Node 10.1` or more recent. 
+    - **Select a runtime stack** of a version that includes `Node` and `LTS`. 
     - Select the Linux operating system.
-    - Select **Create a new App Service plan**, provide a name like `my-text-to-speech-app-plan`, and select the **F1 Free** [pricing tier](../core/what-is-azure-for-javascript-development.md#free-tier-resources).
-    - Select the **F1** free pricing tier.
+    - Select **Create a new App Service plan**, provide a name like `my-text-to-speech-app-plan`.
+    - Select the **F1** free [pricing tier](../core/what-is-azure-for-javascript-development.md#free-tier-resources). If your subscription already has a free web app, select the `Basic` tier.
     - Select **Skip for now** for the Application Insights resource.
     - Select the `eastus` location. 
 
@@ -212,9 +213,9 @@ Create the Speech resource with Azure CLI commands in an Azure Cloud Shell.
 
 1. With the web app in place, deploy your code from the local computer. Select the Azure icon to open the **Azure App Service** explorer, expand your subscription node, right-click the name of the web app you just created, and select **Deploy to Web App**.
 
-1. At the prompts, select the root folder of the Express.js app, select your **subscription** account again and then select the name of the web app, `my-text-to-speech-app`, created earlier.
+1. If there are deployment prompts, select the root folder of the Express.js app, select your **subscription** account again and then select the name of the web app, `my-text-to-speech-app`, created earlier.
 
-1. When deploying to Linux, select **Yes** if prompted to update your configuration to run `npm install` on the target server.
+1. If prompted to run `npm install` when deploying to Linux, select **Yes** if prompted to update your configuration to run `npm install` on the target server.
 
     ![Prompt to update configuration on the target Linux server](../media/deploy-azure/server-build.png)
 

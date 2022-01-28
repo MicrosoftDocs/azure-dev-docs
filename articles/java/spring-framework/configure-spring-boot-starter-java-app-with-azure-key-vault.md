@@ -94,7 +94,7 @@ Azure AD *service principals* provide access to Azure resources within your subs
 To create a service principal, use the following command.
 
 ```azurecli
-az ad sp create-for-rbac --name contososp
+az ad sp create-for-rbac --name contososp --role Contributor
 ```
 
 The value of the `name` option must be unique within your subscription. Save aside the values returned from the command for use later in the tutorial. The return JSON will look similar to the following output:
@@ -232,7 +232,7 @@ This section shows how to use Spring Initializr to create and run a Spring Boot 
 1. Select the choices as shown in the picture following this list.
    * **Project**: **Maven Project**
    * **Language**: **Java**
-   * **Spring Boot**: **2.5.3**
+   * **Spring Boot**: **2.6.1**
    * **Group**: *com.contoso* (You can put any valid Java package name here.)
    * **Artifact**: *keyvault* (You can put any valid Java class name here.)
    * **Packaging**: **Jar**
@@ -330,7 +330,7 @@ To manually add the same the configuration that Spring Initializr generates, add
 
    ```xml
    <properties>
-        <azure.version>3.5.0</azure.version>
+        <azure.version>3.10.0</azure.version>
    </properties>
    <dependencies>
         <dependency>
@@ -429,7 +429,7 @@ The following steps show you how to deploy the `KeyvaultApplication` to Azure Ap
    <plugin>
      <groupId>com.microsoft.azure</groupId>
      <artifactId>azure-webapp-maven-plugin</artifactId>
-     <version>2.1.0</version>
+     <version>2.2.2</version>
    </plugin>
    ```
 
@@ -469,7 +469,7 @@ The following steps show you how to deploy the `KeyvaultApplication` to Azure Ap
      <plugin>
        <groupId>com.microsoft.azure</groupId>
        <artifactId>azure-webapp-maven-plugin</artifactId>
-       <version>2.1.0</version>
+       <version>2.2.2</version>
        <configuration>
          <schemaVersion>V2</schemaVersion>
          <subscriptionId>YOUR_SUBSCRIPTION_ID</subscriptionId>
@@ -560,8 +560,8 @@ Use the following steps to create the managed identity for the Azure App Service
 
    ```json
    {
-     "principalId": "2r7s6r00-92o9-4sq7-n10r-popq294ssr8s",
-     "tenantId": "72s988os-86s1-41ns-91no-2q7pq011qo47",
+     "principalId": "<your principal ID>",
+     "tenantId": "<your tenant ID>",
      "type": "SystemAssigned",
      "userAssignedIdentities": null
    }
@@ -573,9 +573,9 @@ Use the following steps to create the managed identity for the Azure App Service
    1. Update the `azure.keyvault.client-id` to have the value of the `principalId` from the preceding step. The completed file should now look like the following example.
 
    ```properties
-   azure.keyvault.client-id=56rqs994-0o66-43o3-9roo-8e3534d0cb23
+   azure.keyvault.client-id=<your principal ID>
    azure.keyvault.enabled=true
-   azure.keyvault.tenant-id=72s988os-86s1-41ns-91ab-2q7pq011qo47
+   azure.keyvault.tenant-id=<your tenant ID>
    azure.keyvault.uri=https://contosokv.vault.azure.net/
    ```
 
@@ -622,7 +622,7 @@ Instead of returning `defaultValue`, the app gets `connectionString` from the Ke
 
 In this section, you'll deploy the app to Azure Spring Cloud.
 
-Azure Spring Cloud is a fully managed platform for deploying and running your Spring Boot applications in Azure. For an overview of Azure Spring Cloud, see [What is Azure Spring Cloud?](/azure/spring-cloud/spring-cloud-overview)
+Azure Spring Cloud is a fully managed platform for deploying and running your Spring Boot applications in Azure. For an overview of Azure Spring Cloud, see [What is Azure Spring Cloud?](/azure/spring-cloud/overview).
 
 This section will use the Spring Boot app and Key Vault that you created previously with a new instance of Azure Spring Cloud.
 
@@ -659,7 +659,7 @@ The following steps will show how to create an Azure Spring Cloud resource and d
    | is-public | Assign a public DNS domain name to the service. |
    | runtime-version | The Java runtime version. The value must match the value chosen in Spring Initializr above. |
 
-   To understand the difference between *service* and *app*, see [Understand app and deployment in Azure Spring Cloud](/azure/spring-cloud/spring-cloud-concept-understand-app-and-deployment).
+   To understand the difference between *service* and *app*, see [App and deployment in Azure Spring Cloud](/azure/spring-cloud/concept-understand-app-and-deployment).
 
 1. Use the following command to get the managed identity for the Azure resource and use it to configure the existing Key Vault to allow access from this App.
 
@@ -681,7 +681,7 @@ The following steps will show how to create an Azure Spring Cloud resource and d
        --service <your Azure Spring Cloud instance name>
    ```
 
-   This command creates a *Deployment* within the app, within the service. For more details on the concepts of service instances, apps, and Deployments see [Understand app and deployment in Azure Spring Cloud](/azure/spring-cloud/spring-cloud-concept-understand-app-and-deployment).
+   This command creates a *Deployment* within the app, within the service. For more details on the concepts of service instances, apps, and Deployments see [App and deployment in Azure Spring Cloud](/azure/spring-cloud/concept-understand-app-and-deployment).
 
    If the deployment isn't successful, configure the logs for troubleshooting as described in [Configure application logs](https://aka.ms/azure-spring-cloud-configure-logs). The logs will likely have useful information to diagnose and resolve the problem.
 

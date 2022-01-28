@@ -44,7 +44,7 @@ In this article, you learn how to:
 1. Run [az ad sp create-for-rbac](/cli/azure/ad/sp?#az_ad_sp_create_for_rbac) to enable Packer to authenticate to Azure using a service principal. 
 
     ```azurecli
-    az ad sp create-for-rbac --query "{ client_id: appId, client_secret: password, tenant_id: tenant }"
+    az ad sp create-for-rbac --role Contributor --query "{ client_id: appId, client_secret: password, tenant_id: tenant }"
     ```
 
     **Key points:**
@@ -74,7 +74,7 @@ In this article, you learn how to:
 
 ## 3. Implement the Terraform code
 
-1. Create a directory in which to test and run the sample Terraform code and make it the current directory.
+1. Create a directory in which to test the sample Terraform code and make it the current directory.
 
 1. Create a file named `main.tf` and insert the following code:
 

@@ -1,7 +1,7 @@
 ---
 title: What is Azure for JavaScript developers
 description: Azure concepts for JavaScript, TypeScript, and Node.js developers. 
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/28/2021
 ms.custom: devx-track-js
 ---
@@ -44,7 +44,7 @@ Each service's page on the Azure portal includes connection information you will
 
 ### Pricing tiers
 
-Pricing tiers are how your resource is billed. Use the [Azure pricing calculator](https://azure.microsoft.com/en-us/pricing/calculator) to understand billing for your resource. 
+Pricing tiers are how your resource is billed. Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to understand billing for your resource. 
 
 ### Free tier resources
 

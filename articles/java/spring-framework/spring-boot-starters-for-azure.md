@@ -2,7 +2,7 @@
 title: Spring Boot Starters for Azure
 description: This article describes the various Spring Boot Starters that are available for Azure.
 documentationcenter: java
-ms.date: 09/29/2020
+ms.date: 01/19/2022
 ms.service: multiple
 ms.tgt_pltfrm: multiple
 ms.topic: article
@@ -15,7 +15,6 @@ This article describes the various Spring Boot Starters for the [Spring Initiali
 
 >[!div class="mx-imgBorder"]
 ![Configure Azure Spring Boot Starters with Initializr][configure-azure-spring-boot-starters-with-initializr]
-
 
 The following Spring Boot Starters are currently available for Azure:
 
@@ -57,7 +56,7 @@ When you add this starter to a Spring Boot project, the following changes are ma
    <properties>
       <!-- Other properties will be listed here -->
       <java.version>1.8</java.version>
-      <azure.version>3.5.0</azure.version>
+      <azure.version>3.10.0</azure.version>
    </properties>
    ```
 
@@ -117,7 +116,7 @@ When you add this starter to a Spring Boot project, the following changes are ma
    <properties>
       <!-- Other properties will be listed here -->
       <java.version>1.8</java.version>
-      <azure.version>3.5.0</azure.version>
+      <azure.version>3.10.0</azure.version>
    </properties>
    ```
 
@@ -177,7 +176,7 @@ When you add this starter to a Spring Boot project, the following changes are ma
    <properties>
       <!-- Other properties will be listed here -->
       <java.version>1.8</java.version>
-      <azure.version>3.5.0</azure.version>
+      <azure.version>3.10.0</azure.version>
    </properties>
    ```
 
@@ -238,7 +237,7 @@ When you add this starter to a Spring Boot project, the following changes are ma
    <properties>
       <!-- Other properties will be listed here -->
       <java.version>1.8</java.version>
-      <azure.version>3.5.0</azure.version>
+      <azure.version>3.10.0</azure.version>
    </properties>
    ```
 
