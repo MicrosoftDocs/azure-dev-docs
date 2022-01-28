@@ -1,4 +1,4 @@
-#### [Windows (PS)](#tab/windows)
+#### [bash](#tab/terminal-bash)
 
 ```azurecli
 az webapp deployment list-publishing-credentials `
@@ -8,7 +8,7 @@ az webapp deployment list-publishing-credentials `
     --output table
 ```
 
-#### [macOS/Linux (Bash)](#tab/mac-linux)
+#### [PowerShell terminal](#tab/terminal-powershell)
 
 ```azurecli
 az webapp deployment list-publishing-credentials `
