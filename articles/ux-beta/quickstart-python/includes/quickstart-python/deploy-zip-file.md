@@ -66,10 +66,10 @@ In Postman, upload your file using the following steps.
 
 | Instructions    | Screenshot |
 |:----------------|-----------:|
-| [!INCLUDE [Postman upload step 1](<./deploy-zip-postman-1.md>)] | :::image type="content" source="../../media/quickstart-python/deploy-zip-postman-1-240px.png" alt-text="A screenshot ." lightbox="../../media/quickstart-python/deploy-zip-postman-1.png"::: |
-| [!INCLUDE [Postman upload step 2](<./deploy-zip-postman-2.md>)] | :::image type="content" source="../../media/quickstart-python/deploy-zip-postman-2-240px.png" alt-text="A screenshot ." lightbox="../../media/quickstart-python/deploy-zip-postman-2.png"::: |
-| [!INCLUDE [Postman upload step 3](<./deploy-zip-postman-3.md>)] | :::image type="content" source="../../media/quickstart-python/deploy-zip-postman-3-240px.png" alt-text="A screenshot ." lightbox="../../media/quickstart-python/deploy-zip-postman-3.png"::: |
-| [!INCLUDE [Postman upload step 4](<./deploy-zip-postman-4.md>)] | :::image type="content" source="../../media/quickstart-python/deploy-zip-postman-4-240px.png" alt-text="A screenshot ." lightbox="../../media/quickstart-python/deploy-zip-postman-4.png"::: |
+| [!INCLUDE [Postman upload step 1](<./deploy-zip-postman-1.md>)] | :::image type="content" source="../../media/quickstart-python/deploy-zip-postman-1-240px.png" alt-text="A screenshot showing how to create a new POST request in Postman." lightbox="../../media/quickstart-python/deploy-zip-postman-1.png"::: |
+| [!INCLUDE [Postman upload step 2](<./deploy-zip-postman-2.md>)] | :::image type="content" source="../../media/quickstart-python/deploy-zip-postman-2-240px.png" alt-text="A screenshot showing how to configure basic authorization for a POST request in Postman." lightbox="../../media/quickstart-python/deploy-zip-postman-2.png"::: |
+| [!INCLUDE [Postman upload step 3](<./deploy-zip-postman-3.md>)] | :::image type="content" source="../../media/quickstart-python/deploy-zip-postman-3-240px.png" alt-text="A screenshot showing how to select a file for a POST request in Postman." lightbox="../../media/quickstart-python/deploy-zip-postman-3.png"::: |
+| [!INCLUDE [Postman upload step 4](<./deploy-zip-postman-4.md>)] | :::image type="content" source="../../media/quickstart-python/deploy-zip-postman-4-240px.png" alt-text="A screenshot showing how to send a POST request in Postman." lightbox="../../media/quickstart-python/deploy-zip-postman-4.png"::: |
 
 #### [cURL](#tab/deploy-instructions-zip-curl)
 
