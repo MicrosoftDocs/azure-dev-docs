@@ -225,7 +225,7 @@ The Python sample code is running a Linux container in App Service using a built
 
 **Congratulations!** You have deployed your Python app to App Service.
 
-Having issues? Refer first to the [Troubleshooting guide](/azure/app-service/configure-language-python.md#troubleshooting), otherwise, [let us know](https://aka.ms/FlaskCLIQuickstartHelp).
+Having issues? Refer first to the [Troubleshooting guide](/azure/app-service/configure-language-python#troubleshooting), otherwise, [let us know](https://aka.ms/FlaskCLIQuickstartHelp).
 
 ## 5 - Stream logs
 
@@ -296,7 +296,7 @@ Starting Live Log Stream ---
 ---
 
 
-Having issues? Refer first to the [Troubleshooting guide](/azure/app-service/configure-language-python.md#troubleshooting), otherwise, [let us know](https://aka.ms/FlaskCLIQuickstartHelp).
+Having issues? Refer first to the [Troubleshooting guide](/azure/app-service/configure-language-python#troubleshooting), otherwise, [let us know](https://aka.ms/FlaskCLIQuickstartHelp).
 
 ## Clean up resources
 
@@ -341,7 +341,7 @@ Having issues? [Let us know](https://aka.ms/FlaskCLIQuickstartHelp).
 > [Tutorial: Python (Django) web app with PostgreSQL](/azure/app-service/tutorial-python-postgresql-app)
 
 > [!div class="nextstepaction"]
-> [Configure Python app](/azure/app-service/configure-language-python.md)
+> [Configure Python app](/azure/app-service/configure-language-python)
 
 > [!div class="nextstepaction"]
 > [Add user sign-in to a Python web app](/azure/active-directory/develop/quickstart-v2-python-webapp)
