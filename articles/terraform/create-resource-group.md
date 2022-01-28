@@ -34,15 +34,15 @@ In this article, you learn how to:
 
 1. Create a file named `main.tf` and insert the following code:
 
-    [!code-terraform[UserStory1866077-Code](../../terraform_samples/quickstart/101-resource-group/main.tf)]
+    [!code-terraform[master](../../terraform_samples/quickstart/101-resource-group/main.tf)]
 
 1. Create a file named `variables.tf` to contain the project variables and insert the following code:
 
-    [!code-terraform[UserStory1866077-Code](../../terraform_samples/quickstart/101-resource-group/variables.tf)]
+    [!code-terraform[master](../../terraform_samples/quickstart/101-resource-group/variables.tf)]
 
 1. Create a file named `output.tf` to display the randomly generated resource group name and insert the following code:
 
-    [!code-terraform[UserStory1866077-Code](../../terraform_samples/quickstart/101-resource-group/output.tf)]
+    [!code-terraform[master](../../terraform_samples/quickstart/101-resource-group/output.tf)]
 
 ## 3. Initialize Terraform
 
