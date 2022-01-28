@@ -10,7 +10,7 @@ ms.azure.devx-azure-tooling: ['vscode-azure-tools']
 ms.custom: devx-track-python
 ---
 
-**Step 5.** Configure Linux App Service Plan:
+**Step 7.** Configure Linux App Service Plan:
 
 * Select `Create new App Service plan`. Then enter, `msdocs-tutorial-django-postgresql-plan`.
 * Select the App Service plan pricing tier for this web app. The App Service plan controls how many resources (CPU/memory) are available to your app and how much you pay. <br />
