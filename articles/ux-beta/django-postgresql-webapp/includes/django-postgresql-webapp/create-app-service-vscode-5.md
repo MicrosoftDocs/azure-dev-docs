@@ -10,6 +10,4 @@ ms.azure.devx-azure-tooling: ['vscode-azure-tools']
 ms.custom: devx-track-python
 ---
 
-**Step 5.** Select the App Service plan (pricing tier) for this web app. The App Service plan controls how many resources (CPU/memory) are available to your app and how much you pay.<br>
-<br>
-For this example, it's recommended to select the **Basic (B1)** pricing tier. This will incur a small cost in your Azure subscription but provides better performance the Free (F1) tier.
+**Step 4.** Select the runtime stack for the application.  In this example, select **Python 3.9**.
