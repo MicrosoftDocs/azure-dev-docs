@@ -1,4 +1,4 @@
-You can delete the resource group by using either using either the [Azure portal](https://portal.azure.com) or the Azure CLI:
+You can delete the resource group by using either using the [Azure portal](https://portal.azure.com) or the Azure CLI:
 
 - In the [Azure portal](https://portal.azure.com), select **Resource groups** from the left-side navigation pane, select the resource group that was created in the process of this tutorial, and then use the **Delete resource group** command.
 
