@@ -3,7 +3,7 @@ title: Tutorial - Deploy to Azure Functions using Jenkins
 description: Learn how to deploy to Azure Functions using the Jenkins Azure Functions plug-in
 keywords: jenkins, azure, devops, java, azure functions
 ms.topic: tutorial
-ms.date: 01/11/2021
+ms.date: 01/27/2022
 ms.custom: devx-track-jenkins, devx-track-azurecli
 ---
 
@@ -102,7 +102,7 @@ The following steps explain how to prepare the Jenkins server:
     - **Kind**: Verify that the kind is ***Username with password***.
     - **Username**: ***appId*** of the service principal created.
     - **Password**: ***password*** of the service principal created.
-    - **ID**: Credential identifier such `as azuresp`.
+    - **ID**: Credential identifier such as `azuresp`.
 
 1. Select **OK**.
 
