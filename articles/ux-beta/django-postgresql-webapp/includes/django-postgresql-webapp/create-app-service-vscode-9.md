@@ -10,7 +10,7 @@ ms.azure.devx-azure-tooling: ['vscode-azure-tools']
 ms.custom: devx-track-python
 ---
 
-**Step 7.** Configure Linux App Service Plan:
+**Step 9.** Add Application Insights to your webapp:
 
-* Select `Create new App Service plan`.
-* Enter, `msdocs-tutorial-django-postgresql-plan` or use the auto-generated name.
+* Select `Create new Application Insights resource`.
+* Enter, `msdocs-tutorial-django-postgresql-app-ins` or keep the default generated name.
