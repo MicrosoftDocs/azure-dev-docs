@@ -197,6 +197,22 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps 
 
 ### [VS Code](#tab/vscode-create-db)
 
+To create Azure resources in VS Code, you must have the [Azure Tools extension pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack) installed and be signed into Azure from VS Code.
+
+> [!div class="nextstepaction"]
+> [Download Azure Tools extension pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack)
+
+Follow these steps to create your Azure Database for PostgreSQL resource using the Azure Tools extension pack in Visual Studio Code.
+
+| Instructions    | Screenshot |
+|:----------------|-----------:|
+| [!INCLUDE [Open Azure Extension - Database in VS Code](<./includes/django-postgresql-webapp/create-postgres-service-vscode-1.md>)] | :::image type="content" source="./media/django-postgresql-webapp/create-postgres-service-vscode-1-240px.png" lightbox="./media/django-postgresql-webapp/create-postgres-service-vscode-1.png" alt-text="Open Azure Extension - Database." ::: |
+| [!INCLUDE [Create database server in VS Code](<./includes/django-postgresql-webapp/create-postgres-service-vscode-2.md>)] | :::image type="content" source="./media/django-postgresql-webapp/create-postgres-service-vscode-2-240px.png" alt-text="Create database server with VSCode." lightbox="./media/django-postgresql-webapp/create-postgres-service-vscode-2.png"::: |
+| [!INCLUDE [Azure portal - create new resource](<./includes/django-postgresql-webapp/create-postgres-service-vscode-3.md>)] | :::image type="content" source="./media/django-postgresql-webapp/create-postgres-service-vscode-3-240px.png" alt-text="Create a new Resource in the Azure portal." lightbox="./media/django-postgresql-webapp/create-postgres-service-vscode-3.png"::: |
+| [!INCLUDE [Azure portal - create new resource](<./includes/django-postgresql-webapp/create-postgres-service-vscode-4.md>)] | :::image type="content" source="./media/django-postgresql-webapp/create-postgres-service-vscode-4-240px.png" alt-text="Create a new Resource in the Azure portal." lightbox="./media/django-postgresql-webapp/create-postgres-service-vscode-4.png"::: :::image type="content" source="./media/e2e-python-django-app-postgresql/create-postgresql-db/vscode-create-postgresql-db-4b-240.png" alt-text="Create a new Resource in the Azure portal." lightbox="./media/e2e-python-django-app-postgresql/create-postgresql-db/vscode-create-postgresql-db-4b.png"::: |
+| [!INCLUDE [Create a new Azure resource in the Azure Portal](<./includes/django-postgresql-webapp/create-postgres-service-vscode-5.md>)] | :::image type="content" source="./media/django-postgresql-webapp/create-postgres-service-vscode-5-240px.png" lightbox="./media/django-postgresql-webapp/create-postgres-service-vscode-5.png" alt-text="Create a new Azure resource in the Azure Portal." ::: |
+| [!INCLUDE [Create a new Azure resource in the Azure Portal](<./includes/django-postgresql-webapp/create-postgres-service-vscode-6.md>)] | :::image type="content" source="./media/django-postgresql-webapp/create-postgres-service-vscode-6-240px.png" lightbox="./media/django-postgresql-webapp/create-postgres-service-vscode-6.png" alt-text="Create a new Azure resource in the Azure Portal." ::: |
+
 ### [Azure CLI](#tab/azure-cli-create-db)
 
 Run `az login` to sign in to  and follow these steps to create your Azure Database for PostgreSQL resource.
