@@ -22,6 +22,9 @@ In this article, you learn how to:
 > * Verify (using Azure CLI and Azure PowerShell) the resource group was created
 > * Delete the resource group when finished using it
 
+> [!NOTE]
+> The example code in this article is located in the [Microsoft Terraform GitHub repo](https://github.com/Azure/terraform/tree/master/quickstart/101-resource-group).
+
 ## 1. Configure your environment
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../includes/open-source-devops-prereqs-azure-subscription.md)]
