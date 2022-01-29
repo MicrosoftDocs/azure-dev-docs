@@ -1,8 +1,8 @@
 ---
 title: Host web apps - configuration settings
 description: Learn how to set common configurations for your web app.
-ms.topic: conceptual
-ms.date: 01/11/2021
+ms.topic: how-to
+ms.date: 11/12/2021
 ms.custom: devx-track-js
 ---
 
@@ -59,7 +59,12 @@ Each service provides its own mechanism to add a custom domain.
 
 ## Configure port forwarding
 
-You need to [map the app's port number](/azure/app-service/configure-language-nodejs?pivots=platform-windows#get-port-number) if it isn't the default port, `8080`. This lets the App service forward requests to the correct port. 
+You need to [map the app's port number](/azure/app-service/configure-language-nodejs?pivots=platform-windows#get-port-number) if it isn't the default port. This lets the App service forward requests to the correct port. 
+
+```javascript
+// 3000 is an example port
+const port = process.env.PORT || 3000
+```
 
 ## Configure browser for CORS to connect with server
 
@@ -132,6 +137,15 @@ Secrets are typically provided in the following ways:
 * Azure Key Vault  - Create a resource for this service, which provides [app secrets](/azure/app-service/app-service-key-vault-references). 
 * App settings - If you are looking for a lighter weight solution, you can provide secrets as App settings, and reference these using the typical [environment variables](/azure/app-service/configure-language-nodejs?pivots=platform-windows), `process.env.VARNAME`. 
 
+## Storing settings, settings and feature flags
+
+Use [Azure App Configuration](/azure/azure-app-configuration/) to store settings, and feature flags. You can link your Key Vault secrets to your App Configuration resource, then pull secrets. 
+
+App Configuration has several features that are advanced beyond the typical name/value pair of settings and feature flags:
+
+* [Point-in-time snapshot](/azure/azure-app-configuration/concept-point-time-snapshot)
+* Update configuration on demand without causing an application to restart
+
 ## Configure logging
 
 Logging includes:
@@ -143,8 +157,7 @@ Platform logs are provided for you:
 * To understand the health of the environment.
 * Let you scale to a different pricing tier, or across regions. 
 
-Application logs aren't provided for you. You can add your own logging for internal app behavior:
-* [Azure Monitor](/azure/azure-monitor/overview) provides npm libraries for [Application Insights](/azure/azure-monitor/app/app-insights-overview) to provide logging and the storage resource where the logs are archived. 
+Application logs _may_ be provided for you if you use the [default logging functions](node-sdk-logging.md#custom-logging-to-azure).
 
 ## Configure database and storage
 
@@ -152,7 +165,7 @@ Typically, a connection to a database or data storage begins with a connection s
 
 Considerations for data connections:
 * Bring your current connection
-* New data storage - If your app needs a new storage mechanism, Azure provides [many different database](integrate-database.md) choices. The connection does need to be securely stored. 
+* New data storage - If your app needs a new storage mechanism, Azure provides [many different database](with-database/getting-started.md) choices. The connection does need to be securely stored. 
 
 ## Missing something? 
 
@@ -160,4 +173,4 @@ If something is missing from this list, please fill out the feedback to tell us 
 
 ## Next steps
 
-* See many of these steps in an [end-to-end Node.js app](./develop-nodejs-on-azure.md) development flow.
+* [How to develop and debug Node.js with Visual Studio Code](with-visual-studio-code/install-run-debug-nodejs.md)

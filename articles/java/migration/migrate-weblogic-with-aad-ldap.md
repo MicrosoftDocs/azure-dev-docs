@@ -1,10 +1,11 @@
 ---
 title: End-user Authorization and Authentication with Azure Active Directory for Migrating Java Apps on WebLogic Server to Azure
 description: This guide describes how to configure Oracle WebLogic Server to connect with Azure Active Directory Domain Services via LDAP
-author: edburns
 ms.author: edburns
 ms.topic: tutorial
-ms.date: 08/10/2020
+ms.date: 12/14/2021
+recommendations: false
+ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-wls, devx-track-javaee-wls-vm
 ---
 
 # End-user authorization and authentication for migrating Java apps on WebLogic Server to Azure
@@ -157,7 +158,7 @@ For more information, see [Disable weak ciphers and password hash synchronizatio
 
 This section helps you collect the parameter values from the Azure AD DS deployed earlier.
 
-When you deploy any of the Azure Applications listed in [Oracle WebLogic Server Azure Applications](/azure/virtual-machines/workloads/oracle/oracle-weblogic), you can choose to have the deployment automatically connect to a pre-existing LDAP server.  Alternatively, you can configure the LDAP connection later by invoking the Active Directory integration subtemplate.  This approach is described in Appendix A of [the official documentation](https://wls-eng.github.io/arm-oraclelinux-wls/).  Either way, you must have the necessary parameter values to pass to the ARM template.
+When you deploy any of the Azure Applications listed in [Oracle WebLogic Server Azure Applications](/azure/virtual-machines/workloads/oracle/oracle-weblogic), you can choose to have the deployment automatically connect to a pre-existing LDAP server.  Alternatively, you can configure the LDAP connection later by invoking the Active Directory integration subtemplate.  This approach is described in Appendix A of [the official documentation](https://oracle.github.io/weblogic-azure/).  Either way, you must have the necessary parameter values to pass to the ARM template.
 
 | Parameter name | Description   | Details | 
 |----------------|---------------|---------|
@@ -167,7 +168,7 @@ When you deploy any of the Azure Applications listed in [Oracle WebLogic Server 
 | `wlsLDAPGroupBaseDN` and `wlsLDAPUserBaseDN` | User Base DN and Group Base DN | For the purposes of this tutorial, the values for both of these properties are the same: the part of the **wlsLDAPPrincipal** after the first comma.|
 | `wlsLDAPPrincipalPassword` | Password for Principal | This value is the password for the user that has been added to the **AAD DC Administrators** group. |
 | `wlsLDAPProviderName` | Provider Name | This value can be left at its default.  It's used as the name of the authentication provider in WLS. |
-| `wlsLDAPSSLCertificate` | Trust Keystore for SSL Configuration | This value *.cer* file you were asked to save aside when you completed the step, [Export a certificate for client computers](/azure/active-directory-domain-services/tutorial-configure-ldaps#export-a-certificate-for-client-computers).
+| `wlsLDAPSSLCertificate` | Public key for Azure AD DS LDAPS connection | This value *.cer* file you were asked to save aside when you completed the step, [Export a certificate for client computers](/azure/active-directory-domain-services/tutorial-configure-ldaps#export-a-certificate-for-client-computers).
 
 ### Integrating Azure AD DS LDAP with WLS
 
@@ -179,7 +180,7 @@ Visit [Oracle WebLogic Server Azure Applications](/azure/virtual-machines/worklo
 
 #### After WLS deployment
 
-If you didn't toggle the **Connect to Azure Active Directory** to **Yes** at deployment time, you can use the values you collected in the preceding section to do the configuration later.  More details are in [the official documentation](https://wls-eng.github.io/arm-oraclelinux-wls/).
+If you didn't toggle the **Connect to Azure Active Directory** to **Yes** at deployment time, you can use the values you collected in the preceding section to do the configuration later.  More details are in [the official documentation](https://oracle.github.io/weblogic-azure/).
 
 ### Validate the deployment
 
@@ -193,7 +194,7 @@ After deploying WLS and configuring LDAP using one of the above two methods, fol
 
 ### Lock down and secure LDAP access over the internet
 
-While standing up the secure LDAP in the preceding steps, we had set the source as **Any** for the `AllowLDAPS` rule in the network security group.  Now that the WLS Admin Server has been deployed and connected to LDAP, obtain its public IP address using the Azure portal.  Revisit [Lock down secure LDAP access over the internet](/azure/active-directory-domain-services/tutorial-configure-ldaps?branch=pr-en-us-778#lock-down-secure-ldap-access-over-the-internet) and change **Any** to the specific IP address of the WLS Admin server.
+While standing up the secure LDAP in the preceding steps, we had set the source as **Any** for the `AllowLDAPS` rule in the network security group.  Now that the WLS Admin Server has been deployed and connected to LDAP, obtain its public IP address using the Azure portal.  Revisit [Lock down secure LDAP access over the internet](/azure/active-directory-domain-services/tutorial-configure-ldaps#lock-down-secure-ldap-access-over-the-internet) and change **Any** to the specific IP address of the WLS Admin server.
 
 ## Clean up resources
 

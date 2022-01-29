@@ -3,7 +3,7 @@ title: Provision infrastructure with Azure deployment slots using Terraform
 description: Learn how to use Terraform with Azure provider deployment slots.
 keywords: azure devops terraform deployment slots
 ms.topic: how-to
-ms.date: 01/07/2021
+ms.date: 08/07/2021
 ms.custom: devx-track-terraform
 ---
 
@@ -13,12 +13,22 @@ You can use [Azure deployment slots](/azure/app-service/deploy-staging-slots) to
 
 This article illustrates an example use of deployment slots by walking you through the deployment of two apps via GitHub and Azure. One app is hosted in a production slot. The second app is hosted in a staging slot. (The names "production" and "staging" are arbitrary. They can be whatever is appropriate for your scenario.) After you configure your deployment slots, you use Terraform to swap between the two slots as needed.
 
-## Prerequisites
+In this article, you learn how to:
+> [!div class="checklist"]
+
+> * Create an App Service
+> * Create an App Service slot
+> * Swap in and out of the example deployment slots
+
+## 1. Configure your environment
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../includes/open-source-devops-prereqs-azure-subscription.md)]
+
+[!INCLUDE [configure-terraform.md](includes/configure-terraform.md)]
+
 - **GitHub account**: You need a [GitHub](https://www.github.com) account to fork and use the test GitHub repo.
 
-## Create and apply the Terraform plan
+## 2. Create and apply the Terraform plan
 
 1. Browse to the [Azure portal](https://portal.azure.com).
 
@@ -60,13 +70,13 @@ This article illustrates an example use of deployment slots by walking you throu
     code deploy.tf
     ```
 
-1. Paste the following code into the editor:
+1. Insert the following code into the editor:
 
     ```hcl
     # Configure the Azure provider
     provider "azurerm" { 
         # The "feature" block is required for AzureRM provider 2.x. 
-        # If you are using version 1.x, the "features" block is not allowed.
+        # If you're using version 1.x, the "features" block is not allowed.
         version = "~>2.0"
         features {}
     }
@@ -142,7 +152,7 @@ You now see all the resources that Terraform has created.
 
 ![Resources created by Terraform](./media/provision-infrastructure-using-azure-deployment-slots/resources.png)
 
-## Fork the test project
+## 3. Fork the test project
 
 Before you can test the creation and swapping in and out of the deployment slots, you need to fork the test project from GitHub.
 
@@ -154,7 +164,7 @@ Before you can test the creation and swapping in and out of the deployment slots
 
 1. Follow any prompts to fork to your environment.
 
-## Deploy from GitHub to your deployment slots
+## 4. Deploy from GitHub to your deployment slots
 
 After you fork the test project repo, configure the deployment slots via the following steps:
 
@@ -190,7 +200,7 @@ After you fork the test project repo, configure the deployment slots via the fol
 
 1. On the **Choose branch** tab, select **master**.
 
-    ![Choose the master branch](./media/provision-infrastructure-using-azure-deployment-slots/choose-branch-master.png)
+    ![Choose the branch](./media/provision-infrastructure-using-azure-deployment-slots/choose-branch-master.png)
 
 1. On the **Deployment option** tab, select **OK**.
 
@@ -198,11 +208,11 @@ At this point, you've deployed the production slot. To deploy the staging slot, 
 
 - In step 3, select the **slotAppServiceSlotOne** resource.
 
-- In step 13, select the working branch instead of the master branch.
+- In step 13, select the working branch.
 
     ![Choose the working branch](./media/provision-infrastructure-using-azure-deployment-slots/choose-branch-working.png)
 
-## Test the app deployments
+## 5. Test the app deployments
 
 In the previous sections, you set up two slots--**slotAppService** and **slotAppServiceSlotOne**--to deploy from different branches in GitHub. Let's preview the web apps to validate that they were successfully deployed.
 
@@ -222,11 +232,11 @@ In the previous sections, you set up two slots--**slotAppService** and **slotApp
 
     ![Preview the apps to test that they were deployed correctly](./media/provision-infrastructure-using-azure-deployment-slots/app-preview.png)
 
-## Swap the two deployment slots
+## 6. Swap the two deployment slots
 
 To test swapping the two deployment slots, do the following steps:
  
-1. Switch to the browser tab that's running **slotAppService** (the app with the blue page). 
+1. Switch to the browser tab that's running **slotAppService** (the app with the blue page).
 
 1. Return to the Azure portal on a separate tab.
 
@@ -244,13 +254,13 @@ To test swapping the two deployment slots, do the following steps:
     code swap.tf
     ```
 
-1. Paste the following code into the editor:
+1. Insert the following code into the editor:
 
     ```hcl
     # Configure the Azure provider
     provider "azurerm" { 
         # The "feature" block is required for AzureRM provider 2.x. 
-        # If you are using version 1.x, the "features" block is not allowed.
+        # If you're using version 1.x, the "features" block is not allowed.
         version = "~>2.0"
         features {}
     }
@@ -297,7 +307,9 @@ terraform apply
 
 After the app is swapped, you see the original configuration.
 
-[!INCLUDE [terraform-troubleshooting.md](includes/terraform-troubleshooting.md)]
+## Troubleshoot Terraform on Azure
+
+[Troubleshoot common problems when using Terraform on Azure](troubleshoot.md)
 
 ## Next steps
 

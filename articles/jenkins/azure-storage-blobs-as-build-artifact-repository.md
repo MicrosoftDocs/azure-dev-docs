@@ -82,7 +82,7 @@ The following steps guide you through creating a pipeline job. The pipeline job 
                   az account set --subscription $AZURE_SUBSCRIPTION_ID
                   # Execute upload to Azure
                   az storage container create --account-name $AZURE_STORAGE_ACCOUNT --name $JOB_NAME --auth-mode login
-                  az storage blob upload-batch --destination ${JOB_NAME} --source ./text --auth-mode login
+                  az storage blob upload-batch --destination ${JOB_NAME} --source ./text --account-name $AZURE_STORAGE_ACCOUNT
                   # Logout from Azure
                   az logout
                 '''
@@ -93,7 +93,7 @@ The following steps guide you through creating a pipeline job. The pipeline job 
       }
     }
     ```
-    
+
 1. Select **Build Now** to run **myjob**.
 
 1. Examine the console output for status. When the post-build action uploads the build artifacts, status messages for Azure storage are written to the console.
@@ -114,13 +114,13 @@ The following steps guide you through creating a pipeline job. The pipeline job 
     1. Copy the URL for either of these items and paste it in your browser. 
     1. You see the text file that was uploaded as a build artifact.
     
-    **Notes**:
+    **Key points**:
 
     - Container names and blob names are lowercase (and case-sensitive) in Azure storage.
 
-## Create a pipeline job to download from Azure blob storage
+## Create a pipeline job to download from Azure Blob Storage
 
-The following steps show how to configure a pipeline job to download items from Azure blob storage.
+The following steps show how to configure a pipeline job to download items from Azure Blob Storage.
 
 1. In the **Pipeline** section of the job configuration, select **Pipeline script** and paste the following in **Script**. Edit the placeholders to match the values for your environment.
 

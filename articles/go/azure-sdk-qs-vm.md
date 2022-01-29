@@ -3,7 +3,9 @@ title: Deploy an Azure virtual machine from Go
 description: Deploy a virtual machine using the Azure SDK for Go.
 ms.date: 09/05/2018
 ms.topic: quickstart
+ms.custom: devx-track-go, mode-api
 ---
+
 # Quickstart: Deploy an Azure virtual machine from a template with the Azure SDK for Go
 
 This quickstart shows you how to deploy resources from an Azure Resource Manager template, using the Azure SDK for Go. Templates are snapshots of all of the resources within an [Azure resource group](/azure/azure-resource-manager/resource-group-overview). Along the way, you'll become familiar with the functionality and conventions of the SDK.
@@ -31,7 +33,7 @@ If you use a local install of the Azure CLI, this quickstart requires CLI versio
 To sign in non-interactively to Azure with an application, you need a service principal. Service principals are part of role-based access control (RBAC), which creates a unique user identity. To create a new service principal with the CLI, run the following command:
 
 ```azurecli-interactive
-az ad sp create-for-rbac --sdk-auth > quickstart.auth
+az ad sp create-for-rbac --role Contributor --sdk-auth > quickstart.auth
 ```
 
 Set the environment variable `AZURE_AUTH_LOCATION` to be the full path to this file. Then the SDK locates and reads the credentials directly from this file, without you having to make any changes or record information from the service principal.
@@ -41,7 +43,7 @@ Set the environment variable `AZURE_AUTH_LOCATION` to be the full path to this f
 Get the quickstart code and all of its dependencies with `go get`.
 
 ```bash
-go get -u -d github.com/azure-samples/azure-sdk-for-go-samples/quickstarts/deploy-vm/...
+go get -u -d github.com/Azure-Samples/azure-sdk-for-go-samples/quickstarts/deploy-vm/...
 ```
 
 You don't need to make any source code modifications if the `AZURE_AUTH_LOCATION` variable is properly set. When the program runs, it loads all the necessary authentication information from there.
@@ -51,7 +53,7 @@ You don't need to make any source code modifications if the `AZURE_AUTH_LOCATION
 Run the quickstart with the `go run` command.
 
 ```bash
-cd $GOPATH/src/github.com/azure-samples/azure-sdk-for-go-samples/quickstarts/deploy-vm
+cd $GOPATH/src/github.com/Azure-Samples/azure-sdk-for-go-samples/quickstarts/deploy-vm
 go run main.go
 ```
 

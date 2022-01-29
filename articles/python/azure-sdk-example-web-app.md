@@ -1,7 +1,7 @@
 ---
 title: Provision and deploy a web app using the Azure SDK libraries
 description: Use the management libraries in the Azure SDK libraries for Python to provision a web app and then deploy app code from a GitHub repository.
-ms.date: 10/05/2020
+ms.date: 06/24/2021
 ms.topic: conceptual
 ms.custom: devx-track-python, devx-track-azurecli
 ---
@@ -14,7 +14,7 @@ All the commands in this article work the same in Linux/macOS bash and Windows c
 
 ## 1: Set up your local development environment
 
-If you haven't already, follow all the instructions on [Configure your local Python dev environment for Azure](configure-local-development-environment.md).
+If you haven't already, **follow all the instructions** on [Configure your local Python dev environment for Azure](configure-local-development-environment.md).
 
 Be sure to create a service principal for local development, and create and activate a virtual environment for this project.
 
@@ -22,13 +22,7 @@ Be sure to create a service principal for local development, and create and acti
 
 Create a file named *requirements.txt* with the following contents:
 
-```text
-azure-mgmt-resource==10.2.0
-azure-mgmt-web
-azure-cli-core
-```
-
-The specific version requirement for azure-mgmt-resource is to ensure that you use a version compatible with the current version of azure-mgmt-web. These versions are not based on azure.core and therefore use older methods for authentication.
+:::code language="txt" source="~/../python-sdk-docs-examples/webapp/requirements.txt":::
 
 In a terminal or command prompt with the virtual environment activated, install the requirements:
 
@@ -60,106 +54,11 @@ REPO_URL=<url_of_your_fork>
 
 ## 4: Write code to provision and deploy a web app
 
-Create a Python file named *provision_deploy_webapp.py* with the following code. The comments explain the details:
+Create a Python file named *provision_deploy_web_app.py* with the following code. The comments explain the details:
 
-```python
-import random, os
-from azure.common.client_factory import get_client_from_cli_profile
-from azure.mgmt.resource import ResourceManagementClient
-from azure.mgmt.web import WebSiteManagementClient
+:::code language="python" source="~/../python-sdk-docs-examples/webapp/provision_deploy_web_app.py":::
 
-# Constants we need in multiple places: the resource group name and the region
-# in which we provision resources. You can change these values however you want.
-RESOURCE_GROUP_NAME = 'PythonAzureExample-WebApp-rg'
-LOCATION = "centralus"
-
-# Step 1: Provision the resource group.
-resource_client = get_client_from_cli_profile(ResourceManagementClient)
-
-rg_result = resource_client.resource_groups.create_or_update(RESOURCE_GROUP_NAME,
-    { "location": LOCATION })
-
-print(f"Provisioned resource group {rg_result.name}")
-
-# For details on the previous code, see Example: Provision a resource group
-# at https://docs.microsoft.com/azure/developer/python/azure-sdk-example-resource-group
-
-
-#Step 2: Provision the App Service plan, which defines the underlying VM for the web app.
-
-# Names for the App Service plan and App Service. We use a random number with the
-# latter to create a reasonably unique name. If you've already provisioned a
-# web app and need to re-run the script, set the WEB_APP_NAME environment 
-# variable to that name instead.
-SERVICE_PLAN_NAME = 'PythonAzureExample-WebApp-plan'
-WEB_APP_NAME = os.environ.get("WEB_APP_NAME", f"PythonAzureExample-WebApp-{random.randint(1,100000):05}")
-
-# Obtain the client object
-app_service_client = get_client_from_cli_profile(WebSiteManagementClient)
-
-# Provision the plan; Linux is the default
-poller = app_service_client.app_service_plans.create_or_update(RESOURCE_GROUP_NAME,
-    SERVICE_PLAN_NAME,
-    {
-        "location": LOCATION,
-        "reserved": True,
-        "sku" : {"name" : "B1"}
-    }
-)
-
-plan_result = poller.result()
-
-print(f"Provisioned App Service plan {plan_result.name}")
-
-
-# Step 3: With the plan in place, provision the web app itself, which is the process that can host
-# whatever code we want to deploy to it.
-
-poller = app_service_client.web_apps.create_or_update(RESOURCE_GROUP_NAME,
-    WEB_APP_NAME,
-    {
-        "location": LOCATION,
-        "server_farm_id": plan_result.id,
-        "site_config": {
-            "linux_fx_version": "python|3.8"
-        }
-    }
-)
-
-web_app_result = poller.result()
-
-print(f"Provisioned web app {web_app_result.name} at {web_app_result.default_host_name}")
-
-# Step 4: deploy code from a GitHub repository. For Python code, App Service on Linux runs
-# the code inside a container that makes certain assumptions about the structure of the code.
-# For more information, see How to configure Python apps,
-# https://docs.microsoft.com/azure/app-service/configure-language-python.
-#
-# The create_or_update_source_control method doesn't provision a web app. It only sets the
-# source control configuration for the app. In this case we're simply pointing to
-# a GitHub repository.
-#
-# You can call this method again to change the repo.
-
-REPO_URL = os.environ[REPO_URL]
-
-poller = app_service_client.web_apps.create_or_update_source_control(RESOURCE_GROUP_NAME,
-    WEB_APP_NAME,
-    {
-        "location": "GitHub",
-        "repo_url": REPO_URL,
-        "branch": "master"
-    }
-)
-
-sc_result = poller.result()
-
-print(f"Set source control on web app to {sc_result.branch} branch of {sc_result.repo_url}")
-```
-
-This code uses the CLI-based authentication methods (`get_client_from_cli_profile`) because it demonstrates actions that you might otherwise do with the Azure CLI directly. In both cases you're using the same identity for authentication.
-
-To use such code in a production script, you should instead use `DefaultAzureCredential` (recommended) or a service principal based method as describe in [How to authenticate Python apps with Azure services](azure-sdk-authenticate.md).
+[!INCLUDE [cli-auth-note](includes/cli-auth-note.md)]
 
 ### Reference links for classes used in the code
 
@@ -203,41 +102,11 @@ The following Azure CLI commands complete the same provisioning steps as the Pyt
 
 # [cmd](#tab/cmd)
 
-```azurecli
-az group create -l centralus -n PythonAzureExample-WebApp-rg
-
-az appservice plan create -n PythonAzureExample-WebApp-plan --is-linux --sku F1
-
-az webapp create -g PythonAzureExample-WebApp-rg -n PythonAzureExample-WebApp-12345 ^
-    --plan PythonAzureExample-WebApp-plan --runtime "python|3.8"
-
-rem You can use --deployment-source-url with the first create command. It's shown here
-rem to match the sequence of the Python code.
-
-az webapp create -n PythonAzureExample-WebApp-12345 --plan PythonAzureExample-WebApp-plan ^
-    --deployment-source-url %REPO_URL% --runtime "python|3.8"
-
-rem Replace <your_fork> with the specific URL of your forked repository.
-```
+:::code language="azurecli" source="~/../python-sdk-docs-examples/webapp/provision.cmd":::
 
 # [bash](#tab/bash)
 
-```azurecli
-az group create -l centralus -n PythonAzureExample-WebApp-rg
-
-az appservice plan create -n PythonAzureExample-WebApp-plan --is-linux --sku F1
-
-az webapp create -g PythonAzureExample-WebApp-rg -n PythonAzureExample-WebApp-12345 \
-    --plan PythonAzureExample-WebApp-plan --runtime "python|3.8"
-
-# You can use --deployment-source-url with the first create command. It's shown here
-# to match the sequence of the Python code.
-
-az webapp create -n PythonAzureExample-WebApp-12345 --plan PythonAzureExample-WebApp-plan \
-    --deployment-source-url https://github.com/<your_fork>/python-docs-hello-world
-
-# Replace <your_fork> with the specific URL of your forked repository.
-```
+:::code language="azurecli" source="~/../python-sdk-docs-examples/webapp/provision.sh":::
 
 ---
 
@@ -249,3 +118,5 @@ az webapp create -n PythonAzureExample-WebApp-12345 --plan PythonAzureExample-We
 - [Example: Use Azure Storage](azure-sdk-example-storage-use.md)
 - [Example: Provision and use a MySQL database](azure-sdk-example-database.md)
 - [Example: Provision a virtual machine](azure-sdk-example-virtual-machines.md)
+- [Use Azure Managed Disks with virtual machines](azure-sdk-samples-managed-disks.md)
+- [Complete a short survey about the Azure SDK for Python](https://microsoft.qualtrics.com/jfe/form/SV_bNFX0HECjzPWMiG?Q_CHL=docs)

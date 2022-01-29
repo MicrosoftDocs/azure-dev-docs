@@ -59,7 +59,7 @@ For more information on Azure Container Instances, see [About Azure Container In
 
 1. Enter a value for **Remote root directory**. For example, `/home/jenkins/work`
 
-1. Optionally, enter a label. Labels are used to group multiple agents into one logical group. An example of a label would be `linux` to group your Linux agents.
+1. Add a <abbr title="Labels are used to group multiple agents into one logical group. An example of a label would be `linux` to group your Linux agents.">**Label**</abbr> with the value of `linux`.
 
 1. Set **Launch method** to **Launch agent by connecting to the master**.
 
@@ -93,9 +93,14 @@ For more information on Azure Container Instances, see [About Azure Container In
       --command-line "jenkins-agent -url http://jenkinsserver:port <JENKINS_SECRET> <AGENT_NAME>"
     ```
 
-    After the container starts, it will connect to the Jenkins controller server automatically.
+    Replace `http://jenkinsserver:port`, `<JENKINS_SECRET>`, and `<AGENT_NAME>` with your Jenkins controller and agent information. After the container starts, it will connect to the Jenkins controller server automatically.
+
+1. Return to the Jenkins dashboard and check the agent status.
 
     ![Agent has started successfully](./media/azure-container-instances-as-jenkins-build-agent/agent-start.png)
+
+    > [!NOTE]
+    > Jenkins agents connect to the controller via port `5000`, ensure that port is allowed inbound to the Jenkins Controller.
 
 ## Create a build job
 
@@ -105,35 +110,31 @@ Now, a Jenkins build job is created to demonstrate Jenkins builds on an Azure co
 
    ![Box for the name of the build job, and list of project types](./media/azure-container-instances-as-jenkins-build-agent/jenkins-new-job.png)
 
-2. Under **General**, ensure that **Restrict where this project can be run** is selected. Enter **linux** for the label expression. This configuration ensures that this build job runs on the ACI cloud.
+1. Under **General**, ensure that **Restrict where this project can be run** is selected. Enter **linux** for the label expression. This configuration ensures that this build job runs on the ACI cloud.
 
    !["General" tab with configuration details](./media/azure-container-instances-as-jenkins-build-agent/jenkins-job-01.png)
 
-3. Under **Build**, select **Add build step** and select **Execute Shell**. Enter `echo "aci-demo"` as the command.
+1. Under **Build**, select **Add build step** and select **Execute Shell**. Enter `echo "aci-demo"` as the command.
 
    !["Build" tab with selections for the build step](./media/azure-container-instances-as-jenkins-build-agent/jenkins-job-02.png)
 
-5. Select **Save**.
+1. Select **Save**.
 
 ## Run the build job
 
-To test the build job and observe Azure Container Instances as the build platform, manually start a build.
+To test the build job and observe Azure Container Instances manually start a build.
 
-1. Select **Build Now** to start a build job. It takes a few minutes for the job to start. You should see a status that's similar to the following image:
+1. Select **Build Now** to start a build job. Once the job starts you'll see a status that's similar to the following image:
 
    !["Build History" information with job status](./media/azure-container-instances-as-jenkins-build-agent/jenkins-job-status.png)
 
-2. While the job is running, open the Azure portal and look at the Jenkins resource group. You should see that a container instance has been created. The Jenkins job is running inside this instance.
+1. Click build **#1** in the **Build History**.
 
-   ![Container instance in the resource group](./media/azure-container-instances-as-jenkins-build-agent/jenkins-aci.png)
+    !["Console Output" view the build output from the console in the Build History](./media/azure-container-instances-as-jenkins-build-agent/build-history.png)
 
-3. As Jenkins runs more jobs than the configured number of Jenkins executors (default 2), multiple container instances are created.
+1. Select **Console Output** to view the builds output.
 
-   ![Newly created container instances](./media/azure-container-instances-as-jenkins-build-agent/jenkins-aci-multi.png)
-
-4. After all build jobs have finished, the container instances are removed.
-
-   ![Resource group with container instances removed](./media/azure-container-instances-as-jenkins-build-agent/jenkins-aci-none.png)
+    !["Console Output" view the build output from the console in the builds output](./media/azure-container-instances-as-jenkins-build-agent/build-console-output.png)
 
 ## Next steps
 

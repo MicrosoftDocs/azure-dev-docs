@@ -13,7 +13,7 @@ ms.custom: devx-track-ansible
 
 Azure automatically routes traffic between Azure subnets, virtual networks, and on-premises networks. If you need more control over your environment's routing, you can create a [route table](/azure/virtual-network/virtual-networks-udr-overview). 
 
-[!INCLUDE [ansible-tutorial-goals.md](includes/ansible-tutorial-goals.md)]
+In this article, you learn how to:
 
 > [!div class="checklist"]
 >
@@ -102,7 +102,7 @@ Save the following playbook as `route_table_associate.yml`:
         virtual_network_name: "{{ virtual_network_name }}"
         resource_group: "{{ resource_group }}"
         address_prefix_cidr: "10.1.0.0/24"
-        route_table: "{ route_table_name }"
+        route_table: "{{ route_table_name }}"
 ```
 
 Run the playbook using [ansible-playbook](https://docs.ansible.com/ansible/latest/cli/ansible-playbook.html)

@@ -28,6 +28,8 @@ landingContent:
     links:
       - text: Deploy Quarkus
         url: deploy-microprofile-quarkus-java-app-with-maven-plugin.md
+      - text: Deploy Open Liberty
+        url: deploy-microprofile-open-liberty-java-app-with-maven-plugin.md
       - text: Deploy Helidon
         url: deploy-microprofile-helidon-java-app-with-maven-plugin.md
       - text: Deploy Payara Micro
@@ -42,6 +44,8 @@ landingContent:
       url: https://github.com/search?q=topic%3Amicroprofile+org%3AAzure-Samples+fork%3Atrue
     - text: MicroProfile samples
       url: https://microprofile.io/project/eclipse/microprofile-samples
+    - text: PiggyMetrics on MicroProfile
+      url: https://aka.ms/microprofile-piggymetrics
 - title: MicroProfile resources
   linkLists:
   - linkListType: get-started

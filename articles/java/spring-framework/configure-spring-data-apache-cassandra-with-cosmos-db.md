@@ -19,7 +19,7 @@ This article demonstrates creating a sample application that uses [Spring Data] 
 The following prerequisites are required in order to complete the steps in this article:
 
 * An Azure subscription; if you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits] or sign up for a [free Azure account].
-* A supported Java Development Kit (JDK). For more information about the JDKs available for use when developing on Azure, see <https://aka.ms/azure-jdks>.
+* A supported Java Development Kit (JDK). For more information about the JDKs available for use when developing on Azure, see [Java support on Azure and Azure Stack](../fundamentals/java-support-on-azure.md).
 * [Apache Maven](http://maven.apache.org/), version 3.0 or later.
 * [Curl](https://curl.haxx.se/) or similar HTTP utility to test functionality.
 * A [Git](https://git-scm.com/downloads) client.
@@ -31,15 +31,17 @@ The following procedure creates and configures a Cosmos account in the Azure por
 ### Create a Cosmos DB account using the Azure portal
 
 > [!NOTE]
-> 
 > You can read more detailed information about creating Azure Cosmos DB accounts in [Azure Cosmos DB Documentation](/azure/cosmos-db/).
 
 1. Browse to the Azure portal at <https://portal.azure.com/> and sign in.
 
 1. Select **Create a resource**, then **Get started**, and then select **Azure Cosmos DB**.
-    
-   >[!div class="mx-imgBorder"]
-   >![Create an Azure Cosmos DB account][COSMOSDB01]
+
+   ![Azure portal, create a resource, search for Azure Cosmos DB.][COSMOSDB01]
+
+1. On the **Select API option** screen, select **Cassandra**.
+
+   ![Azure portal, create a resource, select API option, Cassandra selected.][COSMOSDB02]
 
 1. Specify the following information:
 
@@ -48,16 +50,16 @@ The following procedure creates and configures a Cosmos account in the Azure por
    - **Account name**: Choose a unique name for your Cosmos DB account; this will be used to create a fully-qualified domain name like *wingtiptoyscassandra.documents.azure.com*.
    - **API**: Specify *Cassandra* for this tutorial.
    - **Location**: Specify the closest geographic region for your database.
-   
+
    >[!div class="mx-imgBorder"]
-   >![Specify your Cosmos DB account settings][COSMOSDB02]
-   
+   >![Specify your Cosmos DB account settings.][COSMOSDB03]
+
 1. When you have entered all of the above information, click **Review + create**.
 
 1. If everything looks correct on the review page, click **Create**.
    
    >[!div class="mx-imgBorder"]
-   >![Review your Cosmos DB account settings][COSMOSDB03]
+   >![Review your Cosmos DB account settings.][COSMOSDB04]
 
 It will take a few minutes to deploy the database.
 
@@ -68,12 +70,12 @@ It will take a few minutes to deploy the database.
 1. Select **All Resources**, then select the Azure Cosmos DB account you just created.
 
 1. Select **Data Explorer**, select down arrow and select **New Keyspace**. Enter a unique identifier for your **Keyspace id**, then select **OK**.
-    
+
    >[!div class="mx-imgBorder"]
-   >![Select New keyspace][COSMOSDB05]
-   
+   >![Select new keyspace.][COSMOSDB05]
+
    >[!div class="mx-imgBorder"]
-   >![Create a Cosmos DB keyspace][COSMOSDB05-1]
+   >![Create a Cosmos DB keyspace.][COSMOSDB05-1]
 
 ### Retrieve the connection settings for your Azure Cosmos DB account
 
@@ -82,9 +84,9 @@ It will take a few minutes to deploy the database.
 1. Select **All Resources**, then select the Azure Cosmos DB account you just created.
 
 1. Select **Connection strings**, and copy the values for the **Contact Point**, **Port**, **Username**, and **Primary Password** fields; you will use those values to configure your application later.
-   
+
    >[!div class="mx-imgBorder"]
-   >![Retrieve your Cosmos DB connection settings][COSMOSDB06]
+   >![Retrieve your Cosmos DB connection settings.][COSMOSDB06]
 
 ## Configure the sample application
 
@@ -106,6 +108,7 @@ The following procedure configures the test application.
    spring.data.cassandra.username=wingtiptoyscassandra
    spring.data.cassandra.password=********
    ```
+
    Where:
 
    | Parameter | Description |
@@ -196,6 +199,7 @@ For more information about using Azure with Java, see the [Azure for Java Develo
 [COSMOSDB01]: media/configure-spring-data-apache-cassandra-with-cosmos-db/create-cosmos-db-01.png
 [COSMOSDB02]: media/configure-spring-data-apache-cassandra-with-cosmos-db/create-cosmos-db-02.png
 [COSMOSDB03]: media/configure-spring-data-apache-cassandra-with-cosmos-db/create-cosmos-db-03.png
+[COSMOSDB04]: media/configure-spring-data-apache-cassandra-with-cosmos-db/create-cosmos-db-04.png
 [COSMOSDB05]: media/configure-spring-data-apache-cassandra-with-cosmos-db/create-cosmos-db-05.png
 [COSMOSDB05-1]: media/configure-spring-data-apache-cassandra-with-cosmos-db/create-cosmos-db-05-1.png
 [COSMOSDB06]: media/configure-spring-data-apache-cassandra-with-cosmos-db/create-cosmos-db-06.png

@@ -1,0 +1,1 @@
+Select **Skip for now** when prompted to select a new Applicaiton Insights resource.

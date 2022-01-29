@@ -1,9 +1,9 @@
 ---
 title: Configure your local Python environment for Azure development
 description: How to set up a local Python dev environment for working with Azure, including Visual Studio Code, the Azure SDK libraries, and the necessary credentials for library authentication.
-ms.date: 01/04/2021
+ms.date: 05/25/2021
 ms.topic: conceptual
-ms.custom: devx-track-python, devx-track-azurecli
+ms.custom: devx-track-python
 ---
 
 # Configure your local Python dev environment for Azure
@@ -27,7 +27,7 @@ This setup for local development is a separate matter from [provisioning resourc
 | Name/Installer | Description |
 | --- | --- |
 | [Azure account with an active subscription](https://azure.microsoft.com/free/?utm_source=campaign&utm_campaign=python-dev-center&mktingSource=environment-setup) | Accounts/subscriptions are free and include many free-to-use services. |
-| [Python 2.7+ or 3.5.3+](https://www.python.org/downloads) | The Python language runtime. We recommend the latest version of Python 3.x unless you have specific version requirements. |
+| [Python 2.7+ or 3.6+](https://www.python.org/downloads) | The Python language runtime, which can be in a Conda environment. We recommend the latest version of Python 3.x unless you have specific version requirements. |
 | [Azure Command-Line Interface (CLI)](/cli/azure/install-azure-cli) | Provides a full suite of CLI commands to provision and manage Azure resources. Python developers commonly use the Azure CLI in conjunction with custom Python scripts that use the Azure management libraries. |
 
 Notes:
@@ -48,7 +48,7 @@ Notes:
 
 | Name/Installer | Description |
 | --- | --- |
-| [Docker extension for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-python.python) | Adds Docker support to VS Code, which is helpful if you regularly work with containers. |
+| [Docker extension for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) | Adds Docker support to VS Code, which is helpful if you regularly work with containers. |
 
 ### Verify components
 
@@ -86,10 +86,10 @@ Each developer in your organization should perform these steps individually.
 1. Create the service principal:
 
     ```azurecli
-    az ad sp create-for-rbac --name localtest-sp-rbac --skip-assignment --sdk-auth > local-sp.json
+    az ad sp create-for-rbac --name localtest-sp-rbac
     ```
 
-    This command saves its output in *local-sp.json*. For more details on the command and its arguments, see [What the create-for-rbac command does](#what-the-create-for-rbac-command-does).
+    For more details on the command and its arguments, see [What the create-for-rbac command does](#what-the-create-for-rbac-command-does).
 
     If you're in an organization, you may not have permission in the subscription to run this command. In that case, contact the subscription owners to have them create the service principal for you.
 
@@ -101,7 +101,7 @@ Each developer in your organization should perform these steps individually.
     set AZURE_SUBSCRIPTION_ID="aa11bb33-cc77-dd88-ee99-0918273645aa"
     set AZURE_TENANT_ID=00112233-7777-8888-9999-aabbccddeeff
     set AZURE_CLIENT_ID=12345678-1111-2222-3333-1234567890ab
-    set AZURE_CLIENT_SECRET=abcdef00-4444-5555-6666-1234567890ab
+    set AZURE_CLIENT_SECRET=oUBB11zz~JJJJ_~yyyyyyVVumumumumb_b
     ```
 
     # [bash](#tab/bash)
@@ -110,14 +110,14 @@ Each developer in your organization should perform these steps individually.
     AZURE_SUBSCRIPTION_ID="aa11bb33-cc77-dd88-ee99-0918273645aa"
     AZURE_TENANT_ID="00112233-7777-8888-9999-aabbccddeeff"
     AZURE_CLIENT_ID="12345678-1111-2222-3333-1234567890ab"
-    AZURE_CLIENT_SECRET="abcdef00-4444-5555-6666-1234567890ab"
+    AZURE_CLIENT_SECRET="oUBB11zz~JJJJ_~yyyyyyVVumumumumb_b"
     ```
 
     ---
 
     Replace the values shown in these commands with those of your specific service principal.
 
-    To retrieve your subscription ID, run the [`az account show`](/cli/azure/account#az-account-show) command and look for the `id` property in the output.
+    To retrieve your subscription ID, run the [`az account show`](/cli/azure/account#az_account_show) command and look for the `id` property in the output.
 
     For convenience, create a command line script file (such as *setenv.sh* on macOS/Linux or *setenv.cmd* on Windows) that contains these same commands. You can then run the script to set the variables whenever you open a terminal or command prompt for local testing. Again, don't add the script file to source control so it remains only within your user account.
 
@@ -129,36 +129,20 @@ Each developer in your organization should perform these steps individually.
 
 1. To modify or delete service principals later on, see [How to manage service principals](how-to-manage-service-principals.md).
 
+> [!IMPORTANT]
+> For production code (rather than local development), use [managed identities](/azure/active-directory/managed-identities-azure-resources/overview) when possible rather than a specific service principal.
+
 #### What the create-for-rbac command does
 
-The `az ad create-for-rbac` command creates a service principal for "role-based authentication" (RBAC). (For more information on service principals, see [How to authenticate and authorize Python apps on Azure](azure-sdk-authenticate.md).)
+The `az ad sp create-for-rbac` command creates a service principal for "role-based authentication" (RBAC). (For more information on service principals, see [How to authenticate and authorize Python apps on Azure](azure-sdk-authenticate.md).)
 
-- `ad` means Azure Active Directory; `sp` means "service principal," and `create-for-rbac` means "create for role-based access control," Azure's primary form of authorization. See the [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) command reference.
+- `ad` means Azure Active Directory; `sp` means "service principal," and `create-for-rbac` means "create for role-based access control," Azure's primary form of authorization. See the [az ad sp create-for-rbac](/cli/azure/ad/sp#az_ad_sp_create_for_rbac) command reference.
 
 - The `--name` argument should be unique within your organization and typically uses the name of the developer that uses the service principal. If you omit this argument, the Azure CLI uses a generic name of the form `azure-cli-<timestamp>`. You can rename the service principal on the Azure portal, if desired.
 
-- The `--skip-assignment` argument creates a service principal with no default permissions. You must then assign specific permissions to the service principal to allow locally-run code to access any resources. For more information, see [What is Azure role-based access control (RBAC)](/azure/role-based-access-control/overview) and [Steps to add a role assignment](/azure/role-based-access-control/role-assignments-steps). Different quickstarts and tutorials also provide details for authorizing a service principal for the specific resources involved.
+- The `az ad sp create-for-rbac` command does not assign any roles to the service principal. This poses a risk if the security principal is compromised, which is why we recommend assigning the exact roles at the exact scope that the service principal requires. See [What is Azure role-based access control (RBAC)](/azure/role-based-access-control/overview) and [Steps to add a role assignment](/azure/role-based-access-control/role-assignments-steps). Different quickstarts and tutorials also provide details for authorizing a service principal for the specific resources involved.
 
-- The command provides JSON output, which in the example is saved in a file named *local-sp.json*.
-
-- The `--sdk-auth` argument generates JSON output similar to the following values. Your ID values and secret will all be different):
-
-    <pre>
-    {
-      "clientId": "12345678-1111-2222-3333-1234567890ab",
-      "clientSecret": "abcdef00-4444-5555-6666-1234567890ab",
-      "subscriptionId": "00000000-0000-0000-0000-000000000000",
-      "tenantId": "00112233-7777-8888-9999-aabbccddeeff",
-      "activeDirectoryEndpointUrl": "https://login.microsoftonline.com",
-      "resourceManagerEndpointUrl": "https://management.azure.com/",
-      "activeDirectoryGraphResourceId": "https://graph.windows.net/",
-      "sqlManagementEndpointUrl": "https://management.core.windows.net:8443/",
-      "galleryEndpointUrl": "https://gallery.azure.com/",
-      "managementEndpointUrl": "https://management.core.windows.net/"
-    }
-    </pre>
-
-    Without the `--sdk-auth` argument, the command generates simpler output:
+- The command generates JSON output similar to the following values. Your `appId`, `tenant`, and `password` values will all be different:
 
     <pre>
     {
@@ -170,15 +154,13 @@ The `az ad create-for-rbac` command creates a service principal for "role-based 
     }
     </pre>
 
-    In this case, `tenant` is the tenant ID, `appId` is the client ID, and `password` is the client secret.
+    In this output, `tenant` is the tenant ID, `appId` is the client ID, and `password` is the client secret.
 
     > [!WARNING]
-    >  When you create a service principal using `az ad sp create-for-rbac`, the output includes credentials that you must protect, such as a password, client secret, or certificate. Do not store these credentials in code or any file that's committed to source control.
-    > By default, `az ad sp create-for-rbac` assigns the [Contributor role](/azure/role-based-access-control/built-in-roles#contributor) to the service principal at subscription scope. To reduce your risk if the service principal is compromised, assign a more specific role and narrow the scope to a resource or resource group.
-    > For production code (rather than local development), use [managed identities](/azure/active-directory/managed-identities-azure-resources/overview) when possible rather than a a specific service principal.
+    >  Protect any credentials included in the output from `az ad sp create-for-rbac`, such as the password, client secret, or certificate. Do not store credentials in code or any file that's committed to source control.
 
     > [!IMPORTANT]
-    > The output from this command is the only place you ever see the client secret/password. You cannot retrieve the secret/password later on. You can, however, add a new secret if needed without invalidating the service principal or existing secrets.
+    > The output from this command is the only place you ever see the password. You cannot retrieve the password later on. You can, however, add a new password if needed without invalidating the service principal or existing passwords.
 
 ## Use Python virtual environments
 
@@ -226,7 +208,7 @@ For every project, we recommend that you always create and activate a *virtual e
 
 A virtual environment is a folder within a project that isolates a copy of a specific Python interpreter. Once you activate that environment (which Visual Studio Code does automatically), running `pip install` installs a library into that environment only. When you then run your Python code, it runs in the environment's exact context with specific versions of every library. And when you run `pip freeze`, you get the exact list of the those libraries. (In many of the examples in this documentation, you create a *requirements.txt* file for the libraries you need, then use `pip install -r requirements.txt`. A requirements file is generally needed when you deploy code to Azure.)
 
-If you don't use a virtual environment, then Python runs in its *global environment*. Although using the global environment is quick and convenient, it tends to bloat over time with all the libraries you install for any project or experiment. Furthermore, if you update a library for one project, you might break others projects that depend on different versions of that library. And because the environment is shared by any number of projects, you can't use `pip freeze` to retrieve of a list of any one project's dependencies.
+If you don't use a virtual environment, then Python runs in its *global environment*. Although using the global environment is quick and convenient, it tends to bloat over time with all the libraries you install for any project or experiment. Furthermore, if you update a library for one project, you might break other projects that depend on different versions of that library. And because the environment is shared by any number of projects, you can't use `pip freeze` to retrieve of a list of any one project's dependencies.
 
 The global environment is where you do want to install tool packages that you want to use in multiple projects. For example, you might run `pip install gunicorn` in the global environment to make the gunicorn web server available everywhere.
 

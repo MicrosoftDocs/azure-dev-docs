@@ -8,10 +8,11 @@ metadata:
   title: Azure developer documentation
   description: Develop on Azure using your favorite languages and tools. Azure supports development with C# and .NET, Java, JavaScript, Python, Azure PowerShell, and Azure CLI.
   ms.topic: hub-page
+  ms.service: azure
   author: barbkess
   ms.author: barbkess
   manager: barbkess
-  ms.date: 04/15/2020
+  ms.date: 05/03/2021
 
 #highlightedContent:
 #  itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
@@ -33,7 +34,7 @@ productDirectory:
     - title: Python
       imageSrc: https://docs.microsoft.com/media/logos/logo_python.svg
       links:
-        - url: ./python/tutorial-vs-code-serverless-python-01.md
+        - url: /azure/azure-functions/create-first-function-vs-code-python
           text: Deploy serverless Python apps to Azure Functions
         - url: ./python/tutorial-deploy-app-service-on-linux-01.md
           text: Deploy Python apps to Azure App Service
@@ -48,18 +49,18 @@ productDirectory:
     - title: JavaScript
       imageSrc: https://docs.microsoft.com/media/logos/logo_js.svg
       links:
-        - url: ./javascript/tutorial/tutorial-vscode-static-website-node/tutorial-vscode-static-website-node-01.md?tabs=bash
+        - url: /azure/static-web-apps/getting-started?tabs=vanilla-javascript
           text: Develop a static website
         - url: ./javascript/tutorial/deploy-nodejs-azure-app-service-with-visual-studio-code.md
           text: Deploy to Azure App Service
-        - url: ./javascript/tutorial/tutorial-vscode-serverless-node-install.md?tabs=bash
+        - url: ./javascript/tutorial/vscode-function-app-http-trigger/tutorial-vscode-serverless-node-install.md?tabs=bash
           text: Deploy a serverless application
         - url: ./javascript/tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-01.md?tabs=bash
           text: Deploy Docker containers
         - url: /azure/cosmos-db/create-mongodb-nodejs?bc=%252fazure%252fdeveloper%252fbreadcrumb%252ftoc.json&toc=%252fazure%252fdeveloper%252fjavascript%252ftoc.json
           text: Migrate a MongoDB app to Azure Cosmos DB
         - url: ./javascript/index.yml
-          text: See more in the dev center
+          text: See more in the JavaScript developer center
     - title: Java
       imageSrc: https://docs.microsoft.com/media/logos/logo_java.svg
       links:
@@ -78,18 +79,31 @@ productDirectory:
     - title: .NET
       imageSrc: https://docs.microsoft.com/azure/media/index/net-logo.svg
       links:
-        - url: /dotnet/azure/sdk/
-          text: Azure SDK for .NET
         - url: /dotnet/azure/intro
           text: Introduction to Azure and .NET
+        - url: /dotnet/azure/dotnet-dev-env-checklist
+          text: Configure your .NET development environment for Azure
         - url: /azure/app-service/app-service-web-get-started-dotnet
           text: Deploy an ASP.NET web app
         - url: /azure/azure-functions/functions-create-your-first-function-visual-studio
           text: Build a serverless function
-        - url: /visualstudio/containers/container-tools?view=vs-2019
-          text: ASP.NET Core and Docker
+        - url: /dotnet/azure/sdk/azure-sdk-for-dotnet
+          text: Azure SDK for .NET          
         - url: /dotnet/azure/
           text: See more in the .NET developer center
+    - title: Go
+      imageSrc: https://docs.microsoft.com/media/logos/logo_Go-lightblue.svg
+      links:
+        - url: ./go/azure-sdk-install.md
+          text: Install the Azure SDK for Go
+        - url: ./go/azure-sdk-authentication.md
+          text: Authenticate your app
+        - url: /azure/storage/blobs/storage-quickstart-blobs-go
+          text: Use Blob storage
+        - url: https://github.com/azure-samples/azure-sdk-for-go-samples
+          text: Azure SDK for Go code samples
+        - url: ./go/index.yml
+          text: See more in the Go developer center
     - title: Azure PowerShell
       imageSrc: https://docs.microsoft.com/media/logos/logo_powershell.svg
       links:

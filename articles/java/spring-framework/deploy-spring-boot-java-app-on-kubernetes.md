@@ -4,7 +4,7 @@ titleSuffix: Azure Kubernetes Service
 description: This tutorial will walk you though the steps to deploy a Spring Boot application in a Kubernetes cluster on Microsoft Azure.
 services: container-service
 documentationcenter: java
-ms.date: 10/06/2020
+ms.date: 01/19/2022
 ms.service: multiple
 ms.tgt_pltfrm: multiple
 ms.topic: article
@@ -13,15 +13,15 @@ ms.custom: mvc, devx-track-java, devx-track-azurecli
 
 # Deploy Spring Boot Application to the Azure Kubernetes Service
 
-**[Kubernetes]** and **[Docker]** are open-source solutions that help developers automate the deployment, scaling, and management of their applications running in containers.
+This tutorial walks you through combining Kubernetes and Docker to develop and deploy a Spring Boot application to Microsoft Azure. More specifically, you use [Spring Boot] for application development, [Kubernetes] for container deployment, and the [Azure Kubernetes Service (AKS)] to host your application.
 
-This tutorial walks you through combining these two popular, open-source technologies to develop and deploy a Spring Boot application to Microsoft Azure. More specifically, you use *[Spring Boot]* for application development, *[Kubernetes]* for container deployment, and the [Azure Kubernetes Service (AKS)] to host your application.
+[Kubernetes] and [Docker] are open-source solutions that help developers automate the deployment, scaling, and management of their applications running in containers.
 
 ## Prerequisites
 
 * An Azure subscription; if you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits] or sign up for a [free Azure account].
 * The [Azure Command-Line Interface (CLI)].
-* A supported Java Development Kit (JDK). For more information about the JDKs available for use when developing on Azure, see <https://aka.ms/azure-jdks>.
+* A supported Java Development Kit (JDK). For more information about the JDKs available for use when developing on Azure, see [Java support on Azure and Azure Stack](../fundamentals/java-support-on-azure.md).
 * Apache's [Maven] build tool (Version 3).
 * A [Git] client.
 * A [Docker] client.
@@ -112,7 +112,7 @@ The following steps walk you through building a Spring Boot web application and 
 
    ```azurecli
    # set the default name for Azure Container Registry, otherwise you will need to specify the name in "az acr login"
-   az configure --defaults acr=wingtiptoysregistry
+   az config set defaults.acr=wingtiptoysregistry
    az acr login
    ```
 
@@ -153,12 +153,12 @@ The following steps walk you through building a Spring Boot web application and 
 
 1. Navigate to the completed project directory for your Spring Boot application and run the following command to build the image and push the image to the registry:
 
-   ```cmd
+   ```azurecli
    az acr login && mvn compile jib:build
    ```
 
 > [!NOTE]
-> Due to the security concern of Azure Cli and Azure Container Registry, the credential created by `az acr login` is valid for 1 hour, if you meet *401 Unauthorized* error, you can run the `az acr login -n <your registry name>` command again to reauthenticate.
+> Due to the security concern of Azure Cli and Azure Container Registry, the credential created by `az acr login` is valid for 1 hour. If you see a *401 Unauthorized* error, you can run the `az acr login -n <your registry name>` command again to reauthenticate. If you see a *Read timed out* error, you can try increasing timeouts with `mvn -Djib.httpTimeout=7200000 jib:dockerBuild`, or `-Djib.httpTimeout=0` for an infinite timeout.
 
 ## Create a Kubernetes Cluster on AKS using the Azure CLI
 
@@ -228,57 +228,63 @@ This tutorial deploys the app using `kubectl`, then allows you to explore the de
 
    ![Browse Sample App on Azure][SB02]
 
-### Deploy with the Kubernetes web interface
+### Deploy with the Kubernetes resource view
 
-1. Open a command prompt.
+1. Select **Add** from any of the resource views (Namespace, Workloads, Services and ingresses, Storage, or Configuration).
 
-1. Open the configuration website for your Kubernetes cluster in your default browser:
+   :::image type="content" source="media/deploy-spring-boot-java-app-on-kubernetes/KR01.png" alt-text="Kubernetes resources view":::
 
-   ```azurecli
-   az aks browse --resource-group=wingtiptoys-kubernetes --name=wingtiptoys-akscluster
+
+1. Paste in the following YAML:
+
+   ```yaml
+   apiVersion: apps/v1
+   kind: Deployment
+   metadata:
+     name: gs-spring-boot-docker
+   spec:
+     replicas: 1
+     selector:
+       matchLabels:
+         app: gs-spring-boot-docker
+     template:
+       metadata:
+         labels:
+           app: gs-spring-boot-docker
+       spec:
+         containers:
+         - name: gs-spring-boot-docker
+           image: wingtiptoysregistry.azurecr.io/gs-spring-boot-docker:latest
    ```
 
-> [!IMPORTANT]
-> If your AKS cluster uses RBAC, a *ClusterRoleBinding* must be created before you can correctly access the dashboard. By default, the Kubernetes dashboard is deployed with minimal read access and displays RBAC access errors. The Kubernetes dashboard does not currently support user-provided credentials to determine the level of access, rather it uses the roles granted to the service account. A cluster administrator can choose to grant additional access to the *kubernetes-dashboard* service account, however this can be a vector for privilege escalation. You can also integrate Azure Active Directory authentication to provide a more granular level of access.
->
-> To create a binding, use the [kubectl create clusterrolebinding] command. The following example shows how to create a sample binding, however, this sample binding does not apply any additional authentication components and may lead to insecure use. The Kubernetes dashboard is open to anyone with access to the URL. Do not expose the Kubernetes dashboard publicly.
->
-> ```bash
-> kubectl create clusterrolebinding kubernetes-dashboard --clusterrole=cluster-admin --serviceaccount=kube-system:kubernetes-dashboard
-> ```
->
-> For more information on using the different authentication methods, see the Kubernetes dashboard wiki on [dashboard-authentication].
+1. Select **Add** at the bottom of the YAML editor to deploy the application.
 
-1. When the Kubernetes configuration website opens in your browser, select the link to **deploy a containerized app**:
+   :::image type="content" source="media/deploy-spring-boot-java-app-on-kubernetes/KR02.png" alt-text="Kubernetes resources view, add resource":::
 
-   ![Kubernetes Configuration Website showing message there is nothing to display here][KB01]
+   After deploying the `Deployment`, just like above, select **Add** at the bottom of the YAML editor to deploy `Service` using the following YAML:
 
-1. When the **Resource Creation** page is displayed, specify the following options:
+   ```yaml
+   apiVersion: v1
+   kind: Service
+   metadata:
+     name: gs-spring-boot-docker
+   spec:
+     type: LoadBalancer
+     ports:
+     - port: 80
+       targetPort: 8080
+     selector:
+       app: gs-spring-boot-docker
+   ```
 
-   a. Select **CREATE AN APP**.
+1. Once the YAML file is added, the resource viewer shows your Spring Boot application. The external service includes a linked external IP address so you can easily view the application in your browser.
 
-   b. Enter your Spring Boot application name for the **App name**; for example: *gs-spring-boot-docker*.
+   :::image type="content" source="media/deploy-spring-boot-java-app-on-kubernetes/KR03.png" alt-text="Kubernetes resources view, services list":::
+   
+   :::image type="content" source="media/deploy-spring-boot-java-app-on-kubernetes/KR04.png" alt-text="Kubernetes resources view, services list, external endpoints highlighted":::
 
-   c. Enter your login server and container image from earlier for the **Container image**; for example: *wingtiptoysregistry.azurecr.io/gs-spring-boot-docker:latest*.
-
-   d. Choose **External** for the **Service**.
-
-   e. Specify your external and internal ports in the **Port** and **Target port** text boxes.
-
-   ![Kubernetes Configuration Website Create an App page][KB02]
-
-1. Select **Deploy** to deploy the container.
-
-   ![Kubernetes Deploy][KB05]
-
-1. Once your application has been deployed, you will see your Spring Boot application listed under **Services**.
-
-   ![Kubernetes website, services list][KB06]
-
-1. If you select the link for **External endpoints**, you can see your Spring Boot application running on Azure.
-
-   ![Kubernetes website, services list, external endpoints highlighted][KB07]
-
+1. Select **External IP**. You will then see your Spring Boot application running on Azure.
+ 
    ![Browse Sample App on Azure][SB02]
 
 ## Next steps
@@ -344,7 +350,7 @@ For more information about iteratively running and debugging containers directly
 [Namespaces]: https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/
 [Pulling an Image from a Private Registry]: https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/
 
-[Java Development Kit (JDK)]: ../fundamentals/java-jdk-long-term-support.md
+[Java Development Kit (JDK)]: ../fundamentals/java-support-on-azure.md
 <!-- http://www.oracle.com/technetwork/java/javase/downloads/ -->
 
 <!-- Newly added -->
@@ -355,16 +361,3 @@ For more information about iteratively running and debugging containers directly
 
 [SB01]: media/deploy-spring-boot-java-app-on-kubernetes/SB01.png
 [SB02]: media/deploy-spring-boot-java-app-on-kubernetes/SB02.png
-
-[AR01]: media/deploy-spring-boot-java-app-on-kubernetes/AR01.png
-[AR02]: media/deploy-spring-boot-java-app-on-kubernetes/AR02.png
-[AR03]: media/deploy-spring-boot-java-app-on-kubernetes/AR03.png
-[AR04]: media/deploy-spring-boot-java-app-on-kubernetes/AR04.png
-
-[KB01]: media/deploy-spring-boot-java-app-on-kubernetes/KB01.png
-[KB02]: media/deploy-spring-boot-java-app-on-kubernetes/KB02.png
-[KB03]: media/deploy-spring-boot-java-app-on-kubernetes/KB03.png
-[KB04]: media/deploy-spring-boot-java-app-on-kubernetes/KB04.png
-[KB05]: media/deploy-spring-boot-java-app-on-kubernetes/KB05.png
-[KB06]: media/deploy-spring-boot-java-app-on-kubernetes/KB06.png
-[KB07]: media/deploy-spring-boot-java-app-on-kubernetes/KB07.png

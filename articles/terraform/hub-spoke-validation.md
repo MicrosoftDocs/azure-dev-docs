@@ -1,101 +1,89 @@
 ---
-title: Tutorial - Validate a hub and spoke network in Azure using Terraform
+title: Validate a hub and spoke network in Azure using Terraform
 description: Learn how to validate hub and spoke network topology with all virtual networks connected to one another.
-ms.topic: tutorial
-ms.date: 10/26/2019
+ms.topic: how-to
+ms.date: 08/07/2021
 ms.custom: devx-track-terraform
 ---
 
-# Tutorial: Validate a hub and spoke network in Azure using Terraform
+# Validate a hub and spoke network in Azure using Terraform
 
 In this article, you execute the terraform files created in the previous article in this series. The result is a validation of the connectivity between the demo virtual networks.
 
-This tutorial covers the following tasks:
-
+In this article, you learn how to:
 > [!div class="checklist"]
-> * Use HCL (HashiCorp Language) to implement the Hub VNet in hub-spoke topology
-> * Use Terraform plan to verify the resources to be deployed
-> * Use Terraform apply to create the resources in Azure
+
+> * Implement the Hub VNet in hub-spoke topology
+> * Verify the resources to be deployed
+> * Create the resources in Azure
 > * Verify the connectivity between different networks
-> * Use Terraform to destroy all the resources
 
-## Prerequisites
+## 1. Configure your environment
 
-1. [Create a hub and spoke hybrid network topology with Terraform in Azure](./hub-spoke-introduction.md).
-1. [Create on-premises virtual network with Terraform in Azure](./hub-spoke-on-prem.md).
-1. [Create a hub virtual network with Terraform in Azure](./hub-spoke-hub-network.md).
-1. [Create a hub virtual network appliance with Terraform in Azure](./hub-spoke-hub-nva.md).
-1. [Create a spoke virtual networks with Terraform in Azure](./hub-spoke-spoke-network.md).
+[!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../includes/open-source-devops-prereqs-azure-subscription.md)]
 
-## Verify your configuration
+[!INCLUDE [configure-terraform.md](includes/configure-terraform.md)]
 
-After completing the [prerequisites](#prerequisites), verify the appropriate config files are present.
+- [Create a hub and spoke hybrid network topology with Terraform in Azure](./hub-spoke-introduction.md)
 
-1. Browse to the [Azure portal](https://portal.azure.com).
+- [Create on-premises virtual network with Terraform in Azure](./hub-spoke-on-prem.md)
 
-1. Open [Azure Cloud Shell](/azure/cloud-shell/overview). If you didn't select an environment previously, select **Bash** as your environment.
+- [Create a hub virtual network with Terraform in Azure](./hub-spoke-hub-network.md)
 
-    ![Cloud Shell prompt](./media/common/azure-portal-cloud-shell-button-min.png)
+- [Create a hub virtual network appliance with Terraform in Azure](./hub-spoke-hub-nva.md)
 
-1. Change directories to the `clouddrive` directory.
+- [Create a spoke virtual networks with Terraform in Azure](./hub-spoke-spoke-network.md)
 
-    ```bash
-    cd clouddrive
-    ```
+## 2. Verify your configuration
 
-1. Change directories to the new directory:
+In the example directory, verify that all the files created in this article series are present:
 
-    ```bash
-    cd hub-spoke
-    ```
+| File name | Article in which file is created |
+| - | - |
+| main.tf | [Create a hub and spoke hybrid network topology with Terraform in Azure](./hub-spoke-introduction.md) |
+| variables.tf | [Create a hub and spoke hybrid network topology with Terraform in Azure](./hub-spoke-introduction.md) |
+| on-prem.tf | [Create on-premises virtual network with Terraform in Azure](./hub-spoke-on-prem.md) |
+| hub-vnet.tf | [Create a hub virtual network with Terraform in Azure](./hub-spoke-hub-network.md) |
+| hub-nva.tf | [Create a hub virtual network appliance with Terraform in Azure](./hub-spoke-hub-nva.md) |
+| spoke1.tf | [Create a spoke virtual networks with Terraform in Azure](./hub-spoke-spoke-network.md) |
+| spoke2.tf | [Create a spoke virtual networks with Terraform in Azure](./hub-spoke-spoke-network.md) |
 
-1. Run the `ls` command to verify that the `.tf` config files created in the previous tutorials are listed:
+## 3. Initialize Terraform
 
-    ![Terraform demo config files](./media/hub-and-spoke-tutorial-series/hub-spoke-config-files.png)
+[!INCLUDE [terraform-init.md](includes/terraform-init.md)]
 
-## Deploy the resources
+## 4. Create a Terraform execution plan
 
-1. Initialize the Terraform provider:
-    
-    ```bash
-    terraform init
-    ```
-    
-    ![Example results of "terraform init" command](./media/hub-and-spoke-tutorial-series/hub-spoke-terraform-init.png)
-    
-1. Run the `terraform plan` command to see the effect of the deployment before execution:
+[!INCLUDE [terraform-plan.md](includes/terraform-plan.md)]
 
-    ```bash
-    terraform plan
-    ```
-    
-    ![Example results of "terraform plan" command](./media/hub-and-spoke-tutorial-series/hub-spoke-terraform-plan.png)
+## 5. Apply a Terraform execution plan
 
-1. Deploy the solution:
+[!INCLUDE [terraform-apply-plan.md](includes/terraform-apply-plan.md)]
 
-    ```bash
-    terraform apply
-    ```
-    
-    Enter `yes` when prompted to confirm the deployment.
-
-    ![Example results of "terraform apply" command](./media/hub-and-spoke-tutorial-series/hub-spoke-terraform-apply.png)
-    
-## Test the hub VNet and spoke VNets
+## 6. Verify the results
 
 This section shows how to test connectivity from the simulated on-premises environment to the hub VNet.
+
+1. Browse to the [Azure portal](https://portal.azure.com).
 
 1. In the Azure portal, browse to the **onprem-vnet-rg** resource group.
 
 1. In the **onprem-vnet-rg** tab, select the VM named **onprem-vm**.
 
-1. Select **Connect**.
+1. Note the **Public IP Address** value.
 
-1. Next to the text **Login using VM local account**, copy the **ssh** command to the clipboard.
+1. Return to the command line and run `ssh` to connect to the simulated on-premises environment.
 
-1. From a Linux prompt, run `ssh` to connect to the simulated on-premises environment. Use the password specified in the `on-prem.tf` parameter file.
+   ```bash
+   ssh azureuser@<onprem_vm_ip_address>
+   ```
 
-1. Run the `ping` command to test connectivity to the jumpbox VM in the hub VNet:
+    **Key points:**
+
+    - If you changed the user name from `azureuser` in the `variables.tf` file, make sure to insert that value in the `ssh` command.
+    - Use the password you specified when you ran `terraform plan`.
+
+1. Once connected to the **onprem-vm** virtual machine, run the `ping` command to test connectivity to the jumpbox VM in the hub VNet:
 
    ```bash
    ping 10.0.0.68
@@ -110,35 +98,13 @@ This section shows how to test connectivity from the simulated on-premises envir
 
 1. To exit the ssh session on the **onprem-vm** virtual machine, enter `exit` and press &lt;Enter>.
 
-## Troubleshoot VPN issues
+## 7. Clean up resources
 
-For information about resolving VPN errors, see the article, [Troubleshoot a hybrid VPN connection](/azure/architecture/reference-architectures/hybrid-networking/troubleshoot-vpn).
+[!INCLUDE [terraform-plan-destroy.md](includes/terraform-plan-destroy.md)]
 
-## Clean up resources
+## Troubleshoot Terraform on Azure
 
-When no longer needed, delete the resources created in the tutorial series.
-
-1. Remove the resources declared in the plan:
-
-    ```bash
-    terraform destroy
-    ```
-
-    Enter `yes` when prompted to confirm the removal of the resources.
-
-1. Change directories to the parent directory:
-
-    ```bash
-    cd ..
-    ```
-
-1. Delete the `hub-scope` directory (including all of its files):
-
-    ```bash
-    rm -r hub-spoke
-    ```
-
-[!INCLUDE [terraform-troubleshooting.md](includes/terraform-troubleshooting.md)]
+[Troubleshoot common problems when using Terraform on Azure](troubleshoot.md)
 
 ## Next steps
 

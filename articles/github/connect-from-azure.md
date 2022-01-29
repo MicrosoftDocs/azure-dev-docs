@@ -5,7 +5,7 @@ author: N-Usha
 ms.author: ushan 
 ms.topic: reference
 ms.service: azure 
-ms.date: 11/17/2020
+ms.date: 11/30/2021
 ms.custom: github-actions-azure, devx-track-azurecli
 ---
 
@@ -14,37 +14,226 @@ ms.custom: github-actions-azure, devx-track-azurecli
 Learn how to use [Azure login](https://github.com/Azure/login) with either [Azure PowerShell](https://github.com/Azure/PowerShell) or [Azure CLI](https://github.com/Azure/CLI) to interact with your Azure resources.
 
 To use Azure PowerShell or Azure CLI in a GitHub Actions workflow, you need to first log in with the [Azure login](https://github.com/marketplace/actions/azure-login) action.
-The Azure login action allows you to execute commands in a workflow in the context of an [Azure AD service principal](/azure/active-directory/develop/app-objects-and-service-principals#service-principal-object).
 
-Once you have set up the login action, you can then use Azure CLI or Azure PowerShell.
+The Azure login action supports two different ways of authenticating with Azure:
+* [Service principal with secrets](#use-the-azure-login-action-with-a-service-principal-secret)
+* [OpenID Connect (OIDC) with a Azure service principal using a Federated Identity Credential](#use-the-azure-login-action-with-openid-connect)
 
-By default, the action logs in with the Azure CLI, setting up the GitHub action runner environment for Azure CLI. You can use Azure PowerShell with `enable-AzPSSession` property of the Azure login action. This sets up the GitHub action runner environment with the Azure PowerShell module.
+By default, the login action logs in with the Azure CLI and sets up the GitHub action runner environment for Azure CLI. You can use Azure PowerShell with `enable-AzPSSession` property of the Azure login action. This sets up the GitHub action runner environment with the Azure PowerShell module.
 
-## Create a service principal and add it to GitHub secret
+You can use Azure login to connect to public or sovereign clouds including Azure Government and Azure Stack Hub.
 
-To use [Azure login](https://github.com/marketplace/actions/azure-login), you first need to add your Azure service principal as a secret to your GitHub repository.
+## Use the Azure login action with OpenID Connect
+
+To set up an Azure Login with OpenID Connect and use it in a GitHub Actions workflow, you'll need:
+
+* An [Azure Active Directory application](/azure/active-directory/develop/), with a service principal that has contributor access to your subscription
+* An Azure Active Directory application configured with a federated credential to trust tokens issued by GitHub Actions to your GitHub repository. You can configure this in the Azure portal or with Microsoft Graph REST APIs
+* A GitHub Actions workflow that requests GitHub issue tokens to the workflow, and uses the Azure login action
+
+### Create an Azure Active Directory application and service principal
+
+You'll need to create an Azure Active Directory application and service principal and then assign a role on your subscription to your application so that your workflow has access to your subscription.
+
+# [Azure portal](#tab/azure-portal)
+
+1. If you do not have an existing application, register a [new Azure Active Directory application and service principal that can access resources](/azure/active-directory/develop/howto-create-service-principal-portal). As part of this process, make sure to:
+
+    * Register your application with Azure AD and create a service principal
+    * Assign a role to the application
+
+1. Open **App registrations** in Azure portal and find your application. Copy the values for **Application (client) ID** and **Directory (tenant) ID** to use in your GitHub Actions workflow. 
+
+1. Open **Subscriptions** in Azure portal and find your subscription. Copy the **Subscription ID**.
+
+# [Azure CLI](#tab/azure-cli)
+
+1. Create the Azure Active Directory application.
+
+    ```azurecli-interactive
+    az ad app create --display-name myApp
+    ```
+
+    This command will output JSON with an `appId` that is your `client-id`. The `objectId` is `APPLICATION-OBJECT-ID` and when creating federated credentials with Graph API calls.
+
+1. Create a service principal. Replace the `$appID` with the appId from your JSON output. This command generates JSON output with a different `objectId` will be used in the next step. The new  `objectId` is the `assignee-object-id`. 
+
+    ```azurecli-interactive
+     az ad sp create --id $appId
+    ```
+
+1. Create a new role assignment by subscription and object. By default, the role assignment will be tied to your default subscription. Replace `$subscriptionId` with your subscription ID and `$assigneeObjectId` with generated `assignee-object-id`.
+
+    ```azurecli-interactive
+    az role assignment create --role contributor --subscription $subscriptionId --assignee-object-id  $assigneeObjectId --assignee-principal-type ServicePrincipal
+    ```
+
+1. Copy the values for `clientId`, `subscriptionId`, and `tenantId` to use later in your GitHub Actions workflow.
+
+---
+### Add federated credentials
+
+You can add federated credentials in the Azure portal or with the Microsoft Graph REST API.
+
+# [Azure portal](#tab/azure-portal)
+
+1. Go to **App registrations** in the <a href="https://portal.azure.com/" target="_blank">Azure portal</a> and open the app you want to configure.
+1. Within the app, go to **Certificates and secrets**.  
+    :::image type="content" source="media/federated-certificates-secrets.png" alt-text="Select Certificates & secrets.":::
+1. In the **Federated credentials** tab, select **Add credential**.
+    :::image type="content" source="media/add-federated-credential.png" alt-text="Add the federated credential":::
+1. Select the credential scenario **GitHub Actions deploying Azure resources**. Generate your credential by entering your credential details.
+    
+|Field  |Description  |Example  |
+|---------|---------|---------|
+|Organization     |    Your GitHub organization name or GitHub username.     |     `contoso`    |
+|Repository     |     Your GitHub Repository name.    |    `contoso-app`     |
+|Entity type     |     The filter used to scope the OIDC requests from GitHub workflows. This field is used to generate the `subject` claim.   |     `Environment`, `Branch`, `Pull request`, `Tag`    |
+|GitHub name     |     The name of the environment, branch, or tag.    |     `main`    |
+|Name     |     Identifier for the federated credential.    |    `contoso-deploy`     |
+
+For a more detailed overview, see [Configure an app to trust a GitHub repo](/azure/active-directory/develop/workload-identity-federation-create-trust-github).
+# [Azure CLI](#tab/azure-cli)
+
+Run the following command to [create a new federated identity credential](/graph/api/application-post-federatedidentitycredentials?view=graph-rest-beta&preserve-view=true) for your Azure Active Directory application.
+
+* Replace `APPLICATION-OBJECT-ID` with the **objectId (generated while creating app)** for your Azure Active Directory application.
+* Set a value for `CREDENTIAL-NAME` to reference later.
+* Set the `subject`. The value of this is defined by GitHub depending on your workflow:
+  * Jobs in your GitHub Actions environment: `repo:< Organization/Repository >:environment:< Name >`
+  * For Jobs not tied to an environment, include the ref path for branch/tag based on the ref path used for triggering the workflow: `repo:< Organization/Repository >:ref:< ref path>`.  For example, `repo:n-username/ node_express:ref:refs/heads/my-branch` or `repo:n-username/ node_express:ref:refs/tags/my-tag`.
+  * For workflows triggered by a pull request event: `repo:< Organization/Repository >:pull_request`.
+
+```azurecli
+az rest --method POST --uri 'https://graph.microsoft.com/beta/applications/<APPLICATION-OBJECT-ID>/federatedIdentityCredentials' --body '{"name":"<CREDENTIAL-NAME>","issuer":"https://token.actions.githubusercontent.com","subject":"repo:organization/repository:environment:Production","description":"Testing","audiences":["api://AzureADTokenExchange"]}' 
+```
+
+For a more detailed overview, see [Configure an app to trust a GitHub repo](/azure/active-directory/develop/workload-identity-federation-create-trust-github).
+
+---
+### Create GitHub secrets
+
+You need to provide your application's **Client ID**, **Tenant ID** and **Subscription ID** to the login action. These values can either be provided directly in the workflow or can be stored in GitHub secrets and referenced in your workflow. Saving the values as GitHub secrets is the more secure option.
+
+1. Open your GitHub repository and go to **Settings**.
+
+    :::image type="content" source="media/github-repo-settings.png" alt-text="Select Settings in the navigation":::
+
+1. Select **Secrets** and then **New Secret**.
+
+    :::image type="content" source="media/select-secrets.png" alt-text="Choose to add a secret":::
+
+1. Create secrets for `AZURE_CLIENT_ID`, `AZURE_TENANT_ID`, and `AZURE_SUBSCRIPTION_ID`. Use these values from your Azure Active Directory application for your GitHub secrets:
+
+    |GitHub Secret  | Azure Active Directory Application  |
+    |---------|---------|
+    |AZURE_CLIENT_ID     |      Application (client) ID   |
+    |AZURE_TENANT_ID     |     Directory (tenant) ID    |
+    |AZURE_SUBSCRIPTION_ID     |     Subscription ID    |
+
+1. Save each secret by selecting **Add secret**.
+
+### Set up Azure Login with OpenID Connect authentication
+
+Your GitHub Actions workflow uses OpenID Connect to authenticate with Azure.
+To learn more about this interaction, see the [GitHub Actions documentation](https://docs.github.com/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-azure).
+
+In this example, you'll use OpenID Connect Azure CLI to authenticate with Azure with the [Azure login](https://github.com/marketplace/actions/azure-login) action. The example uses GitHub secrets for the `client-id`, `tenant-id`, and `subscription-id` values. You can also pass these values directly in the login action.
+
+The Azure login action includes an optional `audience` input parameter that defaults to `api://AzureADTokenExchange`. You can update this parameter for custom audience values.
+
+# [Linux](#tab/linux)
+
+This workflow authenticates with OpenID Connect and uses Azure CLI to get the details of the connected subscription and list resource group.
+
+```yaml
+name: Run Azure Login with OpenID Connect
+on: [push]
+
+permissions:
+      id-token: write
+      contents: read
+      
+jobs: 
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - name: 'Az CLI login'
+      uses: azure/login@v1
+      with:
+          client-id: ${{ secrets.AZURE_CLIENT_ID }}
+          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+  
+    - name: 'Run Azure CLI commands'
+      run: |
+          az account show
+          az group list
+          pwd 
+```
+
+# [Windows](#tab/windows)
+
+This workflow authenticates with OpenID Connect and uses PowerShell to output a list of resource groups tied to the connected Azure subscription.
+
+```yaml
+name: Run Azure Login with OpenID Connect and PowerShell
+on: [push]
+
+permissions:
+      id-token: write
+      contents: read
+      
+jobs: 
+  Windows-latest:
+      runs-on: windows-latest
+      steps:
+        - name: OIDC Login to Azure Public Cloud with AzPowershell (enableAzPSSession true)
+          uses: azure/login@v1
+          with:
+            client-id: ${{ secrets.AZURE_CLIENT_ID }}
+            tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+            subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }} 
+            enable-AzPSSession: true
+
+        - name: 'Get resource group with PowerShell action'
+          uses: azure/powershell@v1
+          with:
+             inlineScript: |
+               Get-AzResourceGroup
+             azPSVersion: "latest"
+```
+
+---
+
+### Verify successful Azure Login with OpenID 
+
+Open the `Az CLI login` action and verify that it ran successfully. You should see the message `Login successful`. If your login is unsuccessful, you'll see the message `Az CLI Login failed.`.
+
+:::image type="content" source="media/github-actions-successful-login.png" alt-text="GitHub Actions Azure Login successful.":::
+ 
+## Use the Azure login action with a service principal secret
+
+To use [Azure login](https://github.com/marketplace/actions/azure-login) with a service principal, you first need to add your Azure service principal as a secret to your GitHub repository.
+
+### Create a service principal and add it as a GitHub secret
 
 In this example, you will create a secret named `AZURE_CREDENTIALS` that you can use to authenticate with Azure.  
 
-1. If you do not have an existing application, register a [new Active Directory application](/azure/active-directory/develop/howto-create-service-principal-portal#register-an-application-with-azure-ad-and-create-a-service-principal&preserve-view=true) to use with your service principal.
+1. Open [Azure Cloud Shell](/azure/cloud-shell/overview) in the Azure portal or [Azure CLI](/cli/azure/install-azure-cli) locally.
 
-    ```azurecli-interactive
-        appName="myApp"
+    > [!NOTE]
+    > If you are using Azure Stack Hub, you'll need to set your SQL Management endpoint to `not supported`.
+    > `az cloud update -n {environmentName} --endpoint-sql-management https://notsupported`
 
-        az ad app create \
-        --display-name $appName \
-        --homepage "http://localhost/$appName" \
-        --identifier-uris http://localhost/$appName
-    ```
-
-1. [Create a new service principal](/cli/azure/create-an-azure-service-principal-azure-cli) in the Azure portal for your app. 
+1. [Create a new service principal](/cli/azure/create-an-azure-service-principal-azure-cli) in the Azure portal for your app. The service principal must be assigned the Contributor role.
 
     ```azurecli-interactive
         az ad sp create-for-rbac --name "myApp" --role contributor \
                                     --scopes /subscriptions/{subscription-id}/resourceGroups/{resource-group} \
                                     --sdk-auth
     ```
-
+    
 1. Copy the JSON object for your service principal.
 
     ```json
@@ -71,11 +260,11 @@ In this example, you will create a secret named `AZURE_CREDENTIALS` that you can
 
 1. Save by selecting **Add secret**.
 
-## Use the Azure login action
+### Use the Azure login action
 
 Use the service principal secret with the [Azure Login action](https://github.com/Azure/login) to authenticate to Azure.
 
-In this workflow, you authenticate using the Azure login action with the service principal details stored in `secrets.AZURE_CREDENTIALS`. Then, you run an Azure CLI action. For more information about referencing GitHub secrets in a workflow file, see [Using encrypted secrets in a workflow](https://docs.github.com/en/free-pro-team@latest/actions/reference/encrypted-secrets#using-encrypted-secrets-in-a-workflow) in GitHub Docs.
+In this workflow, you authenticate using the Azure login action with the service principal details stored in `secrets.AZURE_CREDENTIALS`. Then, you run an Azure CLI action. For more information about referencing GitHub secrets in a workflow file, see [Using encrypted secrets in a workflow](https://docs.github.com/en/actions/reference/encrypted-secrets#using-encrypted-secrets-in-a-workflow) in GitHub Docs.
 
 Once you have a working Azure login step, you can use the [Azure PowerShell](https://github.com/Azure/PowerShell) or [Azure CLI](https://github.com/Azure/CLI) actions. You can also use other Azure actions, like [Azure webapp deploy](https://github.com/Azure/webapps-deploy) and [Azure functions](https://github.com/Azure/functions-action).
 
@@ -94,7 +283,7 @@ jobs:
           creds: '${{ secrets.AZURE_CREDENTIALS }}'
 ```
 
-## Use the Azure PowerShell action
+### Use the Azure PowerShell action
 
 In this example, you log in with the [Azure Login action](https://github.com/Azure/login) and then retrieve a resource group with the [Azure PowerShell action](https://github.com/azure/powershell).
 
@@ -119,7 +308,7 @@ jobs:
           azPSVersion: 3.1.0
 ```
 
-## Use the Azure CLI action
+### Use the Azure CLI action
 
 In this example, you log in with the [Azure Login action](https://github.com/Azure/login) and then retrieve a resource group with the [Azure CLI action](https://github.com/Azure/CLI).
 
@@ -148,21 +337,40 @@ build-and-deploy:
             az storage -h
 ```
 
+### Connect to Azure Government and Azure Stack Hub clouds
+
+To log in to one of the Azure Government clouds, set the optional parameter environment with supported cloud names `AzureUSGovernment` or `AzureChinaCloud`. If this parameter is not specified, it takes the default value `AzureCloud` and connects to the Azure Public Cloud.
+
+```yaml
+   - name: Login to Azure US Gov Cloud with CLI
+     uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_US_GOV_CREDENTIALS }}
+          environment: 'AzureUSGovernment'
+          enable-AzPSSession: false
+   - name: Login to Azure US Gov Cloud with Az Powershell
+      uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_US_GOV_CREDENTIALS }}
+          environment: 'AzureUSGovernment'
+          enable-AzPSSession: true
+```
+
 ## Connect with other Azure services
 
 The following articles provide details on connecting to GitHub from Azure and other services.  
 
 ### Azure Active Directory 
 
-- [Sign in to GitHub Enterprise with Azure AD (single sign-on)](/azure/active-directory/saas-apps/github-tutorial)   
+- [Sign in to GitHub Enterprise with Azure AD (single sign-on)](/azure/active-directory/saas-apps/github-tutorial)
 
 ### Power BI
 
-- [Connect Power BI with GitHub](/power-bi/service-connect-to-github)   
+- [Connect Power BI with GitHub](/power-bi/service-connect-to-github)
 
 ### Connectors
 
-- [GitHub connector for Azure Logic Apps, Power Automate and Power Apps](/connectors/github/)   
+- [GitHub connector for Azure Logic Apps, Power Automate and Power Apps](/connectors/github/)
 
 ### Azure Databricks
 

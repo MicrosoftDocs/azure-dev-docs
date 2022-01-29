@@ -1,14 +1,17 @@
 ---
 title: Clean up resources after deploying a Node.js app to Azure using the Azure CLI
 description: Tutorial part 7, Azure CLI clean up resources
-ms.topic: tutorial
-ms.date: 09/24/2019
+ms.topic: how-to
+ms.date: 08/16/2021
 ms.custom: devx-track-js, devx-track-azurecli
+# Verified full run: diberry 08/16/2021
 ---
 
-# Part 7: Clean up resources
+# Part 6: Clean up resources
 
-[Previous step: Make changes and redeploy](tutorial-vscode-azure-cli-node-05.md)
+Remove Azure resources from your subscription. 
+
+## Remove resource group with Azure CLI
 
 The App Service you created includes a backing App Service Plan that can incur costs. To clean up the resources, run the following command at a terminal or command prompt:
 
@@ -16,7 +19,6 @@ The App Service you created includes a backing App Service Plan that can incur c
 az group delete --name myResourceGroup
 ```
 
-You can also visit the [Azure portal](https://portal.azure.com), select **Resource groups** from the left-side navigation pane, select the resource group that was created in the process of this tutorial, and then use the **Delete resource group** command.
+## Next steps
 
-> [!div class="nextstepaction"]
-> [I'm done](../../how-to/deploy-web-app.md) [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=node-deployment&step=clean-up-resources)
+* [Deploy container to Azure App Service](../tutorial-vscode-docker-node/tutorial-vscode-docker-node-01.md)

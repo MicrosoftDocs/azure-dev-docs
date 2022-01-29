@@ -35,9 +35,9 @@ landingContent:
       - linkListType: video
         links:
           - text: Build an entire mobile app with Azure
-            url: https://channel9.msdn.com/Shows/Partly-Cloudy
+            url: /Shows/Partly-Cloudy
           - text: Build a custom mobile backend for your app
-            url: https://channel9.msdn.com/events/dotnetConf/Focus-on-Xamarin/Stitching-Together-a-Mobile-Backend-for-Your-App
+            url: /events/dotnetConf/Focus-on-Xamarin/Stitching-Together-a-Mobile-Backend-for-Your-App
 
   # Card (optional)
   - title: Call web services
@@ -64,12 +64,12 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
+          - text: Work with offline data using Azure Mobile Apps
+            url: azure-mobile-apps/overview.md
           - text: Store, sync, and query mobile application data from the cloud
             url: data-storage.md      
           - text: Cloud storage for highly secure, durable, scalable apps with Azure Storage   
-            url: azure-storage.md
-          - text: Content delivery with Azure Content Delivery Network
-            url: azure-content-delivery-network.md
+            url: azure-storage.md          
       - linkListType: quickstart
         links:
           - text: Save data with Azure Cosmos DB
@@ -129,7 +129,7 @@ landingContent:
           - text: Automate the lifecycle of your apps with continuous build and integration
             url: continuous-integration.md
           - text: Key concepts for new Azure Pipelines users
-            url: /azure/devops/pipelines/get-started/key-pipelines-concepts?view=azure-devops
+            url: /azure/devops/pipelines/get-started/key-pipelines-concepts
       - linkListType: overview
         links:
           - text: Release a build with App Center

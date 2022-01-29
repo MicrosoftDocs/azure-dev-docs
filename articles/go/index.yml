@@ -1,38 +1,38 @@
 ### YamlMime:Landing
 
-title: Azure SDK for Go documentation
-summary: |
-  Learn about how to use the Azure SDK for Go, what features the SDK provides, and development tools that make
-  it easy to use Azure with Go.
+title: Azure for Go developers
+summary: Learn to use the Azure SDK for Go, browse API references, sample code, tutorials, quickstarts, conceptual articles and more.
 metadata:
   title: Azure for Go developers
-  description: Get started developing with the Azure SDK for Go using the developer resources below.
-  author: sptramer
-  ms.author: sttramer
-  ms.date: 09/09/2019
+  description: Get started developing with the Azure SDK for Go.
+  author: TomArcherMsft
+  ms.author: tarcher
+  ms.date: 08/04/2021
   ms.topic: landing-page
+  ms.service: azure
   ms.collection: collection
   ms.devlang: golang
+  ms.custom: devx-track-go
 
 landingContent:
-  - title: Get started with the Azure SDK for Go
+  - title: Get started
     linkLists:
+      - linkListType: overview
+        links:
+          - text: Take your first steps with Go
+            url: /learn/paths/go-first-steps
+          - text: What is the Azure SDK for Go?
+            url: overview.md
+          - text: Configure your development environment
+            url: configure-visual-studio-code.md
       - linkListType: download
         links:
           - text: Install the Azure SDK for Go
-            url: azure-sdk-install.md
-          - text: Developer tools
-            url: azure-sdk-tools.md
-      - linkListType: how-to-guide
-        links:
-          - text: Authenticate your application
-            url: azure-sdk-authorization.md
-  - title: Azure SDK for Go examples
+            url: https://pkg.go.dev/github.com/Azure/azure-sdk-for-go
+  - title: Data
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Deploy a Virtual Machine from a template
-            url: azure-sdk-qs-vm.md
           - text: Use Blob Storage with Go
             url: /azure/storage/blobs/storage-quickstart-blobs-go?toc=/azure/develoer/go/toc.json&bc=/azure/developer/breadcrumb/toc.json
           - text: Connect to an Azure Database for PostgreSQL
@@ -41,11 +41,33 @@ landingContent:
             url: /azure/mysql/connect-go?toc=/azure/developer/go/toc.json&bc=/azure/developer/breadcrumb/toc.json
           - text: Query an Azure SQL database
             url: /azure/sql-database/sql-database-connect-query-go?toc=/azure/developer/go/toc.json&bc=/azure/developer/breadcrumb/toc.json
-  - title: Azure SDK for Go reference
+  - title: Virtual Machines
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Authenticate with a managed identity
+            url: azure-sdk-authentication-managed-identity.md
+  - title: Serverless
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Create a Go serverless function in Azure
+            url: /azure/azure-functions/create-first-function-vs-code-other
+  - title: Containers
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Build and containerize a Go app
+            url: https://github.com/azure-samples/azure-go-labs/blob/master/1-app-hello-echo/README.md
+          - text: Azure Container Apps
+            url: /azure/container-apps
+  - title: Open source
     linkLists:
       - linkListType: reference
         links:
-          - text: Azure SDK for Go code samples
-            url: https://github.com/azure-samples/azure-sdk-for-go-samples
-          - text: Azure SDK for Go API reference
-            url: https://godoc.org/github.com/Azure/azure-sdk-for-go
+          - text: Dapr (Distributed Application Runtime)
+            url: https://github.com/dapr/dapr
+          - text: KEDA (Kubernetes Event Driven Autoscaler)
+            url: https://github.com/kedacore/keda
+          - text: KEDA HTTP Add-on
+            url: https://github.com/kedacore/http-add-on

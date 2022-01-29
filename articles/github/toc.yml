@@ -14,8 +14,12 @@
       href: database-actions-deploy.md
     - name: Use variable substitution
       href: github-variable-substitution.md
+    - name: Use Key Vault secrets
+      href: github-key-vault.md
     - name: Manage Azure Policy
       href: manage-azure-policy.md
+    - name: Build custom virtual machine images
+      href: build-vm-image.md
   - name: Azure DevOps & GitHub 
     href: integrate-azure-devops.md
   - name: Visual Studio and Visual Studio Code  

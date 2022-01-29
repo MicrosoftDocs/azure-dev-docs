@@ -1,9 +1,8 @@
 ---
- author: tomarchermsft
- ms.service: ansible
- ms.topic: include
- ms.date: 09/15/2020
- ms.author: tarcher
+ms.author: tarcher
+ms.topic: include
+ms.date: 01/04/2022
+ms.custom: devx-track-ansible
 ---
 
 #### [Ansible](#tab/ansible)
@@ -29,9 +28,9 @@
     ansible-playbook delete_rg.yml --extra-vars "name=<resource_group>"
     ```
 
-    **Notes**:
+    **Key points**:
 
-    - Due to the `register` variable and `debug` section of the playbook, the results display when the command finishes.
+    - Because of the `register` variable and `debug` section of the playbook, the results display when the command finishes.
     
 #### [Azure CLI](#tab/azure-cli)
 

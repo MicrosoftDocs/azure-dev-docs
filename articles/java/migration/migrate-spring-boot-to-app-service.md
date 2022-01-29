@@ -1,11 +1,11 @@
 ---
 title: Migrate Spring Boot applications to Azure App Service
 description: This guide describes what you should be aware of when you want to migrate an existing Spring Boot to Azure App Service.
-author: yevster
-ms.author: yebronsh
+ms.author: karler
 ms.topic: conceptual
 ms.date: 01/22/2019
 ms.custom: devx-track-java
+recommendations: false
 ---
 
 # Migrate Spring Boot applications to Azure App Service
@@ -83,7 +83,7 @@ App Service supports only a single HTTP endpoint on a single port. If your appli
 
 ### Parameterize the configuration
 
-Ensure that all external resource coordinates (such as database connection strings) and other customizable settings can be read from environment variables. If you're migrating a Spring Boot Application, all configuration settings should already be externalizable. For more information, see [Externalized Configuration](https://docs.spring.io/spring-boot/docs/current/reference/html/spring-boot-features.html#boot-features-external-config) in the Spring Boot documentation.
+Ensure that all external resource coordinates (such as database connection strings) and other customizable settings can be read from environment variables. If you're migrating a Spring Boot Application, all configuration settings should already be externalizable. For more information, see [Externalized Configuration](https://docs.spring.io/spring-boot/docs/current/reference/html/features.html#features.external-config) in the Spring Boot documentation.
 
 Here's an example that references a `SERVICEBUS_CONNECTION_STRING` environment variable from an *application.properties* file:
 
@@ -115,7 +115,7 @@ If your application is built from a Maven POM file, use the Webapp plugin for Ma
 If you can't use the Maven plugin, you'll need to provision the Web App through other mechanisms, such as:
 
 * [Azure portal](https://portal.azure.com/#create/Microsoft.WebSite)
-* [Azure CLI](/cli/azure/webapp#az-webapp-create)
+* [Azure CLI](/cli/azure/webapp#az_webapp_create)
 * [Azure PowerShell](/powershell/module/az.websites/new-azwebapp)
 
 Once the Web App has been created, use one of the [available deployment mechanisms](/azure/app-service/deploy-ftp) to deploy your application. If possible, your application should be uploaded to */home/site/wwwroot/app.jar*. If you don't wish to rename your JAR to *app.jar*, you can upload a shell script with the command to run your JAR. Then paste the full path to this script in the [Startup File](/azure/app-service/containers/app-service-linux-faq#built-in-images) textbox in the Configuration section of the portal. The startup script doesn't run from the directory into which it's placed. Therefore, always use absolute paths to reference files in your startup script (for example: `java -jar /home/myapp/myapp.jar`).

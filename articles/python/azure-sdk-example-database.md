@@ -1,7 +1,7 @@
 ---
 title: Provision an Azure MySQL database using the Azure SDK libraries
 description: Use the management libraries in the Azure SDK libraries for Python to provision an Azure MySQL, PostgresSQL, or MariaDB database.
-ms.date: 10/05/2020
+ms.date: 06/24/2021
 ms.topic: conceptual
 ms.custom: devx-track-python, devx-track-azurecli
 ---
@@ -16,7 +16,7 @@ All the commands in this article work the same in Linux/macOS bash and Windows c
 
 ## 1: Set up your local development environment
 
-If you haven't already, follow all the instructions on [Configure your local Python dev environment for Azure](configure-local-development-environment.md).
+If you haven't already, **follow all the instructions** on [Configure your local Python dev environment for Azure](configure-local-development-environment.md).
 
 Be sure to create a service principal for local development, and create and activate a virtual environment for this project.
 
@@ -24,13 +24,7 @@ Be sure to create a service principal for local development, and create and acti
 
 Create a file named *requirements.txt* with the following contents:
 
-```text
-azure-mgmt-resource==10.2.0
-azure-mgmt-rdbms
-azure-cli-core
-mysql
-mysql-connector
-```
+:::code language="txt" source="~/../python-sdk-docs-examples/db/requirements.txt":::
 
 The specific version requirement for azure-mgmt-resource is to ensure that you use a version compatible with the current version of azure-mgmt-web. These versions are not based on azure.core and therefore use older methods for authentication.
 
@@ -47,103 +41,11 @@ pip install -r requirements.txt
 
 Create a Python file named *provision_db.py* with the following code. The comments explain the details.
 
-```python
-import random, os
-from azure.common.client_factory import get_client_from_cli_profile
-from azure.mgmt.resource import ResourceManagementClient
-
-# For PostgreSQL, use the PostgreSQLManagement class.
-# For MariaDB, use the MariaDBManagement class.
-from azure.mgmt.rdbms.mysql import MySQLManagementClient
-
-from azure.mgmt.rdbms.mysql.models import ServerForCreate, ServerPropertiesForDefaultCreate, ServerVersion
-
-# Constants we need in multiple places: the resource group name and the region
-# in which we provision resources. You can change these values however you want.
-RESOURCE_GROUP_NAME = 'PythonAzureExample-DB-rg'
-LOCATION = "westus"
-
-# Step 1: Provision the resource group.
-resource_client = get_client_from_cli_profile(ResourceManagementClient)
-
-rg_result = resource_client.resource_groups.create_or_update(RESOURCE_GROUP_NAME,
-    { "location": LOCATION })
-
-print(f"Provisioned resource group {rg_result.name}")
-
-# For details on the previous code, see Example: Provision a resource group
-# at https://docs.microsoft.com/azure/developer/python/azure-sdk-example-resource-group
-
-
-# Step 2: Provision the database server
-
-# We use a random number to create a reasonably unique database server name.
-# If you've already provisioned a database and need to re-run the script, set
-# the DB_SERVER_NAME environment variable to that name instead.
-#
-# Also set DB_USER_NAME and DB_USER_PASSWORD variables to avoid using the defaults.
-
-db_server_name = os.environ.get("DB_SERVER_NAME", f"PythonAzureExample-MySQL-{random.randint(1,100000):05}")
-db_admin_name = os.environ.get("DB_ADMIN_NAME", "azureuser")
-db_admin_password = os.environ.get("DB_ADMIN_PASSWORD", "ChangePa$$w0rd24")
-
-# Obtain the management client object
-mysql_client = get_client_from_cli_profile(MySQLManagementClient)
-
-# Provision the server and wait for the result
-poller = mysql_client.servers.create(RESOURCE_GROUP_NAME,
-    db_server_name,
-    ServerForCreate(
-        location=LOCATION,
-        properties=ServerPropertiesForDefaultCreate(
-            administrator_login=db_admin_name,
-            administrator_login_password=db_admin_password,
-            version=ServerVersion.five_full_stop_seven
-        )
-    )
-)
-
-server = poller.result()
-
-print(f"Provisioned MySQL server {server.name}")
-
-# Step 3: Provision a firewall rule to allow the local workstation to connect
-
-RULE_NAME = "allow_ip"
-ip_address = os.environ["PUBLIC_IP_ADDRESS"]
-
-# For the above code, create an environment variable named PUBLIC_IP_ADDRESS that
-# contains your workstation's public IP address as reported by a site like
-# https://whatismyipaddress.com/.
-
-# Provision the rule and wait for completion
-poller = mysql_client.firewall_rules.create_or_update(RESOURCE_GROUP_NAME,
-    db_server_name, RULE_NAME,
-    ip_address,  # Start ip range
-    ip_address   # End ip range
-)
-
-firewall_rule = poller.result()
-
-print(f"Provisioned firewall rule {firewall_rule.name}")
-
-# Step 4: Provision a database on the server
-
-DB_NAME = "example-db1"
-
-poller = mysql_client.databases.create_or_update(RESOURCE_GROUP_NAME,
-    db_server_name, DB_NAME)
-
-db_result = poller.result()
-
-print(f"Provisioned MySQL database {db_result.name} with ID {db_result.id}")
-```
+:::code language="python" source="~/../python-sdk-docs-examples/db/provision_db.py":::
 
 You must create an environment variable named `PUBLIC_IP_ADDRESS` with your workstation's IP address for this sample to run.
 
-This code uses the CLI-based authentication methods (`get_client_from_cli_profile`) because it demonstrates actions that you might otherwise do with the Azure CLI directly. In both cases you're using the same identity for authentication.
-
-To use such code in a production script, you should instead use `DefaultAzureCredential` (recommended) or a service principal based method as describe in [How to authenticate Python apps with Azure services](azure-sdk-authenticate.md).
+[!INCLUDE [cli-auth-note](includes/cli-auth-note.md)]
 
 ### Reference links for classes used in the code
 
@@ -165,58 +67,19 @@ python provision_db.py
 
 ## 5: Insert a record and query the database
 
-Create a file named *use_db.py* with the following code. Note the dependencies on the `DB_SERVER_NAME`, `DB_ADMIN_NAME`, and `DB_ADMIN_PASSWORD` environment variables, which should be populated with the values from the provisioning code.
+1. Create a file named *use_db.py* with the following code. Note the dependencies on the `DB_SERVER_NAME`, `DB_ADMIN_NAME`, and `DB_ADMIN_PASSWORD` environment variables, which should be populated with the values from the provisioning code. This code work only for MySQL; you use different libraries for PostgreSQL and MariaDB.
 
-This code work only for MySQL; you use different libraries for PostgreSQL and MariaDB.
+    :::code language="python" source="~/../python-sdk-docs-examples/db/use_db.py":::
 
-```python
-import os
-import mysql.connector
+    All of this code uses the mysql.connector API. The only Azure-specific part is the full host domain for MySQL server (mysql.database.azure.com).
 
-db_server_name = os.environ["DB_SERVER_NAME"]
-db_admin_name = os.environ.get("DB_ADMIN_NAME", "azureuser")
-db_admin_password = os.environ.get("DB_ADMIN_PASSWORD", "ChangePa$$w0rd24")
+1. Download the certificate needed to communicate over SSL with your Azure Database for MySQL server from https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem and save the certificate file to the same folder as the Python file. (This step is described on [Obtain an SSL Certificate](/azure/mysql/howto-configure-ssl#step-1-obtain-ssl-certificate) in the Azure Database for MySQL documentation.)
 
-DB_NAME = "example-db"
+1. Run the code:
 
-connection = mysql.connector.connect(user=f"{db_admin_name}@{db_server_name}",
-    password=db_admin_password, host=f"{db_server_name}.mysql.database.azure.com", port=3306,
-    database=DB_NAME)
-
-cursor = connection.cursor()
-
-table_name = "ExampleTable1"
-
-sql_create = f"CREATE TABLE {table_name} (name varchar(255), code int)"
-
-cursor.execute(sql_create)
-print(f"Successfully created table {table_name}")
-
-sql_insert = f"INSERT INTO {table_name} (name, code) VALUES ('Azure', 1)"
-insert_data = "('Azure', 1)"
-
-cursor.execute(sql_insert)
-print("Successfully inserted data into table")
-
-sql_select_values= f"SELECT * FROM {table_name}"
-
-cursor.execute(sql_select_values)
-row = cursor.fetchone()
-
-while row:
-    print(str(row[0]) + " " + str(row[1]))
-    row = cursor.fetchone()
-
-connection.commit()
-```
-
-All of this code uses the mysql.connector API. The only Azure-specific part is the full host domain for MySQL server (mysql.database.azure.com).
-
-Then run the code:
-
-```cmd
-python use_db.py
-```
+    ```cmd
+    python use_db.py
+    ```
 
 ## 6: Clean up resources
 
@@ -234,37 +97,11 @@ The following Azure CLI commands complete the same provisioning steps as the Pyt
 
 # [cmd](#tab/cmd)
 
-```azurecli
-az group create -l centralus -n PythonAzureExample-DB-rg
-
-az mysql server create -l westus -g PythonAzureExample-DB-rg -n PythonAzureExample-MySQL-12345 ^
-    -u azureuser -p ChangePa$$w0rd24 --sku-name B_Gen5_1
-
-# Change the IP address to the public IP address of your workstation, that is, the address shown
-# by a site like https://whatismyipaddress.com/. 
-
-az mysql server firewall-rule create -g PythonAzureExample-DB-rg --server PythonAzureExample-MySQL-12345 ^
-    -n allow_ip --start-ip-address 10.11.12.13 --end-ip-address 10.11.12.13
-
-az mysql db create -g PythonAzureExample-DB-rg --server PythonAzureExample-MySQL-12345 -n example-db
-```
+:::code language="azurecli" source="~/../python-sdk-docs-examples/db/provision.cmd":::
 
 # [bash](#tab/bash)
 
-```azurecli
-az group create -l centralus -n PythonAzureExample-DB-rg
-
-az mysql server create -l westus -g PythonAzureExample-DB-rg -n PythonAzureExample-MySQL-12345 \
-    -u azureuser -p ChangePa$$w0rd24 --sku-name B_Gen5_1
-
-# Change the IP address to the public IP address of your workstation, that is, the address shown
-# by a site like https://whatismyipaddress.com/. 
-
-az mysql server firewall-rule create -g PythonAzureExample-DB-rg --server PythonAzureExample-MySQL-12345 \
-    -n allow_ip --start-ip-address 10.11.12.13 --end-ip-address 10.11.12.13
-
-az mysql db create -g PythonAzureExample-DB-rg --server PythonAzureExample-MySQL-12345 -n example-db
-```
+:::code language="azurecli" source="~/../python-sdk-docs-examples/db/provision.sh":::
 
 ---
 
@@ -274,5 +111,7 @@ az mysql db create -g PythonAzureExample-DB-rg --server PythonAzureExample-MySQL
 - [Example: List resource groups in a subscription](azure-sdk-example-list-resource-groups.md)
 - [Example: Provision Azure Storage](azure-sdk-example-storage.md)
 - [Example: Use Azure Storage](azure-sdk-example-storage-use.md)
-- [Example: Provision a virtual machine](azure-sdk-example-virtual-machines.md)
 - [Example: Provision and deploy a web app](azure-sdk-example-web-app.md)
+- [Example: Provision a virtual machine](azure-sdk-example-virtual-machines.md)
+- [Use Azure Managed Disks with virtual machines](azure-sdk-samples-managed-disks.md)
+- [Complete a short survey about the Azure SDK for Python](https://microsoft.qualtrics.com/jfe/form/SV_bNFX0HECjzPWMiG?Q_CHL=docs)

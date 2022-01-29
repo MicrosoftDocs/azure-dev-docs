@@ -1,19 +1,19 @@
 ---
-title: Tutorial - Test Terraform modules in Azure using Terratest
+title: Test Terraform modules in Azure using Terratest
 description: Learn how to use Terratest to test your Terraform modules.
-ms.topic: tutorial
-ms.date: 10/26/2019
+ms.topic: how-to
+ms.date: 08/07/2021
 ms.custom: devx-track-terraform
 ---
 
-# Tutorial: Test Terraform modules in Azure using Terratest
+# Test Terraform modules in Azure using Terratest
 
 > [!NOTE]
-> The sample code in this article does not work with version 0.12 (and greater).
+> The sample code in this article does not work with Terraform version 0.12 (and greater).
 
 You can use Azure Terraform modules to create reusable, composable, and testable components. Terraform modules incorporate encapsulation that's useful in implementing infrastructure as code processes.
 
-It's important to implement quality assurance when you create Terraform modules. Unfortunately, limited documentation is available to explain how to author unit tests and integration tests in Terraform modules. This tutorial introduces a testing infrastructure and best practices that we adopted when we built our [Azure Terraform modules](https://registry.terraform.io/browse?provider=azurerm).
+It's important to implement quality assurance when you create Terraform modules. Unfortunately, limited documentation is available to explain how to author unit tests and integration tests in Terraform modules. This article introduces a testing infrastructure and best practices that we adopted when we built our [Azure Terraform modules](https://registry.terraform.io/browse?provider=azurerm).
 
 We looked at all the most popular testing infrastructures and chose [Terratest](https://github.com/gruntwork-io/terratest) to use for testing our Terraform modules. Terratest is implemented as a Go library. Terratest provides a collection of helper functions and patterns for common infrastructure testing tasks, like making HTTP requests and using SSH to access a specific virtual machine. The following list describes some of the major advantages of using Terratest:
 
@@ -22,22 +22,34 @@ We looked at all the most popular testing infrastructures and chose [Terratest](
 - **Test cases are written in Go** - Many developers who use Terraform are Go developers. If you're a Go developer, you don't have to learn another programming language to use Terratest.
 - **Extensible infrastructure** - You can extend additional functions on top of Terratest, including Azure-specific features.
 
-## Prerequisites
+In this article, you learn how to:
+> [!div class="checklist"]
+
+> * Create a static webpage module
+> * Create a unit test
+> * Create an integration test
+> * Use mage to simplify running Terratest cases
+
+## 1. Configure your environment
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../includes/open-source-devops-prereqs-azure-subscription.md)]
-- **Go programming language**: Terraform test cases are written in [Go](https://golang.org/dl/).
-- **dep**: [dep](https://github.com/golang/dep#installation) is a dependency management tool for Go.
-- **Azure CLI**: The [Azure CLI](/cli/azure/install-azure-cli) is a command-line tool you can use to manage Azure resources. (Terraform supports authenticating to Azure through a service principal or [via the Azure CLI](https://www.terraform.io/docs/providers/azurerm/authenticating_via_azure_cli.html).)
-- **mage**: We use the [mage executable](https://github.com/magefile/mage/releases) to show you how to simplify running Terratest cases. 
 
-## Create a static webpage module
+[!INCLUDE [configure-terraform.md](includes/configure-terraform.md)]
 
-In this tutorial, you create a Terraform module that provisions a static webpage by uploading a single HTML file to an Azure Storage blob. This module gives users from around the world access to the webpage through a URL that the module returns.
+- **Go programming language**: [Install Go](https://golang.org/dl/).
+
+- **dep**: [Install dep](https://github.com/golang/dep#installation), which is a dependency management tool for Go.
+
+- **mage**: [Install mage](https://github.com/magefile/mage/releases) that simplifies running Terratest cases.
+
+## 2. Create a static webpage module
+
+In this article, you create a Terraform module that provisions a static webpage by uploading a single HTML file to an Azure Storage blob. This module gives users from around the world access to the webpage through a URL that the module returns.
 
 > [!NOTE]
 > Create all files that are described in this section under your [GOPATH](https://github.com/golang/go/wiki/SettingGOPATH) location.
 
-First, create a new folder named `staticwebpage` under your GoPath `src` folder. The overall folder structure of this tutorial is shown in the following example. Files marked with an asterisk `(*)` are the primary focus in this section.
+First, create a new folder named `staticwebpage` under your GoPath `src` folder. The overall folder structure of this article is shown in the following example. Files marked with an asterisk `(*)` are the primary focus in this section.
 
 ```
  📁 GoPath/src/staticwebpage
@@ -387,7 +399,8 @@ go test
 
 Integration tests take much longer than unit tests (two minutes for one integration case compared to one minute for five unit cases). But it's your decision whether to use unit tests or integration tests in a scenario. Typically, we prefer to use unit tests for complex logic by using Terraform HCL functions. We usually use integration tests for the end-to-end perspective of a user.
 
-## Use mage to simplify running Terratest cases 
+## 3. Use mage to simplify running Terratest cases 
+
 Running test cases in Azure Cloud Shell requires executing different commands in various directories. To make this process more efficient, we introduce the build system in our project. In this section, we use a Go build system, mage, for the job.
 
 The only thing required by mage is `magefile.go` in your project's root directory (marked with `(+)` in the following example):
@@ -513,9 +526,11 @@ With mage, you could also share the steps by using the Go package system. In tha
 
 **Optional: Set service principal environment variables to run acceptance tests**
  
-Instead of executing `az login` before tests, you can complete Azure authentication by setting the service principal environment variables. Terraform publishes a [list of environment variable names](https://www.terraform.io/docs/providers/azurerm/index.html#testing). (Only the first four of these environment variables are required.) Terraform also publishes detailed instructions that explain how to [obtain the value of these environment variables](https://www.terraform.io/docs/providers/azurerm/authenticating_via_service_principal.html).
+Instead of executing `az login` before tests, you can complete Azure authentication by setting the service principal environment variables. Terraform publishes a [list of environment variable names](https://www.terraform.io/docs/providers/azurerm/index.html#testing). (Only the first four of these environment variables are required.) Terraform also publishes detailed instructions that explain how to [obtain the value of these environment variables](https://docs.w3cub.com/terraform/providers/azurerm/authenticating_via_service_principal.html).
 
-[!INCLUDE [terraform-troubleshooting.md](includes/terraform-troubleshooting.md)]
+## Troubleshoot Terraform on Azure
+
+[Troubleshoot common problems when using Terraform on Azure](troubleshoot.md)
 
 ## Next steps
 

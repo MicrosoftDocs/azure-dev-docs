@@ -1,7 +1,7 @@
 ---
 title: List resource groups and resources using the Azure libraries for Python
 description: Use the resource management library in the Azure SDK for Python to list resource groups and resources in a group.
-ms.date: 10/12/2020
+ms.date: 06/24/2021
 ms.topic: conceptual
 ms.custom: devx-track-python
 ---
@@ -12,14 +12,14 @@ This example demonstrates how to use the Azure SDK management libraries in a Pyt
 
 - List all the resource groups in an Azure subscription.
 - List resources within a specific resource group.
- 
+
 All the commands in this article work the same in Linux/macOS bash and Windows command shells unless noted.
 
 The [Equivalent Azure CLI command](#for-reference-equivalent-azure-cli-commands) is given later in this article.
 
 ## 1: Set up your local development environment
 
-If you haven't already, follow all the instructions on [Configure your local Python dev environment for Azure](configure-local-development-environment.md).
+If you haven't already, **follow all the instructions** on [Configure your local Python dev environment for Azure](configure-local-development-environment.md).
 
 Be sure to create and activate a virtual environment for this project.
 
@@ -27,10 +27,9 @@ Be sure to create and activate a virtual environment for this project.
 
 Create a file named *requirements.txt* with the following contents:
 
-```text
-azure-mgmt-resource
-azure-identity
-```
+:::code language="txt" source="~/../python-sdk-docs-examples/resource_group/requirements.txt":::
+
+Be sure to use these versions of the libraries. Using older versions will result in errors such as "'AzureCliCredential' object object has no attribute 'signed_session'."
 
 In a terminal or command prompt with the virtual environment activated, install the requirements:
 
@@ -44,71 +43,15 @@ pip install -r requirements.txt
 
 Create a Python file named *list_groups.py* with the following code. The comments explain the details:
 
-```python
-# Import the needed credential and management objects from the libraries.
-from azure.identity import AzureCliCredential
-from azure.mgmt.resource import ResourceManagementClient
-import os
-
-# Acquire a credential object using CLI-based authentication.
-credential = AzureCliCredential()
-
-# Retrieve subscription ID from environment variable.
-subscription_id = os.environ["AZURE_SUBSCRIPTION_ID"]
-
-# Obtain the management object for resources.
-resource_client = ResourceManagementClient(credential, subscription_id)
-
-# Retrieve the list of resource groups
-group_list = resource_client.resource_groups.list()
-
-# Show the groups in formatted output
-column_width = 40
-
-print("Resource Group".ljust(column_width) + "Location")
-print("-" * (column_width * 2))
-
-for group in list(group_list):
-    print(f"{group.name:<{column_width}}{group.location}")
-```
+:::code language="python" source="~/../python-sdk-docs-examples/resource_group/list_groups.py":::
 
 ### 3b. List resources within a specific resource group
 
-Create a Python file named *list_resources.py* with the following code. The comments explain the details:
+Create a Python file named *list_resources.py* with the following code. The comments explain the details.
 
-```python
-# Import the needed credential and management objects from the libraries.
-from azure.identity import AzureCliCredential
-from azure.mgmt.resource import ResourceManagementClient
-import os
+By default, the code lists resources in "myResourceGroup". To use a different resource group, set the `RESOURCE_GROUP_NAME` environment variable to the desired group name.
 
-# Acquire a credential object using CLI-based authentication.
-credential = AzureCliCredential()
-
-# Retrieve subscription ID from environment variable.
-subscription_id = os.environ["AZURE_SUBSCRIPTION_ID"]
-
-# Obtain the management object for resources.
-resource_client = ResourceManagementClient(credential, subscription_id)
-
-# Retrieve the list of resources in "myResourceGroup" (change to any name desired).
-# The expand argument includes additional properties in the output.
-resource_list = resource_client.resources.list_by_resource_group(
-    "myResourceGroup",
-    expand = "createdTime,changedTime"
-)
-
-# Show the resources in formatted output
-column_width = 36
-
-print("Resource".ljust(column_width) + "Type".ljust(column_width)
-    + "Create date".ljust(column_width) + "Change date".ljust(column_width))
-print("-" * (column_width * 4))
-
-for resource in list(resource_list):
-    print(f"{resource.name:<{column_width}}{resource.type:<{column_width}}"
-       f"{str(resource.created_time):<{column_width}}{str(resource.changed_time):<{column_width}}")
-```
+:::code language="python" source="~/../python-sdk-docs-examples/resource_group/list_resources.py":::
 
 ### Authentication in the code
 
@@ -144,7 +87,7 @@ az group list
 The following command lists resources within the "myResourceGroup" in the centralus region (the location argument is necessary to identify a specific data center):
 
 ```azurecli
-az resource list --resource group myResourceGroup --location centralus
+az resource list --resource-group myResourceGroup --location centralus
 ```
 
 ## See also
@@ -155,3 +98,5 @@ az resource list --resource group myResourceGroup --location centralus
 - [Example: Provision a web app and deploy code](azure-sdk-example-web-app.md)
 - [Example: Provision and query a database](azure-sdk-example-database.md)
 - [Example: Provision a virtual machine](azure-sdk-example-virtual-machines.md)
+- [Use Azure Managed Disks with virtual machines](azure-sdk-samples-managed-disks.md)
+- [Complete a short survey about the Azure SDK for Python](https://microsoft.qualtrics.com/jfe/form/SV_bNFX0HECjzPWMiG?Q_CHL=docs)

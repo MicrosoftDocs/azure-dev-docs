@@ -6,7 +6,7 @@ summary: Tools, IDEs, and supported JDKs for Java development on Azure.
 metadata:
   title: Java on Azure fundamentals documentation
   description: Tools, IDEs, and supported JDKs for Java development on Azure
-  ms.date: 04/03/2020
+  ms.date: 05/20/2021
   ms.topic: landing-page
 
 landingContent:
@@ -20,12 +20,12 @@ landingContent:
     linkLists:
       - linkListType: get-started
         links:
-          - text: Java Long-Term Support
-            url: java-jdk-long-term-support.md
-          - text: Java JDK Installation
+          - text: Java support
+            url: java-support-on-azure.md
+          - text: Java JDK installation
             url: java-jdk-install.md
           - text: Java Docker images for Azure
-            url: java-jdk-docker-images.md
+            url: /java/openjdk/containers
   - title: IDEs
     linkLists:
       - linkListType: overview
@@ -51,7 +51,7 @@ landingContent:
       - linkListType: overview
         links:
           - text: Configure logging with the Azure SDK for Java
-            url: ../sdk/java-sdk-azure-log.md
+            url: ../sdk/logging-overview.md
           - text: Monitoring and logging using Logz.io
             url: java-get-started-with-logzio.md
   - title: DevOps

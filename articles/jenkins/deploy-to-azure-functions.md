@@ -3,8 +3,8 @@ title: Tutorial - Deploy to Azure Functions using Jenkins
 description: Learn how to deploy to Azure Functions using the Jenkins Azure Functions plug-in
 keywords: jenkins, azure, devops, java, azure functions
 ms.topic: tutorial
-ms.date: 01/11/2021
-ms.custom: devx-track-jenkins,devx-track-cli
+ms.date: 01/27/2022
+ms.custom: devx-track-jenkins, devx-track-azurecli
 ---
 
 # Tutorial: Deploy to Azure Functions using Jenkins
@@ -75,19 +75,19 @@ The following steps explain how to prepare the Jenkins server:
 
 1. Jenkins needs an Azure service principal to authenticate and access Azure resources. Refer to the [Deploy to Azure App Service](./deploy-to-azure-app-service-using-azure-cli.md) for step-by-step instructions.
 
-1. Make sure the [Credentials plugin](https://plugins.jenkins.io/credentials/) is installed.
+1. Make sure the [Credentials plug-in](https://plugins.jenkins.io/credentials/) is installed.
 
     1. From the menu, select **Manage Jenkins**.
 
-    1. Under **System Configuration**, select **Manage Plugins**.
+    1. Under **System Configuration**, select **Manage plug-in**.
 
     1. Select the **Installed** tab.
 
     1. In the **filter** field, enter `credentials`.
     
-    1. Verify that the **Credentials Plugin** is installed. If not, you'll need to install it from the **Available** tab.
+    1. Verify that the **Credentials plug-in** is installed. If not, you'll need to install it from the **Available** tab.
 
-    ![The Credentials Plugin needs to be installed.](./media/deploy-to-azure-functions/credentials-plugin.png)
+    ![The Credentials Plug-in needs to be installed.](./media/deploy-to-azure-functions/credentials-plugin.png)
 
 1. From the menu, select **Manage Jenkins**.
 
@@ -99,10 +99,10 @@ The following steps explain how to prepare the Jenkins server:
 
 1. Enter the following values for your [Microsoft Azure service principal](/cli/azure/create-an-azure-service-principal-azure-cli?toc=%252fazure%252fazure-resource-manager%252ftoc.json):
 
-    - **Kind**: Verify that the kind is ***Username with password***.
-    - **Username**: ***appId*** of the service principal created.
-    - **Password**: ***password*** of the service principal created.
-    - **ID**: Credential identifier such `as azuresp`.
+    - **Kind**: Select the value: ***Username with password***.
+    - **Username**: Specify the `appId` of the service principal created.
+    - **Password**: Specify the `password` (secret) of the service principal.
+    - **ID**: Specify the credential identifier, such as `azuresp`.
 
 1. Select **OK**.
 

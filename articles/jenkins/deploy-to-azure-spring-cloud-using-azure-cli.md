@@ -3,7 +3,7 @@ title: Deploy apps to Azure Spring Cloud using Jenkins and Azure CLI
 description: Learn how to use Azure CLI in a continuous integration and deployment pipeline to deploy microservices to Azure Spring Cloud service
 keywords: jenkins, azure, devops, azure spring cloud, azure cli
 ms.topic: tutorial
-ms.date: 01/20/2021
+ms.date: 01/28/2022
 ms.custom: devx-track-jenkins,devx-track-azurecli
 ---
 
@@ -105,7 +105,7 @@ Your local machine needs to meet the same prerequisite as the Jenkins build serv
 
 ## Prepare Jenkins server
 
-In this section, you prepare the Jenkins server to run a build, which is fine for testing. However, because of security implication, you should use an [Azure VM agent](https://plugins.jenkins.io/azure-vm-agents) or [Azure Container agent](https://plugins.jenkins.io/azure-container-agents) to spin up an agent in Azure to run your builds. For more information, see the Jenkins article on the [security implications of building on master](https://wiki.jenkins.io/display/JENKINS/Security+implication+of+building+on+master).
+In this section, you prepare the Jenkins server to run a build, which is fine for testing. However, because of security implication, you should use an [Azure VM agent](https://plugins.jenkins.io/azure-vm-agents) or [Azure Container agent](https://plugins.jenkins.io/azure-container-agents) to spin up an agent in Azure to run your builds.
 
 ### Install plug-ins
 
@@ -203,10 +203,10 @@ The sample pipeline uses Maven to build and Azure CLI to deploy to the service i
                az login --service-principal -u $AZURE_CLIENT_ID -p $AZURE_CLIENT_SECRET -t $AZURE_TENANT_ID
                az account set -s $AZURE_SUBSCRIPTION_ID
              '''  
-             // Set default resource group name and service name. Replace <resource group name> 
-             // and <service name> with the right values
-             sh 'az configure --defaults group=<resource group name>'
-             sh 'az configure --defaults spring-cloud=<service name>'
+             // Set default resource group name and service name. Replace <resource group name> and <service name> with the right values
+             sh 'az config set defaults.group=<resource group name>'
+             sh 'az config set defaults.spring-cloud=<service name>'
+
              // Deploy applications
              sh 'az spring-cloud app deploy -n gateway --jar-path ./gateway/target/gateway.jar'
              sh 'az spring-cloud app deploy -n account-service --jar-path ./account-service/target/account-service.jar'

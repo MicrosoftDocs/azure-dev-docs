@@ -9,7 +9,7 @@ metadata:
   description: Get started developing with Python and Azure using Azure Functions, Azure App Service, Azure Machine Learning, Azure Storage, and the Azure SDK for Python.
   author: kraigb
   ms.author: kraigb
-  ms.date: 08/06/2020
+  ms.date: 08/26/2021
   ms.topic: landing-page
   ms.collection: collection
   ms.technology: azure
@@ -23,7 +23,7 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Deploy using Visual Studio Code
-            url: tutorial-vs-code-serverless-python-01.md
+            url: /azure/azure-functions/create-first-function-vs-code-python
           - text: Deploy using the command line
             url: /azure/azure-functions/functions-create-first-azure-function-azure-cli?pivots=programming-language-python
           - text: Connect to storage using Visual Studio Code
@@ -36,16 +36,28 @@ landingContent:
         links:
           - text: Flask using Visual Studio Code
             url: tutorial-deploy-app-service-on-linux-01.md     
-          - text: Flask using the command line
+          - text: Flask using CLI
             url: /azure/app-service/quickstart-python
-          - text: Django + PostgreSQL using the Azure Portal
+          - text: Django + PostgreSQL using Azure Portal
             url: tutorial-python-postgresql-app-portal.md
-          - text: Django + PostgreSQL using the command line
+          - text: Django + PostgreSQL using CLI
             url: /azure/app-service/tutorial-python-postgresql-app
           - text: Containers using Visual Studio Code
             url: tutorial-deploy-containers-01.md
+          - text: Static sites using Azure Storage
+            url: how-to-create-static-sites.md
           - text: CI/CD pipeline
             url: /azure/devops/pipelines/ecosystems/python-webapp          
+  - title: Data and storage
+    linkLists:
+      - linkListType: deploy
+        links: 
+          - text: SQL databases
+            url: quickstarts-data-solutions.md#sql-databases
+          - text: Tables, blobs, files, NoSQL
+            url: quickstarts-data-solutions.md#tables-blobs-files-nosql
+          - text: Big data and analytics
+            url: quickstarts-data-solutions.md#big-data-and-analytics
   - title: Machine learning
     linkLists:      
       - linkListType: how-to-guide
@@ -60,16 +72,6 @@ landingContent:
             url: quickstarts-cognitive-services.md
           - text: More...
             url: quickstarts-machine-learning.md
-  - title: Data and storage
-    linkLists:
-      - linkListType: deploy
-        links: 
-          - text: SQL databases
-            url: quickstarts-data-solutions.md#sql-databases
-          - text: Tables, blobs, files, NoSQL
-            url: quickstarts-data-solutions.md#tables-blobs-files-nosql
-          - text: Big data and analytics
-            url: quickstarts-data-solutions.md#big-data-and-analytics
   - title: Azure libraries (SDK)
     linkLists:
       - linkListType: get-started

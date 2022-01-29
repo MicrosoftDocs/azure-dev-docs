@@ -2,11 +2,10 @@
 title: Deploy a Quarkus Web App to Azure App Service with Maven
 description: Learn how to deploy a Quarkus App to App Service on Linux using the Maven Plugin for Azure Web App.
 services: app-service
-documentationcenter: java
 ms.date: 06/10/2020
 ms.service: app-service
 ms.topic: article
-ms.custom:   
+ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-quarkus
 #Customer intent: As a Java developer, I want to deploy MicroProfile apps to Azure so that I don't have to deal with app server configuration and management.
 ---
 
@@ -19,10 +18,10 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 ## Prerequisites
 
 * The [Azure CLI](/cli/azure/), either locally or through [Azure Cloud Shell](https://shell.azure.com).
-* A supported Java Development Kit (JDK). For more information about the JDKs available for use when developing on Azure, see <https://aka.ms/azure-jdks>.
+* A supported Java Development Kit (JDK). For more information about the JDKs available for use when developing on Azure, see [Java support on Azure and Azure Stack](../fundamentals/java-support-on-azure.md).
 * Apache [Maven](https://maven.apache.org/), version 3.
 
-## Install and sign in to Azure CLI
+## Sign in to Azure CLI
 
 The simplest and easiest way to get the Maven Plugin deploying your Quarkus application is by using [Azure CLI](/cli/azure/).
 
@@ -40,11 +39,11 @@ In this section, you'll create a Quarkus application and test it locally.
 
 ### Create Java SE 8 base Project
 
-1. Open Web Browser and access to the [MicroProfile Starter](https://start.microprofile.io/) site.
+1. Open a web browser and navigate to the [MicroProfile Starter](https://start.microprofile.io/) site.
 
-   ![MicroProfile Starter for Quarkus](./media/quarkus/microprofile-starter-quarkus.png)
+   :::image type="content" source="media/quarkus/microprofile-starter-quarkus.png" alt-text="Screenshot showing MicroProfile Starter with Quarkus runtime selected.":::
 
-2. Input or Select the field like follows.  
+2. Provide the following values for the indicated fields.
 
    |  Field  |  Value  |
    | ---- | ---- |
@@ -55,7 +54,7 @@ In this section, you'll create a Quarkus application and test it locally.
    |  MicroProfile Runtime  |  Quarkus  |
    |  Examples for Specifications  |  Metrics, OpenAPI  |
 
-3. Select the **DOWNLOAD** button to download the project.
+3. Select **DOWNLOAD** to download the project.
 
 4. Unzip the archive file; for example:
 
@@ -65,10 +64,10 @@ In this section, you'll create a Quarkus application and test it locally.
 
 ### Create Java SE 11 base Project
 
-In order to create the Java 11 base project, you can execute with following commands:
+To create the Java 11 base project, use the following command:
 
    ```bash
-   $ mvn io.quarkus:quarkus-maven-plugin:1.8.1.Final:create \
+   mvn io.quarkus:quarkus-maven-plugin:2.6.1.Final:create \
      -DprojectGroupId=com.microsoft.azure.samples.quarkus \
      -DprojectArtifactId=quarkus-hello-azure  \
      -DclassName="com.microsoft.azure.samples.quarkus.App" \
@@ -111,23 +110,23 @@ In this section, you'll configure the Quarkus project *pom.xml* file so that Mav
 
 1. Open the *pom.xml* file in a code editor.
 
-2. In the `<build>` section of the *pom.xml* file, insert the following `<plugin>` entry inside the `<plugins>` tag after `maven-surefire-plugin`s.
+2. In the `<build>` section of the *pom.xml* file, insert the following `<plugin>` entry inside the `<plugins>` tag after `maven-surefire-plugin`.
 
    ```xml
    <plugin>
      <groupId>com.microsoft.azure</groupId>
      <artifactId>azure-webapp-maven-plugin</artifactId>
-       <version>1.10.0</version>
+     <version>2.3.0</version>
    </plugin>
    ```
 
-3. Then you can configure the deployment, run the following maven command in the Command Prompt and use the **number** to choose these options in the prompt:
+3. To configure the deployment, run the following Maven command:
 
    ```bash
    mvn azure-webapp:config
    ```
 
-   Options Parameter:  
+   Select the following options when prompted:
 
    |  Input Field  |  Input/Select Value  |
    | ---- | ---- |
@@ -135,25 +134,23 @@ In this section, you'll configure the Quarkus project *pom.xml* file so that Mav
    |  Define value for javaVersion(Default: Java 8):   | 1. Java 11  |
    |  Confirm (Y/N) | y |
 
-   You can configure with the following command:
+   This command produces output similar to the following example:
 
-   ```bash
-   $ mvn azure-webapp:config
-
+   ```output
    [INFO] Scanning for projects...
-   [INFO] 
+   [INFO]
    [INFO] ------< com.microsoft.azure.samples.quarkus:quarkus-hello-azure >-------
    [INFO] Building quarkus-hello-azure 1.0-SNAPSHOT
    [INFO] --------------------------------[ jar ]---------------------------------
-   [INFO] 
-   [INFO] --- azure-webapp-maven-plugin:1.10.0:config (default-cli) @ quarkus-hello-azure ---
+   [INFO]
+   [INFO] --- azure-webapp-maven-plugin:2.3.0:config (default-cli) @ quarkus-hello-azure ---
 
-   Define value for OS(Default: Linux): 
+   Define value for OS(Default: Linux):
    1. linux [*]
    2. windows
    3. docker
-   Enter index to use: 
-   Define value for javaVersion(Default: Java 8): 
+   Enter index to use:
+   Define value for javaVersion(Default: Java 8):
    1. Java 11
    2. Java 8 [*]
    Enter index to use: 1
@@ -175,14 +172,13 @@ In this section, you'll configure the Quarkus project *pom.xml* file so that Mav
    [INFO] ------------------------------------------------------------------------
    ```
 
-4. Add the `<appSettings>` section to the `<configuration>` section of `PORT`,  `WEBSITES_PORT` and `WEBSITES_CONTAINER_START_TIME_LIMIT`.  
- Finally you can see the following XML entry for `azure-webapp-maven-plugin`.
+4. Add the `<appSettings>` section to the `<configuration>` section of `PORT`, `WEBSITES_PORT`, and `WEBSITES_CONTAINER_START_TIME_LIMIT`. Your XML entry for `azure-webapp-maven-plugin` will look similar to the following example:
 
    ```xml
       <plugin>
-        <groupId>com.microsoft.azure</groupId>  
-        <artifactId>azure-webapp-maven-plugin</artifactId>  
-        <version>1.10.0</version>  
+        <groupId>com.microsoft.azure</groupId>
+        <artifactId>azure-webapp-maven-plugin</artifactId>
+        <version>2.3.0</version>
         <configuration>
           <schemaVersion>V2</schemaVersion>
           <resourceGroup>microprofile</resourceGroup>
@@ -191,8 +187,8 @@ In this section, you'll configure the Quarkus project *pom.xml* file so that Mav
           <region>japaneast</region>
           <runtime>
             <os>linux</os>
-            <javaVersion>java11</javaVersion>
-            <webContainer>java11</webContainer>
+            <javaVersion>java 11</javaVersion>
+            <webContainer>java SE</webContainer>
           </runtime>
           <appSettings>
             <property>
@@ -222,67 +218,67 @@ In this section, you'll configure the Quarkus project *pom.xml* file so that Mav
       </plugin>
    ```
 
-5. Added a following entry to properties file (`src/main/resources/application.properties`) to create the Uber (FAT) jar.
+5. Add the following entry to the *src/main/resources/application.properties* file to create the Uber (FAT) jar.
 
-   `quarkus.package.uber-jar=true`
+   ```properties
+   quarkus.package.uber-jar=true
+   ```
 
 ## Deploy the app to Azure
 
-Once you have configured all of the settings in the preceding sections of this article, you are ready to deploy your web application to Azure. To do so, use the following steps:
+After you've configured all of the settings in the preceding sections of this article, you're ready to deploy your web application to Azure. To do so, use the following steps:
 
-1. From the command prompt or terminal window that you were using earlier, rebuild the JAR file using Maven if you made any changes to the *pom.xml* file; for example:
+1. If you made any changes to the *pom.xml* file, rebuild the JAR file using the following command:
 
    ```bash
    mvn clean package
    ```
 
-2. Deploy your web app to Azure by using Maven; for example:
+2. Deploy your web app to Azure by using the following command:
 
    ```bash
    mvn azure-webapp:deploy
    ```
 
-   If you succeeded the deployment, you can see the following message on console.
+If the deployment succeeds, you'll see the following output:
 
-   ```bash
-   mvn azure-webapp:deploy
+```output
+[INFO] Successfully deployed the artifact to https://quarkus-hello-azure-1591836715762.azurewebsites.net
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  02:20 min
+[INFO] Finished at: 2020-06-11T10:06:51+09:00
+[INFO] ------------------------------------------------------------------------
+```
 
-   [INFO] Successfully deployed the artifact to https://quarkus-hello-azure-1591836715762.azurewebsites.net
-   [INFO] ------------------------------------------------------------------------
-   [INFO] BUILD SUCCESS
-   [INFO] ------------------------------------------------------------------------
-   [INFO] Total time:  02:20 min
-   [INFO] Finished at: 2020-06-11T10:06:51+09:00
-   [INFO] ------------------------------------------------------------------------
-   ```
+Maven will deploy your web application to Azure. If the web application or web application plan doesn't already exist, it will be created for you. It might take a few minutes before the web application is visible at the URL shown in the output. Navigate to the URL in a web browser. You should see the following screen.
 
-   Maven will deploy your web application to Azure; if the web application or web application plan does not already exist, it will be created for you. It might take a few minutes before the web application is visible at the URL shown in the output. Navigate to the URL in a Web browser.  You should see the following screen.
+:::image type="content" source="media/quarkus/quarkus-front-page-11.png" alt-text="Screenshot of web browser showing front page of Quarkus.":::
 
-   ![Front Page for Quarkus](./media/quarkus/quarkus-front-page-11.png)
+When your web application has been deployed, you can manage it through the [Azure portal].
 
-   When your web application has been deployed, you'll be able to manage it through the [Azure portal].
+Your web application will be listed in the **microprofile** resource group, as shown in the following screenshot:
 
-   * Your web application will be listed in **microprofile** resource group:
+:::image type="content" source="media/quarkus/quarkus-azure-portal-rg.png" alt-text="Screenshot of Azure portal showing resource group contents." lightbox="media/quarkus/quarkus-azure-portal-rg.png":::
 
-   ![Web app listed in Azure portal App Services](./media/quarkus/quarkus-azure-portal-rg.png)
+You can access to your web application by selecting **Browse** in the **Overview** page for your web app. Verify that the deployment was successful and is running. You should see the following screen displayed:
 
-   * And you can access to your web application by clicking the `Browse` button in the **Overview** for your web app.  
-   Verify that the deployment was successful and Running. You should see the following screen displayed:
+:::image type="content" source="media/quarkus/quarkus-azure-portal-manage.png" alt-text="Screenshot of Azure portal showing web app overview page." lightbox="media/quarkus/quarkus-azure-portal-manage.png":::
 
-   ![Find the URL for your web app in Azure portal App Services](./media/quarkus/quarkus-azure-portal-manage.png)
-
-## Confirm the Log Stream from Running App Service
+## Confirm the log stream from the running App Service
 
 You can see (or "tail") the logs from the running App Service. Any calls to `console.log` in the site code are displayed in the terminal.
 
-   ```azurecli
-   az webapp log tail -g microprofile -n quarkus-hello-azure-1601011883156
-   ```
+```azurecli
+az webapp log tail 
+    --resource-group microprofile \
+    --name quarkus-hello-azure-1601011883156
+```
 
-   ![Terminal window showing log output.](./media/Quarkus/azure-cli-app-service-log-stream.png)
+:::image type="content" source="media/quarkus/azure-cli-app-service-log-stream.png" alt-text="Screenshot of terminal window showing log stream." lightbox="media/quarkus/azure-cli-app-service-log-stream.png":::
 
-
-## Clean up Resources
+## Clean up resources
 
 When the Azure resources are no longer needed, clean up the resources you deployed by deleting the resource group.
 
@@ -298,7 +294,7 @@ To learn more about MicroProfile and Azure, continue to the MicroProfile on Azur
 > [!div class="nextstepaction"]
 > [MicroProfile on Azure](./index.yml)
 
-### Additional Resources
+### Additional resources
 
 For more information about the various technologies discussed in this article, see the following articles:
 
@@ -320,7 +316,7 @@ For more information about the various technologies discussed in this article, s
 [MSDN subscriber benefits]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/
 [Maven Plugin for Azure Web Apps]: https://github.com/microsoft/azure-maven-plugins/blob/develop/azure-webapp-maven-plugin/README.md
 
-[Java Development Kit (JDK)]: ../fundamentals/java-jdk-long-term-support.md
+[Java Development Kit (JDK)]: ../fundamentals/java-support-on-azure.md
 <!-- http://www.oracle.com/technetwork/java/javase/downloads/ -->
 
 <!-- IMG List -->

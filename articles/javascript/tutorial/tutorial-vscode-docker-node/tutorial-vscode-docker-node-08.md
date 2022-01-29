@@ -1,24 +1,24 @@
 ---
 title: Clean up resources after deploying a containerized Node.js app from Visual Studio Code
 description: Docker Tutorial part 8, clean up resources
-ms.topic: tutorial
-ms.date: 09/20/2019
+ms.topic: how-to
+ms.date: 08/17/2021
 ms.custom: devx-track-js
 ---
 
-# Part 8 Clean up resources
+# 8. Clean up resources
 
-[Previous step: Stream logs](tutorial-vscode-docker-node-07.md)
+Remove the Azure Container registry and the App service by removing the resource group which contains them.
 
-## Delete App service resource and resource group
+## Delete resource group
 
-The App Service you created for the container includes a backing App Service Plan that can incur costs. To clean up the resources, right-click the App Service in the **Azure: App Service** explorer and select **Delete**.
+The App Service you created for the container includes a backing App Service Plan that can incur costs. Use the Visual Studio Code extension, Azure Resource Groups, to delete the resource group and all resources within the group.
 
-You can also visit the [Azure portal](https://portal.azure.com), select **Resource groups** from the left-side navigation pane, select the resource group that was created in the process of this tutorial, and then use the **Delete resource group** command.
+1. Find the resource group name in the list.
+1. Right-click the resource group name and select **Delete**.
 
-### Next steps
+    :::image type="content" source="../../media/visual-studio-code-azure-resources-extension-remove-resource-group.png" alt-text="Use the Visual Studio Code extension, Azure Resource Groups, to delete the resource group and all resources within the group.":::
+
+## Next steps
 
 [!INCLUDE [tutorial-next-steps](../../includes/tutorial-next-steps.md)]
-
-> [!div class="nextstepaction"]
-> [I'm done](../../how-to/deploy-containers.md) [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=node-deployment-docker-extension&step=clean-up-resources)

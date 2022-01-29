@@ -2,7 +2,7 @@
 title: Serverless Node.js code with Azure Functions
 description: Azure Functions provides serverless code infrastructure, allowing you to create responsive, on-demand HTTP endpoints.
 ms.topic: how-to
-ms.date: 10/27/2020
+ms.date: 09/20/2021
 ms.custom: seo-javascript-september2019, seo-javascript-october2019, devx-track-js, contperf-fy21q2
 ---
 
@@ -11,6 +11,8 @@ ms.custom: seo-javascript-september2019, seo-javascript-october2019, devx-track-
 Azure Functions provides serverless code infrastructure, allowing you to create responsive, on-demand HTTP endpoints. Serverless code is composed of JavaScript or TypeScript code that  runs in response to various events. 
 
 Functions run on top of a web service, as code or a Docker container, which is abstracted away so you can focus on the code for your endpoint. Functions also allow you to trigger another function so that a function work stream can replace existing hosted backend server functionality and remove the need to manage that server. 
+
+* [Azure serverless community library of samples](https://serverlesslibrary.net/)
 
 ## What is a Function resource?
 
@@ -27,6 +29,23 @@ The function resource settings include typical serverless configurations includi
 ## Static web apps include functions 
 
 When developing a static front-end client application (such as Angular, React, or Vue), which also need serverless APIs, use [Static Web apps](/azure/static-web-apps/getting-started?tabs=react) with functions to bundle both together. 
+
+### Proxy from client app to the API
+If you intend to deploy your API with your Static web app, you do not need to use the npm `package.json` proxy property in your client application. The proxy will be established for you, including local and remote development.
+
+If you intend to deploy your API separately from its client, you may need to set and use the npm `package.json` proxy property in your client application. The proxy would be required to develop locally between a running client (like a React app) and your Function API. When deploying both to hosting platforms, review the requirements of use service to understand how to accommodate your proxy needs.
+
+## Common security settings you need to configure for your Azure Function
+
+The following common settings should be configured to keep your Azure Function secure:
+
+* Configuration settings
+  * Configuration settings - create Application settings for settings that don't impact security. For any settings that impact security, create an [Azure Key Vault](/azure/key-vault/) and pull in those settings from your Key Vault.
+  * Connection strings - store these in the **Connection strings** setting for your app. These values are encrypted at rest. 
+  * FTP state on Platform settings - by default, all are allowed. You need to select **FTPS only** or disable FTP entirely to improve security. 
+* API CORS - configure your client domains. Do not use `*`, indicating all domains. 
+* TLS/SSL setting for HTTPS - by default, your API accepts HTTP and HTTPS requests. Enable **HTTPS only** in the **TLS/SSL settings**. Because your Function app is hosted on a secure subdomain, you can use it immediately (with `https`) and delay purchasing a domain name, and using a certificate for the domain until you are ready. 
+* Deployment Slots - create a deployment slot, such as `stage` or `preflight` and push to that slot. Swap this stage slot to production when you are ready. Do not get in the habit of manually pushing to production. Your code base should be able to indicate the version or commit that is on a slot. 
 
 ## A simple JavaScript function for HTTP requests
 
@@ -112,9 +131,27 @@ When you [create an Azure function using the Azure portal](https://ms.portal.azu
 
 The portal creates JavaScript functions only, not TypeScript. If you want to develop with TypeScript, either download the function or create the function locally in Visual Studio Code with the Function extension. 
 
+## Low-code or high-code functions
+
+Serverless functions remove much of the server configuration and management so you can focus on just the code you need. 
+
+* Low-code functions: With Azure Functions, you can create functions that are triggered by other Azure services or that output to other Azure service using [trigger bindings](/azure/azure-functions/functions-triggers-bindings). 
+* High-code functions: For more control, use the Azure SDKs to coordinate and control other Azure services.
+
+## Cosmos DB integration
+
+Cosmos DB currently provides the following integration for functions:
+
+|Type|API|Description|
+|--|--|--|
+|API & Binding|SQL|Connect to SQL API with either [Bindings](/azure/azure-functions/functions-add-output-binding-cosmos-db-vs-code?tabs=in-process&pivots=programming-language-javascript) (low code) or [@azure/cosmos SDK](https://www.npmjs.com/package/@azure/cosmos).| 
+|API only|MongoDB|Use any MongoDB npm package with the Cosmos DB connection string provided in the Azure portal for your resource. Common MongoDB packages include [Mongoose](https://www.npmjs.com/package/mongoose) and [MongoDB](https://www.npmjs.com/package/mongodb).|
+
+
+
 ## Next steps
 
-The [Azure Functions developer guide for JavaScript](/azure/azure-functions/functions-reference-node)) in a good starting point. 
+The [Azure Functions developer guide for JavaScript](/azure/azure-functions/functions-reference-node) is a good starting point. 
 
 Use the Microsoft Learn Module to learn how to [enable automatic updates in a web app using Azure functions and SignalR Service](/learn/modules/automatic-update-of-a-webapp-using-azure-functions-and-signalr/).
 

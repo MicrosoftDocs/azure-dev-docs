@@ -1,9 +1,9 @@
 ---
 title: Remove Linux virtual machine resource
 description: Clean up Azure resources by removing the resource group with an Azure CLI command. 
-ms.topic: tutorial
-ms.date: 11/13/2020
-ms.custom: devx-track-js
+ms.topic: how-to
+ms.date: 01/18/2022
+ms.custom: devx-track-js, devx-track-azurecli
 ---
 
 # 7. Clean up resources
@@ -12,7 +12,7 @@ Once you have completed this tutorial, you need to remove the resource group, wh
 
 ## Remove all the resources by removing resource group
 
-In the same terminal, use the [Azure CLI command](/cli/azure/group#az_group_delete) to delete the resource group:
+In the same terminal, use the Azure CLI command, [az group delete](/cli/azure/group#az_group_delete), to delete the resource group:
 
 ```azurecli
 az group delete --name rg-demo-vm-eastus -y
