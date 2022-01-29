@@ -234,10 +234,10 @@ Replace `<resource_group_name>` and `<location>` with your values.
     ```yml
     ---
     - hosts: localhost
-        connection: local
-        tasks:
+      connection: local
+      tasks:
         - name: Creating resource group
-            azure_rm_resourcegroup:
+          azure_rm_resourcegroup:
             name: "<resource_group_name"
             location: "<location>"
     ```
@@ -248,12 +248,12 @@ Replace `<resource_group_name>` and `<location>` with your values.
     - hosts: localhost
       connection: local
       collections:
-       - azure.azcollection
+        - azure.azcollection
       tasks:
-      - name: Creating resource group
+        - name: Creating resource group
           azure_rm_resourcegroup:
-          name: "<resource_group_name"
-          location: "<location>"
+            name: "<resource_group_name"
+            location: "<location>"
     ```
 
     Replace `<resource_group_name>` and `<location>` with your values.
