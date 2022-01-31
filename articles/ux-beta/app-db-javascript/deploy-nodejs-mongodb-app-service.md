@@ -30,7 +30,6 @@ git clone https://github.com/Azure-Samples/msdocs-nodejs-mongodb-azure-sample-ap
 
 Follow these steps to run the application locally:
 
-* Change directories into the `src` folder
 * Install the package dependencies by running `npm install`
 * Copy the `.env.sample` file to `.env` and populate the DATABASE_URL value with your MongoDB URL (for example *mongodb://localhost:27017/*)
 * Start the application using `npm start`
@@ -166,7 +165,9 @@ To deploy your application code directly from VS Code, you must have the [Azure 
 |:----------------|-----------:|
 | [!INCLUDE [Deploy from VS Code 1](<./includes/nodejs-mongodb/deploy-visual-studio-code-1.md>)] | :::image type="content" source="./media/nodejs-mongodb/deploy-visual-studio-code-1-240px.png" alt-text="A screenshot showing the location of the Azure Tool icon in Visual Studio Code." lightbox="./media/nodejs-mongodb/deploy-visual-studio-code-1.png"::: |
 | [!INCLUDE [Deploy from VS Code 2](<./includes/nodejs-mongodb/deploy-visual-studio-code-2.md>)] | :::image type="content" source="./media/nodejs-mongodb/deploy-visual-studio-code-2-240px.png" alt-text="A screenshot showing how you deploy an application to Azure by right-clicking on a web app in VS Code and selecting deploy from the context menu." lightbox="./media/nodejs-mongodb/deploy-visual-studio-code-2.png"::: |
-| [!INCLUDE [Deploy from VS Code 3](<./includes/nodejs-mongodb/deploy-visual-studio-code-3.md>)] | :::image type="content" source="./media/nodejs-mongodb/deploy-visual-studio-code-3-240px.png" alt-text="A screenshot showing the Output window of VS Code while deploying an application to Azure." lightbox="./media/nodejs-mongodb/deploy-visual-studio-code-3.png"::: |
+| [!INCLUDE [Deploy from VS Code 3](<./includes/nodejs-mongodb/deploy-visual-studio-code-3.md>)] | :::image type="content" source="./media/nodejs-mongodb/deploy-visual-studio-code-3-240px.png" alt-text="A screenshot showing the dialog box used to select the deployment directory in VS Code." lightbox="./media/nodejs-mongodb/deploy-visual-studio-code-3.png"::: |
+| [!INCLUDE [Deploy from VS Code 3](<./includes/nodejs-mongodb/deploy-visual-studio-code-4.md>)] | :::image type="content" source="./media/nodejs-mongodb/deploy-visual-studio-code-4-240px.png" alt-text="A screenshot showing the Output window of VS Code while deploying an application to Azure." lightbox="./media/nodejs-mongodb/deploy-visual-studio-code-4.png"::: |
+
 
 ### [Deploy using Local Git](#tab/local-git-deploy)
 
