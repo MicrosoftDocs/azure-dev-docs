@@ -215,7 +215,7 @@
 | @autorest/codemodel | npm [4.17.2](https://www.npmjs.com/package/@autorest/codemodel/v/4.17.2) |  |  |
 | @autorest/common | npm [1.4.1](https://www.npmjs.com/package/@autorest/common/v/1.4.1) |  |  |
 | @autorest/configuration | npm [1.8.2](https://www.npmjs.com/package/@autorest/configuration/v/1.8.2) |  |  |
-| @autorest/csharp | npm [3.0.0-beta.20220127.5](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20220127.5) |  |  |
+| @autorest/csharp | npm [3.0.0-beta.20220128.3](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20220128.3) |  |  |
 | @autorest/csharp-v3 | npm [3.0.0-beta.20201217.1](https://www.npmjs.com/package/@autorest/csharp-v3/v/3.0.0-beta.20201217.1) |  |  |
 | @autorest/extension-base | npm [3.4.4](https://www.npmjs.com/package/@autorest/extension-base/v/3.4.4) |  |  |
 | @autorest/fixer | npm [1.0.0](https://www.npmjs.com/package/@autorest/fixer/v/1.0.0) |  |  |
