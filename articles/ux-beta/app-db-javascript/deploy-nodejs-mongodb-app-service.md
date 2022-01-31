@@ -297,7 +297,7 @@ Follow these steps while signed-in to the Azure portal to delete a resource grou
 
 ### [Azure CLI](#tab/azure-cli)
 
-[Remove resource group CLI](<./includes/nodejs-mongodb/remove-resource-group-cli.md>)]
+[!INCLUDE [Remove resource group CLI](<./includes/nodejs-mongodb/remove-resource-group-cli.md>)]
 
 ---
 
