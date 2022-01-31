@@ -70,7 +70,7 @@ The following code describes and demonstrates these steps by attempting to acces
 
 :::code language="python" source="~/../python-sdk-docs-examples/auth/key_vault_example.py":::
 
-Again, no authentication or authorization takes place until your code makes a specific request to the Azure REST API through a client object. The statement to create the `DefaultAzureCredential` [see the next section) only creates a client-side object in memory, but performs no other checks.
+Again, no authentication or authorization takes place until your code makes a specific request to the Azure REST API through a client object. The statement to create the `DefaultAzureCredential` (see the next section) only creates a client-side object in memory, but performs no other checks.
 
 Creating the SDK [`SecretClient`](/python/api/azure-keyvault-secrets/azure.keyvault.secrets.secretclient) object also involves no communication with the resource in question. The `SecretClient` object is just a wrapper around the underlying Azure REST API and exists only in the app's runtime memory. 
 
