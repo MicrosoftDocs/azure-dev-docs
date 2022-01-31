@@ -70,16 +70,16 @@ To use [Postman](https://www.postman.com/downloads/) to upload your ZIP file to 
 1. Select the **FTPS credentials** tab.
 1. The **Username** and **Password** are shown under the **Application scope** heading.  For zip file deployments, only use the part of the username after the `\` character that starts with a `$`, for example `$msdocs-python-webapp-quickstart-123`. These credentials will be needed when uploading your zip file with Postman.
 
-:::image type="content" source="../../media/quickstart-python/deploy-zip-azure-portal-get-username-600px.png" alt-text="A screenshot showing the location of the deployment credentials in the Azure portal." lightbox="../../media/quickstart-python/deploy-zip-azure-portal-get-username.png":::
+:::image type="content" source="../../media/nodejs-mongodb/deploy-zip-azure-portal-get-username-600px.png" alt-text="A screenshot showing the location of the deployment credentials in the Azure portal." lightbox="../../media/nodejs-mongodb/deploy-zip-azure-portal-get-username.png":::
 
 In Postman, upload your file using the following steps.
 
 | Instructions    | Screenshot |
 |:----------------|-----------:|
-| [!INCLUDE [Postman upload step 1](<./deploy-zip-postman-1.md>)] | :::image type="content" source="../../media/nodejs-mongodb/deploy-zip-postman-1-240px.png" alt-text="A screenshot ." lightbox="../../media/nodejs-mongodb/deploy-zip-postman-1.png"::: |
-| [!INCLUDE [Postman upload step 2](<./deploy-zip-postman-2.md>)] | :::image type="content" source="../../media/nodejs-mongodb/deploy-zip-postman-2-240px.png" alt-text="A screenshot ." lightbox="../../media/nodejs-mongodb/deploy-zip-postman-2.png"::: |
-| [!INCLUDE [Postman upload step 3](<./deploy-zip-postman-3.md>)] | :::image type="content" source="../../media/nodejs-mongodb/deploy-zip-postman-3-240px.png" alt-text="A screenshot ." lightbox="../../media/nodejs-mongodb/deploy-zip-postman-3.png"::: |
-| [!INCLUDE [Postman upload step 4](<./deploy-zip-postman-4.md>)] | :::image type="content" source="../../media/nodejs-mongodb/deploy-zip-postman-4-240px.png" alt-text="A screenshot ." lightbox="../../media/nodejs-mongodb/deploy-zip-postman-4.png"::: |
+| [!INCLUDE [Postman upload step 1](<./deploy-zip-postman-1.md>)] | :::image type="content" source="../../media/nodejs-mongodb/deploy-zip-postman-1-240px.png" alt-text="A screenshot showing how to configure Postman with the HTTP method and deployment endpoint." lightbox="../../media/nodejs-mongodb/deploy-zip-postman-1.png"::: |
+| [!INCLUDE [Postman upload step 2](<./deploy-zip-postman-2.md>)] | :::image type="content" source="../../media/nodejs-mongodb/deploy-zip-postman-2-240px.png" alt-text="A screenshot showing how to enter the deployment credentials in Postman." lightbox="../../media/nodejs-mongodb/deploy-zip-postman-2.png"::: |
+| [!INCLUDE [Postman upload step 3](<./deploy-zip-postman-3.md>)] | :::image type="content" source="../../media/nodejs-mongodb/deploy-zip-postman-3-240px.png" alt-text="A screenshot showing how to set the upload type to binary and select the file to upload in Postman." lightbox="../../media/nodejs-mongodb/deploy-zip-postman-3.png"::: |
+| [!INCLUDE [Postman upload step 4](<./deploy-zip-postman-4.md>)] | :::image type="content" source="../../media/nodejs-mongodb/deploy-zip-postman-4-240px.png" alt-text="A screenshot showing how to send a request to upload the zip file in Postman." lightbox="../../media/nodejs-mongodb/deploy-zip-postman-4.png"::: |
 
 Depending on your network bandwidth, files usually take between 10 and 30 seconds to upload to Azure.
 
