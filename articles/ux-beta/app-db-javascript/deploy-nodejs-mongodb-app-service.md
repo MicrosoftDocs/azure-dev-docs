@@ -83,49 +83,7 @@ To create Azure resources in VS Code, you must have the [Azure Tools extension p
 
 ### [Azure CLI](#tab/azure-cli)
 
-Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com) or on a workstation with the [Azure CLI installed](/cli/azure/install-azure-cli). You can view or the [complete Azure CLI script for creating Azure resources](https://github.com/Azure-Samples/msdocs-nodejs-mongodb-azure-sample-app/blob/main/scripts/create-nodejs-mongodb-resources.sh) in the GitHub repository for this tutorial.
-
-First, create a resource group to act as a container for all of the Azure resources related to this application.
-
-```azurecli
-LOCATION='eastus'                          # Use 'az account list-locations --output table' to list locations
-RESOURCE_GROUP_NAME='msdocs-expressjs-mondgodb-tutorial'
-
-# Create a resource group
-az group create \
-    --location $LOCATION \
-    --name $RESOURCE_GROUP_NAME
-```
-
-Next, create an App Service plan using the [az appservice plan create](/cli/azure/appservice/plan#az_appservice_plan_create) command.
-
-* The `--sku` parameter defines the size (CPU, memory) and cost of the app service plan.  This example uses the F1 (Free) service plan.  For a full list of App Service plans, view the [App Service pricing](https://azure.microsoft.com/pricing/details/app-service/windows/) page.
-* The `--is-linux` flag selects the Linux as the host operating system.  To use Windows, remove this flag from the command.
-
-```azurecli
-APP_SERVICE_PLAN_NAME='msdocs-expressjs-mongodb-plan'    
-
-az appservice plan create \
-    --name $APP_SERVICE_PLAN_NAME \
-    --resource-group $RESOURCE_GROUP_NAME \
-    --sku B1 \
-    --is-linux
-```
-
-Finally, create the App Service web app using the [az webapp create](/cli/azure/webapp#az_webapp_create) command.  
-
-* The *app service name* is used as both the name of the resource in Azure and to form the fully qualified domain name for your app in the form of `https://<app service name>.azurewebsites.com`.
-* The runtime specifies what version of Node your app is running. This example uses Node 14 LTS. To list all available runtimes, use the command `az webapp list-runtimes --linux --output table` for Linux and `az webapp list-runtimes --output table` for Windows.
-
-```azurecli
-APP_SERVICE_NAME='msdocs-expressjs-mongodb-123'     # Change 123 to any three characters to form a unique name across Azure
-
-az webapp create \
-    --name $APP_SERVICE_NAME \
-    --runtime 'NODE|14-lts'
-    --plan $APP_SERVICE_PLAN_NAME
-    --resource-group $RESOURCE_GROUP_NAME 
-```
+[!INCLUDE [Create CLI](<./includes/nodejs-mongodb/create-app-service-cli.md>)]
 
 ---
 
@@ -158,21 +116,7 @@ You must be signed in to the [Azure portal](https://portal.azure.com/) to comple
 
 ### [Azure CLI](#tab/azure-cli)
 
-A new Azure Cosmos DB account is created by using the [az cosmosdb create](/cli/azure/cosmosdb#az-cosmosdb-create) command.
-
-* The name of the Cosmos DB account must be unique across Azure. The name can only contain lowercase letters, numbers, and the hyphen (-) character and must be between 3 and 50 characters long.
-* The `--kind MongoDB` flag tells Azure to create a Cosmos DB that is compatible with the MongoDB API.  This flag must be included for your Cosmos DB to work as a MongoDB database.
-
-```azurecli
-COSMOS_DB_NAME='msdocs-expressjs-mongodb-database-123'   # Replace 123 with any three characters to form a unique name
-
-az cosmosdb create \
-    --name $COSMOS_DB_NAME \
-    --resource-group $RESOURCE_GROUP_NAME \
-    --kind MongoDB
-```
-
-Creating a new Azure Cosmos DB typically takes about 5 minutes.
+[!INCLUDE [Create Cosmos DB using CLI](<./includes/nodejs-mongodb/create-cosmos-db-cli.md>)]
 
 ---
 
@@ -203,36 +147,7 @@ When running in Azure, configuration values like connection strings can be store
 
 ### [Azure CLI](#tab/azure-cli)
 
-To get the connection string for a Cosmos DB database, use the [az cosmos keys list](/cli/azure/cosmosdb/keys) command.
-
-```azurecli
-az cosmosdb keys list \
-    --type connection-strings \
-    --resource-group $RESOURCE_GROUP_NAME \
-    --name $COSMOS_DB_NAME \
-    --query "connectionStrings[?description=='Primary MongoDB Connection String'].connectionString" \
-    --output tsv
-```
-
-Rather then copying and pasting the value, the connection string can be stored in a variable to make the next step easier.
-
-```azurecli
-COSMOS_DB_CONNECTION_STRING=`az cosmosdb keys list \
-    --type connection-strings \
-    --resource-group $RESOURCE_GROUP_NAME \
-    --name $COSMOS_DB_NAME \
-    --query "connectionStrings[?description=='Primary MongoDB Connection String'].connectionString" \
-    --output tsv`
-```
-
-The [az webapp config appsettings](/cli/azure/webapp/config/appsettings) command is used to set application setting values for an App Service web app.  One or more key-value pairs are set using the `--settings` parameter. To set the `DATABASE_URL` value to the connection string for your web app, use the following command.
-
-```azurecli
-az webapp config appsettings set \
-    --name $APP_SERVICE_NAME \
-    --resource-group $RESOURCE_GROUP_NAME \
-    --settings DATABASE_URL=$COSMOS_DB_CONNECTION_STRING
-```
+[!INCLUDE [Connection string using CLI](<./includes/nodejs-mongodb/connection-string-cli.md>)]
 
 ---
 

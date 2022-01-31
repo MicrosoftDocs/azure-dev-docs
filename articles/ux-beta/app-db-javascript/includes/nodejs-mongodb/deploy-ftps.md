@@ -1,3 +1,9 @@
+---
+author: DavidCBerry13
+ms.author: daberry
+ms.topic: include
+ms.date: 01/30/2022
+---
 You can deploy your application code to Azure using FTPS (FTP over SSL). Unlike other forms of deployment, FTPS does not offer any form of build automation.  This means When deploying using FTPS, you are responsible for deploying all assets such as source code files, node modules and any other assets your application needs to run.
 
 No configuration is necessary to enable FTPS. The FTPS endpoint for your app is already active. You do need to obtain the FTPS endpoint and FTPS credentials to use which can be done from the Azure portal or the Azure CLI.
