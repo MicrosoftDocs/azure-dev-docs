@@ -30,7 +30,7 @@ az cosmosdb keys list `
 
 ---
 
-Rather then copying and pasting the value, the connection string can be stored in a variable to make the next step easier.
+Rather than copying and pasting the value, the connection string can be stored in a variable to make the next step easier.
 
 #### [bash](#tab/terminal-bash)
 
