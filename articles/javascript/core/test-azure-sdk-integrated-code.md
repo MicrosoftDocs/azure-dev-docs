@@ -10,19 +10,19 @@ ms.custom: devx-track-js
 
 When developing applications integrated with Azure SDKs, consider how much integration your code base has with the Azure SDKs. 
 
-## Small team with few integration calls to Azure SDKs
+## Without Azure cloud: Small teams
 
-When you code base has a very few integration calls to the Azure SDKs, we recommend you capture example results from those calls. Once the results are captured, use mocks/spys to integrate the example results. 
+When your code base has very few integration calls to the Azure SDKs, we recommend you capture example results from those calls. Once the results are captured, use a mock or spy to inject the result into your code instead of hitting the Azure cloud.  
 
 With this strategy, your local development and testing isn't dependent on the Azure cloud. Your tests can run predictably without timeouts, or other cloud issues.
 
-## More integration calls to Azure SDK
+## Without Azure cloud: More integration calls
 
-When you have more integration calls, consider using a recorder/playback strategy to generate the sample results and verify your code paths. This strategy also allows you to verify your own business logic without a dependency on the Azure cloud. 
+When you have more integration calls, consider using a recorder/playback strategy to generate the sample results and verify your code paths. This strategy also allows you to verify your own business logic without a dependency on the Azure cloud. This strategy requires more infrastructure to support your test requirements.
 
-## Tests integrated with Azure cloud
+## With Azure cloud: tests against services 
 
-When you run your tests against the Azure cloud resources, consider creating separate resources. Your tests may be able to run and complete against resources in lower pricing tiers or different regions. 
+When you run your tests against the Azure cloud services, consider creating separate resources just for testing. Your tests may be able to run and complete against services in lower pricing tiers or different regions. 
 
 ## Azure SDK tests
 
