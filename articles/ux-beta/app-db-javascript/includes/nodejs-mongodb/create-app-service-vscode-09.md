@@ -1,1 +1,0 @@
-Select **+ Create new App Service plan**.

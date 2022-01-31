@@ -1,1 +1,0 @@
-Enter the value (paste from clipboard) of the connection string in the next dialog box that appears.

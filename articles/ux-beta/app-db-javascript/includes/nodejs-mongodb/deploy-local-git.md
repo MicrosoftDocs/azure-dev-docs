@@ -1,3 +1,9 @@
+---
+author: DavidCBerry13
+ms.author: daberry
+ms.topic: include
+ms.date: 01/30/2022
+---
 You can deploy your application code from a local Git repository to Azure by configuring a [Git remote](https://git-scm.com/book/en/v2/Git-Basics-Working-with-Remotes) in your local repo pointing at Azure to push code to. The URL of the remote repository and Git credentials needed for configuration can be retrieved using either the Azure portal or the Azure CLI.
 
 ### [Azure portal](#tab/deploy-instructions-azportal)
@@ -11,35 +17,19 @@ You can deploy your application code from a local Git repository to Azure by con
 
 ### [Azure CLI](#tab/deploy-instructions-azcli)
 
-First, configure the deployment source for your web app to be local Git using the [az webapp deployment](/cli/azure/webapp/deployment) command.  
-
-```azurecli
-az webapp deployment source config-local-git \
-    --name $APP_SERVICE_NAME \
-    --resource-group $RESOURCE_GROUP_NAME \
-    --output tsv
-```
-
-Retrieve the deployment credentials for your application.  These will be needed for Git to authenticate to Azure when you push code to Azure in a later step.
-
-```azurecli
-az webapp deployment list-publishing-credentials \
-    --name $APP_SERVICE_NAME \
-    --resource-group $RESOURCE_GROUP_NAME \
-    --query "{Username:publishingUserName, Password:publishingPassword}"
-```
+[!INCLUDE [Deploy from VS Code 3](<./deploy-local-git-cli.md>)]
 
 ---
 
 Next, let's add an Azure origin to our local Git repo using the App Service Git deployment URL from the step where we created our App Service.  Make sure to replace your app name in the url below.  You can also get this completed URL from the Azure Portal Local Git/FTPS Credentials tab.
 
-```bash
+```Terminal
 git remote add azure https://<your-app-name>.scm.azurewebsites.net/<your-app-name>.git
 ```
 
 You can now push code from your local Git repository to Azure using the Git remote you just configured.
 
-```bash
+```Terminal
 ## Master is the default deployment branch for App Service - this will ensure our local main branch works for the deployment
 git push azure main:master
 ```
