@@ -29,7 +29,7 @@ When you run your tests against the Azure cloud services, consider creating sepa
 The Azure SDK tests for each SDK are available in the GitHub repo for the JavaScript SDKs. Some example tests are:
 
 * [Azure Storage Blob](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/storage/storage-blob/test) 
-* [Azure Event grid](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/eventgrid/eventgrid/test)
+* [Azure Event Grid](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/eventgrid/eventgrid/test)
 * [Azure Key vault](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/keyvault/keyvault-secrets/test)
 
 ## Next steps
