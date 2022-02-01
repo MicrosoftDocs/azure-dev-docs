@@ -30,7 +30,6 @@ git clone https://github.com/Azure-Samples/msdocs-nodejs-mongodb-azure-sample-ap
 
 Follow these steps to run the application locally:
 
-* Change directories into the `src` folder
 * Install the package dependencies by running `npm install`
 * Copy the `.env.sample` file to `.env` and populate the DATABASE_URL value with your MongoDB URL (for example *mongodb://localhost:27017/*)
 * Start the application using `npm start`
@@ -68,64 +67,22 @@ To create Azure resources in VS Code, you must have the [Azure Tools extension p
 
 | Instructions    | Screenshot |
 |:----------------|-----------:|
-| [!INCLUDE [Create app service step  1](<./includes/nodejs-mongodb/create-app-service-vscode-01.md>)] | :::image type="content" source="./media/nodejs-mongodb/create-app-service-vscode-01-240px.png" alt-text="A screenshot showing the location of the Azure Tools icon in the left toolbar." lightbox="./media/nodejs-mongodb/create-app-service-vscode-01.png"::: |
-| [!INCLUDE [Create app service step  2](<./includes/nodejs-mongodb/create-app-service-vscode-02.md>)] | :::image type="content" source="./media/nodejs-mongodb/create-app-service-vscode-02-240px.png" alt-text="A screenshot showing the App Service section of Azure Tools showing how to create a new web app." lightbox="./media/nodejs-mongodb/create-app-service-vscode-02.png"::: |
-| [!INCLUDE [Create app service step  3](<./includes/nodejs-mongodb/create-app-service-vscode-03.md>)] | :::image type="content" source="./media/nodejs-mongodb/create-app-service-vscode-03-240px.png" alt-text="A screenshot showing the dialog box used to enter the name of the web app in Azure." lightbox="./media/nodejs-mongodb/create-app-service-vscode-03.png"::: |
-| [!INCLUDE [Create app service step  4](<./includes/nodejs-mongodb/create-app-service-vscode-04.md>)] | :::image type="content" source="./media/nodejs-mongodb/create-app-service-vscode-04-240px.png" alt-text="A screenshot of dialog box used to select a resource group or create a new one for the web app." lightbox="./media/nodejs-mongodb/create-app-service-vscode-04.png"::: |
-| [!INCLUDE [Create app service step  5](<./includes/nodejs-mongodb/create-app-service-vscode-05.md>)] | :::image type="content" source="./media/nodejs-mongodb/create-app-service-vscode-05-240px.png" alt-text="A screenshot of the dialog box in VS Code used enter a name for the resource group." lightbox="./media/nodejs-mongodb/create-app-service-vscode-05.png"::: |
-| [!INCLUDE [Create app service step  6](<./includes/nodejs-mongodb/create-app-service-vscode-06.md>)] | :::image type="content" source="./media/nodejs-mongodb/create-app-service-vscode-06-240px.png" alt-text="A screenshot of the dialog box in VS Code used to select Node 14 LTS as the runtime for the web app." lightbox="./media/nodejs-mongodb/create-app-service-vscode-06.png"::: |
-| [!INCLUDE [Create app service step  7](<./includes/nodejs-mongodb/create-app-service-vscode-07.md>)] | :::image type="content" source="./media/nodejs-mongodb/create-app-service-vscode-07-240px.png" alt-text="A screenshot of the dialog in VS Code used to select operating system to use for hosting the web app." lightbox="./media/nodejs-mongodb/create-app-service-vscode-07.png"::: |
-| [!INCLUDE [Create app service step  8](<./includes/nodejs-mongodb/create-app-service-vscode-08.md>)] | :::image type="content" source="./media/nodejs-mongodb/create-app-service-vscode-08-240px.png" alt-text="A screenshot of the dialog in VS Code used to select location of the web app resources." lightbox="./media/nodejs-mongodb/create-app-service-vscode-08.png"::: |
-| [!INCLUDE [Create app service step  9](<./includes/nodejs-mongodb/create-app-service-vscode-09.md>)] | :::image type="content" source="./media/nodejs-mongodb/create-app-service-vscode-09-240px.png" alt-text="A screenshot of the dialog in VS Code used to select an App Service plan or create a new one." lightbox="./media/nodejs-mongodb/create-app-service-vscode-09.png"::: |
-| [!INCLUDE [Create app service step 10](<./includes/nodejs-mongodb/create-app-service-vscode-10.md>)] | :::image type="content" source="./media/nodejs-mongodb/create-app-service-vscode-10-240px.png" alt-text="A screenshot of the dialog in VS Code used to enter the name of the App Service plan." lightbox="./media/nodejs-mongodb/create-app-service-vscode-10.png"::: |
-| [!INCLUDE [Create app service step 11](<./includes/nodejs-mongodb/create-app-service-vscode-11.md>)] | :::image type="content" source="./media/nodejs-mongodb/create-app-service-vscode-11-240px.png" alt-text="A screenshot of the dialog in VS Code used to select the pricing tier of the App Service plan." lightbox="./media/nodejs-mongodb/create-app-service-vscode-11.png"::: |
-| [!INCLUDE [Create app service step 12](<./includes/nodejs-mongodb/create-app-service-vscode-12.md>)] | :::image type="content" source="./media/nodejs-mongodb/create-app-service-vscode-12-240px.png" alt-text="A screenshot of the dialog in VS Code asking if you want to create an App Insights resource for your web app." lightbox="./media/nodejs-mongodb/create-app-service-vscode-12.png"::: |
+| [!INCLUDE [Create app service step  1](<./includes/nodejs-mongodb/create-app-service-visual-studio-code-01.md>)] | :::image type="content" source="./media/nodejs-mongodb/create-app-service-visual-studio-code-01-240px.png" alt-text="A screenshot showing the location of the Azure Tools icon in the left toolbar." lightbox="./media/nodejs-mongodb/create-app-service-visual-studio-code-01.png"::: |
+| [!INCLUDE [Create app service step  2](<./includes/nodejs-mongodb/create-app-service-visual-studio-code-02.md>)] | :::image type="content" source="./media/nodejs-mongodb/create-app-service-visual-studio-code-02-240px.png" alt-text="A screenshot showing the App Service section of Azure Tools showing how to create a new web app." lightbox="./media/nodejs-mongodb/create-app-service-visual-studio-code-02.png"::: |
+| [!INCLUDE [Create app service step  3](<./includes/nodejs-mongodb/create-app-service-visual-studio-code-03.md>)] | :::image type="content" source="./media/nodejs-mongodb/create-app-service-visual-studio-code-03-240px.png" alt-text="A screenshot showing the dialog box used to enter the name of the web app in Azure." lightbox="./media/nodejs-mongodb/create-app-service-visual-studio-code-03.png"::: |
+| [!INCLUDE [Create app service step  4](<./includes/nodejs-mongodb/create-app-service-visual-studio-code-04.md>)] | :::image type="content" source="./media/nodejs-mongodb/create-app-service-visual-studio-code-04-240px.png" alt-text="A screenshot of dialog box used to select a resource group or create a new one for the web app." lightbox="./media/nodejs-mongodb/create-app-service-visual-studio-code-04.png"::: |
+| [!INCLUDE [Create app service step  5](<./includes/nodejs-mongodb/create-app-service-visual-studio-code-05.md>)] | :::image type="content" source="./media/nodejs-mongodb/create-app-service-visual-studio-code-05-240px.png" alt-text="A screenshot of the dialog box in VS Code used enter a name for the resource group." lightbox="./media/nodejs-mongodb/create-app-service-visual-studio-code-05.png"::: |
+| [!INCLUDE [Create app service step  6](<./includes/nodejs-mongodb/create-app-service-visual-studio-code-06.md>)] | :::image type="content" source="./media/nodejs-mongodb/create-app-service-visual-studio-code-06-240px.png" alt-text="A screenshot of the dialog box in VS Code used to select Node 14 LTS as the runtime for the web app." lightbox="./media/nodejs-mongodb/create-app-service-visual-studio-code-06.png"::: |
+| [!INCLUDE [Create app service step  7](<./includes/nodejs-mongodb/create-app-service-visual-studio-code-07.md>)] | :::image type="content" source="./media/nodejs-mongodb/create-app-service-visual-studio-code-07-240px.png" alt-text="A screenshot of the dialog in VS Code used to select operating system to use for hosting the web app." lightbox="./media/nodejs-mongodb/create-app-service-visual-studio-code-07.png"::: |
+| [!INCLUDE [Create app service step  8](<./includes/nodejs-mongodb/create-app-service-visual-studio-code-08.md>)] | :::image type="content" source="./media/nodejs-mongodb/create-app-service-visual-studio-code-08-240px.png" alt-text="A screenshot of the dialog in VS Code used to select location of the web app resources." lightbox="./media/nodejs-mongodb/create-app-service-visual-studio-code-08.png"::: |
+| [!INCLUDE [Create app service step  9](<./includes/nodejs-mongodb/create-app-service-visual-studio-code-09.md>)] | :::image type="content" source="./media/nodejs-mongodb/create-app-service-visual-studio-code-09-240px.png" alt-text="A screenshot of the dialog in VS Code used to select an App Service plan or create a new one." lightbox="./media/nodejs-mongodb/create-app-service-visual-studio-code-09.png"::: |
+| [!INCLUDE [Create app service step 10](<./includes/nodejs-mongodb/create-app-service-visual-studio-code-10.md>)] | :::image type="content" source="./media/nodejs-mongodb/create-app-service-visual-studio-code-10-240px.png" alt-text="A screenshot of the dialog in VS Code used to enter the name of the App Service plan." lightbox="./media/nodejs-mongodb/create-app-service-visual-studio-code-10.png"::: |
+| [!INCLUDE [Create app service step 11](<./includes/nodejs-mongodb/create-app-service-visual-studio-code-11.md>)] | :::image type="content" source="./media/nodejs-mongodb/create-app-service-visual-studio-code-11-240px.png" alt-text="A screenshot of the dialog in VS Code used to select the pricing tier of the App Service plan." lightbox="./media/nodejs-mongodb/create-app-service-visual-studio-code-11.png"::: |
+| [!INCLUDE [Create app service step 12](<./includes/nodejs-mongodb/create-app-service-visual-studio-code-12.md>)] | :::image type="content" source="./media/nodejs-mongodb/create-app-service-visual-studio-code-12-240px.png" alt-text="A screenshot of the dialog in VS Code asking if you want to create an App Insights resource for your web app." lightbox="./media/nodejs-mongodb/create-app-service-visual-studio-code-12.png"::: |
 
 ### [Azure CLI](#tab/azure-cli)
 
-Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com) or on a workstation with the [Azure CLI installed](/cli/azure/install-azure-cli). You can view or the [complete Azure CLI script for creating Azure resources](https://github.com/Azure-Samples/msdocs-nodejs-mongodb-azure-sample-app/blob/main/scripts/create-nodejs-mongodb-resources.sh) in the GitHub repository for this tutorial.
-
-First, create a resource group to act as a container for all of the Azure resources related to this application.
-
-```azurecli
-LOCATION='eastus'                          # Use 'az account list-locations --output table' to list locations
-RESOURCE_GROUP_NAME='msdocs-expressjs-mondgodb-tutorial'
-
-# Create a resource group
-az group create \
-    --location $LOCATION \
-    --name $RESOURCE_GROUP_NAME
-```
-
-Next, create an App Service plan using the [az appservice plan create](/cli/azure/appservice/plan#az_appservice_plan_create) command.
-
-* The `--sku` parameter defines the size (CPU, memory) and cost of the app service plan.  This example uses the F1 (Free) service plan.  For a full list of App Service plans, view the [App Service pricing](https://azure.microsoft.com/pricing/details/app-service/windows/) page.
-* The `--is-linux` flag selects the Linux as the host operating system.  To use Windows, remove this flag from the command.
-
-```azurecli
-APP_SERVICE_PLAN_NAME='msdocs-expressjs-mongodb-plan'    
-
-az appservice plan create \
-    --name $APP_SERVICE_PLAN_NAME \
-    --resource-group $RESOURCE_GROUP_NAME \
-    --sku B1 \
-    --is-linux
-```
-
-Finally, create the App Service web app using the [az webapp create](/cli/azure/webapp#az_webapp_create) command.  
-
-* The *app service name* is used as both the name of the resource in Azure and to form the fully qualified domain name for your app in the form of `https://<app service name>.azurewebsites.com`.
-* The runtime specifies what version of Node your app is running. This example uses Node 14 LTS. To list all available runtimes, use the command `az webapp list-runtimes --linux --output table` for Linux and `az webapp list-runtimes --output table` for Windows.
-
-```azurecli
-APP_SERVICE_NAME='msdocs-expressjs-mongodb-123'     # Change 123 to any three characters to form a unique name across Azure
-
-az webapp create \
-    --name $APP_SERVICE_NAME \
-    --runtime 'NODE|14-lts'
-    --plan $APP_SERVICE_PLAN_NAME
-    --resource-group $RESOURCE_GROUP_NAME 
-```
+[!INCLUDE [Create CLI](<./includes/nodejs-mongodb/create-app-service-cli.md>)]
 
 ---
 
@@ -148,31 +105,17 @@ You must be signed in to the [Azure portal](https://portal.azure.com/) to comple
 
 | Instructions    | Screenshot |
 |:----------------|-----------:|
-| [!INCLUDE [Create Cosmos DB step 1](<./includes/nodejs-mongodb/create-cosmos-db-vscode-1.md>)] | :::image type="content" source="./media/nodejs-mongodb/create-cosmos-db-vscode-1-240px.png" alt-text="A screenshot showing the databases component of the Azure Tools VS Code extension and the location of the button to create a new database." lightbox="./media/nodejs-mongodb/create-cosmos-db-vscode-1.png"::: |
-| [!INCLUDE [Create Cosmos DB step 2](<./includes/nodejs-mongodb/create-cosmos-db-vscode-2.md>)] | :::image type="content" source="./media/nodejs-mongodb/create-cosmos-db-vscode-2-240px.png" alt-text="A screenshot showing the dialog box used to select the subscription for the new database in Azure." lightbox="./media/nodejs-mongodb/create-cosmos-db-vscode-2.png"::: |
-| [!INCLUDE [Create Cosmos DB step 3](<./includes/nodejs-mongodb/create-cosmos-db-vscode-3.md>)] | :::image type="content" source="./media/nodejs-mongodb/create-cosmos-db-vscode-3-240px.png" alt-text="A screenshot showing the dialog box used to select the type of database you want to create in Azure." lightbox="./media/nodejs-mongodb/create-cosmos-db-vscode-3.png"::: |
-| [!INCLUDE [Create Cosmos DB step 4](<./includes/nodejs-mongodb/create-cosmos-db-vscode-4.md>)] | :::image type="content" source="./media/nodejs-mongodb/create-cosmos-db-vscode-4-240px.png" alt-text="A screenshot of dialog box used to enter the name of the new database in Visual Studio Code." lightbox="./media/nodejs-mongodb/create-cosmos-db-vscode-4.png"::: |
-| [!INCLUDE [Create Cosmos DB step 5](<./includes/nodejs-mongodb/create-cosmos-db-vscode-5.md>)] | :::image type="content" source="./media/nodejs-mongodb/create-cosmos-db-vscode-5-240px.png" alt-text="A screenshot of the dialog to select the throughput mode of the database." lightbox="./media/nodejs-mongodb/create-cosmos-db-vscode-5.png"::: |
-| [!INCLUDE [Create Cosmos DB step 6](<./includes/nodejs-mongodb/create-cosmos-db-vscode-6.md>)] | :::image type="content" source="./media/nodejs-mongodb/create-cosmos-db-vscode-6-240px.png" alt-text="A screenshot of the dialog in VS Code used to select resource group to put the new database in." lightbox="./media/nodejs-mongodb/create-cosmos-db-vscode-6.png"::: |
-| [!INCLUDE [Create Cosmos DB step 7](<./includes/nodejs-mongodb/create-cosmos-db-vscode-7.md>)] | :::image type="content" source="./media/nodejs-mongodb/create-cosmos-db-vscode-7-240px.png" alt-text="A screenshot of the dialog in VS Code used to select location for the new database." lightbox="./media/nodejs-mongodb/create-cosmos-db-vscode-7.png"::: |
+| [!INCLUDE [Create Cosmos DB step 1](<./includes/nodejs-mongodb/create-cosmos-db-visual-studio-code-1.md>)] | :::image type="content" source="./media/nodejs-mongodb/create-cosmos-db-visual-studio-code-1-240px.png" alt-text="A screenshot showing the databases component of the Azure Tools VS Code extension and the location of the button to create a new database." lightbox="./media/nodejs-mongodb/create-cosmos-db-visual-studio-code-1.png"::: |
+| [!INCLUDE [Create Cosmos DB step 2](<./includes/nodejs-mongodb/create-cosmos-db-visual-studio-code-2.md>)] | :::image type="content" source="./media/nodejs-mongodb/create-cosmos-db-visual-studio-code-2-240px.png" alt-text="A screenshot showing the dialog box used to select the subscription for the new database in Azure." lightbox="./media/nodejs-mongodb/create-cosmos-db-visual-studio-code-2.png"::: |
+| [!INCLUDE [Create Cosmos DB step 3](<./includes/nodejs-mongodb/create-cosmos-db-visual-studio-code-3.md>)] | :::image type="content" source="./media/nodejs-mongodb/create-cosmos-db-visual-studio-code-3-240px.png" alt-text="A screenshot showing the dialog box used to select the type of database you want to create in Azure." lightbox="./media/nodejs-mongodb/create-cosmos-db-visual-studio-code-3.png"::: |
+| [!INCLUDE [Create Cosmos DB step 4](<./includes/nodejs-mongodb/create-cosmos-db-visual-studio-code-4.md>)] | :::image type="content" source="./media/nodejs-mongodb/create-cosmos-db-visual-studio-code-4-240px.png" alt-text="A screenshot of dialog box used to enter the name of the new database in Visual Studio Code." lightbox="./media/nodejs-mongodb/create-cosmos-db-visual-studio-code-4.png"::: |
+| [!INCLUDE [Create Cosmos DB step 5](<./includes/nodejs-mongodb/create-cosmos-db-visual-studio-code-5.md>)] | :::image type="content" source="./media/nodejs-mongodb/create-cosmos-db-visual-studio-code-5-240px.png" alt-text="A screenshot of the dialog to select the throughput mode of the database." lightbox="./media/nodejs-mongodb/create-cosmos-db-visual-studio-code-5.png"::: |
+| [!INCLUDE [Create Cosmos DB step 6](<./includes/nodejs-mongodb/create-cosmos-db-visual-studio-code-6.md>)] | :::image type="content" source="./media/nodejs-mongodb/create-cosmos-db-visual-studio-code-6-240px.png" alt-text="A screenshot of the dialog in VS Code used to select resource group to put the new database in." lightbox="./media/nodejs-mongodb/create-cosmos-db-visual-studio-code-6.png"::: |
+| [!INCLUDE [Create Cosmos DB step 7](<./includes/nodejs-mongodb/create-cosmos-db-visual-studio-code-7.md>)] | :::image type="content" source="./media/nodejs-mongodb/create-cosmos-db-visual-studio-code-7-240px.png" alt-text="A screenshot of the dialog in VS Code used to select location for the new database." lightbox="./media/nodejs-mongodb/create-cosmos-db-visual-studio-code-7.png"::: |
 
 ### [Azure CLI](#tab/azure-cli)
 
-A new Azure Cosmos DB account is created by using the [az cosmosdb create](/cli/azure/cosmosdb#az-cosmosdb-create) command.
-
-* The name of the Cosmos DB account must be unique across Azure. The name can only contain lowercase letters, numbers, and the hyphen (-) character and must be between 3 and 50 characters long.
-* The `--kind MongoDB` flag tells Azure to create a Cosmos DB that is compatible with the MongoDB API.  This flag must be included for your Cosmos DB to work as a MongoDB database.
-
-```azurecli
-COSMOS_DB_NAME='msdocs-expressjs-mongodb-database-123'   # Replace 123 with any three characters to form a unique name
-
-az cosmosdb create \
-    --name $COSMOS_DB_NAME \
-    --resource-group $RESOURCE_GROUP_NAME \
-    --kind MongoDB
-```
-
-Creating a new Azure Cosmos DB typically takes about 5 minutes.
+[!INCLUDE [Create Cosmos DB using CLI](<./includes/nodejs-mongodb/create-cosmos-db-cli.md>)]
 
 ---
 
@@ -195,44 +138,15 @@ When running in Azure, configuration values like connection strings can be store
 
 | Instructions    | Screenshot |
 |:----------------|-----------:|
-| [!INCLUDE [Connection string step 1](<./includes/nodejs-mongodb/connection-string-vscode-1.md>)] | :::image type="content" source="./media/nodejs-mongodb/connection-string-vscode-1-240px.png" alt-text="A screenshot showing how to copy the connection string for a Cosmos database to your clipboard in VS Code." lightbox="./media/nodejs-mongodb/connection-string-vscode-1.png"::: |
-| [!INCLUDE [Connection string step 2](<./includes/nodejs-mongodb/connection-string-vscode-2.md>)] | :::image type="content" source="./media/nodejs-mongodb/connection-string-vscode-2-240px.png" alt-text="A screenshot showing how to add a config setting to an App Service in VS Code." lightbox="./media/nodejs-mongodb/connection-string-vscode-2.png"::: |
-| [!INCLUDE [Connection string step 3](<./includes/nodejs-mongodb/connection-string-vscode-3.md>)] | :::image type="content" source="./media/nodejs-mongodb/connection-string-vscode-3-240px.png" alt-text="A screenshot showing the dialog box used to give a name to an app setting in VS Code." lightbox="./media/nodejs-mongodb/connection-string-vscode-3.png"::: |
-| [!INCLUDE [Connection string step 4](<./includes/nodejs-mongodb/connection-string-vscode-4.md>)] | :::image type="content" source="./media/nodejs-mongodb/connection-string-vscode-4-240px.png" alt-text="A screenshot showing the dialog used to set the value of an app setting in VS Code." lightbox="./media/nodejs-mongodb/connection-string-vscode-4.png"::: |
-| [!INCLUDE [Connection string step 4](<./includes/nodejs-mongodb/connection-string-vscode-5.md>)] | :::image type="content" source="./media/nodejs-mongodb/connection-string-vscode-5-240px.png" alt-text="A screenshot showing how to view an app setting for an App Service in VS Code." lightbox="./media/nodejs-mongodb/connection-string-vscode-5.png"::: |
+| [!INCLUDE [Connection string step 1](<./includes/nodejs-mongodb/connection-string-visual-studio-code-1.md>)] | :::image type="content" source="./media/nodejs-mongodb/connection-string-visual-studio-code-1-240px.png" alt-text="A screenshot showing how to copy the connection string for a Cosmos database to your clipboard in VS Code." lightbox="./media/nodejs-mongodb/connection-string-visual-studio-code-1.png"::: |
+| [!INCLUDE [Connection string step 2](<./includes/nodejs-mongodb/connection-string-visual-studio-code-2.md>)] | :::image type="content" source="./media/nodejs-mongodb/connection-string-visual-studio-code-2-240px.png" alt-text="A screenshot showing how to add a config setting to an App Service in VS Code." lightbox="./media/nodejs-mongodb/connection-string-visual-studio-code-2.png"::: |
+| [!INCLUDE [Connection string step 3](<./includes/nodejs-mongodb/connection-string-visual-studio-code-3.md>)] | :::image type="content" source="./media/nodejs-mongodb/connection-string-visual-studio-code-3-240px.png" alt-text="A screenshot showing the dialog box used to give a name to an app setting in VS Code." lightbox="./media/nodejs-mongodb/connection-string-visual-studio-code-3.png"::: |
+| [!INCLUDE [Connection string step 4](<./includes/nodejs-mongodb/connection-string-visual-studio-code-4.md>)] | :::image type="content" source="./media/nodejs-mongodb/connection-string-visual-studio-code-4-240px.png" alt-text="A screenshot showing the dialog used to set the value of an app setting in VS Code." lightbox="./media/nodejs-mongodb/connection-string-visual-studio-code-4.png"::: |
+| [!INCLUDE [Connection string step 4](<./includes/nodejs-mongodb/connection-string-visual-studio-code-5.md>)] | :::image type="content" source="./media/nodejs-mongodb/connection-string-visual-studio-code-5-240px.png" alt-text="A screenshot showing how to view an app setting for an App Service in VS Code." lightbox="./media/nodejs-mongodb/connection-string-visual-studio-code-5.png"::: |
 
 ### [Azure CLI](#tab/azure-cli)
 
-To get the connection string for a Cosmos DB database, use the [az cosmos keys list](/cli/azure/cosmosdb/keys) command.
-
-```azurecli
-az cosmosdb keys list \
-    --type connection-strings \
-    --resource-group $RESOURCE_GROUP_NAME \
-    --name $COSMOS_DB_NAME \
-    --query "connectionStrings[?description=='Primary MongoDB Connection String'].connectionString" \
-    --output tsv
-```
-
-Rather then copying and pasting the value, the connection string can be stored in a variable to make the next step easier.
-
-```azurecli
-COSMOS_DB_CONNECTION_STRING=`az cosmosdb keys list \
-    --type connection-strings \
-    --resource-group $RESOURCE_GROUP_NAME \
-    --name $COSMOS_DB_NAME \
-    --query "connectionStrings[?description=='Primary MongoDB Connection String'].connectionString" \
-    --output tsv`
-```
-
-The [az webapp config appsettings](/cli/azure/webapp/config/appsettings) command is used to set application setting values for an App Service web app.  One or more key-value pairs are set using the `--settings` parameter. To set the `DATABASE_URL` value to the connection string for your web app, use the following command.
-
-```azurecli
-az webapp config appsettings set \
-    --name $APP_SERVICE_NAME \
-    --resource-group $RESOURCE_GROUP_NAME \
-    --settings DATABASE_URL=$COSMOS_DB_CONNECTION_STRING
-```
+[!INCLUDE [Connection string using CLI](<./includes/nodejs-mongodb/connection-string-cli.md>)]
 
 ---
 
@@ -249,9 +163,11 @@ To deploy your application code directly from VS Code, you must have the [Azure 
 
 | Instructions    | Screenshot |
 |:----------------|-----------:|
-| [!INCLUDE [Deploy from VS Code 1](<./includes/nodejs-mongodb/deploy-vscode-1.md>)] | :::image type="content" source="./media/nodejs-mongodb/deploy-vscode-1-240px.png" alt-text="A screenshot showing the location of the Azure Tool icon in Visual Studio Code." lightbox="./media/nodejs-mongodb/deploy-vscode-1.png"::: |
-| [!INCLUDE [Deploy from VS Code 2](<./includes/nodejs-mongodb/deploy-vscode-2.md>)] | :::image type="content" source="./media/nodejs-mongodb/deploy-vscode-2-240px.png" alt-text="A screenshot showing how you deploy an application to Azure by right-clicking on a web app in VS Code and selecting deploy from the context menu." lightbox="./media/nodejs-mongodb/deploy-vscode-2.png"::: |
-| [!INCLUDE [Deploy from VS Code 3](<./includes/nodejs-mongodb/deploy-vscode-3.md>)] | :::image type="content" source="./media/nodejs-mongodb/deploy-vscode-3-240px.png" alt-text="A screenshot showing the Output window of VS Code while deploying an application to Azure." lightbox="./media/nodejs-mongodb/deploy-vscode-3.png"::: |
+| [!INCLUDE [Deploy from VS Code 1](<./includes/nodejs-mongodb/deploy-visual-studio-code-1.md>)] | :::image type="content" source="./media/nodejs-mongodb/deploy-visual-studio-code-1-240px.png" alt-text="A screenshot showing the location of the Azure Tool icon in Visual Studio Code." lightbox="./media/nodejs-mongodb/deploy-visual-studio-code-1.png"::: |
+| [!INCLUDE [Deploy from VS Code 2](<./includes/nodejs-mongodb/deploy-visual-studio-code-2.md>)] | :::image type="content" source="./media/nodejs-mongodb/deploy-visual-studio-code-2-240px.png" alt-text="A screenshot showing how you deploy an application to Azure by right-clicking on a web app in VS Code and selecting deploy from the context menu." lightbox="./media/nodejs-mongodb/deploy-visual-studio-code-2.png"::: |
+| [!INCLUDE [Deploy from VS Code 3](<./includes/nodejs-mongodb/deploy-visual-studio-code-3.md>)] | :::image type="content" source="./media/nodejs-mongodb/deploy-visual-studio-code-3-240px.png" alt-text="A screenshot showing the dialog box used to select the deployment directory in VS Code." lightbox="./media/nodejs-mongodb/deploy-visual-studio-code-3.png"::: |
+| [!INCLUDE [Deploy from VS Code 3](<./includes/nodejs-mongodb/deploy-visual-studio-code-4.md>)] | :::image type="content" source="./media/nodejs-mongodb/deploy-visual-studio-code-4-240px.png" alt-text="A screenshot showing the Output window of VS Code while deploying an application to Azure." lightbox="./media/nodejs-mongodb/deploy-visual-studio-code-4.png"::: |
+
 
 ### [Deploy using Local Git](#tab/local-git-deploy)
 
@@ -275,7 +191,7 @@ Use the form elements in the application to add and complete tasks.
 
 Azure App Service captures all messages logged to the console to assist you in diagnosing issues with your application. The sample app outputs console log messages in each of its endpoints to demonstrate this capability.  For example, the `get` endpoint outputs a message about the number of tasks retrieved from the database and an error message if something goes wrong.
 
-:::code language="javascript" source="~/../msdocs-nodejs-mongodb-azure-sample-app/src/routes/index.js" range="7-21" highlight="8,12":::
+:::code language="javascript" source="~/../msdocs-nodejs-mongodb-azure-sample-app/routes/index.js" range="7-21" highlight="8,12":::
 
 The contents of the App Service diagnostic logs can be reviewed in the Azure portal, VS Code, or using the Azure CLI.
 
@@ -290,51 +206,12 @@ The contents of the App Service diagnostic logs can be reviewed in the Azure por
 
 | Instructions    | Screenshot |
 |:----------------|-----------:|
-| [!INCLUDE [Stream logs from VS Code 1](<./includes/nodejs-mongodb/stream-logs-vscode-1.md>)] | :::image type="content" source="./media/nodejs-mongodb/stream-logs-vscode-1-240px.png" alt-text="A screenshot showing the location of the Azure Tool icon in Visual Studio Code." lightbox="./media/nodejs-mongodb/stream-logs-vscode-1.png"::: |
-| [!INCLUDE [Stream logs from VS Code 2](<./includes/nodejs-mongodb/stream-logs-vscode-2.md>)] | :::image type="content" source="./media/nodejs-mongodb/stream-logs-vscode-2-240px.png" alt-text="A screenshot showing how you deploy an application to Azure by right-clicking on a web app in VS Code and selecting deploy from the context menu." lightbox="./media/nodejs-mongodb/stream-logs-vscode-2.png"::: |
+| [!INCLUDE [Stream logs from VS Code 1](<./includes/nodejs-mongodb/stream-logs-visual-studio-code-1.md>)] | :::image type="content" source="./media/nodejs-mongodb/stream-logs-visual-studio-code-1-240px.png" alt-text="A screenshot showing the location of the Azure Tool icon in Visual Studio Code." lightbox="./media/nodejs-mongodb/stream-logs-visual-studio-code-1.png"::: |
+| [!INCLUDE [Stream logs from VS Code 2](<./includes/nodejs-mongodb/stream-logs-visual-studio-code-2.md>)] | :::image type="content" source="./media/nodejs-mongodb/stream-logs-visual-studio-code-2-240px.png" alt-text="A screenshot showing how you deploy an application to Azure by right-clicking on a web app in VS Code and selecting deploy from the context menu." lightbox="./media/nodejs-mongodb/stream-logs-visual-studio-code-2.png"::: |
 
 ### [Azure CLI](#tab/azure-cli)
 
-First, you need to configure Azure App Service to output logs to the App Service filesystem using the [az webapp log config](/cli/azure/webapp/log#az_webapp_log_config) command.
-
-```azurecli
-az webapp log config \
-    --web-server-logging 'filesystem' \
-    --name $APP_SERVICE_NAME \
-    --resource-group $RESOURCE_GROUP_NAME
-```
-
-To stream logs, use the [az webapp log tail](/cli/azure/webapp/log#az_webapp_log_tail) command.
-
-```azurecli
-az webapp log tail \
-    --name $APP_SERVICE_NAME \
-    --resource-group $RESOURCE_GROUP_NAME
-```
-
-Refresh the home page in the app or attempt other requests to generate some log messages. The output should look similar to the following.
-
-```Console
-2021-10-26T20:12:01.825485319Z npm start
-2021-10-26T20:12:04.478474807Z npm info it worked if it ends with ok
-2021-10-26T20:12:04.496736134Z npm info using npm@6.14.10
-2021-10-26T20:12:04.497958909Z npm info using node@v14.15.1
-2021-10-26T20:12:05.874225522Z npm info lifecycle todolist@0.0.0~prestart: todolist@0.0.0
-2021-10-26T20:12:05.891572192Z npm info lifecycle todolist@0.0.0~start: todolist@0.0.0
-2021-10-26T20:12:05.941127150Z
-2021-10-26T20:12:05.941161452Z > todolist@0.0.0 start /home/site/wwwroot
-2021-10-26T20:12:05.941168852Z > node ./bin/www
-2021-10-26T20:12:05.941173652Z
-2021-10-26T20:12:16.234642191Z Mongoose connection open to database
-2021-10-26T20:12:19.360371481Z GET /robots933456.txt 404 2144.146 ms - 1497
-
-2021-10-26T20:12:38.419182028Z Total tasks: 6   Current tasks: 3    Completed tasks:  3
-2021-10-26T20:12:38.799957538Z GET / 304 500.485 ms - -
-2021-10-26T20:12:38.900597945Z GET /stylesheets/style.css 304 2.574 ms - -
-2021-10-26T20:12:38.900637447Z GET /css/bootstrap.css 304 12.300 ms - -
-2021-10-26T20:12:38.903103684Z GET /images/Azure-A-48px-product.svg 304 8.896 ms - -
-2021-10-26T20:12:38.904441659Z GET /js/bootstrap.min.js 304 9.372 ms - -
-```
+[!INCLUDE [Stream Logs Azure CLI](<./includes/nodejs-mongodb/stream-logs-cli.md>)]
 
 ---
 
@@ -377,20 +254,19 @@ Follow these steps while signed-in to the Azure portal to delete a resource grou
 
 | Instructions    | Screenshot |
 |:----------------|-----------:|
-| [!INCLUDE [Remove resource group VS Code 1](<./includes/nodejs-mongodb/remove-resource-group-vscode-1.md>)] | :::image type="content" source="./media/nodejs-mongodb/remove-resource-group-vscode-1-240px.png" alt-text="A screenshot showing how to delete a resource group in VS Code using the Azure Tools extention." lightbox="./media/nodejs-mongodb/remove-resource-group-vscode-1.png"::: |
-| [!INCLUDE [Remove resource group VS Code 2](<./includes/nodejs-mongodb/remove-resource-group-vscode-2.md>)] | :::image type="content" source="./media/nodejs-mongodb/remove-resource-group-vscode-2-240px.png" alt-text="A screenshot of the confirmation dialog for deleting a resource group from VS Code." lightbox="./media/nodejs-mongodb/remove-resource-group-vscode-2.png"::: |
+| [!INCLUDE [Remove resource group VS Code 1](<./includes/nodejs-mongodb/remove-resource-group-visual-studio-code-1.md>)] | :::image type="content" source="./media/nodejs-mongodb/remove-resource-group-visual-studio-code-1-240px.png" alt-text="A screenshot showing how to delete a resource group in VS Code using the Azure Tools extention." lightbox="./media/nodejs-mongodb/remove-resource-group-visual-studio-code-1.png"::: |
+| [!INCLUDE [Remove resource group VS Code 2](<./includes/nodejs-mongodb/remove-resource-group-visual-studio-code-2.md>)] | :::image type="content" source="./media/nodejs-mongodb/remove-resource-group-visual-studio-code-2-240px.png" alt-text="A screenshot of the confirmation dialog for deleting a resource group from VS Code." lightbox="./media/nodejs-mongodb/remove-resource-group-visual-studio-code-2.png"::: |
 
 ### [Azure CLI](#tab/azure-cli)
 
-Delete the resource group by using the [az group delete](/cli/azure/group#az_group_delete) command.
-
-:::code language="azurecli" source="~/../msdocs-nodejs-mongodb-azure-sample-app/scripts/delete-resource-group.sh":::
+[!INCLUDE [Remove resource group CLI](<./includes/nodejs-mongodb/remove-resource-group-cli.md>)]
 
 ---
 
 ## Next steps
 
-* Managed identity
-* Performance monitoring
-* User authentication
-* CI/CD Setup
+> [!div class="nextstepaction"]
+> [JavaScript on Azure developer center](/azure/developer/javascript)
+
+> [!div class="nextstepaction"]
+> [Configure Node.js app in App Service](/azure/app-service/configure-language-nodejs)

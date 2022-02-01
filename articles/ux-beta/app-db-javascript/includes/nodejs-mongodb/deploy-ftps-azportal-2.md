@@ -1,3 +1,9 @@
+---
+author: DavidCBerry13
+ms.author: daberry
+ms.topic: include
+ms.date: 01/30/2022
+---
 To locate the FTPS endpoint and credentials:
 
 1. Select the *Deployment Center* item in the menu on the left hand side of the page.

@@ -53,10 +53,10 @@ Ansible needs a resource group to deploy your resources in.
 
     ```yml
     ---
-      vars:
-        tenant_id: <tenantId>
-        object_id: <servicePrincipalObjectId>
-        vault_name: <vaultName>
+    vars:
+      tenant_id: <tenantId>
+      object_id: <servicePrincipalObjectId>
+      vault_name: <vaultName>
     ```
 
     Replace `<tenantId>`, `<servicePrincipalObjectId>`, and `<vaultName>` with the appropriate values. The objectId is used to grant access to secrets within the key vault.
@@ -68,22 +68,22 @@ Ansible needs a resource group to deploy your resources in.
 
     ```yml
     ---
-      - name: Create key vault instance
-        azure_rm_keyvault:
-          resource_group: ansible-kv-test-rg
-          vault_name: "{{ vault_name }}"
-          enabled_for_deployment: yes
-          vault_tenant: "{{ tenant_id }}"
-          sku:
-            name: standard
-          access_policies:
-            - tenant_id: "{{ tenant_id }}"
-              object_id: "{{ object_id }}"
-              secrets:
-                - get
-                - list
-                - set
-                - delete
+    - name: Create key vault instance
+      azure_rm_keyvault:
+        resource_group: ansible-kv-test-rg
+        vault_name: "{{ vault_name }}"
+        enabled_for_deployment: yes
+        vault_tenant: "{{ tenant_id }}"
+        sku:
+          name: standard
+        access_policies:
+          - tenant_id: "{{ tenant_id }}"
+            object_id: "{{ object_id }}"
+            secrets:
+              - get
+              - list
+              - set
+              - delete
     ```
 
 1. Run the `create_kv.yml` playbook.
