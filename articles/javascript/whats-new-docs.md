@@ -2,7 +2,7 @@
 title: "What's new for JavaScript docs"
 description: "What's new in JavaScript docs in the Developer Center"
 ms.topic: how-to
-ms.date: 01/25/2022
+ms.date: 02/01/2022
 
 ---
 
@@ -11,6 +11,12 @@ ms.date: 01/25/2022
 Find new and updated content for JavaScript and TypeScript developers.
 
 ## 2022 January
+
+### New in January 
+
+|Name|Description|
+|---------------------------------------|--|
+|[Test strategies with Azure SDK](core/test-azure-sdk-integrated-code.md)|When developing applications integrated with Azure SDKs, you should consider the following strategies to ensure the quality of your code.|
 
 ### Updated in January
 
