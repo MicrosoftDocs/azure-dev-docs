@@ -32,8 +32,6 @@ If you can't meet any of these pre-migration requirements, see the companion mig
 
 [!INCLUDE [determine-whether-weblogic-has-been-customized](includes/determine-whether-weblogic-has-been-customized.md)]
 
-[!INCLUDE [determine-whether-management-over-rest-is-used-jboss-eap](includes/determine-whether-management-over-rest-is-used-jboss-eap.md)]
-
 [!INCLUDE [determine-whether-a-connection-to-on-premises-is-needed](includes/determine-whether-a-connection-to-on-premises-is-needed.md)]
 
 [!INCLUDE [determine-whether-jms-queues-or-topics-are-in-use](includes/determine-whether-jms-queues-or-topics-are-in-use.md)]
