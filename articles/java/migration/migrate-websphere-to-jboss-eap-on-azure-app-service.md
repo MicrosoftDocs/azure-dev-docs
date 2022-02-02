@@ -75,7 +75,7 @@ To execute scheduled jobs on Azure, consider using Azure Functions with a Timer 
 
 If your application uses WebSphere-specific APIs, you'll need to refactor your application to NOT use them. The [Red Hat Migration Toolkit for Apps](https://marketplace.visualstudio.com/items?itemName=redhat.mta-vscode-extension) can assist with removing and refactoring these dependencies.
 
-[!INCLUDE [determine-whether-your-application-uses-entity-beans](determine-whether-your-application-uses-entity-beans.md)]
+[!INCLUDE [determine-whether-your-application-uses-entity-beans](includes/determine-whether-your-application-uses-entity-beans.md)]
 
 ### Determine whether the JavaEE Application Client feature is used
 
