@@ -1,7 +1,6 @@
 ---
-author: jasonfreeberg
 ms.author: jafreebe
-ms.date: 7/28/2021
+ms.date: 02/02/2022
 ---
 
 ### Red Hat Migration Toolkit for Apps

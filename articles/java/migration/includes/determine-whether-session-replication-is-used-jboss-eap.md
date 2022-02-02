@@ -1,7 +1,6 @@
 ---
-author: edburns
-ms.author: edburns
-ms.date: 1/21/2020
+ms.author: jafreebe
+ms.date: 02/02/2022
 ---
 
 ### Determine whether session replication is used
