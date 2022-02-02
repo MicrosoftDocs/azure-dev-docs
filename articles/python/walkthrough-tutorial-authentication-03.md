@@ -10,7 +10,7 @@ ms.custom: devx-track-python
 
 [Previous part: Authentication challenges](walkthrough-tutorial-authentication-02.md)
 
-In our example scenario, the main app's public endpoint uses a third-party API that's secured by an access key. This section shows an implementation of the third-party API using Azure Functions, but the API could be implemented in other ways and deployed to a different cloud server or web host. The only important aspect is that the endpoint protected by a specific access key that must be included in any client requests. Any app that invokes this API, then, must securely manage that key.
+In our example scenario, the main app's public endpoint uses a third-party API that's secured by an access key. This section shows an implementation of the third-party API using Azure Functions, but the API could be implemented in other ways and deployed to a different cloud server or web host. The only important aspect is that requests to the protected endpoint must include the access key in client requests. Any app that invokes this API, then, must securely manage that key.
 
 For demonstration purposes, this API is deployed to the endpoint, `https://msdocs-example-api.azurewebsites.net/api/RandomNumber`. To call the API, however, you must provide the access key `d0c5atM1cr0s0ft` either in a `?code=` URL parameter or in an `'x-functions-key'` property of the HTTP header. For example, try this URL in  a browser or curl: [https://msdocs-example-api.azurewebsites.net/api/RandomNumber?code=d0c5atM1cr0s0ft](https://msdocs-example-api.azurewebsites.net/api/RandomNumber?code=d0c5atM1cr0s0ft).
 
