@@ -338,7 +338,7 @@ For more information about iteratively running and debugging containers directly
 [Docker]: https://www.docker.com/
 [free Azure account]: https://azure.microsoft.com/pricing/free-trial/
 [Git]: https://github.com/
-[Working with Azure DevOps and Java]: /azure/devops/java/
+[Working with Azure DevOps and Java]: /azure/devops-project/azure-devops-project-java
 [Kubernetes]: https://kubernetes.io/
 [Kubernetes Command-Line Interface (kubectl)]: https://kubernetes.io/docs/user-guide/kubectl-overview/
 [Maven]: http://maven.apache.org/
