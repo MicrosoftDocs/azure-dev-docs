@@ -1,0 +1,1 @@
+**Step 4.** Answer **Yes** to update your build configuration and improve deployment performance.
