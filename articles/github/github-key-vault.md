@@ -4,7 +4,7 @@ description: Use Key Vault secrets in GitHub Actions to automate your software d
 author: juliakm
 ms.custom: github-actions-azure, mode-portal, contperf-fy22q3
 ms.author: jukullam
-ms.date: 01/14/2022
+ms.date: 02/03/2022
 ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
@@ -17,7 +17,6 @@ Use Key Vault secrets in your [GitHub Actions](https://help.github.com/en/articl
 Key Vault secrets differ from GitHub secrets:
 
 - Key Vault lets you centralize storage of application secrets in Azure. GitHub secrets are stored in GitHub
-- GitHub secrets are tied to a repository. Key Vault secrets can be used in multiple repositories
 - Key Vault can be used as a key and certificate management solutions, in addition to a tool for secrets management
 - Key Vault uses [Azure role-based access control (Azure RBAC)](/azure/key-vault/general/rbac-guide) for access
 
