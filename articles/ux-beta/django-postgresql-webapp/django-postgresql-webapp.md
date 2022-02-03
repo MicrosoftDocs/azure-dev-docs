@@ -312,6 +312,12 @@ The app code expects to find database information in four environment variables 
 | [!INCLUDE [A screenshot showing how to navigate to App Settings](<./includes/django-postgresql-webapp/connect-postgres-to-app-azure-portal-1.md>)] | :::image type="content" source="./media/django-postgresql-webapp/connect-postgres-to-app-azure-portal-1-240px.png" lightbox="./media/django-postgresql-webapp/connect-postgres-to-app-azure-portal-1.png" alt-text="A screenshot showing how to navigate to App Settings." ::: |
 | [!INCLUDE [A screenshot showing how to configure the App Settings](<./includes/django-postgresql-webapp/connect-postgres-to-app-azure-portal-2.md>)] | :::image type="content" source="./media/django-postgresql-webapp/connect-postgres-to-app-azure-portal-2-240px.png" lightbox="./media/django-postgresql-webapp/connect-postgres-to-app-azure-portal-2.png" alt-text="A screenshot showing how to configure the App Settings." ::: |
 
+### [Azure portal](#tab/azure-aztools)
+
+| Instructions    | Screenshot |
+|:----------------|-----------:|
+| TBD | TBD |
+
 ### [Azure CLI](#tab/azure-cli)
 
 To set environment variables in App Service, create "app settings" with the following [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_set) command.
@@ -335,6 +341,21 @@ az webapp config appsettings set --resource-group $RESOURCE_GROUP_NAME \
 
 Azure App service supports multiple methods to deploy your application code to Azure including support for GitHub Actions and all major CI/CD tools. This article focuses on how to deploy your code from your local workstation to Azure.
 
+### [Deploy using VS Code](#tab/vscode-aztools-deploy)
+
+To deploy a web app from VS Code, you must have the [Azure Tools extension pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack) installed and be signed into Azure from VS Code.
+
+> [!div class="nextstepaction"]
+> [Download Azure Tools extension pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack)
+
+| Instructions    | Screenshot |
+|:----------------|-----------:|
+| [!INCLUDE [VS Code deploy step 1](<./includes/django-postgresql-webapp/deploy-vscode-1.md>)] | TBD |
+| [!INCLUDE [VS Code deploy step 2](<./includes/django-postgresql-webapp/deploy-vscode-2.md>)] | TBD |
+| [!INCLUDE [VS Code deploy step 3](<./includes/django-postgresql-webapp/deploy-vscode-3.md>)] | TBD |
+| [!INCLUDE [VS Code deploy step 4](<./includes/django-postgresql-webapp/deploy-vscode-4.md>)] | TBD |
+| [!INCLUDE [VS Code deploy step 5](<./includes/django-postgresql-webapp/deploy-vscode-5.md>)] | TBD |
+
 ### [Deploy using Local Git](#tab/local-git-deploy)
 
 [!INCLUDE [Deploy Local Git](<./includes/django-postgresql-webapp/deploy-local-git.md>)]
@@ -353,14 +374,14 @@ With the code deployed and the database in place, the app is almost ready to use
 
 **Step 1.** Create SSH session and connect to web app server.
 
-### [Azure portal](#tab/azure-portal)
+### [Azure portal](#tab/azure-portal-migrate)
 
 In the browser window or tab for the web app:
 
 * Select **SSH**, under **Development Tools** on the left side
 * Then **Go** to open an SSH console on the web app server. (It may take a minute to connect for the first time as the web app container needs to start.)
 
-### [Azure CLI](#tab/azure-cli)
+### [Azure CLI](#tab/azure-cli-migrate)
 
 Run `az webpp ssh` to open an SSH session for the web app in the browser:
 
@@ -426,8 +447,8 @@ The contents of the App Service diagnostic logs can be reviewed in the Azure por
 
 | Instructions    | Screenshot |
 |:----------------|-----------:|
-| [!INCLUDE [Stream logs from VS Code 1](<./includes/django-postgresql-webapp/stream-logs-visual-studio-code-1.md>)] | TBD |
-| [!INCLUDE [Stream logs from VS Code 2](<./includes/django-postgresql-webapp/stream-logs-visual-studio-code-2.md>)] | TBD |
+| [!INCLUDE [Stream logs from VS Code 1](<./includes/django-postgresql-webapp/stream-logs-vscode-1.md>)] | TBD |
+| [!INCLUDE [Stream logs from VS Code 2](<./includes/django-postgresql-webapp/stream-logs-vscode-2.md>)] | TBD |
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -490,8 +511,8 @@ Follow these steps while signed-in to the Azure portal to delete a resource grou
 
 | Instructions    | Screenshot |
 |:----------------|-----------:|
-| [!INCLUDE [Remove resource group VS Code 1](<./includes/django-postgresql-webapp/remove-resource-group-visual-studio-code-1.md>)] | TBD |
-| [!INCLUDE [Remove resource group VS Code 2](<./includes/django-postgresql-webapp/remove-resource-group-visual-studio-code-2.md>)] | TBD |
+| [!INCLUDE [Remove resource group VS Code 1](<./includes/django-postgresql-webapp/remove-resource-group-vscode-1.md>)] | TBD |
+| [!INCLUDE [Remove resource group VS Code 2](<./includes/django-postgresql-webapp/remove-resource-group-vscode-2.md>)] | TBD |
 
 ### [Azure CLI](#tab/azure-cli)
 
