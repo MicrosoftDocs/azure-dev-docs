@@ -320,7 +320,7 @@ The app code expects to find database information in four environment variables 
 | [!INCLUDE [A screenshot showing how to navigate to App Settings](<./includes/django-postgresql-webapp/connect-postgres-to-app-azure-portal-1.md>)] | :::image type="content" source="./media/django-postgresql-webapp/connect-postgres-to-app-azure-portal-1-240px.png" lightbox="./media/django-postgresql-webapp/connect-postgres-to-app-azure-portal-1.png" alt-text="A screenshot showing how to navigate to App Settings." ::: |
 | [!INCLUDE [A screenshot showing how to configure the App Settings](<./includes/django-postgresql-webapp/connect-postgres-to-app-azure-portal-2.md>)] | :::image type="content" source="./media/django-postgresql-webapp/connect-postgres-to-app-azure-portal-2-240px.png" lightbox="./media/django-postgresql-webapp/connect-postgres-to-app-azure-portal-2.png" alt-text="A screenshot showing how to configure the App Settings." ::: |
 
-### [Azure portal <span style="background:mistyrose">TBD</span>](#tab/vscode-aztools)
+### [VS Code <span style="background:mistyrose">TBD</span>](#tab/vscode-aztools)
 
 | Instructions    | Screenshot |
 |:----------------|-----------:|
@@ -384,12 +384,12 @@ With the code deployed and the database in place, the app is almost ready to use
 
 ### [Azure portal](#tab/azure-portal)
 
-In the browser window or tab for the web app:
+Navigate to page for the App Service instance in the Azure portal.
 
 * Select **SSH**, under **Development Tools** on the left side
 * Then **Go** to open an SSH console on the web app server. (It may take a minute to connect for the first time as the web app container needs to start.)
 
-### [Azure portal](#tab/vscode-aztools)
+### [VS Code](#tab/vscode-aztools)
 
 In VS Code, you can use the [Azure Tools extension pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack), which must be installed and be signed into Azure from VS Code.
 
