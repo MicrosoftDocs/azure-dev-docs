@@ -312,7 +312,7 @@ The app code expects to find database information in four environment variables 
 | [!INCLUDE [A screenshot showing how to navigate to App Settings](<./includes/django-postgresql-webapp/connect-postgres-to-app-azure-portal-1.md>)] | :::image type="content" source="./media/django-postgresql-webapp/connect-postgres-to-app-azure-portal-1-240px.png" lightbox="./media/django-postgresql-webapp/connect-postgres-to-app-azure-portal-1.png" alt-text="A screenshot showing how to navigate to App Settings." ::: |
 | [!INCLUDE [A screenshot showing how to configure the App Settings](<./includes/django-postgresql-webapp/connect-postgres-to-app-azure-portal-2.md>)] | :::image type="content" source="./media/django-postgresql-webapp/connect-postgres-to-app-azure-portal-2-240px.png" lightbox="./media/django-postgresql-webapp/connect-postgres-to-app-azure-portal-2.png" alt-text="A screenshot showing how to configure the App Settings." ::: |
 
-### [Azure portal](#tab/vscode-aztools)
+### [Azure portal <span style="background:mistyrose">TBD</span>](#tab/vscode-aztools)
 
 | Instructions    | Screenshot |
 |:----------------|-----------:|
@@ -341,7 +341,7 @@ az webapp config appsettings set --resource-group $RESOURCE_GROUP_NAME \
 
 Azure App service supports multiple methods to deploy your application code to Azure including support for GitHub Actions and all major CI/CD tools. This article focuses on how to deploy your code from your local workstation to Azure.
 
-### [Deploy using VS Code](#tab/vscode-aztools-deploy)
+### [Deploy using VS Code <span style="background:mistyrose">TBD</span>](#tab/vscode-aztools-deploy)
 
 To deploy a web app from VS Code, you must have the [Azure Tools extension pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack) installed and be signed into Azure from VS Code.
 
@@ -436,14 +436,14 @@ You can access the console logs generated from inside the container that hosts t
 
 The contents of the App Service diagnostic logs can be reviewed in the Azure portal, VS Code, or using the Azure CLI.
 
-### [Azure portal](#tab/azure-portal)
+### [Azure portal <span style="background:mistyrose">TBD</span>](#tab/azure-portal)
 
 | Instructions    | Screenshot |
 |:----------------|-----------:|
 | [!INCLUDE [Stream logs from Azure portal 1](<./includes/django-postgresql-webapp/stream-logs-azure-portal-1.md>)] | TBD |
 | [!INCLUDE [Stream logs from Azure portal 2](<./includes/django-postgresql-webapp/stream-logs-azure-portal-2.md>)] | TBD |
 
-### [VS Code](#tab/vscode-aztools)
+### [VS Code <span style="background:mistyrose">TBD</span>](#tab/vscode-aztools)
 
 | Instructions    | Screenshot |
 |:----------------|-----------:|
@@ -496,7 +496,7 @@ You can leave the app and database running as long as you want for further devel
 
 However, when you are finished with the sample app, you can remove all of the resources for the app from Azure to insure you do not incur additional charges and keep your Azure subscription uncluttered. Removing the resource group also removes all resources in the resource group and is the fastest way to remove all Azure resources for your app.
 
-### [Azure portal](#tab/azure-portal)
+### [Azure portal <span style="background:mistyrose">TBD</span>](#tab/azure-portal)
 
 Follow these steps while signed-in to the Azure portal to delete a resource group.
 
@@ -507,7 +507,7 @@ Follow these steps while signed-in to the Azure portal to delete a resource grou
 | [!INCLUDE [Remove resource group Azure portal 3](<./includes/django-postgresql-webapp/remove-resource-group-azure-portal-3.md>)] | TBD |
 
 
-### [VS Code](#tab/vscode-aztools)
+### [VS Code <span style="background:mistyrose">TBD</span>](#tab/vscode-aztools)
 
 | Instructions    | Screenshot |
 |:----------------|-----------:|
