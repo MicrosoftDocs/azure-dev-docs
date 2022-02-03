@@ -84,15 +84,15 @@ python manage.py migrate
 python manage.py runserver
 ```
 
-**Step 5.** Browse to the sample application at `http://localhost:8000` in a web browser.
+**Step 5.** In a web browser, go to the sample application at `http://localhost:8000`.
 
-At this point, you have a polls app with no poll questions. To optionally continue local testing, create a superuser with `python manage.py createsuperuser` and then login in to `http://localhost:8000/admin` to create poll questions. By default, SQLite is used locally since it is included in Python.
+At this point, you have a polls app with no poll questions. To optionally continue your local testing, you can create a superuser with `python manage.py createsuperuser` and then use the user credentials to login in to `http://localhost:8000/admin` and create poll questions. By default, SQLite is used locally since it is included in Python. You will perform the same steps later in your deployed app with a PostgreSQL database.
 
 ----
 
 ## 2 - Create a web app in Azure
 
-To host your application in Azure, you need to create Azure App Service web app in Azure. You can create a web app using the [Azure portal](https://portal.azure.com/), VS Code using the [Azure Tools extension pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack), or the Azure CLI.
+To host your application in Azure, you need to create Azure App Service web app. You can create a web app using the [Azure portal](https://portal.azure.com/), VS Code using the [Azure Tools extension pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack), or the Azure CLI.
 
 ### [Azure portal](#tab/azure-portal)
 
@@ -106,7 +106,7 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps 
 | [!INCLUDE [A screenshot showing the location of the Create button on the App Services page in the Azure Portal](<./includes/django-postgresql-webapp/create-app-service-azure-portal-2.md>)] | :::image type="content" source="./media/django-postgresql-webapp/create-app-service-azure-portal-2-240px.png" lightbox="./media/django-postgresql-webapp/create-app-service-azure-portal-2.png" alt-text="A screenshot showing the location of the Create button on the App Services page in the Azure Portal." ::: |
 | [!INCLUDE [A screenshot showing how to fill out the form to create a new App Service in the Azure Portal](<./includes/django-postgresql-webapp/create-app-service-azure-portal-3.md>)] | :::image type="content" source="./media/django-postgresql-webapp/create-app-service-azure-portal-3-240px.png" lightbox="./media/django-postgresql-webapp/create-app-service-azure-portal-3.png" alt-text="A screenshot showing how to fill out the form to create a new App Service in the Azure Portal." ::: |
 | [!INCLUDE [A screenshot showing how to select the basic App Service plan in the Azure portal](<./includes/django-postgresql-webapp/create-app-service-azure-portal-4.md>)] | :::image type="content" source="./media/django-postgresql-webapp/create-app-service-azure-portal-4-240px.png" lightbox="./media/django-postgresql-webapp/create-app-service-azure-portal-4.png" alt-text="A screenshot showing how to select the basic App Service plan in the Azure portal." ::: |
-| [!INCLUDE [A screenshot showing the location of hte Review plus Create button in the Azure Portal](<./includes/django-postgresql-webapp/create-app-service-azure-portal-5.md>)] | :::image type="content" source="./media/django-postgresql-webapp/create-app-service-azure-portal-5-240px.png" lightbox="./media/django-postgresql-webapp/create-app-service-azure-portal-5.png" alt-text="A screenshot showing the location of hte Review plus Create button in the Azure Portal." ::: |
+| [!INCLUDE [A screenshot showing the location of hte Review plus Create button in the Azure Portal](<./includes/django-postgresql-webapp/create-app-service-azure-portal-5.md>)] | :::image type="content" source="./media/django-postgresql-webapp/create-app-service-azure-portal-5-240px.png" lightbox="./media/django-postgresql-webapp/create-app-service-azure-portal-5.png" alt-text="A screenshot showing the location of the Review plus Create button in the Azure Portal." ::: |
 
 ### [VS Code](#tab/vscode-aztools)
 
