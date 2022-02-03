@@ -1,6 +1,6 @@
 ---
 title: Deploy ASP.NET Core SQL App to Azure
-description: Enter description here
+description: Learn how to get a .NET Core app working in Azure App Service, with connection to an Azure SQL Database.
 ms.topic: tutorial
 ms.date: 10/27/2021
 ms.service: azure
@@ -22,11 +22,11 @@ This article assumes you're familiar with [.NET](https://dotnet.microsoft.com/do
 
 ## 1 - Set up the Sample Application
 
-To follow along with this tutorial, [Download the Sample Project](https://github.com/Azure-Samples/msdocs-app-service-sqldb-dotnetcore/archive/refs/heads/main.zip) from the repository [https://github.com/Azure-Samples/msdocs-app-service-sqldb-dotnetcore](https://github.com/Azure-Samples/msdocs-app-service-sqldb-dotnetcore) or clone it using the Git command below.
+To follow along with this tutorial, [Download the Sample Project](https://github.com/Azure-Samples/msdocs-app-service-sql-db-dotnetcore/archive/refs/heads/main.zip) from the repository [https://github.com/Azure-Samples/msdocs-app-service-sql-db-dotnetcore](https://github.com/Azure-Samples/msdocs-app-service-sql-db-dotnetcore) or clone it using the Git command below.
 
 ```terminal
-git clone https://github.com/Azure-Samples/msdocs-app-service-sqldb-dotnetcore.git
-cd msdocs-app-service-sqldb-dotnetcore
+git clone https://github.com/Azure-Samples/msdocs-app-service-sql-db-dotnetcore.git
+cd msdocs-app-service-sql-db-dotnetcore
 ```
 
 :::image type="content" source="media/azure-app-in-browser.png" alt-text="This is an architecture diagram about how the solution works in Azure":::
@@ -41,11 +41,11 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps 
 
 | Instructions    | Screenshot |
 |:----------------|-----------:|
-| [!INCLUDE [Create app service step 1](<./includes/create-app-service/azure-portal-1.md>)] | :::image type="content" source="./media/azportal-create-app-service-1-240px.png" alt-text="A screenshot showing how to use the search box in the top tool bar to find App Services in Azure." lightbox="./media/azportal-create-app-service-1.png"::: |
-| [!INCLUDE [Create app service step 2](<./includes/create-app-service/azure-portal-2.md>)] | :::image type="content" source="./media/azportal-create-app-service-2-240px.png" alt-text="A screenshot showing the create button on the App Services page used to create a new web app." lightbox="./media/azportal-create-app-service-2.png"::: |
-| [!INCLUDE [Create app service step 3](<./includes/create-app-service/azure-portal-3.md>)] | :::image type="content" source="./media/azportal-create-app-service-3-240px.png" alt-text="A screenshot showing the form to fill out to create a web app in Azure." lightbox="./media/azportal-create-app-service-3.png"::: |
-| [!INCLUDE [Create app service step 4](<./includes/create-app-service/azure-portal-4.md>)] | :::image type="content" source="./media/azportal-create-app-service-4-240px.png" alt-text="A screenshot of the Spec Picker dialog that allows you to select the App Service plan to use for your web app." lightbox="./media/azportal-create-app-service-4.png"::: |
-| [!INCLUDE [Create app service step 5](<./includes/create-app-service/azure-portal-5.md>)] | :::image type="content" source="./media/azportal-create-app-service-5-240px.png" alt-text="A screenshot of the main web app create page showing the button to select on to create your web app in Azure." lightbox="./media/azportal-create-app-service-5.png"::: |
+| [!INCLUDE [Create app service step 1](<./includes/azure-portal-create-app-service-01.md>)] | :::image type="content" source="./media/azure-portal-create-app-service-1-240px.png" alt-text="A screenshot showing how to use the search box in the top tool bar to find App Services in Azure." lightbox="./media/azure-portal-create-app-service-1.png"::: |
+| [!INCLUDE [Create app service step 2](<./includes/azure-portal-create-app-service-02.md>)] | :::image type="content" source="./media/azure-portal-create-app-service-2-240px.png" alt-text="A screenshot showing the create button on the App Services page used to create a new web app." lightbox="./media/azure-portal-create-app-service-2.png"::: |
+| [!INCLUDE [Create app service step 3](<./includes/azure-portal-create-app-service-03.md>)] | :::image type="content" source="./media/azure-portal-create-app-service-3-240px.png" alt-text="A screenshot showing the form to fill out to create a web app in Azure." lightbox="./media/azure-portal-create-app-service-3.png"::: |
+| [!INCLUDE [Create app service step 4](<./includes/azure-portal-create-app-service-04.md>)] | :::image type="content" source="./media/azure-portal-create-app-service-4-240px.png" alt-text="A screenshot of the Spec Picker dialog that allows you to select the App Service plan to use for your web app." lightbox="./media/azure-portal-create-app-service-4.png"::: |
+| [!INCLUDE [Create app service step 5](<./includes/azure-portal-create-app-service-05.md>)] | :::image type="content" source="./media/azure-portal-create-app-service-5-240px.png" alt-text="A screenshot of the main web app create page showing the button to select on to create your web app in Azure." lightbox="./media/azure-portal-create-app-service-5.png"::: |
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -97,13 +97,13 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps 
 
 | Instructions    | Screenshot |
 |:----------------|-----------:|
-| [!INCLUDE [Create database step 1](<./includes/create-sql-database/azure-portal-sqldb-create-01.md>)] | :::image type="content" source="./media/azportal-create-sql-01-240px.png" alt-text="A screenshot showing how to use the search box in the top tool bar to find App Services in Azure." lightbox="./media/azportal-create-sql-01.png"::: |
-| [!INCLUDE [Create database step 2](<./includes/create-sql-database/azure-portal-sqldb-create-02.md>)] | :::image type="content" source="./media/azportal-create-sql-02-240px.png" alt-text="A screenshot showing the create button on the App Services page used to create a new web app." lightbox="./media/azportal-create-sql-02.png"::: |
-| [!INCLUDE [Create database step 3](<./includes/create-sql-database/azure-portal-sqldb-create-03.md>)] | :::image type="content" source="./media/azportal-create-sql-03-240px.png" alt-text="A screenshot showing the form to fill out to create a web app in Azure." lightbox="./media/azportal-create-sql-03.png"::: |
-| [!INCLUDE [Create database step 4](<./includes/create-sql-database/azure-portal-sqldb-create-04.md>)] | :::image type="content" source="./media/azportal-create-sql-04-240px.png" alt-text="A screenshot showing the form to fill out to create a web app in Azure." lightbox="./media/azportal-create-sql-04.png"::: |
-| [!INCLUDE [Create database step 5](<./includes/create-sql-database/azure-portal-sqldb-create-05.md>)] | :::image type="content" source="./media/azportal-create-sql-05-240px.png" alt-text="A screenshot showing the form to fill out to create a web app in Azure." lightbox="./media/azportal-create-sql-05.png"::: |
-| [!INCLUDE [Create database step 6](<./includes/create-sql-database/azure-portal-sqldb-create-06.md>)] | :::image type="content" source="./media/azportal-create-sql-06-240px.png" alt-text="A screenshot showing the form to fill out to create a web app in Azure." lightbox="./media/azportal-create-sql-06.png"::: |
-| [!INCLUDE [Create database step 7](<./includes/create-sql-database/azure-portal-sqldb-create-07.md>)] | :::image type="content" source="./media/azportal-create-sql-07-240px.png" alt-text="A screenshot showing the form to fill out to create a web app in Azure." lightbox="./media/azportal-create-sql-07.png"::: |
+| [!INCLUDE [Create database step 1](<./includes/azure-portal-sql-db-create-01.md>)] | :::image type="content" source="./media/azure-portal-create-sql-01-240px.png" alt-text="A screenshot showing how to use the search box in the top tool bar to find App Services in Azure." lightbox="./media/azure-portal-create-sql-01.png"::: |
+| [!INCLUDE [Create database step 2](<./includes/azure-portal-sql-db-create-02.md>)] | :::image type="content" source="./media/azure-portal-create-sql-02-240px.png" alt-text="A screenshot showing the create button on the App Services page used to create a new web app." lightbox="./media/azure-portal-create-sql-02.png"::: |
+| [!INCLUDE [Create database step 3](<./includes/azure-portal-sql-db-create-03.md>)] | :::image type="content" source="./media/azure-portal-create-sql-03-240px.png" alt-text="A screenshot showing the form to fill out to create a web app in Azure." lightbox="./media/azure-portal-create-sql-03.png"::: |
+| [!INCLUDE [Create database step 4](<./includes/azure-portal-sql-db-create-04.md>)] | :::image type="content" source="./media/azure-portal-create-sql-04-240px.png" alt-text="A screenshot showing the form to fill out to create a web app in Azure." lightbox="./media/azure-portal-create-sql-04.png"::: |
+| [!INCLUDE [Create database step 5](<./includes/azure-portal-sql-db-create-05.md>)] | :::image type="content" source="./media/azure-portal-create-sql-05-240px.png" alt-text="A screenshot showing the form to fill out to create a web app in Azure." lightbox="./media/azure-portal-create-sql-05.png"::: |
+| [!INCLUDE [Create database step 6](<./includes/azure-portal-sql-db-create-06.md>)] | :::image type="content" source="./media/azure-portal-create-sql-06-240px.png" alt-text="A screenshot showing the form to fill out to create a web app in Azure." lightbox="./media/azure-portal-create-sql-06.png"::: |
+| [!INCLUDE [Create database step 7](<./includes/azure-portal-sql-db-create-07.md>)] | :::image type="content" source="./media/azure-portal-create-sql-07-240px.png" alt-text="A screenshot showing the form to fill out to create a web app in Azure." lightbox="./media/azure-portal-create-sql-07.png"::: |
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -151,22 +151,22 @@ We're now ready to deploy our .NET app to the App Service.
 
 | Instructions    | Screenshot |
 |:----------------|-----------:|
-| [!INCLUDE [Deploy app service step 1](<./includes/deploy-app-service/vstudio-deploy-app-service-01.md>)] | :::image type="content" source="./media/vstudio-deployapp-service-01-240px.png" alt-text="A screenshot showing how to use the search box in the top tool bar to find App Services in Azure." lightbox="./media/vstudio-deployapp-service-01.png"::: |
-| [!INCLUDE [Deploy app service step 2](<./includes/deploy-app-service/vstudio-deploy-app-service-02.md>)] | :::image type="content" source="./media/vstudio-deployapp-service-02-240px.png" alt-text="A screenshot showing the deploy button on the App Services page used to deploy a new web app." lightbox="./media/vstudio-deployapp-service-02.png"::: |
-| [!INCLUDE [Deploy app service step 3](<./includes/deploy-app-service/vstudio-deploy-app-service-03.md>)] | :::image type="content" source="./media/vstudio-deployapp-service-03-240px.png" alt-text="A screenshot showing the deploy button on the App Services page used to deploy a new web app." lightbox="./media/vstudio-deployapp-service-03.png"::: |
-| [!INCLUDE [Deploy app service step 4](<./includes/deploy-app-service/vstudio-deploy-app-service-04.md>)] | :::image type="content" source="./media/vstudio-deployapp-service-04-240px.png" alt-text="A screenshot showing the deploy button on the App Services page used to deploy a new web app." lightbox="./media/vstudio-deployapp-service-04.png"::: |
-| [!INCLUDE [Deploy app service step 5](<./includes/deploy-app-service/vstudio-deploy-app-service-05.md>)] | :::image type="content" source="./media/vstudio-deployapp-service-05-240px.png" alt-text="A screenshot showing the deploy button on the App Services page used to deploy a new web app." lightbox="./media/vstudio-deployapp-service-05.png"::: |
+| [!INCLUDE [Deploy app service step 1](<./includes/visual-studio-deploy-app-service-01.md>)] | :::image type="content" source="./media/visual-studio-deploy-app-service-01-240px.png" alt-text="A screenshot showing how to use the search box in the top tool bar to find App Services in Azure." lightbox="./media/visual-studio-deploy-app-service-01.png"::: |
+| [!INCLUDE [Deploy app service step 2](<./includes/visual-studio-deploy-app-service-02.md>)] | :::image type="content" source="./media/visual-studio-deploy-app-service-02-240px.png" alt-text="A screenshot showing the deploy button on the App Services page used to deploy a new web app." lightbox="./media/visual-studio-deploy-app-service-02.png"::: |
+| [!INCLUDE [Deploy app service step 3](<./includes/visual-studio-deploy-app-service-03.md>)] | :::image type="content" source="./media/visual-studio-deploy-app-service-03-240px.png" alt-text="A screenshot showing the deploy button on the App Services page used to deploy a new web app." lightbox="./media/visual-studio-deploy-app-service-03.png"::: |
+| [!INCLUDE [Deploy app service step 4](<./includes/visual-studio-deploy-app-service-04.md>)] | :::image type="content" source="./media/visual-studio-deploy-app-service-04-240px.png" alt-text="A screenshot showing the deploy button on the App Services page used to deploy a new web app." lightbox="./media/visual-studio-deploy-app-service-04.png"::: |
+| [!INCLUDE [Deploy app service step 5](<./includes/visual-studio-deploy-app-service-05.md>)] | :::image type="content" source="./media/visual-studio-deploy-app-service-05-240px.png" alt-text="A screenshot showing the deploy button on the App Services page used to deploy a new web app." lightbox="./media/visual-studio-deploy-app-service-05.png"::: |
 
 ### [Deploy using VS Code](#tab/vscode-deploy)
 
 | Instructions    | Screenshot |
 |:----------------|-----------:|
-| [!INCLUDE [Deploy app service step 1](<./includes/deploy-app-service/vscode-deploy-app-service-01.md>)] | :::image type="content" source="./media/vscode-deploy-01-240px.png" alt-text="A screenshot showing how to use the search box in the top tool bar to find App Services in Azure." lightbox="./media/vscode-deploy-01.png"::: |
-| [!INCLUDE [Deploy app service step 2](<./includes/deploy-app-service/vscode-deploy-app-service-02.md>)] | :::image type="content" source="./media/vscode-deploy-02-240px.png" alt-text="A screenshot showing the deploy button on the App Services page used to deploy a new web app." lightbox="./media/vscode-deploy-02.png"::: |
+| [!INCLUDE [Deploy app service step 1](<./includes/visual-studio-code-deploy-app-service-01.md>)] | :::image type="content" source="./media/visual-studio-code-deploy-01-240px.png" alt-text="A screenshot showing how to use the search box in the top tool bar to find App Services in Azure." lightbox="./media/visual-studio-code-deploy-01.png"::: |
+| [!INCLUDE [Deploy app service step 2](<./includes/visual-studio-code-deploy-app-service-02.md>)] | :::image type="content" source="./media/visual-studio-code-deploy-02-240px.png" alt-text="A screenshot showing the deploy button on the App Services page used to deploy a new web app." lightbox="./media/visual-studio-code-deploy-02.png"::: |
 
 ### [Deploy using Local Git](#tab/azure-cli-deploy)
 
-[!INCLUDE [Deploy using Local Git](<./includes/deploy-app-service/deploy-local-git.md>)]
+[!INCLUDE [Deploy using Local Git](<./includes/deploy-local-git.md>)]
 
 ---
 
@@ -179,10 +179,10 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps 
 
 | Instructions    | Screenshot |
 |:----------------|-----------:|
-| [!INCLUDE [Connect Service step 1](<./includes/connect-app-database/azure-portal-connect-database-01.md>)] | :::image type="content" source="./media/azportal-connect-sqldb-01-240px.png" alt-text="A screenshot showing how to use the search box in the top tool bar to find App Services in Azure." lightbox="./media/azportal-connect-sqldb-01.png"::: |
-| [!INCLUDE [Connect Service step 2](<./includes/connect-app-database/azure-portal-connect-database-02.md>)] | :::image type="content" source="./media/azportal-connect-sqldb-02-240px.png" alt-text="A screenshot showing the create button on the App Services page used to create a new web app." lightbox="./media/azportal-connect-sqldb-02.png"::: |
-| [!INCLUDE [Connect Service step 3](<./includes/connect-app-database/azure-portal-connect-database-03.md>)] | :::image type="content" source="./media/azportal-connect-sqldb-03-240px.png" alt-text="A screenshot showing how to use the search box in the top tool bar to find App Services in Azure." lightbox="./media/azportal-connect-sqldb-03.png"::: |
-| [!INCLUDE [Connect Service step 4](<./includes/connect-app-database/azure-portal-connect-database-04.md>)] | :::image type="content" source="./media/azportal-connect-sqldb-04-240px.png" alt-text="A screenshot showing the create button on the App Services page used to create a new web app." lightbox="./media/azportal-connect-sqldb-04.png"::: |
+| [!INCLUDE [Connect Service step 1](<./includes/azure-portal-connect-database-01.md>)] | :::image type="content" source="./media/azure-portal-connect-sql-db-01-240px.png" alt-text="A screenshot showing how to use the search box in the top tool bar to find App Services in Azure." lightbox="./media/azure-portal-connect-sql-db-01.png"::: |
+| [!INCLUDE [Connect Service step 2](<./includes/azure-portal-connect-database-02.md>)] | :::image type="content" source="./media/azure-portal-connect-sql-db-02-240px.png" alt-text="A screenshot showing the create button on the App Services page used to create a new web app." lightbox="./media/azure-portal-connect-sql-db-02.png"::: |
+| [!INCLUDE [Connect Service step 3](<./includes/azure-portal-connect-database-03.md>)] | :::image type="content" source="./media/azure-portal-connect-sql-db-03-240px.png" alt-text="A screenshot showing how to use the search box in the top tool bar to find App Services in Azure." lightbox="./media/azure-portal-connect-sql-db-03.png"::: |
+| [!INCLUDE [Connect Service step 4](<./includes/azure-portal-connect-database-04.md>)] | :::image type="content" source="./media/azure-portal-connect-sql-db-04-240px.png" alt-text="A screenshot showing the create button on the App Services page used to create a new web app." lightbox="./media/azure-portal-connect-sql-db-04.png"::: |
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -221,8 +221,8 @@ In the Azure portal:
 
 | Instructions    | Screenshot |
 |:----------------|-----------:|
-| [!INCLUDE [Generate schema step 1](<./includes/generate-database-schema/azure-portal-generate-schema-01.md>)] | :::image type="content" source="./media/azportal-generate-schema-01-240px.png" alt-text="A screenshot showing how to use the search box in the top tool bar to find App Services in Azure." lightbox="./media/azportal-generate-schema-01.png"::: |
-| [!INCLUDE [Generate schema step 2](<./includes/generate-database-schema/azure-portal-generate-schema-02.md>)] | :::image type="content" source="./media/azportal-generate-schema-02-240px.png" alt-text="A screenshot showing the create button on the App Services page used to create a new web app." lightbox="./media/azportal-generate-schema-02.png"::: |
+| [!INCLUDE [Generate schema step 1](<./includes/azure-portal-generate-schema-01.md>)] | :::image type="content" source="./media/azure-portal-generate-schema-01-240px.png" alt-text="A screenshot showing how to use the search box in the top tool bar to find App Services in Azure." lightbox="./media/azure-portal-generate-schema-01.png"::: |
+| [!INCLUDE [Generate schema step 2](<./includes/azure-portal-generate-schema-02.md>)] | :::image type="content" source="./media/azure-portal-generate-schema-02-240px.png" alt-text="A screenshot showing the create button on the App Services page used to create a new web app." lightbox="./media/azure-portal-generate-schema-02.png"::: |
 
 
 ### [Azure CLI](#tab/azure-cli)
@@ -287,15 +287,15 @@ Azure App Service captures messages logged to the console to assist you in diagn
 
 | Instructions    | Screenshot |
 |:----------------|-----------:|
-| [!INCLUDE [Stream logs from Azure portal 1](<./includes/stream-logs/azportal-stream-logs-01.md>)] | :::image type="content" source="./media/azportal-stream-logs-1-240px.png" alt-text="A screenshot showing the location of the Azure Tool icon in Visual Studio Code." lightbox="./media/azportal-stream-logs-1.png"::: |
-| [!INCLUDE [Stream logs from Azure portal 2](<./includes/stream-logs/azportal-stream-logs-02.md>)] | :::image type="content" source="./media/azportal-stream-logs-2-240px.png" alt-text="A screenshot showing how you deploy an application to Azure by right-clicking on a web app in VS Code and selecting deploy from the context menu." lightbox="./media/azportal-stream-logs-2.png"::: |
+| [!INCLUDE [Stream logs from Azure portal 1](<./includes/stream-logs/azure-portal-stream-logs-01.md>)] | :::image type="content" source="./media/azure-portal-stream-logs-1-240px.png" alt-text="A screenshot showing the location of the Azure Tool icon in Visual Studio Code." lightbox="./media/azure-portal-stream-logs-1.png"::: |
+| [!INCLUDE [Stream logs from Azure portal 2](<./includes/stream-logs/azure-portal-stream-logs-02.md>)] | :::image type="content" source="./media/azure-portal-stream-logs-2-240px.png" alt-text="A screenshot showing how you deploy an application to Azure by right-clicking on a web app in VS Code and selecting deploy from the context menu." lightbox="./media/azure-portal-stream-logs-2.png"::: |
 
 ### [VS Code](#tab/vscode-logs)
 
 | Instructions    | Screenshot |
 |:----------------|-----------:|
-| [!INCLUDE [Stream logs from VS Code 1](<./includes/stream-logs/vscode-stream-logs-01.md>)] | :::image type="content" source="./media/vscode-stream-logs-1-240px.png" alt-text="A screenshot showing the location of the Azure Tool icon in Visual Studio Code." lightbox="./media/vscode-stream-logs-1.png"::: |
-| [!INCLUDE [Stream logs from VS Code 2](<./includes/stream-logs/vscode-stream-logs-02.md>)] | :::image type="content" source="./media/vscode-stream-logs-2-240px.png" alt-text="A screenshot showing how you deploy an application to Azure by right-clicking on a web app in VS Code and selecting deploy from the context menu." lightbox="./media/vscode-stream-logs-2.png"::: |
+| [!INCLUDE [Stream logs from VS Code 1](<./includes/stream-logs/vscode-stream-logs-01.md>)] | :::image type="content" source="./media/visual-studio-code-stream-logs-1-240px.png" alt-text="A screenshot showing the location of the Azure Tool icon in Visual Studio Code." lightbox="./media/visual-studio-code-stream-logs-1.png"::: |
+| [!INCLUDE [Stream logs from VS Code 2](<./includes/stream-logs/vscode-stream-logs-02.md>)] | :::image type="content" source="./media/visual-studio-code-stream-logs-2-240px.png" alt-text="A screenshot showing how you deploy an application to Azure by right-clicking on a web app in VS Code and selecting deploy from the context menu." lightbox="./media/visual-studio-code-stream-logs-2.png"::: |
 
 ### [Azure CLI](#tab/azure-cli-logs)
 
@@ -324,7 +324,7 @@ Refresh the home page in the app or attempt other requests to generate some log 
 2022-01-06 22:37:16.195 +00:00 [Trace] Microsoft.AspNetCore.HostFiltering.HostFilteringMiddleware: All hosts are allowed.
 2022-01-06 22:37:16.195 +00:00 [Debug] Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware: The request path / does not match a supported file type
 2022-01-06 22:37:16.195 +00:00 [Debug] Microsoft.AspNetCore.Routing.Matching.DfaMatcher: 1 candidate(s) found for the request path '/'
-2022-01-06 22:37:16.195 +00:00 [Debug] Microsoft.AspNetCore.Routing.Matching.DfaMatcher: Endpoint 'DotNetCoreSqlDb.Controllers.TodosController.Index (DotNetCoreSqlDb)' with route pattern '{controller=Todos}/{action=Index}/{id?}' is valid for the request path '/'
+2022-01-06 22:37:16.195 +00:00 [Debug] Microsoft.AspNetCore.Routing.Matching.DfaMatcher: Endpoint 'DotNetCoresql-db.Controllers.TodosController.Index (DotNetCoresql-db)' with route pattern '{controller=Todos}/{action=Index}/{id?}' is valid for the request path '/'
 ```
 
 ---
@@ -339,16 +339,16 @@ Follow these steps while signed-in to the Azure portal to delete a resource grou
 
 | Instructions    | Screenshot |
 |:----------------|-----------:|
-| [!INCLUDE [Remove resource group Azure portal 1](<./includes/clean-resources/azure-portal-1.md>)] | :::image type="content" source="./media/azportal-remove-resource-group-1-240px.png" alt-text="A screenshot showing how to search for and navigate to a resource group in the Azure portal." lightbox="./media/azportal-remove-resource-group-1.png"::: |
-| [!INCLUDE [Remove resource group Azure portal 2](<./includes/clean-resources/azure-portal-2.md>)] | :::image type="content" source="./media/azportal-remove-resource-group-2-240px.png" alt-text="A screenshot showing the location of the Delete Resource Group button in the Azure portal." lightbox="./media/azportal-remove-resource-group-2.png"::: |
-| [!INCLUDE [Remove resource group Azure portal 3](<./includes/clean-resources/azure-portal-3.md>)] | :::image type="content" source="./media/azportal-remove-resource-group-3-240px.png" alt-text="A screenshot of the confirmation dialog for deleting a resource group in the Azure portal." lightbox="./media/azportal-remove-resource-group-3.png"::: |
+| [!INCLUDE [Remove resource group Azure portal 1](<./includes/azure-portal-clean-resources-1.md>)] | :::image type="content" source="./media/azure-portal-remove-resource-group-1-240px.png" alt-text="A screenshot showing how to search for and navigate to a resource group in the Azure portal." lightbox="./media/azure-portal-remove-resource-group-1.png"::: |
+| [!INCLUDE [Remove resource group Azure portal 2](<./includes/azure-portal-clean-resources-2.md>)] | :::image type="content" source="./media/azure-portal-remove-resource-group-2-240px.png" alt-text="A screenshot showing the location of the Delete Resource Group button in the Azure portal." lightbox="./media/azure-portal-remove-resource-group-2.png"::: |
+| [!INCLUDE [Remove resource group Azure portal 3](<./includes/azure-portal-clean-resources-3.md>)] | :::image type="content" source="./media/azure-portal-remove-resource-group-3-240px.png" alt-text="A screenshot of the confirmation dialog for deleting a resource group in the Azure portal." lightbox="./media/azure-portal-remove-resource-group-3.png"::: |
 
 ### [VS Code](#tab/vscode-resources)
 
 | Instructions    | Screenshot |
 |:----------------|-----------:|
-| [!INCLUDE [Remove resource group VS Code 1](<./includes/clean-resources/vscode-1.md>)] | :::image type="content" source="./media/vscode-remove-resource-group-1-240px.png" alt-text="A screenshot showing how to delete a resource group in VS Code using the Azure Tools extention." lightbox="./media/vscode-remove-resource-group-1.png"::: |
-| [!INCLUDE [Remove resource group VS Code 2](<./includes/clean-resources/vscode-2.md>)] | :::image type="content" source="./media/vscode-remove-resource-group-2-240px.png" alt-text="A screenshot of the confirmation dialog for deleting a resource group from VS Code." lightbox="./media/vscode-remove-resource-group-2.png"::: |
+| [!INCLUDE [Remove resource group VS Code 1](<./includes/visual-studio-code-clean-resources-1.md>)] | :::image type="content" source="./media/visual-studio-code-remove-resource-group-1-240px.png" alt-text="A screenshot showing how to delete a resource group in VS Code using the Azure Tools extention." lightbox="./media/visual-studio-code-remove-resource-group-1.png"::: |
+| [!INCLUDE [Remove resource group VS Code 2](<./includes/visual-studio-code-clean-resources-2.md>)] | :::image type="content" source="./media/visual-studio-code-remove-resource-group-2-240px.png" alt-text="A screenshot of the confirmation dialog for deleting a resource group from VS Code." lightbox="./media/visual-studio-code-remove-resource-group-2.png"::: |
 
 ### [Azure CLI](#tab/azure-cli-resources)
 
