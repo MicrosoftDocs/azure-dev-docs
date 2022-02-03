@@ -2,7 +2,7 @@
 title: Azure SDK for JS/TS
 description: To programmatically access your Azure services, use the Azure SDKs for JavaScript or TypeScript development.
 ms.topic: how-to
-ms.date: 10/25/2021
+ms.date: 02/03/2022
 ms.custom: devx-track-js
 ---
 
@@ -51,7 +51,7 @@ Once you programmatically create a credential, pass the credential to your Azure
 
 List subscriptions which this credential has access to read. 
 
-:::code language="JavaScript" source="~/../js-e2e/resources/subscriptions/list.js" highlight="4-24" :::
+:::code language="JavaScript" source="~/../js-e2e/resources/subscriptions/list.js" highlight="1-24" :::
 
 ## Asynchronous paging of results
 
