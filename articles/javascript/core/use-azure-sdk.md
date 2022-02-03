@@ -51,7 +51,7 @@ Once you programmatically create a credential, pass the credential to your Azure
 
 List subscriptions which this credential has access to read. 
 
-:::code language="JavaScript" source="~/../js-e2e/resources/subscriptions/list.js" highlight="1-24" :::
+:::code language="JavaScript" source="~/../js-e2e/resources/subscriptions/list.js" highlight="28,33" :::
 
 ## Asynchronous paging of results
 
