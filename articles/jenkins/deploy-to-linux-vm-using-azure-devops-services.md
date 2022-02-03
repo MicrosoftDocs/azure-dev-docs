@@ -111,7 +111,7 @@ A service endpoint allows Azure DevOps Services to connect to Jenkins.
 
 ## Create a deployment group for Azure virtual machines
 
-You need a [deployment group](https://www.visualstudio.com/docs/build/concepts/definitions/release/deployment-groups/) to register the Azure DevOps Services agent so the release pipeline can be deployed to your virtual machine. Deployment groups make it easy to define logical groups of target machines for deployment, and to install the required agent on each machine.
+You need a [deployment group](/azure/devops/pipelines/release/deployment-groups/) to register the Azure DevOps Services agent so the release pipeline can be deployed to your virtual machine. Deployment groups make it easy to define logical groups of target machines for deployment, and to install the required agent on each machine.
 
    > [!NOTE]
    > In the following procedure, be sure to install the prerequisites and *don't run the script with sudo privileges.*
