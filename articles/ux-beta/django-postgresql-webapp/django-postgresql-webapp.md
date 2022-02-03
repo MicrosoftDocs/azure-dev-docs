@@ -72,13 +72,21 @@ cd djangoapp
 pip install -r requirements.txt
 ```
 
-**Step 3.** Run the app:
+**Step 3.** Synchronize the the database state with the current set of models and migrations.
+
+```Console
+python manage.py migrate
+```
+
+**Step 4.** Run the app:
 
 ```Console
 python manage.py runserver
 ```
 
-**Step 4.** Browse to the sample application at `http://localhost:8000` in a web browser.
+**Step 5.** Browse to the sample application at `http://localhost:8000` in a web browser.
+
+At this point, you have a polls app with no poll questions. To optionally continue local testing, create a superuser with `python manage.py createsuperuser` and then login in to `http://localhost:8000/admin` to create poll questions. By default, SQLite is used locally since it is included in Python.
 
 ----
 
