@@ -1,3 +1,10 @@
+---
+author: alexwolfmsft
+ms.author: alexwolf
+ms.topic: include
+ms.date: 02/03/2022
+---
+
 On the **Create Database** page, fill out the form as follows.
 1. **Resource Group** - choose the **ms-docs-core-sql-tutorial** group you created earlier.
 

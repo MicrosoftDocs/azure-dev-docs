@@ -1,3 +1,10 @@
+---
+author: alexwolfmsft
+ms.author: alexwolf
+ms.topic: include
+ms.date: 02/03/2022
+---
+
 Select the **Configuration** link on the left nav to go to the configuration page.
 
 Select the **+ New Connection string** button in the **Connection Strings** section, and enter the following values:

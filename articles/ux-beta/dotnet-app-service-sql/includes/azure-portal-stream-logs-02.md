@@ -1,3 +1,10 @@
+---
+author: alexwolfmsft
+ms.author: alexwolf
+ms.topic: include
+ms.date: 02/03/2022
+---
+
 Select the Log stream item from the menu under the Monitoring section. Refresh the home page in the app or attempt other requests to generate some log messages.
 <br>
 <br>

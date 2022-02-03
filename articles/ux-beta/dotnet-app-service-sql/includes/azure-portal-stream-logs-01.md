@@ -1,3 +1,10 @@
+---
+author: alexwolfmsft
+ms.author: alexwolf
+ms.topic: include
+ms.date: 02/03/2022
+---
+
 First, you need to enabled streaming logs in Azure App Service. Navigate to page for the App Service instance in the Azure portal.
 <br>
 <br>

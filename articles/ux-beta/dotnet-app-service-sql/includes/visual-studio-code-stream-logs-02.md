@@ -1,3 +1,10 @@
+---
+author: alexwolfmsft
+ms.author: alexwolf
+ms.topic: include
+ms.date: 02/03/2022
+---
+
 The console logs appear in VS Code's Output window. Refresh the home page in the app or attempt other requests to generate some log messages.
 <br />
 <br />
