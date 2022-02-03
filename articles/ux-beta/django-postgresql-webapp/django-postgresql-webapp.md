@@ -72,7 +72,7 @@ cd djangoapp
 pip install -r requirements.txt
 ```
 
-**Step 3.** Synchronize the database state with the current set of models and migrations.
+**Step 3.** Create the polls database tables:
 
 ```Console
 python manage.py migrate
