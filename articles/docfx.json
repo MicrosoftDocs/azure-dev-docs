@@ -97,8 +97,8 @@
       "ms.author": {
         "**/*.md": "barbkess",
         "**/*.yml": "barbkess",
-        "java/**/*.md": "brendm",
-        "java/**/*.md": "brendm",
+        "java/**/*.md": "karler",
+        "java/**/*.yml": "karler",
         "go/**/*.md": "jduffney",
         "python/**/*.md": "jejohn",
         "ansible/**/*.md": "tarcher",

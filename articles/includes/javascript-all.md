@@ -30,6 +30,7 @@
 | Core Utils | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure/core-util/v/1.0.0-beta.1) | [docs](/javascript/api/overview/azure/core-util-readme) | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-util_1.0.0-beta.1/sdk/core/core-util/) |
 | Cosmos DB | npm [3.15.1](https://www.npmjs.com/package/@azure/cosmos/v/3.15.1) | [docs](/javascript/api/overview/azure/cosmos-readme) | GitHub [3.15.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/cosmos_3.15.1/sdk/cosmosdb/cosmos/) |
 | Digital Twins - Core | npm [1.0.3](https://www.npmjs.com/package/@azure/digital-twins-core/v/1.0.3) | [docs](/javascript/api/overview/azure/digital-twins-core-readme) | GitHub [1.0.3](https://github.com/Azure/azure-sdk-for-js/tree/@azure/digital-twins-core_1.0.3/sdk/digitaltwins/digital-twins-core/) |
+| Digital Twins Definition Language Parser | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure/dtdl-parser/v/1.0.0-beta.1) | [docs](/javascript/api/overview/azure/dtdl-parser-readme) | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/dtdl-parser_1.0.0-beta.1/sdk/digitaltwins/dtdl-parser/) |
 | Document Translation | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure-rest/ai-document-translator/v/1.0.0-beta.1) |  | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/ai-document-translator_1.0.0-beta.1/sdk/documenttranslator/ai-document-translator-rest) |
 | Event Grid | npm [4.6.0](https://www.npmjs.com/package/@azure/eventgrid/v/4.6.0) | [docs](/javascript/api/overview/azure/eventgrid-readme) | GitHub [4.6.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/eventgrid_4.6.0/sdk/eventgrid/eventgrid/) |
 | Event Hubs | npm [5.6.0](https://www.npmjs.com/package/@azure/event-hubs/v/5.6.0)<br>npm [5.7.0-beta.1](https://www.npmjs.com/package/@azure/event-hubs/v/5.7.0-beta.1) | [docs](/javascript/api/overview/azure/event-hubs-readme) | GitHub [5.6.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/event-hubs_5.6.0/sdk/eventhub/event-hubs/)<br>GitHub [5.7.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/event-hubs_5.7.0-beta.1/sdk/eventhub/event-hubs/) |
@@ -276,9 +277,11 @@
 | @azure-tools/tmlanguage-generator | npm [0.1.4](https://www.npmjs.com/package/@azure-tools/tmlanguage-generator/v/0.1.4) |  |  |
 | @azure-tools/yaml | npm [1.0.0](https://www.npmjs.com/package/@azure-tools/yaml/v/1.0.0) |  |  |
 | @cadl-lang/compiler | npm [0.25.0](https://www.npmjs.com/package/@cadl-lang/compiler/v/0.25.0) |  |  |
+| @cadl-lang/openapi | npm [0.5.0](https://www.npmjs.com/package/@cadl-lang/openapi/v/0.5.0) |  |  |
 | @cadl-lang/openapi3 | npm [0.5.0](https://www.npmjs.com/package/@cadl-lang/openapi3/v/0.5.0) |  |  |
 | @cadl-lang/prettier-plugin-cadl | npm [0.5.5](https://www.npmjs.com/package/@cadl-lang/prettier-plugin-cadl/v/0.5.5) |  |  |
 | @cadl-lang/rest | npm [0.8.0](https://www.npmjs.com/package/@cadl-lang/rest/v/0.8.0) |  |  |
+| @cadl-lang/versioning | npm [0.1.0](https://www.npmjs.com/package/@cadl-lang/versioning/v/0.1.0) |  |  |
 | adl-vscode | npm [0.6.0](https://www.npmjs.com/package/adl-vscode/v/0.6.0) |  |  |
 | cadl-msbuild-target | npm [0.1.0](https://www.npmjs.com/package/cadl-msbuild-target/v/0.1.0) |  |  |
 | cadl-vs | npm [0.5.0](https://www.npmjs.com/package/cadl-vs/v/0.5.0) |  |  |
@@ -350,6 +353,7 @@
 | Custom Vision Prediction | npm [5.1.2](https://www.npmjs.com/package/@azure/cognitiveservices-customvision-prediction/v/5.1.2) |  | GitHub [5.1.2](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/cognitiveservices/cognitiveservices-customvision-prediction) |
 | Custom Vision Training | npm [5.2.0](https://www.npmjs.com/package/@azure/cognitiveservices-customvision-training/v/5.2.0) |  | GitHub [5.2.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/cognitiveservices/cognitiveservices-customvision-training) |
 | Digital Twins - Core | npm [1.0.3](https://www.npmjs.com/package/@azure/digital-twins-core/v/1.0.3) | [docs](/javascript/api/overview/azure/digital-twins-core-readme) | GitHub [1.0.3](https://github.com/Azure/azure-sdk-for-js/tree/@azure/digital-twins-core_1.0.3/sdk/digitaltwins/digital-twins-core/) |
+| Digital Twins Definition Language Parser | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure/dtdl-parser/v/1.0.0-beta.1) | [docs](/javascript/api/overview/azure/dtdl-parser-readme) | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/dtdl-parser_1.0.0-beta.1/sdk/digitaltwins/dtdl-parser/) |
 | Document Translation | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure-rest/ai-document-translator/v/1.0.0-beta.1) |  | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/ai-document-translator_1.0.0-beta.1/sdk/documenttranslator/ai-document-translator-rest) |
 | Entity Search | npm [3.0.1](https://www.npmjs.com/package/@azure/cognitiveservices-entitysearch/v/3.0.1) |  | GitHub [3.0.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/cognitiveservices/cognitiveservices-entitysearch) |
 | Event Grid | npm [4.6.0](https://www.npmjs.com/package/@azure/eventgrid/v/4.6.0) | [docs](/javascript/api/overview/azure/eventgrid-readme) | GitHub [4.6.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/eventgrid_4.6.0/sdk/eventgrid/eventgrid/) |
