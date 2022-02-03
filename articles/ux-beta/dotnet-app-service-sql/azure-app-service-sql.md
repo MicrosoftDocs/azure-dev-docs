@@ -9,7 +9,7 @@ ms.devlang: javascript
 author: alexwolfmsft
 ms.author: alexwolf
 ms.azure.dev-framework: 
-ms.azure.devx-azure-tooling: ['azure-portal', 'vscode-azure-tools', 'azure-cli']
+ms.azure.devx-azure-tooling: ['azure-portal', 'visual-studio-code-azure-tools', 'azure-cli']
 ms.custom: 
 ROBOTS: NOINDEX
 ---
@@ -157,7 +157,7 @@ We're now ready to deploy our .NET app to the App Service.
 | [!INCLUDE [Deploy app service step 4](<./includes/visual-studio-deploy-app-service-04.md>)] | :::image type="content" source="./media/visual-studio-deploy-app-service-04-240px.png" alt-text="A screenshot showing the deploy button on the App Services page used to deploy a new web app." lightbox="./media/visual-studio-deploy-app-service-04.png"::: |
 | [!INCLUDE [Deploy app service step 5](<./includes/visual-studio-deploy-app-service-05.md>)] | :::image type="content" source="./media/visual-studio-deploy-app-service-05-240px.png" alt-text="A screenshot showing the deploy button on the App Services page used to deploy a new web app." lightbox="./media/visual-studio-deploy-app-service-05.png"::: |
 
-### [Deploy using VS Code](#tab/vscode-deploy)
+### [Deploy using VS Code](#tab/visual-studio-code-deploy)
 
 | Instructions    | Screenshot |
 |:----------------|-----------:|
@@ -287,15 +287,15 @@ Azure App Service captures messages logged to the console to assist you in diagn
 
 | Instructions    | Screenshot |
 |:----------------|-----------:|
-| [!INCLUDE [Stream logs from Azure portal 1](<../includes/azure-portal-stream-logs-01.md>)] | :::image type="content" source="./media/azure-portal-stream-logs-1-240px.png" alt-text="A screenshot showing the location of the Azure Tool icon in Visual Studio Code." lightbox="./media/azure-portal-stream-logs-1.png"::: |
-| [!INCLUDE [Stream logs from Azure portal 2](<../includes/azure-portal-stream-logs-02.md>)] | :::image type="content" source="./media/azure-portal-stream-logs-2-240px.png" alt-text="A screenshot showing how you deploy an application to Azure by right-clicking on a web app in VS Code and selecting deploy from the context menu." lightbox="./media/azure-portal-stream-logs-2.png"::: |
+| [!INCLUDE [Stream logs from Azure portal 1](<./includes/azure-portal-stream-logs-01.md>)] | :::image type="content" source="./media/azure-portal-stream-logs-1-240px.png" alt-text="A screenshot showing the location of the Azure Tool icon in Visual Studio Code." lightbox="./media/azure-portal-stream-logs-1.png"::: |
+| [!INCLUDE [Stream logs from Azure portal 2](<./includes/azure-portal-stream-logs-02.md>)] | :::image type="content" source="./media/azure-portal-stream-logs-2-240px.png" alt-text="A screenshot showing how you deploy an application to Azure by right-clicking on a web app in VS Code and selecting deploy from the context menu." lightbox="./media/azure-portal-stream-logs-2.png"::: |
 
-### [VS Code](#tab/vscode-logs)
+### [VS Code](#tab/visual-studio-code-logs)
 
 | Instructions    | Screenshot |
 |:----------------|-----------:|
-| [!INCLUDE [Stream logs from VS Code 1](<../includes/vscode-stream-logs-01.md>)] | :::image type="content" source="./media/visual-studio-code-stream-logs-1-240px.png" alt-text="A screenshot showing the location of the Azure Tool icon in Visual Studio Code." lightbox="./media/visual-studio-code-stream-logs-1.png"::: |
-| [!INCLUDE [Stream logs from VS Code 2](<../includes/vscode-stream-logs-02.md>)] | :::image type="content" source="./media/visual-studio-code-stream-logs-2-240px.png" alt-text="A screenshot showing how you deploy an application to Azure by right-clicking on a web app in VS Code and selecting deploy from the context menu." lightbox="./media/visual-studio-code-stream-logs-2.png"::: |
+| [!INCLUDE [Stream logs from VS Code 1](<./includes/visual-studio-code-stream-logs-01.md>)] | :::image type="content" source="./media/visual-studio-code-stream-logs-1-240px.png" alt-text="A screenshot showing the location of the Azure Tool icon in Visual Studio Code." lightbox="./media/visual-studio-code-stream-logs-1.png"::: |
+| [!INCLUDE [Stream logs from VS Code 2](<./includes/visual-studio-code-stream-logs-02.md>)] | :::image type="content" source="./media/visual-studio-code-stream-logs-2-240px.png" alt-text="A screenshot showing how you deploy an application to Azure by right-clicking on a web app in VS Code and selecting deploy from the context menu." lightbox="./media/visual-studio-code-stream-logs-2.png"::: |
 
 ### [Azure CLI](#tab/azure-cli-logs)
 
@@ -343,7 +343,7 @@ Follow these steps while signed-in to the Azure portal to delete a resource grou
 | [!INCLUDE [Remove resource group Azure portal 2](<./includes/azure-portal-clean-resources-2.md>)] | :::image type="content" source="./media/azure-portal-remove-resource-group-2-240px.png" alt-text="A screenshot showing the location of the Delete Resource Group button in the Azure portal." lightbox="./media/azure-portal-remove-resource-group-2.png"::: |
 | [!INCLUDE [Remove resource group Azure portal 3](<./includes/azure-portal-clean-resources-3.md>)] | :::image type="content" source="./media/azure-portal-remove-resource-group-3-240px.png" alt-text="A screenshot of the confirmation dialog for deleting a resource group in the Azure portal." lightbox="./media/azure-portal-remove-resource-group-3.png"::: |
 
-### [VS Code](#tab/vscode-resources)
+### [VS Code](#tab/visual-studio-code-resources)
 
 | Instructions    | Screenshot |
 |:----------------|-----------:|
