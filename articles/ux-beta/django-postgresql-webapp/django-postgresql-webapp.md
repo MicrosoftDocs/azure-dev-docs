@@ -26,11 +26,11 @@ In this tutorial, you will deploy a data-driven Python web app using the **[Djan
 1. [Python 3.7 or higher](https://www.python.org/downloads/) installed locally
 1. [PostgreSQL](https://www.postgresql.org/download/) installed locally
 
-## Sample application
+## 1 - Sample application
 
 A sample Python application using the Django framework is provided to help you follow along with this tutorial. The `djangoapp` sample contains the data-driven Django polls app created by following [Writing your first Django app](https://docs.djangoproject.com/en/3.1/intro/tutorial01/) in the Django documentation.
 
-To follow along with this tutorial, the completed app is available for Download or clone for your convenience.
+To follow along with this tutorial, the completed app is available for download or clone for your convenience.
 
 ### Get completed application code
 
@@ -82,7 +82,7 @@ python manage.py runserver
 
 ----
 
-## 1 - Create a web app in Azure
+## 2 - Create a web app in Azure
 
 To host your application in Azure, you need to create Azure App Service web app in Azure. You can create a web app using the [Azure portal](https://portal.azure.com/), VS Code using the [Azure Tools extension pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack), or the Azure CLI.
 
@@ -178,7 +178,7 @@ az webapp create \
 
 ----
 
-## 2 - Create the Postgres database in Azure
+## 3 - Create the Postgres database in Azure
 
 You can create a Postgres database in Azure using the [Azure portal](https://portal.azure.com/), Visual Studio Code, or the Azure CLI.
 
@@ -299,7 +299,7 @@ pollsdb=>
 
 ----
 
-## 3 - Connect the app to the database
+## 4 - Connect the app to the database
 
 With the code now deployed to App Service, the next step is to connect the app to the Postgres database in Azure.
 
@@ -331,7 +331,7 @@ az webapp config appsettings set --resource-group $RESOURCE_GROUP_NAME \
 
 ----
 
-## 4 - Deploy your application code to Azure
+## 5 - Deploy your application code to Azure
 
 Azure App service supports multiple methods to deploy your application code to Azure including support for GitHub Actions and all major CI/CD tools. This article focuses on how to deploy your code from your local workstation to Azure.
 
@@ -345,7 +345,7 @@ Azure App service supports multiple methods to deploy your application code to A
 
 ----
 
-## 5 - Migrate app database
+## 6 - Migrate app database
 
 With the code deployed and the database in place, the app is almost ready to use. The only piece that remains is to establish the necessary schema in the database itself. You do this by "migrating" the data models in the Django app to the database.
 
@@ -401,7 +401,7 @@ The `createsuperuser` command prompts you for Django superuser (or admin) creden
 
 ----
 
-## 6 - Browse to the app
+## 7 - Browse to the app
 
 Browse to the deployed application in your web browser at the URL `http://<app-name>.azurewebsites.net`. It can take a minute or two for the the app to start, so if you see a default app page, wait a minute and refresh the browser.
 
@@ -409,11 +409,25 @@ The Python sample code is running a Linux container in App Service using a built
 
 **Congratulations!** You've deployed your Python app to App Service.
 
-## 7 - Stream diagnostic logs
+## 8 - Stream diagnostic logs
 
 You can access the console logs generated from inside the container that hosts the app on Azure.
 
 The contents of the App Service diagnostic logs can be reviewed in the Azure portal, VS Code, or using the Azure CLI.
+
+### [Azure portal](#tab/azure-portal)
+
+| Instructions    | Screenshot |
+|:----------------|-----------:|
+| [!INCLUDE [Stream logs from Azure portal 1](<./includes/django-postgresql-webapp/stream-logs-azure-portal-1.md>)] | TBD |
+| [!INCLUDE [Stream logs from Azure portal 2](<./includes/django-postgresql-webapp/stream-logs-azure-portal-2.md>)] | TBD |
+
+### [VS Code](#tab/vscode-aztools)
+
+| Instructions    | Screenshot |
+|:----------------|-----------:|
+| [!INCLUDE [Stream logs from VS Code 1](<./includes/django-postgresql-webapp/stream-logs-visual-studio-code-1.md>)] | TBD |
+| [!INCLUDE [Stream logs from VS Code 2](<./includes/django-postgresql-webapp/stream-logs-visual-studio-code-2.md>)] | TBD |
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -460,6 +474,24 @@ Starting Live Log Stream ---
 You can leave the app and database running as long as you want for further development work and skip ahead to [Next steps](#next-steps).
 
 However, when you are finished with the sample app, you can remove all of the resources for the app from Azure to insure you do not incur additional charges and keep your Azure subscription uncluttered. Removing the resource group also removes all resources in the resource group and is the fastest way to remove all Azure resources for your app.
+
+### [Azure portal](#tab/azure-portal-cleanup)
+
+Follow these steps while signed-in to the Azure portal to delete a resource group.
+
+| Instructions    | Screenshot |
+|:----------------|-----------:|
+| [!INCLUDE [Remove resource group Azure portal 1](<./includes/django-postgresql-webapp/remove-resource-group-azure-portal-1.md>)] | TBD |
+| [!INCLUDE [Remove resource group Azure portal 2](<./includes/django-postgresql-webapp/remove-resource-group-azure-portal-2.md>)] | TBD |
+| [!INCLUDE [Remove resource group Azure portal 3](<./includes/django-postgresql-webapp/remove-resource-group-azure-portal-3.md>)] | TBD |
+
+
+### [VS Code](#tab/vscode-cleanup)
+
+| Instructions    | Screenshot |
+|:----------------|-----------:|
+| [!INCLUDE [Remove resource group VS Code 1](<./includes/django-postgresql-webapp/remove-resource-group-visual-studio-code-1.md>)] | TBD |
+| [!INCLUDE [Remove resource group VS Code 2](<./includes/django-postgresql-webapp/remove-resource-group-visual-studio-code-2.md>)] | TBD |
 
 ### [Azure CLI](#tab/azure-cli-cleanup)
 
