@@ -86,7 +86,7 @@ python manage.py runserver
 
 To host your application in Azure, you need to create Azure App Service web app in Azure. You can create a web app using the [Azure portal](https://portal.azure.com/), VS Code using the [Azure Tools extension pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack), or the Azure CLI.
 
-### [Azure portal](#tab/azure-portal-create-app)
+### [Azure portal](#tab/azure-portal)
 
 Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps to create your Azure Database for PostgreSQL resource.
 
@@ -100,7 +100,7 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps 
 | [!INCLUDE [A screenshot showing how to select the basic App Service plan in the Azure portal](<./includes/django-postgresql-webapp/create-app-service-azure-portal-4.md>)] | :::image type="content" source="./media/django-postgresql-webapp/create-app-service-azure-portal-4-240px.png" lightbox="./media/django-postgresql-webapp/create-app-service-azure-portal-4.png" alt-text="A screenshot showing how to select the basic App Service plan in the Azure portal." ::: |
 | [!INCLUDE [A screenshot showing the location of hte Review plus Create button in the Azure Portal](<./includes/django-postgresql-webapp/create-app-service-azure-portal-5.md>)] | :::image type="content" source="./media/django-postgresql-webapp/create-app-service-azure-portal-5-240px.png" lightbox="./media/django-postgresql-webapp/create-app-service-azure-portal-5.png" alt-text="A screenshot showing the location of hte Review plus Create button in the Azure Portal." ::: |
 
-### [VS Code](#tab/vs-code-create-app)
+### [VS Code](#tab/vscode-aztools)
 
 | Instructions    | Screenshot |
 |:----------------|-----------:|
@@ -115,7 +115,7 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps 
 | [!INCLUDE [A screenshot showing how to use the search box in the top tool bar to find App Services in Azure](<./includes/django-postgresql-webapp/create-app-service-vscode-9.md>)] | :::image type="content" source="./media/django-postgresql-webapp/create-app-service-vscode-9a-240px.png" lightbox="./media/django-postgresql-webapp/create-app-service-vscode-9a.png" alt-text="A screenshot showing how to use the search box in the top tool bar to find App Services in Azure." ::: <br /> :::image type="content" source="./media/django-postgresql-webapp/create-app-service-vscode-9b-240px.png" lightbox="./media/django-postgresql-webapp/create-app-service-vscode-9b.png" alt-text="A screenshot showing how to use the search box in the top tool bar to find App Services in Azure." ::: |
 | [!INCLUDE [A screenshot showing how to use the search box in the top tool bar to find App Services in Azure](<./includes/django-postgresql-webapp/create-app-service-vscode-10.md>)] | :::image type="content" source="./media/django-postgresql-webapp/create-app-service-vscode-10a-240px.png" lightbox="./media/django-postgresql-webapp/create-app-service-vscode-10a.png" alt-text="A screenshot showing how to use the search box in the top tool bar to find App Services in Azure." ::: <br /><br /> :::image type="content" source="./media/django-postgresql-webapp/create-app-service-vscode-10b-240px.png" lightbox="./media/django-postgresql-webapp/create-app-service-vscode-10b.png" alt-text="A screenshot showing how to use the search box in the top tool bar to find App Services in Azure." ::: <br /><br /> :::image type="content" source="./media/django-postgresql-webapp/create-app-service-vscode-10c-240px.png" lightbox="./media/django-postgresql-webapp/create-app-service-vscode-10c.png" alt-text="A screenshot showing how to use the search box in the top tool bar to find App Services in Azure." :::  |
 
-### [Azure CLI](#tab/azure-cli-create-app)
+### [Azure CLI](#tab/azure-cli)
 
 Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com) or on a workstation with the [Azure CLI installed](/cli/azure/install-azure-cli).
 
@@ -182,7 +182,7 @@ az webapp create \
 
 You can create a Postgres database in Azure using the [Azure portal](https://portal.azure.com/), Visual Studio Code, or the Azure CLI.
 
-### [Azure portal](#tab/azure-portal-create-db)
+### [Azure portal](#tab/azure-portal)
 
 Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps to create your Azure App Service resources.
 
@@ -195,7 +195,7 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps 
 | [!INCLUDE [A screenshot showing how to select and configure the basic database service plan in the Azure portal](<./includes/django-postgresql-webapp/create-postgres-service-azure-portal-5.md>)] | :::image type="content" source="./media/django-postgresql-webapp/create-postgres-service-azure-portal-5-240px.png" lightbox="./media/django-postgresql-webapp/create-postgres-service-azure-portal-5.png" alt-text="A screenshot showing how to select and configure the basic database service plan in the Azure portal." ::: |
 | [!INCLUDE [A screenshot showing the location of hte Review plus Create button in the Azure Portal](<./includes/django-postgresql-webapp/create-postgres-service-azure-portal-6.md>)] | :::image type="content" source="./media/django-postgresql-webapp/create-postgres-service-azure-portal-6-240px.png" lightbox="./media/django-postgresql-webapp/create-postgres-service-azure-portal-6.png" alt-text="A screenshot showing the location of hte Review plus Create button in the Azure Portal." ::: |
 
-### [VS Code](#tab/vscode-create-db)
+### [VS Code](#tab/vscode-aztools)
 
 To create Azure resources in VS Code, you must have the [Azure Tools extension pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack) installed and be signed into Azure from VS Code.
 
@@ -213,7 +213,7 @@ Follow these steps to create your Azure Database for PostgreSQL resource using t
 | [!INCLUDE [Create a new Azure resource in the Azure Portal](<./includes/django-postgresql-webapp/create-postgres-service-vscode-5.md>)] | :::image type="content" source="./media/django-postgresql-webapp/create-postgres-service-vscode-5-240px.png" lightbox="./media/django-postgresql-webapp/create-postgres-service-vscode-5.png" alt-text="Create a new Azure resource in the Azure Portal." ::: |
 | [!INCLUDE [Create a new Azure resource in the Azure Portal](<./includes/django-postgresql-webapp/create-postgres-service-vscode-6.md>)] | :::image type="content" source="./media/django-postgresql-webapp/create-postgres-service-vscode-6-240px.png" lightbox="./media/django-postgresql-webapp/create-postgres-service-vscode-6.png" alt-text="Create a new Azure resource in the Azure Portal." ::: |
 
-### [Azure CLI](#tab/azure-cli-create-db)
+### [Azure CLI](#tab/azure-cli)
 
 Run `az login` to sign in to  and follow these steps to create your Azure Database for PostgreSQL resource.
 
@@ -305,14 +305,14 @@ With the code now deployed to App Service, the next step is to connect the app t
 
 The app code expects to find database information in four environment variables named `DBHOST`, `DBNAME`, `DBUSER`, and `DBPASS`
 
-### [Azure portal](#tab/azure-portal-connect-app-to-db)
+### [Azure portal](#tab/azure-portal)
 
 | Instructions    | Screenshot |
 |:----------------|-----------:|
 | [!INCLUDE [A screenshot showing how to navigate to App Settings](<./includes/django-postgresql-webapp/connect-postgres-to-app-azure-portal-1.md>)] | :::image type="content" source="./media/django-postgresql-webapp/connect-postgres-to-app-azure-portal-1-240px.png" lightbox="./media/django-postgresql-webapp/connect-postgres-to-app-azure-portal-1.png" alt-text="A screenshot showing how to navigate to App Settings." ::: |
 | [!INCLUDE [A screenshot showing how to configure the App Settings](<./includes/django-postgresql-webapp/connect-postgres-to-app-azure-portal-2.md>)] | :::image type="content" source="./media/django-postgresql-webapp/connect-postgres-to-app-azure-portal-2-240px.png" lightbox="./media/django-postgresql-webapp/connect-postgres-to-app-azure-portal-2.png" alt-text="A screenshot showing how to configure the App Settings." ::: |
 
-### [Azure CLI](#tab/cli-connect-app-to-db)
+### [Azure CLI](#tab/azure-cli)
 
 To set environment variables in App Service, create "app settings" with the following [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_set) command.
 
@@ -353,14 +353,14 @@ With the code deployed and the database in place, the app is almost ready to use
 
 **Step 1.** Create SSH session and connect to web app server.
 
-### [Azure portal](#tab/azure-portal-db-migrate)
+### [Azure portal](#tab/azure-portal)
 
 In the browser window or tab for the web app:
 
 * Select **SSH**, under **Development Tools** on the left side
 * Then **Go** to open an SSH console on the web app server. (It may take a minute to connect for the first time as the web app container needs to start.)
 
-### [Azure CLI](#tab/azure-cli-db-migrate)
+### [Azure CLI](#tab/azure-cli)
 
 Run `az webpp ssh` to open an SSH session for the web app in the browser:
 
@@ -475,7 +475,7 @@ You can leave the app and database running as long as you want for further devel
 
 However, when you are finished with the sample app, you can remove all of the resources for the app from Azure to insure you do not incur additional charges and keep your Azure subscription uncluttered. Removing the resource group also removes all resources in the resource group and is the fastest way to remove all Azure resources for your app.
 
-### [Azure portal](#tab/azure-portal-cleanup)
+### [Azure portal](#tab/azure-portal)
 
 Follow these steps while signed-in to the Azure portal to delete a resource group.
 
@@ -486,14 +486,14 @@ Follow these steps while signed-in to the Azure portal to delete a resource grou
 | [!INCLUDE [Remove resource group Azure portal 3](<./includes/django-postgresql-webapp/remove-resource-group-azure-portal-3.md>)] | TBD |
 
 
-### [VS Code](#tab/vscode-cleanup)
+### [VS Code](#tab/vscode-aztools)
 
 | Instructions    | Screenshot |
 |:----------------|-----------:|
 | [!INCLUDE [Remove resource group VS Code 1](<./includes/django-postgresql-webapp/remove-resource-group-visual-studio-code-1.md>)] | TBD |
 | [!INCLUDE [Remove resource group VS Code 2](<./includes/django-postgresql-webapp/remove-resource-group-visual-studio-code-2.md>)] | TBD |
 
-### [Azure CLI](#tab/azure-cli-cleanup)
+### [Azure CLI](#tab/azure-cli)
 
 Delete the resource group by using the [az group delete](/cli/azure/group#az_group_delete) command.
 
