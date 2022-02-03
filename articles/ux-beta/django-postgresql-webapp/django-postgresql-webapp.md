@@ -36,7 +36,7 @@ To follow along with this tutorial, the completed app is available for download 
 
 #### [Git clone](#tab/sample-app-clone)
 
-**Step 1.** Clone the Sample Application locally using `git`.
+**Step 1.** Clone the Sample Application locally using `git`:
 
 ```bash
 git clone https://github.com/Azure-Samples/djangoapp.git
@@ -62,7 +62,7 @@ cd djangoapp
 
 ### Run the application locally
 
-**Step 1.** Create a virtual environment for the app:
+**Step 1.** Create a virtual environment for the app.
 
 [!INCLUDE [Virtual environment setup](<./includes/django-postgresql-webapp/virtual-environment-setup.md>)]
 
