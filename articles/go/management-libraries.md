@@ -112,7 +112,8 @@ The following code snippet shows an example of this pattern.
 ```go
 ctx := context.Background()
 // Call an asynchronous function to create a client. The return value is a poller object.
-poller, err := client.BeginCreate(ctx, "resource_identifier", "additonal_parameter")
+poller, err := client.BeginCreate(ctx, "resource_identifier", "additional_parameter")
+
 if err != nil {
 	// handle error...
 }
