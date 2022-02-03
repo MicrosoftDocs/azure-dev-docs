@@ -10,8 +10,8 @@ ms.azure.devx-azure-tooling: ['azure-portal']
 ms.custom: devx-track-python
 ---
 
-**Step 2.** Create application settings
-
+**Step 2.** Create application settings.
+<br />
 Use the **New application setting** button to create settings for each of the following values (which are expected by the djangoapp sample):
 
 * *DBHOST* &rarr; The URL of the database server from the previous section; that is, the `<server-name>.postgres.database.azure.com`. <br /> Example: `msdocs-django-postgres-webapp-db`

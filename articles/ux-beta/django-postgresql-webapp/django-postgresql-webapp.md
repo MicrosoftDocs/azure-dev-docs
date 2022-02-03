@@ -382,14 +382,26 @@ With the code deployed and the database in place, the app is almost ready to use
 
 **Step 1.** Create SSH session and connect to web app server.
 
-### [Azure portal](#tab/azure-portal-migrate)
+### [Azure portal](#tab/azure-portal)
 
 In the browser window or tab for the web app:
 
 * Select **SSH**, under **Development Tools** on the left side
 * Then **Go** to open an SSH console on the web app server. (It may take a minute to connect for the first time as the web app container needs to start.)
 
-### [Azure CLI](#tab/azure-cli-migrate)
+### [Azure portal](#tab/vscode-aztools)
+
+In VS Code, you can use the [Azure Tools extension pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack), which must be installed and be signed into Azure from VS Code.
+
+> [!div class="nextstepaction"]
+> [Download Azure Tools extension pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack)
+
+In the **App Service** section of the Azure Tools extension:
+
+* Locate your web app and right-click to bring up the context menu.
+* Select **SSH into Web App** to open a SSH terminal window.
+
+### [Azure CLI](#tab/azure-cli)
 
 Run `az webpp ssh` to open an SSH session for the web app in the browser:
 
