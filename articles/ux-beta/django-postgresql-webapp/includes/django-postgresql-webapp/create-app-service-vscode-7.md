@@ -12,5 +12,5 @@ ms.custom: devx-track-python
 
 **Step 7.** Configure Linux App Service Plan:
 
-* Select `Create new App Service plan`.
-* Enter, `msdocs-tutorial-django-postgresql-plan` or use the auto-generated name.
+* Select **Create new App Service plan**.
+* Enter, *msdocs-tutorial-django-postgresql-plan* or use the auto-generated name.

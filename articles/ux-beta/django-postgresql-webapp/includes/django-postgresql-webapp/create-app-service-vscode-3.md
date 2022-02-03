@@ -10,7 +10,7 @@ ms.azure.devx-azure-tooling: ['vscode-azure-tools']
 ms.custom: devx-track-python
 ---
 
-**Step 3.** In the dialog box at the top of the screen, enter a name of `msdocs-tutorial-django-postgresql-app` for this web app.
+**Step 3.** In the dialog box at the top of the screen, enter the name of `msdocs-tutorial-django-postgresql-app` for this web app.
 
 <br />
 

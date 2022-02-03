@@ -10,4 +10,4 @@ ms.azure.devx-azure-tooling: ['vscode-azure-tools']
 ms.custom: devx-track-python
 ---
 
-**Step 6.** Select a region/location new you, example `eastus`.
+**Step 6.** Select a region/location near you, such as `eastus`.

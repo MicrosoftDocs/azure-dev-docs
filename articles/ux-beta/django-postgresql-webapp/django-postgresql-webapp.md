@@ -146,8 +146,8 @@ az group create \
     --name $RESOURCE_GROUP_NAME
 ```
 
-* *name* &rarr; You will use this resource to create all the Azure resources needed to complete this tutorial. (`msdocs-django-postgres-webapp-rg`)
-* *location* &rarr; A location near you. (Use `az account list-locations --output table` to list locations) (ex: `eastus`)
+* *location* &rarr; A location near you. (Use `az account list-locations --output table` to list locations) (for example, `eastus`)
+* *name* &rarr; You will use this resource to create all the Azure resources needed to complete this tutorial. (for example, `msdocs-django-postgres-webapp-rg`)
 
 <br />
 
@@ -184,7 +184,7 @@ az webapp create \
     --output table
 ```
 
-* *name* &rarr; The *app service name* is used as both the name of the resource in Azure and to form the fully qualified domain name for your app in the form of the server endpoint `https://<app service name>.azurewebsites.com`. This name must be **unique across all Azure** and the only allowed characters are `A`-`Z`, `0`-`9`, and `-`. (ex: `msdocs-django-postgres-webapp`)
+* *name* &rarr; The *app service name* is used as both the name of the resource in Azure and to form the fully qualified domain name for your app in the form of the server endpoint `https://<app service name>.azurewebsites.com`. This name must be **unique across all Azure** and the only allowed characters are `A`-`Z`, `0`-`9`, and `-`. (for example, `msdocs-django-postgres-webapp`)
 * *runtime* &rarr; The runtime specifies what version of Python your app is running. This example uses **Python 3.9**. To list all available runtimes, use the command `az webapp list-runtimes --linux --output table`.
 * *plan* &rarr; Use the same *app service plan* name from **Step 2**. (`msdocs-django-postgres-webapp-plan`)
 * *resource-group* &rarr; Use the same resource group name from **Step 1**. (`msdocs-django-postgres-webapp-rg`)

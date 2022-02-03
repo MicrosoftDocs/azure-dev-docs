@@ -12,5 +12,5 @@ ms.custom: devx-track-python
 
 **Step 9.** Add Application Insights to your webapp:
 
-* Select `Create new Application Insights resource`.
-* Enter, `msdocs-tutorial-django-postgresql-app-ins` or keep the default generated name.
+* Select **Create new Application Insights resource**.
+* Enter *msdocs-tutorial-django-postgresql-app-ins* or keep the default generated name.
