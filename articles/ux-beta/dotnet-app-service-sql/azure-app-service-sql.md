@@ -287,15 +287,15 @@ Azure App Service captures messages logged to the console to assist you in diagn
 
 | Instructions    | Screenshot |
 |:----------------|-----------:|
-| [!INCLUDE [Stream logs from Azure portal 1](<./includes/stream-logs/azure-portal-stream-logs-01.md>)] | :::image type="content" source="./media/azure-portal-stream-logs-1-240px.png" alt-text="A screenshot showing the location of the Azure Tool icon in Visual Studio Code." lightbox="./media/azure-portal-stream-logs-1.png"::: |
-| [!INCLUDE [Stream logs from Azure portal 2](<./includes/stream-logs/azure-portal-stream-logs-02.md>)] | :::image type="content" source="./media/azure-portal-stream-logs-2-240px.png" alt-text="A screenshot showing how you deploy an application to Azure by right-clicking on a web app in VS Code and selecting deploy from the context menu." lightbox="./media/azure-portal-stream-logs-2.png"::: |
+| [!INCLUDE [Stream logs from Azure portal 1](<../includes/azure-portal-stream-logs-01.md>)] | :::image type="content" source="./media/azure-portal-stream-logs-1-240px.png" alt-text="A screenshot showing the location of the Azure Tool icon in Visual Studio Code." lightbox="./media/azure-portal-stream-logs-1.png"::: |
+| [!INCLUDE [Stream logs from Azure portal 2](<../includes/azure-portal-stream-logs-02.md>)] | :::image type="content" source="./media/azure-portal-stream-logs-2-240px.png" alt-text="A screenshot showing how you deploy an application to Azure by right-clicking on a web app in VS Code and selecting deploy from the context menu." lightbox="./media/azure-portal-stream-logs-2.png"::: |
 
 ### [VS Code](#tab/vscode-logs)
 
 | Instructions    | Screenshot |
 |:----------------|-----------:|
-| [!INCLUDE [Stream logs from VS Code 1](<./includes/stream-logs/vscode-stream-logs-01.md>)] | :::image type="content" source="./media/visual-studio-code-stream-logs-1-240px.png" alt-text="A screenshot showing the location of the Azure Tool icon in Visual Studio Code." lightbox="./media/visual-studio-code-stream-logs-1.png"::: |
-| [!INCLUDE [Stream logs from VS Code 2](<./includes/stream-logs/vscode-stream-logs-02.md>)] | :::image type="content" source="./media/visual-studio-code-stream-logs-2-240px.png" alt-text="A screenshot showing how you deploy an application to Azure by right-clicking on a web app in VS Code and selecting deploy from the context menu." lightbox="./media/visual-studio-code-stream-logs-2.png"::: |
+| [!INCLUDE [Stream logs from VS Code 1](<../includes/vscode-stream-logs-01.md>)] | :::image type="content" source="./media/visual-studio-code-stream-logs-1-240px.png" alt-text="A screenshot showing the location of the Azure Tool icon in Visual Studio Code." lightbox="./media/visual-studio-code-stream-logs-1.png"::: |
+| [!INCLUDE [Stream logs from VS Code 2](<../includes/vscode-stream-logs-02.md>)] | :::image type="content" source="./media/visual-studio-code-stream-logs-2-240px.png" alt-text="A screenshot showing how you deploy an application to Azure by right-clicking on a web app in VS Code and selecting deploy from the context menu." lightbox="./media/visual-studio-code-stream-logs-2.png"::: |
 
 ### [Azure CLI](#tab/azure-cli-logs)
 
