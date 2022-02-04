@@ -14,7 +14,7 @@ ms.custom:
 ROBOTS: NOINDEX
 ---
 
-# Deploy an ASP.NET Core Web App with a SQL Database to Azure
+# Deploy an ASP.NET Core Web App with a SQL Database to Azure App Service
 
 In this tutorial, you'll learn how to deploy an ASP.NET Core app to Azure App Service and connect to an Azure SQL Database. Azure App Service is a highly scalable, self-patching, web-hosting service that can easily deploy apps on Windows or Linux.  Although this tutorial uses an ASP.NET Core 6.0 app, the process is the same for other versions of ASP.NET Core and ASP.NET Framework.
 
