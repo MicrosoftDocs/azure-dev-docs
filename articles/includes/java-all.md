@@ -489,7 +489,7 @@
 | LUIS | Maven [0.0.1-beta](https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-language/0.0.1-beta/jar/) |  |  |
 | LUIS Authoring | Maven [1.0.4-beta](https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-luis-authoring/1.0.4-beta/jar/) |  | GitHub [1.0.4-beta](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/cognitiveservices/ms-azure-cs-luis-authoring) |
 | LUIS Runtime | Maven [1.0.2-beta](https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-luis-runtime/1.0.2-beta/jar/) |  | GitHub [1.0.2-beta](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/cognitiveservices/ms-azure-cs-luis-runtime) |
-| MASL4J | Maven [1.11.0](https://search.maven.org/artifact/com.microsoft.azure/msal4j/1.11.0/jar/) |  |  |
+| MASL4J | Maven [1.11.1](https://search.maven.org/artifact/com.microsoft.azure/msal4j/1.11.1/jar/) |  |  |
 | MASL4J Persistence Extension | Maven [1.1.0](https://search.maven.org/artifact/com.microsoft.azure/msal4j-persistence-extension/1.1.0/jar/) |  |  |
 | Maven - Plugin | Maven [0.2.0](https://search.maven.org/artifact/com.microsoft.azure/azure-maven-plugin/0.2.0/jar/) |  |  |
 | Maven - Plugin Common | Maven [0.2.0](https://search.maven.org/artifact/com.microsoft.azure/azure-maven-plugin-common/0.2.0/jar/) |  |  |
