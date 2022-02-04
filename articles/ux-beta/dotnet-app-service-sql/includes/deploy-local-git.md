@@ -13,7 +13,7 @@ You can deploy your application code from a local Git repository to Azure by con
 |:----------------|-----------:|
 | [!INCLUDE [Deploy from Local Git 1](<./deploy-from-local-git-azure-portal-1.md>)] | :::image type="content" source="../media/azure-portal-deploy-local-git-01-240px.png" alt-text="A screenshot showing how to navigate to a web app using the search box in Azure portal." lightbox="../media/azure-portal-deploy-local-git-01.png"::: |
 | [!INCLUDE [Deploy from Local Git 2](<./deploy-from-local-git-azure-portal-2.md>)] | :::image type="content" source="../media/azure-portal-deploy-local-git-02-240px.png" alt-text="A screenshot showing te location of the deployment page and how to configure a web app for local Git deployment in the Azure portal." lightbox="../media/azure-portal-deploy-local-git-02.png"::: |
-| [!INCLUDE [Deploy from Local Git 3](<./deploy-from-local-git-azure-portal-3.md>)] | :::image type="content" source="../media/azure-portal-deploy-local-git-03-240px.png" alt-text="A screenshot of the Azure portal showing the Git URL to push code to for local Git deployments." lightbox="..media/azure-portal-deploy-local-git-03.png"::: |
+| [!INCLUDE [Deploy from Local Git 3](<./deploy-from-local-git-azure-portal-3.md>)] | :::image type="content" source="../media/azure-portal-deploy-local-git-03-240px.png" alt-text="A screenshot of the Azure portal showing the Git URL to push code to for local Git deployments." lightbox="../media/azure-portal-deploy-local-git-03.png"::: |
 
 ### [Azure CLI](#tab/deploy-instructions-azcli)
 
