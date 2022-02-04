@@ -327,9 +327,16 @@ The app code expects to find database information in four environment variables 
 
 ### [VS Code <span style="background:mistyrose">TBD</span>](#tab/vscode-aztools)
 
+To configure environment variables for the web app from VS Code, you must have the [Azure Tools extension pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack) installed and be signed into Azure from VS Code.
+
+> [!div class="nextstepaction"]
+> [Download Azure Tools extension pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack)
+
 | Instructions    | Screenshot |
 |:----------------|-----------:|
-| TBD | TBD |
+| [!INCLUDE [VS Code connect app to postgres step 1](<./includes/django-postgresql-webapp/connect-postgres-to-app-vscode-1.md>)] | TBD |
+| [!INCLUDE [VS Code connect app to postgres step 2](<./includes/django-postgresql-webapp/connect-postgres-to-app-vscode-2.md>)] | TBD |
+| [!INCLUDE [VS Code connect app to postgres step 3](<./includes/django-postgresql-webapp/connect-postgres-to-app-vscode-2.md>)] | TBD |
 
 ### [Azure CLI](#tab/azure-cli)
 
