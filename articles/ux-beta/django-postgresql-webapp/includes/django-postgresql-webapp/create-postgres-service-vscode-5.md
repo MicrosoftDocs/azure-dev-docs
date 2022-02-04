@@ -14,8 +14,10 @@ ms.custom: devx-track-python
 
 * Open the **Command Palette** (Ctrl + Shift + P).
 
-* **Search** and **select** `PostgreSQL: Configure Firewall`.
+* Search for select *PostgreSQL: Configure Firewall*.
 
-* **Select** `msdocs-python-django-postgres-db` PostgreSQL Single Account.
+* Select a subscription if prompted.
 
-* **Click** 'Yes' in the dialogue box to add your IP address to the **firewall rules** of the PostgreSQL server.
+* Select the database you created above, for example *msdocs-python-django-postgres-db PostgreSQL Single*.
+
+* Click **Yes** in the dialogue box to add your IP address to the firewall rules of the PostgreSQL server.
