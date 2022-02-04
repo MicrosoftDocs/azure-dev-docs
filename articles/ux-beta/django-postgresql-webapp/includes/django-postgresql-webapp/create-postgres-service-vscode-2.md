@@ -10,4 +10,4 @@ ms.azure.devx-azure-tooling: ['vscode-azure-tools']
 ms.custom: devx-track-python
 ---
 
-**Step 2.** Select your subscription and Click the **Create server** icon ( `+` ).
+**Step 2.** Select your subscription and click the **Create server** icon ( **+** ).

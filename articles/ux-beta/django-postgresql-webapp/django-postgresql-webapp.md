@@ -22,9 +22,9 @@ In this tutorial, you will deploy a data-driven Python web app using the **[Djan
 **To complete this tutorial, you'll need:**
 
 1. An Azure account with an active subscription exists. If you do not have an Azure account, you [can create one for free](https://azure.microsoft.com/free/python).
-1. Knowledge of [Python with Django development](/learn/paths/django-create-data-driven-websites/)
-1. [Python 3.7 or higher](https://www.python.org/downloads/) installed locally
-1. [PostgreSQL](https://www.postgresql.org/download/) installed locally
+1. Knowledge of [Python with Django development](/learn/paths/django-create-data-driven-websites/).
+1. [Python 3.7 or higher](https://www.python.org/downloads/) installed locally.
+1. [PostgreSQL](https://www.postgresql.org/download/) installed locally.
 
 ## 1 - Sample application
 
@@ -42,7 +42,7 @@ To follow along with this tutorial, the completed app is available for download 
 git clone https://github.com/Azure-Samples/djangoapp.git
 ```
 
-**Step 2.** Navigate into the `djangoapp` folder:
+**Step 2.** Navigate into the *djangoapp* folder:
 
 ```bash
 cd djangoapp
@@ -54,9 +54,9 @@ cd djangoapp
 
 **Step 2.** Select **Clone**, and then select **Download ZIP**.
 
-**Step 3.** Unpack the ZIP file into a folder named `djangoapp`.
+**Step 3.** Unpack the ZIP file into a folder named *djangoapp*.
 
-**Step 4.** Then open a terminal window in that `djangoapp` folder.
+**Step 4.** Then open a terminal window in the *djangoapp* folder.
 
 ----
 
@@ -184,7 +184,7 @@ az webapp create \
     --output table
 ```
 
-* *name* &rarr; The *app service name* is used as both the name of the resource in Azure and to form the fully qualified domain name for your app in the form of the server endpoint `https://<app service name>.azurewebsites.com`. This name must be **unique across all Azure** and the only allowed characters are `A`-`Z`, `0`-`9`, and `-`. (for example, `msdocs-django-postgres-webapp`)
+* *name* &rarr; The app service name is used as both the name of the resource in Azure and to form the fully qualified domain name for your app in the form of the server endpoint `https://<app service name>.azurewebsites.com`. This name must be **unique across all Azure** and the only allowed characters are `A`-`Z`, `0`-`9`, and `-`. (for example, `msdocs-django-postgres-webapp`)
 * *runtime* &rarr; The runtime specifies what version of Python your app is running. This example uses **Python 3.9**. To list all available runtimes, use the command `az webapp list-runtimes --linux --output table`.
 * *plan* &rarr; Use the same *app service plan* name from **Step 2**. (`msdocs-django-postgres-webapp-plan`)
 * *resource-group* &rarr; Use the same resource group name from **Step 1**. (`msdocs-django-postgres-webapp-rg`)

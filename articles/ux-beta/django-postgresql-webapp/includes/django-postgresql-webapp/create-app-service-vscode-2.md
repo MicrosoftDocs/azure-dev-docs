@@ -14,4 +14,4 @@ ms.custom: devx-track-python
 
 * Locate the **App Service** section in the Azure Tools extension.
 * Right-click the Azure subscription you want to create your web app in.
-* Select **Create New Web App(Advanced)...** from the context menu.
+* Select **Create New Web App...(Advanced)** from the context menu.
