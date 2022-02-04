@@ -212,9 +212,6 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps 
 
 To create Azure resources in VS Code, you must have the [Azure Tools extension pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack) installed and be signed into Azure from VS Code.
 
-> [!div class="nextstepaction"]
-> [Download Azure Tools extension pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack)
-
 Follow these steps to create your Azure Database for PostgreSQL resource using the Azure Tools extension pack in Visual Studio Code.
 
 | Instructions    | Screenshot |
@@ -329,9 +326,6 @@ The app code expects to find database information in four environment variables 
 
 To configure environment variables for the web app from VS Code, you must have the [Azure Tools extension pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack) installed and be signed into Azure from VS Code.
 
-> [!div class="nextstepaction"]
-> [Download Azure Tools extension pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack)
-
 | Instructions    | Screenshot |
 |:----------------|-----------:|
 | [!INCLUDE [VS Code connect app to postgres step 1](<./includes/django-postgresql-webapp/connect-postgres-to-app-vscode-1.md>)] | TBD |
@@ -364,9 +358,6 @@ Azure App service supports multiple methods to deploy your application code to A
 ### [Deploy using VS Code <span style="background:mistyrose">TBD</span>](#tab/vscode-aztools-deploy)
 
 To deploy a web app from VS Code, you must have the [Azure Tools extension pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack) installed and be signed into Azure from VS Code.
-
-> [!div class="nextstepaction"]
-> [Download Azure Tools extension pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack)
 
 | Instructions    | Screenshot |
 |:----------------|-----------:|
@@ -404,9 +395,6 @@ Navigate to page for the App Service instance in the Azure portal.
 ### [VS Code](#tab/vscode-aztools)
 
 In VS Code, you can use the [Azure Tools extension pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack), which must be installed and be signed into Azure from VS Code.
-
-> [!div class="nextstepaction"]
-> [Download Azure Tools extension pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack)
 
 In the **App Service** section of the Azure Tools extension:
 
