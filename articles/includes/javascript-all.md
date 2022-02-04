@@ -11,7 +11,7 @@
 | Communication Chat | npm [1.1.1](https://www.npmjs.com/package/@azure/communication-chat/v/1.1.1) | [docs](/javascript/api/overview/azure/communication-chat-readme) | GitHub [1.1.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/communication-chat_1.1.1/sdk/communication/communication-chat/) |
 | Communication Common | npm [1.1.0](https://www.npmjs.com/package/@azure/communication-common/v/1.1.0) | [docs](/javascript/api/overview/azure/communication-common-readme) | GitHub [1.1.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/communication-common_1.1.0/sdk/communication/communication-common/) |
 | Communication Identity | npm [1.0.0](https://www.npmjs.com/package/@azure/communication-identity/v/1.0.0)<br>npm [1.1.0-beta.1](https://www.npmjs.com/package/@azure/communication-identity/v/1.1.0-beta.1) | [docs](/javascript/api/overview/azure/communication-identity-readme) | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/communication-identity_1.0.0/sdk/communication/communication-identity/)<br>GitHub [1.1.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/communication-identity_1.1.0-beta.1/sdk/communication/communication-identity/) |
-| Communication Network Traversal | npm [1.0.0-beta.3](https://www.npmjs.com/package/@azure/communication-network-traversal/v/1.0.0-beta.3) | [docs](/javascript/api/overview/azure/communication-network-traversal-readme) | GitHub [1.0.0-beta.3](https://github.com/Azure/azure-sdk-for-js/tree/@azure/communication-network-traversal_1.0.0-beta.3/sdk/communication/communication-network-traversal/) |
+| Communication Network Traversal | npm [1.0.0](https://www.npmjs.com/package/@azure/communication-network-traversal/v/1.0.0) | [docs](/javascript/api/overview/azure/communication-network-traversal-readme) | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/communication-network-traversal_1.0.0/sdk/communication/communication-network-traversal/) |
 | Communication Phone Numbers | npm [1.0.0](https://www.npmjs.com/package/@azure/communication-phone-numbers/v/1.0.0)<br>npm [1.2.0-beta.1](https://www.npmjs.com/package/@azure/communication-phone-numbers/v/1.2.0-beta.1) | [docs](/javascript/api/overview/azure/communication-phone-numbers-readme) | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/communication-phone-numbers_1.0.0/sdk/communication/communication-phone-numbers/)<br>GitHub [1.2.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/communication-phone-numbers_1.2.0-beta.1/sdk/communication/communication-phone-numbers/) |
 | Communication Sms | npm [1.0.0](https://www.npmjs.com/package/@azure/communication-sms/v/1.0.0) | [docs](/javascript/api/overview/azure/communication-sms-readme) | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/communication-sms_1.0.0/sdk/communication/communication-sms/) |
 | Container Registry | npm [1.0.0](https://www.npmjs.com/package/@azure/container-registry/v/1.0.0) | [docs](/javascript/api/overview/azure/container-registry-readme) | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/container-registry_1.0.0/sdk/containerregistry/container-registry/) |
@@ -260,10 +260,10 @@
 | @azure-tools/adl-rpaas-controller | npm [0.1.1](https://www.npmjs.com/package/@azure-tools/adl-rpaas-controller/v/0.1.1) |  |  |
 | @azure-tools/adl-vs | npm [0.2.0](https://www.npmjs.com/package/@azure-tools/adl-vs/v/0.2.0) |  |  |
 | @azure-tools/cadl | npm [0.16.0](https://www.npmjs.com/package/@azure-tools/cadl/v/0.16.0) |  |  |
-| @azure-tools/cadl-autorest | npm [0.10.0](https://www.npmjs.com/package/@azure-tools/cadl-autorest/v/0.10.0) |  |  |
+| @azure-tools/cadl-autorest | npm [0.11.0](https://www.npmjs.com/package/@azure-tools/cadl-autorest/v/0.11.0) |  |  |
 | @azure-tools/cadl-openapi | npm [0.4.1](https://www.npmjs.com/package/@azure-tools/cadl-openapi/v/0.4.1) |  |  |
-| @azure-tools/cadl-providerhub | npm [0.11.0](https://www.npmjs.com/package/@azure-tools/cadl-providerhub/v/0.11.0) |  |  |
-| @azure-tools/cadl-providerhub-controller | npm [0.7.0](https://www.npmjs.com/package/@azure-tools/cadl-providerhub-controller/v/0.7.0) |  |  |
+| @azure-tools/cadl-providerhub | npm [0.12.0](https://www.npmjs.com/package/@azure-tools/cadl-providerhub/v/0.12.0) |  |  |
+| @azure-tools/cadl-providerhub-controller | npm [0.8.0](https://www.npmjs.com/package/@azure-tools/cadl-providerhub-controller/v/0.8.0) |  |  |
 | @azure-tools/cadl-rest | npm [0.4.1](https://www.npmjs.com/package/@azure-tools/cadl-rest/v/0.4.1) |  |  |
 | @azure-tools/cadl-rpaas | npm [0.11.0](https://www.npmjs.com/package/@azure-tools/cadl-rpaas/v/0.11.0) |  |  |
 | @azure-tools/cadl-rpaas-controller | npm [0.7.0](https://www.npmjs.com/package/@azure-tools/cadl-rpaas-controller/v/0.7.0) |  |  |
@@ -278,16 +278,16 @@
 | @azure-tools/test-recorder | npm [1.0.2](https://www.npmjs.com/package/@azure-tools/test-recorder/v/1.0.2) |  |  |
 | @azure-tools/tmlanguage-generator | npm [0.1.4](https://www.npmjs.com/package/@azure-tools/tmlanguage-generator/v/0.1.4) |  |  |
 | @azure-tools/yaml | npm [1.0.0](https://www.npmjs.com/package/@azure-tools/yaml/v/1.0.0) |  |  |
-| @cadl-lang/compiler | npm [0.25.0](https://www.npmjs.com/package/@cadl-lang/compiler/v/0.25.0) |  |  |
-| @cadl-lang/openapi | npm [0.5.0](https://www.npmjs.com/package/@cadl-lang/openapi/v/0.5.0) |  |  |
-| @cadl-lang/openapi3 | npm [0.5.0](https://www.npmjs.com/package/@cadl-lang/openapi3/v/0.5.0) |  |  |
-| @cadl-lang/prettier-plugin-cadl | npm [0.5.5](https://www.npmjs.com/package/@cadl-lang/prettier-plugin-cadl/v/0.5.5) |  |  |
-| @cadl-lang/rest | npm [0.8.0](https://www.npmjs.com/package/@cadl-lang/rest/v/0.8.0) |  |  |
-| @cadl-lang/versioning | npm [0.1.0](https://www.npmjs.com/package/@cadl-lang/versioning/v/0.1.0) |  |  |
+| @cadl-lang/compiler | npm [0.26.0](https://www.npmjs.com/package/@cadl-lang/compiler/v/0.26.0) |  |  |
+| @cadl-lang/openapi | npm [0.5.1](https://www.npmjs.com/package/@cadl-lang/openapi/v/0.5.1) |  |  |
+| @cadl-lang/openapi3 | npm [0.6.0](https://www.npmjs.com/package/@cadl-lang/openapi3/v/0.6.0) |  |  |
+| @cadl-lang/prettier-plugin-cadl | npm [0.5.6](https://www.npmjs.com/package/@cadl-lang/prettier-plugin-cadl/v/0.5.6) |  |  |
+| @cadl-lang/rest | npm [0.9.0](https://www.npmjs.com/package/@cadl-lang/rest/v/0.9.0) |  |  |
+| @cadl-lang/versioning | npm [0.2.0](https://www.npmjs.com/package/@cadl-lang/versioning/v/0.2.0) |  |  |
 | adl-vscode | npm [0.6.0](https://www.npmjs.com/package/adl-vscode/v/0.6.0) |  |  |
 | cadl-msbuild-target | npm [0.1.0](https://www.npmjs.com/package/cadl-msbuild-target/v/0.1.0) |  |  |
-| cadl-vs | npm [0.5.0](https://www.npmjs.com/package/cadl-vs/v/0.5.0) |  |  |
-| cadl-vscode | npm [0.11.0](https://www.npmjs.com/package/cadl-vscode/v/0.11.0) |  |  |
+| cadl-vs | npm [0.6.0](https://www.npmjs.com/package/cadl-vs/v/0.6.0) |  |  |
+| cadl-vscode | npm [0.12.0](https://www.npmjs.com/package/cadl-vscode/v/0.12.0) |  |  |
 | tmlanguage-generator | npm [0.2.1](https://www.npmjs.com/package/tmlanguage-generator/v/0.2.1) |  |  |
 | AMQP Common | npm [1.0.0-preview.17](https://www.npmjs.com/package/@azure/amqp-common/v/1.0.0-preview.17) |  | GitHub [1.0.0-preview.17](https://github.com/Azure/azure-sdk-for-js/tree/@azure/amqp-common_1.0.0-preview.17/sdk/core/amqp-common/) |
 | Anomaly Detector | npm [3.0.0-beta.5](https://www.npmjs.com/package/@azure/ai-anomaly-detector/v/3.0.0-beta.5) | [docs](/javascript/api/overview/azure/ai-anomaly-detector-readme) | GitHub [3.0.0-beta.5](https://github.com/Azure/azure-sdk-for-js/tree/@azure/ai-anomaly-detector_3.0.0-beta.5/sdk/anomalydetector/ai-anomaly-detector/) |
@@ -326,7 +326,7 @@
 | Communication Chat | npm [1.1.1](https://www.npmjs.com/package/@azure/communication-chat/v/1.1.1) | [docs](/javascript/api/overview/azure/communication-chat-readme) | GitHub [1.1.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/communication-chat_1.1.1/sdk/communication/communication-chat/) |
 | Communication Common | npm [1.1.0](https://www.npmjs.com/package/@azure/communication-common/v/1.1.0) | [docs](/javascript/api/overview/azure/communication-common-readme) | GitHub [1.1.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/communication-common_1.1.0/sdk/communication/communication-common/) |
 | Communication Identity | npm [1.0.0](https://www.npmjs.com/package/@azure/communication-identity/v/1.0.0)<br>npm [1.1.0-beta.1](https://www.npmjs.com/package/@azure/communication-identity/v/1.1.0-beta.1) | [docs](/javascript/api/overview/azure/communication-identity-readme) | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/communication-identity_1.0.0/sdk/communication/communication-identity/)<br>GitHub [1.1.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/communication-identity_1.1.0-beta.1/sdk/communication/communication-identity/) |
-| Communication Network Traversal | npm [1.0.0-beta.3](https://www.npmjs.com/package/@azure/communication-network-traversal/v/1.0.0-beta.3) | [docs](/javascript/api/overview/azure/communication-network-traversal-readme) | GitHub [1.0.0-beta.3](https://github.com/Azure/azure-sdk-for-js/tree/@azure/communication-network-traversal_1.0.0-beta.3/sdk/communication/communication-network-traversal/) |
+| Communication Network Traversal | npm [1.0.0](https://www.npmjs.com/package/@azure/communication-network-traversal/v/1.0.0) | [docs](/javascript/api/overview/azure/communication-network-traversal-readme) | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/communication-network-traversal_1.0.0/sdk/communication/communication-network-traversal/) |
 | Communication Phone Numbers | npm [1.0.0](https://www.npmjs.com/package/@azure/communication-phone-numbers/v/1.0.0)<br>npm [1.2.0-beta.1](https://www.npmjs.com/package/@azure/communication-phone-numbers/v/1.2.0-beta.1) | [docs](/javascript/api/overview/azure/communication-phone-numbers-readme) | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/communication-phone-numbers_1.0.0/sdk/communication/communication-phone-numbers/)<br>GitHub [1.2.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/communication-phone-numbers_1.2.0-beta.1/sdk/communication/communication-phone-numbers/) |
 | Communication Signaling | npm [1.0.0-beta.12](https://www.npmjs.com/package/@azure/communication-signaling/v/1.0.0-beta.12) |  |  |
 | Communication Sms | npm [1.0.0](https://www.npmjs.com/package/@azure/communication-sms/v/1.0.0) | [docs](/javascript/api/overview/azure/communication-sms-readme) | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/communication-sms_1.0.0/sdk/communication/communication-sms/) |
