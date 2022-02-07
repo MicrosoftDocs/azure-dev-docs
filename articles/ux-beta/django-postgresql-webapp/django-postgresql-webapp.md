@@ -263,15 +263,25 @@ az postgres server create --resource-group $RESOURCE_GROUP_NAME \
 ```azurecli
 az postgres server firewall-rule create --resource-group $RESOURCE_GROUP_NAME \
                                         --server $DB_SERVER_NAME \
-                                        --name AllowMyIP \
-                                        --start-ip-address 192.168.0.1 \
-                                        --end-ip-address 192.168.0.1
+                                        --name AllowAllWindowsAzureIps \
+                                        --start-ip-address 0.0.0.0 \
+                                        --end-ip-address 0.0.0.0
 ```
 
 * *resource-group* &rarr; Name of resource group from earlier in this tutorial. (`msdocs-django-postgres-webapp-rg`)
 * *server* &rarr; Name of the server from **Step 1**. (`msdocs-django-postgres-webapp-db`)
-* *name* &rarr; Name for firewall rule. (ex: `AllowMyIP`)
-* *start-ip-address, end-ip-address* &rarr; IP address or range of IP addresses that corresponds to where you'll be connecting from. If you don't know your IP address, go to [WhatIsMyIPAddress.com](https://whatismyipaddress.com/) to get it.
+* *name* &rarr; Name for firewall rule. (use `AllowAllWindowsAzureIps`)
+* *start-ip-address, end-ip-address* &rarr; `0.0.0.0` signals that access will be from other Azure services. This is sufficient for a demonstration app, but for a production app you should use an [Azure Virtual Network](/azure/virtual-network/virtual-networks-overview).
+
+Use the same command above but with `name=AllMyIp` and the `start-ip-address` and `end-ip-address` equal to your IP address. This will allow you to run the command below. To get your current IP address, see [WhatIsMyIPAddress.com](https://whatismyipaddress.com/).
+
+```azurecli
+az postgres server firewall-rule create --resource-group $RESOURCE_GROUP_NAME \
+                                        --server $DB_SERVER_NAME \
+                                        --name AllowMyIP \
+                                        --start-ip-address <your IP> \
+                                        --end-ip-address <your IP>
+```
 
 <br />
 
