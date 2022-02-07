@@ -37,7 +37,7 @@
     - name: Jenkins CI/CD
       href: /azure/jenkins/
     - name: Azure DevOps
-      href: /azure/devops/java/
+      href: /azure/devops-project/azure-devops-project-java
     - name: Tutorials
       expanded: true
       items:
