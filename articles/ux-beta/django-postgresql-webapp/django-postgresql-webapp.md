@@ -326,9 +326,9 @@ To configure environment variables for the web app from VS Code, you must have t
 
 | Instructions    | Screenshot |
 |:----------------|-----------:|
-| [!INCLUDE [VS Code connect app to postgres step 1](<./includes/django-postgresql-webapp/connect-postgres-to-app-vscode-1.md>)] | TBD |
-| [!INCLUDE [VS Code connect app to postgres step 2](<./includes/django-postgresql-webapp/connect-postgres-to-app-vscode-2.md>)] | TBD |
-| [!INCLUDE [VS Code connect app to postgres step 3](<./includes/django-postgresql-webapp/connect-postgres-to-app-vscode-3.md>)] | TBD |
+| [!INCLUDE [VS Code connect app to postgres step 1](<./includes/django-postgresql-webapp/connect-postgres-to-app-vscode-1.md>)] | :::image type="content" source="./media/django-postgresql-webapp/pending-screenshot-850x550.png" lightbox="./media/django-postgresql-webapp/pending-screenshot-240x160.png" alt-text="A screenshot showing how to locate the Azure Tools extension in VS Code." ::: |
+| [!INCLUDE [VS Code connect app to postgres step 2](<./includes/django-postgresql-webapp/connect-postgres-to-app-vscode-2.md>)] | :::image type="content" source="./media/django-postgresql-webapp/pending-screenshot-850x550.png" lightbox="./media/django-postgresql-webapp/pending-screenshot-240x160.png" alt-text="A screenshot showing how to add a setting to the App Service." ::: |
+| [!INCLUDE [VS Code connect app to postgres step 3](<./includes/django-postgresql-webapp/connect-postgres-to-app-vscode-3.md>)] | :::image type="content" source="./media/django-postgresql-webapp/pending-screenshot-850x550.png" lightbox="./media/django-postgresql-webapp/pending-screenshot-240x160.png" alt-text="A screenshot showing adding settings for app service to connect to Postgresql database." ::: |
 
 ### [Azure CLI](#tab/azure-cli)
 
