@@ -96,7 +96,7 @@ Your simple Spring Boot application is now ready for editing.
     <dependency>
         <groupId>com.azure.spring</groupId>
         <artifactId>azure-spring-boot-starter-cosmos</artifactId>
-        <version>3.10.0</version> 
+        <version>3.13.0</version> 
     </dependency>
     ```
 

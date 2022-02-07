@@ -57,7 +57,7 @@ The following prerequisites are required for this article:
     <dependency>
         <groupId>com.azure.spring</groupId>
         <artifactId>azure-spring-cloud-stream-binder-servicebus-queue</artifactId>
-        <version>2.12.0</version>
+        <version>2.13.0</version>
     </dependency>
     ```
 
@@ -67,7 +67,7 @@ The following prerequisites are required for this article:
     <dependency>
         <groupId>com.azure.spring</groupId>
         <artifactId>azure-spring-cloud-stream-binder-servicebus-topic</artifactId>
-        <version>2.12.0</version>
+        <version>2.13.0</version>
     </dependency>
     ```
 
