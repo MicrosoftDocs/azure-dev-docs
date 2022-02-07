@@ -326,9 +326,9 @@ To configure environment variables for the web app from VS Code, you must have t
 
 | Instructions    | Screenshot |
 |:----------------|-----------:|
-| [!INCLUDE [VS Code connect app to postgres step 1](<./includes/django-postgresql-webapp/connect-postgres-to-app-vscode-1.md>)] | :::image type="content" source="./media/django-postgresql-webapp/pending-screenshot-850x550.png" lightbox="./media/django-postgresql-webapp/pending-screenshot-240x160.png" alt-text="A screenshot showing how to locate the Azure Tools extension in VS Code." ::: |
-| [!INCLUDE [VS Code connect app to postgres step 2](<./includes/django-postgresql-webapp/connect-postgres-to-app-vscode-2.md>)] | :::image type="content" source="./media/django-postgresql-webapp/pending-screenshot-850x550.png" lightbox="./media/django-postgresql-webapp/pending-screenshot-240x160.png" alt-text="A screenshot showing how to add a setting to the App Service." ::: |
-| [!INCLUDE [VS Code connect app to postgres step 3](<./includes/django-postgresql-webapp/connect-postgres-to-app-vscode-3.md>)] | :::image type="content" source="./media/django-postgresql-webapp/pending-screenshot-850x550.png" lightbox="./media/django-postgresql-webapp/pending-screenshot-240x160.png" alt-text="A screenshot showing adding settings for app service to connect to Postgresql database." ::: |
+| [!INCLUDE [VS Code connect app to postgres step 1](<./includes/django-postgresql-webapp/connect-postgres-to-app-vscode-1.md>)] | :::image type="content" source="./media/django-postgresql-webapp/pending-screenshot-240x160.png" lightbox="./media/django-postgresql-webapp/pending-screenshot-850x550.png" alt-text="A screenshot showing how to locate the Azure Tools extension in VS Code." ::: |
+| [!INCLUDE [VS Code connect app to postgres step 2](<./includes/django-postgresql-webapp/connect-postgres-to-app-vscode-2.md>)] | :::image type="content" source="./media/django-postgresql-webapp/pending-screenshot-240x160.png" lightbox="./media/django-postgresql-webapp/pending-screenshot-850x550.png" alt-text="A screenshot showing how to add a setting to the App Service." ::: |
+| [!INCLUDE [VS Code connect app to postgres step 3](<./includes/django-postgresql-webapp/connect-postgres-to-app-vscode-3.md>)] | :::image type="content" source="./media/django-postgresql-webapp/pending-screenshot-240x160.png" lightbox="./media/django-postgresql-webapp/pending-screenshot-850x550.png" alt-text="A screenshot showing adding settings for app service to connect to Postgresql database." ::: |
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -359,11 +359,11 @@ To deploy a web app from VS Code, you must have the [Azure Tools extension pack]
 
 | Instructions    | Screenshot |
 |:----------------|-----------:|
-| [!INCLUDE [VS Code deploy step 1](<./includes/django-postgresql-webapp/deploy-vscode-1.md>)] | TBD |
-| [!INCLUDE [VS Code deploy step 2](<./includes/django-postgresql-webapp/deploy-vscode-2.md>)] | TBD |
-| [!INCLUDE [VS Code deploy step 3](<./includes/django-postgresql-webapp/deploy-vscode-3.md>)] | TBD |
-| [!INCLUDE [VS Code deploy step 4](<./includes/django-postgresql-webapp/deploy-vscode-4.md>)] | TBD |
-| [!INCLUDE [VS Code deploy step 5](<./includes/django-postgresql-webapp/deploy-vscode-5.md>)] | TBD |
+| [!INCLUDE [VS Code deploy step 1](<./includes/django-postgresql-webapp/deploy-vscode-1.md>)] | :::image type="content" source="./media/django-postgresql-webapp/pending-screenshot-240x160.png" lightbox="./media/django-postgresql-webapp/pending-screenshot-850x550.png" alt-text="A screenshot showing how to locate the Azure Tools extension in VS Code." ::: |
+| [!INCLUDE [VS Code deploy step 2](<./includes/django-postgresql-webapp/deploy-vscode-2.md>)] | :::image type="content" source="./media/django-postgresql-webapp/pending-screenshot-240x160.png" lightbox="./media/django-postgresql-webapp/pending-screenshot-850x550.png" alt-text="A screenshot showing how to deploy a web app." ::: |
+| [!INCLUDE [VS Code deploy step 3](<./includes/django-postgresql-webapp/deploy-vscode-3.md>)] | :::image type="content" source="./media/django-postgresql-webapp/pending-screenshot-240x160.png" lightbox="./media/django-postgresql-webapp/pending-screenshot-850x550.png" alt-text="A screenshot showing how to select your web app to be deployed." ::: |
+| [!INCLUDE [VS Code deploy step 4](<./includes/django-postgresql-webapp/deploy-vscode-4.md>)] | :::image type="content" source="./media/django-postgresql-webapp/pending-screenshot-240x160.png" lightbox="./media/django-postgresql-webapp/pending-screenshot-850x550.png" alt-text="A screenshot showing answering yes to update build configuration." ::: |
+| [!INCLUDE [VS Code deploy step 5](<./includes/django-postgresql-webapp/deploy-vscode-5.md>)] | :::image type="content" source="./media/django-postgresql-webapp/pending-screenshot-240x160.png" lightbox="./media/django-postgresql-webapp/pending-screenshot-850x550.png" alt-text="A screenshot showing deployment complete." ::: |
 
 ### [Deploy using Local Git](#tab/local-git-deploy)
 
@@ -458,15 +458,15 @@ The contents of the App Service diagnostic logs can be reviewed in the Azure por
 
 | Instructions    | Screenshot |
 |:----------------|-----------:|
-| [!INCLUDE [Stream logs from Azure portal 1](<./includes/django-postgresql-webapp/stream-logs-azure-portal-1.md>)] | TBD |
-| [!INCLUDE [Stream logs from Azure portal 2](<./includes/django-postgresql-webapp/stream-logs-azure-portal-2.md>)] | TBD |
+| [!INCLUDE [Stream logs from Azure portal 1](<./includes/django-postgresql-webapp/stream-logs-azure-portal-1.md>)] | :::image type="content" source="./media/django-postgresql-webapp/pending-screenshot-240x160.png" lightbox="./media/django-postgresql-webapp/pending-screenshot-850x550.png" alt-text="A screenshot showing how to set application logging in the Azure portal." ::: |
+| [!INCLUDE [Stream logs from Azure portal 2](<./includes/django-postgresql-webapp/stream-logs-azure-portal-2.md>)] | :::image type="content" source="./media/django-postgresql-webapp/pending-screenshot-240x160.png" lightbox="./media/django-postgresql-webapp/pending-screenshot-850x550.png" alt-text="A screenshot showing how to to stream logs in the Azure portal." ::: |
 
 ### [VS Code <span style="background:mistyrose">TBD</span>](#tab/vscode-aztools)
 
 | Instructions    | Screenshot |
 |:----------------|-----------:|
-| [!INCLUDE [Stream logs from VS Code 1](<./includes/django-postgresql-webapp/stream-logs-vscode-1.md>)] | TBD |
-| [!INCLUDE [Stream logs from VS Code 2](<./includes/django-postgresql-webapp/stream-logs-vscode-2.md>)] | TBD |
+| [!INCLUDE [Stream logs from VS Code 1](<./includes/django-postgresql-webapp/stream-logs-vscode-1.md>)] | :::image type="content" source="./media/django-postgresql-webapp/pending-screenshot-240x160.png" lightbox="./media/django-postgresql-webapp/pending-screenshot-850x550.png" alt-text="A screenshot showing how to set application logging in VS Code." ::: |
+| [!INCLUDE [Stream logs from VS Code 2](<./includes/django-postgresql-webapp/stream-logs-vscode-2.md>)] | :::image type="content" source="./media/django-postgresql-webapp/pending-screenshot-240x160.png" lightbox="./media/django-postgresql-webapp/pending-screenshot-850x550.png" alt-text="A screenshot showing VS Code output window." ::: |
 
 ### [Azure CLI](#tab/azure-cli)
 
