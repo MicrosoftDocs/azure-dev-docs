@@ -56,7 +56,7 @@ When you add this starter to a Spring Boot project, the following changes are ma
    <properties>
       <!-- Other properties will be listed here -->
       <java.version>1.8</java.version>
-      <azure.version>3.10.0</azure.version>
+      <azure.version>3.13.0</azure.version>
    </properties>
    ```
 
@@ -116,7 +116,7 @@ When you add this starter to a Spring Boot project, the following changes are ma
    <properties>
       <!-- Other properties will be listed here -->
       <java.version>1.8</java.version>
-      <azure.version>3.10.0</azure.version>
+      <azure.version>3.13.0</azure.version>
    </properties>
    ```
 
@@ -176,7 +176,7 @@ When you add this starter to a Spring Boot project, the following changes are ma
    <properties>
       <!-- Other properties will be listed here -->
       <java.version>1.8</java.version>
-      <azure.version>3.10.0</azure.version>
+      <azure.version>3.13.0</azure.version>
    </properties>
    ```
 
@@ -237,7 +237,7 @@ When you add this starter to a Spring Boot project, the following changes are ma
    <properties>
       <!-- Other properties will be listed here -->
       <java.version>1.8</java.version>
-      <azure.version>3.10.0</azure.version>
+      <azure.version>3.13.0</azure.version>
    </properties>
    ```
 
