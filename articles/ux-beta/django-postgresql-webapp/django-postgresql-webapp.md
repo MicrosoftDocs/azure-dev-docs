@@ -206,7 +206,9 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps 
 | [!INCLUDE [A screenshot showing the location of the Create Single Server button on the Azure Database for PostgreSQL deployment option page in the Azure Portal](<./includes/django-postgresql-webapp/create-postgres-service-azure-portal-3.md>)] | :::image type="content" source="./media/django-postgresql-webapp/create-postgres-service-azure-portal-3-240px.png" lightbox="./media/django-postgresql-webapp/create-postgres-service-azure-portal-3.png" alt-text="A screenshot showing the location of the Create Single Server button on the Azure Database for PostgreSQL deployment option page in the Azure Portal." ::: |
 | [!INCLUDE [A screenshot showing how to fill out the form to create a new Azure Database for PostgreSQL in the Azure Portal](<./includes/django-postgresql-webapp/create-postgres-service-azure-portal-4.md>)] | :::image type="content" source="./media/django-postgresql-webapp/create-postgres-service-azure-portal-4-240px.png" lightbox="./media/django-postgresql-webapp/create-postgres-service-azure-portal-4.png" alt-text="A screenshot showing how to fill out the form to create a new Azure Database for PostgreSQL in the Azure Portal." ::: |
 | [!INCLUDE [A screenshot showing how to select and configure the basic database service plan in the Azure portal](<./includes/django-postgresql-webapp/create-postgres-service-azure-portal-5.md>)] | :::image type="content" source="./media/django-postgresql-webapp/create-postgres-service-azure-portal-5-240px.png" lightbox="./media/django-postgresql-webapp/create-postgres-service-azure-portal-5.png" alt-text="A screenshot showing how to select and configure the basic database service plan in the Azure portal." ::: |
-| [!INCLUDE [A screenshot showing the location of hte Review plus Create button in the Azure Portal](<./includes/django-postgresql-webapp/create-postgres-service-azure-portal-6.md>)] | :::image type="content" source="./media/django-postgresql-webapp/create-postgres-service-azure-portal-6-240px.png" lightbox="./media/django-postgresql-webapp/create-postgres-service-azure-portal-6.png" alt-text="A screenshot showing the location of hte Review plus Create button in the Azure Portal." ::: |
+| [!INCLUDE [A screenshot showing the location of the Review plus Create button in the Azure Portal](<./includes/django-postgresql-webapp/create-postgres-service-azure-portal-6.md>)] | :::image type="content" source="./media/django-postgresql-webapp/create-postgres-service-azure-portal-6-240px.png" lightbox="./media/django-postgresql-webapp/create-postgres-service-azure-portal-6.png" alt-text="A screenshot showing the location of the Review plus Create button in the Azure Portal." ::: |
+| [!INCLUDE [A screenshot showing the location and adding a firewall rule in the Azure Portal](<./includes/django-postgresql-webapp/create-postgres-service-azure-portal-7.md>)] | :::image type="content" source="./media/django-postgresql-webapp/pending-screenshot-240x160.png" lightbox="./media/django-postgresql-webapp/pending-screenshot-850x550.png" alt-text="A screenshot showing how to allow access to the database in the Azure portal." ::: |
+
 
 ### [VS Code](#tab/vscode-aztools)
 
@@ -317,8 +319,8 @@ The app code expects to find database information in four environment variables 
 
 | Instructions    | Screenshot |
 |:----------------|-----------:|
-| [!INCLUDE [A screenshot showing how to navigate to App Settings](<./includes/django-postgresql-webapp/connect-postgres-to-app-azure-portal-1.md>)] | :::image type="content" source="./media/django-postgresql-webapp/connect-postgres-to-app-azure-portal-1-240px.png" lightbox="./media/django-postgresql-webapp/connect-postgres-to-app-azure-portal-1.png" alt-text="A screenshot showing how to navigate to App Settings." ::: |
-| [!INCLUDE [A screenshot showing how to configure the App Settings](<./includes/django-postgresql-webapp/connect-postgres-to-app-azure-portal-2.md>)] | :::image type="content" source="./media/django-postgresql-webapp/connect-postgres-to-app-azure-portal-2-240px.png" lightbox="./media/django-postgresql-webapp/connect-postgres-to-app-azure-portal-2.png" alt-text="A screenshot showing how to configure the App Settings." ::: |
+| [!INCLUDE [Azure portal connect app to postgres step 1](<./includes/django-postgresql-webapp/connect-postgres-to-app-azure-portal-1.md>)] | :::image type="content" source="./media/django-postgresql-webapp/connect-postgres-to-app-azure-portal-1-240px.png" lightbox="./media/django-postgresql-webapp/connect-postgres-to-app-azure-portal-1.png" alt-text="A screenshot showing how to navigate to App Settings in the Azure portal." ::: |
+| [!INCLUDE [Azure portal connect app to postgres step 2](<./includes/django-postgresql-webapp/connect-postgres-to-app-azure-portal-2.md>)] | :::image type="content" source="./media/django-postgresql-webapp/connect-postgres-to-app-azure-portal-2-240px.png" lightbox="./media/django-postgresql-webapp/connect-postgres-to-app-azure-portal-2.png" alt-text="A screenshot showing how to configure the App Settings in the Azure portal." ::: |
 
 ### [VS Code <span style="background:mistyrose">TBD</span>](#tab/vscode-aztools)
 
@@ -520,17 +522,17 @@ Follow these steps while signed-in to the Azure portal to delete a resource grou
 
 | Instructions    | Screenshot |
 |:----------------|-----------:|
-| [!INCLUDE [Remove resource group Azure portal 1](<./includes/django-postgresql-webapp/remove-resource-group-azure-portal-1.md>)] | TBD |
-| [!INCLUDE [Remove resource group Azure portal 2](<./includes/django-postgresql-webapp/remove-resource-group-azure-portal-2.md>)] | TBD |
-| [!INCLUDE [Remove resource group Azure portal 3](<./includes/django-postgresql-webapp/remove-resource-group-azure-portal-3.md>)] | TBD |
+| [!INCLUDE [Remove resource group Azure portal 1](<./includes/django-postgresql-webapp/remove-resource-group-azure-portal-1.md>)] | :::image type="content" source="./media/django-postgresql-webapp/pending-screenshot-240x160.png" lightbox="./media/django-postgresql-webapp/pending-screenshot-850x550.png" alt-text="A screenshot showing how to find resource group in the Azure portal." ::: |
+| [!INCLUDE [Remove resource group Azure portal 2](<./includes/django-postgresql-webapp/remove-resource-group-azure-portal-2.md>)] | :::image type="content" source="./media/django-postgresql-webapp/pending-screenshot-240x160.png" lightbox="./media/django-postgresql-webapp/pending-screenshot-850x550.png" alt-text="A screenshot showing how to delete a resource group in the Azure portal." ::: |
+| [!INCLUDE [Remove resource group Azure portal 3](<./includes/django-postgresql-webapp/remove-resource-group-azure-portal-3.md>)] | :::image type="content" source="./media/django-postgresql-webapp/pending-screenshot-240x160.png" lightbox="./media/django-postgresql-webapp/pending-screenshot-850x550.png" alt-text="A screenshot showing how to finish deleting a resource in the Azure portal." ::: |
 
 
 ### [VS Code <span style="background:mistyrose">TBD</span>](#tab/vscode-aztools)
 
 | Instructions    | Screenshot |
 |:----------------|-----------:|
-| [!INCLUDE [Remove resource group VS Code 1](<./includes/django-postgresql-webapp/remove-resource-group-vscode-1.md>)] | TBD |
-| [!INCLUDE [Remove resource group VS Code 2](<./includes/django-postgresql-webapp/remove-resource-group-vscode-2.md>)] | TBD |
+| [!INCLUDE [Remove resource group VS Code 1](<./includes/django-postgresql-webapp/remove-resource-group-vscode-1.md>)] | :::image type="content" source="./media/django-postgresql-webapp/pending-screenshot-240x160.png" lightbox="./media/django-postgresql-webapp/pending-screenshot-850x550.png" alt-text="A screenshot showing how to delete a resource group in VS Code." ::: |
+| [!INCLUDE [Remove resource group VS Code 2](<./includes/django-postgresql-webapp/remove-resource-group-vscode-2.md>)] | :::image type="content" source="./media/django-postgresql-webapp/pending-screenshot-240x160.png" lightbox="./media/django-postgresql-webapp/pending-screenshot-850x550.png" alt-text="A screenshot showing how to finish deleting a resource in VS Code." ::: |
 
 ### [Azure CLI](#tab/azure-cli)
 
