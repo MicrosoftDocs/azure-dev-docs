@@ -18,6 +18,6 @@ ms.custom: devx-track-python
 
 * Select a subscription if prompted.
 
-* Select the database you created above, for example *msdocs-python-django-postgres-db PostgreSQL Single*.
+* Select the database you created above, for example *msdocs-tutorial-django-postgres-db-< unique id >*. If the database name doesn't appear in the list, it's likely it hasn't finished being created.
 
 * Click **Yes** in the dialogue box to add your IP address to the firewall rules of the PostgreSQL server.

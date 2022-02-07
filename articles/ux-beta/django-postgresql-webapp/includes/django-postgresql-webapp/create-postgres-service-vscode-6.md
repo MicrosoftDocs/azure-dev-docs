@@ -14,5 +14,5 @@ ms.custom: devx-track-python
 
 * Select **Azure** icon the [activity bar](https://code.visualstudio.com/docs/getstarted/userinterface).
 * Select **Databases**.
-* Under your subscription, find the PostgreSQL Server you created (for example, *msdocs-python-django-postgres-db PostgreSQL Single*), right-click and select **Create Database**.
+* Under your subscription, find the PostgreSQL Server you created (for example, *msdocs-tutorial-django-postgres-db-< unique id>*), right-click and select **Create Database**.
 * Enter *pollsdb* as the **Database Name**.

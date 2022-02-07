@@ -10,11 +10,11 @@ ms.azure.devx-azure-tooling: ['vscode-azure-tools']
 ms.custom: devx-track-python
 ---
 
-**Step 3.** In the dialog box at the top of the VS Code window, add setting name followed by the setting value.
-<br/>
+**Step 3.** In the dialog box at the top of the VS Code window, add each setting name followed by its value.
+<br/><br/>
 Add the following settings:
 
 * *DBHOST* &rarr; Use the server name you used earlier when created the database, for example, *msdocs-tutorial-django-postgresql-db-< unique id >*. The code in *azuresite/production.py* automatically appends `.postgres.database.azure.com` to create the full Postgres server URL.
-* *DBNAME* &rarr; Enter `pollsdb`
+* *DBNAME* &rarr; Enter *pollsdb*.
 * *DBUSER* &rarr; Enter the administrator user name you specified when creating the database. The code in *azuresite/production.py* automatically constructs the full Postgres username from `DBUSER` and `DBHOST`, so don't include the `@server` portion.
 * *DBPASS* &rarr; Enter the administrator password you specified when creating the database. The code in *azuresite/production.py* automatically constructs the full Postgres username from `DBUSER` and `DBHOST`, so don't include the `@server` portion.

@@ -210,9 +210,7 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps 
 
 ### [VS Code](#tab/vscode-aztools)
 
-To create Azure resources in VS Code, you must have the [Azure Tools extension pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack) installed and be signed into Azure from VS Code.
-
-Follow these steps to create your Azure Database for PostgreSQL resource using the Azure Tools extension pack in Visual Studio Code.
+Follow these steps to create your Azure Database for PostgreSQL resource using the [Azure Tools extension pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack) in Visual Studio Code.
 
 | Instructions    | Screenshot |
 |:----------------|-----------:|
@@ -311,7 +309,7 @@ pollsdb=>
 
 ## 4 - Connect the app to the database
 
-With the code now deployed to App Service, the next step is to connect the app to the Postgres database in Azure.
+With the web app and Postgres database created, the next step is to connect the web app to the Postgres database in Azure.
 
 The app code expects to find database information in four environment variables named `DBHOST`, `DBNAME`, `DBUSER`, and `DBPASS`
 
