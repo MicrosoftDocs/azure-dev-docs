@@ -431,7 +431,7 @@ The `createsuperuser` command prompts you for Django superuser (or admin) creden
 
 <br />
 
-**Step 4.** If you see an error that the database is locked, make sure that you ran the `az webapp settings` command in the previous section. Without those settings, the migrate command cannot communicate with the database, resulting in the error.
+**Step 4.** If you see an error that the database is locked, make sure you created the environment variables in Step 4. Without those settings, the migrate command cannot communicate with the database, resulting in the error.
 
 <br />
 
