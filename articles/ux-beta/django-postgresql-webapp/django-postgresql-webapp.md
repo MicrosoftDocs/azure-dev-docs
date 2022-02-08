@@ -275,7 +275,7 @@ az postgres server firewall-rule create --resource-group $RESOURCE_GROUP_NAME \
 * *name* &rarr; Name for firewall rule. (use `AllowAllWindowsAzureIps`)
 * *start-ip-address, end-ip-address* &rarr; `0.0.0.0` signals that access will be from other Azure services. This is sufficient for a demonstration app, but for a production app you should use an [Azure Virtual Network](/azure/virtual-network/virtual-networks-overview).
 
-Repeat the command to add a firewall rule with `name=AllMyIp` and the `start-ip-address` and `end-ip-address` equal to your IP address. This allows you to connect your local environment to the database. To get your current IP address, see [WhatIsMyIPAddress.com](https://whatismyipaddress.com/).
+Repeat the command to add a firewall rule with `name` equal to *AllMyIp* and the `start-ip-address` and `end-ip-address` equal to your IP address. This allows you to connect your local environment to the database. To get your current IP address, see [WhatIsMyIPAddress.com](https://whatismyipaddress.com/).
 
 ```azurecli
 az postgres server firewall-rule create --resource-group $RESOURCE_GROUP_NAME \
@@ -318,6 +318,8 @@ postgres=> CREATE DATABASE pollsdb;
 postgres=> \c pollsdb
 pollsdb=>
 ```
+
+Type `\?` to show help or `\q` to quit.
 
 ----
 
