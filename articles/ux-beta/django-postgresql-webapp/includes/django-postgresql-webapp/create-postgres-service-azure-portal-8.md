@@ -10,7 +10,7 @@ ms.azure.devx-azure-tooling: ['azure-portal']
 ms.custom: devx-track-python
 ---
 
-**Step 8.** In the Azure Cloud Shell or in your local environment, connect to the PostgreSQL server and create the `pollsdb` database.
+In the global controls of the Azure portal, select the Azure Cloud Shell, connect to the PostgreSQL server and create the `pollsdb` database.
 
 ```Console
 psql --host=<server-name>.postgres.database.azure.com \
@@ -22,3 +22,5 @@ postgres=> CREATE DATABASE pollsdb;
 ```
 
 The values of `<server name>` and `<admin-user>` are the values from a previous step.
+
+Optionally, verify that the `pollsdb1 was successfully created by running \c pollsdb to change the prompt from postgre (default) to the new pollsdb. Type `\?` to show help or `\q` to quit.

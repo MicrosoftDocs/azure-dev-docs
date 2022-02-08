@@ -12,9 +12,9 @@ ms.custom: devx-track-python
 
 After the Azure Database for PostgreSQL server is created, configure access to the server by adding firewall rules.
 
-1. On the server page, select **Connection security** in the left pane.
+1. On the server page, select **Connection security** in the resource menu.
 
-1. Change **Allow access to Azure services** to **Yes** to allow the web app to access the database.
+1. In the working pane, change **Allow access to Azure services** to **Yes** to allow the web app to access the database.
 <br/><br/>
 For this tutorial, you will allow access to the database from other Azure services (including your web app), but in a production app use an [Azure Virtual Network](/azure/virtual-network/virtual-networks-overview) to restrict access further.
 

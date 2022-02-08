@@ -11,7 +11,7 @@ ms.custom: devx-track-python
 ---
 
 Create application settings.
-
+<br/><br/>
 Use the **New application setting** button to create settings for each of the following values (which are expected by the djangoapp sample):
 
 * *DBHOST* &rarr; The URL of the database server from the previous section; that is, the `<server-name>.postgres.database.azure.com`. <br /> Example: `msdocs-django-postgres-webapp-db`
