@@ -178,7 +178,7 @@ The sample pipeline uses Maven to build and Azure CLI to deploy to the service i
 
 1. Install the spring-cloud extension:
 
-    ```bash
+    ```azurecli
     az extension add --name spring-cloud
     ```
 
@@ -263,7 +263,7 @@ After the job is complete, navigate to the public IP of the `gateway` applicatio
 
 When no longer needed, delete the resources created in this article:
 
-```bash
+```azurecli
 az group delete -y --no-wait -n <resource group name>
 ```
 

@@ -54,7 +54,7 @@ Install the following:
 
 1. In VS Code, in an integrated bash terminal, sign in to the Azure CLI:
 
-    ```bash
+    ```azurecli
     az login
     ```
 

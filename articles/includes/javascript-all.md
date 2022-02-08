@@ -216,12 +216,12 @@
 | @autorest/codemodel | npm [4.17.2](https://www.npmjs.com/package/@autorest/codemodel/v/4.17.2) |  |  |
 | @autorest/common | npm [1.4.1](https://www.npmjs.com/package/@autorest/common/v/1.4.1) |  |  |
 | @autorest/configuration | npm [1.8.2](https://www.npmjs.com/package/@autorest/configuration/v/1.8.2) |  |  |
-| @autorest/csharp | npm [3.0.0-beta.20220204.1](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20220204.1) |  |  |
+| @autorest/csharp | npm [3.0.0-beta.20220207.1](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20220207.1) |  |  |
 | @autorest/csharp-v3 | npm [3.0.0-beta.20201217.1](https://www.npmjs.com/package/@autorest/csharp-v3/v/3.0.0-beta.20201217.1) |  |  |
 | @autorest/extension-base | npm [3.4.4](https://www.npmjs.com/package/@autorest/extension-base/v/3.4.4) |  |  |
 | @autorest/fixer | npm [1.0.0](https://www.npmjs.com/package/@autorest/fixer/v/1.0.0) |  |  |
 | @autorest/gotest | npm [1.3.0](https://www.npmjs.com/package/@autorest/gotest/v/1.3.0) |  |  |
-| @autorest/schemas | npm [1.3.2](https://www.npmjs.com/package/@autorest/schemas/v/1.3.2) |  |  |
+| @autorest/schemas | npm [1.3.3](https://www.npmjs.com/package/@autorest/schemas/v/1.3.3) |  |  |
 | @autorest/testmodeler | npm [2.0.0](https://www.npmjs.com/package/@autorest/testmodeler/v/2.0.0) |  |  |
 | @autorest/test-utils | npm [0.4.0](https://www.npmjs.com/package/@autorest/test-utils/v/0.4.0) |  |  |
 | @autorest/typescript | npm [6.0.0-beta.15](https://www.npmjs.com/package/@autorest/typescript/v/6.0.0-beta.15) |  |  |
@@ -261,6 +261,7 @@
 | @azure-tools/adl-vs | npm [0.2.0](https://www.npmjs.com/package/@azure-tools/adl-vs/v/0.2.0) |  |  |
 | @azure-tools/cadl | npm [0.16.0](https://www.npmjs.com/package/@azure-tools/cadl/v/0.16.0) |  |  |
 | @azure-tools/cadl-autorest | npm [0.11.0](https://www.npmjs.com/package/@azure-tools/cadl-autorest/v/0.11.0) |  |  |
+| @azure-tools/cadl-azure-resource-manager | npm [0.1.0](https://www.npmjs.com/package/@azure-tools/cadl-azure-resource-manager/v/0.1.0) |  |  |
 | @azure-tools/cadl-openapi | npm [0.4.1](https://www.npmjs.com/package/@azure-tools/cadl-openapi/v/0.4.1) |  |  |
 | @azure-tools/cadl-providerhub | npm [0.12.0](https://www.npmjs.com/package/@azure-tools/cadl-providerhub/v/0.12.0) |  |  |
 | @azure-tools/cadl-providerhub-controller | npm [0.8.0](https://www.npmjs.com/package/@azure-tools/cadl-providerhub-controller/v/0.8.0) |  |  |
@@ -302,7 +303,7 @@
 | AutoRest - CLI Common | npm [0.6.2](https://www.npmjs.com/package/@autorest/clicommon/v/0.6.2) |  | GitHub [0.6.2](https://github.com/Azure/autorest.clicommon/tree/0.4.12) |
 | AutoRest - Code Model | npm [3.0.137](https://www.npmjs.com/package/@azure/autorest.codemodel-v3/v/3.0.137) |  |  |
 | AutoRest - Compare | npm [0.4.2](https://www.npmjs.com/package/@autorest/compare/v/0.4.2) |  | GitHub [0.4.2](https://github.com/Azure/autorest.compare) |
-| AutoRest - Core | npm [3.7.5](https://www.npmjs.com/package/@autorest/core/v/3.7.5) |  | GitHub [3.7.5](https://github.com/Azure/autorest) |
+| AutoRest - Core | npm [3.7.6](https://www.npmjs.com/package/@autorest/core/v/3.7.6) |  | GitHub [3.7.6](https://github.com/Azure/autorest) |
 | AutoRest - Functions CSharp | npm [0.2.0-preview-dev.321054549](https://www.npmjs.com/package/@autorest/azure-functions-csharp/v/0.2.0-preview-dev.321054549) |  |  |
 | AutoRest - Functions Java | npm [0.0.2-Preview](https://www.npmjs.com/package/@autorest/azure-functions-java/v/0.0.2-Preview) |  |  |
 | AutoRest - Functions Python | npm [0.1.0-preview](https://www.npmjs.com/package/@autorest/azure-functions-python/v/0.1.0-preview) |  |  |

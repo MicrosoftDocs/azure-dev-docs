@@ -81,7 +81,7 @@ cordova build
 
 If running from a browser (using `cordova platform add browser`), then you must enable CORS support within Azure App Service.  To do this, run the following command:
 
-```bash
+```azurecli
 az webapp cors add -g zumo-quickstart --name ZUMOAPPNAME --allowed-origins "*"
 ```
 
