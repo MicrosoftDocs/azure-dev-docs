@@ -360,9 +360,9 @@ az webapp config appsettings set --resource-group $RESOURCE_GROUP_NAME \
                                  --settings DBHOST=$DB_SERVER_NAME DBNAME=$DB_NAME  DBUSER=$ADMIN_USERNAME DBPASS=$ADMIN_PWD
 ```
 
-* *DBHOST* &rarr; Replace *\<postgres-server-name>* with the name you used earlier with the `az postgres up` command. The code in *azuresite/production.py* automatically appends `.postgres.database.azure.com` to create the full Postgres server URL.
-* *DBNAME* &rarr; Enter `pollsdb`
-* *DBUSER, DBPASS* &rarr; Replace *\<username>* and *\<password>* with the administrator credentials that you used with the earlier `az postgres up` command, or those that `az postgres up` generated for you. The code in *azuresite/production.py* automatically constructs the full Postgres username from `DBUSER` and `DBHOST`, so don't include the `@server` portion. |
+* *DBHOST* &rarr; Use the name of the name you used earlier with the `az postgres up` command. The code in *azuresite/production.py* automatically appends `.postgres.database.azure.com` to create the full Postgres server URL.
+* *DBNAME* &rarr; Udr `pollsdb`
+* *DBUSER, DBPASS* &rarr; Use the administrator credentials that you used with the earlier `az postgres up` command, or those that `az postgres up` generated for you. The code in *azuresite/production.py* automatically constructs the full Postgres username from `DBUSER` and `DBHOST`, so don't include the `@server` portion. |
 
 >[!NOTE]
 > The resource group and app names are drawn from the cached values in the *.azure/config* file.
