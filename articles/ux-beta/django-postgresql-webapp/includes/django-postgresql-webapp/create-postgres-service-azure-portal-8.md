@@ -23,4 +23,4 @@ postgres=> CREATE DATABASE pollsdb;
 
 The values of `<server name>` and `<admin-user>` are the values from a previous step.
 <br>
-Optionally, verify that the `pollsdb1 was successfully created by running \c pollsdb to change the prompt from postgre (default) to the new pollsdb. Type `\?` to show help or `\q` to quit.
+Optionally, verify that the `pollsdb1` was successfully created by running \c pollsdb to change the prompt from `postgre` (default) to the new `pollsdb`. Type `\?` to show help or `\q` to quit.
