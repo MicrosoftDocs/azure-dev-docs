@@ -10,4 +10,4 @@ ms.azure.devx-azure-tooling: ['vscode-azure-tools']
 ms.custom: devx-track-python
 ---
 
-**Step 1.** Locate the Azure icon in the left-hand toolbar and select it to bring up the Azure Tools for VS Code extension.
+Locate the Azure icon in the left-hand toolbar and select it to bring up the Azure Tools for VS Code extension.

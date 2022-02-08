@@ -10,7 +10,7 @@ ms.azure.devx-azure-tooling: ['azure-portal']
 ms.custom: devx-track-python
 ---
 
-**Step 4.** In the  **App Service Plan** section, under **Sku and size** select **Change size** to select a different App Service plan.
+In the  **App Service Plan** section, under **Sku and size** select **Change size** to select a different App Service plan.
 
 The App Service plan controls how many resources (CPU/memory) are available to your app and the cost of those resources.<br>
 <br>

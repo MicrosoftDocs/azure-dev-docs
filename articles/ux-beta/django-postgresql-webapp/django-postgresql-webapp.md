@@ -36,57 +36,57 @@ To follow along with this tutorial, the completed app is available for download 
 
 #### [Git clone](#tab/sample-app-clone)
 
-**Step 1.** Clone the Sample Application locally using `git`:
+1. Clone the Sample Application locally using `git`:
 
-```bash
-git clone https://github.com/Azure-Samples/djangoapp.git
-```
+    ```bash
+    git clone https://github.com/Azure-Samples/djangoapp.git
+    ```
+    
+2. Navigate into the *djangoapp* folder:
 
-**Step 2.** Navigate into the *djangoapp* folder:
-
-```bash
-cd djangoapp
-```
-
+    ```bash
+    cd djangoapp
+    ```
+    
 #### [GitHub download](#tab/sample-app-download)
 
-**Step 1.** Visit the [Django Sample App GitHub Repository](https://github.com/Azure-Samples/djangoapp).
+1. Visit the [Django Sample App GitHub Repository](https://github.com/Azure-Samples/djangoapp).
 
-**Step 2.** Select **Clone**, and then select **Download ZIP**.
+2. Select **Clone**, and then select **Download ZIP**.
 
-**Step 3.** Unpack the ZIP file into a folder named *djangoapp*.
+3. Unpack the ZIP file into a folder named *djangoapp*.
 
-**Step 4.** Then open a terminal window in the *djangoapp* folder.
+4. Then open a terminal window in the *djangoapp* folder.
 
 ----
 
 ### Run the application locally
 
-**Step 1.** Create a virtual environment for the app.
+1. Create a virtual environment for the app.
 
-[!INCLUDE [Virtual environment setup](<./includes/django-postgresql-webapp/virtual-environment-setup.md>)]
+    [!INCLUDE [Virtual environment setup](<./includes/django-postgresql-webapp/virtual-environment-setup.md>)]
 
-**Step 2.** Install the dependencies:
+2. Install the dependencies:
 
-```Console
-pip install -r requirements.txt
-```
+    ```Console
+    pip install -r requirements.txt
+    ```
+    
+3. Create the polls database tables:
 
-**Step 3.** Create the polls database tables:
+    ```Console
+    python manage.py migrate
+    ```
+    
+4. Run the app:
 
-```Console
-python manage.py migrate
-```
+    ```Console
+    python manage.py runserver
+    ```
+    
+5. In a web browser, go to the sample application at `http://localhost:8000`.
 
-**Step 4.** Run the app:
-
-```Console
-python manage.py runserver
-```
-
-**Step 5.** In a web browser, go to the sample application at `http://localhost:8000`.
-
-At this point, you have a polls app with no poll questions. To optionally continue your local testing, you can create a superuser with `python manage.py createsuperuser` and then use the user credentials to login in to `http://localhost:8000/admin` and create poll questions. By default, SQLite is used locally since it is included in Python. You will perform the same steps later in your deployed app with a PostgreSQL database. Any questions created locally are not deployed to production.
+    At this point, you have a polls app with no poll questions. To optionally continue your local testing, you can create a superuser with `python manage.py createsuperuser` and then use the user credentials to login in to `http://localhost:8000/admin` and create poll questions. By default, SQLite is used locally since it is included in Python. You will perform the same steps later in your deployed app with a PostgreSQL database. Any questions created locally are not deployed to production.
 
 ----
 
@@ -405,8 +405,8 @@ With the code deployed and the database in place, the app is almost ready to use
 
 Navigate to page for the App Service instance in the Azure portal.
 
-* Select **SSH**, under **Development Tools** on the left side
-* Then **Go** to open an SSH console on the web app server. (It may take a minute to connect for the first time as the web app container needs to start.)
+1. Select **SSH**, under **Development Tools** on the left side
+2. Then **Go** to open an SSH console on the web app server. (It may take a minute to connect for the first time as the web app container needs to start.)
 
 ### [VS Code](#tab/vscode-aztools)
 
@@ -414,8 +414,8 @@ In VS Code, you can use the [Azure Tools extension pack](https://marketplace.vis
 
 In the **App Service** section of the Azure Tools extension:
 
-* Locate your web app and right-click to bring up the context menu.
-* Select **SSH into Web App** to open a SSH terminal window.
+1. Locate your web app and right-click to bring up the context menu.
+2. Select **SSH into Web App** to open a SSH terminal window.
 
 ### [Azure CLI](#tab/azure-cli)
 

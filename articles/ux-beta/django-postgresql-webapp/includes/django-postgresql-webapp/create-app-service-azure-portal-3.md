@@ -10,7 +10,7 @@ ms.azure.devx-azure-tooling: ['azure-portal']
 ms.custom: devx-track-python
 ---
 
-**Step 3.** On the **Create Web App** page, fill out the form as follows.
+On the **Create Web App** page, fill out the form as follows.
 
 * **Resource Group** &rarr; Select **Create new** and use a name of *msdocs-django-postgres-webapp-rg*.
 * **Name** &rarr; Use *msdocs-django-postgres-webapp-XYZ* where XYZ is any three random characters. This name must be unique across Azure.

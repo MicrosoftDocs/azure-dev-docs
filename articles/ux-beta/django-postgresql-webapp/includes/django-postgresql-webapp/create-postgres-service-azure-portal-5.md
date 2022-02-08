@@ -10,7 +10,7 @@ ms.azure.devx-azure-tooling: ['azure-portal']
 ms.custom: devx-track-python
 ---
 
-**Step 5.** Under **Compute + storage**, select **Configure server** to select a different Compute + storage plan.
+Under **Compute + storage**, select **Configure server** to select a different Compute + storage plan.
 
 The **Compute + storage** plan controls how many resources (CPU/memory/storage) are available to your database and the cost of those resources.<br>
 <br>

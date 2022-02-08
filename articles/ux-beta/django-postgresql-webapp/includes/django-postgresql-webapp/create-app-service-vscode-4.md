@@ -10,4 +10,4 @@ ms.azure.devx-azure-tooling: ['vscode-azure-tools']
 ms.custom: devx-track-python
 ---
 
-**Step 4.** Select **Create New Resource Group** and enter *msdocs-tutorial-django-postgresql-rg* in the prompt, if the resource group does not already exist.
+Select **Create New Resource Group** and enter *msdocs-tutorial-django-postgresql-rg* in the prompt, if the resource group does not already exist.

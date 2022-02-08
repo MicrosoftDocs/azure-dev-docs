@@ -10,7 +10,7 @@ ms.azure.devx-azure-tooling: ['azure-portal']
 ms.custom: devx-track-python
 ---
 
-**Step 7.** After the Azure Database for PostgreSQL server is created, configure access to the database by adding firewall rules.
+After the Azure Database for PostgreSQL server is created, configure access to the server by adding firewall rules.
 
 1. On the server page, select **Connection security** in the left pane.
 

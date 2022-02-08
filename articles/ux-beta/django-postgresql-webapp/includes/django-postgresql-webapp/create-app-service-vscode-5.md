@@ -10,4 +10,4 @@ ms.azure.devx-azure-tooling: ['vscode-azure-tools']
 ms.custom: devx-track-python
 ---
 
-**Step 5.** Select the runtime stack for the application.  For this example, select **Python 3.9**.
+Select the runtime stack for the application.  For this example, select **Python 3.9**.
