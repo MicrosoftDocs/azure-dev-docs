@@ -16,6 +16,8 @@ ms.custom: devx-track-python
 
 1. Change **Allow access to Azure services** to **Yes** to allow the web app to access the database.
 <br/><br/>
-For this tutorial, you will allow access to the database from other Azure services, but in a production app you should use an [Azure Virtual Network](/azure/virtual-network/virtual-networks-overview).
+For this tutorial, you will allow access to the database from other Azure services (including your web app), but in a production app use an [Azure Virtual Network](/azure/virtual-network/virtual-networks-overview) to restrict access further.
+
+1. Select **Add current client IP address** to allow access from your local environment.
 
 1. Select **Save** to save the changes.

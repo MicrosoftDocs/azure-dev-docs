@@ -299,16 +299,18 @@ az postgres server show --name $DB_SERVER_NAME \
 
 <br />
 
-**Step 4.** In the Azure Cloud Shell or in your local environment connect to the PostgreSQL server and create `pollsdb` database.
+**Step 4.** In the Azure Cloud Shell or in your local environment, connect to the PostgreSQL server and create the `pollsdb` database.
 
 ```Console
-psql --host=msdocs-django-postgres-webapp-db.postgres.database.azure.com \
+psql --host=<server-name>.postgres.database.azure.com \
      --port=5432 \
-     --username=demoadmin@msdocs-django-postgres-webapp-db \
+     --username=<admin-user>@<server name> \
      --dbname=postgres
 
 postgres=> CREATE DATABASE pollsdb;
 ```
+
+The values of `<server name>` and `<admin-user>` are the values from a previous step.
 
 <br />
 
