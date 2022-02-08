@@ -51,7 +51,7 @@ Pricing tiers are how your resource is billed. Use the [Azure pricing calculator
 When selecting the free (F0) pricing tier, it is important to understand limitations that come with that plan. When a free tier is offered:
 
 * A subscription may be limited to one free resource of that service. If you can't create a free resource, that indicates the free resource already exists in your subscription.
-* When you exceed the pricing tier quota, either in transactions per second (TPS), or transactions per month (TPS), your application will receive an HTTP error with a message indicating you are out of quota. 
+* When you exceed the pricing tier quota, either in transactions per second (TPS), or transactions per month (TPM), your application will receive an HTTP error with a message indicating you are out of quota. 
 
 ## 2. Prepare your development environment
 
