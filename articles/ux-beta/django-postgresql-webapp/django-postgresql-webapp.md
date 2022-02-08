@@ -86,7 +86,7 @@ python manage.py migrate
     
 5\. In a web browser, go to the sample application at `http://localhost:8000`.
 
-    At this point, you have a polls app with no poll questions. To optionally continue your local testing, you can create a superuser with `python manage.py createsuperuser` and then use the user credentials to login in to `http://localhost:8000/admin` and create poll questions. By default, SQLite is used locally since it is included in Python. You will perform the same steps later in your deployed app with a PostgreSQL database. Any questions created locally are not deployed to production.
+At this point, you have a polls app with no poll questions. To optionally continue your local testing, you can create a superuser with `python manage.py createsuperuser` and then use the user credentials to login in to `http://localhost:8000/admin` and create poll questions. By default, SQLite is used locally since it is included in Python. You will perform the same steps later in your deployed app with a PostgreSQL database. Any questions created locally are not deployed to production.
 
 ----
 
