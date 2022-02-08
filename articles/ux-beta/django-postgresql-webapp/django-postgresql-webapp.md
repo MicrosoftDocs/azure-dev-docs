@@ -229,7 +229,7 @@ Run `az login` to sign in to  and follow these steps to create your Azure Databa
 
 <br />
 
-**Step 1.** Run the [az postgres up](/cli/azure/postgres#az_postgres_up) command to create the PostgreSQL server and database in Azure using the values below. (*Note: It is not uncommon for this command to run for a few minutes*)
+**Step 1.** Run the [az postgres up](/cli/azure/postgres#az_postgres_up) command to create the PostgreSQL server and database in Azure using the values below. It is not uncommon for this command to run for a few minutes to complete.
 
 ```azurecli
 DB_SERVER_NAME='msdocs-django-postgres-webapp-db'
@@ -247,9 +247,9 @@ az postgres server create --resource-group $RESOURCE_GROUP_NAME \
 
 * *resource-group* &rarr; Use the same resource group name from **Step 1**. (`msdocs-django-postgres-webapp-rg`)
 * *name* &rarr; The PostgreSQL database server name. This name must be **unique across all Azure** (the server endpoint becomes `https://<name>.postgres.database.azure.com`). Allowed characters are `A`-`Z`, `0`-`9`, and `-`. A good pattern is to use a combination of your company name and and server identifier. (`msdocs-django-postgres-webapp-db`)
-* *location* &rarr; Use the same location from **Step 1**. (ex: `eastus`)
+* *location* &rarr; Use the same location use used for the web app.
 * *sku-name* &rarr; Configure server compute and storage; Name of the pricing tier and compute configuration. (`B_Gen5_1`) Follow the convention {pricing tier}{compute generation}{vCores} in shorthand. For more information, see [Azure Database for PostgreSQL pricing](/pricing/details/postgresql/server/).
-* *admin-user* &rarr; Username for the administrator login. It can't be **azure_superuser, admin, administrator, root, guest, or public**. (ex: `demoadmin`)
+* *admin-user* &rarr; Username for the administrator login. It can't be `azure_superuser`, `admin`, `administrator`, `root`, `guest`, or `public`. For example, `demoadmin` is okay.
 * *admin-password* Password of the administrator user. It must contain 8 to 128 characters from three of the following categories: English uppercase letters, English lowercase letters, numbers, and non-alphanumeric characters.
 * *SSL enforcement* &rarr; Enable or disable ssl enforcement for connections to server.
 
@@ -353,9 +353,10 @@ To configure environment variables for the web app from VS Code, you must have t
 To set environment variables in App Service, create "app settings" with the following [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_set) command.
 
 ```azurecli
-az webapp config appsettings set --resource-group $RESOURCE_GROUP_NAME \
-                                 --name $APP_SERVICE_NAME \
-                                 --settings DBHOST=$DB_SERVER_NAME DBNAME=$DB_NAME  DBUSER=$ADMIN_USERNAME DBPASS=$ADMIN_PWD
+az webapp config appsettings set \
+   --resource-group $RESOURCE_GROUP_NAME \
+   --name $APP_SERVICE_NAME \
+   --settings DBHOST=$DB_SERVER_NAME DBNAME=$DB_NAME  DBUSER=$ADMIN_USERNAME DBPASS=$ADMIN_PWD
 ```
 
 * *DBHOST* &rarr; Use the name of the name you used earlier with the `az postgres up` command. The code in *azuresite/production.py* automatically appends `.postgres.database.azure.com` to create the full Postgres server URL.
