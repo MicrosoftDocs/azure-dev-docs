@@ -71,6 +71,8 @@ If your application is packaged as an EAR file, be sure to examine the *applicat
 
 [!INCLUDE [perform-in-place-testing](includes/perform-in-place-testing-jboss.md)]
 
+[!INCLUDE [determine-whether-management-over-rest-is-used-jboss-eap](includes/determine-whether-management-over-rest-is-used-jboss-eap.md)]
+
 ### JBoss EAP on App Service feature notes
 
 When using JBoss EAP on App Service, be sure to take the following notes into consideration.
