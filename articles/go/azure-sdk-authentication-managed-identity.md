@@ -251,13 +251,13 @@ Next SSH into the Azure virtual machine, install Go, and built the Go package.
     # [Azure CLI](#tab/azure-cli)
 
     ```azurecli
-    az vm show -d -g QuickstartAnsible-rg -n QuickstartAnsible-vm --query publicIps -o tsv
+    az vm show -d -g go-on-azure -n go-on-azure-vm --query publicIps -o tsv
     ```
 
     # [PowerShell](#tab/powershell)
 
     ```azurepowershell
-    (Get-AzVM -ResourceGroupName QuickstartAnsible-rg QuickstartAnsible-vm-pwsh | Get-AzPublicIpAddress).IpAddress
+    (Get-AzVM -ResourceGroupName go-on-azure -VMName go-on-azure-vm | Get-AzPublicIpAddress).IpAddress
     ```
 
     ---
