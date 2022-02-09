@@ -159,9 +159,9 @@ You'll then need to bind the TLS/SSL certificate for that domain to your App Ser
 
 To migrate data sources, follow the steps in the [Configure data sources](/azure/app-service/containers/configure-language-java#configure-data-sources) section of [Configure a Java app for Azure App Service](/azure/app-service/containers/configure-language-java).
 
-Migrate any additional server-level classpath dependencies by following the instructions in the [Install modules and dependencies](/azure/app-service/containers/configure-language-java#install-modules-and-dependencies) section of [Configure a Java app for Azure App Service](/azure/app-service/containers/configure-language-java).
+Migrate any additional server-level classpath dependencies by following the instructions in the [JBoss EAP](/azure/app-service/containers/configure-language-java#jboss-eap-1) section of [Configure a Java app for Azure App Service](/azure/app-service/containers/configure-language-java).
 
-Migrate any additional shared server-level JDNI resources. For more information, see the [Install modules and dependencies](/azure/app-service/containers/configure-language-java#install-modules-and-dependencies) section of [Configure a Java app for Azure App Service](/azure/app-service/containers/configure-language-java).
+Migrate any additional shared server-level JDNI resources. For more information, see the [JBoss EAP](/azure/app-service/containers/configure-language-java#jboss-eap-1) section of [Configure a Java app for Azure App Service](/azure/app-service/containers/configure-language-java).
 
 > [!NOTE]
 > If you're following the recommended architecture of one WAR per application, consider migrating server-level classpath libraries and JNDI resources into your application. Doing so will significantly simplify component governance and change management. If you want to deploy more than one WAR per application, you should review one of our companion guides mentioned at the beginning of this guide.
