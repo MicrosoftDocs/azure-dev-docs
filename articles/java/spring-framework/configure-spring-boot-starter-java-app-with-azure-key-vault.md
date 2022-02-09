@@ -167,7 +167,7 @@ To create and initialize the Azure Key Vault, use the following steps:
 1. Configure the Key Vault to allow `get` and `list` operations from that managed identity. The value of the `object-id` is the `appId` from the `az ad sp create-for-rbac` command above.
 
    ```azurecli
-   az keyvault set-policy --name contosokv --spn http://contososp --secret-permissions get list
+   az keyvault set-policy --name contosokv --object-id sample-app-id --secret-permissions get list
    ```
 
    The output will be a JSON object full of information about the Key Vault. It will have a `type` entry with value `Microsoft.KeyVault/vaults`.
@@ -177,7 +177,7 @@ To create and initialize the Azure Key Vault, use the following steps:
    | Parameter | Description |
    |---|---|
    | name | The name of the Key Vault. |
-   | spn | The `name` from the output of `az ad sp create-for-rbac` command above. |
+   | object-id | The `appId` from the output of `az ad sp create-for-rbac` command above. |
    | secret-permissions | The list of operations to allow from the named principal. |
 
    > [!NOTE]
