@@ -54,7 +54,7 @@ If you can't meet any of these pre-migration requirements, see the companion mig
 
 JBoss EAP on Azure App Service supports Java 8 and 11. Therefore, you'll need to validate that your application is able to run correctly using that supported version. This validation is especially important if your current server is using a supported JDK (such as Oracle JDK or IBM OpenJ9).
 
-To obtain your current version, sign in to your production server and run
+To obtain your current Java version, sign in to your production server and run the following command:
 
 ```bash
 java -version
@@ -62,9 +62,9 @@ java -version
 
 ### Determine whether your application relies on scheduled jobs
 
-Scheduled jobs, such as Quartz Scheduler tasks or cron jobs, can't be used with App Service. App Service will not prevent you from deploying an application containing scheduled tasks internally. However, if your application is scaled out, the same scheduled job may run more than once per scheduled period. This situation can lead to unintended consequences.
+Scheduled jobs, such as Quartz Scheduler tasks or Unix cron jobs, should NOT be used with Azure App Service. Azure App Service will not prevent you from deploying an application containing scheduled tasks internally. However, if your application is scaled out, the same scheduled job may run more than once per scheduled period. This situation can lead to unintended consequences.
 
-To execute scheduled jobs on Azure, consider using [Azure Functions with a Timer Trigger](/azure/azure-functions/functions-bindings-timer). You don't need to migrate the job code itself into a function. Instead, the function can invoke a URL in your application to trigger the job.
+To execute scheduled jobs on Azure, consider using Azure Functions with a Timer Trigger. For more information, see [Timer trigger for Azure Functions](/azure/azure-functions/functions-bindings-timer). You don't need to migrate the job code itself into a function. The function can simply invoke a URL in your application to trigger the job.
 
 > [!NOTE]
 > To prevent malicious use, you'll likely need to ensure that the job invocation endpoint requires credentials. In this case, the trigger function will need to provide the credentials.
@@ -148,14 +148,14 @@ From the [list of available service plans](https://azure.microsoft.com/pricing/d
 
 ### Create and Deploy Web App(s)
 
-You will need to create a Web App on your App Service Plan for every WAR file deployed to your JBoss EAP server.
+You'll need to create a Web App on your App Service Plan for every WAR file deployed to your JBoss EAP server.
 
 > [!NOTE]
 > While it's possible to deploy multiple WAR files to a single web app, this is highly undesirable. Deploying multiple WAR files to a single web app prevents each application from scaling according to its own usage demands. It also adds complexity to subsequent deployment pipelines. If multiple applications need to be available on a single URL, consider using a routing solution such as [Azure Application Gateway](/azure/application-gateway/).
 
 #### Maven applications
 
-If your application is built from a Maven POM file, [use the Webapp plugin for Maven](/azure/app-service/containers/quickstart-java#configure-the-maven-plugin) to create the Web App and deploy your application.
+If your application is built from a Maven POM file, use the Webapp plugin for Maven to create the Web App and deploy your application. For more information, see the [Configure the Maven plugin](/azure/app-service/containers/quickstart-java#configure-the-maven-plugin) section of [Quickstart: Create a Java app on Azure App Service](/azure/app-service/containers/quickstart-java).
 
 #### Non-Maven applications
 
@@ -165,11 +165,11 @@ If you can't use the Maven plugin, you'll need to provision the Web App through 
 * [Azure CLI](/cli/azure/webapp#az-webapp-create)
 * [Azure PowerShell](/powershell/module/az.websites/new-azwebapp)
 
-Once the Web App has been created, use one of the [available deployment mechanisms](/azure/app-service/deploy-zip) to deploy your application.
+After you've created the web app, use one of the available deployment mechanisms to deploy your application. For more information, see[Deploy files to App Service](/azure/app-service/deploy-zip).
 
 ### Migrate JVM runtime options
 
-If your application requires specific runtime options, [use the most appropriate mechanism to specify them](/azure/app-service/containers/configure-language-java#set-java-runtime-options).
+If your application requires specific runtime options, use the most appropriate mechanism to specify them. For more information, see the [Set Java runtime options](/azure/app-service/containers/configure-language-java#set-java-runtime-options) section of [Configure a Java app for Azure App Service](/azure/app-service/containers/configure-language-java).
 
 ### Migrate externalized parameters
 
@@ -181,32 +181,32 @@ If the original application used a custom startup script, you'll need to migrate
 
 ### Populate secrets
 
-Use Application Settings to store any secrets specific to your application. If you intend to use the same secret(s) among multiple applications or require fine-grained access policies and audit capabilities, [use Azure Key Vault](/azure/app-service/containers/configure-language-java#use-keyvault-references) instead.
+Use Application Settings to store any secrets specific to your application. If you intend to use the same secret or secrets among multiple applications, or you require fine-grained access policies and audit capabilities, use Azure Key Vault references instead. For more information, see the [Use KeyVault References](/azure/app-service/containers/configure-language-java#use-keyvault-references) section of [Configure a Java app for Azure App Service](/azure/app-service/containers/configure-language-java).
 
 ### Configure Custom Domain and SSL
 
-If your application will be visible on a custom domain, you'll need to [map your web application to it](/azure/app-service/app-service-web-tutorial-custom-domain).
+If your application will be visible on a custom domain, you'll need to map your web application to it. For more information, see [Tutorial: Map an existing custom DNS name to Azure App Service](/Azure/app-service/app-service-web-tutorial-custom-domain).
 
-You'll then need to [bind the SSL certificate for that domain to your App Service Web App](/azure/app-service/app-service-web-tutorial-custom-ssl).
+You'll then need to bind the TLS/SSL certificate for that domain to your App Service Web App. For more information, see [Secure a custom DNS name with a TLS/SSL binding in Azure App Service](/azure/app-service/app-service-web-tutorial-custom-ssl).
 
 ### Migrate data sources, libraries, and JNDI resources
 
-Follow [these steps to migrate data sources](/azure/app-service/containers/configure-language-java#configure-data-sources).
+To migrate data sources, follow the steps in the [Configure data sources](/azure/app-service/containers/configure-language-java#configure-data-sources) section of [Configure a Java app for Azure App Service](/azure/app-service/containers/configure-language-java).
 
-Migrate any additional server-level classpath dependencies by following the instructions at [Install modules and dependencies](/azure/app-service/containers/configure-language-java#install-modules-and-dependencies).
+Migrate any additional server-level classpath dependencies by following the instructions in the [JBoss EAP](/azure/app-service/containers/configure-language-java#jboss-eap-1) section of [Configure a Java app for Azure App Service](/azure/app-service/containers/configure-language-java).
 
-Migrate any additional [shared server-level JDNI resources](/azure/app-service/containers/configure-language-java#install-modules-and-dependencies).
+Migrate any additional shared server-level JDNI resources. For more information, see the [JBoss EAP](/azure/app-service/containers/configure-language-java#jboss-eap-1) section of [Configure a Java app for Azure App Service](/azure/app-service/containers/configure-language-java).
 
 ### Migrate JCA connectors and JAAS modules
 
 Migrate any JCA connectors and JAAS modules by following the instructions at [Install modules and dependencies](/azure/app-service/containers/configure-language-java#install-modules-and-dependencies).
 
 > [!NOTE]
-> If you're following the recommended architecture of one WAR per application, consider migrating server-level classpath libraries and JNDI resources into your application. This will significantly simplify component governance and change management. If you want to deploy more than one WAR per application, you should review one of our companion guides mentioned at the beginning of this guide.
+> If you're following the recommended architecture of one WAR per application, consider migrating server-level classpath libraries and JNDI resources into your application. Doing so will significantly simplify component governance and change management. If you want to deploy more than one WAR per application, you should review one of our companion guides mentioned at the beginning of this guide.
 
 ### Migrate scheduled jobs
 
-At a minimum, you should move your scheduled jobs to an Azure VM so they're no longer part of your application. Or you can opt to modernize them into event driven Java using Azure services such as Azure Functions, SQL Database, Event Hubs, and so on.
+At a minimum, you should move your scheduled jobs to an Azure VM so they're no longer part of your application. Alternately, you can opt to modernize them into event driven Java using Azure services such as Azure Functions, SQL Database, and Event Hubs.
 
 ### Restart and smoke-test
 
@@ -214,16 +214,6 @@ Finally, you'll need to restart your Web App to apply all configuration changes.
 
 ## Post-migration
 
-Now that you have your application migrated to Azure App Service you should verify that it works as you expect. Once you've done that, we have some recommendations for you that can make your application more cloud-native.
+Now that you've migrated your application to Azure App Service, you should verify that it works as you expect. Once you've done that, we have some recommendations for you that can make your application more cloud-native.
 
-### Recommendations
-
-* If you opted to use the */home* directory for file storage, consider [replacing it with Azure Storage](/azure/app-service/containers/how-to-serve-content-from-azure-storage).
-
-* If you have configuration in the */home* directory that contains connection strings, SSL keys, and other secret information, consider using a combination of [Azure Key Vault](/azure/app-service/app-service-key-vault-references) and/or [parameter injection with application settings](/azure/app-service/configure-common#configure-app-settings) where possible.
-
-* Consider [using Deployment Slots](/azure/app-service/deploy-staging-slots) for reliable deployments with zero downtime.
-
-* Design and implement a DevOps strategy. To maintain reliability while increasing your development velocity, consider [automating deployments and testing with Azure Pipelines](/azure/devops/pipelines/ecosystems/java-webapp). If you're using Deployment Slots, you can [automate deployment to a slot](/azure/devops/pipelines/targets/webapp#deploy-to-a-slot) and the subsequent slot swap.
-
-* Design and implement a business continuity and disaster recovery strategy. For mission-critical applications, consider a [multi-region deployment architecture](/azure/architecture/reference-architectures/app-service-web-app/multi-region).
+[!INCLUDE [recommendations-jboss-eap](includes/recommendations-jboss-eap.md)]

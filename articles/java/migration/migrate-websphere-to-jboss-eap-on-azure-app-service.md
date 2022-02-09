@@ -115,7 +115,7 @@ If your application is packaged as an EAR file, be sure to examine the *applicat
 
 ### Provision an App Service plan
 
-From the [list of available service plans](https://azure.microsoft.com/pricing/details/app-service/linux/), select the plan whose specifications meet or exceed those of the current production hardware.
+From the [list of available service plans](https://azure.microsoft.com/pricing/details/app-service/linux/), select the plan whose specifications meet or exceed the specifications of the current production hardware.
 
 > [!NOTE]
 > If you plan to run staging/canary deployments or use [deployment slots](/azure/app-service/deploy-staging-slots), the App Service plan must include that additional capacity. We recommend using Premium or higher plans for Java applications.
@@ -141,7 +141,7 @@ If you can't use the Maven plugin, you'll need to provision the Web App through 
 * [Azure CLI](/cli/azure/webapp#az-webapp-create)
 * [Azure PowerShell](/powershell/module/az.websites/new-azwebapp)
 
-After the web app has been created, use one of the available deployment mechanisms to deploy your application. For more information, see[Deploy files to App Service](/azure/app-service/deploy-zip).
+After you've created the web app, use one of the available deployment mechanisms to deploy your application. For more information, see[Deploy files to App Service](/azure/app-service/deploy-zip).
 
 ### Migrate JVM runtime options
 
@@ -170,7 +170,7 @@ Migrate any additional shared server-level JDNI resources. For more information,
 
 ### Migrate scheduled jobs
 
-At a minimum, you should move your scheduled jobs to an Azure VM so they are no longer part of your application. Alternately, you can opt to modernize them into event driven Java using Azure services such as Azure Functions, SQL Database, and Event Hubs.
+At a minimum, you should move your scheduled jobs to an Azure VM so they're no longer part of your application. Alternately, you can opt to modernize them into event driven Java using Azure services such as Azure Functions, SQL Database, and Event Hubs.
 
 ### Restart and smoke-test
 
@@ -180,14 +180,4 @@ Finally, you'll need to restart your Web App to apply all configuration changes.
 
 Now that you've migrated your application to Azure App Service, you should verify that it works as you expect. Once you've done that, we have some recommendations for you that can make your application more Cloud native.
 
-### Recommendations
-
-- If you opted to use the */home* directory for file storage, consider replacing it with Azure Storage. For more information, see [Mount Azure Storage as a local share in a custom container in App Service](/azure/app-service/containers/how-to-serve-content-from-azure-storage).
-
-- If you have configuration in the */home* directory that contains connection strings, SSL keys, and other secret information, consider using a combination of Azure Key Vault and parameter injection with application settings where possible. For more information, see [Use Key Vault references for App Service and Azure Functions](/azure/app-service/app-service-key-vault-references) and [Configure an App Service app](/azure/app-service/configure-common).
-
-- Consider using deployment slots for reliable deployments with zero downtime. For more information, see [Set up staging environments in Azure App Service](/azure/app-service/deploy-staging-slots).
-
-- Design and implement a DevOps strategy. In order to maintain reliability while increasing your development velocity, consider automating deployments and testing with Azure Pipelines. For more information, see [Build & deploy to Java web app](/azure/devops/pipelines/ecosystems/java-webapp). If you're using deployment slots, you can automate deployment to a slot and the subsequent slot swap. For more information, see the [Deploy to a slot](/azure/devops/pipelines/targets/webapp#deploy-to-a-slot) section of [Deploy an Azure Web App](/azure/devops/pipelines/targets/webapp).
-
-- Design and implement a business continuity and disaster recovery strategy. For mission-critical applications, consider a multi-region deployment architecture. For more information, see [Highly available multi-region web application](/azure/architecture/reference-architectures/app-service-web-app/multi-region).
+[!INCLUDE [recommendations-jboss-eap](includes/recommendations-jboss-eap.md)]
