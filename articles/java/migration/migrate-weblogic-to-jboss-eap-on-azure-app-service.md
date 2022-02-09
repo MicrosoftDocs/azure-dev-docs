@@ -131,6 +131,8 @@ If your application is using JAAS, then you'll need to capture how JAAS is confi
 
 Most likely, you've deployed your application on multiple WebLogic servers to achieve high availability. Azure App Service is capable of scaling, but if you've used the WebLogic Cluster API, you'll need to refactor your code to eliminate the use of that API.
 
+[!INCLUDE [determine-whether-management-over-rest-is-used-jboss-eap](includes/determine-whether-management-over-rest-is-used-jboss-eap.md)]
+
 ## Migration
 
 [!INCLUDE [java-redhat-migration-toolkit](includes/redhat-migration-toolkit.md)]
