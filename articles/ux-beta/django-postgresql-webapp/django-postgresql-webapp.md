@@ -98,7 +98,7 @@ To follow along with this tutorial, the completed app is available to download o
 
 ## 2 - Create a web app in Azure
 
-To host your application in Azure, you need to create Azure App Service web app. You can create a web app using the [Azure portal](https://portal.azure.com/), VS Code using the [Azure Tools extension pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack), or the Azure CLI.
+To host your application in Azure, you need to create Azure App Service web app.
 
 ### [Azure portal](#tab/azure-portal)
 
