@@ -38,6 +38,8 @@
         href: ../migration/migrate-weblogic-with-app-gateway.md?bc=/azure/developer/breadcrumb/toc.json&toc=/azure/developer/java/ee/toc.json
       - name: WebLogic with Elastic on Azure
         href: ../migration/migrate-weblogic-with-elk.md?bc=/azure/developer/breadcrumb/toc.json&toc=/azure/developer/java/ee/toc.json
+      - name: WebLogic to JBoss EAP on Azure App Service
+        href: ../migration/migrate-weblogic-to-jboss-eap-on-azure-app-service.md?bc=/azure/developer/breadcrumb/toc.json&toc=/azure/developer/java/ee/toc.json
   - name: Migrate JBoss EAP to Azure
     expanded: true
     items:
