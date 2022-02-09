@@ -107,6 +107,8 @@ If your application is packaged as an EAR file, be sure to examine the *applicat
 
 [!INCLUDE [identify-all-outside-processes-and-daemons-running-on-the-production-servers](includes/identify-all-outside-processes-and-daemons-running-on-the-production-servers.md)]
 
+[!INCLUDE [determine-whether-management-over-rest-is-used-jboss-eap](includes/determine-whether-management-over-rest-is-used-jboss-eap.md)]
+
 ## Migration
 
 [!INCLUDE [java-redhat-migration-toolkit](includes/redhat-migration-toolkit.md)]
