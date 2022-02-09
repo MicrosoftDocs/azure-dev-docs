@@ -28,21 +28,21 @@ In this tutorial, you will deploy a data-driven Python web app using the **[Djan
 
 ## 1 - Sample application
 
-A sample Python application using the Django framework is provided to help you follow along with this tutorial. The `djangoapp` sample contains the data-driven Django polls app created by following [Writing your first Django app](https://docs.djangoproject.com/en/3.1/intro/tutorial01/) in the Django documentation.
+A sample Python application using the Django framework is provided to help you follow along with this tutorial. The `djangoapp` sample contains a data-driven Django polls app similar to the tutorial [Writing your first Django app](https://docs.djangoproject.com/en/3.1/intro/tutorial01/) in the Django documentation.
 
-To follow along with this tutorial, the completed app is available for download or clone for your convenience.
+To follow along with this tutorial, the completed app is available to download or clone for your convenience.
 
 ### Get completed application code
 
 #### [Git clone](#tab/sample-app-clone)
 
-1. Clone the Sample Application locally using `git`:
+1. Clone the sample application locally using `git`:
 
     ```bash
     git clone https://github.com/Azure-Samples/djangoapp.git
     ```
     
-2. Navigate into the *djangoapp* folder:
+2. Navigate to the *djangoapp* folder:
 
     ```bash
     cd djangoapp
@@ -52,7 +52,7 @@ To follow along with this tutorial, the completed app is available for download 
 
 1. Visit the [Django Sample App GitHub Repository](https://github.com/Azure-Samples/djangoapp).
 
-2. Select **Clone**, and then select **Download ZIP**.
+2. Select **Code** and then select **Download ZIP**.
 
 3. Unpack the ZIP file into a folder named *djangoapp*.
 
@@ -62,7 +62,7 @@ To follow along with this tutorial, the completed app is available for download 
 
 ### Run the application locally
 
-1\. Create a virtual environment for the app.
+1\. Create a virtual environment for the app:
 
 [!INCLUDE [Virtual environment setup](<./includes/django-postgresql-webapp/virtual-environment-setup.md>)]
 
@@ -71,22 +71,26 @@ To follow along with this tutorial, the completed app is available for download 
 ```Console
 pip install -r requirements.txt
 ```
-    
-3\. Create the polls database tables:
+
+3\. Set environment variables to connect to a local PostgreSQL instance.
+
+Create a *.env* file using the *.evn.sample* as a template. Set the value of `DBNAME` to *restaurant*, and the values of `DBHOST`, `DBUSER`, and `DBPASS` that connect to your local instance. (If you want to run SQLite3 locally, uncomment the appropriate lines in the *settings.py* file.)
+
+4\. Create the `restaurant` database tables:
 
 ```Console
 python manage.py migrate
 ```
-    
-4\. Run the app:
 
-    ```Console
-    python manage.py runserver
-    ```
-    
-5\. In a web browser, go to the sample application at `http://localhost:8000`.
+5\. Run the app:
 
-At this point, you have a polls app with no poll questions. To optionally continue your local testing, you can create a superuser with `python manage.py createsuperuser` and then use the user credentials to login in to `http://localhost:8000/admin` and create poll questions. By default, SQLite is used locally since it is included in Python. You will perform the same steps later in your deployed app with a PostgreSQL database. Any questions created locally are not deployed to production.
+```Console
+python manage.py runserver
+```
+
+6\. In a web browser, go to the sample application at `http://localhost:8000`.
+
+At this point, you have a restaurant review app with no reviews. Add some restaurants and some reviews to see how the app works.
 
 ----
 
@@ -209,7 +213,7 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps 
 | [!INCLUDE [A screenshot showing the location of the Review plus Create button in the Azure Portal](<./includes/django-postgresql-webapp/create-postgres-service-azure-portal-6.md>)] | :::image type="content" source="./media/django-postgresql-webapp/create-postgres-service-azure-portal-6-240px.png" lightbox="./media/django-postgresql-webapp/create-postgres-service-azure-portal-6.png" alt-text="A screenshot showing the location of the Review plus Create button in the Azure Portal." ::: |
 | [!INCLUDE [A screenshot showing the location and adding a firewall rule in the Azure Portal](<./includes/django-postgresql-webapp/create-postgres-service-azure-portal-7.md>)] | :::image type="content" source="./media/django-postgresql-webapp/pending-screenshot-240x160.png" lightbox="./media/django-postgresql-webapp/pending-screenshot-850x550.png" alt-text="A screenshot showing how to allow access to the database in the Azure portal." ::: |
 
-[!INCLUDE [A screenshot showing creating the pollsdb database in the Azure Cloud Shell](<./includes/django-postgresql-webapp/create-postgres-service-azure-portal-8.md>)] 
+[!INCLUDE [A screenshot showing creating the restaurant database in the Azure Cloud Shell](<./includes/django-postgresql-webapp/create-postgres-service-azure-portal-8.md>)] 
 
 ### [VS Code](#tab/vscode-aztools)
 
@@ -234,7 +238,7 @@ Run `az login` to sign in to  and follow these steps to create your Azure Databa
 
 ```azurecli
 DB_SERVER_NAME='msdocs-django-postgres-webapp-db'
-DB_NAME='pollsdb'
+DB_NAME='restaurant'
 ADMIN_USERNAME='demoadmin'
 
 az postgres server create --resource-group $RESOURCE_GROUP_NAME \
@@ -300,7 +304,7 @@ az postgres server show --name $DB_SERVER_NAME \
 
 <br />
 
-**Step 4.** In the Azure Cloud Shell or in your local environment, connect to the PostgreSQL server, and create the `pollsdb` database.
+**Step 4.** In the Azure Cloud Shell or in your local environment, connect to the PostgreSQL server, and create the `restaurant` database.
 
 ```Console
 psql --host=<server-name>.postgres.database.azure.com \
@@ -308,18 +312,18 @@ psql --host=<server-name>.postgres.database.azure.com \
      --username=<admin-user>@<server name> \
      --dbname=postgres
 
-postgres=> CREATE DATABASE pollsdb;
+postgres=> CREATE DATABASE restaurant;
 ```
 
 The values of `<server name>` and `<admin-user>` are the values from a previous step.
 
 <br />
 
-**Step 5.** *(optional)* Verify `pollsdb` was successfully created by running  `\c pollsdb` to change the prompt from `postgre`  (default) to the new `pollsdb`.
+**Step 5.** *(optional)* Verify `restaurant` database was successfully created by running  `\c restaurant` to change the prompt from `postgre`  (default) to `restaurant`.
 
 ```Console
-postgres=> \c pollsdb
-pollsdb=>
+postgres=> \c restaurant
+restaurant=>
 ```
 
 Type `\?` to show help or `\q` to quit.
@@ -361,7 +365,7 @@ az webapp config appsettings set \
 ```
 
 * *DBHOST* &rarr; Use the name of the name you used earlier with the `az postgres up` command. The code in *azuresite/production.py* automatically appends `.postgres.database.azure.com` to create the full Postgres server URL.
-* *DBNAME* &rarr; Use `pollsdb`
+* *DBNAME* &rarr; Use `restaurant`
 * *DBUSER, DBPASS* &rarr; Use the administrator credentials that you used with the earlier `az postgres up` command, or those that `az postgres up` generated for you. The code in *azuresite/production.py* automatically constructs the full Postgres username from `DBUSER` and `DBHOST`, so don't include the `@server` portion. |
 
 >[!NOTE]
@@ -447,7 +451,7 @@ If you encounter any errors related to connecting to the database, check the val
 python manage.py createsuperuser
 ```
 
-The `createsuperuser` command prompts you for Django superuser (or admin) credentials, which are used within the web app. For the purposes of this tutorial, use the default username `root`, press **Enter** for the email address to leave it blank, and enter `Pollsdb1` for the password.
+The `createsuperuser` command prompts you for Django superuser (or admin) credentials, which are used within the web app. For the purposes of this tutorial, use the default username `root`, press **Enter** for the email address to leave it blank, and enter `Restaurantsdb1` for the password.
 
 <br />
 
