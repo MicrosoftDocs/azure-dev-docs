@@ -1,6 +1,6 @@
 ---
 ms.author: jafreebe
-ms.date: 02/02/2022
+ms.date: 02/10/2022
 ---
 
 ### Determine whether Management REST API is used

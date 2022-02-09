@@ -1,6 +1,6 @@
 ---
 ms.author: jafreebe
-ms.date: 02/02/2022
+ms.date: 02/10/2022
 ---
 
 ### Inventory server capacity
