@@ -71,10 +71,12 @@ To follow along with this tutorial, the completed app is available to download o
     ```Console
     pip install -r requirements.txt
     ```
-    
+
 1. Set environment variables to connect to a local PostgreSQL instance.
 
-     Create an *.env* file using the *.evn.sample* as a template. Set the value of `DBNAME` to *restaurant*, and the values of `DBHOST`, `DBUSER`, and `DBPASS` appropriate for your local PostgreSQL instance. (If you want to run SQLite locally, uncomment the appropriate lines in the *settings.py* file.)
+    The application expects a *.env* file to be defined. You can create an *.env* file using the *.evn.sample* as a template. Set the value of `DBNAME` to *restaurant*, and the values of `DBHOST`, `DBUSER`, and `DBPASS` appropriate for your local PostgreSQL instance.
+
+    If you want to run SQLite locally instead, you can do so in the  *settings.py* file.
 
 1. Create the `restaurant` database tables:
 
@@ -90,8 +92,8 @@ To follow along with this tutorial, the completed app is available to download o
 
 1. In a web browser, go to the sample application at `http://localhost:8000`.
 
-    At this point, you have a restaurant review app with no reviews. Add some restaurants and some reviews to see how the app works.
-    
+    At this point, you have a restaurant review app with no restaurants or reviews. Add restaurants and reviews to see how the app works.
+
 ----
 
 ## 2 - Create a web app in Azure
