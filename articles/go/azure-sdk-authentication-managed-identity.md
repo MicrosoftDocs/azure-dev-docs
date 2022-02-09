@@ -192,6 +192,7 @@ scope=$(az keyvault show --name go-on-azure-kv --query id -o tsv)
 
 az role assignment create --assignee '<principalId>' --role 'Key Vault Contributor' --scope '<keyVaultId>'
 ```
+
 # [PowerShell](#tab/powershell)
 
 ```powershell
@@ -251,13 +252,13 @@ Next SSH into the Azure virtual machine, install Go, and built the Go package.
     # [Azure CLI](#tab/azure-cli)
 
     ```azurecli
-    az vm show -d -g QuickstartAnsible-rg -n QuickstartAnsible-vm --query publicIps -o tsv
+    az vm show -d -g go-on-azure -n go-on-azure-vm --query publicIps -o tsv
     ```
 
     # [PowerShell](#tab/powershell)
 
     ```azurepowershell
-    (Get-AzVM -ResourceGroupName QuickstartAnsible-rg QuickstartAnsible-vm-pwsh | Get-AzPublicIpAddress).IpAddress
+    (Get-AzVM -ResourceGroupName go-on-azure -VMName go-on-azure-vm | Get-AzPublicIpAddress).IpAddress
     ```
 
     ---
@@ -302,64 +303,65 @@ Next SSH into the Azure virtual machine, install Go, and built the Go package.
 
     ```azurecli
     go get "github.com/Azure/azure-sdk-for-go/sdk/azidentity"
-    go get "github.com/Azure/azure-sdk-for-go/sdk/keyvault/armkeyvault"
-    go get "github.com/Azure/azure-sdk-for-go/sdk/azcore/arm"
-    go get "github.com/Azure/azure-sdk-for-go/sdk/azcore/to"
+    go get "github.com/Azure/azure-sdk-for-go/sdk/keyvault/azsecrets"
     ```
 
 1. Create a `main.go` file and copy the following code into it.
 
     ```go
-    package armkeyvault_test
-
+    package main
+    
     import (
         "context"
+        "fmt"
         "log"
-
-        "github.com/Azure/azure-sdk-for-go/sdk/azcore/arm"
-        "github.com/Azure/azure-sdk-for-go/sdk/azcore/to"
+        "os"
+    
         "github.com/Azure/azure-sdk-for-go/sdk/azidentity"
-        "github.com/Azure/azure-sdk-for-go/sdk/keyvault/armkeyvault"
+        "github.com/Azure/azure-sdk-for-go/sdk/keyvault/azsecrets"
     )
-
-    func SecretsClient_CreateOrUpdate() {
+    
+    func createSecret() {
+        keyVaultName := os.Getenv("KEY_VAULT_NAME")
+        secretName := "quickstart-secret"
+        secretValue := "createdWithGO"
+        keyVaultUrl := fmt.Sprintf("https://%s.vault.azure.net/", keyVaultName)
+    
         cred, err := azidentity.NewDefaultAzureCredential(nil)
         if err != nil {
             log.Fatalf("failed to obtain a credential: %v", err)
         }
-        client := armkeyvault.NewSecretsClient(arm.NewDefaultConnection(cred, nil), "")
-        resp, err := client.CreateOrUpdate(
-            context.Background(),
-            "<resourceGroupName>",
-            "<keyVaultName>",
-            "<secretName>",
-            armkeyvault.SecretCreateOrUpdateParameters{
-                Properties: &armkeyvault.SecretProperties{
-                    Attributes: &armkeyvault.SecretAttributes{
-                        Attributes: armkeyvault.Attributes{
-                            Enabled: to.BoolPtr(true),
-                        },
-                    },
-                    Value: to.StringPtr("<password>"),
-                }}, nil)
+    
+        client, err := azsecrets.NewClient(keyVaultUrl, cred, nil)
         if err != nil {
-            log.Fatalf("failed to create the key: %v", err)
+            log.Fatalf("failed to create a client: %v", err)
         }
-        log.Printf("Secret ID: %v\n", *resp.Secret.ID)
+    
+        resp, err := client.SetSecret(context.TODO(), secretName, secretValue, nil)
+        if err != nil {
+            log.Fatalf("failed to create a secret: %v", err)
+        }
+    
+        fmt.Printf("Name: %s, Value: %s\n", *resp.ID, *resp.Value)
     }
-
+    
     func main() {
-        SecretsClient_CreateOrUpdate()
+        createSecret()
     }
+
     ```
 
-    Replace `<password>`, `<resourceGroupName>`, `<keyVaultName>`, and `<secretName>` with the appropriate values.
+Before you run the code, create an environment variable named `KEY_VAULT_NAME`. Set the environment variable's value to the name of the Azure Key Vault created previously. Replace `<KeyVaultName>` with the name of your Azure Key Vault instance.
 
-1. Run `go run` command to create a key vault secret
+```azurecli
+export KEY_VAULT_NAME=<KeyVaultName>
+```
 
-    ```azurecli
-    go run main.go
-    ```
+Next, run `go run` command to create a key vault secret.
+
+```azurecli
+go run main.go
+```
 
 Verify the key vault secret was created using Azure PowerShell, Azure CLI, or the Azure portal.
 
