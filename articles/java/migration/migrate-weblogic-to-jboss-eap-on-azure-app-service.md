@@ -73,9 +73,9 @@ To execute scheduled jobs on Azure, consider using [Azure Functions with a Timer
 
 If you currently use WLST to perform the deployment, you will need to assess what it is doing. If WLST is changing any (runtime) parameters of your application as part of the deployment, you will need to make sure those parameters conform to one of the following options:
 
-1. They are externalized as app settings.
-2. They are embedded in your application.
-3. They are using the JBoss CLI during deployment.
+* They are externalized as app settings.
+* They are embedded in your application.
+* They are using the JBoss CLI during deployment.
 
 If WLST is doing more than what is mentioned above, you will have some additional work to do during migration.
 
@@ -185,7 +185,7 @@ Use Application Settings to store any secrets specific to your application. If y
 
 If your application will be visible on a custom domain, you'll need to [map your web application to it](/azure/app-service/app-service-web-tutorial-custom-domain).
 
-you'll then need to [bind the SSL certificate for that domain to your App Service Web App](/azure/app-service/app-service-web-tutorial-custom-ssl).
+You'll then need to [bind the SSL certificate for that domain to your App Service Web App](/azure/app-service/app-service-web-tutorial-custom-ssl).
 
 ### Migrate data sources, libraries, and JNDI resources
 
