@@ -62,36 +62,36 @@ To follow along with this tutorial, the completed app is available to download o
 
 ### Run the application locally
 
-1\. Create a virtual environment for the app:
+1. Create a virtual environment for the app:
 
-[!INCLUDE [Virtual environment setup](<./includes/django-postgresql-webapp/virtual-environment-setup.md>)]
+    [!INCLUDE [Virtual environment setup](<./includes/django-postgresql-webapp/virtual-environment-setup.md>)]
 
-2\. Install the dependencies:
+1. Install the dependencies:
 
-```Console
-pip install -r requirements.txt
-```
+    ```Console
+    pip install -r requirements.txt
+    ```
+    
+1. Set environment variables to connect to a local PostgreSQL instance.
 
-3\. Set environment variables to connect to a local PostgreSQL instance.
+     Create an *.env* file using the *.evn.sample* as a template. Set the value of `DBNAME` to *restaurant*, and the values of `DBHOST`, `DBUSER`, and `DBPASS` appropriate for your local PostgreSQL instance. (If you want to run SQLite locally, uncomment the appropriate lines in the *settings.py* file.)
 
-Create a *.env* file using the *.evn.sample* as a template. Set the value of `DBNAME` to *restaurant*, and the values of `DBHOST`, `DBUSER`, and `DBPASS` that connect to your local instance. (If you want to run SQLite3 locally, uncomment the appropriate lines in the *settings.py* file.)
+1. Create the `restaurant` database tables:
 
-4\. Create the `restaurant` database tables:
+    ```Console
+    python manage.py migrate
+    ```
 
-```Console
-python manage.py migrate
-```
+1. Run the app:
 
-5\. Run the app:
+    ```Console
+    python manage.py runserver
+    ```
 
-```Console
-python manage.py runserver
-```
+1. In a web browser, go to the sample application at `http://localhost:8000`.
 
-6\. In a web browser, go to the sample application at `http://localhost:8000`.
-
-At this point, you have a restaurant review app with no reviews. Add some restaurants and some reviews to see how the app works.
-
+    At this point, you have a restaurant review app with no reviews. Add some restaurants and some reviews to see how the app works.
+    
 ----
 
 ## 2 - Create a web app in Azure
