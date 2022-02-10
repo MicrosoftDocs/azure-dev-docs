@@ -14,7 +14,7 @@ In the global controls of the Azure portal, open the the [Azure Cloud Shell](htt
 
 :::image type="content" border="False" source="./media/django-postgresql-webapp/azure-cloud-shell-launch-icon.png" alt-text="How to access the Azure Cloud Shell from the Azure portal global controls.":::
 
-Create the `restaurant` database.
+Create the `restaurant` database with the following command:
 
 ```Console
 psql --host=<server-name>.postgres.database.azure.com \
