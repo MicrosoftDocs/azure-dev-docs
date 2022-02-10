@@ -17,7 +17,7 @@ ROBOTS: NOINDEX
 
 In this tutorial, you will deploy a data-driven Python web app using the **[Django](https://www.djangoproject.com/)** framework and an **[Azure Database for PostgreSQL](/azure/postgresql/)** database.  The Django app will be hosted in a fully managed **[Azure App Service](/azure/app-service/overview#app-service-on-linux)** which supports [Python 3.7 or higher](https://www.python.org/downloads/) in a Linux server environment. You can start with the **Basic (B1)** pricing tier that can be scaled up at any later time.
 
-:::image type="content" border="False" source="./media/django-postgresql-webapp/django-postgresql-app-architecture-240px.png" lightbox="./media/django-postgresql-webapp/django-postgresql-app-architecture.png" alt-text="This is an architecture diagram about how the solution works in Azure":::
+:::image type="content" border="False" source="./media/django-postgresql-webapp/django-postgresql-app-architecture-240px.png" lightbox="./media/django-postgresql-webapp/django-postgresql-app-architecture.png" alt-text="An architecture diagram showing an  App Service with a PostgreSQL database in Azure.":::
 
 **To complete this tutorial, you'll need:**
 
@@ -72,11 +72,11 @@ To follow along with this tutorial, the completed app is available to download o
     pip install -r requirements.txt
     ```
 
-1. Set environment variables to connect to a local PostgreSQL instance.
+1. Set environment variables to specify how to connect to a local PostgreSQL instance.
 
-    The application expects a *.env* file to be defined. You can create an *.env* file using the *.evn.sample* as a template. Set the value of `DBNAME` to *restaurant*, and the values of `DBHOST`, `DBUSER`, and `DBPASS` appropriate for your local PostgreSQL instance.
+    The application expects a *.env* file to be defined. Create an *.env* file using the *.evn.sample* as a template. Set the value of `DBNAME` to the name of an existing database in your PostgreSQL instance. This tutorial assumes the database name is *restaurant*. Set the values of `DBHOST`, `DBUSER`, and `DBPASS` as appropriate for your local PostgreSQL instance.
 
-    If you want to run SQLite locally instead, you can do so in the  *settings.py* file.
+    If you want to run SQLite locally instead, you can do so by following the instructions in the  *settings.py* file.
 
 1. Create the `restaurant` database tables:
 
@@ -308,7 +308,7 @@ az postgres server show --name $DB_SERVER_NAME \
 
 <br />
 
-**Step 4.** In the Azure Cloud Shell or in your local environment, connect to the PostgreSQL server, and create the `restaurant` database.
+**Step 4.** In the [Azure Cloud Shell](https://shell.azure.com) or in your local environment, connect to the PostgreSQL server, and create the `restaurant` database.
 
 ```Console
 psql --host=<server-name>.postgres.database.azure.com \

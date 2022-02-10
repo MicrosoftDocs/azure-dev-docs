@@ -10,7 +10,11 @@ ms.azure.devx-azure-tooling: ['azure-portal']
 ms.custom: devx-track-python
 ---
 
-In the global controls of the Azure portal, select the Azure Cloud Shell, connect to the PostgreSQL server and create the `restaurant` database.
+In the global controls of the Azure portal, open the the [Azure Cloud Shell](https://shell.azure.com), connect to the PostgreSQL server. 
+
+:::image type="content" border="False" source="./media/django-postgresql-webapp/azure-cloud-shell-launch-icon.png" alt-text="How to access the Azure Cloud Shell from the Azure portal global controls.":::
+
+Create the `restaurant` database.
 
 ```Console
 psql --host=<server-name>.postgres.database.azure.com \
