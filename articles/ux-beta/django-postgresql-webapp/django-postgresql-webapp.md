@@ -94,6 +94,8 @@ To follow along with this tutorial, the completed app is available to download o
 
     At this point, you have a restaurant review app with no restaurants or reviews. Add restaurants and reviews to see how the app works.
 
+    :::image type="content" source="./media/django-postgresql-webapp/run-django-postgresql-app-localhost.png" alt-text="Screenshot of the Django with PostgreSQL app running locally in a browser":::
+
 ----
 
 ## 2 - Create a web app in Azure
