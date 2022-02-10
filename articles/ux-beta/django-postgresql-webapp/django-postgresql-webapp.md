@@ -504,7 +504,7 @@ Run the following Azure CLI commands to see the log stream. This command uses pa
 
 ```azurecli
 az webapp log config \
-    --web-server-logging 'filesystem' \
+    --web-server-logging filesystem \
     --name $APP_SERVICE_NAME \
     --resource-group $RESOURCE_GROUP_NAME
 ```
@@ -522,16 +522,13 @@ az webapp log tail \
 ```Output
 Starting Live Log Stream ---
 
-2021-12-23T02:15:52.740703322Z Request for index page received
-2021-12-23T02:15:52.740740222Z 169.254.130.1 - - [23/Dec/2021:02:15:52 +0000] "GET / HTTP/1.1" 200 1360 "https://msdocs-django-python-webapp.azurewebsites.net/hello" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:95.0) Gecko/20100101 Firefox/95.0"
-2021-12-23T02:15:52.841043070Z 169.254.130.1 - - [23/Dec/2021:02:15:52 +0000] "GET /static/bootstrap/css/bootstrap.min.css HTTP/1.1" 200 0 "https://msdocs-django-python-webapp.azurewebsites.net/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:95.0) Gecko/20100101 Firefox/95.0"
-2021-12-23T02:15:52.884541951Z 169.254.130.1 - - [23/Dec/2021:02:15:52 +0000] "GET /static/images/azure-icon.svg HTTP/1.1" 200 0 "https://msdocs-django-python-webapp.azurewebsites.net/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:95.0) Gecko/20100101 Firefox/95.0"
-2021-12-23T02:15:53.043211176Z 169.254.130.1 - - [23/Dec/2021:02:15:53 +0000] "GET /favicon.ico HTTP/1.1" 404 232 "https://msdocs-django-python-webapp.azurewebsites.net/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:95.0) Gecko/20100101 Firefox/95.0"
-
-2021-12-23T02:16:01.304306845Z Request for hello page received with name=David
-2021-12-23T02:16:01.304335945Z 169.254.130.1 - - [23/Dec/2021:02:16:01 +0000] "POST /hello HTTP/1.1" 200 695 "https://msdocs-django-python-webapp.azurewebsites.net/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:95.0) Gecko/20100101 Firefox/95.0"
-2021-12-23T02:16:01.398399251Z 169.254.130.1 - - [23/Dec/2021:02:16:01 +0000] "GET /static/bootstrap/css/bootstrap.min.css HTTP/1.1" 304 0 "https://msdocs-django-python-webapp.azurewebsites.net/hello" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:95.0) Gecko/20100101 Firefox/95.0"
-2021-12-23T02:16:01.430740060Z 169.254.130.1 - - [23/Dec/2021:02:16:01 +0000] "GET /static/images/azure-icon.svg HTTP/1.1" 304 0 "https://msdocs-django-python-webapp.azurewebsites.net/hello" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:95.0) Gecko/20100101 Firefox/95.0"
+2022-02-10T14:01:00.846167125Z Request for index page received
+2022-02-10T14:01:00.847060433Z 169.254.130.1 - - [10/Feb/2022:14:01:00 +0000] "GET / HTTP/1.1" 200 4909 "https://vmagelo-msdocs-django-postgres-webapp2.azurewebsites.net/1/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.80 Safari/537.36 Edg/98.0.1108.43"
+2022-02-10T14:01:00.909664401Z 169.254.130.1 - - [10/Feb/2022:14:01:00 +0000] "GET /static/bootstrap/css/bootstrap.min.css HTTP/1.1" 200 0 "https://vmagelo-msdocs-django-postgres-webapp2.azurewebsites.net/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.80 Safari/537.36 Edg/98.0.1108.43"
+2022-02-10T14:01:00.921269807Z 169.254.130.1 - - [10/Feb/2022:14:01:00 +0000] "GET /static/fontawesome/css/all.min.css HTTP/1.1" 200 0 "https://vmagelo-msdocs-django-postgres-webapp2.azurewebsites.net/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.80 Safari/537.36 Edg/98.0.1108.43"
+2022-02-10T14:01:01.022254723Z 169.254.130.1 - - [10/Feb/2022:14:01:01 +0000] "GET /static/images/azure-icon.svg HTTP/1.1" 200 0 "https://vmagelo-msdocs-django-postgres-webapp2.azurewebsites.net/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.80 Safari/537.36 Edg/98.0.1108.43"
+2022-02-10T14:01:01.032642118Z 169.254.130.1 - - [10/Feb/2022:14:01:01 +0000] "GET /static/bootstrap/js/bootstrap.min.js HTTP/1.1" 200 0 "https://vmagelo-msdocs-django-postgres-webapp2.azurewebsites.net/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.80 Safari/537.36 Edg/98.0.1108.43"
+2022-02-10T14:01:01.225921972Z 169.254.130.1 - - [10/Feb/2022:14:01:01 +0000] "GET /static/fontawesome/webfonts/fa-solid-900.woff2 HTTP/1.1" 200 0 "https://vmagelo-msdocs-django-postgres-webapp2.azurewebsites.net/static/fontawesome/css/all.min.css" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.80 Safari/537.36 Edg/98.0.1108.43"
 ```
 
 ----
