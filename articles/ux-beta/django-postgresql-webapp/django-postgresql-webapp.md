@@ -138,8 +138,6 @@ To create Azure resources in VS Code, you must have the [Azure Tools extension p
 
 Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com) or on a workstation with the [Azure CLI installed](/cli/azure/install-azure-cli).
 
-<br />
-
 **Step 1.** Create a *resource group* using the [az group create](/cli/azure/group/az-group-create) command. A *resource group* will act as a container for all of the Azure resources related to this application.
 
 ```azurecli
@@ -154,8 +152,6 @@ az group create \
 
 * *location* &rarr; A location near you. (Use `az account list-locations --output table` to list locations) (for example, `eastus`)
 * *name* &rarr; You will use this resource to create all the Azure resources needed to complete this tutorial. (for example, `msdocs-django-postgres-webapp-rg`)
-
-<br />
 
 **Step 2.** Create an *App Service plan* using the [az appservice plan create](/cli/azure/appservice/plan#az_appservice_plan_create) command.
 
@@ -173,8 +169,6 @@ az appservice plan create \
 * *resource-group* &rarr; Use the same resource group name from **Step 1**, `msdocs-django-postgres-webapp-rg`
 * *sku* &rarr; Defines the size (CPU, memory) and cost of the app service plan.  This example uses the B1 (Basic) service plan which will incur a small cost in your Azure subscription. For a full list of App Service plans, view the [App Service pricing](https://azure.microsoft.com/pricing/details/app-service/linux/) page.
 * *is-linux* &rarr; Selects Linux as the host operating system.
-
-<br/>
 
 **Step 3.** Create the *App Service web app* using the [az webapp create](/cli/azure/webapp#az_webapp_create) command.
 
@@ -234,8 +228,6 @@ Follow these steps to create your Azure Database for PostgreSQL resource using t
 
 Run `az login` to sign in to  and follow these steps to create your Azure Database for PostgreSQL resource.
 
-<br />
-
 **Step 1.** Run the [az postgres up](/cli/azure/postgres#az_postgres_up) command to create the PostgreSQL server and database in Azure using the values below. It is not uncommon for this command to run for a few minutes to complete.
 
 ```azurecli
@@ -262,8 +254,6 @@ az postgres server create --resource-group $RESOURCE_GROUP_NAME \
 
 > [!IMPORTANT]
 > When creating usernames or passwords **do not** use the `$` character. Later you create environment variables with these values where the `$` character has special meaning within the Linux container used to run Python apps.
-
-<br />
 
 **Step 2.** Configure the firewall rules on your server by using the [az postgres server firewall-rule create](/cli/azure/postgres/server/firewall-rule) command to give your the web app and local environment access to connect to the server.
 
@@ -292,8 +282,6 @@ az postgres server firewall-rule create --resource-group $RESOURCE_GROUP_NAME \
                                         --end-ip-address <your IP>
 ```
 
-<br />
-
 **Step 3.** Get the connection information by using the [az postgres server show](/cli/azure/postgres/server/az-postgres-server-show). This command outputs a JSON object that contains different connection strings for the database along with the server URL. **Copy the administratorLogin and fullyQualifiedDomainName values to a temporary text file** as you need them later in this tutorial.
 
 ```azurecli
@@ -303,8 +291,6 @@ az postgres server show --name $DB_SERVER_NAME \
 
 * *resource-group* &rarr; Name of resource group from earlier in this tutorial. (`msdocs-django-postgres-webapp-rg`)
 * *name* &rarr; Name of the server from **Step 1**. (`msdocs-django-postgres-webapp-db`)
-
-<br />
 
 **Step 4.** In the [Azure Cloud Shell](https://shell.azure.com) or in your local environment, connect to the PostgreSQL server, and create the `restaurant` database.
 
@@ -318,8 +304,6 @@ postgres=> CREATE DATABASE restaurant;
 ```
 
 The values of `<server name>` and `<admin-user>` are the values from a previous step.
-
-<br />
 
 **Step 5.** *(optional)* Verify `restaurant` database was successfully created by running  `\c restaurant` to change the prompt from `postgre`  (default) to `restaurant`.
 
@@ -405,7 +389,7 @@ To deploy a web app from VS Code, you must have the [Azure Tools extension pack]
 
 With the code deployed and the database in place, the app is almost ready to use. The only piece that remains is to establish the necessary schema in the database itself. You do this by "migrating" the data models in the Django app to the database.
 
-**Instructions:** <br />
+**Instructions:**
 
 **Step 1.** Create SSH session and connect to web app server.
 
@@ -436,7 +420,7 @@ az webapp ssh --resource-group $RESOURCE_GROUP_NAME \
 
 ----
 
-**Step 2.** In the SSH session, run the following command to migrate the models into the database schema (you can paste commands using **Ctrl**+**Shift**+**V**): <br/>
+**Step 2.** In the SSH session, run the following command to migrate the models into the database schema (you can paste commands using **Ctrl**+**Shift**+**V**): 
 
 ```bash
 python manage.py migrate
@@ -444,9 +428,7 @@ python manage.py migrate
 
 If you encounter any errors related to connecting to the database, check the values of the application settings of the App Service created in the previous section, namely `DBHOST`, `DBNAME`, `DBUSER`, and `DBPASS`. Without those settings, the migrate command cannot communicate with the database.
 
-<br />
-
-**Step 3.** Create an administrator login for the app: <br />
+**Step 3.** Create an administrator login for the app:
 
 ```bash
 python manage.py createsuperuser
