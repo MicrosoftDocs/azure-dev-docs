@@ -10,7 +10,7 @@ ms.azure.devx-azure-tooling: ['azure-portal']
 ms.custom: devx-track-python
 ---
 
-In the global controls of the Azure portal, open the the [Azure Cloud Shell](https://shell.azure.com), connect to the PostgreSQL server. 
+In the global controls of the Azure portal, open the [Azure Cloud Shell](https://shell.azure.com), connect to the PostgreSQL server. 
 
 :::image type="content" border="False" source="./media/django-postgresql-webapp/azure-cloud-shell-launch-icon.png" alt-text="How to access the Azure Cloud Shell from the Azure portal global controls.":::
 
