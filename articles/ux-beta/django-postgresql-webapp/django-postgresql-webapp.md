@@ -480,6 +480,8 @@ The Python sample code is running a Linux container in App Service using a built
 
 Azure App Service captures all messages output to the console to assist you in diagnosing issues with your application. The sample apps include `print()` statements to demonstrate this capability.
 
+:::code language="python" source="~/msdocs-python-django-webapp-quickstart/hello_azure/views.py" range="5-21" highlight="2,11,14":::
+
 :::code language="python" source="~/msdocs-django-postgresql-sample-app/restaurant_review/views.py" range="12-16" highlight="2":::
 
 You can access the console logs generated from inside the container that hosts the app on Azure.
