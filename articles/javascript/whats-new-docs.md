@@ -10,6 +10,12 @@ ms.date: 02/01/2022
 
 Find new and updated content for JavaScript and TypeScript developers.
 
+### New in February
+
+|Name|Description|
+|---------------------------------------|--|
+|[App Service + MongoDB](/azure/app-service/tutorial-nodejs-mongodb-app?tabs=azure-portal%2Cterminal-bash%2Cvscode-deploy%2Cdeploy-instructions-azportal%2Cdeploy-zip-linux-mac%2Cdeploy-instructions--zip-azcli)|Learn how to deploy an Express.js app to Azure App Service. Create and configure the Cosmos DB using the MongoDB API.|
+
 ## 2022 January
 
 ### New in January 
@@ -179,7 +185,7 @@ Find new and updated content for JavaScript and TypeScript developers.
 |Name|
 |---------------------------------------|
 |[Install and manage Node.js for Azure development](./core/install-nodejs-develop-azure-sdk-project.md)|
-|[Deploy Express.js MongoDB app to App Service from Visual Studio Code](./tutorial/deploy-nodejs-mongodb-app-service-from-visual-studio-code.md)|
+|[Deploy Express.js MongoDB app to App Service from Visual Studio Code](/azure/app-service/tutorial-nodejs-mongodb-app?tabs=azure-portal%2Cterminal-bash%2Cvscode-deploy%2Cdeploy-instructions-azportal%2Cdeploy-zip-linux-mac%2Cdeploy-instructions--zip-azcli)|
 
 
 ## 2021 February
@@ -286,7 +292,7 @@ Welcome to what's new in the JavaScript docs from October 2020. This article lis
 |Name|Notes|
 |---------------------------------------|--|
 |[Tutorial: Upload image to Blob Storage](./tutorial/browser-file-upload-azure-storage-blob.md)|In this tutorial, use a **React app** to upload a file to an **Azure Storage** blob. The programming work is done for you, this tutorial focuses on using the local and remote Azure environments successfully from inside Visual Studio Code with Azure extensions.|
-|[Tutorial: Deploy Node.js with database app to App Service from Visual Studio Code](./tutorial/deploy-nodejs-mongodb-app-service-from-visual-studio-code.md)|In this tutorial, use a **Express.js** Node.js app with a **MongoDB** database using the MongoDB native API. Deploy the Node.js application to Azure App Service (on Linux) then verify the cloud-based app works. The programming work is done for you, this tutorial focuses on creating the Azure resources and deploying to Azure from inside Visual Studio Code with Azure extensions.|
+|[Tutorial: Deploy Node.js with database app to App Service from Visual Studio Code](/azure/app-service/tutorial-nodejs-mongodb-app?tabs=azure-portal%2Cterminal-bash%2Cvscode-deploy%2Cdeploy-instructions-azportal%2Cdeploy-zip-linux-mac%2Cdeploy-instructions--zip-azcli)|In this tutorial, use a **Express.js** Node.js app with a **MongoDB** database using the MongoDB native API. Deploy the Node.js application to Azure App Service (on Linux) then verify the cloud-based app works. The programming work is done for you, this tutorial focuses on creating the Azure resources and deploying to Azure from inside Visual Studio Code with Azure extensions.|
 
 ### What's updated
 

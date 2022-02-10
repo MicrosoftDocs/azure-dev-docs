@@ -250,4 +250,4 @@ This command may take a few minutes.
 
 ## Next steps
 
-* [Deploy Express.js MongoDB app to App Service from Visual Studio Code](deploy-nodejs-mongodb-app-service-from-visual-studio-code.md)
+* [Deploy Express.js MongoDB app to App Service](/azure/app-service/tutorial-nodejs-mongodb-app?tabs=azure-portal%2Cterminal-bash%2Cvscode-deploy%2Cdeploy-instructions-azportal%2Cdeploy-zip-linux-mac%2Cdeploy-instructions--zip-azcli)

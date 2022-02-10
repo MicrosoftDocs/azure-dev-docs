@@ -91,7 +91,7 @@ Hosting options allow you to quickly use Azure for your application. The followi
     * [Vue](/azure/static-web-apps/getting-started?tabs=vue)
 * **Serverless APIs** using [Azure Functions](/azure/azure-functions/)
 * **Server application** using [Azure App Service](/azure/app-service/) 
-    * [Deploy Express.js MongoDB app to App Service from Visual Studio Code](../tutorial/deploy-nodejs-mongodb-app-service-from-visual-studio-code.md)
+    * [Deploy Express.js MongoDB app to App Service from Visual Studio Code](/azure/app-service/tutorial-nodejs-mongodb-app?tabs=azure-portal%2Cterminal-bash%2Cvscode-deploy%2Cdeploy-instructions-azportal%2Cdeploy-zip-linux-mac%2Cdeploy-instructions--zip-azcli)
 * **Container** application using [Azure App Service](/azure/app-service/)
     * [Deploy Express.js containerized app to App Service from private container registry using Visual Studio Code](../tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-01.md?tabs=bash)
 * **Linux Virtual machine** application using [Azure Virtual Machines](/azure/virtual-machines/)

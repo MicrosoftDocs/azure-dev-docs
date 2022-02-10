@@ -3,7 +3,7 @@ title: Migrate Java applications to Azure
 description: This topic provides an overview of recommended strategies for migrating Java applications to Azure.
 ms.author: karler
 ms.topic: conceptual
-ms.date: 09/07/2021
+ms.date: 02/10/2022
 ms.custom: devx-track-java
 recommendations: false
 ---
@@ -146,10 +146,10 @@ Use the rows below to find your Java EE application type running on a specific a
 
 |Destination&nbsp;→<br><br>App server&nbsp;↓|App<br>Service<br>Java SE|App<br>Service<br>Tomcat|App<br>Service<br>JBoss EAP|Azure<br>Spring<br>Cloud|AKS|Virtual Machines|
 |---|---|---|---|---|---|---|
-| WildFly /<br>JBoss AS | N/A | N/A | [guidance][18]      | N/A | [guidance][9] | guidance<br>planned |
-| WebLogic              | N/A | N/A | guidance<br>planned | N/A | [guidance][6] | [guidance][4]       |
-| WebSphere             | N/A | N/A | guidance<br>planned | N/A | [guidance][7] | guidance<br>planned |
-| JBoss EAP             | N/A | N/A | [guidance][18]      | N/A | [guidance][8] | guidance<br>planned |
+| WildFly /<br>JBoss AS | N/A | N/A | [guidance][18] | N/A | [guidance][9] | guidance<br>planned |
+| WebLogic              | N/A | N/A | [guidance][19] | N/A | [guidance][6] | [guidance][4]       |
+| WebSphere             | N/A | N/A | [guidance][20] | N/A | [guidance][7] | guidance<br>planned |
+| JBoss EAP             | N/A | N/A | [guidance][18] | N/A | [guidance][8] | guidance<br>planned |
 
 <!-- reference links, for use with tables -->
 [1]: media/migration-overview/logo_azure.svg
@@ -170,3 +170,5 @@ Use the rows below to find your Java EE application type running on a specific a
 [16]: migrate-spring-boot-to-azure-spring-cloud.md
 [17]: migrate-tomcat-to-azure-spring-cloud.md
 [18]: migrate-jboss-eap-to-jboss-eap-on-azure-app-service.md
+[19]: migrate-weblogic-to-jboss-eap-on-azure-app-service.md
+[20]: migrate-websphere-to-jboss-eap-on-azure-app-service.md
