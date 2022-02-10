@@ -19,7 +19,7 @@ Follow this tutorial to create and authenticate with the Azure SDK for Go using 
 [!INCLUDE [azure-subscription.md](includes/azure-subscription.md)]
 - **Go installed**: Version 1.16 or [above](https://golang.org/dl/)
 
-## 1. Create an Azure resource group
+## 1. Configure your environment
 
 Before you begin, create a new resource group in Azure.
 
@@ -37,6 +37,26 @@ New-AzResourceGroup -Name go-on-azure -location eastus
 ```
 
 Take note the `ResourceId` from the output, you'll use it for the scope of the service account.
+
+
+Next, create a new Azure key vault instance by running the following command:
+
+# [Azure CLI](#tab/azure-cli)
+```azurecli
+az keyvault create --location eastus --name `<keyVaultName>` --resource-group go-on-azure
+```
+
+Replace `<keyVaultName>` with a globally unique name.
+
+# [PowerShell](#tab/powershell)
+
+```powershell
+New-AzKeyVault -ResourceGroupName go-on-azure -Name `<keyVaultName>` -Location eastus
+```
+
+Replace `<keyVaultName>` with a globally unique name.
+
+---
 
 ---
 
@@ -197,19 +217,11 @@ Use the `NewDefaultAzureCredential` function of the Azure Identity module to aut
 ```go
 cred, err := azidentity.NewDefaultAzureCredential(nil)
 if err != nil {
-  // handle error
+    log.Fatalf("failed to obtain a credential: %v", err)
 }
-
-client := armresources.NewResourcesClient(armcore.NewDefaultConnection(cred, nil), "<subscriptionId>")
 ```
 
-Replace `<subscriptionId>` with the subscription ID of the subscription you want to authenticate with.
-
-**Key points**:
-
-- You can authenticate a service principal without using environment variables. To learn more, check out [Authenticating a service principal with a client secret](https://github.com/Azure/azure-sdk-for-go/wiki/Azure-Identity-Examples#authenticating-a-service-principal-with-a-client-secret) or [Authenticating a service principal with a client certificate](https://github.com/Azure/azure-sdk-for-go/wiki/Azure-Identity-Examples#authenticating-a-service-principal-with-a-client-certificate).
-
-## 4. Create a resource group tag (sample)
+## 4. Sample code
 
 Use the following code sample to verify that your service principal authenticates to Azure and has the appropriate permissions to the resource group.
 
@@ -235,93 +247,65 @@ Use the following code sample to verify that your service principal authenticate
 
     ```azurecli
     go get "github.com/Azure/azure-sdk-for-go/sdk/azidentity"
-    go get "github.com/Azure/azure-sdk-for-go/sdk/resources/armresources"
-    go get "github.com/Azure/azure-sdk-for-go/sdk/azcore"
-    go get "github.com/Azure/azure-sdk-for-go/sdk/armcore"
+    go get "github.com/Azure/azure-sdk-for-go/sdk/keyvault/azsecrets"
     ```
 
 1. Create a file named `main.go` and add the following code.
 
-	```go
-	package main
+    ```go
+    package main
+    
+    import (
+    	"context"
+    	"fmt"
+    	"log"
+    	"os"
+    
+    	"github.com/Azure/azure-sdk-for-go/sdk/azidentity"
+    	"github.com/Azure/azure-sdk-for-go/sdk/keyvault/azsecrets"
+    )
+    
+    func createSecret(name, value string) {
+    	keyVaultName := os.Getenv("KEY_VAULT_NAME")
+    	keyVaultUrl := fmt.Sprintf("https://%s.vault.azure.net/", keyVaultName)
+    
+    	cred, err := azidentity.NewDefaultAzureCredential(nil)
+    	if err != nil {
+    		log.Fatalf("failed to obtain a credential: %v", err)
+    	}
+    
+    	client, err := azsecrets.NewClient(keyVaultUrl, cred, nil)
+    	if err != nil {
+    		log.Fatalf("failed to create a client: %v", err)
+    	}
+    
+    	resp, err := client.SetSecret(context.TODO(), name, value, nil)
+    	if err != nil {
+    		log.Fatalf("failed to create a secret: %v", err)
+    	}
+    
+    	fmt.Printf("Name: %s, Value: %s\n", *resp.ID, *resp.Value)
+    }
+    
+    func main() {
+    	createSecret("ExamplePassword", "hVFkk965BuUv")
+    }
 
-	// Import key modules.
-	import (
-	"context"
-		"log"
+    ```
 
-		"github.com/Azure/azure-sdk-for-go/sdk/armcore"
-		"github.com/Azure/azure-sdk-for-go/sdk/azcore"
-		"github.com/Azure/azure-sdk-for-go/sdk/azidentity"
-		"github.com/Azure/azure-sdk-for-go/sdk/resources/armresources"
-	)
+1. Create an environment variable named `KEY_VAULT_NAME`. Set the environment variable's value to the name of the Azure Key Vault created previously.
 
-	// Define key global variables.
-	var (
-		ctx               = context.Background()
-		subscriptionId    = "<subscriptionId>"
-		resourceGroupName = "go-on-azure" // !! IMPORTANT: Change this to a unique name in your subscription.
-	)
+    ```azurecli
+    export KEY_VAULT_NAME=<KeyVaultName>
+    ```
 
-	func addResourceGroupTag(ctx, connection *armcore.Connection) (armresources.ResourceGroupResponse, error) {
-		rgClient := armresources.NewResourceGroupsClient(connection, subscriptionId)
+    Replace `<KeyVaultName>` with the name of your Azure Key Vault instance.
 
-		update := armresources.ResourceGroupPatchable{
-			Tags: map[string]*string{
-				"new": to.StringPtr("tag"),
-			},
-		}
-		return rgClient.Update(ctx, resourceGroupName, update, nil)
-	}
+1. Run the `go run` command to create the new key vault secret.
 
-	// Define the standard 'main' function for an app that is called from the command line.
-	func main() {
-
-		// Create a credentials object.
-		cred, err := azidentity.NewDefaultAzureCredential(nil)
-		if err != nil {
-			log.Fatalf("Failed to configure credential: %+v", err)
-		}
-
-		// Establish a connection with the Azure subscription.
-		conn := armcore.NewDefaultConnection(cred, &armcore.ConnectionOptions{
-			Logging: azcore.LogOptions{
-				IncludeBody: true,
-			},
-		})
-
-		// Call your function to add a tag to your new resource group.
-		updatedRG, err := addResourceGroupTag(ctx, conn)
-		if err != nil {
-			log.Fatalf("Update of resource group failed: %+v", err)
-		}
-		log.Printf("Resource Group %s updated", *updatedRG.ResourceGroup.ID)
-
-	}
-	```
-
-	Replace `<subscriptionId>` with the subscription ID of the subscription you want to authenticate with.
-
-1. Run the `go run` command to add the tag to your resource group.
-
-	```bash
-	go run main.go
-	```
-
-1. Verify the tag was added.
-
-	# [Azure CLI](#tab/azure-cli)
-	```azurecli-interactive
-	az group show --resource-group go-on-azure --query 'tags'
-	```
-
-	# [PowerShell](#tab/powershell)
-
-	```powershell-interactive
-	(Get-AzResourceGroup -Name go-on-azure).Tags
-	```
-
-	---
+   ```bash
+    go run main.go
+    ```
 
 ## Next steps
 
