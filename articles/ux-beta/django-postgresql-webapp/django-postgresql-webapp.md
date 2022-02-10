@@ -28,7 +28,7 @@ In this tutorial, you will deploy a data-driven Python web app using the **[Djan
 
 ## 1 - Sample application
 
-A sample Python application using the Django framework is provided to help you follow along with this tutorial. The `djangoapp` sample contains a data-driven Django polls app similar to the tutorial [Writing your first Django app](https://docs.djangoproject.com/en/3.1/intro/tutorial01/) in the Django documentation.
+A sample Python application using the Django framework is provided to help you follow along with this tutorial. The `msdocs-python-django-webapp-quickstart` sample contains a data-driven Django polls app similar to the tutorial [Writing your first Django app](https://docs.djangoproject.com/en/3.1/intro/tutorial01/) in the Django documentation.
 
 To follow along with this tutorial, the completed app is available to download or clone for your convenience.
 
@@ -39,24 +39,24 @@ To follow along with this tutorial, the completed app is available to download o
 1. Clone the sample application locally using `git`:
 
     ```bash
-    git clone https://github.com/Azure-Samples/djangoapp.git
+    git clone https://github.com/Azure-Samples/msdocs-python-django-webapp-quickstart.git
     ```
     
-2. Navigate to the *djangoapp* folder:
+2. Navigate to the *msdocs-python-django-webapp-quickstart* folder:
 
     ```bash
-    cd djangoapp
+    cd msdocs-python-django-webapp-quickstart
     ```
     
 #### [GitHub download](#tab/sample-app-download)
 
-1. Visit the [Django Sample App GitHub Repository](https://github.com/Azure-Samples/djangoapp).
+1. Visit the [Django Sample App GitHub Repository](https://github.com/Azure-Samples/msdocs-python-django-webapp-quickstart).
 
 2. Select **Code** and then select **Download ZIP**.
 
-3. Unpack the ZIP file into a folder named *djangoapp*.
+3. Unpack the ZIP file into a folder named *msdocs-python-django-webapp-quickstart*.
 
-4. Then open a terminal window in the *djangoapp* folder.
+4. Then open a terminal window in the *msdocs-python-django-webapp-quickstart* folder.
 
 ----
 
