@@ -438,14 +438,13 @@ az webapp ssh --resource-group $RESOURCE_GROUP_NAME \
 
 ----
 
-**Step 2.** In the SSH session, run the following commands (you can paste commands using **Ctrl**+**Shift**+**V**): <br/>
+**Step 2.** In the SSH session, run the following command to migrate the models into the database schema (you can paste commands using **Ctrl**+**Shift**+**V**): <br/>
 
 ```bash
-# Run database migrations
 python manage.py migrate
 ```
 
-If you encounter any errors related to connecting to the database, check the values of the application settings created in the previous section.
+If you encounter any errors related to connecting to the database, check the values of the application settings of the App Service created in the previous section, namely `DBHOST`, `DBNAME`, `DBUSER`, and `DBPASS`. Without those settings, the migrate command cannot communicate with the database.
 
 <br />
 
@@ -456,12 +455,6 @@ python manage.py createsuperuser
 ```
 
 The `createsuperuser` command prompts you for Django superuser (or admin) credentials, which are used within the web app. For the purposes of this tutorial, use the default username `root`, press **Enter** for the email address to leave it blank, and enter `Restaurantsdb1` for the password.
-
-<br />
-
-**Step 4.** If you see an error that the database is locked, make sure you created the environment variables in Step 4. Without those settings, the migrate command cannot communicate with the database, resulting in the error.
-
-<br />
 
 > [!NOTE]
 > If you cannot connect to the SSH session, then the app itself has failed to start. **Check the diagnostic logs** for details. For example, if you haven't created the necessary app settings in the previous section, the logs will indicate `KeyError: 'DBNAME'`.
