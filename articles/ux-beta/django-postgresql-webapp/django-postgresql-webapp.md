@@ -476,9 +476,11 @@ The Python sample code is running a Linux container in App Service using a built
 
 ## 8 - Stream diagnostic logs
 
-You can access the console logs generated from inside the container that hosts the app on Azure.
+Azure App Service captures all messages output to the console to assist you in diagnosing issues with your application. The sample apps include `print()` statements to demonstrate this capability.
 
-The contents of the App Service diagnostic logs can be reviewed in the Azure portal, VS Code, or using the Azure CLI.
+:::code language="python" source="~/msdocs-django-postgresql-sample-app/restaurant_review/views.py" range="12-16" highlight="13":::
+
+You can access the console logs generated from inside the container that hosts the app on Azure.
 
 ### [Azure portal <span style="background:mistyrose">TBD</span>](#tab/azure-portal)
 
