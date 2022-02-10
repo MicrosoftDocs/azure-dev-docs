@@ -19,7 +19,7 @@ In this tutorial, you will deploy a data-driven Python web app using the **[Djan
 
 :::image type="content" border="False" source="./media/django-postgresql-webapp/django-postgresql-app-arch.png" alt-text="This is an architecture diagram about how the solution works in Azure":::
 
-:::image type="content" border="False" source="./media/django-postgresql-webapp/django-postgresql-app-architecture-new-240px.png" lightbox="./media/django-postgresql-webapp/django-postgresql-app-architecture-new.png" alt-text="This is an architecture diagram about how the solution works in Azure":::
+:::image type="content" border="False" source="./media/django-postgresql-webapp/django-postgresql-app-architecture-240px.png" lightbox="./media/django-postgresql-webapp/django-postgresql-app-architecture.png" alt-text="This is an architecture diagram about how the solution works in Azure":::
 
 
 **To complete this tutorial, you'll need:**
