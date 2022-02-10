@@ -37,9 +37,13 @@ Replace `<keyVaultName>` with a globally unique name. Also take note of the `Id`
 
 ```powershell
 New-AzResourceGroup -Name go-on-azure -location eastus
+
+New-AzKeyVault -ResourceGroupName go-on-azure -Name `<keyVaultName>` -Location eastus
 ```
 
 Replace `<keyVaultName>` with a globally unique name. Also take note the `ResourceId` from the output, you'll use it for the scope of the service account.
+
+---
 
 ## 2. Create an Azure service principal
 
