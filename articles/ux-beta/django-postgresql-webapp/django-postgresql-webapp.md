@@ -19,6 +19,9 @@ In this tutorial, you will deploy a data-driven Python web app using the **[Djan
 
 :::image type="content" border="False" source="./media/django-postgresql-webapp/django-postgresql-app-arch.png" alt-text="This is an architecture diagram about how the solution works in Azure":::
 
+:::image type="content" border="False" source="./media/django-postgresql-webapp/django-postgresql-app-architecture-new-240px.png" lightbox="./media/django-postgresql-webapp/django-postgresql-app-architecture-new.png" alt-text="This is an architecture diagram about how the solution works in Azure":::
+
+
 **To complete this tutorial, you'll need:**
 
 1. An Azure account with an active subscription exists. If you do not have an Azure account, you [can create one for free](https://azure.microsoft.com/free/python).
@@ -478,7 +481,7 @@ The Python sample code is running a Linux container in App Service using a built
 
 ## 8 - Stream diagnostic logs
 
-Azure App Service captures all messages output to the console to assist you in diagnosing issues with your application. The sample apps include `print()` statements to demonstrate this capability.
+Azure App Service captures all messages output to the console to assist you in diagnosing issues with your application. The sample apps include `print()` statements to demonstrate this capability as shown below.
 
 :::code language="python" source="~/../msdocs-django-postgresql-sample-app/restaurant_review/views.py" range="12-16" highlight="2":::
 
