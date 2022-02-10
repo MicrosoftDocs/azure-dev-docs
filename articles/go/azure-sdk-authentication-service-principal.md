@@ -21,14 +21,17 @@ Follow this tutorial to create and authenticate with the Azure SDK for Go using 
 
 ## 1. Configure your environment
 
-Before you begin, create a new resource group in Azure.
+Before you begin, create a new resource group and key vault instance.
 
 # [Azure CLI](#tab/azure-cli)
+
 ```azurecli
 az group create --name go-on-azure --location eastus
+
+az keyvault create --location eastus --name `<keyVaultName>` --resource-group go-on-azure
 ```
 
-Take note of the `Id` from the output, you'll use it for the scope of the service account.
+Replace `<keyVaultName>` with a globally unique name. Also take note of the `Id` from the output, you'll use it for the scope of the service account.
 
 # [PowerShell](#tab/powershell)
 
@@ -36,29 +39,7 @@ Take note of the `Id` from the output, you'll use it for the scope of the servic
 New-AzResourceGroup -Name go-on-azure -location eastus
 ```
 
-Take note the `ResourceId` from the output, you'll use it for the scope of the service account.
-
-
-Next, create a new Azure key vault instance by running the following command:
-
-# [Azure CLI](#tab/azure-cli)
-```azurecli
-az keyvault create --location eastus --name `<keyVaultName>` --resource-group go-on-azure
-```
-
-Replace `<keyVaultName>` with a globally unique name.
-
-# [PowerShell](#tab/powershell)
-
-```powershell
-New-AzKeyVault -ResourceGroupName go-on-azure -Name `<keyVaultName>` -Location eastus
-```
-
-Replace `<keyVaultName>` with a globally unique name.
-
----
-
----
+Replace `<keyVaultName>` with a globally unique name. Also take note the `ResourceId` from the output, you'll use it for the scope of the service account.
 
 ## 2. Create an Azure service principal
 
