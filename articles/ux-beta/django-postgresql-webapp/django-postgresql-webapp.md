@@ -460,8 +460,8 @@ You can access the console logs generated from inside the container that hosts t
 
 | Instructions    | Screenshot |
 |:----------------|-----------:|
-| [!INCLUDE [Stream logs from Azure portal 1](<./includes/django-postgresql-webapp/stream-logs-azure-portal-1.md>)] | :::image type="content" source="./media/django-postgresql-webapp/pending-screenshot-240x160.png" lightbox="./media/django-postgresql-webapp/pending-screenshot-850x550.png" alt-text="A screenshot showing how to set application logging in the Azure portal." ::: |
-| [!INCLUDE [Stream logs from Azure portal 2](<./includes/django-postgresql-webapp/stream-logs-azure-portal-2.md>)] | :::image type="content" source="./media/django-postgresql-webapp/pending-screenshot-240x160.png" lightbox="./media/django-postgresql-webapp/pending-screenshot-850x550.png" alt-text="A screenshot showing how to to stream logs in the Azure portal." ::: |
+| [!INCLUDE [Stream logs from Azure portal 1](<./includes/django-postgresql-webapp/stream-logs-azure-portal-1.md>)] | :::image type="content" source="./media/django-postgresql-webapp/stream-logs-azure-portal-1-240px.png" lightbox="./media/django-postgresql-webapp/stream-logs-azure-portal-1.png" alt-text="A screenshot showing how to set application logging in the Azure portal." ::: |
+| [!INCLUDE [Stream logs from Azure portal 2](<./includes/django-postgresql-webapp/stream-logs-azure-portal-2.md>)] | :::image type="content" source="./media/django-postgresql-webapp/stream-logs-azure-portal-2-240px.png" lightbox="./media/django-postgresql-webapp/stream-logs-azure-portal-2.png" alt-text="A screenshot showing how to to stream logs in the Azure portal." ::: |
 
 ### [VS Code <span style="background:mistyrose">TBD</span>](#tab/vscode-aztools)
 
