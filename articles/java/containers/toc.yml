@@ -1,5 +1,8 @@
 - name: Java on Containers documentation
-  href: index.yml
   items:
     - name: Overview
       href: containers-overview.md
+    - name: Containerizing for Azure Kubernetes Service
+      href: containers-aks.md
+    - name: Containerizing for Azure PaaS services
+      href: containers-paas.md

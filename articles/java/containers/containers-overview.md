@@ -12,26 +12,36 @@ recommendations: false
 
 This topic provides an overview of recommended strategies for containerizing Java applications.
 
-## What type of application?
+## Establishing a base line
 
-1. New application
-1. Existing (on premises) application
+To determine what your application really needs it is important to establish a base line. If you do not know how much memory your Java application needs or how much CPU your Java application uses you can negatively impact the performance of your application when you containerize it. 
+
+Note - If you already have been running your Java application in production you have an implied base line. 
+
+Establish a base line for:
+
+1. [A new application](#new-application)
+1. [An existing (on premises) application](#existing-on-premises-application)
 
 ## New application
 
-As your application does not have a baseline yet you will need to start your application and use an application like `jconsole` or configure Application Insights to see how much memory the application is using under load.
+As your application is new you first need to establish a JVM heap memory base line. For that you can use something like Application Insights, `jconsole` or your own APM solution.
 
-## Using jconsole
+### Establish memory baseline using Application Insights
 
 TODO
 
-## Using Application Insights
+### Establish memory baseline using jconsole
+
+TODO
+
+### Determine which GC to use
 
 TODO
 
 ## Existing (on premises) application 
 
-If you already have your application running on premises or on a VM in the cloud then our recommendation is to start your containerization with:
+If you already have your application running on premises or on a VM in the cloud then our recommendation is to start your containerization journey with:
 
 1. the same amount of CPU / memory as the application currently has access to.
 1. the same JVM parameters as currently in use.
@@ -40,4 +50,5 @@ If you already have your application running on premises or on a VM in the cloud
 
 The next step is to determine which Azure service you are going to use your container on and read up on what specific recommendations there are for the specific Azure sevice.
 
-1. [Azure Kubernetes Service](containers-aks.ms)
+1. [Azure Kubernetes Service](containers-aks.md)
+1. [Azure PaaS services](containers-paas.md)
