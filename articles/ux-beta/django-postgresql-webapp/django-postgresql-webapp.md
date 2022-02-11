@@ -513,7 +513,7 @@ You can leave the app and database running as long as you want for further devel
 
 However, when you are finished with the sample app, you can remove all of the resources for the app from Azure to ensure you do not incur additional charges and keep your Azure subscription uncluttered. Removing the resource group also removes all resources in the resource group and is the fastest way to remove all Azure resources for your app.
 
-### [Azure portal <span style="background:mistyrose">TBD</span>](#tab/azure-portal)
+### [Azure portal](#tab/azure-portal)
 
 Follow these steps while signed-in to the Azure portal to delete a resource group.
 
@@ -524,7 +524,7 @@ Follow these steps while signed-in to the Azure portal to delete a resource grou
 | [!INCLUDE [Remove resource group Azure portal 3](<./includes/django-postgresql-webapp/remove-resource-group-azure-portal-3.md>)] | :::image type="content" source="./media/django-postgresql-webapp/pending-screenshot-240x160.png" lightbox="./media/django-postgresql-webapp/pending-screenshot-850x550.png" alt-text="A screenshot showing how to finish deleting a resource in the Azure portal." ::: |
 
 
-### [VS Code <span style="background:mistyrose">TBD</span>](#tab/vscode-aztools)
+### [VS Code](#tab/vscode-aztools)
 
 | Instructions    | Screenshot |
 |:----------------|-----------:|
