@@ -28,7 +28,7 @@ In this tutorial, you will deploy a data-driven Python web app using the **[Djan
 
 ## 1 - Sample application
 
-A sample Python application using the Django framework is provided to help you follow along with this tutorial. The `msdocs-python-django-webapp-quickstart` sample contains a data-driven Django polls app similar to the tutorial [Writing your first Django app](https://docs.djangoproject.com/en/3.1/intro/tutorial01/) in the Django documentation.
+A sample Python application using the Django framework is provided to help you follow along with this tutorial. The `msdocs-python-django-webapp-quickstart` sample contains a data-driven Django.
 
 To follow along with this tutorial, the completed app is available to download or clone for your convenience.
 
