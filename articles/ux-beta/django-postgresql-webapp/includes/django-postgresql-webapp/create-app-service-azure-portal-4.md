@@ -10,7 +10,9 @@ ms.azure.devx-azure-tooling: ['azure-portal']
 ms.custom: devx-track-python
 ---
 
-In the  **Speck Picker** section, select an App Service plan.
+In the  **Speck Picker** section, select an App Service plan.  
+
+The App Service plan controls how many resources (CPU/memory) are available to your app and the cost of those resources.
 
 1. Select **Dev/Test**.
 
@@ -19,5 +21,3 @@ In the  **Speck Picker** section, select an App Service plan.
     The B1 Basic plan will incur a small charge against your Azure account but is recommended for better performance over the F1 (Free) plan.
 
 1. Select **Apply**.
-
-The App Service plan controls how many resources (CPU/memory) are available to your app and the cost of those resources.
