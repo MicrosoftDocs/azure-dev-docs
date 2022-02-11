@@ -519,9 +519,9 @@ Follow these steps while signed-in to the Azure portal to delete a resource grou
 
 | Instructions    | Screenshot |
 |:----------------|-----------:|
-| [!INCLUDE [Remove resource group Azure portal 1](<./includes/django-postgresql-webapp/remove-resource-group-azure-portal-1.md>)] | :::image type="content" source="./media/django-postgresql-webapp/pending-screenshot-240x160.png" lightbox="./media/django-postgresql-webapp/pending-screenshot-850x550.png" alt-text="A screenshot showing how to find resource group in the Azure portal." ::: |
-| [!INCLUDE [Remove resource group Azure portal 2](<./includes/django-postgresql-webapp/remove-resource-group-azure-portal-2.md>)] | :::image type="content" source="./media/django-postgresql-webapp/pending-screenshot-240x160.png" lightbox="./media/django-postgresql-webapp/pending-screenshot-850x550.png" alt-text="A screenshot showing how to delete a resource group in the Azure portal." ::: |
-| [!INCLUDE [Remove resource group Azure portal 3](<./includes/django-postgresql-webapp/remove-resource-group-azure-portal-3.md>)] | :::image type="content" source="./media/django-postgresql-webapp/pending-screenshot-240x160.png" lightbox="./media/django-postgresql-webapp/pending-screenshot-850x550.png" alt-text="A screenshot showing how to finish deleting a resource in the Azure portal." ::: |
+| [!INCLUDE [Remove resource group Azure portal 1](<./includes/django-postgresql-webapp/remove-resource-group-azure-portal-1.md>)] | :::image type="content" source="./media/django-postgresql-webapp/remove-resource-group-azure-portal-1-240px.png" lightbox="./media/django-postgresql-webapp/remove-resource-group-azure-portal-1.png" alt-text="A screenshot showing how to find resource group in the Azure portal." ::: |
+| [!INCLUDE [Remove resource group Azure portal 2](<./includes/django-postgresql-webapp/remove-resource-group-azure-portal-2.md>)] | :::image type="content" source="./media/django-postgresql-webapp/remove-resource-group-azure-portal-2-240px.png" lightbox="./media/django-postgresql-webapp/remove-resource-group-azure-portal-2.png" alt-text="A screenshot showing how to delete a resource group in the Azure portal." ::: |
+| [!INCLUDE [Remove resource group Azure portal 3](<./includes/django-postgresql-webapp/remove-resource-group-azure-portal-3.md>)] | |
 
 
 ### [VS Code](#tab/vscode-aztools)
