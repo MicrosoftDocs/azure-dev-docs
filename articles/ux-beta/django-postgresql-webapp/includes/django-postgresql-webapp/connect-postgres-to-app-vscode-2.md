@@ -13,4 +13,5 @@ ms.custom: devx-track-python
 In the **App Service** section of the Azure Tools extension:
 
 1. Locate your web app, expand the node, and under **Application Settings** right-click to bring up the context menu.
+
 1. Select **Add new setting...** from the menu.

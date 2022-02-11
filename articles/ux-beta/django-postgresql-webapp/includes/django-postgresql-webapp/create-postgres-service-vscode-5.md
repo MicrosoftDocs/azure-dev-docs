@@ -18,7 +18,7 @@ Configure access to the PostgreSQL database:
 
 1. Select a subscription if prompted.
 
-1. Select the database you created above, for example *msdocs-tutorial-django-postgres-db-< unique id >*. If the database name doesn't appear in the list, it's likely it hasn't finished being created.
+1. Select the database you created above, for example *msdocs-tutorial-django-postgres-db-\<unique-id>*. If the database name doesn't appear in the list, it's likely it hasn't finished being created.
 
 1. Select **Yes** in the dialog box to add your IP address to the firewall rules of the PostgreSQL server.
 
