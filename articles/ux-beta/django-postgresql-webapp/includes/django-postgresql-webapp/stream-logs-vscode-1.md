@@ -8,6 +8,6 @@ ms.role: developer
 ms.devlang: python
 ms.custom: devx-track-python
 ---
-First, you need to enable streaming logs in Azure App Service.<br>
-<br>
+First, you need to enable streaming logs in Azure App Service.
+<br><br>
 In the **App Service** section of the Azure Tools for VS Code extension, right-click on your App Service instance and select **Start Streaming Logs** from the menu.
