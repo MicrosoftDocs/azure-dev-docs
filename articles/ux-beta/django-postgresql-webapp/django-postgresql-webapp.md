@@ -362,7 +362,7 @@ az webapp config appsettings set \
 
 Azure App service supports multiple methods to deploy your application code to Azure including support for GitHub Actions and all major CI/CD tools. This article focuses on how to deploy your code from your local workstation to Azure.
 
-### [Deploy using VS Code <span style="background:mistyrose">TBD</span>](#tab/vscode-aztools-deploy)
+### [Deploy using VS Code](#tab/vscode-aztools-deploy)
 
 To deploy a web app from VS Code, you must have the [Azure Tools extension pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack) installed and be signed into Azure from VS Code.
 
