@@ -113,7 +113,7 @@ conceptualContent:
           url: /azure/spring-cloud/quickstart?tabs=Azure-CLI&pivots=programming-language-java
         - text: Enterprise tier
           itemType: overview
-          url: /azure/spring-cloud/enterprise
+          url: /azure/spring-cloud/overview#enterprise-tier-overview
       footerLink:
           text: See more
           url: /azure/spring-cloud
