@@ -280,23 +280,23 @@ Use the following code sample to verify that your service principal authenticate
 
 1. Create an environment variable named `KEY_VAULT_NAME`. Set the environment variable's value to the name of the Azure Key Vault created previously.
 
-# [Bash](#tab/azure-cli)
-
-```bash
-export KEY_VAULT_NAME=<KeyVaultName>
-```
-
-Replace `<KeyVaultName>` with the name of your Azure Key Vault instance.
-
-# [PowerShell](#tab/powershell)
-
-```powershell
-$env:KEY_VAULT_NAME="<KeyVaultName>"
-```
-
-Replace `<KeyVaultName>` with the name of your Azure Key Vault instance.
-
----
+    # [Bash](#tab/azure-cli)
+    
+    ```bash
+    export KEY_VAULT_NAME=<KeyVaultName>
+    ```
+    
+    Replace `<KeyVaultName>` with the name of your Azure Key Vault instance.
+    
+    # [PowerShell](#tab/powershell)
+    
+    ```powershell
+    $env:KEY_VAULT_NAME="<KeyVaultName>"
+    ```
+    
+    Replace `<KeyVaultName>` with the name of your Azure Key Vault instance.
+    
+    ---
 
 1. Run the `go run` command to create the new key vault secret.
 
