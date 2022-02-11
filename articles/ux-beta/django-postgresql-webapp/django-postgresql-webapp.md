@@ -100,8 +100,7 @@ To follow along with this tutorial, the completed app is available to download o
 
 ## 2 - Create a web app in Azure
 
-To host your application in Azure, you need to create Azure App Service web app.  
-Test
+To host your application in Azure, you need to create Azure App Service web app.
 ### [Azure portal](#tab/azure-portal)
 
 Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps to create your Azure Database for PostgreSQL resource.
@@ -320,7 +319,7 @@ Type `\?` to show help or `\q` to quit.
 
 With the web app and Postgres database created, the next step is to connect the web app to the Postgres database in Azure.
 
-The app code expects to find database information in four environment variables named `DBHOST`, `DBNAME`, `DBUSER`, and `DBPASS`
+The web app code uses database information in four environment variables named `DBHOST`, `DBNAME`, `DBUSER`, and `DBPASS` to connect to the PostgresSQL server.
 
 ### [Azure portal](#tab/azure-portal)
 
@@ -341,7 +340,7 @@ To configure environment variables for the web app from VS Code, you must have t
 
 ### [Azure CLI](#tab/azure-cli)
 
-To set environment variables in App Service, create "app settings" with the following [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_set) command.
+To set environment variables in App Service, you create *app settings* with the following [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_set) command.
 
 ```azurecli
 az webapp config appsettings set \
