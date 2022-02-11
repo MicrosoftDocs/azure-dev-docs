@@ -10,8 +10,8 @@ ms.azure.devx-azure-tooling: ['azure-portal']
 ms.custom: devx-track-python
 ---
 
-In the  **Speck Picker** section, select an App Service plan.  
-<br><br>
+In the  **Spec Picker** section, select an App Service plan.  
+
 The App Service plan controls how many resources (CPU/memory) are available to your app and the cost of those resources.
 
 1. Select **Dev/Test**.
