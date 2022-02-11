@@ -100,7 +100,8 @@ To follow along with this tutorial, the completed app is available to download o
 
 ## 2 - Create a web app in Azure
 
-To host your application in Azure, you need to create Azure App Service web app.
+To host your application in Azure, you need to create Azure App Service web app.  
+Test
 
 ### [Azure portal](#tab/azure-portal)
 
