@@ -74,7 +74,7 @@ To follow along with this tutorial, the completed app is available to download o
 
 1. Set environment variables to specify how to connect to a local PostgreSQL instance.
 
-    The application expects a *.env* file to be defined. Create an *.env* file using the *.evn.sample* as a template. Set the value of `DBNAME` to the name of an existing database in your PostgreSQL instance. This tutorial assumes the database name is *restaurant*. Set the values of `DBHOST`, `DBUSER`, and `DBPASS` as appropriate for your local PostgreSQL instance.
+    This sample application requires a *.env* file describing how to connect to a local PostgreSQL instance. Create an *.env* file using the *.evn.sample* as a template. Set the value of `DBNAME` to the name of an existing database in your PostgreSQL instance. This tutorial assumes the database name is *restaurant*. Set the values of `DBHOST`, `DBUSER`, and `DBPASS` as appropriate for your local PostgreSQL instance.
 
     If you want to run SQLite locally instead, you can do so by following the instructions in the  *settings.py* file.
 
@@ -92,7 +92,7 @@ To follow along with this tutorial, the completed app is available to download o
 
 1. In a web browser, go to the sample application at `http://localhost:8000`.
 
-    At this point, you have a restaurant review app with no restaurants or reviews. Add restaurants and reviews to see how the app works.
+    Add some restaurants and reviews of them to see how the app works.
 
     :::image type="content" source="./media/django-postgresql-webapp/run-django-postgresql-app-localhost.png" alt-text="Screenshot of the Django with PostgreSQL app running locally in a browser":::
 
