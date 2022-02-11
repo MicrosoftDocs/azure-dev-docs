@@ -10,7 +10,8 @@ ms.azure.devx-azure-tooling: ['azure-portal']
 ms.custom: devx-track-python
 ---
 
-**Step 1.** In the Azure portal:
+In the Azure portal:
 
-* Enter "postgres" in the search bar at the top of the Azure portal.
-* Select the item labeled **Azure Database for PostgreSQL servers** under the under *Services* heading on the menu that appears below the search bar.
+1. Enter *postgres* in the search bar at the top of the Azure portal.
+
+1. Select the item labeled **Azure Database for PostgreSQL servers** under the under **Services** heading on the menu that appears below the search bar.

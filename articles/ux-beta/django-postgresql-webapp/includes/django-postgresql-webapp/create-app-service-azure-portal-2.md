@@ -10,4 +10,4 @@ ms.azure.devx-azure-tooling: ['azure-portal']
 ms.custom: devx-track-python
 ---
 
-**Step 2.** On the **App Services** page, select **+ Create**
+On the **App Services** page, select **+ Create**.

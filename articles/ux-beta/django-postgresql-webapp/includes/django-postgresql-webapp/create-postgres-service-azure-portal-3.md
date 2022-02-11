@@ -10,4 +10,4 @@ ms.azure.devx-azure-tooling: ['azure-portal']
 ms.custom: devx-track-python
 ---
 
-**Step 3.** On the next page, select **Create** under **Single server**.
+On the next page, select **Create** under **Single server**.

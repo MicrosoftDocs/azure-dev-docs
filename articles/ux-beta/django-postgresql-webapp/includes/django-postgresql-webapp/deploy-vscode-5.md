@@ -1,1 +1,1 @@
-**Step 5.** When the deployment is complete, a dialog box will appear in the lower right corner of the screen.  You can use this dialog to browse to your web app.
+When the deployment is complete, a dialog box will appear in the lower right corner of the screen.  You can use this dialog to browse to your web app.
