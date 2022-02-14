@@ -28,44 +28,25 @@ In this tutorial, you will deploy a data-driven Python web app using the **[Djan
 
 ## 1 - Sample application
 
-A sample Python application using the Django framework is provided to help you follow along with this tutorial. The `msdocs-python-django-webapp-quickstart` sample contains a data-driven Django.
+A sample Python application using the Django framework is provided to help you follow along with this tutorial. The `msdocs-python-django-webapp-quickstart` sample is a data-driven Django application. Download or clone the sample
+application to your local workstation.
 
-To follow along with this tutorial, the completed app is available to download or clone for your convenience.
+```bash
+git clone https://github.com/Azure-Samples/msdocs-python-django-webapp-quickstart.git
+```
 
-### Get completed application code
+To run the application locally:
 
-#### [Git clone](#tab/sample-app-clone)
-
-1. Clone the sample application locally using `git`:
-
-    ```bash
-    git clone https://github.com/Azure-Samples/msdocs-python-django-webapp-quickstart.git
-    ```
-    
-2. Navigate to the *msdocs-python-django-webapp-quickstart* folder:
+1. Navigate into the application folder:
 
     ```bash
     cd msdocs-python-django-webapp-quickstart
     ```
-    
-#### [GitHub download](#tab/sample-app-download)
-
-1. Visit the [Django Sample App GitHub Repository](https://github.com/Azure-Samples/msdocs-python-django-webapp-quickstart).
-
-2. Select **Code** and then select **Download ZIP**.
-
-3. Unpack the ZIP file into a folder named *msdocs-python-django-webapp-quickstart*.
-
-4. Then open a terminal window in the *msdocs-python-django-webapp-quickstart* folder.
-
-----
-
-### Run the application locally
 
 1. Create a virtual environment for the app:
 
     [!INCLUDE [Virtual environment setup](<./includes/django-postgresql-webapp/virtual-environment-setup.md>)]
-
+    
 1. Install the dependencies:
 
     ```Console
@@ -92,11 +73,9 @@ To follow along with this tutorial, the completed app is available to download o
 
 1. In a web browser, go to the sample application at `http://localhost:8000`.
 
-    Add some restaurants and reviews of them to see how the app works.
+    Add some restaurants and restaurant reviews to see how the app works.
 
     :::image type="content" source="./media/django-postgresql-webapp/run-django-postgresql-app-localhost.png" alt-text="Screenshot of the Django with PostgreSQL app running locally in a browser":::
-
-----
 
 ## 2 - Create a web app in Azure
 
