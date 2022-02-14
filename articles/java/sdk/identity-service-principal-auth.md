@@ -3,8 +3,9 @@ title: Azure authentication with service principal
 description: An overview of the Azure SDK for Java concepts related to authenticating applications via service principal
 ms.date: 02/02/2021
 ms.topic: conceptual
-ms.custom: devx-track-java
-ms.author: vigera
+ms.custom: devx-track-java, devx-track-azurecli
+ms.author: vigera 
+ms.devlang: azurecli
 ---
 
 # Azure authentication with service principal

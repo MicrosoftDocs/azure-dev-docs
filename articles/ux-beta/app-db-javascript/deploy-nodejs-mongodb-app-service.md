@@ -5,10 +5,10 @@ ms.topic: tutorial
 ms.date: 01/07/2022
 ms.service: app-service
 ms.role: developer
-ms.devlang: javascript
+ms.devlang: javascript, azurecli
 ms.azure.dev-framework: expressjs
 ms.azure.devx-azure-tooling: ['azure-portal', 'vscode-azure-tools', 'azure-cli']
-ms.custom: scenarios:getting-started, languages:JavaScript, devx-track-js
+ms.custom: scenarios:getting-started, languages:JavaScript, devx-track-js, devx-track-azurecli
 ROBOTS: NOINDEX
 ---
 

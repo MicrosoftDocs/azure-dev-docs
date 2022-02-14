@@ -4,7 +4,8 @@ description: Learn how to create a Kubernetes Cluster with Azure Kubernetes Serv
 keywords: azure devops terraform aks kubernetes
 ms.topic: how-to
 ms.date: 08/07/2021
-ms.custom: devx-track-terraform
+ms.custom: devx-track-terraform, devx-track-azurecli 
+ms.devlang: azurecli
 ---
 
 # Create a Kubernetes cluster with Azure Kubernetes Service using Terraform
@@ -328,7 +329,7 @@ The Kubernetes tools can be used to verify the newly created cluster.
     ```bash
     cat ./azurek8s
     ```
-   If you see `<< EOT` at the beginning and `EOT` at the end, edit the content of the file to remove these. This is necessary, otherwise you could receive the following message: `error: error loading config file "./azurek8s": yaml: line 2: mapping values ​​are not allowed in this context`
+   If you see `<< EOT` at the beginning and `EOT` at the end, edit the content of the file to remove these. This is necessary, otherwise you could receive the following message: `error: error loading config file "./azurek8s": yaml: line 2: mapping values ??????are not allowed in this context`
 
 1. Set an environment variable so that kubectl picks up the correct config.
 

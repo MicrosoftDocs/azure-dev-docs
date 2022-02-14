@@ -3,7 +3,8 @@ title: View virtual machine logs in Azure portal
 description: Learn how to see your logging with Azure Monitor and Application Insights for your Linux virtual machine.
 ms.topic: how-to
 ms.date: 01/18/2022
-ms.custom: devx-track-js
+ms.custom: devx-track-js, devx-track-azurecli 
+ms.devlang: azurecli
 ---
 
 # 6. View virtual machine logs

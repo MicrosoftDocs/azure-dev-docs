@@ -4,8 +4,9 @@ description: Learn how to connect your applications to Azure Blob Storage
 ms.date: 09/21/2021
 ms.topic: article
 ms.service: storage
-ms.custom: devx-track-dotnet
-ms.author: daberry
+ms.custom: devx-track-dotnet, devx-track-azurecli
+ms.author: daberry 
+ms.devlang: azurecli
 ROBOTS: NOINDEX
 ---
 

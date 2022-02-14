@@ -5,12 +5,12 @@ ms.topic: tutorial
 ms.date: 10/27/2021
 ms.service: azure
 ms.role: developer
-ms.devlang: javascript
+ms.devlang: javascript, azurecli
 author: alexwolfmsft
 ms.author: alexwolf
 ms.azure.dev-framework: 
 ms.azure.devx-azure-tooling: ['azure-portal', 'vscode-azure-tools', 'azure-cli']
-ms.custom: 
+ms.custom: devx-track-azurecli
 ROBOTS: NOINDEX
 ---
 
