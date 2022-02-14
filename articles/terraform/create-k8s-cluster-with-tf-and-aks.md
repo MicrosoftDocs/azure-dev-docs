@@ -329,7 +329,7 @@ The Kubernetes tools can be used to verify the newly created cluster.
     ```bash
     cat ./azurek8s
     ```
-   If you see `<< EOT` at the beginning and `EOT` at the end, edit the content of the file to remove these. This is necessary, otherwise you could receive the following message: `error: error loading config file "./azurek8s": yaml: line 2: mapping values ??????are not allowed in this context`
+   If you see `<< EOT` at the beginning and `EOT` at the end, edit the content of the file to remove these. This is necessary, otherwise you could receive the following message: `error: error loading config file "./azurek8s": yaml: line 2: mapping values are not allowed in this context`
 
 1. Set an environment variable so that kubectl picks up the correct config.
 

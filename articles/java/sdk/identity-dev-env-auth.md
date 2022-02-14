@@ -141,8 +141,8 @@ The IntelliJ credential authenticates in a development environment with the acco
 Follow the steps outlined below:
 
 1. In your IntelliJ window, open **File > Settings > Plugins**.
-1. Search for ???Azure Toolkit for IntelliJ??? in the marketplace. Install and restart IDE.
-1. Find the new menu item **Tools > Azure > Azure Sign In???**
+1. Search for "Azure Toolkit for IntelliJ" in the marketplace. Install and restart IDE.
+1. Find the new menu item **Tools > Azure > Azure Sign In**
 1. **Device Login** will help you log in as a user account. Follow the instructions to log in on the `login.microsoftonline.com` website with the device code. IntelliJ will prompt you to select your subscriptions. Select the subscription with the resources that you want to access.
 
 On Windows, you'll also need the KeePass database path to read IntelliJ credentials. You can find the path in IntelliJ settings under **File > Settings > Appearance & Behavior > System Settings > Passwords**. Note down the location of the KeePassDatabase path.
