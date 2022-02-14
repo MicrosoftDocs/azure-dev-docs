@@ -292,23 +292,25 @@ Type `\?` to show help or `\q` to quit.
 ## 4 - Configure access to the database
 
 After the Azure Database for PostgreSQL server is created, configure access to the server by adding firewall rules. Specifically, you configure firewall rules to allow your the web app and local environment access to connect to the server.
-### [Azure portal](#tab/azure-portal)
+### [Azure portal](#tab/azure-portal-access)
 
 | Instructions    | Screenshot |
 |:----------------|-----------:|
 | [!INCLUDE [A screenshot showing the location and adding a firewall rule in the Azure portal](<./includes/django-postgresql-webapp/create-postgres-service-azure-portal-7.md>)] |  |
 
+<!-- 
 ### [VS Code](#tab/vscode-aztools)
 
 | Instructions    | Screenshot |
 |:----------------|-----------:|
 | [!INCLUDE [Configure access for the database in the Azure portal](<./includes/django-postgresql-webapp/create-postgres-service-vscode-5.md>)] | :::image type="content" source="./media/django-postgresql-webapp/create-postgres-service-vscode-5-240px.png" lightbox="./media/django-postgresql-webapp/create-postgres-service-vscode-5.png" alt-text="Configure access for the database in the Azure portal." ::: |
 
-### [Azure CLI](#tab/azure-cli)
+-->
+### [Azure CLI](#tab/azure-cli-access)
 
-**Step 1.** Configure the firewall rules on your server by using the [az postgres server firewall-rule create](/cli/azure/postgres/server/firewall-rule) command to give your the web app and local environment access to connect to the server.
+Configure the firewall rules on your server by using the [az postgres server firewall-rule create](/cli/azure/postgres/server/firewall-rule).
 
-First, create a rule that allows other Azure services to connect.
+**Step 1.** Create a rule that allows other Azure services to connect:
 
 ```azurecli
 az postgres server firewall-rule create --resource-group $RESOURCE_GROUP_NAME \
@@ -323,7 +325,7 @@ az postgres server firewall-rule create --resource-group $RESOURCE_GROUP_NAME \
 * *name* &rarr; Name for firewall rule. (use `AllowAllWindowsAzureIps`)
 * *start-ip-address, end-ip-address* &rarr; `0.0.0.0` signals that access will be from other Azure services. This is sufficient for a demonstration app, but for a production app you should use an [Azure Virtual Network](/azure/virtual-network/virtual-networks-overview).
 
-**Step 2.** Repeat the command to add a firewall rule with `name` equal to *AllMyIp* and the `start-ip-address` and `end-ip-address` equal to your IP address. This allows you to connect your local environment to the database. To get your current IP address, see [WhatIsMyIPAddress.com](https://whatismyipaddress.com/).
+**Step 2.** Create a firewall rule to allow local environment to connect:
 
 ```azurecli
 az postgres server firewall-rule create --resource-group $RESOURCE_GROUP_NAME \
@@ -332,6 +334,8 @@ az postgres server firewall-rule create --resource-group $RESOURCE_GROUP_NAME \
                                         --start-ip-address <your IP> \
                                         --end-ip-address <your IP>
 ```
+
+Set `name` equal to *AllMyIp* and the `start-ip-address` and `end-ip-address` equal to your IP address. This allows you to connect your local environment to the database. To get your current IP address, see [WhatIsMyIPAddress.com](https://whatismyipaddress.com/).
 
 ----
 
