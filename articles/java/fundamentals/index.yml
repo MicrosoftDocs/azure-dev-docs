@@ -59,6 +59,6 @@ landingContent:
       - linkListType: overview
         links:
           - text: Azure DevOps
-            url: /azure/devops/java/
+            url: /azure/devops-project/azure-devops-project-java
           - text: Jenkins CI/CD
             url: /azure/jenkins/

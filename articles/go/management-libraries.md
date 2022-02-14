@@ -1,7 +1,7 @@
 ---
 title: Working with the Azure SDK for Go management libraries 
 description: In this article, you learn the basic tasks of working with the Azure SDK for Go management libraries.
-ms.date: 12/13/2021
+ms.date: 02/3/2022
 ms.topic: conceptual
 ms.custom: devx-track-go
 ---
@@ -112,7 +112,8 @@ The following code snippet shows an example of this pattern.
 ```go
 ctx := context.Background()
 // Call an asynchronous function to create a client. The return value is a poller object.
-poller, err := client.BeginCreate(ctx, "resource_identifier", "additonal_parameter")
+poller, err := client.BeginCreate(ctx, "resource_identifier", "additional_parameter")
+
 if err != nil {
 	// handle error...
 }

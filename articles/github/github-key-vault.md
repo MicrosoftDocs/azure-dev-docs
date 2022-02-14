@@ -4,7 +4,7 @@ description: Use Key Vault secrets in GitHub Actions to automate your software d
 author: juliakm
 ms.custom: github-actions-azure, mode-portal, contperf-fy22q3
 ms.author: jukullam
-ms.date: 01/14/2022
+ms.date: 02/03/2022
 ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
@@ -17,7 +17,6 @@ Use Key Vault secrets in your [GitHub Actions](https://help.github.com/en/articl
 Key Vault secrets differ from GitHub secrets:
 
 - Key Vault lets you centralize storage of application secrets in Azure. GitHub secrets are stored in GitHub
-- GitHub secrets are tied to a repository. Key Vault secrets can be used in multiple repositories
 - Key Vault can be used as a key and certificate management solutions, in addition to a tool for secrets management
 - Key Vault uses [Azure role-based access control (Azure RBAC)](/azure/key-vault/general/rbac-guide) for access
 
@@ -42,7 +41,7 @@ Learn more about the [components of GitHub Actions](https://docs.github.com/en/a
 
 ## Define a service principal
 
-You can create a [service principal](/azure/active-directory/develop/app-objects-and-service-principals#service-principal-object) with the [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az_ad_sp_create_for_rbac&preserve-view=true) command in the [Azure CLI](/cli/azure/). Run this command with [Azure Cloud Shell](https://shell.azure.com/) in the Azure portal or by selecting the **Try it** button.
+You can create a [service principal](/azure/active-directory/develop/app-objects-and-service-principals#service-principal-object) with the [az ad sp create-for-rbac](/cli/azure/ad/sp#az_ad_sp_create_for_rbac) command in the [Azure CLI](/cli/azure/). Run this command with [Azure Cloud Shell](https://shell.azure.com/) in the Azure portal or by selecting the **Try it** button.
 
 ```azurecli-interactive
    az ad sp create-for-rbac --name {myApp} --role contributor --scopes /subscriptions/{subscription-id}/resourceGroups/{MyResourceGroup} --sdk-auth

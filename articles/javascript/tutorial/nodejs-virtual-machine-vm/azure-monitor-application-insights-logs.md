@@ -13,7 +13,7 @@ In this section of the tutorial, learn how to see your logging with Azure Monito
 
 ## View virtual machine traces with Azure CLI
 
-Use Azure CLI command, [az monitor app-insights metrics show](/azure/monitor/app-insights/metrics#az-monitor-app-insights-metrics-show), to quickly see important pieces of your logs. For example, use the following command to see how many traces are in the logs. 
+Use Azure CLI command, [az monitor app-insights metrics show](/cli/azure/monitor/app-insights/metrics#az-monitor-app-insights-metrics-show), to quickly see important pieces of your logs. For example, use the following command to see how many traces are in the logs. 
 
 Remember the trace was added in the `/trace` route only. Calls to the root of your web app will not produce any trace logs. 
 

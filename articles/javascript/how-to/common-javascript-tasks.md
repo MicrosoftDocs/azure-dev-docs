@@ -67,26 +67,6 @@ Provide authentication.
 |Verify secure function API is available |[Visual Studio Code extension/Browser](../tutorial/azure-function-cosmos-db-mongo-api.md)|
 |Remove function app resource|[Visual Studio Code extension](../tutorial/azure-function-cosmos-db-mongo-api.md)|
 
-### App service - full-stack, server-only, or client-only apps
-
-[Service documentation](/azure/app-service/)
-
-|Task|using|
-|--|--|
-|Create local Express.js app|[Bash](../tutorial/deploy-nodejs-azure-app-service-with-visual-studio-code.md?tabs=bash#3-create-a-local-expressjs-app)|
-|Create app resource - includes: deploy Express.js app, stream logs|[Visual Studio Code extension](../tutorial/deploy-nodejs-mongodb-app-service-from-visual-studio-code.md#create-web-app-resource-and-deploy-expressjs-app)|
-|Create app resource - includes: deploy Express.js app, configure app settings, run npm install, browse to deployed website|[Visual Studio Code extension](../tutorial/deploy-nodejs-azure-app-service-with-visual-studio-code.md)|
-|Create app resource|[Azure CLI](../tutorial/tutorial-vscode-azure-cli-node/tutorial-vscode-azure-cli-node-03.md)|
-|Create app, deploy, browser app, view logs|[Azure CLI](../tutorial/tutorial-vscode-azure-cli-node/tutorial-vscode-azure-cli-node-03.md)|
-|Configure web app to use database connection string|[Azure CLI](./with-database/use-mongodb-as-cosmosdb.md?tabs=azure-cli%2cmongodb#configure-your-azure-web-app-with-the-connection-string)|
-|Configure web app to use container|[Azure CLI](./with-azure-cli/create-container-registry-resource.md#configure-web-app-to-use-container)|
-|Configure web app custom domain name|[Azure portal and CLI](/azure/app-service/app-service-web-tutorial-custom-domain?tabs=a%2Cazurecli)|
-|Delete app resource|[Visual Studio Code extension](../tutorial/deploy-nodejs-mongodb-app-service-from-visual-studio-code.md#clean-up-resources)<br>[Azure CLI](../tutorial/tutorial-vscode-azure-cli-node/tutorial-vscode-azure-cli-node-07.md)|
-|Deploy or reploy app|[Visual Studio Code extension](deploy-web-app.md#deploy-or-redeploy-to-app-service-with-visual-studio-code)|
-|Get web app external IP|[Azure portal and CLI](/azure/app-service/app-service-web-tutorial-custom-domain?tabs=a%2Cazurecli)|
-|Purchase a domain name and configure DNS record|[Azure portal and Azure CLI](/azure/app-service/app-service-web-tutorial-custom-domain?tabs=a%2Cazurecli)|
-|Stream remote logs|[Visual Studio Code extension](../tutorial/deploy-nodejs-azure-app-service-with-visual-studio-code.md?tabs=bash#7-stream-remote-service-logs-in-visual-studio-code)<br>[Azure CLI](../tutorial/tutorial-vscode-azure-cli-node/tutorial-vscode-azure-cli-node-05.md)|
-
 ## Cognitive Services
 
 [Service group documentation](/azure/cognitive-services/)
@@ -170,7 +150,7 @@ Provide authentication.
 
 |Task|using|
 |--|--|
-|Create resource|[Visual Studio Code extension](./with-visual-studio-code/create-azure-database.md#create-a-postgresql-database)<br>[Azure CLI](./with-database/use-postgresql-db.md#create-an-azure-database-for-postgresql-server-resource-with-azure-cli)<br>[Azure portal](https://ms.portal.azure.com/#create/Microsoft.PostgreSQLServer)<br>[@azure/arm-postgresql](https://www.npmjs.com/package/@azure/arm-postgresql)|
+|Create resource|[Visual Studio Code extension](./with-visual-studio-code/create-azure-database.md#create-a-postgresql-database)<br>[Azure CLI](./with-database/use-postgresql-db.md#create-an-azure-database-for-postgresql-resource)<br>[Azure portal](https://ms.portal.azure.com/#create/Microsoft.PostgreSQLServer)<br>[@azure/arm-postgresql](https://www.npmjs.com/package/@azure/arm-postgresql)|
 |Get connection string|[Azure CLI](./with-database/use-postgresql-db.md#get-the-postgresql-connection-string-with-azure-cli)|
 |View DB|[Visual Studio Code extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb)<br>[Azure Cloud Shell's psql](https://shell.azure.com/)|
 |Use pg API for DB|[JavaScript](./with-database/use-postgresql-db.md#use-pg-sdk-to-connect-to-postgresql-on-azure)
