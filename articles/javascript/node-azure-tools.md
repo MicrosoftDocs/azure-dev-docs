@@ -54,7 +54,7 @@ Other resources:
 
 ## TypeScript
 
-[TypeScript](https://www.typescriptlang.org/download) offers all of JavaScript' features, and another layer on top of these: TypeScript's type system. The main benefit of TypeScript is that it can highlight unexpected behavior in your code, lowering the chance of bugs.
+[TypeScript](https://www.typescriptlang.org/download) offers all of JavaScript's features, and another layer on top of these: TypeScript's type system. The main benefit of TypeScript is that it can highlight unexpected behavior in your code, lowering the chance of bugs.
 
 ## TypeScript and the Azure SDK client libraries
 
