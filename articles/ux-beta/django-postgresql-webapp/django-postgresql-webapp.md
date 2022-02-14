@@ -228,7 +228,34 @@ az postgres server create --resource-group $RESOURCE_GROUP_NAME \
 > [!IMPORTANT]
 > When creating usernames or passwords **do not** use the `$` character. Later you create environment variables with these values where the `$` character has special meaning within the Linux container used to run Python apps.
 
-**Step 2.** Get the connection information by using the [az postgres server show](/cli/azure/postgres/server/az-postgres-server-show). This command outputs a JSON object that contains different connection strings for the database along with the server URL. **Copy the administratorLogin and fullyQualifiedDomainName values to a temporary text file** as you need them later in this tutorial.
+**Step 2.** Configure the firewall rules on your server by using the [az postgres server firewall-rule create](/cli/azure/postgres/server/firewall-rule) command to give your the web app and local environment access to connect to the server.
+
+First, create a rule that allows other Azure services to connect.
+
+```azurecli
+az postgres server firewall-rule create --resource-group $RESOURCE_GROUP_NAME \
+                                        --server $DB_SERVER_NAME \
+                                        --name AllowAllWindowsAzureIps \
+                                        --start-ip-address 0.0.0.0 \
+                                        --end-ip-address 0.0.0.0
+```
+
+* *resource-group* &rarr; Name of resource group from earlier in this tutorial. (`msdocs-django-postgres-webapp-rg`)
+* *server* &rarr; Name of the server from **Step 1**. (`msdocs-django-postgres-webapp-db`)
+* *name* &rarr; Name for firewall rule. (use `AllowAllWindowsAzureIps`)
+* *start-ip-address, end-ip-address* &rarr; `0.0.0.0` signals that access will be from other Azure services. This is sufficient for a demonstration app, but for a production app you should use an [Azure Virtual Network](/azure/virtual-network/virtual-networks-overview).
+
+Repeat the command to add a firewall rule with `name` equal to *AllMyIp* and the `start-ip-address` and `end-ip-address` equal to your IP address. This allows you to connect your local environment to the database. To get your current IP address, see [WhatIsMyIPAddress.com](https://whatismyipaddress.com/).
+
+```azurecli
+az postgres server firewall-rule create --resource-group $RESOURCE_GROUP_NAME \
+                                        --server $DB_SERVER_NAME \
+                                        --name AllowMyIP \
+                                        --start-ip-address <your IP> \
+                                        --end-ip-address <your IP>
+```
+
+**Step 3.** Get the connection information by using the [az postgres server show](/cli/azure/postgres/server#az-postgres-server-show). This command outputs a JSON object that contains different connection strings for the database along with the server URL. **Copy the administratorLogin and fullyQualifiedDomainName values to a temporary text file** as you need them later in this tutorial.
 
 ```azurecli
 az postgres server show --name $DB_SERVER_NAME \
@@ -541,10 +568,10 @@ The `--no-wait` argument allows the command to return before the operation is co
 ## Next Steps
 
 > [!div class="nextstepaction"]
-> [Configure Python app](/azure/app-service/configure-language-python.md)
+> [Configure Python app](/azure/app-service/configure-language-python)
 
 > [!div class="nextstepaction"]
-> [Add user sign-in to a Python web app](/azure/active-directory/develop/quickstart-v2-python-webapp.md)
+> [Add user sign-in to a Python web app](/azure/active-directory/develop/quickstart-v2-python-webapp)
 
 > [!div class="nextstepaction"]
-> [Tutorial: Run Python app in custom container](/azure/app-service/tutorial-custom-container.md)
+> [Tutorial: Run Python app in custom container](/azure/app-service/tutorial-custom-container)
