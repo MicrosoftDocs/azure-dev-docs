@@ -35,47 +35,43 @@ application to your local workstation.
 git clone https://github.com/Azure-Samples/msdocs-python-django-webapp-quickstart.git
 ```
 
-To run the application locally:
+To run the application locally, navigate into the application folder:
 
-1. Navigate into the application folder:
+```bash
+cd msdocs-python-django-webapp-quickstart
+```
 
-    ```bash
-    cd msdocs-python-django-webapp-quickstart
-    ```
+Create a virtual environment for the app:
 
-1. Create a virtual environment for the app:
+[!INCLUDE [Virtual environment setup](<./includes/django-postgresql-webapp/virtual-environment-setup.md>)]
 
-    [!INCLUDE [Virtual environment setup](<./includes/django-postgresql-webapp/virtual-environment-setup.md>)]
-    
-1. Install the dependencies:
+Install the dependencies:
 
-    ```Console
-    pip install -r requirements.txt
-    ```
+```Console
+pip install -r requirements.txt
+```
 
-1. Set environment variables to specify how to connect to a local PostgreSQL instance.
+Set environment variables to specify how to connect to a local PostgreSQL instance.
 
-    This sample application requires a *.env* file describing how to connect to a local PostgreSQL instance. Create an *.env* file using the *.evn.sample* as a template. Set the value of `DBNAME` to the name of an existing database in your PostgreSQL instance. This tutorial assumes the database name is *restaurant*. Set the values of `DBHOST`, `DBUSER`, and `DBPASS` as appropriate for your local PostgreSQL instance.
+This sample application requires a *.env* file describing how to connect to a local PostgreSQL instance. Create an *.env* file using the *.evn.sample* as a template. Set the value of `DBNAME` to the name of an existing database in your PostgreSQL instance. This tutorial assumes the database name is *restaurant*. Set the values of `DBHOST`, `DBUSER`, and `DBPASS` as appropriate for your local PostgreSQL instance.
 
-    If you want to run SQLite locally instead, you can do so by following the instructions in the  *settings.py* file.
+If you want to run SQLite locally instead, you can do so by following the instructions in the  *settings.py* file.
 
-1. Create the `restaurant` database tables:
+Create the `restaurant` database tables:
 
-    ```Console
-    python manage.py migrate
-    ```
+```Console
+python manage.py migrate
+```
 
-1. Run the app:
+Run the app:
 
-    ```Console
-    python manage.py runserver
-    ```
+```Console
+python manage.py runserver
+```
 
-1. In a web browser, go to the sample application at `http://localhost:8000`.
+In a web browser, go to the sample application at `http://localhost:8000` and add some restaurants and restaurant reviews to see how the app works.
 
-    Add some restaurants and restaurant reviews to see how the app works.
-
-    :::image type="content" source="./media/django-postgresql-webapp/run-django-postgresql-app-localhost.png" alt-text="Screenshot of the Django with PostgreSQL app running locally in a browser":::
+:::image type="content" source="./media/django-postgresql-webapp/run-django-postgresql-app-localhost.png" alt-text="Screenshot of the Django with PostgreSQL app running locally in a browser":::
 
 ## 2 - Create a web app in Azure
 
