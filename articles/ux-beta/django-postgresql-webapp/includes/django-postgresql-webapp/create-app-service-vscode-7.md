@@ -10,7 +10,8 @@ ms.azure.devx-azure-tooling: ['vscode-azure-tools']
 ms.custom: devx-track-python
 ---
 
-**Step 7.** Configure Linux App Service Plan:
+Configure Linux App Service Plan:
 
-* Select `Create new App Service plan`.
-* Enter, `msdocs-tutorial-django-postgresql-plan` or use the auto-generated name.
+1. Select **Create new App Service plan**.
+
+1. Enter *msdocs-tutorial-django-postgresql-plan* or use the auto-generated name.

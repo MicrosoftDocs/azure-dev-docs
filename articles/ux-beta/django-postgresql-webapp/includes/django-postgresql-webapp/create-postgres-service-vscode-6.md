@@ -10,9 +10,12 @@ ms.azure.devx-azure-tooling: ['vscode-azure-tools']
 ms.custom: devx-track-python
 ---
 
-**Step 6.** Create `pollsdb` Database
+Create the `restaurant` database.
 
-* Select **Azure** from the [activity bar](https://code.visualstudio.com/docs/getstarted/userinterface)
-* Select **Databases** from the [sidebar](https://code.visualstudio.com/docs/getstarted/userinterface).
-* Right-Click on the **PostgreSQL Server** `msdocs-python-django-postgres-db PostgreSQL Single` and select **Create Database**.
-* Enter `pollsdb` as the **database name**.
+1. Select **Azure** icon the [activity bar](https://code.visualstudio.com/docs/getstarted/userinterface).
+
+1. Select **Databases**.
+
+1. Under your subscription, find the PostgreSQL Server you created (for example, *msdocs-tutorial-django-postgres-db-\<unique-id>*), right-click and select **Create Database**.
+
+1. Enter *restaurant* as the **Database Name**.
