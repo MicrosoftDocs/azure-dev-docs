@@ -167,7 +167,7 @@ In Enterprise tier, Application Configuration Service is provided to support ext
 
 [Application Configuration Service](https://docs.pivotal.io/tcs-k8s/0-1/) (ACS) is one of the proprietary VMware Tanzu components. ACS is Kubernetes-native, and totally different from Spring Cloud Config Server. ACS enables the management of Kubernetes-native ConfigMap resources that are populated from properties defined in one or more Git repositories.
 
-In Enterprise tier, there's no Spring Cloud Config Server, but you can use Application Configuration Service to manage centralized configurations.
+In Enterprise tier, there's no Spring Cloud Config Server, but you can use Application Configuration Service to manage centralized configurations. For more information, see [Use Application Configuration Service](/azure/spring-cloud/how-to-enterprise-application-configuration-service)
 
 To use Application Configuration Service, do the following steps for each of your apps:
 
@@ -186,12 +186,7 @@ ACS runs on Kubernetes. To help enable a transparent local development experienc
 
 #### Service Registry
 
-[Service Registry](https://docs.pivotal.io/spring-cloud-services/2-1/common/service-registry/index.html) is one of the proprietary VMware Tanzu components. Service Registry provides your Enterprise-tier apps with an implementation of the Service Discovery pattern, one of the key tenets of a microservice-based architecture. Your apps can use the Service Registry to dynamically discover and call registered services. Using Service Registry is preferable to hand-configuring each client of a service, which can be difficult, or adopting some form of access convention, which can be brittle in production.
-
-To use Service Registry, for each of your apps, add an explicit app binding to declare that your app needs to use Service Registry.
-
-> [!NOTE]
-> When you change the bind/unbind status, you must restart or redeploy the app to make the change take effect.
+[Service Registry](https://docs.pivotal.io/spring-cloud-services/2-1/common/service-registry/index.html) is one of the proprietary VMware Tanzu components. Service Registry provides your Enterprise-tier apps with an implementation of the Service Discovery pattern, one of the key tenets of a microservice-based architecture. Your apps can use the Service Registry to dynamically discover and call registered services. Using Service Registry is preferable to hand-configuring each client of a service, which can be difficult, or adopting some form of access convention, which can be brittle in production. For more information, see [Use Service Registry](/azure/spring-cloud/how-to-enterprise-service-registry).
 
 ::: zone-end
 
