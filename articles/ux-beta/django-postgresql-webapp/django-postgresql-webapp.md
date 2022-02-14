@@ -53,9 +53,9 @@ pip install -r requirements.txt
 
 Set environment variables to specify how to connect to a local PostgreSQL instance.
 
-This sample application requires a *.env* file describing how to connect to a local PostgreSQL instance. Create an *.env* file using the *.evn.sample* as a template. Set the value of `DBNAME` to the name of an existing database in your PostgreSQL instance. This tutorial assumes the database name is *restaurant*. Set the values of `DBHOST`, `DBUSER`, and `DBPASS` as appropriate for your local PostgreSQL instance.
+This sample application requires a *.env* file describing how to connect to your local PostgreSQL instance. Create an *.env* file using the *.evn.sample* file as a guide. Set the value of `DBNAME` to the name of an existing database in your local PostgreSQL instance. This tutorial assumes the database name is *restaurant*. Set the values of `DBHOST`, `DBUSER`, and `DBPASS` as appropriate for your local PostgreSQL instance.
 
-If you want to run SQLite locally instead, you can do so by following the instructions in the  *settings.py* file.
+If you want to run SQLite locally instead, follow the instructions in the comments of the  *settings.py* file.
 
 Create the `restaurant` database tables:
 
@@ -71,7 +71,7 @@ python manage.py runserver
 
 In a web browser, go to the sample application at `http://localhost:8000` and add some restaurants and restaurant reviews to see how the app works.
 
-:::image type="content" source="./media/django-postgresql-webapp/run-django-postgresql-app-localhost.png" alt-text="Screenshot of the Django with PostgreSQL app running locally in a browser":::
+:::image type="content" source="./media/django-postgresql-webapp/run-django-postgresql-app-localhost.png" alt-text="A screenshot of the Django with PostgreSQL app running locally in a browser with restaurants and restaurant reviews.":::
 
 ## 2 - Create a web app in Azure
 
