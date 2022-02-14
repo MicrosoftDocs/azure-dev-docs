@@ -281,7 +281,7 @@ az postgres server firewall-rule create --resource-group $RESOURCE_GROUP_NAME \
                                         --end-ip-address <your IP>
 ```
 
-**Step 3.** Get the connection information by using the [az postgres server show](/cli/azure/postgres/server/az-postgres-server-show). This command outputs a JSON object that contains different connection strings for the database along with the server URL. **Copy the administratorLogin and fullyQualifiedDomainName values to a temporary text file** as you need them later in this tutorial.
+**Step 3.** Get the connection information by using the [az postgres server show](/cli/azure/postgres/server#az-postgres-server-show). This command outputs a JSON object that contains different connection strings for the database along with the server URL. **Copy the administratorLogin and fullyQualifiedDomainName values to a temporary text file** as you need them later in this tutorial.
 
 ```azurecli
 az postgres server show --name $DB_SERVER_NAME \
@@ -548,10 +548,10 @@ The `--no-wait` argument allows the command to return before the operation is co
 ## Next Steps
 
 > [!div class="nextstepaction"]
-> [Configure Python app](/azure/app-service/configure-language-python.md)
+> [Configure Python app](/azure/app-service/configure-language-python)
 
 > [!div class="nextstepaction"]
-> [Add user sign-in to a Python web app](/azure/active-directory/develop/quickstart-v2-python-webapp.md)
+> [Add user sign-in to a Python web app](/azure/active-directory/develop/quickstart-v2-python-webapp)
 
 > [!div class="nextstepaction"]
-> [Tutorial: Run Python app in custom container](/azure/app-service/tutorial-custom-container.md)
+> [Tutorial: Run Python app in custom container](/azure/app-service/tutorial-custom-container)
