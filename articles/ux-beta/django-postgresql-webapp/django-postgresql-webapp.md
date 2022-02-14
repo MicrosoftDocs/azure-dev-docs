@@ -71,7 +71,7 @@ python manage.py runserver
 
 In a web browser, go to the sample application at `http://localhost:8000` and add some restaurants and restaurant reviews to see how the app works.
 
-:::image type="content" source="./media/django-postgresql-webapp/run-django-postgresql-app-localhost.png" alt-text="A screenshot of the Django with PostgreSQL app running locally in a browser with restaurants and restaurant reviews.":::
+:::image type="content" source="./media/django-postgresql-webapp/run-django-postgresql-app-localhost-240px.png" lightbox="./media/django-postgresql-webapp/run-django-postgresql-app-localhost.png" alt-text="A screenshot of the Django with PostgreSQL app running locally in a browser with restaurants and restaurant reviews.":::
 
 ## 2 - Create a web app in Azure
 
@@ -181,7 +181,7 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps 
 | [!INCLUDE [A screenshot showing how to fill out the form to create a new Azure Database for PostgreSQL in the Azure portal](<./includes/django-postgresql-webapp/create-postgres-service-azure-portal-4.md>)] | :::image type="content" source="./media/django-postgresql-webapp/create-postgres-service-azure-portal-4-240px.png" lightbox="./media/django-postgresql-webapp/create-postgres-service-azure-portal-4.png" alt-text="A screenshot showing how to fill out the form to create a new Azure Database for PostgreSQL in the Azure portal." ::: |
 | [!INCLUDE [A screenshot showing how to select and configure the basic database service plan in the Azure portal](<./includes/django-postgresql-webapp/create-postgres-service-azure-portal-5.md>)] | :::image type="content" source="./media/django-postgresql-webapp/create-postgres-service-azure-portal-5-240px.png" lightbox="./media/django-postgresql-webapp/create-postgres-service-azure-portal-5.png" alt-text="A screenshot showing how to select and configure the basic database service plan in the Azure portal." ::: |
 | [!INCLUDE [A screenshot showing the location of the Review plus Create button in the Azure portal](<./includes/django-postgresql-webapp/create-postgres-service-azure-portal-6.md>)] | :::image type="content" source="./media/django-postgresql-webapp/create-postgres-service-azure-portal-6-240px.png" lightbox="./media/django-postgresql-webapp/create-postgres-service-azure-portal-6.png" alt-text="A screenshot showing the location of the Review plus Create button in the Azure portal." ::: |
-| [!INCLUDE [A screenshot showing the location and adding a firewall rule in the Azure portal](<./includes/django-postgresql-webapp/create-postgres-service-azure-portal-7.md>)] |  |
+
 
 [!INCLUDE [A screenshot showing creating the restaurant database in the Azure Cloud Shell](<./includes/django-postgresql-webapp/create-postgres-service-azure-portal-8.md>)]
 
@@ -195,7 +195,6 @@ Follow these steps to create your Azure Database for PostgreSQL resource using t
 | [!INCLUDE [Create database server in VS Code](<./includes/django-postgresql-webapp/create-postgres-service-vscode-2.md>)] | :::image type="content" source="./media/django-postgresql-webapp/create-postgres-service-vscode-2-240px.png" alt-text="Create database server with VSCode." lightbox="./media/django-postgresql-webapp/create-postgres-service-vscode-2.png"::: |
 | [!INCLUDE [Azure portal - create new resource](<./includes/django-postgresql-webapp/create-postgres-service-vscode-3.md>)] | :::image type="content" source="./media/django-postgresql-webapp/create-postgres-service-vscode-3-240px.png" alt-text="Create a new Resource in the Azure portal." lightbox="./media/django-postgresql-webapp/create-postgres-service-vscode-3.png"::: |
 | [!INCLUDE [Azure portal - create new resource](<./includes/django-postgresql-webapp/create-postgres-service-vscode-4.md>)] | :::image type="content" source="./media/django-postgresql-webapp/create-postgres-service-vscode-4a-240px.png" alt-text="Create a new Resource in the Azure portal." lightbox="./media/django-postgresql-webapp/create-postgres-service-vscode-4a.png"::: :::image type="content" source="./media/django-postgresql-webapp/create-postgres-service-vscode-4b-240px.png" alt-text="Create a new Resource in the Azure portal." lightbox="./media/django-postgresql-webapp/create-postgres-service-vscode-4b.png"::: :::image type="content" source="./media/django-postgresql-webapp/create-postgres-service-vscode-4c-240px.png" alt-text="Create a new Resource in the Azure portal." lightbox="./media/django-postgresql-webapp/create-postgres-service-vscode-4c.png"::: :::image type="content" source="./media/django-postgresql-webapp/create-postgres-service-vscode-4d-240px.png" alt-text="Create a new Resource in the Azure portal." lightbox="./media/django-postgresql-webapp/create-postgres-service-vscode-4d.png"::: :::image type="content" source="./media/django-postgresql-webapp/create-postgres-service-vscode-4e-240px.png" alt-text="Create a new Resource in the Azure portal." lightbox="./media/django-postgresql-webapp/create-postgres-service-vscode-4e.png"::: :::image type="content" source="./media/django-postgresql-webapp/create-postgres-service-vscode-4f-240px.png" alt-text="Create a new Resource in the Azure portal." lightbox="./media/django-postgresql-webapp/create-postgres-service-vscode-4f.png":::|
-| [!INCLUDE [Create a new Azure resource in the Azure portal](<./includes/django-postgresql-webapp/create-postgres-service-vscode-5.md>)] | :::image type="content" source="./media/django-postgresql-webapp/create-postgres-service-vscode-5-240px.png" lightbox="./media/django-postgresql-webapp/create-postgres-service-vscode-5.png" alt-text="Create a new Azure resource in the Azure portal." ::: |
 | [!INCLUDE [Create a new Azure resource in the Azure portal](<./includes/django-postgresql-webapp/create-postgres-service-vscode-6.md>)] | :::image type="content" source="./media/django-postgresql-webapp/create-postgres-service-vscode-6-240px.png" lightbox="./media/django-postgresql-webapp/create-postgres-service-vscode-6.png" alt-text="Create a new Azure resource in the Azure portal." ::: |
 
 ### [Azure CLI](#tab/azure-cli)
@@ -229,7 +228,58 @@ az postgres server create --resource-group $RESOURCE_GROUP_NAME \
 > [!IMPORTANT]
 > When creating usernames or passwords **do not** use the `$` character. Later you create environment variables with these values where the `$` character has special meaning within the Linux container used to run Python apps.
 
-**Step 2.** Configure the firewall rules on your server by using the [az postgres server firewall-rule create](/cli/azure/postgres/server/firewall-rule) command to give your the web app and local environment access to connect to the server.
+**Step 2.** Get the connection information by using the [az postgres server show](/cli/azure/postgres/server/az-postgres-server-show). This command outputs a JSON object that contains different connection strings for the database along with the server URL. **Copy the administratorLogin and fullyQualifiedDomainName values to a temporary text file** as you need them later in this tutorial.
+
+```azurecli
+az postgres server show --name $DB_SERVER_NAME \
+                        -- resource-group $RESOURCE_GROUP_NAME
+```
+
+* *resource-group* &rarr; Name of resource group from earlier in this tutorial. (`msdocs-django-postgres-webapp-rg`)
+* *name* &rarr; Name of the server from **Step 1**. (`msdocs-django-postgres-webapp-db`)
+
+**Step 3.** In the [Azure Cloud Shell](https://shell.azure.com) or in your local environment, connect to the PostgreSQL server, and create the `restaurant` database.
+
+```Console
+psql --host=<server-name>.postgres.database.azure.com \
+     --port=5432 \
+     --username=<admin-user>@<server name> \
+     --dbname=postgres
+
+postgres=> CREATE DATABASE restaurant;
+```
+
+The values of `<server name>` and `<admin-user>` are the values from a previous step.
+
+**Step 4.** *(optional)* Verify `restaurant` database was successfully created by running  `\c restaurant` to change the prompt from `postgre`  (default) to `restaurant`.
+
+```Console
+postgres=> \c restaurant
+restaurant=>
+```
+
+Type `\?` to show help or `\q` to quit.
+
+----
+
+## 4 - Configure access to the database
+
+After the Azure Database for PostgreSQL server is created, configure access to the server by adding firewall rules. Specifically, you configure firewall rules to allow your the web app and local environment access to connect to the server.
+### [Azure portal](#tab/azure-portal)
+
+| Instructions    | Screenshot |
+|:----------------|-----------:|
+| [!INCLUDE [A screenshot showing the location and adding a firewall rule in the Azure portal](<./includes/django-postgresql-webapp/create-postgres-service-azure-portal-7.md>)] |  |
+
+### [VS Code](#tab/vscode-aztools)
+
+| Instructions    | Screenshot |
+|:----------------|-----------:|
+| [!INCLUDE [Configure access for the database in the Azure portal](<./includes/django-postgresql-webapp/create-postgres-service-vscode-5.md>)] | :::image type="content" source="./media/django-postgresql-webapp/create-postgres-service-vscode-5-240px.png" lightbox="./media/django-postgresql-webapp/create-postgres-service-vscode-5.png" alt-text="Configure access for the database in the Azure portal." ::: |
+
+### [Azure CLI](#tab/azure-cli)
+
+**Step 1.** Configure the firewall rules on your server by using the [az postgres server firewall-rule create](/cli/azure/postgres/server/firewall-rule) command to give your the web app and local environment access to connect to the server.
 
 First, create a rule that allows other Azure services to connect.
 
@@ -246,7 +296,7 @@ az postgres server firewall-rule create --resource-group $RESOURCE_GROUP_NAME \
 * *name* &rarr; Name for firewall rule. (use `AllowAllWindowsAzureIps`)
 * *start-ip-address, end-ip-address* &rarr; `0.0.0.0` signals that access will be from other Azure services. This is sufficient for a demonstration app, but for a production app you should use an [Azure Virtual Network](/azure/virtual-network/virtual-networks-overview).
 
-Repeat the command to add a firewall rule with `name` equal to *AllMyIp* and the `start-ip-address` and `end-ip-address` equal to your IP address. This allows you to connect your local environment to the database. To get your current IP address, see [WhatIsMyIPAddress.com](https://whatismyipaddress.com/).
+**Step 2.** Repeat the command to add a firewall rule with `name` equal to *AllMyIp* and the `start-ip-address` and `end-ip-address` equal to your IP address. This allows you to connect your local environment to the database. To get your current IP address, see [WhatIsMyIPAddress.com](https://whatismyipaddress.com/).
 
 ```azurecli
 az postgres server firewall-rule create --resource-group $RESOURCE_GROUP_NAME \
@@ -256,41 +306,9 @@ az postgres server firewall-rule create --resource-group $RESOURCE_GROUP_NAME \
                                         --end-ip-address <your IP>
 ```
 
-**Step 3.** Get the connection information by using the [az postgres server show](/cli/azure/postgres/server/az-postgres-server-show). This command outputs a JSON object that contains different connection strings for the database along with the server URL. **Copy the administratorLogin and fullyQualifiedDomainName values to a temporary text file** as you need them later in this tutorial.
-
-```azurecli
-az postgres server show --name $DB_SERVER_NAME \
-                        -- resource-group $RESOURCE_GROUP_NAME
-```
-
-* *resource-group* &rarr; Name of resource group from earlier in this tutorial. (`msdocs-django-postgres-webapp-rg`)
-* *name* &rarr; Name of the server from **Step 1**. (`msdocs-django-postgres-webapp-db`)
-
-**Step 4.** In the [Azure Cloud Shell](https://shell.azure.com) or in your local environment, connect to the PostgreSQL server, and create the `restaurant` database.
-
-```Console
-psql --host=<server-name>.postgres.database.azure.com \
-     --port=5432 \
-     --username=<admin-user>@<server name> \
-     --dbname=postgres
-
-postgres=> CREATE DATABASE restaurant;
-```
-
-The values of `<server name>` and `<admin-user>` are the values from a previous step.
-
-**Step 5.** *(optional)* Verify `restaurant` database was successfully created by running  `\c restaurant` to change the prompt from `postgre`  (default) to `restaurant`.
-
-```Console
-postgres=> \c restaurant
-restaurant=>
-```
-
-Type `\?` to show help or `\q` to quit.
-
 ----
 
-## 4 - Connect the app to the database
+## 5 - Connect the app to the database
 
 With the web app and Postgres database created, the next step is to connect the web app to the Postgres database in Azure.
 
@@ -333,7 +351,7 @@ az webapp config appsettings set \
 
 ----
 
-## 5 - Deploy your application code to Azure
+## 6 - Deploy your application code to Azure
 
 Azure App service supports multiple methods to deploy your application code to Azure including support for GitHub Actions and all major CI/CD tools. This article focuses on how to deploy your code from your local workstation to Azure.
 
@@ -359,7 +377,7 @@ To deploy a web app from VS Code, you must have the [Azure Tools extension pack]
 
 ----
 
-## 6 - Migrate app database
+## 7 - Migrate app database
 
 With the code deployed and the database in place, the app is almost ready to use. The only piece that remains is to establish the necessary schema in the database itself. You do this by "migrating" the data models in the Django app to the database.
 
@@ -415,7 +433,7 @@ The `createsuperuser` command prompts you for Django superuser (or admin) creden
 
 ----
 
-## 7 - Browse to the app
+## 8 - Browse to the app
 
 Browse to the deployed application in your web browser at the URL `http://<app-name>.azurewebsites.net`. It can take a minute or two for the app to start, so if you see a default app page, wait a minute and refresh the browser.
 
@@ -423,7 +441,7 @@ The Python sample code is running a Linux container in App Service using a built
 
 **Congratulations!** You've deployed your Python app to App Service.
 
-## 8 - Stream diagnostic logs
+## 9 - Stream diagnostic logs
 
 Azure App Service captures all messages output to the console to assist you in diagnosing issues with your application. The sample apps include `print()` statements to demonstrate this capability as shown below.
 
