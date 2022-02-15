@@ -52,10 +52,10 @@ This example covers cloud deployments using managed identity:
 
 ```bash
 // User-assigned identity
-JAVA_OPTS='-Djava.security.properties==my.java.security -Dazure.keyvault.uri=xxx -Dazure.keyvault.managed-identity=<your-managed-identity>
+JAVA_OPTS='-Djava.security.properties==my.java.security -Dazure.keyvault.uri=xxx -Dazure.keyvault.managed-identity=<your-managed-identity>'
 
 // System-assigned identity
-JAVA_OPTS='-Djava.security.properties==my.java.security -Dazure.keyvault.uri=xxx
+JAVA_OPTS='-Djava.security.properties==my.java.security -Dazure.keyvault.uri=xxx'
 ```
 
 For the meaning of each of these properties, see [Use Azure Key Vault to deliver TLS/SSL certificates to the JVM](/azure/developer/java/fundamentals/java-azure-keyvault-ssl-integration-jvm#how-to-run-your-application).
