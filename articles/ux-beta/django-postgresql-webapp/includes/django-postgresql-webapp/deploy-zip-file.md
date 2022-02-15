@@ -71,6 +71,6 @@ To use an HTTP client such as cURL to upload your ZIP file to Azure, you need th
 
 Run the following `curl` command to upload your zip file to Azure and deploy your application.  The username is the deployment username obtained above.  When this command is run, you will be prompted for the deployment password.
 
-[!INCLUDE [Deploy ZIP with cURL](<./includes/django-postgresql-webapp/deploy-zip-curl.md>)]
+[!INCLUDE [Deploy ZIP with cURL](<./deploy-zip-curl.md>)]
 
 ---
