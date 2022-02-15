@@ -49,7 +49,7 @@ The following sample focuses on hosting in Azure App Service.
 
 The following samples demonstrate Azure Spring Cloud scenarios.
 
-- [Spring Microservices hosted in Azure Spring Cloud with MySQL](https://github.com/Azure-Samples/spring-petclinic-microservices)
+- [Deploy Spring Boot apps using Azure Spring Cloud and MySQL](https://github.com/Azure-Samples/spring-petclinic-microservices)
 - [Secure communications with end-to-end TLS/SSL](https://github.com/Azure-Samples/spring-boot-secure-communications-using-end-to-end-tls-ssl)
 - [Spring Boot app with Redis Enterprise](https://github.com/Azure-Samples/brewdis)
 - [Spring Microservices and Cloud Gateway](https://github.com/Azure-Samples/spring-cloud-gateway)

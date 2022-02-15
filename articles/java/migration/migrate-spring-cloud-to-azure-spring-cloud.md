@@ -165,7 +165,7 @@ In Enterprise tier, Application Configuration Service for VMware Tanzu® is prov
 
 #### Application Configuration Service for Tanzu
 
-[Application Configuration Service for Tanzu](https://docs.pivotal.io/tcs-k8s/0-1/) is one of the proprietary VMware Tanzu components. Application Configuration Service for Tanzu is Kubernetes-native, and totally different from Spring Cloud Config Server. Application Configuration Service for Tanzu enables the management of Kubernetes-native ConfigMap resources that are populated from properties defined in one or more Git repositories.
+[Application Configuration Service for Tanzu](https://docs.pivotal.io/tcs-k8s/0-1/) is one of the commercial VMware Tanzu components. Application Configuration Service for Tanzu is Kubernetes-native, and totally different from Spring Cloud Config Server. Application Configuration Service for Tanzu enables the management of Kubernetes-native ConfigMap resources that are populated from properties defined in one or more Git repositories.
 
 In Enterprise tier, there's no Spring Cloud Config Server, but you can use Application Configuration Service for Tanzu to manage centralized configurations. For more information, see [Use Application Configuration Service for Tanzu](/azure/spring-cloud/how-to-enterprise-application-configuration-service)
 
@@ -195,7 +195,7 @@ Application Configuration Service for Tanzu runs on Kubernetes. To help enable a
 
 #### Tanzu Service Registry
 
-[VMware Tanzu® Service Registry](https://docs.vmware.com/en/Spring-Cloud-Services-for-VMware-Tanzu/index.html) is one of the proprietary VMware Tanzu components. Tanzu Service Registry provides your Enterprise-tier apps with an implementation of the Service Discovery pattern, one of the key tenets of a microservice-based architecture. Your apps can use Tanzu Service Registry to dynamically discover and call registered services. Using Tanzu Service Registry is preferable to hand-configuring each client of a service, which can be difficult, or adopting some form of access convention, which can be brittle in production. For more information, see [Use Tanzu Service Registry](/azure/spring-cloud/how-to-enterprise-service-registry).
+[VMware Tanzu® Service Registry](https://docs.vmware.com/en/Spring-Cloud-Services-for-VMware-Tanzu/index.html) is one of the commercial VMware Tanzu components. Tanzu Service Registry provides your Enterprise-tier apps with an implementation of the Service Discovery pattern, one of the key tenets of a microservice-based architecture. Your apps can use Tanzu Service Registry to dynamically discover and call registered services. Using Tanzu Service Registry is preferable to hand-configuring each client of a service, which can be difficult, or adopting some form of access convention, which can be brittle in production. For more information, see [Use Tanzu Service Registry](/azure/spring-cloud/how-to-enterprise-service-registry).
 
 ::: zone-end
 
@@ -224,7 +224,7 @@ Remove any metrics clients used or any metrics endpoints exposed in your applica
 
 ### Deploy the services
 
-Deploy each of the migrated microservices (not including the Spring Cloud Config and Registry servers), as described in [Quickstart: Deploy your first application to Azure Spring Cloud](/azure/spring-cloud/quickstart).
+Deploy each of the migrated Spring apps (not including the Spring Cloud Config and Registry servers), as described in [Quickstart: Deploy your first application to Azure Spring Cloud](/azure/spring-cloud/quickstart).
 
 ### Configure per-service secrets and externalized settings
 
