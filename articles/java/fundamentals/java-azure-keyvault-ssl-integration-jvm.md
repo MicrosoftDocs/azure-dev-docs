@@ -27,7 +27,7 @@ To enable the JCA provider to automatically register itself, you'll need to crea
 
 1. From the *bootstrap* directory, run the command `java cf ../bootstrap.jar *` to create the *bootstrap.jar* file.
 
-## Add the JCA Provider to the java.security file
+## Add the JCA provider to the java.security file
 
 To register the JCA provider, the JVM needs to know about it. To accomplish this task, use the following steps:
 
