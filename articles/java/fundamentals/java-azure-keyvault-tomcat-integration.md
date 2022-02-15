@@ -40,10 +40,22 @@ Copy the *bootstrap.jar* and the *azure-security-keyvault-jca-X.Y.Z.jar* to the 
 
 ## Set the required startup properties
 
-Use the `JAVA_OPTS` environment variable to set up your environment before starting Tomcat, as shown in the following example:
+Use the `JAVA_OPTS` environment variable to set up your environment before starting Tomcat.
+
+The following example covers local testing using a service principal:
 
 ```bash
 JAVA_OPTS='-Djava.security.properties==my.java.security -Dazure.keyvault.uri=xxx -Dazure.keyvault.client-id=xxx -Dazure.keyvault.client-secret=xxx -Dazure.keyvault.tenant-id=xxx'
+```
+
+This example covers cloud deployments using managed identity:
+
+```bash
+// User-assigned identity
+JAVA_OPTS='-Djava.security.properties==my.java.security -Dazure.keyvault.uri=xxx -Dazure.keyvault.managed-identity=<your-managed-identity>
+
+// System-assigned identity
+JAVA_OPTS='-Djava.security.properties==my.java.security -Dazure.keyvault.uri=xxx
 ```
 
 For the meaning of each of these properties, see [Use Azure Key Vault to deliver TLS/SSL certificates to the JVM](/azure/developer/java/fundamentals/java-azure-keyvault-ssl-integration-jvm#how-to-run-your-application).
