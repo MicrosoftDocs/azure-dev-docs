@@ -71,7 +71,7 @@ python manage.py runserver
 
 In a web browser, go to the sample application at `http://localhost:8000` and add some restaurants and restaurant reviews to see how the app works.
 
-:::image type="content" source="./media/django-postgresql-webapp/run-django-postgresql-app-localhost-240px.png" lightbox="./media/django-postgresql-webapp/run-django-postgresql-app-localhost.png" alt-text="A screenshot of the Django with PostgreSQL app running locally in a browser with restaurants and restaurant reviews.":::
+:::image type="content" source="./media/django-postgresql-webapp/run-django-postgresql-app-localhost.png" alt-text="A screenshot of the Django with PostgreSQL app running locally in a browser with restaurants and restaurant reviews.":::
 
 ## 2 - Create a web app in Azure
 
@@ -412,8 +412,6 @@ To deploy a web app from VS Code, you must have the [Azure Tools extension pack]
 
 With the code deployed and the database in place, the app is almost ready to use. The only piece that remains is to establish the necessary schema in the database itself. You do this by "migrating" the data models in the Django app to the database.
 
-**Instructions:**
-
 **Step 1.** Create SSH session and connect to web app server.
 
 ### [Azure portal](#tab/azure-portal)
@@ -443,6 +441,9 @@ az webapp ssh --resource-group $RESOURCE_GROUP_NAME \
 
 ----
 
+> [!NOTE]
+> If you cannot connect to the SSH session, then the app itself has failed to start. **Check the diagnostic logs** for details. For example, if you haven't created the necessary app settings in the previous section, the logs will indicate `KeyError: 'DBNAME'`.
+
 **Step 2.** In the SSH session, run the following command to migrate the models into the database schema (you can paste commands using **Ctrl**+**Shift**+**V**): 
 
 ```bash
@@ -457,10 +458,7 @@ If you encounter any errors related to connecting to the database, check the val
 python manage.py createsuperuser
 ```
 
-The `createsuperuser` command prompts you for Django superuser (or admin) credentials, which are used within the web app. For the purposes of this tutorial, use the default username `root`, press **Enter** for the email address to leave it blank, and enter `Restaurantsdb1` for the password.
-
-> [!NOTE]
-> If you cannot connect to the SSH session, then the app itself has failed to start. **Check the diagnostic logs** for details. For example, if you haven't created the necessary app settings in the previous section, the logs will indicate `KeyError: 'DBNAME'`.
+The `createsuperuser` command prompts you for Django superuser (or admin) credentials, which are used within the web app. For the purpose of this tutorial, use the default username `root`, press **Enter** for the email address to leave it blank, and enter `Restaurantsdb1` for the password.
 
 ----
 
@@ -468,13 +466,13 @@ The `createsuperuser` command prompts you for Django superuser (or admin) creden
 
 Browse to the deployed application in your web browser at the URL `http://<app-name>.azurewebsites.net`. It can take a minute or two for the app to start, so if you see a default app page, wait a minute and refresh the browser.
 
-The Python sample code is running a Linux container in App Service using a built-in image.
+When you see the sample app, you are now running the Python sample code in a Linux container in App Service using a built-in image.
 
 **Congratulations!** You've deployed your Python app to App Service.
 
 ## 9 - Stream diagnostic logs
 
-Azure App Service captures all messages output to the console to assist you in diagnosing issues with your application. The sample apps include `print()` statements to demonstrate this capability as shown below.
+Azure App Service captures all messages output to the console to help you diagnose issues with your application. The sample app include `print()` statements to demonstrate this capability as shown below.
 
 :::code language="python" source="~/../msdocs-django-postgresql-sample-app/restaurant_review/views.py" range="12-16" highlight="2":::
 
@@ -561,11 +559,10 @@ Delete the resource group by using the [az group delete](/cli/azure/group#az_gro
 
 ```azurecli
 az group delete \
-    --name msdocs-django-postgres-webapp-rg \
-    --no-wait
+    --name $RESOURCE_GROUP_NAME 
 ```
 
-The `--no-wait` argument allows the command to return before the operation is complete.
+You can optionally add the `--no-wait` argument to allow the command to return before the operation is complete.
 
 ----
 
