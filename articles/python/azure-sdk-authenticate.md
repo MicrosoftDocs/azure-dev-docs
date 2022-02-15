@@ -74,7 +74,7 @@ Again, no authentication or authorization takes place until your code makes a sp
 
 Creating the SDK [`SecretClient`](/python/api/azure-keyvault-secrets/azure.keyvault.secrets.secretclient) object also involves no communication with the resource in question. The `SecretClient` object is just a wrapper around the underlying Azure REST API and exists only in the app's runtime memory. 
 
-It's only when the code calls the [`get_secret`](/python/api/azure-keyvault-secrets/azure.keyvault.secrets.secretclient#get-secret-name--version-none----kwargs-) method that the client object generates the appropriate REST API call to Azure. Azure's endpoint for `get_secret` then authenticates the caller's identity and checks authorization.
+It's only when the code calls the [`get_secret`](/python/api/azure-keyvault-secrets/azure.keyvault.secrets.secretclient#azure-keyvault-secrets-secretclient-get-secret) method that the client object generates the appropriate REST API call to Azure. Azure's endpoint for `get_secret` then authenticates the caller's identity and checks authorization.
 
 ## See also
 
