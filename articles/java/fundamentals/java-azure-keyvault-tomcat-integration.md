@@ -65,4 +65,4 @@ For the meaning of each of these properties, see [Use Azure Key Vault to deliver
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Java on Azure developer tools documentation](Java on Azure developer tools documentation)
+> [Java on Azure developer tools documentation](index.yml)
