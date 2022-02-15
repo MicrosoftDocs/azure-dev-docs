@@ -178,6 +178,15 @@ To use Application Configuration Service, do the following steps for each of you
 
 1. Set config file patterns. Config file patterns enable you to choose which application and profile the app will use. For more information, see the [Pattern](/azure/spring-cloud/how-to-enterprise-application-configuration-service#pattern) section of [Use Application Configuration Service](/azure/spring-cloud/how-to-enterprise-application-configuration-service).
 
+  Another option is to set the config file patterns at the same time as your app deployment, as shown in the following example:
+
+  ```azurecli
+     az spring-cloud app deploy \
+         --name <app-name> \
+         --artifact-path <path-to-your-JAR-file> \
+         --config-file-pattern <config-file-pattern>
+  ```
+
 ACS runs on Kubernetes. To help enable a transparent local development experience, we provide the following suggestions.
 
 * If you already have a Git repository to store your externalized configuration, you can set up Spring Cloud Config Server locally as the centralized configuration for your application. After Config Server starts, it will clone the Git repository and provide the repository content through its web controller. For more information, see [Spring Cloud Config](https://cloud.spring.io/spring-cloud-config/reference/html) in the Spring documentation. The `spring-cloud-config-client` provides the ability for your application to automatically pick up the external configuration from the Config Server.
