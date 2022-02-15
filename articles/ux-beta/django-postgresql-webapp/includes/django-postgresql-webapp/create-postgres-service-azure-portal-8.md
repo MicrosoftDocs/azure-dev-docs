@@ -19,7 +19,7 @@ Create the `restaurant` database with the following command:
 ```Console
 psql --host=<server-name>.postgres.database.azure.com \
      --port=5432 \
-     --username=<admin-user>@<server-name> \
+     --username=<admin-user> \
      --dbname=postgres
 
 postgres=> CREATE DATABASE restaurant;
