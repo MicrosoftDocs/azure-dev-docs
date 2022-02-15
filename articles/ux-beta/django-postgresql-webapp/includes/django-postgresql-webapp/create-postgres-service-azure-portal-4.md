@@ -22,6 +22,6 @@ On the **Single server** page, fill out the form as follows:
 
 1. **Version** &rarr; Keep the default (which is the latest version).
 
-1. **Compute + storage** &rarr; See the next step. **Configure server** to select a different Compute + storage plan. (Discussed below in detail.)
+1. **Compute + storage** &rarr; Select **Configure server** to select a different Compute + storage plan. (Discussed below in detail.)
 
 1. **Administrator account** &rarr; Enter a **Admin username** and **Password** to be used for the database administrator account.

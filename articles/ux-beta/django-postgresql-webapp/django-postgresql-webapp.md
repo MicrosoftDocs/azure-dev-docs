@@ -270,7 +270,7 @@ az postgres server show --name $DB_SERVER_NAME \
 ```Console
 psql --host=<server-name>.postgres.database.azure.com \
      --port=5432 \
-     --username=<admin-user>@<server name> \
+     --username=<admin-user> \
      --dbname=postgres
 
 postgres=> CREATE DATABASE restaurant;
@@ -289,7 +289,7 @@ Type `\?` to show help or `\q` to quit.
 
 ----
 
-## 4 - Configure access to the database
+## 4 - Allow web app to access the database
 
 After the Azure Database for PostgreSQL server is created, configure access to the server by adding firewall rules. Specifically, you configure firewall rules to allow your the web app and local environment access to connect to the server.
 ### [Azure portal](#tab/azure-portal-access)
@@ -339,7 +339,7 @@ Set `name` equal to *AllMyIp* and the `start-ip-address` and `end-ip-address` eq
 
 ----
 
-## 5 - Connect the app to the database
+## 5 - Connect the web app to the database
 
 With the web app and Postgres database created, the next step is to connect the web app to the Postgres database in Azure.
 
