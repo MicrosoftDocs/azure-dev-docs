@@ -25,7 +25,7 @@ To enable the JCA provider to automatically register itself, you'll need to crea
    com.azure.security.keyvault.jca.KeyVaultJcaProvider
    ```
 
-1. From the *bootstrap* directory, run the command `java -jar ../bootstrap.jar *` to create the *bootstrap.jar* file.
+1. From the *bootstrap* directory, run the command `java cf ../bootstrap.jar *` to create the *bootstrap.jar* file.
 
 ## Add the JCA Provider to the java.security file
 
@@ -99,4 +99,4 @@ For examples of client/server-side TLS/SSL, see the [Examples](/java/api/overvie
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Java on Azure developer tools documentation](Java on Azure developer tools documentation)
+> [Java on Azure developer tools documentation](index.yml)
