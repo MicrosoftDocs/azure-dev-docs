@@ -34,7 +34,7 @@
           href: https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Functions
         - name: Azure Spring Cloud
           href: https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Spring-Cloud
-    - name SSL certs from Key Vault
+    - name: SSL certs from Key Vault
       expanded: true
       items:
         - name: Deliver certs to JVM
