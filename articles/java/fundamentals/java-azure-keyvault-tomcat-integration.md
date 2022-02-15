@@ -48,13 +48,15 @@ The following example covers local testing using a service principal:
 JAVA_OPTS='-Djava.security.properties==my.java.security -Dazure.keyvault.uri=xxx -Dazure.keyvault.client-id=xxx -Dazure.keyvault.client-secret=xxx -Dazure.keyvault.tenant-id=xxx'
 ```
 
-This example covers cloud deployments using managed identity:
+This example covers cloud deployments using a user-assigned managed identity:
 
 ```bash
-// User-assigned identity
 JAVA_OPTS='-Djava.security.properties==my.java.security -Dazure.keyvault.uri=xxx -Dazure.keyvault.managed-identity=<your-managed-identity>'
+```
 
-// System-assigned identity
+This example covers cloud deployments using a system-assigned managed identity:
+
+```bash
 JAVA_OPTS='-Djava.security.properties==my.java.security -Dazure.keyvault.uri=xxx'
 ```
 
