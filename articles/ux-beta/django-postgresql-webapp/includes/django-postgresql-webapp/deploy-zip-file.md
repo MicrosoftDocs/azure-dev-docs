@@ -40,7 +40,7 @@ zip -r <file-name>.zip . -x '.??*'
 ##### [Windows](#tab/windows)
 
 ```cmd
-tar.exe -a -c -f <file-name>.zip azuresite polls manage.py requirements.txt
+tar.exe -a -c -f <file-name>.zip azureproject restaurant_review static manage.py requirements.txt
 ```
 
 ---
@@ -61,20 +61,36 @@ az webapp deploy \
 
 ##### [cURL](#tab/deploy-instructions--zip-curl)
 
-To use an HTTP client such as curl to upload your ZIP file to Azure, you will need the deployment username and password for your App Service. These credentials can be obtained from the Azure portal.
+To use an HTTP client such as cURL to upload your ZIP file to Azure, you need the deployment username and password for your App Service. These credentials can be obtained from the Azure portal.
 
-1. On the page for the web app, select *Deployment center* from the menu on the left side of the page.
-1. Select the *FTPS credentials* tab.
-1. The **Username** and **Password** are shown under the *Application scope* heading.  For zip file deployments, only use the part of the username after the `\` character that starts with a `$`, for example `$msdocs-python-django-webapp-123`. These credentials will be needed in the cURL command below.
+1. On the page for the web app, select **Deployment center** from the resource menu on the left side of the page.
+1. Select the **FTPS credentials** tab.
+1. The **Username** and **Password** are shown under the **Application scope** heading.  For ZIP file deployments, only use the part of the username after the `\` character that starts with a `$`, for example `$msdocs-python-django-webapp-123`. These credentials will be needed in the cURL command below.
 
 :::image type="content" source="../../media/django-postgresql-webapp/deploy-zip-azure-portal-get-username-600px.png" alt-text="A screenshot showing the location of the deployment credentials in the Azure portal." lightbox="../../media/django-postgresql-webapp/deploy-zip-azure-portal-get-username.png":::
 
 Run the following `curl` command to upload your zip file to Azure and deploy your application.  The username is the deployment username obtained above.  When this command is run, you will be prompted for the deployment password.
 
+###### [bash](#tab/deploy-instructions--curl-bash)
+
 ```bash
 curl -X POST \
-    -u <username> \
-    --data-binary @"<zip-package-path>" https://<app-name>.scm.azurewebsites.net/api/publish&type=zip
+     -H 'Content-Type: application/zip' \
+     -u <username> \
+     -T '<zip-package-path>' \
+    https://<app-name>.scm.azurewebsites.net/api/zipdeploy
 ```
+
+###### [PowerShell terminal](#tab/deploy-instructions--curl-ps)
+
+```powershell
+curl -Method 'POST' `
+     -ContentType 'Content-Type: application/zip' `
+     -Credential '<username>' `
+     -InFile <zip-package-path> `
+     -Uri https://<app-name>.scm.azurewebsites.net/api/zipdeploy
+```
+
+---
 
 ---
