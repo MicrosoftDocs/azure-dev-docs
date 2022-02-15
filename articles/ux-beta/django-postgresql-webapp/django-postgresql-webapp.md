@@ -137,7 +137,7 @@ To create Azure resources in VS Code, you must have the [Azure Tools extension p
 
 Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com) or on a workstation with the [Azure CLI installed](/cli/azure/install-azure-cli).
 
-**Step 1.** Create a *resource group* using the [az group create](/cli/azure/group/az-group-create) command. A *resource group* will act as a container for all of the Azure resources related to this application.
+**Step 1.** Create a *resource group* using the [az group create](/cli/azure/group#az-group-create) command. A *resource group* will act as a container for all of the Azure resources related to this application.
 
 ```azurecli
 LOCATION='eastus'
