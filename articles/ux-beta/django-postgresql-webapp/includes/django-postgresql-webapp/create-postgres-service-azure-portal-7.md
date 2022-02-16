@@ -10,7 +10,7 @@ ms.azure.devx-azure-tooling: ['azure-portal']
 ms.custom: devx-track-python
 ---
 
-On the **Networking** page, add firewall rules:
+On the **Networking** page, add a firewall rule:
 
 1. Select **Add current client IP address** to allow access from your local environment.
 

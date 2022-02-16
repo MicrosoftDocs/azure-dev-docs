@@ -295,9 +295,7 @@ After the Azure Database for PostgreSQL server is created, configure access to t
 -->
 ### [Azure CLI](#tab/azure-cli-access)
 
-Configure the firewall rules on your server by using the [az postgres server firewall-rule create](/cli/azure/postgres/server/firewall-rule).
-
-**Step 1.** Create a rule that allows other Azure services to connect:
+Create a rule that allows other Azure services to connect to the PostgreSQL server by using the [az postgres server firewall-rule create](/cli/azure/postgres/server/firewall-rule) command.
 
 ```azurecli
 az postgres server firewall-rule create --resource-group $RESOURCE_GROUP_NAME \
