@@ -9,7 +9,13 @@ ms.custom: devx-track-terraform
 
 # Deploy a PostgreSQL Flexible Server Database using Terraform
 
-This article shows how to deploy a PostgreSQL Flexible Server Database using Terraform.
+Article tested with following software/versions:
+- [Terraform v1.1.4](https://releases.hashicorp.com/terraform/)
+- [AzureRM Provider v.2.94.0](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs)
+
+[Learn more about using Terraform in Azure](/azure/terraform)
+
+This article shows how to deploy a [PostgreSQL Flexible Server Database](/azure/postgresql/flexible-server/overview) using Terraform.
 
 In this article, you learn how to:
 
@@ -85,4 +91,4 @@ or go to the portal to view a resource that should have been created.
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn more about PostgreSQL Flexible Server](/azure/postgresql/flexible-server/overview
+> [Learn more about PostgreSQL Flexible Server](/azure/postgresql/flexible-server/overview)
