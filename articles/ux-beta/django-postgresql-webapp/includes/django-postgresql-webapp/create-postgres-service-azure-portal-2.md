@@ -10,4 +10,4 @@ ms.azure.devx-azure-tooling: ['azure-portal']
 ms.custom: devx-track-python
 ---
 
-On the **Azure Database for PostgreSQL servers** page, select **+ Create**
+On the **Azure Database for PostgreSQL flexible servers** page, select **+ Create**
