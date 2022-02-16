@@ -10,7 +10,7 @@ ms.azure.devx-azure-tooling: ['azure-portal']
 ms.custom: devx-track-python
 ---
 
-On the **Compute + storage** page:
+On the **Compute + storage** page, continue configuring the flexible server:
 
 1. **Compute tier** &rarr; Select **Burstable**.
 
