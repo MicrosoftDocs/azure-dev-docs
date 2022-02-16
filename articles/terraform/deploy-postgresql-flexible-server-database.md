@@ -29,6 +29,7 @@ In this article, you learn how to:
 > * Define a private DNS zone within an Azure DNS using [azurerm_private_dns_zone](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/private_dns_zone)
 > * Define a private DNS zone VNet link using using [azurerm_private_dns_zone_virtual_network_link](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/private_dns_zone_virtual_network_link)
 > * Deploy an Azure PostgreSQL Flexible Server on which the database runs using [azurerm_postgresql_flexible_server](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/postgresql_flexible_server)
+> * Instantiate an Azure PostgreSQL database using [azurerm_postgresql_flexible_server_database](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/postgresql_flexible_server_database)
 
 > [!NOTE]
 > The example code in this article is located in the [Azure Terraform GitHub repo](https://github.com/neil-yechenwei/terraform-1/tree/examplepostgresqlfsdb/quickstart/201-postgresql-fs-db).
@@ -47,9 +48,13 @@ In this article, you learn how to:
 
     [!code-terraform[examplepostgresqlfsdb](../../terraform_samples/quickstart/201-postgresql-fs-db/providers.tf)]
 
-1. Create a file named `main.tf` and insert the following code:
+1. Create a file named `main.tf` and insert the following code to deploy the PostgreSQL Flexible Server on which the database runs.
 
     [!code-terraform[examplepostgresqlfsdb](../../terraform_samples/quickstart/201-postgresql-fs-db/main.tf)]
+
+1. Create a file named `postgresql-fs-db.tf` and insert the following code to instantiate the database:
+
+    [!code-terraform[examplepostgresqlfsdb](../../terraform_samples/quickstart/201-postgresql-fs-db/postgresql-fs-db.tf)]
 
 1. Create a file named `variables.tf` and insert the following code:
 
