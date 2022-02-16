@@ -283,7 +283,7 @@ After the Azure Database for PostgreSQL server is created, configure access to t
 
 | Instructions    | Screenshot |
 |:----------------|-----------:|
-| [!INCLUDE [A screenshot showing the location and adding a firewall rule in the Azure portal](<./includes/django-postgresql-webapp/create-postgres-service-azure-portal-7.md>)] |  |
+| [!INCLUDE [A screenshot showing the location and adding a firewall rule in the Azure portal](<./includes/django-postgresql-webapp/add-access-to-postgres-from-web-app-1.md>)] | :::image type="content" source="./media/django-postgresql-webapp/add-access-to-postgres-from-web-app-1-240px.png" lightbox="./media/django-postgresql-webapp/add-access-to-postgres-from-web-app-1.png" alt-text="Add access from other Azure services in the Azure portal." ::: |
 
 <!-- 
 ### [VS Code](#tab/vscode-aztools)
