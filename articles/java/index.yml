@@ -111,9 +111,9 @@ conceptualContent:
         - text: Launch your first app
           itemType: quickstart
           url: /azure/spring-cloud/quickstart?tabs=Azure-CLI&pivots=programming-language-java
-        - text: Prepare a Spring app for deployment
-          itemType: tutorial
-          url: /azure/spring-cloud/spring-cloud-tutorial-prepare-app-deployment
+        - text: Enterprise tier
+          itemType: overview
+          url: /azure/spring-cloud/overview#enterprise-tier-overview
       footerLink:
           text: See more
           url: /azure/spring-cloud
