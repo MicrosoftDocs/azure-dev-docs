@@ -71,7 +71,7 @@ python manage.py runserver
 
 In a web browser, go to the sample application at `http://localhost:8000` and add some restaurants and restaurant reviews to see how the app works.
 
-:::image type="content" source="./media/django-postgresql-webapp/run-django-postgresql-app-localhost.png" alt-text="A screenshot of the Django with PostgreSQL app running locally in a browser with restaurants and restaurant reviews.":::
+:::image type="content" source="./media/django-postgresql-webapp/run-django-postgresql-app-localhost.png" alt-text="A screenshot of the Django web app with PostgreSQL running locally showing restaurants and restaurant reviews.":::
 
 ## 2 - Create a web app in Azure
 
@@ -466,9 +466,9 @@ The `createsuperuser` command prompts you for Django superuser (or admin) creden
 
 Browse to the deployed application in your web browser at the URL `http://<app-name>.azurewebsites.net`. It can take a minute or two for the app to start, so if you see a default app page, wait a minute and refresh the browser.
 
-When you see the sample app, you are now running the Python sample code in a Linux container in App Service using a built-in image.
+When you see the django sample web app, it is running in a Linux container in App Service using a built-in image **Congratulations!** You've deployed your Python app to App Service.
 
-**Congratulations!** You've deployed your Python app to App Service.
+:::image type="content" source="./media/django-postgresql-webapp/run-django-postgresql-app-production.png" alt-text="A screenshot of the Django web app with PostgreSQL running in Azure showing restaurants and restaurant reviews.":::
 
 ## 9 - Stream diagnostic logs
 
