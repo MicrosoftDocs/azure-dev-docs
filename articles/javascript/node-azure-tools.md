@@ -4,7 +4,6 @@ description: Install individual tools for Node.js and JavaScript development on 
 ms.topic: how-to
 ms.date: 09/27/2021
 ms.custom: seo-javascript-september2019, seo-javascript-october2019, devx-track-js, devx-track-azurecli 
-ms.devlang: azurecli
 ---
 
 # Tools for JavaScript developers on Azure 

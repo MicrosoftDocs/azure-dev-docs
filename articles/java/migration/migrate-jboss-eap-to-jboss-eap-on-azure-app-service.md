@@ -5,7 +5,6 @@ ms.author: vaangadi
 ms.topic: conceptual
 ms.date: 02/10/2022
 ms.custom: devx-track-java, devx-track-azurecli 
-ms.devlang: azurecli
 recommendations: false
 ---
 

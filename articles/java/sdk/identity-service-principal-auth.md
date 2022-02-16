@@ -4,8 +4,7 @@ description: An overview of the Azure SDK for Java concepts related to authentic
 ms.date: 02/02/2021
 ms.topic: conceptual
 ms.custom: devx-track-java, devx-track-azurecli
-ms.author: vigera 
-ms.devlang: azurecli
+ms.author: vigera
 ---
 
 # Azure authentication with service principal

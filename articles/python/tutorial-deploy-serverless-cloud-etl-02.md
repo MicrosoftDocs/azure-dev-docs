@@ -3,7 +3,7 @@ title: Create resources for a cloud-based, serverless ETL solution using Python 
 description: In this article, you'll use Azure CLI to create and configure common Azure resources used for a cloud-based, serverless ETL.
 services: python, azure-functions, azure-key-vault, azure-storage-accounts
 ms.custom: devx-track-python, devx-track-azurecli
-ms.devlang: python, azurecli
+ms.devlang: python
 ms.topic: tutorial
 ms.prod: azure-python
 author: jess-johnson-msft

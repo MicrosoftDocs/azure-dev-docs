@@ -4,7 +4,6 @@ description: In this tutorial, you'll use the Azure SDK for Go to authenticate t
 ms.date: 09/15/2021
 ms.topic: how-to
 ms.custom: devx-track-go, devx-track-azurecli 
-ms.devlang: azurecli
 ---
 
 # Authentication with the Azure SDK for Go using a managed identity

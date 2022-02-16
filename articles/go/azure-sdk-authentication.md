@@ -3,8 +3,7 @@ title: Azure authentication with the Azure SDK for Go
 description: In this tutorial, you'll use the Azure SDK for Go to authenticate to Azure with environment variables, a managed identity, or the Azure CLI.
 ms.date: 02/09/2022
 ms.topic: how-to
-ms.custom: devx-track-go, devx-track-azurecli 
-ms.devlang: azurecli
+ms.custom: devx-track-go, devx-track-azurecli
 ---
 
 # Azure authentication with the Azure SDK for Go

@@ -4,7 +4,6 @@ description: Learn how to see your logging with Azure Monitor and Application In
 ms.topic: how-to
 ms.date: 01/18/2022
 ms.custom: devx-track-js, devx-track-azurecli 
-ms.devlang: azurecli
 ---
 
 # 6. View virtual machine logs

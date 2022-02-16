@@ -5,7 +5,6 @@ keywords: azure devops terraform aks kubernetes
 ms.topic: how-to
 ms.date: 08/07/2021
 ms.custom: devx-track-terraform, devx-track-azurecli 
-ms.devlang: azurecli
 ---
 
 # Create a Kubernetes cluster with Azure Kubernetes Service using Terraform

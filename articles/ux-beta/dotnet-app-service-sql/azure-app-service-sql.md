@@ -5,7 +5,7 @@ ms.topic: tutorial
 ms.date: 10/27/2021
 ms.service: azure
 ms.role: developer
-ms.devlang: javascript, azurecli
+ms.devlang: javascript
 author: alexwolfmsft
 ms.author: alexwolf
 ms.azure.dev-framework: 
