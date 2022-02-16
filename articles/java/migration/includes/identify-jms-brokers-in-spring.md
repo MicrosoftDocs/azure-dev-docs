@@ -16,7 +16,7 @@ For example, a Spring Boot application using ActiveMQ would typically contain th
 </dependency>
 ```
 
-Spring Boot applications using proprietary brokers typically contain dependencies directly on the brokers' JMS driver libraries. Here's an example from a *build.gradle* file:
+Spring Boot applications using commercial brokers typically contain dependencies directly on the brokers' JMS driver libraries. Here's an example from a *build.gradle* file:
 
 ```json
     dependencies {
