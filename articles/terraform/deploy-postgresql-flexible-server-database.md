@@ -1,29 +1,28 @@
 ---
-title: Configure a PostgreSQL Flexible Server Database using Terraform
-description: Learn how to configure a PostgreSQL Flexible Server Database using Terraform
+title: Deploy a PostgreSQL Flexible Server Database using Terraform
+description: Learn how to deploy a PostgreSQL Flexible Server Database using Terraform
 keywords: azure, devops, terraform, postgresql, flexible server, database
 ms.topic: how-to
 ms.date: 02/16/2022
 ms.custom: devx-track-terraform
 ---
 
-# Configure a PostgreSQL Flexible Server Database using Terraform
+# Deploy a PostgreSQL Flexible Server Database using Terraform
 
-<!-- 
-Introductory paragraph. Keep it short and to the point. 
-Link to devhub index page of underlying technology where appropriate.
--->
+This article shows how to deploy a PostgreSQL Flexible Server Database using Terraform.
 
 In this article, you learn how to:
 
 > [!div class="checklist"]
 
-<!-- 
-Add several bullets to highlight what the customer will do in the article. 
--->
-> * Task 1
-> * Task 2
-> * Task n
+> * Create an Azure resource group using [azurerm_resource_group](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/resource_group)
+> * Create an Azure virtual network (VNet) using [azurerm_virtual_network](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/virtual_network)
+> * Create an Azure Network Security Group (NSG) using [azurerm_network_security_group](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/network_security_group)
+> * Create an Azure [subnet azurerm_subnet](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/subnet)
+> * Create an Azure subnet Network Security Group (NSG) using [azurerm_subnet_network_security_group_association](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/subnet_network_security_group_association)
+> * Define a private DNS zone within an Azure DNS using [azurerm_private_dns_zone](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/private_dns_zone)
+> * Define a private DNS zone VNet link using using [azurerm_private_dns_zone_virtual_network_link](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/private_dns_zone_virtual_network_link)
+> * Deploy an Azure PostgreSQL Flexible Server on which the database runs using [azurerm_postgresql_flexible_server](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/postgresql_flexible_server)
 
 > [!NOTE]
 > The example code in this article is located in the [Azure Terraform GitHub repo](https://github.com/neil-yechenwei/terraform-1/tree/examplepostgresqlfsdb/quickstart/201-postgresql-fs-db).
@@ -86,4 +85,4 @@ or go to the portal to view a resource that should have been created.
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn more about using PostgreSQL in Azure](/azure/postgresql/)
+> [Learn more about PostgreSQL Flexible Server](/azure/postgresql/flexible-server/overview
