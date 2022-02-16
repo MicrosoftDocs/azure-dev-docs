@@ -14,6 +14,4 @@ Back on the main **Flexible server** page:
 
 1. **Administrator account** &rarr; Enter a **Admin username** and **Password** to be used for the database administrator account.
 
-2. Select the **Review + create** button at the bottom of the screen.
-<br><br>
-This will take you to the *Review* page.  Select **Create** to create your Azure Database for PostgreSQL Flexible Server Service.
+1. Select **Next: Networking** at the bottom of the screen.
