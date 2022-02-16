@@ -210,13 +210,14 @@ DB_SERVER_NAME='msdocs-django-postgres-webapp-db'
 DB_NAME='restaurant'
 ADMIN_USERNAME='demoadmin'
 
-az postgres server create --resource-group $RESOURCE_GROUP_NAME \
-                          --name $DB_SERVER_NAME  \
-                          --location $LOCATION \
-                          --admin-user $ADMIN_USERNAME \
-                          --admin-password '<enter-admin-password>' \
-                          --sku-name B_Gen5_1 \
-                          --ssl-enforcement Enabled
+az postgres flexible-server create \
+   --resource-group $RESOURCE_GROUP_NAME \
+   --name $DB_SERVER_NAME  \
+   --location $LOCATION \
+   --admin-user $ADMIN_USERNAME \
+   --admin-password '<enter-admin-password>' \
+   --sku-name B_Gen5_1 \
+    --ssl-enforcement Enabled
 ```
 
 * *resource-group* &rarr; Use the same resource group name from **Step 1**. (`msdocs-django-postgres-webapp-rg`)
@@ -230,16 +231,17 @@ az postgres server create --resource-group $RESOURCE_GROUP_NAME \
 > [!IMPORTANT]
 > When creating usernames or passwords **do not** use the `$` character. Later you create environment variables with these values where the `$` character has special meaning within the Linux container used to run Python apps.
 
-**Step 2.** Configure the firewall rules on your server by using the [az postgres server firewall-rule create](/cli/azure/postgres/server/firewall-rule) command to give your local environment access to connect to the server.
+**Step 2.** Configure the firewall rules on your server by using the [az postgres flexible-server firewall-rule create](/cli/azure/postgres/flexible-server/firewall-rule) command to give your local environment access to connect to the server.
 
 Create a firewall rule with `name` equal to *AllowMyIp* and the `start-ip-address` and `end-ip-address` equal to your IP address. This allows you to connect your local environment to the database. To get your current IP address, see [WhatIsMyIPAddress.com](https://whatismyipaddress.com/).
 
 ```azurecli
-az postgres server firewall-rule create --resource-group $RESOURCE_GROUP_NAME \
-                                        --server $DB_SERVER_NAME \
-                                        --name AllowMyIP \
-                                        --start-ip-address <your IP> \
-                                        --end-ip-address <your IP>
+az postgres flexible-server firewall-rule create \
+   --resource-group $RESOURCE_GROUP_NAME \
+   --server $DB_SERVER_NAME \
+   --name AllowMyIP \
+   --start-ip-address <your IP> \
+   --end-ip-address <your IP>
 ```
 
 **Step 3.** Get the connection information by using the [az postgres server show](/cli/azure/postgres/server#az-postgres-server-show). This command outputs a JSON object that contains different connection strings for the database along with the server URL. **Copy the administratorLogin and fullyQualifiedDomainName values to a temporary text file** as you need them later in this tutorial.
