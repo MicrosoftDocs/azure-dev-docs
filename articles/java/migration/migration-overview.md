@@ -77,7 +77,7 @@ Use the following grid to identify potential destinations for your application t
 |Destination&nbsp;→<br><br>Application&nbsp;type&nbsp;↓|App<br>Service<br>Java SE|App<br>Service<br>Tomcat|App<br>Service<br>JBoss EAP|Azure<br>Spring<br>Cloud|AKS|Virtual<br>Machines|
 |---|---|---|---|---|---|---|
 | Spring Boot / JAR applications                                    |&#x2714;|        |        |&#x2714;|&#x2714;|&#x2714;|
-| Spring Cloud applications                                      |        |        |        |&#x2714;|&#x2714;|&#x2714;|
+| Spring Cloud applications                                         |        |        |        |&#x2714;|&#x2714;|&#x2714;|
 | Web applications                                                  |        |&#x2714;|&#x2714;|        |&#x2714;|&#x2714;|
 | Java EE applications                                              |        |        |&#x2714;|        |&#x2714;|&#x2714;|
 | Commercial application servers<br>(such as WebLogic or WebSphere) |        |        |        |        |&#x2714;|&#x2714;|
