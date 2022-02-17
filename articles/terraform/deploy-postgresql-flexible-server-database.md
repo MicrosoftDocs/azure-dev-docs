@@ -78,6 +78,32 @@ In this article, you learn how to:
 
 ## 6. Verify the results
 
+#### [Azure CLI](#tab/azure-cli)
+
+Run [az postgres flexible-server db show](/cli/azure/postgres/flexible-server/db#az-postgres-flexible-server-db-show) to display the Azure PostgreSQL database.
+
+```azurecli
+az postgres flexible-server db show --resource-group <resource_group_name> --server-name <server_name> --database-name <database_name>
+```
+
+**Key points:**
+
+- The values for the `<resource_group_name>`, `<server_name>`, and `<database_name>` are displayed in the `terraform apply` output.
+
+#### [Azure PowerShell](#tab/azure-powershell)
+
+Run [Get-AzPostgreSqlFlexibleServerDatabase](/powershell/module/az.postgresql/get-azpostgresqlflexibleserverdatabase) to display the Azure PostgreSQL database.
+
+```azurepowershell
+Get-AzPostgreSqlFlexibleServerDatabase -ResourceGroupName <resource_group_name> -ServerName <server_name> -Name <database_name>
+```
+
+**Key points:**
+
+- The values for the `<resource_group_name>`, `<server_name>`, and `<database_name>` are displayed in the `terraform apply` output.
+
+---
+
 ## 7. Clean up resources
 
 [!INCLUDE [terraform-plan-destroy.md](includes/terraform-plan-destroy.md)]
