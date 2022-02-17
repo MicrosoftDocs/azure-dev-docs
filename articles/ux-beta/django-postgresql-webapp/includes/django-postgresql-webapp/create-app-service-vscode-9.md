@@ -10,10 +10,6 @@ ms.azure.devx-azure-tooling: ['vscode-azure-tools']
 ms.custom: devx-track-python
 ---
 
-Add Application Insights to your web app:
-
-1. Select **Create new Application Insights resource**.
-
-1. Enter *msdocs-django-postgres-webapp-app-ins* or keep the default generated name.
-
-After entering the last name, the app service is created.
+Skip adding Application Insights to your web app by selecting **Skip for now**.
+<br><br>
+After the last choice, the Azure starts to create the app service.
