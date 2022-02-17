@@ -32,7 +32,7 @@ In this article, you learn how to:
 > * Instantiate an Azure PostgreSQL database using [azurerm_postgresql_flexible_server_database](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/postgresql_flexible_server_database)
 
 > [!NOTE]
-> The example code in this article is located in the [Azure Terraform GitHub repo](https://github.com/neil-yechenwei/terraform-1/tree/examplepostgresqlfsdb/quickstart/201-postgresql-fs-db).
+> The example code in this article is located in the [Azure Terraform GitHub repo](https://github.com/Azure/terraform/tree/master/quickstart/201-postgresql-fs-db).
 
 ## 1. Configure your environment
 
@@ -46,23 +46,23 @@ In this article, you learn how to:
 
 1. Create a file named `providers.tf` and insert the following code:
 
-    [!code-terraform[examplepostgresqlfsdb](../../terraform_samples/quickstart/201-postgresql-fs-db/providers.tf)]
+    [!code-terraform[master](../../terraform_samples/quickstart/201-postgresql-fs-db/providers.tf)]
 
 1. Create a file named `main.tf` and insert the following code to deploy the PostgreSQL Flexible Server on which the database runs.
 
-    [!code-terraform[examplepostgresqlfsdb](../../terraform_samples/quickstart/201-postgresql-fs-db/main.tf)]
+    [!code-terraform[master](../../terraform_samples/quickstart/201-postgresql-fs-db/main.tf)]
 
 1. Create a file named `postgresql-fs-db.tf` and insert the following code to instantiate the database:
 
-    [!code-terraform[examplepostgresqlfsdb](../../terraform_samples/quickstart/201-postgresql-fs-db/postgresql-fs-db.tf)]
+    [!code-terraform[master](../../terraform_samples/quickstart/201-postgresql-fs-db/postgresql-fs-db.tf)]
 
 1. Create a file named `variables.tf` and insert the following code:
 
-    [!code-terraform[examplepostgresqlfsdb](../../terraform_samples/quickstart/201-postgresql-fs-db/variables.tf)]
+    [!code-terraform[master](../../terraform_samples/quickstart/201-postgresql-fs-db/variables.tf)]
 
 1. Create a file named `output.tf` and insert the following code to output the resource group name, Azure PostgreSQL server name, and Azure PostgreSQL database name:
 
-    [!code-terraform[examplepostgresqlfsdb](../../terraform_samples/quickstart/201-postgresql-fs-db/output.tf)]
+    [!code-terraform[master](../../terraform_samples/quickstart/201-postgresql-fs-db/output.tf)]
 
 ## 3. Initialize Terraform
 
