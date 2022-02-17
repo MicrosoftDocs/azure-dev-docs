@@ -78,13 +78,6 @@ In this article, you learn how to:
 
 ## 6. Verify the results
 
-<!-- 
-Customers have consistently requested that they have the ability to verify if the steps worked. 
-Here you would specify steps to do that task.
-For example, you might tell the user to run a specific command and what they should see as output 
-or go to the portal to view a resource that should have been created.
--->
-
 ## 7. Clean up resources
 
 [!INCLUDE [terraform-plan-destroy.md](includes/terraform-plan-destroy.md)]
