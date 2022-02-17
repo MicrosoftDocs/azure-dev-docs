@@ -226,13 +226,14 @@ az postgres flexible-server create \
 * *location* &rarr; Use the same location use used for the web app.
 * *admin-user* &rarr; Username for the administrator login. It can't be `azure_superuser`, `admin`, `administrator`, `root`, `guest`, or `public`. For example, `demoadmin` is okay.
 * *admin-password* Password of the administrator user. It must contain 8 to 128 characters from three of the following categories: English uppercase letters, English lowercase letters, numbers, and non-alphanumeric characters.
+
+    > [!IMPORTANT]
+    > When creating usernames or passwords **do not** use the `$` character. Later you create environment variables with these values where the `$` character has special meaning within the Linux container used to run Python apps.
+
 * *public-access* &rarr; `None` which sets the server in public access mode with no firewall rules. Rules will be created in a later step.
-* *sku-name* &rarr; The name of the pricing tier and compute configuration, for example `B_Gen5_1`. Follow the convention {pricing tier}{compute generation}{vCores} set create this variable. For more information, see [Azure Database for PostgreSQL pricing](https://azure.microsoft.com/pricing/details/postgresql/server/).
+* *sku-name* &rarr; The name of the pricing tier and compute configuration, for example `Standard_B1ms`. Follow the convention {pricing tier}{compute generation}{vCores} set create this variable. For more information, see [Azure Database for PostgreSQL pricing](https://azure.microsoft.com/pricing/details/postgresql/server/).
 * *tier* &rarr; `Burstable`
-
-> [!IMPORTANT]
-> When creating usernames or passwords **do not** use the `$` character. Later you create environment variables with these values where the `$` character has special meaning within the Linux container used to run Python apps.
-
+    
 **Step 2.** Configure the firewall rules on your server by using the [az postgres flexible-server firewall-rule create](/cli/azure/postgres/flexible-server/firewall-rule) command to give your local environment access to connect to the server.
 
 Create a firewall rule with `rule-name` equal to *AllowMyIp* and the `start-ip-address` and `end-ip-address` equal to your IP address. This allows you to connect your local environment to the database. To get your current IP address, see [WhatIsMyIPAddress.com](https://whatismyipaddress.com/).
@@ -257,7 +258,7 @@ az postgres flexible-server show \
 * *resource-group* &rarr; Name of resource group from earlier in this tutorial. (`msdocs-django-postgres-webapp-rg`)
 * *name* &rarr; Name of the server from **Step 1**. (`msdocs-django-postgres-webapp-db`)
 
-**Step 4.** In the [Azure Cloud Shell](https://shell.azure.com) or in your local environment, connect to the PostgreSQL server, and create the `restaurant` database.
+**Step 4.** In your local environment using the PostgreSQL interactive terminal [psql](https://www.postgresql.org/docs/13/app-psql.html), connect to the PostgreSQL database server, and create the `restaurant` database.
 
 ```Console
 psql --host=<server-name>.postgres.database.azure.com \

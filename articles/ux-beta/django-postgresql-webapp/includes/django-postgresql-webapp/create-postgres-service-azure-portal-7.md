@@ -10,7 +10,7 @@ ms.azure.devx-azure-tooling: ['azure-portal']
 ms.custom: devx-track-python
 ---
 
-On the **Networking** page, add a firewall rule:
+On the **Networking** page, add a firewall rule that allows you local environment to access the database server:
 
 1. Select **Add current client IP address** to allow access from your local environment.
 
