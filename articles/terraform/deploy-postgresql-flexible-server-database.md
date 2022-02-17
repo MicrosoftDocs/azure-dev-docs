@@ -60,7 +60,7 @@ In this article, you learn how to:
 
     [!code-terraform[examplepostgresqlfsdb](../../terraform_samples/quickstart/201-postgresql-fs-db/variables.tf)]
 
-1. Create a file named `output.tf` to display the randomly generated resource group name and insert the following code:
+1. Create a file named `output.tf` and insert the following code to output the resource group name, Azure PostgreSQL server name, and Azure PostgreSQL database name:
 
     [!code-terraform[examplepostgresqlfsdb](../../terraform_samples/quickstart/201-postgresql-fs-db/output.tf)]
 
