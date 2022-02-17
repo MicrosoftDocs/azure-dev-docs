@@ -28,17 +28,17 @@ In this tutorial, you will deploy a data-driven Python web app using the **[Djan
 
 ## 1 - Sample application
 
-A sample Python application using the Django framework is provided to help you follow along with this tutorial. The `msdocs-python-django-webapp-quickstart` sample is a data-driven Django application. Download or clone the sample
+A sample Python application using the Django framework is provided to help you follow along with this tutorial. The `msdocs-django-postgresql-sample-app` sample is a data-driven Django application. Download or clone the sample
 application to your local workstation.
 
 ```bash
-git clone https://github.com/Azure-Samples/msdocs-python-django-webapp-quickstart.git
+git clone https://github.com/Azure-Samples/msdocs-django-postgresql-sample-app.git
 ```
 
 To run the application locally, navigate into the application folder:
 
 ```bash
-cd msdocs-python-django-webapp-quickstart
+cd msdocs-django-postgresql-sample-app
 ```
 
 Create a virtual environment for the app:
@@ -53,7 +53,7 @@ pip install -r requirements.txt
 
 Set environment variables to specify how to connect to a local PostgreSQL instance.
 
-This sample application requires a *.env* file describing how to connect to your local PostgreSQL instance. Create an *.env* file using the *.evn.sample* file as a guide. Set the value of `DBNAME` to the name of an existing database in your local PostgreSQL instance. This tutorial assumes the database name is *restaurant*. Set the values of `DBHOST`, `DBUSER`, and `DBPASS` as appropriate for your local PostgreSQL instance.
+This sample application requires a *.env* file describing how to connect to your local PostgreSQL instance. Create an *.env* file using the *.env.sample* file as a guide. Set the value of `DBNAME` to the name of an existing database in your local PostgreSQL instance. This tutorial assumes the database name is *restaurant*. Set the values of `DBHOST`, `DBUSER`, and `DBPASS` as appropriate for your local PostgreSQL instance.
 
 If you want to run SQLite locally instead, follow the instructions in the comments of the  *settings.py* file.
 
