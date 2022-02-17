@@ -421,14 +421,6 @@ python manage.py migrate
 
 If you encounter any errors related to connecting to the database, check the values of the application settings of the App Service created in the previous section, namely `DBHOST`, `DBNAME`, `DBUSER`, and `DBPASS`. Without those settings, the migrate command cannot communicate with the database.
 
-**Step 3.** Create an administrator login for the app:
-
-```bash
-python manage.py createsuperuser
-```
-
-The `createsuperuser` command prompts you for Django superuser (or admin) credentials, which are used within the web app. For the purpose of this tutorial, use the default username `root`, press **Enter** for the email address to leave it blank, and enter `Restaurantsdb1` for the password.
-
 ----
 
 ## 8 - Browse to the app
