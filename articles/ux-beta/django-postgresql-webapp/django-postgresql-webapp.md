@@ -158,7 +158,7 @@ az webapp create \
     --output table
 ```
 
-* *name* &rarr; The app service name is used as both the name of the resource in Azure and to form the fully qualified domain name for your app in the form of the server endpoint `https://<app-service-name>.azurewebsites.com`. This name must be **unique across all Azure** and the only allowed characters are `A`-`Z`, `0`-`9`, and `-`. (for example, `msdocs-django-postgres-webapp`)
+* *name* &rarr; The app service name is used as both the name of the resource in Azure and to form the fully qualified domain name for your app in the form of the server endpoint `https://<app-service-name>.azurewebsites.com`. This name must be **unique across all Azure** and the only allowed characters are `A`-`Z`, `0`-`9`, and `-`. For example, use `msdocs-django-postgres-webapp-\<unique-id>` where `\<unique-id>` is any three characters.
 * *runtime* &rarr; The runtime specifies what version of Python your app is running. This example uses **Python 3.9**. To list all available runtimes, use the command `az webapp list-runtimes --linux --output table`.
 * *plan* &rarr; Use the same *app service plan* name from **Step 2**. (`msdocs-django-postgres-webapp-plan`)
 * *resource-group* &rarr; Use the same resource group name from **Step 1**. (`msdocs-django-postgres-webapp-rg`)
@@ -269,7 +269,7 @@ psql --host=<server-name>.postgres.database.azure.com \
 postgres=> CREATE DATABASE restaurant;
 ```
 
-The values of `<server name>` and `<admin-user>` are the values from a previous step. If `psql` doesn't work, restart the database.
+The values of `<server name>` and `<admin-user>` are the values from a previous step. If you have trouble connecting, restart the database and try again.
 
 **Step 5.** *(optional)* Verify `restaurant` database was successfully created by running  `\c restaurant` to change the prompt from `postgres`  (default) to `restaurant`.
 

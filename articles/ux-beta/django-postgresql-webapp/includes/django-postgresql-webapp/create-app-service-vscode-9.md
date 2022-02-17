@@ -14,6 +14,6 @@ Add Application Insights to your web app:
 
 1. Select **Create new Application Insights resource**.
 
-1. Enter *msdocs-tutorial-django-postgresql-app-ins* or keep the default generated name.
+1. Enter *msdocs-django-postgres-webapp-app-ins* or keep the default generated name.
 
 After entering the last name, the app service is created.

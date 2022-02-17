@@ -16,6 +16,6 @@ Create the `restaurant` database.
 
 1. Select **Databases**.
 
-1. Under your subscription, find the PostgreSQL Server you created (for example, *msdocs-tutorial-django-postgres-db-\<unique-id>*), right-click and select **Create Database**.
+1. Under your subscription, find the PostgreSQL Server you created (for example, *msdocs-django-postgres-webapp-db-\<unique-id>*), right-click and select **Create Database**.
 
 1. Enter *restaurant* as the **Database Name**.
