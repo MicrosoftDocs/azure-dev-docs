@@ -12,7 +12,7 @@ Build automation in Azure is enabled by setting the `SCM_DO_BUILD_DURING_DEPLOYM
 |:----------------|-----------:|
 | [!INCLUDE [Enable build automation from Azure portal 1](<./deploy-zip-azure-portal-1.md>)] | :::image type="content" source="../../media/django-postgresql-webapp/deploy-zip-azure-portal-build-1-240px.png" alt-text="A screenshot showing the app settings for a web app and how to add a new setting in the Azure portal." lightbox="../../media/django-postgresql-webapp/deploy-zip-azure-portal-build-1.png"::: |
 | [!INCLUDE [Enable build automation from Azure portal 2](<./deploy-zip-azure-portal-2.md>)] | :::image type="content" source="../../media/django-postgresql-webapp/deploy-zip-azure-portal-build-2-240px.png" alt-text="A screenshot showing the dialog box used to add an app settings in the Azure portal." lightbox="../../media/django-postgresql-webapp/deploy-zip-azure-portal-build-2.png"::: |
-| [!INCLUDE [Enable build automation from Azure portal 3](<./deploy-zip-azure-portal-3.md>)] | :::image type="content" source="../../media/django-postgresql-webapp/deploy-zip-azure-portal-build-3-240px.png" alt-text="A screenshot showing the location of the save button." lightbox="../../media/django-postgresql-webapp/deploy-zip-azure-portal-build-3.png"::: |
+| [!INCLUDE [Enable build automation from Azure portal 3](<./deploy-zip-azure-portal-3.md>)] | :::image type="content" source="../../media/django-postgresql-webapp/deploy-zip-azure-portal-build-3-240px.png" alt-text="A screenshot showing the location of the save button in the Application settings page for an App Service in the Azure portal." lightbox="../../media/django-postgresql-webapp/deploy-zip-azure-portal-build-3.png"::: |
 
 ##### [Azure CLI](#tab/deploy-instructions-azcli)
 
