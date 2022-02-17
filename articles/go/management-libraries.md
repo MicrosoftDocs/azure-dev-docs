@@ -1,9 +1,10 @@
 ---
 title: Working with the Azure SDK for Go management libraries 
 description: In this article, you learn the basic tasks of working with the Azure SDK for Go management libraries.
-ms.date: 02/3/2022
+ms.date: 02/15/2022
 ms.topic: conceptual
 ms.custom: devx-track-go
+ms.devlang: golang
 ---
 
 # Working with the Azure SDK for Go management libraries
@@ -26,12 +27,10 @@ For example, to install the `armcompute` package, you run the following at the c
 go get github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/compute/armcompute
 ```
 
-In most Go apps, you'll install the following packages for authentication and core functionality:
+In most Go apps, you'll install the following packages for authentication:
 
-- github.com/Azure/azure-sdk-for-go/sdk/resoucemanager/compute/armcompute
-- github.com/Azure/azure-sdk-for-go/sdk/azcore
-- github.com/Azure/azure-sdk-for-go/sdk/azidentity
 - github.com/Azure/azure-sdk-for-go/sdk/azcore/to
+- github.com/Azure/azure-sdk-for-go/sdk/azidentity
 
 ## Importing packages into your Go code
 
@@ -39,10 +38,9 @@ Once downloaded, the package are imported into your app via the `import` stateme
 
 ```go
 import (
-    "github.com/Azure/azure-sdk-for-go/sdk/armcore"
-    "github.com/Azure/azure-sdk-for-go/sdk/resoucemanager/compute/armcompute"
+    "github.com/Azure/azure-sdk-for-go/sdk/azcore/to"
     "github.com/Azure/azure-sdk-for-go/sdk/azidentity"
-    "github.com/Azure/azure-sdk-for-go/sdk/to"
+    "github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/compute/armcompute"
 )
 ```
 
@@ -54,11 +52,13 @@ The default authentication option is **DefaultAzureCredential**, which uses the 
 
 ```go
 cred, err := azidentity.NewDefaultAzureCredential(nil)
+if err != nil {
+  // handle error
+}
 ```
 
 ## Creating a Resource Management client
 
-<!--  -->
 Once you have a credential from Azure Identity, create a client to connect to the target Azure service.
 
 For example, let's say you want to connect to the [Azure Compute](https://azure.microsoft.com/product-categories/compute/) service. The [Compute package](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/compute/armcompute) consist of one or more clients. A client groups a set of related APIs, providing access to its functionality within the specified subscription. You create one or more clients to access the APIs you require using an `armcore.Connection` object.
@@ -73,6 +73,25 @@ The same pattern is used to connect with other Azure services. For example, inst
 
 ```go
 client := armnetwork.NewVirtualNetworksClient("<subscription ID>",cred, nil)
+```
+
+**Code sample**:
+
+```go
+package main
+
+import (
+	"github.com/Azure/azure-sdk-for-go/sdk/azidentity"
+	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/compute/armcompute"
+)
+
+func main() {
+	cred, err := azidentity.NewDefaultAzureCredential(nil)
+	if err != nil {
+		// handle error
+	}
+	client := armcompute.NewVirtualMachinesClient("SubID", cred, nil)
+}
 ```
 
 ## Using the Azure SDK for Go reference documentation
