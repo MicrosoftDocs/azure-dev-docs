@@ -332,7 +332,7 @@ To configure environment variables for the web app from VS Code, you must have t
 |:----------------|-----------:|
 | [!INCLUDE [VS Code connect app to postgres step 1](<./includes/django-postgresql-webapp/connect-postgres-to-app-vscode-1.md>)] | :::image type="content" source="./media/django-postgresql-webapp/connect-app-to-database-azure-extension-240px.png" lightbox="./media/django-postgresql-webapp/connect-app-to-database-azure-extension.png" alt-text="A screenshot showing how to locate the Azure Tools extension in VS Code." ::: |
 | [!INCLUDE [VS Code connect app to postgres step 2](<./includes/django-postgresql-webapp/connect-postgres-to-app-vscode-2.md>)] | :::image type="content" source="./media/django-postgresql-webapp/connect-app-to-database-create-setting-240px.png" lightbox="./media/django-postgresql-webapp/connect-app-to-database-create-setting.png" alt-text="A screenshot showing how to add a setting to the App Service." ::: |
-| [!INCLUDE [VS Code connect app to postgres step 3](<./includes/django-postgresql-webapp/connect-postgres-to-app-vscode-3.md>)] | :::image type="content" source="./media/django-postgresql-webapp/connect-app-to-database-settings-example-240px.png" lightbox="./media/django-postgresql-webapp/connect-app-to-database-settings-example.png" alt-text="A screenshot showing adding settings for app service to connect to Postgresql database." ::: |
+| [!INCLUDE [VS Code connect app to postgres step 3](<./includes/django-postgresql-webapp/connect-postgres-to-app-vscode-3.md>)] | :::image type="content" source="./media/django-postgresql-webapp/connect-app-to-database-settings-example-a-240px.png" lightbox="./media/django-postgresql-webapp/connect-app-to-database-settings-example-a.png" alt-text="A screenshot showing adding settings for app service to connect to Postgresql database." :::  :::image type="content" source="./media/django-postgresql-webapp/connect-app-to-database-settings-example-b-240px.png" lightbox="./media/django-postgresql-webapp/connect-app-to-database-settings-example-b.png" alt-text="A screenshot showing adding settings for app service to connect to Postgresql database." ::: |
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -345,12 +345,9 @@ az webapp config appsettings set \
    --settings DBHOST=$DB_SERVER_NAME DBNAME=$DB_NAME  DBUSER=$ADMIN_USERNAME DBPASS=$ADMIN_PWD
 ```
 
-* *DBHOST* &rarr; Use the name of the name you used earlier with the `az postgres up` command. The code in *azuresite/production.py* automatically appends `.postgres.database.azure.com` to create the full Postgres server URL.
-* *DBNAME* &rarr; Use `restaurant`
-* *DBUSER, DBPASS* &rarr; Use the administrator credentials that you used with the earlier `az postgres up` command, or those that `az postgres up` generated for you. The code in *azuresite/production.py* automatically constructs the full Postgres username from `DBUSER` and `DBHOST`, so don't include the `@server` portion. |
-
->[!NOTE]
-> The resource group and app names are drawn from the cached values in the *.azure/config* file.
+* *DBHOST* &rarr; Use the name of the name you used earlier with the `az postgres flexible-server create` command. The code in *azuresite/production.py* automatically appends `.postgres.database.azure.com` to create the full Postgres server URL.
+* *DBNAME* &rarr; Use `restaurant`.
+* *DBUSER, DBPASS* &rarr; Use the administrator credentials that you used with the earlier `az postgres flexible-server create` command. The code in *azuresite/production.py* automatically constructs the full Postgres username from `DBUSER` and `DBHOST`, so don't include the `@server` portion.
 
 ----
 

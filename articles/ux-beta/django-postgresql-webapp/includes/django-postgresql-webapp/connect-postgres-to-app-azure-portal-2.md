@@ -10,7 +10,7 @@ ms.azure.devx-azure-tooling: ['azure-portal']
 ms.custom: devx-track-python
 ---
 
-Create application settings
+Create application settings:
 
 1. Select **+ New application setting** to create settings for each of the following values (which are expected by the django sample app):
 
@@ -20,6 +20,6 @@ Create application settings
     * *DBUSER* &rarr; The administrator user name used when you provisioned the database.
     * *DBPASS* &rarr; The administrator **secure password** you created earlier.
 
-1. Confirm you have the four settings and view the hidden values.
+1. Confirm you have four settings and view their hidden values.
 
 1. Select **Save** and to apply the settings.
