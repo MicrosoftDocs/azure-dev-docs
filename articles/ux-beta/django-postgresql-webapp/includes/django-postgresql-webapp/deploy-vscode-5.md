@@ -1,1 +1,1 @@
-When the deployment is complete, a dialog box will appear in the lower right corner of the screen.  You can use this dialog to browse to your web app.
+When the deployment is complete, a dialog box will appear in the lower right corner of the screen. If you use this to browse to your web app, the page will report an error because the webapp isn't ready until you do the migration in the next step. You main see another another dialog box warning of this.
