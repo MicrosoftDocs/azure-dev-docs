@@ -287,7 +287,9 @@ Type `\?` to show help or `\q` to quit.
 
 ## 4 - Allow web app to access the database
 
-After the Azure Database for PostgreSQL server is created, configure access to the server from the web app by adding a firewall rule. 
+After the Azure Database for PostgreSQL server is created, configure access to the server from the web app by adding a firewall rule. This can be done through the Azure portal or the Azure CLI. 
+
+If you are working in VS Code, right-click the database server and select **Open in Portal** to go to the Azure portal. Or, go to the [Azure Cloud Shell](https://shell.zure.com) and run the Azure CLI commands.
 ### [Azure portal](#tab/azure-portal-access)
 
 | Instructions    | Screenshot |
