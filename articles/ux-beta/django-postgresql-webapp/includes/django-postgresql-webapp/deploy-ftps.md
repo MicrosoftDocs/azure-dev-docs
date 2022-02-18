@@ -1,3 +1,14 @@
+---
+author: jess-johnson-msft
+ms.author: jejohn
+ms.topic: include
+ms.date: 01/25/2022
+ms.service: app-service
+ms.role: developer
+ms.devlang: python
+ms.custom: devx-track-python
+---
+
 You can deploy your application code to Azure using FTPS (FTP over SSL). When deploying using FTPS, you must deploy both your source code and any dependant packages as FTPS deployment does not offer any form of build automation.
 
 No configuration is necessary to enable FTPS. The FTPS endpoint for your app is already active. You do need to obtain the FTPS endpoint and FTPS credentials to use which can be done from the Azure portal or the Azure CLI.

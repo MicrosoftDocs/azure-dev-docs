@@ -1,3 +1,14 @@
+---
+author: jess-johnson-msft
+ms.author: jejohn
+ms.topic: include
+ms.date: 01/25/2022
+ms.service: app-service
+ms.role: developer
+ms.devlang: python
+ms.custom: devx-track-python
+---
+
 You can deploy your application code from a local Git repository to Azure by configuring a [Git remote](https://git-scm.com/book/en/v2/Git-Basics-Working-with-Remotes) in your local repo pointing at Azure to push code to. The URL of the remote repository and Git credentials needed for configuration can be retrieved using either the Azure portal or the Azure CLI.
 
 ### [Azure portal](#tab/deploy-instructions-azportal)

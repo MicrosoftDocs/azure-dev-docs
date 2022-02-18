@@ -1,3 +1,15 @@
+---
+author: jess-johnson-msft
+ms.author: jejohn
+ms.topic: include
+ms.date: 01/25/2022
+ms.service: app-service
+ms.role: developer
+ms.devlang: python
+ms.azure.devx-azure-tooling: ['azure-portal']
+ms.custom: devx-track-python
+---
+
 To locate the FTPS endpoint and credentials:
 
 1. Select the *Deployment Center* item in the menu on the left hand side of the page.

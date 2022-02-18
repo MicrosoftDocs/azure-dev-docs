@@ -21,10 +21,10 @@ In this tutorial, you will deploy a data-driven Python web app using the **[Djan
 
 **To complete this tutorial, you'll need:**
 
-1. An Azure account with an active subscription exists. If you do not have an Azure account, you [can create one for free](https://azure.microsoft.com/free/python).
-1. Knowledge of [Python with Django development](/learn/paths/django-create-data-driven-websites/).
-1. [Python 3.7 or higher](https://www.python.org/downloads/) installed locally.
-1. [PostgreSQL](https://www.postgresql.org/download/) installed locally.
+* An Azure account with an active subscription exists. If you do not have an Azure account, you [can create one for free](https://azure.microsoft.com/free/python).
+* Knowledge of [Python with Django development](/learn/paths/django-create-data-driven-websites/).
+* [Python 3.7 or higher](https://www.python.org/downloads/) installed locally.
+* [PostgreSQL](https://www.postgresql.org/download/) installed locally.
 
 ## 1 - Sample application
 
@@ -525,7 +525,7 @@ You can optionally add the `--no-wait` argument to allow the command to return b
 
 ----
 
-## Next Steps
+## Next steps
 
 > [!div class="nextstepaction"]
 > [Configure Python app](/azure/app-service/configure-language-python)

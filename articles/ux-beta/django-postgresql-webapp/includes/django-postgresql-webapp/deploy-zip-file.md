@@ -1,3 +1,14 @@
+---
+author: jess-johnson-msft
+ms.author: jejohn
+ms.topic: include
+ms.date: 01/28/2022
+ms.service: app-service
+ms.role: developer
+ms.devlang: python
+ms.custom: devx-track-python
+---
+
 Applications can be deployed to Azure by creating and uploading a ZIP file of the application code to Azure. ZIP files can be uploaded to Azure using the Azure CLI or a HTTP client like [cURL](https://curl.se/).
 
 ### Enable build automation
