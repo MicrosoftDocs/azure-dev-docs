@@ -1,3 +1,14 @@
+---
+author: jess-johnson-msft
+ms.author: jejohn
+ms.topic: include
+ms.date: 01/25/2022
+ms.service: app-service
+ms.role: developer
+ms.devlang: python
+ms.custom: devx-track-python
+---
+
 You can deploy your application code to Azure using FTPS (FTP over SSL). When deploying using FTPS, you must deploy both your source code and any dependant packages as FTPS deployment does not offer any form of build automation.
 
 No configuration is necessary to enable FTPS. The FTPS endpoint for your app is already active. You do need to obtain the FTPS endpoint and FTPS credentials to use which can be done from the Azure portal or the Azure CLI.
@@ -7,7 +18,7 @@ No configuration is necessary to enable FTPS. The FTPS endpoint for your app is 
 | Instructions    | Screenshot |
 |:----------------|-----------:|
 | [!INCLUDE [Azure portal FTPS 1](<./deploy-ftps/azure-portal-1.md>)] | :::image type="content" source="../../media/quickstart-python/deploy-ftps/azure-portal-1-240px.png" alt-text="A screenshot showing how to navigate to a web app using the search box in Azure portal." lightbox="../../media/quickstart-python/deploy-ftps/azure-portal-1.png"::: |
-| [!INCLUDE [Azure portal FTPS 2](<./deploy-ftps/azure-portal-2.md>)] | :::image type="content" source="../../media/quickstart-python/deploy-ftps/azure-portal-2-240px.png" alt-text="A screenshot showing te location of the deployment page and how to view the FTPS endpoint and credentials in the Azure portal." lightbox="../../media/quickstart-python/deploy-ftps/azure-portal-2.png"::: |
+| [!INCLUDE [Azure portal FTPS 2](<./deploy-ftps/azure-portal-2.md>)] | :::image type="content" source="../../media/quickstart-python/deploy-ftps/azure-portal-2-240px.png" alt-text="A screenshot showing thee location of the deployment page and how to view the FTPS endpoint and credentials in the Azure portal." lightbox="../../media/quickstart-python/deploy-ftps/azure-portal-2.png"::: |
 
 ### [Azure CLI](#tab/deploy-instructions-azcli)
 

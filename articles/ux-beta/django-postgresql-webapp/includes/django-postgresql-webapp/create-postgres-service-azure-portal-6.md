@@ -10,6 +10,8 @@ ms.azure.devx-azure-tooling: ['azure-portal']
 ms.custom: devx-track-python
 ---
 
-On the main *Single server* page, select the **Review + create** button at the bottom of the screen.
-<br><br>
-This will take you to the *Review* page.  Select **Create** to create your Azure Database for PostgreSQL Single Server Service.
+Back on the main **Flexible server** page, finish the basic configuration:
+
+1. **Administrator account** &rarr; Enter a **Admin username** and **Password** to be used for the database administrator account.
+
+1. Select **Next: Networking** at the bottom of the screen.

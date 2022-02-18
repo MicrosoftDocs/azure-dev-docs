@@ -14,4 +14,4 @@ Configure Linux App Service Plan:
 
 1. Select **Create new App Service plan**.
 
-1. Enter *msdocs-tutorial-django-postgresql-plan* or use the auto-generated name.
+1. Enter *msdocs-django-postgres-webapp-plan* or use the auto-generated name.

@@ -266,7 +266,7 @@ Follow these steps while signed-in to the Azure portal to delete a resource grou
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [JavaScript on Azure developer center](/azure/developer/javascript)
+> [JavaScript on Azure developer center](../../javascript/index.yml)
 
 > [!div class="nextstepaction"]
 > [Configure Node.js app in App Service](/azure/app-service/configure-language-nodejs)

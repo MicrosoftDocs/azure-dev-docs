@@ -10,4 +10,4 @@ ms.azure.devx-azure-tooling: ['vscode-azure-tools']
 ms.custom: devx-track-python
 ---
 
-Select **PostgreSQL Single Server** from the list.
+Select **PostgreSQL Flexible Server** from the list.
