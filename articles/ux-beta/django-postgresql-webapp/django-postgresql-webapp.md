@@ -15,7 +15,7 @@ ROBOTS: NOINDEX
 
 # Deploy a Django web app with PostgreSQL in Azure
 
-In this tutorial, you will deploy a data-driven Python web app using the **[Django](https://www.djangoproject.com/)** framework and an **[Azure Database for PostgreSQL](/azure/postgresql/)** database.  The Django app will be hosted in a fully managed **[Azure App Service](/azure/app-service/overview#app-service-on-linux)** which supports [Python 3.7 or higher](https://www.python.org/downloads/) in a Linux server environment. You can start with the **Basic (B1)** pricing tier that can be scaled up at any later time.
+In this tutorial, you will deploy a data-driven Python web app using the **[Django](https://www.djangoproject.com/)** framework and an **[Azure Database for PostgreSQL](/azure/postgresql/)** database.  The Django app will be hosted in a fully managed **[Azure App Service](/azure/app-service/overview#app-service-on-linux)** which supports [Python 3.7 or higher](https://www.python.org/downloads/) in a Linux server environment. You can start with a basic pricing tier that can be scaled up at any later time.
 
 :::image type="content" border="False" source="./media/django-postgresql-webapp/django-postgresql-app-architecture-240px.png" lightbox="./media/django-postgresql-webapp/django-postgresql-app-architecture.png" alt-text="An architecture diagram showing an  App Service with a PostgreSQL database in Azure.":::
 
@@ -53,7 +53,7 @@ pip install -r requirements.txt
 
 Set environment variables to specify how to connect to a local PostgreSQL instance.
 
-This sample application requires a *.env* file describing how to connect to your local PostgreSQL instance. Create an *.env* file using the *.env.sample* file as a guide. Set the value of `DBNAME` to the name of an existing database in your local PostgreSQL instance. This tutorial assumes the database name is *restaurant*. Set the values of `DBHOST`, `DBUSER`, and `DBPASS` as appropriate for your local PostgreSQL instance.
+This sample application requires an *.env* file describing how to connect to your local PostgreSQL instance. Create an *.env* file using the *.env.sample* file as a guide. Set the value of `DBNAME` to the name of an existing database in your local PostgreSQL instance. This tutorial assumes the database name is *restaurant*. Set the values of `DBHOST`, `DBUSER`, and `DBPASS` as appropriate for your local PostgreSQL instance.
 
 If you want to run SQLite locally instead, follow the instructions in the comments of the  *settings.py* file.
 
@@ -98,7 +98,7 @@ To create Azure resources in VS Code, you must have the [Azure Tools extension p
 | Instructions    | Screenshot |
 |:----------------|-----------:|
 | [!INCLUDE [A screenshot showing how to use the search box in the top tool bar to find App Services in Azure](<./includes/django-postgresql-webapp/create-app-service-vscode-1.md>)] | :::image type="content" source="./media/django-postgresql-webapp/create-app-service-vscode-1-240px.png" lightbox="./media/django-postgresql-webapp/create-app-service-vscode-1.png" alt-text="A screenshot showing how to find the VS Code Azure extension in VS Code." ::: |
-| [!INCLUDE [A screenshot showing how to use the search box in the top tool bar to find App Services in Azure](<./includes/django-postgresql-webapp/create-app-service-vscode-2.md>)] | :::image type="content" source="./media/django-postgresql-webapp/create-app-service-vscode-2-240px.png" lightbox="./media/django-postgresql-webapp/create-app-service-vscode-2.png" alt-text="A screenshot showing how to use create a new web app in VS Code." ::: |
+| [!INCLUDE [A screenshot showing how to use the search box in the top tool bar to find App Services in Azure](<./includes/django-postgresql-webapp/create-app-service-vscode-2.md>)] | :::image type="content" source="./media/django-postgresql-webapp/create-app-service-vscode-2-240px.png" lightbox="./media/django-postgresql-webapp/create-app-service-vscode-2.png" alt-text="A screenshot showing how to create a new web app in VS Code." ::: |
 | [!INCLUDE [A screenshot showing how to use the search box in the top tool bar to find App Services in Azure](<./includes/django-postgresql-webapp/create-app-service-vscode-3.md>)] | :::image type="content" source="./media/django-postgresql-webapp/create-app-service-vscode-3-240px.png" lightbox="./media/django-postgresql-webapp/create-app-service-vscode-3.png" alt-text="A screenshot showing how to use the search box in the top tool bar of VS Code to name a new web app." ::: |
 | [!INCLUDE [A screenshot showing how to use the search box in the top tool bar to find App Services in Azure](<./includes/django-postgresql-webapp/create-app-service-vscode-4.md>)] | :::image type="content" source="./media/django-postgresql-webapp/create-app-service-vscode-4a-240px.png" lightbox="./media/django-postgresql-webapp/create-app-service-vscode-4a.png" alt-text="A screenshot showing how to use the search box in the top tool bar of VS Code to create a new resource group." ::: :::image type="content" source="./media/django-postgresql-webapp/create-app-service-vscode-4b-240px.png" lightbox="./media/django-postgresql-webapp/create-app-service-vscode-4b.png" alt-text="A screenshot showing how to use the search box in the top tool bar of VS Code to name a new resource group." ::: |
 | [!INCLUDE [A screenshot showing how to use the search box in the top tool bar to find App Services in Azure](<./includes/django-postgresql-webapp/create-app-service-vscode-5.md>)] | :::image type="content" source="./media/django-postgresql-webapp/create-app-service-vscode-5-240px.png" lightbox="./media/django-postgresql-webapp/create-app-service-vscode-5.png" alt-text="A screenshot showing how to use the search box in the top tool bar of VS Code to set the runtime stack of a web app in Azure." ::: |
@@ -222,8 +222,8 @@ az postgres flexible-server create \
 
 * *resource-group* &rarr; Use the same resource group name in which you created the web app, for example `msdocs-django-postgres-webapp-rg`.
 * *name* &rarr; The PostgreSQL database server name. This name must be **unique across all Azure** (the server endpoint becomes `https://<name>.postgres.database.azure.com`). Allowed characters are `A`-`Z`, `0`-`9`, and `-`. A good pattern is to use a combination of your company name and server identifier. (`msdocs-django-postgres-webapp-db`)
-* *location* &rarr; Use the same location use used for the web app.
-* *admin-user* &rarr; Username for the administrator login. It can't be `azure_superuser`, `admin`, `administrator`, `root`, `guest`, or `public`. For example, `demoadmin` is okay.
+* *location* &rarr; Use the same location used for the web app.
+* *admin-user* &rarr; Username for the administrator account. It can't be `azure_superuser`, `admin`, `administrator`, `root`, `guest`, or `public`. For example, `demoadmin` is okay.
 * *admin-password* Password of the administrator user. It must contain 8 to 128 characters from three of the following categories: English uppercase letters, English lowercase letters, numbers, and non-alphanumeric characters.
 
     > [!IMPORTANT]
@@ -401,7 +401,7 @@ In VS Code, you can use the [Azure Tools extension pack](https://marketplace.vis
 In the **App Service** section of the Azure Tools extension:
 
 1. Locate your web app and right-click to bring up the context menu.
-2. Select **SSH into Web App** to open a SSH terminal window.
+2. Select **SSH into Web App** to open an SSH terminal window.
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -437,7 +437,7 @@ When you see the django sample web app, it is running in a Linux container in Ap
 
 ## 9 - Stream diagnostic logs
 
-Azure App Service captures all messages output to the console to help you diagnose issues with your application. The sample app include `print()` statements to demonstrate this capability as shown below.
+Azure App Service captures all messages output to the console to help you diagnose issues with your application. The sample app includes `print()` statements to demonstrate this capability as shown below.
 
 :::code language="python" source="~/../msdocs-django-postgresql-sample-app/restaurant_review/views.py" range="12-16" highlight="2":::
 
@@ -448,7 +448,7 @@ You can access the console logs generated from inside the container that hosts t
 | Instructions    | Screenshot |
 |:----------------|-----------:|
 | [!INCLUDE [Stream logs from Azure portal 1](<./includes/django-postgresql-webapp/stream-logs-azure-portal-1.md>)] | :::image type="content" source="./media/django-postgresql-webapp/stream-logs-azure-portal-1-240px.png" lightbox="./media/django-postgresql-webapp/stream-logs-azure-portal-1.png" alt-text="A screenshot showing how to set application logging in the Azure portal." ::: |
-| [!INCLUDE [Stream logs from Azure portal 2](<./includes/django-postgresql-webapp/stream-logs-azure-portal-2.md>)] | :::image type="content" source="./media/django-postgresql-webapp/stream-logs-azure-portal-2-240px.png" lightbox="./media/django-postgresql-webapp/stream-logs-azure-portal-2.png" alt-text="A screenshot showing how to to stream logs in the Azure portal." ::: |
+| [!INCLUDE [Stream logs from Azure portal 2](<./includes/django-postgresql-webapp/stream-logs-azure-portal-2.md>)] | :::image type="content" source="./media/django-postgresql-webapp/stream-logs-azure-portal-2-240px.png" lightbox="./media/django-postgresql-webapp/stream-logs-azure-portal-2.png" alt-text="A screenshot showing how to stream logs in the Azure portal." ::: |
 
 ### [VS Code](#tab/vscode-aztools)
 
@@ -498,7 +498,7 @@ Starting Live Log Stream ---
 
 You can leave the app and database running as long as you want for further development work and skip ahead to [Next steps](#next-steps).
 
-However, when you are finished with the sample app, you can remove all of the resources for the app from Azure to ensure you do not incur additional charges and keep your Azure subscription uncluttered. Removing the resource group also removes all resources in the resource group and is the fastest way to remove all Azure resources for your app.
+However, when you are finished with the sample app, you can remove all of the resources for the app from Azure to ensure you do not incur other charges and keep your Azure subscription uncluttered. Removing the resource group also removes all resources in the resource group and is the fastest way to remove all Azure resources for your app.
 
 ### [Azure portal](#tab/azure-portal)
 
