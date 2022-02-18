@@ -14,4 +14,4 @@ In the Azure portal:
 
 1. Enter *postgres* in the search bar at the top of the Azure portal.
 
-1. Select the item labeled **Azure Database for PostgreSQL servers** under the under **Services** heading on the menu that appears below the search bar.
+1. Select the item labeled **Azure Database for PostgreSQL flexible servers** under the under **Services** heading on the menu that appears below the search bar.

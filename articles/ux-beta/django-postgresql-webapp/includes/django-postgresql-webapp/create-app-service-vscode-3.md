@@ -10,6 +10,6 @@ ms.azure.devx-azure-tooling: ['vscode-azure-tools']
 ms.custom: devx-track-python
 ---
 
-In the dialog box at the top of the screen, enter the name of *msdocs-tutorial-django-postgresql-app* for this web app.
+In the dialog box at the top of the screen, enter the name of *msdocs-django-postgresql-webapp-\<unique-id>* for this web app.
 <br><br>
-When deployed, this name is used in the DNS name of the app in the form `https://<app-name>.azurewebsites.net`.
+The name must be unique across Azure. When deployed, this name is used in the DNS name of the web app is `https://<app-service-name>.azurewebsites.net`.

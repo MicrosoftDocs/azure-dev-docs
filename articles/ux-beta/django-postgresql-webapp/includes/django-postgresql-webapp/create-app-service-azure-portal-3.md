@@ -14,7 +14,7 @@ On the **Create Web App** page, fill out the form as follows:
 
 1. **Resource Group** &rarr; Select **Create new** and use a name of *msdocs-django-postgres-webapp-rg*.
 
-1. **Name** &rarr; Use *msdocs-django-postgres-webapp-XYZ* where XYZ is any three random characters. This name must be unique across Azure.
+1. **Name** &rarr; Use *msdocs-django-postgres-webapp-\<unique-id>*. The name must be unique across Azure with the web app's URL `https://<app-service-name>.azurewebsites.com`).
 
 1. **Runtime stack** &rarr; **Python 3.9**
 
