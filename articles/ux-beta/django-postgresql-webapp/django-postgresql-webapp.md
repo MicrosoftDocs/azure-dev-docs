@@ -214,13 +214,13 @@ az postgres flexible-server create \
    --name $DB_SERVER_NAME  \
    --location $LOCATION \
    --admin-user $ADMIN_USERNAME \
-   --admin-password <enter-admin-password> \
+   --admin-password <admin-password> \
    --public-access None \
    --sku-name Standard_B1ms \
    --tier Burstable
 ```
 
-* *resource-group* &rarr; Use the same resource group name from **Step 1**. (`msdocs-django-postgres-webapp-rg`)
+* *resource-group* &rarr; Use the same resource group name in which you created the web app, for example `msdocs-django-postgres-webapp-rg`.
 * *name* &rarr; The PostgreSQL database server name. This name must be **unique across all Azure** (the server endpoint becomes `https://<name>.postgres.database.azure.com`). Allowed characters are `A`-`Z`, `0`-`9`, and `-`. A good pattern is to use a combination of your company name and server identifier. (`msdocs-django-postgres-webapp-db`)
 * *location* &rarr; Use the same location use used for the web app.
 * *admin-user* &rarr; Username for the administrator login. It can't be `azure_superuser`, `admin`, `administrator`, `root`, `guest`, or `public`. For example, `demoadmin` is okay.
@@ -232,10 +232,8 @@ az postgres flexible-server create \
 * *public-access* &rarr; `None` which sets the server in public access mode with no firewall rules. Rules will be created in a later step.
 * *sku-name* &rarr; The name of the pricing tier and compute configuration, for example `Standard_B1ms`. Follow the convention {pricing tier}{compute generation}{vCores} set create this variable. For more information, see [Azure Database for PostgreSQL pricing](https://azure.microsoft.com/pricing/details/postgresql/server/).
 * *tier* &rarr; `Burstable`
-    
-**Step 2.** Configure the firewall rules on your server by using the [az postgres flexible-server firewall-rule create](/cli/azure/postgres/flexible-server/firewall-rule) command to give your local environment access to connect to the server.
 
-Create a firewall rule with `rule-name` equal to *AllowMyIp* and the `start-ip-address` and `end-ip-address` equal to your IP address. This allows you to connect your local environment to the database. To get your current IP address, see [WhatIsMyIPAddress.com](https://whatismyipaddress.com/).
+**Step 2.** Configure the firewall rules on your server by using the [az postgres flexible-server firewall-rule create](/cli/azure/postgres/flexible-server/firewall-rule) command to give your local environment access to connect to the server.
 
 ```azurecli
 az postgres flexible-server firewall-rule create \
@@ -246,7 +244,13 @@ az postgres flexible-server firewall-rule create \
    --end-ip-address <your IP>
 ```
 
-**Step 3.** Get the connection information by using the [az postgres server show](/cli/azure/postgres/flexible-server#az-postgres-flexible-server-show). This command outputs a JSON object that contains different connection strings for the database along with the server URL. **Copy the `administratorLogin` and `fullyQualifiedDomainName` values to a temporary text file** as you need them later in this tutorial.
+* *resource-group* &rarr; Use the same resource group name in which you created the web app, for example `msdocs-django-postgres-webapp-rg`.
+* *name* &rarr; The PostgreSQL database server name.
+* *rule-name* &rarr; *AllowMyIP*.
+* *start-ip-address* &rarr; equal to your IP address. To get your current IP address, see [WhatIsMyIPAddress.com](https://whatismyipaddress.com/).
+* *end-ip-address* &rarr; equal to *start-ip-address*.
+
+**Step 3.** (*optional*) You can retrieve connection information using the [az postgres server show](/cli/azure/postgres/flexible-server#az-postgres-flexible-server-show). The command outputs a JSON object that contains connection strings for the database along and the `administratorLogin` name.
 
 ```azurecli
 az postgres flexible-server show \
@@ -254,15 +258,15 @@ az postgres flexible-server show \
    --resource-group $RESOURCE_GROUP_NAME
 ```
 
-* *resource-group* &rarr; Name of resource group from earlier in this tutorial. (`msdocs-django-postgres-webapp-rg`)
-* *name* &rarr; Name of the server from **Step 1**. (`msdocs-django-postgres-webapp-db`)
+* *resource-group* &rarr; The name of resource group you used, for example, *msdocs-django-postgres-webapp-rg*.
+* *name* &rarr; The name of the database server, for example, *msdocs-django-postgres-webapp-db-\<unique-id>*.
 
 **Step 4.** In your local environment using the PostgreSQL interactive terminal [psql](https://www.postgresql.org/docs/13/app-psql.html), connect to the PostgreSQL database server, and create the `restaurant` database.
 
 ```Console
-psql --host=<server-name>.postgres.database.azure.com \
+psql --host=$DB_SERVER_NAME.postgres.database.azure.com \
      --port=5432 \
-     --username=<admin-user> \
+     --username=$ADMIN_USERNAME \
      --dbname=postgres
 
 postgres=> CREATE DATABASE restaurant;

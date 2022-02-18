@@ -10,7 +10,7 @@ ms.azure.devx-azure-tooling: ['vscode-azure-tools']
 ms.custom: devx-track-python
 ---
 
-Configure access from your local environment to the PostgreSQL database server:
+Once the database is created, configure access from your local environment to the PostgreSQL database server:
 
 1. Open the **Command Palette** (Ctrl + Shift + P).
 
