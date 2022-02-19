@@ -3,7 +3,7 @@ title: "4-SWA: Create Static Web app "
 description: Create a Static Web app. This creation process deploys your GitHub repo to Azure.  
 ms.topic: how-to
 ms.date: 10/18/2021
-ms.custom: devx-track-js
+ms.custom: devx-track-js, devx-track-azurecli 
 #intent: Create Express.js web app with easy auth configured. 
 ---
 

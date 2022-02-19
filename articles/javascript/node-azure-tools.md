@@ -3,7 +3,7 @@ title: Tool selection - JavaScript - Azure
 description: Install individual tools for Node.js and JavaScript development on Azure
 ms.topic: how-to
 ms.date: 09/27/2021
-ms.custom: seo-javascript-september2019, seo-javascript-october2019, devx-track-js
+ms.custom: seo-javascript-september2019, seo-javascript-october2019, devx-track-js, devx-track-azurecli 
 ---
 
 # Tools for JavaScript developers on Azure 
@@ -53,7 +53,7 @@ Other resources:
 
 ## TypeScript
 
-[TypeScript](https://www.typescriptlang.org/download) offers all of JavaScript’s features, and another layer on top of these: TypeScript’s type system. The main benefit of TypeScript is that it can highlight unexpected behavior in your code, lowering the chance of bugs.
+[TypeScript](https://www.typescriptlang.org/download) offers all of JavaScript's features, and another layer on top of these: TypeScript's type system. The main benefit of TypeScript is that it can highlight unexpected behavior in your code, lowering the chance of bugs.
 
 ## TypeScript and the Azure SDK client libraries
 
