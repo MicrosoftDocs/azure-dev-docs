@@ -264,6 +264,7 @@
 | @azure-tools/adl-vs | npm [0.2.0](https://www.npmjs.com/package/@azure-tools/adl-vs/v/0.2.0) |  |  |
 | @azure-tools/cadl | npm [0.16.0](https://www.npmjs.com/package/@azure-tools/cadl/v/0.16.0) |  |  |
 | @azure-tools/cadl-autorest | npm [0.13.0](https://www.npmjs.com/package/@azure-tools/cadl-autorest/v/0.13.0) |  |  |
+| @azure-tools/cadl-azure-core | npm [0.0.1](https://www.npmjs.com/package/@azure-tools/cadl-azure-core/v/0.0.1) |  |  |
 | @azure-tools/cadl-azure-resource-manager | npm [0.3.0](https://www.npmjs.com/package/@azure-tools/cadl-azure-resource-manager/v/0.3.0) |  |  |
 | @azure-tools/cadl-openapi | npm [0.4.1](https://www.npmjs.com/package/@azure-tools/cadl-openapi/v/0.4.1) |  |  |
 | @azure-tools/cadl-providerhub | npm [0.14.0](https://www.npmjs.com/package/@azure-tools/cadl-providerhub/v/0.14.0) |  |  |
@@ -331,7 +332,7 @@
 | Azure Mixed Reality Authentication | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure/mixed-reality-authentication/v/1.0.0-beta.1) | [docs](/javascript/api/overview/azure/mixed-reality-authentication-readme) | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/mixed-reality-authentication_1.0.0-beta.1/sdk/mixedreality/mixed-reality-authentication/) |
 | Azure Remote Rendering | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure/mixed-reality-remote-rendering/v/1.0.0-beta.1) | [docs](/javascript/api/overview/azure/mixed-reality-remote-rendering-readme) | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/mixed-reality-remote-rendering_1.0.0-beta.1/sdk/remoterendering/mixed-reality-remote-rendering/) |
 | Azure Video Analyzer Edge | npm [1.0.0-beta.3](https://www.npmjs.com/package/@azure/video-analyzer-edge/v/1.0.0-beta.3) | [docs](/javascript/api/overview/azure/video-analyzer-edge-readme) | GitHub [1.0.0-beta.3](https://github.com/Azure/azure-sdk-for-js/tree/@azure/video-analyzer-edge_1.0.0-beta.3/sdk/videoanalyzer/video-analyzer-edge/) |
-| Batch | npm [10.0.2](https://www.npmjs.com/package/@azure/batch/v/10.0.2) |  | GitHub [10.0.2](https://github.com/azure/azure-sdk-for-js/tree/main/sdk/batch/batch) |
+| Batch | npm [10.1.0](https://www.npmjs.com/package/@azure/batch/v/10.1.0) |  | GitHub [10.1.0](https://github.com/azure/azure-sdk-for-js/tree/main/sdk/batch/batch) |
 | Cognitive Search | npm [11.2.1](https://www.npmjs.com/package/@azure/search-documents/v/11.2.1)<br>npm [11.3.0-beta.6](https://www.npmjs.com/package/@azure/search-documents/v/11.3.0-beta.6) | [docs](/javascript/api/overview/azure/search-documents-readme) | GitHub [11.2.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/search-documents_11.2.1/sdk/search/search-documents/)<br>GitHub [11.3.0-beta.6](https://github.com/Azure/azure-sdk-for-js/tree/@azure/search-documents_11.3.0-beta.6/sdk/search/search-documents/) |
 | Communication Calling | npm [1.3.2](https://www.npmjs.com/package/@azure/communication-calling/v/1.3.2) |  |  |
 | Communication Chat | npm [1.1.2](https://www.npmjs.com/package/@azure/communication-chat/v/1.1.2) | [docs](/javascript/api/overview/azure/communication-chat-readme) | GitHub [1.1.2](https://github.com/Azure/azure-sdk-for-js/tree/@azure/communication-chat_1.1.2/sdk/communication/communication-chat/) |

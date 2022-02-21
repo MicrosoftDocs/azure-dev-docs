@@ -9,8 +9,8 @@ ms.devlang: javascript
 author: alexwolfmsft
 ms.author: alexwolf
 ms.azure.dev-framework: 
+ms.custom: devx-track-azurecli
 ms.azure.devx-azure-tooling: ['azure-portal', 'visual-studio-code-azure-tools', 'azure-cli']
-ms.custom: 
 ROBOTS: NOINDEX
 ---
 
