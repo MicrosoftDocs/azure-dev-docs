@@ -36,7 +36,7 @@ highlightedContent:
       url: ./intro/azure-developer-create-resources.md
     - title: Key concepts for building Azure apps
       itemType: architecture
-      url: ./intro/key-concepts.md
+      url: ./intro/azure-developer-key-concepts.md
     - title: Understand Azure billing
       itemType: concept
       url: ./intro/azure-developer-billing.md

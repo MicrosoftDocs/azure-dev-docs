@@ -23,11 +23,7 @@ For a comprehensive list of all Azure services, see the [Azure documentation hub
 |![Azure Functions logo](media/azure-functions.png)|**Azure Functions**|A serverless compute platform for creating small, discrete segments of code that can be triggered from a variety of different events.  Common applications include building serverless APIs or orchestrating event-drive architectures.|
 |![Azure Container Instances logo](media/azure-container-instances.png)|**Azure Container Instances**|Run Docker containers on-demand in a managed, serverless Azure environment. Azure Container Instances is a solution for any scenario that can operate in isolated containers, without orchestration.|
 |![Azure Kubernetes Services logo](media/azure-kubernetes-service.png)|**Azure Kubernetes Services**|Quickly deploy a production ready Kubernetes cluster to the cloud and offload the operational overhead to Azure. Azure handles critical tasks, like health monitoring and maintenance.  You only need to manage and maintain the agent nodes.|
-
-
 |![Azure Spring Cloud logo](media/azure-spring-cloud.png)|**Azure Spring Cloud**|Host Spring Boot microservice applications in Azure, no code changes required.  Azure Spring Cloud provides monitoring, configuration management, service discovery, CI/CD integration and more.|
-
-
 |![Azure Virtual Machines logo](media/azure-virtual-machines.png)|**Azure Virtual Machines**|Host your app using virtual machines in Azure when you need more control over your computing environment. Azure VMs offer a flexible, scalable computing environment for both Linux and Windows virtual machines. |
 
 ## Data
@@ -82,4 +78,4 @@ And finally, here's a list of popular services that support a wide range of work
 |Icon|Service|Description|
 |----|-------|-----------|
 |![Azure Key Vault logo](media/azure-key-vault.png)|**Azure Key Vault**|Every application has application secrets like connection strings and API keys it must store. Azure Key Vault helps you store and access those secrets securely, in an encrypted vault with restricted access to make sure your secrets and your application are not compromised.|
-|![Application Insights Logo](media/applications-insight.png)|**Application Insights**|A comprehensive solution for application monitoring, alerting, and log analysis for your applications.|
+|![Application Insights Logo](media/application-insight.png)|**Application Insights**|A comprehensive solution for application monitoring, alerting, and log analysis for your applications.|

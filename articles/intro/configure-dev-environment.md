@@ -1,6 +1,6 @@
 ---
 title: Configure your Azure development environment
-description: An overview of important services that developers use when building solutions on Azure.
+description: Instructions on how to configure your development environment when working with Azure.
 ms.prod: azure
 ms.topic: article
 ms.date: 01/13/2022
