@@ -18,28 +18,28 @@ highlightedContent:
   items:
     - title: Introduction to Azure for developers
       itemType: get-started # controls the icon image and super-title text
-      url: intro/azure-developer-overview
+      ./url: intro/azure-developer-overview.md
     - title: Key Azure services for developers
       itemType: overview
-      url: intro/azure-developer-key-services
-    - title: Hosting applications on Azure
+      url: ./intro/azure-developer-key-services.md
+    - title: Host applications on Azure
       itemType: overview
-      url: intro/hosting-apps-on-azure
-    - title: Using Azure services from your apps
+      url: ./intro/hosting-apps-on-azure.md
+    - title: Connect apps to Azure services
       itemType: overview
-      url: intro/connect-to-azure-services
-    - title: Configuring your dev environment for Azure
+      url: ./intro/connect-to-azure-services.md
+    - title: Configure your dev environment for Azure
       itemType: how-to-guide
-      url: intro/configure-dev-environment
-    - title: Creating resources in Azure
+      url: ./intro/configure-dev-environment.md
+    - title: Create resources in Azure
       itemType: concept
-      url: intro/azure-developer-create-resources
+      url: ./intro/azure-developer-create-resources.md
     - title: Key concepts for building Azure apps
       itemType: architecture
-      url: intro/key-concepts
-    - title: Understanding Azure billing
+      url: ./intro/key-concepts.md
+    - title: Understand Azure billing
       itemType: concept
-      url: intro/azure-developer-billing
+      url: ./intro/azure-developer-billing.md
 
 productDirectory:
 #  title: Developer centers
