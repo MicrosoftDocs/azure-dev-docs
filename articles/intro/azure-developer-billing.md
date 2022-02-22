@@ -3,35 +3,36 @@ title: How am I billed?
 description: A developer focused overview of how billing works on Azure.
 keywords: azure billing, azure portal
 ms.topic: overview
-ms.date: 01/07/2022
+ms.date: 02/20/2022
 ms.custom: overview
 ---
 
 # How am I billed?
 
-When creating applications that use Azure, you should understand the factors that influence the cost of the solutions you create.  You will also want to understand how you can estimate the cost of a solution, how you are billed, and how you can monitor the costs incurred in your Azure subscriptions.
+When creating applications that use Azure, you need to understand the factors that influence the cost of the solutions you create.  You will also want to understand how you can estimate the cost of a solution, how you are billed, and how you can monitor the costs incurred in your Azure subscriptions.
 
 ## What is an Azure Account?
 
-To create or work with Azure, you must have an Azure account. You may have an Azure account through the organization you work for or the school you attend.  If you don't have an Azure account through an organization, you can create one using your Microsoft account.  
+Your Azure account is what allows you to login to Azure.  You may have an Azure account through the organization you work for or the school you attend.  You may also create an individual Azure account for personal use linked to your Microsoft account.  If you are looking to learn about and experiment with Azure, you can [create an Azure account for free](https://azure.microsoft.com/en-us/free/).
 
-Your Azure account allows you to login to tools like the [Azure Portal](https://portal.azure.com/), [Azure CLI](/cli/azure/), and [Azure PowerShell](/powershell/azure) which are used to create, manage, and delete Azure resources.  The Azure portal also allows you to view billing information for your subscription(s).
+> [!div class="nextstepaction"]
+> [Create a Free Azure account](https://azure.microsoft.com/en-us/free/)
+
+If you are using an Azure account from your workplace or school, your organization's Azure administrators has likely assigned different groups and roles to your account that govern what you can and cannot do in Azure.  If you cannot create a certain type of resource, check with your Azure administrator on the permissions assigned to your account.
 
 ## What is an Azure subscription?
 
-A subscription is a logical grouping of Azure services that is linked to an Azure account. A single Azure account can contain multiple subscriptions.
+Billing for Azure resources is done on a per-subscription basis. An Azure subscription therefore defines a set of Azure resources that will be invoiced together.
 
-Billing for Azure services is done on a per-subscription basis.  For example, an organization may choose to create one subscription for each department in the organization such that each department pays for their own Azure resources.  *When creating Azure resources, it is important to pay attention to what subscription you are creating the resources in because the owner of that subscription will pay for those resources.*  
+Organizations often create multiple Azure subscriptions for billing and management purposes.  For example, an organization may choose to create one subscription for each department in the organization such that each department pays for their own Azure resources.  *When creating Azure resources, it is important to pay attention to what subscription you are creating the resources in because the owner of that subscription will pay for those resources.*  
 
-
-If you have an individual Azure account tied to your Microsoft account, it is also possible to have multiple subscriptions.  For example, a user might have both a Visual Studio Enterprise subscription that provides monthly Azure credits and a Pay-as-you-go subscription which bills to their credit card.  In this scenario
-
+If you have an individual Azure account tied to your Microsoft account, it is also possible to have multiple subscriptions.  For example, a user might have both a Visual Studio Enterprise subscription that provides monthly Azure credits and a Pay-as-you-go subscription which bills to their credit card.  In this scenario, you again want to be sure and choose the right subscription when creating Azure resources to avoid an unexpected bill for Azure services.
 
 ## What factors influence the cost of a service on Azure?
 
-Generally speaking, there are several factors that influence the costs of a given service.  Given the unique nature of each service, you should use the **Azure Pricing Calculator** to estimate how much a service will cost.
+There are several factors that can influence the cost of a given service in Azure.
 
-- **Compute processing power** - Most compute services are billed based on the speed and number of processor cores you will utilize.  A development server can use the lowest speeds and processors, while high load production data processing systems or high load servers will likely want the fastest processors with the maximum number of processing cores available.
+- **Compute power** - Compute power refers to the amount of CPU and memory assigned to a resource.  The more compute power allocated to a resource, the higher the cost will be.  Many Azure service include the ability to elastically scale, allowing you to ramp up compute power when demand is high but scale back and save money when demand is low.
 - **Storage amount** - Most storage services are billed based on the amount of data you want to store.
 - **Storage hardware** - Some storage services provide options on the type of hardware your data will be stored on.  Depending on the type of data you are storing, you may want a more long-term storage option with slower read and write speeds, or you may be willing to pay for low latency read and writes for highly transactional operations.
 - **Bandwidth** - Most services bill ingress and egress separately.  Ingress is the amount of bandwidth required to handle incoming requests.  Egress is the amount of bandwidth required to handle outgoing data that satisfies those requests.
@@ -39,22 +40,31 @@ Generally speaking, there are several factors that influence the costs of a give
 - **Per service** - Some services simply charge a straight monthly fee.
 - **Region** - Sometimes, services have different prices depending on the region (data center) where it's hosted.
 
-![Conceptual video](https://via.placeholder.com/640x360?text=conceptual-video)
+## Azure Pricing Calculator
 
-Learn more about the **Azure Pricing Calculator**:
+Most Azure solutions involve multiple Azure services, making it challenging to determine the cost of a solution upfront.  For this reason, Azure provides the [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculator/) to help estimate how much a solution will cost.
 
-- [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculator/)
-
+> [!div class="nextstepaction"]
+> [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculator/)
 
 ## Where can I find our current spend in Azure?
 
 The Azure portal provides an easy to navigate and visual presentation of all the services your organization utilized during a particular month.  You can view by service, by resource group, and so on.  
 
-![Screenshot of Azure Portal displaying services utilized during a given month.](https://via.placeholder.com/600x400?text=Portal+Screenshot)
+To access billing information in the Azure portal, [sign in to the Azure portal](http://portal.azure.com) and follow these steps.
 
-You can also access this information programmatically to create a customized and easily accessible view into your cloud spend for management via the Billing API.
+| Instructions    | Screenshot |
+|:----------------|-----------:|
+| [!INCLUDE [Create app service step 1](<./includes/billing-azure-portal-1.md>)] | :::image type="content" source="./media/billing-azure-portal-1-240px.png" alt-text="." lightbox="./media/billing-azure-portal-1.png"::: |
+| [!INCLUDE [Create app service step 2](<./includes/billing-azure-portal-2.md>)] | :::image type="content" source="./media/billing-azure-portal-2-240px.png" alt-text="." lightbox="./media/billing-azure-portal-2.png"::: |
+| [!INCLUDE [Create app service step 4](<./includes/billing-azure-portal-3.md>)] | :::image type="content" source="./media/billing-azure-portal-3-240px.png" alt-text="." lightbox="./media/billing-azure-portal-3.png"::: |
 
-Learn more about accessing billing data programmatically:
+You can also access the Cost Management + Billing overview page directly.
+
+> [!div class="nextstepaction"]
+> [Azure Cost Management in the Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_CostManagement/Menu/overview)
+
+Cost information can also be accessed programmatically to create a customized and easily accessible view into your cloud spend for management via the Billing API.
 
 - [Azure Billing libraries for .NET](/dotnet/api/overview/azure/billing)
 - [Azure Billing libraries for Python](/python/api/overview/azure/billing)
@@ -62,18 +72,12 @@ Learn more about accessing billing data programmatically:
 - [All other programming languages - RESTful API](/rest/api/billing/)
 - [Azure consumption API overview](/azure/cost-management-billing/manage/consumption-api-overview)
 
+## What tools are available to monitor and analyze my cloud spend?
 
-## What tools are available to monitor set up notifications about our cloud spend?
+Two services are available to set up and manage your cloud costs.
 
-There are two critical services available to set up and manage your cloud costs.
-
-The first is **cost alerts** which allows you to set spending thresholds and receive notifications as your bill nears those thresholds.  The following video shows you the basics of setting these up.
-
-![Screencast video demo](https://via.placeholder.com/640x360?text=screencast-video-demo)
-
-The second is **Azure Cost Management** which helps you plan for and control your costs, providing cost analysis, budgets, recommendations, and allows you to export cost management data for analysis in Excel or your own custom reporting.
-
-![Screenshot of Cost Management screen in the Azure Portal](https://via.placeholder.com/600x400?text=azure+cost+management+Screenshot)
+- The first is **cost alerts** which allows you to set spending thresholds and receive notifications as your bill nears those thresholds. 
+- The second is **Azure Cost Management** which helps you plan for and control your costs, providing cost analysis, budgets, recommendations, and allows you to export cost management data for analysis in Excel or your own custom reporting.
 
 Learn more about cost alerts and **Azure Cost Management**:
 

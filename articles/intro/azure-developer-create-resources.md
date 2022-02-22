@@ -2,8 +2,9 @@
 title: How do I create and manage resources in Azure?
 description: An overview of techniques that developers use to provision resources in Azure.
 keywords: azure portal, azure cli, azure powershell, azure sdk, azure rest apis
+ms.prod: azure
 ms.topic: overview
-ms.date: 12/28/2021
+ms.date: 01/25/2022
 ms.custom: overview
 ---
 
@@ -41,7 +42,7 @@ Developers using [Visual Studio Code](https://code.visualstudio.com) can manage 
 
 Command line tools offer the benefits of efficiency, repeatability, and the ability to script recurring tasks.  Azure provides two different command line tools to choose from. The Azure CLI and Azure PowerShell are functionally equivalent.  You only need to select and use the tool that best fits your individual workflow.
 
-#### Azure CLI
+### Azure CLI
 
 The [Azure CLI](/cli/azure/what-is-azure-cli) is a cross-platform command line tool that runs on Windows, Linux and macOS.  The Azure CLI:
 
@@ -54,7 +55,7 @@ Azure CLI commands are easily incorporated into popular scripting languages like
 > [!div class="nextstepaction"]
 > [Learn more about the Azure CLI](/cli/azure/what-is-azure-cli)
 
-#### Azure PowerShell
+### Azure PowerShell
 
 [Azure PowerShell](/powershell/azure/what-is-azure-powershell) is a set of cmdlets for managing Azure resources directly from PowerShell.  Azure PowerShell is installed as a PowerShell module and works with PowerShell 7.0.6 LTS and PowerShell 7.1.3 or higher on all platforms including Windows, macOS, and Linux. It's also compatible with Windows PowerShell 5.1.
 
@@ -67,25 +68,25 @@ For more information on choosing between Azure CLI and Azure PowerShell, see the
 
 ## Infrastructure as Code Tools
 
-[Infrastructure as Code](/devops/deliver/what-is-infrastructure-as-code) is the process of managing and provisioning resources through declarative configuration files.  By using a declarative end state specification, infrastructure as code guarantees a set of resources are created and configured the same way each time. Further, most infrastructure as code tools monitor resources to make sure they remain configured in the desired state.  
+[Infrastructure as Code](/devops/deliver/what-is-infrastructure-as-code) is the process of managing and provisioning resources through declarative configuration files.  Infrastructure as code tools use a declarative end state specification to guarantees a set of resources are created and configured the same way each time. Further, most infrastructure as code tools monitor resources to make sure they remain configured in the desired state.
 
 For infrastructure deployments that are automated, repeated, and reliable, Azure supports a variety of Infrastructure as Code tools.
 
-#### Bicep
+### Bicep
 
 [Bicep](/azure/azure-resource-manager/bicep/) is a domain-specific language (DSL) that uses declarative syntax to deploy Azure resources. It provides concise syntax, reliable type safety, and support for code reuse.
 
 > [!div class="nextstepaction"]
 > [Learn more about Bicep](/azure/azure-resource-manager/bicep/)
 
-#### Terraform
+### Terraform
 
 [Hashicorp Terraform](https://www.terraform.io/) is an open-source tool for provisioning and managing cloud infrastructure. It codifies infrastructure in configuration files that describe the topology of cloud resources.  The Terraform CLI provides a simple mechanism to deploy and version configuration files to Azure.
 
 > [!div class="nextstepaction"]
 > [Learn more about Terraform on Azure](/azure/developer/terraform/)
 
-#### Ansible
+### Ansible
 
 [Ansible](https://www.ansible.com/) is an open-source product that automates cloud provisioning, configuration management, and application deployments. Using Ansible you can provision virtual machines, containers, and network and complete cloud infrastructures. Also, Ansible allows you to automate the deployment and configuration of resources in your environment.
 

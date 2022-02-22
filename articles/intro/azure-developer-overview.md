@@ -9,7 +9,9 @@ ms.custom: overview
 
 # An overview of Azure for developers
 
-Azure is a cloud platform designed to simplify the process of building modern applications. Whether you choose to host your applications entirely in Azure or extend your on-premises applications with Azure services, Azure helps you create applications that are scalable, reliable, and maintainable. With extensive support in tools you already use and a comprehensive SDK library, Azure is designed to make you, the developer productive right from the start.
+Azure is a cloud platform designed to simplify the process of building modern applications. Whether you choose to host your applications entirely in Azure or extend your on-premises applications with Azure services, Azure helps you create applications that are scalable, reliable, and maintainable.
+
+Azure supports the most popular programming languages in use today, including Python, JavaScript, Java, .NET and Go. With a comprehensive SDK library and extensive support in tools you already use like VS Code, Visual Studio, IntelliJ, and Eclipse, Azure is designed to take advantage of skills you already have and make you productive right away.
 
 ## Application development scenarios on Azure
 
@@ -20,15 +22,3 @@ You can incorporate Azure into your application in different ways depending on y
 - **Consuming cloud services from existing on-premises applications -** Existing apps can incorporate Azure services to extend their capabilities.  For example, an application could use Azure Blob Storage to store files in the cloud, Azure Key Vault to securely store application secrets, or [Azure Cognitive Search](/azure/search/search-what-is-azure-search) to add full-text search capability. These services are fully managed by Azure and can be easily added to your application without changing your current application architecture or deployment model.
 
 - **Modern serverless architectures -** Azure Functions simplify building solutions to handle event-driven workflows, whether responding to HTTP requests, handling file uploads in Blob storage, or processing events in a queue.  You write only the code necessary to handle your event without worrying about servers or framework code.  Further, you can take advantage of over 250 connectors to other Azure and third-party services to tackle your toughest integration problems.
-
-## Why build applications using Azure?
-
-- **Azure supports the most popular languages in use today** - including .NET, Java, JavaScript, Python and Go.
-
-- **Azure works with tools you already use** - With support for tools like Visual Studio, VS Code, IntelliJ, and Eclipse, Azure shortens your learning curve by letting you use tools you are already familiar with.
-
-- **Azure supports modern DevOps workflows** - 
-
-- **Azure allows you to quickly prototype new solutions and ideas** - 
- 
-- **Azure takes infrastructure concerns out of your way** - 
