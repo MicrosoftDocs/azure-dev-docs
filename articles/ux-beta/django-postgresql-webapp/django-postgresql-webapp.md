@@ -199,7 +199,7 @@ To configure environment variables for the web app from VS Code, you must have t
 
 ### [Azure CLI](#tab/azure-cli)
 
-[!INCLUDE [Allow access from web app to postgres service with CLI](<./includes/django-postgresql-webapp/connect-postgres-to-app-cli.md>)]
+[!INCLUDE [Connect web app to postgres service with CLI](<./includes/django-postgresql-webapp/connect-postgres-to-app-cli.md>)]
 
 ----
 
