@@ -22,7 +22,7 @@ You can deploy your application code from a local Git repository to Azure by con
 
 ### [Azure CLI](#tab/deploy-instructions-azcli)
 
-[!INCLUDE [Deploy local git with CLI](<./includes/django-postgresql-webapp/deploy-local-git-cli.md>)]
+[!INCLUDE [Deploy local git with CLI](<./deploy-local-git-cli.md>)]
 
 ---
 

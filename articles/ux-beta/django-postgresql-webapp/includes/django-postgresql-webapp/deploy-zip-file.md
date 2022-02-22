@@ -27,7 +27,7 @@ Build automation in Azure is enabled by setting the `SCM_DO_BUILD_DURING_DEPLOYM
 
 ##### [Azure CLI](#tab/deploy-instructions-azcli)
 
-[!INCLUDE [Deploy using ZIP, enable build automation with CLI](<./includes/django-postgresql-webapp/deploy-zip-enable-automation-cli.md>)]
+[!INCLUDE [Deploy using ZIP, enable build automation with CLI](<./deploy-zip-enable-automation-cli.md>)]
 
 ---
 
@@ -57,7 +57,7 @@ Once you have a ZIP file, the file can be uploaded to Azure using either Azure C
 
 ##### [Azure CLI](#tab/deploy-instructions--zip-azcli)
 
-[!INCLUDE [Deploy using ZIP, enable build automation with CLI](<./includes/django-postgresql-webapp/deploy-zip-upload-zip-cli.md>)]
+[!INCLUDE [Deploy using ZIP, enable build automation with CLI](<./deploy-zip-upload-zip-cli.md>)]
 
 ##### [cURL](#tab/deploy-instructions--zip-curl)
 
