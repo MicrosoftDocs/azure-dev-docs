@@ -41,6 +41,7 @@ az postgres flexible-server create `
    --public-access None `
    --sku-name Standard_B1ms `
    --tier Burstable
+```
 
 ---
 
