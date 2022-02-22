@@ -73,6 +73,9 @@ In a web browser, go to the sample application at `http://localhost:8000` and ad
 
 :::image type="content" source="./media/django-postgresql-webapp/run-django-postgresql-app-localhost.png" alt-text="A screenshot of the Django web app with PostgreSQL running locally showing restaurants and restaurant reviews.":::
 
+> [!NOTE]
+> With this django sample app, you can create users with the `python manage.py createsuperuser` command like you would with a typical django app. For more information, see the documentation for [django django-admin and manage.py](https://docs.djangoproject.com/en/1.8/ref/django-admin/). You can use the superuser account to access the `/admin` portion of the web site.
+
 ## 2 - Create a web app in Azure
 
 To host your application in Azure, you need to create Azure App Service web app.
@@ -277,6 +280,9 @@ Browse to the deployed application in your web browser at the URL `http://<app-n
 When you see the django sample web app, it is running in a Linux container in App Service using a built-in image **Congratulations!** You've deployed your Python app to App Service.
 
 :::image type="content" source="./media/django-postgresql-webapp/run-django-postgresql-app-production.png" alt-text="A screenshot of the Django web app with PostgreSQL running in Azure showing restaurants and restaurant reviews.":::
+
+> [!NOTE]
+> With this django sample app, you can create users with the `python manage.py createsuperuser` command like you would with a typical django app. For more information, see the documentation for [django django-admin and manage.py](https://docs.djangoproject.com/en/1.8/ref/django-admin/). You can use the superuser account to access the `/admin` portion of the web site.
 
 ## 9 - Stream diagnostic logs
 
