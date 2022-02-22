@@ -2,6 +2,7 @@
 title: What is Azure?
 description: An overview of Azure from a developer's perspective.
 keywords: azure billing, azure portal
+ms.prod: azure
 ms.topic: overview
 ms.date: 09/16/2021
 ms.custom: overview

@@ -1,6 +1,6 @@
 ---
 title: Hosting applications on Azure
-description: 
+description: An overview of the different ways to host your applications on Azure
 keywords: azure app service, azure functions, azure virtual machines, azure container instances, azure container registry
 ms.prod: azure
 ms.topic: overview
@@ -55,24 +55,6 @@ For Spring Boot microservices, Azure Spring Cloud provides a managed service tha
 
 
 
-
-## Azure App Service
-
-
-## Azure Static Web Apps
-
-
-
-
-## Azure Spring Cloud
-
-Azure Spring Cloud provides a managed service that makes it easy to run Spring Boot microservice applications in Azure.  No code changes are required to run applications using Azure Spring Cloud. The service manages the infrastructure of Spring Cloud applications so developers can focus on their code. Azure Spring Cloud provides lifecycle management using comprehensive monitoring and diagnostics, configuration management, service discovery, CI/CD integration, blue-green deployments, and more.
-
-## Hosting Containerized Apps on Azure
-
-
-
-## Serverless apps - Azure Functions
 
 
 ## Azure Virtual Machines

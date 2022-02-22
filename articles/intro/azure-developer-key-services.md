@@ -2,6 +2,7 @@
 title: Key Azure services for developers
 description: An overview of important services that developers use when building solutions on Azure.
 keywords: azure billing, azure portal
+ms.prod: azure
 ms.topic: overview
 ms.date: 09/16/2021
 ms.custom: overview

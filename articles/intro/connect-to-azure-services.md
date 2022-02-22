@@ -1,6 +1,6 @@
 ---
 title: Connect your app to Azure Services
-description: An overview of important services that developers use when building solutions on Azure.
+description: An overview of how to connect your applications to Azure.
 ms.prod: azure
 ms.topic: article
 ms.date: 01/13/2022
@@ -28,7 +28,7 @@ When possible, it is recommended to use the Azure SDK to access Azure services f
 
 - *Accessing Azure services is just like using any other library.*  You import the appropriate SDK package into your application, create a client object, and then call methods on the client object to communicate with your Azure resource.
 - *Simplifies the process of authenticating your application to Azure.* When creating an SDK client object, you include the right credentials and the SDK takes care of authenticating your calls to Azure
-- *Simplified programming model.*  Internally, the Azure SDK calls the Azure REST API.  However, the Azure SDK has built in error handling, retry logic and result pagination making programming against the SDK simpler than calling the REST API directly.
+- *Simplified programming model.*  Internally, the Azure SDK calls the Azure REST API.  However, the Azure SDK has built in error handling, retry logic, and result pagination making programming against the SDK simpler than calling the REST API directly.
 
 ## Azure SDK
 

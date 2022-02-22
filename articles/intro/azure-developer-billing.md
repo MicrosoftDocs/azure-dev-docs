@@ -2,6 +2,7 @@
 title: How am I billed?
 description: A developer focused overview of how billing works on Azure.
 keywords: azure billing, azure portal
+ms.prod: azure
 ms.topic: overview
 ms.date: 02/20/2022
 ms.custom: overview
@@ -13,10 +14,10 @@ When creating applications that use Azure, you need to understand the factors th
 
 ## What is an Azure Account?
 
-Your Azure account is what allows you to login to Azure.  You may have an Azure account through the organization you work for or the school you attend.  You may also create an individual Azure account for personal use linked to your Microsoft account.  If you are looking to learn about and experiment with Azure, you can [create an Azure account for free](https://azure.microsoft.com/en-us/free/).
+Your Azure account is what allows you to login to Azure.  You may have an Azure account through the organization you work for or the school you attend.  You may also create an individual Azure account for personal use linked to your Microsoft account.  If you are looking to learn about and experiment with Azure, you can [create an Azure account for free](https://azure.microsoft.com/free/).
 
 > [!div class="nextstepaction"]
-> [Create a Free Azure account](https://azure.microsoft.com/en-us/free/)
+> [Create a Free Azure account](https://azure.microsoft.com/free/)
 
 If you are using an Azure account from your workplace or school, your organization's Azure administrators has likely assigned different groups and roles to your account that govern what you can and cannot do in Azure.  If you cannot create a certain type of resource, check with your Azure administrator on the permissions assigned to your account.
 
@@ -51,13 +52,13 @@ Most Azure solutions involve multiple Azure services, making it challenging to d
 
 The Azure portal provides an easy to navigate and visual presentation of all the services your organization utilized during a particular month.  You can view by service, by resource group, and so on.  
 
-To access billing information in the Azure portal, [sign in to the Azure portal](http://portal.azure.com) and follow these steps.
+To access billing information in the Azure portal, [sign in to the Azure portal](https://portal.azure.com) and follow these steps.
 
 | Instructions    | Screenshot |
 |:----------------|-----------:|
-| [!INCLUDE [Create app service step 1](<./includes/billing-azure-portal-1.md>)] | :::image type="content" source="./media/billing-azure-portal-1-240px.png" alt-text="." lightbox="./media/billing-azure-portal-1.png"::: |
-| [!INCLUDE [Create app service step 2](<./includes/billing-azure-portal-2.md>)] | :::image type="content" source="./media/billing-azure-portal-2-240px.png" alt-text="." lightbox="./media/billing-azure-portal-2.png"::: |
-| [!INCLUDE [Create app service step 4](<./includes/billing-azure-portal-3.md>)] | :::image type="content" source="./media/billing-azure-portal-3-240px.png" alt-text="." lightbox="./media/billing-azure-portal-3.png"::: |
+| [!INCLUDE [Create app service step 1](<./includes/billing-azure-portal-1.md>)] | :::image type="content" source="./media/billing-azure-portal-1-240px.png" alt-text="A screenshot showing how to use the search box at the top of the Azure portal to locate the cost management and billing page." lightbox="./media/billing-azure-portal-1.png"::: |
+| [!INCLUDE [Create app service step 2](<./includes/billing-azure-portal-2.md>)] | :::image type="content" source="./media/billing-azure-portal-2-240px.png" alt-text="A screenshot showing the overview page for cost management and billing that summarizes spending across your Azure subscriptions" lightbox="./media/billing-azure-portal-2.png"::: |
+| [!INCLUDE [Create app service step 4](<./includes/billing-azure-portal-3.md>)] | :::image type="content" source="./media/billing-azure-portal-3-240px.png" alt-text="A screenshot of the detailed overview page for an Azure subscription showing the links used for cost analysis, setting up cost alerts, and how to get detailed billing data by Azure resource." lightbox="./media/billing-azure-portal-3.png"::: |
 
 You can also access the Cost Management + Billing overview page directly.
 

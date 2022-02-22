@@ -2,8 +2,9 @@
 title: Important considerations when designing your Azure solution
 description: Understand the factors that affect your overall strategy for designing an Azure solution.
 keywords: azure account, azure subscription, billing, region, resource groups
+ms.prod: azure
 ms.topic: overview
-ms.date: 09/16/2021
+ms.date: 02/01/2022
 ms.custom: overview
 ---
 
