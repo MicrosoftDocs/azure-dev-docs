@@ -1,6 +1,6 @@
 ---
 title: Deploy a Python Django web app with PostgreSQL in Azure
-description: Provision and deploy a Python using Django web app and PostgreSQL database on Azure.
+description: Deploy a Python web app using the Django framework with a PostgreSQL database in Azure.
 author: jess-johnson-msft
 ms.author: jejohn
 ms.topic: tutorial
@@ -15,7 +15,7 @@ ROBOTS: NOINDEX
 
 # Deploy a Django web app with PostgreSQL in Azure
 
-In this tutorial, you will deploy a data-driven Python web app using the **[Django](https://www.djangoproject.com/)** framework and an **[Azure Database for PostgreSQL](/azure/postgresql/)** database.  The Django app will be hosted in a fully managed **[Azure App Service](/azure/app-service/overview#app-service-on-linux)** which supports [Python 3.7 or higher](https://www.python.org/downloads/) in a Linux server environment. You can start with a basic pricing tier that can be scaled up at any later time.
+In this tutorial, you will deploy a data-driven Python web app using the **[Django](https://www.djangoproject.com/)** framework and the **[Azure Database for PostgreSQL](/azure/postgresql/)** relational database service. The Django app is hosted in a fully managed **[Azure App Service](/azure/app-service/overview#app-service-on-linux)** which supports [Python 3.7 or higher](https://www.python.org/downloads/) in a Linux server environment. You can start with a basic pricing tier that can be scaled up at any later time.
 
 :::image type="content" border="False" source="./media/django-postgresql-webapp/django-postgresql-app-architecture-240px.png" lightbox="./media/django-postgresql-webapp/django-postgresql-app-architecture.png" alt-text="An architecture diagram showing an  App Service with a PostgreSQL database in Azure.":::
 
