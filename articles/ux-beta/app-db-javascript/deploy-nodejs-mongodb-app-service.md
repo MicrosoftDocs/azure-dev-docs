@@ -8,7 +8,7 @@ ms.role: developer
 ms.devlang: javascript
 ms.azure.dev-framework: expressjs
 ms.azure.devx-azure-tooling: ['azure-portal', 'vscode-azure-tools', 'azure-cli']
-ms.custom: scenarios:getting-started, languages:JavaScript, devx-track-js
+ms.custom: scenarios:getting-started, languages:javascript, devx-track-js, devx-track-azurecli
 ROBOTS: NOINDEX
 ---
 
