@@ -38,17 +38,14 @@ The following steps walk you through the Azure sign in process in your IntelliJ 
 
 1. To sign in to your Azure account, navigate to the left-hand **Azure Explorer** sidebar, and then click the **Azure Sign In** icon. Alternatively, you can navigate to **Tools**, expand **Azure**, and click **Azure Sign in**..
 
-   :::image type="content" source="media/sign-in-instructions/I01.png" alt-text="Sign in to Azure on IntelliJ."::: 
+   :::image type="content" source="media/sign-in-instructions/I01_1.png" alt-text="Sign in to Azure on IntelliJ."::: 
 
-1. In the **Azure Sign In** window, select **Device Login**, and then click **Sign in** ([other sign in options](sign-in-instructions.md)).
+1. In the **Azure Sign In** window, select **OAuth 2.0**, and then click **Sign in** ([other sign in options](sign-in-instructions.md)).
 
-1. Click **Copy&Open** in the **Azure Device Login** dialog.
+1. In the browser, pick an account already or input information of another account to login in for your Azure resource and then back to your IntelliJ IDE. In the **Select Subscriptions** dialog box, select the subscriptions that you want to use, then click **Select** if you have more subscriptions.
 
-1. In the browser, paste your device code (which has been copied when you clicked **Copy&Open** in last step) and then click **Next**.
+   :::image type="content" source="media/sign-in-instructions/I01_2.png" alt-text="Choose one subscription."::: 
 
-1. Select your Azure account and complete any authentication procedures necessary in order to sign in.
-
-1. Once signed in, close your browser and switch back to your IntelliJ IDE. In the **Select Subscriptions** dialog box, select the subscriptions that you want to use, then click **Select**.
 
 ## Creating a new web app project
 
@@ -56,7 +53,7 @@ The following steps walk you through the Azure sign in process in your IntelliJ 
 
 1. In the **New Project** dialog box, select **Maven**, and make sure the **Create from Archetype** option is checked. From the list, select **maven-archetype-webapp**, and then click **Next**.
 
-   :::image type="content" source="media/create-hello-world-web-app/maven-archetype-webapp.png" alt-text="Select the maven-archetype-webapp option."::: 
+   :::image type="content" source="media/create-hello-world-web-app/maven-archetype-webapp_1.png" alt-text="Select the maven-archetype-webapp option."::: 
 
 1. Expand the **Artifact Coordinates** dropdown to view all input fields and specify the following information for your new web app and click **Next**:
 
@@ -66,26 +63,27 @@ The following steps walk you through the Azure sign in process in your IntelliJ 
 
 1. Customize any Maven settings or accept the defaults, and then click **Finish**.
 
-1. Navigate to your project on the left-hand **Project** tab, and open the file **src/main/webapp/index.jsp**. Replace the code with the following and **save the changes**:
+1. Navigate to your project on the left-hand **Project** tab, and open the file **src/main/webapp/index.jsp**. You can find the code as follows.
+
 
    ```html
    <html>
     <body>
-      <b><% out.println("Hello World!"); %></b>
+      <h2>Hello World!</h2>
     </body>
    </html>
    ```
-   :::image type="content" source="media/create-hello-world-web-app/open-index-page.png" alt-text="Open the index.jsp file.":::
+   :::image type="content" source="media/create-hello-world-web-app/open-index-page_1.png" alt-text="Open the index.jsp file.":::
 
 ## Deploying web app to Azure
 
-1. Under the Project Explorer view, right-click your project, expand **Azure**, then click **Deploy to Azure Web Apps**.
+1. Under the **Project Explorer** view, right-click your project, expand **Azure**, then click **Deploy to Azure Web Apps**.
 
 1. In the Deploy to Azure dialog box, you can deploy the application to an existing Tomcat webapp or you can create a new one.
 
    a. Click **+** to create a new webapp. Otherwise, choose **WebApp** from the WebApp dropdown if there are existing webapps in your subscription.
 
-      :::image type="content" source="media/create-hello-world-web-app/deploy-to-azure-webapps.png" alt-text="Deploy to Azure dialog window.":::
+      :::image type="content" source="media/create-hello-world-web-app/deploy-to-azure-webapps_1.png" alt-text="Deploy to Azure dialog window.":::
 
    In the pop-up **Create WebApp** dialog box, specify the following information and click **OK**: 
 
@@ -98,7 +96,7 @@ The following steps walk you through the Azure sign in process in your IntelliJ 
 
 1. You can browse to your web app using the link provided in the status message.
 
-   :::image type="content" source="media/create-hello-world-web-app/browse-web-app.png" alt-text="Browsing your web app.":::
+   :::image type="content" source="media/create-hello-world-web-app/browse-web-app_1.png" alt-text="Browsing your web app.":::
 
 ## Managing deploy configurations
 
@@ -107,7 +105,7 @@ The following steps walk you through the Azure sign in process in your IntelliJ 
 
 1. Before running your WebApp's deployment, you can modify the default settings by clicking the drop-down menu for your web app and selecting **Edit Configurations**.
 
-   :::image type="content" source="media/create-hello-world-web-app/edit-configuration-menu.png" alt-text="Edit configuration menu.":::
+   :::image type="content" source="media/create-hello-world-web-app/edit-configuration-menu_1.png" alt-text="Edit configuration menu.":::
 
 1. On the **Run/Debug Configurations** dialog box, you can modify any of the default settings. Click **OK** to save the settings.
 
