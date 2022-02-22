@@ -112,7 +112,7 @@ To create Azure resources in VS Code, you must have the [Azure Tools extension p
 
 Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com) or on a workstation with the [Azure CLI installed](/cli/azure/install-azure-cli).
 
-[!INCLUDE [Create app service with CLI](<./includes/django-postgresql-webapp/create-app-service-cli.md>)
+[!INCLUDE [Create app service with CLI](<./includes/django-postgresql-webapp/create-app-service-cli.md>)]
 
 ----
 
@@ -153,7 +153,7 @@ Follow these steps to create your Azure Database for PostgreSQL resource using t
 
 Run `az login` to sign in to  and follow these steps to create your Azure Database for PostgreSQL resource.
 
-[!INCLUDE [Create postgres service with CLI](<./includes/django-postgresql-webapp/create-postgres-service-cli.md>)
+[!INCLUDE [Create postgres service with CLI](<./includes/django-postgresql-webapp/create-postgres-service-cli.md>)]
 
 ----
 
