@@ -103,8 +103,7 @@ The following steps walk you through the Azure sign in process in your IntelliJ 
 
 1. Before running your WebApp's deployment, you can modify the default settings by clicking the drop-down menu for your web app and selecting **Edit Configurations**.
 
-   :::image type="content" source="media/create-hello-world-web-app/edit-configuration-menu
-   .png" alt-text="Edit configuration menu.":::
+   :::image type="content" source="media/create-hello-world-web-app/edit-configuration-menu.png" alt-text="Edit configuration menu.":::
 
 1. On the **Run/Debug Configurations** dialog box, you can modify any of the default settings. Click **OK** to save the settings.
 
