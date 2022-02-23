@@ -32,13 +32,13 @@ When possible, it is recommended to use the Azure SDK to access Azure services f
 
 ## Azure SDK
 
-The Azure SDK allows programmatic access to Azure services from .NET, Java, JavaScript, Python, and Go applications. Applications install the necessary packages from their respective package manager and then call methods to programmatically access Azure resources.
-
 :::image type="content" source="media/connect-azure-services-sdk-800px.png" alt-text="A diagram showing how applications can use the Azure SDK to connect to Azure services" lightbox="media/connect-azure-services-sdk.png":::
+
+The Azure SDK allows programmatic access to Azure services from .NET, Java, JavaScript, Python, and Go applications. Applications install the necessary packages from their respective package manager and then call methods to programmatically access Azure resources.
 
 More information about the Azure SDK for each language can be found in each language's developer center.
 
-|                                         | Language   | Overview                                                                           | Package list                                                                                         |
+| Logo                                    | Language   | Overview                                                                           | Package list                                                                                         |
 |-----------------------------------------|------------|------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------|
 | ![.NET Logo](./media/logo-dotnet.png)   | .NET       |[Azure SDK for .NET overview](/dotnet/azure/sdk/azure-sdk-for-dotnet)               | [Azure SDK for .NET package list](/dotnet/azure/sdk/packages)                                        |
 | ![Java Logo](./media/logo-java.png)     | Java       |[Azure SDK for Java overview](/azure/developer/java/sdk/overview)                   | [Azure SDK for Java package list](/azure/developer/java/sdk/azure-sdk-library-package-index)         |
