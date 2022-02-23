@@ -10,17 +10,17 @@ recommendations: false
 
 # Establishing a base line
 
-Establishing a base line is important as it will allow you to determine what your application is really doing. E.g. if you do not know how much memory your Java application actually needs or how much CPU your Java application uses it can negatively impact the performance of your application. And it will also allow you to experiment with different settings and then determine what impact they had.
+Establishing a base line is important as it will allow you to understands what your application is really doing. E.g. if you do not know how much memory your Java application actually needs or how many vCPU cores your Java application needs, it can negatively impact the performance of your application. Creating a base line will allow you to experiment with different settings and then determine their impact.
 
-To establish a mininal base line you can use something like Application Insights, or your own APM solution.
+To establish a mininal base line you can use Application Insights, or your own APM solution.
 
 ## Use Application Insights to establish a base line
 
-TODO
+See [Azure Monitor OpenTelemetry-based auto-instrumentation for Java applications](https://docs.microsoft.com/en-us/azure/azure-monitor/app/java-in-process-agent)
+that will walk you through setting up Application Insights.
 
-## What is your Azure target service?
+## What is your Azure target platform?
 
-The next step is to determine which Azure service you are going to use your container on and read up on what specific recommendations there are for the specific Azure services.
+Now that you have Application Insights configured for your application the next step is to review the recommendations for the target platform.
 
 1. [Azure Kubernetes Service](containers-aks.md)
-1. [Azure PaaS services](containers-paas.md)
