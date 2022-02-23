@@ -26,9 +26,9 @@ There are two ways to access Azure service from your application code.
 
 When possible, it is recommended to use the Azure SDK to access Azure services from application code. Advantages of using the Azure SDK include:
 
-- *Accessing Azure services is just like using any other library.*  You import the appropriate SDK package into your application, create a client object, and then call methods on the client object to communicate with your Azure resource.
-- *Simplifies the process of authenticating your application to Azure.* When creating an SDK client object, you include the right credentials and the SDK takes care of authenticating your calls to Azure
-- *Simplified programming model.*  Internally, the Azure SDK calls the Azure REST API.  However, the Azure SDK has built in error handling, retry logic, and result pagination making programming against the SDK simpler than calling the REST API directly.
+- **Accessing Azure services is just like using any other library.**  You import the appropriate SDK package into your application, create a client object, and then call methods on the client object to communicate with your Azure resource.
+- **Simplifies the process of authenticating your application to Azure.** When creating an SDK client object, you include the right credentials and the SDK takes care of authenticating your calls to Azure
+- **Simplified programming model.**  Internally, the Azure SDK calls the Azure REST API.  However, the Azure SDK has built in error handling, retry logic, and result pagination making programming against the SDK simpler than calling the REST API directly.
 
 ## Azure SDK
 
@@ -38,66 +38,13 @@ The Azure SDK allows programmatic access to Azure services from .NET, Java, Java
 
 More information about the Azure SDK for each language can be found in each language's developer center.
 
-:::row:::
-   :::column span="":::
-      ![.NET Logo](./media/logo-dotnet.png) **.NET**
-   :::column-end:::
-   :::column span="3":::
-      [Azure SDK for .NET overview](/dotnet/azure/sdk/azure-sdk-for-dotnet)
-
-      [Azure SDK for .NET package list](/dotnet/azure/sdk/packages)
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="":::
-      ![Java Logo](./media/logo-java.png) **Java**
-   :::column-end:::
-   :::column span="3":::
-      [Azure SDK for Java overview](/azure/developer/java/sdk/overview)
-
-      [Azure SDK for Java package list](/azure/developer/java/sdk/azure-sdk-library-package-index)
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="":::
-      ![JavaScript Logo](./media/logo-javascript.png) **JavaScript**
-   :::column-end:::
-   :::column span="3":::
-      [Azure SDK for JavaScript overview](/azure/developer/javascript/core/use-azure-sdk)
-
-      [Azure SDK for JavaScript package list](/azure/developer/javascript/azure-sdk-library-package-index)
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="":::
-      ![Python Logo](./media/logo-python.png) **Python**
-   :::column-end:::
-   :::column span="3":::
-      [Azure SDK for Python overview](/azure/developer/python/azure-sdk-overview)
-
-      [Azure SDK for Python package list](/azure/developer/python/azure-sdk-library-package-index)
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="":::
-      ![Golang Logo](./media/logo-golang.png) **Go**
-   :::column-end:::
-   :::column span="3":::
-      [Azure SDK for Go overview](/azure/developer/go/overview)
-
-      [Azure SDK for Go package list](https://azure.github.io/azure-sdk/releases/latest/all/go.html)
-   :::column-end:::
-:::row-end:::
-
-What does it look like as a table
-
-| Icon                                            | Language | Links    |
-|-------------------------------------------------|----------|----------|
-| ![.NET Logo](./media/logo-dotnet.png)           | .NET     | [Azure SDK for .NET overview](/dotnet/azure/sdk/azure-sdk-for-dotnet)<br><br>[Azure SDK for .NET package list](/dotnet/azure/sdk/packages) |
-| ![Java Logo](./media/logo-java.png)             | .NET     | [Azure SDK for .NET overview](/dotnet/azure/sdk/azure-sdk-for-dotnet)<br><br>[Azure SDK for .NET package list](/dotnet/azure/sdk/packages) |
-| ![JavaScript Logo](./media/logo-javascript.png) | .NET     | [Azure SDK for .NET overview](/dotnet/azure/sdk/azure-sdk-for-dotnet)<br><br>[Azure SDK for .NET package list](/dotnet/azure/sdk/packages) |
-| ![Python Logo](./media/logo-python.png)         | .NET     | [Azure SDK for .NET overview](/dotnet/azure/sdk/azure-sdk-for-dotnet)<br><br>[Azure SDK for .NET package list](/dotnet/azure/sdk/packages) |
-| ![Golang Logo](./media/logo-golang.png)         | .NET     | [Azure SDK for .NET overview](/dotnet/azure/sdk/azure-sdk-for-dotnet)<br><br>[Azure SDK for .NET package list](/dotnet/azure/sdk/packages) |
+|                                         | Language   | Overview                                                                           | Package list                                                                                         |
+|-----------------------------------------|------------|------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------|
+| ![.NET Logo](./media/logo-dotnet.png)   | .NET       |[Azure SDK for .NET overview](/dotnet/azure/sdk/azure-sdk-for-dotnet)               | [Azure SDK for .NET package list](/dotnet/azure/sdk/packages)                                        |
+| ![Java Logo](./media/logo-java.png)     | Java       |[Azure SDK for Java overview](/azure/developer/java/sdk/overview)                   | [Azure SDK for Java package list](/azure/developer/java/sdk/azure-sdk-library-package-index)         |
+| ![JavaScript Logo](./media/logo-js.png) | JavaScript |[Azure SDK for JavaScript overview](/azure/developer/javascript/core/use-azure-sdk) | [Azure SDK for JavaScript package list](/azure/developer/javascript/azure-sdk-library-package-index) |
+| ![Python Logo](./media/logo-python.png) | Python     |[Azure SDK for Python overview](/azure/developer/python/azure-sdk-overview)         | [Azure SDK for Python package list](/azure/developer/python/azure-sdk-library-package-index)         |
+| ![Golang Logo](./media/logo-golang.png) | Go         |[Azure SDK for Go overview](/azure/developer/go/overview)                           | [Azure SDK for .NET package list](https://azure.github.io/azure-sdk/releases/latest/all/go.html)     |
 
 ## Azure REST API
 
