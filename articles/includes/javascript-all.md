@@ -37,7 +37,7 @@
 | Event Hubs - Azure Blob Storage Checkpoint Store | npm [1.0.1](https://www.npmjs.com/package/@azure/eventhubs-checkpointstore-blob/v/1.0.1) | [docs](/javascript/api/overview/azure/eventhubs-checkpointstore-blob-readme) | GitHub [1.0.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/eventhubs-checkpointstore-blob_1.0.1/sdk/eventhub/eventhubs-checkpointstore-blob/) |
 | farmbeats | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure-rest/agrifood-farming/v/1.0.0-beta.1) |  | GitHub [1.0.0-beta.1](https://github.com/azure/azure-sdk-for-js/tree/@azure-rest/agrifood-farming_1.0.0-beta.1/sdk/agrifood/agrifood-farming-rest) |
 | Form Recognizer | npm [3.2.0](https://www.npmjs.com/package/@azure/ai-form-recognizer/v/3.2.0)<br>npm [4.0.0-beta.3](https://www.npmjs.com/package/@azure/ai-form-recognizer/v/4.0.0-beta.3) | [docs](/javascript/api/overview/azure/ai-form-recognizer-readme) | GitHub [3.2.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/ai-form-recognizer_3.2.0/sdk/formrecognizer/ai-form-recognizer/)<br>GitHub [4.0.0-beta.3](https://github.com/Azure/azure-sdk-for-js/tree/@azure/ai-form-recognizer_4.0.0-beta.3/sdk/formrecognizer/ai-form-recognizer/) |
-| Identity | npm [2.0.3](https://www.npmjs.com/package/@azure/identity/v/2.0.3) | [docs](/javascript/api/overview/azure/identity-readme) | GitHub [2.0.3](https://github.com/Azure/azure-sdk-for-js/tree/@azure/identity_2.0.3/sdk/identity/identity/) |
+| Identity | npm [2.0.4](https://www.npmjs.com/package/@azure/identity/v/2.0.4) | [docs](/javascript/api/overview/azure/identity-readme) | GitHub [2.0.4](https://github.com/Azure/azure-sdk-for-js/tree/@azure/identity_2.0.4/sdk/identity/identity/) |
 | Identity Cache Persistence | npm [1.0.0](https://www.npmjs.com/package/@azure/identity-cache-persistence/v/1.0.0) | [docs](/javascript/api/overview/azure/identity-cache-persistence-readme) | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/identity-cache-persistence_1.0.0/sdk/identity/identity-cache-persistence/) |
 | Identity Visual Studio Code Credential | npm [1.0.0](https://www.npmjs.com/package/@azure/identity-vscode/v/1.0.0) | [docs](/javascript/api/overview/azure/identity-vscode-readme) | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/identity-vscode_1.0.0/sdk/identity/identity-vscode/) |
 | IoT Device Update | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure/iot-device-update/v/1.0.0-beta.1) | [docs](/javascript/api/overview/azure/iot-device-update-readme) | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/iot-device-update_1.0.0-beta.1/sdk/deviceupdate/iot-device-update/) |
@@ -217,13 +217,13 @@
 | @autorest/codemodel | npm [4.17.2](https://www.npmjs.com/package/@autorest/codemodel/v/4.17.2) |  |  |
 | @autorest/common | npm [1.4.1](https://www.npmjs.com/package/@autorest/common/v/1.4.1) |  |  |
 | @autorest/configuration | npm [1.8.2](https://www.npmjs.com/package/@autorest/configuration/v/1.8.2) |  |  |
-| @autorest/csharp | npm [3.0.0-beta.20220217.1](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20220217.1) |  |  |
+| @autorest/csharp | npm [3.0.0-beta.20220222.1](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20220222.1) |  |  |
 | @autorest/csharp-v3 | npm [3.0.0-beta.20201217.1](https://www.npmjs.com/package/@autorest/csharp-v3/v/3.0.0-beta.20201217.1) |  |  |
 | @autorest/extension-base | npm [3.4.4](https://www.npmjs.com/package/@autorest/extension-base/v/3.4.4) |  |  |
 | @autorest/fixer | npm [1.0.0](https://www.npmjs.com/package/@autorest/fixer/v/1.0.0) |  |  |
-| @autorest/gotest | npm [2.0.0](https://www.npmjs.com/package/@autorest/gotest/v/2.0.0) |  |  |
+| @autorest/gotest | npm [2.1.0](https://www.npmjs.com/package/@autorest/gotest/v/2.1.0) |  |  |
 | @autorest/schemas | npm [1.3.3](https://www.npmjs.com/package/@autorest/schemas/v/1.3.3) |  |  |
-| @autorest/testmodeler | npm [2.1.0](https://www.npmjs.com/package/@autorest/testmodeler/v/2.1.0) |  |  |
+| @autorest/testmodeler | npm [2.2.0](https://www.npmjs.com/package/@autorest/testmodeler/v/2.2.0) |  |  |
 | @autorest/test-utils | npm [0.4.0](https://www.npmjs.com/package/@autorest/test-utils/v/0.4.0) |  |  |
 | @autorest/typescript | npm [6.0.0-beta.15](https://www.npmjs.com/package/@autorest/typescript/v/6.0.0-beta.15) |  |  |
 | @azure/arm-appservice-profile-2020-09-01-hybrid | npm [1.1.1](https://www.npmjs.com/package/@azure/arm-appservice-profile-2020-09-01-hybrid/v/1.1.1) |  |  |
@@ -246,6 +246,7 @@
 | @azure/communication-administration | npm [1.0.0-beta.4](https://www.npmjs.com/package/@azure/communication-administration/v/1.0.0-beta.4) |  |  |
 | @azure/communication-react | npm [1.0.0](https://www.npmjs.com/package/@azure/communication-react/v/1.0.0) |  |  |
 | @azure/core-crypto | npm [1.0.0-alpha.20210122.1](https://www.npmjs.com/package/@azure/core-crypto/v/1.0.0-alpha.20210122.1) |  |  |
+| @azure/core-http-compat | npm [1.0.0](https://www.npmjs.com/package/@azure/core-http-compat/v/1.0.0) |  |  |
 | @azure/fabric-react-jsonschema-form | npm [0.1.5](https://www.npmjs.com/package/@azure/fabric-react-jsonschema-form/v/0.1.5) |  |  |
 | @azure/iot-modelsrepository | npm [1.0.0-beta.2](https://www.npmjs.com/package/@azure/iot-modelsrepository/v/1.0.0-beta.2) |  |  |
 | @azure/keyvault | npm [0.1.0](https://www.npmjs.com/package/@azure/keyvault/v/0.1.0) |  |  |
@@ -284,6 +285,7 @@
 | @azure-tools/tmlanguage-generator | npm [0.1.4](https://www.npmjs.com/package/@azure-tools/tmlanguage-generator/v/0.1.4) |  |  |
 | @azure-tools/yaml | npm [1.0.0](https://www.npmjs.com/package/@azure-tools/yaml/v/1.0.0) |  |  |
 | @cadl-lang/compiler | npm [0.28.0](https://www.npmjs.com/package/@cadl-lang/compiler/v/0.28.0) |  |  |
+| @cadl-lang/eslint-config-cadl | npm [0.1.0](https://www.npmjs.com/package/@cadl-lang/eslint-config-cadl/v/0.1.0) |  |  |
 | @cadl-lang/openapi | npm [0.6.1](https://www.npmjs.com/package/@cadl-lang/openapi/v/0.6.1) |  |  |
 | @cadl-lang/openapi3 | npm [0.8.0](https://www.npmjs.com/package/@cadl-lang/openapi3/v/0.8.0) |  |  |
 | @cadl-lang/prettier-plugin-cadl | npm [0.5.8](https://www.npmjs.com/package/@cadl-lang/prettier-plugin-cadl/v/0.5.8) |  |  |
@@ -380,7 +382,7 @@
 | Form Recognizer | npm [2.0.1](https://www.npmjs.com/package/@azure/cognitiveservices-formrecognizer/v/2.0.1) |  | GitHub [2.0.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/cognitiveservices/cognitiveservices-formrecognizer) |
 | Git Rest Api SDK | npm [0.3.3](https://www.npmjs.com/package/git-rest-api-sdk/v/0.3.3) |  | GitHub [0.3.3](https://github.com/azure/git-rest-api) |
 | Graph | npm [5.0.3](https://www.npmjs.com/package/@azure/graph/v/5.0.3) |  | GitHub [5.0.3](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/graphrbac/graph) |
-| Identity | npm [2.0.3](https://www.npmjs.com/package/@azure/identity/v/2.0.3) | [docs](/javascript/api/overview/azure/identity-readme) | GitHub [2.0.3](https://github.com/Azure/azure-sdk-for-js/tree/@azure/identity_2.0.3/sdk/identity/identity/) |
+| Identity | npm [2.0.4](https://www.npmjs.com/package/@azure/identity/v/2.0.4) | [docs](/javascript/api/overview/azure/identity-readme) | GitHub [2.0.4](https://github.com/Azure/azure-sdk-for-js/tree/@azure/identity_2.0.4/sdk/identity/identity/) |
 | Identity Cache Persistence | npm [1.0.0](https://www.npmjs.com/package/@azure/identity-cache-persistence/v/1.0.0) | [docs](/javascript/api/overview/azure/identity-cache-persistence-readme) | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/identity-cache-persistence_1.0.0/sdk/identity/identity-cache-persistence/) |
 | Identity Visual Studio Code Credential | npm [1.0.0](https://www.npmjs.com/package/@azure/identity-vscode/v/1.0.0) | [docs](/javascript/api/overview/azure/identity-vscode-readme) | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/identity-vscode_1.0.0/sdk/identity/identity-vscode/) |
 | Image Search | npm [3.0.1](https://www.npmjs.com/package/@azure/cognitiveservices-imagesearch/v/3.0.1) |  | GitHub [3.0.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/cognitiveservices/cognitiveservices-imagesearch) |
