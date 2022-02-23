@@ -1,7 +1,5 @@
 items:
   - name: Introduction to Azure for Developers
-    href: ../index.yml
-  - name: Introduction to Azure for Developers
     items:
     - name: Azure overview for developers
       href: azure-developer-overview.md
@@ -18,4 +16,18 @@ items:
     - name: Key concepts for building Azure applications
       href: azure-developer-key-concepts.md
     - name: Overview of Azure billing
-      href: azure-developer-billing.md                  
+      href: azure-developer-billing.md
+  - name: Azure Developer Centers
+    items:
+    - name: Home
+      href: /azure/developer
+    - name: .NET on Azure
+      href: /dotnet/azure/
+    - name: Java on Azure 
+      href: /azure/developer/java
+    - name: JavaScript on Azure
+      href: /azure/developer/javascript
+    - name: Python on Azure
+      href: /azure/developer/python
+    - name: Go on Azure
+      href: /azure/developer/go
