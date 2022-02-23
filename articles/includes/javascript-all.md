@@ -217,7 +217,7 @@
 | @autorest/codemodel | npm [4.17.2](https://www.npmjs.com/package/@autorest/codemodel/v/4.17.2) |  |  |
 | @autorest/common | npm [1.4.1](https://www.npmjs.com/package/@autorest/common/v/1.4.1) |  |  |
 | @autorest/configuration | npm [1.8.2](https://www.npmjs.com/package/@autorest/configuration/v/1.8.2) |  |  |
-| @autorest/csharp | npm [3.0.0-beta.20220221.1](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20220221.1) |  |  |
+| @autorest/csharp | npm [3.0.0-beta.20220222.1](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20220222.1) |  |  |
 | @autorest/csharp-v3 | npm [3.0.0-beta.20201217.1](https://www.npmjs.com/package/@autorest/csharp-v3/v/3.0.0-beta.20201217.1) |  |  |
 | @autorest/extension-base | npm [3.4.4](https://www.npmjs.com/package/@autorest/extension-base/v/3.4.4) |  |  |
 | @autorest/fixer | npm [1.0.0](https://www.npmjs.com/package/@autorest/fixer/v/1.0.0) |  |  |
@@ -285,6 +285,7 @@
 | @azure-tools/tmlanguage-generator | npm [0.1.4](https://www.npmjs.com/package/@azure-tools/tmlanguage-generator/v/0.1.4) |  |  |
 | @azure-tools/yaml | npm [1.0.0](https://www.npmjs.com/package/@azure-tools/yaml/v/1.0.0) |  |  |
 | @cadl-lang/compiler | npm [0.28.0](https://www.npmjs.com/package/@cadl-lang/compiler/v/0.28.0) |  |  |
+| @cadl-lang/eslint-config-cadl | npm [0.1.0](https://www.npmjs.com/package/@cadl-lang/eslint-config-cadl/v/0.1.0) |  |  |
 | @cadl-lang/openapi | npm [0.6.1](https://www.npmjs.com/package/@cadl-lang/openapi/v/0.6.1) |  |  |
 | @cadl-lang/openapi3 | npm [0.8.0](https://www.npmjs.com/package/@cadl-lang/openapi3/v/0.8.0) |  |  |
 | @cadl-lang/prettier-plugin-cadl | npm [0.5.8](https://www.npmjs.com/package/@cadl-lang/prettier-plugin-cadl/v/0.5.8) |  |  |
