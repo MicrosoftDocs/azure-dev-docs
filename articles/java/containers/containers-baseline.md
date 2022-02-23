@@ -16,7 +16,7 @@ To establish a mininal base line you can use Application Insights, or your own A
 
 ## Use Application Insights to establish a base line
 
-See [Azure Monitor OpenTelemetry-based auto-instrumentation for Java applications](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent)
+See [Azure Monitor OpenTelemetry-based auto-instrumentation for Java applications](/azure/azure-monitor/app/java-in-process-agent)
 which will walk you through setting up Application Insights.
 
 ## What is your Azure target platform?
