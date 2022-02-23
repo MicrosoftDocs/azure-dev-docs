@@ -32,11 +32,76 @@ When possible, it is recommended to use the Azure SDK to access Azure services f
 
 ## Azure SDK
 
-The Azure SDK for .NET is available as a series of packages available from NuGet.  Your application imports the packages for the services it uses 
+The Azure SDK allows programmatic access to Azure services from .NET, Java, JavaScript, Python, and Go applications. Applications install the necessary packages from their respective package manager and then call methods to programmatically access Azure resources.
 
+:::image type="content" source="media/connect-azure-services-sdk-800px.png" alt-text="A diagram showing how applications can use the Azure SDK to connect to Azure services" lightbox="media/connect-azure-services-sdk.png":::
 
+More information about the Azure SDK for each language can be found in each language's developer center.
 
+:::row:::
+   :::column span="":::
+      ![.NET Logo](./media/logo-dotnet.png) **.NET**
+   :::column-end:::
+   :::column span="3":::
+      [Azure SDK for .NET overview](/dotnet/azure/sdk/azure-sdk-for-dotnet)
+
+      [Azure SDK for .NET package list](/dotnet/azure/sdk/packages)
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+      ![Java Logo](./media/logo-java.png) **Java**
+   :::column-end:::
+   :::column span="3":::
+      [Azure SDK for Java overview](/azure/developer/java/sdk/overview)
+
+      [Azure SDK for Java package list](/azure/developer/java/sdk/azure-sdk-library-package-index)
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+      ![JavaScript Logo](./media/logo-javascript.png) **JavaScript**
+   :::column-end:::
+   :::column span="3":::
+      [Azure SDK for JavaScript overview](/azure/developer/javascript/core/use-azure-sdk)
+
+      [Azure SDK for JavaScript package list](/azure/developer/javascript/azure-sdk-library-package-index)
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+      ![Python Logo](./media/logo-python.png) **Python**
+   :::column-end:::
+   :::column span="3":::
+      [Azure SDK for Python overview](/azure/developer/python/azure-sdk-overview)
+
+      [Azure SDK for Python package list](/azure/developer/python/azure-sdk-library-package-index)
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+      ![Golang Logo](./media/logo-golang.png) **Go**
+   :::column-end:::
+   :::column span="3":::
+      [Azure SDK for Go overview](/azure/developer/go/overview)
+
+      [Azure SDK for Go package list](https://azure.github.io/azure-sdk/releases/latest/all/go.html)
+   :::column-end:::
+:::row-end:::
+
+What does it look like as a table
+
+| Icon                                            | Language | Links    |
+|-------------------------------------------------|----------|----------|
+| ![.NET Logo](./media/logo-dotnet.png)           | .NET     | [Azure SDK for .NET overview](/dotnet/azure/sdk/azure-sdk-for-dotnet)<br><br>[Azure SDK for .NET package list](/dotnet/azure/sdk/packages) |
+| ![Java Logo](./media/logo-java.png)             | .NET     | [Azure SDK for .NET overview](/dotnet/azure/sdk/azure-sdk-for-dotnet)<br><br>[Azure SDK for .NET package list](/dotnet/azure/sdk/packages) |
+| ![JavaScript Logo](./media/logo-javascript.png) | .NET     | [Azure SDK for .NET overview](/dotnet/azure/sdk/azure-sdk-for-dotnet)<br><br>[Azure SDK for .NET package list](/dotnet/azure/sdk/packages) |
+| ![Python Logo](./media/logo-python.png)         | .NET     | [Azure SDK for .NET overview](/dotnet/azure/sdk/azure-sdk-for-dotnet)<br><br>[Azure SDK for .NET package list](/dotnet/azure/sdk/packages) |
+| ![Golang Logo](./media/logo-golang.png)         | .NET     | [Azure SDK for .NET overview](/dotnet/azure/sdk/azure-sdk-for-dotnet)<br><br>[Azure SDK for .NET package list](/dotnet/azure/sdk/packages) |
 
 ## Azure REST API
 
-Programming languages not supported by the Azure SDK can make use of the Azure REST API.
+Programming languages not supported by the Azure SDK can make use of the Azure REST API.  Details of how to call the Azure REST API and a full list of operations are available on the [Azure REST API overview](/rest/api/azure/).
+
+> [!div class="nextstepaction"]
+> [Azure REST API overview](/rest/api/azure/)

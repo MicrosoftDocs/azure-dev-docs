@@ -12,9 +12,18 @@ ms.date: 12/28/2021
 Azure provides a variety of different ways to host your app depending on your needs.  
 
 
+## Azure App Service
+
+Azure App Service is the fastest and easiest way to host web applications and APIs in Azure.  Azure App Service provides a fully-managed, platform as a service hosting solution that supports .NET, Java, JavaScript, and Python applications.  Hosting options are available on both Windows and Linux depending on the application runtime.
+
+Azure App Service supports autoscaling, high-availability,
+
+Azure App Service has been designed with DevOps in mind. It supports various tools for publishing and continuous integration deployments. These tools include GitHub webhooks, Jenkins, Azure DevOps, TeamCity, and others.
+
+
 ## Server side web apps and APIs
 
-For server-side web apps or APIs in .NET (ASP.NET, ASP.NET Core), JavaScript (Express.js), or Python (Django, Flask, Fast API), Azure App Service provides a fully-managed, platform as a service hosting solution.  
+For server-side web apps or APIs in .NET (ASP.NET, ASP.NET Core), JavaScript (Express.js), or Python (Django, Flask, FastAPI), Azure App Service provides a fully-managed, platform as a service hosting solution.  
 
 
 ## Static Web Apps

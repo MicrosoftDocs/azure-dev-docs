@@ -78,4 +78,4 @@ And finally, here's a list of popular services that support a wide range of work
 |Icon|Service|Description|
 |----|-------|-----------|
 |![Azure Key Vault logo](media/azure-key-vault.png)|**Azure Key Vault**|Every application has application secrets like connection strings and API keys it must store. Azure Key Vault helps you store and access those secrets securely, in an encrypted vault with restricted access to make sure your secrets and your application are not compromised.|
-|![Application Insights Logo](media/application-insight.png)|**Application Insights**|A comprehensive solution for application monitoring, alerting, and log analysis for your applications.|
+|![Application Insights Logo](media/application-insights.png)|**Application Insights**|A comprehensive solution for application monitoring, alerting, and log analysis for your applications.|
