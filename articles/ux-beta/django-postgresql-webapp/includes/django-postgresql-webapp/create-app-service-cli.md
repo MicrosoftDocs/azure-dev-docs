@@ -92,7 +92,7 @@ $APP_SERVICE_NAME='msdocs-django-postgres-webapp'
 
 az webapp create `
     --name $APP_SERVICE_NAME `
-    --runtime 'PYTHON|3.9' `
+    --runtime 'PYTHON:3.9' `
     --plan $APP_SERVICE_PLAN_NAME `
     --resource-group $RESOURCE_GROUP_NAME `
     --query 'defaultHostName' `
