@@ -21,7 +21,27 @@ This topic provides an overview of recommended strategies for containerizing Jav
 
 TODO
 
+#### Determine container memory
+
+TODO
+
+#### Determine JVM heap memory
+
+When allocating JVM heap memory one needs to be aware that the JVM needs more memory than just JVM heap memory. So when setting the maximum JVM heap memory it should NEVER be equal to the amount of container memory as that will cause container OOM errors and container crashes. As a starting point one should not start with more than 75% of the available container memory.
+
 ### Determine which GC to use
+
+Previously you have determined an amount of JVM heap memory to start with. Depending on the amount of maximum JVM heap memory you should or should not use a particular GC. The sections below describes 3 common GCs and what they bring to the table.
+
+#### Serial GC
+
+TODO
+
+#### Parallel GC
+
+TODO
+
+#### G1 GC 
 
 TODO
 
@@ -31,19 +51,19 @@ TODO
 
 ### Picking a starting point
 
-With everything explained before we recommend to start the containerization of your new Java application with 2 vCPu cores, 4 GB with 75% allocated to JVN Heap memory and the Parallel GC. If you think that will not work then the table below gives you combinations of CPU, memory and GC you can alternatively choose as your starting point.
+With everything explained before, and if you have not picked a starting point yet, we recommend to start the containerization of your new Java application with 2 vCPu cores, 4 GB with 75% allocated to JVN Heap memory and the Parallel GC. If you think that will not work then the table below gives you combinations of CPU, memory and GC you can alternatively choose as your starting point.
 
-TODO
+TODO - add memory / vCPU cores / GC combination table
 
 ## Existing (on premises) application 
 
 If you already have your application running on premises or on a VM in the cloud then our recommendation is to start your containerization journey with:
 
-1. the same amount of CPU (cores) the application has currently available
 1. the same amount of memory as the application currently has access to.
+1. the same amount of CPU (cores) the application has currently available
 1. the same JVM parameters as currently in use.
 
-If the vCPU cores and/or memory combination is not available pick the closest one rounding up the vCPU cores and memory.
+If the vCPU cores and/or container memory combination is not available pick the closest one rounding up the vCPU cores and container memory.
 
 ## Next steps
 

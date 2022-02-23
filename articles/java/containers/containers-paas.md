@@ -1,6 +1,6 @@
 ---
-title: Containerizing your Java applications for Azure Kubernetes Service
-description: This guide describes how to containerize your Java applications on Azure Kubernetes Service
+title: Containerizing your Java applications for Azure PaaS services
+description: This guide describes how to containerize your Java applications on Azure PaaS services
 ms.author: manriem
 ms.topic: conceptual
 ms.date: 02/10/2022
