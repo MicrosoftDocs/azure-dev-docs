@@ -3,7 +3,7 @@ title: Connect your app to Azure Services
 description: An overview of how to connect your applications to Azure.
 ms.prod: azure
 ms.topic: article
-ms.date: 01/13/2022
+ms.date: 02/22/2022
 ---
 
 # Connect your app to Azure Services
@@ -32,8 +32,6 @@ When possible, it is recommended to use the Azure SDK to access Azure services f
 
 ## Azure SDK
 
-:::image type="content" source="media/connect-azure-services-sdk-800px.png" alt-text="A diagram showing how applications can use the Azure SDK to connect to Azure services" lightbox="media/connect-azure-services-sdk.png":::
-
 The Azure SDK allows programmatic access to Azure services from .NET, Java, JavaScript, Python, and Go applications. Applications install the necessary packages from their respective package manager and then call methods to programmatically access Azure resources.
 
 More information about the Azure SDK for each language can be found in each language's developer center.
@@ -48,7 +46,7 @@ More information about the Azure SDK for each language can be found in each lang
 
 ## Azure REST API
 
-Programming languages not supported by the Azure SDK can make use of the Azure REST API.  Details of how to call the Azure REST API and a full list of operations are available on the [Azure REST API overview](/rest/api/azure/).
+Programming languages not supported by the Azure SDK can make use of the Azure REST API.  Details of how to call the Azure REST API and a full list of operations are available in the [Azure REST API overview](/rest/api/azure/).
 
 > [!div class="nextstepaction"]
 > [Azure REST API overview](/rest/api/azure/)
