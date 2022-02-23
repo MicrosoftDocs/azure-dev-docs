@@ -10,28 +10,20 @@ recommendations: false
 
 # Containerizing your Java applications for Azure Kubernetes Service
 
-If you have not gone through [Containerizing your Java application](containers-overview.md) please start there as it will give you guidance on how to determine the amount of JVM heap memory your Java application will need and what GC to use.
+If you have not gone through [Containerizing your Java application](containers-overview.md) please start there as it will give you guidance for container memmory, JVM heap memory, GC and vCPU cores.
 
 ## Determine appropriate VM SKU for AKS node pool
 
-TODO
+Determine if the AKS node pool(s) that are available for your AKS cluster can fit the container memory and vCPU cores you are intending to use. If the AKS node pool can host the application then continue on. Otherwise provision a node pool that is appropriate for the amount of container memory and vCPU cores you are targeting.
 
-## Determine CPU requests and limits
+## Set CPU requests and limits
 
-TODO
+As a rule of thumb for Java application do not specify CPU requests. If you must limit the CPU on the Kubernetes level map the vCPU core number one for one onto the CPU limits numbers. E.g map 2 vCPU cores to 2.0 in the kubernetes deployment file.
 
-## Determine memory request and limits
+## Set memory request and limits
 
-TODO 
+As a rule of thumb for Java applications do not specify memory requests. Set the memory limits to the amount that you previosuly determined. Make sure the memory limits number is the container memory and NOT the JVM heap memory value.
 
-## Integrate Application Insights
+## Set the JVM arguments in the deployment file
 
-TODO
-
-## Deploy your application
-
-TODO
-
-## Next steps
-
-TODO
+Remember to set the JVM heap memory to the amount you have previously determined. Note that we recommend you pass this as an environment variable so you can easily change the value without the need to have to rebuild the container image.
