@@ -42,7 +42,7 @@ The following steps walk you through the Azure sign in process in your IntelliJ 
 
 1. In the **Azure Sign In** window, select **OAuth 2.0**, and then click **Sign in** ([other sign in options](sign-in-instructions.md)).
 
-1. In the browser, Sign in with your account and then back to your IntelliJ. In the **Select Subscriptions** dialog box, select the subscription that you want to use, then click **Select**.
+1. In the browser, sign in with your account and then go back to IntelliJ. In the **Select Subscriptions** dialog box, click on the subscription that you want to use, then click **Select**.
  
 
 ## Creating a new web app project
