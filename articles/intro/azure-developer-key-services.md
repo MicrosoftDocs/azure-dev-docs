@@ -1,18 +1,16 @@
 ---
 title: Key Azure services for developers
 description: An overview of important services that developers use when building solutions on Azure.
-keywords: azure billing, azure portal
+keywords: azure services
 ms.prod: azure
 ms.topic: overview
-ms.date: 09/16/2021
+ms.date: 02/24/2022
 ms.custom: overview
 ---
 
 # Key Azure services for developers
 
-While Azure contains over 100 services, this article outlines the Azure services you will use most frequently as a developer.
-
-For a comprehensive list of all Azure services, see the [Azure documentation hub page](/azure/?product=featured#browse-azure-products).
+While Azure contains over 100 services, this article outlines the Azure services you will use most frequently as a developer. For a comprehensive list of all Azure services, see the [Azure documentation hub page](/azure/?product=featured#browse-azure-products).
 
 ## App hosting and compute
 
