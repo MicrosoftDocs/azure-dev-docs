@@ -1,7 +1,7 @@
 items:
   - name: Introduction to Azure for Developers
     items:
-    - name: Azure overview for developers
+    - name: Azure for developers overview
       href: azure-developer-overview.md
     - name: Key Azure services for developers
       href: azure-developer-key-services.md
@@ -19,7 +19,7 @@ items:
       href: azure-developer-billing.md
   - name: Azure Developer Centers
     items:
-    - name: Home
+    - name: Azure Developer Home
       href: /azure/developer
     - name: .NET on Azure
       href: /dotnet/azure/

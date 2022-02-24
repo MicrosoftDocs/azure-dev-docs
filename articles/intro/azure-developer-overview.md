@@ -4,11 +4,11 @@ description: An overview of Azure from a developer's perspective.
 keywords: azure billing, azure portal
 ms.prod: azure
 ms.topic: overview
-ms.date: 09/16/2021
+ms.date: 02/23/2022
 ms.custom: overview
 ---
 
-# An overview of Azure for developers
+# Azure for developers overview
 
 Azure is a cloud platform designed to simplify the process of building modern applications. Whether you choose to host your applications entirely in Azure or extend your on-premises applications with Azure services, Azure helps you create applications that are scalable, reliable, and maintainable.
 
