@@ -26,6 +26,8 @@ The [Azure portal](https://portal.azure.com) is a web-based interface designed f
 * The ability to create configurable dashboards
 * Access to subscription settings and billing information
 
+:::image type="content" source="./media/azure-portal-800px.png" alt-text="A screenshot showing the Azure portal." lightbox="./media/azure-portal.png":::
+
 ## VS Code Azure Tools Extension Pack
 
 Developers using [Visual Studio Code](https://code.visualstudio.com) can manage Azure resources right from VS Code using the [Azure Tools Extension Pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack) for VS Code. Using the Azure Tools Extension Pack can:
@@ -37,6 +39,8 @@ Developers using [Visual Studio Code](https://code.visualstudio.com) can manage 
 
 > [!div class="nextstepaction"]
 > [Download Azure Tools extension pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack)
+
+:::image type="content" source="./media/visual-studio-code-azure-tools-extension-800px.png" alt-text="A screenshot showing Visual Studio Code with the Azure Tools extension pack installed." lightbox="./media/visual-studio-code-azure-tools-extension.png":::
 
 ## Command line tools
 
@@ -52,8 +56,33 @@ The [Azure CLI](/cli/azure/what-is-azure-cli) is a cross-platform command line t
 
 Azure CLI commands are easily incorporated into popular scripting languages like [Bash](/learn/modules/bash-introduction/) giving you the ability to script common tasks.
 
-> [!div class="nextstepaction"]
-> [Learn more about the Azure CLI](/cli/azure/what-is-azure-cli)
+```azurecli
+LOCATION='eastus'                                        
+RESOURCE_GROUP_NAME='msdocs-expressjs-mongodb-tutorial'
+
+WEB_APP_NAME='msdocs-expressjs-mongodb-123'
+APP_SERVICE_PLAN_NAME='msdocs-expressjs-mongodb-plan-123'    
+RUNTIME='NODE|14-lts'
+
+# Create a resource group
+az group create \
+    --location $LOCATION \
+    --name $RESOURCE_GROUP_NAME
+
+# Create an app service plan
+az appservice plan create \
+    --name $APP_SERVICE_PLAN_NAME \
+    --resource-group $RESOURCE_GROUP_NAME \
+    --sku B1 \
+    --is-linux
+
+# Create the web app in the app service
+az webapp create \
+    --name $WEB_APP_NAME \
+    --runtime $RUNTIME \
+    --plan $APP_SERVICE_PLAN_NAME \
+    --resource-group $RESOURCE_GROUP_NAME 
+```
 
 ### Azure PowerShell
 
@@ -61,8 +90,23 @@ Azure CLI commands are easily incorporated into popular scripting languages like
 
 Azure PowerShell is tightly integrated with the PowerShell language.  Commands follow a verb-noun format and data is returned as PowerShell objects.  If you are already familiar with PowerShell scripting, Azure PowerShell is a natural choice.
 
-> [!div class="nextstepaction"]
-> [Learn more about Azure PowerShell](/powershell/azure/what-is-azure-powershell)
+```azurepowershell
+$location = 'eastus'
+$resourceGroupName = 'msdocs-blob-storage-demo-azps'
+$storageAccountName = 'stblobstoragedemo999'
+
+# Create a resource group
+New-AzResourceGroup `
+    -Location $location `
+    -Name $resourceGroupName
+
+# Create the storage account
+New-AzStorageAccount `
+    -Name $storageAccountName `
+    -ResourceGroupName $resourceGroupName `
+    -Location $location `
+    -SkuName Standard_LRS
+```
 
 For more information on choosing between Azure CLI and Azure PowerShell, see the article [Choose the right command-line tool](/cli/azure/choose-the-right-azure-command-line-tool).
 
@@ -76,22 +120,97 @@ For infrastructure deployments that are automated, repeated, and reliable, Azure
 
 [Bicep](/azure/azure-resource-manager/bicep/) is a domain-specific language (DSL) that uses declarative syntax to deploy Azure resources. It provides concise syntax, reliable type safety, and support for code reuse.
 
-> [!div class="nextstepaction"]
-> [Learn more about Bicep](/azure/azure-resource-manager/bicep/)
+  ```bicep
+  param location string = resourceGroup().location
+  param storageAccountName string = 'toylaunch${uniqueString(resourceGroup().id)}'
+
+  resource storageAccount 'Microsoft.Storage/storageAccounts@2021-06-01' = {
+    name: storageAccountName
+    location: location
+    sku: {
+      name: 'Standard_LRS'
+    }
+    kind: 'StorageV2'
+    properties: {
+      accessTier: 'Hot'
+    }
+  }
+  ```
 
 ### Terraform
 
-[Hashicorp Terraform](https://www.terraform.io/) is an open-source tool for provisioning and managing cloud infrastructure. It codifies infrastructure in configuration files that describe the topology of cloud resources.  The Terraform CLI provides a simple mechanism to deploy and version configuration files to Azure.
+[Hashicorp Terraform](/azure/developer/terraform/) is an open-source tool for provisioning and managing cloud infrastructure. It codifies infrastructure in configuration files that describe the topology of cloud resources.  The Terraform CLI provides a simple mechanism to deploy and version configuration files to Azure.
 
-> [!div class="nextstepaction"]
-> [Learn more about Terraform on Azure](/azure/developer/terraform/)
+```terraform
+provider "azurerm" {
+  features {}
+}
+
+resource "azurerm_resource_group" "main" {
+  name     = "${var.prefix}-resources"
+  location = var.location
+}
+
+resource "azurerm_app_service_plan" "main" {
+  name                = "${var.prefix}-asp"
+  location            = azurerm_resource_group.main.location
+  resource_group_name = azurerm_resource_group.main.name
+  kind                = "Linux"
+  reserved            = true
+
+  sku {
+    tier = "Standard"
+    size = "S1"
+  }
+}
+
+resource "azurerm_app_service" "main" {
+  name                = "${var.prefix}-appservice"
+  location            = azurerm_resource_group.main.location
+  resource_group_name = azurerm_resource_group.main.name
+  app_service_plan_id = azurerm_app_service_plan.main.id
+
+  site_config {
+    linux_fx_version = "NODE|10.14"
+  }
+}
+```
 
 ### Ansible
 
-[Ansible](https://www.ansible.com/) is an open-source product that automates cloud provisioning, configuration management, and application deployments. Using Ansible you can provision virtual machines, containers, and network and complete cloud infrastructures. Also, Ansible allows you to automate the deployment and configuration of resources in your environment.
+[Ansible](/azure/developer/ansible/) is an open-source product that automates cloud provisioning, configuration management, and application deployments. Using Ansible you can provision virtual machines, containers, and network and complete cloud infrastructures. Also, Ansible allows you to automate the deployment and configuration of resources in your environment.
 
-> [!div class="nextstepaction"]
-> [Learn more about Ansible on Azure](/azure/developer/ansible/)
+```yml
+- hosts: localhost
+  connection: local
+  vars:
+    resource_group: myResourceGroup
+    webapp_name: myfirstWebApp
+    plan_name: myAppServicePlan
+    location: eastus
+  tasks:
+    - name: Create a resource group
+      azure_rm_resourcegroup:
+        name: "{{ resource_group }}"
+        location: "{{ location }}"
+
+    - name: Create App Service on Linux with Java Runtime
+      azure_rm_webapp:
+        resource_group: "{{ resource_group }}"
+        name: "{{ webapp_name }}"
+        plan:
+          resource_group: "{{ resource_group }}"
+          name: "{{ plan_name }}"
+          is_linux: true
+          sku: S1
+          number_of_workers: 1
+        frameworks:
+          - name: "java"
+            version: "8"
+            settings:
+              java_container: tomcat
+              java_container_version: 8.5
+```
 
 ## Azure SDK and REST APIs
 
