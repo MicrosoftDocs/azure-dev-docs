@@ -30,11 +30,11 @@ This article demonstrates the steps that are required to create a basic Hello Wo
 
 ## Install and sign-in
 
-The following steps walk you through the Azure sign in process in your IntelliJ development environment.
+The following steps walk you through the Azure sign-in process in your IntelliJ development environment.
 
 1. If you haven't installed the plugin, see [Azure Toolkit for IntelliJ](https://plugins.jetbrains.com/plugin/8053).
 
-1. To sign in to your Azure account, navigate to the left-hand **Azure Explorer** sidebar, and then click the **Azure Sign In** icon. Alternatively, you can navigate to **Tools**, expand **Azure**, and click **Azure Sign in**..
+1. To sign in to your Azure account, navigate to the left-hand **Azure Explorer** sidebar, and then click the **Azure Sign In** icon. Alternatively, you can navigate to **Tools**, expand **Azure**, and then click **Azure Sign in**.
 
    :::image type="content" source="media/sign-in-instructions/I01.png" alt-text="Sign in to Azure on IntelliJ.":::
 
@@ -50,10 +50,10 @@ The following steps walk you through the Azure sign in process in your IntelliJ 
 
    :::image type="content" source="media/create-hello-world-web-app/maven-archetype-webapp.png" alt-text="Select the maven-archetype-webapp option.":::
 
-1. Expand the **Artifact Coordinates** dropdown to view all input fields and specify the following information for your new web app and click **Next**:
+1. Expand the **Artifact Coordinates** dropdown to view all input fields. Specify the following information for your new web app, and then click **Next**:
 
-   * **Name**: The name of your web app. This will automatically fill in the web app's **ArtifactId** field.
-   * **GroupId**: The name of the artifact group, usually a company domain. (e.g. *com.microsoft.azure*)
+   * **Name**: The name of your web app. This value will be used to automatically fill in the web app's **ArtifactId** field.
+   * **GroupId**: The name of the artifact group, usually a company domain, such as *com.microsoft.azure*.
    * **Version**: We'll keep the default version *1.0-SNAPSHOT*.
 
 1. Customize any Maven settings or accept the defaults, and then click **Finish**.
@@ -82,7 +82,7 @@ The following steps walk you through the Azure sign in process in your IntelliJ 
 
    b. In the pop-up **Create WebApp** dialog box, specify the following information and click **OK**:
 
-      * **Name**: The WebApp's domain name string, should be unique across Azure.
+      * **Name**: The WebApp's domain name. This value should be unique across Azure.
       * **Platform**: Select *Linux-Java 8-TOMCAT 9.0* or as appropriate.
 
    c. To deploy to an existing webapp, choose the web app from WebApp drop down, and then click **Run**.
