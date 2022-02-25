@@ -119,9 +119,9 @@ Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com
 
 ----
 
-## 3 - Create the Postgres database in Azure
+## 3 - Create the PostgreSQL database in Azure
 
-You can create a Postgres database in Azure using the [Azure portal](https://portal.azure.com/), Visual Studio Code, or the Azure CLI.
+You can create a PostgreSQL database in Azure using the [Azure portal](https://portal.azure.com/), Visual Studio Code, or the Azure CLI.
 
 ### [Azure portal](#tab/azure-portal)
 
@@ -179,7 +179,7 @@ If you are working in VS Code, right-click the database server and select **Open
 
 ## 5 - Connect the web app to the database
 
-With the web app and Postgres database created, the next step is to connect the web app to the Postgres database in Azure.
+With the web app and PostgreSQL database created, the next step is to connect the web app to the PostgreSQL database in Azure.
 
 The web app code uses database information in four environment variables named `DBHOST`, `DBNAME`, `DBUSER`, and `DBPASS` to connect to the PostgresSQL server.
 
@@ -263,7 +263,7 @@ In the **App Service** section of the Azure Tools extension:
 > [!NOTE]
 > If you cannot connect to the SSH session, then the app itself has failed to start. **Check the diagnostic logs** for details. For example, if you haven't created the necessary app settings in the previous section, the logs will indicate `KeyError: 'DBNAME'`.
 
-**Step 2.** In the SSH session, run the following command to migrate the models into the database schema (you can paste commands using **Ctrl**+**Shift**+**V**): 
+**Step 2.** In the SSH session, run the following command to migrate the models into the database schema (you can paste commands using **Ctrl**+**Shift**+**V**):
 
 ```bash
 python manage.py migrate
@@ -273,6 +273,9 @@ If you encounter any errors related to connecting to the database, check the val
 
 ----
 
+> [!TIP]
+> In an SSH session, you can also create users with the `python manage.py createsuperuser` command like you would with a typical Django app. For more information, see the documentation for [django django-admin and manage.py](https://docs.djangoproject.com/en/1.8/ref/django-admin/). Use the superuser account to access the `/admin` portion of the web site.
+
 ## 8 - Browse to the app
 
 Browse to the deployed application in your web browser at the URL `http://<app-name>.azurewebsites.net`. It can take a minute or two for the app to start, so if you see a default app page, wait a minute and refresh the browser.
@@ -280,9 +283,6 @@ Browse to the deployed application in your web browser at the URL `http://<app-n
 When you see the Django sample web app, it is running in a Linux container in App Service using a built-in image **Congratulations!** You've deployed your Python app to App Service.
 
 :::image type="content" source="./media/django-postgresql-webapp/run-django-postgresql-app-production.png" alt-text="A screenshot of the Django web app with PostgreSQL running in Azure showing restaurants and restaurant reviews.":::
-
-> [!TIP]
-> With this Django sample app, you can create users with the `python manage.py createsuperuser` command like you would with a typical Django app. For more information, see the documentation for [django django-admin and manage.py](https://docs.djangoproject.com/en/1.8/ref/django-admin/). Use the superuser account to access the `/admin` portion of the web site.
 
 ## 9 - Stream diagnostic logs
 

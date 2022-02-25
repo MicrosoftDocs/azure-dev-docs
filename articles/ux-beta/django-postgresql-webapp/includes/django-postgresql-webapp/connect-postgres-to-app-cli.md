@@ -32,6 +32,6 @@ az webapp config appsettings set `
 
 ---
 
-* *DBHOST* &rarr; Use the name of the name you used earlier with the `az postgres flexible-server create` command. The code in *azuresite/production.py* automatically appends `.postgres.database.azure.com` to create the full Postgres server URL.
+* *DBHOST* &rarr; Use the name of the name you used earlier with the `az postgres flexible-server create` command. The code in *azuresite/production.py* automatically appends `.postgres.database.azure.com` to create the full PostgreSQL server URL.
 * *DBNAME* &rarr; Use `restaurant`.
 * *DBUSER, DBPASS* &rarr; Use the administrator credentials that you used with the earlier `az postgres flexible-server create` command. The code in *azuresite/production.py* automatically constructs the full Postgres username from `DBUSER` and `DBHOST`, so don't include the `@server` portion.
