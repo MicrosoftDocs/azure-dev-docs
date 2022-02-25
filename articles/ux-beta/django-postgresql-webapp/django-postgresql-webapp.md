@@ -119,9 +119,9 @@ Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com
 
 ----
 
-## 3 - Create the Postgres database in Azure
+## 3 - Create the PostgreSQL database in Azure
 
-You can create a Postgres database in Azure using the [Azure portal](https://portal.azure.com/), Visual Studio Code, or the Azure CLI.
+You can create a PostgreSQL database in Azure using the [Azure portal](https://portal.azure.com/), Visual Studio Code, or the Azure CLI.
 
 ### [Azure portal](#tab/azure-portal)
 
@@ -179,7 +179,7 @@ If you are working in VS Code, right-click the database server and select **Open
 
 ## 5 - Connect the web app to the database
 
-With the web app and Postgres database created, the next step is to connect the web app to the Postgres database in Azure.
+With the web app and PostgreSQL database created, the next step is to connect the web app to the PostgreSQL database in Azure.
 
 The web app code uses database information in four environment variables named `DBHOST`, `DBNAME`, `DBUSER`, and `DBPASS` to connect to the PostgresSQL server.
 
