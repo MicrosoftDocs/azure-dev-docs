@@ -17,6 +17,7 @@ metadata:
   ms.technology: azure
   ms.service: multiple
   ms.devlang: javascript
+  ms.prod: azure-nodejs
   ms.custom: 2020Aug21Redesign, devx-track-js
 landingContent:
   - title: Learn JavaScript
