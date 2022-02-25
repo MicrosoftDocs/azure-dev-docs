@@ -58,7 +58,7 @@ The following steps walk you through the Azure sign-in process in your IntelliJ 
 
 1. Customize any Maven settings or accept the defaults, and then click **Finish**.
 
-1. Navigate to your project on the left-hand **Project** tab, and open the file *src/main/webapp/index.jsp*. You can find the code as follows.
+1. To find the generated code, navigate to your project on the left-hand **Project** tab, then open the file *src/main/webapp/index.jsp*. You will see code similar to the following example.
 
    ```html
    <html>
