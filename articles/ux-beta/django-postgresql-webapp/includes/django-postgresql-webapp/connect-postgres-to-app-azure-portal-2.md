@@ -15,7 +15,7 @@ Create application settings:
 1. Select **+ New application setting** to create settings for each of the following values (which are expected by the django sample app):
 
     * *DBHOST* &rarr; Use the server name you used earlier when created the database, for example, *msdocs-django-postgres-webapp-db-\<unique id>*.
-    The code in azuresite/production.py automatically appends .postgres.database.azure.com to create the full Postgres server URL.
+    The code in azuresite/production.py automatically appends .postgres.database.azure.com to create the full PostgreSQL server URL.
     * *DBNAME* &rarr;  Enter `restaurant`, the name of the application database.
     * *DBUSER* &rarr; The administrator user name used when you provisioned the database.
     * *DBPASS* &rarr; The administrator **secure password** you created earlier.
