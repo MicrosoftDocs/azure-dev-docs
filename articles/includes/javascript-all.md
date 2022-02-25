@@ -217,7 +217,7 @@
 | @autorest/codemodel | npm [4.17.2](https://www.npmjs.com/package/@autorest/codemodel/v/4.17.2) |  |  |
 | @autorest/common | npm [1.4.1](https://www.npmjs.com/package/@autorest/common/v/1.4.1) |  |  |
 | @autorest/configuration | npm [1.8.2](https://www.npmjs.com/package/@autorest/configuration/v/1.8.2) |  |  |
-| @autorest/csharp | npm [3.0.0-beta.20220223.1](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20220223.1) |  |  |
+| @autorest/csharp | npm [3.0.0-beta.20220224.1](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20220224.1) |  |  |
 | @autorest/csharp-v3 | npm [3.0.0-beta.20201217.1](https://www.npmjs.com/package/@autorest/csharp-v3/v/3.0.0-beta.20201217.1) |  |  |
 | @autorest/extension-base | npm [3.4.4](https://www.npmjs.com/package/@autorest/extension-base/v/3.4.4) |  |  |
 | @autorest/fixer | npm [1.0.0](https://www.npmjs.com/package/@autorest/fixer/v/1.0.0) |  |  |
@@ -275,7 +275,7 @@
 | @azure-tools/cadl-vs | npm [0.3.0](https://www.npmjs.com/package/@azure-tools/cadl-vs/v/0.3.0) |  |  |
 | @azure-tools/json | npm [1.2.1](https://www.npmjs.com/package/@azure-tools/json/v/1.2.1) |  |  |
 | @azure-tools/jsonschema | npm [1.1.0](https://www.npmjs.com/package/@azure-tools/jsonschema/v/1.1.0) |  |  |
-| @azure-tools/js-sdk-release-tools | npm [1.0.12](https://www.npmjs.com/package/@azure-tools/js-sdk-release-tools/v/1.0.12) |  |  |
+| @azure-tools/js-sdk-release-tools | npm [2.0.0](https://www.npmjs.com/package/@azure-tools/js-sdk-release-tools/v/2.0.0) |  |  |
 | @azure-tools/mock-service-host | npm [0.1.11](https://www.npmjs.com/package/@azure-tools/mock-service-host/v/0.1.11) |  |  |
 | @azure-tools/oav-traffic-converter | npm [0.1.0](https://www.npmjs.com/package/@azure-tools/oav-traffic-converter/v/0.1.0) |  |  |
 | @azure-tools/prettier-plugin-adl | npm [0.1.4](https://www.npmjs.com/package/@azure-tools/prettier-plugin-adl/v/0.1.4) |  |  |
@@ -302,7 +302,7 @@
 | cadl-vs | npm [0.6.0](https://www.npmjs.com/package/cadl-vs/v/0.6.0) |  |  |
 | cadl-vscode | npm [0.12.1](https://www.npmjs.com/package/cadl-vscode/v/0.12.1) |  |  |
 | tmlanguage-generator | npm [0.2.1](https://www.npmjs.com/package/tmlanguage-generator/v/0.2.1) |  |  |
-| @azure/communication-react | npm [1.0.0](https://www.npmjs.com/package/@azure/communication-react/v/1.0.0) |  |  |
+| @azure/communication-react | npm [1.1.0](https://www.npmjs.com/package/@azure/communication-react/v/1.1.0) |  |  |
 | AccessControl | npm [1.0.0-beta.3](https://www.npmjs.com/package/@azure/synapse-access-control/v/1.0.0-beta.3) | [docs](/javascript/api/overview/azure/synapse-access-control-readme) | GitHub [1.0.0-beta.3](https://github.com/Azure/azure-sdk-for-js/tree/@azure/synapse-access-control_1.0.0-beta.3/sdk/synapse/synapse-access-control/) |
 | Administration | npm [4.1.0](https://www.npmjs.com/package/@azure/keyvault-admin/v/4.1.0)<br>npm [4.2.0-beta.2](https://www.npmjs.com/package/@azure/keyvault-admin/v/4.2.0-beta.2) | [docs](/javascript/api/overview/azure/keyvault-admin-readme) | GitHub [4.1.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/keyvault-admin_4.1.0/sdk/keyvault/keyvault-admin/)<br>GitHub [4.2.0-beta.2](https://github.com/Azure/azure-sdk-for-js/tree/@azure/keyvault-admin_4.2.0-beta.2/sdk/keyvault/keyvault-admin/) |
 | Anomaly Detector | npm [3.0.0-beta.5](https://www.npmjs.com/package/@azure/ai-anomaly-detector/v/3.0.0-beta.5) | [docs](/javascript/api/overview/azure/ai-anomaly-detector-readme) | GitHub [3.0.0-beta.5](https://github.com/Azure/azure-sdk-for-js/tree/@azure/ai-anomaly-detector_3.0.0-beta.5/sdk/anomalydetector/ai-anomaly-detector/) |
