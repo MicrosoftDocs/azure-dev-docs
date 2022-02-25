@@ -13,7 +13,7 @@ items:
       href: configure-dev-environment.md
     - name: Create Azure resources
       href: azure-developer-create-resources.md
-    - name: Key concepts for building Azure applications
+    - name: Key concepts for building Azure apps
       href: azure-developer-key-concepts.md
     - name: Overview of Azure billing
       href: azure-developer-billing.md

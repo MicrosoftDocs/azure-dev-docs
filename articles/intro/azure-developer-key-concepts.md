@@ -8,7 +8,7 @@ ms.date: 02/25/2022
 ms.custom: overview
 ---
 
-# Important considerations when designing your Azure solution
+# Key concepts for building Azure apps
 
 Before you get too far in designing your application to run on Azure, chances are you'll need to do a little planning ahead of time.  As you get started, there are some basic Azure concepts that you need to understand to make the best decisions for your scenario.  Considerations include:
 
@@ -34,7 +34,7 @@ This makes it easier to tell what resources are needed for the application to ru
 
 If you have developed on-premises, you are familiar with promoting your code through dev, test, and production environments. In Azure, to create separate environments you would create a separate set of Azure resources for each environment you need.  
 
-:::image type="content" source="media/test-environments-example-800px.png" alt-text="A diagram showing DEV, TEST, and PROD environments with a separate set of Azure resources in each environment." lightbox="media/test-environments-example-800px.png":::
+:::image type="content" source="media/test-environments-example-800px.png" alt-text="A diagram showing DEV, TEST, and PROD environments with a separate set of Azure resources in each environment." lightbox="media/test-environments-example.png":::
 
 Since it is important that each environment be an exact copy, it is recommended to either [script the creation of resources](./azure-developer-create-resources#command-line-tools) needed for an environment or use [Infrastructure as Code (IaC) tools](./azure-developer-create-resources#infrastructure-as-code-tools) to declaratively specify the configuration of each environment.  These makes sure that the environment creation process is repeatable and also give you the ability to spin up new environments on demand, for example for performance or security testing of your application.
 
