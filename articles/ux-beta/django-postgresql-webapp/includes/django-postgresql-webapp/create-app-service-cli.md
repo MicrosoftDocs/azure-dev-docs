@@ -5,7 +5,7 @@ ms.topic: include
 ms.date: 01/28/2022
 ---
 
-**Step 1.** Create a *resource group* using the [az group create](/cli/azure/group/az-group-create) command. A *resource group* will act as a container for all of the Azure resources related to this application.
+**Step 1.** Create a *resource group* using the [az group create](/cli/azure/group#az-group-create) command. A *resource group* will act as a container for all of the Azure resources related to this application.
 
 #### [bash](#tab/terminal-bash)
 

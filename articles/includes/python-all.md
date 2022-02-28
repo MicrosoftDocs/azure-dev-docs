@@ -177,6 +177,7 @@
 | azure-mgmt-hybridnetwork | PyPI [1.0.0](https://pypi.org/project/azure-mgmt-hybridnetwork/1.0.0) |  |  |
 | azure-mgmt-loadtestservice | PyPI [1.0.0b1](https://pypi.org/project/azure-mgmt-loadtestservice/1.0.0b1) |  |  |
 | azure-mgmt-logz | PyPI [1.0.0](https://pypi.org/project/azure-mgmt-logz/1.0.0) |  |  |
+| azure-mgmt-mobilenetwork | PyPI [1.0.0b1](https://pypi.org/project/azure-mgmt-mobilenetwork/1.0.0b1) |  |  |
 | azure-mgmt-oep | PyPI [1.0.0b1](https://pypi.org/project/azure-mgmt-oep/1.0.0b1) |  |  |
 | azure-mgmt-orbital | PyPI [1.0.0b1](https://pypi.org/project/azure-mgmt-orbital/1.0.0b1) |  |  |
 | azure-mgmt-portal | PyPI [1.0.0](https://pypi.org/project/azure-mgmt-portal/1.0.0) |  |  |
