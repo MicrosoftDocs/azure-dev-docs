@@ -102,7 +102,7 @@
 | Resource Management - Consumption | npm [9.0.0](https://www.npmjs.com/package/@azure/arm-consumption/v/9.0.0) | [docs](/javascript/api/overview/azure/arm-consumption-readme) | GitHub [9.0.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/consumption/arm-consumption) |
 | Resource Management - Container Instances | npm [8.0.0](https://www.npmjs.com/package/@azure/arm-containerinstance/v/8.0.0) | [docs](/javascript/api/overview/azure/arm-containerinstance-readme) | GitHub [8.0.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/containerinstance/arm-containerinstance) |
 | Resource Management - Container Registry | npm [10.0.0](https://www.npmjs.com/package/@azure/arm-containerregistry/v/10.0.0) | [docs](/javascript/api/overview/azure/arm-containerregistry-readme) | GitHub [10.0.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/containerregistry/arm-containerregistry) |
-| Resource Management - Container Service | npm [15.0.0](https://www.npmjs.com/package/@azure/arm-containerservice/v/15.0.0) | [docs](/javascript/api/overview/azure/arm-containerservice-readme) | GitHub [15.0.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/containerservice/arm-containerservice) |
+| Resource Management - Container Service | npm [15.1.0](https://www.npmjs.com/package/@azure/arm-containerservice/v/15.1.0) | [docs](/javascript/api/overview/azure/arm-containerservice-readme) | GitHub [15.1.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/containerservice/arm-containerservice) |
 | Resource Management - Content Delivery Network | npm [6.0.0](https://www.npmjs.com/package/@azure/arm-cdn/v/6.0.0) | [docs](/javascript/api/overview/azure/arm-cdn-readme) | GitHub [6.0.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/cdn/arm-cdn) |
 | Resource Management - Cosmos DB | npm [15.0.0](https://www.npmjs.com/package/@azure/arm-cosmosdb/v/15.0.0)<br>npm [16.0.0-beta.1](https://www.npmjs.com/package/@azure/arm-cosmosdb/v/16.0.0-beta.1) | [docs](/javascript/api/overview/azure/arm-cosmosdb-readme) | GitHub [15.0.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/cosmosdb/arm-cosmosdb) |
 | Resource Management - Customer Insights | npm [4.0.0](https://www.npmjs.com/package/@azure/arm-customerinsights/v/4.0.0) | [docs](/javascript/api/overview/azure/arm-customerinsights-readme) | GitHub [4.0.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/customer-insights/arm-customerinsights) |
@@ -217,7 +217,7 @@
 | @autorest/codemodel | npm [4.17.2](https://www.npmjs.com/package/@autorest/codemodel/v/4.17.2) |  |  |
 | @autorest/common | npm [1.4.1](https://www.npmjs.com/package/@autorest/common/v/1.4.1) |  |  |
 | @autorest/configuration | npm [1.8.2](https://www.npmjs.com/package/@autorest/configuration/v/1.8.2) |  |  |
-| @autorest/csharp | npm [3.0.0-beta.20220224.1](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20220224.1) |  |  |
+| @autorest/csharp | npm [3.0.0-beta.20220227.1](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20220227.1) |  |  |
 | @autorest/csharp-v3 | npm [3.0.0-beta.20201217.1](https://www.npmjs.com/package/@autorest/csharp-v3/v/3.0.0-beta.20201217.1) |  |  |
 | @autorest/extension-base | npm [3.4.4](https://www.npmjs.com/package/@autorest/extension-base/v/3.4.4) |  |  |
 | @autorest/fixer | npm [1.0.0](https://www.npmjs.com/package/@autorest/fixer/v/1.0.0) |  |  |
@@ -245,7 +245,7 @@
 | @azure/arm-template | npm [1.0.0-beta.2](https://www.npmjs.com/package/@azure/arm-template/v/1.0.0-beta.2) |  |  |
 | @azure/communication-administration | npm [1.0.0-beta.4](https://www.npmjs.com/package/@azure/communication-administration/v/1.0.0-beta.4) |  |  |
 | @azure/core-crypto | npm [1.0.0-alpha.20210122.1](https://www.npmjs.com/package/@azure/core-crypto/v/1.0.0-alpha.20210122.1) |  |  |
-| @azure/core-http-compat | npm [1.0.0](https://www.npmjs.com/package/@azure/core-http-compat/v/1.0.0) |  |  |
+| @azure/core-http-compat | npm [1.1.0](https://www.npmjs.com/package/@azure/core-http-compat/v/1.1.0) |  |  |
 | @azure/fabric-react-jsonschema-form | npm [0.1.5](https://www.npmjs.com/package/@azure/fabric-react-jsonschema-form/v/0.1.5) |  |  |
 | @azure/iot-modelsrepository | npm [1.0.0-beta.2](https://www.npmjs.com/package/@azure/iot-modelsrepository/v/1.0.0-beta.2) |  |  |
 | @azure/keyvault | npm [0.1.0](https://www.npmjs.com/package/@azure/keyvault/v/0.1.0) |  |  |
@@ -323,7 +323,7 @@
 | AutoRest - Functions TypeScript | npm [0.0.1-preview](https://www.npmjs.com/package/@autorest/azure-functions-typescript/v/0.0.1-preview) |  |  |
 | AutoRest - Go | npm [4.0.0-preview.36](https://www.npmjs.com/package/@autorest/go/v/4.0.0-preview.36) |  |  |
 | AutoRest - Modeler Four | npm [4.22.3](https://www.npmjs.com/package/@autorest/modelerfour/v/4.22.3) |  | GitHub [4.22.3](https://github.com/Azure/autorest.modelerfour) |
-| AutoRest - PowerShell | npm [3.0.477](https://www.npmjs.com/package/@autorest/powershell/v/3.0.477) |  | GitHub [3.0.477](https://github.com/Azure/autorest.powershell) |
+| AutoRest - PowerShell | npm [3.0.478](https://www.npmjs.com/package/@autorest/powershell/v/3.0.478) |  | GitHub [3.0.478](https://github.com/Azure/autorest.powershell) |
 | AutoRest - Python | npm [5.12.6](https://www.npmjs.com/package/@autorest/python/v/5.12.6) |  | GitHub [5.12.6](https://github.com/Azure/autorest.python/tree/v5.1.0-preview.7) |
 | AutoRest - Remodeler | npm [2.1.27](https://www.npmjs.com/package/@autorest/remodeler/v/2.1.27) |  | GitHub [2.1.27](https://github.com/Azure/autorest.remodeler) |
 | AutoRest - Test | npm [0.1.76](https://www.npmjs.com/package/@autorest/test/v/0.1.76) |  | GitHub [0.1.76](https://github.com/Azure/autorest.test) |
@@ -510,7 +510,7 @@
 | Resource Management - Consumption | npm [9.0.0](https://www.npmjs.com/package/@azure/arm-consumption/v/9.0.0) | [docs](/javascript/api/overview/azure/arm-consumption-readme) | GitHub [9.0.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/consumption/arm-consumption) |
 | Resource Management - Container Instances | npm [8.0.0](https://www.npmjs.com/package/@azure/arm-containerinstance/v/8.0.0) | [docs](/javascript/api/overview/azure/arm-containerinstance-readme) | GitHub [8.0.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/containerinstance/arm-containerinstance) |
 | Resource Management - Container Registry | npm [10.0.0](https://www.npmjs.com/package/@azure/arm-containerregistry/v/10.0.0) | [docs](/javascript/api/overview/azure/arm-containerregistry-readme) | GitHub [10.0.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/containerregistry/arm-containerregistry) |
-| Resource Management - Container Service | npm [15.0.0](https://www.npmjs.com/package/@azure/arm-containerservice/v/15.0.0) | [docs](/javascript/api/overview/azure/arm-containerservice-readme) | GitHub [15.0.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/containerservice/arm-containerservice) |
+| Resource Management - Container Service | npm [15.1.0](https://www.npmjs.com/package/@azure/arm-containerservice/v/15.1.0) | [docs](/javascript/api/overview/azure/arm-containerservice-readme) | GitHub [15.1.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/containerservice/arm-containerservice) |
 | Resource Management - Content Delivery Network | npm [6.0.0](https://www.npmjs.com/package/@azure/arm-cdn/v/6.0.0) | [docs](/javascript/api/overview/azure/arm-cdn-readme) | GitHub [6.0.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/cdn/arm-cdn) |
 | Resource Management - Cosmos DB | npm [15.0.0](https://www.npmjs.com/package/@azure/arm-cosmosdb/v/15.0.0)<br>npm [16.0.0-beta.1](https://www.npmjs.com/package/@azure/arm-cosmosdb/v/16.0.0-beta.1) | [docs](/javascript/api/overview/azure/arm-cosmosdb-readme) | GitHub [15.0.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/cosmosdb/arm-cosmosdb) |
 | Resource Management - Customer Insights | npm [4.0.0](https://www.npmjs.com/package/@azure/arm-customerinsights/v/4.0.0) | [docs](/javascript/api/overview/azure/arm-customerinsights-readme) | GitHub [4.0.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/customer-insights/arm-customerinsights) |
