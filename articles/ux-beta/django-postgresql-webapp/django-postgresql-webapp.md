@@ -98,13 +98,13 @@ Run the app:
 ### [Flask](#tab/flask)
 
 ```Console
-python manage.py runserver
+flask run
 ```
 
 ### [Django](#tab/django)
 
 ```Console
-flask run
+python manage.py runserver
 ```
 
 ---
