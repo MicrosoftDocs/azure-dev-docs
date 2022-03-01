@@ -2,7 +2,7 @@
 title: "What's new for JavaScript docs"
 description: "What's new in JavaScript docs in the Developer Center"
 ms.topic: how-to
-ms.date: 02/01/2022
+ms.date: 02/28/2022
 
 ---
 
@@ -10,11 +10,22 @@ ms.date: 02/01/2022
 
 Find new and updated content for JavaScript and TypeScript developers.
 
+## 2022 February
+
 ### New in February
 
 |Name|Description|
 |---------------------------------------|--|
 |[App Service + MongoDB](/azure/app-service/tutorial-nodejs-mongodb-app?tabs=azure-portal%2Cterminal-bash%2Cvscode-deploy%2Cdeploy-instructions-azportal%2Cdeploy-zip-linux-mac%2Cdeploy-instructions--zip-azcli)|Learn how to deploy an Express.js app to Azure App Service. Create and configure the Cosmos DB using the MongoDB API.|
+|[Test strategies with Azure SDK](/azure/developer/javascript/core/test-azure-sdk-integrated-code)|When developing applications integrated with Azure SDKs, consider how much integration your code base has with the Azure SDKs.|
+
+### Updated in February
+
+|Name|Description|
+|---------------------------------------|--|
+|App Service authentication|[Authentication overview](/azure/app-service/tutorial-connect-overview) of the app context (managed identity) versus user context (on-behalf-off)|
+|App Functions|[JavaScript Testing](/azure/azure-functions/functions-reference-node?tabs=v2-v3-v4-export%2Cv2-v3-v4-done%2Cv2%2Cv2-log-custom-telemetry%2Cv2-accessing-request-and-response%2Cwindows-setting-the-node-version#testing) including mocking the context for trigger bindings. Edit content so context.done is only used in appropriate v1 content code snippets.|
+|Azure Blob Storage|Remove JS legacy v10 quickstarts, update v12 quickstarts for [browser](/azure/storage/blobs/quickstart-blobs-javascript-browser) and [Node.js](/azure/storage/blobs/storage-quickstart-blobs-nodejs?tabs=environment-variable-windows).|
 
 ## 2022 January
 
