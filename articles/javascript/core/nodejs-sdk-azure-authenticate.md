@@ -59,7 +59,7 @@ Create a service principal and configure its access to Azure resources. The serv
 1. Create the service principal with the Azure [az ad sp create-for-rbac](/cli/azure/ad/sp#az_ad_sp_create_for_rbac) command with the Azure CLI or [Cloud Shell](https://shell.azure.com). 
 
     ```azurecli
-    az ad sp create-for-rbac --name YOUR-SERVICE-PRINCIPAL-NAME --role Contributor
+    az ad sp create-for-rbac --name YOUR-SERVICE-PRINCIPAL-NAME --role Contributor --scopes /subscriptions/mySubscriptionID
     ```
 
 2. The response from the command includes secrets you need to store securely such as in [Azure Key Vault](/azure/key-vault/):

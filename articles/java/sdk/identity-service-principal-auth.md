@@ -24,7 +24,7 @@ Use the [Azure CLI][azure_cli] examples below to create or get client secret cre
 Use the following command to create a service principal and configure its access to Azure resources:
 
 ```azurecli
-az ad sp create-for-rbac -n <your application name> --role Contributor
+az ad sp create-for-rbac -n <your application name> --role Contributor --scopes /subscriptions/mySubscriptionID
 ```
 
 This command returns a value similar to the following output:
