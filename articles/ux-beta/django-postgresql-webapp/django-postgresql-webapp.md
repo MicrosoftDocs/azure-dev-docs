@@ -109,12 +109,23 @@ python manage.py runserver
 
 ---
 
+### [Flask](#tab/flask)
+
+In a web browser, go to the sample application at `http://localhost:5000` and add some restaurants and restaurant reviews to see how the app works.
+
+:::image type="content" source="./media/django-postgresql-webapp/run-flask-postgresql-app-localhost.png" alt-text="A screenshot of the Flask web app with PostgreSQL running locally showing restaurants and restaurant reviews.":::
+
+
+### [Django](#tab/django)
+
 In a web browser, go to the sample application at `http://localhost:8000` and add some restaurants and restaurant reviews to see how the app works.
 
 :::image type="content" source="./media/django-postgresql-webapp/run-django-postgresql-app-localhost.png" alt-text="A screenshot of the Django web app with PostgreSQL running locally showing restaurants and restaurant reviews.":::
 
 > [!TIP]
 > With this Django sample app, you can create users with the `python manage.py createsuperuser` command like you would with a typical Django app. For more information, see the documentation for [django django-admin and manage.py](https://docs.djangoproject.com/en/1.8/ref/django-admin/). Use the superuser account to access the `/admin` portion of the web site.
+
+---
 
 ## 2 - Create a web app in Azure
 
