@@ -44,7 +44,7 @@ In this article, you learn how to:
 1. Run [az ad sp create-for-rbac](/cli/azure/ad/sp?#az_ad_sp_create_for_rbac) to enable Packer to authenticate to Azure using a service principal. 
 
     ```azurecli
-    az ad sp create-for-rbac --role Contributor --scopes /subscriptions/mySubscriptionID --query "{ client_id: appId, client_secret: password, tenant_id: tenant }"
+    az ad sp create-for-rbac --role Contributor --scopes /subscriptions/<subscription_id> --query "{ client_id: appId, client_secret: password, tenant_id: tenant }"
     ```
 
     **Key points:**

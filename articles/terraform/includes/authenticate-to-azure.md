@@ -87,7 +87,7 @@ The most common pattern is to interactively sign in to Azure, create a service p
 1. To create a service principal, run [az ad sp create-for-rbac](/cli/azure/ad/sp?#az_ad_sp_create_for_rbac).
 
     ```azurecli
-    az ad sp create-for-rbac --name <service_principal_name> --role Contributor --scopes /subscriptions/mySubscriptionID
+    az ad sp create-for-rbac --name <service_principal_name> --role Contributor --scopes /subscriptions/<subscription_id>
     ```
 
     **Key points:**
