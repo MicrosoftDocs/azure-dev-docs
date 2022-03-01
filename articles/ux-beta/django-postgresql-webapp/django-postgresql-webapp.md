@@ -13,33 +13,52 @@ ms.custom: devx-track-python
 ROBOTS: NOINDEX
 ---
 
-# Deploy a Django web app with PostgreSQL in Azure
+# Deploy a Python (Django or Flask) web app with PostgreSQL in Azure
 
-In this tutorial, you will deploy a data-driven Python web app using the **[Django](https://www.djangoproject.com/)** framework and the **[Azure Database for PostgreSQL](/azure/postgresql/)** relational database service. The Django app is hosted in a fully managed **[Azure App Service](/azure/app-service/overview#app-service-on-linux)** which supports [Python 3.7 or higher](https://www.python.org/downloads/) in a Linux server environment. You can start with a basic pricing tier that can be scaled up at any later time.
+In this tutorial, you will deploy a data-driven Python web app (**[Django](https://www.djangoproject.com/)** or **[Flask](https://flask.palletsprojects.com/)**) with the **[Azure Database for PostgreSQL](/azure/postgresql/)** relational database service. The Python app is hosted in a fully managed **[Azure App Service](/azure/app-service/overview#app-service-on-linux)** which supports [Python 3.7 or higher](https://www.python.org/downloads/) in a Linux server environment. You can start with a basic pricing tier that can be scaled up at any later time.
 
 :::image type="content" border="False" source="./media/django-postgresql-webapp/django-postgresql-app-architecture-240px.png" lightbox="./media/django-postgresql-webapp/django-postgresql-app-architecture.png" alt-text="An architecture diagram showing an  App Service with a PostgreSQL database in Azure.":::
 
 **To complete this tutorial, you'll need:**
 
 * An Azure account with an active subscription exists. If you do not have an Azure account, you [can create one for free](https://azure.microsoft.com/free/python).
-* Knowledge of [Python with Django development](/learn/paths/django-create-data-driven-websites/).
+* Knowledge of Python with Flask development or [Python with Django development](/learn/paths/django-create-data-driven-websites/)
 * [Python 3.7 or higher](https://www.python.org/downloads/) installed locally.
 * [PostgreSQL](https://www.postgresql.org/download/) installed locally.
 
 ## 1 - Sample application
 
-A sample Python application using the Django framework is provided to help you follow along with this tutorial. The `msdocs-django-postgresql-sample-app` sample is a data-driven Django application. Download or clone the sample
-application to your local workstation.
+A sample Python application using the Flask or Django framework is provided to help you follow along with this tutorial. Download or clone the sample application to your local workstation.
+
+### [Flask](#tab/flask)
+
+```bash
+git clone https://github.com/Azure-Samples/msdocs-flask-postgresql-sample-app
+```
+
+### [Django](#tab/django)
 
 ```bash
 git clone https://github.com/Azure-Samples/msdocs-django-postgresql-sample-app.git
 ```
 
+---
+
 To run the application locally, navigate into the application folder:
+
+### [Flask](#tab/flask)
+
+```bash
+cd msdocs-flask-postgresql-sample-app
+```
+
+### [Django](#tab/django)
 
 ```bash
 cd msdocs-django-postgresql-sample-app
 ```
+
+---
 
 Create a virtual environment for the app:
 
@@ -59,15 +78,36 @@ If you want to run SQLite locally instead, follow the instructions in the commen
 
 Create the `restaurant` database tables:
 
+### [Flask](#tab/flask)
+
+```Console
+flask db init
+flask db migrate -m "initial migration"
+```
+
+### [Django](#tab/django)
+
 ```Console
 python manage.py migrate
 ```
 
+---
+
 Run the app:
+
+### [Flask](#tab/flask)
 
 ```Console
 python manage.py runserver
 ```
+
+### [Django](#tab/django)
+
+```Console
+flask run
+```
+
+---
 
 In a web browser, go to the sample application at `http://localhost:8000` and add some restaurants and restaurant reviews to see how the app works.
 
