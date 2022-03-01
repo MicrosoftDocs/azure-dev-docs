@@ -36,7 +36,7 @@ The Azure SDK allows programmatic access to Azure services from .NET, Java, Java
 
 More information about the Azure SDK for each language can be found in each language's developer center.
 
-| &nbsp;                                  | Language   | Overview                                                                           | Package list                                                                                         |
+| Language                                | &nbsp;     | Overview                                                                           | Package list                                                                                         |
 |-----------------------------------------|------------|------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------|
 | ![.NET Logo](./media/logo-dotnet.png)   | .NET       |[Azure SDK for .NET overview](/dotnet/azure/sdk/azure-sdk-for-dotnet)               | [Azure SDK for .NET package list](/dotnet/azure/sdk/packages)                                        |
 | ![Java Logo](./media/logo-java.png)     | Java       |[Azure SDK for Java overview](/azure/developer/java/sdk/overview)                   | [Azure SDK for Java package list](/azure/developer/java/sdk/azure-sdk-library-package-index)         |
