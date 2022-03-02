@@ -318,12 +318,12 @@ In the **App Service** section of the Azure Tools extension:
 
 ### [Flask](#tab/flask)
 
+When deploying the Flask sample app to Azure App Service, the database tables are created automatically in Azure PostgreSQL. If the tables aren't created, try the following command:
+
 ```bash
 # Create database tables
 flask db init
 ```
-
-If you created database migrations locally and there is a `\migrations` folder in your project, then when you deploy to Azure App Service the database tables are created automatically in Azure PostgreSQL. In this case, the `flask db init` command will report an error and have no effect.
 
 ### [Django](#tab/django)
 
