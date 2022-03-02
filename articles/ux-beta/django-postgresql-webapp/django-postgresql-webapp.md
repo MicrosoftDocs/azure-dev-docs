@@ -28,7 +28,7 @@ In this tutorial, you will deploy a data-driven Python web app (**[Django](https
 
 ## 1 - Sample application
 
-A sample Python application using the Flask or Django framework is provided to help you follow along with this tutorial. Download or clone the sample application to your local workstation.
+Sample Python applications using the Flask and Django framework are provided to help you follow along with this tutorial. Download or clone one of the sample applications to your local workstation.
 
 ### [Flask](#tab/flask)
 
