@@ -13,33 +13,52 @@ ms.custom: devx-track-python
 ROBOTS: NOINDEX
 ---
 
-# Deploy a Django web app with PostgreSQL in Azure
+# Deploy a Python (Django or Flask) web app with PostgreSQL in Azure
 
-In this tutorial, you will deploy a data-driven Python web app using the **[Django](https://www.djangoproject.com/)** framework and the **[Azure Database for PostgreSQL](/azure/postgresql/)** relational database service. The Django app is hosted in a fully managed **[Azure App Service](/azure/app-service/overview#app-service-on-linux)** which supports [Python 3.7 or higher](https://www.python.org/downloads/) in a Linux server environment. You can start with a basic pricing tier that can be scaled up at any later time.
+In this tutorial, you will deploy a data-driven Python web app (**[Django](https://www.djangoproject.com/)** or **[Flask](https://flask.palletsprojects.com/)**) with the **[Azure Database for PostgreSQL](/azure/postgresql/)** relational database service. The Python app is hosted in a fully managed **[Azure App Service](/azure/app-service/overview#app-service-on-linux)** which supports [Python 3.7 or higher](https://www.python.org/downloads/) in a Linux server environment. You can start with a basic pricing tier that can be scaled up at any later time.
 
 :::image type="content" border="False" source="./media/django-postgresql-webapp/django-postgresql-app-architecture-240px.png" lightbox="./media/django-postgresql-webapp/django-postgresql-app-architecture.png" alt-text="An architecture diagram showing an  App Service with a PostgreSQL database in Azure.":::
 
 **To complete this tutorial, you'll need:**
 
 * An Azure account with an active subscription exists. If you do not have an Azure account, you [can create one for free](https://azure.microsoft.com/free/python).
-* Knowledge of [Python with Django development](/learn/paths/django-create-data-driven-websites/).
+* Knowledge of Python with Flask development or [Python with Django development](/learn/paths/django-create-data-driven-websites/)
 * [Python 3.7 or higher](https://www.python.org/downloads/) installed locally.
 * [PostgreSQL](https://www.postgresql.org/download/) installed locally.
 
 ## 1 - Sample application
 
-A sample Python application using the Django framework is provided to help you follow along with this tutorial. The `msdocs-django-postgresql-sample-app` sample is a data-driven Django application. Download or clone the sample
-application to your local workstation.
+A sample Python application using the Flask or Django framework is provided to help you follow along with this tutorial. Download or clone the sample application to your local workstation.
+
+### [Flask](#tab/flask)
+
+```bash
+git clone https://github.com/Azure-Samples/msdocs-flask-postgresql-sample-app
+```
+
+### [Django](#tab/django)
 
 ```bash
 git clone https://github.com/Azure-Samples/msdocs-django-postgresql-sample-app.git
 ```
 
+---
+
 To run the application locally, navigate into the application folder:
+
+### [Flask](#tab/flask)
+
+```bash
+cd msdocs-flask-postgresql-sample-app
+```
+
+### [Django](#tab/django)
 
 ```bash
 cd msdocs-django-postgresql-sample-app
 ```
+
+---
 
 Create a virtual environment for the app:
 
@@ -59,22 +78,54 @@ If you want to run SQLite locally instead, follow the instructions in the commen
 
 Create the `restaurant` database tables:
 
+### [Flask](#tab/flask)
+
+```Console
+flask db init
+flask db migrate -m "initial migration"
+```
+
+### [Django](#tab/django)
+
 ```Console
 python manage.py migrate
 ```
 
+---
+
 Run the app:
+
+### [Flask](#tab/flask)
+
+```Console
+flask run
+```
+
+### [Django](#tab/django)
 
 ```Console
 python manage.py runserver
 ```
 
+---
+
+### [Flask](#tab/flask)
+
+In a web browser, go to the sample application at `http://localhost:5000` and add some restaurants and restaurant reviews to see how the app works.
+
+:::image type="content" source="./media/django-postgresql-webapp/run-flask-postgresql-app-localhost.png" alt-text="A screenshot of the Flask web app with PostgreSQL running locally showing restaurants and restaurant reviews.":::
+
+
+### [Django](#tab/django)
+
 In a web browser, go to the sample application at `http://localhost:8000` and add some restaurants and restaurant reviews to see how the app works.
 
 :::image type="content" source="./media/django-postgresql-webapp/run-django-postgresql-app-localhost.png" alt-text="A screenshot of the Django web app with PostgreSQL running locally showing restaurants and restaurant reviews.":::
 
+---
+
 > [!TIP]
-> With this Django sample app, you can create users with the `python manage.py createsuperuser` command like you would with a typical Django app. For more information, see the documentation for [django django-admin and manage.py](https://docs.djangoproject.com/en/1.8/ref/django-admin/). Use the superuser account to access the `/admin` portion of the web site.
+> With Django, you can create users with the `python manage.py createsuperuser` command like you would with a typical Django app. For more information, see the documentation for [django django-admin and manage.py](https://docs.djangoproject.com/en/1.8/ref/django-admin/). Use the superuser account to access the `/admin` portion of the web site. For Flask, use an extension such as [Flask-admin](https://github.com/flask-admin/flask-admin) to provide the same functionality.
 
 ## 2 - Create a web app in Azure
 
@@ -258,23 +309,33 @@ In the **App Service** section of the Azure Tools extension:
 
 [!INCLUDE [Deploy local git with CLI](<./includes/django-postgresql-webapp/migrate-app-database-cli.md>)]
 
-----
+---
 
 > [!NOTE]
 > If you cannot connect to the SSH session, then the app itself has failed to start. **Check the diagnostic logs** for details. For example, if you haven't created the necessary app settings in the previous section, the logs will indicate `KeyError: 'DBNAME'`.
 
 **Step 2.** In the SSH session, run the following command to migrate the models into the database schema (you can paste commands using **Ctrl**+**Shift**+**V**):
 
+### [Flask](#tab/flask)
+
 ```bash
+# Create database tables
+flask db init
+```
+
+### [Django](#tab/django)
+
+```bash
+# Create database tables
 python manage.py migrate
 ```
 
+---
+
 If you encounter any errors related to connecting to the database, check the values of the application settings of the App Service created in the previous section, namely `DBHOST`, `DBNAME`, `DBUSER`, and `DBPASS`. Without those settings, the migrate command cannot communicate with the database.
 
-----
-
 > [!TIP]
-> In an SSH session, you can also create users with the `python manage.py createsuperuser` command like you would with a typical Django app. For more information, see the documentation for [django django-admin and manage.py](https://docs.djangoproject.com/en/1.8/ref/django-admin/). Use the superuser account to access the `/admin` portion of the web site.
+> In an SSH session, for Django you can also create users with the `python manage.py createsuperuser` command like you would with a typical Django app. For more information, see the documentation for [django django-admin and manage.py](https://docs.djangoproject.com/en/1.8/ref/django-admin/). Use the superuser account to access the `/admin` portion of the web site. For Flask, use an extension such as [Flask-admin](https://github.com/flask-admin/flask-admin) to provide the same functionality.
 
 ## 8 - Browse to the app
 
