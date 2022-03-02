@@ -1,1 +1,0 @@
-Select your web app as the web app to deploy in the dialog at the top of the screen.
