@@ -118,3 +118,5 @@ landingContent:
         links:
           - text: Deploy an Azure Cosmos DB
             url: deploy-azure-cosmos-db-to-azure-container-instances.md
+          - text: Deploy a PostgreSQL Flexible Server Database
+            url: deploy-postgresql-flexible-server-database.md
