@@ -367,6 +367,40 @@ public class CustomMessageConverter extends MappingJackson2MessageConverter {
 
 For more information about `MessageConverter`, see the official [Spring JMS guide](https://spring.io/guides/gs/messaging-jms/).
 
+### How to set session-id in JmsTemplate
+Entities that have session support enabled can only receive messages that have the SessionId set to a valid value. So in the case of sending messages to session enabled Service Bus queue entity, additional setup should be done for settig the session-id.
+
+JmsTemplate has a API to send message with which we can set the string property of "JMSXGroupID" which is mapped to the "SessionId" property.
+
+Here is a small code sample:
+```java
+@RestController
+public class QueueSendController {
+
+    private static final String QUEUE_NAME = "<DestinationName>";
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(QueueSendController.class);
+
+    @Autowired
+    private JmsTemplate jmsTemplate;
+
+    @PostMapping("/queue")
+    public String postMessage(@RequestParam String message) {
+
+        LOGGER.info("Sending message");
+
+        jmsTemplate.convertAndSend(QUEUE_NAME, new User(message), new MessagePostProcessor() {
+            @Override
+            public Message postProcessMessage(Message jmsMessage) throws JMSException {
+                jmsMessage.setStringProperty("JMSXGroupID", "xxxeee");
+                return jmsMessage;
+            }
+        });
+        return message;
+    }
+}
+```
+
 ## Build and test your application
 
 1. Open a command prompt and change directory to the location of your *pom.xml*; for example:
