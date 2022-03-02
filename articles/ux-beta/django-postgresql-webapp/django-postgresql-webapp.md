@@ -28,7 +28,7 @@ In this tutorial, you will deploy a data-driven Python web app (**[Django](https
 
 ## 1 - Sample application
 
-A sample Python application using the Flask or Django framework is provided to help you follow along with this tutorial. Download or clone the sample application to your local workstation.
+Sample Python applications using the Flask and Django framework are provided to help you follow along with this tutorial. Download or clone one of the sample applications to your local workstation.
 
 ### [Flask](#tab/flask)
 
@@ -318,6 +318,8 @@ In the **App Service** section of the Azure Tools extension:
 
 ### [Flask](#tab/flask)
 
+When deploying the Flask sample app to Azure App Service, the database tables are created automatically in Azure PostgreSQL. If the tables aren't created, try the following command:
+
 ```bash
 # Create database tables
 flask db init
@@ -341,9 +343,17 @@ If you encounter any errors related to connecting to the database, check the val
 
 Browse to the deployed application in your web browser at the URL `http://<app-name>.azurewebsites.net`. It can take a minute or two for the app to start, so if you see a default app page, wait a minute and refresh the browser.
 
-When you see the Django sample web app, it is running in a Linux container in App Service using a built-in image **Congratulations!** You've deployed your Python app to App Service.
+When you see your sample web app, it is running in a Linux container in App Service using a built-in image **Congratulations!** You've deployed your Python app to App Service.
+
+### [Flask](#tab/flask)
+
+:::image type="content" source="./media/django-postgresql-webapp/run-flask-postgresql-app-production.png" alt-text="A screenshot of the Flask web app with PostgreSQL running in Azure showing restaurants and restaurant reviews.":::
+
+### [Django](#tab/django)
 
 :::image type="content" source="./media/django-postgresql-webapp/run-django-postgresql-app-production.png" alt-text="A screenshot of the Django web app with PostgreSQL running in Azure showing restaurants and restaurant reviews.":::
+
+---
 
 ## 9 - Stream diagnostic logs
 
