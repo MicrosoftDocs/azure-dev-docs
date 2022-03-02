@@ -199,6 +199,8 @@
 | azure-purview-administration | PyPI [1.0.0b1](https://pypi.org/project/azure-purview-administration/1.0.0b1) |  |  |
 | azure-purview-nspkg | PyPI [2.0.0](https://pypi.org/project/azure-purview-nspkg/2.0.0) |  |  |
 | azure-security-nspkg | PyPI [1.0.0](https://pypi.org/project/azure-security-nspkg/1.0.0) |  |  |
+| iotedgedev | PyPI [3.3.1](https://pypi.org/project/iotedgedev/3.3.1) |  |  |
+| iotedgehubdev | PyPI [0.14.11](https://pypi.org/project/iotedgehubdev/0.14.11) |  |  |
 | Anomaly Detector | PyPI [3.0.0b5](https://pypi.org/project/azure-ai-anomalydetector/3.0.0b5) | [docs](/python/api/overview/azure/ai-anomalydetector-readme) | GitHub [3.0.0b5](https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-anomalydetector_3.0.0b5/sdk/anomalydetector/azure-ai-anomalydetector/) |
 | Anomaly Detector | PyPI [0.3.0](https://pypi.org/project/azure-cognitiveservices-anomalydetector/0.3.0) | [docs](/python/api/overview/azure/cognitiveservices-anomalydetector-readme) | GitHub [0.3.0](https://github.com/Azure/azure-sdk-for-python/tree/azure-cognitiveservices-anomalydetector_0.3.0/sdk/cognitiveservices/azure-cognitiveservices-anomalydetector/) |
 | App Configuration | PyPI [1.3.0](https://pypi.org/project/azure-appconfiguration/1.3.0) | [docs](/python/api/overview/azure/appconfiguration-readme) | GitHub [1.3.0](https://github.com/Azure/azure-sdk-for-python/tree/azure-appconfiguration_1.3.0/sdk/appconfiguration/azure-appconfiguration/) |
