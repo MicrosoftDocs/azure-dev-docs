@@ -13,7 +13,7 @@ Use a client-side React app to upload an image file to an Azure Storage blob usi
 The TypeScript programming work is done for you, this tutorial focuses on using the local and remote Azure environments successfully from inside Visual Studio Code with Azure extensions.
 
 * [**Sample code**](https://github.com/Azure-Samples/js-e2e-browser-file-upload-storage-blob)
-* [Azure Blob Storage reference documentation](/javascript/api/overview/azure/storage-overview)
+* [Azure Blob Storage reference documentation](/javascript/api/overview/azure/storage-blob-readme?view=azure-node-latest)
 
 ## Application architecture and functionality
 
