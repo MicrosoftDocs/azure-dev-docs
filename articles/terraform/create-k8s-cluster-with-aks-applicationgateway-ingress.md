@@ -78,15 +78,15 @@ Terraform tracks state locally via the `terraform.tfstate` file. This pattern wo
 
 1. Create a file named `main.tf` and insert the following code:
 
-    [!code-terraform[master](../../terraform_samples/quickstart/201-k8s-cluster-with-aks-applicationgateway-ingress/main.tf)]
+    [!code-terraform[UserStory1871520-2](../../terraform_samples/quickstart/201-k8s-cluster-with-aks-applicationgateway-ingress/main.tf)]
 
 1. Create a file named `variables.tf` to contain the project variables and insert the following code:
 
-    [!code-terraform[master](../../terraform_samples/quickstart/201-k8s-cluster-with-aks-applicationgateway-ingress/variables.tf)]
+    [!code-terraform[UserStory1871520-2](../../terraform_samples/quickstart/201-k8s-cluster-with-aks-applicationgateway-ingress/variables.tf)]
 
 1. Create a file named `resources.tf` and insert the following code.
 
-    [!code-terraform[master](../../terraform_samples/quickstart/201-k8s-cluster-with-aks-applicationgateway-ingress/resources.tf)]
+    [!code-terraform[UserStory1871520-2](../../terraform_samples/quickstart/201-k8s-cluster-with-aks-applicationgateway-ingress/resources.tf)]
 
     **Key points:**
 
@@ -100,7 +100,7 @@ Terraform tracks state locally via the `terraform.tfstate` file. This pattern wo
 
 1. Create a file named `output.tf` and insert the following code.
 
-    [!code-terraform[master](../../terraform_samples/quickstart/201-k8s-cluster-with-aks-applicationgateway-ingress/output.tf)]
+    [!code-terraform[UserStory1871520-2](../../terraform_samples/quickstart/201-k8s-cluster-with-aks-applicationgateway-ingress/output.tf)]
 
     **Key points:**
 
@@ -110,7 +110,7 @@ Terraform tracks state locally via the `terraform.tfstate` file. This pattern wo
 
 1. Create a file named `terraform.tfvars` and insert the following code.
 
-    [!code-terraform[master](../../terraform_samples/quickstart/201-k8s-cluster-with-aks-applicationgateway-ingress/terraform.tfvars)]
+    [!code-terraform[UserStory1871520-2](../../terraform_samples/quickstart/201-k8s-cluster-with-aks-applicationgateway-ingress/terraform.tfvars)]
 
     **Key points:**
 

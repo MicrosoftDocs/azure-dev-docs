@@ -37,8 +37,8 @@
   "dependent_repositories": [
     {
       "path_to_root": "terraform_samples",
-      "url": "https://github.com/Azure/terraform",
-      "branch": "master",
+      "url": "https://github.com/TomArcherMsft/terraform",
+      "branch": "UserStory1871520-2",
       "branch_mapping": {}
     },
     {
