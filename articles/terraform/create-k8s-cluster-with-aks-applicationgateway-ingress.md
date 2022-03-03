@@ -38,6 +38,8 @@ In this article, you learn how:
 
 - **Install Helm**: [Helm](https://helm.sh/docs/intro/install/) is the Kubernetes package manager.
 
+- **Install GNU Wget**: Ensure you have access to `wget` by running `wget` at any command line without any parameters. You can install `wget` from the [official GNU Wget website](http://www.gnu.org/software/wget/).
+
 ## 2. Configure Azure storage to store Terraform state
 
 Terraform tracks state locally via the `terraform.tfstate` file. This pattern works well in a single-person environment. However, in a more practical multi-person environment, you need to track state on the server using [Azure storage](/azure/storage/). In this section, you learn to retrieve the necessary storage account information and create a storage container. The Terraform state information is then stored in that container.
@@ -207,8 +209,6 @@ Use Helm to install the `application-gateway-kubernetes-ingress` package:
     ```
     
 ## 10. Install AGIC Helm Chart
-
-1. Ensure you have access to `wget`. You can do this by running `wget` at any command line without any parameters. You can install `wget` from the [official GNU Wget website](http://www.gnu.org/software/wget/).
 
 1. Download `helm-config.yaml` to configure AGIC.
 
