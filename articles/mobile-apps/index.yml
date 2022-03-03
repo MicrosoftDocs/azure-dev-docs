@@ -13,6 +13,8 @@ metadata:
   author: codemillmatt #Required; your GitHub user alias, with correct capitalization.
   ms.author: masoucou #Required; microsoft alias of author; optional team alias.
   ms.date: 07/27/2020
+  ms.custom: team=cloud_advocates
+  ms.contributors: masoucou-01052022
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
 

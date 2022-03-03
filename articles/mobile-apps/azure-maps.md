@@ -7,6 +7,8 @@ ms.service: mobile-services
 ms.topic: article
 ms.date: 06/08/2020
 ms.author: masoucou
+ms.custom: team=cloud_advocates
+ms.contributors: masoucou-06082020
 ---
 
 # Geospatial APIs to add maps, spatial analytics, and mobility solutions with Azure Maps
