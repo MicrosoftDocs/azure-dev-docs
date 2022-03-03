@@ -91,11 +91,7 @@ Terraform tracks state locally via the `terraform.tfstate` file. This pattern wo
 
     **Key points:**
 
-    - The code in the `main.tf` file sets the name of the cluster, location, and the resource_group_name.
-    - The `dns_prefix` value - that forms part of the fully qualified domain name (FQDN) used to access the cluster - is set.
-    - The `linux_profile` record allows you to configure the settings that enable signing into the worker nodes using SSH.
     - With AKS, you pay only for the worker nodes.
-    - The `agent_pool_profile` record configures the details for these worker nodes.
     - The `agent_pool_profile record` includes the number of worker nodes to create and the type of worker nodes.
     - If you need to scale up or scale down the cluster in the future, modify the `count` value in `agent_pool_profile record` record.
 
