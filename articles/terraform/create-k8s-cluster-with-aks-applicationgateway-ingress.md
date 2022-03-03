@@ -30,7 +30,7 @@ In this article, you learn how:
 
 - **Azure service principal:** If you don't have a service principal, [create a service principal](authenticate-to-azure.md#create-a-service-principal). Make note of the `appId`, `display_name`, `password`, and `tenant`.
 
-- **Service principal object ID**: Run the following command to get the object ID of the service principal: `az ad sp list --display-name "<display_name" --query "[].{\"Object ID\":objectId}" --output table`
+- **Service principal object ID**: Run the following command to get the object ID of the service principal: `az ad sp list --display-name "<display_name>" --query "[].{\"Object ID\":objectId}" --output table`
 
 ## 2. Configure Azure storage to store Terraform state
 
@@ -100,7 +100,7 @@ Terraform tracks state locally via the `terraform.tfstate` file. This pattern wo
 
     **Key points:**
 
-    - The code in the `variables.tf` file defines the project variables. Most of these variables are set to default values. Verify the values work for your environment and change if necessary.
+    - Most of these variables are set to default values. Verify the values work for your environment and change if necessary.
 
 1. Create a file named `output.tf` and insert the following code.
 
@@ -118,7 +118,9 @@ Terraform tracks state locally via the `terraform.tfstate` file. This pattern wo
 
     **Key points:**
 
-    - Replace the placeholders in the code with the appropriate information from your resource group and service principal.
+    - Set `aks_service_principal_app_id` to the service principal `appId` value.
+    - Set `aks_service_principal_client_secret` to the service principal `password` value.
+    - Set `aks_service_principal_object_id` to the service principal object ID. (The Azure CLI command for obtaining this value is in the [Configure your environment](#configure_your_environment) section.)
 
 ## 4. Initialize Terraform
 
