@@ -59,18 +59,6 @@ Recommendation: Our recommendation is to start with the Parallel GC.
 |                   | Red Hat-led, with AWS contributions |
 
 
-#### Serial GC
-
-A GC to be used for single threaded application with small heaps.
-
-#### Parallel GC
-
-A GC that uses multiple threads to perform the GC and it is optimized for throughput.
-
-#### G1 GC 
-
-A GC that uses multiple threads and divides the GC into regions.
-
 ### Determine how many CPU cores are needed
 
 Dependig on the GC you selected above you will either need at minimum 1 vCPU core if you selected the Serial GC, or 2+ vCPU cores if you selected any other GC. Note that selecting anything less than 1 vCPU core is NOT recommended for any GC choice.
