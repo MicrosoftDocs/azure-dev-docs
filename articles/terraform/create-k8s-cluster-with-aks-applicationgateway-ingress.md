@@ -80,6 +80,11 @@ Terraform tracks state locally via the `terraform.tfstate` file. This pattern wo
 
     [!code-terraform[UserStory1871520-2](../../terraform_samples/quickstart/201-k8s-cluster-with-aks-applicationgateway-ingress/providers.tf)]
 
+    **Key points:**
+
+    - Set `resource_group_name` to the resource group of the storage account.
+    - Set `storage_account_name` to the storage account name.
+
 1. Create a file named `main.tf` and insert the following code:
 
     [!code-terraform[UserStory1871520-2](../../terraform_samples/quickstart/201-k8s-cluster-with-aks-applicationgateway-ingress/main.tf)]
