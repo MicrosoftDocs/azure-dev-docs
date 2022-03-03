@@ -243,11 +243,11 @@ Use Helm to install the `application-gateway-kubernetes-ingress` package:
     az identity show -g <resource_group_name> -n <identity_name>`
     ```
 
-**Key points:**
-
-    - The identity name for this demo is set to `identity1` in the `main.tf` file.
-    - All identities for a given subscription can be by running `az identity list`.
-
+    **Key points:**
+    
+        - The identity name for this demo is set to `identity1` in the `main.tf` file.
+        - All identities for a given subscription can be by running `az identity list`.
+    
 1. Enter values for the `armAuth` block.
 
     - If you specify `armAuth.type` as `aadPodIdentity`:
