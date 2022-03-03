@@ -1,37 +1,39 @@
 items:
-  - name: Azure SDK for Go
+  - name: Azure for Go developers
     href: index.yml
-  - name: Overview
+  - name: Get started with Go on Azure
     items:
-    - name: Installation
-      href: azure-sdk-install.md
-    - name: Tools
-      href: azure-sdk-tools.md
+    - name: Configure your development environment
+      href: configure-visual-studio-code.md
+    - name: Key Azure services for Go developers
+      href: key-azure-services-for-go.md
+  - name: Use the Azure SDK for Go
+    items:
+    - name: What is the Azure SDK for Go?
+      href: overview.md
+    - name: Management Libraries
+      href: management-libraries.md
     - name: Authentication
-      href: azure-sdk-authorization.md
-  - name: Quickstarts
-    items:
-    - name: Virtual Machines and Resource Templates
-      href: azure-sdk-qs-vm.md
-    - name: Azure Blob Storage
-      href: /azure/storage/blobs/storage-quickstart-blobs-go?toc=/azure/developer/go/toc.json&bc=/azure/developer/breadcrumb/toc.json
-    - name: Azure Database for PostgreSQL
-      href: /azure/postgresql/connect-go?toc=/azure/developer/go/toc.json&bc=/azure/developer/breadcrumb/toc.json
-    - name: Azure Database for MySQL
-      href: /azure/mysql/connect-go?toc=/azure/developer/go/toc.json&bc=/azure/developer/breadcrumb/toc.json
-    - name: Azure SQL Database 
-      href: /azure/sql-database/sql-database-connect-query-go?toc=/azure/developer/go/toc.json&bc=/azure/developer/breadcrumb/toc.json
-  - name: Samples
-    items:
-    - name: Authentication and Active Directory
-      href: azure-sdk-auth-aad-samples.md
-    - name: Containers
-      href: azure-sdk-containers-samples.md
-    - name: Compute and networking
-      href: azure-sdk-compute-networking-samples.md
-    - name: Azure SQL Database
-      href: azure-sdk-sql-database-samples.md
-    - name: All Go samples
+      expanded: false
+      items:
+        - name: Auth with development environments
+          href: azure-sdk-authentication.md
+        - name: Auth with Azure-hosted apps
+          href: azure-sdk-authentication-managed-identity.md
+        - name: Auth with credentials
+          href: azure-sdk-authentication-service-principal.md
+    - name: How-to guides
+      expanded: false
+      items:
+        - name: Deploy an ARM template
+          href: deploy-azure-resource-manager-template.md
+    - name: Packages list
+      href: https://azure.github.io/azure-sdk/releases/latest/all/go.html
+    - name: SDK examples
       href: http://github.com/azure-samples/azure-sdk-for-go-samples
+    - name: Migration guides
+      href: migration-guides.md
   - name: Reference
-    href: https://godoc.org/github.com/Azure/azure-sdk-for-go
+    items:
+      - name: Azure SDK for Go API reference
+        href: https://pkg.go.dev/github.com/Azure/azure-sdk-for-go

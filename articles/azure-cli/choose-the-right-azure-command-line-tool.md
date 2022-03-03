@@ -5,7 +5,7 @@ keywords: powershell, azure, azurecli, bash, cloudshell
 ms.topic: quickstart
 ms.service: azure
 ms.date: 05/04/2021
-ms.custom:
+ms.custom: mode-api, devx-track-azurecli
 ---
 
 

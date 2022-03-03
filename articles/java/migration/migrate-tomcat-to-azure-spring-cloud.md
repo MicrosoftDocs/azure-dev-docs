@@ -1,7 +1,7 @@
 ---
 title: Migrate Tomcat applications to Azure Spring Cloud
 description: This guide describes what you should be aware of when you want to migrate an existing Tomcat application to Azure Spring Cloud
-ms.author: yebronsh
+ms.author: karler
 ms.topic: conceptual
 ms.date: 6/16/2020
 recommendations: false
@@ -65,7 +65,7 @@ To identify HTTP connectors used by your application, look for `<Connector>` ele
 
 #### Determine whether SSL session tracking is used
 
-On Azure Spring Cloud, the SSL session will terminate prior to reaching your application code, so you can't use [SSL session tracking](https://tomcat.apache.org/tomcat-9.0-doc/servletapi/javax/servlet/SessionTrackingMode.html#SSL). You will need to switch to using [Spring Session](https://docs.spring.io/spring-session/docs/current/reference/html5/index.html) instead.
+On Azure Spring Cloud, the SSL session will terminate prior to reaching your application code, so you can't use [SSL session tracking](https://tomcat.apache.org/tomcat-9.0-doc/servletapi/javax/servlet/SessionTrackingMode.html#SSL). You will need to switch to using [Spring Session](https://docs.spring.io/spring-session/reference/3.0/index.html) instead.
 
 #### Determine whether Tomcat realms are used
 
@@ -126,7 +126,7 @@ The following table shows a summary of necessary migrations and code changes to 
 
 1. Recreate all other JNDI dependencies with [Spring beans](https://docs.spring.io/spring-boot/docs/current/reference/html/using.html#using.spring-beans-and-dependency-injection). Favor using Spring-idiomatic mechanisms, such as using [Spring JMS](https://spring.io/guides/gs/messaging-jms/) for messaging.
 
-1. Replace Tomcat Realms with [Spring Security](https://docs.spring.io/spring-security/site/docs/current/reference/html5/#servlet-filters-review). Consider using Azure Active Directory for authorization management via the [Spring Boot Starter for Active Directory](../spring-framework/spring-boot-starters-for-azure.md#azure-active-directory).
+1. Replace Tomcat Realms with [Spring Security](https://docs.spring.io/spring-security/reference/index.html#servlet-filters-review). Consider using Azure Active Directory for authorization management via the [Spring Boot Starter for Active Directory](../spring-framework/spring-boot-starters-for-azure.md#azure-active-directory).
 
 1. Recreate Servlet filters configured in *web.xml* with [Spring beans](https://docs.spring.io/spring-boot/docs/current/reference/html/howto.html#howto-add-a-servlet-filter-or-listener-as-spring-bean) or [classpath scanning](https://docs.spring.io/spring-boot/docs/current/reference/html/howto.html#howto-add-a-servlet-filter-or-listener-using-scanning).
 

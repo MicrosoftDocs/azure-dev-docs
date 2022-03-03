@@ -53,7 +53,7 @@ conceptualContent:
           url: fundamentals/java-jdk-install.md
         - text: Java Docker images for Azure
           itemType: get-started
-          url: fundamentals/java-jdk-docker-images.md
+          url: /java/openjdk/containers
       footerLink:
           text: See more
           url: fundamentals/index.yml
@@ -75,15 +75,15 @@ conceptualContent:
 
     - title: Azure SDK for Java
       links:
+        - text: Libraries, drivers, and Spring modules
+          itemType: reference
+          url: sdk/libraries-drivers-modules.md
         - text: Azure development using Java
           itemType: get-started
           url: sdk/get-started.md
         - text: Introducing Azure SDK for Java
           itemType: learn
           url: sdk/overview.md
-        - text: Java API browser
-          itemType: reference
-          url: /java/api
       footerLink:
           text: See more
           url: sdk/index.yml
@@ -111,9 +111,9 @@ conceptualContent:
         - text: Launch your first app
           itemType: quickstart
           url: /azure/spring-cloud/quickstart?tabs=Azure-CLI&pivots=programming-language-java
-        - text: Prepare a Spring app for deployment
-          itemType: tutorial
-          url: /azure/spring-cloud/spring-cloud-tutorial-prepare-app-deployment
+        - text: Enterprise tier
+          itemType: overview
+          url: /azure/spring-cloud/overview#enterprise-tier-overview
       footerLink:
           text: See more
           url: /azure/spring-cloud

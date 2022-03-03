@@ -1,7 +1,7 @@
 ---
 title: Create a container image for a Node.js app from Visual Studio Code
 description: Docker Tutorial part 4, create a Node.js application image
-ms.topic: tutorial
+ms.topic: how-to
 ms.date: 08/17/2021
 ms.custom: devx-track-js
 # Verified full run: diberry 08/16/2021
@@ -34,7 +34,7 @@ The `Dockerfile` describes the environment for your app including the location o
 
 1. Once completed, the **Terminal** panel of Visual Studio Code opens to run the `docker build` command. The output also shows each step, or layer, that makes up the app environment.
 
-1. Once built, the image appears in the **DOCKER** explorer under **Images**, named `jse2eexpressserver`.
+1. Once built, the image appears in the **Docker Explorer** under **Images**, named `jse2eexpressserver`.
    
 ## Modify build task to include tag
 

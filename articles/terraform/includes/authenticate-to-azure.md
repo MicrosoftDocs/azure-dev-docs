@@ -1,15 +1,13 @@
 ---
-title: include file
-description: include file
-ms.topic: how-to
-ms.date: 08/07/2021
-ms.custom: devx-track-terraform
 ms.author: tarcher
+ms.topic: include
+ms.date: 01/27/2022
+ms.custom: devx-track-terraform
 ---
 
 ### Terraform and Azure authentication scenarios
 
-Terraform only supports authenticating to Azure via the Azure CLI. Authenticating using Azure PowerShell is not supported. Therefore, while you can use the Azure PowerShell module when doing your Terraform work, you first need to authenticate to Azure using the Azure CLI.
+Terraform only supports authenticating to Azure via the Azure CLI. Authenticating using Azure PowerShell isn't supported. Therefore, while you can use the Azure PowerShell module when doing your Terraform work, you first need to authenticate to Azure using the Azure CLI.
 
 This article explains how to authenticate Terraform to Azure for the following scenarios. For more information about options to authenticate Terraform to Azure, see [Authenticating using the Azure CLI](https://registry.terraform.io/providers/hashicorp/azuread/latest/docs/guides/azure_cli).
 
@@ -21,13 +19,13 @@ This article explains how to authenticate Terraform to Azure for the following s
 
 ### Authenticate to Azure via a Microsoft account
 
-A Microsoft account is a username (associated with an email and its credentials) that is used to log in to Microsoft services - such as Azure. A Microsoft account can be associated with one or more Azure subscriptions, with one of those subscriptions being the default.
+A Microsoft account is a username (associated with an email and its credentials) that is used to sign in to Microsoft services - such as Azure. A Microsoft account can be associated with one or more Azure subscriptions, with one of those subscriptions being the default.
 
-The following steps show you how to log in to Azure interactively using a Microsoft account, list the account's associated Azure subscriptions (including the default), and set the current subscription.
+The following steps show you how to sign in to Azure interactively using a Microsoft account, list the account's associated Azure subscriptions (including the default), and set the current subscription.
 
 1. Open a command line that has access to the Azure CLI.
 
-1. Run [az login](/cli/azure/account#az_login) without any parameters and follow the instructions to log in to Azure.
+1. Run [az login](/cli/azure/account#az_login) without any parameters and follow the instructions to sign in to Azure.
 
     ```azurecli
     az login
@@ -35,7 +33,7 @@ The following steps show you how to log in to Azure interactively using a Micros
 
     **Key points:**
 
-    - Upon successful login, `az login` displays a list of the Azure subscriptions associated with the logged-in Microsoft account, including the default subscription.
+    - Upon successful sign in, `az login` displays a list of the Azure subscriptions associated with the logged-in Microsoft account, including the default subscription.
 
 1. To confirm the current Azure subscription, run [az account show](/cli/azure/account#az_account_show).
 
@@ -52,7 +50,7 @@ The following steps show you how to log in to Azure interactively using a Micros
     **Key points:**
 
     - Replace the `<microsoft_account_email>` placeholder with the Microsoft account email address whose Azure subscriptions you want to list.
-    - With a Live account - such as a hotmail or outlook - you might need to specify the fully qualified email address. For example, if your email address is `admin@hotmail.com`, you might need to replace the placeholder with `live.com#admin@hotmail.com`.
+    - With a Live account - such as a Hotmail or Outlook - you might need to specify the fully qualified email address. For example, if your email address is `admin@hotmail.com`, you might need to replace the placeholder with `live.com#admin@hotmail.com`.
 
 1.  To use a specific Azure subscription, run [az account set](/cli/azure/account#az_account_set).
 
@@ -68,15 +66,15 @@ The following steps show you how to log in to Azure interactively using a Micros
     
 ### Create a service principal
 
-Automated tools that deploy or use Azure services - such as Terraform - should always have restricted permissions. Instead of having applications log in as a fully privileged user, Azure offers service principals.
+Automated tools that deploy or use Azure services - such as Terraform - should always have restricted permissions. Instead of having applications sign in as a fully privileged user, Azure offers service principals.
 
-The most common pattern is to interactively log in to Azure, create a service principal, test the service principal, and then use that service principal for future authentication (either interactively or from your scripts).
+The most common pattern is to interactively sign in to Azure, create a service principal, test the service principal, and then use that service principal for future authentication (either interactively or from your scripts).
 
 #### [Bash](#tab/bash)
 
-1. To create a service principal, log in to Azure. After [authenticating to Azure via a Microsoft account](#authenticate-to-azure-via-a-microsoft-account), return here.
+1. To create a service principal, sign in to Azure. After [authenticating to Azure via a Microsoft account](#authenticate-to-azure-via-a-microsoft-account), return here.
 
-1. If you're creating a service principal from Git Bash, set the `MSYS_NO_PATHCONV` environment variable. (This step is not necessary if you're using Cloud Shell.)
+1. If you're creating a service principal from Git Bash, set the `MSYS_NO_PATHCONV` environment variable. (This step isn't necessary if you're using Cloud Shell.)
 
     ```bash
     export MSYS_NO_PATHCONV=1    
@@ -84,12 +82,12 @@ The most common pattern is to interactively log in to Azure, create a service pr
 
     **Key points:**
 
-    - You can set the `MSYS_NO_PATHCONV` environment variable globally (for all terminal sessions) or locally (for just the current session). As creating a service principal is not something you do often, the sample sets the value for the current session. To set this environment variable globally, add the setting to the `~/.bashrc` file.
+    - You can set the `MSYS_NO_PATHCONV` environment variable globally (for all terminal sessions) or locally (for just the current session). As creating a service principal isn't something you do often, the sample sets the value for the current session. To set this environment variable globally, add the setting to the `~/.bashrc` file.
 
 1. To create a service principal, run [az ad sp create-for-rbac](/cli/azure/ad/sp?#az_ad_sp_create_for_rbac).
 
     ```azurecli
-    az ad sp create-for-rbac --name <service_principal_name>
+    az ad sp create-for-rbac --name <service_principal_name> --role Contributor
     ```
 
     **Key points:**
@@ -97,9 +95,9 @@ The most common pattern is to interactively log in to Azure, create a service pr
     - You can replace the `<service-principal-name>` with a custom name for your environment or omit the parameter entirely. If you omit the parameter, the service principal name is generated based on the current date and time.
     - Upon successful completion, `az ad sp create-for-rbac` displays several values. The `appId`, `password`, and `tenant` values are used in the next step.
     - The password can't be retrieved if lost. As such, you should store your password in a safe place. If you forget your password, you can [reset the service principal credentials](/cli/azure/create-an-azure-service-principal-azure-cli#reset-credentials).
-    - The **Contributor** role is the default role and has full permissions to read and write to an Azure account. For this article, a service principal with a **Contributor** role is being used. For more information about Role-Based Access Control (RBAC) and roles, see [RBAC: Built-in roles](/azure/active-directory/role-based-access-built-in-roles).
+    - For this article, a service principal with a **Contributor** role is being used. For more information about Role-Based Access Control (RBAC) roles, see [RBAC: Built-in roles](/azure/active-directory/role-based-access-built-in-roles).
     - The output from creating the service principal includes sensitive credentials. Be sure that you don't include these credentials in your code or check the credentials into your source control.
-    - For more information about options when creating creating a service principal with the Azure CLI, see the article [Create an Azure service principal with the Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli?).
+    - For more information about options when creating a service principal with the Azure CLI, see the article [Create an Azure service principal with the Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli?).
 
 #### [Azure PowerShell](#tab/azure-powershell)
 
@@ -113,7 +111,7 @@ The most common pattern is to interactively log in to Azure, create a service pr
 
     **Key points:**
 
-    - Upon successful login, `Connect-AzAccount` displays information about the default subscription.
+    - Upon successful sign in, `Connect-AzAccount` displays information about the default subscription.
     - Make note of the `TenantId` as it's needed to use the service principal.
 
 1. To confirm the current Azure subscription, run [Get-AzContext](/powershell/module/az.accounts/get-azcontext).
@@ -141,30 +139,28 @@ The most common pattern is to interactively log in to Azure, create a service pr
 1. Run [New-AzADServicePrincipal](/powershell/module/az.resources/new-azadserviceprincipal) to create a new service principal.
 
     ```powershell
-    $sp = New-AzADServicePrincipal -DisplayName <service_principal_name>    
+    $sp = New-AzADServicePrincipal -DisplayName <service_principal_name> -Role "Contributor"
     ```
 
     **Key points:**
 
     - You can replace the `<service-principal-name>` with a custom name for your environment or omit the parameter entirely. If you omit the parameter, the service principal name is generated based on the current date and time.
-    - The **Contributor** role is the default role and has full permissions to read and write to an Azure account. For this article, a service principal with a **Contributor** role is being used. For more information about Role-Based Access Control (RBAC) and roles, see [RBAC: Built-in roles](/azure/active-directory/role-based-access-built-in-roles).
+    - The **Contributor** role is being used. For more information about Role-Based Access Control (RBAC) roles, see [RBAC: Built-in roles](/azure/active-directory/role-based-access-built-in-roles).
 
 1. Display the service principal ID.
 
     ```powershell
-    $sp.ApplicationId
+    $sp.AppId
     ```
 
     **Key points:**
 
     - Make note of the service principal application ID as it's needed to use the service principal.
 
-1. Convert the autogenerated password to text.
+1. Get the autogenerated password to text.
 
     ```powershell
-    $BSTR = [System.Runtime.InteropServices.Marshal]::SecureStringToBSTR($sp.Secret)
-    $UnsecureSecret = [System.Runtime.InteropServices.Marshal]::PtrToStringAuto($BSTR)
-    $UnsecureSecret
+    $sp.PasswordCredentials.SecretText
     ```
 
     **Key points:**
@@ -253,4 +249,4 @@ provider "azurerm" {
 ```
 
 > [!CAUTION]
-> The ability to specify your Azure subscription credentials in a Terraform configuration file can be convenient - especially when testing. However, it is not advisable to store credentials in a clear-text file that can be viewed by non-trusted individuals.
+> The ability to specify your Azure subscription credentials in a Terraform configuration file can be convenient - especially when testing. However, it isn't advisable to store credentials in a clear-text file that can be viewed by non-trusted individuals.

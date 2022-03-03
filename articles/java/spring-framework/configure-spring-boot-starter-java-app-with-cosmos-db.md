@@ -4,7 +4,7 @@ description: Learn how to configure an application created with the Spring Boot 
 services: cosmos-db
 documentationcenter: java
 ms.author: karler
-ms.date: 10/13/2020
+ms.date: 01/19/2022
 ms.service: cosmos-db
 ms.tgt_pltfrm: multiple
 ms.topic: article
@@ -96,7 +96,7 @@ Your simple Spring Boot application is now ready for editing.
     <dependency>
         <groupId>com.azure.spring</groupId>
         <artifactId>azure-spring-boot-starter-cosmos</artifactId>
-        <version>3.5.0</version> 
+        <version>3.13.0</version> 
     </dependency>
     ```
 

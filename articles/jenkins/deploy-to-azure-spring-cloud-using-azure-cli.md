@@ -3,7 +3,7 @@ title: Deploy apps to Azure Spring Cloud using Jenkins and Azure CLI
 description: Learn how to use Azure CLI in a continuous integration and deployment pipeline to deploy microservices to Azure Spring Cloud service
 keywords: jenkins, azure, devops, azure spring cloud, azure cli
 ms.topic: tutorial
-ms.date: 11/10/2020 
+ms.date: 01/28/2022
 ms.custom: devx-track-jenkins,devx-track-azurecli
 ---
 
@@ -26,7 +26,7 @@ In this tutorial, you'll complete these tasks:
 
 ## Provision a service instance and launch a Java Spring application
 
-We use [Piggy Metrics](https://github.com/Azure-Samples/piggymetrics) as the sample Microsoft service application and follow the same steps in [Quickstart: Launch a Java Spring application using the Azure CLI](/azure/spring-cloud/spring-cloud-quickstart-launch-app-cli) to provision the service instance and set up the applications. If you have already gone through the same process, you can skip to the next section. Otherwise, included in the following are the Azure CLI commands. Refer to [Quickstart: Launch a Java Spring application using the Azure CLI](/azure/spring-cloud/spring-cloud-quickstart-launch-app-cli) to get additional background information.
+We use [Piggy Metrics](https://github.com/Azure-Samples/piggymetrics) as the sample Microsoft service application and follow the same steps in [Quickstart: Launch a Java Spring application using the Azure CLI](/azure/spring-cloud/spring-cloud-quickstart-launch-app-cli) to provision the service instance and set up the applications. If you've already gone through the same process, you can skip to the next section. Otherwise, included in the following are the Azure CLI commands. Refer to [Quickstart: Launch a Java Spring application using the Azure CLI](/azure/spring-cloud/spring-cloud-quickstart-launch-app-cli) to get more information.
 
 Your local machine needs to meet the same prerequisite as the Jenkins build server. Make sure the following are installed to build and deploy the microservice applications:
 
@@ -105,11 +105,15 @@ Your local machine needs to meet the same prerequisite as the Jenkins build serv
 
 ## Prepare Jenkins server
 
-In this section, you prepare the Jenkins server to run a build, which is fine for testing. However, because of security implication, you should use an [Azure VM agent](https://plugins.jenkins.io/azure-vm-agents) or [Azure Container agent](https://plugins.jenkins.io/azure-container-agents) to spin up an agent in Azure to run your builds. For more information, see the Jenkins article on the [security implications of building on master](https://wiki.jenkins.io/display/JENKINS/Security+implication+of+building+on+master).
+In this section, you prepare the Jenkins server to run a build, which is fine for testing. However, because of security implication, you should use an [Azure VM agent](https://plugins.jenkins.io/azure-vm-agents) or [Azure Container agent](https://plugins.jenkins.io/azure-container-agents) to spin up an agent in Azure to run your builds.
 
 ### Install plug-ins
 
-1. Sign in to your Jenkins server. Choose **Manage Jenkins > Manage Plugins**.
+1. Log in to your Jenkins server. 
+
+1. Select **Manage Jenkins**.
+
+1. Select **Manage Plugins**.
 
 1. On the **Available** tab, select the following plug-ins:
 
@@ -118,7 +122,7 @@ In this section, you prepare the Jenkins server to run a build, which is fine fo
 
     If these plug-ins don't appear in the list, check the **Installed** tab to see if they're already installed.
 
-1. To install the plug-ins, choose **Download now and install after restart**.
+1. To install the plug-ins, select **Download now and install after restart**.
 
 1. Restart your Jenkins server to complete the installation.
 
@@ -150,11 +154,11 @@ In this section, you prepare the Jenkins server to run a build, which is fine fo
     - **Tenant ID**: Microsoft account tenant ID
     - **Azure Environment**: Select the appropriate value for your environment. For example, use **Azure** for Azure Global
     - **ID**: Set as `azure_service_principal`. We use this ID in a later step in this article
-    - **Description**: This is optional, but recommended.
+    - **Description**: This value is optional, but recommended from a documentation/maintenance standpoint.
     
-### Install Maven and Az CLI spring-cloud extension
+### Install Maven and Azure CLI spring-cloud extension
 
-The sample pipeline uses Maven to build and Az CLI to deploy to the service instance. When Jenkins is installed, it creates an admin account named *jenkins*. Ensure that the user *jenkins* has permission to run the spring-cloud extension.
+The sample pipeline uses Maven to build and Azure CLI to deploy to the service instance. When Jenkins is installed, it creates an admin account named *jenkins*. Ensure that the user *jenkins* has permission to run the spring-cloud extension.
 
 1. Connect to the Jenkins controller via SSH.
 
@@ -164,7 +168,7 @@ The sample pipeline uses Maven to build and Az CLI to deploy to the service inst
     sudo apt-get install maven
     ```
 
-1. Verify that the Azure CLI is installed by entering `az version`. If the Azure CLI is not installed, see [Installing the Azure CLI](/cli/azure/install-azure-cli).
+1. Verify that the Azure CLI is installed by entering `az version`. If the Azure CLI isn't installed, see [Installing the Azure CLI](/cli/azure/install-azure-cli).
 
 1. Switch to the `jenkins` user:
 
@@ -172,15 +176,15 @@ The sample pipeline uses Maven to build and Az CLI to deploy to the service inst
     sudo su jenkins
     ```
 
-1. Add the **spring-cloud** extension:
+1. Install the spring-cloud extension:
 
-    ```bash
+    ```azurecli
     az extension add --name spring-cloud
     ```
 
 ## Create a Jenkinsfile
 
-1. In your own repo (https://github.com/&lt;your GitHub id&gt;/piggymetrics), create a **Jenkinsfile** in the root.
+1. In your own repo - `https://github.com/your_github_id/piggymetrics` - create a **Jenkinsfile** in the root.
 
 1. Update the file as follows. Make sure you replace the values of **\<resource group name>** and **\<service name>**. Replace **azure_service_principal** with the right ID if you use a different value when you added the credential in Jenkins.
 
@@ -194,7 +198,7 @@ The sample pipeline uses Maven to build and Az CLI to deploy to the service inst
          }
          stage('deploy') {
            withCredentials([azureServicePrincipal('azure_service_principal')]) {
-             // login to Azure
+             // Log in to Azure
              sh '''
                az login --service-principal -u $AZURE_CLIENT_ID -p $AZURE_CLIENT_SECRET -t $AZURE_TENANT_ID
                az account set -s $AZURE_SUBSCRIPTION_ID
@@ -202,6 +206,7 @@ The sample pipeline uses Maven to build and Az CLI to deploy to the service inst
              // Set default resource group name and service name. Replace <resource group name> and <service name> with the right values
              sh 'az config set defaults.group=<resource group name>'
              sh 'az config set defaults.spring-cloud=<service name>'
+
              // Deploy applications
              sh 'az spring-cloud app deploy -n gateway --jar-path ./gateway/target/gateway.jar'
              sh 'az spring-cloud app deploy -n account-service --jar-path ./account-service/target/account-service.jar'
@@ -216,41 +221,41 @@ The sample pipeline uses Maven to build and Az CLI to deploy to the service inst
 
 ## Create the job
 
-1. On the Jenkins dashboard, click **New Item**.
+1. On the Jenkins dashboard, select **New Item**.
 
 1. Provide a name, *Deploy-PiggyMetrics* for the job and select **Pipeline**. Click OK.
 
-1. Click the **Pipeline** tab next.
+1. Select the **Pipeline** tab.
 
 1. For **Definition**, select **Pipeline script from SCM**.
 
 1. For **SCM**, select **Git**.
 
-1. Enter the GitHub URL for your forked repo: **https://github.com/&lt;your GitHub id&gt;/piggymetrics.git**
+1. Enter the GitHub URL for your forked repo: `https://github.com/&lt;your GitHub id&gt;/piggymetrics.git`.
 
-1. Make sure **Branch Specifier (black for 'any')** is ***/Azure**
+1. For **Branch Specifier (black for 'any')**, select **/Azure**.
 
-1. Keep **Script path** as **Jenkinsfile**
+1. For **Script path**, select **Jenkinsfile**.
 
-1. Click **Save**
+1. Select **Save**
 
 ## Validate and run the job
 
-Before running the job, let's update the text in the login input box to **enter login ID**.
+Before running the job, edit the text in the login input box to **enter login ID**.
 
-1. In your own repo, open `index.html` in **/gateway/src/main/resources/static/**
+1. In your repo, open `index.html` in `/gateway/src/main/resources/static/`.
 
-1. Search for "enter your login" and update to "enter login ID"
+1. Search for `enter your login` and update that text to `enter login ID`.
 
     ```HTML
     <input class="frontforms" id="frontloginform" name="username" placeholder="enter login ID" type="text" autocomplete="off"/>
     ```
 
-1. Commit the changes
+1. Save and commit the change.
 
-1. Run the job in Jenkins manually. On the Jenkins dashboard, click the job *Deploy-PiggyMetrics* and then **Build Now**.
+1. Run the job in Jenkins manually. On the Jenkins dashboard, select the job `Deploy-PiggyMetrics` and then select **Build Now**.
 
-After the job is complete, navigate to the public IP of the **gateway** application and verify that your application has been updated. 
+After the job is complete, navigate to the public IP of the `gateway` application and verify that your application has been updated.
 
 ![Updated Piggy Metrics](./media/deploy-to-azure-spring-cloud-using-azure-cli/piggymetrics.png)
 
@@ -258,7 +263,7 @@ After the job is complete, navigate to the public IP of the **gateway** applicat
 
 When no longer needed, delete the resources created in this article:
 
-```bash
+```azurecli
 az group delete -y --no-wait -n <resource group name>
 ```
 

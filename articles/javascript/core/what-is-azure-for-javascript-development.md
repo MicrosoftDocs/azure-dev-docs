@@ -1,7 +1,7 @@
 ---
 title: What is Azure for JavaScript developers
 description: Azure concepts for JavaScript, TypeScript, and Node.js developers. 
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/28/2021
 ms.custom: devx-track-js
 ---
@@ -51,7 +51,7 @@ Pricing tiers are how your resource is billed. Use the [Azure pricing calculator
 When selecting the free (F0) pricing tier, it is important to understand limitations that come with that plan. When a free tier is offered:
 
 * A subscription may be limited to one free resource of that service. If you can't create a free resource, that indicates the free resource already exists in your subscription.
-* When you exceed the pricing tier quota, either in transactions per second (TPS), or transactions per month (TPS), your application will receive an HTTP error with a message indicating you are out of quota. 
+* When you exceed the pricing tier quota, either in transactions per second (TPS), or transactions per month (TPM), your application will receive an HTTP error with a message indicating you are out of quota. 
 
 ## 2. Prepare your development environment
 
@@ -91,7 +91,7 @@ Hosting options allow you to quickly use Azure for your application. The followi
     * [Vue](/azure/static-web-apps/getting-started?tabs=vue)
 * **Serverless APIs** using [Azure Functions](/azure/azure-functions/)
 * **Server application** using [Azure App Service](/azure/app-service/) 
-    * [Deploy Express.js MongoDB app to App Service from Visual Studio Code](../tutorial/deploy-nodejs-mongodb-app-service-from-visual-studio-code.md)
+    * [Deploy Express.js MongoDB app to App Service from Visual Studio Code](/azure/app-service/tutorial-nodejs-mongodb-app?tabs=azure-portal%2Cterminal-bash%2Cvscode-deploy%2Cdeploy-instructions-azportal%2Cdeploy-zip-linux-mac%2Cdeploy-instructions--zip-azcli)
 * **Container** application using [Azure App Service](/azure/app-service/)
     * [Deploy Express.js containerized app to App Service from private container registry using Visual Studio Code](../tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-01.md?tabs=bash)
 * **Linux Virtual machine** application using [Azure Virtual Machines](/azure/virtual-machines/)

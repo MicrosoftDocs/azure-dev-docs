@@ -1,9 +1,9 @@
 ---
 title: Express.js app converts text to speech with Cognitive Services Speech
 description: Use Cognitive Services Speech to convert text to speech, demonstrated on the client and the server. 
-ms.topic: tutorial
+ms.topic: how-to
 ms.date: 08/16/2021
-ms.custom: languages:JavaScript, devx-track-javascript, devx-track-azurecli
+ms.custom: languages:JavaScript, devx-track-js, devx-track-azurecli
 # Verified full run: diberry 08/16/2021
 ---
 
@@ -28,7 +28,7 @@ The tutorial takes a minimal Express.js app and adds functionality using a combi
 This application provides three different calls to convert speech to text:
 
 * The first server call creates a file on the server then returns it to the client. You would typically use this for longer text or text you know should be served more than once. 
-* The second server call is for shorter term text and is help in-memory before returned to the client. 
+* The second server call is for shorter term text and is held in-memory before returned to the client. 
 * The client call demonstrates a direct call to the Speech service using the SDK. You may choose to make this call if you have a client-only application without a server. 
 
 ## Prerequisites
@@ -121,7 +121,7 @@ Highlighted lines in the file:
 
 * Line 74: The Azure Speech SDK is pulled into the client library, using the `cdn.jsdelivr.net` site to deliver the NPM package. 
 * Line 102: The `updateSrc` method updates the audio controls' `src` URL with the querystring including the key, region, and text. 
-* Line 137: If a user selects the `Get directly from Azure` button, the web page calls directly to Azure from the client page and process the result. 
+* Line 137: If a user selects the `Get directly from Azure` button, the web page calls directly to Azure from the client page and processes the result. 
 
 ## Create Cognitive Services Speech resource
 
@@ -250,4 +250,4 @@ This command may take a few minutes.
 
 ## Next steps
 
-* [Deploy Express.js MongoDB app to App Service from Visual Studio Code](deploy-nodejs-mongodb-app-service-from-visual-studio-code.md)
+* [Deploy Express.js MongoDB app to App Service](/azure/app-service/tutorial-nodejs-mongodb-app?tabs=azure-portal%2Cterminal-bash%2Cvscode-deploy%2Cdeploy-instructions-azportal%2Cdeploy-zip-linux-mac%2Cdeploy-instructions--zip-azcli)

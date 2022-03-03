@@ -25,7 +25,7 @@ landingContent:
           - text: Java JDK installation
             url: java-jdk-install.md
           - text: Java Docker images for Azure
-            url: java-jdk-docker-images.md
+            url: /java/openjdk/containers
   - title: IDEs
     linkLists:
       - linkListType: overview
@@ -59,6 +59,6 @@ landingContent:
       - linkListType: overview
         links:
           - text: Azure DevOps
-            url: /azure/devops/java/
+            url: /azure/devops-project/azure-devops-project-java
           - text: Jenkins CI/CD
             url: /azure/jenkins/

@@ -3,8 +3,9 @@ title: End-user Authorization and Authentication with Azure Active Directory for
 description: This guide describes how to configure Oracle WebLogic Server to connect with Azure Active Directory Domain Services via LDAP
 ms.author: edburns
 ms.topic: tutorial
-ms.date: 08/10/2020
+ms.date: 12/14/2021
 recommendations: false
+ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-wls, devx-track-javaee-wls-vm
 ---
 
 # End-user authorization and authentication for migrating Java apps on WebLogic Server to Azure
@@ -157,7 +158,7 @@ For more information, see [Disable weak ciphers and password hash synchronizatio
 
 This section helps you collect the parameter values from the Azure AD DS deployed earlier.
 
-When you deploy any of the Azure Applications listed in [Oracle WebLogic Server Azure Applications](/azure/virtual-machines/workloads/oracle/oracle-weblogic), you can choose to have the deployment automatically connect to a pre-existing LDAP server.  Alternatively, you can configure the LDAP connection later by invoking the Active Directory integration subtemplate.  This approach is described in Appendix A of [the official documentation](https://wls-eng.github.io/arm-oraclelinux-wls/).  Either way, you must have the necessary parameter values to pass to the ARM template.
+When you deploy any of the Azure Applications listed in [Oracle WebLogic Server Azure Applications](/azure/virtual-machines/workloads/oracle/oracle-weblogic), you can choose to have the deployment automatically connect to a pre-existing LDAP server.  Alternatively, you can configure the LDAP connection later by invoking the Active Directory integration subtemplate.  This approach is described in Appendix A of [the official documentation](https://oracle.github.io/weblogic-azure/).  Either way, you must have the necessary parameter values to pass to the ARM template.
 
 | Parameter name | Description   | Details | 
 |----------------|---------------|---------|
@@ -179,7 +180,7 @@ Visit [Oracle WebLogic Server Azure Applications](/azure/virtual-machines/worklo
 
 #### After WLS deployment
 
-If you didn't toggle the **Connect to Azure Active Directory** to **Yes** at deployment time, you can use the values you collected in the preceding section to do the configuration later.  More details are in [the official documentation](https://wls-eng.github.io/arm-oraclelinux-wls/).
+If you didn't toggle the **Connect to Azure Active Directory** to **Yes** at deployment time, you can use the values you collected in the preceding section to do the configuration later.  More details are in [the official documentation](https://oracle.github.io/weblogic-azure/).
 
 ### Validate the deployment
 

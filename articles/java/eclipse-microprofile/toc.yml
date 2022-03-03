@@ -1,7 +1,7 @@
 - name: Eclipse MicroProfile on Azure documentation
   href: index.yml
   items: 
-  - name: Azure Extensions
+  - name: Azure extensions
     href: https://github.com/Azure/azure-microprofile
   - name: Tutorials
     expanded: true
@@ -11,13 +11,15 @@
         items:
         - name: Deploy Quarkus
           href: deploy-microprofile-quarkus-java-app-with-maven-plugin.md
+        - name: Deploy Open Liberty
+          href: deploy-microprofile-open-liberty-java-app-with-maven-plugin.md
         - name: Deploy Helidon
           href: deploy-microprofile-helidon-java-app-with-maven-plugin.md
         - name: Deploy Payara Micro
           href: deploy-microprofile-payara-micro-java-app-with-maven-plugin.md
         - name: Deploy KumuluzEE
           href: deploy-microprofile-kumuluzee-java-app-with-maven-plugin.md
-      - name: Config Source for Azure Key Vault
+      - name: ConfigSource for Azure Key Vault
         href: configure-microprofile-with-keyvault.md
       - name: CI/CD for MicroProfile applications using Azure Pipelines
         href: cicd-microprofile.md
@@ -26,14 +28,14 @@
     items:
       - name: MicroProfile Hello Azure
         href: https://github.com/azure-samples/microprofile-hello-azure
-      - name: MicroProfile Config Source for Azure Key Vault
+      - name: MicroProfile ConfigSource for Azure Key Vault
         href: https://github.com/Azure-Samples/microprofile-configsource-keyvault
   - name: Reference
     expanded: true
     items:
       - name: Eclipse MicroProfile
         href: https://microprofile.io/
-      - name: MicroProfile Implementations
+      - name: MicroProfile implementations
         expanded: false
         items:
           - name: Apache TomEE
@@ -44,16 +46,18 @@
             href: https://ee.kumuluz.com/microprofile
           - name: Payara Micro
             href: https://payara.fish/payara_micro
-          - name: Red Hat WildFly Swarm (Thorntail)
-            href: https://thorntail.io/
-      - name: MicroProfile Project Generators
+          - name: Red Hat JBoss EAP XP
+            href: https://access.redhat.com/products/red-hat-jboss-enterprise-application-platform/
+      - name: MicroProfile project generators
         expanded: false
         items: 
-          - name: Official MicroProfile Project Generator
+          - name: Official MicroProfile project generator
             href: https://start.microprofile.io/
-          - name: WildFly Swarm (Thorntail) Generator
+          - name: Open Liberty generator
+            href: https://start.openliberty.io/
+          - name: WildFly Swarm (Thorntail) generator
             href: https://thorntail.io/generator/
-          - name: KumuluzEE Generator
+          - name: KumuluzEE generator
             href: https://ee.kumuluz.com/generator/
-          - name: Jeddict
+          - name: Jeddict generator
             href: https://jeddict.github.io/

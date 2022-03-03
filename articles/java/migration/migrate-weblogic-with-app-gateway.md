@@ -5,6 +5,7 @@ ms.author: edburns
 ms.topic: how-to
 ms.date: 04/28/2021
 recommendations: false
+ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-wls, devx-track-javaee-wls-vm
 ---
 
 # Tutorial: Migrate a WebLogic Server cluster to Azure with Azure Application Gateway as a load balancer
@@ -49,7 +50,7 @@ To create the WLS cluster and Application Gateway, use the following steps.
 
 First, begin the process of deploying a WebLogic Server configured or dynamic cluster as described [in the Oracle documentation](https://aka.ms/arm-oraclelinux-wls-cluster-oracle-docs), but come back to this page when you reach **Azure Application Gateway**, as shown here.
 
-:::image type="content" source="media/migrate-weblogic-with-app-gateway/weblogic-app-gateway-blade.png" alt-text="The App Gateway section within the Azure portal":::
+:::image type="content" source="media/migrate-weblogic-with-app-gateway/weblogic-app-gateway-blade.png" alt-text="Azure portal screenshot showing the Azure Application Gateway.":::
 
 ## Choose how to provide the TLS/SSL certificate to the App Gateway
 
@@ -93,7 +94,7 @@ To create an Azure DNS Zone to use with the App Gateway, use the following steps
 
 Finally, specify the names for the child DNS zones. The deployment will create two child DNS zones for use with WLS: one for the admin console, and one for the App Gateway. For example, if your DNS Zone Name was 'contoso.net', you could enter *admin* and *app* as the values. The admin console would be available at 'admin.contoso.net' and the app gateway would be available at 'app.contoso.net'. Don't forget set up DNS delegation as described in [Delegation of DNS zones with Azure DNS](/azure/dns/dns-domain-delegation).
 
-:::image type="content" source="media/migrate-weblogic-with-app-gateway/child-dns-zones.png" alt-text="Child DNS zones":::
+:::image type="content" source="media/migrate-weblogic-with-app-gateway/child-dns-zones.png" alt-text="Azure portal screenshot showing fields for child DNS zones.":::
 
 The other options for providing an TLS/SSL certificate to the App Gateway are detailed in the following sections. If you're satisfied with your chosen option, you can skip to the section [Continue with deployment](#continue-with-deployment).
 
@@ -196,7 +197,7 @@ To store the password for the certificate, follow these steps:
 
 Now that you have a Key Vault with a signed TLS/SSL certificate and its password stored as secrets, return to the **Azure Application Gateway** section to identify the Key Vault for the deployment.
 
-:::image type="content" source="media/migrate-weblogic-with-app-gateway/identify-key-vault.png" alt-text="Identify Key Vault":::
+:::image type="content" source="media/migrate-weblogic-with-app-gateway/identify-key-vault.png" alt-text="Azure portal screenshot showing Azure Key Vault fields.":::
 
 1. Under **Resource group name in current subscription containing the KeyVault**, enter the name of the resource group containing the Key Vault you created earlier.
 1. Under **Name of the Azure KeyVault containing secrets for the Certificate for SSL Termination**, enter the name of the Key Vault.
@@ -221,7 +222,7 @@ To request the deployment to perform these actions, use the following steps:
 1. If you don't already have a user-assigned managed identity, select **Add** to begin the process of creating one.
 1. To create a user-assigned managed identity, follow the steps in the [Create a user-assigned managed identity](/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal#create-a-user-assigned-managed-identity) section of [Create, list, delete, or assign a role to a user-assigned managed identity using the Azure portal](/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal). Once you've selected the user-assigned managed identity, make sure the checkbox next to the user-assigned managed identity is checked.
 
-:::image type="content" source="media/migrate-weblogic-with-app-gateway/generate-self-signed-certificate.png" alt-text="Generate a self-signed certificate":::
+:::image type="content" source="media/migrate-weblogic-with-app-gateway/generate-self-signed-certificate.png" alt-text="Azure portal screenshot showing fields for generating a self-signed certificate.":::
 
 ## Continue with deployment
 

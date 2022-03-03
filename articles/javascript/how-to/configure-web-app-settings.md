@@ -1,8 +1,8 @@
 ---
 title: Host web apps - configuration settings
 description: Learn how to set common configurations for your web app.
-ms.topic: conceptual
-ms.date: 08/19/2021
+ms.topic: how-to
+ms.date: 11/12/2021
 ms.custom: devx-track-js
 ---
 
@@ -136,6 +136,15 @@ Secrets are typically provided in the following ways:
 
 * Azure Key Vault  - Create a resource for this service, which provides [app secrets](/azure/app-service/app-service-key-vault-references). 
 * App settings - If you are looking for a lighter weight solution, you can provide secrets as App settings, and reference these using the typical [environment variables](/azure/app-service/configure-language-nodejs?pivots=platform-windows), `process.env.VARNAME`. 
+
+## Storing settings, settings and feature flags
+
+Use [Azure App Configuration](/azure/azure-app-configuration/) to store settings, and feature flags. You can link your Key Vault secrets to your App Configuration resource, then pull secrets. 
+
+App Configuration has several features that are advanced beyond the typical name/value pair of settings and feature flags:
+
+* [Point-in-time snapshot](/azure/azure-app-configuration/concept-point-time-snapshot)
+* Update configuration on demand without causing an application to restart
 
 ## Configure logging
 

@@ -1,8 +1,8 @@
 ---
 title: "What's new with Cloud Developer Advocates"
 description: "What's new with JavaScript Cloud Developer Advocates (CDA)"
-ms.topic: conceptual
-ms.date: 08/17/2021
+ms.topic: how-to
+ms.date: 01/26/2022
 ---
 
 # What's new with JavaScript Developer Advocates
@@ -14,29 +14,117 @@ This content is primarily from Developer Advocates as well as other members of t
 ## Reoccurring events 
 
 * [Microsoft Learn TV](/learn/tv/)
-* [Web Wednesday - reoccurring](https://channel9.msdn.com/Shows/Web-Wednesday/)
+* [Web Wednesday - reoccurring](/Shows/Web-Wednesday/)
 
 ## Timeless
 
 |Focus|Title|Link|
 |--|--|--|
-|JS|Beginner's Series to: JavaScript|[Video series](https://channel9.msdn.com/Series/Beginners-Series-to-JavaScript)|
+|JS|Beginner's Series to: JavaScript|[Video series](/shows/Beginners-Series-to-JavaScript)|
 |JS|JavaScript 101 for Beginners|[Video series - **Portuguese**](https://github.com/glaucia86/js-101-beginners-ms)|
-|Node.js|Beginner's Series to: Node.js|[Video series](https://channel9.msdn.com/Series/Beginners-Series-to-NodeJS/?WT.mc_id=nodebeginner-ch9-cxa)|
+|Node.js|Beginner's Series to: Node.js|[Video series](/shows/Beginners-Series-to-NodeJS/?WT.mc_id=nodebeginner-ch9-cxa)|
 |Node.js|Build JavaScript applications with Node.js|[Learn path](/learn/paths/build-javascript-applications-nodejs/)|
 |Client web apps|Web Development for Beginners|[Curriculum on GitHub](https://dev.to/azure/announcing-a-free-curriculum-web-development-for-beginners-142k)|
 |Client web apps|Awesome Azure Static web apps|[Resource list](https://github.com/staticwebdev/awesome-azure-static-web-apps)|
 |Client web apps|Azure Tips and Tricks: Static Web Apps|[Beginner video series](https://aka.ms/StaticWebAppsTips)|
-|Client web apps|Static Web Apps Code to Scale|[Conference video series](https://aka.ms/SWAConfOnDemand)|
+|Client web apps|Static Web Apps Code to Scale|[Conference video series](/events/learn-tv-static-web-apps-code-to-scale/?WT.mc_ID=swa-124587-memckenn)|
 |Client web apps|Take your first steps with Vue.js|[Learn path](/learn/paths/vue-first-steps/?WT.mc_id=javascript-27683-cxa)|
 |Client web apps|Beginner's Series to: Vue.js|[Beginner video series](https://youtu.be/LnngsOg014Y)|
 |Client web apps|Comparing Azure Static Web Apps vs Azure WebApps vs Azure Blob Storage Static Sites|[Blog post](https://devblogs.microsoft.com/devops/comparing-azure-static-web-apps-vs-azure-webapps-vs-azure-blob-storage-static-sites/)|
 |Microsoft Graph|Get started with Microsoft Graph and JavaScript|[Samples](https://developer.microsoft.com/graph/get-started/javascript)|
 
+## 2022 February
+
+|Cloud Advocate|Contributions|Link|
+|--|--|--|
+|[Aysegul Yonet][Aysegul]|The AI Show - Ep 52 - Analyze unstructured docs and more with Azure Form Recognizer|[YouTube Video](https://youtu.be/YBmVAc6AlIM)|
+|[Aysegul Yonet][Aysegul]|How to use npm overrides|[Blog](https://medium.com/microsoftazure/how-to-fix-your-security-vulnerabilities-with-npm-override-c4b5be0ab4f6)|
+|[Wassim Chegham][Wassim]|12 Tips I wish I knew when I started working with Angular|[Slides](https://slides.com/wassimchegham/10-tips-i-wish-i-knew-when-i-started-using-angular-angular-world-tour)|
+|[Aysegul Yonet][Aysegul]|The AI Show - Ep 50 - Artificial Nose and 30 Days of Learn: AI Fundamentals|[YouTube Video](https://www.youtube.com/watch?v=tjDL8w1afjw)|
+|[Wassim Chegham][Wassim]|Behind the Git SHA-dow!|[dev.to Blob](https://dev.to/wassimchegham/behind-the-git-sha-dow-1pib)|
+|[Aaron Powell][Aaron]|PaaS Deployment guide for Azure|[Strapi Docs](https://docs.strapi.io/developer-docs/latest/setup-deployment-guides/deployment/hosting-guides/azure.html#paas-deployment-guides)|
+|[Glaucia Lemos][Glaucia]|Coding Stuff! JWT + Node + Mongo+ Vue Project - Video 17|**Portuguese** - [YouTube](https://youtu.be/XykcWilTg68)|
+|[Oliver Leplus][Olivier]|Azure Tips & Tricks: Static Web Apps. |**French** - [YouTube](https://www.youtube.com/watch?v=FY5syL3WdtM&list=PLbl2SbVIi-Wosee1GtXCiopNBQ6vFW2Ra)|
+|[Aaron Powell][Aaron]|OpenAPI for JavaScript/TypeScript Functions|[Blog](https://www.aaron-powell.com/posts/2022-02-08-openapi-for-javascript-azure-functions/)|
+|[Glaucia Lemos][Glaucia]|TypeScript - Zero to Hero - #37 - Demo - Switch...case|**Portuguese** - [YouTube](https://youtu.be/kaKlKebVqco)|
+|[Glaucia Lemos][Glaucia]|TypeScript - Zero to Hero - #38 - Loop for|**Portuguese** - [YouTube](https://youtu.be/KUi9FhBResg)|
+|[Glaucia Lemos][Glaucia]|TypeScript - Zero to Hero - #39 - Demo: loop for|**Portuguese** - [YouTube](https://youtu.be/-yAy5hBuW20)|
+|[Glaucia Lemos][Glaucia]|TypeScript - Zero to Hero - #40 - While/Do-while|**Portuguese** - [YouTube](https://youtu.be/01Hu8ekpnEc)|
+|[Glaucia Lemos][Glaucia]|TypeScript - Zero to Hero - #41 - Demo: while/do-while|**Portuguese** - [YouTube](https://youtu.be/h1BpPZyl8j8)|
+
+## 2022 January
+
+|Cloud Advocate|Contributions|Link|
+|--|--|--|
+|[Aysegul Yonet][Aysegul]|AI Show: Semantic Search and Speech updates|[Video](/shows/ai-show/updates-to-semantic-search-and-speech-and-more-from-aysegul-and-bea?WT.mc_id=js-8567-ayyonet) and [GitHub](https://github.com/aiadvocates/AzureSpeechReactSample)|
+|[Aysegul Yonet][Aysegul]|Mixed Reality with Cognitive services, Speech|[Docs](https://yonet.gitbook.io/mixed-reality-docs/ai-lessons/speech)|
+|[Aysegul Yonet][Aysegul]|Intelligent Kiosk for Web - AI Playground|[GitHub](https://github.com/aiadvocates/AIPlayground)|
+|[Glaucia Lemos][Glaucia]|Coding Stuff! JWT + Node + Mongo+ Vue Project - Video 16|**Portuguese** - [YouTube](https://youtu.be/hQaDG-oZQ_g)|
+|[Glaucia Lemos][Glaucia]|Coding Stuff! JWT + Node + Mongo+ Vue Project - Video 17|**Portuguese** - [YouTube](https://youtu.be/XykcWilTg68)|
+|[Glaucia Lemos][Glaucia]|Coding Stuff! JWT + Node + Mongo+ Vue Project - Video 18|**Portuguese** - [YouTube](https://youtu.be/TmGnuRhX_hI)|
+|[Aaron Powell][Aaron]|Web Wednesday - GraphQL and TypeScript|[GitHub](https://www.youtube.com/watch?v=WjFspnutTtI)|
+|[Yohan Lasorsa][Yohan]|Raspberry Pi usage in my mobile studio setup. |[RaspberryPi](https://www.youtube.com/watch?v=x3sQu31jGu4)|
+|[Glaucia Lemos][Glaucia]|TypeScript - Zero to Hero - #34 - If...else|**Portuguese** - [YouTube](https://youtu.be/sU9miGUUJrI)|
+|[Glaucia Lemos][Glaucia]|TypeScript - Zero to Hero - #35 - Demo: If...else|**Portuguese** - [YouTube](https://youtu.be/_KkjHVo4x_M)|
+|[Glaucia Lemos][Glaucia]|TypeScript - Zero to Hero - #36 - Switch...case|**Portuguese** - [YouTube](https://youtu.be/-rUHKfnbq7g)|
+|[Glaucia Lemos][Glaucia]|Cloud & AI Study Groups |**English, Spanish, Portuguese** - [YouTube](https://github.com/cyz/skilling)|
+
+
+## 2021 December
+
+|Cloud Advocate|Contributions|Link|
+|--|--|--|
+|[Nitya Narasimhan][Nitya]|#30DaysOfPlaywright|[Blog](https://dev.to/azure/hello-30daysofplaywright-2fl1)|
+|[Glaucia Lemos][Glaucia]|TypeScript - Zero to Hero #31 - Type Object|**Portuguese** - [YouTube](https://youtu.be/SoZeG6p_Ass)|
+|[Glaucia Lemos][Glaucia]|TypeScript - Zero to Hero #32 - Type Object|**Portuguese** - [YouTube](https://youtu.be/0cxJ1RQ7Gv0)|
+|[Glaucia Lemos][Glaucia]|TypeScript - Zero to Hero #33 - Type Object|**Portuguese** - [YouTube](https://youtu.be/WNp44xb1M_s)|
+|[Aaron Powell][Aaron]|GRAPHQL ON AZURE: PART 8 - LOGGING|[Blog](https://www.aaron-powell.com/posts/2021-12-07-graphql-on-azure-part-8-logging/)|
+|[Aaron Powell][Aaron]|OpenAPI for Azure Functions: an extension for Azure Functions to generate OpenAPI spec files from annotated Azure Functions.|[GitHub](https://github.com/aaronpowell/azure-functions-nodejs-openapi)|
+
+## 2021 November
+
+|Cloud Advocate|Contributions|Link|
+|--|--|--|
+|[Yohan Lasorsa][Yohan]|DevFest Nantes 2021: Highly available, distributed & resilient software. |**French** - [YouTube](https://www.youtube.com/watch?v=x3sQu31jGu4)|
+|[Yohan Lasorsa][Yohan] and [Olivier Leplus][Olivier]|DevFest Nantes 2021: Highly available, distributed & resilient software. |**French** - [YouTube](https://www.youtube.com/watch?v=p47z7rgRghQ)|
+|[Glaucia Lemos][Glaucia]|TypeScript - Zero to Hero, Type Never #29|**Portuguese** - [YouTube](https://youtu.be/B355hDt29q4)|
+|[Glaucia Lemos][Glaucia]|TypeScript - Zero to Hero, Type Never #30 - Demo|**Portuguese** - [YouTube](https://youtu.be/ZJt15H_MKLc)|
+|[Aaron Powell][Aaron]|GraphQL Summit panel: The State of Serverless|[YouTube](https://www.youtube.com/watch?v=MBPmOVR09kI)|
+|[Aaron Powell][Aaron]|Scaffolding Static Web Apps|[Blog](https://dev.to/azure/scaffolding-static-web-apps-4p97)|
+|[Aaron Powell][Aaron]|create-swa-app:a command line tool|[Blog](https://www.aaron-powell.com/posts/2021-11-16-scaffolding-static-web-apps/)|
+|[Glaucia Lemos][Glaucia]|Coding Stuff! JWT + Node + Mongo+ Vue Project - Video 13|**Portuguese** - [YouTube](https://youtu.be/8gG1OwMIDts)|
+|[Glaucia Lemos][Glaucia]|Coding Stuff! JWT + Node + Mongo+ Vue Project - Video 14|**Portuguese** - [YouTube](https://youtu.be/UcKm1ADpWlQ)|
+|[Glaucia Lemos][Glaucia]|Coding Stuff! JWT + Node + Mongo+ Vue Project - Video 15|**Portuguese** - [YouTube](https://youtu.be/cQxoBu2rexE)|
+
+
+## 2021 October
+
+|Cloud Advocate|Contributions|Link|
+|--|--|--|
+|[Aaron Powell][Aaron]|Deployment guide for Keystone v6|[GitHub](https://github.com/aaronpowell/keystone-6-azure-example)|
+|[Aaron Powell][Aaron]|Host Strapi 3 on Azure|[Blog](https://www.aaron-powell.com/posts/2021-10-14-host-strapi-3-on-azure/)|
+|[Yohan Lasorsa][Yohan]|Azure Check-In: a streamlined onboarding experience with Azure Pass for your events. You can use it for workshops, meetups or student classes. |[GitHub](https://azcheck.in)|
+|[Yohan Lasorsa][Yohan]|GitHub Template repo in sync with dev.to blog posts|[GitHub](https://github.com/sinedied/devto-github-template)|
+|[Glaucia Lemos][Glaucia]|Coding Stuff! JWT + Node + Mongo+ Vue Project - Video 12|**Portuguese** - [YouTube](https://youtu.be/LtSeR3jy28Y)|
+|[Glaucia Lemos][Glaucia]|Coding Stuff! JWT + Node + Mongo+ Vue Project - Video 11|**Portuguese** - [YouTube](https://youtu.be/5VSzUFIAh1U)|
+
+
+
+## 2021 September
+
+|Cloud Advocate|Contributions|Link|
+|--|--|--|
+|[Glaucia Lemos][Glaucia]|Developing Auth Application with Node.Js + JWT + VueJs|**Portuguese** - [YouTube](https://www.youtube.com/watch?v=5VSzUFIAh1U)|
+|[Glaucia Lemos][Glaucia]|TypeScript - Zero to Hero, Type VOid #25|**Portuguese** - [YouTube](https://www.youtube.com/watch?v=yLraF6_-85U)|
+|[Glaucia Lemos][Glaucia]|TypeScript - Zero to Hero, Type Void #26|**Portuguese** - [YouTube](https://www.youtube.com/watch?v=Aguo_gIIh7o)|
+|[Glaucia Lemos][Glaucia]|TypeScript - Zero to Hero, Type Null and Undefined #27|**Portuguese** - [YouTube](https://www.youtube.com/watch?v=vyOidIn_YfQ)|
+|[Yohan Lasorsa][Yohan]|QRS #31: Angular apps for dual-screen devices with ngx-foldable|**French** - [Twitch](https://www.twitch.tv/videos/1149284278)|
+
 ## 2021 August
 
 |Cloud Advocate|Contributions|Link|
 |--|--|--|
+|[Aaron Powell][Aaron]|What and how of GitHub Actions - a few different ways we can use GitHub Actions to manage our life as a GitHub users.|[YouTube](https://www.youtube.com/watch?v=z7uk-Vk0eh8) - [DevOps Perth](https://www.youtube.com/channel/UCZU5RsyagdCwfiwxIC6pIrg)|
 |[Glaucia Lemos][Glaucia]|TypeScript - Zero to Hero, Type Any #21|**Portuguese** - [YouTube](https://youtu.be/VWaPx-pvEn8)|
 |[Glaucia Lemos][Glaucia]|TypeScript - Zero to Hero, Type Unknown #23|**Portuguese** - [YouTube](https://youtu.be/7BLsEz7eP6s)|
 |[Glaucia Lemos][Glaucia]|TypeScript - Zero to Hero, Type Unknown #24|**Portuguese** - [YouTube](https://youtu.be/6XFn4Gny8WU)|
@@ -80,13 +168,12 @@ This content is primarily from Developer Advocates as well as other members of t
 |[Yohan Lasorsa][Yohan]|A clean dev env, working every time, everywhere|[YouTube](https://www.youtube.com/watch?v=vVX7LMCBnwA) and [URL list](https://www.theurlist.com/clean-dev)|
 |[Yohan Lasorsa][Yohan] and [Olivier Leplus][Olivier]|Angular, PWA and SWA|[Speaker deck](https://aka.ms/spwa)|
 |[Lucas Santos][Lucas]|Starting with ES Modules|**Portuguese** - [Blog](https://blog.lsantos.dev/os-ecmascript-modules-estao-aqui/)|
-|[Wassim Chegham][Wassim] |The subtle art of being a developer advocate|[Twitch](https://m.twitch.tv/)|
-|[Wassim Chegham][Wassim] |The subtle art of being a developer advocate|[Twitch](https://m.twitch.tv/)|
+|[Wassim Chegham][Wassim] |The subtle art of being a developer advocate|[Twitch](https://www.youtube.com/watch?v=ahA8a5zNY6Y)|
 |[Aaron Powell][Aaron]|Type-safe GraphQL with TypeScript|[GotHub repo](https://github.com/aaronpowell/graphql-code-generator-sample)|
-|[Wassim Chegham][Wassim]|Azure Static Web Apps CLI|**French** - [YouTube video:Tartine & Tech](https://www.youtube.com/watch?v=0L2XS6INmwE)|
+|[Wassim Chegham][Wassim]|Azure Static Web Apps CLI|**French** - [YouTube video:Tartine & Tech](https://www.youtube.com/watch?v=0L2XS6INmwE) [Slides](https://slides.com/wassimchegham/a-look-at-the-new-azure-static-web-apps-cli-swa-conf)|
 |[Glaucia Lemos][Glaucia]|How do I debug API REST Node.js App in VS Code?!|**Portuguese** - [YouTube](https://youtu.be/Lb20EoDja50)|
 |[Aaron Powell][Aaron]|SUPERCHARGING A WEB DEVS TOOLBOX|[Microsoft Reactor Video](https://www.aaron-powell.com/posts/2021-06-03-supercharging-a-web-devs-toolbox/)|
-|David Smith|Build a simple website using HTML, CSS, and JavaScript|[Microsoft Learn module](/learn/modules/build-simple-website/)|
+|[David Smith][David]|Build a simple website using HTML, CSS, and JavaScript|[Microsoft Learn module](/learn/modules/build-simple-website/)|
 
 
 ## 2021 May
@@ -109,27 +196,28 @@ This content is primarily from Developer Advocates as well as other members of t
 
 |Cloud Advocate|Contributions|Link|
 |--|--|--|
-|Burke Holland|Deploying a Node.js Web App using GitHub Actions|[GitHub repo](https://github.com/Azure-Samples/azure-javascript-labs)|
+|[Burke Holland][Burke]|Deploying a Node.js Web App using GitHub Actions|[GitHub repo](https://github.com/Azure-Samples/azure-javascript-labs)|
 |[Aaron Powell][Aaron] and [Christopher Harrison][Christopher]|Web Wednesday - Getting started with React & TypeScript|[YouTube](https://www.youtube.com/watch?v=BlaHWppdLpQ)|
 |[Aaron Powell][Aaron]|Azure Cosmos DB Conf - EMEA Live Stream|[YouTube](https://youtu.be/EQu4xtAicQg?list=PLmamF3YkHLoLN_24E41jSPVilv5B3GTBg&t=4328)|
-|[Olivier Leplus][Olivier] and Maud Levy|Static Web apps demo - Microsoft Developers France|**French** - [YouTube](https://www.youtube.com/watch?v=aI9XFDpsGaA)|
+|[Olivier Leplus][Olivier] and [Maud Levy][Maud]|Static Web apps demo - Microsoft Developers France|**French** - [YouTube](https://www.youtube.com/watch?v=aI9XFDpsGaA)|
 |[Christopher Harrison][Christopher]|Tutorial: Access data in Cosmos DB using Mongoose with Azure Static Web Apps|[Docs](/azure/static-web-apps/add-mongoose)|
 |[Yohan Lasorsa][Yohan]|Adapt your Angular apps for dual-screen devices with ngx-foldable|[Blog](https://dev.to/angular/adapt-your-angular-apps-for-dual-screen-devices-with-ngx-foldable-4058)|
 |[Glaucia Lemos][Glaucia]|Módulo 02 (Vídeos 13 à 18.1) - TypeScript Zero to Hero|**Portuguese​** - [Blog](https://dev.to/glaucia86/modulo-02-videos-13-a-18-1-typescript-zero-to-hero-5565)|
 |[Lucas Santos][Lucas]|The Complete Guide to gRPC - What is gRPC?|**Portuguese** - [Blog](https://blog.lsantos.dev/guia-grpc-1/)|
+|[Shmuela Jacobs][Shmuela]|ngGirls: Deploy your app to Azure Static Web Apps - |[GitBook](https://ng-girls.gitbook.io/todo-list-tutorial/workshop-todo-list/appendix-1-deploying-your-app/deploying-with-azure-static-web-apps) and [YouTube](https://www.youtube.com/watch?v=COq-Q4QeW90)|
 
 
 ## 2021 March 
 
 |Cloud Advocate|Contributions|Link|
 |--|--|--|
-|[Aaron Powell][Aaron] and Abel Wang|DevOps Lab - Deploying packages with GitHub Actions|[Channel 9 video](https://aka.ms/DevOpsLab/DeployingPackageswithGitHub)|
+|[Aaron Powell][Aaron] and Abel Wang|DevOps Lab - Deploying packages with GitHub Actions|[Channel 9 video](/shows/DevOps-Lab/Deploying-packages-with-GitHub-Actions?WT.mc_id=devopslab-c9-cxa)|
 |[Aaron Powell][Aaron]|Static Web Apps API Auth helper|[Blog](https://www.aaron-powell.com/posts/2021-03-30-making-auth-simpler-for-static-web-app-apis/)|
 |[Yohan Lasorsa][Yohan]|[Angular+Surface Duo- Gallery app demo|[GitHub repo](https://github.com/sinedied/surface-duo-photo-gallery)|
 |[Yohan Lasorsa][Yohan]|Cloud First Conference Talk: Highly available, distributed & resilient software|[YouTube](https://youtu.be/OGFkz81mKf8?t=7162)|
 |[Aaron Powell][Aaron]|A collection of starter Static Web App projects as GitHub repo templates.|[GitHub org with many sample repos](https://github.com/staticwebdev)|
 |[Aaron Powell][Aaron]|GraphQL on Azure: Part 6 - Subscriptions with SignalR|[Blog](https://dev.to/azure/graphql-on-azure-part-6-subscriptions-with-signalr-275b)|
-|Burke Holland|Reset deployment tokens in Azure Static Web Apps|[Docs](/azure/static-web-apps/deployment-token-management)| 
+|[Burke Holland][Burke]|Reset deployment tokens in Azure Static Web Apps|[Docs](/azure/static-web-apps/deployment-token-management)| 
 |[Wassim Chegham][Wassim]|Deploy Rust/WASM on SWA - updated|[Blog](https://dev.to/azure/angular-rust-webassembly-node-js-serverless-and-the-new-azure-static-web-apps-cnb) |
 |[Yohan Lasorsa][Yohan]|GitHub template for building a shareable web components library with Svelte|[GitHub repo](https://github.com/sinedied/svelte-web-components-template)|
 |[Glaucia Lemos][Glaucia]|Desenvolvendo a Intro do Star Wars com HTML, CSS, JavaScript & Node.js! - updated|**Portuguese​** - [Blog](https://dev.to/azure/desenvolvendo-a-intro-do-star-wars-com-html-css-javascript-node-js-oae)|
@@ -143,16 +231,16 @@ This content is primarily from Developer Advocates as well as other members of t
 
 |Cloud Advocate|Contributions|Link|
 |--|--|--|
-|Anthony Chu|React Server Components running on Azure Static Web Apps|[Blog](https://react-notes.anthonychu.com/)|
-|[Yohan Lasorsa][Yohan] and Maud Levy|Beginner's Series to Node.js video series|**French** - [YouTube](https://www.youtube.com/watch?v=cPBzDqwMFFg&list=PLbl2SbVIi-Wo0EkNoLEnx4BE_xm4SsSRj&index=1)<br>|
-|Tomomi Imura|Beginner's Series to Node.js video series|**Japanese** - [YouTube](https://www.youtube.com/playlist?list=PLQEKit6tfVVKkp0ELOyKey_v7I89mxYZI)|
+|[Anthony Chu][Anthony]|React Server Components running on Azure Static Web Apps|[Blog](https://react-notes.anthonychu.com/)|
+|[Yohan Lasorsa][Yohan] and [Maud Levy][Maud]|Beginner's Series to Node.js video series|**French** - [YouTube](https://www.youtube.com/watch?v=cPBzDqwMFFg&list=PLbl2SbVIi-Wo0EkNoLEnx4BE_xm4SsSRj&index=1)<br>|
+|[Tomomi Imura][Tomomi]|Beginner's Series to Node.js video series|**Japanese** - [YouTube](https://www.youtube.com/playlist?list=PLQEKit6tfVVKkp0ELOyKey_v7I89mxYZI)|
 |[Aaron Powell][Aaron]|GraphQL and TypeScript Workshop|[GitHub repo](https://github.com/aaronpowell/graphql-typescript-workshop)|
 |[Glaucia Lemos][Glaucia]|Coding Stuff! JWT + Node + Mongo+ Vue Project: Video #6 and Video #7|**Portuguese​** - [YouTube #6](https://youtu.be/_-3DWpuXXvU) and [YouTube #7](https://youtu.be/OckHsZPIRrQ)|
 |[Glaucia Lemos][Glaucia]|Back-End Migration to Serverless Architecture & Local Database PostGreSQL to CosmosDB - Day 02|**Portuguese​** - [YouTube](https://youtu.be/lUH5gzKq1YA)|
 |[Glaucia Lemos][Glaucia]|Developing a CRUD Node.js Application with PostgreSQL|[Blog](https://dev.to/glaucia86/developing-a-crud-node-js-application-with-postgresql-4c9o)|
 |[Glaucia Lemos][Glaucia]|TypeScript and Azure Functions|**Portuguese​** - [YouTube](https://www.youtube.com/watch?v=J9OoXt1dvm8&t=2772s)|
 |[Wassim Chegham][Wassim]|Deploy your JAMStack app on Azure Static Web Apps!|[YouTube](https://www.youtube.com/watch?v=I2Tg2MO-RP8&feature=youtu.be)|
-|[Christopher Harrison][Christopher] and Beth Pan|Web-Wednesday: What is Microsoft Graph Toolkit?|[Channel 9 video](https://channel9.msdn.com/Shows/Web-Wednesday/What-is-Microsoft-Graph-Toolkit)|
+|[Christopher Harrison][Christopher] and Beth Pan|Web-Wednesday: What is Microsoft Graph Toolkit?|[Channel 9 video](/Shows/Web-Wednesday/What-is-Microsoft-Graph-Toolkit)|
 |[Yohan Lasorsa][Yohan]|Azure Fundamentals - Serverless Sessions|Session 1 [YouTube video](https://www.youtube.com/watch?v=JIE_K_j-wGk) and Session 2 [YouTube video](https://www.youtube.com/watch?v=iiem4ajj6EQ)|
 |[Aaron Powell][Aaron]|GraphQL Subscriptions using SignalR OSS project|[GitHub repo](https://github.com/aaronpowell/graphql-azure-subscriptions)|
 |[Yohan Lasorsa][Yohan]|Angular Library for Surface Duo: ngx-foldable|[GitHub repo](https://github.com/sinedied/ngx-foldable)|
@@ -162,9 +250,9 @@ This content is primarily from Developer Advocates as well as other members of t
 |Cloud Advocate|Contributions|Link|
 |--|--|--|
 |[Aaron Powell][Aaron]|Building dual-screen web experiences with React|[Blog](https://devblogs.microsoft.com/surface-duo/dual-screen-react-web/)|
-|Asim Hussain|Adopting Azure serverless architectures to help reduce CO2 emissions – Part 2 (Extending to the Edge)|[Blog](https://aka.ms/adopting-azure-serverless?WT.mc_id=green-12146-cxa)|
-|Chris Noring|Node.js Learn Module: Create a Node HTTP Server|[Microsoft Learn Module](/learn/modules/build-web-api-nodejs-express/)|
-|Chris Noring|Game engine developing Hex grid based educational games|[GitHub repo](https://github.com/softchris/hex-game)|
+|[Asim Hussain][Asim]|Adopting Azure serverless architectures to help reduce CO2 emissions – Part 2 (Extending to the Edge)|[Blog](https://aka.ms/adopting-azure-serverless?WT.mc_id=green-12146-cxa)|
+|[Chris Noring][Chris]|Node.js Learn Module: Create a Node HTTP Server|[Microsoft Learn Module](/learn/modules/build-web-api-nodejs-express/)|
+|[Chris Noring][Chris]|Game engine developing Hex grid based educational games|[GitHub repo](https://github.com/softchris/hex-game)|
 |[Glaucia Lemos][Glaucia]|Backend Developer Guide 2021 - What should I know?|**Portuguese​** - [YouTube](https://www.youtube.com/channel/UC2Qzw5aqCBk_z0lWJnumWQQ) and [Blog](https://dev.to/glaucia86/guia-para-pessoas-desenvolvedoras-back-end-2021-o-que-eu-preciso-saber-10c6)| 
 |[Glaucia Lemos][Glaucia]|JWT + Node + Mongo+ Vue Project|[YouTube Vide0 #1](https://youtu.be/JmUSx5wXU68), [YouTube Video #2](https://youtu.be/Vr-UMoAv8pk), [YouTube Video #3](https://youtu.be/6u4aM2eT-gg)|
 |[Glaucia Lemos][Glaucia]|Back-End Migration to Serverless Architecture & Local Database PostGreSQL to Cosmos DB - Day 01|[YouTube](https://youtu.be/nVbU9BlF5hs)|
@@ -178,3 +266,14 @@ This content is primarily from Developer Advocates as well as other members of t
 [Lucas]:https://info.lsantos.dev
 [Christopher]:https://twitter.com/geektrainer
 [April]:https://twitter.com/TheAprilEdwards
+[Shmuela]:https://twitter.com/ShmuelaJ
+[Tomomi]:https://twitter.com/girlie_mac
+[Chris]:https://twitter.com/chris_noring
+[Burke]:https://twitter.com/burkeholland
+[Asim]:https://twitter.com/jawache
+[Maud]:https://twitter.com/maudstweets
+[David]:https://twitter.com/revodavid
+[Anthony]:https://twitter.com/nthonyChu
+[Nitya]:https://twitter.com/nitya/
+[Jen]: https://twitter.com/jenlooper
+[Aysegul]: https://twitter.com/AysSomething

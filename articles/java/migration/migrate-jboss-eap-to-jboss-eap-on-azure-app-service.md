@@ -3,8 +3,8 @@ title: Migrate JBoss EAP applications to JBoss EAP on Azure App Service
 description: This guide describes what you should be aware of when you want to migrate an existing JBoss EAP application to run on JBoss EAP in an Azure App Service container.
 ms.author: vaangadi
 ms.topic: conceptual
-ms.date: 05/27/2021
-ms.custom: devx-track-java
+ms.date: 02/10/2022
+ms.custom: devx-track-java, devx-track-azurecli 
 recommendations: false
 ---
 
@@ -78,9 +78,15 @@ When using JBoss EAP on App Service, be sure to take the following notes into co
 * **Server-to-server clustering**: Due to network security constraints, application instances on App Service cannot communicate directly with one another. If your current JBoss deployment uses clustering, consider using JBoss EAP on virtual machine scale sets or externalizing the session and state information. For more information, see [Configuring high availability](https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.1/html/configuration_guide/configuring_high_availability) and [Infinispan and cache containers](https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.2/html/configuration_guide/configuring_high_availability#infinispan) in the Red Hat documentation.
 * **JBoss EAP management console**: The JBoss web console isn't exposed on App Service. Instead, the Azure portal provides the management APIs for your application, and you should deploy using the Azure CLI, Azure Maven Plugin, or other Azure developer tools.
 * **Transactions**: The application instances are run in a stateless manner, so the Transactions API isn't currently supported. For more information, see [Managing transactions on JBoss EAP](https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.2/html-single/managing_transactions_on_jboss_eap/index) in the Red Hat documentation.
-* **Managed domain mode**: In a multi-server production environment, Managed Domain mode in JBoss EAP offers centralized managed capabilities. However with JBoss EAP on App Service, the App Service platform assumes the responsibility for configuration and management of your server instances. App Service eliminates the need for JBoss EAP’s managed domain mode. Domain mode is a good choice for virtual machine-based multi-server deployments. For more information, see [About managed domains](https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/6.4/html/administration_and_configuration_guide/about_managed_domains) in the Red Hat documentation.
+* **Managed domain mode**: In a multi-server production environment, Managed Domain mode in JBoss EAP offers centralized managed capabilities. However with JBoss EAP on App Service, the App Service platform assumes the responsibility for configuration and management of your server instances. App Service eliminates the need for JBoss EAP's managed domain mode. Domain mode is a good choice for virtual machine-based multi-server deployments. For more information, see [About managed domains](https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/6.4/html/administration_and_configuration_guide/about_managed_domains) in the Red Hat documentation.
 
 ## Migration
+
+### Red Hat Migration Toolkit for Apps
+
+The [Red Hat Migration Toolkit for Applications](https://marketplace.visualstudio.com/items?itemName=redhat.mta-vscode-extension) is a free extension for Visual Studio Code. This extension analyzes your application code and configuration to provide recommendations for migrating to the cloud from on-premises. For more information, see [Migration Toolkit for Applications overview](https://developers.redhat.com/products/mta/overview).
+
+The contents of this guide will help you address the other components of the migration journey, such as choosing the correct App Service Plan type, externalizing your session state, and using Azure to manage your EAP instances instead of the JBoss Management interface.
 
 [!INCLUDE [provision-azure-app-service-for-jboss-eap-runtime](includes/provision-azure-app-service-for-jboss-eap-runtime.md)]
 

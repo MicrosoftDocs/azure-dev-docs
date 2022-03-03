@@ -5,6 +5,7 @@ ms.author: edburns
 ms.topic: tutorial
 ms.date: 04/28/2021
 recommendations: false
+ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-wls, devx-track-javaee-wls-vm
 ---
 
 # Tutorial: Migrate a WebLogic Server cluster to Azure with Elastic on Azure as the logging solution
@@ -69,7 +70,7 @@ Now that you've deployed Elastic on Azure, save aside the Elasticsearch endpoint
 1. In the **Applications** section in the middle of the page, select the link **Copy endpoint** next to **Elasticsearch**. Paste the result into a file. For discussion, let's call the pasted value the Elasticsearch endpoint URL.
 1. In the **Applications** section in the middle of the page, copy the value of the **Launch** hyperlink next to **Kibana**. Paste the result into a file. For discussion, let's call the pasted value the Kibana launch URL.
 
-:::image type="content" source="media/migrate-weblogic-with-elk/elasticsearch-endpoint.png" alt-text="The Elasticsearch endpoint URL and Kibana launch URL":::
+:::image type="content" source="media/migrate-weblogic-with-elk/elasticsearch-endpoint.png" alt-text="The Elasticsearch endpoint URL and Kibana launch URL.":::
 
 ## Deploy WLS with integration to Elastic on Azure
 
@@ -79,7 +80,7 @@ To create the WLS server with integration to Elastic on Azure, follow these step
 
 1. Provision a WebLogic Server as described in [What are solutions for running Oracle WebLogic Server on Azure Virtual Machines?](https://aka.ms/arm-oraclelinux-wls) The instructions for "Deploy Oracle WebLogic Server With Administration Server on a Single Node" and "Deploy Oracle WebLogic Server Cluster on Microsoft Azure IaaS" are all suitable for use with Elastic on Azure. The default VM size for WLS doesn't have enough memory, so be sure the selected VM size has at least 2.5 GB of memory. Use at least `Standard_A2_v2`. Come back to this page when you reach the **Elasticsearch and Kibana** section shown in the following image.
 
-   :::image type="content" source="media/migrate-weblogic-with-elk/elasticsearch-portal-blade.png" alt-text="The Elasticsearch and Kibana blade within the Azure portal":::
+   :::image type="content" source="media/migrate-weblogic-with-elk/elasticsearch-portal-blade.png" alt-text="The Elasticsearch and Kibana blade within the Azure portal.":::
 
 1. In the **Elasticsearch and Kibana** section, next to **Export logs to Elasticsearch server?** select **Yes**.
 1. In the text field labeled **Elasticsearch endpoint URL**, paste the Elasticsearch endpoint URL you saved previously.
@@ -103,12 +104,12 @@ The act of deploying WLS with ELK integration causes a Kibana search index to be
 1. In the search box that says **Filter by deployment name**, type *elk*.
 1. The list of deployment actions should show one entry. Select it.
 
-   :::image type="content" source="media/migrate-weblogic-with-elk/weblogic-portal-resource-group-deployments-01.png" alt-text="The ELK integration deployment":::
+   :::image type="content" source="media/migrate-weblogic-with-elk/weblogic-portal-resource-group-deployments-01.png" alt-text="The ELK integration deployment.":::
 
 1. On the pane for ELK deployment, in the left panel, select **Outputs**.
 1. To the right of the output labeled **logindex**, select the copy icon. Paste the result into a text file and save it aside for use in the next section.
 
-   :::image type="content" source="media/migrate-weblogic-with-elk/weblogic-portal-resource-group-deployments-02.png" alt-text="The outputs and logindex buttons":::
+   :::image type="content" source="media/migrate-weblogic-with-elk/weblogic-portal-resource-group-deployments-02.png" alt-text="The outputs and logindex buttons.":::
 
 ## Create an index in Kibana that enables searching the WebLogic Server logs
 
@@ -120,11 +121,11 @@ After you've successfully deployed WLS with ELK integration, follow the steps is
 1. Select **Create index pattern**.
 1. Place the cursor in the text field labeled **Index pattern**, paste the value you saved as the **logindex** in the previous section, then select **Next step**.
 
-   :::image type="content" source="media/migrate-weblogic-with-elk/kibana-index-03.png" alt-text="The logindex insertion text field":::
+   :::image type="content" source="media/migrate-weblogic-with-elk/kibana-index-03.png" alt-text="The logindex insertion text field.":::
 
 1. On the **Create index pattern** page, add fields to the index pattern. Include at least *@timestamp*, then select **Create index pattern**. Creating the index pattern may take a few minutes, but you only need to do it once.
 
-   :::image type="content" source="media/migrate-weblogic-with-elk/kibana-index-04.png" alt-text="The final Create index pattern button":::
+   :::image type="content" source="media/migrate-weblogic-with-elk/kibana-index-04.png" alt-text="The final Create index pattern button.":::
 
 ## Search WebLogic logs from Kibana
 
@@ -132,15 +133,15 @@ After you've successfully created the index, you can finally search the WLS logs
 
 1. After the index has been created, select the hamburger menu. In the **Analytics** section, select **Discover**.
 
-   :::image type="content" source="media/migrate-weblogic-with-elk/kibana-index-05.png" alt-text="The Discover page":::
+   :::image type="content" source="media/migrate-weblogic-with-elk/kibana-index-05.png" alt-text="The Discover page.":::
 
 1. On the **Discover** page, select the dropdown menu on the left and then select the index you created.
 
-   :::image type="content" source="media/migrate-weblogic-with-elk/kibana-index-06.png" alt-text="The index on the discover page":::
+   :::image type="content" source="media/migrate-weblogic-with-elk/kibana-index-06.png" alt-text="The index on the discover page.":::
 
 1. After the **Discover** page loads, you can search through the WLS Logs using Kibana. For more information on what you can do with the **Discover** page, see [Discover](https://www.elastic.co/guide/en/kibana/7.8/discover.html) in the Kibana documentation.
 
-   :::image type="content" source="media/migrate-weblogic-with-elk/kibana-index-07.png" alt-text="Searching WLS logs with Kibana":::
+   :::image type="content" source="media/migrate-weblogic-with-elk/kibana-index-07.png" alt-text="Searching WLS logs with Kibana.":::
 
 ## Clean up resources
 

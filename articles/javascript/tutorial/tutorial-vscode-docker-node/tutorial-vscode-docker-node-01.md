@@ -1,7 +1,7 @@
 ---
 title: Deploy Azure app from Azure container registry
 description: Deploy Docker containers to Azure App Service from Visual Studio Code part 1, introduction, and prerequisites.
-ms.topic: tutorial
+ms.topic: how-to
 ms.date: 08/16/2021
 ms.custom: devx-track-js
 # Verified full run: diberry 08/16/2021

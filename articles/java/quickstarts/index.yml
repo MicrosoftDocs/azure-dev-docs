@@ -21,6 +21,8 @@ landingContent:
           url: ../toolkit-for-intellij/create-hello-world-web-app.md
         - text: Deploy to Linux using Visual Studio Code
           url: https://code.visualstudio.com/docs/java/java-webapp
+        - text: Traditional WebSphere on Azure VMs
+          url: ../ee/traditional-websphere-application-server-virtual-machines.md
   - title: Serverless functions
     linkLists:
       - linkListType: quickstart

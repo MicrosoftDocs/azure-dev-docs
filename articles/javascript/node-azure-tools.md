@@ -1,9 +1,9 @@
 ---
 title: Tool selection - JavaScript - Azure
 description: Install individual tools for Node.js and JavaScript development on Azure
-ms.topic: conceptual
-ms.date: 07/28/2021
-ms.custom: seo-javascript-september2019, seo-javascript-october2019, devx-track-js
+ms.topic: how-to
+ms.date: 09/27/2021
+ms.custom: seo-javascript-september2019, seo-javascript-october2019, devx-track-js, devx-track-azurecli 
 ---
 
 # Tools for JavaScript developers on Azure 
@@ -28,32 +28,32 @@ You get several benefits using Visual Studio Code:
 
 Visual Studio code provides of wealth of documentation for [JavaScript project use](https://code.visualstudio.com/docs/nodejs/working-with-javascript). 
 
-## Visual Studio Code Extensions
+<a name="visual-studio-code-extensions"></a>
+
+## Tools for Azure services
 
 Use the following free extensions to use Azure services directly in Visual Studio Code.
 
-| VS Code Extension | Description  |
-|:---------:|---------|
-|[Azure Tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack)<br>![Azure tools](./media/node-azure-tools/azure-tools-icon.png)|A collection of extensions. Get web site hosting, SQL and MongoDB data, Docker Containers, Serverless Functions and more, all on Azure, all from VS Code, in this one extension from Microsoft.|
+|Service| Tools| Description  |
+|:---------:|:---------:|---------|
+|Top services|[VSCode extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack)|A collection of extensions. Get web site hosting, SQL and MongoDB data, Docker Containers, Serverless Functions and more, all on Azure, all from VS Code, in this one extension from Microsoft.|
+|Azure user account| [VSCode extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account)<br><br>[Azure CLI](/cli/azure/account)| Sign-In and Subscription management<br><br>Tutorial: [Deploy containers to Azure App Service](tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-01.md)|
+|Azure Resource Group|[VSCode extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureresourcegroups)<br><br>[Azure CLI](/cli/azure/group)|View and manage Azure resources.<br><br>Tutorial: [Deploy Express.js MongoDB app to App Service from Visual Studio Code](/azure/app-service/tutorial-nodejs-mongodb-app?tabs=azure-portal%2Cterminal-bash%2Cvscode-deploy%2Cdeploy-instructions-azportal%2Cdeploy-zip-linux-mac%2Cdeploy-instructions--zip-azcli)<br>Tutorial: [Add Cognitive Search to a website](/azure/search/tutorial-javascript-overview)|
+|Azure Functions| [VSCode extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions "Link to Azure Functions extension")<br><br>[Azure CLI](/cli/azure/functionapp)<br><br>[npm package](https://github.com/Azure/azure-functions-core-tools)| Create, manage, view, debug, and deploy functions<br><br>Quickstart: [Create a JavaScript function in Azure using Visual Studio Code](/azure/azure-functions/create-first-function-vs-code-node)|
+|Azure App Service|[VSCode extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice "Link to Azure App Service extension")<br><br>[Azure CLI app service](/cli/azure/appservice)<br><br>[Azure CLI wep app](/cli/azure/webapp)| App service allows you to manage App Service plans. Web App allows you to manage web apps running in the plan. Browse sites and the Azure portal, create new sites and deploy to slots. <br><br> Quickstart: [Create a Node.js web app in Azure](/azure/app-service/quickstart-nodejs?pivots=platform-linux)<br><br>Quickstart: [Run a custom container in Azure](/azure/app-service/quickstart-custom-container?pivots=container-linux) |
+|Cosmos DB| [VSCode Extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb "Link to Cosmos DB extension" )<br><br>[Azure CLI](/cli/azure/service-page/azure%20cosmos%20db)| Create, browse, and update globally distributed, multi-model databases in Azure.<br><br>Quickstart: [Connect Azure Functions to Azure Cosmos DB using Visual Studio Code](/azure/azure-functions/functions-add-output-binding-cosmos-db-vs-code?pivots=programming-language-javascript)|
+|Storage|[VSCode extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestorage)<br><br>[Azure CLI](/cli/azure/service-page/azure%20storage)<br><br>[Storage Emulator - Azurite](https://github.com/Azure/Azurite)|Azure Storage including Blob Containers, File Shares, Tables, and Queues<br><br>Quickstart: [Connect Azure Functions to Azure Storage using Visual Studio Code](/azure/azure-functions/functions-add-output-binding-storage-queue-vs-code?pivots=programming-language-javascript)|
 
-If you prefer to install individual extensions, this list includes the most popular Azure services:
+Other resources:
 
-| VS Code Extension | Description  |
-|:---------:|---------|
-| [Azure Account](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account)<br>![Azure Account](./media/node-azure-tools/icon-account.png)| Sign-In and Subscription management<br><br>Tutorial: [Deploy containers to Azure App Service](tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-01.md)|
-| [Azure Resource Group](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureresourcegroups)<br>![Resource groups](./media/node-azure-tools/icon-resource-group.png)|View and manage Azure resources.<br><br>* Tutorial: [Deploy Express.js MongoDB app to App Service from Visual Studio Code](tutorial/deploy-nodejs-mongodb-app-service-from-visual-studio-code.md)<br>* Tutorial: [Add Cognitive Search to a website](/azure/search/tutorial-javascript-overview)|
-| [Azure Functions](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions "Link to Azure Functions extension")<br>![Azure Functions Tools](media/node-azure-tools/icon-azure-functions.png)| Create, manage, view, debug, and deploy functions<br><br>* Quickstart: [Create a JavaScript function in Azure using Visual Studio Code](/azure/azure-functions/create-first-function-vs-code-node)|
-| [Azure App Service](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice "Link to Azure App Service extension")<br>![App Service Tools](media/node-azure-tools/icon-azure-app-service.png)| Browse sites and the Azure portal, create new sites and deploy to slots. <br><br>* Quickstart: [Create a Node.js web app in Azure](/azure/app-service/quickstart-nodejs?pivots=platform-linux)<br>* Quickstart: [Run a custom container in Azure](/azure/app-service/quickstart-custom-container?pivots=container-linux) |
-| [Cosmos DB](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb "Link to Cosmos DB extension" )<br>![Cosmos DB Tools](media/node-azure-tools/icon-cosmos-db.png)| Create, browse, and update globally distributed, multi-model databases in Azure <br><br>* Quickstart: [Connect Azure Functions to Azure Cosmos DB using Visual Studio Code](/azure/azure-functions/functions-add-output-binding-cosmos-db-vs-code?pivots=programming-language-javascript)|
-| [Docker](https://marketplace.visualstudio.com/items?itemName=formulahendry.docker-explorer)   <br> [![Docker](media/node-azure-tools/icon-docker.png)](https://marketplace.visualstudio.com/items?itemName=formulahendry.docker-explorer)| Manage Docker containers and images, Docker Hub, and Azure container registry<br><br>* Tutorial: [Deploy containers to Azure App Service](tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-01.md) |
-|[Storage](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestorage)<br>![Azure Storage](media/node-azure-tools/icon-storage.png)|Azure Storage including Blob Containers, File Shares, Tables, and Queues<br><br>* Quickstart: [Connect Azure Functions to Azure Storage using Visual Studio Code](/azure/azure-functions/functions-add-output-binding-storage-queue-vs-code?pivots=programming-language-javascript)|
-|[Remote - Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)<br>![Remote-containers](media/node-azure-tools/remote-containers-icon.png)|Open any folder or repository inside a Docker container and take advantage of Visual Studio Code's full feature set.|
-|[Remote - SSH](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh)<br>![Remote - SSH](media/node-azure-tools/remote-ssh-icon.png)|Open any folder on a remote machine using SSH and take advantage of VS Code's full feature set.|
-| [All Azure extensions](https://marketplace.visualstudio.com/search?term=azure&target=VSCode&category=All%20categories&sortBy=Relevance)||
+* [All Azure extensions](https://marketplace.visualstudio.com/search?term=azure&target=VSCode&category=All%20categories&sortBy=Relevance)
+* [Docker](https://marketplace.visualstudio.com/items?itemName=formulahendry.docker-explorer)
+* [Remote - Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
+* [Remote - SSH](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh)
 
 ## TypeScript
 
-[TypeScript](https://www.typescriptlang.org/download) offers all of JavaScript’s features, and another layer on top of these: TypeScript’s type system. The main benefit of TypeScript is that it can highlight unexpected behavior in your code, lowering the chance of bugs.
+[TypeScript](https://www.typescriptlang.org/download) offers all of JavaScript's features, and another layer on top of these: TypeScript's type system. The main benefit of TypeScript is that it can highlight unexpected behavior in your code, lowering the chance of bugs.
 
 ## TypeScript and the Azure SDK client libraries
 
@@ -126,7 +126,7 @@ The following list includes tips and tricks Azure developers should know to be m
 * Most resources have at least one **free version** per subscription. Use this type of resource.
 * Some resources provide **two keys**, connection strings, or other securing devices. There are two so that **two different developers** can work on the project without sharing the key or connection string. Rotate these keys when a developer leaves the project.
 * The latest npm packages for Azure start with `@azure` scope. 
-* Most Azure npm packages can use the [DefaultAzureCredential](./core/nodejs-sdk-azure-authenticate.md#authentication-with-azure-services-while-developing). While the setup looks complicated, the benefit of no longer having to manage your local _and_ remote authentication to the Azure platform is great for security and time savings. 
+* Most Azure npm packages can use the [DefaultAzureCredential](/javascript/api/overview/azure/identity-readme#defaultazurecredential). While the setup looks complicated, the benefit of no longer having to manage your local _and_ remote authentication to the Azure platform is great for security and time savings. 
 
 ## Next steps
 

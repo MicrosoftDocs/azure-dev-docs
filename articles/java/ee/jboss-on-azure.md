@@ -19,9 +19,7 @@ There are two hosting options for JBoss EAP on Azure: App Service and virtual ma
 
 JBoss EAP is available on the Linux variants of Premium v3 and Isolated v2 App Service plans. For more information about these plans, see [App Service pricing](https://azure.microsoft.com/pricing/details/app-service/linux/). The Isolated plans host your application in a private, dedicated Azure environment. You can purchase Premium v3 and Isolated v2 plans on a Pay-As-You-Go basis, or on one to three-year reservations to reduce costs up to 50%. For more information, see [What are Azure Reservations?](/azure/cost-management-billing/reservations/save-compute-costs-reservations) and [How reservation discounts apply to Azure App Service](/azure/cost-management-billing/reservations/reservation-discount-app-service)
 
-JBoss EAP on Azure App Service is jointly supported by Red Hat and Microsoft. When you open a support case on the Azure portal about your JBoss EAP apps, Azure support will automatically contact Red Hat technical support when necessary. This integrated support is provided to all JBoss EAP applications running on App Service. Starting August 1st, all JBoss EAP sites will be billed $0.15/core/hour for the integrated technical support. JBoss EAP sites cannot opt-out of the integrated support.
-
-The following video describes the GA release of JBoss EAP on Azure App Service.
+JBoss EAP on Azure App Service is jointly supported by Red Hat and Microsoft. When you open a support case on the Azure portal about your JBoss EAP apps, Azure support will automatically contact Red Hat technical support when necessary. This integrated support is provided to all JBoss EAP applications running on App Service. Starting August 1st, all JBoss EAP sites will be billed $0.15/core/hour for the integrated technical support. JBoss EAP sites cannot opt-out of the integrated support, but you can [purchase a reservation](/azure/cost-management-billing/reservations/prepay-jboss-eap-integrated-support-app-service) for the integrated support to reduce costs.
 
 <br>
 
@@ -33,9 +31,14 @@ The following video describes the GA release of JBoss EAP on Azure App Service.
 
 ## JBoss EAP on Azure Virtual Machines
 
+Several plans are available for running JBoss EAP on Azure Virtual Machines. Visit the offer [in the Azure portal](https://aka.ms/jboss-eap-on-vms) and select the option best suited for your needs.
+
 Virtual machine scale sets provide groups of load-balanced, highly scalable virtual machines for workloads of any size. For more information, see [Azure Virtual Machine Scale Sets](https://azure.microsoft.com/services/virtual-machine-scale-sets/).
 
+If you prefer a traditional cluster of VMs using the JBoss EAP clustering mechanism, is suitable for a lift and shift from deployments that are already using this feature.  For more information see [the JBoss EAP documentation](https://access.redhat.com/documentation/en-us/reference_architectures/2017/html-single/configuring_a_red_hat_jboss_eap_7_cluster/index).
+
 Choose a VM image of your preference and scale to thousands of VMs based on usage metrics. JBoss EAP on virtual machine scale sets uses jointly developed deployment templates to install JBoss EAP and Red Hat Enterprise Linux on your VMs behind a load balancer, all within a virtual network. These templates provide you with an enterprise-scale foundation to lift-and-shift your existing JBoss EAP applications. JBoss EAP on virtual machine scale sets supports clustered deployments via Azure Ping, so your stateful applications can run well.
+
 
 ## Next steps
 
