@@ -118,9 +118,11 @@ Terraform tracks state locally via the `terraform.tfstate` file. This pattern wo
 
     **Key points:**
 
+    - Set `resource_group_name` to the resource group where the storage account exists.
+    - Set `location` to the resource group location.
     - Set `aks_service_principal_app_id` to the service principal `appId` value.
     - Set `aks_service_principal_client_secret` to the service principal `password` value.
-    - Set `aks_service_principal_object_id` to the service principal object ID. (The Azure CLI command for obtaining this value is in the [Configure your environment](#configure_your_environment) section.)
+    - Set `aks_service_principal_object_id` to the service principal object ID. (The Azure CLI command for obtaining this value is in the [Configure your environment](#1-configure-your-environment) section.)
 
 ## 4. Initialize Terraform
 
