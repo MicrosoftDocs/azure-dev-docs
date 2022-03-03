@@ -196,16 +196,16 @@ Use Helm to install the `application-gateway-kubernetes-ingress` package:
 
 1. Run the following helm commands to add the AGIC Helm repo.
 
-``` cmd
-helm repo add application-gateway-kubernetes-ingress https://appgwingress.blob.core.windows.net/ingress-azure-helm-package/
-```
-
+    ``` cmd
+    helm repo add application-gateway-kubernetes-ingress https://appgwingress.blob.core.windows.net/ingress-azure-helm-package/
+    ```
+    
 1. Update the AGIC Helm repo.
 
-``` cmd
-helm repo update
-```
-
+    ``` cmd
+    helm repo update
+    ```
+    
 ## 10. Install AGIC Helm Chart
 
 1. Download `helm-config.yaml` to configure AGIC:
