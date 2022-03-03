@@ -158,7 +158,7 @@ The Kubernetes tools can be used to verify the newly created cluster.
 
 1. Verify the health of the cluster.
 
-    ```bash
+    ```console
     kubectl get nodes
     ```
 
@@ -182,13 +182,13 @@ To install Azure AD Pod Identity to your cluster, you need to know if RBAC is en
 
 - If RBAC is **enabled**, run the following command:
 
-    ```cmd
+    ```console
     kubectl create -f https://raw.githubusercontent.com/Azure/aad-pod-identity/master/deploy/infra/deployment-rbac.yaml
     ```
 
 - If RBAC is **disabled**, run the following command:
 
-    ```cmd
+    ```console
     kubectl create -f https://raw.githubusercontent.com/Azure/aad-pod-identity/master/deploy/infra/deployment.yaml
     ```
 
@@ -198,13 +198,13 @@ Use Helm to install the `application-gateway-kubernetes-ingress` package:
 
 1. Run the following helm commands to add the AGIC Helm repo.
 
-    ``` cmd
+    ```console
     helm repo add application-gateway-kubernetes-ingress https://appgwingress.blob.core.windows.net/ingress-azure-helm-package/
     ```
     
 1. Update the AGIC Helm repo.
 
-    ``` cmd
+    ```console
     helm repo update
     ```
     
@@ -212,13 +212,13 @@ Use Helm to install the `application-gateway-kubernetes-ingress` package:
 
 1. Download `helm-config.yaml` to configure AGIC. (If you don't have access to `wget`, see the [Configure your environment](#1-configure-your-environment) section.)
 
-    ```bash
+    ```console
     wget https://raw.githubusercontent.com/Azure/application-gateway-kubernetes-ingress/master/docs/examples/sample-helm-config.yaml -O helm-config.yaml
     ```
 
 1. Edit the `helm-config.yaml` and enter appropriate values for `appgw` and `armAuth` sections.
 
-    ```bash
+    ```console
     code helm-config.yaml
     ```
 
@@ -245,7 +245,7 @@ Use Helm to install the `application-gateway-kubernetes-ingress` package:
 
 1. Install the Application Gateway Ingress controller package:
 
-    ```bash
+    ```console
     helm install -f helm-config.yaml application-gateway-kubernetes-ingress/ingress-azure --generate-name
     ```
 
@@ -255,13 +255,13 @@ Once you have the App Gateway, AKS, and AGIC installed, install a sample app.
 
 1. Use the curl command to download the YAML file:
 
-    ```cmd
+    ```console
     curl https://raw.githubusercontent.com/Azure/application-gateway-kubernetes-ingress/master/docs/examples/aspnetapp.yaml -o aspnetapp.yaml
     ```
 
 2. Apply the YAML file:
 
-    ```cmd
+    ```console
     kubectl apply -f aspnetapp.yaml
     ```
 
