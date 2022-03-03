@@ -3,15 +3,19 @@ title: Create an Application Gateway ingress controller in Azure Kubernetes Serv
 description: Learn how to create an Application Gateway ingress controller in Azure Kubernetes Service using Terraform
 keywords: azure devops terraform application gateway ingress aks kubernetes
 ms.topic: how-to
-ms.date: 03/02/2022
+ms.date: 03/03/2022
 ms.custom: devx-track-terraform, devx-track-azurecli
 ---
 
 # Create an Application Gateway ingress controller in Azure Kubernetes Service using Terraform
 
+Article tested with following software/versions:
+- [Terraform v1.1.4](https://releases.hashicorp.com/terraform/)
+- [AzureRM Provider v.2.94.0](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs)
+
 [Azure Kubernetes Service (AKS)](/azure/aks/) manages your hosted Kubernetes environment. AKS makes it quick and easy to deploy and manage containerized applications without container orchestration expertise. AKS also eliminates the burden of taking applications offline for operational and maintenance tasks. Using AKS, these tasks - including provisioning, upgrading and scaling resources - can be accomplished on-demand.
 
-An ingress controller provides various features for Kubernetes services. These features include reverse proxy, configurable traffic routing, and TLS termination. Kubernetes ingress resources are used to configure the ingress rules for individual Kubernetes services. Using an ingress controller and ingress rules, a single IP address can route traffic to multiple services in a Kubernetes cluster. All this functionality is provided by Azure [Application Gateway](/azure/Application-Gateway/), making it an ideal Ingress controller for Kubernetes on Azure.
+An Application Gateway ingress controller (AGIC) provides various features for Kubernetes services. These features include reverse proxy, configurable traffic routing, and TLS termination. Kubernetes ingress resources are used to configure the ingress rules for individual Kubernetes services. Using an ingress controller and ingress rules, a single IP address can route traffic to multiple services in a Kubernetes cluster. All this functionality is provided by Azure [Application Gateway](/azure/Application-Gateway/), making it an ideal Ingress controller for Kubernetes on Azure.
 
 In this article, you learn how:
 > [!div class="checklist"]
@@ -31,6 +35,8 @@ In this article, you learn how:
 - **Azure service principal:** If you don't have a service principal, [create a service principal](authenticate-to-azure.md#create-a-service-principal). Make note of the `appId`, `display_name`, `password`, and `tenant`.
 
 - **Service principal object ID**: Run the following command to get the object ID of the service principal: `az ad sp list --display-name "<display_name>" --query "[].{\"Object ID\":objectId}" --output table`
+
+- **Install Helm**: [Helm](https://helm.sh/docs/intro/install/) is the Kubernetes package manager.
 
 ## 2. Configure Azure storage to store Terraform state
 
@@ -185,16 +191,21 @@ kubectl create -f https://raw.githubusercontent.com/Azure/aad-pod-identity/maste
 
 ## 9. Install Helm
 
-The code in this section uses [Helm](/azure/aks/kubernetes-helm) - Kubernetes package manager - to install the `application-gateway-kubernetes-ingress` package:
+Use Helm to install the `application-gateway-kubernetes-ingress` package:
 
-Run the follow helm commands to add the AGIC Helm repository:
+1. Run the follow helm commands to add the AGIC Helm repo.
 
-```cmd
+``` cmd
 helm repo add application-gateway-kubernetes-ingress https://appgwingress.blob.core.windows.net/ingress-azure-helm-package/
+```
+
+1. Update the AGIC Helm repo.
+
+``` cmd
 helm repo update
 ```
 
-## 10. Install Ingress Controller Helm Chart
+## 10. Install AGIC Helm Chart
 
 1. Download `helm-config.yaml` to configure AGIC:
 
