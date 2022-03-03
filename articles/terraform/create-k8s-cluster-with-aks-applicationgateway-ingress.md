@@ -36,13 +36,17 @@ In this article, you learn how:
 
 Terraform tracks state locally via the `terraform.tfstate` file. This pattern works well in a single-person environment. However, in a more practical multi-person environment, you need to track state on the server using [Azure storage](/azure/storage/). In this section, you learn to retrieve the necessary storage account information and create a storage container. The Terraform state information is then stored in that container.
 
+1. Use one of the following options to create an Azure storage account:
+
+    - [Create a storage account (via the Azure portal)](/azure/storage/common/storage-account-create?tabs=azure-portal)
+    - [Create a storage account (via Azure CLI)](/azure/storage/common/storage-account-create?tabs=azure-cli)
+    - [Create a storage account (via Azure PowerShell)](/azure/storage/common/storage-account-create?tabs=azure-powershell)
+
 1. Browse to the [Azure portal](https://portal.azure.com).
 
 1. Under **Azure services**, select **Storage accounts**. (If the **Storage accounts** option isn't visible on the main page, select **More services** to locate the option.)
 
-1. On the **Storage accounts** page, select the name of the storage account into which Terraform is to store state. For example, you can use the storage account created when you opened Cloud Shell the first time. The storage account name created by Cloud Shell typically starts with `cs` followed by a random string of numbers and letters.
-
-1. Note the selected storage account name.
+1. On the **Storage accounts** page, On the Storage accounts page, select the storage account where Terraform will store the state information.
 
 1. On the **Storage account** page, in the left menu, select **Access keys**.
 
@@ -101,7 +105,7 @@ Terraform tracks state locally via the `terraform.tfstate` file. This pattern wo
     **Key points:**
 
     - [Terraform outputs](https://www.terraform.io/docs/configuration/outputs.html) allow you to define values that are highlighted to the user when Terraform applies a plan.
-    - These values can be queried using the `terraform output` command. 
+    - These values can be queried using the `terraform output` command.
     - In this section, you create an output file that allows access to the cluster with [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/).
 
 1. Create a file named `terraform.tfvars` and insert the following code.
