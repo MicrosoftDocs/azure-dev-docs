@@ -56,15 +56,15 @@ Terraform tracks state locally via the `terraform.tfstate` file. This pattern wo
 
 1. On the **Storage account** page, in the left menu, select **Access keys**.
 
-    ![The Storage account page has a menu option to get the access keys.](./media/create-k8s-cluster-with-aks-applicationgateway-Ingress/access-keys-menu-option.png)
+    ![The Storage account page has a menu option to get the access keys.](./media/create-k8s-cluster-with-aks-applicationgateway-ingress/access-keys-menu-option.png)
 
 1. On the **Access keys** page, select **Show keys** to display the key values.
 
-    ![The Access keys page has an option to display the key values.](./media/create-k8s-cluster-with-aks-applicationgateway-Ingress/show-keys-option.png)
+    ![The Access keys page has an option to display the key values.](./media/create-k8s-cluster-with-aks-applicationgateway-ingress/show-keys-option.png)
 
 1. Locate the **key1** **key** on the page and select the icon to its right to copy the key value to the clipboard.
 
-    ![A handy icon button allows you to copy the key values to the clipboard.](./media/create-k8s-cluster-with-aks-applicationgateway-Ingress/copy-key-value.png)
+    ![A handy icon button allows you to copy the key values to the clipboard.](./media/create-k8s-cluster-with-aks-applicationgateway-ingress/copy-key-value.png)
 
 1. From a command line prompt, run [az storage container create](/cli/azure/storage/container#az_storage_container_create). This command creates a container in your Azure storage account. Replace the placeholders with the appropriate values for your Azure storage account.
 
@@ -84,7 +84,7 @@ Terraform tracks state locally via the `terraform.tfstate` file. This pattern wo
 
 1. Create a file named `providers.tf` and insert the following code.
 
-    [!code-terraform[UserStory1871520-2](../../terraform_samples/quickstart/201-k8s-cluster-with-aks-applicationgateway-Ingress/providers.tf)]
+    [!code-terraform[UserStory1871520-2](../../terraform_samples/quickstart/201-k8s-cluster-with-aks-applicationgateway-ingress/providers.tf)]
 
     **Key points:**
 
@@ -93,7 +93,7 @@ Terraform tracks state locally via the `terraform.tfstate` file. This pattern wo
 
 1. Create a file named `main.tf` and insert the following code:
 
-    [!code-terraform[UserStory1871520-2](../../terraform_samples/quickstart/201-k8s-cluster-with-aks-applicationgateway-Ingress/main.tf)]
+    [!code-terraform[UserStory1871520-2](../../terraform_samples/quickstart/201-k8s-cluster-with-aks-applicationgateway-ingress/main.tf)]
 
     **Key points:**
 
@@ -103,7 +103,7 @@ Terraform tracks state locally via the `terraform.tfstate` file. This pattern wo
 
 1. Create a file named `variables.tf` and insert the following code:
 
-    [!code-terraform[UserStory1871520-2](../../terraform_samples/quickstart/201-k8s-cluster-with-aks-applicationgateway-Ingress/variables.tf)]
+    [!code-terraform[UserStory1871520-2](../../terraform_samples/quickstart/201-k8s-cluster-with-aks-applicationgateway-ingress/variables.tf)]
 
     **Key points:**
 
@@ -112,7 +112,7 @@ Terraform tracks state locally via the `terraform.tfstate` file. This pattern wo
 
 1. Create a file named `output.tf` and insert the following code.
 
-    [!code-terraform[UserStory1871520-2](../../terraform_samples/quickstart/201-k8s-cluster-with-aks-applicationgateway-Ingress/output.tf)]
+    [!code-terraform[UserStory1871520-2](../../terraform_samples/quickstart/201-k8s-cluster-with-aks-applicationgateway-ingress/output.tf)]
 
     **Key points:**
 
@@ -122,7 +122,7 @@ Terraform tracks state locally via the `terraform.tfstate` file. This pattern wo
 
 1. Create a file named `terraform.tfvars` and insert the following code.
 
-    [!code-terraform[UserStory1871520-2](../../terraform_samples/quickstart/201-k8s-cluster-with-aks-applicationgateway-Ingress/terraform.tfvars)]
+    [!code-terraform[UserStory1871520-2](../../terraform_samples/quickstart/201-k8s-cluster-with-aks-applicationgateway-ingress/terraform.tfvars)]
 
     **Key points:**
 
@@ -164,7 +164,7 @@ The Kubernetes tools can be used to verify the newly created cluster.
 
     - The details of your worker nodes are displayed with a status of **Ready**.
 
-    ![The kubectl tool allows you to verify the health of your Kubernetes cluster](./media/create-k8s-cluster-with-aks-applicationgateway-Ingress/kubectl-get-nodes.png)
+    ![The kubectl tool allows you to verify the health of your Kubernetes cluster](./media/create-k8s-cluster-with-aks-applicationgateway-ingress/kubectl-get-nodes.png)
 
 ## 8. Install Azure AD Pod Identity
 
@@ -192,12 +192,12 @@ To install Azure AD Pod Identity to your cluster, you need to know if RBAC is en
 
 ## 9. Install Helm
 
-Use Helm to install the `application-gateway-kubernetes-Ingress` package:
+Use Helm to install the `application-gateway-kubernetes-ingress` package:
 
 1. Run the following helm commands to add the AGIC Helm repo.
 
 ``` cmd
-helm repo add application-gateway-kubernetes-Ingress https://appgwIngress.blob.core.windows.net/Ingress-azure-helm-package/
+helm repo add application-gateway-kubernetes-ingress https://appgwingress.blob.core.windows.net/ingress-azure-helm-package/
 ```
 
 1. Update the AGIC Helm repo.
@@ -211,7 +211,7 @@ helm repo update
 1. Download `helm-config.yaml` to configure AGIC:
 
     ```bash
-    wget https://raw.githubusercontent.com/Azure/application-gateway-kubernetes-Ingress/master/docs/examples/sample-helm-config.yaml -O helm-config.yaml
+    wget https://raw.githubusercontent.com/Azure/application-gateway-kubernetes-ingress/master/docs/examples/sample-helm-config.yaml -O helm-config.yaml
     ```
 
 1. Edit the `helm-config.yaml` and enter appropriate values for `appgw` and `armAuth` sections.
@@ -222,11 +222,11 @@ helm repo update
 
     The values are described as follows:
 
-    - `verbosityLevel`: Sets the verbosity level of the AGIC logging infrastructure. See [Logging Levels](https://github.com/Azure/application-gateway-kubernetes-Ingress/blob/463a87213bbc3106af6fce0f4023477216d2ad78/docs/troubleshooting.md#logging-levels) for possible values.
+    - `verbosityLevel`: Sets the verbosity level of the AGIC logging infrastructure. See [Logging Levels](https://github.com/Azure/application-gateway-kubernetes-ingress/blob/463a87213bbc3106af6fce0f4023477216d2ad78/docs/troubleshooting.md#logging-levels) for possible values.
     - `appgw.subscriptionId`: The Azure Subscription ID for the App Gateway. Example: `a123b234-a3b4-557d-b2df-a0bc12de1234`
     - `appgw.resourceGroup`: Name of the Azure Resource Group in which App Gateway was created. 
     - `appgw.name`: Name of the Application Gateway. Example: `applicationgateway1`.
-    - `appgw.shared`: This boolean flag should be defaulted to `false`. Set to `true` should you need a [Shared App Gateway](https://github.com/Azure/application-gateway-kubernetes-Ingress/blob/072626cb4e37f7b7a1b0c4578c38d1eadc3e8701/docs/setup/install-existing.md#multi-cluster--shared-app-gateway).
+    - `appgw.shared`: This boolean flag should be defaulted to `false`. Set to `true` should you need a [Shared App Gateway](https://github.com/Azure/application-gateway-kubernetes-ingress/blob/072626cb4e37f7b7a1b0c4578c38d1eadc3e8701/docs/setup/install-existing.md#multi-cluster--shared-app-gateway).
     - `kubernetes.watchNamespace`: Specify the name space, which AGIC should watch. The namespace can be a single string value, or a comma-separated list of namespaces. Leaving this variable commented out, or setting it to blank or empty string results in Ingress controller observing all accessible namespaces.
     - `armAuth.type`: A value of either `aadPodIdentity` or `servicePrincipal`.
     - `armAuth.identityResourceID`: Resource ID of the managed identity.
@@ -244,7 +244,7 @@ helm repo update
 1. Install the Application Gateway Ingress controller package:
 
     ```bash
-    helm install -f helm-config.yaml application-gateway-kubernetes-Ingress/Ingress-azure --generate-name
+    helm install -f helm-config.yaml application-gateway-kubernetes-ingress/ingress-azure --generate-name
     ```
 
 ## 11. Install a sample app
@@ -254,7 +254,7 @@ Once you have the App Gateway, AKS, and AGIC installed, install a sample app.
 1. Use the curl command to download the YAML file:
 
     ```cmd
-    curl https://raw.githubusercontent.com/Azure/application-gateway-kubernetes-Ingress/master/docs/examples/aspnetapp.yaml -o aspnetapp.yaml
+    curl https://raw.githubusercontent.com/Azure/application-gateway-kubernetes-ingress/master/docs/examples/aspnetapp.yaml -o aspnetapp.yaml
     ```
 
 2. Apply the YAML file:
@@ -274,4 +274,4 @@ Once you have the App Gateway, AKS, and AGIC installed, install a sample app.
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Application Gateway Ingress Controller](https://azure.github.io/application-gateway-kubernetes-Ingress/)
+> [Application Gateway Ingress Controller](https://azure.github.io/application-gateway-kubernetes-ingress/)
