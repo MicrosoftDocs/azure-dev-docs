@@ -102,6 +102,7 @@ Terraform tracks state locally via the `terraform.tfstate` file. This pattern wo
     **Key points:**
 
     - Most of these variables are set to default values. Verify the values work for your environment and change if necessary.
+    - For example, RBAC is disabled by default. Change the `aks_enable_rbac` block's `default` value to `true` if you want to enable RBAC. Knowing the RBAC disposition is necessary when you reach the [Install Azure AD Pod Identity](#8-install_azure_ad_pod_identity) section.
 
 1. Create a file named `output.tf` and insert the following code.
 
@@ -169,6 +170,7 @@ Azure Active Directory Pod Identity provides token-based access to [Azure Resour
   - [Managed Identity Controller (MIC)](https://github.com/Azure/aad-pod-identity#managed-identity-controllermic) component
   - [Node Managed Identity (NMI)](https://github.com/Azure/aad-pod-identity#node-managed-identitynmi) component
 
+In the `variables.tf` file, RBAC is not ena
 If RBAC is **enabled**, run the following command to install Azure AD Pod Identity to your cluster:
 
 ```cmd
