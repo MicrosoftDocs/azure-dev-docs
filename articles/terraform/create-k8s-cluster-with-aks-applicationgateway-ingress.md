@@ -141,7 +141,7 @@ Terraform tracks state locally via the `terraform.tfstate` file. This pattern wo
 
 The Kubernetes tools can be used to verify the newly created cluster.
 
-1. Run [az aks get-credentials](/cli/azure/aks#az_aks_get_credentials) to get the Kubernetes configuration and access credentials from Azure.
+1. Run [az aks get-credentials](/cli/azure/aks#az-aks-get-credentials) to get the Kubernetes configuration and access credentials from Azure.
 
     ```azcli
     az aks get-credentials --name <aks_cluster_name>  --resource-group <resource_group_name>
