@@ -216,32 +216,45 @@ Use Helm to install the `application-gateway-kubernetes-ingress` package:
     wget https://raw.githubusercontent.com/Azure/application-gateway-kubernetes-ingress/master/docs/examples/sample-helm-config.yaml -O helm-config.yaml
     ```
 
-1. Edit the `helm-config.yaml` and enter appropriate values for `appgw` and `armAuth` sections.
+1. Edit the `helm-config.yaml` file and enter appropriate values for `appgw` and `armAuth` sections.
 
     ```console
     code helm-config.yaml
     ```
 
-    The values are described as follows:
+1. Enter values for the top level keys.
 
     - `verbosityLevel`: Sets the verbosity level of the AGIC logging infrastructure. See [Logging Levels](https://github.com/Azure/application-gateway-kubernetes-ingress/blob/463a87213bbc3106af6fce0f4023477216d2ad78/docs/troubleshooting.md#logging-levels) for possible values.
+
+1. Enter values for the `appgw` block.
+
     - `appgw.subscriptionId`: The Azure Subscription ID for the App Gateway. Example: `a123b234-a3b4-557d-b2df-a0bc12de1234`
     - `appgw.resourceGroup`: Name of the Azure Resource Group in which App Gateway was created. 
     - `appgw.name`: Name of the Application Gateway. Example: `applicationgateway1`.
     - `appgw.shared`: This boolean flag should be defaulted to `false`. Set to `true` should you need a [Shared App Gateway](https://github.com/Azure/application-gateway-kubernetes-ingress/blob/072626cb4e37f7b7a1b0c4578c38d1eadc3e8701/docs/setup/install-existing.md#multi-cluster--shared-app-gateway).
-    - `kubernetes.watchNamespace`: Specify the name space, which AGIC should watch. The namespace can be a single string value, or a comma-separated list of namespaces. Leaving this variable commented out, or setting it to blank or empty string results in Ingress controller observing all accessible namespaces.
-    - `armAuth.type`: A value of either `aadPodIdentity` or `servicePrincipal`.
-    - `armAuth.identityResourceID`: Resource ID of the managed identity.
-    - `armAuth.identityClientId`: The Client ID of the Identity.
-    - `armAuth.secretJSON`: Only needed when Service Principal Secret type is chosen (when `armAuth.type` has been set to `servicePrincipal`).
 
-    **Key points:**
+1. Enter values for the `kubernetes` block.
 
-    - The `identityResourceID`  value is created in the terraform script and can be found by running: `echo "$(terraform output identity_resource_id)"`.
-    - The `identityClientID` value is created in the terraform script and can be found by running: `echo "$(terraform output identity_client_id)"`.
-    - The `<resource-group>` value is the resource group of your App Gateway.
-    - The `<identity-name>` value is the name of the created identity.
-    - All identities for a given subscription can be listed using: `az identity list`.
+    - `kubernetes.watchNamespace`: Specify the name space, which AGIC should watch. The namespace can be a single string value, or a comma-separated list of namespaces. Leaving this variable commented out, or setting it to a blank or an empty string results in the Ingress controller observing all accessible namespaces.
+
+1. Run [az identity show](/cli/azure/identity#az-identity-show) to get the key values from your identity.
+
+    ```azurecli
+    az identity show -g <resource_group_name> -n <identity_name>`
+    ```
+
+**Key points:**
+
+    - The identity name for this demo is set to `identity1` in the `main.tf` file.
+    - All identities for a given subscription can be by running `az identity list`.
+
+1. Enter values for the `armAuth` block.
+
+    - If you specify `armAuth.type` as `aadPodIdentity`:
+        - `armAuth.identityResourceID`: Get the identity resource ID by running `echo "$(terraform output identity_resource_id)"`.
+        - `armAuth.identityClientId`: Get the identity client ID by running `echo "$(terraform output identity_client_id)"`.
+
+    - If you specify `armAuth.type` as `servicePrincipal`, see [Using a service principal](/azure/application-gateway/ingress-controller-install-existing#using-a-service-principal).
 
 1. Install the Application Gateway Ingress controller package:
 
