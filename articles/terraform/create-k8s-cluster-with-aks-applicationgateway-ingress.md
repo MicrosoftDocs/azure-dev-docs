@@ -210,7 +210,7 @@ Use Helm to install the `application-gateway-kubernetes-ingress` package:
     
 ## 10. Install AGIC Helm Chart
 
-1. Download `helm-config.yaml` to configure AGIC.
+1. Download `helm-config.yaml` to configure AGIC. (If you don't have access to `wget`, see the [Configure your environment](#1-configure-your-environment) section.)
 
     ```bash
     wget https://raw.githubusercontent.com/Azure/application-gateway-kubernetes-ingress/master/docs/examples/sample-helm-config.yaml -O helm-config.yaml
