@@ -76,7 +76,7 @@ This sample application requires an *.env* file describing how to connect to you
 
 If you want to run SQLite locally instead, follow the instructions in the comments of the  *settings.py* file.
 
-Create the `restaurant` database tables:
+Create the `restaurant` and `review` database tables:
 
 ### [Flask](#tab/flask)
 
