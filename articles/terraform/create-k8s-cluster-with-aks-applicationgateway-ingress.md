@@ -76,27 +76,31 @@ Terraform tracks state locally via the `terraform.tfstate` file. This pattern wo
 
 1. Create a directory in which to test the sample Terraform code and make it the current directory.
 
+1. Create a file named `providers.tf` and insert the following code.
+
+    [!code-terraform[UserStory1871520-2](../../terraform_samples/quickstart/201-k8s-cluster-with-aks-applicationgateway-ingress/providers.tf)]
+
 1. Create a file named `main.tf` and insert the following code:
 
     [!code-terraform[UserStory1871520-2](../../terraform_samples/quickstart/201-k8s-cluster-with-aks-applicationgateway-ingress/main.tf)]
 
-1. Create a file named `variables.tf` to contain the project variables and insert the following code:
-
-    [!code-terraform[UserStory1871520-2](../../terraform_samples/quickstart/201-k8s-cluster-with-aks-applicationgateway-ingress/variables.tf)]
-
-1. Create a file named `resources.tf` and insert the following code.
-
-    [!code-terraform[UserStory1871520-2](../../terraform_samples/quickstart/201-k8s-cluster-with-aks-applicationgateway-ingress/resources.tf)]
-
     **Key points:**
 
-    - The code in the `resources.tf` file sets the name of the cluster, location, and the resource_group_name.
+    - The code in the `main.tf` file sets the name of the cluster, location, and the resource_group_name.
     - The `dns_prefix` value - that forms part of the fully qualified domain name (FQDN) used to access the cluster - is set.
     - The `linux_profile` record allows you to configure the settings that enable signing into the worker nodes using SSH.
     - With AKS, you pay only for the worker nodes.
     - The `agent_pool_profile` record configures the details for these worker nodes.
     - The `agent_pool_profile record` includes the number of worker nodes to create and the type of worker nodes.
     - If you need to scale up or scale down the cluster in the future, modify the `count` value in `agent_pool_profile record` record.
+
+1. Create a file named `variables.tf` and insert the following code:
+
+    [!code-terraform[UserStory1871520-2](../../terraform_samples/quickstart/201-k8s-cluster-with-aks-applicationgateway-ingress/variables.tf)]
+
+    **Key points:**
+
+    - The code in the `variables.tf` file defines the project variables. Most of these variables are set to default values. Verify the values work for your environment and change if necessary.
 
 1. Create a file named `output.tf` and insert the following code.
 
