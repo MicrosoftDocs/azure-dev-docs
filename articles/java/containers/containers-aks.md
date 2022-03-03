@@ -18,11 +18,15 @@ Determine if the AKS node pool(s) that are available for your AKS cluster can fi
 
 ## Set CPU requests and limits
 
-As a rule of thumb for Java application do not specify CPU requests. If you must limit the CPU on the Kubernetes level map the vCPU core number one for one onto the CPU limits numbers. E.g map 2 vCPU cores to 2.0 in the kubernetes deployment file.
+If you need to limit the CPU on the Kubernetes level map the vCPU core number one for one onto the CPU limits numbers. E.g. map 2 vCPU cores to 2.0 in the kubernetes deployment file. Be aware that the Java process does not dynamically look at the CPU count, but rather looks at it ONLY during startup.
+
+Recommendation: Our recommendation is to set CPU requests equal to CPU limits.
 
 ## Set memory request and limits
 
-As a rule of thumb for Java applications do not specify memory requests. Set the memory limits to the amount that you previosuly determined. Make sure the memory limits number is the container memory and NOT the JVM heap memory value.
+Set the memory limits to the amount that you previosuly determined. Make sure the memory limits number is the container memory and NOT the JVM heap memory value.
+
+Recommendation: Our recommendation is to set the memory requests equal to the memory limits.
 
 ## Set the JVM arguments in the deployment file
 

@@ -17,21 +17,47 @@ This topic provides an overview of recommended strategies for containerizing Jav
 
 ## New application
 
-### Determine how much memory to start with
-
 When you are containerizing a Java workload you have to take 2 things into account when thinking about memory. On the one hand the memory allocated to the container itself and on the other hand the amount of memory available to the Java process.
 
 #### Determine container memory
 
-Depending on the needs of your application and its distinctive usage patterns you will have to pick an amount of container memory that will serve your work load the best. If your application creates large object graphs then you will probably have to allocate more than if your application has a large number of small object graphs. If you do not know how much memory to allocate a good starting point would be to begin with 4 GB of memory.
+Depending on the needs of your application and its distinctive usage patterns you will have to pick an amount of container memory that will serve your work load the best. If your application creates large object graphs then you will probably have to allocate more than if your application has a large number of small object graphs. If you do not know how much memory to allocate a good starting point would be to begin with 6 GB of memory.
+
+Recommendation: Our recommendation is to start with 6 GB of container memory.
 
 #### Determine JVM heap memory
 
-When allocating JVM heap memory one needs to be aware that the JVM needs more memory than just JVM heap memory. So when setting the maximum JVM heap memory it should NEVER be equal to the amount of container memory as that will cause container OOM errors and container crashes. As a starting point one should not start with more than 75% of the available container memory.
+When allocating JVM heap memory one needs to be aware that the JVM needs more memory than just JVM heap memory. So when setting the maximum JVM heap memory it should NEVER be equal to the amount of container memory as that will cause container Out of Memory (OOM) errors and container crashes. 
 
-### Determine which GC to use
+Recommendation: Our recommendation is to start with 2 GB JVM heap memory.
 
-Previously you have determined an amount of JVM heap memory to start with. Depending on the amount of maximum JVM heap memory you should or should not use a particular GC. The sections below describes 3 common GCs and what they bring to the table.
+### Determine which Garbage Collector to use
+
+Previously you have determined an amount of JVM heap memory to start with. Depending on the amount of maximum JVM heap memory you should or should not use a particular Garbage Collector (GC). The table below describes what each GC brings to the table.
+
+Recommendation: Our recommendation is to start with the Parallel GC.
+
+| Garbage Collector | Key points |
+|-------------------|------------|
+| Serial GC         | Single CPU containers |
+| Parallel GC       | 1. Multiple GC threads |
+|                   | Stop-the World during any collection |
+|                   | Great for throughput, bad for latency |
+|                   | Smaller heaps (up to 4GB) |
+|                   | Good for batch jobs |
+| G1GC              | Low pause |
+|                   | Low latency |
+|                   | Larger heaps (more than 4GB) |
+|                   | Higher tail latency |
+| ZGC               | Real-time sub milliseconds latency |
+|                   | Great for super large heaps |
+|                   | Low tail latency |
+|                   | Oracle-led |
+| Shenandoah GC     | Real-time sub milliseconds latency |
+|                   | Great for super large heaps |
+|                   | Low tail latency |
+|                   | Red Hat-led, with AWS contributions |
+
 
 #### Serial GC
 
@@ -47,13 +73,13 @@ A GC that uses multiple threads and divides the GC into regions.
 
 ### Determine how many CPU cores are needed
 
-Dependig on the GC you selected above you will either need 1 vCPU core if you selected the Serial GC, or 2+ vCPU cores if you selected any other GC. Note that selecting anything less than 1 vCPU core is NOT recommended for any GC choice.
+Dependig on the GC you selected above you will either need at minimum 1 vCPU core if you selected the Serial GC, or 2+ vCPU cores if you selected any other GC. Note that selecting anything less than 1 vCPU core is NOT recommended for any GC choice.
+
+Recommendation: Our recommendation is to start with 2 vCPU cores.
 
 ### Picking a starting point
 
-With everything explained before, and if you have not picked starting points yet, we recommend to start the containerization of your new Java application with 2 vCPu cores, 4 GB with 75% allocated to JVM Heap memory and the Parallel GC. If you think that will not work then see the table below for combinations of CPU, memory and GC you can alternatively choose as your starting point.
-
-TODO - memory / vCPU cores / GC combination table
+With everything explained before, and if you have not picked starting points yet, we recommend to start the containerization of your new Java application with 2 vCPu cores, 6 GB of container memory with 2 GB allocated to JVM Heap memory and the Parallel GC. 
 
 ## Existing (on premises) application 
 
