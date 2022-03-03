@@ -2,7 +2,7 @@
 title: Spring Boot Starters for Azure
 description: This article describes the various Spring Boot Starters that are available for Azure.
 documentationcenter: java
-ms.date: 01/19/2022
+ms.date: 03/03/2022
 ms.service: multiple
 ms.tgt_pltfrm: multiple
 ms.topic: article
@@ -56,7 +56,7 @@ When you add this starter to a Spring Boot project, the following changes are ma
    <properties>
       <!-- Other properties will be listed here -->
       <java.version>1.8</java.version>
-      <azure.version>3.13.0</azure.version>
+      <azure.version>3.14.0</azure.version>
    </properties>
    ```
 
@@ -116,7 +116,7 @@ When you add this starter to a Spring Boot project, the following changes are ma
    <properties>
       <!-- Other properties will be listed here -->
       <java.version>1.8</java.version>
-      <azure.version>3.13.0</azure.version>
+      <azure.version>3.14.0</azure.version>
    </properties>
    ```
 
@@ -176,7 +176,7 @@ When you add this starter to a Spring Boot project, the following changes are ma
    <properties>
       <!-- Other properties will be listed here -->
       <java.version>1.8</java.version>
-      <azure.version>3.13.0</azure.version>
+      <azure.version>3.14.0</azure.version>
    </properties>
    ```
 
@@ -237,7 +237,7 @@ When you add this starter to a Spring Boot project, the following changes are ma
    <properties>
       <!-- Other properties will be listed here -->
       <java.version>1.8</java.version>
-      <azure.version>3.13.0</azure.version>
+      <azure.version>3.14.0</azure.version>
    </properties>
    ```
 
