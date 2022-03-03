@@ -216,11 +216,7 @@ Use Helm to install the `application-gateway-kubernetes-ingress` package:
     wget https://raw.githubusercontent.com/Azure/application-gateway-kubernetes-ingress/master/docs/examples/sample-helm-config.yaml -O helm-config.yaml
     ```
 
-1. Edit the `helm-config.yaml` file and enter appropriate values for `appgw` and `armAuth` sections.
-
-    ```console
-    code helm-config.yaml
-    ```
+1. Open the `helm-config.yaml` file in a text editor.
 
 1. Enter values for the top level keys.
 
@@ -230,7 +226,7 @@ Use Helm to install the `application-gateway-kubernetes-ingress` package:
 
     - `appgw.subscriptionId`: Azure subscription ID used to create the App Gateway.
     - `appgw.resourceGroup`: Azure resource group in which App Gateway was created.
-    - `appgw.name`: Name of the Application Gateway. This value in the `variables.tf` file via the `app_gateway_name` block's `default` value.
+    - `appgw.name`: Name of the Application Gateway. This value is set in the `variables.tf` file via the `app_gateway_name` block's `default` value.
     - `appgw.shared`: This boolean flag should be defaulted to `false`. Set to `true` should you need a [Shared App Gateway](https://github.com/Azure/application-gateway-kubernetes-ingress/blob/072626cb4e37f7b7a1b0c4578c38d1eadc3e8701/docs/setup/install-existing.md#multi-cluster--shared-app-gateway).
 
 1. Enter values for the `kubernetes` block.
