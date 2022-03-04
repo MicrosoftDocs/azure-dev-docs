@@ -282,7 +282,20 @@ Once you have the App Gateway, AKS, and AGIC installed, install a sample app.
 
 ## 12. Clean up resources
 
+### Delete App Gateway, AKS, and AGIC resources
+
 [!INCLUDE [terraform-plan-destroy.md](includes/terraform-plan-destroy.md)]
+
+### Delete storage account and resource group
+
+ [!CAUTION]
+> Only delete the resource group and its storage account if you're not using them for anything else.
+
+Run [az group delete](/cli/azure/group#az_group_delete) to delete the resource group and its storage account you created for this demo.
+
+```azurecli
+az group delete --name <resource_group_name> --yes
+```
 
 ## Troubleshoot Terraform on Azure
 
