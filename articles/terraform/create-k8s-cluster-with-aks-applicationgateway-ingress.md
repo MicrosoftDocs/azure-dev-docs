@@ -288,7 +288,7 @@ Once you have the App Gateway, AKS, and AGIC installed, install a sample app.
 
 ### Delete storage account and resource group
 
- [!CAUTION]
+[!CAUTION]
 > Only delete the resource group and its storage account if you're not using them for anything else.
 
 Run [az group delete](/cli/azure/group#az_group_delete) to delete the resource group and its storage account you created for this demo.
