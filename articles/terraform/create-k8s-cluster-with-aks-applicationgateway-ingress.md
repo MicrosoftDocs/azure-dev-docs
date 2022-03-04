@@ -288,6 +288,7 @@ Once you have the App Gateway, AKS, and AGIC installed, install a sample app.
 
 ### Delete storage account
 
+
 > [!CAUTION]
 > Only delete the resource group (and its storage account you used in this demo), if you're not using them for anything else.
 
