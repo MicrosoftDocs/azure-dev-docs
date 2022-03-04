@@ -3,7 +3,7 @@ title: How to use Spring Cloud Azure Stream Binder for Azure Service Bus
 description: This article demonstrates how to use Spring Cloud Stream Binder to send messages to and receive messages from Azure Service Bus.
 manager: kyliel
 ms.author: seal
-ms.date: 02/04/2021
+ms.date: 03/03/2022
 ms.topic: article
 ms.custom: devx-track-java
 ---
@@ -57,7 +57,7 @@ The following prerequisites are required for this article:
     <dependency>
         <groupId>com.azure.spring</groupId>
         <artifactId>azure-spring-cloud-stream-binder-servicebus-queue</artifactId>
-        <version>2.13.0</version>
+        <version>2.14.0</version>
     </dependency>
     ```
 
@@ -67,7 +67,7 @@ The following prerequisites are required for this article:
     <dependency>
         <groupId>com.azure.spring</groupId>
         <artifactId>azure-spring-cloud-stream-binder-servicebus-topic</artifactId>
-        <version>2.13.0</version>
+        <version>2.14.0</version>
     </dependency>
     ```
 

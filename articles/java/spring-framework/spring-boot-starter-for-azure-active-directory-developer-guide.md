@@ -1,7 +1,7 @@
 ---
 title: Spring Boot Starter for Azure Active Directory developer's guide
 description: This guide describes the features, issues, workarounds, and diagnostic steps to be aware of when you use the Azure Active Directory starter.
-ms.date: 04/14/2021
+ms.date: 03/03/2022
 ms.service: active-directory
 ms.topic: article
 ms.author: shaozliu
@@ -65,7 +65,7 @@ To use the Azure AD starter in this scenario, use the following steps:
    <dependency>
        <groupId>com.azure.spring</groupId>
        <artifactId>azure-spring-boot-starter-active-directory</artifactId>
-       <version>3.13.0</version>
+       <version>3.14.0</version>
    </dependency>
    <dependency>
        <groupId>org.springframework.boot</groupId>
@@ -119,7 +119,7 @@ To use the Azure AD starter in this scenario, use the following steps:
    <dependency>
        <groupId>com.azure.spring</groupId>
        <artifactId>azure-spring-boot-starter-active-directory</artifactId>
-       <version>3.13.0</version>
+       <version>3.14.0</version>
    </dependency>
    <dependency>
        <groupId>org.springframework.boot</groupId>
@@ -172,7 +172,7 @@ To use the Azure AD starter in this scenario, use the following steps:
    <dependency>
        <groupId>com.azure.spring</groupId>
        <artifactId>azure-spring-boot-starter-active-directory</artifactId>
-       <version>3.13.0</version>
+       <version>3.14.0</version>
    </dependency>
    <dependency>
        <groupId>org.springframework.boot</groupId>
@@ -231,7 +231,7 @@ To use the Azure AD starter in this scenario, use the following steps:
    <dependency>
        <groupId>com.azure.spring</groupId>
        <artifactId>azure-spring-boot-starter-active-directory</artifactId>
-       <version>3.13.0</version>
+       <version>3.14.0</version>
    </dependency>
    <dependency>
        <groupId>org.springframework.boot</groupId>
@@ -282,7 +282,7 @@ To use **aad-starter** in this scenario, follow these steps:
     <dependency>
         <groupId>com.azure.spring</groupId>
         <artifactId>azure-spring-boot-starter-active-directory</artifactId>
-        <version>3.13.0</version>
+        <version>3.14.0</version>
     </dependency>
     <dependency>
         <groupId>org.springframework.boot</groupId>

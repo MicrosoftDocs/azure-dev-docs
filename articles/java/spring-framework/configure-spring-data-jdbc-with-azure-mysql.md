@@ -7,7 +7,8 @@ ms.service: mysql
 ms.tgt_pltfrm: multiple
 ms.author: judubois
 ms.topic: article
-ms.custom: devx-track-java, devx-track-azurecli
+ms.custom: devx-track-java, devx-track-azurecli, team=cloud_advocates
+ms.contributors: judubois-09162021
 ---
 
 # Use Spring Data JDBC with Azure Database for MySQL

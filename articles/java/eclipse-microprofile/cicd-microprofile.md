@@ -9,7 +9,8 @@ ms.date: 07/31/2019
 ms.tgt_pltfrm: multiple
 ms.topic: tutorial
 ms.workload: web
-ms.custom: devx-track-java
+ms.custom: devx-track-java, team=cloud_advocates
+ms.contributors: ruyakubu-09162021
 ---
 
 # CI/CD for MicroProfile apps using Azure Pipelines
@@ -223,4 +224,3 @@ After deployment completes successfully, test your web app.
 1. Enter the URL in your web browser to run your app. The web page should say **Hello Azure!**
    
    ![Java web app page](media/cicd-microprofile/webapp.png)
-
