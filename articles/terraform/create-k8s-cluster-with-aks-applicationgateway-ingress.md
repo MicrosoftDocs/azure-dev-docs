@@ -71,13 +71,17 @@ Terraform tracks state locally via the `terraform.tfstate` file. This pattern wo
 1. From a command line prompt, run [az storage container create](/cli/azure/storage/container#az_storage_container_create). This command creates a container in your Azure storage account. Replace the placeholders with the appropriate values for your Azure storage account.
 
     ```azurecli
-    az storage container create -n tfstate --account-name <storage_account_name> --account-key <storage_account_key>
+    az storage container create -n tfstate \
+       --account-name <storage_account_name> \
+       --account-key <storage_account_key>
     ```
 
 1. When the command successfully completes, it displays a JSON block with a key of **"created"** and a value of **true**. You can also run [az storage container list](/cli/azure/storage/container#az_storage_container_list) to verify the container was successfully created.
 
     ```azurecli
-    az storage container list --account-name <storage_account_name> --account-key <storage_account_key>
+    az storage container list \
+       --account-name <storage_account_name> \
+       --account-key <storage_account_key>
     ```
 
 ## 3. Implement the Terraform code
@@ -153,7 +157,9 @@ The Kubernetes tools can be used to verify the newly created cluster.
 1. Run [az aks get-credentials](/cli/azure/aks#az-aks-get-credentials) to get the Kubernetes configuration and access credentials from Azure.
 
     ```azcli
-    az aks get-credentials --name <aks_cluster_name>  --resource-group <resource_group_name> --overwrite-existing
+    az aks get-credentials --name <aks_cluster_name>  \
+       --resource-group <resource_group_name> \
+       --overwrite-existing
     ```
 
 1. Verify the health of the cluster.
@@ -236,7 +242,7 @@ Use Helm to install the `application-gateway-kubernetes-ingress` package:
 1. Run [az identity show](/cli/azure/identity#az-identity-show) to get the key values from your identity.
 
     ```azurecli
-    az identity show -g <resource_group_name> -n <identity_name>`
+    az identity show -g <resource_group_name> -n <identity_name>
     ```
 
     **Key points:**
