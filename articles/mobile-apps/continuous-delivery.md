@@ -7,6 +7,8 @@ ms.service: mobile-services
 ms.topic: article
 ms.date: 06/08/2020
 ms.author: masoucou
+ms.custom: team=cloud_advocates
+ms.contributors: masoucou-01212021
 ---
 
 # Automate the deployment and release of your mobile applications with continuous delivery services

@@ -7,7 +7,8 @@ ms.service: sql-database
 ms.tgt_pltfrm: multiple
 ms.author: judubois
 ms.topic: article
-ms.custom: devx-track-java, devx-track-azurecli
+ms.custom: devx-track-java, devx-track-azurecli, team=cloud_advocates
+ms.contributors: judubois-01202022
 ---
 
 # Use Spring Data JDBC with Azure SQL Database
