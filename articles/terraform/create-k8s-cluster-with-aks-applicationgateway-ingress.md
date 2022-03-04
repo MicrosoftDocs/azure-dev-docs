@@ -56,7 +56,7 @@ Terraform tracks state locally via the `terraform.tfstate` file. This pattern wo
 
 1. On the **Storage accounts** page, On the Storage accounts page, select the storage account where Terraform will store the state information.
 
-1. On the **Storage account** page, in the left menu, select **Access keys**.
+1. On the **Storage account** page, in the left menu, in the **Security + networking** section, select **Access keys**.
 
     ![The Storage account page has a menu option to get the access keys.](./media/create-k8s-cluster-with-aks-applicationgateway-ingress/access-keys-menu-option.png)
 
@@ -128,7 +128,7 @@ Terraform tracks state locally via the `terraform.tfstate` file. This pattern wo
 
     **Key points:**
 
-    - Set `resource_group_name` to the resource group where the storage account exists.
+    - Set `resource_group_name` to the resource group of the storage account.
     - Set `location` to the resource group location.
     - Set `aks_service_principal_app_id` to the service principal `appId` value.
     - Set `aks_service_principal_client_secret` to the service principal `password` value.
@@ -153,7 +153,7 @@ The Kubernetes tools can be used to verify the newly created cluster.
 1. Run [az aks get-credentials](/cli/azure/aks#az-aks-get-credentials) to get the Kubernetes configuration and access credentials from Azure.
 
     ```azcli
-    az aks get-credentials --name <aks_cluster_name>  --resource-group <resource_group_name>
+    az aks get-credentials --name <aks_cluster_name>  --resource-group <resource_group_name> --overwrite-existing
     ```
 
 1. Verify the health of the cluster.
