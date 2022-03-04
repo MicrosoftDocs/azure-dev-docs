@@ -10,7 +10,7 @@ ms.date: 01/28/2022
 #### [bash](#tab/terminal-bash)
 
 ```azurecli
-DB_SERVER_NAME='msdocs-django-postgres-webapp-db'
+DB_SERVER_NAME='msdocs-python-postgres-webapp-db'
 DB_NAME='restaurant'
 ADMIN_USERNAME='demoadmin'
 
@@ -28,7 +28,7 @@ az postgres flexible-server create \
 #### [PowerShell terminal](#tab/terminal-powershell)
 
 ```azurecli
-$DB_SERVER_NAME='msdocs-django-postgres-webapp-db'
+$DB_SERVER_NAME='msdocs-python-postgres-webapp-db'
 $DB_NAME='restaurant'
 $ADMIN_USERNAME='demoadmin'
 
@@ -45,8 +45,8 @@ az postgres flexible-server create `
 
 ---
 
-* *resource-group* &rarr; Use the same resource group name in which you created the web app, for example `msdocs-django-postgres-webapp-rg`.
-* *name* &rarr; The PostgreSQL database server name. This name must be **unique across all Azure** (the server endpoint becomes `https://<name>.postgres.database.azure.com`). Allowed characters are `A`-`Z`, `0`-`9`, and `-`. A good pattern is to use a combination of your company name and server identifier. (`msdocs-django-postgres-webapp-db`)
+* *resource-group* &rarr; Use the same resource group name in which you created the web app, for example `msdocs-python-postgres-webapp-rg`.
+* *name* &rarr; The PostgreSQL database server name. This name must be **unique across all Azure** (the server endpoint becomes `https://<name>.postgres.database.azure.com`). Allowed characters are `A`-`Z`, `0`-`9`, and `-`. A good pattern is to use a combination of your company name and server identifier. (`msdocs-python-postgres-webapp-db`)
 * *location* &rarr; Use the same location used for the web app.
 * *admin-user* &rarr; Username for the administrator account. It can't be `azure_superuser`, `admin`, `administrator`, `root`, `guest`, or `public`. For example, `demoadmin` is okay.
 * *admin-password* Password of the administrator user. It must contain 8 to 128 characters from three of the following categories: English uppercase letters, English lowercase letters, numbers, and non-alphanumeric characters.
@@ -84,7 +84,7 @@ az postgres flexible-server firewall-rule create `
 
 ---
 
-* *resource-group* &rarr; Use the same resource group name in which you created the web app, for example `msdocs-django-postgres-webapp-rg`.
+* *resource-group* &rarr; Use the same resource group name in which you created the web app, for example `msdocs-python-postgres-webapp-rg`.
 * *name* &rarr; The PostgreSQL database server name.
 * *rule-name* &rarr; *AllowMyIP*.
 * *start-ip-address* &rarr; equal to your IP address. To get your current IP address, see [WhatIsMyIPAddress.com](https://whatismyipaddress.com/).
@@ -110,8 +110,8 @@ az postgres flexible-server show `
 
 ---
 
-* *resource-group* &rarr; The name of resource group you used, for example, *msdocs-django-postgres-webapp-rg*.
-* *name* &rarr; The name of the database server, for example, *msdocs-django-postgres-webapp-db-\<unique-id>*.
+* *resource-group* &rarr; The name of resource group you used, for example, *msdocs-python-postgres-webapp-rg*.
+* *name* &rarr; The name of the database server, for example, *msdocs-python-postgres-webapp-db-\<unique-id>*.
 
 **Step 4.** In your local environment using the PostgreSQL interactive terminal [psql](https://www.postgresql.org/docs/13/app-psql.html), connect to the PostgreSQL database server, and create the `restaurant` database.
 
