@@ -101,30 +101,13 @@ Terraform tracks state locally via the `terraform.tfstate` file. This pattern wo
 
     [!code-terraform[UserStory1871520-2](../../terraform_samples/quickstart/201-k8s-cluster-with-aks-applicationgateway-ingress/main.tf)]
 
-    **Key points:**
-
-    - With AKS, you pay only for the worker nodes.
-    - The `agent_pool_profile record` includes the number of worker nodes to create and the type of worker nodes.
-    - If you need to scale up or scale down the cluster in the future, modify the `count` value in `agent_pool_profile record` record.
-
 1. Create a file named `variables.tf` and insert the following code:
 
     [!code-terraform[UserStory1871520-2](../../terraform_samples/quickstart/201-k8s-cluster-with-aks-applicationgateway-ingress/variables.tf)]
 
-    **Key points:**
-
-    - Most of these variables are set to default values. Verify the values work for your environment and change if necessary.
-    - For example, RBAC is disabled by default for this demo. Change the `aks_enable_rbac` block's `default` value to `true` if you want to enable RBAC. Knowing the RBAC disposition is necessary when you reach the [Install Azure AD Pod Identity](#8-install-azure-ad-pod-identity) section.
-
 1. Create a file named `output.tf` and insert the following code.
 
     [!code-terraform[UserStory1871520-2](../../terraform_samples/quickstart/201-k8s-cluster-with-aks-applicationgateway-ingress/output.tf)]
-
-    **Key points:**
-
-    - [Terraform outputs](https://www.terraform.io/docs/configuration/outputs.html) allow you to define values that are highlighted to the user when Terraform applies a plan.
-    - These values can be queried using the `terraform output` command.
-    - In this section, you create an output file that allows access to the cluster with [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/).
 
 1. Create a file named `terraform.tfvars` and insert the following code.
 
@@ -132,8 +115,6 @@ Terraform tracks state locally via the `terraform.tfstate` file. This pattern wo
 
     **Key points:**
 
-    - Set `resource_group_name` to the resource group of the storage account.
-    - Set `location` to the resource group location.
     - Set `aks_service_principal_app_id` to the service principal `appId` value.
     - Set `aks_service_principal_client_secret` to the service principal `password` value.
     - Set `aks_service_principal_object_id` to the service principal object ID. (The Azure CLI command for obtaining this value is in the [Configure your environment](#1-configure-your-environment) section.)
