@@ -143,6 +143,11 @@ The Kubernetes tools can be used to verify the newly created cluster.
        --overwrite-existing
     ```
 
+    **Key points:**
+
+    - Replace the `<aks_cluster_name>` placeholder with the `aks_name` block's `default` value (from the `variables.tf` file).
+    - Replace the `<resource_group_name>` placeholder with the randomly generated resource group name. Get the resource group name by running `echo "$(terraform output resource_group_name)"`.
+
 1. Verify the health of the cluster.
 
     ```console
@@ -207,14 +212,14 @@ Use Helm to install the `application-gateway-kubernetes-ingress` package:
 
 1. Enter values for the top level keys.
 
-    - `verbosityLevel`: Sets the verbosity level of the AGIC logging infrastructure. See [Logging Levels](https://github.com/Azure/application-gateway-kubernetes-ingress/blob/463a87213bbc3106af6fce0f4023477216d2ad78/docs/troubleshooting.md#logging-levels) for possible values.
+    - `verbosityLevel`: Verbosity level of the AGIC logging infrastructure. For more information about logging levels, see [the Logging Levels section of the Application Gateway Kubernetes Ingress document](https://github.com/Azure/application-gateway-kubernetes-ingress/blob/463a87213bbc3106af6fce0f4023477216d2ad78/docs/troubleshooting.md).
 
 1. Enter values for the `appgw` block.
 
-    - `appgw.subscriptionId`: Azure subscription ID used to create the App Gateway.
-    - `appgw.resourceGroup`: Azure resource group in which App Gateway was created.
-    - `appgw.name`: Name of the Application Gateway. This value is set in the `variables.tf` file via the `app_gateway_name` block's `default` value.
-    - `appgw.shared`: This boolean flag should be defaulted to `false`. Set to `true` should you need a [Shared App Gateway](https://github.com/Azure/application-gateway-kubernetes-ingress/blob/072626cb4e37f7b7a1b0c4578c38d1eadc3e8701/docs/setup/install-existing.md#multi-cluster--shared-app-gateway).
+    - `appgw.subscriptionId`: Specify the Azure subscription ID used to create the App Gateway.
+    - `appgw.resourceGroup`: Specify the randomly generated resource group name. Get the resource group name by running `echo "$(terraform output resource_group_name)"`
+    - `appgw.name`: Specify the name of the Application Gateway. This value is set in the `variables.tf` file via the `app_gateway_name` block's `default` value.
+    - `appgw.shared`: This boolean flag should be defaulted to `false`. Set to `true` if you need a [Shared App Gateway](https://github.com/Azure/application-gateway-kubernetes-ingress/blob/072626cb4e37f7b7a1b0c4578c38d1eadc3e8701/docs/setup/install-existing.md#multi-cluster--shared-app-gateway).
 
 1. Enter values for the `kubernetes` block.
 
@@ -242,7 +247,8 @@ Use Helm to install the `application-gateway-kubernetes-ingress` package:
 
     **Key points:**
 
-    - The identity name for this demo defaults to `identity1` in the `main.tf` file.
+    - Replace the `<resource_group_name>` placeholder with the randomly generated resource group name. Get the resource group name by running `echo "$(terraform output resource_group_name)"`.
+    - Replace the `<identity_name>` placeholder with the identity name for this demo. The identity name defaults to `identity1` in the `main.tf` file.
     - All identities for a given subscription can be by running `az identity list`.
 
 ## 11. Install a sample app
@@ -289,6 +295,10 @@ Run [az group delete](/cli/azure/group#az_group_delete) to delete the resource g
 ```azurecli
 az group delete --name <resource_group_name> --yes
 ```
+
+**Key points:**
+
+- Replace the `resource_group_name` placeholder with the `resource_group_name` value in the `providers.tf` file.
 
 ## Troubleshoot Terraform on Azure
 
