@@ -25,7 +25,7 @@ In this article, you learn how:
 > * Create Application Gateway resource
 > * Create a Kubernetes cluster
 > * Test the availability of a Kubernetes cluster
-
+ 
 ## 1. Configure your environment
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../includes/open-source-devops-prereqs-azure-subscription.md)]
