@@ -3,7 +3,7 @@ title: Create an Application Gateway Ingress Controller in Azure Kubernetes Serv
 description: Learn how to create an Application Gateway Ingress Controller in Azure Kubernetes Service using Terraform
 keywords: azure devops terraform application gateway Ingress aks kubernetes
 ms.topic: how-to
-ms.date: 03/04/2022
+ms.date: 03/05/2022
 ms.custom: devx-track-terraform, devx-track-azurecli
 ---
 
@@ -239,17 +239,6 @@ Use Helm to install the `application-gateway-kubernetes-ingress` package:
 
     - `kubernetes.watchNamespace`: Specify the name space, which AGIC should watch. The namespace can be a single string value, or a comma-separated list of namespaces. Leaving this variable commented out, or setting it to a blank or an empty string results in the Ingress controller observing all accessible namespaces.
 
-1. Run [az identity show](/cli/azure/identity#az-identity-show) to get the key values from your identity.
-
-    ```azurecli
-    az identity show -g <resource_group_name> -n <identity_name>
-    ```
-
-    **Key points:**
-
-    - The identity name for this demo is set to `identity1` in the `main.tf` file.
-    - All identities for a given subscription can be by running `az identity list`.
-
 1. Enter values for the `armAuth` block.
 
     - If you specify `armAuth.type` as `aadPodIdentity`:
@@ -263,6 +252,17 @@ Use Helm to install the `application-gateway-kubernetes-ingress` package:
     ```console
     helm install -f helm-config.yaml application-gateway-kubernetes-ingress/ingress-azure --generate-name
     ```
+
+1. To get the key values from your identity, you can run [az identity show](/cli/azure/identity#az-identity-show) .
+
+    ```azurecli
+    az identity show -g <resource_group_name> -n <identity_name>
+    ```
+
+    **Key points:**
+
+    - The identity name for this demo defaults to `identity1` in the `main.tf` file.
+    - All identities for a given subscription can be by running `az identity list`.
 
 ## 11. Install a sample app
 
@@ -280,14 +280,25 @@ Once you have the App Gateway, AKS, and AGIC installed, install a sample app.
     kubectl apply -f aspnetapp.yaml
     ```
 
-## 12. Clean up resources
+## 12. Test the sample app
+
+1. Run the following Terraform command to get the app's IP address.
+
+    ```console
+    echo "$(terraform output application_ip_address)"
+    ```
+    
+2. Using a browser, go to the IP address indicated in the previous step.
+
+    ![Running the sample app.](./media/create-k8s-cluster-with-aks-applicationgateway-ingress/sample-app.png)
+
+## 13. Clean up resources
 
 ### Delete App Gateway, AKS, and AGIC resources
 
 [!INCLUDE [terraform-plan-destroy.md](includes/terraform-plan-destroy.md)]
 
 ### Delete storage account
-
 
 > [!CAUTION]
 > Only delete the resource group (and its storage account you used in this demo), if you're not using them for anything else.
