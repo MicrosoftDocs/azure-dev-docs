@@ -114,7 +114,7 @@ Terraform tracks state locally via the `terraform.tfstate` file. This pattern wo
     **Key points:**
 
     - Most of these variables are set to default values. Verify the values work for your environment and change if necessary.
-    - For example, RBAC is disabled by default. Change the `aks_enable_rbac` block's `default` value to `true` if you want to enable RBAC. Knowing the RBAC disposition is necessary when you reach the [Install Azure AD Pod Identity](#8-install-azure-ad-pod-identity) section.
+    - For example, RBAC is disabled by default for this demo. Change the `aks_enable_rbac` block's `default` value to `true` if you want to enable RBAC. Knowing the RBAC disposition is necessary when you reach the [Install Azure AD Pod Identity](#8-install-azure-ad-pod-identity) section.
 
 1. Create a file named `output.tf` and insert the following code.
 
@@ -184,7 +184,7 @@ Azure Active Directory Pod Identity provides token-based access to [Azure Resour
   - [Managed Identity Controller (MIC)](https://github.com/Azure/aad-pod-identity#managed-identity-controllermic) component
   - [Node Managed Identity (NMI)](https://github.com/Azure/aad-pod-identity#node-managed-identitynmi) component
 
-To install Azure AD Pod Identity to your cluster, you need to know if RBAC is enabled or disabled. Enabling or disabling RBAC is done in the `variables.tf` file via the `aks_enable_rbac` block's `default` value.
+To install Azure AD Pod Identity to your cluster, you need to know if RBAC is enabled or disabled. RBAC is disabled by default for this demo. Enabling or disabling RBAC is done in the `variables.tf` file via the `aks_enable_rbac` block's `default` value.
 
 - If RBAC is **enabled**, run the following command:
 
@@ -280,7 +280,7 @@ Once you have the App Gateway, AKS, and AGIC installed, install a sample app.
     kubectl apply -f aspnetapp.yaml
     ```
 
-## 12. Test the sample app
+## 12. Verify the results: Test the sample app
 
 1. Run the following Terraform command to get the app's IP address.
 
