@@ -288,17 +288,17 @@ Once you have the App Gateway, AKS, and AGIC installed, install a sample app.
 ### Delete storage account
 
 > [!CAUTION]
-> Only delete the resource group (and its storage account you used in this demo), if you're not using them for anything else.
+> Only delete the resource group containing storage account you used in this demo if you're not using either for anything else.
 
 Run [az group delete](/cli/azure/group#az_group_delete) to delete the resource group (and its storage account you used in this demo).
 
 ```azurecli
-az group delete --name <resource_group_name> --yes
+az group delete --name <storage_resource_group_name> --yes
 ```
 
 **Key points:**
 
-- Replace the `resource_group_name` placeholder with the `resource_group_name` value in the `providers.tf` file.
+- Replace the `storage_resource_group_name` placeholder with the `resource_group_name` value in the `providers.tf` file.
 
 ## Troubleshoot Terraform on Azure
 
