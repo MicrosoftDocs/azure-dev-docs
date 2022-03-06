@@ -4,10 +4,10 @@
   items:
     - name: About Terraform on Azure
       href: overview.md
-      - name: Terraform Azure provider versions
-        items:
-          - name: AzureRM provider versions
-            href: provider-version-history-azurerm.md
+    - name: Terraform Azure provider versions
+      items:
+        - name: AzureRM provider versions
+          href: provider-version-history-azurerm.md
 - name: Get started
   expanded: true
   items:
