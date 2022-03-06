@@ -215,14 +215,14 @@ Use Helm to install the `application-gateway-kubernetes-ingress` package:
 
 1. Enter values for the top level keys.
 
-    - `verbosityLevel`: Verbosity level of the AGIC logging infrastructure. For more information about logging levels, see [the Logging Levels section of the Application Gateway Kubernetes Ingress document](https://github.com/Azure/application-gateway-kubernetes-ingress/blob/463a87213bbc3106af6fce0f4023477216d2ad78/docs/troubleshooting.md).
+    - `verbosityLevel`: Specify the *verbosity level* of the AGIC logging infrastructure. For more information about logging levels, see [the Logging Levels section of the Application Gateway Kubernetes Ingress document](https://github.com/Azure/application-gateway-kubernetes-ingress/blob/463a87213bbc3106af6fce0f4023477216d2ad78/docs/troubleshooting.md).
 
 1. Enter values for the `appgw` block.
 
     - `appgw.subscriptionId`: Specify the Azure subscription ID used to create the App Gateway.
     - `appgw.resourceGroup`: Specify the randomly generated resource group name. Get the resource group name by running `echo "$(terraform output resource_group_name)"`
     - `appgw.name`: Specify the name of the Application Gateway. This value is set in the `variables.tf` file via the `app_gateway_name` block's `default` value.
-    - `appgw.shared`: This boolean flag should be defaulted to `false`. Set to `true` if you need a [Shared App Gateway](https://github.com/Azure/application-gateway-kubernetes-ingress/blob/072626cb4e37f7b7a1b0c4578c38d1eadc3e8701/docs/setup/install-existing.md#multi-cluster--shared-app-gateway).
+    - `appgw.shared`: This boolean flag defaults to `false`. Set it to `true` if you need a [Shared App Gateway](https://github.com/Azure/application-gateway-kubernetes-ingress/blob/072626cb4e37f7b7a1b0c4578c38d1eadc3e8701/docs/setup/install-existing.md#multi-cluster--shared-app-gateway).
 
 1. Enter values for the `kubernetes` block.
 
