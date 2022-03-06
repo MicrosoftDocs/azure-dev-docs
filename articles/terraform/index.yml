@@ -23,8 +23,8 @@ landingContent:
             url: overview.md
       - linkListType: reference
         links:
-          - text: AzureRM 2.0 provider versions 
-            url: provider-versions-arm20.md
+          - text: AzureRM provider versions 
+            url: provider-version-history-azurerm.md
       - linkListType: architecture
         links:
           - text: Terraform Azure Provider
