@@ -25,7 +25,10 @@ In this article, you learn how:
 > * Create Application Gateway resource
 > * Create a Kubernetes cluster
 > * Test the availability of a Kubernetes cluster
- 
+
+> [!NOTE]
+> The example code in this article is located in the [Microsoft Terraform GitHub repo](https://github.com/Azure/terraform/tree/master/quickstart/201-k8s-cluster-with-aks-applicationgateway-ingress).
+
 ## 1. Configure your environment
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../includes/open-source-devops-prereqs-azure-subscription.md)]
