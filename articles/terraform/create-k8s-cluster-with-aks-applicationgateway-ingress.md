@@ -38,7 +38,7 @@ In this article, you learn how:
 
 - **Install Helm**: [Helm](https://helm.sh/docs/intro/install/) is the Kubernetes package manager.
 
-- **Install GNU Wget**: Ensure you have access to `wget` by running `wget` at any command line without any parameters. You can install `wget` from the [official GNU Wget website](http://www.gnu.org/software/wget/).
+- **Install GNU wget**: Ensure you have access to wget by running `wget` at any command line without any parameters. You can install wget from the [official GNU wget website](http://www.gnu.org/software/wget/).
 
 ## 2. Configure Azure storage to store Terraform state
 
