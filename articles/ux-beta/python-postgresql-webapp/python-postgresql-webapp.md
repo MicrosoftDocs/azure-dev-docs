@@ -70,9 +70,20 @@ Install the dependencies:
 pip install -r requirements.txt
 ```
 
-Set environment variables to specify how to connect to a local PostgreSQL instance.
+The sample application uses the [python-dotenv](https://pypi.org/project/python-dotenv/) package to read environment variables for the database connection. Specifically, the *.env* file describes how to connect to your local PostgreSQL instance. Create an *.env* file using the *.env.sample* file as a guide.
 
-This sample application requires an *.env* file describing how to connect to your local PostgreSQL instance. Create an *.env* file using the *.env.sample* file as a guide. Set the value of `DBNAME` to the name of an existing database in your local PostgreSQL instance. This tutorial assumes the database name is *restaurant*. Set the values of `DBHOST`, `DBUSER`, and `DBPASS` as appropriate for your local PostgreSQL instance.
+[!INCLUDE [Copy environment file](<./includes/python-postgresql-webapp/copy-environment-file.md>)]
+
+Set the value of `DBNAME` to the name of an existing database in your local PostgreSQL instance. This tutorial assumes the database name is *restaurant*. Set the values of `DBHOST`, `DBUSER`, and `DBPASS` as appropriate for your local PostgreSQL instance.
+
+Your *.env* file should look like this:
+
+```Console
+DBNAME=restaurant
+DBHOST=localhost
+DBUSER=<db-user-name>
+DBPASS=<db-password>
+```
 
 If you want to run SQLite locally instead, follow the instructions in the comments of the  *settings.py* file.
 
@@ -318,11 +329,12 @@ In the **App Service** section of the Azure Tools extension:
 
 ### [Flask](#tab/flask)
 
-When deploying the Flask sample app to Azure App Service, the database tables are created automatically in Azure PostgreSQL. If the tables aren't created, try the following command:
+When deploying the Flask sample app to Azure App Service, the database tables are created automatically in Azure PostgreSQL. If the tables aren't created, try the following commands:
 
 ```bash
 # Create database tables
 flask db init
+flask db migrate -m "migrate"
 ```
 
 ### [Django](#tab/django)
