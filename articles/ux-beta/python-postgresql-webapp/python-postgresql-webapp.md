@@ -85,8 +85,6 @@ DBUSER=<db-user-name>
 DBPASS=<db-password>
 ```
 
-If you want to run SQLite locally instead, follow the instructions in the comments of the  *settings.py* file.
-
 Create the `restaurant` and `review` database tables:
 
 ### [Flask](#tab/flask)
@@ -101,6 +99,8 @@ flask db migrate -m "initial migration"
 ```Console
 python manage.py migrate
 ```
+
+If you want to run SQLite locally instead, follow the instructions in the comments of the  *settings.py* file.
 
 ---
 
