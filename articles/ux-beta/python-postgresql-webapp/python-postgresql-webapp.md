@@ -136,7 +136,7 @@ In a web browser, go to the sample application at `http://localhost:8000` and ad
 ---
 
 > [!TIP]
-> With Django, you can create users with the `python manage.py createsuperuser` command like you would with a typical Django app. For more information, see the documentation for [django django-admin and manage.py](https://docs.djangoproject.com/en/1.8/ref/django-admin/). Use the superuser account to access the `/admin` portion of the web site. For Flask, use an extension such as [Flask-admin](https://github.com/flask-admin/flask-admin) to provide the same functionality.
+> With Django, you can create users with the `python manage.py createsuperuser` command and use the account to access the `/admin` portion of the web site. For more information, see the documentation for [django django-admin and manage.py](https://docs.djangoproject.com/en/1.8/ref/django-admin/). For Flask, use an extension such as [Flask-admin](https://github.com/flask-admin/flask-admin) to provide similar functionality.
 
 ## 2 - Create a web app in Azure
 
@@ -296,7 +296,7 @@ To deploy a web app from VS Code, you must have the [Azure Tools extension pack]
 
 ## 7 - Migrate app database
 
-With the code deployed and the database in place, the app is almost ready to use. The only piece that remains is to establish the necessary schema in the database itself. You do this by "migrating" the data models in the Django app to the database.
+With the code deployed and the database in place, the app is almost ready to use. The only piece that remains is to establish the necessary schema in the database.
 
 **Step 1.** Create SSH session and connect to web app server.
 
@@ -338,6 +338,8 @@ flask db migrate -m "migrate"
 ```
 
 ### [Django](#tab/django)
+
+To create the schema, migrate the data models in the Django app to the database:
 
 ```bash
 # Create database tables
