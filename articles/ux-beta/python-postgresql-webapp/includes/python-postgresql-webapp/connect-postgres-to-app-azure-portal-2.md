@@ -12,7 +12,7 @@ ms.custom: devx-track-python
 
 Create application settings:
 
-1. Select **+ New application setting** to create settings for each of the following values (which are expected by the django sample app):
+1. Select **+ New application setting** to create settings for each of the following values (which are expected by the sample app):
 
     * *DBHOST* &rarr; Use the server name you used earlier when created the database, for example, *msdocs-python-postgres-webapp-db-\<unique id>*.
     The code in azuresite/production.py automatically appends .postgres.database.azure.com to create the full PostgreSQL server URL.

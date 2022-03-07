@@ -70,11 +70,20 @@ Install the dependencies:
 pip install -r requirements.txt
 ```
 
-Set environment variables to specify how to connect to a local PostgreSQL instance.
+The sample application uses the [python-dotenv](https://pypi.org/project/python-dotenv/) package to read environment variables for the database connection. Specifically, the *.env* file describes how to connect to your local PostgreSQL instance. Create an *.env* file using the *.env.sample* file as a guide.
 
-This sample application requires an *.env* file describing how to connect to your local PostgreSQL instance. Create an *.env* file using the *.env.sample* file as a guide. Set the value of `DBNAME` to the name of an existing database in your local PostgreSQL instance. This tutorial assumes the database name is *restaurant*. Set the values of `DBHOST`, `DBUSER`, and `DBPASS` as appropriate for your local PostgreSQL instance.
+[!INCLUDE [Copy environment file](<./includes/python-postgresql-webapp/copy-environment-file.md>)]
 
-If you want to run SQLite locally instead, follow the instructions in the comments of the  *settings.py* file.
+Set the value of `DBNAME` to the name of an existing database in your local PostgreSQL instance. This tutorial assumes the database name is *restaurant*. Set the values of `DBHOST`, `DBUSER`, and `DBPASS` as appropriate for your local PostgreSQL instance.
+
+Your *.env* file should look like this:
+
+```Console
+DBNAME=restaurant
+DBHOST=localhost
+DBUSER=<db-user-name>
+DBPASS=<db-password>
+```
 
 Create the `restaurant` and `review` database tables:
 
@@ -90,6 +99,8 @@ flask db migrate -m "initial migration"
 ```Console
 python manage.py migrate
 ```
+
+If you want to run SQLite locally instead, follow the instructions in the comments of the  *settings.py* file.
 
 ---
 
@@ -125,7 +136,7 @@ In a web browser, go to the sample application at `http://localhost:8000` and ad
 ---
 
 > [!TIP]
-> With Django, you can create users with the `python manage.py createsuperuser` command like you would with a typical Django app. For more information, see the documentation for [django django-admin and manage.py](https://docs.djangoproject.com/en/1.8/ref/django-admin/). Use the superuser account to access the `/admin` portion of the web site. For Flask, use an extension such as [Flask-admin](https://github.com/flask-admin/flask-admin) to provide the same functionality.
+> With Django, you can create users with the `python manage.py createsuperuser` command and access the `/admin` portion of the web site. For more information, see the documentation for [django django-admin and manage.py](https://docs.djangoproject.com/en/1.8/ref/django-admin/). For Flask, use an extension such as [Flask-admin](https://github.com/flask-admin/flask-admin) to provide similar functionality.
 
 ## 2 - Create a web app in Azure
 
@@ -285,7 +296,7 @@ To deploy a web app from VS Code, you must have the [Azure Tools extension pack]
 
 ## 7 - Migrate app database
 
-With the code deployed and the database in place, the app is almost ready to use. The only piece that remains is to establish the necessary schema in the database itself. You do this by "migrating" the data models in the Django app to the database.
+With the code deployed and the database in place, the app is almost ready to use. The only piece that remains is to establish the necessary schema in the database.
 
 **Step 1.** Create SSH session and connect to web app server.
 
@@ -318,14 +329,17 @@ In the **App Service** section of the Azure Tools extension:
 
 ### [Flask](#tab/flask)
 
-When deploying the Flask sample app to Azure App Service, the database tables are created automatically in Azure PostgreSQL. If the tables aren't created, try the following command:
+When deploying the Flask sample app to Azure App Service, the database tables are created automatically in Azure PostgreSQL. If the tables aren't created, try the following commands:
 
 ```bash
 # Create database tables
 flask db init
+flask db migrate -m "migrate"
 ```
 
 ### [Django](#tab/django)
+
+To create the schema, migrate the data models in the Django app to the database:
 
 ```bash
 # Create database tables
@@ -337,7 +351,7 @@ python manage.py migrate
 If you encounter any errors related to connecting to the database, check the values of the application settings of the App Service created in the previous section, namely `DBHOST`, `DBNAME`, `DBUSER`, and `DBPASS`. Without those settings, the migrate command cannot communicate with the database.
 
 > [!TIP]
-> In an SSH session, for Django you can also create users with the `python manage.py createsuperuser` command like you would with a typical Django app. For more information, see the documentation for [django django-admin and manage.py](https://docs.djangoproject.com/en/1.8/ref/django-admin/). Use the superuser account to access the `/admin` portion of the web site. For Flask, use an extension such as [Flask-admin](https://github.com/flask-admin/flask-admin) to provide the same functionality.
+> In an SSH session, for Django you can create users with the `python manage.py createsuperuser` and access the `/admin` portion of the web site. For more information, see the documentation for [django django-admin and manage.py](https://docs.djangoproject.com/en/1.8/ref/django-admin/). For Flask, use an extension such as [Flask-admin](https://github.com/flask-admin/flask-admin) to provide the same functionality.
 
 ## 8 - Browse to the app
 
