@@ -136,7 +136,7 @@ In a web browser, go to the sample application at `http://localhost:8000` and ad
 ---
 
 > [!TIP]
-> With Django, you can create users with the `python manage.py createsuperuser` command and use the account to access the `/admin` portion of the web site. For more information, see the documentation for [django django-admin and manage.py](https://docs.djangoproject.com/en/1.8/ref/django-admin/). For Flask, use an extension such as [Flask-admin](https://github.com/flask-admin/flask-admin) to provide similar functionality.
+> With Django, you can create users with the `python manage.py createsuperuser` command and access the `/admin` portion of the web site. For more information, see the documentation for [django django-admin and manage.py](https://docs.djangoproject.com/en/1.8/ref/django-admin/). For Flask, use an extension such as [Flask-admin](https://github.com/flask-admin/flask-admin) to provide similar functionality.
 
 ## 2 - Create a web app in Azure
 
@@ -351,7 +351,7 @@ python manage.py migrate
 If you encounter any errors related to connecting to the database, check the values of the application settings of the App Service created in the previous section, namely `DBHOST`, `DBNAME`, `DBUSER`, and `DBPASS`. Without those settings, the migrate command cannot communicate with the database.
 
 > [!TIP]
-> In an SSH session, for Django you can also create users with the `python manage.py createsuperuser` command like you would with a typical Django app. For more information, see the documentation for [django django-admin and manage.py](https://docs.djangoproject.com/en/1.8/ref/django-admin/). Use the superuser account to access the `/admin` portion of the web site. For Flask, use an extension such as [Flask-admin](https://github.com/flask-admin/flask-admin) to provide the same functionality.
+> In an SSH session, for Django you can create users with the `python manage.py createsuperuser` and access the `/admin` portion of the web site. For more information, see the documentation for [django django-admin and manage.py](https://docs.djangoproject.com/en/1.8/ref/django-admin/). For Flask, use an extension such as [Flask-admin](https://github.com/flask-admin/flask-admin) to provide the same functionality.
 
 ## 8 - Browse to the app
 
