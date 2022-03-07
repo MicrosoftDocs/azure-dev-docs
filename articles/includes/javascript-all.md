@@ -219,11 +219,11 @@
 | @autorest/codemodel | npm [4.17.2](https://www.npmjs.com/package/@autorest/codemodel/v/4.17.2) |  |  |
 | @autorest/common | npm [1.4.1](https://www.npmjs.com/package/@autorest/common/v/1.4.1) |  |  |
 | @autorest/configuration | npm [1.8.2](https://www.npmjs.com/package/@autorest/configuration/v/1.8.2) |  |  |
-| @autorest/csharp | npm [3.0.0-beta.20220303.1](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20220303.1) |  |  |
+| @autorest/csharp | npm [3.0.0-beta.20220307.1](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20220307.1) |  |  |
 | @autorest/csharp-v3 | npm [3.0.0-beta.20201217.1](https://www.npmjs.com/package/@autorest/csharp-v3/v/3.0.0-beta.20201217.1) |  |  |
 | @autorest/extension-base | npm [3.4.4](https://www.npmjs.com/package/@autorest/extension-base/v/3.4.4) |  |  |
 | @autorest/fixer | npm [1.0.0](https://www.npmjs.com/package/@autorest/fixer/v/1.0.0) |  |  |
-| @autorest/gotest | npm [2.1.3](https://www.npmjs.com/package/@autorest/gotest/v/2.1.3) |  |  |
+| @autorest/gotest | npm [2.1.4](https://www.npmjs.com/package/@autorest/gotest/v/2.1.4) |  |  |
 | @autorest/schemas | npm [1.3.3](https://www.npmjs.com/package/@autorest/schemas/v/1.3.3) |  |  |
 | @autorest/testmodeler | npm [2.2.1](https://www.npmjs.com/package/@autorest/testmodeler/v/2.2.1) |  |  |
 | @autorest/test-utils | npm [0.4.0](https://www.npmjs.com/package/@autorest/test-utils/v/0.4.0) |  |  |
@@ -278,7 +278,7 @@
 | @azure-tools/json | npm [1.2.1](https://www.npmjs.com/package/@azure-tools/json/v/1.2.1) |  |  |
 | @azure-tools/jsonschema | npm [1.1.0](https://www.npmjs.com/package/@azure-tools/jsonschema/v/1.1.0) |  |  |
 | @azure-tools/js-sdk-release-tools | npm [2.0.1](https://www.npmjs.com/package/@azure-tools/js-sdk-release-tools/v/2.0.1) |  |  |
-| @azure-tools/mock-service-host | npm [0.1.11](https://www.npmjs.com/package/@azure-tools/mock-service-host/v/0.1.11) |  |  |
+| @azure-tools/mock-service-host | npm [0.1.12](https://www.npmjs.com/package/@azure-tools/mock-service-host/v/0.1.12) |  |  |
 | @azure-tools/oav-traffic-converter | npm [0.1.0](https://www.npmjs.com/package/@azure-tools/oav-traffic-converter/v/0.1.0) |  |  |
 | @azure-tools/prettier-plugin-adl | npm [0.1.4](https://www.npmjs.com/package/@azure-tools/prettier-plugin-adl/v/0.1.4) |  |  |
 | @azure-tools/prettier-plugin-cadl | npm [0.2.1](https://www.npmjs.com/package/@azure-tools/prettier-plugin-cadl/v/0.2.1) |  |  |
@@ -464,11 +464,11 @@
 | Tables | npm [13.0.1](https://www.npmjs.com/package/@azure/data-tables/v/13.0.1) | [docs](/javascript/api/overview/azure/data-tables-readme) | GitHub [13.0.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/data-tables_13.0.1/sdk/tables/data-tables/) |
 | Text Analytics | npm [5.1.0](https://www.npmjs.com/package/@azure/ai-text-analytics/v/5.1.0)<br>npm [5.2.0-beta.2](https://www.npmjs.com/package/@azure/ai-text-analytics/v/5.2.0-beta.2) | [docs](/javascript/api/overview/azure/ai-text-analytics-readme) | GitHub [5.1.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/ai-text-analytics_5.1.0/sdk/textanalytics/ai-text-analytics/)<br>GitHub [5.2.0-beta.2](https://github.com/Azure/azure-sdk-for-js/tree/@azure/ai-text-analytics_5.2.0-beta.2/sdk/textanalytics/ai-text-analytics/) |
 | Text Analytics | npm [4.0.0](https://www.npmjs.com/package/@azure/cognitiveservices-textanalytics/v/4.0.0) |  |  |
-| Tools - Azcopy Darwin | npm [10.13.0](https://www.npmjs.com/package/@azure-tools/azcopy-darwin/v/10.13.0) |  | GitHub [10.13.0](https://github.com/Azure/azure-storage-azcopy) |
-| Tools - Azcopy Linux | npm [10.13.0](https://www.npmjs.com/package/@azure-tools/azcopy-linux/v/10.13.0) |  | GitHub [10.13.0](https://github.com/Azure/azure-storage-azcopy) |
+| Tools - Azcopy Darwin | npm [10.14.0](https://www.npmjs.com/package/@azure-tools/azcopy-darwin/v/10.14.0) |  | GitHub [10.14.0](https://github.com/Azure/azure-storage-azcopy) |
+| Tools - Azcopy Linux | npm [10.14.0](https://www.npmjs.com/package/@azure-tools/azcopy-linux/v/10.14.0) |  | GitHub [10.14.0](https://github.com/Azure/azure-storage-azcopy) |
 | Tools - Azcopy Node | npm [2.5.0](https://www.npmjs.com/package/@azure-tools/azcopy-node/v/2.5.0) |  | GitHub [2.5.0](https://github.com/Azure/azure-storage-azcopy) |
-| Tools - Azcopy Win32 | npm [10.13.0](https://www.npmjs.com/package/@azure-tools/azcopy-win32/v/10.13.0) |  | GitHub [10.13.0](https://github.com/Azure/azure-storage-azcopy) |
-| Tools - Azcopy Win64 | npm [10.13.0](https://www.npmjs.com/package/@azure-tools/azcopy-win64/v/10.13.0) |  | GitHub [10.13.0](https://github.com/Azure/azure-storage-azcopy) |
+| Tools - Azcopy Win32 | npm [10.14.0](https://www.npmjs.com/package/@azure-tools/azcopy-win32/v/10.14.0) |  | GitHub [10.14.0](https://github.com/Azure/azure-storage-azcopy) |
+| Tools - Azcopy Win64 | npm [10.14.0](https://www.npmjs.com/package/@azure-tools/azcopy-win64/v/10.14.0) |  | GitHub [10.14.0](https://github.com/Azure/azure-storage-azcopy) |
 | Tools - Data Store | npm [4.6.0](https://www.npmjs.com/package/@azure-tools/datastore/v/4.6.0) |  | GitHub [4.6.0](https://github.com/Azure/perks) |
 | Tools - OpenAPI Tools Common | npm [1.2.2](https://www.npmjs.com/package/@azure-tools/openapi-tools-common/v/1.2.2) |  |  |
 | Translator | npm [1.0.1](https://www.npmjs.com/package/@azure/cognitiveservices-translatortext/v/1.0.1) |  | GitHub [1.0.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/cognitiveservices/cognitiveservices-translatortext) |
