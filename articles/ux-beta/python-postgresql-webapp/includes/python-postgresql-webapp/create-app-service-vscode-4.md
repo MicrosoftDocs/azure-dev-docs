@@ -10,4 +10,4 @@ ms.azure.devx-azure-tooling: ['vscode-azure-tools']
 ms.custom: devx-track-python
 ---
 
-Select **Create New Resource Group** and enter *msdocs-django-postgres-webapp-rg* in the prompt, if the resource group does not already exist.
+Select **Create New Resource Group** and enter *msdocs-python-postgres-webapp-rg* in the prompt, if the resource group does not already exist.

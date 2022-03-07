@@ -141,6 +141,7 @@ In this section, you download and test the example.
 
     - You see a message indicating that the Terraform configuration is valid.
 
+
 1. Run [terraform plan](https://www.terraform.io/docs/commands/plan.html) to create an execution plan.
 
     ```cmd
@@ -152,16 +153,6 @@ In this section, you download and test the example.
     ```bash
     terraform show -json main.tfplan > main.tfplan.json
     ```
-
-1. Run [terraform apply](https://www.terraform.io/docs/commands/apply.html) to apply the execution plan.
-
-    ```cmd
-    terraform apply main.tfplan -target=random_uuid.uuid
-    ```
-
-    **Key points:**
-
-    - A resource group is created with a name following the pattern: `rg-hello-tf-<random_number>`.
     
 1. Run [docker pull](https://docs.docker.com/engine/reference/commandline/pull/) to download the terraform-compliance image.
 
@@ -224,7 +215,19 @@ In this section, you download and test the example.
     ```
     
     ![Example of a successful test](media/best-practices-compliance-testing/best-practices-compliance-testing-tagging-succeed.png)
-    
+
+
+1. Run [terraform apply](https://www.terraform.io/docs/commands/apply.html) to apply the execution plan.
+
+    ```cmd
+    terraform apply main.tfplan -target=random_uuid.uuid
+    ```
+
+    **Key points:**
+
+    - A resource group is created with a name following the pattern: `rg-hello-tf-<random_number>`.
+
+
 ## Troubleshoot Terraform on Azure
 
 [Troubleshoot common problems when using Terraform on Azure](troubleshoot.md)
