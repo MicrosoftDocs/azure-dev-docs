@@ -161,7 +161,7 @@ Find new and updated content for JavaScript and TypeScript developers.
 |[Logging, metrics, and telemetry in Azure](./how-to/node-sdk-logging.md)|Web app and Function app logging information.|
 |[Tutorial: Create a function with Visual Studio Code](./tutorial/azure-function-cosmos-db-mongo-api.md)|Added streaming logs in VS Code, and querying Kusto log in Azure portal.|
 |[Tools update](./node-azure-tools.md)|Added several links to Microsoft or Azure specific tools. Added Azure service-specific tips.|
-|[Add Microsoft login button to a single page application for authentication](./tutorial/single-page-application-azure-login-button-sdk-msal.md#7-store-application-specific-user-information)|Added Microsoft Identity provider and Active Directory app ID information. |
+|[Add Microsoft login button to a single page application for authentication](/azure/active-directory/develop/tutorial-v2-react)|Added Microsoft Identity provider and Active Directory app ID information. |
 |Locally develop with the Azure Cosmos DB emulator|For [SQL API](./how-to/with-database/use-sql-api-as-cosmos-db.md#locally-develop-with-the-cosmosdb-emulator), [MongoDB](./how-to/with-database/use-mongodb-as-cosmosdb.md#locally-develop-with-the-cosmosdb-emulator), and [Cassandra](./how-to/with-database/use-cassandra-as-cosmos-db.md#locally-develop-with-the-cosmosdb-emulator). |
 
 
@@ -261,7 +261,7 @@ Find new and updated content for JavaScript and TypeScript developers.
 
 |Name|Notes|
 |---------------------------------------|--|
-|[Tutorial: Add login button to a React Static Web app for Microsoft Authentication](./tutorial/single-page-application-azure-login-button-sdk-msal.md)|Azure authentication presented in this tutorial is a login and logout button, and provides access to a user's account. Develop the application with an Azure client-side SDK, `@azure/msal-browser`, to manage the interaction of the user in the single page application (SPA).|
+|[Tutorial: Add login button to a React Static Web app for Microsoft Authentication](/azure/active-directory/develop/tutorial-v2-react)|Azure authentication presented in this tutorial is a login and logout button, and provides access to a user's account. Develop the application with an Azure client-side SDK, `@azure/msal-browser`, to manage the interaction of the user in the single page application (SPA).|
 |[What is Azure for JavaScript developers?](core/what-is-azure-for-javascript-development.md)|Azure concepts JavaScript developers need to be successful.|
 |[Install Node.js](core/install-nodejs-develop-azure-sdk-project.md)|Install and manage Node.js for common Azure development scenarios|
 |[Configure web apps on Azure](how-to/configure-web-app-settings.md)|Learn how to set common configurations for your web app.|

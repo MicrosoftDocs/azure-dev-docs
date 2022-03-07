@@ -354,4 +354,4 @@ Add methods to the React `app.js`. The image analysis and display of results are
 
 ## Next steps
 
-* [Add a login button for Microsoft Identity](single-page-application-azure-login-button-sdk-msal.md) 
+* [Add a login button for Microsoft Identity](/azure/active-directory/develop/tutorial-v2-react) 
