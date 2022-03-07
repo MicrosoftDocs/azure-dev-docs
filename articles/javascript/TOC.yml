@@ -190,10 +190,6 @@
                 href: how-to/with-azure-sdk/create-manage-virtual-machine.md
               - name: "VM: Manage"
                 href: how-to/with-azure-sdk/stop-start-virtual-machine.md                          
-      - name: With user authentication
-        items:
-          - name: Getting started
-            href: how-to/with-authentication/getting-started.md
       - name: With Visual Studio Code
         items:
           - name: Install and debug local project
@@ -227,6 +223,8 @@
             href: how-to/with-web-app/graphql/get-started.md
       - name: Authentication and identity
         items: 
+          - name: Getting started
+            href: how-to/with-authentication/getting-started.md          
           - name: Static web apps
             items: 
               - name: Vanilla JS
@@ -241,8 +239,11 @@
                 href: /azure/azure-functions/functions-identity-based-connections-tutorial-2
           - name: App Service
             items: 
-              - name: Express.js
+              - name: Express.js only
                 href: /azure/active-directory/develop/tutorial-v2-nodejs-webapp-msal
+              - name: Express.js upload file to Blob Storage
+              - name: Express.js to Key Vault with managed identity
+                href: /azure/app-service/tutorial-connect-msi-key-vault-javascript
           - name: Electron
             href: /azure/active-directory/develop/tutorial-v2-nodejs-desktop
           - name: Node.js console daemon
