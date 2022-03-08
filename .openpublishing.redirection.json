@@ -487,6 +487,11 @@
         "redirect_url": "/azure/app-service/tutorial-nodejs-mongodb-app?tabs=azure-portal%2Cterminal-bash%2Cvscode-deploy%2Cdeploy-instructions-azportal%2Cdeploy-zip-linux-mac%2Cdeploy-instructions--zip-azcli"
       },      
       {
+        "source_path": "articles/javascript/tutorial/single-page-application-azure-login-button-sdk-msal.md",
+        "redirect_url": "/azure/active-directory/develop/tutorial-v2-react"
+      },      
+
+      {
         "source_path": "articles/java/eclipse-microprofile/cicd-microprofile-vsts.md",
         "redirect_url": "/azure/developer/java/eclipse-microprofile/cicd-microprofile"
       },
