@@ -17,10 +17,10 @@ This article contains the following change logs from the HashiCorp site showing 
 - [Versions 1.0.0 - 1.44.0](https://github.com/hashicorp/terraform-provider-azurerm/blob/main/CHANGELOG-v1.md)
 - [Versions 0.1.0 - 0.3.3](https://github.com/hashicorp/terraform-provider-azurerm/blob/main/CHANGELOG-v0.md)
 
-[!INCLUDE [hashicorp-provider-versions-arm-2-90-0-to-current.md](includes/hashicorp-provider-versions-arm-2-90-0-to-current.md)
+[!INCLUDE [hashicorp-provider-versions-arm-2-90-0-to-current.md](includes/hashicorp-provider-versions-arm-2-90-0-to-current.md)]
 
-[!INCLUDE [hashicorp-provider-versions-arm-2-0-0-to-2-89-0.md](includes/hashicorp-provider-versions-arm-2-0-0-to-2-89-0.md)
+[!INCLUDE [hashicorp-provider-versions-arm-2-0-0-to-2-89-0.md](includes/hashicorp-provider-versions-arm-2-0-0-to-2-89-0.md)]
 
-[!INCLUDE [hashicorp-provider-versions-arm-1-0-0-to-1-44-0.md](includes/hashicorp-provider-versions-arm-1-0-0-to-1-44-0.md)
+[!INCLUDE [hashicorp-provider-versions-arm-1-0-0-to-1-44-0.md](includes/hashicorp-provider-versions-arm-1-0-0-to-1-44-0.md)]
 
-[!INCLUDE [hashicorp-provider-versions-arm-0-1-0-to-0-3-3.md](includes/hashicorp-provider-versions-arm-0-1-0-to-0-3-3.md)
+[!INCLUDE [hashicorp-provider-versions-arm-0-1-0-to-0-3-3.md](includes/hashicorp-provider-versions-arm-0-1-0-to-0-3-3.md)]
