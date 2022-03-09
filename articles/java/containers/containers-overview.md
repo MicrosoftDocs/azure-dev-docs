@@ -21,15 +21,15 @@ When you are containerizing a Java workload you have to take 2 things into accou
 
 #### Determine container memory
 
-Depending on the needs of your application and its distinctive usage patterns you will have to pick an amount of container memory that will serve your work load the best. If your application creates large object graphs then you will probably have to allocate more than if your application has a large number of small object graphs. If you do not know how much memory to allocate a good starting point would be to begin with 6 GB of memory.
+Depending on the needs of your application and its distinctive usage patterns you will have to pick an amount of container memory that will serve your work load the best. If your application creates large object graphs then you will probably have to allocate more than if your application has a large number of small object graphs. If you do not know how much memory to allocate a good starting point would be to begin with 4 GB of memory.
 
-Recommendation: Our recommendation is to start with 6 GB of container memory.
+Recommendation: Our recommendation is to start with 4 GB of container memory.
 
 #### Determine JVM heap memory
 
 When allocating JVM heap memory one needs to be aware that the JVM needs more memory than just JVM heap memory. So when setting the maximum JVM heap memory it should NEVER be equal to the amount of container memory as that will cause container Out of Memory (OOM) errors and container crashes. 
 
-Recommendation: Our recommendation is to start with 2 GB JVM heap memory.
+Recommendation: Our recommendation is to start with 75% of container memory allocated for JVM heap memory.
 
 ### Determine which Garbage Collector to use
 
@@ -67,7 +67,7 @@ Recommendation: Our recommendation is to start with 2 vCPU cores.
 
 ### Picking a starting point
 
-With everything explained before, and if you have not picked starting points yet, we recommend to start the containerization of your new Java application with 2 vCPu cores, 6 GB of container memory with 2 GB allocated to JVM Heap memory and the Parallel GC. 
+With everything explained before, and if you have not picked starting points yet, we recommend to start the containerization of your new Java application with 2 vCPu cores, 4 GB of container memory with 75% allocated to JVM Heap memory and the Parallel GC. 
 
 ## Existing (on premises) application 
 
