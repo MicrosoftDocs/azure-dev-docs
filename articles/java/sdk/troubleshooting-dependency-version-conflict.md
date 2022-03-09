@@ -17,7 +17,11 @@ The API incompatibility of direct dependencies results in compilation errors. [D
 
 ## Diagnose version mismatch issues
 
-The following sections describe how to diagnose version mismatch issues.
+The following sections describe methods on how to diagnose version mismatch issues.
+
+### Use the Azure SDK for Java build tool
+
+The Azure SDK for Java build tool, introduced in [Get started with Azure SDK and Apache Maven](get-started-maven.md), helps to identify commonly encountered issues. We recommend that you add this build tool to your project and run it by adding the `azure:run` Maven target to your regular build process. With the appropriate configuration, you can identify and resolve dependency conflicts more proactively, before they become issues at runtime.
 
 ### View a dependency tree
 
@@ -75,7 +79,7 @@ Remove dependencies if you can. Sometimes, an application has dependencies on mu
 
 ### Update dependency versions
 
-If switching to the latest Azure SDK BOM does't help, identify the libraries causing conflicts and the components that use them. (For more information, see the [View a dependency tree](#view-a-dependency-tree) section earlier in this article.) Try updating versions. It's good practice to keep dependencies up to date because it protects against security vulnerabilities, and often brings new features, performance improvements, and bug fixes.
+If switching to the latest Azure SDK BOM does't help, identify the libraries causing conflicts and the components that use them. (For more information, see the [View a dependency tree](#view-a-dependency-tree) section earlier in this article.) Try updating versions, which protects against security vulnerabilities, and often brings new features, performance improvements, and bug fixes.
 
 Avoid downgrading the Azure SDK version because it may expose your application to known vulnerabilities and issues.
 
