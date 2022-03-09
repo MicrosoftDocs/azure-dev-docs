@@ -50,6 +50,49 @@ Alternately, you can provide these values when you call the archetype command sh
 
 As a best practice, you should use a Java LTS release when deploying to production. By default, the Azure SDK Maven archetype will select the latest LTS release, which currently sets a Java 17 baseline. However, you can override the default behavior by setting the `javaVersion` parameter.
 
+## Use the Azure SDK for Java build tool
+
+The Azure SDK for Java project ships a Maven build tool that you can include in you projects. This tool runs locally and does not transmit any data to Microsoft. You can configure the tool to generate a report or fail the build when certain conditions are met, which is useful to ensure compliance with numerous best practices, such as the following ones:
+
+* Validating the correct use of the azure-sdk-for-java BOM, including using the latest version and relying on it to define dependency versions on Azure SDK for Java client libraries. For more information, see the [Add Azure SDK for Java to an existing project] section.(#add-azure-sdk-for-java-to-an-existing-project).
+* Validating that historical Azure client libraries are not being used when newer and improved versions exist.
+* Providing insight into usage of beta APIs.
+
+You can configure the build tool in a project Maven POM file as shown in the following example:
+
+```xml
+<build>
+  <plugins>
+    <plugin>
+      <groupId>com.azure.tools</groupId>
+      <artifactId>azure-sdk-build-tool</artifactId>
+      <version>{latest_version}</version>
+      <configuration>
+        ...
+      </configuration>
+    </plugin>
+  </plugins>
+</build>
+```
+
+Within the `configuration` section, you can configure the settings shown in the following table, or use the default, recommended values.
+
+| Property name                              | Default value | Description                                                                                                                                                                                                                                      |
+|--------------------------------------------|---------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `validateAzureSdkBomUsed`                  | true          | Ensures that the build has the [azure-sdk-for-java BOM][azure-sdk-bom] referenced appropriately, so that Azure SDK for Java client library dependencies may take their versions from the BOM.                                                    |
+| `validateBomVersionsAreUsed`               | true          | Ensures that, where a dependency is available from the [azure-sdk-for-java BOM][azure-sdk-bom], the version is not being manually overridden.                                                                                                      |
+| `validateNoDeprecatedMicrosoftLibraryUsed` | true          | Ensures that the project does not make use of previous-generation Azure libraries. Using the new and previous-generation libraries in a single project is unlikely to cause any issue, but is will result in a sub-optimal developer experience. |
+| `validateNoBetaLibraryUsed`                | false         | Some Azure SDK for Java client libraries have beta releases, with version strings in the form `x.y.z-beta.n`. Enabling this feature will ensure that no beta libraries are being used.                                                           |
+| `validateNoBetaAPIUsed`                    | true          | Azure SDK for Java client libraries sometimes do GA releases with methods annotated with `@Beta`. This check looks to see if any such methods are being used.                                                                                    |
+| `validateLatestBomVersionUsed`             | true          | Ensures that dependencies are kept up to date by reporting back (or failing the build) if a newer [azure-sdk-for-java BOM][azure-sdk-bom] exists.                                                                                                |
+| `reportFile`                               | -             | *(Optional)* Specifies the location to write the build report out to, in JSON format. If not specified, no report will be written, and a summary of the build, or the appropriate build failures, will be shown in the terminal.                |
+
+[azure-sdk-bom]: #add-azure-sdk-for-java-to-an-existing-project
+
+After adding the build tool into a Maven project, you can run the tool by calling `mvn compile azure:run`. Depending on the configuration provided, you can expect to see build failures or report files generated that can inform you about potential issues before they become more serious.
+
+As the build tool evolves, we'll publish new releases, and we recommend that developers frequently check for new releases and update as appropriate.
+
 ## Add Azure SDK for Java to an existing project
 
 To make dependency version management simpler, the Azure SDK for Java team publishes the [Azure SDK for Java client BOM](https://repo1.maven.org/maven2/com/azure/azure-sdk-bom/) each month. This BOM file includes all Generally Available (GA) Azure SDK for Java client packages with their compatible dependency version.
@@ -80,6 +123,8 @@ To use dependency versions for an Azure SDK for Java client library that is in t
 You can find all releases of the Azure SDK for Java client BOM at [azure-sdk-bom](https://repo1.maven.org/maven2/com/azure/azure-sdk-bom/). We recommend using the latest version to take advantage of the newest features of the Azure SDK for Java client libraries.
 
 Using Maven to define project dependencies can make managing your projects simpler. With the Azure SDK BOM and Azure SDK Maven archetype, you can accelerate your project while being more confident about your dependency versioning over the long term. We recommend using the BOM to keep dependencies aligned and up to date.
+
+In addition to adding the Azure SDK BOM, we recommend also including the Azure SDK for Java build tool. This tool helps to diagnose many issues commonly encountered when building applications, as described previously in this article.
 
 ### Include a package not in the BOM
 
