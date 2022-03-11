@@ -33,7 +33,7 @@ Recommendation: Our recommendation is to allocate 75% of container memory for th
 
 ### Determine which Garbage Collector to use
 
-Previously you have determined an amount of JVM heap memory to start with. Depending on the amount of maximum JVM heap memory you should or should not use a particular Garbage Collector (GC). The table below describes what each GC brings to the table.
+Previously you determined an amount of JVM heap memory to start with, the next step is to choose your Garbage Collector (GC). The amount of maximum JVM heap memory you have is often a factor in choosing your GC. The table below describes what characteristics each GC has.
 
 Recommendation: Our recommendation is to start with the Parallel GC.
 
