@@ -73,7 +73,7 @@ With everything explained before, and if you have not picked starting points yet
 
 If you already have your application running on premises or on a VM in the cloud then our recommendation is to start your containerization journey with:
 
-1. the same amount of memory as the application currently has access to.
+1. The same amount of memory as the application currently has access to.
 1. The same amount of CPU (vCPU cores) the application has currently available.
 1. the same JVM parameters as currently in use.
 
