@@ -37,26 +37,16 @@ Previously you determined an amount of JVM heap memory to start with, the next s
 
 Recommendation: Our recommendation is to start with the Parallel GC.
 
-| Garbage Collector | Key points |
-|-------------------|------------|
-| Serial GC         | Single CPU containers |
-| Parallel GC       | 1. Multiple GC threads |
-|                   | Stop-the World during any collection |
-|                   | Great for throughput, bad for latency |
-|                   | Smaller heaps (up to 4GB) |
-|                   | Good for batch jobs |
-| G1GC              | Low pause |
-|                   | Low latency |
-|                   | Larger heaps (more than 4GB) |
-|                   | Higher tail latency |
-| ZGC               | Real-time sub milliseconds latency |
-|                   | Great for super large heaps |
-|                   | Low tail latency |
-|                   | Oracle-led |
-| Shenandoah GC     | Real-time sub milliseconds latency |
-|                   | Great for super large heaps |
-|                   | Low tail latency |
-|                   | Red Hat-led, with AWS contributions |
+|                 | Serial | Parallel | G1 | Z | Shenandoah |
+| --------------- | ------ | -------- | -- | - | ---------- |
+| Number of cores | 1 | 2 | 2 | 2 | 2 |
+| Multi-threaded  | No | Yes | Yes | Yes | Yes |
+| Java Heap size  | <4GBytes | <4GBytes | >4GBytes | >28GBytes | >4GBytes |
+| Pause           | Yes | Yes | Yes | Yes (<1ms) | Yes (<10ms) |
+| Overhead        | Minimal | Minimal | Moderate | Moderate+| Moderate++ |
+| Tail-latency Effect | High | High | High | Low | Moderate |
+| JDK version     | All | All | JDK 8+ | JDK 17+ | JDK 11+ |
+| Best for        | Single core small heaps | Batch workloads (with any heap size) or multi-core small heaps | responsive in medium to large heaps (request-response/DB interactions) | responsive in medium to large heaps (request-response/DB interactions) | responsive in medium to large heaps (request-response/DB interactions) |
 
 
 ### Determine how many CPU cores are needed
