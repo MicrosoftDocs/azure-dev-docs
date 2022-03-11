@@ -14,7 +14,7 @@ If you have not gone through [Containerizing your Java application](containers-o
 
 ## Determine appropriate VM SKU for AKS node pool
 
-Determine if the AKS node pool(s) that are available for your AKS cluster can fit the container memory and vCPU cores you are intending to use. If the AKS node pool can host the application then continue on. Otherwise provision a node pool that is appropriate for the amount of container memory and vCPU cores you are targeting.
+Determine if the AKS node pool(s) that are available for your AKS cluster can support the amount of container memory and vCPU cores that you are intending to use. If the AKS node pool can support the amount for the application then continue on. Otherwise provision a node pool that is appropriate for the amount of container memory and vCPU cores you are targeting.
 
 ## Set CPU requests and limits
 
