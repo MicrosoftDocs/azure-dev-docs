@@ -75,7 +75,7 @@ If you already have your application running on premises or on a VM in the cloud
 
 1. The same amount of memory as the application currently has access to.
 1. The same amount of CPU (vCPU cores) the application has currently available.
-1. the same JVM parameters as currently in use.
+1. The same JVM parameters that you currently use.
 
 If the vCPU cores and/or container memory combination is not available pick the closest one rounding up the vCPU cores and container memory.
 
