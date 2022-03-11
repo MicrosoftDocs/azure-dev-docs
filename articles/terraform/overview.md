@@ -7,11 +7,28 @@ ms.custom: devx-track-terraform
 adobe-target: true
 ---
 
-# Terraform with Azure
+# What is Terraform
+[Hashicorp Terraform](https://www.terraform.io/) is an open-source IaC tool for provisioning and managing infrastructure. It codifies infrastructure in configuration files that describe the desired state for the topology. Terraform enables the management of any infrastructure including public clouds, private clouds, SaaS services, etc. through the use of [Terraform providers](https://www.terraform.io/language/providers).  
 
-[Hashicorp Terraform](https://www.terraform.io/) is an open-source tool for provisioning and managing cloud infrastructure. It codifies infrastructure in configuration files that describe the topology of cloud resources. These resources include  virtual machines, storage accounts, and networking interfaces. The Terraform CLI provides a simple mechanism to deploy and version the configuration files to Azure.
+## Terraform Providers for Azure Infra
+There are several Terraform providers that enable the management of Azure infrastructure including:
 
-This article describes the benefits of using Terraform to manage Azure infrastructure.
+- [AzureRM](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs): Use this provider to authenticate to and manage stable Azure resources and functionality such as virtual machines, storage accounts, networking interfaces, MySql server, App Service, Azure Functions and many more.
+- [AzureAD](https://registry.terraform.io/providers/hashicorp/azuread/latest/docs): Use this provider to authenticate to and manage Azure Active directory resources such as groups, users, service principals, applications, and many more. 
+- [AzureDevops](https://registry.terraform.io/providers/microsoft/azuredevops/latest/docs): Use this provider to authenticate to and manage Azure DevOps resources such as agents, repositories, projects, pipelines, queries, and many more.
+- [AzApi](https://registry.terraform.io/providers/microsoft/azapi/latest/docs): Use this provider to authenticate to and manage Azure resources and functionality using the Azure Resource Manager APIs directly. This provider compliments the AzureRM provider by enabling the management of Azure resources that are not ye yet GA as well as many other scenarios. [Discover more](overview-azapi-provider.md) about this provider. 
+- [AzureStack](https://registry.terraform.io/providers/hashicorp/azurestack/latest/docs): Use this provider to authenticate to and manage Azure Stack resources such as virtual machines, dns, vnet, storage, and many more.
+
+# Benfits of Terraform with Azure
+
+This section describes the benefits of using Terraform to manage Azure infrastructure.
+
+## Common IaC tool
+
+As you may have noticed from the Azure providers listed above , Terraform empowers you to manage ALL of your Azure infrastructure using the same declarative syntax and tooling. This enables scenarios like:
+1. Provisioning core platform capabilites like management groups, policies, users, groups, policies, etc. see [Terraform implementation of Cloud Adoption Framework Enterprise-scale](https://github.com/Azure/terraform-azurerm-caf-enterprise-scale#readme)
+1. Provision Azure DevOps projects, pipelines, etc. for automating regular infrastructure and application deployments.
+1. Provision Azure resources required by your applications.
 
 ## Automate infrastructure management
 
@@ -28,10 +45,6 @@ As a resource topology becomes complex, understanding the meaning and impact of 
 The Terraform CLI enables users to validate and preview infrastructure changes before application. Previewing infrastructure changes in a safe manner has several benefits:
 - Team members can collaborate more effectively by quickly understanding proposed changes and their impact.
 - Unintended changes can be caught early in the development process
-
-## Deploy infrastructure to multiple clouds
-
-Terraform is adept at deploying an infrastructure across multiple cloud providers. It enables developers to use consistent tooling to manage each infrastructure definition.
 
 ## Next steps
 
