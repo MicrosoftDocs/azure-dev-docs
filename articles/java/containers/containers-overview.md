@@ -23,7 +23,7 @@ When you are containerizing a Java workload you have to take two things into acc
 
 Depending on the needs of your application and its distinctive usage patterns, you will have to pick an amount of container memory that will serve your work load the best. For example, if your application creates large object graphs then you will probably have to allocate more memory than if your application had a large number of small object graphs. If you do not know how much memory to allocate a good starting point would be to begin with 4GB.
 
-Recommendation: Our recommendation is to start with 4 GB of container memory.
+Recommendation: Our recommendation is to start with 4GB of container memory.
 
 #### Determine JVM heap memory
 
