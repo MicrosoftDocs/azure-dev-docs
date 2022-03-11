@@ -72,4 +72,4 @@ In this article, you learn how to:
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn more about using Application Gateway](azure/application-gateway/overview)
+> [Learn more about using Application Gateway](/azure/application-gateway/overview)
