@@ -17,7 +17,7 @@ This topic provides an overview of recommended strategies for containerizing Jav
 
 ## New application
 
-When you are containerizing a Java workload you have to take 2 things into account when thinking about memory. On the one hand the memory allocated to the container itself and on the other hand the amount of memory available to the Java process.
+When you are containerizing a Java workload you have to take two things into account when thinking about memory. Firstly, is the memory allocated to the container itself and secondly, is the amount of memory available to the Java process.
 
 #### Determine container memory
 
