@@ -18,7 +18,7 @@ Determine if the AKS node pool(s) that are available for your AKS cluster can su
 
 ## Set CPU requests and limits
 
-If you need to limit the CPU on the Kubernetes level map the vCPU core number one for one onto the CPU limits numbers. E.g. map 2 vCPU cores to 2 in the kubernetes deployment file. Be aware that the Java process does not dynamically look at the CPU count, but rather looks at it ONLY during startup.
+If you need to limit the CPU on the Kubernetes level then map the vCPU core number one for one onto the CPU limits numbers. E.g. map 2 vCPU cores to 2 in the kubernetes deployment file. Be aware that the Java process ONLY looks at the CPU count at startup but does not dynamically look at that CPU count whilst running.
 
 Recommendation: Our recommendation is to set CPU requests equal to CPU limits.
 
