@@ -73,6 +73,8 @@
         href: create-network-watcher-nsg-flow-logs.md
       - name: Azure Firewall Premium
         href: firewall-upgrade-premium.md
+      - name: Application Gateway v2
+        href: application-gateway-quickstart.md
       - name: Hub and spoke topology
         items:
           - name: 1. Create hub and spoke topology
