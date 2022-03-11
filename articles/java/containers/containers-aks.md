@@ -10,7 +10,7 @@ recommendations: false
 
 # Containerizing your Java applications for Azure Kubernetes Service
 
-If you have not gone through [Containerizing your Java application](containers-overview.md) please start there as it will give you guidance for container memmory, JVM heap memory, GC and vCPU cores.
+If you have not gone through [Containerizing your Java application](containers-overview.md) please start there as it will give you guidance for container memory, JVM heap memory, GC and vCPU cores.
 
 ## Determine appropriate VM SKU for AKS node pool
 
