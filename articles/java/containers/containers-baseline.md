@@ -10,7 +10,7 @@ recommendations: false
 
 # Establishing a base line
 
-Establishing a base line is important as it will allow you to understands what your application is really doing. E.g. if you do not know how much memory your Java application actually needs or how many vCPU cores your Java application needs, it can negatively impact the performance of your application. Creating a base line will allow you to experiment with different settings and then determine their impact.
+Establishing a base line is important as it will allow you to understand what your application is really doing. E.g. if you do not know how much memory or how many vCPU cores your Java application needs, it can negatively impact the performance of your application. Creating a base line will allow you to experiment with different settings and then determine their impact.
 
 To establish a mininal base line you can use Application Insights, or your own APM solution.
 
