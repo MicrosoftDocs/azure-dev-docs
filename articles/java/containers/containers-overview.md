@@ -29,7 +29,7 @@ Recommendation: Our recommendation is to start with 4GB of container memory.
 
 When allocating JVM heap memory, you need to be aware that the JVM needs more memory than just what is used for the JVM heap. So when setting the maximum JVM heap memory it should NEVER be equal to the amount of container memory as that will cause container Out of Memory (OOM) errors and container crashes.
 
-Recommendation: Our recommendation is to start with 75% of container memory allocated for JVM heap memory.
+Recommendation: Our recommendation is to allocate 75% of container memory for the JVM heap.
 
 ### Determine which Garbage Collector to use
 
