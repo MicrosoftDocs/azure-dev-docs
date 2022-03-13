@@ -86,7 +86,7 @@ The [AzAPI VS Code extension]() provides a rich authoring experience with the fo
 - Syntax validation
 - Quick info
 
-![Vs Code extension](/media/overview-azapi-provider/vs-code-extension.mp4)
+![Vs Code extension](/media/overview-azapi-provider/vs-code-extension.png)
 
 ## AzAPI2AzureRM migration tool
 
@@ -106,7 +106,7 @@ AzAPI2AzureRM has two modes: plan and migrate:
 
 AzAPI2AzureRM ensures after migration that your Terraform configuration and state are aligned with your actual state. You can validate the state has been updated by running `terraform plan` after completing the migration to see that nothing has changed.
 
- ![Migration tool](/media/overview-azapi-provider/migration-tool.mp4)
+ ![Migration tool](/media/overview-azapi-provider/migration-tool.png)
 
 ## Using the AzAPI provider
 
