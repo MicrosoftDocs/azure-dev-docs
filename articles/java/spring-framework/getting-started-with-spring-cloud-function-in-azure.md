@@ -8,7 +8,8 @@ ms.date: 09/07/2021
 ms.service: azure-functions
 ms.tgt_pltfrm: multiple
 ms.topic: article
-ms.custom: devx-track-java
+ms.custom: devx-track-java, team=cloud_advocates
+ms.contributors: judubois-03042021
 ---
 
 # Getting started with Spring Cloud Function in Azure

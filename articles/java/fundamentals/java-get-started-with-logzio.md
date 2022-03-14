@@ -5,7 +5,8 @@ manager: bborges
 ms.topic: tutorial
 ms.date: 11/05/2019
 ms.author: judubois
-ms.custom: devx-track-java
+ms.custom: devx-track-java, team=cloud_advocates
+ms.contributors: judubois-09162021
 ---
 
 # Tutorial: Getting started with monitoring and logging using Logz.io for Java apps running on Azure

@@ -74,23 +74,29 @@
             - name: "Upload image to Storage"
               href: tutorial/browser-file-upload-azure-storage-blob.md
             - name: Add image analysis
-              href: tutorial/static-web-app-image-analysis.md   
-            - name: Easy auth with Static Web Apps
-              href: how-to/with-web-app/static-web-app-with-swa-cli/add-authentication.md            
-            - name: "Add a Login button for Microsoft Identity provider" 
-              href: tutorial/single-page-application-azure-login-button-sdk-msal.md
-            - name: Add custom auth with MSAL.js
-              items:
-                - name: Introduction
-                  href: how-to/with-authentication/static-web-app-with-api/introduction.md
-                - name: Create app registration
-                  href: how-to/with-authentication/static-web-app-with-api/register-application-with-identity.md
-                - name: Create local Static web app
-                  href: how-to/with-authentication/static-web-app-with-api/configure-source-code-for-msal.md
-                - name: Add MongoDB to API
-                  href: how-to/with-authentication/static-web-app-with-api/add-mongodb-database-to-api.md
-                - name: Deploy to Azure
-                  href: how-to/with-authentication/static-web-app-with-api/deploy-static-web-app-to-azure.md
+              href: tutorial/static-web-app-image-analysis.md  
+            - name: Authentication and identity
+              items:  
+              - name: Easy auth with Static Web Apps
+                href: how-to/with-web-app/static-web-app-with-swa-cli/add-authentication.md         
+              - name: Vanilla JS
+                href: /azure/active-directory/develop/tutorial-v2-javascript-auth-code  
+              - name: "React: Add a Login button for Microsoft Identity provider" 
+                href: /azure/active-directory/develop/tutorial-v2-react
+              - name: "Angular: Add a Login button for Microsoft Identity provider"
+                href: /azure/active-directory/develop/tutorial-v2-angular-auth-code
+              - name: Add custom auth with MSAL.js
+                items:
+                  - name: Introduction
+                    href: how-to/with-authentication/static-web-app-with-api/introduction.md
+                  - name: Create app registration
+                    href: how-to/with-authentication/static-web-app-with-api/register-application-with-identity.md
+                  - name: Create local Static web app
+                    href: how-to/with-authentication/static-web-app-with-api/configure-source-code-for-msal.md
+                  - name: Add MongoDB to API
+                    href: how-to/with-authentication/static-web-app-with-api/add-mongodb-database-to-api.md
+                  - name: Deploy to Azure
+                    href: how-to/with-authentication/static-web-app-with-api/deploy-static-web-app-to-azure.md
   
             - name: Use GraphQL with trivia game
               items: 
@@ -184,10 +190,6 @@
                 href: how-to/with-azure-sdk/create-manage-virtual-machine.md
               - name: "VM: Manage"
                 href: how-to/with-azure-sdk/stop-start-virtual-machine.md                          
-      - name: With user authentication
-        items:
-          - name: Getting started
-            href: how-to/with-authentication/getting-started.md
       - name: With Visual Studio Code
         items:
           - name: Install and debug local project
@@ -219,6 +221,37 @@
             href: how-to/with-database/use-sql-api-as-cosmos-db.md
           - name: GraphQL data layer
             href: how-to/with-web-app/graphql/get-started.md
+      - name: Authentication and identity
+        items: 
+          - name: Getting started
+            href: how-to/with-authentication/getting-started.md          
+          - name: Static web apps
+            items: 
+              - name: Vanilla JS
+                href: /azure/active-directory/develop/tutorial-v2-javascript-auth-code  
+              - name: "React: Add a Login button for Microsoft Identity provider" 
+                href: /azure/active-directory/develop/tutorial-v2-react
+              - name: "Angular: Add a Login button for Microsoft Identity provider"
+                href: /azure/active-directory/develop/tutorial-v2-angular-auth-code
+          - name: Azure Functions
+            items: 
+              - name: Triggers and bindings
+                href: /azure/azure-functions/functions-identity-based-connections-tutorial-2
+          - name: App Service
+            items: 
+              - name: Express.js only
+                href: /azure/active-directory/develop/tutorial-v2-nodejs-webapp-msal
+              - name: Express.js upload file to Blob Storage
+              - name: Express.js to Key Vault with managed identity
+                href: /azure/app-service/tutorial-connect-msi-key-vault-javascript
+          - name: Electron
+            href: /azure/active-directory/develop/tutorial-v2-nodejs-desktop
+          - name: Node.js console daemon
+            href: /azure/active-directory/develop/tutorial-v2-nodejs-console
+          - name: MSAL.js
+            href: https://github.com/AzureAD/microsoft-authentication-library-for-js
+          - name: Samples
+            href: /azure/active-directory/develop/sample-v2-code
       - name: Logging and metrics
         href: how-to/node-sdk-logging.md
   - name: Learn

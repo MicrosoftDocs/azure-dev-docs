@@ -7,6 +7,8 @@ ms.service: mobile-services
 ms.topic: article
 ms.date: 06/08/2020
 ms.author: masoucou
+ms.custom: team=cloud_advocates
+ms.contributors: masoucou-06092020
 ---
 
 # Perform automated testing on thousands of mobile devices simultaneously

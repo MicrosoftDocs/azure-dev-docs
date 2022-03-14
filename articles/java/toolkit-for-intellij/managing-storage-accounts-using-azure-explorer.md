@@ -1,10 +1,9 @@
 ---
 title: Manage storage accounts with Azure Explorer for IntelliJ
 description: Learn how to manage your Azure storage accounts by using the Azure Explorer for IntelliJ.
-documentationcenter: java
-ms.date: 09/09/2020
+ms.date: 03/14/2022
+ms.author: jialuogan
 ms.service: multiple
-ms.tgt_pltfrm: multiple
 ms.topic: article
 ms.custom: devx-track-java
 ---
@@ -22,40 +21,45 @@ The Azure Explorer, which is part of the Azure Toolkit for IntelliJ, provides Ja
 
 ## Create a storage account
 
-To create a storage account by using the Azure Explorer, do the following:
+To create a storage account by using the Azure Explorer, use the following steps:
 
-1. Sign in to your Azure account by using the [Sign-in instructions for the Azure Toolkit for IntelliJ]. 
+1. Sign in to your Azure account by using the steps in [Sign-in instructions for the Azure Toolkit for IntelliJ].
 
-2. In the **Azure Explorer** view, expand the **Azure** node, right-click **Storage Accounts**, and then click **Create**.
+1. In the **Azure Explorer** view, expand the **Azure** node, right-click **Storage Account**, and then click **Create**.
 
-3. In the **Create Storage Account** dialog box, specify the following options:
+1. In the **Create Storage Account** dialog box, specify the following options:
 
-   * **Name**: Specifies the name for the new storage account.
+   * **Project details**:
 
-   * **Account kind**: Specifies the type of storage account to create (for example, "Blob storage"). For more information, see [About Azure storage accounts]. 
+      * **Subscription**: Specifies the Azure subscription that you want to use for the new storage account.
 
-   * **Performance**: Specifies which storage account offering to use from the selected publisher (for example, "Premium"). For more information, see [Azure storage scalability and performance targets]. 
+      * **Resource Group**: Specifies the resource group for your storage account. Select one of the following options:
 
-   * **Replication**: Specifies the replication for the storage account (for example, "Zone-Redundant"). For more information, see [Azure storage replication]. 
+         * **Create new**: Specifies that you want to create a new resource group by clicking **+** to finish.
 
-   * **Subscription**: Specifies the Azure subscription that you want to use for the new storage account.
+         * **Use existing**: Specifies that you'll select from a dropdown list of resource groups that are associated with your Azure account.
 
-   * **Location**: Specifies the location where your storage account will be created (for example, "West US").
+   * **Instance details**:
 
-   * **Resource Group**: Specifies the resource group for your storage account. Select one of the following options:
-      * **Create new**: Specifies that you want to create a new resource group.
-      * **Use existing**: Specifies that you will select from a list of resource groups that are associated with your Azure account.
+      * **Account name**: Specifies the name for the new storage account, which must be between 3 and 24 characters long, start with a letter, and contain only lowercase letters and numbers.
 
-4. When you have specified all of the preceding options, click **OK**.
+      * **Account location**:  Specifies the location where your storage account will be created (for example, *West US*).
+
+      * **Performance**: Specifies which storage account offering to use from the selected publisher (for example, *Premium*). For more information, see [Azure storage scalability and performance targets].
+
+      * **Redundancy**: Specifies the replication for the storage account (for example, *Zone-Redundant*). For more information, see [Azure storage replication].
+
+      * **Kind**: Specifies the type of storage account to create (for example, *Block Blobs storage*). And this option will show only if you choose "Premium" in the **Performance**. For more information, see [About Azure storage accounts].
+
+1. When you've specified all of the preceding options, click **OK**.
 
 ## Delete a storage account
 
-To delete a storage account by using the Azure Explorer, do the following:
+To delete a storage account by using the Azure Explorer, use the following steps:
 
 1. In the **Azure Explorer** view, right-click the storage account, and then select **Delete**.
 
-2. In the confirmation window, click **Yes**.
-
+1. In the confirmation window, click **Yes**.
 
 ## Next steps
 
