@@ -36,10 +36,8 @@ In this article, you learn how to:
 
     **Key points:**
 
-    - Use `count` to indicate how many will be created
+    - Use `count` to indicate how many resources will be created
     - References resources that were created when the infrastructure was built - such as `azurerm_subnet.subnet.id` and `azurerm_virtual_desktop_host_pool.hostpool.name`.  If you  changed the name of these resources from that section, you also need to update the references here.
-    - Set `resource_group_name` to the resource group of the storage account.
-    - Set `storage_account_name` to the storage account name.
 
 2. Create a file named `main.tf` and insert the following code:
 
