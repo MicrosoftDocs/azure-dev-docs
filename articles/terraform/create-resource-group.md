@@ -3,13 +3,18 @@ title: Get Started - Create an Azure resource group using Terraform
 description: Learn how to create an Azure resource group using Terraform
 keywords: azure devops terraform azure resource group
 ms.topic: quickstart
-ms.date: 01/28/2022
+ms.date: 03/14/2022
 ms.custom: devx-track-terraform, mode-portal
 adobe-target: true
 # Customer intent: As someone new to Terraform and Azure, I want to do something simple to confirm my Terraform installation.
 ---
 
 # Get Started: Create an Azure resource group using Terraform
+
+Article tested with following software/versions:
+
+- [Terraform v1.1.4](https://releases.hashicorp.com/terraform/)
+- [AzureRM Provider v.2.94.0](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs)
 
 [!INCLUDE [terraform-intro.md](includes/terraform-intro.md)]
 
@@ -35,17 +40,21 @@ In this article, you learn how to:
 
 1. Create a directory in which to test the sample Terraform code and make it the current directory.
 
+1. Create a file named `providers.tf` and insert the following code:
+
+    [!code-terraform[UserStory1929747-code](../../terraform_samples/quickstart/101-resource-group/providers.tf)]
+
 1. Create a file named `main.tf` and insert the following code:
 
-    [!code-terraform[master](../../terraform_samples/quickstart/101-resource-group/main.tf)]
+    [!code-terraform[UserStory1929747-code](../../terraform_samples/quickstart/101-resource-group/main.tf)]
 
 1. Create a file named `variables.tf` to contain the project variables and insert the following code:
 
-    [!code-terraform[master](../../terraform_samples/quickstart/101-resource-group/variables.tf)]
+    [!code-terraform[UserStory1929747-code](../../terraform_samples/quickstart/101-resource-group/variables.tf)]
 
 1. Create a file named `output.tf` to display the randomly generated resource group name and insert the following code:
 
-    [!code-terraform[master](../../terraform_samples/quickstart/101-resource-group/output.tf)]
+    [!code-terraform[UserStory1929747-code](../../terraform_samples/quickstart/101-resource-group/output.tf)]
 
 ## 3. Initialize Terraform
 
