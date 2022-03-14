@@ -118,6 +118,8 @@ landingContent:
         links:
           - text: Deploy an Azure Cosmos DB
             url: deploy-azure-cosmos-db-to-azure-container-instances.md
+          - text: Deploy a PostgreSQL Flexible Server Database
+            url: deploy-postgresql-flexible-server-database.md
 
   # Card
   - title: Azure Virtual Desktop
@@ -154,5 +156,4 @@ landingContent:
         links:
           - text: Log Analytics Workspace
             url: create-azure-log-analytics-workspace.md  
-          - text: Deploy a PostgreSQL Flexible Server Database
-            url: deploy-postgresql-flexible-server-database.md
+
