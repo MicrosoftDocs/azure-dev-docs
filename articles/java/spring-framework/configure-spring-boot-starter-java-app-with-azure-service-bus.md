@@ -14,9 +14,9 @@ This article demonstrates how to use Spring Boot Starter for Azure Service Bus J
 
 Azure provides an asynchronous messaging platform called [Azure Service Bus](/azure/service-bus-messaging/service-bus-messaging-overview) ("Service Bus") that is based on the [Advanced Message Queueing Protocol 1.0](http://www.amqp.org/) ("AMQP 1.0") standard. Service Bus can be used across the range of supported Azure platforms.
 
-The Spring Boot Starter for Azure Service Bus JMS provides Spring integration with Service Bus.
+The Spring Boot Starter for Azure Service Bus JMS provides Spring JMS integration with Service Bus.
 
-The following video describes how to integrate Spring applications with Azure Service Bus using JMS 2.0.
+The following video describes how to integrate Spring JMS applications with Azure Service Bus using JMS 2.0.
 
 <br>
 
@@ -61,7 +61,7 @@ The following prerequisites are required for this article:
     <dependency>
         <groupId>com.azure.spring</groupId>
         <artifactId>azure-spring-boot-starter-servicebus-jms</artifactId>
-        <version>3.10.0</version>
+        <version>3.12.0</version>
     </dependency>
     ```
 
@@ -366,6 +366,37 @@ public class CustomMessageConverter extends MappingJackson2MessageConverter {
 ```
 
 For more information about `MessageConverter`, see the official [Spring JMS guide](https://spring.io/guides/gs/messaging-jms/).
+
+### How to set session-id in JmsTemplate
+Entities that have session support enabled can only receive messages that have the SessionId set to a valid value. So in the case of sending messages to session enabled Service Bus queue entity, additional setup should be done for settig the session-id.
+
+JmsTemplate has a API to send message with which we can set the string property of "JMSXGroupID" which is mapped to the "SessionId" property.
+
+Here is a small code sample:
+```java
+@RestController
+public class QueueSendController {
+
+    private static final String QUEUE_NAME = "<DestinationName>";
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(QueueSendController.class);
+
+    @Autowired
+    private JmsTemplate jmsTemplate;
+
+    @PostMapping("/queue")
+    public String postMessage(@RequestParam String message) {
+
+        LOGGER.info("Sending message");
+
+        jmsTemplate.convertAndSend(QUEUE_NAME, new User(message), jmsMessage -> {
+            jmsMessage.setStringProperty("JMSXGroupID", "xxxeee");
+            return jmsMessage;
+        });
+        return message;
+    }
+}
+```
 
 ## Build and test your application
 

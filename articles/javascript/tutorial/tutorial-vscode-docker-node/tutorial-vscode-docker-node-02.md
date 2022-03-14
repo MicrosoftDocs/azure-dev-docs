@@ -47,7 +47,7 @@ While you can see your Azure registries in the Docker extension, you can't push 
 
 1. Run the following Azure CLI command to sign in to Container Registry. Replace `<your-registry-name>` with the name of the registry you created.
 
-    ```bash
+    ```azurecli
     az acr login --name <your-registry-name>
     ```
 

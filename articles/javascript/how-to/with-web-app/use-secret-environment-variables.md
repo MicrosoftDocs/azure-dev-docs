@@ -15,7 +15,7 @@ Store secrets in Azure Key Vault, then use those secrets programmatically from K
 
 ## Prepare your development environment
 
-1. Complete the [Express.js with Cosmos DB tutorial](../../tutorial/deploy-nodejs-mongodb-app-service-from-visual-studio-code.md). 
+1. Complete the [Express.js with Cosmos DB tutorial](/azure/app-service/tutorial-nodejs-mongodb-app?tabs=azure-portal%2Cterminal-bash%2Cvscode-deploy%2Cdeploy-instructions-azportal%2Cdeploy-zip-linux-mac%2Cdeploy-instructions--zip-azcli). 
 
     When you complete the previous tutorial, you should have an Express.js app using a Cosmos DB database deployed to an Azure web app. 
 
@@ -23,7 +23,7 @@ Store secrets in Azure Key Vault, then use those secrets programmatically from K
 
     - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
     - Azure resource group already created in previous tutorial.
-    - Azure resources already created in [previous tutorial](../../tutorial/deploy-nodejs-mongodb-app-service-from-visual-studio-code.md) 
+    - Azure resources already created in [previous tutorial](/azure/app-service/tutorial-nodejs-mongodb-app?tabs=azure-portal%2Cterminal-bash%2Cvscode-deploy%2Cdeploy-instructions-azportal%2Cdeploy-zip-linux-mac%2Cdeploy-instructions--zip-azcli) 
         - Azure Cosmos DB resource 
         - Azure App service  
     - [Node.js 10.1+ and npm](https://nodejs.org/en/download) - installed to your local machine.
@@ -105,7 +105,7 @@ This service principal will only be able to list all secrets or get a specific s
 
 ## Store your secret environment variable in Key Vault resource
 
-Use the [az keyvault secret set](/cli/azure/keyvault/secret#az_keyvault_secret_set) command to add your MongoDB connection string, created in the [prior tutorial](../../tutorial/deploy-nodejs-mongodb-app-service-from-visual-studio-code.md), as a secret named `DATABASEURL` to your key vault.
+Use the [az keyvault secret set](/cli/azure/keyvault/secret#az_keyvault_secret_set) command to add your MongoDB connection string, created in the [prior tutorial](/azure/app-service/tutorial-nodejs-mongodb-app?tabs=azure-portal%2Cterminal-bash%2Cvscode-deploy%2Cdeploy-instructions-azportal%2Cdeploy-zip-linux-mac%2Cdeploy-instructions--zip-azcli), as a secret named `DATABASEURL` to your key vault.
 
 ```azurecli
 az keyvault secret set \

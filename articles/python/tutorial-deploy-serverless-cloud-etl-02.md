@@ -367,7 +367,7 @@ An Azure Function App must be created to host our data ingestion function. This 
 
 * **Step 2:** Run *az functionapp config appsettings set* to store Azure Key Vault name and Azure Blob Storage access key application configurations.
 
-    ```console
+    ```azurecli
     # Update function app's settings to include Azure Key Vault environment variable.
     az functionapp config appsettings set --name CloudETLDemo --resource-group rg-cloudetl-demo --settings "KEY_VAULT_NAME=kv-cloudetl-demo"
 

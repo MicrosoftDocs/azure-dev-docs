@@ -12,7 +12,7 @@ Be sure the specified environment variables have appropriate values.
 > [!NOTE]
 > PremiumV3 and IsolatedV2 are both eligible for Reserved Instance pricing, which can reduce your costs. For more information on App Service Plan tiers and Reserved Instance pricing, see [App Service pricing](https://azure.microsoft.com/pricing/details/app-service/linux/).
 
-```bash
+```azurecli
 az group create --resource-group $resourceGroup --location eastus
 az acr create --resource-group $resourceGroup --name $acrName --sku Standard
 az appservice plan create \

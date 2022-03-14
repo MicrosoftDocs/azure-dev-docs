@@ -1,9 +1,8 @@
 ---
- author: tomarchermsft
- ms.service: ansible
- ms.topic: include
- ms.date: 04/22/2019
- ms.author: tarcher
+ms.author: tarcher
+ms.topic: include
+ms.date: 01/04/2022
+ms.custom: devx-track-ansible
 ---
 
 > [!Important]

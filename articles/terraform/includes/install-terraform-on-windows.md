@@ -1,13 +1,11 @@
 ---
-title: include file
-description: include file
-ms.topic: how-to
-ms.date: 08/07/2021
-ms.custom: devx-track-terraform
 ms.author: tarcher
+ms.topic: include
+ms.date: 01/27/2022
+ms.custom: devx-track-terraform
 ---
 
-1. [Download Terraform](https://www.terraform.io/downloads.html). This article was tested using Terraform version 1.0.3.
+1. [Download Terraform](https://www.terraform.io/downloads.html). This article was tested using Terraform version 1.1.4.
 
 1. From the download, extract the executable to a directory of your choosing (for example, `c:\terraform`).
 

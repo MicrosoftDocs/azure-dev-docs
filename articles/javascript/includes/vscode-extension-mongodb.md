@@ -25,7 +25,7 @@ Create a Cosmos resource first because this will take several minutes.
     |Select or create a resource group.|Create a new resource group named `js-demo-mongodb-web-app-resource-group-YOUR-NAME-HERE`.|
     |Location|The location of the resource. For this tutorial, select a regional location close to you.|
 
-    Creating the resource may take up to 15 minutes. You can move skip the next section if you are time-restricted but remember to back to finish this next section in a few minutes.
+    Creating the resource may take up to 15 minutes. You can skip to the next section if you are time-restricted but remember to come back to finish this section in a few minutes.
 
 ## Add firewall rule for your client IP address 
 

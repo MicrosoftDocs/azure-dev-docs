@@ -2,7 +2,7 @@
 title: "What's new with Cloud Developer Advocates"
 description: "What's new with JavaScript Cloud Developer Advocates (CDA)"
 ms.topic: how-to
-ms.date: 12/13/2021
+ms.date: 01/26/2022
 ---
 
 # What's new with JavaScript Developer Advocates
@@ -33,6 +33,43 @@ This content is primarily from Developer Advocates as well as other members of t
 |Client web apps|Comparing Azure Static Web Apps vs Azure WebApps vs Azure Blob Storage Static Sites|[Blog post](https://devblogs.microsoft.com/devops/comparing-azure-static-web-apps-vs-azure-webapps-vs-azure-blob-storage-static-sites/)|
 |Microsoft Graph|Get started with Microsoft Graph and JavaScript|[Samples](https://developer.microsoft.com/graph/get-started/javascript)|
 
+## 2022 February
+
+|Cloud Advocate|Contributions|Link|
+|--|--|--|
+|[Aysegul Yonet][Aysegul]|The AI Show - Ep 52 - Analyze unstructured docs and more with Azure Form Recognizer|[YouTube Video](https://youtu.be/YBmVAc6AlIM)|
+|[Aysegul Yonet][Aysegul]|How to use npm overrides|[Blog](https://medium.com/microsoftazure/how-to-fix-your-security-vulnerabilities-with-npm-override-c4b5be0ab4f6)|
+|[Wassim Chegham][Wassim]|12 Tips I wish I knew when I started working with Angular|[Slides](https://slides.com/wassimchegham/10-tips-i-wish-i-knew-when-i-started-using-angular-angular-world-tour)|
+|[Aysegul Yonet][Aysegul]|The AI Show - Ep 50 - Artificial Nose and 30 Days of Learn: AI Fundamentals|[YouTube Video](https://www.youtube.com/watch?v=tjDL8w1afjw)|
+|[Wassim Chegham][Wassim]|Behind the Git SHA-dow!|[dev.to Blob](https://dev.to/wassimchegham/behind-the-git-sha-dow-1pib)|
+|[Aaron Powell][Aaron]|PaaS Deployment guide for Azure|[Strapi Docs](https://docs.strapi.io/developer-docs/latest/setup-deployment-guides/deployment/hosting-guides/azure.html#paas-deployment-guides)|
+|[Glaucia Lemos][Glaucia]|Coding Stuff! JWT + Node + Mongo+ Vue Project - Video 17|**Portuguese** - [YouTube](https://youtu.be/XykcWilTg68)|
+|[Oliver Leplus][Olivier]|Azure Tips & Tricks: Static Web Apps. |**French** - [YouTube](https://www.youtube.com/watch?v=FY5syL3WdtM&list=PLbl2SbVIi-Wosee1GtXCiopNBQ6vFW2Ra)|
+|[Aaron Powell][Aaron]|OpenAPI for JavaScript/TypeScript Functions|[Blog](https://www.aaron-powell.com/posts/2022-02-08-openapi-for-javascript-azure-functions/)|
+|[Glaucia Lemos][Glaucia]|TypeScript - Zero to Hero - #37 - Demo - Switch...case|**Portuguese** - [YouTube](https://youtu.be/kaKlKebVqco)|
+|[Glaucia Lemos][Glaucia]|TypeScript - Zero to Hero - #38 - Loop for|**Portuguese** - [YouTube](https://youtu.be/KUi9FhBResg)|
+|[Glaucia Lemos][Glaucia]|TypeScript - Zero to Hero - #39 - Demo: loop for|**Portuguese** - [YouTube](https://youtu.be/-yAy5hBuW20)|
+|[Glaucia Lemos][Glaucia]|TypeScript - Zero to Hero - #40 - While/Do-while|**Portuguese** - [YouTube](https://youtu.be/01Hu8ekpnEc)|
+|[Glaucia Lemos][Glaucia]|TypeScript - Zero to Hero - #41 - Demo: while/do-while|**Portuguese** - [YouTube](https://youtu.be/h1BpPZyl8j8)|
+
+## 2022 January
+
+|Cloud Advocate|Contributions|Link|
+|--|--|--|
+|[Aysegul Yonet][Aysegul]|AI Show: Semantic Search and Speech updates|[Video](/shows/ai-show/updates-to-semantic-search-and-speech-and-more-from-aysegul-and-bea?WT.mc_id=js-8567-ayyonet) and [GitHub](https://github.com/aiadvocates/AzureSpeechReactSample)|
+|[Aysegul Yonet][Aysegul]|Mixed Reality with Cognitive services, Speech|[Docs](https://yonet.gitbook.io/mixed-reality-docs/ai-lessons/speech)|
+|[Aysegul Yonet][Aysegul]|Intelligent Kiosk for Web - AI Playground|[GitHub](https://github.com/aiadvocates/AIPlayground)|
+|[Glaucia Lemos][Glaucia]|Coding Stuff! JWT + Node + Mongo+ Vue Project - Video 16|**Portuguese** - [YouTube](https://youtu.be/hQaDG-oZQ_g)|
+|[Glaucia Lemos][Glaucia]|Coding Stuff! JWT + Node + Mongo+ Vue Project - Video 17|**Portuguese** - [YouTube](https://youtu.be/XykcWilTg68)|
+|[Glaucia Lemos][Glaucia]|Coding Stuff! JWT + Node + Mongo+ Vue Project - Video 18|**Portuguese** - [YouTube](https://youtu.be/TmGnuRhX_hI)|
+|[Aaron Powell][Aaron]|Web Wednesday - GraphQL and TypeScript|[GitHub](https://www.youtube.com/watch?v=WjFspnutTtI)|
+|[Yohan Lasorsa][Yohan]|Raspberry Pi usage in my mobile studio setup. |[RaspberryPi](https://www.youtube.com/watch?v=x3sQu31jGu4)|
+|[Glaucia Lemos][Glaucia]|TypeScript - Zero to Hero - #34 - If...else|**Portuguese** - [YouTube](https://youtu.be/sU9miGUUJrI)|
+|[Glaucia Lemos][Glaucia]|TypeScript - Zero to Hero - #35 - Demo: If...else|**Portuguese** - [YouTube](https://youtu.be/_KkjHVo4x_M)|
+|[Glaucia Lemos][Glaucia]|TypeScript - Zero to Hero - #36 - Switch...case|**Portuguese** - [YouTube](https://youtu.be/-rUHKfnbq7g)|
+|[Glaucia Lemos][Glaucia]|Cloud & AI Study Groups |**English, Spanish, Portuguese** - [YouTube](https://github.com/cyz/skilling)|
+
+
 ## 2021 December
 
 |Cloud Advocate|Contributions|Link|
@@ -42,6 +79,7 @@ This content is primarily from Developer Advocates as well as other members of t
 |[Glaucia Lemos][Glaucia]|TypeScript - Zero to Hero #32 - Type Object|**Portuguese** - [YouTube](https://youtu.be/0cxJ1RQ7Gv0)|
 |[Glaucia Lemos][Glaucia]|TypeScript - Zero to Hero #33 - Type Object|**Portuguese** - [YouTube](https://youtu.be/WNp44xb1M_s)|
 |[Aaron Powell][Aaron]|GRAPHQL ON AZURE: PART 8 - LOGGING|[Blog](https://www.aaron-powell.com/posts/2021-12-07-graphql-on-azure-part-8-logging/)|
+|[Aaron Powell][Aaron]|OpenAPI for Azure Functions: an extension for Azure Functions to generate OpenAPI spec files from annotated Azure Functions.|[GitHub](https://github.com/aaronpowell/azure-functions-nodejs-openapi)|
 
 ## 2021 November
 
@@ -238,3 +276,4 @@ This content is primarily from Developer Advocates as well as other members of t
 [Anthony]:https://twitter.com/nthonyChu
 [Nitya]:https://twitter.com/nitya/
 [Jen]: https://twitter.com/jenlooper
+[Aysegul]: https://twitter.com/AysSomething

@@ -10,7 +10,7 @@ ms.prod: azure-mobile-apps
 
 To deploy the quickstart service, first login to Azure with the Azure CLI:
 
-```bash
+```azurecli
 az login
 ```
 
@@ -22,7 +22,7 @@ If necessary, [select a subscription](/cli/azure/manage-azure-subscriptions-azur
 
 Type the following to create a resource group:
 
-```bash
+```azurecli
 az group create -l westus -n zumo-quickstart
 ```
 
@@ -41,14 +41,14 @@ The Azure SQL database is the only resource that incurs cost.  For details, see 
 
 To deploy the resources, type the following commands:
 
-```bash
+```azurecli
 cd samples/nodejs
 az deployment group create -n ZumoQuickstart -g zumo-quickstart --template-file ./azuredeploy.json
 ```
 
 Once complete, run the following command to see the outputs:
 
-```bash
+```azurecli
 az deployment group show -n ZumoQuickstart -g zumo-quickstart --query properties.outputs
 ```
 
@@ -56,7 +56,7 @@ This command shows information about your deployment that you need in developing
 
 Finally, deploy the Azure Mobile Apps server to the created App Service:
 
-```bash
+```azurecli
 az webapp deployment source config-zip -g zumo-quickstart --name zumo-XXXXXXXX --src ./zumoserver.zip
 ```
 

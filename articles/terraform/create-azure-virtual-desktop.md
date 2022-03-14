@@ -43,14 +43,16 @@ provider "azurerm" {
   features {}
 }
 ```
+
 The following section creates a resource group in the location:
 
 ```hcl
-resource "azurerm_resource_group" "<rg>" {
-  name = "<resource_group_name>"
-  location = "<location>"
+resource "azurerm_resource_group" "rg" {
+  name = var.rg_name
+  location = var.deploy_location
 }
 ```
+
 In other sections, you reference the resource group with `azurerm_resource_group.rg.name`.
 
 ```hcl
@@ -60,57 +62,59 @@ resource "time_rotating" "token" {
 ```
 
 ## 3. Create Azure Virtual Desktop workspace
+
 ```hcl
-resource "azurerm_virtual_desktop_workspace" "<example>" {
-  name                = "<workspace name>"
+resource "azurerm_virtual_desktop_workspace" "workspace" {
+  name                = var.workspace
   resource_group_name = azurerm_resource_group.rg.name
-  location            = azurerm_resource_group.rg.location
-  friendly_name       = "<Workspace Friendly Name>"
-  description         = "<A description of my workspace>"
+  location            = var.deploy_location
+  friendly_name       = "${var.prefix} Workspace"
+  description         = "${var.prefix} Workspace"
 }
 ```
-## 4. Create Azure Virtual Desktop host pool
-```hcl
-resource "azurerm_virtual_desktop_host_pool" "example" {
-  resource_group_name      = azurerm_resource_group.rg.name
-  name                     = "<hostpoolname>"
-  description              = "<A description for host pool>
-  location                 = azurerm_resource_group.rg.location
-  validate_environment     = <false> #[true false]
-  type                     = "<Pooled>" #[Pooled Personal]
-  maximum_sessions_allowed = <MaxSessionLimit> 
-  load_balancer_type       = "<BreadthFirst>" #[BreadthFirst DepthFirst]
-  friendly_name            = "<AVDHostPoolFriendlyName>"
-  custom_rdp_properties    = "audiocapturemode:i:1;audiomode:i:0;"
-  preferred_app_group_type = "<Desktop>" #[Desktop RemoteApp]
-  start_vm_on_connect      = "true"
-  tags = {
-    "<image>" = "<month>"
-  }
 
+## 4. Create Azure Virtual Desktop host pool
+
+```hcl
+resource "azurerm_virtual_desktop_host_pool" "hostpool" {
+  resource_group_name      = azurerm_resource_group.rg.name
+  name                     = var.hostpool
+  description              = var.hostpool
+  location                 = var.deploy_location
+  validate_environment     = false #[true false]
+  type                     = "Pooled" #[Pooled Personal]
+  maximum_sessions_allowed = 16 
+  load_balancer_type       = "DepthFirst" #[BreadthFirst DepthFirst]
+  friendly_name            = var.hostpool
+  custom_rdp_properties    = "audiocapturemode:i:1;audiomode:i:0;"
+  preferred_app_group_type = "Desktop" #[Desktop RemoteApp]
+  start_vm_on_connect      = "true"
+  
   registration_info {
     expiration_date = time_rotating.token.rotation_rfc3339
   }
 }
 ```
+
 ## 5. Create Desktop Application Group
 
 ```hcl
-resource "azurerm_virtual_desktop_application_group" "example" {
+resource "azurerm_virtual_desktop_application_group" "dag" {
   resource_group_name = azurerm_resource_group.rg.name
-  host_pool_id        = azurerm_virtual_desktop_host_pool.example.id
-  location            = azurerm_resource_group.rg.location
-  type                = "<Desktop>"
-  name                = "<DAGname>"
-  friendly_name       = "<AppGroupName>"
-  description         = "<application group description>"
-  depends_on          = [azurerm_virtual_desktop_host_pool.example]
+  host_pool_id        = azurerm_virtual_desktop_host_pool.hostpool.id
+  location            = var.deploy_location
+  type                = "Desktop"
+  name                = "${var.prefix}-dag"
+  friendly_name       = "Desktop AppGroup"
+  description         = "AVD application group"
+  depends_on          = [azurerm_virtual_desktop_host_pool.hostpool, azurerm_virtual_desktop_workspace.workspace]
 }
 ```
 
 ## 6. Associate Workspace and Desktop Application Group
+
 ```hcl
-resource "azurerm_virtual_desktop_workspace_application_group_association" "example" {
+resource "azurerm_virtual_desktop_workspace_application_group_association" "ws-dag" {
   application_group_id = azurerm_virtual_desktop_application_group.example.id
   workspace_id         = azurerm_virtual_desktop_workspace.example.id
 }
@@ -118,6 +122,7 @@ resource "azurerm_virtual_desktop_workspace_application_group_association" "exam
 ```
 
 ## 7. Implement the Terraform code
+
 To bring all these sections together and see Terraform in action, create a directory in which to test and run the sample Terraform code and make it the current directory.
 
 1. Create a file named `main.tf` and insert the following code:
@@ -136,7 +141,7 @@ provider "azurerm" {
 }
 
 # Create AVD Resource Group
-resource "azurerm_resource_group" "<rg>" {
+resource "azurerm_resource_group" "rg" {
   name     = var.rg_name
   location = var.deploy_location
 }
@@ -146,53 +151,50 @@ resource "time_rotating" "avd_token" {
 }
 
 # Create AVD workspace
-resource "azurerm_virtual_desktop_workspace" "<example>" {
+resource "azurerm_virtual_desktop_workspace" "workspace" {
   name                = var.workspace
-  resource_group_name = azurerm_resource_group.<rg>.name
+  resource_group_name = azurerm_resource_group.rg.name
   location            = var.deploy_location
-  friendly_name       = "<AVD Workspace>"
-  description         = "<AVD Workspace>"
+  friendly_name       = "${var.prefix} Workspace"
+  description         = "${var.prefix} Workspace"
 }
 
 # Create AVD host pool
-resource "azurerm_virtual_desktop_host_pool" "<example>" {
-  resource_group_name      = azurerm_resource_group.<rg>.name
+resource "azurerm_virtual_desktop_host_pool" "hostpool" {
+  resource_group_name      = azurerm_resource_group.rg.name
   name                     = var.hostpool
-  description              = "<A description for host pool>
+  description              = var.hostpool
   location                 = var.deploy_location
-  validate_environment     = <false> #[true false]
-  type                     = "<Pooled>" #[Pooled Personal]
-  maximum_sessions_allowed = <16> 
-  load_balancer_type       = "<BreadthFirst>" #[BreadthFirst DepthFirst]
-  friendly_name            = "<AVDHostPoolFriendlyName>"
+  validate_environment     = false #[true false]
+  type                     = "Pooled" #[Pooled Personal]
+  maximum_sessions_allowed = 16 
+  load_balancer_type       = "DepthFirst" #[BreadthFirst DepthFirst]
+  friendly_name            = var.hostpool
   custom_rdp_properties    = "audiocapturemode:i:1;audiomode:i:0;"
-  preferred_app_group_type = "<Desktop>" #[Desktop RemoteApp]
+  preferred_app_group_type = "Desktop" #[Desktop RemoteApp]
   start_vm_on_connect      = "true"
-  tags = {
-    "<image>" = "<month>"
   }
 
   registration_info {
     expiration_date = time_rotating.token.rotation_rfc3339
   }
-}
 
 # Create AVD DAG
-resource "azurerm_virtual_desktop_application_group" "<example>" {
-  resource_group_name = azurerm_resource_group.<rg>.name
-  host_pool_id        = azurerm_virtual_desktop_host_pool.<example>.id
-  location            = azurerm_resource_group.<rg>.location
-  type                = "<Desktop>"
-  name                = "<DAGname>"
-  friendly_name       = "<AppGroupName>"
-  description         = "<application group description>"
-  depends_on          = [azurerm_virtual_desktop_host_pool.<example> azurerm_virtual_desktop_workspace.<example>]
+resource "azurerm_virtual_desktop_application_group" "dag" {
+  resource_group_name = azurerm_resource_group.rg.name
+  host_pool_id        = azurerm_virtual_desktop_host_pool.hostpool.id
+  location            = var.deploy_location
+  type                = "Desktop"
+  name                = "${var.prefix}-dag"
+  friendly_name       = "Desktop AppGroup"
+  description         = "AVD application group"
+  depends_on          = [azurerm_virtual_desktop_host_pool.hostpool, azurerm_virtual_desktop_workspace.workspace]
 }
 
 # Associate Workspace and DAG
-resource "azurerm_virtual_desktop_workspace_application_group_association" "<example>" {
-  application_group_id = azurerm_virtual_desktop_application_group.<example>.id
-  workspace_id         = azurerm_virtual_desktop_workspace.<example>.id
+resource "azurerm_virtual_desktop_workspace_application_group_association" "ws-dag" {
+  application_group_id = azurerm_virtual_desktop_application_group.example.id
+  workspace_id         = azurerm_virtual_desktop_workspace.example.id
 }
 ```
 
@@ -240,5 +242,5 @@ Once Terraform completes, your VM infrastructure is ready. Obtain the public IP 
 
 ## Next steps
 
-> [!div class="nextstepaction"] 
+> [!div class="nextstepaction"]
 > [Learn more about Configuring Azure Virtual Desktop session hosts using Terraform in Azure](/articles/terraform/create-avd-session-host.md)

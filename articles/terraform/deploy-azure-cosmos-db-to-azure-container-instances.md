@@ -2,7 +2,7 @@
 title: Deploy an Azure Cosmos DB to Azure Container Instances
 description: Learn how to use Terraform to deploy an Azure Cosmos DB to Azure Container Instances
 ms.topic: how-to
-ms.date: 08/07/2021
+ms.date: 01/04/2022
 ms.custom: devx-track-terraform
 ---
 
@@ -119,7 +119,7 @@ This section shows how to update the configuration to include an Azure Container
 
       container {
         name   = "vote-aci"
-        image  = "microsoft/azure-vote-front:cosmosdb"
+        image  = "mcr.microsoft.com/azuredocs/azure-vote-front:cosmosd"
         cpu    = "0.5"
         memory = "1.5"
         ports {

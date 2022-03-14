@@ -34,7 +34,7 @@ The `Dockerfile` describes the environment for your app including the location o
 
 1. Once completed, the **Terminal** panel of Visual Studio Code opens to run the `docker build` command. The output also shows each step, or layer, that makes up the app environment.
 
-1. Once built, the image appears in the **DOCKER** explorer under **Images**, named `jse2eexpressserver`.
+1. Once built, the image appears in the **Docker Explorer** under **Images**, named `jse2eexpressserver`.
    
 ## Modify build task to include tag
 

@@ -13,13 +13,13 @@ zone_pivot_groups: postgres-server-options
 
 ::: zone pivot="postgres-single-server"
 
-Using the Azure portal, you can deploy a data-driven Python [Django](https://www.djangoproject.com/) web app to [Azure App Service](/azure/app-service/overview#app-service-on-linux) and connect it to an [Azure Database for PostgreSQL](/azure/postgresql/) database. You can start with a free pricing tier that can be scaled up at any later time. You can also try the PostgresSQL Flexible Server (Preview) by selecting the option above. Flexible Server provides a simpler deployment mechanism and lower ongoing costs.
+Using the Azure portal, you can deploy a data-driven Python [Django](https://www.djangoproject.com/) web app to [Azure App Service](/azure/app-service/overview#app-service-on-linux) and connect it to an [Azure Database for PostgreSQL](/azure/postgresql/) database. You can start with a free pricing tier that can be scaled up at any later time. You can also try the PostgresSQL Flexible Server by selecting the option above. Flexible Server provides a simpler deployment mechanism and lower ongoing costs.
 
 ::: zone-end
 
 ::: zone pivot="postgres-flexible-server"
 
-Using the Azure portal, you can deploy a data-driven Python [Django](https://www.djangoproject.com/) web app to [Azure App Service](/azure/app-service/overview#app-service-on-linux) and connect it to an [Azure Database for PostgreSQL Flexible Server (Preview)](/azure/postgresql/flexible-server) database. You can start with a free pricing tier that can be scaled up at any later time. If you cannot use PostgreSQL Flexible Server (Preview), then select the Single Server option above.
+Using the Azure portal, you can deploy a data-driven Python [Django](https://www.djangoproject.com/) web app to [Azure App Service](/azure/app-service/overview#app-service-on-linux) and connect it to an [Azure Database for PostgreSQL Flexible Server](/azure/postgresql/flexible-server) database. You can start with a free pricing tier that can be scaled up at any later time. If you cannot use PostgreSQL Flexible Server, then select the Single Server option above.
 
 ::: zone-end
 
@@ -84,7 +84,7 @@ You create a fork of this repository so you can make changes and redeploy the co
     | --- | --- |
     | Subscription | Select the subscription you want to use if different from the default. |
     | Resource group | Select **Create new** and enter "DjangoPostgres-Tutorial-rg". |
-    | Server name | A name for the database server that's unique across all Azure (the database server's URL becomes `https://<server-name>.postgres.database.azure.com`). Allowed characters are `A`-`Z`, `0`-`9`, and `-`. A good pattern is to use a combination of your company name and and server identifier. |
+    | Server name | A name for the database server that's unique across all Azure (the database server's URL becomes `https://<server-name>.postgres.database.azure.com`). Allowed characters are `A`-`Z`, `0`-`9`, and `-`. A good pattern is to use a combination of your company name and server identifier. |
     | Data source | **None** |
     | Location | Select a location near you. |
     | Version | Keep the default (which is the latest version). |
@@ -107,7 +107,7 @@ You create a fork of this repository so you can make changes and redeploy the co
 
 1. Search for and select **Azure Database for PostgreSQL flexible servers**, then select **Create**.
 
-1. On the next page, go to the **Flexible server (Preview)** box and select **Create**.
+1. On the next page, go to the **Flexible server** box and select **Create**.
 
 1. On the **Single server** page, enter the following information:
 
@@ -115,7 +115,7 @@ You create a fork of this repository so you can make changes and redeploy the co
     | --- | --- |
     | Subscription | Select the subscription you want to use if different from the default. |
     | Resource group | Select **Create new** and enter "DjangoPostgres-Tutorial-rg". |
-    | Server name | A name for the database server that's unique across all Azure (the database server's URL becomes `https://<server-name>.postgres.database.azure.com`). Allowed characters are `A`-`Z`, `0`-`9`, and `-`. A good pattern is to use a combination of your company name and and server identifier. |
+    | Server name | A name for the database server that's unique across all Azure (the database server's URL becomes `https://<server-name>.postgres.database.azure.com`). Allowed characters are `A`-`Z`, `0`-`9`, and `-`. A good pattern is to use a combination of your company name and server identifier. |
     | Region | Select a location near you. |
     | Workload type | **Development** if you're just experimenting, otherwise an appropriate **Production** option. |
     | Compute + Storage | Leave set to the default, **Burstable, B1ms**, which is the least expensive option, unless you want higher performance. |
@@ -287,7 +287,7 @@ With the database and connection settings in place, you can now configure the we
 
 1. In the browser window or tab for the web app, select **Deployment Center** (under **Deployment** on the left side).
 
-1. In the **Source** control, select **GitHub** and then **Authorize** (if necessary). Then follow the sign-in prompts or select **Continue** to use your current GitHub login.
+1. In the **Source** control, select **GitHub** and then **Authorize** (if necessary). Then follow the sign in prompts or select **Continue** to use your current GitHub login.
 
     If you see a popup window that says authentication succeeded, but the portal still shows the Authorize button, refresh the page and your GitHub login should appear in the GitHub box. Select the GitHub box again, then select **Continue**.
 

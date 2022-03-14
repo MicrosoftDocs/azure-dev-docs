@@ -2,7 +2,7 @@
 title: Use JavaScript on Azure PostgreSQL
 description: To create or move your PostgreSQL database to Azure, you need a PostgreSQL resource. 
 ms.topic: how-to
-ms.date: 02/8/2021
+ms.date: 02/8/2022
 ms.custom: devx-track-js
 ---
 
@@ -14,10 +14,41 @@ To create, move, or use a PostgreSQL database to Azure, you need an **Azure Data
 
 Create a resource with:
 
-* [Azure CLI](../with-azure-cli/create-postgresql-server-resource.md)
+* [Azure CLI command](/cli/azure/postgres/server#az-postgres-server-create) = `az postgres server create`
 * [Visual Studio Code](../with-visual-studio-code/create-azure-database.md#create-a-postgresql-database)
 * [Azure portal](https://ms.portal.azure.com/#create/Microsoft.PostgreSQLServer)
 * [@azure/arm-postgresql](https://www.npmjs.com/package/@azure/arm-postgresql)
+
+## Get the postgresql connection string with Azure cli
+
+Use the following command to get the PostgreSQL connection string using the [az postgres server key show](/cli/azure/postgres/server/key#az-postgres-server-key-show):
+
+```azurecli
+az postgres show-connection-string 
+```
+
+This returns the formats to build the connection string. You still need to know the server name, database name, admin account, and password:
+
+```json
+{
+  "connectionStrings": {
+    "ado.net": "Server={server}.postgres.database.azure.com;Database={database};Port=5432;User Id={login}@{server};Password={password};",
+    "jdbc": "jdbc:postgresql://{server}.postgres.database.azure.com:5432/{database}?user={login}@{server}&password={password}",
+    "jdbc Spring": "spring.datasource.url=jdbc:postgresql://{server}.postgres.database.azure.com:5432/{database}  spring.datasource.username={login}@{server}  spring.datasource.password={password}",
+    "node.js": "var client = new pg.Client('postgres://{login}@{server}:{password}@{server}.postgres.database.azure.com:5432/{database}');",
+    "php": "host={server}.postgres.database.azure.com port=5432 dbname={database} user={login}@{server} password={password}",
+    "psql_cmd": "psql --host={server}.postgres.database.azure.com --port=5432 --username={login}@{server} --dbname={database}",
+    "python": "cnx = psycopg2.connect(database='{database}', user='{login}@{server}', host='{server}.postgres.database.azure.com', password='{password}', port='5432')",
+    "ruby": "cnx = PG::Connection.new(:host => '{server}.postgres.database.azure.com', :user => '{login}@{server}', :dbname => '{database}', :port => '5432', :password => '{password}')",
+    "webapp": "Database={database}; Data Source={server}.postgres.database.azure.com; User Id={login}@{server}; Password={password}"
+  },
+  "host": "{server}.postgres.database.azure.com",
+  "password": {
+    "isDefault": true
+  },
+  "username": "{login}@{server}"
+}
+```
 
 ## View and use your PostgreSQL server on Azure
 While developing your PostgreSQL database with JavaScript, use one of the following tools:

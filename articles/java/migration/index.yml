@@ -59,6 +59,8 @@ landingContent:
             url: migrate-weblogic-with-app-gateway.md
           - text: "Tutorial: WebLogic with Elastic on Azure"
             url: migrate-weblogic-with-elk.md
+          - text: WebLogic to JBoss EAP on App Service
+            url: migrate-weblogic-to-jboss-eap-on-azure-app-service.md
   - title: Migrate WildFly to Azure
     linkLists:
       - linkListType: how-to-guide
@@ -71,6 +73,8 @@ landingContent:
         links:
           - text: WebSphere to WildFly on AKS
             url: migrate-websphere-to-wildfly-on-azure-kubernetes-service.md
+          - text: WebSphere to JBoss EAP on App Service
+            url: migrate-websphere-to-jboss-eap-on-azure-app-service.md
   - title: Migrate JBoss EAP to Azure
     linkLists:
       - linkListType: how-to-guide

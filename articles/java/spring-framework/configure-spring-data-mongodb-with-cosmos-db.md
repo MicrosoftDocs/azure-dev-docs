@@ -36,7 +36,7 @@ The following prerequisites are required in order to complete the steps in this 
 
    ![Azure portal, create a resource, search for Azure Cosmos DB.][COSMOSDB01]
 
-1. On the **Select API option** screen, select **Azure CosmosDB API for MongoDB**.
+1. On the **Select API option** screen, select **Azure Cosmos DB API for MongoDB**.
 
    ![Azure portal, create a resource, select API option, Azure Cosmos DB API for MongoDB selected.][COSMOSDB02]
 

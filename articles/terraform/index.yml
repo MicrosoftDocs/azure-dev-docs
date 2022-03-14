@@ -124,15 +124,35 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Deploy Azure Virtual Desktop
+          - text: 1. Deploy Azure Virtual Desktop
             url: create-azure-virtual-desktop.md
-          - text: Azure Virtual Desktop Session Host
+          - text: 2. Azure Virtual Desktop Session Host
             url: create-avd-session-host.md
-          - text: Azure Virtual Desktop RBAC
+          - text: 3. Azure Virtual Desktop RBAC
             url: create-avd-rbac.md
+
+# Card
+  - title: Storage
+    linkLists:
+      - linkListType: how-to-guide
+        links:
           - text: Azure Files
             url: create-azure-files-storage.md
+
+# Card
+  - title: Compute Gallery
+    linkLists:
+      - linkListType: how-to-guide
+        links:
           - text: Azure Compute Gallery
             url: create-azure-shared-image-gallery.md
+
+# Card
+  - title: Log Analytics Workspace
+    linkLists:
+      - linkListType: how-to-guide
+        links:
           - text: Log Analytics Workspace
             url: create-azure-log-analytics-workspace.md  
+          - text: Deploy a PostgreSQL Flexible Server Database
+            url: deploy-postgresql-flexible-server-database.md

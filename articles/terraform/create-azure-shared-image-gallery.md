@@ -22,9 +22,11 @@ In this article, you learn how to:
 
 [!INCLUDE [configure-terraform.md](includes/configure-terraform.md)]
 
-## 2. Define providers and create resource group
+## 2. Implement the Terraform code
 
-The following code defines the Azure Terraform provider:
+Create a directory in which to test and run the sample Terraform code and make it the current directory.
+
+1. Create a file named `main.tf` and insert the following code:
 
 ```hcl
 terraform {
@@ -38,94 +40,37 @@ terraform {
 provider "azurerm" {
   features {}
 }
-```
-The following section creates a resource group in the location:
 
-```hcl
-resource "azurerm_resource_group" "<rg>" {
-  location = var.location
-  name     = "${var.prefix}-rg"
-}
-```
-
-In other sections, you reference the resource group with `azurerm_resource_group.<rg>.name`.
-
-## 3. Configure Azure Compute Gallery formerly Shared Image Gallery
-
-```hcl
-resource "azurerm_shared_image_gallery" "<sig>" {
-  name                = "<AVDsig>"
-  resource_group_name = azurerm_resource_group.<rg>.name
-  location            = azurerm_resource_group.<rg>.location
-  description         = "<Shared images and things>"
-
-  tags = {
-    Environment = "<Demo>"
-    Tech        = "<Terraform>"
-  }
-}
-```
-
-## 4. Configure an Image Definition
-
-```hcl
-
-resource "azurerm_shared_image" "<example>" {
-  name                = "<avd-image>"
-  gallery_name        = azurerm_shared_image_gallery.<sig>.name
-  resource_group_name = azurerm_resource_group.<rg>.name
-  location            = azurerm_resource_group.<rg>.location
-  os_type             = "<Windows>"
-
-  identifier {
-    publisher = "<MicrosoftWindowsDesktop>"
-    offer     = "<office-365>"
-    sku       = "<20h2-evd-o365pp>"
-  }
-}
-```
-
-## 5. Implement the Terraform code
-
-To bring all these sections together and see Terraform in action, create a directory in which to test and run the sample Terraform code and make it the current directory.
-
-1. Create a file named `main.tf` and insert the following code:
-
-```hcl
-provider "azurerm" {
-  features {}
-}
-
-resource "azurerm_resource_group" "<rg>" {
-  location = var.location
+resource "azurerm_resource_group" "sigrg" {
+  location = var.deploy_location
   name     = "${var.prefix}-rg"
 }
 
 
 ## Created Azure Compute Gallery formerly Shared Image Gallery
-resource "azurerm_shared_image_gallery" "<sig>" {
-  name                = "<AVDsig>"
-  resource_group_name = azurerm_resource_group.<rg>.name
-  location            = azurerm_resource_group.<rg>.location
-  description         = "<Shared images and things>"
+resource "azurerm_shared_image_gallery" "sig" {
+  name                = "AVDsig"
+  resource_group_name = azurerm_resource_group.sigrg.name
+  location            = azurerm_resource_group.sigrg.location
+  description         = "Shared images"
 
   tags = {
-    Environment = "<Demo>"
-    Tech        = "<Terraform>"
+    Environment = "Demo"
+    Tech        = "Terraform"
   }
 }
 
-resource "azurerm_shared_image" "<example>" {
-  name                = "<avd-image>"
-  gallery_name        = azurerm_shared_image_gallery.<sig>.name
-  resource_group_name = azurerm_resource_group.<rg>.name
-  location            = azurerm_resource_group.<rg>.location
-  os_type             = "<Windows>"
+resource "azurerm_shared_image" "example" {
+  name                = "avd-image"
+  gallery_name        = azurerm_shared_image_gallery.sig.name
+  resource_group_name = azurerm_resource_group.sigrg.name
+  location            = azurerm_resource_group.sigrg.location
+  os_type             = "Windows"
 
   identifier {
-    publisher = "<MicrosoftWindowsDesktop>"
-    offer     = "<office-365>"
-    sku       = "<20h2-evd-o365pp>"
+    publisher = "MicrosoftWindowsDesktop"
+    offer     = "office-365"
+    sku       = "20h2-evd-o365pp"
   }
 }
 ```

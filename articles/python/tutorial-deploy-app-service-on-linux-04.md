@@ -95,7 +95,7 @@ If you use any of the following variations, then your custom startup command mus
 
 ## Startup commands for other frameworks and web servers
 
-The App Service container that runs Python apps has Django and Flask installed by default, along with the gunicorn web server.
+The App Service container that runs Python apps has Django and Flask installed by default, along with the Gunicorn web server.
 
 To use a framework other than Django or Flask (such as Falcon, FastAPI, etc.), or to use a different web server, do the following:
 
@@ -103,7 +103,7 @@ To use a framework other than Django or Flask (such as Falcon, FastAPI, etc.), o
 
 - In your startup command, identify the WSGI callable as described in the [previous section for Flask](#flask-startup-commands).
 
-- To launch a web server other than gunicorn, use a `python -m` command instead of invoking the server directly. For example, the following command starts the uvicorn server, assuming that the WSGI callable is named `app` and is found in *application.py*:
+- To launch a web server other than Gunicorn, use a `python -m` command instead of invoking the server directly. For example, the following command starts the uvicorn server, assuming that the WSGI callable is named `app` and is found in *application.py*:
 
     ```sh
     python -m uvicorn application:app --host 0.0.0.0

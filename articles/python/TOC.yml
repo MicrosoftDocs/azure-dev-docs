@@ -41,7 +41,7 @@
   - name: Static websites
     href: how-to-create-static-sites.md
   - name: Set up CI/CD
-    href: /azure/devops/pipelines/languages/python-webapp
+    href: /azure/devops/pipelines/ecosystems/python-webapp
   - name: Configure the Linux host
     href: /azure/app-service/configure-language-python
   - name: Add sign in

@@ -3,9 +3,11 @@ title: Migrate Spring Cloud applications to Azure Spring Cloud
 description: This guide describes what you should be aware of when you want to migrate an existing Spring Cloud application to run on Azure Spring Cloud.
 ms.author: karler
 ms.topic: conceptual
-ms.date: 2/12/2020
+ms.date: 02/09/2022
 ms.custom: devx-track-java
 recommendations: false
+zone_pivot_group_filename: java/java-zone-pivot-groups.json
+zone_pivot_groups: spring-cloud-tier-selection
 ---
 
 # Migrate Spring Cloud applications to Azure Spring Cloud
@@ -140,6 +142,8 @@ If a setting like this appears in your application configuration, remove it. Azu
 
 Provision an Azure Spring Cloud instance in your Azure subscription. Then, provision an app for every service you're migrating. Don't include the Spring Cloud registry and configuration servers. Do include the Spring Cloud Gateway service. For instructions, see [Quickstart: Deploy your first application to Azure Spring Cloud](/azure/spring-cloud/quickstart).
 
+::: zone pivot="sc-standard-tier"
+
 ### Prepare the Spring Cloud Config server
 
 Configure the configuration server in your Azure Spring Cloud instance. For more information, see [Set up a Spring Cloud Config Server instance for your service](/azure/spring-cloud/how-to-config-server).
@@ -150,6 +154,50 @@ Configure the configuration server in your Azure Spring Cloud instance. For more
 [!INCLUDE [ensure-console-logging-and-configure-diagnostic-settings-azure-spring-cloud](includes/ensure-console-logging-and-configure-diagnostic-settings-azure-spring-cloud.md)]
 
 [!INCLUDE [configure-persistent-storage-azure-spring-cloud](includes/configure-persistent-storage-azure-spring-cloud.md)]
+
+::: zone-end
+
+::: zone pivot="sc-enterprise-tier"
+
+### VMware Tanzu components
+
+In Enterprise tier, Application Configuration Service for VMware Tanzu® is provided to support externalized configuration for your apps. Managed Spring Cloud Config Server isn't available in Enterprise tier and is only available in Standard and Basic tier of Azure Spring Cloud.
+
+#### Application Configuration Service for Tanzu
+
+[Application Configuration Service for Tanzu](https://docs.pivotal.io/tcs-k8s/0-1/) is one of the commercial VMware Tanzu components. Application Configuration Service for Tanzu is Kubernetes-native, and totally different from Spring Cloud Config Server. Application Configuration Service for Tanzu enables the management of Kubernetes-native ConfigMap resources that are populated from properties defined in one or more Git repositories.
+
+In Enterprise tier, there's no Spring Cloud Config Server, but you can use Application Configuration Service for Tanzu to manage centralized configurations. For more information, see [Use Application Configuration Service for Tanzu](/azure/spring-cloud/how-to-enterprise-application-configuration-service)
+
+To use Application Configuration Service for Tanzu, do the following steps for each of your apps:
+
+1. Add an explicit app binding to declare that your app needs to use Application Configuration Service for Tanzu.
+
+   > [!NOTE]
+   > When you change the bind/unbind status, you must restart or redeploy the app to make the change take effect.
+
+1. Set config file patterns. Config file patterns enable you to choose which application and profile the app will use. For more information, see the [Pattern](/azure/spring-cloud/how-to-enterprise-application-configuration-service#pattern) section of [Use Application Configuration Service for Tanzu](/azure/spring-cloud/how-to-enterprise-application-configuration-service).
+
+   Another option is to set the config file patterns at the same time as your app deployment, as shown in the following example:
+
+   ```azurecli
+      az spring-cloud app deploy \
+          --name <app-name> \
+          --artifact-path <path-to-your-JAR-file> \
+          --config-file-pattern <config-file-pattern>
+   ```
+
+Application Configuration Service for Tanzu runs on Kubernetes. To help enable a transparent local development experience, we provide the following suggestions.
+
+* If you already have a Git repository to store your externalized configuration, you can set up Spring Cloud Config Server locally as the centralized configuration for your application. After Config Server starts, it will clone the Git repository and provide the repository content through its web controller. For more information, see [Spring Cloud Config](https://cloud.spring.io/spring-cloud-config/reference/html) in the Spring documentation. The `spring-cloud-config-client` provides the ability for your application to automatically pick up the external configuration from the Config Server.
+
+* If you don't have a Git repository or you don't want to set up Config Server locally, you can use the configuration file directly in your project. We recommend that you use a profile to isolate the configuration file so that it's used only in your development environment. For example, use `dev` as the profile. Then, you can create an *application-dev.yml* file in the *src/main/resource* folder to store the configuration. To get your app to use this configuration, start the app locally with `--spring.profiles.active=dev`.
+
+#### Tanzu Service Registry
+
+[VMware Tanzu® Service Registry](https://docs.vmware.com/en/Spring-Cloud-Services-for-VMware-Tanzu/index.html) is one of the commercial VMware Tanzu components. Tanzu Service Registry provides your Enterprise-tier apps with an implementation of the Service Discovery pattern, one of the key tenets of a microservice-based architecture. Your apps can use Tanzu Service Registry to dynamically discover and call registered services. Using Tanzu Service Registry is preferable to hand-configuring each client of a service, which can be difficult, or adopting some form of access convention, which can be brittle in production. For more information, see [Use Tanzu Service Registry](/azure/spring-cloud/how-to-enterprise-service-registry).
+
+::: zone-end
 
 ### Migrate Spring Cloud Vault secrets to Azure KeyVault
 
@@ -176,7 +224,7 @@ Remove any metrics clients used or any metrics endpoints exposed in your applica
 
 ### Deploy the services
 
-Deploy each of the migrated microservices (not including the Spring Cloud Config and Registry servers), as described in [Quickstart: Deploy your first application to Azure Spring Cloud](/azure/spring-cloud/quickstart).
+Deploy each of the migrated Spring apps (not including the Spring Cloud Config and Registry servers), as described in [Quickstart: Deploy your first application to Azure Spring Cloud](/azure/spring-cloud/quickstart).
 
 ### Configure per-service secrets and externalized settings
 

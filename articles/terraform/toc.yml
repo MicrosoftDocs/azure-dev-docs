@@ -63,6 +63,8 @@
       items:
         - name: Azure Cosmos DB
           href: deploy-azure-cosmos-db-to-azure-container-instances.md
+        - name: PostgreSQL Flexible Server Database
+          href: deploy-postgresql-flexible-server-database.md
     - name: Networks
       items:
       - name: Azure Network Watcher

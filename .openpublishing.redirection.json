@@ -1,6 +1,106 @@
 {
     "redirections": [
       {
+        "source_path": "articles/javascript/tutorial-vscode-serverless-node-01.md",
+        "redirect_url": "/azure/developer/javascript/tutorial/azure-function-cosmos-db-mongo-api"
+      },
+      {
+        "source_path": "articles/javascript/tutorial/tutorial-vscode-serverless-node-install.md",
+        "redirect_url": "/azure/developer/javascript/tutorial/azure-function-cosmos-db-mongo-api"
+      },
+      {
+        "source_path": "articles/javascript/tutorial-vscode-serverless-node-02.md",
+        "redirect_url": "/azure/developer/javascript/tutorial/azure-function-cosmos-db-mongo-api"
+      },
+      {
+        "source_path": "articles/javascript/tutorial/tutorial-vscode-serverless-node-create-local.md",
+        "redirect_url": "/azure/developer/javascript/tutorial/azure-function-cosmos-db-mongo-api"
+      },
+      {
+        "source_path": "articles/javascript/tutorial-vscode-serverless-node-03.md",
+        "redirect_url": "/azure/developer/javascript/tutorial/azure-function-cosmos-db-mongo-api"
+      },
+      {
+        "source_path": "articles/javascript/tutorial/tutorial-vscode-serverless-node-test-local.md",
+        "redirect_url": "/azure/developer/javascript/tutorial/azure-function-cosmos-db-mongo-api"
+      },
+      {
+        "source_path": "articles/javascript/tutorial-vscode-serverless-node-04.md",
+        "redirect_url": "/azure/developer/javascript/tutorial/azure-function-cosmos-db-mongo-api"
+      },
+      {
+        "source_path": "articles/javascript/tutorial/tutorial-vscode-serverless-node-deploy-hosting.md",
+        "redirect_url": "/azure/developer/javascript/tutorial/azure-function-cosmos-db-mongo-api"
+      },
+      {
+        "source_path": "articles/javascript/tutorial-vscode-serverless-node-05.md",
+        "redirect_url": "/azure/developer/javascript/tutorial/azure-function-cosmos-db-mongo-api"
+      },
+      {
+        "source_path": "articles/javascript/tutorial/tutorial-vscode-serverless-node-remove-resource.md",
+        "redirect_url": "/azure/developer/javascript/tutorial/azure-function-cosmos-db-mongo-api"
+      },      
+      {
+        "source_path": "articles/javascript/tutorial/vscode-function-app-http-trigger/tutorial-vscode-serverless-node-create-local.md",
+        "redirect_url": "/azure/developer/javascript/tutorial/azure-function-cosmos-db-mongo-api"
+      },
+      {
+        "source_path": "articles/javascript/tutorial/vscode-function-app-http-trigger/tutorial-vscode-serverless-node-database-integration.md",
+        "redirect_url": "/azure/developer/javascript/tutorial/azure-function-cosmos-db-mongo-api"
+      }, 
+      {
+        "source_path": "articles/javascript/tutorial/vscode-function-app-http-trigger/tutorial-vscode-serverless-node-deploy-hosting.md",
+        "redirect_url": "/azure/developer/javascript/tutorial/azure-function-cosmos-db-mongo-api"
+      }, 
+      {
+        "source_path": "articles/javascript/tutorial/vscode-function-app-http-trigger/tutorial-vscode-serverless-node-install.md",
+        "redirect_url": "/azure/developer/javascript/tutorial/azure-function-cosmos-db-mongo-api"
+      },      
+      {
+        "source_path": "articles/javascript/tutorial/vscode-function-app-http-trigger/tutorial-vscode-serverless-node-remove-resource.md",
+        "redirect_url": "/azure/developer/javascript/tutorial/azure-function-cosmos-db-mongo-api"
+      },  
+      {
+        "source_path": "articles/javascript/tutorial/vscode-function-app-http-trigger/tutorial-vscode-serverless-node-test-local.md",
+        "redirect_url": "/azure/developer/javascript/tutorial/azure-function-cosmos-db-mongo-api"
+      },  
+      {              
+        "source_path": "articles/javascript/how-to/with-azure-cli/create-postgresql-server-resource.md",
+        "redirect_url": "/azure/developer/javascript/how-to/with-database/use-postgresql-db"
+      },       
+      {
+        "source_path": "articles/javascript/how-to/with-azure-cli/create-mysql-db.md",
+        "redirect_url": "/azure/developer/javascript/how-to/with-database/use-mysql-mariadb?tabs=MySQL"
+      },      
+      {
+        "source_path": "articles/javascript/how-to/with-azure-cli/create-mariadb.md",
+        "redirect_url": "/azure/developer/javascript/how-to/with-database/use-mysql-mariadb?tabs=MySQL"
+      },
+      {
+        "source_path": "articles/javascript/how-to/with-azure-cli/create-cosmos-sql-api-resource.md",
+        "redirect_url": "/azure/developer/javascript/how-to/with-database/use-sql-api-as-cosmos-db"
+      },
+      {
+        "source_path": "articles/javascript/how-to/with-azure-cli/create-cassandra-db.md",
+        "redirect_url": "/azure/developer/javascript/how-to/with-database/use-cassandra-as-cosmos-db"
+      },
+      {
+        "source_path": "articles/javascript/how-to/with-azure-cli/create-cache-for-redis-db.md",
+        "redirect_url": "/azure/developer/javascript/how-to/with-database/use-azure-cache-for-redis-db"
+      },
+      {
+        "source_path": "articles/javascript/how-to/with-azure-cli/create-mongodb-cosmosdb.md",
+        "redirect_url": "/azure/developer/javascript/how-to/with-database/use-mongodb-as-cosmosdb?tabs=azure-cli%2Cmongodb"
+      },
+      {
+        "source_path": "articles/javascript/how-to/with-azure-cli/configure-app-service-custom-domain-name.md",
+        "redirect_url": "/azure/app-service/app-service-web-tutorial-custom-domain"
+      },      
+      {
+        "source_path": "articles/javascript/tutorial/deploy-deno-app-azure-app-service-azure-cli.md",
+        "redirect_url": "/azure/developer/javascript/tutorial/nodejs-virtual-machine-vm/introduction"
+      },
+      {
         "source_path": "articles/javascript/tutorial/static-web-app/introduction.md",
         "redirect_url": "/azure/developer/javascript/tutorial/static-web-app-image-analysis"
       },
@@ -225,46 +325,7 @@
         "source_path": "articles/javascript/tutorial/web-app-mongodb.yml",
         "redirect_url": "/azure/developer/javascript/tutorial/deploy-nodejs-mongodb-app-service-from-visual-studio-code"
       },
-      {
-        "source_path": "articles/javascript/tutorial-vscode-serverless-node-01.md",
-        "redirect_url": "/azure/developer/javascript/tutorial/vscode-function-app-http-trigger/tutorial-vscode-serverless-node-install"
-      },
-      {
-        "source_path": "articles/javascript/tutorial/tutorial-vscode-serverless-node-install.md",
-        "redirect_url": "/azure/developer/javascript/tutorial/vscode-function-app-http-trigger/tutorial-vscode-serverless-node-install"
-      },
-      {
-        "source_path": "articles/javascript/tutorial-vscode-serverless-node-02.md",
-        "redirect_url": "/azure/developer/javascript/tutorial/vscode-function-app-http-trigger/tutorial-vscode-serverless-node-create-local"
-      },
-      {
-        "source_path": "articles/javascript/tutorial/tutorial-vscode-serverless-node-create-local.md",
-        "redirect_url": "/azure/developer/javascript/tutorial/vscode-function-app-http-trigger/tutorial-vscode-serverless-node-create-local"
-      },
-      {
-        "source_path": "articles/javascript/tutorial-vscode-serverless-node-03.md",
-        "redirect_url": "/azure/developer/javascript/tutorial/vscode-function-app-http-trigger/tutorial-vscode-serverless-node-test-local"
-      },
-      {
-        "source_path": "articles/javascript/tutorial/tutorial-vscode-serverless-node-test-local.md",
-        "redirect_url": "/azure/developer/javascript/tutorial/vscode-function-app-http-trigger/tutorial-vscode-serverless-node-test-local"
-      },
-      {
-        "source_path": "articles/javascript/tutorial-vscode-serverless-node-04.md",
-        "redirect_url": "/azure/developer/javascript/tutorial/vscode-function-app-http-trigger/tutorial-vscode-serverless-node-deploy-hosting"
-      },
-      {
-        "source_path": "articles/javascript/tutorial/tutorial-vscode-serverless-node-deploy-hosting.md",
-        "redirect_url": "/azure/developer/javascript/tutorial/vscode-function-app-http-trigger/tutorial-vscode-serverless-node-deploy-hosting"
-      },
-      {
-        "source_path": "articles/javascript/tutorial-vscode-serverless-node-05.md",
-        "redirect_url": "/azure/developer/javascript/tutorial/vscode-function-app-http-trigger/tutorial-vscode-serverless-node-remove-resource"
-      },
-      {
-        "source_path": "articles/javascript/tutorial/tutorial-vscode-serverless-node-remove-resource.md",
-        "redirect_url": "/azure/developer/javascript/tutorial/vscode-function-app-http-trigger/tutorial-vscode-serverless-node-remove-resource"
-      },
+
       {
         "source_path": "articles/javascript/tutorial-visual-studio-code-azure-app-service-deno-04.md",
         "redirect_url": "/azure/developer/javascript/tutorial/deno-visual-studio-code-azure-app-service?preview=tutorialFeedback"
@@ -393,6 +454,38 @@
         "source_path": "articles/javascript/node-tutorials-services-storage.md",
         "redirect_url": "/samples/browse/?languages=javascript%2Cnodejs&products=azure-storage"
       },
+      {
+        "source_path": "articles/javascript/tutorial/tutorial-vscode-azure-cli-node/tutorial-vscode-azure-cli-node-07.md",
+        "redirect_url": "/azure/app-service/tutorial-nodejs-mongodb-app?tabs=azure-portal%2Cterminal-bash%2Cvscode-deploy%2Cdeploy-instructions-azportal%2Cdeploy-zip-linux-mac%2Cdeploy-instructions--zip-azcli"
+      },
+      {
+        "source_path": "articles/javascript/tutorial/tutorial-vscode-azure-cli-node/tutorial-vscode-azure-cli-node-05.md",
+        "redirect_url": "/azure/app-service/tutorial-nodejs-mongodb-app?tabs=azure-portal%2Cterminal-bash%2Cvscode-deploy%2Cdeploy-instructions-azportal%2Cdeploy-zip-linux-mac%2Cdeploy-instructions--zip-azcli"
+      },
+      {
+        "source_path": "articles/javascript/tutorial/tutorial-vscode-azure-cli-node/tutorial-vscode-azure-cli-node-04.md",
+        "redirect_url": "/azure/app-service/tutorial-nodejs-mongodb-app?tabs=azure-portal%2Cterminal-bash%2Cvscode-deploy%2Cdeploy-instructions-azportal%2Cdeploy-zip-linux-mac%2Cdeploy-instructions--zip-azcli"
+      },
+      {
+        "source_path": "articles/javascript/tutorial/tutorial-vscode-azure-cli-node/tutorial-vscode-azure-cli-node-03.md",
+        "redirect_url": "/azure/app-service/tutorial-nodejs-mongodb-app?tabs=azure-portal%2Cterminal-bash%2Cvscode-deploy%2Cdeploy-instructions-azportal%2Cdeploy-zip-linux-mac%2Cdeploy-instructions--zip-azcli"
+      },
+      {
+        "source_path": "articles/javascript/tutorial/tutorial-vscode-azure-cli-node/tutorial-vscode-azure-cli-node-02.md",
+        "redirect_url": "/azure/app-service/tutorial-nodejs-mongodb-app?tabs=azure-portal%2Cterminal-bash%2Cvscode-deploy%2Cdeploy-instructions-azportal%2Cdeploy-zip-linux-mac%2Cdeploy-instructions--zip-azcli"
+      },
+      {
+        "source_path": "articles/javascript/tutorial/tutorial-vscode-azure-cli-node/tutorial-vscode-azure-cli-node-01.md",
+        "redirect_url": "/azure/app-service/tutorial-nodejs-mongodb-app?tabs=azure-portal%2Cterminal-bash%2Cvscode-deploy%2Cdeploy-instructions-azportal%2Cdeploy-zip-linux-mac%2Cdeploy-instructions--zip-azcli"
+      },
+      {
+        "source_path": "articles/javascript/tutorial/deploy-nodejs-mongodb-app-service-from-visual-studio-code.md",
+        "redirect_url": "/azure/app-service/tutorial-nodejs-mongodb-app?tabs=azure-portal%2Cterminal-bash%2Cvscode-deploy%2Cdeploy-instructions-azportal%2Cdeploy-zip-linux-mac%2Cdeploy-instructions--zip-azcli"
+      },
+      {
+        "source_path": "articles/javascript/tutorial/deploy-nodejs-azure-app-service-with-visual-studio-code.md",
+        "redirect_url": "/azure/app-service/tutorial-nodejs-mongodb-app?tabs=azure-portal%2Cterminal-bash%2Cvscode-deploy%2Cdeploy-instructions-azportal%2Cdeploy-zip-linux-mac%2Cdeploy-instructions--zip-azcli"
+      },      
       {
         "source_path": "articles/java/eclipse-microprofile/cicd-microprofile-vsts.md",
         "redirect_url": "/azure/developer/java/eclipse-microprofile/cicd-microprofile"

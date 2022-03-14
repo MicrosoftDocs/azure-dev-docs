@@ -2,7 +2,7 @@
 title: Install Application Insights client library
 description: Add the Azure SDK client library to the code on the virtual machine to begin collecting app logs in the Azure cloud. 
 ms.topic: how-to
-ms.date: 11/01/2021
+ms.date: 01/18/2022
 ms.custom: devx-track-js
 ---
 
@@ -45,7 +45,7 @@ In this step, add the Azure SDK client library to the code on the virtual machin
 
 ## Viewing the log for NGINX
 
-The Virtual Machine (VM) collects logs for NGINX, which are available to view.
+The virtual machine (VM) collects logs for NGINX, which are available to view.
 
 | Service | Log location|
 |--|--|
@@ -66,7 +66,7 @@ The log includes the call from your local computer.
 
 ## Viewing the log for PM2
 
-The Virtual machine collects logs for PM2, which are available to view.
+The virtual machine collects logs for PM2, which are available to view.
 
 | Service | Log location|
 |--|--|

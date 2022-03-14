@@ -196,14 +196,14 @@ public class PrivateAccessControlProvider<T>: IAccessControlProvider<T>
 
     private string UserId { get => _accessor.HttpContext.User?.Identity?.Name; }
 
-    public Func<T,bool> GetDataView()
+    public Expression<Func<T,bool>> GetDataView()
     {
       return (UserId == null)
         ? _ => false
         : model => model.UserId == UserId;
     }
 
-    public Task<bool> IsAuthorizedAsync(TableOperation op, T? entity, CancellationToken token = default) 
+    public Task<bool> IsAuthorizedAsync(TableOperation op, T entity, CancellationToken token = default) 
     {
         if (op == TableOperation.Create || op == TableOperation.Query)
         {

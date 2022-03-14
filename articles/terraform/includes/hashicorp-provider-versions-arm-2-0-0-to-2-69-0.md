@@ -1,9 +1,8 @@
 ---
-title: include file
-description: include file
-ms.date: 10/17/2021
-ms.custom: 4de3dfab391e8cfd769758a97cd9568c50568a03
 ms.author: tarcher
+ms.topic: include
+ms.date: 01/04/2022
+ms.custom: devx-track-terraform
 ---
 
 ## 2.69.0 (July 23, 2021)

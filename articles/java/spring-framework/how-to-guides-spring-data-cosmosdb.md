@@ -3,7 +3,7 @@ title: Spring Data Azure Cosmos DB developer's guide
 description: This guide describes the features, issues, workarounds, and diagnostic steps to be aware of when you use the Spring Data Azure Cosmos DB SDK.
 ms.author: anfeldma
 ms.topic: conceptual
-ms.date: 11/23/2020
+ms.date: 01/19/2022
 ms.custom: devx-track-java
 ---
 
@@ -980,7 +980,7 @@ Please refer to [Single account with Multi-database sample project][sample-for-m
 ## Next steps
 
 - Read more about Azure spring data cosmos [here][azure_spring_data_cosmos_docs].
-- [Read more about Azure CosmosDB Service][cosmos_docs]
+- [Read more about Azure Cosmos DB Service][cosmos_docs]
 
 ## Contributing
 

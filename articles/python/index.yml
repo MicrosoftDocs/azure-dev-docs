@@ -15,6 +15,7 @@ metadata:
   ms.technology: azure
   ms.service: multiple
   ms.devlang: python
+  ms.prod: azure-python
   ms.custom: devx-track-python
 
 landingContent:

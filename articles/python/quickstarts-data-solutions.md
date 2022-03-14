@@ -22,7 +22,7 @@ The following articles help you get started with various data solutions on Azure
 - **Azure SQL**:
   - [Use Python to query an Azure SQL database](/azure/sql-database/sql-database-connect-query-python)
 
-- **Maria DB**:
+- **MariaDB**:
   - [How to connect applications to Azure Database for MariaDB](/azure/mariadb/howto-connection-string)
 
 ## Tables, blobs, files, NoSQL

@@ -16,7 +16,7 @@ Now that you understand Azure's model of services and resources, you can underst
 | --- | --- | --- |
 | Provision | Azure CLI, Azure portal, Cloud Shell, Python scripts using Azure management libraries | Provision resource groups; provision specific resources in those groups; configure resources to be ready for use from app code and/or ready to receive Python code in deployments. |
 | Code | Code editor (such as Visual Studio Code), Azure libraries, reference documentation | Write Python code using the Azure client libraries to interact with provisioned resources. |
-| Test | Python runtime, debugger | Run Python code locally against active cloud resources (typically dev or test resources rather than production resources). The code itself is not yet hosted on Azure, which helps you debug and iterate quickly. |
+| Test | Python runtime, debugger | Run Python code locally against active cloud resources (typically dev or test resources rather than production resources). The code itself isn't yet hosted on Azure, which helps you debug and iterate quickly. |
 | Deploy | Azure CLI, GitHub, DevOps | Once code has been tested locally, deploy it to an appropriate Azure hosting service where the code itself can run in the cloud. Deployed code typically runs against staging or production resources. |
 | Manage | Azure CLI, Azure portal, Python scripts, Azure Monitor | Monitor app performance and responsiveness, make adjustments in production environment, migrate improvements back to dev environment for the next round of provisioning and development. |
 
@@ -28,7 +28,7 @@ Provisioning begins by creating a resource group in a suitable Azure region. You
 
 Within that resource group, you then provision and configure the individual resources you need, again using the portal, the CLI, or the Azure libraries. (Again, review the [Azure developer's guide](/azure/guides/developer/azure-developer-guide) for an overview of available resource types.)
 
-Configuration includes setting access policies that control what identities (service principals and/or application IDs) are able to access those resources. Access policies are generally managed through [Role-Based Access Control (RBAC)](/azure/role-based-access-control/overview); some services have more specific access controls as well. As an cloud developer working with Azure, make sure to familiarize yourself with RBAC because you use it with just about any resource that has security concerns.
+Configuration includes setting access policies that control what identities (service principals and/or application IDs) are able to access those resources. Access policies are generally managed through Azure [Role-Based Access Control (RBAC)](/azure/role-based-access-control/overview); some services have more specific access controls as well. As a cloud developer working with Azure, make sure to familiarize yourself with Azure RBAC because you use it with just about any resource that has security concerns.
 
 For most application scenarios, you typically create provisioning scripts with the Azure CLI and/or Python code using the Azure libraries. Such scripts describe the totality of your application's resource needs (essentially defining the custom cloud computer to which you're deploying the application). A script enables you to easily recreate the same set of resources within different development, test, staging, and production environments, rather than manually performing many repeated steps in the Azure portal. Such scripts also make it easy to provision an environment in a different region, or to use different resource groups. If you also maintain these scripts in source control repositories, you also have full auditing and change history.
 
@@ -38,7 +38,7 @@ Once you've provisioned the resources you need for your application, you write t
 
 For example, in the provisioning step you might have created an Azure storage account, created a blob container within that account, and set access policies for the application on that container. This provisioning process is demonstrated in [Example - Provision Azure Storage](azure-sdk-example-storage.md). From your code, you can then authenticate with that storage account and then create, update, or delete blobs within that container. This run time process is demonstrated in [Example - Use Azure Storage](azure-sdk-example-storage.md). Similarly, you might have provisioned a database with a schema and appropriate permissions (as demonstrated in [Example - Provision a database](azure-sdk-example-database.md)), so that your application code can connect to the database and perform the usual create-read-update-delete queries.
 
-App code typically uses environment variables to identify the names and URLs of the resources to use. Environment variables allow you to easily switch between cloud environments (dev, test, staging, and production) without any changes to the code. The various Azure services that host application code provide a means to define the necessary variables. For example, in Azure App Service (to host web apps) and Azure Functions (Azure's serverless host), you define *application settings* through the Azure portal or Azure CLI, which then appear to your code as environment variables.
+App code typically uses environment variables to identify the names and URLs of the resources to use. Environment variables allow you to easily switch between cloud environments (dev, test, staging, and production) without any changes to the code. The various Azure services that host application code provide a means to define the necessary variables. For example, in Azure App Service (to host web apps) and Azure Functions (serverless compute for Azure), you define *application settings* through the Azure portal or Azure CLI, which then appear to your code as environment variables.
 
 As a Python developer, you'll likely write your application code in Python using the Azure libraries for Python. That said, any independent part of a cloud application can be written in any supported language. If you're working in a team with a variety of language expertise, for instance, it's entirely possible that some parts of the application are written in Python, some in JavaScript, some in Java, and others in C#.
 
@@ -46,7 +46,7 @@ Note that application code can use the Azure libraries to perform provisioning a
 
 ## Step 3: Test and debug your app code locally
 
-Developers typically like to test app code on their local workstations before deploying that code to the cloud Testing app code locally means that you're typically accessing other resources that you've already provisioned in the cloud, such as storage, databases, and so forth. The difference is that you're not yet running the app code itself within a cloud service.
+Developers typically like to test app code on their local workstations before deploying that code to the cloud. Testing app code locally means that you're typically accessing other resources that you've already provisioned in the cloud, such as storage, databases, and so forth. The difference is that you're not yet running the app code itself within a cloud service.
 
 By running the code locally, you can also take full advantage of debugging features offered by tools such as Visual Studio Code and manage your code in a source control repository.
 
@@ -58,7 +58,7 @@ Once you've tested your code locally, you're ready to deploy the code to the Azu
 
 As noted in the previous section, in typical development processes you first deploy your code to the resources you've provisioned in a development environment. After a round of testing, you deploy your code to resources in a staging environment, making the application available to your test team and perhaps preview customers. Once you're satisfied with the application's performance, you can deploy the code to your production environment. All of these deployments can also be automated through continuous integration and continuous deployment using Azure DevOps.
 
-However you do it, once the code is deployed to the cloud, it truly becomes a cloud application, running entirely on the server computers in Azure's data centers.
+However you do it, once the code is deployed to the cloud, it truly becomes a cloud application, running entirely on the server computers in Azure data centers.
 
 ## Step 5: Manage, monitor, and revise
 

@@ -45,25 +45,25 @@ provider "azurerm" {
 The following section creates a resource group in the location:
 
 ```hcl
-resource "azurerm_resource_group" "<rgStor>" {
+resource "azurerm_resource_group" "rg_storage" {
   location = var.location
-  name     = "${var.prefix}-rg"
+  name     = var.prefix-storage-rg"
 }
 ```
 
-In other sections, you reference the resource group with `azurerm_resource_group.<rgStor>.name`.
+In other sections, you reference the resource group with `azurerm_resource_group.rg_storage.name`.
 
 ## 3. Configure a File Storage Account
 
 ```hcl
-resource "azurerm_storage_account" "<Stor>" {
+resource "azurerm_storage_account" "storage" {
   name                     = "stor${random_string.random.id}"
-  resource_group_name      = azurerm_resource_group.<rgStor>.name
-  location                 = azurerm_resource_group.<rgStor>.location
-  account_tier             = "Standard"
+  resource_group_name      = azurerm_resource_group.rg_storage.name
+  location                 = azurerm_resource_group.rg_storage.location
+  account_tier             = "Premium"
   account_replication_type = "LRS"
   account_kind             = "FileStorage"
-  tags                     = "<Terraform Demo>"
+  tags                     = "Terraform Demo"
 }
 ```
 
@@ -71,13 +71,13 @@ resource "azurerm_storage_account" "<Stor>" {
 
 ```hcl
 resource "azurerm_storage_share" "<FSShare>" {
-  name                 = "<fslogix>"
-  storage_account_name = azurerm_storage_account.<Stor>.name
-  depends_on           = [azurerm_storage_account.<Stor>]
+  name                 = "fslogix"
+  storage_account_name = azurerm_storage_account.storage.name
+  depends_on           = [azurerm_storage_account.storage]
 }
 
 output "storage_account_name" {
-  value = azurerm_storage_account.<Stor>.name
+  value = azurerm_storage_account.storage.name
 
 }
 ```
@@ -85,10 +85,14 @@ output "storage_account_name" {
 ## 5. Configure RBAC permission on Azure File Storage
 
 ```hcl
-resource "azurerm_role_assignment" "storageAccountRoleAssignment" {
-  scope                = azurerm_storage_account.example.id
-  role_definition_name = "Storage File Data SMB Shared Elevated Contributor"
-  principal_id         = data.azurerm_client_config.current.object_id
+data "azurerm_role_definition" "storage_role" {
+  name = "Storage File Data SMB Share Contributor"
+}
+
+resource "azurerm_role_assignment" "af_role" {
+  scope              = azurerm_storage_account.storage.id
+  role_definition_id = data.azurerm_role_definition.storage_role.id
+  principal_id       = azuread_group.aad_group.id
 }
 ```
 
@@ -112,37 +116,40 @@ provider "azurerm" {
 }
 
 ## Create a Resource Group for Storage
-resource "azurerm_resource_group" "<rgStor>" {
+resource "azurerm_resource_group" "rg_storage" {
   location = var.location
-  name     = "${var.prefix}-rg"
+  name     = var.prefix-storage-rg"
 }
 
 ## Create a File Storage Account 
-resource "azurerm_storage_account" "<Stor>" {
+resource "azurerm_storage_account" "storage" {
   name                     = "stor${random_string.random.id}"
-  resource_group_name      = azurerm_resource_group.<rgStor>.name
-  location                 = azurerm_resource_group.<rgStor>.location
-  account_tier             = "Standard"
+  resource_group_name      = azurerm_resource_group.rg_storage.name
+  location                 = azurerm_resource_group.rg_storage.location
+  account_tier             = "Premium"
   account_replication_type = "LRS"
   account_kind             = "FileStorage"
-  tags = "Terraform Demo"
 }
 
-resource "azurerm_storage_share" "<FSShare>" {
-  name                 = "<fslogix>"
-  storage_account_name = azurerm_storage_account.<Stor>.name
-  depends_on           = [azurerm_storage_account.<Stor>]
+resource "azurerm_storage_share" "FSShare" {
+  name                 = "fslogix"
+  storage_account_name = azurerm_storage_account.storage.name
+  depends_on           = [azurerm_storage_account.storage]
 }
 
 output "storage_account_name" {
-  value = azurerm_storage_account.<Stor>.name
+  value = azurerm_storage_account.storage.name
 
 }
 
-resource "azurerm_role_assignment" "storageAccountRoleAssignment" {
-  scope                = azurerm_storage_account.example.id
-  role_definition_name = "Storage File Data SMB Shared Elevated Contributor"
-  principal_id         = data.azurerm_client_config.current.object_id
+data "azurerm_role_definition" "storage_role" {
+  name = "Storage File Data SMB Share Contributor"
+}
+
+resource "azurerm_role_assignment" "af_role" {
+  scope              = azurerm_storage_account.storage.id
+  role_definition_id = data.azurerm_role_definition.storage_role.id
+  principal_id       = azuread_group.aad_group.id
 }
 ```
 

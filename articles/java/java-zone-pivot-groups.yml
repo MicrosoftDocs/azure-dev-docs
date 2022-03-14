@@ -1,0 +1,11 @@
+# YamlMime:ZonePivotGroups
+groups:
+# Owner: karler
+- id: spring-cloud-tier-selection
+  title: Azure Spring Cloud tier
+  prompt: Select an Azure Spring Cloud tier
+  pivots:
+  - id: sc-standard-tier
+    title: Standard tier
+  - id: sc-enterprise-tier
+    title: Enterprise tier

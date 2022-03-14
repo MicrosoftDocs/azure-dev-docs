@@ -43,8 +43,8 @@ provider "azurerm" {
 The following section creates a resource group in the location:
 
 ```hcl
-resource "azurerm_resource_group" "<rg>" {
-  location = var.location
+resource "azurerm_resource_group" "log" {
+  location = var.deploy_location
   name     = "${var.prefix}-rg"
 }
 ```
@@ -56,11 +56,12 @@ In other sections, you reference the resource group with `azurerm_resource_group
 Create a file named `main.tf` and insert the following code:
 
 ```hcl
-resource "azurerm_log_analytics_workspace" "<lawksp>" {
+resource "azurerm_log_analytics_workspace" "law" {
   name                = "log${random_string.random.id}"
-  location            = azurerm_resource_group.<rg>.location
-  resource_group_name = azurerm_resource_group.<rg>.name
+  location            = azurerm_resource_group.log.location
+  resource_group_name = azurerm_resource_group.log.name
   sku                 = "PerGB2018"
+  retention_in_days   = 30
 }
 ```
 

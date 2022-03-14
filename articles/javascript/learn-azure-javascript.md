@@ -2,7 +2,7 @@
 title: Learn to develop with Azure and JavaScript 
 description: Use the Microsoft Learn platform to expand your understanding of Azure with JavaScript
 ms.topic: how-to
-ms.date: 01/14/2021
+ms.date: 01/05/2022
 ms.custom: devx-track-js
 ---
 
@@ -12,28 +12,53 @@ Use the Microsoft Learn platform or a Microsoft Learning Partner to expand your 
 
 ## JavaScript
 
-* [Introduction to Node.js](/learn/modules/intro-to-nodejs/)
-* [Build JavaScript applications with Node.js](/learn/paths/build-javascript-applications-nodejs/)
-* [Create a new Node.js project and work with dependencies](/learn/modules/create-nodejs-project-dependencies/)
+### Beginners
+
+* [Path: Web Development for Beginners](/learn/paths/web-development-101/)
+* [Module: Introduction to Node.js](/learn/modules/intro-to-nodejs/)
+* [Path: Build JavaScript applications with Node.js](/learn/paths/build-javascript-applications-nodejs/)
+* [Path: Creating your first web apps with React](/learn/paths/react/)
+* [Module: Create a new Node.js project and work with dependencies](/learn/modules/create-nodejs-project-dependencies/)
 * [Build a web API with Node.js and Express](/learn/modules/build-web-api-nodejs-express/) 
 * [Work with files and directories in a Node.js app](/learn/modules/nodejs-files/)
-* [Interactively debug Node.js apps with the built-in and Visual Studio Code debuggers](/learn/modules/debug-nodejs/)
+* [Module: Interactively debug Node.js apps with the built-in and Visual Studio Code debuggers](/learn/modules/debug-nodejs/)
+* [Module: Introduction to route management in Node.js with JavaScript](/learn/modules/node-web-routes/)
+* [Module: Interactively debug Node.js apps with the built-in and Visual Studio Code debuggers](/learn/modules/debug-nodejs/)
+
+### Intermediate
+
+* [Path: Take your first steps with Vue.js](/learn/paths/vue-first-steps/)
+* [Path: Explore Microsoft Graph scenarios for JavaScript development](/learn/paths/m365-msgraph-scenarios/)
+* [Module: Build a basic cloud-native service using PostgreSQL and Node.js](/learn/modules/cloud-native-build-basic-service/)
+* [Module: Download and upload files in a JavaScript app with Microsoft Graph](/learn/modules/msgraph-manage-files/)
 
 ## TypeScript
 
+### Beginner
+
+* [Module: Get started with TypeScript](/learn/modules/typescript-get-started/)
+* [Path: Build JavaScript applications using TypeScript](/learn/paths/build-javascript-applications-typescript/)
 * [Playground](https://www.typescriptlang.org/play)
 
-## Getting started
+### Intermediate
 
-* [JavaScript for beginners](https://techcommunity.microsoft.com/t5/apps-on-azure/learn-javascript-with-this-series-of-videos-for-beginners/ba-p/1764635)
-* [Web development for beginners](https://github.com/microsoft/Web-Dev-For-Beginners)
-* [React - preview](https://github.com/geektrainer/learn-react)
-* [3D apps with Babylon.js](https://techcommunity.microsoft.com/t5/apps-on-azure/a-first-introduction-to-building-3d-applications-with-javascript/ba-p/1877650)
-* [Node.js for beginners](https://techcommunity.microsoft.com/t5/apps-on-azure/learn-node-js-with-this-series-of-short-videos-for-beginners/ba-p/1771830)
+* [Module: Implement interfaces in TypeScript](/learn/modules/typescript-implement-interfaces/)
+* [Module: Declare variable types in TypeScript](/learn/modules/typescript-declare-variable-types/)
+* [Module: Develop typed functions by using TypeScript](/learn/modules/typescript-develop-typed-functions/)
+* [Module: Organize code using TypeScript namespaces](/learn/modules/typescript-namespaces-organize-code/)
+* [Module: Define generics in TypeScript](/learn/modules/typescript-generics/)
+* [Module: Declare and instantiate classes in TypeScript](/learn/modules/typescript-declare-instantiate-classes/)
+* [Module: Declare and instantiate classes in TypeScript](/learn/modules/typescript-declare-instantiate-classes/)
+* [Module: Access external libraries from TypeScript](/learn/modules/typescript-work-external-libraries/)
+
 
 ## JavaScript on Azure
 
 The following Microsoft Learn modules teach you how to use Azure with JavaScript:
+
+### Azure DevOps
+
+* [Module: Automate Node.js deployments with Azure Pipelines](/learn/modules/deploy-nodejs/)
 
 ### Static Web Apps
 
@@ -41,6 +66,7 @@ The following Microsoft Learn modules teach you how to use Azure with JavaScript
 * [Publish an Angular, React, Svelte, or Vue JavaScript app with Azure Static Web Apps](/learn/modules/publish-app-service-static-web-app-api/)
 * [Create and publish a static web app with Gatsby and Azure Static Web Apps](/learn/modules/create-deploy-static-webapp-gatsby-app-service/)
 * [Build a simple website using HTML, CSS, and JavaScript](/learn/modules/build-simple-website/)
+
 
 ### Server APIs
 
@@ -62,9 +88,9 @@ The following Microsoft Learn modules teach you how to use Azure with JavaScript
 * [Build a Node.js app for Azure Cosmos DB in Visual Studio Code](/learn/modules/build-node-cosmos-app-vscode/)
 
 ### Virtual Machines
+
 * [Build and run a web application with the MEAN stack on an Azure Linux virtual machine](/learn/modules/build-a-web-app-with-mean-on-a-linux-vm/)
 
-Search for [more Learn resources](/search/?category=Learn&terms=JavaScript).
 
 ## Microsoft Learning Partners
 

@@ -18,7 +18,7 @@ To learn more about the offline sync feature, see the topic [Offline Data Sync i
 
 ## Update the app to support offline sync
 
-In online operation, you read to and write from a `MobileServiceTable`.  When using offline sync, you read to and write from a `MobileServiceSyncTable` instead.  The `MobileServiceSyncTable` is backed by an on-device SQLite database, and synchronized with the backend database.
+In online operation, you read to and write from a `MobileServiceTable`.  When using offline sync, you read from and write to a `MobileServiceSyncTable` instead.  The `MobileServiceSyncTable` is backed by an on-device SQLite database, and synchronized with the backend database.
 
 In the `TodoService.cs` class:
 

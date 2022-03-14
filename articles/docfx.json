@@ -97,8 +97,8 @@
       "ms.author": {
         "**/*.md": "barbkess",
         "**/*.yml": "barbkess",
-        "java/**/*.md": "brendm",
-        "java/**/*.md": "brendm",
+        "java/**/*.md": "karler",
+        "java/**/*.yml": "karler",
         "go/**/*.md": "jduffney",
         "python/**/*.md": "jejohn",
         "ansible/**/*.md": "tarcher",
@@ -152,7 +152,10 @@
       "ms.prod": {
         "python/**/*.md": "azure-python",
         "javascript/**/*.md": "azure-nodejs"
-      }
+      },
+      "ROBOTS": {
+        "ux-beta/**/*.md": "NOINDEX"
+      }      
     },
     "template": [],
     "dest": {

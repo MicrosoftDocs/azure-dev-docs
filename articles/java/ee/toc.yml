@@ -21,8 +21,12 @@
         href: /azure/openshift/howto-deploy-java-liberty-app?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/breadcrumb/toc.json
       - name: WebSphere Liberty/Open Liberty on AKS
         href: /azure/aks/howto-deploy-java-liberty-app?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/breadcrumb/toc.json
+      - name: Java app with PostgreSQL to WebSphere Liberty/Open Liberty on AKS
+        href: /azure/aks/howto-deploy-java-liberty-app-with-postgresql?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/breadcrumb/toc.json
       - name: Payara Micro on Azure App Service
         href: ../eclipse-microprofile/deploy-microprofile-payara-micro-java-app-with-maven-plugin.md?bc=/azure/developer/breadcrumb/toc.json&toc=/azure/developer/java/ee/toc.json
+      - name: Traditional WebSphere on Azure VMs
+        href: traditional-websphere-application-server-virtual-machines.md
   - name: Migrate WebLogic to Azure
     expanded: true
     items:
@@ -34,6 +38,8 @@
         href: ../migration/migrate-weblogic-with-app-gateway.md?bc=/azure/developer/breadcrumb/toc.json&toc=/azure/developer/java/ee/toc.json
       - name: WebLogic with Elastic on Azure
         href: ../migration/migrate-weblogic-with-elk.md?bc=/azure/developer/breadcrumb/toc.json&toc=/azure/developer/java/ee/toc.json
+      - name: WebLogic to JBoss EAP on Azure App Service
+        href: ../migration/migrate-weblogic-to-jboss-eap-on-azure-app-service.md?bc=/azure/developer/breadcrumb/toc.json&toc=/azure/developer/java/ee/toc.json
   - name: Migrate JBoss EAP to Azure
     expanded: true
     items:

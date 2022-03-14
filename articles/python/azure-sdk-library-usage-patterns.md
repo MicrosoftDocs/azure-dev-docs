@@ -56,7 +56,7 @@ For more information, including how to remove packages or install specific versi
 
 Many operations that you invoke through client and management client objects (such as [`ComputeManagementClient.virtual_machines.begin_create_or_update`](/python/api/azure-mgmt-compute/azure.mgmt.compute.v2020_06_01.operations.virtualmachinesoperations#begin-create-or-update-resource-group-name--vm-name--parameters----kwargs-) and [`WebSiteManagementClient.web_apps.create_or_update`](/python/api/azure-mgmt-web/azure.mgmt.web.v2019_08_01.operations.webappsoperations#create-or-update-resource-group-name--name--site-envelope--custom-headers-none--raw-false--polling-true----operation-config-)) return an object of type `AzureOperationPoller[<type>]` where `<type>` is specific to the operation in question.
 
-Both of these methods are asynchronous. The difference in the method names is due to version differences. Older libraries that aren't based on azure.core typically use named like `create_or_update`. Libraries based on azure.core add the `begin_` prefix to method names to better indicate that they are asynchronous. Migrating old code to a newer azure.core-based library typically means adding the `begin_` prefix to method names, as most method signatures remain the same.
+Both of these methods are asynchronous. The difference in the method names is due to version differences. Older libraries that aren't based on azure.core typically use names like `create_or_update`. Libraries based on azure.core add the `begin_` prefix to method names to better indicate that they are asynchronous. Migrating old code to a newer azure.core-based library typically means adding the `begin_` prefix to method names, as most method signatures remain the same.
 
 In either case, an [`AzureOperationPoller`](/python/api/msrestazure/msrestazure.azure_operation.azureoperationpoller) return type definitely means that the operation is asynchronous. Accordingly, you must call that poller's `result` method to wait for the operation to finish and obtain its result.
 
@@ -70,7 +70,7 @@ In this case, the return value of `begin_create_or_update` is of type `AzureOper
 
 In general, the Azure libraries raise exceptions when operations fail to perform as intended, including failed HTTP requests to the Azure REST API. For app code, then, you can use `try...except` blocks around library operations.
 
-For more information on the type of exceptions that may be raised, consult the documentation for the operation in question.
+For more information on the type of exceptions that may be raised, see the documentation for the operation in question.
 
 ## Logging
 
@@ -78,7 +78,7 @@ The most recent Azure libraries use the Python standard `logging` library to gen
 
 ## Proxy configuration
 
-To specify a proxy you can use environment variables or optional arguments. For more information, see [How to configure proxies](azure-sdk-configure-proxy.md).
+To specify a proxy, you can use environment variables or optional arguments. For more information, see [How to configure proxies](azure-sdk-configure-proxy.md).
 
 ## Optional arguments for client objects and methods
 

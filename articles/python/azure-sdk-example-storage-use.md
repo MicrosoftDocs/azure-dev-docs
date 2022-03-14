@@ -52,25 +52,25 @@ For these reasons, we recommend using the authentication method in production co
 
 ### 4a: Use blob storage with authentication
 
-1. Create an environment variable named `STORAGE_BLOB_URL`:
+1. Create an environment variable named `AZURE_STORAGE_BLOB_URL`:
 
     # [cmd](#tab/cmd)
 
     ```cmd
-    set STORAGE_BLOB_URL=https://pythonazurestorage12345.blob.core.windows.net
+    set AZURE_STORAGE_BLOB_URL=https://pythonazurestorage12345.blob.core.windows.net
     ```
 
     # [bash](#tab/bash)
 
     ```bash
-    STORAGE_BLOB_URL=https://pythonazurestorage12345.blob.core.windows.net
+    AZURE_STORAGE_BLOB_URL=https://pythonazurestorage12345.blob.core.windows.net
     ```
 
     ---
 
     Replace "pythonazurestorage12345" with the name of your specific storage account.
 
-    This `STORAGE_BLOB_URL` environment variable is used only by this example and it not used by the Azure libraries.
+    This `AZURE_STORAGE_BLOB_URL` environment variable is used only by this example and it not used by the Azure libraries.
 
 1. Create a file named *use_blob_auth.py* with the following code. The comments explain the steps.
 

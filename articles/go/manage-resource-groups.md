@@ -39,73 +39,65 @@ In this article, you learn how to create a resource group with the Azure SDK for
 1. Run [go get](https://golang.org/ref/mod#go-get) to download, build, and install the necessary Azure SDK for Go modules.
 
     ```cmd
-    go get github.com/Azure/azure-sdk-for-go/sdk/compute/armcompute
-    go get github.com/Azure/azure-sdk-for-go/sdk/armcore
     go get github.com/Azure/azure-sdk-for-go/sdk/azcore
+    go get github.com/Azure/azure-sdk-for-go/sdk/azcore/to
     go get github.com/Azure/azure-sdk-for-go/sdk/azidentity
-    go get github.com/Azure/azure-sdk-for-go/sdk/resources/armresources
-    go get github.com/Azure/azure-sdk-for-go/sdk/to
+    go get github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/resources/armresources
     ```
 
 1. Create a file named `main.go` and insert the following code. Each section of code is commented to explain its purpose.
 
     ```go
     package main
-    
+
     // Import key modules.
     import (
     	"context"
     	"log"
     	"os"
-    
-    	"github.com/Azure/azure-sdk-for-go/sdk/armcore"
+    	"time"
+
     	"github.com/Azure/azure-sdk-for-go/sdk/azcore"
+    	"github.com/Azure/azure-sdk-for-go/sdk/azcore/to"
     	"github.com/Azure/azure-sdk-for-go/sdk/azidentity"
-    	"github.com/Azure/azure-sdk-for-go/sdk/resources/armresources"
-    	"github.com/Azure/azure-sdk-for-go/sdk/to"
+    	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/resources/armresources"
     )
-    
+
     // Define key global variables.
     var (
     	subscriptionId    = os.Getenv("ARM_SUBSCRIPTION_ID")
     	location          = "eastus"
     	resourceGroupName = "myResourceGroup" // !! IMPORTANT: Change this to a unique name in your subscription.
         interval          = 5 * time.Second
+    	ctx               = context.Background()
     )
-    
+
     // Define the function to create a resource group.
-    func createResourceGroup(connection *armcore.Connection) (armresources.ResourceGroupResponse, error) {
-    	rgClient := armresources.NewResourceGroupsClient(connection, subscriptionId)
-    
+    func createResourceGroup(subscriptionId string, credential azcore.TokenCredential) (armresources.ResourceGroupsClientCreateOrUpdateResponse, error) {
+    	rgClient := armresources.NewResourceGroupsClient(subscriptionId, credential, nil)
+
     	param := armresources.ResourceGroup{
     		Location: to.StringPtr(location),
     	}
-    
-    	return rgClient.CreateOrUpdate(context.Background(), resourceGroupName, param, nil)
+
+    	return rgClient.CreateOrUpdate(ctx, resourceGroupName, param, nil)
     }
-    
+
     // Define the standard 'main' function for an app that is called from the command line.
     func main() {
-    
+
     	// Create a credentials object.
     	cred, err := azidentity.NewDefaultAzureCredential(nil)
     	if err != nil {
     		log.Fatalf("Authentication failure: %+v", err)
     	}
-    
-    	// Establish a connection with the Azure subscription.
-    	conn := armcore.NewDefaultConnection(cred, &armcore.ConnectionOptions{
-    		Logging: azcore.LogOptions{
-    			IncludeBody: true,
-    		},
-    	})
-    
+
     	// Call your function to create an Azure resource group.
-    	resourceGroup, err := createResourceGroup(ctx, conn)
+    	resourceGroup, err := createResourceGroup(subscriptionId, cred)
     	if err != nil {
     		log.Fatalf("Creation of resource group failed: %+v", err)
     	}
-    
+
     	// Print the name of the new resource group.
     	log.Printf("Resource group %s created", *resourceGroup.ResourceGroup.ID)
     }
@@ -166,9 +158,9 @@ Get-AzResourceGroup -Name <resource_group>
 
     ```go
     // Update the resource group by adding a tag to it.
-    func updateResourceGroup(ctx context.Context, connection *armcore.Connection) (armresources.ResourceGroupResponse, error) {
-        rgClient := armresources.NewResourceGroupsClient(connection, subscriptionId)
-        
+    func updateResourceGroup(subscriptionId string, credential azcore.TokenCredential) (armresources.ResourceGroupsClientUpdateResponse, error) {
+        rgClient := armresources.NewResourceGroupsClient(subscriptionId, credential, nil)
+
         update := armresources.ResourceGroupPatchable{
             Tags: map[string]*string{
                 "new": to.StringPtr("tag"),
@@ -186,15 +178,15 @@ Get-AzResourceGroup -Name <resource_group>
 
     ```go
     // List all the resource groups of an Azure subscription.
-    func listResourceGroups(ctx context.Context, connection *armcore.Connection) ([]*armresources.ResourceGroup, error) {
-        rgClient := armresources.NewResourceGroupsClient(connection, subscriptionId)
-        
+    func listResourceGroups(subscriptionId string, credential azcore.TokenCredential) ([]*armresources.ResourceGroup, error) {
+        rgClient := armresources.NewResourceGroupsClient(subscriptionId, credential, nil)
+
         pager := rgClient.List(nil)
-        
+
         var resourceGroups []*armresources.ResourceGroup
         for pager.NextPage(ctx) {
             resp := pager.PageResponse()
-            if resp.ResourceGroupListResult != nil {
+            if resp.ResourceGroupListResult.Value != nil {
                 resourceGroups = append(resourceGroups, resp.ResourceGroupListResult.Value...)
             }
         }
@@ -210,9 +202,9 @@ Get-AzResourceGroup -Name <resource_group>
 
     ```go
     // Delete a resource group.
-    func deleteResourceGroup(ctx context.Context, connection *armcore.Connection) error {
-        rgClient := armresources.NewResourceGroupsClient(connection, subscriptionId)
-        
+    func deleteResourceGroup(subscriptionId string, credential azcore.TokenCredential) error {
+        rgClient := armresources.NewResourceGroupsClient(subscriptionId, credential, nil)
+
         poller, err := rgClient.BeginDelete(ctx, resourceGroupName, nil)
         if err != nil {
             return err
@@ -237,15 +229,8 @@ func main() {
         log.Fatalf("Authentication failure: %+v", err)
     }
 
-    // Establish a connection with the Azure subscription.
-    conn := armcore.NewDefaultConnection(cred, &armcore.ConnectionOptions{
-        Logging: azcore.LogOptions{
-            IncludeBody: true,
-        },
-    })
-
     // Call your function to create an Azure resource group.
-    resourceGroup, err := createResourceGroup(ctx, conn)
+    resourceGroup, err := createResourceGroup(subscriptionId, cred)
     if err != nil {
         log.Fatalf("Creation of resource group failed: %+v", err)
     }
@@ -253,21 +238,21 @@ func main() {
     log.Printf("Resource group %s created", *resourceGroup.ResourceGroup.ID)
 
     // Call your function to add a tag to your new resource group.
-    updatedRG, err := updateResourceGroup(ctx, conn)
+    updatedRG, err := updateResourceGroup(subscriptionId, cred)
     if err != nil {
         log.Fatalf("Update of resource group failed: %+v", err)
     }
     log.Printf("Resource Group %s updated", *updatedRG.ResourceGroup.ID)
 
     // Call your function to list all the resource groups.
-    rgList, err := listResourceGroups(ctx, conn)
+    rgList, err := listResourceGroups(subscriptionId, cred)
     if err != nil {
         log.Fatalf("Listing of resource groups failed: %+v", err)
     }
     log.Printf("Your Azure subscription has a total of %d resource groups", len(rgList))
 
     // Call your function to delete the resource group you created.
-    if err := deleteResourceGroup(ctx, conn); err != nil {
+    if err := deleteResourceGroup(subscriptionId, cred); err != nil {
         log.Fatalf("Deletion of resource group failed: %+v", err)
     }
     log.Printf("Resource group deleted")
@@ -278,5 +263,5 @@ func main() {
 
 ## Next steps
 
-> [!div class="nextstepaction"] 
+> [!div class="nextstepaction"]
 > [Learn more about using the Azure SDK for Go](/azure/go)

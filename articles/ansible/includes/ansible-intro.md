@@ -1,11 +1,8 @@
 ---
-title: include file
-description: include file
-author: tomarchermsft
-ms.service: ansible
-ms.topic: include
-ms.date: 06/01/2020
 ms.author: tarcher
+ms.topic: include
+ms.date: 01/04/2022
+ms.custom: devx-track-ansible
 ---
 
 Get started with [Ansible](https://www.ansible.com/) by configuring [Ansible on Azure](https://docs.ansible.com/ansible/2.3/guide_azure.html) and creating a basic Azure resource group.

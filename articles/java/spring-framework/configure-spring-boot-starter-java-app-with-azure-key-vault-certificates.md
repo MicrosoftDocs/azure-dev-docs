@@ -387,7 +387,6 @@ Use the following steps to modify the application:
    ```java
    package com.contoso.ssltest;
 
-
    import java.security.KeyStore;
    import javax.net.ssl.HostnameVerifier;
    import javax.net.ssl.SSLContext;
@@ -424,33 +423,33 @@ Use the following steps to modify the application:
 
        @GetMapping(value = "/ssl-test-outbound")
        public String outbound() throws Exception {
-            KeyStore azureKeyVaultKeyStore = KeyStore.getInstance("AzureKeyVault");
-            KeyVaultLoadStoreParameter parameter = new KeyVaultLoadStoreParameter(
-                System.getProperty("azure.keyvault.uri"));
-            azureKeyVaultKeyStore.load(parameter);
-            SSLContext sslContext = SSLContexts.custom()
-                                               .loadTrustMaterial(azureKeyVaultKeyStore, null)
-                                               .build();
+           KeyStore azureKeyVaultKeyStore = KeyStore.getInstance("AzureKeyVault");
+           KeyVaultLoadStoreParameter parameter = new KeyVaultLoadStoreParameter(
+               System.getProperty("azure.keyvault.uri"));
+           azureKeyVaultKeyStore.load(parameter);
+           SSLContext sslContext = SSLContexts.custom()
+                                              .loadTrustMaterial(azureKeyVaultKeyStore, null)
+                                              .build();
 
-       HostnameVerifier allowAll = (String hostName, SSLSession session) -> true;
-       SSLConnectionSocketFactory csf = new SSLConnectionSocketFactory(sslContext, allowAll);
+           HostnameVerifier allowAll = (String hostName, SSLSession session) -> true;
+           SSLConnectionSocketFactory csf = new SSLConnectionSocketFactory(sslContext, allowAll);
 
-       CloseableHttpClient httpClient = HttpClients.custom()
-           .setSSLSocketFactory(csf)
-           .build();
+           CloseableHttpClient httpClient = HttpClients.custom()
+               .setSSLSocketFactory(csf)
+               .build();
 
-       HttpComponentsClientHttpRequestFactory requestFactory =
-           new HttpComponentsClientHttpRequestFactory();
+           HttpComponentsClientHttpRequestFactory requestFactory =
+               new HttpComponentsClientHttpRequestFactory();
 
-       requestFactory.setHttpClient(httpClient);
-       RestTemplate restTemplate = new RestTemplate(requestFactory);
-       String sslTest = "https://localhost:8443/ssl-test";
+           requestFactory.setHttpClient(httpClient);
+           RestTemplate restTemplate = new RestTemplate(requestFactory);
+           String sslTest = "https://localhost:8443/ssl-test";
 
-       ResponseEntity<String> response
-           = restTemplate.getForEntity(sslTest, String.class);
+           ResponseEntity<String> response
+               = restTemplate.getForEntity(sslTest, String.class);
 
-       return "Outbound TLS " +
-           (response.getStatusCode() == HttpStatus.OK ? "is" : "is not")  + " Working!!";
+           return "Outbound TLS " +
+               (response.getStatusCode() == HttpStatus.OK ? "is" : "is not")  + " Working!!";
        }
 
        @GetMapping(value = "/exit")
