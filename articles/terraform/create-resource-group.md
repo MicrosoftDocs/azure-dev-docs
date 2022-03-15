@@ -13,8 +13,8 @@ adobe-target: true
 
 Article tested with following software/versions:
 
-- [Terraform v1.1.4](https://releases.hashicorp.com/terraform/)
-- [AzureRM Provider v.2.94.0](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs)
+- [Terraform v1.1.7](https://releases.hashicorp.com/terraform/)
+- [AzureRM Provider v.2.99.0](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs)
 
 [!INCLUDE [terraform-intro.md](includes/terraform-intro.md)]
 
