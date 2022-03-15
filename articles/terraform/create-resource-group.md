@@ -48,11 +48,11 @@ In this article, you learn how to:
 
     [!code-terraform[UserStory1929747-code](../../terraform_samples/quickstart/101-resource-group/main.tf)]
 
-1. Create a file named `variables.tf` to contain the project variables and insert the following code:
+1. Create a file named `variables.tf` and insert the following code:
 
     [!code-terraform[UserStory1929747-code](../../terraform_samples/quickstart/101-resource-group/variables.tf)]
 
-1. Create a file named `output.tf` to display the randomly generated resource group name and insert the following code:
+1. Create a file named `output.tf` and insert the following code:
 
     [!code-terraform[UserStory1929747-code](../../terraform_samples/quickstart/101-resource-group/output.tf)]
 
