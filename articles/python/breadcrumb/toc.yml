@@ -1,4 +1,4 @@
-- name: Azure
+- name: AzureRoot
   tocHref: /azure/
   topicHref: /azure/index
   items: 
