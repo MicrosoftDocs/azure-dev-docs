@@ -1,7 +1,7 @@
 - name: AzureRoot
   tocHref: /azure/
   topicHref: /azure/index
-  items: 
+  items:
   - name: App Service
     tocHref: /azure/app-service/
     topicHref: /azure/developer/index
