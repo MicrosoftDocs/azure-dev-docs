@@ -10,6 +10,7 @@ ms.custom: devx-track-terraform, devx-track-azurecli
 # Create an Application Gateway Ingress Controller in Azure Kubernetes Service using Terraform
 
 Article tested with following software/versions:
+
 - [Terraform v1.1.4](https://releases.hashicorp.com/terraform/)
 - [AzureRM Provider v.2.94.0](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs)
 
