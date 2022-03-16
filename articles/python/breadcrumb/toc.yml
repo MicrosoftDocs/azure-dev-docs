@@ -1,11 +1,11 @@
-- name: AzureR
+- name: Azure
   tocHref: /azure/
   topicHref: /azure/index
   items:
-  - name: App Service
+  - name: Developer
     tocHref: /azure/app-service/
     topicHref: /azure/developer/index
     items:
-    - name: Web Apps
+    - name: Python
       tocHref: /azure/app-service/
       topicHref: /azure/developer/python/index
