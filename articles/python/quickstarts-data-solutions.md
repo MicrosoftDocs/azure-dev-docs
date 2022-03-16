@@ -14,7 +14,7 @@ The following articles help you get started with various data solutions on Azure
 
 - **PostgreSQL**:
   - [Use Python to connect and query data in Azure Database for PostgreSQL](/azure/postgresql/connect-python)
-  - [Run a Python (Django) web app with PostgreSQL in Azure App Service](/azure/app-service/tutorial-python-postgresql-app)
+  - [Run a Python (Django) web app with PostgreSQL in Azure App Service](/azure/app-service/tutorial-python-postgresql-app?toc=/azure/developer/python/toc.json&bc=/azure/developer/breadcrumb/toc.json)
 
 - **MySQL**:
   - [Use Python to connect and query data with Azure Database for MySQL](/azure/mysql/connect-python)
