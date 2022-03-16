@@ -43,6 +43,12 @@
       - name: Migration
         tocHref: /azure/developer/java/migration
         topicHref: /azure/developer/java/migration/index
+      - name: Migration
+        tocHref: /azure/migrate
+        topicHref: /azure/developer/java/migration/index
+      - name: Migration
+        tocHref: /azure/virtual-machines/workloads/redhat
+        topicHref: /azure/developer/java/migration/index
       - name: SDK
         tocHref: /azure/developer/java/sdk
         topicHref: /azure/developer/java/sdk/index
