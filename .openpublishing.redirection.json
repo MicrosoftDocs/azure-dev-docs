@@ -1121,11 +1121,11 @@
       },
       {
         "source_path": "articles/go/azure-sdk-tools.md",
-        "redirect_url": "/azure/developer/go/configure-visual-studio-code.md"
+        "redirect_url": "/azure/developer/go/configure-visual-studio-code"
       },
       {
         "source_path": "articles/developer/python/tutorial-python-postgresql-app-portal.md",
-        "redirect_url": "/azure/app-service/tutorial-python-postgresql-app.md"
+        "redirect_url": "/azure/app-service/tutorial-python-postgresql-app"
       }
     ]
   }
