@@ -1125,7 +1125,7 @@
       },
       {
         "source_path": "articles/developer/python/tutorial-python-postgresql-app-portal.md",
-        "redirect_url": "/azure/app-service/tutorial-python-postgresql-app.md"
+        "redirect_url": "/azure/app-service/tutorial-python-postgresql-app"
       }
     ]
   }

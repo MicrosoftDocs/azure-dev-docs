@@ -112,3 +112,10 @@
     - name: Terraform
       tocHref: /azure/developer/terraform
       topicHref: /azure/developer/terraform/index
+  - name: Developer
+    tocHref: /azure/app-service
+    topicHref: /azure/developer/index
+    items:
+    - name: Python
+      tocHref: /azure/app-service
+      topicHref: /azure/developer/python/index
