@@ -32,12 +32,8 @@
           href: tutorial-deploy-app-service-on-linux-07.md
       - name: Using the Azure CLI
         href: /azure/app-service/quickstart-python
-  - name: Django app + PostgreSQL
-    items:
-      - name: Using the Azure portal
-        href: tutorial-python-postgresql-app-portal.md
-      - name: Using the Azure CLI
-        href: /azure/app-service/tutorial-python-postgresql-app
+  - name: Python (Django or Flask) + PostgreSQL
+    href: /azure/app-service/tutorial-python-postgresql-app?toc=/azure/developer/python/toc.json&bc=/azure/developer/python/breadcrumb/toc.json
   - name: Static websites
     href: how-to-create-static-sites.md
   - name: Set up CI/CD
