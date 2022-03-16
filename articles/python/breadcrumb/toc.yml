@@ -8,4 +8,4 @@
     items:
     - name: Web Apps
       tocHref: /azure/app-service/
-      topicHref: /azure/developer/index
+      topicHref: /azure/developer/python/index
