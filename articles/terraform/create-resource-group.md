@@ -3,7 +3,7 @@ title: Get Started - Create an Azure resource group using Terraform
 description: Learn how to create an Azure resource group using Terraform
 keywords: azure devops terraform azure resource group
 ms.topic: quickstart
-ms.date: 03/14/2022
+ms.date: 03/15/2022
 ms.custom: devx-track-terraform, mode-portal
 adobe-target: true
 # Customer intent: As someone new to Terraform and Azure, I want to do something simple to confirm my Terraform installation.
@@ -42,19 +42,19 @@ In this article, you learn how to:
 
 1. Create a file named `providers.tf` and insert the following code:
 
-    [!code-terraform[UserStory1929747-code](../../terraform_samples/quickstart/101-resource-group/providers.tf)]
+    [!code-terraform[master](../../terraform_samples/quickstart/101-resource-group/providers.tf)]
 
 1. Create a file named `main.tf` and insert the following code:
 
-    [!code-terraform[UserStory1929747-code](../../terraform_samples/quickstart/101-resource-group/main.tf)]
+    [!code-terraform[master](../../terraform_samples/quickstart/101-resource-group/main.tf)]
 
 1. Create a file named `variables.tf` and insert the following code:
 
-    [!code-terraform[UserStory1929747-code](../../terraform_samples/quickstart/101-resource-group/variables.tf)]
+    [!code-terraform[master](../../terraform_samples/quickstart/101-resource-group/variables.tf)]
 
 1. Create a file named `output.tf` and insert the following code:
 
-    [!code-terraform[UserStory1929747-code](../../terraform_samples/quickstart/101-resource-group/output.tf)]
+    [!code-terraform[master](../../terraform_samples/quickstart/101-resource-group/output.tf)]
 
 ## 3. Initialize Terraform
 
