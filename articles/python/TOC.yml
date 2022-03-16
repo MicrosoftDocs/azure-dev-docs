@@ -33,7 +33,7 @@
       - name: Using the Azure CLI
         href: /azure/app-service/quickstart-python
   - name: Python (Django or Flask) + PostgreSQL
-    href: /azure/app-service/tutorial-python-postgresql-app?toc=/azure/developer/python/toc.json&bc=/azure/developer/python/breadcrumb/toc.json
+    href: /azure/app-service/tutorial-python-postgresql-app?toc=/azure/developer/python/toc.json&bc=/azure/developer/breadcrumb/toc.json
   - name: Static websites
     href: how-to-create-static-sites.md
   - name: Set up CI/CD
