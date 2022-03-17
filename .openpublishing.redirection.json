@@ -1125,7 +1125,7 @@
       },
       {
         "source_path": "articles/terraform/application-gateway-quickstart.md",
-        "redirect_url": "/azure/developer/terraform/deploy-application-gateway-v2.md"
+        "redirect_url": "/azure/developer/terraform/deploy-application-gateway-v2"
       }
     ]
   }
