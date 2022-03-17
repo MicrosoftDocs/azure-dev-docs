@@ -37,6 +37,10 @@ In this article, you deploy an Azure Application Gateway v2 and two Windows Serv
 
 1. Create a directory in which to test the sample Terraform code and make it the current directory.
 
+1. Create a file named `providers.tf` and insert the following code:
+
+    [!code-terraform[master](../../terraform_samples/quickstart/101-application-gateway/providers.tf)]
+
 1. Create a file named `main.tf` and insert the following code:
 
     [!code-terraform[master](../../terraform_samples/quickstart/101-application-gateway/main.tf)]
@@ -44,9 +48,6 @@ In this article, you deploy an Azure Application Gateway v2 and two Windows Serv
 1. Create a file named `variables.tf` and insert the following code:
 
     [!code-terraform[master](../../terraform_samples/quickstart/101-application-gateway/variables.tf)]
-1. Create a file named `providers.tf` and insert the following code:
-
-    [!code-terraform[master](../../terraform_samples/quickstart/101-application-gateway/providers.tf)]
 
 ## 3. Initialize Terraform
 
@@ -67,7 +68,7 @@ In this article, you deploy an Azure Application Gateway v2 and two Windows Serv
 1. Select the **myResourceGroupAG** resource group.
 1. Select the **myAppGateway** resource.
 1. On the **Overview** page, copy the **Frontend public IP address** to the clipboard.
-1. Paste the public IP address into the address bar of your web browser. When you refresh the browser, you see the name of the virtual machine. A valid response verifies that the application gateway was successfully created and it can successfully connect with the backend.
+1. Paste the public IP address into the address bar of your web browser. Refresh the browser to see the name of the virtual machine. A valid response verifies the application gateway is successfully created and can connect with the backend.
 
 ## 7. Clean up resources
 
