@@ -11,10 +11,12 @@ ms.author: victorh
 
 # Deploy an Azure Application Gateway v2 using Terraform to direct web traffic
 
-Article tested with following software/versions:
+Article tested with the following Terraform and Terraform provider versions:
 
 - [Terraform v1.1.7](https://releases.hashicorp.com/terraform/)
 - [AzureRM Provider v.2.99.0](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs)
+
+[Learn more about using Terraform in Azure](/azure/terraform)
 
 In this article, you deploy an Azure Application Gateway v2 and two Windows Server 2019 Datacenter test servers for the backend pool
 
