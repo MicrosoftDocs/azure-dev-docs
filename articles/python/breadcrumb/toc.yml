@@ -1,0 +1,12 @@
+
+- name: Azure
+  tocHref: /azure/
+  topicHref: /azure/index
+  items:
+  - name: Developer
+    tocHref: /azure/app-service/
+    topicHref: /azure/developer/index
+    items:
+    - name: Python
+      tocHref: /azure/app-service/
+      topicHref: /azure/developer/python/index
