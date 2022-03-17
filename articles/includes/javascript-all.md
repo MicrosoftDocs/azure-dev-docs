@@ -234,13 +234,13 @@
 | @autorest/codemodel | npm [4.18.2](https://www.npmjs.com/package/@autorest/codemodel/v/4.18.2) |  |  |
 | @autorest/common | npm [1.5.0](https://www.npmjs.com/package/@autorest/common/v/1.5.0) |  |  |
 | @autorest/configuration | npm [1.9.0](https://www.npmjs.com/package/@autorest/configuration/v/1.9.0) |  |  |
-| @autorest/csharp | npm [3.0.0-beta.20220316.1](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20220316.1) |  |  |
+| @autorest/csharp | npm [3.0.0-beta.20220316.2](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20220316.2) |  |  |
 | @autorest/csharp-v3 | npm [3.0.0-beta.20201217.1](https://www.npmjs.com/package/@autorest/csharp-v3/v/3.0.0-beta.20201217.1) |  |  |
 | @autorest/extension-base | npm [3.4.4](https://www.npmjs.com/package/@autorest/extension-base/v/3.4.4) |  |  |
 | @autorest/fixer | npm [1.1.0](https://www.npmjs.com/package/@autorest/fixer/v/1.1.0) |  |  |
 | @autorest/gotest | npm [2.1.4](https://www.npmjs.com/package/@autorest/gotest/v/2.1.4) |  |  |
 | @autorest/schemas | npm [1.3.4](https://www.npmjs.com/package/@autorest/schemas/v/1.3.4) |  |  |
-| @autorest/testmodeler | npm [2.2.1](https://www.npmjs.com/package/@autorest/testmodeler/v/2.2.1) |  |  |
+| @autorest/testmodeler | npm [2.2.2](https://www.npmjs.com/package/@autorest/testmodeler/v/2.2.2) |  |  |
 | @autorest/test-utils | npm [0.5.1](https://www.npmjs.com/package/@autorest/test-utils/v/0.5.1) |  |  |
 | @autorest/typescript | npm [6.0.0-beta.16](https://www.npmjs.com/package/@autorest/typescript/v/6.0.0-beta.16) |  |  |
 | @azure/arm-mysql-flexible | npm [1.0.0](https://www.npmjs.com/package/@azure/arm-mysql-flexible/v/1.0.0) |  |  |
@@ -277,7 +277,7 @@
 | @azure-tools/cadl-vs | npm [0.3.0](https://www.npmjs.com/package/@azure-tools/cadl-vs/v/0.3.0) |  |  |
 | @azure-tools/json | npm [1.2.1](https://www.npmjs.com/package/@azure-tools/json/v/1.2.1) |  |  |
 | @azure-tools/jsonschema | npm [1.2.0](https://www.npmjs.com/package/@azure-tools/jsonschema/v/1.2.0) |  |  |
-| @azure-tools/js-sdk-release-tools | npm [2.1.2](https://www.npmjs.com/package/@azure-tools/js-sdk-release-tools/v/2.1.2) |  |  |
+| @azure-tools/js-sdk-release-tools | npm [2.1.3](https://www.npmjs.com/package/@azure-tools/js-sdk-release-tools/v/2.1.3) |  |  |
 | @azure-tools/mock-service-host | npm [0.1.12](https://www.npmjs.com/package/@azure-tools/mock-service-host/v/0.1.12) |  |  |
 | @azure-tools/oav-traffic-converter | npm [0.1.0](https://www.npmjs.com/package/@azure-tools/oav-traffic-converter/v/0.1.0) |  |  |
 | @azure-tools/prettier-plugin-adl | npm [0.1.4](https://www.npmjs.com/package/@azure-tools/prettier-plugin-adl/v/0.1.4) |  |  |
@@ -326,7 +326,7 @@
 | AutoRest - Functions TypeScript | npm [0.0.1-preview](https://www.npmjs.com/package/@autorest/azure-functions-typescript/v/0.0.1-preview) |  |  |
 | AutoRest - Go | npm [4.0.0-preview.37](https://www.npmjs.com/package/@autorest/go/v/4.0.0-preview.37) |  |  |
 | AutoRest - Modeler Four | npm [4.23.0](https://www.npmjs.com/package/@autorest/modelerfour/v/4.23.0) |  | GitHub [4.23.0](https://github.com/Azure/autorest.modelerfour) |
-| AutoRest - PowerShell | npm [3.0.478](https://www.npmjs.com/package/@autorest/powershell/v/3.0.478) |  | GitHub [3.0.478](https://github.com/Azure/autorest.powershell) |
+| AutoRest - PowerShell | npm [3.0.479](https://www.npmjs.com/package/@autorest/powershell/v/3.0.479) |  | GitHub [3.0.479](https://github.com/Azure/autorest.powershell) |
 | AutoRest - Python | npm [5.14.0](https://www.npmjs.com/package/@autorest/python/v/5.14.0) |  | GitHub [5.14.0](https://github.com/Azure/autorest.python/tree/v5.1.0-preview.7) |
 | AutoRest - Remodeler | npm [2.1.27](https://www.npmjs.com/package/@autorest/remodeler/v/2.1.27) |  | GitHub [2.1.27](https://github.com/Azure/autorest.remodeler) |
 | AutoRest - Test | npm [0.1.76](https://www.npmjs.com/package/@autorest/test/v/0.1.76) |  | GitHub [0.1.76](https://github.com/Azure/autorest.test) |
