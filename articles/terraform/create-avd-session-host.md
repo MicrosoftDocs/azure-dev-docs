@@ -36,22 +36,22 @@ In this article, you learn how to:
 
     **Key points:**
 
-    - Use `count` to indicate how many resources will be created
-    - References resources that were created when the infrastructure was built - such as `azurerm_subnet.subnet.id` and `azurerm_virtual_desktop_host_pool.hostpool.name`.  If you  changed the name of these resources from that section, you also need to update the references here.
+    * Use `count` to indicate how many resources will be created
+    * References resources that were created when the infrastructure was built - such as `azurerm_subnet.subnet.id` and `azurerm_virtual_desktop_host_pool.hostpool.name`.  If you  changed the name of these resources from that section, you also need to update the references here.
 
-2. Create a file named `main.tf` and insert the following code:
+1. Create a file named `main.tf` and insert the following code:
 
     [!code-terraform](../../quickstart/101-azure-virtual-desktop/host.tf)
 
-3. Create a file named `variables.tf` and insert the following code:
+1. Create a file named `variables.tf` and insert the following code:
 
     [!code-terraform](../../quickstart/101-azure-virtual-desktop/variables.tf)
 
-4. Create a file named `output.tf` and insert the following code.
+1. Create a file named `output.tf` and insert the following code.
 
     [!code-terraform](../../quickstart/101-azure-virtual-desktop/outputs.tf)
 
-5. Create a file named `terraform.tfvars` and insert the following code.
+1. Create a file named `terraform.tfvars` and insert the following code.
 
     [!code-terraform](../../quickstart/101-azure-virtual-desktop/environments/sample.tfvars)
 
@@ -72,7 +72,6 @@ In this article, you learn how to:
 1. On the Azure portal, Select **Azure Virtual Desktop**.
 1. Select **Host pools** and then the **Name of the pool created** resource.
 1. Select **Session hosts** and then verify the session host is listed.
-
 
 ## 7. Clean up resources
 
