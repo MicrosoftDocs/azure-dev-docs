@@ -68,7 +68,7 @@ Previously you determined an amount of JVM heap memory to start with, the next s
 
 Recommendation: Our recommendation is to start with the Parallel GC.
 
-|                 | Serial | Parallel | G1 | Z | Shenandoah |
+|  Factors        | Serial | Parallel | G1 | Z | Shenandoah |
 | --------------- | ------ | -------- | -- | - | ---------- |
 | Number of cores | 1 | 2 | 2 | 2 | 2 |
 | Multi-threaded  | No | Yes | Yes | Yes | Yes |
