@@ -28,12 +28,14 @@ When you are containerizing a Java workload you have to take two things into acc
 Applications still need a starting point and settings. The JVM has default ergonomics with pre-defined values based on number of available processors and amount of memory in the system, for when the JVM is started without specific startup flags or parameters.
 
 **Default Garbage Collector**
+
 | Resources Available                                | Default                   |
 |----------------------------------------------------|---------------------------|
-| Any number of processors <br/> Up to 1791MB memory | SerialGC                 |
+| Any number of processors <br/> Up to 1791MB memory | SerialGC                  |
 | 2+ processors <br/> 1792MB or more memory          | G1GC                      |
 
 **Default Initial Heap Size**
+
 | Type of Environment | Default                  |
 |---------------------|--------------------------|
 | Containers          | 1/4 of available memory  |
