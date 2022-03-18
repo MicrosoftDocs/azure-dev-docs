@@ -9,7 +9,7 @@ ms.custom: devx-track-javascript
 
 You can access the console logs generated from inside the app and the container in which it runs. Logs include any output generated using `print` statements.
 
-To stream logs, run the [az webapp log tail](/cli/azure/webapp/log#az_webapp_log_tail) command:
+To stream logs, run the [az webapp log tail](/cli/azure/webapp/log#az-webapp-log-tail) command:
 
 ```azurecli
 az webapp log tail

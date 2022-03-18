@@ -9,7 +9,7 @@ When you log in to the Azure portal with a Microsoft account, the default Azure 
 
 Terraform automatically authenticates using information from the default Azure subscription.
 
-Run [az account show](/cli/azure/account?#az_account_show) to verify the current Microsoft account and Azure subscription.
+Run [az account show](/cli/azure/account?#az-account-show) to verify the current Microsoft account and Azure subscription.
 
 ```azurecli
 az account show

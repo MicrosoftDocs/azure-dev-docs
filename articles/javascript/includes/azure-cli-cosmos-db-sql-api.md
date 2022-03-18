@@ -7,7 +7,7 @@ ms.date: 02/08/2021
 
 ## Create a Cosmos DB resource for SQL API
 
-Use the following Azure CLI [az cosmosdb create](/cli/azure/cosmosdb#az_cosmosdb_create) command in the [Azure Cloud Shell](https://shell.azure.com) to create a new Cosmos DB resource. This command may take a couple of minutes to complete. 
+Use the following Azure CLI [az cosmosdb create](/cli/azure/cosmosdb#az-cosmosdb-create) command in the [Azure Cloud Shell](https://shell.azure.com) to create a new Cosmos DB resource. This command may take a couple of minutes to complete. 
 
 ```azurecli
 az cosmosdb create \

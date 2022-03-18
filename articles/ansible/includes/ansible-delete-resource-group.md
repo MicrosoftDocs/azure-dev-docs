@@ -34,13 +34,13 @@ ms.custom: devx-track-ansible
     
 #### [Azure CLI](#tab/azure-cli)
 
-1. Run [az group delete](/cli/azure/group#az_group_delete) to delete the resource group. All resources within the resource group will be deleted.
+1. Run [az group delete](/cli/azure/group#az-group-delete) to delete the resource group. All resources within the resource group will be deleted.
 
     ```azurecli
     az group delete --name <resource_group>
     ```
 
-1. Verify that the resource group was deleted by using [az group show](/cli/azure/group#az_group_show).
+1. Verify that the resource group was deleted by using [az group show](/cli/azure/group#az-group-show).
 
     ```azurecli
     az group show --name <resource_group>

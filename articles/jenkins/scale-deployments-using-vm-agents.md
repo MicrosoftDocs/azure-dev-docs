@@ -27,13 +27,13 @@ In this tutorial, you will:
 
 ## Configure agent virtual machine
 
-1. Use [az group create](/cli/azure/group?#az_group_create) to create an Azure resource group.
+1. Use [az group create](/cli/azure/group?#az-group-create) to create an Azure resource group.
 
     ```azurecli
     az group create --name <resource_group> --location <location>
     ```
 
-1. Use [az vm create](/cli/azure/vm#az_vm_create) to create a virtual machine.
+1. Use [az vm create](/cli/azure/vm#az-vm-create) to create a virtual machine.
 
     ```azurecli
     az vm create --resource-group <resource-group> --name <vm_name> --image UbuntuLTS --admin-username azureuser --admin-password "<password>"

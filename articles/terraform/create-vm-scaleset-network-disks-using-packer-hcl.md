@@ -35,13 +35,13 @@ In this article, you learn how to:
     - To confirm that you have access to the Packer executable, run the following command: `packer -v`.
     - Depending on your environment, you might need to set your path and reopen the command-line.
     
-1. Run [az group create](/cli/azure/group#az_group_create) to create a resource group to hold the Packer image.
+1. Run [az group create](/cli/azure/group#az-group-create) to create a resource group to hold the Packer image.
 
     ```azurecli
     az group create -n myPackerImages -l eastus
     ```
 
-1. Run [az ad sp create-for-rbac](/cli/azure/ad/sp?#az_ad_sp_create_for_rbac) to enable Packer to authenticate to Azure using a service principal. 
+1. Run [az ad sp create-for-rbac](/cli/azure/ad/sp?#az-ad-sp-create-for-rbac) to enable Packer to authenticate to Azure using a service principal. 
 
     ```azurecli
     az ad sp create-for-rbac --role Contributor --query "{ client_id: appId, client_secret: password, tenant_id: tenant }"
@@ -51,7 +51,7 @@ In this article, you learn how to:
 
     - Make note of the output values (`appId`, `client_secret`, `tenant_id`).
 
-1. Run [az account show](/cli/azure/account#az_account_show) to display the current Azure subscription.
+1. Run [az account show](/cli/azure/account#az-account-show) to display the current Azure subscription.
 
     ```azurecli
     az account show --query "{ subscription_id: id }"
@@ -120,7 +120,7 @@ In this article, you learn how to:
 
 ### Delete Packer image and resource group
 
-Run [az group delete](/cli/azure/group#az_group_delete) to delete the resource group used to contain the Packer image. The Packer image is also deleted.
+Run [az group delete](/cli/azure/group#az-group-delete) to delete the resource group used to contain the Packer image. The Packer image is also deleted.
 
 ```azurecli
 az group delete --name myPackerImages --yes
