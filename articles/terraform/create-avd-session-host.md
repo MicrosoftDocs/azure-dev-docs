@@ -41,19 +41,19 @@ In this article, you learn how to:
 
 1. Create a file named `main.tf` and insert the following code:
 
-    [!code-terraform](../../quickstart/101-azure-virtual-desktop/host.tf)
+    [!code-terraform[UserStory1913529](../../terraform_samples/quickstart/101-azure-virtual-desktop/host.tf)
 
 1. Create a file named `variables.tf` and insert the following code:
 
-    [!code-terraform](../../quickstart/101-azure-virtual-desktop/variables.tf)
+    [!code-terraform[UserStory1913529](../../terraform_samples/quickstart/101-azure-virtual-desktop/variables.tf)
 
 1. Create a file named `output.tf` and insert the following code.
 
-    [!code-terraform](../../quickstart/101-azure-virtual-desktop/outputs.tf)
+    [!code-terraform[UserStory1913529](../../terraform_samples/quickstart/101-azure-virtual-desktop/outputs.tf)
 
 1. Create a file named `terraform.tfvars` and insert the following code.
 
-    [!code-terraform](../../quickstart/101-azure-virtual-desktop/environments/sample.tfvars)
+    [!code-terraform[UserStory1913529](../../terraform_samples/quickstart/101-azure-virtual-desktop/environments/sample.tfvars)
 
 ## 3. Initialize Terraform
 
