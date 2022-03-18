@@ -39,48 +39,50 @@ In this article, you learn how to:
 
 1. Create a directory in which to test the sample Terraform code and make it the current directory.
 
-1. Create a file named `main.tf` and insert the following code:
+1. Create a file named `providers.tf` and insert the following code:
 
     ```hcl
-    # Configure the Microsoft Azure Provider
     terraform {
+    
+      required_version = ">=0.12"
+      
       required_providers {
         azurerm = {
-          source  = "hashicorp/azurerm"
+          source = "hashicorp/azurerm"
           version = "~>2.0"
         }
       }
     }
+    
     provider "azurerm" {
       features {}
     }
+    ```
+
+1. Create a file named `main.tf` and insert the following code:
+
+    ```hcl
+    resource "random_pet" "rg-name" {
+      prefix    = var.resource_group_name_prefix
+    }
     
-    # Create a resource group if it doesn't exist
-    resource "azurerm_resource_group" "myterraformgroup" {
-      name     = "myResourceGroup"
-      location = "eastus"
-    
-      tags = {
-        environment = "Terraform Demo"
-      }
+    resource "azurerm_resource_group" "rg" {
+      name      = random_pet.rg-name.id
+      location  = var.resource_group_location
     }
     
     # Create virtual network
     resource "azurerm_virtual_network" "myterraformnetwork" {
       name                = "myVnet"
       address_space       = ["10.0.0.0/16"]
-      location            = "eastus"
-      resource_group_name = azurerm_resource_group.myterraformgroup.name
-    
-      tags = {
-        environment = "Terraform Demo"
-      }
+      location            = azurerm_resource_group.rg.location
+      resource_group_name = azurerm_resource_group.rg.name
     }
     
     # Create subnet
     resource "azurerm_subnet" "myterraformsubnet" {
       name                 = "mySubnet"
-      resource_group_name  = azurerm_resource_group.myterraformgroup.name
+      resource_group_name  = azurerm_resource_group.rg.name
       virtual_network_name = azurerm_virtual_network.myterraformnetwork.name
       address_prefixes     = ["10.0.1.0/24"]
     }
@@ -88,20 +90,52 @@ In this article, you learn how to:
     # Create public IPs
     resource "azurerm_public_ip" "myterraformpublicip" {
       name                = "myPublicIP"
-      location            = "eastus"
-      resource_group_name = azurerm_resource_group.myterraformgroup.name
-      allocation_method   = "Dynamic"
+      location            = azurerm_resource_group.rg.location
+      resource_group_name = azurerm_resource_group.rg.name
+      allocation_method   = "Static"
+    }
     
-      tags = {
-        environment = "Terraform Demo"
+    resource "azurerm_lb" "myterraformlb" {
+      name                = "myLb"
+      location            = azurerm_resource_group.rg.location
+      resource_group_name = azurerm_resource_group.rg.name
+    
+      frontend_ip_configuration {
+        name                 = "primary"
+        public_ip_address_id = azurerm_public_ip.myterraformpublicip.id
       }
+    }
+    
+    resource "azurerm_lb_backend_address_pool" "myBackendAddressPool" {
+      loadbalancer_id     = azurerm_lb.myterraformlb.id
+      name                = "acctestpool"
+    }
+    
+    # Create network interface
+    resource "azurerm_network_interface" "myterraformnic" {
+      name                = "myNIC"
+      location            = azurerm_resource_group.rg.location
+      resource_group_name = azurerm_resource_group.rg.name
+    
+      ip_configuration {
+        name                          = "myNicConfiguration"
+        subnet_id                     = azurerm_subnet.myterraformsubnet.id
+        private_ip_address_allocation = "Dynamic"
+      }
+    }
+    
+    # Connect the NIC to the backend.    
+    resource "azurerm_network_interface_backend_address_pool_association" "myNicBackendAddress" {
+      network_interface_id    = azurerm_network_interface.myterraformnic.id
+      ip_configuration_name   = "myNicConfiguration"
+      backend_address_pool_id = azurerm_lb_backend_address_pool.myBackendAddressPool.id
     }
     
     # Create Network Security Group and rule
     resource "azurerm_network_security_group" "myterraformnsg" {
       name                = "myNetworkSecurityGroup"
-      location            = "eastus"
-      resource_group_name = azurerm_resource_group.myterraformgroup.name
+      location            = azurerm_resource_group.rg.location
+      resource_group_name = azurerm_resource_group.rg.name
     
       security_rule {
         name                       = "SSH"
@@ -113,28 +147,6 @@ In this article, you learn how to:
         destination_port_range     = "22"
         source_address_prefix      = "*"
         destination_address_prefix = "*"
-      }
-    
-      tags = {
-        environment = "Terraform Demo"
-      }
-    }
-    
-    # Create network interface
-    resource "azurerm_network_interface" "myterraformnic" {
-      name                = "myNIC"
-      location            = "eastus"
-      resource_group_name = azurerm_resource_group.myterraformgroup.name
-    
-      ip_configuration {
-        name                          = "myNicConfiguration"
-        subnet_id                     = azurerm_subnet.myterraformsubnet.id
-        private_ip_address_allocation = "Dynamic"
-        public_ip_address_id          = azurerm_public_ip.myterraformpublicip.id
-      }
-    
-      tags = {
-        environment = "Terraform Demo"
       }
     }
     
@@ -148,7 +160,7 @@ In this article, you learn how to:
     resource "random_id" "randomId" {
       keepers = {
         # Generate a new ID only when a new resource group is defined
-        resource_group = azurerm_resource_group.myterraformgroup.name
+        resource_group = azurerm_resource_group.rg.name
       }
     
       byte_length = 8
@@ -157,14 +169,10 @@ In this article, you learn how to:
     # Create storage account for boot diagnostics
     resource "azurerm_storage_account" "mystorageaccount" {
       name                     = "diag${random_id.randomId.hex}"
-      resource_group_name      = azurerm_resource_group.myterraformgroup.name
-      location                 = "eastus"
+      location                 = azurerm_resource_group.rg.location
+      resource_group_name      = azurerm_resource_group.rg.name
       account_tier             = "Standard"
       account_replication_type = "LRS"
-    
-      tags = {
-        environment = "Terraform Demo"
-      }
     }
     
     # Create (and display) an SSH key
@@ -180,8 +188,8 @@ In this article, you learn how to:
     # Create virtual machine
     resource "azurerm_linux_virtual_machine" "myterraformvm" {
       name                  = "myVM"
-      location              = "eastus"
-      resource_group_name   = azurerm_resource_group.myterraformgroup.name
+      location              = azurerm_resource_group.rg.location
+      resource_group_name   = azurerm_resource_group.rg.name
       network_interface_ids = [azurerm_network_interface.myterraformnic.id]
       size                  = "Standard_DS1_v2"
     
@@ -210,24 +218,34 @@ In this article, you learn how to:
       boot_diagnostics {
         storage_account_uri = azurerm_storage_account.mystorageaccount.primary_blob_endpoint
       }
-    
-      tags = {
-        environment = "Terraform Demo"
-      }
-    }
-
-    # Connect the NIC to the backend.    
-    resource "azurerm_network_interface_backend_address_pool_association" "example" {
-      count                   = 2
-      network_interface_id    = element(azurerm_network_interface.test.*.id, count.index)
-      ip_configuration_name   = "testConfiguration"
-      backend_address_pool_id = azurerm_lb_backend_address_pool.test.id
     }
     ```
     
     **Key points:**
 
-    -  The machine will be created with a new SSH public key. To get the corresponding private key, run `terraform output -raw tls_private_key`. Save the output to a file on the local machine and use it to log in to the virtual machine.
+    -  The virtual machine will be created with a new SSH public key. To get the corresponding private key, run `terraform output -raw tls_private_key`. Save the output to a file on the local machine and use it to log in to the virtual machine.
+
+1. Create a file named `variables.tf` and insert the following code:
+
+    ```hcl
+    variable "resource_group_name_prefix" {
+      default       = "rg"
+      description   = "Prefix of the resource group name that's combined with a random ID so name is unique in your Azure subscription."
+    }
+    
+    variable "resource_group_location" {
+      default       = "eastus"
+      description   = "Location of the resource group."
+    }
+    ```
+
+1. Create a file named `output.tf` and insert the following code:
+
+    ```hcl
+    output "resource_group_name" {
+        value = azurerm_resource_group.rg.name
+    }
+    ```
 
 ## 3. Initialize Terraform
 
