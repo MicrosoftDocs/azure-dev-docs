@@ -10,7 +10,7 @@ metadata:
   author: TomArcherMsft
   ms.author: tarcher
   ms.topic: landing-page
-  ms.date: 08/07/2021
+  ms.date: 03/17/2022
   ms.custom: devx-track-terraform
 
 landingContent:
@@ -110,6 +110,16 @@ landingContent:
             url: hub-spoke-spoke-network.md
           - text: 6. Validate network topology connectivity 
             url: hub-spoke-validation.md
+
+  # Card
+  - title: Manage Application Gateway
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Deploy Azure Application Gateway v2
+            url: deploy-application-gateway-v2.md
+          - text: Create a Kubernetes cluster with Application Gateway
+            url: create-k8s-cluster-with-aks-applicationgateway-ingress.md
 
   # Card
   - title: Manage databases

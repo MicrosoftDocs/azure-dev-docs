@@ -73,7 +73,9 @@ Run the following command to assign the **Contributor** role to the service prin
 
 # [Azure CLI](#tab/azure-cli)
 ```azurecli-interactive
-az role assignment create --assignee <appID> --role Contributor
+az role assignment create --assignee <appID> \
+    --role Contributor \
+    --scope /subscriptions/<subscription_id>/resourceGroups/<resource_group_name>
 ```
 
 Replace `<appID>` with the value provided from the output of `az ad sp create-for-rba` command.
