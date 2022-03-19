@@ -3,22 +3,28 @@ title: Configure Azure Virtual Desktop using Terraform - Azure
 description: Learn how to use Terraform to configure Azure Virtual Desktop with Terraform
 keywords: azure devops terraform avd virtual desktop session host
 ms.topic: how-to
-ms.date: 12/30/2021
+ms.date: 3/18/2022
 ms.custom: devx-track-terraform
 ---
 
 # Configure Azure Virtual Desktop with Terraform
 
->[!IMPORTANT]
->This content applies to Azure Virtual Desktop with Azure Resource Manager Azure Virtual Desktop objects. This article shows you how to build Session Hosts and deploy to an AVD Host Pool with Terraform. Host pools are a collection of one or more identical virtual machines within Azure Virtual Desktop tenant environments. Each host pool can be associated with multiple RemoteApp groups, one desktop app group, and multiple session hosts.
+Article tested with the following Terraform and Terraform provider versions:
+
+- [Terraform v1.1.4](https://releases.hashicorp.com/terraform/)
+- [AzureRM Provider v.2.94.0](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs)
+
+[Learn more about using Terraform in Azure](/azure/terraform)
+
+In this article, you learn how to build Session Hosts and deploy to an AVD Host Pool with Terraform. Host pools are a collection of one or more identical virtual machines within Azure Virtual Desktop tenant environments. Each host pool can be associated with multiple RemoteApp groups - one desktop app group - and multiple session hosts.
 
 In this article, you learn how to:
 > [!div class="checklist"]
 
-> * Use Terraform to create Azure Virtual Desktop workspace
-> * Use Terraform to create Azure Virtual Desktop host pool
-> * Use Terraform to create Azure Desktop Application Group
-> * Associate Workspace and Desktop Application Group
+> * Use Terraform to create an Azure Virtual Desktop workspace
+> * Use Terraform to create an Azure Virtual Desktop host pool
+> * Use Terraform to create an Azure Desktop Application Group
+> * Associate a Workspace and a Desktop Application Group
 
 ## 1. Configure your environment
 
@@ -26,213 +32,27 @@ In this article, you learn how to:
 
 [!INCLUDE [configure-terraform.md](includes/configure-terraform.md)]
 
-## 2. Define providers and create resource group
+## 3. Implement the Terraform code
 
-The following code defines the Azure Terraform provider:
 
-```hcl
-terraform {
-  required_providers {
-    azurerm = {
-      source = "hashicorp/azurerm"
-      version = "~>2.0"
-    }
-  }
-}
-provider "azurerm" {
-  features {}
-}
-```
 
-The following section creates a resource group in the location:
-
-```hcl
-resource "azurerm_resource_group" "rg" {
-  name = var.rg_name
-  location = var.deploy_location
-}
-```
-
-In other sections, you reference the resource group with `azurerm_resource_group.rg.name`.
-
-```hcl
-resource "time_rotating" "token" {
-  rotation_days = 30
-}
-```
-
-## 3. Create Azure Virtual Desktop workspace
-
-```hcl
-resource "azurerm_virtual_desktop_workspace" "workspace" {
-  name                = var.workspace
-  resource_group_name = azurerm_resource_group.rg.name
-  location            = var.deploy_location
-  friendly_name       = "${var.prefix} Workspace"
-  description         = "${var.prefix} Workspace"
-}
-```
-
-## 4. Create Azure Virtual Desktop host pool
-
-```hcl
-resource "azurerm_virtual_desktop_host_pool" "hostpool" {
-  resource_group_name      = azurerm_resource_group.rg.name
-  name                     = var.hostpool
-  description              = var.hostpool
-  location                 = var.deploy_location
-  validate_environment     = false #[true false]
-  type                     = "Pooled" #[Pooled Personal]
-  maximum_sessions_allowed = 16 
-  load_balancer_type       = "DepthFirst" #[BreadthFirst DepthFirst]
-  friendly_name            = var.hostpool
-  custom_rdp_properties    = "audiocapturemode:i:1;audiomode:i:0;"
-  preferred_app_group_type = "Desktop" #[Desktop RemoteApp]
-  start_vm_on_connect      = "true"
-  
-  registration_info {
-    expiration_date = time_rotating.token.rotation_rfc3339
-  }
-}
-```
-
-## 5. Create Desktop Application Group
-
-```hcl
-resource "azurerm_virtual_desktop_application_group" "dag" {
-  resource_group_name = azurerm_resource_group.rg.name
-  host_pool_id        = azurerm_virtual_desktop_host_pool.hostpool.id
-  location            = var.deploy_location
-  type                = "Desktop"
-  name                = "${var.prefix}-dag"
-  friendly_name       = "Desktop AppGroup"
-  description         = "AVD application group"
-  depends_on          = [azurerm_virtual_desktop_host_pool.hostpool, azurerm_virtual_desktop_workspace.workspace]
-}
-```
-
-## 6. Associate Workspace and Desktop Application Group
-
-```hcl
-resource "azurerm_virtual_desktop_workspace_application_group_association" "ws-dag" {
-  application_group_id = azurerm_virtual_desktop_application_group.example.id
-  workspace_id         = azurerm_virtual_desktop_workspace.example.id
-}
-
-```
-
-## 7. Implement the Terraform code
-
-To bring all these sections together and see Terraform in action, create a directory in which to test and run the sample Terraform code and make it the current directory.
-
-1. Create a file named `main.tf` and insert the following code:
-
-```hcl
-terraform {
-  required_providers {
-    azurerm = {
-      source = "hashicorp/azurerm"
-      version = "~>2.0"
-    }
-  }
-}
-provider "azurerm" {
-  features {}
-}
-
-# Create AVD Resource Group
-resource "azurerm_resource_group" "rg" {
-  name     = var.rg_name
-  location = var.deploy_location
-}
-
-resource "time_rotating" "avd_token" {
-  rotation_days = 30
-}
-
-# Create AVD workspace
-resource "azurerm_virtual_desktop_workspace" "workspace" {
-  name                = var.workspace
-  resource_group_name = azurerm_resource_group.rg.name
-  location            = var.deploy_location
-  friendly_name       = "${var.prefix} Workspace"
-  description         = "${var.prefix} Workspace"
-}
-
-# Create AVD host pool
-resource "azurerm_virtual_desktop_host_pool" "hostpool" {
-  resource_group_name      = azurerm_resource_group.rg.name
-  name                     = var.hostpool
-  description              = var.hostpool
-  location                 = var.deploy_location
-  validate_environment     = false #[true false]
-  type                     = "Pooled" #[Pooled Personal]
-  maximum_sessions_allowed = 16 
-  load_balancer_type       = "DepthFirst" #[BreadthFirst DepthFirst]
-  friendly_name            = var.hostpool
-  custom_rdp_properties    = "audiocapturemode:i:1;audiomode:i:0;"
-  preferred_app_group_type = "Desktop" #[Desktop RemoteApp]
-  start_vm_on_connect      = "true"
-  }
-
-  registration_info {
-    expiration_date = time_rotating.token.rotation_rfc3339
-  }
-
-# Create AVD DAG
-resource "azurerm_virtual_desktop_application_group" "dag" {
-  resource_group_name = azurerm_resource_group.rg.name
-  host_pool_id        = azurerm_virtual_desktop_host_pool.hostpool.id
-  location            = var.deploy_location
-  type                = "Desktop"
-  name                = "${var.prefix}-dag"
-  friendly_name       = "Desktop AppGroup"
-  description         = "AVD application group"
-  depends_on          = [azurerm_virtual_desktop_host_pool.hostpool, azurerm_virtual_desktop_workspace.workspace]
-}
-
-# Associate Workspace and DAG
-resource "azurerm_virtual_desktop_workspace_application_group_association" "ws-dag" {
-  application_group_id = azurerm_virtual_desktop_application_group.example.id
-  workspace_id         = azurerm_virtual_desktop_workspace.example.id
-}
-```
-
-## 8. Initialize Terraform
-
-With your Terraform template created, the first step is to initialize Terraform. This step ensures that Terraform has all the prerequisites to build your template in Azure.
-
-```bash
-terraform init
-```
+## 4. Initialize Terraform
 
 [!INCLUDE [terraform-init.md](includes/terraform-init.md)]
 
-## 9. Create a Terraform execution plan
-
-The next step is to have Terraform review and validate the template. This step compares the requested resources to the state information saved by Terraform and then outputs the planned execution. The Azure resources aren't created at this point. An execution plan is generated and stored in the file specified by the `-out` parameter.
-
-```bash
-terraform plan -out terraform_azure.tfplan
-```
+## 5. Create a Terraform execution plan
 
 [!INCLUDE [terraform-plan.md](includes/terraform-plan.md)]
 
-## 10. Apply a Terraform execution plan
-
-When you're ready to build the infrastructure in Azure, apply the execution plan:
-
-```bash
-terraform apply terraform_azure.tfplan
-```
+## 6. Apply a Terraform execution plan
 
 [!INCLUDE [terraform-apply-plan.md](includes/terraform-apply-plan.md)]
 
-## 11. Verify the results
+## 7. Verify the results
 
 Once Terraform completes, your VM infrastructure is ready. Obtain the public IP address of your VM with [az vm show](/cli/azure/vm#az_vm_show):
 
-## 12. Clean up resources
+## 8. Clean up resources
 
 [!INCLUDE [terraform-plan-destroy.md](includes/terraform-plan-destroy.md)]
 
