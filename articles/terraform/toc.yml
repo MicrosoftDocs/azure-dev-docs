@@ -93,6 +93,14 @@
       items:
         - name: Create a Terraform base template using Yeoman
           href: create-base-template-using-yeoman.md
+    - name: Azure Virtual Desktop
+      items:
+        - name: Configure an Azure Virtual Desktop
+          href: configure-azure-virtual-desktop.md
+        - name: Azure Virtual Desktop Session Host
+          href: create-avd-session-host.md
+        - name: Azure Virtual Desktop RBAC
+          href: create-avd-rbac.md
     - name: Virtual machines
       items:
         - name: Virtual machine with infrastructure
@@ -105,14 +113,6 @@
           href: create-vm-scaleset-network-disks-hcl.md
         - name: Virtual machine scale set from Packer image
           href: create-vm-scaleset-network-disks-using-packer-hcl.md
-    - name: Azure Virtual Desktop
-      items:
-        - name: Azure Virtual Desktop
-          href: create-azure-virtual-desktop.md
-        - name: Azure Virtual Desktop Session Host
-          href: create-avd-session-host.md
-        - name: Azure Virtual Desktop RBAC
-          href: create-avd-rbac.md
     - name: Storage
       items:
         - name: Azure Files
