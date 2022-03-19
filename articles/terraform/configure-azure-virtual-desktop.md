@@ -3,7 +3,7 @@ title: Configure Azure Virtual Desktop using Terraform - Azure
 description: Learn how to use Terraform to configure Azure Virtual Desktop with Terraform
 keywords: azure devops terraform avd virtual desktop session host
 ms.topic: how-to
-ms.date: 3/18/2022
+ms.date: 3/19/2022
 ms.custom: devx-track-terraform
 ---
 
@@ -78,7 +78,7 @@ In this article, you learn how to:
 1. Get the name of the Azure Virtual Desktop Application Group you created. The name is output when you run `terraform apply`. You can also get the name by running the following `terraform output` command.
 
     ```console
-    echo "$(azurerm_virtual_desktop_application_group)"
+    echo "$(terraform output azurerm_virtual_desktop_application_group)"
     ```
 
 1. Run [az desktopvirtualization applicationgroup show](/cli/azure/desktopvirtualization/applicationgroup#az-desktopvirtualization-applicationgroup-show) to show the workspace details.
@@ -92,7 +92,7 @@ In this article, you learn how to:
 1. Get the name of the Azure Virtual Desktop Workspace you created. The name is output when you run `terraform apply`. You can also get the name by running the following `terraform output` command.
 
     ```console
-    echo "$(azurerm_virtual_desktop_workspace)"
+    echo "$(terraform output azurerm_virtual_desktop_workspace)"
     ```
 
 1. Run [az desktopvirtualization workspace show](/cli/azure/desktopvirtualization/workspace#az-desktopvirtualization-workspace-show) to show the workspace details.
