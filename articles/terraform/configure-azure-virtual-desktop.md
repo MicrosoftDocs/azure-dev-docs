@@ -66,7 +66,42 @@ In this article, you learn how to:
 
 ## 6. Verify the results
 
-Once Terraform completes, your VM infrastructure is ready. Obtain the public IP address of your VM with [az vm show](/cli/azure/vm#az_vm_show):
+> [!NOTE]
+> At the time of this writing, the Azure CLI command groups - `config`, `desktopvirtualization applicationgroup`, `desktopvirtualization workspace` are experimental and under development.
+
+1. Get the randomized resource group name. The name is output when you run `terraform apply`. You can also get the name by running the following `terraform output` command.
+
+    ```console
+    echo "$(terraform output resource_group_name)"
+    ```
+
+1. Get the name of the Azure Virtual Desktop Application Group you created. The name is output when you run `terraform apply`. You can also get the name by running the following `terraform output` command.
+
+    ```console
+    echo "$(azurerm_virtual_desktop_application_group)"
+    ```
+
+1. Run [az desktopvirtualization applicationgroup show](/cli/azure/desktopvirtualization/applicationgroup#az-desktopvirtualization-applicationgroup-show) to show the workspace details.
+
+    ```azurecli
+    az desktopvirtualization applicationgroup show \
+    --name aAzure_virtual_desktop_workspace_name> \
+    --resource-group <resource_group_name>
+    ```
+
+1. Get the name of the Azure Virtual Desktop Workspace you created. The name is output when you run `terraform apply`. You can also get the name by running the following `terraform output` command.
+
+    ```console
+    echo "$(azurerm_virtual_desktop_workspace)"
+    ```
+
+1. Run [az desktopvirtualization workspace show](/cli/azure/desktopvirtualization/workspace#az-desktopvirtualization-workspace-show) to show the workspace details.
+
+    ```azurecli
+    az desktopvirtualization workspace show \
+    --name aAzure_virtual_desktop_workspace_name> \
+    --resource-group <resource_group_name>
+    ```
 
 ## 7. Clean up resources
 
