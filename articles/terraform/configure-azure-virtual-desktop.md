@@ -89,7 +89,7 @@ In this article, you learn how to:
 
     **Key points:**
 
-    - For more information about dynamically install extensions with Azure CLI, see [Use and manage extensions with the Azure CLI](/cli/azure/azure-cli-extensions-overview).
+    - For more information about dynamically installing extensions with Azure CLI, see [Use and manage extensions with the Azure CLI](/cli/azure/azure-cli-extensions-overview).
 
 1. Run [az desktopvirtualization applicationgroup show](/cli/azure/desktopvirtualization/applicationgroup#az-desktopvirtualization-applicationgroup-show) to show the workspace details.
 
