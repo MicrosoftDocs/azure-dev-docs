@@ -32,27 +32,43 @@ In this article, you learn how to:
 
 [!INCLUDE [configure-terraform.md](includes/configure-terraform.md)]
 
-## 3. Implement the Terraform code
+## 2. Implement the Terraform code
 
+1. Create a directory in which to test the sample Terraform code and make it the current directory.
 
+1. Create a file named `providers.tf` and insert the following code:
 
-## 4. Initialize Terraform
+    [!code-terraform[master](../../terraform_samples/quickstart/101-resource-group/providers.tf)]
+
+1. Create a file named `main.tf` and insert the following code:
+
+    [!code-terraform[master](../../terraform_samples/quickstart/101-resource-group/main.tf)]
+
+1. Create a file named `variables.tf` and insert the following code:
+
+    [!code-terraform[master](../../terraform_samples/quickstart/101-resource-group/variables.tf)]
+
+1. Create a file named `output.tf` and insert the following code:
+
+    [!code-terraform[master](../../terraform_samples/quickstart/101-resource-group/output.tf)]
+
+## 3. Initialize Terraform
 
 [!INCLUDE [terraform-init.md](includes/terraform-init.md)]
 
-## 5. Create a Terraform execution plan
+## 4. Create a Terraform execution plan
 
 [!INCLUDE [terraform-plan.md](includes/terraform-plan.md)]
 
-## 6. Apply a Terraform execution plan
+## 5. Apply a Terraform execution plan
 
 [!INCLUDE [terraform-apply-plan.md](includes/terraform-apply-plan.md)]
 
-## 7. Verify the results
+## 6. Verify the results
 
 Once Terraform completes, your VM infrastructure is ready. Obtain the public IP address of your VM with [az vm show](/cli/azure/vm#az_vm_show):
 
-## 8. Clean up resources
+## 7. Clean up resources
 
 [!INCLUDE [terraform-plan-destroy.md](includes/terraform-plan-destroy.md)]
 
