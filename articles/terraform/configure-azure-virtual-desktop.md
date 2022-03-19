@@ -11,8 +11,8 @@ ms.custom: devx-track-terraform
 
 Article tested with the following Terraform and Terraform provider versions:
 
-- [Terraform v1.1.4](https://releases.hashicorp.com/terraform/)
-- [AzureRM Provider v.2.94.0](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs)
+- [Terraform v1.1.7](https://releases.hashicorp.com/terraform/)
+- [AzureRM Provider v.2.99.0](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs)
 
 [Learn more about using Terraform in Azure](/azure/terraform)
 
@@ -38,19 +38,19 @@ In this article, you learn how to:
 
 1. Create a file named `providers.tf` and insert the following code:
 
-    [!code-terraform[master](../../terraform_samples/quickstart/101-resource-group/providers.tf)]
+    [!code-terraform[UserStory1913529](../../terraform_samples/quickstart/101-azure-virtual-desktop-create/providers.tf)]
 
 1. Create a file named `main.tf` and insert the following code:
 
-    [!code-terraform[master](../../terraform_samples/quickstart/101-resource-group/main.tf)]
+    [!code-terraform[UserStory1913529](../../terraform_samples/quickstart/101-azure-virtual-desktop-create/main.tf)]
 
 1. Create a file named `variables.tf` and insert the following code:
 
-    [!code-terraform[master](../../terraform_samples/quickstart/101-resource-group/variables.tf)]
+    [!code-terraform[UserStory1913529](../../terraform_samples/quickstart/101-azure-virtual-desktop-create/variables.tf)]
 
 1. Create a file named `output.tf` and insert the following code:
 
-    [!code-terraform[master](../../terraform_samples/quickstart/101-resource-group/output.tf)]
+    [!code-terraform[UserStory1913529](../../terraform_samples/quickstart/101-azure-virtual-desktop-create/output.tf)]
 
 ## 3. Initialize Terraform
 
