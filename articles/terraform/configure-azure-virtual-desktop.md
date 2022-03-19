@@ -67,7 +67,7 @@ In this article, you learn how to:
 ## 6. Verify the results
 
 > [!NOTE]
-> At the time of this writing, the Azure CLI command groups - `config`, `desktopvirtualization applicationgroup`, `desktopvirtualization workspace` are experimental and under development.
+> At the time of this writing, the Azure CLI command groups - `config`, `desktopvirtualization applicationgroup`, `desktopvirtualization workspace` - are experimental and under development.
 
 1. Get the randomized resource group name. The name is output when you run `terraform apply`. You can also get the name by running the following `terraform output` command.
 
