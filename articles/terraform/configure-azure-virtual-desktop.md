@@ -81,6 +81,16 @@ In this article, you learn how to:
     echo "$(terraform output azurerm_virtual_desktop_application_group)"
     ```
 
+1. Run [az config set](/cli/azure/config#az-config-set) to enable *dynamic install*. With dynamic install, when you run an extension command that is not installed, the Azure CLI automatically installs the extension.
+
+    ```azurecli
+    az config set extension.use_dynamic_install=yes_without_prompt
+    ```
+
+    **Key points:**
+
+    - For more information about dynamically install extensions with Azure CLI, see [Use and manage extensions with the Azure CLI](/cli/azure/azure-cli-extensions-overview).
+
 1. Run [az desktopvirtualization applicationgroup show](/cli/azure/desktopvirtualization/applicationgroup#az-desktopvirtualization-applicationgroup-show) to show the workspace details.
 
     ```azurecli
