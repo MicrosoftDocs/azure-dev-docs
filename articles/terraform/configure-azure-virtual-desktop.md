@@ -85,7 +85,7 @@ In this article, you learn how to:
 
     ```azurecli
     az desktopvirtualization applicationgroup show \
-    --name aAzure_virtual_desktop_workspace_name> \
+    --name <azure_virtual_desktop_application_group_name> \
     --resource-group <resource_group_name>
     ```
 
@@ -99,7 +99,7 @@ In this article, you learn how to:
 
     ```azurecli
     az desktopvirtualization workspace show \
-    --name aAzure_virtual_desktop_workspace_name> \
+    --name <azure_virtual_desktop_workspace_name> \
     --resource-group <resource_group_name>
     ```
 
