@@ -38,19 +38,19 @@ In this article, you learn how to:
 
 1. Create a file named `providers.tf` and insert the following code:
 
-    [!code-terraform[UserStory1913529](../../terraform_samples/quickstart/101-azure-virtual-desktop-create/providers.tf)]
+    [!code-terraform[UserStory1913529](../../terraform_samples/quickstart/101-azure-virtual-desktop-configure/providers.tf)]
 
 1. Create a file named `main.tf` and insert the following code:
 
-    [!code-terraform[UserStory1913529](../../terraform_samples/quickstart/101-azure-virtual-desktop-create/main.tf)]
+    [!code-terraform[UserStory1913529](../../terraform_samples/quickstart/101-azure-virtual-desktop-configure/main.tf)]
 
 1. Create a file named `variables.tf` and insert the following code:
 
-    [!code-terraform[UserStory1913529](../../terraform_samples/quickstart/101-azure-virtual-desktop-create/variables.tf)]
+    [!code-terraform[UserStory1913529](../../terraform_samples/quickstart/101-azure-virtual-desktop-configure/variables.tf)]
 
 1. Create a file named `output.tf` and insert the following code:
 
-    [!code-terraform[UserStory1913529](../../terraform_samples/quickstart/101-azure-virtual-desktop-create/output.tf)]
+    [!code-terraform[UserStory1913529](../../terraform_samples/quickstart/101-azure-virtual-desktop-configure/output.tf)]
 
 ## 3. Initialize Terraform
 
