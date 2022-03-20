@@ -3,7 +3,7 @@ title: Configure a Linux VM with infrastructure in Azure using Terraform
 description: Learn how to use Terraform to configure a complete Linux virtual machine environment in Azure.
 keywords: azure devops terraform linux vm virtual machine
 ms.topic: how-to
-ms.date: 03/17/2022
+ms.date: 03/20/2022
 ms.custom: devx-track-terraform
 ---
 
@@ -92,43 +92,7 @@ In this article, you learn how to:
       name                = "myPublicIP"
       location            = azurerm_resource_group.rg.location
       resource_group_name = azurerm_resource_group.rg.name
-      allocation_method   = "Static"
-    }
-    
-    resource "azurerm_lb" "myterraformlb" {
-      name                = "myLb"
-      location            = azurerm_resource_group.rg.location
-      resource_group_name = azurerm_resource_group.rg.name
-    
-      frontend_ip_configuration {
-        name                 = "primary"
-        public_ip_address_id = azurerm_public_ip.myterraformpublicip.id
-      }
-    }
-    
-    resource "azurerm_lb_backend_address_pool" "myBackendAddressPool" {
-      loadbalancer_id     = azurerm_lb.myterraformlb.id
-      name                = "acctestpool"
-    }
-    
-    # Create network interface
-    resource "azurerm_network_interface" "myterraformnic" {
-      name                = "myNIC"
-      location            = azurerm_resource_group.rg.location
-      resource_group_name = azurerm_resource_group.rg.name
-    
-      ip_configuration {
-        name                          = "myNicConfiguration"
-        subnet_id                     = azurerm_subnet.myterraformsubnet.id
-        private_ip_address_allocation = "Dynamic"
-      }
-    }
-    
-    # Connect the NIC to the backend.    
-    resource "azurerm_network_interface_backend_address_pool_association" "myNicBackendAddress" {
-      network_interface_id    = azurerm_network_interface.myterraformnic.id
-      ip_configuration_name   = "myNicConfiguration"
-      backend_address_pool_id = azurerm_lb_backend_address_pool.myBackendAddressPool.id
+      allocation_method   = "Dynamic"
     }
     
     # Create Network Security Group and rule
@@ -147,6 +111,20 @@ In this article, you learn how to:
         destination_port_range     = "22"
         source_address_prefix      = "*"
         destination_address_prefix = "*"
+      }
+    }
+    
+    # Create network interface
+    resource "azurerm_network_interface" "myterraformnic" {
+      name                = "myNIC"
+      location            = azurerm_resource_group.rg.location
+      resource_group_name = azurerm_resource_group.rg.name
+    
+      ip_configuration {
+        name                          = "myNicConfiguration"
+        subnet_id                     = azurerm_subnet.myterraformsubnet.id
+        private_ip_address_allocation = "Dynamic"
+        public_ip_address_id          = azurerm_public_ip.myterraformpublicip.id
       }
     }
     
@@ -179,10 +157,6 @@ In this article, you learn how to:
     resource "tls_private_key" "example_ssh" {
       algorithm = "RSA"
       rsa_bits  = 4096
-    }
-    output "tls_private_key" {
-      value     = tls_private_key.example_ssh.private_key_pem
-      sensitive = true
     }
     
     # Create virtual machine
@@ -243,7 +217,16 @@ In this article, you learn how to:
 
     ```hcl
     output "resource_group_name" {
-        value = azurerm_resource_group.rg.name
+      value = azurerm_resource_group.rg.name
+    }
+    
+    output "azurerm_linux_virtual_machine" {
+      value = azurerm_linux_virtual_machine.myterraformvm.public_ip_address
+    }
+    
+    output "tls_private_key" {
+      value     = tls_private_key.example_ssh.private_key_pem
+      sensitive = true
     }
     ```
 
@@ -258,6 +241,8 @@ In this article, you learn how to:
 ## 5. Apply a Terraform execution plan
 
 [!INCLUDE [terraform-apply-plan.md](includes/terraform-apply-plan.md)]
+
+## 6. 
 
 ## Troubleshoot Terraform on Azure
 
