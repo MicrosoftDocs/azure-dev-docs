@@ -252,7 +252,7 @@ To use SSH to connect to the virtual machine, do the following steps:
 
 
     ```console
-    public_ip_address
+    terraform output public_ip_address
     ```
 
 1. Use SSH to connect to the virtual machine.
