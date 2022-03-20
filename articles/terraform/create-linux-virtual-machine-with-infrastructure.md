@@ -194,10 +194,6 @@ In this article, you learn how to:
       }
     }
     ```
-    
-    **Key points:**
-
-    -  The virtual machine will be created with a new SSH public key. To get the corresponding private key, run `terraform output -raw tls_private_key`. Save the output to a file on the local machine and use it to log in to the virtual machine.
 
 1. Create a file named `variables.tf` and insert the following code:
 
@@ -220,7 +216,7 @@ In this article, you learn how to:
       value = azurerm_resource_group.rg.name
     }
     
-    output "azurerm_linux_virtual_machine" {
+    output "public_ip_address" {
       value = azurerm_linux_virtual_machine.myterraformvm.public_ip_address
     }
     
@@ -242,7 +238,28 @@ In this article, you learn how to:
 
 [!INCLUDE [terraform-apply-plan.md](includes/terraform-apply-plan.md)]
 
-## 6. 
+## 6. Verify the results
+
+To use SSH to connect to the virtual machine, do the following steps:
+
+1. Run [terraform output](https://www.terraform.io/cli/commands/output) to get the SSH private key and save it to a file.
+
+    ```console
+    terraform output -raw tls_private_key > id_rsa
+    ```
+
+1. Run [terraform output](https://www.terraform.io/cli/commands/output) to get the virtual machine public IP address.
+
+
+    ```console
+    public_ip_address
+    ```
+
+1. Use SSH to connect to the virtual machine.
+
+    ```console
+    ssh -i id_rsa azureuser@<public_ip_address>
+    ```
 
 ## Troubleshoot Terraform on Azure
 
