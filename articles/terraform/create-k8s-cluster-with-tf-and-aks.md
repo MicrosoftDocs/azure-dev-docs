@@ -39,6 +39,8 @@ In this article, you learn how to:
     - [Windows](/azure/virtual-machines/linux/ssh-from-windows#create-an-ssh-key-pair)
     - [Linux/MacOS](/azure/virtual-machines/linux/mac-create-ssh-keys#create-an-ssh-key-pair)
     
+## 2. Configure Azure storage to store Terraform state
+
 Terraform tracks state locally via the `terraform.tfstate` file. This pattern works well in a single-person environment. However, in a more practical multi-person environment, you need to track state on the server using [Azure storage](/azure/storage/). In this section, you learn to retrieve the necessary storage account information and create a storage container. The Terraform state information is then stored in that container.
 
 1. Use one of the following options to create an Azure storage account:
@@ -94,9 +96,15 @@ Terraform tracks state locally via the `terraform.tfstate` file. This pattern wo
     
       required_providers {
         azurerm = {
-          source = "hashicorp/azurerm"
+          source  = "hashicorp/azurerm"
           version = "~>2.0"
         }
+      }
+      backend "azurerm" {
+        resource_group_name  = "<storage_account_resource_group>"
+        storage_account_name = "<storage_account_name>"
+        container_name       = "tfstate"
+        key                  = "codelab.microsoft.tfstate"
       }
     }
     
@@ -278,23 +286,9 @@ Terraform tracks state locally via the `terraform.tfstate` file. This pattern wo
     }
     ```
 
-## 4. Initialize Terraform and create the Kubernetes cluster
+## 4. Initialize Terraform
 
-1. In Cloud Shell, initialize Terraform. Replace the placeholders with appropriate values for your environment.
-
-    ```console
-    terraform init -backend-config="storage_account_name=<storage_account_name>" 
-    -backend-config="container_name=tfstate" 
-    -backend-config="access_key=<storage_account_access_key>" 
-    -backend-config="key=codelab.microsoft.tfstate" 
-    ```
-
-1. Export your service principal credentials. Replace the placeholders with appropriate values from your service principal.
-
-    ```console
-    export TF_VAR_client_id=<service-principal-appid>
-    export TF_VAR_client_secret=<service-principal-password>
-    ```
+[!INCLUDE [terraform-init.md](includes/terraform-init.md)]
 
 ## 5. Create a Terraform execution plan
 
@@ -304,7 +298,7 @@ Terraform tracks state locally via the `terraform.tfstate` file. This pattern wo
 
 [!INCLUDE [terraform-apply-plan.md](includes/terraform-apply-plan.md)]
 
-## 7. Verify the results: Display the Kubernetes cluster resources
+## 7. Verify the results
 
 1. Get the resource group name.
 
@@ -318,17 +312,13 @@ Terraform tracks state locally via the `terraform.tfstate` file. This pattern wo
 
     ![All resources in the Azure portal](./media/create-k8s-cluster-with-tf-and-aks/k8s-resources-created.png)
 
-## 8. Verify the results: Test Display the Kubernetes cluster
-
-The Kubernetes tools can be used to verify the newly created cluster.
-
 1. Get the Kubernetes configuration from the Terraform state and store it in a file that kubectl can read.
 
     ```console
     echo "$(terraform output kube_config)" > ./azurek8s
     ```
 
-1. Check that the previous command did not add an EOT ASCII character.
+1. Verify the previous command didn't add an ASCII EOT character.
 
     ```console
     cat ./azurek8s
@@ -355,6 +345,27 @@ The Kubernetes tools can be used to verify the newly created cluster.
 **Key points:**
 
 - When the AKS cluster was created, monitoring was enabled to capture health metrics for both the cluster nodes and pods. These health metrics are available in the Azure portal. For more information on container health monitoring, see [Monitor Azure Kubernetes Service health](/azure/azure-monitor/insights/container-insights-overview).
+
+## 8. Clean up resources
+
+### Delete AKS resources
+
+[!INCLUDE [terraform-plan-destroy.md](includes/terraform-plan-destroy.md)]
+
+### Delete storage account
+
+> [!CAUTION]
+> Only delete the resource group containing storage account you used in this demo if you're not using either for anything else.
+
+Run [az group delete](/cli/azure/group#az_group_delete) to delete the resource group (and its storage account you used in this demo).
+
+```azurecli
+az group delete --name <storage_resource_group_name> --yes
+```
+
+**Key points:**
+
+- Replace the `storage_resource_group_name` placeholder with the `resource_group_name` value in the `providers.tf` file.
 
 ## Troubleshoot Terraform on Azure
 
