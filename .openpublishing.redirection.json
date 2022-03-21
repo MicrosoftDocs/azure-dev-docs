@@ -1121,7 +1121,11 @@
       },
       {
         "source_path": "articles/go/azure-sdk-tools.md",
-        "redirect_url": "/azure/developer/go/configure-visual-studio-code"
+        "redirect_url": "/azure/developer/go/configure-visual-studio-code.md"
+      },
+      {
+        "source_path": "articles/terraform/application-gateway-quickstart.md",
+        "redirect_url": "/azure/developer/terraform/deploy-application-gateway-v2"
       },
       {
         "source_path": "articles/developer/python/tutorial-python-postgresql-app-portal.md",
