@@ -172,10 +172,10 @@ Terraform tracks state locally via the `terraform.tfstate` file. This pattern wo
         }
 
         service_principal {
-            client_id     = var.client_id
-            client_secret = var.client_secret
+            client_id     = var.aks_service_principal_app_id
+            client_secret = var.aks_service_principal_client_secret
         }
-
+        
         addon_profile {
             oms_agent {
             enabled                    = true
@@ -207,9 +207,6 @@ Terraform tracks state locally via the `terraform.tfstate` file. This pattern wo
       description   = "Location of the resource group."
     }
     
-    variable "client_id" {}
-    variable "client_secret" {}
-
     variable "agent_count" {
         default = 3
     }
@@ -285,6 +282,22 @@ Terraform tracks state locally via the `terraform.tfstate` file. This pattern wo
         value = azurerm_kubernetes_cluster.k8s.kube_config.0.host
     }
     ```
+
+1. Create a file named `terraform.tfvars` and insert the following code.
+
+    ```terraform
+    aks_service_principal_app_id = "<service_principal_app_id>"
+    
+    aks_service_principal_client_secret = "<service_principal_password>"
+    
+    aks_service_principal_object_id = "<service_principal_object_id>"
+    ```
+
+    **Key points:**
+
+    - Set `aks_service_principal_app_id` to the service principal `appId` value.
+    - Set `aks_service_principal_client_secret` to the service principal `password` value.
+    - Set `aks_service_principal_object_id` to the service principal object ID. (The Azure CLI command for obtaining this value is in the [Configure your environment](#1-configure-your-environment) section.)
 
 ## 4. Initialize Terraform
 

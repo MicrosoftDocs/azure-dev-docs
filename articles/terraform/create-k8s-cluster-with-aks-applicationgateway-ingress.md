@@ -42,6 +42,12 @@ In this article, you learn how:
 
 - **Service principal object ID**: Run the following command to get the object ID of the service principal: `az ad sp list --display-name "<display_name>" --query "[].{\"Object ID\":objectId}" --output table`
 
+- **SSH key pair**: Use one of the following articles:
+
+    - [Portal](/azure/virtual-machines/ssh-keys-portal#generate-new-keys)
+    - [Windows](/azure/virtual-machines/linux/ssh-from-windows#create-an-ssh-key-pair)
+    - [Linux/MacOS](/azure/virtual-machines/linux/mac-create-ssh-keys#create-an-ssh-key-pair)
+
 - **Install Helm**: [Helm](https://helm.sh/docs/intro/install/) is the Kubernetes package manager.
 
 - **Install GNU wget**: Ensure you have access to wget by running `wget` at any command line without any parameters. You can install wget from the [official GNU wget website](http://www.gnu.org/software/wget/).
