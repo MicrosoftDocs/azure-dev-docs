@@ -18,6 +18,18 @@
     - name: Go
       tocHref: /azure/developer/go
       topicHref: /azure/developer/go/index
+    - name: Go
+      tocHref: /azure/storage/blobs
+      topicHref: /azure/developer/go/index
+    - name: Go
+      tocHref: /azure/postgresql
+      topicHref: /azure/developer/go/index
+    - name: Go
+      tocHref: /azure/mysql
+      topicHref: /azure/developer/go/index
+    - name: Go
+      tocHref: /azure/sql-database
+      topicHref: /azure/developer/go/index
     - name: Jenkins
       tocHref: /azure/developer/jenkins
       topicHref: /azure/developer/jenkins/index
@@ -33,12 +45,27 @@
       items:
       - name: Java EE, Jakarta EE, and MicroProfile
         tocHref: /azure/developer/java/ee
-        topicHref: /azure/developer/java/ee/index      
+        topicHref: /azure/developer/java/ee/index
+      - name: Java EE, Jakarta EE, and MicroProfile
+        tocHref: /azure/virtual-machines/workloads/oracle
+        topicHref: /azure/developer/java/ee/index
+      - name: Java EE, Jakarta EE, and MicroProfile
+        tocHref: /azure/virtual-machines/workloads/redhat
+        topicHref: /azure/developer/java/ee/index
+      - name: Java EE, Jakarta EE, and MicroProfile
+        tocHref: /azure/openshift
+        topicHref: /azure/developer/java/ee/index
+      - name: Java EE, Jakarta EE, and MicroProfile
+        tocHref: /azure/aks
+        topicHref: /azure/developer/java/ee/index
       - name: MicroProfile
         tocHref: /azure/developer/java/eclipse-microprofile
         topicHref: /azure/developer/java/eclipse-microprofile/index
       - name: Tools
         tocHref: /azure/developer/java/fundamentals
+        topicHref: /azure/developer/java/fundamentals/index
+      - name: Tools
+        tocHref: /java/openjdk
         topicHref: /azure/developer/java/fundamentals/index
       - name: Migration
         tocHref: /azure/developer/java/migration
@@ -55,19 +82,32 @@
       - name: Spring integration
         tocHref: /azure/developer/java/spring-framework
         topicHref: /azure/developer/java/spring-framework/index
+      - name: Spring integration
+        tocHref: /azure/azure-app-configuration
+        topicHref: /azure/developer/java/spring-framework/index
       - name: Toolkit for Eclipse
         tocHref: /azure/developer/java/toolkit-for-eclipse
         topicHref: /azure/developer/java/toolkit-for-eclipse/index
       - name: Toolkit for IntelliJ
         tocHref: /azure/developer/java/toolkit-for-intellij
         topicHref: /azure/developer/java/toolkit-for-intellij/index
+      - name: Toolkit for IntelliJ
+        tocHref: /azure/azure-functions
+        topicHref: /azure/developer/java/toolkit-for-intellij/index
       - name: Quickstarts
         tocHref: /azure/developer/java/quickstarts
         topicHref: /azure/developer/java/quickstarts/index
       - name: Learning resources
+        tocHref: /azure/developer/java/learning-resources
         topicHref: /azure/developer/java/learning-resources/index
     - name: JavaScript
       tocHref: /azure/developer/javascript
+      topicHref: /azure/developer/javascript/index
+    - name: JavaScript
+      tocHref: /azure/azure-cache-for-redis
+      topicHref: /azure/developer/javascript/index
+    - name: JavaScript
+      tocHref: /azure/storage/blobs
       topicHref: /azure/developer/javascript/index
     - name: Terraform
       tocHref: /azure/developer/terraform
