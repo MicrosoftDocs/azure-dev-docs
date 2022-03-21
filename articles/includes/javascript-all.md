@@ -232,7 +232,7 @@
 | Resource Management - Work Spaces | npm [1.0.0](https://www.npmjs.com/package/@azure/arm-workspaces/v/1.0.0) | [docs](/javascript/api/overview/azure/arm-workspaces-readme) | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/machinelearning/arm-workspaces) |
 | @autorest/adl | npm [0.0.2](https://www.npmjs.com/package/@autorest/adl/v/0.0.2) |  |  |
 | @autorest/cadl | npm [0.1.0](https://www.npmjs.com/package/@autorest/cadl/v/0.1.0) |  |  |
-| @autorest/codemodel | npm [4.18.2](https://www.npmjs.com/package/@autorest/codemodel/v/4.18.2) |  |  |
+| @autorest/codemodel | npm [4.18.2](https://www.npmjs.com/package/@autorest/codemodel/v/4.18.2)  |  |  |
 | @autorest/common | npm [1.5.0](https://www.npmjs.com/package/@autorest/common/v/1.5.0) |  |  |
 | @autorest/configuration | npm [1.9.0](https://www.npmjs.com/package/@autorest/configuration/v/1.9.0) |  |  |
 | @autorest/csharp | npm [3.0.0-beta.20220321.1](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20220321.1) |  |  |
