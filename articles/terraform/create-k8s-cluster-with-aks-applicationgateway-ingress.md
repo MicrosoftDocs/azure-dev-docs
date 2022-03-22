@@ -3,7 +3,7 @@ title: Create an Application Gateway Ingress Controller in Azure Kubernetes Serv
 description: Learn how to create an Application Gateway Ingress Controller in Azure Kubernetes Service using Terraform
 keywords: azure devops terraform application gateway Ingress aks kubernetes
 ms.topic: how-to
-ms.date: 03/17/2022
+ms.date: 03/22/2022
 ms.custom: devx-track-terraform, devx-track-azurecli
 ---
 
@@ -38,11 +38,11 @@ In this article, you learn how:
 
 [!INCLUDE [configure-terraform.md](includes/configure-terraform.md)]
 
-- **Azure service principal**: The demo requires a service principal that can assign roles. If you already have a service principal that can assign roles, you can use that principal. If you need to create a service principal, you have two options:
+- **Azure service principal**: The demo requires a service principal that can assign roles. If you already have a service principal that can assign roles, you can use that service principal. If you need to create a service principal, you have two options:
   - Specify the "Owner" role when you [create a service principal](authenticate-to-azure.md#create-a-service-principal). As a recommended practice, you should grant the least privilege needed to perform a given job. Therefore, only use the "Owner" role if the service principal is meant to be used in that capacity.
   - [Create a custom role](/azure/role-based-access-control/custom-roles) and specify that role when you [create a service principal](authenticate-to-azure.md#create-a-service-principal).
 
-  You will need the following service principal values for the demo code: `appId`, `displayName`, `password`, `tenant`.
+  You'll need the following service principal values for the demo code: `appId`, `displayName`, `password`, `tenant`.
 
 - **Service principal object ID**: Run the following command to get the object ID of the service principal: `az ad sp list --display-name "<display_name>" --query "[].{\"Object ID\":objectId}" --output table`
 

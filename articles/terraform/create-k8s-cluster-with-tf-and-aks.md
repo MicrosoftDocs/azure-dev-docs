@@ -3,7 +3,7 @@ title: Create a Kubernetes cluster with Azure Kubernetes Service (AKS) using Ter
 description: Learn how to create a Kubernetes Cluster with Azure Kubernetes Service and Terraform.
 keywords: azure devops terraform aks kubernetes
 ms.topic: how-to
-ms.date: 03/21/2022
+ms.date: 03/22/2022
 ms.custom: devx-track-terraform, devx-track-azurecli 
 ---
 
@@ -32,6 +32,8 @@ In this article, you learn how to:
 [!INCLUDE [configure-terraform.md](includes/configure-terraform.md)]
 
 - **Azure service principal:** If you don't have a service principal, [create a service principal](authenticate-to-azure.md#create-a-service-principal). Make note of the `appId`, `display_name`, `password`, and `tenant`.
+
+- **Service principal object ID**: Run the following command to get the object ID of the service principal: `az ad sp list --display-name "<display_name>" --query "[].{\"Object ID\":objectId}" --output table`
 
 - **SSH key pair**: Use one of the following articles:
 
