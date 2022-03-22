@@ -29,7 +29,7 @@
 | Core - Client - Auth | npm [1.3.2](https://www.npmjs.com/package/@azure/core-auth/v/1.3.2) | [docs](/javascript/api/overview/azure/core-auth-readme) | GitHub [1.3.2](https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-auth_1.3.2/sdk/core/core-auth/) |
 | Core - Client - Client | npm [1.5.0](https://www.npmjs.com/package/@azure/core-client/v/1.5.0) | [docs](/javascript/api/overview/azure/core-client-readme) | GitHub [1.5.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-client_1.5.0/sdk/core/core-client/) |
 | Core - Client - Client Paging | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure-rest/core-client-paging/v/1.0.0-beta.1) |  | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/core-client-paging_1.0.0-beta.1/sdk/core/core-client-paging-rest) |
-| Core - Client - Core Rest Pipeline | npm [1.6.0](https://www.npmjs.com/package/@azure/core-rest-pipeline/v/1.6.0) | [docs](/javascript/api/overview/azure/core-rest-pipeline-readme) | GitHub [1.6.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-rest-pipeline_1.6.0/sdk/core/core-rest-pipeline/) |
+| Core - Client - Core Rest Pipeline | npm [1.7.0](https://www.npmjs.com/package/@azure/core-rest-pipeline/v/1.7.0) | [docs](/javascript/api/overview/azure/core-rest-pipeline-readme) | GitHub [1.7.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-rest-pipeline_1.7.0/sdk/core/core-rest-pipeline/) |
 | Core - Client - Core Utils | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure/core-util/v/1.0.0-beta.1) | [docs](/javascript/api/overview/azure/core-util-readme) | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-util_1.0.0-beta.1/sdk/core/core-util/) |
 | Core - Client - HTTP | npm [2.2.4](https://www.npmjs.com/package/@azure/core-http/v/2.2.4) | [docs](/javascript/api/overview/azure/core-http-readme) | GitHub [2.2.4](https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-http_2.2.4/sdk/core/core-http/) |
 | Core - Client - Logger | npm [1.0.3](https://www.npmjs.com/package/@azure/logger/v/1.0.3) | [docs](/javascript/api/overview/azure/logger-readme) | GitHub [1.0.3](https://github.com/Azure/azure-sdk-for-js/tree/@azure/logger_1.0.3/sdk/core/logger/) |
@@ -86,7 +86,7 @@
 | @azure/arm-keyvault-profile-2020-09-01-hybrid | npm [2.0.0](https://www.npmjs.com/package/@azure/arm-keyvault-profile-2020-09-01-hybrid/v/2.0.0) |  | GitHub [2.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-keyvault-profile-2020-09-01-hybrid_2.0.0/sdk/keyvault/arm-keyvault-profile-2020-09-01-hybrid/) |
 | @azure/arm-locks-profile-2020-09-01-hybrid | npm [2.0.0](https://www.npmjs.com/package/@azure/arm-locks-profile-2020-09-01-hybrid/v/2.0.0) | [docs](/javascript/api/overview/azure/arm-locks-profile-2020-09-01-hybrid-readme) | GitHub [2.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-locks-profile-2020-09-01-hybrid_2.0.0/sdk/locks/arm-locks-profile-2020-09-01-hybrid/) |
 | @azure/arm-monitor-profile-2020-09-01-hybrid | npm [2.0.0](https://www.npmjs.com/package/@azure/arm-monitor-profile-2020-09-01-hybrid/v/2.0.0) |  | GitHub [2.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-monitor-profile-2020-09-01-hybrid_2.0.0/sdk/monitor/arm-monitor-profile-2020-09-01-hybrid/) |
-| @azure/arm-mysql-flexible | npm [2.0.0](https://www.npmjs.com/package/@azure/arm-mysql-flexible/v/2.0.0) |  | GitHub [2.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-mysql-flexible_2.0.0/sdk/mysql-flexible/arm-mysql-flexible/) |
+| @azure/arm-mysql-flexible | npm [2.0.0](https://www.npmjs.com/package/@azure/arm-mysql-flexible/v/2.0.0) |  | GitHub [2.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-mysql-flexible_2.0.0/sdk/mysql/arm-mysql-flexible/) |
 | @azure/arm-network-profile-2020-09-01-hybrid | npm [2.0.0](https://www.npmjs.com/package/@azure/arm-network-profile-2020-09-01-hybrid/v/2.0.0) | [docs](/javascript/api/overview/azure/arm-network-profile-2020-09-01-hybrid-readme) | GitHub [2.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-network-profile-2020-09-01-hybrid_2.0.0/sdk/network/arm-network-profile-2020-09-01-hybrid/) |
 | @azure/arm-policy-profile-2020-09-01-hybrid | npm [2.0.0](https://www.npmjs.com/package/@azure/arm-policy-profile-2020-09-01-hybrid/v/2.0.0) | [docs](/javascript/api/overview/azure/arm-policy-profile-2020-09-01-hybrid-readme) | GitHub [2.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-policy-profile-2020-09-01-hybrid_2.0.0/sdk/policy/arm-policy-profile-2020-09-01-hybrid/) |
 | @azure/arm-resourcemover | npm [2.0.0](https://www.npmjs.com/package/@azure/arm-resourcemover/v/2.0.0) | [docs](/javascript/api/overview/azure/arm-resourcemover-readme) | GitHub [2.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-resourcemover_2.0.0/sdk/resourcemover/arm-resourcemover/) |
@@ -232,10 +232,10 @@
 | Resource Management - Work Spaces | npm [1.0.0](https://www.npmjs.com/package/@azure/arm-workspaces/v/1.0.0) | [docs](/javascript/api/overview/azure/arm-workspaces-readme) | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/machinelearning/arm-workspaces) |
 | @autorest/adl | npm [0.0.2](https://www.npmjs.com/package/@autorest/adl/v/0.0.2) |  |  |
 | @autorest/cadl | npm [0.1.0](https://www.npmjs.com/package/@autorest/cadl/v/0.1.0) |  |  |
-| @autorest/codemodel | npm [4.18.2](https://www.npmjs.com/package/@autorest/codemodel/v/4.18.2)  |  |  |
-| @autorest/common | npm [1.5.0](https://www.npmjs.com/package/@autorest/common/v/1.5.0) |  |  |
+| @autorest/codemodel | npm [4.18.2](https://www.npmjs.com/package/@autorest/codemodel/v/4.18.2) |  |  |
+| @autorest/common | npm [1.5.1](https://www.npmjs.com/package/@autorest/common/v/1.5.1) |  |  |
 | @autorest/configuration | npm [1.9.0](https://www.npmjs.com/package/@autorest/configuration/v/1.9.0) |  |  |
-| @autorest/csharp | npm [3.0.0-beta.20220321.1](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20220321.1) |  |  |
+| @autorest/csharp | npm [3.0.0-beta.20220322.2](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20220322.2) |  |  |
 | @autorest/csharp-v3 | npm [3.0.0-beta.20201217.1](https://www.npmjs.com/package/@autorest/csharp-v3/v/3.0.0-beta.20201217.1) |  |  |
 | @autorest/extension-base | npm [3.4.4](https://www.npmjs.com/package/@autorest/extension-base/v/3.4.4) |  |  |
 | @autorest/fixer | npm [1.1.0](https://www.npmjs.com/package/@autorest/fixer/v/1.1.0) |  |  |
@@ -254,7 +254,7 @@
 | @azure/media-stream-library | npm [1.1.0-beta.4](https://www.npmjs.com/package/@azure/media-stream-library/v/1.1.0-beta.4) |  |  |
 | @azure/quantum-jobs | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure/quantum-jobs/v/1.0.0-beta.1) |  |  |
 | @azure/search | npm [11.0.0-preview.1](https://www.npmjs.com/package/@azure/search/v/11.0.0-preview.1) |  |  |
-| @azure/static-web-apps-cli | npm [0.8.2](https://www.npmjs.com/package/@azure/static-web-apps-cli/v/0.8.2) |  |  |
+| @azure/static-web-apps-cli | npm [0.8.3](https://www.npmjs.com/package/@azure/static-web-apps-cli/v/0.8.3) |  |  |
 | @azure/video-analyzer-player | npm [1.0.4](https://www.npmjs.com/package/@azure/video-analyzer-player/v/1.0.4)<br>npm [1.1.0-beta.8](https://www.npmjs.com/package/@azure/video-analyzer-player/v/1.1.0-beta.8) |  |  |
 | @azure/video-analyzer-widgets | npm [2.0.4](https://www.npmjs.com/package/@azure/video-analyzer-widgets/v/2.0.4) |  |  |
 | @azure-rest/core-client-lro | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure-rest/core-client-lro/v/1.0.0-beta.1) |  |  |
@@ -275,7 +275,7 @@
 | @azure-tools/cadl-rpaas | npm [0.11.0](https://www.npmjs.com/package/@azure-tools/cadl-rpaas/v/0.11.0) |  |  |
 | @azure-tools/cadl-rpaas-controller | npm [0.7.0](https://www.npmjs.com/package/@azure-tools/cadl-rpaas-controller/v/0.7.0) |  |  |
 | @azure-tools/cadl-vs | npm [0.3.0](https://www.npmjs.com/package/@azure-tools/cadl-vs/v/0.3.0) |  |  |
-| @azure-tools/json | npm [1.2.1](https://www.npmjs.com/package/@azure-tools/json/v/1.2.1) |  |  |
+| @azure-tools/json | npm [1.2.2](https://www.npmjs.com/package/@azure-tools/json/v/1.2.2) |  |  |
 | @azure-tools/jsonschema | npm [1.2.0](https://www.npmjs.com/package/@azure-tools/jsonschema/v/1.2.0) |  |  |
 | @azure-tools/js-sdk-release-tools | npm [2.1.3](https://www.npmjs.com/package/@azure-tools/js-sdk-release-tools/v/2.1.3) |  |  |
 | @azure-tools/mock-service-host | npm [0.1.12](https://www.npmjs.com/package/@azure-tools/mock-service-host/v/0.1.12) |  |  |
@@ -319,13 +319,13 @@
 | AutoRest - CLI | npm [0.1.889](https://www.npmjs.com/package/@autorest/cli/v/0.1.889) |  | GitHub [0.1.889](https://github.com/Azure/autorest.cli) |
 | AutoRest - CLI Common | npm [0.6.2](https://www.npmjs.com/package/@autorest/clicommon/v/0.6.2) |  | GitHub [0.6.2](https://github.com/Azure/autorest.clicommon/tree/0.4.12) |
 | AutoRest - Compare | npm [0.4.4](https://www.npmjs.com/package/@autorest/compare/v/0.4.4) |  | GitHub [0.4.4](https://github.com/Azure/autorest.compare) |
-| AutoRest - Core | npm [3.8.0](https://www.npmjs.com/package/@autorest/core/v/3.8.0) |  | GitHub [3.8.0](https://github.com/Azure/autorest) |
+| AutoRest - Core | npm [3.8.1](https://www.npmjs.com/package/@autorest/core/v/3.8.1) |  | GitHub [3.8.1](https://github.com/Azure/autorest) |
 | AutoRest - Functions CSharp | npm [0.2.0-preview-dev.321054549](https://www.npmjs.com/package/@autorest/azure-functions-csharp/v/0.2.0-preview-dev.321054549) |  |  |
 | AutoRest - Functions Java | npm [0.0.2-Preview](https://www.npmjs.com/package/@autorest/azure-functions-java/v/0.0.2-Preview) |  |  |
 | AutoRest - Functions Python | npm [0.1.0-preview](https://www.npmjs.com/package/@autorest/azure-functions-python/v/0.1.0-preview) |  |  |
 | AutoRest - Functions TypeScript | npm [0.0.1-preview](https://www.npmjs.com/package/@autorest/azure-functions-typescript/v/0.0.1-preview) |  |  |
 | AutoRest - Go | npm [4.0.0-preview.37](https://www.npmjs.com/package/@autorest/go/v/4.0.0-preview.37) |  |  |
-| AutoRest - Modeler Four | npm [4.23.0](https://www.npmjs.com/package/@autorest/modelerfour/v/4.23.0) |  | GitHub [4.23.0](https://github.com/Azure/autorest.modelerfour) |
+| AutoRest - Modeler Four | npm [4.23.1](https://www.npmjs.com/package/@autorest/modelerfour/v/4.23.1) |  | GitHub [4.23.1](https://github.com/Azure/autorest.modelerfour) |
 | AutoRest - PowerShell | npm [3.0.480](https://www.npmjs.com/package/@autorest/powershell/v/3.0.480) |  | GitHub [3.0.480](https://github.com/Azure/autorest.powershell) |
 | AutoRest - Python | npm [5.14.0](https://www.npmjs.com/package/@autorest/python/v/5.14.0) |  | GitHub [5.14.0](https://github.com/Azure/autorest.python/tree/v5.1.0-preview.7) |
 | AutoRest - Remodeler | npm [2.1.27](https://www.npmjs.com/package/@autorest/remodeler/v/2.1.27) |  | GitHub [2.1.27](https://github.com/Azure/autorest.remodeler) |
@@ -364,7 +364,7 @@
 | Core - Client - Auth | npm [1.3.2](https://www.npmjs.com/package/@azure/core-auth/v/1.3.2) | [docs](/javascript/api/overview/azure/core-auth-readme) | GitHub [1.3.2](https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-auth_1.3.2/sdk/core/core-auth/) |
 | Core - Client - Client | npm [1.5.0](https://www.npmjs.com/package/@azure/core-client/v/1.5.0) | [docs](/javascript/api/overview/azure/core-client-readme) | GitHub [1.5.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-client_1.5.0/sdk/core/core-client/) |
 | Core - Client - Client Paging | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure-rest/core-client-paging/v/1.0.0-beta.1) |  | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/core-client-paging_1.0.0-beta.1/sdk/core/core-client-paging-rest) |
-| Core - Client - Core Rest Pipeline | npm [1.6.0](https://www.npmjs.com/package/@azure/core-rest-pipeline/v/1.6.0) | [docs](/javascript/api/overview/azure/core-rest-pipeline-readme) | GitHub [1.6.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-rest-pipeline_1.6.0/sdk/core/core-rest-pipeline/) |
+| Core - Client - Core Rest Pipeline | npm [1.7.0](https://www.npmjs.com/package/@azure/core-rest-pipeline/v/1.7.0) | [docs](/javascript/api/overview/azure/core-rest-pipeline-readme) | GitHub [1.7.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-rest-pipeline_1.7.0/sdk/core/core-rest-pipeline/) |
 | Core - Client - Core Utils | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure/core-util/v/1.0.0-beta.1) | [docs](/javascript/api/overview/azure/core-util-readme) | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-util_1.0.0-beta.1/sdk/core/core-util/) |
 | Core - Client - HTTP | npm [2.2.4](https://www.npmjs.com/package/@azure/core-http/v/2.2.4) | [docs](/javascript/api/overview/azure/core-http-readme) | GitHub [2.2.4](https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-http_2.2.4/sdk/core/core-http/) |
 | Core - Client - Https | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure/core-https/v/1.0.0-beta.1) |  |  |
@@ -466,7 +466,7 @@
 | Text Analytics | npm [4.0.0](https://www.npmjs.com/package/@azure/cognitiveservices-textanalytics/v/4.0.0) |  |  |
 | Tools - Azcopy Darwin | npm [10.14.1](https://www.npmjs.com/package/@azure-tools/azcopy-darwin/v/10.14.1) |  | GitHub [10.14.1](https://github.com/Azure/azure-storage-azcopy) |
 | Tools - Azcopy Linux | npm [10.14.1](https://www.npmjs.com/package/@azure-tools/azcopy-linux/v/10.14.1) |  | GitHub [10.14.1](https://github.com/Azure/azure-storage-azcopy) |
-| Tools - Azcopy Node | npm [2.5.0](https://www.npmjs.com/package/@azure-tools/azcopy-node/v/2.5.0) |  | GitHub [2.5.0](https://github.com/Azure/azure-storage-azcopy) |
+| Tools - Azcopy Node | npm [2.6.0](https://www.npmjs.com/package/@azure-tools/azcopy-node/v/2.6.0) |  | GitHub [2.6.0](https://github.com/Azure/azure-storage-azcopy) |
 | Tools - Azcopy Win32 | npm [10.14.1](https://www.npmjs.com/package/@azure-tools/azcopy-win32/v/10.14.1) |  | GitHub [10.14.1](https://github.com/Azure/azure-storage-azcopy) |
 | Tools - Azcopy Win64 | npm [10.14.1](https://www.npmjs.com/package/@azure-tools/azcopy-win64/v/10.14.1) |  | GitHub [10.14.1](https://github.com/Azure/azure-storage-azcopy) |
 | Tools - Data Store | npm [4.6.1](https://www.npmjs.com/package/@azure-tools/datastore/v/4.6.1) |  | GitHub [4.6.1](https://github.com/Azure/perks) |
@@ -494,7 +494,7 @@
 | @azure/arm-keyvault-profile-2020-09-01-hybrid | npm [2.0.0](https://www.npmjs.com/package/@azure/arm-keyvault-profile-2020-09-01-hybrid/v/2.0.0) |  | GitHub [2.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-keyvault-profile-2020-09-01-hybrid_2.0.0/sdk/keyvault/arm-keyvault-profile-2020-09-01-hybrid/) |
 | @azure/arm-locks-profile-2020-09-01-hybrid | npm [2.0.0](https://www.npmjs.com/package/@azure/arm-locks-profile-2020-09-01-hybrid/v/2.0.0) | [docs](/javascript/api/overview/azure/arm-locks-profile-2020-09-01-hybrid-readme) | GitHub [2.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-locks-profile-2020-09-01-hybrid_2.0.0/sdk/locks/arm-locks-profile-2020-09-01-hybrid/) |
 | @azure/arm-monitor-profile-2020-09-01-hybrid | npm [2.0.0](https://www.npmjs.com/package/@azure/arm-monitor-profile-2020-09-01-hybrid/v/2.0.0) |  | GitHub [2.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-monitor-profile-2020-09-01-hybrid_2.0.0/sdk/monitor/arm-monitor-profile-2020-09-01-hybrid/) |
-| @azure/arm-mysql-flexible | npm [2.0.0](https://www.npmjs.com/package/@azure/arm-mysql-flexible/v/2.0.0) |  | GitHub [2.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-mysql-flexible_2.0.0/sdk/mysql-flexible/arm-mysql-flexible/) |
+| @azure/arm-mysql-flexible | npm [2.0.0](https://www.npmjs.com/package/@azure/arm-mysql-flexible/v/2.0.0) |  | GitHub [2.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-mysql-flexible_2.0.0/sdk/mysql/arm-mysql-flexible/) |
 | @azure/arm-network-profile-2020-09-01-hybrid | npm [2.0.0](https://www.npmjs.com/package/@azure/arm-network-profile-2020-09-01-hybrid/v/2.0.0) | [docs](/javascript/api/overview/azure/arm-network-profile-2020-09-01-hybrid-readme) | GitHub [2.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-network-profile-2020-09-01-hybrid_2.0.0/sdk/network/arm-network-profile-2020-09-01-hybrid/) |
 | @azure/arm-policy-profile-2020-09-01-hybrid | npm [2.0.0](https://www.npmjs.com/package/@azure/arm-policy-profile-2020-09-01-hybrid/v/2.0.0) | [docs](/javascript/api/overview/azure/arm-policy-profile-2020-09-01-hybrid-readme) | GitHub [2.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-policy-profile-2020-09-01-hybrid_2.0.0/sdk/policy/arm-policy-profile-2020-09-01-hybrid/) |
 | @azure/arm-resourcemover | npm [2.0.0](https://www.npmjs.com/package/@azure/arm-resourcemover/v/2.0.0) | [docs](/javascript/api/overview/azure/arm-resourcemover-readme) | GitHub [2.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-resourcemover_2.0.0/sdk/resourcemover/arm-resourcemover/) |
