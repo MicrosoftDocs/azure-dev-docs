@@ -316,6 +316,15 @@ az group delete --name <storage_resource_group_name> --yes
 
 - Replace the `storage_resource_group_name` placeholder with the `resource_group_name` value in the `providers.tf` file.
 
+### Delete service principal
+
+> [!CAUTION]
+> Only delete the service principal you used in this demo if you're not using it for anything else.
+
+```azurecli
+az ad sp delete --id <service_principal_object_id>
+```
+
 ## Troubleshoot Terraform on Azure
 
 If you receive a "403 error" when applying the Terraform execution plan during the role assignment, it usually means your service principal role doesn't include permission to assign roles in Azure RBAC. For more information about the built-in roles, see [Azure built-in roles](/azure/role-based-access-control/built-in-roles). The following options will enable you to resolve the error:

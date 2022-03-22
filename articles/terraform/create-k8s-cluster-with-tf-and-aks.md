@@ -323,9 +323,11 @@ Terraform tracks state locally via the `terraform.tfstate` file. This pattern wo
 
 1. Browse to the [Azure portal](https://portal.azure.com).
 
-1. Under **Azure services**, select **Resource groups** and locate your new resource group to see the resources created in this demo.
+1. Under **Azure services**, select **Resource groups** and locate your new resource group to see the following resources created in this demo:
 
-    ![All resources in the Azure portal](./media/create-k8s-cluster-with-tf-and-aks/k8s-resources-created.png)
+    - **Log Analytics Solution:** By default, the demo names this solution **ContainerInsights**. The portal will show the solutions workspace in parenthesis.
+    - **Log Analytics Workspace:** By default, the demo names this workspace with a prefix of **TestLogAnalyticsWorkspaceName-** followed by a random number.
+    - **Kubernetes service:** By default, the demo names this service **k8stest**. (A Managed Kubernetes Cluster is also known as an AKS / Azure Kubernetes Service.)
 
 1. Get the Kubernetes configuration from the Terraform state and store it in a file that kubectl can read.
 
@@ -360,6 +362,9 @@ Terraform tracks state locally via the `terraform.tfstate` file. This pattern wo
 **Key points:**
 
 - When the AKS cluster was created, monitoring was enabled to capture health metrics for both the cluster nodes and pods. These health metrics are available in the Azure portal. For more information on container health monitoring, see [Monitor Azure Kubernetes Service health](/azure/azure-monitor/insights/container-insights-overview).
+- Several key values were output when you applied the Terraform execution plan. For example, the host address, AKS cluster user name, and AKS cluster password are output.
+- To view all of the output values, run `terraform output`.
+- To view a specific output value, run `echo "$(terraform output <output_value_name>)"`.
 
 ## 8. Clean up resources
 
@@ -381,6 +386,15 @@ az group delete --name <storage_resource_group_name> --yes
 **Key points:**
 
 - Replace the `storage_resource_group_name` placeholder with the `resource_group_name` value in the `providers.tf` file.
+
+### Delete service principal
+
+> [!CAUTION]
+> Only delete the service principal you used in this demo if you're not using it for anything else.
+
+```azurecli
+az ad sp delete --id <service_principal_object_id>
+```
 
 ## Troubleshoot Terraform on Azure
 
