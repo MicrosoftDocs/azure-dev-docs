@@ -65,7 +65,7 @@ In this article, you learn how to create a resource group with the Azure SDK for
 
     // Define key global variables.
     var (
-    	subscriptionId    = os.Getenv("ARM_SUBSCRIPTION_ID")
+    	subscriptionId    = os.Getenv("AZURE_SUBSCRIPTION_ID")
     	location          = "eastus"
     	resourceGroupName = "myResourceGroup" // !! IMPORTANT: Change this to a unique name in your subscription.
         interval          = 5 * time.Second
@@ -105,7 +105,7 @@ In this article, you learn how to create a resource group with the Azure SDK for
 
     **Key points:**
 
-    - The `subscriptionId` value is retrieved from the `ARM_SUBSCRIPTION_ID` environment variable.
+    - The `subscriptionId` value is retrieved from the `AZURE_SUBSCRIPTION_ID` environment variable.
     - The `location` and `resourceGroupName` strings have been given test values. If necessary, change those values to something appropriate for your environment.
 
 1. Run [go mod tidy](https://golang.org/ref/mod#go-mod-tidy) to clean up the dependencies in the `go.mod` file based on your source code.

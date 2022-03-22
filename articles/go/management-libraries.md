@@ -61,18 +61,18 @@ if err != nil {
 
 Once you have a credential from Azure Identity, create a client to connect to the target Azure service.
 
-For example, let's say you want to connect to the [Azure Compute](https://azure.microsoft.com/product-categories/compute/) service. The [Compute package](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/compute/armcompute) consist of one or more clients. A client groups a set of related APIs, providing access to its functionality within the specified subscription. You create one or more clients to access the APIs you require using an `armcore.Connection` object.
+For example, let's say you want to connect to the [Azure Compute](https://azure.microsoft.com/product-categories/compute/) service. The [Compute package](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/compute/armcompute) consist of one or more clients. A client groups a set of related APIs, providing access to its functionality within the specified subscription. You create one or more clients to access the APIs you require.
 
 In the following code snippet, the [armcompute.NewVirtualMachinesClient type](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/compute/armcompute#VirtualMachinesClient) is used to create a client to manage virtual machines:
 
 ```go
-client := armcompute.NewVirtualMachinesClient("<subscription ID>",cred, nil)
+client := armcompute.NewVirtualMachinesClient("<subscription ID>", cred, nil)
 ```
 
 The same pattern is used to connect with other Azure services. For example, install the [armnetwork](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/network/armnetwork) package and create a [VirtualNetwork](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/network/armnetwork#VirtualNetworksClient) client to manage virtual network (VNET) resources.
 
 ```go
-client := armnetwork.NewVirtualNetworksClient("<subscription ID>",cred, nil)
+client := armnetwork.NewVirtualNetworksClient("<subscription ID>", cred, nil)
 ```
 
 **Code sample**:
@@ -100,8 +100,8 @@ Once instantiated, clients are used to make API calls against your Azure resourc
 
 To look up the operations for a specific type, do the following steps:
 
-1. Browse to the [Azure SDK for Go reference documentation](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk).
-1. Search the page for the type. (Pressing **&lt;F>** automatically expands all nodes on the page for searching.)
+1. Browse to the [Azure SDK for Go reference documentation](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go).
+1. Search the page for the package. (Pressing **&lt;Ctrl+F>** automatically expands all nodes on the page for searching.)
 1. Select the package.
 1. Search the package's page for the type.
 1. Read the type's description and information about its usage in your Go code.
@@ -112,12 +112,10 @@ For example, if you're looking for the `compute/armcompute` reference documentat
 
 The following example shows how to find the reference documentation for Azure resource group operations:
 
-1. Browse to the main [Azure SDK for Go reference](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go) on pkg.go.dev.
-1. Expand the `arm` directory
-1. Select `armresources`
-1. Click **&lt;F>** and enter `resourcegroup`. As you type the search term, you see a close match with the [resource/armresources](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/resources/armresources) package.
+1. Browse to the main [Azure SDK for Go reference documentation](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go) on pkg.go.dev.
+1. Click **&lt;Ctrl+F>** and enter `resourcemanager/resources/armresources`. As you type the search term, you see a close match with the [resources/armresources](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/resources/armresources) package.
 1. Select the appropriate package for your application.
-1. Read through "Getting Started" sections or search for a specific operation. For example, searching for the term "create" (if you want to create a resource group) leads you to the [CreateOrUpdate function](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/resources/armresources#ResourceGroupsClient.CreateOrUpdate).
+1. Read through "Getting Started" sections or search for a specific operation. For example, searching for the term "resourcegroupsclient.create" (if you want to create a resource group) leads you to the [CreateOrUpdate function](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/resources/armresources#ResourceGroupsClient.CreateOrUpdate).
 1. At this point, you can read how to make the API call to create an Azure resource group.
 
 ## Long-running operations
