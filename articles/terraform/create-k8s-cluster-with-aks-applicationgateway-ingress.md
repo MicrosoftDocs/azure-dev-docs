@@ -38,7 +38,11 @@ In this article, you learn how:
 
 [!INCLUDE [configure-terraform.md](includes/configure-terraform.md)]
 
-- **Azure service principal:** If you don't have a service principal, [create a service principal](authenticate-to-azure.md#create-a-service-principal). Make note of the `appId`, `display_name`, `password`, and `tenant`.
+- **Azure service principal**: The demo requires a service principal that can assign roles. If you already have a service principal that can assign roles, you can use that principal. If you need to create a service principal, you have two options:
+  - Specify the "Owner" role when you [create a service principal](authenticate-to-azure.md#create-a-service-principal). As a recommended practice, you should grant the least privilege needed to perform a given job. Therefore, only use the "Owner" role if the service principal is meant to be used in that capacity.
+  - [Create a custom role](/azure/role-based-access-control/custom-roles) and specify that role when you [create a service principal](authenticate-to-azure.md#create-a-service-principal).
+
+  You will need the following service principal values for the demo code: `appId`, `displayName`, `password`, `tenant`.
 
 - **Service principal object ID**: Run the following command to get the object ID of the service principal: `az ad sp list --display-name "<display_name>" --query "[].{\"Object ID\":objectId}" --output table`
 
