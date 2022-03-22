@@ -3,7 +3,7 @@ title: Create a Kubernetes cluster with Azure Kubernetes Service (AKS) using Ter
 description: Learn how to create a Kubernetes Cluster with Azure Kubernetes Service and Terraform.
 keywords: azure devops terraform aks kubernetes
 ms.topic: how-to
-ms.date: 03/20/2022
+ms.date: 03/21/2022
 ms.custom: devx-track-terraform, devx-track-azurecli 
 ---
 
@@ -31,7 +31,11 @@ In this article, you learn how to:
 
 [!INCLUDE [configure-terraform.md](includes/configure-terraform.md)]
 
-- **Azure service principal**: If you don't have a service principal, [create a service principal](authenticate-to-azure.md#create-a-service-principal). Make note of the values for the `appId`, `displayName`, `password`, and `tenant`.
+- **Azure service principal**: The demo requires a service principal that can assign roles. If you already have a service principal that can assign roles, you can use that principal. If you need to create a service principal, you have two options:
+  - Specify the "Owner" role when you [create a service principal](authenticate-to-azure.md#create-a-service-principal). As a recommended practice, you should grant the least privilege needed to perform a given job. Therefore, only use the "Owner" role if the service principal is meant to be used in that capacity.
+  - [Create a custom role](/azure/role-based-access-control/custom-roles) and specify that role when you [create a service principal](authenticate-to-azure.md#create-a-service-principal).
+
+  You will need the following service principal values for the demo code: `appId`, `displayName`, `password`, `tenant`.
 
 - **SSH key pair**: Use one of the following articles:
 
@@ -381,6 +385,11 @@ az group delete --name <storage_resource_group_name> --yes
 - Replace the `storage_resource_group_name` placeholder with the `resource_group_name` value in the `providers.tf` file.
 
 ## Troubleshoot Terraform on Azure
+
+If you receive a "403 error" when applying the Terraform execution plan during the role assignment, it usually means your service principal role doesn't include permission to assign roles in Azure RBAC. For more information about the built-in roles, including the Contributor role, see [Azure built-in roles](/azure/role-based-access-control/built-in-roles#contributor). The following options will enable you to resolve the error:
+
+- Create the service principal with the "Owner" role. As a recommended practice, you should grant the least privilege needed to perform a given job. Therefore, only use the "Owner" role if the service principal is meant to be used in that capacity.
+- Create a custom role based on the role you want - such as Contributor. Depending on the base role you use, either add the `Microsoft.Authorization/*/Write` action to the `Actions` block or remove it from the `NotActions` block. For more information on custom roles, see [Azure custom roles](/azure/role-based-access-control/custom-roles).
 
 [Troubleshoot common problems when using Terraform on Azure](troubleshoot.md)
 
