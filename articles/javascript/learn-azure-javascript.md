@@ -96,9 +96,6 @@ The following Microsoft Learn modules teach you how to use Azure with JavaScript
 
 Take one of these offerings from a [partner](/learn/certifications/partners).
 
-* [Course 55266-A](/learn/certifications/courses/55266): Building web apps with Angular and TypeScript
-* [Course 55249-A](/learn/certifications/courses/55249): Developing with the SharePoint Framework
-* [Course 55244-A](/learn/certifications/courses/55244): JavaScript for Developers
 * [Course 40410-A](/learn/certifications/courses/40410): JavaScript, HTML, and CSS Web Development
 * [Course 20480-C](/learn/certifications/courses/20480): Programming in HTML5 with JavaScript and CSS3
 
