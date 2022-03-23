@@ -3,15 +3,18 @@ title: Create an Application Gateway Ingress Controller in Azure Kubernetes Serv
 description: Learn how to create an Application Gateway Ingress Controller in Azure Kubernetes Service using Terraform
 keywords: azure devops terraform application gateway Ingress aks kubernetes
 ms.topic: how-to
-ms.date: 03/06/2022
+ms.date: 03/22/2022
 ms.custom: devx-track-terraform, devx-track-azurecli
 ---
 
 # Create an Application Gateway Ingress Controller in Azure Kubernetes Service using Terraform
 
-Article tested with following software/versions:
+Article tested with the following Terraform and Terraform provider versions:
+
 - [Terraform v1.1.4](https://releases.hashicorp.com/terraform/)
 - [AzureRM Provider v.2.94.0](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs)
+
+[Learn more about using Terraform in Azure](/azure/terraform)
 
 [Azure Kubernetes Service (AKS)](/azure/aks/) manages your hosted Kubernetes environment. AKS makes it quick and easy to deploy and manage containerized applications without container orchestration expertise. AKS also eliminates the burden of taking applications offline for operational and maintenance tasks. Using AKS, you can do such tasks as provisioning, upgrading, and scaling resources on-demand.
 
@@ -35,9 +38,19 @@ In this article, you learn how:
 
 [!INCLUDE [configure-terraform.md](includes/configure-terraform.md)]
 
-- **Azure service principal:** If you don't have a service principal, [create a service principal](authenticate-to-azure.md#create-a-service-principal). Make note of the `appId`, `display_name`, `password`, and `tenant`.
+- **Azure service principal**: The demo requires a service principal that can assign roles. If you already have a service principal that can assign roles, you can use that service principal. If you need to create a service principal, you have two options:
+  - Specify the "Owner" role when you [create a service principal](authenticate-to-azure.md#create-a-service-principal). As a recommended practice, you should grant the least privilege needed to perform a given job. Therefore, only use the "Owner" role if the service principal is meant to be used in that capacity.
+  - [Create a custom role](/azure/role-based-access-control/custom-roles) and specify that role when you [create a service principal](authenticate-to-azure.md#create-a-service-principal).
+
+  You'll need the following service principal values for the demo code: `appId`, `displayName`, `password`, `tenant`.
 
 - **Service principal object ID**: Run the following command to get the object ID of the service principal: `az ad sp list --display-name "<display_name>" --query "[].{\"Object ID\":objectId}" --output table`
+
+- **SSH key pair**: Use one of the following articles:
+
+    - [Portal](/azure/virtual-machines/ssh-keys-portal#generate-new-keys)
+    - [Windows](/azure/virtual-machines/linux/ssh-from-windows#create-an-ssh-key-pair)
+    - [Linux/MacOS](/azure/virtual-machines/linux/mac-create-ssh-keys#create-an-ssh-key-pair)
 
 - **Install Helm**: [Helm](https://helm.sh/docs/intro/install/) is the Kubernetes package manager.
 
@@ -303,7 +316,21 @@ az group delete --name <storage_resource_group_name> --yes
 
 - Replace the `storage_resource_group_name` placeholder with the `resource_group_name` value in the `providers.tf` file.
 
+### Delete service principal
+
+> [!CAUTION]
+> Only delete the service principal you used in this demo if you're not using it for anything else.
+
+```azurecli
+az ad sp delete --id <service_principal_object_id>
+```
+
 ## Troubleshoot Terraform on Azure
+
+If you receive a "403 error" when applying the Terraform execution plan during the role assignment, it usually means your service principal role doesn't include permission to assign roles in Azure RBAC. For more information about the built-in roles, see [Azure built-in roles](/azure/role-based-access-control/built-in-roles). The following options will enable you to resolve the error:
+
+- Create the service principal with the "Owner" role. As a recommended practice, you should grant the least privilege needed to perform a given job. Therefore, only use the "Owner" role if the service principal is meant to be used in that capacity.
+- Create a custom role based on the role you want - such as Contributor. Depending on the base role you use, either add the `Microsoft.Authorization/*/Write` action to the `Actions` block or remove it from the `NotActions` block. For more information on custom roles, see [Azure custom roles](/azure/role-based-access-control/custom-roles).
 
 [Troubleshoot common problems when using Terraform on Azure](troubleshoot.md)
 
