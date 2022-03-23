@@ -28,7 +28,7 @@ To automate the Azure CLI, the CLI must be installed in the environment. Common 
 
 ## Authentication with managed identity for automated tasks with Azure CLI
 
-For automation, authentication with [az login](/cli/azure/reference-index#az_login) to the Azure CLI with [managed identity](/cli/azure/authenticate-azure-cli#sign-in-with-a-managed-identity).
+For automation, authentication with [az login](/cli/azure/reference-index#az-login) to the Azure CLI with [managed identity](/cli/azure/authenticate-azure-cli#sign-in-with-a-managed-identity).
 
 ```azurecli
 az login --identity
@@ -55,7 +55,7 @@ az login -u <MY_AZURE_USERNAME> -p <MY_AZURE_PASSWORD>
 
 ## Create resource group for resources
 
-A resource group is a logical collection of your Azure resources. The logical grouping is based on services you need in a specific region for a project. Learn about [naming conventions](/azure/cloud-adoption-framework/ready/azure-best-practices/resource-naming). Use the [az group create](/cli/azure/group#az_group_create) command to create your resource group before you create Azure service resources. 
+A resource group is a logical collection of your Azure resources. The logical grouping is based on services you need in a specific region for a project. Learn about [naming conventions](/azure/cloud-adoption-framework/ready/azure-best-practices/resource-naming). Use the [az group create](/cli/azure/group#az-group-create) command to create your resource group before you create Azure service resources. 
 
 ```azurecli
 az group create \
@@ -65,7 +65,7 @@ az group create \
 
 ## Create Azure Static web app 
 
-Use the [az staticwebapp create](/cli/azure/staticwebapp#az_staticwebapp_create) command to create a new [static web app](/azure/static-web-apps/overview).
+Use the [az staticwebapp create](/cli/azure/staticwebapp#az-staticwebapp-create) command to create a new [static web app](/azure/static-web-apps/overview).
 
 ```azurecli
 az staticwebapp create \
@@ -94,7 +94,7 @@ git push origin main
 
 ## Delete static web app 
 
-Use the [az staticwebapp delete](/cli/azure/staticwebapp#az_staticwebapp_delete) command to delete your static web app.
+Use the [az staticwebapp delete](/cli/azure/staticwebapp#az-staticwebapp-delete) command to delete your static web app.
 
 ```azurecli
 az staticwebapp delete && \
@@ -106,7 +106,7 @@ az staticwebapp delete && \
 
 A consumption-based function app needs both the function app and a storage resource. 
 
-1. Create the storage resource with [az storage account create](/cli/azure/storage/account#az_storage_account_create):
+1. Create the storage resource with [az storage account create](/cli/azure/storage/account#az-storage-account-create):
 
     ```azurecli
     az storage account create \
@@ -116,7 +116,7 @@ A consumption-based function app needs both the function app and a storage resou
       --sku Standard_LRS    
     ```
 
-1. Create the function app resource with [az functionapp create](/cli/azure/functionapp#az_functionapp_create): 
+1. Create the function app resource with [az functionapp create](/cli/azure/functionapp#az-functionapp-create): 
 
     ```azurecli
     az functionapp create \
@@ -133,7 +133,7 @@ There isn't an Azure CLI command to create an Azure Function API endpoint for yo
 
 ## Create Azure Function deployment slot 
 
-Creating a deployment slot then swapping allows you to quickly revert a deployment. Create a deployment slow with the [az functionapp deployment slot create](/cli/azure/functionapp/deployment/slot#az_functionapp_deployment_slot_create) command.
+Creating a deployment slot then swapping allows you to quickly revert a deployment. Create a deployment slow with the [az functionapp deployment slot create](/cli/azure/functionapp/deployment/slot#az-functionapp-deployment-slot-create) command.
 
 ```azurecli
 az functionapp deployment slot create \
@@ -145,7 +145,7 @@ az functionapp deployment slot create \
 
 ## Deploy Azure Function from git
 
-Manage deployment from git or Mercurial repositories with [az functionapp deployment source config](/cli/azure/functionapp/deployment/source#az_functionapp_deployment_source_config). Select one repository type for the `--repository-type` setting from the choices: externalgit, git, github, localgit, mercurial.
+Manage deployment from git or Mercurial repositories with [az functionapp deployment source config](/cli/azure/functionapp/deployment/source#az-functionapp-deployment-source-config). Select one repository type for the `--repository-type` setting from the choices: externalgit, git, github, localgit, mercurial.
 
 ```azurecli
 az functionapp deployment source config --repo-url \
@@ -159,7 +159,7 @@ az functionapp deployment source config --repo-url \
 
 ## Swap Azure Function slots
 
-Use the [az functionapp deployment slot swap](/cli/azure/functionapp/deployment/slot#az_functionapp_deployment_slot_swap) command to swap slots. Slot action choices are: preview, reset, swap
+Use the [az functionapp deployment slot swap](/cli/azure/functionapp/deployment/slot#az-functionapp-deployment-slot-swap) command to swap slots. Slot action choices are: preview, reset, swap
 
 ```azurecli
 az functionapp deployment slot swap \

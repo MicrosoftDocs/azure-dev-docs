@@ -68,7 +68,7 @@ An Azure service principal provides access to Azure without having to use your p
     * Your department and date: `IT-2021-September`
     * A unique identifier: `1e8966d7-ba85-424b-9db4-c39e1ae9d0ca`
 
-1. In a bash terminal, create your service principal with [az ad sp create-for-rbac](/cli/azure/ad/sp#az_ad_sp_create_for_rbac): 
+1. In a bash terminal, create your service principal with [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac): 
 
     ```azurecli
     az ad sp create-for-rbac --name YOUR-SERVICE-PRINCIPAL-NAME --role Contributor

@@ -39,7 +39,7 @@ Verify that you've authenticated to the Azure subscription by displaying the cur
 
 #### [Bash](#tab/bash)
 
-To confirm the current Azure subscription via the Azure CLI, run [az account show](/cli/azure/account#az_account_show).
+To confirm the current Azure subscription via the Azure CLI, run [az account show](/cli/azure/account#az-account-show).
 
 ```azurecli
 az account show

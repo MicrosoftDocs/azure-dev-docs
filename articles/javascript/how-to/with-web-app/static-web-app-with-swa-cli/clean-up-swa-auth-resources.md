@@ -20,7 +20,7 @@ In VS Code, find the Azure Explorer's Static Web Apps section, right-click on th
 # [Azure CLI](#tab/remove-swa-azure-cli)
 
 
-In the VS Code integrated terminal, where you logged into the Azure CLI in a previous section of this article series, use the following Azure CLI command, [az staticwebapp delete](/cli/azure/staticwebapp/appsettings#az_staticwebapp_appsettings_delete), to delete your Static Web Apps resource:
+In the VS Code integrated terminal, where you logged into the Azure CLI in a previous section of this article series, use the following Azure CLI command, [az staticwebapp delete](/cli/azure/staticwebapp/appsettings#az-staticwebapp-appsettings-delete), to delete your Static Web Apps resource:
 
 ```azurecli
 az staticwebapp delete \

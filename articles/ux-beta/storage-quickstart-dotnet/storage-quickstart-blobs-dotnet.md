@@ -49,7 +49,7 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps 
 
 ### [Azure CLI](#tab/azure-cli)
 
-Storage accounts are created using the [az storage account create](/cli/azure/storage/account#az_storage_account_create) command.  Storage account names must be between 3 and 24 characters in length and may contain numbers and lowercase letters only.  Storage account names must also be unique across Azure.
+Storage accounts are created using the [az storage account create](/cli/azure/storage/account#az-storage-account-create) command.  Storage account names must be between 3 and 24 characters in length and may contain numbers and lowercase letters only.  Storage account names must also be unique across Azure.
 
 Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com) or on a workstation with the [Azure CLI installed](/cli/azure/install-azure-cli).
 
@@ -428,7 +428,7 @@ A resource group can be deleted using the [Azure portal](https://portal.azure.co
 
 ### [Azure CLI](#tab/azure-cli)
 
-To delete a resource group using the Azure CLI, use the [az group delete](/cli/azure/group#az_group_delete) command with the name of the resource group to be deleted.  Deleting a resource group will also remove all Azure resources contained in the resource group.
+To delete a resource group using the Azure CLI, use the [az group delete](/cli/azure/group#az-group-delete) command with the name of the resource group to be deleted.  Deleting a resource group will also remove all Azure resources contained in the resource group.
 
 ```azurecli
 az group delete --name $RESOURCE_GROUP_NAME

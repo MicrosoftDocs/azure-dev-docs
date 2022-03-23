@@ -56,7 +56,7 @@ There are other [credential classes](https://www.npmjs.com/package/@azure/identi
 
 Create a service principal and configure its access to Azure resources. The service principal is **required** to use the DefaultAzureCredential.
 
-1. Create the service principal with the Azure [az ad sp create-for-rbac](/cli/azure/ad/sp#az_ad_sp_create_for_rbac) command with the Azure CLI or [Cloud Shell](https://shell.azure.com). 
+1. Create the service principal with the Azure [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) command with the Azure CLI or [Cloud Shell](https://shell.azure.com). 
 
     ```azurecli
     az ad sp create-for-rbac --name YOUR-SERVICE-PRINCIPAL-NAME --role Contributor

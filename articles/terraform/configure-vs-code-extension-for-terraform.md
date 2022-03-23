@@ -128,7 +128,7 @@ You can now run all supported Terraform commands in your Cloud Shell environment
 
 1. In the Command Palette text box, start entering `Azure: Open Bash in Cloud Shell` and select it when it displays.
 
-1. Run [az group show](/cli/azure/group#az_group_show) to display the resource group. Replace the `<resource_group_name>` placeholder with the randomly generated name of the resource group displayed after applying the Terraform execution plan.
+1. Run [az group show](/cli/azure/group#az-group-show) to display the resource group. Replace the `<resource_group_name>` placeholder with the randomly generated name of the resource group displayed after applying the Terraform execution plan.
 
 ```azurecli
 az group show --name <resource_group_name>
