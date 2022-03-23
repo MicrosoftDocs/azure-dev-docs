@@ -3,11 +3,18 @@ title: Create a Kubernetes cluster with Azure Kubernetes Service (AKS) using Ter
 description: Learn how to create a Kubernetes Cluster with Azure Kubernetes Service and Terraform.
 keywords: azure devops terraform aks kubernetes
 ms.topic: how-to
-ms.date: 08/07/2021
+ms.date: 03/22/2022
 ms.custom: devx-track-terraform, devx-track-azurecli 
 ---
 
 # Create a Kubernetes cluster with Azure Kubernetes Service using Terraform
+
+Article tested with the following Terraform and Terraform provider versions:
+
+- [Terraform v1.1.7](https://releases.hashicorp.com/terraform/)
+- [AzureRM Provider v.2.99.0](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs)
+
+[Learn more about using Terraform in Azure](/azure/terraform)
 
 [Azure Kubernetes Service (AKS)](/azure/aks/) manages your hosted Kubernetes environment. AKS allows you to deploy and manage containerized applications without container orchestration expertise. AKS also enables you to do many common maintenance operations without taking your app offline. These operations include provisioning, upgrading, and scaling resources on demand.
 
@@ -24,44 +31,101 @@ In this article, you learn how to:
 
 [!INCLUDE [configure-terraform.md](includes/configure-terraform.md)]
 
-- **Azure service principal**: If you don't have a service principal, [create a service principal](authenticate-to-azure.md#create-a-service-principal). Make note of the values for the `appId`, `displayName`, `password`, and `tenant`.
+- **Azure service principal:** If you don't have a service principal, [create a service principal](authenticate-to-azure.md#create-a-service-principal). Make note of the `appId`, `display_name`, `password`, and `tenant`.
 
-## 2. Create an SSH key pair
+- **Service principal object ID**: Run the following command to get the object ID of the service principal: `az ad sp list --display-name "<display_name>" --query "[].{\"Object ID\":objectId}" --output table`
 
-The sample in this article uses an SSH key pair to validate the user to the VM. 
+- **SSH key pair**: Use one of the following articles:
 
-Generate an SSH key pair using one of the following articles depending on your environment:
+    - [Portal](/azure/virtual-machines/ssh-keys-portal#generate-new-keys)
+    - [Windows](/azure/virtual-machines/linux/ssh-from-windows#create-an-ssh-key-pair)
+    - [Linux/MacOS](/azure/virtual-machines/linux/mac-create-ssh-keys#create-an-ssh-key-pair)
+    
+## 2. Configure Azure storage to store Terraform state
 
-- [Portal](/azure/virtual-machines/ssh-keys-portal#generate-new-keys)
-- [Windows](/azure/virtual-machines/linux/ssh-from-windows#create-an-ssh-key-pair)
-- [Linux/MacOS](/azure/virtual-machines/linux/mac-create-ssh-keys#create-an-ssh-key-pair)
+Terraform tracks state locally via the `terraform.tfstate` file. This pattern works well in a single-person environment. However, in a more practical multi-person environment, you need to track state on the server using [Azure storage](/azure/storage/). In this section, you learn to retrieve the necessary storage account information and create a storage container. The Terraform state information is then stored in that container.
 
-## 3. Create the directory structure
+1. Use one of the following options to create an Azure storage account:
 
-The first step is to create the directory that holds your Terraform configuration files for the exercise.
+    - [Create a storage account (via the Azure portal)](/azure/storage/common/storage-account-create?tabs=azure-portal)
+    - [Create a storage account (via Azure CLI)](/azure/storage/common/storage-account-create?tabs=azure-cli)
+    - [Create a storage account (via Azure PowerShell)](/azure/storage/common/storage-account-create?tabs=azure-powershell)
 
-1. Open a command-line prompt from which you can run Terraform commands.
+1. Browse to the [Azure portal](https://portal.azure.com).
 
-1. Create a directory named `terraform-aks-k8s`.
+1. Under **Azure services**, select **Storage accounts**. (If the **Storage accounts** option isn't visible on the main page, select **More services** to locate the option.)
 
-1. Change directories to the new directory:
+1. On the **Storage accounts** page, On the Storage accounts page, select the storage account where Terraform will store the state information.
 
-## 4. Declare the Azure provider
+1. On the **Storage account** page, in the left menu, in the **Security + networking** section, select **Access keys**.
 
-[!INCLUDE [terraform-create-base-config-file.md](includes/terraform-create-base-config-file.md)]
+    ![The Storage account page has a menu option to get the access keys.](./media/create-k8s-cluster-with-tf-and-aks/access-keys-menu-option.png)
 
-## 5. Define a Kubernetes cluster
+1. On the **Access keys** page, select **Show keys** to display the key values.
 
-Create the Terraform configuration file that declares the resources for the Kubernetes cluster.
+    ![The Access keys page has an option to display the key values.](./media/create-k8s-cluster-with-tf-and-aks/show-keys-option.png)
 
-1. Create a file named `k8s.tf`.
+1. Locate the **key1** **key** on the page and select the icon to its right to copy the key value to the clipboard.
 
-1. Insert the following code into the new file:
+    ![A handy icon button allows you to copy the key values to the clipboard.](./media/create-k8s-cluster-with-tf-and-aks/copy-key-value.png)
+
+1. From a command line prompt, run [az storage container create](/cli/azure/storage/container#az_storage_container_create). This command creates a container in your Azure storage account. Replace the placeholders with the appropriate values for your Azure storage account.
+
+    ```azurecli
+    az storage container create -n tfstate \
+       --account-name <storage_account_name> \
+       --account-key <storage_account_key>
+    ```
+
+1. When the command successfully completes, it displays a JSON block with a key of **"created"** and a value of **true**. You can also run [az storage container list](/cli/azure/storage/container#az_storage_container_list) to verify the container was successfully created.
+
+    ```azurecli
+    az storage container list \
+       --account-name <storage_account_name> \
+       --account-key <storage_account_key>
+    ```
+
+## 3. Implement the Terraform code
+
+1. Create a directory in which to test the sample Terraform code and make it the current directory.
+
+1. Create a file named `providers.tf` and insert the following code.
+
+    ```terraform
+    terraform {
+    
+      required_version = ">=0.12"
+    
+      required_providers {
+        azurerm = {
+          source  = "hashicorp/azurerm"
+          version = "~>2.0"
+        }
+      }
+      backend "azurerm" {
+        resource_group_name  = "<storage_account_resource_group>"
+        storage_account_name = "<storage_account_name>"
+        container_name       = "tfstate"
+        key                  = "codelab.microsoft.tfstate"
+      }
+    }
+    
+    provider "azurerm" {
+      features {}
+    }
+    ```
+
+1. Create a file named `main.tf` and insert the following code:
 
     ```hcl
-    resource "azurerm_resource_group" "k8s" {
-        name     = var.resource_group_name
-        location = var.location
+    # Generate random resource group name
+    resource "random_pet" "rg-name" {
+      prefix    = var.resource_group_name_prefix
+    }
+    
+    resource "azurerm_resource_group" "rg" {
+      name      = random_pet.rg-name.id
+      location  = var.resource_group_location
     }
     
     resource "random_id" "log_analytics_workspace_name_suffix" {
@@ -110,10 +174,10 @@ Create the Terraform configuration file that declares the resources for the Kube
         }
 
         service_principal {
-            client_id     = var.client_id
-            client_secret = var.client_secret
+            client_id     = var.aks_service_principal_app_id
+            client_secret = var.aks_service_principal_client_secret
         }
-
+        
         addon_profile {
             oms_agent {
             enabled                    = true
@@ -132,20 +196,19 @@ Create the Terraform configuration file that declares the resources for the Kube
     }
     ```
 
-    The preceding code sets the name of the cluster, location, and the resource group name. The prefix for the fully qualified domain name (FQDN) is also set. The FQDN is used to access the cluster.
-
-    The `linux_profile` record allows you to configure the settings that enable signing into the worker nodes using SSH.
-
-    With AKS, you pay only for the worker nodes. The `default_node_pool` record configures the details for these worker nodes. The `default_node_pool record` includes the number of worker nodes to create and the type of worker nodes. If you need to scale up or scale down the cluster in the future, you modify the `count` value in this record.
-
-## 6. Declare the variables
-
-1. Create a file named `variables.tf` to contain the project variables and insert the following code:
+1. Create a file named `variables.tf` and insert the following code:
 
     ```hcl
-    variable "client_id" {}
-    variable "client_secret" {}
-
+    variable "resource_group_name_prefix" {
+      default       = "rg"
+      description   = "Prefix of the resource group name that's combined with a random ID so name is unique in your Azure subscription."
+    }
+    
+    variable "resource_group_location" {
+      default       = "eastus"
+      description   = "Location of the resource group."
+    }
+    
     variable "agent_count" {
         default = 3
     }
@@ -185,16 +248,14 @@ Create the Terraform configuration file that declares the resources for the Kube
    }
     ```
 
-## 7. Create a Terraform output file
-
-[Terraform outputs](https://www.terraform.io/docs/configuration/outputs.html) allow you to define values that will be highlighted to the user when Terraform applies a plan, and can be queried using the `terraform output` command. In this section, you create an output file that allows access to the cluster with [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/).
-
-1. Create a file named `output.tf`.
-
-1. Insert the following code into the new file:
+1. Create a file named `output.tf` and insert the following code.
 
     ```hcl
-    output "client_key" {
+    output "resource_group_name" {
+      value = azurerm_resource_group.rg.name
+    }
+    
+        output "client_key" {
         value = azurerm_kubernetes_cluster.k8s.kube_config.0.client_key
     }
 
@@ -224,132 +285,116 @@ Create the Terraform configuration file that declares the resources for the Kube
     }
     ```
 
-## 8. Set up Azure storage to store Terraform state
+1. Create a file named `terraform.tfvars` and insert the following code.
 
-Terraform tracks state locally via the `terraform.tfstate` file. This pattern works well in a single-person environment. In a multi-person environment, [Azure storage](/azure/storage/) is used to track state.
-
-In this section, you see how to do the following tasks:
-- Retrieve storage account information (account name and account key)
-- Create a storage container into which Terraform state information will be stored.
-
-1. In the Azure portal, select **All services** in the left menu.
-
-1. Select **Storage accounts**.
-
-1. On the **Storage accounts** tab, select the name of the storage account into which Terraform is to store state. For example, you can use the storage account created when you opened Cloud Shell the first time.  The storage account name created by Cloud Shell typically starts with `cs` followed by a random string of numbers and letters. Take note of the storage account you select. This value is needed later.
-
-1. On the storage account tab, select **Access keys**.
-
-    ![Storage account menu](./media/create-k8s-cluster-with-tf-and-aks/storage-account.png)
-
-1. Make note of the **key1** **key** value. (Selecting the icon to the right of the key copies the value to the clipboard.)
-
-    ![Storage account access keys](./media/create-k8s-cluster-with-tf-and-aks/storage-account-access-key.png)
-
-1. Create a container in your Azure storage account. Replace the placeholders with appropriate values for your environment.
-
-    ```azurecli
-    az storage container create -n tfstate --account-name <YourAzureStorageAccountName> --account-key <YourAzureStorageAccountKey>
-    ```
-
-## 9. Create the Kubernetes cluster
-
-In this section, you see how to use the `terraform init` command to create the resources defined in the configuration files you created in the previous sections.
-
-1. In Cloud Shell, initialize Terraform. Replace the placeholders with appropriate values for your environment.
-
-    ```bash
-    terraform init -backend-config="storage_account_name=<YourAzureStorageAccountName>" -backend-config="container_name=tfstate" -backend-config="access_key=<YourStorageAccountAccessKey>" -backend-config="key=codelab.microsoft.tfstate" 
-    ```
+    ```terraform
+    aks_service_principal_app_id = "<service_principal_app_id>"
     
-    The `terraform init` command displays the success of initializing the backend and provider plug-in:
-
-    ![Example of "terraform init" results](./media/create-k8s-cluster-with-tf-and-aks/terraform-init-complete.png)
-
-1. Export your service principal credentials. Replace the placeholders with appropriate values from your service principal.
-
-    ```bash
-    export TF_VAR_client_id=<service-principal-appid>
-    export TF_VAR_client_secret=<service-principal-password>
-    ```
-
-1. Run the `terraform plan` command to create the Terraform plan that defines the infrastructure elements. 
-
-    ```bash
-    terraform plan -out out.plan
-    ```
-
-    The `terraform plan` command displays the resources that will be created when you run the `terraform apply` command:
-
-    ![Example of "terraform plan" results](./media/create-k8s-cluster-with-tf-and-aks/terraform-plan-complete.png)
-
-1. Run the `terraform apply` command to apply the plan to create the Kubernetes cluster. The process to create a Kubernetes cluster can take several minutes, resulting in the Cloud Shell session timing out. If the Cloud Shell session times out, you can follow the steps in the section "Recover from a Cloud Shell timeout" to enable you to complete the process.
-
-    ```bash
-    terraform apply out.plan
-    ```
-
-    The `terraform apply` command displays the results of creating the resources defined in your configuration files:
-
-    ![Example of "terraform apply" results](./media/create-k8s-cluster-with-tf-and-aks/terraform-apply-complete.png)
-
-1. In the Azure portal, select **All resources** in the left menu to see the resources created for your new Kubernetes cluster.
-
-    ![All resources in the Azure portal](./media/create-k8s-cluster-with-tf-and-aks/k8s-resources-created.png)
-
-## 10. Recover from a Cloud Shell timeout
-
-If the Cloud Shell session times out, you can do the following steps to recover:
-
-1. Start a Cloud Shell session.
-
-1. Change to the directory containing your Terraform configuration files.
-
-    ```bash
-    cd /clouddrive/terraform-aks-k8s
-    ```
-
-1. Run the following command:
-
-    ```bash
-    export KUBECONFIG=./azurek8s
-    ```
+    aks_service_principal_client_secret = "<service_principal_password>"
     
-## 11. Test the Kubernetes cluster
+    aks_service_principal_object_id = "<service_principal_object_id>"
+    ```
 
-The Kubernetes tools can be used to verify the newly created cluster.
+    **Key points:**
+
+    - Set `aks_service_principal_app_id` to the service principal `appId` value.
+    - Set `aks_service_principal_client_secret` to the service principal `password` value.
+    - Set `aks_service_principal_object_id` to the service principal object ID. (The Azure CLI command for obtaining this value is in the [Configure your environment](#1-configure-your-environment) section.)
+
+## 4. Initialize Terraform
+
+[!INCLUDE [terraform-init.md](includes/terraform-init.md)]
+
+## 5. Create a Terraform execution plan
+
+[!INCLUDE [terraform-plan.md](includes/terraform-plan.md)]
+
+## 6. Apply a Terraform execution plan
+
+[!INCLUDE [terraform-apply-plan.md](includes/terraform-apply-plan.md)]
+
+## 7. Verify the results
+
+1. Get the resource group name.
+
+    ```console
+    echo "$(terraform output resource_group_name)"
+    ```
+
+1. Browse to the [Azure portal](https://portal.azure.com).
+
+1. Under **Azure services**, select **Resource groups** and locate your new resource group to see the following resources created in this demo:
+
+    - **Log Analytics Solution:** By default, the demo names this solution **ContainerInsights**. The portal will show the solutions workspace in parenthesis.
+    - **Log Analytics Workspace:** By default, the demo names this workspace with a prefix of **TestLogAnalyticsWorkspaceName-** followed by a random number.
+    - **Kubernetes service:** By default, the demo names this service **k8stest**. (A Managed Kubernetes Cluster is also known as an AKS / Azure Kubernetes Service.)
 
 1. Get the Kubernetes configuration from the Terraform state and store it in a file that kubectl can read.
 
-    ```bash
+    ```console
     echo "$(terraform output kube_config)" > ./azurek8s
     ```
-1. Check that the previous command did not add an EOT ASCII Character 
-    ```bash
+
+1. Verify the previous command didn't add an ASCII EOT character.
+
+    ```console
     cat ./azurek8s
     ```
-   If you see `<< EOT` at the beginning and `EOT` at the end, edit the content of the file to remove these. This is necessary, otherwise you could receive the following message: `error: error loading config file "./azurek8s": yaml: line 2: mapping values are not allowed in this context`
+
+   ***Key points:**
+
+    - If you see `<< EOT` at the beginning and `EOT` at the end, edit the content of the file to remove these characters. Otherwise, you could receive the following error message: `error: error loading config file "./azurek8s": yaml: line 2: mapping values are not allowed in this context`
 
 1. Set an environment variable so that kubectl picks up the correct config.
 
-    ```bash
+    ```console
     export KUBECONFIG=./azurek8s
     ```
 
 1. Verify the health of the cluster.
 
-    ```bash
+    ```console
     kubectl get nodes
     ```
 
-    You should see the details of your worker nodes, and they should all have a status **Ready**, as shown in the following image:
-
     ![The kubectl tool allows you to verify the health of your Kubernetes cluster](./media/create-k8s-cluster-with-tf-and-aks/kubectl-get-nodes.png)
 
-## 12. Monitor health and logs
+**Key points:**
 
-When the AKS cluster was created, monitoring was enabled to capture health metrics for both the cluster nodes and pods. These health metrics are available in the Azure portal. For more information on container health monitoring,
-see [Monitor Azure Kubernetes Service health](/azure/azure-monitor/insights/container-insights-overview).
+- When the AKS cluster was created, monitoring was enabled to capture health metrics for both the cluster nodes and pods. These health metrics are available in the Azure portal. For more information on container health monitoring, see [Monitor Azure Kubernetes Service health](/azure/azure-monitor/insights/container-insights-overview).
+- Several key values were output when you applied the Terraform execution plan. For example, the host address, AKS cluster user name, and AKS cluster password are output.
+- To view all of the output values, run `terraform output`.
+- To view a specific output value, run `echo "$(terraform output <output_value_name>)"`.
+
+## 8. Clean up resources
+
+### Delete AKS resources
+
+[!INCLUDE [terraform-plan-destroy.md](includes/terraform-plan-destroy.md)]
+
+### Delete storage account
+
+> [!CAUTION]
+> Only delete the resource group containing storage account you used in this demo if you're not using either for anything else.
+
+Run [az group delete](/cli/azure/group#az_group_delete) to delete the resource group (and its storage account you used in this demo).
+
+```azurecli
+az group delete --name <storage_resource_group_name> --yes
+```
+
+**Key points:**
+
+- Replace the `storage_resource_group_name` placeholder with the `resource_group_name` value in the `providers.tf` file.
+
+### Delete service principal
+
+> [!CAUTION]
+> Only delete the service principal you used in this demo if you're not using it for anything else.
+
+```azurecli
+az ad sp delete --id <service_principal_object_id>
+```
 
 ## Troubleshoot Terraform on Azure
 
