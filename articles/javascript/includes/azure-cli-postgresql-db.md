@@ -7,7 +7,7 @@ ms.date: 02/04/2021
 
 ## Create an Azure Database for PostgreSQL server resource with Azure CLI
 
-Use the following Azure CLI [az postgres server create](/cli/azure/postgres/server#az_postgres_server_create) command in the [Azure Cloud Shell](https://shell.azure.com) to create a new PostgreSQL server resource for your database. 
+Use the following Azure CLI [az postgres server create](/cli/azure/postgres/server#az-postgres-server-create) command in the [Azure Cloud Shell](https://shell.azure.com) to create a new PostgreSQL server resource for your database. 
 
 ```azurecli
 az postgres server create \
@@ -76,7 +76,7 @@ Before you can connect to the server, you need to configure your firewall rules 
 
 By default, the firewall rules are not configured. You should add your client IP address so your client connection to the server with JavaScript is successful.
 
-Use the following Azure CLI [az postgres server firewall-rule create](/cli/azure/postgres/server#az_postgres_server_firewall_rule_create) command in the [Azure Cloud Shell](https://shell.azure.com) to create a new firewall rule for your database. 
+Use the following Azure CLI [az postgres server firewall-rule create](/cli/azure/postgres/server#az-postgres-server-firewall-rule-create) command in the [Azure Cloud Shell](https://shell.azure.com) to create a new firewall rule for your database. 
 
 
 ```azurecli
@@ -97,7 +97,7 @@ While you can add the full range of internet addresses as a firewall rule, 0.0.0
 
 ## Create a PostgreSQL database on the server with Azure CLI
 
-Use the following Azure CLI [az postgres db create](/cli/azure/postgres/db#az_postgres_db_create) command in the [Azure Cloud Shell](https://shell.azure.com) to create a new PostgreSQL database on your server. 
+Use the following Azure CLI [az postgres db create](/cli/azure/postgres/db#az-postgres-db-create) command in the [Azure Cloud Shell](https://shell.azure.com) to create a new PostgreSQL database on your server. 
 
 ```azurecli
 az postgres db create \
@@ -109,7 +109,7 @@ az postgres db create \
 
 ## Get the PostgreSQL connection string with Azure CLI
 
-Retrieve the PostgreSQL connection string for this instance with the [az postgres server show-connection-string](/cli/azure/postgres/server#az_postgres_server_show_connection_string) command:
+Retrieve the PostgreSQL connection string for this instance with the [az postgres server show-connection-string](/cli/azure/postgres/server#az-postgres-server-show-connection-string) command:
 
 ```azurecli
 az postgres server show-connection-string \

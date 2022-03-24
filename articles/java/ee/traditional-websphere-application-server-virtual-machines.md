@@ -114,7 +114,7 @@ Refreshing the browser will cycle through the server instances using the **Round
 
 ## Clean up resources
 
-To avoid Azure charges, you should clean up unnecessary resources. When you no longer need the cluster, use the [az group delete](/cli/azure/group#az_group_delete) command. The following command will remove the resource group, container service, container registry, and all related resources.
+To avoid Azure charges, you should clean up unnecessary resources. When you no longer need the cluster, use the [az group delete](/cli/azure/group#az-group-delete) command. The following command will remove the resource group, container service, container registry, and all related resources.
 
 ```azurecli
 az group delete --name <resource-group-name> --yes --no-wait

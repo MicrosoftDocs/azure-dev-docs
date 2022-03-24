@@ -134,7 +134,7 @@ In this article, you learn how to create a resource group with the Azure SDK for
 
 #### [Azure CLI](#tab/azure-cli)
 
-Run [az group show](/cli/azure/group#az_group_show) to display the resource group.
+Run [az group show](/cli/azure/group#az-group-show) to display the resource group.
 
 ```azurecli
 az group show --name <resource_group>

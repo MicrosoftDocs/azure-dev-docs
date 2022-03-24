@@ -25,7 +25,7 @@ The following steps show you how to sign in to Azure interactively using a Micro
 
 1. Open a command line that has access to the Azure CLI.
 
-1. Run [az login](/cli/azure/account#az_login) without any parameters and follow the instructions to sign in to Azure.
+1. Run [az login](/cli/azure/account#az-login) without any parameters and follow the instructions to sign in to Azure.
 
     ```azurecli
     az login
@@ -35,13 +35,13 @@ The following steps show you how to sign in to Azure interactively using a Micro
 
     - Upon successful sign in, `az login` displays a list of the Azure subscriptions associated with the logged-in Microsoft account, including the default subscription.
 
-1. To confirm the current Azure subscription, run [az account show](/cli/azure/account#az_account_show).
+1. To confirm the current Azure subscription, run [az account show](/cli/azure/account#az-account-show).
 
     ```azurecli
     az account show
     ```
 
-1. To view all the Azure subscription names and IDs for a specific Microsoft account, run [az account list](/cli/azure/account#az_account_list). 
+1. To view all the Azure subscription names and IDs for a specific Microsoft account, run [az account list](/cli/azure/account#az-account-list). 
 
     ```azurecli
     az account list --query "[?user.name=='<microsoft_account_email>'].{Name:name, ID:id, Default:isDefault}" --output Table
@@ -52,7 +52,7 @@ The following steps show you how to sign in to Azure interactively using a Micro
     - Replace the `<microsoft_account_email>` placeholder with the Microsoft account email address whose Azure subscriptions you want to list.
     - With a Live account - such as a Hotmail or Outlook - you might need to specify the fully qualified email address. For example, if your email address is `admin@hotmail.com`, you might need to replace the placeholder with `live.com#admin@hotmail.com`.
 
-1.  To use a specific Azure subscription, run [az account set](/cli/azure/account#az_account_set).
+1.  To use a specific Azure subscription, run [az account set](/cli/azure/account#az-account-set).
 
     ```azurecli
     az account set --subscription "<subscription_id_or_subscription_name>"
@@ -84,7 +84,7 @@ The most common pattern is to interactively sign in to Azure, create a service p
 
     - You can set the `MSYS_NO_PATHCONV` environment variable globally (for all terminal sessions) or locally (for just the current session). As creating a service principal isn't something you do often, the sample sets the value for the current session. To set this environment variable globally, add the setting to the `~/.bashrc` file.
 
-1. To create a service principal, run [az ad sp create-for-rbac](/cli/azure/ad/sp?#az_ad_sp_create_for_rbac).
+1. To create a service principal, run [az ad sp create-for-rbac](/cli/azure/ad/sp?#az-ad-sp-create-for-rbac).
 
     ```azurecli
     az ad sp create-for-rbac --name <service_principal_name> --role Contributor
