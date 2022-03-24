@@ -13,7 +13,7 @@ Run the following commands to create an Azure Service Principal:
 
 ```azurecli
 az ad sp create-for-rbac --name <service-principal-name> --role Contributor \
-                --scopes /subscriptions/mySubscriptionID
+                --scopes /subscriptions/<subscription_id>
 ```
 
 Replace `<service-principal-name>` with your service principal name.

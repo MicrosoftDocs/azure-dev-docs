@@ -37,7 +37,7 @@ Run the following code to create an Azure service principal:
 # [Azure CLI](#tab/azure-cli)
 ```azurecli-interactive
 az ad sp create-for-rbac --name ansible --role Contributor \
-                --scopes /subscriptions/mySubscriptionID
+                --scopes /subscriptions/<subscription_id>
 ```
 
 >[!NOTE]
