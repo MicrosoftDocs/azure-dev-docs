@@ -429,7 +429,7 @@ The following steps show you how to deploy the `KeyvaultApplication` to Azure Ap
    <plugin>
      <groupId>com.microsoft.azure</groupId>
      <artifactId>azure-webapp-maven-plugin</artifactId>
-     <version>2.2.2</version>
+     <version>2.5.0</version>
    </plugin>
    ```
 
@@ -469,7 +469,7 @@ The following steps show you how to deploy the `KeyvaultApplication` to Azure Ap
      <plugin>
        <groupId>com.microsoft.azure</groupId>
        <artifactId>azure-webapp-maven-plugin</artifactId>
-       <version>2.2.2</version>
+       <version>2.5.0</version>
        <configuration>
          <schemaVersion>V2</schemaVersion>
          <subscriptionId>YOUR_SUBSCRIPTION_ID</subscriptionId>
