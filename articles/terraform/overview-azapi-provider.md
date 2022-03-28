@@ -88,8 +88,6 @@ The [AzAPI VS Code extension](https://marketplace.visualstudio.com/items?itemNam
 - Syntax validation
 - Quick info
 
-![Vs Code extension](/media/overview-azapi-provider/vs-code-extension.png)
-
 ## AzAPI2AzureRM migration tool
 
 The AzureRM provider provides the most integrated Terraform experience for managing Azure resources. Therefore, the recommended usage of the AzAPI and AzureRM providers is as follows:
@@ -107,8 +105,6 @@ AzAPI2AzureRM has two modes: plan and migrate:
 - Migrate migrates the AzAPI resources to AzureRM resources in both the HCL files and the state.
 
 AzAPI2AzureRM ensures after migration that your Terraform configuration and state are aligned with your actual state. You can validate the state has been updated by running `terraform plan` after completing the migration to see that nothing has changed.
-
- ![Migration tool](/media/overview-azapi-provider/migration-tool.png)
 
 ## Using the AzAPI provider
 
