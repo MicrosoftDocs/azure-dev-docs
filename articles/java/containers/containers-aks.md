@@ -10,19 +10,19 @@ recommendations: false
 
 # Containerizing your Java applications for Azure Kubernetes Service
 
-If you have not gone through [Containerizing your Java application](containers-overview.md) please start there as it will give you guidance for container memory, JVM heap memory, GC and vCPU cores.
+If you have not gone through [Containerizing your Java application](containers-overview.md) please start there as it will give you guidance for container memory, JVM heap memory, Garbage Collectors (GCs) and vCPU cores.
 
 ## Determine appropriate VM SKU for AKS node pool
 
-Determine if the AKS node pool(s) that are available for your AKS cluster can support the amount of container memory and vCPU cores that you are intending to use. If the AKS node pool can support the amount for the application then continue on. Otherwise provision a node pool that is appropriate for the amount of container memory and vCPU cores you are targeting.
+Determine if the Azure Kubernetes Service node pool(s) that are available for your cluster can fit the container memory and vCPU cores you are intending to use. If the AKS node pool can host the application then continue on. Otherwise provision a node pool that is appropriate for the amount of container memory and vCPU cores you are targeting.
 
 What is important to keep in mind is that the cost of a VM SKU is proportionally equivalent to the amount of cores and memory. After determining your starting point in terms of vCPUs and memory for one container instance, evaluate if your application's needs can only be met by horizontal scalling. For reliable, always-on systems, a minimum of two replicas must be available. Scale up and out as needed.
 
 ## Set CPU requests and limits
 
-If you need to limit the CPU on the Kubernetes level then map the vCPU core number one for one onto the CPU limits numbers. E.g. map 2 vCPU cores to 2 in the kubernetes deployment file. Be aware that the Java process ONLY looks at the CPU count at startup but does not dynamically look at that CPU count whilst running.
+If you must limit the CPU, ensure you apply the same value for both `limits` and `requests` in the deployment file. Be aware that the JVM does not dynamically adjusts its runtime, such as the garbage collector and other thread pools. The JVM reads the number of processors available only during startup time.
 
-Recommendation: Our recommendation is to set CPU requests equal to CPU limits.
+**Recommendation:** set same value for CPU requests and CPU limits.
 
 ```yaml
 containers:
@@ -37,11 +37,13 @@ containers:
 
 ### JVM Available Processors
 
-When the HotSpot JVM in OpenJDK identifies it is running inside a container, it looks into values such as `cpu_quota` and `cpu_period` to evaluate how many processors it considers are available to itself. In general, any value up to `1000m` milicores are identified as a single processor machine. Any value between `1001m` and `2000m` is identified as dual processor machine, and so forth. This information is available through the `Runtime.getRuntime().availableProcessors()` API. See the [JavaDoc](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Runtime.html#availableProcessors()) for more information. This value may also be used by some of the concurrent Garbage Collectors to configure their threads. Other APIs, libraries and frameworks may also use this information to configure thread pools. 
+When the HotSpot JVM in OpenJDK identifies it is running inside a container, it looks into values such as `cpu_quota` and `cpu_period` to evaluate how many processors it considers are available to itself. In general, any value up to `1000m` milicores are identified as a single processor machine. Any value between `1001m` and `2000m` is identified as dual processor machine, and so forth. This information is available through the API  `Runtime.getRuntime().availableProcessors()` ([see documentation][javadoc]). This value may also be used by some of the concurrent Garbage Collectors to configure their threas. Other APIs, libraries and frameworks may also use this information to configure thread pools. 
+
+[javadoc]: https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Runtime.html#availableProcessors()
 
 Kubernetes CPU quotas are related to the amount of time a process spends in the CPU, and not the amount of CPUs available to the process. Multi-threaded runtimes such as the JVM may still utilize multiple processors concurrently, with multiple threads. Even if a container has a limit of 1 vCPU, the JVM may be instructed to see 2 or more available processors.
 
-To instruct the JVM the exact number of processors it should be seeing in a Kubernetes environment, use the following JVM flag:
+To inform the JVM of the exact number of processors it should be seeing in a Kubernetes environment, use the following JVM flag:
 
 ```
 -XX:ActiveProcessorCount=N
