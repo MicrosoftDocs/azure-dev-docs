@@ -18,7 +18,7 @@ The process of establishing a base line will allow you to experiment with differ
 
 To establish a base line, you can use Azure Application Insights, or your APM solution of choice.
 
-## Use Application Insights to establish a base line
+## Using Azure Application Insights
 
 See [Azure Monitor OpenTelemetry-based auto-instrumentation for Java applications](/azure/azure-monitor/app/java-in-process-agent)
 which will walk you through setting up Application Insights.
