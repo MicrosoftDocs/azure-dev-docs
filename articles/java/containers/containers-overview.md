@@ -27,6 +27,8 @@ When you are containerizing a Java workload you have to take two things into acc
 
 Applications still need a starting point and settings. The JVM has default ergonomics with pre-defined values based on number of available processors and amount of memory in the system, for when the JVM is started without specific startup flags or parameters.
 
+When no JVM parameters are specified, these are the defaults applied.
+
 **Default Garbage Collector**
 
 | Resources Available                                | Default                   |
@@ -41,64 +43,63 @@ Applications still need a starting point and settings. The JVM has default ergon
 | Containers          | 1/4 of available memory  |
 | Non-container       | 1/64 of available memory |
 
-The above is valid for OpenJDK 11 until OpenJDK 17 for most distributions, including Microsoft Build of OpenJDK, Azul Zulu, Eclipse Temurin, Oracle OpenJDK, and others.
+The above is valid for OpenJDK 11 and later, for most distributions, including Microsoft Build of OpenJDK, Azul Zulu, Eclipse Temurin, Oracle OpenJDK, and others.
 
 ### Determine container memory
 
-Depending on the needs of your application and its distinctive usage patterns, you will have to pick an amount of container memory that will serve your work load the best. For example, if your application creates large object graphs then you will probably have to allocate more memory than if your application had a large number of small object graphs. If you do not know how much memory to allocate a good starting point would be to begin with 4GB.
+Depending on the needs of your application and its distinctive usage patterns, you will have to pick an amount of container memory that will serve your work load the best. For example, if your application creates large object graphs then you will probably have to allocate more memory than if your application had a large number of small object graphs. 
 
-Recommendation: Our recommendation is to start with 4GB of container memory.
+If you do not know how much memory to allocate a good starting point would be to begin with 4GB.
+
+**Recommendation:** start with 4GB of container memory.
 
 ### Determine JVM heap memory
 
-When allocating JVM heap memory, you need to be aware that the JVM needs more memory than just what is used for the JVM heap. So when setting the maximum JVM heap memory it should NEVER be equal to the amount of container memory as that will cause container Out of Memory (OOM) errors and container crashes.
+When allocating JVM heap memory, you need to be aware that the JVM needs more memory than just what is used for the JVM heap. When setting the maximum JVM heap memory it should NEVER be equal to the amount of container memory as that will cause container Out of Memory (OOM) errors and container crashes.
 
-Recommendation: Our recommendation is to allocate 75% of container memory for the JVM heap.
+**Recommendation:** allocate 75% of container memory for the JVM heap. 
 
 Developers can set the JVM Heap Size in two ways, on OpenJDK 11 and later:
 
-| Flag                   | Examples                |
-|------------------------|-------------------------|
-| `-Xmx`                 | -Xmx4g                  |
-| `-XX:MaxRAMPercentage` | -XX:MaxRAMPercentage=75 |
+| Description   | Flag                   | Examples                  |
+|---------------|------------------------|---------------------------|
+| Fixed value   | `-Xmx`                 | `-Xmx4g`                  |
+| Dynamic value | `-XX:MaxRAMPercentage` | `-XX:MaxRAMPercentage=75` |
 
 ### Determine which Garbage Collector to use
 
-Previously you determined an amount of JVM heap memory to start with, the next step is to choose your Garbage Collector (GC). The amount of maximum JVM heap memory you have is often a factor in choosing your GC. The table below describes what characteristics each GC has.
+Previously you determined an amount of JVM heap memory to start with. The next step is to choose your Garbage Collector (GC). The amount of maximum JVM heap memory you have is often a factor in choosing your GC. The table below describes what characteristics each GC has.
 
-Recommendation: Our recommendation is to start with the Parallel GC.
+| Factors             | SerialGC | ParallelGC   | G1GC     | ZGC        | ShenandoahGC |
+|---------------------|----------|--------------|----------|------------|--------------|
+| Number of cores     | 1        | 2            | 2        | 2          | 2            |
+| Multi-threaded      | No       | Yes          | Yes      | Yes        | Yes          |
+| Java Heap size      | <4GBytes | <4GBytes     | >4GBytes | >28GBytes  | >4GBytes     |
+| Pause               | Yes      | Yes          | Yes      | Yes (<1ms) | Yes (<10ms)  |
+| Overhead            | Minimal  | Minimal      | Moderate | Moderate   | Moderate     |
+| Tail-latency Effect | High     | High         | High     | Low        | Moderate     |
+| JDK version         | All      | All          | JDK 8+   | JDK 17+    | JDK 11+      |
+| Best for            | Single core small heaps | Multi-core small heaps or batch workloads with any heap size | Responsive in medium to large heaps (request-response/DB interactions) | Responsive in medium to large heaps (request-response/DB interactions) | Responsive in medium to large heaps (request-response/DB interactions) |
 
-|  Factors        | Serial | Parallel | G1 | Z | Shenandoah |
-| --------------- | ------ | -------- | -- | - | ---------- |
-| Number of cores | 1 | 2 | 2 | 2 | 2 |
-| Multi-threaded  | No | Yes | Yes | Yes | Yes |
-| Java Heap size  | <4GBytes | <4GBytes | >4GBytes | >28GBytes | >4GBytes |
-| Pause           | Yes | Yes | Yes | Yes (<1ms) | Yes (<10ms) |
-| Overhead        | Minimal | Minimal | Moderate | Moderate+| Moderate++ |
-| Tail-latency Effect | High | High | High | Low | Moderate |
-| JDK version     | All | All | JDK 8+ | JDK 17+ | JDK 11+ |
-| Best for        | Single core small heaps | Batch workloads (with any heap size) or multi-core small heaps | responsive in medium to large heaps (request-response/DB interactions) | responsive in medium to large heaps (request-response/DB interactions) | responsive in medium to large heaps (request-response/DB interactions) |
-
+**Recommendation:** for most general purpose microservices applications, start with the Parallel GC.
 
 ### Determine how many CPU cores are needed
 
-If you selected the Serial GC, then you will need a minimum of 1 vCPU core. For any other GC, we recommend 2+ vCPU cores. Note that selecting anything less than 1 vCPU core is NOT recommended for any GC choice.
+For any Garbage Collector other than SerialGC, we recommend 2 or more vCPU cores. We do not recommend selecting anything less than 1 vCPU core on containerized environments.
 
-Recommendation: Our recommendation is to start with 2 vCPU cores.
+**Recommendation:** start with 2 vCPU cores.
 
 ### Picking a starting point
 
-If you have not picked starting points yet, we recommend to start the containerization of your new Java application with the following:
+In container orchestration environments like Kubernetes, OpenShift, Azure Spring Cloud, Azure Container Apps, and Azure App Service, we recommend starting with 2 replicas/instances. Below we summarize the recommended starting points for the containerization of your new Java application.
 
 | vCPU cores | Container Memory | JVM Heap Size | Garbage Collector | Replicas |
 |------------|------------------|---------------|-------------------|----------|
 | 2          | 4 GB             | 75%           | ParallelGC        | 2        |
 
-In container orchestration environments like Kubernetes, OpenShift, Azure Spring Cloud, Azure Container Apps, and Azure App Service, we recommend starting with 2 replicas/instances.
+The JVM parameters to be used are:
 
-The correct JVM parameters to be used are:
-
-         -XX:+ParallelGC -XX:MaxRAMPercentage=75 
+```-XX:+ParallelGC -XX:MaxRAMPercentage=75```
 
 ## Existing (on premises) application 
 
