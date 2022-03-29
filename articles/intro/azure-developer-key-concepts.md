@@ -18,7 +18,7 @@ A region is a set of datacenters deployed within a latency-defined perimeter and
 
 Typically, you want all of the resources for a solution to be in the same region to minimize latency between different components of your application.  This means if your solution consists of an Azure App Service, a database, and Azure Blob storage, all of these resources should be created in the same Azure region.
 
-Not every Azure service is available in every region.  The [Products available by region](https://azure.microsoft.com/en-us/global-infrastructure/services/?products=all) page can help you find a region where the Azure services needed by your app are available.
+Not every Azure service is available in every region.  The [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=all) page can help you find a region where the Azure services needed by your app are available.
 
 ## Azure resource group
 
@@ -36,14 +36,14 @@ If you have developed on-premises, you are familiar with promoting your code thr
 
 :::image type="content" source="media/test-environments-example-800px.png" alt-text="A diagram showing DEV, TEST, and PROD environments with a separate set of Azure resources in each environment." lightbox="media/test-environments-example.png":::
 
-Since it is important that each environment be an exact copy, it is recommended to either [script the creation of resources](./azure-developer-create-resources#command-line-tools) needed for an environment or use [Infrastructure as Code (IaC) tools](./azure-developer-create-resources#infrastructure-as-code-tools) to declaratively specify the configuration of each environment.  These makes sure that the environment creation process is repeatable and also give you the ability to spin up new environments on demand, for example for performance or security testing of your application.
+Since it is important that each environment be an exact copy, it is recommended to either [script the creation of resources](./azure-developer-create-resources#command-line-tools.md) needed for an environment or use [Infrastructure as Code (IaC) tools](./azure-developer-create-resources.md#infrastructure-as-code-tools) to declaratively specify the configuration of each environment.  These makes sure that the environment creation process is repeatable and also give you the ability to spin up new environments on demand, for example for performance or security testing of your application.
 
 ## DevOps Support
 
 Whether it's publishing your apps to Azure with continuous integration or provisioning resources for a new environment, Azure integrates with most of the popular DevOps tools. You can work with the tools that you already have and maximize your existing experience with support for tools like:
 
 - [GitHub Actions](/azure/developer/github/github-actions)
-- [Azure DevOps](/azure/devops/?view=azure-devops)
+- [Azure DevOps](/azure/devops/)
 - [Octopus Deploy](https://octopus.com/docs/infrastructure/deployment-targets/azure)
 - [Jenkins](/azure/developer/jenkins/)
 - [Terraform](/azure/developer/terraform/)
