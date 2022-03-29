@@ -36,7 +36,7 @@ If you've developed on-premises, you are familiar with promoting your code throu
 
 :::image type="content" source="media/test-environments-example-800px.png" alt-text="A diagram showing DEV, TEST, and PROD environments with a separate set of Azure resources in each environment." lightbox="media/test-environments-example.png":::
 
-Since it's important that each environment be an exact copy, it's recommended to either [script the creation of resources](./azure-developer-create-resources#command-line-tools.md) needed for an environment or use [Infrastructure as Code (IaC) tools](./azure-developer-create-resources.md#infrastructure-as-code-tools) to declaratively specify the configuration of each environment.  This makes sure that the environment creation process is repeatable and also give you the ability to spin up new environments on demand, for example for performance or security testing of your application.
+Since it's important that each environment be an exact copy, it's recommended to either [script the creation of resources](./azure-developer-create-resources.md#command-line-tools) needed for an environment or use [Infrastructure as Code (IaC) tools](./azure-developer-create-resources.md#infrastructure-as-code-tools) to declaratively specify the configuration of each environment.  This makes sure that the environment creation process is repeatable and also give you the ability to spin up new environments on demand, for example for performance or security testing of your application.
 
 ## DevOps Support
 
