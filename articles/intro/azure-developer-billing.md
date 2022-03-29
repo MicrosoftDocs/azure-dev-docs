@@ -10,32 +10,32 @@ ms.custom: overview
 
 # How am I billed?
 
-When creating applications that use Azure, you need to understand the factors that influence the cost of the solutions you create.  You will also want to understand how you can estimate the cost of a solution, how you are billed, and how you can monitor the costs incurred in your Azure subscriptions.
+When creating applications that use Azure, you need to understand the factors that influence the cost of the solutions you create.  You will also want to understand how you can estimate the cost of a solution, how you're billed, and how you can monitor the costs incurred in your Azure subscriptions.
 
 ## What is an Azure Account?
 
-Your Azure account is what allows you to login to Azure.  You may have an Azure account through the organization you work for or the school you attend.  You may also create an individual Azure account for personal use linked to your Microsoft account.  If you are looking to learn about and experiment with Azure, you can [create an Azure account for free](https://azure.microsoft.com/free/).
+Your Azure account is what allows you to sign in to Azure.  You may have an Azure account through the organization you work for or the school you attend.  You may also create an individual Azure account for personal use linked to your Microsoft account.  If you're looking to learn about and experiment with Azure, you can [create an Azure account for free](https://azure.microsoft.com/free/).
 
 > [!div class="nextstepaction"]
 > [Create a free Azure account](https://azure.microsoft.com/free/)
 
-If you are using an Azure account from your workplace or school, your organization's Azure administrators has likely assigned different groups and roles to your account that govern what you can and cannot do in Azure.  If you cannot create a certain type of resource, check with your Azure administrator on the permissions assigned to your account.
+If you're using an Azure account from your workplace or school, your organization's Azure administrators has likely assigned different groups and roles to your account that govern what you can and cannot do in Azure.  If you can't create a certain type of resource, check with your Azure administrator on the permissions assigned to your account.
 
 ## What is an Azure subscription?
 
 Billing for Azure resources is done on a per-subscription basis. An Azure subscription therefore defines a set of Azure resources that will be invoiced together.
 
-Organizations often create multiple Azure subscriptions for billing and management purposes.  For example, an organization may choose to create one subscription for each department in the organization such that each department pays for their own Azure resources.  *When creating Azure resources, it is important to pay attention to what subscription you are creating the resources in because the owner of that subscription will pay for those resources.*  
+Organizations often create multiple Azure subscriptions for billing and management purposes.  For example, an organization may choose to create one subscription for each department in the organization such that each department pays for their own Azure resources.  *When creating Azure resources, it's important to pay attention to what subscription you're creating the resources in because the owner of that subscription will pay for those resources.*  
 
-If you have an individual Azure account tied to your Microsoft account, it is also possible to have multiple subscriptions.  For example, a user might have both a Visual Studio Enterprise subscription that provides monthly Azure credits and a Pay-as-you-go subscription which bills to their credit card.  In this scenario, you again want to be sure and choose the right subscription when creating Azure resources to avoid an unexpected bill for Azure services.
+If you have an individual Azure account tied to your Microsoft account, it's also possible to have multiple subscriptions.  For example, a user might have both a Visual Studio Enterprise subscription that provides monthly Azure credits and a Pay-as-you-go subscription which bills to their credit card.  In this scenario, you again want to be sure and choose the right subscription when creating Azure resources to avoid an unexpected bill for Azure services.
 
 ## What factors influence the cost of a service on Azure?
 
 There are several factors that can influence the cost of a given service in Azure.
 
-- **Compute power** - Compute power refers to the amount of CPU and memory assigned to a resource.  The more compute power allocated to a resource, the higher the cost will be.  Many Azure service include the ability to elastically scale, allowing you to ramp up compute power when demand is high but scale back and save money when demand is low.
+- **Compute power** - Compute power refers to the amount of CPU and memory assigned to a resource.  The more compute power allocated to a resource, the higher the cost will be.  Many Azure services include the ability to elastically scale, allowing you to ramp up compute power when demand is high but scale back and save money when demand is low.
 - **Storage amount** - Most storage services are billed based on the amount of data you want to store.
-- **Storage hardware** - Some storage services provide options on the type of hardware your data will be stored on.  Depending on the type of data you are storing, you may want a more long-term storage option with slower read and write speeds, or you may be willing to pay for low latency read and writes for highly transactional operations.
+- **Storage hardware** - Some storage services provide options on the type of hardware your data will be stored on.  Depending on the type of data you're storing, you may want a more long-term storage option with slower read and write speeds, or you may be willing to pay for low latency read and writes for highly transactional operations.
 - **Bandwidth** - Most services bill ingress and egress separately.  Ingress is the amount of bandwidth required to handle incoming requests.  Egress is the amount of bandwidth required to handle outgoing data that satisfies those requests.
 - **Per use** - Some services bill based on the number of times the service is used or a count of the number of requests that are handled or the number of some entity (such as Azure Active Directory user accounts) that have been configured.
 - **Per service** - Some services simply charge a straight monthly fee.

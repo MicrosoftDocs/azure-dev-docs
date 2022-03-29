@@ -112,7 +112,7 @@ For more information on choosing between Azure CLI and Azure PowerShell, see the
 
 ## Infrastructure as Code tools
 
-[Infrastructure as Code](/devops/deliver/what-is-infrastructure-as-code) is the process of managing and provisioning resources through declarative configuration files.  Infrastructure as code tools use a declarative end state specification to guarantees a set of resources are created and configured the same way each time. Further, most infrastructure as code tools monitor resources to make sure they remain configured in the desired state.
+[Infrastructure as Code](/devops/deliver/what-is-infrastructure-as-code) is the process of managing and provisioning resources through declarative configuration files.  Infrastructure as code tools use a declarative end state specification to guarantee a set of resources are created and configured the same way each time. Further, most infrastructure as code tools monitor resources to make sure they remain configured in the desired state.
 
 For infrastructure deployments that are automated, repeated, and reliable, Azure supports a variety of Infrastructure as Code tools.
 

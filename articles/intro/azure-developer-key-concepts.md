@@ -24,19 +24,19 @@ Not every Azure service is available in every region.  The [Products available b
 
 A Resource Group in Azure is a logical container to group Azure Resources together.  Ever Azure resource must belong to one and only one resource group.
 
-Resource groups are most often used to group together all of the Azure resources needed for a solution in Azure.  For example, say you have a web application deployed to Azure App Service that uses a SQL database, Azure Storage, and also Azure Key Vault.  It is common practice to put all of the Azure resources needed for this solution into a single resource group.  
+Resource groups are most often used to group together all of the Azure resources needed for a solution in Azure.  For example, say you've a web application deployed to Azure App Service that uses a SQL database, Azure Storage, and also Azure Key Vault.  It's common practice to put all of the Azure resources needed for this solution into a single resource group.  
 
 :::image type="content" source="media/resource-group-example.png" alt-text="A diagram showing a sample resource group containing an App Service, SQL database, Blob storage, and a Key Vault.":::
 
-This makes it easier to tell what resources are needed for the application to run and what resources are related to each other.  As such, the first step in creating resources for an app in Azure is usually creating the resource group that wil serve as a container for the app's resources.
+This makes it easier to tell what resources are needed for the application to run and what resources are related to each other.  As such, the first step in creating resources for an app in Azure is usually creating the resource group that will serve as a container for the app's resources.
 
 ## Environments
 
-If you have developed on-premises, you are familiar with promoting your code through dev, test, and production environments. In Azure, to create separate environments you would create a separate set of Azure resources for each environment you need.  
+If you've developed on-premises, you are familiar with promoting your code through dev, test, and production environments. In Azure, to create separate environments you would create a separate set of Azure resources for each environment you need.  
 
 :::image type="content" source="media/test-environments-example-800px.png" alt-text="A diagram showing DEV, TEST, and PROD environments with a separate set of Azure resources in each environment." lightbox="media/test-environments-example.png":::
 
-Since it is important that each environment be an exact copy, it is recommended to either [script the creation of resources](./azure-developer-create-resources#command-line-tools.md) needed for an environment or use [Infrastructure as Code (IaC) tools](./azure-developer-create-resources.md#infrastructure-as-code-tools) to declaratively specify the configuration of each environment.  These makes sure that the environment creation process is repeatable and also give you the ability to spin up new environments on demand, for example for performance or security testing of your application.
+Since it's important that each environment be an exact copy, it's recommended to either [script the creation of resources](./azure-developer-create-resources#command-line-tools.md) needed for an environment or use [Infrastructure as Code (IaC) tools](./azure-developer-create-resources.md#infrastructure-as-code-tools) to declaratively specify the configuration of each environment.  This makes sure that the environment creation process is repeatable and also give you the ability to spin up new environments on demand, for example for performance or security testing of your application.
 
 ## DevOps Support
 

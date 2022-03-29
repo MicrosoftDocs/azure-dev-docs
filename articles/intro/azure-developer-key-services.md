@@ -10,13 +10,13 @@ ms.custom: overview
 
 # Key Azure services for developers
 
-While Azure contains over 100 services, this article outlines the Azure services you will use most frequently as a developer. For a comprehensive list of all Azure services, see the [Azure documentation hub page](/azure/?product=featured#browse-azure-products).
+While Azure contains over 100 services, this article outlines the Azure services you'll use most frequently as a developer. For a comprehensive list of all Azure services, see the [Azure documentation hub page](/azure/?product=featured#browse-azure-products).
 
 ## App hosting and compute
 
 |Icon|Service|Description|
 |----|-------|-----------|
-|![Azure App Service logo](media/azure-app-service.png)| [Azure App Service](/azure/app-service/) |Host .NET, Java, Node.js, and Python web applications and APIs in a fully-managed Azure service.  You only need to deploy your code to Azure.  Azure takes care of all the infrastructure management like high availability, load balancing, and autoscaling.  |
+|![Azure App Service logo](media/azure-app-service.png)| [Azure App Service](/azure/app-service/) |Host .NET, Java, Node.js, and Python web applications and APIs in a fully managed Azure service.  You only need to deploy your code to Azure.  Azure takes care of all the infrastructure management like high availability, load balancing, and autoscaling.  |
 |![Azure Static Web Apps Logo](media/static-web-apps.png)| [Azure Static Web Apps](/azure/static-web-apps/) |Host static web apps built using frameworks like Gatsby, Hugo, or VuePress, or modern web apps built using Angular, React, Svelte, or Vue.  Static web apps automatically build and deploy based off of code changes and feature API integration with Azure Functions.|
 |![Azure Functions logo](media/azure-functions.png)| [Azure Functions](/azure/azure-functions/) |A serverless compute platform for creating small, discrete segments of code that can be triggered from a variety of different events.  Common applications include building serverless APIs or orchestrating event-drive architectures.|
 |![Azure Container Instances logo](media/azure-container-instances.png)| [Azure Container Instances](/azure/container-instances/) |Run Docker containers on-demand in a managed, serverless Azure environment. Azure Container Instances is a solution for any scenario that can operate in isolated containers, without orchestration.|
@@ -49,7 +49,7 @@ Here's a list of the most popular services that manage sending, receiving, and r
 
 |Icon|Service|Description|
 |----|-------|-----------|
-|![Azure Service Bus logo](media/azure-service-bus.png)| [Azure Service Bus](/azure/service-bus-messaging/) |A fully managed enterprise message broker supporting both point to point and publish-subscribe integrations. It is ideal for building decoupled applications, queue-based load leveling, or facilitating communication between microservices.|
+|![Azure Service Bus logo](media/azure-service-bus.png)| [Azure Service Bus](/azure/service-bus-messaging/) |A fully managed enterprise message broker supporting both point to point and publish-subscribe integrations. It's ideal for building decoupled applications, queue-based load leveling, or facilitating communication between microservices.|
 |![Azure Event Hubs logo](media/event-hubs.png)| [Azure Event Hubs](/azure/event-hubs/) |Azure Event Hubs is a managed service that can ingest and process massive data streams from websites, apps, or devices.|
 |![Azure Queue Storage logo](media/azure-storage-queues.png)| [Azure Queue Storage](/azure/storage/queues/) |A simple and reliable queue that can handle large workloads.|
 
@@ -74,5 +74,5 @@ And finally, here's a list of popular services that support a wide range of work
 
 |Icon|Service|Description|
 |----|-------|-----------|
-|![Azure Key Vault logo](media/azure-key-vault.png)| [Azure Key Vault](/azure/key-vault/) |Every application has application secrets like connection strings and API keys it must store. Azure Key Vault helps you store and access those secrets securely, in an encrypted vault with restricted access to make sure your secrets and your application are not compromised.|
+|![Azure Key Vault logo](media/azure-key-vault.png)| [Azure Key Vault](/azure/key-vault/) |Every application has application secrets like connection strings and API keys it must store. Azure Key Vault helps you store and access those secrets securely, in an encrypted vault with restricted access to make sure your secrets and your application aren't compromised.|
 |![Application Insights Logo](media/application-insights.png)| [Application Insights](/azure/azure-monitor/app/app-insights-overview) |A comprehensive solution for application monitoring, alerting, and log analysis for your applications.|

@@ -13,7 +13,7 @@ Azure provides a variety of different ways to host your app depending on your ne
 
 ## Azure App Service
 
-[Azure App Service](/azure/app-service/) is the fastest and easiest way to host web applications and APIs in Azure.  Azure App Service provides a fully-managed, platform as a service hosting solution that supports .NET, Java, JavaScript, and Python applications.  Hosting options are available on both Windows and Linux depending on the application runtime.
+[Azure App Service](/azure/app-service/) is the fastest and easiest way to host web applications and APIs in Azure.  Azure App Service provides a fully managed, platform as a service hosting solution that supports .NET, Java, JavaScript, and Python applications.  Hosting options are available on both Windows and Linux depending on the application runtime.
 
 Azure App Service automatically patches and maintains the OS and language frameworks for you.  App Service also supports autoscaling, high availability and deployment slots so you can spend your time building great apps rather than worrying about infrastructure concerns.
 
@@ -23,7 +23,7 @@ Azure App Service also supports running containerized web apps. Customized conta
 
 [Azure Static Web Apps](/azure/static-web-apps/) is a service that automatically builds and deploys full stack web apps to Azure from a code repository. Azure Static Web Apps interacts directly with GitHub or Azure DevOps to automatically monitor, build, and deploy changes from a code repository whenever a commit or pull request occurs on a specified branch.
 
-Static web apps are commonly built using libraries and frameworks like Angular, React, Svelte, Vue, or Blazor where server side rendering is not required. In addition, Azure Static Web Apps Azure support use of a serverless API architecture either through an integrated Azure Functions API or linking to an existing Azure Functions app.
+Static web apps are commonly built using libraries and frameworks like Angular, React, Svelte, Vue, or Blazor where server side rendering isn't required. In addition, Azure Static Web Apps Azure support use of a serverless API architecture either through an integrated Azure Functions API or linking to an existing Azure Functions app.
 
 ## Azure Functions
 
