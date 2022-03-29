@@ -43,7 +43,9 @@ Kubernetes CPU quotas are related to the amount of time a process spends in the 
 
 To instruct the JVM the exact number of processors it should be seeing in a Kubernetes environment, use the following JVM flag:
 
-    -XX:ActiveProcessorCount=N
+```
+-XX:ActiveProcessorCount=N
+```
 
 ## Set memory request and limits
 
@@ -73,3 +75,4 @@ containers:
     env:
     - name: JAVA_OPTS
       value: "-XX:+UseParallelGC -XX:MaxRAMPercentage=75"
+```
