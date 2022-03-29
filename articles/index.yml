@@ -28,9 +28,6 @@ highlightedContent:
     - title: Connect apps to Azure services
       itemType: overview
       url: ./intro/connect-to-azure-services.md
-    - title: Configure your dev environment for Azure
-      itemType: how-to-guide
-      url: ./intro/configure-dev-environment.md
     - title: Create resources in Azure
       itemType: concept
       url: ./intro/azure-developer-create-resources.md

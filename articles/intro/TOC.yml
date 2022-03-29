@@ -9,8 +9,6 @@ items:
       href: hosting-apps-on-azure.md
     - name: Connecting apps to Azure services
       href: connect-to-azure-services.md
-    - name: Configure your development environment
-      href: configure-dev-environment.md
     - name: Create Azure resources
       href: azure-developer-create-resources.md
     - name: Key concepts for building Azure apps
