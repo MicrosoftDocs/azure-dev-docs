@@ -1,4 +1,4 @@
-- name: Spring on Azure documentation
+- name: Spring Cloud Azure
   href: index.yml
   items:
   - name: Getting Started Guides

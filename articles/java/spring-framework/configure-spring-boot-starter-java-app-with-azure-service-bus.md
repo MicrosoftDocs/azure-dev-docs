@@ -3,7 +3,7 @@ title: How to use the Spring Boot Starter for Azure Service Bus JMS
 description: This article demonstrates how to use the Spring JMS Starter to send messages to and receive messages from Azure Service Bus.
 manager: kyliel
 ms.author: seal
-ms.date: 09/09/2021
+ms.date: 03/30/2022
 ms.topic: article
 ms.custom: devx-track-java
 ---
@@ -40,8 +40,10 @@ The following prerequisites are required for this article:
 
 1. If you don't have a configured Service Bus queue or topic, use the Azure portal to [create a Service Bus queue](/azure/service-bus-messaging/service-bus-quickstart-portal) or [create a Service Bus topic](/azure/service-bus-messaging/service-bus-quickstart-topics-subscriptions-portal). Ensure that the namespace meets the requirements specified in the previous step. Also, make note of the connection string in the namespace as you need it for this tutorial's test app.
 
-1. If you don't have a Spring Boot application, create a **Maven** project with the [Spring Initializr](https://start.spring.io/). Remember to select **Maven Project** and, under **Dependencies**, add the **Web** dependency.
+1. If you don't have a Spring Boot application, create a **Maven** project with the [Spring Initializr](https://start.spring.io/). Remember to select **Maven Project** and, under **Dependencies**, add the **Web** dependency, then select **8** or **11** for the Java version.
 
+> [!IMPORTANT]
+> Spring Boot version 2.5 or 2.6 is required to complete the steps in this article.
 
 ## Use the Azure Service Bus JMS starter
 
@@ -59,9 +61,9 @@ The following prerequisites are required for this article:
 
     ```xml
     <dependency>
-        <groupId>com.azure.spring</groupId>
-        <artifactId>azure-spring-boot-starter-servicebus-jms</artifactId>
-        <version>3.12.0</version>
+      <groupId>com.azure.spring</groupId>
+      <artifactId>spring-cloud-azure-starter-servicebus-jms</artifactId>
+      <version>4.0.0</version>
     </dependency>
     ```
 
@@ -94,11 +96,11 @@ In this section, you see how to configure your app to use either a Service Bus q
 
     **Field descriptions**
 
-    | Field                                     | Description                                                                                     |
+    | Field                                     | Description                               |
     |-------------------------------------------|-------------------------------------------------------------------------------------------------|
     | `spring.jms.servicebus.connection-string` | Specify the connection string you obtained in your Service Bus namespace from the Azure portal. |
-    | `spring.jms.servicebus.idle-timeout`      | Specify the idle timeout in milliseconds. The recommended value for this tutorial is 1800000.   |
-    | `spring.jms.servicebus.pricing-tier`       | Specify the pricing tier of your service bus. Supported values are *premium*, *standard*, and *basic*. Premium uses Java Message Service (JMS) 2.0, while standard and basic use JMS 1.0 to interact with Azure Service Bus.  |
+    | `spring.jms.servicebus.idle-timeout`      | Specify the duration for idle.       |
+    | `spring.jms.servicebus.pricing-tier`       | Specify the pricing tier of your service bus. Supported values are *premium*, *standard*, and *basic*. Premium uses Java Message Service (JMS) 2.0, while standard and basic use JMS 1.0 to interact with Azure Service Bus. |
 
 1. Save and close the *application.properties* file.
 
@@ -129,7 +131,7 @@ In this section, you see how to configure your app to use either a Service Bus q
     |-------------------------------------------|---------------------------------------------------------------------------------------------------|
     | `spring.jms.servicebus.connection-string` | Specify the connection string you obtained in your Service Bus namespace from the Azure portal.   |
     | `spring.jms.servicebus.topic-client-id`   | Specify the JMS client ID, which is your Service Bus Subscription ID in the Azure portal.                | 
-    | `spring.jms.servicebus.idle-timeout`      | Specify the idle timeout in milliseconds. The recommended value for this tutorial is 1800000.     |
+    | `spring.jms.servicebus.idle-timeout`      | Specify the duration for idle.     |
     | `spring.jms.servicebus.pricing-tier`       | Specify the pricing tier of your service bus. Supported values are *premium*, *standard*, and *basic*. Premium uses Java Message Service (JMS) 2.0, while standard and basic use JMS 1.0 to interact with Azure Service Bus. |
 
 1. Save and close the *application.properties* file.

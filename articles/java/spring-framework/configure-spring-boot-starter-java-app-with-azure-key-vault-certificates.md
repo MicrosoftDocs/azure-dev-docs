@@ -1,7 +1,7 @@
 ---
 title: "Tutorial: Secure Spring Boot apps using Azure Key Vault certificates"
 description: In this tutorial, you secure your Spring Boot (including Azure Spring Cloud) apps with TLS/SSL certificates using Azure Key Vault and managed identities for Azure resources.
-ms.date: 07/19/2021
+ms.date: 03/30/2022
 ms.service: key-vault
 ms.topic: tutorial
 ms.custom: devx-track-java, devx-track-azurecli
@@ -16,7 +16,6 @@ Production-grade Spring Boot applications, whether in the cloud or on-premises, 
 
 Spring Boot apps typically enable TLS by installing the certificates. The certificates are installed into the local key store of the JVM that's running the Spring Boot app. With Spring on Azure, certificates are not installed locally. Instead, Spring integration for Microsoft Azure provides a secure and frictionless way to enable TLS with help from Azure Key Vault and managed identity for Azure resources.
 
-<!-- https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/spring/azure-spring-doc-resource/spring-to-azure-keyvault-certificates.ai -->
 :::image type="content" source="media/configure-spring-boot-starter-java-app-with-azure-key-vault-certificates/spring-to-azure-key-vault-certificates.svg" alt-text="Diagram showing interaction of elements in this tutorial." border="false":::
 
 In this tutorial, you learn how to:
@@ -39,6 +38,9 @@ In this tutorial, you learn how to:
 - A supported Java Development Kit (JDK), version 8. For more information, see [Java support on Azure and Azure Stack](../fundamentals/java-support-on-azure.md).
 
 - [Apache Maven](http://maven.apache.org/), version 3.0.
+
+> [!IMPORTANT]
+> Spring Boot version 2.5 or 2.6 is required to complete the steps in this article.
 
 ## Create a GNU/Linux VM with system-assigned managed identity
 
@@ -95,7 +97,7 @@ Use the following steps to create an Azure VM with a system-assigned managed ide
    In the JSON output, note down the value of the `publicIpAddress` and `systemAssignedIdentity` properties. You'll use these values later in the tutorial.
 
    > [!NOTE]
-   > The name `UbuntuLTS` is an Uniform Resource Name (URN) alias, which is a shortened version created for popular images like *UbuntuLTS*.
+   > The name `UbuntuLTS` is a Uniform Resource Name (URN) alias, which is a shortened version created for popular images like *UbuntuLTS*.
    > Run the following command to display a cached list of popular images in table format:
    >
    > ```azurecli
@@ -196,7 +198,7 @@ To create the application, use the following steps:
 1. Select the choices as shown in the picture following this list.
     * **Project**: **Maven Project**
     * **Language**: **Java**
-    * **Spring Boot**: **2.5.2**
+    * **Spring Boot**: **2.5.10**
     * **Group**: *com.contoso* (You can put any valid Java package name here.)
     * **Artifact**: *ssltest* (You can put any valid Java class name here.)
     * **Packaging**: **Jar**
@@ -204,7 +206,9 @@ To create the application, use the following steps:
 1. Select **Add Dependencies...**.
 1. In the text field, type *Spring Web* and press Ctrl+Enter.
 1. In the text field type *Azure Support* and press Enter. Your screen should look like the following.
-   :::image type="content" source="media/configure-spring-boot-starter-java-app-with-azure-key-vault-certificates/spring-initializr-choices.png" alt-text="Spring Initializr with correct choices selected.":::
+
+   :::image type="content" source="media/spring-initializer/2.5.10/mvn-java8-azure-web.png" alt-text="Screenshot of Spring Initializr with basic options.":::
+
 1. At the bottom of the page, select **Generate**.
 1. When prompted, download the project to a path on your local computer. This tutorial uses an *ssltest* directory in the current user's home directory. The values above will give you an *ssltest.zip* file in that directory.
 

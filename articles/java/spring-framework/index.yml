@@ -1,12 +1,12 @@
 ### YamlMime:Landing
 
-title: Spring on Azure integration documentation
+title: Spring Cloud Azure
 summary: Spring is an open-source application framework developed by VMware that provides a simplified, modular approach for creating Java applications. The content on this website will show you how to develop and deploy Spring apps to the cloud.
 
 metadata:
-  title: Spring on Azure integration documentation
+  title: Spring Cloud Azure
   description: Spring is an open-source application framework developed by VMware that provides a simplified, modular approach for creating Java applications.
-  ms.date: 07/09/2021
+  ms.date: 03/30/2022
   ms.topic: landing-page
 
 landingContent:

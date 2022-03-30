@@ -79,7 +79,7 @@
       - name: SDK
         tocHref: /azure/developer/java/sdk
         topicHref: /azure/developer/java/sdk/index
-      - name: Spring integration
+      - name: Spring Cloud Azure
         tocHref: /azure/developer/java/spring-framework
         topicHref: /azure/developer/java/spring-framework/index
       - name: Spring integration
