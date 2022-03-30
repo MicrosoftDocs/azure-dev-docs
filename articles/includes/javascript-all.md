@@ -236,7 +236,7 @@
 | @autorest/codemodel | npm [4.18.2](https://www.npmjs.com/package/@autorest/codemodel/v/4.18.2) |  |  |
 | @autorest/common | npm [1.5.2](https://www.npmjs.com/package/@autorest/common/v/1.5.2) |  |  |
 | @autorest/configuration | npm [1.9.1](https://www.npmjs.com/package/@autorest/configuration/v/1.9.1) |  |  |
-| @autorest/csharp | npm [3.0.0-beta.20220328.4](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20220328.4) |  |  |
+| @autorest/csharp | npm [3.0.0-beta.20220330.1](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20220330.1) |  |  |
 | @autorest/csharp-v3 | npm [3.0.0-beta.20201217.1](https://www.npmjs.com/package/@autorest/csharp-v3/v/3.0.0-beta.20201217.1) |  |  |
 | @autorest/extension-base | npm [3.4.4](https://www.npmjs.com/package/@autorest/extension-base/v/3.4.4) |  |  |
 | @autorest/fixer | npm [1.1.0](https://www.npmjs.com/package/@autorest/fixer/v/1.1.0) |  |  |
@@ -248,7 +248,7 @@
 | @azure/arm-template | npm [1.0.0-beta.2](https://www.npmjs.com/package/@azure/arm-template/v/1.0.0-beta.2) |  |  |
 | @azure/communication-administration | npm [1.0.0-beta.4](https://www.npmjs.com/package/@azure/communication-administration/v/1.0.0-beta.4) |  |  |
 | @azure/core-crypto | npm [1.0.0-alpha.20210122.1](https://www.npmjs.com/package/@azure/core-crypto/v/1.0.0-alpha.20210122.1) |  |  |
-| @azure/core-http-compat | npm [1.1.0](https://www.npmjs.com/package/@azure/core-http-compat/v/1.1.0) |  |  |
+| @azure/core-http-compat | npm [1.2.0](https://www.npmjs.com/package/@azure/core-http-compat/v/1.2.0) |  |  |
 | @azure/fabric-react-jsonschema-form | npm [0.1.5](https://www.npmjs.com/package/@azure/fabric-react-jsonschema-form/v/0.1.5) |  |  |
 | @azure/iot-modelsrepository | npm [1.0.0-beta.2](https://www.npmjs.com/package/@azure/iot-modelsrepository/v/1.0.0-beta.2) |  |  |
 | @azure/keyvault | npm [0.1.0](https://www.npmjs.com/package/@azure/keyvault/v/0.1.0) |  |  |
