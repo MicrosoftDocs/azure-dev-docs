@@ -4,7 +4,7 @@ description: An overview of Azure from a developer's perspective.
 keywords: azure billing, azure portal
 ms.prod: azure
 ms.topic: overview
-ms.date: 02/23/2022
+ms.date: 03/28/2022
 ms.custom: overview
 ---
 

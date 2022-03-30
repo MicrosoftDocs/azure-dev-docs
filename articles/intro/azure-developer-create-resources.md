@@ -4,7 +4,7 @@ description: An overview of techniques that developers use to provision resource
 keywords: azure portal, azure cli, azure powershell, azure sdk, azure rest apis
 ms.prod: azure
 ms.topic: overview
-ms.date: 01/25/2022
+ms.date: 03/28/2022
 ms.custom: overview
 ---
 
@@ -14,7 +14,7 @@ Azure provides a variety of tools to create and manage the Azure resources used 
 
 * **Use a GUI tool like the Azure portal or the Azure Tools extension for VS Code** when prototyping Azure resources for a new application. GUI tools guide you through the process of creating new services and let you review and select the options for a service using drop-down menus and other graphical elements.
 
-* **Write a script using Azure CLI or Azure PowerShell** to automate a common task.  For example, you might create a script that creates a basic dev environment for a new web application consisting of an Azure App Service, a database, and blob storage.  Writing a script ensures the resources are created the same way each time and is faster to run than clicking through a UI.
+* **Write a script using the Azure CLI or Azure PowerShell** to automate a common task.  For example, you might create a script that creates a basic dev environment for a new web application consisting of an Azure App Service, a database, and blob storage.  Writing a script ensures the resources are created the same way each time and is faster to run than clicking through a UI.
 
 * **Use Infrastructure as Code (IaC) tools to declaratively deploy and manage Azure resources**.  Tools like Terraform, Ansible, or Bicep allow you to codify the Azure resources needed for a solution in declarative syntax, ensuring the consistent deployment of Azure resources across environments and preventing environmental drift.
 

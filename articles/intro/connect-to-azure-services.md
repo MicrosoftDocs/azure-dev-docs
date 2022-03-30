@@ -3,7 +3,7 @@ title: Connect your app to Azure Services
 description: An overview of how to connect your applications to Azure.
 ms.prod: azure
 ms.topic: article
-ms.date: 02/22/2022
+ms.date: 03/28/2022
 ---
 
 # Connect your app to Azure Services
