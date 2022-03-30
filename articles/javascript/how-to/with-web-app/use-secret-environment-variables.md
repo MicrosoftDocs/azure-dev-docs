@@ -71,7 +71,7 @@ This sample uses the [DefaultAzureCredential](/javascript/api/overview/azure/ide
     az ad sp create-for-rbac \
     --name REPLACE-WITH-YOUR-NEW-SERVICE-PRINCIPAL-NAME \
     --role Contributor \
-    --scopes /subscriptions/mySubscriptionID
+    --scopes /subscriptions/REPLACE_WITH_YOUR_SUBSCRIPTION_NAME_OR_ID
     ```
 
     An example service principal name is `demo-keyvault-service-principal-YOUR-NAME`, where `YOUR-NAME` is postpended to the string. 
