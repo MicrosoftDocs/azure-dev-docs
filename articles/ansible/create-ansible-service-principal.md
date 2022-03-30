@@ -3,7 +3,7 @@ title: Quickstart - Create an Azure service principal for Ansible
 description: In this quickstart, learn how to create an Azure Service Principal to authenticate to Azure.
 keywords: ansible, azure, devops, bash, cloudshell, playbook, azure cli, azure powershell, powershell
 ms.topic: quickstart
-ms.date: 08/28/2021
+ms.date: 03/30/2022
 ms.custom: devx-track-ansible, devx-track-azurecli, devx-track-azurepowershell, mode-portal
 ---
 
@@ -30,7 +30,7 @@ In this article, you learn how to:
 
 ## Create an Azure service principal
 
-An Azure service principals gives you a dedicated account to manage Azure resources with Ansible.
+An Azure service principal gives you a dedicated account to manage Azure resources with Ansible.
 
 Run the following code to create an Azure service principal:
 
@@ -106,7 +106,7 @@ New-AzRoleAssignment @roleAssignmentSplat
 
 ## Get Azure service principal information
 
-To authenticate with Azure with the service principal you need:
+To authenticate to Azure with a service principal, you need the following information:
 
 * SubscriptionID
 * Service Principal ApplicationId
@@ -135,7 +135,7 @@ az ad sp list --display-name ansible --query '{clientId:[0].appId}'
 
 ## Authenticate to Azure with the service principal
 
-Run the follow commands to populate the required environment variables on the Ansible server:
+Run the following commands to populate the required environment variables on the Ansible server:
 
 ```bash
 export AZURE_SUBSCRIPTION_ID=<SubscriptionID>
