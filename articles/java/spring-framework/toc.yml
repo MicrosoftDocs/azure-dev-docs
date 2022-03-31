@@ -101,7 +101,12 @@
       - name: Spring Initializr
         href: https://start.spring.io/
   - name: Reference
+    expanded: true
     items:
+      - name: Spring Cloud Azure 4.0 reference
+        href: spring-cloud-azure.md
+      - name: Spring Cloud Azure 4.0 reference appendix
+        href: spring-cloud-azure-appendix.md
       - name: Spring Framework
         href: https://spring.io/
       - name: Learn Spring
