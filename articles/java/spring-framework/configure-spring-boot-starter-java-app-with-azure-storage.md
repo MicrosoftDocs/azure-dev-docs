@@ -3,7 +3,7 @@ title: How to use the Spring Boot Starter for Azure Storage
 description: Learn how to configure a Spring Boot Initializer app with the Azure Storage starter.
 services: storage
 documentationcenter: java
-ms.date: 03/03/2022
+ms.date: 03/30/2022
 ms.service: storage
 ms.topic: article
 ms.workload: storage
@@ -12,7 +12,7 @@ ms.custom: devx-track-java, devx-track-azurecli
 
 # How to use the Spring Boot Starter for Azure Storage
 
-This article walks you through creating a custom application using the **Spring Initializr**, then adding the Azure storage starter to your application, and then using your application to upload a blob to your Azure storage account.
+This article walks you through creating a custom application using the **Spring Initializr**, then adding the Azure Storage Blob starter to your application, and then using your application to upload a blob to your Azure storage account.
 
 ## Prerequisites
 
@@ -24,8 +24,7 @@ The following prerequisites are required in order to follow the steps in this ar
 * [Apache Maven](http://maven.apache.org/), version 3.0 or later.
 
 > [!IMPORTANT]
->
-> Spring Boot version 2.0 or greater is required to complete the steps in this article.
+> Spring Boot version 2.5 or 2.6 is required to complete the steps in this article.
 
 ## Create an Azure Storage Account and blob container for your application
 
@@ -35,7 +34,7 @@ The following procedure creates an Azure storage account and container in the po
 
 1. Select **Create a resource**, then **Get started**, and then select **Storage Account**.
 
-   ![Azure portal, create a resource, search for storage accounts.][IMG01]
+   :::image type="content" source="media/configure-spring-boot-starter-java-app-with-azure-storage/create-storage-account-01.png" alt-text="Azure portal screenshot showing the 'Create a resource' page with the search box highlighted with search text 'Storage accounts'." lightbox="media/configure-spring-boot-starter-java-app-with-azure-storage/create-storage-account-01.png":::
 
 1. On the **Create storage account** page, enter the following information:
 
@@ -45,7 +44,7 @@ The following procedure creates an Azure storage account and container in the po
    * Specify the **Location** for your storage account.
 1. When you have specified the options listed above, select **Review + create**.
 
-   ![Azure portal, create a storage account.][IMG01-01]
+   :::image type="content" source="media/configure-spring-boot-starter-java-app-with-azure-storage/create-storage-account-01-01.png" alt-text="Azure portal screenshot of 'Create a storage account' page." lightbox="media/configure-spring-boot-starter-java-app-with-azure-storage/create-storage-account-01-01.png":::
 
 1. Review the specification, then select **Create** to create your storage account.
 1. When the deployment is complete, select **Go to resource**.
@@ -54,9 +53,9 @@ The following procedure creates an Azure storage account and container in the po
    * Name the container.
    * Select *Blob* from the drop-down list.
 
-   ![Azure portal, storage account, containers, new container pane.][IMG02]
+   :::image type="content" source="media/configure-spring-boot-starter-java-app-with-azure-storage/create-storage-account-02.png" alt-text="Azure portal screenshot of a Storage account Containers page with the 'New container' pane showing." lightbox="media/configure-spring-boot-starter-java-app-with-azure-storage/create-storage-account-02.png":::
 
-1. The Azure portal will list your blob container after is has been created.
+1. The Azure portal will list your blob container after it's been created.
 
 You can also use Azure CLI to create an Azure storage account and container using the following steps. Remember to replace the placeholder values (in angle brackets) with your own values.
 
@@ -104,12 +103,11 @@ The following procedure creates the Spring boot application.
 
    * Generate a **Maven** project.
    * Specify **Java 11**.
-   * Specify a **Spring Boot** version that is equal to or greater than 2.4.6.
+   * Specify a **Spring Boot** version that is equal to **2.5.10**.
    * Specify the **Group** and **Artifact** names for your application.
    * Add the **Spring Web** dependency.
 
-      >[!div class="mx-imgBorder"]
-      >![Basic Spring Initializr options][SI01]
+   :::image type="content" source="media/spring-initializer/2.5.10/mvn-java8-storage-web.png" alt-text="Screenshot of Spring Initializr with basic options.":::
 
    > [!NOTE]
    > The Spring Initializr uses the **Group** and **Artifact** names to create the package name; for example: *com.wingtiptoys.storage*.
@@ -120,7 +118,9 @@ The following procedure creates the Spring boot application.
 
 1. After you have extracted the files on your local system, your simple Spring Boot application will be ready to edit.
 
-## Configure your Spring Boot app to use the Azure Storage starter
+## Configure your Spring Boot app to use the Azure Storage Blob starter
+
+### Add dependency in pom.xml
 
 The following procedure configures the Spring boot application to use Azure storage.
 
@@ -135,54 +135,53 @@ The following procedure configures the Spring boot application to use Azure stor
 1. Open the *pom.xml* file in a text editor, and add the Spring Cloud Azure Storage starter to the list of `<dependencies>`:
 
    ```xml
-   <dependency>
+    <dependency>
       <groupId>com.azure.spring</groupId>
-      <artifactId>azure-spring-boot-starter-storage</artifactId>
-      <version>3.14.0</version>
-   </dependency>
+      <artifactId>spring-cloud-azure-starter-storage-blob</artifactId>
+      <version>4.0.0</version>
+    </dependency>
    ```
 
 1. Save and close the *pom.xml* file.
 
-## Configure your Spring Boot app to use your Azure Storage account
+### Configure property in application.yml
 
 The following procedure configures the Spring boot application to use your Azure storage account.
 
-1. Locate the *application.properties* in the *resources* directory of your app; for example:
+1. Locate the *application.yml* in the *resources* directory of your app; for example:
 
-   `C:\SpringBoot\storage\src\main\resources\application.properties`
+   `C:\SpringBoot\storage\src\main\resources\application.yml`
 
    -or-
 
-   `/users/example/home/storage/src/main/resources/application.properties`
+   `/users/example/home/storage/src/main/resources/application.yml`
 
-2. Open the *application.properties* file in a text editor, add the following lines, and then replace the sample values with the appropriate properties for your storage account:
+1. Open the *application.yml* file in a text editor, add the following lines, and then replace the sample values with the appropriate properties for your storage account:
 
-   ```yaml
-   # Storage account name length should be between 3 and 24 and use numbers and lower-case letters only
-   azure.storage.account-name=<storage-account-name>
-
-   # Fill storage account access key copied from portal
-   azure.storage.account-key=<storage-account-access-key>
-
-   # Fill storage blob endpoint URL copied from portal
-   azure.storage.blob-endpoint=<storage-endpoint-URL>
-   ```
+```yaml
+spring:
+  cloud:
+    azure:
+      storage:
+        blob:
+          account-name: [storage-account-name]
+          account-key: [storage-account-access-key]
+          endpoint: [storage-blob-service-endpoint]
+```
 
    Where:
 
    | Name                        | Description                                         | Required                                       |
    |-----------------------------|-----------------------------------------------------|------------------------------------------------|
-   | azure.storage.accountName   | The name of the Azure Storage account.              | Yes                                            |
-   | azure.storage.accountKey    | The access key of the Azure Storage account.        | Yes                                            |
-   | azure.storage.blob-endpoint | The blob endpoint URL of the Azure Storage account. | Optional when a storage blob resource is used. |
-   | azure.storage.file-endpoint | The file endpoint URL of the Azure Storage account. | Optional when a storage file resource is used. |
+   | spring.cloud.azure.storage.blob.account-name   | The name of the Azure Storage account.              | Yes                                            |
+   | spring.cloud.azure.storage.blob.account-key    | The access key of the Azure Storage account.        | Yes                                            |
+   | spring.cloud.azure.storage.blob.endpoint       | The blob endpoint URL of the Azure Storage account. | Yes|
 
-3. Save and close the *application.properties* file.
+1. Save and close the *application.yml* file.
 
 ## Add sample code to implement basic Azure storage functionality
 
-In this section, you create the necessary Java classes for storing a blob in your Azure storage account.
+In this section, you'll create the necessary Java classes for storing a blob in your Azure storage account.
 
 ### Add a blob controller class
 
@@ -194,7 +193,7 @@ In this section, you create the necessary Java classes for storing a blob in you
 
    `/users/example/home/storage/src/main/java/com/wingtiptoys/storage/BlobController.java`
 
-1. Open the blob controller Java file in a text editor, and add the following lines to the file. Replace the *`<your-resource-group>`*, *`<your-artifact-name>`*, *`<your-container-name>`*, and *`<your-blob-name>`* placeholders with your values.
+1. Open *BlobController.java* in a text editor, and add the following lines to the file. Replace the *`<your-resource-group>`*, *`<your-artifact-name>`*, *`<your-container-name>`*, and *`<your-blob-name>`* placeholders with your values.
 
    ```java
    package com.<your-resource-group>.<your-artifact-name>;
@@ -259,7 +258,7 @@ In this section, you create the necessary Java classes for storing a blob in you
    a. Send a POST request to update a file's contents:
 
       ```shell
-      curl -d 'new message' -H 'Content-Type: text/plain' localhost:8080/blob/writeBlobFile
+      curl http://localhost:8080/blob/writeBlobFile -d "new message" -H "Content-Type: text/plain"
       ```
 
       You should see a response that  `file was updated`.
@@ -274,7 +273,7 @@ In this section, you create the necessary Java classes for storing a blob in you
 
 ## Summary
 
-In this tutorial, you created a new Java application using the **[Spring Initializr]**, added the Azure storage starter to your application, and then configured your application to upload a blob to your Azure storage account.
+In this tutorial, you created a new Java application using the **Spring Initializr**, added the Azure Storage Blob starter to your application, and then configured your application to upload a blob to your Azure storage account.
 
 ## Clean up resources
 
@@ -297,11 +296,3 @@ For detailed information about additional Azure storage APIs that you can call f
 * [How to use Azure Queue storage from Java](/azure/storage/queues/storage-java-how-to-use-queue-storage)
 * [How to use Azure Table storage from Java](/azure/cosmos-db/table-storage-how-to-use-java)
 * [How to use Azure File storage from Java](/azure/storage/files/storage-java-how-to-use-file-storage)
-
-<!-- IMG List -->
-
-[IMG01]: media/configure-spring-boot-starter-java-app-with-azure-storage/create-storage-account-01.png
-[IMG01-01]: media/configure-spring-boot-starter-java-app-with-azure-storage/create-storage-account-01-01.png
-[IMG02]: media/configure-spring-boot-starter-java-app-with-azure-storage/create-storage-account-02.png
-
-[SI01]: media/configure-spring-boot-starter-java-app-with-azure-storage/create-project-01.png
