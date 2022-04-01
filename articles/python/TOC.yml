@@ -5,6 +5,8 @@
   items:
     - name: What is Azure?
       href: cloud-development-overview.md
+    - name: Set up your dev environment
+      href: configure-local-development-environment.md      
     - name: Create, access, and manage resources
       href: cloud-development-provisioning.md
     - name: The Azure development flow
@@ -109,24 +111,23 @@
   items:
     - name: Overview
       href: azure-sdk-overview.md
-    - name: Set up your dev environment
-      href: configure-local-development-environment.md
     - name: Library usage patterns
       href: azure-sdk-library-usage-patterns.md
+
     - name: Authentication
       items:
       - name: Overview
-        href: azure-sdk-authenticate.md
-      - name: Auth in development environments
-        href: azure-sdk-authenticate-development-environments.md
-      - name: Auth in hosted applications
-        href: azure-sdk-authenticate-hosted-applications.md
-      - name: Auth with user credentials
-        href: azure-sdk-authenticate-user-credentials.md
-      - name: Auth with service principals
-        href: azure-sdk-authenticate-service-principals.md
-      - name: Manage service principals
-        href: how-to-manage-service-principals.md
+        href: sdk/authentication-overview.md
+      - name: Auth during local development
+        items:
+        - name: Auth using developer service principals
+          href: sdk/authentication-local-development-service-principal.md
+        - name: Auth using developer accounts
+          href: sdk/authentication-local-development-dev-accounts.md
+      - name: Auth from Azure-hosted apps
+        href: sdk/authentication-azure-hosted-apps.md
+      - name: Auth from on-premises apps
+        href: sdk/authentication-on-premises-apps.md
       - name: Walkthrough tutorial
         items:
         - name: 1. Introduction and background
@@ -144,41 +145,38 @@
         - name: 7. Main app endpoint
           href: walkthrough-tutorial-authentication-07.md
     - name: Install packages
-      href: azure-sdk-install.md
+      href: sdk/azure-sdk-install.md
     - name: Package index
-      href: azure-sdk-library-package-index.md
+      href: sdk/azure-sdk-library-package-index.md
     - name: Library API reference
-      href: sdk-library-api-reference.md
+      href: sdk/sdk-library-api-reference.md
     - name: Examples
       items:
       - name: "Create a resource group"
-        href: azure-sdk-example-resource-group.md
+        href: sdk/examples/azure-sdk-example-resource-group.md
       - name: "List groups and resources"
-        href: azure-sdk-example-list-resource-groups.md
+        href: sdk/examples/azure-sdk-example-list-resource-groups.md
       - name: "Create Azure storage"
-        href: azure-sdk-example-storage.md
+        href: sdk/examples/azure-sdk-example-storage.md
       - name: "Use Azure storage"
-        href: azure-sdk-example-storage-use.md
+        href: sdk/examples/azure-sdk-example-storage-use.md
       - name: "Create & deploy a web app"
-        href: azure-sdk-example-web-app.md
+        href: sdk/examples/azure-sdk-example-web-app.md
       - name: "Create & query a database"
-        href: azure-sdk-example-database.md
+        href: sdk/examples/azure-sdk-example-database.md
       - name: "Create a virtual machine"
-        href: azure-sdk-example-virtual-machines.md
+        href: sdk/examples/azure-sdk-example-virtual-machines.md
       - name: "Use Azure Managed Disks with a VM"
-        href: azure-sdk-samples-managed-disks.md
+        href: sdk/examples/azure-sdk-samples-managed-disks.md
     - name: Configure logging
-      href: azure-sdk-logging.md
+      href: sdk/azure-sdk-logging.md
     - name: Configure proxies
-      href: azure-sdk-configure-proxy.md
+      href: sdk/azure-sdk-configure-proxy.md
     - name: Use a sovereign domain
-      href: azure-sdk-sovereign-domain.md
+      href: sdk/azure-sdk-sovereign-domain.md
 
 - name: Library API reference
-  href: sdk-library-api-reference.md
-
-- name: Tools for Python developers
-  href: azure-tools.md
+  href: sdk/sdk-library-api-reference.md
 
 - name: Explore services supporting Python
   items:
