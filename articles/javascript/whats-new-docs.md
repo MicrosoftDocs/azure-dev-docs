@@ -10,6 +10,21 @@ ms.date: 02/28/2022
 
 Find new and updated content for JavaScript and TypeScript developers.
 
+
+## 2022 March
+
+### New in March
+
+|Name|Description|
+|---------------------------------------|--|
+|[Learn module](/learn/modules/javascript-deploy-expressjs-app-service/)|Create Azure service resources for an Express.js web app. Configure, secure, and deploy the web app. Review the logs after deployment. Full [sample code](https://github.com/Azure-Samples/msdocs-javascript-nodejs-server/) available.|
+
+### Updated in March
+
+|Name|Description|
+|---------------------------------------|--|
+|[App Service](/azure/app-service/quickstart-nodejs)|Replaced PUG view engine with EJS.|
+
 ## 2022 February
 
 ### New in February
