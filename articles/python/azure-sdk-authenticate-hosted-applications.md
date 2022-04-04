@@ -42,6 +42,11 @@ If the library has not been updated, code using `DefaultAzureCredential` results
 
 ## Credential "object has no attribute 'signed_session'"
 
+> [!NOTE]
+> The prefered approach to solve this problem is to update to a more recent SDK, as 100% of SDKs have a recent version that can support the new authentication protocol.
+> If you're unable to do so because migration to a newer SDK is not possible for some reasons, you may use the following workaround. Note that SDKs of the 
+> previous generation that were raising this error are NOT supported by Microsoft anymore, and have been deprecated in March 2022.
+
 If you attempt to use `DefaultAzureCredential` (or `AzureCliCredential` and other credential objects from `azure.identity`) with a library that hasn't been updated to use `azure.core`, calls through a client object fail with the rather vague error, "'DefaultAzureCredential' object has no attribute 'signed_session'". You'd encounter such a failure, for example, if you use the code in the preceding section with an `azure-mgmt-resource` library below version 15.
 
 This error happens because non-azure.core versions of SDK management libraries assume that the credential object contains a `signed_session` property, which isn't present on `DefaultAzureCredential` and other credential objects from `azure.identity`.
