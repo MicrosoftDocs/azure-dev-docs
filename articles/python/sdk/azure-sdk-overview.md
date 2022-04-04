@@ -18,7 +18,7 @@ The open-source Azure libraries for Python simplify provisioning, managing, and 
 
 - The Azure SDK for Python is composed solely of over 180 individual Python libraries that relate to specific Azure services. There are no other tools in the "SDK".
 
-- When running code locally, authenticating with Azure relies on environment variables as described on [Configure your local dev environment](configure-local-development-environment.md).
+- When running code locally, authenticating with Azure relies on environment variables as described in [How to authenticate Python apps to Azure services using the Azure SDK for Python](./authentication-overview.md#authentication-during-local-development).
 
 - To install library packages with pip, use `pip install <library_name>` using library names from the [package index](azure-sdk-library-package-index.md). To install library packages in conda environments, use `conda install <package_name>` using names from the [Microsoft channel on anaconda.org](https://anaconda.org/microsoft/repo). For more information, see [Install Azure libraries](azure-sdk-install.md).
 
@@ -28,7 +28,7 @@ The open-source Azure libraries for Python simplify provisioning, managing, and 
 
 - Documentation for the libraries is found on the [Azure for Python Reference](/python/api/overview/azure/), which is organized by Azure Service, or the [Python API browser](/python/api/), which is organized by package name. At present, you often need to go through many pages to get to the classes and methods you care about. Allow us to apologize in advance for this subpar experience. We're working to improve it!
 
-- To try the libraries for yourself, we first recommend [setting up your local dev environment](configure-local-development-environment.md). Then you can try any of the following standalone examples (in any order): [Example: Provision a resource group](azure-sdk-example-resource-group.md), [Example: Provision and use Azure Storage](azure-sdk-example-storage.md), [Example: Provision a web app and deploy code](azure-sdk-example-web-app.md), [Example: Provision and use a MySQL database](azure-sdk-example-database.md), and [Example: Provision a virtual machine](azure-sdk-example-virtual-machines.md).
+- To try the libraries for yourself, we first recommend [setting up your local dev environment](../configure-local-development-environment.md). Then you can try any of the following standalone examples (in any order): [Example: Provision a resource group](./examples/azure-sdk-example-resource-group.md), [Example: Provision and use Azure Storage](./examples/azure-sdk-example-storage.md), [Example: Provision a web app and deploy code](./examples/azure-sdk-example-web-app.md), [Example: Provision and use a MySQL database](./examples/azure-sdk-example-database.md), and [Example: Provision a virtual machine](./examples/azure-sdk-example-virtual-machines.md).
 
 - For demonstration videos, see <a href="https://www.youtube.com/watch?v=4xoJLCFP4_4" target="_blank">Introducing the Azure SDK for Python</a> (PyCon 2021) and <a href="https://www.youtube.com/watch?v=M1pVxItg2Mg&feature=youtu.be&ocid=AID3006292" target="_blank">Using Azure SDKs to interact with Azure resource</a> (PyCon 2020).
 
@@ -62,12 +62,12 @@ With the management libraries, you can write configuration and deployment script
 
 The following examples illustrate how to use some of the primary management libraries:
 
-- [Provision a resource group](azure-sdk-example-resource-group.md)
-- [List resource groups in a subscription](azure-sdk-example-list-resource-groups.md)
-- [Provision Azure Storage](azure-sdk-example-storage.md)
-- [Provision a web app and deploy code](azure-sdk-example-web-app.md)
-- [Provision and query a database](azure-sdk-example-database.md)
-- [Provision a virtual machine](azure-sdk-example-virtual-machines.md)
+- [Provision a resource group](./examples/azure-sdk-example-resource-group.md)
+- [List resource groups in a subscription](./examples/azure-sdk-example-list-resource-groups.md)
+- [Provision Azure Storage](./examples/azure-sdk-example-storage.md)
+- [Provision a web app and deploy code](./examples/azure-sdk-example-web-app.md)
+- [Provision and query a database](./examples/azure-sdk-example-database.md)
+- [Provision a virtual machine](./examples/azure-sdk-example-virtual-machines.md)
 
 For details on working with each management library, see the *README.md* or *README.rst* file located in the library's project folder in the [SDK GitHub repository](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk). You can also find more code snippets in the [reference documentation](/python/api) and the [Azure Samples](/samples/browse/?languages=python&term=Getting%20started%20-%20Managing).
 
@@ -75,24 +75,24 @@ For details on working with each management library, see the *README.md* or *REA
 
 If you are migrating code from older versions of the management libraries, see the following details:
 
-- If you use the `ServicePrincipalCredentials` class, see [Authenticate with token credentials](azure-sdk-authenticate-service-principals.md#authenticate-with-token-credentials).
+- If you use the `ServicePrincipalCredentials` class, see [Authenticate with token credentials](./authentication-azure-hosted-apps.md).
 - The names of async APIs have changed as described on [Library usage patterns - asynchronous operations](azure-sdk-library-usage-patterns.md#asynchronous-operations). Simply said, the names of async APIs in newer libraries start with `begin_`. In most cases, the API signature remains the same.
 
 ## Connect to and use Azure resources with client libraries
 
 The SDK's *client* (or "data plane") libraries help you write Python application code to interact with already-provisioned services. Client libraries exist only for those services that support a client API.
 
-The article, [Example: Use Azure Storage](azure-sdk-example-storage-use.md), provides a basic illustration of using client library.
+The article, [Example: Use Azure Storage](./examples/azure-sdk-example-storage-use.md), provides a basic illustration of using client library.
 
 Different Azure services also provide examples using these libraries. See the following index pages for other links:
 
-- [App hosting](quickstarts-app-hosting.md)
-- [Cognitive Services](quickstarts-cognitive-services.md)
-- [Data solutions](quickstarts-data-solutions.md)
-- [Identity and security](quickstarts-identity-security.md)
-- [Machine learning](quickstarts-machine-learning.md)
-- [Messaging and IoT](quickstarts-messaging-iot.md)
-- [Other services](quickstarts-other-services.md)
+- [App hosting](../quickstarts-app-hosting.md)
+- [Cognitive Services](../quickstarts-cognitive-services.md)
+- [Data solutions](../quickstarts-data-solutions.md)
+- [Identity and security](../quickstarts-identity-security.md)
+- [Machine learning](../quickstarts-machine-learning.md)
+- [Messaging and IoT](../quickstarts-messaging-iot.md)
+- [Other services](../quickstarts-other-services.md)
 
 For details on working with each client library, see the *README.md* or *README.rst* file located in the library's project folder in the [SDK's GitHub repository](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk). You can also find more code snippets in the [reference documentation](/python/api) and the [Azure Samples](/samples/browse/?languages=python&products=azure).
 
@@ -109,4 +109,4 @@ For details on working with each client library, see the *README.md* or *README.
 We strongly recommend doing a one-time setup of your local development environment so that you can easily use any of the Azure libraries for Python.
 
 > [!div class="nextstepaction"]
-> [Set up your local dev environment >>>](configure-local-development-environment.md)
+> [Set up your local dev environment >>>](../configure-local-development-environment.md)

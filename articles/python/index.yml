@@ -85,7 +85,7 @@ landingContent:
           - text: Learn library usage patterns
             url: sdk/azure-sdk-library-usage-patterns.md
           - text: Authenticate with Azure services
-            url: sdk/sdk/authentication-overview.md
+            url: sdk/authentication-overview.md
   - title: Developer tools
     linkLists:  
       - linkListType: get-started

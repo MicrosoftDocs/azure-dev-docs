@@ -14,7 +14,7 @@ All the commands in this article work the same in Linux/macOS bash and Windows c
 
 ## 1: Set up your local development environment
 
-If you haven't already, **follow all the instructions** on [Configure your local Python dev environment for Azure](configure-local-development-environment.md).
+If you haven't already, **follow all the instructions** on [Configure your local Python dev environment for Azure](../../configure-local-development-environment.md).
 
 Be sure to create and activate a virtual environment for this project.
 
@@ -38,7 +38,7 @@ Create a Python file named *provision_rg.py* with the following code. The commen
 
 :::code language="python" source="~/../python-sdk-docs-examples/resource_group/provision_rg.py":::
 
-[!INCLUDE [cli-auth-note](includes/cli-auth-note.md)]
+[!INCLUDE [cli-auth-note](../../includes/cli-auth-note.md)]
 
 ### Reference links for classes used in the code
 

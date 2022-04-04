@@ -17,7 +17,7 @@ All the commands in this article work the same in Linux/macOS bash and Windows c
 
 ## 1: Set up your local development environment
 
-If you haven't already, **follow all the instructions** on [Configure your local Python dev environment for Azure](configure-local-development-environment.md).
+If you haven't already, **follow all the instructions** on [Configure your local Python dev environment for Azure](../../configure-local-development-environment.md).
 
 Be sure to create a service principal for local development, and create and activate a virtual environment for this project.
 
@@ -39,7 +39,7 @@ Create a Python file named *provision_vm.py* with the following code. The commen
 
 :::code language="python" source="~/../python-sdk-docs-examples/vm/provision_vm.py":::
 
-[!INCLUDE [cli-auth-note](includes/cli-auth-note.md)]
+[!INCLUDE [cli-auth-note](../../includes/cli-auth-note.md)]
 
 ### Reference links for classes used in the code
 
@@ -60,7 +60,7 @@ The provisioning process takes a few minutes to complete.
 
 Open the [Azure portal](https://portal.azure.com), navigate to the "PythonAzureExample-VM-rg" resource group, and note the virtual machine, virtual disk, network security group, public IP address, network interface, and virtual network:
 
-![Azure portal page for the new resource group showing the virtual machine and related resources](media/azure-sdk-example-virtual-machines/portal-vm-resources.png)
+![Azure portal page for the new resource group showing the virtual machine and related resources](../../media/azure-sdk-example-virtual-machines/portal-vm-resources.png)
 
 ### For reference: equivalent Azure CLI commands
 
@@ -82,7 +82,7 @@ az group delete -n PythonAzureExample-VM-rg  --no-wait
 
 Run this command if you don't need to keep the resources created in this example and would like to avoid ongoing charges in your subscription.
 
-[!INCLUDE [resource_group_begin_delete](includes/resource-group-begin-delete.md)]
+[!INCLUDE [resource_group_begin_delete](../../includes/resource-group-begin-delete.md)]
 
 ## See also
 

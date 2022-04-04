@@ -96,7 +96,7 @@ Enabling HTTP logging for a credential object enables logging for all operations
 
 ## Example logging output
 
-The following code is that shown in [Example: Use a storage account](azure-sdk-example-storage-use.md) with the addition of enabling DEBUG and HTTP logging:
+The following code is that shown in [Example: Use a storage account](./examples/azure-sdk-example-storage-use.md) with the addition of enabling DEBUG and HTTP logging:
 
 :::code language="python" source="~/../python-sdk-docs-examples/storage/use_blob_auth_logging.py" range="1-9,15-32":::
 

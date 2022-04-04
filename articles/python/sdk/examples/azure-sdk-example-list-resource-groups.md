@@ -19,7 +19,7 @@ The [Equivalent Azure CLI command](#for-reference-equivalent-azure-cli-commands)
 
 ## 1: Set up your local development environment
 
-If you haven't already, **follow all the instructions** on [Configure your local Python dev environment for Azure](configure-local-development-environment.md).
+If you haven't already, **follow all the instructions** on [Configure your local Python dev environment for Azure](../../configure-local-development-environment.md).
 
 Be sure to create and activate a virtual environment for this project.
 
@@ -55,7 +55,7 @@ By default, the code lists resources in "myResourceGroup". To use a different re
 
 ### Authentication in the code
 
-[!INCLUDE [cli-auth-note](includes/cli-auth-note.md)]
+[!INCLUDE [cli-auth-note](../../includes/cli-auth-note.md)]
 
 ### Reference links for classes used in the code
 

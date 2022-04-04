@@ -16,7 +16,7 @@ All the commands in this article work the same in Linux/macOS bash and Windows c
 
 ## 1: Set up your local development environment
 
-If you haven't already, **follow all the instructions** on [Configure your local Python dev environment for Azure](configure-local-development-environment.md).
+If you haven't already, **follow all the instructions** on [Configure your local Python dev environment for Azure](../../configure-local-development-environment.md).
 
 Be sure to create a service principal for local development, and create and activate a virtual environment for this project.
 
@@ -45,7 +45,7 @@ Create a Python file named *provision_db.py* with the following code. The commen
 
 You must create an environment variable named `PUBLIC_IP_ADDRESS` with your workstation's IP address for this sample to run.
 
-[!INCLUDE [cli-auth-note](includes/cli-auth-note.md)]
+[!INCLUDE [cli-auth-note](../../includes/cli-auth-note.md)]
 
 ### Reference links for classes used in the code
 
@@ -89,7 +89,7 @@ az group delete -n PythonAzureExample-DB-rg  --no-wait
 
 Run this command if you don't need to keep the resources provisioned in this example and would like to avoid ongoing charges in your subscription.
 
-[!INCLUDE [resource_group_begin_delete](includes/resource-group-begin-delete.md)]
+[!INCLUDE [resource_group_begin_delete](../../includes/resource-group-begin-delete.md)]
 
 ### For reference: equivalent Azure CLI commands
 

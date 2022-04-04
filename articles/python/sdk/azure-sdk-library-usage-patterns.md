@@ -60,7 +60,7 @@ Both of these methods are asynchronous. The difference in the method names is du
 
 In either case, an [`AzureOperationPoller`](/python/api/msrestazure/msrestazure.azure_operation.azureoperationpoller) return type definitely means that the operation is asynchronous. Accordingly, you must call that poller's `result` method to wait for the operation to finish and obtain its result.
 
-The following code, taken from [Example: Provision and deploy a web app](azure-sdk-example-web-app.md), shows an example of using the poller to wait for a result:
+The following code, taken from [Example: Provision and deploy a web app](./examples/azure-sdk-example-web-app.md), shows an example of using the poller to wait for a result:
 
 :::code language="python" source="~/../python-sdk-docs-examples/webapp/provision_deploy_web_app.py" range="59-70":::
 
@@ -150,11 +150,11 @@ If your JSON isn't formed properly, you typically get the error, "Deserializatio
 
 Now that you understand the common patterns for using the Azure libraries for Python, see the following standalone examples to explore specific management and client library scenarios. You can try these examples in any order as they are neither sequential nor interdependent.
 
-- [Example: Create a resource group](azure-sdk-example-resource-group.md)
-- [Example: Use Azure Storage](azure-sdk-example-storage.md)
-- [Example: Provision a web app and deploy code](azure-sdk-example-web-app.md)
-- [Example: Provision and query a database](azure-sdk-example-database.md)
-- [Example: Provision a virtual machine](azure-sdk-example-virtual-machines.md)
-- [Use Azure Managed Disks with virtual machines](azure-sdk-samples-managed-disks.md)
+- [Example: Create a resource group](./examples/azure-sdk-example-resource-group.md)
+- [Example: Use Azure Storage](./examples/azure-sdk-example-storage.md)
+- [Example: Provision a web app and deploy code](./examples/azure-sdk-example-web-app.md)
+- [Example: Provision and query a database](./examples/azure-sdk-example-database.md)
+- [Example: Provision a virtual machine](./examples/azure-sdk-example-virtual-machines.md)
+- [Use Azure Managed Disks with virtual machines](./examples/azure-sdk-samples-managed-disks.md)
 
 - [Complete a short survey about the Azure SDK for Python](https://microsoft.qualtrics.com/jfe/form/SV_bNFX0HECjzPWMiG?Q_CHL=docs)

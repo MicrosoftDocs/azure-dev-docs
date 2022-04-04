@@ -14,7 +14,7 @@ All the commands in this article work the same in Linux/macOS bash and Windows c
 
 ## 1: Set up your local development environment
 
-If you haven't already, **follow all the instructions** on [Configure your local Python dev environment for Azure](configure-local-development-environment.md).
+If you haven't already, **follow all the instructions** on [Configure your local Python dev environment for Azure](../../configure-local-development-environment.md).
 
 Be sure to create a service principal for local development, set environment variables for the service principal (see below), and create and activate a virtual environment for this project.
 
@@ -40,7 +40,7 @@ Create a source file named *sample-source.txt* (as the code expects), with conte
 
 The following sections (numbered 4a and 4b) demonstrate two means to access the blob container provisioned through [Example: Provision Azure Storage](azure-sdk-example-storage.md).
 
-The [first method (section 4a below)](#4a-use-blob-storage-with-authentication) authenticates the app with `DefaultAzureCredential` as described in [Authenticate Azure hosted applications with DefaultAzureCredential](azure-sdk-authenticate-hosted-applications.md). With this method you must first assign the appropriate permissions to the app identity, which is the recommended practice.
+The [first method (section 4a below)](#4a-use-blob-storage-with-authentication) authenticates the app with `DefaultAzureCredential` as described in [Authenticate Azure hosted applications with DefaultAzureCredential](../authentication-local-development-service-principal.md). With this method you must first assign the appropriate permissions to the app identity, which is the recommended practice.
 
 The [second method (section 4b below)](#4b-use-blob-storage-with-a-connection-string) uses a connection string to access the storage account directly. Although this method seems simpler, it has two significant drawbacks:
 
@@ -114,7 +114,7 @@ For these reasons, we recommend using the authentication method in production co
 
     If needed, also replace `PythonAzureExample-Storage-rg` with the name of the resource group that contains your storage account. The resource group shown here is what's used in [Example: Provision Azure Storage](azure-sdk-example-storage.md).
 
-    The `--scope` argument in this command also uses the AZURE_CLIENT_ID and AZURE_SUBSCRIPTION_ID environment variables, which you should already have set in your local environment for your service principal by following [Configure your local Python dev environment for Azure](configure-local-development-environment.md).
+    The `--scope` argument in this command also uses the AZURE_CLIENT_ID and AZURE_SUBSCRIPTION_ID environment variables, which you should already have set in your local environment for your service principal by following [Configure your local Python dev environment for Azure](../../configure-local-development-environment.md).
 
 1. **Wait a minute or two for the permissions to propagate**, then run the code again to verify that it now works. If you see the permissions error again, wait a little longer, then try the code again.
 
@@ -140,7 +140,7 @@ Again, although this method is simple, a connection string authorizes all operat
 
 After running the code of either method, go to the [Azure portal](https://portal.azure.com), navigate into the blob container to verify that a new blob exists named *sample-blob.txt* with the same contents as the *sample-source.txt* file:
 
-![Azure portal page for the blob container, showing the uploaded file](media/azure-sdk-example-storage/portal-blob-container-file.png)
+![Azure portal page for the blob container, showing the uploaded file](../../media/azure-sdk-example-storage/portal-blob-container-file.png)
 
 ## 6: Clean up resources
 
@@ -150,7 +150,7 @@ az group delete -n PythonAzureExample-Storage-rg  --no-wait
 
 Run this command if you don't need to keep the resources provisioned in this example and would like to avoid ongoing charges in your subscription.
 
-[!INCLUDE [resource_group_begin_delete](includes/resource-group-begin-delete.md)]
+[!INCLUDE [resource_group_begin_delete](../../includes/resource-group-begin-delete.md)]
 
 ## See also
 

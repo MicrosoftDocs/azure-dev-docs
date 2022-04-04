@@ -16,7 +16,7 @@ All the commands in this article work the same in Linux/macOS bash and Windows c
 
 ## 1: Set up your local development environment
 
-If you haven't already, **follow all the instructions** on [Configure your local Python dev environment for Azure](configure-local-development-environment.md).
+If you haven't already, **follow all the instructions** on [Configure your local Python dev environment for Azure](../../configure-local-development-environment.md).
 
 Be sure to create a service principal for local development, and create and activate a virtual environment for this project.
 
@@ -40,7 +40,7 @@ Create a Python file named *provision_blob.py* with the following code. The comm
 
 :::code language="python" source="~/../python-sdk-docs-examples/storage/provision_blob.py":::
 
-[!INCLUDE [cli-auth-note](includes/cli-auth-note.md)]
+[!INCLUDE [cli-auth-note](../../includes/cli-auth-note.md)]
 
 ### Reference links for classes used in the code
 
@@ -60,11 +60,11 @@ The script will take a minute or two to complete.
 
 1. Open the [Azure portal](https://portal.azure.com) to verify that the resource group and storage account were provisioned as expected. You may need to wait a minute and also select **Show hidden types** in the resource group to see a storage account provisioned from a Python script:
 
-    ![Azure portal page for the new resource group, showing the storage account](media/azure-sdk-example-storage/portal-show-hidden-types.png)
+    ![Azure portal page for the new resource group, showing the storage account](../../media/azure-sdk-example-storage/portal-show-hidden-types.png)
 
 1. Select the storage account, then select **Data storage** > **Containers** in the left-hand menu to verify that the "blob-container-01" appears:
 
-    ![Azure portal page for the storage account showing the blob container](media/azure-sdk-example-storage/portal-show-blob-containers.png)
+    ![Azure portal page for the storage account showing the blob container](../../media/azure-sdk-example-storage/portal-show-blob-containers.png)
 
 1. If you want to try using these provisioned resources from application code, continue with [Example: Use Azure Storage](azure-sdk-example-storage-use.md).
 
@@ -94,7 +94,7 @@ Otherwise, run the following command to avoid ongoing charges in your subscripti
 az group delete -n PythonAzureExample-Storage-rg  --no-wait
 ```
 
-[!INCLUDE [resource_group_begin_delete](includes/resource-group-begin-delete.md)]
+[!INCLUDE [resource_group_begin_delete](../../includes/resource-group-begin-delete.md)]
 
 ## See also
 

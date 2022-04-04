@@ -14,7 +14,7 @@ All the commands in this article work the same in Linux/macOS bash and Windows c
 
 ## 1: Set up your local development environment
 
-If you haven't already, **follow all the instructions** on [Configure your local Python dev environment for Azure](configure-local-development-environment.md).
+If you haven't already, **follow all the instructions** on [Configure your local Python dev environment for Azure](../../configure-local-development-environment.md).
 
 Be sure to create a service principal for local development, and create and activate a virtual environment for this project.
 
@@ -34,7 +34,7 @@ pip install -r requirements.txt
 
 Visit [https://github.com/Azure-Samples/python-docs-hello-world](https://github.com/Azure-Samples/python-docs-hello-world) and fork the repository into your own GitHub account. You use a fork to ensure that you have permissions to deploy the repository to Azure.
 
-![Forking the sample repository on GitHub](media/azure-sdk-example-web-app/fork-github-repository.png)
+![Forking the sample repository on GitHub](../../media/azure-sdk-example-web-app/fork-github-repository.png)
 
 Then create an environment variable named `REPO_URL` with the URL of your fork. The example code in the next section depends on this environment variable:
 
@@ -58,7 +58,7 @@ Create a Python file named *provision_deploy_web_app.py* with the following code
 
 :::code language="python" source="~/../python-sdk-docs-examples/webapp/provision_deploy_web_app.py":::
 
-[!INCLUDE [cli-auth-note](includes/cli-auth-note.md)]
+[!INCLUDE [cli-auth-note](../../includes/cli-auth-note.md)]
 
 ### Reference links for classes used in the code
 

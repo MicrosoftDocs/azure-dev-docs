@@ -149,7 +149,7 @@
     - name: Package index
       href: sdk/azure-sdk-library-package-index.md
     - name: Library API reference
-      href: sdk/sdk-library-api-reference.md
+      href: sdk-library-api-reference.md
     - name: Examples
       items:
       - name: "Create a resource group"
@@ -176,7 +176,7 @@
       href: sdk/azure-sdk-sovereign-domain.md
 
 - name: Library API reference
-  href: sdk/sdk-library-api-reference.md
+  href: sdk-library-api-reference.md
 
 - name: Explore services supporting Python
   items:
