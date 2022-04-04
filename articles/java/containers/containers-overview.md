@@ -10,18 +10,15 @@ recommendations: false
 
 # Containerizing your Java applications
 
-This topic provides an overview of recommended strategies and settings for containerizing Java applications.
+This article provides an overview of recommended strategies and settings for containerizing Java applications.
 
-When you are containerizing a Java application, you have to carefully consider how much CPU time the container will have available, and then how much memory will be available both in terms of total amount of memory, and the heap size of the JVM. On most containerized environments, applications may have access to all processors and therefore be able to run multiple threads in parallel. It is common, though, that containers have a CPU quota applied that may throttle access to CPUs. 
+When you're containerizing a Java application, you have to carefully consider how much CPU time the container will have available, and then how much memory will be available both in terms of total amount of memory, and the heap size of the JVM. In most containerized environments, applications may have access to all processors and therefore be able to run multiple threads in parallel. It's common, though, that containers have a CPU quota applied that may throttle access to CPUs.
 
 The JVM has heuristics to determine the amount of "available processors" based on CPU quota, and this can dramatically influence the performance of Java applications. Just as important as processors, the memory allocated to the container itself and the size of the heap area for the JVM will determine the behavior of the Garbage Collector and the overall performance of the system.
 
-1. [New application](#new-application)
-1. [Existing (on premises) application](#existing-on-premises-application)
-
 ## New application
 
-When you are containerizing a Java workload you have to take two things into account when thinking about memory. Firstly, is the memory allocated to the container itself and secondly, is the amount of memory available to the Java process.
+When you're containerizing a Java workload, you have to take two things into account when thinking about memory. Firstly, is the memory allocated to the container itself and secondly, is the amount of memory available to the Java process.
 
 ### JVM default ergonomics
 
@@ -31,10 +28,10 @@ When no JVM parameters are specified, these are the defaults applied.
 
 **Default Garbage Collector**
 
-| Resources Available                                | Default                   |
-|----------------------------------------------------|---------------------------|
-| Any number of processors <br/> Up to 1791MB memory | SerialGC                  |
-| 2+ processors <br/> 1792MB or more memory          | G1GC                      |
+| Resources Available                                 | Default                   |
+|-----------------------------------------------------|---------------------------|
+| Any number of processors <br/> Up to 1791 MB memory | SerialGC                  |
+| 2+ processors <br/> 1792 MB or more memory          | G1GC                      |
 
 **Default Initial Heap Size**
 
@@ -47,7 +44,7 @@ The above is valid for OpenJDK 11 and later, for most distributions, including M
 
 ### Determine container memory
 
-Depending on the needs of your application and its distinctive usage patterns, you will have to pick an amount of container memory that will serve your work load the best. For example, if your application creates large object graphs then you will probably have to allocate more memory than if your application had a large number of small object graphs. 
+Depending on the needs of your application and its distinctive usage patterns, you will have to pick an amount of container memory that will serve your work load the best. For example, if your application creates large object graphs then you will probably have to allocate more memory than if your application had a large number of small object graphs.
 
 If you do not know how much memory to allocate a good starting point would be to begin with 4GB.
 
@@ -57,7 +54,7 @@ If you do not know how much memory to allocate a good starting point would be to
 
 When allocating JVM heap memory, you need to be aware that the JVM needs more memory than just what is used for the JVM heap. When setting the maximum JVM heap memory it should NEVER be equal to the amount of container memory as that will cause container Out of Memory (OOM) errors and container crashes.
 
-**Recommendation:** allocate 75% of container memory for the JVM heap. 
+**Recommendation:** allocate 75% of container memory for the JVM heap.
 
 Developers can set the JVM Heap Size in two ways, on OpenJDK 11 and later:
 
@@ -101,7 +98,7 @@ The JVM parameters to be used are:
 
 ```-XX:+ParallelGC -XX:MaxRAMPercentage=75```
 
-## Existing (on premises) application 
+## Existing (on premises) application
 
 If you already have your application running on premises or on a VM in the cloud then our recommendation is to start your containerization journey with:
 
@@ -113,4 +110,4 @@ If the vCPU cores and/or container memory combination is not available then pick
 
 ## Next steps
 
-[Establishing a base line](containers-baseline.md)
+[Establishing a baseline](containers-baseline.md)

@@ -37,7 +37,7 @@ containers:
 
 ### JVM Available Processors
 
-When the HotSpot JVM in OpenJDK identifies it is running inside a container, it looks into values such as `cpu_quota` and `cpu_period` to evaluate how many processors it considers are available to itself. In general, any value up to `1000m` milicores are identified as a single processor machine. Any value between `1001m` and `2000m` is identified as dual processor machine, and so forth. This information is available through the API  `Runtime.getRuntime().availableProcessors()` ([see documentation][javadoc]). This value may also be used by some of the concurrent Garbage Collectors to configure their threas. Other APIs, libraries and frameworks may also use this information to configure thread pools. 
+When the HotSpot JVM in OpenJDK identifies it is running inside a container, it looks into values such as `cpu_quota` and `cpu_period` to evaluate how many processors it considers are available to itself. In general, any value up to `1000m` milicores are identified as a single processor machine. Any value between `1001m` and `2000m` is identified as dual processor machine, and so forth. This information is available through the API  `Runtime.getRuntime().availableProcessors()` ([see documentation][javadoc]). This value may also be used by some of the concurrent Garbage Collectors to configure their threas. Other APIs, libraries and frameworks may also use this information to configure thread pools.
 
 [javadoc]: https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Runtime.html#availableProcessors()
 

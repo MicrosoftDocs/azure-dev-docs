@@ -2,7 +2,7 @@
   items:
     - name: Overview
       href: containers-overview.md
-    - name: Establishing a base line
+    - name: Establishing a baseline
       href: containers-baseline.md
     - name: Containerizing for Azure Kubernetes Service
       href: containers-aks.md

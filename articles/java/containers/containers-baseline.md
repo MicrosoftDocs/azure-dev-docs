@@ -8,19 +8,19 @@ ms.custom: devx-track-java
 recommendations: false
 ---
 
-# Establishing a base line
+# Establishing a baseline
 
-It is important to establish a base line to understand what your application is really doing, and what resources are really needed. If you do not know how much memory or how many CPU cores your Java application actually needs, an underprovisioned environment may impact the overall performance of your containerized application, while an overprovisioned environment may increase your costs.
+It's important to establish a baseline to understand what your application is really doing, and what resources are really needed. If you don't know how much memory or how many CPU cores your Java application actually needs, an underprovisioned environment may impact the overall performance of your containerized application, while an overprovisioned environment may increase your costs.
 
-This process also requires good understanding of the overall consumption and distribution of computing resources and how they are split on a per instance basis. Lesser resources per application instance may suggest more instances overall, but with each instance being starved of resources.
+This process also requires a good understanding of the overall consumption and distribution of computing resources and how they are split on a per instance basis. Lesser resources per application instance may suggest more instances overall, but with each instance being starved of resources.
 
-The process of establishing a base line will allow you to experiment with different settings and then determine their impact and the right balanced amount of resources needed.
+The process of establishing a baseline will allow you to experiment with different settings and then determine their impact and the right balanced amount of resources needed.
 
-To establish a base line, you can use Azure Application Insights, or your APM solution of choice.
+To establish a baseline, you can use Azure Application Insights, or your APM solution of choice.
 
 ## Using Azure Application Insights
 
-See [Azure Monitor OpenTelemetry-based auto-instrumentation for Java applications](/azure/azure-monitor/app/java-in-process-agent)
+See [Azure Monitor OpenTelemetry-based auto-instrumentation for Java applications](/azure/azure-monitor/app/java-in-process-agent),
 which will walk you through setting up Application Insights.
 
 ## What is your Azure target platform?
