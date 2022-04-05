@@ -1,15 +1,15 @@
 ---
-title: Terraform AzAPI (generic) provider
-description: Understand what the AzAPI provider is and when to use it.
+title: Overview of the Terraform AzAPI (generic) provider
+description: Get an overview of the AzAPI provider and when to use it.
 ms.topic: overview
-ms.date: 03/13/2022
+ms.date: 04/05/2022
 ms.custom: devx-track-terraform
 adobe-target: trues
 ---
 
-# Overview
+# Overview of the Terraform AzAPI (generic) provider
 
-The AzAPI provider is a very thin layer on top of the Azure ARM REST APIs. This means that you can use it to manage any Azure resource type using any API version. This provider is intended to complement the AzureRM provider by enabling the management of new Azure resources and properties as soon as they are released, even in private preview.
+The AzAPI provider is a very thin layer on top of the [Azure ARM REST APIs](/rest/api/resources/). This means that you can use it to manage any Azure resource type using any API version. This provider is intended to complement the AzureRM provider by enabling the management of new Azure resources and properties as soon as they are released, even in private preview.
 
 In order to allow you to manage all Azure resources and features with this provider without requiring updates, this provider includes the following generic resources:
 
@@ -24,7 +24,7 @@ In order to allow you to manage all Azure resources and features with this provi
 
 ## Resource configuration examples
 
-The following code snippet configures a resource that doesn't currently exist in the AzureRM provider.
+The following code snippet configures a resource that doesn't currently exist in the AzureRM provider:
 
 ```terraform
 resource "azapi_resource" "publicip" {
@@ -42,7 +42,7 @@ resource "azapi_resource" "publicip" {
 }
 ```
 
-The following code snippet configures a preview property for an existing resource from AzureRM.
+The following code snippet configures a preview property for an existing resource from AzureRM:
 
 ```terraform
 resource "azapi_update_resource" "test" {
@@ -57,11 +57,11 @@ resource "azapi_update_resource" "test" {
 }
 ```
 
-## Authentication
+## Authentication using the AzApi provider
 
 The AzAPI provider enables the same authentication methods as the AzureRM provider. For more information on authentication options, see [Authenticate Terraform to Azure](/azure/developer/terraform/authenticate-to-azure?tabs=bash).
 
-## Benefits
+## Benefits of using the AzApi provider
 
 The AzAPI provider features the following benefits:
 
@@ -74,7 +74,7 @@ The AzAPI provider features the following benefits:
 - No dependency on Swagger
 - Common and consistent Azure authentication
 
-## Experience and lifecycle
+## Experience and lifecycle of the AzApi provider
 
 This section describes some tools to help you use the AzAPI provider.
 
@@ -154,7 +154,9 @@ AzAPI2AzureRM ensures after migration that your Terraform configuration and stat
     
     ```
 
-## Next Steps
+## Next steps
 
 <!-- TODO: azapi_resource Quickstart -->
 <!-- TODO: azapi_update_resource Quickstart -->
+> [!div class="nextstepaction"] 
+> [Learn more about using Terraform in Azure](/azure/terraform)

@@ -1,19 +1,19 @@
 ---
-title: Using Terraform with Azure
+title: Overview of Terraform on Azure - What is Terraform?
 description: Learn how Terraform can help you deploy and version your infrastructure on Azure.
 ms.topic: overview
-ms.date: 03/13/2022
+ms.date: 04/05/2022
 ms.custom: devx-track-terraform
 adobe-target: true
 ---
 
-# What is Terraform?
+# Overview of Terraform on Azure - What is Terraform?
 
-[Hashicorp Terraform](https://www.terraform.io/) is an open-source IaC tool for provisioning and managing infrastructure. It codifies infrastructure in configuration files that describe the desired state for the topology. Terraform enables the management of any infrastructure - such as public clouds, private clouds, and SaaS services - by using [Terraform providers](https://www.terraform.io/language/providers).  
+[Hashicorp Terraform](https://www.terraform.io/) is an open-source IaC (Infrastructure-as-Code) tool for provisioning and managing cloud infrastructure. It codifies infrastructure in configuration files that describe the desired state for your topology. Terraform enables the management of any infrastructure - such as public clouds, private clouds, and SaaS services - by using [Terraform providers](https://www.terraform.io/language/providers).  
 
-## Terraform Providers for Azure Infra
+## Terraform providers for Azure infrastructure
 
-There are several Terraform providers that enable the management of Azure infrastructure including:
+There are several Terraform providers that enable the management of Azure infrastructure:
 
 - [AzureRM](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs): Manage stable Azure resources and functionality such as virtual machines, storage accounts, networking interfaces, MySql server, App Service, and Azure Functions.
 - [AzureAD](https://registry.terraform.io/providers/hashicorp/azuread/latest/docs): Manage Azure Active directory resources such as groups, users, service principals, and applications.
