@@ -9,13 +9,11 @@ adobe-target: trues
 
 # Overview of the Terraform AzAPI (generic) provider
 
-The AzAPI provider is a very thin layer on top of the [Azure ARM REST APIs](/rest/api/resources/). This means that you can use it to manage any Azure resource type using any API version. This provider is intended to complement the AzureRM provider by enabling the management of new Azure resources and properties as soon as they are released, even in private preview.
-
-In order to allow you to manage all Azure resources and features with this provider without requiring updates, this provider includes the following generic resources:
+The AzAPI provider is a thin layer on top of the [Azure ARM REST APIs](/rest/api/resources/). The AzAPI provider enables you to manage any Azure resource type using any API version. This provider complements the AzureRM provider by enabling the management of new Azure resources and properties upon release (including preview).
 
 ## Resources
 
-In order to allow you to manage all Azure resources and features with this provider without requiring updates, this provider includes the following generic resources:
+To allow you to manage all Azure resources and features without requiring updates, the AzApi provider includes the following generic resources:
 
 | Resource Name | Description |
 | ------------- | ----------- |
