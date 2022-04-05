@@ -1,0 +1,23 @@
+### YamlMime:Landing
+
+title: Java on Azure containerization documentation
+summary: Recommended strategies for containerizing your Java applications for deployment to Azure.
+
+metadata:
+  title: Java on Azure containerization documentation
+  description: Recommended strategies for containerizing your Java applications for deployment to Azure.
+  ms.author: manriem
+  ms.date: 04/06/2022
+  ms.topic: landing-page
+
+landingContent:
+  - title: Containerize your Java applications
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Overview
+            url: containers-overview.md
+          - text: Establishing a baseline
+            url: containers-baseline.md
+          - text: Containerizing for Azure Kubernetes Service
+            url: containers-aks.md
