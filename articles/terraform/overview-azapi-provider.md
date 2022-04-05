@@ -156,5 +156,7 @@ AzAPI2AzureRM ensures after migration that your Terraform configuration and stat
 
 <!-- TODO: azapi_resource Quickstart -->
 <!-- TODO: azapi_update_resource Quickstart -->
-> [!div class="nextstepaction"] 
-> [Learn more about using Terraform in Azure](/azure/terraform)
+
+Based on your environment, install and configure Terraform:
+
+[!INCLUDE [configure-terraform.md](includes/configure-terraform.md)]
