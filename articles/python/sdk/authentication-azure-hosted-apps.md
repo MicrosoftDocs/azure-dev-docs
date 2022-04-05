@@ -88,8 +88,9 @@ az role assignment create --assignee "{managedIdentityId}" \
 To get the role names that a service principal can be assigned to, use the [az role definition list](/cli/azure/role/definition#az-role-definition-list) command.
 
 ```azurecli
-az role definition list --query "sort_by([].{roleName:roleName, description:description}, &roleName)" --output table
-
+az role definition list \
+    --query "sort_by([].{roleName:roleName, description:description}, &roleName)" \
+    --output table
 ```
 
 For example, to allow the managed identity with the ID of `99999999-9999-9999-9999-999999999999` read, write, and delete access to Azure Storage blob containers and data to all storage accounts in the *msdocs-python-sdk-auth-example* resource group, you would assign the application service principal to the *Storage Blob Data Contributor* role using the following command.
@@ -127,7 +128,7 @@ from azure.identity import DefaultAzureCredential
 from azure.storage.blob import BlobServiceClient
 
 # Acquire a credential object
-credential = DefaultAzureCredential()
+token_credential = DefaultAzureCredential()
 
 blob_service_client = BlobServiceClient(
         account_url="https://<my_account_name>.blob.core.windows.net",
