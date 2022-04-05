@@ -27,7 +27,7 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps.
 | [!INCLUDE [Create app registration step 3](<./includes/on-premises-app-registration-azure-portal-3.md>)] | :::image type="content" source="./media/on-premises-app-registration-azure-portal-3-240px.png" lightbox="./media/on-premises-app-registration-azure-portal-3.png" alt-text="A screenshot showing how to fill out the Register an application page by giving the app a name and specifying supported account types as accounts in this organizational directory only." ::: |
 | [!INCLUDE [Create app registration step 4](<./includes/on-premises-app-registration-azure-portal-4.md>)] | :::image type="content" source="./media/on-premises-app-registration-azure-portal-4-240px.png" lightbox="./media/on-premises-app-registration-azure-portal-4.png" alt-text="A screenshot of the App registration page after the app registration has been completed.  This screenshot shows the location of the application ID and tenant ID which will be needed in a future step.  It also shows the location of the link to use to add an application secret for the app." ::: |
 | [!INCLUDE [Create app registration step 5](<./includes/on-premises-app-registration-azure-portal-5.md>)] | :::image type="content" source="./media/on-premises-app-registration-azure-portal-5-240px.png" lightbox="./media/on-premises-app-registration-azure-portal-5.png" alt-text="A screenshot showing the location of the link to use to create a new client secret on the certificates and secrets page." ::: |
-| [!INCLUDE [Create app registration step 6](<./includes/on-premises-app-registration-azure-portal-6.md>)] | :::image type="content" source="./media/on-premises-app-registration-azure-portal-6-240px.png" lightbox="./media/on-premises-app-registration-azure-portal-6.png" alt-text="A screenshot showing the page where a new client secret is added for the application service principal create by the app registration process." ::: |
+| [!INCLUDE [Create app registration step 6](<./includes/on-premises-app-registration-azure-portal-6.md>)] | :::image type="content" source="./media/on-premises-app-registration-azure-portal-6-240px.png" lightbox="./media/on-premises-app-registration-azure-portal-6.png" alt-text="A screenshot showing the page where a new client secret is added for the application service principal created by the app registration process." ::: |
 | [!INCLUDE [Create app registration step 7](<./includes/on-premises-app-registration-azure-portal-7.md>)] | :::image type="content" source="./media/on-premises-app-registration-azure-portal-7-240px.png" lightbox="./media/on-premises-app-registration-azure-portal-7.png" alt-text="A screenshot showing the page with the generated client secret." ::: |
 
 ### [Azure CLI](#tab/azure-cli)
@@ -51,14 +51,49 @@ The output of the command will be similar to the following.  Make note of these 
 
 ## 2 - Assign roles to the application service principal
 
+Next, you need to determine what roles (permissions) your app needs on what resources and assign those roles to your app. Roles can be assigned a role at a resource, resource group, or subscription scope.  This example will show how to assign roles for the service principal at the resource group scope since most applications group all their Azure resources into a single resource group.
+
 ### [Azure portal](#tab/azure-portal)
 
+| Instructions    | Screenshot |
+|:----------------|-----------:|
+| [!INCLUDE [Assign service principal to role step 1](<./includes/assign-service-principal-to-role-azure-portal-1.md>)] | :::image type="content" source="./media/assign-service-principal-to-role-azure-portal-1-240px.png" lightbox="./media/assign-local-service-principal-role-azure-portal-1.png" alt-text="A screenshot showing how to use the top search box in the Azure portal to locate and navigate to the resource group you want to assign roles (permissions) to." ::: |
+| [!INCLUDE [Assign service principal to role step 2](<./includes/assign-service-principal-to-role-azure-portal-2.md>)] | :::image type="content" source="./media/assign-service-principal-to-role-azure-portal-2-240px.png" lightbox="./media/assign-local-service-principal-role-azure-portal-2.png" alt-text="A screenshot of the resource group page showing the location of the Access control (IAM) menu item." ::: |
+| [!INCLUDE [Assign service principal to role step 3](<./includes/assign-service-principal-to-role-azure-portal-3.md>)] | :::image type="content" source="./media/assign-service-principal-to-role-azure-portal-3-240px.png" lightbox="./media/assign-local-service-principal-role-azure-portal-3.png" alt-text="A screenshot showing how to navigate to the role assignments tab and the location of the button used to add role assignments to a resource group." ::: |
+| [!INCLUDE [Assign service principal to role step 4](<./includes/assign-service-principal-to-role-azure-portal-4.md>)] | :::image type="content" source="./media/assign-service-principal-to-role-azure-portal-4-240px.png" lightbox="./media/assign-local-service-principal-role-azure-portal-4.png" alt-text="A screenshot showing how to filter and select role assignments to be added to the resource group." ::: |
+| [!INCLUDE [Assign service principal to role step 5](<./includes/assign-service-principal-to-role-azure-portal-5.md>)] | :::image type="content" source="./media/assign-service-principal-to-role-azure-portal-5-240px.png" lightbox="./media/assign-local-service-principal-role-azure-portal-5.png" alt-text="A screenshot showing the radio button to select to assign a role to an Azure AD group and the link used to select the group to assign the role to." ::: |
+| [!INCLUDE [Assign service principal to role step 6](<./includes/assign-service-principal-to-role-azure-portal-6.md>)] | :::image type="content" source="./media/assign-service-principal-to-role-azure-portal-6-240px.png" lightbox="./media/assign-local-service-principal-role-azure-portal-6.png" alt-text="A screenshot showing how to filter for and select the Azure AD group for the application in the Select members dialog box." ::: |
+| [!INCLUDE [Assign service principal to role step 7](<./includes/assign-service-principal-to-role-azure-portal-7.md>)] | :::image type="content" source="./media/assign-service-principal-to-role-azure-portal-7-240px.png" lightbox="./media/assign-local-service-principal-role-azure-portal-7.png" alt-text="A screenshot showing the completed Add role assignment page and the location of the Review + assign button used to complete the process." ::: |
 
 ### [Azure CLI](#tab/azure-cli)
 
+A service principal is assigned a role in Azure using the [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) command.
+
+```azurecli
+az role assignment create --assignee "{appId}" \
+    --role "{roleName}" \
+    --resource-group "{resourceGroupName}"
+```
+
+To get the role names that a service principal can be assigned to, use the [az role definition list](/cli/azure/role/definition#az-role-definition-list) command.
+
+```azurecli
+az role definition list \
+    --query "sort_by([].{roleName:roleName, description:description}, &roleName)" \
+    --output table
+```
+
+For example, to allow the service principal with the appId of `00000000-0000-0000-0000-000000000000` read, write, and delete access to Azure Storage blob containers and data to all storage accounts in the *msdocs-python-sdk-auth-example* resource group, you would assign the application service principal to the *Storage Blob Data Contributor* role using the following command.
+
+```azurecli
+az role assignment create --assignee "00000000-0000-0000-0000-000000000000" \
+    --role "Storage Blob Data Contributor" \
+    --resource-group "msdocs-python-sdk-auth-example"
+```
+
+For information on assigning permissions at the resource or subscription level using the Azure CLI, see the article [Assign Azure roles using the Azure CLI](/azure/role-based-access-control/role-assignments-cli).
 
 ---
-
 
 ## 3 - Configure environment variables for application
 

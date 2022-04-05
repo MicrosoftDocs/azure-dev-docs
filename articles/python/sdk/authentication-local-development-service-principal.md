@@ -129,7 +129,7 @@ Next, you need to determine what roles (permissions) your app needs on what reso
 
 ### [Azure CLI](#tab/azure-cli)
 
-An application service principal is assigned a role in Azure using the [az role assignment create] command.
+An application service principal is assigned a role in Azure using the [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) command.
 
 ```azurecli
 az role assignment create --assignee "{appId}" \
