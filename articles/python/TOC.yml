@@ -107,7 +107,7 @@
     - name: Deploy machine learning models
       href: quickstarts-machine-learning.md
 
-- name: Use the Azure libraries (SDK)
+- name: Azure SDK for Python
   items:
     - name: Overview
       href: azure-sdk-overview.md
