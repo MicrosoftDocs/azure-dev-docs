@@ -256,4 +256,4 @@ For help with getting started with your own Spring Boot applications, see the **
 
 <!-- IMG List -->
 
-[configure-azure-spring-boot-starters-with-initializr]: media/spring-boot-starters-for-azure/configure-azure-spring-boot-starters-with-initializr.png
+[configure-azure-spring-boot-starters-with-initializr]: media/spring-initializer/2.5.11/mvn-java8.png
