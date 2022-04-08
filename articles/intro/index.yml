@@ -1,0 +1,36 @@
+### YamlMime:Landing
+
+# On-page H1/lede
+title: Introduction to Azure for Developers
+summary: |
+  Learn how you can build applications using Azure.
+
+# Search & metrics meta
+metadata:
+  title: Introduction to Azure for Developers
+  description: Learn how you can build applications using Azure.
+  author: DavidCBerry13
+  ms.author: daberry
+  ms.date: 04/08/2022
+  ms.topic: landing-page
+  ms.technology: azure
+  ms.prod: azure
+landingContent:
+  - title: Introduction to Azure for Developers
+    linkLists:
+      - linkListType: get-started
+        links:
+          - text: Azure for developers overview
+            url: /azure/developer/intro/azure-developer-overview
+          - text: Key Azure services for developers
+            url: /azure/developer/intro/azure-developer-key-services
+          - text: Hosting applications on Azure
+            url: /azure/developer/intro/hosting-apps-on-azure
+          - text: Connecting apps to Azure services
+            url: /azure/developer/intro/connect-to-azure-services
+          - text: Create Azure resources
+            url: /azure/developer/intro/azure-developer-create-resources
+          - text: Key concepts for building Azure apps
+            url: /azure/developer/intro/azure-developer-key-concepts
+          - text: Azure billing
+            url: /azure/developer/intro/azure-developer-billing
