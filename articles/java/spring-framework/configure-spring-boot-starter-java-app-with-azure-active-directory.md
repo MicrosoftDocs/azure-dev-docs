@@ -43,7 +43,7 @@ The following prerequisites are required to complete the steps in this article:
 1. Add **Dependencies** for **Spring Web**, **Azure Active Directory**, and **OAuth2 Client**.
 1. At the bottom of the page, select the **GENERATE** button.
 
-   :::image type="content" source="media/spring-initializer/2.5.10/mvn-java8-aad-oauth2-web.png" alt-text="Screenshot of Spring Initializr with basic options.":::
+   :::image type="content" source="media/spring-initializer/2.5.11/mvn-java8-aad-oauth2-web.png" alt-text="Screenshot of Spring Initializr with basic options.":::
 
 1. When prompted, download the project to a path on your local computer.
 

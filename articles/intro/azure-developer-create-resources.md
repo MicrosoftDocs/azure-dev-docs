@@ -214,10 +214,13 @@ resource "azurerm_app_service" "main" {
 
 ## Azure SDK and REST APIs
 
-Azure resources can also be created programmatically from code.  This allows you to write applications that dynamically provision Azure resources in response to user requests.  The Azure SDK provides resource management packages in .NET, Java, JavaScript and Python that allow Azure resources to be created and managed directly in code.  Alternatively, the Azure REST API allows Azure resources to be managed through HTTP requests to a RESTful endpoint.
+Azure resources can also be created programmatically from code.  This allows you to write applications that dynamically provision Azure resources in response to user requests.  The Azure SDK provides resource management packages in .NET, Go, Java, JavaScript and Python that allow Azure resources to be created and managed directly in code.  Alternatively, the Azure REST API allows Azure resources to be managed through HTTP requests to a RESTful endpoint.
 
 > [!div class="nextstepaction"]
 > [Using the Azure SDK for .NET](/dotnet/azure/sdk/resource-management)
+
+> [!div class="nextstepaction"]
+> [Using the Azure SDK for Go](/azure/developer/go/management-libraries)
 
 > [!div class="nextstepaction"]
 > [Using the Azure SDK for Java](/azure/developer/java/sdk/overview)

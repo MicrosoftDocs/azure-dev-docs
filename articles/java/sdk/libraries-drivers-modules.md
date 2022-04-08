@@ -82,11 +82,11 @@ Microsoft’s goal is to empower every developer to achieve more, and our commit
 [Reference]: https://docs.spring.io/spring-data/data-redis/docs/current/reference/html/#redis:requirements
 [Spring AMQP]: https://spring.io/projects/spring-amqp
 [Spring for Apache Kafka]: https://spring.io/projects/spring-kafka
-[Spring Cloud Stream Binder for Event Hubs]: https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/spring/azure-spring-cloud-stream-binder-eventhubs
-[Azure AD Spring Boot Starter]: https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/spring/azure-spring-boot-starter-active-directory
-[Azure AD B2C Spring Boot Starter]: https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/spring/azure-spring-boot-starter-active-directory-b2c
-[Key Vault Secrets Spring Boot Starter]: https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/spring/azure-spring-boot-starter-keyvault-secrets
-[Key Vault Certificates Spring Boot Starter]: https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/spring/azure-spring-boot-starter-keyvault-certificates
+[Spring Cloud Stream Binder for Event Hubs]: https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/spring/spring-cloud-azure-stream-binder-eventhubs
+[Azure AD Spring Boot Starter]: https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/spring/spring-cloud-azure-starter-active-directory
+[Azure AD B2C Spring Boot Starter]: https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/spring/spring-cloud-azure-starter-active-directory-b2c
+[Key Vault Secrets Spring Boot Starter]: https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/spring/spring-cloud-azure-starter-keyvault-secrets
+[Key Vault Certificates Spring Boot Starter]: https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/spring/spring-cloud-azure-starter-keyvault-certificates
 [JDBC SQL]: ../spring-framework/configure-spring-data-jdbc-with-azure-sql-server.md
 [JPA SQL]: ../spring-framework/configure-spring-data-jpa-with-azure-sql-server.md
 [R2DBC SQL]: ../spring-framework/configure-spring-data-r2dbc-with-azure-sql-server.md
