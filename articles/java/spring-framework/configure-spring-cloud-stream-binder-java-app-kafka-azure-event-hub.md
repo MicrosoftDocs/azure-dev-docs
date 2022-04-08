@@ -114,7 +114,7 @@ After your namespace is deployed, you can create an event hub in the namespace.
    <dependency>
      <groupId>org.springframework.cloud</groupId>
      <artifactId>spring-cloud-starter-stream-kafka</artifactId>
-     <version>{version}</version><!--Need to be set, for example:3.2.1-->
+     <version>{version}</version><!--Need to be set, for example:3.1.6-->
    </dependency>
    ```
 
