@@ -25,9 +25,7 @@ When you're containerizing a Java workload for a new application, you have to ta
 
 ### JVM default ergonomics
 
-Applications need a starting point and settings. The JVM has default ergonomics with pre-defined values based on number of available processors and amount of memory in the system. The default ergonomics are used when the JVM is started without specific startup flags or parameters.
-
-When there are no JVM parameters specified, the default values shown in the following tables are applied.
+Applications need a starting point and settings. The JVM has default ergonomics with pre-defined values based on number of available processors and amount of memory in the system. The default values shown in the following tables are used when the JVM is started without specific startup flags or parameters.
 
 **Default Garbage Collector**
 
