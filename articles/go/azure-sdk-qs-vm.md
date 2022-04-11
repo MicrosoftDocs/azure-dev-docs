@@ -14,7 +14,7 @@ At the end of this quickstart, you have a running VM that you log into with a us
 
 > [!NOTE]
 > To see the creation of a VM in Go without the use of a Resource Manager template, there
-> is an [imperative sample](https://github.com/Azure-Samples/azure-sdk-for-go-samples/blob/master/compute/vm.go)
+> is an [imperative sample](https://github.com/Azure-Samples/azure-sdk-for-go-samples/blob/main/services/compute/vm.go)
 > demonstrating how to build and configure all VM resources with the SDK. Using a template in this sample
 > allows a focus on SDK conventions without getting into too many details about Azure service architecture.
 
@@ -33,7 +33,9 @@ If you use a local install of the Azure CLI, this quickstart requires CLI versio
 To sign in non-interactively to Azure with an application, you need a service principal. Service principals are part of role-based access control (RBAC), which creates a unique user identity. To create a new service principal with the CLI, run the following command:
 
 ```azurecli-interactive
-az ad sp create-for-rbac --role Contributor --sdk-auth > quickstart.auth
+az ad sp create-for-rbac --role Contributor \
+    --scopes /subscriptions/<subscription_id> \
+    --sdk-auth > quickstart.auth
 ```
 
 Set the environment variable `AZURE_AUTH_LOCATION` to be the full path to this file. Then the SDK locates and reads the credentials directly from this file, without you having to make any changes or record information from the service principal.
@@ -302,6 +304,6 @@ The value for the VM user is also loaded from the JSON. The VM password was load
 
 In this quickstart, you took an existing template and deployed it through Go. Then you connected to the newly created VM via SSH.
 
-To continue learning about working with virtual machines in the Azure environment with Go, take a look at the [Azure compute samples for Go](https://github.com/Azure-Samples/azure-sdk-for-go-samples/tree/master/compute) or [Azure resource management samples for Go](https://github.com/Azure-Samples/azure-sdk-for-go-samples/tree/master/resources).
+To continue learning about working with virtual machines in the Azure environment with Go, take a look at the [Azure compute samples for Go](https://github.com/Azure-Samples/azure-sdk-for-go-samples/tree/main/services/compute) or [Azure resource management samples for Go](https://github.com/Azure-Samples/azure-sdk-for-go-samples/tree/main/services/resources).
 
 To learn more about the available authentication methods in the SDK, and which authentication types they support, see [Authentication with the Azure SDK for Go](azure-sdk-authorization.md).

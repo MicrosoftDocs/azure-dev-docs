@@ -84,7 +84,7 @@ For Azure Web apps, use the following table to learn more about how to stream lo
 
 |Method|Description|
 |--|--|
-|Azure CLI|[az webapp log tail](/cli/azure/webapp/log#az_webapp_log_tail)|
+|Azure CLI|[az webapp log tail](/cli/azure/webapp/log#az-webapp-log-tail)|
 |[VSCode App service extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice)|Right-click on resource and select **Start streaming logs**|
 
 ## View Function log streaming
@@ -93,7 +93,7 @@ For Azure Function apps, use the following table to learn more about how to stre
 
 |Method|Description|
 |--|--|
-|Azure CLI|[az webapp log tail --resource-group <RESOURCE_GROUP_NAME> --name <FUNCTION_APP_NAME>](/cli/azure/webapp/log#az_webapp_log_tail)|
+|Azure CLI|[az webapp log tail --resource-group <RESOURCE_GROUP_NAME> --name <FUNCTION_APP_NAME>](/cli/azure/webapp/log#az-webapp-log-tail)|
 |[VSCode Functions service extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions)|Right-click on resource and select **Start streaming logs**|
 
 ## Next steps

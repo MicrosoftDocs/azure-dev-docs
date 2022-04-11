@@ -96,7 +96,7 @@ Fork the repository, instead of just cloning it to your local computer, in order
 
 ## 4. Create your resource group
 
-At a terminal or bash shell, enter the [Azure CLI command to create an Azure resource group](/cli/azure/group#az_group_create), with the name `rg-demo`:
+At a terminal or bash shell, enter the [Azure CLI command to create an Azure resource group](/cli/azure/group#az-group-create), with the name `rg-demo`:
 
 ```azurecli
 az group create \
@@ -131,7 +131,7 @@ Use the following table to help [create the resource within the Azure portal](ht
 
 ## 7. Create an additional Computer Vision resource
 
-Run the following command to [create a Computer Vision resource](/cli/azure/cognitiveservices/account#az_cognitiveservices_account_create):
+Run the following command to [create a Computer Vision resource](/cli/azure/cognitiveservices/account#az-cognitiveservices-account-create):
 
 
 ```azurecli
@@ -158,7 +158,7 @@ az cognitiveservices account create \
     ...
     ```
 
-1. Run the following [command](/cli/azure/cognitiveservices/account/keys#az_cognitiveservices_account_keys_list) to get your keys. 
+1. Run the following [command](/cli/azure/cognitiveservices/account/keys#az-cognitiveservices-account-keys-list) to get your keys. 
 
     ```azurecli
     az cognitiveservices account keys list \

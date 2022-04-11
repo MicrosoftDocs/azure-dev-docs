@@ -75,13 +75,13 @@ For more information on Azure Container Instances, see [About Azure Container In
 
 ## Create Azure Container Instance with CLI
 
-1. Use [az group create](/cli/azure/group?#az_group_create) to create an Azure resource group.
+1. Use [az group create](/cli/azure/group?#az-group-create) to create an Azure resource group.
 
       ```azurecli
       az group create --name my-resourcegroup --location westus
       ```
 
-1. Use [az container create](/cli/azure/container#az_container_create) to create and Azure Container Instance. Replace the placeholders with the values obtained when you created the work agent.
+1. Use [az container create](/cli/azure/container#az-container-create) to create and Azure Container Instance. Replace the placeholders with the values obtained when you created the work agent.
 
     ```azurecli
     az container create \

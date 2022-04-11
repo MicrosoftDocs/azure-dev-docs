@@ -7,7 +7,7 @@ ms.date: 02/04/2021
 
 ## Create an Azure Database for MySQL resource with Azure CLI
 
-Use the following Azure CLI [az mysql server create](/cli/azure/mysql/server#az_mysql_server_create) command in the [Azure Cloud Shell](https://shell.azure.com) to create a new MySQL resource for your database. 
+Use the following Azure CLI [az mysql server create](/cli/azure/mysql/server#az-mysql-server-create) command in the [Azure Cloud Shell](https://shell.azure.com) to create a new MySQL resource for your database. 
 
 ```azurecli
 az mysql server create \
@@ -93,7 +93,7 @@ While you can add the full range of internet addresses as a firewall rule, 0.0.0
 
 ## Create a database on the server with Azure CLI
 
-Use the following Azure CLI [az mysql db create](/cli/azure/mysql/db#az_mysql_db_create) command in the [Azure Cloud Shell](https://shell.azure.com) to create a new MySQL database on your server. 
+Use the following Azure CLI [az mysql db create](/cli/azure/mysql/db#az-mysql-db-create) command in the [Azure Cloud Shell](https://shell.azure.com) to create a new MySQL database on your server. 
 
 ```azurecli
 az mysql db create \
@@ -106,7 +106,7 @@ az mysql db create \
 
 ## Get the MySql connection string with Azure CLI
 
-Retrieve the MySql connection string for this instance with the [az mysql server show-connection-string](/cli/azure/mysql/server#az_mysql_server_show_connection_string) command:
+Retrieve the MySql connection string for this instance with the [az mysql server show-connection-string](/cli/azure/mysql/server#az-mysql-server-show-connection-string) command:
 
 ```azurecli
 az mysql server show-connection-string \

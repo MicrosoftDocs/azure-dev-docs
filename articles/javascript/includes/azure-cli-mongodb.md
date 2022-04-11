@@ -7,7 +7,7 @@ ms.date: 02/08/2021
 
 ## Create a Cosmos DB resource for MongoDB with Azure CLI
 
-Use the following Azure CLI [az cosmosdb create](/cli/azure/cosmosdb#az_cosmosdb_create) command in the [Azure Cloud Shell](https://shell.azure.com) to create a new Cosmos DB resource for a mongoDB database. 
+Use the following Azure CLI [az cosmosdb create](/cli/azure/cosmosdb#az-cosmosdb-create) command in the [Azure Cloud Shell](https://shell.azure.com) to create a new Cosmos DB resource for a mongoDB database. 
 
 ```azurecli
 az cosmosdb create \
@@ -114,7 +114,7 @@ This command may take a couple of minutes to complete and creates a publicly ava
 
 By default, the firewall rules are not configured. You should add your client IP address so your client connection to the server with JavaScript is successful.
 
-Use the [az cosmosdb update](/cli/azure/cosmosdb#az_cosmosdb_update) command to update the firewall rules.
+Use the [az cosmosdb update](/cli/azure/cosmosdb#az-cosmosdb-update) command to update the firewall rules.
 
 ```azurecli
 az cosmosdb update \
@@ -138,7 +138,7 @@ az cosmosdb update \
 
 ## Get the MongoDB connection string for your resource with Azure CLI
 
-Retrieve the MongoDB connection string for this instance with the [az cosmosdb keys list](/cli/azure/cosmosdb/keys#az_cosmosdb_keys_list) command:
+Retrieve the MongoDB connection string for this instance with the [az cosmosdb keys list](/cli/azure/cosmosdb/keys#az-cosmosdb-keys-list) command:
 
 ```azurecli
 az cosmosdb keys list \
@@ -159,7 +159,7 @@ Connect to the mongoDB database with a connection string. Make sure your service
 
 ## Configure your Azure web app with the connection string with Azure CLI
 
-Add an Azure web app **MONGODB_URL** environment variable with the [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_set) so the web app connects to the Cosmos DB resource:
+Add an Azure web app **MONGODB_URL** environment variable with the [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#az-webapp-config-appsettings-set) so the web app connects to the Cosmos DB resource:
 
 ```azurecli
 az webapp config appsettings set \

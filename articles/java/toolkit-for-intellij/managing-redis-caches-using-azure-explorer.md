@@ -32,7 +32,7 @@ The following steps walk you through the steps to create a Redis cache using the
 
       * **Subscription**: Specifies the Azure subscription you want to use for the new Redis cache.
 
-      * **Resource Group**: Specifies the resource group for your storage account. Select one of the following options:
+      * **Resource Group**: Specifies the resource group for your redis cache. Select one of the following options:
 
          * **Create new**: Specifies that you want to create a new resource group by clicking **+** to finish.
 
