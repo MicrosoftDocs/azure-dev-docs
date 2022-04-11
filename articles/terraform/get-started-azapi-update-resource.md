@@ -43,7 +43,7 @@ In this article, you learn how to use the [AzAPI Terraform provider](https://reg
 
 1. Create a file named `providers.tf` and insert the following code:
 
-    [!code-terraform[master](../../terraform_samples/quickstart/101-azapi-eventhub-network-rules/provider.tf)]
+    [!code-terraform[master](../../terraform_samples/quickstart/101-azapi-eventhub-network-rules/providers.tf)]
 
 1. Create a file named `main.tf` and insert the following code:
 
@@ -106,4 +106,3 @@ Get-AzEventHubNetworkRuleSet -ResourceGroupName <resource_group_name> -Namespace
 
 > [!div class="nextstepaction"]
 > [Learn more about using Terraform in Azure](/azure/terraform)
-
