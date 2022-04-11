@@ -3,7 +3,7 @@ title: Deploy your first Azure resource with the AzAPI Terraform provider
 description: Learn how to use the AzAPI Terraform provider to manage an Azure Lab Service
 keywords: azure devops terraform lab azapi resource
 ms.topic: how-to
-ms.date: 04/07/2022
+ms.date: 04/11/2022
 ms.custom: devx-track-terraform
 author: grayzu
 ms.author: markgray
@@ -19,14 +19,14 @@ Article tested with the following Terraform and Terraform provider versions:
 
 [Learn more about using Terraform in Azure](/azure/terraform)
 
-In this article, you learn how to use the [AzAPI Terraform provider](https://registry.terraform.io/providers/azure/azapi/latest/docs) to manage an Azure service that is not currently supported by the [AzureRM provider](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs). The azapi_resource will be used to manage an [Azure Lab Services](https://azure.microsoft.com/en-us/services/lab-services/#overview) account as well as a lab. 
+In this article, you learn how to use the [AzAPI Terraform provider](https://registry.terraform.io/providers/azure/azapi/latest/docs) to manage an Azure service that is not currently supported by the [AzureRM provider](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs). The `azapi_resource` will be used to manage an [Azure Lab Services](https://azure.microsoft.com/en-us/services/lab-services/#overview) account as well as a lab.
 
 > [!div class="checklist"]
 
 > * Define and configure the AzureRM and AzAPI providers.
 > * Use the AzureRM provider to create an Azure resource group
 > * Use the AzureRM provider to register the "Microsoft.LabServices" provider in your subscription
-> * Use the AzAPI provider to create the Azure Lab Services resources 
+> * Use the AzAPI provider to create the Azure Lab Services resources
 
 
 > [!NOTE]
@@ -44,16 +44,16 @@ In this article, you learn how to use the [AzAPI Terraform provider](https://reg
 
 1. Create a file named `providers.tf` and insert the following code:
 
-    [!code-terraform[master](provider.tf)]
+    [!code-terraform[master](../../terraform_samples/quickstart/101-azapi-lab-services/provider.tf)]
 
 1. Create a file named `main.tf` and insert the following code:
 
-    [!code-terraform[master](main.tf)]
+    [!code-terraform[master](../../terraform_samples/quickstart/101-azapi-lab-services/main.tf)]
 
 
 1. Create a file named `main-generic.tf` and insert the following code:
 
-    [!code-terraform[master](main-generic.tf)]
+    [!code-terraform[master](../../terraform_samples/quickstart/101-azapi-lab-services/main-generic.tf)]
 
 ## 3. Initialize Terraform
 
@@ -69,8 +69,8 @@ In this article, you learn how to use the [AzAPI Terraform provider](https://reg
 
 ## 6. Verify the results
 
-1. In your Azure subscription browse to the "rg-qs101" resource group.
-1. You will see a new Lab Services account named "qs101LabAccount" ini this resource group.
+1. In your Azure subscription browse to the `rg-qs101` resource group.
+1. A new Lab Services account named `qs101LabAccount` displays as a member of the resource group.
 
 ## 7. Clean up resources
 
@@ -82,5 +82,5 @@ In this article, you learn how to use the [AzAPI Terraform provider](https://reg
 
 ## Next steps
 
-> [!div class="nextstepaction"] 
+> [!div class="nextstepaction"]
 > [Learn more about using Terraform in Azure](/azure/terraform)
