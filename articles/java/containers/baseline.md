@@ -1,5 +1,5 @@
 ---
-title: Establishing a baseline for containerized Java applications
+title: Establish a baseline for containerized Java applications
 description: This guide describes how to establish a baseline for containerized Java applications
 ms.author: manriem
 ms.topic: conceptual
@@ -8,7 +8,7 @@ ms.custom: devx-track-java
 recommendations: false
 ---
 
-# Establishing a baseline
+# Establish a baseline for containerized Java applications
 
 This article describes how to establish a baseline for containerized Java applications.
 
@@ -28,4 +28,4 @@ For information on setting up Application Insights, see [Azure Monitor OpenTelem
 
 Now that you've configured Azure Application Insights for your application, the next step is to review the recommendations for the target platform.
 
-* [Azure Kubernetes Service](containers-aks.md)
+* [Containerize your Java applications for Azure Kubernetes Service](aks.md)

@@ -1,8 +1,8 @@
 - name: Java on Containers documentation
   items:
     - name: Overview
-      href: containers-overview.md
-    - name: Establishing a baseline
-      href: containers-baseline.md
-    - name: Containerizing for Azure Kubernetes Service
-      href: containers-aks.md
+      href: overview.md
+    - name: Establish a baseline
+      href: baseline.md
+    - name: Containerize for Azure Kubernetes Service
+      href: aks.md

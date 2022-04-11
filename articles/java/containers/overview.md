@@ -1,5 +1,5 @@
 ---
-title: Containerizing your Java applications
+title: Containerize your Java applications
 description: This topic provides an overview of recommended strategies for containerizing your Java applications.
 ms.author: manriem
 ms.topic: conceptual
@@ -8,7 +8,7 @@ ms.custom: devx-track-java
 recommendations: false
 ---
 
-# Containerizing your Java applications
+# Containerize your Java applications
 
 This article provides an overview of recommended strategies and settings for containerizing Java applications.
 
@@ -107,4 +107,4 @@ If the vCPU cores and/or container memory combination isn't available, then pick
 
 ## Next steps
 
-[Establishing a baseline](containers-baseline.md)
+[Establish a baseline for containerized Java applications](baseline.md)

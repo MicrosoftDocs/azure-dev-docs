@@ -16,8 +16,8 @@ landingContent:
       - linkListType: concept
         links:
           - text: Overview
-            url: containers-overview.md
-          - text: Establishing a baseline
-            url: containers-baseline.md
-          - text: Containerizing for Azure Kubernetes Service
-            url: containers-aks.md
+            url: overview.md
+          - text: Establish a baseline
+            url: baseline.md
+          - text: Containerize for Azure Kubernetes Service
+            url: aks.md

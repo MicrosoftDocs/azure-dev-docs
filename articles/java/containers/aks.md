@@ -1,5 +1,5 @@
 ---
-title: Containerizing your Java applications for Azure Kubernetes Service
+title: Containerize your Java applications for Azure Kubernetes Service
 description: This guide describes how to containerize your Java applications on Azure Kubernetes Service
 ms.author: manriem
 ms.topic: conceptual
@@ -8,9 +8,9 @@ ms.custom: devx-track-java
 recommendations: false
 ---
 
-# Containerizing your Java applications for Azure Kubernetes Service
+# Containerize your Java applications for Azure Kubernetes Service
 
-If you haven't gone through [Containerizing your Java application](containers-overview.md) please start there as it will give you guidance for container memory, JVM heap memory, Garbage Collectors (GCs) and vCPU cores.
+If you haven't gone through [Containerize your Java applications](overview.md) please start there as it will give you guidance for container memory, JVM heap memory, Garbage Collectors (GCs) and vCPU cores.
 
 ## Determine appropriate VM SKU for AKS node pool
 
