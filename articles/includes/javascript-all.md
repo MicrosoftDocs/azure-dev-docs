@@ -241,7 +241,7 @@
 | @autorest/csharp-v3 | npm [3.0.0-beta.20201217.1](https://www.npmjs.com/package/@autorest/csharp-v3/v/3.0.0-beta.20201217.1) |  |  |
 | @autorest/extension-base | npm [3.4.4](https://www.npmjs.com/package/@autorest/extension-base/v/3.4.4) |  |  |
 | @autorest/fixer | npm [1.1.0](https://www.npmjs.com/package/@autorest/fixer/v/1.1.0) |  |  |
-| @autorest/gotest | npm [3.0.0](https://www.npmjs.com/package/@autorest/gotest/v/3.0.0) |  |  |
+| @autorest/gotest | npm [3.0.1](https://www.npmjs.com/package/@autorest/gotest/v/3.0.1) |  |  |
 | @autorest/schemas | npm [1.3.4](https://www.npmjs.com/package/@autorest/schemas/v/1.3.4) |  |  |
 | @autorest/testmodeler | npm [2.2.4](https://www.npmjs.com/package/@autorest/testmodeler/v/2.2.4) |  |  |
 | @autorest/test-utils | npm [0.5.1](https://www.npmjs.com/package/@autorest/test-utils/v/0.5.1) |  |  |
@@ -401,24 +401,24 @@
 | Identity Cache Persistence | npm [1.0.0](https://www.npmjs.com/package/@azure/identity-cache-persistence/v/1.0.0) | [docs](/javascript/api/overview/azure/identity-cache-persistence-readme) | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/identity-cache-persistence_1.0.0/sdk/identity/identity-cache-persistence/) |
 | Identity Visual Studio Code Credential | npm [1.0.0](https://www.npmjs.com/package/@azure/identity-vscode/v/1.0.0) | [docs](/javascript/api/overview/azure/identity-vscode-readme) | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/identity-vscode_1.0.0/sdk/identity/identity-vscode/) |
 | Image Search | npm [3.0.1](https://www.npmjs.com/package/@azure/cognitiveservices-imagesearch/v/3.0.1) |  | GitHub [3.0.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/cognitiveservices/cognitiveservices-imagesearch) |
-| IoT AMQP Base | npm [2.4.13](https://www.npmjs.com/package/azure-iot-amqp-base/v/2.4.13) |  | GitHub [2.4.13](https://github.com/Azure/azure-iot-sdk-node) |
-| IoT Common | npm [1.12.13](https://www.npmjs.com/package/azure-iot-common/v/1.12.13) |  | GitHub [1.12.13](https://github.com/Azure/azure-iot-sdk-node/tree/master/common) |
-| IoT Device | npm [1.17.8](https://www.npmjs.com/package/azure-iot-device/v/1.17.8) |  | GitHub [1.17.8](https://github.com/Azure/azure-iot-sdk-node/tree/master/device) |
-| IoT Device AMQP | npm [1.13.8](https://www.npmjs.com/package/azure-iot-device-amqp/v/1.13.8) |  | GitHub [1.13.8](https://github.com/Azure/azure-iot-sdk-node/tree/master/device/transport/amqp) |
-| IoT Device Http | npm [1.13.8](https://www.npmjs.com/package/azure-iot-device-http/v/1.13.8) |  | GitHub [1.13.8](https://github.com/Azure/azure-iot-sdk-node/tree/master/device/transport/http) |
-| IoT Device MQTT | npm [1.15.8](https://www.npmjs.com/package/azure-iot-device-mqtt/v/1.15.8) |  | GitHub [1.15.8](https://github.com/Azure/azure-iot-sdk-node/tree/master/device/transport/mqtt) |
+| IoT AMQP Base | npm [2.4.14](https://www.npmjs.com/package/azure-iot-amqp-base/v/2.4.14) |  | GitHub [2.4.14](https://github.com/Azure/azure-iot-sdk-node) |
+| IoT Common | npm [1.12.14](https://www.npmjs.com/package/azure-iot-common/v/1.12.14) |  | GitHub [1.12.14](https://github.com/Azure/azure-iot-sdk-node/tree/master/common) |
+| IoT Device | npm [1.17.9](https://www.npmjs.com/package/azure-iot-device/v/1.17.9) |  | GitHub [1.17.9](https://github.com/Azure/azure-iot-sdk-node/tree/master/device) |
+| IoT Device AMQP | npm [1.13.9](https://www.npmjs.com/package/azure-iot-device-amqp/v/1.13.9) |  | GitHub [1.13.9](https://github.com/Azure/azure-iot-sdk-node/tree/master/device/transport/amqp) |
+| IoT Device Http | npm [1.13.9](https://www.npmjs.com/package/azure-iot-device-http/v/1.13.9) |  | GitHub [1.13.9](https://github.com/Azure/azure-iot-sdk-node/tree/master/device/transport/http) |
+| IoT Device MQTT | npm [1.15.9](https://www.npmjs.com/package/azure-iot-device-mqtt/v/1.15.9) |  | GitHub [1.15.9](https://github.com/Azure/azure-iot-sdk-node/tree/master/device/transport/mqtt) |
 | IoT Device Update | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure/iot-device-update/v/1.0.0-beta.1) | [docs](/javascript/api/overview/azure/iot-device-update-readme) | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/iot-device-update_1.0.0-beta.1/sdk/deviceupdate/iot-device-update/) |
-| IoT Http Base | npm [1.11.13](https://www.npmjs.com/package/azure-iot-http-base/v/1.11.13) |  | GitHub [1.11.13](https://github.com/Azure/azure-iot-sdk-node) |
-| IoT Hub | npm [1.14.6](https://www.npmjs.com/package/azure-iothub/v/1.14.6) |  | GitHub [1.14.6](https://github.com/Azure/azure-iot-sdk-node) |
-| IoT MQTT Base | npm [1.12.13](https://www.npmjs.com/package/azure-iot-mqtt-base/v/1.12.13) |  | GitHub [1.12.13](https://github.com/Azure/azure-iot-sdk-node) |
-| IoT Provisioning Device | npm [1.8.12](https://www.npmjs.com/package/azure-iot-provisioning-device/v/1.8.12) |  | GitHub [1.8.12](https://github.com/Azure/azure-iot-sdk-node/tree/master/provisioning/device) |
-| IoT Provisioning Device AMQP | npm [1.8.12](https://www.npmjs.com/package/azure-iot-provisioning-device-amqp/v/1.8.12) |  | GitHub [1.8.12](https://github.com/Azure/azure-iot-sdk-node/tree/master/provisioning/transport/amqp) |
-| IoT Provisioning Device Http | npm [1.8.12](https://www.npmjs.com/package/azure-iot-provisioning-device-http/v/1.8.12) |  | GitHub [1.8.12](https://github.com/Azure/azure-iot-sdk-node/tree/master/provisioning/transport/http) |
-| IoT Provisioning Device MQTT | npm [1.7.12](https://www.npmjs.com/package/azure-iot-provisioning-device-mqtt/v/1.7.12) |  | GitHub [1.7.12](https://github.com/Azure/azure-iot-sdk-node/tree/master/provisioning/device) |
-| IoT Provisioning Service | npm [1.9.0](https://www.npmjs.com/package/azure-iot-provisioning-service/v/1.9.0) |  | GitHub [1.9.0](https://github.com/Azure/azure-iot-sdk-node/tree/master/provisioning/transport/mqtt) |
-| IoT Security Symmetric Key | npm [1.7.12](https://www.npmjs.com/package/azure-iot-security-symmetric-key/v/1.7.12) |  | GitHub [1.7.12](https://github.com/Azure/azure-iot-sdk-node/tree/master/security/symmetric) |
-| IoT Security TPM | npm [1.8.12](https://www.npmjs.com/package/azure-iot-security-tpm/v/1.8.12) |  | GitHub [1.8.12](https://github.com/Azure/azure-iot-sdk-node/tree/master/security/tpm) |
-| IoT Security X509 | npm [1.7.12](https://www.npmjs.com/package/azure-iot-security-x509/v/1.7.12) |  | GitHub [1.7.12](https://github.com/Azure/azure-iot-sdk-node/tree/master/security/x509) |
+| IoT Http Base | npm [1.11.14](https://www.npmjs.com/package/azure-iot-http-base/v/1.11.14) |  | GitHub [1.11.14](https://github.com/Azure/azure-iot-sdk-node) |
+| IoT Hub | npm [1.14.7](https://www.npmjs.com/package/azure-iothub/v/1.14.7) |  | GitHub [1.14.7](https://github.com/Azure/azure-iot-sdk-node) |
+| IoT MQTT Base | npm [1.12.14](https://www.npmjs.com/package/azure-iot-mqtt-base/v/1.12.14) |  | GitHub [1.12.14](https://github.com/Azure/azure-iot-sdk-node) |
+| IoT Provisioning Device | npm [1.8.13](https://www.npmjs.com/package/azure-iot-provisioning-device/v/1.8.13) |  | GitHub [1.8.13](https://github.com/Azure/azure-iot-sdk-node/tree/master/provisioning/device) |
+| IoT Provisioning Device AMQP | npm [1.8.13](https://www.npmjs.com/package/azure-iot-provisioning-device-amqp/v/1.8.13) |  | GitHub [1.8.13](https://github.com/Azure/azure-iot-sdk-node/tree/master/provisioning/transport/amqp) |
+| IoT Provisioning Device Http | npm [1.8.13](https://www.npmjs.com/package/azure-iot-provisioning-device-http/v/1.8.13) |  | GitHub [1.8.13](https://github.com/Azure/azure-iot-sdk-node/tree/master/provisioning/transport/http) |
+| IoT Provisioning Device MQTT | npm [1.7.13](https://www.npmjs.com/package/azure-iot-provisioning-device-mqtt/v/1.7.13) |  | GitHub [1.7.13](https://github.com/Azure/azure-iot-sdk-node/tree/master/provisioning/device) |
+| IoT Provisioning Service | npm [1.9.1](https://www.npmjs.com/package/azure-iot-provisioning-service/v/1.9.1) |  | GitHub [1.9.1](https://github.com/Azure/azure-iot-sdk-node/tree/master/provisioning/transport/mqtt) |
+| IoT Security Symmetric Key | npm [1.7.13](https://www.npmjs.com/package/azure-iot-security-symmetric-key/v/1.7.13) |  | GitHub [1.7.13](https://github.com/Azure/azure-iot-sdk-node/tree/master/security/symmetric) |
+| IoT Security TPM | npm [1.8.13](https://www.npmjs.com/package/azure-iot-security-tpm/v/1.8.13) |  | GitHub [1.8.13](https://github.com/Azure/azure-iot-sdk-node/tree/master/security/tpm) |
+| IoT Security X509 | npm [1.7.13](https://www.npmjs.com/package/azure-iot-security-x509/v/1.7.13) |  | GitHub [1.7.13](https://github.com/Azure/azure-iot-sdk-node/tree/master/security/x509) |
 | Key Vault | npm [3.0.5](https://www.npmjs.com/package/azure-keyvault/v/3.0.5) |  |  |
 | Keys | npm [4.4.0](https://www.npmjs.com/package/@azure/keyvault-keys/v/4.4.0) | [docs](/javascript/api/overview/azure/keyvault-keys-readme) | GitHub [4.4.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/keyvault-keys_4.4.0/sdk/keyvault/keyvault-keys/) |
 | Local Search | npm [2.0.1](https://www.npmjs.com/package/@azure/cognitiveservices-localsearch/v/2.0.1) |  | GitHub [2.0.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/cognitiveservices/cognitiveservices-localsearch) |

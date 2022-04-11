@@ -164,6 +164,7 @@
 | azure-mgmt-chaos | PyPI [1.0.0b2](https://pypi.org/project/azure-mgmt-chaos/1.0.0b2) |  |  |
 | azure-mgmt-confidentialledger | PyPI [1.0.0b1](https://pypi.org/project/azure-mgmt-confidentialledger/1.0.0b1) |  |  |
 | azure-mgmt-connectedvmware | PyPI [1.0.0b1](https://pypi.org/project/azure-mgmt-connectedvmware/1.0.0b1) |  |  |
+| azure-mgmt-dashboard | PyPI [1.0.0b1](https://pypi.org/project/azure-mgmt-dashboard/1.0.0b1) |  |  |
 | azure-mgmt-dataprotection | PyPI [1.0.0b1](https://pypi.org/project/azure-mgmt-dataprotection/1.0.0b1) |  |  |
 | azure-mgmt-desktopvirtualization | PyPI [1.0.0b1](https://pypi.org/project/azure-mgmt-desktopvirtualization/1.0.0b1) |  |  |
 | azure-mgmt-dnsresolver | PyPI [1.0.0b1](https://pypi.org/project/azure-mgmt-dnsresolver/1.0.0b1) |  |  |
