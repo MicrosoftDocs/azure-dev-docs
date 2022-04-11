@@ -1,5 +1,5 @@
 ---
-title: Overview of the Terraform AzAPI (generic) provider
+title: Overview of the Terraform AzAPI provider
 description: Get an overview of the AzAPI provider and when to use it.
 ms.topic: overview
 ms.date: 04/05/2022
@@ -7,7 +7,7 @@ ms.custom: devx-track-terraform
 adobe-target: trues
 ---
 
-# Overview of the Terraform AzAPI (generic) provider
+# Overview of the Terraform AzAPI provider
 
 The AzAPI provider is a thin layer on top of the [Azure ARM REST APIs](/rest/api/resources/). The AzAPI provider enables you to manage any Azure resource type using any API version. This provider complements the AzureRM provider by enabling the management of new Azure resources and properties (including private preview).
 

@@ -4,7 +4,7 @@
   items:
     - name: About Terraform on Azure
       href: overview.md
-    - name: Terraform AzAPI (generic) provider
+    - name: Terraform AzAPI provider
       href: overview-azapi-provider.md
     - name: Terraform Azure provider versions
       items:
