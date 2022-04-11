@@ -1,7 +1,7 @@
 ---
 title: "Tutorial: Read a secret from Azure Key Vault in a Spring Boot application"
 description: In this tutorial, you create a Spring Boot app that reads a value from Azure Key Vault, and you deploy the app to Azure App Service and Azure Spring Cloud.
-ms.date: 03/03/2022
+ms.date: 03/30/2022
 ms.service: key-vault
 ms.topic: tutorial
 ms.custom: devx-track-java, devx-track-azurecli
@@ -33,11 +33,14 @@ In this tutorial, you learn how to:
 [!INCLUDE [JDK](includes/prerequisites-java.md)]
 [!INCLUDE [Maven](includes/prerequisites-maven.md)]
 
+> [!IMPORTANT]
+> Spring Boot version 2.5 or 2.6 is required to complete the steps in this article.
+
 ## Create a new Azure Key Vault
 
 The following sections show you how to sign in to Azure and create an Azure Key Vault.
 
-### Sign into Azure and set your subscription
+### Sign in to Azure and set your subscription
 
 First, use the following steps to authenticate using the Azure CLI.
 
@@ -49,7 +52,7 @@ First, use the following steps to authenticate using the Azure CLI.
    rm ~/.azure/azureProfile.json
    ```
 
-1. Sign into your Azure account by using the Azure CLI:
+1. Sign in by using the Azure CLI:
 
    ```azurecli
    az login
@@ -69,7 +72,10 @@ First, use the following steps to authenticate using the Azure CLI.
    [
      {
        "cloudName": "AzureCloud",
+       "homeTenantId": "tttttttt-tttt-tttt-tttt-tttttttttttt",
        "id": "ssssssss-ssss-ssss-ssss-ssssssssssss",
+       "isDefault": false,
+       "managedByTenants": [],
        "name": "Converted Windows Azure MSDN - Visual Studio Ultimate",
        "state": "Enabled",
        "tenantId": "tttttttt-tttt-tttt-tttt-tttttttttttt",
@@ -94,16 +100,18 @@ Azure AD *service principals* provide access to Azure resources within your subs
 To create a service principal, use the following command.
 
 ```azurecli
-az ad sp create-for-rbac --name contososp --role Contributor
+az ad sp create-for-rbac --name contososp --role Contributor --scopes /subscriptions/mySubscriptionID
 ```
 
-The value of the `name` option must be unique within your subscription. Save aside the values returned from the command for use later in the tutorial. The return JSON will look similar to the following output:
+> [!NOTE]
+> The value of the `--name` option must be unique within the Azure subscription. If you see an error log similar to `Found an existing instance of "...", We will patch it. Insufficient privileges to complete operation`, that means the `name` value already exists in your subscription. Try another name.
+
+Save aside the values returned from the command for use later in the tutorial. The return JSON will look similar to the following output:
 
 ```output
 {
   "appId": "sample-app-id",
   "displayName": "contososp",
-  "name": "http://contososp",
   "password": "sample-password",
   "tenant": "sample-tenant"
 }
@@ -144,7 +152,7 @@ To create and initialize the Azure Key Vault, use the following steps:
    ```
 
    > [!NOTE]
-   > The value of the `--name` option must be unique within the Azure subscription.
+   > The value of the `--name` option must be unique within the Azure subscription. If you see an error log similar to `Found an existing instance of "...", We will patch it. Insufficient privileges to complete operation`, that means the `name` value already exists in your subscription. Try another name.
 
    This table explains the options shown above.
 
@@ -167,7 +175,7 @@ To create and initialize the Azure Key Vault, use the following steps:
 1. Configure the Key Vault to allow `get` and `list` operations from that managed identity. The value of the `object-id` is the `appId` from the `az ad sp create-for-rbac` command above.
 
    ```azurecli
-   az keyvault set-policy --name contosokv --spn http://contososp --secret-permissions get list
+   az keyvault set-policy --name contosokv --spn sample-app-id --secret-permissions get list
    ```
 
    The output will be a JSON object full of information about the Key Vault. It will have a `type` entry with value `Microsoft.KeyVault/vaults`.
@@ -177,7 +185,7 @@ To create and initialize the Azure Key Vault, use the following steps:
    | Parameter | Description |
    |---|---|
    | name | The name of the Key Vault. |
-   | spn | The `name` from the output of `az ad sp create-for-rbac` command above. |
+   | spn | The `appId` from the output of `az ad sp create-for-rbac` command above. |
    | secret-permissions | The list of operations to allow from the named principal. |
 
    > [!NOTE]
@@ -215,6 +223,7 @@ To create and initialize the Azure Key Vault, use the following steps:
      "id": "https://contosokv.vault.azure.net/secrets/connectionString/sample-id",
      "kid": null,
      "managed": null,
+     "name": "connectionString",
      "tags": {
        "file-encoding": "utf-8"
      },
@@ -232,7 +241,7 @@ This section shows how to use Spring Initializr to create and run a Spring Boot 
 1. Select the choices as shown in the picture following this list.
    * **Project**: **Maven Project**
    * **Language**: **Java**
-   * **Spring Boot**: **2.6.1**
+   * **Spring Boot**: **2.5.10**
    * **Group**: *com.contoso* (You can put any valid Java package name here.)
    * **Artifact**: *keyvault* (You can put any valid Java class name here.)
    * **Packaging**: **Jar**
@@ -240,7 +249,9 @@ This section shows how to use Spring Initializr to create and run a Spring Boot 
 1. Select **Add Dependencies...**.
 1. In the text field, type *Spring Web* and press Ctrl+Enter.
 1. In the text field type *Azure Key Vault* and press Enter. Your screen should look like the following.
-   :::image type="content" source="media/configure-spring-boot-starter-java-app-with-azure-key-vault/spring-initializr-choices.png" alt-text="Spring Initializr with correct choices selected.":::
+
+   :::image type="content" source="media/spring-initializer/2.5.11/mvn-java8-keyvault-web.png" alt-text="Screenshot of Spring Initializr with basic options.":::
+
 1. At the bottom of the page, select **Generate**.
 1. When prompted, download the project to a path on your local computer. This tutorial uses a *keyvault* directory in the current user's home directory. The values above will give you a *keyvault.zip* file in that directory.
 
@@ -326,24 +337,24 @@ Use the following steps to examine the application and run it locally.
 
 This section shows how to include Azure Key Vault secrets to your existing Spring Boot project without using Spring Initializr.
 
-To manually add the same the configuration that Spring Initializr generates, add the following configuration to your *pom.xml* file.
+To manually add the same configuration that Spring Initializr generates, add the following configuration to your *pom.xml* file.
 
    ```xml
    <properties>
-        <azure.version>3.14.0</azure.version>
+        <version.spring.cloud.azure>4.0.0</version.spring.cloud.azure>
    </properties>
    <dependencies>
         <dependency>
             <groupId>com.azure.spring</groupId>
-            <artifactId>azure-spring-boot-starter-keyvault-secrets</artifactId>
+            <artifactId>spring-cloud-azure-starter-keyvault-secrets</artifactId>
         </dependency>
    </dependencies>
    <dependencyManagement>
         <dependencies>
             <dependency>
                 <groupId>com.azure.spring</groupId>
-                <artifactId>azure-spring-boot-bom</artifactId>
-                <version>${azure.version}</version>
+                <artifactId>spring-cloud-azure-dependencies</artifactId>
+                <version>${version.spring.cloud.azure}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -360,24 +371,22 @@ Just as Key Vault allows externalizing secrets from application code, Spring con
 1. Edit the *src/main/resources/application.properties* file so that it has the following contents, adjusting the values for your Azure subscription.
 
    ```txt
-   azure.keyvault.client-id=<your client ID>
-   azure.keyvault.client-key=<your client key>
-   azure.keyvault.enabled=true
-   azure.keyvault.tenant-id=<your tenant ID>
-   azure.keyvault.uri=https://contosokv.vault.azure.net/
+   spring.cloud.azure.keyvault.secret.property-source-enabled=true
+   spring.cloud.azure.keyvault.secret.property-sources[0].credential.client-id=<your client ID>
+   spring.cloud.azure.keyvault.secret.property-sources[0].credential.client-secret=<your client key>
+   spring.cloud.azure.keyvault.secret.property-sources[0].endpoint=https://contosokv.vault.azure.net/
+   spring.cloud.azure.keyvault.secret.property-sources[0].profile.tenant-id=<your tenant ID>
    ```
 
    This table explains the properties shown above.
 
-   | Parameter | Description |
-   |---|---|
-   | azure.keyvault.client-id | The `appId` from the return JSON from `az ad sp create-for-rbac`.|
-   | azure.keyvault.client-key | The `password` from the return JSON from `az ad sp create-for-rbac`.|
-   | azure.keyvault.enabled | This configuration can be useful when `enabled` or `disabled` should be set at deployment time. For more information on Spring configuration, see [Externalized Configuration](https://docs.spring.io/spring-boot/docs/2.2.2.RELEASE/reference/htmlsingle/#boot-features-external-config) in the Spring documentation.
-   | azure.keyvault.tenant-id | The `tenant` from the return JSON from `az ad sp create-for-rbac`.|
-   | azure.keyvault.uri | The value output from the `az keyvault create` command above. |
-
-   For the complete list of properties, see [Azure Key Vault Secrets Spring Boot starter client library for Java](https://aka.ms/azure-spring-boot-starter-keyvault-secrets).
+   | Parameter                                                                       | Description                                                                                                                                  |
+   |---------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------|
+   | spring.cloud.azure.keyvault.secret.property-source-enabled                      | A value that indicates whether to enable the property source feature of spring-cloud-azure-starter-keyvault-secrets. Default value is false. |
+   | spring.cloud.azure.keyvault.secret.property-sources[0].credential.client-id     | The `appId` from the return JSON from `az ad sp create-for-rbac`.                                                                            |
+   | spring.cloud.azure.keyvault.secret.property-sources[0].credential.client-secret | The `password` from the return JSON from `az ad sp create-for-rbac`.                                                                         |
+   | spring.cloud.azure.keyvault.secret.property-sources[0].endpoint                 | The value output from the `az keyvault create` command above.                                                                                |
+   | spring.cloud.azure.keyvault.secret.property-sources[0].profile.tenant-id        | The `tenant` from the return JSON from `az ad sp create-for-rbac`.                                                                           |
 
 1. Save the file and close it.
 
@@ -395,8 +404,6 @@ Just as Key Vault allows externalizing secrets from application code, Spring con
    @Value("${connectionString}")
    private String connectionString;
    ```
-
-   The Key Vault integration provides a Spring `PropertySource` that's populated from the values of the Key Vault. For more implementation details, see [Azure Key Vault Secrets Spring Boot starter client library for Java](https://aka.ms/azure-spring-boot-starter-keyvault-secrets).
 
 1. Open a Bash window and navigate to the top-level *keyvault* directory, where the *pom.xml* file is located.
 
@@ -429,7 +436,7 @@ The following steps show you how to deploy the `KeyvaultApplication` to Azure Ap
    <plugin>
      <groupId>com.microsoft.azure</groupId>
      <artifactId>azure-webapp-maven-plugin</artifactId>
-     <version>2.2.2</version>
+     <version>2.5.0</version>
    </plugin>
    ```
 
@@ -469,7 +476,7 @@ The following steps show you how to deploy the `KeyvaultApplication` to Azure Ap
      <plugin>
        <groupId>com.microsoft.azure</groupId>
        <artifactId>azure-webapp-maven-plugin</artifactId>
-       <version>2.2.2</version>
+       <version>2.5.0</version>
        <configuration>
          <schemaVersion>V2</schemaVersion>
          <subscriptionId>YOUR_SUBSCRIPTION_ID</subscriptionId>
@@ -569,14 +576,15 @@ Use the following steps to create the managed identity for the Azure App Service
 
 1. Edit the *application.properties* so that it names the managed identity for Azure resources created in the preceding step.
 
-   1. Remove the `azure.keyvault.client-key`.
-   1. Update the `azure.keyvault.client-id` to have the value of the `principalId` from the preceding step. The completed file should now look like the following example.
+   1. Remove the `spring.cloud.azure.keyvault.secret.property-sources[0].credential.client-secret`.
+   1. Update the `spring.cloud.azure.keyvault.secret.property-sources[0].credential.client-id` to have the value of the `principalId` from the preceding step. The completed file should now look like the following example.
 
    ```properties
-   azure.keyvault.client-id=<your principal ID>
-   azure.keyvault.enabled=true
-   azure.keyvault.tenant-id=<your tenant ID>
-   azure.keyvault.uri=https://contosokv.vault.azure.net/
+   spring.cloud.azure.keyvault.secret.property-source-enabled=true
+   spring.cloud.azure.keyvault.secret.property-sources[0].credential.client-id=<your principal ID>
+   spring.cloud.azure.keyvault.secret.property-sources[0].credential.managed-identity-enabled=true
+   spring.cloud.azure.keyvault.secret.property-sources[0].profile.tenant-id=<your tenant ID>
+   spring.cloud.azure.keyvault.secret.property-sources[0].endpoint=https://contosokv.vault.azure.net/
    ```
 
 1. Configure the Key Vault to allow `get` and `list` operations from the managed identity. The value of the `object-id` is the `principalId` from the preceding output.
@@ -706,8 +714,6 @@ az group delete --name <your resource group name>
 ```
 
 ## Next steps
-
-To learn more about Spring and Azure, continue to the next article on the Spring on Azure documentation center.
 
 > [!div class="nextstepaction"]
 > [How to use the Spring Boot Starter for Azure Service Bus JMS](configure-spring-boot-starter-java-app-with-azure-service-bus.md)

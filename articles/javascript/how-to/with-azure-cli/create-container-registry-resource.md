@@ -16,7 +16,7 @@ The registry allows you to manage container repositories and versions.
 
 Create a registry with a resource name. The resource name becomes part of the login server name, identified as `loginServer` in the result, for your resource. 
 
-Use the [`az acr create`](/cli/azure/acr#az_acr_create) command to create a registry. 
+Use the [`az acr create`](/cli/azure/acr#az-acr-create) command to create a registry. 
 
 ```azurecli
 az acr create \
@@ -31,7 +31,7 @@ az acr create \
 
 ## Get container registry credentials
 
-To retrieve credentials, run the [`az acr credential show`](/cli/azure/acr/credential#az_acr_credential_show) command and note the displayed username and password:
+To retrieve credentials, run the [`az acr credential show`](/cli/azure/acr/credential#az-acr-credential-show) command and note the displayed username and password:
 
 ```azurecli
 az acr credential show \

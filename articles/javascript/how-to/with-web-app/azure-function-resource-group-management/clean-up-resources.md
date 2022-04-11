@@ -19,7 +19,7 @@ In VS Code, find the Azure Explorer's Functions section, right-click on the Func
 
 # [Azure CLI](#tab/azcli-remove-resource-group)
 
-In the VS Code integrated terminal, where you logged into the Azure CLI in a previous section of this article series, use the following Azure CLI command, [az group delete](/cli/azure/group#az_group_delete), to delete your resource group:
+In the VS Code integrated terminal, where you logged into the Azure CLI in a previous section of this article series, use the following Azure CLI command, [az group delete](/cli/azure/group#az-group-delete), to delete your resource group:
 
 ```azurecli
 az group delete --name YOUR-RESOURCE-GROUP-NAME --no-wait --yes

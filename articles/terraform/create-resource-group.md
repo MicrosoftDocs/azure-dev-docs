@@ -80,7 +80,7 @@ echo "$(terraform output resource_group_name)"
 
 #### [Azure CLI](#tab/azure-cli)
 
-Run [az group show](/cli/azure/group#az_group_show) to display the resource group.
+Run [az group show](/cli/azure/group#az-group-show) to display the resource group.
 
 ```azurecli
 az group show --name <resource_group_name>

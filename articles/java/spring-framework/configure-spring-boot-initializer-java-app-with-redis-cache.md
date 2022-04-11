@@ -221,7 +221,7 @@ The **[Spring Framework]** is an open-source solution that helps Java developers
 [AZ05]: media/configure-spring-boot-initializer-java-app-with-redis-cache/AZ05.png
 [create-redis-cache-select-non-tls-port]: media/configure-spring-boot-initializer-java-app-with-redis-cache/create-redis-cache-select-non-tls-port.png
 
-[SI01]: media/configure-spring-boot-initializer-java-app-with-redis-cache/SI01.png
+[SI01]: media/spring-initializer/2.5.11/mvn-java8-web-reactiveredis.png
 [SI02]: media/configure-spring-boot-initializer-java-app-with-redis-cache/SI02.png
 [SI04]: media/configure-spring-boot-initializer-java-app-with-redis-cache/SI04.png
 

@@ -7,7 +7,7 @@ ms.date: 02/18/2021
 
 ## Create an Azure Cache for Redis resource with Azure CLI
 
-Use the following Azure CLI [az redis create](/cli/azure/redis#az_redis_create) command in the [Azure Cloud Shell](https://shell.azure.com) to create a new Redis resource for your database. 
+Use the following Azure CLI [az redis create](/cli/azure/redis#az-redis-create) command in the [Azure Cloud Shell](https://shell.azure.com) to create a new Redis resource for your database. 
 
 ```azurecli
 az redis create \
@@ -74,7 +74,7 @@ The response includes your server's configuration details including:
 
 ## Add firewall rule for your client IP address to Redis resource
 
-Add firewall rules with [az redis firewall-rules create](/cli/azure/redis/firewall-rules#az_redis_firewall_rules_create) command to define access to your cache from your client IP or your app's IP.
+Add firewall rules with [az redis firewall-rules create](/cli/azure/redis/firewall-rules#az-redis-firewall-rules-create) command to define access to your cache from your client IP or your app's IP.
 
 ```azurecli
 az redis firewall-rules create \
@@ -92,7 +92,7 @@ If you don't know your client IP address, use one of these methods:
 
 ## Get the Redis keys with Azure CLI
 
-Retrieve the Redis connection string for this instance with the [az redis list-keys](/cli/azure/redis#az_redis_list_keys) command:
+Retrieve the Redis connection string for this instance with the [az redis list-keys](/cli/azure/redis#az-redis-list-keys) command:
 
 ```azurecli
 az redis list-keys \
@@ -112,7 +112,7 @@ This returns the two keys:
 
 ## Connect Azure Cache for Redis to your App service web app
 
-Add connection information to your App service web app with [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_set) command.
+Add connection information to your App service web app with [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#az-webapp-config-appsettings-set) command.
 
 ```azurecli
 az webapp config appsettings set \

@@ -157,7 +157,7 @@ The below instructions create the Azure Storage Account programmatically. Howeve
         --auth-mode login
     ```
 
-* **Step 2:** Run [az storage account show](/cli/azure/storage/account#az_storage_account_show) to capture the storage account ID.
+* **Step 2:** Run [az storage account show](/cli/azure/storage/account#az-storage-account-show) to capture the storage account ID.
 
     ```azurecli
     storage_acct_id=$(az storage account show \
@@ -167,7 +167,7 @@ The below instructions create the Azure Storage Account programmatically. Howeve
                         --output tsv)
     ```
 
-* **Step 3:** Run [az storage account keys list](/cli/azure/storage/account/keys#az_storage_account_keys_list) to capture one of the storage account access keys for the next section.
+* **Step 3:** Run [az storage account keys list](/cli/azure/storage/account/keys#az-storage-account-keys-list) to capture one of the storage account access keys for the next section.
 
     ```azurecli
     # Capture storage account access key1
@@ -203,7 +203,7 @@ A storage account is created the same for ADLS Gen 2 as for Azure Blob Storage. 
         --assign-identity
     ```
 
-* **Step 2:** Run [az storage account keys list](/cli/azure/storage/account/keys#az_storage_account_keys_list) to capture one of the ADLS storage account access keys for the next section.
+* **Step 2:** Run [az storage account keys list](/cli/azure/storage/account/keys#az-storage-account-keys-list) to capture one of the ADLS storage account access keys for the next section.
 
     ```azurecli
     adls_acct_key1=$(az storage account keys list \
@@ -222,7 +222,7 @@ A storage account is created the same for ADLS Gen 2 as for Azure Blob Storage. 
 
 When loading data into a data lake, considerations must be made to ease security, efficient processing, and partitioning efforts. Azure Data Lake Storage Gen 2 uses directories instead of the virtual folders in blob storage. Directories  allow for more precise security, control access, and directory level filesystem operations.
 
-* **Step 1:** Run *[az storage fs create](/cli/azure/storage/fs#az_storage_fs_create)* to create a file system in ADLS Gen 2. A file system contains files and folders, similarly to how a container in Azure Blob Storage contains blobs.
+* **Step 1:** Run *[az storage fs create](/cli/azure/storage/fs#az-storage-fs-create)* to create a file system in ADLS Gen 2. A file system contains files and folders, similarly to how a container in Azure Blob Storage contains blobs.
 
     ```azurecli
     # Create a file system in ADLS Gen2
@@ -253,7 +253,7 @@ A better approach is to use an Azure Key Vault. Azure Key Vault is a centralized
 
 Create a new Azure Key Vault within your resource group.
 
-* **Step 1:** Run [az keyvault create](/cli/azure/keyvault#az_keyvault_create) to create an Azure Key Vault.
+* **Step 1:** Run [az keyvault create](/cli/azure/keyvault#az-keyvault-create) to create an Azure Key Vault.
 
     ```azurecli
     key_vault_name='kv-cloudetl-demo'
@@ -345,7 +345,7 @@ A local Python Function project is needed to build and execute our function duri
 
 An Azure Function App must be created to host our data ingestion function. This Function App is what we deploy our local dev function to once complete.
 
-* **Step 1:** Run [az functionapp create](/cli/azure/functionapp#az_functionapp_create) to create the function app in Azure.
+* **Step 1:** Run [az functionapp create](/cli/azure/functionapp#az-functionapp-create) to create the function app in Azure.
 
     ```azurecli
     funcapp_name='CloudETLFunc'
@@ -462,7 +462,7 @@ To ingest relational data later in this series, upload a data file (blob) to an 
     Midmarket,Mexico,Carretera,2470,$3.00,$15.00,"$37,050.00",6/1/2014
     ```
 
-* **Step 2:** Upload your data (blob) to your storage container by running [az storage blob upload](/cli/azure/storage/blob#az_storage_blob_upload).
+* **Step 2:** Upload your data (blob) to your storage container by running [az storage blob upload](/cli/azure/storage/blob#az-storage-blob-upload).
 
     ```azurecli
     az storage blob upload \

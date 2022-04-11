@@ -18,9 +18,9 @@ Provide authentication.
 
 |Task|using|
 |--|--|
-|Create app registration|[Portal](/azure/active-directory/develop/tutorial-v2-react)<br>[Azure CLI](/cli/azure/ad/app#az_ad_app_create)|
+|Create app registration|[Portal](/azure/active-directory/develop/tutorial-v2-react)<br>[Azure CLI](/cli/azure/ad/app#az-ad-app-create)|
 |Easy authentication|[Static Web Apps](with-web-app/static-web-app-with-swa-cli/add-authentication.md)<br>[Express.js](with-web-app/add-authentication-to-web-app.md)|
-|List app registration|[Azure CLI](/cli/azure/ad/app#az_ad_app_list)
+|List app registration|[Azure CLI](/cli/azure/ad/app#az-ad-app-list)
 |MSAL Login/Logoff button using `@azure/msal-browser`|[React/TypeScript](/azure/active-directory/develop/tutorial-v2-react)|
 |MSAL React using `@azure/msal-browser` passing user credentials to Function API|[React and Azure Function API](with-authentication/static-web-app-with-api/add-mongodb-database-to-api.md#react-client-add-new-fetch-method-with-favoritecolor)|
 |MSAL Express.js using `@azure/msal-node`|[Express.js](./with-web-app/deploy-msal-sdk-authentication-expressjs.md#run-your-app-locally-to-verify-msal-authentication)|

@@ -154,7 +154,7 @@ The API environment variables are runtime variables configured in the Azure port
 
     :::image type="content" source="../media/static-web-app/vscode-settings-configuration.png" alt-text="VSCode extension: Under **Production** then **Application Settings**":::
 
-* Azure CLI: Using [az staticwebapp appsettings set](/cli/azure/staticwebapp/appsettings#az_staticwebapp_appsettings_set)
+* Azure CLI: Using [az staticwebapp appsettings set](/cli/azure/staticwebapp/appsettings#az-staticwebapp-appsettings-set)
 
 ## Deploy to Azure
 
