@@ -14,7 +14,7 @@ This article provides an overview of recommended strategies and settings for con
 
 When you're containerizing a Java application, carefully consider how much CPU time the container will have available. Then consider how much memory will be available both in terms of total amount of memory, and the heap size of the Java Virtual Machine (JVM). In most containerized environments, applications may have access to all processors and therefore be able to run multiple threads in parallel. It's common, though, that containers have a CPU quota applied that may throttle access to CPUs.
 
-The JVM has heuristics to determine the number of "available processors" based on CPU quota, and this can dramatically influence the performance of Java applications. The memory allocated to the container itself and the size of the heap area for the JVM are as important as the processors. These factors will determine the behavior of the Garbage Collector and the overall performance of the system.
+The JVM has heuristics to determine the number of "available processors" based on CPU quota, which can dramatically influence the performance of Java applications. The memory allocated to the container itself and the size of the heap area for the JVM are as important as the processors. These factors will determine the behavior of the Garbage Collector and the overall performance of the system.
 
 ## New application
 
@@ -25,7 +25,7 @@ When you're containerizing a Java workload for a new application, you have to ta
 
 ### JVM default ergonomics
 
-Applications need a starting point and settings. The JVM has default ergonomics with pre-defined values based on number of available processors and amount of memory in the system. The default values shown in the following tables are used when the JVM is started without specific startup flags or parameters.
+Applications need a starting point and settings. The JVM has default ergonomics with pre-defined values that are based on number of available processors and amount of memory in the system. The default values shown in the following tables are used when the JVM is started without specific startup flags or parameters.
 
 **Default Garbage Collector**
 
@@ -34,7 +34,7 @@ Applications need a starting point and settings. The JVM has default ergonomics 
 | Any number of processors <br/> Up to 1791 MB of memory | SerialGC |
 | 2+ processors <br/> 1792 MB or more of memory          | G1GC     |
 
-**Default Initial Heap Size**
+**Default initial heap size**
 
 | Type of environment | Default                  |
 |---------------------|--------------------------|
@@ -45,13 +45,13 @@ These values are valid for OpenJDK 11 and later, and for most distributions, inc
 
 ### Determine container memory
 
-Depending on the needs of your application and its distinctive usage patterns, you'll have to pick an amount of container memory that will serve your work load the best. For example, if your application creates large object graphs, then you'll probably have to allocate more memory than if your application had a large number of small object graphs.
+Pick an amount of container memory that will serve your work load best, depending on the needs of your application and its distinctive usage patterns. For example, if your application creates large object graphs, then you'll probably need more memory than you'd need for applications with many small object graphs.
 
 **Recommendation:** If you don't know how much memory to allocate, a good starting point is 4 GB.
 
 ### Determine JVM heap memory
 
-When allocating JVM heap memory, you need to be aware that the JVM needs more memory than just what is used for the JVM heap. When setting the maximum JVM heap memory, it should NEVER be equal to the amount of container memory because that will cause container Out of Memory (OOM) errors and container crashes.
+When allocating JVM heap memory, be aware that the JVM needs more memory than just what is used for the JVM heap. When setting the maximum JVM heap memory, it should NEVER be equal to the amount of container memory because that will cause container Out of Memory (OOM) errors and container crashes.
 
 **Recommendation:** Allocate 75% of container memory for the JVM heap.
 
@@ -87,7 +87,7 @@ For any Garbage Collector other than SerialGC, we recommend two or more vCPU cor
 
 ### Pick a starting point
 
-In container orchestration environments like Kubernetes, OpenShift, Azure Spring Cloud, Azure Container Apps, and Azure App Service, we recommend starting with two replicas/instances. The following table summarizes the recommended starting points for the containerization of your new Java application.
+In container orchestration environments like Kubernetes, OpenShift, Azure Spring Cloud, Azure Container Apps, and Azure App Service, we recommend starting with two replicas or instances. The following table summarizes the recommended starting points for the containerization of your new Java application.
 
 | vCPU cores | Container Memory | JVM Heap Size | Garbage Collector | Replicas |
 |------------|------------------|---------------|-------------------|----------|
@@ -97,7 +97,7 @@ The JVM parameters to use are: ```-XX:+ParallelGC -XX:MaxRAMPercentage=75```
 
 ## Existing (on premises) application
 
-If you already have your application running on premises or on a VM in the cloud, then our recommendation is to start your containerization journey with the following:
+If your application is already running on premises or on a VM in the cloud, then we recommend that you start with:
 
 * The same amount of memory that the application currently has access to.
 * The same number of CPUs (vCPU cores) the application currently has available.

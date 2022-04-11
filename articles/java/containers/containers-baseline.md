@@ -1,6 +1,6 @@
 ---
 title: Establishing a baseline for containerized Java applications
-description: This guide describes how to establish a basedline for containerized Java applications
+description: This guide describes how to establish a baseline for containerized Java applications
 ms.author: manriem
 ms.topic: conceptual
 ms.date: 02/10/2022
@@ -10,21 +10,22 @@ recommendations: false
 
 # Establishing a baseline
 
-It's important to establish a baseline to understand what your application is really doing, and what resources are really needed. If you don't know how much memory or how many CPU cores your Java application actually needs, an underprovisioned environment may impact the overall performance of your containerized application, while an overprovisioned environment may increase your costs.
+This article describes how to establish a baseline for containerized Java applications.
 
-This process also requires a good understanding of the overall consumption and distribution of computing resources and how they are split on a per instance basis. Lesser resources per application instance may suggest more instances overall, but with each instance being starved of resources.
+It's important to establish a baseline to understand what your application is really doing and how much memory and how many CPU cores it needs. An under-provisioned environment may impact the overall performance of your containerized application, while an over-provisioned environment may increase your costs.
+
+The process of establishing a baseline requires a good understanding of the overall consumption and distribution of computing resources and how they're split on a per instance basis. Fewer resources per application instance may suggest more instances overall, but with each instance being starved of resources.
 
 The process of establishing a baseline will allow you to experiment with different settings and then determine their impact and the right balanced amount of resources needed.
 
-To establish a baseline, you can use Azure Application Insights, or your APM solution of choice.
+To establish a baseline, you can use Azure Application Insights or an APM solution of your choice.
 
 ## Using Azure Application Insights
 
-See [Azure Monitor OpenTelemetry-based auto-instrumentation for Java applications](/azure/azure-monitor/app/java-in-process-agent),
-which will walk you through setting up Application Insights.
+For information on setting up Application Insights, see [Azure Monitor OpenTelemetry-based auto-instrumentation for Java applications](/azure/azure-monitor/app/java-in-process-agent).
 
-## What is your Azure target platform?
+## Next steps
 
-Now that you have Azure Application Insights configured for your application, the next step is to review the recommendations for the target platform.
+Now that you've configured Azure Application Insights for your application, the next step is to review the recommendations for the target platform.
 
-1. [Azure Kubernetes Service](containers-aks.md)
+* [Azure Kubernetes Service](containers-aks.md)
