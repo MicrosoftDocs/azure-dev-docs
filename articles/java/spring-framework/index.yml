@@ -1,82 +1,110 @@
 ### YamlMime:Landing
 
-title: Spring on Azure integration documentation
+title: Spring Cloud Azure documentation
 summary: Spring is an open-source application framework developed by VMware that provides a simplified, modular approach for creating Java applications. The content on this website will show you how to develop and deploy Spring apps to the cloud.
 
 metadata:
-  title: Spring on Azure integration documentation
+  title: Spring Cloud Azure documentation
   description: Spring is an open-source application framework developed by VMware that provides a simplified, modular approach for creating Java applications.
-  ms.date: 07/09/2021
+  ms.date: 04/08/2022
   ms.topic: landing-page
 
 landingContent:
-  - title: Get started guides
-    linkLists:
-      - linkListType: overview
-        links:
-          - text: Spring Boot Starters for Azure
-            url: spring-boot-starters-for-azure.md
-          - text: Spring Data Azure Cosmos DB
-            url: how-to-guides-spring-data-cosmosdb.md
-      - linkListType: get-started
-        links:
-          - text: Azure Storage
-            url: configure-spring-boot-starter-java-app-with-azure-storage.md
-          - text: Key Vault secrets
-            url: configure-spring-boot-starter-java-app-with-azure-key-vault.md
-          - text: Key Vault certificates
-            url: configure-spring-boot-starter-java-app-with-azure-key-vault-certificates.md
-          - text: Kafka and Event Hubs
-            url: configure-spring-cloud-stream-binder-java-app-kafka-azure-event-hub.md 
-  - title: Step-by-step tutorials
+  - title: Spring Data
     linkLists:
       - linkListType: tutorial
         links:
-          - text: Secure an app with Azure Active Directory
-            url: configure-spring-boot-starter-java-app-with-azure-active-directory.md
-          - text: Configure an app to use Redis Cache
-            url: configure-spring-boot-initializer-java-app-with-redis-cache.md
-          - text: Use the Azure Cosmos DB SQL API
-            url: configure-spring-boot-starter-java-app-with-cosmos-db.md
-          - text: Deploy a Spring Boot app
-            url: https://spring.io/guides/gs/spring-boot-for-azure/
-          - text: Deploy an app to a cluster in AKS
-            url: deploy-spring-boot-java-app-on-kubernetes.md
-          - text: Deploy an app to Web Apps for Containers
-            url: deploy-spring-boot-java-app-on-linux.md
-  - title: Code samples
+          - text: SQL database
+            url: /azure/developer/java/spring-framework/configure-spring-data-jdbc-with-azure-sql-server
+          - text: MySQL
+            url: /azure/developer/java/spring-framework/configure-spring-data-jdbc-with-azure-mysql
+          - text: PostgreSQL
+            url: /azure/developer/java/spring-framework/configure-spring-data-jdbc-with-azure-postgresql
+          - text: Cosmos DB - SQL
+            url: /azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db
+          - text: Cosmos DB - MongoDB
+            url: /azure/developer/java/spring-framework/configure-spring-data-mongodb-with-cosmos-db
+          - text: Cosmos DB - Cassandra
+            url: /azure/developer/java/spring-framework/configure-spring-data-apache-cassandra-with-cosmos-db
+  - title: R2DBC
     linkLists:
-    - linkListType: sample
-      links:
-      - text: Spring Boot Samples for Azure
-        url: https://github.com/Azure-Samples/azure-spring-boot-samples
-      - text: Spring Guides
-        url: https://github.com/spring-guides/
-  - title: Spring resources
+      - linkListType: tutorial
+        links:
+          - text: SQL database
+            url: /azure/developer/java/spring-framework/configure-spring-data-r2dbc-with-azure-sql-server
+          - text: PostgreSQL
+            url: /azure/developer/java/spring-framework/configure-spring-data-r2dbc-with-azure-postgresql
+          - text: MySQL
+            url: /azure/developer/java/spring-framework/configure-spring-data-r2dbc-with-azure-mysql
+  - title: Spring Security
     linkLists:
-    - linkListType: get-started
-      links:
-      - text: Spring Framework
-        url: https://spring.io/
-      - text: Spring Cloud Azure
-        url: https://spring.io/projects/spring-cloud-azure
-      - text: Learn Spring
-        url: https://spring.io/learn
-      - text: Spring Boot
-        url: https://spring.io/projects/spring-boot
-      - text: Spring Initializr
-        url: https://start.spring.io/
-  - title: Azure App Configuration
+      - linkListType: tutorial
+        links:
+          - text: Azure Active Directory
+            url: /azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-active-directory
+          - text: Azure AD B2C
+            url: /azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-active-directory-b2c-oidc
+  - title: Spring Messaging
     linkLists:
-    - linkListType: get-started
-      links:
-      - text: Create an app
-        url: /azure/azure-app-configuration/quickstart-java-spring-app?toc=/azure/developer/java/spring-framework/toc.json&bc=/azure/developer/breadcrumb/toc.json
-      - text: Add feature flags
-        url: /azure/azure-app-configuration/quickstart-feature-flag-spring-boot?toc=/azure/developer/java/spring-framework/toc.json&bc=/azure/developer/breadcrumb/toc.json
-      - text: Use dynamic configuration
-        url: /azure/azure-app-configuration/enable-dynamic-configuration-java-spring-app?toc=/azure/developer/java/spring-framework/toc.json&bc=/azure/developer/breadcrumb/toc.json
-      - text: Use Key Vault references
-        url: /azure/azure-app-configuration/use-key-vault-references-spring-boot?toc=/azure/developer/java/spring-framework/toc.json&bc=/azure/developer/breadcrumb/toc.json
-      - text: Use feature flags
-        url: /azure/azure-app-configuration/use-feature-flags-spring-boot?toc=/azure/developer/java/spring-framework/toc.json&bc=/azure/developer/breadcrumb/toc.json
+      - linkListType: tutorial
+        links:
+          - text: Service Bus
+            url: /azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-service-bus
+          - text: Event Hubs
+            url: https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/spring/spring-messaging-azure-eventhubs
+  - title: Spring Integration
+    linkLists:
+      - linkListType: sample
+        links:
+          - text: Service Bus
+            url: https://github.com/Azure-Samples/azure-spring-boot-samples/tree/spring-cloud-azure_v4.0.0/servicebus/spring-cloud-azure-starter-integration-servicebus/single-namespace
+          - text: Event Hubs
+            url: https://github.com/Azure-Samples/azure-spring-boot-samples/tree/spring-cloud-azure_v4.0.0/eventhubs/spring-cloud-azure-starter-integration-eventhubs/eventhubs-integration
+          - text: Storage Queue
+            url: https://github.com/Azure-Samples/azure-spring-boot-samples/tree/spring-cloud-azure_v4.0.0/storage/spring-cloud-azure-starter-integration-storage-queue/storage-queue-integration
+  - title: Spring Cloud
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: App Configuration
+            url: /azure/azure-app-configuration/quickstart-java-spring-app
+      - linkListType: tutorial
+        links:
+          - text: Event Hubs
+            url: /azure/developer/java/spring-framework/configure-spring-cloud-stream-binder-java-app-azure-event-hub
+          - text: Kafka
+            url: /azure/developer/java/spring-framework/configure-spring-cloud-stream-binder-java-app-kafka-azure-event-hub
+          - text: Service Bus
+            url: /azure/developer/java/spring-framework/configure-spring-cloud-stream-binder-java-app-with-service-bus
+          - text: Redis
+            url: /azure/developer/java/spring-framework/configure-spring-boot-initializer-java-app-with-redis-cache
+          - text: Functions
+            url: /azure/developer/java/spring-framework/getting-started-with-spring-cloud-function-in-azure
+  - title: Spring Resource
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Blob Storage
+            url: /azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-storage
+          - text: Azure Files
+            url: https://github.com/Azure-Samples/azure-spring-boot-samples/tree/spring-cloud-azure_v4.0.0/storage/spring-cloud-azure-starter-storage-file-share/storage-file-sample
+  - title: Zero Trust
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Key Vault secrets
+            url: /azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-key-vault
+          - text: Key Vault certificates
+            url: /azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-key-vault-certificates
+  - title: Spring Cache
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Redis Cache
+            url: /azure/developer/java/spring-framework/configure-spring-boot-initializer-java-app-with-redis-cache
+  - title: Micrometer
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Monitor
+            url: /azure/azure-monitor/app/java-in-process-agent

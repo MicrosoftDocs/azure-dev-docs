@@ -12,7 +12,7 @@ In VS Code, select the Azure explorer, then right-click on your resource group w
 
 # [Azure CLI](#tab/azure-cli)
 
-Use the [Azure CLI command](/cli/azure/group#az_group_delete) in a terminal to delete the resource group:
+Use the [Azure CLI command](/cli/azure/group#az-group-delete) in a terminal to delete the resource group:
 
 ```azurecli
 az group delete --name rg-demo  -y

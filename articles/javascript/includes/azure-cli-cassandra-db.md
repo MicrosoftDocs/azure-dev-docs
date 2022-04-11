@@ -7,7 +7,7 @@ ms.date: 02/17/2021
 
 ## Create a Cosmos DB resource for Cassandra DB
 
-Use the following Azure CLI [az cosmosdb create](/cli/azure/cosmosdb#az_cosmosdb_create) command in the [Azure Cloud Shell](https://shell.azure.com) to create a new resource for your Cassandra database. 
+Use the following Azure CLI [az cosmosdb create](/cli/azure/cosmosdb#az-cosmosdb-create) command in the [Azure Cloud Shell](https://shell.azure.com) to create a new resource for your Cassandra database. 
 
 ```azurecli
 az cosmosdb create \
@@ -106,7 +106,7 @@ The response includes your server's configuration details including:
 
 ## Create a keyspace on the server with Azure CLI
 
-Use the following Azure CLI [az cosmosdb cassandra keyspace create](/cli/azure/cosmosdb/cassandra/keyspace#az_cosmosdb_cassandra_keyspace_create) command in the [Azure Cloud Shell](https://shell.azure.com) to create a new Cassandra keyspace on your server. 
+Use the following Azure CLI [az cosmosdb cassandra keyspace create](/cli/azure/cosmosdb/cassandra/keyspace#az-cosmosdb-cassandra-keyspace-create) command in the [Azure Cloud Shell](https://shell.azure.com) to create a new Cassandra keyspace on your server. 
 
 ```azurecli
 az cosmosdb cassandra keyspace create \
@@ -118,7 +118,7 @@ az cosmosdb cassandra keyspace create \
 
 ## Create a table on the keyspace with Azure CLI
 
-Use the following Azure CLI [az cosmosdb cassandra table create](/cli/azure/cosmosdb/cassandra/table#az_cosmosdb_cassandra_table_create) command in the [Azure Cloud Shell](https://shell.azure.com) to create a new Cassandra keyspace on your server. 
+Use the following Azure CLI [az cosmosdb cassandra table create](/cli/azure/cosmosdb/cassandra/table#az-cosmosdb-cassandra-table-create) command in the [Azure Cloud Shell](https://shell.azure.com) to create a new Cassandra keyspace on your server. 
 
 ```azurecli
 az cosmosdb cassandra table create \
@@ -157,7 +157,7 @@ The schema file's JSON defines the table columns, data types, and partition key:
 ```
 
 ## Get the Cassandra connection string with Azure CLI
-Retrieve the MongoDB connection string for this instance with the [az cosmosdb keys list](/cli/azure/cosmosdb/keys#az_cosmosdb_keys_list) command:
+Retrieve the MongoDB connection string for this instance with the [az cosmosdb keys list](/cli/azure/cosmosdb/keys#az-cosmosdb-keys-list) command:
 
 ```azurecli
 az cosmosdb keys list \

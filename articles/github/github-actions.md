@@ -5,7 +5,7 @@ author: N-Usha
 ms.author: ushan 
 ms.topic: conceptual
 ms.service: azure 
-ms.date: 10/30/2020
+ms.date: 03/19/2022
 ms.custom: github-actions-azure
 ---
 
@@ -59,6 +59,7 @@ The [Azure starter action workflows repository](https://github.com/Azure/actions
 
 Visit the [Marketplace for GitHub Actions for Azure](https://github.com/marketplace?query=Azure&type=actions) to see all the available GitHub Actions for Azure.
 
+* [Deploy Bicep file or Azure Resource Manager template](https://github.com/Azure/arm-deploy)
 * [Deploy to a static web app](/azure/static-web-apps/getting-started?tabs=angular)
 * [Azure App Service settings](https://github.com/Azure/appservice-settings)  
 * [Deploy to Azure Functions](https://github.com/Azure/functions-action)  

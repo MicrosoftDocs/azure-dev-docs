@@ -3,7 +3,7 @@ title: How to use Spring Cloud Azure Stream Binder for Azure Service Bus
 description: This article demonstrates how to use Spring Cloud Stream Binder to send messages to and receive messages from Azure Service Bus.
 manager: kyliel
 ms.author: seal
-ms.date: 03/03/2022
+ms.date: 03/30/2022
 ms.topic: article
 ms.custom: devx-track-java
 ---
@@ -34,58 +34,46 @@ The following prerequisites are required for this article:
 
 1. If you don't have a configured Service Bus queue or topic, use the Azure portal to [create a Service Bus queue](/azure/service-bus-messaging/service-bus-quickstart-portal) or [create a Service Bus topic](/azure/service-bus-messaging/service-bus-quickstart-topics-subscriptions-portal). Ensure that the namespace meets the requirements specified in the previous step. Also, make note of the connection string in the namespace as you need it for this tutorial's test app.
 
-1. If you don't have a Spring Boot application, create a **Maven** project with the [Spring Initializr](https://start.spring.io/). Remember to select **Maven Project** and, under **Dependencies**, add the **Web** dependency, under **Spring Boot**, select **2.4.6**, select **8** Java version.
+1. If you don't have a Spring Boot application, create a **Maven** project with the [Spring Initializr](https://start.spring.io/). Remember to select **Maven Project** and, under **Dependencies**, add the **Web** dependency, select **8** or **11** Java version.
 
+> [!IMPORTANT]
+> Spring Boot version 2.5 or 2.6 is required to complete the steps in this article.
 
 ## Use the Spring Cloud Stream Binder starter
 
 1. Locate the *pom.xml* file in the parent directory of your app; for example:
 
-    `C:\SpringBoot\servicebus\pom.xml`
+    *C:\SpringBoot\servicebus\pom.xml*
 
     -or-
 
-    `/users/example/home/servicebus/pom.xml`
+    */users/example/home/servicebus/pom.xml*
 
 1. Open the *pom.xml* file in a text editor.
 
-1. Add the following code block under the **&lt;dependencies>** element, depending on whether you're using a Service Bus queue or topic:
-
-    **Service Bus queue**
+1. Add the following code block under the `<dependencies>` element:
 
     ```xml
     <dependency>
         <groupId>com.azure.spring</groupId>
-        <artifactId>azure-spring-cloud-stream-binder-servicebus-queue</artifactId>
-        <version>2.14.0</version>
+        <artifactId>spring-cloud-azure-stream-binder-servicebus</artifactId>
+        <version>4.0.0</version>
     </dependency>
     ```
-
-    **Service Bus topic**
-
-    ```xml
-    <dependency>
-        <groupId>com.azure.spring</groupId>
-        <artifactId>azure-spring-cloud-stream-binder-servicebus-topic</artifactId>
-        <version>2.14.0</version>
-    </dependency>
-    ```
-
 
 1. Save and close the *pom.xml* file.
 
 ## Configure the app for your service bus
 
-You can configure your app based on either the connection string or service principal. This tutorial uses a connection string. For more information about using service principal, see the [Spring Cloud Azure Stream Binder for Service Bus queue Code Sample](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/main/servicebus/azure-spring-cloud-stream-binder-servicebus-queue/servicebus-queue-binder
-) and [Spring Cloud Azure Stream Binder for Service Bus topic Code Sample](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/spring/azure-spring-cloud-stream-binder-servicebus-topic).
+You can configure your app based on either the connection string or service principal. This tutorial uses a connection string. For more information about using service principal, see the [Spring Cloud Azure Stream Binder for Service Bus queue Code Sample](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/spring-cloud-azure_4.0.0/servicebus/spring-cloud-azure-stream-binder-servicebus/servicebus-queue-binder).
 
 1. Add an *application.yaml* in the *resources* directory of your app; for example:
 
-   `C:\SpringBoot\servicebus\src\main\resources\application.yaml`
+   *C:\SpringBoot\servicebus\src\main\resources\application.yaml*
 
    -or-
 
-   `/users/example/home/servicebus/src/main/resources/application.yaml`
+   */users/example/home/servicebus/src/main/resources/application.yaml*
 
 1. Open the *application.yaml* file in a text editor, append the appropriate code to the end of the *application.yaml* file depending on whether you're using a Service Bus queue or topic. Use the [Field descriptions table](#fd) to replace the sample values with the appropriate properties for your service bus.
 
@@ -104,11 +92,13 @@ You can configure your app based on either the connection string or service prin
             supply-out-0:
               destination: examplequeue
           servicebus:
-            queue:
-              bindings:
-                consume-in-0:
-                  consumer:
-                    checkpoint-mode: MANUAL
+            bindings:
+              consume-in-0:
+                consumer:
+                  auto-complete: false
+              supply-out-0:
+                producer:
+                  entity-type: queue
           function:
             definition: consume;supply;
           poller:
@@ -132,11 +122,13 @@ You can configure your app based on either the connection string or service prin
             supply-out-0:
               destination: exampletopic
           servicebus:
-            topic:
-              bindings:
-                consume-in-0:
-                  consumer:
-                    checkpoint-mode: MANUAL
+            bindings:
+              consume-in-0:
+                consumer:
+                  auto-complete: false
+              supply-out-0:
+                producer:
+                  entity-type: topic
           function:
             definition: consume;supply;
           poller:
@@ -146,17 +138,17 @@ You can configure your app based on either the connection string or service prin
 
     **<a name="fd">Field descriptions</a>**
 
-    |                                        Field                                   |                                                                                   Description                                                                                    |
-    |--------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-    |               `spring.cloud.azure.function.definition`                |                                        Specify which functional bean to bind to the external destination(s) exposed by the bindings.                                   |
-    |               `spring.cloud.azure.poller.fixed-delay`                |                                        Specify fixed delay for default poller in milliseconds, default 1000L.                                   |
-    |               `spring.cloud.azure.poller.initial-delay`                |                                       Specify initial delay for periodic triggers, default 0.                                   |
-    |               `spring.cloud.azure.servicebus.connection-string`                |                                        Specify the connection string you obtained in your Service Bus namespace from the Azure portal.                                   |
-    |               `spring.cloud.stream.bindings.consume-in-0.destination`                 |                            Specify the Service Bus queue or Service Bus topic you used in this tutorial.                         |
-    |                  `spring.cloud.stream.bindings.consume-in-0.group`                    |                                            If you used a Service Bus topic, specify the topic subscription.                                |
-    |               `spring.cloud.stream.bindings.supply-out-0.destination`                |                               Specify the same value used for input destination.                        |
-    | `spring.cloud.stream.servicebus.queue.bindings.consume-in-0.consumer.checkpoint-mode` |                                                       Specify `MANUAL`.                                                   |
-    | `spring.cloud.stream.servicebus.topic.bindings.consume-in-0.consumer.checkpoint-mode` |                                                       Specify `MANUAL`.                                                   |
+    | Field                                                                       | Description                                                                                                                                                   | 
+    |---------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------|
+    | `spring.cloud.azure.servicebus.connection-string`                           | Specify the connection string you obtained in your Service Bus namespace from the Azure portal.                                                               |
+    | `spring.cloud.stream.function.definition`                                   | Specify which functional bean to bind to the external destination(s) exposed by the bindings.                                                                 |
+    | `spring.cloud.stream.poller.fixed-delay`                                    | Specify fixed delay for default poller in milliseconds, default 1000L.                                                                                        |
+    | `spring.cloud.stream.poller.initial-delay`                                  | Specify initial delay for periodic triggers, default 0.                                                                                                       |
+    | `spring.cloud.stream.bindings.consume-in-0.destination`                     | Specify the Service Bus queue or Service Bus topic you used in this tutorial.                                                                                 |
+    | `spring.cloud.stream.bindings.consume-in-0.group`                           | If you used a Service Bus topic, specify the topic subscription.                                                                                              |
+    | `spring.cloud.stream.bindings.supply-out-0.destination`                     | Specify the same value used for input destination.                                                                                                            |
+    | `spring.cloud.stream.servicebus.bindings.consume-in-0.consumer.auto-complete`           | Whether to settle messages automatically. If set as false, a message header of `Checkpointer` will be added to enable developers to settle messages manually. |
+    | `spring.cloud.stream.servicebus.bindings.supply-out-0.producer.entity-type` | Specify the entity type for the output binding, can be `queue` or `topic`.                                                                                    |
 
 1. Save and close the *application.yaml* file.
 
@@ -181,7 +173,7 @@ In this section, you create the necessary Java classes for sending messages to y
    ```java
    package com.example.servicebus;
 
-   import com.azure.spring.integration.core.api.Checkpointer;
+   import com.azure.spring.messaging.checkpoint.Checkpointer;
    import org.slf4j.Logger;
    import org.slf4j.LoggerFactory;
    import org.springframework.boot.SpringApplication;
@@ -190,8 +182,8 @@ In this section, you create the necessary Java classes for sending messages to y
    import org.springframework.messaging.Message;
    
    import java.util.function.Consumer;
-   
-   import static com.azure.spring.integration.core.AzureHeaders.CHECKPOINTER;
+
+   import static com.azure.spring.messaging.AzureHeaders.CHECKPOINTER;
    
    @SpringBootApplication
    public class ServiceBusApplication {
@@ -207,12 +199,10 @@ In this section, you create the necessary Java classes for sending messages to y
            return message -> {
                Checkpointer checkpointer = (Checkpointer) message.getHeaders().get(CHECKPOINTER);
                LOGGER.info("New message received: '{}'", message.getPayload());
-               checkpointer.success().handle((r, ex) -> {
-                   if (ex == null) {
-                       LOGGER.info("Message '{}' successfully checkpointed", message.getPayload());
-                   }
-                   return null;
-               });
+               checkpointer.success()
+                           .doOnSuccess(s -> LOGGER.info("Message '{}' successfully checkpointed", message.getPayload()))
+                           .doOnError(e -> LOGGER.error("Error found", e))
+                           .block();
            };
        }
    }

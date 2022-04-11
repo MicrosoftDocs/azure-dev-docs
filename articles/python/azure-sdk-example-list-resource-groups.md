@@ -29,7 +29,7 @@ Create a file named *requirements.txt* with the following contents:
 
 :::code language="txt" source="~/../python-sdk-docs-examples/resource_group/requirements.txt":::
 
-Be sure to use these versions of the libraries. Using older versions will result in errors such as "'AzureCliCredential' object object has no attribute 'signed_session'."
+Be sure to use these versions of the libraries. Using older versions will result in errors such as "'AzureCliCredential' object has no attribute 'signed_session'."
 
 In a terminal or command prompt with the virtual environment activated, install the requirements:
 

@@ -10,6 +10,21 @@ ms.date: 02/28/2022
 
 Find new and updated content for JavaScript and TypeScript developers.
 
+
+## 2022 March
+
+### New in March
+
+|Name|Description|
+|---------------------------------------|--|
+|[Learn module](/learn/modules/javascript-deploy-expressjs-app-service/)|Create Azure service resources for an Express.js web app. Configure, secure, and deploy the web app. Review the logs after deployment. Full [sample code](https://github.com/Azure-Samples/msdocs-javascript-nodejs-server/) available.|
+
+### Updated in March
+
+|Name|Description|
+|---------------------------------------|--|
+|[App Service](/azure/app-service/quickstart-nodejs)|Replaced PUG view engine with EJS.|
+
 ## 2022 February
 
 ### New in February
@@ -17,7 +32,7 @@ Find new and updated content for JavaScript and TypeScript developers.
 |Name|Description|
 |---------------------------------------|--|
 |[App Service + MongoDB](/azure/app-service/tutorial-nodejs-mongodb-app?tabs=azure-portal%2Cterminal-bash%2Cvscode-deploy%2Cdeploy-instructions-azportal%2Cdeploy-zip-linux-mac%2Cdeploy-instructions--zip-azcli)|Learn how to deploy an Express.js app to Azure App Service. Create and configure the Cosmos DB using the MongoDB API.|
-|[Test strategies with Azure SDK](/azure/developer/javascript/core/test-azure-sdk-integrated-code)|When developing applications integrated with Azure SDKs, consider how much integration your code base has with the Azure SDKs.|
+|[Test strategies with Azure SDK](./core/test-azure-sdk-integrated-code.md)|When developing applications integrated with Azure SDKs, consider how much integration your code base has with the Azure SDKs.|
 
 ### Updated in February
 

@@ -3,7 +3,7 @@ title: How to use the Spring Boot Starter for Azure Active Directory
 description: Learn how to configure a Spring Boot Initializer app with the Azure Active Directory starter.
 services: active-directory
 documentationcenter: java
-ms.date: 02/07/2021
+ms.date: 03/30/2022
 ms.service: active-directory
 ms.tgt_pltfrm: multiple
 ms.topic: article
@@ -32,6 +32,9 @@ The following prerequisites are required to complete the steps in this article:
 * A supported Java Development Kit (JDK). For more information about the JDKs available for use when developing on Azure, see [Java support on Azure and Azure Stack](../fundamentals/java-support-on-azure.md).
 * [Apache Maven](http://maven.apache.org/), version 3.0 or later.
 
+> [!IMPORTANT]
+> Spring Boot version 2.5 or 2.6 is required to complete the steps in this article.
+
 ## Create an app using Spring Initializr
 
 1. Browse to <https://start.spring.io/>.
@@ -40,12 +43,9 @@ The following prerequisites are required to complete the steps in this article:
 1. Add **Dependencies** for **Spring Web**, **Azure Active Directory**, and **OAuth2 Client**.
 1. At the bottom of the page, select the **GENERATE** button.
 
-   :::image type="content" source="media/configure-spring-boot-starter-java-app-with-azure-active-directory/spring-initializr.png" alt-text="Screenshot of Spring Initializr with the indicated options selected." lightbox="media/configure-spring-boot-starter-java-app-with-azure-active-directory/spring-initializr.png":::
+   :::image type="content" source="media/spring-initializer/2.5.11/mvn-java8-aad-oauth2-web.png" alt-text="Screenshot of Spring Initializr with basic options.":::
 
 1. When prompted, download the project to a path on your local computer.
-
-> [!NOTE]
-> We've released Spring Boot Starter for Azure Active Directory [3.6.1](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/spring/azure-spring-boot-starter-active-directory/CHANGELOG.md) to address the following CVE report [CVE-2021-22119: Denial-of-Service attack with spring-security-oauth2-client](https://tanzu.vmware.com/security/cve-2021-22119). If you're using the older version, please upgrade it to 3.6.1 or above. 
 
 ## Create Azure Active Directory instance
 
@@ -149,24 +149,25 @@ If you're the administrator of an existing instance, you can skip this process.
 1. Specify the settings for your app registration using the values you created earlier. For example:
 
    ```properties
+   # Enable related features.
+   spring.cloud.azure.active-directory.enabled=true
    # Specifies your Active Directory ID:
-   azure.activedirectory.tenant-id=22222222-2222-2222-2222-222222222222
+   spring.cloud.azure.active-directory.profile.tenant-id=22222222-2222-2222-2222-222222222222
    # Specifies your App Registration's Application ID:
-   azure.activedirectory.client-id=11111111-1111-1111-1111-1111111111111111
+   spring.cloud.azure.active-directory.credential.client-id=11111111-1111-1111-1111-1111111111111111
    # Specifies your App Registration's secret key:
-   azure.activedirectory.client-secret=AbCdEfGhIjKlMnOpQrStUvWxYz==
+   spring.cloud.azure.active-directory.credential.client-secret=AbCdEfGhIjKlMnOpQrStUvWxYz==
    ```
 
    Where:
 
    | Parameter | Description |
    |---|---|
-   | `azure.activedirectory.tenant-id` | Contains your Active Directory's **Directory ID** from earlier. |
-   | `azure.activedirectory.client-id` | Contains the **Application ID** from your app registration that you completed earlier. |
-   | `azure.activedirectory.client-secret` | Contains the **Value** from your app registration key that you completed earlier. |
+   | `spring.cloud.azure.active-directory.enabled` | Enable the features provided by spring-cloud-azure-starter-active-directory |
+   | `spring.cloud.azure.active-directory.profile.tenant-id` | Contains your Active Directory's **Directory ID** from earlier. |
+   | `spring.cloud.azure.active-directory.credential.client-id` | Contains the **Application ID** from your app registration that you completed earlier. |
+   | `spring.cloud.azure.active-directory.credential.client-secret` | Contains the **Value** from your app registration key that you completed earlier. |
    
-   > [!NOTE]
-   > For a full list of values that are available in your *application.properties* file, see the [Configurable properties](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/spring/azure-spring-boot-starter-active-directory/README.md#configurable-properties) section of the [Azure AD Spring Boot Starter client library for Java](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/spring/azure-spring-boot-starter-active-directory) on GitHub.
 
 1. Save and close the *application.properties* file.
 
@@ -195,27 +196,6 @@ If you're the administrator of an existing instance, you can skip this process.
    }
    ```
 
-1. Open your application class in a text editor.
-
-1. Add `@EnableWebSecurity` and `@EnableGlobalMethodSecurity(prePostEnabled = true)` in your application class as shown in the following example, then save and close the file:
-
-   ```java
-   package com.wingtiptoys;
-
-   import org.springframework.boot.SpringApplication;
-   import org.springframework.boot.autoconfigure.SpringBootApplication;
-   import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
-   import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-
-   @EnableWebSecurity
-   @EnableGlobalMethodSecurity(prePostEnabled = true)
-   @SpringBootApplication
-   public class SpringBootSampleActiveDirectoryApplication {
-       public static void main(String[] args) {
-           SpringApplication.run(SpringBootSampleActiveDirectoryApplication.class, args);
-       }
-   }
-   ```
 
 ## Build and test your app
 

@@ -115,7 +115,7 @@ In this article, you learn how to:
 
 ## 5. Verify the results
 
-Run [az vm list](/cli/azure/vm#az_vm_list) to verify the VM was created.
+Run [az vm list](/cli/azure/vm#az-vm-list) to verify the VM was created.
 
   ```azurecli
   az vm list -d -o table --query "[?name=='myVM']"

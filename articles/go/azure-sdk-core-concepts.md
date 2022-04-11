@@ -38,8 +38,6 @@ if pager.Err() != nil {
 }
 ```
 
-For an example of a Pager implementation, see the SDK source file [zz_generated_pagers.go](https://github.com/Azure/autorest.go/blob/track2/test/autorest/paginggroup/zz_generated_pagers.go).
-
 ## Long-running operations
 
 Some operations on Azure can take a long time to complete, anywhere from a few seconds to a few days. Examples of such operations include copying data from a source URL to a storage blob or training an AI model to recognize forms. These *long-running operations (LROs)* don't lend well to the standard HTTP flow of a relatively quick request and response.
