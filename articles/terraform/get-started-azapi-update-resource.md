@@ -1,9 +1,9 @@
 ---
-title: Deploy your first Azure update resource with the AzAPI Terraform provider
+title: Deploy your first Azure update-resource with the AzAPI Terraform provider
 description: Learn how to use the AzAPI Terraform provider to manage network rules on an Azure Event Hub namespace
 keywords: azure devops terraform event hub azapi update_resource
 ms.topic: how-to
-ms.date: 04/07/2022
+ms.date: 04/11/2022
 ms.custom: devx-track-terraform
 author: grayzu
 ms.author: markgray
@@ -19,15 +19,14 @@ Article tested with the following Terraform and Terraform provider versions:
 
 [Learn more about using Terraform in Azure](/azure/terraform)
 
-In this article, you learn how to use the [AzAPI Terraform provider](https://registry.terraform.io/providers/azure/azapi/latest/docs) to manage new feature of an Azure service that is not currently supported by the [AzureRM provider](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs). The azapi_update_resource will be used to manage an [Azure EventHub](https://docs.microsoft.com/en-us/azure/event-hubs/) network ruleset. 
+In this article, you learn how to use the [AzAPI Terraform provider](https://registry.terraform.io/providers/azure/azapi/latest/docs) to manage a new feature of an Azure service that is not currently supported by the [AzureRM provider](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs). The `azapi_update_resource` will be used to manage an [Azure EventHub](/azure/event-hubs/) network rule set.
 
 > [!div class="checklist"]
 
 > * Define and configure the AzureRM and AzAPI providers
-> * Generate a randome name for the event hub namespace
-> * Use the AzureRM provider to create an Azure resource group and the required networking and event hub resources
-> * Use the AzAPI provider to add a network ruleset to the azurerm_eventhub_namespace resources 
-
+> * Generate a random name for the Event Hub namespace
+> * Use the AzureRM provider to create an Azure resource group and the required networking and Event Hub resources
+> * Use the AzAPI provider to add a network rule set to the `azurerm_eventhub_namespace` resources
 
 > [!NOTE]
 > The example code in this article is located in the [Azure Terraform GitHub repo](https://github.com/Azure/terraform/tree/master/quickstart/101-azapi-eventhub-network-rules).
@@ -44,16 +43,16 @@ In this article, you learn how to use the [AzAPI Terraform provider](https://reg
 
 1. Create a file named `providers.tf` and insert the following code:
 
-    [!code-terraform[master](provider.tf)]
+    [!code-terraform[master](../../terraform_samples/quickstart/101-azapi-eventhub-network-rules/provider.tf)]
 
 1. Create a file named `main.tf` and insert the following code:
 
-    [!code-terraform[master](main.tf)]
+    [!code-terraform[master](../../terraform_samples/quickstart/101-azapi-eventhub-network-rules/main.tf)]
 
 
 1. Create a file named `main-generic.tf` and insert the following code:
 
-    [!code-terraform[master](main-generic.tf)]
+    [!code-terraform[master](../../terraform_samples/quickstart/101-azapi-eventhub-network-rules/main-generic.tf)]
 
 ## 3. Initialize Terraform
 
@@ -79,7 +78,7 @@ az eventhubs namespace network-rule list --name <resource_group_name> --namespac
 
 **Key points:**
 
-- The resource group name and event hub namespace name are displayed in the `terraform apply` output.
+- The resource group name and Event Hub namespace name are displayed in the `terraform apply` output.
 
 #### [Azure PowerShell](#tab/azure-powershell)
 
@@ -91,7 +90,7 @@ Get-AzEventHubNetworkRuleSet -ResourceGroupName <resource_group_name> -Namespace
 
 **Key points:**
 
-- The resource group name and event hub namespace name are displayed in the `terraform apply` output.
+- The resource group name and Event Hub namespace name are displayed in the `terraform apply` output.
 
 ---
 
@@ -105,5 +104,5 @@ Get-AzEventHubNetworkRuleSet -ResourceGroupName <resource_group_name> -Namespace
 
 ## Next steps
 
-> [!div class="nextstepaction"] 
+> [!div class="nextstepaction"]
 > [Learn more about using Terraform in Azure](/azure/terraform)
