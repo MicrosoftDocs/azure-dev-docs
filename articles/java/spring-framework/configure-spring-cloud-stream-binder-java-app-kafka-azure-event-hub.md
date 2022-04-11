@@ -3,7 +3,7 @@ title: How to use the Spring Boot Starter for Apache Kafka with Azure Event Hubs
 description: Learn how to configure an application created with the Spring Boot Initializr to use Apache Kafka with Azure Event Hubs.
 services: event-hubs
 documentationcenter: java
-ms.date: 03/03/2022
+ms.date: 03/30/2022
 ms.service: event-hubs
 ms.topic: article
 ms.custom: devx-track-java
@@ -21,12 +21,12 @@ The following prerequisites are required in order to follow the steps in this ar
 * A supported Java Development Kit (JDK). For more information about the JDKs available for use when developing on Azure, see [Java support on Azure and Azure Stack](../fundamentals/java-support-on-azure.md).
 * [Apache Maven](http://maven.apache.org/), version 3.0 or later.
 
-> [!NOTE]
-> * Spring Boot version 2.0 or greater is required to complete the steps in this article.
+> [!IMPORTANT]
+> Spring Boot version 2.5 or 2.6 is required to complete the steps in this article.
 
-## Create an Azure Event Hub using the Azure portal
+## Create an Azure event hub using the Azure portal
 
-### Create an Azure Event Hub Namespace
+### Create an Azure event hub Namespace
 
 1. Browse to the Azure portal at <https://portal.azure.com/> and sign in.
 
@@ -34,7 +34,7 @@ The following prerequisites are required in order to follow the steps in this ar
 
 1. Select **Create**.
 
-   ![Create Azure Event Hub Namespace][IMG01]
+   ![Create Azure event hub Namespace][IMG01]
 
 1. On the **Create Namespace** page, enter the following information:
 
@@ -42,16 +42,16 @@ The following prerequisites are required in order to follow the steps in this ar
    * Specify whether to create a new **Resource group** for your namespace, or choose an existing resource group.
    * Enter a unique **Namespace name**, which will become part of the URI for your event hub namespace. For example: if you entered *wingtiptoys-space* for the **Name**, the URI would be `wingtiptoys-space.servicebus.windows.net`.
    * Specify the **Location** for your event hub namespace.
-   * Specify the **Pricing tier**, which will limit your usage scenarios .
+   * Specify the **Pricing tier**, which will limit your usage scenarios.
    * You can also specify the **Throughput units** for the namespace.
 
-   ![Specify Azure Event Hub Namespace options][IMG02]
+   ![Specify Azure event hub Namespace options][IMG02]
 
 1. When you have specified the options listed above, select **Review + Create**.
 
 1. Review the specification and select **Create** to create your namespace.
 
-### Create an Azure Event Hub in your namespace
+### Create an Azure event hub in your namespace
 
 After your namespace is deployed, you can create an event hub in the namespace.
 
@@ -72,8 +72,9 @@ After your namespace is deployed, you can create an event hub in the namespace.
 1. Specify the following options:
 
    * Generate a **Maven** project with **Java**.
-   * Specify a **Spring Boot** version that is equal to or greater than 2.0.
+   * Specify a **Spring Boot** version that is equal to **2.5.10**.
    * Specify the **Group** and **Artifact** names for your application.
+   * Select **8** or **11** for the Java version.
    * Add the **Web** dependency.
 
       ![Basic Spring Initializr options][SI01]
@@ -87,7 +88,7 @@ After your namespace is deployed, you can create an event hub in the namespace.
 
 1. After you have extracted the files on your local system, your simple Spring Boot application will be ready for editing.
 
-## Configure your Spring Boot app to use the Spring Cloud Kafka Stream and Azure Event Hub starters
+## Configure your Spring Boot app to use the Spring Cloud Kafka Stream and Azure event hub starters
 
 1. Locate the *pom.xml* file in the root directory of your app; for example:
 
@@ -102,14 +103,24 @@ After your namespace is deployed, you can create an event hub in the namespace.
    ```xml
    <dependency>
      <groupId>com.azure.spring</groupId>
-     <artifactId>azure-spring-cloud-starter-eventhubs-kafka</artifactId>
-     <version>2.14.0</version>
+     <artifactId>spring-cloud-azure-starter</artifactId>
+     <version>4.0.0</version>
+   </dependency>
+   <dependency>
+     <groupId>com.azure.spring</groupId>
+     <artifactId>spring-cloud-azure-resourcemanager</artifactId>
+     <version>4.0.0</version>
+   </dependency>
+   <dependency>
+     <groupId>org.springframework.cloud</groupId>
+     <artifactId>spring-cloud-starter-stream-kafka</artifactId>
+     <version>{version}</version><!--Need to be set, for example:3.1.6-->
    </dependency>
    ```
 
 1. Save and close the *pom.xml* file.
 
-## Sign into Azure and set your subscription
+## Sign in to Azure and set your subscription
 
 First, use the following steps to authenticate using the Azure CLI.
 
@@ -121,7 +132,7 @@ First, use the following steps to authenticate using the Azure CLI.
    rm ~/.azure/azureProfile.json
    ```
 
-1. Sign into your Azure account by using the Azure CLI:
+1. Sign in to your Azure account using the Azure CLI:
 
    ```azurecli
    az login
@@ -166,10 +177,13 @@ Azure AD *service principals* provide access to Azure resources within your subs
 To create a service principal, use the following command.
 
 ```azurecli
-az ad sp create-for-rbac --name contososp --role Contributor
+az ad sp create-for-rbac --name contososp --role Contributor --scopes /subscriptions/mySubscriptionID
 ```
 
-The value of the `name` option must be unique within your subscription. Save aside the values returned from the command for use later in the tutorial. The return JSON will look similar to the following output:
+> [!NOTE]
+> The value of the `--name` option must be unique within the Azure subscription. If you see error log like `Found an existing instance of "...", We will patch it. Insufficient privileges to complete operation`, that because the value of the `name` already exist in your subscription. Please try another name.
+
+Save aside the values returned from the command for use later in the tutorial. The return JSON will look similar to the following output:
 
 ```output
 {
@@ -197,13 +211,16 @@ The value of the `name` option must be unique within your subscription. Save asi
    spring:
      cloud:
        azure:
-         client-id: <your client ID>
-         client-secret: <your client secret>
-         tenant-id: <your tenant ID>
-         resource-group: <your resource group>
-         subscription-id: <your subscription ID>
-         eventhub:
+         credential:
+           client-id: <your client ID>
+           client-secret: <your client secret>
+         profile:
+           tenant-id: <your tenant ID>
+           subscription-id: <your subscription ID>
+         eventhubs:
            namespace: wingtiptoys
+           resource:
+             resource-group: <resource-group>
        stream:
          function:
            definition: consume;supply
@@ -217,19 +234,17 @@ The value of the `name` option must be unique within your subscription. Save asi
    
    Where:
 
-   |                       Field                       |                                                                                   Description                                                                                    |
-   |---------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-   |           `spring.cloud.azure.client-id`          |                                                    The `appId` from the return JSON from `az ad sp create-for-rbac`.                                                             |
-   |         `spring.cloud.azure.client-secret`        |                                                    The `password` from the return JSON from `az ad sp create-for-rbac`.                                                          |
-   |           `spring.cloud.azure.tenant-id`          |                                                    The `tenant` from the return JSON from `az ad sp create-for-rbac`.                                                            |
-   |        `spring.cloud.azure.resource-group`        |                                                      Specifies the Azure Resource Group that contains your Azure Event Hub.                                                      |
-   |        `spring.cloud.azure.subscription-id`        |                                                     Specifies the Azure Subscription that contains your Azure Event Hub.                                                        |
-   |            `spring.cloud.azure.region`            |                                           Specifies the geographical region that you specified when you created your Azure Event Hub.                                            |
-   |     `spring.cloud.azure.auto-create-resources`    |                                           Specifies true to enable automatic creation of related resources if they don't exist.                                                 |
-   |      `spring.cloud.azure.eventhub.namespace`      |                                          Specifies the unique name that you specified when you created your Azure Event Hub Namespace.                                           |
-   | `spring.cloud.stream.bindings.input.destination`  |                            Specifies the input destination Azure Event Hub, which for this tutorial is the  hub you created earlier in this tutorial.                            |
-   |    `spring.cloud.stream.bindings.input.group `    | Specifies a Consumer Group from Azure Event Hub, which can be set to '$Default' in order to use the basic consumer group that was created when you created your Azure Event Hub. |
-   | `spring.cloud.stream.bindings.output.destination` |                               Specifies the output destination Azure Event Hub, which for this tutorial will be the same as the input destination.                               |
+   |                       Field                       | Description                                                                                                                                                                      |
+   |----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------| -------------------------------------------------------- |
+   | `spring.cloud.azure.credential.client-id`         | The`appId` from the return JSON from `az ad sp create-for-rbac`.                                                                                                                 |
+   | `spring.cloud.azure.credential.client-secret`     | The`password` from the return JSON from `az ad sp create-for-rbac`.                                                                                                              |
+   | `spring.cloud.azure.profile.tenant-id`            | The`tenant` from the return JSON from `az ad sp create-for-rbac`.                                                                                                                |
+   | `spring.cloud.azure.profile.subscription-id`      | Specifies the Azure Subscription that contains your Azure event hub.                                                                                                             |
+   | `spring.cloud.azure.eventhubs.resource.resource-group` | Specifies the Azure Resource Group that contains your Azure event hub.                                                                                                           |
+   | `spring.cloud.azure.eventhubs.namespace`          | Specifies the unique name that you specified when you created your Azure Event Hubs Namespace.                                                                                   |
+   | `spring.cloud.stream.bindings.consume-in-0.destination`  | Specifies the input destination Azure Event Hub, which for this tutorial is the  hub you created earlier in this tutorial.                                                       |
+   | `spring.cloud.stream.bindings.consume-in-0.group `       | Specifies a Consumer Group from Azure Event Hub, which can be set to '$Default' in order to use the basic consumer group that was created when you created your Azure event hub. |
+   | `spring.cloud.stream.bindings.supply-out-0:.destination` | Specifies the output destination Azure Event Hub, which for this tutorial will be the same as the input destination.                                                             |
 
    > [!NOTE]
    > If you enable automatic topic creation, be sure to add the configuration item `spring.cloud.stream.kafka.binder.replicationFactor`, with the value set to at least 1. For more information, see [Spring Cloud Stream Kafka Binder Reference Guide](https://docs.spring.io/spring-cloud-stream-binder-kafka/docs/3.1.2/reference/html/spring-cloud-stream-binder-kafka.html).
@@ -377,7 +392,7 @@ To learn more about Spring and Azure, continue to the Spring on Azure documentat
 
 ### Additional Resources
 
-For more information about Azure support for Event Hub Stream Binder and Apache Kafka, see the following articles:
+For more information about Azure support for event hub Stream Binder and Apache Kafka, see the following articles:
 
 * [What is Azure Event Hubs?](/azure/event-hubs/event-hubs-about)
 
@@ -407,7 +422,7 @@ The **[Spring Framework]** is an open-source solution that helps Java developers
 [IMG02]: media/configure-spring-cloud-stream-binder-java-app-kafka-azure-event-hub/create-kafka-event-hub-02.png
 [IMG05]: media/configure-spring-cloud-stream-binder-java-app-kafka-azure-event-hub/create-kafka-event-hub-05.png
 
-[SI01]: media/configure-spring-cloud-stream-binder-java-app-kafka-azure-event-hub/create-project-01.png
+[SI01]: media/spring-initializer/2.5.11/mvn-java8-azure-web.png
 
 [TB01]: media/configure-spring-cloud-stream-binder-java-app-kafka-azure-event-hub/test-browser-01.png
 [TB02]: media/configure-spring-cloud-stream-binder-java-app-kafka-azure-event-hub/test-browser-02.png

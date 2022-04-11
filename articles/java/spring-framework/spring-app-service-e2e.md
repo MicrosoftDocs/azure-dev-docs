@@ -265,7 +265,7 @@ set DOLLAR=$
 ```
 ---
 
-Next, create and initialize the database server. Use [az mysql up](/cli/azure/mysql#az_mysql_up) for the initial configuration. Then use [az mysql server configuration set](/cli/azure/mysql/server/configuration#az_mysql_server_configuration_set) to increase the connection timeout and set the server timezone.
+Next, create and initialize the database server. Use [az mysql up](/cli/azure/mysql#az-mysql-up) for the initial configuration. Then use [az mysql server configuration set](/cli/azure/mysql/server/configuration#az-mysql-server-configuration-set) to increase the connection timeout and set the server timezone.
 
 # [Bash](#tab/bash)
 

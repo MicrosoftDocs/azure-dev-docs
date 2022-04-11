@@ -1,10 +1,9 @@
 ---
 title: Manage virtual machines with Azure Explorer for IntelliJ
 description: Learn how to manage your Azure virtual machines by using the Azure Explorer for IntelliJ.
-documentationcenter: java
-ms.date: 09/09/2020
+ms.date: 03/14/2022
+ms.author: jialuogan
 ms.service: multiple
-ms.tgt_pltfrm: multiple
 ms.topic: article
 ms.custom: devx-track-java
 ---
@@ -21,93 +20,105 @@ This article demonstrates how to create and manage virtual machines through the 
 
 ## Create a virtual machine
 
-To create a virtual machine by using the Azure Explorer, do the following: 
+To create a virtual machine by using the Azure Explorer, use the following steps:
 
-1. Sign in to your Azure account by using the steps in the [Sign-in instructions for the Azure Toolkit for IntelliJ] article.
+1. Sign in to your Azure account by using the steps in [Sign-in instructions for the Azure Toolkit for IntelliJ].
 
-2. In the **Azure Explorer** view, expand the **Azure** node, right-click **Virtual Machines**, and then click **Create VM**. 
- 
+1. In the **Azure Explorer** view, expand the **Azure** node, right-click **Virtual Machines**, and then click **Create**.
+
    :::image type="content" source="media/managing-virtual-machines-using-azure-explorer/CR01.png" alt-text="Create VM option in Azure Explorer.":::
 
-3. In the **Choose a Subscription** window, select your subscription, and then click **Next**. 
+1. In the **Basic** window, enter the following information:
 
-4. In the **Select a Virtual Machine Image** window, enter the following information:
+   * **Project Details**:
 
-   * **Location**: Specifies where your virtual machine will be created (for example, *West US*). 
+      * **Subscription**: Specifies the subscriptions that you'll use for your virtual machine.
 
-   * **Recommended image**: Specifies that you will choose an image from an abbreviated list of commonly used images.
+      * **Resource group**: Specifies the resource group for your virtual machine. Select one of the following options:
 
-   * **Custom image**: Specifies that you will choose a custom image by providing the following information:
+         * **Create new**: Specifies that you want to create a new resource group and click **+** to finish.
 
-      * **Publisher**: Specifies the publisher that created the image that you will use for your virtual machine (for example, *Microsoft*).
+         * **Use existing**: Specifies that you want to select from a list of resource groups that are associated with your Azure account.
 
-      * **Offer**: Specifies the virtual machine offering to use from the selected publisher (for example, *JDK*).
+      * **Instance Details**:
 
-      * **Sku**: Specifies the stockkeeping unit (SKU) to use from the selected offering (for example, *JDK_8*).
+         * **Virtual machine name**: Specifies the name for your new virtual machine, which must start with a letter and contain only letters, numbers, and hyphens.
 
-      * **Version #**: Specifies which version of the selected SKU to use.
+         * **Region**: Specifies where your virtual machine will be created (for example, *West US*).
 
-5. Click **Next**. 
+         * **Availability options**: Specifies an optional availability set that your virtual machine can belong to. You can select an existing availability set, or if your virtual machine won't belong to an availability set, select **(No infrastructure redundancy required)**.
 
-6. In the **Virtual Machine Basic Settings** window, enter the following information:
+         * **Image**: Specifies that you'll choose a marketplace image by providing the following information (use Shift+Enter to navigate between fields):
 
-   * **Virtual machine name**: Specifies the name for your new virtual machine, which must start with a letter and contain only letters, numbers, and hyphens.
+            * **Publisher**: Specifies the publisher that created the image that you'll use for your virtual machine (for example, *Microsoft*).
 
-   * **Size**: Specifies the number of cores and memory to allocate for your virtual machine.
+            * **Offer**: Specifies the virtual machine offering to use from the selected publisher (for example, *JDK*).
 
-   * **User name**: Specifies the administrator account to create for managing your virtual machine.
+            * **Sku**: Specifies the stockkeeping unit (SKU) to use from the selected offering (for example, *JDK_8*).
 
-   * **Password**: Specifies the password for your administrator account. Re-enter your password in the **Confirm** box to validate the credential.
+            * **Image**: Specifies which version of the selected image to use.
 
-7. Click **Next**. 
+         * **Size**: Specifies the number of cores and memory to allocate for your virtual machine.
 
-8. In the **Associated Resources** window, enter the following information:
+      * **Administrator  Account**:
 
-   * **Resource group**: Specifies the resource group for your virtual machine. Select one of the following options:
-      * **Create new**: Specifies that you want to create a new resource group.
-      * **Use existing**: Specifies that you want to select from a list of resource groups that are associated with your Azure account.
+         * **Authentication type**: Specifies the administrator account will use SSH public key or password for authentication.
 
-   * **Storage account**: Specifies the storage account to use for storing your virtual machine. You can choose an existing storage account or create a new account. If you choose **Create New**, the following dialog box appears:
+         * **User name**: Specifies the administrator account to create for managing your virtual machine.
 
-   * **Virtual Network** and **Subnet**: Specifies the virtual network and subnet that your virtual machine will connect to. You can use an existing network and subnet, or you can create a new network and subnet. If you select **Create new**, the following dialog box appears:
+         * **Password**: Specifies the password for your administrator account. Re-enter your password in the **Confirm password** box to validate the credential if you use password for authentication.
 
-   * **Public IP address**: Specifies an external-facing IP address for your virtual machine. You can choose to create a new IP address or, if your virtual machine will not have a public IP address, you can select **(None)**. 
+      * **Inbound Port Rules**:
 
-   * **Network security group**: Specifies an optional networking firewall for your virtual machine. You can select an existing firewall or, if your virtual machine will not use a network firewall, you can select **(None)**. 
+         * **Select inbound ports**:  Specifies which virtual machine network ports are accessible from the public internet.
 
-   * **Availability set**: Specifies an optional availability set that your virtual machine can belong to. You can select an existing availability set, create a new availability set or, if your virtual machine will not belong to an availability set, select **(None)**.
+1. In the **Networking** window, enter the following information:
 
-9. Click **Finish**. Your new virtual machine appears in the Azure Explorer tool window. 
+   * **Network Interface**:
+
+      * **Virtual Network** and **Subnet**: Specifies the virtual network and subnet that your virtual machine will connect to. You can use an existing network and subnet, or you can create a new network and subnet.
+
+      * **Public IP**: Specifies an external-facing IP address for your virtual machine. You can choose to create a new IP address or, if your virtual machine won't have a public IP address, you can select **(None)**.
+
+      * **Security group**: Specifies an optional networking firewall for your virtual machine. You can select an existing firewall or, if your virtual machine won't use a network firewall, you can select **(None)**.
+
+      * **Select inbound ports**: Specifies which virtual machine network ports are accessible from the public internet.
+
+1. In the **Advanced** window, enter the following information:
+
+   * **Storage account**:
+
+      * **Storage account**: Specifies the storage account to use for storing your virtual machine. You can choose an existing storage account or create a new account. If you choose **Create New**, you need to specify all necessary options. For more information, you can see [Storage Account].
+
+   * **Azure Spot Instance**:
+
+      * **Enable Azure Spot instance**: Specifies Azure Spot Virtual Machines to take advantage of your unused capacity at a significant cost savings. For more information, you can see [Use Azure Spot Virtual Machines].
+
+1. Click **Finish**. Your new virtual machine appears in the Azure Explorer tool window.
 
 ## Restart a virtual machine
 
-To restart a virtual machine by using the Azure Explorer in IntelliJ, do the following:
+To restart a virtual machine by using the Azure Explorer in IntelliJ, use the following steps:
 
 1. In the **Azure Explorer** view, right-click the virtual machine, and then select **Restart**.
 
-2. In the confirmation window, click **Yes**. 
+   ![The restart virtual machine confirmation window.][RE01]
 
-   ![The restart virtual machine confirmation window][RE02]
+## Stop a virtual machine
 
-## Shut down a virtual machine
+To stop a running virtual machine by using the Azure Explorer in IntelliJ, use the following steps:
 
-To shut down a running virtual machine by using the Azure Explorer in IntelliJ, do the following:
-
-1. In the **Azure Explorer** view, right-click the virtual machine, and then select **Shutdown**.
-
-2. In the confirmation window, click **Yes**. 
-
-   ![The shut down virtual machine confirmation window][SH02]
+1. In the **Azure Explorer** view, right-click the virtual machine, and then select **Stop**.
 
 ## Delete a virtual machine
 
-To delete a virtual machine by using the Azure Explorer in IntelliJ, do the following:
+To delete a virtual machine by using the Azure Explorer in IntelliJ, use the following steps:
 
 1. In the **Azure Explorer** view, right-click the virtual machine, and then select **Delete**.
 
-2. In the confirmation window, click **Yes**. 
+1. In the confirmation window, click **Yes**.
 
-   ![The delete virtual machine confirmation window][DE02]
+   ![The delete virtual machine confirmation window.][DE02]
 
 ## Next steps
 
@@ -125,6 +136,8 @@ For more information about Azure virtual-machine sizes and pricing, see the foll
 <!-- URL List -->
 
 [Sign-in instructions for the Azure Toolkit for IntelliJ]: ./sign-in-instructions.md
+[Storage Account]: ./managing-storage-accounts-using-azure-explorer.md
+[Use Azure Spot Virtual Machines]:/azure/virtual-machines/spot-vms
 [Sizes for Windows virtual machines in Azure]: /azure/virtual-machines/sizes
 [Sizes for Linux virtual machines in Azure]: /azure/virtual-machines/sizes
 [Windows virtual-machine pricing]: https://azure.microsoft.com/pricing/details/virtual-machines/windows/
@@ -136,7 +149,6 @@ For more information about Azure virtual-machine sizes and pricing, see the foll
 [RE02]: media/managing-virtual-machines-using-azure-explorer/RE02.png
 
 [SH01]: media/managing-virtual-machines-using-azure-explorer/SH01.png
-[SH02]: media/managing-virtual-machines-using-azure-explorer/SH02.png
 
 [DE01]: media/managing-virtual-machines-using-azure-explorer/DE01.png
 [DE02]: media/managing-virtual-machines-using-azure-explorer/DE02.png

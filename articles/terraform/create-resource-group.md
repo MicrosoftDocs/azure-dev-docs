@@ -3,13 +3,20 @@ title: Get Started - Create an Azure resource group using Terraform
 description: Learn how to create an Azure resource group using Terraform
 keywords: azure devops terraform azure resource group
 ms.topic: quickstart
-ms.date: 01/28/2022
+ms.date: 03/15/2022
 ms.custom: devx-track-terraform, mode-portal
 adobe-target: true
 # Customer intent: As someone new to Terraform and Azure, I want to do something simple to confirm my Terraform installation.
 ---
 
 # Get Started: Create an Azure resource group using Terraform
+
+Article tested with the following Terraform and Terraform provider versions:
+
+- [Terraform v1.1.7](https://releases.hashicorp.com/terraform/)
+- [AzureRM Provider v.2.99.0](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs)
+
+[Learn more about using Terraform in Azure](/azure/terraform)
 
 [!INCLUDE [terraform-intro.md](includes/terraform-intro.md)]
 
@@ -35,15 +42,19 @@ In this article, you learn how to:
 
 1. Create a directory in which to test the sample Terraform code and make it the current directory.
 
+1. Create a file named `providers.tf` and insert the following code:
+
+    [!code-terraform[master](../../terraform_samples/quickstart/101-resource-group/providers.tf)]
+
 1. Create a file named `main.tf` and insert the following code:
 
     [!code-terraform[master](../../terraform_samples/quickstart/101-resource-group/main.tf)]
 
-1. Create a file named `variables.tf` to contain the project variables and insert the following code:
+1. Create a file named `variables.tf` and insert the following code:
 
     [!code-terraform[master](../../terraform_samples/quickstart/101-resource-group/variables.tf)]
 
-1. Create a file named `output.tf` to display the randomly generated resource group name and insert the following code:
+1. Create a file named `output.tf` and insert the following code:
 
     [!code-terraform[master](../../terraform_samples/quickstart/101-resource-group/output.tf)]
 
@@ -61,17 +72,19 @@ In this article, you learn how to:
 
 ## 6. Verify the results
 
+To see the resource group name, run the following command:
+
+```console
+echo "$(terraform output resource_group_name)"
+```
+
 #### [Azure CLI](#tab/azure-cli)
 
-Run [az group show](/cli/azure/group#az_group_show) to display the resource group.
+Run [az group show](/cli/azure/group#az-group-show) to display the resource group.
 
 ```azurecli
 az group show --name <resource_group_name>
 ```
-
-**Key points:**
-
-- The resource group name is displayed in the `terraform apply` output.
 
 #### [Azure PowerShell](#tab/azure-powershell)
 
@@ -80,10 +93,6 @@ Run [Get-AzResourceGroup](/powershell/module/az.resources/Get-AzResourceGroup) t
 ```azurepowershell
 Get-AzResourceGroup -Name <resource_group_name>
 ```
-
-**Key points:**
-
-- The resource group name is displayed in the `terraform apply` output.
 
 ---
 

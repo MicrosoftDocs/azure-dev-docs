@@ -76,6 +76,9 @@ Cloud Shell is accessible in a web browser and has integrations for [Windows Ter
 
 ![Azure CloudShell Bash and PowerShell environments](./media/choosing-the-right-azure-tool/azure-cloud-shell-bash-powershell.png)
 
+> [!NOTE]
+> Azure Cloud Shell may not always _immediately reflect_ the most recent Azure PowerShell and Azure CLI releases as the publishing schedule for all three tools is different.  However, Azure Cloud Shell is generally thought to always contain the most recent versions of both tools.
+
 ## Which Azure command-line tool is right for you?
 
 When picking the right tool, consider your past experience and current work environment.

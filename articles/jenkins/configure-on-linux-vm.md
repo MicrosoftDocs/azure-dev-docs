@@ -52,13 +52,13 @@ In this article, you'll learn how to:
       - sudo service jenkins restart
     ```
     
-1. Run [az group create](/cli/azure/group#az_group_create) to create a resource group.
+1. Run [az group create](/cli/azure/group#az-group-create) to create a resource group.
 
     ```azurecli
     az group create --name jenkins-get-started-rg --location eastus
     ```
 
-1. Run [az vm create](/cli/azure/vm#az_vm_create) to create a virtual machine.
+1. Run [az vm create](/cli/azure/vm#az-vm-create) to create a virtual machine.
 
     ```azurecli
     az vm create \
@@ -71,13 +71,13 @@ In this article, you'll learn how to:
     --custom-data cloud-init-jenkins.txt
     ```
 
-1. Run [az vm list](/cli/azure/vm#az_vm_list) to verify the creation (and state) of the new virtual machine.
+1. Run [az vm list](/cli/azure/vm#az-vm-list) to verify the creation (and state) of the new virtual machine.
 
     ```azurecli
     az vm list -d -o table --query "[?name=='jenkins-get-started-vm']"
     ```
 
-1. As Jenkins runs on port 8080, run [az vm open](/cli/azure/vm#az_vm_open_port) to open port 8080 on the new virtual machine.
+1. As Jenkins runs on port 8080, run [az vm open](/cli/azure/vm#az-vm-open-port) to open port 8080 on the new virtual machine.
 
     ```azurecli
     az vm open-port \
@@ -88,7 +88,7 @@ In this article, you'll learn how to:
 
 ## 4. Configure Jenkins
 
-1. Run [az vm show](/cli/azure/vm#az_vm_show) to get the public IP address for the sample virtual machine.
+1. Run [az vm show](/cli/azure/vm#az-vm-show) to get the public IP address for the sample virtual machine.
 
     ```azurecli
     az vm show \

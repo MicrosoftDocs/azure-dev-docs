@@ -7,7 +7,7 @@ ms.date: 02/08/2021
 
 ## Create a MariaDB resource with Azure CLI
 
-Use the following Azure CLI [az mariadb server create](/cli/azure/mariadb/server#az_mariadb_server_create) command in the [Azure Cloud Shell](https://shell.azure.com) to create a new MariaDB resource for your database. 
+Use the following Azure CLI [az mariadb server create](/cli/azure/mariadb/server#az-mariadb-server-create) command in the [Azure Cloud Shell](https://shell.azure.com) to create a new MariaDB resource for your database. 
 
 ```azurecli
 az mariadb server create \
@@ -89,7 +89,7 @@ While you can add the full range of internet addresses as a firewall rule, 0.0.0
 
 ## Create a database on the server with Azure CLI
 
-Use the following Azure CLI [az mariadb db create](/cli/azure/mariadb/db#az_mariadb_db_create) command in the [Azure Cloud Shell](https://shell.azure.com) to create a new MariaDB database on your server. 
+Use the following Azure CLI [az mariadb db create](/cli/azure/mariadb/db#az-mariadb-db-create) command in the [Azure Cloud Shell](https://shell.azure.com) to create a new MariaDB database on your server. 
 
 ```azurecli
 az mariadb db create \
@@ -101,7 +101,7 @@ az mariadb db create \
 
 ## Get the MariaDB connection string with Azure CLI
 
-Retrieve the MariaDB connection string for this instance with the [az mariadb server show-connection-string](/cli/azure/mariadb/server#az_mariadb_server_show_connection_string) command:
+Retrieve the MariaDB connection string for this instance with the [az mariadb server show-connection-string](/cli/azure/mariadb/server#az-mariadb-server-show-connection-string) command:
 
 ```azurecli
 az mariadb server show-connection-string \

@@ -12,20 +12,32 @@ metadata:
   author: barbkess
   ms.author: barbkess
   manager: barbkess
-  ms.date: 05/03/2021
+  ms.date: 12/28/2021
 
-#highlightedContent:
-#  itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
-#  items:
-#    - title: Browse Python SDK
-#      itemType: reference # controls the icon image and super-title text
-#      url: https://docs.microsoft.com/python/api/?view=azure-python
-#    - title: Browse JavaScript SDK
-#      itemType: reference
-#      url: https://docs.microsoft.com/javascript/api/
-#    - title: Browse Java SDK
-#      itemType: reference
-#      url: https://docs.microsoft.com/java/api/
+highlightedContent:
+  items:
+    - title: Introduction to Azure for developers
+      itemType: get-started # controls the icon image and super-title text
+      url: intro/azure-developer-overview.md
+    - title: Key Azure services for developers
+      itemType: overview
+      url: ./intro/azure-developer-key-services.md
+    - title: Host applications on Azure
+      itemType: overview
+      url: ./intro/hosting-apps-on-azure.md
+    - title: Connect apps to Azure services
+      itemType: overview
+      url: ./intro/connect-to-azure-services.md
+    - title: Create resources in Azure
+      itemType: concept
+      url: ./intro/azure-developer-create-resources.md
+    - title: Key concepts for building Azure apps
+      itemType: architecture
+      url: ./intro/azure-developer-key-concepts.md
+    - title: Understand Azure billing
+      itemType: concept
+      url: ./intro/azure-developer-billing.md
+
 productDirectory:
 #  title: Developer centers
 #  summary:
@@ -57,7 +69,7 @@ productDirectory:
           text: Deploy a serverless application
         - url: ./javascript/tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-01.md?tabs=bash
           text: Deploy Docker containers
-        - url: /azure/cosmos-db/create-mongodb-nodejs?bc=%252fazure%252fdeveloper%252fbreadcrumb%252ftoc.json&toc=%252fazure%252fdeveloper%252fjavascript%252ftoc.json
+        - url: /azure/cosmos-db/create-mongodb-nodejs
           text: Migrate a MongoDB app to Azure Cosmos DB
         - url: ./javascript/index.yml
           text: See more in the JavaScript developer center
@@ -155,12 +167,52 @@ productDirectory:
 #additionalContent:
 additionalContent:
   sections:
-    - title: Tools
+    - title: Developer Tools
+      summary: Use your favorite development tools when working with Azure
       items:
+        # Card
+        - title: Visual Studio
+          summary: Full-featured IDE to code, debug, test, and deploy to any platform.
+          url: https://visualstudio.microsoft.com/
+        # Card
+        - title: Visual Studio Code
+          summary: Free. Built on open source. Runs everywhere.
+          url: https://code.visualstudio.com/
         # Card
         - title: Visual Studio Code Azure Extensions
           summary: Use Azure directly from Visual Studio Code through extensions.
           url: https://code.visualstudio.com/docs/azure/extensions
+        # Card
+        - title: Playwright
+          summary: Reliable end-to-end testing for modern web apps
+          url: https://playwright.dev/
+        # Card
+        - title: Azure Toolkit for IntelliJ
+          summary: Use Azure Toolkit for IntelliJ to create, develop, test, and deploy Azure applications from within the IntelliJ IDE.
+          url: ./java/toolkit-for-intellij/index.yml
+        # Card
+        - title: Azure Toolkit for Eclipse
+          summary: Use Azure Toolkit for Eclipse to create, develop, test, and deploy Azure applications from within the Eclipse IDE.
+          url: ./java/toolkit-for-eclipse/index.yml           
+        # Card
+        - title: Maven
+          summary: Use Maven to automate the way you build and manage Java projects. It works with other languages too.
+          url: https://github.com/Microsoft/azure-maven-plugins#readme
+    - title: DevOps and Automation Tools
+      summary: Automate the deployment of both code and infrastructure with these automation tools
+      items:
+        # Card
+        - title: Azure and GitHub integration
+          summary: Use GitHub and GitHub Actions to automate, customize, and execute your software development workflows from within your repository.
+          url: ./github/index.yml      
+        # Card
+        - title: Azure DevOps
+          summary: Use Azure DevOps to plan work, collaborate on code development, and build and deploy applications.
+          url: /azure/devops/?view=azure-devops
+        # Card
+        - title: Jenkins
+          summary: Use Jenkins to automate continuous integration and delivery (CI/CD) for your software projects.
+          url: /azure/jenkins/
         # Card
         - title: REST API
           summary: Use REST APIs to access your service's resources through HTTP operations.
@@ -169,18 +221,6 @@ additionalContent:
         - title: ARM Templates
           summary: Use Azure Resource Manager templates to define and configure your project with JSON files.
           url: /azure/azure-resource-manager/templates/
-        # Card
-        - title: Azure DevOps
-          summary: Use Azure DevOps to plan work, collaborate on code development, and build and deploy applications.
-          url: /azure/devops/?view=azure-devops
-        # Card
-        - title: Azure and GitHub integration
-          summary: Use GitHub and GitHub Actions to automate, customize, and execute your software development workflows from within your repository.
-          url: ./github/index.yml
-        # Card
-        - title: Jenkins
-          summary: Use Jenkins to automate continuous integration and delivery (CI/CD) for your software projects.
-          url: /azure/jenkins/
         # Card
         - title: Terraform
           summary: Use Hashicorp Terraform to provision and manage cloud infrastructure.
@@ -193,12 +233,3 @@ additionalContent:
         - title: Chef
           summary: Use Chef to transform your virtual machine infrastructure on Azure into code.
           url: ./chef/index.yml
-        - title: Maven
-          summary: Use Maven to automate the way you build and manage Java projects. It works with other languages too.
-          url: https://github.com/Microsoft/azure-maven-plugins#readme
-        - title: Azure Toolkit for IntelliJ
-          summary: Use Azure Toolkit for IntelliJ to create, develop, test, and deploy Azure applications from within the IntelliJ IDE.
-          url: ./java/toolkit-for-intellij/index.yml
-        - title: Azure Toolkit for Eclipse
-          summary: Use Azure Toolkit for Eclipse to create, develop, test, and deploy Azure applications from within the Eclipse IDE.
-          url: ./java/toolkit-for-eclipse/index.yml

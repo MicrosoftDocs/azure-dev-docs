@@ -2,8 +2,8 @@
 title: How to use Spring and Cosmos DB with App Service on Linux
 description: This article will walk you through the process of building, configuring, deploying, troubleshooting, and scaling Java Web apps in Azure App Service on Linux.
 documentationcenter: java
-ms.reviewer: joshuapa 
-ms.date: 10/06/2020
+ms.reviewer: joshuapa
+ms.date: 03/30/2022
 ms.service: cosmos-db
 ms.topic: article
 ms.custom: devx-track-java, devx-track-azurecli
@@ -28,10 +28,13 @@ The following prerequisites are required in order to follow the steps in this ar
 - [Java 8 JDK](../fundamentals/java-jdk-install.md)
 - [Maven 3](http://maven.apache.org/)
 
+> [!IMPORTANT]
+> Spring Boot version 2.5 or 2.6 is required to complete the steps in this article.
+
 ## Clone the Sample Java Web App Repository
 
 For this exercise you'll be using the Spring Todo app, which is a Java application built using [Spring Boot](https://spring.io/projects/spring-boot), [Spring Data for Cosmos DB](./configure-spring-boot-starter-java-app-with-cosmos-db.md) and [Azure Cosmos DB](/azure/cosmos-db/sql-api-introduction).
-1. Clone the Spring Todo app and copy the contents of the **.prep** folder to initialize the project:
+1. Clone the Spring Todo app and copy the contents of the *.prep* folder to initialize the project:
 
     For bash:
 
@@ -58,13 +61,13 @@ For this exercise you'll be using the Spring Todo app, which is a Java applicati
 
 The following procedure creates Azure Cosmos database using CLI.
 
-1. Login to your Azure CLI, and set your subscription id.
+1. Sign in to your Azure CLI, and set your subscription ID.
 
     ```azurecli
     az login
     ```
 
-2. Set the subscription id if needed.
+2. Set the subscription ID if needed.
 
     ```azurecli
     az account set -s <your-subscription-id>
@@ -137,7 +140,7 @@ set SUBSCRIPTION_ID=<put-your-SUBSCRIPTION_ID-here>
     mvn package spring-boot:run
     ```
 
-4. Once the application has started,you can validate the deployment by accessing the Spring Todo app here: `http://localhost:8080/`.
+4. Once the application has started, you can validate the deployment by accessing the Spring Todo app here: `http://localhost:8080/`.
 
  ![Spring app running locally][SCDB01]
 
