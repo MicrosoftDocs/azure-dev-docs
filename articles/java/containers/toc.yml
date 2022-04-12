@@ -1,4 +1,5 @@
-- name: Java on Containers documentation
+- name: Java on Azure containerization documentation
+  href: index.yml
   items:
     - name: Overview
       href: overview.md
