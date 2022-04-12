@@ -22,7 +22,7 @@ Keep in mind that the cost of a VM SKU is proportional to the number of cores an
 
 ## Set CPU requests and limits
 
-If you must limit the CPU, ensure that you apply the same value for both `limits` and `requests` in the deployment file. Be aware that the JVM doesn't dynamically adjust its runtime, such as the GC and other thread pools. The JVM reads the number of processors available only during startup time.
+If you must limit the CPU, ensure that you apply the same value for both `limits` and `requests` in the deployment file. The JVM doesn't dynamically adjust its runtime, such as the GC and other thread pools. The JVM reads the number of processors available only during startup time.
 
 > [!TIP]
 > Set same value for CPU requests and CPU limits.
@@ -70,7 +70,7 @@ containers:
 
 ## Set the JVM arguments in the deployment file
 
-Remember to set the JVM heap memory to the amount you've previously determined. We recommend that you pass this value as an environment variable so you can easily change the value without needing to rebuild the container image.
+Remember to set the JVM heap memory to the amount you've previously determined. We recommend that you pass this value as an environment variable so you can easily change it without needing to rebuild the container image.
 
 ```yaml
 containers:

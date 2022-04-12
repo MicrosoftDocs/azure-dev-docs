@@ -45,19 +45,19 @@ These values are valid for OpenJDK 11 and later, and for most distributions, inc
 
 ### Determine container memory
 
-Pick an amount of container memory that will serve your work load best, depending on the needs of your application and its distinctive usage patterns. For example, if your application creates large object graphs, then you'll probably need more memory than you'd need for applications with many small object graphs.
+Pick a container memory amount that will serve your work load best, depending on the needs of your application and its distinctive usage patterns. For example, if your application creates large object graphs, then you'll probably need more memory than you'd need for applications with many small object graphs.
 
 > [!TIP]
 > If you don't know how much memory to allocate, a good starting point is 4 GB.
 
 ### Determine JVM heap memory
 
-When allocating JVM heap memory, be aware that the JVM needs more memory than just what is used for the JVM heap. When setting the maximum JVM heap memory, it should NEVER be equal to the amount of container memory because that will cause container Out of Memory (OOM) errors and container crashes.
+When you allocate JVM heap memory, be aware that the JVM needs more memory than just what is used for the JVM heap. When you set the maximum JVM heap memory, it should never be equal to the amount of container memory because that will cause container Out of Memory (OOM) errors and container crashes.
 
 > [!TIP]
 > Allocate 75% of container memory for the JVM heap.
 
-Developers can set the JVM Heap Size in two ways, on OpenJDK 11 and later:
+On OpenJDK 11 and later, you can set the JVM heap size in the following ways:
 
 | Description   | Flag                   | Examples                  |
 |---------------|------------------------|---------------------------|
@@ -91,7 +91,7 @@ For any GC other than SerialGC, we recommend two or more vCPU cores. We don't re
 
 ### Pick a starting point
 
-In container orchestration environments like Kubernetes, OpenShift, Azure Spring Cloud, Azure Container Apps, and Azure App Service, we recommend starting with two replicas or instances. The following table summarizes the recommended starting points for the containerization of your new Java application.
+We recommend starting with two replicas or instances in container orchestration environments like Kubernetes, OpenShift, Azure Spring Cloud, Azure Container Apps, and Azure App Service. The following table summarizes the recommended starting points for the containerization of your new Java application.
 
 | vCPU cores | Container memory | JVM heap size | GC         | Replicas |
 |------------|------------------|---------------|------------|----------|
