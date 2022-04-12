@@ -4,6 +4,8 @@
   items:
     - name: About Terraform on Azure
       href: overview.md
+    - name: Terraform AzAPI provider
+      href: overview-azapi-provider.md
     - name: Terraform Azure provider versions
       items:
         - name: AzureRM provider versions
@@ -23,6 +25,10 @@
       href: create-resource-group.md
     - name: Install the Azure Terraform Visual Studio Code extension
       href: configure-vs-code-extension-for-terraform.md
+    - name: Learn how to use the AzAPI resource
+      href: get-started-azapi-resource.md
+    - name: Learn how to use the AzAPI update resource
+      href: get-started-azapi-update-resource.md
 - name: Samples
   items:
     - name: Configuration templates
@@ -135,6 +141,8 @@
       href: https://registry.terraform.io/modules/Azure
     - name: Terraform Azure Provider
       href: https://aka.ms/terraform
+    - name: Terraform AzAPI Provider
+      href: https://registry.terraform.io/providers/Azure/azapi/latest/docs
 - name: Resources
   items:
     - name: Azure & Terraform

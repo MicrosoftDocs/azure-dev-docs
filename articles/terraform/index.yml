@@ -21,6 +21,8 @@ landingContent:
         links:
           - text: About Terraform on Azure
             url: overview.md
+          - text: Terraform AzAPI (generic) provider
+            url: overview-azapi-provider.md
       - linkListType: reference
         links:
           - text: AzureRM provider versions 

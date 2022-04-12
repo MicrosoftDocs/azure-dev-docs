@@ -1,0 +1,9 @@
+- name: Java on Azure containerization documentation
+  href: index.yml
+  items:
+    - name: Overview
+      href: overview.md
+    - name: Establish a baseline
+      href: baseline.md
+    - name: Containerize for Azure Kubernetes Service
+      href: aks.md
