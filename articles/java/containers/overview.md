@@ -12,7 +12,7 @@ recommendations: false
 
 This article provides an overview of recommended strategies and settings for containerizing Java applications.
 
-When you're containerizing a Java application, carefully consider how much CPU time the container will have available. Then consider how much memory will be available both in terms of total amount of memory, and the heap size of the Java Virtual Machine (JVM). In most containerized environments, applications may have access to all processors and therefore be able to run multiple threads in parallel. It's common, though, that containers have a CPU quota applied that may throttle access to CPUs.
+When you're containerizing a Java application, carefully consider how much CPU time the container will have available. Then consider how much memory will be available both in terms of total amount of memory, and the heap size of the Java Virtual Machine (JVM). In containerized environments, applications may have access to all processors and therefore be able to run multiple threads in parallel. It's common, though, that containers have a CPU quota applied that may throttle access to CPUs.
 
 The JVM has heuristics to determine the number of "available processors" based on CPU quota, which can dramatically influence the performance of Java applications. The memory allocated to the container itself and the size of the heap area for the JVM are as important as the processors. These factors will determine the behavior of the garbage collector (GC) and the overall performance of the system.
 
@@ -29,17 +29,17 @@ Applications need a starting point and settings. The JVM has default ergonomics 
 
 The following table shows the default GC used for the resources available:
 
-| Resources available                                    | Default  |
-|--------------------------------------------------------|----------|
-| Any number of processors <br/> Up to 1791 MB of memory | SerialGC |
-| 2+ processors <br/> 1792 MB or more of memory          | G1GC     |
+| Resources available                                    | Default GC |
+|--------------------------------------------------------|------------|
+| Any number of processors <br/> Up to 1791 MB of memory | SerialGC   |
+| 2+ processors <br/> 1792 MB or more of memory          | G1GC       |
 
 The following table shows the default initial heap size for the type of environment:
 
-| Type of environment | Default                  |
-|---------------------|--------------------------|
-| Containers          | 1/4 of available memory  |
-| Non-container       | 1/64 of available memory |
+| Type of environment | Default initial heap size |
+|---------------------|---------------------------|
+| Containers          | 1/4 of available memory   |
+| Non-container       | 1/64 of available memory  |
 
 These values are valid for OpenJDK 11 and later, and for most distributions, including Microsoft Build of OpenJDK, Azul Zulu, Eclipse Temurin, Oracle OpenJDK, and others.
 

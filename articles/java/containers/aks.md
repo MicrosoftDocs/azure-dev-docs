@@ -14,7 +14,7 @@ This article describes how to containerize your Java applications on Azure Kuber
 
 For guidance on container memory, JVM heap memory, garbage collectors (GCs), and vCPU cores, see [Containerize your Java applications](overview.md).
 
-## Determine appropriate VM SKU for AKS node pool
+## Determine the appropriate VM SKU for the AKS node pool
 
 Determine whether the Azure Kubernetes Service node pool or pools that are available for your cluster can fit the container memory and vCPU cores that you intend to use. If the AKS node pool can host the application, then continue on. Otherwise, provision a node pool that's appropriate for the amount of container memory and number of vCPU cores you're targeting.
 
