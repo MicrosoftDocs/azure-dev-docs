@@ -1,9 +1,9 @@
 ---
 title: Establish a baseline for containerized Java applications
-description: This guide describes how to establish a baseline for containerized Java applications
-ms.author: manriem
+description: This article describes how to establish a baseline for containerized Java applications
+ms.author: brborges
 ms.topic: conceptual
-ms.date: 02/10/2022
+ms.date: 04/13/2022
 ms.custom: devx-track-java
 recommendations: false
 ---
@@ -14,13 +14,11 @@ This article describes how to establish a baseline for containerized Java applic
 
 It's important to establish a baseline to understand what your application is really doing and how much memory and how many CPU cores it needs. An under-provisioned environment may impact the overall performance of your containerized application, while an over-provisioned environment may increase your costs.
 
-The process of establishing a baseline requires a good understanding of the overall consumption and distribution of computing resources and how they're split on a per instance basis. Fewer resources per application instance may suggest more instances overall, but with each instance being starved of resources.
-
 The process of establishing a baseline will allow you to experiment with different settings and then determine their impact and the right balanced amount of resources needed.
 
 To establish a baseline, you can use Azure Application Insights or an APM solution of your choice.
 
-## Using Azure Application Insights
+## Use Azure Application Insights
 
 For information on setting up Application Insights, see [Azure Monitor OpenTelemetry-based auto-instrumentation for Java applications](/azure/azure-monitor/app/java-in-process-agent).
 

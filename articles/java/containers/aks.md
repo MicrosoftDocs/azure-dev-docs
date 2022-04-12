@@ -1,28 +1,31 @@
 ---
 title: Containerize your Java applications for Azure Kubernetes Service
-description: This guide describes how to containerize your Java applications on Azure Kubernetes Service
-ms.author: manriem
+description: This article describes how to containerize your Java applications on Azure Kubernetes Service
+ms.author: brborges
 ms.topic: conceptual
-ms.date: 02/10/2022
+ms.date: 04/13/2022
 ms.custom: devx-track-java
 recommendations: false
 ---
 
 # Containerize your Java applications for Azure Kubernetes Service
 
-If you haven't gone through [Containerize your Java applications](overview.md) please start there as it will give you guidance for container memory, JVM heap memory, Garbage Collectors (GCs) and vCPU cores.
+This article describes how to containerize your Java applications on Azure Kubernetes Services.
+
+For guidance on container memory, JVM heap memory, garbage collectors (GCs), and vCPU cores, see [Containerize your Java applications](overview.md).
 
 ## Determine appropriate VM SKU for AKS node pool
 
-Determine if the Azure Kubernetes Service node pool(s) that are available for your cluster can fit the container memory and vCPU cores you are intending to use. If the AKS node pool can host the application then continue on. Otherwise provision a node pool that is appropriate for the amount of container memory and vCPU cores you are targeting.
+Determine whether the Azure Kubernetes Service node pool or pools that are available for your cluster can fit the container memory and vCPU cores that you intend to use. If the AKS node pool can host the application, then continue on. Otherwise, provision a node pool that's appropriate for the amount of container memory and number of vCPU cores you're targeting.
 
-What is important to keep in mind is that the cost of a VM SKU is proportionally equivalent to the amount of cores and memory. After determining your starting point in terms of vCPUs and memory for one container instance, evaluate if your application's needs can only be met by horizontal scalling. For reliable, always-on systems, a minimum of two replicas must be available. Scale up and out as needed.
+Keep in mind that the cost of a VM SKU is proportional to the number of cores and amount of memory. After you determine your starting point in terms of vCPUs and memory for one container instance, determine whether you can meet your application's needs by horizontal scaling only. For reliable, always-on systems, a minimum of two replicas must be available. Scale up and out as needed.
 
 ## Set CPU requests and limits
 
-If you must limit the CPU, ensure you apply the same value for both `limits` and `requests` in the deployment file. Be aware that the JVM does not dynamically adjusts its runtime, such as the garbage collector and other thread pools. The JVM reads the number of processors available only during startup time.
+If you must limit the CPU, ensure that you apply the same value for both `limits` and `requests` in the deployment file. Be aware that the JVM doesn't dynamically adjust its runtime, such as the GC and other thread pools. The JVM reads the number of processors available only during startup time.
 
-**Recommendation:** set same value for CPU requests and CPU limits.
+> [!TIP]
+> Set same value for CPU requests and CPU limits.
 
 ```yaml
 containers:
@@ -35,25 +38,24 @@ containers:
       cpu: "2"
 ```
 
-### JVM Available Processors
+### Understand JVM available processors
 
-When the HotSpot JVM in OpenJDK identifies it is running inside a container, it looks into values such as `cpu_quota` and `cpu_period` to evaluate how many processors it considers are available to itself. In general, any value up to `1000m` milicores are identified as a single processor machine. Any value between `1001m` and `2000m` is identified as dual processor machine, and so forth. This information is available through the API  `Runtime.getRuntime().availableProcessors()` ([see documentation][javadoc]). This value may also be used by some of the concurrent Garbage Collectors to configure their threas. Other APIs, libraries and frameworks may also use this information to configure thread pools.
+When the HotSpot JVM in OpenJDK identifies that it's running inside a container, it uses values such as `cpu_quota` and `cpu_period` to determine how many processors are available to it. In general, any value up to `1000m` millicores are identified as a single processor machine. Any value between `1001m` and `2000m` is identified as a dual processor machine, and so forth. This information is available through the API [Runtime.getRuntime().availableProcessors()](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Runtime.html#availableProcessors()). This value may also be used by some of the concurrent GCs to configure their threads. Other APIs, libraries, and frameworks may also use this information to configure thread pools.
 
-[javadoc]: https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Runtime.html#availableProcessors()
-
-Kubernetes CPU quotas are related to the amount of time a process spends in the CPU, and not the amount of CPUs available to the process. Multi-threaded runtimes such as the JVM may still utilize multiple processors concurrently, with multiple threads. Even if a container has a limit of 1 vCPU, the JVM may be instructed to see 2 or more available processors.
+Kubernetes CPU quotas are related to the amount of time a process spends in the CPU, and not the number of CPUs available to the process. Multi-threaded runtimes such as the JVM may still use multiple processors concurrently, with multiple threads. Even if a container has a limit of one vCPU, the JVM may be instructed to see two or more available processors.
 
 To inform the JVM of the exact number of processors it should be seeing in a Kubernetes environment, use the following JVM flag:
 
-```
+```JVM flag
 -XX:ActiveProcessorCount=N
 ```
 
 ## Set memory request and limits
 
-Set the memory limits to the amount that you previosuly determined. Make sure the memory limits number is the container memory and NOT the JVM heap memory value.
+Set the memory limits to the amount that you previously determined. Be sure the memory limits number is the container memory and NOT the JVM heap memory value.
 
-Recommendation: Our recommendation is to set the memory requests equal to the memory limits.
+> [!TIP]
+> Set the memory requests equal to the memory limits.
 
 ```yaml
 containers:
@@ -68,7 +70,7 @@ containers:
 
 ## Set the JVM arguments in the deployment file
 
-Remember to set the JVM heap memory to the amount you have previously determined. Note that we recommend you pass this as an environment variable so you can easily change the value without the need to have to rebuild the container image.
+Remember to set the JVM heap memory to the amount you've previously determined. We recommend that you pass this value as an environment variable so you can easily change the value without needing to rebuild the container image.
 
 ```yaml
 containers:
@@ -78,3 +80,7 @@ containers:
     - name: JAVA_OPTS
       value: "-XX:+UseParallelGC -XX:MaxRAMPercentage=75"
 ```
+
+## Next steps
+
+* [Java on Azure containerization documentation](index.yml)
