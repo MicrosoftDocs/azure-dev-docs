@@ -119,6 +119,8 @@
       href: https://registry.terraform.io/modules/Azure
     - name: Terraform Azure Provider
       href: https://aka.ms/terraform
+    - name: Terraform AzAPI Provider
+      href: https://registry.terraform.io/providers/Azure/azapi/latest/docs
 - name: Resources
   items:
     - name: Azure & Terraform
