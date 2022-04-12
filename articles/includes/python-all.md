@@ -50,7 +50,7 @@
 | Queues | PyPI [12.2.0](https://pypi.org/project/azure-storage-queue/12.2.0) | [docs](/python/api/overview/azure/storage-queue-readme) | GitHub [12.2.0](https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-queue_12.2.0/sdk/storage/azure-storage-queue/) |
 | Schema Registry | PyPI [1.0.0](https://pypi.org/project/azure-schemaregistry/1.0.0) | [docs](/python/api/overview/azure/schemaregistry-readme) | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-python/tree/azure-schemaregistry_1.0.0/sdk/schemaregistry/azure-schemaregistry/) |
 | Secrets | PyPI [4.4.0](https://pypi.org/project/azure-keyvault-secrets/4.4.0) | [docs](/python/api/overview/azure/keyvault-secrets-readme) | GitHub [4.4.0](https://github.com/Azure/azure-sdk-for-python/tree/azure-keyvault-secrets_4.4.0/sdk/keyvault/azure-keyvault-secrets/) |
-| Service Bus | PyPI [7.6.0](https://pypi.org/project/azure-servicebus/7.6.0) | [docs](/python/api/overview/azure/servicebus-readme) | GitHub [7.6.0](https://github.com/Azure/azure-sdk-for-python/tree/azure-servicebus_7.6.0/sdk/servicebus/azure-servicebus/) |
+| Service Bus | PyPI [7.6.1](https://pypi.org/project/azure-servicebus/7.6.1) | [docs](/python/api/overview/azure/servicebus-readme) | GitHub [7.6.1](https://github.com/Azure/azure-sdk-for-python/tree/azure-servicebus_7.6.1/sdk/servicebus/azure-servicebus/) |
 | Spark | PyPI [0.7.0](https://pypi.org/project/azure-synapse-spark/0.7.0) | [docs](/python/api/overview/azure/synapse-spark-readme) | GitHub [0.7.0](https://github.com/Azure/azure-sdk-for-python/tree/azure-synapse-spark_0.7.0/sdk/synapse/azure-synapse-spark/) |
 | Tables | PyPI [12.3.0](https://pypi.org/project/azure-data-tables/12.3.0) | [docs](/python/api/overview/azure/data-tables-readme) | GitHub [12.3.0](https://github.com/Azure/azure-sdk-for-python/tree/azure-data-tables_12.3.0/sdk/tables/azure-data-tables/) |
 | Text Analytics | PyPI [5.1.0](https://pypi.org/project/azure-ai-textanalytics/5.1.0)<br>PyPI [5.2.0b3](https://pypi.org/project/azure-ai-textanalytics/5.2.0b3) | [docs](/python/api/overview/azure/ai-textanalytics-readme) | GitHub [5.1.0](https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-textanalytics_5.1.0/sdk/textanalytics/azure-ai-textanalytics/)<br>GitHub [5.2.0b3](https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-textanalytics_5.2.0b3/sdk/textanalytics/azure-ai-textanalytics/) |
@@ -164,6 +164,7 @@
 | azure-mgmt-chaos | PyPI [1.0.0b2](https://pypi.org/project/azure-mgmt-chaos/1.0.0b2) |  |  |
 | azure-mgmt-confidentialledger | PyPI [1.0.0b1](https://pypi.org/project/azure-mgmt-confidentialledger/1.0.0b1) |  |  |
 | azure-mgmt-connectedvmware | PyPI [1.0.0b1](https://pypi.org/project/azure-mgmt-connectedvmware/1.0.0b1) |  |  |
+| azure-mgmt-dashboard | PyPI [1.0.0b1](https://pypi.org/project/azure-mgmt-dashboard/1.0.0b1) |  |  |
 | azure-mgmt-dataprotection | PyPI [1.0.0b1](https://pypi.org/project/azure-mgmt-dataprotection/1.0.0b1) |  |  |
 | azure-mgmt-desktopvirtualization | PyPI [1.0.0b1](https://pypi.org/project/azure-mgmt-desktopvirtualization/1.0.0b1) |  |  |
 | azure-mgmt-dnsresolver | PyPI [1.0.0b1](https://pypi.org/project/azure-mgmt-dnsresolver/1.0.0b1) |  |  |
@@ -296,7 +297,7 @@
 | Schema Registry | PyPI [1.0.0](https://pypi.org/project/azure-schemaregistry/1.0.0) | [docs](/python/api/overview/azure/schemaregistry-readme) | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-python/tree/azure-schemaregistry_1.0.0/sdk/schemaregistry/azure-schemaregistry/) |
 | Search Namespace Package | PyPI [1.0.0](https://pypi.org/project/azure-search-nspkg/1.0.0) |  | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-python/tree/azure-search-nspkg_1.0.0/sdk/search/azure-search-nspkg/) |
 | Secrets | PyPI [4.4.0](https://pypi.org/project/azure-keyvault-secrets/4.4.0) | [docs](/python/api/overview/azure/keyvault-secrets-readme) | GitHub [4.4.0](https://github.com/Azure/azure-sdk-for-python/tree/azure-keyvault-secrets_4.4.0/sdk/keyvault/azure-keyvault-secrets/) |
-| Service Bus | PyPI [7.6.0](https://pypi.org/project/azure-servicebus/7.6.0) | [docs](/python/api/overview/azure/servicebus-readme) | GitHub [7.6.0](https://github.com/Azure/azure-sdk-for-python/tree/azure-servicebus_7.6.0/sdk/servicebus/azure-servicebus/) |
+| Service Bus | PyPI [7.6.1](https://pypi.org/project/azure-servicebus/7.6.1) | [docs](/python/api/overview/azure/servicebus-readme) | GitHub [7.6.1](https://github.com/Azure/azure-sdk-for-python/tree/azure-servicebus_7.6.1/sdk/servicebus/azure-servicebus/) |
 | Service Fabric | PyPI [8.2.0.0](https://pypi.org/project/azure-servicefabric/8.2.0.0) | [docs](/python/api/overview/azure/servicefabric-readme) | GitHub [8.2.0.0](https://github.com/Azure/azure-sdk-for-python/tree/azure-servicefabric_8.2.0.0/sdk/servicefabric/azure-servicefabric/) |
 | Spark | PyPI [0.7.0](https://pypi.org/project/azure-synapse-spark/0.7.0) | [docs](/python/api/overview/azure/synapse-spark-readme) | GitHub [0.7.0](https://github.com/Azure/azure-sdk-for-python/tree/azure-synapse-spark_0.7.0/sdk/synapse/azure-synapse-spark/) |
 | Speech | PyPI [1.14.0](https://pypi.org/project/azure-cognitiveservices-speech/1.14.0) |  |  |
