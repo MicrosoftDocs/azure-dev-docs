@@ -35,7 +35,7 @@ landingContent:
             url: how-to-devify-a-project.md
           - text: Debug and run locally using Visual Studio Code
             url: how-to-use-vscode-extension-to-debug-locally.md     
-        - linkListType: Quickstart
+      - linkListType: quickstart
         links:
           - text: Todo Nodejs Mongo
             url: https://github.com/azure-samples/todo-nodejs-mongo     
