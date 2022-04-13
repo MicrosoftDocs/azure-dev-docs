@@ -40,7 +40,7 @@ In this article, you learn how to:
 
 1. Create a file named `output.tf` and insert the following code:
 
-    [!code-terraform [master](../../terraform_samples/quickstart/101-azure-virtual-desktop/outputs.tf)]
+    [!code-terraform [master](../../terraform_samples/quickstart/101-azure-virtual-desktop/environments/sigoutputs.tf)]
 
 ## 3. Create a Terraform execution plan
 

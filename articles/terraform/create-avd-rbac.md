@@ -49,7 +49,7 @@ In this article, you learn how to:
 
 2. Create a file named `output.tf` and insert the following code:
 
-    [!code-terraform [master](../../terraform_samples/quickstart/101-azure-virtual-desktop/outputs.tf)]
+    [!code-terraform [master](../../terraform_samples/quickstart/101-azure-virtual-desktop/environments/rbacoutputs.tf)]
 
 
 ## 6. Initialize Terraform

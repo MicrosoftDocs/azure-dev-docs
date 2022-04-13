@@ -47,7 +47,7 @@ In this article, you learn how to:
 
 4. Create a file named `output.tf` and insert the following code:
 
-    [!code-terraform [master](../../terraform_samples/quickstart/101-azure-virtual-desktop/output.tf)]
+    [!code-terraform [master](../../terraform_samples/quickstart/101-azure-virtual-desktop/environments/laoutput.tf)]
 
 ## 4. Initialize Terraform
 
