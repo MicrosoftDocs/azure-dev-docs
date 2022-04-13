@@ -51,10 +51,6 @@ In this article, you learn how to:
 
     [!code-terraform [master](../../terraform_samples/quickstart/101-azure-virtual-desktop/environments/afoutputs.tf)]
 
-1. Create a file named `terraform.tfvars` and insert the following code:
-
-    [!code-terraform [master](../../terraform_samples/quickstart/101-azure-virtual-desktop/environments/sample.tfvars)]
-
 ## 3. Initialize Terraform
 
 [!INCLUDE [terraform-init.md](includes/terraform-init.md)]
