@@ -17,33 +17,43 @@ metadata:
   ms.custom: devx-track-azdev
 
 landingContent:
-  - title: Serverless functions
+  - title: Install the Azure Developer CLI
     linkLists:
+      - linkListType: download
+        links:
+          - text: Installation overview
+            url: insall-azure-dev-cli.md
+  - title:  Learn Azure Dev CLI features
+    linkLists:
+      - linkListType: get-started
+        links:
+          - text: What is Azure Developer CLI
+            url: azure-dev-cli-overview.md                
       - linkListType: how-to-guide
         links:
-          - text: Deploy using Visual Studio Code
-            url: /azure/azure-functions/create-first-function-vs-code-python
-          - text: Deploy using the command line
-            url: /azure/azure-functions/functions-create-first-azure-function-azure-cli?pivots=programming-language-python
-          - text: Connect to storage using Visual Studio Code
-            url: /azure/azure-functions/functions-add-output-binding-storage-queue-vs-code?pivots=programming-language-python
-          - text: Connect to storage using the command line
-            url: /azure/azure-functions/functions-add-output-binding-storage-queue-cli?tabs=bash%2Cbrowser&pivots=programming-language-python
-  - title: Web apps
-    linkLists:
-      - linkListType: deploy
+          - text: Devify a project
+            url: how-to-devify-a-project.md
+          - text: Debug and run locally using Visual Studio Code
+            url: how-to-use-vscode-extension-to-debug-locally.md     
+        - linkListType: Quickstart
         links:
-          - text: Flask using Visual Studio Code
-            url: tutorial-deploy-app-service-on-linux-01.md     
-          - text: Flask using CLI
-            url: /azure/app-service/quickstart-python
-          - text: Django + PostgreSQL using Azure Portal
-            url: tutorial-python-postgresql-app-portal.md
-          - text: Django + PostgreSQL using CLI
-            url: /azure/app-service/tutorial-python-postgresql-app
-          - text: Containers using Visual Studio Code
-            url: tutorial-deploy-containers-01.md
-          - text: Static sites using Azure Storage
-            url: how-to-create-static-sites.md
-          - text: CI/CD pipeline
-            url: /azure/devops/pipelines/ecosystems/python-webapp          
+          - text: Todo Nodejs Mongo
+            url: https://github.com/azure-samples/todo-nodejs-mongo     
+          - text: Todo Python Mongo
+            url: https://github.com/azure-samples/todo-python-mongo     
+  - title: Azure Developer CLI reference
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: Full command reference
+            url: ../latest/docs-ref-autogen/reference-index.yml
+  - title: Give feedback and get support
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Request a new feature
+            url: https://github.com/Azure/azure-dev/issues/new
+          - text: Report a product bug
+            url: https://github.com/Azure/azure-dev/issues/new
+          - text: Get help from the community
+            url: https://github.com/Azure/azure-dev/discussions/new
