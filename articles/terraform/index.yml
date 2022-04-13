@@ -138,8 +138,8 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: 1. Deploy Azure Virtual Desktop
-            url: create-azure-virtual-desktop.md
+          - text: 1. Configure an Azure Virtual Desktop
+            url: configure-azure-virtual-desktop.md
           - text: 2. Azure Virtual Desktop Session Host
             url: create-avd-session-host.md
           - text: 3. Azure Virtual Desktop RBAC
