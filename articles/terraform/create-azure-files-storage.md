@@ -45,7 +45,7 @@ In this article, you learn how to:
 
 1. Create a file named `variables.tf` and insert the following code:
 
-    [!code-terraform [master](../../terraform_samples/quickstart/101-azure-virtual-desktop/afvariables.tf)]
+    [!code-terraform [master](../../terraform_samples/quickstart/101-azure-virtual-desktop/environments/afvariables.tf)]
 
 1. Create a file named `output.tf` and insert the following code:
 
