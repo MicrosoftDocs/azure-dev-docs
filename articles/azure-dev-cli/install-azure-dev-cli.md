@@ -4,6 +4,7 @@ description: The Azure Developer CLI is available to install in Windows, macOS a
 ms.date: 04/12/2021
 ms.topic: conceptual
 ms.custom: devx-track-azdev
+ms.prod: azure
 ---
 # How to install the Azure Developer CLI
 

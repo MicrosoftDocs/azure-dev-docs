@@ -4,6 +4,7 @@ description: Browse dev-ified templates to try Azure Developer CLI out using an 
 ms.date: 04/12/2021
 ms.topic: conceptual
 ms.custom: devx-track-azdev
+ms.prod: azure
 ---
 # Azure Developer CLI Templates
 

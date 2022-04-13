@@ -4,6 +4,7 @@ description: How to convert a simple application to an Azure dev-enabled templat
 ms.date: 04/12/2021
 ms.topic: conceptual
 ms.custom: devx-track-azdev
+ms.prod: azure
 ---
 # How to dev-ify a project
 

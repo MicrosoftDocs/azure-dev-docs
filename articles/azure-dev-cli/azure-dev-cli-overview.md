@@ -4,6 +4,7 @@ description: Overview of the features and capabilities of the Azure Developer CL
 ms.date: 04/12/2021
 ms.topic: conceptual
 ms.custom: devx-track-azdev
+ms.prod: azure
 ---
 # What is the Azure Developer CLI
 

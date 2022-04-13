@@ -4,6 +4,7 @@ description: How to use the VS COde extension for Azure Developer CLI to run and
 ms.date: 04/12/2021
 ms.topic: conceptual
 ms.custom: devx-track-azdev
+ms.prod: azure
 ---
 # How to use Visual Studio Code extension to run and debug locally
 
