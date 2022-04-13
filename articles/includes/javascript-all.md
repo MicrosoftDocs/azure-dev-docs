@@ -243,6 +243,7 @@
 | @autorest/fixer | npm [1.1.0](https://www.npmjs.com/package/@autorest/fixer/v/1.1.0) |  |  |
 | @autorest/gotest | npm [3.0.1](https://www.npmjs.com/package/@autorest/gotest/v/3.0.1) |  |  |
 | @autorest/schemas | npm [1.3.4](https://www.npmjs.com/package/@autorest/schemas/v/1.3.4) |  |  |
+| @autorest/system-requirements | npm [1.0.0](https://www.npmjs.com/package/@autorest/system-requirements/v/1.0.0) |  |  |
 | @autorest/testmodeler | npm [2.2.4](https://www.npmjs.com/package/@autorest/testmodeler/v/2.2.4) |  |  |
 | @autorest/test-utils | npm [0.5.1](https://www.npmjs.com/package/@autorest/test-utils/v/0.5.1) |  |  |
 | @autorest/typescript | npm [6.0.0-beta.19](https://www.npmjs.com/package/@autorest/typescript/v/6.0.0-beta.19) |  |  |
@@ -283,7 +284,8 @@
 | @azure-tools/oav-traffic-converter | npm [0.1.0](https://www.npmjs.com/package/@azure-tools/oav-traffic-converter/v/0.1.0) |  |  |
 | @azure-tools/prettier-plugin-adl | npm [0.1.4](https://www.npmjs.com/package/@azure-tools/prettier-plugin-adl/v/0.1.4) |  |  |
 | @azure-tools/prettier-plugin-cadl | npm [0.2.1](https://www.npmjs.com/package/@azure-tools/prettier-plugin-cadl/v/0.2.1) |  |  |
-| @azure-tools/test-recorder | npm [1.0.2](https://www.npmjs.com/package/@azure-tools/test-recorder/v/1.0.2) |  |  |
+| @azure-tools/test-credential | npm [1.0.0](https://www.npmjs.com/package/@azure-tools/test-credential/v/1.0.0) |  |  |
+| @azure-tools/test-recorder | npm [2.0.0](https://www.npmjs.com/package/@azure-tools/test-recorder/v/2.0.0) |  |  |
 | @azure-tools/tmlanguage-generator | npm [0.1.4](https://www.npmjs.com/package/@azure-tools/tmlanguage-generator/v/0.1.4) |  |  |
 | @azure-tools/yaml | npm [1.1.0](https://www.npmjs.com/package/@azure-tools/yaml/v/1.1.0) |  |  |
 | @cadl-lang/compiler | npm [0.30.0](https://www.npmjs.com/package/@cadl-lang/compiler/v/0.30.0) |  |  |
