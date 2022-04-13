@@ -1,11 +1,11 @@
----
-title: Azure Developer CLI FAQ
-description: Get answers to common questions about Azure Developer CLI.
-ms.date: 04/13/2021
-ms.topic: conceptual
-ms.custom: devx-track-azdev
-ms.prod: azure
-
+### YamlMime:FAQ
+metadata:
+  title: Azure Developer CLI FAQ
+  description: Get answers to common questions about Azure Developer CLI.
+  ms.date: 04/13/2021
+  ms.topic: conceptual
+  ms.custom: devx-track-azdev
+  ms.prod: azure
 title: Common questions about the Azure Developer CLI
 summary: This article answers commonly asked questions about the Azure Developer CLI.
 sections:
