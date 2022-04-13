@@ -18,11 +18,11 @@ Article tested with the following Terraform and Terraform provider versions:
 
 This article provides an overview of how to use Terraform to deploy an ARM Azure Virtual Desktop environment, not AVD Classic.
 
-There are several pre-requisites [requirements for Azure Virtual Desktop](https://docs.microsoft.com/azure/virtual-desktop/overview#requirements)
+There are several pre-requisites [requirements for Azure Virtual Desktop](../../azure-docs/virtual-desktop/overview#requirements)
 
-New to Azure Virtual Desktop? Start with [What is Azure Virtual Desktop?](https://docs.microsoft.com/azure/virtual-desktop/overview#requirements)
+New to Azure Virtual Desktop? Start with [What is Azure Virtual Desktop?](../../azure-docs/azure/virtual-desktop/overview#requirements)
 
-It is assumed that an appropriate platform foundation is already setup which may or may not be the [Enterprise Scale Landing Zone platform foundation.](https://docs.microsoft.com/azure/cloud-adoption-framework/ready/enterprise-scale/implementation#reference-implementation)
+It is assumed that an appropriate platform foundation is already setup which may or may not be the [Enterprise Scale Landing Zone platform foundation.](../../azure-docs/azure/cloud-adoption-framework/ready/enterprise-scale/implementation#reference-implementation)
 
 In this article, you learn how to:
 > [!div class="checklist"]
