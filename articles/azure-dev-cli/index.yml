@@ -23,6 +23,8 @@ landingContent:
         links:
           - text: Installation overview
             url: install-azure-dev-cli.md
+          - text: Install VS Code extension
+            url: install-azure-dev-cli-vscode-ext.md
   - title:  Learn Azure Dev CLI features
     linkLists:
       - linkListType: get-started
