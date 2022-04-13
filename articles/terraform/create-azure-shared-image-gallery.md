@@ -32,7 +32,7 @@ In this article, you learn how to:
 
 1. Create a file named `main.tf` and insert the following code:
 
-    [!code-terraform [master](../../terraform_samples/quickstart/101-azure-virtual-desktop-configure/sig.tf)]
+    [!code-terraform [master](../../terraform_samples/quickstart/101-azure-virtual-desktop/sig.tf)]
 
 1. Create a file named `variables.tf` and insert the following code:
 
