@@ -28,7 +28,7 @@ In this article, you learn how to:
 
 1. Create a file named `providers.tf` and insert the following code:
 
-    [!code-terraform [master](../../terraform_samples/quickstart/101-azure-virtual-desktop-configure/providers.tf)]
+    [!code-terraform [master](../../terraform_samples/quickstart/101-azure-virtual-desktop/providers.tf)]
 
 1. Create a file named `main.tf` and insert the following code:
 
@@ -36,11 +36,11 @@ In this article, you learn how to:
 
 1. Create a file named `variables.tf` and insert the following code:
 
-    [!code-terraform [master](../../terraform_samples/quickstart/101-azure-virtual-desktop-configure/variables.tf)]
+    [!code-terraform [master](../../terraform_samples/quickstart/101-azure-virtual-desktop/sigvariables.tf)]
 
 1. Create a file named `output.tf` and insert the following code:
 
-    [!code-terraform [master](../../terraform_samples/quickstart/101-azure-virtual-desktop-configure/output.tf)]
+    [!code-terraform [master](../../terraform_samples/quickstart/101-azure-virtual-desktop/output.tf)]
 
 ## 3. Create a Terraform execution plan
 
