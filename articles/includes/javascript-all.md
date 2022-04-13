@@ -124,6 +124,7 @@
 | Resource Management - Content Delivery Network | npm [7.0.0](https://www.npmjs.com/package/@azure/arm-cdn/v/7.0.0) | [docs](/javascript/api/overview/azure/arm-cdn-readme) | GitHub [7.0.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/cdn/arm-cdn) |
 | Resource Management - Cosmos DB | npm [15.0.0](https://www.npmjs.com/package/@azure/arm-cosmosdb/v/15.0.0)<br>npm [16.0.0-beta.1](https://www.npmjs.com/package/@azure/arm-cosmosdb/v/16.0.0-beta.1) | [docs](/javascript/api/overview/azure/arm-cosmosdb-readme) | GitHub [15.0.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/cosmosdb/arm-cosmosdb) |
 | Resource Management - Customer Insights | npm [4.0.0](https://www.npmjs.com/package/@azure/arm-customerinsights/v/4.0.0) | [docs](/javascript/api/overview/azure/arm-customerinsights-readme) | GitHub [4.0.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/customer-insights/arm-customerinsights) |
+| Resource Management - Dashboard | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure/arm-dashboard/v/1.0.0-beta.1) |  | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-dashboard_1.0.0-beta.1/sdk/dashboard/arm-dashboard/) |
 | Resource Management - Data Box | npm [4.1.1](https://www.npmjs.com/package/@azure/arm-databox/v/4.1.1)<br>npm [5.0.0-beta.1](https://www.npmjs.com/package/@azure/arm-databox/v/5.0.0-beta.1) | [docs](/javascript/api/overview/azure/arm-databox-readme) | GitHub [4.1.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/databox/arm-databox) |
 | Resource Management - Data Box Edge | npm [2.0.0](https://www.npmjs.com/package/@azure/arm-databoxedge/v/2.0.0) | [docs](/javascript/api/overview/azure/arm-databoxedge-readme) | GitHub [2.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-databoxedge_2.0.0/sdk/databoxedge/arm-databoxedge/) |
 | Resource Management - Data Catalog | npm [3.0.0](https://www.npmjs.com/package/@azure/arm-datacatalog/v/3.0.0) | [docs](/javascript/api/overview/azure/arm-datacatalog-readme) | GitHub [3.0.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/datacatalog/arm-datacatalog) |
@@ -237,12 +238,13 @@
 | @autorest/codemodel | npm [4.18.2](https://www.npmjs.com/package/@autorest/codemodel/v/4.18.2) |  |  |
 | @autorest/common | npm [1.5.2](https://www.npmjs.com/package/@autorest/common/v/1.5.2) |  |  |
 | @autorest/configuration | npm [1.9.2](https://www.npmjs.com/package/@autorest/configuration/v/1.9.2) |  |  |
-| @autorest/csharp | npm [3.0.0-beta.20220407.2](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20220407.2) |  |  |
+| @autorest/csharp | npm [3.0.0-beta.20220413.1](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20220413.1) |  |  |
 | @autorest/csharp-v3 | npm [3.0.0-beta.20201217.1](https://www.npmjs.com/package/@autorest/csharp-v3/v/3.0.0-beta.20201217.1) |  |  |
 | @autorest/extension-base | npm [3.4.4](https://www.npmjs.com/package/@autorest/extension-base/v/3.4.4) |  |  |
 | @autorest/fixer | npm [1.1.0](https://www.npmjs.com/package/@autorest/fixer/v/1.1.0) |  |  |
 | @autorest/gotest | npm [3.0.1](https://www.npmjs.com/package/@autorest/gotest/v/3.0.1) |  |  |
 | @autorest/schemas | npm [1.3.4](https://www.npmjs.com/package/@autorest/schemas/v/1.3.4) |  |  |
+| @autorest/system-requirements | npm [1.0.0](https://www.npmjs.com/package/@autorest/system-requirements/v/1.0.0) |  |  |
 | @autorest/testmodeler | npm [2.2.4](https://www.npmjs.com/package/@autorest/testmodeler/v/2.2.4) |  |  |
 | @autorest/test-utils | npm [0.5.1](https://www.npmjs.com/package/@autorest/test-utils/v/0.5.1) |  |  |
 | @autorest/typescript | npm [6.0.0-beta.19](https://www.npmjs.com/package/@autorest/typescript/v/6.0.0-beta.19) |  |  |
@@ -283,7 +285,8 @@
 | @azure-tools/oav-traffic-converter | npm [0.1.0](https://www.npmjs.com/package/@azure-tools/oav-traffic-converter/v/0.1.0) |  |  |
 | @azure-tools/prettier-plugin-adl | npm [0.1.4](https://www.npmjs.com/package/@azure-tools/prettier-plugin-adl/v/0.1.4) |  |  |
 | @azure-tools/prettier-plugin-cadl | npm [0.2.1](https://www.npmjs.com/package/@azure-tools/prettier-plugin-cadl/v/0.2.1) |  |  |
-| @azure-tools/test-recorder | npm [1.0.2](https://www.npmjs.com/package/@azure-tools/test-recorder/v/1.0.2) |  |  |
+| @azure-tools/test-credential | npm [1.0.0](https://www.npmjs.com/package/@azure-tools/test-credential/v/1.0.0) |  |  |
+| @azure-tools/test-recorder | npm [2.0.0](https://www.npmjs.com/package/@azure-tools/test-recorder/v/2.0.0) |  |  |
 | @azure-tools/tmlanguage-generator | npm [0.1.4](https://www.npmjs.com/package/@azure-tools/tmlanguage-generator/v/0.1.4) |  |  |
 | @azure-tools/yaml | npm [1.1.0](https://www.npmjs.com/package/@azure-tools/yaml/v/1.1.0) |  |  |
 | @cadl-lang/compiler | npm [0.30.0](https://www.npmjs.com/package/@cadl-lang/compiler/v/0.30.0) |  |  |
@@ -536,6 +539,7 @@
 | Resource Management - Content Delivery Network | npm [7.0.0](https://www.npmjs.com/package/@azure/arm-cdn/v/7.0.0) | [docs](/javascript/api/overview/azure/arm-cdn-readme) | GitHub [7.0.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/cdn/arm-cdn) |
 | Resource Management - Cosmos DB | npm [15.0.0](https://www.npmjs.com/package/@azure/arm-cosmosdb/v/15.0.0)<br>npm [16.0.0-beta.1](https://www.npmjs.com/package/@azure/arm-cosmosdb/v/16.0.0-beta.1) | [docs](/javascript/api/overview/azure/arm-cosmosdb-readme) | GitHub [15.0.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/cosmosdb/arm-cosmosdb) |
 | Resource Management - Customer Insights | npm [4.0.0](https://www.npmjs.com/package/@azure/arm-customerinsights/v/4.0.0) | [docs](/javascript/api/overview/azure/arm-customerinsights-readme) | GitHub [4.0.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/customer-insights/arm-customerinsights) |
+| Resource Management - Dashboard | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure/arm-dashboard/v/1.0.0-beta.1) |  | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-dashboard_1.0.0-beta.1/sdk/dashboard/arm-dashboard/) |
 | Resource Management - Data Box | npm [4.1.1](https://www.npmjs.com/package/@azure/arm-databox/v/4.1.1)<br>npm [5.0.0-beta.1](https://www.npmjs.com/package/@azure/arm-databox/v/5.0.0-beta.1) | [docs](/javascript/api/overview/azure/arm-databox-readme) | GitHub [4.1.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/databox/arm-databox) |
 | Resource Management - Data Box Edge | npm [2.0.0](https://www.npmjs.com/package/@azure/arm-databoxedge/v/2.0.0) | [docs](/javascript/api/overview/azure/arm-databoxedge-readme) | GitHub [2.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-databoxedge_2.0.0/sdk/databoxedge/arm-databoxedge/) |
 | Resource Management - Data Catalog | npm [3.0.0](https://www.npmjs.com/package/@azure/arm-datacatalog/v/3.0.0) | [docs](/javascript/api/overview/azure/arm-datacatalog-readme) | GitHub [3.0.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/datacatalog/arm-datacatalog) |
