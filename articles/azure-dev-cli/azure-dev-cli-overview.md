@@ -67,6 +67,10 @@ Listed in alphabetical order:
 
 `az dev deploy` builds and publishes the application code into previously created Azure resources.
 
+### `up`
+
+`az dev up` is a **single step** command to initialize a project (`az dev init`), provision Azure resources (`az dev provision`), and deploy the application code to Azure (`az dev deploy`.) 
+
 ### `pipeline`
 
 `az dev pipeline config` pushes your local code to your GitHub repo and configures a GitHub Action so that the build and deploy job is automatically kicked off when you commit code to your GitHub repo.
@@ -81,7 +85,7 @@ Listed in alphabetical order:
 
 > [!NOTE]
 > * Text-based browser is not supported.
-> * Live metrics is currently not supported for Python application. For more information, see: https://docs.microsoft.com/azure/azure-monitor/app/live-stream#get-started.
+> * Live metrics is currently not supported for Python application. For more information, see: [Live Metrics Stream: Monitor & Diagnose with 1-second latency](/azure/azure-monitor/app/live-stream#get-started).
 
 ## Features to be added in the future
 

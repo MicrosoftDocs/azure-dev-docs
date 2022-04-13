@@ -42,7 +42,7 @@ sections:
         answer: |
           `azure.yaml` describes the application(s) and type of Azure resources included in the template.
 
-  - name: az dev provision
+  - name: Command: az dev provision
     questions:
       - question: How does the command know what to provision?
         answer: |
@@ -64,7 +64,7 @@ sections:
         answer: |
           Coming soon. Feature is planned for future release.
 
-  - name: az dev deploy
+  - name: Command: az dev deploy
     questions:
       - question: Can I rerun this command?
         answer: |
@@ -80,7 +80,7 @@ sections:
         answer: |
           Coming soon. Feature is planned for future release.
 
-  - name: az dev pipeline
+  - name: Command: az dev pipeline
     questions:
       - question: What is Azure service principal?
         answer: |

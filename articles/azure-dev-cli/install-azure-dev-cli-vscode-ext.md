@@ -1,6 +1,6 @@
 ---
-title: How to install the Azure Developer CLI
-description: The Azure Developer CLI is available to install in Windows, macOS and Linux environments.
+title: How to install the Visual Studio Code extension for Azure Developer CLI
+description: The VS COde Extension for Azure Developer CLI is available to install.
 ms.date: 04/12/2021
 ms.topic: conceptual
 ms.custom: devx-track-azdev

@@ -83,7 +83,7 @@ To debug web, you need to start both the API server and the development web serv
 
 1. In Command Pallete, run "Task: run task", select Start API and Web
 !["Run Task"](media/how-to-use-vscode-extension-to-debug-locally/run-task.png)
-!["Debug API"](media/how-to-use-vscode-extension-to-debug-locally/run-task-api.png)
+!["Start API and Web"](media/how-to-use-vscode-extension-to-debug-locally/run-task-api.png)
 1. (Optional) You can check if the local web server is running by navigating to: http://localhost:3000 in a web browser.
 1. Open `todoItemListPane.tsx` in `src > web > src > components`, set a breakpoint on deleteItems (line 150).
 1. In the activity bar, click "Run and Debug" (Ctrl-Shift-D) and then "Debug Web". 

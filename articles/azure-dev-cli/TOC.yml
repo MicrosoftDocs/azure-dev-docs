@@ -14,7 +14,7 @@
     href: install-azure-dev-cli.md
     displayname: install, windows, macos, linux 
   - name: Install the VS Code extention
-    href: install-azure-dev-cli.md
+    href: install-azure-dev-cli-vscode-ext.md
     displayname: install, windows, macos, linux 
 - name: Samples
   items:
