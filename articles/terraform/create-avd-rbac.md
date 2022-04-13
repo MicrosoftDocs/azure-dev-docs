@@ -21,9 +21,9 @@ This article will walk through adding our users and Azure AD group and then assi
 In this article, you learn how to:
 > [!div class="checklist"]
 
-> * Use Terraform to read Azure Active Directory existing users
-> * Use Terraform to create Azure Active Directory group
-> * Role assignment for Azure Virtual Desktop
+> - Use Terraform to read Azure Active Directory existing users
+> - Use Terraform to create Azure Active Directory group
+> - Role assignment for Azure Virtual Desktop
 
 ## 1. Configure your environment
 
@@ -31,7 +31,25 @@ In this article, you learn how to:
 
 [!INCLUDE [configure-terraform.md](includes/configure-terraform.md)]
 
-- Deploy the [Azure Virtual Desktop Infrastructure](/azure/virtual-desktop/create-azure-virtual-desktop)
+## 2. Implement the Terraform code
+
+1. Create a directory in which to test the sample Terraform code and make it the current directory.
+
+1. Create a file named `providers.tf` and insert the following code:
+
+    [!code-terraform [master](../../terraform_samples/quickstart/101-azure-virtual-desktop-configure/providers.tf)]
+
+1. Create a file named `main.tf` and insert the following code:
+
+    [!code-terraform [master](../../terraform_samples/quickstart/101-azure-virtual-desktop-configure/rbac.tf)]
+
+1. Create a file named `variables.tf` and insert the following code:
+
+    [!code-terraform [master](../../terraform_samples/quickstart/101-azure-virtual-desktop-configure/variables.tf)]
+
+1. Create a file named `output.tf` and insert the following code:
+
+    [!code-terraform [master](../../terraform_samples/quickstart/101-azure-virtual-desktop-configure/output.tf)]
 
 
 ## 6. Initialize Terraform
@@ -58,5 +76,5 @@ You are now ready to [build and deploy](/articles/terraform/create-azure-virtual
 
 ## Next steps
 
-> [!div class="nextstepaction"] 
+> [!div class="nextstepaction"]
 > [Learn more about Configuring Azure Virtual Desktop session hosts using Terraform in Azure](/articles/terraform/create-avd-session-host.md)

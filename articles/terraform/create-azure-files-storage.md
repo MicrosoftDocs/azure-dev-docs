@@ -3,20 +3,27 @@ title: Configure Azure Files for FSLogix profiles for Azure Virtual Desktop usin
 description: Learn how to use Terraform to configure Azure Files for FSLogix profiles Azure Virtual Desktop with Terraform
 keywords: azure devops terraform avd virtual desktop storage fslogix
 ms.topic: how-to
-ms.date: 12/30/2021
+ms.date: 04/12/2022
 ms.custom: devx-track-terraform
 ---
 
 # Configure Azure Files using Terraform
 
-Azure offers multiple storage solutions that you can use to store your FSLogix profile container. This article covers configuring Azure Files storage solutions for Azure Virtual Desktop FSLogix user profile containers using Terraform
+Azure offers multiple storage solutions that you can use to store your FSLogix profiles container. This article covers configuring Azure Files storage solutions for Azure Virtual Desktop FSLogix user profile containers using Terraform
+
+Article tested with the following Terraform and Terraform provider versions:
+
+- [Terraform v1.1.7](https://releases.hashicorp.com/terraform/)
+- [AzureRM Provider v.2.99.0](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs)
+
+[Learn more about using Terraform in Azure](/azure/terraform)
 
 In this article, you learn how to:
 > [!div class="checklist"]
 
-> * Use Terraform to Azure File Storage account
-> * Use Terraform to configure File Share
-> * Use Terraform to configure RBAC permission on Azure File Storage
+> - Use Terraform to Azure File Storage account
+> - Use Terraform to configure File Share
+> - Use Terraform to configure RBAC permission on Azure File Storage
 
 ## 1. Configure your environment
 
@@ -24,148 +31,43 @@ In this article, you learn how to:
 
 [!INCLUDE [configure-terraform.md](includes/configure-terraform.md)]
 
-## 2. Define providers and create resource group
+## 2. Implement the Terraform code
 
-The following code defines the Azure Terraform provider:
+1. Create a directory in which to test the sample Terraform code and make it the current directory.
 
-```hcl
-terraform {
-  required_providers {
-    azurerm = {
-      source  = "hashicorp/azurerm"
-      version = "~>2.0"
-    }
-  }
-}
-provider "azurerm" {
-  features {}
-}
-```
+1. Create a file named `providers.tf` and insert the following code.
 
-The following section creates a resource group in the location:
-
-```hcl
-resource "azurerm_resource_group" "rg_storage" {
-  location = var.location
-  name     = var.prefix-storage-rg"
-}
-```
-
-In other sections, you reference the resource group with `azurerm_resource_group.rg_storage.name`.
-
-## 3. Configure a File Storage Account
-
-```hcl
-resource "azurerm_storage_account" "storage" {
-  name                     = "stor${random_string.random.id}"
-  resource_group_name      = azurerm_resource_group.rg_storage.name
-  location                 = azurerm_resource_group.rg_storage.location
-  account_tier             = "Premium"
-  account_replication_type = "LRS"
-  account_kind             = "FileStorage"
-  tags                     = "Terraform Demo"
-}
-```
-
-## 4. Configure a File Share
-
-```hcl
-resource "azurerm_storage_share" "<FSShare>" {
-  name                 = "fslogix"
-  storage_account_name = azurerm_storage_account.storage.name
-  depends_on           = [azurerm_storage_account.storage]
-}
-
-output "storage_account_name" {
-  value = azurerm_storage_account.storage.name
-
-}
-```
-
-## 5. Configure RBAC permission on Azure File Storage
-
-```hcl
-data "azurerm_role_definition" "storage_role" {
-  name = "Storage File Data SMB Share Contributor"
-}
-
-resource "azurerm_role_assignment" "af_role" {
-  scope              = azurerm_storage_account.storage.id
-  role_definition_id = data.azurerm_role_definition.storage_role.id
-  principal_id       = azuread_group.aad_group.id
-}
-```
-
-## 6. Implement the Terraform code
-
-To bring all these sections together and see Terraform in action, create a directory in which to test and run the sample Terraform code and make it the current directory.
+    [!code-terraform [master](../../terraform_samples/quickstart/101-azure-virtual-desktop/provider.tf)]
 
 1. Create a file named `main.tf` and insert the following code:
 
-```hcl
-terraform {
-  required_providers {
-    azurerm = {
-      source  = "hashicorp/azurerm"
-      version = "~>2.0"
-    }
-  }
-}
-provider "azurerm" {
-  features {}
-}
+    [!code-terraform [master](../../terraform_samples/quickstart/101-azure-virtual-desktop/afstorage.tf)]
 
-## Create a Resource Group for Storage
-resource "azurerm_resource_group" "rg_storage" {
-  location = var.location
-  name     = var.prefix-storage-rg"
-}
+1. Create a file named `variables.tf` and insert the following code:
 
-## Create a File Storage Account 
-resource "azurerm_storage_account" "storage" {
-  name                     = "stor${random_string.random.id}"
-  resource_group_name      = azurerm_resource_group.rg_storage.name
-  location                 = azurerm_resource_group.rg_storage.location
-  account_tier             = "Premium"
-  account_replication_type = "LRS"
-  account_kind             = "FileStorage"
-}
+    [!code-terraform [master](../../terraform_samples/quickstart/101-azure-virtual-desktop/variables.tf)]
 
-resource "azurerm_storage_share" "FSShare" {
-  name                 = "fslogix"
-  storage_account_name = azurerm_storage_account.storage.name
-  depends_on           = [azurerm_storage_account.storage]
-}
+1. Create a file named `output.tf` and insert the following code:
 
-output "storage_account_name" {
-  value = azurerm_storage_account.storage.name
+    [!code-terraform [master](../../terraform_samples/quickstart/101-azure-virtual-desktop/outputs.tf)]
 
-}
+1. Create a file named `terraform.tfvars` and insert the following code:
 
-data "azurerm_role_definition" "storage_role" {
-  name = "Storage File Data SMB Share Contributor"
-}
+    [!code-terraform [master](../../terraform_samples/quickstart/101-azure-virtual-desktop/environments/sample.tfvars)]
 
-resource "azurerm_role_assignment" "af_role" {
-  scope              = azurerm_storage_account.storage.id
-  role_definition_id = data.azurerm_role_definition.storage_role.id
-  principal_id       = azuread_group.aad_group.id
-}
-```
-
-## 7. Initialize Terraform
+## 3. Initialize Terraform
 
 [!INCLUDE [terraform-init.md](includes/terraform-init.md)]
 
-## 8. Create a Terraform execution plan
+## 4. Create a Terraform execution plan
 
 [!INCLUDE [terraform-plan.md](includes/terraform-plan.md)]
 
-## 9. Apply a Terraform execution plan
+## 5. Apply a Terraform execution plan
 
 [!INCLUDE [terraform-apply-plan.md](includes/terraform-apply-plan.md)]
 
-## 10. Clean up resources
+## 6. Clean up resources
 
 [!INCLUDE [terraform-plan-destroy.md](includes/terraform-plan-destroy.md)]
 

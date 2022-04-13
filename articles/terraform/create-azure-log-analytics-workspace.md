@@ -11,10 +11,17 @@ ms.custom: devx-track-terraform
 
 This article shows you how to create a Log Analytics workspace using Terraform.
 
+Article tested with the following Terraform and Terraform provider versions:
+
+- [Terraform v1.1.7](https://releases.hashicorp.com/terraform/)
+- [AzureRM Provider v.2.99.0](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs)
+
+[Learn more about using Terraform in Azure](/azure/terraform)
+
 In this article, you learn how to:
 > [!div class="checklist"]
 
-> * Use Terraform to configure Azure Log Analytics Workspace
+> - Use Terraform to configure Azure Log Analytics Workspace
 
 ## 1. Configure your environment
 
@@ -22,48 +29,25 @@ In this article, you learn how to:
 
 [!INCLUDE [configure-terraform.md](includes/configure-terraform.md)]
 
-## 2. Define providers and create resource group
+## 2. Implement the Terraform code
 
-The following code defines the Azure Terraform provider:
+1. Create a directory in which to test the sample Terraform code and make it the current directory.
 
-```hcl
-terraform {
-  required_providers {
-    azurerm = {
-      source = "hashicorp/azurerm"
-      version = "~>2.0"
-    }
-  }
-}
-provider "azurerm" {
-  features {}
-}
-```
+1. Create a file named `providers.tf` and insert the following code:
 
-The following section creates a resource group in the location:
+    [!code-terraform [master](../../terraform_samples/quickstart/101-azure-virtual-desktop-configure/providers.tf)]
 
-```hcl
-resource "azurerm_resource_group" "log" {
-  location = var.deploy_location
-  name     = "${var.prefix}-rg"
-}
-```
+1. Create a file named `main.tf` and insert the following code:
 
-In other sections, you reference the resource group with `azurerm_resource_group.<rg>.name`.
+    [!code-terraform [master](../../terraform_samples/quickstart/101-azure-virtual-desktop-configure/loganalytics.tf)]
 
-## 3. Configure Azure Log Analytics Workspace with Terraform
+1. Create a file named `variables.tf` and insert the following code:
 
-Create a file named `main.tf` and insert the following code:
+    [!code-terraform [master](../../terraform_samples/quickstart/101-azure-virtual-desktop-configure/variables.tf)]
 
-```hcl
-resource "azurerm_log_analytics_workspace" "law" {
-  name                = "log${random_string.random.id}"
-  location            = azurerm_resource_group.log.location
-  resource_group_name = azurerm_resource_group.log.name
-  sku                 = "PerGB2018"
-  retention_in_days   = 30
-}
-```
+1. Create a file named `output.tf` and insert the following code:
+
+    [!code-terraform [master](../../terraform_samples/quickstart/101-azure-virtual-desktop-configure/output.tf)]
 
 ## 4. Initialize Terraform
 

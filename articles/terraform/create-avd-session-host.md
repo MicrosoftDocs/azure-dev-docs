@@ -3,22 +3,29 @@ title: Configure Azure Virtual Desktop Session Hosts using Terraform
 description: Learn how to use Terraform to configure session hosts and add them to a host pool.
 keywords: azure devops terraform avd virtual desktop session host
 ms.topic: how-to
-ms.date: 12/17/2021
+ms.date: 04/12/2021
 ms.custom: devx-track-terraform
 ---
 
 # Configure Azure Virtual Desktop session hosts using Terraform
 
-This article shows you how to build Session Hosts and deploy them to an AVD Host Pool with Terraform. This article assumes you've already deployed the [Azure Virtual Desktop Infrastructure](../terraform/create-azure-virtual-desktop.md).
+This article shows you how to build Session Hosts and deploy them to an AVD Host Pool with Terraform. This article assumes you've already deployed the [Azure Virtual Desktop Infrastructure](../terraform/configure-azure-virtual-desktop.md).
+
+Article tested with the following Terraform and Terraform provider versions:
+
+- [Terraform v1.1.7](https://releases.hashicorp.com/terraform/)
+- [AzureRM Provider v.2.99.0](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs)
+
+[Learn more about using Terraform in Azure](/azure/terraform)
 
 In this article, you learn how to:
 > [!div class="checklist"]
 
-> * Use Terraform to create NIC for each session host
-> * Use Terraform to create VM for session host
-> * Join VM to domain
-> * Register VM with Azure Virtual Desktop
-> * Use variables file
+> - Use Terraform to create NIC for each session host
+> - Use Terraform to create VM for session host
+> - Join VM to domain
+> - Register VM with Azure Virtual Desktop
+> - Use variables file
 
 ## 1. Configure your environment
 
@@ -32,28 +39,28 @@ In this article, you learn how to:
 
 1. Create a file named `providers.tf` and insert the following code.
 
-    [!code-terraform[UserStory1913529](../../terraform_samples/quickstart/101-azure-virtual-desktop/provider.tf)
+    [!code-terraform [master](../../terraform_samples/quickstart/101-azure-virtual-desktop/provider.tf)]
 
     **Key points:**
 
-    * Use `count` to indicate how many resources will be created
-    * References resources that were created when the infrastructure was built - such as `azurerm_subnet.subnet.id` and `azurerm_virtual_desktop_host_pool.hostpool.name`.  If you  changed the name of these resources from that section, you also need to update the references here.
+    - Use `count` to indicate how many resources will be created
+    - References resources that were created when the infrastructure was built - such as `azurerm_subnet.subnet.id` and `azurerm_virtual_desktop_host_pool.hostpool.name`.  If you  changed the name of these resources from that section, you also need to update the references here.
 
 1. Create a file named `main.tf` and insert the following code:
 
-    [!code-terraform[UserStory1913529](../../terraform_samples/quickstart/101-azure-virtual-desktop/host.tf)
+    [!code-terraform [master](../../terraform_samples/quickstart/101-azure-virtual-desktop/host.tf)]
 
 1. Create a file named `variables.tf` and insert the following code:
 
-    [!code-terraform[UserStory1913529](../../terraform_samples/quickstart/101-azure-virtual-desktop/variables.tf)
+    [!code-terraform [master](../../terraform_samples/quickstart/101-azure-virtual-desktop/variables.tf)]
 
-1. Create a file named `output.tf` and insert the following code.
+1. Create a file named `output.tf` and insert the following code:
 
-    [!code-terraform[UserStory1913529](../../terraform_samples/quickstart/101-azure-virtual-desktop/outputs.tf)
+    [!code-terraform [master](../../terraform_samples/quickstart/101-azure-virtual-desktop/outputs.tf)]
 
-1. Create a file named `terraform.tfvars` and insert the following code.
+1. Create a file named `terraform.tfvars` and insert the following code:
 
-    [!code-terraform[UserStory1913529](../../terraform_samples/quickstart/101-azure-virtual-desktop/environments/sample.tfvars)
+    [!code-terraform [master](../../terraform_samples/quickstart/101-azure-virtual-desktop/environments/sample.tfvars)]
 
 ## 3. Initialize Terraform
 
