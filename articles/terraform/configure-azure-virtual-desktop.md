@@ -22,7 +22,7 @@ There are several pre-requisites [requirements for Azure Virtual Desktop](/azure
 
 New to Azure Virtual Desktop? Start with [What is Azure Virtual Desktop?](/azure/virtual-desktop/prerequisites)
 
-It is assumed that an appropriate platform foundation is already setup which may or may not be the [Enterprise Scale Landing Zone platform foundation.](../../azure-docs/azure/cloud-adoption-framework/ready/enterprise-scale/implementation#reference-implementation)
+It is assumed that an appropriate platform foundation is already setup which may or may not be the [Enterprise Scale Landing Zone platform foundation.](/azure/cloud-adoption-framework/ready/enterprise-scale/implementation)
 
 In this article, you learn how to:
 > [!div class="checklist"]
