@@ -1,6 +1,6 @@
 ---
 title: How to install the Azure Developer CLI
-description: How to convert a simple application to an Azure dev-enabled template.
+description: How to convert an application to an Azure dev-enabled template.
 ms.date: 04/12/2021
 ms.topic: conceptual
 ms.custom: devx-track-azdev
@@ -10,7 +10,7 @@ ms.prod: azure
 
 !["Dev-ify"](media/how-to-devify-a-project/dev-ify.png)
 
-As explained in [Azure Developer CLI Overview](Azure-Developer-CLI-Overview), `az dev cli` looks for specific configuration files in a pre-defined folder structure. Here's a walkthrough on how to convert a simple application to an Azure dev enabled template.
+As explained in [Azure Developer CLI Overview](Azure-Developer-CLI-Overview), `az dev cli` looks for specific configuration files in a pre-defined folder structure. Here's a walkthrough on how to convert a basic application to an Azure dev enabled template.
 
 > Currently supported/planned hosting platform for the application:
 > 
@@ -37,7 +37,7 @@ We start with this [simple Python Flask web app that is deployed to Azure App Se
 
 ## Step 2 - Initialize the project
 
-Change directory to `msdocs-python-flask-webapp-quickstart` and run `az dev init`. The command asks for environment name, Azure region and Azure subscription. After running this command, the following are added: 
+Change directory to `msdocs-python-flask-webapp-quickstart` and run `az dev init`. The command asks for environment name, Azure region and Azure subscription. After you run this command, the following are added: 
 
 - a new folder `.azure` 
 - a subfolder called &lt;your environment name&gt; in the `.azure` folder. 
@@ -48,14 +48,14 @@ Change directory to `msdocs-python-flask-webapp-quickstart` and run `az dev init
 
 `az dev provision` needs to know what to provision in Azure. The command looks for Bicep files in the `infra` folder.
 
-Start from an Azure dev enabled template, use it as a base and remove resources that are not needed. We reference [To Do Application with Python and Cosmo DB](https://github.com/Azure-Samples/todo-python-mongo). By doing so, you have the necessary Bicep files for setting up and configuring Azure Monitor as well. 
+Start from an Azure dev enabled template, use it as a base and remove resources that aren't needed. We reference [To Do Application with Python and Cosmo DB](https://github.com/Azure-Samples/todo-python-mongo). By doing so, you have the necessary Bicep files for setting up and configuring Azure Monitor as well. 
 
 1. Create a new folder called `infra` in the root of your project. 
-2. Copy the 4 files (`appinsights.bicep, main.bicep, main.parameters.json, resources.bicep`) found in the `infra` folder of the  [To do app](https://github.com/Azure-Samples/todo-python-mongo) and paste into the newly created folder.
+1. Copy the four files (`appinsights.bicep, main.bicep, main.parameters.json, resources.bicep`) found in the `infra` folder of the  [To do app](https://github.com/Azure-Samples/todo-python-mongo) and paste into the newly created folder.
 
-3. Modify `resources.bicep`
+1. Modify `resources.bicep`
 
-- Since we need an Azure service plan with just one web app, we do not need the resources for hosting the API app, Key Vault and CosmoDB. Remove the resources (codes): **api**, **keyvault** and **cosmos**
+- Since we need an Azure service plan with just one web app, we don't need the resources for hosting the API app, Key Vault and CosmoDB. Remove the resources (codes): **api**, **keyvault** and **cosmos**
 - Remove the following lines:
 
 ``` bash 
@@ -70,8 +70,9 @@ Start from an Azure dev enabled template, use it as a base and remove resources 
 - update code for **web**: make sure `linuxFxVersion` is `PYTHON|3.9`. Remove the line `appCommandLine: 'pm2 serve /home/site/wwwroot --no-daemon --spa'`
 - update code for **webappappsettings**. Today, `az dev` only supports zip deployment. Update `SCM_DO_BUILD_DURING_DEPLOYMENT` to `true`
 
-4. `main.bicep`
-- Remove the following lines which are not needed:
+1. Modify `main.bicep`
+
+- Remove the following lines, which aren't needed:
 
 ``` bash
 
@@ -84,17 +85,20 @@ Start from an Azure dev enabled template, use it as a base and remove resources 
 ```
 
 ## Step 4 - Update `azure.yaml`
-`az dev` needs to know where to find the source code; what kind of app you are building; and more about what Azure service to use. Update `azure.yaml` by adding the following:
 
+`az dev` needs to know where to find the source code; what kind of app you're building; and more about what Azure service to use. Update `azure.yaml` by adding the following lines:
+
+```yml
     services:
-    - name: ${AZURE_ENV_NAME}web
-      project: .
-      language: py
-      host: appservice
+      - name: ${AZURE_ENV_NAME}web
+        project: .
+        language: py
+        host: appservice
+```
 
 ## Step 5 - Test
 
-Congratulations, you are done. 
+Congratulations, you're done. 
 
 Run `az dev provision` to create the Azure resources.
 

@@ -13,7 +13,7 @@ sections:
     questions:
       - question: What is environment name?
         answer: |
-          The CLI uses the environment name to set the `AZURE_ENV_NAME` property which is used by az dev enabled templates. AZURE_ENV_NAME is also used as a prefix to Azure resource name including the Azure resource group. Since each environment has its own set of configurations, we keep all configuration files under environment folders. 
+          The CLI uses the environment name to set the `AZURE_ENV_NAME` environment variable used by az dev enabled templates. AZURE_ENV_NAME is also used as a prefix to Azure resource name including the Azure resource group. Since each environment has its own set of configurations, we keep all configuration files under environment folders. 
 
           ```	 
           ├── .azure                          [ This folder shows up after you run az dev init or az dev up ]
@@ -28,7 +28,7 @@ sections:
 
       - question: Can I set up more than one environment?
         answer: |
-          Yes! You can set up different environments (e.g., dev, test, prod.) You can use `az dev env` to manage environments.
+          Yes! You can set up different environments (for example, dev, test, prod.) You can use `az dev env` to manage environments.
 
       - question: Where is the environment configuration (.env) file?
         answer: |
@@ -36,7 +36,7 @@ sections:
 
       - question: How is the .env file used?
         answer: |
-          `az dev` commands refer to the .env file for environment configuration. Commands like `az dev up`/`az dev deploy` also writes/updates the .env file with e.g., db connection string, Azure Key Vault end point.
+          `az dev` commands refer to the .env file for environment configuration. Command like `az dev deploy` also updates the .env file with, for example, db connection string and Azure Key Vault end point.
           
       - question: How is azure.yaml used?
         answer: |
@@ -50,15 +50,15 @@ sections:
 
       - question: Where can I find what are provisioned in Azure?
         answer: |
-          Go to https://portal.azure.com, locate your resource group which is `<your-environment-name>rg`. 
+          Go to https://portal.azure.com, locate your resource group, which is `<your-environment-name>rg`. 
 
       - question: How do I find more information about Azure errors?
         answer: |
           We use Bicep templates found under `<your-project-folder-name>/infra` to provision Azure resources and include the error message in the cli output if issues. 	
           
-          You can also go to https://portal.azure.com, locate your resource group which is `<your-environment-name>rg`. If any of the deployments fail, click link of the error to get more information.
+          You can also go to https://portal.azure.com, locate your resource group, which is `<your-environment-name>rg`. If any of the deployments fail, click error link to get more information.
           
-          Additional resource: [Troubleshoot common Azure deployment errors - Azure Resource Manager](https://docs.microsoft.com/en-us/azure/azure-resource-manager/troubleshooting/common-deployment-errors)
+          More resource: [Troubleshoot common Azure deployment errors - Azure Resource Manager](https://docs.microsoft.com/en-us/azure/azure-resource-manager/troubleshooting/common-deployment-errors)
 
       - question: Is there a log file for `az dev provision`? 
         answer: |
@@ -88,11 +88,11 @@ sections:
 
       - question: Do I need to create an Azure service principal before running `az dev pipeline config`?
         answer: |
-          No. `az dev pipeline config` takes care of creating the Azure service principal as well as performing the necessary steps to store the secrets in your GitHub repo.
+          No. `az dev pipeline config` takes care of creating the Azure service principal and performing the necessary steps to store the secrets in your GitHub repo.
 
       - question: What are all the secrets stored in GitHub?
         answer: |
-          The command stores 4 secrets in GitHub: AZURE_CREDENTIALS, AZURE_ENV_NAME, AZURE_LOCATION and AZURE_SUBSCRIPTION_ID. You can override the value of each secret by going to `https://github.com/<your-GH-account>/<your-repo>/secrets/actions`.
+          The command stores four secrets in GitHub: AZURE_CREDENTIALS, AZURE_ENV_NAME, AZURE_LOCATION and AZURE_SUBSCRIPTION_ID. You can override the value of each secret by going to `https://github.com/<your-GH-account>/<your-repo>/secrets/actions`.
 
       - question: Is [OpenID Connect](https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect) supported? 
         answer: |
@@ -100,7 +100,7 @@ sections:
 
       - question: How do I reset the Azure service principal stored in GitHub Actions?
         answer: |
-          Go to `https://github.com/<your-GH-account>/<your-repo>settings/secrets/actions`, update `AZURE_CREDENTIALS` by copying and pasting the entire JSON object for the new service principal. e.g., 
+          Go to `https://github.com/<your-GH-account>/<your-repo>settings/secrets/actions`, update `AZURE_CREDENTIALS` by copying and pasting the entire JSON object for the new service principal. For example, 
 
           ```
           {
@@ -124,9 +124,9 @@ sections:
           
           with 
           
-          `run: az dev deploy --noprompt`
+          `run: az dev deploy--noprompt`
 
       - question: Where can I find the log for the GitHub action job I just triggered after running `az dev workflow`?
         answer: |
-          Go to `https://github.com/<your-GH-account>/<your-repo>/actions` and refer to the log in the workflow run.
+          Go to `https://github.com/<your-GH-account>/<your-repo>/actions` and refer to the log file in the workflow run.
 

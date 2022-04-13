@@ -1,6 +1,6 @@
 ---
 title: Azure Developer CLI templates
-description: Browse dev-ified templates to try Azure Developer CLI out using an Application template
+description: Browse dev-ified templates to try out Azure Developer CLI using an Application template
 ms.date: 04/12/2021
 ms.topic: conceptual
 ms.custom: devx-track-azdev
