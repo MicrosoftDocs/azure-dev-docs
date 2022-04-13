@@ -10,30 +10,34 @@ ms.prod: azure
 
 !["Dev-ify"](media/how-to-devify-a-project/dev-ify.png)
 
-As explained in [Azure Developer CLI Overview](Azure-Developer-CLI-Overview), `az dev cli` looks for specific configuration files in a pre-defined folder structure. Here's a walkthrough on how to convert a basic application to an Azure dev enabled template.
+As explained in [Azure Developer CLI Overview](azure-dev-cli-overview.md), `az dev cli` looks for specific configuration files in a pre-defined folder structure. Here's a walkthrough on how to convert a basic application to an Azure dev enabled template.
 
+> [!NOTE]
 > Currently supported/planned hosting platform for the application:
 > 
-> | Azure service      | Supported? |	 
-> | ----------- | ----------- | 
+> | Azure service      | Supported? |
+> | ----------- | ----------- |
 > | Azure App Service | Yes  |
-> | Container Apps    | Coming soon |
 > | Function  | Yes |
+> | Azure Container Apps    | Coming soon |
+> | Azure Static Web Apps  | Coming soon |
+> | Azure Container Service | Coming soon |
 > | Azure Container Service | Coming soon |
 >
-> | Language      | Supported? |	 
-> | ----------- | ----------- | 
+> Currently supported/planned languages:
+> | Language      | Supported? |
+> | ----------- | ----------- |
 > | Node.js | Yes  |
 > | Python    | Yes |
 > | .NET | Coming soon |
 > | Java | Coming soon |
 
 ## Step 1 - Get a sample application
-We start with this [simple Python Flask web app that is deployed to Azure App Service](https://docs.microsoft.com/en-us/azure/app-service/quickstart-python?tabs=flask%2Cwindows%2Cazure-portal%2Cterminal-bash%2Cvscode-deploy%2Cdeploy-instructions-azportal%2Cdeploy-instructions-zip-azcli). Get a copy of the code by running:
+We start with this [simple Python Flask web app that is deployed to Azure App Service](https://docs.microsoft.com/azure/app-service/quickstart-python?tabs=flask%2Cwindows%2Cazure-portal%2Cterminal-bash%2Cvscode-deploy%2Cdeploy-instructions-azportal%2Cdeploy-instructions-zip-azcli). Get a copy of the code by running:
 
 `git clone https://github.com/Azure-Samples/msdocs-python-flask-webapp-quickstart`
 
-(Optional) Follow instructions in the [tutorial](https://docs.microsoft.com/en-us/azure/app-service/quickstart-python?tabs=flask%2Cwindows%2Cazure-portal%2Cterminal-bash%2Cvscode-deploy%2Cdeploy-instructions-azportal%2Cdeploy-instructions-zip-azcli#1---sample-application) to run the app locally to make sure the sample is working.
+(Optional) Follow instructions in the [tutorial](https://docs.microsoft.com/azure/app-service/quickstart-python?tabs=flask%2Cwindows%2Cazure-portal%2Cterminal-bash%2Cvscode-deploy%2Cdeploy-instructions-azportal%2Cdeploy-instructions-zip-azcli#1---sample-application) to run the app locally to make sure the sample is working.
 
 ## Step 2 - Initialize the project
 
@@ -58,13 +62,11 @@ Start from an Azure dev enabled template, use it as a base and remove resources 
 - Since we need an Azure service plan with just one web app, we don't need the resources for hosting the API app, Key Vault and CosmoDB. Remove the resources (codes): **api**, **keyvault** and **cosmos**
 - Remove the following lines:
 
-``` bash 
-
+``` bicep
     output AZURE_COSMOS_CONNECTION_STRING_KEY string = 'AZURE-COSMOS-CONNECTION-STRING'
     output AZURE_COSMOS_DATABASE_NAME string = cosmos::database.name
     output AZURE_KEY_VAULT_ENDPOINT string = keyvault.properties.vaultUri    
     output API_URI string = 'https://${api.properties.defaultHostName}'
-
 ```
 
 - update code for **web**: make sure `linuxFxVersion` is `PYTHON|3.9`. Remove the line `appCommandLine: 'pm2 serve /home/site/wwwroot --no-daemon --spa'`
@@ -74,14 +76,12 @@ Start from an Azure dev enabled template, use it as a base and remove resources 
 
 - Remove the following lines, which aren't needed:
 
-``` bash
-
+``` bicep
     output AZURE_COSMOS_CONNECTION_STRING_KEY string = resources.outputs.AZURE_COSMOS_CONNECTION_STRING_KEY
     output AZURE_COSMOS_DATABASE_NAME string = resources.outputs.AZURE_COSMOS_DATABASE_NAME
     output AZURE_KEY_VAULT_ENDPOINT string = resources.outputs.AZURE_KEY_VAULT_ENDPOINT
     output REACT_APP_API_BASE_URL string = resources.outputs.API_URI
     output REACT_APP_APPINSIGHTS_INSTRUMENTATIONKEY string = resources.outputs.APPINSIGHTS_INSTRUMENTATIONKEY
-
 ```
 
 ## Step 4 - Update `azure.yaml`
@@ -89,23 +89,24 @@ Start from an Azure dev enabled template, use it as a base and remove resources 
 `az dev` needs to know where to find the source code; what kind of app you're building; and more about what Azure service to use. Update `azure.yaml` by adding the following lines:
 
 ```yml
-    services:
-      - name: ${AZURE_ENV_NAME}web
-        project: .
-        language: py
-        host: appservice
+services:
+  - name: ${AZURE_ENV_NAME}web
+    project: .
+    language: py
+    host: appservice
 ```
 
 ## Step 5 - Test
 
 Congratulations, you're done. 
 
-Run `az dev provision` to create the Azure resources.
+Run `az dev provision config` to create the Azure resources.
 
 Run `az dev deploy` to deploy the web app.
 
 Run `az dev monitor --overview` and `az dev monitor --logs` to monitor your app.
 
+> [!NOTE]
 > `.azure` and `.venv` should be added to the `.gitignore` file
 
 ## Step 6 - Clean up

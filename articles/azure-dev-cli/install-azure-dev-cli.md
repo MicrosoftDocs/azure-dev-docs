@@ -23,13 +23,5 @@ az extension add --name azure-dev
 az config unset extension.index_url
 ```
 
-> Note: the first command removes the extension. Don't worry if you see "The extension azure-dev is not installed." in red text. That is expected if you do not already have an old version of the extension.
-
-## Install the VS Code extension 
-
-1. Download the extension from https://azuresdkreleasepreview.blob.core.windows.net/azd/vscode/latest/azure-dev-latest.vsix
-2. In vscode
-    1. Open "Extensions" (Ctrl+Shift+X)
-    2. Click the `...` menu at top of Extensions sidebar
-    3. Click "Install from VSIX"
-    4. Select location of downloaded file
+> [!NOTE]
+> The first command removes the extension. Don't worry if you see "The extension azure-dev is not installed." in red text. That is expected if you do not already have an old version of the extension.

@@ -42,7 +42,7 @@ sections:
         answer: |
           `azure.yaml` describes the application(s) and type of Azure resources included in the template.
 
-  - name: Provision
+  - name: az dev provision
     questions:
       - question: How does the command know what to provision?
         answer: |
@@ -58,19 +58,19 @@ sections:
           
           You can also go to https://portal.azure.com, locate your resource group, which is `<your-environment-name>rg`. If any of the deployments fail, click error link to get more information.
           
-          More resource: [Troubleshoot common Azure deployment errors - Azure Resource Manager](https://docs.microsoft.com/en-us/azure/azure-resource-manager/troubleshooting/common-deployment-errors)
+          More resource: [Troubleshoot common Azure deployment errors - Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/troubleshooting/common-deployment-errors)
 
       - question: Is there a log file for `az dev provision`? 
         answer: |
           Coming soon. Feature is planned for future release.
 
-  - name: Deploy
+  - name: az dev deploy
     questions:
       - question: Can I rerun this command?
         answer: |
           Yes.
 
-  - name: Up
+  - name: az dev up
     questions:
       - question: Can I rerun `az dev up`?
         answer: |
@@ -80,7 +80,7 @@ sections:
         answer: |
           Coming soon. Feature is planned for future release.
 
-  - name: Pipeline
+  - name: az dev pipeline
     questions:
       - question: What is Azure service principal?
         answer: |
@@ -94,7 +94,7 @@ sections:
         answer: |
           The command stores four secrets in GitHub: AZURE_CREDENTIALS, AZURE_ENV_NAME, AZURE_LOCATION and AZURE_SUBSCRIPTION_ID. You can override the value of each secret by going to `https://github.com/<your-GH-account>/<your-repo>/secrets/actions`.
 
-      - question: Is [OpenID Connect](https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect) supported? 
+      - question: Is [OpenID Connect](https://docs.github.com/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect) supported? 
         answer: |
           No. The support is coming soon.
 

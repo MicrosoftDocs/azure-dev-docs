@@ -2,7 +2,7 @@
 
 title: Azure Developer CLI
 summary: |
-  The Azure Developer CLI (**azure-dev**) is a developer-centric command-line interface (CLI) tool for building Azure applications. 
+  The Azure Developer CLI (azure-dev) is a developer-centric command-line interface (CLI) tool for building Azure applications. 
   
 metadata:
   title: Azure Developer CLI
@@ -22,27 +22,28 @@ landingContent:
       - linkListType: download
         links:
           - text: Installation overview
-            url: insall-azure-dev-cli.md
+            url: install-azure-dev-cli.md
   - title:  Learn Azure Dev CLI features
     linkLists:
       - linkListType: get-started
         links:
           - text: What is Azure Developer CLI
             url: azure-dev-cli-overview.md                
-        links:
           - text: Azure Developer CLI FAQ
             url: azure-dev-cli-faq.yml   
       - linkListType: how-to-guide
         links:
-          - text: Devify a project
+          - text: Dev-ify a project
             url: how-to-devify-a-project.md
           - text: Debug and run locally using Visual Studio Code
             url: how-to-use-vscode-extension-to-debug-locally.md     
       - linkListType: quickstart
         links:
-          - text: Todo Nodejs Mongo
+          - text: List of Azure Developer CLI Azure samples
+            url: azure-dev-cli-templates.md
+          - text: Todo Application with Node.js Cosmos DB (Mongo)
             url: https://github.com/azure-samples/todo-nodejs-mongo     
-          - text: Todo Python Mongo
+          - text: Todo Application with Python Cosmos DB (Mongo)
             url: https://github.com/azure-samples/todo-python-mongo     
   - title: Azure Developer CLI reference
     linkLists:

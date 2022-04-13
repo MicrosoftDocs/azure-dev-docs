@@ -25,8 +25,8 @@ The first step is to download and install the extension.
     3. Click "Install from VSIX"
     4. Select location of the downloaded file
 
-> Visual Studio Code Extension for Az Developer CLI is still in development. Currently supported commands:
-
+> [!NOTE]
+> Currently supported commands in the VS Code Extension for Azure Developer CLI:
 > - `az dev deploy`
 > - `az dev env`
 > - `az dev infra delete`

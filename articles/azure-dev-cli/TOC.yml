@@ -2,17 +2,23 @@
   href: index.yml
 - name: Overview
   items:
-  - name: What is Azure CLI?
+  - name: What is Azure Developer CLI?
     href: azure-dev-cli-overview.md
     displayName: overview, intro, introduction
+  - name: Frequently asked questions
+    href: azure-dev-cli-faq.yml   
+    displayName: frequently asked questions
 - name: Install, update and run
   items:
-  - name: Install
+  - name: Install CLI extension
+    href: install-azure-dev-cli.md
+    displayname: install, windows, macos, linux 
+  - name: Install the VS Code extention
     href: install-azure-dev-cli.md
     displayname: install, windows, macos, linux 
 - name: Samples
   items:
-  - name: Azure Developer CLI sample templates
+  - name: List of Azure Developer CLI Azure samples
     href: azure-dev-cli-templates.md
   - name: Todo Application with Node.js Cosmos DB (Mongo)
     href: https://github.com/azure-samples/todo-nodejs-mongo

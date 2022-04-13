@@ -1,0 +1,17 @@
+---
+title: How to install the Azure Developer CLI
+description: The Azure Developer CLI is available to install in Windows, macOS and Linux environments.
+ms.date: 04/12/2021
+ms.topic: conceptual
+ms.custom: devx-track-azdev
+ms.prod: azure
+---
+
+# Install the VS Code extension for Azure Developer CLI
+
+1. Download the extension from https://azuresdkreleasepreview.blob.core.windows.net/azd/vscode/latest/azure-dev-latest.vsix
+2. In vscode
+    1. Open "Extensions" (Ctrl+Shift+X)
+    2. Click the `...` menu at top of Extensions sidebar
+    3. Click "Install from VSIX"
+    4. Select location of downloaded file

@@ -36,14 +36,13 @@ Listed in alphabetical order:
 │   └── resources.bicep        [ Resources file ]
 ├── src                        [ Contains folder(s) for the application code ]
 └── azure.yaml                 [ Describes the application and type of Azure resources]
-
 ```
 
-## `init`
+### `init`
 
 `az dev init` sets up a project from an Azure Dev CLI enabled template. The command prompts for configuration settings like environment name, Azure region and Azure Subscription to use for creating the Azure resources. All configurations are stored in the `.env` file found in the `.azure` folder.
 
-## `env`
+### `env`
 
 `az dev env` is a subgroup command for managing environments. Supported commands:
 
@@ -53,27 +52,26 @@ Listed in alphabetical order:
 - select: Set the default environment.
 - set: Set a value in the environment. For example: `az dev env set <KEY> <VALUE>`.
 
-## `provision`
+### `provision`
 
 `az dev provision` creates or updates the Azure resources for your project. `provision` is an alias for `az dev infra create`.
 
-## `infra`
+### `infra`
 
 `az dev infra` is a group command for managing Azure resources. Subcommands:
 
 - create - creates Azure resources
 - delete - deletes Azure resources
 
-## `deploy`
+### `deploy`
 
 `az dev deploy` builds and publishes the application code into previously created Azure resources.
 
-## `pipeline`
+### `pipeline`
 
 `az dev pipeline config` pushes your local code to your GitHub repo and configures a GitHub Action so that the build and deploy job is automatically kicked off when you commit code to your GitHub repo.
-	
 
-## `monitor`
+### `monitor`
 
 `az dev monitor` launches a browser to show a dashboard for monitoring the cloud application. Available sub commands: 
 
@@ -81,26 +79,26 @@ Listed in alphabetical order:
 1. `--live` to open the "Live Metrics" dashboard.
 1. `--log` to open the "Logs" dashboard.
 
->**Note**:
+> [!NOTE]
 > * Text-based browser is not supported.
 > * Live metrics is currently not supported for Python application. For more information, see: https://docs.microsoft.com/azure/azure-monitor/app/live-stream#get-started.
 
-# Features to be added in the future
+## Features to be added in the future
 
-## `debug`
+### `debug`
 (COMING) `az dev debug` starts debugging the application locally.
 
-## `diff`
+### `diff`
 (COMING) `az dev diff` evaluates your local changes to resource definitions against what is currently provisioned to the cloud.
 
-## `generate`
+### `generate`
 (COMING) `az dev generate` produces boilerplate infrastructure as code assets, for example, CI/CD pipeline etc.
 
-## `login`
+### `login`
 (COMING) `az dev login` signs into the cloud platform.
 
-## `run`
+### `run`
 (COMING) `az dev run` executes the application locally.
 
-## `test`
+### `test`
 (COMING) `az dev test` runs local unit tests.
