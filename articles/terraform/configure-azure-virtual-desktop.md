@@ -18,7 +18,7 @@ Article tested with the following Terraform and Terraform provider versions:
 
 This article provides an overview of how to use Terraform to deploy an ARM Azure Virtual Desktop environment, not AVD Classic.
 
-There are several pre-requisites [requirements for Azure Virtual Desktop](../../azure-docs/virtual-desktop/overview#requirements)
+There are several pre-requisites [requirements for Azure Virtual Desktop](../../azure-docs/articles/virtual-desktop/overview.md)
 
 New to Azure Virtual Desktop? Start with [What is Azure Virtual Desktop?](../../azure-docs/azure/virtual-desktop/overview#requirements)
 
