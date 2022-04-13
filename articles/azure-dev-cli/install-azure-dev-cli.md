@@ -6,7 +6,7 @@ ms.topic: conceptual
 ms.custom: devx-track-azdev
 ms.prod: azure
 ---
-# How to install the Azure Developer CLI
+# Install the Azure Developer CLI
 
 Before you get started, ensure you have the following tools installed on your local machine:
 
