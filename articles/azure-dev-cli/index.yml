@@ -29,6 +29,9 @@ landingContent:
         links:
           - text: What is Azure Developer CLI
             url: azure-dev-cli-overview.md                
+        links:
+          - text: Azure Developer CLI FAQ
+            url: azure-dev-cli-faq.yml   
       - linkListType: how-to-guide
         links:
           - text: Devify a project

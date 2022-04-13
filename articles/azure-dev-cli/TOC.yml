@@ -28,6 +28,5 @@
     href: how-to-devify-a-project.md
 - name: Reference 
   items:
-  - name: Azure Cosmos DB
+  - name: TBA
     href: azure-cli-reference-for-cosmos-db.md
-    display: Azure Cosmos DB, SQL, MongoDB, Cassandra, Gremlin, Table, colleciton, database, identity, keys, network-rule, private-endpoint-connection, private-link-resource, restorable-database-account, managed-cassandra, cluster, datacenter
