@@ -132,5 +132,5 @@ In this article, you learn how to:
 
 ## Next steps
 
-> [!div class="nextstepaction"] 
+> [!div class="nextstepaction"]
 > [Learn more about using Terraform in Azure](/azure/terraform)
