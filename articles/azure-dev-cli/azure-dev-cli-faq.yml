@@ -94,9 +94,9 @@ sections:
         answer: |
           The command stores four secrets in GitHub: AZURE_CREDENTIALS, AZURE_ENV_NAME, AZURE_LOCATION and AZURE_SUBSCRIPTION_ID. You can override the value of each secret by going to `https://github.com/<your-GH-account>/<your-repo>/secrets/actions`.
 
-      - question: Is [OpenID Connect](https://docs.github.com/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect) supported? 
+      - question: What is OpenID Connent (OIDC) and is it supported?  
         answer: |
-          No. The support is coming soon.
+          [OpenID Connect](https://docs.github.com/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect) allows your workflows to exchange short-lived tokens directly from Azure. OIDC support is planned and will be included in future release. 
 
       - question: How do I reset the Azure service principal stored in GitHub Actions?
         answer: |
