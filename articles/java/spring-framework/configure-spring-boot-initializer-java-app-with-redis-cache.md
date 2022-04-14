@@ -208,7 +208,7 @@ The **[Spring Framework]** is an open-source solution that helps Java developers
 [free Azure account]: https://azure.microsoft.com/pricing/free-trial/
 [Working with Azure DevOps and Java]: /azure/devops-project/azure-devops-project-java
 [MSDN subscriber benefits]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/
-[Spring Boot]: http://projects.spring.io/spring-boot/
+[Spring Boot]: https://spring.io/projects/spring-boot/
 [Spring Initializr]: https://start.spring.io/
 [Spring Framework]: https://spring.io/
 [Redis Cache with Java]: /azure/redis-cache/cache-java-get-started
