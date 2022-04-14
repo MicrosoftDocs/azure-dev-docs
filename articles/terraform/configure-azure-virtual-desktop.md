@@ -132,5 +132,5 @@ In this article, you learn how to:
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Learn more about Configuring Azure Virtual Desktop session hosts using Terraform in Azure](/articles/terraform/create-avd-session-host.md)
+> [!div class="nextstepaction"] 
+> [Learn more about using Terraform in Azure](/azure/terraform)
