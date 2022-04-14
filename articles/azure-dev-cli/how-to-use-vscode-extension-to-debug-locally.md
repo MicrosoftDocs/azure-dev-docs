@@ -52,6 +52,7 @@ The following files are included in the .vscode folder:
 - `launch.json` includes debug configurations so you can **Debug Web** or **Debug API**. You see the same options in **Run and Debug** (Ctrl-Shift-D).
 - `tasks.json` includes configurations so you can start the web and/or the API servers. You see the same options if you go to the Command Pallete and run **Task: run task**.
 
+> [!NOTE]
 > Learn more about [Debugging](https://code.visualstudio.com/docs/editor/debugging) and [Tasks](https://code.visualstudio.com/docs/editor/tasks) in VS Code.
 
 ## Provision the Azure resources
