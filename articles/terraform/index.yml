@@ -138,34 +138,6 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: 1. Configure an Azure Virtual Desktop
+          - text: Configure an Azure Virtual Desktop
             url: configure-azure-virtual-desktop.md
-          - text: 2. Azure Virtual Desktop Session Host
-            url: create-avd-session-host.md
-          - text: 3. Azure Virtual Desktop RBAC
-            url: create-avd-rbac.md
-
-# Card
-  - title: Storage
-    linkLists:
-      - linkListType: how-to-guide
-        links:
-          - text: Azure Files
-            url: create-azure-files-storage.md
-
-# Card
-  - title: Compute Gallery
-    linkLists:
-      - linkListType: how-to-guide
-        links:
-          - text: Azure Compute Gallery
-            url: create-azure-shared-image-gallery.md
-
-# Card
-  - title: Log Analytics Workspace
-    linkLists:
-      - linkListType: how-to-guide
-        links:
-          - text: Log Analytics Workspace
-            url: create-azure-log-analytics-workspace.md  
 
