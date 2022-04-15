@@ -26,4 +26,4 @@ For information on setting up Application Insights, see [Azure Monitor OpenTelem
 
 Now that you've configured Azure Application Insights for your application, the next step is to review the recommendations for the target platform.
 
-* [Containerize your Java applications for Azure Kubernetes Service](aks.md)
+* [Containerize your Java applications for Kubernetes](kubernetes.md)

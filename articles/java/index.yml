@@ -141,9 +141,9 @@ conceptualContent:
         - text: Establish a baseline
           itemType: concept
           url: containers/baseline.md
-        - text: Containerize for AKS
+        - text: Containerize for Kubernetes
           itemType: concept
-          url: containers/aks.md
+          url: containers/kubernetes.md
       footerLink:
         text: See more
         url: containers/index.yml
