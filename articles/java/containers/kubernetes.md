@@ -1,6 +1,6 @@
 ---
-title: Containerize your Java applications for Azure Kubernetes Service
-description: This article describes how to containerize your Java applications on Azure Kubernetes Service
+title: Containerize your Java applications for Kubernetes
+description: This article describes how to containerize your Java applications for Kubernetes deployment
 ms.author: brborges
 ms.topic: conceptual
 ms.date: 04/13/2022
@@ -8,15 +8,15 @@ ms.custom: devx-track-java
 recommendations: false
 ---
 
-# Containerize your Java applications for Azure Kubernetes Service
+# Containerize your Java applications for Kubernetes
 
-This article describes how to containerize your Java applications on Azure Kubernetes Services.
+This article describes how to containerize your Java applications for deployment on Kubernetes.
 
 For guidance on container memory, JVM heap memory, garbage collectors (GCs), and vCPU cores, see [Containerize your Java applications](overview.md).
 
-## Determine the appropriate VM SKU for the AKS node pool
+## Determine the appropriate VM SKU for the Kubernetes node pool
 
-Determine whether the Azure Kubernetes Service node pool or pools that are available for your cluster can fit the container memory and vCPU cores that you intend to use. If the AKS node pool can host the application, then continue on. Otherwise, provision a node pool that's appropriate for the amount of container memory and number of vCPU cores you're targeting.
+Determine whether the Kubernetes node pool or pools that are available for your cluster can fit the container memory and vCPU cores that you intend to use. If the node pool can host the application, then continue on. Otherwise, provision a node pool that's appropriate for the amount of container memory and number of vCPU cores you're targeting.
 
 Keep in mind that the cost of a VM SKU is proportional to the number of cores and amount of memory. After you determine your starting point in terms of vCPUs and memory for one container instance, determine whether you can meet your application's needs by horizontal scaling only. For reliable, always-on systems, a minimum of two replicas must be available. Scale up and out as needed.
 
@@ -83,4 +83,4 @@ containers:
 
 ## Next steps
 
-* [Java on Azure containerization documentation](index.yml)
+* [Java containerization strategies](index.yml)
