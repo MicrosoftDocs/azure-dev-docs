@@ -1,12 +1,12 @@
 ---
-title: Azure authentication in Python apps hosted on-premises
+title: Authenticate to Azure resources from Python apps hosted on-premises
 description: This article describes how to authenticate your application to Azure services when using the Azure SDK for Python in on-premises hosted applications. 
 ms.date: 03/31/2022
 ms.topic: how-to
 ms.custom: devx-track-python
 ---
 
-# Azure authentication in Python apps hosted on-premises
+# Authenticate to Azure resources from Python apps hosted on-premises
 
 Apps hosted outside of Azure (for example on-premises or at a third-party data center) should use an application service principal to authenticate to Azure when accessing Azure resources.  Application service principal objects are created using the app registration process in Azure.  When an application service principal is created, a client ID and client secret will be generated for your app.  The client ID, client secret, and your tenant ID are then stored in environment variables so they can be used by the Azure SDK for Python to authenticate your app to Azure at runtime.
 
@@ -97,7 +97,33 @@ For information on assigning permissions at the resource or subscription level u
 
 ## 3 - Configure environment variables for application
 
+You must set the `AZURE_CLIENT_ID`, `AZURE_TENANT_ID`, and `AZURE_CLIENT_SECRET` environment variables for the process that runs your Python app to make the application service principal credentials available to your app at runtime.  The `DefaultAzureCredential` object looks for the service principal information in these environment variables.
 
+When using [Gunicorn](https://gunicorn.org/) to run Python web apps in a UNIX server environment, environment variables for an app can be specified by using the `EnvironmentFile` directive in the `gunicorn.server` file as shown below.
+
+```gunicorn.server
+[Unit]
+Description=gunicorn daemon
+After=network.target  
+  
+[Service]  
+User=www-user
+Group=www-data
+WorkingDirectory=/path/to/python-app
+EnvironmentFile=/path/to/python-app/py-env/app-environment-variables
+ExecStart=/path/to/python-app/py-env/gunicorn --config config.py wsgi:app
+            
+[Install]  
+WantedBy=multi-user.target
+```
+
+The file specified in the `EnvironmentFile` directive should contain a list of environment variables with their values as shown below.
+
+```bash
+AZURE_CLIENT_ID=<value>
+AZURE_TENANT_ID=<value>
+AZURE_CLIENT_SECRET=<value>
+```
 
 ## 4 - Implement DefaultAzureCredential in application
 
