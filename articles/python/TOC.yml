@@ -110,10 +110,9 @@
 - name: Azure SDK for Python
   items:
     - name: Overview
-      href: azure-sdk-overview.md
+      href: sdk/azure-sdk-overview.md
     - name: Library usage patterns
-      href: azure-sdk-library-usage-patterns.md
-
+      href: sdk/azure-sdk-library-usage-patterns.md
     - name: Authentication
       items:
       - name: Overview
@@ -128,6 +127,8 @@
         href: sdk/authentication-azure-hosted-apps.md
       - name: Auth from on-premises apps
         href: sdk/authentication-on-premises-apps.md
+      - name: Additional auth methods
+        href: sdk/authentication-additional-methods.md
       - name: Walkthrough tutorial
         items:
         - name: 1. Introduction and background
