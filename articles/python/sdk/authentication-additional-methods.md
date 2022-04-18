@@ -33,7 +33,7 @@ If you can't configure the device code flow option on your Active Directory, you
 
 The following example demonstrates using an [`InteractiveBrowserCredential`](/python/api/azure-identity/azure.identity.interactivebrowsercredential) to authenticate with the [`SubscriptionClient`](/python/api/azure-mgmt-resource/azure.mgmt.resource.subscriptions.v2019_06_01.subscriptionclient):
 
-:::code language="python" source="~/../../python-sdk-docs-examples/show_subscription/use_interactive_browser.py":::
+:::code language="python" source="~/../python-sdk-docs-examples/show_subscription/use_interactive_browser.py":::
 
 For more exact control, such as setting redirect URIs, you can supply specific arguments to `InteractiveBrowserCredential` such as `redirect_uri`.
 
@@ -58,4 +58,4 @@ This method of authentication is discouraged because it's less secure than other
 
 Furthermore, this method authenticates only work and school accounts; Microsoft accounts are not supported. For more information, see [Sign up your organization to use Azure Active Directory](/azure/active-directory/fundamentals/sign-up-organization).
 
-:::code language="python" source="~/../../python-sdk-docs-examples/show_subscription/use_username_password.py":::
+:::code language="python" source="~/../python-sdk-docs-examples/show_subscription/use_username_password.py":::
