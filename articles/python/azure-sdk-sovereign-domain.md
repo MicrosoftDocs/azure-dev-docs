@@ -14,16 +14,15 @@ By default, the Azure libraries are configured to connect to the global Azure cl
 
 ## Using pre-defined sovereign cloud constants
 
-Pre-defined sovereign cloud constants are provided by the `azure_cloud` module of the `msrestazure` library (0.4.11+):
+Pre-defined sovereign cloud constants are provided by the `AzureAuthorityHosts` module of the `azure.identity` library:
 
 - `AZURE_PUBLIC_CLOUD`
-- `AZURE_CHINA_CLOUD`
-- `AZURE_US_GOV_CLOUD`
-- `AZURE_GERMAN_CLOUD`
+- `AZURE_CHINA`
+- `AZURE_GOVERNMENT`
 
-To use a definition, import the appropriate constant from `msrestazure.azure_cloud` and apply it when creating client objects. 
+To use a definition, import the appropriate constant from `azure.identity.AzureAuthorityHosts` and apply it when creating client objects.
 
-When using `DefaultAzureCredential`, as shown in the following example, you also need to use the appropriate value from `CLOUD.endpoints.active_directory`.
+When using `DefaultAzureCredential`, as shown in the following example, you can specify the cloud by using the appropriate value from `azure.identity.AzureAuthorityHosts`.
 
 :::code language="python" source="~/../python-sdk-docs-examples/sovereign_domain/sovereign_cloud.py":::
   
