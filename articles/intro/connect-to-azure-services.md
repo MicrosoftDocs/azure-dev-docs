@@ -39,10 +39,10 @@ More information about the Azure SDK for each language can be found in each lang
 | Language                                | &nbsp;     | Overview                                                                           | Package list                                                                                         |
 |-----------------------------------------|------------|------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------|
 | ![.NET Logo](./media/logo-dotnet.png)   | .NET       |[Azure SDK for .NET overview](/dotnet/azure/sdk/azure-sdk-for-dotnet)               | [Azure SDK for .NET package list](/dotnet/azure/sdk/packages)                                        |
-| ![Java Logo](./media/logo-java.png)     | Java       |[Azure SDK for Java overview](/azure/developer/java/sdk/overview)                   | [Azure SDK for Java package list](/azure/developer/java/sdk/azure-sdk-library-package-index)         |
-| ![JavaScript Logo](./media/logo-js.png) | JavaScript |[Azure SDK for JavaScript overview](/azure/developer/javascript/core/use-azure-sdk) | [Azure SDK for JavaScript package list](/azure/developer/javascript/azure-sdk-library-package-index) |
-| ![Python Logo](./media/logo-python.png) | Python     |[Azure SDK for Python overview](/azure/developer/python/azure-sdk-overview)         | [Azure SDK for Python package list](/azure/developer/python/azure-sdk-library-package-index)         |
-| ![Golang Logo](./media/logo-golang.png) | Go         |[Azure SDK for Go overview](/azure/developer/go/overview)                           | [Azure SDK for Go package list](https://azure.github.io/azure-sdk/releases/latest/all/go.html)     |
+| ![Java Logo](./media/logo-java.png)     | Java       |[Azure SDK for Java overview](../java/sdk/overview.md)                   | [Azure SDK for Java package list](../java/sdk/azure-sdk-library-package-index.md)         |
+| ![JavaScript Logo](./media/logo-js.png) | JavaScript |[Azure SDK for JavaScript overview](../javascript/core/use-azure-sdk.md) | [Azure SDK for JavaScript package list](../javascript/azure-sdk-library-package-index.md) |
+| ![Python Logo](./media/logo-python.png) | Python     |[Azure SDK for Python overview](../python/azure-sdk-overview.md)         | [Azure SDK for Python package list](../python/azure-sdk-library-package-index.md)         |
+| ![Golang Logo](./media/logo-golang.png) | Go         |[Azure SDK for Go overview](../go/overview.md)                           | [Azure SDK for Go package list](https://azure.github.io/azure-sdk/releases/latest/all/go.html)     |
 
 ## Azure REST API
 
