@@ -97,7 +97,7 @@ We recommend starting with two replicas or instances in container orchestration 
 |------------|------------------|---------------|------------|----------|
 | 2          | 4 GB             | 75%           | ParallelGC | 2        |
 
-The JVM parameters to use are: ```-XX:+ParallelGC -XX:MaxRAMPercentage=75```
+The JVM parameters to use are: ```-XX:+UseParallelGC -XX:MaxRAMPercentage=75```
 
 ## Containerize an existing (on premises) application
 
