@@ -103,7 +103,7 @@ Add a `build` entry under the top-level `project` element to use the [maven-exec
             <artifactId>exec-maven-plugin</artifactId>
             <version>3.0.0</version>
             <configuration>
-                <mainClass>com.fabrikam.AzureApp</mainClass>
+                <mainClass>com.fabrikam.App</mainClass>
             </configuration>
         </plugin>
     </plugins>
@@ -112,7 +112,7 @@ Add a `build` entry under the top-level `project` element to use the [maven-exec
 
 ## Create a Linux virtual machine
 
-Create a new file named *AzureApp.java* in the project's *src/main/java/com/fabrikam* directory, and paste in the following block of code. Update the `userName` and `sshKey` variables with real values for your machine. The code creates a new Linux virtual machine (VM) with the name `testLinuxVM` in the resource group `sampleResourceGroup` running in the US East Azure region.
+Create a new file named *App.java* in the project's *src/main/java/com/fabrikam* directory, and paste in the following block of code. Update the `userName` and `sshKey` variables with real values for your machine. The code creates a new Linux virtual machine (VM) with the name `testLinuxVM` in the resource group `sampleResourceGroup` running in the US East Azure region.
 
 ```java
 package com.fabrikam;
@@ -129,7 +129,7 @@ import com.azure.resourcemanager.compute.models.KnownLinuxVirtualMachineImage;
 import com.azure.resourcemanager.compute.models.VirtualMachine;
 import com.azure.resourcemanager.compute.models.VirtualMachineSizeTypes;
 
-public class AzureApp {
+public class App {
 
     public static void main(String[] args) {
 
@@ -192,7 +192,7 @@ az group delete --name sampleVmResourceGroup
 
 ## Deploy a web app from a GitHub repo
 
-Replace the main method in `AzureApp.java` with the following one. Update the `appName` variable to a unique value before you run the code. This code deploys a web application from the `master` branch in a public GitHub repo into a new [Azure App Service Web App](/azure/app-service-web/app-service-web-overview) running in the free pricing tier.
+Replace the main method in `App.java` with the following one. Update the `appName` variable to a unique value before you run the code. This code deploys a web application from the `master` branch in a public GitHub repo into a new [Azure App Service Web App](/azure/app-service-web/app-service-web-overview) running in the free pricing tier.
 
 ```java
     public static void main(String[] args) {
@@ -251,12 +251,11 @@ az group delete --name sampleWebResourceGroup
 
 ## Connect to an Azure SQL database
 
-Replace the current main method in `AzureApp.java` with the following code. Set real values for the variables.
+Replace the current main method in `App.java` with the following code. Set real values for the variables.
 This code creates a new SQL database with a firewall rule that allows remote access. Then the code connects to it by using the SQL Database JBDC driver.
 
 ```java
-    public static void main(String args[])
-    {
+    public static void main(String args[]) {
         // Create the db using the management libraries.
         try {
             TokenCredential credential = new EnvironmentCredentialBuilder()
@@ -338,7 +337,7 @@ az group delete --name sampleSqlResourceGroup
 
 ## Write a blob into a new storage account
 
-Replace the current main method in `AzureApp.java` with the following code. This code creates an [Azure storage account](/azure/storage/common/storage-introduction). Then the code uses the Azure Storage libraries for Java to create a new text file in the cloud.
+Replace the current main method in `App.java` with the following code. This code creates an [Azure storage account](/azure/storage/common/storage-introduction). Then the code uses the Azure Storage libraries for Java to create a new text file in the cloud.
 
 ```java
     public static void main(String[] args) {
