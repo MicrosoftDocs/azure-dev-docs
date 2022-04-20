@@ -72,41 +72,51 @@ This step creates a basic Maven project under the *testAzureApp* directory. Add 
 
 ```XML
 <dependency>
-    <groupId>com.azure</groupId>
-    <artifactId>azure-identity</artifactId>
-    <version>1.3.2</version>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-identity</artifactId>
+  <version>1.3.2</version>
 </dependency>
 <dependency>
-    <groupId>com.azure.resourcemanager</groupId>
-    <artifactId>azure-resourcemanager</artifactId>
-    <version>2.6.0</version>
+  <groupId>com.azure.resourcemanager</groupId>
+  <artifactId>azure-resourcemanager</artifactId>
+  <version>2.6.0</version>
 </dependency>
 <dependency>
-    <groupId>com.azure</groupId>
-    <artifactId>azure-storage-blob</artifactId>
-    <version>12.8.0</version>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-storage-blob</artifactId>
+  <version>12.8.0</version>
 </dependency>
 <dependency>
-    <groupId>com.microsoft.sqlserver</groupId>
-    <artifactId>mssql-jdbc</artifactId>
-    <version>6.2.1.jre8</version>
+  <groupId>com.microsoft.sqlserver</groupId>
+  <artifactId>mssql-jdbc</artifactId>
+  <version>6.2.1.jre8</version>
 </dependency>
 ```
 
 Add a `build` entry under the top-level `project` element to use the [maven-exec-plugin](https://www.mojohaus.org/exec-maven-plugin/) to run the samples.
+[maven-compiler-plugin](https://maven.apache.org/plugins/maven-compiler-plugin/) is used for configuring that source code and generated classes for Java 11.
 
 ```XML
 <build>
-    <plugins>
-        <plugin>
-            <groupId>org.codehaus.mojo</groupId>
-            <artifactId>exec-maven-plugin</artifactId>
-            <version>3.0.0</version>
-            <configuration>
-                <mainClass>com.fabrikam.App</mainClass>
-            </configuration>
-        </plugin>
-    </plugins>
+  <plugins>
+    <plugin>
+      <groupId>org.codehaus.mojo</groupId>
+      <artifactId>exec-maven-plugin</artifactId>
+      <version>3.0.0</version>
+      <configuration>
+        <mainClass>com.fabrikam.App</mainClass>
+      </configuration>
+    </plugin>
+    <plugin>
+      <groupId>org.apache.maven.plugins</groupId>
+      <artifactId>maven-compiler-plugin</artifactId>
+      <version>3.0.0</version>
+      <configuration>
+        <source>11</source>
+        <target>11</target>
+      </configuration>
+    </plugin>
+  </plugins>
 </build>
  ```
 
