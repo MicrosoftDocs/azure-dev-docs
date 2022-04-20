@@ -15,7 +15,6 @@ metadata:
   ms.technology: azure
   ms.service: multiple
   ms.devlang: python
-  ms.prod: azure-python
   ms.custom: devx-track-python
 
 landingContent:
@@ -82,11 +81,11 @@ landingContent:
           - text: Set up your local dev environment
             url: configure-local-development-environment.md
           - text: Get to know the Azure libraries
-            url: azure-sdk-overview.md
+            url: sdk/azure-sdk-overview.md
           - text: Learn library usage patterns
-            url: azure-sdk-library-usage-patterns.md
+            url: sdk/azure-sdk-library-usage-patterns.md
           - text: Authenticate with Azure services
-            url: walkthrough-tutorial-authentication-01.md
+            url: sdk/authentication-overview.md
   - title: Developer tools
     linkLists:  
       - linkListType: get-started
