@@ -167,10 +167,9 @@ public class App {
                     .withNewPrimaryNetwork("10.0.0.0/24")
                     .withPrimaryPrivateIPAddressDynamic()
                     .withoutPrimaryPublicIPAddress()
-                    .withPopularLinuxImage(KnownLinuxVirtualMachineImage.UBUNTU_SERVER_16_04_LTS)
+                    .withPopularLinuxImage(KnownLinuxVirtualMachineImage.UBUNTU_SERVER_18_04_LTS)
                     .withRootUsername(userName)
                     .withSsh(sshKey)
-                    .withUnmanagedDisks()
                     .withSize(VirtualMachineSizeTypes.STANDARD_D3_V2)
                     .create();
 
