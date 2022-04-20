@@ -94,7 +94,7 @@ This step creates a basic Maven project under the *testAzureApp* directory. Add 
 ```
 
 Add a `build` entry under the top-level `project` element to use the [maven-exec-plugin](https://www.mojohaus.org/exec-maven-plugin/) to run the samples.
-[maven-compiler-plugin](https://maven.apache.org/plugins/maven-compiler-plugin/) is used for configuring that source code and generated classes for Java 11.
+[maven-compiler-plugin](https://maven.apache.org/plugins/maven-compiler-plugin/) is used to configure the source code and generated classes for Java 11.
 
 ```XML
 <build>
