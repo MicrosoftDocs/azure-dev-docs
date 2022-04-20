@@ -19,7 +19,7 @@ By the end of this tutorial, you'll have written and deployed an Azure Resource 
 ## Prerequisites
 
 [!INCLUDE [azure-subscription.md](includes/azure-subscription.md)]
-- **Go installed**: Version 1.16 or [above](https://golang.org/dl/)
+- **Go installed**: Version 1.18 or [above](https://golang.org/dl/)
 
 ## Create a new module
 

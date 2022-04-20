@@ -14,7 +14,7 @@ Learn how the Azure SDK for Go can help you create and manage Azure resources.
 
 The Azure SDK for Go provides several libraries (grouped into *management* and *client*) that allow your Go code to communicate with Azure services. Both the management and client libraries are designed to work with both local and cloud environments.
 
-Due to the adoption of generics, the Azure SDK for Go is compatible with Go 1.18 and later. Moving forward, the Azure SDK for Go will support the two most recent major releaes. For a list of all Go releases and to see how to update to a specific version, see [Go Release History](https://golang.org/doc/devel/release.html).
+Due to the adoption of generics, the Azure SDK for Go is compatible with Go 1.18 and later. Moving forward, the Azure SDK for Go will support the two most recent major releases. For a list of all Go releases and to see how to update to a specific version, see [Go Release History](https://golang.org/doc/devel/release.html).
 
 You'll sometimes see the management libraries referred to as the "_management plane_" and the client libraries referred to as the "_data plane_". The key difference between the management plane and the data plane can best be explained as follows:
 
