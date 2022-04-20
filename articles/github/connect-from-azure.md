@@ -304,8 +304,8 @@ jobs:
       - name: Azure PowerShell Action
         uses: Azure/powershell@v1
         with:
-          inlineScript: Get-AzVM -ResourceGroupName "< YOUR RESOURCE GROUP >"
-          azPSVersion: 3.1.0
+          inlineScript: Get-AzResourceGroup -Name "< YOUR RESOURCE GROUP >"
+          azPSVersion: "latest"
 ```
 
 ### Use the Azure CLI action

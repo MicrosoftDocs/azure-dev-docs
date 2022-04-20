@@ -94,6 +94,9 @@ Secrets fetched are set as outputs and also as environment variables. Variables 
         secrets: 'mySecret'  # comma separated list of secret keys to fetch from key vault 
       id: myGetSecretAction # ID for secrets that you will reference
 ```
+## Add the Azure Login Action
+
+For GitHub actions that don't use public endpoints, you may need to configure the [Azure Login Action](connect-from-azure.md?tabs=azure-cli%2Cwindows#use-the-azure-login-action).
 
 ## Reference the key vault secret
 
