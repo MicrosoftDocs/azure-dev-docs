@@ -11,6 +11,8 @@ items:
     items:
     - name: What is the Azure SDK for Go?
       href: overview.md
+    - name: Core Concepts
+      href: azure-sdk-core-concepts.md
     - name: Management Libraries
       href: management-libraries.md
     - name: Authentication
