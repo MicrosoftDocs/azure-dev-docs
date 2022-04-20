@@ -307,24 +307,23 @@ This code creates a new SQL database with a firewall rule that allows remote acc
                     "encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;";
 
             // Connect to the database, create a table, and insert an entry into it.
-            Connection conn = DriverManager.getConnection(url);
-
-            String createTable = "CREATE TABLE CLOUD ( name varchar(255), code int);";
-            String insertValues = "INSERT INTO CLOUD (name, code ) VALUES ('Azure', 1);";
-            String selectValues = "SELECT * FROM CLOUD";
-            Statement createStatement = conn.createStatement();
-            createStatement.execute(createTable);
-            Statement insertStatement = conn.createStatement();
-            insertStatement.execute(insertValues);
-            Statement selectStatement = conn.createStatement();
-            ResultSet rst = selectStatement.executeQuery(selectValues);
-
-            while (rst.next()) {
-                System.out.println(rst.getString(1) + " "
-                        + rst.getString(2));
+            try (Connection conn = DriverManager.getConnection(url)) {
+                String createTable = "CREATE TABLE CLOUD (name varchar(255), code int);";
+                String insertValues = "INSERT INTO CLOUD (name, code) VALUES ('Azure', 1);";
+                String selectValues = "SELECT * FROM CLOUD";
+                try (Statement createStatement = conn.createStatement()) {
+                    createStatement.execute(createTable);
+                }
+                try (Statement insertStatement = conn.createStatement()) {
+                    insertStatement.execute(insertValues);
+                }
+                try (Statement selectStatement = conn.createStatement();
+                     ResultSet rst = selectStatement.executeQuery(selectValues)) {
+                    while (rst.next()) {
+                        System.out.println(rst.getString(1) + " " + rst.getString(2));
+                    }
+                }
             }
-
-
         } catch (Exception e) {
             System.out.println(e.getMessage());
             System.out.println(e.getStackTrace().toString());
@@ -381,7 +380,7 @@ Replace the current main method in `App.java` with the following code. This code
 
             StorageSharedKeyCredential credential = new StorageSharedKeyCredential(accountName, accountKey);
 
-            BlobServiceClient storageClient =new BlobServiceClientBuilder()
+            BlobServiceClient storageClient = new BlobServiceClientBuilder()
                     .endpoint(endpoint)
                     .credential(credential)
                     .buildClient();
