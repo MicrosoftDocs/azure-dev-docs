@@ -19,7 +19,7 @@ Article tested with the following Terraform and Terraform provider versions:
 
 [Learn more about using Terraform in Azure](/azure/terraform)
 
-In this article, you learn how to use the [AzAPI Terraform provider](https://registry.terraform.io/providers/azure/azapi/latest/docs) to manage an Azure service that is not currently supported by the [AzureRM provider](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs). The `azapi_resource` will be used to manage an [Azure Lab Services](/services/lab-services/#overview) account as well as a lab.
+In this article, you learn how to use the [AzAPI Terraform provider](https://registry.terraform.io/providers/azure/azapi/latest/docs) to manage an Azure service that is not currently supported by the [AzureRM provider](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs). The `azapi_resource` will be used to manage an [Azure Lab Services](https://azure.microsoft.com/services/lab-services/#overview#overview) account as well as a lab.
 
 > [!div class="checklist"]
 
