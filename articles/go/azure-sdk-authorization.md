@@ -10,8 +10,6 @@ ms.custom: devx-track-go
 
 > [!IMPORTANT]
 > Moving forward, authentication for the Azure SDK for Go will be done using the [Azure Identity](https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/azidentity) package.
->
-> To learn how to authenticate using the Azure Identity package, see [Azure authentication with the Azure SDK for Go](azure-sdk-authentication.md).
 
 The Azure SDK for Go offers multiple ways to authenticate with Azure. These authentication _types_ are invoked through different authentication _methods_. This article covers the available types, methods, and how to choose which are best for your application.
 
@@ -54,10 +52,10 @@ All authentication functions and types are available in the `github.com/Azure/go
 
 If you're running your application in a controlled setting, environment-based authentication is a natural choice. With this authentication method, you configure the shell environment before running your application. At runtime, the Go SDK reads these environment variables to authenticate with Azure.
 
-Environment-based authentication has support for all authentication methods except device tokens, evaluated in the following order:
+Environment-based authentication has support for all authentication types except device tokens, evaluated in the following order:
 
 * Client credentials
-* X509 certificates
+* Certificate-based authentication
 * Username/password
 * Managed identities for Azure resources
 
