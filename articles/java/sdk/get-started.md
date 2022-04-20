@@ -133,7 +133,7 @@ import com.azure.core.management.AzureEnvironment;
 import com.azure.core.management.Region;
 import com.azure.core.management.profile.AzureProfile;
 import com.azure.identity.AzureAuthorityHosts;
-import com.azure.identity.EnvironmentCredentialBuilder;
+import com.azure.identity.DefaultAzureCredentialBuilder;
 import com.azure.resourcemanager.AzureResourceManager;
 import com.azure.resourcemanager.compute.models.KnownLinuxVirtualMachineImage;
 import com.azure.resourcemanager.compute.models.VirtualMachine;
@@ -147,7 +147,7 @@ public class App {
         final String sshKey = "YOUR_PUBLIC_SSH_KEY";
 
         try {
-            TokenCredential credential = new EnvironmentCredentialBuilder()
+            TokenCredential credential = new DefaultAzureCredentialBuilder()
                     .authorityHost(AzureAuthorityHosts.AZURE_PUBLIC_CLOUD)
                     .build();
 
@@ -209,7 +209,7 @@ Replace the main method in `App.java` with the following one. Update the `appNam
 
             final String appName = "YOUR_APP_NAME";
 
-            TokenCredential credential = new EnvironmentCredentialBuilder()
+            TokenCredential credential = new DefaultAzureCredentialBuilder()
                     .authorityHost(AzureAuthorityHosts.AZURE_PUBLIC_CLOUD)
                     .build();
 
@@ -267,7 +267,7 @@ This code creates a new SQL database with a firewall rule that allows remote acc
     public static void main(String args[]) {
         // Create the db using the management libraries.
         try {
-            TokenCredential credential = new EnvironmentCredentialBuilder()
+            TokenCredential credential = new DefaultAzureCredentialBuilder()
                     .authorityHost(AzureAuthorityHosts.AZURE_PUBLIC_CLOUD)
                     .build();
 
@@ -352,7 +352,7 @@ Replace the current main method in `App.java` with the following code. This code
     public static void main(String[] args) {
 
         try {
-            TokenCredential tokenCredential = new EnvironmentCredentialBuilder()
+            TokenCredential tokenCredential = new DefaultAzureCredentialBuilder()
                     .authorityHost(AzureAuthorityHosts.AZURE_PUBLIC_CLOUD)
                     .build();
 
