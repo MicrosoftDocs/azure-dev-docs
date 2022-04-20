@@ -57,7 +57,7 @@ resource "azapi_update_resource" "test" {
 
 ## Authentication using the AzAPI provider
 
-The AzAPI provider enables the same authentication methods as the AzureRM provider. For more information on authentication options, see [Authenticate Terraform to Azure](/azure/developer/terraform/authenticate-to-azure?tabs=bash).
+The AzAPI provider enables the same authentication methods as the AzureRM provider. For more information on authentication options, see [Authenticate Terraform to Azure](./authenticate-to-azure.md?tabs=bash).
 
 ## Benefits of using the AzAPI provider
 
