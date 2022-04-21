@@ -18,10 +18,9 @@ As explained in [Azure Developer CLI Overview](azure-dev-cli-overview.md), `az d
 > | Azure service      | Supported? |
 > | ----------- | ----------- |
 > | Azure App Service | Yes  |
-> | Function  | Yes |
+> | Azure Functions  | Yes |
 > | Azure Container Apps    | Coming soon |
 > | Azure Static Web Apps  | Coming soon |
-> | Azure Container Service | Coming soon |
 > | Azure Container Service | Coming soon |
 >
 > Currently supported/planned languages:
