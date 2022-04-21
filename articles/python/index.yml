@@ -15,7 +15,6 @@ metadata:
   ms.technology: azure
   ms.service: multiple
   ms.devlang: python
-  ms.prod: azure-python
   ms.custom: devx-track-python
 
 landingContent:
@@ -38,11 +37,9 @@ landingContent:
           - text: Flask using Visual Studio Code
             url: tutorial-deploy-app-service-on-linux-01.md     
           - text: Flask using CLI
-            url: /azure/app-service/quickstart-python
-          - text: Django + PostgreSQL using Azure Portal
-            url: tutorial-python-postgresql-app-portal.md
-          - text: Django + PostgreSQL using CLI
-            url: /azure/app-service/tutorial-python-postgresql-app
+            url: /azure/app-service/quickstart-python?toc=/azure/developer/python/toc.json&bc=/azure/developer/breadcrumb/toc.json
+          - text: Python (Django or Flask) + PostgreSQL
+            url: /azure/app-service/tutorial-python-postgresql-app?toc=/azure/developer/python/toc.json&bc=/azure/developer/breadcrumb/toc.json
           - text: Containers using Visual Studio Code
             url: tutorial-deploy-containers-01.md
           - text: Static sites using Azure Storage
@@ -82,11 +79,11 @@ landingContent:
           - text: Set up your local dev environment
             url: configure-local-development-environment.md
           - text: Get to know the Azure libraries
-            url: azure-sdk-overview.md
+            url: sdk/azure-sdk-overview.md
           - text: Learn library usage patterns
-            url: azure-sdk-library-usage-patterns.md
+            url: sdk/azure-sdk-library-usage-patterns.md
           - text: Authenticate with Azure services
-            url: walkthrough-tutorial-authentication-01.md
+            url: sdk/authentication-overview.md
   - title: Developer tools
     linkLists:  
       - linkListType: get-started

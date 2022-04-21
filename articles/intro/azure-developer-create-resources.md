@@ -139,7 +139,7 @@ For infrastructure deployments that are automated, repeated, and reliable, Azure
 
 ### Terraform
 
-[Hashicorp Terraform](/azure/developer/terraform/) is an open-source tool for provisioning and managing cloud infrastructure. It codifies infrastructure in configuration files that describe the topology of cloud resources.  The Terraform CLI provides a simple mechanism to deploy and version configuration files to Azure.
+[Hashicorp Terraform](../terraform/index.yml) is an open-source tool for provisioning and managing cloud infrastructure. It codifies infrastructure in configuration files that describe the topology of cloud resources.  The Terraform CLI provides a simple mechanism to deploy and version configuration files to Azure.
 
 ```terraform
 provider "azurerm" {
@@ -178,7 +178,7 @@ resource "azurerm_app_service" "main" {
 
 ### Ansible
 
-[Ansible](/azure/developer/ansible/) is an open-source product that automates cloud provisioning, configuration management, and application deployments. Using Ansible you can provision virtual machines, containers, and network and complete cloud infrastructures. Also, Ansible allows you to automate the deployment and configuration of resources in your environment.
+[Ansible](../ansible/index.yml) is an open-source product that automates cloud provisioning, configuration management, and application deployments. Using Ansible you can provision virtual machines, containers, and network and complete cloud infrastructures. Also, Ansible allows you to automate the deployment and configuration of resources in your environment.
 
 ```yml
 - hosts: localhost
@@ -220,16 +220,16 @@ Azure resources can also be created programmatically from code.  This allows you
 > [Using the Azure SDK for .NET](/dotnet/azure/sdk/resource-management)
 
 > [!div class="nextstepaction"]
-> [Using the Azure SDK for Go](/azure/developer/go/management-libraries)
+> [Using the Azure SDK for Go](../go/management-libraries.md)
 
 > [!div class="nextstepaction"]
-> [Using the Azure SDK for Java](/azure/developer/java/sdk/overview)
+> [Using the Azure SDK for Java](../java/sdk/overview.md)
 
 > [!div class="nextstepaction"]
-> [Using the Azure SDK for JavaScript](/azure/developer/javascript/core/use-azure-sdk)
+> [Using the Azure SDK for JavaScript](../javascript/core/use-azure-sdk.md)
 
 > [!div class="nextstepaction"]
-> [Using the Azure SDK for Python](/azure/developer/python/azure-sdk-overview)
+> [Using the Azure SDK for Python](../python/azure-sdk-overview.md)
 
 > [!div class="nextstepaction"]
 > [Using the Azure REST APIs](/rest/api/azure/)

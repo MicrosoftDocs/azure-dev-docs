@@ -1126,6 +1126,91 @@
       {
         "source_path": "articles/terraform/application-gateway-quickstart.md",
         "redirect_url": "/azure/developer/terraform/deploy-application-gateway-v2"
+      },
+      {
+        "source_path": "articles/developer/python/tutorial-python-postgresql-app-portal.md",
+        "redirect_url": "/azure/app-service/tutorial-python-postgresql-app"
+      },
+      {
+        "source_path": "articles/python/azure-sdk-authenticate.md",
+        "redirect_url": "/azure/developer/python/sdk/authentication-overview.md"
+      },
+      {
+        "source_path": "articles/python/azure-sdk-authenticate-development-environments.md",
+        "redirect_url": "/azure/developer/python/sdk/authentication-local-development-dev-accounts.md"
+      },
+      {
+        "source_path": "articles/python/azure-sdk-authenticate-hosted-applications.md",
+        "redirect_url": "/azure/developer/python/sdk/authentication-azure-hosted-apps.md"
+      },
+      {
+        "source_path": "articles/python/azure-sdk-authenticate-service-principals.md",
+        "redirect_url": "/azure/developer/python/sdk/authentication-on-premises-apps.md"
+      },
+      {
+        "source_path": "articles/python/azure-sdk-configure-proxy.md",
+        "redirect_url": "/azure/developer/python/sdk/azure-sdk-configure-proxy.md"
+      },
+      {
+        "source_path": "articles/python/azure-sdk-example-database.md",
+        "redirect_url": "/azure/developer/python/sdk/examples/azure-sdk-example-database.md"
+      },
+      {
+        "source_path": "articles/python/azure-sdk-example-list-resource-groups.md",
+        "redirect_url": "/azure/developer/python/sdk/examples/azure-sdk-example-list-resource-groups.md"
+      },
+      {
+        "source_path": "articles/python/azure-sdk-example-resource-group.md",
+        "redirect_url": "/azure/developer/python/sdk/examples/azure-sdk-example-resource-group.md"
+      },
+      {
+        "source_path": "articles/python/azure-sdk-example-storage.md",
+        "redirect_url": "/azure/developer/python/sdk/examples/azure-sdk-example-storage.md"
+      },
+      {
+        "source_path": "articles/python/azure-sdk-example-storage-use.md",
+        "redirect_url": "/azure/developer/python/sdk/examples/azure-sdk-example-storage-use.md"
+      },
+      {
+        "source_path": "articles/python/azure-sdk-example-virtual-machines.md",
+        "redirect_url": "/azure/developer/python/sdk/examples/azure-sdk-example-virtual-machines.md"
+      },
+      {
+        "source_path": "articles/python/azure-sdk-example-web-app.md",
+        "redirect_url": "/azure/developer/python/sdk/examples/azure-sdk-example-web-app.md"
+      },
+
+      {
+        "source_path": "articles/python/azure-sdk-install.md",
+        "redirect_url": "/azure/developer/python/sdk/azure-sdk-install.md"
+      },
+      {
+        "source_path": "articles/python/azure-sdk-library-package-index.md",
+        "redirect_url": "/azure/developer/python/sdk/azure-sdk-library-package-index.md"
+      },
+      {
+        "source_path": "articles/python/azure-sdk-library-usage-patterns.md",
+        "redirect_url": "/azure/developer/python/sdk/azure-sdk-library-usage-patterns.md"
+      },
+      {
+        "source_path": "articles/python/azure-sdk-logging.md",
+        "redirect_url": "/azure/developer/python/sdk/azure-sdk-logging.md"
+      },
+      {
+        "source_path": "articles/python/azure-sdk-overview.md",
+        "redirect_url": "/azure/developer/python/sdk/azure-sdk-overview.md"
+      },
+      {
+        "source_path": "articles/python/azure-sdk-samples-managed-disks.md",
+        "redirect_url": "/azure/developer/python/sdk/examples/azure-sdk-samples-managed-disks.md"
+      },
+      {
+        "source_path": "articles/python/azure-sdk-sovereign-domain.md",
+        "redirect_url": "/azure/developer/python/sdk/azure-sdk-sovereign-domain.md"
+      },
+      {
+        "source_path": "articles/python/azure-tools.md",
+        "redirect_url": "/azure/developer/python/configure-local-development-environment.md"
       }
     ]
   }
