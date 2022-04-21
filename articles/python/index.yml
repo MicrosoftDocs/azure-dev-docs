@@ -37,11 +37,9 @@ landingContent:
           - text: Flask using Visual Studio Code
             url: tutorial-deploy-app-service-on-linux-01.md     
           - text: Flask using CLI
-            url: /azure/app-service/quickstart-python
-          - text: Django + PostgreSQL using Azure Portal
-            url: tutorial-python-postgresql-app-portal.md
-          - text: Django + PostgreSQL using CLI
-            url: /azure/app-service/tutorial-python-postgresql-app
+            url: /azure/app-service/quickstart-python?toc=/azure/developer/python/toc.json&bc=/azure/developer/breadcrumb/toc.json
+          - text: Python (Django or Flask) + PostgreSQL
+            url: /azure/app-service/tutorial-python-postgresql-app?toc=/azure/developer/python/toc.json&bc=/azure/developer/breadcrumb/toc.json
           - text: Containers using Visual Studio Code
             url: tutorial-deploy-containers-01.md
           - text: Static sites using Azure Storage

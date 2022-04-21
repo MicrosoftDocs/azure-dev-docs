@@ -1128,6 +1128,10 @@
         "redirect_url": "/azure/developer/terraform/deploy-application-gateway-v2"
       },
       {
+        "source_path": "articles/developer/python/tutorial-python-postgresql-app-portal.md",
+        "redirect_url": "/azure/app-service/tutorial-python-postgresql-app"
+      },
+      {
         "source_path": "articles/python/azure-sdk-authenticate.md",
         "redirect_url": "/azure/developer/python/sdk/authentication-overview.md"
       },
