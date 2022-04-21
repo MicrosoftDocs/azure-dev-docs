@@ -5,6 +5,9 @@
   - name: What is Azure Developer CLI?
     href: azure-dev-cli-overview.md
     displayName: overview, intro, introduction
+  - name: Language and host (Azure service) list
+    href: azure-dev-cli-lang-and-service-list.md   
+    displayName: frequently asked questions
   - name: Frequently asked questions
     href: azure-dev-cli-faq.yml   
     displayName: frequently asked questions
