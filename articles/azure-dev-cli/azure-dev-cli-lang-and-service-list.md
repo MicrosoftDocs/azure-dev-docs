@@ -6,7 +6,7 @@ ms.topic: conceptual
 ms.custom: devx-track-azdev
 ms.prod: azure
 ---
-# List of languages and host (Azure Services) Azure Developer CLI supports
+# List of languages and Azure services (host) Azure Developer CLI supports
 
 Currently supported/planned hosting platform for the application:
 
