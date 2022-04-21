@@ -10,7 +10,7 @@ ms.prod: azure
 
 Each Azure Developer CLI template is built to support specific host (Azure service) and programming language. 
 
-If you are building a new application, use the following flowchart to choose a template (host) to use as a base for your project:
+If you're building a new application, use the following flowchart to choose a template (host) to use as a base for your project:
 !["Host Decision Tree"](media/azure-dev-cli-templates/host-decision-tree.png)
 
 > [!NOTE]
