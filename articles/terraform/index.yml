@@ -10,7 +10,7 @@ metadata:
   author: TomArcherMsft
   ms.author: tarcher
   ms.topic: landing-page
-  ms.date: 03/17/2022
+  ms.date: 04/18/2022
   ms.custom: devx-track-terraform
 
 landingContent:
@@ -21,6 +21,8 @@ landingContent:
         links:
           - text: About Terraform on Azure
             url: overview.md
+          - text: Terraform AzAPI provider
+            url: overview-azapi-provider.md
       - linkListType: reference
         links:
           - text: AzureRM provider versions 

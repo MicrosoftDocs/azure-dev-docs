@@ -112,6 +112,10 @@
     - name: Python
       tocHref: /azure/developer/python
       topicHref: /azure/developer/python/index
+      items:
+      - name: Azure SDK for Python
+        tocHref: /azure/developer/python/sdk
+        topicHref: /azure/developer/python/sdk/index
     - name: Python
       tocHref: /azure/app-service
       topicHref: /azure/developer/python/index
