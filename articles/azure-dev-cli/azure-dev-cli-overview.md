@@ -87,6 +87,14 @@ Listed in alphabetical order:
 > * Text-based browser is not supported.
 > * Live metrics is currently not supported for Python application. For more information, see: [Live Metrics Stream: Monitor & Diagnose with 1-second latency](/azure/azure-monitor/app/live-stream).
 
+## Try out
+
+TBA
+
+## See also
+
+TBA
+
 ## Features to be added in the future
 
 ### `debug`
