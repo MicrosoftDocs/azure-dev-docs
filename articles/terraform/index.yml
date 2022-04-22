@@ -140,4 +140,15 @@ landingContent:
         links:
           - text: Configure an Azure Virtual Desktop
             url: configure-azure-virtual-desktop.md
-
+          - text: Create Session Host
+            url: create-avd-session-host.md
+          - text: Configure Network Settings
+            url: configure-avd-network-settings.md        
+          - text: Configure RBAC permissions
+            url: configure-avd-rbac.md
+          - text: Create Azure Files Storage
+            url: create-avd-azure-files-storage.md
+          - text: Create Azure Compute Gallery
+            url: create-avd-azure-compute-image-gallery.md
+          - text: Create Log Analytics Workspace
+            url: create-avd-log-analytics-workspace.md

@@ -31,19 +31,6 @@ In this article, you learn how to:
 > - Use Terraform to create an Azure Virtual Desktop host pool
 > - Use Terraform to create an Azure Desktop Application Group
 > - Associate a Workspace and a Desktop Application Group
-> - Use Terraform to create NIC for each session host
-> - Use Terraform to create VM for session host
-> - Join VM to domain
-> - Register VM with Azure Virtual Desktop
-> - Use Terraform to read Azure Active Directory existing users
-> - Use Terraform to create Azure Active Directory group
-> - Role assignment for Azure Virtual Desktop
-> - Use Terraform to Azure File Storage account
-> - Use Terraform to configure File Share
-> - Use Terraform to configure RBAC permission on Azure File Storage
-> - Use Terraform to configure Azure Log Analytics Workspace
-> - Use Terraform to configure Azure Compute Gallery (formerly Shared Image Gallery)
-> - Use variables file
 
 ## 1. Configure your environment
 
@@ -63,46 +50,78 @@ In this article, you learn how to:
 
     [!code-terraform [master](../../terraform_samples/quickstart/101-azure-virtual-desktop/main.tf)]
 
-     **Key points:**
-
-    - Use `count` to indicate how many resources will be created
-    - References resources that were created when the infrastructure was built - such as `azurerm_subnet.subnet.id` and `azurerm_virtual_desktop_host_pool.hostpool.name`.  If you  changed the name of these resources from that section, you also need to update the references here.
-
-1. Create a file named `host.tf` and insert the following code:
-
-    [!code-terraform [master](../../terraform_samples/quickstart/101-azure-virtual-desktop/host.tf)]
-
-1. Create a file named `rbac.tf` and insert the following code:
-
-    [!code-terraform [master](../../terraform_samples/quickstart/101-azure-virtual-desktop/rbac.tf)]
-
-1. Create a file named `networking.tf` and insert the following code:
-
-    [!code-terraform [master](../../terraform_samples/quickstart/101-azure-virtual-desktop/networking.tf)]
-
-1. Create a file named `afstorage.tf` and insert the following code:
-
-    [!code-terraform [master](../../terraform_samples/quickstart/101-azure-virtual-desktop/afstorage.tf)]
-
-1. Create a file named `loganalytics.tf` and insert the following code:
-
-    [!code-terraform [master](../../terraform_samples/quickstart/101-azure-virtual-desktop/loganalytics.tf)]
-
-1. Create a file named `sig.tf` and insert the following code:
-
-    [!code-terraform [master](../../terraform_samples/quickstart/101-azure-virtual-desktop/sig.tf)]
-
 1. Create a file named `variables.tf` and insert the following code:
 
-    [!code-terraform [master](../../terraform_samples/quickstart/101-azure-virtual-desktop/variables.tf)]
+```
+    variable "resource_group_location" {
+    default     = "eastus"
+    description = "Location of the resource group."
+    }
 
-1. Create a file named `terraform.tfvars` and insert the following code:
+    variable "rg_name" {
+    type        = string
+    default     = "rg-avd-resources"
+    description = "Name of the Resource group in which to deploy service objects"
+    }
 
-    [!code-terraform [master](../../terraform_samples/quickstart/101-azure-virtual-desktop/environments/sample.tfvars)]
+    variable "workspace" {
+    type        = string
+    description = "Name of the Azure Virtual Desktop workspace"
+    default     = "AVD TF Workspace"
+    }
+
+    variable "hostpool" {
+    type        = string
+    description = "Name of the Azure Virtual Desktop host pool"
+    default     = "AVD-TF-HP"
+    }
+
+    variable "rfc3339" {
+    type        = string
+    default     = "2022-03-30T12:43:13Z"
+    description = "Registration token expiration"
+    }
+
+    variable "prefix" {
+    type        = string
+    default     = "avdtf"
+    description = "Prefix of the name of the AVD machine(s)"
+    }
+```
 
 1. Create a file named `output.tf` and insert the following code:
 
-    [!code-terraform [master](../../terraform_samples/quickstart/101-azure-virtual-desktop/outputs.tf)]
+```
+output "azure_virtual_desktop_compute_resource_group" {
+  description = "Name of the Resource group in which to deploy session host"
+  value       = azurerm_resource_group.sh.name
+}
+
+output "azure_virtual_desktop_host_pool" {
+  description = "Name of the Azure Virtual Desktop host pool"
+  value       = azurerm_virtual_desktop_host_pool.hostpool.name
+}
+
+output "azurerm_virtual_desktop_application_group" {
+  description = "Name of the Azure Virtual Desktop DAG"
+  value       = azurerm_virtual_desktop_application_group.dag.name
+}
+
+output "azurerm_virtual_desktop_workspace" {
+  description = "Name of the Azure Virtual Desktop workspace"
+  value       = azurerm_virtual_desktop_workspace.workspace.name
+}
+
+output "location" {
+  description = "The Azure region"
+  value       = azurerm_resource_group.rg.location
+}
+
+output "AVD_user_groupname" {
+  description = "Azure Active Directory Group for AVD users"
+  value       = azuread_group.aad_group.display_name
+}
+```
 
 ## 3. Initialize Terraform
 
