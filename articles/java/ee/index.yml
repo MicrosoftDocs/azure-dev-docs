@@ -67,7 +67,7 @@ landingContent:
         links:
           - text: WebLogic to Azure Virtual Machines
             url: ../migration/migrate-weblogic-to-virtual-machines.md?bc=/azure/developer/breadcrumb/toc.json&toc=/azure/developer/java/ee/toc.json
-          - text: WebLogic with AAD via LDAP
+          - text: WebLogic with Azure AD via LDAP
             url: ../migration/migrate-weblogic-with-aad-ldap.md?bc=/azure/developer/breadcrumb/toc.json&toc=/azure/developer/java/ee/toc.json
           - text: WebLogic with App Gateway
             url: ../migration/migrate-weblogic-with-app-gateway.md?bc=/azure/developer/breadcrumb/toc.json&toc=/azure/developer/java/ee/toc.json
