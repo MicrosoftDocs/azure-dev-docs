@@ -36,11 +36,33 @@ In this article, you learn how to:
 
 1. Create a file named `variables.tf` and insert the following code:
 
-    [!code-terraform [master](../../terraform_samples/quickstart/101-azure-virtual-desktop/environments/sigvariables.tf)]
+```
+variable "deploy_location" {
+  type        = string
+  default     = "eastus"
+  description = "The Azure Region in which all resources in this example should be created."
+}
+
+variable "rg_shared_name" {
+  type        = string
+  default     = "rg-shared-resources"
+  description = "Name of the Resource group in which to deploy shared resources"
+}
+```
 
 1. Create a file named `output.tf` and insert the following code:
 
-    [!code-terraform [master](../../terraform_samples/quickstart/101-azure-virtual-desktop/environments/sigoutputs.tf)]
+```
+output "location" {
+  description = "The Azure region"
+  value       = azurerm_resource_group.sigrg.location
+}
+
+output "Compute_Gallery" {
+  description = "Azure Compute Gallery"
+  value       = azurerm_shared_image_gallery.sig.name
+}
+```
 
 ## 3. Create a Terraform execution plan
 

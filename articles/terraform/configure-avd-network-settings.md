@@ -7,7 +7,7 @@ ms.date: 4/19/2022
 ms.custom: devx-track-terraform
 ---
 
-# Configure Azure Virtual Desktop with Terraform
+# Configure Azure Virtual Desktop Network Settings with Terraform
 
 Article tested with the following Terraform and Terraform provider versions:
 
