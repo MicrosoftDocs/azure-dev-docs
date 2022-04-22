@@ -291,14 +291,14 @@
 | @azure-tools/test-recorder | npm [2.0.0](https://www.npmjs.com/package/@azure-tools/test-recorder/v/2.0.0) |  |  |
 | @azure-tools/tmlanguage-generator | npm [0.1.4](https://www.npmjs.com/package/@azure-tools/tmlanguage-generator/v/0.1.4) |  |  |
 | @azure-tools/yaml | npm [1.1.0](https://www.npmjs.com/package/@azure-tools/yaml/v/1.1.0) |  |  |
-| @cadl-lang/compiler | npm [0.30.0](https://www.npmjs.com/package/@cadl-lang/compiler/v/0.30.0) |  |  |
+| @cadl-lang/compiler | npm [0.31.0-dev.21](https://www.npmjs.com/package/@cadl-lang/compiler/v/0.31.0-dev.21) |  |  |
 | @cadl-lang/eslint-config-cadl | npm [0.3.0](https://www.npmjs.com/package/@cadl-lang/eslint-config-cadl/v/0.3.0) |  |  |
 | @cadl-lang/internal-build-utils | npm [0.1.0](https://www.npmjs.com/package/@cadl-lang/internal-build-utils/v/0.1.0) |  |  |
-| @cadl-lang/openapi | npm [0.8.0](https://www.npmjs.com/package/@cadl-lang/openapi/v/0.8.0) |  |  |
-| @cadl-lang/openapi3 | npm [0.10.0](https://www.npmjs.com/package/@cadl-lang/openapi3/v/0.10.0) |  |  |
-| @cadl-lang/prettier-plugin-cadl | npm [0.5.10](https://www.npmjs.com/package/@cadl-lang/prettier-plugin-cadl/v/0.5.10) |  |  |
-| @cadl-lang/rest | npm [0.13.0](https://www.npmjs.com/package/@cadl-lang/rest/v/0.13.0) |  |  |
-| @cadl-lang/versioning | npm [0.4.0](https://www.npmjs.com/package/@cadl-lang/versioning/v/0.4.0) |  |  |
+| @cadl-lang/openapi | npm [0.9.0-dev.3](https://www.npmjs.com/package/@cadl-lang/openapi/v/0.9.0-dev.3) |  |  |
+| @cadl-lang/openapi3 | npm [0.11.0-dev.7](https://www.npmjs.com/package/@cadl-lang/openapi3/v/0.11.0-dev.7) |  |  |
+| @cadl-lang/prettier-plugin-cadl | npm [0.5.11-dev](https://www.npmjs.com/package/@cadl-lang/prettier-plugin-cadl/v/0.5.11-dev) |  |  |
+| @cadl-lang/rest | npm [0.14.0-dev.4](https://www.npmjs.com/package/@cadl-lang/rest/v/0.14.0-dev.4) |  |  |
+| @cadl-lang/versioning | npm [0.5.0-dev.3](https://www.npmjs.com/package/@cadl-lang/versioning/v/0.5.0-dev.3) |  |  |
 | adl-vscode | npm [0.6.0](https://www.npmjs.com/package/adl-vscode/v/0.6.0) |  |  |
 | azure-applicationinsights-query | npm [1.0.0-preview](https://www.npmjs.com/package/azure-applicationinsights-query/v/1.0.0-preview) |  |  |
 | azure-arm-scheduler | npm [1.2.0-preview](https://www.npmjs.com/package/azure-arm-scheduler/v/1.2.0-preview) |  |  |
@@ -309,9 +309,9 @@
 | azure-scheduler | npm [0.10.4](https://www.npmjs.com/package/azure-scheduler/v/0.10.4) |  |  |
 | azure-servicefabric | npm [3.0.0](https://www.npmjs.com/package/azure-servicefabric/v/3.0.0) |  |  |
 | cadl-msbuild-target | npm [0.1.0](https://www.npmjs.com/package/cadl-msbuild-target/v/0.1.0) |  |  |
-| cadl-vs | npm [0.6.2](https://www.npmjs.com/package/cadl-vs/v/0.6.2) |  |  |
-| cadl-vscode | npm [0.13.1](https://www.npmjs.com/package/cadl-vscode/v/0.13.1) |  |  |
-| tmlanguage-generator | npm [0.2.3](https://www.npmjs.com/package/tmlanguage-generator/v/0.2.3) |  |  |
+| cadl-vs | npm [0.7.0-dev.1](https://www.npmjs.com/package/cadl-vs/v/0.7.0-dev.1) |  |  |
+| cadl-vscode | npm [0.14.0-dev.2](https://www.npmjs.com/package/cadl-vscode/v/0.14.0-dev.2) |  |  |
+| tmlanguage-generator | npm [0.3.0-dev.1](https://www.npmjs.com/package/tmlanguage-generator/v/0.3.0-dev.1) |  |  |
 | @azure/communication-react | npm [1.2.0](https://www.npmjs.com/package/@azure/communication-react/v/1.2.0) |  |  |
 | AccessControl | npm [1.0.0-beta.3](https://www.npmjs.com/package/@azure/synapse-access-control/v/1.0.0-beta.3) | [docs](/javascript/api/overview/azure/synapse-access-control-readme) | GitHub [1.0.0-beta.3](https://github.com/Azure/azure-sdk-for-js/tree/@azure/synapse-access-control_1.0.0-beta.3/sdk/synapse/synapse-access-control/) |
 | Administration | npm [4.2.0](https://www.npmjs.com/package/@azure/keyvault-admin/v/4.2.0) | [docs](/javascript/api/overview/azure/keyvault-admin-readme) | GitHub [4.2.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/keyvault-admin_4.2.0/sdk/keyvault/keyvault-admin/) |
@@ -445,7 +445,7 @@
 | News Search | npm [3.0.1](https://www.npmjs.com/package/@azure/cognitiveservices-newssearch/v/3.0.1) |  | GitHub [3.0.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/cognitiveservices/cognitiveservices-newssearch) |
 | Ng Deploy | npm [0.2.3](https://www.npmjs.com/package/@azure/ng-deploy/v/0.2.3) |  | GitHub [0.2.3](https://github.com/Azure/ng-deploy-azure) |
 | Node Red Contrib Azure IoT Hub Node | npm [0.5.3](https://www.npmjs.com/package/node-red-contrib-azureiothubnode/v/0.5.3) |  |  |
-| Oad | npm [0.9.3](https://www.npmjs.com/package/@azure/oad/v/0.9.3) |  | GitHub [0.9.3](https://github.com/Azure/openapi-diff) |
+| Oad | npm [0.9.5](https://www.npmjs.com/package/@azure/oad/v/0.9.5) |  | GitHub [0.9.5](https://github.com/Azure/openapi-diff) |
 | OpenAPI Markdown | npm [0.9.4](https://www.npmjs.com/package/@azure/openapi-markdown/v/0.9.4) |  | GitHub [0.9.4](https://github.com/Azure/openapi-markdown) |
 | Personalizer | npm [2.0.1](https://www.npmjs.com/package/@azure/cognitiveservices-personalizer/v/2.0.1) |  | GitHub [2.0.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/cognitiveservices/cognitiveservices-personalizer) |
 | Publish Pipeline Result | npm [0.1.2](https://www.npmjs.com/package/@azure/publish-pipeline-result/v/0.1.2) |  |  |
