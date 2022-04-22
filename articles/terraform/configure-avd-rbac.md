@@ -69,8 +69,6 @@ output "AVD_user_groupname" {
   value       = azuread_group.aad_group.display_name
 }
 ```
-
-
 ## 6. Initialize Terraform
 
 [!INCLUDE [terraform-init.md](includes/terraform-init.md)]
