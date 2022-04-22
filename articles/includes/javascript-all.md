@@ -239,7 +239,7 @@
 | @autorest/codemodel | npm [4.18.2](https://www.npmjs.com/package/@autorest/codemodel/v/4.18.2) |  |  |
 | @autorest/common | npm [1.5.2](https://www.npmjs.com/package/@autorest/common/v/1.5.2) |  |  |
 | @autorest/configuration | npm [1.9.2](https://www.npmjs.com/package/@autorest/configuration/v/1.9.2) |  |  |
-| @autorest/csharp | npm [3.0.0-beta.20220420.1](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20220420.1) |  |  |
+| @autorest/csharp | npm [3.0.0-beta.20220421.1](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20220421.1) |  |  |
 | @autorest/csharp-v3 | npm [3.0.0-beta.20201217.1](https://www.npmjs.com/package/@autorest/csharp-v3/v/3.0.0-beta.20201217.1) |  |  |
 | @autorest/extension-base | npm [3.4.4](https://www.npmjs.com/package/@autorest/extension-base/v/3.4.4) |  |  |
 | @autorest/fixer | npm [1.1.0](https://www.npmjs.com/package/@autorest/fixer/v/1.1.0) |  |  |
@@ -293,6 +293,7 @@
 | @azure-tools/yaml | npm [1.1.0](https://www.npmjs.com/package/@azure-tools/yaml/v/1.1.0) |  |  |
 | @cadl-lang/compiler | npm [0.30.0](https://www.npmjs.com/package/@cadl-lang/compiler/v/0.30.0) |  |  |
 | @cadl-lang/eslint-config-cadl | npm [0.3.0](https://www.npmjs.com/package/@cadl-lang/eslint-config-cadl/v/0.3.0) |  |  |
+| @cadl-lang/internal-build-utils | npm [0.1.0](https://www.npmjs.com/package/@cadl-lang/internal-build-utils/v/0.1.0) |  |  |
 | @cadl-lang/openapi | npm [0.8.0](https://www.npmjs.com/package/@cadl-lang/openapi/v/0.8.0) |  |  |
 | @cadl-lang/openapi3 | npm [0.10.0](https://www.npmjs.com/package/@cadl-lang/openapi3/v/0.10.0) |  |  |
 | @cadl-lang/prettier-plugin-cadl | npm [0.5.10](https://www.npmjs.com/package/@cadl-lang/prettier-plugin-cadl/v/0.5.10) |  |  |
