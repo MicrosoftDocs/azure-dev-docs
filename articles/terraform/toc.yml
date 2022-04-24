@@ -10,7 +10,7 @@
       items:
         - name: AzureRM provider versions
           href: provider-version-history-azurerm.md
-- name: Get started
+- name: Quickstarts
   expanded: true
   items:
     - name: Configure in Cloud Shell with Bash

@@ -1,15 +1,15 @@
 ---
-title: Get Started - Create an Azure resource group using Terraform
+title: Quickstart - Create an Azure resource group using Terraform
 description: Learn how to create an Azure resource group using Terraform
 keywords: azure devops terraform azure resource group
 ms.topic: quickstart
-ms.date: 03/15/2022
+ms.date: 04/24/2022
 ms.custom: devx-track-terraform, mode-portal
 adobe-target: true
 # Customer intent: As someone new to Terraform and Azure, I want to do something simple to confirm my Terraform installation.
 ---
 
-# Get Started: Create an Azure resource group using Terraform
+# Quickstart: Create an Azure resource group using Terraform
 
 Article tested with the following Terraform and Terraform provider versions:
 
@@ -32,13 +32,18 @@ In this article, you learn how to:
 > [!NOTE]
 > The example code in this article is located in the [Microsoft Terraform GitHub repo](https://github.com/Azure/terraform/tree/master/quickstart/101-resource-group).
 
-## 1. Configure your environment
+[!INCLUDE [quickstarts-free-trial-note](/azure/includes/quickstarts-free-trial-note.md)]
+
+
+
+
+## Prerequisites
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../includes/open-source-devops-prereqs-azure-subscription.md)]
 
 [!INCLUDE [configure-terraform.md](includes/configure-terraform.md)]
 
-## 2. Implement the Terraform code
+## Implement the Terraform code
 
 1. Create a directory in which to test the sample Terraform code and make it the current directory.
 
