@@ -32,10 +32,7 @@ In this article, you learn how to:
 > [!NOTE]
 > The example code in this article is located in the [Microsoft Terraform GitHub repo](https://github.com/Azure/terraform/tree/master/quickstart/101-resource-group).
 
-[!INCLUDE [quickstarts-free-trial-note](/azure/includes/quickstarts-free-trial-note.md)]
-
-
-
+[!INCLUDE [quickstarts-free-trial-note](~/azure-docs-pr/includes/quickstarts-free-trial-note.md)]
 
 ## Prerequisites
 
