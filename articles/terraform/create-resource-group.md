@@ -34,7 +34,7 @@ In this article, you learn how to:
 
 [!INCLUDE [quickstarts-free-trial-note](~/../azure-docs-pr/includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](/../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [cloud-shell-try-it.md](/../includes/cloud-shell-try-it.md)]
 
 ## Implement the Terraform code
 
