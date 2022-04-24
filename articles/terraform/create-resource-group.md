@@ -40,7 +40,7 @@ In this article, you learn how to:
 
 1. Create a directory in which to test the sample Terraform code and make it the current directory.
 
-1. Create and open the following file in the Visual Studio Code editor:
+1. Create and open [providers.tf](https://github.com/Azure/terraform/tree/master/quickstart/101-resource-group/providers.tf) in the Visual Studio Code editor:
 
     ```console
     code providers.tf
@@ -50,21 +50,9 @@ In this article, you learn how to:
 
     [!code-terraform[master](../../terraform_samples/quickstart/101-resource-group/providers.tf)]
 
-1. Save and exit the editor by pressing `<Ctrl>S` and `<Ctrl>Q`.
+1. Save your changes and exit the editor by pressing `<Ctrl>S` and `<Ctrl>Q`.
 
-1. Create and open the following file in the Visual Studio Code editor:
-
-    ```console
-    code main.tf
-    ```
-
-1. Insert the following code:
-
-    [!code-terraform[master](../../terraform_samples/quickstart/101-resource-group/providers.tf)]
-
-1. Save and exit the editor by pressing `<Ctrl>S` and `<Ctrl>Q`.
-
-1. Create and open the following file in the Visual Studio Code editor:
+1. Create and open the [main.tf](https://github.com/Azure/terraform/tree/master/quickstart/101-resource-group/main.tf) in the Visual Studio Code editor:
 
     ```console
     code main.tf
@@ -74,9 +62,9 @@ In this article, you learn how to:
 
     [!code-terraform[master](../../terraform_samples/quickstart/101-resource-group/main.tf)]
 
-1. Save and exit the editor by pressing `<Ctrl>S` and `<Ctrl>Q`.
+1. Save your changes and exit the editor by pressing `<Ctrl>S` and `<Ctrl>Q`.
 
-1. Create and open the following file in the Visual Studio Code editor:
+1. Create and open the [variables.tf](https://github.com/Azure/terraform/tree/master/quickstart/101-resource-group/variables.tf) in the Visual Studio Code editor:
 
     ```console
     code variables.tf
@@ -86,9 +74,9 @@ In this article, you learn how to:
 
     [!code-terraform[master](../../terraform_samples/quickstart/101-resource-group/variables.tf)]
 
-1. Save and exit the editor by pressing `<Ctrl>S` and `<Ctrl>Q`.
+1. Save your changes and exit the editor by pressing `<Ctrl>S` and `<Ctrl>Q`.
 
-1. Create and open the following file in the Visual Studio Code editor:
+1. Create and open the [output.tf](https://github.com/Azure/terraform/tree/master/quickstart/101-resource-group/output.tf) in the Visual Studio Code editor:
 
     ```console
     code output.tf
@@ -98,7 +86,7 @@ In this article, you learn how to:
 
     [!code-terraform[master](../../terraform_samples/quickstart/101-resource-group/output.tf)]
 
-1. Save and exit the editor by pressing `<Ctrl>S` and `<Ctrl>Q`.
+1. Save your changes and exit the editor by pressing `<Ctrl>S` and `<Ctrl>Q`.
 
 ## Initialize Terraform
 
