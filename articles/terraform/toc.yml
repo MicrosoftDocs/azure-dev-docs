@@ -31,7 +31,7 @@
   items:
     - name: Create an Azure resource group
       href: create-resource-group.md
-    - name: Virtual machine with infrastructure
+    - name: Create a Linux VM
       href: create-linux-virtual-machine-with-infrastructure.md
     - name: Learn how to use the AzAPI resource
       href: get-started-azapi-resource.md

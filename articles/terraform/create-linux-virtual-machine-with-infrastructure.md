@@ -1,5 +1,5 @@
 ---
-title: Quickstart - Configure a Linux VM with infrastructure in Azure using Terraform
+title: Quickstart - Configure a Linux virtual machine in Azure using Terraform
 description: Learn how to use Terraform to configure a complete Linux virtual machine environment in Azure.
 keywords: azure devops terraform linux vm virtual machine
 ms.topic: quickstart
@@ -7,7 +7,7 @@ ms.date: 04/24/2022
 ms.custom: devx-track-terraform
 ---
 
-# Quickstart: Configure a Linux VM with infrastructure in Azure using Terraform
+# Quickstart: Configure a Linux virtual machine in Azure using Terraform
 
 Article tested with the following Terraform and Terraform provider versions:
 
