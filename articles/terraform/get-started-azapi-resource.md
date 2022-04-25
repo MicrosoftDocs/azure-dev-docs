@@ -33,49 +33,27 @@ In this article, you learn how to use the [AzAPI Terraform provider](https://reg
 > [!NOTE]
 > The example code in this article is located in the [Azure Terraform GitHub repo](https://github.com/Azure/terraform/tree/master/quickstart/101-azapi-lab-services).
 
-[!INCLUDE [quickstarts-free-trial-note](~/../azure-docs-pr/includes/quickstarts-free-trial-note.md)]
+## Prerequisites
 
-[!INCLUDE [cloud-shell-try-it.md](../includes/cloud-shell-try-it.md)]
+[!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../includes/open-source-devops-prereqs-azure-subscription.md)]
+
+[!INCLUDE [configure-terraform.md](includes/configure-terraform.md)]
 
 ## Implement the Terraform code
 
 1. Create a directory in which to test the sample Terraform code and make it the current directory.
 
-1. Create and open [providers.tf](https://github.com/Azure/terraform/tree/master/quickstart/101-azapi-lab-services/providers.tf) in the Visual Studio Code editor:
-
-    ```console
-    code providers.tf
-    ```
-
-1. Insert the following code:
+1. Create a file named `providers.tf` and insert the following code:
 
     [!code-terraform[master](../../terraform_samples/quickstart/101-azapi-lab-services/providers.tf)]
 
-1. Save your changes and exit the editor by pressing `<Ctrl>S` and `<Ctrl>Q`.
-
-1. Create and open the [main.tf](https://github.com/Azure/terraform/tree/master/quickstart/101-azapi-lab-services/main.tf) in the Visual Studio Code editor:
-
-    ```console
-    code main.tf
-    ```
-
-1. Insert the following code:
+1. Create a file named `main.tf` and insert the following code:
 
     [!code-terraform[master](../../terraform_samples/quickstart/101-azapi-lab-services/main.tf)]
 
-1. Save your changes and exit the editor by pressing `<Ctrl>S` and `<Ctrl>Q`.
-
-1. Create and open the [main-generic.tf](https://github.com/Azure/terraform/tree/master/quickstart/101-azapi-lab-services/main-generic.tf) in the Visual Studio Code editor:
-
-    ```console
-    code main-generic.tf
-    ```
-
-1. Insert the following code:
+1. Create a file named `main-generic.tf` and insert the following code:
 
     [!code-terraform[master](../../terraform_samples/quickstart/101-azapi-lab-services/main-generic.tf)]
-
-1. Save your changes and exit the editor by pressing `<Ctrl>S` and `<Ctrl>Q`.
 
 ## Initialize Terraform
 
