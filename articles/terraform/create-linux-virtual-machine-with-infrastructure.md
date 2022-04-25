@@ -1,13 +1,13 @@
 ---
-title: Configure a Linux VM with infrastructure in Azure using Terraform
+title: Quickstart - Configure a Linux virtual machine in Azure using Terraform
 description: Learn how to use Terraform to configure a complete Linux virtual machine environment in Azure.
 keywords: azure devops terraform linux vm virtual machine
-ms.topic: how-to
-ms.date: 03/20/2022
+ms.topic: quickstart
+ms.date: 04/24/2022
 ms.custom: devx-track-terraform
 ---
 
-# Configure a Linux VM with infrastructure in Azure using Terraform
+# Quickstart: Configure a Linux virtual machine in Azure using Terraform
 
 Article tested with the following Terraform and Terraform provider versions:
 
@@ -15,6 +15,8 @@ Article tested with the following Terraform and Terraform provider versions:
 - [AzureRM Provider v.2.99.0](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs)
 
 [Learn more about using Terraform in Azure](/azure/terraform)
+
+[!INCLUDE [terraform-intro.md](includes/terraform-intro.md)]
 
 This article shows you how to create a complete Linux environment and supporting resources with Terraform. Those resources include a virtual network, subnet, public IP address, and more.
 
@@ -32,17 +34,21 @@ In this article, you learn how to:
 > * Create a virtual machine
 > * Use SSH to connect to virtual machine
 
-## 1. Configure your environment
+[!INCLUDE [quickstarts-free-trial-note](~/../azure-docs-pr/includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../includes/open-source-devops-prereqs-azure-subscription.md)]
+[!INCLUDE [cloud-shell-try-it.md](../includes/cloud-shell-try-it.md)]
 
-[!INCLUDE [configure-terraform.md](includes/configure-terraform.md)]
-
-## 2. Implement the Terraform code
+## Implement the Terraform code
 
 1. Create a directory in which to test the sample Terraform code and make it the current directory.
 
-1. Create a file named `providers.tf` and insert the following code:
+1. Create and open `providers.tf` in the Visual Studio Code editor:
+
+    ```console
+    code providers.tf
+    ```
+
+1. Insert the following code:
 
     ```hcl
     terraform {
@@ -62,7 +68,15 @@ In this article, you learn how to:
     }
     ```
 
-1. Create a file named `main.tf` and insert the following code:
+1. Save your changes and exit the editor by pressing `<Ctrl>S` and `<Ctrl>Q`.
+
+1. Create and open `main.tf` in the Visual Studio Code editor:
+
+    ```console
+    code main.tf
+    ```
+
+1. Insert the following code:
 
     ```hcl
     resource "random_pet" "rg-name" {
@@ -198,7 +212,15 @@ In this article, you learn how to:
     }
     ```
 
-1. Create a file named `variables.tf` and insert the following code:
+1. Save your changes and exit the editor by pressing `<Ctrl>S` and `<Ctrl>Q`.
+
+1. Create and open `variables.tf` in the Visual Studio Code editor:
+
+    ```console
+    code variables.tf
+    ```
+
+1. Insert the following code:
 
     ```hcl
     variable "resource_group_name_prefix" {
@@ -212,7 +234,15 @@ In this article, you learn how to:
     }
     ```
 
-1. Create a file named `output.tf` and insert the following code:
+1. Save your changes and exit the editor by pressing `<Ctrl>S` and `<Ctrl>Q`.
+
+1. Create and open `output.tf` in the Visual Studio Code editor:
+
+    ```console
+    code output.tf
+    ```
+
+1. Insert the following code:
 
     ```hcl
     output "resource_group_name" {
@@ -229,19 +259,21 @@ In this article, you learn how to:
     }
     ```
 
-## 3. Initialize Terraform
+1. Save your changes and exit the editor by pressing `<Ctrl>S` and `<Ctrl>Q`.
+
+## Initialize Terraform
 
 [!INCLUDE [terraform-init.md](includes/terraform-init.md)]
 
-## 4. Create a Terraform execution plan
+## Create a Terraform execution plan
 
 [!INCLUDE [terraform-plan.md](includes/terraform-plan.md)]
 
-## 5. Apply a Terraform execution plan
+## Apply a Terraform execution plan
 
 [!INCLUDE [terraform-apply-plan.md](includes/terraform-apply-plan.md)]
 
-## 6. Verify the results
+## Verify the results
 
 To use SSH to connect to the virtual machine, do the following steps:
 
