@@ -1,15 +1,15 @@
 ---
-title: Deploy your first Azure update-resource with the AzAPI Terraform provider
+title: Quickstart - Deploy your first Azure update-resource with the AzAPI Terraform provider
 description: Learn how to use the AzAPI Terraform provider to manage network rules on an Azure Event Hubs namespace
 keywords: azure devops terraform event hubs azapi update_resource
-ms.topic: how-to
-ms.date: 04/11/2022
+ms.topic: quickstart
+ms.date: 04/24/2022
 ms.custom: devx-track-terraform
 author: grayzu
 ms.author: markgray
 ---
 
-# Deploy your first Azure update resource with the AzAPI Terraform provider
+# Quickstart: Deploy your first Azure update resource with the AzAPI Terraform provider
 
 Article tested with the following Terraform and Terraform provider versions:
 
@@ -18,6 +18,8 @@ Article tested with the following Terraform and Terraform provider versions:
 - [AzAPI Provider v.0.1.0](https://registry.terraform.io/providers/azure/azapi/latest/docs)
 
 [Learn more about using Terraform in Azure](/azure/terraform)
+
+[!INCLUDE [terraform-intro.md](includes/terraform-intro.md)]
 
 In this article, you learn how to use the [AzAPI Terraform provider](https://registry.terraform.io/providers/azure/azapi/latest/docs) to manage a new feature of an Azure service that isn't currently supported by the [AzureRM provider](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs). The `azapi_update_resource` will be used to manage an [Azure EventHub](/azure/event-hubs/) network rule set.
 
@@ -31,42 +33,63 @@ In this article, you learn how to use the [AzAPI Terraform provider](https://reg
 > [!NOTE]
 > The example code in this article is located in the [Azure Terraform GitHub repo](https://github.com/Azure/terraform/tree/master/quickstart/101-azapi-eventhub-network-rules).
 
-## 1. Configure your environment
+[!INCLUDE [quickstarts-free-trial-note](~/../azure-docs-pr/includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../includes/open-source-devops-prereqs-azure-subscription.md)]
+[!INCLUDE [cloud-shell-try-it.md](../includes/cloud-shell-try-it.md)]
 
-[!INCLUDE [configure-terraform.md](includes/configure-terraform.md)]
+## Implement the Terraform code
 
-## 2. Implement the Terraform code
+1. Create a directory in which to test the sample Terraform code and make it the current directory.
 
-1. Create a directory in which to test and run the sample Terraform code and make it the current directory.
+1. Create and open [providers.tf](https://github.com/Azure/terraform/tree/master/quickstart/101-azapi-eventhub-network-rules/providers.tf) in the Visual Studio Code editor:
 
-1. Create a file named `providers.tf` and insert the following code:
+    ```console
+    code providers.tf
+    ```
+
+1. Insert the following code:
 
     [!code-terraform[master](../../terraform_samples/quickstart/101-azapi-eventhub-network-rules/providers.tf)]
 
-1. Create a file named `main.tf` and insert the following code:
+1. Save your changes and exit the editor by pressing `<Ctrl>S` and `<Ctrl>Q`.
+
+1. Create and open the [main.tf](https://github.com/Azure/terraform/tree/master/quickstart/101-azapi-eventhub-network-rules/main.tf) in the Visual Studio Code editor:
+
+    ```console
+    code main.tf
+    ```
+
+1. Insert the following code:
 
     [!code-terraform[master](../../terraform_samples/quickstart/101-azapi-eventhub-network-rules/main.tf)]
 
+1. Save your changes and exit the editor by pressing `<Ctrl>S` and `<Ctrl>Q`.
 
-1. Create a file named `main-generic.tf` and insert the following code:
+1. Create and open the [main-generic.tf](https://github.com/Azure/terraform/tree/master/quickstart/101-azapi-eventhub-network-rules/main-generic.tf) in the Visual Studio Code editor:
+
+    ```console
+    code main-generic.tf
+    ```
+
+1. Insert the following code:
 
     [!code-terraform[master](../../terraform_samples/quickstart/101-azapi-eventhub-network-rules/main-generic.tf)]
 
-## 3. Initialize Terraform
+1. Save your changes and exit the editor by pressing `<Ctrl>S` and `<Ctrl>Q`.
+
+## Initialize Terraform
 
 [!INCLUDE [terraform-init.md](includes/terraform-init.md)]
 
-## 4. Create a Terraform execution plan
+## Create a Terraform execution plan
 
 [!INCLUDE [terraform-plan.md](includes/terraform-plan.md)]
 
-## 5. Apply a Terraform execution plan
+## Apply a Terraform execution plan
 
 [!INCLUDE [terraform-apply-plan.md](includes/terraform-apply-plan.md)]
 
-## 6. Verify the results
+## Verify the results
 
 #### [Azure CLI](#tab/azure-cli)
 
@@ -94,7 +117,7 @@ Get-AzEventHubNetworkRuleSet -ResourceGroupName <resource_group_name> -Namespace
 
 ---
 
-## 7. Clean up resources
+## Clean up resources
 
 [!INCLUDE [terraform-plan-destroy.md](includes/terraform-plan-destroy.md)]
 
