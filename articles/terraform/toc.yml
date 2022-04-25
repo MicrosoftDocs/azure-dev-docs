@@ -10,7 +10,8 @@
       items:
         - name: AzureRM provider versions
           href: provider-version-history-azurerm.md
-- name: Install and Configure
+- name: Quickstarts
+  expanded: true
   items:
     - name: Configure in Cloud Shell with Bash
       href: get-started-cloud-shell-bash.md
@@ -20,18 +21,10 @@
       href: get-started-windows-bash.md
     - name: Install on Windows with Azure PowerShell
       href: get-started-windows-powershell.md
-    - name: Install the Azure Terraform Visual Studio Code extension
-      href: configure-vs-code-extension-for-terraform.md
-    - name: Authenticate Terraform to Azure
-      href: authenticate-to-azure.md
-    - name: Store Terraform state in Azure Storage
-      href: store-state-in-azure-storage.md
-- name: Quickstarts
-  expanded: true
     - name: Create an Azure resource group
       href: create-resource-group.md
-    - name: Virtual machine with infrastructure
-      href: create-linux-virtual-machine-with-infrastructure.md
+    - name: Install the Azure Terraform Visual Studio Code extension
+      href: configure-vs-code-extension-for-terraform.md
     - name: Learn how to use the AzAPI resource
       href: get-started-azapi-resource.md
     - name: Learn how to use the AzAPI update resource
@@ -44,8 +37,14 @@
   items:
     - name: Testing Terraform code
       href: best-practices-testing-overview.md
-- name: Tutorials
+- name: How-to guides
   items:
+    - name: Configure Terraform
+      items:
+        - name: Authenticate Terraform to Azure
+          href: authenticate-to-azure.md
+        - name: Store Terraform state in Azure Storage
+          href: store-state-in-azure-storage.md
     - name: Test Terraform projects
       items:
         - name: Compliance testing
@@ -102,6 +101,8 @@
           href: create-base-template-using-yeoman.md
     - name: Virtual machines
       items:
+        - name: Virtual machine with infrastructure
+          href: create-linux-virtual-machine-with-infrastructure.md
         - name: Configure a virtual machine cluster
           href: create-vm-cluster-module.md
         - name: Virtual machine cluster with Terraform and HCL
