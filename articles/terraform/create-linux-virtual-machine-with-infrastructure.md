@@ -34,9 +34,11 @@ In this article, you learn how to:
 > * Create a virtual machine
 > * Use SSH to connect to virtual machine
 
-[!INCLUDE [quickstarts-free-trial-note](~/../azure-docs-pr/includes/quickstarts-free-trial-note.md)]
+## Prerequisites
 
-[!INCLUDE [cloud-shell-try-it.md](../includes/cloud-shell-try-it.md)]
+[!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../includes/open-source-devops-prereqs-azure-subscription.md)]
+
+[!INCLUDE [configure-terraform.md](includes/configure-terraform.md)]
 
 ## Implement the Terraform code
 

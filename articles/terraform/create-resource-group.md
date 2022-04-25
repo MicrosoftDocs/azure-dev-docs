@@ -32,9 +32,11 @@ In this article, you learn how to:
 > [!NOTE]
 > The example code in this article is located in the [Microsoft Terraform GitHub repo](https://github.com/Azure/terraform/tree/master/quickstart/101-resource-group).
 
-[!INCLUDE [quickstarts-free-trial-note](~/../azure-docs-pr/includes/quickstarts-free-trial-note.md)]
+## Prerequisites
 
-[!INCLUDE [cloud-shell-try-it.md](../includes/cloud-shell-try-it.md)]
+[!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../includes/open-source-devops-prereqs-azure-subscription.md)]
+
+[!INCLUDE [configure-terraform.md](includes/configure-terraform.md)]
 
 ## Implement the Terraform code
 
