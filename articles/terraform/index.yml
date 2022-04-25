@@ -61,6 +61,10 @@ landingContent:
   # Card
   - title: Testing Terraform projects
     linkLists:
+      - linkListType: concept
+        links:
+          - text: Testing overview
+            url: best-practices-testing-overview.md
       - linkListType: how-to-guide
         links:
           - text: Integration testing
