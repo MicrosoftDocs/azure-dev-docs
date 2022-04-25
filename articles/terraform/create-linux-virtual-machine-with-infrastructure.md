@@ -44,13 +44,7 @@ In this article, you learn how to:
 
 1. Create a directory in which to test the sample Terraform code and make it the current directory.
 
-1. Create and open `providers.tf` in the Visual Studio Code editor:
-
-    ```console
-    code providers.tf
-    ```
-
-1. Insert the following code:
+1. Create a file named `providers.tf` and insert the following code:
 
     ```hcl
     terraform {
@@ -70,15 +64,7 @@ In this article, you learn how to:
     }
     ```
 
-1. Save your changes and exit the editor by pressing `<Ctrl>S` and `<Ctrl>Q`.
-
-1. Create and open `main.tf` in the Visual Studio Code editor:
-
-    ```console
-    code main.tf
-    ```
-
-1. Insert the following code:
+1. Create a file named `main.tf` and insert the following code:
 
     ```hcl
     resource "random_pet" "rg-name" {
@@ -214,15 +200,7 @@ In this article, you learn how to:
     }
     ```
 
-1. Save your changes and exit the editor by pressing `<Ctrl>S` and `<Ctrl>Q`.
-
-1. Create and open `variables.tf` in the Visual Studio Code editor:
-
-    ```console
-    code variables.tf
-    ```
-
-1. Insert the following code:
+1. Create a file named `variables.tf` and insert the following code:
 
     ```hcl
     variable "resource_group_name_prefix" {
@@ -236,15 +214,7 @@ In this article, you learn how to:
     }
     ```
 
-1. Save your changes and exit the editor by pressing `<Ctrl>S` and `<Ctrl>Q`.
-
-1. Create and open `output.tf` in the Visual Studio Code editor:
-
-    ```console
-    code output.tf
-    ```
-
-1. Insert the following code:
+1. Create a file named `output.tf` and insert the following code:
 
     ```hcl
     output "resource_group_name" {
@@ -260,8 +230,6 @@ In this article, you learn how to:
       sensitive = true
     }
     ```
-
-1. Save your changes and exit the editor by pressing `<Ctrl>S` and `<Ctrl>Q`.
 
 ## Initialize Terraform
 
