@@ -10,8 +10,7 @@
       items:
         - name: AzureRM provider versions
           href: provider-version-history-azurerm.md
-- name: Get started
-  expanded: true
+- name: Install and Configure
   items:
     - name: Configure in Cloud Shell with Bash
       href: get-started-cloud-shell-bash.md
@@ -21,10 +20,19 @@
       href: get-started-windows-bash.md
     - name: Install on Windows with Azure PowerShell
       href: get-started-windows-powershell.md
-    - name: Create an Azure resource group
-      href: create-resource-group.md
     - name: Install the Azure Terraform Visual Studio Code extension
       href: configure-vs-code-extension-for-terraform.md
+    - name: Authenticate Terraform to Azure
+      href: authenticate-to-azure.md
+    - name: Store Terraform state in Azure Storage
+      href: store-state-in-azure-storage.md
+- name: Quickstarts
+  expanded: true
+  items:
+    - name: Create an Azure resource group
+      href: create-resource-group.md
+    - name: Create a Linux VM
+      href: create-linux-virtual-machine-with-infrastructure.md
     - name: Learn how to use the AzAPI resource
       href: get-started-azapi-resource.md
     - name: Learn how to use the AzAPI update resource
@@ -39,12 +47,6 @@
       href: best-practices-testing-overview.md
 - name: How-to guides
   items:
-    - name: Configure Terraform
-      items:
-        - name: Authenticate Terraform to Azure
-          href: authenticate-to-azure.md
-        - name: Store Terraform state in Azure Storage
-          href: store-state-in-azure-storage.md
     - name: Test Terraform projects
       items:
         - name: Compliance testing
