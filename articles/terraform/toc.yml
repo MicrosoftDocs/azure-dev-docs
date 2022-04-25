@@ -14,6 +14,18 @@
   items:
     - name: Configure in Cloud Shell with Bash
       href: get-started-cloud-shell-bash.md
+    - name: Configure in Cloud Shell with Azure PowerShell
+      href: get-started-cloud-shell-powershell.md
+    - name: Install on Windows with Bash
+      href: get-started-windows-bash.md
+    - name: Install on Windows with Azure PowerShell
+      href: get-started-windows-powershell.md
+    - name: Install the Azure Terraform Visual Studio Code extension
+      href: configure-vs-code-extension-for-terraform.md
+    - name: Authenticate Terraform to Azure
+      href: authenticate-to-azure.md
+    - name: Store Terraform state in Azure Storage
+      href: store-state-in-azure-storage.md
 - name: Quickstarts
   expanded: true
   items:
