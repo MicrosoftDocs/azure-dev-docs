@@ -1,7 +1,7 @@
 ---
 title: Common usage patterns in Azure SDK for Go
 description: This article provides an overview of the common usage patterns in Azure SDK for Go.
-ms.date: 09/07/2021
+ms.date: 04/20/2022
 ms.topic: conceptual
 ms.custom: devx-track-go
 ---
