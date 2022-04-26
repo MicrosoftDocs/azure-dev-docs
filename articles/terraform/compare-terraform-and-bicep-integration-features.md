@@ -11,15 +11,15 @@ adobe-target: true
 
 To achieve scale, DevOps teams are always looking for ways to quickly deploy code with a trusted and repeatable process. When it comes to the cloud and infrastructure, this process is increasingly accomplished with infrastructure-as-code (IaC). IaC tools range from general-purpose tools intended for specific environments. Terraform is an example of the former, while Bicep is designed to handle Azure-related tasks.
 
-In this article, we'll compare nine Bicep and Terraform infrastructure and integration features. Understanding these differences will help you decide which tool best supports your infrastructure and processes.  
+In this article, we'll compare nine infrastructure and integration features of Bicep and Terraform. Understanding these differences will help you decide which tool best supports your infrastructure and processes.  
 
 ## State and backend
 
-Both Terraform and Bicep are desired state configuration (DSC) which makes it easy to manage IT and development infrastructure as code. Terraform stores state about your managed infrastructure and configuration. Terraform uses this information to map real-world resources to your configuration, track metadata, and improve the performance of larger infrastructures. State is stored in a local file named `terraform.tfstate`, but can also be [stored remotely](store-state-in-azure-storage.md). It is critical to back up and secure your state files.  Like Terraform, Bicep is declarative and goal-seeking. However, Bicep doesn't store state. Instead, Bicep relies on incremental deployment.
+Both Terraform and Bicep are desired state configuration (DSC) which makes it easy to manage IT and development infrastructure as code. Terraform stores state about your managed infrastructure and configuration. Terraform uses this information to map real-world resources to your configuration, track metadata, and improve the performance of larger infrastructures. State is stored in a local file named `terraform.tfstate`, but can also be [stored remotely](store-state-in-azure-storage.md). It's critical to back up and secure your state files.  Like Terraform, Bicep is declarative and goal-seeking. However, Bicep doesn't store state. Instead, Bicep relies on incremental deployment.
 
 ## Infrastructure targets
 
-When comparing Bicep to Terraform for managing cloud infrastructure, it is important to consider your target cloud environment:
+When comparing Bicep to Terraform for managing cloud infrastructure, it's important to consider your target cloud environment:
 
 - Azure-only
 - Multi or hybrid-clouds
@@ -47,7 +47,7 @@ The Terraform CLI allows you to perform such tasks as validate and format your T
 
 - The article [Quickstart: Create an Azure resource group using Terraform](create-resource-group.md) shows you how to use several of the Terraform commands to create an Azure resource group.
 
-Bicep also provides a feature that makes it easy to integrate Bicep with Azure Pipelines. There is a similar feature available on Terraform but you must download and install the [Azure Pipelines Terraform Tasks extension for Visual Studio](https://marketplace.visualstudio.com/items?itemName=charleszipp.azure-pipelines-tasks-terraform). Once installed, you can run Terraform CLI commands from Azure Pipelines. Moreover, both Terraform and Bicep support [GitHub Actions](https://github.com/features/actions) to automate software builds, tests, and deployments.
+Bicep also provides a feature that makes it easy to integrate Bicep with Azure Pipelines. There's a similar feature available for Terraform but you must download and install the [Azure Pipelines Terraform Tasks extension for Visual Studio](https://marketplace.visualstudio.com/items?itemName=charleszipp.azure-pipelines-tasks-terraform). Once installed, you can run Terraform CLI commands from Azure Pipelines. Moreover, both Terraform and Bicep support [GitHub Actions](https://github.com/features/actions) to automate software builds, tests, and deployments.
 
 ## Processing
 
@@ -63,19 +63,19 @@ You should also consider your use of Azure features such as [Azure Policy](/azur
 
 ## Portal integration
 
-One major advantage that Bicep has over Terraform is the ability to automate portal actions. With Bicep, you can use the Azure portal to export templates. Exporting a template helps you to understand the JSON syntax and properties that deploy your resources. You can automate future deployments by starting with the exported template and modifying it to meet your needs. But note that you will need to decompile the exported ARM template until Bicep templates are supported.
+One major advantage that Bicep has over Terraform is the ability to automate portal actions. With Bicep, you can use the Azure portal to export templates. Exporting a template helps you to understand the JSON syntax and properties that deploy your resources. You can automate future deployments by starting with the exported template and modifying it to meet your needs. But note that you'll need to decompile the exported ARM template until Bicep templates are supported.
 
 Although Terraform doesn't provide the same portal integrations as Bicep, existing Azure infrastructure can be taken under Terraform management using [Azure Terrafy](https://github.com/Azure/aztfy). (Azure Terrafy is an open-source tool owned and maintained by Microsoft.)
 
 ## Out-of-band changes
 
-Out-of-band configuration changes are changes made to a device configuration outside the context of the tool. For example, let's say you deploy a VM scale set using Bicep or Terraform. If you change that VM scale set using the portal, the change would be "out-of-band" and unknown to your IaC tool.
+Out-of-band configuration changes are changes made to a device configuration outside the context of the tool. For example, let's say you deploy a virtual machine scale set using Bicep or Terraform. If you change that virtual machine scale set using the portal, the change would be "out-of-band" and unknown to your IaC tool.
 
 If you're using Bicep, out-of-band changes should be reconciled with Bicep and the ARM Template code to avoid having those changes overwritten on the next deployment. These changes won't block the deployment.
 
 If you're using Terraform, you need to import the out-of-band changes into the Terraform state and update the HCL.
 
-Thus, if an environment involves frequent out-of-band changes, Bicep is more user-friendly. When using Terraform, out-of-band changes should be minimized.
+Thus, if an environment involves frequent out-of-band changes, Bicep is more user-friendly. When you use Terraform, you should minimize out-of-band changes.
 
 ## Cloud frameworks
 
@@ -83,4 +83,4 @@ The [Cloud Adoption Framework (CAF)](/azure/cloud-adoption-framework/) is a coll
 
 ## Summary
 
-Bicep and Terraform offer many user-friendly infrastructure and integration features. These features make it easier to implement and manage automation technology. When deciding which is best for your environment, it is important to consider whether you will be deploying on more than one cloud or whether your infrastructure will consist of a multi or hybrid-cloud environment. Moreover, be sure to consider the nine features discussed in this article to make the best choice for your organization.
+Bicep and Terraform offer many user-friendly infrastructure and integration features. These features make it easier to implement and manage automation technology. When deciding which is best for your environment, it's important to consider whether you'll be deploying to more than one cloud or whether your infrastructure will consist of a multi or hybrid-cloud environment. Moreover, be sure to consider the nine features discussed in this article to make the best choice for your organization.
