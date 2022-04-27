@@ -283,7 +283,7 @@
 | azure-sdk-archetype | Maven [1.0.0](https://search.maven.org/artifact/com.azure.tools/azure-sdk-archetype/1.0.0/jar/) |  |  |
 | azure-sdk-template-three | Maven [1.0.0-beta.1522967](https://search.maven.org/artifact/com.azure/azure-sdk-template-three/1.0.0-beta.1522967/jar/) |  |  |
 | azure-sdk-template-two | Maven [1.0.0-beta.1522967](https://search.maven.org/artifact/com.azure/azure-sdk-template-two/1.0.0-beta.1522967/jar/) |  |  |
-| azure-storage-fastpath | Maven [1.0.0-beta.5](https://search.maven.org/artifact/com.azure/azure-storage-fastpath/1.0.0-beta.5/jar/) |  |  |
+| azure-storage-fastpath | Maven [1.0.0-beta.6](https://search.maven.org/artifact/com.azure/azure-storage-fastpath/1.0.0-beta.6/jar/) |  |  |
 | azure-toolkit-applicationinsights-lib | Maven [0.19.2](https://search.maven.org/artifact/com.microsoft.azure/azure-toolkit-applicationinsights-lib/0.19.2/jar/) |  |  |
 | azure-toolkit-appservice-lib | Maven [0.19.2](https://search.maven.org/artifact/com.microsoft.azure/azure-toolkit-appservice-lib/0.19.2/jar/) |  |  |
 | azure-toolkit-auth-lib | Maven [0.19.2](https://search.maven.org/artifact/com.microsoft.azure/azure-toolkit-auth-lib/0.19.2/jar/) |  |  |
