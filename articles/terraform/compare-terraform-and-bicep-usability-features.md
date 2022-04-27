@@ -79,7 +79,7 @@ For Terraform support, where you go for help depends on the nature of the issue:
 - **Terraform core questions**: Visit the [Terraform section of the HashiCorp community portal](https://discuss.hashicorp.com/c/terraform-core).
 - **Terraform provider-related questions**: Visit the [Terraform Providers section of the HashiCorp community portal](https://discuss.hashicorp.com/c/terraform-providers).
 
-    :::image type="content" source="/media/compare-terraform-and-bicep-usability-features/github-find-terraform-provider-repos.png" alt-text="Find a Terraform provider GitHub repo by searching for the prefix 'terraform-provider-":::
+    :::image type="content" source="media/compare-terraform-and-bicep-usability-features/github-find-terraform-provider-repos.png" alt-text="Find a Terraform provider GitHub repo by searching for the prefix 'terraform-provider-":::
 
 ## Summary
 
