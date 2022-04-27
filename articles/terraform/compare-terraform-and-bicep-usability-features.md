@@ -35,7 +35,7 @@ Both Bicep and Terraform support the concept of modules. Modules allow you to cr
 
 In Bicep, a module is simply a Bicep file that is deployed from another Bicep file. Bicep modules serve to improve the readability of Bicep files. These modules are also scalable. Users can share modules across teams to avoid code duplication and reduce errors. For more information about defining a Bicep module, see [Bicep modules](/azure/azure-resource-manager/bicep/modules).
 
-In Terraform, [modules](https://www.terraform.io/language/modules) are the primary means of packaging and reusing resource configurations across teams. Terraform modules are containers for multiple resources that are packaged as a single logical unit. A module consists of a collection of `.tf` and/or `.tf.json` files stored together in a directory. In addition to modules from the local filesystem, Terraform can also load modules from various sources, such as a registry, local path, modules, or GitHub.
+In Terraform, [modules](https://www.terraform.io/language/modules) are the primary means of packaging and reusing resource configurations across teams. Terraform modules are containers for multiple resources that are packaged as a single logical unit. A module consists of a collection of `.tf` and/or `.tf.json` files stored together in a directory. In addition to modules from the local filesystem, Terraform can also load modules from various sources. These sources include the registry, local path, modules, and GitHub.
 
 ## Provisioning lifecycle
 
@@ -47,9 +47,9 @@ In Terraform, the [terraform plan](https://www.terraform.io/cli/commands/plan) c
 
 ## Getting started
 
-Bicep and Terraform both offer resources to help you get you started. Microsoft Learn offers a [Bicep learning module](/azure/azure-resource-manager/bicep/learn-bicep). The module helps you define how your Azure resources should be configured and guides you through the deployments of several Azure resources to give you hands-on experience.
+Bicep and Terraform both offer resources to help you get you started. Microsoft Learn offers a [Bicep learning module](/azure/azure-resource-manager/bicep/learn-bicep). The Learn module helps you define how your Azure resources should be configured. You're also guided through the deployments of several Azure resources to give you hands-on experience.
 
-Likewise, HashiCorp Learn provides users with a variety of [Terraform training resources](https://learn.hashicorp.com/tutorials/terraform/infrastructure-as-code?in=terraform/azure-get-started) to teach you how to install and use Terraform. These resources include information showing how to use Terraform to provision infrastructure on Azure.
+Likewise, HashiCorp Learn provides users with various [Terraform training resources](https://learn.hashicorp.com/tutorials/terraform/infrastructure-as-code?in=terraform/azure-get-started) to teach you how to install and use Terraform. These resources include information showing how to use Terraform to provision infrastructure on Azure.
 
 ## Code authoring
 
@@ -75,7 +75,7 @@ For Bicep support, where you go for help depends on the nature of the issue:
 For Terraform support, where you go for help depends on the nature of the issue:
 
 - **Documentation bugs**: For issues with [Terraform documentation on the Microsoft Docs site](/azure/developer/terraform/), each article has a Feedback section.
-- **Provider source code and filing bugs**: Microsoft has GitHub repos that allow you to contribute to the open-source Terraform Azure providers and file bugs. To list the avaialable providers, browse to the [Azure GitHub organization](https://github.com/Azure/), and enter `terraform-provider-` into the **Find a repository...** field (Screen shot below).
+- **Provider source code and filing bugs**: Microsoft has GitHub repos that allow you to contribute to the open-source Terraform Azure providers and file bugs. To list the available providers, browse to the [Azure GitHub organization](https://github.com/Azure/), and enter `terraform-provider-` into the **Find a repository...** field (Screenshot below).
 - **Terraform core questions**: Visit the [Terraform section of the HashiCorp community portal](https://discuss.hashicorp.com/c/terraform-core).
 - **Terraform provider-related questions**: Visit the [Terraform Providers section of the HashiCorp community portal](https://discuss.hashicorp.com/c/terraform-providers).
 
