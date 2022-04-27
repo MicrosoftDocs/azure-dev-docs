@@ -45,6 +45,10 @@
   items:
     - name: Testing Terraform code
       href: best-practices-testing-overview.md
+    - name: Terraform vs. Bicep - Usability features
+      href: compare-terraform-and-bicep-usability-features.md
+    - name: Terraform vs. Bicep - Integration features
+      href: compare-terraform-and-bicep-integration-features.md
 - name: How-to guides
   items:
     - name: Test Terraform projects
@@ -103,8 +107,6 @@
           href: create-base-template-using-yeoman.md
     - name: Virtual machines
       items:
-        - name: Virtual machine with infrastructure
-          href: create-linux-virtual-machine-with-infrastructure.md
         - name: Configure a virtual machine cluster
           href: create-vm-cluster-module.md
         - name: Virtual machine cluster with Terraform and HCL
