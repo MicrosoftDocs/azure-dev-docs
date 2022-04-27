@@ -18,7 +18,7 @@ Find package-specific instructions to authenticate in each [npm Azure SDK packag
 
 ## Interactive authentication for quickstarts and tutorials
 
-To use a quickstart or tutorial for the Azure services, the quickest credential method is [interactive login](https://github.com/Azure/azure-sdk-for-js/blob/hotfix/identity_1.3.0/sdk/identity/identity/samples/AzureIdentityExamples.md#authenticating-a-user-account-interactively-in-the-browser). With this method, you complete a few quick steps:
+To use a quickstart or tutorial for the Azure services, the quickest credential method is [interactive login](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/identity/identity/samples/AzureIdentityExamples.md#authenticating-a-user-account-interactively-in-the-browser). With this method, you complete a few quick steps:
 1. You run the code.
 1. A message displays with an authentication URL and a token. 
 1. Open a browser to that URL and enter the token. Depending on your Azure authentication requirements, a second authentication step may be required.
