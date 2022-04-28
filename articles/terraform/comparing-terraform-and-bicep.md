@@ -7,6 +7,8 @@ ms.custom: devx-track-terraform
 adobe-target: true
 ---
 
+# Comparing Terraform and Bicep
+
 #### [Integration features](#tab/comparing-bicep-terraform-integration-features)
 
 [!INCLUDE [comparing-terraform-and-bicep-integration-features.md](../includes/comparing-terraform-and-bicep-integration-features.md)]
