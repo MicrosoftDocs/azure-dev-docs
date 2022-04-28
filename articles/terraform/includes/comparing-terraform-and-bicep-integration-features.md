@@ -1,13 +1,9 @@
 ---
-title: Comparing Terraform and Bicep - Integration features
-description: Learn how Terraform and Bicep integration features compare 
+ms.author: tarcher
 ms.topic: conceptual
-ms.date: 04/26/2022
+ms.date: 04/27/2022
 ms.custom: devx-track-terraform
-adobe-target: true
 ---
-
-# Comparing Terraform and Bicep - Integration features
 
 To achieve scale, DevOps teams are always looking for ways to quickly deploy code with a trusted and repeatable process. When it comes to the cloud and infrastructure, this process is increasingly accomplished with infrastructure-as-code (IaC). IaC tools range from general-purpose tools intended for specific environments. Terraform is an example of the former, while Bicep is designed to handle Azure-related tasks.
 
@@ -15,7 +11,7 @@ In this article, we'll compare nine infrastructure and integration features of B
 
 ## State and backend
 
-Both Terraform and Bicep are desired state configuration (DSC) which makes it easy to manage IT and development infrastructure as code. Terraform stores state about your managed infrastructure and configuration. Terraform uses this information to map real-world resources to your configuration, track metadata, and improve the performance of larger infrastructures. State is stored in a local file named `terraform.tfstate`, but can also be [stored remotely](store-state-in-azure-storage.md). It's critical to back up and secure your state files.  Like Terraform, Bicep is declarative and goal-seeking. However, Bicep doesn't store state. Instead, Bicep relies on incremental deployment.
+Both Terraform and Bicep are desired state configuration (DSC) which makes it easy to manage IT and development infrastructure as code. Terraform stores state about your managed infrastructure and configuration. Terraform uses this information to map real-world resources to your configuration, track metadata, and improve the performance of larger infrastructures. State is stored in a local file named `terraform.tfstate`, but can also be [stored remotely](../store-state-in-azure-storage.md). It's critical to back up and secure your state files.  Like Terraform, Bicep is declarative and goal-seeking. However, Bicep doesn't store state. Instead, Bicep relies on incremental deployment.
 
 ## Infrastructure targets
 
@@ -32,7 +28,7 @@ If your goal is to automate deployments to any of the following environments, Te
 - Multi-cloud scenarios - such as Azure and other cloud(s)
 - On-premises workloads
 
-Terraform interacts with other cloud providers or APIs using plugins called *providers*. There are several [Terraform Azure providers](overview.md#terraform-providers-for-azure-infrastructure) that enable the management of Azure infrastructure. When coding a Terraform configuration, you specify the required providers you'll be using. When you run [terraform init](https://www.terraform.io/docs/commands/init.html), the specified provider is installed and usable from your code.
+Terraform interacts with other cloud providers or APIs using plugins called *providers*. There are several [Terraform Azure providers](../overview.md#terraform-providers-for-azure-infrastructure) that enable the management of Azure infrastructure. When coding a Terraform configuration, you specify the required providers you'll be using. When you run [terraform init](https://www.terraform.io/docs/commands/init.html), the specified provider is installed and usable from your code.
 
 ## CLI tools
 
@@ -45,7 +41,7 @@ Bicep integrates with Azure CLI, allowing developers to use `az` commands such a
 
 The Terraform CLI allows you to perform such tasks as validate and format your Terraform code, and create and apply an execution plan.
 
-- The article [Quickstart: Create an Azure resource group using Terraform](create-resource-group.md) shows you how to use several of the Terraform commands to create an Azure resource group.
+- The article [Quickstart: Create an Azure resource group using Terraform](../create-resource-group.md) shows you how to use several of the Terraform commands to create an Azure resource group.
 
 Bicep also provides a feature that makes it easy to integrate Bicep with Azure Pipelines. There's a similar feature available for Terraform but you must download and install the [Azure Pipelines Terraform Tasks extension for Visual Studio](https://marketplace.visualstudio.com/items?itemName=charleszipp.azure-pipelines-tasks-terraform). Once installed, you can run Terraform CLI commands from Azure Pipelines. Moreover, both Terraform and Bicep support [GitHub Actions](https://github.com/features/actions) to automate software builds, tests, and deployments.
 

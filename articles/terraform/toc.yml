@@ -45,10 +45,8 @@
   items:
     - name: Testing Terraform code
       href: best-practices-testing-overview.md
-    - name: Terraform vs. Bicep - Usability features
-      href: compare-terraform-and-bicep-usability-features.md
-    - name: Terraform vs. Bicep - Integration features
-      href: compare-terraform-and-bicep-integration-features.md
+    - name: Comparing features of Terraform and Bicep
+      href: comparing-terraform-and-bicep.md
 - name: How-to guides
   items:
     - name: Test Terraform projects
