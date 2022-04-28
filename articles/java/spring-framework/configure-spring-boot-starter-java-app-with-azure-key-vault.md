@@ -26,7 +26,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-- [!INCLUDE [free subscription](includes/quickstarts-free-trial-note.md)]
+- [!INCLUDE [free subscription](../../includes/quickstarts-free-trial-note.md)]
 [!INCLUDE [curl](includes/prerequisites-curl.md)]
 [!INCLUDE [jq](includes/prerequisites-jq.md)]
 [!INCLUDE [Azure CLI](includes/prerequisites-azure-cli.md)]
