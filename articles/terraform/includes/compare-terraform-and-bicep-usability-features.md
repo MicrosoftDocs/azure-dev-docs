@@ -1,13 +1,9 @@
 ---
-title: Comparing Terraform and Bicep - Usability features
-description: Learn how Terraform and Bicep usability features compare 
+ms.author: tarcher
 ms.topic: conceptual
-ms.date: 04/26/2022
+ms.date: 04/27/2022
 ms.custom: devx-track-terraform
-adobe-target: true
 ---
-
-# Comparing Terraform and Bicep - Usability features
 
 Today's organizations face dynamic challenges that require a great deal of flexibility and agility. Public cloud environments meet these needs through automation - especially via infrastructure as code (IaC). Two leading IaC options are Hashicorp Terraform and Bicep. Terraform is an open-source tool that helps DevOps professionals manage on-premises and cloud services using declarative code. Microsoft Bicep utilizes declarative syntax to simplify the deployment of Azure resources.
 
