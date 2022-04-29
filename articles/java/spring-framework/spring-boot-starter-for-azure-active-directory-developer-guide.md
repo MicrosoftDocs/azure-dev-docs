@@ -90,14 +90,14 @@ To use the Azure AD starter in this scenario, use the following steps:
 
 1. Use the default security configuration or provide your own configuration.
 
-   The `AADWebSecurityConfigurerAdapter` base class contains the necessary web security configuration for the Azure AD starter. The `DefaultAADWebSecurityConfigurerAdapter` class is configured automatically if you don't provide a configuration.
+   The `AadWebSecurityConfigurerAdapter` base class contains the necessary web security configuration for the Azure AD starter. The `DefaultAadWebSecurityConfigurerAdapter` class is configured automatically if you don't provide a configuration.
 
-   To provide a configuration, extend the `AADWebSecurityConfigurerAdapter` class and call `super.configure(http)` in the `configure(HttpSecurity http)` function, as shown in the following example:
+   To provide a configuration, extend the `AadWebSecurityConfigurerAdapter` class and call `super.configure(http)` in the `configure(HttpSecurity http)` function, as shown in the following example:
 
    ```java
    @EnableWebSecurity
    @EnableGlobalMethodSecurity(prePostEnabled = true)
-   public class AADOAuth2LoginSecurityConfig extends AADWebSecurityConfigurerAdapter {
+   public class AadOAuth2LoginSecurityConfig extends AadWebSecurityConfigurerAdapter {
 
        /**
         * Add configuration logic as needed.
@@ -211,14 +211,14 @@ To use the Azure AD starter in this scenario, use the following steps:
 
 1. Use the default security configuration or provide your own configuration.
 
-   The `AADResourceServerWebSecurityConfigurerAdapter` base class contains the necessary web security configuration for the resource server. The `DefaultAADResourceServerWebSecurityConfigurerAdapter` class is configured automatically if you don't provide a configuration.
+   The `AadResourceServerWebSecurityConfigurerAdapter` base class contains the necessary web security configuration for the resource server. The `DefaultAadResourceServerWebSecurityConfigurerAdapter` class is configured automatically if you don't provide a configuration.
 
-   To provide a configuration, extend the `AADResourceServerWebSecurityConfigurerAdapter` class and call `super.configure(http)` in the `configure(HttpSecurity http)` function, as shown in the following example:
+   To provide a configuration, extend the `AadResourceServerWebSecurityConfigurerAdapter` class and call `super.configure(http)` in the `configure(HttpSecurity http)` function, as shown in the following example:
 
    ```java
    @EnableWebSecurity
    @EnableGlobalMethodSecurity(prePostEnabled = true)
-   public class AADOAuth2ResourceServerSecurityConfig extends AADResourceServerWebSecurityConfigurerAdapter {
+   public class AadOAuth2ResourceServerSecurityConfig extends AadResourceServerWebSecurityConfigurerAdapter {
 
        /**
         * Add configuration logic as needed.
@@ -338,16 +338,16 @@ To use **aad-starter** in this scenario, follow these steps:
 
 3. Write Java code to configure multiple `HttpSecurity` instances.
 
-   In the following example code, `AADWebApplicationAndResourceServerConfig` contains two security configurations, one for a resource server, and one for a web application. The `ApiWebSecurityConfigurationAdapter` class has a high priority to configure the resource server security adapter. The `HtmlWebSecurityConfigurerAdapter` class has a low priority to configure the web application security adapter. 
+   In the following example code, `AadWebApplicationAndResourceServerConfig` contains two security configurations, one for a resource server, and one for a web application. The `ApiWebSecurityConfigurationAdapter` class has a high priority to configure the resource server security adapter. The `HtmlWebSecurityConfigurerAdapter` class has a low priority to configure the web application security adapter. 
 
     ```java
     @EnableWebSecurity
     @EnableGlobalMethodSecurity(prePostEnabled = true)
-    public class AADWebApplicationAndResourceServerConfig {
+    public class AadWebApplicationAndResourceServerConfig {
     
         @Order(1)
         @Configuration
-        public static class ApiWebSecurityConfigurationAdapter extends AADResourceServerWebSecurityConfigurerAdapter {
+        public static class ApiWebSecurityConfigurationAdapter extends AadResourceServerWebSecurityConfigurerAdapter {
             protected void configure(HttpSecurity http) throws Exception {
                 super.configure(http);
                 // All the paths that match `/api/**`(configurable) work as the resource server. Other paths work as  the web application.
@@ -357,7 +357,7 @@ To use **aad-starter** in this scenario, follow these steps:
         }
     
         @Configuration
-        public static class HtmlWebSecurityConfigurerAdapter extends AADWebSecurityConfigurerAdapter {
+        public static class HtmlWebSecurityConfigurerAdapter extends AadWebSecurityConfigurerAdapter {
     
             @Override
             protected void configure(HttpSecurity http) throws Exception {
@@ -441,7 +441,7 @@ With this method, you can use an [Azure sovereign or national cloud](/azure/acti
    ```java
    @EnableWebSecurity
    @EnableGlobalMethodSecurity(prePostEnabled = true)
-   public class AADOAuth2LoginSecurityConfig extends AADWebSecurityConfigurerAdapter {
+   public class AadOAuth2LoginSecurityConfig extends AadWebSecurityConfigurerAdapter {
 
        /**
         * Add configuration logic as needed.

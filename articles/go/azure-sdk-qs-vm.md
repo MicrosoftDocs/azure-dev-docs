@@ -18,7 +18,7 @@ At the end of this quickstart, you have a running VM that you log into with a us
 > demonstrating how to build and configure all VM resources with the SDK. Using a template in this sample
 > allows a focus on SDK conventions without getting into too many details about Azure service architecture.
 
-[!INCLUDE [quickstarts-free-trial-note](includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](includes/cloud-shell-try-it.md)]
 

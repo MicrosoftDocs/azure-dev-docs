@@ -220,7 +220,7 @@ This content is primarily from Developer Advocates as well as other members of t
 |[Burke Holland][Burke]|Reset deployment tokens in Azure Static Web Apps|[Docs](/azure/static-web-apps/deployment-token-management)| 
 |[Wassim Chegham][Wassim]|Deploy Rust/WASM on SWA - updated|[Blog](https://dev.to/azure/angular-rust-webassembly-node-js-serverless-and-the-new-azure-static-web-apps-cnb) |
 |[Yohan Lasorsa][Yohan]|GitHub template for building a shareable web components library with Svelte|[GitHub repo](https://github.com/sinedied/svelte-web-components-template)|
-|[Glaucia Lemos][Glaucia]|Desenvolvendo a Intro do Star Wars com HTML, CSS, JavaScript & Node.js! - updated|**Portuguese​** - [Blog](https://dev.to/azure/desenvolvendo-a-intro-do-star-wars-com-html-css-javascript-node-js-oae)|
+|[Glaucia Lemos][Glaucia]|Desenvolvendo a Intro do Star Wars com HTML, CSS, JavaScript & Node.js! - updated||
 |[Glaucia Lemos][Glaucia]|Coding Stuff! JWT + Node + Mongo+ Vue Project - Video #8|**Portuguese​** - [YouTube](https://youtu.be/6fUcm4aSEjM)|
 |[Glaucia Lemos][Glaucia]|TypeScript Zero to Hero|**Portuguese​** - [Blog](https://dev.to/glaucia86/lancamento-modulo-01-typescript-zero-to-hero-40n4)<br>[Video #01](https://youtu.be/u7K1sdnCv5Y)<br>[Video #02](https://youtu.be/_pDsn0gE6ys)<br>[Video #03](https://youtu.be/J-sMh3DF10U)<br>[Video #04](https://youtu.be/iYXzT08sX5Y)<br>[Video #05](https://youtu.be/iTCRgdEyq0k)<br>[Video #06](https://youtu.be/VIYnya9DUxg)|
 |[Glaucia Lemos][Glaucia]|Live Coding - Season 2021 & News|[YouTube](https://youtu.be/6TED799e0_g)|

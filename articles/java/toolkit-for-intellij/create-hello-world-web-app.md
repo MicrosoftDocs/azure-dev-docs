@@ -4,9 +4,9 @@ description: This tutorial shows you how to use the Azure Toolkit for IntelliJ t
 services: app-service
 keywords: java, intellij, web app, azure app service, hello world, quick start
 documentationcenter: java
-ms.author: yucwan
+ms.author: jialuogan
 ms.assetid: 75ce7b36-e3ae-491d-8305-4b42ce37db4e
-ms.reviewer: yucwan
+ms.reviewer: jialuogan
 ms.date: 09/09/2020
 ms.service: app-service
 ms.tgt_pltfrm: multiple
@@ -22,7 +22,7 @@ This article demonstrates the steps that are required to create a basic Hello Wo
 > [!NOTE]
 > If you prefer using Eclipse, check out our [similar tutorial for Eclipse](../toolkit-for-eclipse/create-hello-world-web-app.md).
 >
-> [!INCLUDE [quickstarts-free-trial-note](includes/quickstarts-free-trial-note.md)]
+> [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 >
 > Don't forget to clean up the resources after you complete this tutorial. In that case, running this guide will not exceed your free account quota.
 
