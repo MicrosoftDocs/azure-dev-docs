@@ -363,8 +363,8 @@ The following table shows the class mappings from `azure-spring-boot-starter-act
 > |----------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------|
 > | com.azure.spring.aad.webapi.AADJwtBearerTokenAuthenticationConverter       | com.azure.spring.cloud.autoconfigure.aad.AadJwtBearerTokenAuthenticationConverter             |
 > | com.azure.spring.aad.webapi.AADResourceServerProperties                    | com.azure.spring.cloud.autoconfigure.aad.properties.AadResourceServerProperties               |
-> | com.azure.spring.aad.webapi.AADResourceServerWebSecurityConfigurerAdapter  | com.azure.spring.cloud.autoconfigure.aad.webapi.AADResourceServerWebSecurityConfigurerAdapter |
-> | com.azure.spring.aad.webapp.AADWebSecurityConfigurerAdapter                | com.azure.spring.cloud.autoconfigure.aad.webapp.AADWebSecurityConfigurerAdapter               |
+> | com.azure.spring.aad.webapi.AADResourceServerWebSecurityConfigurerAdapter  | com.azure.spring.cloud.autoconfigure.aad.AadResourceServerWebSecurityConfigurerAdapter |
+> | com.azure.spring.aad.webapp.AADWebSecurityConfigurerAdapter                | com.azure.spring.cloud.autoconfigure.aad.AadWebSecurityConfigurerAdapter               |
 > | com.azure.spring.aad.webapp.AuthorizationClientProperties                  | com.azure.spring.cloud.autoconfigure.aad.properties.AuthorizationClientProperties             |
 > | com.azure.spring.aad.AADApplicationType                                    | com.azure.spring.cloud.autoconfigure.aad.properties.AadApplicationType                        |
 > | com.azure.spring.aad.AADAuthorizationGrantType                             | com.azure.spring.cloud.autoconfigure.aad.properties.AadAuthorizationGrantType                 |
@@ -372,8 +372,8 @@ The following table shows the class mappings from `azure-spring-boot-starter-act
 > | com.azure.spring.aad.AADClientRegistrationRepository                       | com.azure.spring.cloud.autoconfigure.aad.AadClientRegistrationRepository                      |
 > | com.azure.spring.aad.AADTrustedIssuerRepository                            | com.azure.spring.cloud.autoconfigure.aad.AadTrustedIssuerRepository                           |
 > | com.azure.spring.autoconfigure.aad.AADAppRoleStatelessAuthenticationFilter | com.azure.spring.cloud.autoconfigure.aad.filter.AadAppRoleStatelessAuthenticationFilter       |
-> | com.azure.spring.autoconfigure.aad.AADAuthenticationFilter                 | com.azure.spring.cloud.autoconfigure.aad.filter.AADAuthenticationFilter                       |
-> | com.azure.spring.autoconfigure.aad.AADAuthenticationProperties             | com.azure.spring.cloud.autoconfigure.aad.properties.AADAuthenticationProperties               |
+> | com.azure.spring.autoconfigure.aad.AADAuthenticationFilter                 | com.azure.spring.cloud.autoconfigure.aad.filter.AadAuthenticationFilter                       |
+> | com.azure.spring.autoconfigure.aad.AADAuthenticationProperties             | com.azure.spring.cloud.autoconfigure.aad.properties.AadAuthenticationProperties               |
 > | com.azure.spring.autoconfigure.aad.UserPrincipal                           | com.azure.spring.cloud.autoconfigure.aad.filter.UserPrincipal                                 |
 > | com.azure.spring.autoconfigure.aad.UserPrincipalManager                    | com.azure.spring.cloud.autoconfigure.aad.filter.UserPrincipalManager                          |
 
@@ -458,9 +458,9 @@ The following table shows the class mappings from `azure-spring-boot-starter-act
 > | Legacy class                                                                   | Modern class                                                                             |
 > |--------------------------------------------------------------------------------|------------------------------------------------------------------------------------------|
 > | com.azure.spring.autoconfigure.b2c.AADB2CAuthorizationRequestResolver          | com.azure.spring.cloud.autoconfigure.aadb2c.AadB2cAuthorizationRequestResolver           |
-> | com.azure.spring.autoconfigure.b2c.AADB2CJwtBearerTokenAuthenticationConverter | com.azure.spring.cloud.autoconfigure.aad.b2c.AADB2CJwtBearerTokenAuthenticationConverter |
+> | com.azure.spring.autoconfigure.b2c.AADB2CJwtBearerTokenAuthenticationConverter | com.azure.spring.cloud.autoconfigure.aad.AadJwtBearerTokenAuthenticationConverter |
 > | com.azure.spring.autoconfigure.b2c.AADB2CLogoutSuccessHandler                  | com.azure.spring.cloud.autoconfigure.aadb2c.AadB2cLogoutSuccessHandler                   |
-> | com.azure.spring.autoconfigure.b2c.AADB2COidcLoginConfigurer                   | com.azure.spring.cloud.autoconfigure.aad.b2c.AADB2COidcLoginConfigurer                   |
+> | com.azure.spring.autoconfigure.b2c.AADB2COidcLoginConfigurer                   | com.azure.spring.cloud.autoconfigure.aadb2c.AadB2COidcLoginConfigurer                   |
 > | com.azure.spring.autoconfigure.b2c.AADB2CProperties                            | com.azure.spring.cloud.autoconfigure.aadb2c.properties.AadB2cProperties                  |
 > | com.azure.spring.autoconfigure.b2c.AADB2CTrustedIssuerRepository               | com.azure.spring.cloud.autoconfigure.aadb2c.AadB2cTrustedIssuerRepository                |
 > | com.azure.spring.autoconfigure.b2c.AuthorizationClientProperties               | com.azure.spring.cloud.autoconfigure.aad.properties.AuthorizationClientProperties        |
