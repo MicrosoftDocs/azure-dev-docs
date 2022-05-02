@@ -25,7 +25,7 @@ To enable the JCA provider to automatically register itself, you'll need to crea
    com.azure.security.keyvault.jca.KeyVaultJcaProvider
    ```
 
-1. From the *bootstrap* directory, run the command `java cf ../bootstrap.jar *` to create the *bootstrap.jar* file.
+1. From the *bootstrap* directory, run the command `jar cf ../bootstrap.jar *` to create the *bootstrap.jar* file.
 
 ## Add the JCA provider to the java.security file
 
