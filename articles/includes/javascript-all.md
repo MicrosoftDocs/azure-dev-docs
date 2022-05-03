@@ -328,7 +328,7 @@
 | AutoRest - CLI | npm [0.1.889](https://www.npmjs.com/package/@autorest/cli/v/0.1.889) |  | GitHub [0.1.889](https://github.com/Azure/autorest.cli) |
 | AutoRest - CLI Common | npm [0.6.2](https://www.npmjs.com/package/@autorest/clicommon/v/0.6.2) |  | GitHub [0.6.2](https://github.com/Azure/autorest.clicommon/tree/0.4.12) |
 | AutoRest - Compare | npm [0.4.4](https://www.npmjs.com/package/@autorest/compare/v/0.4.4) |  | GitHub [0.4.4](https://github.com/Azure/autorest.compare) |
-| AutoRest - Core | npm [3.8.3](https://www.npmjs.com/package/@autorest/core/v/3.8.3) |  | GitHub [3.8.3](https://github.com/Azure/autorest) |
+| AutoRest - Core | npm [3.8.4](https://www.npmjs.com/package/@autorest/core/v/3.8.4) |  | GitHub [3.8.4](https://github.com/Azure/autorest) |
 | AutoRest - Functions CSharp | npm [0.2.0-preview-dev.321054549](https://www.npmjs.com/package/@autorest/azure-functions-csharp/v/0.2.0-preview-dev.321054549) |  |  |
 | AutoRest - Functions Java | npm [0.0.2-Preview](https://www.npmjs.com/package/@autorest/azure-functions-java/v/0.0.2-Preview) |  |  |
 | AutoRest - Functions Python | npm [0.1.0-preview](https://www.npmjs.com/package/@autorest/azure-functions-python/v/0.1.0-preview) |  |  |
