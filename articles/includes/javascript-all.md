@@ -205,7 +205,7 @@
 | Resource Management - Resource Graph | npm [4.2.1](https://www.npmjs.com/package/@azure/arm-resourcegraph/v/4.2.1)<br>npm [5.0.0-beta.1](https://www.npmjs.com/package/@azure/arm-resourcegraph/v/5.0.0-beta.1) | [docs](/javascript/api/overview/azure/arm-resourcegraph-readme) | GitHub [4.2.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/resourcegraph/arm-resourcegraph) |
 | Resource Management - Resource Health | npm [3.0.0](https://www.npmjs.com/package/@azure/arm-resourcehealth/v/3.0.0) | [docs](/javascript/api/overview/azure/arm-resourcehealth-readme) | GitHub [3.0.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/resourcehealth/arm-resourcehealth) |
 | Resource Management - Resources | npm [5.0.1](https://www.npmjs.com/package/@azure/arm-resources/v/5.0.1) | [docs](/javascript/api/overview/azure/arm-resources-readme) | GitHub [5.0.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/resources/arm-resources) |
-| Resource Management - Scvmm | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure/arm-scvmm/v/1.0.0-beta.1) |  | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-scvmm_1.0.0-beta.1/sdk/scvmm/arm-scvmm/) |
+| Resource Management - Scvmm | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure/arm-scvmm/v/1.0.0-beta.1) | [docs](/javascript/api/overview/azure/arm-scvmm-readme) | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-scvmm_1.0.0-beta.1/sdk/scvmm/arm-scvmm/) |
 | Resource Management - Search | npm [3.0.0](https://www.npmjs.com/package/@azure/arm-search/v/3.0.0) | [docs](/javascript/api/overview/azure/arm-search-readme) | GitHub [3.0.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/search/arm-search) |
 | Resource Management - Security | npm [5.0.0](https://www.npmjs.com/package/@azure/arm-security/v/5.0.0) | [docs](/javascript/api/overview/azure/arm-security-readme) | GitHub [5.0.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/security/arm-security) |
 | Resource Management - Securityinsight | npm [1.0.0-beta.2](https://www.npmjs.com/package/@azure/arm-securityinsight/v/1.0.0-beta.2) | [docs](/javascript/api/overview/azure/arm-securityinsight-readme) | GitHub [1.0.0-beta.2](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-securityinsight_1.0.0-beta.2/sdk/securityinsight/arm-securityinsight/) |
@@ -240,7 +240,7 @@
 | @autorest/codemodel | npm [4.18.2](https://www.npmjs.com/package/@autorest/codemodel/v/4.18.2) |  |  |
 | @autorest/common | npm [1.5.2](https://www.npmjs.com/package/@autorest/common/v/1.5.2) |  |  |
 | @autorest/configuration | npm [1.9.2](https://www.npmjs.com/package/@autorest/configuration/v/1.9.2) |  |  |
-| @autorest/csharp | npm [3.0.0-beta.20220428.1](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20220428.1) |  |  |
+| @autorest/csharp | npm [3.0.0-beta.20220503.1](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20220503.1) |  |  |
 | @autorest/csharp-v3 | npm [3.0.0-beta.20201217.1](https://www.npmjs.com/package/@autorest/csharp-v3/v/3.0.0-beta.20201217.1) |  |  |
 | @autorest/extension-base | npm [3.4.4](https://www.npmjs.com/package/@autorest/extension-base/v/3.4.4) |  |  |
 | @autorest/fixer | npm [1.1.0](https://www.npmjs.com/package/@autorest/fixer/v/1.1.0) |  |  |
@@ -328,13 +328,13 @@
 | AutoRest - CLI | npm [0.1.889](https://www.npmjs.com/package/@autorest/cli/v/0.1.889) |  | GitHub [0.1.889](https://github.com/Azure/autorest.cli) |
 | AutoRest - CLI Common | npm [0.6.2](https://www.npmjs.com/package/@autorest/clicommon/v/0.6.2) |  | GitHub [0.6.2](https://github.com/Azure/autorest.clicommon/tree/0.4.12) |
 | AutoRest - Compare | npm [0.4.4](https://www.npmjs.com/package/@autorest/compare/v/0.4.4) |  | GitHub [0.4.4](https://github.com/Azure/autorest.compare) |
-| AutoRest - Core | npm [3.8.3](https://www.npmjs.com/package/@autorest/core/v/3.8.3) |  | GitHub [3.8.3](https://github.com/Azure/autorest) |
+| AutoRest - Core | npm [3.8.4](https://www.npmjs.com/package/@autorest/core/v/3.8.4) |  | GitHub [3.8.4](https://github.com/Azure/autorest) |
 | AutoRest - Functions CSharp | npm [0.2.0-preview-dev.321054549](https://www.npmjs.com/package/@autorest/azure-functions-csharp/v/0.2.0-preview-dev.321054549) |  |  |
 | AutoRest - Functions Java | npm [0.0.2-Preview](https://www.npmjs.com/package/@autorest/azure-functions-java/v/0.0.2-Preview) |  |  |
 | AutoRest - Functions Python | npm [0.1.0-preview](https://www.npmjs.com/package/@autorest/azure-functions-python/v/0.1.0-preview) |  |  |
 | AutoRest - Functions TypeScript | npm [0.0.1-preview](https://www.npmjs.com/package/@autorest/azure-functions-typescript/v/0.0.1-preview) |  |  |
 | AutoRest - Go | npm [4.0.0-preview.40](https://www.npmjs.com/package/@autorest/go/v/4.0.0-preview.40) |  |  |
-| AutoRest - Modeler Four | npm [4.23.2](https://www.npmjs.com/package/@autorest/modelerfour/v/4.23.2) |  | GitHub [4.23.2](https://github.com/Azure/autorest.modelerfour) |
+| AutoRest - Modeler Four | npm [4.23.3](https://www.npmjs.com/package/@autorest/modelerfour/v/4.23.3) |  | GitHub [4.23.3](https://github.com/Azure/autorest.modelerfour) |
 | AutoRest - PowerShell | npm [3.0.483](https://www.npmjs.com/package/@autorest/powershell/v/3.0.483) |  | GitHub [3.0.483](https://github.com/Azure/autorest.powershell) |
 | AutoRest - Python | npm [5.16.0](https://www.npmjs.com/package/@autorest/python/v/5.16.0) |  | GitHub [5.16.0](https://github.com/Azure/autorest.python/tree/v5.1.0-preview.7) |
 | AutoRest - Remodeler | npm [2.1.27](https://www.npmjs.com/package/@autorest/remodeler/v/2.1.27) |  | GitHub [2.1.27](https://github.com/Azure/autorest.remodeler) |
@@ -627,7 +627,7 @@
 | Resource Management - Resource Graph | npm [4.2.1](https://www.npmjs.com/package/@azure/arm-resourcegraph/v/4.2.1)<br>npm [5.0.0-beta.1](https://www.npmjs.com/package/@azure/arm-resourcegraph/v/5.0.0-beta.1) | [docs](/javascript/api/overview/azure/arm-resourcegraph-readme) | GitHub [4.2.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/resourcegraph/arm-resourcegraph) |
 | Resource Management - Resource Health | npm [3.0.0](https://www.npmjs.com/package/@azure/arm-resourcehealth/v/3.0.0) | [docs](/javascript/api/overview/azure/arm-resourcehealth-readme) | GitHub [3.0.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/resourcehealth/arm-resourcehealth) |
 | Resource Management - Resources | npm [5.0.1](https://www.npmjs.com/package/@azure/arm-resources/v/5.0.1) | [docs](/javascript/api/overview/azure/arm-resources-readme) | GitHub [5.0.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/resources/arm-resources) |
-| Resource Management - Scvmm | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure/arm-scvmm/v/1.0.0-beta.1) |  | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-scvmm_1.0.0-beta.1/sdk/scvmm/arm-scvmm/) |
+| Resource Management - Scvmm | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure/arm-scvmm/v/1.0.0-beta.1) | [docs](/javascript/api/overview/azure/arm-scvmm-readme) | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-scvmm_1.0.0-beta.1/sdk/scvmm/arm-scvmm/) |
 | Resource Management - Search | npm [3.0.0](https://www.npmjs.com/package/@azure/arm-search/v/3.0.0) | [docs](/javascript/api/overview/azure/arm-search-readme) | GitHub [3.0.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/search/arm-search) |
 | Resource Management - Security | npm [5.0.0](https://www.npmjs.com/package/@azure/arm-security/v/5.0.0) | [docs](/javascript/api/overview/azure/arm-security-readme) | GitHub [5.0.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/security/arm-security) |
 | Resource Management - Securityinsight | npm [1.0.0-beta.2](https://www.npmjs.com/package/@azure/arm-securityinsight/v/1.0.0-beta.2) | [docs](/javascript/api/overview/azure/arm-securityinsight-readme) | GitHub [1.0.0-beta.2](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-securityinsight_1.0.0-beta.2/sdk/securityinsight/arm-securityinsight/) |
