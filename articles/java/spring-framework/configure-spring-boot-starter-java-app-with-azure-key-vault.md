@@ -26,7 +26,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-- [!INCLUDE [free subscription](includes/quickstarts-free-trial-note.md)]
+- [!INCLUDE [free subscription](../../includes/quickstarts-free-trial-note.md)]
 [!INCLUDE [curl](includes/prerequisites-curl.md)]
 [!INCLUDE [jq](includes/prerequisites-jq.md)]
 [!INCLUDE [Azure CLI](includes/prerequisites-azure-cli.md)]
@@ -172,7 +172,7 @@ To create and initialize the Azure Key Vault, use the following steps:
    "https://contosokv.vault.azure.net/"
    ```
 
-1. Configure the Key Vault to allow `get` and `list` operations from that managed identity. The value of the `object-id` is the `appId` from the `az ad sp create-for-rbac` command above.
+1. Configure the Key Vault to allow `get` and `list` operations from that managed identity. The value for the `sample-app-id` is the `appId` from the `az ad sp create-for-rbac` command above.
 
    ```azurecli
    az keyvault set-policy --name contosokv --spn sample-app-id --secret-permissions get list

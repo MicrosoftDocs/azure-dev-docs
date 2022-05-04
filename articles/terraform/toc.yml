@@ -45,10 +45,8 @@
   items:
     - name: Testing Terraform code
       href: best-practices-testing-overview.md
-    - name: Terraform vs. Bicep - Usability features
-      href: compare-terraform-and-bicep-usability-features.md
-    - name: Terraform vs. Bicep - Integration features
-      href: compare-terraform-and-bicep-integration-features.md
+    - name: Comparing features of Terraform and Bicep
+      href: comparing-terraform-and-bicep.md
 - name: How-to guides
   items:
     - name: Test Terraform projects
@@ -105,6 +103,22 @@
       items:
         - name: Create a Terraform base template using Yeoman
           href: create-base-template-using-yeoman.md
+    - name: Azure Virtual Desktop
+      items:
+        - name: Configure an Azure Virtual Desktop
+          href: configure-azure-virtual-desktop.md
+        - name: Create a Session Host
+          href: create-avd-session-host.md
+        - name: Configure RBAC permissions
+          href: configure-avd-rbac.md
+        - name: Configure Network Settings
+          href: configure-avd-network-settings.md
+        - name: Create Azure Files Storage
+          href: create-avd-azure-files-storage.md
+        - name: Create Azure Compute Gallery
+          href: create-avd-azure-compute-image-gallery.md
+        - name: Create Log Analytics Workspace
+          href: create-avd-log-analytics-workspace.md
     - name: Virtual machines
       items:
         - name: Configure a virtual machine cluster
@@ -114,7 +128,7 @@
         - name: Virtual machine scale set with infrastructure
           href: create-vm-scaleset-network-disks-hcl.md
         - name: Virtual machine scale set from Packer image
-          href: create-vm-scaleset-network-disks-using-packer-hcl.md
+          href: create-vm-scaleset-network-disks-using-packer-hcl.md       
     - name: Security
       items:
         - name: Azure Attestation

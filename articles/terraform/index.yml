@@ -33,10 +33,8 @@ landingContent:
             url: https://aka.ms/terraform
       - linkListType: concept
         links:
-          - text: Comparing Terraform and Bicep - Usability features
-            url: compare-terraform-and-bicep-usability-features.md
-          - text: Comparing Terraform and Bicep - Integration features
-            url: compare-terraform-and-bicep-integration-features.md
+          - text: Comparing features of Terraform and Bicep
+            url: comparing-terraform-and-bicep.md
 
   # Card
   - title: Install and configure Terraform
@@ -139,3 +137,23 @@ landingContent:
             url: deploy-azure-cosmos-db-to-azure-container-instances.md
           - text: Deploy a PostgreSQL Flexible Server Database
             url: deploy-postgresql-flexible-server-database.md
+
+  # Card
+  - title: Azure Virtual Desktop
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Configure an Azure Virtual Desktop
+            url: configure-azure-virtual-desktop.md
+          - text: Create Session Host
+            url: create-avd-session-host.md
+          - text: Configure Network Settings
+            url: configure-avd-network-settings.md        
+          - text: Configure RBAC permissions
+            url: configure-avd-rbac.md
+          - text: Create Azure Files Storage
+            url: create-avd-azure-files-storage.md
+          - text: Create Azure Compute Gallery
+            url: create-avd-azure-compute-image-gallery.md
+          - text: Create Log Analytics Workspace
+            url: create-avd-log-analytics-workspace.md
