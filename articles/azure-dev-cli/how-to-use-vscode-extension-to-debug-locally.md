@@ -18,7 +18,16 @@ This article walks through how to use Visual Studio Code and Visual Studio Code 
 
 The first step is to download and install the extension.
 
-1. Download the extension from https://azuresdkreleasepreview.blob.core.windows.net/azd/vscode/latest/azure-dev-latest.vsix
+1. Install `azd` from NPM
+
+    ```bash
+    npm uninstall -g @azure/az-dev-cli
+    npm install -g https://azuresdkreleasepreview.blob.core.windows.net/azd/standalone/latest/azure-az-dev-cli-latest.tgz
+    ```
+    
+    > [!NOTE]
+    > may require sudo depending on platform and configuration
+
 2. In VS Code
     1. Open "Extensions" (Ctrl+Shift+X)
     2. Click the `...` menu at top of Extensions sidebar
@@ -27,14 +36,14 @@ The first step is to download and install the extension.
 
 > [!NOTE]
 > Currently supported commands in the VS Code Extension for Azure Developer CLI:
-> - `az dev deploy`
-> - `az dev env`
-> - `az dev infra delete`
-> - `az dev init`
-> - `az dev monitor`
-> - `az dev pipeline`
-> - `az dev provision`
-> - `az dev up`
+> - `azd deploy`
+> - `azd env`
+> - `azd infra delete`
+> - `azd init`
+> - `azd monitor`
+> - `azd pipeline`
+> - `azd provision`
+> - `azd up`
 
 ## Initialize a new application 
 

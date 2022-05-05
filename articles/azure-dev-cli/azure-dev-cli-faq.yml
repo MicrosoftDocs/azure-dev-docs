@@ -13,10 +13,10 @@ sections:
     questions:
       - question: What is environment name?
         answer: |
-          The CLI uses the environment name to set the `AZURE_ENV_NAME` environment variable used by az dev enabled templates. AZURE_ENV_NAME is also used as a prefix to Azure resource name including the Azure resource group. Since each environment has its own set of configurations, we keep all configuration files under environment folders. 
+          The CLI uses the environment name to set the `AZURE_ENV_NAME` environment variable used by azd enabled templates. AZURE_ENV_NAME is also used as a prefix to Azure resource name including the Azure resource group. Since each environment has its own set of configurations, we keep all configuration files under environment folders. 
 
           ```	 
-          ├── .azure                          [ This folder shows up after you run az dev init or az dev up ]
+          ├── .azure                          [ This folder shows up after you run azd init or azd up ]
           │   ├── <your environment1>         [ Folder to house all environment related configurations ]
           │   │   ├── .env                    [ Contains environment variables ]
           │   │   └── main.parameters.json    [ Parameter file ]
@@ -28,7 +28,7 @@ sections:
 
       - question: Can I set up more than one environment?
         answer: |
-          Yes! You can set up different environments (for example, dev, test, prod.) You can use `az dev env` to manage environments.
+          Yes! You can set up different environments (for example, dev, test, prod.) You can use `azd env` to manage environments.
 
       - question: Where is the environment configuration (.env) file?
         answer: |
@@ -36,13 +36,13 @@ sections:
 
       - question: How is the .env file used?
         answer: |
-          `az dev` commands refer to the .env file for environment configuration. Command like `az dev deploy` also updates the .env file with, for example, db connection string and Azure Key Vault end point.
+          `azd` commands refer to the .env file for environment configuration. Command like `azd deploy` also updates the .env file with, for example, db connection string and Azure Key Vault end point.
           
       - question: How is azure.yaml used?
         answer: |
           `azure.yaml` describes the application(s) and type of Azure resources included in the template.
 
-  - name: "Command: az dev provision"
+  - name: "Command: azd provision"
     questions:
       - question: How does the command know what to provision?
         answer: |
@@ -60,35 +60,35 @@ sections:
           
           More resource: [Troubleshoot common Azure deployment errors - Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/troubleshooting/common-deployment-errors)
 
-      - question: Is there a log file for `az dev provision`? 
+      - question: Is there a log file for `azd provision`? 
         answer: |
           Coming soon. Feature is planned for future release.
 
-  - name: "Command: az dev deploy"
+  - name: "Command: azd deploy"
     questions:
       - question: Can I rerun this command?
         answer: |
           Yes.
 
-  - name: "Command: az dev up"
+  - name: "Command: azd up"
     questions:
-      - question: Can I rerun `az dev up`?
+      - question: Can I rerun `azd up`?
         answer: |
           Yes.
 
-      - question: How do I find the log file for `az dev up`? 
+      - question: How do I find the log file for `azd up`? 
         answer: |
           Coming soon. Feature is planned for future release.
 
-  - name: "Command: az dev pipeline"
+  - name: "Command: azd pipeline"
     questions:
       - question: What is Azure service principal?
         answer: |
           An Azure service principal is an identity created for use with applications, hosted services, and automated tools to access Azure resources. This access is restricted by the roles assigned to the service principal, giving you control over which resources can be accessed and at which level. Refer to [Connect GitHub and Azure | Microsoft Docs](https://docs.microsoft.com/azure/developer/github/connect-from-azure?tabs=azure-portal%2Cwindows#use-the-azure-login-action-with-a-service-principal-secret) for more on authenticating from Azure to GitHub 
 
-      - question: Do I need to create an Azure service principal before running `az dev pipeline config`?
+      - question: Do I need to create an Azure service principal before running `azd pipeline config`?
         answer: |
-          No. `az dev pipeline config` takes care of creating the Azure service principal and performing the necessary steps to store the secrets in your GitHub repo.
+          No. `azd pipeline config` takes care of creating the Azure service principal and performing the necessary steps to store the secrets in your GitHub repo.
 
       - question: What are all the secrets stored in GitHub?
         answer: |
@@ -120,13 +120,13 @@ sections:
         answer: |
           Yes, just replace 
           
-          `run: az dev up --no-prompt` 
+          `run: azd up --no-prompt` 
           
           with 
           
-          `run: az dev deploy--noprompt`
+          `run: azd deploy--noprompt`
 
-      - question: Where can I find the log for the GitHub action job I just triggered after running `az dev workflow`?
+      - question: Where can I find the log for the GitHub action job I just triggered after running `azd workflow`?
         answer: |
           Go to `https://github.com/<your-GH-account>/<your-repo>/actions` and refer to the log file in the workflow run.
 

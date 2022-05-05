@@ -5,20 +5,25 @@
   - name: What is Azure Developer CLI?
     href: azure-dev-cli-overview.md
     displayName: overview, intro, introduction
-  - name: Language and host (Azure service) list
+  - name: Language and host (Azure compute service) list
     href: azure-dev-cli-lang-and-service-list.md   
     displayName: list, langugae, Azure services
   - name: Frequently asked questions
     href: azure-dev-cli-faq.yml   
     displayName: frequently asked questions
-- name: Install, update and run
+- name: Install
   items:
-  - name: Install CLI extension
+  - name: Install CLI
     href: install-azure-dev-cli.md
     displayname: install, windows, macos, linux 
   - name: Install the VS Code extention
     href: install-azure-dev-cli-vscode-ext.md
     displayname: install, windows, macos, linux 
+- name: Get started
+  items:
+  - name: Get Starter Overview
+    href: install-azure-dev-cli.md
+    displayname: get started, bare metal, dev container
 - name: Samples
   items:
   - name: List of Azure Developer CLI Azure samples

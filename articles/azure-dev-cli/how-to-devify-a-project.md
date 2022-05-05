@@ -10,7 +10,7 @@ ms.prod: azure
 
 !["Dev-ify"](media/how-to-devify-a-project/dev-ify.png)
 
-As explained in [Azure Developer CLI Overview](azure-dev-cli-overview.md), `az dev cli` looks for specific configuration files in a pre-defined folder structure. Here's a walkthrough on how to convert a basic application to an Azure dev enabled template.
+As explained in [Azure Developer CLI Overview](azure-dev-cli-overview.md), `azd` looks for specific configuration files in a pre-defined folder structure. Here's a walkthrough on how to convert a basic application to a dev-ified template.
 
 > [!NOTE]
 > Currently supported/planned hosting platform for the application:
@@ -19,7 +19,7 @@ As explained in [Azure Developer CLI Overview](azure-dev-cli-overview.md), `az d
 > | ----------- | ----------- |
 > | Azure App Service | Yes  |
 > | Azure Functions  | Yes |
-> | Azure Container Apps    | Coming soon |
+> | Azure Container Apps    | Yes |
 > | Azure Static Web Apps  | Coming soon |
 > | Azure Container Service | Coming soon |
 >
@@ -41,7 +41,7 @@ We start with this [simple Python Flask web app that is deployed to Azure App Se
 
 ## Step 2 - Initialize the project
 
-Change directory to `msdocs-python-flask-webapp-quickstart` and run `az dev init`. The command asks for environment name, Azure region and Azure subscription. After you run this command, the following are added: 
+Change directory to `msdocs-python-flask-webapp-quickstart` and run `azd init`. The command asks for environment name, Azure region and Azure subscription. After you run this command, the following are added: 
 
 - a new folder `.azure` 
 - a subfolder called &lt;your environment name&gt; in the `.azure` folder. 
@@ -50,7 +50,7 @@ Change directory to `msdocs-python-flask-webapp-quickstart` and run `az dev init
 
 ## Step 3 - Add Bicep files
 
-`az dev provision` needs to know what to provision in Azure. The command looks for Bicep files in the `infra` folder.
+`azd provision` needs to know what to provision in Azure. The command looks for Bicep files in the `infra` folder.
 
 Start from an Azure dev enabled template, use it as a base and remove resources that aren't needed. We reference [To Do Application with Python and Cosmo DB](https://github.com/Azure-Samples/todo-python-mongo). By doing so, you have the necessary Bicep files for setting up and configuring Azure Monitor as well. 
 
@@ -70,7 +70,7 @@ Start from an Azure dev enabled template, use it as a base and remove resources 
 ```
 
 - update code for **web**: make sure `linuxFxVersion` is `PYTHON|3.9`. Remove the line `appCommandLine: 'pm2 serve /home/site/wwwroot --no-daemon --spa'`
-- update code for **webappappsettings**. Today, `az dev` only supports zip deployment. Update `SCM_DO_BUILD_DURING_DEPLOYMENT` to `true`
+- update code for **webappappsettings**. Today, `azd` only supports zip deployment. Update `SCM_DO_BUILD_DURING_DEPLOYMENT` to `true`
 
 1. Modify `main.bicep`
 
@@ -86,7 +86,7 @@ Start from an Azure dev enabled template, use it as a base and remove resources 
 
 ## Step 4 - Update `azure.yaml`
 
-`az dev` needs to know where to find the source code; what kind of app you're building; and more about what Azure service to use. Update `azure.yaml` by adding the following lines:
+`azd` needs to know where to find the source code; what kind of app you're building; and more about what Azure service to use. Update `azure.yaml` by adding the following lines:
 
 ```yml
 services:
@@ -100,17 +100,17 @@ services:
 
 Congratulations, you're done. 
 
-Run `az dev provision config` to create the Azure resources.
+Run `azd provision config` to create the Azure resources.
 
-Run `az dev deploy` to deploy the web app.
+Run `azd deploy` to deploy the web app.
 
-Run `az dev monitor --overview` and `az dev monitor --logs` to monitor your app.
+Run `azd monitor --overview` and `azd monitor --logs` to monitor your app.
 
 > [!NOTE]
 > `.azure` and `.venv` should be added to the `.gitignore` file
 
 ## Step 6 - Clean up
 
-Run `az dev infra delete` to remove all Azure resources.
+Run `azd infra delete` to remove all Azure resources.
 
 Your project is now Azure Dev enabled.

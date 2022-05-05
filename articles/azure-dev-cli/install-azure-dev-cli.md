@@ -14,7 +14,7 @@ Before you get started, ensure you have the following tools installed on your lo
 - [GitHub CLI v2.3+](https://github.com/cli/cli)
 - [Node.js with npm (v 16.13.1 LTS)](https://nodejs.org/)
 - [Azure CLI (v 2.30.0+)](/cli/azure/install-azure-cli)
-- Azure Dev CLI Extension (See install instructions below)
+- Azure Dev CLI (see install instructions below)
 
 ```bash
 npm uninstall -g @azure/az-dev-cli
