@@ -22,8 +22,11 @@
 - name: Get started
   items:
   - name: Get Starter Overview
-    href: install-azure-dev-cli.md
-    displayname: get started, bare metal, dev container
+    href: get-started.md
+    displayname: get started overview, bare metal, dev container
+  - name: Get Starter using bare metal
+    href: get-started-bare-metal.md
+    displayname: get started, bare metal
 - name: Samples
   items:
   - name: List of Azure Developer CLI Azure samples
