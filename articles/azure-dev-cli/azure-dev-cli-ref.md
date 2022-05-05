@@ -1,0 +1,98 @@
+---
+title: Azure Developer CLI reference
+description: Reference for Azure Developer CLI.
+ms.date: 04/12/2021
+ms.topic: conceptual
+ms.custom: devx-track-azdev
+ms.prod: azure
+---
+
+# Currently supported commands
+
+Listed in alphabetical order:
+
+- [Deploy](#deploy)
+- [Env](#env)
+- [Infra](#infra)
+- [Init](#init)
+- [Monitor](#monitor)
+- [Pipeline](#pipeline)
+- [Provision](#provision)
+- [Up](#up)
+
+### `init`
+
+`az dev init` sets up a project from an Azure Dev CLI enabled template. The command prompts for configuration settings like environment name, Azure region and Azure Subscription to use for creating the Azure resources. All configurations are stored in the `.env` file found in the `.azure` folder.
+
+### `env`
+
+`az dev env` is a subgroup command for managing environments. Supported commands:
+
+- list: List environments.
+- new: Create a new environment.
+- refresh: Refresh environment settings using information from previous provisioning.
+- select: Set the default environment.
+- set: Set a value in the environment. For example: `az dev env set <KEY> <VALUE>`.
+
+### `provision`
+
+`az dev provision` creates or updates the Azure resources for your project. `provision` is an alias for `az dev infra create`.
+
+### `infra`
+
+`az dev infra` is a group command for managing Azure resources. Subcommands:
+
+- create - creates Azure resources
+- delete - deletes Azure resources
+
+### `deploy`
+
+`az dev deploy` builds and publishes the application code into previously created Azure resources.
+
+### `up`
+
+`az dev up` is a **single step** command to initialize a project (`az dev init`), provision Azure resources (`az dev provision`), and deploy the application code to Azure (`az dev deploy`.) 
+
+### `pipeline`
+
+`az dev pipeline config` pushes your local code to your GitHub repo and configures a GitHub Action so that the build and deploy job is automatically kicked off when you commit code to your GitHub repo.
+
+### `monitor`
+
+`az dev monitor` launches a browser to show a dashboard for monitoring the cloud application. Available sub commands: 
+
+1. `--overview` to open the "Overview" dashboard.
+1. `--live` to open the "Live Metrics" dashboard.
+1. `--log` to open the "Logs" dashboard.
+
+> [!NOTE]
+> * Text-based browser is not supported.
+> * Live metrics is currently not supported for Python application. For more information, see: [Live Metrics Stream: Monitor & Diagnose with 1-second latency](/azure/azure-monitor/app/live-stream).
+
+## Try out
+
+TBA
+
+## See also
+
+TBA
+
+## Features to be added in the future
+
+### `debug`
+(COMING) `az dev debug` starts debugging the application locally.
+
+### `diff`
+(COMING) `az dev diff` evaluates your local changes to resource definitions against what is currently provisioned to the cloud.
+
+### `generate`
+(COMING) `az dev generate` produces boilerplate infrastructure as code assets, for example, CI/CD pipeline etc.
+
+### `login`
+(COMING) `az dev login` signs into the cloud platform.
+
+### `run`
+(COMING) `az dev run` executes the application locally.
+
+### `test`
+(COMING) `az dev test` runs local unit tests.

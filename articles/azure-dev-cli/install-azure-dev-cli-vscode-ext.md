@@ -9,7 +9,16 @@ ms.prod: azure
 
 # Install the VS Code extension for Azure Developer CLI
 
-1. Download the extension from https://azuresdkreleasepreview.blob.core.windows.net/azd/vscode/latest/azure-dev-latest.vsix
+1. Install `azd` from NPM
+
+    ```bash
+    npm uninstall -g @azure/az-dev-cli
+    npm install -g https://azuresdkreleasepreview.blob.core.windows.net/azd/standalone/latest/azure-az-dev-cli-latest.tgz
+    ```
+    
+    > [!NOTE]
+    > may require sudo depending on platform and configuration
+
 2. In vscode
     1. Open "Extensions" (Ctrl+Shift+X)
     2. Click the `...` menu at top of Extensions sidebar

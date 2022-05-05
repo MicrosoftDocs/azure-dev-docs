@@ -8,18 +8,25 @@ ms.prod: azure
 ---
 # Azure Developer CLI Templates
 
-Each Azure Developer CLI template is built for specific host (Azure service) and programming language. 
+Each Azure Developer CLI template is built for specific host (Azure compute service) and programming language. 
 
-If you haven't finalized the Azure service for hosting your application, use the following flowchart to choose a template (host) to use as a base for your project:
+If you haven't finalized the Azure compute service for hosting your application, use the following flowchart to choose a template to use as a base for your project:
 !["Host Decision Tree"](media/azure-dev-cli-templates/host-decision-tree.png)
 
 > [!NOTE]
-> The perfect solution is dependent on your use case and team. Refer to these additinoal recommended resources for guidance: [Choose an Azure compute service](/azure/architecture/guide/technology-choices/compute-decision-tree) and [Comparing Container Apps with other Azure container options](https://docs.microsoft.com/en-us/azure/container-apps/compare-options).
+> The perfect solution is dependent on your use case and team. You can refer to these additinoal recommended resources for guidance: [Choose an Azure compute service](/azure/architecture/guide/technology-choices/compute-decision-tree) and [Comparing Container Apps with other Azure container options](https://docs.microsoft.com/en-us/azure/container-apps/compare-options).
 
-| Template      | Description	 | Host	| Language | Status |
-| ----------- | ----------- | --- | --- | --- |
-| [To Do NodeJs Mongo](https://github.com/azure-samples/todo-nodejs-mongo) | Complete sample To Do application built using Node.js, Cosmos DB (Mongo) for storage, and Azure Monitor for monitoring and logging. | Azure App Service | Node.js | Private Preview |
-| [To Do Python Mongo](https://github.com/azure-samples/todo-python-mongo) | Complete sample To Do application built using Python (FastAPI), Cosmos DB (Mongo) for storage, and Azure Monitor for monitoring and logging.  | Azure App Service | Python | Private Preview |
-| To Do C# Mongo | Complete sample To Do application built using C#, Cosmos DB (Mongo) for storage, and Azure Monitor for monitoring and logging. | Azure App Service | .NET | Coming soon |
-| To Do C# Azure SQL | Complete sample To Do application built using C#, Azure SQL for storage, and Azure Monitor for monitoring and logging. | Azure App Service | .NET | Coming soon |
-| To Do C# Cosmos DB (SQL) | Complete sample To Do application built using C#, Cosmos DB (SQL) for storage, and Azure Monitor for monitoring and logging | Azure App Service | .NET | Coming soon |
+### ToDo Application
+
+Each repo contains a complete sample ToDo application with a web frontend built in React.js and the backend API built using a specific `azd` supported language. 
+
+| Template      | Compute Service | Language (API layer) | Tech Stack	 | Link	
+| ----------- | ----------| ----------- | --- | --- | 
+| ToDo NodeJs Mongo | Azure App Service | Node.js | Azure CosmosDB API for Mongo, Azure Monitor | https://github.com/azure-samples/todo-nodejs-mongo | 
+| ToDo Python Mongo | Azure App Service | Python (FastAPI) | Azure CosmosDB API for Mongo, Azure Monitor  | https://github.com/azure-samples/todo-python-mongo | 
+| ToDo C# Mongo | Azure App Service | C# | Azure CosmosDB API for Mongo, Azure Monitor | \<coming soon\> |
+| ToDo C# Azure SQL | Azure App Service | C# | Azure SQL, Azure Monitor | \<coming soon\> |
+| ToDo C# Cosmos DB (SQL) | Azure App Service |  C# | Azure CosmosDB SQL API, Azure Monitor | \<coming soon\> |
+| ToDo NodeJs Mongo ACA | Azure Container Apps | Node.js | Azure CosmosDB API for Mongo, Azure Monitor | https://github.com/azure-samples/todo-nodejs-mongo-aca | 
+| ToDo Python Mongo ACA | Azure Container Apps | Python (FastAPI)|  Azure CosmosDB API for Mongo, Azure Monitor | https://github.com/azure-samples/todo-python-mongo-aca | 
+

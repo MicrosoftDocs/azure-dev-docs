@@ -17,11 +17,9 @@ Before you get started, ensure you have the following tools installed on your lo
 - Azure Dev CLI Extension (See install instructions below)
 
 ```bash
-az extension remove --name azure-dev
-az config set extension.index_url=https://azuresdkreleasepreview.blob.core.windows.net/azd/whl/latest/index.json
-az extension add --name azure-dev
-az config unset extension.index_url
+npm uninstall -g @azure/az-dev-cli
+npm install -g https://azuresdkreleasepreview.blob.core.windows.net/azd/standalone/latest/azure-az-dev-cli-latest.tgz
 ```
 
 > [!NOTE]
-> The first command removes the extension. Don't worry if you see "The extension azure-dev is not installed." in red text. That is expected if you do not already have an old version of the extension.
+> May require `sudo` depending on platform and configuration
