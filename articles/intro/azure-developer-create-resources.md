@@ -229,7 +229,7 @@ Azure resources can also be created programmatically from code.  This allows you
 > [Using the Azure SDK for JavaScript](../javascript/core/use-azure-sdk.md)
 
 > [!div class="nextstepaction"]
-> [Using the Azure SDK for Python](../python/azure-sdk-overview.md)
+> [Using the Azure SDK for Python](../python/sdk/azure-sdk-overview.md)
 
 > [!div class="nextstepaction"]
 > [Using the Azure REST APIs](/rest/api/azure/)

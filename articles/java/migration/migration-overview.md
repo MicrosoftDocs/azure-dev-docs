@@ -74,18 +74,18 @@ The following sections show you which service destinations meet your application
 
 Use the following grid to identify potential destinations for your application type. As you can see, AKS and Virtual Machines support all application types, but they require your team to take on more responsibilities, as shown in the next section.
 
-|Destination&nbsp;→<br><br>Application&nbsp;type&nbsp;↓|App<br>Service<br>Java SE|App<br>Service<br>Tomcat|App<br>Service<br>JBoss EAP|Azure<br>Spring<br>Cloud|AKS|Virtual<br>Machines|
-|---|---|---|---|---|---|---|
-| Spring Boot / JAR applications                                    |&#x2714;|        |        |&#x2714;|&#x2714;|&#x2714;|
-| Spring Cloud applications                                         |        |        |        |&#x2714;|&#x2714;|&#x2714;|
-| Web applications                                                  |        |&#x2714;|&#x2714;|        |&#x2714;|&#x2714;|
-| Java EE applications                                              |        |        |&#x2714;|        |&#x2714;|&#x2714;|
-| Commercial application servers<br>(such as WebLogic or WebSphere) |        |        |        |        |&#x2714;|&#x2714;|
-| Long-term persistence on local filesystem                         |&#x2714;|&#x2714;|&#x2714;|        |&#x2714;|&#x2714;|
-| Application server-level clustering                               |        |        |        |        |&#x2714;|&#x2714;|
-| Batch / scheduled jobs                                            |        |        |        |&#x2714;|&#x2714;|&#x2714;|
-| VNet Integration/Hybrid Connectivity                              |&#x2714;|&#x2714;|&#x2714;|&#x2714;|&#x2714;|&#x2714;|
-| Azure region availability           |[Details][10]|[Details][10]|[Details][10]|[Details][11]|[Details][12]|[Details][13]|
+| Destination&nbsp;→<br><br>Application&nbsp;type&nbsp;↓           | App<br>Service<br>Java SE | App<br>Service<br>Tomcat | App<br>Service<br>JBoss EAP | Azure<br>Spring<br>Cloud | AKS           | Virtual<br>Machines |
+|-------------------------------------------------------------------|---------------------------|--------------------------|-----------------------------|--------------------------|---------------|---------------------|
+| Spring Boot / JAR applications                                    | &#x2714;                  |                          |                             | &#x2714;                 | &#x2714;      | &#x2714;            |
+| Spring Cloud applications                                         |                           |                          |                             | &#x2714;                 | &#x2714;      | &#x2714;            |
+| Web applications                                                  |                           | &#x2714;                 | &#x2714;                    | &#x2714;                 | &#x2714;      | &#x2714;            |
+| Java EE applications                                              |                           |                          | &#x2714;                    |                          | &#x2714;      | &#x2714;            |
+| Commercial application servers<br>(such as WebLogic or WebSphere) |                           |                          |                             |                          | &#x2714;      | &#x2714;            |
+| Long-term persistence on local filesystem                         | &#x2714;                  | &#x2714;                 | &#x2714;                    |                          | &#x2714;      | &#x2714;            |
+| Application server-level clustering                               |                           |                          | &#x2714;                    |                          | &#x2714;      | &#x2714;            |
+| Batch / scheduled jobs                                            |                           |                          |                             | &#x2714;                 | &#x2714;      | &#x2714;            |
+| VNet Integration/Hybrid Connectivity                              | &#x2714;                  | &#x2714;                 | &#x2714;                    | &#x2714;                 | &#x2714;      | &#x2714;            |
+| Azure region availability                                         | [Details][10]             | [Details][10]            | [Details][10]               | [Details][11]            | [Details][12] | [Details][13]       |
 
 ### Ongoing responsibility grid
 
@@ -96,19 +96,19 @@ Your team is responsible on a continual basis for the tasks indicated with "&#x1
 > [!NOTE]
 > This isn't an exhaustive list of responsibilities.
 
-|Destination&nbsp;→<br><br>Task&nbsp;↓                            | App<br>Service | Azure<br>Spring<br>Cloud | AKS | Virtual<br>Machines |
-|---|---|---|---|---|
-| Updating libraries<br>(including vulnerability remediation)                 | &#x1F449;   | &#x1F449;   | &#x1F449;   | &#x1F449; |
-| Updating the application server<br>(including vulnerability remediation)    | ![Azure][1] | ![Azure][1] | &#x1F449;   | &#x1F449; |
-| Updating the Java Runtime<br>(including vulnerability remediation)          | ![Azure][1] | ![Azure][1] | &#x1F449;   | &#x1F449; |
-| Triggering Kubernetes updates<br>(performed by Azure with a manual trigger) | N/A         | ![Azure][1] | &#x1F449;   | N/A       |
-| Reconciling non-backward-compatible Kubernetes API changes                  | N/A         | ![Azure][1] | &#x1F449;   | N/A       |
-| Updating container base image<br>(including vulnerability remediation)      | N/A         | ![Azure][1] | &#x1F449;   | N/A       |
-| Updating the operating system<br>(including vulnerability remediation)      | ![Azure][1] | ![Azure][1] | ![Azure][1] | &#x1F449; |
-| Detecting and restarting failed instances                                   | ![Azure][1] | ![Azure][1] | ![Azure][1] | &#x1F449; |
-| Implementing draining and rolling restart for updates                       | ![Azure][1] | ![Azure][1] | ![Azure][1] | &#x1F449; |
-| Infrastructure management                                                   | ![Azure][1] | ![Azure][1] | &#x1F449;   | &#x1F449; |
-| Monitoring and alert management                                             | &#x1F449;   | &#x1F449;   | &#x1F449;   | &#x1F449; |
+| Destination&nbsp;→<br><br>Task&nbsp;↓                                      | App<br>Service | Azure<br>Spring<br>Cloud | AKS         | Virtual<br>Machines |
+|-----------------------------------------------------------------------------|----------------|--------------------------|-------------|---------------------|
+| Updating libraries<br>(including vulnerability remediation)                 | &#x1F449;      | &#x1F449;                | &#x1F449;   | &#x1F449;           |
+| Updating the application server<br>(including vulnerability remediation)    | ![Azure][1]    | ![Azure][1]              | &#x1F449;   | &#x1F449;           |
+| Updating the Java Runtime<br>(including vulnerability remediation)          | ![Azure][1]    | ![Azure][1]              | &#x1F449;   | &#x1F449;           |
+| Triggering Kubernetes updates<br>(performed by Azure with a manual trigger) | N/A            | ![Azure][1]              | &#x1F449;   | N/A                 |
+| Reconciling non-backward-compatible Kubernetes API changes                  | N/A            | ![Azure][1]              | &#x1F449;   | N/A                 |
+| Updating container base image<br>(including vulnerability remediation)      | N/A            | ![Azure][1]              | &#x1F449;   | N/A                 |
+| Updating the operating system<br>(including vulnerability remediation)      | ![Azure][1]    | ![Azure][1]              | ![Azure][1] | &#x1F449;           |
+| Detecting and restarting failed instances                                   | ![Azure][1]    | ![Azure][1]              | ![Azure][1] | &#x1F449;           |
+| Implementing draining and rolling restart for updates                       | ![Azure][1]    | ![Azure][1]              | ![Azure][1] | &#x1F449;           |
+| Infrastructure management                                                   | ![Azure][1]    | ![Azure][1]              | &#x1F449;   | &#x1F449;           |
+| Monitoring and alert management                                             | &#x1F449;      | &#x1F449;                | &#x1F449;   | &#x1F449;           |
 
 If you deploy the servlet container (such as Spring Boot) as part of your application, you should consider it a library and, as such, it's always your responsibility.
 
@@ -134,22 +134,22 @@ If you'd like to migrate a JBoss EAP app to Tomcat on App Service, first convert
 
 If you'd like to migrate a Web app on Tomcat to Azure Spring Cloud, first convert the app into Spring Cloud applications, then follow the guidance indicated below.
 
-|Destination&nbsp;→<br><br>Application&nbsp;type&nbsp;↓|App<br>Service<br>Java SE|App<br>Service<br>Tomcat|App<br>Service<br>JBoss EAP|Azure<br>Spring<br>Cloud|AKS|Virtual Machines|
-|---|---|---|---|---|---|---|
-| Spring Boot /<br>JAR applications | [guidance][5] | guidance<br>planned | N/A | [guidance][16] | [guidance][14]      | guidance<br>planned |
-| Spring Cloud /<br>applications    | N/A           | N/A                 | N/A | [guidance][15] | guidance<br>planned | guidance<br>planned |
-| Web applications<br>on Tomcat     | N/A           | [guidance][2]       | N/A | [guidance][17] | [guidance][3]       | guidance<br>planned |
+| Destination&nbsp;→<br><br>Application&nbsp;type&nbsp;↓ | App<br>Service<br>Java SE | App<br>Service<br>Tomcat | App<br>Service<br>JBoss EAP | Azure<br>Spring<br>Cloud | AKS                 | Virtual Machines    |
+|--------------------------------------------------------|---------------------------|--------------------------|-----------------------------|--------------------------|---------------------|---------------------|
+| Spring Boot /<br>JAR applications                      | [guidance][5]             | guidance<br>planned      | N/A                         | [guidance][16]           | [guidance][14]      | guidance<br>planned |
+| Spring Cloud /<br>applications                         | N/A                       | N/A                      | N/A                         | [guidance][15]           | guidance<br>planned | guidance<br>planned |
+| Web applications<br>on Tomcat                          | N/A                       | [guidance][2]            | N/A                         | [guidance][17]           | [guidance][3]       | guidance<br>planned |
 
 **Java EE applications**
 
 Use the rows below to find your Java EE application type running on a specific app server. Use the columns to find the Azure service destination that will host your application.
 
-|Destination&nbsp;→<br><br>App server&nbsp;↓|App<br>Service<br>Java SE|App<br>Service<br>Tomcat|App<br>Service<br>JBoss EAP|Azure<br>Spring<br>Cloud|AKS|Virtual Machines|
-|---|---|---|---|---|---|---|
-| WildFly /<br>JBoss AS | N/A | N/A | [guidance][18] | N/A | [guidance][9] | guidance<br>planned |
-| WebLogic              | N/A | N/A | [guidance][19] | N/A | [guidance][6] | [guidance][4]       |
-| WebSphere             | N/A | N/A | [guidance][20] | N/A | [guidance][7] | guidance<br>planned |
-| JBoss EAP             | N/A | N/A | [guidance][18] | N/A | [guidance][8] | guidance<br>planned |
+| Destination&nbsp;→<br><br>App server&nbsp;↓ | App<br>Service<br>Java SE | App<br>Service<br>Tomcat | App<br>Service<br>JBoss EAP | Azure<br>Spring<br>Cloud | AKS           | Virtual Machines    |
+|---------------------------------------------|---------------------------|--------------------------|-----------------------------|--------------------------|---------------|---------------------|
+| WildFly /<br>JBoss AS                       | N/A                       | N/A                      | [guidance][18]              | N/A                      | [guidance][9] | guidance<br>planned |
+| WebLogic                                    | N/A                       | N/A                      | [guidance][19]              | N/A                      | [guidance][6] | [guidance][4]       |
+| WebSphere                                   | N/A                       | N/A                      | [guidance][20]              | N/A                      | [guidance][7] | guidance<br>planned |
+| JBoss EAP                                   | N/A                       | N/A                      | [guidance][18]              | N/A                      | [guidance][8] | guidance<br>planned |
 
 <!-- reference links, for use with tables -->
 [1]: media/migration-overview/logo_azure.svg
