@@ -16,6 +16,9 @@
   - name: Get Starter Overview
     href: get-started.md
     displayname: get started overview, bare metal, dev container
+  - name: Get started using Dev Container
+    href: get-started-devcontainer.md
+    displayname: get started, bare metal, install, windows, macos, linux, devcontainer, vs code 
   - name: Get started using bare metal setup
     href: get-started-bare-metal.md
     displayname: get started, bare metal, install, windows, macos, linux 
@@ -36,6 +39,4 @@
   - name: Dev-ify a project
     href: how-to-devify-a-project.md
 - name: Reference 
-  items:
-  - name: Reference
-    href: azure-dev-cli-ref.md
+  href: azure-dev-cli-ref.md

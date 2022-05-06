@@ -28,7 +28,7 @@ landingContent:
           - text: Azure Developer CLI FAQ
             url: azure-dev-cli-faq.yml   
           - text: Azure Developer CLI known issues
-            url: azure-dev-cli-known-issues.yml               
+            url: azure-dev-cli-known-issues.md               
       - linkListType: how-to-guide
         links:
           - text: Dev-ify a project
@@ -41,6 +41,8 @@ landingContent:
         links:
           - text: Get started overview
             url: get-started.md
+          - text: Get started using Dev Container
+            url: get-started-devcontainer.md            
           - text: Get started using bare metal setup
             url: get-started-bare-metal.md
       - linkListType: quickstart
