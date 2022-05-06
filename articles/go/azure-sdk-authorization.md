@@ -1,15 +1,15 @@
 ---
-title: Authentication with the Azure SDK for Go (deprecated)
+title: Authentication with the Azure SDK for Go (legacy)
 description: Learn about the authentication methods available in the Azure SDK for Go and how to use them.
 ms.date: 05/04/2022
 ms.topic: conceptual
 ms.custom: devx-track-go
 ---
 
-# Authentication with the Azure SDK for Go (deprecated)
+# Authentication with the Azure SDK for Go (legacy)
 
 > [!WARNING]
-> Authentication using the `autorest` package has been **deprecated**. Moving forward, authentication for the Azure SDK for Go will be done using the [Azure Identity](https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/azidentity) package.
+> Using the `autorest` package for authentication has been replaced. Moving forward, authentication for the Azure SDK for Go will be done using the [Azure Identity](https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/azidentity) package.
 
 The Azure SDK for Go offers multiple ways to authenticate with Azure. These authentication _types_ are invoked through different authentication _methods_. This article covers the available types, methods, and how to choose which are best for your application.
 
