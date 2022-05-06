@@ -32,7 +32,7 @@ We will use the [Todo Application with Node.js and Cosmo DB (Mongo DB)(https://g
 
 [!INCLUDE [azd-quickstart](includes/azd-quickstart.md)]
 
-[!INCLUDE [azd-knownissues](azd-knownissues.md)]
+[!INCLUDE [azd-knownissues](include/azd-knownissues.md)]
 
 ## Explore more samples
 

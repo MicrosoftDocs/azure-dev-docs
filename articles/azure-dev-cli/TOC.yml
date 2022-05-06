@@ -19,9 +19,6 @@
   - name: Get started using bare metal setup
     href: get-started-bare-metal.md
     displayname: get started, bare metal, install, windows, macos, linux 
-  - name: Get started using VS Code
-    href: get-started-vscode-ext.md
-    displayname: get started, install, windows, macos, linux 
 - name: Samples
   items:
   - name: List of Azure Developer CLI Azure samples
