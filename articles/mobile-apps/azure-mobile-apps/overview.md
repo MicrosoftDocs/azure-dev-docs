@@ -20,7 +20,7 @@ The Microsoft Datasync Framework (also known as Azure Mobile Apps) gives enterpr
 
 ![Visual overview of Azure Mobile Apps capabilities](./media/overview.png)
 
-Azure Mobile Apps is designed to work with Azure App Service. Since it is based on ASP.NET 6, it can be also be run as a container in Azure Container Apps or Azure Kubernetes Service.
+Azure Mobile Apps is designed to work with Azure App Service. Since it's based on ASP.NET 6, it can also be run as a container in Azure Container Apps or Azure Kubernetes Service.
 
 ## Why Mobile Apps?
 

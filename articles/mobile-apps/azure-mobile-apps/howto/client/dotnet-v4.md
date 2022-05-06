@@ -74,7 +74,7 @@ topics are covered:
 * [Sort returned data](#sort-returned-data)
 * [Return data in pages](#return-data-in-pages)
 * [Select specific columns](#select-specific-columns)
-* [Look up a record by ID](#look-up-a-record-by-id)
+* [Look up a record by ID](#look-up-data-by-id)
 * [Execute untyped queries](#execute-untyped-queries)
 * [Insert data](#insert-data)
 * [Update data](#update-data)
@@ -108,10 +108,10 @@ This section describes how to issue queries to the Mobile App backend, which inc
 * [Sort returned data](#sort-returned-data)
 * [Return data in pages](#return-data-in-pages)
 * [Select specific columns](#select-specific-columns)
-* [Look up a record by ID](#look-up-a-record-by-id)
+* [Look up a record by ID](#look-up-data-by-id)
 
 > [!NOTE]
-> A server-driven page size is enforced to prevent all rows from being returned.  Paging keeps default requests for large data sets from negatively impacting the service.  To return more than 50 rows, use the `Skip` and `Take` method, as described in [Return data in pages](#paging).
+> A server-driven page size is enforced to prevent all rows from being returned.  Paging keeps default requests for large data sets from negatively impacting the service.  To return more than 50 rows, use the `Skip` and `Take` method, as described in [Return data in pages](#return-data-in-pages).
 
 ### Filter returned data
 
