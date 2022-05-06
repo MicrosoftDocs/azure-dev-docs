@@ -37,7 +37,7 @@ A local store is the data persistence layer on the client device. Most platforms
 
 ## How offline sync works
 
-Your client code controls when local changes are synchronized with an Datasync service. Nothing is sent to the service until there you *push* local changes. Similarly, the local store is populated with new data only when you *pull* data.
+Your client code controls when local changes are synchronized with a datasync service. Nothing is sent to the service until there you *push* local changes. Similarly, the local store is populated with new data only when you *pull* data.
 
 You can push pending operations for all tables, a list of tables, or one table:
 
@@ -63,7 +63,7 @@ If a pull is executed against a table that has pending local updates, the pull f
 
 ### Incremental Sync
 
-The Datasync Framework implements "imcremental sync".  For each unique query, the `UpdatedAt` field of the last successfully transferred record is stored as a token in the offline store.  When successive pull operations are run, only the records since the token are retrieved.
+The Datasync Framework implements "incremental sync".  For each unique query, the `UpdatedAt` field of the last successfully transferred record is stored as a token in the offline store.  When successive pull operations are run, only the records since the token are retrieved.
 
 ### Purging
 

@@ -26,7 +26,7 @@ The .NET client library supports .NET Standard 2.0 and the following platforms:
 
 The "server-flow" authentication uses a WebView for the presented UI and may not be available on every platform.  If it isn't available, you must provide a "client-flow" authentication.  This client library is not suitable for watch or IoT form factors when using authentication.
 
-## Setup and Prerequisites
+## Setup and prerequisites
 
 We assume that you have already created and published your Azure Mobile Apps backend project, which includes at least one table.  In the code used in this topic, the table is named `TodoItem` and it has a string `Id`, and `Text` fields and a boolean `Complete` column.  This table is the same table created when you complete the [Quickstart](../../quickstarts/xamarin-forms/index.md).
 
@@ -824,7 +824,9 @@ If you are using an identity provider other than Facebook, change the value of M
 
 In a server flow, Azure App Service manages the OAuth authentication flow by displaying the sign-in page of the selected provider.  Once the identity provider returns, Azure App Service generates an App Service authentication token. The [LoginAsync](/dotnet/api/microsoft.windowsazure.mobileservices.mobileserviceclient.loginasync) method returns a [MobileServiceUser](/dotnet/api/microsoft.windowsazure.mobileservices.mobileserviceuser), which provides both the UserId of the authenticated user and the MobileServiceAuthenticationToken, as a JSON web token (JWT). This token can be cached and reused until it expires. For more information, see [Caching the authentication token](#caching).
 
-> Under the covers, Azure Mobile Apps uses a [Xamarin.Essentials](/xamarin/essentials/web-authenticator?tabs=ios) WebAuthenticator to do the work.  You must handle the response from the service by calling back into Xamarin.Essentials, as per the documentation for WebAuthenticator.
+> [!NOTE]
+> Under the covers, Azure Mobile Apps uses a [Xamarin.Essentials](/xamarin/essentials/web-authenticator?tabs=ios) WebAuthenticator 
+> to do the work.  You must handle the response from the service by calling back into Xamarin.Essentials.  For details, see [WebAuthenticator].
 
 ### <a id="caching"></a>Caching the authentication token
 
@@ -959,3 +961,6 @@ public class LoggingHandler : DelegatingHandler
     }
 }
 ```
+
+<!-- Links -->
+[WebAuthenticator]: /xamarin/essentials/web-authenticator

@@ -174,7 +174,7 @@ In addition, you can use any of the terminating clauses for IAsyncEnumerable fro
 var items = await remoteTable.ToAsyncEnumerable().ToListAsync();
 ```
 
-Behind the scenes, The remote table is handling paging of the result for you.  All items will be returned, irrespective of how many server side requests are needed to fulfill the query.
+Behind the scenes, the remote table is handling paging of the result for you.  All items will be returned irrespective of how many server side requests are needed to fulfill the query.
 
 #### Filtering data
 
