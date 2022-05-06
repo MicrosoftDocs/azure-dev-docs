@@ -33,8 +33,6 @@ We will use the [Todo Application with Node.js and Azure Cosmo DB API for MongoD
 
 [!INCLUDE [azd-quickstart](includes/azd-quickstart.md)]
 
-[!INCLUDE [azd-knownissues](includes/azd-knownissues.md)]
-
 ## Explore more samples
 
 To learn more about how to use the Azure Developer CLI, see our [sample templates](azure-dev-cli-templates.md).
