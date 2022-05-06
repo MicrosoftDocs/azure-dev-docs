@@ -36,8 +36,8 @@ For information on creating an ASP.NET Core service with Entity Framework Core, 
 To enable data sync services, you need to add the following NuGet libraries:
 
 * [Microsoft.AspNetCore.Datasync]
-* [Microsoft.AspNetCore.Datasync.EFCore](https://www.nuget.org/packages/Microsoft.AspNetCore.Datasync.EFCore) for Entity Framework Core based tables.
-* [Microsoft.AspNetCore.Datasync.InMemory](https://www.nuget.org/packages/Microsoft.AspNetCore.Datasync.InMemory) for in-memory tables.
+* [Microsoft.AspNetCore.Datasync.EFCore] for Entity Framework Core based tables.
+* [Microsoft.AspNetCore.Datasync.InMemory] for in-memory tables.
 
 Modify the `Program.cs` file.  Add the following line under all other service definitions:
 

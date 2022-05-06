@@ -4,13 +4,16 @@ description: Learn about authentication and authorization for mobile apps with A
 author: adrianhall
 ms.service: mobile-services
 ms.topic: article
-ms.date: 05/05/2021
+ms.date: 05/06/2022
 ms.author: adhal
 ---
 
 # Authentication and authorization in Azure App Service for mobile apps
 
 This article describes how authentication and authorization works when developing native mobile apps with an App Service back end. App Service provides integrated authentication and authorization, so your mobile apps can sign users in without changing any code in App Service. It provides an easy way to protect your application and work with per-user data.
+
+> [!WARNING]
+> This article covers v4.2.0 of the Azure Mobile Apps Client SDK.  The current release uses a new authentication mechanism and does not support Azure App Service Authentication & Authorization in the same way.
 
 For information on how authentication and authorization work in App Service, see [Authentication and authorization in Azure App Service](/azure/app-service/overview-authentication-authorization).
 

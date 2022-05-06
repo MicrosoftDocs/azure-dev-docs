@@ -52,8 +52,6 @@
       href: quickstarts/xamarin-ios/authentication.md
 - name: How to
   items:
-  - name: Authentication
-    href: howto/authentication.md
   - name: Offline Data Sync
     href: howto/data-sync.md
   - name: Client SDK
@@ -66,7 +64,9 @@
     items:
     - name: ASP.NET Core
       href: howto/server/dotnet-core.md
-    - name: ASP.NET framework
-      href: howto/server/dotnet-framework.md
-    - name: Node.js
-      href: howto/server/nodejs.md
+- name: .NET v4.2.0 Client
+  items: 
+  - name: How to use the client
+    href: howto/client/dotnet-v4.md
+  - name: Authentication
+    href: howto/authentication.md
