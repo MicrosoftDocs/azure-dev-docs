@@ -25,14 +25,15 @@ npm install -g https://azuresdkreleasepreview.blob.core.windows.net/azd/standalo
 > [!NOTE]
 > May require `sudo` depending on platform and configuration
 
-We will use the [Todo Application with Node.js and Cosmo DB (Mongo DB)(https://github.com/azure-samples/todo-nodejs-mongo)] for this article, make sure you have the following language specific pre-requisite installed on your local machine:
+We will use the [Todo Application with Node.js and Azure Cosmo DB API for MongoDB](https://github.com/azure-samples/todo-nodejs-mongo)] for this article. Make sure you have the following language specific pre-requisite installed on your local machine:
 - [Node.js with npm (v 16.13.1 LTS)](https://nodejs.org/)
 
-> [!Note] You can refer to the DevContainer dependencies in the readme of each [sample template](azure-dev-cli-templates.md) for additional tools needed by the sample application.
+> [!NOTE] 
+> You can refer to the DevContainer dependencies in the readme of each [sample template](azure-dev-cli-templates.md) for additional tools needed by the sample application.
 
-[!INCLUDE [azd-quickstart](includes/azd-quickstart.md)]
+[!INCLUDE [azd-quickstart](includes/azd-quickstart.md)
 
-[!INCLUDE [azd-knownissues](includes/azd-knownissues.md)]
+[!INCLUDE [azd-knownissues](includes/azd-knownissues.md)
 
 ## Explore more samples
 
