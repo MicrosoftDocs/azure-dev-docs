@@ -12,7 +12,7 @@ ms.author: adhal
 
 [Azure App Service](/azure/app-service/overview) is a fully managed [platform as a service](https://azure.microsoft.com/overview/what-is-paas/) (PaaS) offering for professional developers. The service brings a rich set of capabilities to web, mobile, and integration scenarios.
 
-The Microsoft Datasync Framework (also known as Azure Mobile Apps) gives enterprise developers and system integrators a mobile-application development platform that's highly scalable and globally available.  Using resources in the Azure cloud, it provides your mobile app with:
+The Microsoft Datasync Framework (also known as Azure Mobile Apps) gives enterprise developers and system integrators a mobile-application development platform that's highly scalable and globally available.  The framework provides your mobile app with:
 
 * Authentication
 * Data query
@@ -20,7 +20,8 @@ The Microsoft Datasync Framework (also known as Azure Mobile Apps) gives enterpr
 
 ![Visual overview of Azure Mobile Apps capabilities](./media/overview.png)
 
-Azure Mobile Apps is designed to work with Azure App Service, but can be run in any ASP.NET Core application runner, such as Azure Container Apps, Azure Kubernetes Service, or locally on Docker Desktop.
+Azure Mobile Apps is designed to work with Azure App Service. Since it is based on ASP.NET 6, it can be also be run as a container in Azure Container Apps or Azure Kubernetes Service.
+
 ## Why Mobile Apps?
 
 With the Mobile Apps SDKs, you can:
@@ -39,7 +40,7 @@ The following features are important to cloud-enabled mobile development:
 
 * **Offline sync**: Build robust and responsive mobile applications that operate with an offline dataset. You can sync this dataset automatically with service, and handle conflicts with ease.
 
-* **Client SDKs**: There is a complete set of client SDKs that cover cross-platform development ([.NET](howto/client/dotnet.md), and [Apache Cordova](howto/client/cordova.md)). Each client SDK is available with an MIT license and is open-source.
+* **Client SDKs**: There's a complete set of client SDKs that cover cross-platform development ([.NET](howto/client/dotnet.md), and [Apache Cordova](howto/client/cordova.md)). Each client SDK is available with an MIT license and is open-source.
 
 ## Azure App Service features
 
@@ -47,7 +48,7 @@ The following platform features are useful for mobile production sites:
 
 * [**Autoscaling**](/azure/app-service/manage-scale-up): With App Service, you can quickly scale up or scale out to handle any incoming customer load. Manually select the number and size of VMs, or set up autoscaling to scale your service based on load or schedule.
 
-* [**Staging environments**](/azure/app-service/deploy-staging-slots): App Service can run multiple versions of your site, so you can perform A/B testing, test in production as part of a larger DevOps plan, and do in-place staging of a new mobile service.
+* [**Staging environments**](/azure/app-service/deploy-staging-slots): App Service can run multiple versions of your site. You can perform A/B testing and do in-place staging of a new mobile service.
 
 * [**Continuous deployment**](/azure/app-service/deploy-continuous-deployment): App Service can integrate with common _source control management_ (SCM) systems, allowing you to easily deploy a new version of your mobile service.
 
