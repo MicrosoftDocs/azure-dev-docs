@@ -1,6 +1,6 @@
 ---
-title: How to use the .NET SDK for Azure Mobile Apps
-description: How to use the .NET SDK for Azure Mobile Apps
+title: How to use the .NET v4.2.0 SDK for Azure Mobile Apps
+description: How to use the .NET v4.2.0 SDK for Azure Mobile Apps
 author: adrianhall
 ms.service: mobile-services
 ms.topic: article
@@ -8,7 +8,7 @@ ms.date: 05/05/2021
 ms.author: adhal
 ---
 
-# How to use the Azure Mobile Apps client library for .NET
+# How to use the Azure Mobile Apps v4.2.0 client library for .NET
 
 This guide shows you how to perform common scenarios using the .NET client library for Azure Mobile Apps.  Use the .NET client library in Windows (WPF, UWP) or Xamarin (Native or Forms) applications.  If you are new to Azure Mobile Apps, consider first completing the [Quickstart for Xamarin.Forms](../../quickstarts/xamarin-forms/index.md) tutorial.  
 

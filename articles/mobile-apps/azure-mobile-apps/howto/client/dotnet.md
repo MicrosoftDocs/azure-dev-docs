@@ -30,8 +30,8 @@ Additional platforms may work (for instance, .NET MAUI), but have not been teste
 
 Add the following libraries from NuGet:
 
-* [Microsoft.Datasync.Client](https://www.nuget.org/packages/Microsoft.Datasync.Client)
-* [Microsoft.Datasync.Client.SQLiteStore](https://www.nuget.org/packages/Microsoft.Datasync.Client.SQLiteStore) if using offline tables.
+* [Microsoft.Datasync.Client]
+* [Microsoft.Datasync.Client.SQLiteStore] if using offline tables.
 
 If using a platform project (for example, Xamarin.Forms), ensure you add the libraries to the platform project as well as any shared project.
 
@@ -168,7 +168,7 @@ await foreach (var item in enumerable)
 }
 ```
 
-In addition, you can use any of the terminating clauses for IAsyncEnumerable from the [System.Linq.Async](https://www.nuget.org/packages/System.Linq.Async/) package:
+In addition, you can use any of the terminating clauses for IAsyncEnumerable from the [System.Linq.Async] package:
 
 ``` csharp
 var items = await remoteTable.ToAsyncEnumerable().ToListAsync();
@@ -385,7 +385,7 @@ Store initialization is normally done immediately after the client is created.  
 * To use an in-memory cache, use `file:inmemory.db?mode=memory&cache=private`.
 * To use a file, use `file:/path/to/file.db`
 
-You must specify the absolute filename for the file.  If using Xamarin, you can use the [Xamarin.Essentials File System Helpers](https://docs.microsoft.com/xamarin/essentials/file-system-helpers?context=xamarin%2Fxamarin-forms&tabs=android) to construct a path: For example:
+You must specify the absolute filename for the file.  If using Xamarin, you can use the [Xamarin.Essentials File System Helpers](/xamarin/essentials/file-system-helpers?context=xamarin%2Fxamarin-forms&tabs=android) to construct a path: For example:
 
 ``` csharp
 var dbPath = $"{Filesystem.AppDataDirectory}/todoitems.db";
@@ -576,11 +576,11 @@ public async Task<AuthenticationToken> GetTokenAsync()
 }
 ```
 
-For more information on integrating the Microsoft Identity Platform with ASP.NET 6, see the [Microsoft Identity Platform](https://docs.microsoft.com/azure/active-directory/develop/v2-overview) documentation.
+For more information on integrating the Microsoft Identity Platform with ASP.NET 6, see the [Microsoft Identity Platform](/azure/active-directory/develop/v2-overview) documentation.
 
 ### Using Xamarin.Essentials WebAuthenticator
 
-For Azure App Service Authentication, you can use the [Xamarin.Essentials WebAuthenticator](https://docs.microsoft.com/xamarin/essentials/web-authenticator) to get a token:
+For Azure App Service Authentication, you can use the [Xamarin.Essentials WebAuthenticator](/xamarin/essentials/web-authenticator) to get a token:
 
 ``` csharp
 Uri authEndpoint = new Uri(client.Endpoint, "/.auth/login/aad");
@@ -692,6 +692,11 @@ public class LoggingHandler : DelegatingHandler
     }
 }
 ```
+
+<!-- NuGet Packages -->
+[Microsoft.Datasync.Client]: https://www.nuget.org/packages/Microsoft.Datasync.Client
+[Microsoft.Datasync.Client.SQLiteStore]: https://www.nuget.org/packages/Microsoft.Datasync.Client.SQLiteStore
+[System.Linq.Async]: https://www.nuget.org/packages/System.Linq.Async/
 
 <!-- DOTNET API References -->
 [DelegatingHandler]: /dotnet/api/system.net.http.delegatinghandler
