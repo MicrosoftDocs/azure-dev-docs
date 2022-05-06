@@ -53,7 +53,7 @@ To learn how to create tables in your Mobile Apps backend, see the [.NET Server 
 
 Right-click your project, press **Manage NuGet Packages**, search for the `Microsoft.Azure.Mobile.Client` package, then press **Install**.  For offline capabilities, install the `Microsoft.Azure.Mobile.Client.SQLiteStore` package as well.
 
-## Create the Mobile Apps client
+## Create the Azure Mobile Apps client
 
 The following code creates the [MobileServiceClient](/dotnet/api/microsoft.windowsazure.mobileservices.mobileserviceclient) object that is used to access your Mobile App backend.
 
@@ -68,22 +68,22 @@ In the preceding code, replace `MOBILE_APP_URL` with the URL of the App Service 
 The following section details how to search and retrieve records and modify the data within the table.  The following
 topics are covered:
 
-* [Create a table reference](#instantiating)
-* [Query data](#querying)
-* [Filter returned data](#filtering)
-* [Sort returned data](#sorting)
-* [Return data in pages](#paging)
-* [Select specific columns](#selecting)
-* [Look up a record by ID](#lookingup)
-* [Dealing with untyped queries](#untypedqueries)
-* [Inserting data](#inserting)
-* Updating data
-* [Deleting data](#deleting)
-* [Conflict Resolution and Optimistic Concurrency](#optimisticconcurrency)
-* [Binding to a Windows User Interface](#binding)
-* [Changing the Page Size](#pagesize)
+* [Create a table reference](#create-a-table-reference)
+* [Query data](#query-data-from-your-mobile-app)
+* [Filter returned data](#filter-returned-data)
+* [Sort returned data](#sort-returned-data)
+* [Return data in pages](#return-data-in-pages)
+* [Select specific columns](#select-specific-columns)
+* [Look up a record by ID](#look-up-a-record-by-id)
+* [Execute untyped queries](#execute-untyped-queries)
+* [Insert data](#insert-data)
+* [Update data](#update-data)
+* [Delete data](#delete-data)
+* [Conflict resolution and optimistic concurrency](#conflict-resolution-and-optimistic-concurrency)
+* [Bind data to a Windows user interface](#bind-data-to-a-windows-user-interface)
+* [Change the page size](#change-the-page-size)
 
-### <a id="instantiating"></a>Create a table reference
+### Create a table reference
 
 All the code that accesses or modifies data in a backend table calls functions on the `MobileServiceTable` object. Obtain a reference to the table by calling the [GetTable](/dotnet/api/microsoft.windowsazure.mobileservices.mobileserviceclient.gettable) method, as follows:
 
@@ -100,20 +100,20 @@ IMobileServiceTable untypedTodoTable = client.GetTable("TodoItem");
 
 In untyped queries, you must specify the underlying OData query string.
 
-### <a id="querying"></a>Query data from your Mobile App
+### Query data from your mobile app
 
 This section describes how to issue queries to the Mobile App backend, which includes the following functionality:
 
-* [Filter returned data](#filtering)
-* [Sort returned data](#sorting)
-* [Return data in pages](#paging)
-* [Select specific columns](#selecting)
-* [Look up data by ID](#lookingup)
+* [Filter returned data](#filter-returned-data)
+* [Sort returned data](#sort-returned-data)
+* [Return data in pages](#return-data-in-pages)
+* [Select specific columns](#select-specific-columns)
+* [Look up a record by ID](#look-up-a-record-by-id)
 
 > [!NOTE]
 > A server-driven page size is enforced to prevent all rows from being returned.  Paging keeps default requests for large data sets from negatively impacting the service.  To return more than 50 rows, use the `Skip` and `Take` method, as described in [Return data in pages](#paging).
 
-### <a id="filtering"></a>Filter returned data
+### Filter returned data
 
 The following code illustrates how to filter data by including a `Where` clause in a query. It returns all items from `todoTable` whose `Complete` property is equal to `false`. The [Where](/dotnet/api/microsoft.windowsazure.mobileservices.imobileservicetablequery-1.where) function applies a row filtering predicate to the query against the table.
 
@@ -180,7 +180,7 @@ The `Where` clause supports operations that be translated into the OData subset.
 
 When considering what the Server SDK supports, you can consider the [OData v3 Documentation](https://www.odata.org/documentation/odata-version-3-0/).
 
-### <a id="sorting"></a>Sort returned data
+### Sort returned data
 
 The following code illustrates how to sort data by including an [OrderBy](/dotnet/api/microsoft.windowsazure.mobileservices.imobileservicetablequery-1.orderby) or [OrderByDescending](/dotnet/api/microsoft.windowsazure.mobileservices.imobileservicetablequery-1.orderbydescending) function in the query. It returns items from `todoTable` sorted ascending by the `Text` field.
 
@@ -196,7 +196,7 @@ MobileServiceTableQuery<TodoItem> query = todoTable
 List<TodoItem> items = await query.ToListAsync();
 ```
 
-### <a id="paging"></a>Return data in pages
+### Return data in pages
 
 By default, the backend returns only the first 50 rows. You can increase the number of returned rows by calling the [Take](/dotnet/api/microsoft.windowsazure.mobileservices.imobileservicetablequery-1.take) method. Use `Take` along with the [Skip](/dotnet/api/microsoft.windowsazure.mobileservices.imobileservicetablequery-1.skip) method to request a specific "page" of the total dataset returned by the query. The following query, when executed, returns the top three items in the table.
 
@@ -230,7 +230,7 @@ navigate between pages.
 > `[EnableQuery(MaxTop=1000)]`
 
 
-### <a id="selecting"></a>Select specific columns
+### Select specific columns
 
 You can specify which set of properties to include in the results by adding a [Select](/dotnet/api/microsoft.windowsazure.mobileservices.imobileservicetablequery-1.select) clause to your query. For example, the following code shows how to select just one field and also how to select and format multiple fields:
 
@@ -259,7 +259,7 @@ MobileServiceTableQuery<TodoItem> query = todoTable
 List<string> items = await query.ToListAsync();
 ```
 
-### <a id="lookingup"></a>Look up data by ID
+### Look up data by ID
 
 The [LookupAsync](/dotnet/api/microsoft.windowsazure.mobileservices.imobileservicetable.lookupasync) function can be used to look up objects from the database with a particular ID.
 
@@ -268,7 +268,7 @@ The [LookupAsync](/dotnet/api/microsoft.windowsazure.mobileservices.imobileservi
 TodoItem item = await todoTable.LookupAsync("37BBF396-11F0-4B39-85C8-B319C729AF6D");
 ```
 
-### <a id="untypedqueries"></a>Execute untyped queries
+### Execute untyped queries
 When executing a query using an untyped table object, you must explicitly specify the OData query string by calling [ReadAsync](/dotnet/api/microsoft.windowsazure.mobileservices.imobileservicetable.readasync), as in the following example:
 
 ```csharp
@@ -278,7 +278,7 @@ JToken untypedItems = await untypedTodoTable.ReadAsync("$filter=complete eq 0&$o
 
 You get back JSON values that you can use like a property bag. For more information on `JToken` and Newtonsoft Json, see the [Newtonsoft JSON](https://www.newtonsoft.com/json) site.
 
-### <a id="inserting"></a>Insert data into a Mobile App backend
+### Insert data
 
 All client types must contain a member named **Id**, which is by default a string. This **Id** is required to perform CRUD operations and for offline sync. The following code illustrates how to use the [InsertAsync](/dotnet/api/microsoft.windowsazure.mobileservices.imobileservicetable.insertasync) method to insert new rows into a table. The parameter contains the data to be inserted as a .NET object.
 
@@ -322,7 +322,7 @@ JObject jo = new JObject();
 jo.Add("id", Guid.NewGuid().ToString("N"));
 ```
 
-### <a id="modifying"></a>Modify data in a Mobile App backend
+### Update data
 
 The following code illustrates how to use the [UpdateAsync](/dotnet/api/microsoft.windowsazure.mobileservices.imobileservicetable.updateasync) method to update an existing record with the same ID with new information. The parameter contains the data to be updated as a .NET object.
 
@@ -342,7 +342,7 @@ var inserted = await table.UpdateAsync(jo);
 
 An `id` field must be specified when making an update. The backend uses the `id` field to identify which row to update. The `id` field can be obtained from the result of the `InsertAsync` call. An `ArgumentException` is raised if you try to update an item without providing the `id` value.
 
-### <a id="deleting"></a>Delete data in a Mobile App backend
+### Delete data
 
 The following code illustrates how to use the [DeleteAsync](/dotnet/api/microsoft.windowsazure.mobileservices.imobileservicetable.deleteasync) method to delete an existing instance. The instance is identified by the `id` field set on the `todoItem`.
 
@@ -360,7 +360,7 @@ await table.DeleteAsync(jo);
 
 When you make a delete request, an ID must be specified. Other properties are not passed to the service or are ignored at the service. The result of a `DeleteAsync` call is usually `null`. The ID to pass in can be obtained from the result of the `InsertAsync` call. A `MobileServiceInvalidOperationException` is thrown when you try to delete an item without specifying the `id` field.
 
-### <a id="optimisticconcurrency"></a>Use Optimistic Concurrency for conflict resolution
+### Conflict resolution and optimistic concurrency
 
 Two or more clients may write changes to the same item at the same time. Without conflict detection, the last write would overwrite any previous updates. **Optimistic concurrency control** assumes that each transaction can commit and therefore does not use any resource locking.  Before committing a transaction, optimistic concurrency control verifies that no other transaction has modified the data. If the data has been modified, the committing transaction is rolled back.
 
@@ -452,7 +452,7 @@ private async Task ResolveConflict(TodoItem localItem, TodoItem serverItem)
 
 For more information, see the [Offline Data Sync in Azure Mobile Apps](../data-sync.md) topic.
 
-### <a id="binding"></a>Bind Mobile Apps data to a Windows user interface
+### Bind data to a Windows user interface
 
 This section shows how to display returned data objects using UI elements in a Windows app.  The following example code binds to the source of the list with a query for incomplete items. The [MobileServiceCollection](/dotnet/api/microsoft.windowsazure.mobileservices.mobileservicecollection-2) creates a Mobile Apps-aware binding collection.
 
@@ -489,9 +489,9 @@ await items.LoadMoreItemsAsync();
 
 When you use the collection created by calling `ToCollectionAsync` or `ToCollection`, you get a collection that can be bound to UI controls.  This collection is paging-aware.  Since the collection is loading data from the network, loading sometimes fails. To handle such failures, override the `OnException` method on `MobileServiceIncrementalLoadingCollection` to handle exceptions resulting from calls to `LoadMoreItemsAsync`.
 
-Consider if your table has many fields but you only want to display some of them in your control. You may use the guidance in the preceding section "[Select specific columns](#selecting)" to select specific columns to display in the UI.
+Consider if your table has many fields but you only want to display some of them in your control. You may use the guidance in the preceding section "[Select specific columns](#select-specific-columns)" to select specific columns to display in the UI.
 
-### <a id="pagesize"></a>Change the Page size
+### Change the page size
 
 Azure Mobile Apps returns a maximum of 50 items per request by default.  You can change the paging size by increasing the maximum page size on both the client and server.  To increase the requested page size, specify `PullOptions` when using `PullAsync()`:
 
@@ -504,7 +504,7 @@ PullOptions pullOptions = new PullOptions
 
 Assuming you have made the `PageSize` equal to or greater than 100 within the server, a request returns up to 100 items.
 
-## <a id="#offlinesync"></a>Work with Offline Tables
+## Work with offline tables
 
 Offline tables use a local SQLite store to store data for use when offline.  All table operations are done against the local SQLite store instead of the remote server store.  To create an offline table, first prepare your project.
 
@@ -535,7 +535,7 @@ var table = client.GetSyncTable<TodoItem>();
 
 You do not need to authenticate to use an offline table.  You only need to authenticate when you are communicating with the backend service.
 
-### <a id="syncoffline"></a>Syncing an Offline Table
+### Synchronize an offline table
 
 Offline tables are not synchronized with the backend by default.  Synchronization is split into two pieces.  You can push changes separately from downloading new items.  Here is a typical sync method:
 
@@ -591,7 +591,7 @@ The SDK performs an implicit `PushAsync()` before pulling records.
 
 Conflict handling happens on a `PullAsync()` method.  You can deal with conflicts in the same way as online tables.  The conflict is produced when `PullAsync()` is called instead of during the insert, update, or delete. If multiple conflicts happen, they are bundled into a single MobileServicePushFailedException.  Handle each failure separately.
 
-## <a id="customapi"></a>Work with a custom API
+## Work with a custom API
 
 A custom API enables you to define custom endpoints that expose server functionality that does not map to an insert, update, delete, or read operation. By using a custom API, you can have more control over messaging, including reading and setting HTTP message headers and defining a message body format other than JSON.
 
@@ -610,7 +610,7 @@ The InvokeApiAsync() method prepends '/api/' to the API that you wish to call un
 
 You can use InvokeApiAsync to call any WebAPI, including those WebAPIs that are not defined with Azure Mobile Apps.  When you use InvokeApiAsync(), the appropriate headers, including authentication headers, are sent with the request.
 
-## <a id="authentication"></a>Authenticate users
+## Authenticate users
 
 Mobile Apps supports authenticating and authorizing app users using various external identity providers: Facebook, Google, Microsoft Account, Twitter, and Azure Active Directory. You can set permissions on tables to restrict access for specific operations to only authenticated users. You can also use the identity of authenticated users to implement authorization rules in server scripts. 
 
@@ -623,20 +623,20 @@ To set up authentication, you must register your app with one or more identity p
 
 The following topics are covered in this section:
 
-* [Client-managed authentication](#clientflow)
-* [Server-managed authentication](#serverflow)
-* [Caching the authentication token](#caching)
+* [Client-managed authentication](#client-managed-authentication)
+* [Server-managed authentication](#server-managed-authentication)
+* [Caching the authentication token](#caching-the-authentication-token)
 
-### <a id="clientflow"></a>Client-managed authentication
+### Client-managed authentication
 
 Your app can independently contact the identity provider and then provide the returned token during sign-in with your backend. This client flow enables you to provide a single sign-on experience for users or to retrieve extra user data from the identity provider. Client flow authentication is preferred to using a server flow as the identity provider SDK provides a more native UX feel and allows for more customization.
 
 Examples are provided for the following client-flow authentication patterns:
 
-* [Active Directory Authentication Library](#adal)
-* [Facebook or Google](#client-facebook)
+* [Active Directory Authentication Library](#authenticate-users-with-the-active-directory-authentication-library)
+* [Facebook or Google](#single-sign-on-using-a-token-from-facebook-or-google)
 
-#### <a id="adal"></a>Authenticate users with the Active Directory Authentication Library
+#### Authenticate users with the Active Directory Authentication Library
 
 You can use the Active Directory Authentication Library (ADAL) to initiate user authentication from the client using Azure Active Directory authentication.
 
@@ -755,7 +755,7 @@ You can use the Active Directory Authentication Library (ADAL) to initiate user 
      }
      ```
 
-#### <a id="client-facebook"></a>Single Sign-On using a token from Facebook or Google
+#### Single sign-on using a token from Facebook or Google
 
 You can use the client flow as shown in this snippet for Facebook or Google.
 
@@ -790,7 +790,7 @@ private async Task AuthenticateAsync()
 }
 ```
 
-### <a id="serverflow"></a>Server-managed authentication
+### Server-managed authentication
 
 Once you have registered your identity provider, call the [LoginAsync](/dotnet/api/microsoft.windowsazure.mobileservices.mobileserviceclient.loginasync) method on the MobileServiceClient with the [MobileServiceAuthenticationProvider](/dotnet/api/microsoft.windowsazure.mobileservices.mobileserviceauthenticationprovider) value of your provider. For example, the following code initiates a server flow sign-in by using Facebook.
 
@@ -822,13 +822,13 @@ private async System.Threading.Tasks.Task Authenticate()
 
 If you are using an identity provider other than Facebook, change the value of MobileServiceAuthenticationProvider to the value for your provider.
 
-In a server flow, Azure App Service manages the OAuth authentication flow by displaying the sign-in page of the selected provider.  Once the identity provider returns, Azure App Service generates an App Service authentication token. The [LoginAsync](/dotnet/api/microsoft.windowsazure.mobileservices.mobileserviceclient.loginasync) method returns a [MobileServiceUser](/dotnet/api/microsoft.windowsazure.mobileservices.mobileserviceuser), which provides both the UserId of the authenticated user and the MobileServiceAuthenticationToken, as a JSON web token (JWT). This token can be cached and reused until it expires. For more information, see [Caching the authentication token](#caching).
+In a server flow, Azure App Service manages the OAuth authentication flow by displaying the sign-in page of the selected provider.  Once the identity provider returns, Azure App Service generates an App Service authentication token. The [LoginAsync](/dotnet/api/microsoft.windowsazure.mobileservices.mobileserviceclient.loginasync) method returns a [MobileServiceUser](/dotnet/api/microsoft.windowsazure.mobileservices.mobileserviceuser), which provides both the UserId of the authenticated user and the MobileServiceAuthenticationToken, as a JSON web token (JWT). This token can be cached and reused until it expires. For more information, see [Caching the authentication token](#caching-the-authentication-token).
 
 > [!NOTE]
 > Under the covers, Azure Mobile Apps uses a [Xamarin.Essentials](/xamarin/essentials/web-authenticator?tabs=ios) WebAuthenticator 
 > to do the work.  You must handle the response from the service by calling back into Xamarin.Essentials.  For details, see [WebAuthenticator].
 
-### <a id="caching"></a>Caching the authentication token
+### Caching the authentication token
 
 In some cases, the call to the login method can be avoided after the first successful authentication by storing the authentication token from the provider.  Microsoft Store and UWP apps can use [PasswordVault](/uwp/api/Windows.Security.Credentials.PasswordVault) to cache the current authentication token after a successful sign-in, as follows:
 
@@ -876,9 +876,9 @@ token.Add("access_token", "<your_access_token_value>");
 await client.LoginAsync(MobileServiceAuthenticationProvider.Facebook, token);
 ```
 
-## <a id="misc"></a>Miscellaneous Topics
+## Miscellaneous Topics
 
-### <a id="errors"></a>Handle errors
+### Handle errors
 
 When an error occurs in the backend, the client SDK raises a `MobileServiceInvalidOperationException`.  The following example shows how to handle an exception that is returned by the backend:
 
@@ -899,7 +899,7 @@ private async void InsertTodoItem(TodoItem todoItem)
 }
 ```
 
-### <a id="headers"></a>Customize request headers
+### Customize request headers
 
 To support your specific app scenario, you might need to customize communication with the Mobile App backend. For example, you may want to add a custom header to every outgoing request or even change responses status codes. You can use a custom [DelegatingHandler](/dotnet/api/system.net.http.delegatinghandler), as in the following example:
 
