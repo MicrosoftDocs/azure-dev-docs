@@ -102,50 +102,12 @@ To help with monitoring applications, the Azure Dev CLI provides a `monitor` com
 
 #### Run and Debug Locally
 
-The easiest way to run and debug is to leverage the Azure Developer CLI Visual Studio Code Extension. Refer to this [walkthrough](https://aka.ms/azure-dev/vscode) for more details.  
+The easiest way to run and debug is to leverage the Azure Developer CLI Visual Studio Code Extension. Refer to this [walkthrough](how-to-use-vscode-extension-to-debug-locally.md) for more details.  
 
 ### Additional azd commands
 
-Here is a quick list of commonly used `azd` command. For a complete list of available commands please refer to the [azd overview](https://aka.ms/azure-dev/overview).
+For a complete list of available commands please refer to the [azd overview](azure-dev-cli-ref.md).
 
-#### `init`
+## Troubleshooting/Known issues
 
-Gets a local copy of a specific repository if `--template` is specified and initializes the project:
-
-```bash
-azd init --template todo-nodejs-mongo
-```
-
-> NOTE: All project configuration settings are stored in the `.azure/{environment name}/.env` file.
-
-#### `infra delete`
-
-Deletes all the resources created on Azure.
-
-```bash
-azd infra delete
-```
-
-#### `provision` aka `infra create`
-
-Creates all the necessary Azure resources for the template.
-
-```bash
-azd provision
-```
-
-#### `deploy`
-
-Deploys the application.
-
-```bash
-azd deploy
-```
-
-#### `infra delete`
-
-Deletes Azure resources.
-
-```bash
-azd infra delete
-```
+Refer to [Troubleshooting/known issues](azure-dev-cli-known-issues.md) 
