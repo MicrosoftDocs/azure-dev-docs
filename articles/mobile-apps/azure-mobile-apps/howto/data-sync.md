@@ -15,7 +15,7 @@ Offline data sync is an SDK feature of Azure Mobile Apps. Data is stored in a lo
 Offline sync has several benefits:
 
 * Improves app responsiveness.
-* Improves app reliability when there is bad network connectivity.
+* Improves app reliability when there's bad network connectivity.
 * Limits network use on high-latency or metered networks.
 * Supports disconnected use.
 
@@ -37,7 +37,7 @@ A local store is the data persistence layer on the client device. Most platforms
 
 ## How offline sync works
 
-Your client code controls when local changes are synchronized with a datasync service. Nothing is sent to the service until there you *push* local changes. Similarly, the local store is populated with new data only when you *pull* data.
+Your client code controls when local changes are synchronized with a data sync service. Nothing is sent to the service until there you *push* local changes. Similarly, the local store is populated with new data only when you *pull* data.
 
 You can push pending operations for all tables, a list of tables, or one table:
 
@@ -55,7 +55,7 @@ await table.PushItemsAsync();
 
 ### Synchronization
 
-The push operation sends all pending changes in the operations queue to the service.  The pending change is sent to the service using a HTTP REST call, which in turn modifies your database.  Push operations are done before any pull operations.  The pull operation pulls changed data from the service and stores it in the local store.
+The push operation sends all pending changes in the operations queue to the service.  The pending change is sent to the service using an HTTP REST call, which in turn modifies your database.  Push operations are done before any pull operations.  The pull operation pulls changed data from the service and stores it in the local store.
 
 ### Implicit Push
 
@@ -63,10 +63,10 @@ If a pull is executed against a table that has pending local updates, the pull f
 
 ### Incremental Sync
 
-The Datasync Framework implements "incremental sync".  For each unique query, the `UpdatedAt` field of the last successfully transferred record is stored as a token in the offline store.  When successive pull operations are run, only the records since the token are retrieved.
+The Datasync Framework implements "incremental sync".  For each unique query, the `UpdatedAt` field of the last successfully transferred record is stored as a token in the offline store.  Only new records are pulled on successive operations.
 
 ### Purging
 
 You can clear the contents of the local store using `IOfflineTable<T>.PurgeAsync`. Purging may be necessary if you have stale data in the client database, or if you wish to discard all pending changes.
 
-A purge clears a table from the local store.  You will receive an error if purging will remove unsent changes. If you receive an error, you can *force purge* using a parameter.
+A purge clears a table from the local store.  You'll receive an error if purging will remove unsent changes. If you receive an error, you can *force purge* using a parameter.
