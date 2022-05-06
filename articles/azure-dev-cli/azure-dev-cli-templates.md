@@ -22,11 +22,11 @@ Each repo contains a complete sample ToDo application with a web frontend built 
 
 | Template      | Compute Service | Language (API layer) | Tech Stack	 | Link	
 | ----------- | ----------| ----------- | --- | --- | 
-| ToDo NodeJs Mongo | Azure App Service | Node.js | Azure CosmosDB API for Mongo, Azure Monitor | https://github.com/azure-samples/todo-nodejs-mongo | 
-| ToDo Python Mongo | Azure App Service | Python (FastAPI) | Azure CosmosDB API for Mongo, Azure Monitor  | https://github.com/azure-samples/todo-python-mongo | 
-| ToDo C# Mongo | Azure App Service | C# | Azure CosmosDB API for Mongo, Azure Monitor | \<coming soon\> |
+| ToDo NodeJs Mongo | Azure App Service | Node.js | Azure Cosmos DB API for Mongo, Azure Monitor | https://github.com/azure-samples/todo-nodejs-mongo | 
+| ToDo Python Mongo | Azure App Service | Python (FastAPI) | Azure Cosmos DB API for Mongo, Azure Monitor  | https://github.com/azure-samples/todo-python-mongo | 
+| ToDo C# Mongo | Azure App Service | C# | Azure Cosmos DB API for Mongo, Azure Monitor | \<coming soon\> |
 | ToDo C# Azure SQL | Azure App Service | C# | Azure SQL, Azure Monitor | \<coming soon\> |
-| ToDo C# Cosmos DB (SQL) | Azure App Service |  C# | Azure CosmosDB SQL API, Azure Monitor | \<coming soon\> |
-| ToDo NodeJs Mongo ACA | Azure Container Apps | Node.js | Azure CosmosDB API for Mongo, Azure Monitor | https://github.com/azure-samples/todo-nodejs-mongo-aca | 
-| ToDo Python Mongo ACA | Azure Container Apps | Python (FastAPI)|  Azure CosmosDB API for Mongo, Azure Monitor | https://github.com/azure-samples/todo-python-mongo-aca | 
+| ToDo C# Cosmos DB (SQL) | Azure App Service |  C# | Azure Cosmos DB SQL API, Azure Monitor | \<coming soon\> |
+| ToDo NodeJs Mongo ACA | Azure Container Apps | Node.js | Azure Cosmos DB API for Mongo, Azure Monitor | https://github.com/azure-samples/todo-nodejs-mongo-aca | 
+| ToDo Python Mongo ACA | Azure Container Apps | Python (FastAPI)|  Azure Cosmos DB API for Mongo, Azure Monitor | https://github.com/azure-samples/todo-python-mongo-aca | 
 

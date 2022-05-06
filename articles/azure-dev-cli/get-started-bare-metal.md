@@ -2,37 +2,39 @@
 title: Get started with Azure Developer CLI using bare metal set up
 description: Learn how to get started with Azure Developer CLI using bare metal set up
 keywords: 
-ms.author: puichan
+ms.author: puicchan
 ms.date: 5/5/2022
 ms.topic: article
 ms.custom: devx-track-azdev
 ms.prod: azure
 ---
 
-# Get started with cloud development using Java on Azure
-## Setup
+# Install the Azure Developer CLI
 
-To run this project, the first thing you need to do is decide where you want your development environment to be hosted.  
+Before you get started, ensure you have the following tools installed on your local machine:
 
-You have the following options:
+- [Git](https://git-scm.com/)
+- [GitHub CLI v2.3+](https://github.com/cli/cli)
+- [Azure CLI (v 2.30.0+)](/cli/azure/install-azure-cli)
+- Azure Dev CLI (see install instructions below)
 
-|Environment|Description|Pros|Cons|
-|---|---|---|---|
-|**[VS Code Remote - Containers](https://code.visualstudio.com/docs/remote/containers)**|Container with all dependencies installed and run on your local machine.|Other than VS Code, Docker, and the Remote Containers VS Code extension, all dependencies are installed for you in the DevContainer.|Linux containers only, but can run on Windows host. You need to clone the repository. The container initialization can take a long time.|
-|**[GitHub Codespaces](https://github.com/features/codespaces)**|Container with all dependencies installed and run on GitHub.com in the browser.|All dependencies installed and you don't need to clone the code locally.|Linux containers only. Some features and functionality may not be supported. The container initialization can take a long time.|
-|**Bare Metal**|**Not** in a container, dependencies are manually installed by you, and the project is run on your local machine.|You control all dependencies. You may already have some of the dependencies installed. You don't need Docker installed.|You have to manually install all dependencies.|
+```bash
+npm uninstall -g @azure/az-dev-cli
+npm install -g https://azuresdkreleasepreview.blob.core.windows.net/azd/standalone/latest/azure-az-dev-cli-latest.tgz
+```
 
-Once you have decided which development environment is right for you, expand one of the sections below for the setup steps.
+> [!NOTE]
+> May require `sudo` depending on platform and configuration
 
 
 ## Explore more samples
 
-To learn more about how to use the Azure management libraries for Java to manage resources and automate tasks, see our sample code for [virtual machines](virtual-machine-samples.md), [web apps](web-apps-samples.md), and [SQL database](sql-database-samples.md).
+To learn more about how to use the Azure Developer CLI, see our [sample templates](azure-dev-cli-templates.md).
 
 ## Reference and release notes
 
-A [reference](/java/api) is available for all packages.
+A [reference](azure-cli-ref) is available.
 
 ## Get help and give feedback
 
-Post questions to the community on [Stack Overflow](https://stackoverflow.com/questions/tagged/azure+java). Report bugs and open issues against the Azure SDK for Java in the [GitHub repository](https://github.com/Azure/azure-sdk-for-java).
+Post questions to the community on [Discussions](https://github.com/Azure/azure-dev/discussions). Report bugs and open issues against the Azure Developer CLI in the [GitHub repository](https://github.com/Azure/azure-dev).

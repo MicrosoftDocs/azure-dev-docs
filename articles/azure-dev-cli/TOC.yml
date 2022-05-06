@@ -11,22 +11,17 @@
   - name: Frequently asked questions
     href: azure-dev-cli-faq.yml   
     displayName: frequently asked questions
-- name: Install
-  items:
-  - name: Install CLI
-    href: install-azure-dev-cli.md
-    displayname: install, windows, macos, linux 
-  - name: Install the VS Code extention
-    href: install-azure-dev-cli-vscode-ext.md
-    displayname: install, windows, macos, linux 
 - name: Get started
   items:
   - name: Get Starter Overview
     href: get-started.md
     displayname: get started overview, bare metal, dev container
-  - name: Get Starter using bare metal
+  - name: Get starter using bare metal setup
     href: get-started-bare-metal.md
-    displayname: get started, bare metal
+    displayname: get started, bare metal, install, windows, macos, linux 
+  - name: Get started using VS Code
+    href: get-started-vscode-ext.md
+    displayname: get started, install, windows, macos, linux 
 - name: Samples
   items:
   - name: List of Azure Developer CLI Azure samples

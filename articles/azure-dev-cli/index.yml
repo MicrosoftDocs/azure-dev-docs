@@ -17,17 +17,9 @@ metadata:
   ms.custom: devx-track-azdev
 
 landingContent:
-  - title: Install the Azure Developer CLI
+  - title:  Azure Dev CLI 
     linkLists:
-      - linkListType: download
-        links:
-          - text: Installation overview
-            url: install-azure-dev-cli.md
-          - text: Install VS Code extension
-            url: install-azure-dev-cli-vscode-ext.md
-  - title:  Learn Azure Dev CLI features
-    linkLists:
-      - linkListType: get-started
+      - linkListType: learn
         links:
           - text: What is Azure Developer CLI
             url: azure-dev-cli-overview.md
@@ -41,6 +33,16 @@ landingContent:
             url: how-to-devify-a-project.md
           - text: Debug and run locally using Visual Studio Code
             url: how-to-use-vscode-extension-to-debug-locally.md     
+  - title: Get started
+    linkLists:
+      - linkListType: get-started
+        links:
+          - text: Get started overview
+            url: get-started.md
+          - text: Get started using bare metal setup
+            url: get-started.md
+          - text: Get started using Visual Studio Code
+            url: get-started-vscode-ext.md
       - linkListType: quickstart
         links:
           - text: List of Azure Developer CLI Azure samples
@@ -48,7 +50,7 @@ landingContent:
           - text: Todo Application with Node.js Cosmos DB (Mongo)
             url: https://github.com/azure-samples/todo-nodejs-mongo     
           - text: Todo Application with Python Cosmos DB (Mongo)
-            url: https://github.com/azure-samples/todo-python-mongo     
+            url: https://github.com/azure-samples/todo-python-mongo
   - title: Azure Developer CLI reference
     linkLists:
       - linkListType: reference
