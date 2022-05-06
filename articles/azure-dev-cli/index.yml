@@ -40,9 +40,7 @@ landingContent:
           - text: Get started overview
             url: get-started.md
           - text: Get started using bare metal setup
-            url: get-started.md
-          - text: Get started using Visual Studio Code
-            url: get-started-vscode-ext.md
+            url: get-started-bare-metal.md
       - linkListType: quickstart
         links:
           - text: List of Azure Developer CLI Azure samples
