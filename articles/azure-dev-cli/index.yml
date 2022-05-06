@@ -27,6 +27,8 @@ landingContent:
             url: azure-dev-cli-lang-and-service-list.md                
           - text: Azure Developer CLI FAQ
             url: azure-dev-cli-faq.yml   
+          - text: Azure Developer CLI known issues
+            url: azure-dev-cli-known-issues.yml               
       - linkListType: how-to-guide
         links:
           - text: Dev-ify a project

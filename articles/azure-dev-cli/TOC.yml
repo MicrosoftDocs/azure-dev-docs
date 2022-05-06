@@ -8,9 +8,9 @@
   - name: Language and host (Azure compute service) list
     href: azure-dev-cli-lang-and-service-list.md   
     displayName: list, langugae, Azure services
-  - name: Frequently asked questions
-    href: azure-dev-cli-faq.yml   
-    displayName: frequently asked questions
+  - name: Known issues
+    href: azure-dev-cli-known-issues.yml   
+    displayName: troubleshooting, known issues
 - name: Get started
   items:
   - name: Get Starter Overview
@@ -37,5 +37,5 @@
     href: how-to-devify-a-project.md
 - name: Reference 
   items:
-  - name: TBA
-    href: azure-cli-reference-for-cosmos-db.md
+  - name: Reference
+    href: azure-dev-cli-ref.md
