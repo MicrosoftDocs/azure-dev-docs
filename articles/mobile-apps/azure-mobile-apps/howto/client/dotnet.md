@@ -419,7 +419,7 @@ public async Task SyncAsync()
             await offlineTable.PullItemsAsync("", options);
         }
     }
-    catch (MobileServicePushFailedException exc)
+    catch (PushFailedException exc)
     {
         if (exc.PushResult != null)
         {
@@ -427,13 +427,12 @@ public async Task SyncAsync()
         }
     }
 
-    // Simple error/conflict handling. A real application would handle the various errors like network conditions,
-    // server conflicts and others via the IMobileServiceSyncHandler.
+    // Simple error/conflict handling
     if (syncErrors != null)
     {
         foreach (var error in syncErrors)
         {
-            if (error.OperationKind == MobileServiceTableOperationKind.Update && error.Result != null)
+            if (error.OperationKind == TableOperationKind.Update && error.Result != null)
             {
                 //Update failed, reverting to server's copy.
                 await error.CancelAndUpdateItemAsync(error.Result);
@@ -478,6 +477,28 @@ To push changes for a subset of tables, provide an `IEnumerable<string>` to the 
 var tablesToPush = new string[] { "TodoItem", "Notes" };
 await client.PushTables(tablesToPush);
 ```
+
+### Running complex SQLite queries
+
+If you need to do complex SQL queries against the offline database, you can do so using the `ExecuteQueryAsync()` method.  This
+is useful if you want to do SQL JOIN between tables on the offline tables.  To do this, you need to define the form of the data
+being returned.  For example:
+
+``` csharp
+var definition = new JObject() 
+{
+    { "id", string.Empty },
+    { "title", string.Empty },
+    { "first_name", string.Empty },
+    { "last_name", string.Empty }
+};
+var sqlStatement = "SELECT b.id as id, b.title as title, a.first_name as first_name, a.last_name as last_name FROM books b INNER JOIN authors a ON b.author_id = a.id ORDER BY b.id";
+
+var items = await store.ExecuteQueryAsync(definition, sqlStatement, parameters);
+// Items is an IList<JObject> where each JObject conforms to the definition.
+```
+
+The definition is a set of key/values.  The keys must match the field names being returned by the SQL statement, and the values must be the default value of the type expected.  Use `0L` for numbers (long), `false` for booleans, and a string for everything else.  SQLite has a very restrictive set of types to work with.  Date/times are stored as a numeric value (as ms since the epoch) for comparison.
 
 ## <a id="authentication"></a>Authenticate users
 
