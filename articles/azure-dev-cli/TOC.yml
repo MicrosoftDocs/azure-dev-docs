@@ -16,7 +16,7 @@
   - name: Get Starter Overview
     href: get-started.md
     displayname: get started overview, bare metal, dev container
-  - name: Get starter using bare metal setup
+  - name: Get started using bare metal setup
     href: get-started-bare-metal.md
     displayname: get started, bare metal, install, windows, macos, linux 
   - name: Get started using VS Code

@@ -9,7 +9,7 @@ ms.custom: devx-track-azdev
 ms.prod: azure
 ---
 
-# Install the Azure Developer CLI
+# Get started with bare metal set up
 
 Before you get started, ensure you have the following tools installed on your local machine:
 
@@ -22,10 +22,17 @@ Before you get started, ensure you have the following tools installed on your lo
 npm uninstall -g @azure/az-dev-cli
 npm install -g https://azuresdkreleasepreview.blob.core.windows.net/azd/standalone/latest/azure-az-dev-cli-latest.tgz
 ```
-
 > [!NOTE]
 > May require `sudo` depending on platform and configuration
 
+We will use the [Todo Application with Node.js and Cosmo DB (Mongo DB)(https://github.com/azure-samples/todo-nodejs-mongo)] for this article, make sure you have the following language specific pre-requisite installed on your local machine:
+- [Node.js with npm (v 16.13.1 LTS)](https://nodejs.org/)
+
+> [!Note] You can refer to the DevContainer dependencies in the readme of each [sample template](azure-dev-cli-templates.md) for additional tools needed by the sample application.
+
+[!INCLUDE [azd-quickstart](includes/azd-quickstart.md)]
+
+[!INCLUDE [azd-knownissues](azd-knownissues.md)]
 
 ## Explore more samples
 
