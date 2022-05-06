@@ -31,9 +31,9 @@ We will use the [Todo Application with Node.js and Azure Cosmo DB API for MongoD
 > [!NOTE] 
 > You can refer to the DevContainer dependencies in the readme of each [sample template](azure-dev-cli-templates.md) for additional tools needed by the sample application.
 
-[!INCLUDE [azd-quickstart](includes/azd-quickstart.md)
+[!INCLUDE [azd-quickstart](includes/azd-quickstart.md)]
 
-[!INCLUDE [azd-knownissues](includes/azd-knownissues.md)
+[!INCLUDE [azd-knownissues](includes/azd-knownissues.md)]
 
 ## Explore more samples
 
