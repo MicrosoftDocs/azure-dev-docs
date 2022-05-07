@@ -22,7 +22,7 @@ ms.prod: azure-mobile-apps
 
 The samples are located in the *samples* folder within the extracted files.  The sample for the quick start is named `TodoApp`.  You can open the sample in Visual Studio by double-clicking the `TodoApp.sln` file.
 
-  ![The TodoApp.sln file](~/mobile-apps/azure-mobile-apps/media/quickstart/windows/download-sample-sln.png)
+  ![The TodoApp.sln file](~/mobile-apps/azure-mobile-apps/media/quickstart/windows/deploy-sample-sln.png)
 
 <!-- Links -->
 [azure-mobile-apps repository]: https://github.com/azure/azure-mobile-apps/

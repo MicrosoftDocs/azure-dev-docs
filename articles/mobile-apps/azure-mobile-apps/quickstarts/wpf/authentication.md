@@ -17,7 +17,7 @@ In this tutorial, you add Microsoft authentication to the TodoApp project using 
 
 [!INCLUDE [Register with AAD for the backend](~/mobile-apps/azure-mobile-apps/includes/quickstart/common/register-aad-backend.md)]
 
-[!INCLUDE [Configure the service for authentication](~/mobile-apps/azure-mobile-apps/includes/quickstarts/windows/configure-auth-backend.md)]
+[!INCLUDE [Configure the service for authentication](~/mobile-apps/azure-mobile-apps/includes/quickstart/windows/configure-auth-backend.md)]
 
 ## Add authentication to the app
 

@@ -18,7 +18,7 @@ You must complete this tutorial before all other Windows (WPF) tutorials about u
 
 To complete this tutorial, you need:
 
-* [Visual Studio 2022](/visualstudio/install/install-visual-studio?view=vs-2022) with the following workloads.
+* [Visual Studio 2022](/visualstudio/install/install-visual-studio?view=vs-2022&preserve-view=true) with the following workloads.
   * ASP.NET and web development
   * Azure development
   * .NET desktop development
@@ -27,7 +27,7 @@ To complete this tutorial, you need:
 
 This tutorial can only be completed on a Windows system.
 
-# Download the sample app
+## Download the sample app
 
 [!INCLUDE [download-sample](~/mobile-apps/azure-mobile-apps/includes/quickstart/windows/download-sample.md)]
 
