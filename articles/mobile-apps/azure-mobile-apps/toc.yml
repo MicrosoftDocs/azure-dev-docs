@@ -22,10 +22,10 @@
     items:
     - name: Introduction
       href: quickstarts/wpf/index.md
-    - name: Add Offline Sync
-      href: quickstarts/wpf/offline.md
     - name: Add Authentication
       href: quickstarts/wpf/authentication.md   
+    - name: Add Offline Sync
+      href: quickstarts/wpf/offline.md
   - name: Xamarin.Android
     items:
     - name: Introduction
