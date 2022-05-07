@@ -24,7 +24,7 @@ First, register the web API in your Azure AD tenant and add a scope by following
 1. Search for and select **Azure Active Directory**.
 1. Under **Manage**, select **App registrations** > **New registration**.
 
-    * **Name**: enter a name for your application; for example **TodoApp Quickstart**.  Users of your app will see this name.  You can change it later.
+    * **Name**: enter a name for your application; for example, **TodoApp Quickstart**.  Users of your app will see this name.  You can change it later.
     * **Supported account types**: **Accounts in any organizational directory (Any Azure AD directory - Multitenant) and personal Microsoft accounts (e.g. Skype, Xbox)**
 
 1. Select **Register**.
@@ -41,6 +41,6 @@ First, register the web API in your Azure AD tenant and add a scope by following
   * **State**: **Enabled**
 
 1. Select **Add scope** to complete the scope addition.
-1. Note the value of the scope.  It will be `api://<client-id>/access_as_user`.  You will need this when configuring the client.
+1. Note the value of the scope.  It will be `api://<client-id>/access_as_user`.  You'll need the scope when configuring the client.
 1. Select **Overview**.
-2. Note the **Application (client) ID** in the **Essentials** section as you will need this value to configure the datasync backend service later on.
+2. Note the **Application (client) ID** in the **Essentials** section as you'll need this value to configure the backend service later on.

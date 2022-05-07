@@ -10,7 +10,7 @@ ms.author: adhal
 
 # Add authentication to your Windows (WPF) app
 
-In this tutorial, you add Microsoft authentication to the TodoApp project using Azure Active Directory. Before completing this tutorial, ensure you have [created the project and deployed the backend](./index.md).
+In this tutorial, you add Microsoft authentication to the TodoApp project using Azure Active Directory. Before completing this tutorial, ensure you've [created the project and deployed the backend](./index.md).
 
 > [!TIP]
 > Although we use Azure Active Directory for authentication, you can use any authentication library you wish with Azure Mobile Apps.  
@@ -91,7 +91,7 @@ The `GetAuthenticationToken()` method works with the Microsoft Identity Library 
 
 ## Test the app
 
-You should be able to press **F5** to run the app.  When the app runs, a browser will be opened to ask you for authentication.  The first time the app runs, you will be asked to consent to the access:
+You should be able to press **F5** to run the app.  When the app runs, a browser will be opened to ask you for authentication.  The first time the app runs, you'll be asked to consent to the access:
 
 ![Consent screen](./media/aad-consent.png)
 
