@@ -8,7 +8,7 @@ ms.prod: azure-mobile-apps
 
 ## Add authentication to your backend service
 
-Your datasync backend service is a regular ASP.NET 6 service.  Any tutorial that shows you how to enable authentication for an ASP.NET 6 service will work with the Microsoft Datasync Framework.
+Your backend service is a regular ASP.NET 6 service.  Any tutorial that shows you how to enable authentication for an ASP.NET 6 service will work with Azure Mobile Apps.
 
 To enable Azure AD authentication for your backend service, you need to:
 
