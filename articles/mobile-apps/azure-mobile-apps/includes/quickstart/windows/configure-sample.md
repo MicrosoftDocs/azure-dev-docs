@@ -9,14 +9,14 @@ ms.prod: azure-mobile-apps
 Your client application needs to know the base URL of your backend so that it can communicate with it.
 
 1. Expand the `TodoApp.Data` project.
-1. Right-click on the `TodoApp.Data` project, then select **Add** > **Class...**.
-1. Enter `Constants.cs` as the name, then select **Add**.
+2. Right-click on the `TodoApp.Data` project, then select **Add** > **Class...**.
+3. Enter `Constants.cs` as the name, then select **Add**.
 
-    ![Add Constants.cs](~/mobile-apps/azure-mobile-apps/media/quickstart/windows/configure-sample-constants.png)
+    ![Screenshot of adding the Constants.cs file to the project.](~/mobile-apps/azure-mobile-apps/media/quickstart/windows/configure-sample-constants.png)
 
-1. Open the `Constants.cs.example` file and copy the contents (Ctrl-A, followed by Ctrl-C).
-1. Switch to `Constants.cs`, highlight all text (Ctrl-A), then paste the contents from the example file (Ctrl-V).
-1. Replace the `https://APPSERVICENAME.azurewebsites.net` with the backend URL of your service.
+4. Open the `Constants.cs.example` file and copy the contents (Ctrl-A, followed by Ctrl-C).
+5. Switch to `Constants.cs`, highlight all text (Ctrl-A), then paste the contents from the example file (Ctrl-V).
+6. Replace the `https://APPSERVICENAME.azurewebsites.net` with the backend URL of your service.
 
     ``` csharp
     namespace TodoApp.Data
@@ -33,4 +33,4 @@ Your client application needs to know the base URL of your backend so that it ca
 
     You can obtain the backend URL of your service from the **Publish** tab.
 
-1. Save the file. (Ctrl-S).
+7. Save the file. (Ctrl-S).

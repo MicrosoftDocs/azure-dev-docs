@@ -14,8 +14,8 @@ To deploy the backend service, we will:
 ### Create resources on Azure.
 
 1. Open a terminal and change directory to the folder containing the `TodoApp.sln` file. This directory also contains `azuredeploy.json`.
-1. Ensure you've [signed in and selected a subscription](/cli/azure/authenticate-azure-cli) using the Azure CLI.
-1. Create a new resource group:
+2. Ensure you've [signed in and selected a subscription](/cli/azure/authenticate-azure-cli) using the Azure CLI.
+3. Create a new resource group:
 
     ``` azurecli
     az group create -l westus -g quickstart
@@ -23,7 +23,7 @@ To deploy the backend service, we will:
 
     This command will create the `quickstart` resource group in the West US region.  You can select any region that you wish, providing you can create resources there.  Ensure you use the same name and region wherever they're mentioned in this tutorial.
 
-1. Create the resources using a group deployment:
+4. Create the resources using a group deployment:
 
     ``` azurecli
     az deployment group create -g quickstart --template-file azuredeploy.json --parameters sqlPassword=MyPassword1234
@@ -31,7 +31,7 @@ To deploy the backend service, we will:
 
     Pick a strong password for your SQL Administrator password.  You'll need it later on when accessing the database.
 
-2. Once the deployment is complete, get the output variables as these hold important information you'll need later on:
+5. Once the deployment is complete, get the output variables as these hold important information you'll need later on:
 
     ``` azurecli
     az deployment group show -g quickstart -n azuredeploy --query properties.outputs
@@ -39,53 +39,53 @@ To deploy the backend service, we will:
 
     An example output will be:
 
-    ![Output of az deployment group show](~/mobile-apps/azure-mobile-apps/media/quickstart/windows/deploy-backend-outputs.png)
+    ![Screenshot of az deployment group show results.](~/mobile-apps/azure-mobile-apps/media/quickstart/windows/deploy-backend-outputs.png)
 
-3. Make a note of each of the values in the outputs for later use.
+6. Make a note of each of the values in the outputs for later use.
 
 ### Publish the service code.
 
 Open the `TodoApp.sln` in Visual Studio.
 
 1. In the right-hand pane, select the **Solutions Explorer**.
-1. Right-click the `TodoAppService.NET6` project, then select **Set as Startup Project**.
-1. On the top menu, select **Build** > **Build TodoAppService.NET6** (or press Ctrl+B).
-1. On the top menu, select **Build** > **Publish TodoAppService.NET6**.
-1. In the **Publish** window, select Target: **Azure**, then press **Next**.
+2. Right-click the `TodoAppService.NET6` project, then select **Set as Startup Project**.
+3. On the top menu, select **Build** > **Build TodoAppService.NET6** (or press Ctrl+B).
+4. On the top menu, select **Build** > **Publish TodoAppService.NET6**.
+5. In the **Publish** window, select Target: **Azure**, then press **Next**.
 
-    ![Target: Azure](~/mobile-apps/azure-mobile-apps/media/quickstart/windows/publish-backend-target.png)
+    ![Screenshot of the target selection window.](~/mobile-apps/azure-mobile-apps/media/quickstart/windows/publish-backend-target.png)
 
-1. Select Specific target: **Azure App Service (Windows)**, then press **Next**.
+6. Select Specific target: **Azure App Service (Windows)**, then press **Next**.
 
-    ![Specific target: Azure App Service (Windows)](~/mobile-apps/azure-mobile-apps/media/quickstart/windows/publish-backend-appservice.png)
+    ![Screenshot of the specific target selection window.](~/mobile-apps/azure-mobile-apps/media/quickstart/windows/publish-backend-appservice.png)
 
-1. If necessary, sign in and select an appropriate **Subscription name**.
-1. Ensure **View** is set to **Resource group**.
-1. Expand the `quickstart` resource group, then select the App Service that was created earlier, followed by **Finish**.
+7. If necessary, sign in and select an appropriate **Subscription name**.
+8. Ensure **View** is set to **Resource group**.
+9. Expand the `quickstart` resource group, then select the App Service that was created earlier, followed by **Finish**.
 
-    ![Select App Service](~/mobile-apps/azure-mobile-apps/media/quickstart/windows/publish-backend-selection.png)
+    ![Screenshot of the app service selection window.](~/mobile-apps/azure-mobile-apps/media/quickstart/windows/publish-backend-selection.png)
 
-2. Once the Publish tab is opened, locate the **Service Dependencies** and select **Configure** next to the SQL Server Database.
+10. Once the Publish tab is opened, locate the **Service Dependencies** and select **Configure** next to the SQL Server Database.
 
-    ![Configure SQL Server Database dependency](~/mobile-apps/azure-mobile-apps/media/quickstart/windows/publish-backend-service-dependency.png)
+    ![Screenshot showing the SQL server configuration selection.](~/mobile-apps/azure-mobile-apps/media/quickstart/windows/publish-backend-service-dependency.png)
 
-3. Select **Azure SQL Database**, then select **Next**.
-4. Select the **quickstart** database, then select **Next**.
+11. Select **Azure SQL Database**, then select **Next**.
+12. Select the **quickstart** database, then select **Next**.
 
-    ![Select database](~/mobile-apps/azure-mobile-apps/media/quickstart/windows/publish-backend-select-db.png)
+    ![Screenshot of the database selection window.](~/mobile-apps/azure-mobile-apps/media/quickstart/windows/publish-backend-select-db.png)
 
-5. Fill in the form using the SQL username and password that were in the outputs of the deployment, then select **Next**.
+13. Fill in the form using the SQL username and password that were in the outputs of the deployment, then select **Next**.
 
-    ![Configure the quickstart database](~/mobile-apps/azure-mobile-apps/media/quickstart/windows/publish-backend-configure-db.png)
+    ![Screenshot of the database settings window.](~/mobile-apps/azure-mobile-apps/media/quickstart/windows/publish-backend-configure-db.png)
 
-6. Select **Finish**.
-7. Select **Close** when complete.
-8. Select **Publish** to publish your app to the Azure App Service you created earlier.
+14. Select **Finish**.
+15. Select **Close** when complete.
+16. Select **Publish** to publish your app to the Azure App Service you created earlier.
 
-    ![Publish to App Service](~/mobile-apps/azure-mobile-apps/media/quickstart/windows/publish-backend-to-appservice.png)
+    ![Screenshot showing the publish button.](~/mobile-apps/azure-mobile-apps/media/quickstart/windows/publish-backend-to-appservice.png)
 
-9. Once the backend service is published, a browser will be opened. Add `/tables/todoitem?ZUMO-API-VERSION=3.0.0` to the URL:
+17. Once the backend service is published, a browser will be opened. Add `/tables/todoitem?ZUMO-API-VERSION=3.0.0` to the URL:
 
-    ![Successful publish](~/mobile-apps/azure-mobile-apps/media/quickstart/windows/publish-backend-success.png)
+    ![Screenshot showing the browser output after the service is published.](~/mobile-apps/azure-mobile-apps/media/quickstart/windows/publish-backend-success.png)
 
     This indicates that the service is working properly.

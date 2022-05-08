@@ -9,20 +9,20 @@ ms.prod: azure-mobile-apps
 Open Visual Studio and select the `TodoAppService.NET6` project.  
 
 1. Right-click on the `TodoAppService.NET6` project, then select **Manage NuGet Packages...**.
-1. In the new tab, select **Browse**, then enter **Microsoft.Identity.Web** in the search box.
+2. In the new tab, select **Browse**, then enter **Microsoft.Identity.Web** in the search box.
 
-    ![NuGet - adding Microsoft.Identity.Web](~/mobile-apps/azure-mobile-apps/media/quickstart/windows/add-identity-web-nuget.png)
+    ![Screenshot of adding the MSAL NuGet in Visual Studio.](~/mobile-apps/azure-mobile-apps/media/quickstart/windows/add-identity-web-nuget.png)
 
-1. Select the `Microsoft.Identity.Web` package, then press **Install**.
-2. Follow the prompts to complete the installation of the package.
-3. Open `Program.cs`.  Add the following to the list of `using` statements:
+3. Select the `Microsoft.Identity.Web` package, then press **Install**.
+4. Follow the prompts to complete the installation of the package.
+5. Open `Program.cs`.  Add the following to the list of `using` statements:
 
   ``` csharp
   using Microsoft.AspNetCore.Authentication.JwtBearer;
   using Microsoft.Identity.Web;
   ```
 
-1. Add the following code directly above the call to `builder.Services.AddDbContext()`:
+6. Add the following code directly above the call to `builder.Services.AddDbContext()`:
 
   ``` csharp
   builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
@@ -30,7 +30,7 @@ Open Visual Studio and select the `TodoAppService.NET6` project.
   builder.Services.AddAuthorization();
   ```
 
-1. Add the following code directly above the call to `app.MapControllers()`:
+7. Add the following code directly above the call to `app.MapControllers()`:
 
   ``` csharp
   app.UseAuthentication();
@@ -76,7 +76,7 @@ Open Visual Studio and select the `TodoAppService.NET6` project.
   app.Run();
   ```
 
-1. Edit the `Controllers\TodoItemController.cs`.  Add an `[Authorize]` attribute to the class.  Your class should look like this:
+8. Edit the `Controllers\TodoItemController.cs`.  Add an `[Authorize]` attribute to the class.  Your class should look like this:
 
   ``` csharp
   using Microsoft.AspNetCore.Authorization;
@@ -99,7 +99,7 @@ Open Visual Studio and select the `TodoAppService.NET6` project.
   }
   ```
 
-1. Edit the `appsettings.json`.  Add the following block:
+9. Edit the `appsettings.json`.  Add the following block:
 
   ``` json
     "AzureAD": {
@@ -135,9 +135,9 @@ Open Visual Studio and select the `TodoAppService.NET6` project.
 
 Once complete, you can publish your service again:
 
-1. Right-click on the `TodoAppService.NET6` project, then select **Publish...**.
-1. Press the **Publish** button in the top-right corner of the tab.
+10. Right-click on the `TodoAppService.NET6` project, then select **Publish...**.
+11. Select the **Publish** button in the top-right corner of the tab.
 
-Try to read the items by pointing your browser to `https://yoursite.azurewebsites.net/tables/todoitem?ZUMO-API-VERSION=3.0.0`.  Note that the service now returns a `401` response, which indicates that authentication is required.
+Open a browser to `https://yoursite.azurewebsites.net/tables/todoitem?ZUMO-API-VERSION=3.0.0`.  Note that the service now returns a `401` response, which indicates that authentication is required.
 
 ![Not authorized](~/mobile-apps/azure-mobile-apps/media/quickstart/windows/not-authorized.png)

@@ -20,9 +20,9 @@ In online operation, you read to and write from a `IRemoteTable<T>`.  When using
 
 ### Add the necessary NuGet packages
 
-[!INCLUDE[Update NuGet Dependencies](~/mobile-apps/azure-mobile-apps/includes/quickstart/windows/add-offline-nuget.md)]
+[!INCLUDE[Instructions for adding the offline NuGet Packages.](~/mobile-apps/azure-mobile-apps/includes/quickstart/windows/add-offline-nuget.md)]
 
-[!INCLUDE[Update RemoteService](~/mobile-apps/azure-mobile-apps/includes/quickstart/windows/add-offline-code.md)]
+[!INCLUDE[Instructions for altering the code to support offline.](~/mobile-apps/azure-mobile-apps/includes/quickstart/windows/add-offline-code.md)]
 
 ### Set the offline database location
 
@@ -47,9 +47,9 @@ TodoService = new RemoteTodoService()
 > [!NOTE]
 > You can store the offline database wherever you have read/write/create permissions on a Windows system.  The `Environment.SpecialFolder` class gives standard locations according to the application.
 
-[!INCLUDE [Offline testing](~/mobile-apps/azure-mobile-apps/includes/quickstart/common/test-offline-app.md)]
+[!INCLUDE [Instructions for testing offline mode.](~/mobile-apps/azure-mobile-apps/includes/quickstart/common/test-offline-app.md)]
 
-[!INCLUDE [Clean-up](~/mobile-apps/azure-mobile-apps/includes/quickstart/common/cleanup.md)]
+[!INCLUDE [Instructions to clean up resources.](~/mobile-apps/azure-mobile-apps/includes/quickstart/common/clean-up.md)]
 
 ## Next steps
 

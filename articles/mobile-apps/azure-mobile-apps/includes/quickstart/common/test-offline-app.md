@@ -11,18 +11,18 @@ ms.prod: azure-mobile-apps
 The app doesn't synchronize with the backend until the refresh icon is pressed.  To test:
 
 1. Open the [Azure portal](https://portal.azure.com).
-1. Open the resource group that contains the resources for the quickstart.
-1. Select the `quickstart` database.
-1. Select the **Query editor (preview)**.
-1. Log in with SQL server authentication using the same credentials you set up for the database.
+2. Open the resource group that contains the resources for the quickstart.
+3. Select the `quickstart` database.
+4. Select the **Query editor (preview)**.
+5. Log in with SQL server authentication using the same credentials you set up for the database.
 
-  * If necessary, you'll be prompted to allow access for your IP address.  Select the link to update the allowlist, then press **OK** to retry the login.
+   * If necessary, you'll be prompted to allow access for your IP address.  Select the link to update the allowlist, then press **OK** to retry the login.
 
-1. In the query editor, enter `SELECT * FROM [dbo].[TodoItems]`.  Then select **Run**.
+6. In the query editor, enter `SELECT * FROM [dbo].[TodoItems]`.  Then select **Run**.
 
 A list of the current TodoItems will be displayed.
 
-![Todo Items](~/mobile-apps/azure-mobile-apps/media/quickstart/common/query-results.png)
+![Screenshot of the results in the SQL query editor.](~/mobile-apps/azure-mobile-apps/media/quickstart/common/query-results.png)
 
 Now, make some changes through your app.  **DO NOT PRESS REFRESH** (yet).  
 
