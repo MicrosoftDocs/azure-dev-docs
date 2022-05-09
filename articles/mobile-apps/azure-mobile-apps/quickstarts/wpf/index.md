@@ -4,7 +4,7 @@ description: Get up to speed with Windows (WPF) and Azure Mobile Apps with our t
 author: adrianhall
 ms.service: mobile-services
 ms.topic: article
-ms.date: 05/05/2021
+ms.date: 05/06/2022
 ms.author: adhal
 ---
 
@@ -18,55 +18,49 @@ You must complete this tutorial before all other Windows (WPF) tutorials about u
 
 To complete this tutorial, you need:
 
-* [Visual Studio 2019](/xamarin/get-started/installation/windows).
+* [Visual Studio 2022](/visualstudio/install/install-visual-studio?view=vs-2022&preserve-view=true) with the following workloads.
+  * ASP.NET and web development
+  * Azure development
+  * .NET desktop development
 * An [Azure account](https://azure.microsoft.com/pricing/free-trial).
 * The [Azure CLI](/cli/azure/install-azure-cli).
-    * [Log into your Azure account](/cli/azure/authenticate-azure-cli) and [select a subscription](/cli/azure/manage-azure-subscriptions-azure-cli) using the Azure CLI.
+  * Sign in with `az login` and select an appropriate subscription before starting.
 
 This tutorial can only be completed on a Windows system.
 
-## Download the Windows (WPF) quickstart project
+## Download the sample app
 
-The WPF quickstart project is located in the `samples/wpf` folder of the [azure/azure-mobile-apps](https://github.com/azure/azure-mobile-apps) GitHub repository.  You can [download the repository as a ZIP file](https://github.com/Azure/azure-mobile-apps/archive/main.zip), then unpack it.  The files will be created in the `azure-mobile-apps-main` folder.
+[!INCLUDE [Instructions to download the sample from GitHub.](~/mobile-apps/azure-mobile-apps/includes/quickstart/windows/download-sample.md)]
 
-Once downloaded, open a Terminal and change directory to the location of the files.
+## Deploy the backend to Azure
 
-[!INCLUDE [deploy-backend](~/mobile-apps/azure-mobile-apps/includes/quickstart-deploy-backend.md)]
+> [!NOTE]
+> If you have already deployed the backend from another quick start, you can use the same backend and skip this step.
 
-## Configure the WPF quickstart project
+[!INCLUDE [Instructions for deploying a backend service.](~/mobile-apps/azure-mobile-apps/includes/quickstart/windows/deploy-backend.md)]
 
-Open the `ZumoQuickstart` solution in Visual Studio (located at `samples/wpf`).  Edit the `Constants.cs` class to replace the `BackendUrl` with your backend URL.  For example, if your backend URL was `https://zumo-abcd1234.azurewebsites.net`, then the file would look like this:
+## Configure the sample app
 
-``` csharp
-namespace ZumoQuickstart
-{
-    /// <summary>
-    /// Constants used to configure the application.
-    /// </summary>
-    public static class Constants
-    {
-        /// <summary>
-        /// The base URL of the backend service within Azure.
-        /// </summary>
-        public static string BackendUrl { get; } = "https://zumo-abcd1234.azurewebsites.net";
-    }
-}
-```
+[!INCLUDE [Instructions for configuring the sample code.](~/mobile-apps/azure-mobile-apps/includes/quickstart/windows/configure-sample.md)]
 
-Save the file.
+## Build and run the sample app
 
-## Run the app
+1. In the solutions explorer, expand the `windows` folder.
+1. Right-click the `TodoApp.WPF` project and select **Set as Startup Project**.
+1. In the top bar, select the **Any CPU** configuration and the **TodoApp.WPF** target:
 
-Select the _Any CPU_ configuration and the _ZumoQuickstart_ target:
+    ![Screenshot of the Visual Studio configuration bar.](./media/win-configuration.png)
 
-![WPF Configuration](../../media/wpf-configuration.png)
+2. Press **F5** to build and run the project.
 
-Press F5 to build and run the project.
+Once the app has started, you will see an empty list with a text box.  You can:
 
-Enter some text in the **Add New Item** field, then press enter or click the add item icon.  The item is added to the list.  Press on the item to set or clear the "completed" flag.
+* Enter some text, then press Enter or the **+** icon to add the item.
+* Set or clear the check box to mark any item as done.
+* Press the refresh icon to reload data from the service.
 
-![WPF Startup](../../media/wpf-startup.png)
+    ![Screenshot of the WPF app running on Windows.](./media/running-app.png)
 
 ## Next steps
 
-Continue on to implement [offline data synchronization](./offline.md).
+Continue the tutorial by [adding authentication to the app](./authentication.md).
