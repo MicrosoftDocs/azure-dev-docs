@@ -1,3 +1,18 @@
+### Run Up Command
+
+The fastest way for you to get this application up and running on Azure is to use the `azd up` command. This single command will create and configure all necessary Azure resources - including access policies and roles for your account and service-to-service communication with Managed Identities. Because this will create all of the resources on Azure, it can take some time. 
+
+The `azd up` command will:
+
+1. Provision the Azure resources, policies, and roles required
+1. Deploy the code from your local machine to the previously provisioned Azure resources
+
+```bash
+azd up
+```
+
+> NOTE: This may take a while to complete as it performs two steps: `azd provision` (creates Azure services) and `azd deploy` (deploys code). You will see a progress indicator as it provisions and deploys your application.
+
 This command will print URLs to the following:
 
 - Azure Portal link to view resources created

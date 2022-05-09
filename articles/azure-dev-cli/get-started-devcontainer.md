@@ -11,26 +11,41 @@ ms.prod: azure
 
 # Get started with Dev Container
 
-Before you get started, ensure you have the following tools installed on your local machine:
+We will use the [Todo Application with Node.js and Azure Cosmo DB API for MongoDB](https://github.com/azure-samples/todo-nodejs-mongo)] for this walkthrough. 
 
-- [Azure Developer CLI](https://aka.ms/azure-dev/install)
-    `npm install -g https://aka.ms/azure-dev/npm`
-- [Docker Desktop](https://aka.ms/azure-dev/docker-install) (Other options coming soon...)
-  > Verify installation by running `docker` in your terminal
-- [Remote - Containers VS Code Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
+### Prerequisites
 
-We will use the [Todo Application with Node.js and Azure Cosmo DB API for MongoDB](https://github.com/azure-samples/todo-nodejs-mongo)] for this article. 
+#### Azure Developer CLI
 
-> [!NOTE] 
-> You can refer to the DevContainer dependencies in the readme of each [sample template](azure-dev-cli-templates.md) for the Dev Container dependencies.
+Start by installing the Azure Developer CLI:
+
+``` bash
+    npm install -g https://aka.ms/azure-dev/npm
+```
+
+#### Azure Developer CLI VS Code Extension
+
+The Azure Developer CLI experience includes an Azure Developer CLI VS Code Extension that mirrors all of the CLI commands into context menu and command palette options. If you are a VS Code user, then we highly recommend installing this extension for the best experience.
+
+1. Download the extension from https://aka.ms/azure-dev/vsix
+1. In VS Code
+    - Open "Extensions" (Ctrl+Shift+X)
+    - Click the ... menu at top of Extensions sidebar
+    - Click "Install from VSIX"
+    - Select location of downloaded file
+
+A [DevContainer](https://code.visualstudio.com/docs/remote/containers) is a Docker image that includes all of the prerequisites you need to run this application on your local machine. You can find the specification for this application's DevContainer here: https://github.com/Azure-Samples/todo-nodejs-mongo/blob/main/.devcontainer/Dockerfile.
+
+  To use the DevContainer, you will need the following installed on your local machine:
+
+  2. [Docker Desktop](https://aka.ms/azure-dev/docker-install) (Other options coming soon...)
+  3. [Remote - Containers VS Code Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
 
 ### Azure Subscription
 
 This template will create infrastructure and deploy code to Azure. If you don't have an Azure Subscription, sign up for a [free account here](https://azure.microsoft.com/free/). 
 
-## Quickstart
-
-### 1. Initialize Project
+### Initialize Project
 
 ```bash
 azd init --template todo-nodejs-mongo
@@ -42,25 +57,9 @@ You will be prompted for the following information:
 - `Azure Location`: The Azure location where your resources will be deployed.
 - `Azure Subscription`: The Azure Subscription where your resources will be deployed.
 
-### 2. Open in VS Code and Start DevContainer
+### Open DevContainer
 
-Open the project in VS Code and follow the prompts to re-open the project in the provided DevContainer.  If you aren't prompted, then you can hit F1 and choose : `Remote-Containers: Rebuild and Reopen in Container`
-
-### 3. Run Up Command
-
-The fastest way for you to get this app up and running on Azure is to use the `azd up` command. This single command will create and configure all necessary resources - including access policies and roles for your account and the Azure resources to communicate with each other via Managed Identity. Because this will create all of the resources on Azure, it can take some time. You will see an indication of the CLI progress as it creates the resources.
-
-The `azd up` command will:
-
-1. Create all the Azure resources required by this application
-1. Deploy the code you need to run the application
-
-```bash
-azd up
-```
-
-> NOTE: This may take a while to complete as it performs two steps: `azd provision` (creates Azure services) and `azd deploy` (deploys code).
-
+Open the project in VS Code, hit F1 and choose : `Remote-Containers: Rebuild and Reopen in Container`
 
 [!INCLUDE [azd-quickstart](includes/azd-quickstart.md)]
 
