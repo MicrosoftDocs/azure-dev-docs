@@ -20,6 +20,7 @@ Find new and updated content for JavaScript and TypeScript developers.
 |[Azure Blob Storage Developer Guide](/azure/storage/blobs/storage-blob-javascript-get-started)|This article shows you how to connect to Azure Blob Storage by using the Azure Blob Storage client library v12 for JavaScript. Once connected, your code can operate on containers, blobs, and features of the Blob Storage service.
 
 The [sample code snippets](https://github.com/Azure-Samples/AzureStorageSnippets/tree/master/blobs/howto/JavaScript/NodeJS-v12/dev-guide) are available in GitHub as runnable Node.js files.
+|
 
 ## 2022 March
 
