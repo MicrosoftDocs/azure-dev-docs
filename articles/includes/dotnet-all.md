@@ -169,7 +169,7 @@
 | Microsoft.Azure.ServiceBus.EventProcessorHost | NuGet [5.0.1](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost/5.0.1) |  |  |
 | Microsoft.Azure.SignalR.Emulator | NuGet [1.0.0-preview1-10809](https://www.nuget.org/packages/Microsoft.Azure.SignalR.Emulator/1.0.0-preview1-10809) |  |  |
 | Microsoft.Azure.WebJobs.Extensions.ApplicationInsights | NuGet [1.0.0-preview4](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.ApplicationInsights/1.0.0-preview4) |  |  |
-| Microsoft.Azure.WebJobs.Extensions.Sql | NuGet [0.1.304-preview](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Sql/0.1.304-preview) |  |  |
+| Microsoft.Azure.WebJobs.Extensions.Sql | NuGet [0.1.311-preview](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Sql/0.1.311-preview) |  |  |
 | Microsoft.Azure.WebJobs.Extensions.Timers.Storage | NuGet [1.0.0-beta.1](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Timers.Storage/1.0.0-beta.1) |  |  |
 | Microsoft.Azure.WebPubSub.AspNetCore | NuGet [1.0.0-beta.3](https://www.nuget.org/packages/Microsoft.Azure.WebPubSub.AspNetCore/1.0.0-beta.3) |  |  |
 | Microsoft.Azure.WebPubSub.Common | NuGet [1.1.0](https://www.nuget.org/packages/Microsoft.Azure.WebPubSub.Common/1.1.0) |  |  |
@@ -238,7 +238,7 @@
 | Core | NuGet [1.24.0](https://www.nuget.org/packages/Azure.Core/1.24.0) | [docs](/dotnet/api/overview/azure/Core-readme) | GitHub [1.24.0](https://github.com/Azure/azure-sdk-for-net/tree/Azure.Core_1.24.0/sdk/core/Azure.Core/) |
 | Core - AMQP | NuGet [1.2.0](https://www.nuget.org/packages/Azure.Core.Amqp/1.2.0) | [docs](/dotnet/api/overview/azure/Core.Amqp-readme) | GitHub [1.2.0](https://github.com/Azure/azure-sdk-for-net/tree/Azure.Core.Amqp_1.2.0/sdk/core/Azure.Core.Amqp/) |
 | Cosmos DB | NuGet [4.0.0-preview3](https://www.nuget.org/packages/Azure.Cosmos/4.0.0-preview3) | [docs](/dotnet/api/azure.cosmos) | GitHub [4.0.0-preview3](https://github.com/Azure/azure-cosmos-dotnet-v3/tree/releases/4.0.0-preview3) |
-| Cosmos DB | NuGet [3.26.2](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/3.26.2) | [docs](/dotnet/api/overview/azure/cosmosdb) | GitHub [3.26.2](https://github.com/Azure/azure-cosmos-dotnet-v3/tree/3.12.0/Microsoft.Azure.Cosmos) |
+| Cosmos DB | NuGet [3.27.0](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/3.27.0) | [docs](/dotnet/api/overview/azure/cosmosdb) | GitHub [3.27.0](https://github.com/Azure/azure-cosmos-dotnet-v3/tree/3.12.0/Microsoft.Azure.Cosmos) |
 | Cosmos DB - BulkExecutor | NuGet [2.5.1-preview](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.BulkExecutor/2.5.1-preview) |  | GitHub [2.5.1-preview](https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-started) |
 | Cosmos DB - Direct | NuGet [3.28.0](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Direct/3.28.0) |  | GitHub [3.28.0](https://github.com/Azure/azure-cosmos-dotnet-v3) |
 | Cosmos DB - Encryption | NuGet [1.0.0](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Encryption/1.0.0) |  | GitHub [1.0.0](https://github.com/Azure/azure-cosmos-dotnet-v3/tree/releases/encryption/1.0.0-preview4/Microsoft.Azure.Cosmos.Encryption) |
