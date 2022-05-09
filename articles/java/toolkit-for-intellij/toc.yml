@@ -24,17 +24,17 @@
        - name: Get Started - Functions
          href: /azure/azure-functions/functions-create-maven-intellij?toc=/azure/developer/java/toolkit-for-intellij/toc.json&bc=/azure/developer/breadcrumb/toc.json
     - name: Azure Storage
-      expanded: true
+      expanded: false
       items:
        - name: Manage Storage Accounts
          href: managing-storage-accounts-using-azure-explorer.md
     - name: Azure Virtual machines
-      expanded: true
+      expanded: false
       items:
        - name: Manage Virtual Machines
          href: managing-virtual-machines-using-azure-explorer.md
     - name: Azure Redis Cache
-      expanded: true
+      expanded: false
       items:
        - name: Manage Azure Redis Cache
          href: managing-redis-caches-using-azure-explorer.md
