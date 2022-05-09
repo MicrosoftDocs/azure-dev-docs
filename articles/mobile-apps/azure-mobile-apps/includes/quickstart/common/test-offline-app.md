@@ -22,7 +22,7 @@ The app doesn't synchronize with the backend until the refresh icon is pressed. 
 
 A list of the current TodoItems will be displayed.
 
-![Screenshot of the results in the SQL query editor.](~/mobile-apps/azure-mobile-apps/media/quickstart/common/query-results.png)
+![Screenshot of the results in the S Q L query editor.](~/mobile-apps/azure-mobile-apps/media/quickstart/common/query-results.png)
 
 Now, make some changes through your app.  **DO NOT PRESS REFRESH** (yet).  
 

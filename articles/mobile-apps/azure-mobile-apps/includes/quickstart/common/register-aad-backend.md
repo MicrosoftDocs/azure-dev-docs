@@ -24,21 +24,21 @@ First, register the web API in your Azure Active Directory tenant and add a scop
 3. Search for and select **Azure Active Directory**.
 4. Under **Manage**, select **App registrations** > **New registration**.
 
-    * **Name**: enter a name for your application; for example, **TodoApp Quickstart**.  Users of your app will see this name.  You can change it later.
-    * **Supported account types**: **Accounts in any organizational directory (Any Azure AD directory - Multitenant) and personal Microsoft accounts (e.g. Skype, Xbox)**
+   * **Name**: enter a name for your application; for example, **TodoApp Quickstart**.  Users of your app will see this name.  You can change it later.
+   * **Supported account types**: **Accounts in any organizational directory (Any Azure AD directory - Multitenant) and personal Microsoft accounts (e.g. Skype, Xbox)**
 
 5. Select **Register**.
 6. Under **Manage**, select **Expose an API** > **Add a scope**.
 7. For **Application ID URI**, accept the default by selecting **Save and continue**.
 8. Enter the following details:
 
-  * **Scope name**: `access_as_user`
-  * **Who can consent?**: **Admins and users**
-  * **Admin consent display name**: `Access TodoApp`
-  * **Admin consent description**: `Allows the app to access TodoApp as the signed-in user.`
-  * **User consent display name**: `Access TodoApp`
-  * **User consent description**: `Allow the app to access TodoApp on your behalf.`
-  * **State**: **Enabled**
+   * **Scope name**: `access_as_user`
+   * **Who can consent?**: **Admins and users**
+   * **Admin consent display name**: `Access TodoApp`
+   * **Admin consent description**: `Allows the app to access TodoApp as the signed-in user.`
+   * **User consent display name**: `Access TodoApp`
+   * **User consent description**: `Allow the app to access TodoApp on your behalf.`
+   * **State**: **Enabled**
 
 9. Select **Add scope** to complete the scope addition.
 10. Note the value of the scope.  It will be `api://<client-id>/access_as_user`.  You'll need the scope when configuring the client.

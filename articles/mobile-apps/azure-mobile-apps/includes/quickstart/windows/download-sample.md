@@ -7,7 +7,7 @@ ms.prod: azure-mobile-apps
 ---
 
 1. Open the [azure-mobile-apps repository] in your browser.
-2. Open the **\<\> Code** drop-down, then select **Download ZIP**.
+2. Open the **Code** drop-down, then select **Download ZIP**.
 
     ![Screenshot of the Code menu on GitHub.](~/mobile-apps/azure-mobile-apps/media/quickstart/windows/download-sample-zip.png)
 

@@ -11,7 +11,7 @@ Open Visual Studio and select the `TodoAppService.NET6` project.
 1. Right-click on the `TodoAppService.NET6` project, then select **Manage NuGet Packages...**.
 2. In the new tab, select **Browse**, then enter **Microsoft.Identity.Web** in the search box.
 
-    ![Screenshot of adding the MSAL NuGet in Visual Studio.](~/mobile-apps/azure-mobile-apps/media/quickstart/windows/add-identity-web-nuget.png)
+    ![Screenshot of adding the M S A L NuGet in Visual Studio.](~/mobile-apps/azure-mobile-apps/media/quickstart/windows/add-identity-web-nuget.png)
 
 3. Select the `Microsoft.Identity.Web` package, then press **Install**.
 4. Follow the prompts to complete the installation of the package.
@@ -140,4 +140,4 @@ Once complete, you can publish your service again:
 
 Open a browser to `https://yoursite.azurewebsites.net/tables/todoitem?ZUMO-API-VERSION=3.0.0`.  Note that the service now returns a `401` response, which indicates that authentication is required.
 
-![Not authorized](~/mobile-apps/azure-mobile-apps/media/quickstart/windows/not-authorized.png)
+![Screenshot of the browser showing an error.](~/mobile-apps/azure-mobile-apps/media/quickstart/windows/not-authorized.png)

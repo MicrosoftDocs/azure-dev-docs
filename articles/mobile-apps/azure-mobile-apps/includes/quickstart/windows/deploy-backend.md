@@ -39,7 +39,7 @@ To deploy the backend service, we will:
 
     An example output will be:
 
-    ![Screenshot of az deployment group show results.](~/mobile-apps/azure-mobile-apps/media/quickstart/windows/deploy-backend-outputs.png)
+    ![Screenshot of command line results.](~/mobile-apps/azure-mobile-apps/media/quickstart/windows/deploy-backend-outputs.png)
 
 6. Make a note of each of the values in the outputs for later use.
 
@@ -67,7 +67,7 @@ Open the `TodoApp.sln` in Visual Studio.
 
 10. Once the Publish tab is opened, locate the **Service Dependencies** and select **Configure** next to the SQL Server Database.
 
-    ![Screenshot showing the SQL server configuration selection.](~/mobile-apps/azure-mobile-apps/media/quickstart/windows/publish-backend-service-dependency.png)
+    ![Screenshot showing the S Q L server configuration selection.](~/mobile-apps/azure-mobile-apps/media/quickstart/windows/publish-backend-service-dependency.png)
 
 11. Select **Azure SQL Database**, then select **Next**.
 12. Select the **quickstart** database, then select **Next**.
