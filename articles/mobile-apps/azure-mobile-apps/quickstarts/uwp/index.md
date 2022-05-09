@@ -4,7 +4,7 @@ description: Get up to speed with Windows (UWP) and Azure Mobile Apps with our t
 author: adrianhall
 ms.service: mobile-services
 ms.topic: article
-ms.date: 05/05/2021
+ms.date: 05/06/2022
 ms.author: adhal
 ---
 
@@ -13,6 +13,9 @@ ms.author: adhal
 This tutorial shows you how to add a cloud-based backend service to a Universal Windows Platform (UWP) desktop app by using Azure Mobile Apps and an Azure mobile app backend.  You'll create both a new mobile app backend and a simple *Todo list* app that stores app data in Azure.
 
 This tutorial is required for all other Windows (UWP) tutorials about using the Mobile Apps feature in Azure App Service.
+
+> [!NOTE]
+> This tutorial has not yet been updated for the v5.0.0 release.
 
 ## Prerequisites
 

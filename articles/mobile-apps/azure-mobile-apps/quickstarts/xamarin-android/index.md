@@ -14,6 +14,9 @@ This tutorial shows you how to add a cloud-based backend service to an Android m
 
 You must complete this tutorial before other Xamarin Android tutorials about using the Mobile Apps feature in Azure App Service.
 
+> [!NOTE]
+> This tutorial has not yet been updated for the v5.0.0 release.
+
 ## Prerequisites
 
 To complete this tutorial, you need:
