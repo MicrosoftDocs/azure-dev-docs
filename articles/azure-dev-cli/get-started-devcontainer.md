@@ -19,8 +19,9 @@ We will use the [Todo Application with Node.js and Azure Cosmo DB API for MongoD
 
 Start by installing the Azure Developer CLI:
 
-``` bash
-    npm install -g https://aka.ms/azure-dev/npm
+```bash
+npm uninstall -g @azure/az-dev-cli
+npm install -g https://azuresdkreleasepreview.blob.core.windows.net/azd/standalone/latest/azure-az-dev-cli-latest.tgz
 ```
 
 #### Azure Developer CLI VS Code Extension
