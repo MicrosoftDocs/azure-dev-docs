@@ -16,8 +16,8 @@ ms.custom: devx-track-java
 To start using the Azure Toolkit for IntelliJ right away, you will need to install the plugin in [IntelliJ IDEA](https://www.jetbrains.com/idea/download/) at first.
 This article provides two options to install:
 
-- [Install and configure Azure Toolkit for IntelliJ from Marketplace](#install-and-configure-azure-toolkit-for-IntelliJ-from-marketplace)
-- [Install and configure Azure Toolkit for IntelliJ from Disk](#install-and-configure-azure-toolkit-for-intelliJ-from-disk)
+- [Install and configure Azure Toolkit for IntelliJ from Marketplace](#install-and-configure-azure-toolkit-for-intellij-from-marketplace)
+- [Install and configure Azure Toolkit for IntelliJ from Disk](#install-and-configure-azure-toolkit-for-intellij-from-marketplace)
 
 
 [!INCLUDE [basic-prerequisites](includes/basic-prerequisites.md)]
@@ -53,6 +53,8 @@ You can manually get installed releases of [Azure Toolkit for IntelliJ](https://
 
 1. Click  **Install Plugin from Disk...**.
 
+   ![Install Plugin from Disk][SI02]
+
 1. Select the plugin archive file and click **OK**.
 
 1. Click **OK** to apply the changes and restart your IDE if prompted.
@@ -69,6 +71,7 @@ After you install the Azure Toolkit as an IDE plugin, see [sign in with your Azu
 <!-- IMG List -->
 
 [SI01]: media/setup-toolkit/SI01.png
+[SI02]: media/setup-toolkit/SI02.png
 
 <!--
 > [!IMPORTANT]
