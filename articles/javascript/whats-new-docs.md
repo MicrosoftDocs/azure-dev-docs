@@ -2,7 +2,7 @@
 title: "What's new for JavaScript docs"
 description: "What's new in JavaScript docs in the Developer Center"
 ms.topic: how-to
-ms.date: 02/28/2022
+ms.date: 05/09/2022
 
 ---
 
@@ -10,6 +10,14 @@ ms.date: 02/28/2022
 
 Find new and updated content for JavaScript and TypeScript developers.
 
+
+## 2022 April
+
+### New in April
+
+|Name|Description|
+|---------------------------------------|--|
+|[Azure Blob Storage Developer Guide](/azure/storage/blobs/storage-blob-javascript-get-started)|This article shows you how to connect to Azure Blob Storage by using the Azure Blob Storage client library v12 for JavaScript. Once connected, your code can operate on containers, blobs, and features of the Blob Storage service. The [sample code snippets](https://github.com/Azure-Samples/AzureStorageSnippets/tree/master/blobs/howto/JavaScript/NodeJS-v12/dev-guide) are available in GitHub as runnable Node.js files.|
 
 ## 2022 March
 
