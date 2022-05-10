@@ -10,109 +10,101 @@ ms.author: adhal
 
 # Add authentication to your Windows (UWP) app
 
-In this tutorial, you add Microsoft authentication to the quickstart project using Azure Active Directory. Before completing this tutorial, ensure you have [created the project](./index.md) and [enabled offline sync](./offline.md).
+In this tutorial, you add Microsoft authentication to the TodoApp project using Azure Active Directory. Before completing this tutorial, ensure you've [created the project and deployed the backend](./index.md).
 
-[!INCLUDE [configure-auth](~/mobile-apps/azure-mobile-apps/includes/quickstart-configure-authentication.md)]
+> [!TIP]
+> Although we use Azure Active Directory for authentication, you can use any authentication library you wish with Azure Mobile Apps.  
 
-## Test that authentication is being requested
+[!INCLUDE [Register with AAD for the backend](~/mobile-apps/azure-mobile-apps/includes/quickstart/common/register-aad-backend.md)]
 
-* Open your project in Visual Studio. 
-* From the **Run** menu, click **Run app**.
-* Verify that an unhandled exception with a status code of 401 (Unauthorized) is raised after the app starts.
-
-This exception happens because the app attempts to access the back end as an anonymous user, but the *TodoItem* table now requires authentication.
+[!INCLUDE [Configure the service for authentication](~/mobile-apps/azure-mobile-apps/includes/quickstart/windows/configure-auth-backend.md)]
 
 ## Add authentication to the app
 
-To add authentication via the built-in provider, you must:
+The Microsoft Datasync Framework has built-in support for any authentication provider that uses a Json Web Token (JWT) within a header of the HTTP transaction.  This application will use the [Microsoft Authentication Library (MSAL)](/azure/active-directory/develop/msal-overview) to request such a token and authorize the signed in user to the backend service.
 
-* Register the protocol in the package manifest.
-* Complete the login process when the callback is called.
-* Trigger the login process before data is requested.
+[!INCLUDE [Configure a native app for authentication](~/mobile-apps/azure-mobile-apps/includes/quickstart/common/register-aad-client.md)]
 
-### Register the protocol in the package manifest
+Open the `TodoApp.sln` solution in Visual Studio and set the `TodoApp.UWP`project as the startup project.
 
-Protocols are registered in the app manifest:
+[!INCLUDE [Set up MSAL in Windows](~/mobile-apps/azure-mobile-apps/includes/quickstart/windows/add-msal-library.md)]
 
-* Open the `Package.appxmanifest` file.
-* Navigate to the **Declarations** tab.
-* Select **Protocol** in the **Available Declarations** dropdown list, then select **Add**.
-* Enter the following information:
-  * **Display Name**: _ZumoQuickstart_
-  * **Name**: `zumoquickstart`
-* Save the app manifest with **Ctrl+S**.
+Open the `App.xaml.cs` file in the `TodoApp.UWP` project.
 
-The **Name** field must match the protocol for the callback.  We are using `zumoquickstart://easyauth.callback`, so the name is `zumoquickstart`.
-
-### Handle the callback
-
-Edit `App.xaml.cs`.  Add the following method to the class:
+Add the following `using` statements to the top of the file:
 
 ``` csharp
-protected override void OnActivated(IActivatedEventArgs args)
+using Microsoft.Identity.Client;
+using System.Diagnostics;
+using System.Linq;
+```
+
+Remove the `TodoService` property and replace it with the following code:
+
+``` csharp
+static App()
 {
-    if (args.Kind == ActivationKind.Protocol)
+    IdentityClient = PublicClientApplicationBuilder.Create(Constants.ApplicationId)
+        .WithAuthority(AzureCloudInstance.AzurePublic, "common")
+        .WithRedirectUri("https://login.microsoftonline.com/common/oauth2/nativeclient")
+        .WithUseCorporateNetwork(false)
+        .Build();
+    TodoService = new RemoteTodoService(async () => await GetAuthenticationToken());
+}
+
+public static IPublicClientApplication IdentityClient { get; }
+
+public static ITodoService TodoService { get; }
+
+public static async Task<AuthenticationToken> GetAuthenticationToken()
+{
+    var accounts = await IdentityClient.GetAccountsAsync();
+    AuthenticationResult? result = null;
+    try
     {
-        ProtocolActivatedEventArgs protocolArgs = args as ProtocolActivatedEventArgs;
-        Frame content = Window.Current.Content as Frame;
-        if (content.Content.GetType() == typeof(MainPage))
-        {
-            content.Navigate(typeof(MainPage), protocolArgs.Uri);
-        }
+        result = await IdentityClient
+            .AcquireTokenSilent(Constants.Scopes, accounts.FirstOrDefault())
+            .ExecuteAsync();
     }
-    Window.Current.Activate();
-    base.OnActivated(args);
+    catch (MsalUiRequiredException)
+    {
+        result = await IdentityClient
+            .AcquireTokenInteractive(Constants.Scopes)
+            .ExecuteAsync();
+    }
+    catch (Exception ex)
+    {
+        // Display the error text - probably as a pop-up
+        Debug.WriteLine($"Error: Authentication failed: {ex.Message}");
+    }
+
+    return new AuthenticationToken
+    {
+        DisplayName = result?.Account?.Username ?? "",
+        ExpiresOn = result?.ExpiresOn ?? DateTimeOffset.MinValue,
+        Token = result?.AccessToken ?? "",
+        UserId = result?.Account?.Username ?? ""
+    };
 }
 ```
 
-When the `zumoquickstart` protocol is detected, the app will launch the main page with a Uri.  The `OnNavigatedTo()` method within `MainPage.xaml.cs` handles the launch.
-
-### Trigger the login process
-
-Edit the `MainPage.xaml.cs` file.  Edit the `OnNavigatedTo()` method to trigger the authentication on first entry:
-
-``` csharp
-protected override async void OnNavigatedTo(NavigationEventArgs e)
-{
-    if (e.Parameter is Uri)
-    {
-        _service.ResumeWithUri(e.Parameter as Uri);
-        await RefreshItemsAsync(true);
-        _service.TodoListUpdated += OnServiceUpdated;
-    }
-    else
-    {
-        await _service.AuthenticateAsync();
-    }
-}
-```
-
-Add the authentication code to `DataModel/TodoService.cs`:
-
-``` csharp
-public void ResumeWithUri(Uri uri) => mClient.ResumeWithURL(uri);
-
-public Task AuthenticateAsync() => mClient.LoginAsync("aad", "zumoquickstart");
-```
+The `GetAuthenticationToken()` method works with the Microsoft Identity Library (MSAL) to get an access token suitable for authorizing the signed-in user to the backend service.  This function is then passed to the `RemoteTodoService` for creating the client.  If the authentication is successful, the `AuthenticationToken` is produced with data necessary to authorize each request.  If not, then an expired bad token is produced instead.
 
 ## Test the app
 
-From the **Run** menu, click **Local Machine** to start the app.  You will be prompted for a Microsoft account in a browser.  When you're signed in, the app should run as before without errors.
+You should be able to press **F5** to run the app.  When the app runs, a browser will be opened to ask you for authentication.  The first time the app runs, you'll be asked to consent to the access:
 
-[!INCLUDE [clean-up](~/mobile-apps/azure-mobile-apps/includes/quickstart-clean-up.md)]
+![Screenshot of the AAD consent request.](./media/aad-consent.png)
+
+Press **Yes** to continue to your app.  The app will then run as before.
 
 ## Next steps
 
-Take a look at the HOW TO sections:
+Next, configure your application to operate offline by [implementing an offline store](./offline.md).
 
-* Server ([Node.js](../../howto/server/nodejs.md))
-* Server ([ASP.NET Framework](../../howto/server/dotnet-framework.md))
-* [.NET Client](../../howto/client/dotnet.md)
+## Further reading
 
-You can also do a Quick Start for another platform using the same backend server:
-
-* [Apache Cordova](../cordova/index.md)
-* [Windows (WPF)](../wpf/index.md)
-* [Xamarin.Android](../xamarin-android/index.md)
-* [Xamarin.Forms](../xamarin-forms/index.md)
-* [Xamarin.iOS](../xamarin-ios/index.md)
+* [Quickstart: Protect a web API with the Microsoft identity platform](/azure/active-directory/develop/web-api-quickstart?pivots=devlang-aspnet-core)
+* [Quickstart: Acquire a token and call Microsoft Graph API from a desktop application](/azure/active-directory/develop/desktop-app-quickstart?pivots=devlang-windows-desktop)
+* [Microsoft identity platform: Universal Windows Platform tutorial](/azure/active-directory/develop/tutorial-v2-windows-uwp)   
+* 
