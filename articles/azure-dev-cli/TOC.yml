@@ -42,7 +42,7 @@
     href: how-to-devify-a-project.md
 - name: Reference
   items:
-  - name: [Placeholder] Reference
+  - name: (Placeholder)Reference
     href: azure-dev-cli-ref.md
   - name: Reference (wiki)
     href: https://github.com/Azure/azure-dev-pr/wiki/Azure-Developer-CLI-Overview
