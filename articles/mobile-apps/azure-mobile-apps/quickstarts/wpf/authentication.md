@@ -34,6 +34,7 @@ Open the `App.xaml.cs` file in the `TodoApp.WPF` project.
 Add the following `using` statements to the top of the file:
 
 ``` csharp
+using Microsoft.Datasync.Client;
 using Microsoft.Identity.Client;
 using System.Diagnostics;
 using System.Linq;

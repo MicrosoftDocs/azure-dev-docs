@@ -34,9 +34,11 @@ Open the `App.xaml.cs` file in the `TodoApp.UWP` project.
 Add the following `using` statements to the top of the file:
 
 ``` csharp
+using Microsoft.Datasync.Client;
 using Microsoft.Identity.Client;
 using System.Diagnostics;
 using System.Linq;
+using System.Threading.Tasks;
 ```
 
 Remove the `TodoService` property and replace it with the following code:
@@ -59,7 +61,7 @@ public static ITodoService TodoService { get; }
 public static async Task<AuthenticationToken> GetAuthenticationToken()
 {
     var accounts = await IdentityClient.GetAccountsAsync();
-    AuthenticationResult? result = null;
+    AuthenticationResult result = null;
     try
     {
         result = await IdentityClient
