@@ -10,23 +10,6 @@ ms.date: 12/09/2021
 
 This article describes how to integrate Azure Key Vault into the JVM to deliver TLS/SSL certificates.
 
-## Create the bootstrap.jar
-
-The JCA provider JAR published on Maven Central doesn't automatically register itself. This behavior is by design so that you can programmatically enable the provider.
-
-To enable the JCA provider to automatically register itself, you'll need to create a separate JAR file that contains the required metadata. To create this file, use the following steps:
-
-1. On your filesystem, create a *bootstrap* directory.
-1. Inside the *bootstrap* directory, create the *META-INF/services* directory.
-1. Inside the *services* directory, create a file named *java.security.provider*.
-1. Add a single line with the following line to the *java.security.provider* file.
-
-   ```text
-   com.azure.security.keyvault.jca.KeyVaultJcaProvider
-   ```
-
-1. From the *bootstrap* directory, run the command `jar cf ../bootstrap.jar *` to create the *bootstrap.jar* file.
-
 ## Add the JCA provider to the java.security file
 
 To register the JCA provider, the JVM needs to know about it. To accomplish this task, use the following steps:
@@ -34,16 +17,10 @@ To register the JCA provider, the JVM needs to know about it. To accomplish this
 1. Make a copy of the *java.security* file inside your JVM installation, and name the file *my.java.security*.
 1. Inside the file, look for the line `security.provider.1`.
 1. Increment the numbers for all the entries by 1. For example, `security.provider.1` should become `security.provider.2`.
-1. If you're on Java 8, add the following line:
+1. Add the following line:
 
    ```text
    security.provider.1=com.azure.security.keyvault.jca.KeyVaultJcaProvider
-   ```
-
-1. If you're on Java 11, add the following line:
-
-   ```text
-   security.provider.1=AzureKeyVault
    ```
 
 > [!NOTE]
@@ -53,9 +30,8 @@ To register the JCA provider, the JVM needs to know about it. To accomplish this
 
 To run your application, use the following steps:
 
-1. Add the *bootstrap.jar* file to the classpath.
 1. Add the *azure-security-keyvault-jca-X.Y.Z.jar* to the classpath.
-1. Add `-Djava.security.file=my.java.security` to the command line.
+1. Add `-Djava.security.properties==my.java.security` to the command line.
 
 To tell your application which Azure Key Vault to use, you'll need to pass the following arguments to the command line, replacing the *`<...>`* placeholders with your own values.
 
