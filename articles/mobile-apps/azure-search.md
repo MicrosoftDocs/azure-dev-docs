@@ -1,6 +1,6 @@
 ---
 title: Azure Cognitive Search in mobile application development
-description: Learn about a Azure Cognitive Search service to use an AI-powered cloud search service for mobile application development.
+description: See how to use Azure Cognitive Search service as an AI-powered cloud search service for mobile application development.
 author: codemillmatt
 ms.assetid: 34a8a070-0123-8982-8345-ccff02097224
 ms.service: mobile-services
@@ -21,7 +21,7 @@ Your client can define the search experience by using Cognitive Search. Queries 
 
 - **Freeform text search** with full text search, simple query syntax, and Lucene query syntax.
 - **Simple scoring profiles** that score model relevance as a function of values in the documents themselves.
-- **Geosearch** that explores data based on the proximity of a search result to a physical location.
+- **Geo search** that explores data based on the proximity of a search result to a physical location.
 - **User experiences features** like autocomplete, suggestions, sorting, and paging.
 - **Knowledge store** that saves enrichments created during indexing.
 - **Import data wizard** to configure indexers.

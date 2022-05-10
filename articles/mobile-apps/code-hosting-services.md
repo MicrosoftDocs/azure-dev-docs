@@ -11,9 +11,9 @@ ms.custom: team=cloud_advocates, kr2b-contr-experiment
 ms.contributors: masoucou-01212021
 ---
 
-# Cloud-hosted mobile app source code repositories
+# Cloud-hosted mobile application source code repositories
 
-Source code hosted in the cloud is readily accessible no matter where you are. A central repository means development team members can interact on the same code base by uploading, editing, and managing code files. Cloud hosting requires less hardware configuration than on-premises options, letting you implement solutions in an easier and more agile manner.
+Cloud-hosted source code is readily accessible no matter where you are. A central repository means development team members can interact on the same code base by uploading, editing, and managing code files. Cloud hosting requires less hardware configuration than on-premises options, letting you implement solutions in an easier and more agile manner.
 
 Benefits of hosting source code in the cloud include:
 
@@ -29,7 +29,7 @@ GitHub and Azure Repos are two options for hosting mobile app source code and da
 
 [GitHub](https://github.com/) is an open-source repository hosting service for code projects in many different languages. GitHub tracks and helps resolve the various changes in every code iteration.
 
-Use *code hosting* to keep all your code in one place. Private, public, and open-source repositories all have tools to help you host, version, and release code.
+Use *code hosting* to keep all your code in one place. Private, public, and open-source repositories all have tools to help host, version, and release code.
 
 *Review code* with built-in review tools to make code review an essential part of your team's process.
 
@@ -38,7 +38,7 @@ Use *code hosting* to keep all your code in one place. Private, public, and open
 
 Use *project management* tools to coordinate early, stay aligned, and get more done.
 
-- See the project's big picture.
+- See the project's larger picture.
 - Use task boards that are right next to your code inside GitHub.
 - Drag cards to assign issues or pull requests to team members.
 - Set milestones to organize and track progress.
@@ -47,7 +47,7 @@ Use *project management* tools to coordinate early, stay aligned, and get more d
 *Manage teams* and help them grow by using:
 
 - User roles to help organize team roles and access permissions.
-- Discussion thread tools to keep conversations on topic and team-focused.
+- Discussion thread tools to keep conversations on track and team-focused.
 - Community guidelines to quickly set up new team members with accounts.
 
 Other features include:
@@ -58,11 +58,11 @@ Other features include:
 
 ## Azure Repos
 
-[Azure Repos](https://azure.microsoft.com/services/devops/repos) is the distributed source control option for [Azure DevOps](https://azure.microsoft.com/services/devops). Azure Repos offers unlimited free private or public repositories with collaborative code reviews, advanced file management, code search, and branch policies.
+[Azure Repos](https://azure.microsoft.com/services/devops/repos) is the distributed source control option for [Azure DevOps Services](https://azure.microsoft.com/services/devops). Azure Repos offers unlimited free private or public repositories with collaborative code reviews, advanced file management, code search, and branch policies.
 
-Azure Repos integrates with other Azure DevOps services like Azure Pipelines and Azure Boards for end-to-end project services. Azure Repos is great for small projects, or for large organizations that need native Azure Active Directory support and advanced policy controls.
+Azure Repos integrates with other services like Azure Pipelines and Azure Boards for end-to-end project services. Azure Repos is great for small projects, or for large organizations that need native Azure Active Directory (Azure AD) support and advanced policy controls.
 
-Azure DevOps also offers [Team Foundation Version Control (TFVC)](/azure/devops/repos/tfvc/index) for centralized source control with code review.
+You can also use [Team Foundation Version Control (TFVC)](/azure/devops/repos/tfvc/index) for centralized source control with code review.
 
 - Azure Repos supports any *Git client* through webhooks and [Git API](/rest/api/azure/devops/git) integration.
 
