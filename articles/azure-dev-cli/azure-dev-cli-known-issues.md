@@ -1,59 +1,53 @@
 ---
-title: Known issues - feature-name #Required; Change feature-name to the name of the feature or service that the known issues relate to.
-description: #Required; article description that is displayed in search results. Include the complete message that the customer sees.
-author: #Required; your GitHub user alias, with correct capitalization.
-ms.author: #Required; microsoft alias of author; optional team alias.
-ms.topic: troubleshooting #Required
-ms.date: #Required; mm/dd/yyyy format.
+title: Known issues - Azure Developer CLI (azd)
+description: In this article, troubleshoot common problems when using Azure Developer CLI (azd)
+author: puicchan
+ms.author: puichan
+keywords: azd, known issues, troubleshooting
+ms.topic: troubleshooting
+ms.date: 05/09/2022
+ms.custom: devx-track-azdev
+ms.prod: Azure
 ---
+# Known issues: Azure Developer CLI (azd)
 
-<!---Recommended: Remove all the comments in this template before you
-sign-off or merge to main.--->
+This article provides information about known issues associated with Azure Developer CLI (`azd`).
 
-<!--- Known issues articles help inform customers of issues that they may encounter that are currently being worked on or planned to be fixed in the near future. Known issues added to the article should be removed when the issue has been resolved. If the issue is never going to be resolved, it should be documented in a conceptual or how-to article as expected behavior.
---->
+## Windows Subsystem for Linux (WSL) and Ubuntu support
+Windows Subsystem for Linux (WSL) and Ubuntu aren't fully supported yet.
 
-# Known issues: <feature name>
-<!---Required--->
+## .azure folder
+The Azure Dev CLI assumes that folders under .azure folder 's dev CLI environments. Don't run `azd` commands from the home directory of a user that has Azure CLI installed.
 
-This article provides information about known issues associated with <feature-name>.
+## Environment naming restriction
+Environment name is used as a prefix to the name of each Azure resource created for this project. Azure resources have [naming rules and restrictions](/azure/azure-resource-manager/management/resource-name-rules), make sure you use a name that is less than 15-character long and unique.
 
-## <Issue title>
-<!---Required:
-Each known issue should be in its own section. Provide a title for the section that enables the customer to easily identify the issue that they are experiencing.
---->
+## `az bicep CLI` requirement
+`azd up` and `azd provision` require the latest release of az bicep CLI. Run `az bicep upgrade` if you see this error message: "Error: failed to compile bicep template: failed running Az PowerShell module bicep build: exit code: 1, stdout: , stderr: WARNING: A new Bicep release is available: v0.4.1272."
 
-### Prerequisites
-<!---Optional:
-If there are steps that the customer should complete or tools that need to be downloaded before continuing through the troubleshooting guidance, they should be described in this section.
---->
+### Troubleshooting step
+Upgrade Bicep by running `az bicep upgrade`.
 
-- Prerequisite 1
-- Prerequisite 2
+## `azd ip` or `az provision` fails
+Sometimes, things go awry with `azd up` or `azd provision`. Troubleshooting steps differ depending on root cause. 
+
+### Troubleshooting step
+1. Go to the [Azure portal](https://portal.azure.com) 
+1. Locate your resource group, which is `<your-environment-name>rg`. 
+1. Select **Deployments** to get more information.
+
+> [!NOTE]
+> Additional resource: [Troubleshoot common Azure deployment errors - Azure Resource Manager](/azure/azure-resource-manager/troubleshooting/common-deployment-errors)
+
+## `azd pipeline` failure
+`azd pipeline` fails to deploy your latest change.
 
 ### Troubleshooting steps
-<!---Optional:
-Not all known issues will be correctable, but if so, add this section decribing the steps to take to correct the issue.
---->
+1. Verify that you've specified a basename that is the same as your environment name. 
+1. Go to `https://github.com/<your repo>/actions` and refer to the log file in the pipeline run to get more information.
 
-1. Step 1.
-2. Step 2.
+## Text-based browser support
+Text-based browser is currently not supported by `azd monitor`.
 
-### Possible causes
-<!---Required:
-List known possible causes of the issue.
---->
-
-#### Cause #
-<!---Optional:
-Most common cause.
---->
-#### Cause #
-<!---Optional:
-Next most common cause.
---->
-
-## Next steps
-
-<!--- Optional:
-Include this section if there are 1 -3 concrete, highly relevant next steps the user should take. Delete if there are no next steps. This is not a place for a list of links. If you include links to next steps, make sure to include text to explain why the next steps are relevant or important. --->
+## Live metrics support for Python
+Live Metrics (`azd monitor --live`) is currently not supported for Python app. For more information, see [this article](/azure/azure-monitor/app/live-stream#get-started).

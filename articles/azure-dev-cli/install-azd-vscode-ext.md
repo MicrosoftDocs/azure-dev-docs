@@ -1,6 +1,8 @@
 ---
 title: How to install the Visual Studio Code extension for Azure Developer CLI
-description: The VS COde Extension for Azure Developer CLI is available to install.
+description: The VS Code Extension for Azure Developer CLI is available to install.
+author: puicchan
+ms.author: puichan
 ms.date: 04/12/2021
 ms.topic: conceptual
 ms.custom: devx-track-azdev
@@ -13,6 +15,6 @@ ms.prod: azure
 
 2. In vscode
     1. Open "Extensions" (Ctrl+Shift+X)
-    2. Click the `...` menu at top of Extensions sidebar
-    3. Click "Install from VSIX"
+    2. Select the `...` menu at top of Extensions sidebar
+    3. Select "Install from VSIX"
     4. Select location of downloaded file

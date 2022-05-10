@@ -1,6 +1,8 @@
 ---
 title: List of languages and host Azure Developer CLI supports
 description: List of languages and host (Azure services) Azure Developer CLI supports.
+author: puicchan
+ms.author: puichan
 ms.date: 04/12/2021
 ms.topic: conceptual
 ms.custom: devx-track-azdev

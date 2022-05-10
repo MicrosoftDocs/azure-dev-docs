@@ -1,6 +1,8 @@
 ---
 title: How to dev-ify a project
 description: How to convert an application to an Azure dev-enabled template.
+author: puicchan
+ms.author: puichan
 ms.date: 04/12/2021
 ms.topic: conceptual
 ms.custom: devx-track-azdev

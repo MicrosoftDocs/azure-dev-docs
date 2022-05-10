@@ -2,10 +2,13 @@
 metadata:
   title: Azure Developer CLI FAQ
   description: Get answers to common questions about Azure Developer CLI.
+  author: puicchan
+  ms.author: puichan
   ms.date: 04/13/2021
   ms.topic: conceptual
   ms.custom: devx-track-azdev
   ms.prod: azure
+---
 title: Common questions about the Azure Developer CLI
 summary: This article answers commonly asked questions about the Azure Developer CLI.
 sections:
@@ -16,8 +19,8 @@ sections:
           The CLI uses the environment name to set the `AZURE_ENV_NAME` environment variable used by azd enabled templates. AZURE_ENV_NAME is also used as a prefix to Azure resource name including the Azure resource group. Since each environment has its own set of configurations, we keep all configuration files under environment folders. 
 
           ```	 
-          ├── .azure                          [ This folder shows up after you run azd init or azd up ]
-          │   ├── <your environment1>         [ Folder to house all environment related configurations ]
+          ├── .Azure                          [ This folder shows up after you run add init or azd up ]
+          │   ├── <your environment1>         [Folder to house all environment related configurations ]
           │   │   ├── .env                    [ Contains environment variables ]
           │   │   └── main.parameters.json    [ Parameter file ]
           │   └── <your environment2>         [ Folder to house all environment related configurations ]
@@ -54,9 +57,9 @@ sections:
 
       - question: How do I find more information about Azure errors?
         answer: |
-          We use Bicep templates found under `<your-project-folder-name>/infra` to provision Azure resources and include the error message in the cli output if issues. 	
+          We use Bicep templates found under `<your-project-folder-name>/infra` to provision Azure resources and include the error message in the CLI output if issues. 	
           
-          You can also go to https://portal.azure.com, locate your resource group, which is `<your-environment-name>rg`. If any of the deployments fail, click error link to get more information.
+          You can also go to https://portal.azure.com, locate your resource group, which is `<your-environment-name>rg`. If any of the deployments fail, select error link to get more information.
           
           More resource: [Troubleshoot common Azure deployment errors - Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/troubleshooting/common-deployment-errors)
 
@@ -94,7 +97,7 @@ sections:
         answer: |
           The command stores four secrets in GitHub: AZURE_CREDENTIALS, AZURE_ENV_NAME, AZURE_LOCATION and AZURE_SUBSCRIPTION_ID. You can override the value of each secret by going to `https://github.com/<your-GH-account>/<your-repo>/secrets/actions`.
 
-      - question: What is OpenID Connent (OIDC) and is it supported?  
+      - question: What is OpenID Connect (OIDC) and is it supported?  
         answer: |
           [OpenID Connect](https://docs.github.com/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect) allows your workflows to exchange short-lived tokens directly from Azure. OIDC support is planned and will be included in future release. 
 

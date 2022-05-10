@@ -1,17 +1,18 @@
 ---
-title: Get started with Azure Developer CLI using bare metal set up
-description: Learn how to get started with Azure Developer CLI using bare metal set up
+title: Get started with Azure Developer CLI using bare metal set-up
+description: Learn how to get started with Azure Developer CLI using bare metal set-up
 keywords: 
-ms.author: puicchan
+author: puicchan
+ms.author: puichan
 ms.date: 5/5/2022
 ms.topic: article
 ms.custom: devx-track-azdev
 ms.prod: azure
 ---
 
-# Get started with bare metal set up
+# Get started with bare metal set-up
 
-We will use the [Todo Application with Node.js and Azure Cosmo DB API for MongoDB](https://github.com/azure-samples/todo-nodejs-mongo)] for this walkthrough. 
+We'll use the [Todo Application with Node.js and Azure Cosmo DB API for MongoDB](https://github.com/azure-samples/todo-nodejs-mongo) for this walkthrough. 
 
 ## Prerequisites
 
@@ -37,7 +38,7 @@ Make sure you have the following language specific pre-requisite installed on yo
 
 ### Project Folder
 
-You will need an empty folder on your computer to house the project files that will be copied from this repository.
+You'll need an empty folder on your computer to house the project files that will be copied from this repository.
 
 1. Open your favorite terminal and create a new folder.
 
@@ -63,9 +64,9 @@ This template will create infrastructure and deploy code to Azure. If you don't 
 azd init --template todo-nodejs-mongo
 ```
 
-You will be prompted for the following information:
+You'll be prompted for the following information:
 
-- `Environment Name`: This will be used as a prefix for all your Azure resources, make sure it is globally unique and under 15 characters.
+- `Environment Name`: Prefix for all your Azure resources, make sure it's globally unique and under 15 characters.
 - `Azure Location`: The Azure location where your resources will be deployed.
 - `Azure Subscription`: The Azure Subscription where your resources will be deployed.
 

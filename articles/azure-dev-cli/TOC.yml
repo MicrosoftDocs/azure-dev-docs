@@ -9,7 +9,7 @@
     href: azure-dev-cli-lang-and-service-list.md   
     displayName: list, langugae, Azure services
   - name: Known issues
-    href: azure-dev-cli-known-issues.yml   
+    href: azure-dev-cli-known-issues.md   
     displayName: troubleshooting, known issues
 - name: Get started
   items:
