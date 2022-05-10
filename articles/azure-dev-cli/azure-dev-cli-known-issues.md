@@ -31,7 +31,7 @@ Upgrade Bicep by running `az bicep upgrade`.
 ## `azd ip` or `az provision` fails
 Sometimes, things go awry with `azd up` or `azd provision`. Troubleshooting steps differ depending on root cause. 
 
-### Troubleshooting step
+### Troubleshooting steps
 1. Go to the [Azure portal](https://portal.azure.com) 
 1. Locate your resource group, which is `<your-environment-name>rg`. 
 1. Select **Deployments** to get more information.

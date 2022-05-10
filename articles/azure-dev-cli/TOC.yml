@@ -13,7 +13,7 @@
     displayName: troubleshooting, known issues
 - name: Get started
   items:
-  - name: Get Starter Overview
+  - name: Get Started Overview
     href: get-started.md
     displayname: get started overview, bare metal, dev container
   - name: Get started using Dev Container
@@ -34,9 +34,15 @@
     displayName: python, azure app service, azure cosmodb api for mongodb, azure monitor, azure key vault
 - name: How-to guides
   items:
+  - name: Run azd using Windows Subsystem for Linux (WSL)
+    href: how-to-azd-wsl.md
   - name: Run and debug using Visual Studio Code 
     href: how-to-use-vscode-extension-to-debug-locally.md
   - name: Dev-ify a project
     href: how-to-devify-a-project.md
-- name: Reference 
-  href: azure-dev-cli-ref.md
+- name: Reference
+  items:
+  - name: [Placeholder] Reference
+    href: azure-dev-cli-ref.md
+  - name: Reference (wiki)
+    href: https://github.com/Azure/azure-dev-pr/wiki/Azure-Developer-CLI-Overview
