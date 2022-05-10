@@ -4,7 +4,7 @@ description: See how to use Azure Cognitive Search service as an AI-powered clou
 author: codemillmatt
 ms.assetid: 34a8a070-0123-8982-8345-ccff02097224
 ms.service: mobile-services
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/09/2022
 ms.author: masoucou
 ms.custom: team=cloud_advocates, kr2b-contr-experiment
@@ -13,9 +13,11 @@ ms.contributors: masoucou-06082020
 
 # AI-powered Azure Cognitive Search for mobile application development
 
-[Azure Cognitive Search](https://azure.microsoft.com/services/search) is a cloud search service with built-in AI capabilities. Cognitive Search gives developers APIs and tools for adding a rich search experience over private, heterogeneous content in web, mobile, and enterprise applications. Custom code invokes data ingestion indexing to create and load an index. Your application code issues query requests and handles responses.
+[Azure Cognitive Search](https://azure.microsoft.com/services/search) is a cloud search service with built-in AI capabilities. Cognitive Search gives developers APIs and tools for adding a rich search experience over private, heterogeneous content in web, mobile, and enterprise applications.
 
 Your client can define the search experience by using Cognitive Search. Queries execute over a persisted index that you create, own, and store in your service.
+
+Custom code invokes data ingestion indexing to create and load an index. Your application code issues query requests and handles responses.
 
 ## Azure Cognitive Search features
 
