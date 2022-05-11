@@ -4,7 +4,7 @@ description: Add offline data sync to your Windows (UWP) app using Azure Mobile 
 author: adrianhall
 ms.service: mobile-services
 ms.topic: article
-ms.date: 05/05/2021
+ms.date: 05/11/2022
 ms.author: adhal
 ---
 
@@ -31,7 +31,7 @@ In the `TodoApp.WPF` project, edit the `App.xaml.cs` file.  Change the definitio
 ``` csharp
 TodoService = new RemoteTodoService(GetAuthenticationToken)
 {
-    OfflineDb = Windows.Storage.ApplicationData.Current.LocalCacheFolder.Path + "\\offline.db"
+    OfflineDb = ApplicationData.Current.LocalCacheFolder.Path + "\\offline.db"
 };
 ```
 
@@ -40,8 +40,14 @@ If you have not completed the [authentication tutorial](./authentication.md), th
 ``` csharp
 TodoService = new RemoteTodoService()
 {
-    OfflineDb = Windows.Storage.ApplicationData.Current.LocalCacheFolder.Path + "\\offline.db"
+    OfflineDb = ApplicationData.Current.LocalCacheFolder.Path + "\\offline.db"
 };
+```
+
+You may need to add the following to the top of the file if `ApplicationData` is not recognized:
+
+``` csharp
+using Windows.Storage;
 ```
 
 > [!NOTE]

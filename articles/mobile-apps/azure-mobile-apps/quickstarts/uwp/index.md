@@ -4,7 +4,7 @@ description: Get up to speed with Windows (UWP) and Azure Mobile Apps with our t
 author: adrianhall
 ms.service: mobile-services
 ms.topic: article
-ms.date: 05/06/2022
+ms.date: 05/11/2022
 ms.author: adhal
 ---
 

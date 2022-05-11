@@ -4,7 +4,7 @@ description: Add authentication to your Windows (UWP) app using Azure Mobile App
 author: adrianhall
 ms.service: mobile-services
 ms.topic: article
-ms.date: 05/05/2021
+ms.date: 05/11/2022
 ms.author: adhal
 ---
 
