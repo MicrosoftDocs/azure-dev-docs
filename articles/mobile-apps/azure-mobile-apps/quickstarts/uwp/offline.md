@@ -31,7 +31,7 @@ In the `TodoApp.WPF` project, edit the `App.xaml.cs` file.  Change the definitio
 ``` csharp
 TodoService = new RemoteTodoService(async () => await GetAuthenticationToken())
 {
-    OfflineDb = Windows.Storage.ApplicationData.Current.LocalFolder.Path + "\\offline.db"
+    OfflineDb = Windows.Storage.ApplicationData.Current.LocalCacheFolder.Path + "\\offline.db"
 };
 ```
 
@@ -40,12 +40,12 @@ If you have not completed the [authentication tutorial](./authentication.md), th
 ``` csharp
 TodoService = new RemoteTodoService()
 {
-    OfflineDb = Windows.Storage.ApplicationData.Current.LocalFolder.Path + "\\offline.db"
+    OfflineDb = Windows.Storage.ApplicationData.Current.LocalCacheFolder.Path + "\\offline.db"
 };
 ```
 
 > [!NOTE]
-> The Universal Windows Platform restricts where you can read and write data.  You can use any of the storage folders in [`ApplicationData.Current`](/uwp/api/Windows.Storage.ApplicationData?view=winrt-22000).  If you want to ensure that the data is available but not backed up to the cloud, use `LocalCacheFolder` instead.
+> The Universal Windows Platform restricts where you can read and write data.  You can use any of the storage folders in [`ApplicationData.Current`](/uwp/api/Windows.Storage.ApplicationData?view=winrt-22000).  If you want to ensure that the data is available but not backed up to the cloud, use `LocalCacheFolder`.
 
 [!INCLUDE [Instructions for testing offline mode.](~/mobile-apps/azure-mobile-apps/includes/quickstart/common/test-offline-app.md)]
 
