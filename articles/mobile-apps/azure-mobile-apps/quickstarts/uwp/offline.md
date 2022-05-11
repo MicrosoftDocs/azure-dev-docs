@@ -29,7 +29,7 @@ In online operation, you read to and write from a `IRemoteTable<T>`.  When using
 In the `TodoApp.WPF` project, edit the `App.xaml.cs` file.  Change the definition of the `RemoteTodoService` as follows:
 
 ``` csharp
-TodoService = new RemoteTodoService(async () => await GetAuthenticationToken())
+TodoService = new RemoteTodoService(GetAuthenticationToken)
 {
     OfflineDb = Windows.Storage.ApplicationData.Current.LocalCacheFolder.Path + "\\offline.db"
 };

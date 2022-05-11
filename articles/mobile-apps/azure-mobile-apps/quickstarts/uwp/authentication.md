@@ -41,43 +41,67 @@ using System.Linq;
 using System.Threading.Tasks;
 ```
 
-Remove the `TodoService` property and replace it with the following code:
+Replace the constructor and the `TodoService` code with the following:
 
 ``` csharp
-static App()
+public App()
 {
-    IdentityClient = PublicClientApplicationBuilder.Create(Constants.ApplicationId)
-        .WithAuthority(AzureCloudInstance.AzurePublic, "common")
-        .WithRedirectUri("https://login.microsoftonline.com/common/oauth2/nativeclient")
-        .WithUseCorporateNetwork(false)
-        .Build();
-    TodoService = new RemoteTodoService(async () => await GetAuthenticationToken());
+    InitializeComponent();
+    Suspending += OnSuspending;
+
+    IdentityClient = GetIdentityClient();
+    TodoService = new RemoteTodoService(GetAuthenticationToken);
 }
 
-public static IPublicClientApplication IdentityClient { get; }
+public static IPublicClientApplication IdentityClient { get; set; }
 
-public static ITodoService TodoService { get; }
+public ITodoService TodoService { get; }
 
-public static async Task<AuthenticationToken> GetAuthenticationToken()
+public IPublicClientApplication GetIdentityClient()
+{
+    var identityClient = PublicClientApplicationBuilder.Create(Constants.ApplicationId)
+        .WithAuthority(AzureCloudInstance.AzurePublic, "common")
+        .WithUseCorporateNetwork(false)
+        .WithRedirectUri("https://login.microsoftonline.com/common/oauth2/nativeclient")
+        .Build();
+    return identityClient;
+}
+
+public async Task<AuthenticationToken> GetAuthenticationToken()
 {
     var accounts = await IdentityClient.GetAccountsAsync();
     AuthenticationResult result = null;
+    bool tryInteractiveLogin = false;
+
     try
     {
         result = await IdentityClient
             .AcquireTokenSilent(Constants.Scopes, accounts.FirstOrDefault())
-            .ExecuteAsync();
+            .ExecuteAsync()
+            .ConfigureAwait(false);
     }
     catch (MsalUiRequiredException)
     {
-        result = await IdentityClient
-            .AcquireTokenInteractive(Constants.Scopes)
-            .ExecuteAsync();
+        tryInteractiveLogin = true;
     }
     catch (Exception ex)
     {
-        // Display the error text - probably as a pop-up
-        Debug.WriteLine($"Error: Authentication failed: {ex.Message}");
+        Debug.WriteLine($"MSAL Silent Error: {ex.Message}");
+    }
+
+    if (tryInteractiveLogin)
+    {
+        try
+        {
+            result = await IdentityClient
+                .AcquireTokenInteractive(Constants.Scopes)
+                .ExecuteAsync()
+                .ConfigureAwait(false);
+        }
+        catch (Exception ex)
+        {
+            Debug.WriteLine($"MSAL Interactive Error: {ex.Message}");
+        }
     }
 
     return new AuthenticationToken
@@ -109,4 +133,3 @@ Next, configure your application to operate offline by [implementing an offline 
 * [Quickstart: Protect a web API with the Microsoft identity platform](/azure/active-directory/develop/web-api-quickstart?pivots=devlang-aspnet-core)
 * [Quickstart: Acquire a token and call Microsoft Graph API from a desktop application](/azure/active-directory/develop/desktop-app-quickstart?pivots=devlang-windows-desktop)
 * [Microsoft identity platform: Universal Windows Platform tutorial](/azure/active-directory/develop/tutorial-v2-windows-uwp)   
-* 
