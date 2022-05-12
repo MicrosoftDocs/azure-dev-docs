@@ -128,7 +128,7 @@ sections:
           
           `run: azd deploy--noprompt`
 
-      - question: Where can I find the log for the GitHub action job I just triggered after running `azd workflow`?
+      - question: Where can I find the log for the GitHub action job I just triggered after running `azd pipeline config`?
         answer: |
           Go to `https://github.com/<your-GH-account>/<your-repo>/actions` and refer to the log file in the workflow run.
 

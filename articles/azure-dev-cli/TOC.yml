@@ -13,6 +13,7 @@
     href: azure-dev-cli-known-issues.md   
     displayName: troubleshooting, known issues
 - name: Get started
+  expanded: false
   items:
   - name: Get Started Overview
     href: get-started.md
@@ -26,6 +27,7 @@
   - name: Run azd using Windows Subsystem for Linux (WSL)
     href: get-started-with-wsl.md 
 - name: Samples
+  expanded: false
   items:
   - name: List of Azure Developer CLI Azure samples
     href: azure-dev-cli-templates.md
@@ -36,12 +38,14 @@
     href: https://github.com/azure-samples/todo-python-mongo
     displayName: python, azure app service, azure cosmodb api for mongodb, azure monitor, azure key vault
 - name: How-to guides
+  expanded: false
   items:
   - name: Run and debug using Visual Studio Code 
     href: how-to-use-vscode-extension-to-debug-locally.md
   - name: Azure Developer CLI enable a project
     href:  how-to-azd-enable-a-project.md
 - name: Reference
+  expanded: false
   items:
   - name: (Placeholder)Reference
     href: azure-dev-cli-ref.md

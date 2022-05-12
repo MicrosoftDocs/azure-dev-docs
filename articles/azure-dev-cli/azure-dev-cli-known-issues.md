@@ -13,9 +13,6 @@ ms.prod: Azure
 
 This article provides information about known issues associated with Azure Developer CLI (`azd`).
 
-## Windows Subsystem for Linux (WSL) and Ubuntu support
-Windows Subsystem for Linux (WSL) and Ubuntu aren't fully supported yet.
-
 ## .azure folder
 The Azure Dev CLI assumes that folders under .azure folder 's dev CLI environments. Don't run `azd` commands from the home directory of a user that has Azure CLI installed.
 
