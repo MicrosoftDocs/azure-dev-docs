@@ -1,84 +1,84 @@
 ---
-title: Host your mobile application source code in the cloud with GitHub and Azure DevOps
-description: Learn about the services to host your mobile application code in the cloud with Microsoft services.
+title: Cloud-hosted mobile app source code management
+description: Learn about options for hosting your mobile app's source code in the cloud with GitHub or Azure Repos.
 author: codemillmatt
 ms.assetid: 12a8a079-9b3c-4faf-2222-ccff02097224
 ms.service: mobile-services
-ms.topic: article
-ms.date: 06/08/2020
+ms.topic: conceptual
+ms.date: 05/09/2022
 ms.author: masoucou
-ms.custom: team=cloud_advocates
+ms.custom: team=cloud_advocates, kr2b-contr-experiment
 ms.contributors: masoucou-01212021
 ---
 
-# Cloud-hosted source code management services
+# Cloud-hosted mobile application source code management
 
-If you have development teams with multiple team members who work on the same code base, you need to find a suitable place to host your code. Storing the data in the cloud and having a centralized repository allows everyone to upload, edit, and manage the code files. They also can interact with other developers on projects. The code can be readily accessible no matter where you are, as long as you have an internet connection.
+Cloud-hosted source code is readily accessible no matter where you are. A central repository means development team members can interact on the same code base by uploading, editing, and managing code files. Cloud hosting requires less hardware configuration than on-premises options, letting you implement solutions in an easier and more agile manner.
 
-Cloud hosting is much easier than on-premises options. It requires less hardware configuration and allows organizations to complete the implementation process in a more agile manner.
+Benefits of hosting source code in the cloud include:
 
-## Benefits of hosting source code in the cloud
+- **Central storage** to view and manage your data from anywhere.
+- **Better collaboration** for cleaner code.
+- **Easier contributing** to encourage involvement.
+- **Faster releases**.
+- **Reduced costs** by not maintaining hardware and infrastructure.
 
-- **Centralized cloud storage:** View and manage your data from anywhere.
-- **Better collaboration and cleaner code:** Keep track of code within teams and manage projects to ensure the continuous delivery of excellent software.
-- **Easier to get involved:** Easily contribute to your projects.
-- **Faster release cycle:** Work faster in your teams and easily contribute to your projects.
-- **Reduce the cost:** Don't worry about maintaining your own hardware, servers, VPN, and so on.
-
-Use the following services to host your application data in the cloud.
+GitHub and Azure Repos are two options for hosting mobile app source code and data in the cloud.
 
 ## GitHub
 
-[GitHub](https://github.com/) is an open-source repository hosting service that hosts source code projects in a variety of different programming languages. GitHub keeps track of the various changes made to every iteration.
+[GitHub](https://github.com/) is an open-source repository hosting service for code projects in many different languages. GitHub tracks and helps resolve the various changes in every code iteration.
 
-### GitHub Key features
+Use [codespaces](https://github.com/features/codespaces) to host your development environment in the cloud. Keep all your code in one place. Private, public, and open-source repositories all have tools to help host, version, and release code.
 
-- Use code hosting to keep all your code in one place. Private, public, and open-source repositories are all equipped with tools to help you host, version, and release code.
-- Review code and use the built-in review tools to make code review an essential part of any team's process:
-  - Protect branches, propose changes, and request reviews.
-  - Spot differences, comment in context, and get clear feedback.
-- Coordinate early, stay aligned, and get more done with GitHub's project management tools:
-  - See the project's big picture.
-  - Use task boards that are right next to your code inside GitHub.
-  - Drag cards to assign issues or pull requests to team members.
-  - Set milestones to organize and track progress.
-  - Write notes to capture ideas that might be useful but don't belong to a particular issue or pull request.
-- Easily discover and choose the right tools for better communication and automation of work by buying applications from [GitHub Marketplace](https://github.com/marketplace).
-- Manage and grow teams by using: 
-  - User roles to help organize teams and access permissions.
-  - Discussion thread tools to keep conversations on topic and team focused.
-  - Community guidelines to quickly set up new team members with an account.
+Review code with [built-in review tools](https://github.com/features/code-review) to make code review an essential part of your team's process.
+
+- Protect branches, propose changes, and request reviews.
+- Spot differences, comment in context, and get clear feedback.
+
+Use [project management tools](https://github.com/features/issues) to coordinate early, stay aligned, and get more done.
+
+- See the project's larger picture.
+- Use task boards that are right next to your code inside GitHub.
+- Drag cards to assign issues or pull requests to team members.
+- Set milestones to organize and track progress.
+- Write notes to capture useful ideas that don't belong to a particular issue or pull request.
+
+[Manage users](https://docs.github.com/enterprise-server@3.2/admin/user-management) and help teams grow by using:
+
+- User roles to help organize team roles and access permissions.
+- Discussion thread tools to keep conversations on track and team-focused.
+- Community guidelines to quickly set up new team members with accounts.
+
+Use [GitHub Actions](https://github.com/features/actions) to connect all your tools and automate every step of your development workflow.
+
+Other GitHub features let you:
+
 - Browse and star popular projects to follow them.
+- Easily discover and purchase communication and automation tools from the [GitHub Marketplace](https://github.com/marketplace).
 - Network and learn from others in the industry.
 
-### GitHub References
+## Azure Repos
 
-- [GitHub](https://github.com/)
+[Azure Repos](https://azure.microsoft.com/services/devops/repos) is the distributed source control option for [Azure DevOps Services](https://azure.microsoft.com/services/devops). Azure Repos offers unlimited free private or public repositories with collaborative code reviews, advanced file management, code search, and branch policies.
+
+Azure Repos integrates with other services like Azure Pipelines and Azure Boards for end-to-end project services. Azure Repos is great for small projects, or for large organizations that need native Azure Active Directory (Azure AD) support and advanced policy controls.
+
+You can also use [Team Foundation Version Control (TFVC)](/azure/devops/repos/tfvc/index) for centralized source control with code review.
+
+- Azure Repos supports any *Git client* through webhooks and [Git API](/rest/api/azure/devops/git) integration.
+- Connect to your code from *development environments* like Xcode, Eclipse, IntelliJ, Android Studio, Visual Studio, and Visual Studio Code.
+- Collaborate to build better code by using *threaded discussions* and continuous integration (CI) for each change.
+- Use [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines) or other tools to *kick off builds* from pull requests. Set up continuous integration/continuous delivery (CI/CD) pipelines that automatically build, test, and deploy your app with every completed pull request.
+- Use powerful semantic *code search* in pull requests.
+- Simplify *access management* with native Azure AD integration.
+- Ensure code quality with *branch policies*, such as minimum number of reviewers, requirements for successful builds, and Git merge strategy enforcement.
+- Integrate with [Azure Boards](https://azure.microsoft.com/services/devops/boards) *project management* tools.
+
+## Next steps
+
 - [GitHub guides](https://guides.github.com/)
-- [GitHub Community Forum](https://github.community/)
+- [GitHub Community Forum](https://github.community)
 - [GitHub Marketplace](https://github.com/marketplace)
-
-## Azure DevOps
-
-[Azure DevOps](https://azure.microsoft.com/services/devops/) supports [Azure Repos](https://azure.microsoft.com/services/devops/repos/) and [Team Foundation Version Control (TFVC)](/azure/devops/repos/tfvc/index) as source control options. It has unlimited free private repositories with collaborative code reviews, advanced file management, code search, and branch policies to ensure high-quality code. Azure Repos is great for small projects and large organizations that need native Azure Active Directory support and advanced policies.
-
-### Azure DevOps features
-
-- Use an unlimited cloud-hosted Git source code repository for your public and private repos:
-  - Get support for any Git client.
-  - Use web hooks and API integration.
-- Kick off your next build from a repo pull request:
-  - Collaborate to build better code by using threaded discussion and continuous integration for each change.
-  - Set up continuous integration/continuous delivery (CI/CD) to automatically trigger builds, tests, and deployments with every completed pull request. You can use Azure Pipelines or your tools.
-  - Protect your code quality with branch policies.
-- Maintain centralized version control with Team Foundation Version Control, which includes code review.
-- Connect to your code by using Xcode, Eclipse, IntelliJ, Android Studio, Visual Studio, Visual Studio Code, and more.
-- Use powerful semantic code search.
-- Gain benefits from enterprise-ready features. Azure DevOps has native integration with Azure Active Directory, which simplifies the process of managing access to your code repositories.
-- Ensure code quality with branch policies such as a minimum number of code reviews, requirements for successful builds, and enforcement of Git merge strategies.
-- Connect your favorite development environment to access repos and manage work.
-
-### Azure DevOps references
-
-- [Get started with Azure Repos](https://azure.microsoft.com/services/devops/repos/) 
+- [Get started with Azure Repos](https://azure.microsoft.com/services/devops/repos) 
 - [Azure Repos documentation](/azure/devops/repos)
