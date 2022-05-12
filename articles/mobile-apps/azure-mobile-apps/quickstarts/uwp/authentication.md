@@ -120,7 +120,7 @@ The `GetAuthenticationToken()` method works with the Microsoft Identity Library 
 
 You should be able to press **F5** to run the app.  When the app runs, a browser will be opened to ask you for authentication.  The first time the app runs, you'll be asked to consent to the access:
 
-![Screenshot of the Azure Active Directory consent request.](./media/aad-consent.png)
+![Screenshot of the Azure Active Directory consent request.](./media/authentication-consent.png)
 
 Press **Yes** to continue to your app.  The app will then run as before.
 
