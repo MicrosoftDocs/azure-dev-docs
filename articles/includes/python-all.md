@@ -187,6 +187,7 @@
 | azure-ai-language-nspkg | PyPI [1.0.0](https://pypi.org/project/azure-ai-language-nspkg/1.0.0) |  |  |
 | azure-ai-translation-nspkg | PyPI [1.0.0](https://pypi.org/project/azure-ai-translation-nspkg/1.0.0) |  |  |
 | azure-communication-administration | PyPI [1.0.0b4](https://pypi.org/project/azure-communication-administration/1.0.0b4) |  |  |
+| azure-iothub-provisioningserviceclient | PyPI [1.2.0](https://pypi.org/project/azure-iothub-provisioningserviceclient/1.2.0) |  |  |
 | azure-iot-modelsrepository | PyPI [1.0.0b1](https://pypi.org/project/azure-iot-modelsrepository/1.0.0b1) |  |  |
 | azure-iot-nspkg | PyPI [1.0.1](https://pypi.org/project/azure-iot-nspkg/1.0.1) |  |  |
 | azure-media-nspkg | PyPI [1.0.0](https://pypi.org/project/azure-media-nspkg/1.0.0) |  |  |
