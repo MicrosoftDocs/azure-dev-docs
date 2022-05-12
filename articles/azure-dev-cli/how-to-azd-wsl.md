@@ -25,6 +25,8 @@ ms.prod: azure
 
 ## Install the Azure Developer CLI
 
+You'll need npm to install the Azure Developer CLI. For detailed steps, see [Install Node.js on Windows Subsystem for Linux](https://docs.microsoft.com/windows/dev-environment/javascript/nodejs-on-wsl). On a high level, run the following commands:
+
 ```
 sudo apt-get install curl
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
