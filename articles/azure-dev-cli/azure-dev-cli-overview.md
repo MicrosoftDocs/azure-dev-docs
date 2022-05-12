@@ -10,13 +10,23 @@ ms.prod: azure
 ---
 # What is the Azure Developer CLI
 
-The Azure Developer CLI (**azure-dev**) is a developer-centric command-line interface (CLI) tool for cloud applications. `azd` has several subcommands that allow developers to execute many actions for setting up the entire end to end engineering system. For example, manage developer workflows, cloud resources, interactions with continuous integration and delivery (CI/CD) system, etc. 
+The Azure Developer CLI (**azd**) is a developer-centric command-line tool for cloud applications. `azd` has subcommands that allow developers to execute actions for setting up the entire end to end engineering system. You can use `azd` to manage developer workflows and cloud resources; configure continuous integration and delivery (CI/CD); and monitor cloud resources and application health.
 
-## Currently supported commands
-Refer to [Azure Developer CLI Reference](azure-dev-cli-ref.md).
+The Azure Developer CLI is designed to:
+- reduce the time required for a developer to be productive
+- demonstrate opinionated best practices for Azure development
+- help developers understand core Azure development constructs
+
+## Introductory video
+
+Watch this 3-min video to get a high level overview of `azd`:
+
+!["Introductory video"](media/azure-dev-cli-overview/video.png)
 
 ## Azure Dev-ified templates
-[Azure dev-ified templates](azure-dev-cli-templates.md) are end to end sample repositories created using the Azure Developer CLI conventions so that you can use `azd` to easily get started with Azure. All templates have the same file structure:
+[Azure dev-ified templates](azure-dev-cli-templates.md) are sample repositories created using the Azure Developer CLI conventions so that you can use `azd` to easily get started with Azure. 
+
+All templates have the same file structure:
 
 ```
 ├── .github                    [ Configure GitHub workflow ]
@@ -32,9 +42,12 @@ Refer to [Azure Developer CLI Reference](azure-dev-cli-ref.md).
 
 ## Try out
 
-TBA
+- Explore the list of [sample templates](azure-dev-cli-templates.md) and follow the README in the repository to get started.
+- [Understand your developer environment options](get-started.md) - and get started [with a developer container](get-started-devcontainer.md) or [with bare metal setup](get-started-bare-metal.md).
+- Learn how to [dev-ify your own project](how-to-devify-a-project.md) so that you can use `azd` developer workflows.
 
 ## See also
 
-TBA
+- For full list of supported commands, see [Azure Developer CLI Reference](https://github.com/Azure/azure-dev-pr/wiki/Azure-Developer-CLI-Overview).
+- For currently supported host and languages, see [langue and host (Azure compute service) list](azure-dev-cli-lang-and-service-list.md)
 

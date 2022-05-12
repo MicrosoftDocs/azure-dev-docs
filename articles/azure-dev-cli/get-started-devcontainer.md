@@ -12,18 +12,13 @@ ms.prod: azure
 
 # Get started with Dev Container
 
-We'll use the [Todo Application with Node.js and Azure Cosmo DB API for MongoDB](https://github.com/azure-samples/todo-nodejs-mongo) for this walkthrough. 
+We'll use the [Todo Application with Node.js and Azure Cosmo DB API for MongoDB](https://github.com/azure-samples/todo-nodejs-mongo) for this walkthrough. For more information including architecture diagram and the Azure resources you'll deploy, see the [README](https://github.com/azure-samples/todo-nodejs-mongo).
 
 ## Prerequisites
 
 ### Azure Developer CLI
 
-Start by installing the Azure Developer CLI:
-
-```bash
-npm uninstall -g @azure/az-dev-cli
-npm install -g https://azuresdkreleasepreview.blob.core.windows.net/azd/standalone/latest/azure-az-dev-cli-latest.tgz
-```
+[!INCLUDE [azd-install](includes/install-azd.md)]
 
 ### Azure Developer CLI VS Code Extension
 
@@ -36,12 +31,14 @@ The Azure Developer CLI experience includes an Azure Developer CLI VS Code Exten
     - Select "Install from VSIX"
     - Select location of downloaded file
 
-A [DevContainer](https://code.visualstudio.com/docs/remote/containers) is a Docker image that includes all of the prerequisites you need to run this application on your local machine. You can find the specification for this application's DevContainer here: https://github.com/Azure-Samples/todo-nodejs-mongo/blob/main/.devcontainer/Dockerfile.
+### DevContainer
 
-  To use the DevContainer, you'll need the following installed on your local machine:
+A [DevContainer](https://code.visualstudio.com/docs/remote/containers) is a Docker image that includes all of the prerequisites you need to run this application on your local machine. You can find the specification for this application's DevContainer [here](https://github.com/Azure-Samples/todo-nodejs-mongo/blob/main/.devcontainer/Dockerfile).
 
-  2. [Docker Desktop](https://aka.ms/azure-dev/docker-install) (Other options coming soon...)
-  3. [Remote - Containers VS Code Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
+To use the DevContainer, you'll need the following installed on your local machine:
+
+1. [Docker Desktop](https://aka.ms/azure-dev/docker-install) (other options coming soon...)
+1. [Remote - Containers VS Code Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
 
 ### Azure Subscription
 
