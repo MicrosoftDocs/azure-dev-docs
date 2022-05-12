@@ -23,12 +23,13 @@ Watch this 3-min video to get a high level overview of `azd`:
 
 !["Introductory video"](media/azure-dev-cli-overview/video.png)
 
-## Azure Dev-ified templates
-[Azure dev-ified templates](azure-dev-cli-templates.md) are sample repositories created using the Azure Developer CLI conventions so that you can use `azd` to easily get started with Azure. 
+## Azure Developer CLI enabled templates
+[Azure Developer CLI enabled templates](azure-dev-cli-templates.md) are sample repositories created using the Azure Developer CLI conventions so that you can use `azd` to easily get started with Azure. 
 
 All templates have the same file structure:
 
 ```
+├── .devcontainer              [ For DevContainer. ]
 ├── .github                    [ Configure GitHub workflow ]
 ├── .vscode                    [ VS Code workspace ]
 ├── assets                     [ Assets used by README.MD ]
@@ -42,9 +43,12 @@ All templates have the same file structure:
 
 ## Try out
 
-- Explore the list of [sample templates](azure-dev-cli-templates.md) and follow the README in the repository to get started.
-- [Understand your developer environment options](get-started.md) - and get started [with a developer container](get-started-devcontainer.md) or [with bare metal setup](get-started-bare-metal.md).
-- Learn how to [dev-ify your own project](how-to-devify-a-project.md) so that you can use `azd` developer workflows.
+* Explore the list of [Azure Developer CLI enabled templates](azure-dev-cli-templates.md) and follow the README in the repository to get started.
+* [Understand your developer environment options](get-started.md) and get started with the developer environment of choice: 
+    * [a developer container](get-started-devcontainer.md)
+    * [bare metal setup](get-started-bare-metal.md)
+    * [Windows Subsystem for Linux](get-started-with-wsl.md)
+* Learn how to [Azure Developer CLI enable your own project](how-to-devify-a-project.md) so that you can use `azd` as part of your engineering workflows.
 
 ## See also
 

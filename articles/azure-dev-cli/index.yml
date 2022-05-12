@@ -31,8 +31,8 @@ landingContent:
             url: azure-dev-cli-known-issues.md               
       - linkListType: how-to-guide
         links:
-          - text: Dev-ify a project
-            url: how-to-devify-a-project.md
+          - text: Azure Developer CLI enable a project
+            url: how-to-azd-enable-a-project.md
           - text: Debug and run locally using Visual Studio Code
             url: how-to-use-vscode-extension-to-debug-locally.md     
   - title: Get started
@@ -45,6 +45,8 @@ landingContent:
             url: get-started-devcontainer.md            
           - text: Get started using bare metal setup
             url: get-started-bare-metal.md
+          - text: Get started with Windows Subsystem for Linux (WSL)
+            url: get-started-wsl.md
       - linkListType: quickstart
         links:
           - text: List of Azure Developer CLI Azure samples
@@ -53,12 +55,6 @@ landingContent:
             url: https://github.com/azure-samples/todo-nodejs-mongo     
           - text: Todo Application with Python Cosmos DB (Mongo)
             url: https://github.com/azure-samples/todo-python-mongo
-  - title: Azure Developer CLI reference
-    linkLists:
-      - linkListType: reference
-        links:
-          - text: Full command reference
-            url: https://github.com/Azure/azure-dev-pr/wiki/Azure-Developer-CLI-Overview
   - title: Give feedback and get support
     linkLists:
       - linkListType: concept
@@ -69,3 +65,9 @@ landingContent:
             url: https://github.com/Azure/azure-dev/issues/new
           - text: Get help from the community
             url: https://github.com/Azure/azure-dev/discussions/new
+  - title: Azure Developer CLI reference
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: Full command reference
+            url: https://github.com/Azure/azure-dev-pr/wiki/Azure-Developer-CLI-Overview

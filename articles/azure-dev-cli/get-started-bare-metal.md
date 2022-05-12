@@ -20,6 +20,7 @@ Before you get started, ensure you have the following tools installed on your lo
 
 - [Git](https://git-scm.com/)
 - [GitHub CLI v2.3+](https://github.com/cli/cli)
+- [Node.js with npm (v 16.13.1 LTS)](https://nodejs.org/)
 - [Azure CLI (v 2.30.0+)](/cli/azure/install-azure-cli)
 - Azure Dev CLI (see install instructions below)
 
@@ -28,13 +29,8 @@ npm uninstall -g @azure/az-dev-cli
 npm install -g https://azuresdkreleasepreview.blob.core.windows.net/azd/standalone/latest/azure-az-dev-cli-latest.tgz
 ```
 > [!NOTE]
-> May require `sudo` depending on platform and configuration
-
-Make sure you have the following language specific pre-requisite installed on your local machine:
-- [Node.js with npm (v 16.13.1 LTS)](https://nodejs.org/)
-
-> [!NOTE] 
-> You can refer to the DevContainer dependencies in You can find the language specification prerequisite for this application here: https://github.com/Azure-Samples/todo-nodejs-mongo/blob/main/.devcontainer/Dockerfile.
+> * May require `sudo` depending on platform and configuration
+> * Make sure you install language specification prerequisite. To get a full list of prerequisites, refer to the Dockerfile in the sample template. For this walkthrough: [Dockerfile](https://github.com/Azure-Samples/todo-nodejs-mongo/blob/main/.devcontainer/Dockerfile).
 
 ### Project Folder
 

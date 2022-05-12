@@ -1,4 +1,4 @@
-You'll need `npm` to install the Azure Developer CLI. For detailed steps, see [Install Node.js on Windows Subsystem for Linux](https://docs.microsoft.com/windows/dev-environment/javascript/nodejs-on-wsl). On a high level, run the following commands:
+You'll need `npm` to install the Azure Developer CLI. For detailed steps, see [Install Node.js on Windows Subsystem for Linux](https://docs.microsoft.com/windows/dev-environment/javascript/nodejs-on-wsl#install-nvm-nodejs-and-npm). On a high level, run the following commands:
 
 ```bash
 sudo apt-get install curl
@@ -8,4 +8,4 @@ npm install -g https://azuresdkreleasepreview.blob.core.windows.net/azd/standalo
 ```
 
 > [!NOTE]
-> May require `sudo` depending on platform and configuration
+> * To verify `nvm` installation, enter: `command -v nvm`. This should return 'nvm'. If not, close your current terminal, reopen and try again.

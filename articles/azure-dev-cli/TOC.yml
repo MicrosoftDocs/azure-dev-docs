@@ -21,7 +21,9 @@
     displayname: get started, bare metal, install, windows, macos, linux, devcontainer, vs code 
   - name: Get started using bare metal setup
     href: get-started-bare-metal.md
-    displayname: get started, bare metal, install, windows, macos, linux 
+    displayname: get started, bare metal, install, windows, macos, linux
+  - name: Run azd using Windows Subsystem for Linux (WSL)
+    href: get-started-with-wsl.md 
 - name: Samples
   items:
   - name: List of Azure Developer CLI Azure samples
@@ -34,12 +36,10 @@
     displayName: python, azure app service, azure cosmodb api for mongodb, azure monitor, azure key vault
 - name: How-to guides
   items:
-  - name: Run azd using Windows Subsystem for Linux (WSL)
-    href: how-to-azd-wsl.md
   - name: Run and debug using Visual Studio Code 
     href: how-to-use-vscode-extension-to-debug-locally.md
-  - name: Dev-ify a project
-    href: how-to-devify-a-project.md
+  - name: Azure Developer CLI enable a project
+    href:  how-to-azd-enable-a-project.md
 - name: Reference
   items:
   - name: (Placeholder)Reference

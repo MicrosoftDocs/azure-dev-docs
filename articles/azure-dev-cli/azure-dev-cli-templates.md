@@ -20,13 +20,13 @@ A template can deploy to two or more supported hosts. Today, each Azure Develope
 
 Each repo contains a complete sample ToDo application with a web frontend built in React.js and the backend API built using a specific `azd` supported language. 
 
-| Template      | Compute Service | Language (API layer) | Tech Stack	 | Link	
-| ----------- | ----------| ----------- | --- | --- | 
-| ToDo NodeJs Mongo | Azure App Service | Node.js | Azure Cosmos DB API for Mongo, Azure Monitor | https://github.com/azure-samples/todo-nodejs-mongo | 
-| ToDo Python Mongo | Azure App Service | Python (FastAPI) | Azure Cosmos DB API for Mongo, Azure Monitor  | https://github.com/azure-samples/todo-python-mongo | 
-| ToDo C# Mongo | Azure App Service | C# | Azure Cosmos DB API for Mongo, Azure Monitor | \<coming soon\> |
-| ToDo C# Azure SQL | Azure App Service | C# | Azure SQL, Azure Monitor | \<coming soon\> |
-| ToDo C# Cosmos DB (SQL) | Azure App Service |  C# | Azure Cosmos DB SQL API, Azure Monitor | \<coming soon\> |
-| ToDo NodeJs Mongo ACA | Azure Container Apps | Node.js | Azure Cosmos DB API for Mongo, Azure Monitor | https://github.com/azure-samples/todo-nodejs-mongo-aca | 
-| ToDo Python Mongo ACA | Azure Container Apps | Python (FastAPI)|  Azure Cosmos DB API for Mongo, Azure Monitor | https://github.com/azure-samples/todo-python-mongo-aca | 
+| Template      | Compute Service | Language (API layer) | Tech Stack	 | 
+| ----------- | ----------| ----------- | --- | 
+| [ToDo NodeJs Mongo](https://github.com/azure-samples/todo-nodejs-mongo) | Azure App Service | Node.js | Azure Cosmos DB API for Mongo, Azure Monitor |  
+| [ToDo Python Mongo](https://github.com/azure-samples/todo-python-mongo) | Azure App Service | Python (FastAPI) | Azure Cosmos DB API for Mongo, Azure Monitor  |  
+| [ToDo C# Mongo](https://github.com/Azure-Samples/todo-csharp-mongo) | Azure App Service | C# | Azure Cosmos DB API for Mongo, Azure Monitor | 
+| [ToDo C# Azure SQL](https://github.com/Azure-Samples/todo-csharp-sql) | Azure App Service | C# | Azure SQL, Azure Monitor | 
+| [ToDo C# Cosmos DB (SQL)](https://github.com/Azure-Samples/todo-csharp-cosmos-sql) | Azure App Service |  C# | Azure Cosmos DB SQL API, Azure Monitor | 
+| [ToDo NodeJs Mongo ACA](https://github.com/azure-samples/todo-nodejs-mongo-aca) | Azure Container Apps | Node.js | Azure Cosmos DB API for Mongo, Azure Monitor |
+| [ToDo Python Mongo ACA](https://github.com/azure-samples/todo-python-mongo-aca) | Azure Container Apps | Python (FastAPI)|  Azure Cosmos DB API for Mongo, Azure Monitor |  
 
