@@ -10,9 +10,9 @@ ms.date: 05/12/2022
 
 Find new and updated content for JavaScript and TypeScript developers.
 
-## 2022 April
+## 2022 May
 
-### New in April
+### New in May
 
 |Name|Description|
 |---------------------------------------|--|
