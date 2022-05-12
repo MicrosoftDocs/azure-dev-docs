@@ -76,7 +76,7 @@ You'll be prompted for the following information:
 
 To learn more about how to use the Azure Developer CLI, see our [sample templates](azure-dev-cli-templates.md).
 
-## Reference and release notes
+## Reference
 
 A [reference](azure-cli-ref) is available.
 

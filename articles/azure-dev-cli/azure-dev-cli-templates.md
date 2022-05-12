@@ -10,9 +10,7 @@ ms.prod: azure
 ---
 # Azure Developer CLI Templates
 
-Each Azure Developer CLI template is built for specific host (Azure compute service) and programming language. 
-
-If you haven't finalized the Azure compute service for hosting your application, use the following flowchart to choose a template to use as a base for your project:
+A template can deploy to two or more supported hosts. Today, each Azure Developer CLI template is built for specific host (Azure compute service.) If you haven't finalized the Azure compute service for hosting your application, the following flowchart can help to choose the right sample to use as a base for your project:
 !["Host Decision Tree"](media/azure-dev-cli-templates/host-decision-tree.png)
 
 > [!NOTE]

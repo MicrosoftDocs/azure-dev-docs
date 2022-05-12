@@ -75,6 +75,13 @@ To help with monitoring applications, the Azure Dev CLI provides a `monitor` com
 
 The easiest way to run and debug is to leverage the Azure Developer CLI Visual Studio Code Extension. For more information, see this [walkthrough](how-to-use-vscode-extension-to-debug-locally.md).  
 
+### Clean up resources
+When you are done, you can delete all the Azure resources created with this template by running the following command:
+
+``` bash
+azd infra delete
+```
+
 ### Additional azd commands
 
 For a complete list of available commands, see the [azd overview](azure-dev-cli-ref.md).

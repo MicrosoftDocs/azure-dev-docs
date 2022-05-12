@@ -66,7 +66,7 @@ Open the project in VS Code, hit F1 and choose: `Remote-Containers: Rebuild and 
 
 To learn more about how to use the Azure Developer CLI, see our [sample templates](azure-dev-cli-templates.md).
 
-## Reference and release notes
+## Reference
 
 A [reference](azure-cli-ref) is available.
 

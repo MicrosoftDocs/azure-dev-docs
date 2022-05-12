@@ -32,7 +32,7 @@ ms.prod: azure
 For more detailed information, see [GitHub docs](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent):
 
 ```sh
-ssh-keygen -t rsa -b 2048 -C "Azure Dev CLI" -f $HOME/.ssh/azure-dev-cli
+ssh-keygen -t rsa -b 2048 -C "azd" -f $HOME/.ssh/azd
 ```
 
 * Add the contents of your public key file (`$HOME/.ssh/azure-dev-cli.pub) to your GitHub account (see [GitHub docs](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account) for this step):

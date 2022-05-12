@@ -12,7 +12,7 @@ ms.prod: azure
 
 # Get started with Azure Developer CLI
 
-To run any sample template, the first thing you need to do is decide where you want your development environment to be hosted.  
+To run any sample template, the first thing you need to do is decide is where you want your development environment to be hosted.  
 
 We recommend using a [developer container (DevContainer)](https://code.visualstudio.com/docs/remote/containers), which has the least number of prerequisites you need to install on your machine. 
 
