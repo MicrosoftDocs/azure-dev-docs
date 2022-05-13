@@ -34,14 +34,14 @@ As explained in [Azure Developer CLI Overview](azure-dev-cli-overview.md), `azd`
 > | .NET | Coming soon |
 > | Java | Coming soon |
 
-## Step 1 - Get a sample application
+## Get a sample application
 We start with this [simple Python Flask web app that is deployed to Azure App Service](/azure/app-service/quickstart-python?tabs=flask%2Cwindows%2Cazure-portal%2Cterminal-bash%2Cvscode-deploy%2Cdeploy-instructions-azportal%2Cdeploy-instructions-zip-azcli). Get a copy of the code by running:
 
 `git clone https://github.com/Azure-Samples/msdocs-python-flask-webapp-quickstart`
 
 (Optional) Follow instructions in the [tutorial](/azure/app-service/quickstart-python?tabs=flask%2Cwindows%2Cazure-portal%2Cterminal-bash%2Cvscode-deploy%2Cdeploy-instructions-azportal%2Cdeploy-instructions-zip-azcli#1---sample-application) to run the app locally to make sure the sample is working.
 
-## Step 2 - Initialize the project
+## Initialize the project
 
 Change directory to `msdocs-python-flask-webapp-quickstart` and run `azd init`. The command asks for environment name, Azure region and Azure subscription. After you run this command, the following are added: 
 
@@ -50,7 +50,7 @@ Change directory to `msdocs-python-flask-webapp-quickstart` and run `azd init`. 
 - Configuration file `.env` in `\.azure\<your environment name>` that contains information like the basename (environment name), Azure subscription etc.
 - `azure.yaml` in the root of your project
 
-## Step 3 - Add Bicep files
+## Add Bicep files
 
 `azd provision` needs to know what to provision in Azure. The command looks for Bicep files in the `infra` folder.
 
@@ -86,7 +86,7 @@ Start from an Azure dev enabled template, use it as a base and remove resources 
     output REACT_APP_APPINSIGHTS_INSTRUMENTATIONKEY string = resources.outputs.APPINSIGHTS_INSTRUMENTATIONKEY
 ```
 
-## Step 4 - Update `azure.yaml`
+## Update `azure.yaml`
 
 `azd` needs to know where to find the source code; what kind of app you're building; and more about what Azure service to use. Update `azure.yaml` by adding the following lines:
 
@@ -98,7 +98,7 @@ services:
     host: appservice
 ```
 
-## Step 5 - Test
+## Test
 
 Congratulations, you're done. 
 
@@ -111,7 +111,7 @@ Run `azd monitor --overview` and `azd monitor --logs` to monitor your app.
 > [!NOTE]
 > `.azure` and `.venv` should be added to the `.gitignore` file
 
-## Step 6 - Clean up
+## Clean up
 
 Run `azd infra delete` to remove all Azure resources.
 

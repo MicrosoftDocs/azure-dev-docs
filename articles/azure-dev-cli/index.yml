@@ -34,7 +34,9 @@ landingContent:
           - text: Azure Developer CLI enable a project
             url: how-to-azd-enable-a-project.md
           - text: Debug and run locally using Visual Studio Code
-            url: how-to-use-vscode-extension-to-debug-locally.md     
+            url: how-to-use-vscode-extension-to-debug-locally.md 
+          - text: Config pipeline and push update through GitHub Action
+            url: how-to-update-and-deploy-using-GitHub-Action.md      
   - title: Get started
     linkLists:
       - linkListType: get-started
