@@ -24,7 +24,7 @@
   - name: Get started using bare metal setup
     href: get-started-bare-metal.md
     displayname: get started, bare metal, install, windows, macos, linux
-  - name: Run azd using Windows Subsystem for Linux (WSL)
+  - name: Get started with Windows Subsystem for Linux (WSL)
     href: get-started-with-wsl.md 
 - name: Samples
   expanded: false

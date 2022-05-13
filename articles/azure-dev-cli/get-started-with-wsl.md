@@ -71,27 +71,7 @@ cd <newfolder>
 Initialize a starter project using a template:
 
 ```sh
-azd init --template git@github.com:azure-samples/todo-nodejs-mongo
-
-git init
-git add .
-git commit -m "initial commit"
-
-ls -1
-```
-
-Output:
-
-```sh
-LICENSE
-NOTICE.txt
-README-wsl2.md
-README.md
-assets
-azure.yaml
-infra
-openapi.yaml
-src
+azd init --template todo-nodejs-mongo
 ```
 
 Fill in the values when prompted:
@@ -101,6 +81,7 @@ Fill in the values when prompted:
 ? Please select an Azure location to use: 44. (US) East US 2 (eastus2)
 ? Please select an Azure Subscription to use: 14. Clarence's Azure Internal Consumption (xxxxxx-xxxxx-xxxxx-xxxxxx-xxxxxxxxxx)
 ```
+
 ## Provision
 
 Deploy the Azure infrastructure:
@@ -133,12 +114,12 @@ Deployed service dev-fbe1240cb3api
 
 Access the web frontend to try out the app: https://dev-fbe1240cb3web.azurewebsites.net/
 
-## Monitoring the app
+## Monitor the app
 
 To view the monitoring dashboard:
 
 ```sh
-az dev monitor --overview
+azd monitor --overview
 ```
 
 Sample output:
@@ -150,7 +131,7 @@ Opening https://portal.azure.com/#@72f988bf-86f1-41af-91ab-2d7cd011db47/dashboar
 To view the app logs:
 
 ```sh
-az dev monitor --logs
+azd monitor --logs
 ```
 
 Sample output:
@@ -164,8 +145,16 @@ Opening https://app.azure.com/72f988bf-86f1-41af-91ab-2d7cd011db47/subscriptions
 Delete Azure infrastructure:
 
 ```sh
-az dev infra delete
+azd infra delete
 ```
+
+## Additional azd commands
+
+For a complete list of available commands, see the [azd overview](azure-dev-cli-ref.md).
+
+## Troubleshooting/Known issues
+
+For known issues, refer to [Troubleshooting/known issues](azure-dev-cli-known-issues.md) 
 
 ## Explore more samples
 

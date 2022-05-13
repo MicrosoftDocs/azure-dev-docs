@@ -82,7 +82,7 @@ When you are done, you can delete all the Azure resources created with this temp
 azd infra delete
 ```
 
-### Additional azd commands
+## Additional azd commands
 
 For a complete list of available commands, see the [azd overview](azure-dev-cli-ref.md).
 
