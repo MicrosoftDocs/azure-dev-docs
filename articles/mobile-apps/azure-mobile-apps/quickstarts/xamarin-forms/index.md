@@ -77,17 +77,15 @@ You can complete this tutorial on Mac or Windows. A mac is required to compile t
    * Once the **Start** button appears, press **Start**.
    * If you are prompted about Hyper-V hardware acceleration, read the documentation to enable hardware acceleration before continuing.  The emulator will be slow without enabling hardware acceleration.
 
-   Once complete, close the Android Device Manager.
-
    > [!TIP]
    > Start your Android emulator before continuing.  You can do this by opening the Android Device Manager and pressing **Start** next to your chosen emulator.
 
 5. Press **F5** to build and run the project.
 
-Once the app has started, you will see an empty list and a floating action button to add items in the emulator.  You can:
+Once the app has started, you will see an empty list and a text box to add items in the emulator.  You can:
 
-* Press the floating action button, then enter some text to add an item.
-* Set or clear the check box to mark any item as done.
+* Enter some text in the box, then press Enter to insert a new item.
+* Select an item to set or clear the completed flag.
 * Press the refresh icon to reload data from the service.
 
 ![Screenshot of the running Android app.](./media/running-android-app.png)
@@ -105,19 +103,27 @@ Once the app has started, you will see an empty list and a floating action butto
 
 <!-- TODO: Running the iOS app -->
 4. Select the iPhone Simulator
-
-   > [!TIP]
-   > Start your Android emulator before continuing.  You can do this by opening the Android Device Manager and pressing **Start** next to your chosen emulator.
-
 5. Press **F5** to build and run the project.
 
-Once the app has started, you will see an empty list and a floating action button to add items in the emulator.  You can:
+Once the app has started, you will see an empty list and a text box to add items in the emulator.  You can:
 
-* Press the floating action button, then enter some text to add an item.
-* Set or clear the check box to mark any item as done.
+* Enter some text in the box, then press Enter to insert a new item.
+* Select an item to set or clear the completed flag.
 * Press the refresh icon to reload data from the service.
 
 ![Screenshot of the running iOS app.](./media/running-ios-app.png)
+
+### Troubleshooting
+
+The remote simulator that ships with Visual Studio 2022 is incompatible with XCode 13.3.  You'll receive the following error message:
+
+![Screenshot of the error message when launching the iOS simulator.](./media/win-ios-error.png)
+
+To work around this issue:
+
+1. Disable the remote simulator (Tools / Options / iOS Settings / uncheck “Remote Simulator to Windows”). When unchecked the simulator will run on the Mac instead of on Windows. You can then interact with the simulator directly on your Mac while using the debugger, etc. on Windows. If your Mac machine is near your Windows machine on your desk, this can be a good option.
+2. Disable the remote simulator as above, so that the simulator runs on the Mac. Then use a 3rd party remote desktop style app to connect to the Mac desktop from Windows. Options there include https://devolutions.net/remote-desktop-manager (fast and there’s a free version available), or VNC clients (slower and free).
+3. Use a physical device to test instead of the simulator.
 
 ## Next steps
 
