@@ -168,7 +168,7 @@ Replace the `{client-id}` with the value of `Constants.ApplicationId`.  For exam
 
 ## Test the app
 
-You should be able to press **F5** to run the app.  When the app runs, a browser will be opened to ask you for authentication.  If you have not authenticated with the app before, there are a few more steps to authenticate.  Eventually, the system browser will close and your app will appear as before.
+You should be able to press **F5** to run the app.  When the app runs, a browser will be opened to ask you for authentication.  If you have not authenticated with the app before, you will need to consent.  Once authentication is complete, the system browser will close and your app will run as before.
 
 ## Next steps
 
