@@ -26,7 +26,7 @@ You can register native clients to allow authentication to Web APIs hosted in yo
 6. Under **Select permissions**, select **access_as_user**, and then select **Add permissions**.
 7. Select **Authentication** > **Mobile and desktop applications**.
 8. Check the box next to `https://login.microsoftonline.com/common/oauth2/nativeclient`.
-9. Check the box next to `msal{client-id}://auth`  
+9. Check the box next to `msal{client-id}://auth` (replacing `{client-id}` with your application ID).
 10. Select **Add URI**, then add `http://localhost` in the field for extra URIs.
 11. Select **Save** at the bottom of the page.
 12. Select **Overview**.  Make a note of the **Application (client) ID** as you will need it later.
