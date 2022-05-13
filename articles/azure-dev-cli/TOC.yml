@@ -42,6 +42,8 @@
   items:
   - name: Run and debug using Visual Studio Code 
     href: how-to-use-vscode-extension-to-debug-locally.md
+  - name: Config pipeline and push update through GitHub Action 
+    href: how-to-update-and-deploy-using-GitHub-Action.md
   - name: Azure Developer CLI enable a project
     href:  how-to-azd-enable-a-project.md
 - name: Reference

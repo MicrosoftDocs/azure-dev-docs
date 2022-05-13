@@ -17,13 +17,13 @@ ms.prod: azure
 We'll use the [Todo Application with Node.js and Azure Cosmo DB API for MongoDB](https://github.com/azure-samples/todo-nodejs-mongo) for this walkthrough. For more information including architecture diagram and the Azure resources you'll deploy, see the [README](https://github.com/azure-samples/todo-nodejs-mongo).
 
 ## Enable the Windows Subsystem for Linux (WSL) on Windows 11
-- Open the **Windows Features** dialogue and make sure the **Windows Subsystem for Linux** and **Virtual Machine Platform** features are enabled
-- Reboot your machine
+1. Open the **Windows Features** dialogue and make sure the **Windows Subsystem for Linux** and **Virtual Machine Platform** features are enabled
+1. Reboot your machine
 
 ## Install the Ubuntu app from the Microsoft store
-- Once WSL is enabled, you'll find `bash.exe` on the *Start Menu*
-- Go to Microsoft Store, search for **Ubuntu**
-- select "Get" to install the app
+1. Once WSL is enabled, you'll find `bash.exe` on the *Start Menu*
+1. Go to Microsoft Store, search for **Ubuntu**
+1. Select "Get" to install the app
 
 ## Install the Azure Developer CLI
 

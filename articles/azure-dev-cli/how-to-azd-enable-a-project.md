@@ -1,5 +1,5 @@
 ---
-title: How to dev-ify a project
+title: How to Azure Developer CLI enable a project
 description: How to convert an application to an Azure dev-enabled template.
 author: puicchan
 ms.author: puichan
@@ -8,9 +8,9 @@ ms.topic: conceptual
 ms.custom: devx-track-azdev
 ms.prod: azure
 ---
-# How to dev-ify a project
+# How to Azure Developer CLI enable a project
 
-!["Dev-ify"](media/how-to-devify-a-project/dev-ify.png)
+![Azure Developer CLI enable](media/how-to-devify-a-project/dev-ify.png)
 
 As explained in [Azure Developer CLI Overview](azure-dev-cli-overview.md), `azd` looks for specific configuration files in a pre-defined folder structure. Here's a walkthrough on how to convert a basic application to a dev-ified template.
 

@@ -28,7 +28,7 @@ Watch this 3-min video to get a high level overview of `azd`:
 
 All templates have the same file structure:
 
-```
+```txt
 ├── .devcontainer              [ For DevContainer ]
 ├── .github                    [ Configure GitHub workflow ]
 ├── .vscode                    [ VS Code workspace ]

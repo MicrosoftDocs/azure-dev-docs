@@ -17,7 +17,7 @@ sections:
         answer: |
           The CLI uses the environment name to set the `AZURE_ENV_NAME` environment variable used by azd enabled templates. AZURE_ENV_NAME is also used as a prefix to Azure resource name including the Azure resource group. Since each environment has its own set of configurations, we keep all configuration files under environment folders. 
 
-          ```	 
+          ```txt	 
           ├── .Azure                          [ This folder shows up after you run add init or azd up ]
           │   ├── <your environment1>         [Folder to house all environment related configurations ]
           │   │   ├── .env                    [ Contains environment variables ]
