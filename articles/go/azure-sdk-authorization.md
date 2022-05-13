@@ -25,7 +25,7 @@ The Azure SDK for Go offers several different types of authentication, using dif
 | Device token | Your application is meant to be used interactively __only__. Users may have multifactor authentication enabled. Users have access to a web browser to sign in. For more information, see [Use device token authentication](#use-device-token-authentication).|
 | Username/password | You have an interactive application that can't use any other authentication method. Your users don't have multifactor authentication enabled for their AAD sign-in. |
 
-### Key Points
+### Key points
 * If you use an authentication type other than client credentials, your application must be registered in Azure Active Directory. To learn how, see [Integrating applications with Azure Active Directory](/azure/active-directory/develop/active-directory-integrating-applications).
 * Unless you have special requirements, avoid username/password authentication. In situations where user-based sign in is appropriate, device token authentication can usually be used instead.
 
