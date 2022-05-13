@@ -131,7 +131,7 @@ Run the command `terraform init`, then `terraform apply` to configure the Azure 
 
 ## 3. Configure Terraform backend state
 
-You can authenticate to the backend using [Storage Key](), [Azure AD](#azure-active-directory) or [Managed Service Identity](#managed-service-dentity ). See [azurerm backend](https://www.terraform.io/language/settings/backends/azurerm) in the Terraform documentation.
+You can authenticate to the backend using [Storage Key](#storage-key), [Azure AD](#azure-active-directory) or [Managed Service Identity](#managed-service-identity). See [azurerm backend](https://www.terraform.io/language/settings/backends/azurerm) in the Terraform documentation.
 
 To configure the backend state, you need the following Azure storage information:
 
