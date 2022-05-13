@@ -31,7 +31,7 @@ In the `TodoApp.Android` project, edit the `App.xaml.cs` file.  Change the defin
 ``` csharp
 TodoService = new RemoteTodoService(async () => await GetAuthenticationToken())
 {
-    OfflineDb = FileSystem.AppDataDirectory + "/offline.db"
+    OfflineDb = Xamarin.Essentials.FileSystem.AppDataDirectory + "/offline.db"
 };
 ```
 
@@ -40,7 +40,7 @@ If you have not completed the [authentication tutorial](./authentication.md), th
 ``` csharp
 TodoService = new RemoteTodoService()
 {
-    OfflineDb = FileSystem.AppDataDirectory + "/offline.db"
+    OfflineDb = Xamarin.Essentials.FileSystem.AppDataDirectory + "/offline.db"
 };
 ```
 
