@@ -10,11 +10,14 @@ ms.author: adhal
 
 # Add authentication to your Xamarin.Android app
 
-In this tutorial, you add Microsoft authentication to the TodoApp project using Azure Active Directory. Before completing this tutorial, ensure you have [created the project and deployed the backend](./index.md).
+In this tutorial, you add Microsoft authentication to the TodoApp project using Azure Active Directory. Before completing this tutorial, ensure you've [created the project and deployed the backend](./index.md).
+
+> [!TIP]
+> Although we use Azure Active Directory for authentication, you can use any authentication library you wish with Azure Mobile Apps.  
 
 [!INCLUDE [Register with AAD for the backend](~/mobile-apps/azure-mobile-apps/includes/quickstart/common/register-aad-backend.md)]
 
-[!INCLUDE [Configure the service for authentication](~/mobile-apps/azure-mobile-apps/includes/quickstarts/windows/configure-auth-backend.md)]
+[!INCLUDE [Configure the service for authentication](~/mobile-apps/azure-mobile-apps/includes/quickstart/windows/configure-auth-backend.md)]
 
 ## Add authentication to the app
 
@@ -24,7 +27,7 @@ The Microsoft Datasync Framework has built-in support for any authentication pro
 
 Open the `TodoApp.sln` solution in Visual Studio and set the `TodoApp.Android` project as the startup project.
 
-[!INCLUDE [Set up MSAL in Windows](~/mobile-apps/azure-mobile-apps/includes/quickstarts/windows/add-msal-library.md)]
+[!INCLUDE [Set up MSAL in Windows](~/mobile-apps/azure-mobile-apps/includes/quickstart/windows/add-msal-library.md)]
 
 Open the `MainActivity.cs` file in the `TodoApp.Android` project.  At the top of the file, add the following using statements:
 
@@ -168,7 +171,7 @@ Replace the `{client-id}` with the value of `Constants.ApplicationId`.  For exam
 
 ## Test the app
 
-You should be able to press **F5** to run the app.  When the app runs, a browser will be opened to ask you for authentication.  If you have not authenticated with the app before, you will need to consent.  Once authentication is complete, the system browser will close and your app will run as before.
+You should be able to press **F5** to run the app.  When the app runs, a browser will be opened to ask you for authentication.  If you haven't authenticated with the app before, you app will ask you to consent.  Once authentication is complete, the system browser will close and your app will run as before.
 
 ## Next steps
 

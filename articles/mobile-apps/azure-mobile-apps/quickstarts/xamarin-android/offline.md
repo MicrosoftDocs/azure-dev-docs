@@ -44,9 +44,9 @@ TodoService = new RemoteTodoService()
 };
 ```
 
-[!INCLUDE [Offline testing](~/mobile-apps/azure-mobile-apps/includes/quickstart/common/test-offline-app.md)]
+[!INCLUDE [Instructions for testing offline mode.](~/mobile-apps/azure-mobile-apps/includes/quickstart/common/test-offline-app.md)]
 
-[!INCLUDE [Clean-up](~/mobile-apps/azure-mobile-apps/includes/quickstart/common/cleanup.md)]
+[!INCLUDE [Instructions to clean up resources.](~/mobile-apps/azure-mobile-apps/includes/quickstart/common/clean-up.md)]
 
 ## Next steps
 
