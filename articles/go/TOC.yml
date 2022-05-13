@@ -18,6 +18,8 @@ items:
     - name: Authentication
       expanded: false
       items:
+        - name: Authentication with the autorest package (legacy)
+          href: azure-sdk-authorization.md
         - name: Auth with development environments
           href: azure-sdk-authentication.md
         - name: Auth with Azure-hosted apps
