@@ -29,9 +29,9 @@ You can register native clients to allow authentication to Web APIs hosted in yo
 9. Check the box next to `msal{client-id}://auth` (replacing `{client-id}` with your application ID).
 10. Select **Add URI**, then add `http://localhost` in the field for extra URIs.
 11. Select **Save** at the bottom of the page.
-12. Select **Overview**.  Make a note of the **Application (client) ID** as you will need it later.
+12. Select **Overview**.  Make a note of the **Application (client) ID** as you'll need it later.
 
-We have defined three distinct redirect URLs:
+We have defined three redirect URLs:
 
 * `http://localhost` is used by WPF applications.
 * `https://login.microsoftonline.com/common/oauth2/nativeclient` is used by UWP applications.
