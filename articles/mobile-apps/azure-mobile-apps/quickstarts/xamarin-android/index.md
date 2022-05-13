@@ -52,7 +52,7 @@ Although this tutorial is written for Windows and Visual Studio, you can complet
 2. Right-click the `TodoApp.Android` project and select **Set as Startup Project**.
 3. In the top bar, select **Any CPU** configuration and the **TodoApp.Android** target:
 
-   ![Visual Studio configuration for a Xamarin Android app](./media/win-configuration.png)
+   ![Screenshot showing how to set the run configuration for a Xamarin Android app.](./media/win-configuration.png)
 
 4. If you see **Android Emulator** instead, you have not created an Android emulator.  See [Android emulator setup](/xamarin/android/get-started/installation/android-emulator/) for more information.  To create a new Android emulator:
 
@@ -82,7 +82,7 @@ Once the app has started, you will see an empty list and a floating action butto
 * Set or clear the check box to mark any item as done.
 * Press the refresh icon to reload data from the service.
 
-![The running Android app](./media/running-app.png)
+![Screenshot of the running Android app.](./media/running-app.png)
 
 ## Next steps
 
