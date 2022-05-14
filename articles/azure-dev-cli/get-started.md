@@ -46,7 +46,7 @@ Once you've decided which development environment is right for you, we'll use th
 
 [!INCLUDE [azd-devcontainer](includes/azd-devcontainer.md)]
 
-### Run Up Command
+## Run Up Command
 
 The fastest way for you to get this application up and running on Azure is to use the `azd up` command. This single command will create and configure all necessary Azure resources - including access policies and roles for your account and service-to-service communication with Managed Identities. Because the command will create all of the resources on Azure, it can take some time. 
 
@@ -77,11 +77,11 @@ Select the web application URL to launch the ToDo app. Create a new collection a
 >
 > Please be aware that Azure resources, e.g. a Cosmos DB, have been created. You can clean up these resources by deleting the resource group that was create, or issuing the `azd infra delete` command.
 
-### Next Steps
+## Next Steps
 
 At this point, you have a complete application deployed on Azure. But there's much more that the Azure Developer CLI can do. These next steps will introduce you to more commands that will make creating applications on Azure much easier. Using the Azure Developer CLI, you can set up your DevOps pipelines, monitor your application, test and debug locally.
 
-#### Set up DevOps pipeline using `azd pipeline`
+### Set up DevOps pipeline using `azd pipeline`
 
 This template includes a GitHub Actions pipeline configuration file that will deploy your application whenever code is pushed to the main branch. You can find that pipeline file here: `.github/workflow`.
 
@@ -93,7 +93,7 @@ Run the following command to set up a GitHub Action:
 azd pipeline config
 ```
 
-#### Monitor the application using `azd monitor`
+### Monitor the application using `azd monitor`
 
 To help with monitoring applications, the Azure Dev CLI provides a `monitor` command to help you get to the various Application Insights dashboards.
 
@@ -119,45 +119,45 @@ To help with monitoring applications, the Azure Dev CLI provides a `monitor` com
   azd monitor --logs
   ```
 
-### Run and Debug Locally
+## Run and Debug Locally
 
 The easiest way to run and debug is to leverage the Azure Developer CLI Visual Studio Code Extension. For more information, see this [walkthrough](how-to-use-vscode-extension-to-debug-locally.md).  
 
-### Clean up resources
+## Clean up resources
 When you are done, you can delete all the Azure resources created with this template by running the following command:
 
 ``` bash
 azd infra delete
 ```
 
-### Additional azd commands
+## Additional azd commands
 
 For a complete list of available commands, see the [azd overview](azure-dev-cli-ref.md).
 
-### Troubleshooting/Known issues
+## Troubleshooting/Known issues
 
 For known issues, refer to [Troubleshooting/known issues](azure-dev-cli-known-issues.md) 
 
-### Explore more samples
+## Explore more samples
 
 To learn more about how to use the Azure Developer CLI, see our [sample templates](azure-dev-cli-templates.md).
 
-### Reference
+## Reference
 
 A [reference](azure-cli-ref) is available.
 
-### Get help and give feedback
+## Get help and give feedback
 
 Post questions to the community on [Discussions](https://github.com/Azure/azure-dev/discussions). Report bugs and open issues against the Azure Developer CLI in the [GitHub repository](https://github.com/Azure/azure-dev).
 
-### Explore more samples
+## Explore more samples
 
 To learn more about how to use the Azure Developer CLI with an Azure Developer CLI enabled repository, see our [sample templates](azure-dev-cli-templates.md).
 
-### Reference and release notes
+## Reference and release notes
 
 A [reference](azure-cli-ref) is available.
 
-### Get help and give feedback
+## Get help and give feedback
 
 Post questions to the community on [Discussions](https://github.com/Azure/azure-dev/discussions). Report bugs and open issues against the Azure Developer CLI in the [GitHub repository](https://github.com/Azure/azure-dev).
