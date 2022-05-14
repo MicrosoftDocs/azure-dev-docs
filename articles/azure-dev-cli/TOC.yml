@@ -1,19 +1,24 @@
 - name: What is Azure Developer CLI?
   href: azure-dev-cli-overview.md
   displayName: overview, intro, introduction
-- name: Azure Developer CLI samples
+- name: Azure Developer CLI templates
   href: azure-dev-cli-templates.md
-- name: Get started with IDE of choice
+- name: Get started with the IDE of choice
   href: get-started.md
-- name: How-to guides
+- name: How to develop locally
   expanded: true
   items:
   - name: Run and debug using Visual Studio Code 
     href: how-to-use-vscode-extension-to-debug-locally.md
   - name: Config pipeline and push update through GitHub Action 
     href: how-to-update-and-deploy-using-GitHub-Action.md
-  - name: Azure Developer CLI enable a project
+- name: How to create your own template
+  expanded: true
+  items:
+  - name: Enable a project
     href: how-to-azd-enable-a-project.md
+  - name: Work with Azure Bicep
+    href: how-to-azd-bicep.md
 - name: Troubleshooting
   expanded: true
   items:

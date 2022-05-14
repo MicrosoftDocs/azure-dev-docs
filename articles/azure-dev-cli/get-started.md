@@ -10,9 +10,9 @@ ms.custom: devx-track-azdev
 ms.prod: azure
 ---
 
-# Get started with Azure Developer CLI
+# Get started with the development environment of choice
 
-To run any sample template, the first thing you need to do is decide is where you want your development environment to be hosted.  
+To run any sample template, the first thing you need to do decide is where you want your development environment to be hosted.  
 
 We recommend using a [developer container (DevContainer)](https://code.visualstudio.com/docs/remote/containers), which has the least number of prerequisites you need to install on your machine. 
 
@@ -31,7 +31,6 @@ Pros and cons for development environment choices:
 |---|---|---|---|---|
 |**[DevContainer / VS Code Remote - Containers](https://code.visualstudio.com/docs/remote/containers)**|Container with all dependencies installed and run on your local machine.|Other than VS Code, Docker, and the Remote Containers VS Code extension, all dependencies are installed for you in the DevContainer.|Linux containers only, but can run on Windows host. You need to clone the repository. The container initialization can take a long time.| Yes |
 |**Bare Metal**|**Not** in a container, dependencies are manually installed by you, and the project is run on your local machine.|You control all dependencies. You may already have some of the dependencies installed. You don't need Docker installed.|You have to manually install all dependencies.| Yes |
-|**[Windows Subsystem for Linux 2](https://https://docs.microsoft.com/en-us/windows/wsl/about)** | WSL 2 is a new version of the Windows Subsystem for Linux architecture that powers the Windows Subsystem for Linux to run ELF64 Linux binaries on Windows. | You run a GNU/Linux environment directly on Windows, unmodified, without the overhead of a traditional virtual machine or dualboot setup | You have to manually install all dependencies. | Yes |
 |**[GitHub Codespaces](https://github.com/features/codespaces)** |Container with all dependencies installed and run on GitHub.com in the browser.|All dependencies installed and you don't need to clone the code locally.|Linux containers only. Some features and functionality may not be supported. The container initialization can take a long time.| No (coming soon) |
 
 ## Get started with your development enviroment of choice
@@ -45,6 +44,8 @@ Once you've decided which development environment is right for you, we'll use th
 ### [DevContainer](#tab/devcontainer)
 
 [!INCLUDE [azd-devcontainer](includes/azd-devcontainer.md)]
+
+---
 
 ## Run Up Command
 
@@ -67,15 +68,9 @@ This command will print the following URLs:
 - ToDo web application frontend
 - ToDo API application
 
-!["azd Up output"](assets/azdevupurls.png)
+!["azd up output"](media/get-started/azdupurls.png)
 
 Select the web application URL to launch the ToDo app. Create a new collection and add some items. The command will create monitoring activity in the application that you'll be able to see later when you `monitor` the application.
-
-> Known issue: clicking the provisioning link will not redirect to the correct page in **Visual Studio Code integrated terminal**. A fix is being released for this [VS Code known issue](https://github.com/microsoft/vscode/issues/144898#issuecomment-1079496948). For the meantime, please copy and paste the link in browser.
-
-> :warning: **Cleanup**
->
-> Please be aware that Azure resources, e.g. a Cosmos DB, have been created. You can clean up these resources by deleting the resource group that was create, or issuing the `azd infra delete` command.
 
 ## Next Steps
 
@@ -140,21 +135,9 @@ For known issues, refer to [Troubleshooting/known issues](azure-dev-cli-known-is
 
 ## Explore more samples
 
-To learn more about how to use the Azure Developer CLI, see our [sample templates](azure-dev-cli-templates.md).
+To find more Azure Developer CLI enabled templates for more Azure Compute hosts and programming lanuages, see our [sample templates](azure-dev-cli-templates.md).
 
 ## Reference
-
-A [reference](azure-cli-ref) is available.
-
-## Get help and give feedback
-
-Post questions to the community on [Discussions](https://github.com/Azure/azure-dev/discussions). Report bugs and open issues against the Azure Developer CLI in the [GitHub repository](https://github.com/Azure/azure-dev).
-
-## Explore more samples
-
-To learn more about how to use the Azure Developer CLI with an Azure Developer CLI enabled repository, see our [sample templates](azure-dev-cli-templates.md).
-
-## Reference and release notes
 
 A [reference](azure-cli-ref) is available.
 

@@ -28,6 +28,7 @@ The quickest way to get start is to explore the list of [Azure Developer enabled
 ## Try out
 
 * [Understand your developer environment options](get-started.md) and get started with the developer environment of choice.
+* Learn how to [use VS Code with azd extension](how-to-use-vscode-extension-to-debug-locally.md)
 * Learn how to [Azure Developer CLI enable your own project](how-to-devify-a-project.md) so that you can use `azd` as part of your engineering workflows.
 
 ## Introductory video
