@@ -1,11 +1,9 @@
-- name: Azure Developer CLI
-  href: index.yml
 - name: What is Azure Developer CLI?
   href: azure-dev-cli-overview.md
   displayName: overview, intro, introduction
-- name: List of Azure Developer CLI Azure samples
+- name: Azure Developer CLI samples
   href: azure-dev-cli-templates.md
-- name: Get started with development environment of choice
+- name: Get started with IDE of choice
   href: get-started.md
 - name: How-to guides
   expanded: true
@@ -26,9 +24,4 @@
     href: azure-dev-cli-faq.yml   
     displayName: troubleshooting, known issues
 - name: Reference
-  expanded: false
-  items:
-  - name: (Placeholder)Reference
-    href: azure-dev-cli-ref.md
-  - name: Reference (wiki)
-    href: https://github.com/Azure/azure-dev-pr/wiki/Azure-Developer-CLI-Overview
+  href: https://github.com/Azure/azure-dev-pr/wiki/Azure-Developer-CLI-Overview

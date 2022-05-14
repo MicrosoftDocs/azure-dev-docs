@@ -1,4 +1,4 @@
-## Prerequisites
+### Prerequisites
 
 Before you get started, ensure you have the following tools installed on your local machine:
 
@@ -36,7 +36,7 @@ cd {your-unique-project-folder-name}
 
 This template will create infrastructure and deploy code to Azure. If you don't have an Azure Subscription, sign up for a [free account here](https://azure.microsoft.com/free/). 
 
-## Quickstart
+### Quickstart
 
 ### 1. Initialize Project
 
@@ -48,4 +48,4 @@ You'll be prompted for the following information:
 
 - `Environment Name`: Prefix for all your Azure resources, make sure it's globally unique and under 15 characters.
 - `Azure Location`: The Azure location where your resources will be deployed.
-- `Azure Subscription`: The Azure Subscription where your resources will be deployed.
+- `Azure Subscription`: The Azure Subscription where your resources will be deployed.S
