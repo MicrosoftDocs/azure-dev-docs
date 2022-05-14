@@ -1,17 +1,10 @@
 - name: Azure Developer CLI
   href: index.yml
-- name: Overview
-  expanded: true
-  items:
-  - name: What is Azure Developer CLI?
-    href: azure-dev-cli-overview.md
-    displayName: overview, intro, introduction
-  - name: Language and host (Azure compute service) list
-    href: azure-dev-cli-lang-and-service-list.md   
-    displayName: list, langugae, Azure services
-  - name: Known issues
-    href: azure-dev-cli-known-issues.md   
-    displayName: troubleshooting, known issues
+- name: What is Azure Developer CLI?
+  href: azure-dev-cli-overview.md
+  displayName: overview, intro, introduction
+- name: List of Azure Developer CLI Azure samples
+  href: azure-dev-cli-templates.md
 - name: Get started
   expanded: false
   items:
@@ -26,19 +19,8 @@
     displayname: get started, bare metal, install, windows, macos, linux
   - name: Get started with Windows Subsystem for Linux (WSL)
     href: get-started-with-wsl.md 
-- name: Samples
-  expanded: false
-  items:
-  - name: List of Azure Developer CLI Azure samples
-    href: azure-dev-cli-templates.md
-  - name: Todo Application with Node.js Cosmos DB (Mongo)
-    href: https://github.com/azure-samples/todo-nodejs-mongo
-    displayName: nodejs, azure app service, azure cosmodb api for mongodb, azure monitor, azure key vault
-  - name: Todo Application with Python Cosmos DB (Mongo)
-    href: https://github.com/azure-samples/todo-python-mongo
-    displayName: python, azure app service, azure cosmodb api for mongodb, azure monitor, azure key vault
 - name: How-to guides
-  expanded: false
+  expanded: true
   items:
   - name: Run and debug using Visual Studio Code 
     href: how-to-use-vscode-extension-to-debug-locally.md
@@ -46,6 +28,14 @@
     href: how-to-update-and-deploy-using-GitHub-Action.md
   - name: Azure Developer CLI enable a project
     href:  how-to-azd-enable-a-project.md
+- name: Troubleshooting
+  expanded: false
+  - name: Known issues
+    href: azure-dev-cli-known-issues.md   
+    displayName: troubleshooting, known issues
+  - name: Frequently asked questions
+    href: azure-dev-cli-faq.md   
+    displayName: troubleshooting, known issues
 - name: Reference
   expanded: false
   items:
