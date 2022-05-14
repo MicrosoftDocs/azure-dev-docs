@@ -34,7 +34,6 @@ Pros and cons for development environment choices:
 |**[Windows Subsystem for Linux 2](https://https://docs.microsoft.com/en-us/windows/wsl/about)** | WSL 2 is a new version of the Windows Subsystem for Linux architecture that powers the Windows Subsystem for Linux to run ELF64 Linux binaries on Windows. | You run a GNU/Linux environment directly on Windows, unmodified, without the overhead of a traditional virtual machine or dualboot setup | You have to manually install all dependencies. | Yes |
 |**[GitHub Codespaces](https://github.com/features/codespaces)** |Container with all dependencies installed and run on GitHub.com in the browser.|All dependencies installed and you don't need to clone the code locally.|Linux containers only. Some features and functionality may not be supported. The container initialization can take a long time.| No (coming soon) |
 
-
 Once you've decided which development environment is right for you, and you want to focus on using this development environment, check out: 
 
 - [Get started using Dev Container](get-started-devcontainer.md)

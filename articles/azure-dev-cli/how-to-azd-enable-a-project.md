@@ -12,27 +12,22 @@ ms.prod: azure
 
 ![Azure Developer CLI enable](media/how-to-devify-a-project/dev-ify.png)
 
-As explained in [Azure Developer CLI Overview](azure-dev-cli-overview.md), `azd` looks for specific configuration files in a pre-defined folder structure. Here's a walkthrough on how to convert a basic application to a dev-ified template.
+All templates have the same file structure based on `azd` conventions.
 
-> [!NOTE]
-> Currently supported/planned hosting platform for the application:
->
-> | Azure service      | Supported? |
-> | ----------- | ----------- |
-> | Azure App Service | Yes  |
-> | Azure Functions  | Yes |
-> | Azure Container Apps    | Yes |
-> | Azure Static Web Apps  | Coming soon |
-> | Azure Container Service | Coming soon |
->
-> Currently supported/planned languages:
->
-> | Language      | Supported? |
-> | ----------- | ----------- |
-> | Node.js | Yes  |
-> | Python    | Yes |
-> | .NET | Coming soon |
-> | Java | Coming soon |
+```txt
+├── .devcontainer              [ For DevContainer ]
+├── .github                    [ Configure GitHub workflow ]
+├── .vscode                    [ VS Code workspace ]
+├── assets                     [ Assets used by README.MD ]
+├── infra                      [ Creates and configures Azure resources ]
+│   ├── main.bicep             [ Main infrastructure file ]
+│   ├── main.parameters.json   [ Parameters file ]
+│   └── resources.bicep        [ Resources file ]
+├── src                        [ Contains folder(s) for the application code ]
+└── azure.yaml                 [ Describes the application and type of Azure resources]
+```
+
+Here's a walkthrough on how to convert a basic application to a dev-ified template.
 
 ## Get a sample application
 We start with this [simple Python Flask web app that is deployed to Azure App Service](/azure/app-service/quickstart-python?tabs=flask%2Cwindows%2Cazure-portal%2Cterminal-bash%2Cvscode-deploy%2Cdeploy-instructions-azportal%2Cdeploy-instructions-zip-azcli). Get a copy of the code by running:

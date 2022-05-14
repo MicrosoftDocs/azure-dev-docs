@@ -5,20 +5,8 @@
   displayName: overview, intro, introduction
 - name: List of Azure Developer CLI Azure samples
   href: azure-dev-cli-templates.md
-- name: Get started
-  expanded: false
-  items:
-  - name: Get Started Overview
-    href: get-started.md
-    displayname: get started overview, bare metal, dev container
-  - name: Get started using Dev Container
-    href: get-started-devcontainer.md
-    displayname: get started, bare metal, install, windows, macos, linux, devcontainer, vs code 
-  - name: Get started using bare metal setup
-    href: get-started-bare-metal.md
-    displayname: get started, bare metal, install, windows, macos, linux
-  - name: Get started with Windows Subsystem for Linux (WSL)
-    href: get-started-with-wsl.md 
+- name: Get started with development environment of choice
+  href: get-started.md
 - name: How-to guides
   expanded: true
   items:
@@ -27,15 +15,15 @@
   - name: Config pipeline and push update through GitHub Action 
     href: how-to-update-and-deploy-using-GitHub-Action.md
   - name: Azure Developer CLI enable a project
-    href:  how-to-azd-enable-a-project.md
+    href: how-to-azd-enable-a-project.md
 - name: Troubleshooting
-  expanded: false
+  expanded: true
   items:
   - name: Known issues
     href: azure-dev-cli-known-issues.md   
     displayName: troubleshooting, known issues
   - name: Frequently asked questions
-    href: azure-dev-cli-faq.md   
+    href: azure-dev-cli-faq.yml   
     displayName: troubleshooting, known issues
 - name: Reference
   expanded: false
