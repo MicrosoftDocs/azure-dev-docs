@@ -10,7 +10,7 @@ ms.author: adhal
 
 # Add authentication to your Xamarin.Forms app
 
-In this tutorial, you add Microsoft authentication to your app using Azure Active Directory. Before completing this tutorial, ensure you have [created the project](./index.md) and [enabled offline sync](./offline.md).
+In this tutorial, you add Microsoft authentication to your app using Azure Active Directory. Before completing this tutorial, ensure you've [created the project and deployed the backend](./index.md).
 
 > [!NOTE]
 > Since the iOS app requires keychain access, you will need to set up an iOS provisioning profile.  A provisioning profile requires 
