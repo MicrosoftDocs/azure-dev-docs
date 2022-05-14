@@ -12,8 +12,13 @@ ms.author: adhal
 
 In this tutorial, you add Microsoft authentication to your app using Azure Active Directory. Before completing this tutorial, ensure you have [created the project](./index.md) and [enabled offline sync](./offline.md).
 
+> [!NOTE]
+> Since the iOS app requires keychain access, you will need to set up an iOS provisioning profile.  A provisioning profile requires 
+> either a real iOS device or a paid Apple Developer Account (if using the simulator).  You can skip this tutorial and move on to 
+> adding [offline access to your app](./offline.md) if you cannot use authentication due to this restriction.
+
 > [!TIP]
-> Although we use Azure Active Directory for authentication, you can use any authentication library you wish with Azure Mobile Apps.  
+> Although we use Azure Active Directory for authentication, you can use any authentication library you wish with Azure Mobile Apps. 
 
 [!INCLUDE [Register with AAD for the backend](~/mobile-apps/azure-mobile-apps/includes/quickstart/common/register-aad-backend.md)]
 
@@ -187,6 +192,7 @@ public IPublicClientApplication GetIdentityClient(string applicationId)
 {
     var identityClient = PublicClientApplicationBuilder.Create(applicationId)
         .WithAuthority(AzureCloudInstance.AzurePublic, "common")
+        .WithRedirectUri($"msal{applicationId}://auth")
         .WithParentActivityOrWindow(() => this)
         .Build();
     return identityClient;
@@ -197,137 +203,56 @@ When the shared project requires authentication, it will obtain an identity clie
 
 ## Configure the iOS app for authentication
 
-Open the `AppDelegate.cs` file in the `TodoApp.Forms.iOS` project.
-### Add authentication to the iOS app
-
-Open the `AppDelegate.cs` class in the `ZumoQuickstart.iOS` project.  Add the following code to the end of the class:
+Open the `AppDelegate.cs` file in the `TodoApp.Forms.iOS` project.  Add the following code to the end of the class:
 
 ``` csharp
-    public override bool OpenUrl(UIApplication app, NSUrl url, NSDictionary options)
-        => Xamarin.Essentials.Platform.OpenUrl(app, url, options);
+public override bool OpenUrl(UIApplication app, NSUrl url, NSDictionary options)
+{
+    bool result = AuthenticationContinuationHelper.SetAuthenticationContinuationEventArgs(url);
+    return result || base.OpenUrl(app, url, options);
+}
 
-    public Task<bool> AuthenticateAsync(MobileServiceClient client)
-    {
-        var tcs = new TaskCompletionSource<bool>();
-        var view = UIApplication.SharedApplication.KeyWindow.RootViewController;
-
-        Device.BeginInvokeOnMainThread(async () =>
-        {
-            try
-            {
-                var user = await client.LoginAsync(view, "aad", "zumoquickstart");
-                tcs.TrySetResult(user != null);
-            }
-            catch (Exception error)
-            {
-                var alert = UIAlertController.Create("Sign-in result", error.Message, UIAlertControllerStyle.Alert);
-                alert.AddAction(UIAlertAction.Create("OK", UIAlertActionStyle.Default, null));
-                view.PresentViewController(alert, true, null);
-                tcs.TrySetResult(false);
-            }
-        });
-
-        return tcs.Task;
-    }
+public IPublicClientApplication GetIdentityClient(string applicationId)
+{
+    var identityClient = PublicClientApplicationBuilder.Create(applicationId)
+        .WithIosKeychainSecurityGroup("com.microsoft.adalcache")
+        .WithRedirectUri($"msal{applicationId}://auth")
+        .Build();
+    return identityClient;
+}
 ```
 
-Right-click on the `Info.plist` file, then select **Open with...**.  Select the **XML (Text) Editor**.  Add the following to the file right before the final `</dict>` line.
+Open the `Entitlements.plist` file.  Select **Keychain**, then select **Add New** in the keychain groups.  Enter `com.microsoft.adalcache` as the value:
 
-``` xml
-    <key>CFBundleURLTypes</key>
-    <array>
-      <dict>
-        <key>CFBundleURLName</key>
-        <string>URL Type 1</string>
-        <key>CFBundleURLSchemes</key>
-        <array>
-          <string>zumoquickstart</string>
-        </array>
-        <key>CFBundleTypeRole</key>
-        <string>None</string>
-      </dict>
-    </array>
-```
+![Screenshot showing the iOS entitlements.](./media/ios-entitlements-plist.png)
 
-After the user completes the sign-in, the user will be redirected back to the application.  You can now build and run the application.  The user is prompted to sign-in before the list of items is displayed.
+Finally, add the custom entitlements to the project:
 
-### Add authentication to the UWP app
+1. Right-click on the `TodoApp.Forms.iOS` project, then select **Properties**.
+2. Select **iOS Bundle Signing**.
+3. Select the **...** button next to the **Custom Entitlements** field.
+4. Select `Entitlements`, then select **Open**.
+5. Press **Ctrl+S** to save the project.
 
-Open the `App.xaml.cs` file within the `ZumoQuickstart.UWP` project.  Add the following code to the end of the class:
+![Screenshot showing the iOS bundle signing properties.](./media/ios-bundle-signing.png)
 
-``` csharp
-    public static MobileServiceClient CurrentClient { get; set; } = null;
+## Test the Android app
 
-    protected override void OnActivated(IActivatedEventArgs args)
-    {
-        base.OnActivated(args);
-        if (args.Kind == ActivationKind.Protocol)
-        {
-            MobileServiceClientExtensions.ResumeWithURL(CurrentClient, (args as ProtocolActivatedEventArgs).Uri);
-        }
-    }
-```
+Set `TodoApp.Forms.Android` as the startup project, then press **F5** to build and run the app.  When the app starts, you'll be prompted to sign in to the app.  On the first run, you'll also be asked to consent to the app.  Once this is done, the app runs as normal.
 
-This calls the response handler within Azure Mobile Apps when the response from the authentication service is received.
+## Test the iOS app
 
-Open the `MainPage.xaml.cs` file and add the following code to the end of the class:
+> [!NOTE]
+> Since the iOS app requires keychain access, you will need to set up a provisioning profile.  A provisioning profile requires either a real device or a paid Apple Developer Account (if using the simulator).  
 
-``` csharp
-    public Task<bool> AuthenticateAsync(MobileServiceClient client)
-    {
-        var tcs = new TaskCompletionSource<bool>();
-        Device.BeginInvokeOnMainThread(async () =>
-        {
-            try
-            {
-                var user = await client.LoginAsync("aad", "zumoquickstart");
-                tcs.TrySetResult(user != null);
-            }
-            catch (Exception error)
-            {
-                var dialog = new MessageDialog(error.Message, "Sign-in error");
-                await dialog.ShowAsync();
-                tcs.TrySetResult(false);
-            }
-        });
-
-        return tcs.Task;
-    }
-```
-
-Finally, register the "zumoquickstart" protocol:
-
-* Open the `Package.appxmanifest` file.
-* Select the **Declarations** tab.
-* Under **Available Declarations**, select **Protocol** and then press **Add**.
-* Fill in the form as follows:
-  * Display name: _Authentication Response_
-  * Name: _zumoquickstart_
-  * ExecutableOrStartPageIsRequired: checked
-  All other fields can be left blank.
-
-You can now build and run the application.  When it runs, the sign-in process will be triggered prior to the list of items being displayed.
-
-## Test the app
-
-From the **Run** menu, press **Run app** to start the app.  You'll be prompted for a Microsoft account.  When you're signed in, the app should run as before without errors.
-
-[!INCLUDE [clean-up](~/mobile-apps/azure-mobile-apps/includes/quickstart-clean-up.md)]
-
+Set `TodoApp.Forms.iOS` as the startup project, then press **F5** to build and run the app.  When the app starts, you'll be prompted to sign in to the app.  On the first run, you'll also be asked to consent to the app.  Once this is done, the app runs as normal.
 ## Next steps
 
-Take a look at the HOW TO sections:
+Next, configure your application to operate offline by [implementing an offline store](./offline.md).
 
-* Server ([Node.js](../../howto/server/nodejs.md)
-* Server ([ASP.NET Framework](../../howto/server/dotnet-framework.md))
-* [.NET Client](../../howto/client/dotnet.md)
+## Further reading
 
-You can also do a Quick Start for another platform using the same backend server:
-
-* [Apache Cordova](../cordova/index.md)
-* [Windows (UWP)](../uwp/index.md)
-* [Windows (WPF)](../wpf/index.md)
-* [Xamarin.Android](../xamarin-android/index.md)
-* [Xamarin.iOS](../xamarin-ios/index.md)
-
-[Learn more about developing cross-platform apps with Xamarin.Forms and Azure Mobile Apps with a free book](https://adrianhall.github.io/develop-mobile-apps-with-csharp-and-azure/).
+* [Quickstart: Protect a web API with the Microsoft identity platform](/azure/active-directory/develop/web-api-quickstart?pivots=devlang-aspnet-core)
+* [Configuration requirements and troubleshooting tips for Xamarin Android with MSAL.NET](/azure/active-directory/develop/msal-net-xamarin-android-considerations)
+* [Considerations for using Xamarin iOS with MSAL.NET](/azure/active-directory/develop/msal-net-xamarin-ios-considerations)
+* [Scenario: Mobile application that calls web APIs](/azure/active-directory/develop/scenario-mobile-overview)
