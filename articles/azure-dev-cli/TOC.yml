@@ -30,6 +30,7 @@
     href:  how-to-azd-enable-a-project.md
 - name: Troubleshooting
   expanded: false
+  items:
   - name: Known issues
     href: azure-dev-cli-known-issues.md   
     displayName: troubleshooting, known issues
