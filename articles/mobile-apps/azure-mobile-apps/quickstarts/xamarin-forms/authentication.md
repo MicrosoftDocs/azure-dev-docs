@@ -203,7 +203,13 @@ When the shared project requires authentication, it will obtain an identity clie
 
 ## Configure the iOS app for authentication
 
-Open the `AppDelegate.cs` file in the `TodoApp.Forms.iOS` project.  Add the following code to the end of the class:
+Open the `AppDelegate.cs` file in the `TodoApp.Forms.iOS` project.  Add `IPlatform` to the definition of the `AppDelegate` class:
+
+``` csharp
+public partial class AppDelegate : global::Xamarin.Forms.Platform.iOS.FormsApplicationDelegate, IPlatform
+```
+
+Add the following code to the end of the class:
 
 ``` csharp
 public override bool OpenUrl(UIApplication app, NSUrl url, NSDictionary options)

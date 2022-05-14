@@ -127,4 +127,4 @@ To work around this issue:
 
 ## Next steps
 
-Continue on to implement [offline data synchronization](./offline.md).
+Continue the tutorial by [adding authentication to the app](./authentication.md).
