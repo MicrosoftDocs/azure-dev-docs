@@ -14,7 +14,6 @@ ms.prod: azure
 
 We'll use the [Todo Application with Node.js and Azure Cosmo DB API for MongoDB](https://github.com/azure-samples/todo-nodejs-mongo) for this walkthrough. For more information including architecture diagram and the Azure resources you'll deploy, see the [README](https://github.com/azure-samples/todo-nodejs-mongo).
 
-
 ## [Bare metal](#tab/bare-metal)
 
 [!INCLUDE [azd-baremetal](includes/azd-baremetal.md)]
