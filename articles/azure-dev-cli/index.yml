@@ -41,7 +41,6 @@ landingContent:
         links:
           - text: List of Azure Developer CLI Azure samples
             url: azure-dev-cli-templates.md
-          - text: Todo Application with Node.js Cosmos DB (Mongo)
       - linkListType: get-started
         links:
           - text: Get started overview
