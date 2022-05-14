@@ -60,7 +60,7 @@ using System.Linq;
 using System.Threading.Tasks;
 ```
 
-In the `App` class, add two additional properties:
+In the `App` class, add two new properties:
 
 ``` csharp
 public IPublicClientApplication IdentityClient { get; set; }
@@ -238,14 +238,14 @@ Finally, add the custom entitlements to the project:
 
 ## Test the Android app
 
-Set `TodoApp.Forms.Android` as the startup project, then press **F5** to build and run the app.  When the app starts, you'll be prompted to sign in to the app.  On the first run, you'll also be asked to consent to the app.  Once this is done, the app runs as normal.
+Set `TodoApp.Forms.Android` as the startup project, then press **F5** to build and run the app.  When the app starts, you'll be prompted to sign in to the app.  On the first run, you'll also be asked to consent to the app.  Once authentication is complete, the app runs as normal.
 
 ## Test the iOS app
 
 > [!NOTE]
 > Since the iOS app requires keychain access, you will need to set up a provisioning profile.  A provisioning profile requires either a real device or a paid Apple Developer Account (if using the simulator).  
 
-Set `TodoApp.Forms.iOS` as the startup project, then press **F5** to build and run the app.  When the app starts, you'll be prompted to sign in to the app.  On the first run, you'll also be asked to consent to the app.  Once this is done, the app runs as normal.
+Set `TodoApp.Forms.iOS` as the startup project, then press **F5** to build and run the app.  When the app starts, you'll be prompted to sign in to the app.  On the first run, you'll also be asked to consent to the app.  Once authentication is complete, the app runs as normal.
 ## Next steps
 
 Next, configure your application to operate offline by [implementing an offline store](./offline.md).
