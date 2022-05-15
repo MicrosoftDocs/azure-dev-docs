@@ -2,11 +2,11 @@
 
 title: Azure Developer CLI
 summary: |
-  The Azure Developer CLI (azd) is a developer-centric command-line interface (CLI) tool for building Azure applications. 
+  The Azure Developer CLI (azd) is a developer-centric command-line interface (CLI) tool for building Azure applications. `azd` is a a set of command that allows you to use the same simple workflow for all Azure Developer CLI enabled templates. 
   
 metadata:
   title: Azure Developer CLI
-  description: Get started developing Azure applications using Azure Developer CLI.
+  description: Get started developing Azure applications using Azure Developer CLI (azd).
   author: puicchan
   ms.author: puichan
   ms.date: 04/11/2022
@@ -23,28 +23,24 @@ landingContent:
         links:
           - text: What is Azure Developer CLI
             url: azure-dev-cli-overview.md
-          - text: Azure Developer CLI FAQ
-            url: azure-dev-cli-faq.yml   
-          - text: Azure Developer CLI known issues
-            url: azure-dev-cli-known-issues.md               
-      - linkListType: how-to-guide
-        links:
-          - text: Azure Developer CLI enable a project
-            url: how-to-azd-enable-a-project.md
-          - text: Debug and run locally using Visual Studio Code
-            url: how-to-use-vscode-extension-to-debug-locally.md 
-          - text: Config pipeline and push update through GitHub Action
-            url: how-to-update-and-deploy-using-GitHub-Action.md      
-  - title: Get started
-    linkLists:
       - linkListType: quickstart
         links:
-          - text: List of Azure Developer CLI Azure samples
+          - text: Start with an Azure Developer CLI Azure samples
             url: azure-dev-cli-templates.md
       - linkListType: get-started
         links:
-          - text: Get started overview
-            url: get-started.md
+          - text: Start with the IDE of choice
+            url: get-started.md 
+  - title: How to develop, test and deploy
+    linkLists:
+      - linkListType: how-to-guide 
+        links:
+          - text: Debug and run locally using Visual Studio Code
+            url: how-to-use-vscode-extension-to-debug-locally.md
+      - linkListType: get-started
+        links:
+          - text: Config pipeline and push update through GitHub Action
+            url: how-to-update-and-deploy-using-GitHub-Action.md
   - title: Give feedback and get support
     linkLists:
       - linkListType: concept
@@ -55,9 +51,13 @@ landingContent:
             url: https://github.com/Azure/azure-dev/issues/new
           - text: Get help from the community
             url: https://github.com/Azure/azure-dev/discussions/new
-  - title: Azure Developer CLI reference
+  - title: Resources
     linkLists:
       - linkListType: reference
         links:
+          - text: Known issues
+            url: az-dev-cli-known-issues.md
+          - text: Frequently asked questions
+            url: az-dev-cli-faq.md
           - text: Full command reference
             url: https://github.com/Azure/azure-dev-pr/wiki/Azure-Developer-CLI-Overview

@@ -3,23 +3,23 @@
   displayName: overview, intro, introduction
 - name: Azure Developer CLI templates
   href: azure-dev-cli-templates.md
-- name: Get started with the IDE of choice
+- name: Start with the IDE of choice
   href: get-started.md
-- name: How to develop locally
+- name: Develop 
   expanded: true
   items:
-  - name: Run and debug using Visual Studio Code 
+  - name: 1. Run and debug using VS Code 
     href: how-to-use-vscode-extension-to-debug-locally.md
-  - name: Config pipeline and push update through GitHub Action 
+  - name: 2. Edit and push update through GitHub Action 
     href: how-to-update-and-deploy-using-GitHub-Action.md
-- name: How to create your own template
+- name: Create 
   expanded: true
   items:
   - name: Enable a project
     href: how-to-azd-enable-a-project.md
   - name: Work with Azure Bicep
     href: how-to-azd-bicep.md
-- name: Troubleshooting
+- name: Troubleshoot
   expanded: true
   items:
   - name: Known issues

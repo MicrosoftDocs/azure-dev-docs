@@ -18,9 +18,6 @@ We recommend using a [developer container (DevContainer)](https://code.visualstu
 
 A DevContainer is a Docker image that includes all of the prerequisites you need to run this application on your local machine. For more information including the pros and cons, see the next section. 
 
-> [!NOTE]
-> The README in any of the [sample templates](azure-dev-cli-templates.md) is a good start.
-
 If DevContainer isn't right for you, you have other development environment options.
 
 ## Development environment choices
@@ -35,7 +32,9 @@ Pros and cons for development environment choices:
 
 ## Get started with your development enviroment of choice
 
-Once you've decided which development environment is right for you, we'll use the [Todo Application with Node.js and Azure Cosmo DB API for MongoDB](https://github.com/azure-samples/todo-nodejs-mongo) for this walkthrough. For more information including architecture diagram and the Azure resources you'll deploy, see the [README](https://github.com/azure-samples/todo-nodejs-mongo).
+Once you've decided which development environment is right for you, we'll use the [Todo Application with Node.js and Azure Cosmo DB API for MongoDB](https://github.com/azure-samples/todo-nodejs-mongo) for this walkthrough. 
+
+The repository contains a complete ToDo application and includes everything you need to build, deploy, and monitor an Azure solution using React.js for the Web application, Node.js for the API, Azure Cosmos DB API for MongoDB for storage, and Azure Monitor for monitoring and logging. For more information including architecture diagram and the Azure resources you'll deploy, see the [README](https://github.com/azure-samples/todo-nodejs-mongo).
 
 ### [Bare metal](#tab/bare-metal)
 
