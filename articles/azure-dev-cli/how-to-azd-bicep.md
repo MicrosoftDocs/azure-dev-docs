@@ -13,8 +13,4 @@ ms.prod: azure
 > [!NOTE] 
 > This is a work in progress
 
-Steps
-1. azd pipeline config
-1. Edit code
-1. Push update to GitHub repo
-1. New build deployed to Azure
+Include list of Bicep samples...

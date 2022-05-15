@@ -18,7 +18,7 @@ The Azure Developer CLI (**azd**) is a developer-centric command-line tool for c
 
 You can use the same developer workflow for any Azure Developer CLI enabled templates. 
 
-The quickest way to get start is to explore the list of [Azure Developer enabled templates](azure-dev-cli-templates.md) and follow the README in the repository.
+The quickest way to get started is to explore the list of [Azure Developer enabled templates](azure-dev-cli-templates.md) and follow the README in the repository.
 
 !["Azure Devloper CLI Developer Workflow"](media/azure-dev-cli-overview/azd-dev-workflow.png)
 

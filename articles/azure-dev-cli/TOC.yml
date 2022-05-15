@@ -15,7 +15,7 @@
 - name: Create 
   expanded: true
   items:
-  - name: Enable a project
+  - name: Enable your project
     href: how-to-azd-enable-a-project.md
   - name: Work with Azure Bicep
     href: how-to-azd-bicep.md
@@ -27,6 +27,6 @@
     displayName: troubleshooting, known issues
   - name: Frequently asked questions
     href: azure-dev-cli-faq.yml   
-    displayName: troubleshooting, known issues
+    displayName: troubleshooting, faq
 - name: Reference
   href: https://github.com/Azure/azure-dev-pr/wiki/Azure-Developer-CLI-Overview

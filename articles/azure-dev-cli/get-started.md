@@ -134,7 +134,7 @@ For known issues, refer to [Troubleshooting/known issues](azure-dev-cli-known-is
 
 ## Explore more samples
 
-To find more Azure Developer CLI enabled templates for more Azure Compute hosts and programming lanuages, see our [sample templates](azure-dev-cli-templates.md).
+To find more Azure Developer CLI enabled templates, see our [sample templates](azure-dev-cli-templates.md).
 
 ## Reference
 

@@ -10,31 +10,34 @@ ms.prod: azure
 ---
 # Azure Developer CLI Templates
 
-### Host: Azure App Service
+The quickest way to get started with `azd` is to refer to the README in an Azure Developer enabled template. Pick a template in below tables grouped by hosts.
 
-Each repo contains a complete sample ToDo application with a web frontend built in React.js and the backend API built using a specific `azd` supported language. 
+## Host: Azure App Service
 
-| Template      | Description | Language (API layer) | Tech Stack	 | 
-| ----------- | ----------| ----------- | --- | 
-| [ToDo NodeJs Mongo](https://github.com/azure-samples/todo-nodejs-mongo) | Azure App Service | Node.js | Azure Cosmos DB API for Mongo, Azure Monitor |  
-| [ToDo Python Mongo](https://github.com/azure-samples/todo-python-mongo) | Azure App Service | Python (FastAPI) | Azure Cosmos DB API for Mongo, Azure Monitor  |  
-| [ToDo C# Mongo](https://github.com/Azure-Samples/todo-csharp-mongo) | Azure App Service | C# | Azure Cosmos DB API for Mongo, Azure Monitor | 
-| [ToDo C# Azure SQL](https://github.com/Azure-Samples/todo-csharp-sql) | Azure App Service | C# | Azure SQL, Azure Monitor | 
-| [ToDo C# Cosmos DB (SQL)](https://github.com/Azure-Samples/todo-csharp-cosmos-sql) | Azure App Service |  C# | Azure Cosmos DB SQL API, Azure Monitor | 
+Each repository contains a complete sample ToDo application with a web frontend built in React.js and the backend API built using a specific `azd` supported language. Both frontend and backend applications are deployed to [Azure App Service](/azure/app-service/).
 
-### Host: Azure Container Apps
+| Template      | Language (API layer) | Tech Stack	 | 
+| ----------- | ----------| ----------- | 
+| [ToDo NodeJs Mongo](https://github.com/azure-samples/todo-nodejs-mongo) | Node.js | Azure Cosmos DB API for Mongo, Azure Monitor |  
+| [ToDo Python Mongo](https://github.com/azure-samples/todo-python-mongo) | Python (FastAPI) | Azure Cosmos DB API for Mongo, Azure Monitor  |  
+| [ToDo C# Mongo](https://github.com/Azure-Samples/todo-csharp-mongo) | C# | Azure Cosmos DB API for Mongo, Azure Monitor | 
+| [ToDo C# Azure SQL](https://github.com/Azure-Samples/todo-csharp-sql) | C# | Azure SQL, Azure Monitor | 
+| [ToDo C# Cosmos DB (SQL)](https://github.com/Azure-Samples/todo-csharp-cosmos-sql) | C# | Azure Cosmos DB SQL API, Azure Monitor | 
 
-Each repo contains a complete sample ToDo application with a web frontend built in React.js and the backend API built using a specific `azd` supported language.
+## Host: Azure Container Apps
 
-| Template      | Compute Service | Language (API layer) | Tech Stack	 | 
-| ----------- | ----------| ----------- | --- | 
-| [ToDo NodeJs Mongo ACA](https://github.com/azure-samples/todo-nodejs-mongo-aca) | Azure Container Apps | Node.js | Azure Cosmos DB API for Mongo, Azure Monitor |
-| [ToDo Python Mongo ACA](https://github.com/azure-samples/todo-python-mongo-aca) | Azure Container Apps | Python (FastAPI)|  Azure Cosmos DB API for Mongo, Azure Monitor |  
+Each repository contains a complete sample ToDo application with a web frontend built in React.js and the backend API built using a specific `azd` supported language. Both frontend and backend applications are deployed to [Azure Container Apps](/azure/container-apps/overview).
+
+| Template      | Language (API layer) | Tech Stack	 | 
+| ----------- | ----------| ----------- | 
+| [ToDo NodeJs Mongo ACA](https://github.com/azure-samples/todo-nodejs-mongo-aca) | Node.js | Azure Cosmos DB API for Mongo, Azure Monitor |
+| [ToDo Python Mongo ACA](https://github.com/azure-samples/todo-python-mongo-aca) | Python (FastAPI)|  Azure Cosmos DB API for Mongo, Azure Monitor |  
 
 
 ## Picking the right host
 
 A template can deploy to two or more supported hosts. Today, each Azure Developer CLI template is built for specific host (Azure compute service.) If you haven't finalized the Azure compute service for hosting your application, the following flowchart can help to choose the right sample to use as a base for your project:
+
 !["Host Decision Tree"](media/azure-dev-cli-templates/host-decision-tree.png)
 
 > [!NOTE]
