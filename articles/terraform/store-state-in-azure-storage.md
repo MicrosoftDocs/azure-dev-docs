@@ -253,7 +253,7 @@ Replace `<storage_account_name>` with the name of your Azure storage account.
 
 ### Managed Service Identity
 
-You can use a pre-configured identity to authentication to your storage account. See [Managed Identity](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/managed_service_identity) in the Terraform documentation for more information.
+You can use a pre-configured identity to authenticate to your storage account. See [Managed Identity](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/managed_service_identity) in the Terraform documentation for more information.
 
 ```hcl
 terraform {
