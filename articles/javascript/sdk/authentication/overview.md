@@ -1,112 +1,115 @@
 ---
-title: Use the Azure libraries (SDK) for JavaScript
-description: Overview of the features and capabilities of the Azure libraries for JavaScript that helps developers be more productive when provisioning, using, and managing Azure resources.
+title: 'Overview: Authenticate JavaScript apps to Azure using the Azure SDK'
+description: Understand how to authenticate Node.js and browser-based applications to Azure services when using the Azure SDK for JavaScript in both server environments and in local development.
 ms.date: 05/16/2022
-ms.topic: conceptual
+ms.topic: overview
 ms.custom: devx-track-js
 ---
 
-# Use the Azure libraries (SDK) for JavaScript
+# How to authenticate JavaScript apps to Azure services using the Azure SDK for JavaScript
 
-The open-source Azure libraries for JavaScript simplify provisioning, managing, and using Azure resources from JavaScript application code.
+When an application needs to access an Azure resource (such as Storage, Key vault, or Cognitive services) the application must be authenticated to Azure.  This is true for all applications, whether deployed to Azure, deployed on-premises, or under development on a local developer workstation. This article describes the recommended approaches to authenticate an app to Azure when using the Azure SDK for JavaScript.
 
-## The details you really want to know
+## Recommended app authentication approach
 
-- The Azure libraries are how you communicate with Azure services *from* JavaScript code that you run either locally or in the cloud. (Whether you can run JavaScript code within the scope of a particular service depends on whether that service itself currently supports JavaScript.)
+The recommended process is to have your apps use **token-based authentication**, rather than connection strings or keys, when authenticating to Azure resources. The Azure SDK for JavaScript provides token-based authentication and allow apps to seamlessly authenticate to Azure resources whether the app is in local development, deployed to Azure, or deployed to an on-premises server.
 
-- The libraries support JavaScript 3.6 or later, and it is also tested with PyPy 5.4+.
+The specific type of token-based authentication an app should use to authenticate to Azure resources depends on where the app is running and is shown in the following diagram.
 
-- The Azure SDK for JavaScript is composed solely of over 180 individual JavaScript libraries that relate to specific Azure services. There are no other tools in the "SDK".
+:::image type="content" source="../../media/azure-sdk-authentication/javascript-sdk-auth-strategy.png" alt-text="A diagram showing the recommended token-based authentication strategies for an app depending on where it's running." :::
 
-- When running code locally, authenticating with Azure relies on environment variables as described in [How to authenticate JavaScript apps to Azure services using the Azure SDK for JavaScript](./authentication-overview.md#authentication-during-local-development).
+|Environment|Authentication|
+|--|--|
+|**Local**| When a developer is running an app during local development - The app can authenticate to Azure using either an application service principal for local development or by using the developer's Azure credentials.  Each of these options is discussed in more detail in the section [authentication during local development](#authentication-during-local-development).|
+|**Azure**| When an app is hosted on Azure - The app should authenticate to Azure resources using a managed identity. This option is discussed in more detail below in the section [authentication in server environments](#authentication-in-server-environments).|
+|**On-premises**|When an app is hosted and deployed on-premises - The app should authenticate to Azure resources using an application service principal. This option is discussed in more detail below in the section [authentication in server environments](#authentication-in-server-environments).|
 
-- To install library packages with pip, use `pip install <library_name>` using library names from the [package index](azure-sdk-library-package-index.md). To install library packages in conda environments, use `conda install <package_name>` using names from the [Microsoft channel on anaconda.org](https://anaconda.org/microsoft/repo). For more information, see [Install Azure libraries](azure-sdk-install.md).
+### Advantages of token-based authentication
 
-- There are distinct **management** and **client** libraries (sometimes referred to as "management plane" and "data plane" libraries). Each set serves different purposes and is used by different kinds of code. For more information, see the following sections later in this article:
-  - [Provision and manage Azure resources with management libraries](#provision-and-manage-azure-resources-with-management-libraries)
-  - [Connect to and use Azure resources with client libraries](#connect-to-and-use-azure-resources-with-client-libraries)
+When building apps for Azure, token-based authentication is strongly recommended over secrets (connection strings or keys). Token-based authentication is provided with [DefaultAzureCredential](#use-defaultazurecredential-in-an-application).
 
-- Documentation for the libraries is found on the [Azure for JavaScript Reference](/javaScript/api/overview/azure/), which is organized by Azure Service, or the [JavaScript API browser](/javaScript/api/), which is organized by package name. 
+|Token-based authentication|Secrets (connection strings and keys)|
+|--|--|
+|[Principle of least privilege](https://en.wikipedia.org/wiki/Principle_of_least_privilege), establish the specific permissions needed by the app on the Azure resource. | A connection string or key grants full rights to the Azure resource.|
+|There's no application secret to store.| Must store and rotate secrets in app setting or environment variable.|
+|The [@azure/identity](https://www.npmjs.com/package/@azure/identity) package in the Azure SDK manages tokens for you behind the scenes. This makes using token-based authentication as easy to use as a connection string.||
 
-- To try the libraries for yourself, we first recommend [setting up your local dev environment](../configure-local-development-environment.md). Then you can try any of the following standalone examples (in any order): [Example: Provision a resource group](./examples/azure-sdk-example-resource-group.md), [Example: Provision and use Azure Storage](./examples/azure-sdk-example-storage.md), [Example: Provision a web app and deploy code](./examples/azure-sdk-example-web-app.md), [Example: Provision and use a MySQL database](./examples/azure-sdk-example-database.md), and [Example: Provision a virtual machine](./examples/azure-sdk-example-virtual-machines.md).
+Use of connection strings should be limited to initial proof of concept apps or development prototypes that don't access production or sensitive data.  Otherwise, the token-based authentication classes available in the Azure SDK should always be preferred when authenticating to Azure resources.
 
-- For demonstration videos, see <a href="https://www.youtube.com/watch?v=4xoJLCFP4_4" target="_blank">Introducing the Azure SDK for JavaScript</a> (PyCon 2021) and <a href="https://www.youtube.com/watch?v=M1pVxItg2Mg&feature=youtu.be&ocid=AID3006292" target="_blank">Using Azure SDKs to interact with Azure resource</a> (PyCon 2020).
+### DefaultAzureCredential
 
-### Non-essential but still interesting details
+The Azure SDK [DefaultAzureCredential](#use-defaultazurecredential-in-an-application) method allows apps to use different authentication methods depending on the environment they're run in. This allows apps to deploy in local, test, and production environments without code changes.  You configure the appropriate authentication method for each environment and `DefaultAzureCredential` automatically detects and uses that authentication method. The use of `DefaultAzureCredential` is preferred over manually coding conditional logic or feature flags to use different authentication methods in different environments.
 
-- Because the Azure CLI is written in JavaScript using the management libraries, anything you can do with Azure CLI commands you can also do from a JavaScript script. That said, the CLI commands provide many helpful features such as performing multiple tasks together, automatically handling asynchronous operations, formatting output like connection strings, and so on. Consequently, using the CLI (or its equivalent, Azure PowerShell) for automated provisioning and management scripts can be significantly more convenient than writing the equivalent JavaScript code, unless you want to have a much more exacting degree of control over the process.
+Details about using the DefaultAzureCredential class are covered later in this article in the section [Use DefaultAzureCredential in an application](#use-defaultazurecredential-in-an-application).
 
-- The Azure libraries for JavaScript build on top of the underlying Azure REST API, allowing you to use those APIs through familiar JavaScript paradigms. However, you can always use the REST API directly from JavaScript code, if desired.
+## Authentication in server environments
 
-- You can find the source code for the Azure libraries on [https://github.com/Azure/azure-sdk-for-javaScript](https://github.com/Azure/azure-sdk-for-javaScript). As an open-source project, contributions are welcome!
+When hosting in a server environment, each application should be assigned a unique *application identity* per environment. In Azure, an app identity is represented by a **service principal**, a special type of *security principal* intended to identify and authenticate apps to Azure. The type of service principal to use for your app depends on where your app is running.
 
-- Although you can use the libraries with interpreters such as IronJavaScript and Jython that we don't test against, you may encounter isolated issues and incompatibilities.
+<!--
+| Authentication method | Description |
+|-----------------------|-------------|
+| Apps hosted in Azure  | [!INCLUDE [sdk-auth-overview-managed-identity](./includes/sdk-auth-overview-managed-identity.md)]            |
+| Apps hosted outside of Azure<br>(for example on-premises apps) | [!INCLUDE [sdk-auth-overview-service-principal](./includes/sdk-auth-overview-service-principal.md)] |
+-->
+## Authentication during local development
 
-- The source repo for the library API reference documentation resides on [https://github.com/MicrosoftDocs/azure-docs-sdk-javaScript/](https://github.com/MicrosoftDocs/azure-docs-sdk-javaScript/).
+When an application is run on a developer's workstation during local development, the local environment must still authenticate to any Azure services used by the app. 
 
-- We're currently updating the Azure libraries for JavaScript libraries to share common cloud patterns such as authentication protocols, logging, tracing, transport protocols, buffered responses, and retries.
+<!--
+The two main strategies for authenticating apps to Azure during local development are:
 
-  - This shared functionality is contained in the [azure-core](https://github.com/Azure/azure-sdk-for-javaScript/tree/master/sdk/core/azure-core) library.
+| Authentication method | Description |
+|-----------------------|-------------|
+| Create dedicated application service principal objects to be used during local development | [!INCLUDE [sdk-auth-overview-dev-service-principals](./includes/sdk-auth-overview-dev-service-principals.md)] |
+| Authenticate the app to Azure using the developer's credentials during local development | [!INCLUDE [sdk-auth-overview-dev-accounts](./includes/sdk-auth-overview-dev-accounts.md)] |
+-->
+## Use DefaultAzureCredential in an application
 
-  - The libraries that currently work with the Core library are listed on [Azure SDK for JavaScript latest releases](azure-sdk-library-package-index.md#libraries-using-azurecore). These libraries, primarily the client libraries, are sometimes referred to as "track 2".
+To use [DefaultAzureCredential]() in a JavaScript app, add the [@azure/identity]() package to your application.
 
-  - The management libraries and any other that aren't yet updated are sometimes referred to as "track 1".
+```terminal
+npm install @azure/identity
+```
 
-- For details on the guidelines we apply to the libraries, see the [JavaScript Guidelines: Introduction](https://azure.github.io/azure-sdk/javaScript_design.html#introduction).
+Then, the following [code example](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/JavaScript/NodeJS-v12/dev-guide/connect-with-default-azure-credential.js) shows how to instantiate a `DefaultAzureCredential` object and use it with an Azure SDK client class, in this case a BlobServiceClient used to access Blob storage.
 
-## Provision and manage Azure resources with management libraries
+```javascript
+// connect-with-default-azure-credential.js
+const { BlobServiceClient } = require('@azure/storage-blob');
+const { DefaultAzureCredential } = require('@azure/identity');
+require('dotenv').config()
 
-The SDK's *management* (or "management plane") libraries, the names of which all begin with `azure-mgmt-`, help you create, provision and otherwise manage Azure resources from JavaScript scripts. All Azure services have corresponding management libraries.
+const accountName = process.env.AZURE_STORAGE_ACCOUNT_NAME;
+if (!accountName) throw Error('Azure Storage accountName not found');
 
-With the management libraries, you can write configuration and deployment scripts to perform the same tasks that you can through the [Azure portal](https://portal.azure.com) or the [Azure CLI](/cli/azure/install-azure-cli). (As noted earlier, the Azure CLI is written in JavaScript and uses the management libraries to implement its various commands.)
+const blobServiceClient = new BlobServiceClient(
+  `https://${accountName}.blob.core.windows.net`,
+  new DefaultAzureCredential()
+);
+```
 
-The following examples illustrate how to use some of the primary management libraries:
+`DefaultAzureCredential` will automatically detect the authentication mechanism configured for the app and obtain the necessary tokens to authenticate the app to Azure. If an application makes use of more than one SDK client, the same credential object can be used with each SDK client object.
 
-- [Provision a resource group](./examples/azure-sdk-example-resource-group.md)
-- [List resource groups in a subscription](./examples/azure-sdk-example-list-resource-groups.md)
-- [Provision Azure Storage](./examples/azure-sdk-example-storage.md)
-- [Provision a web app and deploy code](./examples/azure-sdk-example-web-app.md)
-- [Provision and query a database](./examples/azure-sdk-example-database.md)
-- [Provision a virtual machine](./examples/azure-sdk-example-virtual-machines.md)
+### Sequence of selecting authentication methods when using DefaultAzureCredential
 
-For details on working with each management library, see the *README.md* or *README.rst* file located in the library's project folder in the [SDK GitHub repository](https://github.com/Azure/azure-sdk-for-javaScript/tree/master/sdk). You can also find more code snippets in the [reference documentation](/javaScript/api) and the [Azure Samples](/samples/browse/?languages=javaScript&term=Getting%20started%20-%20Managing).
+Internally, `DefaultAzureCredential` implements a chain of selecting credential providers for authenticating applications to Azure resources.  Each credential provider is able to detect if credentials of that type are configured for the app.  `DefaultAzureCredential` sequentially checks each provider in order and uses the credentials from the first provider that has credentials configured.
 
-### Migrating from older management libraries
+The order in which `DefaultAzureCredential` looks for credentials for JavaScript is shown in the diagram and table below.  
 
-If you are migrating code from older versions of the management libraries, see the following details:
+:::image type="content" source="../../media/azure-sdk-authentication/DefaultAzureCredentialAuthFlow.svg" alt-text="A diagram showing the sequence in which DefaultAzureCredential checks to see what authentication source is configured for an application." lightbox="./media/azure-sdk-authentication/DefaultAzureCredentialAuthFlow.svg":::
 
-- If you use the `ServicePrincipalCredentials` class, see [Authenticate with token credentials](./authentication-azure-hosted-apps.md).
-- The names of async APIs have changed as described on [Library usage patterns - asynchronous operations](azure-sdk-library-usage-patterns.md#asynchronous-operations). Simply said, the names of async APIs in newer libraries start with `begin_`. In most cases, the API signature remains the same.
+If you've more than one credential configured, the order of finding the credential through the chain is important. 
 
-## Connect to and use Azure resources with client libraries
+In the image, there are two paths:
+* **Deployed service** (Azure or on-premises): the sequence begins with the environment variables, then the managed identity, then the rest of the locations for a credential (Visual Studio Code, Azure CLI, Azure PowerShell). 
+* **Developer's local environment**: The local developer workstation's chain starts with Visual Studio Code's signed in Azure user, shown in the bottom bar of the IDE, then moves on to the Azure CLI, then Azure PowerShell. It's important to understand if you've configured your local environment variables, either for your entire environment, or a project's virtual environment (such as with DOTENV), these variables will override the Visual Studio Code -> Azure CLI -> PowerShell chain because they're the first credential checked in the chain. 
 
-The SDK's *client* (or "data plane") libraries help you write JavaScript application code to interact with already-provisioned services. Client libraries exist only for those services that support a client API.
-
-The article, [Example: Use Azure Storage](./examples/azure-sdk-example-storage-use.md), provides a basic illustration of using client library.
-
-Different Azure services also provide examples using these libraries. See the following index pages for other links:
-
-- [App hosting](../quickstarts-app-hosting.md)
-- [Cognitive Services](../quickstarts-cognitive-services.md)
-- [Data solutions](../quickstarts-data-solutions.md)
-- [Identity and security](../quickstarts-identity-security.md)
-- [Machine learning](../quickstarts-machine-learning.md)
-- [Messaging and IoT](../quickstarts-messaging-iot.md)
-- [Other services](../quickstarts-other-services.md)
-
-For details on working with each client library, see the *README.md* or *README.rst* file located in the library's project folder in the [SDK's GitHub repository](https://github.com/Azure/azure-sdk-for-javaScript/tree/master/sdk). You can also find more code snippets in the [reference documentation](/javaScript/api) and the [Azure Samples](/samples/browse/?languages=javaScript&products=azure).
-
-## Get help and connect with the SDK team
-
-- Visit the [Azure libraries for JavaScript documentation](https://aka.ms/javaScript-docs)
-- Post questions to the community on [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-sdk-javaScript)
-- Open issues against the SDK on [GitHub](https://github.com/Azure/azure-sdk-for-javaScript/issues)
-- Mention [@AzureSDK](https://twitter.com/AzureSdk/) on Twitter
-- [Complete a short survey about the Azure SDK for JavaScript](https://microsoft.qualtrics.com/jfe/form/SV_bNFX0HECjzPWMiG?Q_CHL=docs)
-
-## Next step
-
-We strongly recommend doing a one-time setup of your local development environment so that you can easily use any of the Azure libraries for JavaScript.
-
-> [!div class="nextstepaction"]
-> [Set up your local dev environment >>>](../configure-local-development-environment.md)
+| Credential type               | Description |
+|-------------------------------|-------------|
+| Environment | DefaultAzureCredential reads a set of environment variables to determine if an application service principal (application user) has been set for the app. If so, `DefaultAzureCredential` uses these values to authenticate the app to Azure.<br><br>This method is most often used in server environments but can also be used when developing locally.             |
+| Managed Identity              | If the application is deployed to an Azure host with Managed Identity enabled, `DefaultAzureCredential` will authenticate the app to Azure using that Managed Identity. Authentication using a Managed Identity is discussed in the [Authentication in server environments](#authentication-in-server-environments) section of this document.<br><br>This method is only available when an application is hosted in Azure using a [managed-identity enabled service](/azure/active-directory/managed-identities-azure-resources/managed-identities-status). |
+| Visual Studio Code            | If the developer has authenticated to Azure using the Visual Studio Code Azure Account plugin, `DefaultAzureCredential` will authenticate the app to Azure using that same account. |
+| Azure CLI                     | If a developer has authenticated to Azure using the `az login` command in the Azure CLI, `DefaultAzureCredential` will authenticate the app to Azure using that same account. |
+| Azure PowerShell              | If a developer has authenticated to Azure using the `Connect-AzAccount` cmdlet from Azure PowerShell, `DefaultAzureCredential` will authenticate the app to Azure using that same account.            |
+| Interactive                   | If enabled, DefaultAzureCredential will interactively authenticate the developer via the current system's default browser. By default, this option is disabled. |
