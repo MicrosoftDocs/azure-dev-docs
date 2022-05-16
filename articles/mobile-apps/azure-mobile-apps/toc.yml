@@ -14,10 +14,10 @@
     items:
     - name: Introduction
       href: quickstarts/uwp/index.md
-    - name: Add Offline Sync
-      href: quickstarts/uwp/offline.md
     - name: Add Authentication
       href: quickstarts/uwp/authentication.md     
+    - name: Add Offline Sync
+      href: quickstarts/uwp/offline.md
   - name: Windows (WPF)
     items:
     - name: Introduction
@@ -30,18 +30,18 @@
     items:
     - name: Introduction
       href: quickstarts/xamarin-android/index.md
-    - name: Add Offline Sync
-      href: quickstarts/xamarin-android/offline.md
     - name: Add Authentication
       href: quickstarts/xamarin-android/authentication.md
+    - name: Add Offline Sync
+      href: quickstarts/xamarin-android/offline.md
   - name: Xamarin.Forms
     items:
     - name: Introduction
       href: quickstarts/xamarin-forms/index.md
-    - name: Add Offline Sync
-      href: quickstarts/xamarin-forms/offline.md
     - name: Add Authentication
       href: quickstarts/xamarin-forms/authentication.md
+    - name: Add Offline Sync
+      href: quickstarts/xamarin-forms/offline.md
   - name: Xamarin.iOS
     items:
     - name: Introduction
