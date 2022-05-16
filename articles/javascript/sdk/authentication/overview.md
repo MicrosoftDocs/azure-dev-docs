@@ -66,7 +66,7 @@ The two main strategies for authenticating apps to Azure during local developmen
 -->
 ## Use DefaultAzureCredential in an application
 
-To use [DefaultAzureCredential]() in a JavaScript app, add the [@azure/identity]() package to your application.
+To use [DefaultAzureCredential](/javascript/api/@azure/identity/defaultazurecredential) in a JavaScript app, add the [@azure/identity](https://www.npmjs.com/package/@azure/identity) package to your application.
 
 ```terminal
 npm install @azure/identity
