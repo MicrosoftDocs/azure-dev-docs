@@ -60,6 +60,7 @@ public async Task<AuthenticationToken> GetAuthenticationToken()
     {
         identityClient = PublicClientApplicationBuilder.Create(Constants.ApplicationId)
             .WithAuthority(AzureCloudInstance.AzurePublic, "common")
+            .WithRedirectUri($"msal{Constants.ApplicationId}://auth")
             .WithParentActivityOrWindow(() => this)
             .Build();
     }
