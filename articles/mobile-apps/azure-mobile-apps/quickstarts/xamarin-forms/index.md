@@ -88,7 +88,7 @@ Once the app has started, you'll see an empty list and a text box to add items i
 * Select an item to set or clear the completed flag.
 * Press the refresh icon to reload data from the service.
 
-![Screenshot of the running Android app.](./media/running-android-app.png)
+![Screenshot of the running Android app showing the to do list.](./media/running-android-app.png)
 
 ## Build and run the iOS app
 
@@ -111,7 +111,7 @@ Once the app has started, you'll see an empty list and a text box to add items i
 * Select an item to set or clear the completed flag.
 * Press the refresh icon to reload data from the service.
 
-![Screenshot of the running iOS app.](./media/running-ios-app.png)
+![Screenshot of the running iOS app showing the to do list.](./media/running-ios-app.png)
 
 ### Troubleshooting
 
@@ -121,9 +121,9 @@ The remote simulator that ships with Visual Studio 2022 is incompatible with XCo
 
 To work around this issue:
 
-1. Disable the remote simulator (Tools / Options / iOS Settings / uncheck “Remote Simulator to Windows”). When unchecked the simulator will run on the Mac instead of on Windows. You can then interact with the simulator directly on your Mac while using the debugger, etc. on Windows. 
-2. Disable the remote simulator as above, so that the simulator runs on the Mac. Then use a third party remote desktop style app to connect to the Mac desktop from Windows. Remote desktop options include https://devolutions.net/remote-desktop-manager (fast and there’s a free version available), and VNC clients (slower and free).
-3. Use a physical device to test instead of the simulator.  You can obtain a [free provisioning profile](/xamarin/ios/get-started/installation/device-provisioning/free-provisioning) to complete the authentication tutorial.
+* Disable the remote simulator (Tools / Options / iOS Settings / uncheck “Remote Simulator to Windows”). When unchecked the simulator will run on the Mac instead of on Windows. You can then interact with the simulator directly on your Mac while using the debugger, etc. on Windows. 
+* Disable the remote simulator as above, so that the simulator runs on the Mac. Then use a third party remote desktop style app to connect to the Mac desktop from Windows. Remote desktop options include [Devolutions Remote Desktop Manager](https://devolutions.net/remote-desktop-manager) (fast and there’s a free version available), and VNC clients (slower and free).
+* Use a physical device to test instead of the simulator.  You can obtain a [free provisioning profile](/xamarin/ios/get-started/installation/device-provisioning/free-provisioning) to complete the authentication tutorial.
 
 ## Next steps
 
