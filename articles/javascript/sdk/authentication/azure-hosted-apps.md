@@ -109,7 +109,7 @@ For information on assigning permissions at the resource or subscription level u
 
 ## 3 - Implement DefaultAzureCredential in your application
 
-The `DefaultAzureCredential` class will automatically detect that a managed identity is being used and use the managed identity to authenticate to other Azure resources.  As discussed in the [Azure SDK for JavaScript authentication overview](./authentication-overview.md) article, `DefaultAzureCredential` supports multiple authentication methods and determines the authentication method being used at runtime.  In this way, your app can use different authentication methods in different environments without implementing environment specific code.
+The `DefaultAzureCredential` class will automatically detect that a managed identity is being used and use the managed identity to authenticate to other Azure resources.  As discussed in the [Azure SDK for JavaScript authentication overview](./overview.md) article, `DefaultAzureCredential` supports multiple authentication methods and determines the authentication method being used at runtime.  In this way, your app can use different authentication methods in different environments without implementing environment specific code.
 
 First, add the `azure.identity` package to your application.
 
