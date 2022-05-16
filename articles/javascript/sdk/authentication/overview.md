@@ -97,7 +97,7 @@ Internally, `DefaultAzureCredential` implements a chain of selecting credential 
 
 The order in which `DefaultAzureCredential` looks for credentials for JavaScript is shown in the diagram and table below.  
 
-:::image type="content" source="../../media/azure-sdk-authentication/DefaultAzureCredentialAuthFlow.svg" alt-text="A diagram showing the sequence in which DefaultAzureCredential checks to see what authentication source is configured for an application." lightbox="./media/azure-sdk-authentication/DefaultAzureCredentialAuthFlow.svg":::
+:::image type="content" source="../../media/azure-sdk-authentication/DefaultAzureCredentialAuthFlow.svg" alt-text="A diagram showing the sequence in which DefaultAzureCredential checks to see what authentication source is configured for an application." lightbox="../../media/azure-sdk-authentication/DefaultAzureCredentialAuthFlow.svg":::
 
 If you've more than one credential configured, the order of finding the credential through the chain is important. 
 
