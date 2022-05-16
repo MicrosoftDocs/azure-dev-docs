@@ -18,7 +18,6 @@ You must complete this tutorial before other Xamarin Forms tutorials using the M
 
 To complete this tutorial, you need:
 
-To complete this tutorial, you need:
 
 * [Visual Studio 2022](/visualstudio/install/install-visual-studio?view=vs-2022&preserve-view=true) with the following workloads.
   * ASP.NET and web development
@@ -99,7 +98,7 @@ Once the app has started, you'll see an empty list and a text box to add items i
 2. Right-click the `TodoApp.Forms.iOS` project and select **Set as Startup Project**.
 3. In the top bar, select **iPhone Simulator** configuration and the **TodoApp.Forms.iOS** target:
 
-   ![Screenshot showing how to set the run configuration for a Xamarin Forms for iOS app.](./media/win-ios-configuration.png)
+   ![Screenshot showing how to set the run configuration for a Xamarin Forms for i O S app.](./media/win-ios-configuration.png)
 
 <!-- TODO: Running the iOS app -->
 4. Select the iPhone Simulator
@@ -111,13 +110,13 @@ Once the app has started, you'll see an empty list and a text box to add items i
 * Select an item to set or clear the completed flag.
 * Press the refresh icon to reload data from the service.
 
-![Screenshot of the running iOS app showing the to do list.](./media/running-ios-app.png)
+![Screenshot of the running i O S app showing the to do list.](./media/running-ios-app.png)
 
 ### Troubleshooting
 
 The remote simulator that ships with Visual Studio 2022 is incompatible with XCode 13.3.  You'll receive the following error message:
 
-![Screenshot of the error message when launching the iOS simulator.](./media/win-ios-error.png)
+![Screenshot of the error message when launching the i O S simulator.](./media/win-ios-error.png)
 
 To work around this issue:
 
