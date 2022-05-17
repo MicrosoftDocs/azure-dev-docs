@@ -17,7 +17,7 @@ A managed identity provides an identity for your app so that your app connects t
 There are two types of managed identities:
 
 * **System-assigned managed identities** - single Azure resource
-* **User-assigned managed identities** - Multiple resources
+* **User-assigned managed identities** - multiple Azure resources
 
 This article will cover the steps to enable and use a system-assigned managed identity for an app.  If you need to use a user-assigned managed identity, see the article [Manage user-assigned managed identities](/azure/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities) to see how to create a user-assigned managed identity.
 
