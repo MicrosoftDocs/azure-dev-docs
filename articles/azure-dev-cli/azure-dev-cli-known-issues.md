@@ -19,14 +19,20 @@ The Azure Dev CLI assumes that folders under .azure folder 's dev CLI environmen
 ## Environment naming restriction
 Environment name is used as a prefix to the name of each Azure resource created for this project. Azure resources have [naming rules and restrictions](/azure/azure-resource-manager/management/resource-name-rules), make sure you use a name that is less than 15-character long and unique.
 
+## Not logged in to Azure or token expired
+`azd login` does't report any error, but does't refresh access token. Especially in devContainer environment. 
+
+### Troubleshooting step
+Run `az login` or `az login --use-device-code` in devContainer environment.
+
 ## `az bicep CLI` requirement
 `azd up` and `azd provision` require the latest release of az bicep CLI. Run `az bicep upgrade` if you see this error message: "Error: failed to compile bicep template: failed running Az PowerShell module bicep build: exit code: 1, stdout: , stderr: WARNING: A new Bicep release is available: v0.4.1272."
 
 ### Troubleshooting step
 Upgrade Bicep by running `az bicep upgrade`.
 
-## `azd ip` or `az provision` fails
-Sometimes, things go awry with `azd up` or `azd provision`. Troubleshooting steps differ depending on root cause. 
+## `azd up` or `az provision` fails
+Sometimes, things go awry with `azd up` or `azd provision`. Common errors include: can't provision certain resources in an Azure region because the region is out of capacity; or relevant resource provider isn't present in that region. Troubleshooting steps differ depending on root cause. 
 
 ### Troubleshooting steps
 1. Go to the [Azure portal](https://portal.azure.com) 

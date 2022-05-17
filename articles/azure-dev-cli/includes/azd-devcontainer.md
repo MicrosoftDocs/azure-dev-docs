@@ -16,7 +16,7 @@ npm install -g https://azuresdkreleasepreview.blob.core.windows.net/azd/standalo
 
 The Azure Developer CLI experience includes an Azure Developer CLI VS Code Extension that mirrors all of the CLI commands into context menu and command palette options. If you're a VS Code user, then we highly recommend installing this extension for the best experience.
 
-1. Download the extension from https://aka.ms/azure-dev/vsix
+1. Download the extension from https://azuresdkreleasepreview.blob.core.windows.net/azd/vscode/latest/azure-dev-latest.vsix
 1. In VS Code
     - Open "Extensions" (Ctrl+Shift+X)
     - Select the ... menu at top of Extensions sidebar

@@ -1,6 +1,6 @@
 ---
-title: How to Azure Developer CLI enable a project
-description: How to convert an application to an Azure dev-enabled template.
+title: How to enable your project to work with Azure Developer CLI
+description: How to convert an application to an Azure developer enabled template.
 author: puicchan
 ms.author: puichan
 ms.date: 04/12/2021
@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.custom: devx-track-azdev
 ms.prod: azure
 ---
-# How to Azure Developer CLI enable a project
+# How to enable your project to work with Azure Developer CLI
 
 ![Azure Developer CLI enable](media/how-to-devify-a-project/dev-ify.png)
 
@@ -27,7 +27,7 @@ All templates have the same file structure based on `azd` conventions.
 └── azure.yaml                 [ Describes the application and type of Azure resources]
 ```
 
-Here's a walkthrough on how to convert a basic application to a dev-ified template.
+Here's a walkthrough on how to convert a basic application to work with Azure Developer CLI.
 
 ## Get a sample application
 We start with this [simple Python Flask web app that is deployed to Azure App Service](/azure/app-service/quickstart-python?tabs=flask%2Cwindows%2Cazure-portal%2Cterminal-bash%2Cvscode-deploy%2Cdeploy-instructions-azportal%2Cdeploy-instructions-zip-azcli). Get a copy of the code by running:

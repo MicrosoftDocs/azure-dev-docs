@@ -19,7 +19,7 @@ sections:
 
           ```txt	 
           ├── .Azure                          [ This folder shows up after you run add init or azd up ]
-          │   ├── <your environment1>         [Folder to house all environment related configurations ]
+          │   ├── <your environment1>         [Folder to house all environment related configurations]
           │   │   ├── .env                    [ Contains environment variables ]
           │   │   └── main.parameters.json    [ Parameter file ]
           │   └── <your environment2>         [ Folder to house all environment related configurations ]
@@ -76,7 +76,7 @@ sections:
     questions:
       - question: Can I rerun `azd up`?
         answer: |
-          Yes.
+          Yes.We use the [incremental deployment mode](/azure/azure-resource-manager/templates/deployment-modes).
 
       - question: How do I find the log file for `azd up`? 
         answer: |
@@ -126,7 +126,7 @@ sections:
           
           with 
           
-          `run: azd deploy--noprompt`
+          `run: azd deploy --no-prompt`
 
       - question: Where can I find the log for the GitHub action job I just triggered after running `azd pipeline config`?
         answer: |

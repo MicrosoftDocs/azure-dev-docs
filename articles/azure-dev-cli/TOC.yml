@@ -3,7 +3,7 @@
   displayName: overview, intro, introduction
 - name: Azure Developer CLI templates
   href: azure-dev-cli-templates.md
-- name: Start with the IDE of choice
+- name: Get Started
   href: get-started.md
 - name: Develop 
   expanded: true

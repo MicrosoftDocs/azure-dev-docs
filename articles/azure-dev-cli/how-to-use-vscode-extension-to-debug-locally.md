@@ -31,21 +31,11 @@ The first step is to download and install the extension.
     > may require sudo depending on platform and configuration
 
 2. In VS Code
+    1. Download the extension from Download the extension from https://azuresdkreleasepreview.blob.core.windows.net/azd/vscode/latest/azure-dev-latest.vsix 
     1. Open "Extensions" (Ctrl+Shift+X)
-    2. Select the `...` menu at top of Extensions sidebar
-    3. Select "Install from VSIX"
-    4. Select location of the downloaded file
-
-> [!NOTE]
-> Currently supported commands in the VS Code Extension for Azure Developer CLI:
-> - `azd deploy`
-> - `azd env`
-> - `azd infra delete`
-> - `azd init`
-> - `azd monitor`
-> - `azd pipeline`
-> - `azd provision`
-> - `azd up`
+    1. Select the `...` menu at top of Extensions sidebar
+    1. Select "Install from VSIX"
+    1. Select location of the downloaded file
 
 ## Initialize a new application 
 
