@@ -18,18 +18,18 @@ The Azure Developer CLI (**azd**) is a developer-centric command-line tool for c
 
 You can use the same developer workflow for any Azure Developer CLI enabled templates. 
 
-The quickest way to get started is to explore the list of [Azure Developer enabled templates](azure-dev-cli-templates.md) and follow the README in the repository.
+The quickest way to get started is to explore the list of [Azure Developer CLI templates](azure-dev-cli-templates.md) and follow the README in the repository.
 
 !["Azure Devloper CLI Developer Workflow"](media/azure-dev-cli-overview/azd-dev-workflow.png)
 
-## Azure Developer CLI enabled templates
-[Azure Developer CLI enabled templates](azure-dev-cli-templates.md) are sample repositories created using the Azure Developer CLI conventions so that you can use `azd` to easily get started with Azure. Each template includes application code, tools, and pipelines that serve as a foundation from which you can build upon and customize when creating your own solutions. And you can use subcommands in `azd` to manage cloud resources; configure continuous integration and delivery (CI/CD); and monitor application health. 
+## Azure Developer CLI templates
+[Azure Developer CLI templates](azure-dev-cli-templates.md) are sample repositories created using the Azure Developer CLI conventions so that you can use `azd` to easily get started and develop solutions using Azure. Each template includes application code, tools, infrstructure code, and CI/CD pipelines that serve as a foundation from which you can build upon and customize to create your own solutions. In addition, you can use subcommands in `azd` to manage cloud resources, configure continuous integration and delivery (CI/CD), and monitor application health. 
 
-## Try out
+## Try it out
 
-* [Understand your developer environment options](get-started.md) and get started with the developer environment of choice.
-* Learn how to [use VS Code with azd extension](how-to-use-vscode-extension-to-debug-locally.md)
-* Learn how to [Azure Developer CLI enable your own project](how-to-devify-a-project.md) so that you can use `azd` as part of your engineering workflows.
+* [Set up your developer environment](get-started.md) and get started.
+* Learn how to [use VS Code with the Azure Dev CLI extension](how-to-use-vscode-extension-to-debug-locally.md)
+* Learn how to [enable your project to work with the Azure Developer CLI](how-to-devify-a-project.md) so you can use `azd` as part of your engineering workflows.
 
 ## Introductory video
 
@@ -55,10 +55,10 @@ Currently supported/planned languages:
 | ----------- | ----------- |
 | Node.js | Yes  |
 | Python    | Yes |
-| .NET | Coming soon |
+| .NET | Yes |
 | Java | Coming soon |
 
 ## See also
 
-- For full list of supported commands, see [Azure Developer CLI Reference](https://github.com/Azure/azure-dev-pr/wiki/Azure-Developer-CLI-Overview).
+- For a full list of supported commands, see the [Azure Developer CLI Reference](https://github.com/Azure/azure-dev-pr/wiki/Azure-Developer-CLI-Overview).
 
