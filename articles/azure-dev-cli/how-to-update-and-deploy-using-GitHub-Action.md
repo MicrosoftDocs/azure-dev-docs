@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.custom: devx-track-azdev
 ms.prod: azure
 ---
-#  How to config pipeline, edit and push update through GitHub Actioned
+#  How to config pipeline, edit and push update through GitHub Action
 
 > [!NOTE] 
 > This is a work in progress
