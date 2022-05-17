@@ -94,4 +94,4 @@ You are now ready to build and deploy your infrastructure with role based access
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn more about Configuring Azure Virtual Desktop session hosts using Terraform in Azure](/azure/developer/terraform/create-avd-session-host)
+> [Learn more about Configuring Azure Virtual Desktop session hosts using Terraform in Azure](./create-avd-session-host.md)
