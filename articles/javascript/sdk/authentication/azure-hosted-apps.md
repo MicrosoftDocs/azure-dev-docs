@@ -16,10 +16,10 @@ A managed identity provides an identity for your app so that your app connects t
 
 There are two types of managed identities:
 
-|Azure managed identity|Purpose|
-|--|--|
-|**System-assigned managed identities**<br>single Azure resource|Provided by and tied directly to an Azure resource.  When you enable managed identity on an Azure resource, you get a system-assigned managed identity for that resource.  It is tied to the lifecycle of the Azure resource. When the resource is deleted, Azure automatically deletes the identity for you.  Since all you have to do is enable managed identity for the Azure resource hosting your code, this is the easiest type of managed identity to use.|
-|**User-assigned managed identities**<br>Multiple resources|Conceptually this is a standalone Azure resource. This is most frequently used when your solution has multiple workloads that run on multiple Azure resources that all need to share the same identity and same permissions.  For example, if your solution had components that ran on multiple App Service and virtual machine instances and they all needed access to the same set of Azure resources, creating and using a user-assigned managed identity across those resources would make sense.|
+|Azure managed identity|
+|--|
+|**System-assigned managed identities**<br>single Azure resource<br><br>Provided by and tied directly to an Azure resource.  When you enable managed identity on an Azure resource, you get a system-assigned managed identity for that resource.  It is tied to the lifecycle of the Azure resource. When the resource is deleted, Azure automatically deletes the identity for you.  Since all you have to do is enable managed identity for the Azure resource hosting your code, this is the easiest type of managed identity to use.|
+|**User-assigned managed identities**<br>Multiple resources<br><br>Conceptually this is a standalone Azure resource. This is most frequently used when your solution has multiple workloads that run on multiple Azure resources that all need to share the same identity and same permissions.  For example, if your solution had components that ran on multiple App Service and virtual machine instances and they all needed access to the same set of Azure resources, creating and using a user-assigned managed identity across those resources would make sense.|
 
 This article will cover the steps to enable and use a system-assigned managed identity for an app.  If you need to use a user-assigned managed identity, see the article [Manage user-assigned managed identities](/azure/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities) to see how to create a user-assigned managed identity.
 
