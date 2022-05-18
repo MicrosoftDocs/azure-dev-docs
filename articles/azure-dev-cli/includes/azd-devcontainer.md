@@ -48,6 +48,19 @@ You'll be prompted for the following information:
 - `Azure Location`: The Azure location where your resources will be deployed.
 - `Azure Subscription`: The Azure Subscription where your resources will be deployed.
 
+### Run Up Command
+
+The fastest way for you to get this application up and running on Azure is to use the `azd up` command. This single command will create and configure all necessary Azure resources - including access policies and roles for your account and service-to-service communication with Managed Identities. 
+
+```bash
+azd up
+```
+
+You will see a progress indicator as it provisions and deploys your application.
+
+> NOTE: 
+>* This may take a while to complete as it performs two steps: `azd provision` (creates Azure services) and `azd deploy` (deploys code). 
+
 ### Open DevContainer
 
 Open the project in VS Code, hit F1 and choose: `Remote-Containers: Rebuild and Reopen in Container`

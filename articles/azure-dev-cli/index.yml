@@ -29,7 +29,7 @@ landingContent:
             url: azure-dev-cli-templates.md
       - linkListType: get-started
         links:
-          - text: Start from development environment
+          - text: Get started
             url: get-started.md 
   - title: How to develop, test, monitor and more
     linkLists:
@@ -41,7 +41,7 @@ landingContent:
             url: how-to-update-and-deploy-using-GitHub-Action.md
           - text: Monitor your applicaiton
             url: how-to-monitor-your-app.md
-          - text: Azure Developer CLI Enable your project
+          - text: Enable your project to work with Azure Developer CLI
             url: how-to-azd-enable-a-project.md
           - text: Work with Azure Bicep
             url: how-to-azd-bicep.md
