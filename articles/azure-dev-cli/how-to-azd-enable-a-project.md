@@ -108,6 +108,6 @@ Run `azd monitor --overview` and `azd monitor --logs` to monitor your app.
 
 ## Clean up
 
-Run `azd infra delete` to remove all Azure resources.
+Run `azd down` to remove all Azure resources.
 
 Your project is now Azure Dev enabled.

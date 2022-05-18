@@ -41,5 +41,5 @@ Use your favorite IDE, make a simple modification to the code.
 When you're done, you can delete all the Azure resources created with this template by running the following command:
 
 ``` bash
-azd infra delete
+azd down
 ```

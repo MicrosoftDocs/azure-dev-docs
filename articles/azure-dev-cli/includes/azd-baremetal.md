@@ -14,27 +14,13 @@ npm install -g https://azuresdkreleasepreview.blob.core.windows.net/azd/standalo
 ```
 > [!NOTE]
 > * May require `sudo` depending on platform and configuration
-> * Make sure you install language specification prerequisite. To get a full list of prerequisites, refer to the Dockerfile in the sample template. For this walkthrough: [Dockerfile](https://github.com/Azure-Samples/todo-nodejs-mongo/blob/main/.devcontainer/Dockerfile).
 
 ### Project Folder
 
 You'll need an empty folder on your computer to house the project files that will be copied from this repository.
 
 1. Open your favorite terminal and create a new folder.
-
-```bash
-mkdir {your-unique-project-folder-name}
-```
-
 2. Now, set your current directory to that newly created folder.
-
-```bash
-cd {your-unique-project-folder-name}
-```
-
-### Azure Subscription
-
-This template will create infrastructure and deploy code to Azure. If you don't have an Azure Subscription, sign up for a [free account here](https://azure.microsoft.com/free/). 
 
 ### Run Up Command
 

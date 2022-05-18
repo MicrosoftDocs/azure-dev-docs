@@ -32,10 +32,6 @@ To use the DevContainer, you'll need the following installed on your local machi
 1. [Docker Desktop](https://aka.ms/azure-dev/docker-install) (other options coming soon...)
 1. [Remote - Containers VS Code Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
 
-### Azure Subscription
-
-This template will create infrastructure and deploy code to Azure. If you don't have an Azure Subscription, sign up for a [free account here](https://azure.microsoft.com/free/). 
-
 ### Initialize Project
 
 ```bash

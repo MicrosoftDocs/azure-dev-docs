@@ -16,6 +16,10 @@ We'll use the [Todo Application with Node.js and Azure Cosmo DB API for MongoDB]
 
 This repository contains a complete ToDo application that includes everything you need to build, deploy, and monitor an Azure solution. For more information including architecture diagram and the Azure resources you'll deploy, see the [README](https://github.com/azure-samples/todo-nodejs-mongo).
 
+## Azure Subscription
+
+This template will create infrastructure and deploy code to Azure. If you don't have an Azure Subscription, sign up for a [free account here](https://azure.microsoft.com/free/). 
+
 ## Set up
 
 To run any sample template, the first thing you need to do decide is where you want your development environment to be hosted. For pros and cons for development choices, refer to [What is Azure Developer CLI]( azure-dev-cli-overview#development-environment-choices).
@@ -46,7 +50,7 @@ Select the web application URL to launch the ToDo app. Create a new collection a
 When you're done, you can delete all the Azure resources created with this template by running the following command:
 
 ``` bash
-azd infra delete
+azd down
 ```
 
 ## Next steps
