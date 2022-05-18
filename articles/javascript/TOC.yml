@@ -265,7 +265,7 @@
       - name: Azure-hosted apps
         href: sdk/authentication/azure-hosted-apps.md
       - name: On-premises apps
-        href: sdk/authentication/on-premises.apps.md
+        href: sdk/authentication/on-premises-apps.md
   - name: npm Packages
     href: azure-sdk-library-package-index.md
   - name: npm Package Documentation
