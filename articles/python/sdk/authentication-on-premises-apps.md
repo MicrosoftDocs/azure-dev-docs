@@ -71,6 +71,7 @@ A service principal is assigned a role in Azure using the [az role assignment cr
 
 ```azurecli
 az role assignment create --assignee "{appId}" \
+    --scope /subscriptions/"{subscriptionName}" \
     --role "{roleName}" \
     --resource-group "{resourceGroupName}"
 ```
@@ -87,6 +88,7 @@ For example, to allow the service principal with the appId of `00000000-0000-000
 
 ```azurecli
 az role assignment create --assignee "00000000-0000-0000-0000-000000000000" \
+    --scope /subscriptions/"Storage Blob Data Subscriber" \
     --role "Storage Blob Data Contributor" \
     --resource-group "msdocs-python-sdk-auth-example"
 ```

@@ -81,6 +81,7 @@ A managed identity is assigned a role in Azure using the [az role assignment cre
 
 ```azurecli
 az role assignment create --assignee "{managedIdentityId}" \
+    --scope /subscriptions/"{subscriptionName}" \
     --role "{roleName}" \
     --resource-group "{resourceGroupName}"
 ```
@@ -97,6 +98,7 @@ For example, to allow the managed identity with the ID of `99999999-9999-9999-99
 
 ```azurecli
 az role assignment create --assignee 99999999-9999-9999-9999-999999999999 \
+    --scope /subscriptions/"Storage Blob Data Subscriber" \
     --role "Storage Blob Data Contributor" \
     --resource-group "msdocs-python-sdk-auth-example"
 ```
