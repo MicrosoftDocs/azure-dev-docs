@@ -54,8 +54,8 @@ azd up
 
 You will see a progress indicator as it provisions and deploys your application.
 
-> NOTE: 
->* This may take a while to complete as it performs two steps: `azd provision` (creates Azure services) and `azd deploy` (deploys code). 
+> [!NOTE]
+> * This may take a while to complete as it performs two steps: `azd provision` (creates Azure services) and `azd deploy` (deploys code). 
 
 ### Open DevContainer
 
