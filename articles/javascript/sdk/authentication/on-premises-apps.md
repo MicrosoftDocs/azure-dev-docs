@@ -10,7 +10,7 @@ ms.custom: devx-track-js
 
 Apps running outside of Azure (for example on-premises or at a third-party data center) should use an application service principal to authenticate to Azure when accessing Azure resources.  Application service principal objects are created using the app registration process in Azure.  When an application service principal is created, a client ID and client secret are generated for your app. You store the client ID, client secret, and your tenant ID in environment variables so that the Azure SDK for JavaScript uses the environment variables to authenticate your app to Azure at runtime.
 
-A different app registration should be created for each environment the app is running in.  This allows environment-specific resource permissions to be configured for each service principal and make sure an app deployed to one environment doesn't talk to Azure resources that are part of another environment.
+A different app registration should be created for each environment (such as test, stage, production) the app is running in.  This allows environment-specific resource permissions to be configured for each service principal and make sure an app deployed to one environment doesn't talk to Azure resources that are part of another environment.
 
 ## 1 - Register the application in Azure
 
