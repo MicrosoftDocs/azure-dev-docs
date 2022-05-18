@@ -31,7 +31,7 @@ landingContent:
         links:
           - text: Start from development environment
             url: get-started.md 
-  - title: How to develop, test and deploy
+  - title: How to develop, test, monitor and more
     linkLists:
       - linkListType: how-to-guide 
         links:
@@ -39,6 +39,8 @@ landingContent:
             url: how-to-use-vscode-extension-to-debug-locally.md
           - text: Config pipeline and push update through GitHub Action
             url: how-to-update-and-deploy-using-GitHub-Action.md
+          - text: Monitor your applicaiton
+            url: how-to-monitor-your-app.md
           - text: Azure Developer CLI Enable your project
             url: how-to-azd-enable-a-project.md
           - text: Work with Azure Bicep

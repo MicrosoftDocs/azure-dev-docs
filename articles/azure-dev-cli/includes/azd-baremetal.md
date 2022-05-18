@@ -36,9 +36,7 @@ cd {your-unique-project-folder-name}
 
 This template will create infrastructure and deploy code to Azure. If you don't have an Azure Subscription, sign up for a [free account here](https://azure.microsoft.com/free/). 
 
-### Quickstart
-
-### 1. Initialize Project
+### Initialize Project
 
 ```bash
 azd init --template todo-nodejs-mongo
