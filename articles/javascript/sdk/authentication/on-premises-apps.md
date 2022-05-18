@@ -1,7 +1,7 @@
 ---
 title: Authenticate on-premises JavaScript apps to Azure resources
 description: This article describes how to authenticate your on-premises JavaScript application to Azure services with the Azure SDK for JavaScript. 
-ms.date: 05/17/2022
+ms.date: 05/18/2022
 ms.topic: how-to
 ms.custom: devx-track-js
 ---
@@ -107,7 +107,7 @@ AZURE_CLIENT_SECRET=<value>
 
 ## 4 - Implement DefaultAzureCredential in application
 
-To authenticate Azure SDK client objects to Azure, your application should use the `DefaultAzureCredential` class from the ``@azure/identity` package.
+To authenticate Azure SDK client objects to Azure, your application should use the `DefaultAzureCredential` class from the **@azure/identity** package.
 
 First, add the [@azure/identity](https://www.npmjs.com/package/@azure/identity) package to your application.
 
