@@ -38,17 +38,16 @@ Open the `TodoApp.iOS` project.
 
 <!-- TODO - some stuff for the AppDelegate.cs info -->
 
-Open `AppDelegate.cs`.  Add the following `using` statements:
+Open `ViewControllers\HomeViewController.cs`.  Add the following `using` statements:
 
 ``` csharp
 using Microsoft.Datasync.Client;
 using Microsoft.Identity.Client;
 using System.Diagnostics;
 using System.Linq;
-using System.Threading.Tasks;
 ```
 
-In the `AppDelegate` class, add a new property:
+In the `HomeViewController` class, add a new property:
 
 ``` csharp
 public IPublicClientApplication IdentityClient { get; set; }
@@ -57,10 +56,10 @@ public IPublicClientApplication IdentityClient { get; set; }
 Adjust the constructor to read:
 
 ``` csharp
-public AppDelegate() {
-  ...
+public HomeViewController() {
+  Title = "Todo Items";
   TodoService = new RemoteTodoService(GetAuthenticationToken);
-  ...
+  TodoService.TodoItemsUpdated += OnTodoItemsUpdated;
 }
 ```
 
@@ -71,7 +70,11 @@ public async Task<AuthenticationToken> GetAuthenticationToken()
 {
     if (IdentityClient == null)
     {
-        IdentityClient = PlatformService.GetIdentityClient(Constants.ApplicationId);
+        IdentityClient = PublicClientApplicationBuilder.Create(Constants.ApplicationId)
+            .WithAuthority(AzureCloudInstance.AzurePublic, "common")
+            .WithRedirectUri($"msal{Constants.ApplicationId}://auth")
+            .WithIosKeychainSecurityGroup("com.microsoft.adalcache")
+            .Build();
     }
 
     var accounts = await IdentityClient.GetAccountsAsync();
@@ -123,21 +126,11 @@ The `GetAuthenticationToken()` method works with the Microsoft Identity Library 
 Add the following code to the bottom of the `AppDelegate` class:
 
 ``` csharp
-protected override void OnActivityResult(int requestCode, [GeneratedEnum] Result resultCode, Intent data)
+[Export("application:openURL:options:")]
+public bool OpenUrl(UIApplication app, NSUrl url, NSDictionary options)
 {
-    base.OnActivityResult(requestCode, resultCode, data);
-    // Return control to MSAL
-    AuthenticationContinuationHelper.SetAuthenticationContinuationEventArgs(requestCode, resultCode, data);
-}
-
-public IPublicClientApplication GetIdentityClient(string applicationId)
-{
-    var identityClient = PublicClientApplicationBuilder.Create(applicationId)
-        .WithAuthority(AzureCloudInstance.AzurePublic, "common")
-        .WithRedirectUri($"msal{applicationId}://auth")
-        .WithParentActivityOrWindow(() => this)
-        .Build();
-    return identityClient;
+    AuthenticationContinuationHelper.SetAuthenticationContinuationEventArgs(url);
+    return true;
 }
 ```
 
