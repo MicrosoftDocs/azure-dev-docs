@@ -20,7 +20,7 @@ Each repository contains a complete sample ToDo application with a web frontend 
 | ----------- | ----------| ----------- | 
 | [ToDo NodeJs Mongo](https://github.com/azure-samples/todo-nodejs-mongo) | Node.js | Azure Cosmos DB API for Mongo, Azure Monitor |  
 | [ToDo Python Mongo](https://github.com/azure-samples/todo-python-mongo) | Python (FastAPI) | Azure Cosmos DB API for Mongo, Azure Monitor  |  
-| [ToDo C# Mongo](https://github.com/Azure-Samples/todo-csharp-mongo) | C# | Azure Cosmos DB API for Mongo, Azure Monitor | 
+| [ToDo C# Cosmo DB (SQL)](https://github.com/Azure-Samples/todo-csharp-cosmo-sql) | C# | Azure Cosmos DB SQL API, Azure Monitor | 
 
 ## Host: Azure Container Apps
 
