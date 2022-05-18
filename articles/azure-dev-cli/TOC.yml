@@ -12,6 +12,8 @@
     href: how-to-use-vscode-extension-to-debug-locally.md
   - name: 2. Edit and push update through GitHub Action 
     href: how-to-update-and-deploy-using-GitHub-Action.md
+  - name: 3. Monitor application
+    href: how-to-monitor-your-app.md
 - name: Create 
   expanded: true
   items:
