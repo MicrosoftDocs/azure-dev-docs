@@ -36,5 +36,5 @@ You'll be prompted for the following information:
 
 You will see a progress indicator as it provisions and deploys your application.
 
-> NOTE: 
->* This may take a while to complete as it performs two steps: `azd provision` (creates Azure services) and `azd deploy` (deploys code). 
+> [!NOTE] 
+> * This may take a while to complete as it performs three steps: `azd init` (initialize the project), `azd provision` (creates Azure services) and `azd deploy` (deploys code). 
