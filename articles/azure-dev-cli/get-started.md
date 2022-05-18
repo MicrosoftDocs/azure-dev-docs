@@ -16,11 +16,12 @@ We'll use the [Todo Application with Node.js and Azure Cosmo DB API for MongoDB]
 
 This repository contains a complete ToDo application that includes everything you need to build, deploy, and monitor an Azure solution. For more information including architecture diagram and the Azure resources you'll deploy, see the [README](https://github.com/azure-samples/todo-nodejs-mongo).
 
+## Set up
+
 To run any sample template, the first thing you need to do decide is where you want your development environment to be hosted. For pros and cons for development choices, refer to [What is Azure Developer CLI]( azure-dev-cli-overview#development-environment-choices).
 
 Once you've decided which development environment is right for you, select the corresponding tab in the next section. 
 
-## Set up
 ### [Bare metal](#tab/bare-metal)
 
 [!INCLUDE [azd-baremetal](includes/azd-baremetal.md)]
