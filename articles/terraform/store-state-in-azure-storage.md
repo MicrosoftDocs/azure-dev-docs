@@ -287,6 +287,8 @@ resource "azurerm_resource_group" "state-demo-secure" {
 
 ### Azure Active Directory
 
+You can also use a service princpial to authenticate to your storage account. See [Authenticating with a Client Secret](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/service_principal_client_secret) or [Authenticating with a Client Certificate](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/service_principal_client_certificate) in the Terraform documentation for more information.
+
 > [!NOTE]
 > By default Terraform uses ADAL authentication. MSAL can be enabled using ```use_microsoft_graph = true``` . See [azurerm backends](https://www.terraform.io/language/settings/backends/azurerm) in the Terraform documentation
 
