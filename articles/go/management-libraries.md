@@ -146,7 +146,7 @@ if err != nil {
 
 // Call the poller object's PollUntilDone function that will block until the poller object
 // has been updated to indicate the task has completed.
-resp, err = poller.PollUntilDone(ctx, 5*time.Second)
+resp, err = poller.PollUntilDone(ctx, nil)
 if err != nil {
 	// handle error...
 }
