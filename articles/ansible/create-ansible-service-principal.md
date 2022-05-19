@@ -44,7 +44,7 @@ az ad sp create-for-rbac --name ansible \
 >[!NOTE]
 >Store the password from the output in a secure location.
 
-# [PowerShell](#tab/azurepowershell)
+# [Azure PowerShell](#tab/azurepowershell)
 
 ```azurepowershell
 $password = '<Password>'
@@ -85,7 +85,7 @@ Replace `<appID>` with the value provided from the output of `az ad sp create-fo
 >[!NOTE]
 >To improve security, change the scope of the role assignment to a resource group instead of a subscription.
 
-# [PowerShell](#tab/azurepowershell)
+# [Azure PowerShell](#tab/azurepowershell)
 
 ```azurepowershell
 $subId = (Get-AzContext).Subscription.Id
@@ -121,7 +121,7 @@ az account show --query '{tenantId:tenantId,subscriptionid:id}';
 
 az ad sp list --display-name ansible --query '{clientId:[0].appId}'
 ```
-# [PowerShell](#tab/azurepowershell)
+# [Azure PowerShell](#tab/azurepowershell)
 
 ```azurepowershell
 @{
