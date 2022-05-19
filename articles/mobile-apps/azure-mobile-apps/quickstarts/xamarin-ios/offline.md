@@ -8,7 +8,7 @@ ms.date: 05/19/2022
 ms.author: adhal
 ---
 
-# Add offline data sync to your Xamarin.Forms app
+# Add offline data sync to your Xamarin.iOS app
 
 This tutorial covers the offline sync feature of Azure Mobile Apps for Xamarin.iOS. Offline sync allows end users to interact with a mobile app&mdash;viewing, adding, or modifying data&mdash;even when there's no network connection. Changes are stored in a local database. Once the device is back online, these changes are synced with the remote backend.
 

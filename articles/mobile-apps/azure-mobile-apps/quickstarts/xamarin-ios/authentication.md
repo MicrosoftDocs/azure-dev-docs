@@ -144,7 +144,7 @@ Finally, add the custom entitlements to the project:
 
 ![Screenshot showing the iOS bundle signing properties.](./media/ios-bundle-signing.png)
 
-# Test the iOS app
+## Test the app
 
 > [!NOTE]
 > Since the iOS app requires keychain access, you will need to set up a provisioning profile.  A provisioning profile requires either a real device or a paid Apple Developer Account (if using the simulator).  
