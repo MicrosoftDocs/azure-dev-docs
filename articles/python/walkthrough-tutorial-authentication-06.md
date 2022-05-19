@@ -17,7 +17,7 @@ First, we create the Flask app object and retrieve the third-party API endpoint 
 :::code language="python" source="~/../python-integrated-authentication/main_app/app.py" range="8-11":::
 
 Next, we obtain the [`DefaultAzureCredential`](/python/api/azure-identity/azure.identity.defaultazurecredential
-) object, which is the recommended credential to use when authenticating with Azure services. See [Authenticate Azure hosted applications with DefaultAzureCredential](azure-sdk-authenticate-hosted-applications.md).
+) object, which is the recommended credential to use when authenticating with Azure services. See [Authenticate Azure hosted applications with DefaultAzureCredential](./sdk/authentication-azure-hosted-apps.md).
 
 :::code language="python" source="~/../python-integrated-authentication/main_app/app.py" range="14":::
 

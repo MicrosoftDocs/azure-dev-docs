@@ -8,7 +8,7 @@ ms.custom: devx-track-python, devx-track-azurecli
 
 # How to manage service principals
 
-As described in [How to authenticate an app](azure-sdk-authenticate.md), you often use service principals to identify an app with Azure except when using managed identity.
+As described in [How to authenticate an app](./sdk/authentication-overview.md), you often use service principals to identify an app with Azure except when using managed identity.
 
 Over time, you typically need to delete, rename, or otherwise manage these service principals, which you can do through the Azure portal or by using the Azure CLI.
 
@@ -37,4 +37,4 @@ Using the Azure CLI, you can perform many of the same operations on service prin
 
 See also:
 
-- [Authenticate with Azure using the Azure libraries](azure-sdk-authenticate.md)
+- [Authenticate with Azure using the Azure libraries](./sdk/authentication-overview.md)

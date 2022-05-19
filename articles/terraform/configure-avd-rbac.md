@@ -81,7 +81,7 @@ output "AVD_user_groupname" {
 
 [!INCLUDE [terraform-apply-plan.md](includes/terraform-apply-plan.md)]
 
-You are now ready to [build and deploy](/articles/terraform/create-azure-virtual-desktop.md#build-and-deploy-the-infrastructure) your infrastructure with role based access control.
+You are now ready to build and deploy your infrastructure with role based access control.
 
 ## 9. Clean up resources
 
@@ -94,4 +94,4 @@ You are now ready to [build and deploy](/articles/terraform/create-azure-virtual
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn more about Configuring Azure Virtual Desktop session hosts using Terraform in Azure](/articles/terraform/create-avd-session-host.md)
+> [Learn more about Configuring Azure Virtual Desktop session hosts using Terraform in Azure](./create-avd-session-host.md)

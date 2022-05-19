@@ -34,7 +34,7 @@ This integration means that you never need to handle any Azure-related credentia
 
 Managed identity specifically works with apps that are deployed to Azure. For local development, you create a separate service principal to serve as the app identity when running locally. You make this service principal available to the Azure libraries using environment variables as described in [Authenticate Python apps to Azure services during local development using service principals](./sdk/authentication-local-development-service-principal.md). You also assign role permissions to this service principal alongside the managed identity used in the cloud.
 
-Once you do these steps for the local service principal, the same code works both locally and in the cloud to authenticate the app with Azure resources. These details are discussed in [How to authenticate and authorize apps](azure-sdk-authenticate.md), but the short version is as follows:
+Once you do these steps for the local service principal, the same code works both locally and in the cloud to authenticate the app with Azure resources. These details are discussed in [How to authenticate and authorize apps](./sdk/authentication-overview.md), but the short version is as follows:
 
 1. In your code, create a `DefaultAzureCredential` object that automatically uses your managed identity when running on Azure and your separate service principal when running locally.
 
