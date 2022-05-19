@@ -46,7 +46,7 @@ In this article, you learn how to:
     ```azurecli-interactive
     az group create --resource-group ansible-inventory-test-rg --location eastus
     ```
-    # [PowerShell](#tab/powershell)
+    # [Azure PowerShell](#tab/azure-powershell)
     
     ```azurepowershell
     New-AzResourceGroup -Name ansible-inventory-test-rg -Location eastus
@@ -77,7 +77,7 @@ In this article, you learn how to:
         ```
 
 
-        # [PowerShell](#tab/powershell)
+        # [Azure PowerShell](#tab/azure-powershell)
         
         ```azurepowershell
         $adminUsername = "azureuser"
@@ -123,7 +123,7 @@ az vm update \
 --set tags.applicationRole='web-server' 
 ```
 
-# [PowerShell](#tab/powershell)
+# [Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 Get-AzVM -Name win-vm -ResourceGroupName ansible-inventory-test-rg-pwsh | Update-AzVM -Tag @{"applicationRole"="web-server"}
@@ -410,7 +410,35 @@ Use the groups created by the dynamic inventory to target subgroups.
 
 ## Clean up resources
 
-[!INCLUDE [ansible-delete-resource-group.md](includes/ansible-delete-resource-group.md)]
+# [Azure CLI](#tab/azure-cli)
+
+1. Run [az group delete](/cli/azure/group#az-group-delete) to delete the resource group. All resources within the resource group will be deleted.
+
+    ```azurecli
+    az group delete --name <resource_group>
+    ```
+
+1. Verify that the resource group was deleted by using [az group show](/cli/azure/group#az-group-show).
+
+    ```azurecli
+    az group show --name <resource_group>
+    ```
+
+# [Azure PowerShell](#tab/azure-powershell)
+
+1. Run [Remove-AzResourceGroup](/powershell/module/az.resources/Remove-AzResourceGroup) to delete the resource group. All resources within the resource group will be deleted.
+
+    ```azurepowershell
+    Remove-AzResourceGroup -Name <resource_group>
+    ```
+
+1. Verify that the resource group was deleted by using [Get-AzResourceGroup](/powershell/module/az.resources/Get-AzResourceGroup).
+
+    ```azurepowershell
+    Get-AzResourceGroup -Name <resource_group>
+    ```
+
+---
 
 ## Next steps
 

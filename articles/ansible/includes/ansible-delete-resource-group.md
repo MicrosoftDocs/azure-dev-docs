@@ -1,10 +1,37 @@
 ---
 ms.author: tarcher
 ms.topic: include
-ms.date: 05/18/2022
+ms.date: 01/04/2022
 ms.custom: devx-track-ansible
 ---
 
+#### [Ansible](#tab/ansible)
+
+1. Save the following code as `delete_rg.yml`.
+
+    ```yml
+    ---
+    - hosts: localhost
+      tasks:
+        - name: Deleting resource group - "{{ name }}"
+          azure_rm_resourcegroup:
+            name: "{{ name }}"
+            state: absent
+          register: rg
+        - debug:
+            var: rg
+    ```
+
+1. Run the playbook using the [ansible-playbook](https://docs.ansible.com/ansible/latest/user_guide/playbooks.html) command. Replace the placeholder with the name of the resource group to be deleted. All resources within the resource group will be deleted.
+
+    ```bash
+    ansible-playbook delete_rg.yml --extra-vars "name=<resource_group>"
+    ```
+
+    **Key points**:
+
+    - Because of the `register` variable and `debug` section of the playbook, the results display when the command finishes.
+    
 #### [Azure CLI](#tab/azure-cli)
 
 1. Run [az group delete](/cli/azure/group#az-group-delete) to delete the resource group. All resources within the resource group will be deleted.
