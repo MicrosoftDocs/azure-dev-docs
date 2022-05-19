@@ -267,7 +267,7 @@
           - name: With service principals
             href: sdk/authentication/local-development-environment-service-principal.md
           - name: With developer account
-            href: skd/authentication/local-development-environment-developer-account.md
+            href: sdk/authentication/local-development-environment-developer-account.md            
       - name: Azure-hosted apps
         href: sdk/authentication/azure-hosted-apps.md
       - name: On-premises apps
