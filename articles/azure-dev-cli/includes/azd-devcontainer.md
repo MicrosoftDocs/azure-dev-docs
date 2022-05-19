@@ -1,3 +1,6 @@
+> [!NOTE]
+> **DevContainer support is coming soon** 
+
 ### Prerequisites
 
 #### Azure Developer CLI
@@ -5,7 +8,6 @@
 You'll need `npm` to install the Azure Developer CLI. For detailed steps, see [Node.js with npm (v 16.13.1 LTS)](https://nodejs.org/).
 
 ```bash
-npm uninstall -g @azure/az-dev-cli
 npm install -g https://azuresdkreleasepreview.blob.core.windows.net/azd/standalone/latest/azure-az-dev-cli-latest.tgz
 ```
 
@@ -34,6 +36,9 @@ To use the DevContainer, you'll need the following installed on your local machi
 
 ### Initialize Project
 
+Open a terminal, create a new empty folder, and change into it.
+Run the following command to initialize the project:
+
 ```bash
 azd init --template todo-nodejs-mongo
 ```
@@ -44,7 +49,7 @@ You'll be prompted for the following information:
 - `Azure Location`: The Azure location where your resources will be deployed.
 - `Azure Subscription`: The Azure Subscription where your resources will be deployed.
 
-### Run Up Command
+### Run `azd` Command
 
 The fastest way for you to get this application up and running on Azure is to use the `azd up` command. This single command will create and configure all necessary Azure resources - including access policies and roles for your account and service-to-service communication with Managed Identities. 
 

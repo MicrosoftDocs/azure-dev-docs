@@ -42,7 +42,7 @@ Once complete, the command will print the following URLs:
 - ToDo web application frontend
 - ToDo API application
 
-!["azd up output"](media/get-started/azdupurls.png)
+!["azd up output"](media/get-started/urls.png)
 
 Select the web application URL to launch the ToDo app. Create a new collection and add some items. 
 

@@ -9,20 +9,15 @@ Before you get started, ensure you have the following tools installed on your lo
 - Azure Dev CLI (see install instructions below)
 
 ```bash
-npm uninstall -g @azure/az-dev-cli
 npm install -g https://azuresdkreleasepreview.blob.core.windows.net/azd/standalone/latest/azure-az-dev-cli-latest.tgz
 ```
-> [!NOTE]
-> * May require `sudo` depending on platform and configuration
 
-### Project Folder
+### Run `azd up` command
 
-You'll need an empty folder on your computer to house the project files that will be copied from this repository.
+The fastest way for you to get this application up and running on Azure is to use the azd up command. This single command will create and configure all necessary Azure resources - including access policies and roles for your account and service-to-service communication with Managed Identities.
 
-1. Open your favorite terminal and create a new folder.
-2. Now, set your current directory to that newly created folder.
-
-### Run Up Command
+Open a terminal, create a new empty folder, and change into it.
+Run the following command to initialize the project, provision Azure resources, and deploy the application code.
 
 ```bash
 azd up --template todo-nodejs-mongo

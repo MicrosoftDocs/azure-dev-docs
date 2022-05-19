@@ -87,7 +87,7 @@ Start from an Azure dev enabled template, use it as a base and remove resources 
 
 ```yml
 services:
-  - name: ${AZURE_ENV_NAME}web
+  web:
     project: .
     language: py
     host: appservice
