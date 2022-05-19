@@ -1,11 +1,11 @@
 ---
 ms.author: tarcher
 ms.topic: include
-ms.date: 01/04/2022
+ms.date: 05/18/2022
 ms.custom: devx-track-ansible
 ---
 
-#### [Ansible](#tab/ansible)
+# [Ansible](#tab/ansible)
 
 1. Save the following code as `delete_rg.yml`.
 
@@ -32,7 +32,7 @@ ms.custom: devx-track-ansible
 
     - Because of the `register` variable and `debug` section of the playbook, the results display when the command finishes.
     
-#### [Azure CLI](#tab/azure-cli)
+# [Azure CLI](#tab/azure-cli)
 
 1. Run [az group delete](/cli/azure/group#az-group-delete) to delete the resource group. All resources within the resource group will be deleted.
 
@@ -46,7 +46,7 @@ ms.custom: devx-track-ansible
     az group show --name <resource_group>
     ```
 
-#### [Azure PowerShell](#tab/azure-powershell)
+# [Azure PowerShell](#tab/azure-powershell)
 
 1. Run [Remove-AzResourceGroup](/powershell/module/az.resources/Remove-AzResourceGroup) to delete the resource group. All resources within the resource group will be deleted.
 

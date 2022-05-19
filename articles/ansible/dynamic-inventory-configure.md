@@ -3,7 +3,7 @@ title: Tutorial - Configure dynamic inventories for Azure Virtual Machines using
 description: Learn how to populate your Ansible inventory dynamically from information in Azure
 keywords: ansible, azure, devops, bash, cloudshell, dynamic inventory
 ms.topic: tutorial
-ms.date: 08/28/2021
+ms.date: 05/19/2021
 ms.custom: devx-track-ansible, devx-track-azurecli
 ---
 
