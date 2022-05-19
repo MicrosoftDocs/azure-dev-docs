@@ -259,7 +259,11 @@
   - name: Samples
     href: /samples/browse/?languages=javascript%2cnodejs%2ctypescript
   - name: Azure SDK for JavaScript
-    href: sdk/authentication/overview.md
+    items:
+      - name: Overview
+        href: sdk/authentication/overview.md
+      - name: Azure-hosted apps
+        href: sdk/authentication/azure-hosted-apps.md
   - name: npm Packages
     href: azure-sdk-library-package-index.md
   - name: npm Package Documentation

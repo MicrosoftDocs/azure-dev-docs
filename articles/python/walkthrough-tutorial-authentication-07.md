@@ -72,7 +72,7 @@ One subject that we haven't touched upon here is authentication of *users*. To e
 
 ## See also
 
-- [How to authenticate and authorize Python apps on Azure](azure-sdk-authenticate.md)
+- [How to authenticate and authorize Python apps on Azure](./sdk/authentication-overview.md)
 - Walkthrough sample: [github.com/Azure-Samples/python-integrated-authentication](https://github.com/Azure-Samples/python-integrated-authentication)
 - [Azure Active Directory documentation](/azure/active-directory)
 - [Azure Key Vault documentation](/azure/key-vault)

@@ -36,7 +36,7 @@ For most application scenarios, you typically create provisioning scripts with t
 
 Once you've provisioned the resources you need for your application, you write the application code to work with the run time aspects of those resources.
 
-For example, in the provisioning step you might have created an Azure storage account, created a blob container within that account, and set access policies for the application on that container. This provisioning process is demonstrated in [Example - Provision Azure Storage](azure-sdk-example-storage.md). From your code, you can then authenticate with that storage account and then create, update, or delete blobs within that container. This run time process is demonstrated in [Example - Use Azure Storage](azure-sdk-example-storage.md). Similarly, you might have provisioned a database with a schema and appropriate permissions (as demonstrated in [Example - Provision a database](azure-sdk-example-database.md)), so that your application code can connect to the database and perform the usual create-read-update-delete queries.
+For example, in the provisioning step you might have created an Azure storage account, created a blob container within that account, and set access policies for the application on that container. This provisioning process is demonstrated in [Example - Provision Azure Storage](./sdk/examples/azure-sdk-example-storage.md). From your code, you can then authenticate with that storage account and then create, update, or delete blobs within that container. This run time process is demonstrated in [Example - Use Azure Storage](./sdk/examples/azure-sdk-example-storage.md). Similarly, you might have provisioned a database with a schema and appropriate permissions (as demonstrated in [Example - Provision a database](./sdk/examples/azure-sdk-example-database.md)), so that your application code can connect to the database and perform the usual create-read-update-delete queries.
 
 App code typically uses environment variables to identify the names and URLs of the resources to use. Environment variables allow you to easily switch between cloud environments (dev, test, staging, and production) without any changes to the code. The various Azure services that host application code provide a means to define the necessary variables. For example, in Azure App Service (to host web apps) and Azure Functions (serverless compute for Azure), you define *application settings* through the Azure portal or Azure CLI, which then appear to your code as environment variables.
 
@@ -73,4 +73,4 @@ You're now familiar with the basic structure of Azure and the overall developmen
 The next step is to get familiar with the Azure libraries for Python, which you'll be using in many parts of the flow.
 
 > [!div class="nextstepaction"]
-> [Learn to use the Azure libraries for Python >>>](azure-sdk-overview.md)
+> [Learn to use the Azure libraries for Python >>>](./sdk/azure-sdk-overview.md)
