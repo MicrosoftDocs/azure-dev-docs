@@ -4,7 +4,7 @@ description: Add authentication to your Xamarin.iOS app using Azure Mobile Apps 
 author: adrianhall
 ms.service: mobile-services
 ms.topic: article
-ms.date: 05/16/2022
+ms.date: 05/19/2022
 ms.author: adhal
 ---
 
@@ -34,11 +34,7 @@ Open the `TodoApp.sln` solution in Visual Studio project as the startup project.
 
 [!INCLUDE [Set up MSAL in Windows](~/mobile-apps/azure-mobile-apps/includes/quickstart/windows/add-msal-library.md)]
 
-Open the `TodoApp.iOS` project.
-
-<!-- TODO - some stuff for the AppDelegate.cs info -->
-
-Open `ViewControllers\HomeViewController.cs`.  Add the following `using` statements:
+Open `ViewControllers\HomeViewController.cs` in the `TodoApp.iOS` project.  Add the following `using` statements:
 
 ``` csharp
 using Microsoft.Datasync.Client;

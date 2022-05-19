@@ -4,7 +4,7 @@ description: Get up to speed with Xamarin.iOS and Azure Mobile Apps with our tut
 author: adrianhall
 ms.service: mobile-services
 ms.topic: article
-ms.date: 05/16/2022
+ms.date: 05/19/2022
 ms.author: adhal
 ---
 
@@ -59,16 +59,16 @@ You can complete this tutorial on Mac or Windows. A mac is required to compile t
 
    ![Screenshot showing how to set the run configuration for a Xamarin Forms for i O S app.](./media/win-ios-configuration.png)
 
-4. Select the iPhone Simulator
+4. Select an appropriate iPhone simulator (I've chosen an iPhone SE running iOS 15.5).
 5. Press **F5** to build and run the project.
 
 Once the app has started, you'll see an empty list and a text box to add items in the emulator.  You can:
 
-* Enter some text in the box, then press Enter to insert a new item.
+* Press the **+** button to add an item.
 * Select an item to set or clear the completed flag.
 * Press the refresh icon to reload data from the service.
 
-![Screenshot of the running i O S app showing the to do list.](./media/running-ios-app.png)
+![Screenshot of the running i O S app showing the to do list.](./media/win-running-app.png)
 
 ### Troubleshooting
 
