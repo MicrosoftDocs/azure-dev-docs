@@ -102,12 +102,12 @@ az role definition list \
     --output table
 ```
 
-For example, to allow the managed identity with the ID of `99999999-9999-9999-9999-999999999999` read, write, and delete access to Azure Storage blob containers and data to all storage accounts in the *msdocs-javascript-sdk-auth-example* resource group, you would assign the application service principal to the *Storage Blob Data Contributor* role using the following command.
+For example, to allow the managed identity with the ID of `99999999-9999-9999-9999-999999999999` read, write, and delete access to Azure Storage blob containers and data to all storage accounts in the *msdocs-sdk-auth-example* resource group, you would assign the application service principal to the *Storage Blob Data Contributor* role using the following command.
 
 ```azurecli
 az role assignment create --assignee 99999999-9999-9999-9999-999999999999 \
     --role "Storage Blob Data Contributor" \
-    --resource-group "msdocs-javascript-sdk-auth-example"
+    --resource-group "msdocs-sdk-auth-example"
 ```
 
 For information on assigning permissions at the resource or subscription level using the Azure CLI, see the article [Assign Azure roles using the Azure CLI](/azure/role-based-access-control/role-assignments-cli).
