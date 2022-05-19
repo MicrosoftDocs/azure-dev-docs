@@ -5,7 +5,7 @@ ms.date: 05/18/2022
 ms.custom: devx-track-terraform
 ---
 
-## 3.7.0 (Unreleased)
+### 3.7.0 (Unreleased)
 
 FEATURES:
 
@@ -34,7 +34,7 @@ DEPRECATIONS:
 * `azurerm_video_analyzer` - Video Analyzer (Preview) is now Deprecated and will be Retired on 2022-11-30 - as such this resource is deprecated and will be removed in v4.0 of the AzureRM Provider [GH-16847]
 * `azurerm_video_analyzer_edge_module` - Video Analyzer (Preview) is now Deprecated and will be Retired on 2022-11-30 - as such this resource is deprecated and will be removed in v4.0 of the AzureRM Provider [GH-16847]
 
-## 3.6.0 (May 12, 2022)
+### 3.6.0 (May 12, 2022)
 
 FEATURES:
 
@@ -69,7 +69,7 @@ BUG FIXES:
 * `azurerm_app_configuration_feature` - allow successful creation of resource without specifying any optional filters ([#16459](https://github.com/hashicorp/terraform-provider-azurerm/issues/16459))
 * `azurerm_mssql_managed_instance_failover_group` - correctly import resource and sent primary isntance id ([#16705](https://github.com/hashicorp/terraform-provider-azurerm/issues/16705))
 
-## 3.5.0 (May 05, 2022)
+### 3.5.0 (May 05, 2022)
 
 FEATURES:
 
@@ -106,7 +106,7 @@ BUG FIXES:
 * `azurerm_windows_function_app` - correctly deduplicate user `app_settings` ([#15740](https://github.com/hashicorp/terraform-provider-azurerm/issues/15740))
 * `azurerm_windows_function_app_slot` - correctly deduplicate user `app_settings` ([#15740](https://github.com/hashicorp/terraform-provider-azurerm/issues/15740))
 
-## 3.4.0 (April 28, 2022)
+### 3.4.0 (April 28, 2022)
 
 FEATURES:
 
@@ -140,7 +140,7 @@ BUG FIXES:
 * `azurerm_kubernetes_cluster` - allow updates to a cluster running a deprecated version of kubernetes ([#16551](https://github.com/hashicorp/terraform-provider-azurerm/issues/16551))
 * `azurerm_resource_policy_remediation` - will no longer try to cancel a completed remediation task during deletion ([#16478](https://github.com/hashicorp/terraform-provider-azurerm/issues/16478))
 
-## 3.3.0 (April 21, 2022)
+### 3.3.0 (April 21, 2022)
 
 FEATURES:
 
@@ -194,7 +194,7 @@ BUG FIXES:
 * `azurerm_windows_web_app_slot` - the `ip_address` property is now correctly set into state when the `service_tag` property is specified ([#16426](https://github.com/hashicorp/terraform-provider-azurerm/issues/16426))
 * `azurerm_windows_web_app_slot` - prevent a potential crash when an empty `app_stack` block is used ([#16446](https://github.com/hashicorp/terraform-provider-azurerm/issues/16446))
 
-## 3.2.0 (April 14, 2022)
+### 3.2.0 (April 14, 2022)
 
 FEATURES:
 
@@ -225,7 +225,7 @@ BUG FIXES:
 * `azurerm_eventhub_namespace` - can now be updated when customer managed keys are being used ([#16371](https://github.com/hashicorp/terraform-provider-azurerm/issues/16371))
 * `azurerm_postgresql_flexible_server` - `high_availability` blocks can now be added and removed ([#16328](https://github.com/hashicorp/terraform-provider-azurerm/issues/16328))
 
-## 3.1.0 (April 07, 2022)
+### 3.1.0 (April 07, 2022)
 
 FEATURES:
 
@@ -271,7 +271,7 @@ BUG FIXES:
 * `azurerm_windows_web_app_slot` - fix docker `windowsFXVersion` when `docker_container_registry` is specified ([#16192](https://github.com/hashicorp/terraform-provider-azurerm/issues/16192))
 * `azurerm_storage_data_lake_gen2_filesystem` - add support for `$superuser` in `group` and `owner` properties ([#16215](https://github.com/hashicorp/terraform-provider-azurerm/issues/16215))
 
-## 3.0.2 (March 26, 2022)
+### 3.0.2 (March 26, 2022)
 
 BUG FIXES:
 
@@ -283,13 +283,13 @@ BUG FIXES:
 * `azurerm_resource_group` - will now during deletion if there are still resources found in the group it will wait a little bit and check again to handle eventually consistancy bugs ([#16073](https://github.com/hashicorp/terraform-provider-azurerm/issues/16073))
 * `azurerm_windows_function_app` - correctly update the storage settings when using MSI authentication ([#16046](https://github.com/hashicorp/terraform-provider-azurerm/issues/16046))
 
-## 3.0.1 (March 24, 2022)
+### 3.0.1 (March 24, 2022)
 
 BUG FIXES:
 
 * provider: the `prevent_deletion_if_contains_resources` feature flag within the `resource_group` block now defaults to `true` ([#16021](https://github.com/hashicorp/terraform-provider-azurerm/issues/16021))
 
-## 3.0.0 (March 24, 2022)
+### 3.0.0 (March 24, 2022)
 
 NOTES:
 
