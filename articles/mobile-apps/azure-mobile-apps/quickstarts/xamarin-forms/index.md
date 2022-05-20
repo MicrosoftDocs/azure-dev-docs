@@ -18,7 +18,6 @@ You must complete this tutorial before other Xamarin Forms tutorials using the M
 
 To complete this tutorial, you need:
 
-
 * [Visual Studio 2022](/visualstudio/install/install-visual-studio?view=vs-2022&preserve-view=true) with the following workloads.
   * ASP.NET and web development
   * Azure development
@@ -100,7 +99,6 @@ Once the app has started, you'll see an empty list and a text box to add items i
 
    ![Screenshot showing how to set the run configuration for a Xamarin Forms for i O S app.](./media/win-ios-configuration.png)
 
-<!-- TODO: Running the iOS app -->
 4. Select the iPhone Simulator
 5. Press **F5** to build and run the project.
 
