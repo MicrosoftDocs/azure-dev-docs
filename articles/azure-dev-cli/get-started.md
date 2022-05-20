@@ -12,13 +12,13 @@ ms.prod: azure
 
 # Get started
 
-We'll use the [Todo Application with Node.js and Azure Cosmo DB API for MongoDB](https://github.com/azure-samples/todo-nodejs-mongo) for this walkthrough. 
+You can use any of the [Azure Developer CLI templates](azure-dev-cli-templates.md) for this walkthrough. The only component unique to each template is the list of  language and host pre-requisites. We'll use the [Todo Application with Node.js and Azure Cosmo DB API for MongoDB](https://github.com/azure-samples/todo-nodejs-mongo). 
 
 This repository contains a complete ToDo application that includes everything you need to build, deploy, and monitor an Azure solution. For more information including architecture diagram and the Azure resources you'll deploy, see the [README](https://github.com/azure-samples/todo-nodejs-mongo).
 
 ## Azure Subscription
 
-This template will create infrastructure and deploy code to Azure. If you don't have an Azure Subscription, sign up for a [free account here](https://azure.microsoft.com/free/). 
+You will create infrastructure and deploy code to Azure. If you don't have an Azure Subscription, sign up for a [free account here](https://azure.microsoft.com/free/). 
 
 ## Set up
 

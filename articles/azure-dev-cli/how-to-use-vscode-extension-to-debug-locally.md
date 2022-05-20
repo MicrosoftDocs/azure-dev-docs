@@ -23,13 +23,9 @@ The first step is to download and install the extension.
 1. Install `azd` from NPM
 
     ```bash
-    npm uninstall -g @azure/az-dev-cli
     npm install -g https://azuresdkreleasepreview.blob.core.windows.net/azd/standalone/latest/azure-az-dev-cli-latest.tgz
     ```
     
-    > [!NOTE]
-    > may require sudo depending on platform and configuration
-
 2. In VS Code
     1. Download the extension from https://azuresdkreleasepreview.blob.core.windows.net/azd/vscode/latest/azure-dev-latest.vsix 
     1. Open "Extensions" (Ctrl+Shift+X)

@@ -14,7 +14,7 @@ The quickest way to get started with `azd` is to refer to the README in an Azure
 
 ## Host: Azure App Service
 
-Each repository contains a complete sample ToDo application with a web frontend built in React.js and the backend API built using a specific `azd` supported language. Both frontend and backend applications are deployed to [Azure App Service](/azure/app-service/).
+Each repository contains a complete sample ToDo application with a web frontend built in React.js and the backend API built using a specific `azd` supported language. Both frontend and backend applications are deployed to [Azure App Service](https://docs.microsoft.com/azure/app-service/).
 
 | Template      | Language (API layer) | Tech Stack	 | 
 | ----------- | ----------| ----------- | 
@@ -24,7 +24,7 @@ Each repository contains a complete sample ToDo application with a web frontend 
 
 ## Host: Azure Container Apps
 
-Each repository contains a complete sample ToDo application with a web frontend built in React.js and the backend API built using a specific `azd` supported language. Both frontend and backend applications are deployed to [Azure Container Apps](/azure/container-apps/overview).
+Each repository contains a complete sample ToDo application with a web frontend built in React.js and the backend API built using a specific `azd` supported language. Both frontend and backend applications are deployed to [Azure Container Apps](https://docs.microsoft.com/azure/container-apps/overview).
 
 | Template      | Language (API layer) | Tech Stack	 | 
 | ----------- | ----------| ----------- | 

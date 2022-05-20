@@ -14,10 +14,9 @@ npm install -g https://azuresdkreleasepreview.blob.core.windows.net/azd/standalo
 
 ### Run `azd up` command
 
-The fastest way for you to get this application up and running on Azure is to use the azd up command. This single command will create and configure all necessary Azure resources - including access policies and roles for your account and service-to-service communication with Managed Identities.
+The fastest way for you to get this application up and running on Azure is to use the azd up command. This single command will initialize the project, create and configure all necessary Azure resources - including access policies and roles for your account and service-to-service communication with Managed Identities.
 
-Open a terminal, create a new empty folder, and change into it.
-Run the following command to initialize the project, provision Azure resources, and deploy the application code.
+Open a terminal, create a new empty folder, and change into it. Run the following command:
 
 ```bash
 azd up --template todo-nodejs-mongo

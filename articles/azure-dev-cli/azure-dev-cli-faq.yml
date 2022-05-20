@@ -76,7 +76,7 @@ sections:
     questions:
       - question: Can I rerun `azd up`?
         answer: |
-          Yes.We use the [incremental deployment mode](/azure/azure-resource-manager/templates/deployment-modes).
+          Yes.We use the [incremental deployment mode](https://docs.microsoft.com/azure/azure-resource-manager/templates/deployment-modes).
 
       - question: How do I find the log file for `azd up`? 
         answer: |

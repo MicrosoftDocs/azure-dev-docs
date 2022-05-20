@@ -17,7 +17,7 @@ This article provides information about known issues associated with Azure Devel
 The Azure Dev CLI assumes that folders under .azure folder 's dev CLI environments. Don't run `azd` commands from the home directory of a user that has Azure CLI installed.
 
 ## Environment naming restriction
-Environment name is used as a prefix to the name of each Azure resource created for this project. Azure resources have [naming rules and restrictions](/azure/azure-resource-manager/management/resource-name-rules), make sure you use a name that is less than 15-character long and unique.
+Environment name is used as a prefix to the name of each Azure resource created for this project. Azure resources have [naming rules and restrictions](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-name-rules), make sure you use a name that is less than 15-character long and unique.
 
 ## Not logged in to Azure or token expired
 `azd login` does't report any error, but does't refresh access token. Especially in devContainer environment. 
@@ -40,7 +40,7 @@ Sometimes, things go awry with `azd up` or `azd provision`. Common errors includ
 1. Select **Deployments** to get more information.
 
 > [!NOTE]
-> Additional resource: [Troubleshoot common Azure deployment errors - Azure Resource Manager](/azure/azure-resource-manager/troubleshooting/common-deployment-errors)
+> Additional resource: [Troubleshoot common Azure deployment errors - Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/troubleshooting/common-deployment-errors)
 
 ## `azd pipeline` failure
 `azd pipeline` fails to deploy your latest change.
@@ -53,4 +53,4 @@ Sometimes, things go awry with `azd up` or `azd provision`. Common errors includ
 Text-based browser is currently not supported by `azd monitor`.
 
 ## Live metrics support for Python
-Live Metrics (`azd monitor --live`) is currently not supported for Python app. For more information, see [this article](/azure/azure-monitor/app/live-stream#get-started).
+Live Metrics (`azd monitor --live`) is currently not supported for Python app. For more information, see [this article](https://docs.microsoft.com/azure/azure-monitor/app/live-stream#get-started).

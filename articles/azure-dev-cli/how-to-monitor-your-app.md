@@ -10,9 +10,14 @@ ms.prod: azure
 ---
 #  How to monitor your application
 
-We'll use the [Todo Application with Node.js and Azure Cosmo DB API for MongoDB](https://github.com/azure-samples/todo-nodejs-mongo) for this walkthrough. By now, you should have your Azure resources provisioned and application deployed. If not, follow the steps in [get-started](get-started.md). 
+You can use any of the [Azure Developer CLI template](azure-dev-cli-templates.md) for this walkthrough. We'll use the [Todo Application with Node.js and Azure Cosmo DB API for MongoDB](https://github.com/azure-samples/todo-nodejs-mongo). 
 
-Make sure you select the web application URL to launch the ToDo app. Create a new collection and add some items. The command will create monitoring activity in the application that you'll be able to see by running the following the `azd monitor` command.
+By now, you should have your Azure resources provisioned and application deployed. If not, follow the steps in [get-started](get-started.md). 
+
+Make sure you create monitoring activity in the application before running the `azd monitor` commands:
+
+1. Select the web application URL to launch the ToDo app. 
+2. Create a new list and add some items. 
 
 ### Monitor the application using `azd monitor`
 
