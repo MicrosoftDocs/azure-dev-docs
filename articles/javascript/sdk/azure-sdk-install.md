@@ -17,7 +17,7 @@ With these Azure libraries you can provision and manage resources on Azure servi
 
 ## Install the latest version of a library
 
-# [npm](#tab/npm)
+# [npm](#tab/npm-install)
 
 ```cmd
 npm install <library>
@@ -27,7 +27,7 @@ npm install <library>
 
 You can use any package name listed in the [package index](../azure-sdk-library-package-index.md).
 
-# [yarn](#tab/yarn)
+# [yarn](#tab/yarn-install)
 
 ```cmd
 yarn add <library>
@@ -41,7 +41,7 @@ You can use any package name listed in the [package index](../azure-sdk-library-
 
 ## Install specific library versions
 
-# [npm](#tab/npm)
+# [npm](#tab/npm-install-version)
 
 
 ```cmd
@@ -50,7 +50,7 @@ npm install <library>@<version-number>
 
 You can use any package name listed in the [package index](../azure-sdk-library-package-index.md).
 
-# [yarn](#tab/yarn)
+# [yarn](#tab/yarn-install-version)
 
 ```cmd
 yarn add <library>@<version-number>
@@ -62,7 +62,7 @@ You can use any package name listed in the [package index](../azure-sdk-library-
 
 ## Verify a library installation
 
-# [npm](#tab/npm)
+# [npm](#tab/npm-list)
 
 ```cmd
 npm list <library>
@@ -70,18 +70,19 @@ npm list <library>
 
 You can use any package name listed in the [package index](../azure-sdk-library-package-index.md).
 
-# [yarn](#tab/yarn)
+# [yarn](#tab/yarn-list)
 
 ```cmd
 yarn list <library>
 ```
 
 You can use any package name listed in the [package index](../azure-sdk-library-package-index.md).
+
 ---
 
 ## Uninstall a library
 
-# [npm](#tab/npm)
+# [npm](#tab/npm-uninstall)
 
 ```cmd
 npm uninstall <library>
@@ -89,7 +90,7 @@ npm uninstall <library>
 
 You can use any package name listed in the [package index](../azure-sdk-library-package-index.md).
 
-# [yarn](#tab/yarn)
+# [yarn](#tab/yarn-uninstall)
 
 ```cmd
 yarn remove <library>
