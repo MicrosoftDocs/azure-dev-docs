@@ -193,6 +193,7 @@
 | azure-media-nspkg | PyPI [1.0.0](https://pypi.org/project/azure-media-nspkg/1.0.0) |  |  |
 | azure-messaging-nspkg | PyPI [1.0.0](https://pypi.org/project/azure-messaging-nspkg/1.0.0) |  |  |
 | azure-mgmt-appcontainers | PyPI [1.0.0](https://pypi.org/project/azure-mgmt-appcontainers/1.0.0) |  |  |
+| azure-mgmt-dynatrace | PyPI [1.0.0b1](https://pypi.org/project/azure-mgmt-dynatrace/1.0.0b1) |  |  |
 | azure-mgmt-scvmm | PyPI [1.0.0b1](https://pypi.org/project/azure-mgmt-scvmm/1.0.0b1) |  |  |
 | azure-mixedreality-nspkg | PyPI [1.0.0](https://pypi.org/project/azure-mixedreality-nspkg/1.0.0) |  |  |
 | azure-monitor-nspkg | PyPI [1.0.0](https://pypi.org/project/azure-monitor-nspkg/1.0.0) |  |  |
