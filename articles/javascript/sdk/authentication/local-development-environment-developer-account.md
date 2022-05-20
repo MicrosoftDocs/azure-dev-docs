@@ -14,7 +14,7 @@ When creating cloud applications, developers need to debug and test applications
 
 For an app to authenticate to Azure during local development using the developer's Azure credentials, the developer must be signed-in to Azure from the VS Code Azure Tools extension, the Azure CLI, or Azure PowerShell.  The Azure SDK for JavaScript is able to detect that the developer is signed-in from one of these tools and then obtain the necessary credentials from the credentials cache to authenticate the app to Azure as the signed-in user.
 
-This approach is easiest to set up for a development team since it takes advantage of the developers' existing Azure accounts. However, a developer's account will likely have more permissions than required by the application, therefore exceeding the permissions the app will run with in production. As an alternative, you can [create application service principals to use during local development](../authentication-local-development-service-principal.md), which can be scoped to have only the access needed by the app.
+This approach is easiest to set up for a development team since it takes advantage of the developers' existing Azure accounts. However, a developer's account will likely have more permissions than required by the application, therefore exceeding the permissions the app will run with in production. As an alternative, you can create application service principals to use during local development, which can be scoped to have only the access needed by the app.
 
 ## 1 - Create Azure AD group for local development
 
@@ -118,14 +118,14 @@ For information on assigning permissions at the resource or subscription level u
 
 ### [VS Code Azure Tools extension](#tab/sign-in-vscode)
 
-For an app to use the developer credentials from VS Code, the [VS Code Azure Tools extension must be installed](../configure-local-development-environment.md#install-azure-tools-extension-for-vs-code) in VS Code.
+For an app to use the developer credentials from VS Code, the VS Code Azure Tools extension must be installed in VS Code.
 
 > [!div class="nextstepaction"]
-> [Install the Azure Tools extensions for VS Code](../configure-local-development-environment.md#install-azure-tools-extension-for-vs-code)
+> [Install the Azure Tools extensions for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack)
 
 On the left-hand panel, you'll see an Azure icon. Select this icon, and a control panel for Azure services will appear. Choose **Sign in to Azure...** under any service to complete the authentication process for the Azure tools in Visual Studio Code.
 
-:::image type="content" source="../../../media/configure-local-development-environment/vs-code-azure-login-small.png" alt-text="Screenshot of the Visual Studio Code showing how to sign-in the Azure tools to Azure." lightbox="../../media/configure-local-development-environment/vs-code-azure-login.png":::
+:::image type="content" source="../../../../media/configure-local-development-environment/vs-code-azure-login-small.png" alt-text="Screenshot of the Visual Studio Code showing how to sign-in the Azure tools to Azure." lightbox="../../media/configure-local-development-environment/vs-code-azure-login.png":::
 
 ### [Azure CLI](#tab/sign-in-azure-cli)
 
