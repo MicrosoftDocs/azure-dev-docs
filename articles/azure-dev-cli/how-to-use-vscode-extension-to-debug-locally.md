@@ -31,7 +31,7 @@ The first step is to download and install the extension.
     > may require sudo depending on platform and configuration
 
 2. In VS Code
-    1. Download the extension from Download the extension from https://azuresdkreleasepreview.blob.core.windows.net/azd/vscode/latest/azure-dev-latest.vsix 
+    1. Download the extension from https://azuresdkreleasepreview.blob.core.windows.net/azd/vscode/latest/azure-dev-latest.vsix 
     1. Open "Extensions" (Ctrl+Shift+X)
     1. Select the `...` menu at top of Extensions sidebar
     1. Select "Install from VSIX"
@@ -73,7 +73,7 @@ Once provision is complete, you can run and debug the application. Let's walk th
 
 **Debug API** is configured to run the API server and attach the debugger. So you don't need to run the task to start the API server.
 
-1. Set a breakpoint. Open `lists.ts` in `src > api > src > route`. Set a breakpoint at say line 16. 
+1. Set a breakpoint. Open `lists.ts` in `src > api > src > routes`. Set a breakpoint at say line 16. 
 1. In the activity bar, select Run and Debug (Ctrl-Shift-D) and then "Debug API"
 !["Debug API"](media/how-to-use-vscode-extension-to-debug-locally/debug-api.png)
 1. In your preferred terminal shell, type: >curl http://localhost:3100/lists

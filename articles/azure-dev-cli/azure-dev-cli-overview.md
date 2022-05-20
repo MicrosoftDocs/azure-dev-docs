@@ -33,9 +33,9 @@ The quickest way to get started is to explore the list of [Azure Developer CLI t
 
 ## Introductory video
 
-Watch this 3-min video to get a high level overview of `azd`:
+Watch this 2-min video to get a high level overview of `azd`:
 
-!["Introductory video"](media/azure-dev-cli-overview/video.png)
+!["Introductory video"](media/azure-dev-cli-overview/video.png) [**Click to watch**](https://msit.microsoftstream.com/video/9e850840-98dc-b654-ecea-f1ecd7ca302a?referrer=https:%2F%2Fstatics.teams.cdn.office.net%2F)
 
 ## Development environment choices
 
