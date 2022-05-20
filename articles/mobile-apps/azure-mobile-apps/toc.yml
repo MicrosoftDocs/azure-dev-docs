@@ -46,10 +46,10 @@
     items:
     - name: Introduction
       href: quickstarts/xamarin-ios/index.md
-    - name: Add Offline Sync
-      href: quickstarts/xamarin-ios/offline.md
     - name: Add Authentication
       href: quickstarts/xamarin-ios/authentication.md
+    - name: Add Offline Sync
+      href: quickstarts/xamarin-ios/offline.md
 - name: How to
   items:
   - name: Offline Data Sync
