@@ -132,7 +132,7 @@ public bool OpenUrl(UIApplication app, NSUrl url, NSDictionary options)
 
 Open the `Entitlements.plist` file.  Select **Keychain**, then select **Add New** in the keychain groups.  Enter `com.microsoft.adalcache` as the value:
 
-![Screenshot showing the iOS entitlements.](./media/ios-entitlements-plist.png)
+![Screenshot showing the i O S entitlements.](./media/ios-entitlements-plist.png)
 
 Finally, add the custom entitlements to the project:
 
@@ -142,7 +142,7 @@ Finally, add the custom entitlements to the project:
 4. Select `Entitlements`, then select **Open**.
 5. Press **Ctrl+S** to save the project.
 
-![Screenshot showing the iOS bundle signing properties.](./media/ios-bundle-signing.png)
+![Screenshot showing the i O S bundle signing properties.](./media/ios-bundle-signing.png)
 
 ## Test the app
 
