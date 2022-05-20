@@ -125,7 +125,7 @@ For an app to use the developer credentials from VS Code, the VS Code Azure Tool
 
 On the left-hand panel, you'll see an Azure icon. Select this icon, and a control panel for Azure services will appear. Choose **Sign in to Azure...** under any service to complete the authentication process for the Azure tools in Visual Studio Code.
 
-:::image type="content" source="../../../../media/configure-local-development-environment/vs-code-azure-login-small.png" alt-text="Screenshot of the Visual Studio Code showing how to sign-in the Azure tools to Azure." lightbox="../../media/configure-local-development-environment/vs-code-azure-login.png":::
+:::image type="content" source="../../media/configure-local-development-environment/vs-code-azure-login-small.png" alt-text="Screenshot of the Visual Studio Code showing how to sign-in the Azure tools to Azure." lightbox="../../media/configure-local-development-environment/vs-code-azure-login.png":::
 
 ### [Azure CLI](#tab/sign-in-azure-cli)
 
