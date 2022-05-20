@@ -74,4 +74,4 @@ A [reference](azure-cli-ref) is available.
 
 ## Get help and give feedback
 
-Post questions to the community on [Discussions](https://github.com/Azure/azure-dev/discussions). Report bugs and open issues against the Azure Developer CLI in the [GitHub repository](https://github.com/Azure/azure-dev).
+Post questions to the community on [Discussions](https://github.com/Azure/azure-dev-pr/discussions). Report bugs and open issues against the Azure Developer CLI in the [GitHub repository](https://github.com/Azure/azure-dev-pr).

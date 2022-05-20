@@ -31,4 +31,4 @@
     href: azure-dev-cli-faq.yml   
     displayName: troubleshooting, faq
 - name: Reference
-  href: https://github.com/Azure/azure-dev-pr/wiki/Azure-Developer-CLI-Overview
+  href: https://aka.ms/azure-dev/ref

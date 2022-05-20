@@ -50,11 +50,11 @@ landingContent:
       - linkListType: concept
         links:
           - text: Request a new feature
-            url: https://github.com/Azure/azure-dev/issues/new
+            url: https://github.com/Azure/azure-dev-pr/issues/new
           - text: Report a product bug
-            url: https://github.com/Azure/azure-dev/issues/new
+            url: https://github.com/Azure/azure-dev-pr/issues/new
           - text: Get help from the community
-            url: https://github.com/Azure/azure-dev/discussions/new
+            url: https://github.com/Azure/azure-dev-pr/discussions/new
   - title: Resources
     linkLists:
       - linkListType: reference
@@ -64,4 +64,4 @@ landingContent:
           - text: Frequently asked questions
             url: az-dev-cli-faq.md
           - text: Full command reference
-            url: https://github.com/Azure/azure-dev-pr/wiki/Azure-Developer-CLI-Overview
+            url: https://aka.ms/azure-dev/ref

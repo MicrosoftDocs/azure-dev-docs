@@ -70,5 +70,5 @@ Currently supported/planned languages:
 
 ## See also
 
-- For a full list of supported commands, see the [Azure Developer CLI Reference](https://github.com/Azure/azure-dev-pr/wiki/Azure-Developer-CLI-Overview).
+- For a full list of supported commands, see the [Azure Developer CLI Reference](https://aka.ms/azure-dev/ref).
 
