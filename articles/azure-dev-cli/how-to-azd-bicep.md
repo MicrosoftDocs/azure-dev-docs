@@ -1,6 +1,6 @@
 ---
-title: How to use Visual Studio Code to edit and push update through GitHub Action
-description: How to use the VS Code and the extension for Azure Developer CLI to push update through GitHub Action.
+title: How to work with Azure Bicep for Azure Developer CLI template
+description: How to with Azure Bicep for Azure Developer CLI template.
 author: puicchan
 ms.author: puichan
 ms.date: 04/12/2021
@@ -11,6 +11,6 @@ ms.prod: azure
 #  How to config pipeline, edit and push update through GitHub Actioned
 
 > [!NOTE] 
-> This is a work in progress
+> This is still under construction
 
-Include list of Bicep samples...
+* list of Bicep samples...

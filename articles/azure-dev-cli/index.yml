@@ -64,4 +64,4 @@ landingContent:
           - text: Frequently asked questions
             url: az-dev-cli-faq.md
           - text: Full command reference
-            url: https://aka.ms/azure-dev/ref
+            url: azure-dev-cli-ref.md

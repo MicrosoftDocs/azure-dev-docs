@@ -9,92 +9,693 @@ ms.custom: devx-track-azdev
 ms.prod: azure
 ---
 
-# Currently supported commands
+## azd
 
-Listed in alphabetical order:
+A CLI for developers building Azure solutions
 
-- [Deploy](#deploy)
-- [Env](#env)
-- [Infra](#infra)
-- [Init](#init)
-- [Monitor](#monitor)
-- [Pipeline](#pipeline)
-- [Provision](#provision)
-- [Up](#up)
+### Options
 
-### `init`
+```
+  -C, --cwd string           Set the current working directory
+      --debug                Enables debug/diagnostic logging
+  -e, --environment string   The name of the environment to use
+  -h, --help                 help for azd
+      --no-prompt            Accept default value instead of prompting, or fail if there is no default
+```
 
-`azd init` sets up a project from an Azure Dev CLI enabled template. The command prompts for configuration settings like environment name, Azure region and Azure Subscription to use for creating the Azure resources. All configurations are stored in the `.env` file found in the `.azure` folder.
+### SEE ALSO
 
-### `env`
+* [azd deploy](#azd-deploy)	 - Deploy the application's code to Azure
+* [azd down](#azd-down)	 - Deletes Azure resources for an application
+* [azd env](#azd-env)	 - Manage environments
+* [azd infra](#azd-infra)	 - Manage Azure resources
+* [azd init](#azd-init)	 - Initialize a new application
+* [azd login](#azd-login)	 - Log in to Azure
+* [azd monitor](#azd-monitor)	 - Monitor a deployed application
+* [azd pipeline](#azd-pipeline)	 - Manage GitHub Actions pipelines
+* [azd provision](#azd-provision)	 - Provisions the Azure resources for an application
+* [azd restore](#azd-restore)	 - Restores application dependencies
+* [azd up](#azd-up)	 - Initialize application, provision Azure resources, and deploy your project with a single command
+* [azd version](#azd-version)	 - Print the version number of azd
 
-`azd env` is a subgroup command for managing environments. Supported commands:
+---
 
-- list: List environments.
-- new: Create a new environment.
-- refresh: Refresh environment settings using information from previous provisioning.
-- select: Set the default environment.
-- set: Set a value in the environment. For example: `azd env set <KEY> <VALUE>`.
+## azd deploy
 
-### `provision`
+Deploy the application's code to Azure
 
-`azd provision` creates or updates the Azure resources for your project. `provision` is an alias for `azd infra create`.
+```
+azd deploy [flags]
+```
 
-### `infra`
+### Options
 
-`azd infra` is a group command for managing Azure resources. Subcommands:
+```
+  -h, --help             help for deploy
+      --service string   Deploy a specific service (when unset, all services listed in azure.yaml are deployed)
+```
 
-- create - creates Azure resources
-- delete - deletes Azure resources
+### Options inherited from parent commands
 
-### `deploy`
+```
+  -C, --cwd string           Set the current working directory
+      --debug                Enables debug/diagnostic logging
+  -e, --environment string   The name of the environment to use
+      --no-prompt            Accept default value instead of prompting, or fail if there is no default
+```
 
-`azd deploy` builds and publishes the application code into previously created Azure resources.
+### SEE ALSO
 
-### `up`
+* [Back to top](#azd)
 
-`azd up` is a **single step** command to initialize a project (`azd init`), provision Azure resources (`azd provision`), and deploy the application code to Azure (`azd deploy`.) 
+---
 
-### `pipeline`
+## azd down
 
-`azd pipeline config` pushes your local code to your GitHub repo and configures a GitHub Action so that the build and deploy job is automatically kicked off when you commit code to your GitHub repo.
+Deletes Azure resources for an application
 
-### `monitor`
+```
+azd down [flags]
+```
 
-`azd monitor` launches a browser to show a dashboard for monitoring the cloud application. Available sub commands: 
+### Options
 
-1. `--overview` to open the "Overview" dashboard.
-1. `--live` to open the "Live Metrics" dashboard.
-1. `--log` to open the "Logs" dashboard.
+```
+      --force           Do not require confirmation before deleting resources
+  -h, --help            help for down
+  -o, --output string   Output format (supported formats are json, none) (default "none")
+      --purge           Permanently delete resources which are soft-deleted by default (e.g. Key Vaults)
+```
 
-> [!NOTE]
-> * Text-based browser is not supported.
-> * Live metrics is currently not supported for Python application. For more information, see: [Live Metrics Stream: Monitor & Diagnose with 1-second latency](/azure/azure-monitor/app/live-stream).
+### Options inherited from parent commands
 
-## Try out
+```
+  -C, --cwd string           Set the current working directory
+      --debug                Enables debug/diagnostic logging
+  -e, --environment string   The name of the environment to use
+      --no-prompt            Accept default value instead of prompting, or fail if there is no default
+```
 
-TBA
+### SEE ALSO
 
-## See also
+* [Back to top](#azd)
 
-TBA
+---
 
-## Features to be added in the future
 
-### `debug`
-(COMING) `azd debug` starts debugging the application locally.
+## azd env get-values
 
-### `diff`
-(COMING) `azd diff` evaluates your local changes to resource definitions against what is currently provisioned to the cloud.
+Get all environment values
 
-### `generate`
-(COMING) `azd generate` produces boilerplate infrastructure as code assets, for example, CI/CD pipeline etc.
+```
+azd env get-values [flags]
+```
 
-### `login`
-(COMING) `azd login` signs into the cloud platform.
+### Options
 
-### `run`
-(COMING) `azd run` executes the application locally.
+```
+  -h, --help            help for get-values
+  -o, --output string   Output format (supported formats are json, dotenv) (default "dotenv")
+```
 
-### `test`
-(COMING) `azd test` runs local unit tests.
+### Options inherited from parent commands
+
+```
+  -C, --cwd string           Set the current working directory
+      --debug                Enables debug/diagnostic logging
+  -e, --environment string   The name of the environment to use
+      --no-prompt            Accept default value instead of prompting, or fail if there is no default
+```
+
+### SEE ALSO
+
+* [azd env](#azd-env)	 - Manage environments
+* [Back to top](#azd)
+
+
+---
+
+## azd env list
+
+List environments
+
+```
+azd env list [flags]
+```
+
+### Options
+
+```
+  -h, --help            help for list
+  -o, --output string   Output format (supported formats are json, table) (default "table")
+```
+
+### Options inherited from parent commands
+
+```
+  -C, --cwd string           Set the current working directory
+      --debug                Enables debug/diagnostic logging
+  -e, --environment string   The name of the environment to use
+      --no-prompt            Accept default value instead of prompting, or fail if there is no default
+```
+
+### SEE ALSO
+
+* [azd env](#azd-env)	 - Manage environments
+* [Back to top](#azd)
+
+
+---
+
+## azd env new
+
+Create a new environment
+
+```
+azd env new <environment> [flags]
+```
+
+### Options
+
+```
+  -h, --help   help for new
+```
+
+### Options inherited from parent commands
+
+```
+  -C, --cwd string           Set the current working directory
+      --debug                Enables debug/diagnostic logging
+  -e, --environment string   The name of the environment to use
+      --no-prompt            Accept default value instead of prompting, or fail if there is no default
+```
+
+### SEE ALSO
+
+* [azd env](#azd-env)	 - Manage environments
+* [Back to top](#azd)
+
+
+---
+
+## azd env refresh
+
+Refresh environment settings using information from previous infrastructure provision
+
+```
+azd env refresh [flags]
+```
+
+### Options
+
+```
+  -h, --help            help for refresh
+  -o, --output string   Output format (supported formats are json, none) (default "none")
+```
+
+### Options inherited from parent commands
+
+```
+  -C, --cwd string           Set the current working directory
+      --debug                Enables debug/diagnostic logging
+  -e, --environment string   The name of the environment to use
+      --no-prompt            Accept default value instead of prompting, or fail if there is no default
+```
+
+### SEE ALSO
+
+* [azd env](#azd-env)	 - Manage environments
+* [Back to top](#azd)
+
+
+---
+
+## azd env select
+
+Set the default environment
+
+```
+azd env select <environment> [flags]
+```
+
+### Options
+
+```
+  -h, --help   help for select
+```
+
+### Options inherited from parent commands
+
+```
+  -C, --cwd string           Set the current working directory
+      --debug                Enables debug/diagnostic logging
+  -e, --environment string   The name of the environment to use
+      --no-prompt            Accept default value instead of prompting, or fail if there is no default
+```
+
+### SEE ALSO
+
+* [azd env](#azd-env)	 - Manage environments
+* [Back to top](#azd)
+
+
+---
+
+## azd env set
+
+Set a value in the environment
+
+```
+azd env set <key> <value> [flags]
+```
+
+### Options
+
+```
+  -h, --help   help for set
+```
+
+### Options inherited from parent commands
+
+```
+  -C, --cwd string           Set the current working directory
+      --debug                Enables debug/diagnostic logging
+  -e, --environment string   The name of the environment to use
+      --no-prompt            Accept default value instead of prompting, or fail if there is no default
+```
+
+### SEE ALSO
+
+* [azd env](#azd-env)	 - Manage environments
+* [Back to top](#azd)
+
+---
+
+## azd env
+
+Manage environments
+
+```
+azd env [flags]
+```
+
+### Options
+
+```
+  -h, --help   help for env
+```
+
+### Options inherited from parent commands
+
+```
+  -C, --cwd string           Set the current working directory
+      --debug                Enables debug/diagnostic logging
+  -e, --environment string   The name of the environment to use
+      --no-prompt            Accept default value instead of prompting, or fail if there is no default
+```
+
+### SEE ALSO
+
+* [azd env get-values](#azd-env-get-values)	 - Get all environment values
+* [azd env list](#azd-env-list)	 - List environments
+* [azd env new](#azd-env-new)	 - Create a new environment
+* [azd env refresh](#azd-env-refresh)	 - Refresh environment settings using information from previous infrastructure provision
+* [azd env select](#azd-env-select)	 - Set the default environment
+* [azd env set](#azd-env-set)	 - Set a value in the environment
+* [Back to top](#azd)
+
+---
+
+## azd infra create
+
+Creates Azure resources for an application
+
+```
+azd infra create [flags]
+```
+
+### Options
+
+```
+  -h, --help            help for create
+      --no-progress     Suppress progress information
+  -o, --output string   Output format (supported formats are json, none) (default "none")
+```
+
+### Options inherited from parent commands
+
+```
+  -C, --cwd string           Set the current working directory
+      --debug                Enables debug/diagnostic logging
+  -e, --environment string   The name of the environment to use
+      --no-prompt            Accept default value instead of prompting, or fail if there is no default
+```
+
+### SEE ALSO
+
+* [Back to top](#azd)
+
+
+---
+
+## azd infra delete
+
+Deletes Azure resources for an application
+
+```
+azd infra delete [flags]
+```
+
+### Options
+
+```
+      --force   Do not require confirmation before deleting resources
+  -h, --help    help for delete
+      --purge   Permanently delete resources which are soft-deleted by default (e.g. Key Vaults)
+```
+
+### Options inherited from parent commands
+
+```
+  -C, --cwd string           Set the current working directory
+      --debug                Enables debug/diagnostic logging
+  -e, --environment string   The name of the environment to use
+      --no-prompt            Accept default value instead of prompting, or fail if there is no default
+```
+
+### SEE ALSO
+
+* [Back to top](#azd)
+
+---
+
+## azd infra
+
+Manage Azure resources
+
+```
+azd infra [flags]
+```
+
+### Options
+
+```
+  -h, --help   help for infra
+```
+
+### Options inherited from parent commands
+
+```
+  -C, --cwd string           Set the current working directory
+      --debug                Enables debug/diagnostic logging
+  -e, --environment string   The name of the environment to use
+      --no-prompt            Accept default value instead of prompting, or fail if there is no default
+```
+
+### SEE ALSO
+
+* [azd infra create](#azd-infra-create)	 - Creates Azure resources for an application
+* [azd infra delete](#azd-infra-delete)	 - Deletes Azure resources for an application
+* [Back to top](#azd)
+
+---
+
+## azd init
+
+Initialize a new application
+
+```
+azd init [flags]
+```
+
+### Options
+
+```
+  -b, --branch string     The template branch to initialize from
+  -h, --help              help for init
+  -t, --template string   Template to use when initializing the application
+```
+
+### Options inherited from parent commands
+
+```
+  -C, --cwd string           Set the current working directory
+      --debug                Enables debug/diagnostic logging
+  -e, --environment string   The name of the environment to use
+      --no-prompt            Accept default value instead of prompting, or fail if there is no default
+```
+
+### SEE ALSO
+
+* [Back to top](#azd)
+
+
+---
+
+## azd login
+
+Log in to Azure
+
+```
+azd login [flags]
+```
+
+### Options
+
+```
+  -h, --help   help for login
+```
+
+### Options inherited from parent commands
+
+```
+  -C, --cwd string           Set the current working directory
+      --debug                Enables debug/diagnostic logging
+  -e, --environment string   The name of the environment to use
+      --no-prompt            Accept default value instead of prompting, or fail if there is no default
+```
+
+### SEE ALSO
+
+* [Back to top](#azd)
+
+
+---
+
+## azd monitor
+
+Monitor a deployed application
+
+```
+azd monitor [flags]
+```
+
+### Options
+
+```
+  -h, --help       help for monitor
+      --live       Opens a browser to Application Insights Live Metrics
+      --logs       Opens a browser to Application Insights Logs
+      --overview   Opens a browser to Application Insights Overview Dashboard
+```
+
+### Options inherited from parent commands
+
+```
+  -C, --cwd string           Set the current working directory
+      --debug                Enables debug/diagnostic logging
+  -e, --environment string   The name of the environment to use
+      --no-prompt            Accept default value instead of prompting, or fail if there is no default
+```
+
+### SEE ALSO
+
+* [Back to top](#azd)
+
+
+---
+
+## azd pipeline config
+
+Create and configure your deployment pipeline using GitHub Actions
+
+```
+azd pipeline config [flags]
+```
+
+### Options
+
+```
+  -h, --help                    help for config
+      --principal-name string   The name of the service principal to use to grant access to Azure resources as part of the pipeline
+      --principal-role string   Role to assign to the service principal (default "Contributor")
+      --remote-name string      The name of the git remote to configure the pipeline to run on (default "origin")
+```
+
+### Options inherited from parent commands
+
+```
+  -C, --cwd string           Set the current working directory
+      --debug                Enables debug/diagnostic logging
+  -e, --environment string   The name of the environment to use
+      --no-prompt            Accept default value instead of prompting, or fail if there is no default
+```
+
+### SEE ALSO
+
+* [Back to top](#azd)
+
+
+---
+
+## azd pipeline
+
+Manage GitHub Actions pipelines
+
+```
+azd pipeline [flags]
+```
+
+### Options
+
+```
+  -h, --help   help for pipeline
+```
+
+### Options inherited from parent commands
+
+```
+  -C, --cwd string           Set the current working directory
+      --debug                Enables debug/diagnostic logging
+  -e, --environment string   The name of the environment to use
+      --no-prompt            Accept default value instead of prompting, or fail if there is no default
+```
+
+### SEE ALSO
+
+* [azd pipeline config](#azd-pipeline-config)	 - Create and configure your deployment pipeline using GitHub Actions
+* [Back to top](#azd)
+
+---
+
+## azd provision
+
+Provisions the Azure resources for an application
+
+```
+azd provision [flags]
+```
+
+### Options
+
+```
+  -h, --help            help for provision
+      --no-progress     Suppress progress information
+  -o, --output string   Output format (supported formats are json, none) (default "none")
+```
+
+### Options inherited from parent commands
+
+```
+  -C, --cwd string           Set the current working directory
+      --debug                Enables debug/diagnostic logging
+  -e, --environment string   The name of the environment to use
+      --no-prompt            Accept default value instead of prompting, or fail if there is no default
+```
+
+### SEE ALSO
+
+* [Back to top](#azd)
+
+---
+
+## azd restore
+
+Restores application dependencies
+
+```
+azd restore [flags]
+```
+
+### Options
+
+```
+  -h, --help             help for restore
+      --service string   Restores dependencies for a specific service (when unset, dependencies for all services listed in azure.yaml are restored)
+```
+
+### Options inherited from parent commands
+
+```
+  -C, --cwd string           Set the current working directory
+      --debug                Enables debug/diagnostic logging
+  -e, --environment string   The name of the environment to use
+      --no-prompt            Accept default value instead of prompting, or fail if there is no default
+```
+
+### SEE ALSO
+
+* [Back to top](#azd)
+
+---
+
+## azd up
+
+Initialize application, provision Azure resources, and deploy your project with a single command
+
+```
+azd up [flags]
+```
+
+### Options
+
+```
+  -b, --branch string     The template branch to initialize from
+  -h, --help              help for up
+      --no-progress       Suppress progress information
+  -o, --output string     Output format (supported formats are json, none) (default "none")
+      --service string    Deploy a specific service (when unset, all services listed in azure.yaml are deployed)
+  -t, --template string   Template to use when initializing the application
+```
+
+### Options inherited from parent commands
+
+```
+  -C, --cwd string           Set the current working directory
+      --debug                Enables debug/diagnostic logging
+  -e, --environment string   The name of the environment to use
+      --no-prompt            Accept default value instead of prompting, or fail if there is no default
+```
+
+### SEE ALSO
+
+* [Back to top](#azd)
+
+---
+
+## azd version
+
+Print the version number of azd
+
+```
+azd version [flags]
+```
+
+### Options
+
+```
+  -h, --help   help for version
+```
+
+### Options inherited from parent commands
+
+```
+  -C, --cwd string           Set the current working directory
+      --debug                Enables debug/diagnostic logging
+  -e, --environment string   The name of the environment to use
+      --no-prompt            Accept default value instead of prompting, or fail if there is no default
+```
+
+### SEE ALSO
+
+* [Back to top](#azd)
