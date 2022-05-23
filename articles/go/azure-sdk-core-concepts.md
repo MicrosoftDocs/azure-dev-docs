@@ -57,8 +57,7 @@ if err != nil {
     // Handle error...
 }
 
-// Second argument is the polling interval if the endpoint doesn't send a Retry-After header.
-w, err = resp.PollUntilDone(context.Background(), 5*time.Second)
+w, err = resp.PollUntilDone(context.Background(), nil)
 
 if err != nil {
     // Handle error...
