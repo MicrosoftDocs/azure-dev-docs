@@ -2,7 +2,7 @@
 title: "What's new for JavaScript docs"
 description: "What's new in JavaScript docs in the Developer Center"
 ms.topic: how-to
-ms.date: 05/12/2022
+ms.date: 05/23/2022
 
 ---
 
@@ -17,6 +17,7 @@ Find new and updated content for JavaScript and TypeScript developers.
 |Name|Description|
 |---------------------------------------|--|
 |[Learn module](/learn/modules/javascript-deploy-expressjs-app-service-with-database/): Deploy Express.js web app with MongoDB database to Azure App Service|Learn how to create, configure and deploy an Express.js (Node.js) web app with a MongoDB database to Azure App Service. The [sample code snippets](https://github.com/Azure-Samples/AzureStorageSnippets/tree/master/blobs/howto/JavaScript/NodeJS-v12/dev-guide) are available in GitHub as runnable Node.js files.|
+|Azure SDK for JavaScript|* [Install packages](/azure/developer/javascript/sdk/azure-sdk-install?tabs=npm-install%2Cnpm-install-version%2Cnpm-list%2Cnpm-uninstall)<br>* [Authentication Overview](/azure/developer/javascript/sdk/authentication/overview)<br>* [Authentication in local development with service principals](/azure/developer/javascript/sdk/authentication/local-development-environment-service-principal?tabs=azure-portal)<br>* [Authentication in local development with developer account](/azure/developer/javascript/sdk/authentication/local-development-environment-developer-account?tabs=azure-portal%2Csign-in-vscode)<br>* [Authentication in Azure-hosted apps](/azure/developer/javascript/sdk/authentication/azure-hosted-apps?tabs=azure-portal%2Cazure-app-service)<br>* [Authentication in on-premises app](/azure/developer/javascript/sdk/authentication/on-premises-apps?tabs=azure-portal)|
 
 
 ## 2022 April
