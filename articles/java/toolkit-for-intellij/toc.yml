@@ -8,8 +8,6 @@
       href: setup-toolkit.md
     - name: Sign in to your Azure account
       href: sign-in-instructions.md
-  - name: Quickstarts
-    href: key-tasks.md
   - name: Manage Azure resources
     expanded: true
     items: 
@@ -20,27 +18,16 @@
          href: create-hello-world-web-app.md
        - name: Deploy web app to a Linux container
          href: hello-world-web-app-linux.md
-    - name: Azure Functions
-      expanded: true
-      items:
-       - name: Get Started - Functions
-         href: /azure/azure-functions/functions-create-maven-intellij?toc=/azure/developer/java/toolkit-for-intellij/toc.json&bc=/azure/developer/breadcrumb/toc.json
-    - name: Azure Storage
-      expanded: false
-      items:
-       - name: Manage Storage Accounts
-         href: managing-storage-accounts-using-azure-explorer.md
-    - name: Azure Virtual machines
-      expanded: false
-      items:
-       - name: Manage Virtual Machines
-         href: managing-virtual-machines-using-azure-explorer.md
-    - name: Azure Redis Cache
-      expanded: false
-      items:
-       - name: Manage Azure Redis Cache
-         href: managing-redis-caches-using-azure-explorer.md
+    - name: Azure Functions - Get Started
+      href: /azure/azure-functions/functions-create-maven-intellij?toc=/azure/developer/java/toolkit-for-intellij/toc.json&bc=/azure/developer/breadcrumb/toc.json
+    - name: Azure Storage - Manage Storage Accounts
+      href: managing-storage-accounts-using-azure-explorer.md
+    - name: Azure Virtual machines - Manage Virtual Machines
+      href: managing-virtual-machines-using-azure-explorer.md
+    - name: Azure Redis Cache - Manage Azure Redis Cache
+      href: managing-redis-caches-using-azure-explorer.md
   - name: Release notes
     href: https://github.com/Microsoft/azure-tools-for-java/releases
   - name: Marketplace
     href: https://plugins.jetbrains.com/plugin/8053
+    
