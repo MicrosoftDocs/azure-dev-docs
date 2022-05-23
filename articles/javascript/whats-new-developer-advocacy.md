@@ -40,8 +40,8 @@ This content is primarily from Developer Advocates as well as other members of t
 |[Nitya Narasimhan][Nitya]|#30DaysOfSWA|[Blog](https://www.azurestaticwebapps.dev/blog/introducing-swa)|
 |[Glaucia Lemos][Glaucia]|Building Applications with Astro Build & Azure Static Web Apps CLI!|[dev.to](https://dev.to/azure/building-applications-with-astro-build-azure-static-web-apps-cli-a20)|
 |[Glaucia Lemos][Glaucia]|Developing a Star Wars Intro w/ HTML, CSS, JavaScript and Node.Js|**Portuguese** - [dev.to](https://dev.to/azure/desenvolvendo-a-intro-do-star-wars-com-html-css-javascript-node-js-oae)|
-|[Christopher Harrison][Christopher]|Web Wednesday: WebAssembly for Browser Desktop Environment with Dustin Brett|[Microsoft Video](https://docs.microsoft.com/shows/web-wednesday/web-wednesday-webassembly-for-browser-desktop-environment-with-dustin-brett)|
-|[Christopher Harrison][Christopher]|Web Wednesday: 30 Days of Static Web Apps (#30DaysOfSWA) with Nitya Narasimhan|[Microsoft Video](https://docs.microsoft.com/shows/web-wednesday/web-wednesday-30-days-of-static-web-apps-30daysofswa-with-nitya-narasimhan)|
+|[Christopher Harrison][Christopher]|Web Wednesday: WebAssembly for Browser Desktop Environment with Dustin Brett|[Microsoft Video](/shows/web-wednesday/web-wednesday-webassembly-for-browser-desktop-environment-with-dustin-brett)|
+|[Christopher Harrison][Christopher]|Web Wednesday: 30 Days of Static Web Apps (#30DaysOfSWA) with Nitya Narasimhan|[Microsoft Video](/shows/web-wednesday/web-wednesday-30-days-of-static-web-apps-30daysofswa-with-nitya-narasimhan)|
 
 
 
