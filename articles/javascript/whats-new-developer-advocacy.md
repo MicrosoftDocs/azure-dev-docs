@@ -2,7 +2,7 @@
 title: "What's new with Cloud Developer Advocates"
 description: "What's new with JavaScript Cloud Developer Advocates (CDA)"
 ms.topic: how-to
-ms.date: 05/09/2022
+ms.date: 05/23/2022
 ---
 
 # What's new with JavaScript Developer Advocates
@@ -33,6 +33,18 @@ This content is primarily from Developer Advocates as well as other members of t
 |Client web apps|Comparing Azure Static Web Apps vs Azure WebApps vs Azure Blob Storage Static Sites|[Blog post](https://devblogs.microsoft.com/devops/comparing-azure-static-web-apps-vs-azure-webapps-vs-azure-blob-storage-static-sites/)|
 |Microsoft Graph|Get started with Microsoft Graph and JavaScript|[Samples](https://developer.microsoft.com/graph/get-started/javascript)|
 
+## 2022 May
+
+|Cloud Advocate|Contributions|Link|
+|--|--|--|
+|[Nitya Narasimhan][Nitya]|#30DaysOfSWA|[Blog](https://www.azurestaticwebapps.dev/blog/introducing-swa)|
+|[Glaucia Lemos][Glaucia]|Building Applications with Astro Build & Azure Static Web Apps CLI!|[dev.to](https://dev.to/azure/building-applications-with-astro-build-azure-static-web-apps-cli-a20)|
+|[Glaucia Lemos][Glaucia]|Developing a Star Wars Intro w/ HTML, CSS, JavaScript and Node.Js|**Portuguese** - [dev.to](https://dev.to/azure/desenvolvendo-a-intro-do-star-wars-com-html-css-javascript-node-js-oae)|
+|[Christopher Harrison][Christopher]|Web Wednesday: WebAssembly for Browser Desktop Environment with Dustin Brett|[Microsoft Video](/shows/web-wednesday/web-wednesday-webassembly-for-browser-desktop-environment-with-dustin-brett)|
+|[Christopher Harrison][Christopher]|Web Wednesday: 30 Days of Static Web Apps (#30DaysOfSWA) with Nitya Narasimhan|[Microsoft Video](/shows/web-wednesday/web-wednesday-30-days-of-static-web-apps-30daysofswa-with-nitya-narasimhan)|
+
+
+
 ## 2022 April
 
 |Cloud Advocate|Contributions|Link|
@@ -41,12 +53,12 @@ This content is primarily from Developer Advocates as well as other members of t
 |[Aysegul Yonet][Aysegul]|Web Wednesday|[YouTube](https://youtu.be/iInbtInEwS8)|
 |[Glaucia Lemos][Glaucia]|TypeScript - Zero to Hero - #53 - Demo: Access Modifier|**Portuguese** - [YouTube](https://youtu.be/1Nq2gE5Bzpo)|
 |[Glaucia Lemos][Glaucia]|TypeScript - Zero to Hero - #52 - Access Modifier|**Portuguese** - [YouTube](https://youtu.be/tKVsXBMYm1g)|
-|[Glaucia Lemos][Glaucia]|TypeScript - Zero to Hero - #51 - Demo - Intro to Classes|**Portuguese** - [YouTube]()|
-|[Glaucia Lemos][Glaucia]|TypeScript - Zero to Hero - #50 - Intro to Classes|**Portuguese** - [YouTube]()|
-|[Glaucia Lemos][Glaucia]|TypeScript - Zero to Hero - #49 - Demo: Rest parameters|**Portuguese** - [YouTube]()|
-|[Glaucia Lemos][Glaucia]|TypeScript - Zero to Hero - #48 - Rest parameters|**Portuguese** - [YouTube]()|
-|[Glaucia Lemos][Glaucia]|TypeScript - Zero to Hero - #47 - Demo: Default parameters|**Portuguese** - [YouTube]()|
-|[Glaucia Lemos][Glaucia]|TypeScript - Zero to Hero - #46 - Default parameters|**Portuguese** - [YouTube]()|
+|[Glaucia Lemos][Glaucia]|TypeScript - Zero to Hero - #51 - Demo - Intro to Classes|**Portuguese** - [YouTube](https://www.youtube.com/watch?v=tKVsXBMYm1g)|
+|[Glaucia Lemos][Glaucia]|TypeScript - Zero to Hero - #50 - Intro to Classes|**Portuguese** - [YouTube](https://www.youtube.com/watch?v=7W3PNpoCB40)|
+|[Glaucia Lemos][Glaucia]|TypeScript - Zero to Hero - #49 - Demo: Rest parameters|**Portuguese** - [YouTube](https://www.youtube.com/watch?v=hEe0rD4-LVM)|
+|[Glaucia Lemos][Glaucia]|TypeScript - Zero to Hero - #48 - Rest parameters|**Portuguese** - [YouTube](https://www.youtube.com/watch?v=GdxGQA8ppk0)|
+|[Glaucia Lemos][Glaucia]|TypeScript - Zero to Hero - #47 - Demo: Default parameters|**Portuguese** - [YouTube](https://www.youtube.com/watch?v=RFyhBnowMOY)|
+|[Glaucia Lemos][Glaucia]|TypeScript - Zero to Hero - #46 - Default parameters|**Portuguese** - [YouTube](https://www.youtube.com/watch?v=zbnwyJybtPg)|
 |[Glaucia Lemos][Glaucia]|Microsoft Learn Live Sessions - CI and CD with GitHub Actions|**Portuguese** - [YouTube](https://www.youtube.com/watch?v=Frs8X7byejo)|
 
 ## 2022 March
