@@ -16,9 +16,11 @@ The Azure Developer CLI (**azd**) is a developer-centric command-line tool for c
 * demonstrate opinionated best practices for Azure development
 * help developers understand core Azure development constructs
 
-You can use the same developer workflow for any Azure Developer CLI enabled templates. 
+You can use the same developer workflow for any [Azure Developer CLI templates](azure-dev-cli-templates.md). 
 
-The quickest way to get started is to explore the list of [Azure Developer CLI templates](azure-dev-cli-templates.md) and follow the README in the repository.
+The quickest way to get started is to:
+1. Pick an [Azure Developer CLI template](azure-dev-cli-templates.md) 
+2. Follow the README in the template and run `azd up`
 
 !["Azure Devloper CLI Developer Workflow"](media/azure-dev-cli-overview/azd-dev-workflow.png)
 
@@ -27,7 +29,7 @@ The quickest way to get started is to explore the list of [Azure Developer CLI t
 
 ## Try it out
 
-* [Set up your developer environment](get-started.md) and get started.
+* [Pick your developer environment and get started](get-started.md)
 * Learn how to [use VS Code with the Azure Dev CLI extension](how-to-use-vscode-extension-to-debug-locally.md)
 * Learn how to [enable your project to work with the Azure Developer CLI](how-to-devify-a-project.md) so you can use `azd` as part of your engineering workflows.
 
@@ -35,7 +37,7 @@ The quickest way to get started is to explore the list of [Azure Developer CLI t
 
 Watch this 2-min video to get a high level overview of `azd`:
 
-!["Introductory video"](media/azure-dev-cli-overview/video.png) [**Click to watch**](https://msit.microsoftstream.com/video/9e850840-98dc-b654-ecea-f1ecd7ca302a?referrer=https:%2F%2Fstatics.teams.cdn.office.net%2F)
+<a href="https://msit.microsoftstream.com/video/9e850840-98dc-b654-ecea-f1ecd7ca302a?referrer=https:%2F%2Fstatics.teams.cdn.office.net%2F"><img src="media/azure-dev-cli-overview/video.png" alt="Click to watch video"></a>
 
 ## Development environment choices
 

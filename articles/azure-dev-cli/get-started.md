@@ -15,7 +15,7 @@ ms.prod: azure
 We'll use the [Todo App with Node.js and Azure Cosmo DB API for MongoDB](https://github.com/azure-samples/todo-nodejs-mongo) for this walkthrough. The template contains a complete ToDo application. You will get everything you need to build, deploy, and monitor an Azure solution. For more information including architecture diagram and the Azure resources you'll deploy, see the [README](https://github.com/azure-samples/todo-nodejs-mongo).
 
 > [!NOTE] 
-> You can use any of the [Azure Developer CLI templates](azure-dev-cli-templates.md) for this walkthrough. The only component unique to a template is the prerequisites. 
+> You can use any of the [Azure Developer CLI templates](azure-dev-cli-templates.md) for this walkthrough. The Todo application is also available in [Python](https://github.com/azure-samples/todo-python-mongo) and [C#](https://github.com/Azure-Samples/todo-csharp-cosmos-sql). The developer workflow (azd commands you run) are the same. The only component unique to a template is the prerequisites. 
 
 ## Azure Subscription
 
@@ -23,7 +23,7 @@ You will create infrastructure and deploy code to Azure. If you don't have an Az
 
 ## Set up
 
-To run any sample template, first, decide where you want your development environment to be hosted. For pros and cons, refer to [What is Azure Developer CLI]( azure-dev-cli-overview#development-environment-choices).
+To run any sample template, first, decide where you want your development environment to be hosted. For pros and cons, refer to the [debelopment environment choices]( azure-dev-cli-overview#development-environment-choices).
 
 Once you've decided which development environment is right for you, select the corresponding tab in the next section. 
 
