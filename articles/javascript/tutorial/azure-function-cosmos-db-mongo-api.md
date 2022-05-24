@@ -1,24 +1,15 @@
 ---
-title: Store data in MongoDB with Azure Function
-description: In this tutorial, create a new serverless app in Visual Studio Code with extensions and TypeScript, then deploy the application to the Azure cloud for hosting with a public HTTP endpoint.
+title: "JS + VSCode + Serverless + MongoDB: Store data in CosmosDB"
+description: "Tutorial: Create Azure Function in Visual Studio Code to store MongoDB data with Mongoose API. Deploy the application to the Azure cloud for hosting with a public HTTP endpoint."
 ms.topic: how-to
-ms.date: 01/25/2022
+ms.date: 05/23/2022
 ms.custom: devx-track-js, contperf-fy21q2
 adobe-target: true
 ---
 
-# Store data in MongoDB with Azure Function
+# JavaScript: Store data in MongoDB with Azure Function
 
-In this tutorial, create a secure API in Visual Studio Code, then deploy the application to the Azure cloud for hosting with a public HTTP endpoint. The API integrates with a Cosmos DB database using the MongoDB API. The MongoDB API is accessed from the [mongoose](https://www.npmjs.com/package/mongoose) npm package.
-
-The MongoDB database functionality includes:
-
-| Action | URL |
-|--|--|
-|Add item|POST `/api/category`|
-|Delete item by ID|DELETE `api/category?id=123`|
-|Get item by ID|GET `api/category?id=123`|
-|Get all items|GET `api/category`|
+Create an Azure Function API to store data with Mongoose API into Cosmos DB, then deploy the Function application to the Azure cloud for hosting with a public HTTP endpoint. 
 
 Full source code for this Azure Function app:
 
