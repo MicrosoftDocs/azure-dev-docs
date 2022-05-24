@@ -55,7 +55,6 @@ In this article, you learn how to create a resource group with the Azure SDK for
     	"context"
     	"log"
     	"os"
-    	"time"
 
     	"github.com/Azure/azure-sdk-for-go/sdk/azcore"
     	"github.com/Azure/azure-sdk-for-go/sdk/azcore/to"
@@ -68,7 +67,6 @@ In this article, you learn how to create a resource group with the Azure SDK for
     	subscriptionId    = os.Getenv("AZURE_SUBSCRIPTION_ID")
     	location          = "eastus"
     	resourceGroupName = "myResourceGroup" // !! IMPORTANT: Change this to a unique name in your subscription.
-        interval          = 5 * time.Second
     	ctx               = context.Background()
     )
 
@@ -209,7 +207,7 @@ Get-AzResourceGroup -Name <resource_group>
         if err != nil {
             return err
         }
-        if _, err := poller.PollUntilDone(ctx, interval); err != nil {
+        if _, err := poller.PollUntilDone(ctx, nil); err != nil {
             return err
         }
         return nil

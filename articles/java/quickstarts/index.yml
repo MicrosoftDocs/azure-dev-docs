@@ -33,7 +33,7 @@ landingContent:
           url: /azure/azure-functions/functions-create-maven-intellij
         - text: Deploy using Visual Studio Code
           url: /azure/azure-functions/functions-create-first-function-vs-code?pivots=programming-language-java
-  - title: Azure Spring Cloud
+  - title: Azure Spring Apps
     linkLists:
       - linkListType: quickstart
         links:

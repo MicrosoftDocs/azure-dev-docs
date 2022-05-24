@@ -242,11 +242,11 @@
 | @autorest/codemodel | npm [4.18.2](https://www.npmjs.com/package/@autorest/codemodel/v/4.18.2) |  |  |
 | @autorest/common | npm [1.5.2](https://www.npmjs.com/package/@autorest/common/v/1.5.2) |  |  |
 | @autorest/configuration | npm [1.9.2](https://www.npmjs.com/package/@autorest/configuration/v/1.9.2) |  |  |
-| @autorest/csharp | npm [3.0.0-beta.20220521.1](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20220521.1) |  |  |
+| @autorest/csharp | npm [3.0.0-beta.20220523.1](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20220523.1) |  |  |
 | @autorest/csharp-v3 | npm [3.0.0-beta.20201217.1](https://www.npmjs.com/package/@autorest/csharp-v3/v/3.0.0-beta.20201217.1) |  |  |
 | @autorest/extension-base | npm [3.4.4](https://www.npmjs.com/package/@autorest/extension-base/v/3.4.4) |  |  |
 | @autorest/fixer | npm [1.1.0](https://www.npmjs.com/package/@autorest/fixer/v/1.1.0) |  |  |
-| @autorest/gotest | npm [4.0.0](https://www.npmjs.com/package/@autorest/gotest/v/4.0.0) |  |  |
+| @autorest/gotest | npm [4.0.1](https://www.npmjs.com/package/@autorest/gotest/v/4.0.1) |  |  |
 | @autorest/schemas | npm [1.3.4](https://www.npmjs.com/package/@autorest/schemas/v/1.3.4) |  |  |
 | @autorest/system-requirements | npm [1.0.0](https://www.npmjs.com/package/@autorest/system-requirements/v/1.0.0) |  |  |
 | @autorest/testmodeler | npm [2.2.5](https://www.npmjs.com/package/@autorest/testmodeler/v/2.2.5) |  |  |
@@ -254,6 +254,7 @@
 | @autorest/typescript | npm [6.0.0-beta.19](https://www.npmjs.com/package/@autorest/typescript/v/6.0.0-beta.19) |  |  |
 | @azure/arm-template | npm [1.0.0-beta.2](https://www.npmjs.com/package/@azure/arm-template/v/1.0.0-beta.2) |  |  |
 | @azure/communication-administration | npm [1.0.0-beta.4](https://www.npmjs.com/package/@azure/communication-administration/v/1.0.0-beta.4) |  |  |
+| @azure/communication-email | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure/communication-email/v/1.0.0-beta.1) |  |  |
 | @azure/core-crypto | npm [1.0.0-alpha.20210122.1](https://www.npmjs.com/package/@azure/core-crypto/v/1.0.0-alpha.20210122.1) |  |  |
 | @azure/fabric-react-jsonschema-form | npm [0.1.5](https://www.npmjs.com/package/@azure/fabric-react-jsonschema-form/v/0.1.5) |  |  |
 | @azure/iot-modelsrepository | npm [1.0.0-beta.2](https://www.npmjs.com/package/@azure/iot-modelsrepository/v/1.0.0-beta.2) |  |  |

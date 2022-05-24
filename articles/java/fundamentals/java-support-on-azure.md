@@ -20,7 +20,7 @@ For the following services the Java runtime is managed, or provided by default, 
 * Azure App Service on Windows
 * Azure App Service on Linux
 * Azure Functions
-* Azure Spring Cloud
+* Azure Spring Apps
 * Azure Service Fabric
 * Azure HDInsight
 * Azure Cognitive Search

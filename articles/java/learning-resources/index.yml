@@ -34,7 +34,7 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Azure Spring Cloud workshop
+          - text: Azure Spring Apps workshop
             url: https://github.com/microsoft/azure-spring-cloud-training
           - text: Migrate Java EE app to AKS
             url: https://github.com/microsoft/migrate-java-ee-app-to-azure-training
@@ -62,7 +62,7 @@ landingContent:
             url: https://github.com/Azure-Samples/Java-application-petstore-ee7
           - text: Java on AKS
             url: https://github.com/Azure-Samples/java-on-aks
-          - text: End-to-end with Azure Spring Cloud 
+          - text: End-to-end with Azure Spring Apps 
             url: https://github.com/Azure-Samples/azure-spring-cloud
           - text: More Samples 
             url: samples.md

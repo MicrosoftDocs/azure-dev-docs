@@ -1,13 +1,15 @@
 ---
-title: More resources
-description: Java - more resources
+title: More resources for Azure developers using Java
+description: Learn about information and technologies useful for Java in Azure development, such as the Spring Framework and Apache Tomcat.
 ms.author: sreea
-ms.topic: article
-ms.date: 03/19/2021
-ms.custom: devx-track-java
+ms.topic: overview
+ms.date: 05/20/2022
+ms.custom:
+- devx-track-java
+- kr2b-contr-experiment
 ---
 
-# More resources
+# More resources for Azure developers using Java
 
 The following links provide information about technologies related to Java.
 
@@ -22,3 +24,7 @@ The following links provide information about technologies related to Java.
 - [IBM WebSphere](https://www.ibm.com/support/knowledgecenter/SSEQTP/mapfiles/product_welcome_was.html)
 - [Quarkus](https://quarkus.io/)
 - [Azure OSS Developer Support](https://azureossd.github.io/tags/)
+
+## Next steps
+
+- [Java on Azure - Microsoft Learn](/learn/paths/java-on-azure/)
