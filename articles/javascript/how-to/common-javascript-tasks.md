@@ -2,7 +2,7 @@
 title: Top Azure tasks for JavaScript developers
 description: Find an example of your current tasks.
 ms.topic: how-to
-ms.date: 11/03/2021
+ms.date: 05/24/2022
 ms.custom: devx-track-js
 ---
 
@@ -149,7 +149,7 @@ Provide authentication.
 
 |Task|using|
 |--|--|
-|Create resource|[Visual Studio Code extension](./with-visual-studio-code/create-azure-database.md#create-a-postgresql-database)<br>[Azure CLI](./with-database/use-postgresql-db.md#create-an-azure-database-for-postgresql-resource)<br>[Azure portal](https://ms.portal.azure.com/#create/Microsoft.PostgreSQLServer)<br>[@azure/arm-postgresql](https://www.npmjs.com/package/@azure/arm-postgresql)|
+|Create resource|[Visual Studio Code extension](./with-visual-studio-code/create-azure-database.md#create-a-postgresql-server-in-azure-explorer)<br>[Azure CLI](./with-database/use-postgresql-db.md#create-an-azure-database-for-postgresql-resource)<br>[Azure portal](https://ms.portal.azure.com/#create/Microsoft.PostgreSQLServer)<br>[@azure/arm-postgresql](https://www.npmjs.com/package/@azure/arm-postgresql)|
 |Get connection string|[Azure CLI](./with-database/use-postgresql-db.md#get-the-postgresql-connection-string-with-azure-cli)|
 |View DB|[Visual Studio Code extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb)<br>[Azure Cloud Shell's psql](https://shell.azure.com/)|
 |Use pg API for DB|[JavaScript](./with-database/use-postgresql-db.md#use-pg-sdk-to-connect-to-postgresql-on-azure)

@@ -1,35 +1,64 @@
 ---
 ms.custom: devx-track-js
 ms.topic: include
-ms.date: 02/08/2021
+ms.date: 05/24/2022
 ---
 
 
-## Create Azure Database with Visual Studio Code extension
+## Create Azure Database with Visual Studio Code
 
 Use this procedure for the following types of resources:
 
-* Azure Cosmos DB for MongoDB API
-* SQL
-* Azure Table
-* Gremlin
-* [PostgreSQL](#create-a-postgresql-database) 
+* PostgreSQL
+* Cosmos DB databases with support for 
+    * MongoDB
+    * Graph (Gremlin)
+    * Core (_SQL_) (previously known as DocumentDB)
 
-### Create a PostgreSQL database
+## Create a PostgreSQL database in Azure explorer
 
 1. Install the [Azure Databases](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb) extension for Visual Studio Code.
-1. In Visual Studio Code, select **Azure** from the [activity bar](https://code.visualstudio.com/docs/getstarted/userinterface), then select **Databases** from the [sidebar](https://code.visualstudio.com/docs/getstarted/userinterface).
-1. Right-click the subscription name, then select **Create server**.
+1. In Visual Studio Code, select **Azure** from the [activity bar](https://code.visualstudio.com/docs/getstarted/userinterface), then select the subscription where you want to create the database resource.
+1. Right-click **Cosmos DB** and select **Create server**. 
+
+    :::image type="content" source="../media/visual-studio-code-database/create-cosmos-db-server.png" alt-text="Partial screenshot showing the Azure explorer with the Cosmos D B node selected with a popup menu showing the `Create Server` option.":::
+
+## Create a MongoDB server
+
+1. Select **Azure Cosmos DB for MongoDB API** from the list.
+
+    :::image type="content" source="../media/howto-visual-studio-code/create-azure-database-server.png" alt-text="Partial screenshot of Visual Studio Code's Azure explorer, with the `Create Server` button highlighted.":::
+
+1. Use the following table to answer the questions to create the resource.
+
+    |Prompt|Answer|
+    |--|--|
+    |Account name|Provide a unique name for the resource.|
+    |Capacity model|Select **Provisioned Throughput** for constant usage. Select **Serverless** for less-frequent usage.|
+    |Resource group|Select an existing resource group or create a new resource group. This is a logical unit of all resources associated with a certain product, feature, or website.|
+    |Location|Select a location close to you.|
+
+1. The Azure activity log displays the status. 
+    
+
+## Create a PostgreSQL server in Azure explorer
+
 1. Select **PostgreSQL** from the list. 
 
-    :::image type="content" source="../media/howto-visual-studio-code/create-azure-database-server.png" alt-text="Select `PostgreSQL` from the list.":::
+    :::image type="content" source="../media/howto-visual-studio-code/create-azure-database-server.png" alt-text="Partial screenshot of Visual Studio Code's Azure explorer with the first step of the creation process for a Cosmos D B resource shown.":::
 
-1. Enter a name for your PostgreSQL server. This name is used as part of the connection string. 
-1. Enter an Administrator user name. 
-1. Enter an Administrator password, then enter it a second time in the next screen to confirm. 
-1. Select your current IP address to add as the firewall rule. 
-1. Select a resource group name or create a new one. 
-1. Select an Azure region for your server. 
-1. The notification window displays the status. 
+1. Use the following table to answer the questions to create the resource.
 
-    :::image type="content" source="../media/howto-visual-studio-code/create-azure-database-server-status.png" alt-text="The notification window displays the status.":::
+    |Prompt|Answer|
+    |--|--|
+    |PostgreSQL server|Enter a name for your PostgreSQL server. This name is used as part of the connection string.|
+    |SKU|Select the pricing and options SKU.|
+    |Administrator user name|Enter an Administrator user name.|
+    |Administrator password|Enter an Administrator password, then enter it a second time in the next screen to confirm.|
+    |Resource group|Select an existing resource group or create a new resource group. This is a logical unit of all resources associated with a certain product, feature, or website.|
+    |Location|Select a location close to you.|
+    |||
+    
+1. The Azure activity log displays the status. 
+
+    :::image type="content" source="../media/visual-studio-code-database/azure-activity-log.png" alt-text="Partial screenshot showing the Azure activity log while resource creation is in progress.":::
