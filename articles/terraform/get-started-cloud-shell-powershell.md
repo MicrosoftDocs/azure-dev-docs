@@ -1,15 +1,15 @@
 ---
-title: Get Started - Configure Terraform in Azure Cloud Shell with Azure PowerShell
+title: Configure Terraform in Azure Cloud Shell with Azure PowerShell
 description: Learn how to configure Terraform in Azure Cloud Shell with Azure PowerShell
 keywords: terraform azure cli devops install configure portal interactive login rbac service principal automated script
-ms.topic: quickstart
+ms.topic: how-to
 ms.date: 08/07/2021
 ms.custom: devx-track-terraform, mode-api
 adobe-target: true
 # Customer intent: As someone new to Terraform and Azure, I want configure Terraform in Azure Cloud Shell using Azure PowerShell.
 ---
 
-# Get Started: Configure Terraform in Azure Cloud Shell with Azure PowerShell
+# Configure Terraform in Azure Cloud Shell with Azure PowerShell
  
 [!INCLUDE [terraform-intro.md](includes/terraform-intro.md)]
 
