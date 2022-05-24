@@ -41,14 +41,8 @@ landingContent:
     linkLists:
       - linkListType: get-started
         links:
-          - text: Configure Terraform in Cloud Shell with Bash
-            url: get-started-cloud-shell-bash.md
-          - text: Configure Terraform in Cloud Shell with Azure PowerShell
-            url: get-started-cloud-shell-powershell.md
-          - text: Install Terraform on Windows with Bash
-            url: get-started-windows-bash.md
-          - text: Install Terraform on Windows with Azure PowerShell
-            url: get-started-windows-powershell.md
+          - text: Install and configure Terraform
+            url: quickstart-configure.md
           - text: Install the Azure Terraform Visual Studio Code extension
             url: configure-vs-code-extension-for-terraform.md
           - text: Authenticate Terraform to Azure
