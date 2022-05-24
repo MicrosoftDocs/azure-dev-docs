@@ -8,6 +8,8 @@ ms.custom: devx-track-terraform
 
 # Create a hub virtual network in Azure by using Terraform
 
+[!INCLUDE [Terraform abstract](./includes/abstract.md)]
+
 The hub virtual network acts as the central point of connectivity to the on-premises network. The virtual network hosts shared services consumed by workloads hosted in the spoke virtual networks. For demo purposes, no shared services are implemented in this article.
 
 In this article, you learn how to:

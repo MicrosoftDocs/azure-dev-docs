@@ -11,7 +11,7 @@ adobe-target: true
 
 # Quickstart: Install and Configure Terraform
 
-[!INCLUDE [terraform-intro.md](./includes/terraform-intro.md)]
+[!INCLUDE [Terraform abstract](./includes/abstract.md)]
 
 - [Configure in Azure Cloud Shell with Bash](#configure-in-azure-cloud-shell-with-bash)
 - [Configure in Azure Cloud Shell with PowerShell](#configure-in-azure-cloud-shell-with-powershell)

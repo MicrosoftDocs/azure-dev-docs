@@ -8,6 +8,8 @@ ms.custom: devx-track-terraform
 
 # Implement integration tests for Terraform projects in Azure
 
+[!INCLUDE [Terraform abstract](./includes/abstract.md)]
+
 Integration tests validate that a newly introduced code change doesn't break existing code. In DevOps, continuous integration (CI) refers to a process that builds the entire system whenever the code base is changed - such as someone wanting to merge a PR into a Git repo. The following list contains common examples of integration tests:
 
 - Static code analysis tools such as lint and format.

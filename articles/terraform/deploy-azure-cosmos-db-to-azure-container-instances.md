@@ -8,6 +8,8 @@ ms.custom: devx-track-terraform
 
 # Deploy an Azure Cosmos DB to Azure Container Instances
 
+[!INCLUDE [Terraform abstract](./includes/abstract.md)]
+
 In this article, you learn how to use Terraform to deploy an Azure Cosmos DB to Azure Container Instances.
 
 In this article, you learn how to:
