@@ -20,7 +20,7 @@ The following samples demonstrate end-to-end Java on Azure experiences.
 - [Scale stateful Java web app on Azure](https://github.com/Azure-Samples/scaling-stateful-java-web-app-on-azure)
 - [Deploy web app using GitHub actions](https://github.com/Azure-Samples/Java-application-petstore-ee7)
 - [Java on AKS](https://github.com/Azure-Samples/java-on-aks)
-- [Azure Spring Cloud ](https://github.com/Azure-Samples/azure-spring-cloud)
+- [Azure Spring Apps ](https://github.com/Azure-Samples/azure-spring-cloud)
 
 ## Identity management
 
@@ -45,15 +45,15 @@ The following sample focuses on hosting in Azure App Service.
 
 - [Manage Web app with Domain SSL](https://github.com/Azure-Samples/app-service-java-manage-web-apps-with-custom-domains)
 
-## Azure Spring Cloud
+## Azure Spring Apps
 
-The following samples demonstrate Azure Spring Cloud scenarios.
+The following samples demonstrate Azure Spring Apps scenarios.
 
-- [Deploy Spring Boot apps using Azure Spring Cloud and MySQL](https://github.com/Azure-Samples/spring-petclinic-microservices)
+- [Deploy Spring Boot apps using Azure Spring Apps and MySQL](https://github.com/Azure-Samples/spring-petclinic-microservices)
 - [Secure communications with end-to-end TLS/SSL](https://github.com/Azure-Samples/spring-boot-secure-communications-using-end-to-end-tls-ssl)
 - [Spring Boot app with Redis Enterprise](https://github.com/Azure-Samples/brewdis)
 - [Spring Microservices and Cloud Gateway](https://github.com/Azure-Samples/spring-cloud-gateway)
-- [More Azure Spring Cloud samples](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples)
+- [More Azure Spring Apps samples](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples)
 
 ## Azure App Service JBoss EAP
 

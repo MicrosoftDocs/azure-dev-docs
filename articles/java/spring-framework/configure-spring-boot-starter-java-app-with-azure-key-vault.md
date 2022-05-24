@@ -1,6 +1,6 @@
 ---
 title: "Tutorial: Read a secret from Azure Key Vault in a Spring Boot application"
-description: In this tutorial, you create a Spring Boot app that reads a value from Azure Key Vault, and you deploy the app to Azure App Service and Azure Spring Cloud.
+description: In this tutorial, you create a Spring Boot app that reads a value from Azure Key Vault, and you deploy the app to Azure App Service and Azure Spring Apps.
 ms.date: 03/30/2022
 ms.service: key-vault
 ms.topic: tutorial
@@ -10,7 +10,7 @@ ms.author: edburns
 
 # Tutorial: Read a secret from Azure Key Vault in a Spring Boot application
 
-This tutorial shows you how to create a Spring Boot app that reads a value from Azure Key Vault. After creating the app, you'll deploy it to Azure App Service and Azure Spring Cloud.
+This tutorial shows you how to create a Spring Boot app that reads a value from Azure Key Vault. After creating the app, you'll deploy it to Azure App Service and Azure Spring Apps.
 
 Spring Boot applications externalize sensitive information such as usernames and passwords. Externalizing sensitive information enables better maintainability, testability, and security. Storing secrets outside of the code is better than hard coding the information, or inlining it at build time.
 
@@ -22,7 +22,7 @@ In this tutorial, you learn how to:
 > * Add Key Vault integration to the app
 > * Deploy to Azure App Service
 > * Redeploy to Azure App Service with managed identities for Azure resources
-> * Deploy to Azure Spring Cloud
+> * Deploy to Azure Spring Apps
 
 ## Prerequisites
 
@@ -626,20 +626,20 @@ Use the following steps to create the managed identity for the Azure App Service
 
 Instead of returning `defaultValue`, the app gets `connectionString` from the Key Vault.
 
-## Deploy to Azure Spring Cloud
+## Deploy to Azure Spring Apps
 
-In this section, you'll deploy the app to Azure Spring Cloud.
+In this section, you'll deploy the app to Azure Spring Apps.
 
-Azure Spring Cloud is a fully managed platform for deploying and running your Spring Boot applications in Azure. For an overview of Azure Spring Cloud, see [What is Azure Spring Cloud?](/azure/spring-cloud/overview).
+Azure Spring Apps is a fully managed platform for deploying and running your Spring Boot applications in Azure. For an overview of Azure Spring Apps, see [What is Azure Spring Apps?](/azure/spring-cloud/overview).
 
-This section will use the Spring Boot app and Key Vault that you created previously with a new instance of Azure Spring Cloud.
+This section will use the Spring Boot app and Key Vault that you created previously with a new instance of Azure Spring Apps.
 
-The following steps will show how to create an Azure Spring Cloud resource and deploy the app to it. Make sure you've installed the Azure CLI extension for Azure Spring Cloud as shown in the [Prerequisites](#prerequisites).
+The following steps will show how to create an Azure Spring Apps resource and deploy the app to it. Make sure you've installed the Azure CLI extension for Azure Spring Apps as shown in the [Prerequisites](#prerequisites).
 
-1. Decide on a name for the service instance. To use Azure Spring Cloud within your Azure subscription, you must create an Azure resource of type Azure Spring Cloud. As with all other Azure resources, the service instance must stay within a resource group. Use the resource group you already created to hold the service instance, and choose a name for your Azure Spring Cloud instance. Create the service instance with the following command.
+1. Decide on a name for the service instance. To use Azure Spring Apps within your Azure subscription, you must create an Azure resource of type Azure Spring Apps. As with all other Azure resources, the service instance must stay within a resource group. Use the resource group you already created to hold the service instance, and choose a name for your Azure Spring Apps instance. Create the service instance with the following command.
 
    ```azurecli
-   az spring-cloud create --resource-group <your resource group name> --name <your Azure Spring Cloud instance name>
+   az spring-cloud create --resource-group <your resource group name> --name <your Azure Spring Apps instance name>
    ```
 
    This command takes several minutes to complete.
@@ -649,7 +649,7 @@ The following steps will show how to create an Azure Spring Cloud resource and d
    ```azurecli
    az spring-cloud app create \
        --resource-group <your resource group name> \
-       --service <your Azure Spring Cloud instance name> \
+       --service <your Azure Spring Apps instance name> \
        --name <your app name> \
        --assign-identity \
        --is-public true \
@@ -667,7 +667,7 @@ The following steps will show how to create an Azure Spring Cloud resource and d
    | is-public | Assign a public DNS domain name to the service. |
    | runtime-version | The Java runtime version. The value must match the value chosen in Spring Initializr above. |
 
-   To understand the difference between *service* and *app*, see [App and deployment in Azure Spring Cloud](/azure/spring-cloud/concept-understand-app-and-deployment).
+   To understand the difference between *service* and *app*, see [App and deployment in Azure Spring Apps](/azure/spring-cloud/concept-understand-app-and-deployment).
 
 1. Use the following command to get the managed identity for the Azure resource and use it to configure the existing Key Vault to allow access from this App.
 
@@ -686,14 +686,14 @@ The following steps will show how to create an Azure Spring Cloud resource and d
        --resource-group <your resource group name> \
        --name <your Spring Cloud app name> \
        --jar-path target/keyvault-0.0.1-SNAPSHOT.jar \
-       --service <your Azure Spring Cloud instance name>
+       --service <your Azure Spring Apps instance name>
    ```
 
-   This command creates a *Deployment* within the app, within the service. For more details on the concepts of service instances, apps, and Deployments see [App and deployment in Azure Spring Cloud](/azure/spring-cloud/concept-understand-app-and-deployment).
+   This command creates a *Deployment* within the app, within the service. For more details on the concepts of service instances, apps, and Deployments see [App and deployment in Azure Spring Apps](/azure/spring-cloud/concept-understand-app-and-deployment).
 
    If the deployment isn't successful, configure the logs for troubleshooting as described in [Configure application logs](https://aka.ms/azure-spring-cloud-configure-logs). The logs will likely have useful information to diagnose and resolve the problem.
 
-1. When the app has been successfully deployed, you can use `curl` to verify the Key Vault integration is working. Because you specified `--is-public`, the default URL for your service is `https://<your Azure Spring Cloud instance name>-<your app name>.azuremicroservices.io/`. The following command shows an example where the service instance name is `contososvc` and the app name is `contosoascsapp`. The URL appends the value of the `@GetMapping` annotation.
+1. When the app has been successfully deployed, you can use `curl` to verify the Key Vault integration is working. Because you specified `--is-public`, the default URL for your service is `https://<your Azure Spring Apps instance name>-<your app name>.azuremicroservices.io/`. The following command shows an example where the service instance name is `contososvc` and the app name is `contosoascsapp`. The URL appends the value of the `@GetMapping` annotation.
 
    ```bash
    curl https://contososvc-contosoascsapp.azuremicroservices.io/get
@@ -703,7 +703,7 @@ The following steps will show how to create an Azure Spring Cloud resource and d
 
 ## Summary
 
-In this tutorial, you created a new Java web application using the Spring Initializr. You created an Azure Key Vault to store sensitive information, and then configured your application to retrieve information from your Key Vault. After testing it locally, you deployed the app to Azure App Service and Azure Spring Cloud.
+In this tutorial, you created a new Java web application using the Spring Initializr. You created an Azure Key Vault to store sensitive information, and then configured your application to retrieve information from your Key Vault. After testing it locally, you deployed the app to Azure App Service and Azure Spring Apps.
 
 ## Clean up resources
 

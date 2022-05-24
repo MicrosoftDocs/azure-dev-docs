@@ -82,7 +82,7 @@
             href: /azure/azure-app-configuration/use-feature-flags-spring-boot?toc=/azure/developer/java/spring-framework/toc.json&bc=/azure/developer/breadcrumb/toc.json
   - name: Tutorials
     items:
-      - name: Deploy to App Service and Azure Spring Cloud
+      - name: Deploy to App Service and Azure Spring Apps
         href: https://spring.io/guides/gs/spring-boot-for-azure/
       - name: Deploy to Kubernetes
         href: deploy-spring-boot-java-app-on-kubernetes.md

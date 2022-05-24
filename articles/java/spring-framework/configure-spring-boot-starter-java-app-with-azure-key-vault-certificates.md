@@ -1,6 +1,6 @@
 ---
 title: "Tutorial: Secure Spring Boot apps using Azure Key Vault certificates"
-description: In this tutorial, you secure your Spring Boot (including Azure Spring Cloud) apps with TLS/SSL certificates using Azure Key Vault and managed identities for Azure resources.
+description: In this tutorial, you secure your Spring Boot (including Azure Spring Apps) apps with TLS/SSL certificates using Azure Key Vault and managed identities for Azure resources.
 ms.date: 03/30/2022
 ms.service: key-vault
 ms.topic: tutorial
@@ -10,7 +10,7 @@ ms.author: edburns
 
 # Tutorial: Secure Spring Boot apps using Azure Key Vault certificates
 
-This tutorial shows you how to secure your Spring Boot (including Azure Spring Cloud) apps with TLS/SSL certificates using Azure Key Vault and managed identities for Azure resources.
+This tutorial shows you how to secure your Spring Boot (including Azure Spring Apps) apps with TLS/SSL certificates using Azure Key Vault and managed identities for Azure resources.
 
 Production-grade Spring Boot applications, whether in the cloud or on-premises, require end-to-end encryption for network traffic using standard TLS protocols. Most TLS/SSL certificates you come across are discoverable from a public root certificate authority (CA). Sometimes, however, this discovery isn't possible. When certificates aren't discoverable, the app must have some way to load such certificates, present them to inbound network connections, and accept them from outbound network connections.
 

@@ -44,7 +44,7 @@ landingContent:
             url: https://github.com/microsoft/azure-maven-plugins/blob/develop/azure-webapp-maven-plugin/README.md
           - text: Azure Functions
             url: https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Functions
-          - text: Azure Spring Cloud
+          - text: Azure Spring Apps
             url: https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Spring-Cloud
   - title: Logging
     linkLists:
