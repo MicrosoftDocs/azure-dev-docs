@@ -18,7 +18,7 @@ Use this procedure for the following types of resources:
 ## Create a PostgreSQL database in Azure explorer
 
 1. Install the [Azure Databases](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb) extension for Visual Studio Code.
-1. In Visual Studio Code, select **Azure** from the [activity bar](https://code.visualstudio.com/docs/getstarted/userinterface), then select the subscription where you want to crete the database resource.
+1. In Visual Studio Code, select **Azure** from the [activity bar](https://code.visualstudio.com/docs/getstarted/userinterface), then select the subscription where you want to create the database resource.
 1. Right-click **Cosmos DB** and select **Create server**. 
 
     :::image type="content" source="../media/visual-studio-code-database/create-cosmos-db-server.png" alt-text="Partial screenshot showing the Azure explorer with the Cosmos D B node selected with a popup menu showing the `Create Server` option.":::
@@ -27,7 +27,7 @@ Use this procedure for the following types of resources:
 
 1. Select **Azure Cosmos DB for MongoDB API** from the list.
 
-    :::image type="content" source="../media/howto-visual-studio-code/create-azure-database-server.png" alt-text="Select `PostgreSQL` from the list.":::
+    :::image type="content" source="../media/howto-visual-studio-code/create-azure-database-server.png" alt-text="Partial screenshot of Visual Studio Code's Azure explorer, with the `Create Server` button highlighted.":::
 
 1. Use the following table to answer the questions to create the resource.
 
@@ -45,7 +45,7 @@ Use this procedure for the following types of resources:
 
 1. Select **PostgreSQL** from the list. 
 
-    :::image type="content" source="../media/howto-visual-studio-code/create-azure-database-server.png" alt-text="Select `PostgreSQL` from the list.":::
+    :::image type="content" source="../media/howto-visual-studio-code/create-azure-database-server.png" alt-text="Partial screenshot of Visual Studio Code's Azure explorer with the first step of the creation process for a Cosmos D B resource shown.":::
 
 1. Use the following table to answer the questions to create the resource.
 
