@@ -2,8 +2,8 @@
 groups:
 # Owner: karler
 - id: spring-cloud-tier-selection
-  title: Azure Spring Cloud tier
-  prompt: Select an Azure Spring Cloud tier
+  title: Azure Spring Apps tier
+  prompt: Select an Azure Spring Apps tier
   pivots:
   - id: sc-standard-tier
     title: Standard tier

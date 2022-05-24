@@ -91,7 +91,7 @@ For any GC other than SerialGC, we recommend two or more vCPU cores. We don't re
 
 ### Pick a starting point
 
-We recommend starting with two replicas or instances in container orchestration environments like Kubernetes, OpenShift, Azure Spring Cloud, Azure Container Apps, and Azure App Service. The following table summarizes the recommended starting points for the containerization of your new Java application.
+We recommend starting with two replicas or instances in container orchestration environments like Kubernetes, OpenShift, Azure Spring Apps, Azure Container Apps, and Azure App Service. The following table summarizes the recommended starting points for the containerization of your new Java application.
 
 | vCPU cores | Container memory | JVM heap size | GC         | Replicas |
 |------------|------------------|---------------|------------|----------|
