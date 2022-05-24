@@ -185,6 +185,7 @@
 | Resource Management - Work Load Monitor | PyPI [1.0.0b2](https://pypi.org/project/azure-mgmt-workloadmonitor/1.0.0b2) | [docs](/python/api/overview/azure/mgmt-workloadmonitor-readme) | GitHub [1.0.0b2](https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-workloadmonitor_1.0.0b2/sdk/workloadmonitor/azure-mgmt-workloadmonitor/) |
 | azure-agrifood-nspkg | PyPI [1.0.0](https://pypi.org/project/azure-agrifood-nspkg/1.0.0) |  |  |
 | azure-ai-language-nspkg | PyPI [1.0.0](https://pypi.org/project/azure-ai-language-nspkg/1.0.0) |  |  |
+| azure-ai-ml | PyPI [0.1.0b2](https://pypi.org/project/azure-ai-ml/0.1.0b2) |  |  |
 | azure-ai-translation-nspkg | PyPI [1.0.0](https://pypi.org/project/azure-ai-translation-nspkg/1.0.0) |  |  |
 | azure-communication-administration | PyPI [1.0.0b4](https://pypi.org/project/azure-communication-administration/1.0.0b4) |  |  |
 | azure-iothub-provisioningserviceclient | PyPI [1.2.0](https://pypi.org/project/azure-iothub-provisioningserviceclient/1.2.0) |  |  |
