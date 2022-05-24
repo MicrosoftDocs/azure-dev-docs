@@ -15,7 +15,7 @@ Use this procedure for the following types of resources:
     * Graph (Gremlin)
     * Core (_SQL_) (previously known as DocumentDB)
 
-### Create a PostgreSQL database in Azure explorer
+## Create a PostgreSQL database in Azure explorer
 
 1. Install the [Azure Databases](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb) extension for Visual Studio Code.
 1. In Visual Studio Code, select **Azure** from the [activity bar](https://code.visualstudio.com/docs/getstarted/userinterface), then select the subscription where you want to crete the database resource.
