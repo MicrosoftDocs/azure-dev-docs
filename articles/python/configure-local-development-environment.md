@@ -10,7 +10,7 @@ ms.custom: devx-track-python
 
 To develop Python applications using Azure, you first want to configure your local development environment.  This includes creating an Azure account, installing tools for Azure development, and connecting those tools to your Azure account.
 
-Developing on Azure requires Python 3.6 or higher. It's assumed you already have Python 3.6 or higher installed on your local workstation. To verify the version of Python on your workstation, type the command `python --version` in any console window.
+Developing on Azure requires Python 3.6 or higher. It's assumed you already have Python 3.6 or higher installed on your local workstation. To verify the version of Python on your workstation, type the command `python3 --version` in any console window.
 
 ## Create an Azure Account
 
@@ -100,14 +100,13 @@ To create a virtual environment, follow these steps.
     ### [macOS/Linux](#tab/bash)
 
     ```bash
-    # On Windows, use py -3 -m venv .venv
     python3 -m venv .venv
     ```
 
     ### [Windows](#tab/cmd)
 
     ```bash
-    # py -3 uses the global python interpreter. You can also use python -m venv .venv.
+    # py -3 uses the global python interpreter. You can also use python3 -m venv .venv.
     py -3 -m venv .venv
     ```
 
