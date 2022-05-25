@@ -12,15 +12,16 @@ Before you get started, ensure you have the following tools installed on your lo
 npm install -g https://azuresdkreleasepreview.blob.core.windows.net/azd/standalone/latest/azure-az-dev-cli-latest.tgz
 ```
 
-### Run `azd up` command
+### Run `up` command
 
-The fastest way for you to get this application up and running on Azure is to use the azd up command. This single command will initialize the project, create and configure all necessary Azure resources - including access policies and roles for your account and service-to-service communication with Managed Identities.
+The fastest way for you to get this application up and running on Azure is to use the `azd up` command. This single command will initialize the project, create and configure all necessary Azure resources - including access policies and roles for your account and service-to-service communication with Managed Identities.
 
-Open a terminal, create a new empty folder, and change into it. Run the following command:
+1. In **File Explorer** or a terminal, create a new empty folder, and change into it. 
+1. Run the following command:
 
-```bash
-azd up --template todo-nodejs-mongo
-```
+    ```bash
+    azd up --template todo-nodejs-mongo
+    ```
 
 You'll be prompted for the following information:
 
