@@ -88,7 +88,7 @@ If you are using Maven, add the following dependency.
 <dependency>
     <groupId>com.azure</groupId>
     <artifactId>azure-spring-data-cosmos</artifactId>
-    <version>3.14.0</version>
+    <version>LATEST</version>
 </dependency>
 ```
 [//]: # ({x-version-update-end})
@@ -272,6 +272,20 @@ The `id` field will be used as Item ID in Azure Cosmos DB. If you want to use an
 The annotation `@Container(containerName="myContainer")` specifies container name in Azure Cosmos DB.
 
 The annotation `@PartitionKey` on `lastName` field specifies this field as partition key in Azure Cosmos DB.
+
+#### Adding unique key constraints
+
+You can define a unique key policy under the container annotation.
+
+Read more about unique keys [here][unique-keys].
+
+```java
+@Container(containerName = "myContainer", ru = "400")
+@CosmosUniqueKeyPolicy(uniqueKeys = {
+    @CosmosUniqueKey(paths = {"/lastName", "/zipCode"}),
+    @CosmosUniqueKey(paths = {"/city"})
+})
+```
 
 #### Creating Containers with autoscale throughput
 
@@ -1022,5 +1036,6 @@ or contact [opencode@microsoft.com][coc_contact] with any additional questions o
 [jdk_link]: /java/azure/jdk/
 [maven_link]: https://maven.apache.org/
 [autoscale-throughput]: /azure/cosmos-db/provision-throughput-autoscale
+[unique-keys]: /azure/cosmos-db/unique-keys
 
 ![Impressions](https://azure-sdk-impressions.azurewebsites.net/api/impressions/azure-sdk-for-java%2Fsdk%2Fcosmos%2F%2Fazure-spring-data-cosmos%2FREADME.png)
