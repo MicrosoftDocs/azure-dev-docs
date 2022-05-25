@@ -23,7 +23,7 @@ You will create infrastructure and deploy code to Azure. If you don't have an Az
 
 ## Set up
 
-To run any sample template, first, decide where you want your development environment to be hosted. For pros and cons, refer to the [debelopment environment choices]( azure-dev-cli-overview#development-environment-choices).
+To run any sample template, first, decide where you want your development environment to be hosted. For pros and cons, refer to the [development environment choices]( azure-dev-cli-overview#development-environment-choices).
 
 Once you've decided which development environment is right for you, select the corresponding tab in the next section. 
 
