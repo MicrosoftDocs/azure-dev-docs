@@ -4,7 +4,7 @@ description: Learn how to get started with Azure Developer CLI
 keywords: 
 author: puicchan
 ms.author: puichan
-ms.date: 5/5/2022
+ms.date: 5/26/2022
 ms.topic: article
 ms.custom: devx-track-azdev
 ms.prod: azure
