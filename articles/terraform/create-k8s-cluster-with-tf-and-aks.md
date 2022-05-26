@@ -14,7 +14,7 @@ Article tested with the following Terraform and Terraform provider versions:
 - [Terraform v1.1.7](https://releases.hashicorp.com/terraform/)
 - [AzureRM Provider v.2.99.0](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs)
 
-[Learn more about using Terraform in Azure](/azure/terraform)
+[!INCLUDE [Terraform abstract](./includes/abstract.md)]
 
 [Azure Kubernetes Service (AKS)](/azure/aks/) manages your hosted Kubernetes environment. AKS allows you to deploy and manage containerized applications without container orchestration expertise. AKS also enables you to do many common maintenance operations without taking your app offline. These operations include provisioning, upgrading, and scaling resources on demand.
 

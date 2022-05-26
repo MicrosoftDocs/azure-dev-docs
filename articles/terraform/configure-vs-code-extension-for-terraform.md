@@ -8,6 +8,8 @@ ms.custom: devx-track-terraform, mode-portal
 
 # Install the Azure Terraform Visual Studio Code extension
 
+[!INCLUDE [Terraform abstract](./includes/abstract.md)]
+
 The Visual Studio Code Terraform extension enables you to work with Terraform from the editor. With this extension, you can author, test, and run Terraform configurations.
 
 In this article, you learn how to:

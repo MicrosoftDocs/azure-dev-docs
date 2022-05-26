@@ -11,6 +11,8 @@ ms.custom: devx-track-terraform
 > [!NOTE]
 > The sample code in this article does not work with Terraform version 0.12 (and greater).
 
+[!INCLUDE [Terraform abstract](./includes/abstract.md)]
+
 You can use Azure Terraform modules to create reusable, composable, and testable components. Terraform modules incorporate encapsulation that's useful in implementing infrastructure as code processes.
 
 It's important to implement quality assurance when you create Terraform modules. Unfortunately, limited documentation is available to explain how to author unit tests and integration tests in Terraform modules. This article introduces a testing infrastructure and best practices that we adopted when we built our [Azure Terraform modules](https://registry.terraform.io/browse?provider=azurerm).

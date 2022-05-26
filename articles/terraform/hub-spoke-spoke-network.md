@@ -8,6 +8,8 @@ ms.custom: devx-track-terraform
 
 # Create a spoke network in Azure using Terraform
 
+[!INCLUDE [Terraform abstract](./includes/abstract.md)]
+
 In this article, you implement two separate spoke networks to demonstrate separation of workloads. The networks share common resources using hub virtual network. Spokes can be used to isolate workloads in their own VNets, managed separately from other spokes. Each workload might include multiple tiers, with multiple subnets connected through Azure load balancers.
 
 In this article, you learn how to:

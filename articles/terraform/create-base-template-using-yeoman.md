@@ -8,6 +8,8 @@ ms.custom: devx-track-terraform
 
 # Create a Terraform base template in Azure using Yeoman
 
+[!INCLUDE [Terraform abstract](./includes/abstract.md)]
+
 In this article, you learn how to use the combination of [Terraform](/azure/terraform/) and [Yeoman](https://yeoman.io/). Terraform is a tool for creating infrastructure on Azure. Yeoman makes it easy to create Terraform modules.
 
 In this article, you learn how to do the following tasks:

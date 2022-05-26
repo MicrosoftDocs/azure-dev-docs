@@ -9,6 +9,8 @@ ms.custom: devx-track-terraform
 
 # Configure Azure Compute Gallery with Terraform
 
+[!INCLUDE [Terraform abstract](./includes/abstract.md)]
+
 This article shows you how to configure Azure Compute Gallery.
 
 In this article, you learn how to:

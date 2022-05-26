@@ -9,14 +9,14 @@ ms.custom: devx-track-terraform
 
 # Create an Azure Log Analytics Workspace using Terraform
 
-This article shows you how to create a Log Analytics workspace using Terraform.
-
 Article tested with the following Terraform and Terraform provider versions:
 
 - [Terraform v1.1.7](https://releases.hashicorp.com/terraform/)
 - [AzureRM Provider v.2.99.0](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs)
 
-[Learn more about using Terraform in Azure](/azure/terraform)
+[!INCLUDE [Terraform abstract](./includes/abstract.md)]
+
+Azure offers multiple storage solutions that you can use to store your FSLogix profiles container. This article covers configuring Azure Files storage solutions for Azure Virtual Desktop FSLogix user profile containers using Terraform. This article shows you how to create a Log Analytics workspace using Terraform.
 
 In this article, you learn how to:
 > [!div class="checklist"]
