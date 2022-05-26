@@ -18,9 +18,9 @@ Each repository contains a complete sample ToDo application with a web frontend 
 
 | Template      | Language (API layer) | Tech Stack	 | 
 | ----------- | ----------| ----------- | 
-| [ToDo NodeJs Mongo](https://github.com/azure-samples/todo-nodejs-mongo) | Node.js | Azure Cosmos DB API for Mongo, Azure Monitor |  
-| [ToDo Python Mongo](https://github.com/azure-samples/todo-python-mongo) | Python (FastAPI) | Azure Cosmos DB API for Mongo, Azure Monitor  |  
-| [ToDo C# Cosmo DB (SQL)](https://github.com/Azure-Samples/todo-csharp-cosmos-sql) | C# | Azure Cosmos DB SQL API, Azure Monitor | 
+| [ToDo NodeJs Mongo](https://github.com/azure-samples/todo-nodejs-mongo#todo-application-with-a-nodejs-api-and-azure-cosmo-db-api-for-mongodb) | Node.js | Azure Cosmos DB API for Mongo, Azure Monitor |  
+| [ToDo Python Mongo](https://github.com/azure-samples/todo-python-mongo#todo-application-with-a-python-api-and-azure-cosmo-db-api-for-mongodb) | Python (FastAPI) | Azure Cosmos DB API for Mongo, Azure Monitor  |  
+| [ToDo C# Cosmo DB (SQL)](https://github.com/Azure-Samples/todo-csharp-cosmos-sql#todo-application-with-a-c-api-and-azure-cosmo-db-sql-api) | C# | Azure Cosmos DB SQL API, Azure Monitor | 
 
 ## Host: Azure Container Apps
 
@@ -28,8 +28,8 @@ Each repository contains a complete sample ToDo application with a web frontend 
 
 | Template      | Language (API layer) | Tech Stack	 | 
 | ----------- | ----------| ----------- | 
-| [ToDo NodeJs Mongo ACA](https://github.com/azure-samples/todo-nodejs-mongo-aca) | Node.js | Azure Cosmos DB API for Mongo, Azure Monitor |
-| [ToDo Python Mongo ACA](https://github.com/azure-samples/todo-python-mongo-aca) | Python (FastAPI)|  Azure Cosmos DB API for Mongo, Azure Monitor |  
+| [ToDo NodeJs Mongo ACA](https://github.com/azure-samples/todo-nodejs-mongo-aca#todo-application-with-a-nodejs-api-and-azure-cosmo-db-api-for-mongodb-on-azure-container-apps) | Node.js | Azure Cosmos DB API for Mongo, Azure Monitor |
+| [ToDo Python Mongo ACA](https://github.com/azure-samples/todo-python-mongo-aca#todo-application-with-a-python-api-and-azure-cosmo-db-api-for-mongodb-on-azure-container-apps) | Python (FastAPI)|  Azure Cosmos DB API for Mongo, Azure Monitor |  
 
 
 ## Picking the right host
