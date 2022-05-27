@@ -1,7 +1,7 @@
 ---
-title: Get started with Azure Developer CLI 
+title: Get started with Azure Developer CLI
 description: Learn how to get started with Azure Developer CLI
-keywords: 
+keywords: azure developer cli
 author: puicchan
 ms.author: puichan
 ms.date: 5/26/2022
@@ -10,7 +10,7 @@ ms.custom: devx-track-azdev
 ms.prod: azure
 ---
 
-# Get started
+# Get started with Azure Developer CLI
 
 We'll use the [Todo App with Node.js and Azure Cosmo DB API for MongoDB](https://github.com/azure-samples/todo-nodejs-mongo) for this walkthrough. The template contains a complete ToDo application. You will get everything you need to build, deploy, and monitor an Azure solution. For more information including architecture diagram and the Azure resources you'll deploy, see the [README](https://github.com/azure-samples/todo-nodejs-mongo).
 
