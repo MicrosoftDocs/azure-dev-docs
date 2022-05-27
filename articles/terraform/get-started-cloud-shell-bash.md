@@ -11,7 +11,7 @@ adobe-target: true
 
 # Configure Terraform in Azure Cloud Shell with Bash
  
-[!INCLUDE [terraform-intro.md](includes/terraform-intro.md)]
+[!INCLUDE [Terraform abstract](./includes/abstract.md)]
 
 This article presents you with the options to authenticate to Azure for use with Terraform.
 

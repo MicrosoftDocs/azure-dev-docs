@@ -10,6 +10,8 @@ ms.custom: devx-track-terraform
 
 # Authenticate Terraform to Azure
 
+[!INCLUDE [Terraform abstract](./includes/abstract.md)]
+
 To use Terraform commands against your Azure subscription, you must first authenticate Terraform to that subscription. This article covers some common scenarios for authenticating to Azure.
 
 In this article, you learn how to:

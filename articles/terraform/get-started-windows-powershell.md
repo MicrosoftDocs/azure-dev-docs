@@ -11,7 +11,7 @@ adobe-target: true
 
 # Install Terraform on Windows with Azure PowerShell
 
-[!INCLUDE [terraform-intro.md](includes/terraform-intro.md)]
+[!INCLUDE [Terraform abstract](./includes/abstract.md)]
 
 This article describes how to get started with [Terraform on Azure](https://www.terraform.io/docs/providers/azurerm/index.html) using PowerShell.
 

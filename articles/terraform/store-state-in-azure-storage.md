@@ -8,6 +8,8 @@ ms.custom: devx-track-terraform, devx-track-azurecli
 
 # Store Terraform state in Azure Storage
 
+[!INCLUDE [Terraform abstract](./includes/abstract.md)]
+
 Terraform state is used to reconcile deployed resources with Terraform configurations. State allows Terraform to know what Azure resources to add, update, or delete.
 
 By default, Terraform state is stored locally, which isn't ideal for the following reasons:
