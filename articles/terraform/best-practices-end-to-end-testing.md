@@ -8,6 +8,8 @@ ms.custom: devx-track-terraform
 
 # Implement end-to-end Terratest testing on Terraform projects
 
+[!INCLUDE [Terraform abstract](./includes/abstract.md)]
+
 End-to-end (E2E) testing is used to validate a program works before deploying it to production. An example scenario might be a Terraform module deploying two virtual machines into a virtual network. You might want to prevent the two machines from pinging each other. In this example, you could define a test to verify the intended outcome before deployment.
 
 E2E testing is typically a three-step process.

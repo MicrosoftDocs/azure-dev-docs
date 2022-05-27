@@ -17,9 +17,7 @@ Article tested with the following Terraform and Terraform provider versions:
 - [AzureRM Provider v.3.0.2](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs)
 - [AzAPI Provider v.0.1.0](https://registry.terraform.io/providers/azure/azapi/latest/docs)
 
-[Learn more about using Terraform in Azure](/azure/terraform)
-
-[!INCLUDE [terraform-intro.md](includes/terraform-intro.md)]
+[!INCLUDE [Terraform abstract](./includes/abstract.md)]
 
 In this article, you learn how to use the [AzAPI Terraform provider](https://registry.terraform.io/providers/azure/azapi/latest/docs) to manage a new feature of an Azure service that isn't currently supported by the [AzureRM provider](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs). The `azapi_update_resource` will be used to manage an [Azure EventHub](/azure/event-hubs/) network rule set.
 

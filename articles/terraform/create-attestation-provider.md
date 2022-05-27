@@ -9,6 +9,8 @@ ms.custom: devx-track-terraform
 
 # Configure an Azure Attestation provider using Terraform
 
+[!INCLUDE [Terraform abstract](./includes/abstract.md)]
+
 This article shows example Terraform code for creating an [Attestation provider](/azure/attestation/overview) on Azure.
 
 In this article, you learn how to:

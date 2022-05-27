@@ -9,6 +9,8 @@ ms.custom: devx-track-terraform
 
 # Create an Azure VM cluster with Terraform and HCL
 
+[!INCLUDE [Terraform abstract](./includes/abstract.md)]
+
 In this article, you see how to create a small compute cluster using [HCL](https://www.terraform.io/docs/configuration/syntax.html). 
 
 In this article, you learn how to:

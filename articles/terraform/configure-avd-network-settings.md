@@ -14,10 +14,9 @@ Article tested with the following Terraform and Terraform provider versions:
 - [Terraform v1.1.7](https://releases.hashicorp.com/terraform/)
 - [AzureRM Provider v.2.99.0](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs)
 
-[Learn more about using Terraform in Azure](/azure/terraform)
+[!INCLUDE [Terraform abstract](./includes/abstract.md)]
 
 This article provides an overview of how to use Terraform to configure the network settings for Azure Virtual Desktop.
-
 
 In this article, you learn how to:
 > [!div class="checklist"]
