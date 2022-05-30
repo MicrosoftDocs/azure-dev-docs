@@ -10,7 +10,7 @@ metadata:
   author: TomArcherMsft
   ms.author: tarcher
   ms.topic: landing-page
-  ms.date: 04/25/2022
+  ms.date: 05/29/2022
   ms.custom: devx-track-terraform
 
 landingContent:
@@ -135,6 +135,8 @@ landingContent:
         links:
           - text: Deploy an Azure Cosmos DB
             url: deploy-azure-cosmos-db-to-azure-container-instances.md
+          - text: Deploy a MySQL Flexible Server
+            url: /azure/msql/flexible-server/quickstart-create-terraform
           - text: Deploy a PostgreSQL Flexible Server Database
             url: deploy-postgresql-flexible-server-database.md
 
