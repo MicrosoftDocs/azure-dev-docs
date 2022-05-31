@@ -5,7 +5,7 @@ author: puicchan
 ms.author: puichan
 ms.date: 05/17/2021
 ms.topic: conceptual
-ms.custom: devx-track-azdev
+ms.custom: devx-track-azdevcli
 ms.prod: azure
 ---
 #  How to monitor your application

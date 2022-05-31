@@ -6,7 +6,7 @@ author: puicchan
 ms.author: puichan
 ms.date: 5/26/2022
 ms.topic: article
-ms.custom: devx-track-azdev
+ms.custom: devx-track-azdevcli
 ms.prod: azure
 ---
 

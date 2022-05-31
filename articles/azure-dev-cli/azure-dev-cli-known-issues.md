@@ -1,15 +1,15 @@
 ---
-title: Known issues - Azure Developer CLI (azd)
-description: In this article, troubleshoot common problems when using Azure Developer CLI (azd)
+title: 'Known issues: Azure Developer CLI (AZD'
+description: Learn how to troubleshoot common problems when using Azure Developer CLI (AZD)
 author: puicchan
 ms.author: puichan
-keywords: azd, known issues, troubleshooting
+keywords: azd, known issues, troubleshooting, azure developer cli
 ms.topic: troubleshooting
-ms.date: 05/09/2022
-ms.custom: devx-track-azdev
-ms.prod: Azure
+ms.date: 05/31/2022
+ms.custom: devx-track-azdevcli
+ms.prod: azure
 ---
-# Known issues: Azure Developer CLI (azd)
+# Known issues: Azure Developer CLI (AZD)
 
 This article provides information about known issues associated with Azure Developer CLI (`azd`).
 
