@@ -25,7 +25,7 @@ landingContent:
           - text: Deploy using Visual Studio Code
             url: /azure/azure-functions/create-first-function-vs-code-python
           - text: Deploy using the command line
-            url: /azure/azure-functions/functions-create-first-azure-function-azure-cli?pivots=programming-language-python
+            url: /azure/azure-functions/create-first-function-cli-python
           - text: Connect to storage using Visual Studio Code
             url: /azure/azure-functions/functions-add-output-binding-storage-queue-vs-code?pivots=programming-language-python
           - text: Connect to storage using the command line
