@@ -136,7 +136,7 @@ landingContent:
           - text: Deploy an Azure Cosmos DB
             url: deploy-azure-cosmos-db-to-azure-container-instances.md
           - text: Deploy a MySQL Flexible Server
-            url: /azure/msql/flexible-server/quickstart-create-terraform
+            url: /azure/mysql/flexible-server/quickstart-create-terraform
           - text: Deploy a PostgreSQL Flexible Server Database
             url: deploy-postgresql-flexible-server-database.md
 
