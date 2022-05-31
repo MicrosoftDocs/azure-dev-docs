@@ -69,6 +69,8 @@
       items:
         - name: Azure Cosmos DB
           href: deploy-azure-cosmos-db-to-azure-container-instances.md
+        - name: MySQL Flexible Server
+          href: /azure/mysql/flexible-server/quickstart-create-terraform
         - name: PostgreSQL Flexible Server Database
           href: deploy-postgresql-flexible-server-database.md
     - name: Networks
@@ -122,7 +124,7 @@
         - name: Virtual machine scale set with infrastructure
           href: create-vm-scaleset-network-disks-hcl.md
         - name: Virtual machine scale set from Packer image
-          href: create-vm-scaleset-network-disks-using-packer-hcl.md       
+          href: create-vm-scaleset-network-disks-using-packer-hcl.md
     - name: Security
       items:
         - name: Azure Attestation
