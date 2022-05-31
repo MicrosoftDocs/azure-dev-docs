@@ -331,7 +331,9 @@
 | azure-resourcemanager-confidentialledger | Maven [1.0.0-beta.1](https://search.maven.org/artifact/com.azure.resourcemanager/azure-resourcemanager-confidentialledger/1.0.0-beta.1/jar/) |  |  |
 | azure-resourcemanager-deviceupdate | Maven [1.0.0-beta.1](https://search.maven.org/artifact/com.azure.resourcemanager/azure-resourcemanager-deviceupdate/1.0.0-beta.1/jar/) |  |  |
 | azure-resourcemanager-dynatrace | Maven [1.0.0-beta.1](https://search.maven.org/artifact/com.azure.resourcemanager/azure-resourcemanager-dynatrace/1.0.0-beta.1/jar/) |  |  |
+| azure-resourcemanager-education | Maven [1.0.0-beta.1](https://search.maven.org/artifact/com.azure.resourcemanager/azure-resourcemanager-education/1.0.0-beta.1/jar/) |  |  |
 | azure-resourcemanager-hardwaresecuritymodules | Maven [1.0.0-beta.1](https://search.maven.org/artifact/com.azure.resourcemanager/azure-resourcemanager-hardwaresecuritymodules/1.0.0-beta.1/jar/) |  |  |
+| azure-resourcemanager-machinelearning | Maven [1.0.0-beta.2](https://search.maven.org/artifact/com.azure.resourcemanager/azure-resourcemanager-machinelearning/1.0.0-beta.2/jar/) |  |  |
 | azure-resourcemanager-scvmm | Maven [1.0.0-beta.1](https://search.maven.org/artifact/com.azure.resourcemanager/azure-resourcemanager-scvmm/1.0.0-beta.1/jar/) |  |  |
 | azure-sdk-archetype | Maven [1.0.0](https://search.maven.org/artifact/com.azure.tools/azure-sdk-archetype/1.0.0/jar/) |  |  |
 | azure-sdk-build-tool | Maven [1.0.0-beta.1](https://search.maven.org/artifact/com.azure.tools/azure-sdk-build-tool/1.0.0-beta.1/jar/) |  |  |
