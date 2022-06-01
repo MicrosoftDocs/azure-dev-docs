@@ -1,5 +1,5 @@
 ---
-ms.date: 04-26-2022
+ms.date: 05/27/2022
 ms.author: v-yonghuiye
 ---
 
@@ -24,6 +24,9 @@ The `DefaultAzureCredential` will attempt to authenticate via the following mech
 
 > [!TIP]
 > Be sure the security principal has been granted sufficient permission to access the Azure resource. For more information, see [Authorize access with Azure Active Directory](#authorize-access-with-azure-active-directory).
+
+> [!NOTE]
+> Since Spring Cloud Azure AutoConfigure 4.1.0, a `ThreadPoolTaskExecutor` bean named `springCloudAzureCredentialTaskExecutor` will be automatically registered by default and will manage all threads created by Azure Identity. The name of each thread managed by this thread pool is prefixed with `az-identity-`. This `ThreadPoolTaskExecutor` bean is independent of the `Executor` bean provided by Spring Boot.
 
 ### Managed identity
 

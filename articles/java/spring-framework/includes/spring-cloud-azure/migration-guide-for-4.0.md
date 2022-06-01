@@ -1,5 +1,5 @@
 ---
-ms.date: 04-26-2022
+ms.date: 05/27/2022
 ms.author: v-yonghuiye
 ---
 
@@ -66,7 +66,7 @@ We used to ship two BOMs for our libraries, the `azure-spring-boot-bom` and `azu
 </dependencyManagement>
 ```
 
-The version for spring-cloud-azure-dependencies is 4.0.0.
+The version for spring-cloud-azure-dependencies is 4.2.0.
 
 ### Artifact changes: renamed / added / deleted
 
@@ -111,9 +111,8 @@ The following table shows the mappings between legacy artifact ID and modern art
 > | not applicable                                    | spring-cloud-azure-core                                                                    | Newly added Spring Cloud Azure Core artifact, including all core functionality.                                                                                                                                                                                                                        |
 > | not applicable                                    | spring-cloud-azure-resourcemanager                                                         | Newly added Resource Manager artifact. It's the Core library using Azure Resource Manager to read metadata and create resources.                                                                                                                                                                       |
 > | not applicable                                    | spring-cloud-azure-service                                                                 | Newly added Spring Cloud Azure Service artifact, including abstractions for Azure services.                                                                                                                                                                                                            |
-> | not applicable                                    | spring-cloud-azure-starter                                                                 | Newly added Core Spring Cloud Azure starter, including auto-configuration support.                                                                                                                                                                                                                     |
 > | not applicable                                    | spring-cloud-azure-starter-appconfiguration                                                | Newly added starter for using Azure App Configuration SDK client.                                                                                                                                                                                                                                      |
-> | not applicable                                    | spring-cloud-azure-starter-cosmos                                                          | Newly added starter for using Azure Cosmos DB  SDK client.                                                                                                                                                                                                                                                |
+> | not applicable                                    | spring-cloud-azure-starter-cosmos                                                          | Newly added starter for using Azure Cosmos DB  SDK client.                                                                                                                                                                                                                                             |
 > | not applicable                                    | spring-cloud-azure-starter-eventhubs                                                       | Newly added starter for using Azure Event Hubs  SDK client.                                                                                                                                                                                                                                            |
 > | not applicable                                    | spring-cloud-azure-starter-servicebus                                                      | Newly added starter for using Azure Service Bus  SDK client.                                                                                                                                                                                                                                           |
 > | not applicable                                    | spring-cloud-azure-starter-storage-blob                                                    | Newly added starter for using Azure Storage Blob  SDK client.                                                                                                                                                                                                                                          |

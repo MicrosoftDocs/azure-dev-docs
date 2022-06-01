@@ -1,15 +1,15 @@
 ---
-title: Spring Cloud Azure 4.0 reference documentation
+title: Spring Cloud Azure reference documentation
 description: Spring Cloud Azure reference documentation
-ms.date: 04/26/2022
+ms.date: 05/27/2022
 ms.topic: article
 ms.author: v-yonghuiye
 ms.custom: devx-track-java
 ---
 
-# Spring Cloud Azure 4.0 reference documentation
+# Spring Cloud Azure reference documentation
 
-This article provides reference documentation for Spring Cloud Azure 4.0.0.
+This article provides reference documentation for Spring Cloud Azure 4.2.0.
 
 [!INCLUDE [version-information.md](includes/spring-cloud-azure/version-information.md)]
 
@@ -44,6 +44,8 @@ This article provides reference documentation for Spring Cloud Azure 4.0.0.
 [!INCLUDE [spring-cloud-stream-support.md](includes/spring-cloud-azure/spring-cloud-stream-support.md)]
 
 [!INCLUDE [spring-jms-support.md](includes/spring-cloud-azure/spring-jms-support.md)]
+
+[!INCLUDE [spring-native-support.md](includes/spring-cloud-azure/spring-native-support.md)]
 
 [!INCLUDE [kafka-support.md](includes/spring-cloud-azure/kafka-support.md)]
 

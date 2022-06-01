@@ -5,7 +5,7 @@ services: active-directory-b2c
 documentationcenter: java
 manager: kevinzha
 ms.author: edburns
-ms.date: 03/30/2022
+ms.date: 05/27/2022
 ms.service: active-directory-b2c
 ms.tgt_pltfrm: multiple
 ms.topic: article
@@ -239,7 +239,7 @@ Now that you've created the Azure AD B2C instance and some user flows, you'll co
    >           user-name-attribute-name:
    > ```
    >
-   > The *application.yml* file is available in [spring-cloud-azure-starter-active-directory-b2c sample: aad-b2c-web-application](https://github.com/Azure-Samples/azure-spring-boot-samples/blob/spring-cloud-azure_4.0.0/aad/spring-cloud-azure-starter-active-directory-b2c/aad-b2c-web-application/src/main/resources/application.yml) on GitHub.
+   > The *application.yml* file is available in [spring-cloud-azure-starter-active-directory-b2c sample: aad-b2c-web-application](https://github.com/Azure-Samples/azure-spring-boot-samples/blob/spring-cloud-azure_4.2.0/aad/spring-cloud-azure-starter-active-directory-b2c/aad-b2c-web-application/src/main/resources/application.yml) on GitHub.
 
 7. Save and close the *application.yml* file.
 
@@ -331,7 +331,7 @@ Now that you've created the Azure AD B2C instance and some user flows, you'll co
    }
    ```
 
-14. Copy the *home.html* file from [spring-cloud-azure-starter-active-directory-b2c sample: aad-b2c-web-application](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/spring-cloud-azure_4.0.0/aad/spring-cloud-azure-starter-active-directory-b2c/aad-b2c-web-application/src/main/resources/templates) to *src/main/resources/templates*, and replace the `${your-profile-edit-user-flow}` and `${your-password-reset-user-flow}` with the names of the user flows that you created earlier.
+14. Copy the *home.html* file from [spring-cloud-azure-starter-active-directory-b2c sample: aad-b2c-web-application](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/spring-cloud-azure_4.2.0/aad/spring-cloud-azure-starter-active-directory-b2c/aad-b2c-web-application/src/main/resources/templates) to *src/main/resources/templates*, and replace the `${your-profile-edit-user-flow}` and `${your-password-reset-user-flow}` with the names of the user flows that you created earlier.
 
 ## Build and test your app
 

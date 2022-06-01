@@ -1,5 +1,5 @@
 ---
-ms.date: 04-26-2022
+ms.date: 05/27/2022
 ms.author: v-yonghuiye
 ---
 
@@ -93,4 +93,4 @@ private CosmosClient cosmosClient;
 
 ### Samples
 
-See the [azure-spring-boot-samples](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/spring-cloud-azure_v4.0.0) on GitHub.
+See the [azure-spring-boot-samples](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/spring-cloud-azure_4.2.0) on GitHub.
