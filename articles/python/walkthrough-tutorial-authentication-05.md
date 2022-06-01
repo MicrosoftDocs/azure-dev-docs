@@ -1,26 +1,26 @@
 ---
 title: "Walkthrough, Part 5: Authenticate Python apps with Azure services"
 description: A discussion of the main app's dependencies (mainly Azure SDK libraries), the necessary import statements, and the environment variables it expects to have set.
-ms.date: 08/24/2020
+ms.date: 06/01/2022
 ms.topic: conceptual
 ms.custom: devx-track-python
 ---
 
 # Part 5: Main app dependencies, import statements, and environment variables
 
-[Previous part: Example main app implementation](walkthrough-tutorial-authentication-04.md)
+[Previous part: Main app implementation](walkthrough-tutorial-authentication-04.md)
 
 This part examines the Python libraries brought into the main app and the environment variables required by the code. When deployed to Azure, you use application settings in Azure App Service to provide environment variables.
 
 ## Dependencies and import statements
 
-The app code requires on a number of libraries: Flask, the standard HTTP requests library, and the Azure libraries for Active Directory ([azure.identity](/python/api/overview/azure/identity-readme)), Key Vault ([azure.keyvault.secrets](/python/api/overview/azure/keyvault-secrets-readme)), and queue storage ([azure.storage.queue](/python/api/overview/azure/storage-queue-readme)). These libraries are included in the app's *requirements.txt* file:
+The app code requires on the following libraries: Flask, the standard HTTP requests library, and the Azure libraries for Active Directory ([azure.identity](/python/api/overview/azure/identity-readme)), Key Vault ([azure.keyvault.secrets](/python/api/overview/azure/keyvault-secrets-readme)), and queue storage ([azure.storage.queue](/python/api/overview/azure/storage-queue-readme)). These libraries are included in the app's *requirements.txt* file:
 
 :::code language="txt" source="~/../python-integrated-authentication/main_app/requirements.txt"
 
 When your deploy the app to Azure App Service, Azure automatically installs these requirements on the host server. When running locally, you install them in your environment with `pip install -r requirements.txt`.
 
-At the top of the code, then, are the required import statements for the parts we're using from libraries:
+The code file starts with the required import statements for the parts of the libraries we're using:
 
 :::code language="python" source="~/../python-integrated-authentication/main_app/app.py" range="1-6":::
 
@@ -33,7 +33,7 @@ The app code depends on four environment variables:
 | THIRD_PARTY_API_ENDPOINT | The URL of the third-party API, such as `https://msdocs-example-api.azurewebsites.net/api/RandomNumber` described in [Part 3](walkthrough-tutorial-authentication-03.md). |
 | KEY_VAULT_URL | The URL of the Azure Key Vault in which you've stored the access key for the third-party API. |
 | THIRD_PARTY_API_SECRET_NAME | The name of the secret in Key Vault that contains the access key for the third-party API. |
-| STORAGE_QUEUE_URL | The URL of an Azure Storage Queue that's been configured in Azure, such as `https://msdocsmainappexample.queue.core.windows.net/code-requests` (see [Part 4](walkthrough-tutorial-authentication-04.md)). Because the queue name is in included at the end of the URL, you don't see the name anywhere in the code. |
+| STORAGE_QUEUE_URL | The URL of an Azure Storage Queue that's been configured in Azure, such as `https://msdocsexamplemainapp.queue.core.windows.net/code-requests` (see [Part 4](walkthrough-tutorial-authentication-04.md)). Because the queue name is included at the end of the URL, you don't see the name anywhere in the code. |
 
 When running the locally, you create these variables within whatever command shell you're using. If you deploy the app to a virtual machine, you would create similar server-side variables.
 
