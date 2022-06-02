@@ -255,7 +255,7 @@ Terraform tracks state locally via the `terraform.tfstate` file. This pattern wo
       value = azurerm_resource_group.rg.name
     }
     
-        output "client_key" {
+    output "client_key" {
         value = azurerm_kubernetes_cluster.k8s.kube_config.0.client_key
     }
 
