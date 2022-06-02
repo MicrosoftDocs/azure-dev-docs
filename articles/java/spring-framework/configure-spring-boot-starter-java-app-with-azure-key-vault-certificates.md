@@ -91,7 +91,7 @@ Use the following steps to create an Azure VM with a system-assigned managed ide
        --generate-ssh-keys \
        --assign-identity \
        --role contributor \
-       --scope /subscriptions/99999999-1bf0-4dda-aec3-cb9272f09590/MyResourceGroup/myRG/providers/Microsoft.Storage/storageAccounts/storage1 \
+       --scope /<your subscription>/<your storage account> \
        --image UbuntuLTS \
        --admin-username azureuser
    ```
