@@ -32,7 +32,7 @@
           href: tutorial-deploy-app-service-on-linux-06.md
         - name: 7 Clean up resources
           href: tutorial-deploy-app-service-on-linux-07.md
-      - name: Using the Azure CLI
+      - name: Using the Azure portal and CLI
         href: /azure/app-service/quickstart-python?toc=/azure/developer/python/toc.json&bc=/azure/developer/breadcrumb/toc.json
   - name: Python (Django or Flask) + PostgreSQL
     href: /azure/app-service/tutorial-python-postgresql-app?toc=/azure/developer/python/toc.json&bc=/azure/developer/breadcrumb/toc.json
