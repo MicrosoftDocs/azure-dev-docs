@@ -35,13 +35,26 @@ The app code depends on four environment variables:
 | THIRD_PARTY_API_SECRET_NAME | The name of the secret in Key Vault that contains the access key for the third-party API. |
 | STORAGE_QUEUE_URL | The URL of an Azure Storage Queue that's been configured in Azure, such as `https://msdocsexamplemainapp.queue.core.windows.net/code-requests` (see [Part 4](walkthrough-tutorial-authentication-04.md)). Because the queue name is included at the end of the URL, you don't see the name anywhere in the code. |
 
-When running the locally, you create these variables within whatever command shell you're using. If you deploy the app to a virtual machine, you would create similar server-side variables.
+How you set these variables depends on where the code is running:
 
-When deploying to Azure App Service, however, you don't have access to the server itself. In this case, you create *application settings* with the same names, which then appear to the app as environment variables. 
+* When running the code locally, you create these variables within whatever command shell you're using. 
+(If you deploy the app to a virtual machine, you would create similar server-side variables.)  You can use a library like [python-dotenv](https://pypi.org/project/python-dotenv/), which reads key-value pairs from an *.env* file and sets them as environment variables
+
+* When the code is deployed to Azure App Service as is shown in this walkthrough, you don't have access to the server itself. In this case, you create [*application settings*](/azure/app-service/configure-common) with the same names, which then appear to the app as environment variables. 
 
 The provisioning scripts create these settings using the Azure CLI command, [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings#az-webapp-config-appsettings-set). All four variables are set with a single command.
 
 To create settings through the Azure portal, see [Configure an App Service app in the Azure portal](/azure/app-service/configure-common).
+
+When running the code locally, you also need to specify environment variables that contain information about your local service principal. `DefaultAzureCredential` looks for these values. When deployed to App Service, you do not need to set these values as the managed identity will be used instead to authenticate.
+
+| Variable | Value |
+| --- | --- |
+| AZURE_TENANT_ID | The Azure Active Directory tenant (directory) ID. |
+| AZURE_CLIENT_ID | The client (application) ID of an App Registration in the tenant. |
+| AZURE_CLIENT_SECRET  | A client secret that was generated for the App Registration. |
+
+For more information,  see [Set local development environment variables](./sdk/authentication-local-development-service-principal).
 
 > [!div class="nextstepaction"]
 > [Part 6 - Main app startup code >>>](walkthrough-tutorial-authentication-06.md)

@@ -12,7 +12,7 @@ Azure Active Directory (Azure AD) along with Azure Key Vault provide a comprehen
 
 After providing some background, this walkthrough explains these authentication features in the context of the sample, [github.com/Azure-Samples/python-integrated-authentication](https://github.com/Azure-Samples/python-integrated-authentication).
 
-For convenience, the sample is already deployed to Azure so you can see it in operation. Should you want to deploy the sample to your own Azure subscription, the repository also includes Azure CLI deployment scripts.
+For convenience, the sample is already deployed to Azure as [msdocs-example-main-app.azurewebsites.net](https://msdocs-example-main-app.azurewebsites.net/api/v1/getcode) so you can see it in operation. Should you want to deploy the sample to your own Azure subscription, the repository also includes Azure CLI deployment scripts.
 
 ## Part 1: Background
 
@@ -28,7 +28,7 @@ Fortunately, Azure provides two specific services to simplify the process and pr
 
 - With Azure Active Directory (Azure AD) Managed Identities, the app needs to authenticate only once with Active Directory. The app is then automatically authenticated with other Azure services, including Key Vault. As a result, your code never needs to concern itself with keys or other credentials for those Azure services. Better still, you can run the same code both locally and in the cloud with minimal configuration requirements.
 
-By using Azure AD and Key Vault together, your app never needs to authenticate itself with individual Azure services, and can easily and securely access any keys necessary for third-party services.
+This walkthrough shows how to use Azure AD managed identity and Key Vault together in the same app. By using Azure AD and Key Vault together, your app never needs to authenticate itself with individual Azure services, and can easily and securely access any keys necessary for third-party services.
 
 > [!IMPORTANT]
 > This article uses the common, generic term "key" to refer to what are stored as "secrets" in Azure Key Vault, such as an access key for a REST API. This usage should not be confused with Key Vault's management of *cryptographic* keys, which is a separate feature from Key Vault's *secrets*.
