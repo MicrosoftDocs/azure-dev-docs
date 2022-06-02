@@ -16,16 +16,16 @@ If you encounter issues with any of the steps in this tutorial, we'd love to hea
 For a demonstration video, see <a href="https://www.youtube.com/watch?v=dNVvFttc-sA&feature=youtu.be&ocid=AID3006292" target="_blank">Build WebApps with VS Code and Azure App Service</a> (youtube.com) from virtual PyCon 2020.
 
 > [!NOTE]
-> If you prefer to deploy apps through the CLI, see **[Quickstart: Create a Python app in Azure App Service on Linux](/azure/app-service/quickstart-python)**.
+> If you prefer to deploy apps through the Azure portal or CLI, see **[Quickstart: Create a Python app in Azure App Service on Linux](/azure/app-service/quickstart-python)**.
 
 > [!TIP]
-> [Azure App Service on Linux](/azure/app-service/overview#app-service-on-linux) runs your source code in a pre-defined Docker container. That container runs apps with Python 3.6+ using the [Gunicorn](https://gunicorn.org) web server. The characteristics of this container are described in [Configure Python apps for App Service on Linux](/azure/app-service/configure-language-python). The container definitions are on [github.com/Azure-App-Service/python](https://github.com/Azure-App-Service/python/tree/master/).
+> [Azure App Service on Linux](/azure/app-service/overview#app-service-on-linux) runs your source code in a pre-defined Docker container. That container runs apps with Python 3.7+ using the [Gunicorn](https://gunicorn.org) web server. The characteristics of this container are described in [Configure Python apps for App Service on Linux](/azure/app-service/configure-language-python). The container definitions are on [github.com/Azure-App-Service/python](https://github.com/Azure-App-Service/python/tree/master/).
 
 ## Configure your environment
 
 - If you don't have an Azure account with an active subscription, [create one for free](https://azure.microsoft.com/free/?utm_source=campaign&utm_campaign=vscode-tutorial-appservice-extension&mktingSource=vscode-tutorial-appservice-extension).
 
-- Make sure you have a [local installation of Python 3.7 or 3.8](https://python.org/downloads). To verify your version, run the following command:
+- Make sure you have a [local installation of Python 3.8 or 3.9](https://python.org/downloads). To verify your version, run the following command:
 
     ```bash
     python --version
