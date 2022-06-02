@@ -1,18 +1,18 @@
 ---
 title: "Walkthrough, Part 4: Authenticate Python apps with Azure services"
 description: An overview of the main app's implementation, including all its code.
-ms.date: 08/24/2020
+ms.date: 06/01/2022
 ms.topic: conceptual
 ms.custom: devx-track-python
 ---
 
 # Part 4: Example main application implementation
 
-[Previous part: Example third-party API implementation](walkthrough-tutorial-authentication-03.md)
+[Previous part: Third-party API implementation](walkthrough-tutorial-authentication-03.md)
 
 The main app in our scenario is a simple Flask app that's deployed to Azure App Service. The app provides a public API endpoint named */api/v1/getcode*, which generates a code for some other purpose in the app (say, with two-factor authentication for human users).
 
-To see the endpoint in action, visit [https://msdocs-example-main-app.azurewebsites.net/api/v1/getcode](https://msdocs-example-main-app.azurewebsites.net/api/v1/getcode) in a browser or make a request using curl.
+To see the endpoint in action, visit [https://msdocs-example-main-app.azurewebsites.net/api/v1/getcode](https://msdocs-example-main-app.azurewebsites.net/api/v1/getcode) in a browser or make a cURL request.
 
 The main app also provides a simple home page that displays a link to the API endpoint. You can see this part of the app on [https://msdocs-example-main-app.azurewebsites.net](https://msdocs-example-main-app.azurewebsites.net).
 
@@ -20,7 +20,7 @@ The sample's provisioning script performs the following steps:
 
 1. Create the App Service host and deploy the code with the Azure CLI command, [`az webapp up`](/cli/azure/webapp#az-webapp-up).
 
-1. Provision an Azure Storage account for the main app (using [`az storage account create`](/cli/azure/storage/account#az-storage-account-create)).
+1. Create an Azure Storage account for the main app (using [`az storage account create`](/cli/azure/storage/account#az-storage-account-create)).
 
 1. Create a Queue in the storage account named "code-requests" (using [`az storage queue create`](/cli/azure/storage/queue#az-storage-queue-create)).
 
@@ -31,4 +31,4 @@ The main app code is as follows; explanations of important details are given in 
 :::code language="python" source="~/../python-integrated-authentication/main_app/app.py":::
 
 > [!div class="nextstepaction"]
-> [Part 5 - Main app dependencies, imports, and environment variables >>>](walkthrough-tutorial-authentication-05.md)
+> [Part 5 - Dependencies and environment variables >>>](walkthrough-tutorial-authentication-05.md)
