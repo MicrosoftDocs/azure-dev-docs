@@ -11,16 +11,26 @@ ms.prod: azure
 
 # What is the Azure Developer CLI
 
-The Azure Developer CLI (**azd**) is a developer-centric command-line tool for cloud applications designed to reduce the time required for a developer to be productive and help developers understand core Azure development constructs. The CLI is a set of commands that allow you to use the same workflow for all Azure Developer CLI templates, DevOps workflows, and IDE. It also demonstrate opinionated best practices for Azure development
+The Azure Developer CLI (azd) is a developer-centric command-line tool for building cloud applications. The azd is a set of commands that allows you to work consistently across azd templates, DevOps workflows, and your IDE (intergrated development environment).
 
-The quickest way to get started is to:
-1. Pick an [Azure Developer CLI template](azure-dev-cli-templates.md) 
-2. Deploy the sample by following the README in the template by running `azd up`
+The azd offers the following features:
 
-!["Azure Devloper CLI Developer Workflow"](media/azure-dev-cli-overview/azd-dev-workflow.png)
+- Reduces the time required for a developer to be productive.
+- Helps developers quickly onboard and understand core Azure development constructs.
+- Demonstrates opinionated best practices for Azure development.
 
-## Azure Developer CLI templates
-[Azure Developer CLI templates](azure-dev-cli-templates.md) are sample repositories created using the Azure Developer CLI conventions so that you can use `azd` to easily get started and develop solutions using Azure. Each template includes application code, tools, infrstructure code, and CI/CD pipelines that serve as a foundation from which you can build upon and customize to create your own solutions. In addition, you can use subcommands in `azd` to manage cloud resources, configure continuous integration and delivery (CI/CD), and monitor application health. 
+The following steps are the recommended path to getting started with the azd:
+
+1. Pick an [Azure Developer CLI template](azure-dev-cli-templates.md).
+2. Deploy the sample by following the `README` file in the template by running `azd up`
+
+![The standard azd workflow](media/azure-dev-cli-overview/azd-dev-workflow.png)
+
+## azd templates
+
+The [azd templates](azure-dev-cli-templates.md) are sample repositories created using azd conventions. so that you can use `azd` to easily get started and develop solutions using Azure.
+
+Each template includes application code, tools, infrstructure code, and CI/CD pipelines that serve as a foundation from which you can build upon and customize to create your own solutions. In addition, you can use subcommands in `azd` to manage cloud resources, configure continuous integration and delivery (CI/CD), and monitor application health. 
 
 ## Try it out
 
