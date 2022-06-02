@@ -54,7 +54,7 @@ When running the code locally, you also need to specify environment variables th
 | AZURE_CLIENT_ID | The client (application) ID of an App Registration in the tenant. |
 | AZURE_CLIENT_SECRET  | A client secret that was generated for the App Registration. |
 
-For more information,  see [Set local development environment variables](./sdk/authentication-local-development-service-principal).
+For more information,  see [Authenticate Python apps to Azure services during local development using service principals](/azure/developer/python/sdk/authentication-local-development-service-principal#4---set-local-development-environment-variables).
 
 > [!div class="nextstepaction"]
 > [Part 6 - Main app startup code >>>](walkthrough-tutorial-authentication-06.md)
