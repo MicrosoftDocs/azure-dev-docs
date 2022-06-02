@@ -103,9 +103,9 @@
   - name: Reference
     expanded: true
     items:
-      - name: Spring Cloud Azure 4.0 reference
+      - name: Spring Cloud Azure reference
         href: spring-cloud-azure.md
-      - name: Spring Cloud Azure 4.0 reference appendix
+      - name: Spring Cloud Azure reference appendix
         href: spring-cloud-azure-appendix.md
       - name: Spring Framework
         href: https://spring.io/

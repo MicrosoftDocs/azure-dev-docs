@@ -1,5 +1,5 @@
 ---
-ms.date: 04-26-2022
+ms.date: 05/27/2022
 ms.author: v-yonghuiye
 ---
 
@@ -21,7 +21,7 @@ Current binder implementations include:
 The Spring Cloud Stream Binder for Azure Event Hubs provides the binding implementation for the Spring Cloud Stream framework.
 This implementation uses Spring Integration Event Hubs Channel Adapters at its foundation. From design's perspective,
 Event Hubs is similar as Kafka. Also, Event Hubs could be accessed via Kafka API. If your project has tight dependency
-on Kafka API, you can try [Events Hub with Kafka API Sample](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/spring-cloud-azure_v4.0.0/eventhubs/spring-cloud-azure-starter/spring-cloud-azure-sample-eventhubs-kafka)
+on Kafka API, you can try [Events Hub with Kafka API Sample](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/spring-cloud-azure_4.2.0/eventhubs/spring-cloud-azure-starter/spring-cloud-azure-sample-eventhubs-kafka)
 
 ##### Consumer group
 
@@ -594,7 +594,7 @@ spring:
 
 #### Samples
 
-See [azure-spring-boot-samples](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/spring-cloud-azure_v4.0.0/eventhubs/spring-cloud-azure-stream-binder-eventhubs) for more details.
+See [azure-spring-boot-samples](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/spring-cloud-azure_4.2.0/eventhubs/spring-cloud-azure-stream-binder-eventhubs) for more details.
 
 ### Spring Cloud Stream Binder for Azure Service Bus
 
@@ -1059,4 +1059,4 @@ spring:
 
 #### Samples
 
-See [azure-spring-boot-samples](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/spring-cloud-azure_v4.0.0/servicebus/spring-cloud-azure-stream-binder-servicebus) for more details.
+See [azure-spring-boot-samples](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/spring-cloud-azure_4.2.0/servicebus/spring-cloud-azure-stream-binder-servicebus) for more details.

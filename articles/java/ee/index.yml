@@ -37,11 +37,11 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Helidon to Azure App Service
+          - text: Java app with Helidon to Azure App Service
             url: ../eclipse-microprofile/deploy-microprofile-helidon-java-app-with-maven-plugin.md?bc=/azure/developer/breadcrumb/toc.json&toc=/azure/developer/java/ee/toc.json
-          - text: WebSphere Liberty/Open Liberty to Azure Red Hat OpenShift (ARO)
+          - text: Java app with WebSphere Liberty/Open Liberty to Azure Red Hat OpenShift (ARO)
             url: /azure/openshift/howto-deploy-java-liberty-app?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/breadcrumb/toc.json
-          - text: WebSphere Liberty/Open Liberty to AKS
+          - text: Java app with WebSphere Liberty/Open Liberty to AKS
             url: /azure/aks/howto-deploy-java-liberty-app?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/breadcrumb/toc.json
           - text: Java app with PostgreSQL to WebSphere Liberty/Open Liberty on AKS
             url: /azure/aks/howto-deploy-java-liberty-app-with-postgresql?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/breadcrumb/toc.json

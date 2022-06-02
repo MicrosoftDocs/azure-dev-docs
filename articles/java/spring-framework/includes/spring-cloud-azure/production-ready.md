@@ -1,5 +1,5 @@
 ---
-ms.date: 04-26-2022
+ms.date: 05/27/2022
 ms.author: v-yonghuiye
 ---
 
@@ -33,6 +33,11 @@ The following table lists configurable properties to enable or disable health in
 
 > [!IMPORTANT]
 > Calling the health endpoint of Azure services may cause extra charges. For example, if you call `http://HOST_NAME:{port}/actuator/health/cosmos` to get the Cosmos DB health info, it will calculate Request Units (RUs). For more information, see [Request Units in Azure Cosmos DB](/azure/cosmos-db/request-units).
+
+> [!NOTE]
+> For calling the health endpoint of `Cosmos`, the option `spring.cloud.azure.cosmos.database` should be configured; Otherwise, the health status of `unknown` will be returned.
+>
+> For calling the health endpoint of `Storage Queue`, role of `Storage Account Contributor` is required if `Azure AD` is used for authorizing.
 
 ### Enable sleuth
 

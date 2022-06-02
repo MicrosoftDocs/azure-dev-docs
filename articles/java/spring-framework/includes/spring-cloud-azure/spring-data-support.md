@@ -1,5 +1,5 @@
 ---
-ms.date: 04-26-2022
+ms.date: 05/27/2022
 ms.author: v-yonghuiye
 ---
 
@@ -36,7 +36,7 @@ The following table lists the configurable properties of `spring-cloud-azure-sta
 > | *spring.cloud.azure.cosmos*.credential.client-certificate-path     | The path of a PEM certificate file to use when performing service principal authentication with Azure.          |
 > | *spring.cloud.azure.cosmos*.credential.client-id                   | The client ID to use when performing service principal authentication with Azure.                               |
 > | *spring.cloud.azure.cosmos*.credential.client-secret               | The client secret to use when performing service principal authentication with Azure.                           |
-> | *spring.cloud.azure.cosmos*.credential.managed-identity-enabled    | Whether to enable managed identity.                                                                             |
+> | *spring.cloud.azure.cosmos*.credential.managed-identity-enabled    | Whether to enable managed identity. The default value is *false*.                                                                             |
 > | *spring.cloud.azure.cosmos*.credential.password                    | The password to use when performing username/password authentication with Azure.                                |
 > | *spring.cloud.azure.cosmos*.credential.username                    | The username to use when performing username/password authentication with Azure.                                |
 > | *spring.cloud.azure.cosmos*.populate-query-metrics                 | A value that indicates whether to populate diagnostics strings and query metrics. The default value is *false*. |
@@ -235,6 +235,6 @@ This example includes an autowired `UserRepository` interface to support save, d
 
 #### Samples
 
-See the [azure-spring-boot-samples](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/spring-cloud-azure_4.0.0/cosmos) on GitHub.
+See the [azure-spring-boot-samples](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/spring-cloud-azure_4.2.0/cosmos) on GitHub.
 
-Apart from using the `spring-cloud-azure-starter-data-cosmos` library, you can directly use `azure-spring-data-cosmos` library for more complex scenarios. For more information, see [Spring Data for Azure Cosmos DB](https://github.com/Azure/azure-sdk-for-java/tree/spring-cloud-azure-dependencies_4.0.0/sdk/cosmos/azure-spring-data-cosmos).
+Apart from using the `spring-cloud-azure-starter-data-cosmos` library, you can directly use `azure-spring-data-cosmos` library for more complex scenarios. For more information, see [Spring Data for Azure Cosmos DB](https://github.com/Azure/azure-sdk-for-java/tree/spring-cloud-azure_4.2.0/sdk/cosmos/azure-spring-data-cosmos).

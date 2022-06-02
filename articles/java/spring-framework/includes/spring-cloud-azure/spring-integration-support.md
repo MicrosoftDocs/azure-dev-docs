@@ -1,5 +1,5 @@
 ---
-ms.date: 04-26-2022
+ms.date: 05/27/2022
 ms.author: v-yonghuiye
 ---
 
@@ -353,7 +353,7 @@ Mapping between Event Hubs Message / Event Properties and Spring Message Headers
 
 #### Samples
 
-See [azure-spring-boot-samples](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/spring-cloud-azure_v4.0.0/eventhubs/spring-cloud-azure-starter-integration-eventhubs/eventhubs-integration) for more details.
+See [azure-spring-boot-samples](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/spring-cloud-azure_4.2.0/eventhubs/spring-cloud-azure-starter-integration-eventhubs/eventhubs-integration) for more details.
 
 ### Spring Integration with Azure Service Bus
 
@@ -659,7 +659,7 @@ public class SampleController {
 
 #### Samples
 
-See [azure-spring-boot-samples](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/spring-cloud-azure_v4.0.0/servicebus/spring-cloud-azure-starter-integration-servicebus) for more details.
+See [azure-spring-boot-samples](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/spring-cloud-azure_4.2.0/servicebus/spring-cloud-azure-starter-integration-servicebus) for more details.
 
 ### Spring Integration with Azure Storage Queue
 
@@ -850,4 +850,4 @@ Connection configurable properties of spring-cloud-azure-starter-integration-sto
 
 #### Samples
 
-See [azure-spring-boot-samples](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/spring-cloud-azure_v4.0.0/storage/spring-cloud-azure-starter-integration-storage-queue) for more details.
+See [azure-spring-boot-samples](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/spring-cloud-azure_4.2.0/storage/spring-cloud-azure-starter-integration-storage-queue) for more details.

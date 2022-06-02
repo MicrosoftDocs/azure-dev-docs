@@ -1,5 +1,5 @@
 ---
-ms.date: 04-26-2022
+ms.date: 05/27/2022
 ms.author: v-yonghuiye
 ---
 
@@ -23,7 +23,7 @@ ms.author: v-yonghuiye
 </dependencyManagement>
 ```
 
-The version for spring-cloud-azure-dependencies is 4.0.0.
+The version for spring-cloud-azure-dependencies is 4.2.0.
 
 #### Starter dependencies
 
@@ -76,4 +76,4 @@ The following table lists starters for Spring Cloud Stream support:
 
 ### Learning Spring Cloud Azure
 
-We've prepared a full list of samples to show usage. You can find these samples at [Spring Cloud Azure Samples](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/spring-cloud-azure_v4.0.0).
+We've prepared a full list of samples to show usage. You can find these samples at [Spring Cloud Azure Samples](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/spring-cloud-azure_4.2.0).

@@ -1,5 +1,5 @@
 ---
-ms.date: 04-26-2022
+ms.date: 05/27/2022
 ms.author: v-yonghuiye
 ---
 
@@ -27,7 +27,7 @@ Configurable properties when using Spring JMS support:
 > | Property                                                         | Description                                                                                                                |
 > |------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------|
 > | **spring.jms.servicebus**.connection-string                      | Azure Service Bus connection string. Should be provided when want to provide the connection string directly.               |
-> | **spring.jms.servicebus**.topic-client-id                        | JMS clientID. Only works for the bean of topicJmsListenerContainerFactory.                                                 |
+> | **spring.jms.servicebus**.topic-client-id                        | JMS client ID. Only works for the bean of topicJmsListenerContainerFactory.                                                 |
 > | **spring.jms.servicebus**.idle-timeout                           | The duration for idle.                                                                                                     |
 > | **spring.jms.servicebus**.pricing-tier                           | The Azure Service Bus Price Tier.                                                                                          |
 > | **spring.jms.servicebus**.listener.reply-pub-sub-domain          | Whether the reply destination type is topic.                                                                               |
@@ -78,4 +78,4 @@ spring:
 
 ### Samples
 
-See [azure-spring-boot-samples](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/spring-cloud-azure_v4.0.0) for more details.
+See [azure-spring-boot-samples](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/spring-cloud-azure_4.2.0) for more details.
