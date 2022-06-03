@@ -34,7 +34,7 @@ You do this step before deploying your code so you can configure a custom startu
 
     ![VS Code message with the URL for for your App Service](media/deploy-azure/url-for-your-new-app-service-and-resource-group-and-plan.png)
 
-1. To confirm that the App Service is running properly, expand your subscription in the **Azure: App Service** explorer, right-click the App Service name, and select **Browse website**:
+1. To confirm that the App Service is running properly, expand your subscription in the **Azure: App Service** explorer, right-click the App Service name, and select **Browse Website**:
 
     ![Browse Website command on an App Service in the App Service explorer](media/deploy-azure/select-command-to-browse-website-in-app-service.png)
 
