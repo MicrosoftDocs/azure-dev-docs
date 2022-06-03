@@ -10,6 +10,14 @@
       href: quickstarts/cordova/offline.md
     - name: Add Authentication
       href: quickstarts/cordova/authentication.md
+  - name: .NET MAUI
+    items:
+    - name: Introduction
+      href: quickstarts/maui/index.md
+    - name: Add Authentication
+      href: quickstarts/maui/authentication.md     
+    - name: Add Offline Sync
+      href: quickstarts/maui/offline.md
   - name: Windows (UWP)
     items:
     - name: Introduction

@@ -1,6 +1,6 @@
 ---
 ms.topic: include
-ms.date: 05/06/2022
+ms.date: 06/03/2022
 author: adrianhall
 ms.author: adhal
 ms.prod: azure-mobile-apps
@@ -28,6 +28,6 @@ Now, make some changes through your app.  **DO NOT PRESS REFRESH** (yet).
 
 Repeat the SQL statement in the Azure portal and verify that no changes have been made to the data in the database.
 
-Select the **Refresh** icon on your app to push the data in queue to the backend service.
+Select the **Refresh** icon on your app to push the data in queue to the backend service.  You will see the HTTP transactions happening in the Output Debug window.
 
 Repeat the SQL statement in the Azure portal and verify that your changes have been pushed to the remote service.
