@@ -18,7 +18,7 @@ You must complete this tutorial before other .NET MAUI tutorials using the Mobil
 
 To complete this tutorial, you need:
 
-* [Visual Studio 2022 17.3](/visualstudio/install/install-visual-studio?view=vs-2022&preserve-view=true) (currently in preview) with the following workloads.
+* [Visual Studio 2022 17.3 Preview](https://visualstudio.microsoft.com/vs/preview/) with the following workloads.
   * ASP.NET and web development
   * Azure development
   * .NET Multi-platform App UI development
