@@ -40,7 +40,7 @@ using Microsoft.Identity.Client;
 using System.Diagnostics;
 ```
 
-In the `MainPage` class, add a new properties:
+In the `MainPage` class, add a new property:
 
 ``` csharp
 public IPublicClientApplication IdentityClient { get; set; }
@@ -188,7 +188,7 @@ protected override void OnActivityResult(int requestCode, [GeneratedEnum] Result
 }
 ```
 
-You will need to include the following `using` statements at the top of the file:
+Include the following `using` statements at the top of the file:
 
 ``` csharp
 using Android.App;
