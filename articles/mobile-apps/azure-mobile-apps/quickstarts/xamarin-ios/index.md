@@ -12,7 +12,7 @@ zone_pivot_groups: vs-platform-options
 
 # Build a Xamarin.iOS app with Azure Mobile Apps
 
-This tutorial shows you how to add a cloud-based backend service to an iOS mobile app by using Xamarin.iOS and an Azure mobile apps backend.  You will create both a new mobile app backend and a simple *Todo list* app that stores app data in Azure.
+This tutorial shows you how to add a cloud-based backend service to an iOS mobile app by using Xamarin.iOS and an Azure mobile apps backend.  You'll create both a new mobile app backend and a simple *Todo list* app that stores app data in Azure.
 
 You must complete this tutorial before other Xamarin.iOS tutorials using the Mobile Apps feature in Azure App Service.
 
@@ -61,7 +61,7 @@ You can complete this tutorial on Mac or Windows. A mac is required to compile t
 
 ::: zone pivot="vs2022-mac"
 
-[!INCLUDE [Instructions to download the sample from GitHub on MacOS.](~/mobile-apps/azure-mobile-apps/includes/quickstart/mac/download-sample.md)]
+[!INCLUDE [Instructions to download the sample from GitHub on macOS.](~/mobile-apps/azure-mobile-apps/includes/quickstart/mac/download-sample.md)]
 
 ::: zone-end
 
@@ -78,7 +78,7 @@ You can complete this tutorial on Mac or Windows. A mac is required to compile t
 
 ::: zone pivot="vs2022-mac"
 
-[!INCLUDE [Instructions for deploying a backend service on MacOS.](~/mobile-apps/azure-mobile-apps/includes/quickstart/mac/deploy-backend.md)]
+[!INCLUDE [Instructions for deploying a backend service on macOS.](~/mobile-apps/azure-mobile-apps/includes/quickstart/mac/deploy-backend.md)]
 
 ::: zone-end
 
@@ -92,7 +92,7 @@ You can complete this tutorial on Mac or Windows. A mac is required to compile t
 
 ::: zone pivot="vs2022-mac"
 
-[!INCLUDE [Instructions for configuring the sample code on MacOS.](~/mobile-apps/azure-mobile-apps/includes/quickstart/mac/configure-sample.md)]
+[!INCLUDE [Instructions for configuring the sample code on macOS.](~/mobile-apps/azure-mobile-apps/includes/quickstart/mac/configure-sample.md)]
 
 ::: zone-end
 

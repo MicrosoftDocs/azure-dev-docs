@@ -18,10 +18,10 @@ The samples are located in the *samples* folder within the extracted files.  The
 
   ![Screenshot of the file explorer for the solution.](~/mobile-apps/azure-mobile-apps/media/quickstart/mac/deploy-sample-sln.png)
 
-When you open the sample for the first time, notice that certain projects are not available:
+When you open the sample for the first time, notice that certain projects aren't available:
 
-* Windows-specific projects (such as WPF and UWP) cannot be compiled with Visual Studio 2022 for Mac.
-* The .NET MAUI project requires additional workloads to be installed.
+* Windows-specific projects (such as WPF and UWP) can't be compiled with Visual Studio 2022 for Mac.
+* The .NET MAUI project requires extra .NET workloads to be installed.
 
 You can unload any project you aren't working with.  Expand the `windows` folder in the solution explorer.
 
