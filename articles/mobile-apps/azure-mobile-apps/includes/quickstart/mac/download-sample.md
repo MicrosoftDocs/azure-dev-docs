@@ -25,7 +25,7 @@ When you open the sample for the first time, notice that certain projects aren't
 
 You can unload any project you aren't working with.  Expand the `windows` folder in the solution explorer.
 
-  ![Screenshot of the solution explorer with disabled projects.](~/mobile-apps/azure-mobile-apps/quickstart/mac/vsmac-disabled-projects.png)
+  ![Screenshot of the solution explorer with disabled projects.](~/mobile-apps/azure-mobile-apps/media/quickstart/mac/vsmac-disabled-projects.png)
 
 For each disabled project, right-click on the project, then select **Unload project**.  Repeat this process for the `TodoApp.MAUI` project.
 
