@@ -9,6 +9,8 @@ metadata:
   description: Get started developing apps for the cloud with these tutorials and tools for Java developers.
   ms.topic: hub-page
   ms.date: 06/10/2021
+  author: KarlErickson
+  ms.author: karler
 
 conceptualContent:
   items:
