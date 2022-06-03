@@ -32,7 +32,6 @@ To complete this tutorial, you need:
 You can complete this tutorial on Mac or Windows.
 
 > This tutorial currently supports a limited set of platforms.  Specifically, the iOS platform is not covered at the moment.
-> We will add the iOS platform to the tutorial at a future date.
 
 ## Download the sample app
 
