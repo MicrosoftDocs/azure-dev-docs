@@ -24,5 +24,6 @@ az webapp create \
     --resource-group $resourceGroup \
     --name $jbossWebApp \
     --plan $jbossAppServicePlan \
-    --runtime "JBOSSEAP|7.2-java8"
+    --runtime "JBOSSEAP|7-java8"
+    #  Or use "JBOSSEAP|7-java11" if you're using Java 11
 ```
