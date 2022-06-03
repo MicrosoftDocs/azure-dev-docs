@@ -45,7 +45,7 @@ If you haven't completed the [authentication tutorial](./authentication.md), the
 ``` csharp
 TodoService = new RemoteTodoService()
 {
-    OfflineDb = OfflineDb = FileSystem.CacheDirectory + "/offline.db"
+    OfflineDb = FileSystem.CacheDirectory + "/offline.db"
 };
 ```
 
