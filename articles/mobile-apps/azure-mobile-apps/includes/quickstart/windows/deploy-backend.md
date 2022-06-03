@@ -88,5 +88,3 @@ Open the `TodoApp.sln` in Visual Studio.
 18. Once the backend service is published, a browser will be opened. Add `/tables/todoitem?ZUMO-API-VERSION=3.0.0` to the URL:
 
     ![Screenshot showing the browser output after the service is published.](~/mobile-apps/azure-mobile-apps/media/quickstart/windows/publish-backend-success.png)
-
-    This indicates that the service is working properly.
