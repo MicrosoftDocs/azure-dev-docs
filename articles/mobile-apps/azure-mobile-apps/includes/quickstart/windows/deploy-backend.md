@@ -1,6 +1,6 @@
 ---
 ms.topic: include
-ms.date: 05/06/2022
+ms.date: 06/03/2022
 author: adrianhall
 ms.author: adhal
 ms.prod: azure-mobile-apps
@@ -49,43 +49,42 @@ Open the `TodoApp.sln` in Visual Studio.
 
 1. In the right-hand pane, select the **Solutions Explorer**.
 2. Right-click the `TodoAppService.NET6` project, then select **Set as Startup Project**.
-3. On the top menu, select **Build** > **Build TodoAppService.NET6** (or press Ctrl+B).
-4. On the top menu, select **Build** > **Publish TodoAppService.NET6**.
-5. In the **Publish** window, select Target: **Azure**, then press **Next**.
+3. On the top menu, select **Build** > **Publish TodoAppService.NET6**.
+4. In the **Publish** window, select Target: **Azure**, then press **Next**.
 
     ![Screenshot of the target selection window.](~/mobile-apps/azure-mobile-apps/media/quickstart/windows/publish-backend-target.png)
 
-6. Select Specific target: **Azure App Service (Windows)**, then press **Next**.
+5. Select Specific target: **Azure App Service (Windows)**, then press **Next**.
 
     ![Screenshot of the specific target selection window.](~/mobile-apps/azure-mobile-apps/media/quickstart/windows/publish-backend-appservice.png)
 
-7. If necessary, sign in and select an appropriate **Subscription name**.
-8. Ensure **View** is set to **Resource group**.
-9. Expand the `quickstart` resource group, then select the App Service that was created earlier, followed by **Finish**.
+6. If necessary, sign in and select an appropriate **Subscription name**.
+7. Ensure **View** is set to **Resource group**.
+8. Expand the `quickstart` resource group, then select the App Service that was created earlier.
 
     ![Screenshot of the app service selection window.](~/mobile-apps/azure-mobile-apps/media/quickstart/windows/publish-backend-selection.png)
 
-10. Once the Publish tab is opened, locate the **Service Dependencies** and select **Configure** next to the SQL Server Database.
+9. Select **Finish**.
+10. Once the publish profile creation process has completed, select **Close**.
+11. Locate the **Service Dependencies** and select the triple-dots next to the SQL Server Database, then select **Connect**.
 
     ![Screenshot showing the S Q L server configuration selection.](~/mobile-apps/azure-mobile-apps/media/quickstart/windows/publish-backend-service-dependency.png)
 
-11. Select **Azure SQL Database**, then select **Next**.
-12. Select the **quickstart** database, then select **Next**.
+12. Select **Azure SQL Database**, then select **Next**.
+13. Select the **quickstart** database, then select **Next**.
 
     ![Screenshot of the database selection window.](~/mobile-apps/azure-mobile-apps/media/quickstart/windows/publish-backend-select-db.png)
 
-13. Fill in the form using the SQL username and password that were in the outputs of the deployment, then select **Next**.
+14. Fill in the form using the SQL username and password that were in the outputs of the deployment, then select **Next**.
 
     ![Screenshot of the database settings window.](~/mobile-apps/azure-mobile-apps/media/quickstart/windows/publish-backend-configure-db.png)
 
-14. Select **Finish**.
-15. Select **Close** when complete.
-16. Select **Publish** to publish your app to the Azure App Service you created earlier.
+15. Select **Finish**.
+16. Select **Close** when complete.
+17. Select **Publish** to publish your app to the Azure App Service you created earlier.
 
     ![Screenshot showing the publish button.](~/mobile-apps/azure-mobile-apps/media/quickstart/windows/publish-backend-to-appservice.png)
 
-17. Once the backend service is published, a browser will be opened. Add `/tables/todoitem?ZUMO-API-VERSION=3.0.0` to the URL:
+18. Once the backend service is published, a browser will be opened. Add `/tables/todoitem?ZUMO-API-VERSION=3.0.0` to the URL:
 
     ![Screenshot showing the browser output after the service is published.](~/mobile-apps/azure-mobile-apps/media/quickstart/windows/publish-backend-success.png)
-
-    This indicates that the service is working properly.
