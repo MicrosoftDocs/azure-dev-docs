@@ -4,6 +4,7 @@ description: An overview of how to troubleshoot dependency version conflicts rel
 ms.date: 10/28/2021
 ms.topic: conceptual
 ms.custom: devx-track-java
+author: KarlErickson
 ms.author: limolkova
 ---
 

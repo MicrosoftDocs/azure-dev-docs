@@ -3,6 +3,7 @@ title: Spring Cloud Azure reference documentation
 description: Spring Cloud Azure reference documentation
 ms.date: 05/27/2022
 ms.topic: article
+author: KarlErickson
 ms.author: v-yonghuiye
 ms.custom: devx-track-java
 ---

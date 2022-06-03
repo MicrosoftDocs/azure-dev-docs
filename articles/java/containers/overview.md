@@ -1,6 +1,7 @@
 ---
 title: Containerize your Java applications
 description: This article provides an overview of recommended strategies for containerizing your Java applications.
+author: KarlErickson
 ms.author: brborges
 ms.topic: conceptual
 ms.date: 04/13/2022

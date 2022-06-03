@@ -4,6 +4,7 @@ description: Learn how to configure a Spring Boot Initializr app with the Azure 
 services: active-directory-b2c
 documentationcenter: java
 manager: kevinzha
+author: KarlErickson
 ms.author: edburns
 ms.date: 05/27/2022
 ms.service: active-directory-b2c

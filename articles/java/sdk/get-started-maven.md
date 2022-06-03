@@ -1,6 +1,7 @@
 ---
 title: Get started with Azure SDK and Apache Maven
 description: Learn how to build projects using Azure SDK and Apache Maven
+author: KarlErickson
 ms.author: jogiles
 ms.date: 12/10/2021
 ms.topic: article

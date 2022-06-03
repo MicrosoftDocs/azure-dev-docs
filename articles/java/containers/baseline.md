@@ -1,6 +1,7 @@
 ---
 title: Establish a baseline for containerized Java applications
 description: This article describes how to establish a baseline for containerized Java applications
+author: KarlErickson
 ms.author: brborges
 ms.topic: conceptual
 ms.date: 04/13/2022

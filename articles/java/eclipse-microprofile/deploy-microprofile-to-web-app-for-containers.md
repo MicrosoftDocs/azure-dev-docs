@@ -4,6 +4,7 @@ titleSuffix: Azure Web App for Containers
 description: Learn how to deploy a MicroProfile service using Docker and Azure Web App for Containers
 services: container-registry;app-service
 documentationcenter: java
+author: KarlErickson
 ms.author: jogiles
 ms.date: 09/07/2018
 ms.service: app-service

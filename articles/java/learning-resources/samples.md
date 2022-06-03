@@ -1,6 +1,7 @@
 ---
 title: Azure samples for Java
 description: Java readiness - Azure samples for Java developers.
+author: KarlErickson
 ms.author: sreea
 ms.topic: article
 ms.date: 03/19/2021
