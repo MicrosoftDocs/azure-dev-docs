@@ -32,7 +32,7 @@ Use this procedure to deploy your Python app to an Azure App Service.
 
     ![Deployment complete with Browse Website button](media/deploy-azure/web-app-deployment-complete-with-browse-website-button.png)
 
-An example of the web app deployed is shown below.
+    An example of the web app deployed is shown below.
 
     ![The app running successfully on App Service](media/deploy-azure/web-app-running-successfully-on-app-service.png)
 
