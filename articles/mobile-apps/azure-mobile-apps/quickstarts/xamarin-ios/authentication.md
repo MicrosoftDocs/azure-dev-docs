@@ -7,7 +7,7 @@ ms.topic: article
 ms.date: 05/19/2022
 ms.author: adhal
 recommendations: false
-zone_pivot_group_filename: mobile-apps/azure-mobile-apps/zumo-zone-pivot-groups.json
+zone_pivot_group_filename: developer/mobile-apps/azure-mobile-apps/zumo-zone-pivot-groups.json
 zone_pivot_groups: vs-platform-options
 ---
 
