@@ -4,6 +4,7 @@ description: This guide describes the features, issues, workarounds, and diagnos
 ms.date: 05/27/2022
 ms.service: active-directory
 ms.topic: article
+author: KarlErickson
 ms.author: shaozliu
 ms.custom: devx-track-java
 ---

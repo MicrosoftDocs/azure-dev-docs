@@ -3,6 +3,7 @@ title: How to use the Spring Boot Starter with the Azure Cosmos DB SQL API
 description: Learn how to configure an application created with the Spring Boot Initializer with the Azure Cosmos DB SQL API.
 services: cosmos-db
 documentationcenter: java
+author: KarlErickson
 ms.author: karler
 ms.date: 05/27/2022
 ms.service: cosmos-db

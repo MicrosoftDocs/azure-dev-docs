@@ -2,6 +2,7 @@
 title: How to use the Spring Boot Starter for Azure Service Bus JMS
 description: This article demonstrates how to use the Spring JMS Starter to send messages to and receive messages from Azure Service Bus.
 manager: kyliel
+author: KarlErickson
 ms.author: seal
 ms.date: 05/27/2022
 ms.topic: article

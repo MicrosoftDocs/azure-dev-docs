@@ -1,6 +1,7 @@
 ---
 title: Containerize your Java applications for Kubernetes
 description: This article describes how to containerize your Java applications for Kubernetes deployment
+author: KarlErickson
 ms.author: brborges
 ms.topic: conceptual
 ms.date: 04/13/2022

@@ -5,6 +5,7 @@ documentationcenter: java
 ms.date: 10/12/2020
 ms.service: mysql
 ms.tgt_pltfrm: multiple
+author: KarlErickson
 ms.author: judubois
 ms.topic: article
 ms.custom: devx-track-java, devx-track-azurecli, team=cloud_advocates

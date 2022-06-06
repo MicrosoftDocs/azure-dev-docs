@@ -5,6 +5,7 @@ ms.date: 03/30/2022
 ms.service: key-vault
 ms.topic: tutorial
 ms.custom: devx-track-java, devx-track-azurecli
+author: KarlErickson
 ms.author: edburns
 ---
 

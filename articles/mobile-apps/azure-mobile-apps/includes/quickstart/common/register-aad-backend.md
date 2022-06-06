@@ -1,6 +1,6 @@
 ---
 ms.topic: include
-ms.date: 05/06/2022
+ms.date: 06/03/2022
 author: adrianhall
 ms.author: adhal
 ms.prod: azure-mobile-apps
@@ -8,7 +8,7 @@ ms.prod: azure-mobile-apps
 
 ## Add authentication to your backend service
 
-Your backend service is a regular ASP.NET 6 service.  Any tutorial that shows you how to enable authentication for an ASP.NET 6 service will work with Azure Mobile Apps.
+Your backend service is a standard ASP.NET 6 service.  Any tutorial that shows you how to enable authentication for an ASP.NET 6 service will work with Azure Mobile Apps.
 
 To enable Azure Active Directory authentication for your backend service, you need to:
 
