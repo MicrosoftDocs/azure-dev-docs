@@ -2,7 +2,7 @@
 title: "Step 4: Configure a custom startup file for Python apps on Azure App Service on Linux"
 description: Tutorial step 4, instructing App Service how to start the web app including specific instructions for Django, Flask, and other frameworks.
 ms.topic: conceptual
-ms.date: 11/20/2020
+ms.date: 06/06/2020
 ms.custom: devx-track-python, seo-python-october2019
 ---
 
