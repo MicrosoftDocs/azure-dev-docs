@@ -109,7 +109,7 @@ $env:AZURE_CLIENT_CERTIFICATE_PATH="<azure_client_certificate_path>"
 
 ```bash
 export AZURE_CLIENT_ID="<service_principal_appid>"
-export AZURE_USERNAME="<azure_username"
+export AZURE_USERNAME="<azure_username>"
 export AZURE_PASSWORD="<azure_user_password>"
 ```
 
@@ -117,7 +117,7 @@ export AZURE_PASSWORD="<azure_user_password>"
 
 ```powershell
 $env:AZURE_CLIENT_ID="<service_principal_appid>"
-$env:AZURE_USERNAME="<azure_username"
+$env:AZURE_USERNAME="<azure_username>"
 $env:AZURE_PASSWORD="<azure_user_password>"
 ```
 
