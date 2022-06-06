@@ -19,7 +19,7 @@ Use this procedure to deploy your Python app to an Azure App Service.
 1. In the prompts that follow, provide the following details:
 
     - For **Select the folder to deploy**, select your current app folder.
-    - In the confirmation dialog box, select **Deploy**.
+    - If prompted to confirm the deployment, select **Deploy**.
     - If prompted to update your build configuration to run build commands, select **Yes**.
     - If prompted about overwriting the existing deployment, select **Deploy**.
     - If prompted to "Always deploy the workspace", select **Yes**.
