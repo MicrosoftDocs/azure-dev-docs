@@ -11,7 +11,7 @@ To deploy the backend service, we will:
 * Use Azure Resource Manager and the Azure CLI to deploy an Azure App Service and Azure SQL Database to Azure.
 * Use Visual Studio 2022 for Mac to publish the service code to the newly created Azure App Service.
 
-### Create resources on Azure.
+### Create resources on Azure
 
 1. Open a terminal and change directory to the folder containing the `TodoApp.sln` file. This directory also contains `azuredeploy.json`.
 2. Ensure you've [signed in and selected a subscription](/cli/azure/authenticate-azure-cli) using the Azure CLI.
@@ -39,11 +39,11 @@ To deploy the backend service, we will:
 
     An example output will be:
 
-    ![Screenshot of command line results.](~/mobile-apps/azure-mobile-apps/media/quickstart/mac/deploy-backend-outputs.png)
+    ![Screenshot of command line results.](~/mobile-apps/azure-mobile-apps/media/quickstart/mac/deploy-back-end-outputs.png)
 
 6. Make a note of each of the values in the outputs for later use.
 
-### Publish the service code.
+### Publish the service code
 
 Open the `TodoApp.sln` in Visual Studio 2022 for Mac. 
 
@@ -53,8 +53,8 @@ Open the `TodoApp.sln` in Visual Studio 2022 for Mac.
 4. Right-click the `TodoAppService.NET6` project, then **Publish** > **Publish to Azure...**.
 5. Select the service you created above (in the `quickstart` resource group), then select **Publish**.
 
-    ![Screenshot of the target selection window.](~/mobile-apps/azure-mobile-apps/media/quickstart/mac/publish-backend-target.png)
+    ![Screenshot of the target selection window.](~/mobile-apps/azure-mobile-apps/media/quickstart/mac/publish-back-end-target.png)
 
 6. Once the backend service is published, a browser will be opened. Add `/tables/todoitem?ZUMO-API-VERSION=3.0.0` to the URL:
 
-    ![Screenshot showing the browser output after the service is published.](~/mobile-apps/azure-mobile-apps/media/quickstart/mac/publish-backend-success.png)
+    ![Screenshot showing the browser output after the service is published.](~/mobile-apps/azure-mobile-apps/media/quickstart/mac/publish-back-end-success.png)

@@ -79,7 +79,7 @@ You can complete this tutorial on Mac or Windows. A mac is required to compile t
 
 ::: zone pivot="vs2022-mac"
 
-[!INCLUDE [Instructions for deploying a backend service on macOS.](~/mobile-apps/azure-mobile-apps/includes/quickstart/mac/deploy-backend.md)]
+[!INCLUDE [Instructions for deploying a backend service on macOS.](~/mobile-apps/azure-mobile-apps/includes/quickstart/mac/deploy-back-end.md)]
 
 ::: zone-end
 
