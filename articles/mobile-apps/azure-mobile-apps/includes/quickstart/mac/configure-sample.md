@@ -31,6 +31,4 @@ Your client application needs to know the base URL of your backend so that it ca
     }
     ```
 
-    You can obtain the backend URL of your service from the **Publish** tab.  Ensure you use a **https** URL.
-
 7. Save the file. (&#8984;-S).
