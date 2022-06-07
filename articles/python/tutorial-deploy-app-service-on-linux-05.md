@@ -10,7 +10,7 @@ ms.custom: devx-track-python, seo-python-october2019
 
 [Previous step: configure a custom startup file](tutorial-deploy-app-service-on-linux-04.md)
 
-Use this procedure to deploy your Python app to an Azure App Service.
+Use this procedure to deploy your Python app to Azure App Service.
 
 1. In Visual Studio Code, in the Azure Resource explorer, right click on the App Service and select **Deploy to Web App...**.
  
@@ -36,15 +36,15 @@ Use this procedure to deploy your Python app to an Azure App Service.
 
     ![The app running successfully on App Service](media/deploy-azure/web-app-running-successfully-on-app-service.png)
 
-1. If you still see the default app, wait a minute or two for the container to restart after the deployment and try again. If you're using a custom startup command and have verified its correctness, then continue to next step to check the logs.
+1. If you still see the default app, wait a minute or two for the container to restart after the deployment and try again. If you're using a custom startup command and have verified its correctness, then continue to next step.
 
-1. To verify that your files are deployed and check logs, expand the App Service you deployed, then expand **Files**:
+1. To verify that your files are deployed and check logs, expand the App Service you deployed, and then expand **Files**:
 
     ![Checking deployment files through the App Service explorer](media/deploy-azure/expand-files-node-to-check-deployment-of-web-app-files.png)
 
     The file *oryx-manifest.toml* is used by the App Service build system and the file *hostingstart.html* is the default app page.
 
-    The *Logs* folder contains logs that can help in troubleshooting deployment problems. For more details lon logs, go to the next article in this tutorial.
+    The *Logs* folder contains logs that can help in troubleshooting deployment problems. 
 
 > [!div class="nextstepaction"]
 > [I deployed my app - continue to step 6 >>>](tutorial-deploy-app-service-on-linux-06.md)
