@@ -53,7 +53,7 @@ Open the `TodoApp.sln` solution in Visual Studio project as the startup project.
 
 ::: zone pivot="vs2022-mac"
 
-[!INCLUDE [Set up MSAL in Windows](~/mobile-apps/azure-mobile-apps/includes/quickstart/mac/add-msal-library.md)]
+[!INCLUDE [Set up MSAL in Windows](~/mobile-apps/azure-mobile-apps/includes/quickstart/mac/add-authentication-library.md)]
 
 ::: zone-end
 
