@@ -9,7 +9,7 @@ You can delete a resource group by using the Azure portal, the Visual Studio Cod
     ![Azure extension resources sort by in the Visual Studio Code](../media/deploy-azure/visual-studio-code-extension-sort-by-resource-group-one-item.png)
 
  
-- Run the following Azure CLI command (locally or using the [Cloud Shell](/azure/cloud-shell/overview)), replacing `<resource_group>` with the name of the group used in this tutorial:
+- Run the following [Azure CLI](/cli/azure/install-azure-cli) command (locally or using the [Cloud Shell](/azure/cloud-shell/overview)), replacing `<resource_group>` with the name of the group used in this tutorial:
 
     ```azurecli
     az group delete --no-wait --name <resource_group>
