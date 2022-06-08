@@ -1,5 +1,3 @@
-We'll use the [ToDo Application with a C# API and Azure Cosmos DB SQL API](https://github.com/Azure-Samples/todo-csharp-cosmos-sql) for this walkthrough. For more information including architecture diagram and the Azure resources you'll deploy, see the [README](https://github.com/Azure-Samples/todo-csharp-cosmos-sql/blob/main/README.md).
-
 ### Prerequisites
 
 Before you get started, ensure you have the following tools installed on your local machine:

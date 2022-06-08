@@ -1,5 +1,3 @@
-We'll use the [ToDo Application with a Node.js API and Azure Cosmos DB API for MongoDB](https://github.com/azure-samples/todo-nodejs-mongo) for this walkthrough. For more information including architecture diagram and the Azure resources you'll deploy, see the [README](https://github.com/Azure-Samples/todo-nodejs-mongo/blob/main/README.md).
-
 ### Prerequisites
 
 Before you get started, ensure you have the following tools installed on your local machine:
