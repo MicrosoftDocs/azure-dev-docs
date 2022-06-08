@@ -16,7 +16,7 @@ Find new and updated content for JavaScript and TypeScript developers.
 
 |Name|Description|
 |---------------------------------------|--|
-|[Get connection string from Key vault](how-to/with-web-app/use-secret-environment-variables)|This has been updated to flow from the initial [App Service + Cosmos DB tutorial](/azure/app-service/tutorial-nodejs-mongodb-app?tabs=azure-portal%2Cterminal-bash%2Cvscode-deploy%2Cdeploy-instructions-azportal%2Cdeploy-zip-linux-mac%2Cdeploy-instructions--zip-azcli). As part of the update, the sample has been replaced with this sample: [https://github.com/Azure-Samples/msdocs-nodejs-mongodb-azure-sample-app.git](https://github.com/Azure-Samples/msdocs-nodejs-mongodb-azure-sample-app.git).|
+|[Get connection string from Key vault](how-to/with-web-app/use-secret-environment-variables.md)|This has been updated to flow from the initial [App Service + Cosmos DB tutorial](/azure/app-service/tutorial-nodejs-mongodb-app?tabs=azure-portal%2Cterminal-bash%2Cvscode-deploy%2Cdeploy-instructions-azportal%2Cdeploy-zip-linux-mac%2Cdeploy-instructions--zip-azcli). As part of the update, the sample has been replaced with this sample: [https://github.com/Azure-Samples/msdocs-nodejs-mongodb-azure-sample-app.git](https://github.com/Azure-Samples/msdocs-nodejs-mongodb-azure-sample-app.git).|
 
 
 ## 2022 May
