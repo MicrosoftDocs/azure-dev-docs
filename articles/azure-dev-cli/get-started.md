@@ -13,7 +13,29 @@ zone_pivot_groups: azd-languages-set
 
 # Get started with Azure Developer CLI
 
-We'll use a sample GitHub repo, a Todo app, for this walkthrough. Upon completion, you will get the code and will be able to run commands to build, deploy, and monitor the application in Azure. 
+::: zone pivot="programming-language-nodejs"
+
+We'll use the [ToDo Application with a Node.js API and Azure Cosmos DB API for MongoDB](https://github.com/azure-samples/todo-nodejs-mongo) for this walkthrough. Upon completion, you will get the code in your development environment and will be able to run commands to build, deploy, and monitor the application in Azure. 
+
+For more information including architecture diagram and the Azure resources you'll deploy, see the [README](https://github.com/Azure-Samples/todo-nodejs-mongo/blob/main/README.md).
+
+::: zone-end
+
+::: zone pivot="programming-language-python"
+
+We'll use the [ToDo Application with a Python API and Azure Cosmos DB API for MongoDB](https://github.com/azure-samples/todo-python-mongo) for this walkthrough. Upon completion, you will get the code in your development environment and will be able to run commands to build, deploy, and monitor the application in Azure. 
+
+For more information including architecture diagram and the Azure resources you'll deploy, see the [README](https://github.com/Azure-Samples/todo-python-mongo/blob/main/README.md).
+
+::: zone-end
+
+::: zone pivot="programming-language-csharp"
+
+We'll use the [ToDo Application with a C# API and Azure Cosmos DB SQL API](https://github.com/Azure-Samples/todo-csharp-cosmos-sql) for this walkthrough. Upon completion, you will get the code in your development environment and will be able to run commands to build, deploy, and monitor the application in Azure. 
+
+For more information including architecture diagram and the Azure resources you'll deploy, see the [README](https://github.com/Azure-Samples/todo-csharp-cosmos-sql/blob/main/README.md).
+
+::: zone-end
 
 > [!NOTE] 
 > You can use any of the [Azure Developer CLI templates](azure-dev-cli-templates.md) for this walkthrough. 
@@ -25,24 +47,6 @@ You will create infrastructure and deploy code to Azure. If you don't have an Az
 ## Set up
 
 To run any sample template, pick a development environment. For pros and cons, refer to the [development environment choices]( azure-dev-cli-overview#development-environment-choices).
-
-::: zone pivot="programming-language-nodejs"
-
-We'll use the [ToDo Application with a Node.js API and Azure Cosmos DB API for MongoDB](https://github.com/azure-samples/todo-nodejs-mongo) for this walkthrough. For more information including architecture diagram and the Azure resources you'll deploy, see the [README](https://github.com/Azure-Samples/todo-nodejs-mongo/blob/main/README.md).
-
-::: zone-end
-
-::: zone pivot="programming-language-python"
-
-We'll use the [ToDo Application with a Python API and Azure Cosmos DB API for MongoDB](https://github.com/azure-samples/todo-python-mongo) for this walkthrough. For more information including architecture diagram and the Azure resources you'll deploy, see the [README](https://github.com/Azure-Samples/todo-python-mongo/blob/main/README.md).
-
-::: zone-end
-
-::: zone pivot="programming-language-csharp"
-
-We'll use the [ToDo Application with a C# API and Azure Cosmos DB SQL API](https://github.com/Azure-Samples/todo-csharp-cosmos-sql) for this walkthrough. For more information including architecture diagram and the Azure resources you'll deploy, see the [README](https://github.com/Azure-Samples/todo-csharp-cosmos-sql/blob/main/README.md).
-
-::: zone-end
 
 ### [Bare metal](#tab/bare-metal)
 
@@ -62,7 +66,14 @@ Once complete, the command will print the following URLs:
 
 !["azd up output"](media/get-started/urls.png)
 
-Select the web application URL to launch the ToDo app. Create a new collection and add some items. 
+
+
+#### What happened?
+
+The command:
+- clones the repo to your development environment. Open your editor of choice to browse the code.
+- provisions the Azure resources. Open Azure portal and search for resource group containing your environment name.
+- builds and deploys the application to Azure. Select the web application URL to launch the ToDo app. You can create a new collection or add a new item by hitting "enter"
 
 ### Clean up resources
 When you're done, you can delete all the Azure resources created with this template by running the following command:

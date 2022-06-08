@@ -14,17 +14,6 @@ npm install -g https://azuresdkreleasepreview.blob.core.windows.net/azd/standalo
 > [!NOTE]
 > * To verify `nvm` installation, enter: `command -v nvm`. This should return 'nvm'. If not, close your current terminal, reopen and try again.
 
-#### Azure Developer CLI VS Code Extension
-
-The Azure Developer CLI experience includes an Azure Developer CLI VS Code Extension that mirrors all of the CLI commands into context menu and command palette options. If you're a VS Code user, then we highly recommend installing this extension for the best experience.
-
-1. Download the extension from https://azuresdkreleasepreview.blob.core.windows.net/azd/vscode/latest/azure-dev-latest.vsix
-1. In VS Code
-    - Open "Extensions" (Ctrl+Shift+X)
-    - Select the ... menu at top of Extensions sidebar
-    - Select "Install from VSIX"
-    - Select location of downloaded file
-
 ### DevContainer
 
 A [DevContainer](https://code.visualstudio.com/docs/remote/containers) is a Docker image that includes all of the prerequisites you need to run this application on your local machine. You can find the specification for this application's DevContainer [here](https://github.com/Azure-Samples/todo-nodejs-mongo/blob/main/.devcontainer/Dockerfile).
@@ -39,9 +28,30 @@ To use the DevContainer, you'll need the following installed on your local machi
 Open a terminal, create a new empty folder, and change into it.
 Run the following command to initialize the project:
 
-```bash
-azd init --template todo-nodejs-mongo
-```
+::: zone pivot="programming-language-nodejs"
+
+    ```bash
+    azd init --template todo-nodejs-mongo
+    ```
+
+::: zone-end
+
+::: zone pivot="programming-language-python"
+
+    ```bash
+    azd init --template todo-python-mongo
+    ```
+
+::: zone-end
+
+::: zone pivot="programming-language-csharp"
+
+    ```bash
+    azd init --template todo-csharp-cosmos-sql
+    ```
+
+::: zone-end
+
 
 You'll be prompted for the following information:
 
