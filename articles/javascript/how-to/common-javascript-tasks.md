@@ -204,7 +204,7 @@ Provide authentication.
 
 |Task|using|
 |--|--|
-|Get secrets|[@azure/keyvault-secrets](with-web-app/use-secret-environment-variables.md#get-secret-from-key-vault-with-javascript)|
+|Get secrets|[@azure/keyvault-secrets](https://github.com/Azure-Samples/msdocs-nodejs-mongodb-azure-sample-app/blob/main/config/keyvault.js)|
 
 
 ## Monitoring
