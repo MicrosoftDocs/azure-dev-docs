@@ -44,7 +44,8 @@
       "uhfHeaderId": "azure",
       "feedback_system": "GitHub",
       "feedback_github_repo": "MicrosoftDocs/azure-dev-docs",
-      "recommendations": true
+      "recommendations": true,
+      "zone_pivot_group_filename": "articles/azure-dev-cli/zone-pivot-groups.json"
     },
     "fileMetadata": {
       "feedback_product_url" : {
