@@ -2,7 +2,7 @@
 title: Use Azure Key Vault secrets in Express.js app
 description: Store secrets in Azure Key Vault, then pull in those secrets programmatically from Key Vault to the Express.js app. 
 ms.topic: how-to
-ms.date: 03/30/2021
+ms.date: 06/07/2022
 ms.custom: seo-javascript-september2019, devx-track-js, devx-track-azurecli
 #intent: Show a customer how to create a key vault resource, add a key, secret, and certificate, then use those in an Express.js app. 
 ---
@@ -11,26 +11,11 @@ ms.custom: seo-javascript-september2019, devx-track-js, devx-track-azurecli
 
 Store secrets in Azure Key Vault, then use those secrets programmatically from Key Vault in your Express.js app. 
 
-* [Sample code](https://github.com/Azure-Samples/js-e2e-express-mongodb/tree/keyvault)
-
 ## Prepare your development environment
 
-1. Complete the [Express.js with Cosmos DB tutorial](/azure/app-service/tutorial-nodejs-mongodb-app?tabs=azure-portal%2Cterminal-bash%2Cvscode-deploy%2Cdeploy-instructions-azportal%2Cdeploy-zip-linux-mac%2Cdeploy-instructions--zip-azcli). 
+1. Complete the [Express.js with Cosmos DB tutorial](/azure/app-service/tutorial-nodejs-mongodb-app?tabs=azure-portal%2Cterminal-bash%2Cvscode-deploy%2Cdeploy-instructions-azportal%2Cdeploy-zip-linux-mac%2Cdeploy-instructions--zip-azcli) but **do not delete the resources** at the end of the procedure. 
 
     When you complete the previous tutorial, you should have an Express.js app using a Cosmos DB database deployed to an Azure web app. 
-
-1. Make sure the following are installed on your local developer workstation:
-
-    - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-    - Azure resource group already created in previous tutorial.
-    - Azure resources already created in [previous tutorial](/azure/app-service/tutorial-nodejs-mongodb-app?tabs=azure-portal%2Cterminal-bash%2Cvscode-deploy%2Cdeploy-instructions-azportal%2Cdeploy-zip-linux-mac%2Cdeploy-instructions--zip-azcli) 
-        - Azure Cosmos DB resource 
-        - Azure App service  
-    - [Node.js 10.1+ and npm](https://nodejs.org/en/download) - installed to your local machine.
-    - [Visual Studio Code](https://code.visualstudio.com/) - installed to your local machine. 
-    - Visual Studio Code extensions:
-        - [Azure App Service extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice) for Visual Studio Code.
-    - Use [Azure Cloud Shell](/azure/cloud-shell/quickstart) using the bash. If you prefer, [install](/cli/azure/install-azure-cli) the Azure CLI to run CLI reference commands.
 
 ## Log in to Azure CLI
 
@@ -41,8 +26,6 @@ Use the [az Login](/cli/azure/reference-index#az-login) command to login.
 ```azurecli
 az login
 ```
-
-
 
 ## Create a Key Vault resource with Azure CLI
 
@@ -65,16 +48,20 @@ The [service principal](/azure/active-directory/develop/app-objects-and-service-
 
 This sample uses the [DefaultAzureCredential](/javascript/api/overview/azure/identity-readme#defaultazurecredential), which requires authentication setup. One example of setting up the credential is to create and use a service principal.
 
-1. Use the [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) command to create a service principal. 
+1. Use the [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) command to create a service principal with a scope for your resource group. 
 
     ```azurecli
     az ad sp create-for-rbac \
-    --name REPLACE-WITH-YOUR-NEW-SERVICE-PRINCIPAL-NAME \
+    --name SERVICE-PRINCIPAL-NAME \
     --role Contributor \
-    --scopes /subscriptions/REPLACE_WITH_YOUR_SUBSCRIPTION_NAME_OR_ID
+    --scopes /subscriptions/SUBSCRIPTION_NAME_OR_ID/resourceGroups/RESOURCE-GROUP-NAME
     ```
 
-    An example service principal name is `demo-keyvault-service-principal-YOUR-NAME`, where `YOUR-NAME` is postpended to the string. 
+    |Term|Replace with|
+    |--|--|
+    |SERVICE-PRINCIPAL-NAME|An example **SERVICE-PRINCIPAL-NAME** is `demo-keyvault-service-principal-YOUR-NAME`, where `YOUR-NAME` is postpended to the string.|
+    |SUBSCRIPTION_NAME_OR_ID|Your subscription Id is preferred. You can find this on the resource group's **Overview** page in the Azure portal.|
+    |RESOURCE-GROUP-NAME|Your resource group name.|
 
     
 
