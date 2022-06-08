@@ -4,13 +4,13 @@
 
 ::: zone-end
 
-::: zone pivot=""programming-language-python"
+::: zone pivot="programming-language-python"
 
 [!INCLUDE [azd-baremetal-python.md](azd-baremetal-python.md)]
 
 ::: zone-end
 
-::: zone pivot=""programming-language-csharp"
+::: zone pivot="programming-language-csharp"
 
 [!INCLUDE [azd-baremetal-csharp.md](azd-baremetal-csharp.md)]
 
