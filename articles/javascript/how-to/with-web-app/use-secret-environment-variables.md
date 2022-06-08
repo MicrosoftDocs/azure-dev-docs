@@ -17,11 +17,11 @@ Store secrets in Azure Key Vault, then use those secrets programmatically from K
 
     When you complete the previous tutorial, you should have an Express.js app using a Cosmos DB database deployed to an Azure web app. 
 
-## Log in to Azure CLI
+## Sign in to Azure CLI
 
-In the Visual Studio Code integrated terminal, log in to the Azure CLI. This requires you to authenticate in a browser with your account, which has permission on a valid Azure Subscription.
+In the Visual Studio Code integrated terminal, sign in to the Azure CLI. This requires you to authenticate in a browser with your account, which has permission on a valid Azure Subscription.
 
-Use the [az Login](/cli/azure/reference-index#az-login) command to login. 
+Use the [az Login](/cli/azure/reference-index#az-login) command to sign in. 
 
 ```azurecli
 az login
@@ -114,7 +114,7 @@ Set these environment variables in the `.env` file of the sample project to crea
 * `AZURE_CLIENT_ID`: The `appId` from the service principal output above.
 * `AZURE_CLIENT_SECRET`: The `password` from the service principal output above.
 
-When you deploy the application to Azure app service, you will also need to add these settings to your web app. 
+When you deploy the application to Azure app service, you'll also need to add these settings to your web app. 
 
 > [!NOTE]
 > These variables names are keywords and must be used as-is, without changes, in order for Azure Identity to work successfully.
@@ -126,7 +126,7 @@ Set these environment variables in the `.env` file of the sample project to prog
 * `KEY_VAULT_NAME`: Same value as `REPLACE-WITH-YOUR-KEY-VAULT-NAME` used in previous commands.
 * `KEY_VAULT_SECRET_NAME_DATABASE_URL`: The secret name, `DATABASE_URL`.
 
-When you deploy the application to Azure app service, you will also need to add these settings to your web app. 
+When you deploy the application to Azure app service, you'll also need to add these settings to your web app. 
 
 > [!NOTE]
 > These variable names are specific to this sample. You can change them but make sure to change them in the environment file, the source code file, and your deployed web app settings. 
@@ -216,7 +216,7 @@ Add the Key vault and DefaultAzureCredential to the Azure App Service's app sett
 
 ## Clean up resources - remove resource group
 
-Once you have completed this tutorial, you need to remove the resource group with the [az group delete](/cli/azure/group#az-group-delete) command.
+Once you've completed this tutorial, you need to remove the resource group with the [az group delete](/cli/azure/group#az-group-delete) command.
 
 ```azurecli
 az group delete \
