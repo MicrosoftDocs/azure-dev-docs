@@ -1,6 +1,6 @@
 ---
 title: Use Azure Key Vault secrets in Express.js app
-description: Store secrets in Azure Key Vault, then pull in those secrets programmatically from Key Vault to the Express.js app. 
+description: With Azure CLI, Store secrets in Azure Key Vault, then pull in those secrets programmatically from Key Vault to the Express.js app. 
 ms.topic: how-to
 ms.date: 06/07/2022
 ms.custom: seo-javascript-september2019, devx-track-js, devx-track-azurecli
@@ -9,13 +9,13 @@ ms.custom: seo-javascript-september2019, devx-track-js, devx-track-azurecli
 
 # Use Azure Key Vault secrets in Express.js app
 
-Store secrets in Azure Key Vault, then use those secrets programmatically from Key Vault in your Express.js app. 
+With Azure CLI, Store secrets in Azure Key Vault, then use those secrets programmatically from Key Vault in your Express.js app. 
 
 ## Prepare your development environment
 
-1. Complete the [Express.js with Cosmos DB tutorial](/azure/app-service/tutorial-nodejs-mongodb-app?tabs=azure-portal%2Cterminal-bash%2Cvscode-deploy%2Cdeploy-instructions-azportal%2Cdeploy-zip-linux-mac%2Cdeploy-instructions--zip-azcli) but **do not delete the resources** at the end of the procedure. 
+Complete the [Express.js with Cosmos DB tutorial](/azure/app-service/tutorial-nodejs-mongodb-app?tabs=azure-portal%2Cterminal-bash%2Cvscode-deploy%2Cdeploy-instructions-azportal%2Cdeploy-zip-linux-mac%2Cdeploy-instructions--zip-azcli) but **do not delete the resources** at the end of the procedure. 
 
-    When you complete the previous tutorial, you should have an Express.js app using a Cosmos DB database deployed to an Azure web app. 
+When you complete the previous tutorial, you should have an Express.js app using a Cosmos DB database deployed to an Azure web app. 
 
 ## Sign in to Azure CLI
 
@@ -106,7 +106,9 @@ az keyvault secret set \
 > [!NOTE]
 > `DATABASE-URL`, as a secret name, is not a keyword. You could choose any name to identify the secret. Just use that name consistently in the remaining instructions. 
 
-## Configure Express.js required environment variables to use Azure Identity
+## Optional: Configure Express.js required environment variables to use Azure Identity
+
+Complete this step if you can't use the Visual Studio Code credential, Azure CLI credential, or the Azure Powershell credential. Learn more about [local development credentials](/azure/developer/javascript/sdk/authentication/overview#sequence-of-selecting-authentication-methods-when-using-defaultazurecredential). 
 
 Set these environment variables in the `.env` file of the sample project to create the **REQUIRED context to use DefaultAzureCredential**.
 
@@ -124,7 +126,7 @@ When you deploy the application to Azure app service, you'll also need to add th
 Set these environment variables in the `.env` file of the sample project to programmatically determine which Key Vault resource and secret to use.
 
 * `KEY_VAULT_NAME`: Same value as `REPLACE-WITH-YOUR-KEY-VAULT-NAME` used in previous commands.
-* `KEY_VAULT_SECRET_NAME_DATABASE_URL`: The secret name, `DATABASE_URL`.
+* `KEY_VAULT_SECRET_NAME_DATABASE_URL`: The secret name, `DATABASE-URL`. Notice the name uses a dash, `-`, instead of an underscore, `_` used in the previous tutorial.
 
 When you deploy the application to Azure app service, you'll also need to add these settings to your web app. 
 
@@ -142,7 +144,7 @@ When you deploy the application to Azure app service, you'll also need to add th
 1. Open the Express.js app in the browser: `http://localhost:3000`.
 1. Interact with the app, adding and deleting tasks. 
 
-## Update the app settings
+## Update the App Service app settings
 
 Add the Key vault and DefaultAzureCredential to the Azure App Service's app settings.
 
@@ -198,7 +200,7 @@ Add the Key vault and DefaultAzureCredential to the Azure App Service's app sett
 
     |Property|Value|
     |--|--|
-    |AZURE_CLIENT_ID|This is the `tenant` property from the service principal object.|
+    |AZURE_CLIENT_ID|This is the `appId` property from the service principal object.|
 
 1. Use the following Azure CLI command to add the **AZURE_CLIENT_SECRET** app setting. If you've following this procedure, the value for `AZURE_CLIENT_SECRET` is in the `.env` file, add that after the `=`. 
 
