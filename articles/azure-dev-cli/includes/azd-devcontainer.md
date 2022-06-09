@@ -11,12 +11,20 @@ You'll need `npm` to install the Azure Developer CLI. For detailed steps, see [N
 npm install -g https://azuresdkreleasepreview.blob.core.windows.net/azd/standalone/latest/azure-az-dev-cli-latest.tgz
 ```
 
-> [!NOTE]
-> * To verify `nvm` installation, enter: `command -v nvm`. This should return 'nvm'. If not, close your current terminal, reopen and try again.
-
 ### DevContainer
 
+::: zone pivot="programming-language-nodejs"
 A [DevContainer](https://code.visualstudio.com/docs/remote/containers) is a Docker image that includes all of the prerequisites you need to run this application on your local machine. You can find the specification for this application's DevContainer [here](https://github.com/Azure-Samples/todo-nodejs-mongo/blob/main/.devcontainer/Dockerfile).
+
+::: zone-end
+A [DevContainer](https://code.visualstudio.com/docs/remote/containers) is a Docker image that includes all of the prerequisites you need to run this application on your local machine. You can find the specification for this application's DevContainer [here](https://github.com/Azure-Samples/todo-python-mongo/blob/main/.devcontainer/Dockerfile).
+
+::: zone-end
+
+::: zone pivot="programming-language-csharp"
+A [DevContainer](https://code.visualstudio.com/docs/remote/containers) is a Docker image that includes all of the prerequisites you need to run this application on your local machine. You can find the specification for this application's DevContainer [here](https://github.com/Azure-Samples/todo-csharp-cosmos-sql/blob/main/.devcontainer/Dockerfile).
+
+::: zone-end
 
 To use the DevContainer, you'll need the following installed on your local machine:
 
@@ -44,7 +52,7 @@ azd init --template todo-python-mongo
 
 ::: zone pivot="programming-language-csharp"
 ```bash
-   azd init --template todo-csharp-cosmos-sql
+azd init --template todo-csharp-cosmos-sql
 ```
 
 ::: zone-end
