@@ -17,7 +17,7 @@ Azure Developer CLI (azd) is a standalone CLI and complements [Azure CLI](https:
 
 `azd` uses  infrastructure as code (IaC) strategies to achieve predictable, repeatable, creation of Azure resources and code deployments. This consistency and the patterns make things repeatable and easy to plug into CI/CD. For example, instead of having to learn how to create a database and a web application, and configure the connection in code, the developer can use `azd provision`. 
 
-Azure CLI provides a broad set of capability. The focus is on Azure management and control plan functionality. To connect to Azure and execute administrative commands on Azure resources. The Azure CLI is available across Azure services and is designed to get you working quickly with Azure, with an emphasis on automation. It doesn't take care of configuration of GitHub Action while you can run `azd pipeline config` to create a GitHub Action workflow and start 
+Azure CLI provides a broad set of capability. The focus is on Azure management and control plan functionality. To connect to Azure and execute administrative commands on Azure resources. The Azure CLI is available across Azure services and is designed to get you working quickly with Azure, with an emphasis on automation. It doesn't take care of configuration of GitHub Action while you can run `azd pipeline config` to create a GitHub Action workflow and kick the workflow off every time you check in codes in GitHub.
 
 Both `azd` and Azure CLI are powerfull cross-platform command-line tools. Pick `azd` and start with a sample template if you want to 
 

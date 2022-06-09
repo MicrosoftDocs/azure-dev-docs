@@ -29,26 +29,23 @@ Open a terminal, create a new empty folder, and change into it.
 Run the following command to initialize the project:
 
 ::: zone pivot="programming-language-nodejs"
-
-    ```bash
-    azd init --template todo-nodejs-mongo
-    ```
+```bash
+azd init --template todo-nodejs-mongo
+```
 
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
-
-    ```bash
-    azd init --template todo-python-mongo
-    ```
+```bash
+azd init --template todo-python-mongo
+```
 
 ::: zone-end
 
 ::: zone pivot="programming-language-csharp"
-
-    ```bash
-    azd init --template todo-csharp-cosmos-sql
-    ```
+```bash
+   azd init --template todo-csharp-cosmos-sql
+```
 
 ::: zone-end
 

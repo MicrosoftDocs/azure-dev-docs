@@ -2,59 +2,33 @@
 ### Prerequisites
 
 Before you get started, ensure you have the following tools installed on your local machine:
-
 - [Git](https://git-scm.com/)
 - [GitHub CLI v2.3+](https://github.com/cli/cli)
 - [Azure CLI (v 2.30.0+)](/cli/azure/install-azure-cli)
 - Azure Dev CLI
-
     ```bash
     npm install -g https://azuresdkreleasepreview.blob.core.windows.net/azd/standalone/latest/azure-az-dev-cli-latest.tgz
     ```
 
 ::: zone pivot="programming-language-nodejs"
-
 - [Node.js with npm (v 16.13.1 LTS)](https://nodejs.org/)
 
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
-
 - [Node.js with npm (v 16.13.1 LTS)](https://nodejs.org/)
 - [Python 3.8+](https://www.python.org/downloads/)
 
 ### Python virtual environment
 
-This application uses Python Virtual Environments to isolate Python package installations. 
+This application uses Python Virtual Environments to isolate Python package installations. Make sure you:
 
-- Create a virtual environment. 
-
-    ```bash
-        py -m venv .venv
-    ``` 
-    Or
-
-    ```cmd
-        python3 -m venv .venv
-    ```
-- Activate the Virtual Environment
-
-    ```bash
-    .venv\Scripts\activate`
-    ```
-
-    ```poweshell
-    Set-ExecutionPolicy Unrestricted .venv\Scripts\Activate.ps1`
-    ```
-
-    ```cmd
-    source .venv/bin/activate`
-    ```
+1. Create a virtual environment by running `py -m venv .venv`
+2. Activate the virtual environment by running `.venv\Scripts\activate`
 
 ::: zone-end
 
 ::: zone pivot="programming-language-csharp"
-
 - [Node.js with npm (v 16.13.1 LTS)](https://nodejs.org/)
 - [.NET SDK 6.0](https://dotnet.microsoft.com/en-us/download/dotnet/6.0)
 
@@ -69,25 +43,25 @@ The fastest way for you to get this application up and running on Azure is to us
 
 ::: zone pivot="programming-language-nodejs"
 
-    ```bash
-    azd up --template todo-nodejs-mongo
-    ```
+```bash
+azd up --template todo-nodejs-mongo
+```
 
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
 
-    ```bash
-    azd up --template todo-python-mongo
-    ```
+```bash
+azd up --template todo-python-mongo
+```
 
 ::: zone-end
 
 ::: zone pivot="programming-language-csharp"
 
-    ```bash
-    azd up --template todo-csharp-cosmos-sql
-    ```
+```bash
+azd up --template todo-csharp-cosmos-sql
+```
 
 ::: zone-end
 
