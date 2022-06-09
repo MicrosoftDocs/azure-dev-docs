@@ -23,10 +23,6 @@ landingContent:
         links:
           - text: What is Azure Developer CLI
             url: azure-dev-cli-overview.md
-      - linkListType: quickstart
-        links:
-          - text: Start with an Azure Developer CLI Azure samples
-            url: azure-dev-cli-templates.md
       - linkListType: get-started
         links:
           - text: Get started

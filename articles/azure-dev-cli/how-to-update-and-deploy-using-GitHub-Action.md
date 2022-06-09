@@ -1,5 +1,5 @@
 ---
-title: How to use Visual Studio Code to edit and push update through GitHub Action
+title: How to config pipeline and push updates through GitHub Action
 description: How to use the VS Code and the extension for Azure Developer CLI to push update through GitHub Action.
 author: puicchan
 ms.author: puichan
@@ -8,9 +8,9 @@ ms.topic: conceptual
 ms.custom: devx-track-azdevcli
 ms.prod: azure
 ---
-#  How to config pipeline, edit and push update through GitHub Action
+# How to config pipeline and push updates through GitHub Action
 
-You can use any of the [Azure Developer CLI template](azure-dev-cli-templates.md) for this walkthrough. We'll use the [Todo Application with Node.js and Azure Cosmo DB API for MongoDB](https://github.com/azure-samples/todo-nodejs-mongo). 
+You can use any of the [Azure Developer CLI template](azure-dev-cli-overview#list-of-azd-templates) for this walkthrough. We'll use the [Todo Application with Node.js and Azure Cosmo DB API for MongoDB](https://github.com/azure-samples/todo-nodejs-mongo). 
 
 By now, you should have your Azure resources provisioned and application deployed. If not, follow the steps in [get-started](get-started.md). 
 

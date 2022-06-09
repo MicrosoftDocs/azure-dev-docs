@@ -44,7 +44,7 @@ You will create infrastructure and deploy code to Azure. If you don't have an Az
 
 ## Configure your environment
 
-To run any sample template, pick a development environment. For more information about the pros and cons of the different development environment choices, see the article, [Azure Developer CLI (azd) supported environments and Azure services](development-environment-options.md).
+To run any sample template, pick a development environment. For more information about the pros and cons of the different development environment choices, see the article, [Azure Developer CLI (azd) supported environments and Azure services](azure-dev-cli-overview#development-environment-options).
 
 Once you've selected a development environment, select one of the following tabs:
 

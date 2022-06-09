@@ -27,7 +27,7 @@ The following 2-minute video presents a high level overview of azd:
 
 The following steps are the recommended workflow to using azd:
 
-1. Select an [Azure Developer CLI template](#list_of_azd_templates).
+1. Select an [Azure Developer CLI template](#list-of-azd-templates).
 1. Download (clone) the sample by running `azd up`.
 1. Customize the cloned template to meet your needs.
 
