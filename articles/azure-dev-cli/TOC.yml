@@ -3,6 +3,8 @@
   items:
   - name: What is Azure Developer CLI?
     href: azure-dev-cli-overview.md
+  - name: Azure Developer CLI (azd) vs Azure CLI
+    href: azure-dev-cli-vs-azure-cli.md
   - name: Development environment options
     href: development-environment-options.md
   - name: Azure Developer CLI templates

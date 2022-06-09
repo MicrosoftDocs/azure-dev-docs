@@ -19,7 +19,7 @@ The azd offers the following features:
 - Helps developers quickly onboard and understand core Azure development constructs.
 - Demonstrates opinionated best practices for Azure development.
 
-The following 2-minute video presents a high level overview of `azd`:
+The following 2-minute video presents a high level overview of azd:
 
 <a href="https://msit.microsoftstream.com/video/9e850840-98dc-b654-ecea-f1ecd7ca302a?referrer=https:%2F%2Fstatics.teams.cdn.office.net%2F"><img src="media/azure-dev-cli-overview/video.png" alt="Click to watch video"></a>
 
@@ -42,4 +42,4 @@ The [azd templates](azure-dev-cli-templates.md) are sample repositories created 
 ## Next steps
 
 > [!div class="nextstepaction"] 
-> [Azure Developer CLI (azd) supported environments and Azure services](development-environment-options.md)
+> [Azure Developer CLI (azd) vs Azure CLI](azure-dev-cli-vs-azure-cli.md)

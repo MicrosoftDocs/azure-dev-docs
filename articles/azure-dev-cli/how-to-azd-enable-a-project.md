@@ -12,7 +12,7 @@ ms.prod: azure
 
 ![Azure Developer CLI enable](media/how-to-devify-a-project/dev-ify.png)
 
-All templates have the same file structure based on `azd` conventions.
+All templates have the same file structure based on azd conventions.
 
 ```txt
 ├── .devcontainer              [ For DevContainer ]
@@ -67,7 +67,7 @@ Start from an Azure dev enabled template, use it as a base and remove resources 
 ```
 
 - update code for **web**: make sure `linuxFxVersion` is `PYTHON|3.9`. Remove the line `appCommandLine: 'pm2 serve /home/site/wwwroot --no-daemon --spa'`
-- update code for **webappappsettings**. Today, `azd` only supports zip deployment. Update `SCM_DO_BUILD_DURING_DEPLOYMENT` to `true`
+- update code for **webappappsettings**. Today, azd only supports zip deployment. Update `SCM_DO_BUILD_DURING_DEPLOYMENT` to `true`
 
 1. Modify `main.bicep`
 
@@ -83,7 +83,7 @@ Start from an Azure dev enabled template, use it as a base and remove resources 
 
 ## Update `azure.yaml`
 
-`azd` needs to know where to find the source code; what kind of app you're building; and more about what Azure service to use. Update `azure.yaml` by adding the following lines:
+azd needs to know where to find the source code; what kind of app you're building; and more about what Azure service to use. Update `azure.yaml` by adding the following lines:
 
 ```yml
 services:

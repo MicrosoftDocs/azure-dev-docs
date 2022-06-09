@@ -20,7 +20,7 @@ This article walks through how to use Visual Studio Code and Visual Studio Code 
 
 The first step is to download and install the extension.
 
-1. Install `azd` from NPM
+1. Install azd from NPM
 
     ```bash
     npm install -g https://azuresdkreleasepreview.blob.core.windows.net/azd/standalone/latest/azure-az-dev-cli-latest.tgz

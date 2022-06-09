@@ -38,7 +38,7 @@ sections:
 
       - question: How is the .env file used?
         answer: |
-          `azd` commands refer to the .env file for environment configuration. Command like `azd deploy` also updates the .env file with, for example, db connection string and Azure Key Vault end point.
+          azd commands refer to the .env file for environment configuration. Command like `azd deploy` also updates the .env file with, for example, db connection string and Azure Key Vault end point.
           
       - question: How is azure.yaml used?
         answer: |
