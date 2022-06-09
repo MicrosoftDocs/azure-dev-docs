@@ -62,6 +62,6 @@ landingContent:
           - text: Troubleshoot and Get help
             url: troubleshoot.md
           - text: Frequently asked questions
-            url: az-dev-cli-faq.yml
+            url: azure-dev-cli-faq.yml
           - text: Full command reference
             url: azure-dev-cli-ref.md
