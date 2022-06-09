@@ -9,7 +9,7 @@ ms.custom: seo-javascript-september2019, devx-track-js, devx-track-azurecli
 
 # Use Azure Key Vault secrets in Express.js app
 
-With Azure CLI, Store secrets in Azure Key Vault, then use those secrets programmatically from Key Vault in your Express.js app. 
+With Azure CLI, store secrets in Azure Key Vault, then use those secrets programmatically from Key Vault in your Express.js app. 
 
 ## Prepare your development environment
 
@@ -54,15 +54,16 @@ This sample uses the [DefaultAzureCredential](/javascript/api/overview/azure/ide
     az ad sp create-for-rbac \
     --name SERVICE-PRINCIPAL-NAME \
     --role Contributor \
-    --scopes /subscriptions/SUBSCRIPTION_NAME_OR_ID/resourceGroups/RESOURCE-GROUP-NAME
+    --scopes "/subscriptions/SUBSCRIPTION_NAME_OR_ID/resourceGroups/RESOURCE-GROUP-NAME"
     ```
 
     |Term|Replace with|
     |--|--|
     |SERVICE-PRINCIPAL-NAME|An example **SERVICE-PRINCIPAL-NAME** is `demo-keyvault-service-principal-YOUR-NAME`, where `YOUR-NAME` is postpended to the string.|
-    |SUBSCRIPTION_NAME_OR_ID|Your subscription Id is preferred. You can find this on the resource group's **Overview** page in the Azure portal.|
-    |RESOURCE-GROUP-NAME|Your resource group name.|
+    |SUBSCRIPTION_NAME_OR_ID|Your subscription ID is preferred. You can find this on the resource group's **Overview** page in the Azure portal.|
+    |RESOURCE-GROUP-NAME|Your resource group name - the service principal authorization is scoped to just this resource group.|
 
+    *Troubleshooting*: If you receive an error on this step, review the following [Azure CLI issue 16317](https://github.com/Azure/azure-cli/issues/16317). Try executing the command from a different terminal or command line. 
     
 
 1. Capture and save the service principal output results of the command to use later.
@@ -108,7 +109,7 @@ az keyvault secret set \
 
 ## Optional: Configure Express.js required environment variables to use Azure Identity
 
-Complete this step if you can't use the Visual Studio Code credential, Azure CLI credential, or the Azure Powershell credential. Learn more about [local development credentials](/azure/developer/javascript/sdk/authentication/overview#sequence-of-selecting-authentication-methods-when-using-defaultazurecredential). 
+Complete this step if you can't use the Visual Studio Code credential, Azure CLI credential, or the Azure PowerShell credential. Learn more about [local development credentials](/azure/developer/javascript/sdk/authentication/overview#sequence-of-selecting-authentication-methods-when-using-defaultazurecredential). 
 
 Set these environment variables in the `.env` file of the sample project to create the **REQUIRED context to use DefaultAzureCredential**.
 
@@ -148,7 +149,7 @@ When you deploy the application to Azure app service, you'll also need to add th
 
 Add the Key vault and DefaultAzureCredential to the Azure App Service's app settings.
 
-1. Use the following Azure CLI command to add the **KEY_VAULT_NAME** app setting. If you've following this procedure, the value is in the `.env` file. 
+1. Use the following Azure CLI command to add the **KEY_VAULT_NAME** app setting. The value is in the `.env` file. 
 
     ```azurecli
     az webapp config appsettings set \
@@ -162,7 +163,7 @@ Add the Key vault and DefaultAzureCredential to the Azure App Service's app sett
     |--|--|
     |KEY_VAULT_NAME|msdocs-key-vault-123|
 
-1. Use the following Azure CLI command to add the **KEY_VAULT_SECRET_NAME_DATABASE_URL** app setting. If you've following this procedure, the value is in the `.env` file. 
+1. Use the following Azure CLI command to add the **KEY_VAULT_SECRET_NAME_DATABASE_URL** app setting. The value is in the `.env` file. 
 
     ```azurecli
     az webapp config appsettings set \
@@ -176,7 +177,7 @@ Add the Key vault and DefaultAzureCredential to the Azure App Service's app sett
     |KEY_VAULT_SECRET_NAME_DATABASE_URL|DATABASE-URL|
 
 
-1. Use the following Azure CLI command to add the **AZURE_TENANT_ID** app setting. If you've following this procedure, the value for `AZURE_TENANT_ID` is in the `.env` file, add that after the `=`. 
+1. Use the following Azure CLI command to add the **AZURE_TENANT_ID** app setting.  The value is in the `.env` file. 
 
     ```azurecli
     az webapp config appsettings set \
@@ -189,7 +190,7 @@ Add the Key vault and DefaultAzureCredential to the Azure App Service's app sett
     |--|--|
     |AZURE_TENANT_ID|This is the `tenant` property from the service principal object. |
 
-1. Use the following Azure CLI command to add the **AZURE_CLIENT_ID** app setting. If you've following this procedure, the value for `AZURE_CLIENT_ID` is in the `.env` file, add that after the `=`. 
+1. Use the following Azure CLI command to add the **AZURE_CLIENT_ID** app setting. The value is in the `.env` file. 
 
     ```azurecli
     az webapp config appsettings set \
@@ -202,7 +203,7 @@ Add the Key vault and DefaultAzureCredential to the Azure App Service's app sett
     |--|--|
     |AZURE_CLIENT_ID|This is the `appId` property from the service principal object.|
 
-1. Use the following Azure CLI command to add the **AZURE_CLIENT_SECRET** app setting. If you've following this procedure, the value for `AZURE_CLIENT_SECRET` is in the `.env` file, add that after the `=`. 
+1. Use the following Azure CLI command to add the **AZURE_CLIENT_SECRET** app setting. The value is in the `.env` file. 
 
     ```azurecli
     az webapp config appsettings set \
