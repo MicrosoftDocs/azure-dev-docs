@@ -1,6 +1,6 @@
 ---
 title: Use Azure Key Vault secrets in Express.js app
-description: With Azure CLI, Store secrets in Azure Key Vault, then pull in those secrets programmatically from Key Vault to the Express.js app. 
+description: With Azure CLI, store secrets in Azure Key Vault, then pull in those secrets programmatically from Key Vault to the Express.js app. 
 ms.topic: how-to
 ms.date: 06/09/2022
 ms.custom: seo-javascript-september2019, devx-track-js, devx-track-azurecli
