@@ -1,11 +1,20 @@
-- name: What is Azure Developer CLI?
-  href: azure-dev-cli-overview.md
-  displayName: overview, intro, introduction
-- name: Azure Developer CLI templates
-  href: azure-dev-cli-templates.md
-- name: Get Started
-  href: get-started.md
-- name: Develop 
+- name: Overview
+  expanded: true
+  items:
+  - name: What is Azure Developer CLI?
+    href: azure-dev-cli-overview.md
+  - name: Azure Developer CLI (azd) vs Azure CLI
+    href: azure-dev-cli-vs-azure-cli.md
+  - name: Development environment options
+    href: development-environment-options.md
+  - name: Azure Developer CLI templates
+    href: azure-dev-cli-templates.md
+- name: Get started
+  expanded: true
+  items:
+  - name: Clone your first app
+    href: get-started.md
+- name: Develop apps from Templates
   expanded: true
   items:
   - name: 1. Run and debug using VS Code 
@@ -14,21 +23,19 @@
     href: how-to-update-and-deploy-using-GitHub-Action.md
   - name: 3. Monitor application
     href: how-to-monitor-your-app.md
-- name: Create 
+- name: Work with Templates
   expanded: true
   items:
   - name: Enable your project
     href: how-to-azd-enable-a-project.md
   - name: Work with Azure Bicep
     href: how-to-azd-bicep.md
-- name: Troubleshoot
+- name: Support
   expanded: true
   items:
-  - name: Known issues
-    href: azure-dev-cli-known-issues.md   
-    displayName: troubleshooting, known issues
-  - name: Frequently asked questions
+  - name: Troubleshoot and Get help
+    href: troubleshoot.md   
+  - name: Frequently asked questions (FAQ)
     href: azure-dev-cli-faq.yml   
-    displayName: troubleshooting, faq
 - name: Reference
   href: azure-dev-cli-ref.md

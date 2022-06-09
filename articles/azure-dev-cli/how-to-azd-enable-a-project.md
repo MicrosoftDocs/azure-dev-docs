@@ -12,7 +12,7 @@ ms.prod: azure
 
 ![Azure Developer CLI enable](media/how-to-devify-a-project/dev-ify.png)
 
-All templates have the same file structure based on `azd` conventions.
+All templates have the same file structure based on azd conventions.
 
 ```txt
 ├── .devcontainer              [ For DevContainer ]
@@ -30,11 +30,11 @@ All templates have the same file structure based on `azd` conventions.
 Here's a walkthrough on how to convert a basic application to work with Azure Developer CLI.
 
 ## Get a sample application
-We start with this [simple Python Flask web app that is deployed to Azure App Service](https://docs.microsoft.com/azure/app-service/quickstart-python?tabs=flask%2Cwindows%2Cazure-portal%2Cterminal-bash%2Cvscode-deploy%2Cdeploy-instructions-azportal%2Cdeploy-instructions-zip-azcli). Get a copy of the code by running:
+We start with this [simple Python Flask web app that is deployed to Azure App Service](/azure/app-service/quickstart-python?tabs=flask%2Cwindows%2Cazure-portal%2Cterminal-bash%2Cvscode-deploy%2Cdeploy-instructions-azportal%2Cdeploy-instructions-zip-azcli). Get a copy of the code by running:
 
 `git clone https://github.com/Azure-Samples/msdocs-python-flask-webapp-quickstart`
 
-(Optional) Follow instructions in the [tutorial](https://docs.microsoft.com/azure/app-service/quickstart-python?tabs=flask%2Cwindows%2Cazure-portal%2Cterminal-bash%2Cvscode-deploy%2Cdeploy-instructions-azportal%2Cdeploy-instructions-zip-azcli#1---sample-application) to run the app locally to make sure the sample is working.
+(Optional) Follow instructions in the [tutorial](/azure/app-service/quickstart-python?tabs=flask%2Cwindows%2Cazure-portal%2Cterminal-bash%2Cvscode-deploy%2Cdeploy-instructions-azportal%2Cdeploy-instructions-zip-azcli#1---sample-application) to run the app locally to make sure the sample is working.
 
 ## Initialize the project
 
@@ -67,7 +67,7 @@ Start from an Azure dev enabled template, use it as a base and remove resources 
 ```
 
 - update code for **web**: make sure `linuxFxVersion` is `PYTHON|3.9`. Remove the line `appCommandLine: 'pm2 serve /home/site/wwwroot --no-daemon --spa'`
-- update code for **webappappsettings**. Today, `azd` only supports zip deployment. Update `SCM_DO_BUILD_DURING_DEPLOYMENT` to `true`
+- update code for **webappappsettings**. Today, azd only supports zip deployment. Update `SCM_DO_BUILD_DURING_DEPLOYMENT` to `true`
 
 1. Modify `main.bicep`
 
@@ -83,7 +83,7 @@ Start from an Azure dev enabled template, use it as a base and remove resources 
 
 ## Update `azure.yaml`
 
-`azd` needs to know where to find the source code; what kind of app you're building; and more about what Azure service to use. Update `azure.yaml` by adding the following lines:
+azd needs to know where to find the source code; what kind of app you're building; and more about what Azure service to use. Update `azure.yaml` by adding the following lines:
 
 ```yml
 services:
