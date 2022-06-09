@@ -1,25 +1,19 @@
-- name: Overview
+- name: Azure Developer CLI
   expanded: true
   items:
   - name: What is Azure Developer CLI?
     href: azure-dev-cli-overview.md
-  - name: Azure Developer CLI (azd) vs Azure CLI
-    href: azure-dev-cli-vs-azure-cli.md
-  - name: Development environment options
-    href: development-environment-options.md
-  - name: Azure Developer CLI templates
-    href: azure-dev-cli-templates.md
-  - name: Clone your first app
+  - name: Get started
     href: get-started.md
-  - name: 1. Run and debug using VS Code 
+  - name: Run and debug using VS Code 
     href: how-to-use-vscode-extension-to-debug-locally.md
-  - name: 2. Edit and push update through GitHub Action 
+  - name: Edit and push updates
     href: how-to-update-and-deploy-using-GitHub-Action.md
-  - name: 3. Monitor application
+  - name: Monitor your project
     href: how-to-monitor-your-app.md
-  - name: Enable your project
+  - name: Make your project azd compatible
     href: how-to-azd-enable-a-project.md
-  - name: Work with Azure Bicep
+  - name: Help with Azure Bicep
     href: how-to-azd-bicep.md
   - name: Troubleshoot and Get help
     href: troubleshoot.md   
