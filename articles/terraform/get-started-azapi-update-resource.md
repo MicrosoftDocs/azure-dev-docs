@@ -69,7 +69,7 @@ In this article, you learn how to use the [AzAPI Terraform provider](https://reg
 
 #### [Azure CLI](#tab/azure-cli)
 
-Run [az eventhubs namespace network-rule list](/cli/azure/eventhubs/namespace#az_eventhubs_namespace_network-rule_list) to display the Event Hubs Namespace network rules.
+Run [az eventhubs namespace network-rule list](/cli/azure/eventhubs/namespace/network-rule#az-eventhubs-namespace-network-rule-list) to display the Event Hubs Namespace network rules.
 
 ```azurecli
 az eventhubs namespace network-rule list --name <resource_group_name> --namespace-name <namespace_name>

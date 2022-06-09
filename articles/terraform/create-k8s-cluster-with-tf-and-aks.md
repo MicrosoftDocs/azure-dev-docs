@@ -69,7 +69,7 @@ Terraform tracks state locally via the `terraform.tfstate` file. This pattern wo
 
     ![A handy icon button allows you to copy the key values to the clipboard.](./media/create-k8s-cluster-with-tf-and-aks/copy-key-value.png)
 
-1. From a command line prompt, run [az storage container create](/cli/azure/storage/container#az_storage_container_create). This command creates a container in your Azure storage account. Replace the placeholders with the appropriate values for your Azure storage account.
+1. From a command line prompt, run [az storage container create](/cli/azure/storage/container#az-storage-container-create). This command creates a container in your Azure storage account. Replace the placeholders with the appropriate values for your Azure storage account.
 
     ```azurecli
     az storage container create -n tfstate \
@@ -77,7 +77,7 @@ Terraform tracks state locally via the `terraform.tfstate` file. This pattern wo
        --account-key <storage_account_key>
     ```
 
-1. When the command successfully completes, it displays a JSON block with a key of **"created"** and a value of **true**. You can also run [az storage container list](/cli/azure/storage/container#az_storage_container_list) to verify the container was successfully created.
+1. When the command successfully completes, it displays a JSON block with a key of **"created"** and a value of **true**. You can also run [az storage container list](/cli/azure/storage/container#az-storage-container-list) to verify the container was successfully created.
 
     ```azurecli
     az storage container list \
@@ -377,7 +377,7 @@ Terraform tracks state locally via the `terraform.tfstate` file. This pattern wo
 > [!CAUTION]
 > Only delete the resource group containing storage account you used in this demo if you're not using either for anything else.
 
-Run [az group delete](/cli/azure/group#az_group_delete) to delete the resource group (and its storage account you used in this demo).
+Run [az group delete](/cli/azure/group#az-group-delete) to delete the resource group (and its storage account you used in this demo).
 
 ```azurecli
 az group delete --name <storage_resource_group_name> --yes
