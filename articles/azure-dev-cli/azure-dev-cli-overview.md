@@ -1,15 +1,15 @@
 ---
-title: Use the Azure Developer CLI
+title: What is the Azure Developer CLI?
 description: Overview of the features and capabilities of the Azure Developer CLI that helps developers be more productive when building and deploying applications to Azure.
 author: puicchan
 ms.author: puichan
-ms.date: 05/31/2022
+ms.date: 06/09/2022
 ms.topic: conceptual
 ms.custom: devx-track-azdevcli
 ms.prod: azure
 ---
 
-# What is the Azure Developer CLI
+# What is the Azure Developer CLI?
 
 The Azure Developer CLI (azd) is a developer-centric command-line tool for building cloud applications. The azd is a set of commands that allows you to work consistently across azd templates, DevOps workflows, and your IDE (intergrated development environment).
 
@@ -19,63 +19,23 @@ The azd offers the following features:
 - Helps developers quickly onboard and understand core Azure development constructs.
 - Demonstrates opinionated best practices for Azure development.
 
-The following steps are the recommended path to getting started with the azd:
+The following 2-minute video presents a high level overview of `azd`:
 
-1. Pick an [Azure Developer CLI template](azure-dev-cli-templates.md).
-2. Deploy the sample by following the `README` file in the template by running `azd up`
+<a href="https://msit.microsoftstream.com/video/9e850840-98dc-b654-ecea-f1ecd7ca302a?referrer=https:%2F%2Fstatics.teams.cdn.office.net%2F"><img src="media/azure-dev-cli-overview/video.png" alt="Click to watch video"></a>
+
+## Recommended azd workflow
+
+The following steps are the recommended workflow to using azd:
+
+1. Select an [Azure Developer CLI template](azure-dev-cli-templates.md).
+1. Download (clone) the sample by running `azd up`.
+1. Customize the cloned template to meet your needs.
+
+The following image shows a graphical representation of the suggested workflow:
 
 ![The standard azd workflow](media/azure-dev-cli-overview/azd-dev-workflow.png)
 
 ## azd templates
 
-The [azd templates](azure-dev-cli-templates.md) are sample repositories created using azd conventions. so that you can use `azd` to easily get started and develop solutions using Azure.
-
-Each template includes application code, tools, infrstructure code, and CI/CD pipelines that serve as a foundation from which you can build upon and customize to create your own solutions. In addition, you can use subcommands in `azd` to manage cloud resources, configure continuous integration and delivery (CI/CD), and monitor application health. 
-
-## Try it out
-
-* [Pick your developer environment and get started](get-started.md)
-* Learn how to [use VS Code with the Azure Dev CLI extension](how-to-use-vscode-extension-to-debug-locally.md)
-* Learn how to [enable your project to work with the Azure Developer CLI](how-to-devify-a-project.md) so you can use `azd` as part of your engineering workflows.
-
-## Introductory video
-
-Watch this 2-min video to get a high level overview of `azd`:
-
-<a href="https://msit.microsoftstream.com/video/9e850840-98dc-b654-ecea-f1ecd7ca302a?referrer=https:%2F%2Fstatics.teams.cdn.office.net%2F"><img src="media/azure-dev-cli-overview/video.png" alt="Click to watch video"></a>
-
-## Development environment choices
-
-To run any sample template, the first thing you need to do decide is where you want your development environment to be hosted.
-
-|Environment|Description|Pros|Cons|Supported?|
-|---|---|---|---|---|
-|**Bare Metal**|**Not** in a container, dependencies are manually installed by you, and the project is run on your local machine.|You control all dependencies. You may already have some of the dependencies installed. You don't need Docker installed.|You have to manually install all dependencies.| Yes |
-|**[DevContainer / VS Code Remote - Containers](https://code.visualstudio.com/docs/remote/containers)**|Container with all dependencies installed and run on your local machine.|Other than VS Code, Docker, and the Remote Containers VS Code extension, all dependencies are installed for you in the DevContainer.| You need to clone the repository. The container initialization can take a long time.| Coming soon |
-|**[GitHub Codespaces](https://github.com/features/codespaces)** |Container with all dependencies installed and run on GitHub.com in the browser.|All dependencies installed and you don't need to clone the code locally.| Some features and functionality may not be supported. The container initialization can take a long time.| Coming soon |
-
-## List of languages and Azure compute services (host) Azure Developer CLI supports
-
-Currently supported/planned hosting platform for the application:
-
-| Azure compute service      | Supported? |
-| ----------- | ----------- |
-| Azure App Service | Yes  |
-| Function  | Yes |
-| Azure Container Apps    | Yes |
-| Azure Static Web Apps  | Coming soon |
-| Azure Kubernetes Service | Coming soon |
-
-Currently supported/planned languages:
-
-| Language      | Supported? |
-| ----------- | ----------- |
-| Node.js | Yes  |
-| Python    | Yes |
-| .NET | Yes |
-| Java | Coming soon |
-
-## See also
-
-- For a full list of supported commands, see the [Azure Developer CLI Reference](https://aka.ms/azure-dev/ref).
+The [azd templates](azure-dev-cli-templates.md) are sample repositories created using azd conventions. Each template includes the application code, tools, infrastructure code, and CI/CD pipelines that serve as a foundation. Once you download (clone) a template, you can customize the code to create your own solutions. In addition, you can use azd subcommands to manage cloud resources, configure CI/CD, and monitor application health.
 

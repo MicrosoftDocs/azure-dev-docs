@@ -1,10 +1,14 @@
-- name: What is Azure Developer CLI?
-  href: azure-dev-cli-overview.md
-  displayName: overview, intro, introduction
+- name: Overview
+  expanded: true
+  items:
+  - name: What is Azure Developer CLI?
+    href: azure-dev-cli-overview.md
+  - name: Development environment options
+    href: development-environment-options.md
 - name: Get Started
   expanded: true
   items:
-  - name: Create your first app
+  - name: Clone your first app
     href: get-started.md
   - name: Understand Azure Developer CLI templates
     href: azure-dev-cli-templates.md

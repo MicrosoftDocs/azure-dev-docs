@@ -40,11 +40,13 @@ For more information including architecture diagram and the Azure resources you'
 
 ## Azure Subscription
 
-You will create infrastructure and deploy code to Azure. If you don't have an Azure Subscription, sign up for a [free account here](https://azure.microsoft.com/free/). 
+You will create infrastructure and deploy code to Azure. If you don't have an Azure Subscription, sign up for a [free account here](https://azure.microsoft.com/free/).
 
-## Set up
+## Configure your environment
 
-To run any sample template, pick a development environment. For pros and cons, refer to the [development environment choices]( azure-dev-cli-overview#development-environment-choices).
+To run any sample template, pick a development environment. For more information about the pros and cons of the different development environment choices, see the article, [Azure Developer CLI (azd) supported environments and Azure services]( ./development-environment-choices.md).
+
+Once you've selected a development environment, select one of the following tabs:
 
 ### [Bare metal](#tab/bare-metal)
 
@@ -56,7 +58,7 @@ To run any sample template, pick a development environment. For pros and cons, r
 
 ---
 
-Once complete, the command will print the following URLs:
+Once the `azd up` command completes, it displays several URLs:
 
 - Azure portal link to view resources created
 - ToDo web application frontend
@@ -64,40 +66,28 @@ Once complete, the command will print the following URLs:
 
 !["azd up output"](media/get-started/urls.png)
 
+### What happened?
 
+Upon successful completion of the `azd up` command, you'll note several changes to your environment:
 
-#### What happened?
-
-The command:
-- clones the repo to your development environment. Open your editor of choice to browse the code.
-- provisions the Azure resources. Open Azure portal and search for resource group containing your environment name.
-- builds and deploys the application to Azure. Select the web application URL to launch the ToDo app. You can create a new collection or add a new item by hitting "enter"
+- A local clone of the repo referenced by the azd template has been created in the directory where you ran `azd up`.
+- The Azure resources referenced in the templates `README.md` file have been provisioned to the Azure subscription you specified when you ran `azd up`. You can view those Azure resources using the [Azure portal](https://portal.azure.com).
+- The application has been built and deployed Azure. Using the web application URL output from the `azd up` command, you can browse to the fully functional app.
 
 ### Clean up resources
-When you're done, you can delete all the Azure resources created with this template by running the following command:
+
+When you no longer need the resources created in this article, do the following steps:
 
 ``` bash
 azd down
 ```
+
+## Troubleshooting/Known issues
+
+[Troubleshoot common problems when using Azure Developer CLI (azd)](troubleshoot.md)
 
 ## Next steps
 
 * [Set up GitHub pipeline using azd pipeline](how-to-update-and-deploy-using-GitHub-Action.md)
 * [Monitor the health of your app](how-to-monitor-your-app.md)
 * [Run and debug using the Azure Developer CLI Visual Studio Code Extension](how-to-use-vscode-extension-to-debug-locally.md)
-
-## Troubleshooting/Known issues
-
-For known issues, refer to [Troubleshooting/known issues](azure-dev-cli-known-issues.md) 
-
-## Explore more samples
-
-To find more Azure Developer CLI enabled templates, see our [sample templates](azure-dev-cli-templates.md).
-
-## Reference
-
-A [reference](azure-cli-ref) is available.
-
-## Get help and give feedback
-
-Post questions to the community on [Discussions](https://github.com/Azure/azure-dev-pr/discussions). Report bugs and open issues against the Azure Developer CLI in the [GitHub repository](https://github.com/Azure/azure-dev-pr).
