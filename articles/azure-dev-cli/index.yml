@@ -34,7 +34,7 @@ landingContent:
           - text: Debug and run locally using Visual Studio Code
             url: how-to-use-vscode-extension-to-debug-locally.md
           - text: Config pipeline and push update through GitHub Action
-            url: how-to-update-and-deploy-using-GitHub-Action.md
+            url: how-to-update-and-deploy-using-github-action.md
           - text: Monitor your applicaiton
             url: how-to-monitor-your-app.md
           - text: Enable your project to work with Azure Developer CLI

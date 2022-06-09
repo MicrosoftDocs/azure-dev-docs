@@ -8,7 +8,7 @@
   - name: Run and debug using VS Code 
     href: how-to-use-vscode-extension-to-debug-locally.md
   - name: Edit and push updates
-    href: how-to-update-and-deploy-using-GitHub-Action.md
+    href: how-to-update-and-deploy-using-github-action.md
   - name: Monitor your project
     href: how-to-monitor-your-app.md
   - name: Make your project azd compatible
