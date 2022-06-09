@@ -6,7 +6,7 @@ ms.date: 12/09/2020
 ms.custom: devx-track-python, seo-python-october2019
 ---
 
-# 2: Redeploy a container to Azure App Service after making changes
+# 3: Redeploy a container to Azure App Service after making changes
 
 [Previous step: deploy the image to Azure](tutorial-deploy-containers-02.md)
 
