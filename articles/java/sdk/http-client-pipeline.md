@@ -4,6 +4,7 @@ description: An overview of the HTTP client and pipelines functionality in the A
 ms.date: 02/02/2021
 ms.topic: conceptual
 ms.custom: devx-track-java
+author: KarlErickson
 ms.author: srnagar
 ---
 

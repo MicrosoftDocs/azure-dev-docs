@@ -1,10 +1,14 @@
 ---
-title: Migrate WebLogic applications to WildFly on Azure Kubernetes Service
-description: This guide describes what you should be aware of when you want to migrate an existing WebLogic application to run on WildFly in an Azure Kubernetes Service container.
+title: Migrate WebLogic apps to WildFly on Azure Kubernetes Service
+description: Learn what you should be aware of to migrate an existing WebLogic application to run on WildFly in an Azure Kubernetes Service container.
+author: KarlErickson
 ms.author: manriem
-ms.topic: conceptual
-ms.date: 2/28/2020
-ms.custom: devx-track-java, devx-track-azurecli
+ms.topic: how-to
+ms.date: 06/03/2022
+ms.custom:
+- devx-track-java
+- devx-track-azurecli
+- kr2b-contr-experiment
 recommendations: false
 ---
 
@@ -16,7 +20,7 @@ This guide describes what you should be aware of when you want to migrate an exi
 
 To ensure a successful migration, before you start, complete the assessment and inventory steps described in the following sections.
 
-If you can't meet any of the pre-migration requirements, see the companion migration guide:
+If you can't meet the pre-migration requirements, see the companion migration guide:
 
 * [Migrate WebLogic applications to Azure Virtual Machines](migrate-weblogic-to-virtual-machines.md)
 
@@ -57,7 +61,7 @@ If your application relies on session replication, with or without Oracle Cohere
 
 <!-- AKS-specific extension of the last INCLUDE. -->
 > [!NOTE]
-> If you want to be able to scale each of your web applications independently for better use of your AKS resources, you should break up the EAR into separate web applications.
+> If you want to be able to scale each of your web applications independently for better use of your Azure Kubernetes Service resources, you should break up the EAR into separate web applications.
 <!-- end extension -->
 
 [!INCLUDE [identify-all-outside-processes-and-daemons-running-on-the-production-servers](includes/identify-all-outside-processes-and-daemons-running-on-the-production-servers.md)]
@@ -66,19 +70,19 @@ If your application relies on session replication, with or without Oracle Cohere
 
 [!INCLUDE [determine-whether-your-application-relies-on-scheduled-jobs](includes/determine-whether-your-application-relies-on-scheduled-jobs.md)]
 
-### Determine whether WebLogic Scripting Tool (WLST) is used
+### Determine whether WebLogic Scripting Tool is used
 
-If you currently use WLST to perform the deployment, you'll need to assess what it's doing. If WLST is changing any (runtime) parameters of your application as part of the deployment, you'll need to make sure those parameters conform to one of the following options:
+If you currently use the WebLogic Scripting Tool (WLST) to perform the deployment, you'll need to assess what it's doing. If WLST is changing any (runtime) parameters of your application as part of the deployment, make sure those parameters conform to one of the following options:
 
-* They are externalized as app settings.
-* They are embedded in your application.
-* They are using the JBoss CLI during deployment.
+* The parameters are externalized as app settings.
+* The parameters are embedded in your application.
+* The parameters are using the JBoss CLI during deployment.
 
-If WLST is doing more than what is mentioned above, you'll have some additional work to do during migration.
+If WLST is doing more than what is mentioned above, you'll have some extra work to do during migration.
 
 ### Determine whether your application uses WebLogic-specific APIs
 
-If your application uses WebLogic-specific APIs, you'll need to refactor it to remove those dependencies. For example, if you have used a class mentioned in the [Java API Reference for Oracle WebLogic Server](https://docs.oracle.com/en/middleware/fusion-middleware/weblogic-server/12.2.1.4/wlapi/index.html?overview-summary.html), you have used a WebLogic-specific API in your application.
+If your application uses WebLogic-specific APIs, you'll need to refactor it to remove those dependencies. For example, if you have used a class mentioned in the [Java API Reference for Oracle WebLogic Server](https://docs.oracle.com/en/middleware/fusion-middleware/weblogic-server/12.2.1.4/wlapi/index.html?overview-summary.html), you have used a WebLogic-specific API in your application. You would need to refactor to remove the reference.
 
 [!INCLUDE [determine-whether-your-application-uses-entity-beans](includes/determine-whether-your-application-uses-entity-beans.md)]
 
@@ -86,13 +90,13 @@ If your application uses WebLogic-specific APIs, you'll need to refactor it to r
 
 ### Determine whether a deployment plan was used
 
-If your app was deployed using a deployment plan, you'll need to assess what the deployment plan is doing. If the deployment plan is a straight deploy, then you'll be able to deploy your web application without any changes. If the deployment plan is more elaborate, you'll need to determine whether you can use the JBoss CLI to properly configure your application as part of the deployment. If it isn't possible to use the JBoss CLI, you'll need to refactor your application in such a way that a deployment plan is no longer needed.
+If your app was deployed using a deployment plan, assess what the deployment plan is doing. If the deployment plan is a straight deploy, then you'll be able to deploy your web application without any changes. If the deployment plan is more elaborate, determine whether you can use the JBoss CLI to properly configure your application as part of the deployment. If it isn't possible to use the JBoss CLI, refactor your application in such a way that a deployment plan is no longer needed.
 
 [!INCLUDE [determine-whether-ejb-timers-are-in-use](includes/determine-whether-ejb-timers-are-in-use.md)]
 
 ### Determine whether and how the file system is used
 
-Any usage of the file system on the application server will require reconfiguration or, in rare cases, architectural changes. The file system may be used by WebLogic shared modules or by your application code. You may identify some or all of the scenarios described in the following sections.
+Any usage of the file system on the application server requires reconfiguration or, in rare cases, architectural changes. The file system might be used by WebLogic shared modules or by your application code. You might identify some or all of the scenarios described in the following sections.
 
 [!INCLUDE [static-content](includes/static-content.md)]
 
@@ -108,7 +112,7 @@ If your application uses JCA connectors, you'll have to validate that the JCA co
 
 ### Determine whether WebLogic clustering is used
 
-Most likely, you've deployed your application on multiple WebLogic servers to achieve high availability. Azure Kubernetes Service is capable of scaling, but if you've used the WebLogic Cluster API, you'll need to refactor your code to eliminate the use of that API.
+Most likely, you've deployed your application on multiple WebLogic servers to achieve high availability. Azure Kubernetes Service is capable of scaling, but if you used the WebLogic Cluster API, you need to refactor your code to eliminate the use of that API.
 
 [!INCLUDE [perform-in-place-testing](includes/perform-in-place-testing.md)]
 
@@ -132,6 +136,6 @@ If your application requires non-volatile storage, configure one or more [Persis
 
 ## Post-migration
 
-Now that you've migrated your application to Azure Kubernetes Service, you should verify that it works as you expect. After you've done that, see the following recommendations to make your application more cloud-native.
+Now that you've migrated your application to Azure Kubernetes Service, you should verify that it works as you expect. After you do that, see the following recommendations to make your application more cloud-native.
 
 [!INCLUDE [recommendations-wildfly-on-aks](includes/recommendations-wildfly-on-aks.md)]

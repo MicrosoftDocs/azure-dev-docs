@@ -1,6 +1,6 @@
 ---
 ms.topic: include
-ms.date: 05/06/2022
+ms.date: 06/03/2022
 author: adrianhall
 ms.author: adhal
 ms.prod: azure-mobile-apps
@@ -43,7 +43,8 @@ Open the `TodoApp.Data` project and locate the `RemoteTodoService.cs` class (wit
     store.DefineTable<TodoItem>();
     var options = new DatasyncClientOptions
     {
-        OfflineStore = store
+        OfflineStore = store,
+        HttpPipeline = new HttpMessageHandler[] { new LoggingHandler() }
     };
 
     // Create the datasync client.

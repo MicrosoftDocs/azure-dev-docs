@@ -1,6 +1,7 @@
 ---
 title: Java learning path
 description: Java - learning paths for Java developers.
+author: KarlErickson
 ms.author: sreea
 ms.topic: article
 ms.date: 03/19/2021

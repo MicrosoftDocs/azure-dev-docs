@@ -1,6 +1,7 @@
 ---
 title: Use Azure Key Vault to deliver TLS/SSL certificates to the JVM
 description: Use Azure Key Vault to deliver TLS/SSL certificates to the JVM
+author: KarlErickson
 ms.author: manriem
 ms.topic: article
 ms.date: 12/09/2021

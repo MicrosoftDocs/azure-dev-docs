@@ -4,6 +4,7 @@ description: This tutorial shows how to integrate and configure Logz.io for Java
 manager: bborges
 ms.topic: tutorial
 ms.date: 11/05/2019
+author: KarlErickson
 ms.author: judubois
 ms.custom: devx-track-java, team=cloud_advocates
 ms.contributors: judubois-09162021

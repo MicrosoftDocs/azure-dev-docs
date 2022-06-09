@@ -320,7 +320,7 @@ pod "javaee-cafe-jcache-cluster-77d54bccd4-5xnzx" deleted
 
 Then, refresh the application home page. You'll see the same data displayed in the section **New coffee in session** but a different pod name displayed at the top-left of the page.
 
-Finally, use the following steps to demonstrate that the session data is persisted in the Azure Cache for Redis instance. You can issue commands to your Azure Cache for Redis instance using the [Redis Console](/azure/azure-cache-for-redis/cache-configure.md#redis-console).
+Finally, use the following steps to demonstrate that the session data is persisted in the Azure Cache for Redis instance. You can issue commands to your Azure Cache for Redis instance using the [Redis Console](/azure/azure-cache-for-redis/cache-configure#redis-console).
 
 1. Find your Azure Cache for Redis instance from the Azure portal.
 1. Select **Console** to open Redis console.

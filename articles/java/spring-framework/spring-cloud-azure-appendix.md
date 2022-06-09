@@ -3,6 +3,7 @@ title: Spring Cloud Azure list of configuration properties
 description: Spring Cloud Azure reference list of configuration properties
 ms.date: 04/26/2022
 ms.topic: article
+author: KarlErickson
 ms.author: v-yonghuiye
 ms.custom: devx-track-java
 ---

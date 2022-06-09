@@ -128,13 +128,13 @@ In this section, you'll configure the Quarkus project *pom.xml* file so that Mav
 
    Select the following options when prompted:
 
-   |  Input Field  |  Input/Select Value  |
-   | ---- | ---- |
-   |  Choose a subscription | <Type the num of your subscription>  |
-   |  Define value for OS(Default: Linux):  | 2. linux  |
-   |  Define value for javaVersion(Default: Java 8):   | 2. Java 11  |
-   |  Define value for pricingTier(Default: P1v2):   | 9. P1v2  |
-   |  Confirm (Y/N) | y |
+   | Input Field                                    | Input/Select Value                  |
+   |------------------------------------------------|-------------------------------------|
+   | Choose a subscription                          | Enter your subscription ID.         |
+   | Define value for OS(Default: Linux):           | 2. linux                            |
+   | Define value for javaVersion(Default: Java 8): | 2. Java 11                          |
+   | Define value for pricingTier(Default: P1v2):   | 9. P1v2                             |
+   | Confirm (Y/N)                                  | y                                   |
 
    This command produces output similar to the following example:
 

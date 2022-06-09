@@ -7,6 +7,8 @@ metadata:
   description: Use these quickstarts to get started developing Java apps for the cloud.
   ms.topic: landing-page
   ms.date: 04/08/2020
+  author: KarlErickson
+  ms.author: karler
 
 landingContent:
   - title: Deploy Java apps

@@ -4,6 +4,7 @@ description: Learn how to set up a CI/CD release cycle to deploy a MicroProfile 
 services: devops
 documentationcenter: MicroProfile
 manager: brunoborges
+author: KarlErickson
 ms.author: ruyakubu
 ms.date: 07/31/2019
 ms.tgt_pltfrm: multiple
