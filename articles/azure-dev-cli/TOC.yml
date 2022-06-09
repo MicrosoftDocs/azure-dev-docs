@@ -5,13 +5,13 @@
     href: azure-dev-cli-overview.md
   - name: Development environment options
     href: development-environment-options.md
-- name: Get Started
+  - name: Azure Developer CLI templates
+    href: azure-dev-cli-templates.md
+- name: Get started
   expanded: true
   items:
   - name: Clone your first app
     href: get-started.md
-  - name: Understand Azure Developer CLI templates
-    href: azure-dev-cli-templates.md
 - name: Develop apps from Templates
   expanded: true
   items:
@@ -28,14 +28,12 @@
     href: how-to-azd-enable-a-project.md
   - name: Work with Azure Bicep
     href: how-to-azd-bicep.md
-- name: Troubleshoot
+- name: Support
   expanded: true
   items:
-  - name: Known issues
-    href: azure-dev-cli-known-issues.md   
-    displayName: troubleshooting, known issues
-  - name: Frequently asked questions
+  - name: Troubleshoot and Get help
+    href: troubleshoot.md   
+  - name: Frequently asked questions (FAQ)
     href: azure-dev-cli-faq.yml   
-    displayName: troubleshooting, faq
 - name: Reference
   href: azure-dev-cli-ref.md

@@ -53,3 +53,8 @@ Currently supported/planned languages:
 | Python    | Yes |
 | .NET | Yes |
 | Java | Coming soon |
+
+## Next steps
+
+> [!div class="nextstepaction"] 
+> [Azure Developer CLI (azd) templates](azure-dev-cli-templates.md)

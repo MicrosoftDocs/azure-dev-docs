@@ -39,3 +39,7 @@ The following image shows a graphical representation of the suggested workflow:
 
 The [azd templates](azure-dev-cli-templates.md) are sample repositories created using azd conventions. Each template includes the application code, tools, infrastructure code, and CI/CD pipelines that serve as a foundation. Once you download (clone) a template, you can customize the code to create your own solutions. In addition, you can use azd subcommands to manage cloud resources, configure CI/CD, and monitor application health.
 
+## Next steps
+
+> [!div class="nextstepaction"] 
+> [Azure Developer CLI (azd) supported environments and Azure services](development-environment-options.md)

@@ -1,5 +1,5 @@
 ---
-title: Get started with Azure Developer CLI
+title: Clone your first app using Azure Developer CLI (azd)
 description: Learn how to get started with Azure Developer CLI
 keywords: azure developer cli
 author: puicchan
@@ -12,11 +12,11 @@ zone_pivot_group_filename: developer/azure-dev-cli/azd-zone-pivot-groups.json
 zone_pivot_groups: azd-languages-set
 ---
 
-# Get started with Azure Developer CLI
+# Clone your first app using Azure Developer CLI (azd)
 
 ::: zone pivot="programming-language-nodejs"
 
-We'll use the [ToDo Application with a Node.js API and Azure Cosmos DB API for MongoDB](https://github.com/azure-samples/todo-nodejs-mongo) for this walkthrough. Upon completion, you will get the code in your development environment and will be able to run commands to build, deploy, and monitor the application in Azure. 
+We'll use the [ToDo Application with a Node.js API and Azure Cosmos DB API for MongoDB](https://github.com/azure-samples/todo-nodejs-mongo) for this walkthrough. Upon completion, you will get the code in your development environment and will be able to run commands to build, deploy, and monitor the application in Azure.
 
 For more information including architecture diagram and the Azure resources you'll deploy, see the [README](https://github.com/Azure-Samples/todo-nodejs-mongo/blob/main/README.md).
 
@@ -24,7 +24,7 @@ For more information including architecture diagram and the Azure resources you'
 
 ::: zone pivot="programming-language-python"
 
-We'll use the [ToDo Application with a Python API and Azure Cosmos DB API for MongoDB](https://github.com/azure-samples/todo-python-mongo) for this walkthrough. Upon completion, you will get the code in your development environment and will be able to run commands to build, deploy, and monitor the application in Azure. 
+We'll use the [ToDo Application with a Python API and Azure Cosmos DB API for MongoDB](https://github.com/azure-samples/todo-python-mongo) for this walkthrough. Upon completion, you will get the code in your development environment and will be able to run commands to build, deploy, and monitor the application in Azure.
 
 For more information including architecture diagram and the Azure resources you'll deploy, see the [README](https://github.com/Azure-Samples/todo-python-mongo/blob/main/README.md).
 
@@ -32,7 +32,7 @@ For more information including architecture diagram and the Azure resources you'
 
 ::: zone pivot="programming-language-csharp"
 
-We'll use the [ToDo Application with a C# API and Azure Cosmos DB SQL API](https://github.com/Azure-Samples/todo-csharp-cosmos-sql) for this walkthrough. Upon completion, you will get the code in your development environment and will be able to run commands to build, deploy, and monitor the application in Azure. 
+We'll use the [ToDo Application with a C# API and Azure Cosmos DB SQL API](https://github.com/Azure-Samples/todo-csharp-cosmos-sql) for this walkthrough. Upon completion, you will get the code in your development environment and will be able to run commands to build, deploy, and monitor the application in Azure.
 
 For more information including architecture diagram and the Azure resources you'll deploy, see the [README](https://github.com/Azure-Samples/todo-csharp-cosmos-sql/blob/main/README.md).
 
