@@ -27,17 +27,13 @@ The following 2-minute video presents a high level overview of azd:
 
 The following steps are the recommended workflow to using azd:
 
-1. Select an [Azure Developer CLI template](#azure-dev-cli-templates).
+1. Select an [Azure Developer CLI template](#list_of_azd_templates).
 1. Download (clone) the sample by running `azd up`.
 1. Customize the cloned template to meet your needs.
 
 The following image shows a graphical representation of the suggested workflow:
 
 ![The standard azd workflow](media/azure-dev-cli-overview/azd-dev-workflow.png)
-
-## azd templates
-
-The [azd templates](azure-dev-cli-templates.md) are sample repositories created using azd conventions. Each template includes the application code, tools, infrastructure code, and CI/CD pipelines that serve as a foundation. Once you download (clone) a template, you can customize the code to create your own solutions. In addition, you can use azd subcommands to manage cloud resources, configure CI/CD, and monitor application health.
 
 ## Azure Developer CLI vs Azure CLI
 
@@ -82,7 +78,7 @@ Currently supported/planned languages:
 | .NET | Yes |
 | Java | Coming soon |
 
-## Azure Developer CLI (azd) templates
+## List of azd templates
 
 The quickest way to get started with Azure Developer CLI (azd) is to refer to the README in an Azure Developer CLI enabled template. This article lists all the templates grouped by Azure service. If you're using azd, select the template you want to use and reference it in the [Clone your first app](get-started.md) article.
 
