@@ -181,7 +181,7 @@ Add the Key vault and DefaultAzureCredential to the Azure App Service's app sett
 
 ## Update the App Service app settings for service principal
 
-To use the service principal to authorize access to Key vault [in source code](https://github.com/Azure-Samples/msdocs-nodejs-mongodb-azure-sample-app/blob/main/config/keyvault.js#L10), the App Service environment needs to those specifically-named settings for the DefaultAzureCredential.
+To use the service principal to authorize access from the hosting platform to Key vault [in source code](https://github.com/Azure-Samples/msdocs-nodejs-mongodb-azure-sample-app/blob/main/config/keyvault.js#L10), the App Service environment needs to those specifically-named settings for the DefaultAzureCredential.
 
 1. Use the following Azure CLI command to add the **AZURE_TENANT_ID** app setting.  The value is in the `.env` file. 
 
