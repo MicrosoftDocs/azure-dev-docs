@@ -1,11 +1,14 @@
 - name: What is Azure Developer CLI?
   href: azure-dev-cli-overview.md
   displayName: overview, intro, introduction
-- name: Azure Developer CLI templates
-  href: azure-dev-cli-templates.md
 - name: Get Started
-  href: get-started.md
-- name: Develop 
+  expanded: true
+  items:
+  - name: Create your first app
+    href: get-started.md
+  - name: Understand Azure Developer CLI templates
+    href: azure-dev-cli-templates.md
+- name: Develop apps from Templates
   expanded: true
   items:
   - name: 1. Run and debug using VS Code 
@@ -14,7 +17,7 @@
     href: how-to-update-and-deploy-using-GitHub-Action.md
   - name: 3. Monitor application
     href: how-to-monitor-your-app.md
-- name: Create 
+- name: Work with Templates
   expanded: true
   items:
   - name: Enable your project
