@@ -38,9 +38,6 @@ For more information including architecture diagram and the Azure resources you'
 
 ::: zone-end
 
-> [!NOTE] 
-> You can use any of the [Azure Developer CLI templates](azure-dev-cli-templates.md) for this walkthrough. 
-
 ## Azure Subscription
 
 You will create infrastructure and deploy code to Azure. If you don't have an Azure Subscription, sign up for a [free account here](https://azure.microsoft.com/free/). 
