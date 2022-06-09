@@ -52,9 +52,9 @@ This sample uses the [DefaultAzureCredential](/javascript/api/overview/azure/ide
 
     ```azurecli
     az ad sp create-for-rbac \
-    --name SERVICE-PRINCIPAL-NAME \
-    --role Contributor \
-    --scopes "/subscriptions/SUBSCRIPTION_NAME_OR_ID/resourceGroups/RESOURCE-GROUP-NAME"
+        --name SERVICE-PRINCIPAL-NAME \
+        --role Contributor \
+        --scopes "/subscriptions/SUBSCRIPTION_NAME_OR_ID/resourceGroups/RESOURCE-GROUP-NAME"
     ```
 
     |Term|Replace with|
@@ -70,38 +70,41 @@ This sample uses the [DefaultAzureCredential](/javascript/api/overview/azure/ide
  
     ```json
     {
-        "appId": "YOUR-APP-ID",
-        "displayName": "YOUR-SERVICE-PRINCIPAL-NAME",
-        "name": "http://YOUR-SERVICE-PRINCIPAL-NAME",
+        "appId": "YOUR-APP-ID-VALUE",
+        "displayName": "YOUR-SERVICE-PRINCIPAL-DISPLAY-NAME",
+        "name": "YOUR-SERVICE-PRINCIPAL-NAME",
         "password": "!@#$%",
         "tenant": "YOUR-TENANT-ID"
     }
     ```
 
+    Notice that the value of the `appId` property has the same value as the `name` property.  
+
 ## Give your service principal access to your key vault
 
-Use the [az keyvault set-policy](/cli/azure/keyvault#az-keyvault-set-policy) command to give your service principal access to your Key Vault with Azure CLI command. The value for `YOUR-APP-ID` is your service principal output's `appId` value. 
+Use the [az keyvault set-policy](/cli/azure/keyvault#az-keyvault-set-policy) command to give your service principal access to your Key Vault with Azure CLI command. The value for `YOUR-SERVICE-PRINCIPAL-NAME` is your service principal output's `name` value. Do not use the `displayName` value.  
 
 ```azurecli
 az keyvault set-policy \
---subscription REPLACE-WITH-YOUR-SUBSCRIPTION-NAME-OR-ID \
---name "REPLACE-WITH-YOUR-KEY-VAULT-NAME" \
---spn YOUR-APP-ID \
---secret-permissions get list
+    --subscription REPLACE-WITH-YOUR-SUBSCRIPTION-NAME-OR-ID \
+    --resource-group RESOURCE-GROUP-NAME \
+    --name "REPLACE-WITH-YOUR-KEY-VAULT-NAME" \
+    --spn YOUR-SERVICE-PRINCIPAL-NAME \
+    --secret-permissions get list
 ```
 
-This service principal will only be able to list all secrets or get a specific secret.
+This service principal will only be able to list all secrets or get a specific secret. You can see this service principal in the Azure portal for your Key Vault 
 
 ## Store your secret environment variable in Key Vault resource
 
-Use the [az keyvault secret set](/cli/azure/keyvault/secret#az-keyvault-secret-set) command to add your MongoDB connection string, created in the [prior tutorial](/azure/app-service/tutorial-nodejs-mongodb-app?tabs=azure-portal%2Cterminal-bash%2Cvscode-deploy%2Cdeploy-instructions-azportal%2Cdeploy-zip-linux-mac%2Cdeploy-instructions--zip-azcli), as a secret named `DATABASE-URL` to your key vault.
+Use the [az keyvault secret set](/cli/azure/keyvault/secret#az-keyvault-secret-set) command to add your MongoDB connection string, created in the [prior tutorial](/azure/app-service/tutorial-nodejs-mongodb-app?tabs=azure-portal%2Cterminal-bash%2Cvscode-deploy%2Cdeploy-instructions-azportal%2Cdeploy-zip-linux-mac%2Cdeploy-instructions--zip-azcli), as a secret named `DATABASE-URL` to your key vault on the **Settings -> Access policies** page.
 
 ```azurecli
 az keyvault secret set \
---subscription REPLACE-WITH-YOUR-SUBSCRIPTION-NAME-OR-ID \
---vault-name "REPLACE-WITH-YOUR-KEY-VAULT-NAME" \
---name "DATABASE-URL" \
---value "YOUR-COSMOS-DB-MONGODB-CONNECTION-STRING"
+    --subscription REPLACE-WITH-YOUR-SUBSCRIPTION-NAME-OR-ID \
+    --vault-name "REPLACE-WITH-YOUR-KEY-VAULT-NAME" \
+    --name "DATABASE-URL" \
+    --value "YOUR-COSMOS-DB-MONGODB-CONNECTION-STRING"
 ```
 
 > [!NOTE]
@@ -145,7 +148,7 @@ When you deploy the application to Azure app service, you'll also need to add th
 1. Open the Express.js app in the browser: `http://localhost:3000`.
 1. Interact with the app, adding and deleting tasks. 
 
-## Update the App Service app settings
+## Update the App Service app settings for Key vault
 
 Add the Key vault and DefaultAzureCredential to the Azure App Service's app settings.
 
@@ -176,6 +179,9 @@ Add the Key vault and DefaultAzureCredential to the Azure App Service's app sett
     |--|--|
     |KEY_VAULT_SECRET_NAME_DATABASE_URL|DATABASE-URL|
 
+## Update the App Service app settings for service principal
+
+To use the service principal to authorize access to Key vault [in source code](https://github.com/Azure-Samples/msdocs-nodejs-mongodb-azure-sample-app/blob/main/config/keyvault.js#L10), the App Service environment needs to those specifically-named settings for the DefaultAzureCredential.
 
 1. Use the following Azure CLI command to add the **AZURE_TENANT_ID** app setting.  The value is in the `.env` file. 
 
@@ -235,7 +241,7 @@ Delete your service principal with the
 
 ```azurecli
 az ad sp delete \
---id YOUR-APP-ID
+--id YOUR-SERVICE-PRINCIPAL-NAME
 ```
 
 ## Next steps
