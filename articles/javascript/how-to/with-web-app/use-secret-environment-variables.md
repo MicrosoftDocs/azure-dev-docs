@@ -70,7 +70,7 @@ This sample uses the [DefaultAzureCredential](/javascript/api/overview/azure/ide
  
     ```json
     {
-        "appId": "YOUR-SERVICE-PRINCIPAL-ID",
+        "appId": "YOUR-APP-ID",
         "displayName": "YOUR-SERVICE-PRINCIPAL-NAME",
         "name": "http://YOUR-SERVICE-PRINCIPAL-NAME",
         "password": "!@#$%",
@@ -80,13 +80,13 @@ This sample uses the [DefaultAzureCredential](/javascript/api/overview/azure/ide
 
 ## Give your service principal access to your key vault
 
-Use the [az keyvault set-policy](/cli/azure/keyvault#az-keyvault-set-policy) command to give your service principal access to your Key Vault with Azure CLI command. The value for `YOUR-SERVICE-PRINCIPAL-ID` is your service principal output's `appId` value. 
+Use the [az keyvault set-policy](/cli/azure/keyvault#az-keyvault-set-policy) command to give your service principal access to your Key Vault with Azure CLI command. The value for `YOUR-APP-ID` is your service principal output's `appId` value. 
 
 ```azurecli
 az keyvault set-policy \
 --subscription REPLACE-WITH-YOUR-SUBSCRIPTION-NAME-OR-ID \
 --name "REPLACE-WITH-YOUR-KEY-VAULT-NAME" \
---spn YOUR-SERVICE-PRINCIPAL-ID \
+--spn YOUR-APP-ID \
 --secret-permissions get list
 ```
 
@@ -235,7 +235,7 @@ Delete your service principal with the
 
 ```azurecli
 az ad sp delete \
---id YOUR-SERVICE-PRINCIPAL-ID
+--id YOUR-APP-ID
 ```
 
 ## Next steps
