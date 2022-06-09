@@ -4,7 +4,7 @@ description: Get up to speed with Xamarin.iOS and Azure Mobile Apps with our tut
 author: adrianhall
 ms.service: mobile-services
 ms.topic: article
-ms.date: 05/19/2022
+ms.date: 06/09/2022
 ms.author: adhal
 recommendations: false
 zone_pivot_group_filename: developer/mobile-apps/azure-mobile-apps/zumo-zone-pivot-groups.json
