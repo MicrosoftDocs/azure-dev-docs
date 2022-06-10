@@ -153,7 +153,7 @@ using Android.App;
 using Android.Content;
 using Microsoft.Identity.Client;
 
-namespace TodoApp.Forms.Droid
+namespace TodoApp.Android
 {
     [Activity(Exported = true)]
     [IntentFilter(new[] { Intent.ActionView },
