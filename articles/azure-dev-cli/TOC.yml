@@ -5,7 +5,7 @@
     href: azure-dev-cli-overview.md
   - name: Get started
     href: get-started.md
-  - name: Run and debug using VS Code 
+  - name: Run and debug
     href: how-to-use-vscode-extension-to-debug-locally.md
   - name: Edit and push updates
     href: how-to-update-and-deploy-using-github-action.md
