@@ -2,10 +2,11 @@
 ### Prerequisites
 
 Before you get started, ensure you have the following tools installed on your local machine:
-1. [Git](https://git-scm.com/)
-1. [GitHub CLI v2.3+](https://github.com/cli/cli)
-1. [Azure CLI (v 2.30.0+)](/cli/azure/install-azure-cli)
-1. Azure Developer CLI (azd)
+
+- [Git](https://git-scm.com/)
+- [GitHub CLI v2.3+](https://github.com/cli/cli)
+- [Azure CLI (v 2.30.0+)](/cli/azure/install-azure-cli)
+- Azure Developer CLI (azd)
     ### [Windows](#tab/windows)
 
     ```
@@ -21,13 +22,13 @@ Before you get started, ensure you have the following tools installed on your lo
     ---
 
 ::: zone pivot="programming-language-nodejs"
-1. [Node.js with npm (v 16.13.1 LTS)](https://nodejs.org/)
+- [Node.js with npm (v 16.13.1 LTS)](https://nodejs.org/)
 
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
-1. [Node.js with npm (v 16.13.1 LTS)](https://nodejs.org/)
-1. [Python 3.8+](https://www.python.org/downloads/)
+- [Node.js with npm (v 16.13.1 LTS)](https://nodejs.org/)
+- [Python 3.8+](https://www.python.org/downloads/)
 
 ### Python virtual environment
 
@@ -36,12 +37,16 @@ This application uses Python Virtual Environments to isolate Python package inst
 ::: zone-end
 
 ::: zone pivot="programming-language-csharp"
-1. [Node.js with npm (v 16.13.1 LTS)](https://nodejs.org/)
-1. [.NET SDK 6.0](https://dotnet.microsoft.com/en-us/download/dotnet/6.0)
+- [Node.js with npm (v 16.13.1 LTS)](https://nodejs.org/)
+- [.NET SDK 6.0](https://dotnet.microsoft.com/en-us/download/dotnet/6.0)
 
 ::: zone-end
 
-### Run `up` command
+### Azure subscription
+
+You will create infrastructure and deploy code to Azure. If you don't have an Azure Subscription, sign up for [a free account](https://azure.microsoft.com/free/).
+
+## Run `up` command
 
 The fastest way for you to get this application up and running on Azure is to use the `azd up` command. This single command will initialize the project, create and configure all necessary Azure resources - including access policies and roles for your account and service-to-service communication with Managed Identities.
 

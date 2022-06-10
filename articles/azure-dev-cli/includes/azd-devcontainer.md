@@ -4,7 +4,7 @@
 ### Prerequisites
 
 Before you get started, ensure you have the following tools installed on your local machine:
-1. Azure Developer CLI (azd)
+- Azure Developer CLI (azd)
     ### [Windows](#tab/windows)
 
     ```
@@ -18,9 +18,8 @@ Before you get started, ensure you have the following tools installed on your lo
     ```
 
     ---
-1. [Docker Desktop](https://aka.ms/azure-dev/docker-install) (other options coming soon...)
-1. [Remote - Containers VS Code Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
-
+- [Docker Desktop](https://aka.ms/azure-dev/docker-install) (other options coming soon.)
+- [Remote - Containers VS Code Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
 
 ### DevContainer
 
@@ -39,7 +38,11 @@ A [DevContainer](https://code.visualstudio.com/docs/remote/containers) is a Dock
 
 ::: zone-end
 
-### Initialize Project
+### Azure subscription
+
+You will create infrastructure and deploy code to Azure. If you don't have an Azure Subscription, sign up for [a free account](https://azure.microsoft.com/free/).
+
+## Initialize Project
 
 Open a terminal, create a new empty folder, and change into it.
 Run the following command to initialize the project:
@@ -75,7 +78,7 @@ You'll be prompted for the following information:
 
 Open the project in VS Code, hit F1 and choose: `Remote-Containers: Rebuild and Reopen in Container`
 
-### Run Up Command
+## Run Up Command
 
 The fastest way for you to get this application up and running on Azure is to use the `azd up` command. This single command will create and configure all necessary Azure resources - including access policies and roles for your account and service-to-service communication with Managed Identities. 
 
