@@ -10,7 +10,7 @@ ms.prod: azure
 ---
 #  How to monitor your application
 
-You can use any of the [Azure Developer CLI template](azure-dev-cli-overview.md#list-of-azd-templates) for this tutorial. We'll use the [Todo Application with Node.js and Azure Cosmo DB API for MongoDB](https://github.com/azure-samples/todo-nodejs-mongo). 
+You can use any of the [Azure Developer CLI template](azure-dev-cli-overview.md#list-of-azd-templates) for this tutorial. We'll use the [Todo Application with Node.js and Azure Cosmos DB API for MongoDB](https://github.com/azure-samples/todo-nodejs-mongo). 
 
 By now, you should have your Azure resources provisioned and application deployed. If not, follow the steps in [get-started](get-started.md). 
 

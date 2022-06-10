@@ -11,7 +11,7 @@
     href: how-to-update-and-deploy-using-github-action.md
   - name: Monitor your project
     href: how-to-monitor-your-app.md
-  - name: Make your project azd compatible
+  - name: Make project azd compatible
     href: how-to-azd-enable-a-project.md
   - name: Help with Azure Bicep
     href: how-to-azd-bicep.md
