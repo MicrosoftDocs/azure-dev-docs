@@ -38,13 +38,9 @@ For more information including architecture diagram and the Azure resources you'
 
 ::: zone-end
 
-## Azure Subscription
-
-You will create infrastructure and deploy code to Azure. If you don't have an Azure Subscription, sign up for a [free account here](https://azure.microsoft.com/free/).
-
 ## Configure your environment
 
-To run any sample template, pick a development environment. For more information about the pros and cons of the different development environment choices, see the article, [Azure Developer CLI (azd) supported environments and Azure services](azure-dev-cli-overview.md#development-environment-options).
+To run any sample template, pick a development environment. For more information about the pros and cons of the different development environment choices, see the article, [Azure Developer CLI (azd) supported environments and Azure services](azure-dev-cli-overview.md#supported-development-environments).
 
 Once you've selected a development environment, select one of the following tabs:
 
@@ -72,7 +68,7 @@ Upon successful completion of the `azd up` command, you'll note several changes 
 
 - A local clone of the repo referenced by the azd template has been created in the directory where you ran `azd up`.
 - The Azure resources referenced in the templates `README.md` file have been provisioned to the Azure subscription you specified when you ran `azd up`. You can view those Azure resources using the [Azure portal](https://portal.azure.com).
-- The application has been built and deployed Azure. Using the web application URL output from the `azd up` command, you can browse to the fully functional app.
+- The application has been built and deployed to Azure. Using the web application URL output from the `azd up` command, you can browse to the fully functional app.
 
 ### Clean up resources
 
@@ -90,4 +86,4 @@ azd down
 
 * [Set up GitHub pipeline using azd pipeline](how-to-update-and-deploy-using-github-action.md)
 * [Monitor the health of your app](how-to-monitor-your-app.md)
-* [Run and debug using the Azure Developer CLI Visual Studio Code Extension](how-to-use-vscode-extension-to-debug-locally.md)
+* [Run and debug using the Azure Developer CLI IDE Extension](how-to-use-vscode-extension-to-debug-locally.md)

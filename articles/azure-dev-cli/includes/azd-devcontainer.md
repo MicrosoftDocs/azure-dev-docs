@@ -3,8 +3,7 @@
 
 ### Prerequisites
 
-#### Azure Developer CLI
-
+Before you get started, ensure you have Azure Developer CLI (azd) installed on your local machine:
 ### [Windows](#tab/windows)
 
 ```

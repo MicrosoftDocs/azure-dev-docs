@@ -10,7 +10,7 @@ ms.prod: azure
 ---
 # How to config pipeline and push updates through GitHub Action
 
-You can use any of the [Azure Developer CLI template](azure-dev-cli-overview.md#list-of-azd-templates) for this walkthrough. We'll use the [Todo Application with Node.js and Azure Cosmo DB API for MongoDB](https://github.com/azure-samples/todo-nodejs-mongo). 
+You can use any of the [Azure Developer CLI template](azure-dev-cli-overview.md#azure-developer-cli-templates) for this walkthrough. We'll use the [Todo Application with Node.js and Azure Cosmo DB API for MongoDB](https://github.com/azure-samples/todo-nodejs-mongo). 
 
 By now, you should have your Azure resources provisioned and application deployed. If not, follow the steps in [get-started](get-started.md). 
 

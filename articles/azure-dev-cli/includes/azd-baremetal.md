@@ -2,10 +2,10 @@
 ### Prerequisites
 
 Before you get started, ensure you have the following tools installed on your local machine:
-- [Git](https://git-scm.com/)
-- [GitHub CLI v2.3+](https://github.com/cli/cli)
-- [Azure CLI (v 2.30.0+)](/cli/azure/install-azure-cli)
-- Azure Developer CLI (azd)
+* [Git](https://git-scm.com/)
+* [GitHub CLI v2.3+](https://github.com/cli/cli)
+* [Azure CLI (v 2.30.0+)](/cli/azure/install-azure-cli)
+* Azure Developer CLI (azd)
     ### [Windows](#tab/windows)
 
     ```
@@ -21,13 +21,13 @@ Before you get started, ensure you have the following tools installed on your lo
     ---
 
 ::: zone pivot="programming-language-nodejs"
-- [Node.js with npm (v 16.13.1 LTS)](https://nodejs.org/)
+* [Node.js with npm (v 16.13.1 LTS)](https://nodejs.org/)
 
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
-- [Node.js with npm (v 16.13.1 LTS)](https://nodejs.org/)
-- [Python 3.8+](https://www.python.org/downloads/)
+* [Node.js with npm (v 16.13.1 LTS)](https://nodejs.org/)
+* [Python 3.8+](https://www.python.org/downloads/)
 
 ### Python virtual environment
 
@@ -39,8 +39,8 @@ This application uses Python Virtual Environments to isolate Python package inst
 ::: zone-end
 
 ::: zone pivot="programming-language-csharp"
-- [Node.js with npm (v 16.13.1 LTS)](https://nodejs.org/)
-- [.NET SDK 6.0](https://dotnet.microsoft.com/en-us/download/dotnet/6.0)
+* [Node.js with npm (v 16.13.1 LTS)](https://nodejs.org/)
+* [.NET SDK 6.0](https://dotnet.microsoft.com/en-us/download/dotnet/6.0)
 
 ::: zone-end
 
