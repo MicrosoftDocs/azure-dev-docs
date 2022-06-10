@@ -49,7 +49,7 @@ landingContent:
             url: troubleshoot.md   
           - text: Frequently asked questions (FAQ)
             url: azure-dev-cli-faq.yml   
-      - linkListType: how-to-guide 
+      - linkListType: reference
         links:
           - text: Azure Developer CLI Reference
             url: azure-dev-cli-ref.md
