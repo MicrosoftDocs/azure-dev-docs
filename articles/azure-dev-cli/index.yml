@@ -1,15 +1,15 @@
 ### YamlMime:Landing
 
-title: Azure Developer CLI
+title: Azure Developer CLI (azd)
 summary: |
-  The Azure Developer CLI (azd) is a developer-centric command-line interface (CLI) tool for building Azure applications. The CLI ties heterogenous hosts, languages, devops pipelines, together into a unified experience that will get you from code to cloud -- fast.  
-  
+The Azure Developer CLI (azd) is a developer-centric command-line tool for building cloud applications. The azd is a set of commands that allows you to work consistently across azd templates, DevOps workflows, and your IDE (intergrated development environment).  
+
 metadata:
   title: Azure Developer CLI
   description: Get started developing Azure applications using Azure Developer CLI (azd).
   author: puicchan
   ms.author: puichan
-  ms.date: 06/09/2022
+  ms.date: 06/10/2022
   ms.topic: landing-page
   ms.collection: collection
   ms.technology: azure
@@ -17,7 +17,7 @@ metadata:
   ms.custom: devx-track-azdevcli
 
 landingContent:
-  - title:  Azure Dev CLI 
+  - title:  Get started
     linkLists:
       - linkListType: learn
         links:
@@ -27,37 +27,47 @@ landingContent:
         links:
           - text: Get started
             url: get-started.md 
-  - title: How to develop, test, monitor and more
+  - title: Next steps
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Run and debug
+            url: how-to-use-vscode-extension-to-debug-locally.md
+          - text: Edit and push updates
+            url: how-to-update-and-deploy-using-github-action.md
+          - text: Monitor your project
+            url: how-to-monitor-your-app.md
+          - text: Make project azd compatible
+            url: how-to-azd-enable-a-project.md
+          - text: Help with Azure Bicep
+            url: how-to-azd-bicep.md
+  - title: Get help & Provide feedback
     linkLists:
       - linkListType: how-to-guide 
         links:
-          - text: Debug and run locally using Visual Studio Code
-            url: how-to-use-vscode-extension-to-debug-locally.md
-          - text: Config pipeline and push update through GitHub Action
-            url: how-to-update-and-deploy-using-github-action.md
-          - text: Monitor your applicaiton
-            url: how-to-monitor-your-app.md
-          - text: Enable your project to work with Azure Developer CLI
-            url: how-to-azd-enable-a-project.md
-          - text: Work with Azure Bicep
-            url: how-to-azd-bicep.md
-  - title: Give feedback and get support
-    linkLists:
-      - linkListType: concept
-        links:
-          - text: Request a new feature
-            url: https://github.com/Azure/azure-dev-pr/issues/new
-          - text: Report a product bug
-            url: https://github.com/Azure/azure-dev-pr/issues/new
-          - text: Get help from the community
-            url: https://github.com/Azure/azure-dev-pr/discussions/new
-  - title: Resources
-    linkLists:
+          - text: Troubleshoot & Get help
+            url: troubleshoot.md   
+          - text: Frequently asked questions (FAQ)
+            url: azure-dev-cli-faq.yml   
       - linkListType: reference
         links:
-          - text: Troubleshoot and Get help
-            url: troubleshoot.md
-          - text: Frequently asked questions
-            url: azure-dev-cli-faq.yml
-          - text: Full command reference
+          - text: Azure Developer CLI Reference
             url: azure-dev-cli-ref.md
+  - title: Azure App Service templates
+    linkLists:
+      - linkListType: sample
+        links:
+          - text: ToDo NodeJs Mongo
+            url: https://github.com/azure-samples/todo-nodejs-mongo
+          - text: ToDo Python Mongo
+            url: https://github.com/azure-samples/todo-python-mongo
+          - text: ToDo C# Cosmo DB (SQL)
+            url: https://github.com/Azure-Samples/todo-csharp-cosmos-sql
+  - title: Azure Container Apps
+    linkLists:
+      - linkListType: sample
+        links:
+          - text: ToDo NodeJs Mongo ACA
+            url: https://github.com/azure-samples/todo-nodejs-mongo-aca
+          - text: ToDo Python Mongo ACA
+            url: https://github.com/azure-samples/todo-python-mongo-aca
