@@ -29,30 +29,32 @@ The following image shows a graphical representation of the suggested workflow:
 
 ## Azure Developer CLI templates
 
-[Azure Developer CLI templates](azure-dev-cli-templates.md) are sample repositories created using the Azure Developer CLI conventions so that you can use `azd`. Each template includes application code, tools, infrstructure code, and configure continuous integration and delivery (CI/CD) pipelines that serve as a foundation from which you can build upon and customize to create your own solutions.
+**Azure Developer CLI templates** are sample repositories created using the Azure Developer CLI conventions so that you can use `azd`. Each template includes application code, tools, infrstructure code, and configure continuous integration and delivery (CI/CD) pipelines that serve as a foundation from which you can build upon and customize to create your own solutions.
 
 The quickest way to get started with azd is to refer to the README in an Azure Developer CLI enabled template. 
 
-This list is grouped by supported Azure service. Each repository contains a complete sample ToDo application with a web frontend built in React.js and the backend API built using a specific azd supported language. 
+This list is grouped by supported language. Each repository contains a complete sample ToDo application with a web frontend built in React.js and the backend API built using a specific azd supported language. 
 
-### [Azure App Service](#tab/appservice)
+### [Node.js](#tab/nodejs)
 
-Both frontend and backend applications are deployed to [Azure App Service](/azure/app-service/).
-
-| Template      | Language (API layer) | Tech Stack	 | 
+| Template      | App host | Tech Stack	 | 
 | ----------- | ----------| ----------- | 
-| [ToDo NodeJs Mongo](https://github.com/azure-samples/todo-nodejs-mongo) | Node.js | Azure Cosmos DB API for Mongo, Azure Monitor |  
-| [ToDo Python Mongo](https://github.com/azure-samples/todo-python-mongo) | Python (FastAPI) | Azure Cosmos DB API for Mongo, Azure Monitor  |  
-| [ToDo C# Cosmo DB (SQL)](https://github.com/Azure-Samples/todo-csharp-cosmos-sql) | C# | Azure Cosmos DB SQL API, Azure Monitor | 
+| [ToDo NodeJs Mongo](https://github.com/azure-samples/todo-nodejs-mongo) | [Azure App Service](/azure/app-service/) | Azure Cosmos DB API for Mongo, Azure Monitor |  
+| [ToDo NodeJs Mongo ACA](https://github.com/azure-samples/todo-nodejs-mongo-aca) | [Azure Container Apps](/azure/container-apps/overview) | Azure Cosmos DB API for Mongo, Azure Monitor |
 
-### [Azure Container Apps](#tab/aca)
 
-Both frontend and backend applications are deployed to [Azure Container Apps](/azure/container-apps/overview).
+### [Python](#tab/python)
 
-| Template      | Language (API layer) | Tech Stack	 | 
+| Template      | App host | Tech Stack	 | 
 | ----------- | ----------| ----------- | 
-| [ToDo NodeJs Mongo ACA](https://github.com/azure-samples/todo-nodejs-mongo-aca) | Node.js | Azure Cosmos DB API for Mongo, Azure Monitor |
-| [ToDo Python Mongo ACA](https://github.com/azure-samples/todo-python-mongo-aca) | Python (FastAPI)|  Azure Cosmos DB API for Mongo, Azure Monitor |  
+| [ToDo Python Mongo](https://github.com/azure-samples/todo-python-mongo) | [Azure App Service](/azure/app-service/) | Azure Cosmos DB API for Mongo, Azure Monitor  |  
+| [ToDo Python Mongo ACA](https://github.com/azure-samples/todo-python-mongo-aca) | [Azure Container Apps](/azure/container-apps/overview) |  Azure Cosmos DB API for Mongo, Azure Monitor |  
+
+### [C#](#tab/csharp)
+
+| Template      | App host | Tech Stack	 | 
+| ----------- | ----------| ----------- | 
+| [Todo C# Cosmo DB (SQL)](https://github.com/Azure-Samples/todo-csharp-cosmos-sql) | [Azure App Service](/azure/app-service/) | Azure Cosmos DB SQL API, Azure Monitor | 
 
 ---
 
@@ -62,9 +64,9 @@ Both frontend and backend applications are deployed to [Azure Container Apps](/a
 
 However, they help you do different tasks.
 
-The azd is a tool for developers to quickly clone apps (stored on GitHub as templates) that use Azure services. This local clone can then be configured on your GitHub account and customized to meet your needs.
+The azd focuses on the developer workflow. Apart from provisioning/managing Azure resources, the CLI helps to stitch cloud components, local development configuration and pipeline automation together into a complete solution. 
 
-Azure CLI is a control plane tool for creating Azure infrastructure such as virtual machines, virtual networks, and storage.
+Azure CLI is a control plane tool for creating and administering Azure infrastructure such as virtual machines, virtual networks, and storage.
 
 ## Supported development environments
 

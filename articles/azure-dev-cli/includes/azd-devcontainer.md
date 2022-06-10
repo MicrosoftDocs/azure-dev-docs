@@ -5,11 +5,19 @@
 
 #### Azure Developer CLI
 
-You'll need `npm` to install the Azure Developer CLI. For detailed steps, see [Node.js with npm (v 16.13.1 LTS)](https://nodejs.org/).
+### [Windows](#tab/windows)
 
-```bash
-npm install -g https://azuresdkreleasepreview.blob.core.windows.net/azd/standalone/latest/azure-az-dev-cli-latest.tgz
 ```
+powershell -c "Set-ExecutionPolicy Bypass Process -Force; irm 'https://aka.ms/install-azd.ps1' | iex"
+```
+
+### [Linux/MacOS](#tab/linuxmac)
+
+```
+curl -fsSL https://aka.ms/install-azd.sh | bash 
+```
+
+---
 
 ### DevContainer
 
