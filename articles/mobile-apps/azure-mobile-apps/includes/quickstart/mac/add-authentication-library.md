@@ -1,12 +1,10 @@
 ---
 ms.topic: include
-ms.date: 06/03/2022
+ms.date: 06/11/2022
 author: adrianhall
 ms.author: adhal
 ms.prod: azure-mobile-apps
 ---
-
-Add the [Microsoft Identity Library (MSAL)](/azure/active-directory/develop/msal-overview) to the platform project:
 
 1. Right-click on the platform project, then select **Manage NuGet Packages...**.
 2. Select the **Browse** tab.

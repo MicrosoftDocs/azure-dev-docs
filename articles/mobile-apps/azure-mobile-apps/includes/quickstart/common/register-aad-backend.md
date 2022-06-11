@@ -1,6 +1,6 @@
 ---
 ms.topic: include
-ms.date: 06/03/2022
+ms.date: 06/11/2022
 author: adrianhall
 ms.author: adhal
 ms.prod: azure-mobile-apps
@@ -41,6 +41,6 @@ First, register the web API in your Azure Active Directory tenant and add a scop
    * **State**: **Enabled**
 
 9. Select **Add scope** to complete the scope addition.
-10. Note the value of the scope.  It will be `api://<client-id>/access_as_user`.  You'll need the scope when configuring the client.
+10. Note the value of the scope.  It will be `api://<client-id>/access_as_user`.  You'll need the scope when configuring the client.  This will be referred to as the _Web API Scope_.
 11. Select **Overview**.
-12. Note the **Application (client) ID** in the **Essentials** section as you'll need this value to configure the backend service later on.
+12. Note the **Application (client) ID** in the **Essentials** section as you'll need this value to configure the backend service later on.  This will be referred to as the _Web API Application ID_.

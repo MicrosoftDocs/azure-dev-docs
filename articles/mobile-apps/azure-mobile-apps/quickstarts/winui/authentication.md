@@ -1,6 +1,6 @@
 ---
-title: Add authentication to your Windows (UWP) app
-description: Add authentication to your Windows (UWP) app using Azure Mobile Apps with our tutorial.
+title: Add authentication to your Windows (WinUI3) app
+description: Add authentication to your Windows (WinUI3) app using Azure Mobile Apps with our tutorial.
 author: adrianhall
 ms.service: mobile-services
 ms.topic: article
@@ -8,7 +8,7 @@ ms.date: 06/11/2022
 ms.author: adhal
 ---
 
-# Add authentication to your Windows (UWP) app
+# Add authentication to your Windows (WinUI3) app
 
 In this tutorial, you add Microsoft authentication to the TodoApp project using Azure Active Directory. Before completing this tutorial, ensure you've [created the project and deployed the backend](./index.md).
 
@@ -25,11 +25,11 @@ The Microsoft Datasync Framework has built-in support for any authentication pro
 
 [!INCLUDE [Configure a native app for authentication](~/mobile-apps/azure-mobile-apps/includes/quickstart/common/register-aad-client.md)]
 
-Open the `TodoApp.sln` solution in Visual Studio and set the `TodoApp.UWP`project as the startup project.  Add the [Microsoft Identity Library (MSAL)](/azure/active-directory/develop/msal-overview) to the `TodoApp.UWP` project:
+Open the `TodoApp.sln` solution in Visual Studio and set the `TodoApp.WPF`project as the startup project.  Add the [Microsoft Identity Library (MSAL)](/azure/active-directory/develop/msal-overview) to the `TodoApp.WinUI` project:
 
 [!INCLUDE [Set up MSAL in Windows](~/mobile-apps/azure-mobile-apps/includes/quickstart/windows/add-msal-library.md)]
 
-Open the `App.xaml.cs` file in the `TodoApp.UWP` project.
+Open the `MainWindow.xaml.cs` file in the `TodoApp.WinUI` project.  
 
 Add the following `using` statements to the top of the file:
 
@@ -38,70 +38,53 @@ using Microsoft.Datasync.Client;
 using Microsoft.Identity.Client;
 using System.Diagnostics;
 using System.Linq;
-using System.Threading.Tasks;
 ```
 
-Replace the constructor and the `TodoService` code with the following:
+Adjust the constructor and fields to add a reference to the identity client as follows:
 
 ``` csharp
-public App()
+private readonly TodoListViewModel _viewModel;
+private readonly ITodoService _service;
+private IPublicClientApplication _identityClient;
+
+public MainWindow()
 {
-    InitializeComponent();
-    Suspending += OnSuspending;
+    this.InitializeComponent();
+    this.Activated += OnActivated;
+    ResizeWindow(this, 480, 800);
 
-    IdentityClient = GetIdentityClient();
-    TodoService = new RemoteTodoService(GetAuthenticationToken);
-}
-
-public static IPublicClientApplication IdentityClient { get; set; }
-
-public ITodoService TodoService { get; }
-
-public IPublicClientApplication GetIdentityClient()
-{
-    var identityClient = PublicClientApplicationBuilder.Create(Constants.ApplicationId)
-        .WithAuthority(AzureCloudInstance.AzurePublic, "common")
-        .WithUseCorporateNetwork(false)
-        .WithRedirectUri("https://login.microsoftonline.com/common/oauth2/nativeclient")
-        .Build();
-    return identityClient;
+    _service = new RemoteTodoService(GetAuthenticationToken);
+    _viewModel = new TodoListViewModel(this, _service);
+    mainContainer.DataContext = _viewModel;
 }
 
 public async Task<AuthenticationToken> GetAuthenticationToken()
 {
-    var accounts = await IdentityClient.GetAccountsAsync();
-    AuthenticationResult result = null;
-    bool tryInteractiveLogin = false;
-
+    if (_identityClient == null) 
+    {
+        _identityClient = PublicClientApplicationBuilder.Create(Constants.ApplicationId)
+            .WithAuthority(AzureCloudInstance.AzurePublic, "common")
+            .WithRedirectUri("https://login.microsoftonline.com/common/oauth2/nativeclient")
+            .Build();
+    }
+    var accounts = await _identityClient.GetAccountsAsync();
+    AuthenticationResult? result = null;
     try
     {
-        result = await IdentityClient
+        result = await _identityClient
             .AcquireTokenSilent(Constants.Scopes, accounts.FirstOrDefault())
-            .ExecuteAsync()
-            .ConfigureAwait(false);
+            .ExecuteAsync();
     }
     catch (MsalUiRequiredException)
     {
-        tryInteractiveLogin = true;
+        result = await _identityClient
+            .AcquireTokenInteractive(Constants.Scopes)
+            .ExecuteAsync();
     }
     catch (Exception ex)
     {
-        Debug.WriteLine($"MSAL Silent Error: {ex.Message}");
-    }
-
-    if (tryInteractiveLogin)
-    {
-        try
-        {
-            result = await IdentityClient
-                .AcquireTokenInteractive(Constants.Scopes)
-                .ExecuteAsync()
-                .ConfigureAwait(false);
-        }
-        catch (Exception ex)
-        {
-            Debug.WriteLine($"MSAL Interactive Error: {ex.Message}");
-        }
+        // Display the error text - probably as a pop-up
+        Debug.WriteLine($"Error: Authentication failed: {ex.Message}");
     }
 
     return new AuthenticationToken
@@ -120,7 +103,7 @@ The `GetAuthenticationToken()` method works with the Microsoft Identity Library 
 
 You should be able to press **F5** to run the app.  When the app runs, a browser will be opened to ask you for authentication.  The first time the app runs, you'll be asked to consent to the access:
 
-![Screenshot of the Azure Active Directory consent request.](./media/authentication-consent.png)
+![Screenshot of the AAD consent request.](./media/authentication-consent.png)
 
 Press **Yes** to continue to your app.  The app will then run as before.
 
@@ -132,4 +115,4 @@ Next, configure your application to operate offline by [implementing an offline 
 
 * [Quickstart: Protect a web API with the Microsoft identity platform](/azure/active-directory/develop/web-api-quickstart?pivots=devlang-aspnet-core)
 * [Quickstart: Acquire a token and call Microsoft Graph API from a desktop application](/azure/active-directory/develop/desktop-app-quickstart?pivots=devlang-windows-desktop)
-* [Microsoft identity platform: Universal Windows Platform tutorial](/azure/active-directory/develop/tutorial-v2-windows-uwp)   
+* [Microsoft identity platform: Windows Presentation Foundation tutorial](/azure/active-directory/develop/tutorial-v2-windows-desktop)   
