@@ -4,8 +4,10 @@ description: Add offline data sync to your Xamarin.Android app using Azure Mobil
 author: adrianhall
 ms.service: mobile-services
 ms.topic: article
-ms.date: 05/12/2022
+ms.date: 06/09/2022
 ms.author: adhal
+zone_pivot_group_filename: developer/mobile-apps/azure-mobile-apps/zumo-zone-pivot-groups.json
+zone_pivot_groups: vs-platform-options
 ---
 
 # Add offline data sync to your Xamarin.Android app
@@ -18,7 +20,17 @@ Before starting this tutorial, you should have completed the [Xamarin.Android Qu
 
 In online operation, you read to and write from a `IRemoteTable<T>`.  When using offline sync, you read to and write from a `IOfflineTable<T>` instead.  The `IOfflineTable` is backed by an on-device SQLite database, and synchronized with the backend database.
 
-[!INCLUDE[Update NuGet Dependencies](~/mobile-apps/azure-mobile-apps/includes/quickstart/windows/add-offline-nuget.md)]
+::: zone pivot="vs2022-windows"
+
+[!INCLUDE[Update NuGet Dependencies on Windows.](~/mobile-apps/azure-mobile-apps/includes/quickstart/windows/add-offline-nuget.md)]
+
+::: zone-end
+
+::: zone pivot="vs2022-mac"
+
+[!INCLUDE[Update NuGet Dependencies on macOS.](~/mobile-apps/azure-mobile-apps/includes/quickstart/mac/add-offline-nuget.md)]
+
+::: zone-end
 
 [!INCLUDE[Update RemoteService](~/mobile-apps/azure-mobile-apps/includes/quickstart/windows/add-offline-code.md)]
 
@@ -35,7 +47,7 @@ TodoService = new RemoteTodoService(async () => await GetAuthenticationToken())
 };
 ```
 
-If you have not completed the [authentication tutorial](./authentication.md), the definition should look like this instead:
+If you haven't completed the [authentication tutorial](./authentication.md), the definition should look like this instead:
 
 ``` csharp
 TodoService = new RemoteTodoService()

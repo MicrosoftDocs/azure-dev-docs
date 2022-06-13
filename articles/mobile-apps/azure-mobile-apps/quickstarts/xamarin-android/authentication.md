@@ -4,8 +4,11 @@ description: Add authentication to your Xamarin.Android app using Azure Mobile A
 author: adrianhall
 ms.service: mobile-services
 ms.topic: article
-ms.date: 05/12/2022
+ms.date: 06/09/2022
 ms.author: adhal
+recommendations: false
+zone_pivot_group_filename: developer/mobile-apps/azure-mobile-apps/zumo-zone-pivot-groups.json
+zone_pivot_groups: vs-platform-options
 ---
 
 # Add authentication to your Xamarin.Android app
@@ -17,7 +20,17 @@ In this tutorial, you add Microsoft authentication to the TodoApp project using 
 
 [!INCLUDE [Register with AAD for the backend](~/mobile-apps/azure-mobile-apps/includes/quickstart/common/register-aad-backend.md)]
 
+::: zone pivot="vs2022-windows"
+
 [!INCLUDE [Configure the service for authentication](~/mobile-apps/azure-mobile-apps/includes/quickstart/windows/configure-auth-backend.md)]
+
+::: zone-end
+
+::: zone pivot="vs2022-mac"
+
+[!INCLUDE [Configure the service for authentication](~/mobile-apps/azure-mobile-apps/includes/quickstart/mac/configure-auth-backend.md)]
+
+::: zone-end
 
 ## Add authentication to the app
 
@@ -27,11 +40,22 @@ The Microsoft Datasync Framework has built-in support for any authentication pro
 
 Open the `TodoApp.sln` solution in Visual Studio and set the `TodoApp.Android` project as the startup project.
 
+::: zone pivot="vs2022-windows"
+
 [!INCLUDE [Set up MSAL in Windows](~/mobile-apps/azure-mobile-apps/includes/quickstart/windows/add-msal-library.md)]
+
+::: zone-end
+
+::: zone pivot="vs2022-mac"
+
+[!INCLUDE [Set up MSAL in Windows](~/mobile-apps/azure-mobile-apps/includes/quickstart/mac/add-authentication-library.md)]
+
+::: zone-end
 
 Open the `MainActivity.cs` file in the `TodoApp.Android` project.  At the top of the file, add the following using statements:
 
 ``` csharp
+using Android.Content;
 using Microsoft.Identity.Client;
 using Microsoft.Datasync.Client;
 using System.Linq;
@@ -122,57 +146,33 @@ protected override void OnActivityResult(int requestCode, [GeneratedEnum] Result
 }
 ```
 
-Open the `Properties/AndroidManifest.xml` file.  Add the following to the `<application>` block:
+Create a new class `MsalActivity` with the following code:
 
-``` xml
-<activity android:name="microsoft.identity.client.BrowserTabActivity" 
-          android:configChanges="orientation|screenSize"
-          android:exported="true">
-    <intent-filter>
-        <action android:name="android.intent.action.VIEW" />
-        <category android:name="android.intent.category.DEFAULT" />
-        <category android:name="android.intent.category.BROWSABLE" />
-        <data android:scheme="msal{client-id}" android:host="auth" />
-    </intent-filter>
-</activity>
+``` csharp
+using Android.App;
+using Android.Content;
+using Microsoft.Identity.Client;
+
+namespace TodoApp.Android
+{
+    [Activity(Exported = true)]
+    [IntentFilter(new[] { Intent.ActionView },
+        Categories = new[] { Intent.CategoryBrowsable, Intent.CategoryDefault },
+        DataHost = "auth",
+        DataScheme = "msal{client-id}")]
+    public class MsalActivity : BrowserTabActivity
+    {
+    }
+}
 ```
 
-Replace the `{client-id}` with the value of `Constants.ApplicationId`.  For example, if your `ApplicationId` is `6fb6182-4387-41bf-8853-547dede149ef`, then your final `AndroidManifest.xml` file will contain the following code:
-
-``` xml
-<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" 
-          android:versionCode="1" 
-          android:versionName="1.0" 
-          package="com.companyname.todoapp.android">
-	<uses-sdk android:minSdkVersion="29" android:targetSdkVersion="31" />
-	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-	<uses-permission android:name="android.permission.INTERNET" />
-
-	<application
-		android:allowBackup="false"
-		android:icon="@mipmap/ic_launcher"
-		android:label="@string/app_name"
-		android:roundIcon="@mipmap/ic_launcher_round"
-		android:supportsRtl="true"
-		android:theme="@style/AppTheme">
-		<activity android:name="microsoft.identity.client.BrowserTabActivity"
-				  android:configChanges="orientation|screenSize"
-				  android:exported="true">
-			<intent-filter>
-				<action android:name="android.intent.action.VIEW" />
-				<category android:name="android.intent.category.DEFAULT" />
-				<category android:name="android.intent.category.BROWSABLE" />
-				<data android:scheme="msalb6fb6182-4387-41bf-8853-547dede149ef" android:host="auth" />
-			</intent-filter>
-		</activity>
-	</application>
-</manifest>
-```
+Replace `{client-id}` with the application ID of the native client (which is the same as `Constants.ApplicationId`).
 
 ## Test the app
 
-You should be able to press **F5** to run the app.  When the app runs, a browser will be opened to ask you for authentication.  If you haven't authenticated with the app before, the app will ask you to consent.  Once authentication is complete, the system browser will close and your app will run as before.
+Run or restart the app.
+
+When the app runs, a browser will be opened to ask you for authentication.  If you haven't authenticated with the app before, the app will ask you to consent.  Once authentication is complete, the system browser will close and your app will run as before.
 
 ## Next steps
 

@@ -47,14 +47,13 @@ To deploy the backend service, we will:
 
 Open the `TodoApp.sln` in Visual Studio 2022 for Mac. 
 
-1. In the right-hand pane, select the **Solutions Explorer**.
-2. Right-click the `TodoApp` solution, then select **Restore NuGet Packages**.
-3. Wait for the NuGet package restoration to complete.
-4. Right-click the `TodoAppService.NET6` project, then **Publish** > **Publish to Azure...**.
-5. Select the service you created above (in the `quickstart` resource group), then select **Publish**.
+1. Right-click the `TodoApp` solution, then select **Restore NuGet Packages**.
+2. Wait for the NuGet package restoration to complete.
+3. Right-click the `TodoAppService.NET6` project, then **Publish** > **Publish to Azure...**.
+4. Select the service you created above (in the `quickstart` resource group), then select **Publish**.
 
     ![Screenshot of the target selection window.](~/mobile-apps/azure-mobile-apps/media/quickstart/mac/publish-back-end-target.png)
 
-6. Once the backend service is published, a browser will be opened. Add `/tables/todoitem?ZUMO-API-VERSION=3.0.0` to the URL:
+5. Once the backend service is published, a browser will be opened. Add `/tables/todoitem?ZUMO-API-VERSION=3.0.0` to the URL:
 
     ![Screenshot showing the browser output after the service is published.](~/mobile-apps/azure-mobile-apps/media/quickstart/mac/publish-back-end-success.png)
