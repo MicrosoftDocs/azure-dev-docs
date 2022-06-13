@@ -151,6 +151,9 @@ AzAPI2AzureRM ensures after migration that your Terraform configuration and stat
     }
     
     ```
+## Limitations
+
+- Since AzAPI is a very thin layer above the Azure ARM REST API, its limitations also apply. As such not all resource types can be deployed to the subscription level. For details about which resources are supported, please visit the following link: https://docs.microsoft.com/en-us/azure/azure-resource-manager/templates/deploy-to-subscription?tabs=azure-cli#supported-resources.
 
 ## Next steps
 
