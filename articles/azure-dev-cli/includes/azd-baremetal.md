@@ -50,7 +50,8 @@ You will create infrastructure and deploy code to Azure. If you don't have an Az
 
 The fastest way for you to get this application up and running on Azure is to use the `azd up` command. This single command will initialize the project, create and configure all necessary Azure resources - including access policies and roles for your account and service-to-service communication with Managed Identities.
 
-1. In **File Explorer** or a terminal, create a new empty folder, and change into it. 
+1. In **File Explorer** or a terminal, create a new empty folder, and change into it.
+
 1. Run the following command:
 
 ::: zone pivot="programming-language-nodejs"
@@ -77,14 +78,13 @@ azd up --template todo-csharp-cosmos-sql
 
 ::: zone-end
 
-
-You'll be prompted for the following information:
+The command prompts for the following information:
 
 - `Environment Name`: Prefix for all your Azure resources, make sure it's globally unique and under 15 characters.
 - `Azure Location`: The Azure location where your resources will be deployed.
 - `Azure Subscription`: The Azure Subscription where your resources will be deployed.
 
-You will see a progress indicator as it provisions and deploys your application.
+A progress indicator displays the current status azd provisions and deploys your application.
 
 > [!NOTE] 
-> * This may take a while to complete as it performs three steps: `azd init` (initialize the project), `azd provision` (creates Azure services) and `azd deploy` (deploys code). 
+> * The operation could take several minutes to complete as it performs three steps: initializes the project (`azd init`), creates the Azure services (`azd provision`), and deploys the code (`azd deploy`). 

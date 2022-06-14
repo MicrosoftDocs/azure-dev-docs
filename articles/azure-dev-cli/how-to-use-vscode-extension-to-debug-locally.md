@@ -1,47 +1,46 @@
 ---
-title: How to use Visual Studio Code extension to run and debug locally
+title: Debug Azure apps using the Azure Developer CLI Visual Studio Code extension
 description: How to use the VS Code extension for Azure Developer CLI to run and debug locally.
 author: puicchan
 ms.author: puichan
-ms.date: 04/12/2021
+ms.date: 06/13/2021
 ms.topic: conceptual
 ms.custom: devx-track-azdevcli
 ms.prod: azure
 ---
-# How to use Visual Studio Code extension to run and debug locally
+# Debug Azure apps using the Azure Developer CLI Visual Studio Code extension
 
-This article walks through how to use Visual Studio Code and Visual Studio Code extension for Azure Developer CLI to run and debug applications.
+In this article, you learn how to use the [Visual Studio Code](https://code.visualstudio.com/docs) extension for Azure Developer CLI (azd) to run and debug applications on your local machine.
 
-## Background
+## Prerequisites
 
-[Visual Studio Code](https://code.visualstudio.com/docs) is a lightweight, cross-platform source code editor that comes with support for many languages. To make it easy for you to debug code right from the editor, Azure Developer CLI enabled templates include configurations (`tasks.json` and `launch.json`) for building and debugging the application.
+This article assumes you've installed the azd  and created an app from an azd template. If you are new to azd, begin with [Get started](get-started.md) and then return to this article.
 
-## Install Azure Developer CLI VS Code extension 
+## Install the Visual Studio Code extension for Azure Developer CLI
 
-The first step is to download and install the extension.
+1. Download [Visual Studio Code extension for Azure Developer CLI](https://azuresdkreleasepreview.blob.core.windows.net/azd/vscode/latest/azure-dev-latest.vsix).
 
-1. Install azd from NPM
+1. Open Visual Studio Code
 
-    ```bash
-    npm install -g https://azuresdkreleasepreview.blob.core.windows.net/azd/standalone/latest/azure-az-dev-cli-latest.tgz
-    ```
-    
-2. In VS Code
-    1. Download the extension from https://azuresdkreleasepreview.blob.core.windows.net/azd/vscode/latest/azure-dev-latest.vsix 
-    1. Open "Extensions" (Ctrl+Shift+X)
-    1. Select the `...` menu at top of Extensions sidebar
-    1. Select "Install from VSIX"
-    1. Select location of the downloaded file
+1. From the Visual Studio Code **View** menu, select **Extensions**.
 
-## Initialize a new application 
+1. At the top right of the **EXTENSIONS** pane, select **...**.
 
-Use the VS Code extension to set up your local environment.
+1. Select **Install from VSIX**.
 
-1. Create an empty directory and open this folder in VS Code
-2. Open Command Palette (Ctrl+Shift+P)
-3. Type and pick **Azure Developer: Initialize a new application**
-!["Initialize"](media/how-to-use-vscode-extension-to-debug-locally/cmd-init.png)
-4. Select one of templates, for example, "Azure-Samples/todo-nodejs-mongo" 
+1. Select the location of the downloaded extension file. After completion of the installation, Visual Studio displays a message indicating the extension has been installed.
+
+## Initialize a new application
+
+1. Create and open a new folder in Visual Studio Code.
+
+1. From the Visual Studio Code menu, select **Command Palette...**.
+
+1. Type and pick `Azure Developer: init`.
+
+    !["Visual Studio Code extension option to initialize a new application"](media/how-to-use-vscode-extension-to-debug-locally/cmd-init.png)
+
+1. Select one of templates.
     - Provide environment name, location and select the Azure subscription when prompted
 
 The following files are included in the .vscode folder:
