@@ -10,41 +10,40 @@ ms.prod: azure
 ---
 #  Azure Bicep for Azure Developer CLI (azd)
 
+This article contains resources to help you work with Bicep when making your project compatible with `azd`.
+
 `azd` uses infrastructure as code (IaC) strategies to achieve predictable and repeatable creation of Azure resources and deployment of code. 
 
-Bicep is the current support for creating azure resources. This article contains resources to help you work with Bicep and make your project compatible with azd.
+Bicep is a language for declaratively deploying Azure resources. It is the IaC tool currently supported by `azd` and used for creating azure resources. For more information, refer to [What is Bicep](/azure/azure-resource-manager/bicep/overview).
 
-## What is Bicep?
-Bicep is a language for declaratively deploying Azure resources. For more information, refer to [What is Bicep](/azure/azure-resource-manager/bicep/overview).
+## Create azd compatible projects 
 
-## Understanding the "infra" folder in azd templates
-
-`azd provision` uses Bicep files found under the "infra" folder for creating Azure resources needed by your app.
+`azd provision` uses Bicep files found under the **infra** folder for creating Azure resources needed by your app.
 
 To create an azd compatible project:
 
-1. Create an "infra" folder at the root of your project.
-1. Create a new file: "main.parameters.json" for passing environment variables to your Bicep files. Here's an examples:
+1. Create an **infra** folder at the root of your project.
+1. Create a new file named **main.parameters.json**. Include the environment variables (found in .env file under the .azure/<environment name> folder) you want to pass to your Bicep files. Here's an examples:
 
     ```json
     {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "name": {
-        "value": "${AZURE_ENV_NAME}"
-        },
-        "location": {
-        "value": "${AZURE_LOCATION}"
-        },
-        "principalId": {
-        "value": "${AZURE_PRINCIPAL_ID}"
+        "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+        "contentVersion": "1.0.0.0",
+        "parameters": {
+            "name": {
+            "value": "${AZURE_ENV_NAME}"
+            },
+            "location": {
+            "value": "${AZURE_LOCATION}"
+            },
+            "principalId": {
+            "value": "${AZURE_PRINCIPAL_ID}"
+            }
         }
     }
-    }
     ```
-1. Add Bicep files. Make sure you create parameters you include in main.parameters.json. For more information, see [Parameters in Bicep](/azure/azure-resource-manager/bicep/parameters). 
-
+1. Create a file named **main.bicep** as the main entery point. Make sure you create parameters you include in **main.parameters.json**. For more information, see [Parameters in Bicep](/azure/azure-resource-manager/bicep/parameters). 
+1. Add declaration of additional Azure resources or as additional Bicep files. 
 1. Run `azd provision` to provision Azure resources.
 
 ## Useful Bicep resources
