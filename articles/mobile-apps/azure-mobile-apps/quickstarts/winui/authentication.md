@@ -50,7 +50,6 @@ private IPublicClientApplication _identityClient;
 public MainWindow()
 {
     this.InitializeComponent();
-    this.Activated += OnActivated;
     ResizeWindow(this, 480, 800);
 
     _service = new RemoteTodoService(GetAuthenticationToken);
