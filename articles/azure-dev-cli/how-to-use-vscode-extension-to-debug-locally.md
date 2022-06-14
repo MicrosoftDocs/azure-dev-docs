@@ -61,11 +61,11 @@ Before you start debugging, provision the necessary Azure resources.
 
 The debug configuration **Debug API** automatically runs the API server and attaches the debugger. To test this pattern, do the following steps:
 
-1. From your project's `src/api/src/routes` directory, open `lists.ts`. 
+1. From your project's `src/api/src/routes` directory, open `lists.ts`.
 
 1. Set a breakpoint at line 16.
 
-1. From the Activity Bar **View** menu, select the **Debug API** debug configuration.
+1. From the Activity Bar, select **Run and Debug** and the **Debug API** debug configuration.
     !["Setting the debug configuration to Debug API"](media/how-to-use-vscode-extension-to-debug-locally/debug-api.png)
 
 1. In your preferred terminal shell, enter the following command: `curl http://localhost:3100/lists`
