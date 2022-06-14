@@ -22,7 +22,7 @@ This article assumes you've installed the azd  and created an app from an azd te
 
 1. Open Visual Studio Code
 
-1. From the Visual Studio Code **View** menu, select **Extensions**.
+1. From the **View** menu, select **Extensions**.
 
 1. At the top right of the **EXTENSIONS** pane, select **...**.
 
@@ -34,44 +34,42 @@ This article assumes you've installed the azd  and created an app from an azd te
 
 1. Create and open a new folder in Visual Studio Code.
 
-1. From the Visual Studio Code menu, select **Command Palette...**.
+1. From the **View** menu, select **Command Palette...**.
 
 1. Type and pick `Azure Developer: init`.
 
-    !["Visual Studio Code extension option to initialize a new application"](media/how-to-use-vscode-extension-to-debug-locally/cmd-init.png)
+    !["Visual Studio Code azd extension option to initialize a new app"](media/how-to-use-vscode-extension-to-debug-locally/cmd-init.png)
 
-1. Select one of templates.
-    - Provide environment name, location and select the Azure subscription when prompted
+1. Select one of templates and enter the requested values.
 
 The following files are included in the .vscode folder:
 
-- `launch.json` includes debug configurations so you can **Debug Web** or **Debug API**. You see the same options in **Run and Debug** (Ctrl-Shift-D).
-- `tasks.json` includes configurations so you can start the web and/or the API servers. You see the same options if you go to the Command Palette and run **Task: run task**.
-
-> [!NOTE]
-> Learn more about [Debugging](https://code.visualstudio.com/docs/editor/debugging) and [Tasks](https://code.visualstudio.com/docs/editor/tasks) in VS Code.
+- `launch.json`: Defines the debug configurations such as **Debug Web** and **Debug API**. to see the debug configuration options, select **Run** from the **View** menu. The available debug configurations are listed at the top of the pane. To learn more about debugging in Visual Studio Code, see [Debugging](https://code.visualstudio.com/docs/editor/debugging).
+- `tasks.json`: Defines the configurations to start the web or API server. To see these configuration options, open the Command Palette and run **Task: run task**. To learn more about Visual Studio Code Tasks, see [Integrate with External Tools via Tasks](https://code.visualstudio.com/docs/editor/tasks).
 
 ## Provision the Azure resources
 
-Before you start debugging, make sure you provision the necessary Azure resources. All infrastructure is running in the cloud and must be provisioned for the application run to succeed. 
+Before you start debugging, provision the necessary Azure resources.
 
-1. Open Command Palette (Ctrl+Shift+P)
-2. Type or pick **Azure Developer: Provision Azure resources**. (You can also right-click `azure.yaml` to kick **Provision Azure Resources** off.)
+1. Open Command Palette.
 
-    !["Provision"](media/how-to-use-vscode-extension-to-debug-locally/cmd-provision.png)
+1. Enter **Azure Developer: provision Azure resources**.
 
-## Debug the application
+    !["Visual Studio Code azd extension option to provision the Azure resources for a new application"](media/how-to-use-vscode-extension-to-debug-locally/cmd-provision.png)
 
-Once provision is complete, you can run and debug the application. Let's walk through two scenarios.
+## Debug an API
 
-### Scenario 1 - Debug API
+The debug configuration **Debug API** automatically runs the API server and attaches the debugger. To test this pattern, do the following steps:
 
-**Debug API** is configured to run the API server and attach the debugger. So you don't need to run the task to start the API server.
+1. From your project's `src/api/src/routes` directory, open `lists.ts`. 
 
-1. Set a breakpoint. Open `lists.ts` in `src > api > src > routes`. Set a breakpoint at say line 16. 
-1. In the activity bar, select Run and Debug (Ctrl-Shift-D) and then "Debug API"
-!["Debug API"](media/how-to-use-vscode-extension-to-debug-locally/debug-api.png)
-1. In your preferred terminal shell, type: >curl http://localhost:3100/lists
+1. Set a breakpoint at line 16.
+
+1. From the Activity Bar **View** menu, select the **Debug API** debug configuration.
+    !["Setting the debug configuration to Debug API"](media/how-to-use-vscode-extension-to-debug-locally/debug-api.png)
+
+1. In your preferred terminal shell, enter the following command: `curl http://localhost:3100/lists`
+
 1. The breakpoint is hit, hit F5, an empty list is returned.
 
 ### Scenario 2 - Debug React Frontend Application
