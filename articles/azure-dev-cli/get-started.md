@@ -84,6 +84,5 @@ azd down
 
 ## Next steps
 
-* [Set up GitHub pipeline using azd pipeline](how-to-update-and-deploy-using-github-action.md)
-* [Monitor the health of your app](how-to-monitor-your-app.md)
-* [Run and debug using the Azure Developer CLI IDE Extension](how-to-use-vscode-extension-to-debug-locally.md)
+> [!div class="nextstepaction"]
+> [Get started](how-to-use-vscode-extension-to-debug-locally.md)
