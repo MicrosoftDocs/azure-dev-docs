@@ -10,7 +10,7 @@ ms.prod: azure
 ---
 # Debug Azure apps using the Azure Developer CLI Visual Studio Code extension
 
-In this article, you learn how to use the [Visual Studio Code](https://code.visualstudio.com/docs) extension for Azure Developer CLI (azd) to run and debug applications on your local machine.
+In this article, you learn how to use the [Visual Studio Code](https://code.visualstudio.com/docs) extension for Azure Developer CLI (azd) to run and debug apps on your local machine.
 
 ## Prerequisites
 
@@ -30,7 +30,7 @@ This article assumes you've installed the azd  and created an app from an azd te
 
 1. Select the location of the downloaded extension file. After completion of the installation, Visual Studio displays a message indicating the extension has been installed.
 
-## Initialize a new application
+## Initialize a new app
 
 1. Create and open a new folder in Visual Studio Code.
 
@@ -55,7 +55,7 @@ Before you start debugging, provision the necessary Azure resources.
 
 1. Enter **Azure Developer: provision Azure resources**.
 
-    !["Visual Studio Code azd extension option to provision the Azure resources for a new application"](media/how-to-use-vscode-extension-to-debug-locally/cmd-provision.png)
+    !["Visual Studio Code azd extension option to provision the Azure resources for a new app"](media/how-to-use-vscode-extension-to-debug-locally/cmd-provision.png)
 
 ## Debug an API
 
@@ -65,22 +65,41 @@ The debug configuration **Debug API** automatically runs the API server and atta
 
 1. Set a breakpoint at line 16.
 
-1. From the Activity Bar, select **Run and Debug** and the **Debug API** debug configuration.
+1. In the Activity Bar, select **Run and Debug** and the **Debug API** debug configuration.
+
     !["Setting the debug configuration to Debug API"](media/how-to-use-vscode-extension-to-debug-locally/debug-api.png)
 
 1. In your preferred terminal shell, enter the following command: `curl http://localhost:3100/lists`
 
-1. The breakpoint is hit, hit F5, an empty list is returned.
+1. When the breakpoint is hit, app execution will pause. Press &lt;F5> to continue running the app. The test app returns an empty list.
 
-### Scenario 2 - Debug React Frontend Application
+## Debug a React Frontend app
 
-To debug web, you need to start both the API server and the development web server so make sure you run the task to start both API and web.
+To use the **Debug Web** configuration, you must start both the API server and the development web server. To test this pattern, do the following steps:
 
-1. In Command Palette, run "Task: run task", select Start API and Web
-!["Run Task"](media/how-to-use-vscode-extension-to-debug-locally/run-task.png)
-!["Start API and Web"](media/how-to-use-vscode-extension-to-debug-locally/run-task-api.png)
-1. (Optional) You can check if the local web server is running by navigating to: http://localhost:3000 in a web browser.
-1. Open `todoItemListPane.tsx` in `src > web > src > components`, set a breakpoint on deleteItems (line 150).
-1. In the activity bar, select "Run and Debug" (Ctrl-Shift-D) and then "Debug Web". 
-1. A web browser (http://localhost:3000) is launched automatically. 
-1. You can now debug with the breakpoint, call stacks, and an interactive console.
+1. Open the Command Palette and run **Task: run task**.
+
+    !["Running a Visual Studio Code Task"](media/how-to-use-vscode-extension-to-debug-locally/run-task.png)
+
+1. Enter and select **Start API and Web**
+
+    !["Select the task Start API and Web"](media/how-to-use-vscode-extension-to-debug-locally/run-task-api.png)
+
+1. (Optional) You can check if the local web server is running by navigating to the following URL in a browser: http://localhost:3000 in a web browser.
+
+1. In your project's `src/web/src/components` directory, open `todoItemListPane.tsx`.
+
+1. Set a breakpoint on line 150 (the first line of the `deleteItems` function).
+
+1. In the Activity Bar, select **Run and Debug** and the **Debug API** debug configuration.
+
+    !["Setting the debug configuration to Debug Web"](media/how-to-use-vscode-extension-to-debug-locally/debug-web.png)
+
+1. A browser is launched automatically at the following URL: `http://localhost:3000`.
+
+1. You can now debug the app.
+
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Configure a GitHub pipeline using an azd pipeline](how-to-update-and-deploy-using-github-action.md)
