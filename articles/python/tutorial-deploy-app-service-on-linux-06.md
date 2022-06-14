@@ -12,15 +12,15 @@ ms.custom: devx-track-python, seo-python-october2019
 
 Use this procedure to stream logs from an Azure App Service to Visual Studio Code.
 
-1. In Visual Studio Code, open the **Azure: App Service** explorer, right-click the App Service, and select **Start streaming logs**:
+1. In the Visual Studio Code Azure extension, under **RESOURCES:App Services**, right-click the App Service, and select **Start Streaming Logs**:
 
    ![Start Streaming Logs from App Service explorer](media/deploy-azure/start-streaming-logs-in-visual-studio-code.png)
 
-   If prompted to enable file logging and restart the web app, select **Yes**. While the app restarts, the **Output** window in VS Code shows progress. When the app is restarted, select the **Start streaming logs** command again. Enable logging is a one-time process.
+   If prompted to enable file logging and restart the web app, select **Yes**. While the app restarts, the **Output** window in VS Code shows progress. When the app is restarted, select the **Start Streaming Logs** command again. Enable logging is a one-time process.
 
 1. The **Output** window in VS Code displays "Starting Live Log Stream" and log output begins to appear. Try refreshing the web app in the browser to generate more log information.
 
-1. To stop streaming logs (without disabling logging), right-click the app in the **Azure: App Service** explorer and select **Stop streaming logs**.
+1. To stop streaming logs (without disabling logging), right-click the app in the **Azure: App Service** explorer and select **Stop Streaming Logs**.
 
 > [!div class="nextstepaction"]
 > [I see the logs - continue to step 7 >>>](tutorial-deploy-app-service-on-linux-07.md)
