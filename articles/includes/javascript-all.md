@@ -48,7 +48,7 @@
 | Files Data Lake | npm [12.9.0](https://www.npmjs.com/package/@azure/storage-file-datalake/v/12.9.0) | [docs](/javascript/api/overview/azure/storage-file-datalake-readme) | GitHub [12.9.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-file-datalake_12.9.0/sdk/storage/storage-file-datalake/) |
 | Files Shares | npm [12.10.0](https://www.npmjs.com/package/@azure/storage-file-share/v/12.10.0) | [docs](/javascript/api/overview/azure/storage-file-share-readme) | GitHub [12.10.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-file-share_12.10.0/sdk/storage/storage-file-share/) |
 | Form Recognizer | npm [3.2.0](https://www.npmjs.com/package/@azure/ai-form-recognizer/v/3.2.0)<br>npm [4.0.0-beta.4](https://www.npmjs.com/package/@azure/ai-form-recognizer/v/4.0.0-beta.4) | [docs](/javascript/api/overview/azure/ai-form-recognizer-readme) | GitHub [3.2.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/ai-form-recognizer_3.2.0/sdk/formrecognizer/ai-form-recognizer/)<br>GitHub [4.0.0-beta.4](https://github.com/Azure/azure-sdk-for-js/tree/@azure/ai-form-recognizer_4.0.0-beta.4/sdk/formrecognizer/ai-form-recognizer/) |
-| Identity | npm [2.0.4](https://www.npmjs.com/package/@azure/identity/v/2.0.4)<br>npm [2.1.0-beta.2](https://www.npmjs.com/package/@azure/identity/v/2.1.0-beta.2) | [docs](/javascript/api/overview/azure/identity-readme) | GitHub [2.0.4](https://github.com/Azure/azure-sdk-for-js/tree/@azure/identity_2.0.4/sdk/identity/identity/)<br>GitHub [2.1.0-beta.2](https://github.com/Azure/azure-sdk-for-js/tree/@azure/identity_2.1.0-beta.2/sdk/identity/identity/) |
+| Identity | npm [2.0.5](https://www.npmjs.com/package/@azure/identity/v/2.0.5)<br>npm [2.1.0-beta.2](https://www.npmjs.com/package/@azure/identity/v/2.1.0-beta.2) | [docs](/javascript/api/overview/azure/identity-readme) | GitHub [2.0.5](https://github.com/Azure/azure-sdk-for-js/tree/@azure/identity_2.0.5/sdk/identity/identity/)<br>GitHub [2.1.0-beta.2](https://github.com/Azure/azure-sdk-for-js/tree/@azure/identity_2.1.0-beta.2/sdk/identity/identity/) |
 | Identity Cache Persistence | npm [1.0.0](https://www.npmjs.com/package/@azure/identity-cache-persistence/v/1.0.0) | [docs](/javascript/api/overview/azure/identity-cache-persistence-readme) | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/identity-cache-persistence_1.0.0/sdk/identity/identity-cache-persistence/) |
 | Identity Visual Studio Code Credential | npm [1.0.0](https://www.npmjs.com/package/@azure/identity-vscode/v/1.0.0) | [docs](/javascript/api/overview/azure/identity-vscode-readme) | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/identity-vscode_1.0.0/sdk/identity/identity-vscode/) |
 | IoT Device Update | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure/iot-device-update/v/1.0.0-beta.1) | [docs](/javascript/api/overview/azure/iot-device-update-readme) | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/iot-device-update_1.0.0-beta.1/sdk/deviceupdate/iot-device-update/) |
@@ -249,7 +249,7 @@
 | @autorest/codemodel | npm [4.18.2](https://www.npmjs.com/package/@autorest/codemodel/v/4.18.2) |  |  |
 | @autorest/common | npm [1.5.2](https://www.npmjs.com/package/@autorest/common/v/1.5.2) |  |  |
 | @autorest/configuration | npm [1.9.2](https://www.npmjs.com/package/@autorest/configuration/v/1.9.2) |  |  |
-| @autorest/csharp | npm [3.0.0-beta.20220613.1](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20220613.1) |  |  |
+| @autorest/csharp | npm [3.0.0-beta.20220613.3](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20220613.3) |  |  |
 | @autorest/csharp-v3 | npm [3.0.0-beta.20201217.1](https://www.npmjs.com/package/@autorest/csharp-v3/v/3.0.0-beta.20201217.1) |  |  |
 | @autorest/extension-base | npm [3.4.4](https://www.npmjs.com/package/@autorest/extension-base/v/3.4.4) |  |  |
 | @autorest/fixer | npm [1.1.0](https://www.npmjs.com/package/@autorest/fixer/v/1.1.0) |  |  |
@@ -303,17 +303,17 @@
 | @azure-tools/test-recorder | npm [2.0.0](https://www.npmjs.com/package/@azure-tools/test-recorder/v/2.0.0) |  |  |
 | @azure-tools/tmlanguage-generator | npm [0.1.4](https://www.npmjs.com/package/@azure-tools/tmlanguage-generator/v/0.1.4) |  |  |
 | @azure-tools/yaml | npm [1.1.0](https://www.npmjs.com/package/@azure-tools/yaml/v/1.1.0) |  |  |
-| @cadl-lang/compiler | npm [0.31.0](https://www.npmjs.com/package/@cadl-lang/compiler/v/0.31.0) |  |  |
+| @cadl-lang/compiler | npm [0.32.0](https://www.npmjs.com/package/@cadl-lang/compiler/v/0.32.0) |  |  |
 | @cadl-lang/eslint-config-cadl | npm [0.3.0](https://www.npmjs.com/package/@cadl-lang/eslint-config-cadl/v/0.3.0) |  |  |
 | @cadl-lang/eslint-plugin | npm [0.1.0](https://www.npmjs.com/package/@cadl-lang/eslint-plugin/v/0.1.0) |  |  |
-| @cadl-lang/html-program-viewer | npm [0.1.0](https://www.npmjs.com/package/@cadl-lang/html-program-viewer/v/0.1.0) |  |  |
-| @cadl-lang/internal-build-utils | npm [0.2.0](https://www.npmjs.com/package/@cadl-lang/internal-build-utils/v/0.2.0) |  |  |
-| @cadl-lang/library-linter | npm [0.1.0](https://www.npmjs.com/package/@cadl-lang/library-linter/v/0.1.0) |  |  |
-| @cadl-lang/openapi | npm [0.9.0](https://www.npmjs.com/package/@cadl-lang/openapi/v/0.9.0) |  |  |
-| @cadl-lang/openapi3 | npm [0.11.0](https://www.npmjs.com/package/@cadl-lang/openapi3/v/0.11.0) |  |  |
-| @cadl-lang/prettier-plugin-cadl | npm [0.5.11](https://www.npmjs.com/package/@cadl-lang/prettier-plugin-cadl/v/0.5.11) |  |  |
-| @cadl-lang/rest | npm [0.14.0](https://www.npmjs.com/package/@cadl-lang/rest/v/0.14.0) |  |  |
-| @cadl-lang/versioning | npm [0.5.0](https://www.npmjs.com/package/@cadl-lang/versioning/v/0.5.0) |  |  |
+| @cadl-lang/html-program-viewer | npm [0.2.0](https://www.npmjs.com/package/@cadl-lang/html-program-viewer/v/0.2.0) |  |  |
+| @cadl-lang/internal-build-utils | npm [0.3.0](https://www.npmjs.com/package/@cadl-lang/internal-build-utils/v/0.3.0) |  |  |
+| @cadl-lang/library-linter | npm [0.1.1](https://www.npmjs.com/package/@cadl-lang/library-linter/v/0.1.1) |  |  |
+| @cadl-lang/openapi | npm [0.10.0](https://www.npmjs.com/package/@cadl-lang/openapi/v/0.10.0) |  |  |
+| @cadl-lang/openapi3 | npm [0.12.0](https://www.npmjs.com/package/@cadl-lang/openapi3/v/0.12.0) |  |  |
+| @cadl-lang/prettier-plugin-cadl | npm [0.5.12](https://www.npmjs.com/package/@cadl-lang/prettier-plugin-cadl/v/0.5.12) |  |  |
+| @cadl-lang/rest | npm [0.15.0](https://www.npmjs.com/package/@cadl-lang/rest/v/0.15.0) |  |  |
+| @cadl-lang/versioning | npm [0.6.0](https://www.npmjs.com/package/@cadl-lang/versioning/v/0.6.0) |  |  |
 | adl-vscode | npm [0.6.0](https://www.npmjs.com/package/adl-vscode/v/0.6.0) |  |  |
 | azure-applicationinsights-query | npm [1.0.0-preview](https://www.npmjs.com/package/azure-applicationinsights-query/v/1.0.0-preview) |  |  |
 | azure-arm-scheduler | npm [1.2.0-preview](https://www.npmjs.com/package/azure-arm-scheduler/v/1.2.0-preview) |  |  |
@@ -324,8 +324,8 @@
 | azure-scheduler | npm [0.10.4](https://www.npmjs.com/package/azure-scheduler/v/0.10.4) |  |  |
 | azure-servicefabric | npm [3.0.0](https://www.npmjs.com/package/azure-servicefabric/v/3.0.0) |  |  |
 | cadl-msbuild-target | npm [0.1.0](https://www.npmjs.com/package/cadl-msbuild-target/v/0.1.0) |  |  |
-| cadl-vs | npm [0.7.0](https://www.npmjs.com/package/cadl-vs/v/0.7.0) |  |  |
-| cadl-vscode | npm [0.14.0](https://www.npmjs.com/package/cadl-vscode/v/0.14.0) |  |  |
+| cadl-vs | npm [0.7.1](https://www.npmjs.com/package/cadl-vs/v/0.7.1) |  |  |
+| cadl-vscode | npm [0.15.0](https://www.npmjs.com/package/cadl-vscode/v/0.15.0) |  |  |
 | tmlanguage-generator | npm [0.3.0](https://www.npmjs.com/package/tmlanguage-generator/v/0.3.0) |  |  |
 | @azure/communication-react | npm [1.2.0](https://www.npmjs.com/package/@azure/communication-react/v/1.2.0) |  |  |
 | AccessControl | npm [1.0.0-beta.3](https://www.npmjs.com/package/@azure/synapse-access-control/v/1.0.0-beta.3) | [docs](/javascript/api/overview/azure/synapse-access-control-readme) | GitHub [1.0.0-beta.3](https://github.com/Azure/azure-sdk-for-js/tree/@azure/synapse-access-control_1.0.0-beta.3/sdk/synapse/synapse-access-control/) |
@@ -349,7 +349,7 @@
 | AutoRest - Go | npm [4.0.0-preview.42](https://www.npmjs.com/package/@autorest/go/v/4.0.0-preview.42) |  |  |
 | AutoRest - Modeler Four | npm [4.23.6](https://www.npmjs.com/package/@autorest/modelerfour/v/4.23.6) |  | GitHub [4.23.6](https://github.com/Azure/autorest.modelerfour) |
 | AutoRest - PowerShell | npm [3.0.487](https://www.npmjs.com/package/@autorest/powershell/v/3.0.487)<br>npm [4.0.0-dev.3](https://www.npmjs.com/package/@autorest/powershell/v/4.0.0-dev.3) |  | GitHub [3.0.487](https://github.com/Azure/autorest.powershell) |
-| AutoRest - Python | npm [5.18.0](https://www.npmjs.com/package/@autorest/python/v/5.18.0) |  | GitHub [5.18.0](https://github.com/Azure/autorest.python/tree/v5.1.0-preview.7) |
+| AutoRest - Python | npm [5.19.0](https://www.npmjs.com/package/@autorest/python/v/5.19.0) |  | GitHub [5.19.0](https://github.com/Azure/autorest.python/tree/v5.1.0-preview.7) |
 | AutoRest - Remodeler | npm [2.1.27](https://www.npmjs.com/package/@autorest/remodeler/v/2.1.27) |  | GitHub [2.1.27](https://github.com/Azure/autorest.remodeler) |
 | AutoRest - Test | npm [0.1.76](https://www.npmjs.com/package/@autorest/test/v/0.1.76) |  | GitHub [0.1.76](https://github.com/Azure/autorest.test) |
 | AutoRest - Test Server | npm [3.0.27](https://www.npmjs.com/package/@autorest/test-server/v/3.0.27) |  |  |
@@ -419,7 +419,7 @@
 | Form Recognizer | npm [2.0.1](https://www.npmjs.com/package/@azure/cognitiveservices-formrecognizer/v/2.0.1) |  | GitHub [2.0.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/cognitiveservices/cognitiveservices-formrecognizer) |
 | Git Rest Api SDK | npm [0.3.3](https://www.npmjs.com/package/git-rest-api-sdk/v/0.3.3) |  | GitHub [0.3.3](https://github.com/azure/git-rest-api) |
 | Graph | npm [5.0.3](https://www.npmjs.com/package/@azure/graph/v/5.0.3) |  | GitHub [5.0.3](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/graphrbac/graph) |
-| Identity | npm [2.0.4](https://www.npmjs.com/package/@azure/identity/v/2.0.4)<br>npm [2.1.0-beta.2](https://www.npmjs.com/package/@azure/identity/v/2.1.0-beta.2) | [docs](/javascript/api/overview/azure/identity-readme) | GitHub [2.0.4](https://github.com/Azure/azure-sdk-for-js/tree/@azure/identity_2.0.4/sdk/identity/identity/)<br>GitHub [2.1.0-beta.2](https://github.com/Azure/azure-sdk-for-js/tree/@azure/identity_2.1.0-beta.2/sdk/identity/identity/) |
+| Identity | npm [2.0.5](https://www.npmjs.com/package/@azure/identity/v/2.0.5)<br>npm [2.1.0-beta.2](https://www.npmjs.com/package/@azure/identity/v/2.1.0-beta.2) | [docs](/javascript/api/overview/azure/identity-readme) | GitHub [2.0.5](https://github.com/Azure/azure-sdk-for-js/tree/@azure/identity_2.0.5/sdk/identity/identity/)<br>GitHub [2.1.0-beta.2](https://github.com/Azure/azure-sdk-for-js/tree/@azure/identity_2.1.0-beta.2/sdk/identity/identity/) |
 | Identity Cache Persistence | npm [1.0.0](https://www.npmjs.com/package/@azure/identity-cache-persistence/v/1.0.0) | [docs](/javascript/api/overview/azure/identity-cache-persistence-readme) | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/identity-cache-persistence_1.0.0/sdk/identity/identity-cache-persistence/) |
 | Identity Visual Studio Code Credential | npm [1.0.0](https://www.npmjs.com/package/@azure/identity-vscode/v/1.0.0) | [docs](/javascript/api/overview/azure/identity-vscode-readme) | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/identity-vscode_1.0.0/sdk/identity/identity-vscode/) |
 | Image Search | npm [3.0.1](https://www.npmjs.com/package/@azure/cognitiveservices-imagesearch/v/3.0.1) |  | GitHub [3.0.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/cognitiveservices/cognitiveservices-imagesearch) |

@@ -195,6 +195,7 @@
 | azure-messaging-nspkg | PyPI [1.0.0](https://pypi.org/project/azure-messaging-nspkg/1.0.0) |  |  |
 | azure-mgmt-appcontainers | PyPI [1.0.0](https://pypi.org/project/azure-mgmt-appcontainers/1.0.0) |  |  |
 | azure-mgmt-dynatrace | PyPI [1.0.0b1](https://pypi.org/project/azure-mgmt-dynatrace/1.0.0b1) |  |  |
+| azure-mgmt-nginx | PyPI [1.0.0b1](https://pypi.org/project/azure-mgmt-nginx/1.0.0b1) |  |  |
 | azure-mgmt-scvmm | PyPI [1.0.0b1](https://pypi.org/project/azure-mgmt-scvmm/1.0.0b1) |  |  |
 | azure-mixedreality-nspkg | PyPI [1.0.0](https://pypi.org/project/azure-mixedreality-nspkg/1.0.0) |  |  |
 | azure-monitor-nspkg | PyPI [1.0.0](https://pypi.org/project/azure-monitor-nspkg/1.0.0) |  |  |
@@ -289,7 +290,7 @@
 | Monitor OpenTelemetry Exporter | PyPI [1.0.0b6](https://pypi.org/project/azure-monitor-opentelemetry-exporter/1.0.0b6) | [docs](/python/api/overview/azure/monitor-opentelemetry-exporter-readme) | GitHub [1.0.0b6](https://github.com/Azure/azure-sdk-for-python/tree/azure-monitor-opentelemetry-exporter_1.0.0b6/sdk/monitor/azure-monitor-opentelemetry-exporter/) |
 | Monitor Query | PyPI [1.0.2](https://pypi.org/project/azure-monitor-query/1.0.2) | [docs](/python/api/overview/azure/monitor-query-readme) | GitHub [1.0.2](https://github.com/Azure/azure-sdk-for-python/tree/azure-monitor-query_1.0.2/sdk/monitor/azure-monitor-query/) |
 | Monitoring | PyPI [0.2.0](https://pypi.org/project/azure-synapse-monitoring/0.2.0) | [docs](/python/api/overview/azure/synapse-monitoring-readme) | GitHub [0.2.0](https://github.com/Azure/azure-sdk-for-python/tree/azure-synapse-monitoring_0.2.0/sdk/synapse/azure-synapse-monitoring/) |
-| MsRest | PyPI [0.7.0](https://pypi.org/project/msrest/0.7.0) |  | GitHub [0.7.0](https://github.com/Azure/msrest-for-python/tree/v0.6.18/msrest) |
+| MsRest | PyPI [0.7.1](https://pypi.org/project/msrest/0.7.1) |  | GitHub [0.7.1](https://github.com/Azure/msrest-for-python/tree/v0.6.18/msrest) |
 | MsRest Azure | PyPI [0.6.4](https://pypi.org/project/msrestazure/0.6.4) |  | GitHub [0.6.4](https://github.com/Azure/msrestazure-for-python/tree/v0.6.4/msrestazure) |
 | News Search | PyPI [2.0.0](https://pypi.org/project/azure-cognitiveservices-search-newssearch/2.0.0) |  | GitHub [2.0.0](https://github.com/Azure/azure-sdk-for-python/tree/azure-cognitiveservices-search-newssearch_2.0.0/sdk/cognitiveservices/azure-cognitiveservices-search-newssearch/) |
 | Personalizer | PyPI [0.1.0](https://pypi.org/project/azure-cognitiveservices-personalizer/0.1.0) |  | GitHub [0.1.0](https://github.com/Azure/azure-sdk-for-python/tree/azure-cognitiveservices-personalizer_0.1.0/sdk/cognitiveservices/azure-cognitiveservices-personalizer/) |

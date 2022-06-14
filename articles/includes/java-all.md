@@ -362,6 +362,7 @@
 | IoT Models Repository | Maven [1.0.0-beta.1](https://search.maven.org/artifact/com.azure/azure-iot-modelsrepository/1.0.0-beta.1/jar/) |  |  |
 | notification-hubs-android-sdk | Maven [1.1.6](https://search.maven.org/artifact/com.microsoft.azure/notification-hubs-android-sdk/1.1.6/jar/) |  |  |
 | notification-hubs-android-sdk-fcm | Maven [1.1.6](https://search.maven.org/artifact/com.microsoft.azure/notification-hubs-android-sdk-fcm/1.1.6/jar/) |  |  |
+| pacman-test-maven | Maven [0.0.64](https://search.maven.org/artifact/com.azure/pacman-test-maven/0.0.64/jar/) |  |  |
 | spark-mssql-connector_2.11_2.4 | Maven [1.0.2](https://search.maven.org/artifact/com.microsoft.azure/spark-mssql-connector_2.11_2.4/1.0.2/jar/) |  |  |
 | spark-mssql-connector_2.12 | Maven [1.2.0](https://search.maven.org/artifact/com.microsoft.azure/spark-mssql-connector_2.12/1.2.0/jar/) |  |  |
 | spring-cloud-azure-stream-binder-test | Maven [4.0.0-beta.2](https://search.maven.org/artifact/com.azure.spring/spring-cloud-azure-stream-binder-test/4.0.0-beta.2/jar/) |  |  |
