@@ -85,4 +85,4 @@ azd down
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Get started](how-to-use-vscode-extension-to-debug-locally.md)
+> [Debug Azure apps using the Azure Developer CLI Visual Studio Code extension](how-to-use-vscode-extension-to-debug-locally.md)
