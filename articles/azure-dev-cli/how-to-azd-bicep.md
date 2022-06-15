@@ -10,11 +10,11 @@ ms.prod: azure
 ---
 #  Azure Bicep for Azure Developer CLI (azd)
 
-This article contains resources to help you work with Bicep when making your project compatible with `azd`.
+This article contains resources to help you work with Bicep when making your project compatible with azd.
 
-`azd` uses infrastructure as code (IaC) strategies to achieve predictable and repeatable creation of Azure resources and deployment of code. 
+azd uses infrastructure as code (IaC) strategies to achieve predictable and repeatable creation of Azure resources and deployment of code. 
 
-Bicep is a language for declaratively deploying Azure resources. It is the IaC tool currently supported by `azd` and used for creating azure resources. For more information, refer to [What is Bicep](/azure/azure-resource-manager/bicep/overview).
+Bicep is a language for declaratively deploying Azure resources. It is the IaC tool currently supported by azd and used for creating azure resources. For more information, refer to [What is Bicep](/azure/azure-resource-manager/bicep/overview).
 
 ## Create azd compatible projects 
 
@@ -23,7 +23,7 @@ Bicep is a language for declaratively deploying Azure resources. It is the IaC t
 To create an azd compatible project:
 
 1. Create an **infra** folder at the root of your project.
-1. Create a new file named **main.parameters.json**. Include the environment variables (found in .env file under the .azure/<environment name> folder) you want to pass to your Bicep files. Here's an examples:
+1. Create a new file named **main.parameters.json**. Include the environment variables (found in .env file under the .azure/\<environment name\> folder) you want to pass to your Bicep files. Here's an examples:
 
     ```json
     {

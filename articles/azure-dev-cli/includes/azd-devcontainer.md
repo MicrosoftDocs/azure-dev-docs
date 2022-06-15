@@ -38,10 +38,6 @@ A [DevContainer](https://code.visualstudio.com/docs/remote/containers) is a Dock
 
 ::: zone-end
 
-### Azure subscription
-
-You will create infrastructure and deploy code to Azure. If you don't have an Azure Subscription, sign up for [a free account](https://azure.microsoft.com/free/).
-
 ### Initialize Project
 
 Open a terminal, create a new empty folder, and change into it.
