@@ -26,6 +26,14 @@
       href: quickstarts/uwp/authentication.md     
     - name: Add Offline Sync
       href: quickstarts/uwp/offline.md
+  - name: Windows (WinUI3)
+    items:
+    - name: Introduction
+      href: quickstarts/winui/index.md
+    - name: Add Authentication
+      href: quickstarts/winui/authentication.md     
+    - name: Add Offline Sync
+      href: quickstarts/winui/offline.md
   - name: Windows (WPF)
     items:
     - name: Introduction

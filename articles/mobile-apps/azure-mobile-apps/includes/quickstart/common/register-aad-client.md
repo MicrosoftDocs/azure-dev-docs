@@ -1,6 +1,6 @@
 ---
 ms.topic: include
-ms.date: 05/06/2022
+ms.date: 06/11/2022
 author: adrianhall
 ms.author: adhal
 ms.prod: azure-mobile-apps
@@ -29,7 +29,7 @@ You can register native clients to allow authentication to Web APIs hosted in yo
 9. Check the box next to `msal{client-id}://auth` (replacing `{client-id}` with your application ID).
 10. Select **Add URI**, then add `http://localhost` in the field for extra URIs.
 11. Select **Save** at the bottom of the page.
-12. Select **Overview**.  Make a note of the **Application (client) ID** as you'll need it later.
+12. Select **Overview**.  Make a note of the **Application (client) ID** as you'll need it later.  This will be referred to as the _Native Client Application ID_.
 
 We have defined three redirect URLs:
 

@@ -4,7 +4,7 @@ description: Add authentication to your Xamarin.Android app using Azure Mobile A
 author: adrianhall
 ms.service: mobile-services
 ms.topic: article
-ms.date: 06/09/2022
+ms.date: 06/11/2022
 ms.author: adhal
 recommendations: false
 zone_pivot_group_filename: developer/mobile-apps/azure-mobile-apps/zumo-zone-pivot-groups.json
@@ -38,7 +38,7 @@ The Microsoft Datasync Framework has built-in support for any authentication pro
 
 [!INCLUDE [Configure a native app for authentication](~/mobile-apps/azure-mobile-apps/includes/quickstart/common/register-aad-client.md)]
 
-Open the `TodoApp.sln` solution in Visual Studio and set the `TodoApp.Android` project as the startup project.
+Open the `TodoApp.sln` solution in Visual Studio and set the `TodoApp.Android` project as the startup project.  Add the [Microsoft Identity Library (MSAL)](/azure/active-directory/develop/msal-overview) to the `TodoApp.Android` project:
 
 ::: zone pivot="vs2022-windows"
 
