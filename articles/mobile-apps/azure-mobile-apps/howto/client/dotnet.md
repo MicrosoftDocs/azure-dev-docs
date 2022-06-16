@@ -65,6 +65,7 @@ More details on the authentication provider are given below.
 The following options can be set:
 
 * `HttpPipeline` - an ordered list of [DelegatingHandler] objects used for constructing the HTTP pipeline.
+* `IdGenerator` - a function that returns an ID for a new entity when required.
 * `InstallationId` - a globally unique string for identifying "this" application on "this" device.
 * `OfflineStore` - the offline store to use.
 * `SerializerSettings` - the JSON serializer settings to use.
@@ -73,10 +74,20 @@ The following options can be set:
 When not specified, default values are used for each option.
 
 * `HttpPipeline` - no additional delegating handlers.
+* `IdGenerator` - a new GUID, represented as a series of hex digits.
 * `InstallationId` - a generated GUID that is stored on device in between application runs.
 * `OfflineStore` - not set - offline tables are not available.
 * `SerializerSettings` - a default set of serializer settings suitable for communicating with the default service.
 * `UserAgent` - `Datasync/5.0 (/* device information */)` - the device information is replaced by details of the device.
+
+To generate a different ID, use `IdGenerator`.  For example, the following options will generate an ID comprised of the table anme and a GUID:
+
+``` csharp
+var options = new DataSyncClientOptions 
+{
+    IdGenerator = (tableName) => $"{tableName}-{Guid.NewGuid().ToString("D").ToUpper()}"
+};
+```
 
 ## Work with remote tables
 
