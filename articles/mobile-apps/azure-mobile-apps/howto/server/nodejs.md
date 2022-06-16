@@ -85,7 +85,7 @@ This application creates a mobile-optimized Web API with a single endpoint (`/ta
 * [Xamarin.Forms](../../quickstarts/xamarin-forms/index.md)
 * [Xamarin.iOS](../../quickstarts/xamarin-ios/index.md)
 
-You can find the code for this basic application in the [samples area on GitHub](https://github.com/azure/azure-mobile-apps/tree/master/samples/nodejs).
+You can find the code for this basic application in the [samples area on GitHub](https://github.com/Azure/azure-mobile-apps/tree/main/samples).
 
 ### Enable a home page for your application
 
