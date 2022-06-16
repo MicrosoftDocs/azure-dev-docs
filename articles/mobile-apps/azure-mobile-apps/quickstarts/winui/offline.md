@@ -35,7 +35,7 @@ _service = new RemoteTodoService(GetAuthenticationToken)
 };
 ```
 
-If you have not completed the [authentication tutorial](./authentication.md), the definition should look like this instead:
+If you haven't completed the [authentication tutorial](./authentication.md), the definition should look like this instead:
 
 ``` csharp
 _serviceWinUI3WinUI3W = new RemoteTodoService()

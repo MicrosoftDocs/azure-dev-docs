@@ -10,7 +10,7 @@ ms.author: adhal
 
 # Build a Windows (WinUI3) app with Azure Mobile Apps
 
-This tutorial shows you how to add a cloud-based backend service to a Windows App SDK (WinUI3) desktop app by using Azure Mobile Apps and an Azure mobile app backend.  You will create both a new mobile app backend and a simple *Todo list* app that stores app data in Azure.
+This tutorial shows you how to add a cloud-based backend service to a Windows App SDK (WinUI3) desktop app by using Azure Mobile Apps and an Azure mobile app backend.  You'll create both a new mobile app backend and a simple *Todo list* app that stores app data in Azure.
 
 You must complete this tutorial before all other Windows (WinUI3) tutorials about using the Mobile Apps feature in Azure App Service.
 
@@ -23,7 +23,7 @@ To complete this tutorial, you need:
   * Azure development
   * .NET desktop development
   * Universal Windows Platform development
-  * In the **Installation details** pane of the installation dialog box, select **Windows AQpp SDK C# Templates** (at the bottom of the list).
+  * In the **Installation details** pane of the installation dialog box, select **Windows App SDK C# Templates** (at the bottom of the list).
   * In the **Individual components** tab of the installation dialog box, in the **SDKs, libraries, and frameworks** section, make sure **Windows 10 SDK** is selected. Choose a version equal to or later than 10.0.19041.0.
 * An [Azure account](https://azure.microsoft.com/pricing/free-trial).
 * The [Azure CLI](/cli/azure/install-azure-cli).
@@ -58,7 +58,7 @@ This tutorial can only be completed on a Windows system.
 
 2. Press **F5** to build and run the project.
 
-Once the app has started, you will see an empty list with a text box.  You can:
+Once the app has started, you'll see an empty list with a text box.  You can:
 
 * Enter some text, then press Enter or the **+** icon to add the item.
 * Set or clear the check box to mark any item as done.
