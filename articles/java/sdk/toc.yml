@@ -91,4 +91,4 @@
     - name: Package index
       href: azure-sdk-library-package-index.md
     - name: Reference
-      href: /java/api
+      href: /java/api/overview/azure/?view=azure-java-stable
