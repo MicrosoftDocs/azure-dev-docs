@@ -10,21 +10,23 @@ ms.author: adhal
 
 # How to use the Azure Mobile Apps client library for .NET
 
-This guide shows you how to perform common scenarios using the .NET client library for Azure Mobile Apps.  Use the .NET client library in Windows (WPF, UWP) or Xamarin (Native or Forms) applications.  If you are new to Azure Mobile Apps, consider first completing the [Quickstart for Xamarin.Forms](../../quickstarts/xamarin-forms/index.md) tutorial.  
+This guide shows you how to perform common scenarios using the .NET client library for Azure Mobile Apps.  Use the .NET client library in Windows (WPF, UWP) or Xamarin (Native or Forms) applications.  If you're new to Azure Mobile Apps, consider first completing the [Quickstart for Xamarin.Forms](../../quickstarts/xamarin-forms/index.md) tutorial.  
 
 > [!NOTE]
 > This article covers the latest (v5.0.0) edition of the Microsoft Datasync Framework.  For older clients, see the [v4.2.0 documentation](./dotnet-v4.md).
 
 ## Supported platforms
 
-The .NET client library supports .NET Standard 2.0 and the following platforms:
+The .NET client library supports .NET Standard 2.0, .NET 6 and the following platforms:
 
-* Xamarin.Android from API level 19 up to API level 31.
-* Xamarin.iOS version 8.0 through 15.4.
-* Universal Windows Platform builds 16299 and above.
+* Xamarin.Android above API level 19.
+* Xamarin.iOS version 8.0 and above..
+* Universal Windows Platform builds 19041 and above.
 * Windows Presentation Framework (WPF).
+* Windows App SDK (WinUI 3).
+* .NET MAUI for Android, iOS, and Windows platforms.
 
-Additional platforms may work (for instance, .NET MAUI), but have not been tested at this time.
+Other platforms may work, but haven't been tested at this time.  The TodoApp sample (located in the samples directory) contains an example of each tested platform.
 
 ## Setup and Prerequisites
 
@@ -33,11 +35,11 @@ Add the following libraries from NuGet:
 * [Microsoft.Datasync.Client]
 * [Microsoft.Datasync.Client.SQLiteStore] if using offline tables.
 
-If using a platform project (for example, Xamarin.Forms), ensure you add the libraries to the platform project as well as any shared project.
+If using a platform project (for example, Xamarin.Forms), ensure you add the libraries to the platform project and any shared project.
 
-## Create the datasync client
+## Create the service client
 
-The following code creates the datasync client, which is used to coordinate all communication to the backend and offline tables.
+The following code creates the service client, which is used to coordinate all communication to the backend and offline tables.
 
 ```csharp
 var options = new DatasyncClientOptions 
@@ -47,8 +49,7 @@ var options = new DatasyncClientOptions
 var client = new DatasyncClient("MOBILE_APP_URL", options);
 ```
 
-In the preceding code, replace `MOBILE_APP_URL` with the URL of the [ASP.NET Core datasync backend](../server/dotnet-core.md).  The client should
-be created as a singleton.  If using an authentication provider, it can be configured like this:
+In the preceding code, replace `MOBILE_APP_URL` with the URL of the [ASP.NET Core backend](../server/dotnet-core.md).  The client should be created as a singleton.  If using an authentication provider, it can be configured like this:
 
 ```csharp
 var options = new DatasyncClientOptions 
@@ -65,6 +66,7 @@ More details on the authentication provider are given below.
 The following options can be set:
 
 * `HttpPipeline` - an ordered list of [DelegatingHandler] objects used for constructing the HTTP pipeline.
+* `IdGenerator` - a function that returns an ID for a new entity when required.
 * `InstallationId` - a globally unique string for identifying "this" application on "this" device.
 * `OfflineStore` - the offline store to use.
 * `SerializerSettings` - the JSON serializer settings to use.
@@ -72,22 +74,31 @@ The following options can be set:
 
 When not specified, default values are used for each option.
 
-* `HttpPipeline` - no additional delegating handlers.
+* `HttpPipeline` - an empty pipeline.
+* `IdGenerator` - a new GUID, represented as a series of hex digits.
 * `InstallationId` - a generated GUID that is stored on device in between application runs.
-* `OfflineStore` - not set - offline tables are not available.
+* `OfflineStore` - not set - offline tables aren't available.
 * `SerializerSettings` - a default set of serializer settings suitable for communicating with the default service.
 * `UserAgent` - `Datasync/5.0 (/* device information */)` - the device information is replaced by details of the device.
 
+To generate a different ID, use `IdGenerator`.  For example, the following options will generate an ID comprised of the table name and a GUID:
+
+``` csharp
+var options = new DataSyncClientOptions 
+{
+    IdGenerator = (tableName) => $"{tableName}-{Guid.NewGuid().ToString("D").ToUpper()}"
+};
+```
+
 ## Work with remote tables
 
-The following section details how to search and retrieve records and modify the data within a remote table.  The following
-topics are covered:
+The following section details how to search and retrieve records and modify the data within a remote table.  The following topics are covered:
 
 * [Create a table reference](#create-a-remote-table-reference)
 * [Query data](#query-data-from-a-remote-server)
-* [Look up remote databy ID](#look-up-remote-data-by-id)
+* [Look up remote data by ID](#look-up-remote-data-by-id)
 * [Insert data on the remote server](#insert-data-on-the-remote-server)
-* [Updat data on the remote server](#update-data-on-the-remote-server)
+* [Update data on the remote server](#update-data-on-the-remote-server)
 * [Delete data on the remote server](#delete-data-on-the-remote-server)
 * [Conflict resolution and optimistic concurrency](#conflict-resolution-and-optimistic-concurrency)
 
@@ -99,7 +110,7 @@ To create a remote table reference, use `GetRemoteTable<T>`:
 IRemoteTable<TodoItem> remoteTable = client.GetRemoteTable();
 ```
 
-The model type must implement the `ITableData` contract from the service.  The easiest way to do this is to inherit from `DatasyncClientData`:
+The model type must implement the `ITableData` contract from the service.  Use `DatasyncClientData` to provide the required fields:
 
 ``` csharp
 public class TodoItem : DatasyncClientData
@@ -116,7 +127,7 @@ The `DatasyncClientData` object includes:
 * `Version` (string) - an opaque string used for versioning.
 * `Deleted` (boolean) - if `true`, the item is deleted.
 
-These fields are maintained by the service and should not be set by the client application.
+These fields are maintained by the service and shouldn't be set by the client application.
 
 Models can be annotated using [Newtonsoft.JSON attributes](https://www.newtonsoft.com/json/help/html/SerializationAttributes.htm).  In addition, the name of the table may be specified by using the `DataTable` attribute:
 
@@ -144,8 +155,6 @@ Aside from primitive types (int, float, string, etc.), the following types are s
 * `System.DateTime` - as an ISO-8601 UTC date/time string with ms accuracy.
 * `System.DateTimeOffset` - as an ISO-8601 UTC date/time string with ms accuracy.
 * `System.Guid` - formatted as 32 digits separated as hyphens.
-
-Each of these is transmitted as a string, so the object on the server must also be configured with the appropriate receiving type.
 
 ### Query data from a remote server
 
@@ -210,7 +219,7 @@ Use `.OrderBy()`, `.OrderByDescending()`, `.ThenBy()`, and `.ThenByDescending()`
 var items = await remoteTable.OrderBy(x => x.IsComplete).ThenBy(x => x.Title).ToListAsync();
 ```
 
-The sorting is done by the service.  You cannot specify an expression in any sorting clause.  If you wish to sort by an expression, use client-side sorting:
+The sorting is done by the service.  You can't specify an expression in any sorting clause.  If you wish to sort by an expression, use client-side sorting:
 
 ``` csharp
 var items = await remoteTable.ToListAsync().OrderBy(x => x.Title.ToLowerCase());
@@ -264,7 +273,7 @@ await remoteTable.InsertItemAsync(item);
 // Note that item.Id will now be set
 ```
 
-If a unique custom ID value is not included in the `item` during an insert, a GUID is generated by the server. You can retrieve the generated ID by inspecting the object after the call returns.
+If a unique custom ID value isn't included in the `item` during an insert, a GUID is generated by the server. You can retrieve the generated ID by inspecting the object after the call returns.
 
 ### Update data on the remote server
 
@@ -289,9 +298,9 @@ await todoTable.DeleteItemAsync(item);
 
 ### Conflict resolution and optimistic concurrency
 
-Two or more clients may write changes to the same item at the same time. Without conflict detection, the last write would overwrite any previous updates. **Optimistic concurrency control** assumes that each transaction can commit and therefore does not use any resource locking.  Before committing a transaction, optimistic concurrency control verifies that no other transaction has modified the data. If the data has been modified, the committing transaction is rolled back.
+Two or more clients may write changes to the same item at the same time. Without conflict detection, the last write would overwrite any previous updates. **Optimistic concurrency control** assumes that each transaction can commit and therefore doesn't use any resource locking.  Optimistic concurrency control verifies that no other transaction has modified the data before committing the data. If the data has been modified, the transaction is rolled back.
 
-Azure Mobile Apps supports optimistic concurrency control by tracking changes to each item using the `version` system property column that is defined for each table in your Mobile App backend. Each time a record is updated, Mobile Apps sets the `version` property for that record to a new value. During each update request, the `version` property of the record included with the request is compared to the same property for the record on the server. If the version passed with the request does not match the backend, then the client library raises a `DatasyncConflictException<T>` exception. The type included with the exception is the record from the backend containing the servers version of the record. The application can then use this information to decide whether to execute the update request again with the correct `version` value from the backend to commit changes.
+Azure Mobile Apps supports optimistic concurrency control by tracking changes to each item using the `version` system property column that is defined for each table in your Mobile App backend. Each time a record is updated, Mobile Apps sets the `version` property for that record to a new value. During each update request, the `version` property of the record included with the request is compared to the same property for the record on the server. If the version passed with the request doesn't match the backend, then the client library raises a `DatasyncConflictException<T>` exception. The type included with the exception is the record from the backend containing the servers version of the record. The application can then use this information to decide whether to execute the update request again with the correct `version` value from the backend to commit changes.
 
 Optimistic concurrency is automatically enabled when using the `DatasyncClientData` base object.
 
@@ -380,7 +389,7 @@ Finally, you must ensure that the offline capabilities are initialized:
 await client.InitializeOfflineStoreAsync();
 ```
 
-Store initialization is normally done immediately after the client is created.  The **OfflineConnectionString** is a URI used for specifying both the location of the SQLite database and the options used to open the database.  For more information, refer to [URI Filenames in SQLite](https://sqlite.org/uri.html).  
+Store initialization is normally done immediately after the client is created.  The **OfflineConnectionString** is a URI used for specifying both the location of the SQLite database and the options used to open the database.  For more information, see [URI Filenames in SQLite](https://sqlite.org/uri.html).  
 
 * To use an in-memory cache, use `file:inmemory.db?mode=memory&cache=private`.
 * To use a file, use `file:/path/to/file.db`
@@ -400,11 +409,11 @@ A table reference can be obtained using the `GetOfflineTable<T>` method:
 var table = client.GetOfflineTable<TodoItem>();
 ```
 
-You do not need to authenticate to use an offline table.  You only need to authenticate when you are communicating with the backend service.
+You don't need to authenticate to use an offline table.  You only need to authenticate when you're communicating with the backend service.
 
 ### Synchronize an Offline Table
 
-Offline tables are not synchronized with the backend by default.  Synchronization is split into two pieces.  You can push changes separately from downloading new items.  Here is a typical sync method:
+Offline tables aren't synchronized with the backend by default.  Synchronization is split into two pieces.  You can push changes separately from downloading new items.  For example:
 
 ```csharp
 public async Task SyncAsync()
@@ -461,7 +470,7 @@ The options (defined by the `PullOptions` object) do not generally need to be se
 
 The SDK performs an implicit `PushAsync()` before pulling records.
 
-Conflict handling happens on a `PullAsync()` method.  Handle conflicts in the same way as online tables.  The conflict is produced when `PullAsync()` is called instead of during the insert, update, or delete. If multiple conflicts happen, they are bundled into a single `PushFailedException`.  Handle each failure separately.
+Conflict handling happens on a `PullAsync()` method.  Handle conflicts in the same way as online tables.  The conflict is produced when `PullAsync()` is called instead of during the insert, update, or delete. If multiple conflicts happen, they're bundled into a single `PushFailedException`.  Handle each failure separately.
 
 ### Push changes for all tables
 
@@ -480,9 +489,7 @@ await client.PushTables(tablesToPush);
 
 ### Run complex SQLite queries
 
-If you need to do complex SQL queries against the offline database, you can do so using the `ExecuteQueryAsync()` method.  This
-is useful if you want to do SQL JOIN between tables on the offline tables.  To do this, you need to define the form of the data
-being returned.  For example:
+If you need to do complex SQL queries against the offline database, you can do so using the `ExecuteQueryAsync()` method.  For example, to do a `SQL JOIN` statement, define the return value form, then use `ExecuteQueryAsync()`:
 
 ``` csharp
 var definition = new JObject() 
@@ -498,7 +505,7 @@ var items = await store.ExecuteQueryAsync(definition, sqlStatement, parameters);
 // Items is an IList<JObject> where each JObject conforms to the definition.
 ```
 
-The definition is a set of key/values.  The keys must match the field names being returned by the SQL statement, and the values must be the default value of the type expected.  Use `0L` for numbers (long), `false` for booleans, and a string for everything else.  SQLite has a very restrictive set of types to work with.  Date/times are stored as a numeric value (as ms since the epoch) for comparison.
+The definition is a set of key/values.  The keys must match the field names being returned by the SQL statement, and the values must be the default value of the type expected.  Use `0L` for numbers (long), `false` for booleans, and a string for everything else.  SQLite has a restrictive set of types to work with.  Date/times are stored as a numeric value (as ms since the epoch) for comparison.
 
 ## Authenticate users
 
@@ -618,7 +625,7 @@ public async Task<AuthenticationToken> GetTokenAsync()
 }
 ```
 
-The `UserId` and `DisplayName` are not directly available when using Azure App Service Authentication.  Instead, do a HTTP request to the `/.auth/me` endpoint to receive a JSON object with the information.  This can be integrated into the `GetTokenAsync()`, but it's generally more efficient to use a lazy requestor to retrieve the information.
+The `UserId` and `DisplayName` aren't directly available when using Azure App Service Authentication.  Instead, use a lazy requestor to retrieve the information from the `/.auth/me` endpoint:
 
 ``` csharp
 var userInfo = new AsyncLazy<UserInformation>(() => GetUserInformationAsync());

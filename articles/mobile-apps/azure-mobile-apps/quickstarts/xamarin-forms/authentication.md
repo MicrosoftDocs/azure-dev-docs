@@ -4,7 +4,7 @@ description: Add authentication to your Xamarin.Forms app using Azure Mobile App
 author: adrianhall
 ms.service: mobile-services
 ms.topic: article
-ms.date: 06/03/2021
+ms.date: 06/11/2021
 ms.author: adhal
 ---
 
@@ -30,7 +30,7 @@ The Microsoft Datasync Framework has built-in support for any authentication pro
 
 [!INCLUDE [Configure a native app for authentication](~/mobile-apps/azure-mobile-apps/includes/quickstart/common/register-aad-client.md)]
 
-Open the `TodoApp.sln` solution in Visual Studio and set the `TodoApp.Forms` project as the startup project.
+Open the `TodoApp.sln` solution in Visual Studio and set the `TodoApp.Forms` project as the startup project.  Add the [Microsoft Identity Library (MSAL)](/azure/active-directory/develop/msal-overview) to the `TodoApp.Forms` projects (make sure it is added to all three projects):
 
 [!INCLUDE [Set up MSAL in Windows](~/mobile-apps/azure-mobile-apps/includes/quickstart/windows/add-msal-library.md)]
 

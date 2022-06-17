@@ -1,6 +1,6 @@
 ---
 ms.topic: include
-ms.date: 05/06/2022
+ms.date: 06/11/2022
 author: adrianhall
 ms.author: adhal
 ms.prod: azure-mobile-apps
@@ -109,7 +109,7 @@ Open Visual Studio and select the `TodoAppService.NET6` project.
     },
   ```
 
-  Once complete, it should look like this:
+  Replace the `<client-id>` with the _Web API Application ID_ that you recorded earlier. Once complete, it should look like this:
 
   ``` json
   {
@@ -131,12 +131,10 @@ Open Visual Studio and select the `TodoAppService.NET6` project.
   }
   ```
 
-  Replace the `<client-id>` with the Application (client) ID that you recorded earlier.
+Publish your service to Azure again:
 
-Once complete, you can publish your service again:
-
-10. Right-click on the `TodoAppService.NET6` project, then select **Publish...**.
-11. Select the **Publish** button in the top-right corner of the tab.
+1.  Right-click on the `TodoAppService.NET6` project, then select **Publish...**.
+2.  Select the **Publish** button in the top-right corner of the tab.
 
 Open a browser to `https://yoursite.azurewebsites.net/tables/todoitem?ZUMO-API-VERSION=3.0.0`.  Note that the service now returns a `401` response, which indicates that authentication is required.
 

@@ -112,7 +112,7 @@ az keyvault secret set \
 
 ## Optional: Configure Express.js required environment variables to use Azure Identity
 
-Complete this step if you can't use the Visual Studio Code credential, Azure CLI credential, or the Azure PowerShell credential. Learn more about [local development credentials](/azure/developer/javascript/sdk/authentication/overview#sequence-of-selecting-authentication-methods-when-using-defaultazurecredential). 
+Complete this step if you can't use the Visual Studio Code credential, Azure CLI credential, or the Azure PowerShell credential. Learn more about [local development credentials](../../sdk/authentication/overview.md#sequence-of-selecting-authentication-methods-when-using-defaultazurecredential). 
 
 Set these environment variables in the `.env` file of the sample project to create the **REQUIRED context to use DefaultAzureCredential**.
 
