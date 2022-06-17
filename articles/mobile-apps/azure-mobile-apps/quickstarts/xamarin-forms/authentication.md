@@ -4,8 +4,10 @@ description: Add authentication to your Xamarin.Forms app using Azure Mobile App
 author: adrianhall
 ms.service: mobile-services
 ms.topic: article
-ms.date: 06/11/2021
+ms.date: 06/17/2021
 ms.author: adhal
+zone_pivot_group_filename: developer/mobile-apps/azure-mobile-apps/zumo-zone-pivot-groups.json
+zone_pivot_groups: vs-platform-options
 ---
 
 # Add authentication to your Xamarin.Forms app
@@ -13,16 +15,24 @@ ms.author: adhal
 In this tutorial, you add Microsoft authentication to your app using Azure Active Directory. Before completing this tutorial, ensure you've [created the project and deployed the backend](./index.md).
 
 > [!NOTE]
-> Since the iOS app requires keychain access, you will need to set up an iOS provisioning profile.  A provisioning profile requires 
-> either a real iOS device or a paid Apple Developer Account (if using the simulator).  You can skip this tutorial and move on to 
-> adding [offline access to your app](./offline.md) if you cannot use authentication due to this restriction.
+> Since the iOS app requires keychain access, you will need to set up an iOS provisioning profile.  A provisioning profile requires either a real iOS device or a paid Apple Developer Account (if using the simulator).  You can skip this tutorial and move on to adding [offline access to your app](./offline.md) if you cannot use authentication due to this restriction.
 
 > [!TIP]
 > Although we use Azure Active Directory for authentication, you can use any authentication library you wish with Azure Mobile Apps. 
 
 [!INCLUDE [Register with AAD for the backend](~/mobile-apps/azure-mobile-apps/includes/quickstart/common/register-aad-backend.md)]
 
+::: zone pivot="vs2022-windows"
+
 [!INCLUDE [Configure the service for authentication](~/mobile-apps/azure-mobile-apps/includes/quickstart/windows/configure-auth-backend.md)]
+
+::: zone-end
+
+::: zone pivot="vs2022-mac"
+
+[!INCLUDE [Configure the service for authentication](~/mobile-apps/azure-mobile-apps/includes/quickstart/mac/configure-auth-backend.md)]
+
+::: zone-end
 
 ## Add authentication to the app
 
@@ -30,9 +40,19 @@ The Microsoft Datasync Framework has built-in support for any authentication pro
 
 [!INCLUDE [Configure a native app for authentication](~/mobile-apps/azure-mobile-apps/includes/quickstart/common/register-aad-client.md)]
 
-Open the `TodoApp.sln` solution in Visual Studio and set the `TodoApp.Forms` project as the startup project.  Add the [Microsoft Identity Library (MSAL)](/azure/active-directory/develop/msal-overview) to the `TodoApp.Forms` projects (make sure it is added to all three projects):
+Open the `TodoApp.sln` solution in Visual Studio and set the `TodoApp.Forms` project as the startup project.
+
+::: zone pivot="vs2022-windows"
 
 [!INCLUDE [Set up MSAL in Windows](~/mobile-apps/azure-mobile-apps/includes/quickstart/windows/add-msal-library.md)]
+
+::: zone-end
+
+::: zone pivot="vs2022-mac"
+
+[!INCLUDE [Set up MSAL in Windows](~/mobile-apps/azure-mobile-apps/includes/quickstart/mac/add-authentication-library.md)]
+
+::: zone-end
 
 Open the `TodoApp.Forms` project.  Add a new file called `IPlatform.cs` with the following contents:
 
@@ -228,11 +248,18 @@ public IPublicClientApplication GetIdentityClient(string applicationId)
 }
 ```
 
-Open the `Entitlements.plist` file.  Select **Keychain**, then select **Add New** in the keychain groups.  Enter `com.microsoft.adalcache` as the value:
+::: zone pivot="vs2022-windows"
 
-![Screenshot showing the iOS entitlements.](./media/ios-entitlements-plist.png)
+Add keychain access to the `Entitlements.plist`:
 
-Finally, add the custom entitlements to the project:
+1. Open the `Entitlements.plist` file.  
+2. Select **Keychain**.
+3. Select **Add New** in the keychain groups.  
+4. Enter `com.microsoft.adalcache` as the value:
+
+   ![Screenshot showing the i O S entitlements.](./media/windows-entitlements-plist.png)
+
+Add the custom entitlements to the project:
 
 1. Right-click on the `TodoApp.Forms.iOS` project, then select **Properties**.
 2. Select **iOS Bundle Signing**.
@@ -240,7 +267,34 @@ Finally, add the custom entitlements to the project:
 4. Select `Entitlements`, then select **Open**.
 5. Press **Ctrl+S** to save the project.
 
-![Screenshot showing the iOS bundle signing properties.](./media/ios-bundle-signing.png)
+   ![Screenshot showing the i O S bundle signing properties.](./media/windows-bundle-signing.png)
+
+::: zone-end
+
+::: zone pivot="vs2022-mac"
+
+Add keychain access to the `Entitlements.plist`:
+
+1. Open the `Entitlements.plist` file.
+2. If necessary, switch from the **Source** view to the **Entitlements** view.  The selector is in the top-right corner of the window.
+3. Scroll down until you find the **Keychain** panel. 
+4. Turn the **Keychain** switch on.
+5. Select the green **+** icon.
+6. Enter `com.microsoft.adalcache` in the provided box (overwriting whatever is already there), then press Enter.
+
+   ![Screenshot showing the i O S keychain properties on macOS.](./media/mac-entitlements-plist.png)
+
+Add the custom entitlements to the project:
+
+1. Right-click on the `TodoApp.Forms.iOS` project, then select **Options**.
+2. Select **iOS Bundle Signing**.
+3. Select the **...** button next to the **Custom Entitlements** field.
+4. Select `TodoApp.Forms.iOS` > `Entitlements.plist`, then select **Open**.
+5. Select **OK**.
+   
+   ![Screenshot showing the i O S bundle signing properties.](./media/mac-bundle-signing.png)
+
+::: zone-end
 
 ## Test the Android app
 
