@@ -90,7 +90,7 @@ pip install -r requirements.txt
 
 For now, you're done  setting up the sample app. In later steps, you'll optionally configure the app for use in a local development environment or as a deployed web app in Azure.
 
-## 4. What the sample app does
+## What the sample app does
 
 The sample Python code when run locally or deployed to Azure creates a restaurant review application. Users can create restaurants and add reviews to restaurants. Reviews can have text and images.
 
