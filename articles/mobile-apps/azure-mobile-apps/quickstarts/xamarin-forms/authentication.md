@@ -197,6 +197,7 @@ protected override void OnCreate(Bundle savedInstanceState)
     global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
     LoadApplication(new App(this));
 }
+```
 
 Add the following code to the bottom of the class:
 
@@ -227,6 +228,17 @@ Open the `AppDelegate.cs` file in the `TodoApp.Forms.iOS` project.  Add `IPlatfo
 
 ``` csharp
 public partial class AppDelegate : global::Xamarin.Forms.Platform.iOS.FormsApplicationDelegate, IPlatform
+```
+
+Change the `FinishedLaunching()` method to read:
+
+``` csharp
+public override bool FinishedLaunching(UIApplication app, NSDictionary options)
+{
+    global::Xamarin.Forms.Forms.Init();
+    LoadApplication(new App(this));
+    return base.FinishedLaunching(app, options);
+}
 ```
 
 Add the following code to the end of the class:
