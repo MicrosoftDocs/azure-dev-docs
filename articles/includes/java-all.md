@@ -326,6 +326,7 @@
 | azure-mgmt-storagecache | Maven [1.0.0-beta](https://search.maven.org/artifact/com.microsoft.azure.storagecache.v2020_10_01/azure-mgmt-storagecache/1.0.0-beta/jar/) |  |  |
 | azure-mgmt-streamanalytics | Maven [1.0.0-beta](https://search.maven.org/artifact/com.microsoft.azure.streamanalytics.v2020_03_01_preview/azure-mgmt-streamanalytics/1.0.0-beta/jar/) |  |  |
 | azure-mgmt-synapse | Maven [1.0.0](https://search.maven.org/artifact/com.microsoft.azure.synapse.v2020_12_01/azure-mgmt-synapse/1.0.0/jar/) |  |  |
+| azure-monitor-ingestion | Maven [1.0.0-beta.1](https://search.maven.org/artifact/com.azure/azure-monitor-ingestion/1.0.0-beta.1/jar/) |  |  |
 | azure-opentelemetry-exporter-azuremonitor | Maven [1.0.0-beta.2](https://search.maven.org/artifact/com.azure/azure-opentelemetry-exporter-azuremonitor/1.0.0-beta.2/jar/) |  |  |
 | azure-quantum-jobs | Maven [1.0.0-beta.1](https://search.maven.org/artifact/com.azure/azure-quantum-jobs/1.0.0-beta.1/jar/) |  |  |
 | azure-resourcemanager-confidentialledger | Maven [1.0.0-beta.1](https://search.maven.org/artifact/com.azure.resourcemanager/azure-resourcemanager-confidentialledger/1.0.0-beta.1/jar/) |  |  |

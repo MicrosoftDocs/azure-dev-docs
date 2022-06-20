@@ -249,7 +249,7 @@
 | @autorest/codemodel | npm [4.18.2](https://www.npmjs.com/package/@autorest/codemodel/v/4.18.2) |  |  |
 | @autorest/common | npm [1.5.2](https://www.npmjs.com/package/@autorest/common/v/1.5.2) |  |  |
 | @autorest/configuration | npm [1.9.2](https://www.npmjs.com/package/@autorest/configuration/v/1.9.2) |  |  |
-| @autorest/csharp | npm [3.0.0-beta.20220616.1](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20220616.1) |  |  |
+| @autorest/csharp | npm [3.0.0-beta.20220617.2](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20220617.2) |  |  |
 | @autorest/csharp-v3 | npm [3.0.0-beta.20201217.1](https://www.npmjs.com/package/@autorest/csharp-v3/v/3.0.0-beta.20201217.1) |  |  |
 | @autorest/extension-base | npm [3.4.4](https://www.npmjs.com/package/@autorest/extension-base/v/3.4.4) |  |  |
 | @autorest/fixer | npm [1.1.0](https://www.npmjs.com/package/@autorest/fixer/v/1.1.0) |  |  |
@@ -270,7 +270,7 @@
 | @azure/search | npm [11.0.0-preview.1](https://www.npmjs.com/package/@azure/search/v/11.0.0-preview.1) |  |  |
 | @azure/static-web-apps-cli | npm [1.0.1](https://www.npmjs.com/package/@azure/static-web-apps-cli/v/1.0.1) |  |  |
 | @azure/video-analyzer-player | npm [1.0.4](https://www.npmjs.com/package/@azure/video-analyzer-player/v/1.0.4)<br>npm [1.1.0-beta.8](https://www.npmjs.com/package/@azure/video-analyzer-player/v/1.1.0-beta.8) |  |  |
-| @azure/video-analyzer-widgets | npm [2.0.4](https://www.npmjs.com/package/@azure/video-analyzer-widgets/v/2.0.4) |  |  |
+| @azure/video-analyzer-widgets | npm [2.0.5](https://www.npmjs.com/package/@azure/video-analyzer-widgets/v/2.0.5) |  |  |
 | @azure/video-indexer-widgets | npm [1.0.0](https://www.npmjs.com/package/@azure/video-indexer-widgets/v/1.0.0) |  |  |
 | @azure-rest/arm-appservice | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure-rest/arm-appservice/v/1.0.0-beta.1) |  |  |
 | @azure-rest/core-client-lro | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure-rest/core-client-lro/v/1.0.0-beta.1) |  |  |
@@ -349,7 +349,7 @@
 | AutoRest - Go | npm [4.0.0-preview.42](https://www.npmjs.com/package/@autorest/go/v/4.0.0-preview.42) |  |  |
 | AutoRest - Modeler Four | npm [4.23.6](https://www.npmjs.com/package/@autorest/modelerfour/v/4.23.6) |  | GitHub [4.23.6](https://github.com/Azure/autorest.modelerfour) |
 | AutoRest - PowerShell | npm [3.0.487](https://www.npmjs.com/package/@autorest/powershell/v/3.0.487)<br>npm [4.0.0-dev.3](https://www.npmjs.com/package/@autorest/powershell/v/4.0.0-dev.3) |  | GitHub [3.0.487](https://github.com/Azure/autorest.powershell) |
-| AutoRest - Python | npm [5.19.0](https://www.npmjs.com/package/@autorest/python/v/5.19.0) |  | GitHub [5.19.0](https://github.com/Azure/autorest.python/tree/v5.1.0-preview.7) |
+| AutoRest - Python | npm [5.19.0](https://www.npmjs.com/package/@autorest/python/v/5.19.0)<br>npm [6.0.0-rc.1](https://www.npmjs.com/package/@autorest/python/v/6.0.0-rc.1) |  | GitHub [5.19.0](https://github.com/Azure/autorest.python/tree/v5.1.0-preview.7) |
 | AutoRest - Remodeler | npm [2.1.27](https://www.npmjs.com/package/@autorest/remodeler/v/2.1.27) |  | GitHub [2.1.27](https://github.com/Azure/autorest.remodeler) |
 | AutoRest - Test | npm [0.1.76](https://www.npmjs.com/package/@autorest/test/v/0.1.76) |  | GitHub [0.1.76](https://github.com/Azure/autorest.test) |
 | AutoRest - Test Server | npm [3.0.27](https://www.npmjs.com/package/@autorest/test-server/v/3.0.27) |  |  |
