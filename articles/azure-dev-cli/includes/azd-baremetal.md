@@ -42,10 +42,6 @@ This application uses Python Virtual Environments to isolate Python package inst
 
 ::: zone-end
 
-### Azure subscription
-
-You will create infrastructure and deploy code to Azure. If you don't have an Azure Subscription, sign up for [a free account](https://azure.microsoft.com/free/).
-
 ## Run `up` command
 
 The fastest way for you to get this application up and running on Azure is to use the `azd up` command. This single command will initialize the project, create and configure all necessary Azure resources - including access policies and roles for your account and service-to-service communication with Managed Identities.

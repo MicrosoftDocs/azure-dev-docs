@@ -42,6 +42,8 @@ For more information including architecture diagram and the Azure resources you'
 
 To run any sample template, pick a development environment. For more information about the pros and cons of the different development environment choices, see [Azure Developer CLI (azd) supported environments](azure-dev-cli-overview.md#supported-development-environments).    
 
+You will create infrastructure and deploy code to Azure. If you don't have an Azure Subscription, sign up for [a free account](https://azure.microsoft.com/free/).
+
 Once you've selected a development environment, select one of the following tabs:
 
 ### [Bare metal](#tab/bare-metal)
