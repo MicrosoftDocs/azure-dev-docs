@@ -3,7 +3,7 @@ title: Debug Azure apps using the Azure Developer CLI Visual Studio Code extensi
 description: How to use the VS Code extension for Azure Developer CLI to run and debug locally.
 author: puicchan
 ms.author: puichan
-ms.date: 06/13/2021
+ms.date: 06/20/2021
 ms.topic: conceptual
 ms.custom: devx-track-azdevcli
 ms.prod: azure
@@ -14,7 +14,7 @@ In this article, you learn how to use the [Visual Studio Code](https://code.visu
 
 ## Prerequisites
 
-This article assumes you've installed the azd  and created an app from an azd template. If you are new to azd, begin with [Get started](get-started.md) and then return to this article.
+This article assumes you've installed the azd. If you are new to azd, begin with [Get started](get-started.md) and then return to this article.
 
 ## Install the Visual Studio Code extension for Azure Developer CLI
 
@@ -40,7 +40,9 @@ This article assumes you've installed the azd  and created an app from an azd te
 
     !["Visual Studio Code azd extension option to initialize a new app"](media/how-to-use-vscode-extension-to-debug-locally/cmd-init.png)
 
-1. Select one of templates and enter the requested values.
+1. Select the template `Azure-Samples/todo-nodejs-mongo`.
+
+    !["This article uses the todo-nodejs-mongo sample template"](media/how-to-use-vscode-extension-to-debug-locally/sample-template.png)
 
 The following files are included in the .vscode folder:
 
@@ -65,19 +67,27 @@ The debug configuration **Debug API** automatically runs the API server and atta
 
 1. Set a breakpoint at line 16.
 
-1. In the Activity Bar, select **Run and Debug** and the **Debug API** debug configuration.
+1. In the Activity Bar, select **Run and Debug**, the **Debug API** debug configuration, and the **Start Debugging** arrow.
 
     !["Setting the debug configuration to Debug API"](media/how-to-use-vscode-extension-to-debug-locally/debug-api.png)
 
+1. From the **View** menu, select **Debug Console**.
+
+1. Wait for the message indicating the debugger is listening on port 3100.
+
+    !["Message in Debug Console indicating debugger is listening on port 3100"](media/how-to-use-vscode-extension-to-debug-locally/started-listening-on-port.png)
+
 1. In your preferred terminal shell, enter the following command: `curl http://localhost:3100/lists`
 
-1. When the breakpoint is hit, app execution will pause. Press &lt;F5> to continue running the app. The test app returns an empty list.
+    !["Use cURL to connect to the API server"](media/how-to-use-vscode-extension-to-debug-locally/run-curl-command.png)
+
+1. When the breakpoint is hit, app execution will pause. At this point, you can do standard debugging tasks such inspect variables, look at the call stack, and set additional breakpoints. Press &lt;F5> to continue running the app. The sample app returns an empty list.
 
 ## Debug a React Frontend app
 
 To use the **Debug Web** configuration, you must start both the API server and the development web server. To test this pattern, do the following steps:
 
-1. Open the Command Palette and run **Task: run task**.
+1. Open the Command Palette and run **Task: Run task**.
 
     !["Running a Visual Studio Code Task"](media/how-to-use-vscode-extension-to-debug-locally/run-task.png)
 
@@ -91,13 +101,13 @@ To use the **Debug Web** configuration, you must start both the API server and t
 
 1. Set a breakpoint on line 150 (the first line of the `deleteItems` function).
 
-1. In the Activity Bar, select **Run and Debug** and the **Debug API** debug configuration.
+1. In the Activity Bar, select **Run and Debug**, the **Debug Web** debug configuration, and the **Start Debugging** arrow.
 
     !["Setting the debug configuration to Debug Web"](media/how-to-use-vscode-extension-to-debug-locally/debug-web.png)
 
 1. A browser is launched automatically at the following URL: `http://localhost:3000`.
 
-1. You can now debug the app.
+1. You can now debug the app by adding an item, selecting it from the list, and selecting **Delete**. When the breakpoint is hit, app execution will pause. At this point, you can do standard debugging tasks such inspect variables, look at the call stack, and set additional breakpoints. Press &lt;F5> to continue running the app and the item will be deleted.
 
 ## Next steps
 
