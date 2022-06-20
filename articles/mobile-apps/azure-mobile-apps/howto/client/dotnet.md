@@ -206,7 +206,8 @@ The `Where` clause supports operations that be translated into the OData subset.
 * Relational operators (`==`, `!=`, `<`, `<=`, `>`, `>=`),
 * Arithmetic operators (`+`, `-`, `/`, `*`, `%`),
 * Number precision (`Math.Floor`, `Math.Ceiling`),
-* String functions (`Length`, `Substring`, `Replace`, `IndexOf`, `StartsWith`, `EndsWith`),
+* String functions (`Length`, `Substring`, `Replace`, `IndexOf`, `Equals`, `StartsWith`, `EndsWith`),
+  * When using culture-aware functions, Ordinal and Invariant cultures are supported.
 * Date properties (`Year`, `Month`, `Day`, `Hour`, `Minute`, `Second`),
 * Access properties of an object, and
 * Expressions combining any of these operations.
