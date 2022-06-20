@@ -26,7 +26,7 @@ In online operation, you read to and write from a `IRemoteTable<T>`.  When using
 
 ### Set the offline database location
 
-In the `TodoApp.WPF` project, edit the `App.xaml.cs` file.  Change the definition of the `RemoteTodoService` as follows:
+In the `TodoApp.UWP` project, edit the `App.xaml.cs` file.  Change the definition of the `RemoteTodoService` as follows:
 
 ``` csharp
 TodoService = new RemoteTodoService(GetAuthenticationToken)
