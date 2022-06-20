@@ -95,7 +95,7 @@ To use the **Debug Web** configuration, you must start both the API server and t
 
     !["Select the task Start API and Web"](media/how-to-use-vscode-extension-to-debug-locally/run-task-api.png)
 
-1. (Optional) You can check if the local web server is running by navigating to the following URL in a browser: http://localhost:3000 in a web browser.
+1. (Optional) You can check if the local web server is running by navigating to the following URL in a we browser: `http://localhost:3000`.
 
 1. In your project's `src/web/src/components` directory, open `todoItemListPane.tsx`.
 
