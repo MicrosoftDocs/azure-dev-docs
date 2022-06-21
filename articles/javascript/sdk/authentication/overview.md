@@ -8,62 +8,35 @@ ms.custom: devx-track-js
 
 # How to authenticate JavaScript apps to Azure services using the Azure SDK for JavaScript
 
-When an application needs to access an Azure resource (such as Storage, Key vault, or Cognitive services) the application must be authenticated to Azure.  This is true for all applications, whether deployed to Azure, deployed on-premises, or under development on a local developer workstation. This article describes the recommended approaches to authenticate an app to Azure when using the Azure SDK for JavaScript.
+[!INCLUDE [Create app registration step 1](<../../../includes/authentication/overview-para-1.md>)] This article describes the recommended approaches to authenticate an app to Azure when using the Azure SDK for JavaScript.
 
 ## Recommended app authentication approach
 
-The recommended process is to have your apps use **token-based authentication**, rather than connection strings or keys, when authenticating to Azure resources. The Azure SDK for JavaScript provides token-based authentication and allow apps to seamlessly authenticate to Azure resources whether the app is in local development, deployed to Azure, or deployed to an on-premises server.
-
-The specific type of token-based authentication an app should use to authenticate to Azure resources depends on where the app is running and is shown in the following diagram.
+[!INCLUDE [Recommended app authentication approach](<../../../includes/authentication/overview-recommend-authentication.md>)]
 
 :::image type="content" source="../../media/azure-sdk-authentication/javascript-sdk-auth-strategy.png" alt-text="A diagram showing the recommended token-based authentication strategies for an app depending on where it's running." :::
 
-|Environment|Authentication|
-|--|--|
-|**Local**| When a developer is running an app during local development - The app can authenticate to Azure using either an application service principal for local development or by using the developer's Azure credentials.  Each of these options is discussed in more detail in the section [authentication during local development](#authentication-during-local-development).|
-|**Azure**| When an app is hosted on Azure - The app should authenticate to Azure resources using a managed identity. This option is discussed in more detail below in the section [authentication in server environments](#authentication-in-server-environments).|
-|**On-premises**|When an app is hosted and deployed on-premises - The app should authenticate to Azure resources using an application service principal. This option is discussed in more detail below in the section [authentication in server environments](#authentication-in-server-environments).|
-
 ### Advantages of token-based authentication
 
-When building apps for Azure, token-based authentication is strongly recommended over secrets (connection strings or keys). Token-based authentication is provided with [DefaultAzureCredential](#use-defaultazurecredential-in-an-application).
+[!INCLUDE [Advantages of token-based authentication](<../../../includes/authentication/overview-advantages.md>)]
 
-|Token-based authentication|Secrets (connection strings and keys)|
-|--|--|
-|[Principle of least privilege](https://en.wikipedia.org/wiki/Principle_of_least_privilege), establish the specific permissions needed by the app on the Azure resource. | A connection string or key grants full rights to the Azure resource.|
-|There's no application secret to store.| Must store and rotate secrets in app setting or environment variable.|
-|The [@azure/identity](https://www.npmjs.com/package/@azure/identity) package in the Azure SDK manages tokens for you behind the scenes. This makes using token-based authentication as easy to use as a connection string.|Secrets are not managed.|
+Use the following SDK: 
 
-Use of connection strings should be limited to initial proof of concept apps or development prototypes that don't access production or sensitive data.  Otherwise, the token-based authentication classes available in the Azure SDK should always be preferred when authenticating to Azure resources.
+* [@azure/identity](https://www.npmjs.com/package/@azure/identity)
+
 
 ### DefaultAzureCredential
 
-The Azure SDK [DefaultAzureCredential](#use-defaultazurecredential-in-an-application) method allows apps to use different authentication methods depending on the environment they're run in. This allows apps to deploy in local, test, and production environments without code changes.  You configure the appropriate authentication method for each environment and `DefaultAzureCredential` automatically detects and uses that authentication method. The use of `DefaultAzureCredential` is preferred over manually coding conditional logic or feature flags to use different authentication methods in different environments.
-
-Details about using the DefaultAzureCredential class are covered later in this article in the section [Use DefaultAzureCredential in an application](#use-defaultazurecredential-in-an-application).
+[!INCLUDE [DefaultAzureCredential](<../../../includes/authentication/overview-defaultazurecredential.md>)]
 
 ## Authentication in server environments
 
-When hosting in a server environment, each application should be assigned a unique *application identity* per environment. In Azure, an app identity is represented by a **service principal**, a special type of *security principal* intended to identify and authenticate apps to Azure. The type of service principal to use for your app depends on where your app is running.
+[!INCLUDE [Authentication in server environments](<../../../includes/authentication/overview-server-environments.md>)]
 
-<!--
-| Authentication method | Description |
-|-----------------------|-------------|
-| Apps hosted in Azure  | [!INCLUDE [sdk-auth-overview-managed-identity](./includes/sdk-auth-overview-managed-identity.md)]            |
-| Apps hosted outside of Azure<br>(for example on-premises apps) | [!INCLUDE [sdk-auth-overview-service-principal](./includes/sdk-auth-overview-service-principal.md)] |
--->
 ## Authentication during local development
 
-When an application is run on a developer's workstation during local development, the local environment must still authenticate to any Azure services used by the app. 
+[!INCLUDE [Authentication during local development](<../../../includes/authentication/overview-local-environments.md>)]
 
-<!--
-The two main strategies for authenticating apps to Azure during local development are:
-
-| Authentication method | Description |
-|-----------------------|-------------|
-| Create dedicated application service principal objects to be used during local development | [!INCLUDE [sdk-auth-overview-dev-service-principals](./includes/sdk-auth-overview-dev-service-principals.md)] |
-| Authenticate the app to Azure using the developer's credentials during local development | [!INCLUDE [sdk-auth-overview-dev-accounts](./includes/sdk-auth-overview-dev-accounts.md)] |
--->
 ## Use DefaultAzureCredential in an application
 
 To use [DefaultAzureCredential](/javascript/api/@azure/identity/defaultazurecredential) in a JavaScript app, add the [@azure/identity](https://www.npmjs.com/package/@azure/identity) package to your application.
@@ -89,19 +62,17 @@ const blobServiceClient = new BlobServiceClient(
 );
 ```
 
-`DefaultAzureCredential` will automatically detect the authentication mechanism configured for the app and obtain the necessary tokens to authenticate the app to Azure. If an application makes use of more than one SDK client, the same credential object can be used with each SDK client object.
+[!INCLUDE [Authentication during local development - after](<../../../includes/authentication/overview-defaultazurecredential-after.md>)]
 
 ### Sequence of selecting authentication methods when using DefaultAzureCredential
 
-Internally, `DefaultAzureCredential` implements a chain of selecting credential providers for authenticating applications to Azure resources.  Each credential provider is able to detect if credentials of that type are configured for the app.  `DefaultAzureCredential` sequentially checks each provider in order and uses the credentials from the first provider that has credentials configured.
+[!INCLUDE [Sequence of selecting authentication methods when using DefaultAzureCredential](<../../../includes/authentication/overview-credential-sequence.md>)]
 
 The order in which `DefaultAzureCredential` looks for credentials for JavaScript is shown in the diagram and table below.  
 
 :::image type="content" source="../../media/azure-sdk-authentication/DefaultAzureCredentialAuthFlow.svg" alt-text="A diagram showing the sequence in which DefaultAzureCredential checks to see what authentication source is configured for an application." lightbox="../../media/azure-sdk-authentication/DefaultAzureCredentialAuthFlow.svg":::
 
-If you've more than one credential configured, the order of finding the credential through the chain is important. 
-
-In the image, there are two paths:
+There are two paths:
 * **Deployed service** (Azure or on-premises): the sequence begins with the environment variables, then the managed identity, then the rest of the locations for a credential (Visual Studio Code, Azure CLI, Azure PowerShell). 
 * **Developer's local environment**: The local developer workstation's chain starts with Visual Studio Code's signed in Azure user, shown in the bottom bar of the IDE, then moves on to the Azure CLI, then Azure PowerShell. It's important to understand if you've configured your local environment variables, either for your entire environment, or a project's virtual environment (such as with DOTENV), these variables will override the Visual Studio Code -> Azure CLI -> PowerShell chain because they're the first credential checked in the chain. 
 
