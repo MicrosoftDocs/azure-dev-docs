@@ -1,20 +1,23 @@
 ---
-title: How to config pipeline and push updates through GitHub Action
-description: How to use the VS Code and the extension for Azure Developer CLI to push update through GitHub Action.
+title: Configure CI/CD pipelines using GitHub Actions
+description: Learn how to push updates using GitHub Actions.
 author: puicchan
 ms.author: puichan
-ms.date: 04/12/2021
+ms.date: 06/20/2021
 ms.topic: conceptual
 ms.custom: devx-track-azdevcli
 ms.prod: azure
 ---
-# How to config pipeline and push updates through GitHub Action
 
-You can use any of the [Azure Developer CLI template](azure-dev-cli-overview.md#azure-developer-cli-templates) for this walkthrough. We'll use the [Todo Application with Node.js and Azure Cosmo DB API for MongoDB](https://github.com/azure-samples/todo-nodejs-mongo). 
+# Configure CI/CD pipelines using GitHub Actions
 
-By now, you should have your Azure resources provisioned and application deployed. If not, follow the steps in [get-started](get-started.md). 
+This article uses the sample [Todo Application with Node.js and Azure Cosmo DB API for MongoDB](https://github.com/azure-samples/todo-nodejs-mongo). However, the principles you learn in this article apply to any of the [Azure Developer CLI template](azure-dev-cli-overview.md#azure-developer-cli-templates).
 
-## Set up DevOps pipeline using `azd pipeline`
+## Prerequisites
+
+This article assumes you've installed the azd. If you are new to azd, begin with [Get started](get-started.md) and then return to this article.
+
+## Configure a DevOps pipeline
 
 The template includes a GitHub Actions pipeline configuration file that will deploy your application whenever code is pushed to the main branch. You can find that pipeline file here: `.github/workflow`.
 

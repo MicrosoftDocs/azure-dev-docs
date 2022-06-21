@@ -8,6 +8,7 @@ ms.topic: conceptual
 ms.custom: devx-track-azdevcli
 ms.prod: azure
 ---
+
 # Debug Azure apps using the Azure Developer CLI Visual Studio Code extension
 
 In this article, you learn how to use the [Visual Studio Code](https://code.visualstudio.com/docs) extension for Azure Developer CLI (azd) to run and debug apps on your local machine.
@@ -109,7 +110,7 @@ To use the **Debug Web** configuration, you must start both the API server and t
 
     !["The sample NodeJS Mongo app allows you to add and delete text items"](media/how-to-use-vscode-extension-to-debug-locally/sample-app.png)
 
-1. When the breakpoint you set earlier is hit, app execution will pause. At this point, you can do standard debugging tasks such inspect variables, look at the call stack, and set additional breakpoints. Press &lt;F5> to continue running the app and the item will be deleted.
+1. When the breakpoint you set earlier is hit, app execution will pause. At this point, you can do standard debugging tasks such inspect variables, look at the call stack, and set additional breakpoints. Press &lt;F5> to continue running the app and the selected item will be deleted.
 
 ## Next steps
 
