@@ -19,11 +19,13 @@ This article assumes you've installed the azd. If you are new to azd, begin with
 
 ## Configure a DevOps pipeline
 
-The template includes a GitHub Actions pipeline configuration file that will deploy your application whenever code is pushed to the main branch. You can find that pipeline file here: `.github/workflow`.
+All sample templates include a GitHub Actions pipeline configuration file that deploy your application whenever code is pushed to the main branch. This configuration file is called `azure-dev.yml` and is located in your project's `.github/workflow` directory.
 
-Setting up this pipeline requires you to give GitHub permission to deploy to Azure on your behalf, which is done via a Service Principal stored in a GitHub secret named `AZURE_CREDENTIALS`. The `azd pipeline config` command will automatically create a service principal for you. The command also helps to create a private GitHub repository and pushes code to the newly created repo.  
+Configuring the pipeline requires you to give GitHub permission to deploy to Azure on your behalf. Authorizing GitHub is done via an Azure service principle stored in a GitHub secret named `AZURE_CREDENTIALS`.
 
-Run the following command to set up a GitHub Action:
+To create the service principle, run the command `azd pipeline config`. The command also creates a private GitHub repository and pushes code to the new repo.  
+
+Run the following command to configure a GitHub Action:
 
 ```bash
 azd pipeline config
