@@ -81,7 +81,7 @@ The debug configuration **Debug API** automatically runs the API server and atta
 
     !["Use cURL to connect to the API server"](media/how-to-use-vscode-extension-to-debug-locally/run-curl-command.png)
 
-1. When the breakpoint is hit, app execution will pause. At this point, you can do standard debugging tasks such inspect variables, look at the call stack, and set additional breakpoints. Press &lt;F5> to continue running the app. The sample app returns an empty list.
+1. When the breakpoint you set earlier is hit, app execution will pause. At this point, you can do standard debugging tasks such inspect variables, look at the call stack, and set additional breakpoints. Press &lt;F5> to continue running the app. The sample app returns an empty list.
 
 ## Debug a React Frontend app
 
@@ -105,9 +105,11 @@ To use the **Debug Web** configuration, you must start both the API server and t
 
     !["Setting the debug configuration to Debug Web"](media/how-to-use-vscode-extension-to-debug-locally/debug-web.png)
 
-1. A browser is launched automatically at the following URL: `http://localhost:3000`.
+1. Running the web app will cause your default browser to open the following URL: `http://localhost:3000`. You can now debug the app by adding an item, selecting it from the list, and selecting **Delete**.
 
-1. You can now debug the app by adding an item, selecting it from the list, and selecting **Delete**. When the breakpoint is hit, app execution will pause. At this point, you can do standard debugging tasks such inspect variables, look at the call stack, and set additional breakpoints. Press &lt;F5> to continue running the app and the item will be deleted.
+    !["The sample NodeJS Mongo app allows you to add and delete text items"](media/how-to-use-vscode-extension-to-debug-locally/sample-app.png)
+
+1. When the breakpoint you set earlier is hit, app execution will pause. At this point, you can do standard debugging tasks such inspect variables, look at the call stack, and set additional breakpoints. Press &lt;F5> to continue running the app and the item will be deleted.
 
 ## Next steps
 
