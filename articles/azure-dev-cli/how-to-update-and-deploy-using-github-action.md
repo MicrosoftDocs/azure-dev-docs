@@ -25,22 +25,25 @@ Setting up this pipeline requires you to give GitHub permission to deploy to Azu
 
 Run the following command to set up a GitHub Action:
 
-```
+```bash
 azd pipeline config
 ```
 
-## Edit code
-
-Use your favorite IDE, make a simple modification to the code.
+## Make and push a code change
 
 1. Open `header.tsx` in `/src/web/src/layout`
+
 1. Locate the line `<Text variant="xLarge">ToDo</Text>` and update **ToDo** to say **myTodo** to update the application label.
+
 1. Save the file.
+
 1. Commit your change and push to GitHub to automatically kick off the GitHub Action pipelie to deploy the update.
+
 1. Visit the web frontend URL to inspect the update.
 
-### Clean up resources
-When you're done, you can delete all the Azure resources created with this template by running the following command:
+## Clean up resources
+
+When you no longer need the resources created in this article, run the following command:
 
 ``` bash
 azd down
