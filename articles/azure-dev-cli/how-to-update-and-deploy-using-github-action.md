@@ -1,5 +1,5 @@
 ---
-title: Configure CI/CD pipelines using GitHub Actions
+title: Configure a pipeline and push updates using GitHub Actions
 description: Learn how to push updates using GitHub Actions.
 author: puicchan
 ms.author: puichan
@@ -9,7 +9,7 @@ ms.custom: devx-track-azdevcli
 ms.prod: azure
 ---
 
-# Configure CI/CD pipelines using GitHub Actions
+# Configure a pipeline and push updates using GitHub Actions
 
 This article uses the sample [Todo Application with Node.js and Azure Cosmo DB API for MongoDB](https://github.com/azure-samples/todo-nodejs-mongo). However, the principles you learn in this article apply to any of the [Azure Developer CLI template](azure-dev-cli-overview.md#azure-developer-cli-templates).
 
