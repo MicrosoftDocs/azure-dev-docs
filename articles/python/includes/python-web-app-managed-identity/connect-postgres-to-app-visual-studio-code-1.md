@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 06/01/2022
 ---
 
-In the Azure extension:
+In the Azure Tools extension for Visual Studio Code:
 
-1. Select the **App Services** section.
+1. Expand **RESOURCES** and find your subscription. (Make sure you viewing resources by **Group by Resource Type**.)
 
-1. Under **RESOURCES**, expand your subscription and find the App Service and expand it. (Make sure you viewing resources by **Group by Resource Type**.)
+1. Right-click the **App Services** extension in your subscription.
 
 1. Right-click **Application Settings** and select **Add new setting...**.
