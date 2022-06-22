@@ -49,5 +49,5 @@ To create an azd compatible project:
 ## Useful Bicep resources
 
 * For an introduction to working with Bicep files, see Quickstart: [Create Bicep files with Visual Studio Code](/azure/azure-resource-manager/bicep/quickstart-create-bicep-use-visual-studio-code?tabs=CLI).
-* [Bicep Samples](https://github.com/Azure/azure-docs-bicep-samples)
+* [Bicep Samples](https://docs.microsoft.com/en-us/samples/browse/?languages=bicep)
 * [How to decompile Azure Resource Manager templates (ARM templates) to Bicep](/azure/azure-resource-manager/bicep/decompile?tabs=azure-cli)
