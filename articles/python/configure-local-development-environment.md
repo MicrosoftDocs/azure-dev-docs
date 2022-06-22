@@ -118,7 +118,7 @@ To create a virtual environment, follow these steps.
 
     ---
 
-    This command runs the Python `venv` module and creates a virtual environment in a folder named ".venv".  Typically, [*.gitignore*](http://git-scm.com/docs/gitignore) files have an entry ".venv" so that the virtual environment doesn't get checked in with your code checkins.
+    This command runs the Python `venv` module and creates a virtual environment in a folder named ".venv".  Typically, [*.gitignore*](http://git-scm.com/docs/gitignore) files have a ".venv" entry so that the virtual environment doesn't get checked in with your code checkins.
 
 1. Activate the virtual environment:
 
