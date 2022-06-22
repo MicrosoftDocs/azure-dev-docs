@@ -13,8 +13,6 @@
     href: how-to-monitor-your-app.md
   - name: Make project azd compatible
     href: how-to-azd-enable-a-project.md
-  - name: Help with Azure Bicep
-    href: how-to-azd-bicep.md
   - name: Troubleshoot and Get help
     href: troubleshoot.md   
   - name: Frequently asked questions (FAQ)
