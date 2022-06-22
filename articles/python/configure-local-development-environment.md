@@ -8,7 +8,7 @@ ms.custom: devx-track-python
 
 # Configure your local Python dev environment for Azure
 
-To develop Python applications using Azure, you first want to configure your local development environment.  This includes creating an Azure account, installing tools for Azure development, and connecting those tools to your Azure account.
+To develop Python applications using Azure, you first want to configure your local development environment.  Configuration includes creating an Azure account, installing tools for Azure development, and connecting those tools to your Azure account.
 
 Developing on Azure requires Python 3.7 or higher. It's assumed you already have Python 3.7 or higher installed on your local workstation. To verify the version of Python on your workstation, type the command `python3 --version` for macOS/Linux and `py --version` for Windows in any console window.
 
@@ -25,16 +25,16 @@ Otherwise, you can create an [Azure account for free](https://azure.microsoft.co
 
 ## Use the Azure portal
 
-Once you have your credentials, you can sign in to the [Azure portal](https://portal.azure.com) at https://portal.azure.com.  The Azure Portal is typically easiest way to get started with Azure, especially if you are new to Azure and cloud development. In the Azure portal you can do a variety of management tasks such as creating and deleting resources.
+Once you have your credentials, you can sign in to the [Azure portal](https://portal.azure.com) at https://portal.azure.com.  The Azure portal is typically easiest way to get started with Azure, especially if you're new to Azure and cloud development. In the Azure portal, you can do various management tasks such as creating and deleting resources.
 
-If you are already experienced with Azure and cloud development, you'll probably start off using tools as well such as Visual Studio Code and Azure CLI. Articles in the Python developer center show how to work with the Azure portal, Visual Studio Code, and Azure CLI.
+If you're already experienced with Azure and cloud development, you'll probably start off using tools as well such as Visual Studio Code and Azure CLI. Articles in the Python developer center show how to work with the Azure portal, Visual Studio Code, and Azure CLI.
 
 > [!div class="nextstepaction"]
 > [Sign in to the Azure portal](https://portal.azure.com)
 
 ## Use Visual Studio Code
 
-You can use any editor or IDE to write Python code when developing for Azure. However, you may want to consider using [Visual Studio Code](https://code.visualstudio.com/) for Azure and Python development. Visual Studio Code provides a number of extensions and customizations for Azure and Python, which make your development cycle and the deployment from a local environment to Azure easier.
+You can use any editor or IDE to write Python code when developing for Azure. However, you may want to consider using [Visual Studio Code](https://code.visualstudio.com/) for Azure and Python development. Visual Studio Code provides many extensions and customizations for Azure and Python, which make your development cycle and the deployment from a local environment to Azure easier.
 
 For Python development using Visual Studio Code, install:
 
@@ -93,7 +93,7 @@ The Azure CLI will open your default browser to complete the sign-in process.
 
 ## Configure Python virtual environments
 
-When creating Python applications for Azure, it's recommended to create a [virtual environment](https://docs.python.org/3/tutorial/venv.html) for each application. A virtual environment is a self-contained directory for a particular version of Python plus the additional packages needed for that application.
+When creating Python applications for Azure, it's recommended to create a [virtual environment](https://docs.python.org/3/tutorial/venv.html) for each application. A virtual environment is a self-contained directory for a particular version of Python plus the other packages needed for that application.
 
 To create a virtual environment, follow these steps.
 
@@ -118,7 +118,7 @@ To create a virtual environment, follow these steps.
 
     ---
 
-    This command runs the Python `venv` module and creates a virtual environment in a folder named *.venv*.  Typically, [*.gitignore*](http://git-scm.com/docs/gitignore) files have an entry for *.venv* so that the virtual environment does not get checked in with your code checkins.
+    This command runs the Python `venv` module and creates a virtual environment in a folder named ".venv".  Typically, [*.gitignore*](http://git-scm.com/docs/gitignore) files have an entry ".venv" so that the virtual environment doesn't get checked in with your code checkins.
 
 1. Activate the virtual environment:
 
@@ -136,7 +136,7 @@ To create a virtual environment, follow these steps.
 
     ---
 
-Once you activate that environment (which Visual Studio Code does automatically), running `pip install` installs a library into that environment only. Python code running in a virtual environment will use the specific package versions installed into that virtual environment. This allows different applications to use different versions of a package, which is sometimes required. To learn more about virtual environments, see [Virtual Environments and Packages](https://docs.python.org/3/tutorial/venv.html) in the Python docs.
+Once you activate that environment (which Visual Studio Code does automatically), running `pip install` installs a library into that environment only. Python code running in a virtual environment uses the specific package versions installed into that virtual environment. Using different virtual environments allows different applications to use different versions of a package, which is sometimes required. To learn more about virtual environments, see [Virtual Environments and Packages](https://docs.python.org/3/tutorial/venv.html) in the Python docs.
 
 For example, your [requirements](https://pip.pypa.io/en/stable/reference/requirements-file-format/) are in a *requirements.txt* file, then inside the activated virtual environment, you can install them with:
 
