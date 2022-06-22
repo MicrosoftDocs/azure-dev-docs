@@ -1,7 +1,7 @@
 ---
 title: Configure your local Python environment for Azure development
 description: How to set up a local Python dev environment for working with Azure.
-ms.date: 03/01/2022
+ms.date: 06/01/2022
 ms.topic: conceptual
 ms.custom: devx-track-python
 ---
@@ -10,7 +10,7 @@ ms.custom: devx-track-python
 
 To develop Python applications using Azure, you first want to configure your local development environment.  This includes creating an Azure account, installing tools for Azure development, and connecting those tools to your Azure account.
 
-Developing on Azure requires Python 3.6 or higher. It's assumed you already have Python 3.6 or higher installed on your local workstation. To verify the version of Python on your workstation, type the command `python3 --version` in any console window.
+Developing on Azure requires Python 3.7 or higher. It's assumed you already have Python 3.7 or higher installed on your local workstation. To verify the version of Python on your workstation, type the command `python3 --version` for macOS/Linux and `py --version` for Windows in any console window.
 
 ## Create an Azure Account
 
@@ -23,18 +23,26 @@ Otherwise, you can create an [Azure account for free](https://azure.microsoft.co
 > [!div class="nextstepaction"]
 > [Create an Azure account for free](https://azure.microsoft.com/free/python/)
 
-## Sign in to Azure
+## Using the Azure portal
 
-Once you have your credentials, sign in to the [Azure portal](https://portal.azure.com) at https://portal.azure.com. It's recommended that to bookmark the Azure portal (https://portal.azure.com) for ease of reference in the future.
+Once you have your credentials, you can sign in to the [Azure portal](https://portal.azure.com) at https://portal.azure.com.  The Azure Portal is typically easiest way to get started with using Azure, especially if you are new to Azure and cloud development. In the Azure portal you can do a variety of management tasks such as creating and deleting resources. 
+
+If you are already experienced with Azure and cloud development, you'll probably start off using tools as well such as Visual Studio Code and Azure CLI. Articles in the Python developer center show how to work with the Azure portal, Visual Studio Code, and Azure CLI.
 
 > [!div class="nextstepaction"]
 > [Sign in to the Azure portal](https://portal.azure.com)
 
-## Install Azure Tools extension for VS Code
+## Using Visual Studio Code
 
-You can use any editor or IDE to write Python code when developing for Azure.  For developers using VS Code, you'll want to install the [Azure Tools extension pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack).  The Azure Tools extension pack contains extensions for working with Azure App Service, Azure Functions, Azure Storage, Cosmos DB, and Azure Virtual Machines in one convenient package.
+You can use any editor or IDE to write Python code when developing for Azure. However, you may want to consider using [Visual Studio Code](https://code.visualstudio.com/) for Azure and Python development. Visual Studio Code provides a number of extensions and customization for Azure and Python, which make your development cycle from local environment to Azure hosted much easier.
 
-To install the extension from Visual Studio Code:
+In particular, Visual Studio Code has the:
+
+* [Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python), which includes IntelliSense (Pylance), Linting, Debugging (multi-threaded, remote), Jupyter Notebooks, code formatting, refactoring, unit tests, and more.
+
+* [Azure Tools extension pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack) extension pack contains extensions for working with Azure App Service, Azure Functions, Azure Storage, Cosmos DB, and Azure Virtual Machines in one convenient package. The Azure extensions make it easy to discover and interact with the Azure.
+
+To install extensions from Visual Studio Code:
 
 1. Press <kbd>Ctrl+Shift+X</kbd> to open the **Extensions** window.
 1. Search for the *Azure Tools* extension.
@@ -50,9 +58,9 @@ On the left-hand panel, you'll see an Azure icon. Select this icon, and a contro
 
 :::image type="content" source="./media/configure-local-development-environment/vs-code-azure-login-small.png" alt-text="Screenshot of the Visual Studio Code showing how to sign-in the Azure tools to Azure." lightbox="./media/configure-local-development-environment/vs-code-azure-login.png":::
 
-## Install the Azure CLI
+## Use the Azure CLI
 
-In addition to the Azure portal, Azure also offers the [Azure CLI](/cli/azure/) command-line tool to create and manage Azure resources. The Azure CLI offers the benefits of efficiency, repeatability, and the ability to script recurring tasks. In practice, most developers use both the Azure portal and the Azure CLI.
+In addition to the Azure portal and Visual Studio Code, Azure also offers the [Azure CLI](/cli/azure/) command-line tool to create and manage Azure resources. The Azure CLI offers the benefits of efficiency, repeatability, and the ability to script recurring tasks. In practice, most developers use both the Azure portal and the Azure CLI.
 
 ### [Install on macOS](#tab/macOS)
 
