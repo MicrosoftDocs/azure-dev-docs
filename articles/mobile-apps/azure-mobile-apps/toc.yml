@@ -10,6 +10,14 @@
       href: quickstarts/cordova/offline.md
     - name: Add Authentication
       href: quickstarts/cordova/authentication.md
+  - name: Avalonia
+    items:
+    - name: Introduction
+      href: quickstarts/avalonia/index.md
+    - name: Add Offline Sync
+      href: quickstarts/avalonia/offline.md
+    - name: Add Authentication
+      href: quickstarts/avalonia/authentication.md
   - name: .NET MAUI
     items:
     - name: Introduction
