@@ -138,7 +138,7 @@ To create a virtual environment, follow these steps.
 
 Once you activate that environment (which Visual Studio Code does automatically), running `pip install` installs a library into that environment only. Python code running in a virtual environment uses the specific package versions installed into that virtual environment. Using different virtual environments allows different applications to use different versions of a package, which is sometimes required. To learn more about virtual environments, see [Virtual Environments and Packages](https://docs.python.org/3/tutorial/venv.html) in the Python docs.
 
-For example, your [requirements](https://pip.pypa.io/en/stable/reference/requirements-file-format/) are in a *requirements.txt* file, then inside the activated virtual environment, you can install them with:
+For example, if your [requirements](https://pip.pypa.io/en/stable/reference/requirements-file-format/) are in a *requirements.txt* file, then inside the activated virtual environment, you can install them with:
 
 ```bash
 pip install -r requirements.txt
