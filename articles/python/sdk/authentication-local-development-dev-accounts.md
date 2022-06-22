@@ -118,10 +118,10 @@ For information on assigning permissions at the resource or subscription level u
 
 ### [VS Code Azure Tools extension](#tab/sign-in-vscode)
 
-For an app to use the developer credentials from VS Code, the [VS Code Azure Tools extension must be installed](../configure-local-development-environment.md#install-azure-tools-extension-for-vs-code) in VS Code.
+For an app to use the developer credentials from VS Code, the [VS Code Azure Tools extension must be installed](../configure-local-development-environment.md#use-visual-studio-code) in VS Code.
 
 > [!div class="nextstepaction"]
-> [Install the Azure Tools extensions for VS Code](../configure-local-development-environment.md#install-azure-tools-extension-for-vs-code)
+> [Install the Azure Tools extensions for VS Code](../configure-local-development-environment.md#use-visual-studio-code)
 
 On the left-hand panel, you'll see an Azure icon. Select this icon, and a control panel for Azure services will appear. Choose **Sign in to Azure...** under any service to complete the authentication process for the Azure tools in Visual Studio Code.
 
