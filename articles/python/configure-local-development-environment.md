@@ -23,7 +23,7 @@ Otherwise, you can create an [Azure account for free](https://azure.microsoft.co
 > [!div class="nextstepaction"]
 > [Create an Azure account for free](https://azure.microsoft.com/free/python/)
 
-## Using the Azure portal
+## Use the Azure portal
 
 Once you have your credentials, you can sign in to the [Azure portal](https://portal.azure.com) at https://portal.azure.com.  The Azure Portal is typically easiest way to get started with using Azure, especially if you are new to Azure and cloud development. In the Azure portal you can do a variety of management tasks such as creating and deleting resources. 
 
@@ -32,7 +32,7 @@ If you are already experienced with Azure and cloud development, you'll probably
 > [!div class="nextstepaction"]
 > [Sign in to the Azure portal](https://portal.azure.com)
 
-## Using Visual Studio Code
+## Use Visual Studio Code
 
 You can use any editor or IDE to write Python code when developing for Azure. However, you may want to consider using [Visual Studio Code](https://code.visualstudio.com/) for Azure and Python development. Visual Studio Code provides a number of extensions and customization for Azure and Python, which make your development cycle from local environment to Azure hosted much easier.
 
@@ -52,9 +52,7 @@ To install extensions from Visual Studio Code:
 
 To learn more about installing extensions in Visual Studio Code, refer to the [Extension Marketplace](https://code.visualstudio.com/docs/editor/extension-gallery) document on the Visual Studio Code website.
 
-### Sign-in to your Azure account with Azure Tools
-
-On the left-hand panel, you'll see an Azure icon. Select this icon, and a control panel for Azure services will appear. Choose **Sign in to Azure...** under any service to complete the authentication process for the Azure tools in Visual Studio Code.
+After installing the Azure Tools extension, sign in with your Azure account. On the left-hand panel, you'll see an Azure icon. Select this icon, and a control panel for Azure services will appear. Choose **Sign in to Azure...** under any service to complete the authentication process for the Azure tools in Visual Studio Code.
 
 :::image type="content" source="./media/configure-local-development-environment/vs-code-azure-login-small.png" alt-text="Screenshot of the Visual Studio Code showing how to sign-in the Azure tools to Azure." lightbox="./media/configure-local-development-environment/vs-code-azure-login.png":::
 
@@ -120,7 +118,7 @@ To create a virtual environment, follow these steps.
 
     ---
 
-    This command runs the Python `venv` module and creates a virtual environment in a folder named `.venv`.
+    This command runs the Python `venv` module and creates a virtual environment in a folder named *.venv*.
 
 1. Activate the virtual environment:
 
@@ -138,7 +136,7 @@ To create a virtual environment, follow these steps.
 
     ---
 
-Once you activate that environment (which Visual Studio Code does automatically), running `pip install` installs a library into that environment only. Python code running in a virtual environment will use the specific package versions installed into that virtual environment. This allows different applications to use different versions of a package, which is sometimes required.
+Once you activate that environment (which Visual Studio Code does automatically), running `pip install` installs a library into that environment only. Python code running in a virtual environment will use the specific package versions installed into that virtual environment. This allows different applications to use different versions of a package, which is sometimes required. To learn more about virtual environments, see [Virtual Environments and Packages](https://docs.python.org/3/tutorial/venv.html) in the Python docs.
 
 ## Next step
 
