@@ -29,7 +29,7 @@ Open the `TodoApp.sln` solution in Visual Studio and set the `TodoApp.Avalonia`p
 
 [!INCLUDE [Set up MSAL in Windows](~/mobile-apps/azure-mobile-apps/includes/quickstart/windows/add-msal-library.md)]
 
-Open the `TodoListViewModel.cs` file in the `ViewModels` folder of the `TodoApp.Avalonia` project.  
+Open the `MainWindowViewModel.cs` file in the `ViewModels` folder of the `TodoApp.Avalonia` project.  
 
 Add the following `using` statements to the top of the file:
 
@@ -43,20 +43,20 @@ using System.Linq;
 Remove the `TodoService` property and replace it with the following code:
 
 ``` csharp
-static App()
+public MainWindowViewModel()
 {
     IdentityClient = PublicClientApplicationBuilder.Create(Constants.ApplicationId)
         .WithAuthority(AzureCloudInstance.AzurePublic, "common")
         .WithRedirectUri("http://localhost")
         .Build();
-    TodoService = new RemoteTodoService(async () => await GetAuthenticationToken());
+    TodoService = new RemoteTodoService(GetAuthenticationToken);
 }
 
-public static IPublicClientApplication IdentityClient { get; }
+public IPublicClientApplication IdentityClient { get; }
 
-public static ITodoService TodoService { get; }
+public ITodoService TodoService { get; }
 
-public static async Task<AuthenticationToken> GetAuthenticationToken()
+public async Task<AuthenticationToken> GetAuthenticationToken()
 {
     var accounts = await IdentityClient.GetAccountsAsync();
     AuthenticationResult? result = null;

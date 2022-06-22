@@ -46,9 +46,9 @@ This tutorial can only be completed on a Windows system.  We recommend that you 
 
 ## Build and run the sample app
 
-1. In the solutions explorer, expand the `other` folder.
-1. Right-click the `TodoApp.Avalonia` project and select **Set as Startup Project**.
-1. In the top bar, select the **Any CPU** configuration and the **TodoApp.Avalonia** target:
+1. In the solutions explorer, expand the `others` folder.
+1. Right-click the `TodoApp.AvaloniaUI` project and select **Set as Startup Project**.
+1. In the top bar, select the **Any CPU** configuration and the **TodoApp.AvaloniaUI** target:
 
     ![Screenshot of the Visual Studio configuration bar.](./media/win-configuration.png)
 
