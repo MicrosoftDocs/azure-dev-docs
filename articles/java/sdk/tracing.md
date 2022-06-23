@@ -20,23 +20,26 @@ There are two key concepts related to tracing: **span** and **trace**. A span re
 
 By using an Azure Monitor Java in-process agent, you can enable monitoring of your applications without any code changes. For more information, see [Azure Monitor OpenTelemetry-based auto-instrumentation for Java applications](/azure/azure-monitor/app/java-in-process-agent). Azure SDK support is enabled by default starting with agent version 3.2.
 
-## Tracing Azure SDK calls with OpenTelemetry agent of SDK (preview)
+## Tracing Azure SDK calls with OpenTelemetry agent
 
-To enable Azure SDK tracing, add the latest `com.azure:azure-core-tracing-opentelemetry` packages to your application. For more information, see [Azure OpenTelemetry Tracing plugin library for Java](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/core/azure-core-tracing-opentelemetry#azure-tracing-opentelemetry-client-library-for-java). For example, in Maven, add the following entry to your *pom.xml* file, replacing the *`{latest version}`* placeholder with the correct version number:
+If you use [OpenTelemetry Java agent](https://github.com/open-telemetry/opentelemetry-java-instrumentation/), Azure SDK instrumentation is enabled out-of-the-box starting from version 1.12.0.
+
+For more details on how to configure exporters, add manual instrumentation, or enrich telemetry, see [OpenTelemetry Instrumentation for Java](https://github.com/open-telemetry/opentelemetry-java-instrumentation).
+
+Note: OpenTelemetry agent artifact is stable, but does not provide over-the-wire telemetry stability guarantees, which may cause span names and attribute names produced by Azure SDK might change over time if you update the agent. Check out [agent stability and versioning](https://github.com/open-telemetry/opentelemetry-java-instrumentation/blob/main/VERSIONING.md#compatibility-requirements) for more details.
+
+### Manually instrument the application with OpenTelemetry SDK (preview)
+
+If you use OpenTelemetry SDK directly, make sure to configure SDK and exporter for the backend of your choice. For more information, see [OpenTelemetry documentation](https://opentelemetry.io/docs/instrumentation/java/manual_instrumentation/).
+
+To enable Azure SDK tracing, add the latest `com.azure:azure-core-tracing-opentelemetry` packages to your application. For example, in Maven, add the following entry to your *pom.xml* file:
 
 ```xml
 <dependency>
   <groupId>com.azure</groupId>
   <artifactId>azure-core-tracing-opentelemetry</artifactId>
-  <version>{latest version}</version>
 </dependency>
 ```
-
-If you use an OpenTelemetry agent, that's all you have to do to start getting spans from Azure SDKs. For more details on how to configure exporters, add manual instrumentation, or enrich telemetry, see [OpenTelemetry Instrumentation for Java](https://github.com/open-telemetry/opentelemetry-java-instrumentation).
-
-### Manually instrument the application with OpenTelemetry SDK
-
-If you use OpenTelemetry SDK directly, make sure to configure SDK and exporter for the backend of your choice. For more information, see [OpenTelemetry documentation](https://opentelemetry.io/docs/instrumentation/java/manual_instrumentation/).
 
 If you run the application now, you should get Azure SDK spans on your backend. However with asynchronous calls, the correlation between Azure SDK and application spans may be broken.
 
