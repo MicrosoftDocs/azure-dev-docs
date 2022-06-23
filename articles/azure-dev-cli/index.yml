@@ -2,7 +2,7 @@
 
 title: Azure Developer CLI
 summary: |
-  The Azure Developer CLI (azd) is a developer-centric command-line tool for building cloud applications. The azd is a set of commands that allows you to work consistently across azd templates, DevOps workflows, and your IDE (intergrated development environment).  
+  The Azure Developer CLI (azd) is open-source tool that accelerates the time it takes for you to get started on Azure. azd provides a set of developer-friendly commands that map to key stages in your workflow (code, build, deploy, monitor). The CLI allows you to work consistently in a repeatable way across the terminal, your editor/integrated development environment, GitHub Actions pipeline, and more.  
 
 metadata:
   title: Azure Developer CLI
