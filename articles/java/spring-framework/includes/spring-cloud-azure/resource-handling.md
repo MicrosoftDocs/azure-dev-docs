@@ -34,6 +34,9 @@ The `spring-cloud-azure-starter-storage-blob` dependency is only required when y
 
 The `spring-cloud-azure-starter-storage-file-share` dependency is only required when you're using Azure Storage File Share.
 
+> [!TIP]
+> We also provide `spring-cloud-azure-starter-storage` to support all the features of Storage. If you choose to use it, `spring.cloud.azure.storage.enable` is the property to configure and the default value is *true*. You can then use `spring.cloud.azure.storage.<storage-service>.enable` to disable unneeded services.
+
 ### Configuration
 
 > [!NOTE]

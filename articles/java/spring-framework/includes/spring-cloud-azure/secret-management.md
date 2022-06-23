@@ -17,6 +17,9 @@ Spring Cloud Azure construct `PropertySource` which holds secrets stored in Azur
 </dependency>
 ```
 
+> [!TIP]
+> We also provide `spring-cloud-azure-starter-keyvault` to support all the features of Key Vault. If you choose to use it, `spring.cloud.azure.keyvault.enable` is the property to configure and the default value is *true*. You can then use `spring.cloud.azure.keyvault.<keyvault-service>.enable` to disable unneeded services.
+
 ### Basic usage
 
 If you want to authenticate by `client-id` and `client-secret`, the following properties are required:
