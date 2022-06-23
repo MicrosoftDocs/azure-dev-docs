@@ -56,7 +56,7 @@ After installing the Azure Tools extension, sign in with your Azure account. On 
 
 :::image type="content" source="./media/configure-local-development-environment/vs-code-azure-login-small.png" alt-text="Screenshot of the Visual Studio Code showing how to sign-in the Azure tools to Azure." lightbox="./media/configure-local-development-environment/vs-code-azure-login.png":::
 
-[!INCLUDE [proxy-note](../../includes/proxy-note.md)]
+[!INCLUDE [proxy-note](./includes/proxy-note.md)]
 
 ## Use the Azure CLI
 

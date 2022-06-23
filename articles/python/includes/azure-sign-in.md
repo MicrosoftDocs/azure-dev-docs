@@ -11,4 +11,4 @@ Once you've installed the Azure extension, sign into your Azure account:
 
     ![Visual Studio Code Azure App Service explorer showing subscriptions](../media/deploy-azure/view-azure-subscription-in-visual-studio-code-app-service-explorer.png)
 
-[!INCLUDE [proxy-note](../../includes/proxy-note.md)]
+[!INCLUDE [proxy-note](proxy-note.md)]
