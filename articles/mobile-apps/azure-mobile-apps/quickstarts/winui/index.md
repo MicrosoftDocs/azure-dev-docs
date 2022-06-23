@@ -29,7 +29,7 @@ To complete this tutorial, you need:
 * The [Azure CLI](/cli/azure/install-azure-cli).
   * Sign in with `az login` and select an appropriate subscription before starting.
 
-For more information on the tools required for Windows App SDK development, see [Install tools for the Windows App SDK](/windows/apps/windows/app-sdk/set-up-your-development-environment).
+For more information on the tools required for Windows App SDK development, see [Install tools for the Windows App SDK](/windows/apps/windows-app-sdk/set-up-your-development-environment).
 
 This tutorial can only be completed on a Windows system.
 
