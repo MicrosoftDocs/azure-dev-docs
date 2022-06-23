@@ -1,3 +1,10 @@
+---
+author: jess-johnson-msft
+ms.author: jejohn
+ms.topic: include
+ms.date: 06/23/2022
+---
+
 > [!NOTE]
 > If you see the error **"Cannot find subscription with name [subscription ID]"**, this may be because you are behind a proxy and unable to reach the Azure API. Configure `HTTP_PROXY` and `HTTPS_PROXY` environment variables with your proxy information in your terminal:
 >
