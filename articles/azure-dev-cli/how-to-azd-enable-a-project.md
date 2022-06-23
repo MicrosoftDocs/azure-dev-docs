@@ -232,5 +232,5 @@ Your project is now Azure Dev enabled.
 ## Useful Bicep resources
 
 * For an introduction to working with Bicep files, see Quickstart: [Create Bicep files with Visual Studio Code](/azure/azure-resource-manager/bicep/quickstart-create-bicep-use-visual-studio-code?tabs=CLI).
-* [Bicep Samples](https://docs.microsoft.com/en-us/samples/browse/?languages=bicep)
+* [Bicep Samples](/samples/browse/?languages=bicep)
 * [How to decompile Azure Resource Manager templates (ARM templates) to Bicep](/azure/azure-resource-manager/bicep/decompile?tabs=azure-cli)

@@ -1,6 +1,6 @@
 ---
-title: How to enable your project to work with Azure Developer CLI
-description: How to convert an application to an Azure developer enabled template.
+title: How to enable your project to work with Azure Developer CLI (OLD)
+description: How to convert an application to an Azure developer enabled template (OLD).
 author: puicchan
 ms.author: puichan
 ms.date: 04/12/2021
@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.custom: devx-track-azdevcli
 ms.prod: azure
 ---
-# How to enable your project to work with Azure Developer CLI
+# How to enable your project to work with Azure Developer CLI (OLD)
 
 ![Azure Developer CLI enable](media/how-to-devify-a-project/dev-ify.png)
 
