@@ -26,7 +26,7 @@ If you use [OpenTelemetry Java agent](https://github.com/open-telemetry/opentele
 
 For more details on how to configure exporters, add manual instrumentation, or enrich telemetry, see [OpenTelemetry Instrumentation for Java](https://github.com/open-telemetry/opentelemetry-java-instrumentation).
 
-Note: OpenTelemetry agent artifact is stable, but does not provide over-the-wire telemetry stability guarantees, which may cause span names and attribute names produced by Azure SDK might change over time if you update the agent. Check out [agent stability and versioning](https://github.com/open-telemetry/opentelemetry-java-instrumentation/blob/main/VERSIONING.md#compatibility-requirements) for more details.
+Note: OpenTelemetry agent artifact is stable, but does not provide over-the-wire telemetry stability guarantees - attribute or span names produced by Azure SDK might change over time when you update the agent. Check out [agent stability and versioning](https://github.com/open-telemetry/opentelemetry-java-instrumentation/blob/main/VERSIONING.md#compatibility-requirements) for more details.
 
 ### Manually instrument the application with OpenTelemetry SDK (preview)
 
