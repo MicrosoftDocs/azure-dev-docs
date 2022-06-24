@@ -40,7 +40,7 @@ The following articles provide support to deploy apps from GitHub to Azure.
 - [Set up a GitHub Actions workflow to deploy your static website in Azure Storage](/azure/storage/blobs/storage-blobs-static-site-github-actions)
 ## Azure Container Instances
 
-- [Configure a GitHub action to create a container instance](/azure/container-instances/container-instances-github-action)
+- [Configure a GitHub Action to create a container instance](/azure/container-instances/container-instances-github-action)
 ## Azure Container Registry
 - [Scan container images using GitHub Actions](/azure/container-registry/github-action-scan)
 ## Azure Kubernetes Service
