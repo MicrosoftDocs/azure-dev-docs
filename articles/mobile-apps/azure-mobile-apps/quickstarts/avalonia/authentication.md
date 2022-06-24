@@ -50,11 +50,14 @@ public MainWindowViewModel()
         .WithRedirectUri("http://localhost")
         .Build();
     TodoService = new RemoteTodoService(GetAuthenticationToken);
+    TodoList = new TodoListViewModel(TodoService);
 }
 
 public IPublicClientApplication IdentityClient { get; }
 
 public ITodoService TodoService { get; }
+
+public TodoListViewModel TodoList { get; }
 
 public async Task<AuthenticationToken> GetAuthenticationToken()
 {

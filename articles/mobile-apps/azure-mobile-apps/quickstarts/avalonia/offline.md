@@ -4,7 +4,7 @@ description: Add offline data sync to your Avalonia app using Azure Mobile Apps 
 author: adrianhall
 ms.service: mobile-services
 ms.topic: article
-ms.date: 05/06/2021
+ms.date: 06/22/2021
 ms.author: adhal
 ---
 
@@ -26,7 +26,7 @@ In online operation, you read to and write from a `IRemoteTable<T>`.  When using
 
 ### Set the offline database location
 
-In the `TodoApp.WPF` project, edit the `App.xaml.cs` file.  Change the definition of the `RemoteTodoService` as follows:
+In the `TodoApp.AvaloniaUI` project, edit the `MainWindowViewModel.cs` file in the `ViewModels` folder.  Change the definition of the `RemoteTodoService` as follows:
 
 ``` csharp
 TodoService = new RemoteTodoService(async () => await GetAuthenticationToken())
