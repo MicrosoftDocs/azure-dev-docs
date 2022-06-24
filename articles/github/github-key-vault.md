@@ -83,7 +83,7 @@ Replace `keyVaultName` with the name of your key vault and `clientIdGUID` with t
 
 ## Add the key vault action
 
-With the [Azure Key Vault action](https://github.com/marketplace/actions/enhanced-env-azure-key-vault-get-secrets), you can fetch one or more secrets from a key vault instance and consume it in your GitHub Action workflows.
+With the [Azure Key Vault action](https://github.com/Azure/get-keyvault-secrets), you can fetch one or more secrets from a key vault instance and consume it in your GitHub Action workflows.
 
 Secrets fetched are set as outputs and also as environment variables. Variables are automatically masked when they are printed to the console or to logs.
 
