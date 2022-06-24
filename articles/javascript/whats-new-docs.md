@@ -2,7 +2,7 @@
 title: "What's new for JavaScript docs"
 description: "What's new in JavaScript docs in the Developer Center"
 ms.topic: how-to
-ms.date: 06/08/2022
+ms.date: 06/24/2022
 
 ---
 
@@ -11,6 +11,12 @@ ms.date: 06/08/2022
 Find new and updated content for JavaScript and TypeScript developers.
 
 ## 2022 June
+
+### New in June
+
+|Name|Description|
+|---------------------------------------|--|
+|JavaScript on Cosmos DB MongoDB API|* New [quickstart](/azure/cosmos-db/mongodb/quickstart-javascript?tabs=azure-cli%2Cwindows)<br>* [Developer Guide](/azure/cosmos-db/mongodb/how-to-javascript-get-started?tabs=azure-cli%2Cwindows)|
 
 ### Updated in June
 
