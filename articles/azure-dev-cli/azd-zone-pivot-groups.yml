@@ -11,3 +11,11 @@ groups:
     title: Python
   - id: programming-language-csharp
     title: C#
+- id: azd-devenv-set
+  title: Development environment
+  prompt: Choose a programming language
+  pivots:
+  - id: ide-vs-code
+    title: VS Code
+  - id: ide-vs
+    title: Visual Studio
