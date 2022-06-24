@@ -35,7 +35,7 @@ TodoService = new RemoteTodoService(async () => await GetAuthenticationToken())
 };
 ```
 
-If you have not completed the [authentication tutorial](./authentication.md), the definition should look like this instead:
+If you haven't completed the [authentication tutorial](./authentication.md), the definition should look like this instead:
 
 ``` csharp
 TodoService = new RemoteTodoService()
