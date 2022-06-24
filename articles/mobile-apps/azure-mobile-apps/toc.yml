@@ -14,10 +14,10 @@
     items:
     - name: Introduction
       href: quickstarts/avalonia/index.md
-    - name: Add Offline Sync
-      href: quickstarts/avalonia/offline.md
     - name: Add Authentication
       href: quickstarts/avalonia/authentication.md
+    - name: Add Offline Sync
+      href: quickstarts/avalonia/offline.md
   - name: .NET MAUI
     items:
     - name: Introduction
