@@ -209,16 +209,14 @@ To deploy the app, azd needs to know more about your app like where to find the 
 After you run `azd deploy`:
 * The service **web** is deployed to the app service you provisioned in preview step.
 
-## Next step
-
-### Configure a DevOps pipeline
+## Configure a DevOps pipeline
 
 To set up GitHub Action:
 1. Create a folder ".github" if it doesn't exist
 1. Create a folder "workflows" under the .github folder
 1. Copy the **azure-dev.yml** from any azd template, e.g., https://github.com/Azure-Samples/todo-nodejs-mongo/blob/main/.github/workflows/azure-dev.yml and paste into the .github/workflows folder.
-1. Run `azd pipeline config` to push updates to your repo and trigger the GitHub Action workflow.
-1. Go to the Action tab in your repo to check 
+1. Run `azd pipeline config` to create a repository in GitHub.com, push updates to the repository repo and trigger the GitHub Action workflow.
+1. Go to the Action tab in your repo to check the workflow run result. 
 
 > [!NOTE]
 > * `.venv` should be added to the `.gitignore` file
