@@ -24,30 +24,9 @@ Integration with azd is shippped in version 17.3.0 Preview 2 behind a feature fl
 
 1. **azure.yaml** file is detected. Visual Studio automatically initializes the application model and runs `azd env refresh`.
 
-1. Doubleclick **Connected Services** to see all the dependencies. Even though the web front-end running on Azure App Service is not part of the api solution, it's detected and shown.
+1. Doubleclick **Connected Services** to see all the dependencies. Even though the web front-end running on Azure App Service is not part of the api solution, it's detected and included under **Service Dependencies**
 
     !["Visual Studio open azd solution"](../media/how-to-use-vscode-extension-to-debug-locally/vs-opensln.png)
-
-## Provision environment resources
-
-You can provision Azure resources to your environment.
-
-1. In **Connected Services**
-
-1. Click the icon at the top right to restore/provision environment resources
-
-    !["Provision environment resources in Visual Studio"](../media/how-to-use-vscode-extension-to-debug-locally/vs-provision.png)
-
-1. You will be asked to confim the environment name, subscription name and location.
-
-## Manage azd environment
-
-To manage azd environment, click ... and select the options in the dropdown. You can:
-* create a new environment
-* select and set a specific environment as the current active environment
-* deprovision an environment
-
-    !["Manage azd environment in Visual Studio"](../media/how-to-use-vscode-extension-to-debug-locally/vs-manageenv.png)
 
 ## Run and debug
 
@@ -69,23 +48,46 @@ To manage azd environment, click ... and select the options in the dropdown. You
     [{"id":"fb9c1cb3811349b993421fc0e815c4c1","name":"My List","description":null,"createdDate":"2022-06-27T01:10:16.7721172+00:00","updatedDate":null}]
     ```
 
-## Publish your app
+## Additional azd integration
 
-If you make any update, publish your app by:
+### Manage azd environment
 
-1. Doubleclick **Connected Services** in **Solution Explorer**
+To manage azd environment, click ... and select the options in the dropdown. You can:
+* create a new environment
+* select and set a specific environment as the current active environment
+* deprovision an environment
 
-1. Click **Publish**
+    !["Manage azd environment in Visual Studio"](../media/how-to-use-vscode-extension-to-debug-locally/vs-manageenv.png)
 
-1. Click **Add a publish profile**
+### Provision environment resources
 
-1. Select **Azure** as **Target**, click next
+You can provision Azure resources to your environment.
 
-1. Select **AzDev Environment**, click next
+1. In **Connected Services**
+
+1. Click the icon at the top right to restore/provision environment resources
+
+    !["Provision environment resources in Visual Studio"](../media/how-to-use-vscode-extension-to-debug-locally/vs-provision.png)
+
+1. You will be asked to confim the environment name, subscription and location.
+
+### Publish your app
+
+If you make any update, you can publish your app by:
+
+1. doubleclick **Connected Services** in **Solution Explorer**
+
+1. click **Publish**
+
+1. click **Add a publish profile**
+
+1. select **Azure** as **Target**, click next
+
+1. select **AzDev Environment**, click next
 
     !["Message in Debug Console indicating debugger is listening on port 3100"](../media/how-to-use-vscode-extension-to-debug-locally/vs-publish.png)
 
-1. Select the environment and click Finish
+1. select the environment and click Finish
 
 ## Addtional resources
 
