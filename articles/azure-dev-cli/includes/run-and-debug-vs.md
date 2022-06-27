@@ -1,4 +1,4 @@
-In this article, you learn how to use [Visual Studio](https://code.visualstudio.com/docs) to run and debug apps on your local machine.
+In this article, you learn how to use [Visual Studio](/visualstudio/azure) to run and debug apps on your local machine.
 
 ## Prerequisites
 
