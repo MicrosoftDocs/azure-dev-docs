@@ -23,9 +23,9 @@ In this tutorial you will:
 
 Following this tutorial, you'll have the basis for Continuous Integration (CI) and Continuous Deployment (CD) of a Python web app to Azure.
 
-## Azure services used in this tutorial
+## Service diagram
 
-The service diagram supporting this tutorial shows the two environments (local and Azure) and the different components used in the tutorial.
+The service diagram supporting this tutorial shows the two environments (developer environment and Azure) and the different Azure services used in the tutorial.
 	
 :::image type="content" source="./media/tutorial-container-web-app/containerization-of-python-apps-overview.png" alt-text="A screenshot of the services using in the Tutorial - Containerized Python App on Azure." lightbox="./media/tutorial-container-web-app/containerization-of-python-apps-overview.png":::
 
@@ -33,15 +33,15 @@ The components supporting this tutorial and shown in the diagram above are:
 
 * Azure App Service
 
-  * The underlying technology that enables containerization is Web App for Containers.  Azure App Service uses the [Docker][4] container technology to host both built-in images and custom images.  In this tutorial we use a custom image and the Web App for Containers.
+  * The underlying technology that enables containerization is Web App for Containers.  Azure App Service uses the [Docker][4] container technology to host both built-in images and custom images.  In this tutorial, we use a custom-built image from Python code and deploy it to Web App for Containers.
 
-  * App Service creates a webhook in the selected registry with the registry as the scope. A docker push to any repository in the registry triggers an app restart. 
+  * App Service creates a webhook in the selected registry with the registry as the scope. A push of a new image to any repository in the registry triggers an app restart. 
 
 * Azure Cosmos DB API for MongoDB
 
   * The API for MongoDB is our NoSQL database acting in which our tutorial sample app stores data.
 
-  * Access to Cosmos DB resource is via a connection string which can be passed as an environment variable to the containerized app in production.
+  * Access to Cosmos DB resource is via a connection string, which can be passed as an environment variable to the containerized app in production.
 
 * Azure Container Registry
 
@@ -51,14 +51,14 @@ The components supporting this tutorial and shown in the diagram above are:
 
 ## Authentication
 
-In this tutorial, you will use Docker locally to build a container image and deploy it to Azure App Service. The App Service pulls a container image from an Azure Container Registry repository.
+In this tutorial, you'll use Docker locally to build a container image and deploy it to Azure App Service. The App Service pulls a container image from an Azure Container Registry repository.
 
 The App Service uses [managed identity][5] to pull images from Azure Container Registry. Managed identity allows you to grant permissions to the web app to access other Azure resources without needing any specific credentials. Specifically, this tutorial uses a system assigned managed identity. The managed identity is automatically set up for you when you configure App Service so that publish is from a Docker container.
 
-The Python sample web app also uses MongoDB to store data. The sample code connects to Cosmos DB via a connection string. (Azure Cosmos DB doesn't yet support managed identity.)  Other Azure services Azure SQL and Azure Blog Storage support managed identity that would allow you connect without connection strings or keys. For more information, see What are Managed Identities for Azure resources.
+The Python sample web app also uses MongoDB to store data. The sample code connects to Cosmos DB via a connection string. (Azure Cosmos DB doesn't yet support managed identity.)  Other Azure services Azure SQL and Azure Blog Storage support managed identity that would allow you connect without connection strings or keys. For more information, see [What are Managed Identities for Azure resources][5].
 
 
-## Prerequisites for this tutorial
+## Prerequisites
 
 To complete this tutorial, you'll need:
 
@@ -81,7 +81,7 @@ To complete this tutorial, you'll need:
 
 ## Sample app
 
-You can start with sample app in the Django and Flask frameworks, or you can follow along using your own Python app. The sample app is a restaurant review app that saves restaurant and review data in MongoDB. At the end of the tutorial you will have a restaurant review app deployed and running in Azure.
+You can start with sample app in the Django and Flask frameworks, or you can follow along using your own Python app. The sample app is a restaurant review app that saves restaurant and review data in MongoDB. At the end of the tutorial, you'll have a restaurant review app deployed and running in Azure.
 
 
 [1]: https://azure.microsoft.com/services/app-service/
