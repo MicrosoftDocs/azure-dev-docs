@@ -4,7 +4,7 @@ In this article, you learn how to use [Visual Studio](https://code.visualstudio.
 
 We'll use the [Todo Application with C# and Azure Cosmos DB API for MongoDB](https://github.com/Azure-Samples/todo-csharp-cosmos-sql) for this tutorial.
 
-By now, you should have your Azure resources provisioned and application deployed. If not, follow the steps in [get-started for C#](get-started.md) and then return to this article.
+By now, you should have your Azure resources provisioned and application deployed. If not, follow the steps in [get-started for C#](../get-started.md) and then return to this article.
 
 ## Enable the preview feature
 
