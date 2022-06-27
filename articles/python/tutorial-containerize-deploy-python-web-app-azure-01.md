@@ -27,7 +27,7 @@ Following this tutorial, you'll have the basis for Continuous Integration (CI) a
 
 The service diagram supporting this tutorial shows the two environments (local and Azure) and the different components used in the tutorial.
 	
-![Tutorial: Containerized Python App on Azure](media\tutorial-container-web-app\containerization-of-python-apps-overview.png)
+:::image type="content" source="./media/tutorial-container-web-app/containerization-of-python-apps-overview.png" alt-text="A screenshot of the services using in the Tutorial - Containerized Python App on Azure." lightbox="./media/tutorial-container-web-app/containerization-of-python-apps-overview.png":::
 
 The components supporting this tutorial and shown in the diagram above are:
 
