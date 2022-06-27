@@ -16,6 +16,6 @@ groups:
   prompt: Choose a development environment
   pivots:
   - id: ide-vs-code
-    title: VS Code
+    title: Visual Studio Code
   - id: ide-vs
     title: Visual Studio
