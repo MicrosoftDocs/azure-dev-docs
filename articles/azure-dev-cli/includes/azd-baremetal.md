@@ -1,7 +1,7 @@
 
 ### Prerequisites
 
-[!INCLUDE [run-and-debug-vs](includes/azd-install.md)]
+[!INCLUDE [run-and-debug-vs](azd-install.md)]
 
 ::: zone pivot="programming-language-nodejs"
 - [Node.js with npm (v 16.13.1 LTS)](https://nodejs.org/)
