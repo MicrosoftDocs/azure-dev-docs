@@ -8,7 +8,7 @@ By now, you should have your Azure resources provisioned and application deploye
 
 ## Enable the preview feature
 
-Integration with azd is shippped in version 17.3.0 Preview 2 behind a feature flag. Make sure you enable the preview feature before you proceed further.
+Integration with azd is shipped in version 17.3.0 Preview 2 behind a feature flag. Make sure you enable the preview feature before you proceed further.
 
 1. Open Visual Studio 
 
@@ -24,7 +24,7 @@ Integration with azd is shippped in version 17.3.0 Preview 2 behind a feature fl
 
 1. **azure.yaml** file is detected. Visual Studio automatically initializes the application model and runs `azd env refresh`.
 
-1. Doubleclick **Connected Services** to see all the dependencies. Even though the web front-end running on Azure App Service is not part of the api solution, it's detected and included under **Service Dependencies**
+1. Double-click **Connected Services** to see all the dependencies. Even though the web front-end running on Azure App Service isn't part of the api solution, it's detected and included under **Service Dependencies**
 
     !["Visual Studio open azd solution"](../media/how-to-use-vscode-extension-to-debug-locally/vs-opensln.png)
 
@@ -40,7 +40,7 @@ Integration with azd is shippped in version 17.3.0 Preview 2 behind a feature fl
 
     !["Message indicating debugger is listening on port 3101"](../media/how-to-use-vscode-extension-to-debug-locally/vs-f5.png)
 
-1. In your preferred browser, enter : `https://localhost:3101/lists`
+1. In your preferred browser, enter: `https://localhost:3101/lists`
 
 1. When the breakpoint you set earlier is hit, app execution will pause. At this point, you can do standard debugging tasks such inspect variables, look at the call stack, and set additional breakpoints. Press &lt;F5> to continue running the app. The sample app returns a list.
 
@@ -48,11 +48,11 @@ Integration with azd is shippped in version 17.3.0 Preview 2 behind a feature fl
     [{"id":"fb9c1cb3811349b993421fc0e815c4c1","name":"My List","description":null,"createdDate":"2022-06-27T01:10:16.7721172+00:00","updatedDate":null}]
     ```
 
-## Additional azd integration
+## Other azd integration
 
 ### Manage azd environment
 
-To manage azd environment, click ... and select the options in the dropdown. You can:
+To manage azd environment, select ... and select the options in the dropdown. You can:
 * create a new environment
 * select and set a specific environment as the current active environment
 * deprovision an environment

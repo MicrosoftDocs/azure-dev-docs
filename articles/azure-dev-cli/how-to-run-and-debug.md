@@ -28,4 +28,4 @@ zone_pivot_groups: azd-devenv-set
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Configure a GitHub pipeline using an azd pipeline](how-to-update-and-deploy-using-github-action.md)
+> [Configure a GitHub pipeline using an azd pipeline](how-to-setup-devop-pipeline.md)

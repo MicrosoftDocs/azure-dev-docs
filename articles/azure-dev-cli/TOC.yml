@@ -7,8 +7,8 @@
     href: get-started.md
   - name: Run and debug
     href: how-to-run-and-debug.md
-  - name: Edit and push updates
-    href: how-to-update-and-deploy-using-github-action.md
+  - name: Configure deployment pipeline
+    href: how-to-setup-devop-pipeline.md
   - name: Monitor your project
     href: how-to-monitor-your-app.md
   - name: Make project azd compatible

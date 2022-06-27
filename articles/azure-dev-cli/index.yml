@@ -33,8 +33,8 @@ landingContent:
         links:
           - text: Run and debug
             url: how-to-use-vscode-extension-to-debug-locally.md
-          - text: Edit and push updates
-            url: how-to-update-and-deploy-using-github-action.md
+          - text: Configure deployment pipeline
+            url: how-to-setup-devop-pipeline.md
           - text: Monitor your project
             url: how-to-monitor-your-app.md
           - text: Make project azd compatible

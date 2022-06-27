@@ -60,7 +60,7 @@ After you run this command, the following are added:
 To create an azd compatible project:
 
 1. Create an **infra** folder at the root of your project.
-1. Create a new file named **main.parameters.json**. Include the environment variables (found in .env file under the .azure/\<environment name\> folder) you want to pass to your Bicep files. Here's an examples:
+1. Create a new file named **main.parameters.json**. Include the environment variables (found in .env file under the .azure/\<environment name\> folder) you want to pass to your Bicep files. Here's an example:
 
     ```json
     {
@@ -79,7 +79,7 @@ To create an azd compatible project:
         }
     }
     ```
-1. Create a file named **main.bicep** as the main entery point. Make sure you create parameters you include in **main.parameters.json**. For more information, see [Parameters in Bicep](/azure/azure-resource-manager/bicep/parameters). You can also start by referring to the **main.bicep** of an Azure Developer CLI templates, e.g., https://github.com/Azure-Samples/todo-nodejs-mongo/blob/main/infra/main.bicep and remove the outputs you do not need. Here's a sample:
+1. Create a file named **main.bicep** as the main entry point. Make sure you create parameters you include in **main.parameters.json**. For more information, see [Parameters in Bicep](/azure/azure-resource-manager/bicep/parameters). You can also start by referring to the **main.bicep** of an Azure Developer CLI template, for example, https://github.com/Azure-Samples/todo-nodejs-mongo/blob/main/infra/main.bicep and remove the outputs you don't need. Here's a sample:
 
     ```json
     targetScope = 'subscription'
@@ -123,7 +123,7 @@ To create an azd compatible project:
     
     ```
 
-1. Create **resources.bicep**. We will deploy this app to Azure App Service. For samples, you can refer to [sample Azure App Service Bicep files](/azure/app-service/samples-bicep). Here's a sample **resources.bicep**:
+1. Create **resources.bicep**. We'll deploy this app to Azure App Service. For samples, you can refer to [sample Azure App Service Bicep files](/azure/app-service/samples-bicep). Here's a sample **resources.bicep**:
 
     ```json
     param location string
@@ -181,7 +181,7 @@ After you run `azd provision`:
 
 ## Update `azure.yaml`
 
-To deploy the app, azd needs to know more about your app like where to find the source code; what kind of app you're building; and the Azure service that will be hosting your app. 
+To deploy the app, azd needs to know more about your app. Edit the azure.yaml file to let azd know where to find the source code; what kind of app you're building; the Azure service that will be hosting your app. 
 
 1. Update `azure.yaml` by adding the following lines:
 
@@ -193,8 +193,8 @@ To deploy the app, azd needs to know more about your app like where to find the 
         host: appservice
     ```
     - **name**: Root element. Required. Name of the application.
-    - **services**: Root elemnt. Required. Definition of services that is part of the app.
-    - **web**: Required. Name of the service. Can be any name, e.g. api, web.
+    - **services**: Root element. Required. Definition of services that is part of the app.
+    - **web**: Required. Name of the service. Can be any name, for example, api, web.
     - **project**: Required. Path to the service source code directory.
     - **language**: Service implementation language. "py" for Python. If not specified, .NET will be assumed.
     - **host**: Type of Azure resource used for service implementation. "appservice" for Azure App Service. If not required, appservice is assumed.
@@ -214,7 +214,7 @@ After you run `azd deploy`:
 To set up GitHub Action:
 1. Create a folder ".github" if it doesn't exist
 1. Create a folder "workflows" under the .github folder
-1. Copy the **azure-dev.yml** from any azd template, e.g., https://github.com/Azure-Samples/todo-nodejs-mongo/blob/main/.github/workflows/azure-dev.yml and paste into the .github/workflows folder.
+1. Copy the **azure-dev.yml** from any azd template, for example, https://github.com/Azure-Samples/todo-nodejs-mongo/blob/main/.github/workflows/azure-dev.yml and paste into the .github/workflows folder.
 1. Run `azd pipeline config` to create a repository in GitHub.com, push updates to the repository repo and trigger the GitHub Action workflow.
 1. Go to the Action tab in your repo to check the workflow run result. 
 
