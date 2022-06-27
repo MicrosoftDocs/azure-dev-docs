@@ -8,7 +8,7 @@ By now, you should have your Azure resources provisioned and application deploye
 
 ## Enable the preview feature
 
-Integration with azd is shipped in version 17.3.0 Preview 2 behind a feature flag. Make sure you enable the preview feature before you proceed further.
+Integration with azd is shipped in version 17.3.0 Preview 2 behind a feature flag. Make sure you have a version later than 17.3.0 Preview 2 and enable the preview feature before you proceed further.
 
 1. Open Visual Studio 
 
