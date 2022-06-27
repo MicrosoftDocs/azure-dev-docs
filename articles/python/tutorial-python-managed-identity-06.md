@@ -169,7 +169,7 @@ Here are a few tips for troubleshooting your deployment:
 
 * If you're deploying to App Service using local Git and you specified the wrong credentials, it might get cached and you need to clear these credentials. For more information about Git credentials, see [Git Tools - Credential Storage](https://git-scm.com/book/en/v2/Git-Tools-Credential-Storage). On Windows, you can open the Credential Manager / Windows Credentials, find the credentials and remove it.
 
-* If deployment is successful and the web app is running, `print` statements in the code write to the log stream. In the Azure portal, go to the App Service and open the **Log Stream** resource. For more information, see [Enable diagnostics logging for apps in Azure App Service - Stream logs](/app-service/troubleshoot-diagnostic-logs#stream-logs).
+* If deployment is successful and the web app is running, `print` statements in the code write to the log stream. In the Azure portal, go to the App Service and open the **Log Stream** resource. For more information, see [Enable diagnostics logging for apps in Azure App Service - Stream logs](/azure/app-service/troubleshoot-diagnostic-logs#stream-logs).
 
 ## Next step
 

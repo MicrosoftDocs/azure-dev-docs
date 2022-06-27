@@ -34,4 +34,4 @@ az postgres server firewall-rule create `
 * *resource-group* &rarr; Name of resource group from earlier in this tutorial. (`msdocs-web-app-rg`)
 * *server* &rarr; Name of the server from **Step 1**. (`msdocs-web-app-postgres-database-<unique-id>`)
 * *name* &rarr; Name for firewall rule. (use `AllowAllWindowsAzureIps`)
-* *start-ip-address, end-ip-address* &rarr; `0.0.0.0` means that access will be from other Azure services. For a production app, you should use an [Azure Virtual Network](/azure/virtual-network/virtual-networks-overview.md).
+* *start-ip-address, end-ip-address* &rarr; `0.0.0.0` means that access will be from other Azure services. For a production app, you should use an [Azure Virtual Network](/azure/virtual-network/virtual-networks-overview).
