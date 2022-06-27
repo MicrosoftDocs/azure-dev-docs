@@ -11,15 +11,15 @@ ms.author: jejohn
 
 # Overview: Containerized Python web apps on Azure
 
-This tutorial shows how to containerize a Python web app and deploy it to Azure. The containerized web app is hosted in [Azure App Service][1] and uses [MongoDB for Azure Cosmos DB][2] to store data. Using [Web App for Containers][3] on Azure allows you to focus on composing your containers without worrying about managing and maintaining an underlying container orchestrator. Use Web App for Containers when you need more control over the runtime, framework, tooling, and packages of a web-based application.
+This tutorial shows how to containerize a Python web app and deploy it to Azure. The single container web app is hosted in [Azure App Service][1] and uses [MongoDB for Azure Cosmos DB][2] to store data. The App Service [Web App for Containers][3] allows you to focus on composing your containers without worrying about managing and maintaining an underlying container orchestrator. Use Web App for Containers when you need more control over the runtime, framework, tooling, and packages of a web-based application.
 
 In this tutorial you will:
 
 * Build a [Docker][4] container image from the Python web app code.
 
-* Deploy the container image to App Service
+* Deploy the container image to App Service.
 
-* (Optionally) Run and test the container locally
+* (Optionally) Run and test the container locally.
 
 Following this tutorial, you'll have the basis for Continuous Integration (CI) and Continuous Deployment (CD) of a Python web app to Azure.
 
