@@ -1,5 +1,3 @@
-# Debug Azure apps using the Azure Developer CLI Visual Studio Code extension
-
 In this article, you learn how to use the [Visual Studio Code](https://code.visualstudio.com/docs) extension for Azure Developer CLI (azd) to run and debug apps on your local machine.
 
 ## Prerequisites

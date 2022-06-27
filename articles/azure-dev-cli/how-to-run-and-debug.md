@@ -11,6 +11,8 @@ zone_pivot_group_filename: developer/azure-dev-cli/azd-zone-pivot-groups.json
 zone_pivot_groups: azd-devenv-set
 ---
 
+# Run and debug azd enabled apps
+
 ::: zone pivot="ide-vs-code"
 
 [!INCLUDE [run-and-debug-vscode](includes/run-and-debug-vscode.md)]
