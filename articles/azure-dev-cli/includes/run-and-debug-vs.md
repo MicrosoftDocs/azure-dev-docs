@@ -4,7 +4,7 @@ In this article, you learn how to use [Visual Studio](https://code.visualstudio.
 
 We'll use the [Todo Application with C# and Azure Cosmos DB API for MongoDB](https://github.com/Azure-Samples/todo-csharp-cosmos-sql) for this tutorial.
 
-By now, you should have your Azure resources provisioned and application deployed. If not, follow the steps in [get-started](get-started.md&pivots=programming-language-csharp) and then return to this article.
+By now, you should have your Azure resources provisioned and application deployed. If not, follow the steps in [get-started for C#](get-started.md) and then return to this article.
 
 ## Enable the preview feature
 
@@ -16,7 +16,7 @@ Integration with azd is shippped in version 17.3.0 Preview 2 behind a feature fl
 
 1. Make sure **Integration with azd, the Azure Developer CLI** is enabled
 
- !["Visual Studio option to enable azd"](../media/how-to-use-vscode-extension-to-debug-locally/vs-options.png)
+    !["Visual Studio option to enable azd"](../media/how-to-use-vscode-extension-to-debug-locally/vs-options.png)
 
 ## Open the API solution
 
@@ -26,7 +26,7 @@ Integration with azd is shippped in version 17.3.0 Preview 2 behind a feature fl
 
 1. Doubleclick **Connected Services** to see all the dependencies. Even though the web front-end running on Azure App Service is not part of the api solution, it's detected and shown.
 
- !["Visual Studio open azd solution"](../media/how-to-use-vscode-extension-to-debug-locally/vs-opensln.png)
+    !["Visual Studio open azd solution"](../media/how-to-use-vscode-extension-to-debug-locally/vs-opensln.png)
 
 ## Provision environment resources
 
@@ -36,7 +36,7 @@ You can provision Azure resources to your environment.
 
 1. Click the icon at the top right to restore/provision environment resources
 
- !["Provision environment resources in Visual Studio"](../media/how-to-use-vscode-extension-to-debug-locally/vs-provision.png)
+    !["Provision environment resources in Visual Studio"](../media/how-to-use-vscode-extension-to-debug-locally/vs-provision.png)
 
 1. You will be asked to confim the environment name, subscription name and location.
 
@@ -89,4 +89,5 @@ If you make any update, publish your app by:
 
 ## Addtional resources
 
-* [Visual Studio Connected Service](visualstudio/azure/overview-connected-services?view=vs-2022)
+* [Visual Studio Connected Service](/visualstudio/azure/overview-connected-services)
+* [Overview of Publish Tool in Visual Studio](/visualstudio/deployment/publish-overview)

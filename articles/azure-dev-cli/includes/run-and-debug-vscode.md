@@ -1,8 +1,11 @@
 In this article, you learn how to use the [Visual Studio Code](https://code.visualstudio.com/docs) extension for Azure Developer CLI (azd) to run and debug apps on your local machine.
 
+This article uses the sample [Todo Application with Node.js and Azure Cosmo DB API for MongoDB](https://github.com/azure-samples/todo-nodejs-mongo). However, the principles you learn in this article apply to any of the [Azure Developer CLI template](azure-dev-cli-overview.md#azure-developer-cli-templates).
+
 ## Prerequisites
 
-This article assumes you've installed the azd. If you are new to azd, begin with [Get started](get-started.md) and then return to this article.
+[!INCLUDE [run-and-debug-vs](includes/azd-install.md)]
+- [Node.js with npm (v 16.13.1 LTS)](https://nodejs.org/)
 
 ## Install the Visual Studio Code extension for Azure Developer CLI
 
