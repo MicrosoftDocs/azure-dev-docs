@@ -33,16 +33,18 @@ Integration with azd is shipped in version 17.3.0 Preview 2 behind a feature fla
 1. From your project's `src/api` directory, open `ListController.cs`.
 
 1. Set a breakpoint at line 20.
+    
+    !["Set breakpoint"](../media/how-to-use-vscode-extension-to-debug-locally/vs-breakpoint.png)
 
 1. Hit &lt;F5>
 
-1. Wait for the message indicating the debugger is listening on port 3101.
+1. Wait for the message indicating the web server is listening on port 3101.
 
     !["Message indicating debugger is listening on port 3101"](../media/how-to-use-vscode-extension-to-debug-locally/vs-f5.png)
 
 1. In your preferred browser, enter: `https://localhost:3101/lists`
 
-1. When the breakpoint you set earlier is hit, app execution will pause. At this point, you can do standard debugging tasks such inspect variables, look at the call stack, and set additional breakpoints. Press &lt;F5> to continue running the app. The sample app returns a list.
+1. When the breakpoint you set earlier is hit, app execution will pause. At this point, you can do standard debugging tasks such inspect variables, look at the call stack, and set additional breakpoints. Press &lt;F5> to continue running the app. The sample app returns a list (or an empty list [] if you haven't launched the web front-end before.)
 
     ```
     [{"id":"fb9c1cb3811349b993421fc0e815c4c1","name":"My List","description":null,"createdDate":"2022-06-27T01:10:16.7721172+00:00","updatedDate":null}]
@@ -52,7 +54,7 @@ Integration with azd is shipped in version 17.3.0 Preview 2 behind a feature fla
 
 ### Manage azd environment
 
-To manage azd environment, select ... and select the options in the dropdown. You can:
+To manage azd environment, click "..." icon in the upper-right corner of the **Service Dependencies** pane, and then select one of the options in the dropdown menu:
 * create a new environment
 * select and set a specific environment as the current active environment
 * deprovision an environment
