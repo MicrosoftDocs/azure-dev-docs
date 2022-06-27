@@ -4,13 +4,16 @@ description: Use Key Vault secrets in GitHub Actions to automate your software d
 author: juliakm
 ms.custom: github-actions-azure, mode-portal, contperf-fy22q3
 ms.author: jukullam
-ms.date: 02/03/2022
+ms.date: 06/27/2022
 ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
 ---
 
 # Use Key Vault secrets in GitHub Actions workflows
+
+> [!NOTE]
+> The [Azure Key Vault action](https://github.com/Azure/get-keyvault-secrets) is deprecated. The recommended alternative is to use the [Azure CLI action](https://github.com/Azure/cli) and pass a custom script to access Azure Key Vault.
 
 Use Key Vault secrets in your [GitHub Actions](https://help.github.com/en/articles/about-github-actions) and securely store passwords and other secrets in an Azure Key Vault. Learn more about [Key Vault](/azure/key-vault/general/overview).
 
