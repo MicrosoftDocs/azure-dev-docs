@@ -23,6 +23,8 @@ After completing this part of the tutorial, you will
 
 ### [VS Code](#tab/vscode-aztools)
 
+These instruction require [Visual Studio Code][https://code.visualstudio.com/], the [Docker extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) for VS Code, and [Docker](https://docs.docker.com/get-docker/).
+
 **Step 1: Open the Docker extension.**
 
 If the Docker extension reports an error, make sure Docker is installed and running. 
@@ -39,11 +41,13 @@ The tag of the image will be "msdocspythoncontainerwebapp", the name is derived 
 
 For more on the Dockerfile syntax, see the [Dockerfile reference](https://docs.docker.com/engine/reference/builder/).
 
-### [Docker](#tab/docker-commands)
+### [Docker](#tab/docker-cli)
+
+These instruction require [Docker](https://docs.docker.com/get-docker/).
 
 **Step 1: At a shell prompt, confirm that Docker is accessible.**
 
-```dotnetcli
+```
 docker
 ```
 If you see the help for the [Docker CLI](https://docs.docker.com/engine/reference/commandline/cli/), then continue. Otherwise, make sure Docker is installed or your shell as access to the Docker CLI.
@@ -64,10 +68,18 @@ docker build --rm --pull --file "Dockerfile" --label "com.microsoft.create-by=do
 
 **Step 3: Confirm the image was built.**
 
+In the returned list, look for the image you just created.
+
 ```
 docker images
 ```
+
+For more information about this command, see [docker images](https://docs.docker.com/engine/reference/commandline/images/) in the Docker Command-line reference.
+
 ---
+
+At this point, you have build an image locally. You can also see the image with Docker Desktop.
 
 
 ## 2. Run the image locally in a container
+
