@@ -1,6 +1,6 @@
 ---
 title: "Tutorial: Containerized Python web apps on Azure"
-description: Overview * Create and deploy a containerized Python web app to Azure
+description: Overview - Create and deploy a containerized Python web app on Azure
 ms.topic: conceptual
 ms.date: 06/27/2022
 ms.custom: devx-track-python
