@@ -114,7 +114,9 @@
     - name: Deploy a Kubernetes cluster
       href: /azure/aks/kubernetes-walkthrough
     - name: Deploy containerized web app
-      href: tutorial-containerize-deploy-python-web-app-azure-01.md
+      items:
+        - name: 1. Overview
+          href: tutorial-containerize-deploy-python-web-app-azure-01.md
 
 - name: Data science solutions
   items:
