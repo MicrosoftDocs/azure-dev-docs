@@ -17,9 +17,9 @@ In this tutorial you will:
 
 * Build a [Docker][4] container image from the Python web app code.
 
-* Deploy the container image to App Service.
+* Run the container locally.
 
-* (Optionally) Run and test the container locally.
+* Deploy the container image to App Service.
 
 Following this tutorial, you'll have the basis for Continuous Integration (CI) and Continuous Deployment (CD) of a Python web app to Azure.
 
