@@ -1,3 +1,4 @@
+---
 title: "Tutorial: Containerized Python web apps on Azure - Build and test locally"
 description: Build and test a containerized Python web app locally.
 ms.topic: conceptual
@@ -10,18 +11,13 @@ ms.author: jejohn
 
 # Build and test a containerized Python web app locally
 
-In this part of the tutorial, you learn how to containerize a Python web application into a Docker image.
+This article is part of a tutorial about containerizing and deploy a Python web app to Azure App Service. App Service enables you to run containerized web apps and deploy through continuous integration/continuous deployment (CI/CD) capabilities with Docker Hub, Azure Container Registry, and Visual Studio Team Services. In this part of the tutorial, you learn how to build and run the containerized Python web app locally.
 
-The Docker Explorer lets you examine and manage Docker assets: containers, images, volumes, networks, and container registries. 
+After completing this part of the tutorial, you will
 
-Some point to make sure user has a big picture idea of containerizing a web app
-	- Look at the  docker-compose.yml
-		○ It has the name of the image that will be built.
-		○ It links to Dockerfile
-	- Goal: You should be able can describe the contents of the Dockerfile and what it does.
-	- Goal: Understand tags. Tags are references to Docker imagers and they make it easy to pull and run images by referencing the tags.
-	- Docker commands from palette are same as right-click on 
-	- Make sure Docker is running. If you click on Docker extension and fail to connect, then check that Docker is running.
+* Understand a Dockerfile and how it it is used to build the container image.
+
+* Understand how to use tags as reference for Docker images and use the tag to reference the image. 
 
 ## 1. Build a Docker image
 
