@@ -3,13 +3,15 @@ title: Configure a pipeline and push updates using GitHub Actions
 description: Learn how to push updates using GitHub Actions.
 author: puicchan
 ms.author: puichan
-ms.date: 06/20/2021
+ms.date: 06/23/2021
 ms.topic: conceptual
 ms.custom: devx-track-azdevcli
 ms.prod: azure
 ---
 
 # Configure a pipeline and push updates using GitHub Actions
+
+In this article, you learn how to push changes to your GitHub repo through GitHub Actions.
 
 This article uses the sample [Todo Application with Node.js and Azure Cosmo DB API for MongoDB](https://github.com/azure-samples/todo-nodejs-mongo). However, the principles you learn in this article apply to any of the [Azure Developer CLI template](azure-dev-cli-overview.md#azure-developer-cli-templates).
 
@@ -19,27 +21,42 @@ This article assumes you've installed the azd. If you are new to azd, begin with
 
 ## Configure a DevOps pipeline
 
-All sample templates include a GitHub Actions pipeline configuration file that deploy your application whenever code is pushed to the main branch. This configuration file is called `azure-dev.yml` and is located in your project's `.github/workflow` directory.
+All sample templates include a GitHub Actions pipeline configuration file that deploys your application whenever code is pushed to the main branch. This configuration file is called `azure-dev.yml` and is located in your project's `.github/workflow` directory.
 
 Configuring the pipeline requires you to give GitHub permission to deploy to Azure on your behalf. Authorizing GitHub is done via an Azure service principle stored in a GitHub secret named `AZURE_CREDENTIALS`.
 
 To create the service principle, run the command `azd pipeline config`. The command also creates a private GitHub repository and pushes code to the new repo.  
 
-Run the following command to configure a GitHub Action:
+1. Run the following command to configure a GitHub Action:
 
-```bash
-azd pipeline config
-```
+    ```bash
+    azd pipeline config
+    ```
+
+1. Supply the requested GitHub information. When prompted to specify if you want to commit and push your local changes to start a new GitHub Actions run, specify "y".
+
+1. If the terminal window is not open, from the **View** menu, select **Terminal**. The results of the `azd pipeline config` command display.
+
+
+
 
 ## Make and push a code change
 
-1. Open `header.tsx` in `/src/web/src/layout`
+1. In your project's `/src/web/src/layout` directory, open `header.tsx`.
 
-1. Locate the line `<Text variant="xLarge">ToDo</Text>` and update **ToDo** to say **myTodo** to update the application label.
+1. Locate the line `<Text variant="xLarge">ToDo</Text>`.
+
+1. Change the literal `ToDo` to `myTodo`.
 
 1. Save the file.
 
-1. Commit your change and push to GitHub to automatically kick off the GitHub Action pipelie to deploy the update.
+1. Commit your change (name it something like "Test change") and push it to GitHub. Doing so will start the GitHub Action pipeline to deploy the update.
+
+    !["The committed changes will be made in the sample repo on your GitHub"](media/how-to-use-vscode-extension-to-debug-locally/committed-changes-in-github-repo.png)
+
+1. If you open your GitHub repo associated with this project, you'll see the commit.
+
+committed-changes-in-github-repo
 
 1. Visit the web frontend URL to inspect the update.
 
