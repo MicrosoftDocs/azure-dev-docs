@@ -23,7 +23,7 @@ After completing this part of the tutorial, you will
 
 ### [VS Code](#tab/vscode-aztools)
 
-These instruction require [Visual Studio Code](https://code.visualstudio.com/), the [Docker extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) for VS Code, and [Docker](https://docs.docker.com/get-docker/).
+These instructions require [Visual Studio Code](https://code.visualstudio.com/), the [Docker extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) for VS Code, and [Docker](https://docs.docker.com/get-docker/).
 
 | Instructions    | Screenshot |
 |:----------------|-----------:|
@@ -33,7 +33,7 @@ These instruction require [Visual Studio Code](https://code.visualstudio.com/), 
 
 ### [Docker](#tab/docker-cli)
 
-These instruction require [Docker](https://docs.docker.com/get-docker/).
+These instructions require [Docker](https://docs.docker.com/get-docker/).
 
 [!INCLUDE [Build an image with the Docker CLI](<./includes/tutorial-container-web-app/build-docker-image-docker-cli.md>)]
 

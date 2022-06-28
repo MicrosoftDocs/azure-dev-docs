@@ -79,10 +79,11 @@ Note the dot (".") at the end of the command. You can add `--no-cache` to force 
 
 Using the [docker images](https://docs.docker.com/engine/reference/commandline/images/) command, you can return a list of images.
 
+#### [bash](#tab/terminal-bash)
+
 ```
 docker images
 ```
-
 #### [PowerShell terminal](#tab/terminal-powershell)
 
 ```
