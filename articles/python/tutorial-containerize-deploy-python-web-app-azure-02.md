@@ -52,6 +52,7 @@ The sample app requires a MongoDB connection string, database name, and collecti
 | [!INCLUDE [A screenshot showing how to run a Docker container in Visual Studio Code](<./includes/tutorial-container-web-app/run-docker-image-visual-studio-code-1.md>)] | |
 | [!INCLUDE [A screenshot showing how to confirm the Docker container is running in Visual Studio Code](<./includes/tutorial-container-web-app/run-docker-image-visual-studio-code-2.md>)] |  |
 | [!INCLUDE [A screenshot showing how to browse the endpoint of the container in Visual Studio Code](<./includes/tutorial-container-web-app/run-docker-image-visual-studio-code-3.md>)] | |
+| [!INCLUDE [A screenshot showing how to stop a container in Visual Studio Code](<./includes/tutorial-container-web-app/run-docker-image-visual-studio-code-4.md>)] | |
 
 ### [Docker CLI](#tab/docker-cli)
 
@@ -69,10 +70,18 @@ Use the [docker container ls](https://docs.docker.com/engine/reference/commandli
 docker container ls
 ```
 
-You should see your container "mycontainer:latest" in the list.
+You should see your container "mycontainer:latest" in the list. Note the `NAMES` column of the output. You can use this name to stope the container.
 
 **Step 3.** Test the web app.
 
 Go to "http://localhost:5002/" for Flask or "http://localhost:8000" for Django.
 
+**Step 4.** Shut down the container
+
+```
+docker container stop <name>
+```
+
 ---
+
+You can also start a container from an image and stop it with the Docker Desktop.
