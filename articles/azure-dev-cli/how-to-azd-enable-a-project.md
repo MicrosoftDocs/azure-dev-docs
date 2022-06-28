@@ -8,42 +8,50 @@ ms.topic: conceptual
 ms.custom: devx-track-azdevcli
 ms.prod: azure
 ---
-# How to enable your project to work with Azure Developer CLI
+# How to create an Azure Developer CLI compatible template
 
 ![Azure Developer CLI enable](media/how-to-devify-a-project/dev-ify.png)
 
-All templates have the same file structure based on azd conventions.
+`azd` looks for specific configuration files in a pre-defined folder structure. Here's a walkthrough on how to create an azd compatible template.
+
+To start, you need the following in your project folder:
 
 ```txt
-├── .devcontainer              [ For DevContainer ]
-├── .github                    [ Configure GitHub workflow ]
-├── .vscode                    [ VS Code workspace ]
-├── assets                     [ Assets used by README.MD ]
 ├── infra                      [ Creates and configures Azure resources ]
 │   ├── main.bicep             [ Main infrastructure file ]
 │   ├── main.parameters.json   [ Parameters file ]
 │   └── resources.bicep        [ Resources file ]
-├── src                        [ Contains folder(s) for the application code ]
 └── azure.yaml                 [ Describes the application and type of Azure resources]
 ```
 
-Here's a walkthrough on how to convert a basic application to work with Azure Developer CLI.
+Refer to the [azd conventions section](#azd-conventions) for complete folder structure.
 
-## Get a sample application
-We start with this [simple Python Flask web app that is deployed to Azure App Service](/azure/app-service/quickstart-python?tabs=flask%2Cwindows%2Cazure-portal%2Cterminal-bash%2Cvscode-deploy%2Cdeploy-instructions-azportal%2Cdeploy-instructions-zip-azcli). Get a copy of the code by running:
+## Your project folder
 
-`git clone https://github.com/Azure-Samples/msdocs-python-flask-webapp-quickstart`
+You can either start from:
 
-(Optional) Follow instructions in the [tutorial](/azure/app-service/quickstart-python?tabs=flask%2Cwindows%2Cazure-portal%2Cterminal-bash%2Cvscode-deploy%2Cdeploy-instructions-azportal%2Cdeploy-instructions-zip-azcli#1---sample-application) to run the app locally to make sure the sample is working.
+### [Empty folder](#tab/empty-folder)
+
+1. Create an empty folder
+1. Change directory to your new folder
+1. Add your source code either to the root or in a subfolder called /src
+
+### [Convert a sample](#tab/empty-folder)
+
+1. From this [simple Python Flask web app that is deployed to Azure App Service](/azure/app-service/quickstart-python?tabs=flask%2Cwindows%2Cazure-portal%2Cterminal-bash%2Cvscode-deploy%2Cdeploy-instructions-azportal%2Cdeploy-instructions-zip-azcli). Get a copy of the code by running:
+  `git clone https://github.com/Azure-Samples/msdocs-python-flask-webapp-quickstart`
+1. (Optional) Follow instructions in the [tutorial](/azure/app-service/quickstart-python?tabs=flask%2Cwindows%2Cazure-portal%2Cterminal-bash%2Cvscode-deploy%2Cdeploy-instructions-azportal%2Cdeploy-instructions-zip-azcli#1---sample-application) to run the app locally to make sure the sample is working.
+1. Change directory to `msdocs-python-flask-webapp-quickstart` and run `azd init`. 
 
 ## Initialize the project
 
-Change directory to `msdocs-python-flask-webapp-quickstart` and run `azd init`. 
+Initialize the project by:
 
-* Select "Empty Template" from the list of project template
-* Provide any name for new environment 
-* Select an Azure location 
-* Select an Azure subscription 
+1. Running `azd init`
+1. Select "Empty Template" from the list of project template
+1. Provide any name for new environment 
+1. Select an Azure location 
+1. Select an Azure subscription 
 
 ### What happened?
 After you run this command, the following are added: 
@@ -207,7 +215,7 @@ To deploy the app, azd needs to know more about your app. Edit the azure.yaml fi
 ### What happened?
 
 After you run `azd deploy`:
-* The service **web** is deployed to the app service you provisioned in preview step.
+* The service **web** is deployed to the app service you provisioned in previous step.
 
 ## Configure a DevOps pipeline
 
@@ -226,6 +234,23 @@ To set up GitHub Action:
 Run `azd down` to remove all Azure resources.
 
 Your project is now Azure Dev enabled.
+
+## azd conventions
+
+All Azure Developer CLI templates have the same file structure based on azd conventions. Here's the complete folder structure:
+
+```txt
+├── .devcontainer              [ For DevContainer ]
+├── .github                    [ Configure GitHub workflow ]
+├── .vscode                    [ VS Code workspace ]
+├── assets                     [ Assets used by README.MD ]
+├── infra                      [ Creates and configures Azure resources ]
+│   ├── main.bicep             [ Main infrastructure file ]
+│   ├── main.parameters.json   [ Parameters file ]
+│   └── resources.bicep        [ Resources file ]
+├── src                        [ Contains folder(s) for the application code ]
+└── azure.yaml                 [ Describes the application and type of Azure resources]
+```
 
 ## Useful Bicep resources
 
