@@ -3,7 +3,7 @@ title: Configure a pipeline and push updates using GitHub Actions
 description: Learn how to push updates using GitHub Actions.
 author: puicchan
 ms.author: puichan
-ms.date: 06/23/2021
+ms.date: 06/28/2021
 ms.topic: conceptual
 ms.custom: devx-track-azdevcli
 ms.prod: azure
@@ -37,8 +37,7 @@ To create the service principle, run the command `azd pipeline config`. The comm
 
 1. If the terminal window is not open, from the **View** menu, select **Terminal**. The results of the `azd pipeline config` command display.
 
-
-
+1. The `azd pipeline config` command will output the GitHub repository name for your project.
 
 ## Make and push a code change
 
@@ -50,13 +49,13 @@ To create the service principle, run the command `azd pipeline config`. The comm
 
 1. Save the file.
 
-1. Commit your change (name it something like "Test change") and push it to GitHub. Doing so will start the GitHub Action pipeline to deploy the update.
+1. Commit your change. In the following screen shot, you can see I used the Visual Studio Code Source Control pane to commit the change. Committing the change starts the GitHub Action pipeline to deploy the update.
 
-    !["The committed changes will be made in the sample repo on your GitHub"](media/how-to-use-vscode-extension-to-debug-locally/committed-changes-in-github-repo.png)
+    !["Visual Studio Code integrates with GitHub to allow you to commit changes within your editing environment."](media/how-to-setup-devop-pipeline/commit-changes-to-github.png)
 
-1. If you open your GitHub repo associated with this project, you'll see the commit.
+1. Using your browser, open your project's GitHub repository to see the commit - along with the commit from GitHub Actions being set up.
 
-committed-changes-in-github-repo
+    !["The committed changes will be made in your project's GitHub repository."](media/how-to-setup-devop-pipeline/committed-changes-in-github-repo.png)
 
 1. Visit the web frontend URL to inspect the update.
 
