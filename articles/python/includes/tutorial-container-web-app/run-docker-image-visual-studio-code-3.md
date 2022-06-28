@@ -1,0 +1,13 @@
+---
+author: jess-johnson-msft
+ms.author: jejohn
+ms.topic: include
+ms.date: 06/28/2022
+---
+
+**Step 3.** Test the web app.
+
+* Right click the container and select **Open in Browser**.
+
+The browser will open into your default browser as "http://localhost:5002/" for Flask or "http://localhost:8000" for Django.
+

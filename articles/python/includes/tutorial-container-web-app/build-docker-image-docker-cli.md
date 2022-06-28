@@ -57,7 +57,7 @@ For example, if you are at the root of the project directory, you can use a comm
 docker build --rm --pull \
   --file "Dockerfile" \
   --label "com.microsoft.create-by=docker-cli" \
-  --tag "msdocspythoncontainerwebapp:latest" \
+  --tag "msdocspythondjangocontainerwebapp:latest" \
   .
 ```
 
@@ -67,9 +67,11 @@ docker build --rm --pull \
 docker build --rm --pull `
   --file "Dockerfile" `
   --label "com.microsoft.create-by=docker-cli" `
-  --tag "msdocspythoncontainerwebapp:latest" `
+  --tag "msdocspythondjangocontainerwebapp:latest" `
   .
 ```
+
+If you started with the Flask version of the sample app, then use "msdocspythonflaskcontainerwebapp" as the tag name.
 
 ---
 
@@ -89,5 +91,7 @@ docker images
 ```
 docker images
 ```
+
+You should see images listed by REPOSITORY name, TAG, and CREATED date among other image characteristics.
 
 ---
