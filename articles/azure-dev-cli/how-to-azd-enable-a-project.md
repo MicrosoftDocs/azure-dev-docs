@@ -38,76 +38,197 @@ We start with this [simple Python Flask web app that is deployed to Azure App Se
 
 ## Initialize the project
 
-Change directory to `msdocs-python-flask-webapp-quickstart` and run `azd init`. The command asks for environment name, Azure region and Azure subscription. After you run this command, the following are added: 
+Change directory to `msdocs-python-flask-webapp-quickstart` and run `azd init`. 
+
+* Select "Empty Template" from the list of project template
+* Provide any name for new environment 
+* Select an Azure location 
+* Select an Azure subscription 
+
+### What happened?
+After you run this command, the following are added: 
 
 - a new folder `.azure` 
 - a subfolder called &lt;your environment name&gt; in the `.azure` folder. 
-- Configuration file `.env` in `\.azure\<your environment name>` that contains information like the basename (environment name), Azure subscription etc.
+- Configuration file `.env` in `\.azure\<your environment name>` that contains information like the environment name, Azure subscription etc.
 - `azure.yaml` in the root of your project
 
 ## Add Bicep files
 
-`azd provision` needs to know what to provision in Azure. The command looks for Bicep files in the `infra` folder.
+`azd provision` uses Bicep files found under the **infra** folder for creating Azure resources needed by your app.
 
-Start from an Azure dev enabled template, use it as a base and remove resources that aren't needed. We reference [To Do Application with Python and Cosmo DB](https://github.com/Azure-Samples/todo-python-mongo). By doing so, you have the necessary Bicep files for setting up and configuring Azure Monitor as well. 
+To create an azd compatible project:
 
-1. Create a new folder called `infra` in the root of your project. 
-1. Copy the four files (`appinsights.bicep, main.bicep, main.parameters.json, resources.bicep`) found in the `infra` folder of the  [To do app](https://github.com/Azure-Samples/todo-python-mongo) and paste into the newly created folder.
+1. Create an **infra** folder at the root of your project.
+1. Create a new file named **main.parameters.json**. Include the environment variables (found in .env file under the .azure/\<environment name\> folder) you want to pass to your Bicep files. Here's an example:
 
-1. Modify `resources.bicep`
+    ```json
+    {
+        "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+        "contentVersion": "1.0.0.0",
+        "parameters": {
+            "name": {
+            "value": "${AZURE_ENV_NAME}"
+            },
+            "location": {
+            "value": "${AZURE_LOCATION}"
+            },
+            "principalId": {
+            "value": "${AZURE_PRINCIPAL_ID}"
+            }
+        }
+    }
+    ```
+1. Create a file named **main.bicep** as the main entry point. Make sure you create parameters you include in **main.parameters.json**. For more information, see [Parameters in Bicep](/azure/azure-resource-manager/bicep/parameters). You can also start by referring to the **main.bicep** of an Azure Developer CLI template, for example, https://github.com/Azure-Samples/todo-nodejs-mongo/blob/main/infra/main.bicep and remove the outputs you don't need. Here's a sample:
 
-- Since we need an Azure service plan with just one web app, we don't need the resources for hosting the API app, Key Vault and CosmoDB. Remove the resources (codes): **api**, **keyvault** and **cosmos**
-- Remove the following lines:
+    ```json
+    targetScope = 'subscription'
 
-``` bicep
-    output AZURE_COSMOS_CONNECTION_STRING_KEY string = 'AZURE-COSMOS-CONNECTION-STRING'
-    output AZURE_COSMOS_DATABASE_NAME string = cosmos::database.name
-    output AZURE_KEY_VAULT_ENDPOINT string = keyvault.properties.vaultUri    
-    output API_URI string = 'https://${api.properties.defaultHostName}'
-```
+    @minLength(1)
+    @maxLength(50)
+    @description('Name of the the environment which is used to generate a short unqiue hash used in all resources.')
+    param name string
 
-- update code for **web**: make sure `linuxFxVersion` is `PYTHON|3.9`. Remove the line `appCommandLine: 'pm2 serve /home/site/wwwroot --no-daemon --spa'`
-- update code for **webappappsettings**. Today, azd only supports zip deployment. Update `SCM_DO_BUILD_DURING_DEPLOYMENT` to `true`
+    @minLength(1)
+    @description('Primary location for all resources')
+    param location string
 
-1. Modify `main.bicep`
+    @description('Id of the user or app to assign application roles')
+    param principalId string = ''
 
-- Remove the following lines, which aren't needed:
+    resource resourceGroup 'Microsoft.Resources/resourceGroups@2020-06-01' = {
+        name: '${name}-rg'
+        location: location
+        tags: tags
+    }
 
-``` bicep
-    output AZURE_COSMOS_CONNECTION_STRING_KEY string = resources.outputs.AZURE_COSMOS_CONNECTION_STRING_KEY
-    output AZURE_COSMOS_DATABASE_NAME string = resources.outputs.AZURE_COSMOS_DATABASE_NAME
-    output AZURE_KEY_VAULT_ENDPOINT string = resources.outputs.AZURE_KEY_VAULT_ENDPOINT
-    output REACT_APP_API_BASE_URL string = resources.outputs.API_URI
-    output REACT_APP_APPINSIGHTS_INSTRUMENTATIONKEY string = resources.outputs.APPINSIGHTS_INSTRUMENTATIONKEY
-```
+    var resourceToken = toLower(uniqueString(subscription().id, name))
+    var tags = {
+        'azd-env-name': name
+    }
+
+    module resources './resources.bicep' = {
+        name: 'resources-${resourceToken}'
+        scope: resourceGroup
+        params: {
+            location: location
+            principalId: principalId
+            resourceToken: resourceToken
+            tags: tags
+        }
+    }
+
+    output APP_WEB_BASE_URL string = resources.outputs.WEB_URI
+    output AZURE_LOCATION string = location
+    
+    ```
+
+1. Create **resources.bicep**. We'll deploy this app to Azure App Service. For samples, you can refer to [sample Azure App Service Bicep files](/azure/app-service/samples-bicep). Here's a sample **resources.bicep**:
+
+    ```json
+    param location string
+    param principalId string = ''
+    param resourceToken string
+    param tags object
+    param sku string = 'S1' 
+    param linuxFxVersion string = 'PYTHON|3.8'
+
+    resource appServicePlan 'Microsoft.Web/serverfarms@2020-06-01' = {
+      name: 'plan-${resourceToken}'
+      location: location
+      tags: tags
+      sku: {
+        name: sku
+      }
+      kind: 'linux'
+      properties: {
+      reserved: true
+      }
+    }
+
+    resource web 'Microsoft.Web/sites@2020-06-01' = {
+      name: 'app-web-${resourceToken}'
+      location: location
+      tags: union(tags, {
+        'azd-service-name': 'web'
+        })
+      kind: 'app'
+      properties: {
+        serverFarmId: appServicePlan.id
+        siteConfig: {
+        linuxFxVersion: linuxFxVersion
+        }
+      }
+
+      resource appSettings 'config' = {
+        name: 'appsettings'
+        properties: {
+          'SCM_DO_BUILD_DURING_DEPLOYMENT': 'true'
+          }
+        }
+      }
+
+      output WEB_URI string = 'https://${web.properties.defaultHostName}'
+    ```
+
+1. Run `azd provision` to provision Azure resources.
+
+### What happened?
+
+After you run `azd provision`:
+* Azure resources are created under the resource group **\<environment name\>-rg**. 
+* The web end point is added to **.env** file under the .azure/\<environment name\> folder
 
 ## Update `azure.yaml`
 
-azd needs to know where to find the source code; what kind of app you're building; and more about what Azure service to use. Update `azure.yaml` by adding the following lines:
+To deploy the app, azd needs to know more about your app. Edit the azure.yaml file to let azd know where to find the source code; what kind of app you're building; the Azure service that will be hosting your app. 
 
-```yml
-services:
-  web:
-    project: .
-    language: py
-    host: appservice
-```
+1. Update `azure.yaml` by adding the following lines:
 
-## Test
+    ```yml
+    services:
+    web:
+        project: .
+        language: py
+        host: appservice
+    ```
+    - **name**: Root element. Required. Name of the application.
+    - **services**: Root element. Required. Definition of services that is part of the app.
+    - **web**: Required. Name of the service. Can be any name, for example, api, web.
+    - **project**: Required. Path to the service source code directory.
+    - **language**: Service implementation language. "py" for Python. If not specified, .NET will be assumed.
+    - **host**: Type of Azure resource used for service implementation. "appservice" for Azure App Service. If not required, appservice is assumed.
 
-Congratulations, you're done. 
+    For full details, refer to [azure.yaml.json](https://github.com/Azure/azure-dev/blob/main/schemas/v1.0/azure.yaml.json/).
 
-Run `azd provision config` to create the Azure resources.
+1. Run `azd deploy` to deploy the app to Azure
+1. Visit the end point printed to test your app.
 
-Run `azd deploy` to deploy the web app.
+### What happened?
 
-Run `azd monitor --overview` and `azd monitor --logs` to monitor your app.
+After you run `azd deploy`:
+* The service **web** is deployed to the app service you provisioned in preview step.
+
+## Configure a DevOps pipeline
+
+To set up GitHub Action:
+1. Create a folder ".github" if it doesn't exist
+1. Create a folder "workflows" under the .github folder
+1. Copy the **azure-dev.yml** from any azd template, for example, https://github.com/Azure-Samples/todo-nodejs-mongo/blob/main/.github/workflows/azure-dev.yml and paste into the .github/workflows folder.
+1. Run `azd pipeline config` to create a repository in GitHub.com, push updates to the repository repo and trigger the GitHub Action workflow.
+1. Go to the Action tab in your repo to check the workflow run result. 
 
 > [!NOTE]
-> `.azure` and `.venv` should be added to the `.gitignore` file
+> * `.venv` should be added to the `.gitignore` file
 
 ## Clean up
 
 Run `azd down` to remove all Azure resources.
 
 Your project is now Azure Dev enabled.
+
+## Useful Bicep resources
+
+* For an introduction to working with Bicep files, see Quickstart: [Create Bicep files with Visual Studio Code](/azure/azure-resource-manager/bicep/quickstart-create-bicep-use-visual-studio-code?tabs=CLI).
+* [Bicep Samples](/samples/browse/?languages=bicep)
+* [How to decompile Azure Resource Manager templates (ARM templates) to Bicep](/azure/azure-resource-manager/bicep/decompile?tabs=azure-cli)

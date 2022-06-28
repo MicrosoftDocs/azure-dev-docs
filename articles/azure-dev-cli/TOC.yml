@@ -6,15 +6,13 @@
   - name: Get started
     href: get-started.md
   - name: Run and debug
-    href: how-to-use-vscode-extension-to-debug-locally.md
-  - name: Edit and push updates
-    href: how-to-update-and-deploy-using-github-action.md
+    href: how-to-run-and-debug.md
+  - name: Configure deployment pipeline
+    href: how-to-setup-devop-pipeline.md
   - name: Monitor your project
     href: how-to-monitor-your-app.md
   - name: Make project azd compatible
     href: how-to-azd-enable-a-project.md
-  - name: Help with Azure Bicep
-    href: how-to-azd-bicep.md
   - name: Troubleshoot and Get help
     href: troubleshoot.md   
   - name: Frequently asked questions (FAQ)
