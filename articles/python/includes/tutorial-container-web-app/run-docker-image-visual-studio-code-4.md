@@ -5,7 +5,7 @@ ms.topic: include
 ms.date: 06/28/2022
 ---
 
-**Step 4.** Stop the container.
+Stop the container.
 
 * In the **CONTAINERS** section of the Docker extension, find the running container.
 

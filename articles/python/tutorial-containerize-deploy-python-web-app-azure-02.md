@@ -70,7 +70,7 @@ Use the [docker container ls](https://docs.docker.com/engine/reference/commandli
 docker container ls
 ```
 
-You should see your container "mycontainer:latest" in the list. Note the `NAMES` column of the output. You can use this name to stope the container.
+You should see your container "mycontainer:latest" in the list. Note the `NAMES` column of the output. You can use this name to stop the container.
 
 **Step 3.** Test the web app.
 

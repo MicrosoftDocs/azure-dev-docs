@@ -5,7 +5,7 @@ ms.topic: include
 ms.date: 06/28/2022
 ---
 
-**Step 3.** Test the web app.
+Test the web app.
 
 * Right click the container and select **Open in Browser**.
 
