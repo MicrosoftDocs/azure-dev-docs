@@ -35,9 +35,13 @@ To create the service principle, run the command `azd pipeline config`. The comm
 
 1. Supply the requested GitHub information. When prompted to specify if you want to commit and push your local changes to start a new GitHub Actions run, specify "y".
 
-1. If the terminal window is not open, from the **View** menu, select **Terminal**. The results of the `azd pipeline config` command display.
+1. If the terminal window is not open, from the **View** menu, select **Terminal**. The results of the `azd pipeline config` command display. The `azd pipeline config` command will output the GitHub repository name for your project.
 
-1. The `azd pipeline config` command will output the GitHub repository name for your project.
+1. Using your browser, open the GitHub repository for your project.
+
+1. Select **Actions** to see the workflow running.
+
+    !["Screenshot of GitHub workflow running."](media/how-to-setup-devop-pipeline/github-workflow.png)
 
 ## Make and push a code change
 
