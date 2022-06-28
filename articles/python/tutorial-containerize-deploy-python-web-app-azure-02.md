@@ -23,11 +23,20 @@ After completing this part of the tutorial, you will
 
 ### [VS Code](#tab/vscode-aztools)
 
-These instruction require [Visual Studio Code][https://code.visualstudio.com/], the [Docker extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) for VS Code, and [Docker](https://docs.docker.com/get-docker/).
+These instruction require [Visual Studio Code](https://code.visualstudio.com/), the [Docker extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) for VS Code, and [Docker](https://docs.docker.com/get-docker/).
+
+
+| Instructions    | Screenshot |
+|:----------------|-----------:|
+| [!INCLUDE [A screenshot showing how to open the Docker extension in Visual Studio Code](<./includes/tutorial-container-web-app/build-docker-image-visual-studio-code-1.md>)] | |
+| [!INCLUDE [A screenshot showing how to build the Docker image in Visual Studio Code](<./includes/tutorial-container-web-app/build-docker-image-visual-studio-code-2.md>)] | |
+| [!INCLUDE [A screenshot showing how to confirm the built image in Visual Studio Code](<./includes/tutorial-container-web-app/build-docker-image-visual-studio-code-3.md>)] | |
+
+
 
 **Step 1: Open the Docker extension.**
 
-If the Docker extension reports an error, make sure Docker is installed and running. 
+If the Docker extension reports an error, make sure Docker is installed and running. If this is your first time using this extension, you'll probably won't have any containers, images, or connected registries. That's okay.
 
 **Step 2: Build the image.**
 
@@ -37,9 +46,7 @@ Alternately, you can use the Command Palette (<kbd>Ctrl+Shift+P</kbd> or <kbd>F1
 
 **Step 3: Confirm the image was built.**
 
-The tag of the image will be "msdocspythoncontainerwebapp", the name is derived from the name of the project and is automatically selected. If you want more control over the name, use the Docker build command.
-
-For more on the Dockerfile syntax, see the [Dockerfile reference](https://docs.docker.com/engine/reference/builder/).
+The tag of the container image will be "msdocspythoncontainerwebapp:latest". The name is derived from the name of the project and is automatically selected as well as the "latest" tag. If you want more control over the name, use the Docker build command.
 
 ### [Docker](#tab/docker-cli)
 
