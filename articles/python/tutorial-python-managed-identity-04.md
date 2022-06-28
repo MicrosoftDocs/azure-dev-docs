@@ -50,7 +50,7 @@ Create a storage account.
 
 [!INCLUDE [Create storage account with CLI](<./includes/python-web-app-managed-identity/create-storage-account-cli.md>)]
 
-Create a container called *photos* in the storage account with the [az storage container create](/azure/storage/container#az-storage-container-create) command.
+Create a container called *photos* in the storage account with the [az storage container create](/cli/azure/storage/container#az-storage-container-create) command.
 
 [!INCLUDE [Create storage account with CLI](<./includes/python-web-app-managed-identity/create-storage-container-cli.md>)]
 
