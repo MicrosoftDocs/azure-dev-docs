@@ -113,7 +113,10 @@
           href: tutorial-deploy-containers-05.md
     - name: Deploy a Kubernetes cluster
       href: /azure/aks/kubernetes-walkthrough
-
+    - name: Deploy containerized web app
+      items:
+        - name: 2. Build and test container locally
+          href: tutorial-containerize-deploy-python-web-app-azure-02.md
 - name: Data science solutions
   items:
     - name: Deploy machine learning models
