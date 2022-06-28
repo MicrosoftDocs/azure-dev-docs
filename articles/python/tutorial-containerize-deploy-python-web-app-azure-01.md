@@ -15,11 +15,11 @@ This tutorial shows how to containerize a Python web app and deploy it to Azure.
 
 In this tutorial you will:
 
-* Build a [Docker][4] container image from the Python web app code.
+* Build run a [Docker][4] container locally.
 
-* Run the container locally.
+* Build a [Docker][4] container image in the Azure.
 
-* Deploy the container image to App Service.
+* Configure an App Service to use the container.
 
 Following this tutorial, you'll have the basis for Continuous Integration (CI) and Continuous Deployment (CD) of a Python web app to Azure.
 
