@@ -99,7 +99,7 @@
 | Resouce Management - Redis Enterprise Cache | npm [2.1.0](https://www.npmjs.com/package/@azure/arm-redisenterprisecache/v/2.1.0) | [docs](/javascript/api/overview/azure/arm-redisenterprisecache-readme) | GitHub [2.1.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-redisenterprisecache_2.1.0/sdk/redisenterprise/arm-redisenterprisecache/) |
 | Resouce Management - Resources Subscriptions | npm [2.0.1](https://www.npmjs.com/package/@azure/arm-resources-subscriptions/v/2.0.1) | [docs](/javascript/api/overview/azure/arm-resources-subscriptions-readme) | GitHub [2.0.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-resources-subscriptions_2.0.1/sdk/resources-subscriptions/arm-resources-subscriptions/) |
 | Resource Management - Advisor | npm [3.0.1](https://www.npmjs.com/package/@azure/arm-advisor/v/3.0.1) | [docs](/javascript/api/overview/azure/arm-advisor-readme) | GitHub [3.0.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/advisor/arm-advisor) |
-| Resource Management - Analysis Services | npm [4.0.0](https://www.npmjs.com/package/@azure/arm-analysisservices/v/4.0.0) | [docs](/javascript/api/overview/azure/arm-analysisservices-readme) | GitHub [4.0.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/analysisservices/arm-analysisservices) |
+| Resource Management - Analysis Services | npm [4.1.0](https://www.npmjs.com/package/@azure/arm-analysisservices/v/4.1.0) | [docs](/javascript/api/overview/azure/arm-analysisservices-readme) | GitHub [4.1.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/analysisservices/arm-analysisservices) |
 | Resource Management - Api Management | npm [8.0.1](https://www.npmjs.com/package/@azure/arm-apimanagement/v/8.0.1) | [docs](/javascript/api/overview/azure/arm-apimanagement-readme) | GitHub [8.0.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/apimanagement/arm-apimanagement) |
 | Resource Management - App Configuration | npm [3.0.0](https://www.npmjs.com/package/@azure/arm-appconfiguration/v/3.0.0) | [docs](/javascript/api/overview/azure/arm-appconfiguration-readme) | GitHub [3.0.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/appconfiguration/arm-appconfiguration) |
 | Resource Management - App Platform | npm [2.0.0](https://www.npmjs.com/package/@azure/arm-appplatform/v/2.0.0) | [docs](/javascript/api/overview/azure/arm-appplatform-readme) | GitHub [2.0.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/appplatform/arm-appplatform) |
@@ -249,7 +249,7 @@
 | @autorest/codemodel | npm [4.18.2](https://www.npmjs.com/package/@autorest/codemodel/v/4.18.2) |  |  |
 | @autorest/common | npm [1.5.2](https://www.npmjs.com/package/@autorest/common/v/1.5.2) |  |  |
 | @autorest/configuration | npm [1.9.2](https://www.npmjs.com/package/@autorest/configuration/v/1.9.2) |  |  |
-| @autorest/csharp | npm [3.0.0-beta.20220628.3](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20220628.3) |  |  |
+| @autorest/csharp | npm [3.0.0-beta.20220628.5](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20220628.5) |  |  |
 | @autorest/csharp-v3 | npm [3.0.0-beta.20201217.1](https://www.npmjs.com/package/@autorest/csharp-v3/v/3.0.0-beta.20201217.1) |  |  |
 | @autorest/extension-base | npm [3.4.4](https://www.npmjs.com/package/@autorest/extension-base/v/3.4.4) |  |  |
 | @autorest/fixer | npm [1.1.0](https://www.npmjs.com/package/@autorest/fixer/v/1.1.0) |  |  |
@@ -294,7 +294,7 @@
 | @azure-tools/json | npm [1.2.2](https://www.npmjs.com/package/@azure-tools/json/v/1.2.2) |  |  |
 | @azure-tools/jsonschema | npm [1.2.0](https://www.npmjs.com/package/@azure-tools/jsonschema/v/1.2.0) |  |  |
 | @azure-tools/js-sdk-release-tools | npm [2.3.2](https://www.npmjs.com/package/@azure-tools/js-sdk-release-tools/v/2.3.2) |  |  |
-| @azure-tools/mock-service-host | npm [0.1.16](https://www.npmjs.com/package/@azure-tools/mock-service-host/v/0.1.16) |  |  |
+| @azure-tools/mock-service-host | npm [0.1.17](https://www.npmjs.com/package/@azure-tools/mock-service-host/v/0.1.17) |  |  |
 | @azure-tools/oav-traffic-converter | npm [0.1.0](https://www.npmjs.com/package/@azure-tools/oav-traffic-converter/v/0.1.0) |  |  |
 | @azure-tools/prettier-plugin-adl | npm [0.1.4](https://www.npmjs.com/package/@azure-tools/prettier-plugin-adl/v/0.1.4) |  |  |
 | @azure-tools/prettier-plugin-cadl | npm [0.2.1](https://www.npmjs.com/package/@azure-tools/prettier-plugin-cadl/v/0.2.1) |  |  |
@@ -530,7 +530,7 @@
 | Resouce Management - Redis Enterprise Cache | npm [2.1.0](https://www.npmjs.com/package/@azure/arm-redisenterprisecache/v/2.1.0) | [docs](/javascript/api/overview/azure/arm-redisenterprisecache-readme) | GitHub [2.1.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-redisenterprisecache_2.1.0/sdk/redisenterprise/arm-redisenterprisecache/) |
 | Resouce Management - Resources Subscriptions | npm [2.0.1](https://www.npmjs.com/package/@azure/arm-resources-subscriptions/v/2.0.1) | [docs](/javascript/api/overview/azure/arm-resources-subscriptions-readme) | GitHub [2.0.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-resources-subscriptions_2.0.1/sdk/resources-subscriptions/arm-resources-subscriptions/) |
 | Resource Management - Advisor | npm [3.0.1](https://www.npmjs.com/package/@azure/arm-advisor/v/3.0.1) | [docs](/javascript/api/overview/azure/arm-advisor-readme) | GitHub [3.0.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/advisor/arm-advisor) |
-| Resource Management - Analysis Services | npm [4.0.0](https://www.npmjs.com/package/@azure/arm-analysisservices/v/4.0.0) | [docs](/javascript/api/overview/azure/arm-analysisservices-readme) | GitHub [4.0.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/analysisservices/arm-analysisservices) |
+| Resource Management - Analysis Services | npm [4.1.0](https://www.npmjs.com/package/@azure/arm-analysisservices/v/4.1.0) | [docs](/javascript/api/overview/azure/arm-analysisservices-readme) | GitHub [4.1.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/analysisservices/arm-analysisservices) |
 | Resource Management - Api Management | npm [8.0.1](https://www.npmjs.com/package/@azure/arm-apimanagement/v/8.0.1) | [docs](/javascript/api/overview/azure/arm-apimanagement-readme) | GitHub [8.0.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/apimanagement/arm-apimanagement) |
 | Resource Management - App Configuration | npm [3.0.0](https://www.npmjs.com/package/@azure/arm-appconfiguration/v/3.0.0) | [docs](/javascript/api/overview/azure/arm-appconfiguration-readme) | GitHub [3.0.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/appconfiguration/arm-appconfiguration) |
 | Resource Management - App Platform | npm [2.0.0](https://www.npmjs.com/package/@azure/arm-appplatform/v/2.0.0) | [docs](/javascript/api/overview/azure/arm-appplatform-readme) | GitHub [2.0.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/appplatform/arm-appplatform) |
