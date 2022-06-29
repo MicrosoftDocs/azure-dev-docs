@@ -35,13 +35,13 @@ Refer to the [azd conventions section](#azd-conventions) for complete folder str
 
 1. Create an empty folder
 1. Change directory to your new folder
-1. Add your source code either to the root or in a subfolder called /src. Note that the location of your source code needs to be the same as what you specify in your azure.yaml file.
+1. Add your source code either to the root or in a subfolder called /src. Note that the location of your source code needs to be the same as what you specify in your [azure.yaml file](#update-azureyaml).
 
 ::: zone-end
 
 ::: zone pivot="azd-convert"
 
-1. From this [simple Python Flask web app that is deployed to Azure App Service](/azure/app-service/quickstart-python?tabs=flask%2Cwindows%2Cazure-portal%2Cterminal-bash%2Cvscode-deploy%2Cdeploy-instructions-azportal%2Cdeploy-instructions-zip-azcli). Get a copy of the code by running:
+1. Start from this [simple Python Flask web app](/azure/app-service/quickstart-python?tabs=flask%2Cwindows%2Cazure-portal%2Cterminal-bash%2Cvscode-deploy%2Cdeploy-instructions-azportal%2Cdeploy-instructions-zip-azcli). Get a copy of the code by running:
   `git clone https://github.com/Azure-Samples/msdocs-python-flask-webapp-quickstart`
 1. (Optional) Follow instructions in the [tutorial](/azure/app-service/quickstart-python?tabs=flask%2Cwindows%2Cazure-portal%2Cterminal-bash%2Cvscode-deploy%2Cdeploy-instructions-azportal%2Cdeploy-instructions-zip-azcli#1---sample-application) to run the app locally to make sure the sample is working.
 1. Change directory to `msdocs-python-flask-webapp-quickstart`. 
@@ -53,7 +53,7 @@ Refer to the [azd conventions section](#azd-conventions) for complete folder str
 To initialize the project:
 
 1. Run `azd init`
-1. Select "Empty Template" from the list of project template
+1. Select "Empty Template" from the list of project templates
 1. Provide any name for new environment 
 1. Select an Azure location 
 1. Select an Azure subscription 
@@ -237,8 +237,12 @@ To set up GitHub Action:
 1. Run `azd pipeline config` to create a repository in GitHub.com, push updates to the repository repo and trigger the GitHub Action workflow.
 1. Go to the Action tab in your repo to check the workflow run result. 
 
+::: zone pivot="azd-convert"
+
 > [!NOTE]
 > * `.venv` should be added to the `.gitignore` file
+
+::: zone-end
 
 ## Clean up
 
