@@ -17,7 +17,7 @@ zone_pivot_groups: azd-devify-set
 
 `azd` looks for specific configuration files in a pre-defined folder structure. Here's a walkthrough on how to create an azd compatible template.
 
-To start, you need the following in your project folder:
+To start, you need the following required subfolder and files in your project folder:
 
 ```txt
 ├── infra                      [ Creates and configures Azure resources ]
@@ -234,7 +234,10 @@ To set up GitHub Action:
 1. Create a folder ".github" if it doesn't exist
 1. Create a folder "workflows" under the .github folder
 1. Copy the **azure-dev.yml** from any azd template, for example, https://github.com/Azure-Samples/todo-nodejs-mongo/blob/main/.github/workflows/azure-dev.yml and paste into the .github/workflows folder.
-1. Run `azd pipeline config` to create a repository in GitHub.com, push updates to the repository repo and trigger the GitHub Action workflow.
+
+To test:
+
+1. Run `azd pipeline config` to push updates to the repository. The GitHub Action workflow is triggered because of the update.
 1. Go to the Action tab in your repo to check the workflow run result. 
 
 ::: zone pivot="azd-convert"
