@@ -65,7 +65,7 @@ To complete this tutorial, you'll need:
 
   * [Azure Container Registry][11]
   * [Azure App Service][1] 
-  * [MongoDB for Azure Cosmos DB][2] (or access to equivalent). To create a Azure Cosmos DB for MongoDB, you can use the steps for [Azure portal][12], [Azure CLI][13], [PowerShell][14], or [VS Code][15]. The sample tutorial requires that you specify a MongoDB connection string, a database name, and a collection name.
+  * [MongoDB for Azure Cosmos DB][2] (or access to equivalent). To create an Azure Cosmos DB for MongoDB, you can use the steps for [Azure portal][12], [Azure CLI][13], [PowerShell][14], or [VS Code][15]. The sample tutorial requires that you specify a MongoDB connection string, a database name, and a collection name.
 
 * [Docker][4] installed locally
 
