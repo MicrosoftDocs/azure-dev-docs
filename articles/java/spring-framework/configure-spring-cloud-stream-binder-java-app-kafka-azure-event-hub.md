@@ -422,7 +422,7 @@ The **[Spring Framework]** is an open-source solution that helps Java developers
 [IMG02]: media/configure-spring-cloud-stream-binder-java-app-kafka-azure-event-hub/create-kafka-event-hub-02.png
 [IMG05]: media/configure-spring-cloud-stream-binder-java-app-kafka-azure-event-hub/create-kafka-event-hub-05.png
 
-[SI01]: media/spring-initializer/2.5.11/mvn-java8-azure-web.png
+[SI01]: media/spring-initializer/2.7.1/mvn-java8-azure-web.png
 
 [TB01]: media/configure-spring-cloud-stream-binder-java-app-kafka-azure-event-hub/test-browser-01.png
 [TB02]: media/configure-spring-cloud-stream-binder-java-app-kafka-azure-event-hub/test-browser-02.png

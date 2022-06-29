@@ -251,7 +251,7 @@ This section shows how to use Spring Initializr to create and run a Spring Boot 
 1. In the text field, type *Spring Web* and press Ctrl+Enter.
 1. In the text field type *Azure Key Vault* and press Enter. Your screen should look like the following.
 
-   :::image type="content" source="media/spring-initializer/2.5.11/mvn-java8-keyvault-web.png" alt-text="Screenshot of Spring Initializr with basic options.":::
+   :::image type="content" source="media/spring-initializer/2.7.1/mvn-java8-keyvault-web.png" alt-text="Screenshot of Spring Initializr with basic options.":::
 
 1. At the bottom of the page, select **Generate**.
 1. When prompted, download the project to a path on your local computer. This tutorial uses a *keyvault* directory in the current user's home directory. The values above will give you a *keyvault.zip* file in that directory.
