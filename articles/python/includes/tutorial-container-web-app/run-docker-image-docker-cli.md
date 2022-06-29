@@ -8,7 +8,7 @@ ms.date: 06/28/2022
 **Step 1.** Build the latest version of the image.
 
 ```Docker
-docker run --rm --detach  --env-file ".env" --publish 5002:5002/tcp <container-name>:latest  
+docker run --rm --detach  --env-file ".env" --publish 5002:5002/tcp <image-name>:latest  
 ```
 
 **Step 2.** Confirm that the container is running.
@@ -19,7 +19,7 @@ Use the [docker container ls](https://docs.docker.com/engine/reference/commandli
 docker container ls
 ```
 
-You should see your container "\<container-name>:latest" in the list. Note the `NAMES` column of the output. You can use this name to stop the container.
+You should see your container "\<image-name>:latest" in the list. Note the `NAMES` column of the output. You can use this name to stop the container.
 
 **Step 3.** Test the web app.
 
