@@ -1,7 +1,7 @@
 ---
 author: KarlErickson
 ms.author: v-yonghuiye
-ms.date: 05/30/2022
+ms.date: 06/29/2022
 ---
 
 ## Azure Active Directory properties
@@ -13,6 +13,8 @@ ms.date: 05/30/2022
 > | spring.cloud.azure.active-directory.application-type                              | Type of the Azure AD application.                                                                                                                                                                                     |
 > | spring.cloud.azure.active-directory.authenticate-additional-parameters            | Add additional parameters to the Authorization URL.                                                                                                                                                                   |
 > | spring.cloud.azure.active-directory.authorization-clients                         | The OAuth2 authorization clients.                                                                                                                                                                                     |
+> | spring.cloud.azure.active-directory.credential.client-certificate-password        | Password of the certificate file.                                                                                                                                                                                     |
+> | spring.cloud.azure.active-directory.credential.client-certificate-path            | Path of a PFX or P12 certificate file to use when performing service principal authentication with Azure.                                                                                                             |
 > | spring.cloud.azure.active-directory.credential.client-id                          | Client ID to use when performing service principal authentication with Azure.                                                                                                                                         |
 > | spring.cloud.azure.active-directory.credential.client-secret                      | Client secret to use when performing service principal authentication with Azure.                                                                                                                                     |
 > | spring.cloud.azure.active-directory.enabled                                       | Whether to enable Azure Active Directory related auto-configuration. The default value is `false`.                                                                                                                    |

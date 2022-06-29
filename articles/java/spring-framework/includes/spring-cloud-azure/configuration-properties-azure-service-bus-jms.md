@@ -1,7 +1,7 @@
 ---
 author: KarlErickson
 ms.author: v-yonghuiye
-ms.date: 05/30/2022
+ms.date: 06/29/2022
 ---
 
 ## Azure Service Bus JMS properties
@@ -10,6 +10,7 @@ ms.date: 05/30/2022
 > | Property                                                     | Description                                                                                                                               |
 > |--------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------|
 > | spring.jms.servicebus.connection-string                      | Connection string to connect to a Service Bus namespace.                                                                                  |
+> | spring.jms.servicebus.enabled                                | Whether to enable Servive Bus JMS autoconfiguration. The default value is `true`.                                                         |
 > | spring.jms.servicebus.idle-timeout                           | Connection idle timeout duration. The default value is `30m`.                                                                             |
 > | spring.jms.servicebus.listener.phase                         | The phase in which this container should be started and stopped.                                                                          |
 > | spring.jms.servicebus.listener.reply-pub-sub-domain          | Whether the reply destination type is topic. Only works for the bean of topicJmsListenerContainerFactory.                                 |
