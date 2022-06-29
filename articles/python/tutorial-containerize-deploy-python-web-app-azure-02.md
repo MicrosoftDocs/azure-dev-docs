@@ -21,6 +21,8 @@ After completing this part of the tutorial, you will
 
 ## 1. Build a Docker image
 
+If you are using one of the the framework sample apps available for Django and Flask, you are set to go. If you are bringing your own sample app, make sure there is a *Dockerfile* in the root directory.
+
 ### [VS Code](#tab/vscode-aztools)
 
 These instructions require [Visual Studio Code](https://code.visualstudio.com/), the [Docker extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) for VS Code, and [Docker](https://docs.docker.com/get-docker/).
