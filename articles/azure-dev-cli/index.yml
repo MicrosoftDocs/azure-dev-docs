@@ -34,7 +34,7 @@ landingContent:
           - text: Run and debug
             url: how-to-use-vscode-extension-to-debug-locally.md
           - text: Configure deployment pipeline
-            url: how-to-setup-devop-pipeline.md
+            url: how-to-configure-devop-pipeline.md
           - text: Monitor your project
             url: how-to-monitor-your-app.md
           - text: Create azd compatible project
