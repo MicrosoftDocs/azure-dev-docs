@@ -19,3 +19,11 @@ groups:
     title: Visual Studio Code
   - id: ide-vs
     title: Visual Studio
+- id: azd-devify-set
+  title: Devify starting point
+  prompt: Choose a starting point
+  pivots:
+  - id: azd-create
+    title: Create new template
+  - id: azd-convert
+    title: Convert a sample
