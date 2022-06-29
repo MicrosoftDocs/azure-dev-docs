@@ -31,13 +31,11 @@ Refer to the [azd conventions section](#azd-conventions) for complete folder str
 
 ## Your project folder
 
-Start by:
-
 ::: zone pivot="azd-create"
 
 1. Create an empty folder
 1. Change directory to your new folder
-1. Add your source code either to the root or in a subfolder called /src
+1. Add your source code either to the root or in a subfolder called /src. Note that the location of your source code needs to be the same as what you specify in your azure.yaml file.
 
 ::: zone-end
 
@@ -46,15 +44,15 @@ Start by:
 1. From this [simple Python Flask web app that is deployed to Azure App Service](/azure/app-service/quickstart-python?tabs=flask%2Cwindows%2Cazure-portal%2Cterminal-bash%2Cvscode-deploy%2Cdeploy-instructions-azportal%2Cdeploy-instructions-zip-azcli). Get a copy of the code by running:
   `git clone https://github.com/Azure-Samples/msdocs-python-flask-webapp-quickstart`
 1. (Optional) Follow instructions in the [tutorial](/azure/app-service/quickstart-python?tabs=flask%2Cwindows%2Cazure-portal%2Cterminal-bash%2Cvscode-deploy%2Cdeploy-instructions-azportal%2Cdeploy-instructions-zip-azcli#1---sample-application) to run the app locally to make sure the sample is working.
-1. Change directory to `msdocs-python-flask-webapp-quickstart` and run `azd init`. 
+1. Change directory to `msdocs-python-flask-webapp-quickstart`. 
 
 ::: zone-end
 
 ## Initialize the project
 
-Initialize the project by:
+To initialize the project:
 
-1. Running `azd init`
+1. Run `azd init`
 1. Select "Empty Template" from the list of project template
 1. Provide any name for new environment 
 1. Select an Azure location 
@@ -138,7 +136,7 @@ To add, for example, Azure App Service resources:
     
     ```
 
-1. Create **resources.bicep**. For samples, you can refer to [sample Azure App Service Bicep files](/azure/app-service/samples-bicep). Here's a sample **resources.bicep** that creates a web frontend hosted on Azure App Service:
+1. Create **resources.bicep**. For samples, you can refer to [sample Azure App Service Bicep files](/azure/app-service/samples-bicep). Here's a sample **resources.bicep** that creates a Python web frontend hosted on Azure App Service:
 
     ```json
     param location string
@@ -219,14 +217,16 @@ To deploy the app, azd needs to know more about your app. Edit the azure.yaml fi
 1. Run `azd deploy` to deploy the app to Azure
 1. Visit the end point printed to test your app.
 
+Your project is now compatible with Azure Develper CLI.
+
 ### What happened?
 
 After you run `azd deploy`:
-* The service **web** is deployed to the app service you provisioned in previous step.
+* The service **web** is deployed to the app service you provisioned in the previous step.
 
-[!NOTE] 
-* If you make any changes to your bicep file and/or code, you can run `azd up` to perform both `azd provision` and `azd deploy` in a single step. 
-* If you wish to create a new environment, run `azd env new`.
+> [!NOTE] 
+> * If you make any changes to your bicep file and/or code, you can run `azd up` to perform both `azd provision` and `azd deploy` in a single step. 
+> * If you wish to create a new environment, run `azd env new`.
 
 ## Configure a DevOps pipeline
 
@@ -243,8 +243,6 @@ To set up GitHub Action:
 ## Clean up
 
 Run `azd down` to remove all Azure resources.
-
-Your project is now Azure Dev enabled.
 
 ## azd conventions
 
