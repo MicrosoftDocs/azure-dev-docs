@@ -7,19 +7,9 @@ ms.date: 06/28/2022
 
 **Step 1.** At a shell prompt, confirm that Docker is accessible.
 
-#### [bash](#tab/terminal-bash)
-
-```Docker CLI
+```Docker
 docker
 ```
-
-#### [PowerShell terminal](#tab/terminal-powershell)
-
-```Docker CLI
-docker
-```
-
----
 
 If you see the help for the [Docker CLI](https://docs.docker.com/engine/reference/commandline/cli/), then continue. Otherwise, make sure Docker is installed or your shell as access to the Docker CLI.
 
@@ -29,7 +19,7 @@ The general form of the [docker build](https://docs.docker.com/engine/reference/
 
 #### [bash](#tab/terminal-bash)
 
-```
+```Docker
  docker build --rm --pull \
   --file "<path-to-project-root>/Dockerfile" \
   --label "com.microsoft.created-by=docker-cli" \
@@ -39,7 +29,7 @@ The general form of the [docker build](https://docs.docker.com/engine/reference/
 
 #### [PowerShell terminal](#tab/terminal-powershell)
 
-```
+```Docker
  docker build --rm --pull `
   --file "<path-to-project-root>/Dockerfile" `
   --label "com.microsoft.created-by=docker-cli" `
@@ -53,7 +43,7 @@ For example, if you are at the root of the project directory, you can use a comm
 
 #### [bash](#tab/terminal-bash)
 
-```
+```Docker
 docker build --rm --pull \
   --file "Dockerfile" \
   --label "com.microsoft.create-by=docker-cli" \
@@ -63,7 +53,7 @@ docker build --rm --pull \
 
 #### [PowerShell terminal](#tab/terminal-powershell)
 
-```
+```Docker
 docker build --rm --pull `
   --file "Dockerfile" `
   --label "com.microsoft.create-by=docker-cli" `
@@ -79,17 +69,8 @@ If you started with the Flask version of the sample app, then use "msdocspythonf
 
 Using the [docker images](https://docs.docker.com/engine/reference/commandline/images/) command, you can return a list of images.
 
-#### [bash](#tab/terminal-bash)
-
-```
-docker images
-```
-#### [PowerShell terminal](#tab/terminal-powershell)
-
-```
+```Docker
 docker images
 ```
 
 You should see images listed by REPOSITORY name, TAG, and CREATED date among other image characteristics.
-
----

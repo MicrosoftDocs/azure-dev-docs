@@ -56,31 +56,7 @@ The sample app requires a MongoDB connection string, database name, and collecti
 
 ### [Docker CLI](#tab/docker-cli)
 
-**Step 1.** Build the latest version of the image.
-
-```
-docker run --rm -d  -p 5002:5002/tcp mycontainer:latest  
-```
-
-**Step 2.** Confirm that the container is running.
-
-Use the [docker container ls](https://docs.docker.com/engine/reference/commandline/container_ls/) command.
-
-```
-docker container ls
-```
-
-You should see your container "mycontainer:latest" in the list. Note the `NAMES` column of the output. You can use this name to stop the container.
-
-**Step 3.** Test the web app.
-
-Go to "http://localhost:5002/" for Flask or "http://localhost:8000" for Django.
-
-**Step 4.** Shut down the container
-
-```
-docker container stop <name>
-```
+[!INCLUDE [Run an image with the Docker CLI](<./includes/tutorial-container-web-app/run-docker-image-docker-cli.md>)]
 
 ---
 
