@@ -43,7 +43,7 @@ At this point, you have build an image locally. You can also see and work the im
 
 ## 2. Run the image locally in a container
 
-The sample app requires a MongoDB connection string, database name, and collection name. You can create an Azure Cosmos DB for MongoDB, you can use the steps for [Azure portal](/azure/cosmos-db/mongodb/create-mongodb-python), [Azure CLI](/azure/cosmos-db/scripts/cli/mongodb/create), [PowerShell](/azure/cosmos-db/scripts/powershell/mongodb/create), or [VS Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb). 
+The sample app requires a MongoDB connection string, database name, and collection name. The MongoDB database must be accessible to you locally as well as in Azure. You can create an  Azure Cosmos DB for MongoDB with theses steps for [Azure portal](/azure/cosmos-db/mongodb/create-mongodb-python), [Azure CLI](/azure/cosmos-db/scripts/cli/mongodb/create), [PowerShell](/azure/cosmos-db/scripts/powershell/mongodb/create), or [VS Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb). 
 
 ### [VS Code](#tab/vscode-aztools)
 

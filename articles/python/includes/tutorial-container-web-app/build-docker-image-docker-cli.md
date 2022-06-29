@@ -9,13 +9,13 @@ ms.date: 06/28/2022
 
 #### [bash](#tab/terminal-bash)
 
-```
+```Docker CLI
 docker
 ```
 
 #### [PowerShell terminal](#tab/terminal-powershell)
 
-```
+```Docker CLI
 docker
 ```
 
@@ -71,11 +71,9 @@ docker build --rm --pull `
   .
 ```
 
-If you started with the Flask version of the sample app, then use "msdocspythonflaskcontainerwebapp" as the tag name.
-
 ---
 
-Note the dot (".") at the end of the command. You can add `--no-cache` to force a rebuild.
+If you started with the Flask version of the sample app, then use "msdocspythonflaskcontainerwebapp" as the tag name. Note the dot (".") at the end of the command. You can add `--no-cache` to force a rebuild.
 
 **Step 3.** Confirm the image was built.
 
