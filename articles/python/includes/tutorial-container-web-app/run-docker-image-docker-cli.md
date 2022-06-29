@@ -7,7 +7,7 @@ ms.date: 06/28/2022
 
 **Step 1.** Build the latest version of the image.
 
-```
+```Docker
 docker run --rm -d  -p 5002:5002/tcp mycontainer:latest  
 ```
 
@@ -15,7 +15,7 @@ docker run --rm -d  -p 5002:5002/tcp mycontainer:latest
 
 Use the [docker container ls](https://docs.docker.com/engine/reference/commandline/container_ls/) command.
 
-```
+```Docker
 docker container ls
 ```
 
@@ -27,6 +27,6 @@ Go to "http://localhost:5002/" for Flask or "http://localhost:8000" for Django.
 
 **Step 4.** Shut down the container
 
-```
+```Docker
 docker container stop <name>
 ```
