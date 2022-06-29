@@ -107,7 +107,7 @@ The following procedure creates the Spring boot application.
    * Specify the **Group** and **Artifact** names for your application.
    * Add the **Spring Web** dependency.
 
-   :::image type="content" source="media/spring-initializer/2.5.11/mvn-java8-storage-web.png" alt-text="Screenshot of Spring Initializr with basic options.":::
+   :::image type="content" source="media/spring-initializer/2.7.1/mvn-java8-storage-web.png" alt-text="Screenshot of Spring Initializr with basic options.":::
 
    > [!NOTE]
    > The Spring Initializr uses the **Group** and **Artifact** names to create the package name; for example: *com.wingtiptoys.storage*.
