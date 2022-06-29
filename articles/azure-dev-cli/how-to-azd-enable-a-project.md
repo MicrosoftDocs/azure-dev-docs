@@ -7,43 +7,56 @@ ms.date: 04/12/2021
 ms.topic: conceptual
 ms.custom: devx-track-azdevcli
 ms.prod: azure
+zone_pivot_group_filename: developer/azure-dev-cli/azd-zone-pivot-groups.json
+zone_pivot_groups: azd-devify-set
+
 ---
-# How to enable your project to work with Azure Developer CLI
+# How to create an Azure Developer CLI compatible template
 
 ![Azure Developer CLI enable](media/how-to-devify-a-project/dev-ify.png)
 
-All templates have the same file structure based on azd conventions.
+`azd` looks for specific configuration files in a pre-defined folder structure. Here's a walkthrough on how to create an azd compatible template.
+
+To start, you need the following required subfolder and files in your project folder:
 
 ```txt
-├── .devcontainer              [ For DevContainer ]
-├── .github                    [ Configure GitHub workflow ]
-├── .vscode                    [ VS Code workspace ]
-├── assets                     [ Assets used by README.MD ]
 ├── infra                      [ Creates and configures Azure resources ]
 │   ├── main.bicep             [ Main infrastructure file ]
 │   ├── main.parameters.json   [ Parameters file ]
 │   └── resources.bicep        [ Resources file ]
-├── src                        [ Contains folder(s) for the application code ]
 └── azure.yaml                 [ Describes the application and type of Azure resources]
 ```
 
-Here's a walkthrough on how to convert a basic application to work with Azure Developer CLI.
+Refer to the [azd conventions section](#azd-conventions) for complete folder structure.
 
-## Get a sample application
-We start with this [simple Python Flask web app that is deployed to Azure App Service](/azure/app-service/quickstart-python?tabs=flask%2Cwindows%2Cazure-portal%2Cterminal-bash%2Cvscode-deploy%2Cdeploy-instructions-azportal%2Cdeploy-instructions-zip-azcli). Get a copy of the code by running:
+## Your project folder
 
-`git clone https://github.com/Azure-Samples/msdocs-python-flask-webapp-quickstart`
+::: zone pivot="azd-create"
 
-(Optional) Follow instructions in the [tutorial](/azure/app-service/quickstart-python?tabs=flask%2Cwindows%2Cazure-portal%2Cterminal-bash%2Cvscode-deploy%2Cdeploy-instructions-azportal%2Cdeploy-instructions-zip-azcli#1---sample-application) to run the app locally to make sure the sample is working.
+1. Create an empty folder
+1. Change directory to your new folder
+1. Add your source code either to the root or in a subfolder called /src. Note that the location of your source code needs to be the same as what you specify in your [azure.yaml file](#update-azureyaml).
+
+::: zone-end
+
+::: zone pivot="azd-convert"
+
+1. Start from this [simple Python Flask web app](/azure/app-service/quickstart-python?tabs=flask%2Cwindows%2Cazure-portal%2Cterminal-bash%2Cvscode-deploy%2Cdeploy-instructions-azportal%2Cdeploy-instructions-zip-azcli). Get a copy of the code by running:
+  `git clone https://github.com/Azure-Samples/msdocs-python-flask-webapp-quickstart`
+1. (Optional) Follow instructions in the [tutorial](/azure/app-service/quickstart-python?tabs=flask%2Cwindows%2Cazure-portal%2Cterminal-bash%2Cvscode-deploy%2Cdeploy-instructions-azportal%2Cdeploy-instructions-zip-azcli#1---sample-application) to run the app locally to make sure the sample is working.
+1. Change directory to `msdocs-python-flask-webapp-quickstart`. 
+
+::: zone-end
 
 ## Initialize the project
 
-Change directory to `msdocs-python-flask-webapp-quickstart` and run `azd init`. 
+To initialize the project:
 
-* Select "Empty Template" from the list of project template
-* Provide any name for new environment 
-* Select an Azure location 
-* Select an Azure subscription 
+1. Run `azd init`
+1. Select "Empty Template" from the list of project templates
+1. Provide any name for new environment 
+1. Select an Azure location 
+1. Select an Azure subscription 
 
 ### What happened?
 After you run this command, the following are added: 
@@ -57,7 +70,7 @@ After you run this command, the following are added:
 
 `azd provision` uses Bicep files found under the **infra** folder for creating Azure resources needed by your app.
 
-To create an azd compatible project:
+To add, for example, Azure App Service resources:
 
 1. Create an **infra** folder at the root of your project.
 1. Create a new file named **main.parameters.json**. Include the environment variables (found in .env file under the .azure/\<environment name\> folder) you want to pass to your Bicep files. Here's an example:
@@ -79,7 +92,7 @@ To create an azd compatible project:
         }
     }
     ```
-1. Create a file named **main.bicep** as the main entry point. Make sure you create parameters you include in **main.parameters.json**. For more information, see [Parameters in Bicep](/azure/azure-resource-manager/bicep/parameters). You can also start by referring to the **main.bicep** of an Azure Developer CLI template, for example, https://github.com/Azure-Samples/todo-nodejs-mongo/blob/main/infra/main.bicep and remove the outputs you don't need. Here's a sample:
+1. Create a file named **main.bicep** as the main entry point. Make sure you create parameters you include in **main.parameters.json**. For more information, see [Parameters in Bicep](/azure/azure-resource-manager/bicep/parameters). You can also refer to the **main.bicep** of an Azure Developer CLI template, for example, https://github.com/Azure-Samples/todo-nodejs-mongo/blob/main/infra/main.bicep and remove the outputs you don't need. Here's a sample:
 
     ```json
     targetScope = 'subscription'
@@ -123,7 +136,7 @@ To create an azd compatible project:
     
     ```
 
-1. Create **resources.bicep**. We'll deploy this app to Azure App Service. For samples, you can refer to [sample Azure App Service Bicep files](/azure/app-service/samples-bicep). Here's a sample **resources.bicep**:
+1. Create **resources.bicep**. For samples, you can refer to [sample Azure App Service Bicep files](/azure/app-service/samples-bicep). Here's a sample **resources.bicep** that creates a Python web frontend hosted on Azure App Service:
 
     ```json
     param location string
@@ -195,7 +208,7 @@ To deploy the app, azd needs to know more about your app. Edit the azure.yaml fi
     - **name**: Root element. Required. Name of the application.
     - **services**: Root element. Required. Definition of services that is part of the app.
     - **web**: Required. Name of the service. Can be any name, for example, api, web.
-    - **project**: Required. Path to the service source code directory.
+    - **project**: Required. Path to the service source code directory. Use **src/web** if your source code is found under /src/web.
     - **language**: Service implementation language. "py" for Python. If not specified, .NET will be assumed.
     - **host**: Type of Azure resource used for service implementation. "appservice" for Azure App Service. If not required, appservice is assumed.
 
@@ -204,10 +217,16 @@ To deploy the app, azd needs to know more about your app. Edit the azure.yaml fi
 1. Run `azd deploy` to deploy the app to Azure
 1. Visit the end point printed to test your app.
 
+Your project is now compatible with Azure Develper CLI.
+
 ### What happened?
 
 After you run `azd deploy`:
-* The service **web** is deployed to the app service you provisioned in preview step.
+* The service **web** is deployed to the app service you provisioned in the previous step.
+
+> [!NOTE] 
+> * If you make any changes to your bicep file and/or code, you can run `azd up` to perform both `azd provision` and `azd deploy` in a single step. 
+> * If you wish to create a new environment, run `azd env new`.
 
 ## Configure a DevOps pipeline
 
@@ -215,17 +234,39 @@ To set up GitHub Action:
 1. Create a folder ".github" if it doesn't exist
 1. Create a folder "workflows" under the .github folder
 1. Copy the **azure-dev.yml** from any azd template, for example, https://github.com/Azure-Samples/todo-nodejs-mongo/blob/main/.github/workflows/azure-dev.yml and paste into the .github/workflows folder.
-1. Run `azd pipeline config` to create a repository in GitHub.com, push updates to the repository repo and trigger the GitHub Action workflow.
+
+To test:
+
+1. Run `azd pipeline config` to push updates to the repository. The GitHub Action workflow is triggered because of the update.
 1. Go to the Action tab in your repo to check the workflow run result. 
+
+::: zone pivot="azd-convert"
 
 > [!NOTE]
 > * `.venv` should be added to the `.gitignore` file
+
+::: zone-end
 
 ## Clean up
 
 Run `azd down` to remove all Azure resources.
 
-Your project is now Azure Dev enabled.
+## azd conventions
+
+All Azure Developer CLI templates have the same file structure based on azd conventions. Here's the complete folder structure:
+
+```txt
+├── .devcontainer              [ For DevContainer ]
+├── .github                    [ Configure GitHub workflow ]
+├── .vscode                    [ VS Code workspace ]
+├── assets                     [ Assets used by README.MD ]
+├── infra                      [ Creates and configures Azure resources ]
+│   ├── main.bicep             [ Main infrastructure file ]
+│   ├── main.parameters.json   [ Parameters file ]
+│   └── resources.bicep        [ Resources file ]
+├── src                        [ Contains folder(s) for the application code ]
+└── azure.yaml                 [ Describes the application and type of Azure resources]
+```
 
 ## Useful Bicep resources
 

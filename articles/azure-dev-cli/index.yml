@@ -37,7 +37,7 @@ landingContent:
             url: how-to-setup-devop-pipeline.md
           - text: Monitor your project
             url: how-to-monitor-your-app.md
-          - text: Make project azd compatible
+          - text: Create azd compatible project
             url: how-to-azd-enable-a-project.md
           - text: Help with Azure Bicep
             url: how-to-azd-bicep.md

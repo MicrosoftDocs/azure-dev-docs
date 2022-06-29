@@ -11,7 +11,7 @@
     href: how-to-setup-devop-pipeline.md
   - name: Monitor your project
     href: how-to-monitor-your-app.md
-  - name: Make project azd compatible
+  - name: Create azd compatible project
     href: how-to-azd-enable-a-project.md
   - name: Troubleshoot and Get help
     href: troubleshoot.md   
