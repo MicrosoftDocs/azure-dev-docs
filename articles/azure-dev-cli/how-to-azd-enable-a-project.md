@@ -27,7 +27,7 @@ To start, you need the following required subfolder and files in your project fo
 └── azure.yaml                 [ Describes the application and type of Azure resources]
 ```
 
-Refer to the [azd conventions section](#azd-conventions) for complete folder structure.
+Refer to the [azd conventions section](#azd-conventions) for the complete folder structure that includes optional folders.
 
 ## Your project folder
 
@@ -136,9 +136,17 @@ To add, for example, Azure App Service resources:
     
     ```
 
-1. Create **resources.bicep**. For samples, you can refer to [sample Azure App Service Bicep files](/azure/app-service/samples-bicep). Here's a sample **resources.bicep** that creates a Python web frontend hosted on Azure App Service:
+1. Create **resources.bicep**. For a sample, you can refer to [sample Azure App Service Bicep files](/azure/app-service/samples-bicep). Make sure you use the same **azd-service-name** as the service name you use later for [azure.yaml](#update-azureyaml).
 
-    ```json
+  ```json
+    tags: union(tags, {
+      'azd-service-name': 'web'
+      })
+  ```
+  
+  Here's a sample **resources.bicep** that creates an Azure App Service for hosting a Python web app:
+  
+  ```json
     param location string
     param principalId string = ''
     param resourceToken string
@@ -207,7 +215,7 @@ To deploy the app, azd needs to know more about your app. Edit the azure.yaml fi
     ```
     - **name**: Root element. Required. Name of the application.
     - **services**: Root element. Required. Definition of services that is part of the app.
-    - **web**: Required. Name of the service. Can be any name, for example, api, web.
+    - **web**: Required. Name of the service. Can be any name, for example, api, web. This name needs to be the same as the **azd-service-name** you use as tag for the host of the service.
     - **project**: Required. Path to the service source code directory. Use **src/web** if your source code is found under /src/web.
     - **language**: Service implementation language. "py" for Python. If not specified, .NET will be assumed.
     - **host**: Type of Azure resource used for service implementation. "appservice" for Azure App Service. If not required, appservice is assumed.
@@ -225,7 +233,7 @@ After you run `azd deploy`:
 * The service **web** is deployed to the app service you provisioned in the previous step.
 
 > [!NOTE] 
-> * If you make any changes to your bicep file and/or code, you can run `azd up` to perform both `azd provision` and `azd deploy` in a single step. 
+> * You can run `azd up` to perform both `azd provision` and `azd deploy` in a single step. 
 > * If you wish to create a new environment, run `azd env new`.
 
 ## Configure a DevOps pipeline
