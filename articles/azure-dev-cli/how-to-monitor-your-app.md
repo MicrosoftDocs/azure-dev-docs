@@ -26,32 +26,17 @@ Create monitoring activity in the application before running the `azd monitor` c
 
 ## Monitor the application
 
-To help with monitoring applications, the Azure Dev CLI provides a `monitor` command to help you get to the various Application Insights dashboards.
+To help with monitoring applications, azd provides a `monitor` command whose parameters launch various Application Insights dashboards.
 
-1. Run the following command to open the "Overview" dashboard:
+| Application Insights dashboard | Command                |
+|--------------------------------|------------------------|
+| Main dashboard                 | azd monitor --overview |
+| Live metrics dashboard         | azd monitor --live     |
+| Logs dashboard                 | azd monitor --logs     |
 
-  ```bash
-  azd monitor --overview
-  ```
+## Clean up resources
 
-- Live Metrics Dashboard
-
-  Run the following command to open the "Live Metrics" dashboard:
-
-  ```bash
-  azd monitor --live
-  ```
-
-- Logs Dashboard
-
-  Run the following command to open the "Logs" dashboard:
-
-  ```bash
-  azd monitor --logs
-  ```
-
-### Clean up resources
-When you're done, you can delete all the Azure resources created with this template by running the following command:
+When you no longer need the resources created in this article, do the following steps:
 
 ``` bash
 azd down
