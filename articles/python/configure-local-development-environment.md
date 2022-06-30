@@ -1,7 +1,7 @@
 ---
 title: Configure your local Python environment for Azure development
 description: How to set up a local Python dev environment for working with Azure.
-ms.date: 06/22/2022
+ms.date: 06/28/2022
 ms.topic: conceptual
 ms.custom: devx-track-python
 ---
@@ -93,7 +93,7 @@ az login
 
 The Azure CLI will open your default browser to complete the sign-in process.
 
-## Configure Python virtual environments
+## Configure Python virtual environment
 
 When creating Python applications for Azure, it's recommended to create a [virtual environment](https://docs.python.org/3/tutorial/venv.html) for each application. A virtual environment is a self-contained directory for a particular version of Python plus the other packages needed for that application.
 
@@ -105,17 +105,17 @@ To create a virtual environment, follow these steps.
 
 1. Create the virtual environment:
 
-    ### [macOS/Linux](#tab/bash)
-
-    ```bash
-    python3 -m venv .venv
-    ```
-
     ### [Windows](#tab/cmd)
 
     ```bash
     # py -3 uses the global python interpreter. You can also use python3 -m venv .venv.
     py -3 -m venv .venv
+    ```
+
+    ### [macOS/Linux](#tab/bash)
+
+    ```bash
+    python3 -m venv .venv
     ```
 
     ---
@@ -124,18 +124,18 @@ To create a virtual environment, follow these steps.
 
 1. Activate the virtual environment:
 
-    ### [macOS/Linux](#tab/bash)
-
-    ```bash
-    source .venv/bin/activate
-    ```
-    
     ### [Windows](#tab/cmd)
 
     ```cmd
     .venv\scripts\activate
     ```
 
+    ### [macOS/Linux](#tab/bash)
+
+    ```bash
+    source .venv/bin/activate
+    ```
+    
     ---
 
 Once you activate that environment (which Visual Studio Code does automatically), running `pip install` installs a library into that environment only. Python code running in a virtual environment uses the specific package versions installed into that virtual environment. Using different virtual environments allows different applications to use different versions of a package, which is sometimes required. To learn more about virtual environments, see [Virtual Environments and Packages](https://docs.python.org/3/tutorial/venv.html) in the Python docs.
