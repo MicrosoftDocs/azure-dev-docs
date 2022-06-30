@@ -5,12 +5,17 @@ ms.topic: include
 ms.date: 06/28/2022
 ---
 
-Copy the *.env.sample* file to *.env.local* and fill in MongoDB values.
+There are a number of ways to get environment variables passed to container. Each has advantages and disadvantages for security. Here, we show one way to it.  In the *tasks.json* section for the Docker run task, add the values needed:
 
-CONNECTION_STRING=\<connection-string>
-COLLECTION_NAME=\<collection-name>
-DB_NAME=\<database-name>
-
-The VS Code build command creates a image using the *.dockerignore* file to exclude files and directories. The default *.dockerignore* ignores *.env* variables. 
-
-The sample app looks for a *.env.local* file that should only be used in local environments. The *.env.local* file is not used in production and you should make sure to not include it the production image. Also, make sure you add
+```json
+"dockerRun": {
+    "env": {
+        "FLASK_APP": "app.py",
+        "FLASK_DEBUG": "1",
+        "CONNECTION_STRING": "<connection-string>",
+        "COLLECTION_NAME": "<collection-name>",
+        "DB_NAME": "<db-name>",
+    },
+}
+```
+Be sure to remove these when finished testing locally. 
