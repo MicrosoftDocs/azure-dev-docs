@@ -12,18 +12,23 @@ ms.prod: azure
 
 You can use any of the [Azure Developer CLI template](azure-dev-cli-overview.md#azure-developer-cli-templates) for this tutorial. We'll use the [Todo Application with Node.js and Azure Cosmos DB API for MongoDB](https://github.com/azure-samples/todo-nodejs-mongo).
 
-By now, you should have your Azure resources provisioned and application deployed. If not, follow the steps in [get-started](get-started.md). 
+## Prerequisites
 
-Make sure you create monitoring activity in the application before running the `azd monitor` commands:
+This article assumes you've installed the azd. If you are new to azd, begin with [Get started](get-started.md) and then return to this article.
 
-1. Select the web application URL to launch the ToDo app. 
-2. Create a new list and add some items. 
+## Configure your environment
 
-### Monitor the application using `azd monitor`
+Create monitoring activity in the application before running the `azd monitor` commands:
+
+1. Launch the ToDo app.
+
+1. Create a new list and add a couple of items.
+
+## Monitor the application
 
 To help with monitoring applications, the Azure Dev CLI provides a `monitor` command to help you get to the various Application Insights dashboards.
 
-- Run the following command to open the "Overview" dashboard:
+1. Run the following command to open the "Overview" dashboard:
 
   ```bash
   azd monitor --overview

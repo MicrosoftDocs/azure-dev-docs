@@ -9,8 +9,8 @@ ms.custom: devx-track-azdevcli
 ms.prod: azure
 zone_pivot_group_filename: developer/azure-dev-cli/azd-zone-pivot-groups.json
 zone_pivot_groups: azd-devify-set
-
 ---
+
 # How to create an Azure Developer CLI compatible template
 
 ![Azure Developer CLI enable](media/how-to-devify-a-project/dev-ify.png)
