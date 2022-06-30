@@ -71,7 +71,7 @@ Use the following steps to create a new Spring Boot application project with Azu
    * Select **8** for the Java version.
    * Add **Azure Support** in the dependencies.
 
-   :::image type="content" source="media/spring-initializer/2.5.11/mvn-java8-cosmos-web.png" alt-text="Screenshot of Spring Initializr with basic options.":::
+   :::image type="content" source="media/spring-initializer/2.7.1/mvn-java8-cosmos-web.png" alt-text="Screenshot of Spring Initializr with basic options.":::
 
    > [!NOTE]
    > 1. The Spring Initializr uses the **Group** and **Artifact** names to create the package name; for example: *com.example.wingtiptoysdata*.

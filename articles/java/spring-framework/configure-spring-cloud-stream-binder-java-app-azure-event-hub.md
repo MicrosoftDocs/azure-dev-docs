@@ -103,7 +103,7 @@ The following procedure creates a Spring boot application.
    * Select **8** or **11** for the Java version.
    * Add the *Web* dependency.
 
-   :::image type="content" source="media/spring-initializer/2.5.11/mvn-java8-azure-web.png" alt-text="Screenshot of Spring Initializr with basic options.":::
+   :::image type="content" source="media/spring-initializer/2.7.1/mvn-java8-azure-web.png" alt-text="Screenshot of Spring Initializr with basic options.":::
 
    > [!NOTE]
    > The Spring Initializr uses the **Group** and **Artifact** names to create the package name; for example: *com.contoso.eventhubs.sample*.
