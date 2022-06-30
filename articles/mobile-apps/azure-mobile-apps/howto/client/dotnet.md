@@ -77,6 +77,7 @@ var options = new DatasyncClientOptions
     TableEndpointResolver = (table) => $"/tables/{tableName.ToLowerInvariant()}",
     UserAgent = $"Datasync/5.0 (/* Device information */)"
 };
+```
 
 #### HttpPipeline
 
