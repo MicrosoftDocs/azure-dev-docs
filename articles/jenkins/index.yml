@@ -110,9 +110,9 @@ landingContent:
             url: deploy-to-service-fabric-cluster.md
 
   # Card
-  - title: CI/CD to Azure Spring Cloud
+  - title: CI/CD to Azure Spring Apps
     linkLists:
       - linkListType: tutorial
         links:
-          - text: Deploy to Azure Spring Cloud using the Azure CLI
+          - text: Deploy to Azure Spring Apps using the Azure CLI
             url: deploy-to-azure-spring-cloud-using-azure-cli.md

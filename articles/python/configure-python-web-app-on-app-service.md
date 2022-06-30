@@ -1,28 +1,27 @@
 ---
-title: "Step 4: Configure a custom startup file for Python apps on Azure App Service on Linux"
-description: Tutorial step 4, instructing App Service how to start the web app including specific instructions for Django, Flask, and other frameworks.
+title: "Configure a custom startup file for Python apps on Azure App Service on Linux"
+description: Discusses how to start a Python web app running on App Service, including specific instructions for Django, Flask, and other frameworks.
 ms.topic: conceptual
-ms.date: 06/06/2020
-ms.custom: devx-track-python, seo-python-october2019
+ms.date: 06/20/2022
+ms.custom: devx-track-python
+ms.prod: azure-python
+author: jess-johnson-msft
+ms.author: jejohn
 ---
 
-# 4: Configure a custom startup file for Python apps on Azure App Service
+# Configure a custom startup file for Python apps on Azure App Service
 
-[Previous step: create the App Service](tutorial-deploy-app-service-on-linux-03.md)
-
-In this step, you configure a custom startup file, if needed, for a Python app on an Azure App Service.
+In this article, you learn about configuring a custom startup file, if needed, for a Python web app hosted on Azure App Service. For running locally, you don't need a startup file. However, when you deploy a web app to Azure App Service, your code is run in Docker container that can use any startup commands if they are present.
 
 You need a custom startup file in the following cases:
 
-- You want to start the [Gunicorn](https://gunicorn.org/) web server with extra arguments beyond the defaults, which are `--bind=0.0.0.0 --timeout 600`.
+* You want to start the [Gunicorn](https://gunicorn.org/) default web server with extra arguments beyond the defaults, which are `--bind=0.0.0.0 --timeout 600`.
 
-- Your app is built with a framework other than Flask or Django, or you want to use a different web server.
+* Your app is built with a framework other than Flask or Django, or you want to use a different web server besides Gunicorn.
 
-- You have a Flask app whose main code file is named something **other** than *app.py* or *application.py**, or the app object is named something **other** than `app`.
+* You have a Flask app whose main code file is named something **other** than *app.py* or *application.py**, or the app object is named something **other** than `app`.
 
     In other words, unless you have an *app.py* or *application.py* in the root folder of your project, *and* the Flask app object is named `app`, then you need a custom startup command.
-
-    For instance, the main file in the code example from [Step 2](tutorial-deploy-app-service-on-linux-02.md) is named *hello.py* and the app object is called `myapp`, so a custom startup file is necessary as shown in this article.
 
 For more information, see [Configure Python Apps - Container startup process](/azure/app-service/configure-language-python#container-startup-process).
 
@@ -36,7 +35,7 @@ When you need a custom startup file, use the following steps:
 
 1. Commit the file to your code repository so it can be deployed with the rest of the app.
 
-1. In Visual Studio Code, select the Azure icon in the Activity Bar, expand **App Services** under your subscription, right-click the App Service, and select **Open in Portal**.
+1. In Visual Studio Code, select the Azure icon in the Activity Bar, expand **RESOURCES**,  find and expand your subscription, expand **App Services**, and right-click the App Service, and select **Open in Portal**.
 
 1. In the [Azure portal](https://portal.azure.com/), on the **Configuration** page for the App Service, select **General settings**, enter the name of your startup file (like *startup.txt* or *startup.sh*) under **Stack settings** > **Startup Command**, then select **Save**.
 
@@ -47,7 +46,7 @@ When you need a custom startup file, use the following steps:
 
 1. The App Service restarts when you save the changes.
 
-    Because you still haven't deployed your app code, however, visiting the site at this point shows "Application Error." This message indicates that the Gunicorn server started but failed to find the app, and therefore nothing is responding to HTTP requests. You deploy your app code in the next step.
+    If you haven't deployed your app code, however, visiting the site at this point shows "Application Error." This message indicates that the Gunicorn server started but failed to find the app, and therefore nothing is responding to HTTP requests. 
 
 ## Django startup commands
 
@@ -59,7 +58,7 @@ By default, App Service automatically locates the folder that contains your *wsg
 gunicorn --bind=0.0.0.0 --timeout 600 <module>.wsgi
 ```
 
-If you want to change any of the Gunicorn arguments, such as using `--timeout 1200`, then create a command file with those modifications.
+If you want to change any of the Gunicorn arguments, such as using `--timeout 1200`, then create a command file with those modifications. For more information, see [Container startup process - Django app](/azure/app-service/configure-language-python#django-app).
 
 ## Flask startup commands
 
@@ -91,7 +90,9 @@ If you use any of the following variations, then your custom startup command mus
 
     :::code language="txt" source="~/../python-sample-vscode-flask-tutorial/startup.txt" :::
 
-## Startup commands for other frameworks and web servers
+For more information, see [Container startup process - Flask app](/azure/app-service/configure-language-python#flask-app).
+
+## Other frameworks and web servers
 
 The App Service container that runs Python apps has Django and Flask installed by default, along with the Gunicorn web server.
 
@@ -108,8 +109,3 @@ To use a framework other than Django or Flask (such as [Falcon](https://falconfr
     ```
 
     You use `python -m` because web servers installed via *requirements.txt* aren't added to the Python global environment and therefore can't be invoked directly. The `python -m` command invokes the server from within the current virtual environment.
-
-> [!div class="nextstepaction"]
-> [I configured my startup file - continue to step 5 >>>](tutorial-deploy-app-service-on-linux-05.md)
-
-[Having issues? Let us know.](https://aka.ms/FlaskVSCQuickstartHelp)
