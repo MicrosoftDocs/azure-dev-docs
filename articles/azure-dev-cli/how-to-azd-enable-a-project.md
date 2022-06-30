@@ -35,7 +35,7 @@ Refer to the [azd conventions section](#azd-conventions) for the complete folder
 
 1. Create an empty folder
 1. Change directory to your new folder
-1. Add your source code either to the root or in a subfolder called /src. Note that the location of your source code needs to be the same as what you specify in your [azure.yaml file](#update-azureyaml).
+1. Add your app source code either to the root or in a subfolder called /src. Note that the location of your source code needs to be the same as what you specify in your [azure.yaml file](#update-azureyaml).
 
 ::: zone-end
 
@@ -135,18 +135,48 @@ To add, for example, Azure App Service resources:
     output AZURE_LOCATION string = location
     
     ```
-
-1. Create **resources.bicep**. For a sample, you can refer to [sample Azure App Service Bicep files](/azure/app-service/samples-bicep). Make sure you use the same **azd-service-name** as the service name you use later for [azure.yaml](#update-azureyaml).
-
-  ```json
-    tags: union(tags, {
-      'azd-service-name': 'web'
-      })
-  ```
   
-  Here's a sample **resources.bicep** that creates an Azure App Service for hosting a Python web app:
+    In this sample, an unique string is generated based on subscription id and used as a resource token. This token is appended to the name of all Azure resources created by azd. azd uses tags to identify resources so you can modify the names based on your organization's naming convention. 
+
+1. Create **resources.bicep**. You need an Azure App Service Plan and an Azure App Service running on Linux. For samples, you can refer to [sample Azure App Service Bicep files](/azure/app-service/samples-bicep). Make sure you:
+
+    - Include the following paramaters
+    
+      ```json
+      
+      param location string
+      param principalId string = ''
+      param resourceToken string
+      param tags object
+      param sku string = 'S1' 
+      param linuxFxVersion string = 'PYTHON|3.8'
+      
+      ```
+
+    - azd uses tag to identify the final service name. Add tags to the web resource and use the same `azd-service-name` as the service name you use later for [azure.yaml](#update-azureyaml).
+
+      ```json
+      tags: union(tags, {
+        'azd-service-name': 'web'
+        })
+
+      ```
+
+    - azd supports zip deployment. Add an appSettings resource with  `SCM_DO_BUILD_DURING_DEPLOYMENT` set to `true`
+
+      ```json
+      resource appSettings 'config' = {
+        name: 'appsettings'
+        properties: {
+          'SCM_DO_BUILD_DURING_DEPLOYMENT': 'true'
+          }
+        }
+      ```
+
+
+    Here's the complate **resources.bicep** that creates an Azure App Service for hosting a Python web app:
   
-  ```json
+    ```json
     param location string
     param principalId string = ''
     param resourceToken string
