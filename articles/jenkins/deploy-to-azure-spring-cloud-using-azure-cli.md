@@ -1,15 +1,18 @@
 ---
-title: Deploy apps to Azure Spring Cloud using Jenkins and Azure CLI
-description: Learn how to use Azure CLI in a continuous integration and deployment pipeline to deploy microservices to Azure Spring Cloud service
-keywords: jenkins, azure, devops, azure spring cloud, azure cli
+title: Deploy apps to Azure Spring Apps using Jenkins and Azure CLI
+description: Learn how to use Azure CLI in a continuous integration and deployment pipeline to deploy microservices to Azure Spring Apps service
+keywords: jenkins, azure, devops, azure spring apps, azure cli
 ms.topic: tutorial
 ms.date: 01/28/2022
 ms.custom: devx-track-jenkins,devx-track-azurecli
 ---
 
-# Tutorial: Deploy apps to Azure Spring Cloud using Jenkins and the Azure CLI
+# Tutorial: Deploy apps to Azure Spring Apps using Jenkins and the Azure CLI
 
-[Azure Spring Cloud](/azure/spring-cloud/spring-cloud-overview) is a fully managed microservice development with built-in service discovery and configuration management. The service makes it easy to deploy Spring Boot-based microservice applications to Azure. This tutorial demonstrates how you can use Azure CLI in Jenkins to automate continuous integration and delivery (CI/CD) for Azure Spring Cloud.
+> [!NOTE]
+> Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
+
+[Azure Spring Apps](/azure/spring-cloud/spring-cloud-overview) is a fully managed microservice development with built-in service discovery and configuration management. The service makes it easy to deploy Spring Boot-based microservice applications to Azure. This tutorial demonstrates how you can use Azure CLI in Jenkins to automate continuous integration and delivery (CI/CD) for Azure Spring Apps.
 
 In this tutorial, you'll complete these tasks:
 
@@ -35,22 +38,22 @@ Your local machine needs to meet the same prerequisite as the Jenkins build serv
 * [Maven 3.0 or above](https://maven.apache.org/download.cgi)
 * [Azure CLI installed](/cli/azure/install-azure-cli), version 2.0.67 or higher
 
-1. Install the Azure Spring Cloud extension:
+1. Install the Azure Spring Apps extension:
 
     ```azurecli
-    az extension add --name spring-cloud
+    az extension add --name spring
     ```
 
-1. Create a resource group to contain your Azure Spring Cloud service:
+1. Create a resource group to contain your Azure Spring Apps service:
 
     ```azurecli
     az group create --location eastus --name <resource group name>
     ```
 
-1. Provision an instance of Azure Spring Cloud:
+1. Provision an instance of Azure Spring Apps:
 
     ```azurecli
-    az spring-cloud create -n <service name> -g <resource group name>
+    az spring create -n <service name> -g <resource group name>
     ```
 
 1. Fork the [Piggy Metrics](https://github.com/Azure-Samples/piggymetrics) repo to your own GitHub account. In your local machine, clone your repo in a directory called `source-code`:
@@ -63,7 +66,7 @@ Your local machine needs to meet the same prerequisite as the Jenkins build serv
 1. Set up your configuration server. Make sure you replace &lt;your GitHub id&gt; with the correct value.
 
     ```azurecli
-    az spring-cloud config-server git set -n <your-service-name> --uri https://github.com/<your GitHub id>/piggymetrics --label config
+    az spring config-server git set -n <your-service-name> --uri https://github.com/<your GitHub id>/piggymetrics --label config
     ```
 
 1. Build the project:
@@ -76,29 +79,29 @@ Your local machine needs to meet the same prerequisite as the Jenkins build serv
 1. Create the three microservices: **gateway**, **auth-service**, and **account-service**:
 
     ```azurecli
-    az spring-cloud app create --n gateway -s <service name> -g <resource group name>
-    az spring-cloud app create --n auth-service -s <service name> -g <resource group name>
-    az spring-cloud app create --n account-service -s <service name> -g <resource group name>
+    az spring app create --n gateway -s <service name> -g <resource group name>
+    az spring app create --n auth-service -s <service name> -g <resource group name>
+    az spring app create --n account-service -s <service name> -g <resource group name>
     ```
 
 1. Deploy the applications:
 
     ```azurecli
-    az spring-cloud app deploy -n gateway -s <service name> -g <resource group name> --jar-path ./gateway/target/gateway.jar
-    az spring-cloud app deploy -n account-service -s <service name> -g <resource group name> --jar-path ./account-service/target/account-service.jar
-    az spring-cloud app deploy -n auth-service -s <service name> -g <resource group name> --jar-path ./auth-service/target/auth-service.jar
+    az spring app deploy -n gateway -s <service name> -g <resource group name> --jar-path ./gateway/target/gateway.jar
+    az spring app deploy -n account-service -s <service name> -g <resource group name> --jar-path ./account-service/target/account-service.jar
+    az spring app deploy -n auth-service -s <service name> -g <resource group name> --jar-path ./auth-service/target/auth-service.jar
     ```
 
 1. Assign public endpoint to gateway:
 
     ```azurecli
-    az spring-cloud app update -n gateway -s <service name> -g <resource group name> --is-public true
+    az spring app update -n gateway -s <service name> -g <resource group name> --is-public true
     ```
 
 1. Query the gateway application to get the url so that you can verify that the application is running.
 
     ```azurecli
-    az spring-cloud app show --name gateway | grep url
+    az spring app show --name gateway | grep url
     ```
     
  1. Navigate to the URL provided by the previous command to run the PiggyMetrics application.
@@ -156,9 +159,9 @@ In this section, you prepare the Jenkins server to run a build, which is fine fo
     - **ID**: Set as `azure_service_principal`. We use this ID in a later step in this article
     - **Description**: This value is optional, but recommended from a documentation/maintenance standpoint.
     
-### Install Maven and Azure CLI spring-cloud extension
+### Install Maven and Azure CLI spring extension
 
-The sample pipeline uses Maven to build and Azure CLI to deploy to the service instance. When Jenkins is installed, it creates an admin account named *jenkins*. Ensure that the user *jenkins* has permission to run the spring-cloud extension.
+The sample pipeline uses Maven to build and Azure CLI to deploy to the service instance. When Jenkins is installed, it creates an admin account named *jenkins*. Ensure that the user *jenkins* has permission to run the spring extension.
 
 1. Connect to the Jenkins controller via SSH.
 
@@ -176,10 +179,10 @@ The sample pipeline uses Maven to build and Azure CLI to deploy to the service i
     sudo su jenkins
     ```
 
-1. Install the spring-cloud extension:
+1. Install the spring extension:
 
     ```azurecli
-    az extension add --name spring-cloud
+    az extension add --name spring
     ```
 
 ## Create a Jenkinsfile
@@ -205,12 +208,12 @@ The sample pipeline uses Maven to build and Azure CLI to deploy to the service i
              '''  
              // Set default resource group name and service name. Replace <resource group name> and <service name> with the right values
              sh 'az config set defaults.group=<resource group name>'
-             sh 'az config set defaults.spring-cloud=<service name>'
+             sh 'az config set defaults.spring=<service name>'
 
              // Deploy applications
-             sh 'az spring-cloud app deploy -n gateway --jar-path ./gateway/target/gateway.jar'
-             sh 'az spring-cloud app deploy -n account-service --jar-path ./account-service/target/account-service.jar'
-             sh 'az spring-cloud app deploy -n auth-service --jar-path ./auth-service/target/auth-service.jar'
+             sh 'az spring app deploy -n gateway --jar-path ./gateway/target/gateway.jar'
+             sh 'az spring app deploy -n account-service --jar-path ./account-service/target/account-service.jar'
+             sh 'az spring app deploy -n auth-service --jar-path ./auth-service/target/auth-service.jar'
              sh 'az logout'
            }
          }

@@ -1,6 +1,6 @@
 ---
 title: Spring Cloud Azure list of configuration properties
-description: Spring Cloud Azure reference list of configuration properties
+description: Spring Cloud Azure list of configuration properties
 ms.date: 04/26/2022
 ms.topic: article
 author: KarlErickson
@@ -22,6 +22,8 @@ ms.custom: devx-track-java
 
 [!INCLUDE [configuration-properties-azure-event-hubs.md](includes/spring-cloud-azure/configuration-properties-azure-event-hubs.md)]
 
+[!INCLUDE [configuration-properties-azure-key-vault.md](includes/spring-cloud-azure/configuration-properties-azure-key-vault.md)]
+
 [!INCLUDE [configuration-properties-azure-key-vault-secrets.md](includes/spring-cloud-azure/configuration-properties-azure-key-vault-secrets.md)]
 
 [!INCLUDE [configuration-properties-azure-key-vault-certificates.md](includes/spring-cloud-azure/configuration-properties-azure-key-vault-certificates.md)]
@@ -29,6 +31,8 @@ ms.custom: devx-track-java
 [!INCLUDE [configuration-properties-azure-service-bus.md](includes/spring-cloud-azure/configuration-properties-azure-service-bus.md)]
 
 [!INCLUDE [configuration-properties-azure-service-bus-jms.md](includes/spring-cloud-azure/configuration-properties-azure-service-bus-jms.md)]
+
+[!INCLUDE [configuration-properties-azure-storage.md](includes/spring-cloud-azure/configuration-properties-azure-storage.md)]
 
 [!INCLUDE [configuration-properties-azure-storage-blob.md](includes/spring-cloud-azure/configuration-properties-azure-storage-blob.md)]
 

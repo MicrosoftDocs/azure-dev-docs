@@ -29,9 +29,9 @@ Static web apps are commonly built using libraries and frameworks like Angular, 
 
 [Azure Functions](/azure/azure-functions/) is a "serverless"-style offering that lets you write just the code you need to respond to events or run on a schedule.  Rather than worrying about building out and managing a whole application or the infrastructure to run your code, you write just the code you need to handle the event..With Functions, you can trigger code execution with HTTP requests, webhooks, cloud service events, or on a schedule. You can code in your development language of choice, such as C#, F#, Node.js, Python, or PHP. With consumption-based billing, you pay only for the time that your code executes, and Azure scales as needed.
 
-## Azure Spring Cloud
+## Azure Spring Apps
 
-For Spring Boot microservices, [Azure Spring Cloud](/azure/spring-cloud/) provides a managed service that makes it easy to run these services in Azure.  No code changes are required to run these services in Azure. The service manages the infrastructure of Spring Cloud applications so developers can focus on their code. Azure Spring Cloud provides lifecycle management using comprehensive monitoring and diagnostics, configuration management, service discovery, CI/CD integration, blue-green deployments, and more.
+For Spring Boot microservices, [Azure Spring Apps](/azure/spring-cloud/) provides a managed service that makes it easy to run these services in Azure.  No code changes are required to run these services in Azure. The service manages the infrastructure of Spring Cloud applications so developers can focus on their code. Azure Spring Apps provides lifecycle management using comprehensive monitoring and diagnostics, configuration management, service discovery, CI/CD integration, blue-green deployments, and more.
 
 ## Azure Kubernetes Services
 
