@@ -27,7 +27,7 @@ To start, you need the following required subfolder and files in your project fo
 └── azure.yaml                 [ Describes the application and type of Azure resources]
 ```
 
-Refer to the [azd conventions section](#azd-conventions) for complete folder structure.
+Refer to the [azd conventions section](#azd-conventions) for the complete folder structure that includes optional folders.
 
 ## Your project folder
 
@@ -35,7 +35,7 @@ Refer to the [azd conventions section](#azd-conventions) for complete folder str
 
 1. Create an empty folder
 1. Change directory to your new folder
-1. Add your source code either to the root or in a subfolder called /src. Note that the location of your source code needs to be the same as what you specify in your [azure.yaml file](#update-azureyaml).
+1. Add your app source code either to the root or in a subfolder called /src. Note that the location of your source code needs to be the same as what you specify in your [azure.yaml file](#update-azureyaml).
 
 ::: zone-end
 
@@ -135,9 +135,47 @@ To add, for example, Azure App Service resources:
     output AZURE_LOCATION string = location
     
     ```
+  
+    In this sample, an unique string is generated based on subscription id and used as a resource token. This token is appended to the name of all Azure resources created by azd. azd uses tags to identify resources so you can modify the names based on your organization's naming convention. 
 
-1. Create **resources.bicep**. For samples, you can refer to [sample Azure App Service Bicep files](/azure/app-service/samples-bicep). Here's a sample **resources.bicep** that creates a Python web frontend hosted on Azure App Service:
+1. Create **resources.bicep**. You need an Azure App Service Plan and an Azure App Service running on Linux. For samples, you can refer to [sample Azure App Service Bicep files](/azure/app-service/samples-bicep). Make sure you:
 
+    - Include the following paramaters
+    
+      ```json
+      
+      param location string
+      param principalId string = ''
+      param resourceToken string
+      param tags object
+      param sku string = 'S1' 
+      param linuxFxVersion string = 'PYTHON|3.8'
+      
+      ```
+
+    - azd uses tag to identify the final service name. Add tags to the web resource and use the same `azd-service-name` as the service name you use later for [azure.yaml](#update-azureyaml).
+
+      ```json
+      tags: union(tags, {
+        'azd-service-name': 'web'
+        })
+
+      ```
+
+    - azd supports zip deployment. Add an appSettings resource with  `SCM_DO_BUILD_DURING_DEPLOYMENT` set to `true`
+
+      ```json
+      resource appSettings 'config' = {
+        name: 'appsettings'
+        properties: {
+          'SCM_DO_BUILD_DURING_DEPLOYMENT': 'true'
+          }
+        }
+      ```
+
+
+    Here's the complate **resources.bicep** that creates an Azure App Service for hosting a Python web app:
+  
     ```json
     param location string
     param principalId string = ''
@@ -207,7 +245,7 @@ To deploy the app, azd needs to know more about your app. Edit the azure.yaml fi
     ```
     - **name**: Root element. Required. Name of the application.
     - **services**: Root element. Required. Definition of services that is part of the app.
-    - **web**: Required. Name of the service. Can be any name, for example, api, web.
+    - **web**: Required. Name of the service. Can be any name, for example, api, web. This name needs to be the same as the **azd-service-name** you use as tag for the host of the service.
     - **project**: Required. Path to the service source code directory. Use **src/web** if your source code is found under /src/web.
     - **language**: Service implementation language. "py" for Python. If not specified, .NET will be assumed.
     - **host**: Type of Azure resource used for service implementation. "appservice" for Azure App Service. If not required, appservice is assumed.
@@ -225,7 +263,7 @@ After you run `azd deploy`:
 * The service **web** is deployed to the app service you provisioned in the previous step.
 
 > [!NOTE] 
-> * If you make any changes to your bicep file and/or code, you can run `azd up` to perform both `azd provision` and `azd deploy` in a single step. 
+> * You can run `azd up` to perform both `azd provision` and `azd deploy` in a single step. 
 > * If you wish to create a new environment, run `azd env new`.
 
 ## Configure a DevOps pipeline
