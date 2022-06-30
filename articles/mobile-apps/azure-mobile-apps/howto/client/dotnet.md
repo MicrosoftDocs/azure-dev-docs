@@ -111,18 +111,18 @@ var options = new DatasyncClientOptions
 
 #### OfflineStore
 
-The `OfflineStore` is used when configuring offline data acess.  See [Work with offline tables](#work-with-offline-tables) for more information.
+The `OfflineStore` is used when configuring offline data access.  See [Work with offline tables](#work-with-offline-tables) for more information.
 
 #### ParallelOperations
 
 Part of the offline synchronization process involves pushing queued operations to the remote server.  When the push operation is triggered, the
 operations are submitted in the order they were received.  You can, optionally, use up to 8 threads to push these operations.  This uses more
 resources on both client and server to complete the operation faster.  When using more than one thread, the order in which operations arrive at
-the server cannot be guaranteed. 
+the server can't be guaranteed. 
 
 #### SerializerSettings
 
-If you have changed the serializer settings on the datasync server, you will also need to make the same changes to the `SerializerSettings` on
+If you've changed the serializer settings on the datasync server, you'll also need to make the same changes to the `SerializerSettings` on
 the client.  This option allows you to specify your own serializer settings.
 
 #### TableEndpointResolver
@@ -519,7 +519,7 @@ By default, all tables use incremental synchronization - only new records are re
 > [!NOTE]
 > The first argument to `PullItemsAsync` is the OData query that indicates which records to pull to the device. It's better to modify the service to only return records specific to the user rather than to create complex queries on the client side.
 
-The options (defined by the `PullOptions` object) do not generally need to be set.  Options include:
+The options (defined by the `PullOptions` object) don't generally need to be set.  Options include:
 
 * `PushOtherTables` - if set to true, all tables are pushed.
 * `QueryId` - a specific query ID to use rather than the generated one.
