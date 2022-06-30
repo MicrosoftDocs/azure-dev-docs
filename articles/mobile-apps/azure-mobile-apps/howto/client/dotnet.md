@@ -63,32 +63,86 @@ More details on the authentication provider are given below.
 
 ### Options
 
-The following options can be set:
-
-* `HttpPipeline` - an ordered list of [DelegatingHandler] objects used for constructing the HTTP pipeline.
-* `IdGenerator` - a function that returns an ID for a new entity when required.
-* `InstallationId` - a globally unique string for identifying "this" application on "this" device.
-* `OfflineStore` - the offline store to use.
-* `SerializerSettings` - the JSON serializer settings to use.
-* `UserAgent` - the User-Agent header value to use.
-
-When not specified, default values are used for each option.
-
-* `HttpPipeline` - an empty pipeline.
-* `IdGenerator` - a new GUID, represented as a series of hex digits.
-* `InstallationId` - a generated GUID that is stored on device in between application runs.
-* `OfflineStore` - not set - offline tables aren't available.
-* `SerializerSettings` - a default set of serializer settings suitable for communicating with the default service.
-* `UserAgent` - `Datasync/5.0 (/* device information */)` - the device information is replaced by details of the device.
-
-To generate a different ID, use `IdGenerator`.  For example, the following options will generate an ID comprised of the table name and a GUID:
+A complete (default) set of options can be created like this:
 
 ``` csharp
-var options = new DataSyncClientOptions 
+var options = new DatasyncClientOptions
 {
-    IdGenerator = (tableName) => $"{tableName}-{Guid.NewGuid().ToString("D").ToUpper()}"
+    HttpPipeline = new HttpMessageHandler[](),
+    IdGenerator = (table) => Guid.NewGuid().ToString("N"),
+    InstallationId = null,
+    OfflineStore = null,
+    ParallelOperations = 1,
+    SerializerSettings = null,
+    TableEndpointResolver = (table) => $"/tables/{tableName.ToLowerInvariant()}",
+    UserAgent = $"Datasync/5.0 (/* Device information */)"
+};
+
+#### HttpPipeline
+
+Normally, a HTTP request is made by passing the request through the authentication provider (which adds the `Authorization` header 
+for the currently authenticated user) before sending the request.  You can, optionally, add additional delegating handlers that each
+request will pass through.  This allows you, for example, to add additional headers, do retries, or provider logging capabilities.
+
+Examples of this are provided for [logging](#enable-request-logging) and [adding request headers](#customize-request-headers) later in
+this article.
+
+#### IdGenerator
+
+When an entity is added to an offline table, it must have an Id.  An Id will be generated if one is not provided.  The IdGenerator option
+allows you to tailor the Id that is generated.  By default, a globally unique Id is generated.
+
+#### InstallationId
+
+A custom header `X-ZUMO-INSTALLATION-ID` is sent with each request to identify the combination of the application on a specific device.  This
+header can be recorded in logs and allows you to determine the number of distinct installations for your app.  By default, an installation 
+Id is generated for you and saved in persistent storage when the app is first launched.  However, you can modify this to set your own installation
+Id.  If set to the blank string, the header is not sent.
+
+For example, the following setting will generate a string that includes the table name and a GUID:
+
+``` csharp
+var options = new DatasyncClientOptions 
+{
+    IdGenerator = (table) => $"{table}-{Guid.NewGuid().ToString("D").ToUpperInvariant()}"
+}
+```
+
+#### OfflineStore
+
+The `OfflineStore` is used when configuring offline data acess.  See [Work with offline tables](#work-with-offline-tables) for more information.
+
+#### ParallelOperations
+
+Part of the offline synchronization process involves pushing queued operations to the remote server.  When the push operation is triggered, the
+operations are submitted in the order they were received.  You can, optionally, use up to 8 threads to push these operations.  This uses more
+resources on both client and server to complete the operation faster.  When using more than one thread, the order in which operations arrive at
+the server cannot be guaranteed. 
+
+#### SerializerSettings
+
+If you have changed the serializer settings on the datasync server, you will also need to make the same changes to the `SerializerSettings` on
+the client.  This option allows you to specify your own serializer settings.
+
+#### TableEndpointResolver
+
+By convention, tables are located on the remote service at the `/tables/{tableName}` path (as specified by the `Route` attribute in the server
+code).  However, tables can exist at any endpoint path.  The `TableEndpointResolver` is a function that turns a table name into a path for 
+communicating with the remote service.
+
+For example, the following changes the assumption so that all tables are located under `/api`:
+
+``` csharp
+var options = new DatasyncClientOptions
+{
+    TableEndpointResolver = (table) => $"/api/{table}"
 };
 ```
+
+#### UserAgent
+
+The datasync client generates a suitable User-Agent header value based on the version of the library and the platform information.  Some developers
+feel this leaks information.  You can set the `UserAgent` property to any valid header value.
 
 ## Work with remote tables
 
