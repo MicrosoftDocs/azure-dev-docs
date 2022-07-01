@@ -212,6 +212,7 @@
 | Resource Management - Reservations | npm [7.1.0](https://www.npmjs.com/package/@azure/arm-reservations/v/7.1.0) | [docs](/javascript/api/overview/azure/arm-reservations-readme) | GitHub [7.1.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/reservations/arm-reservations) |
 | Resource Management - Resource Graph | npm [4.2.1](https://www.npmjs.com/package/@azure/arm-resourcegraph/v/4.2.1)<br>npm [5.0.0-beta.2](https://www.npmjs.com/package/@azure/arm-resourcegraph/v/5.0.0-beta.2) | [docs](/javascript/api/overview/azure/arm-resourcegraph-readme) | GitHub [4.2.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/resourcegraph/arm-resourcegraph) |
 | Resource Management - Resource Health | npm [3.0.1](https://www.npmjs.com/package/@azure/arm-resourcehealth/v/3.0.1) | [docs](/javascript/api/overview/azure/arm-resourcehealth-readme) | GitHub [3.0.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/resourcehealth/arm-resourcehealth) |
+| Resource Management - Resourceconnector | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure/arm-resourceconnector/v/1.0.0-beta.1) |  | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-resourceconnector_1.0.0-beta.1/sdk/resourceconnector/arm-resourceconnector/) |
 | Resource Management - Resources | npm [5.0.1](https://www.npmjs.com/package/@azure/arm-resources/v/5.0.1) | [docs](/javascript/api/overview/azure/arm-resources-readme) | GitHub [5.0.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/resources/arm-resources) |
 | Resource Management - Scvmm | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure/arm-scvmm/v/1.0.0-beta.1) | [docs](/javascript/api/overview/azure/arm-scvmm-readme) | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-scvmm_1.0.0-beta.1/sdk/scvmm/arm-scvmm/) |
 | Resource Management - Search | npm [3.0.1](https://www.npmjs.com/package/@azure/arm-search/v/3.0.1) | [docs](/javascript/api/overview/azure/arm-search-readme) | GitHub [3.0.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/search/arm-search) |
@@ -244,12 +245,13 @@
 | Resource Management - Web Services | npm [1.0.1](https://www.npmjs.com/package/@azure/arm-webservices/v/1.0.1) | [docs](/javascript/api/overview/azure/arm-webservices-readme) | GitHub [1.0.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/machinelearning/arm-webservices) |
 | Resource Management - WebPubSub | npm [1.0.0](https://www.npmjs.com/package/@azure/arm-webpubsub/v/1.0.0) | [docs](/javascript/api/overview/azure/arm-webpubsub-readme) | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-webpubsub_1.0.0/sdk/web-pubsub/arm-webpubsub/) |
 | Resource Management - Work Spaces | npm [1.0.1](https://www.npmjs.com/package/@azure/arm-workspaces/v/1.0.1) | [docs](/javascript/api/overview/azure/arm-workspaces-readme) | GitHub [1.0.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/machinelearning/arm-workspaces) |
+| Resource Management - Workloads | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure/arm-workloads/v/1.0.0-beta.1) |  | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-workloads_1.0.0-beta.1/sdk/workloads/arm-workloads/) |
 | @autorest/adl | npm [0.0.2](https://www.npmjs.com/package/@autorest/adl/v/0.0.2) |  |  |
 | @autorest/cadl | npm [0.2.0](https://www.npmjs.com/package/@autorest/cadl/v/0.2.0) |  |  |
 | @autorest/codemodel | npm [4.18.2](https://www.npmjs.com/package/@autorest/codemodel/v/4.18.2) |  |  |
 | @autorest/common | npm [1.5.2](https://www.npmjs.com/package/@autorest/common/v/1.5.2) |  |  |
 | @autorest/configuration | npm [1.9.2](https://www.npmjs.com/package/@autorest/configuration/v/1.9.2) |  |  |
-| @autorest/csharp | npm [3.0.0-beta.20220628.5](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20220628.5) |  |  |
+| @autorest/csharp | npm [3.0.0-beta.20220701.1](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20220701.1) |  |  |
 | @autorest/csharp-v3 | npm [3.0.0-beta.20201217.1](https://www.npmjs.com/package/@autorest/csharp-v3/v/3.0.0-beta.20201217.1) |  |  |
 | @autorest/extension-base | npm [3.4.4](https://www.npmjs.com/package/@autorest/extension-base/v/3.4.4) |  |  |
 | @autorest/fixer | npm [1.1.0](https://www.npmjs.com/package/@autorest/fixer/v/1.1.0) |  |  |
@@ -349,7 +351,7 @@
 | AutoRest - Go | npm [4.0.0-preview.43](https://www.npmjs.com/package/@autorest/go/v/4.0.0-preview.43) |  |  |
 | AutoRest - Modeler Four | npm [4.23.7](https://www.npmjs.com/package/@autorest/modelerfour/v/4.23.7) |  | GitHub [4.23.7](https://github.com/Azure/autorest.modelerfour) |
 | AutoRest - PowerShell | npm [3.0.491](https://www.npmjs.com/package/@autorest/powershell/v/3.0.491)<br>npm [4.0.0-dev.3](https://www.npmjs.com/package/@autorest/powershell/v/4.0.0-dev.3) |  | GitHub [3.0.491](https://github.com/Azure/autorest.powershell) |
-| AutoRest - Python | npm [6.0.0](https://www.npmjs.com/package/@autorest/python/v/6.0.0) |  | GitHub [6.0.0](https://github.com/Azure/autorest.python/tree/v5.1.0-preview.7) |
+| AutoRest - Python | npm [6.0.1](https://www.npmjs.com/package/@autorest/python/v/6.0.1) |  | GitHub [6.0.1](https://github.com/Azure/autorest.python/tree/v5.1.0-preview.7) |
 | AutoRest - Remodeler | npm [2.1.27](https://www.npmjs.com/package/@autorest/remodeler/v/2.1.27) |  | GitHub [2.1.27](https://github.com/Azure/autorest.remodeler) |
 | AutoRest - Test | npm [0.1.76](https://www.npmjs.com/package/@autorest/test/v/0.1.76) |  | GitHub [0.1.76](https://github.com/Azure/autorest.test) |
 | AutoRest - Test Server | npm [3.0.27](https://www.npmjs.com/package/@autorest/test-server/v/3.0.27) |  |  |
@@ -647,6 +649,7 @@
 | Resource Management - Reservations | npm [7.1.0](https://www.npmjs.com/package/@azure/arm-reservations/v/7.1.0) | [docs](/javascript/api/overview/azure/arm-reservations-readme) | GitHub [7.1.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/reservations/arm-reservations) |
 | Resource Management - Resource Graph | npm [4.2.1](https://www.npmjs.com/package/@azure/arm-resourcegraph/v/4.2.1)<br>npm [5.0.0-beta.2](https://www.npmjs.com/package/@azure/arm-resourcegraph/v/5.0.0-beta.2) | [docs](/javascript/api/overview/azure/arm-resourcegraph-readme) | GitHub [4.2.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/resourcegraph/arm-resourcegraph) |
 | Resource Management - Resource Health | npm [3.0.1](https://www.npmjs.com/package/@azure/arm-resourcehealth/v/3.0.1) | [docs](/javascript/api/overview/azure/arm-resourcehealth-readme) | GitHub [3.0.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/resourcehealth/arm-resourcehealth) |
+| Resource Management - Resourceconnector | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure/arm-resourceconnector/v/1.0.0-beta.1) |  | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-resourceconnector_1.0.0-beta.1/sdk/resourceconnector/arm-resourceconnector/) |
 | Resource Management - Resources | npm [5.0.1](https://www.npmjs.com/package/@azure/arm-resources/v/5.0.1) | [docs](/javascript/api/overview/azure/arm-resources-readme) | GitHub [5.0.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/resources/arm-resources) |
 | Resource Management - Scvmm | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure/arm-scvmm/v/1.0.0-beta.1) | [docs](/javascript/api/overview/azure/arm-scvmm-readme) | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-scvmm_1.0.0-beta.1/sdk/scvmm/arm-scvmm/) |
 | Resource Management - Search | npm [3.0.1](https://www.npmjs.com/package/@azure/arm-search/v/3.0.1) | [docs](/javascript/api/overview/azure/arm-search-readme) | GitHub [3.0.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/search/arm-search) |
@@ -679,3 +682,4 @@
 | Resource Management - Web Services | npm [1.0.1](https://www.npmjs.com/package/@azure/arm-webservices/v/1.0.1) | [docs](/javascript/api/overview/azure/arm-webservices-readme) | GitHub [1.0.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/machinelearning/arm-webservices) |
 | Resource Management - WebPubSub | npm [1.0.0](https://www.npmjs.com/package/@azure/arm-webpubsub/v/1.0.0) | [docs](/javascript/api/overview/azure/arm-webpubsub-readme) | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-webpubsub_1.0.0/sdk/web-pubsub/arm-webpubsub/) |
 | Resource Management - Work Spaces | npm [1.0.1](https://www.npmjs.com/package/@azure/arm-workspaces/v/1.0.1) | [docs](/javascript/api/overview/azure/arm-workspaces-readme) | GitHub [1.0.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/machinelearning/arm-workspaces) |
+| Resource Management - Workloads | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure/arm-workloads/v/1.0.0-beta.1) |  | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-workloads_1.0.0-beta.1/sdk/workloads/arm-workloads/) |
