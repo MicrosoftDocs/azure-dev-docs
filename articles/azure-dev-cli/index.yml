@@ -63,7 +63,7 @@ landingContent:
             url: https://github.com/azure-samples/todo-python-mongo
           - text: ToDo C# Cosmo DB (SQL)
             url: https://github.com/Azure-Samples/todo-csharp-cosmos-sql
-  - title: Azure Container Apps
+  - title: Azure Container Apps templates
     linkLists:
       - linkListType: sample
         links:
@@ -71,3 +71,11 @@ landingContent:
             url: https://github.com/azure-samples/todo-nodejs-mongo-aca
           - text: ToDo Python Mongo ACA
             url: https://github.com/azure-samples/todo-python-mongo-aca
+  - title: Azure Static Web Apps & Azure Functions templates
+    linkLists:
+      - linkListType: sample
+        links:
+          - text: ToDo NodeJs Mongo SWA + Function
+            url: https://github.com/azure-samples/todo-nodejs-mongo-swa-func
+          - text: ToDo Python Mongo SWA + Function
+            url: https://github.com/azure-samples/todo-python-mongo-swa-func
