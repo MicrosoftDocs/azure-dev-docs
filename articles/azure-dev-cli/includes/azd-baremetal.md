@@ -66,5 +66,3 @@ A progress indicator displays the current status azd provisions and deploys your
 
 > [!NOTE] 
 > * The operation could take several minutes to complete as it performs three steps: initializes the project (`azd init`), creates the Azure services (`azd provision`), and deploys the code (`azd deploy`).
-> * If you modify code, run `azd up` without the --template flag.
-> * If you need a new environment, run `azd env new` to create a new one.

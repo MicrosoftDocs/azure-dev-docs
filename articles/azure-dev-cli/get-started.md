@@ -72,6 +72,10 @@ Upon successful completion of the `azd up` command, you'll note several changes 
 - The Azure resources referenced in the templates `README.md` file have been provisioned to the Azure subscription you specified when you ran `azd up`. You can view those Azure resources using the [Azure portal](https://portal.azure.com).
 - The application has been built and deployed to Azure. Using the web application URL output from the `azd up` command, you can browse to the fully functional app.
 
+> [!NOTE] 
+> * If you modify code, run `azd up` without the --template flag. Else, your code will be overwritten if you say yes when prompted.
+> * If you need a new environment, run `azd env new` to create a new one.
+
 ### Clean up resources
 
 When you no longer need the resources created in this article, do the following steps:
