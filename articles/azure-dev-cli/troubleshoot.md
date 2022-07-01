@@ -17,9 +17,9 @@ This article lists common problems and possible solutions when using Azure Devel
 
 ## Get help and give feedback
 
-If you're unable to find what you're looking for in this article or want to provide feedback, you can post questions to the [Azure Developer CLI Discussions](https://github.com/Azure/azure-dev-pr/discussions).
+If you're unable to find what you're looking for in this article or want to provide feedback, you can post questions to the [Azure Developer CLI Discussions](https://github.com/Azure/azure-dev/discussions).
 
-You can also report bugs by opening GitHub Issues in [Azure Developer CLI GitHub repository](https://github.com/Azure/azure-dev-pr).
+You can also report bugs by opening GitHub Issues in [Azure Developer CLI GitHub repository](https://github.com/Azure/azure-dev).
 
 ## .azure folder
 
@@ -29,13 +29,14 @@ The azd assumes that folders under .azure folder's dev CLI environments. Don't r
 
 Environment name is used as a prefix to the name of each Azure resource created for this project. Azure resources have [naming rules and restrictions](/azure/azure-resource-manager/management/resource-name-rules), make sure you use a name that is less than 15-character long and unique.
 
-## Not logged in to Azure or token expired
+## Not logged in to Azure or token expired in Visual Studio
 
-`azd login` does't report any error, but does't refresh access token. Especially in devContainer environment. 
+"To access
+remote: this repository, you must re-authorize the OAuth Application `Visual Studio`." error after running `azd init -t <template-name>` in Visual Studio.
 
 ### Troubleshooting step
 
-Run `az login` or `az login --use-device-code` in devContainer environment.
+Run `azd login` to refresh access token.
 
 ## `az bicep CLI` requirement
 
@@ -64,7 +65,7 @@ Sometimes, things go awry with `azd up` or `azd provision`. Common errors includ
 
 ### Troubleshooting steps
 
-1. Verify that you've specified a basename that is the same as your environment name. 
+1. Verify that you've specified a environment name that is the same as your environment name. 
 1. Go to `https://github.com/<your repo>/actions` and refer to the log file in the pipeline run to get more information.
 
 ## Text-based browser support
