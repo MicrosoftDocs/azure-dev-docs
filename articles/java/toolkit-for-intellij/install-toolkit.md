@@ -17,8 +17,8 @@ There are two options for installing the toolkit. You can install from the Marke
 
 ## Prerequisites
 
-- [IntelliJ IDEA](https://www.jetbrains.com/idea/download/), Ultimate or Community edition.
-- [Java Development Kit (JDK)](../fundamentals/java-support-on-azure.md)
+- [IntelliJ IDEA](https://www.jetbrains.com/idea/download/), Ultimate or Community edition
+- A supported Java Development Kit (JDK). For more information about the JDKs available for use when developing on Azure, see [Java support on Azure and Azure Stack](../fundamentals/java-support-on-azure.md).
 
 ## Install Azure Toolkit for IntelliJ from the Marketplace
 
