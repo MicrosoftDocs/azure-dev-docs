@@ -10,7 +10,7 @@
   - name: Configure deployment pipeline
     href: how-to-configure-devop-pipeline.md
   - name: Monitor your project
-    href: how-to-monitor-your-app.md
+    href: monitor-your-app.md
   - name: Create azd compatible project
     href: how-to-azd-enable-a-project.md
   - name: Troubleshoot and Get help
