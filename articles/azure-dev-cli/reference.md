@@ -22,17 +22,21 @@ Azure Developer CLI (azd) - A CLI for developers building Azure solutions
 Azure Developer CLI (azd) - A CLI for developers building Azure solutions​
 
 To begin working with azd, run the "azd up" command by supplying a sample template in an empty directory:​
-		
+
+```		
 	$ azd up –-template todo-nodejs-mongo​
-		
+```
+
 You can pick a template by running "azd template list" and supply the repo name as value to "–-template".​
 		
 The most common commands from there are:​
-		
+
+```	
 	$ azd pipeline config​
 	$ azd deploy
 	$ azd monitor --overview
-		
+```
+	
 For more information, please visit the project page: https://aka.ms/azure-dev/devhub.​
 
 ### Options
@@ -73,10 +77,12 @@ When no "--service" is specified, all services in azure.yaml (found in the root 
 
 Examples:
 
+```
 	$ azd deploy
 	$ azd deploy –-service api
 	$ azd deploy –-service web
-	
+```
+
 Once deployment is complete, the endpoint is printed. Click or copy and paste the endpoint in a browser to launch the service.
 
 ```
@@ -504,10 +510,12 @@ Monitor a deployed application
 		
 Examples:
 
+```
 	$ azd monitor --overview
 	$ azd monitor -–live
 	$ azd monitor --logs
-		
+```
+
 For more information, please visit: https://aka.ms/azure-dev/monitor.
 
 ```
@@ -774,9 +782,11 @@ Initialize the project (if the project folder has not been initialized or cloned
 
 This command executes the following in one step:
 
+```
 	$ azd init
 	$ azd provision
 	$ azd deploy
+```
 
 When no template is supplied, you can optionally select an azd template for cloning. Otherwise, "azd up" initializes the current directory so that your project is compatible with azd.
 

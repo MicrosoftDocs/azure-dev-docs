@@ -32,15 +32,13 @@ landingContent:
       - linkListType: tutorial
         links:
           - text: Run and debug
-            url: how-to-use-vscode-extension-to-debug-locally.md
+            url: how-to-run-and-debug.md
           - text: Configure deployment pipeline
             url: configure-devops-pipeline.md
           - text: Monitor your project
             url: monitor-your-app.md
           - text: Create azd compatible project
             url: enable-project.md
-          - text: Help with Azure Bicep
-            url: how-to-azd-bicep.md
   - title: Get help & Provide feedback
     linkLists:
       - linkListType: how-to-guide 
