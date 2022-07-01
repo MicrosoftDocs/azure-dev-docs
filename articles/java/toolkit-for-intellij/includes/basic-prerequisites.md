@@ -5,6 +5,6 @@ ms.author: jialuogan
 
 ## Prerequisites
 
-- A supported Java Development Kit (JDK). For more information about the JDKs available for use when developing on Azure, see [Java support on Azure and Azure Stack](../fundamentals/java-support-on-azure.md).
+- A supported Java Development Kit (JDK). For more information about the JDKs available for use when developing on Azure, see [Java support on Azure and Azure Stack](../../fundamentals/java-support-on-azure.md).
 - [IntelliJ IDEA](https://www.jetbrains.com/idea/download/), Ultimate or Community Edition.
-- The Azure Toolkit for IntelliJ. For more information, see [Install the Azure Toolkit for IntelliJ](install-toolkit.md).
+- The Azure Toolkit for IntelliJ. For more information, see [Install the Azure Toolkit for IntelliJ](../install-toolkit.md).
