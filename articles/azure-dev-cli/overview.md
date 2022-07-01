@@ -44,7 +44,7 @@ This list is grouped by supported language. Each repository contains a complete 
 
 ### [Python](#tab/python)
 
-| Template      | App host | Tech Stack	 | 
+| Template      | App host | Database	 | 
 | ----------- | ----------| ----------- | 
 | [ToDo Python Mongo](https://github.com/azure-samples/todo-python-mongo) | [Azure App Service](/azure/app-service/) | [Azure Cosmos DB API for Mongo](/azure/cosmos-db/mongodb/mongodb-introduction)  |  
 | [ToDo Python Mongo ACA](https://github.com/azure-samples/todo-python-mongo-aca) | [Azure Container Apps](/azure/container-apps/overview) |  [Azure Cosmos DB API for Mongo](/azure/cosmos-db/mongodb/mongodb-introduction) |  
@@ -52,7 +52,7 @@ This list is grouped by supported language. Each repository contains a complete 
 
 ### [C#](#tab/csharp)
 
-| Template      | App host | Tech Stack	 | 
+| Template      | App host | Database	 | 
 | ----------- | ----------| ----------- | 
 | [Todo C# Cosmo DB (SQL)](https://github.com/Azure-Samples/todo-csharp-cosmos-sql) | [Azure App Service](/azure/app-service/) | [Azure Cosmos DB SQL API](/learn/modules/intro-to-azure-cosmos-db-core-api/) | 
 
