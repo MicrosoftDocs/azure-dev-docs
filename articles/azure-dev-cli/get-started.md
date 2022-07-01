@@ -83,8 +83,9 @@ azd down
 ## Troubleshooting/Known issues
 
 [Troubleshoot common problems when using Azure Developer CLI (azd)](troubleshoot.md)
+[Azure Developer CLI frequently asked questions (FAQ)](faq.yml)
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Debug Azure apps using the Azure Developer CLI Visual Studio Code extension](how-to-run-and-debug.md)
+> [Run and debug apps using integrated development environment (IDE)](how-to-run-and-debug.md)

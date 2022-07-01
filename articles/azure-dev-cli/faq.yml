@@ -18,12 +18,12 @@ sections:
           Windows:
 
           ```
-          powershell -c "Set-ExecutionPolicy Bypass Process -Force; irm 'https://aka.ms/install-azd.ps1' | iex"
+          powershell -c "Set-ExecutionPolicy Bypass Process -Force; irm 'https://aka.ms/uninstall-azd.ps1' | iex"
           ```
           Linux/MacOS:
 
           ```
-          curl -fsSL https://aka.ms/install-azd.sh | bash
+          curl -fsSL https://aka.ms/uninstall-azd.sh | bash
           ```
 
       - question: What is environment name?
