@@ -16,6 +16,6 @@
   - name: Troubleshoot and Get help
     href: troubleshoot.md   
   - name: Frequently asked questions (FAQ)
-    href: azure-dev-cli-faq.yml   
+    href: faq.yml   
   - name: Reference
     href: azure-dev-cli-ref.md
