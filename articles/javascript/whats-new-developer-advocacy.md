@@ -2,7 +2,7 @@
 title: "What's new with Cloud Developer Advocates"
 description: "What's new with JavaScript Cloud Developer Advocates (CDA)"
 ms.topic: how-to
-ms.date: 01/26/2022
+ms.date: 05/23/2022
 ---
 
 # What's new with JavaScript Developer Advocates
@@ -32,6 +32,49 @@ This content is primarily from Developer Advocates as well as other members of t
 |Client web apps|Beginner's Series to: Vue.js|[Beginner video series](https://youtu.be/LnngsOg014Y)|
 |Client web apps|Comparing Azure Static Web Apps vs Azure WebApps vs Azure Blob Storage Static Sites|[Blog post](https://devblogs.microsoft.com/devops/comparing-azure-static-web-apps-vs-azure-webapps-vs-azure-blob-storage-static-sites/)|
 |Microsoft Graph|Get started with Microsoft Graph and JavaScript|[Samples](https://developer.microsoft.com/graph/get-started/javascript)|
+
+## 2022 May
+
+|Cloud Advocate|Contributions|Link|
+|--|--|--|
+|[Nitya Narasimhan][Nitya]|#30DaysOfSWA|[Blog](https://www.azurestaticwebapps.dev/blog/introducing-swa)|
+|[Glaucia Lemos][Glaucia]|Building Applications with Astro Build & Azure Static Web Apps CLI!|[dev.to](https://dev.to/azure/building-applications-with-astro-build-azure-static-web-apps-cli-a20)|
+|[Glaucia Lemos][Glaucia]|Developing a Star Wars Intro w/ HTML, CSS, JavaScript and Node.Js|**Portuguese** - [dev.to](https://dev.to/azure/desenvolvendo-a-intro-do-star-wars-com-html-css-javascript-node-js-oae)|
+|[Christopher Harrison][Christopher]|Web Wednesday: WebAssembly for Browser Desktop Environment with Dustin Brett|[Microsoft Video](/shows/web-wednesday/web-wednesday-webassembly-for-browser-desktop-environment-with-dustin-brett)|
+|[Christopher Harrison][Christopher]|Web Wednesday: 30 Days of Static Web Apps (#30DaysOfSWA) with Nitya Narasimhan|[Microsoft Video](/shows/web-wednesday/web-wednesday-30-days-of-static-web-apps-30daysofswa-with-nitya-narasimhan)|
+
+
+
+## 2022 April
+
+|Cloud Advocate|Contributions|Link|
+|--|--|--|
+|[Nitya Narasimhan][Nitya]|#30DaysOfSWA|[Blog](https://dev.to/azure/join-us-live-on-may-19-for-the-azure-static-web-apps-anniversary-3aih)|
+|[Aysegul Yonet][Aysegul]|Web Wednesday|[YouTube](https://youtu.be/iInbtInEwS8)|
+|[Glaucia Lemos][Glaucia]|TypeScript - Zero to Hero - #53 - Demo: Access Modifier|**Portuguese** - [YouTube](https://youtu.be/1Nq2gE5Bzpo)|
+|[Glaucia Lemos][Glaucia]|TypeScript - Zero to Hero - #52 - Access Modifier|**Portuguese** - [YouTube](https://youtu.be/tKVsXBMYm1g)|
+|[Glaucia Lemos][Glaucia]|TypeScript - Zero to Hero - #51 - Demo - Intro to Classes|**Portuguese** - [YouTube](https://www.youtube.com/watch?v=tKVsXBMYm1g)|
+|[Glaucia Lemos][Glaucia]|TypeScript - Zero to Hero - #50 - Intro to Classes|**Portuguese** - [YouTube](https://www.youtube.com/watch?v=7W3PNpoCB40)|
+|[Glaucia Lemos][Glaucia]|TypeScript - Zero to Hero - #49 - Demo: Rest parameters|**Portuguese** - [YouTube](https://www.youtube.com/watch?v=hEe0rD4-LVM)|
+|[Glaucia Lemos][Glaucia]|TypeScript - Zero to Hero - #48 - Rest parameters|**Portuguese** - [YouTube](https://www.youtube.com/watch?v=GdxGQA8ppk0)|
+|[Glaucia Lemos][Glaucia]|TypeScript - Zero to Hero - #47 - Demo: Default parameters|**Portuguese** - [YouTube](https://www.youtube.com/watch?v=RFyhBnowMOY)|
+|[Glaucia Lemos][Glaucia]|TypeScript - Zero to Hero - #46 - Default parameters|**Portuguese** - [YouTube](https://www.youtube.com/watch?v=zbnwyJybtPg)|
+|[Glaucia Lemos][Glaucia]|Microsoft Learn Live Sessions - CI and CD with GitHub Actions|**Portuguese** - [YouTube](https://www.youtube.com/watch?v=Frs8X7byejo)|
+
+## 2022 March
+
+|Cloud Advocate|Contributions|Link|
+|--|--|--|
+|[Glaucia Lemos][Glaucia]|TypeScript - Zero to Hero - #45 - Demo: Optional parmeters|**Portuguese** - [YouTube](https://youtu.be/8lkQjfuif8c)|
+|[Glaucia Lemos][Glaucia]|TypeScript - Zero to Hero - #44 - Optional parameters|**Portuguese** - [YouTube](https://youtu.be/faHgw09dcsw)|
+|[Glaucia Lemos][Glaucia]|TypeScript - Zero to Hero - #43 - Demo: Functions|**Portuguese** - [YouTube](https://youtu.be/DHTQwvXcZOs)|
+|[Glaucia Lemos][Glaucia]|TypeScript - Zero to Hero - #42 - Intro to Functions|**Portuguese** - [YouTube](https://youtu.be/AU7-s7Ucock)|
+|[Glaucia Lemos][Glaucia]|MS Learn Live Sessions #2: Publique um app JavaScript em Angular, React, Svelte ou Vue com SWA|**Portuguese** - [YouTube](https://youtu.be/JYkG_HxGejM)|
+|[Aaron Powell][Aaron]|The ultimate local SWA local dev environment|[Blog](https://www.aaron-powell.com/posts/2022-03-04-the-ultimate-web-dev-environment/)|
+|[Aaron Powell][Aaron]|Apollo server: Production PubSub libraries for Azure|[Apollo docs](https://www.apollographql.com/docs/apollo-server/data/subscriptions/#production-pubsub-libraries)|
+|[Wassim Chegham][Wassim]|JavaScript 101 - Optional chaining|[YouTube](https://www.youtube.com/watch?v=qvAWFNrain0&list=PLbl2SbVIi-WoOzq4xho79V-hnKP6UgMgP&index=1)|
+|[Nitya Narasimhan][Nitya]|#30DaysOfPWA|[Blog](https://dev.to/azure/01-introducing-progressive-web-apps-hi4)|
+|[Nitya Narasimhan][Nitya]|Introduction to Playwright - What is Playwright|[YouTube](https://www.youtube.com/watch?v=SW3TqvhrzU4&list=PLQ6Buerc008dhme8fC80zmhohqpkA0aXI&index=2)|
 
 ## 2022 February
 
@@ -220,7 +263,7 @@ This content is primarily from Developer Advocates as well as other members of t
 |[Burke Holland][Burke]|Reset deployment tokens in Azure Static Web Apps|[Docs](/azure/static-web-apps/deployment-token-management)| 
 |[Wassim Chegham][Wassim]|Deploy Rust/WASM on SWA - updated|[Blog](https://dev.to/azure/angular-rust-webassembly-node-js-serverless-and-the-new-azure-static-web-apps-cnb) |
 |[Yohan Lasorsa][Yohan]|GitHub template for building a shareable web components library with Svelte|[GitHub repo](https://github.com/sinedied/svelte-web-components-template)|
-|[Glaucia Lemos][Glaucia]|Desenvolvendo a Intro do Star Wars com HTML, CSS, JavaScript & Node.js! - updated|**Portuguese​** - [Blog](https://dev.to/azure/desenvolvendo-a-intro-do-star-wars-com-html-css-javascript-node-js-oae)|
+|[Glaucia Lemos][Glaucia]|Desenvolvendo a Intro do Star Wars com HTML, CSS, JavaScript & Node.js! - updated||
 |[Glaucia Lemos][Glaucia]|Coding Stuff! JWT + Node + Mongo+ Vue Project - Video #8|**Portuguese​** - [YouTube](https://youtu.be/6fUcm4aSEjM)|
 |[Glaucia Lemos][Glaucia]|TypeScript Zero to Hero|**Portuguese​** - [Blog](https://dev.to/glaucia86/lancamento-modulo-01-typescript-zero-to-hero-40n4)<br>[Video #01](https://youtu.be/u7K1sdnCv5Y)<br>[Video #02](https://youtu.be/_pDsn0gE6ys)<br>[Video #03](https://youtu.be/J-sMh3DF10U)<br>[Video #04](https://youtu.be/iYXzT08sX5Y)<br>[Video #05](https://youtu.be/iTCRgdEyq0k)<br>[Video #06](https://youtu.be/VIYnya9DUxg)|
 |[Glaucia Lemos][Glaucia]|Live Coding - Season 2021 & News|[YouTube](https://youtu.be/6TED799e0_g)|

@@ -9,9 +9,9 @@ metadata:
   description: Develop on Azure using your favorite languages and tools. Azure supports development with C# and .NET, Java, JavaScript, Python, Azure PowerShell, and Azure CLI.
   ms.topic: hub-page
   ms.service: azure
-  author: barbkess
-  ms.author: barbkess
-  manager: barbkess
+  author: mcleanbyron
+  ms.author: mcleans
+  manager: mcleans
   ms.date: 07/01/2022
 
 highlightedContent:
@@ -79,7 +79,7 @@ productDirectory:
         - url: ./java/fundamentals/java-jdk-install.md
           text: Install the JDK for Azure and Azure Stack
         - url: /azure/spring-cloud/spring-cloud-quickstart-launch-app-portal
-          text: Deploy an Azure Spring Cloud app using the Azure portal
+          text: Deploy an app to Azure Spring Apps by using the Azure portal
         - url: /azure/app-service/app-service-web-get-started-java
           text: Create a Java app in Azure App Service
         - url: ./java/spring-framework/configure-spring-boot-starter-java-app-with-azure-active-directory.md

@@ -4,6 +4,7 @@ description: An overview of the Azure SDK for Java concepts related to authentic
 ms.date: 02/02/2021
 ms.topic: conceptual
 ms.custom: devx-track-java
+author: KarlErickson
 ms.author: vigera
 ---
 
@@ -67,7 +68,7 @@ This credential interactively authenticates a user with the default system brows
 
 To use `InteractiveBrowserCredential`, you need to register an application in Azure Active Directory with permissions to log in on behalf of a user. Follow the steps above for device code flow to register your application. As mentioned previously, an admin of your tenant must grant consent to your application before any user account can log in.
 
-You may notice in `InteractiveBrowserCredentialBuilder`, a redirect URL is required. Add the redirect URL to the **Redirect URIs** subsection under the **Authentication** section of your registered AAD application.
+You may notice in `InteractiveBrowserCredentialBuilder`, a redirect URL is required. Add the redirect URL to the **Redirect URIs** subsection under the **Authentication** section of your registered Azure AD application.
 
 ### Authenticate a user account interactively in the browser
 

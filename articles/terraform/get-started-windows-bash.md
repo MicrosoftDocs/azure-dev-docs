@@ -1,17 +1,17 @@
 ---
-title: Get Started - Install Terraform on Windows with Bash
+title: Install Terraform on Windows with Bash
 description: Learn how to install Terraform on Windows with Bash
 keywords: terraform azure cli devops install configure windows interactive login rbac service principal automated script
-ms.topic: quickstart
+ms.topic: how-to
 ms.date: 08/07/2021
 ms.custom: devx-track-terraform, mode-api, devx-track-azurecli 
 adobe-target: true
 # Customer intent: As a Windows user new to Terraform and Azure, I want install Terraform on Windows using the Bash environment.
 ---
 
-# Get Started: Install Terraform on Windows with Bash
+# Install Terraform on Windows with Bash
  
-[!INCLUDE [terraform-intro.md](includes/terraform-intro.md)]
+[!INCLUDE [Terraform abstract](./includes/abstract.md)]
 
 This article presents you with the options to authenticate to Azure for use with Terraform.
 

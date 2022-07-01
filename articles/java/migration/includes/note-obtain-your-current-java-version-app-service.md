@@ -1,4 +1,5 @@
 ---
+author: KarlErickson
 ms.author: karler
 ms.date: 1/22/2020
 ---
@@ -13,4 +14,7 @@ App Service offers specific versions of Java SE. To ensure compatibility, migrat
 
 [!INCLUDE [note-obtain-your-current-java-version](note-obtain-your-current-java-version.md)]
 
-To obtain the current version used by Azure App Service, download [Zulu 8](https://www.azul.com/downloads/azure-only/zulu/?&version=java-8-lts&architecture=x86-64-bit&package=jdk) if you intend to use the Java 8 runtime or [Zulu 11](https://www.azul.com/downloads/azure-only/zulu/?&version=java-11-lts&architecture=x86-64-bit&package=jdk) if you intend to use the Java 11 runtime.
+On Azure App Service, the binaries for Java 8 are provided from Eclipse Temurin. For Java 11, 17, and all future LTS releases of Java, App Service provides the [Microsoft Build of OpenJDK](/java/openjdk/overview). These binaries are available for free download at the following sites: 
+
+- [Download Java 8](https://adoptium.net/temurin/releases?version=8)
+- [Download Java 11, 17, and all future LTS versions](/java/openjdk/download)

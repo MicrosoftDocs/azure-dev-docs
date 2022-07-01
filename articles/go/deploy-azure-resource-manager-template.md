@@ -19,7 +19,7 @@ By the end of this tutorial, you'll have written and deployed an Azure Resource 
 ## Prerequisites
 
 [!INCLUDE [azure-subscription.md](includes/azure-subscription.md)]
-- **Go installed**: Version 1.16 or [above](https://golang.org/dl/)
+- **Go installed**: Version 1.18 or [above](https://golang.org/dl/)
 
 ## Create a new module
 
@@ -98,9 +98,12 @@ func main() {
 	if err != nil {
 		log.Fatalf("failed to obtain a credential: %v", err)
 	}
-	client := armresources.NewResourceGroupsClient(subscriptionId, cred, nil)
+	client, err := armresources.NewResourceGroupsClient(subscriptionId, cred, nil)
+	if err != nil {
+		log.Fatalf("failed to create client: %v", err)
+	}
 	resp, err := client.CreateOrUpdate(context.Background(), resourceGroupName, armresources.ResourceGroup{
-		Location: to.StringPtr(resourceGroupLocation),
+		Location: to.Ptr(resourceGroupLocation),
 	}, nil)
 	if err != nil {
 		log.Fatalf("failed to obtain a response: %v", err)
@@ -112,7 +115,10 @@ func main() {
 		return
 	}
 
-	deploymentsClient := armresources.NewDeploymentsClient(subscriptionId, cred, nil)
+	deploymentsClient, err := armresources.NewDeploymentsClient(subscriptionId, cred, nil)
+	if err != nil {
+		log.Fatalf("failed to create client: %v", err)
+	}
 	deploy, err := deploymentsClient.BeginCreateOrUpdate(
 		ctx,
 		resourceGroupName,
@@ -120,7 +126,7 @@ func main() {
 		armresources.Deployment{
 			Properties: &armresources.DeploymentProperties{
 				Template: template,
-				Mode:     armresources.DeploymentModeIncremental.ToPtr(),
+				Mode:     to.Ptr(armresources.DeploymentModeIncremental),
 			},
 		},
 		nil,
@@ -203,7 +209,7 @@ Open the `empty-template.json` in your editor and add the following code:
     "variables": {},
     "resources": [],
     "outputs": {}
-  }
+}
 ```
 
 Next open your `main.go` file and change the deployment time to _complete_ instead of _incremental_. To learn more about deployment modes, check out [Azure Resource Manager deployment modes](/azure/azure-resource-manager/templates/deployment-modes).
@@ -224,18 +230,17 @@ const (
 Update the deployment mode:
 
 ```go
-_, err = deploymentsClient.BeginCreateOrUpdate(
+deploy, err = deploymentsClient.BeginCreateOrUpdate(
     ctx,
     resourceGroupName,
     deploymentName,
     armresources.Deployment{
         Properties: &armresources.DeploymentProperties{
             Template: template,
-            Mode:     armresources.DeploymentModeComplete.ToPtr(), //Deployment Mode is here
+            Mode:     to.Ptr(armresources.DeploymentModeComplete), //Deployment Mode is here
         },
     },
     nil,
-)nil,
 )
 ```
 

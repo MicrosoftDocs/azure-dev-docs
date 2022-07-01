@@ -76,8 +76,8 @@
         }
       },
       "author": {
-        "**/*.md": "barbkess",
-        "**/*.yml": "barbkess",
+        "**/*.md": "mcleanbyron",
+        "**/*.yml": "mcleanbyron",
         "java/**/*.md": "karlerickson",
         "java/**/*.yml": "karlerickson",
         "go/**/*.md": "Duffney",
@@ -91,12 +91,12 @@
         "lab/**/*.md": "diberry"
       },
       "manager": {
-        "**/*.md": "barbkess",
-        "**/*.yml": "barbkess"
+        "**/*.md": "mcleans",
+        "**/*.yml": "mcleans"
       },
       "ms.author": {
-        "**/*.md": "barbkess",
-        "**/*.yml": "barbkess",
+        "**/*.md": "mcleans",
+        "**/*.yml": "mcleans",
         "java/**/*.md": "karler",
         "java/**/*.yml": "karler",
         "go/**/*.md": "jduffney",

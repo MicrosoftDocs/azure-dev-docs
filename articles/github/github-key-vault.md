@@ -4,13 +4,16 @@ description: Use Key Vault secrets in GitHub Actions to automate your software d
 author: juliakm
 ms.custom: github-actions-azure, mode-portal, contperf-fy22q3
 ms.author: jukullam
-ms.date: 02/03/2022
+ms.date: 06/27/2022
 ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
 ---
 
 # Use Key Vault secrets in GitHub Actions workflows
+
+> [!NOTE]
+> The [Azure Key Vault action](https://github.com/Azure/get-keyvault-secrets) is deprecated. The recommended alternative is to use the [Azure CLI action](https://github.com/Azure/cli) and pass a custom script to access Azure Key Vault.
 
 Use Key Vault secrets in your [GitHub Actions](https://help.github.com/en/articles/about-github-actions) and securely store passwords and other secrets in an Azure Key Vault. Learn more about [Key Vault](/azure/key-vault/general/overview).
 
@@ -83,7 +86,7 @@ Replace `keyVaultName` with the name of your key vault and `clientIdGUID` with t
 
 ## Add the key vault action
 
-With the [Azure Key Vault action](https://github.com/marketplace/actions/azure-key-vault-get-secrets), you can fetch one or more secrets from a key vault instance and consume it in your GitHub Action workflows.
+With the [Azure Key Vault action](https://github.com/Azure/get-keyvault-secrets), you can fetch one or more secrets from a key vault instance and consume it in your GitHub Action workflows.
 
 Secrets fetched are set as outputs and also as environment variables. Variables are automatically masked when they are printed to the console or to logs.
 
@@ -94,6 +97,9 @@ Secrets fetched are set as outputs and also as environment variables. Variables 
         secrets: 'mySecret'  # comma separated list of secret keys to fetch from key vault 
       id: myGetSecretAction # ID for secrets that you will reference
 ```
+## Add the Azure Login Action
+
+For GitHub actions that don't use public endpoints, you may need to configure the [Azure Login Action](connect-from-azure.md?tabs=azure-cli%2Cwindows#use-the-azure-login-action).
 
 ## Reference the key vault secret
 

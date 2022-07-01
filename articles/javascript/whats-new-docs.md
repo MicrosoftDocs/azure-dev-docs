@@ -2,7 +2,7 @@
 title: "What's new for JavaScript docs"
 description: "What's new in JavaScript docs in the Developer Center"
 ms.topic: how-to
-ms.date: 02/28/2022
+ms.date: 06/24/2022
 
 ---
 
@@ -10,6 +10,39 @@ ms.date: 02/28/2022
 
 Find new and updated content for JavaScript and TypeScript developers.
 
+## 2022 June
+
+### New in June
+
+|Name|Description|
+|---------------------------------------|--|
+|JavaScript on Cosmos DB MongoDB API|* New [quickstart](/azure/cosmos-db/mongodb/quickstart-javascript?tabs=azure-cli%2Cwindows)<br>* [Developer Guide](/azure/cosmos-db/mongodb/how-to-javascript-get-started?tabs=azure-cli%2Cwindows)|
+
+### Updated in June
+
+|Name|Description|
+|---------------------------------------|--|
+|[Get connection string from Key vault](how-to/with-web-app/use-secret-environment-variables.md)|This has been updated to flow from the initial [App Service + Cosmos DB tutorial](/azure/app-service/tutorial-nodejs-mongodb-app?tabs=azure-portal%2Cterminal-bash%2Cvscode-deploy%2Cdeploy-instructions-azportal%2Cdeploy-zip-linux-mac%2Cdeploy-instructions--zip-azcli). As part of the update, the sample has been replaced with this sample: [https://github.com/Azure-Samples/msdocs-nodejs-mongodb-azure-sample-app.git](https://github.com/Azure-Samples/msdocs-nodejs-mongodb-azure-sample-app.git).|
+
+
+## 2022 May
+
+### New in May
+
+|Name|Description|
+|---------------------------------------|--|
+|[Learn module](/learn/modules/javascript-deploy-expressjs-app-service-with-database/): Deploy Express.js web app with MongoDB database to Azure App Service|Learn how to create, configure and deploy an Express.js (Node.js) web app with a MongoDB database to Azure App Service. The [sample code snippets](https://github.com/Azure-Samples/AzureStorageSnippets/tree/master/blobs/howto/JavaScript/NodeJS-v12/dev-guide) are available in GitHub as runnable Node.js files.|
+|Azure SDK for JavaScript|* [Install packages](./sdk/azure-sdk-install.md?tabs=npm-install%2cnpm-install-version%2cnpm-list%2cnpm-uninstall)<br>* [Authentication Overview](./sdk/authentication/overview.md)<br>* [Authentication in local development with service principals](./sdk/authentication/local-development-environment-service-principal.md?tabs=azure-portal)<br>* [Authentication in local development with developer account](./sdk/authentication/local-development-environment-developer-account.md?tabs=azure-portal%2csign-in-vscode)<br>* [Authentication in Azure-hosted apps](./sdk/authentication/azure-hosted-apps.md?tabs=azure-portal%2cazure-app-service)<br>* [JS Tutorial: Authentication in on-premises app](./sdk/authentication/on-premises-apps.md?tabs=azure-portal)|
+|[Docs tutorial: Upload and analyze a file with Azure Functions and Blob Storage](/azure/storage/blobs/blob-upload-function-trigger-javascript?tabs=storage-resource-visual-studio-code%2Ccomputer-vision-azure-portal)|In this tutorial, you'll learn how to upload an image to Azure Blob Storage and process it using Azure Functions and Computer Vision. You'll also learn how to implement Azure Function triggers and bindings as part of this process. Together, these services will analyze an uploaded image that contains text, extract the text out of it, and then store the text in a database row for later analysis or other purposes. The [sample code](https://github.com/Azure-Samples/msdocs-storage-bind-function-service/tree/main/javascript) is available in GitHub.|
+
+
+## 2022 April
+
+### New in April
+
+|Name|Description|
+|---------------------------------------|--|
+|[Azure Blob Storage Developer Guide](/azure/storage/blobs/storage-blob-javascript-get-started)|This article shows you how to connect to Azure Blob Storage by using the Azure Blob Storage client library v12 for JavaScript. Once connected, your code can operate on containers, blobs, and features of the Blob Storage service. The [sample code snippets](https://github.com/Azure-Samples/AzureStorageSnippets/tree/master/blobs/howto/JavaScript/NodeJS-v12/dev-guide) are available in GitHub as runnable Node.js files.|
 
 ## 2022 March
 
@@ -17,7 +50,7 @@ Find new and updated content for JavaScript and TypeScript developers.
 
 |Name|Description|
 |---------------------------------------|--|
-|[Learn module](/learn/modules/javascript-deploy-expressjs-app-service/)|Create Azure service resources for an Express.js web app. Configure, secure, and deploy the web app. Review the logs after deployment. Full [sample code](https://github.com/Azure-Samples/msdocs-javascript-nodejs-server/) available.|
+|[Learn module](/learn/modules/javascript-deploy-expressjs-app-service/): Deploy Express.js to Azure App Service|Create Azure service resources for an Express.js web app. Configure, secure, and deploy the web app. Review the logs after deployment. Full [sample code](https://github.com/Azure-Samples/msdocs-javascript-nodejs-server/) available.|
 
 ### Updated in March
 

@@ -344,7 +344,7 @@
       },
       {
         "source_path": "articles/javascript/node-sdk-logging.md",
-        "redirect_url": "/azure/developer/javascript/how-to/node-sdk-logging.md"
+        "redirect_url": "/azure/developer/javascript/how-to/node-sdk-logging"
       },
       {
         "source_path": "articles/javascript/node-sdk-azure-authenticate.md",
@@ -1121,11 +1121,124 @@
       },
       {
         "source_path": "articles/go/azure-sdk-tools.md",
-        "redirect_url": "/azure/developer/go/configure-visual-studio-code.md"
+        "redirect_url": "/azure/developer/go/configure-visual-studio-code"
       },
       {
         "source_path": "articles/terraform/application-gateway-quickstart.md",
         "redirect_url": "/azure/developer/terraform/deploy-application-gateway-v2"
+      },
+      {
+        "source_path": "articles/developer/python/tutorial-python-postgresql-app-portal.md",
+        "redirect_url": "/azure/app-service/tutorial-python-postgresql-app"
+      },
+      {
+        "source_path": "articles/python/azure-sdk-authenticate.md",
+        "redirect_url": "/azure/developer/python/sdk/authentication-overview"
+      },
+      {
+        "source_path": "articles/python/azure-sdk-authenticate-development-environments.md",
+        "redirect_url": "/azure/developer/python/sdk/authentication-local-development-dev-accounts"
+      },
+      {
+        "source_path": "articles/python/azure-sdk-authenticate-hosted-applications.md",
+        "redirect_url": "/azure/developer/python/sdk/authentication-azure-hosted-apps"
+      },
+      {
+        "source_path": "articles/python/azure-sdk-authenticate-service-principals.md",
+        "redirect_url": "/azure/developer/python/sdk/authentication-on-premises-apps"
+      },
+      {
+        "source_path": "articles/python/azure-sdk-configure-proxy.md",
+        "redirect_url": "/azure/developer/python/sdk/azure-sdk-configure-proxy"
+      },
+      {
+        "source_path": "articles/python/azure-sdk-example-database.md",
+        "redirect_url": "/azure/developer/python/sdk/examples/azure-sdk-example-database"
+      },
+      {
+        "source_path": "articles/python/azure-sdk-example-list-resource-groups.md",
+        "redirect_url": "/azure/developer/python/sdk/examples/azure-sdk-example-list-resource-groups"
+      },
+      {
+        "source_path": "articles/python/azure-sdk-example-resource-group.md",
+        "redirect_url": "/azure/developer/python/sdk/examples/azure-sdk-example-resource-group"
+      },
+      {
+        "source_path": "articles/python/azure-sdk-example-storage.md",
+        "redirect_url": "/azure/developer/python/sdk/examples/azure-sdk-example-storage"
+      },
+      {
+        "source_path": "articles/python/azure-sdk-example-storage-use.md",
+        "redirect_url": "/azure/developer/python/sdk/examples/azure-sdk-example-storage-use"
+      },
+      {
+        "source_path": "articles/python/azure-sdk-example-virtual-machines.md",
+        "redirect_url": "/azure/developer/python/sdk/examples/azure-sdk-example-virtual-machines"
+      },
+      {
+        "source_path": "articles/python/azure-sdk-example-web-app.md",
+        "redirect_url": "/azure/developer/python/sdk/examples/azure-sdk-example-web-app"
+      },
+
+      {
+        "source_path": "articles/python/azure-sdk-install.md",
+        "redirect_url": "/azure/developer/python/sdk/azure-sdk-install"
+      },
+      {
+        "source_path": "articles/python/azure-sdk-library-package-index.md",
+        "redirect_url": "/azure/developer/python/sdk/azure-sdk-library-package-index"
+      },
+      {
+        "source_path": "articles/python/azure-sdk-library-usage-patterns.md",
+        "redirect_url": "/azure/developer/python/sdk/azure-sdk-library-usage-patterns"
+      },
+      {
+        "source_path": "articles/python/azure-sdk-logging.md",
+        "redirect_url": "/azure/developer/python/sdk/azure-sdk-logging"
+      },
+      {
+        "source_path": "articles/python/azure-sdk-overview.md",
+        "redirect_url": "/azure/developer/python/sdk/azure-sdk-overview"
+      },
+      {
+        "source_path": "articles/python/azure-sdk-samples-managed-disks.md",
+        "redirect_url": "/azure/developer/python/sdk/examples/azure-sdk-samples-managed-disks"
+      },
+      {
+        "source_path": "articles/python/azure-sdk-sovereign-domain.md",
+        "redirect_url": "/azure/developer/python/sdk/azure-sdk-sovereign-domain"
+      },
+      {
+        "source_path": "articles/python/azure-tools.md",
+        "redirect_url": "/azure/developer/python/configure-local-development-environment"
+      },
+      {
+        "source_path": "articles/python/tutorial-deploy-app-service-on-linux-01.md",
+        "redirect_url": "/azure/developer/python/configure-python-web-app-local-environment"
+      },
+      {
+        "source_path": "articles/python/tutorial-deploy-app-service-on-linux-02.md",
+        "redirect_url": "/azure/developer/python/configure-python-web-app-local-environment"
+      },
+      {
+        "source_path": "articles/python/tutorial-deploy-app-service-on-linux-03.md",
+        "redirect_url": "/azure/app-service/quickstart-python"
+      },
+      {
+        "source_path": "articles/python/tutorial-deploy-app-service-on-linux-04.md",
+        "redirect_url": "/azure/developer/python/configure-python-web-app-on-app-service"
+      },
+      {
+        "source_path": "articles/python/tutorial-deploy-app-service-on-linux-05.md",
+        "redirect_url": "/azure/app-service/quickstart-python"
+      },
+      {
+        "source_path": "articles/python/tutorial-deploy-app-service-on-linux-06.md",
+        "redirect_url": "/azure/app-service/quickstart-python"
+      },
+      {
+        "source_path": "articles/python/tutorial-deploy-app-service-on-linux-07.md",
+        "redirect_url": "/azure/app-service/quickstart-python"
       }
     ]
   }

@@ -4,115 +4,182 @@ description: Add authentication to your Xamarin.Android app using Azure Mobile A
 author: adrianhall
 ms.service: mobile-services
 ms.topic: article
-ms.date: 05/05/2021
+ms.date: 06/11/2022
 ms.author: adhal
+recommendations: false
+zone_pivot_group_filename: developer/mobile-apps/azure-mobile-apps/zumo-zone-pivot-groups.json
+zone_pivot_groups: vs-platform-options
 ---
 
 # Add authentication to your Xamarin.Android app
 
-In this tutorial, add Microsoft authentication to your app using Azure Active Directory. Before completing this tutorial, ensure you've [created the project](./index.md) and [enabled offline sync](./offline.md).
+In this tutorial, you add Microsoft authentication to the TodoApp project using Azure Active Directory. Before completing this tutorial, ensure you've [created the project and deployed the backend](./index.md).
 
-[!INCLUDE [configure-auth](~/mobile-apps/azure-mobile-apps/includes/quickstart-configure-authentication.md)]
+> [!TIP]
+> Although we use Azure Active Directory for authentication, you can use any authentication library you wish with Azure Mobile Apps.  
 
-## Test that authentication is being requested
+[!INCLUDE [Register with AAD for the backend](~/mobile-apps/azure-mobile-apps/includes/quickstart/common/register-aad-backend.md)]
 
-* Open your project in Visual Studio
-* From the **Run** menu, press **Run app**.
-* Verify that an unhandled exception with a status code of 401 (Unauthorized) is raised after the app starts.
+::: zone pivot="vs2022-windows"
 
-The app attempts to access the service as an anonymous user.  The *TodoItem* table now requires authentication, so the server responds with a `401 Unauthorized` HTTP status code.
+[!INCLUDE [Configure the service for authentication](~/mobile-apps/azure-mobile-apps/includes/quickstart/windows/configure-auth-backend.md)]
+
+::: zone-end
+
+::: zone pivot="vs2022-mac"
+
+[!INCLUDE [Configure the service for authentication](~/mobile-apps/azure-mobile-apps/includes/quickstart/mac/configure-auth-backend.md)]
+
+::: zone-end
 
 ## Add authentication to the app
 
-Update the `TodoService.cs` class so that the app asks for sign-in when initializing the service.  Add a constructor:
+The Microsoft Datasync Framework has built-in support for any authentication provider that uses a Json Web Token (JWT) within a header of the HTTP transaction.  This application will use the [Microsoft Authentication Library (MSAL)](/azure/active-directory/develop/msal-overview) to request such a token and authorize the signed in user to the backend service.
+
+[!INCLUDE [Configure a native app for authentication](~/mobile-apps/azure-mobile-apps/includes/quickstart/common/register-aad-client.md)]
+
+Open the `TodoApp.sln` solution in Visual Studio and set the `TodoApp.Android` project as the startup project.  Add the [Microsoft Identity Library (MSAL)](/azure/active-directory/develop/msal-overview) to the `TodoApp.Android` project:
+
+::: zone pivot="vs2022-windows"
+
+[!INCLUDE [Set up MSAL in Windows](~/mobile-apps/azure-mobile-apps/includes/quickstart/windows/add-msal-library.md)]
+
+::: zone-end
+
+::: zone pivot="vs2022-mac"
+
+[!INCLUDE [Set up MSAL in Windows](~/mobile-apps/azure-mobile-apps/includes/quickstart/mac/add-authentication-library.md)]
+
+::: zone-end
+
+Open the `MainActivity.cs` file in the `TodoApp.Android` project.  At the top of the file, add the following using statements:
 
 ``` csharp
-    private Android.Content.Context mContext;
-
-    public TodoService(Android.Content.Context context)
-    {
-        mContext = context;
-    }
+using Android.Content;
+using Microsoft.Identity.Client;
+using Microsoft.Datasync.Client;
+using System.Linq;
+using System.Threading.Tasks;
+using Debug = System.Diagnostics.Debug;
 ```
 
-Then, edit the `InitializeAsync()` method to add the sign-in call:
+At the top of the `MainActivity` class, add the following field:
 
 ``` csharp
-    private async Task InitializeAsync()
+public IPublicClientApplication identityClient;
+```
+
+In the `OnCreate()` method, change the definition of the `TodoService`:
+
+``` csharp
+TodoService = new RemoteTodoService(GetAuthenticationToken);
+```
+
+Add the following code to define the `GetAuthenticationToken()` method:
+
+``` csharp
+public async Task<AuthenticationToken> GetAuthenticationToken()
+{
+    if (identityClient == null)
     {
-        using (await initializationLock.LockAsync())
+        identityClient = PublicClientApplicationBuilder.Create(Constants.ApplicationId)
+            .WithAuthority(AzureCloudInstance.AzurePublic, "common")
+            .WithRedirectUri($"msal{Constants.ApplicationId}://auth")
+            .WithParentActivityOrWindow(() => this)
+            .Build();
+    }
+
+    var accounts = await identityClient.GetAccountsAsync();
+    AuthenticationResult result = null;
+    bool tryInteractiveLogin = false;
+
+    try
+    {
+        result = await identityClient
+            .AcquireTokenSilent(Constants.Scopes, accounts.FirstOrDefault())
+            .ExecuteAsync();
+    }
+    catch (MsalUiRequiredException)
+    {
+        tryInteractiveLogin = true;
+    }
+    catch (Exception ex)
+    {
+        Debug.WriteLine($"MSAL Silent Error: {ex.Message}");
+    }
+
+    if (tryInteractiveLogin)
+    {
+        try
         {
-            if (!isInitialized)
-            {
-                // Create the client.
-                mClient = new MobileServiceClient(Constants.BackendUrl, new LoggingHandler());
-
-                // Define the offline store.
-                mStore = new MobileServiceSQLiteStore("todoitems.db");
-                mStore.DefineTable<TodoItem>();
-                await mClient.SyncContext.InitializeAsync(mStore).ConfigureAwait(false);
-
-                // Authenticate the user
-                await mClient.LoginAsync(mContext, "aad", "zumoquickstart");
-
-                // Get a reference to the table.
-                mTable = mClient.GetSyncTable<TodoItem>();
-                isInitialized = true;
-            }
+            result = await identityClient
+                .AcquireTokenInteractive(Constants.Scopes)
+                .ExecuteAsync()
+                .ConfigureAwait(false);
+        }
+        catch (Exception ex)
+        {
+            Debug.WriteLine($"MSAL Interactive Error: {ex.Message}");
         }
     }
+
+    return new AuthenticationToken
+    {
+        DisplayName = result?.Account?.Username ?? "",
+        ExpiresOn = result?.ExpiresOn ?? DateTimeOffset.MinValue,
+        Token = result?.AccessToken ?? "",
+        UserId = result?.Account?.Username ?? ""
+    };
+}
 ```
 
-Edit the `MainActivity.cs` file to pass the context into the service within the `OnCreate()` method:
+The `GetAuthenticationToken()` method works with the Microsoft Identity Library (MSAL) to get an access token suitable for authorizing the signed-in user to the backend service.  This function is then passed to the `RemoteTodoService` for creating the client.  If the authentication is successful, the `AuthenticationToken` is produced with data necessary to authorize each request.  If not, then an expired bad token is produced instead.
+
+Handle the callback from the identity client by adding the following method:
 
 ``` csharp
-    // Azure Mobile Apps
-    CurrentPlatform.Init();
-    todoService = new TodoService(this);
+protected override void OnActivityResult(int requestCode, [GeneratedEnum] Result resultCode, Intent data)
+{
+    base.OnActivityResult(requestCode, resultCode, data);
+    // Return control to MSAL
+    AuthenticationContinuationHelper.SetAuthenticationContinuationEventArgs(requestCode, resultCode, data);
+}
 ```
 
-Edit the `Properties\AndroidManifest.xml` to register the authentication response handler:
+Create a new class `MsalActivity` with the following code:
 
-``` xml
-<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="1.0" package="com.companyname.zumoquickstart">
-    <uses-sdk android:minSdkVersion="21" android:targetSdkVersion="28" />
-    <application android:label="ZumoQuickstart.Android" android:theme="@style/MainTheme">
-      <activity
-          android:name="com.microsoft.windowsazure.mobileservices.authentication.RedirectUrlActivity"
-          android:launchMode="singleTop" android:noHistory="true">
-        <intent-filter>
-          <action android:name="android.intent.action.VIEW" />
-          <category android:name="android.intent.category.DEFAULT" />
-          <category android:name="android.intent.category.BROWSABLE" />
-          <data android:scheme="zumoquickstart" android:host="easyauth.callback" />
-        </intent-filter>
-      </activity>      
-    </application>
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-</manifest>
+``` csharp
+using Android.App;
+using Android.Content;
+using Microsoft.Identity.Client;
+
+namespace TodoApp.Android
+{
+    [Activity(Exported = true)]
+    [IntentFilter(new[] { Intent.ActionView },
+        Categories = new[] { Intent.CategoryBrowsable, Intent.CategoryDefault },
+        DataHost = "auth",
+        DataScheme = "msal{client-id}")]
+    public class MsalActivity : BrowserTabActivity
+    {
+    }
+}
 ```
 
-You can now run the Android app in the emulator.  It will prompt you for a Microsoft credential before showing you the list of items.
+Replace `{client-id}` with the application ID of the native client (which is the same as `Constants.ApplicationId`).
 
 ## Test the app
 
-From the **Run** menu, press **Run app** to start the app.  You'll be prompted for a Microsoft account.  When you're signed in, the app should run as before without errors.
+Run or restart the app.
 
-[!INCLUDE [clean-up](~/mobile-apps/azure-mobile-apps/includes/quickstart-clean-up.md)]
+When the app runs, a browser will be opened to ask you for authentication.  If you haven't authenticated with the app before, the app will ask you to consent.  Once authentication is complete, the system browser will close and your app will run as before.
 
 ## Next steps
 
-Take a look at the HOW TO sections:
+Next, configure your application to operate offline by [implementing an offline store](./offline.md).
 
-* Server ([Node.js](../../howto/server/nodejs.md)
-* Server ([ASP.NET Framework](../../howto/server/dotnet-framework.md))
-* [.NET Client](../../howto/client/dotnet.md)
+## Further reading
 
-You can also do a Quick Start for another platform using the same backend server:
-
-* [Apache Cordova](../cordova/index.md)
-* [Windows (UWP)](../uwp/index.md)
-* [Windows (WPF)](../wpf/index.md)
-* [Xamarin.Forms](../xamarin-forms/index.md)
-* [Xamarin.iOS](../xamarin-ios/index.md)
+* [Quickstart: Protect a web API with the Microsoft identity platform](/azure/active-directory/develop/web-api-quickstart?pivots=devlang-aspnet-core)
+* [Configuration requirements and troubleshooting tips for Xamarin Android with MSAL.NET](/azure/active-directory/develop/msal-net-xamarin-android-considerations)
+* [Scenario: Mobile application that calls web APIs](/azure/active-directory/develop/scenario-mobile-overview)

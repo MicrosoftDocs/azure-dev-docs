@@ -37,7 +37,7 @@ In this article, you learn how to:
 
     You might need to replace the `--location` parameter with the appropriate value for your environment.
 
-    # [PowerShell](#tab/powershell)
+    # [Azure PowerShell](#tab/azure-powershell)
 
     ```azurepowershell
     New-AzResourceGroup -Name QuickstartAnsible-rg -location eastus
@@ -62,7 +62,7 @@ In this article, you learn how to:
 
     Replace the `<password>` your password.
 
-    # [PowerShell](#tab/powershell)
+    # [Azure PowerShell](#tab/azure-powershell)
 
     ```azurepowershell
     $adminUsername = "azureuser"
@@ -88,7 +88,7 @@ In this article, you learn how to:
     az vm show -d -g QuickstartAnsible-rg -n QuickstartAnsible-vm --query publicIps -o tsv
     ```
 
-    # [PowerShell](#tab/powershell)
+    # [Azure PowerShell](#tab/azure-powershell)
 
     ```azurepowershell
     (Get-AzVM -ResourceGroupName QuickstartAnsible-rg QuickstartAnsible-vm-pwsh | Get-AzPublicIpAddress).IpAddress

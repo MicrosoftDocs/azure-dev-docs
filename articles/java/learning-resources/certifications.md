@@ -1,6 +1,7 @@
 ---
 title: Certifications for Java developers
 description: Java - Certifications
+author: KarlErickson
 ms.author: sreea
 ms.topic: article
 ms.date: 03/19/2021
@@ -13,4 +14,4 @@ The following list provides links to Java certifications you can pursue.
 
 - [Oracle Java SE](https://education.oracle.com/java-se-8-programmer-i/pexam_1Z0-808)
 - [Oracle Java EE](https://education.oracle.com/oracle-certified-professional-java-ee-7-application-developer/trackp_900)
-- [VMware Spring](https://tanzu.vmware.com/training/certification/spring-professional-certification)
+- [VMware Spring](https://www.vmware.com/learning/certification/vcp-spring-exam.html)

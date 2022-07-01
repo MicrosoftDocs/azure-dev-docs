@@ -2,7 +2,7 @@
 title: Use JavaScript on Azure PostgreSQL
 description: To create or move your PostgreSQL database to Azure, you need a PostgreSQL resource. 
 ms.topic: how-to
-ms.date: 02/8/2022
+ms.date: 05/24/2022
 ms.custom: devx-track-js
 ---
 
@@ -15,7 +15,7 @@ To create, move, or use a PostgreSQL database to Azure, you need an **Azure Data
 Create a resource with:
 
 * [Azure CLI command](/cli/azure/postgres/server#az-postgres-server-create) = `az postgres server create`
-* [Visual Studio Code](../with-visual-studio-code/create-azure-database.md#create-a-postgresql-database)
+* [Visual Studio Code](../with-visual-studio-code/create-azure-database.md#create-a-postgresql-server-in-azure-explorer)
 * [Azure portal](https://ms.portal.azure.com/#create/Microsoft.PostgreSQLServer)
 * [@azure/arm-postgresql](https://www.npmjs.com/package/@azure/arm-postgresql)
 

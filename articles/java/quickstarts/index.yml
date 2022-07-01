@@ -7,6 +7,8 @@ metadata:
   description: Use these quickstarts to get started developing Java apps for the cloud.
   ms.topic: landing-page
   ms.date: 04/08/2020
+  author: KarlErickson
+  ms.author: karler
 
 landingContent:
   - title: Deploy Java apps
@@ -33,7 +35,7 @@ landingContent:
           url: /azure/azure-functions/functions-create-maven-intellij
         - text: Deploy using Visual Studio Code
           url: /azure/azure-functions/functions-create-first-function-vs-code?pivots=programming-language-java
-  - title: Azure Spring Cloud
+  - title: Azure Spring Apps
     linkLists:
       - linkListType: quickstart
         links:

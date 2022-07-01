@@ -21,6 +21,8 @@
         href: /azure/openshift/howto-deploy-java-liberty-app?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/breadcrumb/toc.json
       - name: WebSphere Liberty/Open Liberty on AKS
         href: /azure/aks/howto-deploy-java-liberty-app?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/breadcrumb/toc.json
+      - name: JCache with WebSphere/Open Liberty
+        href: how-to-deploy-java-liberty-jcache.md
       - name: Java app with PostgreSQL to WebSphere Liberty/Open Liberty on AKS
         href: /azure/aks/howto-deploy-java-liberty-app-with-postgresql?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/breadcrumb/toc.json
       - name: Payara Micro on Azure App Service
@@ -32,7 +34,7 @@
     items:
       - name: WebLogic to Azure Virtual Machines
         href: ../migration/migrate-weblogic-to-virtual-machines.md?bc=/azure/developer/breadcrumb/toc.json&toc=/azure/developer/java/ee/toc.json
-      - name: WebLogic with AAD via LDAP
+      - name: WebLogic with Azure AD via LDAP
         href: ../migration/migrate-weblogic-with-aad-ldap.md?bc=/azure/developer/breadcrumb/toc.json&toc=/azure/developer/java/ee/toc.json
       - name: WebLogic with App Gateway
         href: ../migration/migrate-weblogic-with-app-gateway.md?bc=/azure/developer/breadcrumb/toc.json&toc=/azure/developer/java/ee/toc.json

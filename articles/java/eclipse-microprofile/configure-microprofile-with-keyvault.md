@@ -3,6 +3,7 @@ title: Configure MicroProfile with Azure Key Vault
 description: Learn how to inject secrets into a MicroProfile web service with Azure Key Vault
 services: key-vault
 documentationcenter: java
+author: KarlErickson
 ms.author: jogiles
 ms.date: 09/07/2018
 ms.service: key-vault

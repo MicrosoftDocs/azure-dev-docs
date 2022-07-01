@@ -7,7 +7,7 @@ metadata:
   title: Learning resources for Java developers on Azure
   description:  Curated list of Java learning resources. 
   keywords: ramp up java, learning java, java readiness, java migration, java on Azure
-  author: sadigopu
+  author: KarlErickson
   ms.author: sreea
   ms.date: 03/19/2021
   ms.topic: landing-page
@@ -34,7 +34,7 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Azure Spring Cloud workshop
+          - text: Azure Spring Apps workshop
             url: https://github.com/microsoft/azure-spring-cloud-training
           - text: Migrate Java EE app to AKS
             url: https://github.com/microsoft/migrate-java-ee-app-to-azure-training
@@ -62,7 +62,7 @@ landingContent:
             url: https://github.com/Azure-Samples/Java-application-petstore-ee7
           - text: Java on AKS
             url: https://github.com/Azure-Samples/java-on-aks
-          - text: End-to-end with Azure Spring Cloud 
+          - text: End-to-end with Azure Spring Apps 
             url: https://github.com/Azure-Samples/azure-spring-cloud
           - text: More Samples 
             url: samples.md

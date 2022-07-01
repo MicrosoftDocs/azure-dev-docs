@@ -1,11 +1,12 @@
 ---
+author: KarlErickson
 ms.author: karler
 ms.date: 8/25/2020
 ---
 
-### Create an Azure Spring Cloud instance and apps
+### Create an Azure Spring Apps instance and apps
 
-Provision an Azure Spring Cloud instance in your Azure subscription, if one does not already exist. Then, create an application there. For more information, see [Quickstart: Deploy your first application to Azure Spring Cloud](/azure/spring-cloud/quickstart).
+Provision an Azure Spring Apps instance in your Azure subscription, if one does not already exist. Then, create an application there. For more information, see [Quickstart: Deploy your first application to Azure Spring Apps](/azure/spring-cloud/quickstart).
 
 [!INCLUDE [ensure-console-logging-and-configure-diagnostic-settings-azure-spring-cloud](ensure-console-logging-and-configure-diagnostic-settings-azure-spring-cloud.md)]
 
@@ -23,13 +24,13 @@ Remove any metrics clients used or any metrics endpoints exposed in your applica
 
 ### Deploy the application
 
-Deploy each of the migrated microservices (not including the Spring Cloud Config and Registry servers), as described in [Quickstart: Deploy your first application to Azure Spring Cloud](/azure/spring-cloud/quickstart).
+Deploy each of the migrated microservices (not including the Spring Cloud Config and Registry servers), as described in [Quickstart: Deploy your first application to Azure Spring Apps](/azure/spring-cloud/quickstart).
 
 ### Configure per-service secrets and externalized settings
 
 You can inject any per-service configuration settings into each service as environment variables. Use the following steps in the Azure portal:
 
-1. Navigate to the Azure Spring Cloud Instance and select **Apps**.
+1. Navigate to the Azure Spring Apps Instance and select **Apps**.
 1. Select the service to configure.
 1. Select **Configuration**.
 1. Enter the variables to configure.
@@ -47,7 +48,7 @@ If any of the Spring Cloud applications require authentication or authorization,
 
 ### Expose the application
 
-By default, applications deployed to Azure Spring Cloud are not visible externally. You can expose your application by making it public with the following command:
+By default, applications deployed to Azure Spring Apps are not visible externally. You can expose your application by making it public with the following command:
 
 ```azurecli
 az spring-cloud app update -n <application name> --is-public true

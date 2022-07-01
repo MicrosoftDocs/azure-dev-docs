@@ -1,6 +1,7 @@
 ---
 title: Cheat sheets
 description: Java - curated list of cheat sheets
+author: KarlErickson
 ms.author: sreea
 ms.topic: article
 ms.date: 03/19/2021

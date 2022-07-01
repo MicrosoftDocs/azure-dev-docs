@@ -43,7 +43,7 @@ The following prerequisites are required to complete the steps in this article:
 1. Add **Dependencies** for **Spring Web**, **Azure Active Directory**, and **OAuth2 Client**.
 1. At the bottom of the page, select the **GENERATE** button.
 
-   :::image type="content" source="media/spring-initializer/2.5.11/mvn-java8-aad-oauth2-web.png" alt-text="Screenshot of Spring Initializr with basic options.":::
+   :::image type="content" source="media/spring-initializer/2.7.1/mvn-java8-aad-oauth2-web.png" alt-text="Screenshot of Spring Initializr with basic options.":::
 
 1. When prompted, download the project to a path on your local computer.
 
@@ -237,16 +237,3 @@ To learn more about Spring and Azure, continue to the Spring on Azure documentat
 
    >[!div class="nextstepaction"]
    >[Spring on Azure](./index.yml)
-
-<!-- URL List -->
-
-[Azure Active Directory Documentation]: /azure/active-directory/
-[AAD app manifest]: /azure/active-directory/develop/active-directory-application-manifest
-[Get started with Azure AD]: /azure/active-directory/get-started-azure-ad
-[Azure for Java Developers]: ../index.yml
-[free Azure account]: https://azure.microsoft.com/pricing/free-trial/
-[Working with Azure DevOps and Java]: /azure/devops/
-[MSDN subscriber benefits]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/
-[Spring Boot]: http://projects.spring.io/spring-boot/
-[Spring Initializr]: https://start.spring.io/
-[Spring Framework]: https://spring.io/

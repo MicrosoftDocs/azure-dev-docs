@@ -17,7 +17,7 @@ Follow this tutorial to create and authenticate with the Azure SDK for Go using 
 ## Prerequisites
 
 [!INCLUDE [azure-subscription.md](includes/azure-subscription.md)]
-- **Go installed**: Version 1.16 or [above](https://golang.org/dl/)
+- **Go installed**: Version 1.18 or [above](https://golang.org/dl/)
 
 ## 1. Configure your environment
 

@@ -8,6 +8,8 @@ ms.custom: devx-track-terraform
 
 # Validate a hub and spoke network in Azure using Terraform
 
+[!INCLUDE [Terraform abstract](./includes/abstract.md)]
+
 In this article, you execute the terraform files created in the previous article in this series. The result is a validation of the connectivity between the demo virtual networks.
 
 In this article, you learn how to:

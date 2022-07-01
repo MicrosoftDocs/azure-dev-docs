@@ -32,7 +32,7 @@
           href: https://github.com/microsoft/azure-maven-plugins/blob/develop/azure-webapp-maven-plugin/README.md
         - name: Azure Functions
           href: https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Functions
-        - name: Azure Spring Cloud
+        - name: Azure Spring Apps
           href: https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Spring-Cloud
     - name: SSL certs from Key Vault
       expanded: true

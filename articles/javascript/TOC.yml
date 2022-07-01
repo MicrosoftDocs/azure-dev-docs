@@ -258,6 +258,24 @@
     href: learn-azure-javascript.md
   - name: Samples
     href: /samples/browse/?languages=javascript%2cnodejs%2ctypescript
+  - name: Azure SDK for JavaScript
+    items:
+      - name: Install packages
+        href: sdk/azure-sdk-install.md
+      - name: Authentication
+        items:
+        - name: Overview
+          href: sdk/authentication/overview.md
+        - name: Local development apps
+          items: 
+            - name: With service principals
+              href: sdk/authentication/local-development-environment-service-principal.md
+            - name: With developer account
+              href: sdk/authentication/local-development-environment-developer-account.md            
+        - name: Azure-hosted apps
+          href: sdk/authentication/azure-hosted-apps.md
+        - name: On-premises apps
+          href: sdk/authentication/on-premises-apps.md
   - name: npm Packages
     href: azure-sdk-library-package-index.md
   - name: npm Package Documentation

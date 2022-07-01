@@ -1,6 +1,7 @@
 ---
 title: Workshops and videos for Java on Azure
 description: Java on Azure workshops and videos.
+author: KarlErickson
 ms.author: sreea
 ms.topic: article
 ms.date: 03/29/2021
@@ -11,7 +12,7 @@ ms.custom: devx-track-java
 
 The following links provide hands-on workshops.
 
-- [Azure Spring Cloud Workshop](https://github.com/microsoft/azure-spring-cloud-training)
+- [Azure Spring Apps Workshop](https://github.com/microsoft/azure-spring-cloud-training)
 - [Migrate Java EE app to AKS](https://github.com/microsoft/migrate-java-ee-app-to-azure-training)
 - [Migrate Java EE app to AppService JBoss EAP](https://github.com/Azure-Samples/migrate-javaee-app-to-azure-training)
 

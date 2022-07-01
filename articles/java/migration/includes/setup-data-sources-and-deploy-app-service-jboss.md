@@ -1,5 +1,6 @@
 ---
-ms.author: vaangadi
+author: KarlErickson
+ms.author: karler
 ms.date: 05/27/2021
 ---
 
@@ -30,7 +31,6 @@ To set up data sources, use the following steps.
 3. Put your JBoss CLI commands into a file named *jboss-cli-commands.cli*. The JBoss commands must add the module and register it as a data source. The example below shows the JBoss CLI commands for PostgreSQL.
 
    ```bash
-   #!/usr/bin/env bash
    module add --name=org.postgres --resources=/home/site/deployments/tools/postgresql-42.2.12.jar --module-xml=/home/site/deployments/tools/postgres-module.xml
 
    /subsystem=datasources/jdbc-driver=postgres:add(driver-name="postgres",driver-module-name="org.postgres",driver-class-name=org.postgresql.Driver,driver-xa-datasource-class-name=org.postgresql.xa.PGXADataSource)

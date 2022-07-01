@@ -1,6 +1,7 @@
 ---
-title: Migrate Spring Cloud applications to Azure Spring Cloud
-description: This guide describes what you should be aware of when you want to migrate an existing Spring Cloud application to run on Azure Spring Cloud.
+title: Migrate Spring Cloud applications to Azure Spring Apps
+description: This guide describes what you should be aware of when you want to migrate an existing Spring Cloud application to run on Azure Spring Apps.
+author: KarlErickson
 ms.author: karler
 ms.topic: conceptual
 ms.date: 02/09/2022
@@ -10,9 +11,12 @@ zone_pivot_group_filename: java/java-zone-pivot-groups.json
 zone_pivot_groups: spring-cloud-tier-selection
 ---
 
-# Migrate Spring Cloud applications to Azure Spring Cloud
+# Migrate Spring Cloud applications to Azure Spring Apps
 
-This guide describes what you should be aware of when you want to migrate an existing Spring Cloud application to run on Azure Spring Cloud.
+> [!NOTE]
+> Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
+
+This guide describes what you should be aware of when you want to migrate an existing Spring Cloud application to run on Azure Spring Apps.
 
 ## Pre-migration
 
@@ -35,7 +39,7 @@ If you can't meet any of these pre-migration requirements, see the following com
 
 [!INCLUDE [identify-spring-boot-versions](includes/identify-spring-boot-versions.md)]
 
-For any applications using Spring Boot 1.x, follow the [Spring Boot 2.0 migration guide](https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-2.0-Migration-Guide) to update them to a supported Spring Boot version. For supported versions, see the [Spring Boot and Spring Cloud versions](/azure/spring-cloud/how-to-prepare-app-deployment#spring-boot-and-spring-cloud-versions) section of [Prepare an application for deployment in Azure Spring Cloud](/azure/spring-cloud/how-to-prepare-app-deployment).
+For any applications using Spring Boot 1.x, follow the [Spring Boot 2.0 migration guide](https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-2.0-Migration-Guide) to update them to a supported Spring Boot version. For supported versions, see the [Spring Boot and Spring Cloud versions](/azure/spring-cloud/how-to-prepare-app-deployment#spring-boot-and-spring-cloud-versions) section of [Prepare an application for deployment in Azure Spring Apps](/azure/spring-cloud/how-to-prepare-app-deployment).
 
 #### Identify Spring Cloud versions
 
@@ -62,7 +66,7 @@ ext {
 }
 ```
 
-You'll need to update all applications to use supported versions of Spring Cloud. For a list of supported versions, see the [Spring Boot and Spring Cloud versions](/azure/spring-cloud/how-to-prepare-app-deployment#spring-boot-and-spring-cloud-versions) section of [Prepare an application for deployment in Azure Spring Cloud](/azure/spring-cloud/how-to-prepare-app-deployment).
+You'll need to update all applications to use supported versions of Spring Cloud. For a list of supported versions, see the [Spring Boot and Spring Cloud versions](/azure/spring-cloud/how-to-prepare-app-deployment#spring-boot-and-spring-cloud-versions) section of [Prepare an application for deployment in Azure Spring Apps](/azure/spring-cloud/how-to-prepare-app-deployment).
 
 [!INCLUDE [identify-logs-metrics-apm-azure-spring-cloud.md](includes/identify-logs-metrics-apm-azure-spring-cloud.md)]
 
@@ -91,7 +95,7 @@ After you've identified the broker or brokers in use, find the corresponding set
 
 Identify all identity providers and all Spring Cloud applications that require authentication and/or authorization. For information on how identity providers may be configured, consult the following:
 
-* For OAuth2 configuration, see the [Spring Cloud Security quickstart](https://cloud.spring.io/spring-cloud-security/2.1.x/multi/multi__quickstart.html#_quickstart).
+* For OAuth2 configuration, see the [Spring Cloud Security quickstart](https://spring.io/projects/spring-cloud-security).
 * For Auth0 Spring Security configuration, see the [Auth0 Spring Security documentation](https://auth0.com/docs/quickstart/backend/java-spring-security5/01-authorization).
 * For PingFederate Spring Security configuration, see the [Auth0 PingFederate instructions](https://auth0.com/authenticate/java-spring-security/ping-federate/).
 
@@ -136,17 +140,17 @@ eureka:
       defaultZone: http://myusername:mysecretpassword@localhost:8761/eureka/
 ```
 
-If a setting like this appears in your application configuration, remove it. Azure Spring Cloud will automatically inject the connection information of its configuration server.
+If a setting like this appears in your application configuration, remove it. Azure Spring Apps will automatically inject the connection information of its configuration server.
 
-### Create an Azure Spring Cloud instance and apps
+### Create an Azure Spring Apps instance and apps
 
-Provision an Azure Spring Cloud instance in your Azure subscription. Then, provision an app for every service you're migrating. Don't include the Spring Cloud registry and configuration servers. Do include the Spring Cloud Gateway service. For instructions, see [Quickstart: Deploy your first application to Azure Spring Cloud](/azure/spring-cloud/quickstart).
+Provision an Azure Spring Apps instance in your Azure subscription. Then, provision an app for every service you're migrating. Don't include the Spring Cloud registry and configuration servers. Do include the Spring Cloud Gateway service. For instructions, see [Quickstart: Deploy your first application to Azure Spring Apps](/azure/spring-cloud/quickstart).
 
 ::: zone pivot="sc-standard-tier"
 
 ### Prepare the Spring Cloud Config server
 
-Configure the configuration server in your Azure Spring Cloud instance. For more information, see [Set up a Spring Cloud Config Server instance for your service](/azure/spring-cloud/how-to-config-server).
+Configure the configuration server in your Azure Spring Apps instance. For more information, see [Set up a Spring Cloud Config Server instance for your service](/azure/spring-cloud/how-to-config-server).
 
 > [!NOTE]
 > If your current Spring Cloud Config repository is on the local file system or on premises, you'll first need to migrate or replicate your configuration files to a private cloud-based repository, such as GitHub, Azure Repos, or BitBucket.
@@ -161,7 +165,7 @@ Configure the configuration server in your Azure Spring Cloud instance. For more
 
 ### VMware Tanzu components
 
-In Enterprise tier, Application Configuration Service for VMware Tanzu® is provided to support externalized configuration for your apps. Managed Spring Cloud Config Server isn't available in Enterprise tier and is only available in Standard and Basic tier of Azure Spring Cloud.
+In Enterprise tier, Application Configuration Service for VMware Tanzu® is provided to support externalized configuration for your apps. Managed Spring Cloud Config Server isn't available in Enterprise tier and is only available in Standard and Basic tier of Azure Spring Apps.
 
 #### Application Configuration Service for Tanzu
 
@@ -208,7 +212,7 @@ You can inject secrets directly into applications through Spring by using the Az
 
 ### Migrate all certificates to KeyVault
 
-Azure Spring Cloud doesn't provide access to the JRE keystore, so you must migrate certificates to Azure KeyVault, and change the application code to access certificates in KeyVault. For more information, see [Get started with Key Vault certificates](/azure/key-vault/certificates/certificate-scenarios) and [Azure Key Vault Certificate client library for Java](/java/api/overview/azure/security-keyvault-certificates-readme).
+Azure Spring Apps doesn't provide access to the JRE keystore, so you must migrate certificates to Azure KeyVault, and change the application code to access certificates in KeyVault. For more information, see [Get started with Key Vault certificates](/azure/key-vault/certificates/certificate-scenarios) and [Azure Key Vault Certificate client library for Java](/java/api/overview/azure/security-keyvault-certificates-readme).
 
 ### Remove application performance management (APM) integrations
 
@@ -224,13 +228,13 @@ Remove any metrics clients used or any metrics endpoints exposed in your applica
 
 ### Deploy the services
 
-Deploy each of the migrated Spring apps (not including the Spring Cloud Config and Registry servers), as described in [Quickstart: Deploy your first application to Azure Spring Cloud](/azure/spring-cloud/quickstart).
+Deploy each of the migrated Spring apps (not including the Spring Cloud Config and Registry servers), as described in [Quickstart: Deploy your first application to Azure Spring Apps](/azure/spring-cloud/quickstart).
 
 ### Configure per-service secrets and externalized settings
 
 You can inject any per-service configuration settings into each service as environment variables. Use the following steps in the Azure portal:
 
-1. Navigate to the Azure Spring Cloud Instance and select **Apps**.
+1. Navigate to the Azure Spring Apps Instance and select **Apps**.
 1. Select the service to configure.
 1. Select **Configuration**.
 1. Enter the variables to configure.
@@ -248,21 +252,21 @@ If any of the Spring Cloud applications require authentication or authorization,
 
 ### Update client applications
 
-Update the configuration of all client applications to use the published Azure Spring Cloud endpoints for migrated applications.
+Update the configuration of all client applications to use the published Azure Spring Apps endpoints for migrated applications.
 
 ## Post-migration
 
 * Consider adding a deployment pipeline for automatic, consistent deployments. Instructions are available [for Azure Pipelines](/azure/spring-cloud/how-to-cicd), [for GitHub Actions](/azure/spring-cloud/how-to-github-actions), and [for Jenkins](/azure/jenkins/tutorial-jenkins-deploy-cli-spring-cloud-service).
 
-* Consider using staging deployments to test code changes in production before they're available to some or all of your end users. For more information, see [Set up a staging environment in Azure Spring Cloud](/azure/spring-cloud/how-to-staging-environment).
+* Consider using staging deployments to test code changes in production before they're available to some or all of your end users. For more information, see [Set up a staging environment in Azure Spring Apps](/azure/spring-cloud/how-to-staging-environment).
 
 * Consider adding service bindings to connect your application to supported Azure databases. These service bindings would eliminate the need for you to provide connection information, including credentials, to your Spring Cloud applications.
 
-* Consider using Azure Application Insights to monitor performance and interactions of your applications. For more information, see [Application Insights Java In-Process Agent in Azure Spring Cloud](/azure/spring-cloud/how-to-application-insights).
+* Consider using Azure Application Insights to monitor performance and interactions of your applications. For more information, see [Application Insights Java In-Process Agent in Azure Spring Apps](/azure/spring-cloud/how-to-application-insights).
 
 * Consider adding Azure Monitor alert rules and action groups to quickly detect and address aberrant conditions. For more information, see [Tutorial: Monitor Spring Cloud resources using alerts and action groups](/azure/spring-cloud/tutorial-alerts-action-groups).
 
-* Consider replicating the Azure Spring Cloud deployment in another region for lower latency and higher reliability and fault tolerance. Use [Azure Traffic Manager](/azure/traffic-manager) to load balance among deployments or use [Azure Front Door](/azure/frontdoor) to add SSL offloading and Web Application Firewall with DDoS protection.
+* Consider replicating the Azure Spring Apps deployment in another region for lower latency and higher reliability and fault tolerance. Use [Azure Traffic Manager](/azure/traffic-manager) to load balance among deployments or use [Azure Front Door](/azure/frontdoor) to add SSL offloading and Web Application Firewall with DDoS protection.
 
 * If geo-replication isn't necessary, consider adding an [Azure Application Gateway](/azure/application-gateway) to add SSL offloading and Web Application Firewall with DDoS protection.
 

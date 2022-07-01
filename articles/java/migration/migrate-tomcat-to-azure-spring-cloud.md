@@ -1,15 +1,19 @@
 ---
-title: Migrate Tomcat applications to Azure Spring Cloud
-description: This guide describes what you should be aware of when you want to migrate an existing Tomcat application to Azure Spring Cloud
+title: Migrate Tomcat applications to Azure Spring Apps
+description: This guide describes what you should be aware of when you want to migrate an existing Tomcat application to Azure Spring Apps
+author: KarlErickson
 ms.author: karler
 ms.topic: conceptual
 ms.date: 6/16/2020
 recommendations: false
 ---
 
-# Migrate a Tomcat application to Azure Spring Cloud
+# Migrate a Tomcat application to Azure Spring Apps
 
-This guide describes what you should be aware of when you want to migrate an existing Tomcat application to run on Azure Spring Cloud.
+> [!NOTE]
+> Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
+
+This guide describes what you should be aware of when you want to migrate an existing Tomcat application to run on Azure Spring Apps.
 
 ## Pre-migration
 
@@ -17,7 +21,7 @@ To ensure a successful migration, before you start, complete the assessment and 
 
 ### Switch to a supported platform
 
-Azure Spring Cloud offers specific versions of Java SE. To ensure compatibility, migrate your application to one of the supported versions of its current environment before you continue with any of the remaining steps. Be sure to fully test the resulting configuration. Use the latest stable release of your Linux distribution in such tests.
+Azure Spring Apps offers specific versions of Java SE. To ensure compatibility, migrate your application to one of the supported versions of its current environment before you continue with any of the remaining steps. Be sure to fully test the resulting configuration. Use the latest stable release of your Linux distribution in such tests.
 
 [!INCLUDE [note-obtain-your-current-java-version](includes/note-obtain-your-current-java-version.md)]
 
@@ -59,17 +63,17 @@ Inspect the application's *web.xml* file for any [configured filters](https://to
 
 #### Determine whether non-HTTP connectors are used
 
-Azure Spring Cloud supports only HTTP connections on a single, non-customizable HTTP port. If your application requires additional ports or additional protocols, do not use Azure Spring Cloud.
+Azure Spring Apps supports only HTTP connections on a single, non-customizable HTTP port. If your application requires additional ports or additional protocols, do not use Azure Spring Apps.
 
 To identify HTTP connectors used by your application, look for `<Connector>` elements inside the *server.xml* file in your Tomcat configuration.
 
 #### Determine whether SSL session tracking is used
 
-On Azure Spring Cloud, the SSL session will terminate prior to reaching your application code, so you can't use [SSL session tracking](https://tomcat.apache.org/tomcat-9.0-doc/servletapi/javax/servlet/SessionTrackingMode.html#SSL). You will need to switch to using [Spring Session](https://docs.spring.io/spring-session/reference/3.0/index.html) instead.
+On Azure Spring Apps, the SSL session will terminate prior to reaching your application code, so you can't use [SSL session tracking](https://tomcat.apache.org/tomcat-9.0-doc/servletapi/javax/servlet/SessionTrackingMode.html#SSL). You will need to switch to using [Spring Session](https://docs.spring.io/spring-session/reference/3.0/index.html) instead.
 
 #### Determine whether Tomcat realms are used
 
-On Azure Spring Cloud, Spring Security must be used in place of Tomcat realms. Inspect your *server.xml* file to inventory any [configured realms](https://tomcat.apache.org/tomcat-9.0-doc/realm-howto.html#Configuring_a_Realm).
+On Azure Spring Apps, Spring Security must be used in place of Tomcat realms. Inspect your *server.xml* file to inventory any [configured realms](https://tomcat.apache.org/tomcat-9.0-doc/realm-howto.html#Configuring_a_Realm).
 
 #### Determine whether servlet filters are used
 
@@ -93,7 +97,7 @@ Create a [POM file](https://maven.apache.org/pom.html) for your application, and
 
 ### Migrate to Spring Boot
 
-The following table shows a summary of necessary migrations and code changes to migrate a Tomcat application to Spring Boot and, subsequently, to Azure Spring Cloud. If any element in the Legacy column is used in the application, it should be replaced with the corresponding element in the Minimum or, ideally, Recommended column.
+The following table shows a summary of necessary migrations and code changes to migrate a Tomcat application to Spring Boot and, subsequently, to Azure Spring Apps. If any element in the Legacy column is used in the application, it should be replaced with the corresponding element in the Minimum or, ideally, Recommended column.
 
 |Legacy | Where to check |Minimum migration |Recommended migration|
 |---|---|---|---|

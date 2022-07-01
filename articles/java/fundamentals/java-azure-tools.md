@@ -1,6 +1,7 @@
 ---
 title: Azure tools for Java developers
 description: IDE integrations, emulators, resource explorers, and command-line interfaces for Java developers working on Azure.
+author: KarlErickson
 ms.author: karler
 ms.assetid: b55923b7-d60a-460d-b77c-af5fac67f1cc
 ms.topic: article
@@ -29,7 +30,7 @@ Manage Azure resources and deploy apps from your IDE with The Azure toolkits for
 
 ## Apache Maven and Gradle plugins
 
-Deploy Java applications to Azure with ease by configuring Azure plugins as part of your Maven or Gradle builds. Currently, the plugins support Azure App Service, Azure Functions, and Azure Spring Cloud.
+Deploy Java applications to Azure with ease by configuring Azure plugins as part of your Maven or Gradle builds. Currently, the plugins support Azure App Service, Azure Functions, and Azure Spring Apps.
 
 - [Azure Plugins for Gradle](https://github.com/microsoft/azure-gradle-plugins)
 - [Azure Plugins for Apache Maven](https://github.com/microsoft/azure-maven-plugins)

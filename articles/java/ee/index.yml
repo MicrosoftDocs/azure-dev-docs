@@ -8,9 +8,9 @@ metadata:
   description: Java EE, Jakarta EE, and MicroProfile are open specifications for Cloud Native Java. Learn how to combine the power of Azure with technologies based on these specifications with this documentation.
   ms.service: azure
   ms.topic: landing-page
-  author: edburns
+  author: KarlErickson
   ms.author: edburns
-  ms.date: 04/02/2021
+  ms.date: 06/27/2022
   ms.custom: devx-track-java
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
@@ -45,6 +45,10 @@ landingContent:
             url: /azure/aks/howto-deploy-java-liberty-app?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/breadcrumb/toc.json
           - text: Java app with PostgreSQL to WebSphere Liberty/Open Liberty on AKS
             url: /azure/aks/howto-deploy-java-liberty-app-with-postgresql?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/breadcrumb/toc.json
+          - text: Java app with JBoss EAP to Azure Red Hat OpenShift (ARO)
+            url: /azure/openshift/howto-deploy-java-jboss-enterprise-application-platform-app?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/breadcrumb/toc.json
+          - text: Java EE JCache with WebSphere/Open Liberty
+            url: how-to-deploy-java-liberty-jcache.md
           - text: Java app with Payara Micro to Azure App Service
             url: ../eclipse-microprofile/deploy-microprofile-payara-micro-java-app-with-maven-plugin.md?bc=/azure/developer/breadcrumb/toc.json&toc=/azure/developer/java/ee/toc.json
           - text: Traditional WebSphere on Azure VMs
@@ -67,7 +71,7 @@ landingContent:
         links:
           - text: WebLogic to Azure Virtual Machines
             url: ../migration/migrate-weblogic-to-virtual-machines.md?bc=/azure/developer/breadcrumb/toc.json&toc=/azure/developer/java/ee/toc.json
-          - text: WebLogic with AAD via LDAP
+          - text: WebLogic with Azure AD via LDAP
             url: ../migration/migrate-weblogic-with-aad-ldap.md?bc=/azure/developer/breadcrumb/toc.json&toc=/azure/developer/java/ee/toc.json
           - text: WebLogic with App Gateway
             url: ../migration/migrate-weblogic-with-app-gateway.md?bc=/azure/developer/breadcrumb/toc.json&toc=/azure/developer/java/ee/toc.json

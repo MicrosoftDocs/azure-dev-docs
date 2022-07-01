@@ -279,7 +279,7 @@ For additional examples for how to use custom Docker images with Azure, see [Usi
 [Working with Azure DevOps and Java]: /azure/devops-project/azure-devops-project-java
 [Apache Maven]: http://maven.apache.org/
 [MSDN subscriber benefits]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/
-[Spring Boot]: http://projects.spring.io/spring-boot/
+[Spring Boot]: https://spring.io/projects/spring-boot/
 [Spring Boot on Docker Getting Started]: https://github.com/spring-guides/gs-spring-boot-docker
 [Spring Framework]: https://spring.io/
 

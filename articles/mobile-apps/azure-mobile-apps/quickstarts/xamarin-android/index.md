@@ -4,8 +4,11 @@ description: Get up to speed with Xamarin.Android and Azure Mobile Apps with our
 author: adrianhall
 ms.service: mobile-services
 ms.topic: article
-ms.date: 05/05/2021
+ms.date: 06/09/2022
 ms.author: adhal
+recommendations: false
+zone_pivot_group_filename: developer/mobile-apps/azure-mobile-apps/zumo-zone-pivot-groups.json
+zone_pivot_groups: vs-platform-options
 ---
 
 # Build a Xamarin.Android app with Azure Mobile Apps
@@ -18,61 +21,140 @@ You must complete this tutorial before other Xamarin Android tutorials about usi
 
 To complete this tutorial, you need:
 
-* An appropriate IDE:
-  * For Windows: install [Visual Studio 2019](/xamarin/get-started/installation/windows).
-  * For Mac: install [Visual Studio for Mac](/visualstudio/mac/installation).
+::: zone pivot="vs2022-windows"
 
+* [Visual Studio 2022](/visualstudio/install/install-visual-studio?view=vs-2022&preserve-view=true) with the following workloads.
+  * ASP.NET and web development
+  * Azure development
+  * Mobile development with .NET
 * An [Azure account](https://azure.microsoft.com/pricing/free-trial).
 * The [Azure CLI](/cli/azure/install-azure-cli).
-  * [Log into your Azure account](/cli/azure/authenticate-azure-cli) and [select a subscription](/cli/azure/manage-azure-subscriptions-azure-cli) using the Azure CLI.
+  * Sign in with `az login` and select an appropriate subscription before starting.
 * An [Android Virtual Device](https://developer.android.com/studio/run/managing-avds), with the following settings:
-  * Phone: Pixel 4 (includes Play Store)
-  * System Image: Pie (API 28, x86, Google Play)
+  * Phone: Any phone image - we use the Pixel 5 for testing.
+  * System Image: Android 11 (API 30 with Google APIs)
 
-You can complete this tutorial on Mac or Windows.
+::: zone-end
 
-## Download the Xamarin.Android quickstart project
+::: zone pivot="vs2022-mac"
 
-The Xamarin.Android quickstart project is located in the `samples/xamarin-android` folder of the [azure/azure-mobile-apps](https://github.com/azure/azure-mobile-apps) GitHub repository.  You can [download the repository as a ZIP file](https://github.com/Azure/azure-mobile-apps/archive/main.zip), then unpack it.  The files will be created in the `azure-mobile-apps-main` folder.
+* [Visual Studio 2022 for Mac](/visualstudio/mac/installation?view=vsmac-2022&preserve-view=true)
+* An [Azure account](https://azure.microsoft.com/pricing/free-trial).
+* The [Azure CLI](/cli/azure/install-azure-cli).
+  * Sign in with `az login` and select an appropriate subscription before starting.
+* An [Android Virtual Device](https://developer.android.com/studio/run/managing-avds), with the following settings:
+  * Phone: Any phone image - we use the Pixel 5 for testing.
+  * System Image: Android 11 (API 30 with Google APIs)
 
-Once downloaded, open a Terminal and change directory to the location of the files.
+::: zone-end
 
-[!INCLUDE [deploy-backend](~/mobile-apps/azure-mobile-apps/includes/quickstart-deploy-backend.md)]
+## Download the sample app
 
-## Configure the Xamarin.Android quickstart project
+::: zone pivot="vs2022-windows"
 
-Open the `ZumoQuickstart` solution in Visual Studio (located at `samples/xamarin-android`).  Edit the `Constants.cs` class to replace the `BackendUrl` with your backend URL.  For example, if your backend URL was `https://zumo-abcd1234.azurewebsites.net`, then the file would look like this:
+[!INCLUDE [Instructions to download the sample from GitHub on Windows.](~/mobile-apps/azure-mobile-apps/includes/quickstart/windows/download-sample.md)]
 
-``` csharp
-namespace ZumoQuickstart
-{
-    /// <summary>
-    /// Constants used to configure the application.
-    /// </summary>
-    public static class Constants
-    {
-        /// <summary>
-        /// The base URL of the backend service within Azure.
-        /// </summary>
-        public static string BackendUrl { get; } = "https://zumo-abcd1234.azurewebsites.net";
-    }
-}
-```
+::: zone-end
 
-Save the file.
+::: zone pivot="vs2022-mac"
 
-## Run the app
+[!INCLUDE [Instructions to download the sample from GitHub on macOS.](~/mobile-apps/azure-mobile-apps/includes/quickstart/mac/download-sample.md)]
 
-Select the _Any CPU_ configuration and an Android emulator:
+::: zone-end
 
-![Android Configuration](../../media/xamarin-android-configuration.png)
+## Deploy the backend to Azure
 
-Press F5 to build and run the project.  The Android emulator will start, then Visual Studio will install the app. Finally, the app will start.
+> [!NOTE]
+> If you have already deployed the backend from another quick start, you can use the same backend and skip this step.
 
-Enter some text in the **Add New Item** field, then press enter or click the add item button.  The item is added to the list.  Click on the item to set or clear the "completed" flag.
+::: zone pivot="vs2022-windows"
 
-![Quickstart Android](../../media/xamarin-android-startup.png)
+[!INCLUDE [Instructions for deploying a backend service on Windows.](~/mobile-apps/azure-mobile-apps/includes/quickstart/windows/deploy-backend.md)]
+
+::: zone-end
+
+::: zone pivot="vs2022-mac"
+
+[!INCLUDE [Instructions for deploying a backend service on macOS.](~/mobile-apps/azure-mobile-apps/includes/quickstart/mac/deploy-back-end.md)]
+
+::: zone-end
+
+## Configure the sample app
+
+::: zone pivot="vs2022-windows"
+
+[!INCLUDE [Instructions for configuring the sample code on Windows.](~/mobile-apps/azure-mobile-apps/includes/quickstart/windows/configure-sample.md)]
+
+::: zone-end
+
+::: zone pivot="vs2022-mac"
+
+[!INCLUDE [Instructions for configuring the sample code on macOS.](~/mobile-apps/azure-mobile-apps/includes/quickstart/mac/configure-sample.md)]
+
+::: zone-end
+
+## Build and run the app
+
+::: zone pivot="vs2022-windows"
+
+1. In the solutions explorer, expand the `xamarin-native` folder.
+2. Right-click the `TodoApp.Android` project and select **Set as Startup Project**.
+3. In the top bar, select **Any CPU** configuration and the **TodoApp.Android** target:
+
+   ![Screenshot showing how to set the run configuration for a Xamarin Android app.](./media/win-configuration.png)
+
+4. If you see **Android Emulator** instead, you have not created an Android emulator.  See [Android emulator setup](/xamarin/android/get-started/installation/android-emulator/) for more information.  To create a new Android emulator:
+
+   * Select **Tools** > **Android** > **Android Device Manager**.
+   * Select **+ New**.
+   * Select the following on the left-hand side:
+     * Name: `quickstart`
+     * Base Device: **Pixel 5**
+     * Processor: **x86_64**
+     * OS: **Android 11.0 - API 30**
+     * Google APIs: **Checked**
+   * Select **Create**.
+   * If necessary, accept the license agreement.  The image will then be downloaded.
+   * Once the **Start** button appears, press **Start**.
+   * If you are prompted about Hyper-V hardware acceleration, read the documentation to enable hardware acceleration before continuing.  The emulator will be slow without enabling hardware acceleration.
+
+   Once complete, close the Android Device Manager.
+
+   > [!TIP]
+   > Start your Android emulator before continuing.  You can do this by opening the Android Device Manager and pressing **Start** next to your chosen emulator.
+
+5. Press **F5** to build and run the project.
+
+Once the app has started, you will see an empty list and a floating action button to add items in the emulator.  You can:
+
+* Press the floating action button, then enter some text to add an item.
+* Set or clear the check box to mark any item as done.
+* Press the refresh icon to reload data from the service.
+
+![Screenshot of the running Android app.](./media/running-app.png)
+
+::: zone-end
+
+::: zone pivot="vs2022-mac"
+
+1. In the solutions explorer, expand the `xamarin-native` folder.
+2. Right-click the `TodoApp.Android` project and select **Set as Startup Project**.
+3. In the top bar, select an appropriate Android emulator:
+
+   ![Screenshot showing how to select an Android emulator on a Mac.](./media/mac-android-configuration.png)
+
+4. In the top menu, select **Debug** > **Start Debugging**.
+
+Once the app has started, you'll see an empty list and a text box to add items in the emulator.  You can:
+
+* Press the **+** button to add an item.
+* Select an item to set or clear the completed flag.
+* Press the refresh icon to reload data from the service.
+
+![Screenshot of the running Android app showing the to do list running on a Mac.](./media/mac-running-app.png)
+
+::: zone-end
 
 ## Next steps
 
-Continue on to implement [offline data synchronization](./offline.md).
+Continue the tutorial by [adding authentication to the app](./authentication.md).

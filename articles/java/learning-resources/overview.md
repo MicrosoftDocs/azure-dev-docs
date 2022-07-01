@@ -1,6 +1,7 @@
 ---
 title: Learning resources for Java
 description: Java - Curated list of resources for Java developers.
+author: KarlErickson
 ms.author: sreea
 ms.topic: article
 ms.date: 03/19/2021
@@ -23,7 +24,7 @@ To supplement these resources, you might consider reading some books or consulti
 
 ## Hands-on learning
 
-To learn more about Java on Azure using a hands-on approach, check out our Microsoft Learn module for [Java on Azure](/learn/paths/java-on-azure/). Also, be sure to visit [Workshops and videos](workshops-videos.md) for more hands-on content featuring migration scenarios and Azure Spring Cloud. This article also provides links to our YouTube playlist and to the SpringOne 2021 conference.
+To learn more about Java on Azure using a hands-on approach, check out our Microsoft Learn module for [Java on Azure](/learn/paths/java-on-azure/). Also, be sure to visit [Workshops and videos](workshops-videos.md) for more hands-on content featuring migration scenarios and Azure Spring Apps. This article also provides links to our YouTube playlist and to the SpringOne 2021 conference.
 
 To understand the practical usage of Java on Azure, see our [samples](samples.md). If you run into issues, you can also troubleshoot with [Azure OSS Developer Support](https://azureossd.github.io/tags/).
 

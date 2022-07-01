@@ -208,7 +208,7 @@ The **[Spring Framework]** is an open-source solution that helps Java developers
 [free Azure account]: https://azure.microsoft.com/pricing/free-trial/
 [Working with Azure DevOps and Java]: /azure/devops-project/azure-devops-project-java
 [MSDN subscriber benefits]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/
-[Spring Boot]: http://projects.spring.io/spring-boot/
+[Spring Boot]: https://spring.io/projects/spring-boot/
 [Spring Initializr]: https://start.spring.io/
 [Spring Framework]: https://spring.io/
 [Redis Cache with Java]: /azure/redis-cache/cache-java-get-started
@@ -221,7 +221,7 @@ The **[Spring Framework]** is an open-source solution that helps Java developers
 [AZ05]: media/configure-spring-boot-initializer-java-app-with-redis-cache/AZ05.png
 [create-redis-cache-select-non-tls-port]: media/configure-spring-boot-initializer-java-app-with-redis-cache/create-redis-cache-select-non-tls-port.png
 
-[SI01]: media/spring-initializer/2.5.11/mvn-java8-web-reactiveredis.png
+[SI01]: media/spring-initializer/2.7.1/mvn-java8-web-reactiveredis.png
 [SI02]: media/configure-spring-boot-initializer-java-app-with-redis-cache/SI02.png
 [SI04]: media/configure-spring-boot-initializer-java-app-with-redis-cache/SI04.png
 

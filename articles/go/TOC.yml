@@ -11,11 +11,15 @@ items:
     items:
     - name: What is the Azure SDK for Go?
       href: overview.md
+    - name: Core Concepts
+      href: azure-sdk-core-concepts.md
     - name: Management Libraries
       href: management-libraries.md
     - name: Authentication
       expanded: false
       items:
+        - name: Authentication with the autorest package (legacy)
+          href: azure-sdk-authorization.md
         - name: Auth with development environments
           href: azure-sdk-authentication.md
         - name: Auth with Azure-hosted apps

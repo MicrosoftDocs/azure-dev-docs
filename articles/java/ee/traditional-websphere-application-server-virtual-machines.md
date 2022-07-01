@@ -1,6 +1,7 @@
 ---
 title: Deploy WebSphere Application Server (traditional) with High Availability on Azure Virtual Machines
 description: Shows you how to deploy WebSphere Application Server (traditional) with High Availability on Azure Virtual Machines.
+author: KarlErickson
 ms.author: zhengchang
 ms.topic: tutorial
 ms.date: 01/26/2022

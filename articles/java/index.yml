@@ -9,6 +9,8 @@ metadata:
   description: Get started developing apps for the cloud with these tutorials and tools for Java developers.
   ms.topic: hub-page
   ms.date: 06/10/2021
+  author: KarlErickson
+  ms.author: karler
 
 conceptualContent:
   items:
@@ -103,9 +105,9 @@ conceptualContent:
         text: See App Service documentation
         url: /azure/app-service/containers/
 
-    - title: Azure Spring cloud
+    - title: Azure Spring Apps
       links:
-        - text: What is Azure Spring Cloud?
+        - text: What is Azure Spring Apps?
           itemType: overview
           url: /azure/spring-cloud/spring-cloud-overview
         - text: Launch your first app
@@ -132,6 +134,21 @@ conceptualContent:
       footerLink:
         text: See more
         url: spring-framework/index.yml
+
+    - title: Containerization
+      links:
+        - text: Overview
+          itemType: concept
+          url: containers/overview.md
+        - text: Establish a baseline
+          itemType: concept
+          url: containers/baseline.md
+        - text: Containerize for Kubernetes
+          itemType: concept
+          url: containers/kubernetes.md
+      footerLink:
+        text: See more
+        url: containers/index.yml
 
     - title: Azure Functions
       links:

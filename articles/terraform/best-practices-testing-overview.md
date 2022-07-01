@@ -9,7 +9,7 @@ adobe-target: true
 
 # Testing Terraform code
 
-[!INCLUDE [terraform-intro.md](includes/terraform-intro.md)]
+[!INCLUDE [Terraform abstract](./includes/abstract.md)]
 
 Terraform is an Infrastructure as Code (IaC) tool. This category of tool refers to the fact that you treat your Terraform files as you would the project's source code. Part of that process includes versioning and source code control. Also, testing should also be a part of your process. This article gives an overview of the different types of tests that can be run against a Terraform project.
 

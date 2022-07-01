@@ -1,16 +1,17 @@
 ---
 title: "Tutorial: Secure Spring Boot apps using Azure Key Vault certificates"
-description: In this tutorial, you secure your Spring Boot (including Azure Spring Cloud) apps with TLS/SSL certificates using Azure Key Vault and managed identities for Azure resources.
+description: In this tutorial, you secure your Spring Boot (including Azure Spring Apps) apps with TLS/SSL certificates using Azure Key Vault and managed identities for Azure resources.
 ms.date: 03/30/2022
 ms.service: key-vault
 ms.topic: tutorial
 ms.custom: devx-track-java, devx-track-azurecli
+author: KarlErickson
 ms.author: edburns
 ---
 
 # Tutorial: Secure Spring Boot apps using Azure Key Vault certificates
 
-This tutorial shows you how to secure your Spring Boot (including Azure Spring Cloud) apps with TLS/SSL certificates using Azure Key Vault and managed identities for Azure resources.
+This tutorial shows you how to secure your Spring Boot (including Azure Spring Apps) apps with TLS/SSL certificates using Azure Key Vault and managed identities for Azure resources.
 
 Production-grade Spring Boot applications, whether in the cloud or on-premises, require end-to-end encryption for network traffic using standard TLS protocols. Most TLS/SSL certificates you come across are discoverable from a public root certificate authority (CA). Sometimes, however, this discovery isn't possible. When certificates aren't discoverable, the app must have some way to load such certificates, present them to inbound network connections, and accept them from outbound network connections.
 
@@ -30,7 +31,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-- [!INCLUDE [free subscription](includes/quickstarts-free-trial-note.md)]
+- [!INCLUDE [free subscription](../../includes/quickstarts-free-trial-note.md)]
 [!INCLUDE [curl](includes/prerequisites-curl.md)]
 [!INCLUDE [jq](includes/prerequisites-jq.md)]
 [!INCLUDE [Azure CLI](includes/prerequisites-azure-cli.md)]
@@ -90,6 +91,8 @@ Use the following steps to create an Azure VM with a system-assigned managed ide
        --debug \
        --generate-ssh-keys \
        --assign-identity \
+       --role contributor \
+       --scope /subscriptions/<your subscription> \
        --image UbuntuLTS \
        --admin-username azureuser
    ```
@@ -207,7 +210,7 @@ To create the application, use the following steps:
 1. In the text field, type *Spring Web* and press Ctrl+Enter.
 1. In the text field type *Azure Support* and press Enter. Your screen should look like the following.
 
-   :::image type="content" source="media/spring-initializer/2.5.11/mvn-java8-azure-web.png" alt-text="Screenshot of Spring Initializr with basic options.":::
+   :::image type="content" source="media/spring-initializer/2.7.1/mvn-java8-azure-web.png" alt-text="Screenshot of Spring Initializr with basic options.":::
 
 1. At the bottom of the page, select **Generate**.
 1. When prompted, download the project to a path on your local computer. This tutorial uses an *ssltest* directory in the current user's home directory. The values above will give you an *ssltest.zip* file in that directory.

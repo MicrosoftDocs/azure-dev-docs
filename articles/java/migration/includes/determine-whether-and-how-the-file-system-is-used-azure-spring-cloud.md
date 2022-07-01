@@ -1,4 +1,5 @@
 ---
+author: KarlErickson
 ms.author: karler
 ms.date: 5/26/2020
 ---
@@ -8,7 +9,7 @@ ms.date: 5/26/2020
 Find any instances where your services write to and/or read from the local file system. Identify where short-term/temporary files are written and read and where long-lived files are written and read.
 
 > [!NOTE]
-> Azure Spring Cloud provides 5 GB of temporary storage per Azure Spring Cloud instance, mounted in `/tmp`. If temporary files are written in excess of that limit or into a different location, code changes will be required.
+> Azure Spring Apps provides 5 GB of temporary storage per Azure Spring Apps instance, mounted in `/tmp`. If temporary files are written in excess of that limit or into a different location, code changes will be required.
 
 <!-- The following two "static content" sections should be identical to the contents of includes\static-content.md except that here we use H5 headings. -->
 

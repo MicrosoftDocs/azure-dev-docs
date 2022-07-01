@@ -5,6 +5,8 @@
   items:
     - name: What is Azure?
       href: cloud-development-overview.md
+    - name: Set up your dev environment
+      href: configure-local-development-environment.md      
     - name: Create, access, and manage resources
       href: cloud-development-provisioning.md
     - name: The Azure development flow
@@ -12,38 +14,36 @@
 
 - name: Web app solutions
   items:
-  - name: Simple Flask app
+  - name: Django/Flask web app
+    href: /azure/app-service/quickstart-python?toc=/azure/developer/python/toc.json&bc=/azure/developer/breadcrumb/toc.json
+  - name: Django/Flask web app + database
+    href: /azure/app-service/tutorial-python-postgresql-app?toc=/azure/developer/python/toc.json&bc=/azure/developer/breadcrumb/toc.json
+  - name: Django/Flask web app + database + auth
     items:
-      - name: Using Visual Studio Code
-        items:
-        - name: 1. Configure your environment
-          href: tutorial-deploy-app-service-on-linux-01.md
-        - name: 2. Prepare your app
-          href: tutorial-deploy-app-service-on-linux-02.md
-        - name: 3. Create the App Service
-          href: tutorial-deploy-app-service-on-linux-03.md
-        - name: 4. Configure the startup file
-          href: tutorial-deploy-app-service-on-linux-04.md
-        - name: 5. Deploy the app
-          href: tutorial-deploy-app-service-on-linux-05.md
-        - name: 6. Stream logs
-          href: tutorial-deploy-app-service-on-linux-06.md
-        - name: 7 Clean up resources
-          href: tutorial-deploy-app-service-on-linux-07.md
-      - name: Using the Azure CLI
-        href: /azure/app-service/quickstart-python
-  - name: Django app + PostgreSQL
-    items:
-      - name: Using the Azure portal
-        href: tutorial-python-postgresql-app-portal.md
-      - name: Using the Azure CLI
-        href: /azure/app-service/tutorial-python-postgresql-app
+    - name: 1. Overview
+      href: tutorial-python-managed-identity-01.md
+    - name: 2. Run the web app locally
+      href: tutorial-python-managed-identity-02.md
+    - name: 3. Create an App Service
+      href: tutorial-python-managed-identity-03.md
+    - name: 4. Create a storage account
+      href: tutorial-python-managed-identity-04.md
+    - name: 5. Create a PostgreSQL database
+      href: tutorial-python-managed-identity-05.md
+    - name: 6. Deploy the web app to Azure
+      href: tutorial-python-managed-identity-06.md
+    - name: 7. Clean up resources
+      href: tutorial-python-managed-identity-07.md
   - name: Static websites
     href: how-to-create-static-sites.md
+  - name: Configure web apps
+    items:
+    - name: Set up web dev environment
+      href: configure-python-web-app-local-environment.md
+    - name: Configure a startup file
+      href: configure-python-web-app-on-app-service.md
   - name: Set up CI/CD
     href: /azure/devops/pipelines/ecosystems/python-webapp
-  - name: Configure the Linux host
-    href: /azure/app-service/configure-language-python
   - name: Add sign in
     href: /azure/active-directory/develop/quickstart-v2-python-webapp
   - name: Store and retrieve secrets
@@ -105,28 +105,28 @@
     - name: Deploy machine learning models
       href: quickstarts-machine-learning.md
 
-- name: Use the Azure libraries (SDK)
+- name: Azure SDK for Python
   items:
     - name: Overview
-      href: azure-sdk-overview.md
-    - name: Set up your dev environment
-      href: configure-local-development-environment.md
+      href: sdk/azure-sdk-overview.md
     - name: Library usage patterns
-      href: azure-sdk-library-usage-patterns.md
+      href: sdk/azure-sdk-library-usage-patterns.md
     - name: Authentication
       items:
       - name: Overview
-        href: azure-sdk-authenticate.md
-      - name: Auth in development environments
-        href: azure-sdk-authenticate-development-environments.md
-      - name: Auth in hosted applications
-        href: azure-sdk-authenticate-hosted-applications.md
-      - name: Auth with user credentials
-        href: azure-sdk-authenticate-user-credentials.md
-      - name: Auth with service principals
-        href: azure-sdk-authenticate-service-principals.md
-      - name: Manage service principals
-        href: how-to-manage-service-principals.md
+        href: sdk/authentication-overview.md
+      - name: Auth during local development
+        items:
+        - name: Auth using developer service principals
+          href: sdk/authentication-local-development-service-principal.md
+        - name: Auth using developer accounts
+          href: sdk/authentication-local-development-dev-accounts.md
+      - name: Auth from Azure-hosted apps
+        href: sdk/authentication-azure-hosted-apps.md
+      - name: Auth from on-premises apps
+        href: sdk/authentication-on-premises-apps.md
+      - name: Additional auth methods
+        href: sdk/authentication-additional-methods.md
       - name: Walkthrough tutorial
         items:
         - name: 1. Introduction and background
@@ -144,41 +144,38 @@
         - name: 7. Main app endpoint
           href: walkthrough-tutorial-authentication-07.md
     - name: Install packages
-      href: azure-sdk-install.md
+      href: sdk/azure-sdk-install.md
     - name: Package index
-      href: azure-sdk-library-package-index.md
+      href: sdk/azure-sdk-library-package-index.md
     - name: Library API reference
       href: sdk-library-api-reference.md
     - name: Examples
       items:
       - name: "Create a resource group"
-        href: azure-sdk-example-resource-group.md
+        href: sdk/examples/azure-sdk-example-resource-group.md
       - name: "List groups and resources"
-        href: azure-sdk-example-list-resource-groups.md
+        href: sdk/examples/azure-sdk-example-list-resource-groups.md
       - name: "Create Azure storage"
-        href: azure-sdk-example-storage.md
+        href: sdk/examples/azure-sdk-example-storage.md
       - name: "Use Azure storage"
-        href: azure-sdk-example-storage-use.md
+        href: sdk/examples/azure-sdk-example-storage-use.md
       - name: "Create & deploy a web app"
-        href: azure-sdk-example-web-app.md
+        href: sdk/examples/azure-sdk-example-web-app.md
       - name: "Create & query a database"
-        href: azure-sdk-example-database.md
+        href: sdk/examples/azure-sdk-example-database.md
       - name: "Create a virtual machine"
-        href: azure-sdk-example-virtual-machines.md
+        href: sdk/examples/azure-sdk-example-virtual-machines.md
       - name: "Use Azure Managed Disks with a VM"
-        href: azure-sdk-samples-managed-disks.md
+        href: sdk/examples/azure-sdk-samples-managed-disks.md
     - name: Configure logging
-      href: azure-sdk-logging.md
+      href: sdk/azure-sdk-logging.md
     - name: Configure proxies
-      href: azure-sdk-configure-proxy.md
+      href: sdk/azure-sdk-configure-proxy.md
     - name: Use a sovereign domain
-      href: azure-sdk-sovereign-domain.md
+      href: sdk/azure-sdk-sovereign-domain.md
 
 - name: Library API reference
   href: sdk-library-api-reference.md
-
-- name: Tools for Python developers
-  href: azure-tools.md
 
 - name: Explore services supporting Python
   items:

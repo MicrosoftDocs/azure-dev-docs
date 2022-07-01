@@ -22,10 +22,10 @@ items:
     - name: .NET on Azure
       href: /dotnet/azure/
     - name: Java on Azure 
-      href: /azure/developer/java
+      href: ../java/index.yml
     - name: JavaScript on Azure
-      href: /azure/developer/javascript
+      href: ../javascript/index.yml
     - name: Python on Azure
-      href: /azure/developer/python
+      href: ../python/index.yml
     - name: Go on Azure
-      href: /azure/developer/go
+      href: ../go/index.yml

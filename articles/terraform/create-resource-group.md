@@ -1,24 +1,22 @@
 ---
-title: Get Started - Create an Azure resource group using Terraform
+title: Quickstart - Create an Azure resource group using Terraform
 description: Learn how to create an Azure resource group using Terraform
 keywords: azure devops terraform azure resource group
 ms.topic: quickstart
-ms.date: 03/15/2022
+ms.date: 04/24/2022
 ms.custom: devx-track-terraform, mode-portal
 adobe-target: true
 # Customer intent: As someone new to Terraform and Azure, I want to do something simple to confirm my Terraform installation.
 ---
 
-# Get Started: Create an Azure resource group using Terraform
+# Quickstart: Create an Azure resource group using Terraform
 
 Article tested with the following Terraform and Terraform provider versions:
 
 - [Terraform v1.1.7](https://releases.hashicorp.com/terraform/)
 - [AzureRM Provider v.2.99.0](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs)
 
-[Learn more about using Terraform in Azure](/azure/terraform)
-
-[!INCLUDE [terraform-intro.md](includes/terraform-intro.md)]
+[!INCLUDE [Terraform abstract](./includes/abstract.md)]
 
 This article shows how to create an Azure resource group using Terraform.
 
@@ -32,13 +30,13 @@ In this article, you learn how to:
 > [!NOTE]
 > The example code in this article is located in the [Microsoft Terraform GitHub repo](https://github.com/Azure/terraform/tree/master/quickstart/101-resource-group).
 
-## 1. Configure your environment
+## Prerequisites
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../includes/open-source-devops-prereqs-azure-subscription.md)]
 
 [!INCLUDE [configure-terraform.md](includes/configure-terraform.md)]
 
-## 2. Implement the Terraform code
+## Implement the Terraform code
 
 1. Create a directory in which to test the sample Terraform code and make it the current directory.
 
@@ -58,19 +56,19 @@ In this article, you learn how to:
 
     [!code-terraform[master](../../terraform_samples/quickstart/101-resource-group/output.tf)]
 
-## 3. Initialize Terraform
+## Initialize Terraform
 
 [!INCLUDE [terraform-init.md](includes/terraform-init.md)]
 
-## 4. Create a Terraform execution plan
+## Create a Terraform execution plan
 
 [!INCLUDE [terraform-plan.md](includes/terraform-plan.md)]
 
-## 5. Apply a Terraform execution plan
+## Apply a Terraform execution plan
 
 [!INCLUDE [terraform-apply-plan.md](includes/terraform-apply-plan.md)]
 
-## 6. Verify the results
+## Verify the results
 
 To see the resource group name, run the following command:
 
@@ -96,7 +94,7 @@ Get-AzResourceGroup -Name <resource_group_name>
 
 ---
 
-## 7. Clean up resources
+## Clean up resources
 
 [!INCLUDE [terraform-plan-destroy.md](includes/terraform-plan-destroy.md)]
 

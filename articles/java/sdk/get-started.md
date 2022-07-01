@@ -2,6 +2,7 @@
 title: Get started with the Azure SDK for Java
 description: Learn how to create Azure cloud resources and connect and use them in your Java applications.
 keywords: Azure, Java, SDK, API, authenticate, get-started
+author: KarlErickson
 ms.author: karler
 ms.date: 11/20/2020
 ms.topic: article
@@ -28,7 +29,10 @@ Your Java application needs *read* and *create* permissions in your Azure subscr
 [Create a service principal by using the Azure CLI 2.0](/cli/azure/create-an-azure-service-principal-azure-cli), and capture the output:
 
 ```azurecli
-az ad sp create-for-rbac --name AzureJavaTest --role Contributor --scopes /subscriptions/mySubscriptionID
+az ad sp create-for-rbac \
+    --name AzureJavaTest \
+    --role Contributor \
+    --scopes /subscriptions/<your-subscription-ID>
 ```
 
 This command gives you a reply in the following format:
@@ -61,7 +65,7 @@ For more authentication options, see the [Azure Identity client library for Java
 
 Create a Maven project from the command line in a new directory on your system.
 
-```shell
+```bash
 mkdir java-azure-test
 cd java-azure-test
 mvn archetype:generate -DgroupId=com.fabrikam -DartifactId=AzureApp \
@@ -72,47 +76,62 @@ This step creates a basic Maven project under the *testAzureApp* directory. Add 
 
 ```XML
 <dependency>
-    <groupId>com.azure</groupId>
-    <artifactId>azure-identity</artifactId>
-    <version>1.3.2</version>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-identity</artifactId>
+  <version>1.3.2</version>
 </dependency>
 <dependency>
-    <groupId>com.azure.resourcemanager</groupId>
-    <artifactId>azure-resourcemanager</artifactId>
-    <version>2.6.0</version>
+  <groupId>com.azure.resourcemanager</groupId>
+  <artifactId>azure-resourcemanager</artifactId>
+  <version>2.6.0</version>
 </dependency>
 <dependency>
-    <groupId>com.azure</groupId>
-    <artifactId>azure-storage-blob</artifactId>
-    <version>12.8.0</version>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-storage-blob</artifactId>
+  <version>12.8.0</version>
 </dependency>
 <dependency>
-    <groupId>com.microsoft.sqlserver</groupId>
-    <artifactId>mssql-jdbc</artifactId>
-    <version>6.2.1.jre8</version>
+  <groupId>com.microsoft.sqlserver</groupId>
+  <artifactId>mssql-jdbc</artifactId>
+  <version>6.2.1.jre8</version>
+</dependency>
+<dependency>
+  <groupId>org.slf4j</groupId>
+  <artifactId>slf4j-simple</artifactId>
+  <version>1.7.33</version>
 </dependency>
 ```
 
 Add a `build` entry under the top-level `project` element to use the [maven-exec-plugin](https://www.mojohaus.org/exec-maven-plugin/) to run the samples.
+[maven-compiler-plugin](https://maven.apache.org/plugins/maven-compiler-plugin/) is used to configure the source code and generated classes for Java 8.
 
 ```XML
 <build>
-    <plugins>
-        <plugin>
-            <groupId>org.codehaus.mojo</groupId>
-            <artifactId>exec-maven-plugin</artifactId>
-            <version>3.0.0</version>
-            <configuration>
-                <mainClass>com.fabrikam.AzureApp</mainClass>
-            </configuration>
-        </plugin>
-    </plugins>
+  <plugins>
+    <plugin>
+      <groupId>org.codehaus.mojo</groupId>
+      <artifactId>exec-maven-plugin</artifactId>
+      <version>3.0.0</version>
+      <configuration>
+        <mainClass>com.fabrikam.App</mainClass>
+      </configuration>
+    </plugin>
+    <plugin>
+      <groupId>org.apache.maven.plugins</groupId>
+      <artifactId>maven-compiler-plugin</artifactId>
+      <version>3.8.1</version>
+      <configuration>
+        <source>1.8</source>
+        <target>1.8</target>
+      </configuration>
+    </plugin>
+  </plugins>
 </build>
  ```
 
 ## Create a Linux virtual machine
 
-Create a new file named *AzureApp.java* in the project's *src/main/java/com/fabrikam* directory, and paste in the following block of code. Update the `userName` and `sshKey` variables with real values for your machine. The code creates a new Linux virtual machine (VM) with the name `testLinuxVM` in the resource group `sampleResourceGroup` running in the US East Azure region.
+Create a new file named *App.java* in the project's *src/main/java/com/fabrikam* directory, and paste in the following block of code. Update the `userName` and `sshKey` variables with real values for your machine. The code creates a new Linux virtual machine (VM) with the name `testLinuxVM` in the resource group `sampleResourceGroup` running in the US East Azure region.
 
 ```java
 package com.fabrikam;
@@ -123,13 +142,13 @@ import com.azure.core.management.AzureEnvironment;
 import com.azure.core.management.Region;
 import com.azure.core.management.profile.AzureProfile;
 import com.azure.identity.AzureAuthorityHosts;
-import com.azure.identity.EnvironmentCredentialBuilder;
+import com.azure.identity.DefaultAzureCredentialBuilder;
 import com.azure.resourcemanager.AzureResourceManager;
 import com.azure.resourcemanager.compute.models.KnownLinuxVirtualMachineImage;
 import com.azure.resourcemanager.compute.models.VirtualMachine;
 import com.azure.resourcemanager.compute.models.VirtualMachineSizeTypes;
 
-public class AzureApp {
+public class App {
 
     public static void main(String[] args) {
 
@@ -137,7 +156,7 @@ public class AzureApp {
         final String sshKey = "YOUR_PUBLIC_SSH_KEY";
 
         try {
-            TokenCredential credential = new EnvironmentCredentialBuilder()
+            TokenCredential credential = new DefaultAzureCredentialBuilder()
                     .authorityHost(AzureAuthorityHosts.AZURE_PUBLIC_CLOUD)
                     .build();
 
@@ -157,10 +176,9 @@ public class AzureApp {
                     .withNewPrimaryNetwork("10.0.0.0/24")
                     .withPrimaryPrivateIPAddressDynamic()
                     .withoutPrimaryPublicIPAddress()
-                    .withPopularLinuxImage(KnownLinuxVirtualMachineImage.UBUNTU_SERVER_16_04_LTS)
+                    .withPopularLinuxImage(KnownLinuxVirtualMachineImage.UBUNTU_SERVER_18_04_LTS)
                     .withRootUsername(userName)
                     .withSsh(sshKey)
-                    .withUnmanagedDisks()
                     .withSize(VirtualMachineSizeTypes.STANDARD_D3_V2)
                     .create();
 
@@ -174,7 +192,7 @@ public class AzureApp {
 
 Run the sample from the command line.
 
-```shell
+```bash
 mvn compile exec:java
 ```
 
@@ -192,7 +210,7 @@ az group delete --name sampleVmResourceGroup
 
 ## Deploy a web app from a GitHub repo
 
-Replace the main method in `AzureApp.java` with the following one. Update the `appName` variable to a unique value before you run the code. This code deploys a web application from the `master` branch in a public GitHub repo into a new [Azure App Service Web App](/azure/app-service-web/app-service-web-overview) running in the free pricing tier.
+Replace the main method in *App.java* with the following one. Update the `appName` variable to a unique value before you run the code. This code deploys a web application from the `master` branch in a public GitHub repo into a new [Azure App Service Web App](/azure/app-service-web/app-service-web-overview) running in the free pricing tier.
 
 ```java
     public static void main(String[] args) {
@@ -200,7 +218,7 @@ Replace the main method in `AzureApp.java` with the following one. Update the `a
 
             final String appName = "YOUR_APP_NAME";
 
-            TokenCredential credential = new EnvironmentCredentialBuilder()
+            TokenCredential credential = new DefaultAzureCredentialBuilder()
                     .authorityHost(AzureAuthorityHosts.AZURE_PUBLIC_CLOUD)
                     .build();
 
@@ -233,7 +251,7 @@ Replace the main method in `AzureApp.java` with the following one. Update the `a
 
 Run the code as before using Maven.
 
-```shell
+```bash
 mvn clean compile exec:java
 ```
 
@@ -251,15 +269,14 @@ az group delete --name sampleWebResourceGroup
 
 ## Connect to an Azure SQL database
 
-Replace the current main method in `AzureApp.java` with the following code. Set real values for the variables.
+Replace the current main method in *App.java* with the following code. Set real values for the variables.
 This code creates a new SQL database with a firewall rule that allows remote access. Then the code connects to it by using the SQL Database JBDC driver.
 
 ```java
-    public static void main(String args[])
-    {
+    public static void main(String args[]) {
         // Create the db using the management libraries.
         try {
-            TokenCredential credential = new EnvironmentCredentialBuilder()
+            TokenCredential credential = new DefaultAzureCredentialBuilder()
                     .authorityHost(AzureAuthorityHosts.AZURE_PUBLIC_CLOUD)
                     .build();
 
@@ -299,24 +316,23 @@ This code creates a new SQL database with a firewall rule that allows remote acc
                     "encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;";
 
             // Connect to the database, create a table, and insert an entry into it.
-            Connection conn = DriverManager.getConnection(url);
-
-            String createTable = "CREATE TABLE CLOUD ( name varchar(255), code int);";
-            String insertValues = "INSERT INTO CLOUD (name, code ) VALUES ('Azure', 1);";
-            String selectValues = "SELECT * FROM CLOUD";
-            Statement createStatement = conn.createStatement();
-            createStatement.execute(createTable);
-            Statement insertStatement = conn.createStatement();
-            insertStatement.execute(insertValues);
-            Statement selectStatement = conn.createStatement();
-            ResultSet rst = selectStatement.executeQuery(selectValues);
-
-            while (rst.next()) {
-                System.out.println(rst.getString(1) + " "
-                        + rst.getString(2));
+            try (Connection conn = DriverManager.getConnection(url)) {
+                String createTable = "CREATE TABLE CLOUD (name varchar(255), code int);";
+                String insertValues = "INSERT INTO CLOUD (name, code) VALUES ('Azure', 1);";
+                String selectValues = "SELECT * FROM CLOUD";
+                try (Statement createStatement = conn.createStatement()) {
+                    createStatement.execute(createTable);
+                }
+                try (Statement insertStatement = conn.createStatement()) {
+                    insertStatement.execute(insertValues);
+                }
+                try (Statement selectStatement = conn.createStatement();
+                     ResultSet rst = selectStatement.executeQuery(selectValues)) {
+                    while (rst.next()) {
+                        System.out.println(rst.getString(1) + " " + rst.getString(2));
+                    }
+                }
             }
-
-
         } catch (Exception e) {
             System.out.println(e.getMessage());
             System.out.println(e.getStackTrace().toString());
@@ -326,7 +342,7 @@ This code creates a new SQL database with a firewall rule that allows remote acc
 
 Run the sample from the command line.
 
-```shell
+```bash
 mvn clean compile exec:java
 ```
 
@@ -338,13 +354,13 @@ az group delete --name sampleSqlResourceGroup
 
 ## Write a blob into a new storage account
 
-Replace the current main method in `AzureApp.java` with the following code. This code creates an [Azure storage account](/azure/storage/common/storage-introduction). Then the code uses the Azure Storage libraries for Java to create a new text file in the cloud.
+Replace the current main method in *App.java* with the following code. This code creates an [Azure storage account](/azure/storage/common/storage-introduction). Then the code uses the Azure Storage libraries for Java to create a new text file in the cloud.
 
 ```java
     public static void main(String[] args) {
 
         try {
-            TokenCredential tokenCredential = new EnvironmentCredentialBuilder()
+            TokenCredential tokenCredential = new DefaultAzureCredentialBuilder()
                     .authorityHost(AzureAuthorityHosts.AZURE_PUBLIC_CLOUD)
                     .build();
 
@@ -373,7 +389,7 @@ Replace the current main method in `AzureApp.java` with the following code. This
 
             StorageSharedKeyCredential credential = new StorageSharedKeyCredential(accountName, accountKey);
 
-            BlobServiceClient storageClient =new BlobServiceClientBuilder()
+            BlobServiceClient storageClient = new BlobServiceClientBuilder()
                     .endpoint(endpoint)
                     .credential(credential)
                     .buildClient();
@@ -402,7 +418,7 @@ Replace the current main method in `AzureApp.java` with the following code. This
 
 Run the sample from the command line.
 
-```shell
+```bash
 mvn clean compile exec:java
 ```
 

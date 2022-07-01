@@ -1,20 +1,20 @@
 ---
-title: Configure a Linux VM with infrastructure in Azure using Terraform
+title: Quickstart - Configure a Linux virtual machine in Azure using Terraform
 description: Learn how to use Terraform to configure a complete Linux virtual machine environment in Azure.
 keywords: azure devops terraform linux vm virtual machine
-ms.topic: how-to
-ms.date: 03/20/2022
+ms.topic: quickstart
+ms.date: 04/24/2022
 ms.custom: devx-track-terraform
 ---
 
-# Configure a Linux VM with infrastructure in Azure using Terraform
+# Quickstart: Configure a Linux virtual machine in Azure using Terraform
 
 Article tested with the following Terraform and Terraform provider versions:
 
 - [Terraform v1.1.7](https://releases.hashicorp.com/terraform/)
 - [AzureRM Provider v.2.99.0](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs)
 
-[Learn more about using Terraform in Azure](/azure/terraform)
+[!INCLUDE [Terraform abstract](./includes/abstract.md)]
 
 This article shows you how to create a complete Linux environment and supporting resources with Terraform. Those resources include a virtual network, subnet, public IP address, and more.
 
@@ -32,13 +32,13 @@ In this article, you learn how to:
 > * Create a virtual machine
 > * Use SSH to connect to virtual machine
 
-## 1. Configure your environment
+## Prerequisites
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../includes/open-source-devops-prereqs-azure-subscription.md)]
 
 [!INCLUDE [configure-terraform.md](includes/configure-terraform.md)]
 
-## 2. Implement the Terraform code
+## Implement the Terraform code
 
 1. Create a directory in which to test the sample Terraform code and make it the current directory.
 
@@ -229,19 +229,19 @@ In this article, you learn how to:
     }
     ```
 
-## 3. Initialize Terraform
+## Initialize Terraform
 
 [!INCLUDE [terraform-init.md](includes/terraform-init.md)]
 
-## 4. Create a Terraform execution plan
+## Create a Terraform execution plan
 
 [!INCLUDE [terraform-plan.md](includes/terraform-plan.md)]
 
-## 5. Apply a Terraform execution plan
+## Apply a Terraform execution plan
 
 [!INCLUDE [terraform-apply-plan.md](includes/terraform-apply-plan.md)]
 
-## 6. Verify the results
+## Verify the results
 
 To use SSH to connect to the virtual machine, do the following steps:
 

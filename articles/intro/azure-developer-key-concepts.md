@@ -42,10 +42,10 @@ Since it's important that each environment be an exact copy, it's recommended to
 
 Whether it's publishing your apps to Azure with continuous integration or provisioning resources for a new environment, Azure integrates with most of the popular DevOps tools. You can work with the tools that you already have and maximize your existing experience with support for tools like:
 
-- [GitHub Actions](/azure/developer/github/github-actions)
+- [GitHub Actions](../github/github-actions.md)
 - [Azure DevOps](/azure/devops/)
 - [Octopus Deploy](https://octopus.com/docs/infrastructure/deployment-targets/azure)
-- [Jenkins](/azure/developer/jenkins/)
-- [Terraform](/azure/developer/terraform/)
-- [Ansible](/azure/developer/ansible/)
+- [Jenkins](../jenkins/index.yml)
+- [Terraform](../terraform/index.yml)
+- [Ansible](../ansible/index.yml)
 - [Chef](https://docs.chef.io/azure_portal)

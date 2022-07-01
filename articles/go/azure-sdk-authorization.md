@@ -1,17 +1,15 @@
 ---
-title: Authentication with the Azure SDK for Go
+title: Authentication with the Azure SDK for Go (legacy)
 description: Learn about the authentication methods available in the Azure SDK for Go and how to use them.
-ms.date: 09/05/2018 
+ms.date: 05/04/2022
 ms.topic: conceptual
 ms.custom: devx-track-go
 ---
 
-# Authentication methods in the Azure SDK for Go
+# Authentication with the Azure SDK for Go (legacy)
 
 > [!IMPORTANT]
-> Moving forward, authentication for the Azure SDK for Go will be done using the [Azure Identity](https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/azidentity) package.
->
-> To learn how to authenticate using the Azure Identity package, see [Azure authentication with the Azure SDK for Go](azure-sdk-authentication.md).
+> This article applies to the legacy version of the Azure SDK for Go. For authenticating to the [latest modules](https://azure.github.io/azure-sdk/releases/latest/index.html#go) use the [Azure Identity](https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/azidentity) package.
 
 The Azure SDK for Go offers multiple ways to authenticate with Azure. These authentication _types_ are invoked through different authentication _methods_. This article covers the available types, methods, and how to choose which are best for your application.
 
@@ -27,12 +25,9 @@ The Azure SDK for Go offers several different types of authentication, using dif
 | Device token | Your application is meant to be used interactively __only__. Users may have multifactor authentication enabled. Users have access to a web browser to sign in. For more information, see [Use device token authentication](#use-device-token-authentication).|
 | Username/password | You have an interactive application that can't use any other authentication method. Your users don't have multifactor authentication enabled for their AAD sign-in. |
 
-> [!IMPORTANT]
-> If you use an authentication type other than client credentials, your application must be registered in Azure Active Directory. To learn how,
-> see [Integrating applications with Azure Active Directory](/azure/active-directory/develop/active-directory-integrating-applications).
->
-> [!NOTE]
-> Unless you have special requirements, avoid username/password authentication. In situations where user-based sign in is appropriate, device token authentication can usually be used instead.
+### Key points
+* If you use an authentication type other than client credentials, your application must be registered in Azure Active Directory. To learn how, see [Integrating applications with Azure Active Directory](/azure/active-directory/develop/active-directory-integrating-applications).
+* Unless you have special requirements, avoid username/password authentication. In situations where user-based sign in is appropriate, device token authentication can usually be used instead.
 
 [Get started with certificate-based authentication in Azure Active Directory]: /azure/active-directory/active-directory-certificate-based-authentication-get-started
 [Create a service principal with Azure CLI]: /cli/azure/create-an-azure-service-principal-azure-cli
@@ -45,7 +40,7 @@ These authentication types are available through different methods.
 * [_Client-based authentication_](#use-an-authentication-client) uses an object in code and makes you responsible for providing the credentials during program execution.
 * [_Device token authentication_](#use-device-token-authentication) requires users to sign in interactively through a web browser with a token.
 
-All authentication functions and types are available in the `github.com/Azure/go-autorest/autorest/azure/auth` package.
+All authentication functions and types are available in the [github.com/Azure/go-autorest/autorest/azure/auth](https://github.com/Azure/go-autorest/tree/master/autorest/azure/auth) package.
 
 > [!NOTE]
 > Unless you have special requirements, avoid client-based authentication. This method of authentication encourages bad practices. In particular, using client-based authentication makes it tempting to hard-code credentials. Writing custom code for authentication may also break under future SDK releases if authentication requirements change.
@@ -54,10 +49,10 @@ All authentication functions and types are available in the `github.com/Azure/go
 
 If you're running your application in a controlled setting, environment-based authentication is a natural choice. With this authentication method, you configure the shell environment before running your application. At runtime, the Go SDK reads these environment variables to authenticate with Azure.
 
-Environment-based authentication has support for all authentication methods except device tokens, evaluated in the following order:
+Environment-based authentication has support for all authentication types except device tokens, evaluated in the following order:
 
 * Client credentials
-* X509 certificates
+* Certificate-based authentication
 * Username/password
 * Managed identities for Azure resources
 

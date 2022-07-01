@@ -2,6 +2,7 @@
 ms.service: azure-java
 ms.topic: include
 ms.date: 08/12/2019
+author: KarlErickson
 ms.author: seal
 ---
 

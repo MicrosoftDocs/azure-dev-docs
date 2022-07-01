@@ -20,13 +20,12 @@
   "notification_subscribers": [
     "brendm@microsoft.com",
     "karler@microsoft.com",
-    "kraigb@microsoft.com",
-    "barbkess@microsoft.com",
+    "mcleans@microsoft.com",
     "diberry@microsoft.com"
   ],
   "sync_notification_subscribers": [
     "karler@microsoft.com",
-    " barbkess@microsoft.com"
+    "mcleans@microsoft.com"
   ],
   "branches_to_filter": [],
   "git_repository_url_open_to_public_contributors": "https://github.com/MicrosoftDocs/azure-dev-docs",
@@ -188,13 +187,13 @@
     {
       "path_to_root": "azure-docs",
       "url": "https://github.com/MicrosoftDocs/azure-docs",
-      "branch": "master",
+      "branch": "main",
       "branch_mapping": {}
     },
     {
       "path_to_root": "azure-docs-pr",
       "url": "https://github.com/MicrosoftDocs/azure-docs-pr",
-      "branch": "master",
+      "branch": "main",
       "branch_mapping": {}
     },
     {

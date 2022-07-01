@@ -1,7 +1,7 @@
 ---
 title: Common usage patterns in Azure SDK for Go
 description: This article provides an overview of the common usage patterns in Azure SDK for Go.
-ms.date: 09/07/2021
+ms.date: 04/20/2022
 ms.topic: conceptual
 ms.custom: devx-track-go
 ---
@@ -57,8 +57,7 @@ if err != nil {
     // Handle error...
 }
 
-// Second argument is the polling interval if the endpoint doesn't send a Retry-After header.
-w, err = resp.PollUntilDone(context.Background(), 5*time.Second)
+w, err = resp.PollUntilDone(context.Background(), nil)
 
 if err != nil {
     // Handle error...

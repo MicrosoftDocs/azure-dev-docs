@@ -66,13 +66,19 @@ For example, let's say you want to connect to the [Azure Compute](https://azure.
 In the following code snippet, the [armcompute.NewVirtualMachinesClient type](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/compute/armcompute#VirtualMachinesClient) is used to create a client to manage virtual machines:
 
 ```go
-client := armcompute.NewVirtualMachinesClient("<subscription ID>", cred, nil)
+client, err := armcompute.NewVirtualMachinesClient("<subscription ID>", cred, nil)
+if err != nil {
+  // handle error
+}
 ```
 
 The same pattern is used to connect with other Azure services. For example, install the [armnetwork](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/network/armnetwork) package and create a [VirtualNetwork](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/network/armnetwork#VirtualNetworksClient) client to manage virtual network (VNET) resources.
 
 ```go
-client := armnetwork.NewVirtualNetworksClient("<subscription ID>", cred, nil)
+client, err := armnetwork.NewVirtualNetworksClient("<subscription ID>", cred, nil)
+if err != nil {
+  // handle error
+}
 ```
 
 **Code sample**:
@@ -90,7 +96,10 @@ func main() {
 	if err != nil {
 		// handle error
 	}
-	client := armcompute.NewVirtualMachinesClient("SubID", cred, nil)
+	client, err := armcompute.NewVirtualMachinesClient("SubID", cred, nil)
+	if err != nil {
+        // handle error
+    }
 }
 ```
 
@@ -137,7 +146,7 @@ if err != nil {
 
 // Call the poller object's PollUntilDone function that will block until the poller object
 // has been updated to indicate the task has completed.
-resp, err = poller.PollUntilDone(ctx, 5*time.Second)
+resp, err = poller.PollUntilDone(ctx, nil)
 if err != nil {
 	// handle error...
 }

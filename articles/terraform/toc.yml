@@ -4,25 +4,33 @@
   items:
     - name: About Terraform on Azure
       href: overview.md
+    - name: Terraform AzAPI provider
+      href: overview-azapi-provider.md
     - name: Terraform Azure provider versions
       items:
         - name: AzureRM provider versions
           href: provider-version-history-azurerm.md
-- name: Get started
-  expanded: true
+- name: Install and Configure
   items:
-    - name: Configure in Cloud Shell with Bash
-      href: get-started-cloud-shell-bash.md
-    - name: Configure in Cloud Shell with Azure PowerShell
-      href: get-started-cloud-shell-powershell.md
-    - name: Install on Windows with Bash
-      href: get-started-windows-bash.md
-    - name: Install on Windows with Azure PowerShell
-      href: get-started-windows-powershell.md
-    - name: Create an Azure resource group
-      href: create-resource-group.md
+    - name: Install and configure Terraform
+      href: quickstart-configure.md
     - name: Install the Azure Terraform Visual Studio Code extension
       href: configure-vs-code-extension-for-terraform.md
+    - name: Authenticate Terraform to Azure
+      href: authenticate-to-azure.md
+    - name: Store Terraform state in Azure Storage
+      href: store-state-in-azure-storage.md
+- name: Quickstarts
+  expanded: true
+  items:
+    - name: Create an Azure resource group
+      href: create-resource-group.md
+    - name: Create a Linux VM
+      href: create-linux-virtual-machine-with-infrastructure.md
+    - name: Learn how to use the AzAPI resource
+      href: get-started-azapi-resource.md
+    - name: Learn how to use the AzAPI update resource
+      href: get-started-azapi-update-resource.md
 - name: Samples
   items:
     - name: Configuration templates
@@ -31,14 +39,10 @@
   items:
     - name: Testing Terraform code
       href: best-practices-testing-overview.md
+    - name: Comparing features of Terraform and Bicep
+      href: comparing-terraform-and-bicep.md
 - name: How-to guides
   items:
-    - name: Configure Terraform
-      items:
-        - name: Authenticate Terraform to Azure
-          href: authenticate-to-azure.md
-        - name: Store Terraform state in Azure Storage
-          href: store-state-in-azure-storage.md
     - name: Test Terraform projects
       items:
         - name: Compliance testing
@@ -65,6 +69,8 @@
       items:
         - name: Azure Cosmos DB
           href: deploy-azure-cosmos-db-to-azure-container-instances.md
+        - name: MySQL Flexible Server
+          href: /azure/mysql/flexible-server/quickstart-create-terraform
         - name: PostgreSQL Flexible Server Database
           href: deploy-postgresql-flexible-server-database.md
     - name: Networks
@@ -93,10 +99,24 @@
       items:
         - name: Create a Terraform base template using Yeoman
           href: create-base-template-using-yeoman.md
+    - name: Azure Virtual Desktop
+      items:
+        - name: Configure an Azure Virtual Desktop
+          href: configure-azure-virtual-desktop.md
+        - name: Create a Session Host
+          href: create-avd-session-host.md
+        - name: Configure RBAC permissions
+          href: configure-avd-rbac.md
+        - name: Configure Network Settings
+          href: configure-avd-network-settings.md
+        - name: Create Azure Files Storage
+          href: create-avd-azure-files-storage.md
+        - name: Create Azure Compute Gallery
+          href: create-avd-azure-compute-image-gallery.md
+        - name: Create Log Analytics Workspace
+          href: create-avd-log-analytics-workspace.md
     - name: Virtual machines
       items:
-        - name: Virtual machine with infrastructure
-          href: create-linux-virtual-machine-with-infrastructure.md
         - name: Configure a virtual machine cluster
           href: create-vm-cluster-module.md
         - name: Virtual machine cluster with Terraform and HCL
@@ -115,6 +135,8 @@
       href: https://registry.terraform.io/modules/Azure
     - name: Terraform Azure Provider
       href: https://aka.ms/terraform
+    - name: Terraform AzAPI Provider
+      href: https://registry.terraform.io/providers/Azure/azapi/latest/docs
 - name: Resources
   items:
     - name: Azure & Terraform

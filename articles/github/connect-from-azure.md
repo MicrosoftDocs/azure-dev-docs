@@ -54,7 +54,7 @@ You'll need to create an Azure Active Directory application and service principa
     az ad app create --display-name myApp
     ```
 
-    This command will output JSON with an `appId` that is your `client-id`. The `objectId` is `APPLICATION-OBJECT-ID` and when creating federated credentials with Graph API calls.
+    This command will output JSON with an `appId` that is your `client-id`. The `objectId` is `APPLICATION-OBJECT-ID` and it will be used for creating federated credentials with Graph API calls.
 
 1. Create a service principal. Replace the `$appID` with the appId from your JSON output. This command generates JSON output with a different `objectId` will be used in the next step. The new  `objectId` is the `assignee-object-id`. 
 
@@ -62,13 +62,44 @@ You'll need to create an Azure Active Directory application and service principa
      az ad sp create --id $appId
     ```
 
-1. Create a new role assignment by subscription and object. By default, the role assignment will be tied to your default subscription. Replace `$subscriptionId` with your subscription ID, `$resourceGroupName` with your resource group name, and `$assigneeObjectId` with generated `assignee-object-id`.
+1. Create a new role assignment by subscription and object. By default, the role assignment will be tied to your default subscription. Replace `$subscriptionId` with your subscription ID, `$resourceGroupName` with your resource group name, and `$assigneeObjectId` with generated `assignee-object-id` (the newly created service principal object id).
 
     ```azurecli-interactive
     az role assignment create --role contributor --subscription $subscriptionId --assignee-object-id  $assigneeObjectId --assignee-principal-type ServicePrincipal --scope /subscriptions/$subscriptionId/resourceGroups/$resourceGroupName
     ```
 
 1. Copy the values for `clientId`, `subscriptionId`, and `tenantId` to use later in your GitHub Actions workflow.
+### [Azure PowerShell](#tab/azure-powershell) 
+
+1. Create the Azure Active Directory application.
+
+    ```azurepowershell-interactive
+    New-AzADApplication -DisplayName myApp
+    ```
+
+    This command will output the `AppId` property that is your `ClientId`. The `Id` property is `APPLICATION-OBJECT-ID` and it will be used for creating federated credentials with Graph API calls.
+
+1. Create a service principal. Replace the `$clientId` with the AppId from your output. This command generates output with a different `Id` and will be used in the next step. The new `Id` is the `ObjectId`. 
+
+    ```azurepowershell-interactive
+    $clientId = (Get-AzADApplication -DisplayName myApp).AppId
+    New-AzADServicePrincipal -ApplicationId $clientId
+    ```
+
+1. Create a new role assignment. Beginning with Az PowerShell module version 7.x, `New-AzADServicePrincipal` no longer assigns the `Contributor` role to the service principal by default. Replace `$resourceGroupName` with your resource group name, and `$objectId` with generated `Id`.
+
+    ```azurepowershell-interactive
+    $objectId = (Get-AzADServicePrincipal -DisplayName myApp).Id
+    New-AzRoleAssignment -ObjectId $objectId -RoleDefinitionName Contributor -ResourceGroupName $resourceGroupName
+    ```
+
+1. Get the values for `clientId`, `subscriptionId`, and `tenantId` to use later in your GitHub Actions workflow.
+
+    ```azurepowershell-interactive
+    $clientId = (Get-AzADApplication -DisplayName myApp).AppId
+    $subscriptionId = (Get-AzContext).Subscription.Id
+    $tenantId = (Get-AzContext).Subscription.TenantId
+    ```
 
 ---
 ### Add federated credentials
@@ -110,7 +141,25 @@ az rest --method POST --uri 'https://graph.microsoft.com/beta/applications/<APPL
 
 For a more detailed overview, see [Configure an app to trust a GitHub repo](/azure/active-directory/develop/workload-identity-federation-create-trust-github).
 
+### [Azure PowerShell](#tab/azure-powershell) 
+
+Run the following command to [create a new federated identity credential](/graph/api/application-post-federatedidentitycredentials?view=graph-rest-beta&preserve-view=true) for your Azure Active Directory application.
+
+* Replace `APPLICATION-OBJECT-ID` with the **Id (generated while creating app)** for your Azure Active Directory application.
+* Set a value for `CREDENTIAL-NAME` to reference later.
+* Set the `subject`. The value of this is defined by GitHub depending on your workflow:
+  * Jobs in your GitHub Actions environment: `repo:< Organization/Repository >:environment:< Name >`
+  * For Jobs not tied to an environment, include the ref path for branch/tag based on the ref path used for triggering the workflow: `repo:< Organization/Repository >:ref:< ref path>`.  For example, `repo:n-username/ node_express:ref:refs/heads/my-branch` or `repo:n-username/ node_express:ref:refs/tags/my-tag`.
+  * For workflows triggered by a pull request event: `repo:< Organization/Repository >:pull_request`.
+
+```azurepowershell
+Invoke-AzRestMethod -Method POST -Uri 'https://graph.microsoft.com/beta/applications/<APPLICATION-OBJECT-ID>/federatedIdentityCredentials' -Payload  '{"name":"<CREDENTIAL-NAME>","issuer":"https://token.actions.githubusercontent.com","subject":"repo:organization/repository:environment:Production","description":"Testing","audiences":["api://AzureADTokenExchange"]}'
+```
+
+For a more detailed overview, see [Configure an app to trust a GitHub repo](/azure/active-directory/develop/workload-identity-federation-create-trust-github).
+
 ---
+
 ### Create GitHub secrets
 
 You need to provide your application's **Client ID**, **Tenant ID** and **Subscription ID** to the login action. These values can either be provided directly in the workflow or can be stored in GitHub secrets and referenced in your workflow. Saving the values as GitHub secrets is the more secure option.
@@ -304,8 +353,8 @@ jobs:
       - name: Azure PowerShell Action
         uses: Azure/powershell@v1
         with:
-          inlineScript: Get-AzVM -ResourceGroupName "< YOUR RESOURCE GROUP >"
-          azPSVersion: 3.1.0
+          inlineScript: Get-AzResourceGroup -Name "< YOUR RESOURCE GROUP >"
+          azPSVersion: "latest"
 ```
 
 ### Use the Azure CLI action
