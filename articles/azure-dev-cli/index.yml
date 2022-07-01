@@ -38,7 +38,7 @@ landingContent:
           - text: Monitor your project
             url: monitor-your-app.md
           - text: Create azd compatible project
-            url: how-to-azd-enable-a-project.md
+            url: enable-project.md
           - text: Help with Azure Bicep
             url: how-to-azd-bicep.md
   - title: Get help & Provide feedback

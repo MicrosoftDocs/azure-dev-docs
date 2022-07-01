@@ -12,7 +12,7 @@
   - name: Monitor your project
     href: monitor-your-app.md
   - name: Create azd compatible project
-    href: how-to-azd-enable-a-project.md
+    href: enable-project.md
   - name: Troubleshoot and Get help
     href: troubleshoot.md   
   - name: Frequently asked questions (FAQ)
