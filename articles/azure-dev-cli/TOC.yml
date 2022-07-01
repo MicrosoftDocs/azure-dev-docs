@@ -6,7 +6,7 @@
   - name: Get started
     href: get-started.md
   - name: Run and debug
-    href: how-to-run-and-debug.md
+    href: run-and-debug.md
   - name: Configure deployment pipeline
     href: configure-devops-pipeline.md
   - name: Monitor your project

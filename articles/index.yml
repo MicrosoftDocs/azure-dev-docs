@@ -12,7 +12,7 @@ metadata:
   author: barbkess
   ms.author: barbkess
   manager: barbkess
-  ms.date: 12/28/2021
+  ms.date: 07/01/2022
 
 highlightedContent:
   items:
@@ -164,9 +164,9 @@ productDirectory:
     - title: Azure Developer CLI
       imageSrc: https://static.docs.com/ui/media/product/azure/azure-developer-cli.svg
       links:
-        - url: /azure/developer/azure-dev-cli/azure-dev-cli-overview?branch=pr-en-us-3070&tabs=nodejs
+        - url: /azure/developer/azure-dev-cli/azure-dev-cli-overview&tabs=nodejs
           text: What is Azure Developer CLI
-        - url: /azure/developer/azure-dev-cli/get-started?branch=pr-en-us-3070&tabs=bare-metal%2Cwindows&pivots=programming-language-csharp
+        - url: /azure/developer/azure-dev-cli/get-started&tabs=bare-metal%2Cwindows&pivots=programming-language-csharp
           text: Get started
         - url: /azure/developer/azure-dev-cli/?branch=pr-en-us-3070
           text: See more in the Azure Developer CLI developer center

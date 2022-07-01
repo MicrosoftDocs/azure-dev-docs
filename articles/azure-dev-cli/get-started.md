@@ -92,4 +92,4 @@ azd down
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Run and debug apps](how-to-run-and-debug.md)
+> [Run and debug apps](run-and-debug.md)

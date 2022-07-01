@@ -32,7 +32,7 @@ landingContent:
       - linkListType: tutorial
         links:
           - text: Run and debug
-            url: how-to-run-and-debug.md
+            url: run-and-debug.md
           - text: Configure deployment pipeline
             url: configure-devops-pipeline.md
           - text: Monitor your project
