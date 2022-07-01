@@ -82,8 +82,8 @@ azd down
 
 ## Troubleshooting/Known issues
 
-[Troubleshoot common problems when using Azure Developer CLI (azd)](troubleshoot.md)
-[Azure Developer CLI frequently asked questions (FAQ)](faq.yml)
+* [Troubleshoot common problems when using Azure Developer CLI (azd)](troubleshoot.md)
+* [Azure Developer CLI frequently asked questions (FAQ)](faq.yml)
 
 ## Next steps
 
