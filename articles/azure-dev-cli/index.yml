@@ -22,7 +22,7 @@ landingContent:
       - linkListType: learn
         links:
           - text: What is Azure Developer CLI
-            url: azure-dev-cli-overview.md
+            url: overview.md
       - linkListType: get-started
         links:
           - text: Get started

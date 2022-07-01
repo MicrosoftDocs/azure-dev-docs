@@ -2,7 +2,7 @@
   expanded: true
   items:
   - name: What is Azure Developer CLI?
-    href: azure-dev-cli-overview.md
+    href: overview.md
   - name: Get started
     href: get-started.md
   - name: Run and debug
