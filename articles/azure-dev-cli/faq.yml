@@ -65,13 +65,13 @@ sections:
 
       - question: Where can I find what are provisioned in Azure?
         answer: |
-          Go to https://portal.azure.com, locate your resource group, which is `<your-environment-name>rg`. 
+          Go to https://portal.azure.com, locate your resource group, which is `<your-environment-name>-rg`. 
 
       - question: How do I find more information about Azure errors?
         answer: |
           We use Bicep templates found under `<your-project-folder-name>/infra` to provision Azure resources and include the error message in the CLI output if issues. 	
           
-          You can also go to https://portal.azure.com, locate your resource group, which is `<your-environment-name>rg`. If any of the deployments fail, select error link to get more information.
+          You can also go to https://portal.azure.com, locate your resource group, which is `<your-environment-name>-rg`. If any of the deployments fail, select error link to get more information.
           
           More resource: [Troubleshoot common Azure deployment errors - Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/troubleshooting/common-deployment-errors)
 
