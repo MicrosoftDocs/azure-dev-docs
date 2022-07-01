@@ -88,4 +88,4 @@ azd down
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Run and debug apps using integrated development environment (IDE)](how-to-run-and-debug.md)
+> [Run and debug apps](how-to-run-and-debug.md)

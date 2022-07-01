@@ -26,7 +26,7 @@ This application uses Python Virtual Environments to isolate Python package inst
 
 ## Run `up` command
 
-The fastest way for you to get this application up and running on Azure is to use the `azd up` command. This single command will initialize the project, create and configure all necessary Azure resources - including access policies and roles for your account and service-to-service communication with Managed Identities.
+The fastest way for you to get this application up and running on Azure is to use the `azd up` command. This single command will download code, initialize the project, create and configure all necessary Azure resources - including access policies and roles for your account and service-to-service communication with Managed Identities.
 
 1. In **File Explorer** or a terminal, create a new empty folder, and change into it.
 
@@ -65,4 +65,6 @@ The command prompts for the following information:
 A progress indicator displays the current status azd provisions and deploys your application.
 
 > [!NOTE] 
-> * The operation could take several minutes to complete as it performs three steps: initializes the project (`azd init`), creates the Azure services (`azd provision`), and deploys the code (`azd deploy`). 
+> * The operation could take several minutes to complete as it performs three steps: initializes the project (`azd init`), creates the Azure services (`azd provision`), and deploys the code (`azd deploy`).
+> * If you modify code, run `azd up` without the --template flag.
+> * If you need a new environment, run `azd env new` to create a new one.
