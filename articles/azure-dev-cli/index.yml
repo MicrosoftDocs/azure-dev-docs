@@ -52,7 +52,7 @@ landingContent:
       - linkListType: reference
         links:
           - text: Azure Developer CLI Reference
-            url: azure-dev-cli-ref.md
+            url: reference.md
   - title: Azure App Service templates
     linkLists:
       - linkListType: sample

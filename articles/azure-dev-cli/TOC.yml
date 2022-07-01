@@ -18,4 +18,4 @@
   - name: Frequently asked questions (FAQ)
     href: faq.yml   
   - name: Reference
-    href: azure-dev-cli-ref.md
+    href: reference.md
