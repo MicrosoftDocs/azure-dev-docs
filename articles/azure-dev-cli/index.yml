@@ -37,8 +37,8 @@ landingContent:
             url: configure-devops-pipeline.md
           - text: Monitor your project
             url: monitor-your-app.md
-          - text: Create azd compatible project
-            url: enable-project.md
+          - text: Make your project azd-compatible
+            url: make-azd-compatible.md
   - title: Get help & Provide feedback
     linkLists:
       - linkListType: how-to-guide 

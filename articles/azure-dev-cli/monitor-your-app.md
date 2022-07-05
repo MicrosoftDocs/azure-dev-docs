@@ -45,4 +45,4 @@ azd down
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Enable your project to work with Azure Developer CLI](enable-project.md)
+> [Make your project Azure Developer CLI (azd) compatible](make-azd-compatible.md)
