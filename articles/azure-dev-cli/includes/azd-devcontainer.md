@@ -1,6 +1,3 @@
-> [!NOTE]
-> **DevContainer support is coming soon** 
-
 ### Prerequisites
 
 Before you get started, ensure you have the following tools installed on your local machine:

@@ -87,7 +87,7 @@ Currently supported/planned hosting platform for the application:
 | Azure App Service | Yes  |
 | Function  | Yes |
 | Azure Container Apps    | Yes |
-| Azure Static Web Apps  | Coming soon |
+| Azure Static Web Apps  | Yes |
 | Azure Kubernetes Service | Coming soon |
 
 ## Supported programming languages
