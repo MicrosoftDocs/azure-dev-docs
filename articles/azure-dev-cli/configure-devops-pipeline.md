@@ -78,4 +78,4 @@ azd down
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Monitor your app](monitor-your-app.md)
+> [Monitor your app using Azure Developer CLI (azd)](monitor-your-app.md)

@@ -1,5 +1,5 @@
 ---
-title: Enable your project to work with Azure Developer CLI
+title: Enable your project to work with Azure Developer CLI (azd)
 description: How to convert an application to an Azure developer enabled template.
 author: puicchan
 ms.author: puichan
@@ -11,7 +11,7 @@ zone_pivot_group_filename: developer/azure-dev-cli/azd-zone-pivot-groups.json
 zone_pivot_groups: azd-devify-set
 ---
 
-# Create an Azure Developer CLI compatible template
+# Enable your project to work with Azure Developer CLI (azd)
 
 Azure Developer CLI enables developers to create applications from templates stored in GitHub repositories. Microsoft provides [several templates](overview?branch=pr-en-us-3070&tabs=nodejs#azure-developer-cli-templates) to get you started. In this article, you learn how to enable your own project as a template.
 
