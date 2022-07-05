@@ -68,6 +68,10 @@ Sometimes, things go awry with `azd up` or `azd provision`. Common errors includ
 1. Verify that you've specified a environment name that is the same as your environment name. 
 1. Go to `https://github.com/<your repo>/actions` and refer to the log file in the pipeline run to get more information.
 
+## azd monitor for DevContainer
+
+`azd monitor` is currently not supported if you use a DevContainer as your development environment.
+
 ## Text-based browser support
 
 Text-based browser is currently not supported by `azd monitor`.
