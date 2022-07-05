@@ -73,8 +73,8 @@ Upon successful completion of the `azd up` command, you'll note several changes 
 - The application has been built and deployed to Azure. Using the web application URL output from the `azd up` command, you can browse to the fully functional app.
 
 > [!NOTE] 
-> * If you modify code, run `azd up` without the --template flag. Else, your code will be overwritten if you say yes when prompted.
-> * If you need a new environment, run `azd env new` to create a new one.
+> * You can call `azd up` as many times as you like to both provision and deploy your solution, but you only need to provide the `--template` parameter the first time you call it to get the code locally. Subsequent `azd up` calls do not require the template parameter. If you do provide the parameter, all your local source code will be overwritten if you agree to overwrite when prompted.
+> * You can always create a new environment with `azd env new`.
 
 ### Clean up resources
 
