@@ -13,7 +13,7 @@ zone_pivot_groups: azd-devify-set
 
 # Enable your project to work with Azure Developer CLI (azd)
 
-Azure Developer CLI enables developers to create applications from templates stored in GitHub repositories. Microsoft provides [several templates](overview?branch=pr-en-us-3070&tabs=nodejs#azure-developer-cli-templates) to get you started. In this article, you learn how to enable your own project as a template.
+Azure Developer CLI enables developers to create applications from templates stored in GitHub repositories. Microsoft provides [several templates](overview.md?branch=pr-en-us-3070&tabs=nodejs#azure-developer-cli-templates) to get you started. In this article, you learn how to enable your own project as a template.
 
 ## Understand the azd architecture overview
 
@@ -183,52 +183,52 @@ As this sample provisions App Service resources, you need an Azure App Service P
     ```
 
 The following code respresents a complete `resources.bicep` file that creates an Azure App Service for hosting a Python web app:
-  
-    ```json
-    param location string
-    param principalId string = ''
-    param resourceToken string
-    param tags object
-    param sku string = 'S1' 
-    param linuxFxVersion string = 'PYTHON|3.8'
 
-    resource appServicePlan 'Microsoft.Web/serverfarms@2020-06-01' = {
-      name: 'plan-${resourceToken}'
-      location: location
-      tags: tags
-      sku: {
-        name: sku
-      }
-      kind: 'linux'
-      properties: {
-      reserved: true
+```json
+param location string
+param principalId string = ''
+param resourceToken string
+param tags object
+param sku string = 'S1' 
+param linuxFxVersion string = 'PYTHON|3.8'
+
+resource appServicePlan 'Microsoft.Web/serverfarms@2020-06-01' = {
+  name: 'plan-${resourceToken}'
+  location: location
+  tags: tags
+  sku: {
+    name: sku
+  }
+  kind: 'linux'
+  properties: {
+  reserved: true
+  }
+}
+
+resource web 'Microsoft.Web/sites@2020-06-01' = {
+  name: 'app-web-${resourceToken}'
+  location: location
+  tags: union(tags, {
+    'azd-service-name': 'web'
+    })
+  kind: 'app'
+  properties: {
+    serverFarmId: appServicePlan.id
+    siteConfig: {
+    linuxFxVersion: linuxFxVersion
+    }
+  }
+
+  resource appSettings 'config' = {
+    name: 'appsettings'
+    properties: {
+      'SCM_DO_BUILD_DURING_DEPLOYMENT': 'true'
       }
     }
+  }
 
-    resource web 'Microsoft.Web/sites@2020-06-01' = {
-      name: 'app-web-${resourceToken}'
-      location: location
-      tags: union(tags, {
-        'azd-service-name': 'web'
-        })
-      kind: 'app'
-      properties: {
-        serverFarmId: appServicePlan.id
-        siteConfig: {
-        linuxFxVersion: linuxFxVersion
-        }
-      }
-
-      resource appSettings 'config' = {
-        name: 'appsettings'
-        properties: {
-          'SCM_DO_BUILD_DURING_DEPLOYMENT': 'true'
-          }
-        }
-      }
-
-      output WEB_URI string = 'https://${web.properties.defaultHostName}'
-    ```
+  output WEB_URI string = 'https://${web.properties.defaultHostName}'
+```
 
 1. Run the following command to provision the Azure resources.
 
@@ -324,4 +324,4 @@ azd down
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Azure Developer CLI FAQ](faq.md)
+> [Azure Developer CLI FAQ](./faq.yml)
