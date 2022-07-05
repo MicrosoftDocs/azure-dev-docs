@@ -74,3 +74,8 @@ When you no longer need the resources created in this article, run the following
 ``` bash
 azd down
 ```
+
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Monitor your app](monitor-your-app.md)

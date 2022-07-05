@@ -41,3 +41,8 @@ When you no longer need the resources created in this article, do the following 
 ``` bash
 azd down
 ```
+
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Enable your project to work with Azure Developer CLI](enable-project.md)
