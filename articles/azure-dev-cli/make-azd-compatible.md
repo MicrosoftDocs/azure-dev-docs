@@ -21,7 +21,7 @@ The following diagram gives a quick overview of the process to create an azd tem
 
 ![Azure Developer CLI enable](media/how-to-devify-a-project/dev-ify.png)
 
-All azd templates have the same file structure based on azd conventions. The following hierarchy shows the complete folder structure you will build in this tutorial.
+All azd templates have the same file structure based on azd conventions. The following hierarchy shows the complete folder structure you'll build in this tutorial.
 
 ```txt
 ├── .devcontainer              [ For DevContainer ]
@@ -146,11 +146,11 @@ As this sample provisions App Service resources, you need an Azure App Service P
     
     ```
   
-    In this sample, an unique string is generated based on subscription id and used as a resource token. This token is appended to the name of all Azure resources created by azd. azd uses tags to identify resources so you can modify the names based on your organization's naming convention. 
+    In this sample, an unique string is generated based on subscription ID and used as a resource token. This token is appended to the name of all Azure resources created by azd. azd uses tags to identify resources so you can modify the names based on your organization's naming convention.
 
 1. Create a file named `resources.bicep`.
 
-1. Declare the following paramaters:
+1. Declare the following parameters:
     
     ```json
     param location string
@@ -182,55 +182,55 @@ As this sample provisions App Service resources, you need an Azure App Service P
       }
     ```
 
-The following code respresents a complete `resources.bicep` file that creates an Azure App Service for hosting a Python web app:
+1. The following code represents a complete `resources.bicep` file that creates an Azure App Service for hosting a Python web app:
 
-```json
-param location string
-param principalId string = ''
-param resourceToken string
-param tags object
-param sku string = 'S1' 
-param linuxFxVersion string = 'PYTHON|3.8'
-
-resource appServicePlan 'Microsoft.Web/serverfarms@2020-06-01' = {
-  name: 'plan-${resourceToken}'
-  location: location
-  tags: tags
-  sku: {
-    name: sku
-  }
-  kind: 'linux'
-  properties: {
-  reserved: true
-  }
-}
-
-resource web 'Microsoft.Web/sites@2020-06-01' = {
-  name: 'app-web-${resourceToken}'
-  location: location
-  tags: union(tags, {
-    'azd-service-name': 'web'
-    })
-  kind: 'app'
-  properties: {
-    serverFarmId: appServicePlan.id
-    siteConfig: {
-    linuxFxVersion: linuxFxVersion
-    }
-  }
-
-  resource appSettings 'config' = {
-    name: 'appsettings'
-    properties: {
-      'SCM_DO_BUILD_DURING_DEPLOYMENT': 'true'
+    ```json
+    param location string
+    param principalId string = ''
+    param resourceToken string
+    param tags object
+    param sku string = 'S1' 
+    param linuxFxVersion string = 'PYTHON|3.8'
+    
+    resource appServicePlan 'Microsoft.Web/serverfarms@2020-06-01' = {
+      name: 'plan-${resourceToken}'
+      location: location
+      tags: tags
+      sku: {
+        name: sku
+      }
+      kind: 'linux'
+      properties: {
+      reserved: true
       }
     }
-  }
-
-  output WEB_URI string = 'https://${web.properties.defaultHostName}'
-```
-
-1. Run the following command to provision the Azure resources.
+    
+    resource web 'Microsoft.Web/sites@2020-06-01' = {
+      name: 'app-web-${resourceToken}'
+      location: location
+      tags: union(tags, {
+        'azd-service-name': 'web'
+        })
+      kind: 'app'
+      properties: {
+        serverFarmId: appServicePlan.id
+        siteConfig: {
+        linuxFxVersion: linuxFxVersion
+        }
+      }
+    
+      resource appSettings 'config' = {
+        name: 'appsettings'
+        properties: {
+          'SCM_DO_BUILD_DURING_DEPLOYMENT': 'true'
+          }
+        }
+      }
+    
+      output WEB_URI string = 'https://${web.properties.defaultHostName}'
+    ```
+    
+    1. Run the following command to provision the Azure resources.
 
     ```bash
     azd provision
@@ -272,7 +272,7 @@ To deploy the app, azd needs to know more about your app. Edit the `azure.yaml` 
     ```
 
     **Key points:**
-    - After you run `azd deploy`, the service **web** is deployed to the app service you previously provisioned.
+    - After running `azd deploy`, the service **web** is deployed to the app service you previously provisioned.
 
 1. Use your browser to open the end point to test your app.
 
@@ -286,7 +286,7 @@ Your project is now compatible with Azure Develper CLI and can be used as a temp
 
 1. Within your project directory, create a directory named `.github`.
 
-1. Within the `.github` directory create a directory named `workflows`.
+1. Within the `.github` directory, create a directory named `workflows`.
 
 1. Copy the **azure-dev.yml** file from any azd template - for example [todo-nodejs-mongo template](https://github.com/Azure-Samples/todo-nodejs-mongo/blob/main/.github/workflows/azure-dev.yml) - and paste into the `.github/workflows` directory.
 
