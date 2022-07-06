@@ -161,7 +161,7 @@ productDirectory:
           text: Key concepts for new Azure Pipelines users
         - url: ./mobile-apps/index.yml
           text: See more in the Mobile app developer center
-    - title: Azure Developer CLI
+    - title: Azure Developer CLI (azd) Preview
       imageSrc: https://static.docs.com/ui/media/product/azure/azure-developer-cli.svg
       links:
         - url: /azure/developer/azure-dev-cli/azure-dev-cli-overview&tabs=nodejs
