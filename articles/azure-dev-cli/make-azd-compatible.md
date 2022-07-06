@@ -162,7 +162,7 @@ As this sample provisions App Service resources, you need an Azure App Service P
     
     ```
     
-1. azd uses a union type named `tags` to identify the final service name. Add a `tags` union to the web resource. Replace `web` with the name of your service.
+1. Add the following code, replacing `web` with the name of your service.
 
     ```json
     tags: union(tags, {
@@ -171,7 +171,7 @@ As this sample provisions App Service resources, you need an Azure App Service P
     
     ```
 
-1. azd supports zip deployment. Add an `appSettings` resource with the `SCM_DO_BUILD_DURING_DEPLOYMENT` value set to `true`.
+1. Add the following code for zip deployment.
 
     ```json
     resource appSettings 'config' = {
