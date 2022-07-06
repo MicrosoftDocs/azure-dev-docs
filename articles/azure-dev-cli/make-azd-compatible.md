@@ -162,7 +162,7 @@ As this sample provisions App Service resources, you need an Azure App Service P
     
     ```
     
-1. azd uses a key named `tags` to identify the final service name. Add a `tags` key to the web resource. Replace `web` with the name of your service.
+1. azd uses a union type named `tags` to identify the final service name. Add a `tags` union to the web resource. Replace `web` with the name of your service.
 
     ```json
     tags: union(tags, {
