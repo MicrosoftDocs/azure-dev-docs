@@ -41,7 +41,7 @@ To create the service principle, run the command `azd pipeline config`. The comm
 
 1. Select **Actions** to see the workflow running.
 
-    !["Screenshot of GitHub workflow running."](media/how-to-setup-devop-pipeline/github-workflow.png)
+    !["Screenshot of GitHub workflow running."](media/configure-devops-pipeline/github-workflow.png)
 
 ## Make and push a code change
 
@@ -55,15 +55,15 @@ To create the service principle, run the command `azd pipeline config`. The comm
 
 1. Commit your change. In the following screen shot, you can see I used the Visual Studio Code Source Control pane to commit the change. Committing the change starts the GitHub Action pipeline to deploy the update.
 
-    !["Visual Studio Code integrates with GitHub to allow you to commit changes within your editing environment."](media/how-to-setup-devop-pipeline/commit-changes-to-github.png)
+    !["Visual Studio Code integrates with GitHub to allow you to commit changes within your editing environment."](media/configure-devops-pipeline/commit-changes-to-github.png)
 
 1. Using your browser, open your project's GitHub repository to see the commit - along with the commit from GitHub Actions being set up.
 
-    !["The committed changes will be made in your project's GitHub repository."](media/how-to-setup-devop-pipeline/committed-changes-in-github-repo.png)
+    !["The committed changes will be made in your project's GitHub repository."](media/configure-devops-pipeline/committed-changes-in-github-repo.png)
 
 1. Select **Actions** to see the test update reflected in the workflow.
 
-    !["Screenshot of GitHub workflow running after test update."](media/how-to-setup-devop-pipeline/github-workflow-after-test-update.png)
+    !["Screenshot of GitHub workflow running after test update."](media/configure-devops-pipeline/github-workflow-after-test-update.png)
 
 1. Visit the web frontend URL to inspect the update.
 
