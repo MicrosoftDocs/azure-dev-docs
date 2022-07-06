@@ -1,5 +1,5 @@
 ---
-title: '4. Create a storage account'
+title: 'Deploy a Python web app to Azure with managed identity: create a storage account'
 description: Create the storage account that the deployed Python (Django or Flask) web app will access in Azure using managed identity.
 author: jess-johnson-msft
 ms.author: jejohn

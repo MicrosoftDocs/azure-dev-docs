@@ -1,5 +1,5 @@
 ---
-title: '6. Deploy to Azure'
+title: 'Deploy a Python web app to Azure with managed identity: deploy to Azure'
 description: Final configuration and deployment of a Python (Django or Flask) web app to Azure that uses managed identity to access to Azure Storage and PostgreSQL.
 author: jess-johnson-msft
 ms.author: jejohn
