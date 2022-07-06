@@ -21,18 +21,14 @@ The following diagram gives a quick overview of the process to create an azd tem
 
 ![Azure Developer CLI enable](media/how-to-devify-a-project/dev-ify.png)
 
-All azd templates have the same file structure based on azd conventions. The following hierarchy shows the complete folder structure you'll build in this tutorial.
+All azd templates have the same file structure based on azd conventions. The following hierarchy shows the folder structure you'll build in this tutorial. For the complete folder structure, refer to [azd comventions](#azd-convetions).
 
 ```txt
-├── .devcontainer              [ For DevContainer ]
 ├── .github                    [ Configure GitHub workflow ]
-├── .vscode                    [ VS Code workspace ]
-├── assets                     [ Assets used by README.MD ]
 ├── infra                      [ Creates and configures Azure resources ]
 │   ├── main.bicep             [ Main infrastructure file ]
 │   ├── main.parameters.json   [ Parameters file ]
 │   └── resources.bicep        [ Resources file ]
-├── src                        [ Contains folder(s) for the application code ]
 └── azure.yaml                 [ Describes the application and type of Azure resources]
 ```
 
@@ -59,6 +55,8 @@ All azd templates have the same file structure based on azd conventions. The fol
 1. Change the current directory to `msdocs-python-flask-webapp-quickstart`.
 
 ::: zone-end
+
+## Initialize a new environment
 
 1. Run the following command to initialize the project. Select **Empty Template** from the list of project templates, and supply/select the appropriate values for your environment.
 
@@ -158,7 +156,6 @@ As this sample provisions App Service resources, you need an Azure App Service P
     param tags object
     param sku string = 'S1' 
     param linuxFxVersion string = 'PYTHON|3.8'
-    
     ```
     
 1. Add the following code, replacing `web` with the name of your service.
@@ -167,7 +164,6 @@ As this sample provisions App Service resources, you need an Azure App Service P
     tags: union(tags, {
       'azd-service-name': 'web'
       })
-    
     ```
 
 1. Add the following code for zip deployment.
@@ -229,7 +225,7 @@ As this sample provisions App Service resources, you need an Azure App Service P
       output WEB_URI string = 'https://${web.properties.defaultHostName}'
     ```
     
-    1. Run the following command to provision the Azure resources.
+1. Run the following command to provision the Azure resources.
 
     ```bash
     azd provision
@@ -312,6 +308,23 @@ When you no longer need the resources created in this article, run the following
 
 ``` bash
 azd down
+```
+
+## azd convetions
+
+The followiwng hierarchy shows the complete folder structure of a azd template.
+
+```txt
+├── .devcontainer              [ For DevContainer ]
+├── .github                    [ Configure GitHub workflow ]
+├── .vscode                    [ VS Code workspace ]
+├── assets                     [ Assets used by README.MD ]
+├── infra                      [ Creates and configures Azure resources ]
+│   ├── main.bicep             [ Main infrastructure file ]
+│   ├── main.parameters.json   [ Parameters file ]
+│   └── resources.bicep        [ Resources file ]
+├── src                        [ Contains folder(s) for the application code ]
+└── azure.yaml                 [ Describes the application and type of Azure resources]
 ```
 
 ## See Also
