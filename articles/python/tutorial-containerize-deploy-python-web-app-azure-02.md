@@ -49,10 +49,12 @@ Built images from VS Code or from using the Docker CLI directly can be viewed in
 
 ## 2. Run the image locally in a container
 
-The sample app requires a MongoDB connection string, database name, and collection name. The MongoDB database must be accessible to you locally as well as in Azure. You can create an  Azure Cosmos DB for MongoDB with theses steps for [Azure portal](/azure/cosmos-db/mongodb/create-mongodb-python), [Azure CLI](/azure/cosmos-db/scripts/cli/mongodb/create), [PowerShell](/azure/cosmos-db/scripts/powershell/mongodb/create), or [VS Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb). 
+The sample app requires a MongoDB connection string, database name, and collection name. The MongoDB database must be accessible to you locally as well as in Azure. 
 
+> [!TIP])
+> You can install [MongoDB](https://www.mongodb.com/docs/manual/installation/) locally or use any MongoDB database you can reach locally. To create an Azure Cosmos DB for MongoDB with theses steps for [Azure portal](/azure/cosmos-db/mongodb/create-mongodb-python), [Azure CLI](/azure/cosmos-db/scripts/cli/mongodb/create), [PowerShell](/azure/cosmos-db/scripts/powershell/mongodb/create), or [VS Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb). 
 
-The sample app expects the MongoDB connection information to be passed as environment variables. Locally, we pass in MongoDB connection information through environment variables passed to the container. When deployed to Azure, the web app will get these environment values from the App Service configuration parameters, which act as the environment parameters. 
+The sample app expects MongoDB connection information to be passed as environment variables. Locally, we pass in MongoDB connection information through environment variables passed to the container. When deployed to Azure, the web app will get these environment values from the App Service configuration parameters, which act as the environment parameters. 
 
 ### [VS Code](#tab/vscode-aztools)
 
@@ -70,4 +72,4 @@ The sample app expects the MongoDB connection information to be passed as enviro
 
 ---
 
-You can also start a container from an image and stop it with the Docker Desktop.
+You can also start a container from an image and stop it with the Docker Desktop application.
