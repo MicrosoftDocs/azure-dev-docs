@@ -13,7 +13,7 @@ zone_pivot_groups: azd-devify-set
 
 # Make your project compatible with Azure Developer CLI (azd) Preview
 
-Azure Developer CLI enables developers to create applications from templates stored in GitHub repositories. Microsoft provides [several templates](overview.md?branch=pr-en-us-3070&tabs=nodejs#azure-developer-cli-templates) to get you started. In this article, you learn how to enable your own project as a template.
+Azure Developer CLI (azd) Preview enables developers to create applications from templates stored in GitHub repositories. Microsoft provides [several templates](overview.md?branch=pr-en-us-3070&tabs=nodejs#azure-developer-cli-templates) to get you started. In this article, you learn how to enable your own project as a template.
 
 ## Understand the azd architecture overview
 
