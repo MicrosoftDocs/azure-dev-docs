@@ -11,7 +11,7 @@ ms.date: 06/28/2022
 docker
 ```
 
-If you see the help for the [Docker CLI](https://docs.docker.com/engine/reference/commandline/cli/), then continue. Otherwise, make sure Docker is installed or your shell as access to the Docker CLI.
+If after running this command you help for the [Docker CLI](https://docs.docker.com/engine/reference/commandline/cli/), then continue. Otherwise, make sure Docker is installed or your shell has access to the Docker CLI.
 
 **Step 2.** Build the image.
 
@@ -67,7 +67,7 @@ If you started with the Flask version of the sample app, then use "msdocspythonf
 
 **Step 3.** Confirm the image was built.
 
-Using the [docker images](https://docs.docker.com/engine/reference/commandline/images/) command, you can return a list of images.
+Use the [docker images](https://docs.docker.com/engine/reference/commandline/images/) command to return a list of images.
 
 ```Docker
 docker images

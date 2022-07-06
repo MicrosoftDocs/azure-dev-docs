@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Containerized Python web apps on Azure - Build and test locally"
+title: 'Tutorial: Containerized Python web apps on Azure: build and test locally'
 description: Build and test a containerized Python web app locally.
 ms.topic: conceptual
 ms.date: 06/27/2022
@@ -18,6 +18,8 @@ After completing this part of the tutorial, you will
 * Understand a Dockerfile and how it it is used to build the container image.
 
 * Understand how to use tags as reference for Docker images and use the tag to reference the image. 
+
+* Optionally, understand how to run the image container locally.
 
 ## 1. Build a Docker image
 
@@ -41,7 +43,9 @@ These instructions require [Docker](https://docs.docker.com/get-docker/).
 
 ---
 
-At this point, you have build an image locally. You can also see and work the image with Docker Desktop.
+At this point, you have build an image locally. The image you created is has a name formatted as `<repository-name>:<tag>` where `<repository-name>` is based on the project name and `<tag>` is set to "latest" for this tutorial. Tags are a way to define version information, intended use, stability, or other information. For more information, see [Recommendations for tagging and versioning container images](/azure/container-registry/container-registry-image-tag-version).
+
+Built images from VS Code or from using the Docker CLI directly can be viewed in the Docker Desktop application.
 
 ## 2. Run the image locally in a container
 
