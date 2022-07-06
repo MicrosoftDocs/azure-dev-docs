@@ -16,7 +16,7 @@ Integration with azd is shipped in version 17.3.0 Preview 2 behind a feature fla
 
 1. Make sure **Integration with azd, the Azure Developer CLI** is enabled
 
-    !["Visual Studio option to enable azd"](../media/how-to-use-vscode-extension-to-debug-locally/vs-options.png)
+    !["Visual Studio option to enable azd"](../media/run-and-debug/vs-options.png)
 
 ## Open the API solution
 
@@ -26,7 +26,7 @@ Integration with azd is shipped in version 17.3.0 Preview 2 behind a feature fla
 
 1. Double-click **Connected Services** to see all the dependencies. Even though the web front-end running on Azure App Service isn't part of the api solution, it's detected and included under **Service Dependencies**
 
-    !["Visual Studio open azd solution"](../media/how-to-use-vscode-extension-to-debug-locally/vs-opensln.png)
+    !["Visual Studio open azd solution"](../media/run-and-debug/vs-opensln.png)
 
 ## Run and debug
 
@@ -34,13 +34,13 @@ Integration with azd is shipped in version 17.3.0 Preview 2 behind a feature fla
 
 1. Set a breakpoint at line 20.
     
-    !["Set breakpoint"](../media/how-to-use-vscode-extension-to-debug-locally/vs-breakpoint.png)
+    !["Set breakpoint"](../media/run-and-debug/vs-breakpoint.png)
 
 1. Hit &lt;F5>
 
 1. Wait for the message indicating the web server is listening on port 3101.
 
-    !["Message indicating debugger is listening on port 3101"](../media/how-to-use-vscode-extension-to-debug-locally/vs-f5.png)
+    !["Message indicating debugger is listening on port 3101"](../media/run-and-debug/vs-f5.png)
 
 1. In your preferred browser, enter: `https://localhost:3101/lists`
 
@@ -59,7 +59,7 @@ To manage azd environment, click "..." icon in the upper-right corner of the **S
 * select and set a specific environment as the current active environment
 * deprovision an environment
 
-    !["Manage azd environment in Visual Studio"](../media/how-to-use-vscode-extension-to-debug-locally/vs-manageenv.png)
+    !["Manage azd environment in Visual Studio"](../media/run-and-debug/vs-manageenv.png)
 
 ### Provision environment resources
 
@@ -69,7 +69,7 @@ You can provision Azure resources to your environment.
 
 1. Click the icon at the top right to restore/provision environment resources
 
-    !["Provision environment resources in Visual Studio"](../media/how-to-use-vscode-extension-to-debug-locally/vs-provision.png)
+    !["Provision environment resources in Visual Studio"](../media/run-and-debug/vs-provision.png)
 
 1. You will be asked to confim the environment name, subscription and location.
 
@@ -87,7 +87,7 @@ If you make any update, you can publish your app by:
 
 1. select **AzDev Environment**, click next
 
-    !["Message in Debug Console indicating debugger is listening on port 3100"](../media/how-to-use-vscode-extension-to-debug-locally/vs-publish.png)
+    !["Message in Debug Console indicating debugger is listening on port 3100"](../media/run-and-debug/vs-publish.png)
 
 1. select the environment and click Finish
 
