@@ -116,6 +116,9 @@
       - name: Azure SDK for Python
         tocHref: /azure/developer/python/sdk
         topicHref: /azure/developer/python/sdk/index
+      - name: Tutorial - Managed Identity
+        tocHref: /azure/developer/python/tutorial-python-managed-identity-01/
+        topicHref: /azure/developer/python/tutorial-python-managed-identity-01
     - name: Python
       tocHref: /azure/app-service
       topicHref: /azure/developer/python/index
