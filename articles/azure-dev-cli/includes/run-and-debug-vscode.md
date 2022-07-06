@@ -29,11 +29,11 @@ This article uses the sample [Todo Application with Node.js and Azure Cosmo DB A
 
 1. Type and pick `Azure Developer: init`.
 
-    !["Visual Studio Code azd extension option to initialize a new app"](../media/how-to-use-vscode-extension-to-debug-locally/cmd-init.png)
+    !["Visual Studio Code azd extension option to initialize a new app"](../media/run-and-debug/cmd-init.png)
 
 1. Select the template `Azure-Samples/todo-nodejs-mongo`.
 
-    !["This article uses the todo-nodejs-mongo sample template"](../media/how-to-use-vscode-extension-to-debug-locally/sample-template.png)
+    !["This article uses the todo-nodejs-mongo sample template"](../media/run-and-debug/sample-template.png)
 
 The following files are included in the .vscode folder:
 
@@ -48,7 +48,7 @@ Before you start debugging, provision the necessary Azure resources.
 
 1. Enter **Azure Developer: provision Azure resources**.
 
-    !["Visual Studio Code azd extension option to provision the Azure resources for a new app"](../media/how-to-use-vscode-extension-to-debug-locally/cmd-provision.png)
+    !["Visual Studio Code azd extension option to provision the Azure resources for a new app"](../media/run-and-debug/cmd-provision.png)
 
 ## Debug an API
 
@@ -60,17 +60,17 @@ The debug configuration **Debug API** automatically runs the API server and atta
 
 1. In the Activity Bar, select **Run and Debug**, the **Debug API** debug configuration, and the **Start Debugging** arrow.
 
-    !["Setting the debug configuration to Debug API"](../media/how-to-use-vscode-extension-to-debug-locally/debug-api.png)
+    !["Setting the debug configuration to Debug API"](../media/run-and-debug/debug-api.png)
 
 1. From the **View** menu, select **Debug Console**.
 
 1. Wait for the message indicating the debugger is listening on port 3100.
 
-    !["Message in Debug Console indicating debugger is listening on port 3100"](../media/how-to-use-vscode-extension-to-debug-locally/started-listening-on-port.png)
+    !["Message in Debug Console indicating debugger is listening on port 3100"](../media/run-and-debug/started-listening-on-port.png)
 
 1. In your preferred terminal shell, enter the following command: `curl http://localhost:3100/lists`
 
-    !["Use cURL to connect to the API server"](../media/how-to-use-vscode-extension-to-debug-locally/run-curl-command.png)
+    !["Use cURL to connect to the API server"](../media/run-and-debug/run-curl-command.png)
 
 1. When the breakpoint you set earlier is hit, app execution will pause. At this point, you can do standard debugging tasks such inspect variables, look at the call stack, and set additional breakpoints. Press &lt;F5> to continue running the app. The sample app returns an empty list.
 
@@ -80,11 +80,11 @@ To use the **Debug Web** configuration, you must start both the API server and t
 
 1. Open the Command Palette and run **Task: Run task**.
 
-    !["Running a Visual Studio Code Task"](../media/how-to-use-vscode-extension-to-debug-locally/run-task.png)
+    !["Running a Visual Studio Code Task"](../media/run-and-debug/run-task.png)
 
 1. Enter and select **Start API and Web**
 
-    !["Select the task Start API and Web"](../media/how-to-use-vscode-extension-to-debug-locally/run-task-api.png)
+    !["Select the task Start API and Web"](../media/run-and-debug/run-task-api.png)
 
 1. (Optional) You can check if the local web server is running by navigating to the following URL in a we browser: `http://localhost:3000`.
 
@@ -94,10 +94,10 @@ To use the **Debug Web** configuration, you must start both the API server and t
 
 1. In the Activity Bar, select **Run and Debug**, the **Debug Web** debug configuration, and the **Start Debugging** arrow.
 
-    !["Setting the debug configuration to Debug Web"](../media/how-to-use-vscode-extension-to-debug-locally/debug-web.png)
+    !["Setting the debug configuration to Debug Web"](../media/run-and-debug/debug-web.png)
 
 1. Running the web app will cause your default browser to open the following URL: `http://localhost:3000`. You can now debug the app by adding an item, selecting it from the list, and selecting **Delete**.
 
-    !["The sample NodeJS Mongo app allows you to add and delete text items"](../media/how-to-use-vscode-extension-to-debug-locally/sample-app.png)
+    !["The sample NodeJS Mongo app allows you to add and delete text items"](../media/run-and-debug/sample-app.png)
 
 1. When the breakpoint you set earlier is hit, app execution will pause. At this point, you can do standard debugging tasks such inspect variables, look at the call stack, and set additional breakpoints. Press &lt;F5> to continue running the app and the selected item will be deleted.
