@@ -1,7 +1,7 @@
 ---
 title: Spring Cloud Azure list of configuration properties
 description: Spring Cloud Azure list of configuration properties
-ms.date: 04/26/2022
+ms.date: 06/30/2022
 ms.topic: article
 author: KarlErickson
 ms.author: v-yonghuiye
