@@ -1,5 +1,5 @@
 ---
-title: Azure Developer CLI (azd) reference
+title: Azure Developer CLI (azd) Preview reference
 description: Reference for Azure Developer CLI (azd).
 author: puicchan
 ms.author: puichan
@@ -9,9 +9,9 @@ ms.custom: devx-track-azdevcli
 ms.prod: azure
 ---
 
-# Azure Developer CLI (azd) reference
+# Azure Developer CLI (azd) Preview reference
 
-This article explains the commands and parameters for the different azd commands.
+This article explains the syntax and parameters for the different Azure Developer CLI (azd) Preview commands.
 
 ## azd
 

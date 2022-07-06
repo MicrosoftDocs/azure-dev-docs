@@ -1,5 +1,5 @@
 ---
-title: Monitor your app using Azure Developer CLI (azd)
+title: Monitor your app using Azure Developer CLI (azd) Preview
 description: Learn how to use Azure Developer CLI (azd) to monitor your app health.
 author: puicchan
 ms.author: puichan
@@ -8,7 +8,10 @@ ms.topic: conceptual
 ms.custom: devx-track-azdevcli
 ms.prod: azure
 ---
-# Monitor your app using Azure Developer CLI (azd)
+
+# Monitor your app using Azure Developer CLI (azd) Preview
+
+In this article, you learn how to use Azure Developer CLI (azd) Preview to monitor your app health.
 
 You can use any of the [Azure Developer CLI template](overview.md#azure-developer-cli-templates) for this tutorial. We'll use the [Todo Application with Node.js and Azure Cosmos DB API for MongoDB](https://github.com/azure-samples/todo-nodejs-mongo).
 

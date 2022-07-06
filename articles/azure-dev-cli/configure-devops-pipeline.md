@@ -11,7 +11,7 @@ ms.prod: azure
 
 # Configure a pipeline and push updates using GitHub Actions
 
-In this article, you learn how to push changes to your GitHub repo through GitHub Actions.
+In this article, you learn how to push changes to your GitHub repo through GitHub Actions for apps created via Azure Developer CLI (azd) Preview.
 
 This article uses the sample [Todo Application with Node.js and Azure Cosmo DB API for MongoDB](https://github.com/azure-samples/todo-nodejs-mongo). However, the principles you learn in this article apply to any of the [Azure Developer CLI template](overview.md#azure-developer-cli-templates).
 

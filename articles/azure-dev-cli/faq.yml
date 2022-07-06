@@ -1,6 +1,6 @@
 ### YamlMime:FAQ
 metadata:
-  title: Azure Developer CLI FAQ
+  title: Azure Developer CLI (azd) Preview FAQ
   description: Get answers to common questions about Azure Developer CLI.
   author: puicchan
   ms.author: puichan
@@ -8,7 +8,7 @@ metadata:
   ms.topic: conceptual
   ms.custom: devx-track-azdevcli
   ms.prod: azure
-title: Common questions about the Azure Developer CLI
+title: Common questions about the Azure Developer CLI (azd) Preview
 summary: This article answers commonly asked questions about the Azure Developer CLI.
 sections:
   - name: General

@@ -1,5 +1,5 @@
 ---
-title: Make your project Azure Developer CLI (azd) compatible
+title: Make your project compatible with Azure Developer CLI (azd) Preview 
 description: How to convert an application to an Azure developer enabled template.
 author: puicchan
 ms.author: puichan
@@ -11,7 +11,7 @@ zone_pivot_group_filename: developer/azure-dev-cli/azd-zone-pivot-groups.json
 zone_pivot_groups: azd-devify-set
 ---
 
-# Make your project Azure Developer CLI (azd) compatible
+# Make your project compatible with Azure Developer CLI (azd) Preview
 
 Azure Developer CLI enables developers to create applications from templates stored in GitHub repositories. Microsoft provides [several templates](overview.md?branch=pr-en-us-3070&tabs=nodejs#azure-developer-cli-templates) to get you started. In this article, you learn how to enable your own project as a template.
 
@@ -35,7 +35,6 @@ All azd templates have the same file structure based on azd conventions. The fol
 ├── src                        [ Contains folder(s) for the application code ]
 └── azure.yaml                 [ Describes the application and type of Azure resources]
 ```
-
 
 ## Create the project and source directories
 

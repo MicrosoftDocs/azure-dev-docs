@@ -1,5 +1,5 @@
 ---
-title: Get started using Azure Developer CLI (azd)
+title: Get started using Azure Developer CLI (azd) Preview
 description: Learn how to get started with Azure Developer CLI
 keywords: azure developer cli
 author: puicchan
@@ -12,7 +12,9 @@ zone_pivot_group_filename: developer/azure-dev-cli/azd-zone-pivot-groups.json
 zone_pivot_groups: azd-languages-set
 ---
 
-# Get started using Azure Developer CLI (azd)
+# Get started using Azure Developer CLI (azd) Preview
+
+In this article, you'll learn the basic commands for using the Azure Developer CLI (azd) Preview.
 
 ::: zone pivot="programming-language-nodejs"
 

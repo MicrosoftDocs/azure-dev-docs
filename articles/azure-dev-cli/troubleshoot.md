@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot common problems when using Azure Developer CLI (azd)
+title: Troubleshoot common problems when using Azure Developer CLI (azd) Preview
 description: In this article, troubleshoot common problems when using Azure Developer CLI (azd)
 author: puicchan
 ms.author: puichan
@@ -11,9 +11,9 @@ ms.prod: azure
 # Customer intent: Find solutions to common problems encountered when using Azure Developer CLI (azd)
 ---
 
-# Troubleshoot common problems when using Azure Developer CLI (azd)
+# Troubleshoot common problems when using Azure Developer CLI (azd) Preview
 
-This article lists common problems and possible solutions when using Azure Developer CLI (azd).
+This article lists common problems and possible solutions when using Azure Developer CLI (azd) Preview.
 
 ## Get help and give feedback
 
