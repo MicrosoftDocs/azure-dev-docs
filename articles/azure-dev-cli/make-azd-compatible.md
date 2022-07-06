@@ -70,8 +70,8 @@ All azd templates have the same file structure based on azd conventions. The fol
     **Key points:**
     - After you run the `azd init` command, a directory called `.azure` is created.
     - Within the `.azure` directory, a directory is created: `<environment_name>`.
-    - Within the `\.azure\<your environment name>` directory, a configuration file (with an extension of `.env`) is created.
-    - The configuration file contains information such as the values you supplied: environment name, location, Azure subscription.
+    - Within the `\.azure\<your environment_name>` directory, a file named `.env` is created.
+    - The `.env` file contains information such as the values you supplied: environment name, location, Azure subscription.
     - A file named `azure.yaml` is created in the root of your project.
 
 ## Add Bicep files
@@ -82,7 +82,7 @@ As this sample provisions App Service resources, you need an Azure App Service P
 
 1. Create a directory named `infra` in your project directory and set it to the current directory.
 
-1. Create a new file named `main.parameters.json`. Insert the environment variables (found in the configuration file in your project's `.azure/<environment name>` directory). The following code snippet shows an example.
+1. Create a new file named `main.parameters.json`. Insert the environment variables (found in the `.env` file in your project's `.azure/<environment_name>` directory). The following code snippet shows an example.
 
     ```json
     {
@@ -162,7 +162,7 @@ As this sample provisions App Service resources, you need an Azure App Service P
     
     ```
     
-1. azd uses a key named `tags` to identify the final service name. Add a `tags` key to the web resource. Replace `azd-service-name` with the name of your service.
+1. azd uses a key named `tags` to identify the final service name. Add a `tags` key to the web resource. Replace `web` with the name of your service.
 
     ```json
     tags: union(tags, {
@@ -238,7 +238,7 @@ As this sample provisions App Service resources, you need an Azure App Service P
     
     **Key points:**
     - After you run `azd provision`, the Azure resources are created under the resource group `<environment_name>-rg`.
-    - The web end point is added to configuration file in the project's `.azure/<environment name>` directory.
+    - The web end point is added to `.env` file in the project's `.azure/<environment_name>` directory.
 
 ## Update azure.yaml
 
@@ -258,7 +258,7 @@ To deploy the app, azd needs to know more about your app. Edit the `azure.yaml` 
     **Key points:**
     - **name**: Root element. Required. Name of the application.
     - **services**: Root element. Required. Definition of services that is part of the app.
-    - **web**: Required. Name of the service. Can be any name, for example, api, web. This name needs to be the same as the **azd-service-name** you use as tag for the host of the service.
+    - **web**: Required. Name of the service. Can be any name, for example, api, web. This name needs to be the same as the `azd-service-name` value you specified earlier.
     - **project**: Required. Path to the service source code directory. Use **src/web** if your source code is found under /src/web.
     - **language**: Service implementation language. "py" for Python. If not specified, .NET will be assumed.
     - **host**: Type of Azure resource used for service implementation. "appservice" for Azure App Service. If not required, appservice is assumed.
