@@ -44,11 +44,7 @@ Requires Azure and Docker extensions.
 
 ### [Azure CLI](#tab/azure-cli)
 
-Step 1. Create a resource group.
-
-Step 2. Create a container registry.
-
-Step 3. Log in to the registry
+[!INCLUDE [Include showing how create registry with Azure CLI](<./includes/tutorial-container-web-app/container-registry-create-cli.md>)]
 
 ---
 
