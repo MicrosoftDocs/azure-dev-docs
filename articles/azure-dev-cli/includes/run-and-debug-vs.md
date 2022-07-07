@@ -24,7 +24,7 @@ Integration with azd is shipped in version 17.3.0 Preview 2 behind a feature fla
 
 1. Double-click **Connected Services** to see all the dependencies. Even though the web front-end running on Azure App Service isn't part of the API solution, it's detected and included under **Service Dependencies**
 
-    !["Visual Studio open azd solution"](../media/run-and-debug/vs-opensln.png)
+    !["Visual Studio open azd solution"](../media/run-and-debug/vs-open-solution.png)
 
 ## Run and debug
 
@@ -58,7 +58,7 @@ To manage the azd environment, select **...** in the upper-right corner of the *
 - Select and set a specific environment as the current active environment
 - Deprovision an environment
 
-!["Manage azd environment in Visual Studio"](../media/run-and-debug/vs-manageenv.png)
+!["Manage azd environment in Visual Studio"](../media/run-and-debug/vs-manage-environment.png)
 
 ### Provision environment resources
 
