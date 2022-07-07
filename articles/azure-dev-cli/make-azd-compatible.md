@@ -327,7 +327,7 @@ The following hierarchy shows the complete folder structure of a azd template.
 └── azure.yaml                 [ Describes the application and type of Azure resources]
 ```
 
-## See Also
+## See also
 
 - For an introduction to working with Bicep files, see [Create Bicep files with Visual Studio Code](/azure/azure-resource-manager/bicep/quickstart-create-bicep-use-visual-studio-code?tabs=CLI).
 - [Bicep Samples](/samples/browse/?languages=bicep)

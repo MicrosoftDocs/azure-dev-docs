@@ -38,7 +38,7 @@ Integration with azd is shipped in version 17.3.0 Preview 2 behind a feature fla
 
 1. Wait for the message indicating the web server is listening on port 3101.
 
-    ![Screenshot of the statusbar message indicating the debugger is listening on port 3101.](../media/run-and-debug/vs-f5.png)
+    ![Screenshot of the statusbar message indicating the debugger is listening on port 3101.](../media/run-and-debug/vs-run.png)
 
 1. In your preferred browser, enter the following address: `https://localhost:3101/lists`
 

@@ -49,7 +49,7 @@ For more information, please visit the project page: https://aka.ms/azure-dev/de
       --no-prompt            Accept default value instead of prompting, or fail if there is no default
 ```
 
-### SEE ALSO
+### See also
 
 * [azd deploy](#azd-deploy)	 - Deploy the application's code to Azure
 * [azd down](#azd-down)	 - Delete Azure resources for an application
@@ -106,7 +106,7 @@ azd deploy [flags]
       --no-prompt            Accept default value instead of prompting, or fail if there is no default
 ```
 
-### SEE ALSO
+### See also
 
 * [Back to top](#azd)
 
@@ -136,7 +136,7 @@ azd down [flags]
       --no-prompt            Accept default value instead of prompting, or fail if there is no default
 ```
 
-### SEE ALSO
+### See also
 
 * [Back to top](#azd)
 
@@ -167,7 +167,7 @@ You can find all environment configurations under the .azure\<environment-name> 
       --no-prompt            Accept default value instead of prompting, or fail if there is no default
 ```
 
-### SEE ALSO
+### See also
 
 * [azd env get-values](#azd-env-get-values)	 - Get all environment values
 * [azd env list](#azd-env-list)	 - List environments
@@ -201,7 +201,7 @@ azd env get-values [flags]
       --no-prompt            Accept default value instead of prompting, or fail if there is no default
 ```
 
-### SEE ALSO
+### See also
 
 * [azd env](#azd-env)	 - Manage environments.
 * [Back to top](#azd)
@@ -230,7 +230,7 @@ azd env list [flags]
       --no-prompt            Accept default value instead of prompting, or fail if there is no default
 ```
 
-### SEE ALSO
+### See also
 
 * [azd env](#azd-env)	 - Manage environments.
 * [Back to top](#azd)
@@ -258,7 +258,7 @@ azd env new <environment> [flags]
       --no-prompt            Accept default value instead of prompting, or fail if there is no default
 ```
 
-### SEE ALSO
+### See also
 
 * [azd env](#azd-env)	 - Manage environments.
 * [Back to top](#azd)
@@ -287,7 +287,7 @@ azd env refresh [flags]
       --no-prompt            Accept default value instead of prompting, or fail if there is no default
 ```
 
-### SEE ALSO
+### See also
 
 * [azd env](#azd-env)	 - Manage environments.
 * [Back to top](#azd)
@@ -315,7 +315,7 @@ azd env select <environment> [flags]
       --no-prompt            Accept default value instead of prompting, or fail if there is no default
 ```
 
-### SEE ALSO
+### See also
 
 * [azd env](#azd-env)	 - Manage environments.
 * [Back to top](#azd)
@@ -343,7 +343,7 @@ azd env set <key> <value> [flags]
       --no-prompt            Accept default value instead of prompting, or fail if there is no default
 ```
 
-### SEE ALSO
+### See also
 
 * [azd env](#azd-env)	 - Manage environments.
 * [Back to top](#azd)
@@ -367,7 +367,7 @@ Manage Azure resources
       --no-prompt            Accept default value instead of prompting, or fail if there is no default
 ```
 
-### SEE ALSO
+### See also
 
 * [azd infra create](#azd-infra-create)	 - Create Azure resources for an application
 * [azd infra delete](#azd-infra-delete)	 - Delete Azure resources for an application
@@ -398,7 +398,7 @@ azd infra create [flags]
       --no-prompt            Accept default value instead of prompting, or fail if there is no default
 ```
 
-### SEE ALSO
+### See also
 
 * [azd infra](#azd-infra)	 - Manage Azure resources
 * [Back to top](#azd)
@@ -428,7 +428,7 @@ azd infra delete [flags]
       --no-prompt            Accept default value instead of prompting, or fail if there is no default
 ```
 
-### SEE ALSO
+### See also
 
 * [azd infra](#azd-infra)	 - Manage Azure resources
 * [Back to top](#azd)
@@ -466,7 +466,7 @@ azd init [flags]
       --no-prompt            Accept default value instead of prompting, or fail if there is no default
 ```
 
-### SEE ALSO
+### See also
 
 * [Back to top](#azd)
 
@@ -496,7 +496,7 @@ azd login [flags]
       --no-prompt            Accept default value instead of prompting, or fail if there is no default
 ```
 
-### SEE ALSO
+### See also
 
 * [Back to top](#azd)
 
@@ -540,7 +540,7 @@ azd monitor [flags]
       --no-prompt            Accept default value instead of prompting, or fail if there is no default
 ```
 
-### SEE ALSO
+### See also
 
 * [Back to top](#azd)
 
@@ -571,7 +571,7 @@ For more information, please visit: https://aka.ms/azure-dev/pipeline.
       --no-prompt            Accept default value instead of prompting, or fail if there is no default
 ```
 
-### SEE ALSO
+### See also
 
 * [azd pipeline config](#azd-pipeline-config)	 - Create and configure your deployment pipeline using GitHub Actions
 * [Back to top](#azd)
@@ -608,7 +608,7 @@ azd pipeline config [flags]
       --no-prompt            Accept default value instead of prompting, or fail if there is no default
 ```
 
-### SEE ALSO
+### See also
 
 * [azd pipeline](#azd-pipeline)	 - Manage GitHub Actions pipelines
 * [Back to top](#azd)
@@ -650,7 +650,7 @@ azd provision [flags]
       --no-prompt            Accept default value instead of prompting, or fail if there is no default
 ```
 
-### SEE ALSO
+### See also
 
 * [Back to top](#azd)
 
@@ -686,7 +686,7 @@ azd restore [flags]
       --no-prompt            Accept default value instead of prompting, or fail if there is no default
 ```
 
-### SEE ALSO
+### See also
 
 * [Back to top](#azd)
 
@@ -709,7 +709,7 @@ Manage templates
       --no-prompt            Accept default value instead of prompting, or fail if there is no default
 ```
 
-### SEE ALSO
+### See also
 
 * [azd template list](#azd-template-list)	 - List templates
 * [azd template show](#azd-template-show)	 - Show the template details
@@ -739,7 +739,7 @@ azd template list [flags]
       --no-prompt            Accept default value instead of prompting, or fail if there is no default
 ```
 
-### SEE ALSO
+### See also
 
 * [azd template](#azd-template)	 - Manage templates
 * [Back to top](#azd)
@@ -768,7 +768,7 @@ azd template show <template> [flags]
       --no-prompt            Accept default value instead of prompting, or fail if there is no default
 ```
 
-### SEE ALSO
+### See also
 
 * [azd template](#azd-template)	 - Manage templates
 * [Back to top](#azd)
@@ -815,7 +815,7 @@ azd up [flags]
       --no-prompt            Accept default value instead of prompting, or fail if there is no default
 ```
 
-### SEE ALSO
+### See also
 
 * [Back to top](#azd)
 
@@ -842,6 +842,6 @@ azd version [flags]
       --no-prompt            Accept default value instead of prompting, or fail if there is no default
 ```
 
-### SEE ALSO
+### See also
 
 * [Back to top](#azd)
