@@ -19,8 +19,31 @@ In the previous part of this tutorial, a container image was build and run local
 
 If you have an Azure Container Registry, go to the next step.
 
+### [Azure portal](#tab/azure-portal)
 
-## 2. Build image in Azure.
+### [VS Code](#tab/vscode-aztools)
+
+### [Azure CLI](#tab/azure-cli)
+
+---
+
+## 2. Build image in Azure
+
+### [Azure portal](#tab/azure-portal)
+
+### [VS Code](#tab/vscode-aztools)
+
+### [Azure CLI](#tab/azure-cli)
+
+---
 
 
-## 3. Confirm the image in the registry.
+## 3. Confirm the image in the registry
+
+### [Azure portal](#tab/azure-portal)
+
+### [VS Code](#tab/vscode-aztools)
+
+### [Azure CLI](#tab/azure-cli)
+
+---
