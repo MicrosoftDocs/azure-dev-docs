@@ -28,7 +28,7 @@ sections:
 
       - question: What is an environment name?
         answer: |
-          Azure Developer CLI uses an environment name to set the `AZURE_ENV_NAME` environment variable that's used by Azure Developer CLI-enabled templates. AZURE_ENV_NAME is also used to prefix Azure resource names, including the Azure resource group name. Because each environment has its own set of configurations, Azure Developer CLI stores all configuration files in environment folders. 
+          Azure Developer CLI uses an environment name to set the `AZURE_ENV_NAME` environment variable that's used by Azure Developer CLI templates. AZURE_ENV_NAME is also used to prefix the Azure resource group name. Because each environment has its own set of configurations, Azure Developer CLI stores all configuration files in environment folders. 
 
           ```txt	 
           ├── .Azure                          [ This folder is displayed after you run add init or azd up ]
@@ -111,7 +111,7 @@ sections:
 
       - question: What is OpenID Connect (OIDC), and is it supported?  
         answer: |
-          With [OpenID Connect](https://docs.github.com/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect), your workflows can exchange short-lived tokens directly from Azure. We're planning OIDC support will include it in a future release. 
+          With [OpenID Connect](https://docs.github.com/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect), your workflows can exchange short-lived tokens directly from Azure. We're currently planning OIDC support and will include it in a future release. 
 
       - question: How do I reset the Azure service principal that's stored in GitHub Actions?
         answer: |
@@ -138,4 +138,3 @@ sections:
       - question: Where can I find the log for the GitHub Actions job that I triggered when I ran `azd pipeline config`?
         answer: |
           Go to `https://github.com/<your-GH-account>/<your-repo>/actions`, and then refer to the log file in the workflow run.
-
