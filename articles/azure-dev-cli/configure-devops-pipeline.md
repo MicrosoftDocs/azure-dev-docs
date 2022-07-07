@@ -13,11 +13,11 @@ ms.prod: azure
 
 In this article, you learn how to push changes to your GitHub repo through GitHub Actions for apps created via Azure Developer CLI (azd) Preview.
 
-This article uses the sample [Todo Application with Node.js and Azure Cosmo DB API for MongoDB](https://github.com/azure-samples/todo-nodejs-mongo). However, the principles you learn in this article apply to any of the [Azure Developer CLI template](overview.md#azure-developer-cli-templates).
+This article uses the sample [Todo Application with Node.js and Azure Cosmos DB API for MongoDB](https://github.com/azure-samples/todo-nodejs-mongo). However, the principles you learn in this article apply to any of the [Azure Developer CLI template](overview.md#azure-developer-cli-templates).
 
 ## Prerequisites
 
-This article assumes you've installed the azd. If you are new to azd, begin with [Get started](get-started.md) and then return to this article.
+This article assumes you've installed the azd. If you're new to azd, begin with [Get started](get-started.md), and then return to this article.
 
 ## Configure a DevOps pipeline
 
@@ -35,7 +35,7 @@ To create the service principle, run the command `azd pipeline config`. The comm
 
 1. Supply the requested GitHub information. When prompted to specify if you want to commit and push your local changes to start a new GitHub Actions run, specify "y".
 
-1. If the terminal window is not open, from the **View** menu, select **Terminal**. The results of the `azd pipeline config` command display. The `azd pipeline config` command will output the GitHub repository name for your project.
+1. If the terminal window isn't open, from the **View** menu, select **Terminal**. The results of the `azd pipeline config` command display. The `azd pipeline config` command will output the GitHub repository name for your project.
 
 1. Using your browser, open the GitHub repository for your project.
 
@@ -53,7 +53,7 @@ To create the service principle, run the command `azd pipeline config`. The comm
 
 1. Save the file.
 
-1. Commit your change. In the following screen shot, you can see I used the Visual Studio Code Source Control pane to commit the change. Committing the change starts the GitHub Action pipeline to deploy the update.
+1. Commit your change. In the following screenshot, you can see I used the Visual Studio Code Source Control pane to commit the change. Committing the change starts the GitHub Action pipeline to deploy the update.
 
     !["Visual Studio Code integrates with GitHub to allow you to commit changes within your editing environment."](media/configure-devops-pipeline/commit-changes-to-github.png)
 
