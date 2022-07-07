@@ -23,7 +23,7 @@ The following steps are the recommended workflow to using azd:
 
 The following image shows a graphical representation of the suggested workflow:
 
-![The standard azd workflow](media/overview/azd-dev-workflow.png)
+![Diagram of the Azure Developer CLI workflow.](media/overview/workflow.png)
 
 ## Azure Developer CLI templates
 

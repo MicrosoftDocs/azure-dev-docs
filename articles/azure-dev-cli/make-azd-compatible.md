@@ -19,7 +19,7 @@ Azure Developer CLI (azd) Preview enables developers to create applications from
 
 The following diagram gives a quick overview of the process to create an azd template:
 
-![Azure Developer CLI enable](media/make-azd-compatible/dev-ify.png)
+![Diagram of Azure Developer CLI template workflow.](media/make-azd-compatible/workflow.png)
 
 All azd templates have the same file structure based on azd conventions. The following hierarchy shows the folder structure you'll build in this tutorial. For the complete folder structure, refer to the [azd conventions](#azd-convetions) section.
 

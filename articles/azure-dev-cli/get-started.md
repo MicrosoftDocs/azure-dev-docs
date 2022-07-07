@@ -42,7 +42,7 @@ For more information including architecture diagram and the Azure resources you'
 
 ## Configure your development environment
 
-To run any sample template, pick a development environment. For more information about the pros and cons of the different development environment choices, see [Azure Developer CLI (azd) supported environments](overview.md#supported-development-environments).    
+To run any sample template, pick a development environment. For more information about the pros and cons of the different development environment choices, see [Azure Developer CLI (azd) supported environments](overview.md#supported-development-environments).
 
 You will create infrastructure and deploy code to Azure. If you don't have an Azure Subscription, sign up for [a free account](https://azure.microsoft.com/free/).
 
@@ -62,9 +62,9 @@ Once the `azd up` command completes, it displays several URLs:
 
 - Azure portal link to view resources created
 - ToDo web application frontend
-- ToDo API application 
+- ToDo API application
 
-!["azd up output"](media/get-started/urls.png)
+![Screenshot of command output listing endpoint URLs."](media/get-started/urls.png)
 
 ### What happened?
 
