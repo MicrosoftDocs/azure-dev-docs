@@ -13,7 +13,7 @@ ms.prod: azure
 
 This article explains the syntax and parameters for the various Azure Developer CLI Preview commands.
 
-## Azure Developer CLI
+## azd
 
 Azure Developer CLI is a command-line interface for developers who build Azure solutions.
 
@@ -108,7 +108,7 @@ azd deploy [flags]
 
 ### See also
 
-* [Back to top](#azure-developer-cli-preview-reference)
+* [Back to top](#azd)
 
 ## azd down
 
@@ -138,7 +138,7 @@ azd down [flags]
 
 ### See also
 
-* [Back to top](#azure-developer-cli-preview-reference)
+* [Back to top](#azd)
 
 ## azd env
 
@@ -175,7 +175,7 @@ You can find all environment configurations under the *.azure\<environment-name>
 * [azd env refresh](#azd-env-refresh): Refresh environment settings by using information from a previous infrastructure provision.
 * [azd env select](#azd-env-select): Set the default environment.
 * [azd env set](#azd-env-set): Set a value in the environment.
-* [Back to top](#azure-developer-cli-preview-reference)
+* [Back to top](#azd)
 
 ## azd env get-values
 
@@ -204,7 +204,7 @@ azd env get-values [flags]
 ### See also
 
 * [azd env](#azd-env): Manage environments.
-* [Back to top](#azure-developer-cli-preview-reference)
+* [Back to top](#azd)
 
 ## azd env list
 
@@ -233,7 +233,7 @@ azd env list [flags]
 ### See also
 
 * [azd env](#azd-env): Manage environments.
-* [Back to top](#azure-developer-cli-preview-reference)
+* [Back to top](#azd)
 
 ## azd env new
 
@@ -261,7 +261,7 @@ azd env new <environment> [flags]
 ### See also
 
 * [azd env](#azd-env): Manage environments.
-* [Back to top](#azure-developer-cli-preview-reference)
+* [Back to top](#azd)
 
 ## azd env refresh
 
@@ -290,7 +290,7 @@ azd env refresh [flags]
 ### See also
 
 * [azd env](#azd-env): Manage environments.
-* [Back to top](#azure-developer-cli-preview-reference)
+* [Back to top](#azd)
 
 ## azd env select
 
@@ -318,7 +318,7 @@ azd env select <environment> [flags]
 ### See also
 
 * [azd env](#azd-env): Manage environments.
-* [Back to top](#azure-developer-cli-preview-reference)
+* [Back to top](#azd)
 
 ## azd env set
 
@@ -346,7 +346,7 @@ azd env set <key> <value> [flags]
 ### See also
 
 * [azd env](#azd-env): Manage environments.
-* [Back to top](#azure-developer-cli-preview-reference)
+* [Back to top](#azd)
 
 ## azd infra
 
@@ -371,7 +371,7 @@ Manage Azure resources.
 
 * [azd infra create](#azd-infra-create): Create Azure resources for an application.
 * [azd infra delete](#azd-infra-delete): Delete Azure resources for an application.
-* [Back to top](#azure-developer-cli-preview-reference)
+* [Back to top](#azd)
 
 ## azd infra create
 
@@ -401,7 +401,7 @@ azd infra create [flags]
 ### See also
 
 * [azd infra](#azd-infra): Manage Azure resources.
-* [Back to top](#azure-developer-cli-preview-reference)
+* [Back to top](#azd)
 
 ## azd infra delete
 
@@ -431,7 +431,7 @@ azd infra delete [flags]
 ### See also
 
 * [azd infra](#azd-infra): Manage Azure resources.
-* [Back to top](#azure-developer-cli-preview-reference)
+* [Back to top](#azd)
 
 ## azd init
 
@@ -468,7 +468,7 @@ azd init [flags]
 
 ### See also
 
-* [Back to top](#azure-developer-cli-preview-reference)
+* [Back to top](#azd)
 
 ## azd login
 
@@ -498,7 +498,7 @@ azd login [flags]
 
 ### See also
 
-* [Back to top](#azure-developer-cli-preview-reference)
+* [Back to top](#azd)
 
 ## azd monitor
 
@@ -542,7 +542,7 @@ azd monitor [flags]
 
 ### See also
 
-* [Back to top](#azure-developer-cli-preview-reference)
+* [Back to top](#azd)
 
 ## azd pipeline
 
@@ -574,7 +574,7 @@ For more information, go to [https://aka.ms/azure-dev/pipeline](https://aka.ms/a
 ### See also
 
 * [azd pipeline config](#azd-pipeline-config): Create and configure your deployment pipeline by using GitHub Actions.
-* [Back to top](#azure-developer-cli-preview-reference)
+* [Back to top](#azd)
 
 ## azd pipeline config
 
@@ -611,7 +611,7 @@ azd pipeline config [flags]
 ### See also
 
 * [azd pipeline](#azd-pipeline): Manage GitHub Actions pipelines.
-* [Back to top](#azure-developer-cli-preview-reference)
+* [Back to top](#azd)
 
 ## azd provision
 
@@ -651,7 +651,7 @@ azd provision [flags]
 
 ### See also
 
-* [Back to top](#azure-developer-cli-preview-reference)
+* [Back to top](#azd)
 
 ## azd restore
 
@@ -687,7 +687,7 @@ azd restore [flags]
 
 ### See also
 
-* [Back to top](#azure-developer-cli-preview-reference)
+* [Back to top](#azd)
 
 ## azd template
 
@@ -712,7 +712,7 @@ Manage templates
 
 * [azd template list](#azd-template-list): List templates.
 * [azd template show](#azd-template-show): Show the template details.
-* [Back to top](#azure-developer-cli-preview-reference)
+* [Back to top](#azd)
 
 ## azd template list
 
@@ -741,7 +741,7 @@ azd template list [flags]
 ### See also
 
 * [azd template](#azd-template): Manage templates.
-* [Back to top](#azure-developer-cli-preview-reference)
+* [Back to top](#azd)
 
 ## azd template show
 
@@ -770,7 +770,7 @@ azd template show <template> [flags]
 ### See also
 
 * [azd template](#azd-template): Manage templates.
-* [Back to top](#azure-developer-cli-preview-reference)
+* [Back to top](#azd)
 
 ## azd up
 
@@ -816,7 +816,7 @@ azd up [flags]
 
 ### See also
 
-* [Back to top](#azure-developer-cli-preview-reference)
+* [Back to top](#azd)
 
 ## azd version
 
@@ -843,4 +843,4 @@ azd version [flags]
 
 ### See also
 
-* [Back to top](#azure-developer-cli-preview-reference)
+* [Back to top](#azd)
