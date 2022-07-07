@@ -8,7 +8,7 @@ ms.date: 6/1/2022
 ms.topic: article
 ms.custom: devx-track-azdevcli
 ms.prod: azure
-zone_pivot_group_filename: developer/azure-dev-cli/azd-zone-pivot-groups.json
+zone_pivot_group_filename: developer/azure-developer-cli/azd-zone-pivot-groups.json
 zone_pivot_groups: azd-languages-set
 ---
 
