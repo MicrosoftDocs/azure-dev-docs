@@ -18,7 +18,7 @@ In this article, you'll learn the basic commands for using the Azure Developer C
 
 ::: zone pivot="programming-language-nodejs"
 
-We'll use the [ToDo Application with a Node.js API and Azure Cosmos DB API for MongoDB](https://github.com/azure-samples/todo-nodejs-mongo) for this tutorial. Upon completion, you will get the code in your development environment and will be able to run commands to build, deploy, and monitor the application in Azure.
+We'll use the [ToDo Application with a Node.js API and Azure Cosmos DB API for MongoDB](https://github.com/azure-samples/todo-nodejs-mongo) for this tutorial. Upon completion, you'll get the code in your development environment and will be able to run commands to build, deploy, and monitor the application in Azure.
 
 For more information including architecture diagram and the Azure resources you'll deploy, see the [README](https://github.com/Azure-Samples/todo-nodejs-mongo/blob/main/README.md).
 
@@ -26,7 +26,7 @@ For more information including architecture diagram and the Azure resources you'
 
 ::: zone pivot="programming-language-python"
 
-We'll use the [ToDo Application with a Python API and Azure Cosmos DB API for MongoDB](https://github.com/azure-samples/todo-python-mongo) for this tutorial. Upon completion, you will get the code in your development environment and will be able to run commands to build, deploy, and monitor the application in Azure.
+We'll use the [ToDo Application with a Python API and Azure Cosmos DB API for MongoDB](https://github.com/azure-samples/todo-python-mongo) for this tutorial. Upon completion, you'll get the code in your development environment and will be able to run commands to build, deploy, and monitor the application in Azure.
 
 For more information including architecture diagram and the Azure resources you'll deploy, see the [README](https://github.com/Azure-Samples/todo-python-mongo/blob/main/README.md).
 
@@ -34,7 +34,7 @@ For more information including architecture diagram and the Azure resources you'
 
 ::: zone pivot="programming-language-csharp"
 
-We'll use the [ToDo Application with a C# API and Azure Cosmos DB SQL API](https://github.com/Azure-Samples/todo-csharp-cosmos-sql) for this tutorial. Upon completion, you will get the code in your development environment and will be able to run commands to build, deploy, and monitor the application in Azure.
+We'll use the [ToDo Application with a C# API and Azure Cosmos DB SQL API](https://github.com/Azure-Samples/todo-csharp-cosmos-sql) for this tutorial. Upon completion, you'll get the code in your development environment and will be able to run commands to build, deploy, and monitor the application in Azure.
 
 For more information including architecture diagram and the Azure resources you'll deploy, see the [README](https://github.com/Azure-Samples/todo-csharp-cosmos-sql/blob/main/README.md).
 
@@ -44,7 +44,7 @@ For more information including architecture diagram and the Azure resources you'
 
 To run any sample template, pick a development environment. For more information about the pros and cons of the different development environment choices, see [Azure Developer CLI (azd) supported environments](overview.md#supported-development-environments).
 
-You will create infrastructure and deploy code to Azure. If you don't have an Azure Subscription, sign up for [a free account](https://azure.microsoft.com/free/).
+In this article you create infrastructure and deploy code to Azure. If you don't have an Azure Subscription, sign up for [a free account](https://azure.microsoft.com/free/).
 
 Once you've selected a development environment, select one of the following tabs:
 
@@ -54,7 +54,7 @@ Once you've selected a development environment, select one of the following tabs
 
 ### [DevContainer](#tab/devcontainer)
 
-[!INCLUDE [azd-devcontainer](includes/azd-devcontainer.md)]
+[!INCLUDE [azd-dev-container](includes/azd-dev-container.md)]
 
 ---
 

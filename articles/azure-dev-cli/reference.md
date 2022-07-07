@@ -621,12 +621,13 @@ Provision the Azure resources for an application
 
 Provision the Azure resources for an application
 
-The command prompts you for the following:
-	- Environment Name: Name of your environment.
-	- Azure Location: The Azure location where your resources will be deployed.
-	- Azure Subscription: The Azure Subscription where your resources will be deployed.
-	
-Depending on what Azure resources are created, this may take a while. To view progress, go to Azure portal and search for the resource group that contains your environment name.
+The command prompts you for the following values:
+
+- Environment Name: Name of your environment.
+- Azure Location: The Azure location where your resources will be deployed.
+- Azure Subscription: The Azure Subscription where your resources will be deployed.
+
+Depending on what Azure resources are created, this process may take a while. To view progress, go to Azure portal and search for the resource group that contains your environment name.
 
 ```
 azd provision [flags]
@@ -663,7 +664,7 @@ Restore application dependencies
 
 Run this command to install/download all the required libraries so that you can build, run, and debug the application locally.
 
-For best local run and debug experience, refer to https://aka.ms/azure-dev/vscode to leverage the VS Code extension.
+For best local run and debug experience, refer to https://aka.ms/azure-dev/vscode to use the VS Code extension.
 
 ```
 azd restore [flags]
@@ -778,14 +779,14 @@ Initialize application, provision Azure resources, and deploy your project with 
 
 ### Synopsis
 
-Initialize the project (if the project folder has not been initialized or cloned from a template), provision Azure resources, and deploy your project with a single command.
+TheInitialize the project (if the project folder hasn't been initialized or cloned from a template), provision Azure resources, and deploy your project with a single command.
 
-This command executes the following in one step:
+The `azd up` command is the equivalent of calling all of the following commands:
 
 ```
-	$ azd init
-	$ azd provision
-	$ azd deploy
+azd init
+azd provision
+azd deploy
 ```
 
 When no template is supplied, you can optionally select an azd template for cloning. Otherwise, "azd up" initializes the current directory so that your project is compatible with azd.

@@ -32,7 +32,7 @@ Environment name is used as a prefix to the name of each Azure resource created 
 ## Not logged in to Azure or token expired in Visual Studio
 
 "To access
-remote: this repository, you must re-authorize the OAuth Application `Visual Studio`." error after running `azd init -t <template-name>` in Visual Studio.
+remote: this repository, you must reauthorize the OAuth Application `Visual Studio`." error after running `azd init -t <template-name>` in Visual Studio.
 
 ### Troubleshooting step
 
@@ -57,7 +57,7 @@ Sometimes, things go awry with `azd up` or `azd provision`. Common errors includ
 1. Select **Deployments** to get more information.
 
 > [!NOTE]
-> Additional resource: [Troubleshoot common Azure deployment errors - Azure Resource Manager](/azure/azure-resource-manager/troubleshooting/common-deployment-errors)
+> Other resource: [Troubleshoot common Azure deployment errors - Azure Resource Manager](/azure/azure-resource-manager/troubleshooting/common-deployment-errors)
 
 ## `azd pipeline` failure
 
@@ -65,7 +65,7 @@ Sometimes, things go awry with `azd up` or `azd provision`. Common errors includ
 
 ### Troubleshooting steps
 
-1. Verify that you've specified a environment name that is the same as your environment name. 
+1. Verify that you've specified an environment name that is the same as your environment name. 
 1. Go to `https://github.com/<your repo>/actions` and refer to the log file in the pipeline run to get more information.
 
 ## azd monitor for DevContainer

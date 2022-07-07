@@ -27,11 +27,11 @@ The following image shows a graphical representation of the suggested workflow:
 
 ## Azure Developer CLI templates
 
-**Azure Developer CLI templates** are sample repositories created using the Azure Developer CLI conventions so that you can use `azd`. Each template includes application code, tools, infrstructure code, and configure continuous integration and delivery (CI/CD) pipelines that serve as a foundation from which you can build upon and customize to create your own solutions.
+**Azure Developer CLI templates** are sample repositories created using the Azure Developer CLI conventions so that you can use `azd`. Each template includes application code, tools, and infrastructure code. The template configures continuous integration and delivery (CI/CD) pipelines. These pipelines serve as a foundation from which you can build upon and customize to create your own solutions.
 
-The quickest way to get started with azd is to refer to the README in an Azure Developer CLI enabled template. 
+The quickest way to get started with azd is to refer to the README in an Azure Developer CLI enabled template.
 
-This list is grouped by supported language. Each repository contains a complete sample ToDo application with a web frontend built in React.js and the backend API built using a specific azd supported language. 
+This list is grouped by supported language. Each repository contains a complete sample ToDo application with a web frontend built in React.js and the backend API built using a specific azd supported language.
 
 ### [Node.js](#tab/nodejs)
 

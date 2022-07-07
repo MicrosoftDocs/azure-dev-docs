@@ -21,7 +21,7 @@ The following diagram gives a quick overview of the process to create an azd tem
 
 ![Diagram of Azure Developer CLI template workflow.](media/make-azd-compatible/workflow.png)
 
-All azd templates have the same file structure based on azd conventions. The following hierarchy shows the folder structure you'll build in this tutorial. For the complete folder structure, refer to the [azd conventions](#azd-convetions) section.
+All azd templates have the same file structure based on azd conventions. The following hierarchy shows the folder structure you'll build in this tutorial. For the complete folder structure, refer to the [azd conventions](#azd-conventions) section.
 
 ```txt
 ├── .github                    [ Configure GitHub workflow ]
@@ -310,7 +310,7 @@ When you no longer need the resources created in this article, run the following
 azd down
 ```
 
-## azd convetions
+## azd conventions
 
 The following hierarchy shows the complete folder structure of a azd template.
 

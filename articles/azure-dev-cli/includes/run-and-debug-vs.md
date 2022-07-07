@@ -42,7 +42,7 @@ Integration with azd is shipped in version 17.3.0 Preview 2 behind a feature fla
 
 1. In your preferred browser, enter the following address: `https://localhost:3101/lists`
 
-1. When the breakpoint you set earlier is hit, app execution will pause. At this point, you can do standard debugging tasks such inspect variables, look at the call stack, and set additional breakpoints. Press `<F5>` to continue running the app. The sample app returns a list (or an empty list [] if you haven't launched the web front-end before.)
+1. When the breakpoint you set earlier is hit, app execution will pause. At this point, you can do standard debugging tasks such inspect variables, look at the call stack, and set other breakpoints. Press `<F5>` to continue running the app. The sample app returns a list (or an empty list [] if you haven't launched the web front-end before.)
 
     ```
     [{"id":"fb9c1cb3811349b993421fc0e815c4c1","name":"My List","description":null,"createdDate":"2022-06-27T01:10:16.7721172+00:00","updatedDate":null}]
@@ -92,7 +92,7 @@ If you make any updates, you can publish your app by doing the following steps:
 
 1. Select **Finish**.
 
-## Additional resources
+## Other resources
 
 * [Visual Studio Connected Service](/visualstudio/azure/overview-connected-services)
 * [Overview of Publish Tool in Visual Studio](/visualstudio/deployment/publish-overview)
