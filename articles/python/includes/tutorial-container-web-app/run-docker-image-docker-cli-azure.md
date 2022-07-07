@@ -13,8 +13,8 @@ export DB_NAME=<db-name>
 export COLLECTION_NAME=<collection-name>
 
 docker run --rm --detach \
-  --publish-all
-  --env "$CONNECTIONG_STRING" --env "$DB_NAME" --env "$COLLECTION_NAME \
+  --publish-all \
+  --env "$CONNECTION_STRING" --env "$DB_NAME" --env "$COLLECTION_NAME \
   <image-name>:latest  
 ```
 

@@ -13,11 +13,13 @@ ms.author: jejohn
 
 This article is part of a tutorial about containerizing and deploy a Python web app to Azure App Service. App Service enables you to run containerized web apps and deploy through continuous integration/continuous deployment (CI/CD) capabilities with Docker Hub, Azure Container Registry, and Visual Studio Team Services. In this part of the tutorial, you learn how to build and run the containerized Python web app locally.
 
+Running a Docker image locally in your development environment requires setup beyond deployment to Azure. Think of it as an investment than can make future development cycles quicker and easier, especially when you move beyond a sample app and you start to create your own web app. To deploy a sample app or other app that doesn't need modification, you can skip this step and move on to deployment steps in this tutorial. You can always return to this step after deploying to Azure and work on these steps.
+
 After completing this part of the tutorial, you will
 
-* Understand a Dockerfile and how it it is used to build the container image.
+* Use a Dockerfile to specify how to build container image.
 
-* Understand how to use tags as reference for Docker images and use the tag to reference the image. 
+* Use tags as reference for Docker images and use a tag to reference an image. 
 
 * Optionally, understand how to run the image container locally.
 
@@ -49,15 +51,15 @@ Built images from VS Code or from using the Docker CLI directly can be viewed in
 
 ## 2. Set up MongoDB
 
-Running a Docker image locally in your development environment requires setup beyond deployment to Azure. It's an investment than can make future development cycles quicker and easier, especially when you move beyond the provided sample app. To deploy a sample app or other app that doesn't need modification, you can skip this step and move on to deployment. You can always return to this step after deploying to Azure.
-
 This tutorial for running locally assumes you have MongoDB installed locally or you have MongoDB hosted in Azure or anywhere else you have access to. However, don't use a  MongoDB database you'll use in production.
 
 The sample app expects MongoDB connection information to be passed as environment variables. Locally, you'll specify this information through environment variables passed to the Docker container. When deployed to Azure, the web app will get these environment values from the App Service configuration parameters, which act as the environment parameters.
 
 ### [Local MongoDB](#tab/mongodb-local)
 
-**Step 1:** Check that [MongoDB](https://www.mongodb.com/docs/manual/installation/)  installed.
+**Step 1:** Install [MongoDB](https://www.mongodb.com/docs/manual/installation/) if isn't already.
+
+Check if it is installed:
 
 ```
 mongo --version
@@ -74,7 +76,7 @@ net:
   bindIp: 127.0.0.1,<local-ip-address>
 ```
 
-Restart MongoDB to pick up the changes. The local MongoDB connection string is `mongodb://127.0.0.1:27017/`. 
+Restart MongoDB to pick up changes to the configuration file.  
 
 **Step 3:** Create a database and collection in that database.
 
@@ -90,17 +92,19 @@ For the MongoDB shell, here are examples of commands to create the database and 
 > exit
 ```
 
+At this point, your local MongoDB connection string is "mongodb://127.0.0.1:27017/", the database name is "sample_db", and the collection name is "sample_coll".
+
 ### [Azure Cosmos DB MongoDB](#tab/mongodb-azure)
 
 **Step 1:** Get connection information from an existing MongoDB database.
 
-You can create an Azure Cosmos DB for MongoDB with [Azure portal](/azure/cosmos-db/mongodb/create-mongodb-python), [Azure CLI](/azure/cosmos-db/scripts/cli/mongodb/create), [PowerShell](/azure/cosmos-db/scripts/powershell/mongodb/create), or [VS Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb). 
-
-For the steps below, you'll need a connection string, a database name, and a collection name to use.
+You can create an Azure Cosmos DB for MongoDB with [Azure portal](/azure/cosmos-db/mongodb/create-mongodb-python), [Azure CLI](/azure/cosmos-db/scripts/cli/mongodb/create), [PowerShell](/azure/cosmos-db/scripts/powershell/mongodb/create), or [VS Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb). For the steps below, you'll need a connection string, a database name, and a collection name to use.
 
 **Step 2:** Create or ensure that a database and collection exists in the database.
 
 Set the database name to "sample_db" and the collection name to "sample_coll". You can do this using the [Azure Cloud Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/quickstart) and the Azure CLI. For more information, see [Create a database and collection for MongoDB for Azure Cosmos DB using Azure CLI](/azure/cosmos-db/scripts/cli/mongodb/create).
+
+At this point, your Cosmos DB MongoDB connection string is of the form "mongodb://\<server-name>:\<password>@\<server-name>.mongo.cosmos.azure.com:10255/?ssl=true&\<other-parameters>", the database name is "sample_db", and the collection name is "sample_coll". 
 
 ----
 

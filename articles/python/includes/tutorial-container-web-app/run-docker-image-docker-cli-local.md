@@ -28,7 +28,7 @@ YOUR_IP_ADDRESS='<your-machine-ip-address>'
 
 docker run --rm --detach `
   --publish 8000:8000 --publish 27017:27017 `
-  --add-host mongoservice:$YOUR_IP_ADDRESS \
+  --add-host mongoservice:$YOUR_IP_ADDRESS `
   --env "mongodb://monogservice:27017" --env "$DB_NAME" --env "$COLLECTION_NAME `
   <image-name>:latest  
 ```
