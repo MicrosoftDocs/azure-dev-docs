@@ -9,17 +9,16 @@ This article uses the sample [Todo Application with Node.js and Azure Cosmo DB A
 
 ## Install the Visual Studio Code extension for Azure Developer CLI
 
-1. Download [Visual Studio Code extension for Azure Developer CLI](https://azuresdkreleasepreview.blob.core.windows.net/azd/vscode/latest/azure-dev-latest.vsix).
+### Visual Studio Code
 
-1. Open Visual Studio Code
+1. Click the "Extensions" tab in VS Code
+1. Search for "Azure Developer CLI" - authored by Microsoft
+1. Click "Install"
 
-1. From the **View** menu, select **Extensions**.
+### Marketplace
 
-1. At the top right of the **EXTENSIONS** pane, select **...**.
-
-1. Select **Install from VSIX**.
-
-1. Select the location of the downloaded extension file. After completion of the installation, Visual Studio displays a message indicating the extension has been installed.
+1. Go to the [Azure Developer CLI - VS Code Extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.azure-dev) page
+1. Click "Install"
 
 ## Initialize a new app
 
