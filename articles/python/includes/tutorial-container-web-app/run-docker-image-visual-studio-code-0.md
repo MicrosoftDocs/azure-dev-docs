@@ -5,17 +5,8 @@ ms.topic: include
 ms.date: 06/28/2022
 ---
 
-There are a number of ways to get environment variables passed to container. Each has advantages and disadvantages for security. Here, we show one way to it.  In the *tasks.json* section for the Docker run task, add the values needed:
+In the *.vscode* folder, edit the *tasks.json* and *settings.json* file to include connection information.
 
-```json
-"dockerRun": {
-    "env": {
-        "FLASK_APP": "app.py",
-        "FLASK_DEBUG": "1",
-        "CONNECTION_STRING": "<connection-string>",
-        "COLLECTION_NAME": "<collection-name>",
-        "DB_NAME": "<db-name>",
-    },
-}
-```
-Be sure to remove these when finished testing locally. 
+1. The Docker extension tasks in *tasks.json* are called when your run or debug. What task is called depends on what launch configuration you have set. The sample apps have two configurations, "Docker: Python (MongoDB local)" and "Docker: Python (MongoDB Azure)". In the *tasks.json* file find the case that matches your situation and fill the task info. For "Docker: Python (MongoDB local)" specify "\<YOUR-IP-ADDRESS>". For "Docker: Python (MongoDB Azure)", specify "\<CONNECTION_STRING>", "\<DB_NAME>", and "\<COLLECTION_NAME>".
+
+2. The *settings.json* file is used to define what happens when you work with the Docker extension UI and select **Run** or **Run Interactive**. Similar to *tasks.json*, there are templates for MongoDB local and MongoDB Azure. For MongoDB local, specify "\<YOUR-IP-ADDRESS>". For MongoDB Azure", specify "\<CONNECTION_STRING>", "\<DB_NAME>", and "\<COLLECTION_NAME>".

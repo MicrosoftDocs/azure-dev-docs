@@ -49,12 +49,15 @@ Built images from VS Code or from using the Docker CLI directly can be viewed in
 
 ## 2. Run the image locally in a container
 
-The sample app requires a MongoDB connection string, database name, and collection name. The MongoDB database must be accessible to you locally as well as in Azure. 
+Running a Docker image locally in your development environment requires setup beyond deployment to Azure. It's an investment than can make future development cycles quicker and easier, especially when you move beyond the provided sample app. To deploy a sample app or other app that doesn't need modification, you can skip this step and move on to deployment. You can always return to this step after deploying to Azure.
 
-> [!TIP])
-> You can install [MongoDB](https://www.mongodb.com/docs/manual/installation/) locally or use any MongoDB database you can reach locally. To create an Azure Cosmos DB for MongoDB with theses steps for [Azure portal](/azure/cosmos-db/mongodb/create-mongodb-python), [Azure CLI](/azure/cosmos-db/scripts/cli/mongodb/create), [PowerShell](/azure/cosmos-db/scripts/powershell/mongodb/create), or [VS Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb). 
+The description for running locally assumes you have MongoDB installed locally. However, with minor modifications to the steps, you can also use a MongoDB hosted in Azure or anywhere else you have access to. However, don't use the MongoDB database you'll use in production.
 
-The sample app expects MongoDB connection information to be passed as environment variables. Locally, we pass in MongoDB connection information through environment variables passed to the container. When deployed to Azure, the web app will get these environment values from the App Service configuration parameters, which act as the environment parameters. 
+The sample app expects MongoDB connection information to be passed as environment variables. Locally, you'll specify this information through environment variables passed to the container. When deployed to Azure, the web app will get these environment values from the App Service configuration parameters, which act as the environment parameters.
+
+[!INCLUDE [Set up MongoDB](<./includes/tutorial-container-web-app/mongodb-local-or-azure.md>)]
+
+With information to connect to a MongoDB, you are ready to run the container.  There are a number of ways to get environment variables passed to container. Each has advantages and disadvantages in terms of security. You always want to avoid checking in any sensitive information or leaving sensitive information in code in the container. 
 
 ### [VS Code](#tab/vscode-aztools)
 
