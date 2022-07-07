@@ -16,7 +16,7 @@ Integration with azd is shipped in version 17.3.0 Preview 2 behind a feature fla
 
 1. Make sure **Integration with azd, the Azure Developer CLI** is enabled
 
-    ![Screenshot of the Visual Studio option to turn on integration with the Azure Developer CLI.](../media/run-and-debug/vs-options.png)
+    ![Screenshot of the Visual Studio option to turn on integration with the Azure Developer CLI.](../media/debug/visual-studio-options.png)
 
 ## Open the API solution
 
@@ -24,7 +24,7 @@ Integration with azd is shipped in version 17.3.0 Preview 2 behind a feature fla
 
 1. Double-click **Connected Services** to see all the dependencies. Even though the web front-end running on Azure App Service isn't part of the API solution, it's detected and included under **Service Dependencies**
 
-    ![Screenshot of the message indicating the Azure Developer CLI is initialized.](../media/run-and-debug/vs-open-solution.png)
+    ![Screenshot of the message indicating the Azure Developer CLI is initialized.](../media/debug/visual-studio-open-solution.png)
 
 ## Run and debug
 
@@ -32,13 +32,13 @@ Integration with azd is shipped in version 17.3.0 Preview 2 behind a feature fla
 
 1. Set a breakpoint at line 20.
 
-    ![Screenshot of the breakpoint set in the sample code.](../media/run-and-debug/vs-breakpoint.png)
+    ![Screenshot of the breakpoint set in the sample code.](../media/debug/visual-studio-breakpoint.png)
 
 1. Press `<F5>`.
 
 1. Wait for the message indicating the web server is listening on port 3101.
 
-    ![Screenshot of the statusbar message indicating the debugger is listening on port 3101.](../media/run-and-debug/vs-run.png)
+    ![Screenshot of the statusbar message indicating the debugger is listening on port 3101.](../media/debug/visual-studio-run.png)
 
 1. In your preferred browser, enter the following address: `https://localhost:3101/lists`
 
@@ -58,7 +58,7 @@ To manage the azd environment, select **...** in the upper-right corner of the *
 - Select and set a specific environment as the current active environment
 - Deprovision an environment
 
-![Screenshot of the options to manage the Azure Developer CLI environment in Visual Studio.](../media/run-and-debug/vs-manage-environment.png)
+![Screenshot of the options to manage the Azure Developer CLI environment in Visual Studio.](../media/debug/visual-studio-manage-environment.png)
 
 ### Provision environment resources
 
@@ -68,7 +68,7 @@ You can provision Azure resources to your environment.
 
 1. Click the icon at the top right to restore/provision environment resources.
 
-    ![Screenshot of option to provision Azure Developer CLI environment resources in Visual Studio.](../media/run-and-debug/vs-provision.png)
+    ![Screenshot of option to provision Azure Developer CLI environment resources in Visual Studio.](../media/debug/visual-studio-provision.png)
 
 1. Confirm the environment name, subscription and location.
 
@@ -86,7 +86,7 @@ If you make any updates, you can publish your app by doing the following steps:
 
 1. Select **Azure Developer CLI Environment**, and select **Next**.
 
-    ![Screenshot of message in Debug Console indicating debugger is listening on port 3100.](../media/run-and-debug/vs-publish.png)
+    ![Screenshot of message in Debug Console indicating debugger is listening on port 3100.](../media/debug/visual-studio-publish.png)
 
 1. Select the environment.
 

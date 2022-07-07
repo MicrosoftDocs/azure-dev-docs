@@ -15,13 +15,13 @@ zone_pivot_groups: azd-devenv-set
 
 ::: zone pivot="ide-vs-code"
 
-[!INCLUDE [run-and-debug-vscode](includes/run-and-debug-vscode.md)]
+[!INCLUDE [debug-visual-studio-code](includes/debug-visual-studio-scode.md)]
 
 ::: zone-end
 
 ::: zone pivot="ide-vs"
 
-[!INCLUDE [run-and-debug-vs](includes/run-and-debug-vs.md)]
+[!INCLUDE [debug-visual-studio](includes/debug-visual-studio.md)]
 
 ::: zone-end
 
