@@ -10,7 +10,7 @@ By now, you should have your Azure resources provisioned and application deploye
 
 Integration with azd is shipped in version 17.3.0 Preview 2 behind a feature flag. Make sure you have a version later than 17.3.0 Preview 2 and enable the preview feature before you proceed further.
 
-1. Open Visual Studio 
+1. Open Visual Studio.
 
 1. From the **Tools** menu, select **Options** and then **Preview Features**.
 
@@ -20,11 +20,9 @@ Integration with azd is shipped in version 17.3.0 Preview 2 behind a feature fla
 
 ## Open the API solution
 
-1. Open **Todo.Api.sln** in /src/api. 
+1. Open the `Todo.Api.sln` solution in the `/src/api` directory. If you've enabled the azd integration feature, the `azure.yaml` file is detected. At this point, Visual Studio automatically initializes the application model and runs `azd env refresh`.
 
-1. **azure.yaml** file is detected. Visual Studio automatically initializes the application model and runs `azd env refresh`.
-
-1. Double-click **Connected Services** to see all the dependencies. Even though the web front-end running on Azure App Service isn't part of the api solution, it's detected and included under **Service Dependencies**
+1. Double-click **Connected Services** to see all the dependencies. Even though the web front-end running on Azure App Service isn't part of the API solution, it's detected and included under **Service Dependencies**
 
     !["Visual Studio open azd solution"](../media/run-and-debug/vs-opensln.png)
 
@@ -36,15 +34,15 @@ Integration with azd is shipped in version 17.3.0 Preview 2 behind a feature fla
     
     !["Set breakpoint"](../media/run-and-debug/vs-breakpoint.png)
 
-1. Hit &lt;F5>
+1. Press `<F5>`.
 
 1. Wait for the message indicating the web server is listening on port 3101.
 
     !["Message indicating debugger is listening on port 3101"](../media/run-and-debug/vs-f5.png)
 
-1. In your preferred browser, enter: `https://localhost:3101/lists`
+1. In your preferred browser, enter the following address: `https://localhost:3101/lists`
 
-1. When the breakpoint you set earlier is hit, app execution will pause. At this point, you can do standard debugging tasks such inspect variables, look at the call stack, and set additional breakpoints. Press &lt;F5> to continue running the app. The sample app returns a list (or an empty list [] if you haven't launched the web front-end before.)
+1. When the breakpoint you set earlier is hit, app execution will pause. At this point, you can do standard debugging tasks such inspect variables, look at the call stack, and set additional breakpoints. Press `<F5>` to continue running the app. The sample app returns a list (or an empty list [] if you haven't launched the web front-end before.)
 
     ```
     [{"id":"fb9c1cb3811349b993421fc0e815c4c1","name":"My List","description":null,"createdDate":"2022-06-27T01:10:16.7721172+00:00","updatedDate":null}]
@@ -54,12 +52,13 @@ Integration with azd is shipped in version 17.3.0 Preview 2 behind a feature fla
 
 ### Manage azd environment
 
-To manage azd environment, click "..." icon in the upper-right corner of the **Service Dependencies** pane, and then select one of the options in the dropdown menu:
-* create a new environment
-* select and set a specific environment as the current active environment
-* deprovision an environment
+To manage the azd environment, select **...** in the upper-right corner of the **Service Dependencies** pane, and then select one of the following options in the dropdown menu:
 
-    !["Manage azd environment in Visual Studio"](../media/run-and-debug/vs-manageenv.png)
+- Create a new environment
+- Select and set a specific environment as the current active environment
+- Deprovision an environment
+
+!["Manage azd environment in Visual Studio"](../media/run-and-debug/vs-manageenv.png)
 
 ### Provision environment resources
 
@@ -67,31 +66,33 @@ You can provision Azure resources to your environment.
 
 1. In **Connected Services**
 
-1. Click the icon at the top right to restore/provision environment resources
+1. Click the icon at the top right to restore/provision environment resources.
 
     !["Provision environment resources in Visual Studio"](../media/run-and-debug/vs-provision.png)
 
-1. You will be asked to confim the environment name, subscription and location.
+1. Confirm the environment name, subscription and location.
 
 ### Publish your app
 
-If you make any update, you can publish your app by:
+If you make any updates, you can publish your app by doing the following steps:
 
-1. doubleclick **Connected Services** in **Solution Explorer**
+1. In the Solution Explorer, double click **Connected Services**.
 
-1. click **Publish**
+1. Select **Publish**.
 
-1. click **Add a publish profile**
+1. Select **Add a publish profile**.
 
-1. select **Azure** as **Target**, click next
+1. Select a **Target** of **Azure**, and select **Next**.
 
-1. select **AzDev Environment**, click next
+1. Select **AzDev Environment**, and select **Next**.
 
     !["Message in Debug Console indicating debugger is listening on port 3100"](../media/run-and-debug/vs-publish.png)
 
-1. select the environment and click Finish
+1. Select the environment.
 
-## Addtional resources
+1. Select **Finish**.
+
+## Additional resources
 
 * [Visual Studio Connected Service](/visualstudio/azure/overview-connected-services)
 * [Overview of Publish Tool in Visual Studio](/visualstudio/deployment/publish-overview)

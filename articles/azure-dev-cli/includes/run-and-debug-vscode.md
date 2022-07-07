@@ -72,7 +72,7 @@ The debug configuration **Debug API** automatically runs the API server and atta
 
     !["Use cURL to connect to the API server"](../media/run-and-debug/run-curl-command.png)
 
-1. When the breakpoint you set earlier is hit, app execution will pause. At this point, you can do standard debugging tasks such inspect variables, look at the call stack, and set additional breakpoints. Press &lt;F5> to continue running the app. The sample app returns an empty list.
+1. When the breakpoint you set earlier is hit, app execution will pause. At this point, you can do standard debugging tasks such inspect variables, look at the call stack, and set additional breakpoints. Press `<F5>` to continue running the app. The sample app returns an empty list.
 
 ## Debug a React Frontend app
 
@@ -100,4 +100,4 @@ To use the **Debug Web** configuration, you must start both the API server and t
 
     !["The sample NodeJS Mongo app allows you to add and delete text items"](../media/run-and-debug/sample-app.png)
 
-1. When the breakpoint you set earlier is hit, app execution will pause. At this point, you can do standard debugging tasks such inspect variables, look at the call stack, and set additional breakpoints. Press &lt;F5> to continue running the app and the selected item will be deleted.
+1. When the breakpoint you set earlier is hit, app execution will pause. At this point, you can do standard debugging tasks such inspect variables, look at the call stack, and set additional breakpoints. Press `<F5>` to continue running the app and the selected item will be deleted.
