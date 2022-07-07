@@ -84,7 +84,7 @@ If you make any updates, you can publish your app by doing the following steps:
 
 1. Select a **Target** of **Azure**, and select **Next**.
 
-1. Select **AzDev Environment**, and select **Next**.
+1. Select **Azure Developer CLI Environment**, and select **Next**.
 
     !["Message in Debug Console indicating debugger is listening on port 3100"](../media/run-and-debug/vs-publish.png)
 
