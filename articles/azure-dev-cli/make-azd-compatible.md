@@ -21,7 +21,7 @@ The following diagram gives a quick overview of the process to create an azd tem
 
 ![Azure Developer CLI enable](media/make-azd-compatible/dev-ify.png)
 
-All azd templates have the same file structure based on azd conventions. The following hierarchy shows the folder structure you'll build in this tutorial. For the complete folder structure, refer to [azd comventions](#azd-convetions).
+All azd templates have the same file structure based on azd conventions. The following hierarchy shows the folder structure you'll build in this tutorial. For the complete folder structure, refer to the [azd conventions](#azd-convetions) section.
 
 ```txt
 ├── .github                    [ Configure GitHub workflow ]
@@ -312,7 +312,7 @@ azd down
 
 ## azd convetions
 
-The followiwng hierarchy shows the complete folder structure of a azd template.
+The following hierarchy shows the complete folder structure of a azd template.
 
 ```txt
 ├── .devcontainer              [ For DevContainer ]
