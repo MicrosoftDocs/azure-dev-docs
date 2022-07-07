@@ -24,7 +24,7 @@ Azure Developer CLI is a command-line interface for developers who build Azure s
 To begin working with Azure Developer CLI, run the `azd up` command by supplying a sample template in an empty directory:
 
 ```		
-	$ azd up –-template todo-nodejs-mongo
+azd up –-template todo-nodejs-mongo
 ```
 
 You can pick a template by running `azd template list` and then supplying the repo name as a value to `–-template`.
@@ -32,9 +32,9 @@ You can pick a template by running `azd template list` and then supplying the re
 The most common next commands are:
 
 ```	
-	$ azd pipeline config
-	$ azd deploy
-	$ azd monitor --overview
+azd pipeline config
+azd deploy
+azd monitor --overview
 ```
 	
 For more information, visit the [Azure Developer CLI Dev Hub](https://aka.ms/azure-dev/devhub).
@@ -42,11 +42,11 @@ For more information, visit the [Azure Developer CLI Dev Hub](https://aka.ms/azu
 ### Options
 
 ```
-  -C, --cwd string           Sets the current working directory.
-      --debug                Enables debugging and diagnostics logging.
-  -e, --environment string   The name of the environment to use.
-  -h, --help                 Gets help for Azure Developer CLI.
-      --no-prompt            Accepts the default value instead of prompting, or it fails if there is no default.
+-C, --cwd string           Sets the current working directory.
+    --debug                Enables debugging and diagnostics logging.
+-e, --environment string   The name of the environment to use.
+-h, --help                 Gets help for Azure Developer CLI.
+    --no-prompt            Accepts the default value instead of prompting, or it fails if there is no default.
 ```
 
 ### See also
@@ -78,9 +78,9 @@ When no `--service` value is specified, all services in the *azure.yaml* file (f
 Examples:
 
 ```
-	$ azd deploy
-	$ azd deploy –-service api
-	$ azd deploy –-service web
+azd deploy
+azd deploy –-service api
+azd deploy –-service web
 ```
 
 After the deployment is complete, the endpoint is printed. To start the service, select the endpoint or paste it in a browser.
@@ -92,18 +92,18 @@ azd deploy [flags]
 ### Options
 
 ```
-  -h, --help             Gets help for the deployment.
-  -o, --output string    The output format (the supported formats are JSON, none; the default is none).
-      --service string   Deploys a specific service (when the string is unspecified, all services that are listed in the azure.yaml file are deployed).
+-h, --help             Gets help for the deployment.
+-o, --output string    The output format (the supported formats are JSON, none; the default is none).
+    --service string   Deploys a specific service (when the string is unspecified, all services that are listed in the azure.yaml file are deployed).
 ```
 
 ### Options inherited from parent commands
 
 ```
-  -C, --cwd string           Sets the current working directory.
-      --debug                Enables debugging and diagnostics logging.
-  -e, --environment string   The name of the environment to use.
-      --no-prompt            Accepts the default value instead of prompting, or it fails if there is no default value.
+-C, --cwd string           Sets the current working directory.
+    --debug                Enables debugging and diagnostics logging.
+-e, --environment string   The name of the environment to use.
+    --no-prompt            Accepts the default value instead of prompting, or it fails if there is no default value.
 ```
 
 ### See also
@@ -121,19 +121,19 @@ azd down [flags]
 ### Options
 
 ```
-      --force           Does not require confirmation before it deletes resources.
-  -h, --help            Gets help for down.
-  -o, --output string   The output format (the supported formats are JSON, none; the default is none).
-      --purge           Permanently deletes resources that are soft-deleted by default (for example, key vaults).
+    --force           Does not require confirmation before it deletes resources.
+-h, --help            Gets help for down.
+-o, --output string   The output format (the supported formats are JSON, none; the default is none).
+    --purge           Permanently deletes resources that are soft-deleted by default (for example, key vaults).
 ```
 
 ### Options inherited from parent commands
 
 ```
-  -C, --cwd string           Sets the current working directory.
-      --debug                Enables debugging and diagnostics logging.
-  -e, --environment string   The name of the environment to use.
-      --no-prompt            Accepts the default value instead of prompting, or it fails if there is no default value.
+-C, --cwd string           Sets the current working directory.
+    --debug                Enables debugging and diagnostics logging.
+-e, --environment string   The name of the environment to use.
+    --no-prompt            Accepts the default value instead of prompting, or it fails if there is no default value.
 ```
 
 ### See also
@@ -155,16 +155,16 @@ You can find all environment configurations under the *.azure\<environment-name>
 ### Options
 
 ```
-  -h, --help   Gets help for the environment.
+-h, --help   Gets help for the environment.
 ```
 
 ### Options inherited from parent commands
 
 ```
-  -C, --cwd string           Sets the current working directory.
-      --debug                Enables debugging and diagnostics logging.
-  -e, --environment string   The name of the environment to use.
-      --no-prompt            Accepts the default value instead of prompting, or it fails if there is no default.
+-C, --cwd string           Sets the current working directory.
+    --debug                Enables debugging and diagnostics logging.
+-e, --environment string   The name of the environment to use.
+    --no-prompt            Accepts the default value instead of prompting, or it fails if there is no default.
 ```
 
 ### See also
@@ -188,17 +188,17 @@ azd env get-values [flags]
 ### Options
 
 ```
-  -h, --help            Gets help for get-values.
-  -o, --output string   The output format (the supported formats are JSON, dotenv; the default is dotenv).
+-h, --help            Gets help for get-values.
+-o, --output string   The output format (the supported formats are JSON, dotenv; the default is dotenv).
 ```
 
 ### Options inherited from parent commands
 
 ```
-  -C, --cwd string           Sets the current working directory.
-      --debug                Enables debugging and diagnostics logging.
-  -e, --environment string   The name of the environment to use.
-      --no-prompt            Accepts the default value instead of prompting, or it fails if there is no default.
+-C, --cwd string           Sets the current working directory.
+    --debug                Enables debugging and diagnostics logging.
+-e, --environment string   The name of the environment to use.
+    --no-prompt            Accepts the default value instead of prompting, or it fails if there is no default.
 ```
 
 ### See also
@@ -217,17 +217,17 @@ azd env list [flags]
 ### Options
 
 ```
-  -h, --help            Gets help for list.
-  -o, --output string   The output format (the supported formats are JSON, table; the default is table).
+-h, --help            Gets help for list.
+-o, --output string   The output format (the supported formats are JSON, table; the default is table).
 ```
 
 ### Options inherited from parent commands
 
 ```
-  -C, --cwd string           Sets the current working directory.
-      --debug                Enables debugging and diagnostics logging.
-  -e, --environment string   The name of the environment to use.
-      --no-prompt            Accepts the default value instead of prompting, or it fails if there is no default.
+-C, --cwd string           Sets the current working directory.
+    --debug                Enables debugging and diagnostics logging.
+-e, --environment string   The name of the environment to use.
+    --no-prompt            Accepts the default value instead of prompting, or it fails if there is no default.
 ```
 
 ### See also
@@ -246,16 +246,16 @@ azd env new <environment> [flags]
 ### Options
 
 ```
-  -h, --help   Gets help for new.
+-h, --help   Gets help for new.
 ```
 
 ### Options inherited from parent commands
 
 ```
-  -C, --cwd string           Sets the current working directory.
-      --debug                Enables debugging and diagnostics logging.
-  -e, --environment string   The name of the environment to use.
-      --no-prompt            Accepts the default value instead of prompting, or it fails if there is no default.
+-C, --cwd string           Sets the current working directory.
+    --debug                Enables debugging and diagnostics logging.
+-e, --environment string   The name of the environment to use.
+    --no-prompt            Accepts the default value instead of prompting, or it fails if there is no default.
 ```
 
 ### See also
@@ -274,17 +274,17 @@ azd env refresh [flags]
 ### Options
 
 ```
-  -h, --help            Gets help for refresh.
-  -o, --output string   The output format (the supported formats are JSON, none; the default is none).
+-h, --help            Gets help for refresh.
+-o, --output string   The output format (the supported formats are JSON, none; the default is none).
 ```
 
 ### Options inherited from parent commands
 
 ```
-  -C, --cwd string           Sets the current working directory.
-      --debug                Enables debugging and diagnostics logging.
-  -e, --environment string   The name of the environment to use.
-      --no-prompt            Accepts the default value instead of prompting, or it fails if there is no default.
+-C, --cwd string           Sets the current working directory.
+    --debug                Enables debugging and diagnostics logging.
+-e, --environment string   The name of the environment to use.
+    --no-prompt            Accepts the default value instead of prompting, or it fails if there is no default.
 ```
 
 ### See also
@@ -303,16 +303,16 @@ azd env select <environment> [flags]
 ### Options
 
 ```
-  -h, --help   Gets help for select.
+-h, --help   Gets help for select.
 ```
 
 ### Options inherited from parent commands
 
 ```
-  -C, --cwd string           Sets the current working directory.
-      --debug                Enables debugging and diagnostics logging.
-  -e, --environment string   The name of the environment to use.
-      --no-prompt            Accepts the default value instead of prompting, or it fails if there is no default.
+-C, --cwd string           Sets the current working directory.
+    --debug                Enables debugging and diagnostics logging.
+-e, --environment string   The name of the environment to use.
+    --no-prompt            Accepts the default value instead of prompting, or it fails if there is no default.
 ```
 
 ### See also
@@ -331,16 +331,16 @@ azd env set <key> <value> [flags]
 ### Options
 
 ```
-  -h, --help   Gets help for set.
+-h, --help   Gets help for set.
 ```
 
 ### Options inherited from parent commands
 
 ```
-  -C, --cwd string           Sets the current working directory.
-      --debug                Enables debugging and diagnostics logging.
-  -e, --environment string   The name of the environment to use.
-      --no-prompt            Accepts the default value instead of prompting, or it fails if there is no default.
+-C, --cwd string           Sets the current working directory.
+    --debug                Enables debugging and diagnostics logging.
+-e, --environment string   The name of the environment to use.
+    --no-prompt            Accepts the default value instead of prompting, or it fails if there is no default.
 ```
 
 ### See also
@@ -355,21 +355,21 @@ Manage Azure resources.
 ### Options
 
 ```
-  -h, --help   Gets help for infra.
+-h, --help   Gets help for infra.
 ```
 
 ### Options inherited from parent commands
 
 ```
-  -C, --cwd string           Sets the current working directory.
-      --debug                Enables debugging and diagnostics logging.
-  -e, --environment string   The name of the environment to use.
-      --no-prompt            Accepts the default value instead of prompting, or it fails if there is no default.
+-C, --cwd string           Sets the current working directory.
+    --debug                Enables debugging and diagnostics logging.
+-e, --environment string   The name of the environment to use.
+    --no-prompt            Accepts the default value instead of prompting, or it fails if there is no default.
 ```
 
 ### See also
 
-* [azd infra create](#azd-infra-create: Create Azure resources for an application.
+* [azd infra create](#azd-infra-create): Create Azure resources for an application.
 * [azd infra delete](#azd-infra-delete): Delete Azure resources for an application.
 * [Back to top](#azure-developer-cli-preview-reference)
 
@@ -384,18 +384,18 @@ azd infra create [flags]
 ### Options
 
 ```
-  -h, --help            Gets help for create.
-      --no-progress     Suppresses progress information.
-  -o, --output string   The output format (the supported formats are JSON, none; the default is none).
+-h, --help            Gets help for create.
+    --no-progress     Suppresses progress information.
+-o, --output string   The output format (the supported formats are JSON, none; the default is none).
 ```
 
 ### Options inherited from parent commands
 
 ```
-  -C, --cwd string           Sets the current working directory.
-      --debug                Enables debugging and diagnostics logging.
-  -e, --environment string   The name of the environment to use.
-      --no-prompt            Accepts the default value instead of prompting, or it fails if there is no default.
+-C, --cwd string           Sets the current working directory.
+    --debug                Enables debugging and diagnostics logging.
+-e, --environment string   The name of the environment to use.
+    --no-prompt            Accepts the default value instead of prompting, or it fails if there is no default.
 ```
 
 ### See also
@@ -414,18 +414,18 @@ azd infra delete [flags]
 ### Options
 
 ```
-      --force   Doesn't require confirmation before deleting resources.
-  -h, --help    Gets help for delete.
-      --purge   Permanently deletes resources that are soft-deleted by default (for example, key vaults).
+    --force   Doesn't require confirmation before deleting resources.
+-h, --help    Gets help for delete.
+    --purge   Permanently deletes resources that are soft-deleted by default (for example, key vaults).
 ```
 
 ### Options inherited from parent commands
 
 ```
-  -C, --cwd string           Sets the current working directory.
-      --debug                Enables debugging and diagnostics logging.
-  -e, --environment string   The name of the environment to use.
-      --no-prompt            Accepts the default value instead of prompting, or it fails if there is no default.
+-C, --cwd string           Sets the current working directory.
+    --debug                Enables debugging and diagnostics logging.
+-e, --environment string   The name of the environment to use.
+    --no-prompt            Accepts the default value instead of prompting, or it fails if there is no default.
 ```
 
 ### See also
@@ -452,18 +452,18 @@ azd init [flags]
 ### Options
 
 ```
-  -b, --branch string     The template branch to initialize from.
-  -h, --help              Gets help for init.
-  -t, --template string   The template to use when you initialize the project. You can use Full URI, <owner>/<repository>, or <repository> if it's part of the azure-samples organization. 
+-b, --branch string     The template branch to initialize from.
+-h, --help              Gets help for init.
+-t, --template string   The template to use when you initialize the project. You can use Full URI, <owner>/<repository>, or <repository> if it's part of the azure-samples organization. 
 ```
 
 ### Options inherited from parent commands
 
 ```
-  -C, --cwd string           Sets the current working directory.
-      --debug                Enables debugging and diagnostics logging.
-  -e, --environment string   The name of the environment to use.
-      --no-prompt            Accepts the default value instead of prompting, or it fails if there is no default.
+-C, --cwd string           Sets the current working directory.
+    --debug                Enables debugging and diagnostics logging.
+-e, --environment string   The name of the environment to use.
+    --no-prompt            Accepts the default value instead of prompting, or it fails if there is no default.
 ```
 
 ### See also
@@ -481,19 +481,19 @@ azd login [flags]
 ### Options
 
 ```
-      --check-status      Checks the log-in status instead of logging in.
-  -h, --help              Gets help for login.
-  -o, --output string     The output format (the supported formats are JSON, table; the default is table).
-      --use-device-code   When true, log in by using a device code instead of a browser.
+    --check-status      Checks the log-in status instead of logging in.
+-h, --help              Gets help for login.
+-o, --output string     The output format (the supported formats are JSON, table; the default is table).
+    --use-device-code   When true, log in by using a device code instead of a browser.
 ```
 
 ### Options inherited from parent commands
 
 ```
-  -C, --cwd string           Sets the current working directory.
-      --debug                Enables debugging and diagnostics logging.
-  -e, --environment string   The name of the environment to use.
-      --no-prompt            Accepts the default value instead of prompting, or it fails if there is no default.
+-C, --cwd string           Sets the current working directory.
+    --debug                Enables debugging and diagnostics logging.
+-e, --environment string   The name of the environment to use.
+    --no-prompt            Accepts the default value instead of prompting, or it fails if there is no default.
 ```
 
 ### See also
@@ -511,9 +511,9 @@ Monitor a deployed application.
 Examples:
 
 ```
-	$ azd monitor --overview
-	$ azd monitor -–live
-	$ azd monitor --logs
+azd monitor --overview
+azd monitor -–live
+azd monitor --logs
 ```
 
 For more information, go to [https://aka.ms/azure-dev/monitor](https://aka.ms/azure-dev/monitor).
@@ -525,19 +525,19 @@ azd monitor [flags]
 ### Options
 
 ```
-  -h, --help       Gets help for monitor.
-      --live       Open a browser to Application Insights Live Metrics. Live Metrics is currently not supported for the Python app.
-      --logs       Open a browser to Application Insights Logs.
-      --overview   Open a browser to Application Insights Overview Dashboard.
+-h, --help       Gets help for monitor.
+    --live       Open a browser to Application Insights Live Metrics. Live Metrics is currently not supported for the Python app.
+    --logs       Open a browser to Application Insights Logs.
+    --overview   Open a browser to Application Insights Overview Dashboard.
 ```
 
 ### Options inherited from parent commands
 
 ```
-  -C, --cwd string           Sets the current working directory.
-      --debug                Enables debugging and diagnostics logging.
-  -e, --environment string   The name of the environment to use.
-      --no-prompt            Accepts the default value instead of prompting, or it fails if there is no default.
+-C, --cwd string           Sets the current working directory.
+    --debug                Enables debugging and diagnostics logging.
+-e, --environment string   The name of the environment to use.
+    --no-prompt            Accepts the default value instead of prompting, or it fails if there is no default.
 ```
 
 ### See also
@@ -559,16 +559,16 @@ For more information, go to [https://aka.ms/azure-dev/pipeline](https://aka.ms/a
 ### Options
 
 ```
-  -h, --help   Gets help for pipeline.
+-h, --help   Gets help for pipeline.
 ```
 
 ### Options inherited from parent commands
 
 ```
-  -C, --cwd string           Sets the current working directory.
-      --debug                Enables debugging and diagnostics logging.
-  -e, --environment string   The name of the environment to use.
-      --no-prompt            Accepts the default value instead of prompting, or it fails if there is no default.
+-C, --cwd string           Sets the current working directory.
+    --debug                Enables debugging and diagnostics logging.
+-e, --environment string   The name of the environment to use.
+    --no-prompt            Accepts the default value instead of prompting, or it fails if there is no default.
 ```
 
 ### See also
@@ -593,19 +593,19 @@ azd pipeline config [flags]
 ### Options
 
 ```
-  -h, --help                    Gets help for config.
-      --principal-name string   The name of the service principal to use to grant access to Azure resources as part of the pipeline.
-      --principal-role string   The role to assign to the service principal (the default is Contributor).
-      --remote-name string      The name of the git remote to configure the pipeline to run on (the default is origin)
+-h, --help                    Gets help for config.
+    --principal-name string   The name of the service principal to use to grant access to Azure resources as part of the pipeline.
+    --principal-role string   The role to assign to the service principal (the default is Contributor).
+    --remote-name string      The name of the git remote to configure the pipeline to run on (the default is origin)
 ```
 
 ### Options inherited from parent commands
 
 ```
-  -C, --cwd string           Sets the current working directory.
-      --debug                Enables debugging and diagnostics logging.
-  -e, --environment string   The name of the environment to use.
-      --no-prompt            Accepts the default value instead of prompting, or it fails if there is no default.
+-C, --cwd string           Sets the current working directory.
+    --debug                Enables debugging and diagnostics logging.
+-e, --environment string   The name of the environment to use.
+    --no-prompt            Accepts the default value instead of prompting, or it fails if there is no default.
 ```
 
 ### See also
@@ -635,18 +635,18 @@ azd provision [flags]
 ### Options
 
 ```
-  -h, --help            Gets help for provision.
-      --no-progress     Suppresses progress information.
-  -o, --output string   The output format (the supported formats are JSON, none; the default is none).
+-h, --help            Gets help for provision.
+    --no-progress     Suppresses progress information.
+-o, --output string   The output format (the supported formats are JSON, none; the default is none).
 ```
 
 ### Options inherited from parent commands
 
 ```
-  -C, --cwd string           Sets the current working directory.
-      --debug                Enables debugging and diagnostics logging.
-  -e, --environment string   The name of the environment to use.
-      --no-prompt            Accepts the default value instead of prompting, or it fails if there is no default.
+-C, --cwd string           Sets the current working directory.
+    --debug                Enables debugging and diagnostics logging.
+-e, --environment string   The name of the environment to use.
+    --no-prompt            Accepts the default value instead of prompting, or it fails if there is no default.
 ```
 
 ### See also
@@ -672,17 +672,17 @@ azd restore [flags]
 ### Options
 
 ```
-  -h, --help             Gets help for restore.
-      --service string   Deploys a specific service (when the string is unspecified, all services that are listed in the azure.yaml file are deployed).
+-h, --help             Gets help for restore.
+    --service string   Deploys a specific service (when the string is unspecified, all services that are listed in the azure.yaml file are deployed).
 ```
 
 ### Options inherited from parent commands
 
 ```
-  -C, --cwd string           Sets the current working directory.
-      --debug                Enables debugging and diagnostics logging.
-  -e, --environment string   The name of the environment to use.
-      --no-prompt            Accepts the default value instead of prompting, or it fails if there is no default.
+-C, --cwd string           Sets the current working directory.
+    --debug                Enables debugging and diagnostics logging.
+-e, --environment string   The name of the environment to use.
+    --no-prompt            Accepts the default value instead of prompting, or it fails if there is no default.
 ```
 
 ### See also
@@ -696,16 +696,16 @@ Manage templates
 ### Options
 
 ```
-  -h, --help   Gets help for template.
+-h, --help   Gets help for template.
 ```
 
 ### Options inherited from parent commands
 
 ```
-  -C, --cwd string           Sets the current working directory.
-      --debug                Enables debugging and diagnostics logging.
-  -e, --environment string   The name of the environment to use
-      --no-prompt            Accepts the default value instead of prompting, or it fails if there is no default.
+-C, --cwd string           Sets the current working directory.
+    --debug                Enables debugging and diagnostics logging.
+-e, --environment string   The name of the environment to use
+    --no-prompt            Accepts the default value instead of prompting, or it fails if there is no default.
 ```
 
 ### See also
@@ -725,17 +725,17 @@ azd template list [flags]
 ### Options
 
 ```
-  -h, --help            Gets help for list.
-  -o, --output string   The output format (the supported formats are JSON, table; the default is table).
+-h, --help            Gets help for list.
+-o, --output string   The output format (the supported formats are JSON, table; the default is table).
 ```
 
 ### Options inherited from parent commands
 
 ```
-  -C, --cwd string           Sets the current working directory.
-      --debug                Enables debugging and diagnostics logging.
-  -e, --environment string   The name of the environment to use.
-      --no-prompt            Accepts the default value instead of prompting, or it fails if there is no default.
+-C, --cwd string           Sets the current working directory.
+    --debug                Enables debugging and diagnostics logging.
+-e, --environment string   The name of the environment to use.
+    --no-prompt            Accepts the default value instead of prompting, or it fails if there is no default.
 ```
 
 ### See also
@@ -754,17 +754,17 @@ azd template show <template> [flags]
 ### Options
 
 ```
-  -h, --help            Gets help for show.
-  -o, --output string   The output format (the supported formats are JSON, table; the default is table).
+-h, --help            Gets help for show.
+-o, --output string   The output format (the supported formats are JSON, table; the default is table).
 ```
 
 ### Options inherited from parent commands
 
 ```
-  -C, --cwd string           Sets the current working directory.
-      --debug                Enables debugging and diagnostics logging.
-  -e, --environment string   The name of the environment to use.
-      --no-prompt            Accepts the default value instead of prompting, or it fails if there is no default.
+-C, --cwd string           Sets the current working directory.
+    --debug                Enables debugging and diagnostics logging.
+-e, --environment string   The name of the environment to use.
+    --no-prompt            Accepts the default value instead of prompting, or it fails if there is no default.
 ```
 
 ### See also
@@ -783,9 +783,9 @@ Initialize the project (if the project folder has not been initialized or cloned
 This command executes the following in one step:
 
 ```
-	$ azd init
-	$ azd provision
-	$ azd deploy
+azd init
+azd provision
+azd deploy
 ```
 
 When no template is supplied, you can optionally select an Azure Developer CLI template for cloning. Otherwise, running `azd up` initializes the current directory so that your project is compatible with Azure Developer CLI.
@@ -797,21 +797,21 @@ azd up [flags]
 ### Options
 
 ```
-  -b, --branch string     The template branch to initialize from.
-  -h, --help              Gets help for up.
-      --no-progress       Suppresses progress information.
-  -o, --output string     The output format (the supported formats are JSON, none; the default is none).
-      --service string    Deploys a specific service (when the string is unspecified, all services that are listed in the azure.yaml file are deployed).
-  -t, --template string   The template to use when you initialize the project. You can use Full URI, <owner>/<repository>, or <repository> if it's part of the azure-samples organization. 
+-b, --branch string     The template branch to initialize from.
+-h, --help              Gets help for up.
+    --no-progress       Suppresses progress information.
+-o, --output string     The output format (the supported formats are JSON, none; the default is none).
+    --service string    Deploys a specific service (when the string is unspecified, all services that are listed in the azure.yaml file are deployed).
+-t, --template string   The template to use when you initialize the project. You can use Full URI, <owner>/<repository>, or <repository> if it's part of the azure-samples organization. 
 ```
 
 ### Options inherited from parent commands
 
 ```
-  -C, --cwd string           Sets the current working directory.
-      --debug                Enables debugging and diagnostics logging.
-  -e, --environment string   The name of the environment to use.
-      --no-prompt            Accepts the default value instead of prompting, or it fails if there is no default.
+-C, --cwd string           Sets the current working directory.
+    --debug                Enables debugging and diagnostics logging.
+-e, --environment string   The name of the environment to use.
+    --no-prompt            Accepts the default value instead of prompting, or it fails if there is no default.
 ```
 
 ### See also
@@ -829,16 +829,16 @@ azd version [flags]
 ### Options
 
 ```
-  -h, --help   Gets help for version.
+-h, --help   Gets help for version.
 ```
 
 ### Options inherited from parent commands
 
 ```
-  -C, --cwd string           Sets the current working directory.
-      --debug                Enables debugging and diagnostics logging.
-  -e, --environment string   The name of the environment to use.
-      --no-prompt            Accepts the default value instead of prompting, or it fails if there is no default.
+-C, --cwd string           Sets the current working directory.
+    --debug                Enables debugging and diagnostics logging.
+-e, --environment string   The name of the environment to use.
+    --no-prompt            Accepts the default value instead of prompting, or it fails if there is no default.
 ```
 
 ### See also
