@@ -11,14 +11,19 @@ This article uses the sample [Todo Application with Node.js and Azure Cosmo DB A
 
 ### Visual Studio Code
 
-1. Click the "Extensions" tab in VS Code
-1. Search for "Azure Developer CLI" - authored by Microsoft
-1. Click "Install"
+1. Open Visual Studio Code.
+
+1. From the **View** menu, select **Extensions**.
+
+1. In the search field, enter `Azure Developer CLI`.
+
+1. Select **Install**.
 
 ### Marketplace
 
-1. Go to the [Azure Developer CLI - VS Code Extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.azure-dev) page
-1. Click "Install"
+1. Using your browser, go to the [Azure Developer CLI - VS Code Extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.azure-dev) page.
+
+1. Select **Install**.
 
 ## Initialize a new app
 
