@@ -17,7 +17,7 @@ This article uses the sample [Todo Application with Node.js and Azure Cosmos DB 
 
 ## Prerequisites
 
-This article assumes you've installed the azd. If you're new to azd, begin with [Get started](get-started.md), and then return to this article.
+- [Install azd](get-started.md).
 
 ## Configure a DevOps pipeline
 
@@ -33,7 +33,7 @@ To create the service principle, run the command `azd pipeline config`. The comm
     azd pipeline config
     ```
 
-1. Supply the requested GitHub information. When prompted to specify if you want to commit and push your local changes to start a new GitHub Actions run, specify "y".
+1. Supply the requested GitHub information. When prompted about committing and pushing your local changes to start a new GitHub Actions run, specify "y".
 
 1. If the terminal window isn't open, from the **View** menu, select **Terminal**. The results of the `azd pipeline config` command display. The `azd pipeline config` command will output the GitHub repository name for your project.
 

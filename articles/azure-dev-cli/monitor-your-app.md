@@ -17,7 +17,7 @@ You can use any of the [Azure Developer CLI template](overview.md#azure-develope
 
 ## Prerequisites
 
-This article assumes you've installed the azd. If you are new to azd, begin with [Get started](get-started.md) and then return to this article.
+- [Install azd](get-started.md).
 
 ## Configure your environment
 
