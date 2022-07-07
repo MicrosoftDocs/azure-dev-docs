@@ -2,7 +2,7 @@
 author: jess-johnson-msft
 ms.author: jejohn
 ms.topic: include
-ms.date: 06/28/2022
+ms.date: 07/07/2022
 ---
 
 **Step 1.** Run the latest version of the image.
