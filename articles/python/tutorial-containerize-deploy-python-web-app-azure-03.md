@@ -17,34 +17,30 @@ In the previous part of this tutorial, a container image was build and run local
 
 Before you can deploy a Docker image, the image must be uploaded to a container registry. In this tutorial, you'll work with Azure Container Registry (ACR), bu or another registry. 
 
-## 1. Add an Azure Container Registry
+## 1. Create an Azure Container Registry
 
 If you have an Azure Container Registry, go to the next step.
 
 ### [Azure portal](#tab/azure-portal)
 
- 1. Search for "container registries" in the portal search and go to the **Container registries** service.
+Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps to create your Azure Container Registry.
 
- 1. Select **+ Create** to start the create process.
-
- 1. Enter values for Resource group and Registry name. The registry name must be unique within Azure, and contain 5-50 alphanumeric characters. For this tutorial create a new resource group in the West US location named myResourceGroup, and for SKU, select 'Basic'.
-
- 1. Select **Review + create**.
-
- 1. After deployment, note the Login server. It should be a fully qualified name with "azurecr.io".
+| Instructions    | Screenshot |
+|:----------------|-----------:|
+| [!INCLUDE [Include showing how to find container registries in Azure portal](<./includes/tutorial-container-web-app/container-registry-create-portal-1.md>)] |  |
+| [!INCLUDE [Include showing how to start create of registry in Azure portal](<./includes/tutorial-container-web-app/container-registry-create-portal-2.md>)] | |
+| [!INCLUDE [Include showing how to review and create registry in Azure portal](<./includes/tutorial-container-web-app/container-registry-create-portal-3.md>)] | |
+| [!INCLUDE [Include showing how to get qualified name of registry in Azure portal](<./includes/tutorial-container-web-app/container-registry-create-portal-4.md>)] | |
  
 ### [VS Code](#tab/vscode-aztools)
 
 Requires Azure and Docker extensions.
 
-1. In VS Code, select **F1** or **CTRL+SHIFT+P** to open the command palette.
-
-1. Enter "registry" in the search box. From the results, select **Azure Container Registry: Create Registry...**
-
-1. Enter values ....
-
-1. Open **Docker* Explorer. Ensure that the registry endpoint you just set up is visible under **Registries**.
-
+| Instructions    | Screenshot |
+|:----------------|-----------:|
+| [!INCLUDE [Include showing how to open command palette in VS Code](<./includes/tutorial-container-web-app/container-registry-create-vscode-1.md>)] |  |
+| [!INCLUDE [Include showing how to start create of registry in VS Code](<./includes/tutorial-container-web-app/container-registry-create-vscode-2.md>)] | |
+| [!INCLUDE [Include showing how to review and create registry in VS Code](<./includes/tutorial-container-web-app/container-registry-create-vscode-3.md>)] | |
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -56,9 +52,9 @@ Step 3. Log in to the registry
 
 ---
 
-## 2. Build image in Azure
+## 2. Build an image in Azure Container Registry
 
-You can't build an 
+You can't build an image in the portal.
 
 ### [VS Code](#tab/vscode-aztools-build)
 
@@ -71,7 +67,7 @@ You can't build an
 ---
 
 
-## 3. Confirm the image in the registry
+## 3. Get details of the image
 
 ### [Azure portal](#tab/azure-portal)
 
