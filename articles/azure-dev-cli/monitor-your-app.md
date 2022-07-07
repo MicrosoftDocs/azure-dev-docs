@@ -45,6 +45,10 @@ When you no longer need the resources created in this article, do the following 
 azd down
 ```
 
+## See also
+
+- [Azure Monitor documentation](/azure/azure-monitor/)
+
 ## Next steps
 
 > [!div class="nextstepaction"]
