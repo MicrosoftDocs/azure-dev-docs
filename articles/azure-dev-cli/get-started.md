@@ -50,7 +50,7 @@ Once you've selected a development environment, select one of the following tabs
 
 ### [Bare metal](#tab/bare-metal)
 
-[!INCLUDE [azd-baremetal](includes/azd-baremetal.md)]
+[!INCLUDE [azd-bare-metal](includes/azd-bare-metal.md)]
 
 ### [DevContainer](#tab/devcontainer)
 
