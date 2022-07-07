@@ -20,7 +20,7 @@ groups:
   - id: ide-vs
     title: Visual Studio
 - id: make-azure-developer-cli-compatible-set
-  title: Starting point for making an project compatible with the Azure Developer CLI
+  title: Starting point for making a project compatible with the Azure Developer CLI
   prompt: Choose a starting point
   pivots:
   - id: azd-create
