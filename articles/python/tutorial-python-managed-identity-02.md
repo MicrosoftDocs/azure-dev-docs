@@ -1,5 +1,5 @@
 ---
-title: '2. Run the web app locally'
+title: 'Deploy a Python web app to Azure with managed identity: run the web app locally'
 description: How to run a Python (Django or Flask) web app locally with local PostgreSQL and a local storage emulator, as a first step before deploying to Azure.
 author: jess-johnson-msft
 ms.author: jejohn

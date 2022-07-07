@@ -1,5 +1,5 @@
 ---
-title: '3. Create a web app'
+title: 'Deploy a Python web app to Azure with managed identity: create a web app'
 description: Create the Azure App Service that the Python (Django or Flask) web app is deployed to and configure managed identity.
 author: jess-johnson-msft
 ms.author: jejohn

@@ -1,5 +1,5 @@
 ---
-title: '5. Create a PostgreSQL database'
+title: 'Deploy a Python web app to Azure with managed identity: create a PostgreSQL database'
 description: Create the Azure Database for PostgreSQL services that the deployed Python (Django or Flask) web app will access in Azure using managed identity.
 author: jess-johnson-msft
 ms.author: jejohn
@@ -36,7 +36,7 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps 
 | [!INCLUDE [Create postgresql database in portal - 5](<./includes/python-web-app-managed-identity/create-postgres-service-azure-portal-5.md>)] | |
 | [!INCLUDE [Create postgresql database in portal - 6](<./includes/python-web-app-managed-identity/create-postgres-service-azure-portal-6.md>)] | |
 | [!INCLUDE [Create postgresql database in portal - 7](<./includes/python-web-app-managed-identity/create-postgres-service-azure-portal-7.md>)] | :::image type="content" source="./media/python-web-app-managed-identity/create-postgres-service-azure-portal-7-240px.png" lightbox="./media/python-web-app-managed-identity/create-postgres-service-azure-portal-7.png" alt-text="A screenshot showing link to go to resource after database is created." ::: |
-[!INCLUDE [Create postgresql database in portal - 8](<./includes/python-web-app-managed-identity/create-postgres-service-azure-portal-8.md>)] | :::image type="content" source="./media/python-web-app-managed-identity/create-postgres-service-azure-portal-8-240px.png" lightbox="./media/python-web-app-managed-identity/create-postgres-service-azure-portal-8.png" alt-text="A screenshot showing adding current IP as a firewall rule for the PostgreSQL Flexible server in the Azure portal." ::: | 
+[!INCLUDE [Create postgresql database in portal - 8](<./includes/python-web-app-managed-identity/create-postgres-service-azure-portal-8.md>)] | :::image type="content" source="./media/python-web-app-managed-identity/create-postgres-service-azure-portal-8-240px.png" lightbox="./media/python-web-app-managed-identity/create-postgres-service-azure-portal-8.png" alt-text="A screenshot showing adding current IP as a firewall rule for the PostgreSQL Single server in the Azure portal." ::: | 
 
 ### [VS Code](#tab/vscode-aztools)
 
