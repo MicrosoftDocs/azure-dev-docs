@@ -1,6 +1,6 @@
 ---
-title: Troubleshoot common problems when using Azure Developer CLI (azd) Preview
-description: In this article, troubleshoot common problems when using Azure Developer CLI (azd)
+title: Troubleshoot Azure Developer CLI Preview
+description: In this article, troubleshoot common problems that might occur when you're using Azure Developer CLI Preview.
 author: puicchan
 ms.author: puichan
 keywords: azd, known issues, troubleshooting, azure developer cli
@@ -8,74 +8,69 @@ ms.topic: troubleshooting
 ms.date: 07/05/2022
 ms.custom: devx-track-azdevcli
 ms.prod: azure
-# Customer intent: Find solutions to common problems encountered when using Azure Developer CLI (azd)
+# Customer intent: As a developer, I'm looking for solutions to common problems that occur when I'm using Azure Developer CLI.
 ---
 
-# Troubleshoot common problems when using Azure Developer CLI (azd) Preview
+# Troubleshoot Azure Developer CLI Preview
 
-This article lists common problems and possible solutions when using Azure Developer CLI (azd) Preview.
+This article provides solutions to common problems that might arise when you're using Azure Developer CLI (azd) Preview.
 
 ## Get help and give feedback
 
-If you're unable to find what you're looking for in this article or want to provide feedback, you can post questions to the [Azure Developer CLI Discussions](https://github.com/Azure/azure-dev/discussions).
+If you're unable to find what you're looking for in this article or you want to provide feedback, you can post questions to [Azure Developer CLI Discussions](https://github.com/Azure/azure-dev/discussions).
 
-You can also report bugs by opening GitHub Issues in [Azure Developer CLI GitHub repository](https://github.com/Azure/azure-dev).
+You can also report bugs by opening GitHub Issues in the [Azure Developer CLI GitHub repository](https://github.com/Azure/azure-dev).
 
-## .azure folder
+## The .azure folder
 
-The azd assumes that folders under .azure folder's dev CLI environments. Don't run azd commands from the home directory of a user that has Azure CLI installed.
-
-## Environment naming restriction
-
-Environment name is used as a prefix to the name of each Azure resource created for this project. Azure resources have [naming rules and restrictions](/azure/azure-resource-manager/management/resource-name-rules), make sure you use a name that is less than 15-character long and unique.
+Azure Developer CLI assumes that any folders that are stored in the *.azure* folder are Azure Developer CLI environments. Don't run Azure Developer CLI commands from the home directory of a user that has the Azure CLI installed.
 
 ## Not logged in to Azure or token expired in Visual Studio
 
-"To access
-remote: this repository, you must reauthorize the OAuth Application `Visual Studio`." error after running `azd init -t <template-name>` in Visual Studio.
+After you've run `azd init -t <template-name>` in Visual Studio, you get the following error: "To access remote: this repository, you must re-authorize the OAuth Application `Visual Studio`."
 
-### Troubleshooting step
+### Solution
 
-Run `azd login` to refresh access token.
+Run `azd login` to refresh the access token.
 
-## `az bicep CLI` requirement
+## Azure Bicep CLI requirement
 
-`azd up` and `azd provision` require the latest release of az bicep CLI. Run `az bicep upgrade` if you see this error message: "Error: failed to compile bicep template: failed running Az PowerShell module bicep build: exit code: 1, stdout: , stderr: WARNING: A new Bicep release is available: v0.4.1272."
+`azd up` and `azd provision` require the latest release of Azure Bicep CLI. You might get the following error message: "Error: failed to compile bicep template: failed running Az PowerShell module bicep build: exit code: 1, stdout: , stderr: WARNING: A new Bicep release is available: v0.4.1272."
 
-### Troubleshooting step
+### Solution
 
-Upgrade Bicep by running `az bicep upgrade`.
+Upgrade Bicep CLI by running `az bicep upgrade`.
 
 ## `azd up` or `az provision` fails
 
-Sometimes, things go awry with `azd up` or `azd provision`. Common errors include: can't provision certain resources in an Azure region because the region is out of capacity; or relevant resource provider isn't present in that region. Troubleshooting steps differ depending on root cause.
+Things can sometimes go awry with `azd up` or `azd provision`. Common errors include:
+* "Can't provision certain resources in an Azure region because the region is out of capacity."
+* "Relevant resource provider isn't present in that region." 
 
-### Troubleshooting steps
+The troubleshooting steps might differ, depending on the root cause.
 
-1. Go to the [Azure portal](https://portal.azure.com) 
-1. Locate your resource group, which is `<your-environment-name>-rg`.
+### Solution
+
+1. Go to the [Azure portal](https://portal.azure.com). 
+
+1. Locate your resource group, which is \<your-environment-name>-rg.
+
 1. Select **Deployments** to get more information.
 
-> [!NOTE]
-> Other resource: [Troubleshoot common Azure deployment errors - Azure Resource Manager](/azure/azure-resource-manager/troubleshooting/common-deployment-errors)
+1. Verify that you've specified an environment name that's the same as your environment name. 
 
-## `azd pipeline` failure
+1. Go to `https://github.com/<your repo>/actions`, and then refer to the log file in the pipeline run for more information.
 
-`azd pipeline` fails to deploy your latest change.
+For additional resources, see [Troubleshoot common Azure deployment errors - Azure Resource Manager](/azure/azure-resource-manager/troubleshooting/common-deployment-errors).
 
-### Troubleshooting steps
+## 'azd monitor' for development container
 
-1. Verify that you've specified an environment name that is the same as your environment name. 
-1. Go to `https://github.com/<your repo>/actions` and refer to the log file in the pipeline run to get more information.
-
-## azd monitor for DevContainer
-
-`azd monitor` is currently not supported if you use a DevContainer as your development environment.
+`azd monitor` is currently not supported if you use a development container as your development environment.
 
 ## Text-based browser support
 
-Text-based browser is currently not supported by `azd monitor`.
+Text-based browsers are currently not supported by `azd monitor`.
 
 ## Live metrics support for Python
 
-Live Metrics (`azd monitor --live`) is currently not supported for Python app. For more information, see [this article](/azure/azure-monitor/app/live-stream#get-started).
+Live Metrics (`azd monitor --live`) is currently not supported for Python applications. For more information, see [Live Metrics: Monitor and diagnose with 1-second latency](/azure/azure-monitor/app/live-stream#get-started).
