@@ -4,7 +4,7 @@ In this article, you learn how to use [Visual Studio](/visualstudio/azure) to ru
 
 We'll use the [Todo Application with C# and Azure Cosmos DB API for MongoDB](https://github.com/Azure-Samples/todo-csharp-cosmos-sql) for this tutorial.
 
-By now, you should have your Azure resources provisioned and application deployed. If not, follow the steps in [Get started](../get-started?tabs=bare-metal%2Cwindows&pivots=programming-language-csharp) and then return to this article.
+By now, you should have your Azure resources provisioned and application deployed. If not, follow the steps in [Get started](../get-started.md?tabs=bare-metal%2Cwindows&pivots=programming-language-csharp) and then return to this article.
 
 ## Enable the preview feature
 
