@@ -19,8 +19,8 @@ groups:
     title: Visual Studio Code
   - id: ide-vs
     title: Visual Studio
-- id: azd-devify-set
-  title: Devify starting point
+- id: make-azure-developer-cli-compatible-set
+  title: Starting point for making an project compatible with the Azure Developer CLI
   prompt: Choose a starting point
   pivots:
   - id: azd-create

@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.custom: devx-track-azdevcli
 ms.prod: azure
 zone_pivot_group_filename: developer/azure-dev-cli/azd-zone-pivot-groups.json
-zone_pivot_groups: azd-devify-set
+zone_pivot_groups: make-azure-developer-cli-compatible-set
 ---
 
 # Make your project compatible with Azure Developer CLI (azd) Preview
