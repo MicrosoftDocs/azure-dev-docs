@@ -108,7 +108,7 @@ azd deploy [flags]
 
 ### See also
 
-* [Back to top](#azd)
+* [Back to top](#azure-developer-cli-preview-reference)
 
 ## azd down
 
