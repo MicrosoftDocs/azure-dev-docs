@@ -27,7 +27,7 @@ After completing this part of the tutorial, you will
 
 If you are using one of the the framework sample apps available for Django and Flask, you are set to go. If you are bringing your own sample app, make sure there is a *Dockerfile* in the root directory.
 
-### [VS Code](#tab/vscode-aztools)
+### [VS Code](#tab/vscode-docker)
 
 These instructions require [Visual Studio Code](https://code.visualstudio.com/), the [Docker extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) for VS Code, and [Docker](https://docs.docker.com/get-docker/).
 
@@ -112,7 +112,7 @@ At this point, your Cosmos DB MongoDB connection string is of the form "mongodb:
 
 With information on how to connect to a MongoDB, you are ready to run the container locally.  There are a number of ways to get environment variables passed to container. Each has advantages and disadvantages in terms of security. You should avoid checking in any sensitive information or leaving sensitive information in code in the container. 
 
-### [VS Code](#tab/vscode-aztools)
+### [VS Code](#tab/vscode-docker)
 
 | Instructions    | Screenshot |
 |:----------------|-----------:|
