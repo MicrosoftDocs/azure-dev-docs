@@ -38,9 +38,9 @@ Requires Azure and Docker extensions.
 
 | Instructions    | Screenshot |
 |:----------------|-----------:|
-| [!INCLUDE [Include showing how to open command palette in VS Code](<./includes/tutorial-container-web-app/container-registry-create-vscode-1.md>)] |  |
-| [!INCLUDE [Include showing how to start create of registry in VS Code](<./includes/tutorial-container-web-app/container-registry-create-vscode-2.md>)] | |
-| [!INCLUDE [Include showing how to review and create registry in VS Code](<./includes/tutorial-container-web-app/container-registry-create-vscode-3.md>)] | |
+| [!INCLUDE [Include showing how to open command palette in VS Code](<./includes/tutorial-container-web-app/container-registry-create-vscode-1.md>)] | :::image type="content" source="./media/tutorial-container-web-app/visual-studio-code-registry-tasks-240px.png" lightbox="./media/tutorial-container-web-app/visual-studio-code-registry-tasks.png" alt-text="A screenshot showing how to search for show registries tasks in Visual Studio Code." ::: |
+| [!INCLUDE [Include showing how to start create of registry in VS Code](<./includes/tutorial-container-web-app/container-registry-create-vscode-2.md>)] | :::image type="content" source="./media/tutorial-container-web-app/visual-studio-code-create-registry-240px.gif" lightbox="./media/tutorial-container-web-app/visual-studio-code-create-registry.gif" alt-text="An animated GIF showing how to create a registry in Visual Studio Code." ::: |
+| [!INCLUDE [Include showing how to review and create registry in VS Code](<./includes/tutorial-container-web-app/container-registry-create-vscode-3.md>)] | :::image type="content" source="./media/tutorial-container-web-app/visual-studio-code-registry-get-properties-240px.png" lightbox="./media/tutorial-container-web-app/visual-studio-code-registry-get-properties.png" alt-text="A screenshot showing how to get the properties of a registry in Visual Studio Code." ::: |
 
 ### [Azure CLI](#tab/azure-cli)
 
