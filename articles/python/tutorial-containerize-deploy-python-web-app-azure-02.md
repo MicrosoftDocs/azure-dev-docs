@@ -11,7 +11,7 @@ ms.author: jejohn
 
 # Build and test a containerized Python web app locally
 
-This article is part of a tutorial about containerizing and deploy a Python web app to Azure App Service. App Service enables you to run containerized web apps and deploy through continuous integration/continuous deployment (CI/CD) capabilities with Docker Hub, Azure Container Registry, and Visual Studio Team Services. In this part of the tutorial, you learn how to build and run the containerized Python web app locally. *This is an optional step and it not needed to deploy the sample apps to Azure.*
+This article is part of a tutorial about containerizing and deploy a Python web app to Azure App Service. App Service enables you to run containerized web apps and deploy through continuous integration/continuous deployment (CI/CD) capabilities with Docker Hub, Azure Container Registry, and Visual Studio Team Services. In this part of the tutorial, you learn how to build and run the containerized Python web app locally. *This is an optional step and it not required to deploy the sample apps to Azure.*
 
 Running a Docker image locally in your development environment requires setup beyond deployment to Azure. Think of it as an investment than can make future development cycles quicker and easier, especially when you move beyond a sample app and you start to create your own web app. To deploy a sample app or other app that doesn't need modification, you can skip this step and move on to deployment steps in this tutorial. You can always return to this step after deploying to Azure and work on these steps.
 
