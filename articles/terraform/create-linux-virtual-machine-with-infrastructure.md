@@ -248,7 +248,7 @@ To use SSH to connect to the virtual machine, do the following steps:
 1. Run [terraform output](https://www.terraform.io/cli/commands/output) to get the SSH private key and save it to a file.
 
     ```console
-    terraform output -raw tls_private_key > id_rsa
+    terraform output -raw tls_private_key > ~/id_rsa
     ```
 
 1. Run [terraform output](https://www.terraform.io/cli/commands/output) to get the virtual machine public IP address.
@@ -261,8 +261,14 @@ To use SSH to connect to the virtual machine, do the following steps:
 1. Use SSH to connect to the virtual machine.
 
     ```console
-    ssh -i id_rsa azureuser@<public_ip_address>
+    chmod 600 ~/id_rsa
+    ssh -i ~/id_rsa azureuser@<public_ip_address>
     ```
+
+## Clean up resources
+
+[!INCLUDE [terraform-plan-destroy.md](includes/terraform-plan-destroy.md)]
+
 
 ## Troubleshoot Terraform on Azure
 
