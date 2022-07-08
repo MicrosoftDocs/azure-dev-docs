@@ -18,7 +18,7 @@ In this article, you'll learn the basic commands for using the Azure Developer C
 
 ::: zone pivot="programming-language-nodejs"
 
-We'll use the [ToDo Application with a Node.js API and Azure Cosmos DB API for MongoDB](https://github.com/azure-samples/todo-nodejs-mongo) for this tutorial. Upon completion, you'll get the code in your development environment and will be able to run commands to build, deploy, and monitor the application in Azure.
+We'll use the [ToDo Application with a Node.js API and Azure Cosmos DB API for MongoDB](https://github.com/azure-samples/todo-nodejs-mongo) for this tutorial. Upon completion, you'll get the code in your development environment and will be able to run commands to build, deploy, and monitor the app in Azure.
 
 For more information including architecture diagram and the Azure resources you'll deploy, see the [README](https://github.com/Azure-Samples/todo-nodejs-mongo/blob/main/README.md).
 
@@ -26,7 +26,7 @@ For more information including architecture diagram and the Azure resources you'
 
 ::: zone pivot="programming-language-python"
 
-We'll use the [ToDo Application with a Python API and Azure Cosmos DB API for MongoDB](https://github.com/azure-samples/todo-python-mongo) for this tutorial. Upon completion, you'll get the code in your development environment and will be able to run commands to build, deploy, and monitor the application in Azure.
+We'll use the [ToDo Application with a Python API and Azure Cosmos DB API for MongoDB](https://github.com/azure-samples/todo-python-mongo) for this tutorial. Upon completion, you'll get the code in your development environment and will be able to run commands to build, deploy, and monitor the app in Azure.
 
 For more information including architecture diagram and the Azure resources you'll deploy, see the [README](https://github.com/Azure-Samples/todo-python-mongo/blob/main/README.md).
 
@@ -34,7 +34,7 @@ For more information including architecture diagram and the Azure resources you'
 
 ::: zone pivot="programming-language-csharp"
 
-We'll use the [ToDo Application with a C# API and Azure Cosmos DB SQL API](https://github.com/Azure-Samples/todo-csharp-cosmos-sql) for this tutorial. Upon completion, you'll get the code in your development environment and will be able to run commands to build, deploy, and monitor the application in Azure.
+We'll use the [ToDo Application with a C# API and Azure Cosmos DB SQL API](https://github.com/Azure-Samples/todo-csharp-cosmos-sql) for this tutorial. Upon completion, you'll get the code in your development environment and will be able to run commands to build, deploy, and monitor the app in Azure.
 
 For more information including architecture diagram and the Azure resources you'll deploy, see the [README](https://github.com/Azure-Samples/todo-csharp-cosmos-sql/blob/main/README.md).
 
@@ -61,8 +61,8 @@ Once you've selected a development environment, select one of the following tabs
 Once the `azd up` command completes, it displays several URLs:
 
 - Azure portal link to view resources created
-- ToDo web application frontend
-- ToDo API application
+- ToDo web app frontend
+- ToDo API app
 
 ![Screenshot of command output listing endpoint URLs."](media/get-started/urls.png)
 
@@ -72,7 +72,7 @@ Upon successful completion of the `azd up` command, you'll note several changes 
 
 - A local clone of the repo referenced by the azd template has been created in the directory where you ran `azd up`.
 - The Azure resources referenced in the templates `README.md` file have been provisioned to the Azure subscription you specified when you ran `azd up`. You can view those Azure resources using the [Azure portal](https://portal.azure.com).
-- The application has been built and deployed to Azure. Using the web application URL output from the `azd up` command, you can browse to the fully functional app.
+- The app has been built and deployed to Azure. Using the web app URL output from the `azd up` command, you can browse to the fully functional app.
 
 > [!NOTE] 
 > * You can call `azd up` as many times as you like to both provision and deploy your solution, but you only need to provide the `--template` parameter the first time you call it to get the code locally. Subsequent `azd up` calls do not require the template parameter. If you do provide the parameter, all your local source code will be overwritten if you agree to overwrite when prompted.

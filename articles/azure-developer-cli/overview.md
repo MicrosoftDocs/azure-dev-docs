@@ -1,6 +1,6 @@
 ---
 title: What is the Azure Developer CLI (azd) Preview?
-description: Overview of the features and capabilities of the Azure Developer CLI that helps developers be more productive when building and deploying applications to Azure.
+description: Overview of the features and capabilities of the Azure Developer CLI that helps developers be more productive when building and deploying apps to Azure.
 author: puicchan
 ms.author: puichan
 ms.date: 06/09/2022
@@ -11,7 +11,7 @@ ms.prod: azure
 
 # What is the Azure Developer CLI (azd) Preview?
 
-The Azure Developer CLI (azd) Preview is a developer-centric command-line tool for building cloud applications. The azd is a set of commands that allows you to work consistently across azd templates, DevOps workflows, and your IDE (integrated development environment).
+The Azure Developer CLI (azd) Preview is a developer-centric command-line tool for building cloud apps. The azd is a set of commands that allows you to work consistently across azd templates, DevOps workflows, and your IDE (integrated development environment).
 
 ## Recommended azd workflow
 
@@ -27,11 +27,11 @@ The following image shows a graphical representation of the suggested workflow:
 
 ## Azure Developer CLI templates
 
-**Azure Developer CLI templates** are sample repositories created using the Azure Developer CLI conventions so that you can use `azd`. Each template includes application code, tools, and infrastructure code. The template configures continuous integration and delivery (CI/CD) pipelines. These pipelines serve as a foundation from which you can build upon and customize to create your own solutions.
+**Azure Developer CLI templates** are sample repositories created using the Azure Developer CLI conventions so that you can use `azd`. Each template includes app code, tools, and infrastructure code. The template configures continuous integration and delivery (CI/CD) pipelines. These pipelines serve as a foundation from which you can build upon and customize to create your own solutions.
 
 The quickest way to get started with azd is to refer to the README in an Azure Developer CLI enabled template.
 
-This list is grouped by supported language. Each repository contains a complete sample ToDo application with a web frontend built in React.js and the backend API built using a specific azd supported language.
+This list is grouped by supported language. Each repository contains a complete sample ToDo app with a web frontend built in React.js and the backend API built using a specific azd supported language.
 
 ### [Node.js](#tab/nodejs)
 
@@ -80,7 +80,7 @@ To run any sample template, the first thing you need to do decide is where you w
 
 ## Supported Azure compute services (host)
 
-Currently supported/planned hosting platform for the application:
+Currently supported/planned hosting platform for the app:
 
 | Azure compute service      | Supported? |
 | ----------- | ----------- |

@@ -1,6 +1,6 @@
 ---
 title: Make your project compatible with Azure Developer CLI (azd) Preview 
-description: How to convert an application to an Azure developer enabled template.
+description: How to convert an app to an Azure developer enabled template.
 author: puicchan
 ms.author: puichan
 ms.date: 04/12/2021
@@ -13,7 +13,7 @@ zone_pivot_groups: make-azure-developer-cli-compatible-set
 
 # Make your project compatible with Azure Developer CLI (azd) Preview
 
-Azure Developer CLI (azd) Preview enables developers to create applications from templates stored in GitHub repositories. Microsoft provides [several templates](overview.md?branch=pr-en-us-3070&tabs=nodejs#azure-developer-cli-templates) to get you started. In this article, you learn how to enable your own project as a template.
+Azure Developer CLI (azd) Preview enables developers to create apps from templates stored in GitHub repositories. Microsoft provides [several templates](overview.md?branch=pr-en-us-3070&tabs=nodejs#azure-developer-cli-templates) to get you started. In this article, you learn how to enable your own project as a template.
 
 ## Understand the azd architecture overview
 
@@ -29,7 +29,7 @@ All azd templates have the same file structure based on azd conventions. The fol
 │   ├── main.bicep             [ Main infrastructure file ]
 │   ├── main.parameters.json   [ Parameters file ]
 │   └── resources.bicep        [ Resources file ]
-└── azure.yaml                 [ Describes the application and type of Azure resources]
+└── azure.yaml                 [ Describes the app and type of Azure resources]
 ```
 
 ## Create the project and source directories
@@ -50,7 +50,7 @@ All azd templates have the same file structure based on azd conventions. The fol
     git clone https://github.com/Azure-Samples/msdocs-python-flask-webapp-quickstart
     ```
 
-1. (Optional) To see sample working, follow the instructions to [run the app locally](/azure/app-service/quickstart-python?tabs=flask%2Cwindows%2Cazure-portal%2Cterminal-bash%2Cvscode-deploy%2Cdeploy-instructions-azportal%2Cdeploy-instructions-zip-azcli#1---sample-application).
+1. (Optional) To see sample working, follow the instructions to [run the app locally](/azure/app-service/quickstart-python?tabs=flask%2Cwindows%2Cazure-portal%2Cterminal-bash%2Cvscode-deploy%2Cdeploy-instructions-azportal%2Cdeploy-instructions-zip-azcli#1---sample-app).
 
 1. Change the current directory to `msdocs-python-flask-webapp-quickstart`.
 
@@ -113,7 +113,7 @@ As this sample provisions App Service resources, you need an Azure App Service P
     @description('Primary location for all resources')
     param location string
 
-    @description('Id of the user or app to assign application roles')
+    @description('Id of the user or app to assign app roles')
     param principalId string = ''
 
     resource resourceGroup 'Microsoft.Resources/resourceGroups@2020-06-01' = {
@@ -251,7 +251,7 @@ To deploy the app, azd needs to know more about your app. Edit the `azure.yaml` 
     ```
 
     **Key points:**
-    - **name**: Root element. Required. Name of the application.
+    - **name**: Root element. Required. Name of the app.
     - **services**: Root element. Required. Definition of services that is part of the app.
     - **web**: Required. Name of the service. Can be any name, for example, api, web. This name needs to be the same as the `azd-service-name` value you specified earlier.
     - **project**: Required. Path to the service source code directory. Use **src/web** if your source code is found under /src/web.
@@ -323,8 +323,8 @@ The following hierarchy shows the complete folder structure of a azd template.
 │   ├── main.bicep             [ Main infrastructure file ]
 │   ├── main.parameters.json   [ Parameters file ]
 │   └── resources.bicep        [ Resources file ]
-├── src                        [ Contains folder(s) for the application code ]
-└── azure.yaml                 [ Describes the application and type of Azure resources]
+├── src                        [ Contains folder(s) for the app code ]
+└── azure.yaml                 [ Describes the app and type of Azure resources]
 ```
 
 ## See also

@@ -4,7 +4,7 @@ In this article, you learn how to use [Visual Studio](/visualstudio/azure) to ru
 
 We'll use the [Todo Application with C# and Azure Cosmos DB API for MongoDB](https://github.com/Azure-Samples/todo-csharp-cosmos-sql) for this tutorial.
 
-By now, you should have your Azure resources provisioned and application deployed. If not, follow the steps in [Get started](../get-started.md?tabs=bare-metal%2Cwindows&pivots=programming-language-csharp) and then return to this article.
+By now, you should have your Azure resources provisioned and app deployed. If not, follow the steps in [Get started](../get-started.md?tabs=bare-metal%2Cwindows&pivots=programming-language-csharp) and then return to this article.
 
 ## Enable the preview feature
 
@@ -20,7 +20,7 @@ Integration with azd is shipped in version 17.3.0 Preview 2 behind a feature fla
 
 ## Open the API solution
 
-1. Open the `Todo.Api.sln` solution in the `/src/api` directory. If you've enabled the azd integration feature, the `azure.yaml` file is detected. At this point, Visual Studio automatically initializes the application model and runs `azd env refresh`.
+1. Open the `Todo.Api.sln` solution in the `/src/api` directory. If you've enabled the azd integration feature, the `azure.yaml` file is detected. At this point, Visual Studio automatically initializes the app model and runs `azd env refresh`.
 
 1. Double-click **Connected Services** to see all the dependencies. Even though the web front-end running on Azure App Service isn't part of the API solution, it's detected and included under **Service Dependencies**
 

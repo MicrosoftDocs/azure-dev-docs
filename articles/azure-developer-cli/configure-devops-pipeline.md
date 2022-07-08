@@ -21,7 +21,7 @@ This article uses the sample [Todo Application with Node.js and Azure Cosmos DB 
 
 ## Configure a DevOps pipeline
 
-All sample templates include a GitHub Actions pipeline configuration file that deploys your application whenever code is pushed to the main branch. This configuration file is called `azure-dev.yml` and is located in your project's `.github/workflow` directory.
+All sample templates include a GitHub Actions pipeline configuration file that deploys your app whenever code is pushed to the main branch. This configuration file is called `azure-dev.yml` and is located in your project's `.github/workflow` directory.
 
 Configuring the pipeline requires you to give GitHub permission to deploy to Azure on your behalf. Authorizing GitHub is done via an Azure service principle stored in a GitHub secret named `AZURE_CREDENTIALS`.
 

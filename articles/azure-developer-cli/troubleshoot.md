@@ -73,4 +73,4 @@ Text-based browsers are currently not supported by `azd monitor`.
 
 ## Live metrics support for Python
 
-Live Metrics (`azd monitor --live`) is currently not supported for Python applications. For more information, see [Live Metrics: Monitor and diagnose with 1-second latency](/azure/azure-monitor/app/live-stream#get-started).
+Live Metrics (`azd monitor --live`) is currently not supported for Python apps. For more information, see [Live Metrics: Monitor and diagnose with 1-second latency](/azure/azure-monitor/app/live-stream#get-started).

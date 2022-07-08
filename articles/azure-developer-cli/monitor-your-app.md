@@ -21,15 +21,15 @@ You can use any of the [Azure Developer CLI template](overview.md#azure-develope
 
 ## Configure your environment
 
-Create monitoring activity in the application before running the `azd monitor` commands:
+Create monitoring activity in the app before running the `azd monitor` commands:
 
 1. Launch the ToDo app.
 
 1. Create a new list and add a couple of items.
 
-## Monitor the application
+## Monitor the app
 
-To help with monitoring applications, azd provides a `monitor` command whose parameters launch various Application Insights dashboards.
+To help with monitoring apps, azd provides a `monitor` command whose parameters launch various Application Insights dashboards.
 
 | Application Insights dashboard | Command                |
 |--------------------------------|------------------------|

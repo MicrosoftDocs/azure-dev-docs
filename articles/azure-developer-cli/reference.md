@@ -51,27 +51,27 @@ For more information, visit the [Azure Developer CLI Dev Hub](https://aka.ms/azu
 
 ### See also
 
-* [azd deploy](#azd-deploy): Deploy the application's code to Azure.
-* [azd down](#azd-down): Delete Azure resources for an application.
+* [azd deploy](#azd-deploy): Deploy the app's code to Azure.
+* [azd down](#azd-down): Delete Azure resources for an app.
 * [azd env](#azd-env): Manage environments.
 * [azd infra](#azd-infra): Manage Azure resources.
-* [azd init](#azd-init): Initialize a new application.
+* [azd init](#azd-init): Initialize a new app.
 * [azd login](#azd-login): Log in to Azure.
-* [azd monitor](#azd-monitor): Monitor a deployed application.
+* [azd monitor](#azd-monitor): Monitor a deployed app.
 * [azd pipeline](#azd-pipeline): Manage GitHub Actions pipelines.
-* [azd provision](#azd-provision): Provision the Azure resources for an application.
-* [azd restore](#azd-restore): Restore application dependencies.
+* [azd provision](#azd-provision): Provision the Azure resources for an app.
+* [azd restore](#azd-restore): Restore app dependencies.
 * [azd template](#azd-template): Manage templates.
-* [azd up](#azd-up): Initialize the application, provision Azure resources, and deploy your project with a single command.
+* [azd up](#azd-up): Initialize the app, provision Azure resources, and deploy your project with a single command.
 * [azd version](#azd-version): Print the version number of Azure Developer CLI.
 
 ## azd deploy
 
-Deploy the application's code to Azure.
+Deploy the app's code to Azure.
 
 ### Synopsis
 
-Deploy the application's code to Azure.
+Deploy the app's code to Azure.
 
 When no `--service` value is specified, all services in the *azure.yaml* file (found in the root of your project) are deployed.
 
@@ -112,7 +112,7 @@ azd deploy [flags]
 
 ## azd down
 
-Delete Azure resources for an application.
+Delete Azure resources for an app.
 
 ```
 azd down [flags]
@@ -148,7 +148,7 @@ Manage environments.
 
 Manage environments.
 
-With this command group, you can create a new environment or get, set, and list your application environments. An application can have multiple environments (for example, dev, test, prod), each with a different configuration (that is, connectivity information) for accessing Azure resources. 
+With this command group, you can create a new environment or get, set, and list your app environments. An app can have multiple environments (for example, dev, test, prod), each with a different configuration (that is, connectivity information) for accessing Azure resources. 
 
 You can find all environment configurations under the *.azure\<environment-name>* folders. The environment name is stored as the AZURE_ENV_NAME environment variable in the *.azure\<environment-name>\folder\.env* file. 
 
@@ -369,13 +369,13 @@ Manage Azure resources.
 
 ### See also
 
-* [azd infra create](#azd-infra-create): Create Azure resources for an application.
-* [azd infra delete](#azd-infra-delete): Delete Azure resources for an application.
+* [azd infra create](#azd-infra-create): Create Azure resources for an app.
+* [azd infra delete](#azd-infra-delete): Delete Azure resources for an app.
 * [Back to top](#azd)
 
 ## azd infra create
 
-Create Azure resources for an application.
+Create Azure resources for an app.
 
 ```
 azd infra create [flags]
@@ -405,7 +405,7 @@ azd infra create [flags]
 
 ## azd infra delete
 
-Delete Azure resources for an application.
+Delete Azure resources for an app.
 
 ```
 azd infra delete [flags]
@@ -435,11 +435,11 @@ azd infra delete [flags]
 
 ## azd init
 
-Initialize a new application.
+Initialize a new app.
 
 ### Synopsis
 
-Initialize a new application.
+Initialize a new app.
 
 When no template is supplied, you can optionally select an Azure Developer CLI template for cloning. Otherwise, `azd init` initializes the current directory and creates resources so that your project is compatible with Azure Developer CLI.
 
@@ -502,11 +502,11 @@ azd login [flags]
 
 ## azd monitor
 
-Monitor a deployed application.
+Monitor a deployed app.
 
 ### Synopsis
 
-Monitor a deployed application.
+Monitor a deployed app.
 		
 Examples:
 
@@ -552,7 +552,7 @@ Manage GitHub Actions pipelines.
 
 Manage GitHub Actions pipelines.
 
-The Azure Developer CLI template includes a GitHub Actions pipeline configuration file (in the *.github/workflows* folder) that deploys your application whenever code is pushed to the main branch.
+The Azure Developer CLI template includes a GitHub Actions pipeline configuration file (in the *.github/workflows* folder) that deploys your app whenever code is pushed to the main branch.
 		
 For more information, go to [https://aka.ms/azure-dev/pipeline](https://aka.ms/azure-dev/pipeline).
 
@@ -615,17 +615,18 @@ azd pipeline config [flags]
 
 ## azd provision
 
-Provision the Azure resources for an application.
+Provision the Azure resources for an app.
 
 ### Synopsis
 
-Provision the Azure resources for an application.
+Provision the Azure resources for an app.
 
-The command prompts you for the following:
-- Environment name: The name of your environment.
-- Azure location: The Azure location where your resources will be deployed.
-- Azure subscription: The Azure subscription where your resources will be deployed.
-	
+The command prompts you for the following values:
+
+* Environment name: The name of your environment.
+* Azure location: The Azure location where your resources will be deployed.
+* Azure subscription: The Azure subscription where your resources will be deployed.
+
 Depending on what Azure resources are created, running this command might take a while. To view progress, go to the Azure portal and search for the resource group that contains your environment name.
 
 ```
@@ -655,13 +656,13 @@ azd provision [flags]
 
 ## azd restore
 
-Restore application dependencies.
+Restore app dependencies.
 
 ### Synopsis
 
-Restore application dependencies.
+Restore app dependencies.
 
-Run this command to download and install all the required libraries so that you can build, run, and debug the application locally.
+Run this command to download and install all the required libraries so that you can build, run, and debug the app locally.
 
 For the best local run and debug experience, see [Debug by using the Visual Studio Code extension](https://aka.ms/azure-dev/vscode).
 
@@ -774,11 +775,11 @@ azd template show <template> [flags]
 
 ## azd up
 
-Initialize application, provision Azure resources, and deploy your project with a single command
+Initialize app, provision Azure resources, and deploy your project with a single command
 
 ### Synopsis
 
-Initialize the project (if the project folder has not been initialized or cloned from a template), provision Azure resources, and deploy your project with a single command.
+If the project folder hasn't been initialized or cloned from a template, the `azd up` command initializes the app. The command then provisions Azure resources and deploys your project.
 
 This command executes the following in one step:
 
