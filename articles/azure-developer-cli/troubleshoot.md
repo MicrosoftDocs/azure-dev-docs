@@ -21,9 +21,9 @@ If you're unable to find what you're looking for in this article or you want to 
 
 You can also report bugs by opening GitHub Issues in the [Azure Developer CLI GitHub repository](https://github.com/Azure/azure-dev).
 
-## The .azure folder
+## The .azure directory
 
-Azure Developer CLI assumes that any folders that are stored in the `.azure` folder are Azure Developer CLI environments. Don't run Azure Developer CLI commands from the home directory of a user that has the Azure CLI installed.
+Azure Developer CLI assumes that any directories that are stored in the `.azure` directory are Azure Developer CLI environments. Don't run Azure Developer CLI commands from the home directory of a user that has the Azure CLI installed.
 
 ## Not logged in to Azure or token expired in Visual Studio
 

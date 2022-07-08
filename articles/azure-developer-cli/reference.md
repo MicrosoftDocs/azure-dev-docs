@@ -148,9 +148,9 @@ Manage environments.
 
 Manage environments.
 
-With this command group, you can create a new environment or get, set, and list your app environments. An app can have multiple environments (for example, dev, test, prod), each with a different configuration (that is, connectivity information) for accessing Azure resources. 
+With this command group, you can create a new environment or get, set, and list your app environments. An app can have multiple environments (for example, dev, test, prod), each with a different configuration (that is, connectivity information) for accessing Azure resources.
 
-You can find all environment configurations under the *.azure\<environment-name>* folders. The environment name is stored as the AZURE_ENV_NAME environment variable in the *.azure\<environment-name>\folder\.env* file. 
+You can find all environment configurations under the `.azure\<environment-name>` directories. The environment name is stored as the AZURE_ENV_NAME environment variable in the `.azure\<environment-name>\directory\.env` file.
 
 ### Options
 
@@ -552,7 +552,7 @@ Manage GitHub Actions pipelines.
 
 Manage GitHub Actions pipelines.
 
-The Azure Developer CLI template includes a GitHub Actions pipeline configuration file (in the *.github/workflows* folder) that deploys your app whenever code is pushed to the main branch.
+The Azure Developer CLI template includes a GitHub Actions pipeline configuration file (in the `.github/workflows` directory) that deploys your app whenever code is pushed to the main branch.
 		
 For more information, go to [https://aka.ms/azure-dev/pipeline](https://aka.ms/azure-dev/pipeline).
 
@@ -779,7 +779,7 @@ Initialize app, provision Azure resources, and deploy your project with a single
 
 ### Synopsis
 
-If the project folder hasn't been initialized or cloned from a template, the `azd up` command initializes the app. The command then provisions Azure resources and deploys your project.
+If the project directory hasn't been initialized or cloned from a template, the `azd up` command initializes the app. The command then provisions Azure resources and deploys your project.
 
 This command executes the following in one step:
 

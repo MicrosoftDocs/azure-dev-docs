@@ -28,7 +28,7 @@ This app uses Python Virtual Environments to isolate Python package installation
 
 The fastest way for you to get this app up and running on Azure is to use the `azd up` command. This single command will download code, initialize the project, create and configure all necessary Azure resources - including access policies and roles for your account and service-to-service communication with Managed Identities.
 
-1. In **File Explorer** or a terminal, create a new empty folder, and change into it.
+1. In **File Explorer** or a terminal, create a new empty directory, and change into it.
 
 1. Run the following command:
 

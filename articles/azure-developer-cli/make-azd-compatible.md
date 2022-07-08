@@ -21,7 +21,7 @@ The following diagram gives a quick overview of the process to create an azd tem
 
 ![Diagram of Azure Developer CLI template workflow.](media/make-azd-compatible/workflow.png)
 
-All azd templates have the same file structure based on azd conventions. The following hierarchy shows the folder structure you'll build in this tutorial. For the complete folder structure, refer to the [azd conventions](#azd-conventions) section.
+All azd templates have the same file structure based on azd conventions. The following hierarchy shows the directory structure you'll build in this tutorial. For the complete directory structure, refer to the [azd conventions](#azd-conventions) section.
 
 ```txt
 ├── .github                    [ Configure GitHub workflow ]
@@ -312,7 +312,7 @@ azd down
 
 ## azd conventions
 
-The following hierarchy shows the complete folder structure of a azd template.
+The following hierarchy shows the complete directory structure of an azd template.
 
 ```txt
 ├── .devcontainer              [ For DevContainer ]
@@ -323,7 +323,7 @@ The following hierarchy shows the complete folder structure of a azd template.
 │   ├── main.bicep             [ Main infrastructure file ]
 │   ├── main.parameters.json   [ Parameters file ]
 │   └── resources.bicep        [ Resources file ]
-├── src                        [ Contains folder(s) for the app code ]
+├── src                        [ Contains directories for the app code ]
 └── azure.yaml                 [ Describes the app and type of Azure resources]
 ```
 

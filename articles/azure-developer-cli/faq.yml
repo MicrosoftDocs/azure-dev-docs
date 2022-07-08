@@ -28,14 +28,14 @@ sections:
 
       - question: What is an environment name?
         answer: |
-          Azure Developer CLI uses an environment name to set the `AZURE_ENV_NAME` environment variable that's used by Azure Developer CLI templates. AZURE_ENV_NAME is also used to prefix the Azure resource group name. Because each environment has its own set of configurations, Azure Developer CLI stores all configuration files in environment folders. 
+          Azure Developer CLI uses an environment name to set the `AZURE_ENV_NAME` environment variable that's used by Azure Developer CLI templates. AZURE_ENV_NAME is also used to prefix the Azure resource group name. Because each environment has its own set of configurations, Azure Developer CLI stores all configuration files in environment directories. 
 
           ```txt	 
-          ├── .Azure                          [ This folder displays after you run add init or azd up ]
-          │   ├── <your environment1>         [ A folder to store all environment-related configurations]
+          ├── .Azure                          [ This directory displays after you run add init or azd up ]
+          │   ├── <your environment1>         [ A directory to store all environment-related configurations]
           │   │   ├── .env                    [ Contains environment variables ]
           │   │   └── main.parameters.json    [ A parameter file ]
-          │   └── <your environment2>         [ A folder to store all environment-related configurations ]
+          │   └── <your environment2>         [ A directory to store all environment-related configurations ]
           │   │   ├── .env                    [ Contains environment variables ]
           │   │   └── main.parameters.json    [ A parameter file ]
           │   └──config.json 
@@ -47,7 +47,7 @@ sections:
 
       - question: Where is the environment configuration (.env) file stored?
         answer: |
-          The .env file path is `<your-project-folder-name>\.azure\<your-environment-name>\.env`.
+          The .env file path is `<your-project-directory-name>\.azure\<your-environment-name>\.env`.
 
       - question: How is the .env file used?
         answer: |
@@ -61,7 +61,7 @@ sections:
     questions:
       - question: How does the command know what resources to provision?
         answer: |
-          The command uses Bicep templates, which are found under `<your-project-folder-name>/infra` to provision Azure resources. 
+          The command uses Bicep templates, which are found under `<your-project-directory-name>/infra` to provision Azure resources. 
 
       - question: Where can I find what resources are provisioned in Azure?
         answer: |
@@ -69,7 +69,7 @@ sections:
 
       - question: How do I find more information about Azure errors?
         answer: |
-          We use Bicep templates, which are found under `<your-project-folder-name>/infra`, to provision Azure resources. If there are issues, we include the error message in the CLI output. 	
+          We use Bicep templates, which are found under `<your-project-directory-name>/infra`, to provision Azure resources. If there are issues, we include the error message in the CLI output. 	
           
           You can also go to https://portal.azure.com and then look for your resource group, which is `<your-environment-name>-rg`. If any of the deployments fail, select the error link to get more information.
           
@@ -129,7 +129,7 @@ sections:
 
       - question: Where is the GitHub Actions file stored?
         answer: |
-          The GitHub Actions file path is `<your-project-folder-name>\.github\workflows\azure-dev.yml`.
+          The GitHub Actions file path is `<your-project-directory-name>\.github\workflows\azure-dev.yml`.
           
       - question: In the azure-dev.yml file, can I deploy just the code in the build step?
         answer: |

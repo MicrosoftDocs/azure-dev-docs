@@ -37,7 +37,7 @@ A [DevContainer](https://code.visualstudio.com/docs/remote/containers) is a Dock
 
 ### Initialize Project
 
-Open a terminal, create a new empty folder, and change into it.
+Open a terminal, create a new empty directory, and change into it.
 Run the following command to initialize the project:
 
 ::: zone pivot="programming-language-nodejs"
