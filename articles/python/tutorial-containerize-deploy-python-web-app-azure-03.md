@@ -13,13 +13,13 @@ ms.author: jejohn
 
 This article is part of a tutorial about containerizing and deploy a Python web app to Azure App Service. App Service enables you to run containerized web apps and deploy through continuous integration/continuous deployment (CI/CD) capabilities with Docker Hub, Azure Container Registry, and Visual Studio Team Services. In this part of the tutorial, you learn how to build the containerized Python web app in the cloud.
 
-In the previous part of this tutorial, a container image was build and run locally. In this part of the tutorial, you'll build (containerize) a Python web app into a Docker image in the cloud, specifically in [Azure Container Registry](/azure/container-registry/container-registry-intro). Building in the cloud has the advantage of being faster and easier when deploying existing code like the sample apps.
+In the previous *optional* part of this tutorial, a container image was build and run locally. In this part of the tutorial, you'll build (containerize) a Python web app into a Docker image in the cloud, specifically in [Azure Container Registry](/azure/container-registry/container-registry-intro). Building in the cloud has the advantage of being faster and easier when deploying existing code like the sample apps.
 
 Before you can deploy a Docker image to App service, the image must be uploaded to a container registry. In this tutorial, you'll work with Azure Container Registry (ACR). 
 
 ## 1. Create an Azure Container Registry
 
-If you already have an Azure Container Registry, go to the next step. If you don't, create one.
+If you already have an Azure Container Registry you can use, go to the next step. If you don't, create one.
 
 ### [Azure portal](#tab/azure-portal)
 
@@ -50,7 +50,8 @@ These steps require the [Docker extension](https://code.visualstudio.com/docs/co
 
 ## 2. Build an image in Azure Container Registry
 
-Building the image in the cloud is faster and easier, and doesn't require Docker to be running in your dev environment.
+Building the image in Azure is typically faster and easier than building locally and then pushing the image to a registry. Also, building in the cloud doesn't require Docker to be running in your dev environment.
+
 ### [VS Code](#tab/vscode-aztools-build)
 
 Step 1. In the Docker extension, go to **REGISTRIES** and make sure you are connected to Azure.
