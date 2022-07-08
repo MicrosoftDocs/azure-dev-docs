@@ -19,7 +19,7 @@ Before you can deploy a Docker image to App service, the image must be uploaded 
 
 ## 1. Create an Azure Container Registry
 
-If you have an Azure Container Registry, go to the next step. If you don't, create one.
+If you already have an Azure Container Registry, go to the next step. If you don't, create one.
 
 ### [Azure portal](#tab/azure-portal)
 
@@ -34,7 +34,7 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps 
  
 ### [VS Code](#tab/vscode-aztools)
 
-Requires Azure and Docker extensions.
+These steps require the [Docker extension](https://code.visualstudio.com/docs/containers/overview) for VS Code.
 
 | Instructions    | Screenshot |
 |:----------------|-----------:|
@@ -50,11 +50,24 @@ Requires Azure and Docker extensions.
 
 ## 2. Build an image in Azure Container Registry
 
-You can't build an image in the portal.
-
+Building the image in the cloud is faster and easier, and doesn't require Docker to be running in your dev environment.
 ### [VS Code](#tab/vscode-aztools-build)
 
-1. In the Docker extension, go to **REGISTRIES** and connect a registry.
+Step 1. In the Docker extension, go to **REGISTRIES** and make sure you are connected to Azure.
+
+Step 2: Select **F1** or **CTRL+SHIFT+P** to open the command palette.
+
+* Type "registries".
+
+* Select the task **Azure Container Registry: Build Image in Azure...**
+
+Step 3: Fill out the information.
+
+* Tag image as **\<registry-name>.azurecr.io**, using the fully qualified name.
+* Select the registry you just created, that is **\<registry-name>**.
+* Select image of base OS as **Linux**
+
+Check the **OUTPUT** window for progress and information on the build.
 
 ### [Azure CLI](#tab/azure-cli-build)
 

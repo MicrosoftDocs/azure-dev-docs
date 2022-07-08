@@ -10,7 +10,7 @@ ms.date: 07/07/2022
 ```azurecli
 az group create --name <res-group> --location <location>
 ```
-*\<res-group>* is a resource group name. *\<location>* is one of the Azure location values from `az account list-locations -o table`.
+*\<res-group>* is a resource group name. *\<location>* is one of the Azure location values from the command `az account list-locations -o table`.
 
 **Step 2.** Create a container registry with the [az acr create](/cli/azure/acr?view=azure-cli-latest#az-acr-create) command.
 
