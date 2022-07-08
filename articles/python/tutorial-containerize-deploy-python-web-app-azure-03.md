@@ -11,15 +11,15 @@ ms.author: jejohn
 
 # Build and test a containerized Python web app in the cloud
 
-This article is part of a tutorial about containerizing and deploy a Python web app to Azure App Service. App Service enables you to run containerized web apps and deploy through continuous integration/continuous deployment (CI/CD) capabilities with Docker Hub, Azure Container Registry, and Visual Studio Team Services. In this part of the tutorial, you learn how to build and run the containerized Python web app locally.
+This article is part of a tutorial about containerizing and deploy a Python web app to Azure App Service. App Service enables you to run containerized web apps and deploy through continuous integration/continuous deployment (CI/CD) capabilities with Docker Hub, Azure Container Registry, and Visual Studio Team Services. In this part of the tutorial, you learn how to build the containerized Python web app in the cloud.
 
-In the previous part of this tutorial, a container image was build and run locally. In this part of the tutorial, you will build (containerize) a Python web app into a Docker image in the cloud, in [Azure Container Registry](/azure/container-registry/container-registry-intro). Building in the close which has the advantage of typically being faster and easier.
+In the previous part of this tutorial, a container image was build and run locally. In this part of the tutorial, you'll build (containerize) a Python web app into a Docker image in the cloud, specifically in [Azure Container Registry](/azure/container-registry/container-registry-intro). Building in the cloud has the advantage of being faster and easier when deploying existing code like the sample apps.
 
-Before you can deploy a Docker image, the image must be uploaded to a container registry. In this tutorial, you'll work with Azure Container Registry (ACR), bu or another registry. 
+Before you can deploy a Docker image to App service, the image must be uploaded to a container registry. In this tutorial, you'll work with Azure Container Registry (ACR). 
 
 ## 1. Create an Azure Container Registry
 
-If you have an Azure Container Registry, go to the next step.
+If you have an Azure Container Registry, go to the next step. If you don't, create one.
 
 ### [Azure portal](#tab/azure-portal)
 
@@ -27,10 +27,10 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps 
 
 | Instructions    | Screenshot |
 |:----------------|-----------:|
-| [!INCLUDE [Include showing how to find container registries in Azure portal](<./includes/tutorial-container-web-app/container-registry-create-portal-1.md>)] |  |
-| [!INCLUDE [Include showing how to start create of registry in Azure portal](<./includes/tutorial-container-web-app/container-registry-create-portal-2.md>)] | |
-| [!INCLUDE [Include showing how to review and create registry in Azure portal](<./includes/tutorial-container-web-app/container-registry-create-portal-3.md>)] | |
-| [!INCLUDE [Include showing how to get qualified name of registry in Azure portal](<./includes/tutorial-container-web-app/container-registry-create-portal-4.md>)] | |
+| [!INCLUDE [Include showing how to find container registries in Azure portal](<./includes/tutorial-container-web-app/container-registry-create-portal-1.md>)] | :::image type="content" source="./media/tutorial-container-web-app/portal-search-container-registries-240px.png" lightbox="./media/tutorial-container-web-app/portal-search-container-registries.png" alt-text="A screenshot showing how to search for container registries in Azure portal." :::  |
+| [!INCLUDE [Include showing how to start create of registry in Azure portal](<./includes/tutorial-container-web-app/container-registry-create-portal-2.md>)] | :::image type="content" source="./media/tutorial-container-web-app/portal-create-new-registry-240px.png" lightbox="./media/tutorial-container-web-app/portal-create-new-registry.png" alt-text="A screenshot showing how to create a new registry in Azure portal." ::: |
+| [!INCLUDE [Include showing how to review and create registry in Azure portal](<./includes/tutorial-container-web-app/container-registry-create-portal-3.md>)] | :::image type="content" source="./media/tutorial-container-web-app/portal-create-registry-form-240px.png" lightbox="./media/tutorial-container-web-app/portal-create-registry-form.png" alt-text="A screenshot showing how to specify a new registry in Azure portal." ::: |
+| [!INCLUDE [Include showing how to get qualified name of registry in Azure portal](<./includes/tutorial-container-web-app/container-registry-create-portal-4.md>)] | :::image type="content" source="./media/tutorial-container-web-app/portal-create-registry-login-server-240px.png" lightbox="./media/tutorial-container-web-app/portal-create-registry-login-server.png" alt-text="A screenshot showing how to find the login server value a registry in Azure portal." :::|
  
 ### [VS Code](#tab/vscode-aztools)
 
