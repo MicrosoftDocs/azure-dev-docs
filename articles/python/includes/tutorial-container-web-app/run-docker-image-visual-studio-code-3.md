@@ -9,5 +9,5 @@ Test the web app.
 
 * Right click the container and select **Open in Browser**.
 
-The browser will open into your default browser as "http://localhost:5000/" for Flask or "http://localhost:8000" for Django.
+The browser will open into your default browser as "http://127.0.0.1:5000/" for Flask or "http://127.0.0.1:8000" for Django.
 
