@@ -10,14 +10,14 @@ ms.date: 07/07/2022
 ```azurecli
 az group create --name <res-group> --location <location>
 ```
-*/<res-group>* is a resource group name. *\<location>* is one of the Azure location values from `az account list-locations -o table`.
+*\<res-group>* is a resource group name. *\<location>* is one of the Azure location values from `az account list-locations -o table`.
 
 **Step 2.** Create a container registry with the [az acr create](/cli/azure/acr?view=azure-cli-latest#az-acr-create) command.
 
 ```azurecli
 az acr create --resource-group <res-group> --name <registry-name> --sku Basic
 ```
-The registry name *\<registry-name>* must be unique within Azure, and contain 5-50 alphanumeric characters.
+*\<registry-name>* must be unique within Azure, and contain 5-50 alphanumeric characters.
 
 In the JSON output of the command look for the `loginServer` value, which is the fully qualified registry name (all lowercase), which should include the registry name specified.
 

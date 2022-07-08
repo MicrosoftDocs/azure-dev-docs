@@ -7,7 +7,7 @@ ms.date: 06/01/2022
 
 Fill out the form and specify:
 
-* **Resource group** &rarr; Use existing or create a new one.
+* **Resource group** &rarr; Use an existing group or create a new one.
 
 * **Registry name** &rarr; The registry name must be unique within Azure, and contain 5-50 alphanumeric characters. 
 
