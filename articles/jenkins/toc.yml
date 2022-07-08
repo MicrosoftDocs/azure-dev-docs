@@ -19,9 +19,9 @@
       href: scale-deployments-using-vm-agents.md
   - name: Implement CI/CD
     items:
-    - name: Azure Spring Cloud
+    - name: Azure Spring Apps
       items:
-      - name: Deploy to Azure Spring Cloud using the Azure CLI
+      - name: Deploy to Azure Spring Apps using the Azure CLI
         href: deploy-to-azure-spring-cloud-using-azure-cli.md
     - name: AKS
       items:

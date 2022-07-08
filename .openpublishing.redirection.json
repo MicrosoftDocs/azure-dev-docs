@@ -1211,6 +1211,34 @@
       {
         "source_path": "articles/python/azure-tools.md",
         "redirect_url": "/azure/developer/python/configure-local-development-environment"
+      },
+      {
+        "source_path": "articles/python/tutorial-deploy-app-service-on-linux-01.md",
+        "redirect_url": "/azure/developer/python/configure-python-web-app-local-environment"
+      },
+      {
+        "source_path": "articles/python/tutorial-deploy-app-service-on-linux-02.md",
+        "redirect_url": "/azure/developer/python/configure-python-web-app-local-environment"
+      },
+      {
+        "source_path": "articles/python/tutorial-deploy-app-service-on-linux-03.md",
+        "redirect_url": "/azure/app-service/quickstart-python"
+      },
+      {
+        "source_path": "articles/python/tutorial-deploy-app-service-on-linux-04.md",
+        "redirect_url": "/azure/developer/python/configure-python-web-app-on-app-service"
+      },
+      {
+        "source_path": "articles/python/tutorial-deploy-app-service-on-linux-05.md",
+        "redirect_url": "/azure/app-service/quickstart-python"
+      },
+      {
+        "source_path": "articles/python/tutorial-deploy-app-service-on-linux-06.md",
+        "redirect_url": "/azure/app-service/quickstart-python"
+      },
+      {
+        "source_path": "articles/python/tutorial-deploy-app-service-on-linux-07.md",
+        "redirect_url": "/azure/app-service/quickstart-python"
       }
     ]
   }

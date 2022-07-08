@@ -1,5 +1,5 @@
 ---
-ms.date: 05/27/2022
+ms.date: 06/30/2022
 author: KarlErickson
 ms.author: v-yonghuiye
 ---
@@ -8,7 +8,7 @@ ms.author: v-yonghuiye
 
 ### Spring Security with Azure Active Directory
 
-When you are building a web application, identity and access management will always be foundational pieces.
+When you're building a web application, identity and access management will always be foundational pieces.
 
 Azure offers a great platform to democratize your application development journey, as it not only offers a cloud-base identity service, but also deep integration with the rest of the Azure ecosystem.
 
@@ -238,7 +238,7 @@ public class AadOAuth2LoginSecurityConfig extends AadWebSecurityConfigurerAdapte
 
 ##### Samples
 
-Sample project: [aad-web-application](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/spring-cloud-azure_4.2.0/aad/spring-cloud-azure-starter-active-directory/web-client-access-resource-server/aad-web-application).
+Sample project: [aad-web-application](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/spring-cloud-azure_4.3.0/aad/spring-cloud-azure-starter-active-directory/web-client-access-resource-server/aad-web-application).
 
 #### Web application accessing resource servers
 
@@ -392,7 +392,7 @@ spring:
 
 ##### Samples
 
-Sample project: [aad-web-application](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/spring-cloud-azure_4.2.0/aad/spring-cloud-azure-starter-active-directory/web-client-access-resource-server/aad-web-application).
+Sample project: [aad-web-application](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/spring-cloud-azure_4.3.0/aad/spring-cloud-azure-starter-active-directory/web-client-access-resource-server/aad-web-application).
 
 #### Accessing a resource server
 
@@ -531,9 +531,100 @@ By doing this, when access `/app-role1` endpoint, the following claims in access
 
 * `roles`: The value must contains `AppRole1`.
 
+###### Use JWT client authentication
+
+To use a JSON Web Token (JWT) for client authentication, use the following steps:
+
+1. See the [Register your certificate with Microsoft identity platform](/azure/active-directory/develop/active-directory-certificate-credentials#register-your-certificate-with-microsoft-identity-platform) section of [Microsoft identity platform application authentication certificate credentials](/azure/active-directory/develop/active-directory-certificate-credentials).
+1. Upload a *.pem* certificate to the application registered in the Azure portal.
+1. Configure the certificate path and password of a *.PFX* or *.P12* certificate.
+1. Add the property `spring.cloud.azure.active-directory.authorization-clients.azure.client-authentication-method=private_key_jwt` configuration to the client to be authenticated through JWT client authentication.
+
+The following example configuration file is for a web application scenario. The certificate information is configured in the global properties.
+
+``` yaml
+spring:
+  cloud:
+    azure:
+      credential:
+        client-id: ${AZURE_CLIENT_ID}
+        client-certificate-path: ${AZURE_CERTIFICATE_PATH}
+        client-certificate-password: ${AZURE_CERTIFICATE_PASSWORD}
+      profile:
+        tenant-id: ${AZURE_TENANT_ID}
+      active-directory:
+        enabled: true
+        user-group:
+          allowed-group-names: group1,group2
+          allowed-group-ids: <group1-id>,<group2-id>
+        post-logout-redirect-uri: http://localhost:8080
+        authorization-clients:
+          azure:
+            client-authentication-method: private_key_jwt
+          arm:
+            client-authentication-method: private_key_jwt
+            on-demand: true
+            scopes: https://management.core.windows.net/user_impersonation
+          graph:
+            client-authentication-method: private_key_jwt
+            scopes:
+              - https://graph.microsoft.com/User.Read
+              - https://graph.microsoft.com/Directory.Read.All
+          webapiA:
+            client-authentication-method: private_key_jwt
+            scopes:
+              - ${WEB_API_A_APP_ID_URL}/Obo.WebApiA.ExampleScope
+          webapiB:
+            client-authentication-method: private_key_jwt
+            scopes:
+              - ${WEB_API_B_APP_ID_URL}/.default
+            authorization-grant-type: client_credentials
+```
+
+You can also configure the certificate information in the `active-directory` service properties, as shown in this example:
+
+``` yaml
+spring:
+  cloud:
+    azure:
+      active-directory:
+        enabled: true
+        credential:
+          client-id: ${AZURE_CLIENT_ID}
+          client-certificate-path: ${AZURE_CERTIFICATE_PATH}
+          client-certificate-password: ${AZURE_CERTIFICATE_PASSWORD}
+        profile:
+          tenant-id: ${AZURE_TENANT_ID}
+        user-group:
+          allowed-group-names: group1,group2
+          allowed-group-ids: <group1-id>,<group2-id>
+        post-logout-redirect-uri: http://localhost:8080
+        authorization-clients:
+          azure:
+            client-authentication-method: private_key_jwt
+          arm:
+            client-authentication-method: private_key_jwt
+            on-demand: true
+            scopes: https://management.core.windows.net/user_impersonation
+          graph:
+            client-authentication-method: private_key_jwt
+            scopes:
+              - https://graph.microsoft.com/User.Read
+              - https://graph.microsoft.com/Directory.Read.All
+          webapiA:
+            client-authentication-method: private_key_jwt
+            scopes:
+              - ${WEB_API_A_APP_ID_URL}/Obo.WebApiA.ExampleScope
+          webapiB:
+            client-authentication-method: private_key_jwt
+            scopes:
+              - ${WEB_API_B_APP_ID_URL}/.default
+            authorization-grant-type: client_credentials
+```
+
 ##### Samples
 
-Sample project: [aad-resource-server](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/spring-cloud-azure_4.2.0/aad/spring-cloud-azure-starter-active-directory/web-client-access-resource-server/aad-resource-server).
+Sample project: [aad-resource-server](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/spring-cloud-azure_4.3.0/aad/spring-cloud-azure-starter-active-directory/web-client-access-resource-server/aad-resource-server).
 
 #### Resource server visiting other resource servers
 
@@ -597,7 +688,7 @@ public class SampleController {
 
 ##### Samples
 
-Sample project: [aad-resource-server-obo](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/spring-cloud-azure_4.2.0/aad/spring-cloud-azure-starter-active-directory/web-client-access-resource-server/aad-resource-server-obo).
+Sample project: [aad-resource-server-obo](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/spring-cloud-azure_4.3.0/aad/spring-cloud-azure-starter-active-directory/web-client-access-resource-server/aad-resource-server-obo).
 
 #### Web application and resource server in one application
 
@@ -909,7 +1000,7 @@ This scenario uses [The OAuth 2.0 authorization code grant](/azure/active-direct
     }
     ```
 
-   Copy the *home.html* from [aad-b2c-web-application sample](https://github.com/Azure-Samples/azure-spring-boot-samples/blob/spring-cloud-azure_4.2.0/aad/spring-cloud-azure-starter-active-directory-b2c/aad-b2c-web-application/src/main/resources/templates/home.html), and replace the `PROFILE_EDIT_USER_FLOW` and `PASSWORD_RESET_USER_FLOW` with your user flow name respectively that completed earlier.
+   Copy the *home.html* from [aad-b2c-web-application sample](https://github.com/Azure-Samples/azure-spring-boot-samples/blob/spring-cloud-azure_4.3.0/aad/spring-cloud-azure-starter-active-directory-b2c/aad-b2c-web-application/src/main/resources/templates/home.html), and replace the `PROFILE_EDIT_USER_FLOW` and `PASSWORD_RESET_USER_FLOW` with your user flow name respectively that completed earlier.
 
 1. Build and test your app
 
@@ -1233,4 +1324,4 @@ This scenario is an upgrade of **Accessing a resource server**, supports access 
 
 #### Samples
 
-See [spring-cloud-azure-starter-active-directory-b2c samples](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/spring-cloud-azure_4.2.0/aad/spring-cloud-azure-starter-active-directory-b2c) for more details.
+See [spring-cloud-azure-starter-active-directory-b2c samples](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/spring-cloud-azure_4.3.0/aad/spring-cloud-azure-starter-active-directory-b2c) for more details.

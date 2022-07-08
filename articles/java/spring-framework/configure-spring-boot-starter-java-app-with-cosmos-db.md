@@ -5,7 +5,7 @@ services: cosmos-db
 documentationcenter: java
 author: KarlErickson
 ms.author: karler
-ms.date: 05/27/2022
+ms.date: 06/30/2022
 ms.service: cosmos-db
 ms.tgt_pltfrm: multiple
 ms.topic: article
@@ -59,7 +59,7 @@ Azure Cosmos DB is a globally distributed database service that allows developer
 
 ## Create a Spring Boot application with the Spring Initializr
 
-Use the following steps to create a new Spring Boot application project with Azure support. As an alternative, you can use the [spring-cloud-azure-data-cosmos-sample](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/spring-cloud-azure_4.2.0/cosmos/spring-cloud-azure-starter-data-cosmos/spring-cloud-azure-data-cosmos-sample) sample in the [azure-spring-boot-samples](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/spring-cloud-azure_4.0.0) repo. Then, you can skip directly to [Build and test your app](#build-and-test-your-app).
+Use the following steps to create a new Spring Boot application project with Azure support. As an alternative, you can use the [spring-cloud-azure-data-cosmos-sample](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/spring-cloud-azure_4.3.0/cosmos/spring-cloud-azure-starter-data-cosmos/spring-cloud-azure-data-cosmos-sample) sample in the [azure-spring-boot-samples](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/spring-cloud-azure_4.0.0) repo. Then, you can skip directly to [Build and test your app](#build-and-test-your-app).
 
 1. Browse to <https://start.spring.io/>.
 
@@ -71,7 +71,7 @@ Use the following steps to create a new Spring Boot application project with Azu
    * Select **8** for the Java version.
    * Add **Azure Support** in the dependencies.
 
-   :::image type="content" source="media/spring-initializer/2.5.11/mvn-java8-cosmos-web.png" alt-text="Screenshot of Spring Initializr with basic options.":::
+   :::image type="content" source="media/spring-initializer/2.7.1/mvn-java8-cosmos-web.png" alt-text="Screenshot of Spring Initializr with basic options.":::
 
    > [!NOTE]
    > 1. The Spring Initializr uses the **Group** and **Artifact** names to create the package name; for example: *com.example.wingtiptoysdata*.
@@ -99,7 +99,7 @@ Your simple Spring Boot application is now ready for editing.
    <dependency>
      <groupId>com.azure.spring</groupId>
      <artifactId>spring-cloud-azure-starter-data-cosmos</artifactId>
-     <version>4.2.0</version>
+     <version>4.3.0</version>
    </dependency>
    ```
 
@@ -382,7 +382,7 @@ The **[Spring Framework]** is an open-source solution that helps Java developers
 [Azure for Java Developers]: ../index.yml
 [Build a SQL API app with Java]: /azure/cosmos-db/create-sql-api-java
 [Spring Data for Azure Cosmos DB SQL API]: https://azure.microsoft.com/blog/spring-data-azure-cosmos-db-nosql-data-access-on-azure/
-[Spring Cloud Azure Starter for Spring Data Cosmos]: https://github.com/Azure/azure-sdk-for-java/tree/spring-cloud-azure_4.2.0/sdk/spring/spring-cloud-azure-starter-cosmos
+[Spring Cloud Azure Starter for Spring Data Cosmos]: https://github.com/Azure/azure-sdk-for-java/tree/spring-cloud-azure_4.3.0/sdk/spring/spring-cloud-azure-starter-cosmos
 [free Azure account]: https://azure.microsoft.com/pricing/free-trial/
 [Working with Azure DevOps and Java]: https://azure.microsoft.com/services/devops/java/
 [MSDN subscriber benefits]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/

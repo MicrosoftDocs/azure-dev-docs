@@ -1,5 +1,5 @@
 ---
-title: '7. Clean up resources'
+title: 'Deploy a Python web app to Azure with managed identity: clean up resources'
 description: Clean up the resources of the Python (Django or Flask) web app deployed to Azure.
 author: jess-johnson-msft
 ms.author: jejohn

@@ -3,7 +3,7 @@ title: How to use the Spring Boot Starter for Apache Kafka with Azure Event Hubs
 description: Learn how to configure an application created with the Spring Boot Initializr to use Apache Kafka with Azure Event Hubs.
 services: event-hubs
 documentationcenter: java
-ms.date: 05/27/2022
+ms.date: 06/30/2022
 ms.service: event-hubs
 ms.topic: article
 ms.custom: devx-track-java
@@ -104,12 +104,12 @@ After your namespace is deployed, you can create an event hub in the namespace.
    <dependency>
      <groupId>com.azure.spring</groupId>
      <artifactId>spring-cloud-azure-starter</artifactId>
-     <version>4.2.0</version>
+     <version>4.3.0</version>
    </dependency>
    <dependency>
      <groupId>com.azure.spring</groupId>
      <artifactId>spring-cloud-azure-resourcemanager</artifactId>
-     <version>4.2.0</version>
+     <version>4.3.0</version>
    </dependency>
    <dependency>
      <groupId>org.springframework.cloud</groupId>
@@ -422,7 +422,7 @@ The **[Spring Framework]** is an open-source solution that helps Java developers
 [IMG02]: media/configure-spring-cloud-stream-binder-java-app-kafka-azure-event-hub/create-kafka-event-hub-02.png
 [IMG05]: media/configure-spring-cloud-stream-binder-java-app-kafka-azure-event-hub/create-kafka-event-hub-05.png
 
-[SI01]: media/spring-initializer/2.5.11/mvn-java8-azure-web.png
+[SI01]: media/spring-initializer/2.7.1/mvn-java8-azure-web.png
 
 [TB01]: media/configure-spring-cloud-stream-binder-java-app-kafka-azure-event-hub/test-browser-01.png
 [TB02]: media/configure-spring-cloud-stream-binder-java-app-kafka-azure-event-hub/test-browser-02.png
