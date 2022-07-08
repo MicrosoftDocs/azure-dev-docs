@@ -15,14 +15,6 @@ This article is part of a tutorial about containerizing and deploy a Python web 
 
 Running a Docker image locally in your development environment requires setup beyond deployment to Azure. Think of it as an investment than can make future development cycles quicker and easier, especially when you move beyond a sample app and you start to create your own web app. To deploy a sample app or other app that doesn't need modification, you can skip this step and move on to deployment steps in this tutorial. You can always return to this step after deploying to Azure and work on these steps.
 
-After completing this part of the tutorial, you will
-
-* Use a Dockerfile to specify how to build container image.
-
-* Use tags as reference for Docker images and use a tag to reference an image. 
-
-* Optionally, understand how to run the image container locally.
-
 ## 1. Build a Docker image
 
 If you are using one of the the framework sample apps available for Django and Flask, you are set to go. If you are bringing your own sample app, make sure there is a *Dockerfile* in the root directory.
