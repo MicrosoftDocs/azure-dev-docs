@@ -71,8 +71,10 @@ Check the **OUTPUT** window for progress and information on the build.
 
 ### [Azure CLI](#tab/azure-cli-build)
 
-1. Log into registry if you haven't done so already.  Use `az acr login --name \<registry-name>
-1. Build with `az acr build -t 
+Step 1. Log into registry if you haven't done so already.  Use `az acr login --name <registry-name>`.
+
+Step 2. Build with `az acr build -t `
+
 ---
 
 
