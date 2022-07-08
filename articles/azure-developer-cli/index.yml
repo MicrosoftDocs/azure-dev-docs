@@ -59,7 +59,7 @@ landingContent:
             url: https://github.com/azure-samples/todo-nodejs-mongo
           - text: ToDo Python Mongo
             url: https://github.com/azure-samples/todo-python-mongo
-          - text: ToDo C# Cosmo DB (SQL)
+          - text: ToDo C# Cosmos DB (SQL)
             url: https://github.com/Azure-Samples/todo-csharp-cosmos-sql
   - title: Azure Container Apps templates
     linkLists:

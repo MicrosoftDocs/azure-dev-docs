@@ -59,7 +59,7 @@ To create the service principle, run the command `azd pipeline config`. The comm
 
 1. Using your browser, open your project's GitHub repository to see the commit - along with the commit from GitHub Actions being set up.
 
-    ![Screenshot of your committed change in GitHub."](media/configure-devops-pipeline/committed-changes-in-github-repo.png)
+    ![Screenshot of your committed change in GitHub.](media/configure-devops-pipeline/committed-changes-in-github-repo.png)
 
 1. Select **Actions** to see the test update reflected in the workflow.
 

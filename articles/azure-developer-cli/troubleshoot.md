@@ -23,11 +23,11 @@ You can also report bugs by opening GitHub Issues in the [Azure Developer CLI Gi
 
 ## The .azure folder
 
-Azure Developer CLI assumes that any folders that are stored in the *.azure* folder are Azure Developer CLI environments. Don't run Azure Developer CLI commands from the home directory of a user that has the Azure CLI installed.
+Azure Developer CLI assumes that any folders that are stored in the `.azure` folder are Azure Developer CLI environments. Don't run Azure Developer CLI commands from the home directory of a user that has the Azure CLI installed.
 
 ## Not logged in to Azure or token expired in Visual Studio
 
-After you've run `azd init -t <template-name>` in Visual Studio, you get the following error: "To access remote: this repository, you must re-authorize the OAuth Application `Visual Studio`."
+After you've run `azd init -t <template-name>` in Visual Studio, you get the following error: "To access remote: this repository, you must reauthorize the OAuth Application `Visual Studio`."
 
 ### Solution
 
@@ -45,23 +45,23 @@ Upgrade Bicep CLI by running `az bicep upgrade`.
 
 Things can sometimes go awry with `azd up` or `azd provision`. Common errors include:
 * "Can't provision certain resources in an Azure region because the region is out of capacity."
-* "Relevant resource provider isn't present in that region." 
+* "Relevant resource provider isn't present in that region."
 
 The troubleshooting steps might differ, depending on the root cause.
 
 ### Solution
 
-1. Go to the [Azure portal](https://portal.azure.com). 
+1. Go to the [Azure portal](https://portal.azure.com).
 
 1. Locate your resource group, which is \<your-environment-name>-rg.
 
 1. Select **Deployments** to get more information.
 
-1. Verify that you've specified an environment name that's the same as your environment name. 
+1. Verify that you've specified an environment name that's the same as your environment name.
 
 1. Go to `https://github.com/<your repo>/actions`, and then refer to the log file in the pipeline run for more information.
 
-For additional resources, see [Troubleshoot common Azure deployment errors - Azure Resource Manager](/azure/azure-resource-manager/troubleshooting/common-deployment-errors).
+For other resources, see [Troubleshoot common Azure deployment errors - Azure Resource Manager](/azure/azure-resource-manager/troubleshooting/common-deployment-errors).
 
 ## 'azd monitor' for development container
 

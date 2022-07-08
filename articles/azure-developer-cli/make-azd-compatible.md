@@ -271,7 +271,7 @@ To deploy the app, azd needs to know more about your app. Edit the `azure.yaml` 
 
 1. Use your browser to open the end point to test your app.
 
-Your project is now compatible with Azure Develper CLI and can be used as a template!
+Your project is now compatible with Azure Developer CLI and can be used as a template!
 
 > [!NOTE] 
 > * You can run `azd up` to perform both `azd provision` and `azd deploy` in a single step. 

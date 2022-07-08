@@ -1,6 +1,6 @@
 In this article, you learn how to use the [Visual Studio Code](https://code.visualstudio.com/docs) extension for Azure Developer CLI (azd) Preview to run and debug apps on your local machine.
 
-This article uses the sample [Todo Application with Node.js and Azure Cosmo DB API for MongoDB](https://github.com/azure-samples/todo-nodejs-mongo). However, the principles you learn in this article apply to any of the [Azure Developer CLI template](../overview.md#azure-developer-cli-templates).
+This article uses the sample [Todo Application with Node.js and Azure Cosmos DB API for MongoDB](https://github.com/azure-samples/todo-nodejs-mongo). However, the principles you learn in this article apply to any of the [Azure Developer CLI template](../overview.md#azure-developer-cli-templates).
 
 ## Prerequisites
 
@@ -90,7 +90,7 @@ To use the **Debug Web** configuration, you must start both the API server and t
 
     ![Screenshot of selecting the option to Start API and Web.](../media/debug/run-task-api.png)
 
-1. (Optional) You can check if the local web server is running by navigating to the following URL in a we browser: `http://localhost:3000`.
+1. (Optional) You can check if the local web server is running by navigating to the following URL in a web browser: `http://localhost:3000`.
 
 1. In your project's `src/web/src/components` directory, open `todoItemListPane.tsx`.
 
