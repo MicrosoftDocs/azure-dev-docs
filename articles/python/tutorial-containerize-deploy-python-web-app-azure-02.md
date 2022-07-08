@@ -110,7 +110,8 @@ At this point, your Cosmos DB MongoDB connection string is of the form "mongodb:
 
 With information on how to connect to a MongoDB, you are ready to run the container locally. The sample app expects MongoDB connection information to be passed as environment variables. Locally, you'll specify this information through environment variables passed to the Docker container. There are a number of ways to get environment variables passed to container. Each has advantages and disadvantages in terms of security. You should avoid checking in any sensitive information or leaving sensitive information in code in the container. 
 
-When deployed to Azure, the web app will get connection info from  environment values set as App Service configuration settings and none of the modifications to VS Code files and Docker commands applies. 
+> [!NOTE]
+> When deployed to Azure, the web app will get connection info from  environment values set as App Service configuration settings and none of the modifications to VS Code files and Docker commands applies. 
 
 ### [VS Code](#tab/vscode-docker)
 
