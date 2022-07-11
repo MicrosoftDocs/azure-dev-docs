@@ -53,11 +53,11 @@ landingContent:
       - linkListType: deploy
         links:
           - text: What is Azure Developer CLI?
-            url: /azure/developer/azure-dev-cli/azure-dev-cli-overview 
+            url: /azure/developer/azure-developer-cli/overview 
           - text: Get started
-            url: /azure/developer/azure-dev-cli/get-started 
+            url: /azure/developer/azure-developer-cli/get-started 
           - text: See more in the Azure Developer CLI developer center
-            url: /azure/developer/azure-dev-cli/ 
+            url: /azure/developer/azure-developer-cli/ 
 
   # Card (optional)
   # - title: Visual Studio and Visual Studio Code
