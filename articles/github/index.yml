@@ -48,6 +48,18 @@ landingContent:
             url: github-variable-substitution.md
 
   # Card (optional)
+  - title: Azure Developer CLI
+    linkLists:
+      - linkListType: deploy
+        links:
+          - text: What is Azure Developer CLI?
+            url: /azure/developer/azure-dev-cli/azure-dev-cli-overview 
+          - text: Get started
+            url: /azure/developer/azure-dev-cli/get-started 
+          - text: See more in the Azure Developer CLI developer center
+            url: /azure/developer/azure-dev-cli/ 
+
+  # Card (optional)
   - title: Visual Studio and Visual Studio Code
     linkLists:
       - linkListType: deploy
