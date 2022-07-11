@@ -179,7 +179,7 @@ flask run --cert=cert.pem --key=key.pem
 
 The sample Flask and Django apps use the [azure.identity](https://pypi.org/project/azure-identity/) package, which contains the [DefaultAzureCredential](/python/api/azure-identity/azure.identity.defaultazurecredential). The DefaultAzureCredential can be used with Azurite and the Azure Python SDK.
 
-To test your Python app locally, go to `https://127.0.0.1:8000`. Your Python app is running locally with local PostgreSQL instance and Azurite storage emulator. 
+To test your Python app locally, go to `https://127.0.0.1:8000` (Django) or `http://127.0.0.1:5000` (Flask). Your Python app is running locally with local PostgreSQL instance and Azurite storage emulator. 
 
 If you run into `DefaultAzureCredential` issues, make sure you're signed in to Azure. For example, in the Azure CLI, you can use `az login`, in Visual Studio Code use the command palette (Ctrl+Shift+P) to run the **Azure: Sign In** command, and in Azure PowerShell use `Connect-AzAccount`.
 
