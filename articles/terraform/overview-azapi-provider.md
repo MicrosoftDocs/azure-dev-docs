@@ -139,7 +139,7 @@ AzAPI2AzureRM ensures after migration that your Terraform configuration and stat
       type = "Microsoft.MachineLearningServices/workspaces/computes@2021-07-01"
       
       location = "eastus"
-      body = jsondecode({
+      body = jsonencode({
         properties = {
           computeType      = "ComputeInstance"
           disableLocalAuth = true
