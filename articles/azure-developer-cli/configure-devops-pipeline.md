@@ -3,7 +3,7 @@ title: Configure a pipeline and push updates using GitHub Actions
 description: Learn how to push updates using GitHub Actions.
 author: puicchan
 ms.author: puichan
-ms.date: 06/28/2021
+ms.date: 07/11/2022
 ms.topic: conceptual
 ms.custom: devx-track-azdevcli
 ms.prod: azure
