@@ -59,9 +59,9 @@
       - name: Spring Cloud
         expanded: true
         items:
-          - name: Azure Event Hub
+          - name: Azure Event Hubs
             href: configure-spring-cloud-stream-binder-java-app-azure-event-hub.md
-          - name: Azure Event Hub Kafka API
+          - name: Azure Event Hubs for Kafka
             href: configure-spring-cloud-stream-binder-java-app-kafka-azure-event-hub.md
           - name: Azure Functions
             href: getting-started-with-spring-cloud-function-in-azure.md
