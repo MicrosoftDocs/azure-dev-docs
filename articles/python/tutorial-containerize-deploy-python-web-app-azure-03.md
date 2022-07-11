@@ -56,6 +56,8 @@ Building in the cloud doesn't require Docker to be running in your dev environme
 
 ### [VS Code](#tab/vscode-aztools-build)
 
+These steps require the [Docker extension](https://code.visualstudio.com/docs/containers/overview) for VS Code.
+
 | Instructions    | Screenshot |
 |:----------------|-----------:|
 | [!INCLUDE [Include showing how to check that Azure is connected to Docker extension in VS Code](<./includes/tutorial-container-web-app/container-image-build-in-azure-vscode-1.md>)] | :::image type="content" source="./media/tutorial-container-web-app/visual-studio-code-build-image-registries-240px.png" lightbox="./media/tutorial-container-web-app//visual-studio-code-build-image-registries.png" alt-text="A screenshot showing how to check that Azure is signed into Docker Extension in Visual Studio Code." ::: |
@@ -65,17 +67,10 @@ Building in the cloud doesn't require Docker to be running in your dev environme
 
 ### [Azure CLI](#tab/azure-cli-build)
 
-**Step 1.** Log into registry if you haven't done so already with the [az acr login](/cli/azure/acr#az-acr-login) command.
+Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com/) or on a workstation with the [Azure CLI installed](/cli/azure/install-azure-cli).
 
-```azurecli
-az acr login --name <registry-name>
-```
+[!INCLUDE [Include showing how build an image in Azure with the Azure CLI](<./includes/tutorial-container-web-app/container-image-build-in-azure-cli.md>)]
 
-**Step 2**. Build with the [az acr build]() command.
-
-```azurecli
-az acr build -t
-```
 
 ---
 
