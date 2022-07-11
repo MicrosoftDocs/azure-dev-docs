@@ -13,9 +13,9 @@ ms.author: jejohn
 
 This article is part of a tutorial about containerizing and deploy a Python web app to Azure App Service. App Service enables you to run containerized web apps and deploy through continuous integration/continuous deployment (CI/CD) capabilities with Docker Hub, Azure Container Registry, and Visual Studio Team Services. In this part of the tutorial, you learn how to build the containerized Python web app in the cloud.
 
-In the previous *optional* part of this tutorial, a container image was build and run locally. In this part of the tutorial, you'll build (containerize) a Python web app into a Docker image in the cloud, specifically in [Azure Container Registry](/azure/container-registry/container-registry-intro). Building in the cloud has the advantage of being faster and easier when deploying existing code like the sample apps.
+In the previous *optional* part of this tutorial, a container image was build and run locally. In this part of the tutorial, you'll build (containerize) a Python web app into a Docker image directly in [Azure Container Registry](/azure/container-registry/container-registry-intro). Building the image in Azure is typically faster and easier than building locally and then pushing the image to a registry. Also, building in the cloud doesn't require Docker to be running in your dev environment.
 
-Before you can deploy a Docker image to App service, the image must be uploaded to a container registry. In this tutorial, you'll work with Azure Container Registry (ACR). 
+Once the Docker image is Azure Container Registry, it can be deployed to Azure App service. 
 
 ## 1. Create an Azure Container Registry
 
@@ -23,7 +23,7 @@ If you already have an Azure Container Registry you can use, go to the next step
 
 ### [Azure portal](#tab/azure-portal)
 
-Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps to create your Azure Container Registry.
+Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps to create ab Azure Container Registry.
 
 | Instructions    | Screenshot |
 |:----------------|-----------:|
@@ -44,13 +44,15 @@ These steps require the [Docker extension](https://code.visualstudio.com/docs/co
 
 ### [Azure CLI](#tab/azure-cli)
 
+Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com/) or on a workstation with the [Azure CLI installed](/cli/azure/install-azure-cli).
+
 [!INCLUDE [Include showing how create registry with Azure CLI](<./includes/tutorial-container-web-app/container-registry-create-cli.md>)]
 
 ---
 
 ## 2. Build an image in Azure Container Registry
 
-Building the image in Azure is typically faster and easier than building locally and then pushing the image to a registry. Also, building in the cloud doesn't require Docker to be running in your dev environment.
+Building in the cloud doesn't require Docker to be running in your dev environment.
 
 ### [VS Code](#tab/vscode-aztools-build)
 
@@ -64,17 +66,25 @@ Step 2: Select **F1** or **CTRL+SHIFT+P** to open the command palette.
 
 Step 3: Fill out the information.
 
-* Tag image as **\<registry-name>.azurecr.io**, using the fully qualified name.
-* Select the registry you just created, that is **\<registry-name>**.
-* Select image of base OS as **Linux**
+* Tag image  &rarr; Use the fully qualified name **\<registry-name>.azurecr.io**.
+* Registry &rarr; Select the registry you just created, that is **\<registry-name>**.
+* Base OS image &rarr; Select **Linux**
 
 Check the **OUTPUT** window for progress and information on the build.
 
 ### [Azure CLI](#tab/azure-cli-build)
 
-Step 1. Log into registry if you haven't done so already.  Use `az acr login --name <registry-name>`.
+**Step 1.** Log into registry if you haven't done so already with the [az acr login](/cli/azure/acr#az-acr-login) command.
 
-Step 2. Build with `az acr build -t `
+```azurecli
+az acr login --name <registry-name>
+```
+
+**Step 2**. Build with the [az acr build]() command.
+
+```azurecli
+az acr build -t
+```
 
 ---
 
