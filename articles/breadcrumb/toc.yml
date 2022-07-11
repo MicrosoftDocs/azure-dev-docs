@@ -125,6 +125,6 @@
     - name: Terraform
       tocHref: /azure/developer/terraform
       topicHref: /azure/developer/terraform/index
-    - name: Azure Developer CLI
+    - name: Azure Developer CLI (azd) Preview
       tocHref: /azure/developer/azure-developer-cli
       topicHref: /azure/developer/azure-developer-cli/index
