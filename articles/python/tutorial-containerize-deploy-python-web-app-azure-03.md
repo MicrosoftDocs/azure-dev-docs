@@ -72,23 +72,4 @@ Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com
 
 [!INCLUDE [Include showing how build an image in Azure with the Azure CLI](<./includes/tutorial-container-web-app/container-image-build-in-azure-cli.md>)]
 
-
----
-
-
-## 3. Get details of the image
-
-### [Azure portal](#tab/azure-portal)
-
-1. List container images | one image showing portal
-
-### [VS Code](#tab/vscode-aztools)
-
-1. Expand the **REPOSITORIES** node of the Docker extension and find Azure registry.
-1. Expand subnodes until you see the *latest* image.
-
-### [Azure CLI](#tab/azure-cli)
-
-1. List container images with `az acr repository list --name <registry-name> --output table`.
-
 ---
