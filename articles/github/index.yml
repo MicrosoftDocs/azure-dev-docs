@@ -60,12 +60,12 @@ landingContent:
             url: /azure/developer/azure-dev-cli/ 
 
   # Card (optional)
-  - title: Visual Studio and Visual Studio Code
-    linkLists:
-      - linkListType: deploy
-        links:
-          - text: Use Visual Studio or Visual Studio Code to deploy apps from GitHub
-            url: deploy-with-visual-studio.md 
+  # - title: Visual Studio and Visual Studio Code
+  #   linkLists:
+  #     - linkListType: deploy
+  #       links:
+  #         - text: Use Visual Studio or Visual Studio Code to deploy apps from GitHub
+  #           url: deploy-with-visual-studio.md 
 
   # Card (optional)
   - title: Azure Pipelines and GitHub integration
