@@ -11,7 +11,7 @@ ms.author: jejohn
 
 # Build a containerized Python web app in the cloud
 
-This article is part of a tutorial about containerizing and deploy a Python web app to Azure App Service. App Service enables you to run containerized web apps and deploy through continuous integration/continuous deployment (CI/CD) capabilities with Docker Hub, Azure Container Registry, and Visual Studio Team Services. In this part of the tutorial, you learn how to build the containerized Python web app in the cloud.
+This article is part of a tutorial about how to containerize and deploy a Python web app to Azure App Service. App Service enables you to run containerized web apps and deploy through continuous integration/continuous deployment (CI/CD) capabilities with Docker Hub, Azure Container Registry, and Visual Studio Team Services. In this part of the tutorial, you learn how to build the containerized Python web app in the cloud.
 
 In the previous *optional* part of this tutorial, a container image was build and run locally. In this part of the tutorial, you'll build (containerize) a Python web app into a Docker image directly in [Azure Container Registry](/azure/container-registry/container-registry-intro). Building the image in Azure is typically faster and easier than building locally and then pushing the image to a registry. Also, building in the cloud doesn't require Docker to be running in your dev environment.
 
@@ -23,14 +23,14 @@ If you already have an Azure Container Registry you can use, go to the next step
 
 ### [Azure portal](#tab/azure-portal)
 
-Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps to create ab Azure Container Registry.
+Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps to create an Azure Container Registry.
 
 | Instructions    | Screenshot |
 |:----------------|-----------:|
 | [!INCLUDE [Include showing how to find container registries in Azure portal](<./includes/tutorial-container-web-app/container-registry-create-portal-1.md>)] | :::image type="content" source="./media/tutorial-container-web-app/portal-search-container-registries-240px.png" lightbox="./media/tutorial-container-web-app/portal-search-container-registries.png" alt-text="A screenshot showing how to search for container registries in Azure portal." :::  |
 | [!INCLUDE [Include showing how to start create of registry in Azure portal](<./includes/tutorial-container-web-app/container-registry-create-portal-2.md>)] | :::image type="content" source="./media/tutorial-container-web-app/portal-create-new-registry-240px.png" lightbox="./media/tutorial-container-web-app/portal-create-new-registry.png" alt-text="A screenshot showing how to create a new registry in Azure portal." ::: |
 | [!INCLUDE [Include showing how to review and create registry in Azure portal](<./includes/tutorial-container-web-app/container-registry-create-portal-3.md>)] | :::image type="content" source="./media/tutorial-container-web-app/portal-create-registry-form-240px.png" lightbox="./media/tutorial-container-web-app/portal-create-registry-form.png" alt-text="A screenshot showing how to specify a new registry in Azure portal." ::: |
-| [!INCLUDE [Include showing how to get qualified name of registry in Azure portal](<./includes/tutorial-container-web-app/container-registry-create-portal-4.md>)] | :::image type="content" source="./media/tutorial-container-web-app/portal-create-registry-login-server-240px.png" lightbox="./media/tutorial-container-web-app/portal-create-registry-login-server.png" alt-text="A screenshot showing how to find the login server value a registry in Azure portal." :::|
+| [!INCLUDE [Include showing how to get qualified name of registry in Azure portal](<./includes/tutorial-container-web-app/container-registry-create-portal-4.md>)] | :::image type="content" source="./media/tutorial-container-web-app/portal-create-registry-login-server-240px.png" lightbox="./media/tutorial-container-web-app/portal-create-registry-login-server.png" alt-text="A screenshot showing how to find the log in server value a registry in Azure portal." :::|
  
 ### [VS Code](#tab/vscode-aztools)
 
@@ -56,7 +56,7 @@ Building in the cloud doesn't require Docker to be running in your dev environme
 
 ### [VS Code](#tab/vscode-aztools-build)
 
-Step 1. In the Docker extension, go to **REGISTRIES** and make sure you are connected to Azure.
+Step 1. In the Docker extension, go to **REGISTRIES** and make sure you're connected to Azure.
 
 Step 2: Select **F1** or **CTRL+SHIFT+P** to open the command palette.
 
@@ -67,7 +67,7 @@ Step 2: Select **F1** or **CTRL+SHIFT+P** to open the command palette.
 Step 3: Fill out the information.
 
 * Tag image  &rarr; Use the fully qualified name **\<registry-name>.azurecr.io**.
-* Registry &rarr; Select the registry you just created, that is **\<registry-name>**.
+* Registry &rarr; Select the registry you created, that is **\<registry-name>**.
 * Base OS image &rarr; Select **Linux**
 
 Check the **OUTPUT** window for progress and information on the build.
@@ -97,7 +97,7 @@ az acr build -t
 
 ### [VS Code](#tab/vscode-aztools)
 
-1. Expand the **REPOSITORIES** node of the Docker exensio and find Azure registory.
+1. Expand the **REPOSITORIES** node of the Docker extension and find Azure registry.
 1. Expand subnodes until you see the *latest* image.
 
 ### [Azure CLI](#tab/azure-cli)
