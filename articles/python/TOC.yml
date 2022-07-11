@@ -102,7 +102,7 @@
     - name: Deploy containerized web app
       items:
         - name: 3. Deploy container App Service
-          href: tutorial-containerize-deploy-python-web-app-azure-03.md
+          href: tutorial-containerize-deploy-python-web-app-azure-04.md
 
 - name: Data science solutions
   items:
