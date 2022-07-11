@@ -46,7 +46,7 @@ You can place a flat properties file named *log4j2.properties* in the */src/main
 appender.console.type = Console
 appender.console.name = STDOUT
 appender.console.layout.type = PatternLayout
-appender.console.layout.pattern = %msg%n
+appender.console.layout.pattern = %d %5p [%t] %c{3} - %m%n
 
 logger.app.name = com.azure.core
 logger.app.level = ERROR
@@ -65,7 +65,7 @@ You can place an XML file named *log4j2.xml* in the */src/main/resource* directo
 <Configuration status="INFO">
     <Appenders>
         <Console name="console" target="SYSTEM_OUT">
-            <PatternLayout pattern="%msg%n" />
+            <PatternLayout pattern="%d %5p [%t] %c{3} - %m%n" />
         </Console>
     </Appenders>
     <Loggers>

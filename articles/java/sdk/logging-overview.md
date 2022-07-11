@@ -38,7 +38,40 @@ After the environment variable is set, restart the application to enable the env
 
 ## SLF4J logging
 
-By default, you should configure logging using an SLF4J-supported logging framework. First, include a relevant SLF4J logging implementation as a dependency from your project. For more information, see [Declaring project dependencies for logging](http://www.slf4j.org/manual.html#projectDep) in the SLF4J user manual. Next, configure your logger to work as necessary in your environment, such as setting log levels, configuring which classes do and do not log, and so on. Some examples are provided through the links below, but for more detail, see the documentation for your chosen logging framework.
+By default, you should configure logging using an SLF4J-supported logging framework. First, include a relevant SLF4J logging implementation as a dependency from your project. For more information, see [Declaring project dependencies for logging](http://www.slf4j.org/manual.html#projectDep) in the SLF4J user manual. Next, configure your logger to work as necessary in your environment, such as setting log levels, configuring which classes do and don't log, and so on. Some examples are provided through the links below, but for more detail, see the documentation for your chosen logging framework.
+
+## Log format
+
+Logging frameworks support custom log message formatting and layouts. We recommend including at least following fields to make it possible to troubleshoot Azure client libraries:
+
+* Date and time with millisecond precision
+* Log severity
+* Logger name
+* Thread name
+* Message
+
+For examples, see the documentation for the logging framework you use.
+
+### Structured logging
+
+In addition to logging the common properties mentioned earlier, Azure client libraries annotate log messages with extra context when applicable. For example, you may see JSON-formatted logs containing `az.sdk.message` with context written as other root properties, as shown in the following example:
+
+```log
+16:58:51.038 INFO  c.a.c.c.i.C.getManifestProperties - {"az.sdk.message":"HTTP request","method":"GET","url":"<>","tryCount":"1","contentLength":0}
+16:58:51.141 INFO  c.a.c.c.i.C.getManifestProperties - {"az.sdk.message":"HTTP response","contentLength":"558","statusCode":200,"url":"<>","durationMs":102}
+```
+
+When you send logs to Azure Monitor, you can use the [Kusto query language](/azure/data-explorer/kusto/query/) to parse them. The following query provides an example:
+
+```kusto
+traces 
+| where message startswith "{\"az.sdk.message"
+| project timestamp, logger=customDimensions["LoggerName"], level=customDimensions["LoggingLevel"], thread=customDimensions["ThreadName"], azSdkContext=parse_json(message)
+| evaluate bag_unpack(azSdkContext)
+```
+
+> [!NOTE]
+> Azure client library logs are intended for ad-hoc debugging. We don't recommend relying on the log format to alert or monitor your application. Azure client libraries do not guarantee the stability of log messages or context keys. For such purposes, we recommend using distributed tracing. The Application Insights Java agent provides stability guarantees for request and dependency telemetry. For more information, see [Configure tracing in the Azure SDK for Java](tracing.md).
 
 ## Next steps
 
