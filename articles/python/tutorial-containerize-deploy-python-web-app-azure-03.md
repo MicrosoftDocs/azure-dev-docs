@@ -9,7 +9,7 @@ author: jess-johnson-msft
 ms.author: jejohn
 ---
 
-# Build and test a containerized Python web app in the cloud
+# Build a containerized Python web app in the cloud
 
 This article is part of a tutorial about containerizing and deploy a Python web app to Azure App Service. App Service enables you to run containerized web apps and deploy through continuous integration/continuous deployment (CI/CD) capabilities with Docker Hub, Azure Container Registry, and Visual Studio Team Services. In this part of the tutorial, you learn how to build the containerized Python web app in the cloud.
 
