@@ -56,21 +56,12 @@ Building in the cloud doesn't require Docker to be running in your dev environme
 
 ### [VS Code](#tab/vscode-aztools-build)
 
-Step 1. In the Docker extension, go to **REGISTRIES** and make sure you're connected to Azure.
+| Instructions    | Screenshot |
+|:----------------|-----------:|
+| [!INCLUDE [Include showing how to check that Azure is connected to Docker extension in VS Code](<./includes/tutorial-container-web-app/container-image-build-in-azure-vscode-1.md>)] | :::image type="content" source="./media/tutorial-container-web-app/visual-studio-code-build-image-registries-240px.png" lightbox="./media/tutorial-container-web-app//visual-studio-code-build-image-registries.png" alt-text="A screenshot showing how to check that Azure is signed into Docker Extension in Visual Studio Code." ::: |
+| [!INCLUDE [Include showing how to invoke the build container image in Azure task in VS Code](<./includes/tutorial-container-web-app/container-image-build-in-azure-vscode-2.md>)] | :::image type="content" source="./media/tutorial-container-web-app/visual-studio-code-build-image-task-240px.png" lightbox="./media/tutorial-container-web-app//visual-studio-code-build-image-task.png" alt-text="A screenshot showing how to invoke build container in Azure task in Visual Studio Code." ::: |
+| [!INCLUDE [Include showing how to build the container image in Azure in VS Code](<./includes/tutorial-container-web-app/container-image-build-in-azure-vscode-3.md>)] | :::image type="content" source="./media/tutorial-container-web-app/visual-studio-code-build-image-prompts-240px.gif" lightbox="./media/tutorial-container-web-app//visual-studio-code-build-image-prompts.gif" alt-text="A screenshot showing how to provide information to  build container in Azure in Visual Studio Code." ::: |
 
-Step 2: Select **F1** or **CTRL+SHIFT+P** to open the command palette.
-
-* Type "registries".
-
-* Select the task **Azure Container Registry: Build Image in Azure...**
-
-Step 3: Fill out the information.
-
-* Tag image  &rarr; Use the fully qualified name **\<registry-name>.azurecr.io**.
-* Registry &rarr; Select the registry you created, that is **\<registry-name>**.
-* Base OS image &rarr; Select **Linux**
-
-Check the **OUTPUT** window for progress and information on the build.
 
 ### [Azure CLI](#tab/azure-cli-build)
 
