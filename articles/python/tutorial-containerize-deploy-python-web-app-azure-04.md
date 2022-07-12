@@ -22,7 +22,21 @@ Notes:
 
 ## 1. Create the Azure App Service
 
-## 2. Configure App Service for the sample app
+### [Azure portal](#tab/azure-portal)
+
+### [VS Code](#tab/vscode-aztools)
+
+
+### [Azure CLI](#tab/azure-cli)
+
+Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com/) or on a workstation with the [Azure CLI installed](/cli/azure/install-azure-cli).
+
+[!INCLUDE [Include showing how create web pp with Azure CLI](<./includes/tutorial-container-web-app/azure-cli-app-service-create.md>)]
+
+---
+
+## 2. Configure App Service to connect to MongoDB
+
 
 ## 3. Verify the deployment
 
