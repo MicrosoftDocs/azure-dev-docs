@@ -1,0 +1,140 @@
+### YamlMime:FAQ
+metadata:
+  title: Azure Developer CLI Preview FAQ
+  description: Get answers to commonly asked questions about Azure Developer CLI.
+  author: puicchan
+  ms.author: puichan
+  ms.date: 07/11/2022
+  ms.topic: conceptual
+  ms.custom: devx-track-azdevcli
+  ms.prod: azure
+title: Azure Developer CLI Preview FAQ
+summary: This article answers commonly asked questions about Azure Developer CLI.
+sections:
+  - name: General
+    questions:
+      - question: How do I uninstall Azure Developer CLI?
+        answer: |
+          For Windows, run:
+
+          ```
+          powershell -c "Set-ExecutionPolicy Bypass Process -Force; irm 'https://aka.ms/uninstall-azd.ps1' | iex"
+          ```
+          For Linux and macOS, run:
+
+          ```
+          curl -fsSL https://aka.ms/uninstall-azd.sh | bash
+          ```
+
+      - question: What is an environment name?
+        answer: |
+          Azure Developer CLI uses an environment name to set the `AZURE_ENV_NAME` environment variable that's used by Azure Developer CLI templates. AZURE_ENV_NAME is also used to prefix the Azure resource group name. Because each environment has its own set of configurations, Azure Developer CLI stores all configuration files in environment directories. 
+
+          ```txt	 
+          ├── .Azure                          [ This directory displays after you run add init or azd up ]
+          │   ├── <your environment1>         [ A directory to store all environment-related configurations]
+          │   │   ├── .env                    [ Contains environment variables ]
+          │   │   └── main.parameters.json    [ A parameter file ]
+          │   └── <your environment2>         [ A directory to store all environment-related configurations ]
+          │   │   ├── .env                    [ Contains environment variables ]
+          │   │   └── main.parameters.json    [ A parameter file ]
+          │   └──config.json 
+          ```
+
+      - question: Can I set up more than one environment?
+        answer: |
+          Yes. You can set up a various environments (for example, dev, test, production). You can use `azd env` to manage these environments.
+
+      - question: Where is the environment configuration (.env) file stored?
+        answer: |
+          The .env file path is `<your-project-directory-name>\.azure\<your-environment-name>\.env`.
+
+      - question: How is the .env file used?
+        answer: |
+          In Azure Developer CLI, the `azd` commands refer to the .env file for environment configuration. Commands such as `azd deploy` also update the .env file with, for example, the db connection string and the Azure Key Vault endpoint.
+          
+      - question: How is the azure.yaml file used?
+        answer: |
+          The azure.yaml file describes the apps and types of Azure resources that are included in the template.
+
+  - name: "Command: azd provision"
+    questions:
+      - question: How does the command know what resources to provision?
+        answer: |
+          The command uses Bicep templates, which are found under `<your-project-directory-name>/infra` to provision Azure resources. 
+
+      - question: Where can I find what resources are provisioned in Azure?
+        answer: |
+          Go to https://portal.azure.com and then look for your resource group, which is `<your-environment-name>-rg`. 
+
+      - question: How do I find more information about Azure errors?
+        answer: |
+          We use Bicep templates, which are found under `<your-project-directory-name>/infra`, to provision Azure resources. If there are issues, we include the error message in the CLI output. 	
+          
+          You can also go to https://portal.azure.com and then look for your resource group, which is `<your-environment-name>-rg`. If any of the deployments fail, select the error link to get more information.
+          
+          For other resources, see [Troubleshoot common Azure deployment errors - Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/troubleshooting/common-deployment-errors).
+
+      - question: Is there a log file for `azd provision`? 
+        answer: |
+          Coming soon. This feature is planned for a future release.
+
+  - name: "Command: azd deploy"
+    questions:
+      - question: Can I rerun this command?
+        answer: |
+          Yes.
+
+  - name: "Command: azd up"
+    questions:
+      - question: Can I rerun `azd up`?
+        answer: |
+          Yes. We use the [incremental deployment mode](https://docs.microsoft.com/azure/azure-resource-manager/templates/deployment-modes).
+
+      - question: How do I find the log file for `azd up`? 
+        answer: |
+          Coming soon. This feature is planned for a future release.
+
+  - name: "Command: azd pipeline"
+    questions:
+      - question: What is an Azure service principal?
+        answer: |
+          An Azure service principal is an identity that's created for use with apps, hosted services, and automated tools to access Azure resources. This access is restricted by the roles that are assigned to the service principal, which gives you control over which resources can be accessed and at which level. For more information about authenticating from Azure to GitHub, see [Connect GitHub and Azure | Microsoft Docs](https://docs.microsoft.com/azure/developer/github/connect-from-azure?tabs=azure-portal%2Cwindows#use-the-azure-login-action-with-a-service-principal-secret). 
+
+      - question: Do I need to create an Azure service principal before I run `azd pipeline config`?
+        answer: |
+          No. The `azd pipeline config` command takes care of creating the Azure service principal and performing the necessary steps to store the secrets in your GitHub repo.
+
+      - question: What are all the secrets stored in GitHub?
+        answer: |
+          The command stores four secrets in GitHub: AZURE_CREDENTIALS, AZURE_ENV_NAME, AZURE_LOCATION, and AZURE_SUBSCRIPTION_ID. You can override the value of each secret by going to `https://github.com/<your-GH-account>/<your-repo>/secrets/actions`.
+
+      - question: What is OpenID Connect (OIDC), and is it supported?  
+        answer: |
+          With [OpenID Connect](https://docs.github.com/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect), your workflows can exchange short-lived tokens directly from Azure. We're currently planning OIDC support and will include it in a future release. 
+
+      - question: How do I reset the Azure service principal that's stored in GitHub Actions?
+        answer: |
+          Go to `https://github.com/<your-GH-account>/<your-repo>settings/secrets/actions`, and then update `AZURE_CREDENTIALS` by copying and pasting the entire JSON object for the new service principal. For example: 
+
+          ```
+          {
+            "clientId": "<GUID>",
+            "clientSecret": "<GUID>",
+            "subscriptionId": "<GUID>",
+            "tenantId": "<GUID>",
+            (...)
+          }
+          ```
+
+      - question: Where is the GitHub Actions file stored?
+        answer: |
+          The GitHub Actions file path is `<your-project-directory-name>\.github\workflows\azure-dev.yml`.
+          
+      - question: In the azure-dev.yml file, can I deploy just the code in the build step?
+        answer: |
+          Yes. Replace `run: azd up --no-prompt` with `run: azd deploy --no-prompt`.
+
+      - question: Where can I find the log for the GitHub Actions job that I triggered when I ran `azd pipeline config`?
+        answer: |
+          Go to `https://github.com/<your-GH-account>/<your-repo>/actions`, and then refer to the log file in the workflow run.
