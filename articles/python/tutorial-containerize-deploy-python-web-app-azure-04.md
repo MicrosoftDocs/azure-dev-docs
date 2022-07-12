@@ -83,6 +83,21 @@ No further steps needed.
 
 ## 3. Configure App Service to connect to MongoDB
 
+To specify the environment variables needed to connect to MongoDB.
+
+### [Azure portal](#tab/azure-portal)
+
+Add configuration setting.
+
+### [VS Code](#tab/vscode-aztools)
+
+Add configuration setting.
+
+### [Azure CLI](#tab/azure-cli)
+
+Add configuration setting.
+
+---
 
 ## 3. Verify the deployment
 
