@@ -34,6 +34,22 @@ Notes:
 
 ### [VS Code](#tab/vscode-aztools)
 
+**Step 1.** Refresh the Azure Container Registry in the Docker extension.
+
+Confirm that the registry and repo you want to use appears. What appears there will be what choices the task shows.
+
+**Step 2.** Command palette bring up and use **Docker Registries: Deploy Image to Azure App Service...**
+
+**Step 3.** Follow prompts:
+
+* Azure as provider
+* Select registry name.
+* Select repository name. (If you don't see your repo, refresh the Docker extension **REGISTRIES** section.)
+* Select tag "latest"
+* Enter a globally unique name for the web app.
+* Others?
+
+**Step 4.** When the prompt shows the deployment finishes.
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -57,6 +73,7 @@ Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com
 
 ### [VS Code](#tab/vscode-aztools)
 
+No further steps needed.
 
 ### [Azure CLI](#tab/azure-cli)
 
