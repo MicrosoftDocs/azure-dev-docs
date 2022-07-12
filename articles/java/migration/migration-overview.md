@@ -75,7 +75,7 @@ The following sections show you which service destinations meet your application
 
 Use the following grid to identify potential destinations for your application type. As you can see, AKS and Virtual Machines support all application types, but they require your team to take on more responsibilities, as shown in the next section.
 
-| Destination&nbsp;→<br><br>Application&nbsp;type&nbsp;↓           | App<br>Service<br>Java SE | App<br>Service<br>Tomcat | App<br>Service<br>JBoss EAP | Azure<br>Spring<br>Cloud | AKS           | Virtual<br>Machines |
+| Destination&nbsp;→<br><br>Application&nbsp;type&nbsp;↓            | App<br>Service<br>Java SE | App<br>Service<br>Tomcat | App<br>Service<br>JBoss EAP | Azure<br>Spring<br>Apps  | AKS           | Virtual<br>Machines |
 |-------------------------------------------------------------------|---------------------------|--------------------------|-----------------------------|--------------------------|---------------|---------------------|
 | Spring Boot / JAR applications                                    | &#x2714;                  |                          |                             | &#x2714;                 | &#x2714;      | &#x2714;            |
 | Spring Cloud applications                                         |                           |                          |                             | &#x2714;                 | &#x2714;      | &#x2714;            |
@@ -97,7 +97,7 @@ Your team is responsible on a continual basis for the tasks indicated with "&#x1
 > [!NOTE]
 > This isn't an exhaustive list of responsibilities.
 
-| Destination&nbsp;→<br><br>Task&nbsp;↓                                      | App<br>Service | Azure<br>Spring<br>Cloud | AKS         | Virtual<br>Machines |
+| Destination&nbsp;→<br><br>Task&nbsp;↓                                       | App<br>Service | Azure<br>Spring<br>Apps  | AKS         | Virtual<br>Machines |
 |-----------------------------------------------------------------------------|----------------|--------------------------|-------------|---------------------|
 | Updating libraries<br>(including vulnerability remediation)                 | &#x1F449;      | &#x1F449;                | &#x1F449;   | &#x1F449;           |
 | Updating the application server<br>(including vulnerability remediation)    | ![Azure][1]    | ![Azure][1]              | &#x1F449;   | &#x1F449;           |
@@ -135,7 +135,7 @@ If you'd like to migrate a JBoss EAP app to Tomcat on App Service, first convert
 
 If you'd like to migrate a Web app on Tomcat to Azure Spring Apps, first convert the app into Spring Cloud applications, then follow the guidance indicated below.
 
-| Destination&nbsp;→<br><br>Application&nbsp;type&nbsp;↓ | App<br>Service<br>Java SE | App<br>Service<br>Tomcat | App<br>Service<br>JBoss EAP | Azure<br>Spring<br>Cloud | AKS                 | Virtual Machines    |
+| Destination&nbsp;→<br><br>Application&nbsp;type&nbsp;↓ | App<br>Service<br>Java SE | App<br>Service<br>Tomcat | App<br>Service<br>JBoss EAP | Azure<br>Spring<br>Apps  | AKS                 | Virtual Machines    |
 |--------------------------------------------------------|---------------------------|--------------------------|-----------------------------|--------------------------|---------------------|---------------------|
 | Spring Boot /<br>JAR applications                      | [guidance][5]             | guidance<br>planned      | N/A                         | [guidance][16]           | [guidance][14]      | guidance<br>planned |
 | Spring Cloud /<br>applications                         | N/A                       | N/A                      | N/A                         | [guidance][15]           | guidance<br>planned | guidance<br>planned |
@@ -145,7 +145,7 @@ If you'd like to migrate a Web app on Tomcat to Azure Spring Apps, first convert
 
 Use the rows below to find your Java EE application type running on a specific app server. Use the columns to find the Azure service destination that will host your application.
 
-| Destination&nbsp;→<br><br>App server&nbsp;↓ | App<br>Service<br>Java SE | App<br>Service<br>Tomcat | App<br>Service<br>JBoss EAP | Azure<br>Spring<br>Cloud | AKS           | Virtual Machines    |
+| Destination&nbsp;→<br><br>App server&nbsp;↓ | App<br>Service<br>Java SE | App<br>Service<br>Tomcat | App<br>Service<br>JBoss EAP | Azure<br>Spring<br>Apps  | AKS           | Virtual Machines    |
 |---------------------------------------------|---------------------------|--------------------------|-----------------------------|--------------------------|---------------|---------------------|
 | WildFly /<br>JBoss AS                       | N/A                       | N/A                      | [guidance][18]              | N/A                      | [guidance][9] | guidance<br>planned |
 | WebLogic                                    | N/A                       | N/A                      | [guidance][19]              | N/A                      | [guidance][6] | [guidance][4]       |
