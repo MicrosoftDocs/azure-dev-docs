@@ -7,7 +7,7 @@ ms.date: 07/07/2022
 
 Fill out the information to build the image.
 
-* Tag image  &rarr; Use the fully qualified name **\<registry-name>.azurecr.io**.
+* Tag image  &rarr; Use the fully qualified name **\<repository-name>.azurecr.io**.
 * Registry &rarr; Select the registry you created, that is **\<registry-name>**.
 * Base OS image &rarr; Select **Linux**
 
