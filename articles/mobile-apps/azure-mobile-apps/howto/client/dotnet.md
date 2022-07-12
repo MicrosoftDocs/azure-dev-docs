@@ -81,24 +81,17 @@ var options = new DatasyncClientOptions
 
 #### HttpPipeline
 
-Normally, a HTTP request is made by passing the request through the authentication provider (which adds the `Authorization` header 
-for the currently authenticated user) before sending the request.  You can, optionally, add additional delegating handlers that each
-request will pass through.  This allows you, for example, to add additional headers, do retries, or provider logging capabilities.
+Normally, an HTTP request is made by passing the request through the authentication provider (which adds the `Authorization` header for the currently authenticated user) before sending the request.  You can, optionally, add more delegating handlers that each request will pass through.  Delegating handlers allow you to add extra headers, do retries, or provide logging capabilities.
 
-Examples of this are provided for [logging](#enable-request-logging) and [adding request headers](#customize-request-headers) later in
-this article.
+Examples of delegating handlers are provided for [logging](#enable-request-logging) and [adding request headers](#customize-request-headers) later in this article.
 
 #### IdGenerator
 
-When an entity is added to an offline table, it must have an Id.  An Id will be generated if one is not provided.  The IdGenerator option
-allows you to tailor the Id that is generated.  By default, a globally unique Id is generated.
+When an entity is added to an offline table, it must have an ID.  An ID will be generated if one isn't provided.  The `IdGenerator` option allows you to tailor the ID that is generated.  By default, a globally unique ID is generated.
 
 #### InstallationId
 
-A custom header `X-ZUMO-INSTALLATION-ID` is sent with each request to identify the combination of the application on a specific device.  This
-header can be recorded in logs and allows you to determine the number of distinct installations for your app.  By default, an installation 
-Id is generated for you and saved in persistent storage when the app is first launched.  However, you can modify this to set your own installation
-Id.  If set to the blank string, the header is not sent.
+A custom header `X-ZUMO-INSTALLATION-ID` is sent with each request to identify the combination of the application on a specific device.  This header can be recorded in logs and allows you to determine the number of distinct installations for your app.  By default, an installation ID is generated for you and saved in persistent storage when the app is first launched.  However, you can modify the `InstallationId` property to set your own installation ID.  If set to the blank string, the header isn't sent to the server.
 
 For example, the following setting will generate a string that includes the table name and a GUID:
 
@@ -111,14 +104,11 @@ var options = new DatasyncClientOptions
 
 #### OfflineStore
 
-The `OfflineStore` is used when configuring offline data access.  See [Work with offline tables](#work-with-offline-tables) for more information.
+The `OfflineStore` is used when configuring offline data access.  For more information, see [Work with offline tables](#work-with-offline-tables).
 
 #### ParallelOperations
 
-Part of the offline synchronization process involves pushing queued operations to the remote server.  When the push operation is triggered, the
-operations are submitted in the order they were received.  You can, optionally, use up to 8 threads to push these operations.  This uses more
-resources on both client and server to complete the operation faster.  When using more than one thread, the order in which operations arrive at
-the server can't be guaranteed. 
+Part of the offline synchronization process involves pushing queued operations to the remote server.  When the push operation is triggered, the operations are submitted in the order they were received.  You can, optionally, use up to eight threads to push these operations.  Parallel operations uses more resources on both client and server to complete the operation faster.  The order in which operations arrive at the server can't be guaranteed when using multiple threads. 
 
 #### SerializerSettings
 
@@ -261,8 +251,7 @@ The `Where` clause supports operations that be translated into the OData subset.
 * Relational operators (`==`, `!=`, `<`, `<=`, `>`, `>=`),
 * Arithmetic operators (`+`, `-`, `/`, `*`, `%`),
 * Number precision (`Math.Floor`, `Math.Ceiling`),
-* String functions (`Length`, `Substring`, `Replace`, `IndexOf`, `Equals`, `StartsWith`, `EndsWith`),
-  * When using culture-aware functions, Ordinal and Invariant cultures are supported.
+* String functions (`Length`, `Substring`, `Replace`, `IndexOf`, `Equals`, `StartsWith`, `EndsWith`) (ordinal and invariant cultures only),
 * Date properties (`Year`, `Month`, `Day`, `Hour`, `Minute`, `Second`),
 * Access properties of an object, and
 * Expressions combining any of these operations.
@@ -445,7 +434,7 @@ Finally, you must ensure that the offline capabilities are initialized:
 await client.InitializeOfflineStoreAsync();
 ```
 
-Store initialization is normally done immediately after the client is created.  The **OfflineConnectionString** is a URI used for specifying both the location of the SQLite database and the options used to open the database.  For more information, see [URI Filenames in SQLite](https://sqlite.org/uri.html).  
+Store initialization is normally done immediately after the client is created.  The **OfflineConnectionString** is a URI used for specifying both the location of the SQLite database and the options used to open the database. For more information, see [URI Filenames in SQLite](https://sqlite.org/uri.html).  
 
 * To use an in-memory cache, use `file:inmemory.db?mode=memory&cache=private`.
 * To use a file, use `file:/path/to/file.db`
