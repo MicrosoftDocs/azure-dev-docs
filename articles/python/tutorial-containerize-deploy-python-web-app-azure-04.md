@@ -24,6 +24,14 @@ Notes:
 
 ### [Azure portal](#tab/azure-portal)
 
+
+| Instructions    | Screenshot |
+|:----------------|-----------:|
+| [!INCLUDE [Include showing how to start create process of app service in Azure portal](<./includes/tutorial-container-web-app/app-service-create-portal-1.md>)] |  |
+| [!INCLUDE [Include showing how to specify basics of app service in Azure portal](<./includes/tutorial-container-web-app/app-service-create-portal-2.md>)] |  |
+| [!INCLUDE [Include showing how to specify Docker container of app service info in Azure portal](<./includes/tutorial-container-web-app/app-service-create-portal-3.md>)] |  |
+| [!INCLUDE [Include showing how to finish the create process of app service in Azure portal](<./includes/tutorial-container-web-app/app-service-create-portal-4.md>)] |  |
+
 ### [VS Code](#tab/vscode-aztools)
 
 
@@ -31,11 +39,32 @@ Notes:
 
 Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com/) or on a workstation with the [Azure CLI installed](/cli/azure/install-azure-cli).
 
-[!INCLUDE [Include showing how create web pp with Azure CLI](<./includes/tutorial-container-web-app/azure-cli-app-service-create.md>)]
+[!INCLUDE [Include showing how create web app with Azure CLI](<./includes/tutorial-container-web-app/app-service-create-cli.md>)]
 
 ---
 
-## 2. Configure App Service to connect to MongoDB
+## 2. Configure managed identity
+
+### [Azure portal](#tab/azure-portal)
+
+
+| Instructions    | Screenshot |
+|:----------------|-----------:|
+| [!INCLUDE [Include showing how to start create process of app service in Azure portal](<./includes/tutorial-container-web-app/app-service-create-portal-5.md>)] |  |
+| [!INCLUDE [Include showing how to specify basics of app service in Azure portal](<./includes/tutorial-container-web-app/app-service-create-portal-6.md>)] |  |
+| [!INCLUDE [Include showing how to specify Docker container of app service info in Azure portal](<./includes/tutorial-container-web-app/app-service-create-portal-7.md>)] |  |
+
+
+### [VS Code](#tab/vscode-aztools)
+
+
+### [Azure CLI](#tab/azure-cli)
+
+[!INCLUDE [Include showing how set managed identity for container deployment with Azure CLI](<./includes/tutorial-container-web-app/app-service-nanaged-id-cli.md>)]
+
+---
+
+## 3. Configure App Service to connect to MongoDB
 
 
 ## 3. Verify the deployment

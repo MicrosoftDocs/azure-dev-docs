@@ -37,10 +37,3 @@ az webapp create -g $RESOURCE_GROUP -p $PLAN -n $SITE_NAME \
 ```
 
 *\<container-name>* is of the form "myregistryname.azurecr.io/repo_name:tag".
-
-**Step 4.** Set the service to use managed identity.
-
-```bash
-az webapp config set -g $RESOURCE_GROUP -n $SITE_NAME \
-  --generic-configurations '{"acrUseManagedIdentityCreds": true}'
-```
