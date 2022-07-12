@@ -99,7 +99,7 @@ Add configuration setting.
 
 ---
 
-## 3. Verify the deployment
+## 4. Verify the deployment
 
 ## Next Steps
 
