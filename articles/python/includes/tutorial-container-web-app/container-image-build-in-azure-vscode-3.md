@@ -11,6 +11,4 @@ Fill out the information to build the image.
 * Registry &rarr; Select the registry you created, that is **\<registry-name>**.
 * Base OS image &rarr; Select **Linux**
 
-Check the **OUTPUT** window for progress and information on the build.
-
-If the get a credentials error, try [az login](/cli/azure/reference-index#az-login) to refresh your credentials.
+Check the **OUTPUT** window for progress and information on the build. If the get a credentials error, try [az login](/cli/azure/reference-index#az-login) to refresh your credentials.
