@@ -20,13 +20,13 @@ This guide shows you how to perform common scenarios using the .NET client libra
 The .NET client library supports .NET Standard 2.0, .NET 6 and the following platforms:
 
 * Xamarin.Android above API level 19.
-* Xamarin.iOS version 8.0 and above..
+* Xamarin.iOS version 8.0 and above.
 * Universal Windows Platform builds 19041 and above.
 * Windows Presentation Framework (WPF).
 * Windows App SDK (WinUI 3).
 * .NET MAUI for Android, iOS, and Windows platforms.
 
-Other platforms may work, but haven't been tested at this time.  The TodoApp sample (located in the samples directory) contains an example of each tested platform.
+Other platforms may work, but haven't been tested at this time.  The [TodoApp sample](https://github.com/Azure/azure-mobile-apps/tree/main/samples/TodoApp) contains an example of each tested platform.
 
 ## Setup and Prerequisites
 
