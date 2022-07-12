@@ -33,9 +33,7 @@ To add the Maven dependency, include the following XML in the project's *pom.xml
 
 ## Add logging.properties to your project
 
-To log using `java.util.logging`, create a file called *logging.properties* under *./src/main/resources* directory of your project. This file will contain the logging configurations to customize your logging needs. For more information, see [Java Logging: Configuration](http://tutorials.jenkov.com/java-logging/configuration.html).
-
-If you would like to use a different filename other than *logging.properties*, you can do so by setting the `java.util.logging.config.file` system property. This property must be set before the logger instance is created.
+To log using `java.util.logging`, create a file called *logging.properties* under the *./src/main/resources* directory of your project or anywhere else. This file will contain the logging configurations to customize your logging needs. Provide path to the file by setting the `java.util.logging.config.file` system property. You must set this property before you create the logger instance. For more information, see [Java Logging: Configuration](http://tutorials.jenkov.com/java-logging/configuration.html).
 
 ### Console logging
 
@@ -47,7 +45,7 @@ handlers = java.util.logging.ConsoleHandler
 
 java.util.logging.ConsoleHandler.level = INFO
 java.util.logging.ConsoleHandler.formatter = java.util.logging.SimpleFormatter
-java.util.logging.SimpleFormatter.format=[%1$tF %1$tT] [%4$s] %5$s %n
+java.util.logging.SimpleFormatter.format=[%1$tF %1$tH:%1$tM:%1$tS.%1$tL] [%4$s] %3$s %5$s %n
 ```
 
 ### Log to a file

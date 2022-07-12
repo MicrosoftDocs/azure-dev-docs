@@ -12,7 +12,7 @@ metadata:
   author: mcleanbyron
   ms.author: mcleans
   manager: mcleans
-  ms.date: 12/28/2021
+  ms.date: 07/01/2022
 
 highlightedContent:
   items:
@@ -161,6 +161,15 @@ productDirectory:
           text: Key concepts for new Azure Pipelines users
         - url: ./mobile-apps/index.yml
           text: See more in the Mobile app developer center
+    - title: Azure Developer CLI (azd) Preview
+      imageSrc: https://static.docs.com/ui/media/product/azure/azure-developer-cli.svg
+      links:
+        - url: /azure/developer/azure-developer-cli/overview
+          text: What is Azure Developer CLI
+        - url: /azure/developer/azure-developer-cli/get-started
+          text: Get started
+        - url: /azure/developer/azure-developer-cli/
+          text: See more in the Azure Developer CLI developer center
 #tools:
 #conceptualContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
