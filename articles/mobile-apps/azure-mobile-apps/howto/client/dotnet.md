@@ -454,7 +454,7 @@ You must specify the absolute filename for the file.  If using Xamarin, you can 
 
 ``` csharp
 var dbPath = $"{Filesystem.AppDataDirectory}/todoitems.db";
-var store = new OfflineSQLiteStore($"file://{dbPath}?mode=rwc");
+var store = new OfflineSQLiteStore($"file:/{dbPath}?mode=rwc");
 ```
 
 ### Create an offline table
