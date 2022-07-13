@@ -36,10 +36,11 @@ These steps require the [Docker extension](https://code.visualstudio.com/docs/co
 
 | Instructions    | Screenshot |
 |:----------------|-----------:|
-| [!INCLUDE [Include showing how refresh registries in Docker extension in VS Code](<./includes/tutorial-container-web-app/app-service-create-visual-studio-code-1.md>)] |  |
-| [!INCLUDE [Include showing how call up deploy image command in VS Code](<./includes/tutorial-container-web-app/app-service-create-visual-studio-code-2.md>)] |  |
-| [!INCLUDE [Include showing how to specify the deployment in VS Code](<./includes/tutorial-container-web-app/app-service-create-visual-studio-code-3.md>)] |  |
-| [!INCLUDE [Include showing how to verify the deployment in VS Code](<./includes/tutorial-container-web-app/app-service-create-visual-studio-code-4.md>)] |  |
+| [!INCLUDE [Include showing how refresh registries in Docker extension in VS Code](<./includes/tutorial-container-web-app/app-service-create-visual-studio-code-1.md>)] |  :::image type="content" source="./media/tutorial-container-web-app/visual-studio-code-refresh-registries-240px.png" lightbox="./media/tutorial-container-web-app/visual-studio-code-refresh-registries.png" alt-text="A screenshot showing how to fresh registries in the Docker extension for Visual Studio Code." ::: |
+| [!INCLUDE [Include showing how call up deploy image command in VS Code](<./includes/tutorial-container-web-app/app-service-create-visual-studio-code-2.md>)] |  :::image type="content" source="./media/tutorial-container-web-app/visual-studio-code-docker-registries-build-command-240px.png" lightbox="./media/tutorial-container-web-app/visual-studio-code-docker-registries-build-command.png" alt-text="A screenshot showing how to find the deploy Docker image to App Service task in Visual Studio Code." ::: |
+| [!INCLUDE [Include showing how to specify the deployment in VS Code](<./includes/tutorial-container-web-app/app-service-create-visual-studio-code-3.md>)] |  :::image type="content" source="./media/tutorial-container-web-app/visual-studio-code-deploy-task-prompts-240px.gif" lightbox="./media/tutorial-container-web-app/visual-studio-code-deploy-task-prompts.gif" alt-text="A screenshot showing how to specify the information to deploy Docker image to App Service in Visual Studio Code." ::: |
+| [!INCLUDE [Include showing how to verify the deployment in VS Code](<./includes/tutorial-container-web-app/app-service-create-visual-studio-code-4.md>)] |  :::image type="content" source="./media/tutorial-container-web-app/visual-studio-code-site-deployed-240px.png" lightbox="./media/tutorial-container-web-app/visual-studio-code-site-deployed.png" alt-text="A screenshot showing prompt when Docker image is deployed App Service in Visual Studio Code." ::: |
+
 
 ### [Azure CLI](#tab/azure-cli)
 
