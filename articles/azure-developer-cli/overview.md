@@ -60,7 +60,7 @@ This list is grouped by supported language. Each repository contains a complete 
 
 ## Azure Developer CLI vs Azure CLI
 
-[Azure Developer CLI (azd)](/azure/developer/az-dev-cli) and [Azure CLI](/cli/azure/what-is-azure-cli) are both command-line tools.
+[Azure Developer CLI (azd)](/azure/developer/azure-developer-cli) and [Azure CLI](/cli/azure/what-is-azure-cli) are both command-line tools.
 
 However, they help you do different tasks.
 
