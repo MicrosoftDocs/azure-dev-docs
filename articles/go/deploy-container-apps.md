@@ -10,7 +10,7 @@ ms.custom: devx-track-go
 
 In this quickstart, you'll learn to deploy a containerized Go web app to Azure Container Apps.
 
-Azure Container Apps lets you executes application code packedage in any container without having to manage complicated cloud infrastructure or complex container orchestrators. Allowing you to deploy code packaged in any container to run without worrying about the runtime or programming model. Common uses of Azure Container apps includes: Deploying API endpoints, hosting background processing appliactions, handeling event-driven processing, and running microservices.
+Azure Container Apps lets you execute application code package in any container without having to manage complicated cloud infrastructure or complex container orchestrators. Allowing you to deploy code packaged in any container to run without worrying about the runtime or programming model. Common uses of Azure Container apps include: Deploying API endpoints, hosting background processing applications, handling event-driven processing, and running microservices.
 
 Follow this tutorial to walk through building a docker image, deploying that image to Azure Container Registry, and deploying a Go web app to Azure Container Apps.
 
@@ -44,7 +44,7 @@ Run the following commands to create an Azure Contain Registry:
     ```bash
     az acr create --resource-group <resourceGroupName> --name <azureContainerRegistryName> --sku basic --admin-enabled true
     ```
-1. Log into the Azure container instance.
+1. Sign in to the Azure container instance.
     ```bash
     az acr login --name <azureContainerRegistryName>  
     ```
@@ -57,7 +57,7 @@ Once you've created an Azure Container Registry, build and push the Docker image
 
 Run the following commands build and push the image to registry:
 
-1. Get the login server information.
+1. Get the sign-in server information.
     ```bash
     az acr list --query "[].loginServer" 
     ```
@@ -76,11 +76,11 @@ Run the following commands build and push the image to registry:
 
 Replace `loginServer`, `azureContainerRegistryName`, and `imageName` with the appropriate values. The image name is the Docker image that is pushed to Azure Container Registry and later used to deploy to Azure Container Apps.
 
-Now that you've got an image available in Azure Container Registry, you're ready to deploy the Azure Container App and it's environment. 
+Now that you've got an image available in Azure Container Registry, you're ready to deploy the Azure Container App and its environment. 
 
 ### Deploy an Azure Container App environment
 
-Azure Container Apps doesn't have the complexity of a container orchstrator, but it still needs some way to establish secure boundaries, which is where Azure Container Apps environments come in. Apps deployed in the same environment share the same virtual network and write logs to the same Log Analytics workspace. Before you can deploy an Azure Container App, you'll need an environment to deploy to.
+Azure Container Apps doesn't have the complexity of a container orchestrator, but it still needs some way to establish secure boundaries, which is where Azure Container Apps environments come in. Apps deployed in the same environment share the same virtual network and write logs to the same Log Analytics workspace. Before you can deploy an Azure Container App, you'll need an environment to deploy to.
 
 Run the following commands to create an Azure Container App environment:
 
@@ -123,7 +123,7 @@ Run the following AzureCLI command to get the FQDN of the web application's ingr
 az containerapp list --query "[].properties.configuration.ingress.fqdn" 
 ```
 
-Next, run the curl command against the FQDN and confirm output relects the HTML of the website.
+Next, run the curl command against the FQDN and confirm output reflects the HTML of the website.
 
 ```bash
 curl <FQDN>
