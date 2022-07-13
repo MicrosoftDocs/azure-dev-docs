@@ -12,18 +12,16 @@ ms.custom: devx-track-python, devx-track-azurecli
 
 # Deploy a containerized Python app to App Service
 
-This article is part of a tutorial about how to containerize and deploy a Python web app to Azure App Service. App Service enables you to run containerized web apps and deploy through continuous integration/continuous deployment (CI/CD) capabilities with Docker Hub, Azure Container Registry, and Visual Studio Team Services. In this part of the tutorial, you learn how to deploy the containerized Python web app to App Service using the [App Service Web App for Containers](https://azure.microsoft.com/services/app-service/containers/), which allows you to focus on composing your containers without worrying about managing and maintaining an underlying container orchestrator.
+This article is part of a tutorial about how to containerize and deploy a Python web app to Azure App Service. App Service enables you to run containerized web apps and deploy through continuous integration/continuous deployment (CI/CD) capabilities with Docker Hub, Azure Container Registry, and Visual Studio Team Services. 
 
-Notes:
+In this part of the tutorial, you learn how to deploy the containerized Python web app to App Service using the [App Service Web App for Containers](https://azure.microsoft.com/services/app-service/containers/), which allows you to focus on composing your containers without worrying about managing and maintaining an underlying container orchestrator.
 
-* Managed identity is set up automatically as way of App Service to authorize to Registry.
-
-* Webhook is automatically created for you. you can view webhooks in the Azure Container Registry. Or list them with "az acr webhook" command.
-
+Following the steps here, you'll end up with an App Service website using a Docker container image. The App Service pulls the initial image from Azure Container Registry using managed identity for authentication.
 ## 1. Create the Azure App Service
 
 ### [Azure portal](#tab/azure-portal)
 
+Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps to create the App Service.
 
 | Instructions    | Screenshot |
 |:----------------|-----------:|
@@ -34,22 +32,14 @@ Notes:
 
 ### [VS Code](#tab/vscode-aztools)
 
-**Step 1.** Refresh the Azure Container Registry in the Docker extension.
+These steps require the [Docker extension](https://code.visualstudio.com/docs/containers/overview) for VS Code.
 
-Confirm that the registry and repo you want to use appears. What appears there will be what choices the task shows.
-
-**Step 2.** Command palette bring up and use **Docker Registries: Deploy Image to Azure App Service...**
-
-**Step 3.** Follow prompts:
-
-* Azure as provider
-* Select registry name.
-* Select repository name. (If you don't see your repo, refresh the Docker extension **REGISTRIES** section.)
-* Select tag "latest"
-* Enter a globally unique name for the web app.
-* Others?
-
-**Step 4.** When the prompt shows the deployment finishes.
+| Instructions    | Screenshot |
+|:----------------|-----------:|
+| [!INCLUDE [Include showing how refresh registries in Docker extension in VS Code](<./includes/tutorial-container-web-app/app-service-create-visual-studio-code-1.md>)] |  |
+| [!INCLUDE [Include showing how call up deploy image command in VS Code](<./includes/tutorial-container-web-app/app-service-create-visual-studio-code-2.md>)] |  |
+| [!INCLUDE [Include showing how to specify the deployment in VS Code](<./includes/tutorial-container-web-app/app-service-create-visual-studio-code-3.md>)] |  |
+| [!INCLUDE [Include showing how to verify the deployment in VS Code](<./includes/tutorial-container-web-app/app-service-create-visual-studio-code-4.md>)] |  |
 
 ### [Azure CLI](#tab/azure-cli)
 
