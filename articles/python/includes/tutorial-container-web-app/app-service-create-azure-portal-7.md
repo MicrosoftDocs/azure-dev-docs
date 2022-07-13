@@ -5,7 +5,8 @@ ms.topic: include
 ms.date: 07/12/2022
 ---
 
-**Step 7** In Deployment center, set Managed Identity.
+Configure the deployment to use managed identity.
 
-* Select authentication as "managed identity"
-* Save
+* Go to the **Deployment Center** resource of the App Service.
+* In the **Settings** tab, set **Authentication** to **Managed Identity**.
+* Select **Save** to save the changes.

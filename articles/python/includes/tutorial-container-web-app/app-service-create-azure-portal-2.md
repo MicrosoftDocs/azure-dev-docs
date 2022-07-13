@@ -14,6 +14,6 @@ On the basic settings of the App Service, specify:
 * **Region** &rarr; Use the same region as the resource group and Azure Container Registry.
 * **Linux Plan** &rarr; Select an existing Linux plan or use a new one.
 * **Sku and size** &rarr; Select **Basic B1**. Select the **Change size** link to access more options.
-* **Zone redundancy** &rarr; Select **Disabled**.
+* **Zone redundancy** &rarr; Select **Disabled** if this option is available for the SKU selected.
 
 Select **Next: Docker** to continue. 

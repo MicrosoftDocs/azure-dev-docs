@@ -64,7 +64,7 @@ Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com
 
 ### [VS Code](#tab/vscode-aztools)
 
-No further steps needed.
+If you deployed the image with Visual Studio Code, managed identity is already set up for the App Service to pull images from the registry.
 
 ### [Azure CLI](#tab/azure-cli)
 
