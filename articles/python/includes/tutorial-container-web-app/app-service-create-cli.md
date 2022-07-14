@@ -47,7 +47,7 @@ APP_SERVICE_PLAN_NAME='msdocs-web-app'
 az appservice plan create \
     --name $APP_SERVICE_PLAN_NAME \
     --resource-group $RESOURCE_GROUP_NAME \
-    --sku F1 \
+    --sku B1 \
     --is-linux
 ```
 
