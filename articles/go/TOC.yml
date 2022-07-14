@@ -7,7 +7,7 @@ items:
       href: configure-visual-studio-code.md
     - name: Key Azure services for Go developers
       href: key-azure-services-for-go.md
-    - name: Deploy an Go app to container apps
+    - name: Deploy a Go app to container apps
       href: deploy-container-apps.md
   - name: Use the Azure SDK for Go
     items:
