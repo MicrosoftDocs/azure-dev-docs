@@ -81,8 +81,8 @@ In this step, you specify environment variables needed to connect to MongoDB.
 
 | Instructions    | Screenshot |
 |:----------------|-----------:|
-| [!INCLUDE [Create app settings in Azure portal 1](<./includes/tutorial-container-web-app/connect-mongodb-portal-1.md>)] |  |
-| [!INCLUDE [Create app settings in Azure portal 2](<./includes/tutorial-container-web-app/connect-mongodb-portal-2.md>)] |  |
+| [!INCLUDE [Create app settings in Azure portal 1](<./includes/tutorial-container-web-app/connect-mongodb-portal-1.md>)] | :::image type="content" source="./media/tutorial-container-web-app/azure-portal-create-app-settings-panel-240px.png" lightbox="./media/tutorial-container-web-app/azure-portal-create-app-settings-panel.png" alt-text="A screenshot showing how to add a setting to the App Service in Azure portal." ::: |
+| [!INCLUDE [Create app settings in Azure portal 2](<./includes/tutorial-container-web-app/connect-mongodb-portal-2.md>)] | :::image type="content" source="./media/tutorial-container-web-app/azure-portal-app-settings-confirm-240px.png" lightbox="./media/tutorial-container-web-app/azure-portal-app-settings-confirm.png" alt-text="A screenshot showing how to confirm settings of the App Service in Azure portal." ::: |
 
 ### [VS Code](#tab/vscode-aztools)
 
@@ -96,7 +96,7 @@ To configure environment variables for the web app from VS Code, you must have t
 
 ### [Azure CLI](#tab/azure-cli)
 
-[!INCLUDE [Include showing how set App Service configuration settings with Azure CLI](<./includes/tutorial-container-web-app/app-service-config-settings-cli.md>)]
+[!INCLUDE [Include showing how set App Service configuration settings with Azure CLI](<./includes/tutorial-container-web-app/connect-mongodb-cli.md>)]
 
 
 ---

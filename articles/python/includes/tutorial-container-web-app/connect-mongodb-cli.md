@@ -31,6 +31,6 @@ az webapp config appsettings set `
 
 ---
 
-* *$CONNECTION_STRING* &rarr; A connection string that starts with "mongodb://".
-* *$DB_NAME* &rarr; Use "restaurants_reviews".
-* *$COLLECTION_NAME* &rarr; Use "restaurants_reviews"
+* CONNECTION_STRING &rarr; A connection string that starts with "mongodb://".
+* DB_NAME &rarr; Use "restaurants_reviews".
+* COLLECTION_NAME &rarr; Use "restaurants_reviews"

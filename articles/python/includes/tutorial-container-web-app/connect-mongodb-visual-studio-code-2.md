@@ -9,6 +9,6 @@ Each time you add a new setting, a dialog box appears at the top of the VS Code 
 <br><br>
 Add the following settings:
 
-* *$CONNECTION_STRING* &rarr; A connection string that starts with "mongodb://".
-* *$DB_NAME* &rarr; Use "restaurants_reviews".
-* *$COLLECTION_NAME* &rarr; Use "restaurants_reviews"
+* CONNECTION_STRING &rarr; A connection string that starts with "mongodb://".
+* DB_NAME &rarr; Use "restaurants_reviews".
+* COLLECTION_NAME &rarr; Use "restaurants_reviews"
