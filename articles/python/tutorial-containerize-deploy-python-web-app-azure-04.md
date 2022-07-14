@@ -79,7 +79,10 @@ In this step, you specify environment variables needed to connect to MongoDB.
 
 ### [Azure portal](#tab/azure-portal)
 
-Add configuration setting.
+| Instructions    | Screenshot |
+|:----------------|-----------:|
+| [!INCLUDE [Create app settings in Azure portal 1](<./includes/tutorial-container-web-app/connect-mongodb-portal-1.md>)] |  |
+| [!INCLUDE [Create app settings in Azure portal 2](<./includes/tutorial-container-web-app/connect-mongodb-portal-2.md>)] |  |
 
 ### [VS Code](#tab/vscode-aztools)
 
