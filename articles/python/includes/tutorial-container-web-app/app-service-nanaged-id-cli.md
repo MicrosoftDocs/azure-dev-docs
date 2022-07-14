@@ -12,7 +12,7 @@ ms.date: 07/12/2022
 ```azurecli
 az webapp config set \
   --resource-group $RESOURCE_GROUP_NAME \
-  --name $SITE_NAME \
+  --name $APP_SERVICE_NAME \
   --generic-configurations '{"acrUseManagedIdentityCreds": true}'
 ```
 
@@ -21,7 +21,7 @@ az webapp config set \
 ```azurecli
 az webapp config set `
   --resource-group $RESOURCE_GROUP_NAME `
-  --name $SITE_NAME `
+  --name $APP_SERVICE_NAME `
   --generic-configurations '{"acrUseManagedIdentityCreds": true}'
 ```
 
@@ -33,16 +33,16 @@ az webapp config set `
 
 ```azurecli
 az webapp config show \
-  --resource-group $RESOURCE_GROUP \
-  --name $SITE_NAME 
+  --resource-group $RESOURCE_GROUP_NAME \
+  --name $APP_SERVICE_NAME 
 ```
 
 #### [PowerShell terminal](#tab/terminal-powershell)
 
 ```azurecli
 az webapp config show `
-  --resource-group $RESOURCE_GROUP `
-  --name $SITE_NAME 
+  --resource-group $RESOURCE_GROUP_NAME `
+  --name $APP_SERVICE_NAME 
 ```
 
 ---

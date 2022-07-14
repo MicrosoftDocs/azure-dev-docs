@@ -70,13 +70,13 @@ az appservice plan create `
 #### [bash](#tab/terminal-bash)
 
 ```azurecli
-SITE_NAME=<website-name>
+APP_SERVICE_NAME=<website-name>
 CONTAINER_NAME='pythoncontainer'
 
 az webapp create `
   --resource-group $RESOURCE_GROUP_NAME `
   --plan $APP_SERVICE_PLAN_NAME `
-  --name $SITE_NAME `
+  --name $APP_SERVICE_NAME `
   --assign-identity '[system]' `
   --scope $RESOURCE_ID `
   --role acrpull `
@@ -92,7 +92,7 @@ $CONTAINER_NAME='pythoncontainer'
 az webapp create \
   --resource-group $RESOURCE_GROUP_NAME \
   --plan $APP_SERVICE_PLAN_NAME \
-  --name $SITE_NAME \
+  --name $APP_SERVICE_NAME \
   --assign-identity '[system]' \
   --scope $RESOURCE_ID \
   --role acrpull \

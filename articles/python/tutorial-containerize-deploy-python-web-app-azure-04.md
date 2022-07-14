@@ -65,7 +65,7 @@ Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com
 
 ### [VS Code](#tab/vscode-aztools)
 
-If you deployed the image with Visual Studio Code, managed identity is already set up for the App Service to pull images from the registry.
+If you deployed the image with Visual Studio Code, managed identity is already set up for the App Service to pull images from the registry. You can confirm this by reviewing the logs of the **OUTPUT** window for the message "Granting permission for App Service to pull image from ACR...".
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -75,7 +75,7 @@ If you deployed the image with Visual Studio Code, managed identity is already s
 
 ## 3. Configure App Service to connect to MongoDB
 
-To specify the environment variables needed to connect to MongoDB.
+In this step, you specify environment variables needed to connect to MongoDB.
 
 ### [Azure portal](#tab/azure-portal)
 
@@ -87,7 +87,8 @@ Add configuration setting.
 
 ### [Azure CLI](#tab/azure-cli)
 
-Add configuration setting.
+[!INCLUDE [Include showing how set App Service configuration settings with Azure CLI](<./includes/tutorial-container-web-app/app-service-config-settings-cli.md>)]
+
 
 ---
 
