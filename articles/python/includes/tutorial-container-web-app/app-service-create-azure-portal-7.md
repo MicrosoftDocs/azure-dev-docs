@@ -5,8 +5,15 @@ ms.topic: include
 ms.date: 07/12/2022
 ---
 
-Configure the deployment to use managed identity.
+Add a "AcrPull" role for the managed identity. The AcrPull allows the App Service to pull images form the Azure Container Registry. 
 
-* Go to the **Deployment Center** resource of the App Service.
-* In the **Settings** tab, set **Authentication** to **Managed Identity**.
-* Select **Save** to save the changes.
+In "Azure role assignments", select **+ Add role assignment** and follow the prompts to add:
+
+* **Scope** &rarr; "Resource group"
+* **Subscription** &rarr; Your subscription.
+* **Resource group** &rarr; The group with the Azure Container Registry and App Service.
+* **Role** &rarr; "AcrPull"
+
+* Select **Save**.
+ 
+For more information, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
