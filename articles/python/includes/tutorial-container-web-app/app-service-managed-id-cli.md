@@ -5,7 +5,7 @@ ms.topic: include
 ms.date: 07/12/2022
 ---
 
-**Step 1.** Set the service to use managed identity.
+**Step 1.** Configure the web app to use managed identity.
 
 #### [bash](#tab/terminal-bash)
 
@@ -27,7 +27,7 @@ az webapp config set `
 
 ---
 
-**Step 2.** Confirm setting.
+**Step 2.** Confirm that managed identity is enabled.
 
 #### [bash](#tab/terminal-bash)
 
@@ -46,3 +46,5 @@ az webapp config show `
 ```
 
 ---
+
+Look for `"acrUseManagedIdentityCreds": true` in the output of the command.

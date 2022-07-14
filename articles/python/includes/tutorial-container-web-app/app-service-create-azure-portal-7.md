@@ -14,6 +14,6 @@ In "Azure role assignments", select **+ Add role assignment** and follow the pro
 * **Resource group** &rarr; The group with the Azure Container Registry and App Service.
 * **Role** &rarr; "AcrPull"
 
-* Select **Save**.
+* Select **Save** to save the role.
  
 For more information, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).

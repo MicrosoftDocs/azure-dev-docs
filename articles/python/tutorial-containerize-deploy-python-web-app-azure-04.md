@@ -65,11 +65,11 @@ Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com
 
 ### [VS Code](#tab/vscode-aztools)
 
-If you deployed the image with Visual Studio Code, managed identity is already set up for the App Service to pull images from the registry. You can confirm this by reviewing the logs of the **OUTPUT** window for the message "Granting permission for App Service to pull image from ACR...".
+If you deployed the image with Visual Studio Code, managed identity is already set for the App Service to pull images from the registry. You can confirm managed identity is enabled by reviewing the logs of the **OUTPUT** window and looking for the message "Granting permission for App Service to pull image from ACR...".
 
 ### [Azure CLI](#tab/azure-cli)
 
-[!INCLUDE [Include showing how set managed identity for container deployment with Azure CLI](<./includes/tutorial-container-web-app/app-service-nanaged-id-cli.md>)]
+[!INCLUDE [Include showing how set managed identity for container deployment with Azure CLI](<./includes/tutorial-container-web-app/app-service-managed-id-cli.md>)]
 
 ---
 
@@ -92,7 +92,7 @@ To configure environment variables for the web app from VS Code, you must have t
 
 
 ### [Azure CLI](#tab/azure-cli)
-visua
+
 [!INCLUDE [Include showing how set App Service configuration settings with Azure CLI](<./includes/tutorial-container-web-app/app-service-config-settings-cli.md>)]
 
 
