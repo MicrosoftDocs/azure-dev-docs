@@ -7,33 +7,101 @@ ms.date: 07/12/2022
 
 **Step 1.** Get the resource ID of the Azure Container Registry.
 
-```bash
-RESOURCE_GROUP=<resource-group>
-REGISTRY_NAME=<registry-name>
+#### [bash](#tab/terminal-bash)
 
-RESOURCE_ID=$(az acr show -g $RESOURCE_GROUP -n $REGISTRY_NAME --query id --output tsv)
+```azurecli
+RESOURCE_GROUP_NAME='msdocs-web-app'
+REGISTRY_NAME='msdocsregistry'
+
+RESOURCE_ID=$(az acr show \
+  --resource-group $RESOURCE_GROUP 
+  --name $REGISTRY_NAME 
+  --query id 
+  --output tsv)
 echo $RESOURCE_ID
 ```
 
+#### [PowerShell terminal](#tab/terminal-powershell)
+
+```azurecli
+$RESOURCE_GROUP_NAME='msdocs-web-app'
+$REGISTRY_NAME='msdocsregistry'
+
+RESOURCE_ID=$(az acr show \
+  --resource-group $RESOURCE_GROUP 
+  --name $REGISTRY_NAME 
+  --query id 
+  --output tsv)
+Get-Variable RESOURCE_ID
+```
+
+---
+
 **Step 2.** Create an App Service plan.
 
-```bash
-PLAN_NAME=<name-of-plan>
+#### [bash](#tab/terminal-bash)
 
-az appservice plan create -g $RESOURCE_GROUP -n $PLAN_NAME --is-linux --sku F1 --number-of-workers 1
+```azurecli
+APP_SERVICE_PLAN_NAME='msdocs-web-app'
+
+az appservice plan create \
+    --name $APP_SERVICE_PLAN_NAME \
+    --resource-group $RESOURCE_GROUP_NAME \
+    --sku F1 \
+    --is-linux
 ```
+
+#### [PowerShell terminal](#tab/terminal-powershell)
+
+```azurecli
+$APP_SERVICE_PLAN_NAME='msdocs-web-app'
+
+az appservice plan create `
+    --name $APP_SERVICE_PLAN_NAME `
+    --resource-group $RESOURCE_GROUP_NAME `
+    --sku B1 `
+    --is-linux
+```
+
+---
 
 **Step 3.** Create a web app with the resource ID scope and role.
 
-```bash
-SITE_NAME=<website-name>
-CONTAINER_NAME=<container-name>
+#### [bash](#tab/terminal-bash)
 
-az webapp create -g $RESOURCE_GROUP -p $PLAN -n $SITE_NAME \
+```azurecli
+SITE_NAME=<website-name>
+CONTAINER_NAME='pythoncontainer'
+
+az webapp create `
+  --resource-group $RESOURCE_GROUP_NAME `
+  --plan $APP_SERVICE_PLAN_NAME `
+  --name $SITE_NAME `
+  --assign-identity '[system]' `
+  --scope $RESOURCE_ID `
+  --role acrpull `
+  --deployment-container-image-name $CONTAINER_NAME 
+```
+
+#### [PowerShell terminal](#tab/terminal-powershell)
+
+```azurecli
+$SITE_NAME=<website-name>
+$CONTAINER_NAME='pythoncontainer'
+
+az webapp create \
+  --resource-group $RESOURCE_GROUP_NAME \
+  --plan $APP_SERVICE_PLAN_NAME \
+  --name $SITE_NAME \
   --assign-identity '[system]' \
   --scope $RESOURCE_ID \
   --role acrpull \
   --deployment-container-image-name $CONTAINER_NAME 
 ```
 
-*\<container-name>* is of the form "myregistryname.azurecr.io/repo_name:tag".
+---
+
+Note:
+
+* *\<website-name>* must be unique as it becomes the URL `https://<website-name>.azurewebsites.net`.
+* *\<container-name>* is of the form "myregistryname.azurecr.io/repo_name:tag".
