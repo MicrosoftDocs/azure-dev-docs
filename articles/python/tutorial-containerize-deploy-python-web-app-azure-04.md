@@ -17,11 +17,11 @@ This article is part of a tutorial about how to containerize and deploy a Python
 In this part of the tutorial, you learn how to deploy the containerized Python web app to App Service using the [App Service Web App for Containers](https://azure.microsoft.com/services/app-service/containers/), which allows you to focus on composing your containers without worrying about managing and maintaining an underlying container orchestrator.
 
 Following the steps here, you'll end up with an App Service website using a Docker container image. The App Service pulls the initial image from Azure Container Registry using managed identity for authentication.
-## 1. Create the Azure App Service
+## 1. Create the web app
 
 ### [Azure portal](#tab/azure-portal)
 
-Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps to create the App Service.
+Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps to create the web app.
 
 | Instructions    | Screenshot |
 |:----------------|-----------:|
@@ -73,7 +73,7 @@ If you deployed the image with Visual Studio Code, managed identity is already s
 
 ---
 
-## 3. Configure App Service to connect to MongoDB
+## 3. Configure connection to MongoDB
 
 In this step, you specify environment variables needed to connect to MongoDB.
 
@@ -83,10 +83,16 @@ Add configuration setting.
 
 ### [VS Code](#tab/vscode-aztools)
 
-Add configuration setting.
+To configure environment variables for the web app from VS Code, you must have the [Azure Tools extension pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack) installed and be signed into Azure from VS Code.
+
+| Instructions    | Screenshot |
+|:----------------|-----------:|
+| [!INCLUDE [Create app settings in VS Code 1](<./includes/tutorial-container-web-app/connect-mongodb-visual-studio-code-1.md>)] | :::image type="content" source="./media/tutorial-container-web-app/visual-studio-code-create-app-settings-240px.png" lightbox="./media/tutorial-container-web-app/visual-studio-code-create-app-settings.png" alt-text="A screenshot showing how to add a setting to the App Service in VS Code." ::: |
+| [!INCLUDE [Create app settings in VS Code 2](<./includes/tutorial-container-web-app/connect-mongodb-visual-studio-code-2.md>)] |  |
+
 
 ### [Azure CLI](#tab/azure-cli)
-
+visua
 [!INCLUDE [Include showing how set App Service configuration settings with Azure CLI](<./includes/tutorial-container-web-app/app-service-config-settings-cli.md>)]
 
 
