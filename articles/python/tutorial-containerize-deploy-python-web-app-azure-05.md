@@ -1,5 +1,5 @@
 ---
-title: 'Deploy a Python web app to Azure with managed identity: clean up resources'
+title: 'Deploy a Python containerized web app to Azure with managed identity: clean up resources'
 description: How to deploy a containerized Python (Django or Flask) to App Service.
 author: jess-johnson-msft
 ms.author: jejohn
