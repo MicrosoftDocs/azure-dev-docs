@@ -11,13 +11,15 @@ ms.author: jejohn
 
 # Build and test a containerized Python web app locally
 
-This article is part of a tutorial about how to containerize and deploy a Python web app to Azure App Service. App Service enables you to run containerized web apps and deploy through continuous integration/continuous deployment (CI/CD) capabilities with Docker Hub, Azure Container Registry, and Visual Studio Team Services. In this part of the tutorial, you learn how to build and run the containerized Python web app locally. *This is an optional step and it not required to deploy the sample apps to Azure.*
+This article is part of a tutorial about how to containerize and deploy a containerized Python web app to Azure App Service. App Service enables you to run containerized web apps and deploy through continuous integration/continuous deployment (CI/CD) capabilities with Docker Hub, Azure Container Registry, and Visual Studio Team Services. In this part of the tutorial, you learn how to build and run the containerized Python web app locally. *This step is an optional and isn't required to deploy the sample apps to Azure.*
 
-Running a Docker image locally in your development environment requires setup beyond deployment to Azure. Think of it as an investment than can make future development cycles quicker and easier, especially when you move beyond a sample app and you start to create your own web app. To deploy a sample app or other app that doesn't need modification, you can skip this step and move on to deployment steps in this tutorial. You can always return to this step after deploying to Azure and work on these steps.
+Running a Docker image locally in your development environment requires setup beyond deployment to Azure. Think of it as an investment that can make future development cycles quicker and easier, especially when you move beyond a sample app and you start to create your own web app. To deploy a sample app or other app that doesn't need modification, you can skip this step and move on to the next step in this tutorial. You can always return after deploying to Azure and work on these steps.
+
+:::image type="content" source="./media/tutorial-container-web-app/containerization-of-python-apps-run-local.png" alt-text="A screenshot of the Tutorial - Containerized Python App on Azure with local part highlighted." lightbox="./media/tutorial-container-web-app/containerization-of-python-apps-run-local.png":::
 
 ## 1. Build a Docker image
 
-If you are using one of the the framework sample apps available for Django and Flask, you are set to go. If you are bringing your own sample app, make sure there is a *Dockerfile* in the root directory.
+If you're using one of the framework sample apps available for Django and Flask, you're set to go. If you're bringing your own sample app, make sure there's a *Dockerfile* in the root directory.
 
 ### [VS Code](#tab/vscode-docker)
 
@@ -37,7 +39,7 @@ These instructions require [Docker](https://docs.docker.com/get-docker/).
 
 ---
 
-At this point, you have build an image locally. The image you created is has a name formatted as `<repository-name>:<tag>` where `<repository-name>` is based on the project name and `<tag>` is set to "latest" for this tutorial. Tags are a way to define version information, intended use, stability, or other information. For more information, see [Recommendations for tagging and versioning container images](/azure/container-registry/container-registry-image-tag-version).
+At this point, you have built an image locally. The image you created has a name formatted as `<repository-name>:<tag>` where `<repository-name>` is based on the project name and `<tag>` is set to "latest" for this tutorial. Tags are a way to define version information, intended use, stability, or other information. For more information, see [Recommendations for tagging and versioning container images](/azure/container-registry/container-registry-image-tag-version).
 
 Built images from VS Code or from using the Docker CLI directly can be viewed in the Docker Desktop application.
 
@@ -47,9 +49,9 @@ This tutorial assumes you have MongoDB installed locally or you have MongoDB hos
 
 ### [Local MongoDB](#tab/mongodb-local)
 
-**Step 1:** Install [MongoDB](https://www.mongodb.com/docs/manual/installation/) if isn't already.
+**Step 1:** Install [MongoDB](https://www.mongodb.com/docs/manual/installation/) if it isn't already.
 
-Check if it is installed:
+Check if it's installed:
 
 ```
 mongo --version
@@ -100,7 +102,7 @@ At this point, your Cosmos DB MongoDB connection string is of the form "mongodb:
 
 ## 3. Run the image locally in a container
 
-With information on how to connect to a MongoDB, you are ready to run the container locally. The sample app expects MongoDB connection information to be passed as environment variables. Locally, you'll specify this information through environment variables passed to the Docker container. There are a number of ways to get environment variables passed to container. Each has advantages and disadvantages in terms of security. You should avoid checking in any sensitive information or leaving sensitive information in code in the container. 
+With information on how to connect to a MongoDB, you're ready to run the container locally. The sample app expects MongoDB connection information to be passed as environment variables. Locally, you'll specify this information through environment variables passed to the Docker container. There are several ways to get environment variables passed to container. Each has advantages and disadvantages in terms of security. You should avoid checking in any sensitive information or leaving sensitive information in code in the container. 
 
 > [!NOTE]
 > When deployed to Azure, the web app will get connection info from  environment values set as App Service configuration settings and none of the modifications to VS Code files and Docker commands applies. 
