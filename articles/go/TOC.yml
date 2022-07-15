@@ -7,6 +7,8 @@ items:
       href: configure-visual-studio-code.md
     - name: Key Azure services for Go developers
       href: key-azure-services-for-go.md
+    - name: Deploy a Go app to container apps
+      href: deploy-container-apps.md
   - name: Use the Azure SDK for Go
     items:
     - name: What is the Azure SDK for Go?
@@ -31,13 +33,13 @@ items:
       items:
         - name: Deploy an ARM template
           href: deploy-azure-resource-manager-template.md
-    - name: Packages list
-      href: https://azure.github.io/azure-sdk/releases/latest/all/go.html
     - name: SDK examples
       href: http://github.com/azure-samples/azure-sdk-for-go-samples
     - name: Migration guides
       href: migration-guides.md
-  - name: Reference
-    items:
-      - name: Azure SDK for Go API reference
-        href: https://pkg.go.dev/github.com/Azure/azure-sdk-for-go
+    - name: Reference
+      items:
+        - name: Azure SDK for Go API reference
+          href: https://pkg.go.dev/github.com/Azure/azure-sdk-for-go
+        - name: Packages list
+          href: https://azure.github.io/azure-sdk/releases/latest/all/go.html
