@@ -10,7 +10,7 @@ ms.prod: azure-python
 ms.custom: devx-track-python, devx-track-azurecli
 ---
 
-# Clean up and next steps
+# Containerize tutorial clean up and next steps
 
 This article is part of a tutorial about how to containerize and deploy a Python web app to Azure App Service. In this article, you'll clean up resources used in Azure so you don't incur other charges and help keep your Azure subscription uncluttered. You can leave the Azure resources running if you want to use them for further development work. 
 
@@ -48,19 +48,16 @@ Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com
 
 After completing this tutorial, here are some next steps you can take to build upon what you learned and move the tutorial code and deployment closer to production ready:
 
-* Secure communication to your Azure Database for PostgreSQL server, see [Use Virtual Network service endpoints and rules for Azure Database for PostgreSQL - Single Server](/azure/postgresql/single-server/concepts-data-access-and-security-vnet).
+* [Deploy a web app from a geo-replicated Azure container registry](/azure/container-registry/container-registry-tutorial-deploy-app)
+
+* [Review Security in Azure Cosmos DB](/azure/cosmos-db/database-security)
+
 
 * Map a custom DNS name to your app, see [Tutorial: Map custom DNS name to your app](/azure/app-service/app-service-web-tutorial-custom-domain).
 
 * Monitor App Service for availability, performance, and operation, see [Monitoring App Service](/azure/app-service/monitor-app-service) and [Set up Azure Monitor for your Python application](/azure/azure-monitor/app/opencensus-python).
 
 * Enable continuous deployment to Azure App Service, see [Continuous deployment to Azure App Service](/azure/app-service/deploy-continuous-deployment), [Use CI/CD to deploy a Python web app to Azure App Service on Linux](/azure/devops/pipelines/ecosystems/python-webapp), and [Design a CI/CD pipeline using Azure DevOps](/azure/architecture/example-scenario/apps/devops-dotnet-webapp).
-
-* More details on how App Service runs a Python app, see [Configure Python app](/azure/app-service/configure-language-python).
-
-* Review PostgresSQL best practices, see [Best practices for building an application with Azure Database for PostgreSQL](/azure/postgresql/single-server/application-best-practices).
-
-* Learn more about security for Blob storage, see [Security recommendations for Blob storage](/azure/storage/blobs/security-recommendations).
 
 ## 3. Related Microsoft Learn modules
 
@@ -76,8 +73,8 @@ The following are some Microsoft Learn modules that explore the technologies and
 
 * [Deploy a Django application to Azure by using PostgreSQL](/learn/modules/django-deployment/)
 
-* [Azure Database for PostgreSQL](/learn/paths/introduction-to-azure-postgres/)
+* [Get Started with the MongoDB API in Azure Cosmos DB](/learn/modules/get-started-mongodb-api-azure-cosmos-db/)
 
-* [Create and connect to an Azure Database for PostgreSQL](/learn/modules/create-connect-to-postgres/)
+* [Migrate on-premises MongoDB databases to Cosmos DB](/learn/modules/migrate-on-premises-mongodb-databases-azure-database-mongodb/)
 
-* [Explore Azure Blob storage](/learn/modules/explore-azure-blob-storage/)
+* [Build a containerized web application with Docker](/learn/modules/intro-to-containers/)
