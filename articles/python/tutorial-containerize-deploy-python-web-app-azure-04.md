@@ -107,8 +107,8 @@ To verify the site is running, go the `https::<website-name>.azurewebsites.net`.
 
 If you don't see the sample app, here are a few troubleshooting tips.
 
-* Depending on the ordering of the steps, or other factors out like connectivity issues, you can first try to restart the App Service to see if that resolves your issue.
+* Try to restart the App Service and see if that resolves your issue.
 * With container deployment and App Service, always check the **Deployment Center** / **Logs** page. 
 * Since the sample app relies on a connection to MongoDB, confirm you have the application settings correct that have the connection info.
-* Managed identity can be tricky to set up. Confirm that managed identity is enabled for the App Service and is used in the Deployment Center.
-* [Different Azure Container Registry skus](/azure/container-registry/container-registry-skus) have different features, including number of webhooks. Webhooks are automatically created for you if you followed the steps in this tutorial. However, if you are reusing an existing registry you could hit the error: "Quota exceeded for resource type webhooks for the registry SKU Basic. Learn more about different SKU quotas and upgrade process: https://aka.ms/acr/tiers". If this happens, use a new registry or reduce the number of [registry webhooks](/azure/container-registry/container-registry-webhook) in use.
+* Confirm that managed identity is enabled for the App Service and is used in the Deployment Center.
+* [Different Azure Container Registry skus](/azure/container-registry/container-registry-skus) have different features, including number of webhooks. Webhooks are automatically created for you if you followed the steps in this tutorial. However, if you are reusing an existing registry you could see the message: "Quota exceeded for resource type webhooks for the registry SKU Basic. Learn more about different SKU quotas and upgrade process: https://aka.ms/acr/tiers". If this happens, use a new registry or reduce the number of [registry webhooks](/azure/container-registry/container-registry-webhook) in use.
