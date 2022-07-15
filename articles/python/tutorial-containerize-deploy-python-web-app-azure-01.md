@@ -2,7 +2,7 @@
 title: "Tutorial: Containerized Python web apps on Azure"
 description: Overview - Create and deploy a containerized Python web app on Azure
 ms.topic: conceptual
-ms.date: 06/27/2022
+ms.date: 07/15/2022
 ms.custom: devx-track-python
 ms.prod: azure-python
 author: jess-johnson-msft
@@ -11,15 +11,15 @@ ms.author: jejohn
 
 # Overview: Containerized Python web apps on Azure
 
-This tutorial shows how to containerize a Python web app and deploy it to Azure. The single container web app is hosted in [Azure App Service][1] and uses [MongoDB for Azure Cosmos DB][2] to store data. The App Service [Web App for Containers][3] allows you to focus on composing your containers without worrying about managing and maintaining an underlying container orchestrator. Use Web App for Containers when you need more control over the runtime, framework, tooling, and packages of a web-based application.
+This tutorial shows you how to containerize a Python web app and deploy it to Azure. The single container web app is hosted in [Azure App Service][1] and uses [MongoDB for Azure Cosmos DB][2] to store data. The App Service [Web App for Containers][3] functionality allows you to focus on composing your containers without worrying about managing and maintaining an underlying container orchestrator. Use Web App for Containers when you need more control over the runtime, framework, tooling, and packages of a web-based application.
 
 In this tutorial you will:
 
-* Build and run a [Docker][4] container locally.
+* Build and run a [Docker][4] container locally. *This step is optional.*
 
 * Build a [Docker][4] container image directly in Azure.
 
-* Configure App Service to use the Docker container image.
+* Configure an App Service to create a web app based on the Docker container image.
 
 Following this tutorial, you'll have the basis for Continuous Integration (CI) and Continuous Deployment (CD) of a Python web app to Azure.
 
@@ -31,7 +31,7 @@ The service diagram supporting this tutorial shows two environments (developer e
 
 The components supporting this tutorial and shown in the diagram above are:
 
-* Azure App Service
+* [Azure App Service][1]
 
   * The underlying App Service functionality that enables containerization is Web App for Containers. Azure App Service uses the [Docker][4] container technology to host both built-in images and custom images.  In this tutorial, you'll build an image from Python code and deploy it to Web App for Containers.
 
@@ -43,7 +43,7 @@ The components supporting this tutorial and shown in the diagram above are:
 
   * In this tutorial, the registry source is Azure Container Registry, but you can also use Docker Hub or a private registry with minor modifications.
 
-* Azure Cosmos DB API for MongoDB
+* [Azure Cosmos DB API for MongoDB][2]
 
   * The API for MongoDB is a NoSQL database used in this tutorial to store data.
 
@@ -51,9 +51,9 @@ The components supporting this tutorial and shown in the diagram above are:
 
 ## Authentication
 
-In this tutorial, you'll use Docker locally to build a container image and deploy it to Azure App Service. The App Service pulls a container image from an Azure Container Registry repository.
+In this tutorial, you'll use Docker image (built locally or in Azure) and deploy it to Azure App Service. The App Service pulls the container image from an Azure Container Registry repository.
 
-The App Service uses [managed identity][5] to pull images from Azure Container Registry. Managed identity allows you to grant permissions to the web app so that it can access other Azure resources without the need for you to specify credentials. Specifically, this tutorial uses a system assigned managed identity. The managed identity is automatically set up for you when you configure App Service so that publish is from a Docker container.
+The App Service uses [managed identity][5] to pull images from Azure Container Registry. Managed identity allows you to grant permissions to the web app so that it can access other Azure resources without the need for you to specify credentials. Specifically, this tutorial uses a system assigned managed identity. The managed identity is automatically set up for you when you configure App Service with publishing from a Docker container.
 
 The tutorial sample web app also uses MongoDB to store data. The sample code connects to Cosmos DB via a connection string. 
 
@@ -67,9 +67,7 @@ To complete this tutorial, you'll need:
   * [Azure App Service][1] 
   * [MongoDB for Azure Cosmos DB][2] (or access to equivalent). To create an Azure Cosmos DB for MongoDB, you can use the steps for [Azure portal][12], [Azure CLI][13], [PowerShell][14], or [VS Code][15]. The sample tutorial requires that you specify a MongoDB connection string, a database name, and a collection name.
 
-* [Docker][4] installed locally
-
-* Visual Studio Code or Azure CLI
+* [Visual Studio Code][16] or [Azure CLI][17], depending on what tool you'll use.
 
   * For Visual Studio Code with the [Docker extension][6] and [Azure App Service extension][7].
 
@@ -77,6 +75,9 @@ To complete this tutorial, you'll need:
 
   * [PyMongo][8] for connecting to Mongo DB
   * [Flask][9] or [Django][10]
+
+* [Docker][4] installed locally if you want to run container locally.
+
 
 ## Sample app
 
@@ -98,3 +99,5 @@ You can start with sample app in the Django and Flask frameworks, or you can fol
 [13]: /azure/cosmos-db/scripts/cli/mongodb/create
 [14]: /azure/cosmos-db/scripts/powershell/mongodb/create
 [15]: https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb
+[16]: https://code.visualstudio.com/
+[17]: /cli/azure/what-is-azure-cli
