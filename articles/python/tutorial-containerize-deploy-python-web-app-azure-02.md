@@ -61,7 +61,7 @@ mongo --version
 
 **Step 2:** Edit the `mongod.cfg` file to add current IP address.
 
-The [mongod configuration file](https://www.mongodb.com/docs/manual/reference/configuration-options/) has a `bindIp` key that defines hostnames and IP addresses that MongoDB listens for client connections. Add the current IP of your local development computer. The sample app running locally in a Docker container will communicate to the host machine with this address as configured in the next step.
+The [mongod configuration file](https://www.mongodb.com/docs/manual/reference/configuration-options/) has a `bindIp` key that defines hostnames and IP addresses that MongoDB listens for client connections. Add the current IP of your local development computer. The sample app running locally in a Docker container communicates to the host machine with this address as configured in a subsequent step.
 
 For example, part of the configuration file will look like this.
 ```
@@ -74,31 +74,31 @@ Restart MongoDB to pick up changes to the configuration file.
 
 **Step 3:** Create a database and collection in that database.
 
-Set the database name to "sample_db" and the collection name to "sample_coll". You can use the VS Code [MongoDB extension](https://code.visualstudio.com/docs/azure/mongodb), the [MonogoDB Shell (mongosh)](https://www.mongodb.com/docs/mongodb-shell/), or any other MondoDB-aware tool.
+Set the database name to "restaurants_reviews" and the collection name to "restaurants_reviews". You can use the VS Code [MongoDB extension](https://code.visualstudio.com/docs/azure/mongodb), the [MonogoDB Shell (mongosh)](https://www.mongodb.com/docs/mongodb-shell/), or any other MondoDB-aware tool.
 
 For the MongoDB shell, here are examples of commands to create the database and collection:
 
 ```
 > help
-> use sample_db
-> db.sample_coll.insertOne()
+> use restaurants_reviews
+> db.restaurants_reviews.insertOne()
 > show dbs
 > exit
 ```
 
-At this point, your local MongoDB connection string is "mongodb://127.0.0.1:27017/", the database name is "sample_db", and the collection name is "sample_coll".
+At this point, your local MongoDB connection string is "mongodb://127.0.0.1:27017/", the database name is "restaurants_reviews", and the collection name is "restaurants_reviews".
 
 ### [Azure Cosmos DB MongoDB](#tab/mongodb-azure)
 
 **Step 1:** Get connection information from an existing MongoDB database.
 
-You can create an Azure Cosmos DB for MongoDB with [Azure portal](/azure/cosmos-db/mongodb/create-mongodb-python), [Azure CLI](/azure/cosmos-db/scripts/cli/mongodb/create), [PowerShell](/azure/cosmos-db/scripts/powershell/mongodb/create), or [VS Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb). For the steps below, you'll need a connection string, a database name, and a collection name to use.
+You can create an Azure Cosmos DB for MongoDB with [Azure portal](/azure/cosmos-db/mongodb/create-mongodb-python), [Azure CLI](/azure/cosmos-db/scripts/cli/mongodb/create), [PowerShell](/azure/cosmos-db/scripts/powershell/mongodb/create), or [VS Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb). For the steps below, you'll need a connection string, a database name equal to "restaurants_reviews", and a collection name equal to "restaurants_reviews".
 
 **Step 2:** Create or ensure that a database and collection exists in the database.
 
-Set the database name to "sample_db" and the collection name to "sample_coll". You can do this using the [Azure Cloud Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/quickstart) and the Azure CLI. For more information, see [Create a database and collection for MongoDB for Azure Cosmos DB using Azure CLI](/azure/cosmos-db/scripts/cli/mongodb/create).
+Set the database name to "restaurants_reviews" and the collection name to "restaurants_reviews". You can do this using the [Azure Cloud Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/quickstart) and the Azure CLI. For more information, see [Create a database and collection for MongoDB for Azure Cosmos DB using Azure CLI](/azure/cosmos-db/scripts/cli/mongodb/create).
 
-At this point, your Cosmos DB MongoDB connection string is of the form "mongodb://\<server-name>:\<password>@\<server-name>.mongo.cosmos.azure.com:10255/?ssl=true&\<other-parameters>", the database name is "sample_db", and the collection name is "sample_coll". 
+At this point, your Cosmos DB MongoDB connection string is of the form "mongodb://\<server-name>:\<password>@\<server-name>.mongo.cosmos.azure.com:10255/?ssl=true&\<other-parameters>", the database name is "restaurants_reviews", and the collection name is "restaurants_reviews". 
 
 ----
 
@@ -118,6 +118,11 @@ With information on how to connect to a MongoDB, you're ready to run the contain
 | [!INCLUDE [A screenshot showing how to confirm the Docker container is running in Visual Studio Code](<./includes/tutorial-container-web-app/run-docker-image-visual-studio-code-2.md>)] | :::image type="content" source="./media/tutorial-container-web-app/visual-studio-code-docker-extension-container-confirm-240px.png" lightbox="./media/tutorial-container-web-app/visual-studio-code-docker-extension-container-confirm.png" alt-text="A screenshot showing how to confirm a Docker container is running in Visual Studio Code." ::: |
 | [!INCLUDE [A screenshot showing how to browse the endpoint of the container in Visual Studio Code](<./includes/tutorial-container-web-app/run-docker-image-visual-studio-code-3.md>)] | :::image type="content" source="./media/tutorial-container-web-app/visual-studio-code-docker-extension-container-open-240px.png" lightbox="./media/tutorial-container-web-app/visual-studio-code-docker-extension-container-open.png" alt-text="A screenshot showing how to confirm a Docker container is running in Visual Studio Code." ::: |
 | [!INCLUDE [A screenshot showing how to stop a container in Visual Studio Code](<./includes/tutorial-container-web-app/run-docker-image-visual-studio-code-4.md>)] | :::image type="content" source="./media/tutorial-container-web-app/visual-studio-code-docker-extension-container-stop-240px.png" lightbox="./media/tutorial-container-web-app/visual-studio-code-docker-extension-container-stop.png" alt-text="A screenshot showing how to stop a running Docker container in Visual Studio Code." ::: |
+
+
+> [!TIP]
+> You can also run the container selecting a run or debug configuration. The Docker extension tasks in *tasks.json* are called when you run or debug. What task is called depends on what launch configuration you have set.  For the task "Docker: Python (MongoDB local)", specify "\<YOUR-IP-ADDRESS>". For the task "Docker: Python (MongoDB Azure)", specify "\<CONNECTION_STRING>".
+
 
 ### [Docker CLI](#tab/docker-cli)
 

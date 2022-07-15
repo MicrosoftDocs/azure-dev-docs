@@ -8,10 +8,34 @@ ms.date: 07/07/2022
 **Step 1.** Run the latest version of the image.
 ### [Local MongoDB](#tab/mongodb-local)
 
-[!INCLUDE [Run latest image with local MongoDB](<./run-docker-image-docker-cli-local.md>)]
+```Docker
+export DB_NAME=<db-name>
+export COLLECTION_NAME=<collection-name>
+export YOUR_IP_ADDRESS=<your-machine-ip-address>
+
+docker run --rm --detach \
+  --publish 8000:8000 --publish 27017:27017 \
+  --add-host mongoservice:$YOUR_IP_ADDRESS \
+  --env "mongodb://mongoservice:27017" --env "$DB_NAME" --env "$COLLECTION_NAME \
+  <image-name>:latest  
+```
+
+The command above is formatted for the Bash shell. If you prefer to use PowerShell, Command Prompt, or another shell, you may need to adjust the line continuation and environment variable format accordingly.
+
 ### [Azure Cosmos DB MongoDB](#tab/mongodb-azure)
 
-[!INCLUDE [Run latest image with Azure MongoDB](<./run-docker-image-docker-cli-azure.md>)]
+```Docker
+export CONNECTION_STRING=<connection-string>
+export DB_NAME=<db-name>
+export COLLECTION_NAME=<collection-name>
+
+docker run --rm --detach \
+  --publish-all \
+  --env "$CONNECTION_STRING" --env "$DB_NAME" --env "$COLLECTION_NAME \
+  <image-name>:latest  
+```
+
+The command above is formatted for the Bash shell. If you prefer to use PowerShell, Command Prompt, or another shell, you may need to adjust the line continuation and environment variable format accordingly.
 
 ---
 
