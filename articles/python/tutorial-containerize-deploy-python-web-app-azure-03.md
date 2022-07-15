@@ -17,6 +17,9 @@ In the previous *optional* part of this tutorial, a container image was build an
 
 Once the Docker image is Azure Container Registry, it can be deployed to Azure App service. 
 
+
+The service diagram shown in the Overview is shown below highlighting the components that this article deals with.
+
 :::image type="content" source="./media/tutorial-container-web-app/containerization-of-python-apps-build-cloud.png" alt-text="A screenshot of the services using in the Tutorial - Containerized Python App on Azure with the build-in-cloud path highlighted." lightbox="./media/tutorial-container-web-app/containerization-of-python-apps-build-cloud.png":::
 
 ## 1. Create an Azure Container Registry
