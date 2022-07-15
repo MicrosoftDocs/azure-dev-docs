@@ -63,7 +63,7 @@ azd init --template todo-csharp-cosmos-sql
 
 You'll be prompted for the following information:
 
-- `Environment Name`: Prefix for all your Azure resources, make sure it's globally unique and under 15 characters.
+- `Environment Name`: Prefix for the resource group that will be created to hold all Azure resources.
 - `Azure Location`: The Azure location where your resources will be deployed.
 - `Azure Subscription`: The Azure Subscription where your resources will be deployed.
 
