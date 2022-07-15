@@ -17,6 +17,8 @@ This article is part of a tutorial about how to containerize and deploy a Python
 In this part of the tutorial, you learn how to deploy the containerized Python web app to App Service using the [App Service Web App for Containers](https://azure.microsoft.com/services/app-service/containers/), which allows you to focus on composing your containers without worrying about managing and maintaining an underlying container orchestrator.
 
 Following the steps here, you'll end up with an App Service website using a Docker container image. The App Service pulls the initial image from Azure Container Registry using managed identity for authentication.
+
+:::image type="content" source="./media/tutorial-container-web-app/containerization-of-python-apps-deploy.png" alt-text="A screenshot of the services using in the Tutorial - Containerized Python App on Azure with deployment path highlighted." lightbox="./media/tutorial-container-web-app/containerization-of-python-apps-deploy.png":::
 ## 1. Create the web app
 
 ### [Azure portal](#tab/azure-portal)
@@ -111,4 +113,4 @@ If you don't see the sample app, here are a few troubleshooting tips.
 * With container deployment and App Service, always check the **Deployment Center** / **Logs** page. 
 * Since the sample app relies on a connection to MongoDB, confirm you have the application settings correct that have the connection info.
 * Confirm that managed identity is enabled for the App Service and is used in the Deployment Center.
-* [Different Azure Container Registry skus](/azure/container-registry/container-registry-skus) have different features, including number of webhooks. Webhooks are automatically created for you if you followed the steps in this tutorial. However, if you are reusing an existing registry you could see the message: "Quota exceeded for resource type webhooks for the registry SKU Basic. Learn more about different SKU quotas and upgrade process: https://aka.ms/acr/tiers". If this happens, use a new registry or reduce the number of [registry webhooks](/azure/container-registry/container-registry-webhook) in use.
+* [Different Azure Container Registry skus](/azure/container-registry/container-registry-skus) have different features, including number of webhooks. Webhooks are automatically created for you if you followed the steps in this tutorial. However, if you're reusing an existing registry you could see the message: "Quota exceeded for resource type webhooks for the registry SKU Basic. Learn more about different SKU quotas and upgrade process: https://aka.ms/acr/tiers". If you see this message, use a new registry, or reduce the number of [registry webhooks](/azure/container-registry/container-registry-webhook) in use.
