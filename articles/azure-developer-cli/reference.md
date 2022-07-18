@@ -37,7 +37,7 @@ azd deploy
 azd monitor --overview
 ```
 	
-For more information, visit the [Azure Developer CLI Dev Hub](https://aka.ms/azure-dev/devhub).
+For more information, visit the [Azure Developer CLI Dev Hub](./overview.md).
 
 ### Options
 
@@ -516,7 +516,7 @@ azd monitor -–live
 azd monitor --logs
 ```
 
-For more information, go to [https://aka.ms/azure-dev/monitor](https://aka.ms/azure-dev/monitor).
+For more information, see [Monitor your app using Azure Developer CLI (azd)](./monitor-your-app.md).
 
 ```
 azd monitor [flags]
@@ -554,7 +554,7 @@ Manage GitHub Actions pipelines.
 
 The Azure Developer CLI template includes a GitHub Actions pipeline configuration file (in the `.github/workflows` directory) that deploys your app whenever code is pushed to the main branch.
 		
-For more information, go to [https://aka.ms/azure-dev/pipeline](https://aka.ms/azure-dev/pipeline).
+For more information, see [Configure a pipeline and push updates using GitHub Actions](./configure-devops-pipeline.md).
 
 ### Options
 
@@ -584,7 +584,7 @@ Create and configure your deployment pipeline by using GitHub Actions.
 
 Create and configure your deployment pipeline by using GitHub Actions.
 		
-For more information, go to [https://aka.ms/azure-dev/pipeline](https://aka.ms/azure-dev/pipeline).
+For more information, see [Configure a pipeline and push updates using GitHub Actions](./configure-devops-pipeline.md).
 
 ```
 azd pipeline config [flags]
@@ -664,7 +664,7 @@ Restore app dependencies.
 
 Run this command to download and install all the required libraries so that you can build, run, and debug the app locally.
 
-For the best local run and debug experience, see [Debug by using the Visual Studio Code extension](https://aka.ms/azure-dev/vscode).
+For the best local run and debug experience, see [Debug by using the Visual Studio Code extension](./debug.md?pivots=ide-vs-code).
 
 ```
 azd restore [flags]
