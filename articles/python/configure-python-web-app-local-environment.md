@@ -127,7 +127,7 @@ In Python web app development, you often work with Python-based web frameworks. 
 
 Three common Python web frameworks are [Django](https://www.djangoproject.com/), [Flask](https://flask.palletsprojects.com/en/2.1.x/), or [FastAPI](https://fastapi.tiangolo.com/). These and other web frameworks can be used with Azure.
 
-Below is an example of how you might get started quickly with these frameworks locally. Running these commands, you'll end up with an application, albeit a simple one that could be deployed to Azure. Run these commands inside a [virtual environment](/azure/developer/python/configure-local-development-environment#configure-python-virtual-environment).
+Below is an example of how you might get started quickly with these frameworks locally. Running these commands, you'll end up with an application, albeit a simple one that could be deployed to Azure. Run these commands inside a [virtual environment](./configure-local-development-environment.md#configure-python-virtual-environment).
 
 **Step 1:**  Download the frameworks with [pip](https://pip.pypa.io/en/stable/cli/pip_install/).
 ### [Django](#tab/django)
