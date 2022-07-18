@@ -11,7 +11,7 @@ ms.date: 07/07/2022
 docker
 ```
 
-If after running this command you help for the [Docker CLI](https://docs.docker.com/engine/reference/commandline/cli/), then continue. Otherwise, make sure Docker is installed or your shell has access to the Docker CLI.
+If after running this command, you see help for the [Docker CLI](https://docs.docker.com/engine/reference/commandline/cli/), then continue. Otherwise, make sure Docker is installed or your shell has access to the Docker CLI.
 
 **Step 2.** Build the image.
 
@@ -47,7 +47,7 @@ For example, if you are at the root of the project directory, you can use a comm
 docker build --rm --pull \
   --file "Dockerfile" \
   --label "com.microsoft.create-by=docker-cli" \
-  --tag "msdocspythondjangocontainerwebapp:latest" \
+  --tag "msdocspythoncontainerwebapp:latest" \
   .
 ```
 
@@ -57,13 +57,13 @@ docker build --rm --pull \
 docker build --rm --pull `
   --file "Dockerfile" `
   --label "com.microsoft.create-by=docker-cli" `
-  --tag "msdocspythondjangocontainerwebapp:latest" `
+  --tag "msdocspythoncontainerwebapp:latest" `
   .
 ```
 
 ---
 
-If you started with the Flask version of the sample app, then use "msdocspythonflaskcontainerwebapp" as the tag name. Note the dot (".") at the end of the command. You can add `--no-cache` to force a rebuild.
+Note the dot (".") at the end of the command referring to the current directly in which the command runs. You can add `--no-cache` to force a rebuild.
 
 **Step 3.** Confirm the image was built.
 
