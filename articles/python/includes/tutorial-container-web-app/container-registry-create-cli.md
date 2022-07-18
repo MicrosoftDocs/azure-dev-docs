@@ -27,4 +27,4 @@ In the JSON output of the command look for the `loginServer` value, which is the
 az acr login -n <registry-name>
 ```
 
-The above command adds "azurecr.io" to the name to create the fully qualified registry name. If successful, you'll see the message "Login Succeeded". At this point you can use [az acr list](/cli/azure/acr?view=azure-cli-latest#az-acr-list) to list container registries for your subscription.
+The above command adds "azurecr.io" to the name to create the fully qualified registry name. If successful, you'll see the message "Login Succeeded".

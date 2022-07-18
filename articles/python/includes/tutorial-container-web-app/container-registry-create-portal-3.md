@@ -11,11 +11,9 @@ Fill out the form and specify:
 
 * **Registry name** &rarr; The registry name must be unique within Azure, and contain 5-50 alphanumeric characters. 
 
-* **Location** &rarr; If you are using an existing resource group, select the location to match. Otherwise, the location is where the resource group is created that contains the registry. * 
+* **Location** &rarr; If you are using an existing resource group, select the location to match. Otherwise, the location is where the resource group is created that contains the registry.
 
 * **SKU** &rarr; Select **Standard**.
 
-When finished, select **Review + create**.
-
-After the validation is complete, select **Create**.
+When finished, select **Review + create**. After the validation is complete, select **Create**.
 
