@@ -15,10 +15,9 @@ This article is part of a tutorial about how to containerize and deploy a Python
 
 In the previous *optional* part of this tutorial, a container image was build and run locally. In this part of the tutorial, you'll build (containerize) a Python web app into a Docker image directly in [Azure Container Registry](/azure/container-registry/container-registry-intro). Building the image in Azure is typically faster and easier than building locally and then pushing the image to a registry. Also, building in the cloud doesn't require Docker to be running in your dev environment.
 
-Once the Docker image is Azure Container Registry, it can be deployed to Azure App service. 
+Once the Docker image is in Azure Container Registry, it can be deployed to Azure App service. 
 
-
-The service diagram shown in the Overview is shown below highlighting the components that this article deals with.
+The service diagram shown below highlights the components that this article deals with.
 
 :::image type="content" source="./media/tutorial-container-web-app/containerization-of-python-apps-build-cloud.png" alt-text="A screenshot of the services using in the Tutorial - Containerized Python App on Azure with the build-in-cloud path highlighted." lightbox="./media/tutorial-container-web-app/containerization-of-python-apps-build-cloud.png":::
 
