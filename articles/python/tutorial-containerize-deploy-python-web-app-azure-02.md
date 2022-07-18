@@ -15,7 +15,7 @@ This article is part of a tutorial about how to containerize and deploy a contai
 
 Running a Docker image locally in your development environment requires setup beyond deployment to Azure. Think of it as an investment that can make future development cycles easier, especially when you move beyond a sample app and you start to create your own web apps. To deploy a sample app or other app that doesn't need modification, you can skip this step and move on to the next step in this tutorial. You can always return after deploying to Azure and work through these steps.
 
-The service diagram shown in the Overview is shown below highlighting the components that this article covers.
+The service diagram shown below highlights the components covered in this article.
 
 :::image type="content" source="./media/tutorial-container-web-app/containerization-of-python-apps-run-local.png" alt-text="A screenshot of the Tutorial - Containerized Python App on Azure with local part highlighted." lightbox="./media/tutorial-container-web-app/containerization-of-python-apps-run-local.png":::
 
