@@ -53,11 +53,11 @@ landingContent:
       - linkListType: deploy
         links:
           - text: What is Azure Developer CLI?
-            url: /azure/developer/azure-developer-cli/overview 
+            url: ../azure-developer-cli/overview.md
           - text: Get started
-            url: /azure/developer/azure-developer-cli/get-started 
+            url: ../azure-developer-cli/get-started.md
           - text: See more in the Azure Developer CLI developer center
-            url: /azure/developer/azure-developer-cli/ 
+            url: ../azure-developer-cli/index.yml
 
   # Card (optional)
   # - title: Visual Studio and Visual Studio Code
@@ -81,4 +81,4 @@ landingContent:
       - linkListType: get-started
         links:
           - text: Manage Azure Policies as code with GitHub
-            url: manage-azure-policy.md  
+            url: manage-azure-policy.md
