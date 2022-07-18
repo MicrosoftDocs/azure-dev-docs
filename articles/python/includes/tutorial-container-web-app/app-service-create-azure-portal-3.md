@@ -13,4 +13,4 @@ Specify Docker information of the App Service, including:
 * **Image** &rarr; An image in the registry.
 * **Tag** &rarr; "latest"
 
-The registry [admin account](/azure/container-registry/container-registry-authentication#admin-account) is needed when you use the Azure portal to deploy a container image. If the admin account is not enabled, you'll see an error when specifying the **Image**.
+The registry [admin account](/azure/container-registry/container-registry-authentication#admin-account) is needed when you use the Azure portal to deploy a container image. If the admin account is not enabled, you'll see an error when specifying the **Image**.  After the App Service is created, managed identity is used to pull images from the registry and the admin account can be disabled.
