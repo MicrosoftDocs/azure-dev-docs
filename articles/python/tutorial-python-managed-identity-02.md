@@ -27,7 +27,7 @@ To run the app locally, you'll need:
 The steps shown in this article apply to both Django and Flask frameworks except where noted.
 
 > [!Tip]
-> Instead of using local storage emulation, you could use Azure Storage and authenticate locally with developer account or AD group. For more information, see [Authenticate Python apps to Azure services during local development using developer accounts](/azure/developer/python/sdk/authentication-local-development-dev-accounts). The rest of this article shows local emulation of storage with Azurite.
+> Instead of using local storage emulation, you could use Azure Storage and authenticate locally with developer account or AD group. For more information, see [Authenticate Python apps to Azure services during local development using developer accounts](./sdk/authentication-local-development-dev-accounts.md). The rest of this article shows local emulation of storage with Azurite.
 
 ## 1. Create a database in local PostgreSQL
 

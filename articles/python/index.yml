@@ -35,7 +35,7 @@ landingContent:
       - linkListType: deploy
         links:
           - text: Flask using Visual Studio Code
-            url: tutorial-deploy-app-service-on-linux-01.md     
+            url: ./configure-python-web-app-local-environment.md
           - text: Flask using CLI
             url: /azure/app-service/quickstart-python?toc=/azure/developer/python/toc.json&bc=/azure/developer/breadcrumb/toc.json
           - text: Python (Django or Flask) + PostgreSQL

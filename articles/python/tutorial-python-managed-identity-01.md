@@ -20,7 +20,7 @@ Each article in the tutorial covers a part or service shown in the service diagr
 
 ## How managed identity is used
 
-Managed identity provides an identity for your app so that it can connect to Azure resources without the need to use a secret key or other application secret. Internally, Azure knows the identity of your app and what resources it's allowed to connect to. Managed identity is the recommended approach to authenticate an app in Azure when using the Azure SDK for Python as is shown in this tutorial. For more information about authentication in Azure with Python, see [How to authenticate Python apps to Azure services using the Azure SDK for Python](/azure/developer/python/sdk/authentication-overview). 
+Managed identity provides an identity for your app so that it can connect to Azure resources without the need to use a secret key or other application secret. Internally, Azure knows the identity of your app and what resources it's allowed to connect to. Managed identity is the recommended approach to authenticate an app in Azure when using the Azure SDK for Python as is shown in this tutorial. For more information about authentication in Azure with Python, see [How to authenticate Python apps to Azure services using the Azure SDK for Python](./sdk/authentication-overview.md). 
 
 The sample Python app code doesn't change between the local development and Azure-hosted environments. Using the same code is possible because the [DefaultAzureCredential](/python/api/azure-identity/azure.identity.defaultazurecredential) is used, which handles both authentication scenarios as shown in the following diagram.
 

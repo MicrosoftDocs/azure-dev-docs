@@ -73,7 +73,7 @@ sections:
           
           You can also go to https://portal.azure.com and then look for your resource group, which is `<your-environment-name>-rg`. If any of the deployments fail, select the error link to get more information.
           
-          For other resources, see [Troubleshoot common Azure deployment errors - Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/troubleshooting/common-deployment-errors).
+          For other resources, see [Troubleshoot common Azure deployment errors - Azure Resource Manager](/azure/azure-resource-manager/troubleshooting/common-deployment-errors).
 
       - question: Is there a log file for `azd provision`? 
         answer: |
@@ -89,7 +89,7 @@ sections:
     questions:
       - question: Can I rerun `azd up`?
         answer: |
-          Yes. We use the [incremental deployment mode](https://docs.microsoft.com/azure/azure-resource-manager/templates/deployment-modes).
+          Yes. We use the [incremental deployment mode](/azure/azure-resource-manager/templates/deployment-modes).
 
       - question: How do I find the log file for `azd up`? 
         answer: |
@@ -99,7 +99,7 @@ sections:
     questions:
       - question: What is an Azure service principal?
         answer: |
-          An Azure service principal is an identity that's created for use with apps, hosted services, and automated tools to access Azure resources. This access is restricted by the roles that are assigned to the service principal, which gives you control over which resources can be accessed and at which level. For more information about authenticating from Azure to GitHub, see [Connect GitHub and Azure | Microsoft Docs](https://docs.microsoft.com/azure/developer/github/connect-from-azure?tabs=azure-portal%2Cwindows#use-the-azure-login-action-with-a-service-principal-secret). 
+          An Azure service principal is an identity that's created for use with apps, hosted services, and automated tools to access Azure resources. This access is restricted by the roles that are assigned to the service principal, which gives you control over which resources can be accessed and at which level. For more information about authenticating from Azure to GitHub, see [Connect GitHub and Azure | Microsoft Docs](../github/connect-from-azure.md?tabs=azure-portal%2cwindows#use-the-azure-login-action-with-a-service-principal-secret). 
 
       - question: Do I need to create an Azure service principal before I run `azd pipeline config`?
         answer: |
