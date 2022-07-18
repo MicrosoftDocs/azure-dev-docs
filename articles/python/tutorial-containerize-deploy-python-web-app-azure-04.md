@@ -21,6 +21,7 @@ Following the steps here, you'll end up with an App Service website using a Dock
 The service diagram shown below highlights the components covered in this article.
 
 :::image type="content" source="./media/tutorial-container-web-app/containerization-of-python-apps-deploy.png" alt-text="A screenshot of the services using in the Tutorial - Containerized Python App on Azure with deployment path highlighted." lightbox="./media/tutorial-container-web-app/containerization-of-python-apps-deploy.png" :::
+
 ## 1. Create the web app
 
 ### [Azure portal](#tab/azure-portal)
