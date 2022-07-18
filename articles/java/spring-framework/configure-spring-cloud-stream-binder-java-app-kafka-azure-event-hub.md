@@ -13,7 +13,7 @@ ms.custom: devx-track-java
 
 This article shows you how to configure a Java-based Spring Cloud Stream Binder to use [Apache Kafka](http://kafka.apache.org) with Azure Event Hubs. In this article, you'll create the project by using Spring Initializr and deploy to Azure Spring Apps using Managed Identity.
 
-By using [Apache Kafka](http://kafka.apache.org) with Azure Event Hubs, you can take advantage of Spring Cloud Azure to use various types of credentials for authentication. For more information, see [Spring Cloud Azure authentication](/azure/developer/java/spring-framework/spring-cloud-azure?tabs=maven#spring-cloud-azure-authentication).
+By using [Apache Kafka](http://kafka.apache.org) with Azure Event Hubs, you can take advantage of Spring Cloud Azure to use various types of credentials for authentication. For more information, see [Spring Cloud Azure authentication](./spring-cloud-azure.md?tabs=maven#spring-cloud-azure-authentication).
 
 ## Prerequisites
 
