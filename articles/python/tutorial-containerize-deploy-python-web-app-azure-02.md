@@ -41,9 +41,9 @@ These instructions require [Docker](https://docs.docker.com/get-docker/).
 
 ---
 
-At this point, you have built an image locally. The image you created has a name formatted as `<repository-name>:<tag>` where `<repository-name>` is based on the project name and `<tag>` is set to "latest" for this tutorial. Tags are a way to define version information, intended use, stability, or other information. For more information, see [Recommendations for tagging and versioning container images](/azure/container-registry/container-registry-image-tag-version).
+At this point, you have built an image locally. The image you created has a name formatted as `<repository-name>:<tag>` where `<repository-name>` is derived from the project name and `<tag>` is set to "latest" for this tutorial. Tags are a way to define version information, intended use, stability, or other information. For more information, see [Recommendations for tagging and versioning container images](/azure/container-registry/container-registry-image-tag-version).
 
-Built images from VS Code or from using the Docker CLI directly can also be viewed in the Docker Desktop application.
+Built images from VS Code or from using the Docker CLI directly can also be viewed with the [Docker Desktop](https://www.docker.com/products/docker-desktop/) application.
 
 ## 2. Set up MongoDB
 

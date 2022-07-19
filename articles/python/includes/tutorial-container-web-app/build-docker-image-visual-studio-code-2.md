@@ -7,7 +7,7 @@ ms.date: 07/07/2022
 
 Build the image.
 
-* Right-click the *Dockerfile* in the project folder and select **Build Image...**.
+* In the project Explorer, right-click the *Dockerfile* in the project folder and select **Build Image...**.
 
 * Alternately, you can use the Command Palette (**F1** or **Ctrl+Shift+P**) and type "Docker Images: Build Images" to invoke the command.
 
