@@ -12,12 +12,12 @@ ms.date: 07/07/2022
 az acr login -n <registry-name>
 ```
 
-If you're accessing the registry from a subscription different from where the registry was created, use the `--suffix` switch.
+If you're accessing the registry from a subscription different from the one in which the registry was created, use the `--suffix` switch.
 
 **Step 2.** Build the image with the [az acr build](/cli/azure/acr#az-acr-build) command.
 
 ```azurecli
-az acr build -r <registry-name> -g <resource-group> -t msdocspythoncontainerapp:latest .
+az acr build -r <registry-name> -g <resource-group> -t msdocspythoncontainerwebapp.azurecr.io:latest .
 ```
 
 Note:
@@ -26,10 +26,8 @@ Note:
 
 * If you leave out the `-t` (same as `--image`) option, the command queues a local context build without pushing it to the registry. Building without pushing can be useful to check that the image builds.
 
-**Step 3.** Confirm the container image was created with the [az acr list](/cli/azure/acr#az-acr-list) command.
+**Step 3.** Confirm the container image was created with the [az acr repository list](/cli/azure/acr/repository#az-acr-repository-list) command.
 
 ```azurecli
-az acr list -g <resource-group> -o table
+az acr repository list -n <registry-name>
 ```
-
-
