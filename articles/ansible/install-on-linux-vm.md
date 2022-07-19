@@ -183,10 +183,10 @@ For more information about defining Ansible credentials, see [Providing Credenti
 
     ```bash
     [default]
-    subscription_id=<your-subscription_id>
-    client_id=<security-principal-appid>
-    secret=<security-principal-password>
-    tenant=<security-principal-tenant>
+    subscription_id=<your-subscription-id>
+    client_id=<service-principal-appid>
+    secret=<service-principal-password>
+    tenant=<your-tenant-id>
     ```
 
 1. Save and close the file.
@@ -196,10 +196,10 @@ For more information about defining Ansible credentials, see [Providing Credenti
 On the host virtual machine, export the service principal values to configure your Ansible credentials.
 
 ```bash
-export AZURE_SUBSCRIPTION_ID=<your-subscription_id>
-export AZURE_CLIENT_ID=<security-principal-appid>
-export AZURE_SECRET=<security-principal-password>
-export AZURE_TENANT=<security-principal-tenant>
+export AZURE_SUBSCRIPTION_ID=<your-subscription-id>
+export AZURE_CLIENT_ID=<service-principal-appid>
+export AZURE_SECRET=<service-principal-password>
+export AZURE_TENANT=<your-tenant-id>
 ```
 
 ## Test Ansible installation
