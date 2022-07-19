@@ -126,8 +126,8 @@ To create a virtual environment, follow these steps.
 
     ### [Windows](#tab/cmd)
 
-    ```cmd
-    .venv\scripts\activate
+    ```bash
+    source .venv/Scripts/activate
     ```
 
     ### [macOS/Linux](#tab/bash)

@@ -31,7 +31,7 @@ In this article, we will code a sample application. If you want to go faster, th
 Generate the application on the command line by running the following command:
 
 ```bash
-curl https://start.spring.io/starter.tgz -d dependencies=web,data-jdbc,sqlserver -d baseDir=azure-database-workshop -d bootVersion=2.3.1.RELEASE -d javaVersion=8 | tar -xzvf -
+curl https://start.spring.io/starter.tgz -d dependencies=web,data-jdbc,sqlserver -d baseDir=azure-database-workshop -d bootVersion=2.7.1 -d javaVersion=17 | tar -xzvf -
 ```
 
 ### Configure Spring Boot to use Azure SQL Database
