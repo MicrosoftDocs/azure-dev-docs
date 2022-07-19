@@ -1,12 +1,12 @@
 ---
-ms.date: 10/10/2020
 author: KarlErickson
-ms.author: judubois
+ms.date: 07/15/2022
+ms.author: bbenz
 ---
 
 ## Create a reactive Spring Boot application
 
 To create a reactive Spring Boot application, we'll use [Spring Initializr](https://start.spring.io/). The application that we'll create uses:
 
-- Spring Boot 2.3.4.RELEASE.
+- Spring Boot 2.7.1.
 - The following dependencies: Spring Reactive Web (also known as Spring WebFlux) and Spring Data R2DBC.

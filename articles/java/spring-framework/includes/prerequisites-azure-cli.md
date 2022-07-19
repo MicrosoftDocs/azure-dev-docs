@@ -1,9 +1,9 @@
 ---
 author: KarlErickson
-ms.author: edburns
+ms.date: 07/15/2022
+ms.author: bbenz
 ms.service: azure-java
 ms.topic: include
-ms.date: 03/11/2021
 ---
 
-- [Azure CLI](/cli/azure/install-azure-cli), version 2.14.1 or later
+- [Azure CLI](/cli/azure/install-azure-cli), version 2.38 or later
