@@ -54,13 +54,13 @@ This list is grouped by supported language. Each repository contains a complete 
 
 | Template      | App host | Database	 | 
 | ----------- | ----------| ----------- | 
-| [Todo C# Cosmo DB (SQL)](https://github.com/Azure-Samples/todo-csharp-cosmos-sql) | [Azure App Service](/azure/app-service/) | [Azure Cosmos DB SQL API](/learn/modules/intro-to-azure-cosmos-db-core-api/) | 
+| [Todo C# Cosmos DB (SQL)](https://github.com/Azure-Samples/todo-csharp-cosmos-sql) | [Azure App Service](/azure/app-service/) | [Azure Cosmos DB SQL API](/learn/modules/intro-to-azure-cosmos-db-core-api/) | 
 
 ---
 
 ## Azure Developer CLI vs Azure CLI
 
-[Azure Developer CLI (azd)](/azure/developer/az-dev-cli) and [Azure CLI](/cli/azure/what-is-azure-cli) are both command-line tools.
+[Azure Developer CLI (azd)](./index.yml) and [Azure CLI](/cli/azure/what-is-azure-cli) are both command-line tools.
 
 However, they help you do different tasks.
 

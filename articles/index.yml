@@ -48,7 +48,7 @@ productDirectory:
       links:
         - url: /azure/azure-functions/create-first-function-vs-code-python
           text: Deploy serverless Python apps to Azure Functions
-        - url: ./python/tutorial-deploy-app-service-on-linux-01.md
+        - url: ./python/configure-python-web-app-local-environment.md
           text: Deploy Python apps to Azure App Service
         - url: /azure/storage/blobs/storage-quickstart-blobs-python
           text: Manage storage blobs with the Azure SDK for Python
@@ -164,11 +164,11 @@ productDirectory:
     - title: Azure Developer CLI (azd) Preview
       imageSrc: https://static.docs.com/ui/media/product/azure/azure-developer-cli.svg
       links:
-        - url: /azure/developer/azure-developer-cli/overview
+        - url: ./azure-developer-cli/overview.md
           text: What is Azure Developer CLI
-        - url: /azure/developer/azure-developer-cli/get-started
+        - url: ./azure-developer-cli/get-started.md
           text: Get started
-        - url: /azure/developer/azure-developer-cli/
+        - url: ./azure-developer-cli/index.yml
           text: See more in the Azure Developer CLI developer center
 #tools:
 #conceptualContent:

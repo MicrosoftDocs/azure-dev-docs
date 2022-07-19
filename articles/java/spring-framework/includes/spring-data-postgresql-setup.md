@@ -1,7 +1,8 @@
 ---
 ms.date: 05/18/2020
 author: KarlErickson
-ms.author: judubois
+ms.date: 07/15/2022
+ms.author: bbenz
 ---
 
 ## Prepare the working environment
@@ -30,11 +31,8 @@ Next, create a resource group by using the following command:
 az group create \
     --name $AZ_RESOURCE_GROUP \
     --location $AZ_LOCATION \
-    | jq
+    --output tsv
 ```
-
-> [!NOTE]
-> We use the `jq` utility to display JSON data and make it more readable. This utility is installed by default on [Azure Cloud Shell](https://shell.azure.com/). If you don't like that utility, you can safely remove the `| jq` part of all the commands we'll use.
 
 ## Create an Azure Database for PostgreSQL instance
 
@@ -54,7 +52,7 @@ az postgres server create \
     --storage-size 5120 \
     --admin-user $AZ_POSTGRESQL_USERNAME \
     --admin-password $AZ_POSTGRESQL_PASSWORD \
-    | jq
+    --output tsv
 ```
 
 This command creates a small PostgreSQL server.
@@ -72,7 +70,33 @@ az postgres server firewall-rule create \
     --server $AZ_DATABASE_NAME \
     --start-ip-address $AZ_LOCAL_IP_ADDRESS \
     --end-ip-address $AZ_LOCAL_IP_ADDRESS \
-    | jq
+    --output tsv
+```
+
+If you're connecting to your PostgreSQL server from WSL on a Windows computer, you'll need to add the WSL host ID to your firewall.
+
+Obtain the IP address of your host machine by running the following command in WSL:
+
+```bash
+cat /etc/resolv.conf
+```
+
+Copy the IP address following the term `nameserver`, then use the following command to set an environment variable for the WSL IP Address:
+
+```bash
+AZ_WSL_IP_ADDRESS=<the-copied-IP-address>
+```
+
+Then, use the following command to open the server's firewall to your WSL-based app:
+
+```azurecli
+az postgres server firewall-rule create \
+    --resource-group $AZ_RESOURCE_GROUP \
+    --name $AZ_DATABASE_NAME-database-allow-local-ip \
+    --server $AZ_DATABASE_NAME \
+    --start-ip-address $AZ_WSL_IP_ADDRESS \
+    --end-ip-address $AZ_WSL_IP_ADDRESS \
+    --output tsv
 ```
 
 ### Configure a PostgreSQL database
@@ -84,5 +108,5 @@ az postgres db create \
     --resource-group $AZ_RESOURCE_GROUP \
     --name demo \
     --server-name $AZ_DATABASE_NAME \
-    | jq
+    --output tsv
 ```

@@ -13,7 +13,7 @@ ms.custom: devx-track-java
 
 This article shows you how to configure a Java-based Spring Cloud Stream Binder to use [Apache Kafka](http://kafka.apache.org) with Azure Event Hubs. In this article, you'll create the project by using Spring Initializr and deploy to Azure Spring Apps using Managed Identity.
 
-By using [Apache Kafka](http://kafka.apache.org) with Azure Event Hubs, you can take advantage of Spring Cloud Azure to use various types of credentials for authentication. For more information, see [Spring Cloud Azure authentication](/azure/developer/java/spring-framework/spring-cloud-azure?tabs=maven#spring-cloud-azure-authentication).
+By using [Apache Kafka](http://kafka.apache.org) with Azure Event Hubs, you can take advantage of Spring Cloud Azure to use various types of credentials for authentication. For more information, see [Spring Cloud Azure authentication](./spring-cloud-azure.md?tabs=maven#spring-cloud-azure-authentication).
 
 ## Prerequisites
 
@@ -195,13 +195,13 @@ Use the following steps to create an application.
 
    The following table describes the fields in the configuration:
 
-   | Field                                                               | Description                                                                                                                                                                                  |
-   |---------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-   | `spring.cloud.stream.kafka.binder.brokers`                          | Specifies the Azure Event Hubs endpoint.                                                                                                                                                     |
-   | `spring.cloud.stream.bindings.consume-in-0.destination`             | Specifies the input destination Azure Event Hubs, which for this tutorial is the hub you created earlier.                                                                                    |
-   | `spring.cloud.stream.bindings.consume-in-0.group `                  | Specifies a Consumer Group from Azure Event Hubs, which you can set to `$Default` in order to use the basic consumer group that was created when you created your Azure Event Hubs instance. |
-   | `spring.cloud.stream.bindings.supply-out-0:.destination`            | Specifies the output destination Azure Event Hubs, which for this tutorial is the same as the input destination.                                                                             |
-   | `spring.cloud.stream.binders.kafka.environment.spring.main.sources` | Specifies more configurations for the particular binder.                                                                                                                                     |
+   | Field                                                               | Description                                                                                                                                                                                                           |
+   |---------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+   | `spring.cloud.stream.kafka.binder.brokers`                          | Specifies the Azure Event Hubs endpoint.                                                                                                                                                                              |
+   | `spring.cloud.stream.bindings.consume-in-0.destination`             | Specifies the input destination Azure Event Hubs, which for this tutorial is the hub you created earlier.                                                                                                             |
+   | `spring.cloud.stream.bindings.consume-in-0.group `                  | Specifies a Consumer Group from Azure Event Hubs, which you can set to `$Default` in order to use the basic consumer group that was created when you created your Azure Event Hubs instance.                          |
+   | `spring.cloud.stream.bindings.supply-out-0.destination`             | Specifies the output destination Azure Event Hubs, which for this tutorial is the same as the input destination.                                                                                                      |
+   | `spring.cloud.stream.binders.kafka.environment.spring.main.sources` | Specifies more configurations for the particular binder. The value should be `com.azure.spring.cloud.autoconfigure.kafka.AzureKafkaSpringCloudStreamConfiguration` to enable the whole OAuth authentication workflow. |
 
    > [!NOTE]
    > If you enable automatic topic creation, be sure to add the configuration item `spring.cloud.stream.kafka.binder.replicationFactor`, with the value set to at least 1. For more information, see [Spring Cloud Stream Kafka Binder Reference Guide](https://docs.spring.io/spring-cloud-stream-binder-kafka/docs/3.1.2/reference/html/spring-cloud-stream-binder-kafka.html).
