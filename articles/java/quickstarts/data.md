@@ -1,7 +1,9 @@
 ---
 title: Quickstarts for data for Java apps on Azure
 description: List of getting started material in the Azure documentation for data for Java apps.
-ms.date: 04/09/2020
+author: KarlErickson
+ms.author: bbenz
+ms.date: 07/15/2022
 ms.topic: conceptual
 ms.custom: devx-track-java
 ---
@@ -20,10 +22,13 @@ The following articles help you get started with various data options on Azure:
 - [Cosmos DB - Table](/azure/cosmos-db/create-table-java)
 - [MySQL - Spring Data JDBC](../spring-framework/configure-spring-data-jdbc-with-azure-mysql.md)
 - [MySQL - Spring Data JPA](../spring-framework/configure-spring-data-jpa-with-azure-mysql.md)
+- [MySQL - Spring Data R2DBC](../spring-framework/configure-spring-data-r2dbc-with-azure-mysql.md)
 - [PostgreSQL - Spring Data JDBC](../spring-framework/configure-spring-data-jdbc-with-azure-postgresql.md)
 - [PostgreSQL - Spring Data JPA](../spring-framework/configure-spring-data-jpa-with-azure-postgresql.md)
+- [PostgreSQL - Spring Data R2DBC](../spring-framework/configure-spring-data-r2dbc-with-azure-postgresql.md)
 - [SQL Database - Spring Data JDBC](../spring-framework/configure-spring-data-jdbc-with-azure-sql-server.md)
 - [SQL Database - Spring Data JPA](../spring-framework/configure-spring-data-jpa-with-azure-sql-server.md)
+- [SQL Database - Spring Data R2DBC](../spring-framework/configure-spring-data-r2dbc-with-azure-sql-server.md)
 - [Cosmos DB - Spring Data Cosmos DB](../spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db.md)
 - [Cosmos DB - Spring Data Mongo DB](../spring-framework/configure-spring-data-mongodb-with-cosmos-db.md)
 - [Cosmos DB - Spring Data Cassandra](../spring-framework/configure-spring-data-apache-cassandra-with-cosmos-db.md)

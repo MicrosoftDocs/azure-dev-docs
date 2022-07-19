@@ -1,9 +1,9 @@
 ---
 author: KarlErickson
-ms.author: edburns
+ms.date: 07/15/2022
+ms.author: bbenz
 ms.service: azure-java
 ms.topic: include
-ms.date: 03/11/2021
 ---
 
-- A supported Java Development Kit (JDK). For more information, see [Java support on Azure and Azure Stack](../../fundamentals/java-support-on-azure.md).
+- A supported Java Development Kit (JDK). For more information, see [Java support on Azure and Azure Stack](../../fundamentals/java-support-on-azure.md). We recommend installing the [Microsoft Build of OpenJDK](/java/openjdk/install).
