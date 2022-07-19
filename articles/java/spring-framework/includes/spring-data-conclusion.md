@@ -1,7 +1,8 @@
 ---
-ms.date: 05/06/2020
+ms.date: 07/15/2022
+ms.author: bbenz
 author: KarlErickson
-ms.author: judubois
+ms.author: bbenz
 ---
 
 ## Clean up resources
