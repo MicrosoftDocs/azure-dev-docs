@@ -4,8 +4,8 @@ description: Learn how to configure an application created with the Spring Boot 
 services: cosmos-db
 documentationcenter: java
 author: KarlErickson
-ms.author: karler
-ms.date: 06/30/2022
+ms.author: bbenz
+ms.date: 07/15/2022
 ms.service: cosmos-db
 ms.tgt_pltfrm: multiple
 ms.topic: article
@@ -19,13 +19,7 @@ This article demonstrates adding the [Spring Cloud Azure Starter for Spring Data
 
 Azure Cosmos DB is a globally distributed database service that allows developers to work with data using various standard APIs, such as SQL, MongoDB, Graph, and Table APIs. Microsoft's Spring Boot Starter enables developers to use Spring Boot applications that easily integrate with Azure Cosmos DB by using the SQL API.
 
-## Prerequisites
-
-* An Azure subscription; if you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits] or sign up for a [free Azure account].
-* A supported Java Development Kit (JDK). For more information about the JDKs available for use when developing on Azure, see [Java support on Azure and Azure Stack](../fundamentals/java-support-on-azure.md).
-
-> [!IMPORTANT]
-> Spring Boot version 2.5 or 2.6 is required to complete the steps in this article.
+[!INCLUDE [spring-data-prerequisites.md](includes/spring-data-prerequisites.md)]
 
 ## Create an Azure Cosmos DB by using the Azure portal
 
@@ -66,12 +60,10 @@ Use the following steps to create a new Spring Boot application project with Azu
 1. Specify the following options:
 
    * Generate a **Maven** project with **Java**.
-   * Specify your **Spring Boot** version to **2.5.10**.
+   * Specify your **Spring Boot** version to **2.7.1**.
    * Specify the **Group** and **Artifact** names for your application.
-   * Select **8** for the Java version.
+   * Select **17** for the Java version.
    * Add **Azure Support** in the dependencies.
-
-   :::image type="content" source="media/spring-initializer/2.7.1/mvn-java8-cosmos-web.png" alt-text="Screenshot of Spring Initializr with basic options.":::
 
    > [!NOTE]
    > 1. The Spring Initializr uses the **Group** and **Artifact** names to create the package name; for example: *com.example.wingtiptoysdata*.
