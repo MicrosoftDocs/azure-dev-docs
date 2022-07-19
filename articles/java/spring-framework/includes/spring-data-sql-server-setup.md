@@ -30,18 +30,15 @@ Next, create a resource group using the following command:
 az group create \
     --name $AZ_RESOURCE_GROUP \
     --location $AZ_LOCATION \
-    | jq
+    --output tsv
 ```
-
-> [!NOTE]
-> We use the `jq` utility to display JSON data and make it more readable. This utility is installed by default on [Azure Cloud Shell](https://shell.azure.com/). If you don't like that utility, you can safely remove the `| jq` part of all the commands we'll use.
 
 ## Create an Azure SQL Database instance
 
 The first thing we'll create is a managed Azure SQL Database server.
 
 > [!NOTE]
-> You can read more detailed information about creating Azure SQL Database servers in [Quickstart: Create an Azure SQL Database single database](/azure/sql-database/sql-database-single-database-get-started).
+> The MS SQL password has to meet specific criteria, and setup will fail with a non-compliant password. For more information, see [Password Policy](/sql/relational-databases/security/password-policy/).
 
 In [Azure Cloud Shell](https://shell.azure.com/), run the following command:
 
@@ -52,7 +49,7 @@ az sql server create \
     --location $AZ_LOCATION \
     --admin-user $AZ_SQL_SERVER_USERNAME \
     --admin-password $AZ_SQL_SERVER_PASSWORD \
-    | jq
+    --output tsv
 ```
 
 This command creates an Azure SQL Database server.
@@ -70,10 +67,38 @@ az sql server firewall-rule create \
     --server $AZ_DATABASE_NAME \
     --start-ip-address $AZ_LOCAL_IP_ADDRESS \
     --end-ip-address $AZ_LOCAL_IP_ADDRESS \
-    | jq
+    --output tsv
 ```
 
-### Configure a Azure SQL database
+If you're connecting to your Azure SQL Database server from WSL on a Windows computer, you'll need to add the WSL host ID to your firewall.
+
+Obtain the IP address of your host machine by running the following command in WSL:
+
+```bash
+cat /etc/resolv.conf
+```
+
+Copy the IP address following the term `nameserver`, then use the following command to set an environment variable for the WSL IP Address:
+
+```bash
+AZ_WSL_IP_ADDRESS=<the-copied-IP-address>
+```
+
+Then, use the following command to open the server's firewall to your WSL-based app:
+
+```azurecli
+
+az sql server firewall-rule create \
+    --resource-group $AZ_RESOURCE_GROUP \
+    --name $AZ_DATABASE_NAME-database-allow-local-ip \
+    --server $AZ_DATABASE_NAME \
+    --start-ip-address $AZ_WSL_IP_ADDRESS \
+    --end-ip-address $AZ_WSL_IP_ADDRESS \
+    --output tsv
+
+```
+
+### Configure an Azure SQL database
 
 The Azure SQL Database server that you created earlier is empty. It doesn't have any database that you can use with the Spring Boot application. Create a new database called `demo` by running the following command:
 
@@ -82,5 +107,5 @@ az sql db create \
     --resource-group $AZ_RESOURCE_GROUP \
     --name demo \
     --server $AZ_DATABASE_NAME \
-    | jq
+    --output tsv
 ```

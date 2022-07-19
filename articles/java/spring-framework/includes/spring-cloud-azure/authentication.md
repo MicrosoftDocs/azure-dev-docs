@@ -8,7 +8,7 @@ ms.author: v-yonghuiye
 
 ### DefaultAzureCredential
 
-The `DefaultAzureCredential` is appropriate for most scenarios where the application is intended to ultimately run in the Azure Cloud. This is because the `DefaultAzureCredential` combines credentials commonly used to authenticate when deployed with credentials used to authenticate in a development environment.
+The `DefaultAzureCredential` is appropriate for most scenarios where the application is intended to be run in the Azure Cloud. This is because the `DefaultAzureCredential` combines credentials commonly used to authenticate when deployed with credentials used to authenticate in a development environment.
 
 > [!NOTE]
 > `DefaultAzureCredential` is intended to simplify getting started with the SDK by handling common scenarios with reasonable default behaviors. If you want more control or your scenario isn't served by the default settings, you should use other credential types.
@@ -29,7 +29,7 @@ The `DefaultAzureCredential` will attempt to authenticate via the following mech
 > [!NOTE]
 > Since Spring Cloud Azure AutoConfigure 4.1.0, a `ThreadPoolTaskExecutor` bean named `springCloudAzureCredentialTaskExecutor` will be automatically registered by default and will manage all threads created by Azure Identity. The name of each thread managed by this thread pool is prefixed with `az-identity-`. This `ThreadPoolTaskExecutor` bean is independent of the `Executor` bean provided by Spring Boot.
 
-### Managed identity
+### Managed identities
 
 A common challenge is the management of secrets and credentials used to secure communication between different components making up a solution. Managed identities eliminate the need to manage credentials. Managed identities provide an identity for applications to use when connecting to resources that support Azure Active Directory (Azure AD) authentication. Applications may use the managed identity to obtain Azure AD tokens. For example, an application may use a managed identity to access resources like Azure Key Vault where you can store credentials in a secure manner or to access storage accounts.
 
@@ -39,11 +39,11 @@ We encourage using managed identity instead of using connection string or key in
 
 There are two types of managed identities:
 
-* *System-assigned* - Some Azure services allow you to enable a managed identity directly on a service instance. When you enable a system-assigned managed identity, an identity is created in Azure AD that is tied to the lifecycle of that service instance. So when the resource is deleted, Azure automatically deletes the identity for you. By design, only that Azure resource can use this identity to request tokens from Azure AD.
+* *System-assigned* - Some Azure services allow you to enable a managed identity directly on a service instance. When you enable a system-assigned managed identity, an identity is created in Azure AD that's tied to the lifecycle of that service instance. So when the resource is deleted, Azure automatically deletes the identity for you. By design, only that Azure resource can use this identity to request tokens from Azure AD.
 * *User-assigned* - You may also create a managed identity as a standalone Azure resource. You can create a user-assigned managed identity and assign it to one or more instances of an Azure service. With user-assigned managed identities, the identity is managed separately from the resources that use it.
 
 > [!NOTE]
-> When you use a user-assigned managed identity, you can specify it using `spring.cloud.azure.credential.managed-identity-client-id` or `spring.cloud.azure.<azure-service>.credential.managed-identity-client-id`. You don't need credential configuration if you use a system-assigned managed identity.
+> When using a user-assigned managed identity, you can specify the client ID via `spring.cloud.azure.credential.managed-identity-client-id` or `spring.cloud.azure.<azure-service>.credential.managed-identity-client-id`. You don't need credential configuration if you use a system-assigned managed identity.
 
 > [!TIP]
 > Be sure the security principal has been granted sufficient permission to access the Azure resource. For more information, see [Authorize access with Azure Active Directory](#authorize-access-with-azure-active-directory).
@@ -67,15 +67,15 @@ To connect applications to resources that support Azure Active Directory (Azure 
 
 The following table lists authentication properties:
 
-| Property                    | Description                                                                           |
-|-----------------------------|---------------------------------------------------------------------------------------|
-| client-id                   | The client ID to use when performing service principal authentication with Azure.     |
-| client-secret               | The client secret to use when performing service principal authentication with Azure. |
-| client-certificate-path     | The client secret to use when performing service principal authentication with Azure. |
-| client-certificate-password | The password of the certificate file.                                                 |
-| username                    | The username to use when performing username/password authentication with Azure.      |
-| password                    | The password to use when performing username/password authentication with Azure.      |
-| managed-identity-enabled    | Whether to enable managed identity.                                                   |
+| Property                    | Description                                                                                        |
+|-----------------------------|----------------------------------------------------------------------------------------------------|
+| client-id                   | The client ID to use when performing service principal authentication with Azure.                  |
+| client-secret               | The client secret to use when performing service principal authentication with Azure.              |
+| client-certificate-path     | Path of a PEM certificate file to use when performing service principal authentication with Azure. |
+| client-certificate-password | The password of the certificate file.                                                              |
+| username                    | The username to use when performing username/password authentication with Azure.                   |
+| password                    | The password to use when performing username/password authentication with Azure.                   |
+| managed-identity-enabled    | Whether to enable managed identity.                                                                |
 
 > [!TIP]
 > For the list of all Spring Cloud Azure configuration properties, see [List of configuration properties](../../spring-cloud-azure-appendix.md#list-of-configuration-properties).
@@ -113,10 +113,10 @@ The following table lists the Azure built-in roles for authorizing access to Azu
 > [!IMPORTANT]
 > Azure Cosmos DB exposes two built-in role definitions: `Cosmos DB Built-in Data Reader` and `Cosmos DB Built-in Data Contributor`. However, Azure portal support for role management isn't available yet. For more information about the permission model, role definitions, and role assignment, see [Configure role-based access control with Azure Active Directory for your Azure Cosmos DB account](/azure/cosmos-db/how-to-setup-rbac).
 
-#### SAS token
+#### SAS tokens
 
 You can also configure services for authentication with Shared Access Signature (SAS). `spring.cloud.azure.<azure-service>.sas-token` is the property to configure. For example, use `spring.cloud.azure.storage.blob.sas-token` to authenticate to Storage Blob service.
 
-#### Connection string
+#### Connection strings
 
 Connection string is supported by some Azure services to provide connection information and credentials. To connect to those Azure services using connection string, just configure `spring.cloud.azure.<azure-service>.connection-string`. For example, configure `spring.cloud.azure.eventhubs.connection-string` to connect to the Event Hubs service.

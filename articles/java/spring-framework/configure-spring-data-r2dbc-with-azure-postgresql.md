@@ -2,11 +2,11 @@
 title: Use Spring Data R2DBC with Azure Database for PostgreSQL
 description: Learn how to use Spring Data R2DBC with an Azure Database for PostgreSQL database.
 documentationcenter: java
-ms.date: 10/10/2020
+ms.author: bbenz
+ms.date: 07/15/2022
 ms.service: postgresql
 ms.tgt_pltfrm: multiple
 author: KarlErickson
-ms.author: judubois
 ms.topic: article
 ms.custom: devx-track-java, devx-track-azurecli, team=cloud_advocates
 ms.contributors: judubois-09162021
@@ -33,7 +33,7 @@ In this article, we will code a sample application. If you want to go faster, th
 Generate the application on the command line by using the following command:
 
 ```bash
-curl https://start.spring.io/starter.tgz -d dependencies=webflux,data-r2dbc -d baseDir=azure-database-workshop -d bootVersion=2.3.4.RELEASE -d javaVersion=8 | tar -xzvf -
+curl https://start.spring.io/starter.tgz -d dependencies=webflux,data-r2dbc -d baseDir=azure-database-workshop -d bootVersion=2.7.1 -d javaVersion=17 | tar -xzvf -
 ```
 
 ### Add the reactive PostgreSQL driver implementation
@@ -44,6 +44,7 @@ Open the generated project's *pom.xml* file, and then add the reactive PostgreSQ
 <dependency>
     <groupId>io.r2dbc</groupId>
     <artifactId>r2dbc-postgresql</artifactId>
+    <version>0.8.12.RELEASE</version>
     <scope>runtime</scope>
 </dependency>
 ```
