@@ -76,7 +76,7 @@ The values of `<server-name>` and `<admin-user>` are the values from a previous 
 At the `postgres=>` prompt, create the database:
 
 ```sql
-postgres=> CREATE DATABASE restaurant;
+CREATE DATABASE restaurant;
 ```
 
 The semicolon (";") at the end of the command is necessary. To verify that the `restaurant` database was successfully created, use the command `\c restaurant` to change the prompt from `postgres=>` (default) to the `restaurant->`. Type `\?` to show help or `\q` to quit.
