@@ -85,7 +85,7 @@ You can also create a database using [Azure Data Studio](/sql/azure-data-studio/
 
 ## 3. Configure managed identity for PostgreSQL
 
-When you configure [managed identity](/azure/active-directory/managed-identities-azure-resources/overview) for PostgreSQL, you enable the the web app to securely connect to the database without a password. Instead, the App Service authenticates to PostgreSQL with a managed identity. For more information, see [Authenticating Azure-hosted apps to Azure resources with the Azure SDK for Python](./sdk/authentication-azure-hosted-apps.md).
+When you configure [managed identity](/azure/active-directory/managed-identities-azure-resources/overview) for PostgreSQL, you enable the web app to securely connect to the database without a password. Instead, the App Service authenticates to PostgreSQL with a managed identity. For more information, see [Authenticating Azure-hosted apps to Azure resources with the Azure SDK for Python](./sdk/authentication-azure-hosted-apps.md).
 
 The configuration of managed identity for PostgreSQL can be broken into two steps:
 
