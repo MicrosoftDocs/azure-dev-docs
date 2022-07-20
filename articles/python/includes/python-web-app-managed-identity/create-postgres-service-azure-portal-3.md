@@ -13,4 +13,4 @@ ms.custom: devx-track-python
 On the next page:
 
 * Select **Create** under **Single server**.
-* In any subsequent dialogs select options to continue creating a Single server, which this tutorial relies on.
+* In any dialogs that follow, select options to continue creating a Single server that is required in this tutorial.
