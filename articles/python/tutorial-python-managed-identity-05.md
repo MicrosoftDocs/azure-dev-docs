@@ -5,7 +5,7 @@ author: jess-johnson-msft
 ms.author: jejohn
 ms.devlang: python
 ms.topic: tutorial
-ms.date: 06/01/2022
+ms.date: 07/20/2022
 ms.prod: azure-python
 ms.custom: devx-track-python, devx-track-azurecli
 ---
@@ -48,6 +48,7 @@ Follow these steps to create your Azure Database for PostgreSQL resource using t
 | [!INCLUDE [Create database server in VS Code](<./includes/python-web-app-managed-identity/create-postgres-service-visual-studio-code-2.md>)] | :::image type="content" source="./media/python-web-app-managed-identity/create-postgres-service-visual-studio-code-2-240px.gif" alt-text="A screenshot showing prompts for creating a database server in VSCode." lightbox="./media/python-web-app-managed-identity/create-postgres-service-visual-studio-code-2.gif"::: |
 | [!INCLUDE [Azure portal - create new resource](<./includes/python-web-app-managed-identity/create-postgres-service-visual-studio-code-3.md>)] | :::image type="content" source="./media/python-web-app-managed-identity/create-postgres-service-visual-studio-code-3-240px.gif" alt-text="A screenshot how to create a firewall rule for a PostgreSQL database in VS Code." lightbox="./media/python-web-app-managed-identity/create-postgres-service-visual-studio-code-3.gif"::: :::image type="content" source="./media/python-web-app-managed-identity/create-postgres-service-visual-studio-code-3b-240px.png" alt-text="A screenshot showing confirmation dialog to add local IP address as a firewall rule for a PostgreSQL database in VS Code." lightbox="./media/python-web-app-managed-identity/create-postgres-service-visual-studio-code-3b.png"::: |
 | [!INCLUDE [Azure portal - create new resource](<./includes/python-web-app-managed-identity/create-postgres-service-visual-studio-code-4.md>)] | :::image type="content" source="./media/python-web-app-managed-identity/create-postgres-service-visual-studio-code-4-240px.png" alt-text="A screenshot showing how to create a database for a PostgreSQL database in the VS Code." lightbox="./media/python-web-app-managed-identity/create-postgres-service-visual-studio-code-4.png"::: |
+| [!INCLUDE [Azure portal - create new resource](<./includes/python-web-app-managed-identity/create-postgres-service-visual-studio-code-5.md>)] |  |
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -59,30 +60,36 @@ Run `az login` to sign in to  and follow these steps to create your Azure Databa
 
 ## 2. Create a database
 
-In your local environment or anywhere you can use the PostgreSQL interactive terminal [psql](https://www.postgresql.org/docs/13/app-psql.html) such as the [Azure Cloud Shell](/azure/cloud-shell/overview), connect to the PostgreSQL database server, and create the `restaurant` database:
+In your local environment or anywhere you can use the PostgreSQL interactive terminal [psql](https://www.postgresql.org/docs/13/app-psql.html) such as the [Azure Cloud Shell](/azure/cloud-shell/overview), connect to the PostgreSQL database server to create the `restaurant` database. (You can connect to Azure Cloud Shell from VS Code to run psql if you are using VS Code but don't have psql installed locally.)
 
-```Console
+Start psql:
+
+```bash
 psql --host=<server-name>.postgres.database.azure.com \
      --port=5432 \
-     --username=<admin-user> \
+     --username=<admin-user>@<server-name> \
      --dbname=postgres
-
-postgres=> CREATE DATABASE restaurant;
 ```
 
-The values of `<server-name>` and `<admin-user>` are the values from a previous step. If you have trouble connecting, restart the database and try again. If you're connecting from your local environment, your IP address must be added to the firewall rule list for the database service.
+The values of `<server-name>` and `<admin-user>` are the values from a previous step, used in the creation of the PostgreSQL database service. The command above will prompt you for the admin password. If you have trouble connecting, restart the database and try again. If you're connecting from your local environment, your IP address must be added to the firewall rule list for the database service.
 
-Optionally, verify that the `restaurant` database was successfully created by running `\c restaurant` to change the prompt from `postgres` (default) to the `restaurant`. Type `\?` to show help or `\q` to quit.
+At the `postgres=>` prompt, create the database:
+
+```sql
+CREATE DATABASE restaurant;
+```
+
+The semicolon (";") at the end of the command is necessary. To verify that the `restaurant` database was successfully created, use the command `\c restaurant` to change the prompt from `postgres=>` (default) to the `restaurant->`. Type `\?` to show help or `\q` to quit.
 
 You can also create a database using [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio) or any other IDE, and Visual Studio Code with the [Azure Tools extension pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack) installed.
 
 ## 3. Configure managed identity for PostgreSQL
 
-When you configure [managed identity](/azure/active-directory/managed-identities-azure-resources/overview) for PostgreSQL, you can skip using the password for the connection string from the web app to the database. Instead, the App Service authenticates to PostgreSQL with a managed identity. For more information, see [Authenticating Azure-hosted apps to Azure resources with the Azure SDK for Python](./sdk/authentication-azure-hosted-apps.md).
+When you configure [managed identity](/azure/active-directory/managed-identities-azure-resources/overview) for PostgreSQL, you enable the web app to securely connect to the database without a password. Instead, the App Service authenticates to PostgreSQL with a managed identity. For more information, see [Authenticating Azure-hosted apps to Azure resources with the Azure SDK for Python](./sdk/authentication-azure-hosted-apps.md).
 
 The configuration of managed identity for PostgreSQL can be broken into two steps:
 
-* Set an Active Directory admin for the PostgreSQL database.
+* Set an Active Directory admin for the PostgreSQL database. 
 * Create a role for the managed identity in the PostgreSQL database. 
 
 ### Set an Active Directory admin for the PostgreSQL database
@@ -93,7 +100,7 @@ In this step, you'll create an Azure Active Directory user as the administrator 
 
 ### Create a role for the managed identity in the PostgreSQL database
 
-The role you'll create is the role used by the web app (App Service) to connect to the PostgreSQL server. Specify a role user name like *webappuser* and a password that is equal to the application ID of the managed identity for the web app. 
+The role you'll create is the role used by the web app (App Service) to connect to the PostgreSQL server. Specify the role user name *webappuser* and a password that is equal to the application ID of the managed identity for the web app. 
 
 [!INCLUDE [Create managed identity role in the PostgreSQL database](<./includes/python-web-app-managed-identity/create-role-in-postgres-database.md>)]
 
