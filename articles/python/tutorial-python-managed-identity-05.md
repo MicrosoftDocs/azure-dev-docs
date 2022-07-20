@@ -61,28 +61,34 @@ Run `az login` to sign in to  and follow these steps to create your Azure Databa
 
 In your local environment or anywhere you can use the PostgreSQL interactive terminal [psql](https://www.postgresql.org/docs/13/app-psql.html) such as the [Azure Cloud Shell](/azure/cloud-shell/overview), connect to the PostgreSQL database server, and create the `restaurant` database:
 
-```Console
+Start psql:
+
+```bash
 psql --host=<server-name>.postgres.database.azure.com \
      --port=5432 \
-     --username=<admin-user> \
+     --username=<admin-user>@<server-name> \
      --dbname=postgres
+```
 
+The values of `<server-name>` and `<admin-user>` are the values from a previous step, used in the creation of the PostgreSQL database service. The command above will prompt you for the admin password. If you have trouble connecting, restart the database and try again. If you're connecting from your local environment, your IP address must be added to the firewall rule list for the database service.
+
+At the `postgres=>` prompt, create the database:
+
+```sql
 postgres=> CREATE DATABASE restaurant;
 ```
 
-The values of `<server-name>` and `<admin-user>` are the values from a previous step. If you have trouble connecting, restart the database and try again. If you're connecting from your local environment, your IP address must be added to the firewall rule list for the database service.
-
-Optionally, verify that the `restaurant` database was successfully created by running `\c restaurant` to change the prompt from `postgres` (default) to the `restaurant`. Type `\?` to show help or `\q` to quit.
+The semicolon (";") at the end of the command is necessary. To verify that the `restaurant` database was successfully created, use the command `\c restaurant` to change the prompt from `postgres=>` (default) to the `restaurant->`. Type `\?` to show help or `\q` to quit.
 
 You can also create a database using [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio) or any other IDE, and Visual Studio Code with the [Azure Tools extension pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack) installed.
 
 ## 3. Configure managed identity for PostgreSQL
 
-When you configure [managed identity](/azure/active-directory/managed-identities-azure-resources/overview) for PostgreSQL, you can skip using the password for the connection string from the web app to the database. Instead, the App Service authenticates to PostgreSQL with a managed identity. For more information, see [Authenticating Azure-hosted apps to Azure resources with the Azure SDK for Python](./sdk/authentication-azure-hosted-apps.md).
+When you configure [managed identity](/azure/active-directory/managed-identities-azure-resources/overview) for PostgreSQL, you enable the the web app to securely connect to the database without a password. Instead, the App Service authenticates to PostgreSQL with a managed identity. For more information, see [Authenticating Azure-hosted apps to Azure resources with the Azure SDK for Python](./sdk/authentication-azure-hosted-apps.md).
 
 The configuration of managed identity for PostgreSQL can be broken into two steps:
 
-* Set an Active Directory admin for the PostgreSQL database.
+* Set an Active Directory admin for the PostgreSQL database. 
 * Create a role for the managed identity in the PostgreSQL database. 
 
 ### Set an Active Directory admin for the PostgreSQL database
@@ -93,7 +99,7 @@ In this step, you'll create an Azure Active Directory user as the administrator 
 
 ### Create a role for the managed identity in the PostgreSQL database
 
-The role you'll create is the role used by the web app (App Service) to connect to the PostgreSQL server. Specify a role user name like *webappuser* and a password that is equal to the application ID of the managed identity for the web app. 
+The role you'll create is the role used by the web app (App Service) to connect to the PostgreSQL server. Specify the role user name *webappuser* and a password that is equal to the application ID of the managed identity for the web app. 
 
 [!INCLUDE [Create managed identity role in the PostgreSQL database](<./includes/python-web-app-managed-identity/create-role-in-postgres-database.md>)]
 

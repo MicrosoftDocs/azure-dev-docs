@@ -17,7 +17,7 @@ Before you can create the role, you need to get the *application ID* that was cr
 Next, you need to grant the identity permission to access the database. This grant is done by creating a new role that identifies the managed identity as one that can access the database. If you are already in the Azure portal, you can use the [Azure Cloud Shell](https://shell.azure.com/) to complete this task.
 
 > [!TIP]
-> Alternatively, you can connect to the database with a local instance of PostgreSQL or [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio). For the PostgreSQL interactive terminal [psql](https://www.postgresql.org/docs/13/app-psql.html) used locally, you still need to generate a token with [az account get-access-token](/cli/azure/account#az-account-get-access-token). Azure Data Studio is integrated with Azure Active Directory such that the token is generated automatically. Regardless of how you connect, make sure you specify the name as *\<azure-ad-user-name>@\<server-name>*.
+> Alternatively, you can connect to the database with a local instance of PostgreSQL or [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio). For the PostgreSQL interactive terminal [psql](https://www.postgresql.org/docs/13/app-psql.html) used locally, you still need to generate a token with [az account get-access-token](/cli/azure/account#az-account-get-access-token). Azure Data Studio is integrated with Azure Active Directory such that the token is generated automatically. Regardless of how you connect, make sure you specify the user name as *\<azure-ad-user-name>@\<server-name>*.
 
 [!INCLUDE [Log in to PostgreSQL database using Azure Cloud Shell](<./postgres-database-log-in-azure-cloud-shell.md>)]
 

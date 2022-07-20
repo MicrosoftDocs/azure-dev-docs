@@ -27,7 +27,7 @@ echo $token
 # Sign into the Postgres server
 psql "host=<server-name>.postgres.database.azure.com \
     port=5432 \
-    dbname=<database-name> \
+    dbname=restaurant \
     user=<aad-user-name>@<server-name> \
     password=$token \
     sslmode=require"
@@ -52,7 +52,7 @@ Get-Variable token
 # Sign into the Postgres server
 psql "host=<server-name>.postgres.database.azure.com `
     port=5432 `
-    dbname=<database-name> `
+    dbname=restaurant `
     user=<azure-ad-user-name>@<server-name> `
     password=$token `
     sslmode=require"
