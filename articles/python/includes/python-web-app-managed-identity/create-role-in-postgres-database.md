@@ -27,7 +27,7 @@ Find the app ID using the [az ad sp show command](/cli/azure/ad/sp#az-ad-sp-show
 
 [!INCLUDE [Create role with CLI](<./get-application-id-managed-identity-azure-cli.md>)]
 
-Grant the identity permission to access the database. This grant is done by creating a new role that identifies the managed identity as one that can access the database.
+Grant the identity permission to access the database. This grant is done by creating a new role that identifies the managed identity as one that can access the database. Note that this time the psql command `user` parameter uses the Azure Active Directory admin user, not the admin user specified during the creation of the PostgreSQL server.
 
 [!INCLUDE [Create role with CLI](<./create-managed-identity-role-in-database-cli.md>)]
 
