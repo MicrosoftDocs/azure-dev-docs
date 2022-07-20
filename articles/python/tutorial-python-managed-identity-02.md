@@ -12,7 +12,7 @@ ms.custom: devx-track-python, devx-track-azurecli
 
 # Configure and run the Python app locally
 
-This article is part of a tutorial about deploying a Python app to Azure App Service. The web app uses managed identity to authenticate to other Azure resources. In this article, you'll learn how to run the Python app locally. This optional step requires a local PostgreSQL instance, a local storage emulator, and other setup steps. If you skip this step now, you can return to it after you've completed the rest of the tutorial.
+This article is part of a tutorial about deploying a Python app to Azure App Service. The web app uses managed identity to authenticate to other Azure resources. In this article, you'll learn how to run the Python app locally. This ***optional step*** requires a local PostgreSQL instance, a local storage emulator, and other setup steps. If you skip this step now, you can return to it after you've completed the rest of the tutorial.
 
 :::image type="content" source="./media/python-web-app-managed-identity/system-diagram-local-to-deploy-python-managed-identity-local-800px.png" lightbox="./media/python-web-app-managed-identity/system-diagram-local-to-deploy-python-managed-identity-local.png" alt-text="A screenshot showing the Azure services in the tutorial used with running locally highlighted." :::
 

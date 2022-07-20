@@ -10,7 +10,7 @@ ms.azure.devx-azure-tooling: ['vscode-azure-tools']
 ms.custom: devx-track-python
 ---
 
-Once the database is created, configure access from your local environment to the Azure Database for PostgreSQL server by opening the **Command Palette** (Ctrl + Shift + P).
+Once the database is created, configure access from your local environment to the Azure Database for PostgreSQL server by opening the Command Palette (**F1** or **Ctrl** + **Shift** + **P**).
 
 1. Search for and select **PostgreSQL: Configure Firewall**.  (Select a subscription if prompted.)
 
