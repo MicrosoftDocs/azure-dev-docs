@@ -1,8 +1,8 @@
 ---
 title: What is the Azure Developer CLI (azd) Preview?
 description: Overview of the features and capabilities of the Azure Developer CLI that helps developers be more productive when building and deploying apps to Azure.
-author: puicchan
-ms.author: puichan
+author: hhunter-ms
+ms.author: hannahhunter
 ms.date: 07/11/2022
 ms.topic: conceptual
 ms.custom: devx-track-azdevcli

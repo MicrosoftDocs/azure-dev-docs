@@ -1,8 +1,8 @@
 ---
 title: Azure Developer CLI Preview reference
 description: This article explains the syntax and parameters for the various Azure Developer CLI Preview commands.
-author: puicchan
-ms.author: puichan
+author: hhunter-ms
+ms.author: hannahhunter
 ms.date: 07/11/2022
 ms.topic: conceptual
 ms.custom: devx-track-azdevcli
