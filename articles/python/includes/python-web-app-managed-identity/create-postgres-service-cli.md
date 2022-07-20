@@ -10,8 +10,9 @@ ms.date: 06/01/2022
 #### [bash](#tab/terminal-bash)
 
 ```azurecli
+RESOURCE_GROUP_NAME='msdocs-web-app-rg'
 DB_SERVER_NAME='msdocs-web-app-postgres-database-<unique-id>'
-DB_NAME='restaurant'
+LOCATION='eastus'
 
 az postgres server create \
    --resource-group $RESOURCE_GROUP_NAME \
@@ -25,8 +26,9 @@ az postgres server create \
 #### [PowerShell terminal](#tab/terminal-powershell)
 
 ```azurecli
+$RESOURCE_GROUP_NAME='msdocs-web-app-rg'
 $DB_SERVER_NAME='msdocs-web-app-postgres-database-<unique-id>'
-$DB_NAME='restaurant'
+$LOCATION='eastus'
 
 az postgres server create `
    --resource-group $RESOURCE_GROUP_NAME `
@@ -41,7 +43,7 @@ az postgres server create `
 
 * *resource-group* &rarr; Use the same resource group name in which you created the web app, for example `msdocs-web-app-rg`.
 * *name* &rarr; The PostgreSQL database server name. This name must be **unique across all Azure** (the server endpoint becomes `https://<name>.postgres.database.azure.com`). Allowed characters are `A`-`Z`, `0`-`9`, and `-`. For example, use "msdocs-web-app-postgres-database-\<unique-id>".)
-* *location* &rarr; Use the same location used for the web app.
+* *location* &rarr; Use the same location used for the web app. Change the location in the command above for your deployment.
 * *admin-user* &rarr; Username for the administrator account. It can't be `azure_superuser`, `admin`, `administrator`, `root`, `guest`, or `public`. For example, `demoadmin` is okay.
 * *admin-password* Password of the administrator user. It must contain 8 to 128 characters from three of the following categories: English uppercase letters, English lowercase letters, numbers, and non-alphanumeric characters.
 
@@ -55,23 +57,25 @@ az postgres server create `
 #### [bash](#tab/terminal-bash)
 
 ```azurecli
+YOUR_IP='<your-ip-address>'
 az postgres server firewall-rule create \
    --resource-group $RESOURCE_GROUP_NAME \
    --server-name $DB_SERVER_NAME \
    --name AllowMyIP \
-   --start-ip-address <your-IP> \
-   --end-ip-address <your-IP>
+   --start-ip-address $YOUR_IP \
+   --end-ip-address $YOUR_IP
 ```
 
 #### [PowerShell terminal](#tab/terminal-powershell)
 
 ```azurecli
+$YOUR_IP='<your-ip-address>'
 az postgres server firewall-rule create `
    --resource-group $RESOURCE_GROUP_NAME `
    --server-name $DB_SERVER_NAME `
    --name AllowMyIP `
-   --start-ip-address <your IP> `
-   --end-ip-address <your IP`
+   --start-ip-address $YOUR_IP `
+   --end-ip-address $YOUR_IP
 ```
 
 ---
@@ -82,22 +86,28 @@ az postgres server firewall-rule create `
 * *start-ip-address* &rarr; Use your computer's IP address. To get your current IP address, see [WhatIsMyIPAddress.com](https://whatismyipaddress.com/).
 * *end-ip-address* &rarr; Set equal to *start-ip-address*.
 
-**Step 3.** (*optional*) You can retrieve connection information using the [az postgres server show](/cli/azure/postgres/server#az-postgres-server-show). The command outputs a JSON object that contains connection strings for the database along and the `administratorLogin` name.
+**Step 3.** Add a firewall rule tha enables the server to accept connections from all Azure resources.
 
 #### [bash](#tab/terminal-bash)
 
 ```azurecli
-az postgres server show \
-   --name $DB_SERVER_NAME \
-   --resource-group $RESOURCE_GROUP_NAME
+az postgres server firewall-rule create \
+   --resource-group $RESOURCE_GROUP_NAME \
+   --server-name $DB_SERVER_NAME \
+   --name AllowAllWindowsAzureIps \
+   --start-ip-address 0.0.0.0 \
+   --end-ip-address 0.0.0.0 
 ```
 
 #### [PowerShell terminal](#tab/terminal-powershell)
 
 ```azurecli
-az postgres server show `
-   --name $DB_SERVER_NAME `
-   --resource-group $RESOURCE_GROUP_NAME
+az postgres server firewall-rule create `
+   --resource-group $RESOURCE_GROUP_NAME `
+   --server-name $DB_SERVER_NAME `
+   --name AllowAllWindowsAzureIps `
+   --start-ip-address 0.0.0.0 `
+   --end-ip-address 0.0.0.0 
 ```
 
 ---
