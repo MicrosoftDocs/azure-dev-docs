@@ -9,8 +9,8 @@ ms.date: 06/01/2022
 
 ```azurecli
 az webapp identity assign \
-    --resource-group <group-name> \
-    --name <app-name> \
+    --resource-group $RESOURCE_GROUP_NAME \
+    --name $APP_SERVICE_NAME \
     --output tsv \
     --query principalId
 az ad sp show \
@@ -23,8 +23,8 @@ az ad sp show \
 
 ```azurecli
 az webapp identity assign `
-    --resource-group <group-name> `
-    --name <app-name> `
+    --resource-group $RESOURCE_GROUP_NAME `
+    --name APP_SERVICE_NAME `
     --output tsv `
     --query principalId
 az ad sp show `

@@ -43,8 +43,7 @@ psql "host=<server-name>.postgres.database.azure.com \
 $token = $(az account get-access-token `
     --resource-type oss-rdbms `
     --output tsv `
-    --query accessToken `
-    --output tsv)
+    --query accessToken)
 
 # View token to confirm
 Get-Variable token
