@@ -104,12 +104,7 @@ If you can't connect with SSH, see [Troubleshooting tips](#5-troubleshooting-tip
 
 ### [Flask](#tab/flask)
 
-```bash
-# Create database tables
-flask db init
-```
-
-When you deploy the Flask sample app to Azure App Service, the database tables will likely be created automatically in Azure Database for PostgreSQL server. If the tables schema exists, the command above returns the message "Directory migrations already exists and is not empty." If so, the migration was performed during deployment. Go to the next step.
+When you deploy the Flask sample app to Azure App Service, the database tables are automatically created in Azure Database for PostgreSQL server. If you try to run `flask db init` you'll receive the message "Directory migrations already exists and is not empty."
 
 ### [Django](#tab/django)
 
