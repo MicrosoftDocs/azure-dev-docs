@@ -84,7 +84,7 @@ In this step, you'll add firewall rules that allow:
 
 ## 3. Create a database
 
-In your local environment or anywhere you can use the PostgreSQL interactive terminal [psql](https://www.postgresql.org/docs/13/app-psql.html) such as the [Azure Cloud Shell](/azure/cloud-shell/overview), connect to the PostgreSQL database server to create the `restaurant` database. (You can connect to Azure Cloud Shell from VS Code to run psql if you're using VS Code but don't have psql installed locally.)
+In your local environment, or anywhere you can use the PostgreSQL interactive terminal [psql](https://www.postgresql.org/docs/13/app-psql.html) such as the [Azure Cloud Shell](/azure/cloud-shell/overview), connect to the PostgreSQL database server to create the `restaurant` database. 
 
 Start psql:
 

@@ -35,7 +35,7 @@ az webapp config appsettings set `
 
 ---
 
-* *$DBHOST* &rarr; Enter the server name you used earlier when created the database, for example, *msdocs-web-app-postgres-database-\<unique-id>*. The sample code appends *.postgres.database.azure.com* to create the full qualified PostgreSQL server URL.
+* *$DBHOST* &rarr; Enter the server name you used earlier when you created the database, for example, *msdocs-web-app-postgres-database-\<unique-id>*. The sample code appends *.postgres.database.azure.com* to create the full qualified PostgreSQL server URL.
 * *$DBNAME* &rarr; Enter *restaurant*, the name of the application database.
 * *$DBUSER* &rarr; Enter *webappuser*, the user you created for the managed identity in the previous article. The sample code constructs the correct Postgres username from `DBUSER` and `DBHOST`, so don't include the *@server* portion.
 * *$STORAGE_ACCOUNT_NAME* &rarr; The name of the storage account, which the sample code combines with *blob.core.windows.net* to create the storage URL endpoint.

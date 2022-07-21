@@ -81,7 +81,7 @@ With the code deployed and the database in place, the app is almost ready to use
 Navigate to page for the App Service instance in the Azure portal.
 
 1. Select **SSH**, under **Development Tools** on the left resource menu.
-2. Then **Go** to open an SSH console on the web app server. It may take a minute to connect for the first time.
+2. Then **Go** to open an SSH console on the web app server. It may take a minute to connect the first time.
 
 ### [VS Code](#tab/vscode-aztools)
 
