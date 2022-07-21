@@ -15,14 +15,14 @@
     - name: Spring to Azure
       expanded: true
       items:
-        - name: Spring Boot to Azure App Service
-          href: migrate-spring-boot-to-app-service.md
-        - name: Spring Boot to AKS
-          href: migrate-spring-boot-to-azure-kubernetes-service.md
         - name: Spring Boot to Azure Spring Apps
           href: migrate-spring-boot-to-azure-spring-cloud.md
         - name: Spring Cloud to Azure Spring Apps
           href: migrate-spring-cloud-to-azure-spring-cloud.md
+        - name: Spring Boot to Azure App Service
+          href: migrate-spring-boot-to-app-service.md
+        - name: Spring Boot to AKS
+          href: migrate-spring-boot-to-azure-kubernetes-service.md
     - name: Tomcat to Azure
       expanded: true
       items:
