@@ -98,7 +98,7 @@ In the **App Services** section of the Azure Tools extension:
 
 ---
 
-If you can't connect with SSH, see [Troubleshooting tips](5-troubleshooting-tips).
+If you can't connect with SSH, see [Troubleshooting tips](#5-troubleshooting-tips).
 
 **Step 2.** In the SSH session, run commands to migrate the models into the database:
 
