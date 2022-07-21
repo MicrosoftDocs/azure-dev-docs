@@ -59,11 +59,9 @@ Run `az login` to sign in to  and follow these steps to create your Azure Databa
 
 In this step, you'll add firewall rules that allow:
 
-* The web app to access to the database server.  This type of access is enabled with a firewall rule that enables the server to accept connections from all Azure resources. In a production system, you would probably turn this rule off and use an [Azure Virtual Network (VNet)](/azure/virtual-network/virtual-networks-overview). This firewall rule can also be useful when you use use a Azure Cloud Shell (resource) with psql to access the database. 
+* The web app to access to the database server.  This type of access is enabled with a database firewall rule that accept connections from all Azure resources. In a production system, you would should turn this rule off and use an [Azure Virtual Network (VNet)](/azure/virtual-network/virtual-networks-overview). This firewall rule can also be useful during database configuration when you might use a Azure Cloud Shell (an Azure resource) with psql to access the database. 
 
 * Your local environment to access the database server. This is useful for subsequent configuration steps especially but should be turned off after configuration and deployment is completed.
-
-You can add a firewall rule with the Azure portal or the Azure CLI. If you're working in VS Code, right-select the database server and select **Open in Portal** and follow the portal instructions. Or, open an [Azure Cloud Shell](https://shell.azure.com) directly in VS Code and run the Azure CLI commands.
 
 ### [Azure portal](#tab/azure-portal)
 
