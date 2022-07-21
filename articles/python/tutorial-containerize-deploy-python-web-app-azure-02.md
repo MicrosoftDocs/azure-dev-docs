@@ -11,9 +11,9 @@ ms.author: jejohn
 
 # Build and test a containerized Python web app locally
 
-This article is part of a tutorial about how to containerize and deploy a containerized Python web app to Azure App Service. App Service enables you to run containerized web apps and deploy through continuous integration/continuous deployment (CI/CD) capabilities with Docker Hub, Azure Container Registry, and Visual Studio Team Services. In this part of the tutorial, you learn how to build and run the containerized Python web app locally. *This step is optional and isn't required to deploy the sample apps to Azure.*
+This article is part of a tutorial about how to containerize and deploy a containerized Python web app to Azure App Service. App Service enables you to run containerized web apps and deploy through continuous integration/continuous deployment (CI/CD) capabilities with Docker Hub, Azure Container Registry, and Visual Studio Team Services. In this part of the tutorial, you learn how to build and run the containerized Python web app locally. ***This step is optional and isn't required to deploy the sample apps to Azure.***
 
-Running a Docker image locally in your development environment requires setup beyond deployment to Azure. Think of it as an investment that can make future development cycles easier, especially when you move beyond a sample app and you start to create your own web apps. To deploy a sample app or other app that doesn't need modification, you can skip this step and move on to the next step in this tutorial. You can always return after deploying to Azure and work through these steps.
+Running a Docker image locally in your development environment requires setup beyond deployment to Azure. Think of it as an investment that can make future development cycles easier, especially when you move beyond sample apps and you start to create your own web apps. To deploy the sample app or other app that doesn't need modifications, you can skip this step and go to the next step in this tutorial. You can always return after deploying to Azure and work through these steps.
 
 The service diagram shown below highlights the components covered in this article.
 
@@ -41,7 +41,7 @@ These instructions require [Docker](https://docs.docker.com/get-docker/).
 
 ---
 
-At this point, you have built an image locally. The image you created has a name formatted as `<repository-name>:<tag>` where `<repository-name>` is derived from the project name and `<tag>` is set to "latest" for this tutorial. Tags are a way to define version information, intended use, stability, or other information. For more information, see [Recommendations for tagging and versioning container images](/azure/container-registry/container-registry-image-tag-version).
+At this point, you have built an image locally. The image you created has a name formatted as `<repository-name>:<tag>` where `<repository-name>` is "msdocspythoncontainerwebapp" and `<tag>` is set to "latest". Tags are a way to define version information, intended use, stability, or other information. For more information, see [Recommendations for tagging and versioning container images](/azure/container-registry/container-registry-image-tag-version).
 
 Built images from VS Code or from using the Docker CLI directly can also be viewed with the [Docker Desktop](https://www.docker.com/products/docker-desktop/) application.
 
@@ -59,7 +59,7 @@ Check if it's installed:
 mongo --version
 ```
 
-**Step 2:** Edit the `mongod.cfg` file to add your computer's IP address.
+**Step 2:** Edit the *mongod.cfg* file to add your computer's IP address.
 
 The [mongod configuration file](https://www.mongodb.com/docs/manual/reference/configuration-options/) has a `bindIp` key that defines hostnames and IP addresses that MongoDB listens for client connections. Add the current IP of your local development computer. The sample app running locally in a Docker container will communicate to the host machine with this address.
 
@@ -73,7 +73,7 @@ net:
 
 Restart MongoDB to pick up changes to the configuration file.  
 
-**Step 3:** Create a database and collection in that database.
+**Step 3:** Create a database and collection in the local MongoDB database.
 
 Set the database name to "restaurants_reviews" and the collection name to "restaurants_reviews". You can create a database and collection with the VS Code [MongoDB extension](https://code.visualstudio.com/docs/azure/mongodb), the [MonogoDB Shell (mongosh)](https://www.mongodb.com/docs/mongodb-shell/), or any other MondoDB-aware tool.
 
