@@ -31,10 +31,10 @@ az postgres server firewall-rule create `
 
 ---
 
-* *resource-group* &rarr; Name of resource group from earlier in this tutorial, for example, "msdocs-web-app-rg".
-* *server* &rarr; Name of the database server, for example, "msdocs-web-app-postgres-database-\<unique-id>".
-* *name* &rarr; Name for firewall rule. Use "AllowAllWindowsAzureIps".
-* *start-ip-address, end-ip-address* &rarr; Use "0.0.0.0", which means that access will be from other Azure services. For a production app, use an [Azure Virtual Network](/azure/virtual-network/virtual-networks-overview).
+* *resource-group* &rarr; Name of resource group from earlier in this tutorial, for example, *msdocs-web-app-rg*.
+* *server* &rarr; Name of the database server, for example, *msdocs-web-app-postgres-database-\<unique-id>*.
+* *name* &rarr; Name for firewall rule. Use *AllowAllWindowsAzureIps*.
+* *start-ip-address, end-ip-address* &rarr; Use *0.0.0.0*, which means that access will be from other Azure services. For a production app, use an [Azure Virtual Network](/azure/virtual-network/virtual-networks-overview).
 
 Using the same command, create a firewall rule that allows your local environment access to connect to the server.
 
@@ -64,8 +64,8 @@ az postgres server firewall-rule create `
 
 ---
 
-* *resource-group* &rarr; Name of resource group from earlier in this tutorial, for example, "msdocs-web-app-rg".
-* *server-name* &rarr; Name of the database server, for example, "msdocs-web-app-postgres-database-\<unique-id>".
-* *name* &rarr; Name of the firewall rule. Use "AllowMyIP".
+* *resource-group* &rarr; Name of resource group from earlier in this tutorial, for example, *msdocs-web-app-rg*.
+* *server-name* &rarr; Name of the database server, for example, *msdocs-web-app-postgres-database-\<unique-id>*.
+* *name* &rarr; Name of the firewall rule. Use *AllowMyIP*.
 * *start-ip-address* &rarr; Use your computer's IP address. To get your current IP address, see [WhatIsMyIPAddress.com](https://whatismyipaddress.com/).
 * *end-ip-address* &rarr; Set equal to *start-ip-address*.
