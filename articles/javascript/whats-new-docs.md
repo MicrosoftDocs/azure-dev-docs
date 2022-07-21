@@ -2,13 +2,29 @@
 title: "What's new for JavaScript docs"
 description: "What's new in JavaScript docs in the Developer Center"
 ms.topic: how-to
-ms.date: 06/24/2022
+ms.date: 07/21/2022
 
 ---
 
 # JavaScript docs: What's new
 
 Find new and updated content for JavaScript and TypeScript developers.
+
+## 2022 July 
+
+### New in June
+
+|Name|Description|
+|---------------------------------------|--|
+|Azure Blob Storage|* [Create Account SAS tokens](/azure/storage/blobs/storage-blob-account-delegation-sas-create-javascript)<br>* [Create User SAS tokens](/azure/storage/blobs/storage-blob-create-user-delegation-sas-javascript)|
+
+
+### Updated in July
+
+|Name|Description|
+|---------------------------------------|--|
+|Azure Blob Storage|Understand how to [upload with each Blob Storage blob client](/azure/storage/blobs/storage-blob-upload-javascript#upload-by-blob-client)|
+
 
 ## 2022 June
 
