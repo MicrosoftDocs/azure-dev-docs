@@ -47,13 +47,13 @@ The components supporting this tutorial and shown in the diagram above are:
 
   * The API for MongoDB is a NoSQL database used in this tutorial to store data.
 
-  * Access to Cosmos DB resource is via a connection string, which can be passed as an environment variable to the containerized app.
+  * Access to Cosmos DB resource is via a connection string, which is passed as an environment variable to the containerized app.
 
 ## Authentication
 
-In this tutorial, you'll use Docker image (built locally or in Azure) and deploy it to Azure App Service. The App Service pulls the container image from an Azure Container Registry repository.
+In this tutorial, you'll use Docker image (built locally or directly in Azure) and deploy it to Azure App Service. The App Service pulls the container image from an Azure Container Registry repository.
 
-The App Service uses [managed identity][5] to pull images from Azure Container Registry. Managed identity allows you to grant permissions to the web app so that it can access other Azure resources without the need for you to specify credentials. Specifically, this tutorial uses a system assigned managed identity. The managed identity is automatically set up for you when you configure App Service with publishing from a Docker container.
+The App Service uses [managed identity][5] to pull images from Azure Container Registry. Managed identity allows you to grant permissions to the web app so that it can access other Azure resources without the need to specify credentials. Specifically, this tutorial uses a system assigned managed identity. The managed identity is automatically set up for you when you configure App Service with publishing from a Docker container.
 
 The tutorial sample web app also uses MongoDB to store data. The sample code connects to Cosmos DB via a connection string. 
 
@@ -69,11 +69,11 @@ To complete this tutorial, you'll need:
 
 * [Visual Studio Code][16] or [Azure CLI][17], depending on what tool you'll use.
 
-  * For Visual Studio Code with the [Docker extension][6] and [Azure App Service extension][7].
+  * For Visual Studio Code, you'll need the [Docker extension][6] and [Azure App Service extension][7].
 
 * Python packages:
 
-  * [PyMongo][8] for connecting to Mongo DB
+  * [PyMongo][8] for connecting to Mongo DB. (The sample apps specify this dependence in the *requirements.txt* file.)
   * [Flask][9] or [Django][10]
 
 * [Docker][4] installed locally if you want to run container locally.
@@ -81,7 +81,7 @@ To complete this tutorial, you'll need:
 
 ## Sample app
 
-You can start with sample app in the Django and Flask frameworks, or you can follow along using your own Python app. The sample app is a restaurant review app that saves restaurant and review data in MongoDB. At the end of the tutorial, you'll have a restaurant review app deployed and running in Azure.
+The Python sample app is a restaurant review app that saves restaurant and review data in MongoDB. At the end of the tutorial, you'll have a restaurant review app deployed and running in Azure.
 
 
 [1]: https://azure.microsoft.com/services/app-service/
