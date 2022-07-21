@@ -59,9 +59,9 @@ Run `az login` to sign in to  and follow these steps to create your Azure Databa
 
 In this step, you'll add firewall rules that allow:
 
-* The web app to access to the database server.  This type of access is enabled with a database firewall rule that accept connections from all Azure resources. In a production system, you would should turn this rule off and use an [Azure Virtual Network (VNet)](/azure/virtual-network/virtual-networks-overview). This firewall rule can also be useful during database configuration when you might use a Azure Cloud Shell (an Azure resource) with psql to access the database. 
+* The web app to access to the database server.  This access is enabled with a database firewall rule that accepts connections from all Azure resources. In a production system, you should turn off this rule and use an [Azure Virtual Network (VNet)](/azure/virtual-network/virtual-networks-overview). This firewall rule can also be useful during database configuration when you might use an Azure Cloud Shell (an Azure resource) with psql to access the database. 
 
-* Your local environment to access the database server. This is useful for subsequent configuration steps especially but should be turned off after configuration and deployment is completed.
+* Your local environment to access the database server. This access is useful for subsequent configuration steps especially but should be turned off after configuration and deployment is completed.
 
 ### [Azure portal](#tab/azure-portal)
 
@@ -84,7 +84,7 @@ In this step, you'll add firewall rules that allow:
 
 ## 3. Create a database
 
-In your local environment or anywhere you can use the PostgreSQL interactive terminal [psql](https://www.postgresql.org/docs/13/app-psql.html) such as the [Azure Cloud Shell](/azure/cloud-shell/overview), connect to the PostgreSQL database server to create the `restaurant` database. (You can connect to Azure Cloud Shell from VS Code to run psql if you are using VS Code but don't have psql installed locally.)
+In your local environment or anywhere you can use the PostgreSQL interactive terminal [psql](https://www.postgresql.org/docs/13/app-psql.html) such as the [Azure Cloud Shell](/azure/cloud-shell/overview), connect to the PostgreSQL database server to create the `restaurant` database. (You can connect to Azure Cloud Shell from VS Code to run psql if you're using VS Code but don't have psql installed locally.)
 
 Start psql:
 
