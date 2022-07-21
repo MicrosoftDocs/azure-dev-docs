@@ -7,7 +7,7 @@ Before you get started, ensure you have the following tools installed on your lo
     ### [Windows](#tab/windows)
 
     ```
-    powershell -c "Set-ExecutionPolicy Bypass Process -Force; irm 'https://aka.ms/install-azd.ps1' | iex"
+    powershell -ex AllSigned -c "Invoke-RestMethod 'https://aka.ms/install-azd.ps1' | Invoke-Expression"
     ```
 
     ### [Linux/MacOS](#tab/linuxmac)

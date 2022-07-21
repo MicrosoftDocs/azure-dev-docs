@@ -1,1 +1,0 @@
-The second image is usually an image of the main service page showing the user where the **Create** button is.

@@ -3,7 +3,7 @@ title: Get Started - Configure Ansible on an Azure VM
 description: Learn how to install and configure Ansible on an Azure VM for managing Azure resources.
 keywords: ansible, azure, devops, bash, cloudshell, playbook, azure cli, powershell, azure powershell
 ms.topic: quickstart
-ms.date: 05/10/2021
+ms.date: 07/19/2022
 ms.custom: devx-track-ansible, devx-track-azurecli, devx-track-azurepowershell, mode-portal
 ---
 
@@ -159,7 +159,7 @@ sudo pip3 install -r ~/.ansible/collections/ansible_collections/azure/azcollecti
 To configure the Ansible credentials, you need the following information:
 
 * Your Azure subscription ID and tenant ID
-* The service principal applicationID, and secret
+* The service principal application ID and secret
 
 Configure the Ansible credentials using one of the following techniques:
 
@@ -183,10 +183,10 @@ For more information about defining Ansible credentials, see [Providing Credenti
 
     ```bash
     [default]
-    subscription_id=<your-subscription_id>
-    client_id=<security-principal-appid>
-    secret=<security-principal-password>
-    tenant=<security-principal-tenant>
+    subscription_id=<subscription_id>
+    client_id=<service_principal_app_id>
+    secret=<service_principal_password>
+    tenant=<service_principal_tenant_id>
     ```
 
 1. Save and close the file.
@@ -196,10 +196,10 @@ For more information about defining Ansible credentials, see [Providing Credenti
 On the host virtual machine, export the service principal values to configure your Ansible credentials.
 
 ```bash
-export AZURE_SUBSCRIPTION_ID=<your-subscription_id>
-export AZURE_CLIENT_ID=<security-principal-appid>
-export AZURE_SECRET=<security-principal-password>
-export AZURE_TENANT=<security-principal-tenant>
+export AZURE_SUBSCRIPTION_ID=<subscription_id>
+export AZURE_CLIENT_ID=<service_principal_app_id>
+export AZURE_SECRET=<service_principal_password>
+export AZURE_TENANT=<service_principal_tenant_id>
 ```
 
 ## Test Ansible installation
