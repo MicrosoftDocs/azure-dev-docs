@@ -12,7 +12,7 @@ ms.custom: devx-track-python, devx-track-azurecli
 
 # Deploy and configure the Python web app in Azure 
 
-This article is part of a tutorial about deploying a Python app to Azure App Service. The web app uses managed identity to authenticate to other Azure resources. In this article, you'll deploy the Python app to Azure and configure it. Configuration requires changes to the App Service and Azure Database for PostgreSQL service.
+This article is part of a tutorial about deploying a Python app to Azure App Service. The web app uses managed identity to authenticate to other Azure resources. In this article, you'll deploy the Python app to Azure and configure it.
 
 :::image type="content" source="./media/python-web-app-managed-identity/system-diagram-local-to-deploy-python-managed-identity-deploy-800px.png" lightbox="./media/python-web-app-managed-identity/system-diagram-local-to-deploy-python-managed-identity-deploy.png" alt-text="A screenshot showing the Azure services in the tutorial used with deployment to Azure highlighted." :::
 
@@ -44,25 +44,7 @@ To configure environment variables for the web app from VS Code, you must have t
 
 ---
 
-## 2. Enable web app to access the database
-
-You created and configured an Azure Database for PostgreSQL server in a previous step. In this step, you'll add a firewall rule that allows the web app to access to the database server. You can add a firewall rule with the Azure portal or the Azure CLI. 
-
-If you're working in VS Code, right-select the database server and select **Open in Portal** and follow the portal instructions. Or, go to the [Azure Cloud Shell](https://shell.azure.com) and run the Azure CLI commands.
-
-### [Azure portal](#tab/managed-identity-azure-portal)
-
-| Instructions    | Screenshot |
-|:----------------|-----------:|
-| [!INCLUDE [A screenshot showing the location and adding a firewall rule in the Azure portal](<./includes/python-web-app-managed-identity/add-access-to-postgres-from-web-app-portal-1.md>)] | :::image type="content" source="./media/python-web-app-managed-identity/add-access-to-postgres-from-web-app-portal-1-240px.png" lightbox="./media/python-web-app-managed-identity/add-access-to-postgres-from-web-app-portal-1.png" alt-text="A screenshot showing how to add access from other Azure services to a PostgreSQL database in the Azure portal." ::: |
-
-### [Azure CLI](#tab/managed-identity-azure-cli)
-
-[!INCLUDE [Allow access from web app to postgres service with CLI](<./includes/python-web-app-managed-identity/add-access-to-postgres-from-web-app-cli.md>)]
-
-----
-
-## 3. Deploy the Python web app to Azure
+## 2. Deploy the Python web app to Azure
 
 Azure App Service supports multiple ways to deploy your application code to Azure including support for GitHub Actions and all major CI/CD tools. This article focuses on how to deploy your code from your local workstation to Azure.
 
@@ -88,7 +70,7 @@ To deploy a web app from VS Code, you must have the [Azure Tools extension pack]
 
 ----
 
-## 4. Create the database schema
+## 3. Create the database schema
 
 With the code deployed and the database in place, the app is almost ready to use. As a final step, you need to establish the necessary schema in the database. You create the schema by "migrating" the data models stored with the app code to the PostgreSQL database.
 
@@ -143,7 +125,7 @@ If you can't migrate the models, see [Troubleshooting tips](#6-troubleshooting-t
 > [!TIP]
 > In an SSH session, for Django you can also create users with the `python manage.py createsuperuser` command like you would with a typical Django app. For more information, see the documentation for [django django-admin and manage.py](https://docs.djangoproject.com/en/1.8/ref/django-admin/). Use the superuser account to access the `/admin` portion of the web site. For Flask, use an extension such as [Flask-admin](https://github.com/flask-admin/flask-admin) to provide the same functionality.
 
-## 5. Test the Python web app in Azure
+## 4. Test the Python web app in Azure
 
 The sample Python app uses the [azure.identity](https://pypi.org/project/azure-identity/) package and `DefaultAzureCredentialClass`. The `DefaultAzureCredential` automatically detects that a managed identity exists for the App Service and uses it to access other Azure resources (storage and Postgres in this case). There's no need to provide storage keys, certificates, or credentials to the App Service to access these resources.
 
@@ -153,7 +135,7 @@ To test the functionality of the sample app, add a restaurant and then add some 
 
 :::image type="content" source="./media/python-web-app-managed-identity/example-of-review-sample-app-production-deployed-small.png" lightbox="./media/python-web-app-managed-identity/example-of-review-sample-app-production-deployed.png" alt-text="An example of the sample app showing restaurant review functionality using Azure App Service, Azure PostgreSQL Database, and Azure Storage." :::
 
-## 6. Troubleshooting tips
+## 5. Troubleshooting tips
 
 Here are a few tips for troubleshooting your deployment:
 
