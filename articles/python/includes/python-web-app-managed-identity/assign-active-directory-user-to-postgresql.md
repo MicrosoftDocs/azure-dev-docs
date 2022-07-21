@@ -15,7 +15,9 @@ ms.date: 06/01/2022
 
 ### [Azure CLI](#tab/managed-identity-azure-cli)
 
-Find the object ID of the Azure Active Directory user using the az ad user list and replace *\<user-principal-name>* using the [az ad user list command](/cli/azure/ad/user#az_ad_user_list).
+Find the object ID of the Azure Active Directory user using the [az ad user list](/cli/azure/ad/user#az_ad_user_list) command.
+
+Replace *\<user-principal-name>* with an Azure Active Directory admin email.
 
 [!INCLUDE [Create role with CLI](<./assign-azure-active-directory-user-to-postgres-azure-cli-1.md>)]
 
