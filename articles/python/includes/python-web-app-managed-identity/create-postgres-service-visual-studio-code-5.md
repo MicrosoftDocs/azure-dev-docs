@@ -10,4 +10,4 @@ ms.azure.devx-azure-tooling: ['vscode-azure-tools']
 ms.custom: devx-track-python
 ---
 
-As a final step, you need to configure the database server's firewall to accept connections from all Azure resources. This configuration makes connecting with psql to complete further database configuration easier. This step can't be done with VS Code. Instead, see the Azure portal or Azure CLI instructions.  In the portal, the option is **Allow access to Azure services option**, which should be set to **Yes**.
+As a final step, you need to configure the database server's firewall to accept connections from all Azure resources. To complete this step in VS Code, open an [Azure Cloud Shell](https://techcommunity.microsoft.com/t5/itops-talk-blog/how-to-use-cloud-shell-in-visual-studio-code/ba-p/663431) in VS Code, or go to [Azure Cloud Shell](https://shell.azure.com) and follow the Azure CLI instructions. Or, use the Azure portal instructions.
