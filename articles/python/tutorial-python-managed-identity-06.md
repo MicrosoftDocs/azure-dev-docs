@@ -12,7 +12,7 @@ ms.custom: devx-track-python, devx-track-azurecli
 
 # Deploy and configure the Python web app in Azure 
 
-This article is part of a tutorial about deploying a Python app to Azure App Service. The web app uses managed identity to authenticate to other Azure resources. In this article, you'll deploy the Python app to Azure and configure it.
+This article is part of a tutorial about deploying a Python app to Azure App Service. The web app uses managed identity to authenticate to other Azure resources. In this article, you'll configure the App Service and then deploy the Python app to it.
 
 :::image type="content" source="./media/python-web-app-managed-identity/system-diagram-local-to-deploy-python-managed-identity-deploy-800px.png" lightbox="./media/python-web-app-managed-identity/system-diagram-local-to-deploy-python-managed-identity-deploy.png" alt-text="A screenshot showing the Azure services in the tutorial used with deployment to Azure highlighted." :::
 
