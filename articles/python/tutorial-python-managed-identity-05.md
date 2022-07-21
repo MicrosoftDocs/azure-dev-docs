@@ -73,9 +73,10 @@ You can add a firewall rule with the Azure portal or the Azure CLI. If you're wo
 
 ### [VS Code](#tab/vscode-aztools)
 
+| Instructions    | Screenshot |
+|:----------------|-----------:|
 | [!INCLUDE [Azure portal - create firewall rule](<./includes/python-web-app-managed-identity/create-postgres-service-visual-studio-code-4.md>)] | :::image type="content" source="./media/python-web-app-managed-identity/create-postgres-service-visual-studio-code-4-240px.png" alt-text="A screenshot showing how to create a database for a PostgreSQL database in the VS Code." lightbox="./media/python-web-app-managed-identity/create-postgres-service-visual-studio-code-4.png"::: |
 | [!INCLUDE [Azure portal - create firewall rule](<./includes/python-web-app-managed-identity/create-postgres-service-visual-studio-code-5.md>)] |  |
-
 
 ### [Azure CLI](#tab/azure-cli)
 

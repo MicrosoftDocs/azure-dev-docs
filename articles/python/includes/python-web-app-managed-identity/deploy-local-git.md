@@ -40,4 +40,4 @@ git push azure main:master
 
 The first time you push code to Azure, Git will prompt you for the Azure deployment credentials you obtained in a previous step. Git will then cache these credentials so you won't have to enter them on subsequent deployments.
 
-If you have problems connecting or you need to refresh credentials, see [Troubleshooting Trips](#6-troubleshooting-tips).
+If you have problems connecting or you need to refresh credentials, see [Troubleshooting Trips](#5-troubleshooting-tips).

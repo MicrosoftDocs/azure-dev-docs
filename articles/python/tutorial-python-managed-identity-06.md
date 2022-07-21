@@ -98,7 +98,7 @@ In the **App Services** section of the Azure Tools extension:
 
 ---
 
-If you can't connect with SSH, see [Troubleshooting tips](#6-troubleshooting-tips).
+If you can't connect with SSH, see [Troubleshooting tips](5-troubleshooting-tips).
 
 **Step 2.** In the SSH session, run commands to migrate the models into the database:
 
@@ -120,7 +120,7 @@ python manage.py migrate
 
 ---
 
-If you can't migrate the models, see [Troubleshooting tips](#6-troubleshooting-tips).
+If you can't migrate the models, see [Troubleshooting tips](#5-troubleshooting-tips).
 
 > [!TIP]
 > In an SSH session, for Django you can also create users with the `python manage.py createsuperuser` command like you would with a typical Django app. For more information, see the documentation for [django django-admin and manage.py](https://docs.djangoproject.com/en/1.8/ref/django-admin/). Use the superuser account to access the `/admin` portion of the web site. For Flask, use an extension such as [Flask-admin](https://github.com/flask-admin/flask-admin) to provide the same functionality.
