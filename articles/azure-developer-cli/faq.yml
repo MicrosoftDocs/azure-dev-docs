@@ -18,7 +18,7 @@ sections:
           For Windows, run:
 
           ```
-          powershell -c "Set-ExecutionPolicy Bypass Process -Force; irm 'https://aka.ms/uninstall-azd.ps1' | iex"
+          powershell -ex AllSigned -c "Invoke-RestMethod 'https://aka.ms/uninstall-azd.ps1' | Invoke-Expression"
           ```
           For Linux and macOS, run:
 
