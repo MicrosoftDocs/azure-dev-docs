@@ -55,7 +55,7 @@ Run `az login` to sign in to  and follow these steps to create your Azure Databa
 
 ---
 
-## 2. Configure database firewall rules
+## 2. Add database firewall rules
 
 In this step, you'll add firewall rules that allow:
 
