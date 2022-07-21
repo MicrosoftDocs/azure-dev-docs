@@ -2,7 +2,7 @@
 author: jess-johnson-msft
 ms.author: jejohn
 ms.topic: include
-ms.date: 06/01/2022
+ms.date: 07/21/2022
 ---
 
 Create a firewall rule that allows other Azure services to connect to the PostgreSQL server with the [az postgres server firewall-rule create](/cli/azure/postgres/server/firewall-rule) command.

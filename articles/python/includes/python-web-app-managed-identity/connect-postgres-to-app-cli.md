@@ -2,7 +2,7 @@
 author: jess-johnson-msft
 ms.author: jejohn
 ms.topic: include
-ms.date: 06/01/2022
+ms.date: 07/21/2022
 ---
 
 To set environment variables in App Service, you create *app settings* with the following [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#az-webapp-config-appsettings-set) command.
