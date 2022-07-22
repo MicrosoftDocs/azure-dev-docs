@@ -5,7 +5,7 @@ author: jess-johnson-msft
 ms.author: jejohn
 ms.devlang: python
 ms.topic: tutorial
-ms.date: 07/07/2022
+ms.date: 07/22/2022
 ms.prod: azure-python
 ms.custom: devx-track-python, devx-track-azurecli
 ---
@@ -14,7 +14,7 @@ ms.custom: devx-track-python, devx-track-azurecli
 
 This article is part of a tutorial about how to containerize and deploy a Python web app to Azure App Service. App Service enables you to run containerized web apps and deploy through continuous integration/continuous deployment (CI/CD) capabilities with Docker Hub, Azure Container Registry, and Visual Studio Team Services. 
 
-In this part of the tutorial, you learn how to deploy the containerized Python web app to App Service using the [App Service Web App for Containers](https://azure.microsoft.com/services/app-service/containers/), which allows you to focus on composing your containers without worrying about managing and maintaining an underlying container orchestrator.
+In this part of the tutorial, you learn how to deploy the containerized Python web app to App Service using the [App Service Web App for Containers](https://azure.microsoft.com/services/app-service/containers/). Web App for Containers allows you to focus on composing your containers without worrying about managing and maintaining an underlying container orchestrator.
 
 Following the steps here, you'll end up with an App Service website using a Docker container image. The App Service pulls the initial image from Azure Container Registry using managed identity for authentication.
 
@@ -59,7 +59,7 @@ Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com
 
 ### [Azure portal](#tab/azure-portal)
 
-In [Azure portal](https://portal.azure.com/) and follow these steps to enable managed identity.
+In [Azure portal](https://portal.azure.com/), follow these steps to enable managed identity.
 
 | Instructions    | Screenshot |
 |:----------------|-----------:|
