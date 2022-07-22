@@ -2,8 +2,8 @@
 title: Get started using Azure Developer CLI (azd) Preview
 description: Learn how to get started with Azure Developer CLI
 keywords: azure developer cli
-author: puicchan
-ms.author: puichan
+author: hhunter-ms
+ms.author: hannahhunter
 ms.date: 07/11/2022
 ms.topic: article
 ms.custom: devx-track-azdevcli
