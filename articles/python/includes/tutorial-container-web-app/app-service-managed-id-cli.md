@@ -2,7 +2,7 @@
 author: jess-johnson-msft
 ms.author: jejohn
 ms.topic: include
-ms.date: 07/12/2022
+ms.date: 07/22/2022
 ---
 
 **Step 1.** Configure the web app to use managed identity.
@@ -35,6 +35,7 @@ az webapp config set `
 az webapp config show \
   --resource-group $RESOURCE_GROUP_NAME \
   --name $APP_SERVICE_NAME 
+  --query acrUseManagedIdentityCreds
 ```
 
 #### [PowerShell terminal](#tab/terminal-powershell)
@@ -43,8 +44,9 @@ az webapp config show \
 az webapp config show `
   --resource-group $RESOURCE_GROUP_NAME `
   --name $APP_SERVICE_NAME 
+  --query acrUseManagedIdentityCreds
 ```
 
 ---
 
-Look for `"acrUseManagedIdentityCreds": true` in the output of the command.
+You should see `true` as the output of the command.

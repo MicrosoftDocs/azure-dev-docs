@@ -109,7 +109,7 @@ To configure environment variables for the web app from VS Code, you must have t
 
 ## 4. Verify and troubleshoot
 
-To verify the site is running, go the `https::<website-name>.azurewebsites.net`. If successful, you should see the restaurant review sample app. 
+To verify the site is running, go the `https::<website-name>.azurewebsites.net`. If successful, you should see the restaurant review sample app. Add a restaurant and a review for that restaurant to confirm the sample app is functioning.
 
 If you don't see the sample app, here are a few troubleshooting tips.
 
