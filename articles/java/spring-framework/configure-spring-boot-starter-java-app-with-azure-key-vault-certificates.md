@@ -1,7 +1,7 @@
 ---
 title: "Tutorial: Secure Spring Boot apps using Azure Key Vault certificates"
 description: In this tutorial, you secure your Spring Boot (including Azure Spring Apps) apps with TLS/SSL certificates using Azure Key Vault and managed identities for Azure resources.
-ms.date: 03/30/2022
+ms.date: 07/22/2022
 ms.service: key-vault
 ms.topic: tutorial
 ms.custom: devx-track-java, devx-track-azurecli
@@ -41,7 +41,7 @@ In this tutorial, you learn how to:
 - [Apache Maven](http://maven.apache.org/), version 3.0.
 
 > [!IMPORTANT]
-> Spring Boot version 2.5 or 2.6 is required to complete the steps in this article.
+> Spring Boot version 2.5 or higher is required to complete the steps in this article.
 
 ## Create a GNU/Linux VM with system-assigned managed identity
 
@@ -201,7 +201,7 @@ To create the application, use the following steps:
 1. Select the choices as shown in the picture following this list.
     * **Project**: **Maven Project**
     * **Language**: **Java**
-    * **Spring Boot**: **2.5.10**
+    * **Spring Boot**: **2.7.2**
     * **Group**: *com.contoso* (You can put any valid Java package name here.)
     * **Artifact**: *ssltest* (You can put any valid Java class name here.)
     * **Packaging**: **Jar**
