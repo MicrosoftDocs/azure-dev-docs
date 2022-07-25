@@ -3,7 +3,7 @@ title: Use Spring Kafka with Azure Event Hubs
 description: Shows you how to configure a Java-based Spring Cloud Stream Binder to use Apache Kafka with Azure Event Hubs. 
 services: event-hubs
 documentationcenter: java
-ms.date: 07/08/2022
+ms.date: 07/22/2022
 ms.service: event-hubs
 ms.topic: article
 ms.custom: devx-track-java
@@ -22,7 +22,7 @@ By using [Apache Kafka](http://kafka.apache.org) with Azure Event Hubs, you can 
 * [Apache Maven](http://maven.apache.org/), version 3.0 or later.
 
 > [!IMPORTANT]
-> Spring Boot version 2.5 or 2.6 is required to complete the steps in this article.
+> Spring Boot version 2.5 or higher is required to complete the steps in this article.
 
 ## Create an Azure Event Hubs instance
 
@@ -137,7 +137,7 @@ Use the following steps to create an application.
 1. Specify the following options:
 
    * Generate a **Maven** project with **Java**.
-   * Specify a **Spring Boot** version that is equal to **2.7.0**.
+   * Specify a **Spring Boot** version that is equal to **2.7.2**.
    * Specify the **Group** and **Artifact** names for your application.
    * Select **8** or **11** for the Java version.
    * Add the **Web**, **Azure Support**, **Cloud Stream**, and **Spring for Apache Kafka** dependencies.

@@ -5,6 +5,7 @@ author: KarlErickson
 ms.author: jafreebe
 ms.topic: conceptual
 ms.date: 02/10/2022
+ms.custom: devx-track-java, migration-java
 ---
 
 # Migrate WebSphere applications to JBoss EAP on Azure App Service

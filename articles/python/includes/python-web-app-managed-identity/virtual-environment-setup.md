@@ -11,7 +11,7 @@ ms.custom: devx-track-python
 
 #### [Windows](#tab/windows)
 
-```Cmd
+```powershell
 py -3.9 -m venv .venv
 .venv\scripts\activate
 ```
