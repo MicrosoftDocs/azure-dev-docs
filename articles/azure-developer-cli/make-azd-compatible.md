@@ -258,7 +258,7 @@ To deploy the app, azd needs to know more about your app. Edit the `azure.yaml` 
     - **language**: Service implementation language. "py" for Python. If not specified, .NET will be assumed.
     - **host**: Type of Azure resource used for service implementation. "appservice" for Azure App Service. If not required, appservice is assumed.
 
-    For full details, refer to [azure.yaml.json](https://github.com/Azure/azure-dev/blob/main/schemas/v1.0/azure.yaml.json/).
+    For full details, refer to [azure.yaml.json](https://azuresdkreleasepreview.blob.core.windows.net/azd/schema/azure.yaml.json).
 
 1. Run the following command to deploy the app to Azure:
 
