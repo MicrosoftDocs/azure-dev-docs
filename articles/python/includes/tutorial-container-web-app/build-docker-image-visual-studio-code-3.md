@@ -9,4 +9,4 @@ Confirm the image was built.
 
 * Go to the **IMAGES** section of the Docker extension.
 
-* Look for recently built image.  The mae of the container image is "msdocspythoncontainerwebapp:latest", which is set in the *.vscode/tasks.json* file. 
+* Look for recently built image.  The name of the container image is "msdocspythoncontainerwebapp:latest", which is set in the *.vscode/tasks.json* file. 
