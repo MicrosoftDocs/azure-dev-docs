@@ -18,4 +18,8 @@
   - name: Frequently asked questions (FAQ)
     href: faq.yml   
   - name: Reference
-    href: reference.md
+    items: 
+    - name: Reference
+      href: reference.md
+    - name: Azure Developer CLI schema
+      href: azd-schema.md
