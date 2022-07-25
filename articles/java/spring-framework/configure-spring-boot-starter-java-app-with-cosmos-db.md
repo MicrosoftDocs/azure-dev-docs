@@ -5,7 +5,7 @@ services: cosmos-db
 documentationcenter: java
 author: KarlErickson
 ms.author: bbenz
-ms.date: 07/15/2022
+ms.date: 07/22/2022
 ms.service: cosmos-db
 ms.tgt_pltfrm: multiple
 ms.topic: article
@@ -60,7 +60,7 @@ Use the following steps to create a new Spring Boot application project with Azu
 1. Specify the following options:
 
    * Generate a **Maven** project with **Java**.
-   * Specify your **Spring Boot** version to **2.7.1**.
+   * Specify your **Spring Boot** version to **2.7.2**.
    * Specify the **Group** and **Artifact** names for your application.
    * Select **17** for the Java version.
    * Add **Azure Support** in the dependencies.

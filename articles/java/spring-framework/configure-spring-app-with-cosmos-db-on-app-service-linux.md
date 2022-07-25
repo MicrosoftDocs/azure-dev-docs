@@ -3,7 +3,7 @@ title: How to use Spring and Cosmos DB with App Service on Linux
 description: This article will walk you through the process of building, configuring, deploying, troubleshooting, and scaling Java Web apps in Azure App Service on Linux.
 documentationcenter: java
 ms.reviewer: joshuapa
-ms.date: 03/30/2022
+ms.date: 07/22/2022
 ms.service: cosmos-db
 ms.topic: article
 ms.custom: devx-track-java, devx-track-azurecli
@@ -29,7 +29,7 @@ The following prerequisites are required in order to follow the steps in this ar
 - [Maven 3](http://maven.apache.org/)
 
 > [!IMPORTANT]
-> Spring Boot version 2.5 or 2.6 is required to complete the steps in this article.
+> Spring Boot version 2.5 or higher is required to complete the steps in this article.
 
 ## Clone the Sample Java Web App Repository
 

@@ -1,7 +1,7 @@
 ---
 title: Spring Boot Starter for Azure Active Directory developer's guide
 description: This guide describes the features, issues, workarounds, and diagnostic steps to be aware of when you use the Azure Active Directory starter.
-ms.date: 06/30/2022
+ms.date: 07/22/2022
 ms.service: active-directory
 ms.topic: article
 author: KarlErickson
@@ -34,7 +34,7 @@ To follow the instructions in this guide, you must have the following prerequisi
 - An application registered with Azure AD. For more information, see [Quickstart: Register an application with the Microsoft identity platform](/azure/active-directory/develop/quickstart-register-app).
 
 > [!IMPORTANT]
-> Spring Boot version 2.5 or 2.6 is required to complete the steps in this article.
+> Spring Boot version 2.5 or higher is required to complete the steps in this article.
 
 ## Core scenarios
 

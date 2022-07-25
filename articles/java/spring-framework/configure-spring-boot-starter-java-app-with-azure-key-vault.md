@@ -1,7 +1,7 @@
 ---
 title: "Tutorial: Read a secret from Azure Key Vault in a Spring Boot application"
 description: In this tutorial, you create a Spring Boot app that reads a value from Azure Key Vault, and you deploy the app to Azure App Service and Azure Spring Apps.
-ms.date: 06/30/2022
+ms.date: 07/22/2022
 ms.service: key-vault
 ms.topic: tutorial
 ms.custom: devx-track-java, devx-track-azurecli
@@ -35,7 +35,7 @@ In this tutorial, you learn how to:
 [!INCLUDE [Maven](includes/prerequisites-maven.md)]
 
 > [!IMPORTANT]
-> Spring Boot version 2.5 or 2.6 is required to complete the steps in this article.
+> Spring Boot version 2.5 or higher is required to complete the steps in this article.
 
 ## Create a new Azure Key Vault
 
@@ -242,7 +242,7 @@ This section shows how to use Spring Initializr to create and run a Spring Boot 
 1. Select the choices as shown in the picture following this list.
    * **Project**: **Maven Project**
    * **Language**: **Java**
-   * **Spring Boot**: **2.5.10**
+   * **Spring Boot**: **2.7.2**
    * **Group**: *com.contoso* (You can put any valid Java package name here.)
    * **Artifact**: *keyvault* (You can put any valid Java class name here.)
    * **Packaging**: **Jar**
