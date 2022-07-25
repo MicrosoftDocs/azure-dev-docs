@@ -4,7 +4,7 @@ description: This article demonstrates how to use the Spring JMS Starter to send
 manager: kyliel
 author: KarlErickson
 ms.author: seal
-ms.date: 06/30/2022
+ms.date: 07/22/2022
 ms.topic: article
 ms.custom: devx-track-java
 ---
@@ -44,7 +44,7 @@ The following prerequisites are required for this article:
 1. If you don't have a Spring Boot application, create a **Maven** project with the [Spring Initializr](https://start.spring.io/). Remember to select **Maven Project** and, under **Dependencies**, add the **Web** dependency, then select **8** or **11** for the Java version.
 
 > [!IMPORTANT]
-> Spring Boot version 2.5 or 2.6 is required to complete the steps in this article.
+> Spring Boot version 2.5 or higher is required to complete the steps in this article.
 
 ## Use the Azure Service Bus JMS starter
 
