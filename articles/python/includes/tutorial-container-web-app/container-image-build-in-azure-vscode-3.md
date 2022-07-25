@@ -7,7 +7,7 @@ ms.date: 07/07/2022
 
 Fill out the information to build the image.
 
-* **Tag image**  &rarr; Use the fully qualified name "msdocspythoncontainerwebapp.azurecr.io:latest".
+* **Tag image**  &rarr; Use the image name "msdocspythoncontainerwebapp:latest".
 * **Registry** &rarr; Select the registry you created above or one you have access to.
 * **Base OS image** &rarr; Select **Linux**.
 

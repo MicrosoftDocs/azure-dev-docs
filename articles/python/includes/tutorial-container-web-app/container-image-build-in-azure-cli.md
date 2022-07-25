@@ -17,7 +17,7 @@ If you're accessing the registry from a subscription different from the one in w
 **Step 2.** Build the image with the [az acr build](/cli/azure/acr#az-acr-build) command.
 
 ```azurecli
-az acr build -r <registry-name> -g <resource-group> -t msdocspythoncontainerwebapp.azurecr.io:latest .
+az acr build -r <registry-name> -g <resource-group> -t msdocspythoncontainerwebapp:latest .
 ```
 
 Note:
