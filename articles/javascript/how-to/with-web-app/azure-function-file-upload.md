@@ -336,24 +336,19 @@ Once deployment is completed and the _AzureWebJobsStorage_ app setting have been
 
 ## Next steps
 
-Learn more:
+* Azure Functions
+    * Function [triggers and bindings](/azure/azure-functions/functions-triggers-bindings?tabs=javascript)
+    * [Azure Storage triggers and bindings](/azure/azure-functions/functions-bindings-storage-blob?tabs=in-process%2Cextensionv5%2Cextensionv3&pivots=programming-language-javascript)
 
-### Azure Functions
+* Azure Storage
+    * Learn how to [write code](/azure/storage/blobs/storage-blob-javascript-get-started) with Azure Blob Storage SDK
 
-* Function [triggers and bindings](/azure/azure-functions/functions-triggers-bindings?tabs=javascript)
-* [Azure Storage triggers and bindings](/azure/azure-functions/functions-bindings-storage-blob?tabs=in-process%2Cextensionv5%2Cextensionv3&pivots=programming-language-javascript)
-
-### Azure Storage
-
-* Learn how to [write code](/azure/storage/blobs/storage-blob-javascript-get-started) with Azure Blob Storage SDK
-
-### Credential-less code
-
-* [How to use managed identity in Azure Functions](/azure/app-service/overview-managed-identity?toc=%2Fazure%2Fazure-functions%2Ftoc.json&tabs=portal%2Chttp)
-* [Use DefaultAzureCredential with SDK](/storage/blobs/storage-blob-javascript-get-started#connect-with-azure-ad) 
-
-### Manage Azure resources with SDKs
-
-* [Create a resource group with an Azure Function API](./azure-function-resource-group-management/introduction.md)
-
-
+* Credential-less code
+    
+    * [How to use managed identity in Azure Functions](/azure/app-service/overview-managed-identity?toc=%2Fazure%2Fazure-functions%2Ftoc.json&tabs=portal%2Chttp)
+    * [Use DefaultAzureCredential with SDK](/storage/blobs/storage-blob-javascript-get-started#connect-with-azure-ad) 
+    
+* Manage Azure resources with SDKs
+    * [Create a resource group with an Azure Function API](./azure-function-resource-group-management/introduction.md)
+    
+    
