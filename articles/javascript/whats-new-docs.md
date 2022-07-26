@@ -23,6 +23,7 @@ Find new and updated content for JavaScript and TypeScript developers.
 
 |Name|Description|
 |---------------------------------------|--|
+|JavaScript Dev Center|[Upload file to Azure Blob Storage with an Azure Function](./how-to/with-web-app/azure-function-file-upload)<br><br>* Uploaded file URL returned from Blob Storage SDK in SAS token URL instead of constructing URL<br> * SAS token URL is an authorized URL with a time expiration<br>* Added architectural drawing for system<br>* Updated screenshots based on changes to Azure explorer |
 |Azure Blob Storage|Understand how to [upload with each Blob Storage blob client](/azure/storage/blobs/storage-blob-upload-javascript#upload-by-blob-client)|
 
 
