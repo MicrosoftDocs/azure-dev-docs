@@ -105,10 +105,10 @@ At this point, you should have a Cosmos DB MongoDB connection string of the form
 
 ## 3. Run the image locally in a container
 
-With information on how to connect to a MongoDB, you're ready to run the container locally. The sample app expects MongoDB connection information to be passed as environment variables. Locally, you'll specify this information through environment variables passed to the Docker container. There are several ways to get environment variables passed to container. Each has advantages and disadvantages in terms of security. You should avoid checking in any sensitive information or leaving sensitive information in code in the container. 
+With information on how to connect to a MongoDB, you're ready to run the container locally. The sample app expects MongoDB connection information to be passed in environment variables. There are several ways to get environment variables passed to container locally. Each has advantages and disadvantages in terms of security. You should avoid checking in any sensitive information or leaving sensitive information in code in the container.
 
 > [!NOTE]
-> When deployed to Azure, the web app will get connection info from  environment values set as App Service configuration settings and none of the modifications for the local development environment to VS Code files and Docker commands apply. 
+> When deployed to Azure, the web app will get connection info from environment values set as App Service configuration settings and none of the modifications for the local development environment scenario apply.
 
 ### [VS Code](#tab/vscode-docker)
 
@@ -122,7 +122,7 @@ With information on how to connect to a MongoDB, you're ready to run the contain
 
 
 > [!TIP]
-> You can also run the container selecting a run or debug configuration. The Docker extension tasks in *tasks.json* are called when you run or debug. What task is called depends on what launch configuration you have set.  For the task "Docker: Python (MongoDB local)", specify "\<YOUR-IP-ADDRESS>". For the task "Docker: Python (MongoDB Azure)", specify "\<CONNECTION_STRING>".
+> You can also run the container selecting a run or debug configuration. The Docker extension tasks in *tasks.json* are called when you run or debug. The task called depends on what launch configuration you select.  For the task "Docker: Python (MongoDB local)", specify \<YOUR-IP-ADDRESS>. For the task "Docker: Python (MongoDB Azure)", specify \<CONNECTION_STRING>.
 
 
 ### [Docker CLI](#tab/docker-cli)
