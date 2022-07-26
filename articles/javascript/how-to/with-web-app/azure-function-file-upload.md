@@ -26,7 +26,7 @@ This sample:
 
     :::image type="content" source="../../media/azure-function-file-upload-binding/azure-architecure.png" alt-text="Architectural diagram of browser uploading file to Azure Function App then connecting to Azure Storage in two ways: out binding and SDK.":::
 
-While you can replace the _out_ binding with more code to upload the file to Blob storage, you can't replace the SDK with any _out_ binding to generate the SAS token URL. As you move from beginning code for this functionality to more complex code, you will probably replace the _out_ binding with [SDK upload calls](/azure/storage/blobs/storage-blob-upload-javascript#upload-by-blob-client).
+While you can replace the _out_ binding with more code to upload the file to Blob storage, you can't replace the SDK with any _out_ binding to generate the SAS token URL. As you move from beginning code for this functionality to more complex code, you will replace the _out_ binding with [SDK upload calls](/azure/storage/blobs/storage-blob-upload-javascript#upload-by-blob-client).
 
 ## Prepare your development environment
 
