@@ -262,8 +262,6 @@ Now that the basic project folder structure and files are in place, add local st
 
 Once deployment is completed and the _AzureWebJobsStorage_ app setting have been updated, test your Azure Function.
 
-### Get function url 
-
 1. In Visual Studio Code, create a bash file named `upload-azure.sh` and copy the following code into the file.
 
     :::code language="bash" source="~/../js-e2e-azure-function-upload-file/upload-azure.sh":::
