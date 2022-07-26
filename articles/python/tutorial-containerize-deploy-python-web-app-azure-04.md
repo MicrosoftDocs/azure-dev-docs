@@ -111,11 +111,11 @@ To configure environment variables for the web app from VS Code, you must have t
 
 To verify the site is running, go the `https::<website-name>.azurewebsites.net`. If successful, you should see the restaurant review sample app. Add a restaurant and a review for that restaurant to confirm the sample app is functioning.
 
-If you don't see the sample app, here are a few troubleshooting tips.
+If you don't see the sample app, here are troubleshooting steps you can try.
 
 * With container deployment and App Service, always check the **Deployment Center** / **Logs** page. Confirm that the container was pulled and is running. The initial pull and running of the container can take a few moments.
 * Try to restart the App Service and see if that resolves your issue.
 * If you added code to the sample app or, in general, there are programming errors, those will show up in the application logs. In the App Server, select **Diagnose and solve problems**/**Application logs**.
 * Since the sample app relies on a connection to MongoDB, confirm you have the application settings with the correct connection info.
-* Confirm that managed identity is enabled for the App Service and is used in the Deployment Center.
+* Confirm that managed identity is enabled for the App Service and is used in the Deployment Center. Go to the App Service **Deployment Center** resource and confirm that **Authentication** is set to **Managed Identity**.
 * [Different Azure Container Registry skus](/azure/container-registry/container-registry-skus) have different features, including number of webhooks. Webhooks are automatically created for you if you followed the steps in this tutorial. However, if you're reusing an existing registry you could see the message: "Quota exceeded for resource type webhooks for the registry SKU Basic. Learn more about different SKU quotas and upgrade process: https://aka.ms/acr/tiers". If you see this message, use a new registry, or reduce the number of [registry webhooks](/azure/container-registry/container-registry-webhook) in use.
