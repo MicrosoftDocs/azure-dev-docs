@@ -80,7 +80,7 @@ Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com
 
 ---
 
-If you can't build the image in Azure, and you receive and the message  *Error: failed to download context. Please check if the URL is incorrect.* try the following and then try building again:
+If you can't build the image in Azure, and see the message  *Error: failed to download context. Please check if the URL is incorrect.* try the following and then try building again:
 
 * In the **REGISTRIES** section, find your subscription and refresh the registry list.
 * In the Docker Extension **REGISTRIES** section, make sure you see the registry you're building the image to.
