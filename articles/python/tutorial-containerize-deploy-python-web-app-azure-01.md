@@ -80,7 +80,9 @@ To complete this tutorial, you'll need:
 
 ## Sample app
 
-The Python sample app is a restaurant review app that saves restaurant and review data in MongoDB. At the end of the tutorial, you'll have a restaurant review app deployed and running in Azure.
+The Python sample app is a restaurant review app that saves restaurant and review data in MongoDB. For an example of a web app using PostgreSQL, see [Deploy a Python web app to Azure with managed identity](./tutorial-python-managed-identity-01.md)/
+
+At the end of the tutorial, you'll have a restaurant review app deployed and running in Azure that looks like the screenshot below.
 
 :::image type="content" source="./media/tutorial-container-web-app/containerization-of-python-web-app-sample-app-screenshot.png" alt-text="A screenshot of the sample app created from the Python containerized web app used in the Tutorial - Containerized Python App on Azure." lightbox="./media/tutorial-container-web-app/containerization-of-python-web-app-sample-app-screenshot.png":::
 
