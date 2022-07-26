@@ -142,7 +142,7 @@ Now that the basic project folder structure and files are in place, add local st
 
 1. Open the `./upload/index.ts` file and replace the contents with the following code:
 
-    :::code language="TypeScript" source="~/../js-e2e-azure-function-upload-file/upload/index.ts" range="35-134" highlight="67-87":::
+    :::code language="TypeScript" source="~/../js-e2e-azure-function-upload-file/upload/index.ts" range="35-134" highlight="68-88":::
 
     The `filename` query string parameter is required because the _out_ binding needs to know the name of the file to create. The `username` query string parameter is required because it becomes the Storage container (folder) name. For example, if the user name is `jsmith` and the file name is `test-file.txt`, the Storage location is `jsmith/test-file.txt`. 
 
@@ -150,7 +150,7 @@ Now that the basic project folder structure and files are in place, add local st
 
 1. Create a new file named `azure-storage-blob-sas-url.ts`, then copy the following code into the file to generate a SAS token for the uploaded file. 
 
-    :::code language="TypeScript" source="~/../js-e2e-azure-function-upload-file/upload/index.ts" highlight="39-44":::
+    :::code language="TypeScript" source="~/../js-e2e-azure-function-upload-file/upload/azure-storage-blob-sas-url.ts" highlight="39-44":::
 
 ## <a name="#configure-the-function-to-connect-to-azure-storage"></a>6. Connect Azure Function to Azure Storage
 
@@ -189,6 +189,8 @@ Now that the basic project folder structure and files are in place, add local st
 1. Check the response for a status code of 200:
 
     :::code language="console" source="~/../js-e2e-azure-function-upload-file/response.txt":::
+
+1. In the response JSON, the **url** property is the SAS token url for the file. It can be used to read the file.
 
 
 1. In Visual Studio Code, in the file explorer, expand the **azureStorage/_blobstorage_** folder and view the contents of the file. 
@@ -267,6 +269,7 @@ Once deployment is completed and the _AzureWebJobsStorage_ app setting have been
     :::code language="bash" source="~/../js-e2e-azure-function-upload-file/upload-azure.sh":::
 
 1. In Visual Studio Code, select the Azure explorer, then expand the node for your Function app, then expand **Functions**. Right-click the function name, `upload` and select **Copy Function Url**.
+1. In the `upload-azure.sh` bash file, paste your function url value into `FUNCTION_URL`.
 
 1. Execute that bash script in the terminal from the project's root folder:
 
@@ -277,6 +280,8 @@ Once deployment is completed and the _AzureWebJobsStorage_ app setting have been
 1. Check the response for a status code of 200:
 
     :::code language="console" source="~/../js-e2e-azure-function-upload-file/response.cloud.txt":::
+
+1. In the response JSON, the **url** property is the SAS token url for the file. It can be used to read the file.
 
 1. In Visual Studio Code, open the Azure explorer, expand your Storage blob resource, under containers, and find the container name that matches your username value in the query string. 
 
@@ -315,10 +320,13 @@ Once deployment is completed and the _AzureWebJobsStorage_ app setting have been
 ## 14. Clean up Azure resources
 
 1. In Visual Studio Code, in the Azure explorer, use the **Group by** feature to switch the Resources view to **Group by Resource Group**. 
+
+    :::image type="content" source="../../media/azure-function-file-upload-binding/visual-studio-code-resource-group-by-resource-group.png" alt-text="Partial screenshot of Visual Studio Code showing how to use Azure extension to group by resource group.":::
+
 1. Find your resource group name, such as `blob-storage-upload-function-group`, in the list.
 1. Right-click the resource group name and select **Delete Resource Group**.
 
-    :::image type="content" source="../../media/azure-function-file-upload-binding/visual-studio-code-resource-group-delete.png" alt-text="Use the Visual Studio Code extension, Azure Resource Groups, to delete the resource group and all resources within the group.":::
+    :::image type="content" source="../../media/azure-function-file-upload-binding/visual-studio-code-resource-group-delete.png" alt-text="Partial screenshot of Visual Studio Code, Azure extension, Azure Resource Groups, to delete the resource group and all resources within the group.":::
 
 ## Troubleshooting
 
