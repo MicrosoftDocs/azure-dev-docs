@@ -15,19 +15,18 @@ This article shows you how to create an Azure Function API, which uploads a file
 
 ## Solution architecture considerations
 
-The Azure Function **file upload limit is 100 MB**. If you need to upload larger files, consider either a browser-based approach or a server app. 
+> [!CAUTION]
+>The Azure Function **file upload limit is 100 MB**. If you need to upload larger files, consider either a browser-based approach or a server app. 
 
-This sample uses an **Azure Function _out_ binding** and **Azure Blob Storage** npm package:
-* Binding: By using the binding, you have to configure your function to correctly use the outbound binding to move the file from this function to the storage resource.
-* Azure Blob Storage SDK: By using the SDK, the SDK creates a blob sas token, which can be used to hand off to anyone to read the uploaded file. The SAS token can be available for a limited amount of time then the token expires.  
-* Multi-part form: The code required to read the uploaded file and convert it into a format that can be sent to storage is required, regardless if you use an out binding or an npm package to integrate with Azure Storage directly. 
+This sample:
+* Uploads a file to an Azure Function
+* Uses **parse-multipart** npm package to get information about the uploaded file.
+* Uses **@azure/storage-blob** to generate a blob SAS token URL for the file. The URL should be handed back to a client or other service to read the file with authorization.
+* Uses a Function App **out** binding to upload the file to Blob Storage. This is the easiest way to get a file into blob storage. 
 
-The _out_ binding usage, used in this article, has some pros and cons:
+    :::image type="content" source="../../media/azure-function-file-upload-binding/azure-architecure.png" alt-text="Architectural diagram of browser uploading file to Azure Function App then connecting to Azure Storage in two ways: out binding and SDK.":::
 
-|Pros|Cons|
-|--|--|
-|* No code to write to _move_ a file from the function to storage<br><br>* No npm dependency for upload. The npm package is only used in this sample code to create a SAS token.|* function.json must be configured correctly<br><br>* Connection string (or any credential-less authentication) to storage must be configured correctly in environment.|
-
+While you can replace the _out_ binding with more code to upload the file to Blob storage, you can't replace the SDK with any _out_ binding to generate the SAS token URL. As you move from beginning code for this functionality to more complex code, you will probably replace the _out_ binding with [SDK upload calls](/azure/storage/blobs/storage-blob-upload-javascript#upload-by-blob-client).
 
 ## Prepare your development environment
 
