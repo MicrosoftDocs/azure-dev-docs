@@ -17,21 +17,24 @@ This article shows you how to create an Azure Function API, which uploads a file
 
 The Azure Function **file upload limit is 100 MB**. If you need to upload larger files, consider either a browser-based approach or a server app. 
 
-This sample uses an **Azure Function _out_ binding** instead of the Azure Storage npm package. By using the binding, you have to configure your function to correctly use the outbound binding to move the file from this function to the storage resource _without writing code to interact with Azure Storage_. 
+This sample uses an **Azure Function _out_ binding** and **Azure Blob Storage** npm package:
+* Binding: By using the binding, you have to configure your function to correctly use the outbound binding to move the file from this function to the storage resource.
+* Azure Blob Storage SDK: By using the SDK, the SDK creates a blob sas token, which can be used to hand off to anyone to read the uploaded file. The sas token can be available for a limited amount of time then the token expires.  
+* Multi-part form: The code required to read the uploaded file and convert it into a format that can be sent to storage is required, regardless if you use an out binding or an npm package to integrate with Azure Storage directly. 
 
 The _out_ binding usage, used in this article, has some pros and cons:
 
 |Pros|Cons|
 |--|--|
-|* No code to write to move a file from the function to storage<br><br>* No npm dependency for storage|* function.json must be configured correctly<br><br>* Connection string to storage must be configured correctly in environment|
+|* No code to write to _move_ a file from the function to storage<br><br>* No npm dependency for upload. The npm package is only used in this sample code to create a SAS token.|* function.json must be configured correctly<br><br>* Connection string (or any credential-less authentication) to storage must be configured correctly in environment.|
 
-The code required to read the uploaded file and convert it into a format that can be sent to storage is required, regardless if you use an out binding or an npm package to integrate with Azure Storage directly.
 
 ## Prepare your development environment
 
 Make sure the following are installed on your local developer workstation:
 
-- An Azure account with **an active subscription which you own**. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). Ownership is required to provide the correct Azure Active folder permissions to complete these steps.
+- An Azure account with **an active subscription which you own**. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
+    - Ownership is required to provide the correct Azure Active folder permissions to complete these steps. 
 - [Node.js LTS and npm](https://nodejs.org/en/download) - for local development.
 - [Visual Studio Code](https://code.visualstudio.com/) - to develop locally and to deploy to Azure. 
 - Visual Studio Code extensions:
@@ -43,9 +46,13 @@ Make sure the following are installed on your local developer workstation:
 
 A resource group holds both the Azure Function resource and the Azure Storage resource. Because both resources are in a single resource group, when you want to remove these resources, you remove the resource group. That action removes all resources in the resource group.
 
-1. In Visual Studio Code, select the Azure explorer, then select the **+** (Plus/Addition) icon under **Resource Groups**. 
+1. In Visual Studio Code, select the Azure explorer, then select the **+** (Plus/Addition) icon under **Resourcs**. 
 
-    :::image type="content" source="../../media/azure-function-file-upload-binding/visual-studio-code-create-resource-group.png" alt-text="Partial screenshot of Visual Studio Code's Azure Explorer showing the Resource Groups area with the Plus/Addition icon highlighted.":::
+    :::image type="content" source="../../media/azure-function-file-upload-binding/visual-studio-code-create-resource-group.png" alt-text="Partial screenshot of Visual Studio Code's Azure Explorer showing the Resources area with the Plus/Addition icon highlighted.":::
+
+1. Select **Create Resource Group** from the list of resources.
+
+    :::image type="content" source="../../media/azure-function-file-upload-binding/visual-studio-code-select-create-resource-group.png" alt-text="Partial screenshot of Visual Studio Code's Azure Explorer showing list of the resources with the `Create Resource Group` highlighted.":::
 
 1. Use the following table to finish creating the resource group:
 
