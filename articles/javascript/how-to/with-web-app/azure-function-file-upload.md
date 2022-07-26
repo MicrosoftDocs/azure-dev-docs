@@ -226,7 +226,7 @@ Now that the basic project folder structure and files are in place, add local st
 
 1. The Visual Studio Code **Azure: Activity log** shows progress:
 
-    :::image type="content" source="../../media/azure-function-file-upload-binding/visual-studio-create-function-app-azure-activity-log" alt-text="Screenshot of Visual Studio Code output window creating a function resource.":::
+    :::image type="content" source="../../media/azure-function-file-upload-binding/visual-studio-create-function-app-azure-activity-log.png" alt-text="Screenshot of Visual Studio Code output window creating a function resource.":::
 
 1. In Visual Studio Code, select the Azure explorer, then right-click on your new app in **Function App** resource area, then select **Deploy to Function app**. 
 
