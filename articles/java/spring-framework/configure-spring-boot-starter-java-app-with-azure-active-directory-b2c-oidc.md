@@ -6,7 +6,7 @@ documentationcenter: java
 manager: kevinzha
 author: KarlErickson
 ms.author: edburns
-ms.date: 06/30/2022
+ms.date: 07/22/2022
 ms.service: active-directory-b2c
 ms.tgt_pltfrm: multiple
 ms.topic: article
@@ -35,7 +35,7 @@ In this tutorial, you learn how to:
 * [Apache Maven](http://maven.apache.org/), version 3.0 or later.
 
 > [!IMPORTANT]
-> Spring Boot version 2.5 or 2.6 is required to complete the steps in this article.
+> Spring Boot version 2.5 or higher is required to complete the steps in this article.
 
 ## Create an app using Spring Initializr
 
@@ -45,7 +45,7 @@ In this tutorial, you learn how to:
 
    * Under **Project**, select **Maven Project**.
    * Under **Language**, select **Java**.
-   * Under **Spring Boot**, select **2.5.10**.
+   * Under **Spring Boot**, select **2.7.2**.
    * Under **Group**, **Artifact** and **Name** enter the same value, using a short descriptive string. The UI may automatically fill some of these out as you type.
    * In the **Dependencies** pane, select **Add Dependencies**. Use the UI to add dependencies on **Spring Web** and **Spring Security**.
 
