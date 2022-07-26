@@ -254,7 +254,7 @@
 | @autorest/codemodel | npm [4.19.0](https://www.npmjs.com/package/@autorest/codemodel/v/4.19.0) |  |  |
 | @autorest/common | npm [1.5.3](https://www.npmjs.com/package/@autorest/common/v/1.5.3) |  |  |
 | @autorest/configuration | npm [1.10.0](https://www.npmjs.com/package/@autorest/configuration/v/1.10.0) |  |  |
-| @autorest/csharp | npm [3.0.0-beta.20220725.1](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20220725.1) |  |  |
+| @autorest/csharp | npm [3.0.0-beta.20220726.1](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20220726.1) |  |  |
 | @autorest/csharp-v3 | npm [3.0.0-beta.20201217.1](https://www.npmjs.com/package/@autorest/csharp-v3/v/3.0.0-beta.20201217.1) |  |  |
 | @autorest/extension-base | npm [3.5.0](https://www.npmjs.com/package/@autorest/extension-base/v/3.5.0) |  |  |
 | @autorest/fixer | npm [1.1.0](https://www.npmjs.com/package/@autorest/fixer/v/1.1.0) |  |  |
@@ -300,7 +300,7 @@
 | @azure-tools/cadl-vs | npm [0.3.0](https://www.npmjs.com/package/@azure-tools/cadl-vs/v/0.3.0) |  |  |
 | @azure-tools/json | npm [1.2.2](https://www.npmjs.com/package/@azure-tools/json/v/1.2.2) |  |  |
 | @azure-tools/jsonschema | npm [1.2.1](https://www.npmjs.com/package/@azure-tools/jsonschema/v/1.2.1) |  |  |
-| @azure-tools/js-sdk-release-tools | npm [2.4.0](https://www.npmjs.com/package/@azure-tools/js-sdk-release-tools/v/2.4.0) |  |  |
+| @azure-tools/js-sdk-release-tools | npm [2.4.1](https://www.npmjs.com/package/@azure-tools/js-sdk-release-tools/v/2.4.1) |  |  |
 | @azure-tools/mock-service-host | npm [0.1.17](https://www.npmjs.com/package/@azure-tools/mock-service-host/v/0.1.17) |  |  |
 | @azure-tools/oav-traffic-converter | npm [0.1.0](https://www.npmjs.com/package/@azure-tools/oav-traffic-converter/v/0.1.0) |  |  |
 | @azure-tools/prettier-plugin-adl | npm [0.1.4](https://www.npmjs.com/package/@azure-tools/prettier-plugin-adl/v/0.1.4) |  |  |
