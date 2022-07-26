@@ -26,7 +26,7 @@ Following this tutorial, you'll have the basis for Continuous Integration (CI) a
 ## Service overview
 
 The service diagram supporting this tutorial shows two environments (developer environment and Azure) and the different Azure services used in the tutorial.
-	
+
 :::image type="content" source="./media/tutorial-container-web-app/containerization-of-python-apps-overview.png" alt-text="A screenshot of the services using in the Tutorial - Containerized Python App on Azure." lightbox="./media/tutorial-container-web-app/containerization-of-python-apps-overview.png":::
 
 The components supporting this tutorial and shown in the diagram above are:
@@ -78,11 +78,11 @@ To complete this tutorial, you'll need:
 
 * [Docker][4] installed locally if you want to run container locally.
 
-
 ## Sample app
 
 The Python sample app is a restaurant review app that saves restaurant and review data in MongoDB. At the end of the tutorial, you'll have a restaurant review app deployed and running in Azure.
 
+:::image type="content" source="./media/tutorial-container-web-app/containerization-of-python-web-app-sample-app-screenshot.png" alt-text="A screenshot of the sample app created from the Python containerized web app used in the Tutorial - Containerized Python App on Azure." lightbox="./media/tutorial-container-web-app/containerization-of-python-web-app-sample-app-screenshot.png":::
 
 [1]: https://azure.microsoft.com/services/app-service/
 [2]: /azure/cosmos-db/mongodb/mongodb-introduction
