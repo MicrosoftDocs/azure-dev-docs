@@ -10,7 +10,7 @@ ms.prod: azure-python
 ms.custom: devx-track-python, devx-track-azurecli
 ---
 
-# Containerize tutorial clean up and next steps
+# Containerize tutorial cleanup and next steps
 
 This article is part of a tutorial about how to containerize and deploy a Python web app to Azure App Service. In this article, you'll clean up resources used in Azure so you don't incur other charges and help keep your Azure subscription uncluttered. You can leave the Azure resources running if you want to use them for further development work. 
 
@@ -58,6 +58,8 @@ After completing this tutorial, here are some next steps you can take to build u
 * Monitor App Service for availability, performance, and operation, see [Monitoring App Service](/azure/app-service/monitor-app-service) and [Set up Azure Monitor for your Python application](/azure/azure-monitor/app/opencensus-python).
 
 * Enable continuous deployment to Azure App Service, see [Continuous deployment to Azure App Service](/azure/app-service/deploy-continuous-deployment), [Use CI/CD to deploy a Python web app to Azure App Service on Linux](/azure/devops/pipelines/ecosystems/python-webapp), and [Design a CI/CD pipeline using Azure DevOps](/azure/architecture/example-scenario/apps/devops-dotnet-webapp).
+
+* Create reusable infrastructure as code with [Azure Developer CLI (azd) Preview](/azure/developer/azure-developer-cli/overview). 
 
 ## 3. Related Microsoft Learn modules
 
