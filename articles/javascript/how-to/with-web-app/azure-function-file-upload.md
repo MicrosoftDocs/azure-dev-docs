@@ -19,7 +19,7 @@ The Azure Function **file upload limit is 100 MB**. If you need to upload larger
 
 This sample uses an **Azure Function _out_ binding** and **Azure Blob Storage** npm package:
 * Binding: By using the binding, you have to configure your function to correctly use the outbound binding to move the file from this function to the storage resource.
-* Azure Blob Storage SDK: By using the SDK, the SDK creates a blob sas token, which can be used to hand off to anyone to read the uploaded file. The sas token can be available for a limited amount of time then the token expires.  
+* Azure Blob Storage SDK: By using the SDK, the SDK creates a blob sas token, which can be used to hand off to anyone to read the uploaded file. The SAS token can be available for a limited amount of time then the token expires.  
 * Multi-part form: The code required to read the uploaded file and convert it into a format that can be sent to storage is required, regardless if you use an out binding or an npm package to integrate with Azure Storage directly. 
 
 The _out_ binding usage, used in this article, has some pros and cons:
@@ -46,7 +46,7 @@ Make sure the following are installed on your local developer workstation:
 
 A resource group holds both the Azure Function resource and the Azure Storage resource. Because both resources are in a single resource group, when you want to remove these resources, you remove the resource group. That action removes all resources in the resource group.
 
-1. In Visual Studio Code, select the Azure explorer, then select the **+** (Plus/Addition) icon under **Resourcs**. 
+1. In Visual Studio Code, select the Azure explorer, then select the **+** (Plus/Addition) icon under **Resources**. 
 
     :::image type="content" source="../../media/azure-function-file-upload-binding/visual-studio-code-create-resource-group.png" alt-text="Partial screenshot of Visual Studio Code's Azure Explorer showing the Resources area with the Plus/Addition icon highlighted.":::
 
@@ -61,11 +61,11 @@ A resource group holds both the Azure Function resource and the Azure Storage re
     |Enter the name of the new resource group.|`blob-storage-upload-function-group`|If you choose a different name, remember to use it as a replacement for this name when you see it in the rest of this article.|
     |Select a location for new resources. |Select a region close to you.||
 
-## <a name="#create-the-local-functions-app-with-the-visual-studio-code"></a>2. Create the local Functions app
+## <a name="#create-the-local-functions-app-with-the-visual-studio-code"></a>2. Create the local Function app
 
 1. Create a new folder on your local workstation, then open Visual Studio Code in this folder. 
 
-1. In Visual Studio Code, open the **Command Palette** (View -> Command Palette | <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd>), then filter and select **Azure Functions: Create New Project ...**
+1. In Visual Studio Code, open the **Command Palette** (View -> Command Palette | <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd>), then filter and select **Azure Function: Create New Project ...**
 
 1. Use the following table to finish creating the local Azure Function project:
 
@@ -200,13 +200,13 @@ Now that the basic project folder structure and files are in place, add local st
 
 <a name="use-visual-studio-code-extension-to-deploy-to-hosting-environment"></a>
 
-## 8. Create Functions App resource 
+## 8. Create Function App resource 
 
 1. In Visual Studio Code, select the Azure explorer, then right-click on **Function App**, then select **Create Function App in Azure (Advanced)**. 
 
     :::image type="content" source="../../media/azure-function-file-upload-binding/visual-studio-code-create-function-app-resource-advanced-selection.png" alt-text="Partial screenshot of Visual Studio Code's Azure Explorer showing the Resources area, Function App with the right-click menu item highlighted.":::
 
-    Alternately, you can create a Funcions App by opening the **Command Palette** (**F1**), entering `Azure Functions:`, and running the **Azure Functions: Create Function App in Azure (Advanced)** command.
+    Alternately, you can create a Function App by opening the **Command Palette** (**F1**), entering `Azure Functions:`, and running the **Azure Functions: Create Function App in Azure (Advanced)** command.
 
 1. Use the following table to complete the prompts to create a new Azure Function resource. 
 
@@ -267,7 +267,7 @@ Once deployment is completed and the _AzureWebJobsStorage_ app setting have been
 
     :::code language="bash" source="~/../js-e2e-azure-function-upload-file/upload-azure.sh":::
 
-1. In Visual Studio Code, select the Azure explorer, then expand the node for your Functions app, then expand **Functions**. Right-click the function name, `upload` and select **Copy Function Url**.
+1. In Visual Studio Code, select the Azure explorer, then expand the node for your Function app, then expand **Functions**. Right-click the function name, `upload` and select **Copy Function Url**.
 
 1. Execute that bash script in the terminal from the project's root folder:
 
@@ -308,7 +308,7 @@ Once deployment is completed and the _AzureWebJobsStorage_ app setting have been
 
 1. Select **Run**.
 
-    If the log doesn't display any results, it may be because there is a few minutes delay between the HTTP request to the Azure Function and the log availability in Kusto. Wait a few minutes and run the query again.
+    If the log doesn't display any results, it may be because there's a few minutes delay between the HTTP request to the Azure Function and the log availability in Kusto. Wait a few minutes and run the query again.
 
     :::image type="content" source="../../media/azure-function-file-upload-binding/azure-portal-function-application-insight-trace-message.png" alt-text="Browser screenshot showing Azure portal Kusto query result for Trace table." lightbox="../../media/azure-function-file-upload-binding/azure-portal-function-application-insight-trace-message.png":::
    
@@ -323,7 +323,7 @@ Once deployment is completed and the _AzureWebJobsStorage_ app setting have been
 
 ## Troubleshooting
 
-* **SPLIT**: If you try to use this sample and run into an error regarding `split` from the `parse-multipart` library, verify that you are sending the `filename` property in your multiform data and that you are sending the `content-type` header into the function
+* **SPLIT**: If you try to use this sample and run into an error regarding `split` from the `parse-multipart` library, verify that you're sending the `filename` property in your multiform data and that you're sending the `content-type` header into the function
 * **Debug in Dev Container**: If you run this app in its dev container in Visual Studio Code, make sure the Azure Function extensions in installed and _enabled_ in the dev container. You may have to rebuild the container.
 
 
