@@ -5,7 +5,7 @@ author: jess-johnson-msft
 ms.author: jejohn
 ms.devlang: python
 ms.topic: tutorial
-ms.date: 07/22/2022
+ms.date: 07/27/2022
 ms.prod: azure-python
 ms.custom: devx-track-python, devx-track-azurecli
 ---
@@ -118,7 +118,7 @@ If you don't see the sample app, here are troubleshooting steps you can try.
 
 * With container deployment and App Service, always check the **Deployment Center** / **Logs** page. Confirm that the container was pulled and is running. The initial pull and running of the container can take a few moments.
 * Try to restart the App Service and see if that resolves your issue.
-* If you added code to the sample app or, in general, there are programming errors, those will show up in the application logs. In the App Server, select **Diagnose and solve problems**/**Application logs**.
+* If there are programming errors, those errors will show up in the application logs. In the App Server, select **Diagnose and solve problems**/**Application logs**.
 * Since the sample app relies on a connection to MongoDB, confirm you have the application settings with the correct connection info.
 * Confirm that managed identity is enabled for the App Service and is used in the Deployment Center. Go to the App Service **Deployment Center** resource and confirm that **Authentication** is set to **Managed Identity**.
 * [Different Azure Container Registry skus](/azure/container-registry/container-registry-skus) have different features, including number of webhooks. Webhooks are automatically created for you if you followed the steps in this tutorial. However, if you're reusing an existing registry you could see the message: "Quota exceeded for resource type webhooks for the registry SKU Basic. Learn more about different SKU quotas and upgrade process: https://aka.ms/acr/tiers". If you see this message, use a new registry, or reduce the number of [registry webhooks](/azure/container-registry/container-registry-webhook) in use.

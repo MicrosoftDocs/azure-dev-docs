@@ -2,7 +2,7 @@
 author: jess-johnson-msft
 ms.author: jejohn
 ms.topic: include
-ms.date: 07/12/2022
+ms.date: 07/27/2022
 ---
 
 Create a webhook so that pushes to the Azure Container Registry trigger updates to the App Service.

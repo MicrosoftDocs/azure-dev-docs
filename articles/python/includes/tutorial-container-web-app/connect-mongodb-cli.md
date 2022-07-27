@@ -2,7 +2,7 @@
 author: jess-johnson-msft
 ms.author: jejohn
 ms.topic: include
-ms.date: 07/12/2022
+ms.date: 07/27/2022
 ---
 
 To set environment variables in App Service, you create *app settings* with the following [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#az-webapp-config-appsettings-set) command.
@@ -34,4 +34,4 @@ az webapp config appsettings set `
 * CONNECTION_STRING &rarr; A connection string that starts with "mongodb://".
 * DB_NAME &rarr; Use "restaurants_reviews".
 * COLLECTION_NAME &rarr; Use "restaurants_reviews".
-* WEBSITES_PORT &rarr; Use "8000" for Django and "5000" for Flask. This environment variables specifies the port on which the container is listening.
+* WEBSITES_PORT &rarr; Use "8000" for Django and "5000" for Flask. This environment variable specifies the port on which the container is listening.

@@ -2,7 +2,7 @@
 author: jess-johnson-msft
 ms.author: jejohn
 ms.topic: include
-ms.date: 07/22/2022
+ms.date: 07/27/2022
 ---
 
 **Step 1.** Configure the web app to use managed identity.
@@ -62,7 +62,7 @@ SERVICE_URI='https://$'$APP_SERVICE_NAME':'$CREDENTIAL'@'$APP_SERVICE_NAME'.scm.
 $LOCATION='<location-of-registry>'
 
 az acr webhook create \
-  --name webhookwebapp10 \
+  --name webhookwebapp \
   --location $LOCATION \
   --resource-group $RESOURCE_GROUP_NAME \
   --registry $REGISTRY_NAME \
