@@ -25,4 +25,4 @@ Then, create the webhook:
    * **Status** &rarr; Select **On**.
    * **Scope** &rarr; Enter "msdocspythoncontainerwebapp:*"/
 
-The service URI is formatted as "https://$" + APP_SERVICE_NAME + ":" + CREDENTIAL + "@" + APP_SERVICE_NAME + ".scm.azurewebsites.net/api/registry/webhook". For example: "https://$msdocs-python-container-web-app:axyzddTestingjad2@msdocs-python-container-web-app.scm.azurewebsites.net/api/registry/webhook".
+The service URI is formatted as "https://$" + APP_SERVICE_NAME + ":" + CREDENTIAL + "@" + APP_SERVICE_NAME + ".scm.azurewebsites.net/api/registry/webhook". For example: "https://$msdocs-python-container-web-app:credential@msdocs-python-container-web-app.scm.azurewebsites.net/api/registry/webhook".
