@@ -34,7 +34,7 @@ az webapp config set `
 ```azurecli
 az webapp config show \
   --resource-group $RESOURCE_GROUP_NAME \
-  --name $APP_SERVICE_NAME 
+  --name $APP_SERVICE_NAME \
   --query acrUseManagedIdentityCreds
 ```
 
@@ -43,7 +43,7 @@ az webapp config show \
 ```azurecli
 az webapp config show `
   --resource-group $RESOURCE_GROUP_NAME `
-  --name $APP_SERVICE_NAME 
+  --name $APP_SERVICE_NAME `
   --query acrUseManagedIdentityCreds
 ```
 
