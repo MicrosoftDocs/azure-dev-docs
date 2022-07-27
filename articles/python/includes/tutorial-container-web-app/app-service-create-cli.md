@@ -27,12 +27,12 @@ echo $RESOURCE_ID
 $RESOURCE_GROUP_NAME='msdocs-web-app'
 $REGISTRY_NAME='msdocsregistry'
 
-RESOURCE_ID=$(az acr show `
+$RESOURCE_ID=$((az acr show `
   --resource-group $RESOURCE_GROUP_NAME ` 
   --name $REGISTRY_NAME `
   --query id `
-  --output tsv)
-Get-Variable RESOURCE_ID
+  --output tsv))
+$RESOURCE_ID
 ```
 
 ---
