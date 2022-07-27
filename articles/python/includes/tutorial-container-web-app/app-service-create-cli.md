@@ -5,17 +5,15 @@ ms.topic: include
 ms.date: 07/27/2022
 ---
 
-**Step 1.** Get the resource ID of the Azure Container Registry.
+**Step 1.** Get the resource ID of the group containing Azure Container Registry.
 
 #### [bash](#tab/terminal-bash)
 
 ```azurecli
 RESOURCE_GROUP_NAME='msdocs-web-app'
-REGISTRY_NAME='msdocsregistry'
 
-RESOURCE_ID=$(az acr show \
+RESOURCE_ID=$(az group show \
   --resource-group $RESOURCE_GROUP_NAME \
-  --name $REGISTRY_NAME \
   --query id \
   --output tsv)
 echo $RESOURCE_ID
@@ -25,11 +23,9 @@ echo $RESOURCE_ID
 
 ```azurecli
 $RESOURCE_GROUP_NAME='msdocs-web-app'
-$REGISTRY_NAME='msdocsregistry'
 
-$RESOURCE_ID=$((az acr show `
+$RESOURCE_ID=$((az group show `
   --resource-group $RESOURCE_GROUP_NAME ` 
-  --name $REGISTRY_NAME `
   --query id `
   --output tsv))
 $RESOURCE_ID
