@@ -67,7 +67,8 @@ az appservice plan create `
 
 ```azurecli
 APP_SERVICE_NAME='<website-name>'
-CONTAINER_NAME='msdocspythoncontainerwebapp'
+$REGISTRY_NAME='msdocstutorialregistry'
+$CONTAINER_NAME=$REGISTRY_NAME+'.azurecr.io/msdocspythoncontainerwebapp'
 
 az webapp create \
   --resource-group $RESOURCE_GROUP_NAME \
@@ -82,8 +83,9 @@ az webapp create \
 #### [PowerShell terminal](#tab/terminal-powershell)
 
 ```azurecli
-$APP_SERVICE_NAME=<website-name>
-$CONTAINER_NAME='msdocspythoncontainerwebapp'
+$APP_SERVICE_NAME='<website-name>'
+$REGISTRY_NAME='<registry-name>'
+$CONTAINER_NAME=$REGISTRY_NAME+'.azurecr.io/msdocspythoncontainerwebapp'
 
 az webapp create `
   --resource-group $RESOURCE_GROUP_NAME `
