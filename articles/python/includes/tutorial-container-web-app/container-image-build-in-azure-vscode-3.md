@@ -11,4 +11,4 @@ Fill out the information to build the image.
 * **Registry** &rarr; Select the registry you created above or one you have access to.
 * **Base OS image** &rarr; Select **Linux**.
 
-Check the **OUTPUT** window for progress and information on the build. If the get a credentials error, use [az login](/cli/azure/reference-index#az-login) to refresh your credentials.
+Check the **OUTPUT** window for progress and information on the build. If the get a credentials error, right-click the registry in the **REGISTRIES** section of the Docker extension and select **Refresh**.
