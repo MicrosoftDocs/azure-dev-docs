@@ -27,7 +27,7 @@ az webapp config set `
 
 ---
 
-**Step 2.** Get application scope credential.
+**Step 2.** Get the application scope credential.
 
 #### [bash](#tab/terminal-bash)
 
@@ -53,7 +53,7 @@ $CREDENTIAL
 
 ---
 
-**Step 3.** Use credential to create a webhook.
+**Step 3.** Use the application scope credential to create a webhook.
 
 #### [bash](#tab/terminal-bash)
 
