@@ -55,7 +55,7 @@ Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com
 
 ---
 
-## 2. Configure managed identity
+## 2. Configure managed identity and webhook
 
 ### [Azure portal](#tab/azure-portal)
 
@@ -71,7 +71,9 @@ In [Azure portal](https://portal.azure.com/), follow these steps to enable manag
 
 ### [VS Code](#tab/vscode-aztools)
 
-If you deployed the image with Visual Studio Code, managed identity is already set for the App Service to pull images from the registry. You can confirm managed identity is enabled by reviewing the logs of the **OUTPUT** window and looking for the message "Granting permission for App Service to pull image from ACR...".
+If you deployed the image with Visual Studio Code, managed identity is already set for the App Service to pull images from the registry. You can confirm managed identity is enabled by reviewing the logs of the **OUTPUT** window and looking for the message "Granting permission for App Service to pull image from ACR...". 
+
+Also, a webhook was also created. You can review the webhooks defined for an Azure Container Registry in the Azure portal or with the Azure CLI.
 
 ### [Azure CLI](#tab/azure-cli)
 
