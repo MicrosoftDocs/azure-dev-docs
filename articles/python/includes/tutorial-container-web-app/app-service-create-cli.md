@@ -86,7 +86,7 @@ az webapp create \
 #### [PowerShell terminal](#tab/terminal-powershell)
 
 ```azurecli
-$SITE_NAME=<website-name>
+$APP_SERVICE_NAME=<website-name>
 $CONTAINER_NAME='msdocspythoncontainerwebapp'
 
 az webapp create `
