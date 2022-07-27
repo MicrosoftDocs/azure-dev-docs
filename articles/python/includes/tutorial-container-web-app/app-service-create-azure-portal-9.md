@@ -5,14 +5,14 @@ ms.topic: include
 ms.date: 07/12/2022
 ---
 
-Create a webhook so that pushes to registry trigger updates to the App Service.
-
+Create a webhook so that pushes to the Azure Container Registry trigger updates to the App Service.
+<br><br>
 First, get the application scope credential:
 
 * Go to the **Deployment Center** resource of the App Service.
 * In the **FTPS credentials** tab, get the **Password** value under **Application Scope**.
 
-Then, create the webhook:
+Then, create the webhook using the credential value and App Service name:
 
 * Go to the Azure Container Registry that has the repo and container image and select the **Webhooks** resource page.
 * On the webhooks page, select **+ Add**.
