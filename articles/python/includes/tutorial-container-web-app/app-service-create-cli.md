@@ -101,5 +101,5 @@ az webapp create `
 
 Note:
 
-* *\<website-name>* must be unique as it becomes the URL `https://<website-name>.azurewebsites.net`.
-* *\<container-name>* is of the form "myregistryname.azurecr.io/repo_name:tag".
+* $APP_SERVICE_NAME must be unique as it becomes the URL `https://<website-name>.azurewebsites.net`.
+* $CONTAINER_NAME is of the form "myregistryname.azurecr.io/repo_name:tag".
