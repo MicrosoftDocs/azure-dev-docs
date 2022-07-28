@@ -140,6 +140,7 @@
 | Resource Management - Stream Analytics | NuGet [1.0.0-beta.1](https://www.nuget.org/packages/Azure.ResourceManager.StreamAnalytics/1.0.0-beta.1) | [docs](/dotnet/api/overview/azure/ResourceManager.StreamAnalytics-readme-pre) | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.StreamAnalytics_1.0.0-beta.1/sdk/streamanalytics/Azure.ResourceManager.StreamAnalytics/) |
 | Resource Management - Web PubSub | NuGet [1.0.0](https://www.nuget.org/packages/Azure.ResourceManager.WebPubSub/1.0.0) | [docs](/dotnet/api/overview/azure/ResourceManager.WebPubSub-readme) | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.WebPubSub_1.0.0/sdk/webpubsub/Azure.ResourceManager.WebPubSub/) |
 | Workloads | NuGet [1.0.0-beta.1](https://www.nuget.org/packages/Azure.ResourceManager.Workloads/1.0.0-beta.1) | [docs](/dotnet/api/overview/azure/ResourceManager.Workloads-readme-pre) | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Workloads_1.0.0-beta.1/sdk/workloads/Azure.ResourceManager.Workloads/) |
+| Azure.Analytics.Purview.Share | NuGet [1.0.3-beta.20](https://www.nuget.org/packages/Azure.Analytics.Purview.Share/1.0.3-beta.20) |  |  |
 | Azure.Communication.Administration | NuGet [1.0.0-beta.3](https://www.nuget.org/packages/Azure.Communication.Administration/1.0.0-beta.3) |  |  |
 | Azure.Communication.Calling | NuGet [1.0.0-beta.32](https://www.nuget.org/packages/Azure.Communication.Calling/1.0.0-beta.32) |  |  |
 | Azure.Communication.CallingServer | NuGet [1.0.0-beta.3](https://www.nuget.org/packages/Azure.Communication.CallingServer/1.0.0-beta.3) |  |  |
@@ -202,7 +203,7 @@
 | Microsoft.Azure.Management.Profiles.hybrid_2020_09_01.Subscription | NuGet [1.0.0](https://www.nuget.org/packages/Microsoft.Azure.Management.Profiles.hybrid_2020_09_01.Subscription/1.0.0) |  |  |
 | Microsoft.Azure.Management.Profiles.hybrid_2020_09_01.Websites | NuGet [1.0.0](https://www.nuget.org/packages/Microsoft.Azure.Management.Profiles.hybrid_2020_09_01.Websites/1.0.0) |  |  |
 | Microsoft.Azure.Management.ProviderHub | NuGet [1.0.0-beta.1](https://www.nuget.org/packages/Microsoft.Azure.Management.ProviderHub/1.0.0-beta.1) |  |  |
-| Microsoft.Azure.Management.Purview | NuGet [1.0.2](https://www.nuget.org/packages/Microsoft.Azure.Management.Purview/1.0.2) |  |  |
+| Microsoft.Azure.Management.Purview | NuGet [1.0.1](https://www.nuget.org/packages/Microsoft.Azure.Management.Purview/1.0.1) |  |  |
 | Microsoft.Azure.Management.Quantum | NuGet [1.0.0-beta.2](https://www.nuget.org/packages/Microsoft.Azure.Management.Quantum/1.0.0-beta.2) |  |  |
 | Microsoft.Azure.Management.Quota | NuGet [1.0.0-preview](https://www.nuget.org/packages/Microsoft.Azure.Management.Quota/1.0.0-preview) |  |  |
 | Microsoft.Azure.Management.ServiceFabricManagedClusters | NuGet [1.0.0](https://www.nuget.org/packages/Microsoft.Azure.Management.ServiceFabricManagedClusters/1.0.0) |  |  |
