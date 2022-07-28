@@ -345,8 +345,8 @@
 | azure-resourcemanager-workloads | Maven [1.0.0-beta.1](https://search.maven.org/artifact/com.azure.resourcemanager/azure-resourcemanager-workloads/1.0.0-beta.1/jar/) |  |  |
 | azure-sdk-archetype | Maven [1.0.0](https://search.maven.org/artifact/com.azure.tools/azure-sdk-archetype/1.0.0/jar/) |  |  |
 | azure-sdk-build-tool | Maven [1.0.0-beta.1](https://search.maven.org/artifact/com.azure.tools/azure-sdk-build-tool/1.0.0-beta.1/jar/) |  |  |
-| azure-sdk-template-three | Maven [1.0.0-beta.1692141](https://search.maven.org/artifact/com.azure/azure-sdk-template-three/1.0.0-beta.1692141/jar/) |  |  |
-| azure-sdk-template-two | Maven [1.0.0-beta.1692141](https://search.maven.org/artifact/com.azure/azure-sdk-template-two/1.0.0-beta.1692141/jar/) |  |  |
+| azure-sdk-template-three | Maven [1.0.0-beta.1736437](https://search.maven.org/artifact/com.azure/azure-sdk-template-three/1.0.0-beta.1736437/jar/) |  |  |
+| azure-sdk-template-two | Maven [1.0.0-beta.1736437](https://search.maven.org/artifact/com.azure/azure-sdk-template-two/1.0.0-beta.1736437/jar/) |  |  |
 | azure-spring-apps-maven-plugin | Maven [1.12.0](https://search.maven.org/artifact/com.microsoft.azure/azure-spring-apps-maven-plugin/1.12.0/jar/) |  |  |
 | azure-storage-fastpath | Maven [1.0.0-beta.6](https://search.maven.org/artifact/com.azure/azure-storage-fastpath/1.0.0-beta.6/jar/) |  |  |
 | azure-toolkit-applicationinsights-lib | Maven [0.22.1](https://search.maven.org/artifact/com.microsoft.azure/azure-toolkit-applicationinsights-lib/0.22.1/jar/) |  |  |

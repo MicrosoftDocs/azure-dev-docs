@@ -318,3 +318,5 @@ spring:
 ### Samples
 
 See the [azure-spring-boot-samples](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/spring-cloud-azure_4.3.0) repository on GitHub.
+
+[!INCLUDE [remove-credentials-from-spring-kafka-applications](./remove-credentials-from-spring-kafka-applications.md)]
