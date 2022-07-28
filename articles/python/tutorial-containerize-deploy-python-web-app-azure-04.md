@@ -72,9 +72,10 @@ Go to the [Azure portal](https://portal.azure.com/) to follow these steps.
 
 ### [VS Code](#tab/vscode-aztools)
 
-If you deployed the image with Visual Studio Code, managed identity is already set for the App Service to pull images from the registry. You can confirm managed identity is enabled by reviewing the logs of the **OUTPUT** window and looking for the message "Granting permission for App Service to pull image from ACR...". 
-
-Also, a webhook was created that enables the web app to pull new images from the Azure Container Registry. You can review the webhooks defined for an Azure Container Registry in the Azure portal or with the Azure CLI.
+| Instructions    | Screenshot |
+|:----------------|-----------:|
+| [!INCLUDE [Include showing how to confirm managed identity for an App Service in VS Code](<./includes/tutorial-container-web-app/app-service-create-visual-studio-code-5.md>)] | :::image type="content" source="./media/tutorial-container-web-app/visual-studio-create-app-output-240px.png" lightbox="./media/tutorial-container-web-app/visual-studio-create-app-output.png" alt-text="A screenshot showing how to confirm managed identity was set for an App Service in the Visual Studio Code output window." ::: |
+| [!INCLUDE [Include showing how to check webhook configuration in Azure portal](<./includes/tutorial-container-web-app/app-service-create-visual-studio-code-6.md>)] | :::image type="content" source="./media/tutorial-container-web-app/visual-studio-create-app-webhook-240px.png" lightbox="./media/tutorial-container-web-app/visual-studio-create-app-webhook.png" alt-text="A screenshot showing how to check a webhook configuration." ::: |
 
 ### [Azure CLI](#tab/azure-cli)
 
