@@ -5,7 +5,7 @@ ms.topic: include
 ms.date: 07/27/2022
 ---
 
-**Step 1.** Get the resource ID of the group containing Azure Container Registry.
+**Step 1.** Get the resource ID of the group containing Azure Container Registry with the [az group show](/cli/azure/group#az-group-show) command.
 
 #### [bash](#tab/terminal-bash)
 
@@ -33,7 +33,7 @@ $RESOURCE_ID
 
 ---
 
-**Step 2.** Create an App Service plan.
+**Step 2.** Create an App Service plan with the [az appservice plan create](/cli/azure/appservice/plan#az-appservice-plan-create) command.
 
 #### [bash](#tab/terminal-bash)
 
@@ -61,7 +61,7 @@ az appservice plan create `
 
 ---
 
-**Step 3.** Create a web app with the resource ID scope and role.
+**Step 3.** Create a web app with the [az webapp create](/cli/azure/webapp#az-webapp-create) command specify the resource ID as the scope and role as "AcrPull".
 
 #### [bash](#tab/terminal-bash)
 

@@ -5,7 +5,7 @@ ms.topic: include
 ms.date: 07/27/2022
 ---
 
-**Step 1.** Configure the web app to use managed identity.
+**Step 1.** Configure the web app to use managed identity with the [az webapp config set](/cli/azure/webapp/config#az-webapp-config-set) command.
 
 #### [bash](#tab/terminal-bash)
 
@@ -27,7 +27,7 @@ az webapp config set `
 
 ---
 
-**Step 2.** Get the application scope credential.
+**Step 2.** Get the application scope credential with the [az webapp deployment list-publishing-credentials](/cli/azure/webapp/deployment#az-webapp-deployment-list-publishing-credentials) command.
 
 #### [bash](#tab/terminal-bash)
 
@@ -53,7 +53,7 @@ $CREDENTIAL
 
 ---
 
-**Step 3.** Use the application scope credential to create a webhook.
+**Step 3.** Use the application scope credential to create a webhook with the [az acr webhook create](/azure/acr/webhook#az-acr-webhook-create) command.
 
 #### [bash](#tab/terminal-bash)
 
