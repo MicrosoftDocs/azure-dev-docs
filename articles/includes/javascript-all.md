@@ -186,7 +186,7 @@
 | Resource Management - Migrate | npm [2.0.2](https://www.npmjs.com/package/@azure/arm-migrate/v/2.0.2) | [docs](/javascript/api/overview/azure/arm-migrate-readme) | GitHub [2.0.2](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/migrate/arm-migrate) |
 | Resource Management - Mixed Reality | npm [4.0.1](https://www.npmjs.com/package/@azure/arm-mixedreality/v/4.0.1) | [docs](/javascript/api/overview/azure/arm-mixedreality-readme) | GitHub [4.0.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/mixedreality/arm-mixedreality) |
 | Resource Management - Mobilenetwork | npm [1.0.0-beta.2](https://www.npmjs.com/package/@azure/arm-mobilenetwork/v/1.0.0-beta.2) | [docs](/javascript/api/overview/azure/arm-mobilenetwork-readme) | GitHub [1.0.0-beta.2](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-mobilenetwork_1.0.0-beta.2/sdk/mobilenetwork/arm-mobilenetwork/) |
-| Resource Management - Monitor | npm [7.0.0](https://www.npmjs.com/package/@azure/arm-monitor/v/7.0.0)<br>npm [8.0.0-beta.1](https://www.npmjs.com/package/@azure/arm-monitor/v/8.0.0-beta.1) | [docs](/javascript/api/overview/azure/arm-monitor-readme) | GitHub [7.0.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/monitor/arm-monitor) |
+| Resource Management - Monitor | npm [7.0.0](https://www.npmjs.com/package/@azure/arm-monitor/v/7.0.0)<br>npm [8.0.0-beta.2](https://www.npmjs.com/package/@azure/arm-monitor/v/8.0.0-beta.2) | [docs](/javascript/api/overview/azure/arm-monitor-readme) | GitHub [7.0.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/monitor/arm-monitor) |
 | Resource Management - MySQL | npm [5.0.1](https://www.npmjs.com/package/@azure/arm-mysql/v/5.0.1) | [docs](/javascript/api/overview/azure/arm-mysql-readme) | GitHub [5.0.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/mysql/arm-mysql) |
 | Resource Management - NetApp | npm [16.1.0](https://www.npmjs.com/package/@azure/arm-netapp/v/16.1.0) | [docs](/javascript/api/overview/azure/arm-netapp-readme) | GitHub [16.1.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/netapp/arm-netapp) |
 | Resource Management - Network | npm [28.0.0](https://www.npmjs.com/package/@azure/arm-network/v/28.0.0) | [docs](/javascript/api/overview/azure/arm-network-readme) | GitHub [28.0.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/network/arm-network) |
@@ -254,11 +254,11 @@
 | @autorest/codemodel | npm [4.19.0](https://www.npmjs.com/package/@autorest/codemodel/v/4.19.0) |  |  |
 | @autorest/common | npm [1.5.3](https://www.npmjs.com/package/@autorest/common/v/1.5.3) |  |  |
 | @autorest/configuration | npm [1.10.1](https://www.npmjs.com/package/@autorest/configuration/v/1.10.1) |  |  |
-| @autorest/csharp | npm [3.0.0-beta.20220727.5](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20220727.5) |  |  |
+| @autorest/csharp | npm [3.0.0-beta.20220727.7](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20220727.7) |  |  |
 | @autorest/csharp-v3 | npm [3.0.0-beta.20201217.1](https://www.npmjs.com/package/@autorest/csharp-v3/v/3.0.0-beta.20201217.1) |  |  |
 | @autorest/extension-base | npm [3.5.0](https://www.npmjs.com/package/@autorest/extension-base/v/3.5.0) |  |  |
 | @autorest/fixer | npm [1.1.0](https://www.npmjs.com/package/@autorest/fixer/v/1.1.0) |  |  |
-| @autorest/gotest | npm [4.1.0](https://www.npmjs.com/package/@autorest/gotest/v/4.1.0) |  |  |
+| @autorest/gotest | npm [4.2.0](https://www.npmjs.com/package/@autorest/gotest/v/4.2.0) |  |  |
 | @autorest/schemas | npm [1.3.4](https://www.npmjs.com/package/@autorest/schemas/v/1.3.4) |  |  |
 | @autorest/system-requirements | npm [1.0.0](https://www.npmjs.com/package/@autorest/system-requirements/v/1.0.0) |  |  |
 | @autorest/testmodeler | npm [2.3.0](https://www.npmjs.com/package/@autorest/testmodeler/v/2.3.0) |  |  |
@@ -294,6 +294,10 @@
 | @azure-tools/cadl-openapi | npm [0.4.1](https://www.npmjs.com/package/@azure-tools/cadl-openapi/v/0.4.1) |  |  |
 | @azure-tools/cadl-providerhub | npm [0.19.0](https://www.npmjs.com/package/@azure-tools/cadl-providerhub/v/0.19.0) |  |  |
 | @azure-tools/cadl-providerhub-controller | npm [0.14.0](https://www.npmjs.com/package/@azure-tools/cadl-providerhub-controller/v/0.14.0) |  |  |
+| @azure-tools/cadl-ranch | npm [0.1.0](https://www.npmjs.com/package/@azure-tools/cadl-ranch/v/0.1.0) |  |  |
+| @azure-tools/cadl-ranch-api | npm [0.1.0](https://www.npmjs.com/package/@azure-tools/cadl-ranch-api/v/0.1.0) |  |  |
+| @azure-tools/cadl-ranch-expect | npm [0.1.0](https://www.npmjs.com/package/@azure-tools/cadl-ranch-expect/v/0.1.0) |  |  |
+| @azure-tools/cadl-ranch-specs | npm [0.1.0](https://www.npmjs.com/package/@azure-tools/cadl-ranch-specs/v/0.1.0) |  |  |
 | @azure-tools/cadl-rest | npm [0.4.1](https://www.npmjs.com/package/@azure-tools/cadl-rest/v/0.4.1) |  |  |
 | @azure-tools/cadl-rpaas | npm [0.11.0](https://www.npmjs.com/package/@azure-tools/cadl-rpaas/v/0.11.0) |  |  |
 | @azure-tools/cadl-rpaas-controller | npm [0.7.0](https://www.npmjs.com/package/@azure-tools/cadl-rpaas-controller/v/0.7.0) |  |  |
@@ -628,7 +632,7 @@
 | Resource Management - Migrate | npm [2.0.2](https://www.npmjs.com/package/@azure/arm-migrate/v/2.0.2) | [docs](/javascript/api/overview/azure/arm-migrate-readme) | GitHub [2.0.2](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/migrate/arm-migrate) |
 | Resource Management - Mixed Reality | npm [4.0.1](https://www.npmjs.com/package/@azure/arm-mixedreality/v/4.0.1) | [docs](/javascript/api/overview/azure/arm-mixedreality-readme) | GitHub [4.0.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/mixedreality/arm-mixedreality) |
 | Resource Management - Mobilenetwork | npm [1.0.0-beta.2](https://www.npmjs.com/package/@azure/arm-mobilenetwork/v/1.0.0-beta.2) | [docs](/javascript/api/overview/azure/arm-mobilenetwork-readme) | GitHub [1.0.0-beta.2](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-mobilenetwork_1.0.0-beta.2/sdk/mobilenetwork/arm-mobilenetwork/) |
-| Resource Management - Monitor | npm [7.0.0](https://www.npmjs.com/package/@azure/arm-monitor/v/7.0.0)<br>npm [8.0.0-beta.1](https://www.npmjs.com/package/@azure/arm-monitor/v/8.0.0-beta.1) | [docs](/javascript/api/overview/azure/arm-monitor-readme) | GitHub [7.0.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/monitor/arm-monitor) |
+| Resource Management - Monitor | npm [7.0.0](https://www.npmjs.com/package/@azure/arm-monitor/v/7.0.0)<br>npm [8.0.0-beta.2](https://www.npmjs.com/package/@azure/arm-monitor/v/8.0.0-beta.2) | [docs](/javascript/api/overview/azure/arm-monitor-readme) | GitHub [7.0.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/monitor/arm-monitor) |
 | Resource Management - MySQL | npm [5.0.1](https://www.npmjs.com/package/@azure/arm-mysql/v/5.0.1) | [docs](/javascript/api/overview/azure/arm-mysql-readme) | GitHub [5.0.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/mysql/arm-mysql) |
 | Resource Management - NetApp | npm [16.1.0](https://www.npmjs.com/package/@azure/arm-netapp/v/16.1.0) | [docs](/javascript/api/overview/azure/arm-netapp-readme) | GitHub [16.1.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/netapp/arm-netapp) |
 | Resource Management - Network | npm [28.0.0](https://www.npmjs.com/package/@azure/arm-network/v/28.0.0) | [docs](/javascript/api/overview/azure/arm-network-readme) | GitHub [28.0.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/network/arm-network) |
