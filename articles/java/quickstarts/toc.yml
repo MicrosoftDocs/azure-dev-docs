@@ -4,6 +4,8 @@
     - name: Quickstart
       expanded: false
       items:
+        - name: WebLogic Server on Azure VM
+          href: ../ee/weblogic-server-azure-virtual-machine.md
         - name: Oracle WebLogic Server on AKS
           href: ../ee/weblogic-server-azure-kubernetes-service.md 
         - name: Traditional WebSphere on Azure VMs

@@ -69,6 +69,8 @@ landingContent:
     linkLists:
       - linkListType: quickstart
         links:
+        - text: WebLogic Server on Azure Virtual Machine
+          url: weblogic-server-azure-virtual-machine.md
         - text: WebLogic Server on Azure Kubernetes Service
           url: weblogic-server-azure-kubernetes-service.md
       - linkListType: how-to-guide
