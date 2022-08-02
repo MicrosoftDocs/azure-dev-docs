@@ -35,7 +35,7 @@ The components supporting this tutorial and shown in the diagram above are:
 
   * The underlying App Service functionality that enables containerization is Web App for Containers. Azure App Service uses the [Docker][4] container technology to host both built-in images and custom images.  In this tutorial, you'll build an image from Python code and deploy it to Web App for Containers.
 
-  * Web App for Containers uses a webhook in the registry with the repository as the scope of the trigger event. A push of a new image to the repository triggers a pull of the image and app restart. 
+  * Web App for Containers uses a webhook in the registry to get notified of new images. A push of a new image to the repository triggers App Service to pull the image and restart. 
 
 * [Azure Container Registry][11]
 
@@ -73,14 +73,14 @@ To complete this tutorial, you'll need:
 
 * Python packages:
 
-  * [PyMongo][8] for connecting to Mongo DB. (The sample apps specify this dependence in the *requirements.txt* file.)
-  * [Flask][9] or [Django][10]
+  * [PyMongo][8] for connecting to Mongo DB.
+  * [Flask][9] or [Django][10] as a web framework.
 
 * [Docker][4] installed locally if you want to run container locally.
 
 ## Sample app
 
-The Python sample app is a restaurant review app that saves restaurant and review data in MongoDB. For an example of a web app using PostgreSQL, see [Deploy a Python web app to Azure with managed identity](./tutorial-python-managed-identity-01.md)/
+The Python sample app is a restaurant review app that saves restaurant and review data in MongoDB. For an example of a web app using PostgreSQL, see [Deploy a Python web app to Azure with managed identity](./tutorial-python-managed-identity-01.md).
 
 At the end of the tutorial, you'll have a restaurant review app deployed and running in Azure that looks like the screenshot below.
 
