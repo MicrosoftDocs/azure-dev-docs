@@ -76,6 +76,8 @@ landingContent:
             url: ./configure-spring-cloud-stream-binder-java-app-azure-event-hub.md
           - text: Kafka
             url: ./configure-spring-cloud-stream-binder-java-app-kafka-azure-event-hub.md
+          - text: Remove credentials from Kafka app
+            url: ./spring-cloud-azure.md#remove-credentials-from-spring-kafka-applications
           - text: Service Bus
             url: ./configure-spring-cloud-stream-binder-java-app-with-service-bus.md
           - text: Redis
