@@ -51,11 +51,11 @@ The components supporting this tutorial and shown in the diagram above are:
 
 ## Authentication
 
-In this tutorial, you'll use Docker image (built locally or directly in Azure) and deploy it to Azure App Service. The App Service pulls the container image from an Azure Container Registry repository.
+In this tutorial, you'll build a Docker image (either locally or directly in Azure) and deploy it to Azure App Service. The App Service pulls the container image from an Azure Container Registry repository.
 
-The App Service uses [managed identity][5] to pull images from Azure Container Registry. Managed identity allows you to grant permissions to the web app so that it can access other Azure resources without the need to specify credentials. Specifically, this tutorial uses a system assigned managed identity. The managed identity is automatically set up for you when you configure App Service with publishing from a Docker container.
+The App Service uses [managed identity][5] to pull images from Azure Container Registry. Managed identity allows you to grant permissions to the web app so that it can access other Azure resources without the need to specify credentials. Specifically, this tutorial uses a system assigned managed identity. Managed identity is configured when you configure App Service with publishing from a Docker container.
 
-The tutorial sample web app also uses MongoDB to store data. The sample code connects to Cosmos DB via a connection string. 
+The tutorial sample web app uses MongoDB to store data. The sample code connects to Cosmos DB via a connection string. 
 
 ## Prerequisites
 
