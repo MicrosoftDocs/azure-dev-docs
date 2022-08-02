@@ -35,7 +35,7 @@ The components supporting this tutorial and shown in the diagram above are:
 
   * The underlying App Service functionality that enables containerization is Web App for Containers. Azure App Service uses the [Docker][4] container technology to host both built-in images and custom images.  In this tutorial, you'll build an image from Python code and deploy it to Web App for Containers.
 
-  * Web App for Containers automatically creates a webhook in the registry you selected with the repository as the scope of the trigger event. A push of a new image to the repository triggers an app restart. 
+  * Web App for Containers uses a webhook in the registry with the repository as the scope of the trigger event. A push of a new image to the repository triggers a pull of the image and app restart. 
 
 * [Azure Container Registry][11]
 
