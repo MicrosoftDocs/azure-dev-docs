@@ -1,10 +1,10 @@
 ---
-title: Deploy WebSphere Application Server (traditional) with High Availability on Azure Virtual Machines
+title: "Quickstart: Deploy WebSphere Application Server (traditional) with High Availability on Azure Virtual Machines"
 description: Shows you how to deploy WebSphere Application Server (traditional) with High Availability on Azure Virtual Machines.
 author: KarlErickson
 ms.author: zhengchang
-ms.topic: tutorial
-ms.date: 01/26/2022
+ms.topic: quickstart
+ms.date: 07/29/2022
 ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-was
 ---
 
@@ -15,7 +15,7 @@ This article shows you how to quickly deploy a cluster of WebSphere Application 
 ## Prerequisites
 
 - An Azure subscription; if you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/) or sign up for a [free account](https://azure.microsoft.com/free/).
-- An IBMid with necessary entitlement for WebSphere Traditional. This offer is Bring-Your-Own-License. To deploy this offer, you must enter your registered IBMid and your IBMid must have active WebSphere entitlements associated with it. If provisioning fails due to lack of entitlements, ask the primary or secondary contacts for your IBM Passport Advantage site to grant you access. Alternately, follow steps at IBM eCustomer Care for further assistance. This offer also assumes you're properly licensed to run offers in Microsoft Azure. For more information, see [IBM eCustomer Care](https://ibm.biz/IBMidEntitlement).
+- An IBMid with necessary entitlement for WebSphere Traditional (optional). If you create the deployment with an evaluation license, you won't be required to provide an IBMid with entitlement for WebSphere Traditional. To get the benefit, you need to accept the [IBM WebSphere Application Server License Agreement](https://ibm.biz/tWASNDLicenseAzureVMs) during the deployment creation steps. Otherwise, you must enter your registered IBMid and your IBMid must have active WebSphere entitlements associated with it. If provisioning with IBMid fails due to lack of entitlements, ask the primary or secondary contacts for your IBM Passport Advantage site to grant you access. Alternately, follow steps at IBM eCustomer Care for further assistance. This offer also assumes you're properly licensed to run offers in Microsoft Azure. For more information, see [IBM eCustomer Care](https://ibm.biz/IBMidEntitlement).
 
 ## Provision a cluster
 
@@ -37,9 +37,19 @@ To begin defining your deployment, select **Create** on the deployment page.
 
 You'll then be shown the **Create IBM WebSphere Application Server Cluster** page where you can start configuring the deployment, as shown in the following screenshot.
 
-:::image type="content" source="media/traditional-websphere-application-server-virtual-machines/cluster-deployment-basics-tab.png" alt-text="Azure portal screenshot with IBM WebSphere Application Server Cluster offering showing Basics configuration pane." lightbox="media/traditional-websphere-application-server-virtual-machines/cluster-deployment-basics-tab.png":::
+### [Deploy with an evaluation license](#tab/basic)
+
+:::image type="content" source="media/traditional-websphere-application-server-virtual-machines/cluster-deployment-basics-tab-evaluation-license.png" alt-text="Screenshot of Azure portal with IBM WebSphere Application Server Cluster offering showing Basics configuration pane using evaluation license." lightbox="media/traditional-websphere-application-server-virtual-machines/cluster-deployment-basics-tab-evaluation-license.png":::
+
+You'll need to select the checkbox to accept [IBM License Agreement](https://ibm.biz/tWASNDLicenseAzureVMs).
+
+### [Deploy with IBMid](#tab/standard)
+
+:::image type="content" source="media/traditional-websphere-application-server-virtual-machines/cluster-deployment-basics-tab.png" alt-text="Screenshot of Azure portal with IBM WebSphere Application Server Cluster offering showing Basics configuration pane using IBMid." lightbox="media/traditional-websphere-application-server-virtual-machines/cluster-deployment-basics-tab.png":::
 
 Each field on this page has an information icon that gives you more information to help with filling it out. The offer is Bring-Your-Own-License (BYOL), so requires you to have purchased entitlements to WAS. Your entitlement is checked during installation into the VMs. You must provide an IBMid that is associated with the entitlements. If the ID you provide doesn't have entitlements, then the deployment will fail to install WAS. You'll see error messages that include the following text: `The provided IBMid does not have entitlement to install WebSphere Application Server.`
+
+---
 
 After you’ve completed this configuration, select **Next: Cluster configuration**.
 
@@ -99,11 +109,11 @@ You should see new entries in the table under the **Server** column. These entri
 
 :::image type="content" source="media/traditional-websphere-application-server-virtual-machines/map-modules-to-servers-outcome-page.png" alt-text="Screenshot of IBM WebSphere 'Install New Application' dialog with 'Step 2: Map modules to servers' pane showing and 'Server' table column highlighted." lightbox="media/traditional-websphere-application-server-virtual-machines/map-modules-to-servers-outcome-page.png":::
 
-After you’ve completed all the steps, select **Finish** and then on the next page select **Save**.
+After you’ve completed all the steps, select **Finish**, and then on the next page select **Save**.
 
 Next, you need to start the application. Go to **Applications > All Applications**. Select the checkbox for **DefaultApplication.ear**, ensure the **Action** is set to **Start**, and then select **Submit Action**.
 
-You should see success messages that look similar to the ones in the following screenshot. If you see errors, it may be that you were too quick and the app and configuration haven't reached the nodes yet.
+You should see success messages that look similar to the ones in the following screenshot. If you see errors, it may be that you were too quick, and the app and configuration haven't reached the nodes yet.
 
 :::image type="content" source="media/traditional-websphere-application-server-virtual-machines/start-app-message-page.png" alt-text="Screenshot of IBM WebSphere Messages pane." lightbox="media/traditional-websphere-application-server-virtual-machines/start-app-message-page.png":::
 
@@ -123,4 +133,4 @@ az group delete --name <resource-group-name> --yes --no-wait
 
 ## Next steps
 
-Now that you've learned how to deploy a WebSphere Application Server (traditional) cluster to Azure Virtual Machines, feel free to review and provide feedback on the [offering](https://aka.ms/websphere-on-vms-review). If you’re interested in keeping up to date with latest developments, select **Contact Me** on the [offering overview page](https://ibm.biz/WASAzureContactMe) and register to be notified when new offers are made available.
+Now that you've learned how to deploy a WebSphere Application Server (traditional) cluster to Azure Virtual Machines, feel free to review and provide feedback on the [offering](https://aka.ms/websphere-on-vms-review). If you’re interested in keeping up to date with latest developments, select **Contact Me** on the [offering overview page](https://ibm.biz/WASAzureContactMe), and register to be notified when new offers are made available.

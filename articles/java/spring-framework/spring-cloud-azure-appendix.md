@@ -44,4 +44,7 @@ ms.custom: devx-track-java
 
 [!INCLUDE [migration-guide-for-4.0.md](includes/spring-cloud-azure/migration-guide-for-4.0.md)]
 
-[!INCLUDE [known-issues.md](includes/spring-cloud-azure/known-issues.md)]
+[!INCLUDE [migration-guide-for-4.0.md](includes/spring-cloud-azure/create-and-configure-managed-identity.md)]
+
+[!INCLUDE [migration-guide-for-4.0.md](includes/spring-cloud-azure/deploy-applications-to-azure-hosting-environments.md)]
+

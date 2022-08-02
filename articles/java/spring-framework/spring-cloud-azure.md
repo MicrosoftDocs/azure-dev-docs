@@ -57,4 +57,3 @@ This article provides reference documentation for Spring Cloud Azure 4.3.0.
 [!INCLUDE [configuration-properties.md](includes/spring-cloud-azure/configuration-properties.md)]
 
 [!INCLUDE [appendix.md](includes/spring-cloud-azure/appendix.md)]
-
