@@ -20,7 +20,7 @@ The following example will assign the `Storage Blob Data Contributor` role to yo
 4. Select **+ Add** from the top menu and then **Add role assignment** from the resulting drop-down menu.
 
 
-    :::image type="content" source="./media/migration-add-role-small.png" lightbox="../media/migration-add-role.png" alt-text="A screenshot showing how to assign a role.":::
+    :::image type="content" source="../media/migration-add-role-small.png" lightbox="../media/migration-add-role.png" alt-text="A screenshot showing how to assign a role.":::
 
 5. Use the search box to filter the results to the desired role. For this example, search for *Storage Blob Data Contributor* and select the matching result and then choose **Next**.
 
@@ -32,7 +32,7 @@ The following example will assign the `Storage Blob Data Contributor` role to yo
 
 ### [Azure CLI](#tab/roles-azure-cli)
 
-To assign a role at the resource level using the Azure CLI, you first must retrieve the resource id using the `az storage account show` command. You can filter the output properties using the `--query` parameter. 
+To assign a role at the resource level using the Azure CLI, you first must retrieve the resource ID using the `az storage account show` command. You can filter the output properties using the `--query` parameter. 
 
 ```azurecli
 az storage account show --resource-group '<your-resource-group-name>' --name '<your-storage-account-name>' --query id
@@ -48,7 +48,7 @@ az role assignment create --assignee "<your-username>" \
 
 ### [PowerShell](#tab/roles-powershell)
 
-To assign a role at the resource level using Azure PowerShell, you first must retrieve the resource id using the `Get-AzResource` command.
+To assign a role at the resource level using Azure PowerShell, you first must retrieve the resource ID using the `Get-AzResource` command.
 
 ```azurepowershell
 Get-AzResource -ResourceGroupName "<yourResourceGroupname>" -Name "<yourStorageAccountName>"

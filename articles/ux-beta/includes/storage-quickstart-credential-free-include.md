@@ -14,7 +14,7 @@ ms.custom: include file
 
 Application requests to Azure Blob Storage must be authenticated. Many Azure services support credential-free connections such as Azure's Managed Identity or Role Based Access control (RBAC). These techniques provide robust security features and can be implemented using `DefaultAzureCredential` from the Azure Identity client libraries.
 
-Azure Blob Storage also provides the option to authenticate using connection strings, but this approach should be used with caution. Developers must be diligent to never expose the connection string in an unsecure location. Anyone who gains access to the key is able to authenticate. `DefaultAzureCredential` offers improved management and security benefits over connection strings to allow credential-free authentication. Both options are demonstrated in the following example.
+Azure Blob Storage also provides the option to authenticate using traditional connection strings, but this approach should be used with caution. Developers must be diligent to never expose the connection string in an unsecure location. Anyone who gains access to the key is able to authenticate. `DefaultAzureCredential` offers improved management and security benefits over connection strings to allow credential-free authentication. Both options are demonstrated in the following example.
 
 ## [Credential-free (Recommended)](#tab/managed-identity)
 
