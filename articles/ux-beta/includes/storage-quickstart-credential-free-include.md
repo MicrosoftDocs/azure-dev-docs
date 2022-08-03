@@ -12,15 +12,17 @@ ms.custom: include file
 
 ## Authenticate the app to Azure
 
-Application requests to Azure Blob Storage must be authenticated. `DefaultAzureCredential` is the recommended approach for implementing credential-free connections to Azure services in your code, including Blob Storage. 
+Application requests to Azure Blob Storage must be authenticated. Many Azure services support credential-free connections such as Azure's Managed Identity or Role Based Access control (RBAC). These techniques provide robust security features and can be implemented using `DefaultAzureCredential` from the Azure Identity client libraries.
 
-Azure Blob Storage also provides the option to authenticate using connection strings, but this approach should be used with caution. `DefaultAzureCredential` offers improved management and security benefits over connection strings to allow credential-free authentication. Both options are demonstrated in the following example.
+Azure Blob Storage also provides the option to authenticate using connection strings, but this approach should be used with caution. Developers must be diligent to never expose the connection string in an unsecure location. Anyone who gains access to the key is able to authenticate. `DefaultAzureCredential` offers improved management and security benefits over connection strings to allow credential-free authentication. Both options are demonstrated in the following example.
 
 ## [Credential-free (Recommended)](#tab/managed-identity)
 
 `DefaultAzureCredential` is a class provided by the Azure Identity client library for .NET, which you can learn more about on the [DefaultAzureCredential overview](/dotnet/azure/sdk/authentication#defaultazurecredential). `DefaultAzureCredential` supports multiple authentication methods and determines which method should be used at runtime. This approach enables your app to use different authentication methods in different environments (local vs. production) without implementing environment-specific code.
 
 The order and locations in which `DefaultAzureCredential` looks for credentials can be found in the [Azure Identity library overview](/dotnet/api/overview/azure/Identity-readme#defaultazurecredential).
+
+:::image type="content" source="https://raw.githubusercontent.com/Azure/azure-sdk-for-net/main/sdk/identity/Azure.Identity/images/mermaidjs/DefaultAzureCredentialAuthFlow.svg"alt-text="A diagram of the credential flow.":::
 
 For example, your app can authenticate using your Visual Studio sign-in credentials with when developing locally. Your app can then use Managed Identity once it has been deployed to Azure. No code changes are required for this transition.
 
@@ -36,7 +38,7 @@ You can authenticate your local app to the Blob Storage account you created usin
 
     [!INCLUDE [defaultazurecredential-sign-in](defaultazurecredential-sign-in.md)]
 
-2. To implement `DefaultAzureCredential`, add the **Azure.Identity** to your application.
+2. To implement `DefaultAzureCredential`, add the **Azure.Identity** package to your application.
 
     ```dotnetcli
     dotnet add package Azure.Identity
@@ -44,7 +46,7 @@ You can authenticate your local app to the Blob Storage account you created usin
 
     Azure services can be accessed using corresponding client classes from the SDK. These classes should be registered in the *Program.cs* file so they can be accessed via dependency injection throughout your app. 
     
-3. Update your *Program.cs* code to match the following example. When the code is run on your local workstation during development, it will use the developer credentials of whatever prioritized tool you're logged into to authenticate to Azure.
+3. Update your *Program.cs* code to match the following example. When the code is run on your local workstation during development, it will use the developer credentials of the prioritized tool you're logged into to authenticate to Azure, such as the Azure CLI or Visual Studio.
 
     ```csharp
     using Microsoft.Extensions.Azure;
