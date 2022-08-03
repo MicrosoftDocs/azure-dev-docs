@@ -61,12 +61,6 @@ Create a .NET Core application named *BlobQuickstartV12*.
    cd BlobQuickstartV12
    ```
 
-1. In side the *BlobQuickstartV12* directory, create another directory called *data*. This is where the blob data files will be created and stored.
-
-    ```console
-    mkdir data
-    ```
-
 ### Install the package
 
 While still in the application directory, install the Azure Blob Storage client library for .NET package by using the `dotnet add package` command.
@@ -84,7 +78,6 @@ using Azure.Storage.Blobs;
 using Azure.Storage.Blobs.Models;
 using System;
 using System.IO;
-using System.Threading.Tasks;
 
 // See https://aka.ms/new-console-template for more information
 Console.WriteLine("Hello, World!");
@@ -139,7 +132,8 @@ Add the following code to the end of the `Program.cs` class:
 
 ```csharp
 // Create a local file in the ./data/ directory for uploading and downloading
-string localPath = "./data/";
+string localPath = "data";
+Directory.CreateDirectory(localPath);
 string fileName = "quickstart" + Guid.NewGuid().ToString() + ".txt";
 string localFilePath = Path.Combine(localPath, fileName);
 

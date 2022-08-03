@@ -49,7 +49,10 @@ You can authenticate your local app to the Blob Storage account you created usin
 3. Update your *Program.cs* code to match the following example. When the code is run on your local workstation during development, it will use the developer credentials of the prioritized tool you're logged into to authenticate to Azure, such as the Azure CLI or Visual Studio.
 
     ```csharp
-    using Microsoft.Extensions.Azure;
+    using Azure.Storage.Blobs;
+    using Azure.Storage.Blobs.Models;
+    using System;
+    using System.IO;
     using Azure.Identity;
     
     var blobServiceClient = new BlobServiceClient(
