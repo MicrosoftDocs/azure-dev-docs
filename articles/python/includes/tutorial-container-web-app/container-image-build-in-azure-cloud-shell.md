@@ -14,7 +14,7 @@ az acr build \
   -r <registry-name> \ 
   -g <resource-group> \
   -t msdocspythoncontainerwebapp:latest \
-   https://github.com/Azure-Samples/msdocs-python-django-container-web-app.git`
+   https://github.com/Azure-Samples/msdocs-python-django-container-web-app.git
 ```
 
 #### [PowerShell terminal](#tab/terminal-powershell)
@@ -24,7 +24,9 @@ az acr build `
   -r <registry-name> `
   -g <resource-group> `
   -t msdocspythoncontainerwebapp:latest `
-   https://github.com/Azure-Samples/msdocs-python-django-container-web-app.git`
+   https://github.com/Azure-Samples/msdocs-python-django-container-web-app.git
 ```
 
 ---
+
+The last argument in the command is the fully qualified path to the repo.
