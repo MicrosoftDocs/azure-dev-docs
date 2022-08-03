@@ -1,3 +1,15 @@
+---
+title: "include file"
+description: "include file"
+services: storage
+author: alexwolfmsft
+ms.service: storage
+ms.topic: include
+ms.date: 02/25/2022
+ms.author: alexwolf
+ms.custom: include file
+---
+
 ### [Azure CLI](#tab/sign-in-azure-cli)
 
 Sign-in to Azure through the Azure CLI using the following command:
