@@ -58,17 +58,13 @@ Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com
 
 ## 2. Build an image in Azure Container Registry
 
-You can build the container image directly in Azure in a few ways. First, you can use the Azure Cloud Shell, which builds the image without using your local environment at all. You can also kick of the build of the container image in Azure from your local environment using VS Code or the Azure CLI. Building the image in the cloud doesn't require Docker to be running in your local environment.
+You can build the container image directly in Azure in a few ways. First, you can use the Azure Cloud Shell, which builds the image without using your local environment at all. You can also build the container image in Azure from your local environment using VS Code or the Azure CLI. Building the image in the cloud doesn't require Docker to be running in your local environment.
 
 ### [Azure portal](#tab/azure-portal)
 
-1. Sign in to the [Azure portal](https://portal.azure.com/).
+Sign in to the [Azure portal](https://portal.azure.com/) to complete these steps.
 
-1. Open an [Azure Cloud Shell](/azure/cloud-shell/overview).
-
-1. Use the [az acr build](/cli/azure/acr?branch#az-acr-build) command to build.
-
-    `az acr build -r <registry-name> -g <resource-group> -t msdocspythoncontainerwebapp:latest .`
+[!INCLUDE [Include showing how build an image in Azure with the Azure Cloud Shell](<./includes/tutorial-container-web-app/container-image-build-in-azure-cloud-shell.md>)]
 
 ### [VS Code](#tab/vscode-aztools)
 
@@ -84,7 +80,7 @@ These steps require the [Docker extension](https://code.visualstudio.com/docs/co
 
 ### [Azure CLI](#tab/azure-cli)
 
-Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com/) or on a workstation with the [Azure CLI installed](/cli/azure/install-azure-cli).
+Azure CLI commands can be run on a workstation with the [Azure CLI installed](/cli/azure/install-azure-cli) installed or in [Azure Cloud Shell](https://shell.azure.com/). When running in Cloud Shell you can skip step 1.
 
 [!INCLUDE [Include showing how build an image in Azure with the Azure CLI](<./includes/tutorial-container-web-app/container-image-build-in-azure-cli.md>)]
 
