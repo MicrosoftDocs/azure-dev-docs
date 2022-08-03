@@ -58,9 +58,19 @@ Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com
 
 ## 2. Build an image in Azure Container Registry
 
-Building in the cloud doesn't require Docker to be running in your dev environment.
+You can build the container image directly in Azure in a few ways. First, you can use the Azure Cloud Shell, which builds the image without using your local environment at all. You can also kick of the build of the container image in Azure from your local environment using VS Code or the Azure CLI. Building the image in the cloud doesn't require Docker to be running in your local environment.
 
-### [VS Code](#tab/vscode-aztools-build)
+### [Azure portal](#tab/azure-portal)
+
+1. Sign in to the [Azure portal](https://portal.azure.com/).
+
+1. Open an [Azure Cloud Shell](/azure/cloud-shell/overview).
+
+1. Use the [az acr build](/cli/azure/acr?branch#az-acr-build) command to build.
+
+    `az acr build -r <registry-name> -g <resource-group> -t msdocspythoncontainerwebapp:latest .`
+
+### [VS Code](#tab/vscode-aztools)
 
 These steps require the [Docker extension](https://code.visualstudio.com/docs/containers/overview) for VS Code.
 
@@ -72,7 +82,7 @@ These steps require the [Docker extension](https://code.visualstudio.com/docs/co
 | [!INCLUDE [Include showing how to confirm the container image in the registry in VS Code](<./includes/tutorial-container-web-app/container-image-build-in-azure-vscode-4.md>)] | :::image type="content" source="./media/tutorial-container-web-app/visual-studio-code-build-image-confirm-240px.png" lightbox="./media/tutorial-container-web-app/visual-studio-code-build-image-confirm.png" alt-text="A screenshot showing how to confirm the  information to  build container in Azure in Visual Studio Code." ::: |
 
 
-### [Azure CLI](#tab/azure-cli-build)
+### [Azure CLI](#tab/azure-cli)
 
 Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com/) or on a workstation with the [Azure CLI installed](/cli/azure/install-azure-cli).
 
