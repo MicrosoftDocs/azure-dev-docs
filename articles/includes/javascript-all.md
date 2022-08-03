@@ -500,11 +500,11 @@
 | Tables | npm [13.1.2](https://www.npmjs.com/package/@azure/data-tables/v/13.1.2) | [docs](/javascript/api/overview/azure/data-tables-readme) | GitHub [13.1.2](https://github.com/Azure/azure-sdk-for-js/tree/@azure/data-tables_13.1.2/sdk/tables/data-tables/) |
 | Text Analytics | npm [5.1.0](https://www.npmjs.com/package/@azure/ai-text-analytics/v/5.1.0)<br>npm [6.0.0-beta.1](https://www.npmjs.com/package/@azure/ai-text-analytics/v/6.0.0-beta.1) | [docs](/javascript/api/overview/azure/ai-text-analytics-readme) | GitHub [5.1.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/ai-text-analytics_5.1.0/sdk/textanalytics/ai-text-analytics/)<br>GitHub [6.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/ai-text-analytics_6.0.0-beta.1/sdk/textanalytics/ai-text-analytics/) |
 | Text Analytics | npm [4.0.0](https://www.npmjs.com/package/@azure/cognitiveservices-textanalytics/v/4.0.0) |  |  |
-| Tools - Azcopy Darwin | npm [10.14.1](https://www.npmjs.com/package/@azure-tools/azcopy-darwin/v/10.14.1) |  | GitHub [10.14.1](https://github.com/Azure/azure-storage-azcopy) |
-| Tools - Azcopy Linux | npm [10.14.1](https://www.npmjs.com/package/@azure-tools/azcopy-linux/v/10.14.1) |  | GitHub [10.14.1](https://github.com/Azure/azure-storage-azcopy) |
+| Tools - Azcopy Darwin | npm [10.16.0](https://www.npmjs.com/package/@azure-tools/azcopy-darwin/v/10.16.0) |  | GitHub [10.16.0](https://github.com/Azure/azure-storage-azcopy) |
+| Tools - Azcopy Linux | npm [10.16.0](https://www.npmjs.com/package/@azure-tools/azcopy-linux/v/10.16.0) |  | GitHub [10.16.0](https://github.com/Azure/azure-storage-azcopy) |
 | Tools - Azcopy Node | npm [2.6.0](https://www.npmjs.com/package/@azure-tools/azcopy-node/v/2.6.0) |  | GitHub [2.6.0](https://github.com/Azure/azure-storage-azcopy) |
-| Tools - Azcopy Win32 | npm [10.14.1](https://www.npmjs.com/package/@azure-tools/azcopy-win32/v/10.14.1) |  | GitHub [10.14.1](https://github.com/Azure/azure-storage-azcopy) |
-| Tools - Azcopy Win64 | npm [10.14.1](https://www.npmjs.com/package/@azure-tools/azcopy-win64/v/10.14.1) |  | GitHub [10.14.1](https://github.com/Azure/azure-storage-azcopy) |
+| Tools - Azcopy Win32 | npm [10.16.0](https://www.npmjs.com/package/@azure-tools/azcopy-win32/v/10.16.0) |  | GitHub [10.16.0](https://github.com/Azure/azure-storage-azcopy) |
+| Tools - Azcopy Win64 | npm [10.16.0](https://www.npmjs.com/package/@azure-tools/azcopy-win64/v/10.16.0) |  | GitHub [10.16.0](https://github.com/Azure/azure-storage-azcopy) |
 | Tools - Data Store | npm [4.7.0](https://www.npmjs.com/package/@azure-tools/datastore/v/4.7.0) |  | GitHub [4.7.0](https://github.com/Azure/perks) |
 | Tools - OpenAPI Tools Common | npm [1.2.2](https://www.npmjs.com/package/@azure-tools/openapi-tools-common/v/1.2.2) |  |  |
 | Translator | npm [1.0.1](https://www.npmjs.com/package/@azure/cognitiveservices-translatortext/v/1.0.1) |  | GitHub [1.0.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/cognitiveservices/cognitiveservices-translatortext) |
