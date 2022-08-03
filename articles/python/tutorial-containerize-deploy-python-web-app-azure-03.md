@@ -80,7 +80,7 @@ These steps require the [Docker extension](https://code.visualstudio.com/docs/co
 
 ### [Azure CLI](#tab/azure-cli)
 
-Azure CLI commands can be run on a workstation with the [Azure CLI installed](/cli/azure/install-azure-cli) installed or in [Azure Cloud Shell](https://shell.azure.com/). When running in Cloud Shell you can skip step 1.
+Azure CLI commands can be run on a workstation with the [Azure CLI installed](/cli/azure/install-azure-cli) installed or in [Azure Cloud Shell](https://shell.azure.com/). When running in Cloud Shell you can skip **Step 1**.
 
 [!INCLUDE [Include showing how build an image in Azure with the Azure CLI](<./includes/tutorial-container-web-app/container-image-build-in-azure-cli.md>)]
 
