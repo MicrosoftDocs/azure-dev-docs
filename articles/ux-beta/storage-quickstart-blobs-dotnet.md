@@ -30,12 +30,12 @@ Additional resources:
 - [API reference documentation](/dotnet/api/azure.storage.blobs)
 - [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Blobs)
 - [Package (NuGet)](https://www.nuget.org/packages/Azure.Storage.Blobs)
-- [Samples](../common/storage-samples-dotnet.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-samples)
+- [Samples](/azure/storage/common/storage-samples-dotnet?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json#blob-samples)
 
 ## Prerequisites
 
 - Azure subscription - [create one for free](https://azure.microsoft.com/free/)
-- Azure storage account - [create a storage account](../common/storage-account-create.md)
+- Azure storage account - [create a storage account](/azure/storage/common/storage-account-create)
 - Current [.NET Core SDK](https://dotnet.microsoft.com/download/dotnet-core) for your operating system. Be sure to get the SDK and not the runtime.
 - Your user account should have one of the following permission levels to [Authenticate](#authenticate-the-app-to-azure):
     - If you plan to use the `DefaultAzureCredential` approach you will need `Storage Account Contributor` and `User Access Administrator` roles or higher.
