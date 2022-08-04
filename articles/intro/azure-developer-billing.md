@@ -4,7 +4,7 @@ description: A developer focused overview of how billing works on Azure.
 keywords: azure billing, azure portal
 ms.prod: azure
 ms.topic: overview
-ms.date: 03/28/2022
+ms.date: 08/04/2022
 ms.custom: overview
 ---
 
@@ -28,6 +28,10 @@ Billing for Azure resources is done on a per-subscription basis. An Azure subscr
 Organizations often create multiple Azure subscriptions for billing and management purposes.  For example, an organization may choose to create one subscription for each department in the organization such that each department pays for their own Azure resources.  *When creating Azure resources, it's important to pay attention to what subscription you're creating the resources in because the owner of that subscription will pay for those resources.*  
 
 If you have an individual Azure account tied to your Microsoft account, it's also possible to have multiple subscriptions.  For example, a user might have both a Visual Studio Enterprise subscription that provides monthly Azure credits and a Pay-as-you-go subscription which bills to their credit card.  In this scenario, you again want to be sure and choose the right subscription when creating Azure resources to avoid an unexpected bill for Azure services.
+
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE50ydI]
+
 
 ## What factors influence the cost of a service on Azure?
 
