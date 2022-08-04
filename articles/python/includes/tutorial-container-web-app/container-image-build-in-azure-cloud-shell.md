@@ -9,7 +9,7 @@ Open [Azure Cloud Shell](/azure/cloud-shell/overview) and use the following [az 
 
 #### [bash](#tab/terminal-bash)
 
-```Docker
+```azurecli
 az acr build \
   -r <registry-name> \ 
   -g <resource-group> \
@@ -19,7 +19,7 @@ az acr build \
 
 #### [PowerShell terminal](#tab/terminal-powershell)
 
-```Docker
+```azurecli
 az acr build `
   -r <registry-name> `
   -g <resource-group> `
