@@ -2,7 +2,7 @@
 title: 'Tutorial: Containerized Python web apps on Azure: build and test locally'
 description: Build and test a containerized Python web app locally.
 ms.topic: conceptual
-ms.date: 07/25/2022
+ms.date: 08/03/2022
 ms.custom: devx-track-python
 ms.prod: azure-python
 author: jess-johnson-msft
@@ -21,7 +21,7 @@ The service diagram shown below highlights the components covered in this articl
 
 ## 1. Build a Docker image
 
-If you're using one of the framework sample apps available for Django and Flask, you're set to go. If you're bringing your own sample app, take a look to see how the sample apps are set up, in particular the *Dockerfile* in the root directory.
+If you're using one of the framework sample apps available for Django and Flask, you're set to go. If you're working with your own sample app, take a look to see how the sample apps are set up, in particular the *Dockerfile* in the root directory.
 
 ### [VS Code](#tab/vscode-docker)
 

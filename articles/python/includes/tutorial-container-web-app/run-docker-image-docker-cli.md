@@ -2,7 +2,7 @@
 author: jess-johnson-msft
 ms.author: jejohn
 ms.topic: include
-ms.date: 07/07/2022
+ms.date: 08/03/2022
 ---
 
 **Step 1.** Run the latest version of the image.
@@ -18,7 +18,7 @@ docker run --rm -it \
   msdocspythoncontainerwebapp:latest  
 ```
 
-The command above is formatted for the Bash shell. If you prefer to use PowerShell, Command Prompt, or another shell, you may need to adjust the line continuation and environment variable format accordingly.
+The command above is formatted for Bash shell. If you prefer to use PowerShell, Command Prompt, or another shell, you may need to adjust the line continuation and environment variable format accordingly.
 
 ### [Azure Cosmos DB MongoDB](#tab/mongodb-azure)
 
@@ -31,7 +31,7 @@ docker run --rm -it \
   msdocspythoncontainerwebapp:latest  
 ```
 
-The command above is formatted for the Bash shell. If you prefer to use PowerShell, Command Prompt, or another shell, you may need to adjust the line continuation and environment variable format accordingly.
+The command above is formatted for Bash shell. If you prefer to use PowerShell, Command Prompt, or another shell, you may need to adjust the line continuation and environment variable format accordingly.
 
 ---
 
@@ -49,7 +49,7 @@ You should see your container "msdocspythoncontainerwebapp:latest:latest" in the
 
 **Step 3.** Test the web app.
 
-Go to "http://172.0.0.1:5002/" for Flask or "http://127.0.0.1:8000" for Django running with local MongoDB. (If you are using MongoDB in Azure, your port will be different but can be found by hovering over the container name.)
+Go to "http://172.0.0.1:5000/" for Flask or "http://127.0.0.1:8000" for Django running with local MongoDB. (If you are using MongoDB in Azure, your port will be different but can be found by hovering over the container name.)
 
 **Step 4.** Shut down the container
 
