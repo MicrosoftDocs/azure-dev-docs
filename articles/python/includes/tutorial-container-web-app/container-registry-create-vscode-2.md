@@ -2,7 +2,7 @@
 author: jess-johnson-msft
 ms.author: jejohn
 ms.topic: include
-ms.date: 07/07/2022
+ms.date: 08/03/2022
 ---
 
 Select the task and enter values following the prompts, which include:
@@ -13,4 +13,4 @@ Select the task and enter values following the prompts, which include:
 
 * **Resource group** &rarr; Use an existing group or create a new one.
 
-* **Location** &rarr; If you are using an existing resource group, select the location to match. Otherwise, the location is where the resource group is created that contains the registry. 
+* **Location** &rarr; If you're using an existing resource group, select the location to match. Otherwise, the location is where the resource group is created that contains the registry. 
