@@ -4,13 +4,17 @@ description: An overview of techniques that developers use to provision resource
 keywords: azure portal, azure cli, azure powershell, azure sdk, azure rest apis
 ms.prod: azure
 ms.topic: overview
-ms.date: 03/28/2022
+ms.date: 08/04/2022
 ms.custom: overview
 ---
 
 # How do I create and manage resources in Azure?
 
-Azure provides a variety of tools to create and manage the Azure resources used by your application. Different tools are designed to support different use cases, and most Azure developers use a combination of different tools depending on the job they need to perform. For example, you might:
+Azure provides a variety of tools to create and manage the Azure resources used by your application. 
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE50C5I]
+
+Different tools are designed to support different use cases, and most Azure developers use a combination of different tools depending on the job they need to perform. For example, you might:
 
 * **Use a GUI tool like the Azure portal or the Azure Tools extension for VS Code** when prototyping Azure resources for a new application. GUI tools guide you through the process of creating new services and let you review and select the options for a service using drop-down menus and other graphical elements.
 

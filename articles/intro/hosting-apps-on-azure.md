@@ -4,12 +4,14 @@ description: An overview of the different ways to host your applications on Azur
 keywords: azure app service, azure functions, azure virtual machines, azure container instances, azure container registry
 ms.prod: azure
 ms.topic: overview
-ms.date: 3/28/2022
+ms.date: 08/04/2022
 ---
 
 # Hosting applications on Azure
 
 Azure provides a variety of different ways to host your app depending on your needs.  
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE50vLy]
 
 ## Azure App Service
 
