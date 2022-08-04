@@ -13,10 +13,8 @@ ms.custom: include file
 ### [Azure portal](#tab/roles-azure-portal)
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. Locate your storage account.
-3. In the storage account menu pane, under **Security + networking**, select **Access keys**. Here, you can view the account access keys and the complete connection string for each key. 
-    > [!NOTE]
-    > Viewing the account access keys requires the `Microsoft.Storage/storageAccounts/listkeys/action` permission. If you're assigned a role with that action, then you have full access to the storage account via the keys. However, if an admin is assigning roles and has not assigned you that action, then you won't be able to see the keys.
+1. Locate your storage account.
+1. In the storage account menu pane, under **Security + networking**, select **Access keys**. Here, you can view the account access keys and the complete connection string for each key. 
 1. In the **Access keys** pane, select **Show keys**.
 1. In the **key1** section, locate the **Connection string** value. Select the **Copy to clipboard** icon to copy the connection string. You'll add the connection string value to an environment variable in the next section.
 
