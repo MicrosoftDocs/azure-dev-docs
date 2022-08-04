@@ -15,7 +15,7 @@ az acr build \
    https://github.com/Azure-Samples/msdocs-python-django-container-web-app.git
 ```
 
-The command above is for Bash shell. If you use the PowerShell as you shell, change the line continuation character from backslash ("\") to backtick ("`"). The last argument in the command is the fully qualified path to the repo.
+The command above is for Bash shell. If you use the PowerShell as you shell, change the line continuation character from backslash ("\\") to backtick ("`"). The last argument in the command is the fully qualified path to the repo.
 
 **Step 2.** Confirm the container image was created with the [az acr repository list](/cli/azure/acr/repository#az-acr-repository-list) command.
 
