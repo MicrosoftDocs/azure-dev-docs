@@ -5,7 +5,7 @@ author: jess-johnson-msft
 ms.author: jejohn
 ms.devlang: python
 ms.topic: tutorial
-ms.date: 07/15/2022
+ms.date: 08/03/2022
 ms.prod: azure-python
 ms.custom: devx-track-python, devx-track-azurecli
 ---
