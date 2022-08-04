@@ -7,7 +7,7 @@ ms.date: 08/03/2022
 
 **Step 1.** Open [Azure Cloud Shell](/azure/cloud-shell/overview).
 
-:::image type="content" source="./media/tutorial-container-web-app/portal-cloud-shell-icon.png" alt-text="A screenshot of the Azure portal showing the Cloud Shell icon." :::
+:::image type="content" source="../../media/tutorial-container-web-app/portal-cloud-shell-icon.png" alt-text="A screenshot of the Azure portal showing the Cloud Shell icon." :::
 
 **Step 2.** Use the following [az acr build](/cli/azure/acr?branch#az-acr-build) command to build.
 
