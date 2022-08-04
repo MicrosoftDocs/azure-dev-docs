@@ -116,6 +116,6 @@ You need to pull down the remote action definition file before moving to the nex
 ## Next steps
 
 * [Create Azure Function API app](create-function-api-app.md)
-* [GitHub Action Workflow syntax](https://docs.github.com/actions/reference/workflow-syntax-for-github-actions)
+* [Workflow syntax for GitHub Actions](https://docs.github.com/actions/reference/workflow-syntax-for-github-actions)
 * [SWA configuration](/azure/static-web-apps/configuration)
 * [SWA CLI options](https://github.com/azure/static-web-apps-cli#configuration)
