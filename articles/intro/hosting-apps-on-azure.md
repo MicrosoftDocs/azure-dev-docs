@@ -11,7 +11,9 @@ ms.date: 08/04/2022
 
 Azure provides a variety of different ways to host your app depending on your needs.  
 
+
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE50vLy]
+
 
 ## Azure App Service
 

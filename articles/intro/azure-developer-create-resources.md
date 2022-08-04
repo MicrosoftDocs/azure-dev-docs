@@ -12,7 +12,9 @@ ms.custom: overview
 
 Azure provides a variety of tools to create and manage the Azure resources used by your application. 
 
+
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE50C5I]
+
 
 Different tools are designed to support different use cases, and most Azure developers use a combination of different tools depending on the job they need to perform. For example, you might:
 

@@ -18,7 +18,9 @@ Azure supports the most popular programming languages in use today, including Py
 
 You can incorporate Azure into your application in different ways depending on your needs.
 
+
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE50LmJ]
+
 
 - **Application hosting on Azure -** Azure can host your entire application stack from web applications and APIs to databases to storage services. Azure supports a variety of hosting models from fully managed services to containers to virtual machines. When using fully managed Azure services, your applications can take advantage of the scalability, high-availability, and security built in to Azure.
 
