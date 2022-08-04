@@ -14,7 +14,7 @@ ms.custom: include file
 
 Application requests to Azure Blob Storage must be authorized. Using the `DefaultAzureCredential` class provided by the Azure.Identity client library is the recommended approach for implementing credential-free connections to Azure services in your code, including Blob Storage.
 
-You can also authorize requests to Azure Blob Storage by using the account access key, but this approach should be used with caution. Developers must be diligent to never expose the access key in an unsecure location. Anyone who gains access to the key is able to authenticate. `DefaultAzureCredential` offers improved management and security benefits over the account key to allow credential-free authentication. Both options are demonstrated in the following example.
+You can also authorize requests to Azure Blob Storage by using the account access key, or a connection string that contains the account access key. However, this approach should be used with caution. Developers must be diligent to never expose the access key in an unsecure location. Anyone who gains access to the access key is able to authenticate. `DefaultAzureCredential` offers improved management and security benefits over the account key to allow credential-free authentication. Both options are demonstrated in the following example.
 
 ## [Credential-free (Recommended)](#tab/managed-identity)
 
@@ -64,6 +64,8 @@ You can authorize access to data in your storage account using the following ste
     > When deployed to Azure, this same application code can also authenticate to other Azure services. However, you'll need to enable managed identity on your app in Azure. Then configure your Blob Storage account to allow that managed identity to connect. For detailed instructions on configuring this connection between Azure services, see the [Auth from Azure-hosted apps](/dotnet/azure/sdk/authentication-azure-hosted-apps) tutorial.
 
 ## [Connection String](#tab/connection-string)
+
+A connection string includes the storage account access key and uses it to authorize requests. Always be careful to never expose the keys in an unsecure location. If you plan to use connection strings, you will need the Storage Account Contributor role or higher. You can also use any account with the Microsoft.Storage/storageAccounts/listkeys/action permission.
 
 [!INCLUDE [retrieve credentials](retrieve-credentials.md)]
 
