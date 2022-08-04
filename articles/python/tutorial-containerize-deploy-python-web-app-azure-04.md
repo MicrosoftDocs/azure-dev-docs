@@ -5,7 +5,7 @@ author: jess-johnson-msft
 ms.author: jejohn
 ms.devlang: python
 ms.topic: tutorial
-ms.date: 07/27/2022
+ms.date: 08/03/2022
 ms.prod: azure-python
 ms.custom: devx-track-python, devx-track-azurecli
 ---
@@ -108,10 +108,9 @@ To configure environment variables for the web app from VS Code, you must have t
 
 [!INCLUDE [Include showing how set App Service configuration settings with Azure CLI](<./includes/tutorial-container-web-app/connect-mongodb-cli.md>)]
 
-
 ---
 
-## 4. Verify and troubleshoot
+## 4. Verify deployment and troubleshoot
 
 To verify the site is running, go the `https::<website-name>.azurewebsites.net`. If successful, you should see the restaurant review sample app. It can take a few moments for the site to start the first time. When the site appears, add a restaurant and a review for that restaurant to confirm the sample app is functioning.
 

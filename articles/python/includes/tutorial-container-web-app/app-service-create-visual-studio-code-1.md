@@ -2,7 +2,7 @@
 author: jess-johnson-msft
 ms.author: jejohn
 ms.topic: include
-ms.date: 07/27/2022
+ms.date: 08/03/2022
 ---
 
 Refresh the Azure Container Registry in the Docker extension.
