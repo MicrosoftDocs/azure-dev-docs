@@ -185,7 +185,7 @@ Remove the resources created in this procedure when you're done using them. Beca
 
 # [Azure CLI](#tab/azure-cli)
 
-Delete the resource group with the following Azure CLI command, [az group delete](/cli/azure/group?view=azure-cli-latest#az-group-delete):
+Delete the resource group with the following Azure CLI command, [az group delete](/cli/azure/group#az-group-delete):
 
 ```bash
 az group delete --name YOUR-RESOURCE-GROUP-NAME --yes
