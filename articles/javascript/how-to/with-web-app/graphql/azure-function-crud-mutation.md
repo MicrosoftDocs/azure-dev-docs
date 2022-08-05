@@ -67,18 +67,25 @@ The npm package `apollo-server-azure-functions` includes a GraphQL playground th
 1. Enter query: 
 
     ```json
-    {
-      getMessages {
-        id
-        content
-        author
-      }
+    mutation{
+      createMessage(input:{
+        author: "John Doe",
+        content: "Oh happy day"
+      }){id}
     }
     ```
 
-1. View response `{"data":{"hello":"Hello from GraphQL backend"}}`
+1. View response:
 
-    :::image type="content" source="../../../media/azure-function-graphql-hello/graphql-playground.png" alt-text="A browser screenshot showing the GraphQL playground hosted from an Azure Function API" lightbox="../../../media/azure-function-graphql-hello/graphql-playground.png":::
+    ```json
+    {
+      "data": {
+        "createMessage": {
+          "id": "79e4c338-162d-4c1e-a6f0-320bd78a7817"
+        }
+      }
+    }
+    ```
     
 ## Query GraphQL API using cURL
 
@@ -88,9 +95,9 @@ The npm package `apollo-server-azure-functions` includes a GraphQL playground th
     ```bash
     curl 'http://localhost:7071/api/graphql' \
          -H 'content-type: application/json' \
-         --data-raw '{"query":"{hello}"}' --verbose
+         --data-raw '{"query":"{hello}"}' 
     ```
-1. At the bottom of the verbose response, view the same GraphQL response `{"data":{"hello":"Hello from GraphQL backend"}}`.
+1. View the same GraphQL response `{"data":{"hello":"Hello from GraphQL backend"}}`.
 
 ## Create your Azure Function resource from VS Code
 
@@ -203,7 +210,7 @@ The npm package `apollo-server-azure-functions` includes a GraphQL playground th
     }
     ```
 
-1. 1. Use the cURL command to get one item:
+1. Use the cURL command to get one item:
 
     ```bash
     curl 'https://YOUR-RESOURCE-NAME.azurewebsites.net/api/graphql' \
