@@ -173,7 +173,7 @@ Provide authentication.
 |Task|using|
 |--|--|
 |Deploy a `Hello World` GraphQL API as an Azure Function|[VSCode](with-web-app/graphql/azure-function-hello-world.md)|
-|Deploy CRUD operations in GraphQL API as an Azure Function|[VSCode](./with-web-app/graphql/azure-function-hello-world.md#design-a-second-api-to-allow-create-update-and-read-api-endpoints)|
+
 
 ## Deployment to hosting environment
 

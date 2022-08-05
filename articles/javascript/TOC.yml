@@ -280,6 +280,8 @@
     items: 
     - name: Hello world API
       href: how-to/with-web-app/graphql/azure-function-hello-world.md
+    - name: Data (CRUD) API
+      href: how-to/with-web-app/graphql/azure-function-crud-mutation.md      
   - name: npm Packages
     href: azure-sdk-library-package-index.md
   - name: npm Package Documentation
