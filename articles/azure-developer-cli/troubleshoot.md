@@ -6,8 +6,8 @@ ms.author: hannahhunter
 keywords: azd, known issues, troubleshooting, azure developer cli
 ms.topic: troubleshooting
 ms.date: 07/11/2022
+ms.service: azure-dev-cli
 ms.custom: devx-track-azdevcli
-ms.prod: azure
 # Customer intent: As a developer, I'm looking for solutions to common problems that occur when I'm using Azure Developer CLI.
 ---
 
