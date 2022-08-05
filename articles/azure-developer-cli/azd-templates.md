@@ -25,3 +25,8 @@ Each template includes application code, an /infra directory containing all the 
 For our first preview, we’ve authored an initial set of template applications written in Python, JavaScript/TypeScript, and C# and for hosts such as Azure App Service, Azure Container Apps, and Azure Static Web Apps + Function Apps. Check out our growing list of templates.
 
 For information on authoring your own template or “templatizing” an existing application, see our Developer Hub.
+
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Run azd](./run-azd.md)
