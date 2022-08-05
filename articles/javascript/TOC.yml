@@ -276,6 +276,10 @@
           href: sdk/authentication/azure-hosted-apps.md
         - name: On-premises apps
           href: sdk/authentication/on-premises-apps.md
+  - name: GraphQL
+    items: 
+    - name: Hello world API
+      href: how-to/with-web-app/graphql/azure-function-hello-world.md
   - name: npm Packages
     href: azure-sdk-library-package-index.md
   - name: npm Package Documentation
