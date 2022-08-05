@@ -3,17 +3,39 @@
   items:
   - name: What is Azure Developer CLI?
     href: overview.md
+  - name: Azure Developer CLI vs Azure CLI
+    href: azd-versus-azure-cli.md
   - name: Get started
-    href: get-started.md
-  - name: Run and debug
-    href: debug.md
-  - name: Configure deployment pipeline
-    href: configure-devops-pipeline.md
-  - name: Monitor your project
-    href: monitor-your-app.md
-  - name: Make your project azd-compatible
-    href: make-azd-compatible.md
-  - name: Troubleshoot and Get help
+    items: 
+    - name: Install azd
+      items:  
+      - name: Install azd in BareMetal
+        href: install-azd-baremetal.md
+      - name: Install azd in DevContainer
+        href: install-azd-devcontainer.md
+    - name: Choose an azd template
+      href: azd-templates.md
+    - name: Run azd
+      items:
+      - name: Run azd in BareMetal
+        href: run-azd-baremetal.md
+      - name: Run azd in DevContainer
+        href: run-azd-devcontainer.md
+  - name: Quickstart
+    items:
+    - name: Get started
+      href: get-started.md
+  - name: How-to guides
+    items:
+    - name: Run and debug
+      href: debug.md
+    - name: Configure deployment pipeline
+      href: configure-devops-pipeline.md
+    - name: Monitor your project
+      href: monitor-your-app.md
+    - name: Make your project azd-compatible
+      href: make-azd-compatible.md
+  - name: Troubleshoot
     href: troubleshoot.md   
   - name: Frequently asked questions (FAQ)
     href: faq.yml   
