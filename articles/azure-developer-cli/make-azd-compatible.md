@@ -285,7 +285,7 @@ Your project is now compatible with Azure Developer CLI and can be used as a tem
 
 1. Copy the **azure-dev.yml** file from any azd template - for example [todo-nodejs-mongo template](https://github.com/Azure-Samples/todo-nodejs-mongo/blob/main/.github/workflows/azure-dev.yml) - and paste into the `.github/workflows` directory.
 
-1. Run the following command to push updates to the repository. The GitHub Action workflow is triggered because of the update.
+1. Run the following command to push updates to the repository. The GitHub Actions workflow is triggered because of the update.
 
     ```bash
     azd pipeline config    
