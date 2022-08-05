@@ -109,7 +109,7 @@ The npm package `apollo-server-azure-functions` includes a GraphQL playground th
     |Select a hosting plan.|Select **Consumption**.|
     |Select a storage account.|Create a new storage account.|
     |Enter the name of the new storage account.|Accept the default value.|
-    |Select an Application Insights resource for your app.|Create new Application Insights resource.|Accept the default value.|
+    |Select an Application Insights resource for your app.|Create new Application Insights resource. Accept the default value.|
 
     
 1. Visual Studio Code's **Azure:Activity Log** reports when the Function App is created successfully and the workspace shows the **Attached Storage Accounts**. To use local storage, you need to install [**Azurite**](https://www.npmjs.com/package/azurite).
