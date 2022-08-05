@@ -15,7 +15,7 @@ The fastest way to get your app up and running on Azure with the Azure Developer
 
 ## Pre-requisites
 
-- [Install the Azure Developer CLI in BareMetal](./install-azd-baremetal.md).
+- [Install the Azure Developer CLI](./install-azd.md).
 - [Choose an `azd` template](./azd-templates.md) to run with your application.
 
 ## [BareMetal](#tab/baremetal)

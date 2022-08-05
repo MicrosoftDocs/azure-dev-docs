@@ -28,4 +28,4 @@ Start by selecting your development environment.
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Run azd in BareMetal](run-azd-baremetal.md)
+> [Run azd in BareMetal](./run-azd-bare-metal.md)

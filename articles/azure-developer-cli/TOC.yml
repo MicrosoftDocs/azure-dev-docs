@@ -4,7 +4,7 @@
   - name: What is Azure Developer CLI?
     href: overview.md
   - name: Azure Developer CLI vs Azure CLI
-    href: azd-versus-azure-cli.md
+    href: 
   - name: Get started
     items: 
     - name: Install azd
