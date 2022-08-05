@@ -4,6 +4,7 @@ description: How to convert an app to an Azure developer enabled template.
 author: hhunter-ms
 ms.author: hannahhunter
 ms.date: 07/11/2022
+ms.service: azure-dev-cli
 ms.topic: conceptual
 ms.custom: devx-track-azdevcli
 ms.prod: azure

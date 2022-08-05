@@ -6,6 +6,7 @@ author: hhunter-ms
 ms.author: hannahhunter
 ms.date: 07/11/2022
 ms.topic: article
+ms.service: azure-dev-cli
 ms.custom: devx-track-azdevcli
 ms.prod: azure
 zone_pivot_group_filename: developer/azure-developer-cli/azd-zone-pivot-groups.json
