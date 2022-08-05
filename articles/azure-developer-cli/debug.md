@@ -7,7 +7,6 @@ ms.date: 07/11/2022
 ms.service: azure-dev-cli
 ms.topic: conceptual
 ms.custom: devx-track-azdevcli
-ms.prod: azure
 zone_pivot_group_filename: developer/azure-developer-cli/azd-zone-pivot-groups.json
 zone_pivot_groups: azd-devenv-set
 ---
