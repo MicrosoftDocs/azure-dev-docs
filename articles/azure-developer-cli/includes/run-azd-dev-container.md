@@ -1,3 +1,11 @@
+---
+author: hhunter-ms
+ms.service: azure-dev-cli
+ms.topic: include
+ms.date: 08/05/2022
+ms.author: hannahhunter
+---
+
 ## Initialize your project
 
 1. Open your preferred terminal and create a new empty directory.

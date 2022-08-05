@@ -1,3 +1,11 @@
+---
+author: hhunter-ms
+ms.service: azure-dev-cli
+ms.topic: include
+ms.date: 08/05/2022
+ms.author: hannahhunter
+---
+
 ## Pre-requisites
 
 Before you get started using `azd`, ensure you have:

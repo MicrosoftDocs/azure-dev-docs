@@ -1,3 +1,11 @@
+---
+author: hhunter-ms
+ms.service: azure-dev-cli
+ms.topic: include
+ms.date: 08/05/2022
+ms.author: hannahhunter
+---
+
 ## Run `azd up`
 
 Run the `azd up` command with the `--template` flag. 

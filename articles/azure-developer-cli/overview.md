@@ -118,5 +118,5 @@ Currently supported/planned languages:
 
 ## Next steps
 
-> [!div class="nextstepaction"] 
-> [Get started using Azure Developer CLI (azd)](get-started.md)
+- Get started by [installing Azure Developer CLI](./install-azd.md).
+- Walk through one of the quickstarts to see Azure Developer CLI in action. You can try either [Node.js], [Python], or [C#].
