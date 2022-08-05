@@ -8,19 +8,11 @@
   - name: Get started
     items: 
     - name: Install azd
-      items:  
-      - name: Install azd in BareMetal
-        href: install-azd-baremetal.md
-      - name: Install azd in DevContainer
-        href: install-azd-devcontainer.md
+      href: install-azd.md
     - name: Choose an azd template
       href: azd-templates.md
     - name: Run azd
-      items:
-      - name: Run azd in BareMetal
-        href: run-azd-baremetal.md
-      - name: Run azd in DevContainer
-        href: run-azd-devcontainer.md
+      href: run-azd.md
   - name: Quickstart
     items:
     - name: Get started
