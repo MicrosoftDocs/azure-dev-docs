@@ -43,7 +43,7 @@ Make sure the following are installed on your local developer workstation:
 
 - An Azure account with **an active subscription which you own**. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). Ownership is required to provide the correct Azure Active Directory permissions to complete these steps.
 - Microsoft Identity account - this is an [email account](https://signup.live.com) added to Microsoft Identity but doesn't have to be the same account you use to create resources.
-- [Node.js 14 and npm](https://nodejs.org/en/download) - installed to your local machine.
+- [Node.js LTS](https://nodejs.org/en/download) - installed to your local machine.
 - [Visual Studio Code](https://code.visualstudio.com/) - installed to your local machine. 
 - Visual Studio Code extensions:
     - [Azure App Service extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice) for Visual Studio Code.
@@ -73,13 +73,14 @@ Create and run an Express.js app by cloning an Azure sample repository.
 
 ## Create an Azure app service
 
-1. In VS Code, select **Azure** from the activity bar, then select **+** in the **Azure: App Service** side bar. 
+1. In VS Code, select **Azure** from the activity bar.
+1. In the **Resources** section, select your subscription, then right-click on **App Services**, select **Create new web app**.
 1. Complete the prompts:
 
     |Prompt|Enter|
     |--|--|
     |Enter a globally unique name for the new web app.|The name is used as a subdomain for the web app's URI. |
-    |Select a runtime stack.|Select the **most recent version of Node.js**, such as 14 LTS.|
+    |Select a runtime stack.|Select an **LTS version of Node.js**.|
     |Select a pricing tier|Select the **free** tier.|
     
 1. Wait for the web app creation to complete. 
@@ -88,10 +89,8 @@ Create and run an Express.js app by cloning an Azure sample repository.
 1. Select **Browse website** from the notification. 
     The web app may take a minute or two to return from the server for the first (cold) start.
 
-1. When you receive the following response in the browser, the sample app is deployed and is responding correctly. 
-    Authentication isn't configured yet. That is the next step. 
+1. The browser displays a web page stating you need to configure appSettings.json then restart the app. This message means the sample app is deployed and is responding correctly. Authentication isn't configured yet. That is the next step. 
 
-    :::image type="content" source="../../media/app-service-easy-authentication/easy-auth-expressjs-website.png" alt-text="Select **Browse website** from the notification. When you receive the following response in the browser, the sample app is deployed and is responding correctly. Authentication isn't configured yet. That is the next step.":::
 
 ## Configure easy auth for your app service
 
@@ -158,4 +157,4 @@ In this procedure, you created an Azure app service and an Azure Active Director
 
 ## Next steps
 
-* [Install and debug a local project](../with-visual-studio-code/install-run-debug-nodejs.md)
+* [Use MSAL to work with authenticated user](deploy-msal-sdk-authentication-expressjs.md)
