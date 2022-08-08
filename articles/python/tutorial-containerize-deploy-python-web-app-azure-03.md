@@ -2,10 +2,10 @@
 title: 'Tutorial: Containerized Python web apps on Azure: build image in Azure Container Registry'
 description: Build a containerized Python web app in the cloud.
 ms.topic: conceptual
-ms.date: 08/03/2022
+ms.date: 08/08/2022
 ms.custom: devx-track-python
 ms.prod: azure-python
-author: jess-johnson-msft
+author: jessmjohnson
 ms.author: jejohn
 ---
 
