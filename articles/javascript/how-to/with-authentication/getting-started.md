@@ -71,7 +71,7 @@ The value for the [MSAL SDK](https://www.npmjs.com/package/@azure/identity)'s De
 
 ### [Other environments](#tab/msal-credential)
 
-Configure your local, on-prem, or other environment to use [environment variables](https://www.npmjs.com/package/@azure/identity#environment-variables). 
+Configure your local, on-premises, or other environment to use [environment variables](https://www.npmjs.com/package/@azure/identity#environment-variables). 
 
 The value for the [MSAL SDK](https://www.npmjs.com/package/@azure/identity)'s DefaultAzureCredential is controlled by the runtime environment. 
 
