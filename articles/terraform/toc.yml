@@ -137,6 +137,8 @@
       href: https://aka.ms/terraform
     - name: Terraform AzAPI Provider
       href: https://registry.terraform.io/providers/Azure/azapi/latest/docs
+    - name: Terraform AzAPI resource type definitions
+      href: /azure/templates/
 - name: Resources
   items:
     - name: Azure & Terraform
