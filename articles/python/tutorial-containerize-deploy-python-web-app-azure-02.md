@@ -13,7 +13,7 @@ ms.author: jejohn
 
 This article is part of a tutorial about how to containerize and deploy a containerized Python web app to Azure App Service. App Service enables you to run containerized web apps and deploy through continuous integration/continuous deployment (CI/CD) capabilities with Docker Hub, Azure Container Registry, and Visual Studio Team Services. In this part of the tutorial, you learn how to build and run the containerized Python web app locally. ***This step is optional and isn't required to deploy the sample app to Azure.***
 
-Running a Docker image locally in your development environment requires setup beyond deployment to Azure. Think of it as an investment that can make future development cycles easier, especially when you move beyond sample apps and you start to create your own web apps. To deploy the sample app, you can skip this step and go to the next step in this tutorial. You can always return after deploying to Azure and work through these steps.
+Running a Docker image locally in your development environment requires setup beyond deployment to Azure. Think of it as an investment that can make future development cycles easier, especially when you move beyond sample apps and you start to create your own web apps. To deploy the sample apps for [Django](https://github.com/Azure-Samples/msdocs-python-django-container-web-app) and [Flask](https://github.com/Azure-Samples/msdocs-python-flask-container-web-app), you can skip this step and go to the next step in this tutorial. You can always return after deploying to Azure and work through these steps.
 
 The service diagram shown below highlights the components covered in this article.
 
@@ -21,11 +21,13 @@ The service diagram shown below highlights the components covered in this articl
 
 ## 1. Build a Docker image
 
-If you're using one of the framework sample apps available for Django and Flask, you're set to go. If you're working with your own sample app, take a look to see how the sample apps are set up, in particular the *Dockerfile* in the root directory.
+If you're using one of the framework sample apps available for [Django](https://github.com/Azure-Samples/msdocs-python-django-container-web-app) and [Flask](https://github.com/Azure-Samples/msdocs-python-flask-container-web-app), you're set to go. If you're working with your own sample app, take a look to see how the sample apps are set up, in particular the *Dockerfile* in the root directory.
+
+Clone the [Django](https://github.com/Azure-Samples/msdocs-python-django-container-web-app) or [Flask](https://github.com/Azure-Samples/msdocs-python-flask-container-web-app) and start in the cloned folder.
 
 ### [VS Code](#tab/vscode-docker)
 
-These instructions require [Visual Studio Code](https://code.visualstudio.com/) and the [Docker extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker).
+These instructions require [Visual Studio Code](https://code.visualstudio.com/) and the [Docker extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker). 
 
 | Instructions    | Screenshot |
 |:----------------|-----------:|
