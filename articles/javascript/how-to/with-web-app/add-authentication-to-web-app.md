@@ -2,7 +2,7 @@
 title: Add Active Directory authentication
 description: Add Microsoft Identity authentication to your Express.js web app on Azure App service using easy authentication.
 ms.topic: how-to
-ms.date: 04/28/2021
+ms.date: 08/08/2022
 ms.custom: devx-track-js
 #intent: Create Express.js web app with easy auth configured. 
 ---

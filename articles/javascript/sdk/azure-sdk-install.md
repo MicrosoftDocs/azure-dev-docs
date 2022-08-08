@@ -1,7 +1,7 @@
 ---
 title: Install JavaScript Azure SDK library packages
 description: How to install, uninstall, and verify Azure SDK for JavaScript libraries using npm. Includes details on installing specific versions and preview packages.
-ms.date: 05/24/2021
+ms.date: 08/08/2022
 ms.topic: conceptual
 ms.custom: devx-track-js
 adobe-target: true

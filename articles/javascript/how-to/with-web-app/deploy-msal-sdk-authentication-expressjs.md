@@ -2,7 +2,7 @@
 title: Deploy MSAL-enabled Express.js
 description: Deploy Microsoft authentication Express.js to Azure App service with VS Code. 
 ms.topic: how-to
-ms.date: 05/11/2021
+ms.date: 08/08/2022
 ms.custom: devx-track-js
 #intent: Deploy Microsoft authentication Express.js to Azure App service with VS Code. 
 ---

@@ -2,7 +2,7 @@
 title: Logging, metrics, telemetry in Azure
 description: Learn about logging options in Azure
 ms.topic: how-to
-ms.date: 05/06/2021
+ms.date: 08/08/2022
 ms.custom: devx-track-js
 ---
 
