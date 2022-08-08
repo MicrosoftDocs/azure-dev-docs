@@ -1,8 +1,8 @@
 ---
-author: jess-johnson-msft
+author: jessmjohnson
 ms.author: jejohn
 ms.topic: include
-ms.date: 07/07/2022
+ms.date: 08/07/2022
 ---
 
 Select **F1** or **CTRL+SHIFT+P** to open the command palette.

@@ -1,8 +1,8 @@
 ---
-author: jess-johnson-msft
+author: jessmjohnson
 ms.author: jejohn
 ms.topic: include
-ms.date: 07/07/2022
+ms.date: 08/07/2022
 ---
 
 The admin account is required to deploy a container image from a registry to Azure Web Apps for Containers. Enable the admin user:
