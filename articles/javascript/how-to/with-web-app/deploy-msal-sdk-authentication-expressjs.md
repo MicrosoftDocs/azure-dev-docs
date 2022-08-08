@@ -51,7 +51,7 @@ Make sure the following are installed on your local developer workstation:
 
 - An Azure account with **an active subscription, which you own**. [Create an account for free](https://azure.microsoft.com/free/). Ownership is required to provide the correct Azure Active Directory permissions to complete these steps.
 - Microsoft Identity account - this is an [email account](https://signup.live.com) added to Microsoft Identity but doesn't have to be the same account you use to create resources.
-- [Node.js 14 and npm](https://nodejs.org/en/download) - installed to your local machine.
+- [Node.js LTS](https://nodejs.org/en/download) - installed to your local machine.
 - [Visual Studio Code](https://code.visualstudio.com/) - installed to your local machine. 
 - Visual Studio Code extensions:
     - [Azure App Service extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice) for Visual Studio Code.

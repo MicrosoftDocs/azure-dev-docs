@@ -74,7 +74,7 @@ traces
 
 ## Configure web app log streaming
 
-View log stream of hosted resources available in the resource's Monitoring section of the Azure portal. Configure them with the App service log configuration.
+View log stream of hosted resources available in the resource's Monitoring section of the Azure portal. Configure them with the App service (Windows) log configuration.
 
 :::image type="content" source="../media/logging-metrics/configue-azure-app-service-logs-in-azure-portal.png" alt-text="View log stream of hosted resources available in the resource's Monitoring section of the Azure portal.":::
 
