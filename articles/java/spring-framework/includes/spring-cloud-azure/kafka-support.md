@@ -132,6 +132,8 @@ The following table shows the Spring Boot Kafka common configuration options:
 
 #### Configurable properties when using Kafka support with plain connection string authentication
 
+The following table shows the Spring Boot Event Hubs for Kafka common configuration options:
+
 > [!div class="mx-tdBreakAll"]
 > | Property                                                 | Description                                                                                                                                               |
 > |----------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -237,7 +239,7 @@ spring.cloud.stream.binders.kafka.environment.spring.main.sources=com.azure.spri
 See the [azure-spring-boot-samples](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/spring-cloud-azure_4.2.0) repository on GitHub.
 
 <a name="basic-usage-connection-string"></a>
-#### Using connection string authentication
+#### Use connection string authentication
 
 You can use connection string authentication directly or use the Azure Resource Manager to retrieve the connection string.
 
@@ -250,8 +252,8 @@ Add the following dependencies if you want to migrate your Apache Kafka applicat
 
 ``` xml
 <dependency>
-  <groupId>com.azure.spring</groupId>
-  <artifactId>spring-cloud-azure-starter</artifactId>
+    <groupId>com.azure.spring</groupId>
+    <artifactId>spring-cloud-azure-starter</artifactId>
 </dependency>
 ```
 
@@ -259,9 +261,9 @@ If you want to retrieve the connection string using Azure Resource Manager, add 
 
 ``` xml
 <dependency>
-  <groupId>com.azure.spring</groupId>
-  <artifactId>spring-cloud-azure-resourcemanager</artifactId>
-  </dependency>
+    <groupId>com.azure.spring</groupId>
+    <artifactId>spring-cloud-azure-resourcemanager</artifactId>
+</dependency>
 ```
 
 ##### Configuration

@@ -345,8 +345,8 @@
 | azure-resourcemanager-workloads | Maven [1.0.0-beta.1](https://search.maven.org/artifact/com.azure.resourcemanager/azure-resourcemanager-workloads/1.0.0-beta.1/jar/) |  |  |
 | azure-sdk-archetype | Maven [1.0.0](https://search.maven.org/artifact/com.azure.tools/azure-sdk-archetype/1.0.0/jar/) |  |  |
 | azure-sdk-build-tool | Maven [1.0.0-beta.1](https://search.maven.org/artifact/com.azure.tools/azure-sdk-build-tool/1.0.0-beta.1/jar/) |  |  |
-| azure-sdk-template-three | Maven [1.0.0-beta.1746782](https://search.maven.org/artifact/com.azure/azure-sdk-template-three/1.0.0-beta.1746782/jar/) |  |  |
-| azure-sdk-template-two | Maven [1.0.0-beta.1746782](https://search.maven.org/artifact/com.azure/azure-sdk-template-two/1.0.0-beta.1746782/jar/) |  |  |
+| azure-sdk-template-three | Maven [1.0.0-beta.1758880](https://search.maven.org/artifact/com.azure/azure-sdk-template-three/1.0.0-beta.1758880/jar/) |  |  |
+| azure-sdk-template-two | Maven [1.0.0-beta.1758880](https://search.maven.org/artifact/com.azure/azure-sdk-template-two/1.0.0-beta.1758880/jar/) |  |  |
 | azure-spring-apps-maven-plugin | Maven [1.12.0](https://search.maven.org/artifact/com.microsoft.azure/azure-spring-apps-maven-plugin/1.12.0/jar/) |  |  |
 | azure-storage-fastpath | Maven [1.0.0-beta.6](https://search.maven.org/artifact/com.azure/azure-storage-fastpath/1.0.0-beta.6/jar/) |  |  |
 | azure-toolkit-applicationinsights-lib | Maven [0.23.0](https://search.maven.org/artifact/com.microsoft.azure/azure-toolkit-applicationinsights-lib/0.23.0/jar/) |  |  |
@@ -410,7 +410,7 @@
 | Application Insights - Profiler Library | Maven [0.2.0](https://search.maven.org/artifact/com.microsoft.azure/applicationinsights-profiler-library/0.2.0/jar/) |  |  |
 | Application Insights - Profiler Telemetrymodule | Maven [0.2.1](https://search.maven.org/artifact/com.microsoft.azure/applicationinsights-profiler-telemetrymodule/0.2.1/jar/) |  |  |
 | Application Insights - Profiler Uploader | Maven [0.2.0](https://search.maven.org/artifact/com.microsoft.azure/applicationinsights-profiler-uploader/0.2.0/jar/) |  |  |
-| Application Insights - Query | Maven [1.0.0-Preview-1](https://search.maven.org/artifact/com.microsoft.azure/azure-applicationinsights-query/1.0.0-Preview-1/jar/) |  |  |
+| Application Insights - Query | Maven [1.0.0-Preview-2](https://search.maven.org/artifact/com.microsoft.azure/azure-applicationinsights-query/1.0.0-Preview-2/jar/) |  |  |
 | Application Insights - Spring Boot Starter | Maven [2.6.4](https://search.maven.org/artifact/com.microsoft.azure/applicationinsights-spring-boot-starter/2.6.4/jar/)<br>Maven [2.6.3-BETA-HEYA-TEST](https://search.maven.org/artifact/com.microsoft.azure/applicationinsights-spring-boot-starter/2.6.3-BETA-HEYA-TEST/jar/) |  |  |
 | Application Insights - Web | Maven [2.6.4](https://search.maven.org/artifact/com.microsoft.azure/applicationinsights-web/2.6.4/jar/)<br>Maven [2.6.3-BETA-HEYA-TEST](https://search.maven.org/artifact/com.microsoft.azure/applicationinsights-web/2.6.3-BETA-HEYA-TEST/jar/) |  |  |
 | Application Insights - Web Auto | Maven [2.6.4](https://search.maven.org/artifact/com.microsoft.azure/applicationinsights-web-auto/2.6.4/jar/)<br>Maven [2.6.3-BETA-HEYA-TEST](https://search.maven.org/artifact/com.microsoft.azure/applicationinsights-web-auto/2.6.3-BETA-HEYA-TEST/jar/) |  |  |
