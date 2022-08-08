@@ -13,7 +13,7 @@ ms.date: 08/07/2022
 
 ```azurecli
 az acr build \
-  -r <registry-name> \ 
+  -r <registry-name> \
   -g <resource-group> \
   -t msdocspythoncontainerwebapp:latest \
   <repo-path>
