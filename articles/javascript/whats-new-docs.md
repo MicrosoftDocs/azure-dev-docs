@@ -231,12 +231,6 @@ Find new and updated content for JavaScript and TypeScript developers.
 
 ## 2021 April
 
-### New in April
-
-|Name|
-|---------------------------------------|
-|[Add easy authentication to your Express.js web app](./how-to/with-web-app/add-authentication-to-web-app.md)<br><br>Add Microsoft authentication to your web app with an app registration and an Azure app service. The Azure app service provides an easy authentication ("easy auth") to your web app, doing most of the work for a simple authentication use case for you. |
-
 ### Updated in April
 
 |Name|

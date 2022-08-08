@@ -39,7 +39,7 @@ The app has the root as publicly available for all, and the `/profile` and `/ten
 
 ### Sign in to the app
 
-When the user selects the `Sign-in` button from the top navigation bar, the Express.js server calls into the MSAL SDK with configuration information. The MSAL SDK knows to pop-up an authentication window. Depending on how your Active Directory app is configured and how your tenant is secured, you may have single or 2-factor authentication (2FA). The JavaScript for these steps is in the `./src/msal-express-wrapper/auth-provider.js` file.
+When the user selects the `Sign-in` button from the top navigation bar, the Express.js server calls into the MSAL SDK with configuration information. The MSAL SDK knows to pop up an authentication window. Depending on how your Active Directory app is configured and how your tenant is secured, you may have single or 2-factor authentication (2FA). The JavaScript for these steps is in the `./src/msal-express-wrapper/auth-provider.js` file.
 
 ### Redirect back to your web app after authentication
 
@@ -259,4 +259,4 @@ This tutorial demonstrated deploying an MSAL-enabled Express.js app. You can con
 * Continue to learn and use the [Microsoft Identity](/azure/active-directory/develop/v2-overview) Provider
     * [MSAL SDK on GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-js) includes a huge number of samples. 
     * [Tutorial: Sign in users and call the Microsoft Graph API from a React single-page app (SPA) using auth code flow](/azure/active-directory/develop/tutorial-v2-react)
-    * [Use App service easy auth](./add-authentication-to-web-app.md)
+    * [Use App service easy auth](/azure/app-service/scenario-secure-app-authentication-app-service-as-user)
