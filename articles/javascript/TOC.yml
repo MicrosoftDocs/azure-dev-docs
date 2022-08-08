@@ -282,8 +282,6 @@
     items: 
       - name: Hello world with Functions
         href: how-to/with-web-app/graphql/azure-function-hello-world.md
-      - name: Simple CRUD with Functions 
-        href: how-to/with-web-app/graphql/azure-function-hello-world.md#design-a-second-api-to-allow-create-update-and-read-api-endpoints
       - name: Trivia game with Static Web Apps
         href: how-to/with-web-app/graphql/static-web-app-graphql/introduction.md
       - name: Samples
