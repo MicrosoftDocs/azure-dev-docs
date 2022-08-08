@@ -1,8 +1,8 @@
 ---
-author: jess-johnson-msft
+author: jessmjohnson
 ms.author: jejohn
 ms.topic: include
-ms.date: 07/07/2022
+ms.date: 08/07/2022
 ---
 
 **Step 1.** At a shell prompt, confirm that Docker is accessible.

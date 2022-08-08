@@ -1,29 +1,33 @@
 ---
-author: jess-johnson-msft
+author: jessmjohnson
 ms.author: jejohn
 ms.topic: include
-ms.date: 08/03/2022
+ms.date: 08/07/2022
 ---
 
 **Step 1.** Run the latest version of the image.
 ### [Local MongoDB](#tab/mongodb-local)
 
 ```Docker
+# PORT=8000 for Django and 5000 for Flask
+export PORT=<port-number>
 export YOUR_IP_ADDRESS=<your-machine-ip-address>
 
 docker run --rm -it \
-  --publish 8000:8000 --publish 27017:27017 \
+  --publish $PORT:$PORT --publish 27017:27017 \
   --add-host mongoservice:$YOUR_IP_ADDRESS \
   --env 'CONNECTION_STRING=mongodb://mongoservice:27017' --env 'DB_NAME=restaurants_reviews' --env 'COLLECTION_NAME=restaurants_reviews' \
   msdocspythoncontainerwebapp:latest  
 ```
 
-The command above is formatted for Bash shell. If you prefer to use PowerShell, Command Prompt, or another shell, you may need to adjust the line continuation and environment variable format accordingly.
+The command above is formatted for Bash shell. If you use PowerShell, Command Prompt, or another shell, you may need to adjust the line continuation and environment variable format accordingly.
 
 ### [Azure Cosmos DB MongoDB](#tab/mongodb-azure)
 
 ```Docker
-export CONNECTION_STRING=<connection-string>
+# PORT=8000 for Django and 5000 for Flask
+export PORT=<port-number>
+export CONNECTION_STRING="<connection-string>"
 
 docker run --rm -it \
   --publish-all \
@@ -31,7 +35,7 @@ docker run --rm -it \
   msdocspythoncontainerwebapp:latest  
 ```
 
-The command above is formatted for Bash shell. If you prefer to use PowerShell, Command Prompt, or another shell, you may need to adjust the line continuation and environment variable format accordingly.
+The command above is formatted for Bash shell. If you use PowerShell, Command Prompt, or another shell, you may need to adjust the line continuation and environment variable format accordingly.
 
 ---
 
@@ -39,17 +43,17 @@ Passing in sensitive information as shown here is for demonstration purposes. Th
 
 **Step 2.** Confirm that the container is running.
 
-Use the [docker container ls](https://docs.docker.com/engine/reference/commandline/container_ls/) command.
+Open a second shell and run the [docker container ls](https://docs.docker.com/engine/reference/commandline/container_ls/) command.
 
 ```Docker
 docker container ls
 ```
 
-You should see your container "msdocspythoncontainerwebapp:latest:latest" in the list. Note the `NAMES` column of the output. You can use this name to stop the container.
+You should see your container "msdocspythoncontainerwebapp:latest:latest" in the list. Note the `NAMES` column of the output and the `PORTS` column. You can use this name to stop the container.
 
 **Step 3.** Test the web app.
 
-Go to "http://172.0.0.1:5000/" for Flask or "http://127.0.0.1:8000" for Django running with local MongoDB. (If you are using MongoDB in Azure, your port will be different but can be found by hovering over the container name.)
+Go to "http://127.0.0.1:8000" for Django and "http://172.0.0.1:5000/" for Flask when running with local MongoDB. If you are using MongoDB in Azure, your port will be different but can be from the `docker container ls` command.
 
 **Step 4.** Shut down the container
 

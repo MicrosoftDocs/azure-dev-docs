@@ -1,8 +1,8 @@
 ---
-author: jess-johnson-msft
+author: jessmjohnson
 ms.author: jejohn
 ms.topic: include
-ms.date: 08/03/2022
+ms.date: 08/07/2022
 ---
 
 Run the image.

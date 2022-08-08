@@ -1,8 +1,8 @@
 ---
-author: jess-johnson-msft
+author: jessmjohnson
 ms.author: jejohn
 ms.topic: include
-ms.date: 08/03/2022
+ms.date: 08/07/2022
 ---
 
 In the *\.vscode* folder of the sample app, edit the *settings.json* file for your database scenario.
