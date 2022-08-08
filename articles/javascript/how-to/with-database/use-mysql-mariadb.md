@@ -2,7 +2,7 @@
 title: Use JavaScript on Azure MariaDB or Azure MySQL
 description: To create or move your database to Azure, you need an Azure resource. 
 ms.topic: how-to
-ms.date: 10/05/2021
+ms.date: 08/08/2022
 ms.custom: devx-track-js, devx-track-azurecli 
 ---
 

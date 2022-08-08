@@ -37,7 +37,7 @@
 | Core - Client - Http Compat | npm [1.3.0](https://www.npmjs.com/package/@azure/core-http-compat/v/1.3.0) | [docs](/javascript/api/overview/azure/core-http-compat-readme) | GitHub [1.3.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-http-compat_1.3.0/sdk/core/core-http-compat/) |
 | Core - Client - Logger | npm [1.0.3](https://www.npmjs.com/package/@azure/logger/v/1.0.3) | [docs](/javascript/api/overview/azure/logger-readme) | GitHub [1.0.3](https://github.com/Azure/azure-sdk-for-js/tree/@azure/logger_1.0.3/sdk/core/logger/) |
 | Core - Client - LRO | npm [2.2.4](https://www.npmjs.com/package/@azure/core-lro/v/2.2.4)<br>npm [2.3.0-beta.1](https://www.npmjs.com/package/@azure/core-lro/v/2.3.0-beta.1) | [docs](/javascript/api/overview/azure/core-lro-readme) | GitHub [2.2.4](https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-lro_2.2.4/sdk/core/core-lro/)<br>GitHub [2.3.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-lro_2.3.0-beta.1/sdk/core/core-lro/) |
-| Core - Client - Rest | npm [1.0.0-beta.10](https://www.npmjs.com/package/@azure-rest/core-client/v/1.0.0-beta.10) |  | GitHub [1.0.0-beta.10](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/core-client_1.0.0-beta.10/sdk/core/core-client-rest) |
+| Core - Client - Rest | npm [1.0.0](https://www.npmjs.com/package/@azure-rest/core-client/v/1.0.0) |  | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/core-client_1.0.0/sdk/core/core-client-rest) |
 | Core - Client - Tracing | npm [1.0.1](https://www.npmjs.com/package/@azure/core-tracing/v/1.0.1) | [docs](/javascript/api/overview/azure/core-tracing-readme) | GitHub [1.0.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-tracing_1.0.1/sdk/core/core-tracing/) |
 | Core - Client - XML | npm [1.3.0](https://www.npmjs.com/package/@azure/core-xml/v/1.3.0) | [docs](/javascript/api/overview/azure/core-xml-readme) | GitHub [1.3.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-xml_1.3.0/sdk/core/core-xml/) |
 | Cosmos DB | npm [3.16.4](https://www.npmjs.com/package/@azure/cosmos/v/3.16.4) | [docs](/javascript/api/overview/azure/cosmos-readme) | GitHub [3.16.4](https://github.com/Azure/azure-sdk-for-js/tree/@azure/cosmos_3.16.4/sdk/cosmosdb/cosmos/) |
@@ -255,11 +255,11 @@
 | @autorest/codemodel | npm [4.19.0](https://www.npmjs.com/package/@autorest/codemodel/v/4.19.0) |  |  |
 | @autorest/common | npm [1.5.3](https://www.npmjs.com/package/@autorest/common/v/1.5.3) |  |  |
 | @autorest/configuration | npm [1.10.1](https://www.npmjs.com/package/@autorest/configuration/v/1.10.1) |  |  |
-| @autorest/csharp | npm [3.0.0-beta.20220805.2](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20220805.2) |  |  |
+| @autorest/csharp | npm [3.0.0-beta.20220808.1](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20220808.1) |  |  |
 | @autorest/csharp-v3 | npm [3.0.0-beta.20201217.1](https://www.npmjs.com/package/@autorest/csharp-v3/v/3.0.0-beta.20201217.1) |  |  |
 | @autorest/extension-base | npm [3.5.0](https://www.npmjs.com/package/@autorest/extension-base/v/3.5.0) |  |  |
 | @autorest/fixer | npm [1.1.0](https://www.npmjs.com/package/@autorest/fixer/v/1.1.0) |  |  |
-| @autorest/gotest | npm [4.2.0](https://www.npmjs.com/package/@autorest/gotest/v/4.2.0) |  |  |
+| @autorest/gotest | npm [4.2.1](https://www.npmjs.com/package/@autorest/gotest/v/4.2.1) |  |  |
 | @autorest/schemas | npm [1.3.4](https://www.npmjs.com/package/@autorest/schemas/v/1.3.4) |  |  |
 | @autorest/system-requirements | npm [1.0.0](https://www.npmjs.com/package/@autorest/system-requirements/v/1.0.0) |  |  |
 | @autorest/testmodeler | npm [2.3.1](https://www.npmjs.com/package/@autorest/testmodeler/v/2.3.1) |  |  |
@@ -411,7 +411,7 @@
 | Core - Client - Logger | npm [1.0.3](https://www.npmjs.com/package/@azure/logger/v/1.0.3) | [docs](/javascript/api/overview/azure/logger-readme) | GitHub [1.0.3](https://github.com/Azure/azure-sdk-for-js/tree/@azure/logger_1.0.3/sdk/core/logger/) |
 | Core - Client - LRO | npm [2.2.4](https://www.npmjs.com/package/@azure/core-lro/v/2.2.4)<br>npm [2.3.0-beta.1](https://www.npmjs.com/package/@azure/core-lro/v/2.3.0-beta.1) | [docs](/javascript/api/overview/azure/core-lro-readme) | GitHub [2.2.4](https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-lro_2.2.4/sdk/core/core-lro/)<br>GitHub [2.3.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-lro_2.3.0-beta.1/sdk/core/core-lro/) |
 | Core - Client - Paging | npm [1.3.0](https://www.npmjs.com/package/@azure/core-paging/v/1.3.0) | [docs](/javascript/api/overview/azure/core-paging-readme) | GitHub [1.3.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-paging_1.3.0/sdk/core/core-paging/) |
-| Core - Client - Rest | npm [1.0.0-beta.10](https://www.npmjs.com/package/@azure-rest/core-client/v/1.0.0-beta.10) |  | GitHub [1.0.0-beta.10](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/core-client_1.0.0-beta.10/sdk/core/core-client-rest) |
+| Core - Client - Rest | npm [1.0.0](https://www.npmjs.com/package/@azure-rest/core-client/v/1.0.0) |  | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/core-client_1.0.0/sdk/core/core-client-rest) |
 | Core - Client - Tracing | npm [1.0.1](https://www.npmjs.com/package/@azure/core-tracing/v/1.0.1) | [docs](/javascript/api/overview/azure/core-tracing-readme) | GitHub [1.0.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-tracing_1.0.1/sdk/core/core-tracing/) |
 | Core - Client - XML | npm [1.3.0](https://www.npmjs.com/package/@azure/core-xml/v/1.3.0) | [docs](/javascript/api/overview/azure/core-xml-readme) | GitHub [1.3.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-xml_1.3.0/sdk/core/core-xml/) |
 | Cosmos DB | npm [3.16.4](https://www.npmjs.com/package/@azure/cosmos/v/3.16.4) | [docs](/javascript/api/overview/azure/cosmos-readme) | GitHub [3.16.4](https://github.com/Azure/azure-sdk-for-js/tree/@azure/cosmos_3.16.4/sdk/cosmosdb/cosmos/) |
