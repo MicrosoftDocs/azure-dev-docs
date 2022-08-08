@@ -2,7 +2,7 @@
 title: Use JavaScript on Azure PostgreSQL
 description: To create or move your PostgreSQL database to Azure, you need a PostgreSQL resource. 
 ms.topic: how-to
-ms.date: 05/24/2022
+ms.date: 08/08/2022
 ms.custom: devx-track-js
 ---
 
