@@ -5,7 +5,7 @@ summary: Recommended strategies for migrating Java applications to Azure.
 
 metadata:
   title: Java to Azure migration guidance documentation
-  description: Discover recommended migration strategies for java migration. Move Java, Tomcat, WildFly, WebSphere, Jboss, and WebLogic applications to Azure with ease. 
+  description: Discover recommended migration strategies for java migration. Move Java, Tomcat, WildFly, WebSphere, JBoss, and WebLogic applications to Azure with ease. 
   keywords: migration strategies, migration strategy, java migration
   author: KarlErickson
   ms.author: karler
@@ -26,6 +26,8 @@ landingContent:
         links:
           - text: Spring Boot to Azure App Service
             url: migrate-spring-boot-to-app-service.md
+          - text: Spring Boot to Azure Container Apps
+            url: migrate-spring-boot-to-azure-container-apps.md
           - text: Spring Boot to AKS
             url: migrate-spring-boot-to-azure-kubernetes-service.md
           - text: Spring Boot to Azure Spring Apps
@@ -38,6 +40,8 @@ landingContent:
         links:
           - text: Tomcat to Azure App Service
             url: migrate-tomcat-to-tomcat-app-service.md
+          - text: Tomcat to Azure Container Apps
+            url: migrate-tomcat-to-azure-container-apps.md
           - text: Tomcat to containers on AKS
             url: migrate-tomcat-to-containers-on-azure-kubernetes-service.md
           - text: Tomcat to Azure Spring Apps

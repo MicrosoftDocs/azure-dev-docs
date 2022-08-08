@@ -6,7 +6,7 @@ ms.custom: devx-track-python, devx-track-azurecli
 ms.devlang: python
 ms.topic: tutorial
 ms.prod: azure-python
-author: jess-johnson-msft
+author: jessmjohnson
 ms.author: jejohn
 ms.date: 10/02/2021
 ---

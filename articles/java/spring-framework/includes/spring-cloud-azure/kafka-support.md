@@ -1,5 +1,5 @@
 ---
-ms.date: 06/30/2022
+ms.date: 08/03/2022
 author: KarlErickson
 ms.author: v-yonghuiye
 ---
@@ -118,27 +118,7 @@ The following table shows the Spring Boot Kafka common configuration options:
 > | spring.kafka.properties.azure.credential.managed-identity-enabled                                            | Whether to enable managed identity to authenticate with Azure. If *true* and the `client-id` is set, will use the client ID as user assigned managed identity client ID. The default value is *false*. |
 > | spring.kafka.properties.azure.credential.password                                                            | Password to use when performing username/password authentication with Azure.                                                                                                                           |
 > | spring.kafka.properties.azure.credential.username                                                            | Username to use when performing username/password authentication with Azure.                                                                                                                           |
-> | spring.kafka.properties.azure.profile.cloud-type                                                             | Name of the Azure cloud to connect to.                                                                                                                                                                 |
 > | spring.kafka.properties.azure.profile.environment.active-directory-endpoint                                  | The Azure Active Directory endpoint to connect to.                                                                                                                                                     |
-> | spring.kafka.properties.azure.profile.environment.active-directory-graph-api-version                         | The Azure Active Directory Graph API version.                                                                                                                                                          |
-> | spring.kafka.properties.azure.profile.environment.active-directory-graph-endpoint                            | The Azure Active Directory Graph endpoint.                                                                                                                                                             |
-> | spring.kafka.properties.azure.profile.environment.active-directory-resource-id                               | The Azure Active Directory resource ID.                                                                                                                                                                |
-> | spring.kafka.properties.azure.profile.environment.azure-application-insights-endpoint                        | The Azure Application Insights endpoint.                                                                                                                                                               |
-> | spring.kafka.properties.azure.profile.environment. azure-data-lake-analytics-catalog-and-job-endpoint-suffix | The Data Lake analytics catalog and job endpoint suffix.                                                                                                                                               |
-> | spring.kafka.properties.azure.profile.environment.azure-data-lake-store-file-system-endpoint-suffix          | The Data Lake storage file system endpoint suffix.                                                                                                                                                     |
-> | spring.kafka.properties.azure.profile.environment.azure-log-analytics-endpoint                               | The Azure Log Analytics endpoint.                                                                                                                                                                      |
-> | spring.kafka.properties.azure.profile.environment.data-lake-endpoint-resource-id                             | The Data Lake endpoint.                                                                                                                                                                                |
-> | spring.kafka.properties.azure.profile.environment.gallery-endpoint                                           | The gallery endpoint.                                                                                                                                                                                  |
-> | spring.kafka.properties.azure.profile.environment.key-vault-dns-suffix                                       | The Key Vault DNS suffix.                                                                                                                                                                              |
-> | spring.kafka.properties.azure.profile.environment.management-endpoint                                        | The management service endpoint.                                                                                                                                                                       |
-> | spring.kafka.properties.azure.profile.environment.microsoft-graph-endpoint                                   | The Microsoft Graph endpoint.                                                                                                                                                                          |
-> | spring.kafka.properties.azure.profile.environment.portal                                                     | The management portal URL.                                                                                                                                                                             |
-> | spring.kafka.properties.azure.profile.environment.publishing-profile                                         | The publishing settings file URL.                                                                                                                                                                      |
-> | spring.kafka.properties.azure.profile.environment.resource-manager-endpoint                                  | The resource management endpoint.                                                                                                                                                                      |
-> | spring.kafka.properties.azure.profile.environment.sql-management-endpoint                                    | The SQL management endpoint.                                                                                                                                                                           |
-> | spring.kafka.properties.azure.profile.environment.sql-server-hostname-suffix                                 | The SQL Server hostname suffix.                                                                                                                                                                        |
-> | spring.kafka.properties.azure.profile.environment.storage-endpoint-suffix                                    | The Storage endpoint suffix.                                                                                                                                                                           |
-> | spring.kafka.properties.azure.profile.subscription-id                                                        | Subscription ID to use when connecting to Azure resources.                                                                                                                                             |
 > | spring.kafka.properties.azure.profile.tenant-id                                                              | Tenant ID for Azure resources.                                                                                                                                                                         |
 
 > [!NOTE]
@@ -151,6 +131,8 @@ The following table shows the Spring Boot Kafka common configuration options:
 > - The Spring Cloud Stream Kafka Binder options are just like the above.
 
 #### Configurable properties when using Kafka support with plain connection string authentication
+
+The following table shows the Spring Boot Event Hubs for Kafka common configuration options:
 
 > [!div class="mx-tdBreakAll"]
 > | Property                                                 | Description                                                                                                                                               |
@@ -257,7 +239,7 @@ spring.cloud.stream.binders.kafka.environment.spring.main.sources=com.azure.spri
 See the [azure-spring-boot-samples](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/spring-cloud-azure_4.2.0) repository on GitHub.
 
 <a name="basic-usage-connection-string"></a>
-#### Using connection string authentication
+#### Use connection string authentication
 
 You can use connection string authentication directly or use the Azure Resource Manager to retrieve the connection string.
 
@@ -270,8 +252,8 @@ Add the following dependencies if you want to migrate your Apache Kafka applicat
 
 ``` xml
 <dependency>
-  <groupId>com.azure.spring</groupId>
-  <artifactId>spring-cloud-azure-starter</artifactId>
+    <groupId>com.azure.spring</groupId>
+    <artifactId>spring-cloud-azure-starter</artifactId>
 </dependency>
 ```
 
@@ -279,9 +261,9 @@ If you want to retrieve the connection string using Azure Resource Manager, add 
 
 ``` xml
 <dependency>
-  <groupId>com.azure.spring</groupId>
-  <artifactId>spring-cloud-azure-resourcemanager</artifactId>
-  </dependency>
+    <groupId>com.azure.spring</groupId>
+    <artifactId>spring-cloud-azure-resourcemanager</artifactId>
+</dependency>
 ```
 
 ##### Configuration

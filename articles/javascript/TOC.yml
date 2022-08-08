@@ -276,6 +276,22 @@
           href: sdk/authentication/azure-hosted-apps.md
         - name: On-premises apps
           href: sdk/authentication/on-premises-apps.md
+  - name: GraphQL
+    items: 
+      - name: Hello world with Functions
+        href: how-to/with-web-app/graphql/azure-function-hello-world.md
+      - name: Simple CRUD with Functions 
+        href: how-to/with-web-app/graphql/azure-function-hello-world.md#design-a-second-api-to-allow-create-update-and-read-api-endpoints
+      - name: Trivia game with Static Web Apps
+        href: how-to/with-web-app/graphql/static-web-app-graphql/introduction.md
+      - name: Samples
+        items: 
+          - name: Hello world
+            href: https://github.com/azure-samples/js-e2e-azure-function-graphql-hello
+          - name: Simple CRUD
+            href: https://github.com/azure-samples/js-e2e-azure-function-graphql-crud-operations
+          - name: Trivia game
+            href: https://github.com/azure-samples/js-e2e-graphql-cosmosdb-static-web-app
   - name: npm Packages
     href: azure-sdk-library-package-index.md
   - name: npm Package Documentation

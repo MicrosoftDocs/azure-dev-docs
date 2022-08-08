@@ -21,17 +21,21 @@
           href: migrate-spring-cloud-to-azure-spring-cloud.md
         - name: Spring Boot to Azure App Service
           href: migrate-spring-boot-to-app-service.md
+        - name: Spring Boot to Azure Container Apps
+          href: migrate-spring-boot-to-azure-container-apps.md
         - name: Spring Boot to AKS
           href: migrate-spring-boot-to-azure-kubernetes-service.md
     - name: Tomcat to Azure
       expanded: true
       items:
-        - name: Tomcat to Azure App Service
-          href: migrate-tomcat-to-tomcat-app-service.md
-        - name: Tomcat to containers on AKS
-          href: migrate-tomcat-to-containers-on-azure-kubernetes-service.md
         - name: Tomcat to Azure Spring Apps
           href: migrate-tomcat-to-azure-spring-cloud.md
+        - name: Tomcat to Azure App Service
+          href: migrate-tomcat-to-tomcat-app-service.md
+        - name: Tomcat to Azure Container Apps
+          href: migrate-tomcat-to-azure-container-apps.md
+        - name: Tomcat to containers on AKS
+          href: migrate-tomcat-to-containers-on-azure-kubernetes-service.md
         - name: "Tutorial: Containerized Tomcat to AKS"
           href: /azure/migrate/tutorial-app-containerization-java-kubernetes?toc=/azure/developer/java/migration/toc.json&bc=/azure/developer/breadcrumb/toc.json
     - name: WebLogic to Azure
