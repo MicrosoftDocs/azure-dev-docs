@@ -16,7 +16,7 @@ export YOUR_IP_ADDRESS=<your-machine-ip-address>
 docker run --rm -it \
   --publish $PORT:$PORT --publish 27017:27017 \
   --add-host mongoservice:$YOUR_IP_ADDRESS \
-  --env 'CONNECTION_STRING=mongodb://mongoservice:27017' --env 'DB_NAME=restaurants_reviews' --env 'COLLECTION_NAME=restaurants_reviews' \
+  --env CONNECTION_STRING=mongodb://mongoservice:27017 --env DB_NAME=restaurants_reviews --env COLLECTION_NAME=restaurants_reviews \
   msdocspythoncontainerwebapp:latest  
 ```
 
@@ -30,8 +30,8 @@ export PORT=<port-number>
 export CONNECTION_STRING="<connection-string>"
 
 docker run --rm -it \
-  --publish-all \
-  --env 'CONNECTION_STRING=$CONNECTION_STRING' --env "DB_NAME=restaurants_reviews" --env "COLLECTION_NAME=restaurants_reviews \
+  --publish $PORT:$PORT/tcp \
+  --env CONNECTION_STRING=$CONNECTION_STRING --env DB_NAME=restaurants_reviews --env COLLECTION_NAME=restaurants_reviews \
   msdocspythoncontainerwebapp:latest  
 ```
 
@@ -49,11 +49,11 @@ Open a second shell and run the [docker container ls](https://docs.docker.com/en
 docker container ls
 ```
 
-You should see your container "msdocspythoncontainerwebapp:latest:latest" in the list. Note the `NAMES` column of the output and the `PORTS` column. You can use this name to stop the container.
+You should see your container "msdocspythoncontainerwebapp:latest:latest" in the list. Note the `NAMES` column of the output and the `PORTS` column. You can use the name to stop the container.
 
 **Step 3.** Test the web app.
 
-Go to "http://127.0.0.1:8000" for Django and "http://172.0.0.1:5000/" for Flask when running with local MongoDB. If you are using MongoDB in Azure, your port will be different but can be from the `docker container ls` command.
+Go to "http://127.0.0.1:8000" for Django and "http://172.0.0.1:5000/" for Flask when running with local MongoDB.
 
 **Step 4.** Shut down the container
 
