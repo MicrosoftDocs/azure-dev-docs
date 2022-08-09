@@ -3,7 +3,7 @@ title: "5: Deploy Static web app to Azure"
 titleSuffix: Azure Developer Center
 description: In this article, learn to deploy the Static web app to Azure. 
 ms.topic: how-to
-ms.date: 07/12/2021
+ms.date: 08/09/2022
 ms.custom: devx-track-js
 ---
 

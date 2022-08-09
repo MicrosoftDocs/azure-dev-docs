@@ -3,7 +3,7 @@ title: "4: Add MongoDB to Static JavaScript web app API"
 titleSuffix: Azure Developer Center
 description: In this article, learn to add a MongoDB database to the Static web app's API. 
 ms.topic: how-to
-ms.date: 07/12/2021
+ms.date: 08/09/2022
 ms.custom: devx-track-js
 ---
 
