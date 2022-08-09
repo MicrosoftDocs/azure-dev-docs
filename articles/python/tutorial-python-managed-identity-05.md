@@ -1,7 +1,7 @@
 ---
 title: 'Deploy a Python web app to Azure with managed identity: create a PostgreSQL database'
 description: Create the Azure Database for PostgreSQL services that the deployed Python (Django or Flask) web app will access in Azure using managed identity.
-author: jess-johnson-msft
+author: jessmjohnson
 ms.author: jejohn
 ms.devlang: python
 ms.topic: tutorial

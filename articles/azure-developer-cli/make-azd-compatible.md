@@ -4,9 +4,9 @@ description: How to convert an app to an Azure developer enabled template.
 author: hhunter-ms
 ms.author: hannahhunter
 ms.date: 07/11/2022
+ms.service: azure-dev-cli
 ms.topic: conceptual
 ms.custom: devx-track-azdevcli
-ms.prod: azure
 zone_pivot_group_filename: developer/azure-developer-cli/azd-zone-pivot-groups.json
 zone_pivot_groups: make-azure-developer-cli-compatible-set
 ---
@@ -285,7 +285,7 @@ Your project is now compatible with Azure Developer CLI and can be used as a tem
 
 1. Copy the **azure-dev.yml** file from any azd template - for example [todo-nodejs-mongo template](https://github.com/Azure-Samples/todo-nodejs-mongo/blob/main/.github/workflows/azure-dev.yml) - and paste into the `.github/workflows` directory.
 
-1. Run the following command to push updates to the repository. The GitHub Action workflow is triggered because of the update.
+1. Run the following command to push updates to the repository. The GitHub Actions workflow is triggered because of the update.
 
     ```bash
     azd pipeline config    

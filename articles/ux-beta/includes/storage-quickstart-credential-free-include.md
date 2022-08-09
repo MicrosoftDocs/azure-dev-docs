@@ -12,7 +12,7 @@ ms.custom: include file
 
 ## Authenticate the app to Azure
 
-Application requests to Azure Blob Storage must be authenticated. Many Azure services support credential-free connections such as Azure's Managed Identity or Role Based Access control (RBAC). These techniques provide robust security features and can be implemented using `DefaultAzureCredential` from the Azure Identity client libraries.
+Application requests to Azure Blob Storage must be authorized. Using the `DefaultAzureCredential` class provided by the Azure.Identity client library is the recommended approach for implementing credential-free connections to Azure services in your code, including Blob Storage.
 
 You can also authorize requests to Azure Blob Storage by using the account access key. However, this approach should be used with caution. Developers must be diligent to never expose the access key in an unsecure location. Anyone who gains access to the access key is able to authenticate. `DefaultAzureCredential` offers improved management and security benefits over the account key to allow credential-free authentication. Both options are demonstrated in the following example.
 
@@ -24,7 +24,7 @@ The order and locations in which `DefaultAzureCredential` looks for credentials 
 
 :::image type="content" source="https://raw.githubusercontent.com/Azure/azure-sdk-for-net/main/sdk/identity/Azure.Identity/images/mermaidjs/DefaultAzureCredentialAuthFlow.svg"alt-text="A diagram of the credential flow.":::
 
-For example, your app can authenticate using your Visual Studio sign-in credentials with when developing locally. Your app can then use Managed Identity once it has been deployed to an Azure environment. No code changes are required for this transition.
+For example, your app can authenticate using your Visual Studio sign-in credentials with when developing locally. Your app can then use a [managed identity](/azure/active-directory/managed-identities-azure-resources/overview) once it has been deployed to Azure. No code changes are required for this transition.
 
 ### Assign roles to your Azure AD user
 
@@ -32,13 +32,13 @@ For example, your app can authenticate using your Visual Studio sign-in credenti
 
 ### Connect your app code using DefaultAzureCredential
 
-You can authenticate your local app to the Blob Storage account you created using the following steps:
+You can authorize access to data in your storage account using the following steps:
 
 1. Make sure you're authenticated with the same Azure AD account you assigned the role to on your Blob Storage account. You can authenticate via the Azure CLI, Visual Studio, or Azure PowerShell.
 
     [!INCLUDE [defaultazurecredential-sign-in](default-azure-credential-sign-in.md)]
 
-2. To implement `DefaultAzureCredential`, add the **Azure.Identity** package to your application.
+2. To use `DefaultAzureCredential`, add the **Azure.Identity** to your application.
 
     ```dotnetcli
     dotnet add package Azure.Identity
@@ -65,6 +65,11 @@ You can authenticate your local app to the Blob Storage account you created usin
     > When deployed to Azure, this same application code can also authenticate to other Azure services. However, you'll need to enable managed identity on your app in Azure. Then configure your Blob Storage account to allow that managed identity to connect. For detailed instructions on configuring this connection between Azure services, see the [Auth from Azure-hosted apps](/dotnet/azure/sdk/authentication-azure-hosted-apps) tutorial.
 
 ## [Connection String](#tab/connection-string)
+
+A connection string includes the storage account access key and uses it to authorize requests. Always be careful to never expose the keys in an unsecure location.
+
+> [!NOTE]
+> If you plan to use connection strings, you will need the Storage Account Contributor role or higher. You can also use any account with the `Microsoft.Storage/storageAccounts/listkeys/action` permission.
 
 [!INCLUDE [retrieve credentials](retrieve-credentials.md)]
 
@@ -101,6 +106,6 @@ var blobServiceClient = new BlobServiceClient(connectionString);
 ```
 
 > [!IMPORTANT]
-> Connection strings should be used with caution. If your connection string is lost or accidentally placed in an insecure location, your service may become vulnerable. `DefaultAzureCredential` provides enhanced security features and benefits and is the recommended approach for managing authentication to Azure services.
+> The account access key should be used with caution. If your account access key is lost or accidentally placed in an insecure location, your service may become vulnerable. `DefaultAzureCredential` provides enhanced security features and benefits and is the recommended approach for managing authentication to Azure services.
 
 ---

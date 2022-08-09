@@ -4,9 +4,9 @@ description: Learn how to use Azure Developer CLI (azd) to monitor your app heal
 author: hhunter-ms
 ms.author: hannahhunter
 ms.date: 07/11/2022
+ms.service: azure-dev-cli
 ms.topic: conceptual
 ms.custom: devx-track-azdevcli
-ms.prod: azure
 ---
 
 # Monitor your app using Azure Developer CLI (azd) Preview
@@ -31,11 +31,11 @@ Create monitoring activity in the app before running the `azd monitor` commands:
 
 To help with monitoring apps, azd provides a `monitor` command whose parameters launch various Application Insights dashboards.
 
-| Application Insights dashboard | Command                |
-|--------------------------------|------------------------|
-| Main dashboard                 | azd monitor --overview |
-| Live metrics dashboard         | azd monitor --live     |
-| Logs dashboard                 | azd monitor --logs     |
+| Application Insights dashboard | Command                  |
+|--------------------------------|--------------------------|
+| Main dashboard                 | `azd monitor --overview` |
+| Live metrics dashboard         | `azd monitor --live`     |
+| Logs dashboard                 | `azd monitor --logs`     |
 
 ## Clean up resources
 

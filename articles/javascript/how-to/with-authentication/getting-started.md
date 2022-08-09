@@ -71,7 +71,7 @@ The value for the [MSAL SDK](https://www.npmjs.com/package/@azure/identity)'s De
 
 ### [Other environments](#tab/msal-credential)
 
-Configure your local, on-prem, or other environment to use [environment variables](https://www.npmjs.com/package/@azure/identity#environment-variables). 
+Configure your local, on-premises, or other environment to use [environment variables](https://www.npmjs.com/package/@azure/identity#environment-variables). 
 
 The value for the [MSAL SDK](https://www.npmjs.com/package/@azure/identity)'s DefaultAzureCredential is controlled by the runtime environment. 
 
@@ -91,6 +91,6 @@ The value for the [MSAL SDK](https://www.npmjs.com/package/@azure/identity)'s De
 ## Next steps
 
 * [GitHub Microsoft Authentication Library for JavaScript (MSAL.js) - includes many samples](https://github.com/AzureAD/microsoft-authentication-library-for-js)
-* [JS: Add easy authentication to your web app](../with-web-app/add-authentication-to-web-app.md)
+* [JS: Add easy authentication to your web app](/azure/app-service/scenario-secure-app-authentication-app-service-as-user)
 * [JS: Add Microsoft login button to a single page application](/azure/active-directory/develop/tutorial-v2-react)
 * [JS: Deploy Express.js with Microsoft Authentication (MSAL) to Azure App service](../with-web-app/deploy-msal-sdk-authentication-expressjs.md)
