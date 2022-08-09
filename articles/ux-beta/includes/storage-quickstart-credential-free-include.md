@@ -38,13 +38,13 @@ You can authorize access to data in your storage account using the following ste
 
     [!INCLUDE [defaultazurecredential-sign-in](default-azure-credential-sign-in.md)]
 
-2. To use `DefaultAzureCredential`, add the **Azure.Identity** to your application.
+2. To use `DefaultAzureCredential`, add the **Azure.Identity** package to your application.
 
     ```dotnetcli
     dotnet add package Azure.Identity
     ```
 
-    Azure services can be accessed using corresponding client classes from the SDK. These classes should be registered in the *Program.cs* file so they can be accessed via dependency injection throughout your app.
+    Azure services can be accessed using corresponding client classes from the library. These classes should be registered in the *Program.cs* file so they can be accessed via dependency injection throughout your app.
 
 3. Update your *Program.cs* code to match the following example. Make sure to update the `BlobServiceClient` Uri in the code to use your actual storage account name. When the code is run on your local workstation during development, it will use the developer credentials of the prioritized tool you're logged into to authenticate to Azure, such as the Azure CLI or Visual Studio.
 

@@ -48,7 +48,7 @@ Create a .NET Core application named *BlobQuickstartV12*.
 
 1. In a console window (such as cmd, PowerShell, or Bash), use the `dotnet new` command to create a new console app with the name *BlobQuickstartV12*. This command creates a simple "Hello World" C# project with a single source file: *Program.cs*.
 
-   ```console
+   ```dotnetcli
    dotnet new console -n BlobQuickstartV12
    ```
 
@@ -62,13 +62,13 @@ Create a .NET Core application named *BlobQuickstartV12*.
 
 While still in the application directory, install the Azure Blob Storage client library for .NET package by using the `dotnet add package` command.
 
-```console
+```dotnetcli
 dotnet add package Azure.Storage.Blobs
 ```
 
 ### Set up the app framework
 
-Open the newly created project in your editor of choice. Update the starting code in the `Program.cs` file to match the following example, which includes the necessary using statements for this exercise.
+Open the newly created project in your editor of choice. Replace the starting code in the `Program.cs` file so that it matches the following example, which includes the necessary using statements for this exercise.
 
 ```csharp
 using Azure.Storage.Blobs;
