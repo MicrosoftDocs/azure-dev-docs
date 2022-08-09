@@ -2,7 +2,7 @@
 title: Use JavaScript on Azure MySQL 
 description: To create or move your MySQL database to Azure, you need a MySQL resource. 
 ms.topic: include
-ms.date: 02/8/2021
+ms.date: 08/08/2022
 ms.custom: devx-track-js, devx-track-azurecli
 ---
 
