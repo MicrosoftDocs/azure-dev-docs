@@ -133,7 +133,11 @@
               - name: 6. Clean up resources
                 href: how-to/with-web-app/azure-function-resource-group-management/clean-up-resources.md
             - name: Use GraphQL APIs
-              href: ./how-to/with-web-app/graphql/azure-function-hello-world.md
+              items:
+              - name: Hello world API
+                href: how-to/with-web-app/graphql/azure-function-hello-world.md
+              - name: Data (CRUD) API
+                href: how-to/with-web-app/graphql/azure-function-crud-mutation.md               
           - name: Azure App service
             items:
             - name: "Express.js with MongoDB"
@@ -141,7 +145,7 @@
             - name: "Express.js convert text to speech"
               href: tutorial/convert-text-to-speech-cognitive-services.md
             - name: Add easy authentication
-              href: how-to/with-web-app/add-authentication-to-web-app.md
+              href: /azure/app-service/scenario-secure-app-authentication-app-service-as-user
             - name: Use Microsoft Identity provider (MSAL.js)
               href: how-to/with-web-app/deploy-msal-sdk-authentication-expressjs.md             
           - name: Container web apps
@@ -219,8 +223,6 @@
             href: how-to/with-database/use-postgresql-db.md
           - name: SQL API on Cosmos DB
             href: how-to/with-database/use-sql-api-as-cosmos-db.md
-          - name: GraphQL data layer
-            href: how-to/with-web-app/graphql/get-started.md
       - name: Authentication and identity
         items: 
           - name: Getting started
@@ -280,8 +282,6 @@
     items: 
       - name: Hello world with Functions
         href: how-to/with-web-app/graphql/azure-function-hello-world.md
-      - name: Simple CRUD with Functions 
-        href: how-to/with-web-app/graphql/azure-function-hello-world.md#design-a-second-api-to-allow-create-update-and-read-api-endpoints
       - name: Trivia game with Static Web Apps
         href: how-to/with-web-app/graphql/static-web-app-graphql/introduction.md
       - name: Samples

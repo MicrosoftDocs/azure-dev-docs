@@ -198,7 +198,6 @@ Find new and updated content for JavaScript and TypeScript developers.
 
 |Name|Description|
 |---------------------------------------|--|
-|[Get started with GraphQL on Azure](./how-to/with-web-app/graphql/get-started.md)|Learn how to use a GraphQL API and deploy to Azure using the Apollo server in an Azure Function.|
 |[Deploy a GraphQL API as an Azure Function ](./how-to/with-web-app/graphql/azure-function-hello-world.md)|Learn how to build and deploy an Apollo server-based GraphQL API endpoint. This article includes a simple `Hello World` API for those very new to GraphQL, along with a simple CRUD operations API using mutations.|
 |[How to authenticate users with Microsoft Authentication Library for React](./how-to/with-authentication/static-web-app-with-api/introduction.md)|Learn how to authenticate users with the Microsoft Authentication Library for React (MSAL React) and call an Azure service on behalf of the user.|
 
@@ -232,17 +231,11 @@ Find new and updated content for JavaScript and TypeScript developers.
 
 ## 2021 April
 
-### New in April
-
-|Name|
-|---------------------------------------|
-|[Add easy authentication to your Express.js web app](./how-to/with-web-app/add-authentication-to-web-app.md)<br><br>Add Microsoft authentication to your web app with an app registration and an Azure app service. The Azure app service provides an easy authentication ("easy auth") to your web app, doing most of the work for a simple authentication use case for you. |
-
 ### Updated in April
 
 |Name|
 |---------------------------------------|
-|[Set up development environment to use Azure SDK for JavaScript](./core/nodejs-sdk-azure-authenticate.md)<br><br>Use the **DefaultAzureCredential** to authenticate to the Azure cloud. Once your environment is correctly configured, you won't need to interactively login or store and manage credentials.|
+|[Set up development environment to use Azure SDK for JavaScript](./core/nodejs-sdk-azure-authenticate.md)<br><br>Use the **DefaultAzureCredential** to authenticate to the Azure cloud. Once your environment is correctly configured, you won't need to interactively log in or store and manage credentials.|
 |[Recommended actions for Monitor Azure resources](./how-to/node-sdk-logging.md)<br><br>When you create an Azure resource, configure proper monitoring, alerting, and logging. |
 |[View deployed files in App or Functions services](./how-to/deploy-web-app.md#view-files-in-azure-hosted-environment)<br><br>Quick and simple methods to view your deployed files in the Azure portal or VSCode.|
 

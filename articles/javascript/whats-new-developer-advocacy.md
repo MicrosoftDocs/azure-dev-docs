@@ -1,5 +1,5 @@
 ---
-title: "What's new with Cloud Developer Advocates"
+title: "What's new with JavaScript Cloud Developer Advocates"
 description: "What's new with JavaScript Cloud Developer Advocates (CDA)"
 ms.topic: how-to
 ms.date: 05/23/2022

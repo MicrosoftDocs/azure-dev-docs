@@ -1,5 +1,5 @@
 ---
-title: Select Azure app hosting
+title: Select Azure app hosting for JavaScript
 description: Hosting options and deployment scenarios include several services and tools for Azure. Publish your app and serve it on Azure.  
 ms.topic: how-to
 ms.date: 08/19/2021

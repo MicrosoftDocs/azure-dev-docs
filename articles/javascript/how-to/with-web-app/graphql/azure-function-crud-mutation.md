@@ -1,32 +1,16 @@
 ---
-title: Deploy GraphQL API as Azure Function on Azure
-description: Learn how to deploy a `Hello World` GraphQL API to Azure in an Azure Function.  
+title: GraphQL CRUD API as Azure Function on Azure
+description: Learn how to deploy a GraphQL API for CRUD mutations to Azure in an Azure Function.  
 ms.topic: how-to
 ms.date: 08/05/2022
 ms.custom: devx-track-js
 ---
 
-# Deploy a GraphQL API as an Azure Function 
+# Deploy a GraphQL API for CRUD mutations as an Azure Function 
 
-In this article, learn how to deploy a GraphQL API to Azure in an Azure Function. 
+In this article, learn how to deploy a GraphQL API for CRUD mutations to Azure in an Azure Function. 
 
-* [Sample code](https://github.com/Azure-Samples/js-e2e-azure-function-graphql-hello.git)
-
-This sample demonstrates using the Apollo server in an Azure function to receive a GraphQL query and return the result. 
-
-```graphql
-{
-    hello
-}
-```
-
-The server responds with JSON:
-
-```json
-{
-    "hello": "Hello from GraphQL backend"
-}
-```
+* [Sample code](https://github.com/Azure-Samples/js-e2e-azure-function-graphql-crud-operations.git)
 
 ## Prepare your development environment
 
@@ -41,19 +25,20 @@ Make sure the following are installed on your local developer workstation:
     - Docker: the sample repo includes files to run this sample is a Visual Studio Code dev container ready for local development
     - Azurite: local Function app development can use [Azurite](https://www.npmjs.com/package/azurite) to satisfy the local.settings.json's requirement for `"AzureWebJobsStorage": "UseDevelopmentStorage=true"`.
     - [Azure CLI](/cli/azure/install-azure-cli): to remove resources after you completed the following procedure.
+    - 
 ## Clone and run the Azure Function GraphQL sample code
 
 1. Open a terminal window and `cd` to the directory where you want to clone the sample code.
 1. Clone the sample code repository:    
 
     ```bash
-    git clone https://github.com/Azure-Samples/js-e2e-azure-function-graphql-hello.git
+    git clone https://github.com/Azure-Samples/js-e2e-azure-function-graphql-crud-operations.git
     ```
 
 1. Open that directory in Visual Studio Code:
 
     ```bash
-    cd js-e2e-azure-function-graphql-hello && code .
+    cd js-e2e-azure-function-graphql-crud-operations && code .
     ```
 
 1. Install the project dependencies:
@@ -74,17 +59,35 @@ Make sure the following are installed on your local developer workstation:
     npm start
     ```
 
-## Query local Azure Function with GraphQL using GraphQL playground
+## Query GraphQL API with GraphQL playground
 
 The npm package `apollo-server-azure-functions` includes a GraphQL playground that you can use to test your GraphQL API. Use this playground to test the GraphQL API locally.
 
-1. Open browser to `http://localhost:7071/api/graphql`
-1. Enter query `{hello}`
-1. View response `{"data":{"hello":"Hello from GraphQL backend"}}`
+1. Open browser to `http://localhost:7071/api/graphql` to reach the local GraphQL playground.
+1. Enter query: 
 
-    :::image type="content" source="../../../media/azure-function-graphql-hello/graphql-playground.png" alt-text="A browser screenshot showing the GraphQL playground hosted from an Azure Function API" lightbox="../../../media/azure-function-graphql-hello/graphql-playground.png":::
+    ```json
+    mutation{
+      createMessage(input:{
+        author: "John Doe",
+        content: "Oh happy day"
+      }){id}
+    }
+    ```
+
+1. View response:
+
+    ```json
+    {
+      "data": {
+        "createMessage": {
+          "id": "79e4c338-162d-4c1e-a6f0-320bd78a7817"
+        }
+      }
+    }
+    ```
     
-## Query Azure Function with GraphQL using cURL
+## Query GraphQL API using cURL
 
 1. In VS Code, open an integrated terminal.
 1. Enter the cURL command:
@@ -92,9 +95,9 @@ The npm package `apollo-server-azure-functions` includes a GraphQL playground th
     ```bash
     curl 'http://localhost:7071/api/graphql' \
          -H 'content-type: application/json' \
-         --data-raw '{"query":"{hello}"}' --verbose
+         --data-raw '{"query":"{hello}"}' 
     ```
-1. At the bottom of the verbose response, view the same GraphQL response `{"data":{"hello":"Hello from GraphQL backend"}}`.
+1. View the same GraphQL response `{"data":{"hello":"Hello from GraphQL backend"}}`.
 
 ## Create your Azure Function resource from VS Code
 
@@ -118,7 +121,6 @@ The npm package `apollo-server-azure-functions` includes a GraphQL playground th
     
 1. Visual Studio Code's **Azure:Activity Log** reports when the Function App is created successfully and the workspace shows the **Attached Storage Accounts**. To use local storage, you need to install [**Azurite**](https://www.npmjs.com/package/azurite).
 
-
 ## Deploy your GraphQL API from VS Code
 
 1. In Visual Studio Code, still in the Azure explorer (<kbd>Shift</kbd> + <kbd>Alt</kbd> + <kbd>A</kbd>), find your new Azure Function resource under your subscription.
@@ -128,21 +130,108 @@ The npm package `apollo-server-azure-functions` includes a GraphQL playground th
 
     When the deployment completes, continue to the next section. 
 
-## Query your GraphQL API with cURL
+## Insert data into your GraphQL API with cURL
 
 1. In VS Code, open an integrated terminal. 
-1. Change the cURL command from using your local function to your remove function. Change the URL in the following command to use your Azure Function URL:
+1. Use the cURL command:
 
     ```bash
-    curl 'https://diberry-azure-function-graphql-hello.azurewebsites.net/api/graphql' \
+    curl 'https://YOUR-RESOURCE-NAME.azurewebsites.net/api/graphql' \
          -H 'content-type: application/json' \
-         --data-raw '{"query":"{hello}"}' 
+         --data-raw '{"query":"mutation{createMessage(input:{ author: "John Doe", content: "Oh happy day" }){id}}"}' 
     ```
 
     The API responds with:
 
     ```json
-    {"data":{"hello":"Hello from our GraphQL backend!"}}
+    { 
+      "data": {
+        "createMessage": {
+          "id": "79e4c338-162d-4c1e-a6f0-320bd78a7817"
+        }
+      }
+    }
+    ```
+
+## Update data into your GraphQL API with cURL
+
+1. In VS Code, open an integrated terminal. 
+1. Use the cURL command:
+
+    ```bash
+    curl 'https://YOUR-RESOURCE-NAME.azurewebsites.net/api/graphql' \
+         -H 'content-type: application/json' \
+         --data-raw '{"query":"mutation{ updateMessage ( id: "79e4c338-162d-4c1e-a6f0-320bd78a7817",input:{author: "John Doe Jr.",content: "Another great day"}){id, content, author}}"}' 
+    ```
+
+    The API responds with:
+
+    ```json
+    {
+      "data": {
+        "updateMessage": {
+          "id": "79e4c338-162d-4c1e-a6f0-320bd78a7817",
+          "content": "Another great day",
+          "author": "John Doe Jr."
+        }
+      }
+    }
+    ```
+
+## Query your GraphQL API with cURL
+
+1. In VS Code, open an integrated terminal. 
+1. Use the cURL command:
+
+    ```bash
+    curl 'https://YOUR-RESOURCE-NAME.azurewebsites.net/api/graphql' \
+         -H 'content-type: application/json' \
+         --data-raw '{"query":"{ getMessages { id content author }}"}' 
+    ```
+
+    The API responds with:
+
+    ```json
+    {
+        "data": {
+            "getMessages": [
+                {
+                    "id": "d8732ed5-26d8-4975-98a5-8923e320a77f",
+                    "author": "Jane Smith",
+                    "content": "good morning"
+                },
+                {
+                    "id": "79e4c338-162d-4c1e-a6f0-320bd78a7817",
+                    "author": "John Doe Jr.",
+                    "content": "Another great day"
+                }
+            ]
+        }
+    }
+    ```
+
+1. Use the cURL command to get one item:
+
+    ```bash
+    curl 'https://YOUR-RESOURCE-NAME.azurewebsites.net/api/graphql' \
+         -H 'content-type: application/json' \
+         --data-raw '{"query":"{ getMessage(id: "79e4c338-162d-4c1e-a6f0-320bd78a7817"){id, content, author} }"}' 
+    ```
+
+    The API responds with:
+
+    ```json
+    {
+        "data": {
+            "getMessages": [
+                {
+                    "id": "79e4c338-162d-4c1e-a6f0-320bd78a7817",
+                    "author": "John Doe Jr.",
+                    "content": "Another great day"
+                }
+            ]
+        }
+    }
     ```
 
 ## Review the code
@@ -151,15 +240,7 @@ The code used in this article requires the npm package [apollo-server-azure-func
 
 The code for this query is in the `./graphql/index.ts` file.
 
-:::code language="JavaScript" source="~/../js-e2e-azure-function-graphql-hello/graphql/index.ts" highlight="4,11,17":::
-
-The highlighted lines are described in the following table:
-
-|Line|Description|
-|--|--|
-|`const typeDefs = gql`|Define the GraphQL schema the API supports.|
-|`const resolvers`|Define the handlers for the GraphQL schema (known as **resolvers** in GraphQL). `hello`, from our schema, is given a resolver function to return data from the API: `() => "Hello from our GraphQL backend!"`.|
-|`const server = new ApolloServer({ typeDefs, resolvers });`|Create an Azure Function version of the Apollo server with the typeDefs, resolvers, and the playground.|
+:::code language="JavaScript" source="~/../js-e2e-azure-function-graphql-crud-operations/graphql/index.ts" range="1-87" highlight="44,50,59,65,81":::
 
 ## Troubleshooting graphql API
 
