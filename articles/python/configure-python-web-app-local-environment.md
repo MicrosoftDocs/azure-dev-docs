@@ -6,7 +6,7 @@ ms.date: 06/28/2022
 ms.custom: devx-track-python
 adobe-target: true
 ms.prod: azure-python
-author: jess-johnson-msft
+author: jessmjohnson
 ms.author: jejohn
 ---
 
