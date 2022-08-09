@@ -3,7 +3,7 @@ title: Getting started with user authentication
 titleSuffix: Azure Developer Center
 description: The Microsoft identity platform allows a JavaScript developer to authenticate and authorize user identity in your browser, server, or serverless application.  
 ms.topic: how-to
-ms.date: 06/15/2021
+ms.date: 08/09/2022
 ms.custom: devx-track-js
 ---
 
