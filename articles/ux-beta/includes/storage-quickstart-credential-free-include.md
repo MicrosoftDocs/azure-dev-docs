@@ -14,7 +14,7 @@ ms.custom: include file
 
 Application requests to Azure Blob Storage must be authorized. Using the `DefaultAzureCredential` class provided by the Azure.Identity client library is the recommended approach for implementing credential-free connections to Azure services in your code, including Blob Storage.
 
-YYou can also authorize requests to Azure Blob Storage by using the account access key. However, this approach should be used with caution. Developers must be diligent to never expose the access key in an unsecure location. Anyone who gains access to the access key is able to authenticate. `DefaultAzureCredential` offers improved management and security benefits over the account key to allow credential-free authentication. Both options are demonstrated in the following example.
+You can also authorize requests to Azure Blob Storage by using the account access key. However, this approach should be used with caution. Developers must be diligent to never expose the access key in an unsecure location. Anyone who gains access to the access key is able to authenticate. `DefaultAzureCredential` offers improved management and security benefits over the account key to allow credential-free authentication. Both options are demonstrated in the following example.
 
 ## [Credential-free (Recommended)](#tab/managed-identity)
 
@@ -44,9 +44,9 @@ You can authorize access to data in your storage account using the following ste
     dotnet add package Azure.Identity
     ```
 
-    Azure services can be accessed using corresponding client classes from the SDK. These classes should be registered in the *Program.cs* file so they can be accessed via dependency injection throughout your app. 
-    
-3. Update your *Program.cs* code to match the following example. When the code is run on your local workstation during development, it will use the developer credentials of the prioritized tool you're logged into to authenticate to Azure, such as the Azure CLI or Visual Studio.
+    Azure services can be accessed using corresponding client classes from the SDK. These classes should be registered in the *Program.cs* file so they can be accessed via dependency injection throughout your app.
+
+3. Update your *Program.cs* code to match the following example. Make sure to update the `BlobServiceClient` Uri in the code to use your actual storage account name. When the code is run on your local workstation during development, it will use the developer credentials of the prioritized tool you're logged into to authenticate to Azure, such as the Azure CLI or Visual Studio.
 
     ```csharp
     using Azure.Storage.Blobs;
@@ -55,17 +55,18 @@ You can authorize access to data in your storage account using the following ste
     using System.IO;
     using Azure.Identity;
     
+    // TODO: Replace <storage-account-name> with your actual storage account name
     var blobServiceClient = new BlobServiceClient(
-            new Uri("https://<account-name>.blob.core.windows.net"),
+            new Uri("https://<storage-account-name>.blob.core.windows.net"),
             new DefaultAzureCredential());
     ```
 
-    > [!IMPORTANT]
+    > [!NOTE]
     > When deployed to Azure, this same application code can also authenticate to other Azure services. However, you'll need to enable managed identity on your app in Azure. Then configure your Blob Storage account to allow that managed identity to connect. For detailed instructions on configuring this connection between Azure services, see the [Auth from Azure-hosted apps](/dotnet/azure/sdk/authentication-azure-hosted-apps) tutorial.
 
 ## [Connection String](#tab/connection-string)
 
-A connection string includes the storage account access key and uses it to authorize requests. Always be careful to never expose the keys in an unsecure location. 
+A connection string includes the storage account access key and uses it to authorize requests. Always be careful to never expose the keys in an unsecure location.
 
 > [!NOTE]
 > If you plan to use connection strings, you will need the Storage Account Contributor role or higher. You can also use any account with the `Microsoft.Storage/storageAccounts/listkeys/action` permission.
