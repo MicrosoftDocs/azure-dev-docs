@@ -4,7 +4,7 @@ description: In this how-to guide, you walk through deploying WebLogic Server to
 author: KarlErickson
 ms.author: haiche
 ms.topic: conceptual
-ms.date: 01/07/2022
+ms.date: 08/09/2022
 recommendations: false
 ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-wls, devx-track-javaee-wls-aks
 ---
@@ -12,7 +12,7 @@ ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-wls, devx-track
 # Tutorial: Migrate Oracle WebLogic Server to Azure Kubernetes Service within a custom virtual network
 
 This tutorial shows you how to deploy Oracle WebLogic Server (WLS) on Azure Kubernetes Service (AKS) offer that integrates with a custom virtual network in the consumer's subscription.
-The WLS on AKS offer lets the consumer decide whether to create a new virtual network or use an existing one. 
+The WLS on AKS offer lets the consumer decide whether to create a new virtual network or use an existing one.
 
 In this tutorial, you learn how to:
 
@@ -27,9 +27,9 @@ In this tutorial, you learn how to:
 
 - Use [Azure Cloud Shell](/azure/cloud-shell/quickstart) using the bash environment; make sure the Azure CLI version is 2.37.0 and above.
 
-   [![Launch Cloud Shell in a new window](../../includes/media/hdi-launch-cloud-shell.png)](https://shell.azure.com)   
+   [![Launch Cloud Shell in a new window](../../includes/media/hdi-launch-cloud-shell.png)](https://shell.azure.com)
 - If you prefer, [install the Azure CLI 2.37.0 and above](/cli/azure/install-azure-cli) to run CLI reference commands.
-   - If you're using a local install, sign in with Azure CLI by using the [az login](/cli/azure/reference-index#az-login) command.  To finish the authentication process, follow the steps displayed in your terminal.  See [Sign in with Azure CLI](/cli/azure/authenticate-azure-cli) for other sign-in options.
+  - If you're using a local install, sign in with Azure CLI by using the [az login](/cli/azure/reference-index#az-login) command.  To finish the authentication process, follow the steps displayed in your terminal.  See [Sign in with Azure CLI](/cli/azure/authenticate-azure-cli) for other sign-in options.
   - When you're prompted, install Azure CLI extensions on first use.  For more information about extensions, see [Use extensions with Azure CLI](/cli/azure/azure-cli-extensions-overview).
   - Run [az version](/cli/azure/reference-index?#az-version) to find the version and dependent libraries that are installed. To upgrade to the latest version, run [az upgrade](/cli/azure/reference-index?#az-upgrade).
 
@@ -48,6 +48,7 @@ az group create \
     --name ${RESOURCE_GROUP_NAME} \
     --location eastus
 ```
+
 ## Create custom virtual network
 
 There are constraints when creating a custom virtual network, go through the following documents before you create the virtual network in your environment:
@@ -112,6 +113,7 @@ az aks create \
     --vnet-subnet-id $AKS_SUBNET_ID \
     --yes
 ```
+
 ## Store Java EE applications in a Storage Account
 
 You can deploy a Java EE Application along with the WLS on AKS offer deployment. You have to upload the application file (.war, .ear, or .jar) to a pre-existing Azure Storage Account and Storage Container within that account.
@@ -125,7 +127,7 @@ az storage account create \
   --resource-group ${RESOURCE_GROUP_NAME} \
   --location eastus \
   --sku Standard_RAGRS \
-  --kind StorageV2 
+  --kind StorageV2
 ```
 
 Create a container for storing blobs with the [`az storage container create`](/cli/azure/storage/container#az-storage-container-create) command. This example uses the storage account key to authorize the operation to create the container. You can also use your Azure AD account to authorize the operation to create the container. For more information about authorizing data operations with Azure CLI, see [Authorize access to blob or queue data with Azure CLI](/azure/storage/blobs/authorize-data-operations-cli).
@@ -176,7 +178,7 @@ Now that you have an AKS cluster within the virtual network, select the AKS clus
 1. For **Create a new AKS cluster?**, select **No**.
 1. Under **Select AKS cluster**, select the dropdown, you should find the AKS cluster you created, named `myAKSCluster` in this example.
 1. For **Use a pre-existing, WebLogic Server Docker image from Oracle Container Registry?**, select **Yes**.
-1. For **Create a new Azure Container Registry to store application images?**, select **Yes**. 
+1. For **Create a new Azure Container Registry to store application images?**, select **Yes**.
 1. Under **Username for Oracle Single Sign-on authentication**, input your Oracle Single Sign-on account user name.
 1. Under **Password for Oracle Single Sign-on authentication**, input the password for that account.
 1. Under **Confirm password**, reenter the value of the preceding field.
@@ -184,8 +186,8 @@ Now that you have an AKS cluster within the virtual network, select the AKS clus
 1. For **Deploy your application package**, select **Yes**.
 1. For **Application package (.war,.ear,.jar)**, hit **Browse** button:
     - Select the storage account you created, whose name starts with `stgwlsaks` in this example.
-    - Select your container in **Containers** page, this example uses `mycontainer`. 
-    - Check your application listed in the container, this example uses `testwebapp.war`. 
+    - Select your container in **Containers** page, this example uses `mycontainer`.
+    - Check your application listed in the container, this example uses `testwebapp.war`.
     - Select **Select** button.
 1. For other fields, keep the default values.
 
@@ -199,7 +201,7 @@ This section shows how to configure Application Gateway Ingress Controller withi
 
 1. For **Connect to Azure Application Gateway?**, select **Yes**.
 1. Under **Configurate virtual networks**, for **Virtual network**, select the virtual network you created, this example uses `myVNet` in `myResourceGroup`; for **Subnet**, select the subnet for Application Gateway, this example uses `myAppGatewaySubnet`.
-1. For **Select desired TLS/SSL certificate option**, select **Generate a self-signed front-end certificate**. 
+1. For **Select desired TLS/SSL certificate option**, select **Generate a self-signed front-end certificate**.
 1. For **Create ingress for Administration Console**, select **Yes** to expose WebLogic Administration Console.
 1. For other fields, keep the default values.
 
@@ -219,7 +221,7 @@ After the deployment completes, select **Outputs**, you'll find the external URL
 If you're not going to continue to use the WLS cluster, delete the virtual network and the WLS Cluster with the following steps:
 
 1. Visit the overview page for resource group `myResourceGroup`, select **Delete resource group**.
-2. Visit the overview page for resource group that you deployed the WLS on AKS offer, select **Delete resource group**.
+1. Visit the overview page for resource group that you deployed the WLS on AKS offer, select **Delete resource group**.
 
 ## Next steps
 
