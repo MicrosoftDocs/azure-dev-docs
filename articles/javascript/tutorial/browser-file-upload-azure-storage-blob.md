@@ -1,6 +1,6 @@
 ---
 title: "JavaScript: Upload image to Blob Storage"
-description: Use a React/TypeScript app to upload a file to Azure Storage blobs. This tutorial focuses on using local and remote environments with Visual Studio Code extensions.
+description: Use a React/TypeScript Static Web App to upload a file to Azure Storage blobs. This tutorial focuses on using local and remote environments with Visual Studio Code extensions.
 ms.topic: how-to
 ms.date: 09/16/2021
 ms.custom: scenarios:getting-started, languages:JavaScript, devx-track-js, azure-sdk-storage-blob-typescript-version-12.2.1
@@ -8,7 +8,7 @@ ms.custom: scenarios:getting-started, languages:JavaScript, devx-track-js, azure
 
 # Upload an image to an Azure Storage blob with JavaScript
 
-Use a client-side React app to upload an image file to an Azure Storage blob using an Azure Storage [@azure/storage-blob](https://www.npmjs.com/package/@azure/storage-blob) npm package. 
+Use an Azure Static Web App (client-side React app) to upload an image file to an Azure Storage blob using an Azure Storage [@azure/storage-blob](https://www.npmjs.com/package/@azure/storage-blob) npm package and a Azure Storage SAS token. 
 
 The TypeScript programming work is done for you, this tutorial focuses on using the local and remote Azure environments successfully from inside Visual Studio Code with Azure extensions.
 
@@ -225,7 +225,7 @@ Your SAS token and storage account name are set in the `src/azure-storage-blob.t
 
     :::image type="content" source="../media/tutorial-browser-file-upload/github-fork-settings-secret-new-repository-secret.png" alt-text="Screenshot of a web browser displaying https://github.com, on the Settings -> Secrets page, with the New repository secret button highlighted.":::
 
-## 11. Configure static web app to connect to storage resource
+## 11. Configure Static Web App to connect to storage resource
 
 Edit the GitHub workflow and secrets to connect to Azure Storage.
 
