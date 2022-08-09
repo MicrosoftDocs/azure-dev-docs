@@ -2,9 +2,9 @@
 title: include file completed.md
 description: include file completed.md
 ms.topic: include
-ms.date: 07/19/2021
+ms.date: 08/09/2022
 ms.custom: devx-track-js
 
 ---
 
-* [Node.js 10+](https://nodejs.org/): Install latest long-term support (LTS) runtime environment for local workstation development. A package manager is also required. Node.js installs NPM in the 10.x version. The Azure SDK generally requires a minimum version of Node.js of 10.x. Azure hosting services, such as Azure App service, provides runtimes with more recent versions of Node.js. If you target a minimum of 10.x for local and remove development, your code should run successfully.
+* [Node.js LTS](https://nodejs.org/): Install latest long-term support (LTS) runtime environment for local workstation development. A package manager is also required. The Azure SDK generally requires an LTS version of Node.js. An Azure hosting service, such as Azure App service, may provide a run time with a more recent version of Node.js.
