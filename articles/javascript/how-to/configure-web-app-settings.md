@@ -1,5 +1,5 @@
 ---
-title: Host web apps - configuration settings
+title: Host JavaScript web apps - configuration settings
 description: Learn how to set common configurations for your web app.
 ms.topic: how-to
 ms.date: 11/12/2021

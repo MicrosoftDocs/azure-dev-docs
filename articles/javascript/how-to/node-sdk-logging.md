@@ -1,5 +1,5 @@
 ---
-title: Logging, metrics, telemetry in Azure
+title: JavaScript Logging, metrics, telemetry in Azure
 description: Learn about logging options in Azure
 ms.topic: how-to
 ms.date: 08/08/2022

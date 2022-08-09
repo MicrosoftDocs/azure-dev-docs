@@ -1,5 +1,5 @@
 ---
-title: Test strategies with Azure SDK
+title: JavaScript test strategies with Azure SDK
 description: When developing applications integrated with Azure SDKs, you should consider the following strategies to ensure the quality of your code. 
 ms.topic: how-to
 ms.date: 10/26/2021

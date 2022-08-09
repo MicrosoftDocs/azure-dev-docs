@@ -2,7 +2,7 @@
 title: Create a container image for a Node.js app from Visual Studio Code
 description: Docker Tutorial part 4, create a Node.js application image
 ms.topic: how-to
-ms.date: 08/17/2021
+ms.date: 08/08/2022
 ms.custom: devx-track-js
 # Verified full run: diberry 08/16/2021
 ---
@@ -36,6 +36,7 @@ The `Dockerfile` describes the environment for your app including the location o
 
 1. Once built, the image appears in the **Docker Explorer** under **Images**, named `jse2eexpressserver`.
    
+
 ## Modify build task to include tag
 
 To push the image to your registry, you must first tag it with the registry name. Change the build task to always build with your Azure registry name.
@@ -54,6 +55,24 @@ To push the image to your registry, you must first tag it with the registry name
             "context": "${workspaceFolder}",
             "pull": true,
             "tag": "YOUR-REGISTRY-NAME.azurecr.io/jse2eexpressserver:latest"
+        }
+    },
+    ```
+
+    If you build on **Linux**, configure the task for that operating system:
+
+    ```json
+    {
+        "type": "docker-build",
+        "label": "docker-build",
+        "platform": "node",
+        "dockerBuild": {
+            "dockerfile": "${workspaceFolder}/Dockerfile",
+            "context": "${workspaceFolder}",
+            "pull": true,
+            "tag": "YOUR-REGISTRY-NAME.azurecr.io/jse2eexpressserver:latest"
+            // add this and run "docker buildx install" once to activate buildKit alias (buildx)
+            "customOptions": "--platform linux/amd64 --push"
         }
     },
     ```
