@@ -1,12 +1,12 @@
 ---
-title: Upload image to Blob Storage with VSCode - App Service/Cosmos DB
+title: "JavaScript: Upload image to Blob Storage"
 description: Use a React/TypeScript app to upload a file to Azure Storage blobs. This tutorial focuses on using local and remote environments with Visual Studio Code extensions.
 ms.topic: how-to
 ms.date: 09/16/2021
 ms.custom: scenarios:getting-started, languages:JavaScript, devx-track-js, azure-sdk-storage-blob-typescript-version-12.2.1
 ---
 
-# Upload an image to an Azure Storage blob
+# Upload an image to an Azure Storage blob with JavaScript
 
 Use a client-side React app to upload an image file to an Azure Storage blob using an Azure Storage [@azure/storage-blob](https://www.npmjs.com/package/@azure/storage-blob) npm package. 
 
