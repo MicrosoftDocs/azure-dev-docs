@@ -25,21 +25,19 @@ The following example will assign the `Storage Blob Data Contributor` role to yo
 
 1. In the Azure portal, locate your storage account using the main search bar or left navigation.
 
-2. On the storage account overview page, select **Access control (IAM)** from the left-hand menu.	
+1. On the storage account overview page, select **Access control (IAM)** from the left-hand menu.	
 
-3. On the **Access control (IAM)** page, select the **Role assignments** tab.
-
-4. Select **+ Add** from the top menu and then **Add role assignment** from the resulting drop-down menu.
+1. On the **Access control (IAM)** page, select **+ Add** from the top menu and then **Add role assignment** from the resulting drop-down menu.
 
     :::image type="content" source="../media/migration-add-role.png" alt-text="A screenshot showing how to assign a role.":::
 
-5. Use the search box to filter the results to the desired role. For this example, search for *Storage Blob Data Contributor* and select the matching result and then choose **Next**.
+1. Use the search box to filter the results to the desired role. For this example, search for *Storage Blob Data Contributor* and select the matching result and then choose **Next**.
 
-6. Under **Assign access to**, select **User, group, or service principal**, and then choose **+ Select members**.
+1. Under **Assign access to**, make sure **User, group, or service principal** is selected, and then choose **+ Select members**.
 
-7. In the dialog, search for your Azure AD username (usually your email address) and then choose **Select** at the bottom of the dialog. 
+1. In the dialog, search for your Azure AD username (usually your email address) and then choose **Select** at the bottom of the dialog. 
 
-8. Select **Review + assign** to go to the final page, and then **Review + assign** again to complete the process.
+1. Select **Review + assign** to go to the final page, and then **Review + assign** again to complete the process.
 
 ### [Azure CLI](#tab/roles-azure-cli)
 

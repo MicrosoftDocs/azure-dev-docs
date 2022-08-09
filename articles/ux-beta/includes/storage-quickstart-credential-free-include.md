@@ -14,7 +14,7 @@ ms.custom: include file
 
 Application requests to Azure Blob Storage must be authenticated. Many Azure services support credential-free connections such as Azure's Managed Identity or Role Based Access control (RBAC). These techniques provide robust security features and can be implemented using `DefaultAzureCredential` from the Azure Identity client libraries.
 
-Azure Blob Storage also provides the option to authenticate using traditional connection strings, but this approach should be used with caution. Developers must be diligent to never expose the connection string in an unsecure location. Anyone who gains access to the key is able to authenticate. `DefaultAzureCredential` offers improved management and security benefits over connection strings to allow credential-free authentication. Both options are demonstrated in the following example.
+You can also authorize requests to Azure Blob Storage by using the account access key. However, this approach should be used with caution. Developers must be diligent to never expose the access key in an unsecure location. Anyone who gains access to the access key is able to authenticate. `DefaultAzureCredential` offers improved management and security benefits over the account key to allow credential-free authentication. Both options are demonstrated in the following example.
 
 ## [Credential-free (Recommended)](#tab/managed-identity)
 
@@ -44,8 +44,8 @@ You can authenticate your local app to the Blob Storage account you created usin
     dotnet add package Azure.Identity
     ```
 
-    Azure services can be accessed using corresponding client classes from the SDK. These classes should be registered in the *Program.cs* file so they can be accessed via dependency injection throughout your app. 
-    
+    Azure services can be accessed using corresponding client classes from the SDK. These classes should be registered in the *Program.cs* file so they can be accessed via dependency injection throughout your app.
+
 3. Update your *Program.cs* code to match the following example. When the code is run on your local workstation during development, it will use the developer credentials of the prioritized tool you're logged into to authenticate to Azure, such as the Azure CLI or Visual Studio.
 
     ```csharp
