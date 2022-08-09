@@ -24,6 +24,7 @@ This article includes several top Azure tasks for JavaScript developers:
     * Configure CORS
     * Create Shared access signatures (SAS) token
 * Configure code for Azure SDK client library to use SAS token to authenticate to service
+* Deploy to Static Web App with GitHub Action
 
 The sample React app, [available on GitHub](https://github.com/Azure-Samples/js-e2e-browser-file-upload-storage-blob), consists of the following elements:
 
