@@ -8,8 +8,6 @@ ms.date: 08/10/2022
 ms.topic: quickstart
 ms.service: azure-dev-cli
 ms.custom: devx-track-azdevcli
-zone_pivot_group_filename: developer/azure-developer-cli/azd-zone-pivot-groups.json
-zone_pivot_groups: azd-languages-set
 ---
 
 # Run a Node.js template using Azure Developer CLI (preview)

@@ -33,7 +33,7 @@ With the Azure Developer CLI, you can work consistently across `azd` templates, 
 
 The new Azure Developer CLI builds upon the experience and foundations of the Azure CLI. You can use both tools together, as needed, to support your Azure workflow.
 
-[Learn more about the differences between Azure Developer CLI and Azure CLI.]()
+[Learn more about the differences between Azure Developer CLI and Azure CLI.](./azd-vs-azure-cli.md)
 
 ## Recommended `azd` workflow
 

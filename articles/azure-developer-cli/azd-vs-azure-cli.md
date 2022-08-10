@@ -11,7 +11,29 @@ ms.service: azure-dev-cli
 
 # Azure Developer CLI vs. Azure CLI (preview)
 
-Az CLI took a long time to download and install. We made a strategic decision to convert to a standalone CLI written in Go. Go is more portable. Although we have a dependency on Az CLI today (as in we are calling Az CLI under the hood), we will eventually remove the dependency. That means developers can use azd without Az CLI and we will not depend on Az CLI at all.
+Azure Developer CLI and Azure CLI - what's the difference?
 
-The new Azure Developer CLI builds upon the experience and foundations of the Azure CLI. You can use both tools together, as needed, to support your Azure workflow.
+The new Azure Developer CLI builds upon the experience and foundations of the [Azure CLI](../../../azure-docs-pr/cli/azure.md). You can use both tools together, as needed, to support your Azure workflow.
 
+**Azure Developer CLI** focuses on **the developer workflow**. Apart from provisioning/managing Azure resources, the CLI helps to stitch cloud components, local development configuration, and pipeline automation together into a complete solution.
+
+**Azure CLI** is a control plane tool for creating and administering Azure infrastructure, such as virtual machines, virtual networks, and storage.
+
+## Azure Developer CLI history
+
+In the early iteration, Azure Developer CLI was an Azure CLI extension written in Python. Based on user feedback, we made a strategic decision to convert to a standalone Azure Developer CLI written in Go, which is more portable.
+
+## `azd` templates vs. Azure CLI
+
+In the Azure CLI, `az deployment` deploys ARM templates, with 100% focus on the creation and provision of cloud infrastructure (Azure resources) needed to run your app.
+
+In the Azure Developer CLI, we use bicep templates, as it's a more declarative and maintainable revision of the ARM template language.
+
+## Limitations
+
+Currently, Azure Developer CLI has a dependency on Azure CLI, calling Az CLI under the hood.
+
+## Next steps
+
+- [Learn more about Azure Developer CLI](./overview.md).
+- [Install the CLI](./install-azd.md)

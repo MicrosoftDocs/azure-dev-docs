@@ -3,7 +3,7 @@ title: Choose an Azure Developer CLI templates (preview)
 description: Learn more about the role of templates with the Azure Developer CLI (azd).
 author: hhunter-ms
 ms.author: hannahhunter
-ms.date: 08/05/2022
+ms.date: 08/10/2022
 ms.topic: conceptual
 ms.custom: devx-track-azdevcli
 ms.service: azure-dev-cli
@@ -64,6 +64,8 @@ Select your preferred programming language to choose a template.
 | Template | App host  | Database |
 | -------- | --------- | -------- |
 | [Todo C# Cosmos DB (SQL)](https://github.com/Azure-Samples/todo-csharp-cosmos-sql) | [Azure App Service](/azure/app-service/) | [Azure Cosmos DB SQL API](/learn/modules/intro-to-azure-cosmos-db-core-api/) |
+
+---
 
 ## Authoring templates
 
