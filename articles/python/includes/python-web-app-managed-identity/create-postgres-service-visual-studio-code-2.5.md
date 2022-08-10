@@ -10,4 +10,4 @@ ms.azure.devx-azure-tooling: ['vscode-azure-tools']
 ms.custom: devx-track-python
 ---
 
-It will take several moments to create the database. Use the **Azure: Activity Log** window to track the progress. When the creation process finishes you'll also see a notification message.
+It will take several moments to create the database. Use the **Azure: Activity Log** window to track the progress. When the creation process finishes, you'll also see a notification message.
