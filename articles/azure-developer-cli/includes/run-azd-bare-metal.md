@@ -14,8 +14,6 @@ Run the `azd up` command with the `--template` flag.
 azd up --template <TEMPLATE>
 ```
 
-## What happens when you run `azd up`?
-
 This single `azd up` command will:
 
 - Download code

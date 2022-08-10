@@ -39,8 +39,6 @@ In the terminal, run the `azd up` command with the `--template` flag.
 azd up --template <TEMPLATE>
 ```
 
-## What happens when you run `azd up`?
-
 For DevContainer, the `azd up` command will:
 
 - Create and configure all necessary Azure resources (`azd provision`), including:

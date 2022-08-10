@@ -13,7 +13,8 @@ ms.service: azure-dev-cli
 
 Welcome to the Azure Developer CLI (`azd`)! Let's get started with installing and learning how to run the `azd`.
 
-Start by selecting your development environment.
+Start by selecting your development environment. For more information about the pros and cons of the different development environment choices, see [Azure Developer CLI (azd) supported environments](overview.md#supported-development-environments).
+
 
 ## [BareMetal](#tab/baremetal)
 
