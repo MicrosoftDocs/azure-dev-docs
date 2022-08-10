@@ -5,7 +5,7 @@ author: jessmjohnson
 ms.author: jejohn
 ms.devlang: python
 ms.topic: tutorial
-ms.date: 07/20/2022
+ms.date: 08/10/2022
 ms.prod: azure-python
 ms.custom: devx-track-python, devx-track-azurecli
 ---
@@ -45,6 +45,7 @@ Follow these steps to create your Azure Database for PostgreSQL resource using t
 |:----------------|-----------:|
 | [!INCLUDE [Open Azure Extension - Database in VS Code](<./includes/python-web-app-managed-identity/create-postgres-service-visual-studio-code-1.md>)] | :::image type="content" source="./media/python-web-app-managed-identity/create-postgres-service-visual-studio-code-1-240px.png" lightbox="./media/python-web-app-managed-identity/create-postgres-service-visual-studio-code-1.png" alt-text="A screenshot showing how to open Azure Extension for Database in VS Code." ::: |
 | [!INCLUDE [Create database server in VS Code](<./includes/python-web-app-managed-identity/create-postgres-service-visual-studio-code-2.md>)] | :::image type="content" source="./media/python-web-app-managed-identity/create-postgres-service-visual-studio-code-2-240px.gif" alt-text="A screenshot showing prompts for creating a database server in VSCode." lightbox="./media/python-web-app-managed-identity/create-postgres-service-visual-studio-code-2.gif"::: |
+| [!INCLUDE [Finish create database server in VS Code](<./includes/python-web-app-managed-identity/create-postgres-service-visual-studio-code-2.5.md>)] | |
 
 ### [Azure CLI](#tab/azure-cli)
 
