@@ -141,4 +141,4 @@ The role you'll create is the role used by the web app (App Service) to connect 
 ## Next step
 
 > [!div class="nextstepaction"]
-> [Deploy to the Python app to Azure >>>](./tutorial-python-managed-identity-06.md)
+> [Deploy to the Python app to Azure](./tutorial-python-managed-identity-06.md)
