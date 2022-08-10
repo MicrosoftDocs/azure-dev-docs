@@ -1,6 +1,10 @@
 {
     "redirections": [
       {
+        "source_path": "articles/azure-developer-cli/get-started.md",
+        "redirect_url": "/azure/azure-developer-cli/install-azd.md"
+      },
+      {
         "source_path": "articles/javascript/tutorial-vscode-serverless-node-01.md",
         "redirect_url": "/azure/developer/javascript/tutorial/azure-function-cosmos-db-mongo-api"
       },

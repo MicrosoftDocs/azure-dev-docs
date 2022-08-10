@@ -17,7 +17,8 @@ You can use any of the [Azure Developer CLI template](overview.md#azure-develope
 
 ## Prerequisites
 
-- [Install azd](get-started.md).
+- [Install the Azure Developer CLI](install-azd.md).
+- [Run `azd up` for the Node.js template](./get-started-nodejs.md), or [run on the template of your choice](./azd-templates.md#azure-developer-cli-templates)
 
 ## Configure your environment
 

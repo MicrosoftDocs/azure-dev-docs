@@ -166,7 +166,7 @@ productDirectory:
       links:
         - url: ./azure-developer-cli/overview.md
           text: What is Azure Developer CLI
-        - url: ./azure-developer-cli/get-started.md
+        - url: ./azure-developer-cli/install-azd.md
           text: Get started
         - url: ./azure-developer-cli/index.yml
           text: See more in the Azure Developer CLI developer center

@@ -30,5 +30,5 @@ The fastest way to get your app up and running on Azure with the Azure Developer
 
 ## Next steps
 
-- Walk through one of the quickstarts to see Azure Developer CLI in action. You can try either [Node.js], [Python], or [C#].
+- Walk through one of the quickstarts to see Azure Developer CLI in action. You can try either [Node.js](./get-started-nodejs.md), [Python](./get-started-python.md), or [C#](./get-started-csharp.md).
 - Learn more about [`azd` templates](./azd-templates.md).
