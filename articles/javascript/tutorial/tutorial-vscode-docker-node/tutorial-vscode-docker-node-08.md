@@ -2,7 +2,7 @@
 title: Clean up resources after deploying a containerized Node.js app from Visual Studio Code
 description: Docker Tutorial part 8, clean up resources
 ms.topic: how-to
-ms.date: 08/17/2021
+ms.date: 08/09/2022
 ms.custom: devx-track-js
 ---
 

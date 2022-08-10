@@ -1,7 +1,7 @@
 ---
 ms.custom: devx-track-js
 ms.topic: include
-ms.date: 07/28/2021
+ms.date: 08/09/2022
 ---
 
 In order to host your JavaScript apps in an Azure hosting environment, make sure your local development environment Node.js runtime mimics the Azure hosting runtime you intend to use. 
@@ -11,6 +11,7 @@ In order to host your JavaScript apps in an Azure hosting environment, make sure
     ```azurecli-interactive
     az webapp list-runtimes | grep node
     ```
+
 * Azure [Static Web App run times](/azure/static-web-apps/apis) are only relevant to the Function APIs. 
 
 * Azure [Functions supported Node.js versions](/azure/azure-functions/functions-reference-node?tabs=v2#node-version) are based on which version of Functions you use. 

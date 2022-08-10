@@ -5,7 +5,7 @@ ms.topic: conceptual
 ms.date: 06/20/2022
 ms.custom: devx-track-python
 ms.prod: azure-python
-author: jess-johnson-msft
+author: jessmjohnson
 ms.author: jejohn
 ---
 

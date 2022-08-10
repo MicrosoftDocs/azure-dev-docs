@@ -2,7 +2,7 @@
 title: Build Static Web App on Azure with JavaScript
 description: Build a JAMstack app (JavaScript, APIs, and Markup) on Azure
 ms.topic: how-to
-ms.date: 08/30/2021
+ms.date: 08/09/2022
 ms.custom: devx-track-js
 ---
 
