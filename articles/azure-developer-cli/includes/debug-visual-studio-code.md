@@ -4,7 +4,8 @@ This article uses the sample [Todo Application with Node.js and Azure Cosmos DB 
 
 ## Prerequisites
 
-[!INCLUDE [azd-install](azd-install.md)]
+- [Install azd](install-azd.md)
+- [Run azd with a Node.js template](get-started-nodejs.md)
 - [Node.js with npm (v 16.13.1 LTS)](https://nodejs.org/)
 
 ## Install the Visual Studio Code extension for Azure Developer CLI
