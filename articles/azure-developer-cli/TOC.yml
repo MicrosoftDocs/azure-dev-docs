@@ -4,7 +4,7 @@
   - name: What is Azure Developer CLI?
     href: overview.md
   - name: Azure Developer CLI vs Azure CLI
-    href: 
+    href: azd-vs-azure-cli.md
   - name: Get started
     items: 
     - name: Install azd
@@ -13,10 +13,14 @@
       href: azd-templates.md
     - name: Run azd
       href: run-azd.md
-  - name: Quickstart
+  - name: Quickstarts
     items:
-    - name: Get started
-      href: get-started.md
+    - name: Run azd with a Node.js template
+      href: get-started-nodejs.md
+    - name: Run azd with a Python template
+      href: get-started-python.md
+    - name: Run azd with a C# template
+      href: get-started-csharp.md
   - name: How-to guides
     items:
     - name: Run and debug
