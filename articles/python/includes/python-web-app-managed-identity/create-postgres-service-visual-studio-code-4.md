@@ -2,7 +2,7 @@
 author: jessmjohnson
 ms.author: jejohn
 ms.topic: include
-ms.date: 06/01/2022
+ms.date: 08/10/2022
 ms.service: app-service
 ms.role: developer
 ms.devlang: python
@@ -10,7 +10,7 @@ ms.azure.devx-azure-tooling: ['vscode-azure-tools']
 ms.custom: devx-track-python
 ---
 
-After the firewall rule allowing local access has been successfully added, create the `restaurant` database.
+After the firewall rule allowing local access has been successfully added, you can create the `restaurant` database.
 
 1. In the **Azure** extension, find the PostgreSQL Server you created, right-click it, and select **Create Database**.
 
