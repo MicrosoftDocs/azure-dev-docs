@@ -51,7 +51,7 @@ When you run the `azd up` command, you'll be prompted to provide the following i
 | `Azure Location`   | The Azure location where your resources will be deployed. |
 | `Azure Subscription` | The Azure Subscription where your resources will be deployed. |
 
-This may take some time to complete, as the `azd up` command:
+This process may take some time to complete, as the `azd up` command:
 
 - Downloads code
 - Initializes your project (`azd init`)
@@ -124,7 +124,7 @@ Run the following command:
 azd up
 ```
 
-This may take some time, as the `azd up` command:
+This process may take some time, as the `azd up` command:
 
 - Creates and configures all necessary Azure resources (`azd provision`), including:
   - Access policies and roles for your account

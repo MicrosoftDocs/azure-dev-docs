@@ -53,7 +53,7 @@ All `azd` templates have the same file structure, based on `azd` conventions. Th
     git clone https://github.com/Azure-Samples/msdocs-python-flask-webapp-quickstart
     ```
 
-   Optionally, to see sample working, follow the instructions to [run the app locally](/azure/app-service/quickstart-python?tabs=flask%2Cwindows%2Cazure-portal%2Cterminal-bash%2Cvscode-deploy%2Cdeploy-instructions-azportal%2Cdeploy-instructions-zip-azcli#1---sample-app).
+   Optionally, to see the sample working, follow the instructions to [run the app locally](/azure/app-service/quickstart-python?tabs=flask%2Cwindows%2Cazure-portal%2Cterminal-bash%2Cvscode-deploy%2Cdeploy-instructions-azportal%2Cdeploy-instructions-zip-azcli#1---sample-app).
 
 1. Change the current directory to `msdocs-python-flask-webapp-quickstart`.
 
@@ -170,7 +170,7 @@ For samples, refer to [sample Azure App Service Bicep files](/azure/app-service/
     
     ```
   
-    In this sample, an unique string is generated based on subscription ID and used as a resource token. This token is appended to the name of all Azure resources created by azd. `azd` uses tags to identify resources so you can modify the names based on your organization's naming convention.
+    In this sample, a unique string is generated based on subscription ID and used as a resource token. This token is appended to the name of all Azure resources created by azd. `azd` uses tags to identify resources so you can modify the names based on your organization's naming convention.
 
 1. Create a file named `resources.bicep`.
 
@@ -286,7 +286,7 @@ To deploy the app, `azd` needs to know more about your app. Specify the app's so
     | `services` | Root element. Required. Definition of services that is part of the app. |
     | `web` | Required. Name of the service. Can be any name, for example, api, web. This name needs to be the same as the `azd-service-name` value you specified earlier. |
     | `project` | Required. Path to the service source code directory. Use **src/web** if your source code is found under /src/web. |
-    | `language` | Service implementation language. "py" for Python. If not specified, .NET will be assumed. |
+    | `language` | Service implementation language. `py` for Python. If not specified, .NET will be assumed. |
     | `host` | Type of Azure resource used for service implementation. "appservice" for Azure App Service. If not required, appservice is assumed. |
 
     For full details, refer to [azure.yaml.json](https://github.com/Azure/azure-dev/blob/main/schemas/v1.0/azure.yaml.json/).

@@ -11,7 +11,7 @@ ms.custom: devx-track-azdevcli
 
 # Configure a pipeline and push updates using GitHub Actions
 
-In this article, you'll push changes you make to the [Todo Application with Node.js and Azure Cosmos DB API for MongoDB](https://github.com/azure-samples/todo-nodejs-mongo) template through GitHub Actions via Azure Developer CLI (azd). However, you can apply the principles you learn in this article to any of the [Azure Developer CLI templates](overview.md#azure-developer-cli-templates).
+In this article, you'll push [Todo Application with Node.js and Azure Cosmos DB API for MongoDB](https://github.com/azure-samples/todo-nodejs-mongo) template changes through GitHub Actions via Azure Developer CLI (azd). However, you can apply the principles you learn in this article to any of the [Azure Developer CLI templates](overview.md#azure-developer-cli-templates).
 
 ## Prerequisites
 
@@ -23,7 +23,7 @@ In this article, you'll push changes you make to the [Todo Application with Node
 
 [All templates](./azd-templates.md) include a GitHub Actions pipeline configuration file called `azure-dev.yml`, located in the `.github/workflow` directory. This configuration file deploys your app whenever code is pushed to the main branch.
 
-To configure the pipeline, you need to give GitHub permission to deploy to Azure on your behalf. Authorize GitHub by creating a Azure service principle stored in a GitHub secret named `AZURE_CREDENTIALS`.
+To configure the pipeline, you need to give GitHub permission to deploy to Azure on your behalf. Authorize GitHub by creating an Azure service principle stored in a GitHub secret named `AZURE_CREDENTIALS`.
 
 1. Run the following command to create the Azure service principle and configure the pipeline:
 
