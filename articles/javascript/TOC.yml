@@ -283,7 +283,7 @@
       - name: Hello world with Functions
         href: how-to/with-web-app/graphql/azure-function-hello-world.md
       - name: CRUD with Functions
-        href: how-to/with-web-app/graphql/azure-function-crud-mutation?tabs=visualstudiocode
+        href: how-to/with-web-app/graphql/azure-function-crud-mutation.md
       - name: Trivia game with SWA + Cosmos DB
         items: 
           - name: 1. Introduction
