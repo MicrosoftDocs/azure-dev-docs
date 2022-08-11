@@ -286,6 +286,10 @@
         href: how-to/with-web-app/graphql/azure-function-crud-mutation?tabs=visualstudiocode
       - name: Trivia game with Static Web Apps
         href: how-to/with-web-app/graphql/static-web-app-graphql/introduction.md
+      - name: Import GraphQL into APIM
+        href: /azure/api-management/graphql-api
+      - name: Import and resolve GraphQL schema
+        href: /azure/api-management/graphql-schema-resolve-api
       - name: Samples
         items: 
           - name: Hello world
