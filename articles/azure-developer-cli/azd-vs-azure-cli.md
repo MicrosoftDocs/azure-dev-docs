@@ -13,7 +13,7 @@ ms.service: azure-dev-cli
 
 Azure Developer CLI and Azure CLI - what's the difference?
 
-The new Azure Developer CLI builds upon the experience and foundations of the [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli). You can use both tools together, as needed, to support your Azure workflow.
+The new Azure Developer CLI builds upon the experience and foundations of the [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). You can use both tools together, as needed, to support your Azure workflow.
 
 **Azure Developer CLI** focuses on **the developer workflow**. Apart from provisioning/managing Azure resources, the CLI helps to stitch cloud components, local development configuration, and pipeline automation together into a complete solution.
 

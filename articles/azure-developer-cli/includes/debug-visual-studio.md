@@ -10,12 +10,10 @@ Run and debug apps built on your local machine using [Visual Studio](/visualstud
 
 ## Prerequisites
 
-## Prerequisites
-
 - [Install azd](../install-azd.md)
 - [Run azd with the Node.js template](../get-started-nodejs.md)
-- [.NET SDK 6.0](https://dotnet.microsoft.com/en-us/download/dotnet/6.0)
-- [Visual Studio version later than 17.3.0 Preview 2 with the integration with azd feature flag enabled](https://docs.microsoft.com/visualstudio/install/install-visual-studio?view=vs-2022)
+- [.NET SDK 6.0](https://dotnet.microsoft.com/download/dotnet/6.0)
+- [Visual Studio version later than 17.3.0 Preview 2 with the integration with azd feature flag enabled](https://docs.microsoft.com/visualstudio/install/install-visual-studio)
 
 ## Enable the preview feature
 
