@@ -30,7 +30,7 @@ Create monitoring activity in the app before running the `azd monitor` commands:
 
 ## Monitor the app
 
-To help with monitoring apps, azd provides a `monitor` command whose parameters [launch various Application Insights dashboards](https://docs.microsoft.com/azure/azure-monitor/app/overview-dashboard). Run any of the following commands in the project directory to monitor app health:
+To help with monitoring apps, `azd` provides a `monitor` command whose parameters [launch various Application Insights dashboards](https://docs.microsoft.com/azure/azure-monitor/app/overview-dashboard). Run any of the following commands in the project directory to monitor app health:
 
 | Application Insights dashboard | Command                  |
 |--------------------------------|--------------------------|

@@ -11,13 +11,13 @@ Run and debug apps built on your local machine using [Visual Studio](/visualstud
 ## Prerequisites
 
 - [Install azd](../install-azd.md)
-- [Run azd with the Node.js template](../get-started-nodejs.md)
+- [Run `azd` with the Node.js template](../get-started-nodejs.md)
 - [.NET SDK 6.0](https://dotnet.microsoft.com/download/dotnet/6.0)
-- [Visual Studio version later than 17.3.0 Preview 2 with the integration with azd feature flag enabled](https://docs.microsoft.com/visualstudio/install/install-visual-studio)
+- [Visual Studio version later than 17.3.0 Preview 2 with the integration with `azd` feature flag enabled](https://docs.microsoft.com/visualstudio/install/install-visual-studio)
 
 ## Enable the preview feature
 
-Integration with azd is shipped in `version 17.3.0 Preview 2` behind a feature flag. Make sure you have a version later than .
+Integration with `azd` is shipped in `version 17.3.0 Preview 2` behind a feature flag. Make sure you have a version later than .
 
 1. Open Visual Studio.
 
@@ -31,7 +31,7 @@ Integration with azd is shipped in `version 17.3.0 Preview 2` behind a feature f
 
 1. Open the `Todo.Api.sln` solution in the `/src/api` directory.  
 
-   If you've [enabled the azd integration feature](#prerequisites), the `azure.yaml` file is detected. Visual Studio automatically initializes the app model and runs `azd env refresh`.
+   If you've [enabled the `azd` integration feature](#prerequisites), the `azure.yaml` file is detected. Visual Studio automatically initializes the app model and runs `azd env refresh`.
 
 1. Expand **Connected Services** to see all the dependencies.  
 
@@ -68,11 +68,11 @@ Integration with azd is shipped in `version 17.3.0 Preview 2` behind a feature f
     [{"id":"fb9c1cb3811349b993421fc0e815c4c1","name":"My List","description":null,"createdDate":"2022-06-27T01:10:16.7721172+00:00","updatedDate":null}]
     ```
 
-## Other azd integrations
+## Other `azd` integrations
 
-### Manage azd environment
+### Manage `azd` environment
 
-To manage the azd environment:
+To manage the `azd` environment:
 
 1. Select **...** in the upper-right corner of the **Service Dependencies** pane.
 1. Select one of the following options in the dropdown menu:

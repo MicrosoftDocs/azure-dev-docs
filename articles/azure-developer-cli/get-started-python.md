@@ -73,7 +73,7 @@ Once you've provided the necessary parameters and the `azd up` command completes
 
 Upon successful completion of the `azd up` command:
 
-- The repo referenced by the [Python azd template](https://github.com/azure-samples/todo-python-mongo) you ran with `azd up` has been cloned into [the directory you created](#run-up-command).
+- The repo referenced by the [Python `azd` template](https://github.com/azure-samples/todo-python-mongo) you ran with `azd up` has been cloned into [the directory you created](#run-up-command).
 - The [Azure resources referenced in the templates `README.md` file](https://github.com/Azure-Samples/todo-python-mongo/blob/main/README.md) have been provisioned to the Azure subscription you specified after you ran `azd up`. You can now view those Azure resources via the [Azure portal](https://portal.azure.com).
 - The app has been built and deployed to Azure. Using the web app URL output from the `azd up` command, you can browse to the fully functional app.
 
@@ -144,7 +144,7 @@ Once you've provided the necessary parameters and the `azd up` command completes
 
 Upon successful completion of the `azd up` command:
 
-- The repo referenced by the [Python azd template](https://github.com/azure-samples/todo-python-mongo) you ran with `azd up` has been cloned into [the directory you created](#run-up-command).
+- The repo referenced by the [Python `azd` template](https://github.com/azure-samples/todo-python-mongo) you ran with `azd up` has been cloned into [the directory you created](#run-up-command).
 - The [Azure resources referenced in the templates `README.md` file](https://github.com/Azure-Samples/todo-python-mongo/blob/main/README.md) have been provisioned to the Azure subscription you specified after you ran `azd up`. You can now view those Azure resources via the [Azure portal](https://portal.azure.com).
 - The app has been built and deployed to Azure. Using the web app URL output from the `azd up` command, you can browse to the fully functional app.
 

@@ -39,8 +39,9 @@ The following steps are the recommended workflow to using `azd`:
 
 :::image type="content" source="media/overview/workflow.png" alt-text="Diagram of the Azure Developer CLI workflow.":::
 
+1. [Install Azure Developer CLI](./install-azd.md).
 1. Select an [Azure Developer CLI template](./azd-templates.md#choose-a-template).
-1. Get the code and deploy the sample by running `azd up`.
+1. Get the code and deploy the template by [running `azd up`](./run-azd.md).
 1. Customize the app to meet your needs.
 
 ## Azure Developer CLI templates
@@ -57,7 +58,7 @@ Each template repository we provide contains a complete sample ToDo app with:
 - A web frontend built in React.js
 - A backend API built using a specific `azd` supported language
 
-[Learn more about the azd templates we provide and which template you should select.](./azd-templates.md#choose-a-template)
+[Learn more about the `azd` templates we provide and which template you should select.](./azd-templates.md#choose-a-template)
 
 ## Supported development environments
 
@@ -95,4 +96,7 @@ Currently supported/planned languages:
 ## Next steps
 
 - Get started by [installing Azure Developer CLI](./install-azd.md).
-- Walk through one of the quickstarts to see Azure Developer CLI in action. You can try either [Node.js](./get-started-nodejs.md), [Python](./get-started-python.md), or [C#](./get-started-csharp.md).
+- Walk through one of the quickstarts to see Azure Developer CLI in action:
+  - [Node.js](./get-started-nodejs.md)
+  - [Python](./get-started-python.md)
+  - [C#](./get-started-csharp.md)

@@ -15,13 +15,13 @@ zone_pivot_groups: make-azure-developer-cli-compatible-set
 
 Azure Developer CLI (`azd`) enables developers to create apps from [templates](./azd-templates.md) stored in GitHub repositories. Microsoft provides [several templates](overview.md?branch=pr-en-us-3070&tabs=nodejs#azure-developer-cli-templates) to get you started. In this article, you learn how to enable your own project as a template.
 
-## Understand the azd architecture overview
+## Understand the `azd` architecture
 
-The following diagram gives a quick overview of the process to create an azd template:
+The following diagram gives a quick overview of the process to create an `azd` template:
 
 :::image type="content" source="media/make-azd-compatible/workflow.png" alt-text="Diagram of Azure Developer CLI template workflow.":::
 
-All azd templates have the same file structure, based on azd conventions. The following hierarchy shows the directory structure you'll build in this tutorial. For the complete directory structure, refer to the [azd conventions](#azd-conventions) section.
+All `azd` templates have the same file structure, based on `azd` conventions. The following hierarchy shows the directory structure you'll build in this tutorial. For the complete directory structure, refer to the [azd conventions](#azd-conventions) section.
 
 ```txt
 ├── .github                    [ Configure GitHub workflow ]
@@ -170,7 +170,7 @@ For samples, refer to [sample Azure App Service Bicep files](/azure/app-service/
     
     ```
   
-    In this sample, an unique string is generated based on subscription ID and used as a resource token. This token is appended to the name of all Azure resources created by azd. azd uses tags to identify resources so you can modify the names based on your organization's naming convention.
+    In this sample, an unique string is generated based on subscription ID and used as a resource token. This token is appended to the name of all Azure resources created by azd. `azd` uses tags to identify resources so you can modify the names based on your organization's naming convention.
 
 1. Create a file named `resources.bicep`.
 
@@ -267,7 +267,7 @@ For samples, refer to [sample Azure App Service Bicep files](/azure/app-service/
 
 ## Update azure.yaml
 
-To deploy the app, azd needs to know more about your app. Specify the app's source code location, the app type, and the Azure service that will be hosting your app in the `azure.yaml` file.
+To deploy the app, `azd` needs to know more about your app. Specify the app's source code location, the app type, and the Azure service that will be hosting your app in the `azure.yaml` file.
 
 1. Edit `azure.yaml` by adding the following lines:
 
@@ -340,9 +340,9 @@ When you no longer need the resources created in this article, run the following
 azd down
 ```
 
-## azd conventions
+## `azd` conventions
 
-The following hierarchy shows the complete directory structure of an azd template.
+The following hierarchy shows the complete directory structure of an `azd` template.
 
 ```txt
 ├── .devcontainer              [ For DevContainer ]

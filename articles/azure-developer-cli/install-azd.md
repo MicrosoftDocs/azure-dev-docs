@@ -29,4 +29,4 @@ Start by selecting your development environment. For more information about the 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Choose an azd template](./azd-templates.md)
+> [Choose an `azd` template](./azd-templates.md)

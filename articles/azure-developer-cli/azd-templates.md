@@ -35,7 +35,7 @@ Each template was written for hosts such as:
 
 Check back for our growing list of templates.
 
-For information on authoring your own template or “templatizing” an existing application, [read our guide on making azd compatible](./make-azd-compatible.md).
+For information on authoring your own template or “templatizing” an existing application, [read our guide on making your template `azd`compatible](./make-azd-compatible.md).
 
 ## Choose a template
 
@@ -76,4 +76,4 @@ You can also open an issue on [our GitHub repository](https://github.com/Azure/a
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Run azd](./run-azd.md)
+> [Learn the basic azd up commands](./run-azd.md)
