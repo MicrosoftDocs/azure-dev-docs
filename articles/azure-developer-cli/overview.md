@@ -19,7 +19,7 @@ As a developer building, deploying, and securing your application, some question
 - How do I provision the necessary infrastructure for my application?
 - How do I know that what I’m doing incorporates security best practices?
 
-Azure Developer CLI (`azd`) is an open-source tool that accelerates the process of building cloud apps on Azure. The CLI provides developer-friendly commands that map to key stages in your workflow: code, build, deploy, monitor, repeat.
+Azure Developer CLI (`azd`) is an open-source tool that accelerates the process of building cloud apps on Azure. The CLI provides best practice, developer-friendly commands that map to key stages in your workflow: code, build, deploy, monitor, repeat.
 
 With the Azure Developer CLI, you can work consistently across `azd` templates, DevOps workflows, and your integrated development environment (IDE). These [extensible templates](#azure-developer-cli-templates) include everything you need to get your application up and running in Azure.
 
@@ -31,8 +31,6 @@ With the Azure Developer CLI, you can work consistently across `azd` templates, 
 
 **Azure CLI** is a control plane tool for creating and administering Azure infrastructure, such as virtual machines, virtual networks, and storage.
 
-The new Azure Developer CLI builds upon the experience and foundations of the Azure CLI. You can use both tools together, as needed, to support your Azure workflow.
-
 [Learn more about the differences between Azure Developer CLI and Azure CLI.](./azd-vs-azure-cli.md)
 
 ## Recommended `azd` workflow
@@ -41,7 +39,7 @@ The following steps are the recommended workflow to using `azd`:
 
 :::image type="content" source="media/overview/workflow.png" alt-text="Diagram of the Azure Developer CLI workflow.":::
 
-1. Select an [Azure Developer CLI template](#azure-developer-cli-templates).
+1. Select an [Azure Developer CLI template](./azd-templates.md#choose-a-template).
 1. Get the code and deploy the sample by running `azd up`.
 1. Customize the app to meet your needs.
 
@@ -59,7 +57,7 @@ Each template repository we provide contains a complete sample ToDo app with:
 - A web frontend built in React.js
 - A backend API built using a specific `azd` supported language
 
-[Learn more about the azd templates we provide and which template you should select.](./azd-templates.md#azure-developer-cli-templates)
+[Learn more about the azd templates we provide and which template you should select.](./azd-templates.md#choose-a-template)
 
 ## Supported development environments
 
@@ -97,4 +95,4 @@ Currently supported/planned languages:
 ## Next steps
 
 - Get started by [installing Azure Developer CLI](./install-azd.md).
-- Walk through one of the quickstarts to see Azure Developer CLI in action. You can try either [Node.js], [Python], or [C#].
+- Walk through one of the quickstarts to see Azure Developer CLI in action. You can try either [Node.js](./get-started-nodejs.md), [Python](./get-started-python.md), or [C#](./get-started-csharp.md).

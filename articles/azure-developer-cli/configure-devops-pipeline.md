@@ -5,7 +5,7 @@ author: hhunter-ms
 ms.author: hannahhunter
 ms.date: 08/10/2022
 ms.service: azure-dev-cli
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: devx-track-azdevcli
 ---
 

@@ -16,7 +16,7 @@ The fastest way to get your app up and running on Azure with the Azure Developer
 ## Pre-requisites
 
 - [Install the Azure Developer CLI](./install-azd.md).
-- [Choose an `azd` template](./azd-templates.md) to run with your application.
+- [Choose an `azd` template](./azd-templates.md#choose-a-template) to run with your application.
 
 ## [BareMetal](#tab/baremetal)
 
@@ -30,5 +30,8 @@ The fastest way to get your app up and running on Azure with the Azure Developer
 
 ## Next steps
 
-- Walk through one of the quickstarts to see Azure Developer CLI in action. You can try either [Node.js](./get-started-nodejs.md), [Python](./get-started-python.md), or [C#](./get-started-csharp.md).
-- Learn more about [`azd` templates](./azd-templates.md).
+Walk through one of the quickstarts to see Azure Developer CLI in action:
+
+- [Node.js](./get-started-nodejs.md)
+- [Python](./get-started-python.md)
+- [C#](./get-started-csharp.md)

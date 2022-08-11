@@ -5,7 +5,7 @@ author: hhunter-ms
 ms.author: hannahhunter
 ms.date: 08/11/2022
 ms.service: azure-dev-cli
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: devx-track-azdevcli
 zone_pivot_group_filename: developer/azure-developer-cli/azd-zone-pivot-groups.json
 zone_pivot_groups: make-azure-developer-cli-compatible-set

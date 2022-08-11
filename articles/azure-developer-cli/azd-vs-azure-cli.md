@@ -11,9 +11,9 @@ ms.service: azure-dev-cli
 
 # Azure Developer CLI vs. Azure CLI (preview)
 
-Azure Developer CLI and Azure CLI - what's the difference?
+At first glance, Azure Developer CLI and Azure CLI seem almost identical. In this article, we answer the question: what's the difference?
 
-The new Azure Developer CLI builds upon the experience and foundations of the [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). You can use both tools together, as needed, to support your Azure workflow.
+The new Azure Developer CLI builds upon the experience and foundations of the [Azure CLI](/cli/azure/what-is-azure-cli). You can use both tools together, as needed, to support your Azure workflow.
 
 **Azure Developer CLI** focuses on **the developer workflow**. Apart from provisioning/managing Azure resources, the CLI helps to stitch cloud components, local development configuration, and pipeline automation together into a complete solution.
 
@@ -21,13 +21,13 @@ The new Azure Developer CLI builds upon the experience and foundations of the [A
 
 ## Azure Developer CLI history
 
-In the early iteration, Azure Developer CLI was an Azure CLI extension written in Python. Based on user feedback, we made a strategic decision to convert to a standalone Azure Developer CLI written in Go, which is more portable.
+In the early iteration, Azure Developer CLI was an Azure CLI extension written in Python. The team made a strategic decision to convert to a standalone Azure Developer CLI written in Go, which is more portable.
 
 ## `azd` templates vs. Azure CLI
 
-In the Azure CLI, `az deployment` deploys ARM templates, with 100% focus on the creation and provision of cloud infrastructure (Azure resources) needed to run your app.
+In the **Azure CLI**, `az deployment` deploys ARM templates, with 100% focus on the creation and provision of cloud infrastructure (Azure resources) needed to run your app.
 
-In the Azure Developer CLI, we use bicep templates, as it's a more declarative and maintainable revision of the ARM template language.
+In the **Azure Developer CLI**, we use bicep templates, as it's a more declarative and maintainable revision of the ARM template language.
 
 ## Limitations
 
@@ -35,5 +35,5 @@ Currently, Azure Developer CLI has a dependency on Azure CLI, calling Az CLI und
 
 ## Next steps
 
-- [Learn more about Azure Developer CLI](./overview.md).
+- [Learn more about Azure Developer CLI](./overview.md)
 - [Install the CLI](./install-azd.md)

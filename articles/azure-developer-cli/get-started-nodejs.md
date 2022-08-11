@@ -159,6 +159,6 @@ azd down
 
 ## Next steps
 
+- [Learn how to run and debug apps with `azd`.](debug.md)
 - [Troubleshoot common problems when using Azure Developer CLI (azd).](troubleshoot.md)
 - [Read the Azure Developer CLI frequently asked questions (FAQ).](faq.yml)
-- [Learn how to run and debug apps with `azd`.](debug.md)

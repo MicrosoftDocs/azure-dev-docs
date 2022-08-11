@@ -27,7 +27,7 @@ As part of Azure Developer CLI preview, we’ve authored an initial set of templ
 - JavaScript/TypeScript
 - C#
 
-Each template were written for hosts such as:
+Each template was written for hosts such as:
 
 - Azure App Service
 - Azure Container Apps
@@ -35,9 +35,9 @@ Each template were written for hosts such as:
 
 Check back for our growing list of templates.
 
-For information on authoring your own template or “templatizing” an existing application, [see our Developer Hub](https://aka.ms/azure-dev/devhub).
+For information on authoring your own template or “templatizing” an existing application, [read our guide on making azd compatible](./make-azd-compatible.md).
 
-### Choose a template
+## Choose a template
 
 The quickest way to get started with Azure Developer CLI is to refer to the README in any of the following Azure Developer CLI enabled templates. 
 
@@ -69,7 +69,7 @@ Select your preferred programming language to choose a template.
 
 ## Authoring templates
 
-The Azure Developer CLI team plans to author more templates in the future to cover even more developer scenarios. If you author your own templates, you can add the `azd-templates` tag to your repository on GitHub. That way, other developers can find, fork, and build upon your template for their own use case. 
+The Azure Developer CLI team plans to author more templates in the future to cover even more developer scenarios. If you author your own templates, you can add the `azd-templates` tag to your repository on GitHub. That way, other developers can find, fork, and build upon your template for their own use case.
 
 You can also open an issue on [our GitHub repository](https://github.com/Azure/azure-dev) if there’s a use case and template that you would like to see created.
 
