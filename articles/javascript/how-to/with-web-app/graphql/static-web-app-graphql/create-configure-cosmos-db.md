@@ -102,4 +102,6 @@ You should have the following information before continuing:
 
 ## Next steps
 
-* [Deploy the app, both client and API, as a single static web app](remote-deployment.md)
+> [!div class="nextstepaction"]
+> [Deploy your app](remote-deployment.md)
+
