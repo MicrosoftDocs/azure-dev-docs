@@ -1,9 +1,9 @@
 ---
-title: Run and debug apps enabled for Azure Developer CLI (azd) Preview
+title: Run and debug apps enabled for Azure Developer CLI (preview)
 description: Learn how to use the VS Code extension for Azure Developer CLI and Visual Studio to run and debug locally.
 author: hhunter-ms
 ms.author: hannahhunter
-ms.date: 07/11/2022
+ms.date: 08/11/2022
 ms.service: azure-dev-cli
 ms.topic: conceptual
 ms.custom: devx-track-azdevcli
@@ -11,7 +11,7 @@ zone_pivot_group_filename: developer/azure-developer-cli/azd-zone-pivot-groups.j
 zone_pivot_groups: azd-devenv-set
 ---
 
-# Run and debug apps enabled for Azure Developer CLI (azd) Preview
+# Run and debug apps enabled for Azure Developer CLI (preview)
 
 ::: zone pivot="ide-vs-code"
 

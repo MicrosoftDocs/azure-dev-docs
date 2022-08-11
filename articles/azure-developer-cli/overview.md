@@ -47,41 +47,19 @@ The following steps are the recommended workflow to using `azd`:
 
 ## Azure Developer CLI templates
 
-The Azure Developer CLI uses [idiomatic application templates](./azd-templates.md) hat include the scaffolding for monitoring and CI/CD for your application. We provide `azd` templates in three supported languages. Each template includes:
+The Azure Developer CLI uses [idiomatic application templates](./azd-templates.md) that include the scaffolding for monitoring and CI/CD for your application. We provide `azd` templates in three supported languages. Each template includes:
 
 - Best practices
 - Application code
 - Infra-as-code files (written in Bicep) needed to provision the Azure resources
 - An `azure.yaml` file that describes your application.
 
-Each template repository below contains a complete sample ToDo app with:
+Each template repository we provide contains a complete sample ToDo app with:
 
 - A web frontend built in React.js
 - A backend API built using a specific `azd` supported language
 
-### [Node.js](#tab/nodejs)
-
-| Template | App host | Database |
-| -------- | -------- | -------- |
-| [ToDo NodeJs Mongo](https://github.com/azure-samples/todo-nodejs-mongo) | [Azure App Service](/azure/app-service/) | [Azure Cosmos DB API for Mongo](/azure/cosmos-db/mongodb/mongodb-introduction) |  
-| [ToDo NodeJs Mongo ACA](https://github.com/azure-samples/todo-nodejs-mongo-aca) | [Azure Container Apps](/azure/container-apps/overview) | [Azure Cosmos DB API for Mongo](/azure/cosmos-db/mongodb/mongodb-introduction) |
-| [ToDo NodeJs Mongo SWA + Functions](https://github.com/azure-samples/todo-nodejs-mongo-swa-func) | [Azure Static Web Apps](/azure/static-web-apps/), [Azure Functions](/azure/azure-functions/) | [Azure Cosmos DB API for Mongo](/azure/cosmos-db/mongodb/mongodb-introduction) |
-
-### [Python](#tab/python)
-
-| Template | App host  | Database |
-| -------- | --------- | -------- |
-| [ToDo Python Mongo](https://github.com/azure-samples/todo-python-mongo) | [Azure App Service](/azure/app-service/) | [Azure Cosmos DB API for Mongo](/azure/cosmos-db/mongodb/mongodb-introduction)  |  
-| [ToDo Python Mongo ACA](https://github.com/azure-samples/todo-python-mongo-aca) | [Azure Container Apps](/azure/container-apps/overview) |  [Azure Cosmos DB API for Mongo](/azure/cosmos-db/mongodb/mongodb-introduction) |  
-| [ToDo Python Mongo SWA + Functions](https://github.com/azure-samples/todo-python-mongo-swa-func) | [Azure Static Web Apps](/azure/static-web-apps/), [Azure Functions](/azure/azure-functions/) |  [Azure Cosmos DB API for Mongo](/azure/cosmos-db/mongodb/mongodb-introduction)|
-
-### [C#](#tab/csharp)
-
-| Template | App host  | Database |
-| -------- | --------- | -------- |
-| [Todo C# Cosmos DB (SQL)](https://github.com/Azure-Samples/todo-csharp-cosmos-sql) | [Azure App Service](/azure/app-service/) | [Azure Cosmos DB SQL API](/learn/modules/intro-to-azure-cosmos-db-core-api/) |
-
----
+[Learn more about the azd templates we provide and which template you should select.](./azd-templates.md#azure-developer-cli-templates)
 
 ## Supported development environments
 
