@@ -14,4 +14,5 @@ In this article, you learn the basics of GraphQL, such as how to retrieve and ch
 
 ## Next steps
 
-* [Local development of a GraphQL API with Azure Functions](local-development.md)
+> [!div class="nextstepaction"]
+> [Local TypeScript development](local-development.md)

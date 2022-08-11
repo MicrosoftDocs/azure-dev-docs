@@ -36,5 +36,5 @@ The React client and API are hosted in Static Web Apps. The data is stored in a 
 
 ## Next steps
 
-* Learn the basic concepts of [GraphQL](graphql-basics.md) for this article series.
-* Use the sample application in your [local development environment](local-development.md).
+> [!div class="nextstepaction"]
+> [GraphQL concepts](graphql-basics.md)
