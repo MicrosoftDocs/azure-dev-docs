@@ -61,7 +61,7 @@ You can authorize access to data in your storage account using the following ste
             new DefaultAzureCredential());
     ```
 
-4. Make sure to update the storage account name in the URI of your `BlobServiceClient`. The storage account name can be found on the overview page of the Azure Portal.
+4. Make sure to update the Storage account name in the URI of your `BlobServiceClient`. The Storage account name can be found on the overview page of the Azure portal.
 
     :::image type="content" source="../media/storage-account-name.png" alt-text="A screenshot showing how find the storage account name.":::
 
