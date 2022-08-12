@@ -446,4 +446,6 @@ If you run into an error that isn't listed above, open an issue on this article 
 
 ## Next steps
 
-* [Deploy your app (client and API) to a static web app](remote-deployment.md)
+> [!div class="nextstepaction"]
+> [Create a Cosmos DB resource](create-configure-cosmos-db.md)
+

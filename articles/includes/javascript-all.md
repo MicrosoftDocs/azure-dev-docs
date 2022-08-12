@@ -55,6 +55,7 @@
 | Identity Visual Studio Code Credential | npm [1.0.0](https://www.npmjs.com/package/@azure/identity-vscode/v/1.0.0) | [docs](/javascript/api/overview/azure/identity-vscode-readme) | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/identity-vscode_1.0.0/sdk/identity/identity-vscode/) |
 | IoT Device Update | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure/iot-device-update/v/1.0.0-beta.1) | [docs](/javascript/api/overview/azure/iot-device-update-readme) | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/iot-device-update_1.0.0-beta.1/sdk/deviceupdate/iot-device-update/) |
 | Keys | npm [4.4.0](https://www.npmjs.com/package/@azure/keyvault-keys/v/4.4.0)<br>npm [4.5.0-beta.1](https://www.npmjs.com/package/@azure/keyvault-keys/v/4.5.0-beta.1) | [docs](/javascript/api/overview/azure/keyvault-keys-readme) | GitHub [4.4.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/keyvault-keys_4.4.0/sdk/keyvault/keyvault-keys/)<br>GitHub [4.5.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/keyvault-keys_4.5.0-beta.1/sdk/keyvault/keyvault-keys/) |
+| Language Text | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure/ai-language-text/v/1.0.0-beta.1) |  | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/ai-language-text_1.0.0-beta.1/sdk/cognitivelanguage/ai-language-text/) |
 | Managed Private Endpoints | npm [1.0.0-beta.4](https://www.npmjs.com/package/@azure/synapse-managed-private-endpoints/v/1.0.0-beta.4) | [docs](/javascript/api/overview/azure/synapse-managed-private-endpoints-readme) | GitHub [1.0.0-beta.4](https://github.com/Azure/azure-sdk-for-js/tree/@azure/synapse-managed-private-endpoints_1.0.0-beta.4/sdk/synapse/synapse-managed-private-endpoints/) |
 | Metrics Advisor | npm [1.0.0](https://www.npmjs.com/package/@azure/ai-metrics-advisor/v/1.0.0) | [docs](/javascript/api/overview/azure/ai-metrics-advisor-readme) | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/ai-metrics-advisor_1.0.0/sdk/metricsadvisor/ai-metrics-advisor/) |
 | Monitor OpenTelemetry Exporter | npm [1.0.0-beta.8](https://www.npmjs.com/package/@azure/monitor-opentelemetry-exporter/v/1.0.0-beta.8) | [docs](/javascript/api/overview/azure/monitor-opentelemetry-exporter-readme) | GitHub [1.0.0-beta.8](https://github.com/Azure/azure-sdk-for-js/tree/@azure/monitor-opentelemetry-exporter_1.0.0-beta.8/sdk/monitor/monitor-opentelemetry-exporter/) |
@@ -256,7 +257,7 @@
 | @autorest/codemodel | npm [4.19.1](https://www.npmjs.com/package/@autorest/codemodel/v/4.19.1) |  |  |
 | @autorest/common | npm [1.5.3](https://www.npmjs.com/package/@autorest/common/v/1.5.3) |  |  |
 | @autorest/configuration | npm [1.10.1](https://www.npmjs.com/package/@autorest/configuration/v/1.10.1) |  |  |
-| @autorest/csharp | npm [3.0.0-beta.20220810.2](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20220810.2) |  |  |
+| @autorest/csharp | npm [3.0.0-beta.20220811.1](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20220811.1) |  |  |
 | @autorest/csharp-v3 | npm [3.0.0-beta.20201217.1](https://www.npmjs.com/package/@autorest/csharp-v3/v/3.0.0-beta.20201217.1) |  |  |
 | @autorest/extension-base | npm [3.5.0](https://www.npmjs.com/package/@autorest/extension-base/v/3.5.0) |  |  |
 | @autorest/fixer | npm [1.1.0](https://www.npmjs.com/package/@autorest/fixer/v/1.1.0) |  |  |
@@ -293,12 +294,12 @@
 | @azure-tools/adl-rpaas-controller | npm [0.1.1](https://www.npmjs.com/package/@azure-tools/adl-rpaas-controller/v/0.1.1) |  |  |
 | @azure-tools/adl-vs | npm [0.2.0](https://www.npmjs.com/package/@azure-tools/adl-vs/v/0.2.0) |  |  |
 | @azure-tools/cadl | npm [0.16.0](https://www.npmjs.com/package/@azure-tools/cadl/v/0.16.0) |  |  |
-| @azure-tools/cadl-autorest | npm [0.18.0](https://www.npmjs.com/package/@azure-tools/cadl-autorest/v/0.18.0) |  |  |
-| @azure-tools/cadl-azure-core | npm [0.5.0](https://www.npmjs.com/package/@azure-tools/cadl-azure-core/v/0.5.0) |  |  |
-| @azure-tools/cadl-azure-resource-manager | npm [0.8.0](https://www.npmjs.com/package/@azure-tools/cadl-azure-resource-manager/v/0.8.0) |  |  |
+| @azure-tools/cadl-autorest | npm [0.19.0](https://www.npmjs.com/package/@azure-tools/cadl-autorest/v/0.19.0) |  |  |
+| @azure-tools/cadl-azure-core | npm [0.6.0](https://www.npmjs.com/package/@azure-tools/cadl-azure-core/v/0.6.0) |  |  |
+| @azure-tools/cadl-azure-resource-manager | npm [0.9.0](https://www.npmjs.com/package/@azure-tools/cadl-azure-resource-manager/v/0.9.0) |  |  |
 | @azure-tools/cadl-openapi | npm [0.4.1](https://www.npmjs.com/package/@azure-tools/cadl-openapi/v/0.4.1) |  |  |
-| @azure-tools/cadl-providerhub | npm [0.19.0](https://www.npmjs.com/package/@azure-tools/cadl-providerhub/v/0.19.0) |  |  |
-| @azure-tools/cadl-providerhub-controller | npm [0.14.0](https://www.npmjs.com/package/@azure-tools/cadl-providerhub-controller/v/0.14.0) |  |  |
+| @azure-tools/cadl-providerhub | npm [0.20.0](https://www.npmjs.com/package/@azure-tools/cadl-providerhub/v/0.20.0) |  |  |
+| @azure-tools/cadl-providerhub-controller | npm [0.15.0](https://www.npmjs.com/package/@azure-tools/cadl-providerhub-controller/v/0.15.0) |  |  |
 | @azure-tools/cadl-ranch | npm [0.1.0](https://www.npmjs.com/package/@azure-tools/cadl-ranch/v/0.1.0) |  |  |
 | @azure-tools/cadl-ranch-api | npm [0.1.0](https://www.npmjs.com/package/@azure-tools/cadl-ranch-api/v/0.1.0) |  |  |
 | @azure-tools/cadl-ranch-expect | npm [0.1.0](https://www.npmjs.com/package/@azure-tools/cadl-ranch-expect/v/0.1.0) |  |  |
@@ -319,17 +320,17 @@
 | @azure-tools/test-recorder | npm [2.0.0](https://www.npmjs.com/package/@azure-tools/test-recorder/v/2.0.0) |  |  |
 | @azure-tools/tmlanguage-generator | npm [0.1.4](https://www.npmjs.com/package/@azure-tools/tmlanguage-generator/v/0.1.4) |  |  |
 | @azure-tools/yaml | npm [1.1.0](https://www.npmjs.com/package/@azure-tools/yaml/v/1.1.0) |  |  |
-| @cadl-lang/compiler | npm [0.33.0](https://www.npmjs.com/package/@cadl-lang/compiler/v/0.33.0) |  |  |
-| @cadl-lang/eslint-config-cadl | npm [0.3.0](https://www.npmjs.com/package/@cadl-lang/eslint-config-cadl/v/0.3.0) |  |  |
-| @cadl-lang/eslint-plugin | npm [0.1.0](https://www.npmjs.com/package/@cadl-lang/eslint-plugin/v/0.1.0) |  |  |
-| @cadl-lang/html-program-viewer | npm [0.2.1](https://www.npmjs.com/package/@cadl-lang/html-program-viewer/v/0.2.1) |  |  |
-| @cadl-lang/internal-build-utils | npm [0.3.0](https://www.npmjs.com/package/@cadl-lang/internal-build-utils/v/0.3.0) |  |  |
-| @cadl-lang/library-linter | npm [0.1.2](https://www.npmjs.com/package/@cadl-lang/library-linter/v/0.1.2) |  |  |
-| @cadl-lang/openapi | npm [0.10.1](https://www.npmjs.com/package/@cadl-lang/openapi/v/0.10.1) |  |  |
-| @cadl-lang/openapi3 | npm [0.13.0](https://www.npmjs.com/package/@cadl-lang/openapi3/v/0.13.0) |  |  |
-| @cadl-lang/prettier-plugin-cadl | npm [0.5.13](https://www.npmjs.com/package/@cadl-lang/prettier-plugin-cadl/v/0.5.13) |  |  |
-| @cadl-lang/rest | npm [0.15.1](https://www.npmjs.com/package/@cadl-lang/rest/v/0.15.1) |  |  |
-| @cadl-lang/versioning | npm [0.6.1](https://www.npmjs.com/package/@cadl-lang/versioning/v/0.6.1) |  |  |
+| @cadl-lang/compiler | npm [0.34.0](https://www.npmjs.com/package/@cadl-lang/compiler/v/0.34.0) |  |  |
+| @cadl-lang/eslint-config-cadl | npm [0.4.0](https://www.npmjs.com/package/@cadl-lang/eslint-config-cadl/v/0.4.0) |  |  |
+| @cadl-lang/eslint-plugin | npm [0.1.1](https://www.npmjs.com/package/@cadl-lang/eslint-plugin/v/0.1.1) |  |  |
+| @cadl-lang/html-program-viewer | npm [0.2.2](https://www.npmjs.com/package/@cadl-lang/html-program-viewer/v/0.2.2) |  |  |
+| @cadl-lang/internal-build-utils | npm [0.3.1](https://www.npmjs.com/package/@cadl-lang/internal-build-utils/v/0.3.1) |  |  |
+| @cadl-lang/library-linter | npm [0.1.3](https://www.npmjs.com/package/@cadl-lang/library-linter/v/0.1.3) |  |  |
+| @cadl-lang/openapi | npm [0.11.0](https://www.npmjs.com/package/@cadl-lang/openapi/v/0.11.0) |  |  |
+| @cadl-lang/openapi3 | npm [0.14.0](https://www.npmjs.com/package/@cadl-lang/openapi3/v/0.14.0) |  |  |
+| @cadl-lang/prettier-plugin-cadl | npm [0.5.14](https://www.npmjs.com/package/@cadl-lang/prettier-plugin-cadl/v/0.5.14) |  |  |
+| @cadl-lang/rest | npm [0.16.0](https://www.npmjs.com/package/@cadl-lang/rest/v/0.16.0) |  |  |
+| @cadl-lang/versioning | npm [0.7.0](https://www.npmjs.com/package/@cadl-lang/versioning/v/0.7.0) |  |  |
 | adl-vscode | npm [0.6.0](https://www.npmjs.com/package/adl-vscode/v/0.6.0) |  |  |
 | azure-applicationinsights-query | npm [1.0.0-preview](https://www.npmjs.com/package/azure-applicationinsights-query/v/1.0.0-preview) |  |  |
 | azure-arm-scheduler | npm [1.2.0-preview](https://www.npmjs.com/package/azure-arm-scheduler/v/1.2.0-preview) |  |  |
@@ -340,10 +341,10 @@
 | azure-scheduler | npm [0.10.4](https://www.npmjs.com/package/azure-scheduler/v/0.10.4) |  |  |
 | azure-servicefabric | npm [3.0.0](https://www.npmjs.com/package/azure-servicefabric/v/3.0.0) |  |  |
 | cadl-msbuild-target | npm [0.1.0](https://www.npmjs.com/package/cadl-msbuild-target/v/0.1.0) |  |  |
-| cadl-vs | npm [0.7.1](https://www.npmjs.com/package/cadl-vs/v/0.7.1) |  |  |
-| cadl-vscode | npm [0.15.1](https://www.npmjs.com/package/cadl-vscode/v/0.15.1) |  |  |
-| tmlanguage-generator | npm [0.3.0](https://www.npmjs.com/package/tmlanguage-generator/v/0.3.0) |  |  |
-| @azure/communication-react | npm [1.3.0](https://www.npmjs.com/package/@azure/communication-react/v/1.3.0) |  |  |
+| cadl-vs | npm [0.7.2](https://www.npmjs.com/package/cadl-vs/v/0.7.2) |  |  |
+| cadl-vscode | npm [0.15.2](https://www.npmjs.com/package/cadl-vscode/v/0.15.2) |  |  |
+| tmlanguage-generator | npm [0.3.1](https://www.npmjs.com/package/tmlanguage-generator/v/0.3.1) |  |  |
+| @azure/communication-react | npm [1.3.1](https://www.npmjs.com/package/@azure/communication-react/v/1.3.1) |  |  |
 | @azure/monitor-ingestion | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure/monitor-ingestion/v/1.0.0-beta.1) | [docs](/javascript/api/overview/azure/monitor-ingestion-readme) | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/monitor-ingestion_1.0.0-beta.1/sdk/monitor/monitor-ingestion/) |
 | AccessControl | npm [1.0.0-beta.3](https://www.npmjs.com/package/@azure/synapse-access-control/v/1.0.0-beta.3) | [docs](/javascript/api/overview/azure/synapse-access-control-readme) | GitHub [1.0.0-beta.3](https://github.com/Azure/azure-sdk-for-js/tree/@azure/synapse-access-control_1.0.0-beta.3/sdk/synapse/synapse-access-control/) |
 | Administration | npm [4.2.1](https://www.npmjs.com/package/@azure/keyvault-admin/v/4.2.1) | [docs](/javascript/api/overview/azure/keyvault-admin-readme) | GitHub [4.2.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/keyvault-admin_4.2.1/sdk/keyvault/keyvault-admin/) |
@@ -461,6 +462,7 @@
 | IoT Security X509 | npm [1.8.0](https://www.npmjs.com/package/azure-iot-security-x509/v/1.8.0) |  | GitHub [1.8.0](https://github.com/Azure/azure-iot-sdk-node/tree/master/security/x509) |
 | Key Vault | npm [3.0.5](https://www.npmjs.com/package/azure-keyvault/v/3.0.5) |  |  |
 | Keys | npm [4.4.0](https://www.npmjs.com/package/@azure/keyvault-keys/v/4.4.0)<br>npm [4.5.0-beta.1](https://www.npmjs.com/package/@azure/keyvault-keys/v/4.5.0-beta.1) | [docs](/javascript/api/overview/azure/keyvault-keys-readme) | GitHub [4.4.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/keyvault-keys_4.4.0/sdk/keyvault/keyvault-keys/)<br>GitHub [4.5.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/keyvault-keys_4.5.0-beta.1/sdk/keyvault/keyvault-keys/) |
+| Language Text | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure/ai-language-text/v/1.0.0-beta.1) |  | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/ai-language-text_1.0.0-beta.1/sdk/cognitivelanguage/ai-language-text/) |
 | Local Search | npm [2.0.1](https://www.npmjs.com/package/@azure/cognitiveservices-localsearch/v/2.0.1) |  | GitHub [2.0.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/cognitiveservices/cognitiveservices-localsearch) |
 | Log Analytics | npm [0.3.0](https://www.npmjs.com/package/@azure/loganalytics/v/0.3.0) |  | GitHub [0.3.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/operationalinsights/loganalytics) |
 | Logger JS | npm [1.3.2](https://www.npmjs.com/package/@azure/logger-js/v/1.3.2) |  | GitHub [1.3.2](https://github.com/Azure/logger-js) |
