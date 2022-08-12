@@ -44,7 +44,7 @@ This section walks you through preparing a project to work with the Azure Blob S
 
 ### Create the project
 
-For the steps ahead you'll need to create a .NET Core console app using either the dotnet cli or Visual Studio 2022.
+For the steps ahead you'll need to create a .NET Core console app using either the .NET CLI or Visual Studio 2022.
 
 ### [.NET CLI](#tab/create-project-cli)
 
@@ -102,7 +102,7 @@ dotnet add package Azure.Storage.Blobs
 
 ---
 
-### Set up the app framework
+### Set up the app code
 
 Replace the starting code in the `Program.cs` file so that it matches the following example, which includes the necessary using statements for this exercise.
 
