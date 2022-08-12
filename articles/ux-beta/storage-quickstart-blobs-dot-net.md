@@ -79,8 +79,6 @@ For the steps ahead, you'll need to create a .NET console app using either the .
     ```bash
     code .
     ```
-<<<<<<< HEAD
-=======
 
 ### [Visual Studio 2022](#tab/create-project-visual-studio)
 
@@ -94,7 +92,6 @@ For the steps ahead, you'll need to create a .NET console app using either the .
 
 1. For the **Framework**, ensure .NET 6.0 is selected. Then choose **Create**. The new project will open inside the Visual Studio environment.
 
->>>>>>> 598b904ce94f48636a2396414966f386a00c2594
 ---
 
 ### Install the package
