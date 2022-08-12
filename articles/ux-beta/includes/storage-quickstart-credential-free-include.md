@@ -30,7 +30,7 @@ For example, your app can authenticate using your Visual Studio sign-in credenti
 
 [!INCLUDE [assign-roles](assign-roles.md)]
 
-### Connect your app code using DefaultAzureCredential
+### Sign-in and connect your app code to Azure using DefaultAzureCredential
 
 You can authorize access to data in your storage account using the following steps:
 
