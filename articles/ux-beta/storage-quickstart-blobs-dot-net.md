@@ -46,6 +46,18 @@ This section walks you through preparing a project to work with the Azure Blob S
 
 For the steps ahead you'll need to create a .NET Core console app using either the .NET CLI or Visual Studio 2022.
 
+### [Visual Studio 2022](#tab/visual-studio)
+
+1. At the top of Visual Studio, navigate to **File -> New -> Project..**.
+
+1. In the dialog window, enter *console app* into the project template search box and select the first result. Choose **Next** at the bottom of the dialog.
+
+    :::image type="content" source="media/visual-studio-new-console-app.png" alt-text="A screenshot showing how to create a new project using Visual Studio.":::
+
+1. For the **Project Name** enter *BlobQuickstartV12*. Leave the default values for the rest of the fields and select **Next**.
+
+1. For the **Framework**, make sure .NET 6.0 is selected and then choose **Create**. The new project should open inside the Visual Studio environment.
+
 ### [.NET CLI](#tab/net-cli)
 
 1. In a console window (such as cmd, PowerShell, or Bash), use the `dotnet new` command to create a new console app with the name *BlobQuickstartV12*. This command creates a simple "Hello World" C# project with a single source file: *Program.cs*.
@@ -67,30 +79,11 @@ For the steps ahead you'll need to create a .NET Core console app using either t
     ```bash
     code .
     ```
-
-### [Visual Studio 2022](#tab/visual-studio)
-
-1. At the top of Visual Studio, navigate to **File -> New -> Project..**.
-
-1. In the dialog window, enter *console app* into the project template search box and select the first result. Choose **Next** at the bottom of the dialog.
-
-    :::image type="content" source="media/visual-studio-new-console-app.png" alt-text="A screenshot showing how to create a new project using Visual Studio.":::
-
-1. For the **Project Name** enter *BlobQuickstartV12*. Leave the default values for the rest of the fields and select **Next**.
-
-1. For the **Framework**, make sure .NET 6.0 is selected and then choose **Create**. The new project should open inside the Visual Studio environment.
-
 ---
 
 ### Install the package
 
 You'll need to add the Azure Blob Storage client library for .NET package to your project using the .NET CLI or Visual Studio to work with Azure Blob Storage.
-
-### [.NET CLI](#tab/net-cli)
-
-```dotnetcli
-dotnet add package Azure.Storage.Blobs
-```
 
 ### [Visual Studio 2022](#tab/visual-studio)
 
@@ -99,6 +92,12 @@ dotnet add package Azure.Storage.Blobs
 1. In the window that opens, search for *Azure.Storage.Blobs*. Select the appropriate result and choose **Install**.
 
     :::image type="content" source="media/visual-studio-add-package.png" alt-text="A screenshot showing how to add a new package using Visual Studio.":::
+
+### [.NET CLI](#tab/net-cli)
+
+```dotnetcli
+dotnet add package Azure.Storage.Blobs
+```
 
 ---
 
