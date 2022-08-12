@@ -344,7 +344,7 @@ Once deployment is completed and the _AzureWebJobsStorage_ app setting have been
 * Credential-less code
     
     * [How to use managed identity in Azure Functions](/azure/app-service/overview-managed-identity?toc=%2Fazure%2Fazure-functions%2Ftoc.json&tabs=portal%2Chttp)
-    * [Use DefaultAzureCredential with SDK](/storage/blobs/storage-blob-javascript-get-started#connect-with-azure-ad) 
+    * [Use DefaultAzureCredential with SDK](/azure/storage/blobs/storage-blob-javascript-get-started#connect-with-azure-ad) 
     
 * Manage Azure resources with SDKs
     * [Create a resource group with an Azure Function API](./azure-function-resource-group-management/introduction.md)
