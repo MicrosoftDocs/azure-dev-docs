@@ -48,15 +48,15 @@ For the steps ahead, you'll need to create a .NET console app using either the .
 
 ### [Visual Studio 2022](#tab/visual-studio)
 
-1. At the top of Visual Studio, navigate to **File -> New -> Project..**.
+1. At the top of Visual Studio, navigate to **File** > **New** > **Project..**.
 
 1. In the dialog window, enter *console app* into the project template search box and select the first result. Choose **Next** at the bottom of the dialog.
 
     :::image type="content" source="media/visual-studio-new-console-app.png" alt-text="A screenshot showing how to create a new project using Visual Studio.":::
 
-1. For the **Project Name** enter *BlobQuickstartV12*. Leave the default values for the rest of the fields and select **Next**.
+1. For the **Project Name**, enter *BlobQuickstartV12*. Leave the default values for the rest of the fields and select **Next**.
 
-1. For the **Framework**, make sure .NET 6.0 is selected and then choose **Create**. The new project should open inside the Visual Studio environment.
+1. For the **Framework**, ensure .NET 6.0 is selected. Then choose **Create**. The new project will open inside the Visual Studio environment.
 
 ### [.NET CLI](#tab/net-cli)
 
@@ -79,19 +79,6 @@ For the steps ahead, you'll need to create a .NET console app using either the .
     ```bash
     code .
     ```
-
-### [Visual Studio 2022](#tab/create-project-visual-studio)
-
-1. At the top of Visual Studio, navigate to **File** > **New** > **Project..**.
-
-1. In the dialog window, enter *console app* into the project template search box and select the first result. Choose **Next** at the bottom of the dialog.
-
-    :::image type="content" source="media/visual-studio-new-console-app.png" alt-text="A screenshot showing how to create a new project using Visual Studio.":::
-
-1. For the **Project Name**, enter *BlobQuickstartV12*. Leave the default values for the rest of the fields and select **Next**.
-
-1. For the **Framework**, ensure .NET 6.0 is selected. Then choose **Create**. The new project will open inside the Visual Studio environment.
-
 ---
 
 ### Install the package
