@@ -30,7 +30,7 @@ For example, your app can authenticate using your Visual Studio sign-in credenti
 
 [!INCLUDE [assign-roles](assign-roles.md)]
 
-### Connect your app code using DefaultAzureCredential
+### Sign-in and connect your app code to Azure using DefaultAzureCredential
 
 You can authorize access to data in your storage account using the following steps:
 
@@ -46,7 +46,7 @@ You can authorize access to data in your storage account using the following ste
 
     Azure services can be accessed using corresponding client classes from the library. These classes should be registered in the *Program.cs* file so they can be accessed via dependency injection throughout your app.
 
-3. Update your *Program.cs* code to match the following example. Make sure to update the `BlobServiceClient` Uri in the code to use your actual storage account name. When the code is run on your local workstation during development, it will use the developer credentials of the prioritized tool you're logged into to authenticate to Azure, such as the Azure CLI or Visual Studio.
+3. Update your *Program.cs* code to match the following example. When the code is run on your local workstation during development, it will use the developer credentials of the prioritized tool you're logged into to authenticate to Azure, such as the Azure CLI or Visual Studio.
 
     ```csharp
     using Azure.Storage.Blobs;
@@ -60,6 +60,10 @@ You can authorize access to data in your storage account using the following ste
             new Uri("https://<storage-account-name>.blob.core.windows.net"),
             new DefaultAzureCredential());
     ```
+
+4. Make sure to update the Storage account name in the URI of your `BlobServiceClient`. The Storage account name can be found on the overview page of the Azure portal.
+
+    :::image type="content" source="../media/storage-account-name.png" alt-text="A screenshot showing how find the storage account name.":::
 
     > [!NOTE]
     > When deployed to Azure, this same application code can also authenticate to other Azure services. However, you'll need to enable managed identity on your app in Azure. Then configure your Blob Storage account to allow that managed identity to connect. For detailed instructions on configuring this connection between Azure services, see the [Auth from Azure-hosted apps](/dotnet/azure/sdk/authentication-azure-hosted-apps) tutorial.
