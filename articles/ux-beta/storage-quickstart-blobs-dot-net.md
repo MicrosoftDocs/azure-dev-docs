@@ -14,7 +14,7 @@ ROBOTS: NOINDEX
 
 # Quickstart: Azure Blob Storage client library v12 for .NET
 
-Get started with the Azure Blob Storage client library v12 for .NET. Azure Blob Storage is Microsoft's object storage solution for the cloud. Follow steps to install the package and try out example code for basic tasks. Blob storage is optimized for storing massive amounts of unstructured data. 
+Get started with the Azure Blob Storage client library v12 for .NET. Azure Blob Storage is Microsoft's object storage solution for the cloud. Follow steps to install the package and try out example code for basic tasks. Blob storage is optimized for storing massive amounts of unstructured data.
 
 The examples in this quickstart show you how to use the Azure Blob Storage client library v12 for .NET to:
 
@@ -44,7 +44,21 @@ This section walks you through preparing a project to work with the Azure Blob S
 
 ### Create the project
 
-Create a .NET Core application named *BlobQuickstartV12*.
+For the steps ahead, you'll need to create a .NET console app using either the .NET CLI or Visual Studio 2022.
+
+### [Visual Studio 2022](#tab/visual-studio)
+
+1. At the top of Visual Studio, navigate to **File** > **New** > **Project..**.
+
+1. In the dialog window, enter *console app* into the project template search box and select the first result. Choose **Next** at the bottom of the dialog.
+
+    :::image type="content" source="media/visual-studio-new-console-app.png" alt-text="A screenshot showing how to create a new project using Visual Studio.":::
+
+1. For the **Project Name**, enter *BlobQuickstartV12*. Leave the default values for the rest of the fields and select **Next**.
+
+1. For the **Framework**, ensure .NET 6.0 is selected. Then choose **Create**. The new project will open inside the Visual Studio environment.
+
+### [.NET CLI](#tab/net-cli)
 
 1. In a console window (such as cmd, PowerShell, or Bash), use the `dotnet new` command to create a new console app with the name *BlobQuickstartV12*. This command creates a simple "Hello World" C# project with a single source file: *Program.cs*.
 
@@ -58,17 +72,38 @@ Create a .NET Core application named *BlobQuickstartV12*.
    cd BlobQuickstartV12
    ```
 
+1. Open the project in your desired code editor. To open the project in:
+    * Visual Studio, locate and double-click the `BlobQuickStartV12.csproj` file.
+    * Visual Studio Code, run the following command:
+
+    ```bash
+    code .
+    ```
+---
+
 ### Install the package
 
-While still in the application directory, install the Azure Blob Storage client library for .NET package by using the `dotnet add package` command.
+To interact with Azure Blob Storage, install the Azure Blob Storage client library for .NET.
+
+### [Visual Studio 2022](#tab/visual-studio)
+
+1. In **Solution Explorer**, right-click the **Dependencies** node of your project. Select **Manage NuGet Packages**.
+
+1. In the resulting window, search for *Azure.Storage.Blobs*. Select the appropriate result, and select **Install**.
+
+    :::image type="content" source="media/visual-studio-add-package.png" alt-text="A screenshot showing how to add a new package using Visual Studio.":::
+
+### [.NET CLI](#tab/net-cli)
 
 ```dotnetcli
 dotnet add package Azure.Storage.Blobs
 ```
 
-### Set up the app framework
+---
 
-Open the newly created project in your editor of choice. Replace the starting code in the `Program.cs` file so that it matches the following example, which includes the necessary using statements for this exercise.
+### Set up the app code
+
+Replace the starting code in the `Program.cs` file so that it matches the following example, which includes the necessary `using` statements for this exercise.
 
 ```csharp
 using Azure.Storage.Blobs;
