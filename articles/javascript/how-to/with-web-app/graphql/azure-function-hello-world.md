@@ -8,7 +8,7 @@ ms.custom: devx-track-js
 
 # Deploy a GraphQL API as an Azure Function 
 
-In this article, learn how to deploy a GraphQL API to Azure in an Azure Function. 
+In this article, learn how to deploy an Apollo GraphQL API to Azure in an Azure Function. 
 
 * [Sample code](https://github.com/Azure-Samples/js-e2e-azure-function-graphql-hello.git)
 
@@ -40,7 +40,8 @@ Make sure the following are installed on your local developer workstation:
 - Optional
     - Docker: the sample repo includes files to run this sample is a Visual Studio Code dev container ready for local development
     - Azurite: local Function app development can use [Azurite](https://www.npmjs.com/package/azurite) to satisfy the local.settings.json's requirement for `"AzureWebJobsStorage": "UseDevelopmentStorage=true"`.
-    - [Azure CLI](/cli/azure/install-azure-cli): to remove resources after you completed the following procedure.
+    - [Azure CLI](/cli/azure/install-azure-cli): to remove resources after you completed the following procedure. You can also remove resources with Visual Studio Code. 
+    
 ## Clone and run the Azure Function GraphQL sample code
 
 1. Open a terminal window and `cd` to the directory where you want to clone the sample code.
@@ -62,10 +63,10 @@ Make sure the following are installed on your local developer workstation:
     npm install
     ```
 
-1. Build the project: 
+1. Build the TypeScript project: 
 
     ```bash
-    npm build
+    npm run build
     ```
 
 1. Run the sample:
@@ -74,13 +75,34 @@ Make sure the following are installed on your local developer workstation:
     npm start
     ```
 
+    If you computer pops up a window from a security app asking for permission to run, allow the app. 
+
 ## Query local Azure Function with GraphQL using GraphQL playground
 
-The npm package `apollo-server-azure-functions` includes a GraphQL playground that you can use to test your GraphQL API. Use this playground to test the GraphQL API locally.
+Access the GraphQL playground from the locally running Function app.
 
-1. Open browser to `http://localhost:7071/api/graphql`
-1. Enter query `{hello}`
-1. View response `{"data":{"hello":"Hello from GraphQL backend"}}`
+1. Open browser to `http://localhost:7071/api/graphql`.
+1. On the Apollo Studio page, select **Query your server**.
+
+    :::image type="content" source="../../../media/azure-function-graphql-hello/apollo-studio-query-your-server.png" alt-text="Browser screenshot displays information about Apollo Studio, including the button named `Query your server`.":::
+
+1. Replace example query with the following query: 
+
+    ```graphql
+    {
+        hello
+    }
+    ```
+
+1. View response:
+
+    ```json
+    {
+      "data": {
+        "hello": "Hello from our GraphQL backend!"
+      }
+    }
+    ```
 
     :::image type="content" source="../../../media/azure-function-graphql-hello/graphql-playground.png" alt-text="A browser screenshot showing the GraphQL playground hosted from an Azure Function API" lightbox="../../../media/azure-function-graphql-hello/graphql-playground.png":::
     
@@ -94,7 +116,15 @@ The npm package `apollo-server-azure-functions` includes a GraphQL playground th
          -H 'content-type: application/json' \
          --data-raw '{"query":"{hello}"}' --verbose
     ```
-1. At the bottom of the verbose response, view the same GraphQL response `{"data":{"hello":"Hello from GraphQL backend"}}`.
+1. At the bottom of the verbose response, view the same GraphQL response.
+
+    ```json
+    {
+      "data": {
+        "hello": "Hello from our GraphQL backend!"
+      }
+    }
+    ```
 
 ## Create your Azure Function resource from VS Code
 
@@ -134,7 +164,7 @@ The npm package `apollo-server-azure-functions` includes a GraphQL playground th
 1. Change the cURL command from using your local function to your remove function. Change the URL in the following command to use your Azure Function URL:
 
     ```bash
-    curl 'https://diberry-azure-function-graphql-hello.azurewebsites.net/api/graphql' \
+    curl 'https://YOUR-ALIAS-azure-function-graphql-hello.azurewebsites.net/api/graphql' \
          -H 'content-type: application/json' \
          --data-raw '{"query":"{hello}"}' 
     ```
@@ -142,7 +172,11 @@ The npm package `apollo-server-azure-functions` includes a GraphQL playground th
     The API responds with:
 
     ```json
-    {"data":{"hello":"Hello from our GraphQL backend!"}}
+    {
+      "data": {
+        "hello": "Hello from our GraphQL backend!"
+      }
+    }
     ```
 
 ## Review the code
