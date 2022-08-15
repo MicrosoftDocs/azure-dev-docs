@@ -191,9 +191,9 @@ The highlighted lines are described in the following table:
 
 |Line|Description|
 |--|--|
-|`const typeDefs = gql`|Define the GraphQL schema the API supports.|
-|`const resolvers`|Define the handlers for the GraphQL schema (known as **resolvers** in GraphQL). `hello`, from our schema, is given a resolver function to return data from the API: `() => "Hello from our GraphQL backend!"`.|
-|`const server = new ApolloServer({ typeDefs, resolvers });`|Create an Azure Function version of the Apollo server with the typeDefs, resolvers, and the playground.|
+|`const typeDefs = gql`|Define the **GraphQL schema** the API supports.|
+|`const resolvers`|Define the **GraphQL resolver**. `hello`, from our schema, is given a resolver function to return data from the API: `() => "Hello from our GraphQL backend!"`.|
+|`const server = new ApolloServer({ typeDefs, resolvers });`|Create an Azure Function version of the Apollo server.|
 
 ## Troubleshooting graphql API
 
