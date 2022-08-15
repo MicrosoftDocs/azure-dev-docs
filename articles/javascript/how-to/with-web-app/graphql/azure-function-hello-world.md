@@ -75,7 +75,7 @@ Make sure the following are installed on your local developer workstation:
     npm start
     ```
 
-    If you computer pops up a window from a security app asking for permission to run, allow the app. 
+    If your computer pops up a window from a security app asking for permission to run, allow the app. 
 
 ## Query local Azure Function with GraphQL using GraphQL playground
 
@@ -84,7 +84,7 @@ Access the GraphQL playground from the locally running Function app.
 1. Open browser to `http://localhost:7071/api/graphql`.
 1. On the Apollo Studio page, select **Query your server**.
 
-    :::image type="content" source="../../../media/azure-function-graphql-hello/apollo-studio-query-your-server.png" alt-text="Browser screenshot displays information about Apollo Studio, including the button named `Query your server`.":::
+    :::image type="content" source="../../../media/azure-function-graphql-hello/apollo-studio-query-your-server.png" alt-text="Browser screenshot displays information about Apollo Studio, including the button named Query your server.":::
 
 1. Replace example query with the following query: 
 
