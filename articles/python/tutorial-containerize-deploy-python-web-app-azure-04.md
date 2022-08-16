@@ -5,7 +5,7 @@ author: jessmjohnson
 ms.author: jejohn
 ms.devlang: python
 ms.topic: tutorial
-ms.date: 08/08/2022
+ms.date: 08/16/2022
 ms.prod: azure-python
 ms.custom: devx-track-python, devx-track-azurecli
 ---
@@ -123,3 +123,8 @@ If you don't see the sample app, here are troubleshooting steps you can try.
 * Confirm that managed identity is enabled for the App Service and is used in the Deployment Center. Go to the App Service **Deployment Center** resource and confirm that **Authentication** is set to **Managed Identity**.
 * Check that the webhook is defined in the Azure Container Registry. The webhook enables the App Service to pull the container image. In particular, check that Service URI ends with "/api/registry/webhook".
 * [Different Azure Container Registry skus](/azure/container-registry/container-registry-skus) have different features, including number of webhooks. If you're reusing an existing registry you could see the message: "Quota exceeded for resource type webhooks for the registry SKU Basic. Learn more about different SKU quotas and upgrade process: https://aka.ms/acr/tiers". If you see this message, use a new registry, or reduce the number of [registry webhooks](/azure/container-registry/container-registry-webhook) in use.
+
+## Next step
+
+> [!div class="nextstepaction"]
+> [Clean up resources](tutorial-containerize-deploy-python-web-app-azure-05.md)
