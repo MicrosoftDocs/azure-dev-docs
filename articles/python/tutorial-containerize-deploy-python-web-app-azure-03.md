@@ -2,7 +2,7 @@
 title: 'Tutorial: Containerized Python web apps on Azure: build image in Azure Container Registry'
 description: Build a containerized Python web app in the cloud.
 ms.topic: conceptual
-ms.date: 08/08/2022
+ms.date: 08/16/2022
 ms.custom: devx-track-python
 ms.prod: azure-python
 author: jessmjohnson
@@ -85,3 +85,8 @@ Azure CLI commands can be run on a workstation with the [Azure CLI installed](/c
 [!INCLUDE [Include showing how build an image in Azure with the Azure CLI](<./includes/tutorial-container-web-app/container-image-build-in-azure-cli.md>)]
 
 ---
+
+## Next step
+
+> [!div class="nextstepaction"]
+> [Deploy web app](tutorial-containerize-deploy-python-web-app-azure-04.md)
