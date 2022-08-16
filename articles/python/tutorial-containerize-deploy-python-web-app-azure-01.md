@@ -2,7 +2,7 @@
 title: "Tutorial: Containerized Python web app on Azure"
 description: Overview - Create and deploy a containerized Python web app on Azure
 ms.topic: conceptual
-ms.date: 08/08/2022
+ms.date: 08/16/2022
 ms.custom: devx-track-python
 ms.prod: azure-python
 author: jessmjohnson
@@ -85,6 +85,11 @@ The Python sample app is a restaurant review app that saves restaurant and revie
 At the end of the tutorial, you'll have a restaurant review app deployed and running in Azure that looks like the screenshot below.
 
 :::image type="content" source="./media/tutorial-container-web-app/containerization-of-python-web-app-sample-app-screenshot.png" alt-text="A screenshot of the sample app created from the Python containerized web app used in the Tutorial - Containerized Python App on Azure." lightbox="./media/tutorial-container-web-app/containerization-of-python-web-app-sample-app-screenshot.png":::
+
+## Next step
+
+> [!div class="nextstepaction"]
+> [Build and test locally](tutorial-containerize-deploy-python-web-app-azure-02.md)
 
 [1]: https://azure.microsoft.com/services/app-service/
 [2]: /azure/cosmos-db/mongodb/mongodb-introduction
