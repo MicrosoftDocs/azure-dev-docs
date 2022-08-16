@@ -2,7 +2,7 @@
 title: 'Tutorial: Containerized Python web apps on Azure: build and test locally'
 description: Build and test a containerized Python web app locally.
 ms.topic: conceptual
-ms.date: 08/08/2022
+ms.date: 08/16/2022
 ms.custom: devx-track-python
 ms.prod: azure-python
 author: jessmjohnson
@@ -134,3 +134,8 @@ With information on how to connect to a MongoDB, you're ready to run the contain
 ---
 
 You can also start a container from an image and stop it with the [Docker Desktop](https://www.docker.com/products/docker-desktop/) application.
+
+## Next step
+
+> [!div class="nextstepaction"]
+> [Build a container image in Azure](tutorial-containerize-deploy-python-web-app-azure-03.md)
