@@ -7,7 +7,7 @@ ms.devlang: python
 ms.topic: tutorial
 ms.date: 07/21/2022
 ms.prod: azure-python
-ms.custom: devx-track-python, devx-track-azurecli
+ms.custom: devx-track-python, devx-track-azurecli, vscode-azure-extension-update-completed
 ---
 
 # Deploy and configure the Python web app in Azure 
