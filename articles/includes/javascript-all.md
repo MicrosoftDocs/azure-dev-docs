@@ -67,7 +67,7 @@
 | Purview Scanning | npm [1.0.0-beta.2](https://www.npmjs.com/package/@azure-rest/purview-scanning/v/1.0.0-beta.2) |  | GitHub [1.0.0-beta.2](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/purview-scanning_1.0.0-beta.2/sdk/purview/purview-scanning-rest) |
 | Queues | npm [12.10.0](https://www.npmjs.com/package/@azure/storage-queue/v/12.10.0) | [docs](/javascript/api/overview/azure/storage-queue-readme) | GitHub [12.10.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-queue_12.10.0/sdk/storage/storage-queue/) |
 | Schema Registry | npm [1.1.0](https://www.npmjs.com/package/@azure/schema-registry/v/1.1.0) | [docs](/javascript/api/overview/azure/schema-registry-readme) | GitHub [1.1.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/schema-registry_1.1.0/sdk/schemaregistry/schema-registry/) |
-| Secrets | npm [4.5.0](https://www.npmjs.com/package/@azure/keyvault-secrets/v/4.5.0) | [docs](/javascript/api/overview/azure/keyvault-secrets-readme) | GitHub [4.5.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/keyvault-secrets_4.5.0/sdk/keyvault/keyvault-secrets/) |
+| Secrets | npm [4.5.1](https://www.npmjs.com/package/@azure/keyvault-secrets/v/4.5.1) | [docs](/javascript/api/overview/azure/keyvault-secrets-readme) | GitHub [4.5.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/keyvault-secrets_4.5.1/sdk/keyvault/keyvault-secrets/) |
 | Service Bus | npm [7.7.0](https://www.npmjs.com/package/@azure/service-bus/v/7.7.0) | [docs](/javascript/api/overview/azure/service-bus-readme) | GitHub [7.7.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/service-bus_7.7.0/sdk/servicebus/service-bus/) |
 | Spark | npm [1.0.0-beta.4](https://www.npmjs.com/package/@azure/synapse-spark/v/1.0.0-beta.4) | [docs](/javascript/api/overview/azure/synapse-spark-readme) | GitHub [1.0.0-beta.4](https://github.com/Azure/azure-sdk-for-js/tree/@azure/synapse-spark_1.0.0-beta.4/sdk/synapse/synapse-spark/) |
 | Tables | npm [13.1.2](https://www.npmjs.com/package/@azure/data-tables/v/13.1.2) | [docs](/javascript/api/overview/azure/data-tables-readme) | GitHub [13.1.2](https://github.com/Azure/azure-sdk-for-js/tree/@azure/data-tables_13.1.2/sdk/tables/data-tables/) |
@@ -257,7 +257,7 @@
 | @autorest/codemodel | npm [4.19.2](https://www.npmjs.com/package/@autorest/codemodel/v/4.19.2) |  |  |
 | @autorest/common | npm [1.5.3](https://www.npmjs.com/package/@autorest/common/v/1.5.3) |  |  |
 | @autorest/configuration | npm [1.10.1](https://www.npmjs.com/package/@autorest/configuration/v/1.10.1) |  |  |
-| @autorest/csharp | npm [3.0.0-beta.20220815.1](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20220815.1) |  |  |
+| @autorest/csharp | npm [3.0.0-beta.20220816.3](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20220816.3) |  |  |
 | @autorest/csharp-v3 | npm [3.0.0-beta.20201217.1](https://www.npmjs.com/package/@autorest/csharp-v3/v/3.0.0-beta.20201217.1) |  |  |
 | @autorest/extension-base | npm [3.5.0](https://www.npmjs.com/package/@autorest/extension-base/v/3.5.0) |  |  |
 | @autorest/fixer | npm [1.1.0](https://www.npmjs.com/package/@autorest/fixer/v/1.1.0) |  |  |
@@ -366,7 +366,7 @@
 | AutoRest - Functions TypeScript | npm [0.0.1-preview](https://www.npmjs.com/package/@autorest/azure-functions-typescript/v/0.0.1-preview) |  |  |
 | AutoRest - Go | npm [4.0.0-preview.43](https://www.npmjs.com/package/@autorest/go/v/4.0.0-preview.43) |  |  |
 | AutoRest - Modeler Four | npm [4.24.2](https://www.npmjs.com/package/@autorest/modelerfour/v/4.24.2) |  | GitHub [4.24.2](https://github.com/Azure/autorest.modelerfour) |
-| AutoRest - PowerShell | npm [3.0.493](https://www.npmjs.com/package/@autorest/powershell/v/3.0.493)<br>npm [4.0.0-dev.3](https://www.npmjs.com/package/@autorest/powershell/v/4.0.0-dev.3) |  | GitHub [3.0.493](https://github.com/Azure/autorest.powershell) |
+| AutoRest - PowerShell | npm [3.0.494](https://www.npmjs.com/package/@autorest/powershell/v/3.0.494)<br>npm [4.0.0-dev.3](https://www.npmjs.com/package/@autorest/powershell/v/4.0.0-dev.3) |  | GitHub [3.0.494](https://github.com/Azure/autorest.powershell) |
 | AutoRest - Python | npm [6.1.1](https://www.npmjs.com/package/@autorest/python/v/6.1.1) |  | GitHub [6.1.1](https://github.com/Azure/autorest.python/tree/v5.1.0-preview.7) |
 | AutoRest - Remodeler | npm [2.1.27](https://www.npmjs.com/package/@autorest/remodeler/v/2.1.27) |  | GitHub [2.1.27](https://github.com/Azure/autorest.remodeler) |
 | AutoRest - Test | npm [0.1.76](https://www.npmjs.com/package/@autorest/test/v/0.1.76) |  | GitHub [0.1.76](https://github.com/Azure/autorest.test) |
@@ -481,7 +481,7 @@
 | News Search | npm [3.0.1](https://www.npmjs.com/package/@azure/cognitiveservices-newssearch/v/3.0.1) |  | GitHub [3.0.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/cognitiveservices/cognitiveservices-newssearch) |
 | Ng Deploy | npm [0.2.3](https://www.npmjs.com/package/@azure/ng-deploy/v/0.2.3) |  | GitHub [0.2.3](https://github.com/Azure/ng-deploy-azure) |
 | Node Red Contrib Azure IoT Hub Node | npm [0.5.3](https://www.npmjs.com/package/node-red-contrib-azureiothubnode/v/0.5.3) |  |  |
-| Oad | npm [0.9.6](https://www.npmjs.com/package/@azure/oad/v/0.9.6) |  | GitHub [0.9.6](https://github.com/Azure/openapi-diff) |
+| Oad | npm [0.9.7](https://www.npmjs.com/package/@azure/oad/v/0.9.7) |  | GitHub [0.9.7](https://github.com/Azure/openapi-diff) |
 | OpenAPI Markdown | npm [0.9.4](https://www.npmjs.com/package/@azure/openapi-markdown/v/0.9.4) |  | GitHub [0.9.4](https://github.com/Azure/openapi-markdown) |
 | Personalizer | npm [2.0.1](https://www.npmjs.com/package/@azure/cognitiveservices-personalizer/v/2.0.1) |  | GitHub [2.0.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/cognitiveservices/cognitiveservices-personalizer) |
 | Publish Pipeline Result | npm [0.1.2](https://www.npmjs.com/package/@azure/publish-pipeline-result/v/0.1.2) |  |  |
@@ -495,7 +495,7 @@
 | Queues | npm [12.10.0](https://www.npmjs.com/package/@azure/storage-queue/v/12.10.0) | [docs](/javascript/api/overview/azure/storage-queue-readme) | GitHub [12.10.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-queue_12.10.0/sdk/storage/storage-queue/) |
 | RestAPI Specs Scripts | npm [0.14.0](https://www.npmjs.com/package/@azure/rest-api-specs-scripts/v/0.14.0) |  | GitHub [0.14.0](https://github.com/Azure/rest-api-specs-scripts) |
 | Schema Registry | npm [1.1.0](https://www.npmjs.com/package/@azure/schema-registry/v/1.1.0) | [docs](/javascript/api/overview/azure/schema-registry-readme) | GitHub [1.1.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/schema-registry_1.1.0/sdk/schemaregistry/schema-registry/) |
-| Secrets | npm [4.5.0](https://www.npmjs.com/package/@azure/keyvault-secrets/v/4.5.0) | [docs](/javascript/api/overview/azure/keyvault-secrets-readme) | GitHub [4.5.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/keyvault-secrets_4.5.0/sdk/keyvault/keyvault-secrets/) |
+| Secrets | npm [4.5.1](https://www.npmjs.com/package/@azure/keyvault-secrets/v/4.5.1) | [docs](/javascript/api/overview/azure/keyvault-secrets-readme) | GitHub [4.5.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/keyvault-secrets_4.5.1/sdk/keyvault/keyvault-secrets/) |
 | Service Bus | npm [7.7.0](https://www.npmjs.com/package/@azure/service-bus/v/7.7.0) | [docs](/javascript/api/overview/azure/service-bus-readme) | GitHub [7.7.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/service-bus_7.7.0/sdk/servicebus/service-bus/) |
 | Service Bus | npm [0.11.1](https://www.npmjs.com/package/azure-sb/v/0.11.1) |  |  |
 | Service Fabric | npm [5.0.0](https://www.npmjs.com/package/@azure/servicefabric/v/5.0.0) | [docs](/javascript/api/overview/azure/service-fabric) |  |
