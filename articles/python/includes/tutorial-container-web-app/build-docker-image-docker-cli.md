@@ -15,7 +15,7 @@ If after running this command, you see help for the [Docker CLI](https://docs.do
 
 **Step 2.** Build the image.
 
-The general form of the [docker build](https://docs.docker.com/engine/reference/commandline/build/) command is:
+The general form of the [docker build](https://docs.docker.com/engine/reference/commandline/build/) command is `docker build --rm --pull --file "<path-to-project-root>/Dockerfile" --label "com.microsoft.created-by=docker-cli" --tag "<container-name>:latest" "<path-to-project-root>"`.
 
 #### [bash](#tab/terminal-bash)
 
@@ -39,7 +39,7 @@ The general form of the [docker build](https://docs.docker.com/engine/reference/
 
 ---
 
-For example, if you are at the root of the project directory, you can use a command like this:
+For example, if you are at the root of the project directory, you can use the command like this to build an image:
 
 #### [bash](#tab/terminal-bash)
 
