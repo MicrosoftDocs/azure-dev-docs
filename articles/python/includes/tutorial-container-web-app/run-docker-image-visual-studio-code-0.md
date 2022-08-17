@@ -10,6 +10,7 @@ In the *.vscode* folder of the sample app, the *settings.json* file defines what
 The *settings.json* file contains two templates each for the "(MongoDB local)" and "(Mongo DB Azure)" scenarios.
 
 * Replace both instances of <YOUR_IP_ADDRESS> with your IP address.
+
 * Replace both instances of <CONNECTION_STRING> with the connection string for your MongoDB database.
 
 Note - Both the database name and collection name are assumed to be "restaurants_reviews".
