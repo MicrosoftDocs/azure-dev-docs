@@ -51,6 +51,8 @@ Select **Code**, and then select **Download ZIP**.
 
 Unpack the ZIP file into a folder and then open a terminal window in that folder.
 
+---
+
 ## 2. Build a Docker image
 
 If you're using one of the framework sample apps available for [Django](https://github.com/Azure-Samples/msdocs-python-django-container-web-app) and [Flask](https://github.com/Azure-Samples/msdocs-python-flask-container-web-app), you're set to go. If you're working with your own sample app, take a look to see how the sample apps are set up, in particular the *Dockerfile* in the root directory.
