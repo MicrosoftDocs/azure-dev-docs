@@ -137,6 +137,8 @@ Create a database named "restaurants_reviews" and a collection named "restaurant
 
 At this point, you should have a Cosmos DB MongoDB connection string of the form "mongodb://\<server-name>:\<password>@\<server-name>.mongo.cosmos.azure.com:10255/?ssl=true&\<other-parameters>", a database named "restaurants_reviews", and a collection named "restaurants_reviews". 
 
+If you are working in VS Code, you can right-click on the MongoDB server abd get the connection string.
+
 ----
 
 ## 4. Run the image locally in a container
