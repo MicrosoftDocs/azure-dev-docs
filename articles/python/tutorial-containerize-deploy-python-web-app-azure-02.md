@@ -59,7 +59,7 @@ Clone the [Django](https://github.com/Azure-Samples/msdocs-python-django-contain
 
 ### [VS Code](#tab/vscode-docker)
 
-These instructions require [Visual Studio Code](https://code.visualstudio.com/) and the [Docker extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker). 
+These instructions require [Visual Studio Code](https://code.visualstudio.com/) and the [Docker extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker). Go to the sample folder you cloned or downloaded and open VS Code with the command `code .`.
 
 | Instructions    | Screenshot |
 |:----------------|-----------:|
