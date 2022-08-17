@@ -2,11 +2,14 @@
 author: jessmjohnson
 ms.author: jejohn
 ms.topic: include
-ms.date: 08/07/2022
+ms.date: 08/17/2022
 ---
 
-In the *\.vscode* folder of the sample app, edit the *settings.json* file for your database scenario.
+In the *.vscode* folder of the sample app, the *settings.json* file defines what happens when you use the Docker extension and select **Run** or **Run Interactive** from the context menu of a Tag.
 
-* The *settings.json* file defines what happens when you use the Docker extension UI and select **Run** or **Run Interactive**. There are templates for the "MongoDB local" and "MongoDB Azure" scenarios.  Edit the file and for the "MongoDB local" setting, specify \<YOUR-IP-ADDRESS>. For the "MongoDB Azure" setting, specify \<CONNECTION_STRING>.  
+The *settings.json* file contains two templates each for the "(MongoDB local)" and "(Mongo DB Azure)" scenarios.
 
-* Both the database name and collection name are assumed to be "restaurants_reviews".
+* Replace both instances of <YOUR_IP_ADDRESS> with your IP address.
+* Replace both instances of <CONNECTION_STRING> with the connection string for your MongoDB database.
+
+Note - Both the database name and collection name are assumed to be "restaurants_reviews".
