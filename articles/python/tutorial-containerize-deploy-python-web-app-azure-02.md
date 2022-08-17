@@ -19,7 +19,39 @@ The service diagram shown below highlights the components covered in this articl
 
 :::image type="content" source="./media/tutorial-container-web-app/containerization-of-python-apps-run-local.png" alt-text="A screenshot of the Tutorial - Containerized Python App on Azure with local part highlighted." lightbox="./media/tutorial-container-web-app/containerization-of-python-apps-run-local.png":::
 
-## 1. Build a Docker image
+## 1. Clone or download the sample app
+
+### [Git clone](#tab/sample-app-git-clone)
+
+Clone the repository:
+
+```terminal
+# Django
+git clone https://github.com/Azure-Samples/msdocs-python-django-container-web-app.git
+
+# Flask
+git clone https://github.com/Azure-Samples/msdocs-flask-django-container-web-app.git
+```
+
+Then navigate into that folder:
+
+```terminal
+# Django
+cd msdocs-python-django-container-web-app
+
+# Flask
+cd msdocs-python-flask-container-web-app
+```
+
+### [Download](#tab/sample-app-download)
+
+Visit [https://github.com/Azure-Samples/msdocs-python-django-container-web-app](https://github.com/Azure-Samples/msdocs-python-django-container-web-app) or [https://github.com/Azure-Samples/msdocs-python-flask-container-web-app](https://github.com/Azure-Samples/msdocs-python-flask-container-web-app).
+
+Select **Code**, and then select **Download ZIP**.
+
+Unpack the ZIP file into a folder and then open a terminal window in that folder.
+
+## 2. Build a Docker image
 
 If you're using one of the framework sample apps available for [Django](https://github.com/Azure-Samples/msdocs-python-django-container-web-app) and [Flask](https://github.com/Azure-Samples/msdocs-python-flask-container-web-app), you're set to go. If you're working with your own sample app, take a look to see how the sample apps are set up, in particular the *Dockerfile* in the root directory.
 
@@ -47,7 +79,7 @@ At this point, you have built an image locally. The image you created has a name
 
 Built images from VS Code or from using the Docker CLI directly can also be viewed with the [Docker Desktop](https://www.docker.com/products/docker-desktop/) application.
 
-## 2. Set up MongoDB
+## 3. Set up MongoDB
 
 This tutorial assumes you have MongoDB installed locally or you have MongoDB hosted in Azure or elsewhere that you have access to. Don't use a MongoDB database you'll use in production.
 
@@ -105,7 +137,7 @@ At this point, you should have a Cosmos DB MongoDB connection string of the form
 
 ----
 
-## 3. Run the image locally in a container
+## 4. Run the image locally in a container
 
 With information on how to connect to a MongoDB, you're ready to run the container locally. The sample app expects MongoDB connection information to be passed in environment variables. There are several ways to get environment variables passed to container locally. Each has advantages and disadvantages in terms of security. You should avoid checking in any sensitive information or leaving sensitive information in code in the container.
 
