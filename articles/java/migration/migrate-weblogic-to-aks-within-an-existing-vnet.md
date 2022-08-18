@@ -1,25 +1,25 @@
 ---
 title: "Tutorial: Migrate Oracle WebLogic Server to Azure Kubernetes Service within a custom virtual network"
-description: In this how-to guide, you walk through deploying WebLogic Server to Azure Kubernetes Service within a custom virtual network.
+description: Shows how to deploy WebLogic Server to Azure Kubernetes Service within a custom virtual network.
 author: KarlErickson
 ms.author: haiche
 ms.topic: conceptual
-ms.date: 08/09/2022
+ms.date: 08/19/2022
 recommendations: false
 ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-wls, devx-track-javaee-wls-aks
 ---
 
 # Tutorial: Migrate Oracle WebLogic Server to Azure Kubernetes Service within a custom virtual network
 
-This tutorial shows you how to deploy Oracle WebLogic Server (WLS) on Azure Kubernetes Service (AKS) offer that integrates with a custom virtual network in the consumer's subscription.
-The WLS on AKS offer lets the consumer decide whether to create a new virtual network or use an existing one.
+This tutorial shows you how to deploy the Oracle WebLogic Server (WLS) on Azure Kubernetes Service (AKS) offer that integrates with a custom virtual network in the consumer's subscription. The WLS on AKS offer lets you decide whether to create a new virtual network or use an existing one.
 
 In this tutorial, you learn how to:
 
-- Create a custom virtual network and create the infrastructure within the network.
-- Run Oracle WebLogic Server on AKS in the custom virtual network.
-- Expose Oracle WebLogic Server with Azure Application Gateway as a load balancer.
-- Validate successful deployment.
+> [!div class="checklist"]
+> - Create a custom virtual network and create the infrastructure within the network.
+> - Run Oracle WebLogic Server on AKS in the custom virtual network.
+> - Expose Oracle WebLogic Server with Azure Application Gateway as a load balancer.
+> - Validate successful deployment.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -62,29 +62,29 @@ Now create a virtual network with [`az network vnet create`](/cli/azure/network/
 
 ```azurecli-interactive
 az network vnet create \
-  --name myVNet \
-  --resource-group ${RESOURCE_GROUP_NAME} \
-  --address-prefixes 192.168.0.0/16
+    --name myVNet \
+    --resource-group ${RESOURCE_GROUP_NAME} \
+    --address-prefixes 192.168.0.0/16
 ```
 
 Create a subnet with [`az network vnet subnet create`](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create) for AKS cluster. This example creates a subnet named **myAKSSubnet**:
 
 ```azurecli-interactive
 az network vnet subnet create \
-  --name myAKSSubnet \
-  --vnet-name myVNet \
-  --resource-group ${RESOURCE_GROUP_NAME} \
-  --address-prefixes 192.168.1.0/24
+    --name myAKSSubnet \
+    --vnet-name myVNet \
+    --resource-group ${RESOURCE_GROUP_NAME} \
+    --address-prefixes 192.168.1.0/24
 ```
 
 Create a subnet with [`az network vnet subnet create`](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create) for Application Gateway. This example creates a subnet named **myAppGatewaySubnet**:
 
 ```azurecli-interactive
 az network vnet subnet create \
-  --name myAppGatewaySubnet \
-  --vnet-name myVNet \
-  --resource-group ${RESOURCE_GROUP_NAME} \
-  --address-prefixes 192.168.2.0/24
+    --name myAppGatewaySubnet \
+    --vnet-name myVNet \
+    --resource-group ${RESOURCE_GROUP_NAME} \
+    --address-prefixes 192.168.2.0/24
 ```
 
 Get the AKS subnet resource ID and store as a variable, which will be used in the following steps:
@@ -116,18 +116,18 @@ az aks create \
 
 ## Store Java EE applications in a Storage Account
 
-You can deploy a Java EE Application along with the WLS on AKS offer deployment. You have to upload the application file (.war, .ear, or .jar) to a pre-existing Azure Storage Account and Storage Container within that account.
+You can deploy a Java EE Application along with the WLS on AKS offer deployment. You have to upload the application file (*.war*, *.ear*, or *.jar*) to a pre-existing Azure Storage Account and Storage Container within that account.
 
 Create an Azure Storage Account using the [`az storage account create`](/cli/azure/storage/account#az-storage-account-create) command.
 
 ```azurecli-interactive
 STORAGE_ACCOUNT_NAME="stgwlsaks$(date +%s)"
 az storage account create \
-  --name ${STORAGE_ACCOUNT_NAME} \
-  --resource-group ${RESOURCE_GROUP_NAME} \
-  --location eastus \
-  --sku Standard_RAGRS \
-  --kind StorageV2
+    --name ${STORAGE_ACCOUNT_NAME} \
+    --resource-group ${RESOURCE_GROUP_NAME} \
+    --location eastus \
+    --sku Standard_RAGRS \
+    --kind StorageV2
 ```
 
 Create a container for storing blobs with the [`az storage container create`](/cli/azure/storage/container#az-storage-container-create) command. This example uses the storage account key to authorize the operation to create the container. You can also use your Azure AD account to authorize the operation to create the container. For more information about authorizing data operations with Azure CLI, see [Authorize access to blob or queue data with Azure CLI](/azure/storage/blobs/authorize-data-operations-cli).
@@ -185,15 +185,15 @@ Now that you have an AKS cluster within the virtual network, select the AKS clus
 1. For **Select desired combination of WebLogic Server, JDK and Operator System or fully qualified Docker tag**, keep the default value.
 1. For **Deploy your application package**, select **Yes**.
 1. For **Application package (.war,.ear,.jar)**, hit **Browse** button:
-    - Select the storage account you created, whose name starts with `stgwlsaks` in this example.
-    - Select your container in **Containers** page, this example uses `mycontainer`.
-    - Check your application listed in the container, this example uses `testwebapp.war`.
-    - Select **Select** button.
+   - Select the storage account you created, whose name starts with `stgwlsaks` in this example.
+   - Select your container in **Containers** page, this example uses `mycontainer`.
+   - Check your application listed in the container, this example uses `testwebapp.war`.
+   - Select **Select** button.
 1. For other fields, keep the default values.
 
 Now you've finished configured the AKS cluster, WebLogic base image and Java EE application. You're able to configure end to end TLS/SSL to WebLogic Server Administration Console and cluster on HTTPS (Secure) port, with your own certificate in **TLS/SSL Configuration** blade following [Oracle WebLogic Server on AKS user guide](https://aka.ms/wls-aks-docs). Come back to this page when you reach **Networking**, as shown here.
 
-:::image type="content" source="media/migrate-weblogic-to-aks-within-existing-vnet/networking-agic-custom-vnet.png" alt-text="Azure portal screenshot showing the Networking.":::
+:::image type="content" source="media/migrate-weblogic-to-aks-within-existing-vnet/networking-agic-custom-vnet.png" alt-text="Screenshot of Azure portal showing the Networking.":::
 
 ### Configure Application Gateway Ingress Controller
 
@@ -226,6 +226,7 @@ If you're not going to continue to use the WLS cluster, delete the virtual netwo
 ## Next steps
 
 Continue to explore options to run WLS on Azure.
+
 > [!div class="nextstepaction"]
 > [Learn more about Oracle WebLogic on AKS](/azure/virtual-machines/workloads/oracle/weblogic-aks)
 > [!div class="nextstepaction"]
