@@ -112,7 +112,7 @@ To configure environment variables for the web app from VS Code, you must have t
 
 ## 4. Browse the site 
 
-To verify the site is running, go the `https::<website-name>.azurewebsites.net`. If successful, you should see the restaurant review sample app. It can take a few moments for the site to start the first time. When the site appears, add a restaurant and a review for that restaurant to confirm the sample app is functioning.
+To verify the site is running, go the `https::<website-name>.azurewebsites.net`. If successful, you should see the restaurant review sample app. It can take a few moments for the site to start the first time. When the site appears, add a restaurant, and a review for that restaurant to confirm the sample app is functioning.
 
 ### [Azure portal](#tab/azure-portal)
 
@@ -136,13 +136,13 @@ To verify the site is running, go the `https::<website-name>.azurewebsites.net`.
 
 If you don't see the sample app, try the following steps.
 
-* With container deployment and App Service, always check the **Deployment Center** / **Logs** page. Confirm that the container was pulled and is running. The initial pull and running of the container can take a few moments.
+* With container deployment and App Service, always check the **Deployment Center** / **Logs** page in the Azure portal. Confirm that the container was pulled and is running. The initial pull and running of the container can take a few moments.
 * Try to restart the App Service and see if that resolves your issue.
-* If there are programming errors, those errors will show up in the application logs. In the App Server, select **Diagnose and solve problems**/**Application logs**. This can happen if you modified the sample app code and introduced an error.
-* Since the sample app relies on a connection to MongoDB, confirm you have the application settings with the correct connection info.
-* Confirm that managed identity is enabled for the App Service and is used in the Deployment Center. Go to the App Service **Deployment Center** resource and confirm that **Authentication** is set to **Managed Identity**.
+* If there are programming errors, those errors will show up in the application logs. On the Azure portal page for the App Service, select **Diagnose and solve problems**/**Application logs**. 
+* The sample app relies on a connection to MongoDB. Confirm that the App Service has application settings with the correct connection info.
+* Confirm that managed identity is enabled for the App Service and is used in the Deployment Center. On the Azure portal page for the App Service, go to the App Service **Deployment Center** resource and confirm that **Authentication** is set to **Managed Identity**.
 * Check that the webhook is defined in the Azure Container Registry. The webhook enables the App Service to pull the container image. In particular, check that Service URI ends with "/api/registry/webhook".
-* [Different Azure Container Registry skus](/azure/container-registry/container-registry-skus) have different features, including number of webhooks. If you're reusing an existing registry you could see the message: "Quota exceeded for resource type webhooks for the registry SKU Basic. Learn more about different SKU quotas and upgrade process: https://aka.ms/acr/tiers". If you see this message, use a new registry, or reduce the number of [registry webhooks](/azure/container-registry/container-registry-webhook) in use.
+* [Different Azure Container Registry skus](/azure/container-registry/container-registry-skus) have different features, including number of webhooks. If you're reusing an existing registry, you could see the message: "Quota exceeded for resource type webhooks for the registry SKU Basic. Learn more about different SKU quotas and upgrade process: https://aka.ms/acr/tiers". If you see this message, use a new registry, or reduce the number of [registry webhooks](/azure/container-registry/container-registry-webhook) in use.
 
 ## Next step
 
