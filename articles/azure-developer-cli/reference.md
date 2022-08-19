@@ -1,5 +1,5 @@
 ---
-title: Azure Developer CLI Preview reference
+title: Azure Developer CLI reference (preview)
 description: This article explains the syntax and parameters for the various Azure Developer CLI Preview commands.
 author: hhunter-ms
 ms.author: hannahhunter
@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.custom: devx-track-azdevcli
 ---
 
-# Azure Developer CLI Preview reference
+# Azure Developer CLI reference (preview)
 
 This article explains the syntax and parameters for the various Azure Developer CLI Preview commands.
 

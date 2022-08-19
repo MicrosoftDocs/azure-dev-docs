@@ -1,5 +1,5 @@
 ---
-title: Configure a pipeline and push updates using GitHub Actions
+title: Configure a pipeline and push updates using GitHub Actions (preview)
 description: Learn how to push updates using GitHub Actions.
 author: hhunter-ms
 ms.author: hannahhunter
@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.custom: devx-track-azdevcli
 ---
 
-# Configure a pipeline and push updates using GitHub Actions
+# Configure a pipeline and push updates using GitHub Actions (preview)
 
 In this article, you'll push [Todo Application with Node.js and Azure Cosmos DB API for MongoDB](https://github.com/azure-samples/todo-nodejs-mongo) template changes through GitHub Actions via Azure Developer CLI (azd). However, you can apply the principles you learn in this article to any of the [Azure Developer CLI templates](overview.md#azure-developer-cli-templates).
 
