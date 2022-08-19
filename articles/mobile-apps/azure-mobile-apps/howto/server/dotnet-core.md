@@ -18,7 +18,7 @@ The ASP.NET Core backend server supports ASP.NET Core 6.0.
 
 Database servers must meet the following criteria have a `DateTime` or `Timestamp` type field that is stored with millisecond accuracy.  Repository implementations are provided for [Entity Framework Core][5] and [LiteDb][6].
 
-For specific database support, see the following:
+For specific database support, see the following sections:
 
 * [Azure Cosmos DB](#azure-cosmos-db)
 * [SqLite](#sqlite)
@@ -354,7 +354,7 @@ internal static void InstallUpdateTriggers(DbContext context)
 }
 ```
 
-You can ensure that this is only called once during database initialization:
+Ensure that the `InstallUpdateTriggers` method is only called once during database initialization:
 
 ``` csharp
 public void InitializeDatabase(DbContext context)
@@ -370,7 +370,7 @@ public void InitializeDatabase(DbContext context)
 
 ### LiteDb
 
-[LiteDb](https://www.litedb.org/) is a serverless database delivered win a single small DL written in .NET C# managed code.  It is a simple and fast NoSQL database solution for stand alone applications.  To use LiteDb with on-disk persistent storage:
+[LiteDb](https://www.litedb.org/) is a serverless database delivered win a single small DL written in .NET C# managed code.  It is a simple and fast NoSQL database solution for stand-alone applications.  To use LiteDb with on-disk persistent storage:
 
 1. Add a singleton for the `LiteDatabase` to the `Program.cs`:
 
@@ -408,7 +408,7 @@ You can use any other repository capability (such as the access control provider
 
 ## Limitations
 
-The ASP.NET Core edition of the service libraries implements OData v4 for the list operation.  When running in "backwards compatibility" mode, filtering on a substring isn't supported.
+The ASP.NET Core edition of the service libraries implements OData v4 for the list operation. When the server is running in backwards compatibility mode, filtering on a substring isn't supported.
 
 <!-- Links -->
 [1]: /aspnet/core/security/authentication/identity?view=aspnetcore-6.0&preserve-view=true
