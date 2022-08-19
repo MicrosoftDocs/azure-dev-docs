@@ -4,7 +4,7 @@ description: How to use the ASP.NET Core SDK for Azure Mobile Apps
 author: adrianhall
 ms.service: mobile-services
 ms.topic: article
-ms.date: 11/11/2021
+ms.date: 08/19/2022
 ms.author: adhal
 ---
 
@@ -21,7 +21,7 @@ Database servers must meet the following criteria have a `DateTime` or `Timestam
 For specific database support, see the following:
 
 * [Azure Cosmos DB](#azure-cosmos-db)
-* [SQLite](#sqlite)
+* [SqLite](#sqlite)
 * [LiteDb](#litedb)
 
 ## Create a new data sync server
@@ -305,12 +305,12 @@ You can also set the container, partition key, and other Cosmos DB settings in t
 
 Azure Cosmos DB is supported in the `Microsoft.AspNetCore.Datasync.EFCore` NuGet package since v5.0.11.  There is [a sample showing how to implement Cosmos DB][cosmos-sample] available in the GitHub repository.
 
-# SQLite
+# SqLite
 
 > [!WARNING]
 > Do not use SqLite for production services.  It is only suitable for client-side usage in production.
 
-SQLite does not have a date/time field that supports millisecond accuracy.  As such, it is not suitable for anything except for testing.  If you do wish to use SQLite, then ensure you implement a value converter and value comparer on each model for date/time properties.  The easiest method to implement value converters and comparers is in the `OnModelCreating(ModelBuilder)` method of your `DbContext`:
+SqLite does not have a date/time field that supports millisecond accuracy.  As such, it is not suitable for anything except for testing.  If you do wish to use SQLite, then ensure you implement a value converter and value comparer on each model for date/time properties.  The easiest method to implement value converters and comparers is in the `OnModelCreating(ModelBuilder)` method of your `DbContext`:
 
 ```csharp
 protected override void OnModelCreating(ModelBuilder builder)
@@ -370,7 +370,7 @@ public void InitializeDatabase(DbContext context)
 
 ### LiteDb
 
-LiteDb us a serverless database delivered win a single small DL written in .NET C# managed code.  It is a simple and fast NoSQL database solution for stand alone applications.  To use LiteDb with on-disk persistent storage:
+[LiteDb](https://www.litedb.org/) is a serverless database delivered win a single small DL written in .NET C# managed code.  It is a simple and fast NoSQL database solution for stand alone applications.  To use LiteDb with on-disk persistent storage:
 
 1. Add a singleton for the `LiteDatabase` to the `Program.cs`:
 
