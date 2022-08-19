@@ -72,7 +72,7 @@ Make sure the following are installed on your local developer workstation:
 1. Run the sample:
 
     ```bash
-    npm start
+    npm run start:local
     ```
 
     If your computer pops up a window from a security app asking for permission to run, allow the app. 
