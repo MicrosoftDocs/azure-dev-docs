@@ -3,7 +3,7 @@ title: Choose an Azure Developer CLI templates (preview)
 description: Learn more about the role of templates with the Azure Developer CLI (azd).
 author: hhunter-ms
 ms.author: hannahhunter
-ms.date: 08/10/2022
+ms.date: 08/19/2022
 ms.topic: conceptual
 ms.custom: devx-track-azdevcli
 ms.service: azure-dev-cli
@@ -39,9 +39,7 @@ For information on authoring your own template or “templatizing” an existing
 
 ## Choose a template
 
-The quickest way to get started with Azure Developer CLI is to refer to the README in any of the following Azure Developer CLI enabled templates. 
-
-Select your preferred programming language to choose a template.
+[Install the Azure Developer CLI](./install-azd.md) and then select your preferred programming language to choose a template.
 
 ### [Node.js](#tab/nodejs)
 
@@ -67,6 +65,22 @@ Select your preferred programming language to choose a template.
 
 ---
 
+Refer to the README in any of the following Azure Developer CLI enabled templates for more instructions and information.
+
+## Run `azd up` on your selected template
+
+Once you've selected an azd template (or created your own), you can quickly get your app up and running on Azure with the Azure Developer CLI via the `azd up` command.
+
+## [BareMetal](#tab/baremetal)
+
+[!INCLUDE [run-azd-bare-metal](includes/run-azd-bare-metal.md)]
+
+## [DevContainer](#tab/devcontainer)
+
+[!INCLUDE [run-azd-dev-container](includes/run-azd-dev-container.md)]
+
+---
+
 ## Authoring templates
 
 The Azure Developer CLI team plans to author more templates in the future to cover even more developer scenarios. If you author your own templates, you can add the `azd-templates` tag to your repository on GitHub. That way, other developers can find, fork, and build upon your template for their own use case.
@@ -76,4 +90,4 @@ You can also open an issue on [our GitHub repository](https://github.com/Azure/a
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn the basic azd up commands](./run-azd.md)
+> [Run azd up with an azd template](./get-started.md)
