@@ -57,8 +57,6 @@ Unpack the ZIP file into a folder and then open a terminal window in that folder
 
 If you're using one of the framework sample apps available for [Django](https://github.com/Azure-Samples/msdocs-python-django-container-web-app) and [Flask](https://github.com/Azure-Samples/msdocs-python-flask-container-web-app), you're set to go. If you're working with your own sample app, take a look to see how the sample apps are set up, in particular the *Dockerfile* in the root directory.
 
-Clone the [Django](https://github.com/Azure-Samples/msdocs-python-django-container-web-app) or [Flask](https://github.com/Azure-Samples/msdocs-python-flask-container-web-app) and start in the cloned folder.
-
 ### [VS Code](#tab/vscode-docker)
 
 These instructions require [Visual Studio Code](https://code.visualstudio.com/) and the [Docker extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker). Go to the sample folder you cloned or downloaded and open VS Code with the command `code .`.
@@ -137,7 +135,7 @@ Create a database named "restaurants_reviews" and a collection named "restaurant
 
 At this point, you should have a Cosmos DB MongoDB connection string of the form "mongodb://\<server-name>:\<password>@\<server-name>.mongo.cosmos.azure.com:10255/?ssl=true&\<other-parameters>", a database named "restaurants_reviews", and a collection named "restaurants_reviews". 
 
-If you are working in VS Code, you can right-click on the MongoDB server abd get the connection string.
+If you are working in VS Code, you can right-click on the MongoDB server and get the connection string.
 
 ----
 

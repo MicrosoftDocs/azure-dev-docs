@@ -5,6 +5,8 @@ ms.topic: include
 ms.date: 08/17/2022
 ---
 
+Start in the root of the sample app you cloned or downloaded.
+
 **Step 1.** At a shell prompt, confirm that Docker is accessible.
 
 ```Docker
