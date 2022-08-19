@@ -305,7 +305,7 @@ You can also set the container, partition key, and other Cosmos DB settings in t
 
 Azure Cosmos DB is supported in the `Microsoft.AspNetCore.Datasync.EFCore` NuGet package since v5.0.11.  There is [a sample showing how to implement Cosmos DB][cosmos-sample] available in the GitHub repository.
 
-# SqLite
+### SqLite
 
 > [!WARNING]
 > Do not use SqLite for production services.  It is only suitable for client-side usage in production.
