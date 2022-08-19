@@ -16,7 +16,7 @@ In this article, you'll push [Todo Application with Node.js and Azure Cosmos DB 
 ## Prerequisites
 
 - [Install the Azure Developer CLI](install-azd.md).
-- [Run `azd up` for the Node.js template](./get-started-nodejs.md), or [the template of your choice](./azd-templates.md#azure-developer-cli-templates)
+- [Run `azd up` for the Node.js template](./get-started.md).
 - [Visual Studio Code](https://code.visualstudio.com/download) installed.
 
 ## Configure a DevOps pipeline

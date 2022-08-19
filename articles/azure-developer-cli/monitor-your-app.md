@@ -18,7 +18,7 @@ While we use the [Todo Application with Node.js and Azure Cosmos DB API for Mong
 ## Prerequisites
 
 - [Install the Azure Developer CLI](./install-azd.md)
-- [Run `azd up` for the Node.js template](./get-started-nodejs.md), or [run on the template of your choice](./azd-templates.md#azure-developer-cli-templates)
+- [Run `azd up` for the Node.js template](./get-started.md)
 
 ## Configure your environment
 

@@ -11,7 +11,7 @@ Run and debug apps on your local machine using the [Visual Studio Code](https://
 ## Prerequisites
 
 - [Install azd](../install-azd.md)
-- [Run `azd` with the Node.js template](../get-started-nodejs.md)
+- [Run `azd` with the Node.js template](../get-started.md)
 - [Node.js with npm (v 16.13.1 LTS)](https://nodejs.org/)
 
 ## Install the Visual Studio Code extension for Azure Developer CLI
