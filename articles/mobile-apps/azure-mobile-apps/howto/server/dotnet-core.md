@@ -21,7 +21,11 @@ Database servers must meet the following criteria:
 * Supported by [Entity Framework Core][5].
 * `DateTimeOffset` support with ms accuracy.
 
-Currently, all databases supported by Entity Framework Core except SQLite can be used "out of the box".  SQLite needs work to handle ms accuracy.
+Currently, all databases supported by Entity Framework Core except SQLite can be used "out of the box".  SQLite needs work to handle millisecond accuracy in date and time operations.
+
+For specific database support, see the following:
+
+* [Azure Cosmos DB](#azure-cosmos-db)
 
 ## Create a new data sync server
 
@@ -272,6 +276,38 @@ app.UseAuthentication();
 app.UseAuthorization();
 ```
 
+## Database Support
+
+The following sections provide information on using Azure Mobile Apps with specific databases.
+
+### Azure Cosmos DB
+
+Azure Cosmos DB is a fully managed, serverless NoSQL database for high-performance applications of any size or scale.  See [Azure Cosmos DB Provider](/ef/core/providers/cosmos) for information on using Azure Cosmos DB with Entity Framework Core.  When using Azure Cosmos DB with Azure Mobile Apps:
+
+1. Derive models from the `ETagEntityTableData` class:
+
+    ``` csharp
+    public class TodoItem : ETagEntityTableData
+    {
+        public string Title { get; set; }
+        public bool Completed { get; set; }
+    }
+    ```
+
+2. Add an `OnModelCreating(ModelBuilder)` method to the `DbContext`.  Configure the entity for each exposed table to use ETag concurrency checks:
+
+    ``` csharp
+    protected void OnModelCreating(ModelBuilder builder)
+    {
+        builder.Entity<TodoItem>().Property(t => t.EntityTag).IsETagConcurrency();
+        base.OnModelCreating(builder);
+    }
+    ```
+
+You can also set the container, partition key, and other Cosmos DB settings in the `OnModelCreating(ModelBuilder)` method.
+
+Azure Cosmos DB is supported in the `Microsoft.AspNetCore.Datasync.EFCore` NuGet package since v5.0.11.  There is [a sample showing how to implement Cosmos DB][cosmos-sample] available in the GitHub repository.
+
 ## Limitations
 
 The ASP.NET Core edition of the service libraries implements OData v4 for the list operation.  When running in "backwards compatibility" mode, filtering on a substring isn't supported.
@@ -283,6 +319,8 @@ The ASP.NET Core edition of the service libraries implements OData v4 for the li
 [4]: /aspnet/core/fundamentals/http-context?view=aspnetcore-6.0&preserve-view=true#use-httpcontext-from-custom-components
 [5]: /ef/core/providers
 [6]: /aspnet/core/tutorials/first-web-api?view=aspnetcore-6.0&preserve-view=true
+
+[cosmos-sample]: https://github.com/azure/azure-mobile-apps/tree/main/samples/CosmosTodoService
 
 [Microsoft.AspNetCore.Datasync]: https://www.nuget.org/packages/Microsoft.AspNetCore.Datasync
 [Microsoft.AspNetCore.Datasync.EFCore]: https://www.nuget.org/packages/Microsoft.AspNetCore.Datasync.EFCore
