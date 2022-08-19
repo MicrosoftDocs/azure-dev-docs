@@ -42,7 +42,7 @@ The following common local workstation installations are recommended to help wit
 |Name|Description|
 |--|--|
 |[Azure CLI](/cli/azure/get-started-with-azure-cli)|Local or cloud-based CLI to create and use Azure resources.|
-|[Azure Developer CLI](/azure/developer/azure-developer-cli/overview?tabs=nodejs)|Developer-centric command-line tool for building cloud apps in developer workflow.|
+|[Azure Developer CLI](../../azure-developer-cli/overview.md?tabs=nodejs)|Developer-centric command-line tool for building cloud apps in developer workflow.|
 |[Visual Studio Code extensions for Azure](../node-azure-tools.md#visual-studio-code-extensions) |VS Code extensions to the IDE.|
 |[Git](https://git-scm.com/downloads) or [Git for Windows](https://gitforwindows.org/)| Command-line tools for source control. You can use a different source control tool if you prefer. |
 

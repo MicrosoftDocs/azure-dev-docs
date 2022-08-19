@@ -90,7 +90,7 @@ Because Azure Event Hubs supports Azure role-based access control, you need to a
 To use the Azure CLI credential, first use the Azure CLI command `az login` to sign in. Then, build and test your application.
 
 > [!NOTE]
-> If you want to use other local environment credentials, for example with IntelliJ, see [Spring Cloud Azure Authentication](/azure/developer/java/spring-framework/spring-cloud-azure#spring-cloud-azure-authentication).
+> If you want to use other local environment credentials, for example with IntelliJ, see [Spring Cloud Azure Authentication](../../spring-cloud-azure.md#spring-cloud-azure-authentication).
 
 #### Deploy to Azure Spring Apps
 
