@@ -35,7 +35,7 @@ Select your preferred environment to continue:
 
 ### Run `up` command
 
-[Learn more about the `azd up` command](./run-azd.md)
+[Learn more about the `azd up` command](./azd-templates.md#run-azd-up-on-your-selected-template)
 
 1. In **File Explorer** or a terminal, create a new empty directory, and change into it.
 
@@ -112,7 +112,7 @@ Open the project in VS Code, hit F1 and choose: `Remote-Containers: Rebuild and 
 
 ### Run `up` command
 
-[Learn more about the `azd up` command.](./run-azd.md)
+[Learn more about the `azd up` command.](./azd-templates.md#run-azd-up-on-your-selected-template)
 
 Run the following command:
 
@@ -175,7 +175,7 @@ In this guide, the app uses Python Virtual Environments to isolate Python packag
 
 ### Run `up` command
 
-[Learn more about the `azd up` command](./run-azd.md)
+[Learn more about the `azd up` command](./azd-templates.md#run-azd-up-on-your-selected-template)
 
 1. In **File Explorer** or a terminal, create a new empty directory, and change into it.
 
@@ -252,7 +252,7 @@ Open the project in VS Code, hit F1 and choose: `Remote-Containers: Rebuild and 
 
 ### Run `up` command
 
-[Learn more about the `azd up` command.](./run-azd.md)
+[Learn more about the `azd up` command.](./azd-templates.md#run-azd-up-on-your-selected-template)
 
 Run the following command:
 
@@ -310,7 +310,7 @@ Select your preferred environment to continue:
 
 ### Run `up` command
 
-[Learn more about the `azd up` command](./run-azd.md)
+[Learn more about the `azd up` command](./azd-templates.md#run-azd-up-on-your-selected-template)
 
 1. In **File Explorer** or a terminal, create a new empty directory, and change into it.
 
@@ -387,7 +387,7 @@ Open the project in VS Code, hit F1 and choose: `Remote-Containers: Rebuild and 
 
 ### Run `up` command
 
-[Learn more about the `azd up` command.](./run-azd.md)
+[Learn more about the `azd up` command.](./azd-templates.md#run-azd-up-on-your-selected-template)
 
 Run the following command:
 
