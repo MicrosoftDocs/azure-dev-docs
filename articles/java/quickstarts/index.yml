@@ -25,6 +25,8 @@ landingContent:
           url: https://code.visualstudio.com/docs/java/java-webapp
         - text: Traditional WebSphere on Azure VMs
           url: ../ee/traditional-websphere-application-server-virtual-machines.md
+        - text: Deploy WebLogic Server on Azure Kubernetes Service using the Azure portal
+          url: ../ee/weblogic-server-azure-kubernetes-service.md
   - title: Serverless functions
     linkLists:
       - linkListType: quickstart

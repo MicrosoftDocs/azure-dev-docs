@@ -1,6 +1,13 @@
 - name: Azure for Java quickstarts
   href: ./index.yml
   items:
+    - name: Quickstart
+      expanded: false
+      items:
+        - name: Oracle WebLogic Server on AKS
+          href: ../ee/weblogic-server-azure-kubernetes-service.md 
+        - name: Traditional WebSphere on Azure VMs
+          href: ../ee/traditional-websphere-application-server-virtual-machines.md
     - name: Compute services
       href: compute.md
     - name: Data
