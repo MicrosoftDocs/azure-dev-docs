@@ -16,16 +16,13 @@ This article shows you have to configure and use the ASP.NET Core backend server
 
 The ASP.NET Core backend server supports ASP.NET Core 6.0.
 
-Database servers must meet the following criteria:
-
-* Supported by [Entity Framework Core][5].
-* `DateTimeOffset` support with ms accuracy.
-
-Currently, all databases supported by Entity Framework Core except SQLite can be used "out of the box".  SQLite needs work to handle millisecond accuracy in date and time operations.
+Database servers must meet the following criteria have a `DateTime` or `Timestamp` type field that is stored with millisecond accuracy.  Repository implementations are provided for [Entity Framework Core][5] and [LiteDb][6].
 
 For specific database support, see the following:
 
 * [Azure Cosmos DB](#azure-cosmos-db)
+* [SQLite](#sqlite)
+* [LiteDb](#litedb)
 
 ## Create a new data sync server
 
@@ -297,7 +294,7 @@ Azure Cosmos DB is a fully managed, serverless NoSQL database for high-performan
 2. Add an `OnModelCreating(ModelBuilder)` method to the `DbContext`.  Configure the entity for each exposed table to use ETag concurrency checks:
 
     ``` csharp
-    protected void OnModelCreating(ModelBuilder builder)
+    protected override void OnModelCreating(ModelBuilder builder)
     {
         builder.Entity<TodoItem>().Property(t => t.EntityTag).IsETagConcurrency();
         base.OnModelCreating(builder);
@@ -307,6 +304,107 @@ Azure Cosmos DB is a fully managed, serverless NoSQL database for high-performan
 You can also set the container, partition key, and other Cosmos DB settings in the `OnModelCreating(ModelBuilder)` method.
 
 Azure Cosmos DB is supported in the `Microsoft.AspNetCore.Datasync.EFCore` NuGet package since v5.0.11.  There is [a sample showing how to implement Cosmos DB][cosmos-sample] available in the GitHub repository.
+
+# SQLite
+
+> [!WARNING]
+> Do not use SqLite for production services.  It is only suitable for client-side usage in production.
+
+SQLite does not have a date/time field that supports millisecond accuracy.  As such, it is not suitable for anything except for testing.  If you do wish to use SQLite, then ensure you implement a value converter and value comparer on each model for date/time properties.  The easiest method to implement value converters and comparers is in the `OnModelCreating(ModelBuilder)` method of your `DbContext`:
+
+```csharp
+protected override void OnModelCreating(ModelBuilder builder)
+{
+    var timestampProps = builder.Model.GetEntityTypes().SelectMany(t => t.GetProperties())
+        .Where(p => p.ClrType == typeof(byte[]) && p.ValueGenerated == ValueGenerated.OnAddOrUpdate);
+    var converter = new ValueConverter<byte[], string>(
+        v => Encoding.UTF8.GetString(v),
+        v => Encoding.UTF8.GetBytes(v)
+    );
+    foreach (var property in timestampProps)
+    {
+        property.SetValueConverter(converter);
+        property.SetDefaultValueSql("STRFTIME('%Y-%m-%d %H:%M:%f', 'NOW')");
+    }
+    base.OnModelCreating(builder);
+}
+```
+
+Install an update trigger when you initialize the database:
+
+```csharp
+internal static void InstallUpdateTriggers(DbContext context)
+{
+    foreach (var table in context.Model.GetEntityTypes())
+    {
+        var props = table.GetProperties().Where(prop => prop.ClrType == typeof(byte[]) && prop.ValueGenerated == ValueGenerated.OnAddOrUpdate);
+        foreach (var property in props)
+        {
+            var sql = $@"
+                CREATE TRIGGER s_{table.GetTableName()}_{prop.Name}_UPDATE AFTER UPDATE ON {table.GetTableName()}
+                BEGIN
+                    UPDATE {table.GetTableName()}
+                    SET {prop.Name} = STRFTIME('%Y-%m-%d %H:%M:%f', 'NOW')
+                    WHERE rowid = NEW.rowid;
+                END
+            ";
+            context.Database.ExecuteSqlRaw(sql);
+        }
+    }
+}
+```
+
+You can ensure that this is only called once during database initialization:
+
+``` csharp
+public void InitializeDatabase(DbContext context)
+{
+    bool created = context.Database.EnsureCreated();
+    if (created && context.Database.IsSqlite())
+    {
+        InstallUpdateTriggers(context);
+    }
+    context.Database.SaveChanges();
+}
+```
+
+### LiteDb
+
+LiteDb us a serverless database delivered win a single small DL written in .NET C# managed code.  It is a simple and fast NoSQL database solution for stand alone applications.  To use LiteDb with on-disk persistent storage:
+
+1. Add a singleton for the `LiteDatabase` to the `Program.cs`:
+
+    ``` csharp
+    const connectionString = builder.Configuration.GetValue<string>("LiteDb:ConnectionString");
+    builder.Services.AddSingleton<LiteDatabase>(new LiteDatabase(connectionString));
+    ```
+
+2. Derive models from the `LiteDbTableData`:
+
+    ``` csharp
+    public class TodoItem : LiteDbTableData
+    {
+        public string Title { get; set; }
+        public bool Completed { get; set; }
+    }
+    ```
+
+    You can use any of the `BsonMapper` attributes that are supplied with the LiteDb NuGet package.
+
+3. Create a controller using the `LiteDbRepository`:
+
+    ``` csharp
+    [Route("tables/[controller]")]
+    public class TodoItemController : TableController<TodoItem>
+    {
+        public TodoItemController(LiteDatabase db) : base()
+        {
+            Repository = new LiteDbRepository<TodoItem>(db, "todoitems");
+        }
+    }
+    ```
+
+You can use any other repository capability (such as the access control provider or logger) with this pattern.  LiteDb is supported by the `Microsoft.AspNetCore.Datasync.LiteDb` package on NuGet.
 
 ## Limitations
 
