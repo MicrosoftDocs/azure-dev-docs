@@ -5,7 +5,7 @@ author: jessmjohnson
 ms.author: jejohn
 ms.devlang: python
 ms.topic: tutorial
-ms.date: 08/16/2022
+ms.date: 08/17/2022
 ms.prod: azure-python
 ms.custom: devx-track-python, devx-track-azurecli
 ---
@@ -110,11 +110,31 @@ To configure environment variables for the web app from VS Code, you must have t
 
 ---
 
-## 4. Verify deployment and troubleshoot
+## 4. Browse the site 
 
 To verify the site is running, go the `https::<website-name>.azurewebsites.net`. If successful, you should see the restaurant review sample app. It can take a few moments for the site to start the first time. When the site appears, add a restaurant and a review for that restaurant to confirm the sample app is functioning.
 
-If you don't see the sample app, here are troubleshooting steps you can try.
+### [Azure portal](#tab/azure-portal)
+
+| Instructions    | Screenshot |
+|:----------------|-----------:|
+| [!INCLUDE [Browse website in Azure portal](<./includes/tutorial-container-web-app/app-service-browse-portal.md>)] | :::image type="content" source="./media/tutorial-container-web-app/app-service-portal-browse-240px.png" lightbox="./media/tutorial-container-web-app/app-service-portal-browse.png" alt-text="A screenshot showing how to browse an App Service in Azure portal." ::: |
+
+### [VS Code](#tab/vscode-aztools)
+
+| Instructions    | Screenshot |
+|:----------------|-----------:|
+| [!INCLUDE [Browse website in VS Code](<./includes/tutorial-container-web-app/app-service-browse-vs-code.md>)] | :::image type="content" source="./media/tutorial-container-web-app/app-service-vs-code-browse-240px.png" lightbox="./media/tutorial-container-web-app/app-service-vs-code-browse.png" alt-text="A screenshot showing how to browse an App Service in VS Code." ::: |
+
+### [Azure CLI](#tab/azure-cli)
+
+[!INCLUDE [Include showing how browse App Service with Azure CLI](<./includes/tutorial-container-web-app/app-service-browse-cli.md>)]
+
+---
+
+## 5. Troubleshoot deployment
+
+If you don't see the sample app, try the following steps.
 
 * With container deployment and App Service, always check the **Deployment Center** / **Logs** page. Confirm that the container was pulled and is running. The initial pull and running of the container can take a few moments.
 * Try to restart the App Service and see if that resolves your issue.
