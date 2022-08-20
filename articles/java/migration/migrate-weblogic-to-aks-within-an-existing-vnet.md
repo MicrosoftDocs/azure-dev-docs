@@ -21,26 +21,21 @@ In this tutorial, you learn how to:
 > - Expose Oracle WebLogic Server with Azure Application Gateway as a load balancer.
 > - Validate successful deployment.
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
-
 ## Prerequisites
 
-- Use [Azure Cloud Shell](/azure/cloud-shell/quickstart) using the bash environment; make sure the Azure CLI version is 2.37.0 and above.
-
+- [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+- Use [Azure Cloud Shell](/azure/cloud-shell/quickstart) using the Bash environment; make sure the Azure CLI version is 2.37.0 and above.
    [![Launch Cloud Shell in a new window](../../includes/media/hdi-launch-cloud-shell.png)](https://shell.azure.com)
-- If you prefer, [install the Azure CLI 2.37.0 and above](/cli/azure/install-azure-cli) to run CLI reference commands.
-  - If you're using a local install, sign in with Azure CLI by using the [az login](/cli/azure/reference-index#az-login) command.  To finish the authentication process, follow the steps displayed in your terminal.  See [Sign in with Azure CLI](/cli/azure/authenticate-azure-cli) for other sign-in options.
-  - When you're prompted, install Azure CLI extensions on first use.  For more information about extensions, see [Use extensions with Azure CLI](/cli/azure/azure-cli-extensions-overview).
+- If you prefer, [install the Azure CLI 2.37.0 and above](/cli/azure/install-azure-cli) to run Azure CLI commands.
+  - If you're using a local install, sign in with Azure CLI by using the [az login](/cli/azure/reference-index#az-login) command. To finish the authentication process, follow the steps displayed in your terminal. See [Sign in with Azure CLI](/cli/azure/authenticate-azure-cli) for other sign-in options.
+  - When you're prompted, install Azure CLI extensions on first use. For more information about extensions, see [Use extensions with Azure CLI](/cli/azure/azure-cli-extensions-overview).
   - Run [az version](/cli/azure/reference-index?#az-version) to find the version and dependent libraries that are installed. To upgrade to the latest version, run [az upgrade](/cli/azure/reference-index?#az-upgrade).
-
-- The WLS on AKS marketplace offer requires permission to create user-assign managed identity and assign Azure roles. To assign Azure roles, you must have:
-  - `Microsoft.Authorization/roleAssignments/write` permissions, such as [User Access Administrator](/azure/role-based-access-control/built-in-roles#user-access-administrator) or [Owner](/azure/role-based-access-control/built-in-roles#owner).
-
+- The WLS on AKS marketplace offer requires permission to create user-assign managed identity and assign Azure roles. To assign Azure roles, you must have `Microsoft.Authorization/roleAssignments/write` permissions, such as [User Access Administrator](/azure/role-based-access-control/built-in-roles#user-access-administrator) or [Owner](/azure/role-based-access-control/built-in-roles#owner).
 - An Oracle account. The steps in [Oracle Container Registry](https://aka.ms/wls-aks-ocr) will direct you to accept the license agreement for WebLogic Server images. Make note of your Oracle Account password and email.
 
 ## Create a resource group
 
-Create a resource group with [`az group create`](/cli/azure/group#az-group-create). This example creates a resource group named **myResourceGroup** in the **Eastus** location:
+Create a resource group with [`az group create`](/cli/azure/group#az-group-create). This example creates a resource group named `myResourceGroup` in the `eastus` location:
 
 ```azurecli-interactive
 RESOURCE_GROUP_NAME="myResourceGroup"
@@ -49,16 +44,16 @@ az group create \
     --location eastus
 ```
 
-## Create custom virtual network
+## Create a custom virtual network
 
-There are constraints when creating a custom virtual network, go through the following documents before you create the virtual network in your environment:
+There are constraints when creating a custom virtual network. Before you create the virtual network in your environment, read the following articles:
 
-1. [Virtual network consideration for AKS](/azure/aks/concepts-network).
-2. [Virtual network consideration for Application Gateway](/azure/application-gateway/configuration-infrastructure).
+- [Network concepts for applications in Azure Kubernetes Service (AKS)](/azure/aks/concepts-network).
+- [Application Gateway infrastructure configuration](/azure/application-gateway/configuration-infrastructure).
 
-This example creates a virtual network with address space `192.168.0.0/16`, and creates two subnets used for AKS and Application Gateway.
+The example in this section creates a virtual network with address space `192.168.0.0/16`, and creates two subnets used for AKS and Application Gateway.
 
-Now create a virtual network with [`az network vnet create`](/cli/azure/network/vnet#az-network-vnet-create). This example creates a default virtual network named **myVNet** :
+First, create a virtual network by using [`az network vnet create`](/cli/azure/network/vnet#az-network-vnet-create). The following example creates a default virtual network named `myVNet`:
 
 ```azurecli-interactive
 az network vnet create \
@@ -67,7 +62,7 @@ az network vnet create \
     --address-prefixes 192.168.0.0/16
 ```
 
-Create a subnet with [`az network vnet subnet create`](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create) for AKS cluster. This example creates a subnet named **myAKSSubnet**:
+Next, create a subnet by using [`az network vnet subnet create`](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create) for the AKS cluster. The following example creates a subnet named `myAKSSubnet`:
 
 ```azurecli-interactive
 az network vnet subnet create \
@@ -77,7 +72,7 @@ az network vnet subnet create \
     --address-prefixes 192.168.1.0/24
 ```
 
-Create a subnet with [`az network vnet subnet create`](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create) for Application Gateway. This example creates a subnet named **myAppGatewaySubnet**:
+Next, create a subnet by using [`az network vnet subnet create`](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create) for Application Gateway. The following example creates a subnet named `myAppGatewaySubnet`:
 
 ```azurecli-interactive
 az network vnet subnet create \
@@ -87,7 +82,7 @@ az network vnet subnet create \
     --address-prefixes 192.168.2.0/24
 ```
 
-Get the AKS subnet resource ID and store as a variable, which will be used in the following steps:
+Next, use the following command to get the AKS subnet resource ID and store it in a variable for use later in this article:
 
 ```azurecli-interactive
 AKS_SUBNET_ID=$(az network vnet subnet show --resource-group ${RESOURCE_GROUP_NAME} --vnet-name myVNet --name myAKSSubnet --query id -o tsv)
@@ -95,12 +90,12 @@ AKS_SUBNET_ID=$(az network vnet subnet show --resource-group ${RESOURCE_GROUP_NA
 
 ## Create an AKS cluster in the virtual network
 
-Now create an AKS cluster in your virtual network and subnet using the [`az aks create`](/cli/azure/aks#az-aks-create) command.
+Use the following command to create an AKS cluster in your virtual network and subnet by using the [`az aks create`](/cli/azure/aks#az-aks-create) command.
 
 > [!NOTE]
-> This example creates an AKS cluster using *kubenet* and system-assigned identity, azure-cli will grant Network Contributor role to the system-assigned identity after the cluster is created.
+> This example creates an AKS cluster using *kubenet* and a system-assigned identity. Azure CLI will grant Network Contributor role to the system-assigned identity after the cluster is created.
 > If you wish to use *Azure CNI*, you can follow [Configure Azure CNI networking in AKS](/azure/aks/configure-azure-cni) to create an *Azure CNI* enabled AKS cluster.
-> If you wish to use user-assigned managed identity, you can follow [Create an AKS cluster with system-assigned managed identities](/azure/aks/configure-kubenet#create-an-aks-cluster-with-user-assigned-managed-identities).
+> If you wish to use a user-assigned managed identity, you can follow [Create an AKS cluster with system-assigned managed identities](/azure/aks/configure-kubenet#create-an-aks-cluster-with-user-assigned-managed-identities).
 
 ```azurecli-interactive
 az aks create \
