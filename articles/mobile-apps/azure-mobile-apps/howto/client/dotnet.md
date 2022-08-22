@@ -10,23 +10,31 @@ ms.author: adhal
 
 # How to use the Azure Mobile Apps client library for .NET
 
-This guide shows you how to perform common scenarios using the .NET client library for Azure Mobile Apps.  Use the .NET client library in Windows (WPF, UWP) or Xamarin (Native or Forms) applications.  If you're new to Azure Mobile Apps, consider first completing the [Quickstart for Xamarin.Forms](../../quickstarts/xamarin-forms/index.md) tutorial.  
+This guide shows you how to perform common scenarios using the .NET client library for Azure Mobile Apps. Use the .NET client library in iOS, Android, .NET MAUI, Windows (WPF, UWP, Windows App SDK with WinUI 3), or Xamarin/Xamarin.Forms applications.  
+
+If you're new to Azure Mobile Apps, consider first completing one of the quickstart tutorials:
+
+* [.NET MAUI](../../quickstarts/maui/index.md)
+* [Windows App SDK (WinUI 3)](../../quickstarts/winui/index.md)
+* [WPF](../../quickstarts/wpf/index.md)
+* [Xamarin.Forms](../../quickstarts/xamarin-forms/index.md)
 
 > [!NOTE]
 > This article covers the latest (v5.0.0) edition of the Microsoft Datasync Framework.  For older clients, see the [v4.2.0 documentation](./dotnet-v4.md).
 
 ## Supported platforms
 
-The .NET client library supports .NET Standard 2.0, .NET 6 and the following platforms:
+The .NET client library supports .NET Standard 2.0, .NET 6, and the following platforms:
 
-* Xamarin.Android above API level 19.
-* Xamarin.iOS version 8.0 and above.
+* .NET MAUI for Android, iOS, and Windows platforms.
+* Android above API level 19 (Xamarin and iOS for .NET).
+* iOS version 8.0 and above (Xamarin and Android for .NET).
 * Universal Windows Platform builds 19041 and above.
 * Windows Presentation Framework (WPF).
 * Windows App SDK (WinUI 3).
-* .NET MAUI for Android, iOS, and Windows platforms.
+* Xamarin.Forms
 
-Other platforms may work, but haven't been tested at this time.  The [TodoApp sample](https://github.com/Azure/azure-mobile-apps/tree/main/samples/TodoApp) contains an example of each tested platform.
+The [TodoApp sample](https://github.com/Azure/azure-mobile-apps/tree/main/samples/TodoApp) contains an example of each tested platform.
 
 ## Setup and Prerequisites
 
@@ -35,7 +43,7 @@ Add the following libraries from NuGet:
 * [Microsoft.Datasync.Client]
 * [Microsoft.Datasync.Client.SQLiteStore] if using offline tables.
 
-If using a platform project (for example, Xamarin.Forms), ensure you add the libraries to the platform project and any shared project.
+If using a platform project (for example, .NET MAUI), ensure you add the libraries to the platform project and any shared project.
 
 ## Create the service client
 
@@ -446,6 +454,13 @@ var dbPath = $"{Filesystem.AppDataDirectory}/todoitems.db";
 var store = new OfflineSQLiteStore($"file:/{dbPath}?mode=rwc");
 ```
 
+If you are using .NET MAUI, you can use the [.NET MAUI File System Helpers](/dotnet/maui/platform-integration/storage/file-system-helpers) to construct a path: For example:
+
+``` csharp
+var dbPath = $"{Filesystem.AppDataDirectory}/todoitems.db";
+var store = new OfflineSQLiteStore($"file:/{dbPath}?mode=rwc");
+```
+
 ### Create an offline table
 
 A table reference can be obtained using the `GetOfflineTable<T>` method:
@@ -651,9 +666,9 @@ public async Task<AuthenticationToken> GetTokenAsync()
 
 For more information on integrating the Microsoft Identity Platform with ASP.NET 6, see the [Microsoft Identity Platform](/azure/active-directory/develop/v2-overview) documentation.
 
-### Use Xamarin.Essentials WebAuthenticator
+### Use Xamarin.Essentials or .NET MAUI WebAuthenticator
 
-For Azure App Service Authentication, you can use the [Xamarin.Essentials WebAuthenticator](/xamarin/essentials/web-authenticator) to get a token:
+For Azure App Service Authentication, you can use the [Xamarin.Essentials WebAuthenticator](/xamarin/essentials/web-authenticator) or [.NET MAUI WebAuthenticator](/dotnet/maui/platform-integration/communication/authentication) to get a token:
 
 ``` csharp
 Uri authEndpoint = new Uri(client.Endpoint, "/.auth/login/aad");
