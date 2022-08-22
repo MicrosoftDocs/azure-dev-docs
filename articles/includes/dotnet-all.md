@@ -146,11 +146,33 @@
 | Azure.Communication.Calling | NuGet [1.0.0-beta.32](https://www.nuget.org/packages/Azure.Communication.Calling/1.0.0-beta.32) |  |  |
 | Azure.Communication.CallingServer | NuGet [1.0.0-beta.3](https://www.nuget.org/packages/Azure.Communication.CallingServer/1.0.0-beta.3) |  |  |
 | Azure.Communication.Email | NuGet [1.0.0-beta.1](https://www.nuget.org/packages/Azure.Communication.Email/1.0.0-beta.1) |  |  |
+| Azure.FX | NuGet [0.0.1](https://www.nuget.org/packages/Azure.FX/0.0.1) |  |  |
 | Azure.IoT.TimeSeriesInsights | NuGet [1.0.0-beta.1](https://www.nuget.org/packages/Azure.IoT.TimeSeriesInsights/1.0.0-beta.1) |  |  |
 | Azure.Quantum.Jobs | NuGet [1.0.0-beta.3](https://www.nuget.org/packages/Azure.Quantum.Jobs/1.0.0-beta.3) |  |  |
 | Azure.ResourceManager.Automation | NuGet [1.0.0-beta.1](https://www.nuget.org/packages/Azure.ResourceManager.Automation/1.0.0-beta.1) |  |  |
 | Azure.ResourceManager.Avs | NuGet [1.0.0-beta.1](https://www.nuget.org/packages/Azure.ResourceManager.Avs/1.0.0-beta.1) |  |  |
 | Azure.ResourceManager.ChangeAnalysis | NuGet [1.0.0-beta.1](https://www.nuget.org/packages/Azure.ResourceManager.ChangeAnalysis/1.0.0-beta.1) |  |  |
+| Azure.ResourceManager.Confluent | NuGet [1.0.0-beta.1](https://www.nuget.org/packages/Azure.ResourceManager.Confluent/1.0.0-beta.1) |  |  |
+| Azure.ResourceManager.DataBox | NuGet [1.0.0-beta.1](https://www.nuget.org/packages/Azure.ResourceManager.DataBox/1.0.0-beta.1) |  |  |
+| Azure.ResourceManager.DataBoxEdge | NuGet [1.0.0-beta.1](https://www.nuget.org/packages/Azure.ResourceManager.DataBoxEdge/1.0.0-beta.1) |  |  |
+| Azure.ResourceManager.DataShare | NuGet [1.0.0-beta.1](https://www.nuget.org/packages/Azure.ResourceManager.DataShare/1.0.0-beta.1) |  |  |
+| Azure.ResourceManager.DeviceProvisioningServices | NuGet [1.0.0-beta.1](https://www.nuget.org/packages/Azure.ResourceManager.DeviceProvisioningServices/1.0.0-beta.1) |  |  |
+| Azure.ResourceManager.DigitalTwins | NuGet [1.0.0-beta.1](https://www.nuget.org/packages/Azure.ResourceManager.DigitalTwins/1.0.0-beta.1) |  |  |
+| Azure.ResourceManager.FrontDoor | NuGet [1.0.0-beta.1](https://www.nuget.org/packages/Azure.ResourceManager.FrontDoor/1.0.0-beta.1) |  |  |
+| Azure.ResourceManager.HealthcareApis | NuGet [1.0.0-beta.1](https://www.nuget.org/packages/Azure.ResourceManager.HealthcareApis/1.0.0-beta.1) |  |  |
+| Azure.ResourceManager.Kusto | NuGet [1.0.0-beta.1](https://www.nuget.org/packages/Azure.ResourceManager.Kusto/1.0.0-beta.1) |  |  |
+| Azure.ResourceManager.LabServices | NuGet [1.0.0-beta.1](https://www.nuget.org/packages/Azure.ResourceManager.LabServices/1.0.0-beta.1) |  |  |
+| Azure.ResourceManager.Marketplace | NuGet [1.0.0-beta.1](https://www.nuget.org/packages/Azure.ResourceManager.Marketplace/1.0.0-beta.1) |  |  |
+| Azure.ResourceManager.MixedReality | NuGet [1.0.0-beta.1](https://www.nuget.org/packages/Azure.ResourceManager.MixedReality/1.0.0-beta.1) |  |  |
+| Azure.ResourceManager.NetApp | NuGet [1.0.0-beta.1](https://www.nuget.org/packages/Azure.ResourceManager.NetApp/1.0.0-beta.1) |  |  |
+| Azure.ResourceManager.Orbital | NuGet [1.0.0-beta.1](https://www.nuget.org/packages/Azure.ResourceManager.Orbital/1.0.0-beta.1) |  |  |
+| Azure.ResourceManager.Peering | NuGet [1.0.0-beta.1](https://www.nuget.org/packages/Azure.ResourceManager.Peering/1.0.0-beta.1) |  |  |
+| Azure.ResourceManager.Purview | NuGet [1.0.0-beta.1](https://www.nuget.org/packages/Azure.ResourceManager.Purview/1.0.0-beta.1) |  |  |
+| Azure.ResourceManager.ResourceGraph | NuGet [1.0.0-beta.1](https://www.nuget.org/packages/Azure.ResourceManager.ResourceGraph/1.0.0-beta.1) |  |  |
+| Azure.ResourceManager.ServiceFabricManagedClusters | NuGet [1.0.0-beta.1](https://www.nuget.org/packages/Azure.ResourceManager.ServiceFabricManagedClusters/1.0.0-beta.1) |  |  |
+| Azure.ResourceManager.StorageSync | NuGet [1.0.0-beta.1](https://www.nuget.org/packages/Azure.ResourceManager.StorageSync/1.0.0-beta.1) |  |  |
+| Azure.ResourceManager.Subscription | NuGet [1.0.0-beta.1](https://www.nuget.org/packages/Azure.ResourceManager.Subscription/1.0.0-beta.1) |  |  |
+| Azure.ResourceManager.TrafficManager | NuGet [1.0.0-beta.1](https://www.nuget.org/packages/Azure.ResourceManager.TrafficManager/1.0.0-beta.1) |  |  |
 | IoT Models Repository | NuGet [1.0.0-preview.5](https://www.nuget.org/packages/Azure.IoT.ModelsRepository/1.0.0-preview.5) |  |  |
 | Microsoft.Azure.Cosmos.Encryption.Custom | NuGet [1.0.0-preview03](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Encryption.Custom/1.0.0-preview03) |  |  |
 | Microsoft.Azure.Cosmos.Templates | NuGet [1.0.0](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Templates/1.0.0) |  |  |
@@ -287,7 +309,7 @@
 | Core | NuGet [1.25.0](https://www.nuget.org/packages/Azure.Core/1.25.0) | [docs](/dotnet/api/overview/azure/Core-readme) | GitHub [1.25.0](https://github.com/Azure/azure-sdk-for-net/tree/Azure.Core_1.25.0/sdk/core/Azure.Core/) |
 | Core - AMQP | NuGet [1.2.0](https://www.nuget.org/packages/Azure.Core.Amqp/1.2.0) | [docs](/dotnet/api/overview/azure/Core.Amqp-readme) | GitHub [1.2.0](https://github.com/Azure/azure-sdk-for-net/tree/Azure.Core.Amqp_1.2.0/sdk/core/Azure.Core.Amqp/) |
 | Cosmos DB | NuGet [4.0.0-preview3](https://www.nuget.org/packages/Azure.Cosmos/4.0.0-preview3) | [docs](/dotnet/api/azure.cosmos) | GitHub [4.0.0-preview3](https://github.com/Azure/azure-cosmos-dotnet-v3/tree/releases/4.0.0-preview3) |
-| Cosmos DB | NuGet [3.29.0](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/3.29.0) | [docs](/dotnet/api/overview/azure/cosmosdb) | GitHub [3.29.0](https://github.com/Azure/azure-cosmos-dotnet-v3/tree/3.12.0/Microsoft.Azure.Cosmos) |
+| Cosmos DB | NuGet [3.30.0](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/3.30.0) | [docs](/dotnet/api/overview/azure/cosmosdb) | GitHub [3.30.0](https://github.com/Azure/azure-cosmos-dotnet-v3/tree/3.12.0/Microsoft.Azure.Cosmos) |
 | Cosmos DB - BulkExecutor | NuGet [2.5.1-preview](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.BulkExecutor/2.5.1-preview) |  | GitHub [2.5.1-preview](https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-started) |
 | Cosmos DB - Direct | NuGet [3.29.1](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Direct/3.29.1) |  | GitHub [3.29.1](https://github.com/Azure/azure-cosmos-dotnet-v3) |
 | Cosmos DB - Encryption | NuGet [2.0.0](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Encryption/2.0.0) |  | GitHub [2.0.0](https://github.com/Azure/azure-cosmos-dotnet-v3/tree/releases/encryption/1.0.0-preview4/Microsoft.Azure.Cosmos.Encryption) |
