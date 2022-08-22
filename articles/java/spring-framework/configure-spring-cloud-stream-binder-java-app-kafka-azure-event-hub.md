@@ -340,11 +340,11 @@ In this section, you create the necessary Java classes for sending events to you
 
 In this article, you tested the application and ran it locally. In production, you can deploy the application to Azure hosting environments like Azure Spring Apps. Use the following steps to deploy to Azure Spring Apps using managed identity.
 
-1. Create an Azure Spring Apps instance and enable system-assigned managed identity. For more information, see [Enable system-assigned managed identity](/azure/spring-cloud/how-to-enable-system-assigned-managed-identity?tabs=azure-portal).
+1. Create an Azure Spring Apps instance and enable system-assigned managed identity. For more information, see [Enable system-assigned managed identity](/azure/spring-apps/how-to-enable-system-assigned-managed-identity?tabs=azure-portal).
 
 1. Assign roles to the managed identity. For more information, see [Assign Azure roles](/azure/role-based-access-control/role-assignments-portal).
 
-1. Deploy to Azure Spring Apps. For more information, see [Deploy Spring Boot applications using Maven](/azure/spring-cloud/how-to-maven-deploy-apps).
+1. Deploy to Azure Spring Apps. For more information, see [Deploy Spring Boot applications using Maven](/azure/spring-apps/how-to-maven-deploy-apps).
 
 ## Clean up resources
 
