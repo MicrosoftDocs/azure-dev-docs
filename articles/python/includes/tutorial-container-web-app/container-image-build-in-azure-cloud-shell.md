@@ -21,7 +21,7 @@ az acr build \
 
 The last argument in the command is the fully qualified path to the repo. Use https://github.com/Azure-Samples/msdocs-python-django-container-web-app.git for the Django sample app and https://github.com/Azure-Samples/msdocs-python-flask-container-web-app.git for the Flask sample app.
 
-The command above is for Bash shell. If you use PowerShell as you shell, change the line continuation character from backslash ("\\") to backtick ("`"). 
+The command above is for Bash shell. If you use PowerShell as your shell, change the line continuation character from backslash ("\\") to backtick ("`"). 
 
 **Step 3.** Confirm the container image was created with the [az acr repository list](/cli/azure/acr/repository#az-acr-repository-list) command.
 
