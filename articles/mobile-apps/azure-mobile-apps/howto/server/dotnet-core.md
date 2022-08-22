@@ -4,7 +4,7 @@ description: How to use the ASP.NET Core SDK for Azure Mobile Apps
 author: adrianhall
 ms.service: mobile-services
 ms.topic: article
-ms.date: 11/11/2021
+ms.date: 08/19/2022
 ms.author: adhal
 ---
 
@@ -16,12 +16,13 @@ This article shows you have to configure and use the ASP.NET Core backend server
 
 The ASP.NET Core backend server supports ASP.NET Core 6.0.
 
-Database servers must meet the following criteria:
+Database servers must meet the following criteria have a `DateTime` or `Timestamp` type field that is stored with millisecond accuracy.  Repository implementations are provided for [Entity Framework Core][5] and [LiteDb][6].
 
-* Supported by [Entity Framework Core][5].
-* `DateTimeOffset` support with ms accuracy.
+For specific database support, see the following sections:
 
-Currently, all databases supported by Entity Framework Core except SQLite can be used "out of the box".  SQLite needs work to handle ms accuracy.
+* [Azure Cosmos DB](#azure-cosmos-db)
+* [SqLite](#sqlite)
+* [LiteDb](#litedb)
 
 ## Create a new data sync server
 
@@ -90,7 +91,7 @@ The `ITableData` (which is implemented by `EntityTableData`) provides the ID of 
 * `Version` (`byte[]`) provides an opaque value that changes on every write.
 * `Deleted` (`bool`) is true if the record has been deleted but not yet purged.
 
-Do not change these properties in your code.  They are maintained by the repository.
+Don't change these properties in your code.  They're maintained by the repository.
 
 ### Update the `DbContext`
 
@@ -272,9 +273,142 @@ app.UseAuthentication();
 app.UseAuthorization();
 ```
 
+## Database Support
+
+The following sections provide information on using Azure Mobile Apps with specific databases.
+
+### Azure Cosmos DB
+
+Azure Cosmos DB is a fully managed, serverless NoSQL database for high-performance applications of any size or scale.  See [Azure Cosmos DB Provider](/ef/core/providers/cosmos) for information on using Azure Cosmos DB with Entity Framework Core.  When using Azure Cosmos DB with Azure Mobile Apps:
+
+1. Derive models from the `ETagEntityTableData` class:
+
+    ``` csharp
+    public class TodoItem : ETagEntityTableData
+    {
+        public string Title { get; set; }
+        public bool Completed { get; set; }
+    }
+    ```
+
+2. Add an `OnModelCreating(ModelBuilder)` method to the `DbContext`.  Configure the entity for each exposed table to use ETag concurrency checks:
+
+    ``` csharp
+    protected override void OnModelCreating(ModelBuilder builder)
+    {
+        builder.Entity<TodoItem>().Property(t => t.EntityTag).IsETagConcurrency();
+        base.OnModelCreating(builder);
+    }
+    ```
+
+You can also set the container, partition key, and other Cosmos DB settings in the `OnModelCreating(ModelBuilder)` method.
+
+Azure Cosmos DB is supported in the `Microsoft.AspNetCore.Datasync.EFCore` NuGet package since v5.0.11. There's [a sample showing how to implement Cosmos DB][cosmos-sample] available in the GitHub repository.
+
+### SqLite
+
+> [!WARNING]
+> Do not use SqLite for production services.  SqLite is only suitable for client-side usage in production.
+
+SqLite doesn't have a date/time field that supports millisecond accuracy.  As such, it isn't suitable for anything except for testing.  If you wish to use SqLite, ensure you implement a value converter and value comparer on each model for date/time properties.  The easiest method to implement value converters and comparers is in the `OnModelCreating(ModelBuilder)` method of your `DbContext`:
+
+```csharp
+protected override void OnModelCreating(ModelBuilder builder)
+{
+    var timestampProps = builder.Model.GetEntityTypes().SelectMany(t => t.GetProperties())
+        .Where(p => p.ClrType == typeof(byte[]) && p.ValueGenerated == ValueGenerated.OnAddOrUpdate);
+    var converter = new ValueConverter<byte[], string>(
+        v => Encoding.UTF8.GetString(v),
+        v => Encoding.UTF8.GetBytes(v)
+    );
+    foreach (var property in timestampProps)
+    {
+        property.SetValueConverter(converter);
+        property.SetDefaultValueSql("STRFTIME('%Y-%m-%d %H:%M:%f', 'NOW')");
+    }
+    base.OnModelCreating(builder);
+}
+```
+
+Install an update trigger when you initialize the database:
+
+```csharp
+internal static void InstallUpdateTriggers(DbContext context)
+{
+    foreach (var table in context.Model.GetEntityTypes())
+    {
+        var props = table.GetProperties().Where(prop => prop.ClrType == typeof(byte[]) && prop.ValueGenerated == ValueGenerated.OnAddOrUpdate);
+        foreach (var property in props)
+        {
+            var sql = $@"
+                CREATE TRIGGER s_{table.GetTableName()}_{prop.Name}_UPDATE AFTER UPDATE ON {table.GetTableName()}
+                BEGIN
+                    UPDATE {table.GetTableName()}
+                    SET {prop.Name} = STRFTIME('%Y-%m-%d %H:%M:%f', 'NOW')
+                    WHERE rowid = NEW.rowid;
+                END
+            ";
+            context.Database.ExecuteSqlRaw(sql);
+        }
+    }
+}
+```
+
+Ensure that the `InstallUpdateTriggers` method is only called once during database initialization:
+
+``` csharp
+public void InitializeDatabase(DbContext context)
+{
+    bool created = context.Database.EnsureCreated();
+    if (created && context.Database.IsSqlite())
+    {
+        InstallUpdateTriggers(context);
+    }
+    context.Database.SaveChanges();
+}
+```
+
+### LiteDb
+
+[LiteDb](https://www.litedb.org/) is a serverless database delivered win a single small DL written in .NET C# managed code.  It's a simple and fast NoSQL database solution for stand-alone applications.  To use LiteDb with on-disk persistent storage:
+
+1. Add a singleton for the `LiteDatabase` to the `Program.cs`:
+
+    ``` csharp
+    const connectionString = builder.Configuration.GetValue<string>("LiteDb:ConnectionString");
+    builder.Services.AddSingleton<LiteDatabase>(new LiteDatabase(connectionString));
+    ```
+
+2. Derive models from the `LiteDbTableData`:
+
+    ``` csharp
+    public class TodoItem : LiteDbTableData
+    {
+        public string Title { get; set; }
+        public bool Completed { get; set; }
+    }
+    ```
+
+    You can use any of the `BsonMapper` attributes that are supplied with the LiteDb NuGet package.
+
+3. Create a controller using the `LiteDbRepository`:
+
+    ``` csharp
+    [Route("tables/[controller]")]
+    public class TodoItemController : TableController<TodoItem>
+    {
+        public TodoItemController(LiteDatabase db) : base()
+        {
+            Repository = new LiteDbRepository<TodoItem>(db, "todoitems");
+        }
+    }
+    ```
+
+You can use any other repository capability (such as the access control provider or logger) with this pattern.  LiteDb is supported by the `Microsoft.AspNetCore.Datasync.LiteDb` package on NuGet.
+
 ## Limitations
 
-The ASP.NET Core edition of the service libraries implements OData v4 for the list operation.  When running in "backwards compatibility" mode, filtering on a substring isn't supported.
+The ASP.NET Core edition of the service libraries implements OData v4 for the list operation. When the server is running in backwards compatibility mode, filtering on a substring isn't supported.
 
 <!-- Links -->
 [1]: /aspnet/core/security/authentication/identity?view=aspnetcore-6.0&preserve-view=true
@@ -283,6 +417,8 @@ The ASP.NET Core edition of the service libraries implements OData v4 for the li
 [4]: /aspnet/core/fundamentals/http-context?view=aspnetcore-6.0&preserve-view=true#use-httpcontext-from-custom-components
 [5]: /ef/core/providers
 [6]: /aspnet/core/tutorials/first-web-api?view=aspnetcore-6.0&preserve-view=true
+
+[cosmos-sample]: https://github.com/azure/azure-mobile-apps/tree/main/samples/CosmosTodoService
 
 [Microsoft.AspNetCore.Datasync]: https://www.nuget.org/packages/Microsoft.AspNetCore.Datasync
 [Microsoft.AspNetCore.Datasync.EFCore]: https://www.nuget.org/packages/Microsoft.AspNetCore.Datasync.EFCore
