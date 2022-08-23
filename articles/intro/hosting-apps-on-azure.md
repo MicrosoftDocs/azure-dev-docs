@@ -35,7 +35,7 @@ Static web apps are commonly built using libraries and frameworks like Angular, 
 
 ## Azure Spring Apps
 
-For Spring Boot microservices, [Azure Spring Apps](/azure/spring-cloud/) provides a managed service that makes it easy to run these services in Azure.  No code changes are required to run these services in Azure. The service manages the infrastructure of Spring Cloud applications so developers can focus on their code. Azure Spring Apps provides lifecycle management using comprehensive monitoring and diagnostics, configuration management, service discovery, CI/CD integration, blue-green deployments, and more.
+For Spring Boot microservices, [Azure Spring Apps](/azure/spring-apps/) provides a managed service that makes it easy to run these services in Azure.  No code changes are required to run these services in Azure. The service manages the infrastructure of Spring Cloud applications so developers can focus on their code. Azure Spring Apps provides lifecycle management using comprehensive monitoring and diagnostics, configuration management, service discovery, CI/CD integration, blue-green deployments, and more.
 
 ## Azure Kubernetes Services
 

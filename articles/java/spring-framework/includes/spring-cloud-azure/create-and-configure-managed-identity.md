@@ -24,7 +24,7 @@ The following list provides references on how to create and configure system-ass
 - Azure App Service and Azure Functions. For more information, see [How to use managed identities for App Service and Azure Functions](/azure/app-service/overview-managed-identity).
 - Azure Containers Instances. For more information, see [How to use managed identities with Azure Container Instances](/azure/container-instances/container-instances-managed-identity).
 - Azure Kubernetes Service (AKS). For more information, see [Use a managed identity in Azure Kubernetes Service](/azure/aks/use-managed-identity).
-- Azure Spring Apps. For more information, see [Enable system-assigned managed identity for an application in Azure Spring Apps](/azure/spring-cloud/how-to-enable-system-assigned-managed-identity?tabs=azure-portal&pivots=sc-standard-tier).
+- Azure Spring Apps. For more information, see [Enable system-assigned managed identity for an application in Azure Spring Apps](/azure/spring-apps/how-to-enable-system-assigned-managed-identity?tabs=azure-portal&pivots=sc-standard-tier).
 
 ### Create and configure a user-assigned managed identity
 
@@ -36,4 +36,4 @@ The following list provides references on how to configure a user-assigned manag
 - Azure App Service and Azure Functions. For more information, see [How to use managed identities for App Service and Azure Functions](/azure/app-service/overview-managed-identity).
 - Azure Containers instances. For more information, see [How to use managed identities with Azure Container Instances](/azure/container-instances/container-instances-managed-identity).
 - Azure Kubernetes Service(AKS). For more information, see [Use a managed identity in Azure Kubernetes Service](/azure/aks/use-managed-identity#bring-your-own-control-plane-mi).
-- Azure Spring Apps. For more information, see [Manage user-assigned managed identities for an application in Azure Spring Apps](/azure/spring-cloud/how-to-manage-user-assigned-managed-identities?tabs=azure-portal&pivots=sc-standard-tier).
+- Azure Spring Apps. For more information, see [Manage user-assigned managed identities for an application in Azure Spring Apps](/azure/spring-apps/how-to-manage-user-assigned-managed-identities?tabs=azure-portal&pivots=sc-standard-tier).

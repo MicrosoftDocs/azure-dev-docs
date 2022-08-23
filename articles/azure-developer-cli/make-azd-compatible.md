@@ -101,7 +101,7 @@ As this sample provisions App Service resources, you need an Azure App Service P
 
 1. Create a file named `main.bicep` as the main entry point. Declare the parameters you include in `main.parameters.json`. For more information, see [Parameters in Bicep](/azure/azure-resource-manager/bicep/parameters). You can also refer to the `main.bicep` of an Azure Developer CLI template - such as the [todo-nodejs-mongo template](https://github.com/Azure-Samples/todo-nodejs-mongo/blob/main/infra/main.bicep) - removing the outputs you don't need. The following code snippet shows an example.
 
-    ```json
+    ```bicep
     targetScope = 'subscription'
 
     @minLength(1)
@@ -149,7 +149,7 @@ As this sample provisions App Service resources, you need an Azure App Service P
 
 1. Declare the following parameters:
     
-    ```json
+    ```bicep
     param location string
     param principalId string = ''
     param resourceToken string
@@ -160,7 +160,7 @@ As this sample provisions App Service resources, you need an Azure App Service P
     
 1. Add the following code, replacing `web` with the name of your service.
 
-    ```json
+    ```bicep
     tags: union(tags, {
       'azd-service-name': 'web'
       })
@@ -168,7 +168,7 @@ As this sample provisions App Service resources, you need an Azure App Service P
 
 1. Add the following code for zip deployment.
 
-    ```json
+    ```bicep
     resource appSettings 'config' = {
       name: 'appsettings'
       properties: {
@@ -179,7 +179,7 @@ As this sample provisions App Service resources, you need an Azure App Service P
 
 1. The following code represents a complete `resources.bicep` file that creates an Azure App Service for hosting a Python web app:
 
-    ```json
+    ```bicep
     param location string
     param principalId string = ''
     param resourceToken string

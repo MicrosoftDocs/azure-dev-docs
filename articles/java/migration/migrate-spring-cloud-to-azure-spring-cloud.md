@@ -39,7 +39,7 @@ If you can't meet any of these pre-migration requirements, see the following com
 
 [!INCLUDE [identify-spring-boot-versions](includes/identify-spring-boot-versions.md)]
 
-For any applications using Spring Boot 1.x, follow the [Spring Boot 2.0 migration guide](https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-2.0-Migration-Guide) to update them to a supported Spring Boot version. For supported versions, see the [Spring Boot and Spring Cloud versions](/azure/spring-cloud/how-to-prepare-app-deployment#spring-boot-and-spring-cloud-versions) section of [Prepare an application for deployment in Azure Spring Apps](/azure/spring-cloud/how-to-prepare-app-deployment).
+For any applications using Spring Boot 1.x, follow the [Spring Boot 2.0 migration guide](https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-2.0-Migration-Guide) to update them to a supported Spring Boot version. For supported versions, see the [Spring Boot and Spring Cloud versions](/azure/spring-apps/how-to-prepare-app-deployment#spring-boot-and-spring-cloud-versions) section of [Prepare an application for deployment in Azure Spring Apps](/azure/spring-apps/how-to-prepare-app-deployment).
 
 #### Identify Spring Cloud versions
 
@@ -66,7 +66,7 @@ ext {
 }
 ```
 
-You'll need to update all applications to use supported versions of Spring Cloud. For a list of supported versions, see the [Spring Boot and Spring Cloud versions](/azure/spring-cloud/how-to-prepare-app-deployment#spring-boot-and-spring-cloud-versions) section of [Prepare an application for deployment in Azure Spring Apps](/azure/spring-cloud/how-to-prepare-app-deployment).
+You'll need to update all applications to use supported versions of Spring Cloud. For a list of supported versions, see the [Spring Boot and Spring Cloud versions](/azure/spring-apps/how-to-prepare-app-deployment#spring-boot-and-spring-cloud-versions) section of [Prepare an application for deployment in Azure Spring Apps](/azure/spring-apps/how-to-prepare-app-deployment).
 
 [!INCLUDE [identify-logs-metrics-apm-azure-spring-cloud.md](includes/identify-logs-metrics-apm-azure-spring-cloud.md)]
 
@@ -144,13 +144,13 @@ If a setting like this appears in your application configuration, remove it. Azu
 
 ### Create an Azure Spring Apps instance and apps
 
-Provision an Azure Spring Apps instance in your Azure subscription. Then, provision an app for every service you're migrating. Don't include the Spring Cloud registry and configuration servers. Do include the Spring Cloud Gateway service. For instructions, see [Quickstart: Deploy your first application to Azure Spring Apps](/azure/spring-cloud/quickstart).
+Provision an Azure Spring Apps instance in your Azure subscription. Then, provision an app for every service you're migrating. Don't include the Spring Cloud registry and configuration servers. Do include the Spring Cloud Gateway service. For instructions, see [Quickstart: Deploy your first application to Azure Spring Apps](/azure/spring-apps/quickstart).
 
 ::: zone pivot="sc-standard-tier"
 
 ### Prepare the Spring Cloud Config server
 
-Configure the configuration server in your Azure Spring Apps instance. For more information, see [Set up a Spring Cloud Config Server instance for your service](/azure/spring-cloud/how-to-config-server).
+Configure the configuration server in your Azure Spring Apps instance. For more information, see [Set up a Spring Cloud Config Server instance for your service](/azure/spring-apps/how-to-config-server).
 
 > [!NOTE]
 > If your current Spring Cloud Config repository is on the local file system or on premises, you'll first need to migrate or replicate your configuration files to a private cloud-based repository, such as GitHub, Azure Repos, or BitBucket.
@@ -171,7 +171,7 @@ In Enterprise tier, Application Configuration Service for VMware Tanzu® is prov
 
 [Application Configuration Service for Tanzu](https://docs.pivotal.io/tcs-k8s/0-1/) is one of the commercial VMware Tanzu components. Application Configuration Service for Tanzu is Kubernetes-native, and totally different from Spring Cloud Config Server. Application Configuration Service for Tanzu enables the management of Kubernetes-native ConfigMap resources that are populated from properties defined in one or more Git repositories.
 
-In Enterprise tier, there's no Spring Cloud Config Server, but you can use Application Configuration Service for Tanzu to manage centralized configurations. For more information, see [Use Application Configuration Service for Tanzu](/azure/spring-cloud/how-to-enterprise-application-configuration-service)
+In Enterprise tier, there's no Spring Cloud Config Server, but you can use Application Configuration Service for Tanzu to manage centralized configurations. For more information, see [Use Application Configuration Service for Tanzu](/azure/spring-apps/how-to-enterprise-application-configuration-service)
 
 To use Application Configuration Service for Tanzu, do the following steps for each of your apps:
 
@@ -180,12 +180,12 @@ To use Application Configuration Service for Tanzu, do the following steps for e
    > [!NOTE]
    > When you change the bind/unbind status, you must restart or redeploy the app to make the change take effect.
 
-1. Set config file patterns. Config file patterns enable you to choose which application and profile the app will use. For more information, see the [Pattern](/azure/spring-cloud/how-to-enterprise-application-configuration-service#pattern) section of [Use Application Configuration Service for Tanzu](/azure/spring-cloud/how-to-enterprise-application-configuration-service).
+1. Set config file patterns. Config file patterns enable you to choose which application and profile the app will use. For more information, see the [Pattern](/azure/spring-apps/how-to-enterprise-application-configuration-service#pattern) section of [Use Application Configuration Service for Tanzu](/azure/spring-apps/how-to-enterprise-application-configuration-service).
 
    Another option is to set the config file patterns at the same time as your app deployment, as shown in the following example:
 
    ```azurecli
-      az spring-cloud app deploy \
+      az spring app deploy \
           --name <app-name> \
           --artifact-path <path-to-your-JAR-file> \
           --config-file-pattern <config-file-pattern>
@@ -199,7 +199,7 @@ Application Configuration Service for Tanzu runs on Kubernetes. To help enable a
 
 #### Tanzu Service Registry
 
-[VMware Tanzu® Service Registry](https://docs.vmware.com/en/Spring-Cloud-Services-for-VMware-Tanzu/index.html) is one of the commercial VMware Tanzu components. Tanzu Service Registry provides your Enterprise-tier apps with an implementation of the Service Discovery pattern, one of the key tenets of a microservice-based architecture. Your apps can use Tanzu Service Registry to dynamically discover and call registered services. Using Tanzu Service Registry is preferable to hand-configuring each client of a service, which can be difficult, or adopting some form of access convention, which can be brittle in production. For more information, see [Use Tanzu Service Registry](/azure/spring-cloud/how-to-enterprise-service-registry).
+[VMware Tanzu® Service Registry](https://docs.vmware.com/en/Spring-Cloud-Services-for-VMware-Tanzu/index.html) is one of the commercial VMware Tanzu components. Tanzu Service Registry provides your Enterprise-tier apps with an implementation of the Service Discovery pattern, one of the key tenets of a microservice-based architecture. Your apps can use Tanzu Service Registry to dynamically discover and call registered services. Using Tanzu Service Registry is preferable to hand-configuring each client of a service, which can be difficult, or adopting some form of access convention, which can be brittle in production. For more information, see [Use Tanzu Service Registry](/azure/spring-apps/how-to-enterprise-service-registry).
 
 ::: zone-end
 
@@ -228,7 +228,7 @@ Remove any metrics clients used or any metrics endpoints exposed in your applica
 
 ### Deploy the services
 
-Deploy each of the migrated Spring apps (not including the Spring Cloud Config and Registry servers), as described in [Quickstart: Deploy your first application to Azure Spring Apps](/azure/spring-cloud/quickstart).
+Deploy each of the migrated Spring apps (not including the Spring Cloud Config and Registry servers), as described in [Quickstart: Deploy your first application to Azure Spring Apps](/azure/spring-apps/quickstart).
 
 ### Configure per-service secrets and externalized settings
 
@@ -256,15 +256,15 @@ Update the configuration of all client applications to use the published Azure S
 
 ## Post-migration
 
-* Consider adding a deployment pipeline for automatic, consistent deployments. Instructions are available [for Azure Pipelines](/azure/spring-cloud/how-to-cicd), [for GitHub Actions](/azure/spring-cloud/how-to-github-actions), and [for Jenkins](/azure/jenkins/tutorial-jenkins-deploy-cli-spring-cloud-service).
+* Consider adding a deployment pipeline for automatic, consistent deployments. Instructions are available [for Azure Pipelines](/azure/spring-apps/how-to-cicd), [for GitHub Actions](/azure/spring-apps/how-to-github-actions), and [for Jenkins](/azure/jenkins/tutorial-jenkins-deploy-cli-spring-cloud-service).
 
-* Consider using staging deployments to test code changes in production before they're available to some or all of your end users. For more information, see [Set up a staging environment in Azure Spring Apps](/azure/spring-cloud/how-to-staging-environment).
+* Consider using staging deployments to test code changes in production before they're available to some or all of your end users. For more information, see [Set up a staging environment in Azure Spring Apps](/azure/spring-apps/how-to-staging-environment).
 
 * Consider adding service bindings to connect your application to supported Azure databases. These service bindings would eliminate the need for you to provide connection information, including credentials, to your Spring Cloud applications.
 
-* Consider using Azure Application Insights to monitor performance and interactions of your applications. For more information, see [Application Insights Java In-Process Agent in Azure Spring Apps](/azure/spring-cloud/how-to-application-insights).
+* Consider using Azure Application Insights to monitor performance and interactions of your applications. For more information, see [Application Insights Java In-Process Agent in Azure Spring Apps](/azure/spring-apps/how-to-application-insights).
 
-* Consider adding Azure Monitor alert rules and action groups to quickly detect and address aberrant conditions. For more information, see [Tutorial: Monitor Spring Cloud resources using alerts and action groups](/azure/spring-cloud/tutorial-alerts-action-groups).
+* Consider adding Azure Monitor alert rules and action groups to quickly detect and address aberrant conditions. For more information, see [Tutorial: Monitor Spring Cloud resources using alerts and action groups](/azure/spring-apps/tutorial-alerts-action-groups).
 
 * Consider replicating the Azure Spring Apps deployment in another region for lower latency and higher reliability and fault tolerance. Use [Azure Traffic Manager](/azure/traffic-manager) to load balance among deployments or use [Azure Front Door](/azure/frontdoor) to add SSL offloading and Web Application Firewall with DDoS protection.
 

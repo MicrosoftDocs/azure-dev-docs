@@ -80,6 +80,83 @@ The following table lists authentication properties:
 > [!TIP]
 > For the list of all Spring Cloud Azure configuration properties, see [List of configuration properties](../../spring-cloud-azure-appendix.md#list-of-configuration-properties).
 
+The application will look in several places to find an available credential, and will use `DefaultAzureCredential` if no credential properties are configured. If you want to use specific credential, see the following examples for guidance.
+
+The following example shows you how to authenticate using a system-assigned managed identity:
+
+```yaml
+spring.cloud.azure:
+  credential:
+    managed-identity-enabled: true
+```
+
+The following example shows you how to authenticate using a user-assigned managed identity:
+
+```yaml
+spring.cloud.azure:
+  credential:
+    managed-identity-enabled: true
+    client-id: ${AZURE_CLIENT_ID}
+```
+
+The following example shows you how to authenticate using a service principal with a client secret:
+
+```yaml
+spring.cloud.azure:
+  credential:
+    client-id: ${AZURE_CLIENT_ID}
+    client-secret: ${AZURE_CLIENT_SECRET}
+  profile:
+    tenant-id: ${AZURE_TENANT_ID}
+```
+
+The following example shows you how to authenticate using a service principal with a client PFX certificate:
+
+```yaml
+spring.cloud.azure:
+  credential:
+    client-id: ${AZURE_CLIENT_ID}
+    client-certificate-path: ${AZURE_CLIENT_CERTIFICATE_PATH}
+    client-certificate-password: ${AZURE_CLIENT_CERTIFICATE_PASSWORD}
+  profile:
+    tenant-id: ${AZURE_TENANT_ID}
+```
+
+The following example shows you how to authenticate using a service principal with client PEM certificate:
+
+```yaml
+spring.cloud.azure:
+  credential:
+    client-id: ${AZURE_CLIENT_ID}
+    client-certificate-path: ${AZURE_CLIENT_CERTIFICATE_PATH}
+  profile:
+    tenant-id: ${AZURE_TENANT_ID}
+```
+
+The following example shows you how to authenticate using a user credential:
+
+```yaml
+spring.cloud.azure:
+  credential:
+    client-id: ${AZURE_CLIENT_ID}
+    username: ${AZURE_USER_USERNAME}
+    password: ${AZURE_USER_PASSWORD}
+```
+
+The following example shows you how to authenticate with Key Vault using a different service principal. This example configures the application with two credentials: one system-assigned managed identity and one service principal. The Key Vault Secret client will use the service principal, but any other components will use managed identity instead.
+
+```yaml
+spring.cloud.azure:
+  credential:
+    managed-identity-enabled: true
+  keyvault.secret:
+    credential:
+      client-id: ${AZURE_CLIENT_ID}
+      client-secret: ${AZURE_CLIENT_SECRET}
+    profile:
+      tenant-id: ${AZURE_TENANT_ID}
+```
+
 ##### Authorize access with Azure Active Directory
 
 The authorization step requires that one or more Azure roles be assigned to the security principal. The roles that are assigned to a security principal determine the permissions that the principal will have.

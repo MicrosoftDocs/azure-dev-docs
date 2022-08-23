@@ -561,7 +561,9 @@ Use the following steps to create the managed identity for the Azure App Service
 1. Create a managed identity for the App Service app. Replace the `<your resource group name>` and `<your app name>` placeholders with the values of the `<resourceGroup>` and `<appName>` elements from your *pom.xml* file.
 
    ```azurecli
-   az webapp identity assign --resource-group <your resource group name> --name <your app name>
+   az webapp identity assign \
+       --resource-group <your-resource-group-name> \
+       --name <your-app-name>
    ```
 
    The output will be similar to the following example. Note down the value of `principalId` for the next step.
@@ -592,8 +594,8 @@ Use the following steps to create the managed identity for the Azure App Service
 
    ```azurecli
    az keyvault set-policy \
-       --name <your Key Vault name> \
-       --object-id <your principal ID> \
+       --name <your-Key-Vault-name> \
+       --object-id <your-principal-ID> \
        --secret-permissions get list
    ```
 
@@ -631,7 +633,7 @@ Instead of returning `defaultValue`, the app gets `connectionString` from the Ke
 
 In this section, you'll deploy the app to Azure Spring Apps.
 
-Azure Spring Apps is a fully managed platform for deploying and running your Spring Boot applications in Azure. For an overview of Azure Spring Apps, see [What is Azure Spring Apps?](/azure/spring-cloud/overview).
+Azure Spring Apps is a fully managed platform for deploying and running your Spring Boot applications in Azure. For an overview of Azure Spring Apps, see [What is Azure Spring Apps?](/azure/spring-apps/overview).
 
 This section will use the Spring Boot app and Key Vault that you created previously with a new instance of Azure Spring Apps.
 
@@ -640,18 +642,20 @@ The following steps will show how to create an Azure Spring Apps resource and de
 1. Decide on a name for the service instance. To use Azure Spring Apps within your Azure subscription, you must create an Azure resource of type Azure Spring Apps. As with all other Azure resources, the service instance must stay within a resource group. Use the resource group you already created to hold the service instance, and choose a name for your Azure Spring Apps instance. Create the service instance with the following command.
 
    ```azurecli
-   az spring-cloud create --resource-group <your resource group name> --name <your Azure Spring Apps instance name>
+   az spring create \
+       --resource-group <your-resource-group-name> \
+       --name <your-Azure-Spring-Apps-instance-name>
    ```
 
    This command takes several minutes to complete.
 
-1. Create a Spring Cloud App within the service.
+1. Create a Spring Cloud App within the service instance.
 
    ```azurecli
-   az spring-cloud app create \
-       --resource-group <your resource group name> \
-       --service <your Azure Spring Apps instance name> \
-       --name <your app name> \
+   az spring app create \
+       --resource-group <your-resource-group-name> \
+       --service <your-Azure-Spring-Apps-instance-name> \
+       --name <your-app-name> \
        --assign-identity \
        --is-public true \
        --runtime-version Java_11 \
@@ -668,14 +672,14 @@ The following steps will show how to create an Azure Spring Apps resource and de
    | is-public | Assign a public DNS domain name to the service. |
    | runtime-version | The Java runtime version. The value must match the value chosen in Spring Initializr above. |
 
-   To understand the difference between *service* and *app*, see [App and deployment in Azure Spring Apps](/azure/spring-cloud/concept-understand-app-and-deployment).
+   To understand the difference between *service* and *app*, see [App and deployment in Azure Spring Apps](/azure/spring-apps/concept-understand-app-and-deployment).
 
 1. Use the following command to get the managed identity for the Azure resource and use it to configure the existing Key Vault to allow access from this App.
 
    ```azurecli
-   SERVICE_IDENTITY=$(az spring-cloud app show --resource-group "contosorg" --name "contosoascsapp" --service "contososvc" | jq -r '.identity.principalId')
+   SERVICE_IDENTITY=$(az spring app show --resource-group "contosorg" --name "contosoascsapp" --service "contososvc" | jq -r '.identity.principalId')
    az keyvault set-policy \
-       --name <your Key Vault name> \
+       --name <your-Key-Vault-name> \
        --object-id <the value of the environment variable SERVICE_IDENTITY> \
        --secret-permissions set get list
    ```
@@ -683,14 +687,14 @@ The following steps will show how to create an Azure Spring Apps resource and de
 1. Because the existing Spring Boot app already has an *application.properties* file with the necessary configuration, we can deploy this app directly to Spring Cloud using the following command. Run the command in the directory containing the POM.
 
    ```azurecli
-   az spring-cloud app deploy \
-       --resource-group <your resource group name> \
-       --name <your Spring Cloud app name> \
+   az spring app deploy \
+       --resource-group <your-resource-group-name> \
+       --name <your-Spring-Cloud-app-name> \
        --jar-path target/keyvault-0.0.1-SNAPSHOT.jar \
-       --service <your Azure Spring Apps instance name>
+       --service <your-Azure-Spring-Apps-instance-name>
    ```
 
-   This command creates a *Deployment* within the app, within the service. For more details on the concepts of service instances, apps, and Deployments see [App and deployment in Azure Spring Apps](/azure/spring-cloud/concept-understand-app-and-deployment).
+   This command creates a *Deployment* within the app, within the service. For more details on the concepts of service instances, apps, and Deployments see [App and deployment in Azure Spring Apps](/azure/spring-apps/concept-understand-app-and-deployment).
 
    If the deployment isn't successful, configure the logs for troubleshooting as described in [Configure application logs](https://aka.ms/azure-spring-cloud-configure-logs). The logs will likely have useful information to diagnose and resolve the problem.
 
@@ -711,7 +715,7 @@ In this tutorial, you created a new Java web application using the Spring Initia
 When you're finished with the Azure resources you created in this tutorial, you can delete them using the following command:
 
 ```azurecli
-az group delete --name <your resource group name>
+az group delete --name <your-resource-group-name>
 ```
 
 ## Next steps
