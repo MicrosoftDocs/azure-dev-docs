@@ -51,7 +51,7 @@ If any of the Spring Cloud applications require authentication or authorization,
 By default, applications deployed to Azure Spring Apps are not visible externally. You can expose your application by making it public with the following command:
 
 ```azurecli
-az spring-cloud app update -n <application name> --is-public true
+az spring app update --name <application name> --is-public true
 ```
 
 Skip this step if you are using or intend to use a Spring Cloud Gateway (more on this in the following section).
