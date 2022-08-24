@@ -122,9 +122,6 @@
     - name: Python
       tocHref: /azure/app-service
       topicHref: /azure/developer/python/index
-    - name: Python
-      tocHref: /azure/aks
-      topicHref: /azure/developer/python/index
     - name: Mobile Apps
       tocHref: /azure/developer/mobile-apps
       topicHref: /azure/developer/mobile-apps/index
