@@ -52,9 +52,9 @@ In this article, you learn how to:
 
     [!code-terraform[master](../../terraform_samples/quickstart/101-resource-group/variables.tf)]
 
-1. Create a file named `output.tf` and insert the following code:
+1. Create a file named `outputs.tf` and insert the following code:
 
-    [!code-terraform[master](../../terraform_samples/quickstart/101-resource-group/output.tf)]
+    [!code-terraform[master](../../terraform_samples/quickstart/101-resource-group/outputs.tf)]
 
 ## Initialize Terraform
 

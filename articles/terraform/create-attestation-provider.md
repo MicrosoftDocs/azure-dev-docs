@@ -54,9 +54,9 @@ In this article, you learn how to:
     
     - Adjust the `policy_file` field as needed to point to your PEM file.
     
-1. Create a file named `output.tf` and insert the following code:
+1. Create a file named `outputs.tf` and insert the following code:
 
-    [!code-terraform[master](~/../terraform_samples/quickstart/101-attestation-provider/output.tf)]
+    [!code-terraform[master](~/../terraform_samples/quickstart/101-attestation-provider/outputs.tf)]
 
 ## 3. Initialize Terraform
 
