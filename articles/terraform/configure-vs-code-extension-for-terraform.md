@@ -67,13 +67,13 @@ You can now run all supported Terraform commands in your Cloud Shell environment
 
     - The `resource_group_name` and `resource_group_location` values are shown with test values. You can set these values to whatever makes sense for your environment.
 
-1. Create a file named `output.tf` to contain the project variables and insert the following code:
+1. Create a file named `outputs.tf` to contain the project variables and insert the following code:
 
-    [!code-terraform[master](../../terraform_samples/quickstart/101-resource-group/output.tf)]
+    [!code-terraform[master](../../terraform_samples/quickstart/101-resource-group/outputs.tf)]
 
     **Key points:**
 
-    - The `output.tf` file displays the randomized resource group name.
+    - The `outputs.tf` file displays the randomized resource group name.
     
 ## 4. Push your code to Cloud Shell
 
