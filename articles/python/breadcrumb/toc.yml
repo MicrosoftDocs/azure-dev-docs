@@ -3,9 +3,9 @@
   topicHref: /azure/index
   items:
   - name: Developer
-    tocHref: /azure/aks
+    tocHref: /azure/developer
     topicHref: /azure/developer/index
     items:
     - name: Python
-      tocHref: /azure/aks/learn
+      tocHref: /azure/aks
       topicHref: /azure/developer/python/index
