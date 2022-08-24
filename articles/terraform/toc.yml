@@ -41,6 +41,12 @@
       href: best-practices-testing-overview.md
     - name: Comparing features of Terraform and Bicep
       href: comparing-terraform-and-bicep.md
+- name: Tutorials
+  items:
+    - name: Security
+      items:
+        - name: Azure Attestation
+          href: create-attestation-provider.md
 - name: How-to guides
   items:
     - name: Test Terraform projects
@@ -125,10 +131,6 @@
           href: create-vm-scaleset-network-disks-hcl.md
         - name: Virtual machine scale set from Packer image
           href: create-vm-scaleset-network-disks-using-packer-hcl.md
-    - name: Security
-      items:
-        - name: Azure Attestation
-          href: create-attestation-provider.md
 - name: Reference
   items:
     - name: Azure module registry
