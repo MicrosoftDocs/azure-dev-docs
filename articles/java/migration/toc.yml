@@ -3,15 +3,6 @@
   items:
     - name: Overview
       href: migration-overview.md
-    - name: Upgrade JDK
-      expanded: true
-      items:
-        - name: Reasons to move to Java 11
-          href: /java/openjdk/reasons-to-move-to-java-11?toc=/azure/developer/java/migration/toc.json&bc=/azure/developer/breadcrumb/toc.json
-        - name: Transition from Java 8 to Java 11
-          href: /java/openjdk/transition-from-java-8-to-java-11?toc=/azure/developer/java/migration/toc.json&bc=/azure/developer/breadcrumb/toc.json
-        - name: Transition from Java 7 to Java 8
-          href: /java/openjdk/transition-from-java-7-to-java-8?toc=/azure/developer/java/migration/toc.json&bc=/azure/developer/breadcrumb/toc.json
     - name: Spring to Azure
       expanded: true
       items:
