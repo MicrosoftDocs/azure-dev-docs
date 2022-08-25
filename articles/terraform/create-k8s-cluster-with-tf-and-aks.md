@@ -51,23 +51,12 @@ Terraform tracks state locally via the `terraform.tfstate` file. This pattern wo
     - [Create a storage account (via Azure CLI)](/azure/storage/common/storage-account-create?tabs=azure-cli)
     - [Create a storage account (via Azure PowerShell)](/azure/storage/common/storage-account-create?tabs=azure-powershell)
 
-1. Browse to the [Azure portal](https://portal.azure.com).
+1. Run the following command to query the keys for the storage account you created; choose one key value to reference in subsequent steps as "<storage_account_key>"
 
-1. Under **Azure services**, select **Storage accounts**. (If the **Storage accounts** option isn't visible on the main page, select **More services** to locate the option.)
-
-1. On the **Storage accounts** page, On the Storage accounts page, select the storage account where Terraform will store the state information.
-
-1. On the **Storage account** page, in the left menu, in the **Security + networking** section, select **Access keys**.
-
-    ![The Storage account page has a menu option to get the access keys.](./media/create-k8s-cluster-with-tf-and-aks/access-keys-menu-option.png)
-
-1. On the **Access keys** page, select **Show keys** to display the key values.
-
-    ![The Access keys page has an option to display the key values.](./media/create-k8s-cluster-with-tf-and-aks/show-keys-option.png)
-
-1. Locate the **key1** **key** on the page and select the icon to its right to copy the key value to the clipboard.
-
-    ![A handy icon button allows you to copy the key values to the clipboard.](./media/create-k8s-cluster-with-tf-and-aks/copy-key-value.png)
+    ```azurecli
+    az storage account keys list \
+       --account-name <storage_account_name>
+    ```
 
 1. From a command line prompt, run [az storage container create](/cli/azure/storage/container#az-storage-container-create). This command creates a container in your Azure storage account. Replace the placeholders with the appropriate values for your Azure storage account.
 
@@ -89,7 +78,7 @@ Terraform tracks state locally via the `terraform.tfstate` file. This pattern wo
 
 1. Create a directory in which to test the sample Terraform code and make it the current directory.
 
-1. Create a file named `providers.tf` and insert the following code.
+1. Create a file named `providers.tf`. This defines the Azure-specific provider parameters for the Terraform backend. Insert the following code.
 
     ```terraform
     terraform {
@@ -115,7 +104,7 @@ Terraform tracks state locally via the `terraform.tfstate` file. This pattern wo
     }
     ```
 
-1. Create a file named `main.tf` and insert the following code:
+1. Create a file named `main.tf`. This defines the set of resources and other artifacts Terraform will create and use to define your architecture. Insert the following code:
 
     ```hcl
     # Generate random resource group name
@@ -123,7 +112,7 @@ Terraform tracks state locally via the `terraform.tfstate` file. This pattern wo
       prefix    = var.resource_group_name_prefix
     }
     
-    resource "azurerm_resource_group" "rg" {
+    resource "azurerm_resource_group" "k8s" {
       name      = random_pet.rg-name.id
       location  = var.resource_group_location
     }
@@ -196,7 +185,7 @@ Terraform tracks state locally via the `terraform.tfstate` file. This pattern wo
     }
     ```
 
-1. Create a file named `variables.tf` and insert the following code:
+1. Create a file named `variables.tf`. This defined specific values, including defaults, the Terraform configuration can reference. Insert the following code:
 
     ```hcl
     variable "resource_group_name_prefix" {
@@ -242,13 +231,26 @@ Terraform tracks state locally via the `terraform.tfstate` file. This pattern wo
         default = "eastus"
     }
 
-   # refer https://azure.microsoft.com/pricing/details/monitor/ for log analytics pricing 
-   variable log_analytics_workspace_sku {
+    # refer https://azure.microsoft.com/pricing/details/monitor/ for log analytics pricing 
+    variable log_analytics_workspace_sku {
         default = "PerGB2018"
-   }
+    }
+   
+    # these following three entries are placeholder references; we will specify values later in terraform.tfvars
+    variable aks_service_principal_app_id {
+        default = ""
+    }
+    
+    variable aks_service_principal_client_secret {
+        default = ""
+    }
+   
+    variable aks_service_principal_object_id {
+        default = ""
+    }
     ```
 
-1. Create a file named `output.tf` and insert the following code.
+1. Create a file named `output.tf`. This defines specific values you can query and monitor once the infrastructure has been applied. Insert the following code.
 
     ```hcl
     output "resource_group_name" {
@@ -285,7 +287,7 @@ Terraform tracks state locally via the `terraform.tfstate` file. This pattern wo
     }
     ```
 
-1. Create a file named `terraform.tfvars` and insert the following code.
+1. Create a file named `terraform.tfvars`. This defines unique and sensitive values for interacting with the Azure backend you have configured. Insert the following code.
 
     ```terraform
     aks_service_principal_app_id = "<service_principal_app_id>"
