@@ -98,7 +98,7 @@
         - name: 5. Clean up resources
           href: tutorial-deploy-containers-05.md
     - name: Deploy a Kubernetes cluster
-      href: /azure/aks/kubernetes-walkthrough?toc=/azure/developer/python/toc.json&bc=/azure/developer/python/breadcrumb/toc.json
+      href: /azure/aks/quick-kubernetes-deploy-cli?toc=/azure/developer/python/toc.json&bc=/azure/developer/python/breadcrumb/toc.json
     - name: Deploy containerized web app
       items:
         - name: 1. Overview
