@@ -53,7 +53,7 @@ The troubleshooting steps might differ, depending on the root cause.
 
 1. Go to the [Azure portal](https://portal.azure.com).
 
-1. Locate your resource group, which is \<your-environment-name>-rg.
+1. Locate your resource group, which is \rg-<your-environment-name>.
 
 1. Select **Deployments** to get more information.
 
