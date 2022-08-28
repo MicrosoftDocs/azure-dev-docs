@@ -11,8 +11,8 @@ ms.custom: devx-track-terraform, devx-track-azurecli
 
 Article tested with the following Terraform and Terraform provider versions:
 
-- [Terraform v1.1.7](https://releases.hashicorp.com/terraform/)
-- [AzureRM Provider v.2.99.0](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs)
+- [Terraform v1.2.7](https://releases.hashicorp.com/terraform/)
+- [AzureRM Provider v.3.20.0](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs)
 
 [!INCLUDE [Terraform abstract](./includes/abstract.md)]
 
