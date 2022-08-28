@@ -162,3 +162,4 @@ az ad sp delete --id <service_principal_object_id>
 
 > [!div class="nextstepaction"] 
 > [Learn more about using Terraform in Azure](/azure/terraform)
+
