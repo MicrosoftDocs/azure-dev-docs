@@ -3,7 +3,7 @@ title: 'Quickstart: Create a Kubernetes cluster with Azure Kubernetes Service (A
 description: Learn how to create a Kubernetes Cluster with Azure Kubernetes Service and Terraform.
 keywords: azure devops terraform aks kubernetes
 ms.topic: quickstart
-ms.date: 08/27/2022
+ms.date: 08/28/2022
 ms.custom: devx-track-terraform, devx-track-azurecli 
 ---
 
@@ -36,14 +36,16 @@ In this article, you learn how to:
 
 - **Azure service principal:** If you don't have a service principal, [create a service principal](authenticate-to-azure.md#create-a-service-principal). Make note of the `appId`, `display_name`, `password`, and `tenant`.
 
-- **Service principal object ID**: Run the following command to get the object ID of the service principal: `az ad sp list --display-name "<display_name>" --query "[].{\"Object ID\":objectId}" --output table`
+- **Service principal object ID:** Run the following command to get the object ID of the service principal: `az ad sp list --display-name "<display_name>" --query "[].{\"Object ID\":objectId}" --output table`
 
-- **SSH key pair**: Use one of the following articles:
+- **SSH key pair:** Use one of the following articles:
 
     - [Portal](/azure/virtual-machines/ssh-keys-portal#generate-new-keys)
     - [Windows](/azure/virtual-machines/linux/ssh-from-windows#create-an-ssh-key-pair)
     - [Linux/MacOS](/azure/virtual-machines/linux/mac-create-ssh-keys#create-an-ssh-key-pair)
-    
+
+- **Kubernetes command-line tool (kubectl):** [Download kubectl](https://kubernetes.io/releases/download/).
+
 ## Implement the Terraform code
 
 1. Create a directory in which to test the sample Terraform code and make it the current directory.
@@ -114,9 +116,9 @@ In this article, you learn how to:
     cat ./azurek8s
     ```
 
-   ***Key points:**
+   **Key points:**
 
-    - If you see `<< EOT` at the beginning and `EOT` at the end, edit the content of the file to remove these characters. Otherwise, you could receive the following error message: `error: error loading config file "./azurek8s": yaml: line 2: mapping values are not allowed in this context`
+    - If you see `<< EOT` at the beginning and `EOT` at the end, remove these characters from the file. Otherwise, you could receive the following error message: `error: error loading config file "./azurek8s": yaml: line 2: mapping values are not allowed in this context`
 
 1. Set an environment variable so that kubectl picks up the correct config.
 
