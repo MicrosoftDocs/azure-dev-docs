@@ -60,9 +60,9 @@ For the steps ahead, you'll need to create a .NET console app using either the .
 
 ### [.NET CLI](#tab/net-cli)
 
-1. In a console window, or Bash), use the `dotnet new` command to create a new console app with the name *BlobQuickstartV12*. This command creates a simple "Hello World" C# project with a single source file: *Program.cs*.
+1. In a console window (such as cmd, PowerShell, or Bash), use the `dotnet new` command to create a new console app with the name *BlobQuickstartV12*. This command creates a simple "Hello World" C# project with a single source file: *Program.cs*.
 
-   ```console
+   ```dotnetcli
    dotnet new console -n BlobQuickstartV12
    ```
 
@@ -76,7 +76,7 @@ For the steps ahead, you'll need to create a .NET console app using either the .
     * Visual Studio, locate and double-click the `BlobQuickStartV12.csproj` file.
     * Visual Studio Code, run the following command:
 
-    ```console
+    ```bash
     code .
     ```
 ---
