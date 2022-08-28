@@ -83,7 +83,7 @@ After you copy the connection string, write it to a new environment variable on 
 
 **Windows**:
 
-```cmd
+```console
 setx AZURE_STORAGE_CONNECTION_STRING "<yourconnectionstring>"
 ```
 

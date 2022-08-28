@@ -1,13 +1,13 @@
 ---
 ms.author: tarcher
 ms.topic: include
-ms.date: 01/04/2022
+ms.date: 08/27/2022
 ms.custom: devx-track-terraform
 ---
 
 Run [terraform apply](https://www.terraform.io/docs/commands/apply.html) to apply the execution plan to your cloud infrastructure.
 
-```cmd
+```console
 terraform apply main.tfplan
 ```
 
