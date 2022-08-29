@@ -10,6 +10,14 @@ ms.date: 08/29/2022
 
 Find new and updated content for JavaScript and TypeScript developers.
 
+## 2022 August
+
+### Updated in August
+
+|Name|Description|
+|---------------------------------------|--|
+|GraphQL|Samples and procedures updated to latest frameworks:<br>* [Deploy a GraphQL API as an Azure Function](how-to/with-web-app/graphql/azure-function-hello-world.md)<br>* [Deploy a GraphQL API for CRUD mutations as an Azure Function](how-to/with-web-app/graphql/azure-function-crud-mutation.md) <br>* [Build and deploy a GraphQL static web app to Azure](how-to/with-web-app/graphql/static-web-app-graphql/introduction.md)|
+
 ## 2022 July 
 
 ### New in July
