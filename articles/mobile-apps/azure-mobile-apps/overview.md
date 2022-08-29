@@ -32,7 +32,7 @@ With the Mobile Apps SDKs, you can:
 
 The following features are important to cloud-enabled mobile development:
 
-* **Authentication and authorization**: Use Azure Mobile Apps to sign-in users using social and enterprise provides.  Azure App Service supports Azure Active Directory, Facebook, Google, Microsoft, Twitter, and OpenID Connect.  You can also use any other header-based authorization scheme.
+* **Authentication and authorization**: Use Azure Mobile Apps to sign-in users using social and enterprise provides.  Azure App Service supports Azure Active Directory, Facebook, Google, Microsoft, Twitter, and OpenID Connect.  Azure Mobile Apps supports any authentication scheme that is supported by ASP.NET Core.
 
 * **Data access**: Azure Mobile Apps provides a mobile-friendly OData v4 data source that's linked to a compatible database via Entity Framework Core. Any compatible database can be used, including Azure SQL, Cosmos DB, or an on-premises Microsoft SQL Server.
 
