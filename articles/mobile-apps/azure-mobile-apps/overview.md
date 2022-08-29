@@ -10,8 +10,6 @@ ms.author: adhal
 
 # About Azure Mobile Apps
 
-[Azure App Service](/azure/app-service/overview) is a fully managed [platform as a service](https://azure.microsoft.com/overview/what-is-paas/) (PaaS) offering for professional developers. The service brings a rich set of capabilities to web, mobile, and integration scenarios.
-
 The Microsoft Datasync Framework (also known as Azure Mobile Apps) gives enterprise developers and system integrators a mobile-application development platform that's highly scalable and globally available.  The framework provides your mobile app with:
 
 * Authentication
@@ -60,9 +58,14 @@ The following platform features are useful for mobile production sites:
 
 To get started with Azure Mobile Apps, complete a Getting Started tutorial. The tutorial covers the basics of producing a mobile service and client of your choice. It also covers integrating authentication and offline sync. You can complete the tutorial multiple times, once for each client application.
 
-* [Apache Cordova](quickstarts/cordova/index.md)
-* [Windows (UWP)](quickstarts/uwp/index.md)
-* [Windows (WPF)](quickstarts/wpf/index.md)
-* [Xamarin (Android)](quickstarts/xamarin-android/index.md)
-* [Xamarin (iOS)](quickstarts/xamarin-ios/index.md)
-* [Xamarin (Forms)](quickstarts/xamarin-forms/index.md)
+* Windows App Development
+  * [Universal Windows Platform (UWP)](quickstarts/uwp/index.md)
+  * [Windows Presentation Frameworks (WPF)](quickstarts/wpf/index.md)
+  * [Windows App SDK (WinUI 3)](quickstarts/winui/index.md)
+* Native Mobile App Development
+  * [Xamarin (Android)](quickstarts/xamarin-android/index.md)
+  * [Xamarin (iOS)](quickstarts/xamarin-ios/index.md)
+* Cross-platform Mobile App Development
+  * [.NET MAUI](quickstarts/maui/index.md)
+  * [Avalonia](quickstarts/avalonia/index.md)
+  * [Xamarin (Forms)](quickstarts/xamarin-forms/index.md)
