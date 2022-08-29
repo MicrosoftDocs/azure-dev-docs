@@ -2,7 +2,7 @@
 title: "What's new with JavaScript Cloud Developer Advocates"
 description: "What's new with JavaScript Cloud Developer Advocates (CDA)"
 ms.topic: how-to
-ms.date: 05/23/2022
+ms.date: 08/29/2022
 ---
 
 # What's new with JavaScript Developer Advocates
@@ -32,6 +32,31 @@ This content is primarily from Developer Advocates as well as other members of t
 |Client web apps|Beginner's Series to: Vue.js|[Beginner video series](https://youtu.be/LnngsOg014Y)|
 |Client web apps|Comparing Azure Static Web Apps vs Azure WebApps vs Azure Blob Storage Static Sites|[Blog post](https://devblogs.microsoft.com/devops/comparing-azure-static-web-apps-vs-azure-webapps-vs-azure-blob-storage-static-sites/)|
 |Microsoft Graph|Get started with Microsoft Graph and JavaScript|[Samples](https://developer.microsoft.com/graph/get-started/javascript)|
+
+## 2022 August
+
+|Cloud Advocate|Contributions|Link|
+|--|--|--|
+|[Aaron Powell][Aaron]|GraphQL on Azure: Part 10 - Synthetic GraphQL Custom Responses|[Blog](https://www.aaron-powell.com/posts/2022-08-17-graphql-on-azure-part-10-synthetic-graphql-custom-responses/)|
+|[Aaron Powell][Aaron]|GraphQL on Azure: Part 9 - Synthetic GraphQL|[Blog](https://www.aaron-powell.com/posts/2022-08-16-graphql-on-azure-part-9-rest-to-graphql/)|
+|[Aaron Powell][Aaron]|Fixing When SWA Pull Request Builds Can't Add Comments|[Blog](https://www.aaron-powell.com/posts/2022-08-09-fixing-when-swa-prs-cant-add-comments/)|
+|[Aysegul Yonet][Aysegul]|AI for JS devs|[YouTube](https://youtube.com/playlist?list=PLlrxD0HtieHhejzXIMfhAB06nU-gp4Q-b)|
+|[Glaucia Lemos][Glaucia]|Prisma & Azure SQL Collaboration|**Portuguese** - [YouTube](https://www.youtube.com/playlist?list=PLb2HQ45KP0WuiiSRWrN44YNkmwiUbla8T)|
+
+## 2022 July
+
+|Cloud Advocate|Contributions|Link|
+|--|--|--|
+|[Aaron Powell][Aaron]|Taking a Static Web apps (SWA) DevOps pipeline to the next level|[Blog](https://www.aaron-powell.com/posts/2022-07-20-taking-a-swa-devops-pipeline-to-the-next-level/)|
+|[Aaron Powell][Aaron]|Working with add-mask an GitHub actions for Dynamic secrets|[Blog](https://www.aaron-powell.com/posts/2022-06-29-deploy-swa-with-bicep/)|
+
+
+## 2022 June
+
+|Cloud Advocate|Contributions|Link|
+|--|--|--|
+|[Aaron Powell][Aaron]|Deploy Static Web apps (SWA) with Bicep|[Blog](https://www.aaron-powell.com/posts/2022-07-20-taking-a-swa-devops-pipeline-to-the-next-level/)|
+|[Aaron Powell][Aaron]|React app with APIM Token store|[Video](https://techcommunity.microsoft.com/t5/apps-on-azure-blog/implementing-a-token-store-with-apim-authorizations/ba-p/3453516)|
 
 ## 2022 May
 

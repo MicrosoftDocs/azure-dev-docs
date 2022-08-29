@@ -117,7 +117,7 @@ As this sample provisions App Service resources, you need an Azure App Service P
     param principalId string = ''
 
     resource resourceGroup 'Microsoft.Resources/resourceGroups@2020-06-01' = {
-        name: '${name}-rg'
+        name: 'rg-${name}'
         location: location
         tags: tags
     }
@@ -158,7 +158,7 @@ As this sample provisions App Service resources, you need an Azure App Service P
     param linuxFxVersion string = 'PYTHON|3.8'
     ```
     
-1. Add the following code, replacing `web` with the name of your service.
+1. Add the following code, to add a tag named azd-service-name with the value of web to your Azure resource. `azd` uses this tag to determine what resource to deploy your application to. The value should match the name of your service as defined in [azure.yaml](#update-azureyaml).
 
     ```bicep
     tags: union(tags, {
@@ -232,7 +232,7 @@ As this sample provisions App Service resources, you need an Azure App Service P
     ```
     
     **Key points:**
-    - After you run `azd provision`, the Azure resources are created under the resource group `<environment_name>-rg`.
+    - After you run `azd provision`, the Azure resources are created under the resource group `rg-<environment_name>`.
     - The web end point is added to `.env` file in the project's `.azure/<environment_name>` directory.
 
 ## Update azure.yaml

@@ -137,7 +137,7 @@ Use the following steps to create an application.
 1. Specify the following options:
 
    * Generate a **Maven** project with **Java**.
-   * Specify a **Spring Boot** version that is equal to **2.7.2**.
+   * Specify a **Spring Boot** version that is equal to **2.7.3**.
    * Specify the **Group** and **Artifact** names for your application.
    * Select **8** or **11** for the Java version.
    * Add the **Web**, **Azure Support**, **Cloud Stream**, and **Spring for Apache Kafka** dependencies.
