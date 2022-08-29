@@ -39,6 +39,10 @@
           href: create-k8s-cluster-with-tf-and-aks.md
         - name: Application Gateway ingress controller in AKS
           href: create-k8s-cluster-with-aks-applicationgateway-ingress.md
+    - name: Database
+      items:
+        - name: MySQL Flexible Server
+          href: /azure/mysql/flexible-server/quickstart-create-terraform
     - name: Virtual machines
       items:
       - name: Create a Linux VM
@@ -85,8 +89,6 @@
       items:
         - name: Azure Cosmos DB
           href: deploy-azure-cosmos-db-to-azure-container-instances.md
-        - name: MySQL Flexible Server
-          href: /azure/mysql/flexible-server/quickstart-create-terraform
         - name: PostgreSQL Flexible Server Database
           href: deploy-postgresql-flexible-server-database.md
     - name: Networks
