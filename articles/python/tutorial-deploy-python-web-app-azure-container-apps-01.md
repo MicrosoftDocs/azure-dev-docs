@@ -11,7 +11,9 @@ ms.author: jejohn
 
 # Overview: Deploy a Python web app on Azure Container Apps
 
-This tutorial shows you how to containerize a Python web app and deploy it to [Azure Container Apps](/azure/container-apps/). The provided sample web app can be containerized and the container image stored in [Azure Container Registry](/azure/container-registry). Azure Container Apps is configured to pull container images from Container Registry. The sample app connects to to a [Azure Database for PostgreSQL](/azure/postgresql/) to show communicating between Container Apps and other Azure resources. FInally, an optional step in the tutorial shows you how to build a continuous integration and continuous delivery (CI/CD) pipeline with GitHub actions.
+This tutorial shows you how to containerize a Python web app and deploy it to [Azure Container Apps](/azure/container-apps/). The provided sample web app can be containerized and the container image stored in [Azure Container Registry](/azure/container-registry). Azure Container Apps is initially configured to pull the container image from Container Registry. The sample app connects to to a [Azure Database for PostgreSQL](/azure/postgresql/) to show communicating between Container Apps and other Azure resources. 
+
+To make code changes and push them to the container, you create a new container image with the change, push to Container Registry, and create a new [revision](/azure/container-apps/revisions) of the container app.  To automate this process, an optional step in the tutorial shows you how to build a continuous integration and continuous delivery (CI/CD) pipeline with GitHub actions. The pipeline automatically builds and deploys your code to the Container App. 
 
 Azure Container Apps enables you to run microservices and containerized applications on a serverless platform. This means that you enjoy the benefits of running containers with minimal configuration. With Azure Container Apps, your applications can dynamically scale based on characteristics such as HTTP traffic, event-driven processing, or CPU or memory load. 
 
@@ -38,9 +40,11 @@ The components supporting this tutorial and shown in the diagram above are:
 
 ## Authentication and security
 
-In this tutorial, you'll build a Docker image directly in Azure and deploy it to Azure Container Apps. Container Apps run in the context of an environment, which is supported by a virtual network (VNET). Azure Virtual Networks (VNet) are fundamental building block for your private network in Azure. Container Apps allows you to expose your container app to the public web by enabling ingress. 
+In this tutorial, you'll build a Docker container image directly in Azure and deploy it to Azure Container Apps. Container Apps run in the context of an environment, which is supported by a virtual network (VNET). Azure Virtual Networks (VNet) are fundamental building block for your private network in Azure. Container Apps allows you to expose your container app to the public web by enabling ingress. 
 
-Container Apps uses a service principal is used to securely pull images from Azure Container Registry. The service princiap allows grants permissions to the Container Apps so that it can access other Azure resources without the need to specify credentials.  When you set up continuous deployment, the service principal is created for you automatically. 
+When you initially configure a container in Container Apps, you configure which container image to use from Azure Container Registry. You can create new revisions that use different versions of that image or a new image. This is useful if you are making code changes or doing A/B testing. 
+
+To set up continuous integration and continuous delivery (CI/CD), you connect to a GitHub account, repository, and branch. In addition, you create an Azure Active Directory service principal (or using an existing) with role-based access control.
 
 The tutorial sample web app uses PostgreSQL to store data. The sample code connects to PostgreSQL via a connection string. The connection string is stored securely using an [Azure Service Connector](/azure/service-connector/overview), which helps you connect Azure compute services to other backing services. During the configuration of the Container App, the tutorial walks your through the service connector.
 
