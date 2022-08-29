@@ -32,6 +32,9 @@ In this article, you learn how to:
 > * Create a virtual machine
 > * Use SSH to connect to virtual machine
 
+> [!NOTE]
+> The example code in this article is located in the [Microsoft Terraform GitHub repo](https://github.com/Azure/terraform/tree/master/quickstart/101-vm-with-infrastructure).
+
 ## Prerequisites
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../includes/open-source-devops-prereqs-azure-subscription.md)]
