@@ -92,9 +92,9 @@ In this article, you learn how to:
 
 1. Under **Azure services**, select **Resource groups** and locate your new resource group to see the following resources created in this demo:
 
-    - **Log Analytics Solution:** By default, the demo names this solution **ContainerInsights**. The portal will show the solutions workspace in parenthesis.
-    - **Log Analytics Workspace:** By default, the demo names this workspace with a prefix of **TestLogAnalyticsWorkspaceName-** followed by a random number.
+    - **Solution:** By default, the demo names this solution **ContainerInsights**. The portal will show the solutions workspace in parenthesis.
     - **Kubernetes service:** By default, the demo names this service **k8stest**. (A Managed Kubernetes Cluster is also known as an AKS / Azure Kubernetes Service.)
+    - **Log Analytics Workspace:** By default, the demo names this workspace with a prefix of **TestLogAnalyticsWorkspaceName-** followed by a random number.
 
 1. Get the Kubernetes configuration from the Terraform state and store it in a file that kubectl can read.
 
