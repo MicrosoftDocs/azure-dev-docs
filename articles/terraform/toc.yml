@@ -37,8 +37,6 @@
       items:
         - name: Kubernetes cluster with AKS
           href: create-k8s-cluster-with-tf-and-aks.md
-        - name: Application Gateway ingress controller in AKS
-          href: create-k8s-cluster-with-aks-applicationgateway-ingress.md
     - name: Database
       items:
         - name: MySQL Flexible Server
