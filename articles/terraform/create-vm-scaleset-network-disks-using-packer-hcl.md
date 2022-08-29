@@ -70,7 +70,7 @@ In this article, you learn how to:
 
 1. Build the Packer image.
 
-    ```cmd
+    ```console
     packer build ubuntu.json
     ```
 

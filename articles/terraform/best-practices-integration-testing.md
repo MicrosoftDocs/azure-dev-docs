@@ -48,13 +48,13 @@ The [terraform validate](https://www.terraform.io/docs/commands/validate.html) c
 
 1. Run [terraform init](https://www.terraform.io/docs/commands/init.html) to initialize the working directory.
 
-    ```cmd
+    ```console
     terraform init
     ```
 
 1. Run [terraform validate](https://www.terraform.io/docs/commands/validate.html) to validate the syntax of the configuration files.
 
-    ```cmd
+    ```console
     terraform validate
     ```
 
@@ -70,7 +70,7 @@ The [terraform validate](https://www.terraform.io/docs/commands/validate.html) c
 
 1. Run validation again.
 
-    ```cmd
+    ```console
     terraform validate
     ```
 
@@ -92,7 +92,7 @@ To generate the Terraform execution plan, you run [terraform plan](https://www.t
 
 If you're following along with the article and you've done the steps in the previous section, run the `terraform plan` command:
 
-```cmd
+```console
 terraform plan
 ```
 
