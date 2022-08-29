@@ -51,7 +51,7 @@ This content is primarily from Developer Advocates as well as other members of t
 |[Aaron Powell][Aaron]|Working with add-mask an GitHub actions for Dynamic secrets|[Blog](https://www.aaron-powell.com/posts/2022-06-29-deploy-swa-with-bicep/)|
 
 
-## 2022 July
+## 2022 June
 
 |Cloud Advocate|Contributions|Link|
 |--|--|--|
