@@ -147,7 +147,7 @@ In this article, you learn how to:
 1. Run [az ad sp list](/cli/azure/ad/sp#az-ad-sp-list) to get the object ID of the service principal.
 
     ```azurecli
-    az ad sp list --display-name "<display_name>" --query "[].{\"Object ID\":objectId}" --output table
+    az ad sp list --display-name "<display_name>" --query "[].{\"Object ID\":id}" --output table
 
 1. Run [az ad sp delete](/cli/azure/ad/sp#az-ad-sp-delete) to delete the service principal.
 
