@@ -36,8 +36,6 @@ In this article, you learn how to:
 
 - **Azure service principal:** If you don't have a service principal, [create a service principal](authenticate-to-azure.md#create-a-service-principal). Make note of the `appId`, `display_name`, `password`, and `tenant`.
 
-- **Service principal object ID:** Run the following command to get the object ID of the service principal: `az ad sp list --display-name "<display_name>" --query "[].{\"Object ID\":objectId}" --output table`
-
 - **SSH key pair:** Use one of the following articles:
 
     - [Portal](/azure/virtual-machines/ssh-keys-portal#generate-new-keys)
@@ -144,11 +142,18 @@ In this article, you learn how to:
 ### Delete service principal
 
 > [!CAUTION]
-> Only delete the service principal you used in this demo if you're not using it for anything else.
+> Delete the service principal you used in this demo only if you're not using it for anything else.
 
-```azurecli
-az ad sp delete --id <service_principal_object_id>
-```
+1. Run [az ad sp list](/cli/azure/ad/sp#az-ad-sp-list) to get the object ID of the service principal.
+
+    ```azurecli
+    az ad sp list --display-name "<display_name>" --query "[].{\"Object ID\":objectId}" --output table
+
+1. Run [az ad sp delete](/cli/azure/ad/sp#az-ad-sp-delete) to delete the service principal.
+
+    ```azurecli
+    az ad sp delete --id <service_principal_object_id>
+    ```
 
 ## Troubleshoot Terraform on Azure
 
