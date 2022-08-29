@@ -34,7 +34,7 @@ The following features are important to cloud-enabled mobile development:
 
 * **Authentication and authorization**: Use Azure Mobile Apps to sign-in users using social and enterprise provides.  Azure App Service supports Azure Active Directory, Facebook, Google, Microsoft, Twitter, and OpenID Connect.  You can also use any other header-based authorization scheme.
 
-* **Data access**: Mobile Apps provides a mobile-friendly OData v4 data source that's linked to a compatible database via Entity Framework Core. Any compatible database can be used, including Azure SQL, Cosmos DB, or an on-premise Microsoft SQL Server.
+* **Data access**: Mobile Apps provides a mobile-friendly OData v4 data source that's linked to a compatible database via Entity Framework Core. Any compatible database can be used, including Azure SQL, Cosmos DB, or an on-premises Microsoft SQL Server.
 
 * **Offline sync**: Build robust and responsive mobile applications that operate with an offline dataset. You can sync this dataset automatically with service, and handle conflicts with ease.
 
