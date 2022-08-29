@@ -2,7 +2,7 @@
 title: "What's new for JavaScript docs"
 description: "What's new in JavaScript docs in the Developer Center"
 ms.topic: how-to
-ms.date: 07/26/2022
+ms.date: 08/29/2022
 
 ---
 
@@ -12,7 +12,7 @@ Find new and updated content for JavaScript and TypeScript developers.
 
 ## 2022 July 
 
-### New in June
+### New in July
 
 |Name|Description|
 |---------------------------------------|--|
