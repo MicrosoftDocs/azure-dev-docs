@@ -10,7 +10,7 @@ ms.author: adhal
 
 # About Azure Mobile Apps
 
-Azure Mobile Apps (also known as the Microsoft Datasync Framework) gives enterprise developers and system integrators a mobile-application development platform that's highly scalable and globally available.  The framework provides your mobile app with:
+Azure Mobile Apps (also known as the Microsoft Data sync Framework) gives enterprise developers and system integrators a mobile-application development platform that's highly scalable and globally available.  The framework provides your mobile app with:
 
 * Authentication
 * Data query
