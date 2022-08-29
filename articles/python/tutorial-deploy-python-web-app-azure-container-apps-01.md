@@ -13,10 +13,6 @@ ms.author: jejohn
 
 This tutorial shows you how to containerize a Python web app and deploy it to [Azure Container Apps](/azure/container-apps/). The provided sample web app can be containerized and the container image stored in [Azure Container Registry](/azure/container-registry). Azure Container Apps is initially configured to pull the container image from Container Registry. The sample app connects to a [Azure Database for PostgreSQL](/azure/postgresql/) to show communicating between Container Apps and other Azure resources. 
 
-To make code changes and push them to the container, you create a new container image with the change. Then, you push the image to Container Registry, and create a new [revision](/azure/container-apps/revisions) of the container app. To automate this process, an optional step in the tutorial shows you how to build a continuous integration and continuous delivery (CI/CD) pipeline with GitHub actions. The pipeline automatically builds and deploys your code to the Container App. 
-
-Azure Container Apps enables you to run microservices and containerized applications on a serverless platform. A serverless platform means that you enjoy the benefits of running containers with minimal configuration. With Azure Container Apps, your applications can dynamically scale based on characteristics such as HTTP traffic, event-driven processing, or CPU or memory load. 
-
 There are many options to build and deploy cloud native and containerized Python web apps on Azure. If you're starting off with containers, deploying your web app as a container to either Azure Web App Service or Azure Container Apps is a good first step. This tutorial covers Azure Container Apps. Deploying a Python web app as a container to Azure App Service is covered in the tutorial [Containerized Python web app on Azure](./tutorial-containerize-deploy-python-web-app-azure-01.md). Other options such as Azure Container Instance and Azure Kubernetes Service are covered in the article [Comparing Container Apps with other Azure container options](/azure/container-apps/compare-options).
 
 In this tutorial you will:
@@ -29,6 +25,8 @@ Following this tutorial, you'll have the basis for Continuous Integration (CI) a
 
 ## Service Overview
 
+Azure Container Apps enables you to run microservices and containerized applications on a serverless platform. A serverless platform means that you enjoy the benefits of running containers with minimal configuration. With Azure Container Apps, your applications can dynamically scale based on characteristics such as HTTP traffic, event-driven processing, or CPU or memory load. 
+
 \[Diagram\]
 
 The components supporting this tutorial and shown in the diagram above are:
@@ -37,6 +35,10 @@ The components supporting this tutorial and shown in the diagram above are:
 * Azure Container Registry
 * Azure Database of PostgreSQL
 * GitHub
+
+## Revisions and CI/CD 
+
+To make code changes and push them to the container, you create a new container image with the change. Then, you push the image to Container Registry, and create a new [revision](/azure/container-apps/revisions) of the container app. To automate this process, an optional step in the tutorial shows you how to build a continuous integration and continuous delivery (CI/CD) pipeline with GitHub actions. The pipeline automatically builds and deploys your code to the Container App. 
 
 ## Authentication and security
 
