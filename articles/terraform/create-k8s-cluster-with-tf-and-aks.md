@@ -3,7 +3,7 @@ title: 'Quickstart: Create a Kubernetes cluster with Azure Kubernetes Service (A
 description: Learn how to create a Kubernetes Cluster with Azure Kubernetes Service and Terraform.
 keywords: azure devops terraform aks kubernetes
 ms.topic: quickstart
-ms.date: 08/28/2022
+ms.date: 08/29/2022
 ms.custom: devx-track-terraform, devx-track-azurecli 
 ---
 
@@ -26,7 +26,7 @@ In this article, you learn how to:
 > * Use the kubectl tool to test the availability of a Kubernetes cluster
 
 > [!NOTE]
-> The example code in this article is located in the [Microsoft Terraform GitHub repo](https://github.com/Azure/terraform/tree/UserStory1981979/quickstart/201-k8s-cluster-with-tf-and-aks).
+> The example code in this article is located in the [Microsoft Terraform GitHub repo](https://github.com/Azure/terraform/tree/master/quickstart/201-k8s-cluster-with-tf-and-aks).
 
 ## Prerequisites
 
@@ -52,29 +52,23 @@ In this article, you learn how to:
 
 1. Create a file named `providers.tf` and insert the following code:
 
-    [!code-terraform[UserStory1981979](~/../terraform_samples/quickstart/201-k8s-cluster-with-tf-and-aks/providers.tf)]
+    [!code-terraform[master](~/../terraform_samples/quickstart/201-k8s-cluster-with-tf-and-aks/providers.tf)]
 
 1. Create a file named `main.tf` and insert the following code:
 
-    [!code-terraform[UserStory1981979](~/../terraform_samples/quickstart/201-k8s-cluster-with-tf-and-aks/main.tf)]
+    [!code-terraform[master](~/../terraform_samples/quickstart/201-k8s-cluster-with-tf-and-aks/main.tf)]
 
 1. Create a file named `variables.tf` and insert the following code:
 
-    [!code-terraform[UserStory1981979](~/../terraform_samples/quickstart/201-k8s-cluster-with-tf-and-aks/variables.tf)]
+    [!code-terraform[master](~/../terraform_samples/quickstart/201-k8s-cluster-with-tf-and-aks/variables.tf)]
 
 1. Create a file named `outputs.tf` and insert the following code:
 
-    [!code-terraform[UserStory1981979](~/../terraform_samples/quickstart/201-k8s-cluster-with-tf-and-aks/outputs.tf)]
+    [!code-terraform[master](~/../terraform_samples/quickstart/201-k8s-cluster-with-tf-and-aks/outputs.tf)]
 
 1. Create a file named `terraform.tfvars` and insert the following code.
 
-    [!code-terraform[UserStory1981979](~/../terraform_samples/quickstart/201-k8s-cluster-with-tf-and-aks/terraform.tfvars)]
-
-    **Key points:**
-
-    - Set `aks_service_principal_app_id` to the service principal `appId` value.
-    - Set `aks_service_principal_client_secret` to the service principal `password` value.
-    - Set `aks_service_principal_object_id` to the service principal object ID. (The Azure CLI command for obtaining this value is in the [Configure your environment](#prerequisites) section.)
+    [!code-terraform[master](~/../terraform_samples/quickstart/201-k8s-cluster-with-tf-and-aks/terraform.tfvars)]
 
 ## Initialize Terraform
 
@@ -164,4 +158,3 @@ az ad sp delete --id <service_principal_object_id>
 
 > [!div class="nextstepaction"] 
 > [Learn more about using Terraform in Azure](/azure/terraform)
-
