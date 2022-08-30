@@ -1,7 +1,7 @@
 ---
 title: 'Quickstart: Deploy an Azure Cosmos DB to Azure Container Instances'
 description: Learn how to use Terraform to deploy an Azure Cosmos DB to Azure Container Instances
-ms.topic: how-to
+ms.topic: quickstart
 ms.date: 08/30/2022
 ms.custom: devx-track-terraform
 ---
@@ -88,7 +88,7 @@ In this article, you learn how to:
     ```azurecli
     az cosmosdb sql database list \
       --resource-group <resource_group_name> \
-      --acount-name <cosmosdb_account_name>
+      --account-name <cosmosdb_account_name>
     ```
   
 ## Test application
