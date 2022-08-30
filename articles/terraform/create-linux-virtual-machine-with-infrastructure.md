@@ -96,6 +96,9 @@ To use SSH to connect to the virtual machine, do the following steps:
     ssh -i id_rsa azureuser@<public_ip_address>
     ```
 
+    **Key points:** 
+    - Depending on the permisssions of your environment, you might get an error when trying to ssh into the virtual machine using  the `id_rsa` key file. If you get an error stating that the private key file is unprotected and can't be used, try running the following command: `chmod 600 id_rsa`, which will restrict read and write access to the owner of the file.
+
 ## Troubleshoot Terraform on Azure
 
 [Troubleshoot common problems when using Terraform on Azure](troubleshoot.md)
