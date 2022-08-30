@@ -33,7 +33,7 @@ landingContent:
       - linkListType: learn
         links:
           - text: Build mobile apps with Xamarin.Forms
-            url: /learn/paths/build-mobile-apps-with-xamarin-forms/
+            url: /learn/modules/create-a-mobile-app-with-xamarin-forms/
       - linkListType: video
         links:
           - text: Build an entire mobile app with Azure
