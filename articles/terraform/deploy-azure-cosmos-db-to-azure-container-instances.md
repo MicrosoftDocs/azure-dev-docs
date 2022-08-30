@@ -73,35 +73,35 @@ In this article, you learn how to:
 
 1. Get the resource group name.
 
-  ```console
-  echo "$(terraform output resource_group_name)"
-  ```
+    ```console
+    echo "$(terraform output resource_group_name)"
+    ```
 
 1. Get the Cosmos DB account name.
 
-  ```console
-  echo "$(terraform output cosmosdb_account_name)"
-  ```
+    ```console
+    echo "$(terraform output cosmosdb_account_name)"
+    ```
 
 1. Run [az cosmosdb sql database list](/cli/azure/cosmosdb/sql/database#az-cosmosdb-sql-database-list)/
 
-  ```azurecli
-  az cosmosdb sql database list \
-    --resource-group <resource_group_name> \
-    --acount-name <cosmosdb_account_name>
-  ```
+    ```azurecli
+    az cosmosdb sql database list \
+      --resource-group <resource_group_name> \
+      --acount-name <cosmosdb_account_name>
+    ```
   
 ## Test application
 
 1. Get the Cosmos DB account name.
 
-  ```console
-  echo "$(terraform output dns)"
-  ```
+    ```console
+    echo "$(terraform output dns)"
+    ```
 
 1. Browse to the URL indicated in the previous step. You should see results similar to the following output:
 
-  ![Azure vote application](media/deploy-azure-cosmos-db-to-azure-container-instances/azure-vote.jpg)
+    ![Azure vote application](media/deploy-azure-cosmos-db-to-azure-container-instances/azure-vote.jpg)
 
 ## Clean up resources
 
