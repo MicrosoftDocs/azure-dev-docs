@@ -118,7 +118,7 @@ conceptualContent:
           url: /azure/spring-apps/overview#enterprise-tier-overview
       footerLink:
           text: See more
-          url: /azure/spring-cloud
+          url: /azure/spring-apps
 
     - title: Spring on Azure integration
       links:
