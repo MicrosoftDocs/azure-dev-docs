@@ -100,3 +100,5 @@ The Python sample app is a restaurant review app that saves restaurant and revie
 [11]: https://www.djangoproject.com/
 [12]: https://pypi.org/project/psycopg-binary/
 [13]: https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurecontainerapps
+[16]: https://code.visualstudio.com/
+[17]: /cli/azure/what-is-azure-cli
