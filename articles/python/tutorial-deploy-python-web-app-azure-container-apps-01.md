@@ -19,21 +19,33 @@ In this tutorial you will:
 
 * Build a Docker container image directly in Azure.
 * Configure an Azure Container App to host the container image.
-* Optionally configure a GitHub action that updates the container image triggered by checkins to GitHub.
+* Optionally configure a GitHub action that updates the container image triggered by checkin to GitHub.
 
 Following this tutorial, you'll have the basis for Continuous Integration (CI) and Continuous Deployment (CD) of a Python web app to Azure.
 
 ## Service Overview
+ 
+The service diagram supporting this tutorial shows how your local environment, GitHub repositories, and different Azure services are used in the tutorial.
 
-Azure Container Apps enables you to run microservices and containerized applications on a serverless platform. A serverless platform means that you enjoy the benefits of running containers with minimal configuration. With Azure Container Apps, your applications can dynamically scale based on characteristics such as HTTP traffic, event-driven processing, or CPU or memory load. 
+:::image type="content" source="./media/tutorial-container-apps/service-diagram-overview-for-tutorial-deploy-python-azure-container-apps.png" alt-text="A screenshot of the services using in the Tutorial - Containerized Python App on Azure." lightbox="./media/tutorial-container-apps/service-diagram-overview-for-tutorial-deploy-python-azure-container-apps.png":::
+
 
 \[Diagram\]
 
 The components supporting this tutorial and shown in the diagram above are:
 
 * Azure Container Apps
+  * Azure Container Apps enables you to run microservices and containerized applications on a serverless platform. A serverless platform means that you enjoy the benefits of running containers with minimal configuration. With Azure Container Apps, your applications can dynamically scale based on characteristics such as HTTP traffic, event-driven processing, or CPU or memory load.
+  * Container Apps pulls image from Azure Container Registry. Revisions to container images trigger an update to the deployed container. You can also configure changes to GitHub to trigger the update. 
+
 * Azure Container Registry
+  * Azure Container Registry enables you to work with Docker images and its components in Azure. It provides a registry that's close to your deployments in Azure and that gives you control over access, making it possible to use your Azure Active Directory groups and permissions.
+  * In this tutorial, the registry source is Azure Container Registry, but you can also use Docker Hub or a private registry with minor modifications.
+
+* Azure Service Connector
+
 * Azure Database of PostgreSQL
+
 * GitHub
 
 ## Revisions and CI/CD 
@@ -44,9 +56,9 @@ To make code changes and push them to the container, you create a new container 
 
 In this tutorial, you'll build a Docker container image directly in Azure and deploy it to Azure Container Apps. Container Apps run in the context of an environment, which is supported by a virtual network (VNET). Azure Virtual Networks (VNet) are fundamental building block for your private network in Azure. Container Apps allows you to expose your container app to the public web by enabling ingress. 
 
-When you initially configure a container in Container Apps, you configure which container image to use from Azure Container Registry. You can create new revisions that use different versions of that image or a new image. Revisions are useful, for example,  when you're making code changes or doing A/B testing. 
+When you initially configure a container in Container Apps, you configure which container image to use from Azure Container Registry. You can create new revisions that use different versions of that image or a new image. Revisions are useful, for example, when you're making code changes or doing A/B testing. 
 
-To set up continuous integration and continuous delivery (CI/CD), you connect to a GitHub account, repository, and branch. In addition, you create an Azure Active Directory service principal (or using an existing) with role-based access control.
+To set up continuous integration and continuous delivery (CI/CD), you connect to a GitHub account, repository, and branch. In addition, you create an Azure Active Directory service principal (or using an existing) context with role-based access control.
 
 The tutorial sample web app uses PostgreSQL to store data. The sample code connects to PostgreSQL via a connection string. The connection string is stored securely using an [Azure Service Connector](/azure/service-connector/overview), which helps you connect Azure compute services to other backing services. During the configuration of the Container App, the tutorial walks you through the service connector.
 
