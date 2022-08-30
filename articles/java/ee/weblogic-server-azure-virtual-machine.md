@@ -10,7 +10,7 @@ ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-wls, devx-track
 
 # Quickstart: Deploy WebLogic Server on Azure Virtual Machine using the Azure portal
 
-This article shows you how to quickly deploy WebLogic Application Server (WLS) on Azure Virtual Machine (VM) with the simplest possible set of configuration choices using the Azure portal. For a more full featured tutorial, including the use of Azure Application Gateway to make WLS cluster on VM securely visible on the public Internet, see [Tutorial: Migrate a WebLogic Server cluster to Azure with Azure Application Gateway as a load balancer](/azure/developer/java/migration/migrate-weblogic-with-app-gateway).
+This article shows you how to quickly deploy WebLogic Application Server (WLS) on Azure Virtual Machines (VM) with the simplest possible set of configuration choices using the Azure portal. For a more full featured tutorial, including the use of Azure Application Gateway to make WLS cluster on VM securely visible on the public Internet, see [Tutorial: Migrate a WebLogic Server cluster to Azure with Azure Application Gateway as a load balancer](/azure/developer/java/migration/migrate-weblogic-with-app-gateway).
 
 In this quickstart, you will:
 
@@ -25,7 +25,7 @@ This quickstart assumes a basic understanding of WLS concepts. For more informat
 
 ## Deploy WLS with Administration Server on VM
 
-The steps in this section direct you to deploy WLS on VM in the simplest possible way using [single node with an admin server](https://aka.ms/wls-vm-admin) offer. There are another three offers available to meet different scenarios: [single node without an admin server](https://aka.ms/wls-vm-singlenode), [cluster](https://aka.ms/wls-vm-cluster), and [dynamic cluster](https://aka.ms/wls-vm-dynamic-cluster). For more information, see [What are solutions for running Oracle WebLogic Server on Azure Virtual Machines?](/azure/virtual-machines/workloads/oracle/oracle-weblogic).
+The steps in this section direct you to deploy WLS on VM in the simplest possible way: using [single node with an admin server](https://aka.ms/wls-vm-admin) offer. Other offers are available to meet different scenarios, including: [single node without an admin server](https://aka.ms/wls-vm-singlenode), [cluster](https://aka.ms/wls-vm-cluster), and [dynamic cluster](https://aka.ms/wls-vm-dynamic-cluster). For more information, see [What are solutions for running Oracle WebLogic Server on Azure Virtual Machines?](/azure/virtual-machines/workloads/oracle/oracle-weblogic).
 
 :::image type="content" source="media/weblogic-server-azure-virtual-machine/portal-start-experience.png" alt-text="WebLogic Server With Admin Server portal experience":::
 
@@ -38,9 +38,9 @@ The steps in this section show you how to find the WLS with Admin Server offer a
 1. On the **Basics** blade, ensure the value shown in the **Subscription** field is the same one that has the roles listed in the prerequisites section.
 1. The offer must be deployed in an empty resource group. In the **Resource group** field, select **Create new** and fill in a value for the resource group. Because resource groups must be unique within a subscription, pick a unique name. An easy way to have unique names is to use a combination of your initials, todays date, and some identifier. For example `ejb0802wls`.
 1. Under **Instance details**, select the region for the deployment. For a list of Azure regions how and where VMs operate, see [Regions for virtual machines in Azure](/azure/virtual-machines/regions).
-1. Under the **Oracle WebLogic Image**, leave the default value.
-1. Under the **Virtual machine size**, leave the default value. 
-   If the default size isn't available in your region, select a workable size by clicking **Change size** and select one of the listed sizes.
+1. Accept the default value in **Oracle WebLogic Image**.
+1. Accept the default value in **Virtual machine size**.
+   If the default size isn't available in your region, choose an available size by selecting **Change size**, then select one of the listed sizes.
 1. Under **Credentials for Virtual Machines and WebLogic** leave the default value for **Username for admin account of VMs**.
 
 You've several options to provide authentication to the VM, but can only choose one. 
@@ -50,26 +50,26 @@ The steps in this section explain each option so you can choose the best one for
 
 ### Option 1: Use password
 
-This option is to use password for VM authentication, following the steps to provide values:
+This option configures a simple username/password pair for VM authentication. Follow these steps to provide values:
 
 1. Under **Authentication type**, leave the default value **Password**.
 1. Fill in `wlsVmAdmin2022` for **Password**. Use the same value for the confirmation field.
 
 ### Option 2: Generate new Key pair
 
-With this option, the offer will generate public key source. After the offer passes validation, you'll get a pop-up window to download the SSH key.
+This option generates a public key pair, installing the public key on the server. After the offer passes validation, you'll get a pop-up window to download the SSH key pair.
 
-Follow the steps to provide values for the WLS deployment:
+Follow these steps to provide values for the WLS deployment:
 
 1. Under **Authentication type**, select **SSH Public Key**.
 1. Under **SSH public key source**, select **Generate new key pair**.
 1. Fill in `wlsKeyAdmin2022` for **Key pair name**.
 
-When you have completed the offer validation, and select **Create**, you'll then get a pop-up window to, select **Download private key and create resource**. This will download the SSH key as a .pem file.
+When you have completed the offer validation, and select **Create**.  You'll then get a pop-up window. Select **Download private key and create resource**. This will download the SSH key as a .pem file.
 
 :::image type="content" source="media/weblogic-server-azure-virtual-machine/download-private-key-and-create-resources.png" alt-text="Download private key and create resource":::
 
-Once the .pem file is downloaded, you might want to move it somewhere on your computer where it's easy to point to from your SSH client.
+Once the .pem file is downloaded, you might want to move it somewhere on your computer where it's easy to reference from your SSH client.
 
 ### Option 3: Use an SSH public key stored in Azure
 
@@ -98,7 +98,7 @@ This option allows you to private an SSH public key for VM authentication.
 
 If you don't have an SSH key, you can follow [Create an SSH key pair](/azure/virtual-machines/linux/mac-create-ssh-keys#create-an-ssh-key-pair) to create a key pair using RSA encryption and a bit length of 4096. Note that Azure currently supports SSH protocol 2 (SSH-2) RSA public-private key pairs with a minimum length of 2048 bits.
 
-Now, you can display your public key with the following `cat` command, replacing `~/.ssh/id_rsa.pub` with the path and filename of your own public key file if needed:
+You can display your public key with the following `cat` command, replacing `~/.ssh/id_rsa.pub` with the path and filename of your own public key file if needed:
 
 ```bash
 cat ~/.ssh/id_rsa.pub
@@ -107,7 +107,7 @@ cat ~/.ssh/id_rsa.pub
 A typical public key value looks like this example:
 
 ```text
-ssh-rsa AAAAB3NzaC1yc2EAABADAQABAAACAQC1/KanayNr+Q7ogR5mKnGpKWRBQU7F3Jjhn7utdf7Z2iUFykaYx+MInSnT3XdnBRS8KhC0IP8ptbngIaNOWd6zM8hB6UrcRTlTpwk/SuGMw1Vb40xlEFphBkVEUgBolOoANIEXriAMvlDMZsgvnMFiQ12tD/u14cxy1WNEMAftey/vX3Fgp2vEq4zHXEliY/sFZLJUJzcRUI0MOfHXAuCjg/qyqqbIuTDFyfg8k0JTtyGFEMQhbXKcuP2yGx1uw0ice62LRzr8w0mszftXyMik1PnshRXbmE2xgINYg5xo/ra3mq2imwtOKJpfdtFoMiKhJmSNHBSkK7vFTeYgg0v2cQ2+vL38lcIFX4Oh+QCzvNF/AXoDVlQtVtSqfQxRVG79Zqio5p12gHFktlfV7reCBvVIhyxc2LlYUkrq4DHzkxNY5c9OGSHXSle9YsO3F1J5ip18f6gPq4xFmo6dVoJodZm9N0YMKCkZ4k1qJDESsJBk2ujDPmQQeMjJX3FnDXYYB182ZCGQzXfzlPDC29cWVgDZEXNHuYrOLmJTmYtLZ4WkdUhLLlt5XsdoKWqlWpbegyYtGZgeZNRtOOdN6ybOPJqmYFd2qRtb4sYPniGJDOGhx4VodXAjT09omhQJpE6wlZbRWDvKC55R2d/CSPHJscEiuudb+1SG2uA/oik/WQ== username@domainname
+ssh-rsa AAAAB...Q== username@domainname
 ```
 
 Then, follow the steps to provide values for the WLS deployment:
@@ -116,10 +116,10 @@ Then, follow the steps to provide values for the WLS deployment:
 1. Under **SSH public key source**, select **Use existing public key**.
 1. Fill in **SSH public key** with your public key value.
 
-Now, you have finished configurating VM authentication, you can continue with the other aspects of the WLS deployment.
+You've finished configurating VM authentication. Continue with the other aspects of the WLS deployment.
 
 1. Leave the default value for **Username for WebLogic Administrator**.
-1. Fill in `wlsAksCluster2022` for the **Password for WebLogic Administrator**. Use the same value for the confirmation.
+1. Fill in `wlsVmCluster2022` for the **Password for WebLogic Administrator**. Use the same value for the confirmation.
 1. Select **Review + create**. Ensure the green **Validation Passed** message appears at the top. If not, fix any validation problems and select **Review + create** again.
 1. Select **Create**.
 1. Track the progress of the deployment in the **Deployment is in progress** page.
@@ -150,7 +150,7 @@ After completing the steps, you can run a sample application in the WLS.
 1. Paste the value of **adminConsoleURL** in an Internet connected web browser. You should see the familiar WLS admin console login screen as shown here.
   :::image type="content" source="media/weblogic-server-azure-kubernetes-service/wls-admin-login.png" alt-text="WLS admin login screen":::
 
-1. Log in with user name `weblogic` and your password (this quick start uses `wlsAksCluster2022`). You will find the WLS Administration Console overview page.
+1. Log in with user name `weblogic` and your password (this quick start uses `wlsVmCluster2022`). You will find the WLS Administration Console overview page.
 1. Under **Change Center** on the top left corner, hit **Lock & Edit** button, as shown here.
   :::image type="content" source="media/weblogic-server-azure-virtual-machine/admin-console-portal.png" alt-text="Admin Console Portal":::
 
@@ -161,8 +161,8 @@ After completing the steps, you can run a sample application in the WLS.
     - Select **Finish**.
 1. Under **Change Center** on the top left corner, hit **Activate Changes** button. You will find message **All changes have been activated. No restarts are necessary**.
 1. Under **Summary of Deployments**, select **Control**. Click the checkbox near the application name to select the application. Hit **Start** and select **Servicing all requests**.
-1. Under **Start Application Assistant**, select **Yes**. You will find a message **Start requests have been sent to the selected deployments.** if no error happens.
-1. Construct a fully qualified URL for the sample app with pattern `http://<vm-host-name>:<port>/<your-app-path>`. You can get the host name and port from **adminConsoleURL** by removing `/console/`. If you are using the recommended sample app, the URL should be `http://<vm-host-name>:<port>/testwebapp/`, something like `http://wls-5b942e9f2a-admindomain.westus.cloudapp.azure.com:7001/testwebapp/`.
+1. Under **Start Application Assistant**, select **Yes**. If no error happens, you'll find a message **Start requests have been sent to the selected deployments.**
+1. Construct a fully qualified URL for the sample app, such as `http://<vm-host-name>:<port>/<your-app-path>`. You can get the host name and port from **adminConsoleURL** by removing `/console/`. If you are using the recommended sample app, the URL should be `http://<vm-host-name>:<port>/testwebapp/`. It'll look something like `http://wls-5b942e9f2a-admindomain.westus.cloudapp.azure.com:7001/testwebapp/`.
 1. Paste the fully qualified URL in an Internet connected web browser. If you deployed the recommended sample app, you should see the following page.
   :::image type="content" source="media/weblogic-server-azure-virtual-machine/testwebapp.png" alt-text="test web app":::
 
@@ -206,3 +206,5 @@ If you're not going to continue to use the WLS, delete resources with the follow
 Continue to explore options to run WLS on Azure.
 > [!div class="nextstepaction"]
 > [Learn more about Oracle WebLogic on Azure](/azure/virtual-machines/workloads/oracle/oracle-weblogic)
+> [Explore the official documentation from Oracle](http://aka.ms/wls-vm-docs)
+> [Explore the options for day 2 and beyond](https://aka.ms/wls-vms-day2)
