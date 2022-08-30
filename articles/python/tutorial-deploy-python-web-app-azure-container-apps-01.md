@@ -11,15 +11,15 @@ ms.author: jejohn
 
 # Overview: Deploy a Python web app on Azure Container Apps
 
-This tutorial shows you how to containerize a Python web app and deploy it to [Azure Container Apps](/azure/container-apps/). The provided sample web app can be containerized and the container image stored in [Azure Container Registry](/azure/container-registry). Azure Container Apps is initially configured to pull the container image from Container Registry. The sample app connects to a [Azure Database for PostgreSQL](/azure/postgresql/) to show communicating between Container Apps and other Azure resources. 
+This tutorial shows you how to containerize a Python web app and deploy it to [Azure Container Apps][2]. The provided sample web app can be containerized and the container image stored in [Azure Container Registry][3]. Azure Container Apps is initially configured to pull the container image from Container Registry. The sample app connects to a [Azure Database for PostgreSQL][4] to show communicating between Container Apps and other Azure resources. 
 
-There are many options to build and deploy cloud native and containerized Python web apps on Azure. If you're starting off with containers, deploying your web app as a container to either Azure Web App Service or Azure Container Apps is a good first step. This tutorial covers Azure Container Apps. Deploying a Python web app as a container to Azure App Service is covered in the tutorial [Containerized Python web app on Azure](./tutorial-containerize-deploy-python-web-app-azure-01.md). Other options such as Azure Container Instance and Azure Kubernetes Service are covered in the article [Comparing Container Apps with other Azure container options](/azure/container-apps/compare-options).
+There are many options to build and deploy cloud native and containerized Python web apps on Azure. If you're starting off with containers, deploying your web app as a container to either Azure Web App Service or Azure Container Apps is a good first step. This tutorial covers Azure Container Apps. Deploying a Python web app as a container to Azure App Service is covered in the tutorial [Containerized Python web app on Azure](./tutorial-containerize-deploy-python-web-app-azure-01.md). Other options such as Azure Container Instance and Azure Kubernetes Service are covered in the article [Comparing Container Apps with other Azure container options][5].
 
 In this tutorial you will:
 
-* Build a Docker container image directly in Azure.
-* Configure an Azure Container App to host the container image.
-* Optionally configure a GitHub action that updates the container image triggered by checkin to GitHub.
+* Build [Docker][1] container image from a Python web app.
+* Configure [Azure Container Apps][2] to host the container image.
+* Set up a [GitHub Action][6] that updates the container image triggered by changes to repo. *This last step is optional.*
 
 Following this tutorial, you'll have the basis for Continuous Integration (CI) and Continuous Deployment (CD) of a Python web app to Azure.
 
@@ -27,26 +27,25 @@ Following this tutorial, you'll have the basis for Continuous Integration (CI) a
  
 The service diagram supporting this tutorial shows how your local environment, GitHub repositories, and different Azure services are used in the tutorial.
 
-:::image type="content" source="./media/tutorial-container-apps/service-diagram-overview-for-tutorial-deploy-python-azure-container-apps.png" alt-text="A screenshot of the services using in the Tutorial - Containerized Python App on Azure." lightbox="./media/tutorial-container-apps/service-diagram-overview-for-tutorial-deploy-python-azure-container-apps.png":::
-
-
-\[Diagram\]
+:::image type="content" source="./media/tutorial-container-apps/service-diagram-overview-for-tutorial-deploy-python-azure-container-apps.png" alt-text="A screenshot of the services using in the Tutorial - Deploy a Python App on Azure Container Apps." lightbox="./media/tutorial-container-apps/service-diagram-overview-for-tutorial-deploy-python-azure-container-apps.png":::
 
 The components supporting this tutorial and shown in the diagram above are:
 
-* Azure Container Apps
+* [Azure Container Apps][2]
   * Azure Container Apps enables you to run microservices and containerized applications on a serverless platform. A serverless platform means that you enjoy the benefits of running containers with minimal configuration. With Azure Container Apps, your applications can dynamically scale based on characteristics such as HTTP traffic, event-driven processing, or CPU or memory load.
   * Container Apps pulls image from Azure Container Registry. Revisions to container images trigger an update to the deployed container. You can also configure changes to GitHub to trigger the update. 
 
-* Azure Container Registry
+* [Azure Container Registry][3]
   * Azure Container Registry enables you to work with Docker images and its components in Azure. It provides a registry that's close to your deployments in Azure and that gives you control over access, making it possible to use your Azure Active Directory groups and permissions.
   * In this tutorial, the registry source is Azure Container Registry, but you can also use Docker Hub or a private registry with minor modifications.
 
-* Azure Service Connector
+* [Azure Database of PostgreSQL][4]
 
-* Azure Database of PostgreSQL
+* [Azure Service Connector][8]
+  * Service Connector helps you connect Azure compute services to other backing services.
+  * The Service Connector is used during the configuration of Azure Container Apps. The connector generates environment variables containing connection information for PostgreSQL.
 
-* GitHub
+* [GitHub][1]
 
 ## Revisions and CI/CD 
 
@@ -78,7 +77,11 @@ To complete this tutorial, you'll need:
    * LIBRARY for connecting to Postgres
    * Flask or Django as a web framework.
 
-
-
-
-
+[1]: https://www.docker.com/
+[2]: /azure/container-apps/
+[3]: /azure/container-registry
+[4]: /azure/postgresql/
+[5]: /azure/container-apps/compare-options
+[6]: https://docs.github.com/en/actions
+[7]: https://github.com/
+[8]: /azure/service-connector/
