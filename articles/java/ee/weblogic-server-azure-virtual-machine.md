@@ -206,5 +206,5 @@ If you're not going to continue to use the WLS, delete resources with the follow
 Continue to explore options to run WLS on Azure.
 > [!div class="nextstepaction"]
 > [Learn more about Oracle WebLogic on Azure](/azure/virtual-machines/workloads/oracle/oracle-weblogic)
-> [Explore the official documentation from Oracle](http://aka.ms/wls-vm-docs)
+> [Explore the official documentation from Oracle](https://aka.ms/wls-vm-docs)
 > [Explore the options for day 2 and beyond](https://aka.ms/wls-vms-day2)
