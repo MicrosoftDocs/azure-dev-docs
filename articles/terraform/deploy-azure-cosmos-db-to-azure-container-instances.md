@@ -1,16 +1,21 @@
 ---
-title: Deploy an Azure Cosmos DB to Azure Container Instances
+title: 'Quickstart: Deploy an Azure Cosmos DB to Azure Container Instances'
 description: Learn how to use Terraform to deploy an Azure Cosmos DB to Azure Container Instances
 ms.topic: how-to
 ms.date: 08/30/2022
 ms.custom: devx-track-terraform
 ---
 
-# Deploy an Azure Cosmos DB to Azure Container Instances
+# Quickstart: Deploy an Azure Cosmos DB to Azure Container Instances
+
+Article tested with the following Terraform and Terraform provider versions:
+
+- [Terraform v1.2.7](https://releases.hashicorp.com/terraform/)
+- [AzureRM Provider v.3.20.0](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs)
 
 [!INCLUDE [Terraform abstract](./includes/abstract.md)]
 
-In this article, you learn how to use Terraform to deploy an Azure Cosmos DB to Azure Container Instances.
+This article shows how to use Terraform to deploy an Azure Cosmos DB to Azure Container Instances.
 
 In this article, you learn how to:
 > [!div class="checklist"]
@@ -19,162 +24,88 @@ In this article, you learn how to:
 > * Create an Azure Container Instance
 > * Create an app that works across these two resources
 
-## 1. Configure your environment
+> [!NOTE]
+> The example code in this article is located in the [Microsoft Terraform GitHub repo](https://github.com/Azure/terraform/tree/UserStory1983164/quickstart/101-cosmos-db-azure-container-instance).
+
+## Prerequisites
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../includes/open-source-devops-prereqs-azure-subscription.md)]
 
 [!INCLUDE [configure-terraform.md](includes/configure-terraform.md)]
 
-## 2. Create first configuration
+## Implement the Terraform code
 
-In this section, you create the configuration for an Azure Cosmos DB instance.
+1. Create a directory in which to test the sample Terraform code and make it the current directory.
 
-1. Sign in to the [Azure portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Create a file named `providers.tf` and insert the following code:
 
-1. Open the Azure Cloud Shell.
+    [!code-terraform[UserStory1983164](~/../terraform_samples/quickstart/201-k8s-cluster-with-tf-and-aks/providers.tf)]
 
-1. Start the Cloud Shell editor:
+1. Create a file named `main.tf` and insert the following code:
 
-    ```bash
-    code main.tf
-    ```
+    [!code-terraform[UserStory1983164](~/../terraform_samples/quickstart/201-k8s-cluster-with-tf-and-aks/main.tf)]
 
-1. The configuration in this step models a couple of Azure resources. These resources include an Azure resource group and an Azure Cosmos DB instance. A random integer is used to create a unique Cosmos DB instance name. Several Cosmos DB settings are also configured. For more information, see the [Cosmos DB Terraform reference](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/cosmosdb_account). Insert the following code into the file:
+1. Create a file named `aci.tf` and insert the following code:
 
-    ```hcl
-    resource "azurerm_resource_group" "vote-resource-group" {
-      name     = "vote-resource-group"
-      location = "westus"
-    }
+    [!code-terraform[UserStory1983164](~/../terraform_samples/quickstart/201-k8s-cluster-with-tf-and-aks/aci.tf)]
 
-    resource "random_integer" "ri" {
-      min = 10000
-      max = 99999
-    }
+1. Create a file named `variables.tf` and insert the following code:
 
-    resource "azurerm_cosmosdb_account" "vote-cosmos-db" {
-      name                = "tfex-cosmos-db-${random_integer.ri.result}"
-      location            = azurerm_resource_group.vote-resource-group.location
-      resource_group_name = azurerm_resource_group.vote-resource-group.name
-      offer_type          = "Standard"
-      kind                = "GlobalDocumentDB"
+    [!code-terraform[UserStory1983164](~/../terraform_samples/quickstart/201-k8s-cluster-with-tf-and-aks/variables.tf)]
 
-      consistency_policy {
-        consistency_level       = "BoundedStaleness"
-        max_interval_in_seconds = 10
-        max_staleness_prefix    = 200
-      }
+1. Create a file named `outputs.tf` and insert the following code:
 
-      geo_location {
-        location          = "westus"
-        failover_priority = 0
-      }
-    }
-    ```
+    [!code-terraform[UserStory1983164](~/../terraform_samples/quickstart/201-k8s-cluster-with-tf-and-aks/outputs.tf)]
 
-1. Save the file (**&lt;Ctrl>S**) and exit the editor (**&lt;Ctrl>Q**).
+## Initialize Terraform
 
-## 3. Run the configuration
+[!INCLUDE [terraform-init.md](includes/terraform-init.md)]
 
-In this section, you use several Terraform commands to run the configuration.
+## Create a Terraform execution plan
 
-1. The [terraform init](https://www.terraform.io/cli/commands/init) command initializes the working directory. Run the following command in Cloud Shell:
+[!INCLUDE [terraform-plan.md](includes/terraform-plan.md)]
 
-    ```bash
-    terraform init
-    ```
+## Apply a Terraform execution plan
 
-1. The [terraform plan](https://www.terraform.io/cli/commands/plan) command can be used to validate the configuration syntax. The `-out` parameter directs the results to a file. The output file can be used later to apply the configuration. Run the following command in Cloud Shell:
+[!INCLUDE [terraform-apply-plan.md](includes/terraform-apply-plan.md)]
 
-    ```bash
-    terraform plan --out plan.out
-    ```
+## Verify the results
 
-1. The [terraform apply](https://www.terraform.io/cli/commands/apply) command is used to apply the configuration. The output file from the previous step is specified. This command causes the Azure resources to be created. Run the following command in Cloud Shell:
+1. Get the resource group name.
 
-    ```bash
-    terraform apply plan.out
-    ```
+  ```console
+  echo "$(terraform output resource_group_name)"
+  ```
 
-1. To verify the results within the Azure portal, browse to the new resource group. The new Azure Cosmos DB instance is in the new resource group.
+1. Get the Cosmos DB account name.
 
-## 4. Update configuration
+  ```console
+  echo "$(terraform output cosmosdb_account_name)"
+  ```
 
-This section shows how to update the configuration to include an Azure Container Instance. The container runs an application that reads and writes data to the Cosmos DB.
+1. Run [az cosmosdb sql database list](/cli/azure/cosmosdb/sql/database#az-cosmosdb-sql-database-list)/
 
-1. Start the Cloud Shell editor:
+  ```azurecli
+  az cosmosdb sql database list \
+    --resource-group <resource_group_name> \
+    --acount-name <cosmosdb_account_name>
+  ```
+  
+## Test application
 
-    ```bash
-    code main.tf
-    ```
+1. Get the Cosmos DB account name.
 
-1. The configuration in this step sets two environment variables: `COSMOS_DB_ENDPOINT` and `COSMOS_DB_MASTERKEY`. These variables hold the location and key for accessing the database. The values for these variables are obtained from the database instance created in the previous step. This process is known as interpolation. To learn more about Terraform interpolation, see [Interpolation Syntax](https://www.terraform.io/language/v1.1.x/configuration-0-11/interpolation). The configuration also includes an output block, which returns the fully qualified domain name (FQDN) of the container instance. Insert the following code into the file:
+  ```console
+  echo "$(terraform output dns)"
+  ```
 
-    ```hcl
-    resource "azurerm_container_group" "vote-aci" {
-      name                = "vote-aci"
-      location            = azurerm_resource_group.vote-resource-group.location
-      resource_group_name = azurerm_resource_group.vote-resource-group.name
-      ip_address_type     = "public"
-      dns_name_label      = "vote-aci"
-      os_type             = "linux"
+1. Browse to the URL indicated in the previous step. You should see results similar to the following output:
 
-      container {
-        name   = "vote-aci"
-        image  = "mcr.microsoft.com/azuredocs/azure-vote-front:cosmosdb"
-        cpu    = "0.5"
-        memory = "1.5"
-        ports {
-          port     = 80
-          protocol = "TCP"
-        }
+  ![Azure vote application](media/deploy-azure-cosmos-db-to-azure-container-instances/azure-vote.jpg)
 
-        secure_environment_variables = {
-          "COSMOS_DB_ENDPOINT"  = azurerm_cosmosdb_account.vote-cosmos-db.endpoint
-          "COSMOS_DB_MASTERKEY" = azurerm_cosmosdb_account.vote-cosmos-db.primary_master_key
-          "TITLE"               = "Azure Voting App"
-          "VOTE1VALUE"          = "Cats"
-          "VOTE2VALUE"          = "Dogs"
-        }
-      }
-    }
+## Clean up resources
 
-    output "dns" {
-      value = azurerm_container_group.vote-aci.fqdn
-    }
-    ```
-
-1. Save the file (**&lt;Ctrl>S**) and exit the editor (**&lt;Ctrl>Q**).
-
-1. As you did in the previous section, run the following command to visual the changes to be made:
-
-    ```bash
-    terraform plan --out plan.out
-    ```
-
-1. Run the `terraform apply` command to apply the configuration.
-
-    ```bash
-    terraform apply plan.out
-    ```
-
-1. Make note of the container instance FQDN.
-
-## 5. Test application
-
-To test the application, navigate to the FQDN of the container instance. You should see results similar to the following output:
-
-![Azure vote application](media/deploy-azure-cosmos-db-to-azure-container-instances/azure-vote.jpg)
-
-## 6. Clean up resources
-
-When no longer needed, delete the resources created in this article.
-
-Run the [terraform destroy](https://www.terraform.io/cli/commands/destroy) command to remove the Azure resources created in this article:
-
-```bash
-terraform destroy -auto-approve
-```
+[!INCLUDE [terraform-plan-destroy.md](includes/terraform-plan-destroy.md)]
 
 ## Troubleshoot Terraform on Azure
 
@@ -182,5 +113,5 @@ terraform destroy -auto-approve
 
 ## Next steps
 
-> [!div class="nextstepaction"]
+> [!div class="nextstepaction"] 
 > [Learn more about using Terraform in Azure](/azure/terraform)
