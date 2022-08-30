@@ -42,13 +42,13 @@ landingContent:
       - linkListType: quickstart
         links:
         - text: Launch using the Azure portal
-          url: /azure/spring-apps/spring-cloud-quickstart-launch-app-portal
+          url: /azure/spring-apps/quickstart
         - text: Launch using the Azure CLI
-          url: /azure/spring-apps/spring-cloud-quickstart-launch-app-cli
+          url: /azure/spring-apps/quickstart-deploy-infrastructure-vnet-azure-cli
         - text: Launch from source code
-          url: /azure/spring-apps/spring-cloud-launch-from-source
+          url: /azure/spring-apps/how-to-launch-from-source
         - text: Launch using Maven
-          url: /azure/spring-apps/spring-cloud-quickstart-launch-app-maven
+          url: /azure/spring-apps/how-to-maven-deploy-apps
   - title: Storage
     linkLists:
       - linkListType: quickstart
