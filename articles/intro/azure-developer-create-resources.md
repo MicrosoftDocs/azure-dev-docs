@@ -2,7 +2,8 @@
 title: How do I create and manage resources in Azure?
 description: An overview of techniques that developers use to provision resources in Azure.
 keywords: azure portal, azure cli, azure powershell, azure sdk, azure rest apis
-ms.prod: azure
+ms.prod: devops
+ms.technology: devops-reference
 ms.topic: overview
 ms.date: 08/04/2022
 ms.custom: overview
