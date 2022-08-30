@@ -39,23 +39,23 @@ In this article, you learn how to:
 
 1. Create a file named `providers.tf` and insert the following code:
 
-    [!code-terraform[UserStory1983164](~/../terraform_samples/quickstart/201-k8s-cluster-with-tf-and-aks/providers.tf)]
+    [!code-terraform[UserStory1983164](~/../terraform_samples/quickstart/101-cosmos-db-azure-container-instance/providers.tf)]
 
 1. Create a file named `main.tf` and insert the following code:
 
-    [!code-terraform[UserStory1983164](~/../terraform_samples/quickstart/201-k8s-cluster-with-tf-and-aks/main.tf)]
+    [!code-terraform[UserStory1983164](~/../terraform_samples/quickstart/101-cosmos-db-azure-container-instance/main.tf)]
 
 1. Create a file named `aci.tf` and insert the following code:
 
-    [!code-terraform[UserStory1983164](~/../terraform_samples/quickstart/201-k8s-cluster-with-tf-and-aks/aci.tf)]
+    [!code-terraform[UserStory1983164](~/../terraform_samples/quickstart/101-cosmos-db-azure-container-instance/aci.tf)]
 
 1. Create a file named `variables.tf` and insert the following code:
 
-    [!code-terraform[UserStory1983164](~/../terraform_samples/quickstart/201-k8s-cluster-with-tf-and-aks/variables.tf)]
+    [!code-terraform[UserStory1983164](~/../terraform_samples/quickstart/101-cosmos-db-azure-container-instance/variables.tf)]
 
 1. Create a file named `outputs.tf` and insert the following code:
 
-    [!code-terraform[UserStory1983164](~/../terraform_samples/quickstart/201-k8s-cluster-with-tf-and-aks/outputs.tf)]
+    [!code-terraform[UserStory1983164](~/../terraform_samples/quickstart/101-cosmos-db-azure-container-instance/outputs.tf)]
 
 ## Initialize Terraform
 
