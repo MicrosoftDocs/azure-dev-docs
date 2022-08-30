@@ -228,7 +228,7 @@ You can see the lock when you examine the blob through the Azure portal or other
 
 ## 5. Understand encryption-at-rest
 
-Data stored in an Azure blob is encrypted before being persisted. When needed, Terraform retrieves the state from the backend and stores it in local memory. Using this pattern, state is never written to your local disk.
+Data stored in an Azure Blob is encrypted before being persisted. When needed, Terraform retrieves the state from the backend and stores it in local memory. Using this pattern, state is never written to your local disk.
 
 For more information on Azure Storage encryption, see [Azure Storage service encryption for data at rest](/azure/storage/common/storage-service-encryption).
 
