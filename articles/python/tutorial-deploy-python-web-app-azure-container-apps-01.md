@@ -13,11 +13,11 @@ ms.author: jejohn
 
 This tutorial shows you how to containerize a Python web app and deploy it to [Azure Container Apps][2]. The provided sample web app can be containerized and the container image stored in [Azure Container Registry][3]. Azure Container Apps is initially configured to pull the container image from Container Registry. The sample app connects to a [Azure Database for PostgreSQL][4] to show communicating between Container Apps and other Azure resources. 
 
-There are many options to build and deploy cloud native and containerized Python web apps on Azure. If you're starting off with containers, deploying your web app as a container to either Azure Web App Service or Azure Container Apps is a good first step. This tutorial covers Azure Container Apps. Deploying a Python web app as a container to Azure App Service is covered in the tutorial [Containerized Python web app on Azure](./tutorial-containerize-deploy-python-web-app-azure-01.md). Other options such as Azure Container Instance and Azure Kubernetes Service are covered in the article [Comparing Container Apps with other Azure container options][5].
+There are many options to build and deploy cloud native and containerized Python web apps on Azure. If you're starting off with containers, deploying your web app as a container to either Azure Web App Service or Azure Container Apps is a good first step. This tutorial covers Azure Container Apps. Deploying a Python web app as a container to Azure App Service is covered in the tutorial [Containerized Python web app on App Service](./tutorial-containerize-deploy-python-web-app-azure-01.md). Other options such as Azure Container Instance and Azure Kubernetes Service are covered in the article [Comparing Container Apps with other Azure container options][5].
 
 In this tutorial you will:
 
-* Build [Docker][1] container image from a Python web app.
+* Build a [Docker][1] container image from a Python web app.
 * Configure [Azure Container Apps][2] to host the container image.
 * Set up a [GitHub Action][6] that updates the container image triggered by changes to repo. *This last step is optional.*
 
@@ -41,6 +41,7 @@ The components supporting this tutorial and shown in the diagram above are:
 
 * [Azure Database of PostgreSQL][4]
   * The sample code connects to PostgreSQL to storage application data.
+  * The container app connects to PostgreSQL through environment variables set with Azure Service Connector.
 
 * [Azure Service Connector][8]
   * Service Connector helps you connect Azure compute services to other backing services.
