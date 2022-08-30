@@ -74,12 +74,12 @@ To complete this tutorial, you'll need:
   * Azure Container App environment
   * Azure Database for PostgreSQL
 
-* Visual Studio Code or Azure CLI, depending on what tool you'll use.
-  * For Visual Studio Code, you'll need the Azure Container Apps extension.
+* [Visual Studio Code][16] or [Azure CLI][17], depending on what tool you'll use.
+  * For Visual Studio Code, you'll need the [Container Apps extension][13].
 
 * Python packages:
-   * LIBRARY for connecting to Postgres
-   * Flask or Django as a web framework.
+  * [pyscopg2-binary][12] for connecting to Mongo DB.
+  * [Flask][10] or [Django][11] as a web framework.
 
 ## Sample app
 
@@ -96,3 +96,7 @@ The Python sample app is a restaurant review app that saves restaurant and revie
 [7]: https://github.com/
 [8]: /azure/service-connector/
 [9]: /azure/cloud-shell/overview
+[10]: https://flask.palletsprojects.com/en/2.1.x/
+[11]: https://www.djangoproject.com/
+[12]: https://pypi.org/project/psycopg-binary/
+[13]: https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurecontainerapps
