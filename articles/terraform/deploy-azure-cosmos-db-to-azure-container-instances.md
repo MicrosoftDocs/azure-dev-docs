@@ -2,7 +2,7 @@
 title: Deploy an Azure Cosmos DB to Azure Container Instances
 description: Learn how to use Terraform to deploy an Azure Cosmos DB to Azure Container Instances
 ms.topic: how-to
-ms.date: 05/05/2022
+ms.date: 08/30/2022
 ms.custom: devx-track-terraform
 ---
 
@@ -39,7 +39,7 @@ In this section, you create the configuration for an Azure Cosmos DB instance.
     code main.tf
     ```
 
-1. The configuration in this step models a couple of Azure resources. These resources include an Azure resource group and an Azure Cosmos DB instance. A random integer is used to create a unique Cosmos DB instance name. Several Cosmos DB settings are also configured. For more information, see the [Cosmos DB Terraform reference](https://www.terraform.io/docs/providers/azurerm/r/cosmosdb_account.html). Insert the following code into the file:
+1. The configuration in this step models a couple of Azure resources. These resources include an Azure resource group and an Azure Cosmos DB instance. A random integer is used to create a unique Cosmos DB instance name. Several Cosmos DB settings are also configured. For more information, see the [Cosmos DB Terraform reference](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/cosmosdb_account). Insert the following code into the file:
 
     ```hcl
     resource "azurerm_resource_group" "vote-resource-group" {
@@ -78,19 +78,19 @@ In this section, you create the configuration for an Azure Cosmos DB instance.
 
 In this section, you use several Terraform commands to run the configuration.
 
-1. The [terraform init](https://www.terraform.io/docs/commands/init.html) command initializes the working directory. Run the following command in Cloud Shell:
+1. The [terraform init](https://www.terraform.io/cli/commands/init) command initializes the working directory. Run the following command in Cloud Shell:
 
     ```bash
     terraform init
     ```
 
-1. The [terraform plan](https://www.terraform.io/docs/commands/plan.html) command can be used to validate the configuration syntax. The `-out` parameter directs the results to a file. The output file can be used later to apply the configuration. Run the following command in Cloud Shell:
+1. The [terraform plan](https://www.terraform.io/cli/commands/plan) command can be used to validate the configuration syntax. The `-out` parameter directs the results to a file. The output file can be used later to apply the configuration. Run the following command in Cloud Shell:
 
     ```bash
     terraform plan --out plan.out
     ```
 
-1. The [terraform apply](https://www.terraform.io/docs/commands/apply.html) command is used to apply the configuration. The output file from the previous step is specified. This command causes the Azure resources to be created. Run the following command in Cloud Shell:
+1. The [terraform apply](https://www.terraform.io/cli/commands/apply) command is used to apply the configuration. The output file from the previous step is specified. This command causes the Azure resources to be created. Run the following command in Cloud Shell:
 
     ```bash
     terraform apply plan.out
@@ -108,7 +108,7 @@ This section shows how to update the configuration to include an Azure Container
     code main.tf
     ```
 
-1. The configuration in this step sets two environment variables: `COSMOS_DB_ENDPOINT` and `COSMOS_DB_MASTERKEY`. These variables hold the location and key for accessing the database. The values for these variables are obtained from the database instance created in the previous step. This process is known as interpolation. To learn more about Terraform interpolation, see [Interpolation Syntax](https://www.terraform.io/docs/configuration/interpolation.html). The configuration also includes an output block, which returns the fully qualified domain name (FQDN) of the container instance. Insert the following code into the file:
+1. The configuration in this step sets two environment variables: `COSMOS_DB_ENDPOINT` and `COSMOS_DB_MASTERKEY`. These variables hold the location and key for accessing the database. The values for these variables are obtained from the database instance created in the previous step. This process is known as interpolation. To learn more about Terraform interpolation, see [Interpolation Syntax](https://www.terraform.io/language/v1.1.x/configuration-0-11/interpolation). The configuration also includes an output block, which returns the fully qualified domain name (FQDN) of the container instance. Insert the following code into the file:
 
     ```hcl
     resource "azurerm_container_group" "vote-aci" {
@@ -170,7 +170,7 @@ To test the application, navigate to the FQDN of the container instance. You sho
 
 When no longer needed, delete the resources created in this article.
 
-Run the [terraform destroy](https://www.terraform.io/docs/commands/destroy.html) command to remove the Azure resources created in this article:
+Run the [terraform destroy](https://www.terraform.io/cli/commands/destroy) command to remove the Azure resources created in this article:
 
 ```bash
 terraform destroy -auto-approve
