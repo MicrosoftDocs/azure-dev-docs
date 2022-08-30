@@ -2,7 +2,7 @@
 title: Overview of how to deploy a Python web app in Azure Container Apps
 description: Overview of how to create a container from a Python web app and deploy it to Azure Container Apps, a serverless platform for hosting containerized applications.
 ms.topic: conceptual
-ms.date: 08/29/2022
+ms.date: 08/30/2022
 ms.custom: devx-track-python
 ms.prod: azure-python
 author: jessmjohnson
@@ -40,12 +40,15 @@ The components supporting this tutorial and shown in the diagram above are:
   * In this tutorial, the registry source is Azure Container Registry, but you can also use Docker Hub or a private registry with minor modifications.
 
 * [Azure Database of PostgreSQL][4]
+  * The sample code connects to PostgreSQL to storage application data.
 
 * [Azure Service Connector][8]
   * Service Connector helps you connect Azure compute services to other backing services.
   * The Service Connector is used during the configuration of Azure Container Apps. The connector generates environment variables containing connection information for PostgreSQL.
 
 * [GitHub][1]
+  * The sample code for this tutorial is in a GitHub repo that you can fork and clone locally. To set up a CI/CD workflow with [GitHub Actions][6] you'll need a GitHub account.
+  * You can still follow along with this tutorial without a GitHub account, but you'll have to work in the [Azure Cloud Shell][9] to build the container image from the sample code repo.  
 
 ## Revisions and CI/CD 
 
@@ -77,11 +80,18 @@ To complete this tutorial, you'll need:
    * LIBRARY for connecting to Postgres
    * Flask or Django as a web framework.
 
+## Sample app
+
+The Python sample app is a restaurant review app that saves restaurant and review data in PostgreSQL. At the end of the tutorial, you'll have a restaurant review app deployed and running in Azure Container Apps that looks like the screenshot below.
+
+:::image type="content" source="./media/tutorial-container-apps/containerization-of-python-web-app-sample-app-screenshot.png" alt-text="A screenshot of the sample app created from the Python containerized web app used in the Tutorial - Containerized Python App on Azure." lightbox="./media/tutorial-container-apps/containerization-of-python-web-app-sample-app-screenshot.png":::
+
 [1]: https://www.docker.com/
 [2]: /azure/container-apps/
 [3]: /azure/container-registry
 [4]: /azure/postgresql/
 [5]: /azure/container-apps/compare-options
-[6]: https://docs.github.com/en/actions
+[6]: https://docs.github.com/actions
 [7]: https://github.com/
 [8]: /azure/service-connector/
+[9]: /azure/cloud-shell/overview
