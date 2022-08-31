@@ -1,6 +1,6 @@
 ---
-title: 'Deploy a Python web app to Azure with managed identity: clean up resources'
-description: Clean up the resources of the Python (Django or Flask) web app deployed to Azure.
+title: Clean up resource from Python web app tutorial
+description: Clean up resources used and show next steps of the tutorial showing how to deploy a Python (Django or Flask) web app to Azure.
 author: jessmjohnson
 ms.author: jejohn
 ms.devlang: python
@@ -10,7 +10,7 @@ ms.prod: azure-python
 ms.custom: devx-track-python, devx-track-azurecli
 ---
 
-# Clean up and next steps
+# Clean up and next steps of managed identity tutorial
 
 This article is part of a tutorial about deploying a Python app to Azure App Service. The web app uses managed identity to authenticate to other Azure resources. In this article, you'll clean up resources used in Azure so you don't incur other charges and help keep your Azure subscription uncluttered. You can leave the Azure resources running if you want to use them for further development work. 
 
