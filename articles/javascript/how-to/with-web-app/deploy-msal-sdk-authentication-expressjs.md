@@ -2,8 +2,8 @@
 title: Deploy MSAL-enabled Express.js
 description: Deploy Microsoft authentication Express.js to Azure App service with VS Code. 
 ms.topic: how-to
-ms.date: 05/11/2021
-ms.custom: devx-track-js
+ms.date: 08/31/2022
+ms.custom: devx-track-js, vscode-azure-extension-update-completed
 #intent: Deploy Microsoft authentication Express.js to Azure App service with VS Code. 
 ---
 
@@ -93,16 +93,19 @@ Create and run an Express.js app by cloning an Azure sample repository.
 
 ## Create an Azure web app in VS Code
 
-1. In VS Code, select **Azure** from the activity bar, then select **+** in the **Azure: App Service** side bar. 
+1. In VS Code, select the **Azure** explorer in the activity bar or use the keyboard shortcut (<kbd>Shift</kbd> + <kbd>Alt</kbd> + <kbd>A</kbd>).
+1. In the **Resources** section, find your subscription then select **+**.
+1. Select **Create App Service Web App**. 
 1. Complete the prompts:
 
     |Prompt|Enter|
     |--|--|
     |Enter a globally unique name for the new web app.|The name is used as a subdomain for the web app's URI. |
-    |Select a runtime stack.|Select the **most recent version of Node.js**, such as 14 LTS.|
-    |Select a pricing tier|Select the **free** tier.|
+    |Select a runtime stack.|Select the **most recent version of Node.js**, such as 16 LTS.|
+    |Select a pricing tier|Select the **Free (F1)** tier.|
     
 1. Wait for the web app creation to complete. 
+1. In the same Azure explorer, find you new web app and right-click on the name. 
 1. Select **Deploy** to deploy the sample Express.js app, when the notification pop-up displays. 
 1. When the notification pop-up displays a link to the **output window**, select the link to watch the [zip deployment](/azure/app-service/deploy-zip). 
 
@@ -177,7 +180,8 @@ Create an Active Directory app to authenticate users with the Microsoft Identity
 
 While you still have the secret and other settings handy, configure your remote App's settings too.
 
-1. In VS Code, in the Azure side bar, select your App service then right-click on **Application Settings**, and select **Add New Setting**.
+1. In VS Code, open the **Azure** side bar or use the keyboard shortcut (<kbd>Shift</kbd> + <kbd>Alt</kbd> + <kbd>A</kbd>). 
+1. In the **Resources** section, select your App service then right-click on **Application Settings**, and select **Add New Setting**.
 1. Add the following name/value pairs, each, as a separate application setting.
 
     |App setting name|App setting value|
@@ -218,12 +222,13 @@ While you still have the secret and other settings handy, configure your remote 
 
 ## Restart your app service to use authentication settings
 
-1. In VS Code, in the Azure side bar, select your App service then right-click and select **Start streaming logs**. These are the logs for your Azure app service and include `console.log` output.
-1. In VS Code, in the Azure side bar, select your App service then right-click and select **Restart**, to have the new app settings take effect.
+1. In VS Code, open the Azure explorer: select the Azure icon in the primary side bar or use the keyboard shortcut (<kbd>Shift</kbd> + <kbd>Alt</kbd> + <kbd>A</kbd>). 
+1. In the **Resources** section, select your App service then right-click and select **Start streaming logs**. These are the logs for your Azure app service and include `console.log` output.
+1. In VS Code, in the Azure side bar, in the **Resources** section, select your App service then right-click and select **Restart**, to have the new app settings take effect.
 
     :::image type="content" source="../../media/express-app-msal-auth/vs-code-app-service-restart-app.png" alt-text="Screenshot of VS Code. In VS Code, in the Azure side bar, select your App service then right-click and select **Restart**.":::
 
-1. In the Azure side bar, select your App service then right-click and select **Browse website** then select **Open** in the pop-up window. 
+1. In the Azure side bar, in the **Resources** section, select your App service then right-click and select **Browse website** then select **Open** in the pop-up window. 
 
 ## What this tutorial accomplished
 
@@ -252,7 +257,8 @@ This tutorial demonstrated deploying an MSAL-enabled Express.js app. You can con
 1. Select this link to [go to App registrations](https://ms.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) for your default tenant. 
 1. Search for your app, named something like `msal-express-sample`.
 1. On the Active Directory app's Overview page, select **Delete**.
-1. In VS Code, in the Azure side bar, select your Azure App Service, then select **Delete** 
+1. In VS Code, open the Azure side bar or use the keyboard shortcut (<kbd>Shift</kbd> + <kbd>Alt</kbd> + <kbd>A</kbd>).
+1. In the **Resources** section, right-click your Azure App Service, then select **Delete**. 
 
 ## Next steps
 
