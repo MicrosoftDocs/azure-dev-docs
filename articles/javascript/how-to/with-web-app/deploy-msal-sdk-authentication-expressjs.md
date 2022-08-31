@@ -105,7 +105,7 @@ Create and run an Express.js app by cloning an Azure sample repository.
     |Select a pricing tier|Select the **Free (F1)** tier.|
     
 1. Wait for the web app creation to complete. 
-1. In the same Azure explorer, find you new web app and right-click on the name. 
+1. In the same Azure explorer, find your new web app and right-click on the name. 
 1. Select **Deploy** to deploy the sample Express.js app, when the notification pop-up displays. 
 1. When the notification pop-up displays a link to the **output window**, select the link to watch the [zip deployment](/azure/app-service/deploy-zip). 
 
