@@ -25,7 +25,7 @@ In this article, you learn how to:
 > * Create an app that works across these two resources
 
 > [!NOTE]
-> The example code in this article is located in the [Microsoft Terraform GitHub repo](https://github.com/Azure/terraform/tree/UserStory1983164/quickstart/101-cosmos-db-azure-container-instance).
+> The example code in this article is located in the [Microsoft Terraform GitHub repo](https://github.com/Azure/terraform/tree/master/quickstart/101-cosmos-db-azure-container-instance).
 
 ## Prerequisites
 
@@ -39,23 +39,23 @@ In this article, you learn how to:
 
 1. Create a file named `providers.tf` and insert the following code:
 
-    [!code-terraform[UserStory1983164](~/../terraform_samples/quickstart/101-cosmos-db-azure-container-instance/providers.tf)]
+    [!code-terraform[master](~/../terraform_samples/quickstart/101-cosmos-db-azure-container-instance/providers.tf)]
 
 1. Create a file named `main.tf` and insert the following code:
 
-    [!code-terraform[UserStory1983164](~/../terraform_samples/quickstart/101-cosmos-db-azure-container-instance/main.tf)]
+    [!code-terraform[master](~/../terraform_samples/quickstart/101-cosmos-db-azure-container-instance/main.tf)]
 
 1. Create a file named `aci.tf` and insert the following code:
 
-    [!code-terraform[UserStory1983164](~/../terraform_samples/quickstart/101-cosmos-db-azure-container-instance/aci.tf)]
+    [!code-terraform[master](~/../terraform_samples/quickstart/101-cosmos-db-azure-container-instance/aci.tf)]
 
 1. Create a file named `variables.tf` and insert the following code:
 
-    [!code-terraform[UserStory1983164](~/../terraform_samples/quickstart/101-cosmos-db-azure-container-instance/variables.tf)]
+    [!code-terraform[master](~/../terraform_samples/quickstart/101-cosmos-db-azure-container-instance/variables.tf)]
 
 1. Create a file named `outputs.tf` and insert the following code:
 
-    [!code-terraform[UserStory1983164](~/../terraform_samples/quickstart/101-cosmos-db-azure-container-instance/outputs.tf)]
+    [!code-terraform[master](~/../terraform_samples/quickstart/101-cosmos-db-azure-container-instance/outputs.tf)]
 
 ## Initialize Terraform
 
@@ -115,4 +115,3 @@ In this article, you learn how to:
 
 > [!div class="nextstepaction"] 
 > [Learn more about using Terraform in Azure](/azure/terraform)
-
