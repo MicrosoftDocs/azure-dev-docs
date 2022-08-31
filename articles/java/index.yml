@@ -109,7 +109,7 @@ conceptualContent:
       links:
         - text: What is Azure Spring Apps?
           itemType: overview
-          url: /azure/spring-apps/spring-cloud-overview
+          url: /azure/spring-apps/overview
         - text: Launch your first app
           itemType: quickstart
           url: /azure/spring-apps/quickstart?tabs=Azure-CLI&pivots=programming-language-java
@@ -118,7 +118,7 @@ conceptualContent:
           url: /azure/spring-apps/overview#enterprise-tier-overview
       footerLink:
           text: See more
-          url: /azure/spring-cloud
+          url: /azure/spring-apps
 
     - title: Spring on Azure integration
       links:
