@@ -13,6 +13,10 @@ To create, move, or use a mongoDB database to Azure, you need a Cosmos DB resour
 
 # [VS Code extension](#tab/vscode)
 
+To Use the VSCode extension for Cosmos DB, install the following: 
+
+* [Azure Databases](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb)
+
 [!INCLUDE [VSCode extension for Cosmos DB databases](../../includes/vscode-extension-mongodb.md)]
 
 # [Azure CLI](#tab/azure-cli)
