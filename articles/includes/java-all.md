@@ -315,7 +315,7 @@
 | azure-cosmos-spark_3-0_2-12 | Maven [4.0.0-beta.1](https://search.maven.org/artifact/com.azure/azure-cosmos-spark_3-0_2-12/4.0.0-beta.1/jar/) |  |  |
 | azure-data-confidentialledger | Maven [1.0.0-beta.1](https://search.maven.org/artifact/com.azure/azure-data-confidentialledger/1.0.0-beta.1/jar/) |  |  |
 | azure-functions-java-core-library | Maven [1.0.0](https://search.maven.org/artifact/com.microsoft.azure.functions/azure-functions-java-core-library/1.0.0/jar/) |  |  |
-| azure-gradle-plugins-common | Maven [1.4.0](https://search.maven.org/artifact/com.microsoft.azure/azure-gradle-plugins-common/1.4.0/jar/) |  |  |
+| azure-gradle-plugins-common | Maven [1.5.0](https://search.maven.org/artifact/com.microsoft.azure/azure-gradle-plugins-common/1.5.0/jar/) |  |  |
 | azure-mariadb-connector-java | Maven [2.7.0](https://search.maven.org/artifact/com.microsoft.azure/azure-mariadb-connector-java/2.7.0/jar/) |  |  |
 | azure-maven-plugins | Maven [1.23.0](https://search.maven.org/artifact/com.microsoft.azure/azure-maven-plugins/1.23.0/jar/) |  |  |
 | azure-mgmt-appplatform | Maven [1.0.0-beta](https://search.maven.org/artifact/com.microsoft.azure.appplatform.v2020_11_01_preview/azure-mgmt-appplatform/1.0.0-beta/jar/) |  |  |
@@ -351,8 +351,8 @@
 | azure-resourcemanager-workloads | Maven [1.0.0-beta.1](https://search.maven.org/artifact/com.azure.resourcemanager/azure-resourcemanager-workloads/1.0.0-beta.1/jar/) |  |  |
 | azure-sdk-archetype | Maven [1.0.0](https://search.maven.org/artifact/com.azure.tools/azure-sdk-archetype/1.0.0/jar/) |  |  |
 | azure-sdk-build-tool | Maven [1.0.0-beta.1](https://search.maven.org/artifact/com.azure.tools/azure-sdk-build-tool/1.0.0-beta.1/jar/) |  |  |
-| azure-sdk-template-three | Maven [1.0.0-beta.1804329](https://search.maven.org/artifact/com.azure/azure-sdk-template-three/1.0.0-beta.1804329/jar/) |  |  |
-| azure-sdk-template-two | Maven [1.0.0-beta.1804329](https://search.maven.org/artifact/com.azure/azure-sdk-template-two/1.0.0-beta.1804329/jar/) |  |  |
+| azure-sdk-template-three | Maven [1.0.0-beta.1821933](https://search.maven.org/artifact/com.azure/azure-sdk-template-three/1.0.0-beta.1821933/jar/) |  |  |
+| azure-sdk-template-two | Maven [1.0.0-beta.1821933](https://search.maven.org/artifact/com.azure/azure-sdk-template-two/1.0.0-beta.1821933/jar/) |  |  |
 | azure-spring-apps-maven-plugin | Maven [1.12.1](https://search.maven.org/artifact/com.microsoft.azure/azure-spring-apps-maven-plugin/1.12.1/jar/) |  |  |
 | azure-storage-fastpath | Maven [1.0.0-beta.6](https://search.maven.org/artifact/com.azure/azure-storage-fastpath/1.0.0-beta.6/jar/) |  |  |
 | azure-toolkit-applicationinsights-lib | Maven [0.24.0](https://search.maven.org/artifact/com.microsoft.azure/azure-toolkit-applicationinsights-lib/0.24.0/jar/) |  |  |
