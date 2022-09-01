@@ -2,8 +2,8 @@
 title: Stream logs from a containerized Node.js app from Visual Studio Code
 description: Docker Tutorial part 7, stream logs into Visual Studio Code
 ms.topic: how-to
-ms.date: 08/17/2021
-ms.custom: devx-track-js
+ms.date: 09/02/2022
+ms.custom: devx-track-js, vscode-azure-extension-update-completed 
 ---
 
 # 7. Stream logs into Visual Studio Code
