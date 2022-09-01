@@ -184,7 +184,7 @@ conceptualContent:
       links:
         - text: Enable end-user authentication
           itemType: quickstart
-          url: /azure/active-directory/develop/quickstart-v2-java-webapp
+          url: /azure/active-directory/develop/web-app-quickstart?pivots=devlang-java
         - text: Microsoft Authentication Library
           itemType: how-to-guide
           url: /azure/active-directory/develop/migrate-adal-msal-java

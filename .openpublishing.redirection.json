@@ -1246,6 +1246,10 @@
       {
         "source_path": "articles/python/tutorial-deploy-app-service-on-linux-07.md",
         "redirect_url": "/azure/app-service/quickstart-python"
+      },
+      {
+        "source_path": "articles/terraform/create-linux-virtual-machine-with-infrastructure.md",
+        "redirect_url": "/azure/virtual-machines/linux/quick-create-terraform"
       }
     ]
   }
