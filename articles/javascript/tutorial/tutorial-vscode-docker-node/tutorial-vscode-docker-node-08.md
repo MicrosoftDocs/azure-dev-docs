@@ -10,7 +10,7 @@ ms.custom: devx-track-js, vscode-azure-extension-update-completed
 
 Remove the Azure Container registry and the App service by removing the resource group which contains them.
 
-[!INCLUDE [remove resource group](../includes/visual-studio-code-delete-resource-group.md)]
+[!INCLUDE [remove resource group](../../includes/visual-studio-code-delete-resource-group.md)]
 
 ## Next steps
 
