@@ -36,4 +36,4 @@ You need to use the [Azure CLI](/cli/azure/install-azure-cli) or the [Azure port
 1. In Visual Studio Code, open the **Azure** explorer by selecting the Azure icon in the primary side bar or use the keyboard shortcut (<kbd>Shift</kbd> + <kbd>Alt</kbd> + <kbd>A</kbd>).
 1. In the **Resources** section, select your subscription, then right-click on **Azure Cosmos DB** and select **Copy connection string**.
   
-  :::image type="content" source="../media/howto-database/get-connection-string-from-vscode-extension-cosmos-db.png" alt-text="Partial screenshot of VSCode displaying Azure Cosmos DB database in Azure explorer. ":::
+  :::image type="content" source="../media/tutorial-end-to-end-app-cosmos/get-connection-string-from-vscode-extension-cosmos-db.png" alt-text="Partial screenshot of VSCode displaying Azure Cosmos DB database in Azure explorer. ":::
