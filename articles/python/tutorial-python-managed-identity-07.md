@@ -62,9 +62,9 @@ After completing this tutorial, here are some next steps you can take to build u
 
 * Learn more about security for Blob storage, see [Security recommendations for Blob storage](/azure/storage/blobs/security-recommendations).
 
-## 3. Related Microsoft Learn modules
+## 3. Related Learn modules
 
-The following are some Microsoft Learn modules that explore the technologies and themes covered in this tutorial:
+The following are some Learn modules that explore the technologies and themes covered in this tutorial:
 
 * [Introduction to Python](/learn/modules/intro-to-python/)
 

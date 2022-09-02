@@ -39,7 +39,7 @@ Use the following services to enable cloud storage in your mobile apps.
 - [Azure portal](https://portal.azure.com)
 - [Azure Blob storage documentation](/azure/storage/blobs/storage-blobs-introduction)
 - [Quickstarts](/azure/storage/blobs/storage-quickstart-blobs-portal)
-- [Samples](/azure/storage/common/storage-samples-dotnet?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+- [Samples](/azure/storage/common/storage-samples-dotnet?toc=/azure/storage/blobs/toc.json)
 
 ## Azure Table storage
 
@@ -56,7 +56,7 @@ You can use Table storage to store and query huge sets of structured, nonrelatio
 
 - [Azure portal](https://portal.azure.com)
 - [Azure Table storage documentation](/azure/storage/tables/table-storage-overview)
-- [Samples](/azure/cosmos-db/tutorial-develop-table-dotnet?toc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Fstorage%2Ftables%2FTOC.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Fbread%2Ftoc.json)
+- [Samples](/azure/cosmos-db/tutorial-develop-table-dotnet?toc=/azure/storage/tables/TOC.json&bc=/azure/bread/toc.json)
 - [Quickstarts](/azure/storage/tables/table-storage-quickstart-portal)
 
 ## Azure Queue storage
@@ -68,4 +68,4 @@ You can use Table storage to store and query huge sets of structured, nonrelatio
 - [Azure portal](https://portal.azure.com)
 - [Azure Queue storage documentation](/azure/storage/queues/)
 - [Quickstarts](/azure/storage/queues/storage-quickstart-queues-portal)
-- [Samples](/azure/storage/common/storage-samples-dotnet?toc=%2fazure%2fstorage%2fqueues%2ftoc.json)
+- [Samples](/azure/storage/common/storage-samples-dotnet?toc=/azure/storage/queues/toc.json)
