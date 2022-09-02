@@ -28,4 +28,4 @@ The following links provide information about technologies related to Java.
 
 ## Next steps
 
-- [Java on Azure - Microsoft Learn](/learn/paths/java-on-azure/)
+- [Java on Azure](/learn/paths/java-on-azure/) learning path
