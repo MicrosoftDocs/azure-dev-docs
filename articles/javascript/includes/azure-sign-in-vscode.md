@@ -1,7 +1,7 @@
 ---
 ms.custom: devx-track-js
 ms.topic: include
-ms.date: 01/03/2022
+ms.date: 09/02/2022
 ---
 
 If you already use the Azure service extensions, you should already be logged in and can skip this step. 
