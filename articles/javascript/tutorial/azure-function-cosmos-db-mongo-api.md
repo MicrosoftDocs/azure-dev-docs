@@ -168,11 +168,35 @@ With your function running locally, set breakpoints on different parts of the co
 
 ## 1. Create the Azure Function app in Visual Studio Code
 
-[!INCLUDE [Azure Function - create resource in VSCode](~/azure-docs-pr/includes/functions-create-azure-resources-vs-code.md)]
+In this section, you create a function app and related resources in your Azure subscription.
+
+1. Choose the Azure icon in the Activity bar. Then in the **Resources** area, select the **+** icon and choose the **Create Function App in Azure** option.
+
+1. Provide the following information at the prompts:
+
+    |Prompt|Selection|
+    |--|--|
+    |**Select subscription**| Choose the subscription to use. You won't see this prompt when you have only one subscription visible under **Resources**. |
+    |**Enter a globally unique name for the function app**| Type a name that is valid in a URL path. The name you type is validated to make sure that it's unique in Azure Functions.|
+    |**Select a runtime stack**| Choose the language version on which you've been running locally. |
+    |**Select a location for new resources**| For better performance, choose a [region](https://azure.microsoft.com/regions/) near you.|
+
+    The extension shows the status of individual resources as they're being created in Azure in the **Azure: Activity Log** panel.
+
+1. When the creation is complete, the following Azure resources are created in your subscription. The resources are named based on your function app name:
+
+    A notification is displayed after your function app is created and the deployment package is applied.
 
 ## 1. Deploy the Azure Function app to Azure in Visual Studio Code
 
-[!INCLUDE [Azure Function - deploy local code to remote resource in VSCode](~/azure-docs-pr/includes/functions-deploy-project-vs-code.md)]
+> [!IMPORTANT]
+> Deploying to an existing function app always overwrites the contents of that app in Azure.
+
+1. Choose the Azure icon in the Activity bar, then in the **Workspace** area, select your project folder and select the **Deploy...** button.
+
+1. Select **Deploy to Function App...**, choose the function app you just created, and select **Deploy**.   
+
+1. After deployment completes, select **View Output** to view the creation and deployment results, including the Azure resources that you created. If you miss the notification, select the bell icon in the lower right corner to see it again.
 
 ## 1. Run the remote serverless function
 
