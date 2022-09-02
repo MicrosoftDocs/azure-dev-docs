@@ -461,12 +461,7 @@ To search the logs, use the Azure portal.
 
 ## 16. Clean up resources 
 
-The Functions App you created includes resources that can incur minimal costs (refer to [Functions Pricing](https://azure.microsoft.com/pricing/details/functions/)). Remove the resource group to remove all the resources in a single action.  
-
-1. In Visual Studio Code, from the Azure explorer, find the resource group in the **Resource Groups** section, `cosmosdb-mongodb-function-resource-group`.
-1. Right-click the resource group name and select **Delete**.
-
-    :::image type="content" source="../media/functions-extension/visual-studio-code-remove-resource-group.png" alt-text="Use the Visual Studio Code extension, Azure Resource Groups, to delete the resource group and all resources within the group.":::
+[!INCLUDE [remove resource group](../includes/visual-studio-code-delete-resource-group.md)]
 
 ## Next steps
 
