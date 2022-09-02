@@ -4,7 +4,8 @@ description: Find resources that support integration of Azure DevOps and GitHub
 author: N-Usha 
 ms.author: ushan 
 ms.topic: reference
-ms.service: azure 
+ms.service: data-factory
+ms.subservice: integration-services
 ms.date: 05/05/2020
 ms.custom: github-actions-azure
 ---

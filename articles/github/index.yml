@@ -6,7 +6,7 @@ summary: Learn how GitHub and Azure work together to let you build and deploy ap
 metadata:
   title: Azure and GitHub integration
   description: Learn how GitHub and Azure work together to let you build and deploy apps. 
-  ms.service: azure 
+  ms.service: app-service
   ms.topic: landing-page 
   author: N-Usha 
   ms.author: ushan 

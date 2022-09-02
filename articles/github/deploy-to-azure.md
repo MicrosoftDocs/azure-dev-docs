@@ -4,7 +4,7 @@ description: Support to deploy apps from GitHub to Azure
 author: N-Usha 
 ms.author: ushan 
 ms.topic: reference
-ms.service: azure 
+ms.service: deployment-manager
 ms.date: 09/24/2021
 ms.custom: github-actions-azure
 ---
