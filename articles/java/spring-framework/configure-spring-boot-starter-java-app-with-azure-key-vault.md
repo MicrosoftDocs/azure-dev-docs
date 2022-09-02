@@ -20,10 +20,11 @@ In this tutorial, you learn how to:
 > [!div class="checklist"]
 > * Create an Azure Key Vault and store a secret
 > * Create an app with Spring Initializr
-> * Add Key Vault integration to the app
+> * Create an app without Spring Initializr
+> * Add Key Vault configuration to the app
 > * Deploy to Azure App Service
 > * Redeploy to Azure App Service with managed identities for Azure resources
-> * Deploy to Azure Spring Apps
+> * Deploy to Azure Spring Apps with managed identities for Azure resources
 
 ## Prerequisites
 
@@ -37,7 +38,7 @@ In this tutorial, you learn how to:
 > [!IMPORTANT]
 > Spring Boot version 2.5 or higher is required to complete the steps in this article.
 
-## Create a new Azure Key Vault
+## Create an Azure Key Vault and store a secret
 
 The following sections show you how to sign in to Azure and create an Azure Key Vault.
 
@@ -176,7 +177,7 @@ To create and initialize the Azure Key Vault, use the following steps:
 1. Configure the Key Vault to allow `get` and `list` operations from that managed identity. The value for the `sample-app-id` is the `appId` from the `az ad sp create-for-rbac` command above.
 
    ```azurecli
-   az keyvault set-policy --name contosokv --spn sample-app-id --secret-permissions get list
+   az keyvault set-policy --name contosokv --spn <the-app-ID-of-your-service-principal> --secret-permissions get list
    ```
 
    The output will be a JSON object full of information about the Key Vault. It will have a `type` entry with value `Microsoft.KeyVault/vaults`.
@@ -234,7 +235,7 @@ To create and initialize the Azure Key Vault, use the following steps:
 
 Now that you've created a Key Vault and stored a secret, the next section will show you how to create an app with Spring Initializr.
 
-## Create the app with Spring Initializr
+## Create an app with Spring Initializr
 
 This section shows how to use Spring Initializr to create and run a Spring Boot web application with key vault secrets included.
 
@@ -283,13 +284,16 @@ Use the following steps to examine the application and run it locally.
    ```java
    import org.springframework.boot.SpringApplication;
    import org.springframework.boot.autoconfigure.SpringBootApplication;
+   import org.springframework.boot.CommandLineRunner;
    import org.springframework.web.bind.annotation.GetMapping;
    import org.springframework.web.bind.annotation.RestController;
 
    @SpringBootApplication
    @RestController
-   public class KeyvaultApplication {
-
+   public class KeyvaultApplication implements CommandLineRunner {
+       
+       private String connectionString = "defaultValue\n";
+   
        public static void main(String[] args) {
            SpringApplication.run(KeyvaultApplication.class, args);
        }
@@ -298,8 +302,6 @@ Use the following steps to examine the application and run it locally.
        public String get() {
            return connectionString;
        }
-
-       private String connectionString = "defaultValue\n";
 
        public void run(String... varl) throws Exception {
            System.out.println(String.format("\nConnection String stored in Azure Key Vault:\n%s\n",connectionString));
@@ -311,7 +313,7 @@ Use the following steps to examine the application and run it locally.
    The following list highlights some details about this code:
 
    * The class is annotated with `@RestController`. `@RestController` tells Spring Boot that the class can respond to RESTful HTTP requests.
-   * The class has a method annotated with `@GetMapping(get)`. `@GetMapping` tells Spring Boot to send HTTP requests with the path `/get` to that method, allowing the response from that method to be returned to the HTTP client.
+   * The class has a method annotated with `@GetMapping("get")`. `@GetMapping` tells Spring Boot to send HTTP requests with the path `/get` to that method, allowing the response from that method to be returned to the HTTP client.
    * The class has a private instance variable `connectionString`. The value of this instance variable is returned from the `get()` method.
 
 1. Open a Bash window and navigate to the top-level *keyvault* directory, where the *pom.xml* file is located.
@@ -334,7 +336,7 @@ Use the following steps to examine the application and run it locally.
 
 1. Kill the process that's running from `mvn spring-boot:run`. You can type Ctrl-C, or you can use the `jps` command to get the pid of the `Launcher` process and kill it.
 
-## Create the app without Spring Initializr
+## Create an app without Spring Initializr
 
 This section shows how to include Azure Key Vault secrets to your existing Spring Boot project without using Spring Initializr.
 
@@ -372,7 +374,6 @@ Just as Key Vault allows externalizing secrets from application code, Spring con
 1. Edit the *src/main/resources/application.properties* file so that it has the following contents, adjusting the values for your Azure subscription.
 
    ```txt
-   spring.cloud.azure.keyvault.secret.property-source-enabled=true
    spring.cloud.azure.keyvault.secret.property-sources[0].credential.client-id=<your client ID>
    spring.cloud.azure.keyvault.secret.property-sources[0].credential.client-secret=<your client key>
    spring.cloud.azure.keyvault.secret.property-sources[0].endpoint=https://contosokv.vault.azure.net/
@@ -383,7 +384,6 @@ Just as Key Vault allows externalizing secrets from application code, Spring con
 
    | Parameter                                                                       | Description                                                                                                                                  |
    |---------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------|
-   | spring.cloud.azure.keyvault.secret.property-source-enabled                      | A value that indicates whether to enable the property source feature of spring-cloud-azure-starter-keyvault-secrets. Default value is false. |
    | spring.cloud.azure.keyvault.secret.property-sources[0].credential.client-id     | The `appId` from the return JSON from `az ad sp create-for-rbac`.                                                                            |
    | spring.cloud.azure.keyvault.secret.property-sources[0].credential.client-secret | The `password` from the return JSON from `az ad sp create-for-rbac`.                                                                         |
    | spring.cloud.azure.keyvault.secret.property-sources[0].endpoint                 | The value output from the `az keyvault create` command above.                                                                                |
@@ -411,7 +411,7 @@ Just as Key Vault allows externalizing secrets from application code, Spring con
 1. Enter the following command:
 
    ```bash
-   mvn clean package spring-boot:run
+   mvn clean spring-boot:run
    ```
 
    The command outputs `initialization completed`, which indicates that the server is ready.
@@ -437,7 +437,7 @@ The following steps show you how to deploy the `KeyvaultApplication` to Azure Ap
    <plugin>
      <groupId>com.microsoft.azure</groupId>
      <artifactId>azure-webapp-maven-plugin</artifactId>
-     <version>2.5.0</version>
+     <version>2.6.1</version>
    </plugin>
    ```
 
@@ -477,10 +477,10 @@ The following steps show you how to deploy the `KeyvaultApplication` to Azure Ap
      <plugin>
        <groupId>com.microsoft.azure</groupId>
        <artifactId>azure-webapp-maven-plugin</artifactId>
-       <version>2.5.0</version>
+       <version>2.6.1</version>
        <configuration>
          <schemaVersion>V2</schemaVersion>
-         <subscriptionId>YOUR_SUBSCRIPTION_ID</subscriptionId>
+         <subscriptionId/>
          <resourceGroup>YOUR_RESOURCE_GROUP_NAME</resourceGroup>
          <appName>YOUR_APP_NAME</appName>
          <pricingTier>P1v2</pricingTier>
@@ -490,14 +490,6 @@ The following steps show you how to deploy the `KeyvaultApplication` to Azure Ap
            <javaVersion>java 11</javaVersion>
            <webContainer>Java SE</webContainer>
          </runtime>
-         <!-- start of APP_SETTINGS -->
-         <appSettings>
-           <property>
-             <name>JAVA_OPTS</name>
-             <value>-Dserver.port=80</value>
-           </property>
-         </appSettings>
-         <!-- end of APP_SETTINGS -->
          <deployment>
            <resources>
              <resource>
@@ -547,7 +539,7 @@ The following steps show you how to deploy the `KeyvaultApplication` to Azure Ap
 
 You've now deployed your app to Azure App Service.
 
-## Redeploy to Azure App Service and use managed identities for Azure resources
+## Redeploy to Azure App Service with managed identities for Azure resources
 
 This section describes how to associate an identity with the Azure resource for the app. This association is required so that Azure can apply security and track access.
 
@@ -579,14 +571,14 @@ Use the following steps to create the managed identity for the Azure App Service
 
 1. Edit the *application.properties* so that it names the managed identity for Azure resources created in the preceding step.
 
+   1. Remove the `spring.cloud.azure.keyvault.secret.property-sources[0].profile.tenant-id`.
    1. Remove the `spring.cloud.azure.keyvault.secret.property-sources[0].credential.client-secret`.
-   1. Update the `spring.cloud.azure.keyvault.secret.property-sources[0].credential.client-id` to have the value of the `principalId` from the preceding step. The completed file should now look like the following example.
+   1. Remove the `spring.cloud.azure.keyvault.secret.property-sources[0].credential.client-id`.
+
+   The completed file should now look like the following example.
 
    ```properties
-   spring.cloud.azure.keyvault.secret.property-source-enabled=true
-   spring.cloud.azure.keyvault.secret.property-sources[0].credential.client-id=<your principal ID>
    spring.cloud.azure.keyvault.secret.property-sources[0].credential.managed-identity-enabled=true
-   spring.cloud.azure.keyvault.secret.property-sources[0].profile.tenant-id=<your tenant ID>
    spring.cloud.azure.keyvault.secret.property-sources[0].endpoint=https://contosokv.vault.azure.net/
    ```
 
@@ -595,7 +587,7 @@ Use the following steps to create the managed identity for the Azure App Service
    ```azurecli
    az keyvault set-policy \
        --name <your-Key-Vault-name> \
-       --object-id <your-principal-ID> \
+       --object-id <the-principal-ID-of-your-app-service-system-managed-identity> \
        --secret-permissions get list
    ```
 
@@ -629,9 +621,9 @@ Use the following steps to create the managed identity for the Azure App Service
 
 Instead of returning `defaultValue`, the app gets `connectionString` from the Key Vault.
 
-## Deploy to Azure Spring Apps
+## Deploy to Azure Spring Apps with managed identities for Azure resources
 
-In this section, you'll deploy the app to Azure Spring Apps.
+In this section, you'll deploy the app to Azure Spring Apps with Managed Identity authentication.
 
 Azure Spring Apps is a fully managed platform for deploying and running your Spring Boot applications in Azure. For an overview of Azure Spring Apps, see [What is Azure Spring Apps?](/azure/spring-apps/overview).
 
@@ -655,10 +647,10 @@ The following steps will show how to create an Azure Spring Apps resource and de
    az spring app create \
        --resource-group <your-resource-group-name> \
        --service <your-Azure-Spring-Apps-instance-name> \
-       --name <your-app-name> \
-       --assign-identity \
-       --is-public true \
-       --runtime-version Java_11 \
+       --name <your-Spring-Cloud-app-name> \
+       --system-assigned \
+       --assign-endpoint \
+       --runtime-version Java_11
    ```
 
    This table explains the options shown above.
@@ -668,8 +660,8 @@ The following steps will show how to create an Azure Spring Apps resource and de
    | resource-group | The name of the resource group where you created the existing service instance. |
    | service | The name of the existing service. |
    | name | The name of the app. |
-   | assign-identity | Causes the service to create an identity for managed identities for Azure resources. |
-   | is-public | Assign a public DNS domain name to the service. |
+   | system-assigned | Enable system-assigned managed identity. |
+   | assign-endpoint | Assign a public DNS domain name to the service. |
    | runtime-version | The Java runtime version. The value must match the value chosen in Spring Initializr above. |
 
    To understand the difference between *service* and *app*, see [App and deployment in Azure Spring Apps](/azure/spring-apps/concept-understand-app-and-deployment).
@@ -677,20 +669,27 @@ The following steps will show how to create an Azure Spring Apps resource and de
 1. Use the following command to get the managed identity for the Azure resource and use it to configure the existing Key Vault to allow access from this App.
 
    ```azurecli
-   SERVICE_IDENTITY=$(az spring app show --resource-group "contosorg" --name "contosoascsapp" --service "contososvc" | jq -r '.identity.principalId')
+   SERVICE_IDENTITY=$(az spring app show --resource-group "<your-resource-group-name>" --name "<your-Spring-Cloud-app-name>" --service "<your-Azure-Spring-Apps-instance-name>" | jq -r '.identity.principalId')
    az keyvault set-policy \
        --name <your-Key-Vault-name> \
        --object-id <the value of the environment variable SERVICE_IDENTITY> \
        --secret-permissions set get list
    ```
 
-1. Because the existing Spring Boot app already has an *application.properties* file with the necessary configuration, we can deploy this app directly to Spring Cloud using the following command. Run the command in the directory containing the POM.
+1. Edit *application.properties* so it will be consistent with the configuration used in App Service for managed identity.
+
+   ```properties
+   spring.cloud.azure.keyvault.secret.property-sources[0].credential.managed-identity-enabled=true
+   spring.cloud.azure.keyvault.secret.property-sources[0].endpoint=https://contosokv.vault.azure.net/
+   ```
+
+1. Deploy this app directly to Azure Spring Apps by using the following command. Run the command in the directory containing the POM file.
 
    ```azurecli
    az spring app deploy \
        --resource-group <your-resource-group-name> \
        --name <your-Spring-Cloud-app-name> \
-       --jar-path target/keyvault-0.0.1-SNAPSHOT.jar \
+       --artifact-path target/keyvault-0.0.1-SNAPSHOT.jar \
        --service <your-Azure-Spring-Apps-instance-name>
    ```
 
