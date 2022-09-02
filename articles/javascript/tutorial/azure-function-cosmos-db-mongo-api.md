@@ -69,8 +69,6 @@ Create a local Azure Functions (serverless) application that contains an [HTTP t
     |Provide a function name|`category`|API route is `/api/category`|
     |Authorization Level|Function|This locks the remote API to requests that pass the function key with the request. While developing locally, you won't need the function key.|
 
-    This process doesn't create cloud-based Azure Function resource. That [step](#6-create-the-function-app-and-deploy-to-azure) will come later.
-
 1. When Visual Studio Code completes creation of the project, you have a folder named for the function, *category* with three files:
 
     | Filename | Description |
@@ -229,7 +227,7 @@ Cosmos DB provides a MongoDB API to provide a familiar integration point.
     |Select an Azure Database Server|Azure Cosmos DB for MongoDB API||
     |Provide a Cosmos DB account name.|`cosmosdb-mongodb-database`|The name becomes part of the API's URL.|
     |Select a capacity model.|Provisioned Throughput||
-    |Select a resource group for new resources.|`cosmosdb-mongodb-function-resource-group`|Select the [resource group](#2-create-an-azure-resource-group) you created in the first article of this series.|
+    |Select a resource group for new resources.|`cosmosdb-mongodb-function-resource-group`|Select the resource group you created in the first article of this series.|
     |Select a location for new resources.|Select the recommended region.||
 
 1. In a Visual Studio Code terminal, install the npm package:
