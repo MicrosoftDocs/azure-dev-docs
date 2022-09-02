@@ -15,11 +15,11 @@ Because you inevitably make changes to your app, you end up rebuilding and redep
 
 1. Change the Welcome message, in `./public/client.html`, to `Welcome 2 Express`.
 
-1. In Visual Studio Code, open the **Command Palette** (**F1**) and run **Docker Images: Build Image** to rebuild the image). If you change only app code, the build should take only a few seconds.
+1. In Visual Studio Code, open the **Command Palette** (**F1**) and run **Docker Images: Build Image** to rebuild the image. If you change only app code, the build should take only a few seconds.
 
-1. To push the image to the registry, open the **Command Palette** (**F1**) again and run **Docker Images: Push**, choosing the image you just built. As before, because a change to your app code is small, only that layer needs to be pushed and the process typically completes in a few seconds.
+1. To push the image to your Azure container registry, open the **Command Palette** (**F1**) again and run **Docker Images: Push**, choosing the image you just built. As before, because a change to your app code is small, only that layer needs to be pushed and the process typically completes in a few seconds.
 
-1. In the **Azure: App Service** explorer, right-click the appropriate App Service and select **Restart**. Restarting an app service automatically pulls the latest container image from the registry.
+1. In the **Azure** explorer  (<kbd>Shift</kbd> + <kbd>Alt</kbd> + <kbd>A</kbd>), in the **Resources** section, find your App Service resource and right-click to select **Restart**. Restarting an app service automatically pulls the latest container image from the registry.
 
 1. After about 15-20 seconds, visit the App Service URL again to check the updates.
 

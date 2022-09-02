@@ -2,7 +2,7 @@
 title: Deploy a container image for a Node.js app from Visual Studio Code
 description: Docker Tutorial part 5, deploy the image to Azure App Service
 ms.topic: how-to
-ms.date: 08/17/2021
+ms.date: 09/02/2022
 ms.custom: devx-track-js
 # Verified full run: diberry 08/16/2021
 ---
@@ -28,6 +28,7 @@ In this step, you deploy the Azure Container registry image to Azure App Service
     |Enter the name of the new App Service plan.|Take the default name.|
     |Select a pricing tier|Select the free pricing tier if that is available.|
 
+1. If you receive an error that the namespace `Microsoft.Web` is not registered, run the following Azure CLI command to register the namespace: `az provider register --namespace Microsoft.Web`.
 
 1. When deployment is complete, Visual Studio Code shows a notification with the website URL:
 
@@ -37,9 +38,14 @@ In this step, you deploy the Azure Container registry image to Azure App Service
 
     ![Successful deployment output](../../media/deploy-containers/deploy-output.png)
 
+1. To see the resource in the **Azure** explorer, open the **Azure** explorer (<kbd>Shift</kbd> + <kbd>Alt</kbd> + <kbd>A</kbd>). 
+1. In the **Resources** contextual toolbar, select the **App Services** node and expand it to find your new resource. 
+
 ## View the web site in a browser
 
-To browse the deployed website, you can **Ctrl**+**Click** the URL in the **Output** panel then select **Open website**. The new App Service also appears in the **AZURE** explorer in Visual Studio Code under the **APP SERVICE** section, where you can right-click the website and select **Browse Website**.
+1. To see the site in a browser, open the **Azure** explorer (<kbd>Shift</kbd> + <kbd>Alt</kbd> + <kbd>A</kbd>). 
+1. In the **Resources** contextual toolbar, select the **App Services** node and expand it to find your new resource. 
+1. Right-click your resource and select **Browse Website**.
 
 ## Next steps
 

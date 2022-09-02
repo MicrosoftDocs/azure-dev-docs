@@ -2,7 +2,7 @@
 title: Deploy Azure app from Azure container registry
 description: Deploy Docker containers to Azure App Service from Visual Studio Code part 1, introduction, and prerequisites.
 ms.topic: how-to
-ms.date: 08/16/2021
+ms.date: 09/02/2022
 ms.custom: devx-track-js
 # Verified full run: diberry 08/16/2021
 ---
@@ -18,6 +18,7 @@ In this tutorial, you use Visual Studio Code to:
 ## Prerequisites
 
 - An [Azure subscription](https://azure.microsoft.com/free/).
+- [Azure CLI](/cli/azure/install-azure-cli-windows?tabs=azure-cli) or [Azure Cloud Shell in a browser](https://portal.azure.com/#cloudshell/)
 - [Visual Studio Code](https://code.visualstudio.com/).
 - Visual Studio Code extensions
     - [Azure Account extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account)
@@ -25,7 +26,7 @@ In this tutorial, you use Visual Studio Code to:
     - [Azure Resources extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureresourcegroups)
     - [Docker](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker).
 - [Node.js LTS](https://nodejs.org/en/download).
-- [Docker](https://www.docker.com/community-edition).
+- [Docker](https://www.docker.com/community-edition) - running on your workstation.
 
 ## Sign in to Azure
 

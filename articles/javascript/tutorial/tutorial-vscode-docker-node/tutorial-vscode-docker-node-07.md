@@ -10,9 +10,10 @@ ms.custom: devx-track-js, vscode-azure-extension-update-completed
 
 In this step, you learn how to view or "tail" any output that the running website generates through calls to `console.log`. This output appears in the **Output** window in Visual Studio Code.
 
-## Stream logs from VS Code
+## Stream logs from Visual Studio Code
 
-1. In the **Azure App Service** explorer, right-click the app node and choose **Start Streaming Logs**.
+1. In the **Azure** explorer  (<kbd>Shift</kbd> + <kbd>Alt</kbd> + <kbd>A</kbd>), in the **Resources** section, find your website in the **App Services** section.
+1. Right-click the app node and choose **Start Streaming Logs**.
 
     ![View Streaming Logs](../../media/deploy-containers/stream-logs-command.png)
 
