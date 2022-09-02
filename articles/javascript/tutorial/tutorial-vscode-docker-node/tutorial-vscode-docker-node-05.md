@@ -39,7 +39,7 @@ In this step, you deploy the Azure Container registry image to Azure App Service
     ![Successful deployment output](../../media/deploy-containers/deploy-output.png)
 
 
-## Configure custom port
+## Configure custom port for App Service
 
 1. To set the custom port, 3000, in the **Azure** explorer, open the **Azure** explorer (<kbd>Shift</kbd> + <kbd>Alt</kbd> + <kbd>A</kbd>). 
 1. In the **Resources** contextual toolbar, select the **App Services** node and expand it to find your new resource. 

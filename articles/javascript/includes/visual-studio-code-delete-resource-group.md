@@ -13,7 +13,7 @@ Remove the resources created in this procedure when you're done using them. Beca
 1. In Visual Studio Code, still in the Azure explorer (<kbd>Shift</kbd> + <kbd>Alt</kbd> + <kbd>A</kbd>). 
 1. In the **Resources** contextual toolbar, select **Group by**.
 1. In the list of group-by choices, select **Group by Resource Group**.
-1. Right-click on your resource group and select *Delete Resource Group**.
+1. Right-click on your resource group and select **Delete Resource Group**.
 
 # [Azure CLI](#tab/azure-cli)
 
