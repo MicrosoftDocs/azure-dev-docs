@@ -2,7 +2,7 @@
 title: Implement end-to-end Terratest testing on Terraform projects
 description: Learn more about end-to-end testing with Terratest on a Terraform project.
 ms.topic: how-to
-ms.date: 08/07/2021
+ms.date: 08/31/2021
 ms.custom: devx-track-terraform
 ---
 
@@ -62,7 +62,7 @@ The test validates the following scenarios:
 
 If you [downloaded the sample](#1-configure-your-environment), the Terraform configuration for this scenario can be found in the `src/main.tf` file. The `main.tf` file contains everything necessary to deploy the Azure infrastructure represented in the preceding figure.
 
-If you're unfamiliar with how to create a virtual machine, see [Create a Linux VM with infrastructure in Azure using Terraform](create-linux-virtual-machine-with-infrastructure.md).
+If you're unfamiliar with how to create a virtual machine, see [Create a Linux VM with infrastructure in Azure using Terraform](/azure/virtual-machines/linux/quick-create-terraform).
 
 > [!CAUTION]
 > The sample scenario presented in this article is for illustration purposes only. We've purposely kept things simple in order to focus on the steps of an end-to-end test. We don't recommend having production virtual machines that exposes SSH ports over a public IP address.

@@ -4,7 +4,7 @@ description: Learn how to manage your Azure Redis caches by using the Azure Expl
 ms.date: 03/14/2022
 author: KarlErickson
 ms.author: jialuogan
-ms.service: multiple
+ms.service: azure-java
 ms.topic: article
 ms.custom: devx-track-java
 ---

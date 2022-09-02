@@ -82,7 +82,7 @@ landingContent:
       - linkListType: quickstart
         links:
           - text: Configure a Linux VM
-            url: create-linux-virtual-machine-with-infrastructure.md
+            url: /azure/virtual-machines/linux/quick-create-terraform
       - linkListType: how-to-guide
         links:
           - text: Configure a VM cluster

@@ -5,7 +5,7 @@ description: This tutorial will walk you though the steps to deploy a Spring Boo
 services: container-service
 documentationcenter: java
 ms.date: 01/19/2022
-ms.service: multiple
+ms.service: azure-java
 ms.tgt_pltfrm: multiple
 ms.topic: article
 ms.custom: mvc, devx-track-java, devx-track-azurecli
