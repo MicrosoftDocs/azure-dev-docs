@@ -200,8 +200,8 @@ In this section, you create a function app and related resources in your Azure s
 
 Cosmos DB provides a MongoDB API to provide a familiar integration point. 
 
-1. In Visual Studio Code, select the **Azure Explorer**, then under **Databases**, select **+** to begin the creation process.
-
+1. In Visual Studio Code, open the **Azure** explorer by selecting the Azure icon in the primary side bar or use the keyboard shortcut (<kbd>Shift</kbd> + <kbd>Alt</kbd> + <kbd>A</kbd>).
+1. In the **Resources** section, select the **+** then select **Create Database Server**.
     Use the following table to complete the prompts to create a new Azure Cosmos DB resource. 
 
     |Prompt|Value|Notes|
@@ -209,10 +209,10 @@ Cosmos DB provides a MongoDB API to provide a familiar integration point.
     |Select an Azure Database Server|Azure Cosmos DB for MongoDB API||
     |Provide a Cosmos DB account name.|`cosmosdb-mongodb-database`|The name becomes part of the API's URL.|
     |Select a capacity model.|Provisioned Throughput||
-    |Select a resource group for new resources.|`cosmosdb-mongodb-function-resource-group`|Select the resource group you created in the first article of this series.|
+    |Select a resource group for new resources.|`cosmosdb-mongodb-function-resource-group`|Select or create a resource group|
     |Select a location for new resources.|Select the recommended region.||
 
-1. In a Visual Studio Code terminal, install the npm package:
+1. In a Visual Studio Code terminal, <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>`</kbd>, then install the npm package:
 
     ```bash
     npm install mongoose
@@ -233,9 +233,10 @@ Cosmos DB provides a MongoDB API to provide a familiar integration point.
 
     :::code language="typescript" source="~/../js-e2e-azure-function-mongodb/category/function.json" highlight="11":::
   
-## 9. Add database connection string to local project
+## 9. Add remote Cosmos DB database connection string to local Node.js serverless project
 
-1. In Visual Studio Code, select the Azure explorer, then under **Databases**, right-click your database and select **Copy Connection String**.
+1. In Visual Studio Code, open the **Azure** explorer by selecting the Azure icon in the primary side bar or use the keyboard shortcut (<kbd>Shift</kbd> + <kbd>Alt</kbd> + <kbd>A</kbd>).
+1. In the **Resources** section, right-click your Cosmos DB database and select **Copy Connection String**.
 
     :::image type="content" source="../media/functions-extension/visual-studio-code-cosmos-db-copy-connection-string.png" alt-text="Partial screenshot of Visual Studio Code, showing the Azure explorer with a database selected and the right-click menu highlighting Copy Connection String.":::
 
@@ -245,13 +246,11 @@ Cosmos DB provides a MongoDB API to provide a familiar integration point.
 
 ## 10. Use the Azure Function APIs
 
-### Add items to database with API
+### Add items to database with serverless API using cURL command
 
 1. In Visual Studio Code, press <kbd>F5</kbd> to launch the debugger and attach to the Azure Functions host. 
 
-    You could also use the **Debug** > **Start Debugging** menu command.
-
-1. Use the following curl command in the integrated bash terminal to add **John** to your database:
+1. Use the following cURL command in a new terminal, <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>`</kbd>, to add **John** to your database:
 
     :::code language="bash" source="~/../js-e2e-azure-function-mongodb/curl.sh" range="3-5" :::
  
@@ -316,9 +315,11 @@ Cosmos DB provides a MongoDB API to provide a familiar integration point.
     }
     ```
 
-### View all data with Visual Studio Code extension
+### View all data with VSCode extension for Cosmos DB
 
-1. In Visual Studio Code, select the **Azure Explorer**, then under **Databases**, right-click your Cosmos DB resource, then the **Test** database, then the **Bookstore** collection.
+1. In Visual Studio Code, open the **Azure** explorer by selecting the Azure icon in the primary side bar or use the keyboard shortcut (<kbd>Shift</kbd> + <kbd>Alt</kbd> + <kbd>A</kbd>).
+1. In the **Resources** section, right-click your Cosmos DB database and select **Refresh**.
+1. Expand the **test** database and **Bookstore** collection node's to view the documents. 
 1. Select one of the items listed to view the data in the Cosmos DB. 
 
     :::image type="content" source="../media/functions-extension/visual-studio-code-databases-extension-showing-mongodb-doc.png" alt-text="Partial screenshot of Visual Studio Code, showing the Azure explorer with the Databases with a selected item displayed in the reading pane.":::
@@ -364,26 +365,29 @@ Cosmos DB provides a MongoDB API to provide a familiar integration point.
       }
     }
     ```
+1. In VS Code,stop the debugger, <kbd>Shift</kbd> + <kbd>F5</kbd>.
 
 ## 11. Redeploy the function app to include database code
 
-1. In Visual Studio Code, select the **Azure Explorer**, then under **Functions**, select the deploy icon to begin the deployment process.
+1. In Visual Studio Code, open the **Azure** explorer by selecting the Azure icon in the primary side bar or use the keyboard shortcut (<kbd>Shift</kbd> + <kbd>Alt</kbd> + <kbd>A</kbd>).
+1. In the **Resources** section, right-click your Azure Function app and select **Deploy to Function App**.
 
     :::image type="content" source="../media/functions-extension/visual-studio-code-function-redeploy-to-azure.png" alt-text="Partial screenshot of Visual Studio Code, showing the Azure explorer with the Functions deploy icon highlighted.":::
 
-1. In the pop-up window, select the same function app, `cosmosdb-mongodb-function-app` to begin the deployment. 
+1. In the pop-up asking if you are sure you want to deploy, select **Deploy**.
 1. Wait until deployment completes before continuing.
 
-## 12. Add database connection string to remote function 
+## 12. Add Cosmos DB database connection string to remote Azure Function app
 
-1. In Visual Studio Code, in the Azure Explorer, under **Functions**, select and expand your Function app.
+1. In Visual Studio Code, open the **Azure** explorer by selecting the Azure icon in the primary side bar or use the keyboard shortcut (<kbd>Shift</kbd> + <kbd>Alt</kbd> + <kbd>A</kbd>).
+1. In the **Resources** section, find your Cosmos DB. Right-click the resource and select **Copy Connection String**.
+1. In the same **Resources** section, find your Function App and expand the node.
 1. Right-click on **Application Settings** and select **Add New Setting**.
 
     :::image type="content" source="../media/functions-extension/visual-studio-code-function-application-setting-add-new.png" alt-text="Partial screenshot of Visual Studio Code, showing the Azure explorer with the Functions Application Settings, with the Add new setting menu item highlighted.":::
 
-1. Enter the app setting name, `CosmosDbConnectionString` and press enter. Leave the next pop window up. 
-1. To get the connection string, select the **Azure Explorer**, then under **Databases**, right-click your database and select **Copy Connection String**.
-1. Paste the value into the still-open pop-up window.
+1. Enter the app setting name, `CosmosDbConnectionString` and press enter. 
+1. Paste the value you copied and press enter.
 
 ## 13. Use cloud-based Azure Function 
 
