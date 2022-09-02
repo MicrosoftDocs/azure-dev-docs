@@ -168,11 +168,11 @@ With your function running locally, set breakpoints on different parts of the co
 
 ## 1. Create the Azure Function app in Visual Studio Code
 
-[!INCLUDE [Azure Function - create resource in VSCode](~/azure-docs/includes/functions-create-azure-resources-vs-code.md)]
+[!INCLUDE [Azure Function - create resource in VSCode](~/azure-docs-pr/includes/functions-create-azure-resources-vs-code.md)]
 
 ## 1. Deploy the Azure Function app to Azure in Visual Studio Code
 
-[!INCLUDE [Azure Function - deploy local code to remote resource in VSCode](~/azure-docs/includes/functions-deploy-project-vs-code.md)]
+[!INCLUDE [Azure Function - deploy local code to remote resource in VSCode](~/azure-docs-pr/includes/functions-deploy-project-vs-code.md)]
 
 ## 1. Run the remote serverless function
 
