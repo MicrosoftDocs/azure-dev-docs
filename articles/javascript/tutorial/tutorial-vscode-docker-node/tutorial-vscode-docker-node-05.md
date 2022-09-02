@@ -3,8 +3,8 @@ title: Deploy a container image for a Node.js app from Visual Studio Code
 description: Docker Tutorial part 5, deploy the image to Azure App Service
 ms.topic: how-to
 ms.date: 09/02/2022
-ms.custom: devx-track-js
-# Verified full run: diberry 08/16/2021
+ms.custom: devx-track-js, vscode-azure-extension-update-completed 
+# Verified full run: diberry 09/02/2022
 ---
 
 # Deploy the Registry image to Azure App Service
@@ -38,8 +38,14 @@ In this step, you deploy the Azure Container registry image to Azure App Service
 
     ![Successful deployment output](../../media/deploy-containers/deploy-output.png)
 
-1. To see the resource in the **Azure** explorer, open the **Azure** explorer (<kbd>Shift</kbd> + <kbd>Alt</kbd> + <kbd>A</kbd>). 
+
+## Configure custom port
+
+1. To set the custom port, 3000, in the **Azure** explorer, open the **Azure** explorer (<kbd>Shift</kbd> + <kbd>Alt</kbd> + <kbd>A</kbd>). 
 1. In the **Resources** contextual toolbar, select the **App Services** node and expand it to find your new resource. 
+1. Right-click the **Application Settings** node then select **Add new setting**.
+1. Add a new setting named **WEBSITES_PORT** with the value **3000**.
+
 
 ## View the web site in a browser
 

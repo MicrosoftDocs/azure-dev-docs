@@ -2,9 +2,9 @@
 title: Redeploy a container to Azure App Service after making changes in Visual Studio Code
 description: Docker Tutorial step 6, the simple steps to rebuild and redeploy a container image.
 ms.topic: how-to
-ms.date: 08/17/2021
-ms.custom: devx-track-js
-# Verified full run: diberry 08/16/2021
+ms.date: 09/02/2022
+ms.custom: devx-track-js, vscode-azure-extension-update-completed 
+# Verified full run: diberry 09/02/2022
 ---
 
 # 6. Make changes and redeploy a container using Visual Studio Code

@@ -2,9 +2,9 @@
 title: Create a container image for a Node.js app from Visual Studio Code
 description: Docker Tutorial part 4, create a Node.js application image
 ms.topic: how-to
-ms.date: 08/08/2022
-ms.custom: devx-track-js
-# Verified full run: diberry 08/16/2021
+ms.date: 09/02/2022
+ms.custom: devx-track-js, vscode-azure-extension-update-completed 
+# Verified full run: diberry 09/02/2022
 ---
 
 # 4. Create your Node.js application image

@@ -4,6 +4,7 @@ description: Docker Tutorial part 8, clean up resources
 ms.topic: how-to
 ms.date: 09/02/2022
 ms.custom: devx-track-js, vscode-azure-extension-update-completed 
+# Verified full run: diberry 09/02/2022
 ---
 
 # 8. Clean up resources

@@ -3,8 +3,8 @@ title: Use a container registry from Visual Studio Code
 description: Part 2, set up a suitable container registry for your app image. 
 ms.topic: how-to
 ms.date: 09/02/2022
-ms.custom: devx-track-js
-# Verified full run: diberry 08/16/2021
+ms.custom: devx-track-js, vscode-azure-extension-update-completed 
+# Verified full run: diberry 09/02/2022
 ---
 
 # 2. Set up Azure Container registry
