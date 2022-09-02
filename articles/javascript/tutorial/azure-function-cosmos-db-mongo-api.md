@@ -2,8 +2,8 @@
 title: "JS + VSCode + Serverless + MongoDB: Store data in CosmosDB"
 description: "Tutorial: Create Azure Function in Visual Studio Code to store MongoDB data with Mongoose API. Deploy the application to the Azure cloud for hosting with a public HTTP endpoint."
 ms.topic: how-to
-ms.date: 09/01/2022
-ms.custom: devx-track-js, contperf-fy21q2
+ms.date: 09/02/2022
+ms.custom: devx-track-js, contperf-fy21q2, vscode-azure-extension-update-completed 
 adobe-target: true
 ---
 
@@ -166,51 +166,13 @@ With your function running locally, set breakpoints on different parts of the co
 
 1. Stop the debugger in Visual Studio Code, <kbd>Shift</kbd> + <kbd>F5</kbd>. 
 
-## 1. Create the Function app and deploy to Azure
+## 1. Create the Azure Function app in Visual Studio Code
 
-1. In Visual Studio Code, open the **Azure** explorer by selecting the Azure icon in the primary side bar or use the keyboard shortcut (<kbd>Shift</kbd> + <kbd>Alt</kbd> + <kbd>A</kbd>).
-1. In the **Workspace** section, find and expand the **Local Project** -> **Functions** -> **category**.
-1. 
-1. In Visual Studio Code, select the Azure explorer, then under **Functions**, select the **Deploy to Function app** icon to deploy your app:
+[!INCLUDE [Azure Function - create resource in VSCode](~/azure-docs/includes/functions-create-azure-resources-vs-code.md)]
 
-    ![Deploy to Azure Functions command](../media/functions-extension/deploy-app.png)
+## 1. Deploy the Azure Function app to Azure in Visual Studio Code
 
-    Alternately, you can deploy by opening the **Command Palette** (**F1**), entering 'deploy to function app' to filter the commands, then select the **Azure Functions: Deploy to Function App** command.
-
-1. Use the following table to complete the prompts to create a new Azure Function resource. 
-
-    |Prompt|Value|Notes|
-    |--|--|--|
-    |Select Function App in Azure|Create new Function app in Azure (Advanced)|Create a cloud-based resource for your function.|
-    |Enter a globally unique name for the new Function App|The name becomes part of the API's URL.|API is invoked with an HTTP request. Valid characters for a function app name are 'a-z', '0-9', and '-'. An example is `cosmosdb-mongodb-function-app`.|
-    |Select a runtime stack|Select a Node.js stack with the `LTS` descriptor.|Select Node.js 14 LTS|
-    |Select an OS.|Windows||
-    |Select a resource group for new resources.|`cosmosdb-mongodb-function-resource-group`|Select the [resource group](#2-create-an-azure-resource-group) you created in the first article of this series.|
-    |Select a location for new resources.|Select the recommended region.||
-    |Select a hosting plan.|Consumption||
-    |Select a storage account.|+ Create new storage account named `cosmosdbmongodbstorage`.||
-    |Select an Application Insights resource for your app.|Create a new Application Insights resource named `cosmosdb-mongodb-function-app-insights`.|
-
-1. The Visual Studio Code **Output** panel for **Azure Functions** shows progress:
-
-    ```console
-    12:26:48 PM: Creating new function app "Visual Studio Codecosmosdb-mongodb-function-app"...
-    12:27:09 PM: Successfully created function app "Visual Studio Codecosmosdb-mongodb-function-app": https://Visual Studio Codecosmosdb-mongodb-function-app.azurewebsites.net
-    12:27:38 PM Visual Studio Codecosmosdb-mongodb-function-app: Starting deployment...
-    12:27:40 PM Visual Studio Codecosmosdb-mongodb-function-app: Creating zip package...
-    12:27:41 PM Visual Studio Codecosmosdb-mongodb-function-app: Uploading zip package to storage container...
-    12:27:41 PM Visual Studio Codecosmosdb-mongodb-function-app: Zip package size: 2.73 kB
-    12:27:44 PM Visual Studio Codecosmosdb-mongodb-function-app: Deployment successful.
-    12:27:44 PM Visual Studio Codecosmosdb-mongodb-function-app: Started postDeployTask "npm install (functions)".
-    12:27:55 PM Visual Studio Codecosmosdb-mongodb-function-app: Syncing triggers...
-    12:27:57 PM Visual Studio Codecosmosdb-mongodb-function-app: Querying triggers...
-    12:28:01 PM Visual Studio Codecosmosdb-mongodb-function-app: WARNING: Some http trigger urls cannot be displayed in the output window because they require an authentication token. Instead, you may copy them from the Azure Functions explorer.
-    ```
-
-    When deploying, the entire Functions application is deployed, any changes to individual APIs are deployed at once.
-
-1. When the resource is created, a notification pops up, usually in the lower left corner of Visual Studio Code.
-1. In the notification, select **Stream logs** and keep the view open while you make a request to the API in the next section.
+[!INCLUDE [Azure Function - deploy local code to remote resource in VSCode](~/azure-docs/includes/functions-deploy-project-vs-code.md)]
 
 ## 1. Run the remote serverless function
 
