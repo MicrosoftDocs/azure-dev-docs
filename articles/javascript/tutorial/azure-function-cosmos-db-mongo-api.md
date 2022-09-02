@@ -30,7 +30,7 @@ Install the following software:
 
 The following software is installed as part of the tutorial later:
 
-* [Azure Functions Core Tools](https://github.com/Azure/azure-functions-core-tools) - to use Azure Functions 3.x
+* [Azure Functions Core Tools](https://github.com/Azure/azure-functions-core-tools) - to develop, run, and debug Azure Functions on your local workstation
 
 ## 1. Sign in to Azure in Visual Studio Code
 
@@ -69,7 +69,7 @@ Create a local Azure Functions (serverless) application that contains an [HTTP t
     |Provide a function name|`category`|API route is `/api/category`|
     |Authorization Level|Function|This locks the remote API to requests that pass the function key with the request. While developing locally, you won't need the function key.|
 
-1. When Visual Studio Code completes creation of the project, you have a folder named for the function, *category* with three files:
+1. When Visual Studio Code completes creation of the project, use the File explorer, <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>D</kbd>, to view your project with a folder named for the function, *category* with three files:
 
     | Filename | Description |
     | --- | --- |
@@ -86,9 +86,8 @@ Create a local Azure Functions (serverless) application that contains an [HTTP t
 1. Add the Azure Function core tools package, required to run the Azure Function app locally:
 
     ```bash
-    npm install --global azure-functions-core-tools@3
+    npm install --global azure-functions-core-tools
     ```
-
 
 
 1. <a name="http-function-javascript-template-code"></a>In the `./category/index.ts` file, add a new `context.log` message to print the name to the function's log, highlighted in the following code:
@@ -99,7 +98,7 @@ Create a local Azure Functions (serverless) application that contains an [HTTP t
 
 Run the Azure Functions project locally to test it before deploying to Azure. 
 
-1. In Visual Studio Code, `./category/index.ts` file, set a break point on the final `context.res` block, at the end of the function. 
+1. In Visual Studio Code, open the `./category/index.ts` file, set a break point on the final `context.res` block, at the end of the function. 
 
 1. In Visual Studio Code, press <kbd>F5</kbd>  to launch the debugger and attach to the Azure Functions host. 
 
@@ -111,7 +110,7 @@ Run the Azure Functions project locally to test it before deploying to Azure.
 
 1. In Visual Studio Code, open the **Azure** explorer by selecting the Azure icon in the primary side bar or use the keyboard shortcut (<kbd>Shift</kbd> + <kbd>Alt</kbd> + <kbd>A</kbd>).
 1. In the **Workspace** section, find and expand the **Local Project** -> **Functions** -> **category**.
-1. Select the function name, **category**, then select **Copy Function Url**.
+1. Right-click the function name, **category**, then select **Copy Function Url**.
 
     :::image type="content" source="../media/functions-extension/visual-studio-code-function-extension-get-function-url.png" alt-text="Partial screenshot of Visual Studio Code, with the Azure Function's button named Copy Function URL highlighted." lightbox="../media/functions-extension/visual-studio-code-function-extension-get-function-url.png":::
 
@@ -121,13 +120,14 @@ Run the Azure Functions project locally to test it before deploying to Azure.
 
     Because the function is running locally, your local API doesn't need the function key to work successfully.
 
-1. To see the entire HTTP response, use the following cURL command in the terminal:
+1. In VS Code, when the breakpoint hits, review the at the variables and call stack. Step over the break point to let the function complete.
+1. Optionally, to see the entire HTTP response, use the following cURL command in the terminal:
 
     ```bash
     curl http://localhost:7071/api/category?name=john --verbose
     ```
 
-1. The response is:
+    The response is:
 
     ```console
     *   Trying ::1:7071...
@@ -149,22 +149,9 @@ Run the Azure Functions project locally to test it before deploying to Azure.
     Hello, john. This HTTP triggered function executed successfully.* Connection #0 to host localhost left intact
     ```
 
-## 5. Set and stop at break point in serverless app
+1. In VS Code,stop the debugger, <kbd>Shift</kbd> + <kbd>F5</kbd>.
 
-With your function running locally, set breakpoints on different parts of the code. 
-
-1. Open *index.ts*, then click in the margin to the left of last `context.res`, in the editor window. 
-1. A small red dot appears to indicate a breakpoint. 
-1. Change the `?name=` value for the URL in the integrated bash terminal and resubmit the request to the function. 
-1. When the browser makes that request, VS Code stops the function code on that breakpoint:
-
-    :::image type="content" source="../media/functions-extension/visual-studio-code-function-break-point-request-variables.png" alt-text="Screenshot of Visual Studio Code with breakpoint activated and Closure (httpTrigger) variables displaying request values." lightbox="../media/functions-extension/visual-studio-code-function-break-point-request-variables.png":::
-
-    Expand the **Variables** element named **Closure (httpTrigger)** to see the request properties. You can view all the properties passed into the function.
-
-1. Stop the debugger in Visual Studio Code, <kbd>Shift</kbd> + <kbd>F5</kbd>. 
-
-## 6. Create the Azure Function app in Visual Studio Code
+## 5. Create the Azure Function app in Visual Studio Code
 
 In this section, you create a function app and related resources in your Azure subscription.
 
@@ -181,24 +168,19 @@ In this section, you create a function app and related resources in your Azure s
 
     The extension shows the status of individual resources as they're being created in Azure in the **Azure: Activity Log** panel.
 
-1. When the creation is complete, the following Azure resources are created in your subscription. The resources are named based on your function app name:
-
-    A notification is displayed after your function app is created and the deployment package is applied.
-
-## 7. Deploy the Azure Function app to Azure in Visual Studio Code
+## 6. Deploy the Azure Function app to Azure in Visual Studio Code
 
 > [!IMPORTANT]
 > Deploying to an existing function app always overwrites the contents of that app in Azure.
 
-1. Choose the Azure icon in the Activity bar, then in the **Workspace** area, select your project folder and select the **Deploy...** button.
+1. Choose the Azure icon in the Activity bar, then in the **Resources** area, right-click your function app resource and select the **Deploy to function app** button.
+1. If you are asked if you are sure you want to deploy, select **Deploy**.
+1. After deployment completes, a notification displays with severals options. Select **View Output** to view the results. If you miss the notification, select the bell icon in the lower right corner to see it again.
 
-1. Select **Deploy to Function App...**, choose the function app you just created, and select **Deploy**.   
+## 7. Run the remote serverless function
 
-1. After deployment completes, select **View Output** to view the creation and deployment results, including the Azure resources that you created. If you miss the notification, select the bell icon in the lower right corner to see it again.
-
-## 8. Run the remote serverless function
-
-1. Once deployment is completed, go to the **Azure** explorer, expand the node for your Azure subscription, expand the node for your Functions app, then expand **Functions (read only)**. Right-click the function name, `category` and select **Copy Function Url**:
+1. In Visual Studio Code, open the **Azure** explorer by selecting the Azure icon in the primary side bar or use the keyboard shortcut (<kbd>Shift</kbd> + <kbd>Alt</kbd> + <kbd>A</kbd>).
+1. In the **Resources** section, expand your Azure Function app resource. Right-click the function name, `category`, in the Functions node, and select **Copy Function Url**:
 
     ![Copy function URL command](../media/functions-extension/copy-function-url-command.png)
 
@@ -214,7 +196,7 @@ In this section, you create a function app and related resources in your Azure s
 
 1. Review the streaming log in Visual Studio Code to find your `context.log` output. 
 
-## 9. Add Cosmos DB for MongoDB API integration 
+## 8. Add Cosmos DB for MongoDB API integration 
 
 Cosmos DB provides a MongoDB API to provide a familiar integration point. 
 
@@ -251,7 +233,7 @@ Cosmos DB provides a MongoDB API to provide a familiar integration point.
 
     :::code language="typescript" source="~/../js-e2e-azure-function-mongodb/category/function.json" highlight="11":::
   
-## 10. Add database connection string to local project
+## 9. Add database connection string to local project
 
 1. In Visual Studio Code, select the Azure explorer, then under **Databases**, right-click your database and select **Copy Connection String**.
 
@@ -261,7 +243,7 @@ Cosmos DB provides a MongoDB API to provide a familiar integration point.
 
     :::code language="json" source="~/../js-e2e-azure-function-mongodb/local.settings.json" highlight="6":::
 
-## 11. Use the Azure Function APIs
+## 10. Use the Azure Function APIs
 
 ### Add items to database with API
 
@@ -383,7 +365,7 @@ Cosmos DB provides a MongoDB API to provide a familiar integration point.
     }
     ```
 
-## 12. Redeploy the function app to include database code
+## 11. Redeploy the function app to include database code
 
 1. In Visual Studio Code, select the **Azure Explorer**, then under **Functions**, select the deploy icon to begin the deployment process.
 
@@ -392,7 +374,7 @@ Cosmos DB provides a MongoDB API to provide a familiar integration point.
 1. In the pop-up window, select the same function app, `cosmosdb-mongodb-function-app` to begin the deployment. 
 1. Wait until deployment completes before continuing.
 
-## 13. Add database connection string to remote function 
+## 12. Add database connection string to remote function 
 
 1. In Visual Studio Code, in the Azure Explorer, under **Functions**, select and expand your Function app.
 1. Right-click on **Application Settings** and select **Add New Setting**.
@@ -403,7 +385,7 @@ Cosmos DB provides a MongoDB API to provide a familiar integration point.
 1. To get the connection string, select the **Azure Explorer**, then under **Databases**, right-click your database and select **Copy Connection String**.
 1. Paste the value into the still-open pop-up window.
 
-## 14. Use cloud-based Azure Function 
+## 13. Use cloud-based Azure Function 
 
 1. Still in the Azure Explorer, in the **Functions** area, select and expand your function then the **Functions** node, which lists the API, **category**.
 1. Right-click on the **category** item and select **Copy Function Url**.
@@ -421,7 +403,7 @@ Cosmos DB provides a MongoDB API to provide a familiar integration point.
 
     :::code language="bash" source="~/../js-e2e-azure-function-mongodb/curl.sh" range="39-41" :::
 
-## 15. Query your Azure Function logs
+## 14. Query your Azure Function logs
 
 To search the logs, use the Azure portal. 
 
@@ -458,8 +440,6 @@ To search the logs, use the Azure portal.
     * The Function app added Application Insights _for you_.
     * The Kusto Query tool is included in the Azure portal.
     * You can click on `traces` instead of having to learn to write a [Kusto query](/azure/data-explorer/kusto/concepts/) to get even the minimum information from your logs.
-
-## 16. Clean up resources 
 
 [!INCLUDE [remove resource group](../includes/visual-studio-code-delete-resource-group.md)]
 
