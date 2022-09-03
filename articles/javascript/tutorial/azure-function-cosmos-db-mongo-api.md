@@ -1,5 +1,5 @@
 ---
-title: "JS + VSCode + Serverless + MongoDB: Store data in CosmosDB"
+title: "JS + VSCode + Serverless + MongoDB: Store data in Cosmos DB"
 description: "Tutorial: Create Azure Function in Visual Studio Code to store MongoDB data with Mongoose API. Deploy the application to the Azure cloud for hosting with a public HTTP endpoint."
 ms.topic: how-to
 ms.date: 09/02/2022
@@ -120,7 +120,7 @@ Run the Azure Functions project locally to test it before deploying to Azure.
 
     Because the function is running locally, your local API doesn't need the function key to work successfully.
 
-1. In VS Code, when the breakpoint hits, review the at the variables and call stack. Step over the break point to let the function complete.
+1. In VS Code, when the breakpoint hits, review the variables and call stack. Step over the break point to let the function complete.
 1. Optionally, to see the entire HTTP response, use the following cURL command in the terminal:
 
     ```bash
@@ -149,7 +149,7 @@ Run the Azure Functions project locally to test it before deploying to Azure.
     Hello, john. This HTTP triggered function executed successfully.* Connection #0 to host localhost left intact
     ```
 
-1. In VS Code,stop the debugger, <kbd>Shift</kbd> + <kbd>F5</kbd>.
+1. In VS Code, stop the debugger, <kbd>Shift</kbd> + <kbd>F5</kbd>.
 
 ## 5. Create the Azure Function app in Visual Studio Code
 
@@ -174,7 +174,7 @@ In this section, you create a function app and related resources in your Azure s
 > Deploying to an existing function app always overwrites the contents of that app in Azure.
 
 1. Choose the Azure icon in the Activity bar, then in the **Resources** area, right-click your function app resource and select the **Deploy to function app** button.
-1. If you are asked if you are sure you want to deploy, select **Deploy**.
+1. If you're asked if you're sure you want to deploy, select **Deploy**.
 1. After deployment completes, a notification displays with severals options. Select **View Output** to view the results. If you miss the notification, select the bell icon in the lower right corner to see it again.
 
 ## 7. Run the remote serverless function
@@ -365,7 +365,7 @@ Cosmos DB provides a MongoDB API to provide a familiar integration point.
       }
     }
     ```
-1. In VS Code,stop the debugger, <kbd>Shift</kbd> + <kbd>F5</kbd>.
+1. In VS Code, stop the debugger, <kbd>Shift</kbd> + <kbd>F5</kbd>.
 
 ## 11. Redeploy the function app to include database code
 
@@ -374,7 +374,7 @@ Cosmos DB provides a MongoDB API to provide a familiar integration point.
 
     :::image type="content" source="../media/functions-extension/visual-studio-code-function-redeploy-to-azure.png" alt-text="Partial screenshot of Visual Studio Code, showing the Azure explorer with the Functions deploy icon highlighted.":::
 
-1. In the pop-up asking if you are sure you want to deploy, select **Deploy**.
+1. In the pop-up asking if you're sure you want to deploy, select **Deploy**.
 1. Wait until deployment completes before continuing.
 
 ## 12. Add Cosmos DB database connection string to remote Azure Function app
@@ -391,7 +391,7 @@ Cosmos DB provides a MongoDB API to provide a familiar integration point.
 
 ## 13. Use cloud-based Azure Function 
 
-1. Still in the Azure Explorer, in the **Functions** area, select and expand your function then the **Functions** node, which lists the API, **category**.
+1. Still in the Azure Explorer, in the Functions area, selects and expands your function then the **Functions** node, which lists the API, **category**.
 1. Right-click on the **category** item and select **Copy Function Url**.
 1. Use the following cURL commands, and replace **YOUR-FUNCTION-URL**. Run each command in a terminal in order.
 
@@ -434,7 +434,7 @@ To search the logs, use the Azure portal.
 
 1. Select **Run**.
 
-    If the log doesn't display any results, it may be because there is a few minute delay between the HTTP request to the Azure Function and the log availability in Kusto. Wait a few minutes and run the query again.
+    If the log doesn't display any results, it may be because there's a few minute delay between the HTTP request to the Azure Function and the log availability in Kusto. Wait a few minutes and run the query again.
 
     :::image type="content" source="../media/functions-extension/azure-portal-application-insights-function-log-trace.png" alt-text="Browser screenshot showing Azure portal Kusto query result for Trace table." lightbox="../media/functions-extension/azure-portal-application-insights-function-log-trace.png":::
 
@@ -443,7 +443,7 @@ To search the logs, use the Azure portal.
     * The code used the `context.log` function provided by the Function framework. By using `context`, instead of `console`, your logging can be filtered to the specific individual function. This is useful if your Function app has many functions. 
     * The Function app added Application Insights _for you_.
     * The Kusto Query tool is included in the Azure portal.
-    * You can click on `traces` instead of having to learn to write a [Kusto query](/azure/data-explorer/kusto/concepts/) to get even the minimum information from your logs.
+    * You can select `traces` instead of having to learn to write a [Kusto query](/azure/data-explorer/kusto/concepts/) to get even the minimum information from your logs.
 
 [!INCLUDE [remove resource group](../includes/visual-studio-code-delete-resource-group.md)]
 

@@ -1,7 +1,7 @@
 ---
 ms.custom: devx-track-js, devx-track-azurecli
 ms.topic: include
-ms.date: 009/02/2022
+ms.date: 09/02/2022
 ---
 
 ## Clean up resources
