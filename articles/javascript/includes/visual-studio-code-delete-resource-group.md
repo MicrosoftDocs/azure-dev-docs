@@ -1,12 +1,12 @@
 ---
 ms.custom: devx-track-js, devx-track-azurecli
 ms.topic: include
-ms.date: 08/09/2022
+ms.date: 09/02/2022
 ---
 
 ## Clean up resources
 
-Remove the resources created in this procedure when you're done using them. Because all the resources were created in the same resource group, delete that resource group. In the following procedure, replace `YOUR-RESOURCE-GROUP-NAME` with your own resource group name.
+Remove the resources created in this procedure when you're done using them.  In the following procedure, replace `YOUR-RESOURCE-GROUP-NAME` with your own resource group name.
 
 # [Visual Studio Code](#tab/visualstudiocode)
 
