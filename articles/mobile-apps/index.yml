@@ -32,8 +32,8 @@ landingContent:
             url: mobile-cloud-development-stages.md
       - linkListType: learn
         links:
-          - text: Build mobile apps with Xamarin.Forms
-            url: /learn/modules/create-a-mobile-app-with-xamarin-forms/
+          - text: Build mobile apps with .NET MAUI
+            url: /learn/paths/build-apps-with-dotnet-maui/
       - linkListType: video
         links:
           - text: Build an entire mobile app with Azure
