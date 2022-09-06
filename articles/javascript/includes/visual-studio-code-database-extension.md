@@ -1,35 +1,35 @@
 ---
 ms.custom: devx-track-js
 ms.topic: include
-ms.date: 05/24/2022
+ms.date: 09/06/2022
 ---
 
 
 ## Create Azure Database with Visual Studio Code
 
-Use this procedure for the following types of resources:
+Use this procedure for the following types of resources for Cosmos DB:
 
-* PostgreSQL
 * Cosmos DB databases with support for 
     * MongoDB
     * Graph (Gremlin)
     * Core (_SQL_) (previously known as DocumentDB)
+    * PostgreSQL
 
-## Create a PostgreSQL database in Azure explorer
+## Create a Cosmos DB resource
 
 1. Install the [Azure Databases](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb) extension for Visual Studio Code.
-1. In Visual Studio Code, select **Azure** from the [activity bar](https://code.visualstudio.com/docs/getstarted/userinterface), then select the subscription where you want to create the database resource.
-1. Right-click **Cosmos DB** and select **Create server**. 
+1. Open the Azure explorer. Select the Azure icon in the primary side bar or use the keyboard shortcut (<kbd>Shift</kbd> + <kbd>Alt</kbd> + <kbd>A</kbd>).
+1. Select the subscription where you want to create the database resource.
+1. Right-click **Azure Cosmos DB** and select **Create server**. 
 
-    :::image type="content" source="../media/visual-studio-code-database/create-cosmos-db-server.png" alt-text="Partial screenshot showing the Azure explorer with the Cosmos D B node selected with a popup menu showing the `Create Server` option.":::
+    :::image type="content" source="../media/with-database/visual-studio-code-create-cosmos-db-resource.png" alt-text="Partial screenshot of Visual Studio Code's Azure explorer with the first step of the creation process for a Cosmos D B resource shown.":::
 
-## Create a MongoDB server
+1. Following a procedure below based on your database server.
 
-1. Select **Azure Cosmos DB for MongoDB API** from the list.
+## Create a Mongo DB server for Cosmos DB
 
-    :::image type="content" source="../media/howto-visual-studio-code/create-azure-database-server.png" alt-text="Partial screenshot of Visual Studio Code's Azure explorer, with the `Create Server` button highlighted.":::
-
-1. Use the following table to answer the questions to create the resource.
+1. Select **Azure Cosmos DB for MongoDB API** from the list of database server options. 
+1. Use the following table to answer the questions to create the **CosmosDB for MongoDB API** resource.
 
     |Prompt|Answer|
     |--|--|
@@ -41,12 +41,9 @@ Use this procedure for the following types of resources:
 1. The Azure activity log displays the status. 
     
 
-## Create a PostgreSQL server in Azure explorer
+## Create a PostgreSQL server for Cosmos DB
 
-1. Select **PostgreSQL** from the list. 
-
-    :::image type="content" source="../media/howto-visual-studio-code/create-azure-database-server.png" alt-text="Partial screenshot of Visual Studio Code's Azure explorer with the first step of the creation process for a Cosmos D B resource shown.":::
-
+1. Select one of the **PostgreSQL** options from the list. 
 1. Use the following table to answer the questions to create the resource.
 
     |Prompt|Answer|
