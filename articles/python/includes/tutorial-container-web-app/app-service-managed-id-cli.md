@@ -62,7 +62,7 @@ SERVICE_URI='https://$'$APP_SERVICE_NAME':'$CREDENTIAL'@'$APP_SERVICE_NAME'.scm.
 $LOCATION='<location-of-registry>'
 
 az acr webhook create \
-  --name webhookwebapp \
+  --name webhookforwebapp \
   --location $LOCATION \
   --resource-group $RESOURCE_GROUP_NAME \
   --registry $REGISTRY_NAME \
@@ -78,7 +78,7 @@ $SERVICE_URI='https://$'+$APP_SERVICE_NAME+':'+$CREDENTIAL+'@'+$APP_SERVICE_NAME
 $LOCATION='<location-of-registry>'
 
 az acr webhook create `
-  --name webhookwebapp `
+  --name webhookforwebapp `
   --location $LOCATION `
   --resource-group $RESOURCE_GROUP_NAME `
   --registry $REGISTRY_NAME `
