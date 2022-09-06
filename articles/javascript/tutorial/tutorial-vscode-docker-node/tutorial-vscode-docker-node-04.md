@@ -2,9 +2,9 @@
 title: Create a container image for a Node.js app from Visual Studio Code
 description: Docker Tutorial part 4, create a Node.js application image
 ms.topic: how-to
-ms.date: 08/08/2022
-ms.custom: devx-track-js
-# Verified full run: diberry 08/16/2021
+ms.date: 09/02/2022
+ms.custom: devx-track-js, vscode-azure-extension-update-completed 
+# Verified full run: diberry 09/02/2022
 ---
 
 # 4. Create your Node.js application image
@@ -81,7 +81,8 @@ To push the image to your registry, you must first tag it with the registry name
 
 ## Push the image to a registry
 
-1. The newly-tagged image appears now as a _new_ node in Docker explorer, under **Images** and includes the registry name. Expand that node, right-click **latest**, and select **Push**. Accept the tag for that image by pressing **Enter**.
+1. The newly tagged image appears now as a _new_ node in Docker explorer, under **Images** and includes the registry name such as `YOUR-REGISTRY-NAME.azurecr.io/jse2eexpressserver`.
+1. Expand that node, right-click **latest**, and select **Push**. Accept the tag for that image by pressing **Enter**.
 
 1. The **Terminal** panel shows the `docker push` commands used for this operation. The target registry is determined by the registry specified in the image name. 
 
