@@ -5,7 +5,7 @@ ms.topic: include
 ms.date: 07/12/2022
 ---
 
-Add a "AcrPull" role for the managed identity. The AcrPull allows the App Service to pull images from the Azure Container Registry. 
+Add the "AcrPull" role for the system assigned managed identity. The AcrPull role allows the App Service to pull images from the Azure Container Registry. 
 
 In "Azure role assignments", select **+ Add role assignment** and follow the prompts to add:
 

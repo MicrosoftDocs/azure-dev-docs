@@ -298,9 +298,9 @@
 | Storage | Maven [4.3.0](https://search.maven.org/artifact/com.azure.spring/spring-cloud-azure-starter-storage-file-share/4.3.0/jar/) |  | GitHub [4.3.0](https://github.com/Azure/azure-sdk-for-java/tree/spring-cloud-azure-starter-storage-file-share_4.3.0/sdk/spring/spring-cloud-azure-starter-storage-file-share/) |
 | Storage | Maven [4.3.0](https://search.maven.org/artifact/com.azure.spring/spring-integration-azure-storage-queue/4.3.0/jar/) |  | GitHub [4.3.0](https://github.com/Azure/azure-sdk-for-java/tree/spring-integration-azure-storage-queue_4.3.0/sdk/spring/spring-integration-azure-storage-queue/) |
 | Storage | Maven [4.3.0](https://search.maven.org/artifact/com.azure.spring/spring-messaging-azure-storage-queue/4.3.0/jar/) |  | GitHub [4.3.0](https://github.com/Azure/azure-sdk-for-java/tree/spring-messaging-azure-storage-queue_4.3.0/sdk/spring/spring-messaging-azure-storage-queue/) |
-| applicationinsights-runtime-attach | Maven [3.3.1](https://search.maven.org/artifact/com.microsoft.azure/applicationinsights-runtime-attach/3.3.1/jar/) |  |  |
+| applicationinsights-runtime-attach | Maven [3.3.1](https://search.maven.org/artifact/com.microsoft.azure/applicationinsights-runtime-attach/3.3.1/jar/)<br>Maven [3.4.0-BETA](https://search.maven.org/artifact/com.microsoft.azure/applicationinsights-runtime-attach/3.4.0-BETA/jar/) |  |  |
 | azure-analytics-purview-administration | Maven [1.0.0-beta.1](https://search.maven.org/artifact/com.azure/azure-analytics-purview-administration/1.0.0-beta.1/jar/) |  |  |
-| azure-appservice-maven-plugin-lib | Maven [1.22.1](https://search.maven.org/artifact/com.microsoft.azure/azure-appservice-maven-plugin-lib/1.22.1/jar/) |  |  |
+| azure-appservice-maven-plugin-lib | Maven [1.23.0](https://search.maven.org/artifact/com.microsoft.azure/azure-appservice-maven-plugin-lib/1.23.0/jar/) |  |  |
 | azure-autorest-customization | Maven [1.0.0-beta.5](https://search.maven.org/artifact/com.azure.tools/azure-autorest-customization/1.0.0-beta.5/jar/) |  |  |
 | azure-autorest-extension | Maven [1.0.0-beta.2](https://search.maven.org/artifact/com.azure.tools/azure-autorest-extension/1.0.0-beta.2/jar/) |  |  |
 | azure-autorest-parent | Maven [1.0.0-beta.2](https://search.maven.org/artifact/com.azure.tools/azure-autorest-parent/1.0.0-beta.2/jar/) |  |  |
@@ -315,9 +315,9 @@
 | azure-cosmos-spark_3-0_2-12 | Maven [4.0.0-beta.1](https://search.maven.org/artifact/com.azure/azure-cosmos-spark_3-0_2-12/4.0.0-beta.1/jar/) |  |  |
 | azure-data-confidentialledger | Maven [1.0.0-beta.1](https://search.maven.org/artifact/com.azure/azure-data-confidentialledger/1.0.0-beta.1/jar/) |  |  |
 | azure-functions-java-core-library | Maven [1.0.0](https://search.maven.org/artifact/com.microsoft.azure.functions/azure-functions-java-core-library/1.0.0/jar/) |  |  |
-| azure-gradle-plugins-common | Maven [1.4.0](https://search.maven.org/artifact/com.microsoft.azure/azure-gradle-plugins-common/1.4.0/jar/) |  |  |
+| azure-gradle-plugins-common | Maven [1.5.0](https://search.maven.org/artifact/com.microsoft.azure/azure-gradle-plugins-common/1.5.0/jar/) |  |  |
 | azure-mariadb-connector-java | Maven [2.7.0](https://search.maven.org/artifact/com.microsoft.azure/azure-mariadb-connector-java/2.7.0/jar/) |  |  |
-| azure-maven-plugins | Maven [1.22.1](https://search.maven.org/artifact/com.microsoft.azure/azure-maven-plugins/1.22.1/jar/) |  |  |
+| azure-maven-plugins | Maven [1.23.0](https://search.maven.org/artifact/com.microsoft.azure/azure-maven-plugins/1.23.0/jar/) |  |  |
 | azure-mgmt-appplatform | Maven [1.0.0-beta](https://search.maven.org/artifact/com.microsoft.azure.appplatform.v2020_11_01_preview/azure-mgmt-appplatform/1.0.0-beta/jar/) |  |  |
 | azure-mgmt-appservice | Maven [1.0.0-beta](https://search.maven.org/artifact/com.microsoft.azure.appservice.v2020_09_01/azure-mgmt-appservice/1.0.0-beta/jar/) |  |  |
 | azure-mgmt-cdn | Maven [1.0.0-beta](https://search.maven.org/artifact/com.microsoft.azure.cdn.v2020_09_01/azure-mgmt-cdn/1.0.0-beta/jar/) |  |  |
@@ -351,26 +351,27 @@
 | azure-resourcemanager-workloads | Maven [1.0.0-beta.1](https://search.maven.org/artifact/com.azure.resourcemanager/azure-resourcemanager-workloads/1.0.0-beta.1/jar/) |  |  |
 | azure-sdk-archetype | Maven [1.0.0](https://search.maven.org/artifact/com.azure.tools/azure-sdk-archetype/1.0.0/jar/) |  |  |
 | azure-sdk-build-tool | Maven [1.0.0-beta.1](https://search.maven.org/artifact/com.azure.tools/azure-sdk-build-tool/1.0.0-beta.1/jar/) |  |  |
-| azure-sdk-template-three | Maven [1.0.0-beta.1804329](https://search.maven.org/artifact/com.azure/azure-sdk-template-three/1.0.0-beta.1804329/jar/) |  |  |
-| azure-sdk-template-two | Maven [1.0.0-beta.1804329](https://search.maven.org/artifact/com.azure/azure-sdk-template-two/1.0.0-beta.1804329/jar/) |  |  |
+| azure-sdk-template-three | Maven [1.0.0-beta.1821933](https://search.maven.org/artifact/com.azure/azure-sdk-template-three/1.0.0-beta.1821933/jar/) |  |  |
+| azure-sdk-template-two | Maven [1.0.0-beta.1821933](https://search.maven.org/artifact/com.azure/azure-sdk-template-two/1.0.0-beta.1821933/jar/) |  |  |
 | azure-spring-apps-maven-plugin | Maven [1.12.1](https://search.maven.org/artifact/com.microsoft.azure/azure-spring-apps-maven-plugin/1.12.1/jar/) |  |  |
 | azure-storage-fastpath | Maven [1.0.0-beta.6](https://search.maven.org/artifact/com.azure/azure-storage-fastpath/1.0.0-beta.6/jar/) |  |  |
-| azure-toolkit-applicationinsights-lib | Maven [0.23.0](https://search.maven.org/artifact/com.microsoft.azure/azure-toolkit-applicationinsights-lib/0.23.0/jar/) |  |  |
-| azure-toolkit-appservice-lib | Maven [0.23.0](https://search.maven.org/artifact/com.microsoft.azure/azure-toolkit-appservice-lib/0.23.0/jar/) |  |  |
-| azure-toolkit-auth-lib | Maven [0.23.0](https://search.maven.org/artifact/com.microsoft.azure/azure-toolkit-auth-lib/0.23.0/jar/) |  |  |
-| azure-toolkit-common-lib | Maven [0.23.0](https://search.maven.org/artifact/com.microsoft.azure/azure-toolkit-common-lib/0.23.0/jar/) |  |  |
-| azure-toolkit-compute-lib | Maven [0.23.0](https://search.maven.org/artifact/com.microsoft.azure/azure-toolkit-compute-lib/0.23.0/jar/) |  |  |
-| azure-toolkit-containerregistry-lib | Maven [0.23.0](https://search.maven.org/artifact/com.microsoft.azure/azure-toolkit-containerregistry-lib/0.23.0/jar/) |  |  |
-| azure-toolkit-containerservice-lib | Maven [0.23.0](https://search.maven.org/artifact/com.microsoft.azure/azure-toolkit-containerservice-lib/0.23.0/jar/) |  |  |
-| azure-toolkit-database-lib | Maven [0.23.0](https://search.maven.org/artifact/com.microsoft.azure/azure-toolkit-database-lib/0.23.0/jar/) |  |  |
-| azure-toolkit-libs | Maven [0.23.0](https://search.maven.org/artifact/com.microsoft.azure/azure-toolkit-libs/0.23.0/jar/) |  |  |
-| azure-toolkit-mysql-lib | Maven [0.23.0](https://search.maven.org/artifact/com.microsoft.azure/azure-toolkit-mysql-lib/0.23.0/jar/) |  |  |
-| azure-toolkit-postgre-lib | Maven [0.23.0](https://search.maven.org/artifact/com.microsoft.azure/azure-toolkit-postgre-lib/0.23.0/jar/) |  |  |
-| azure-toolkit-redis-lib | Maven [0.23.0](https://search.maven.org/artifact/com.microsoft.azure/azure-toolkit-redis-lib/0.23.0/jar/) |  |  |
+| azure-toolkit-applicationinsights-lib | Maven [0.24.0](https://search.maven.org/artifact/com.microsoft.azure/azure-toolkit-applicationinsights-lib/0.24.0/jar/) |  |  |
+| azure-toolkit-appservice-lib | Maven [0.24.0](https://search.maven.org/artifact/com.microsoft.azure/azure-toolkit-appservice-lib/0.24.0/jar/) |  |  |
+| azure-toolkit-auth-lib | Maven [0.24.0](https://search.maven.org/artifact/com.microsoft.azure/azure-toolkit-auth-lib/0.24.0/jar/) |  |  |
+| azure-toolkit-common-lib | Maven [0.24.0](https://search.maven.org/artifact/com.microsoft.azure/azure-toolkit-common-lib/0.24.0/jar/) |  |  |
+| azure-toolkit-compute-lib | Maven [0.24.0](https://search.maven.org/artifact/com.microsoft.azure/azure-toolkit-compute-lib/0.24.0/jar/) |  |  |
+| azure-toolkit-containerregistry-lib | Maven [0.24.0](https://search.maven.org/artifact/com.microsoft.azure/azure-toolkit-containerregistry-lib/0.24.0/jar/) |  |  |
+| azure-toolkit-containerservice-lib | Maven [0.24.0](https://search.maven.org/artifact/com.microsoft.azure/azure-toolkit-containerservice-lib/0.24.0/jar/) |  |  |
+| azure-toolkit-cosmos-lib | Maven [0.24.0](https://search.maven.org/artifact/com.microsoft.azure/azure-toolkit-cosmos-lib/0.24.0/jar/) |  |  |
+| azure-toolkit-database-lib | Maven [0.24.0](https://search.maven.org/artifact/com.microsoft.azure/azure-toolkit-database-lib/0.24.0/jar/) |  |  |
+| azure-toolkit-libs | Maven [0.24.0](https://search.maven.org/artifact/com.microsoft.azure/azure-toolkit-libs/0.24.0/jar/) |  |  |
+| azure-toolkit-mysql-lib | Maven [0.24.0](https://search.maven.org/artifact/com.microsoft.azure/azure-toolkit-mysql-lib/0.24.0/jar/) |  |  |
+| azure-toolkit-postgre-lib | Maven [0.24.0](https://search.maven.org/artifact/com.microsoft.azure/azure-toolkit-postgre-lib/0.24.0/jar/) |  |  |
+| azure-toolkit-redis-lib | Maven [0.24.0](https://search.maven.org/artifact/com.microsoft.azure/azure-toolkit-redis-lib/0.24.0/jar/) |  |  |
 | azure-toolkit-resource-lib | Maven [0.19.2](https://search.maven.org/artifact/com.microsoft.azure/azure-toolkit-resource-lib/0.19.2/jar/) |  |  |
-| azure-toolkit-springcloud-lib | Maven [0.23.0](https://search.maven.org/artifact/com.microsoft.azure/azure-toolkit-springcloud-lib/0.23.0/jar/) |  |  |
-| azure-toolkit-sqlserver-lib | Maven [0.23.0](https://search.maven.org/artifact/com.microsoft.azure/azure-toolkit-sqlserver-lib/0.23.0/jar/) |  |  |
-| azure-toolkit-storage-lib | Maven [0.23.0](https://search.maven.org/artifact/com.microsoft.azure/azure-toolkit-storage-lib/0.23.0/jar/) |  |  |
+| azure-toolkit-springcloud-lib | Maven [0.24.0](https://search.maven.org/artifact/com.microsoft.azure/azure-toolkit-springcloud-lib/0.24.0/jar/) |  |  |
+| azure-toolkit-sqlserver-lib | Maven [0.24.0](https://search.maven.org/artifact/com.microsoft.azure/azure-toolkit-sqlserver-lib/0.24.0/jar/) |  |  |
+| azure-toolkit-storage-lib | Maven [0.24.0](https://search.maven.org/artifact/com.microsoft.azure/azure-toolkit-storage-lib/0.24.0/jar/) |  |  |
 | codesnippet-maven-plugin | Maven [1.0.0-beta.8](https://search.maven.org/artifact/com.azure.tools/codesnippet-maven-plugin/1.0.0-beta.8/jar/) |  |  |
 | IoT Models Repository | Maven [1.0.0-beta.1](https://search.maven.org/artifact/com.azure/azure-iot-modelsrepository/1.0.0-beta.1/jar/) |  |  |
 | notification-hubs-android-sdk | Maven [1.1.6](https://search.maven.org/artifact/com.microsoft.azure/notification-hubs-android-sdk/1.1.6/jar/) |  |  |
@@ -406,9 +407,9 @@
 | Anomaly Detector | Maven [3.0.0-beta.4](https://search.maven.org/artifact/com.azure/azure-ai-anomalydetector/3.0.0-beta.4/jar/) | [docs](/java/api/overview/azure/ai-anomalydetector-readme) | GitHub [3.0.0-beta.4](https://github.com/Azure/azure-sdk-for-java/tree/azure-ai-anomalydetector_3.0.0-beta.4/sdk/anomalydetector/azure-ai-anomalydetector/) |
 | Apache Spark Archetype | Maven [0.1.0](https://search.maven.org/artifact/com.microsoft.azure/apache-spark-archetype/0.1.0/jar/) |  |  |
 | App Configuration | Maven [1.3.6](https://search.maven.org/artifact/com.azure/azure-data-appconfiguration/1.3.6/jar/) | [docs](/java/api/overview/azure/data-appconfiguration-readme) | GitHub [1.3.6](https://github.com/Azure/azure-sdk-for-java/tree/azure-data-appconfiguration_1.3.6/sdk/appconfiguration/azure-data-appconfiguration/) |
-| Application Insights - Agent | Maven [3.3.1](https://search.maven.org/artifact/com.microsoft.azure/applicationinsights-agent/3.3.1/jar/) |  |  |
+| Application Insights - Agent | Maven [3.3.1](https://search.maven.org/artifact/com.microsoft.azure/applicationinsights-agent/3.3.1/jar/)<br>Maven [3.4.0-BETA](https://search.maven.org/artifact/com.microsoft.azure/applicationinsights-agent/3.4.0-BETA/jar/) |  |  |
 | Application Insights - Collectd | Maven [2.6.4](https://search.maven.org/artifact/com.microsoft.azure/applicationinsights-collectd/2.6.4/jar/)<br>Maven [2.6.3-BETA-HEYA-TEST](https://search.maven.org/artifact/com.microsoft.azure/applicationinsights-collectd/2.6.3-BETA-HEYA-TEST/jar/) |  |  |
-| Application Insights - Core | Maven [2.6.4](https://search.maven.org/artifact/com.microsoft.azure/applicationinsights-core/2.6.4/jar/)<br>Maven [2.6.3-BETA-HEYA-TEST](https://search.maven.org/artifact/com.microsoft.azure/applicationinsights-core/2.6.3-BETA-HEYA-TEST/jar/) |  |  |
+| Application Insights - Core | Maven [2.6.4](https://search.maven.org/artifact/com.microsoft.azure/applicationinsights-core/2.6.4/jar/)<br>Maven [3.4.0-BETA](https://search.maven.org/artifact/com.microsoft.azure/applicationinsights-core/3.4.0-BETA/jar/) |  |  |
 | Application Insights - Logging Log4j1_2 | Maven [2.6.4](https://search.maven.org/artifact/com.microsoft.azure/applicationinsights-logging-log4j1_2/2.6.4/jar/) |  |  |
 | Application Insights - Logging Log4j2 | Maven [2.6.4](https://search.maven.org/artifact/com.microsoft.azure/applicationinsights-logging-log4j2/2.6.4/jar/) |  |  |
 | Application Insights - Logging Logback | Maven [2.6.4](https://search.maven.org/artifact/com.microsoft.azure/applicationinsights-logging-logback/2.6.4/jar/) |  |  |
@@ -418,7 +419,7 @@
 | Application Insights - Profiler Uploader | Maven [0.2.0](https://search.maven.org/artifact/com.microsoft.azure/applicationinsights-profiler-uploader/0.2.0/jar/) |  |  |
 | Application Insights - Query | Maven [1.0.0-Preview-2](https://search.maven.org/artifact/com.microsoft.azure/azure-applicationinsights-query/1.0.0-Preview-2/jar/) |  |  |
 | Application Insights - Spring Boot Starter | Maven [2.6.4](https://search.maven.org/artifact/com.microsoft.azure/applicationinsights-spring-boot-starter/2.6.4/jar/)<br>Maven [2.6.3-BETA-HEYA-TEST](https://search.maven.org/artifact/com.microsoft.azure/applicationinsights-spring-boot-starter/2.6.3-BETA-HEYA-TEST/jar/) |  |  |
-| Application Insights - Web | Maven [2.6.4](https://search.maven.org/artifact/com.microsoft.azure/applicationinsights-web/2.6.4/jar/)<br>Maven [2.6.3-BETA-HEYA-TEST](https://search.maven.org/artifact/com.microsoft.azure/applicationinsights-web/2.6.3-BETA-HEYA-TEST/jar/) |  |  |
+| Application Insights - Web | Maven [2.6.4](https://search.maven.org/artifact/com.microsoft.azure/applicationinsights-web/2.6.4/jar/)<br>Maven [3.4.0-BETA](https://search.maven.org/artifact/com.microsoft.azure/applicationinsights-web/3.4.0-BETA/jar/) |  |  |
 | Application Insights - Web Auto | Maven [2.6.4](https://search.maven.org/artifact/com.microsoft.azure/applicationinsights-web-auto/2.6.4/jar/)<br>Maven [2.6.3-BETA-HEYA-TEST](https://search.maven.org/artifact/com.microsoft.azure/applicationinsights-web-auto/2.6.3-BETA-HEYA-TEST/jar/) |  |  |
 | Attestation | Maven [1.1.5](https://search.maven.org/artifact/com.azure/azure-security-attestation/1.1.5/jar/) | [docs](/java/api/overview/azure/security-attestation-readme) | GitHub [1.1.5](https://github.com/Azure/azure-sdk-for-java/tree/azure-security-attestation_1.1.5/sdk/attestation/azure-security-attestation/) |
 | Auth Helper  Plugin | Maven [0.7.0](https://search.maven.org/artifact/com.microsoft.azure/azure-auth-helper/0.7.0/jar/) |  |  |
@@ -519,13 +520,13 @@
 | Event Hubs - Spark | Maven [2.3.22](https://search.maven.org/artifact/com.microsoft.azure/azure-eventhubs-spark_2.12/2.3.22/jar/) |  |  |
 | Face | Maven [1.0.1-beta](https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-faceapi/1.0.1-beta/jar/) |  | GitHub [1.0.1-beta](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/cognitiveservices/ms-azure-cs-faceapi) |
 | Form Recognizer | Maven [3.1.14](https://search.maven.org/artifact/com.azure/azure-ai-formrecognizer/3.1.14/jar/)<br>Maven [4.0.0-beta.6](https://search.maven.org/artifact/com.azure/azure-ai-formrecognizer/4.0.0-beta.6/jar/) | [docs](/java/api/overview/azure/ai-formrecognizer-readme) | GitHub [3.1.14](https://github.com/Azure/azure-sdk-for-java/tree/azure-ai-formrecognizer_3.1.14/sdk/formrecognizer/azure-ai-formrecognizer/)<br>GitHub [4.0.0-beta.6](https://github.com/Azure/azure-sdk-for-java/tree/azure-ai-formrecognizer_4.0.0-beta.6/sdk/formrecognizer/azure-ai-formrecognizer/) |
-| Functions - Archetype | Maven [1.48](https://search.maven.org/artifact/com.microsoft.azure/azure-functions-archetype/1.48/jar/) |  |  |
+| Functions - Archetype | Maven [1.49](https://search.maven.org/artifact/com.microsoft.azure/azure-functions-archetype/1.49/jar/) |  |  |
 | Functions - Java Core | Maven [1.0.0-beta-3](https://search.maven.org/artifact/com.microsoft.azure/azure-functions-java-core/1.0.0-beta-3/jar/) |  |  |
 | Functions - Java Library Cosmos DB Cassandra | Maven [1.0.0](https://search.maven.org/artifact/com.microsoft.azure.functions/azure-functions-java-library-cosmosdbcassandra/1.0.0/jar/) |  |  |
 | Functions - Java Library SignalR | Maven [1.0.0](https://search.maven.org/artifact/com.microsoft.azure.functions/azure-functions-java-library-signalr/1.0.0/jar/) |  |  |
 | Functions - Java Llibrary | Maven [2.0.1](https://search.maven.org/artifact/com.microsoft.azure.functions/azure-functions-java-library/2.0.1/jar/) |  |  |
 | Functions - Kotlin Archetype | Maven [1.23](https://search.maven.org/artifact/com.microsoft.azure/azure-functions-kotlin-archetype/1.23/jar/) |  |  |
-| Functions - Maven Plugin | Maven [1.19.1](https://search.maven.org/artifact/com.microsoft.azure/azure-functions-maven-plugin/1.19.1/jar/) |  |  |
+| Functions - Maven Plugin | Maven [1.20.0](https://search.maven.org/artifact/com.microsoft.azure/azure-functions-maven-plugin/1.20.0/jar/) |  |  |
 | Gateway - Java Binding | Maven [1.1.0](https://search.maven.org/artifact/com.microsoft.azure.gateway/gateway-java-binding/1.1.0/jar/) |  |  |
 | Gateway - Linux | Maven [1.0.2](https://search.maven.org/artifact/com.microsoft.azure.gateway/gateway-linux/1.0.2/jar/) |  |  |
 | Gateway - Module Base | Maven [1.0.2](https://search.maven.org/artifact/com.microsoft.azure.gateway/gateway-module-base/1.0.2/jar/) |  |  |
@@ -558,7 +559,7 @@
 | Maven - Plugin | Maven [0.2.0](https://search.maven.org/artifact/com.microsoft.azure/azure-maven-plugin/0.2.0/jar/) |  |  |
 | Maven - Plugin Common | Maven [0.2.0](https://search.maven.org/artifact/com.microsoft.azure/azure-maven-plugin-common/0.2.0/jar/) |  |  |
 | Maven - Plugin Lib | Maven [0.1.1](https://search.maven.org/artifact/com.microsoft.azure/maven-plugin-lib/0.1.1/jar/) |  |  |
-| Maven - Plugin Library | Maven [1.22.1](https://search.maven.org/artifact/com.microsoft.azure/azure-maven-plugin-lib/1.22.1/jar/) |  |  |
+| Maven - Plugin Library | Maven [1.23.0](https://search.maven.org/artifact/com.microsoft.azure/azure-maven-plugin-lib/1.23.0/jar/) |  |  |
 | Maven - Plugins Pom | Maven [1.1.0](https://search.maven.org/artifact/com.microsoft.azure/azure-maven-plugins-pom/1.1.0/jar/) |  |  |
 | Media Services | Maven [0.9.8](https://search.maven.org/artifact/com.microsoft.azure/azure-media/0.9.8/jar/) |  | GitHub [0.9.8](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/mediaservices/microsoft-azure-media) |
 | Metrics Advisor | Maven [1.1.6](https://search.maven.org/artifact/com.azure/azure-ai-metricsadvisor/1.1.6/jar/) | [docs](/java/api/overview/azure/ai-metricsadvisor-readme) | GitHub [1.1.6](https://github.com/Azure/azure-sdk-for-java/tree/azure-ai-metricsadvisor_1.1.6/sdk/metricsadvisor/azure-ai-metricsadvisor/) |

@@ -44,7 +44,7 @@
     - name: Virtual machines
       items:
       - name: Create a Linux VM
-        href: create-linux-virtual-machine-with-infrastructure.md
+        href: /azure/virtual-machines/linux/quick-create-terraform
 - name: Samples
   items:
     - name: Configuration templates
