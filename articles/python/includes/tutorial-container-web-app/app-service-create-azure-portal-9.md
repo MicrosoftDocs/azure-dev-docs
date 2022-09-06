@@ -18,7 +18,7 @@ Then, create the webhook using the credential value and App Service name:
 * On the webhooks page, select **+ Add**.
 * Specify the parameters as follows:
 
-   * **Webhook name** &rarr; Enter "webhookwebapp".
+   * **Webhook name** &rarr; Enter "webhookforwebapp".
    * **Location** &rarr; Use the location of the registry.
    * **Service URI** &rarr; A string that is combination of App Service name and credential. See below.
    * **Actions** &rarr; Select **push**.
