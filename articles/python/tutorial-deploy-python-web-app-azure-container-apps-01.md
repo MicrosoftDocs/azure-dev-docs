@@ -11,9 +11,9 @@ ms.author: jejohn
 
 # Overview: Deploy a Python web app on Azure Container Apps
 
-This tutorial shows you how to containerize a Python web app and deploy it to [Azure Container Apps][2]. The provided sample web app can be containerized and the container image stored in [Azure Container Registry][3]. Azure Container Apps is initially configured to pull the container image from Container Registry. The sample app connects to a [Azure Database for PostgreSQL][4] to show communicating between Container Apps and other Azure resources. 
+This tutorial shows you how to containerize a Python web app and deploy it to [Azure Container Apps][2]. The provided sample web app will be containerized and the container image stored in [Azure Container Registry][3]. Azure Container Apps is configured to pull the container image from Container Registry. The sample app connects to an [Azure Database for PostgreSQL][4] to demonstrate communication between Container Apps and other Azure resources. 
 
-There are many options to build and deploy cloud native and containerized Python web apps on Azure. If you're starting off with containers, deploying your web app as a container to either Azure Web App Service or Azure Container Apps is a good first step. This tutorial covers Azure Container Apps. Deploying a Python web app as a container to Azure App Service is covered in the tutorial [Containerized Python web app on App Service](./tutorial-containerize-deploy-python-web-app-azure-01.md). Other options such as Azure Container Instance and Azure Kubernetes Service are covered in the article [Comparing Container Apps with other Azure container options][5].
+There are many options to build and deploy cloud native and containerized Python web apps on Azure. If you're starting off with containers, deploying your web app as a container to either Azure App Service or Azure Container Apps is a good first step. This tutorial covers Azure Container Apps. Deploying a Python web app as a container to Azure App Service is covered in the tutorial [Containerized Python web app on App Service](./tutorial-containerize-deploy-python-web-app-azure-01.md). Other options such as Azure Container Instance and Azure Kubernetes Service are covered in the article [Comparing Container Apps with other Azure container options][5].
 
 In this tutorial you will:
 
@@ -21,7 +21,7 @@ In this tutorial you will:
 * Configure [Azure Container Apps][2] to host the container image.
 * Set up a [GitHub Action][6] that updates the container image triggered by changes to repo. *This last step is optional.*
 
-Following this tutorial, you'll have the basis for Continuous Integration (CI) and Continuous Deployment (CD) of a Python web app to Azure.
+Following this tutorial, you'll be set up for Continuous Integration (CI) and Continuous Deployment (CD) of a Python web app to Azure.
 
 ## Service Overview
  
@@ -33,23 +33,23 @@ The components supporting this tutorial and shown in the diagram above are:
 
 * [Azure Container Apps][2]
   * Azure Container Apps enables you to run microservices and containerized applications on a serverless platform. A serverless platform means that you enjoy the benefits of running containers with minimal configuration. With Azure Container Apps, your applications can dynamically scale based on characteristics such as HTTP traffic, event-driven processing, or CPU or memory load.
-  * Container Apps pulls image from Azure Container Registry. Revisions to container images trigger an update to the deployed container. You can also configure changes to GitHub to trigger the update. 
+  * Container Apps pull Docker image from Azure Container Registry. Revisions to container images trigger an update to the deployed container. You can also configure GitHub changes to trigger the update. 
 
 * [Azure Container Registry][3]
   * Azure Container Registry enables you to work with Docker images and its components in Azure. It provides a registry that's close to your deployments in Azure and that gives you control over access, making it possible to use your Azure Active Directory groups and permissions.
   * In this tutorial, the registry source is Azure Container Registry, but you can also use Docker Hub or a private registry with minor modifications.
 
-* [Azure Database of PostgreSQL][4]
-  * The sample code connects to PostgreSQL to storage application data.
+* [Azure Database for PostgreSQL][4]
+  * The sample code uses PostgreSQL to store application data.
   * The container app connects to PostgreSQL through environment variables set with Azure Service Connector.
 
 * [Azure Service Connector][8]
   * Service Connector helps you connect Azure compute services to other backing services.
-  * The Service Connector is used during the configuration of Azure Container Apps. The connector generates environment variables containing connection information for PostgreSQL.
+  * Service Connector is used during the configuration of Azure Container Apps to generate environment variables containing connection information for PostgreSQL.
 
 * [GitHub][1]
-  * The sample code for this tutorial is in a GitHub repo that you can fork and clone locally. To set up a CI/CD workflow with [GitHub Actions][6] you'll need a GitHub account.
-  * You can still follow along with this tutorial without a GitHub account, but you'll have to work in the [Azure Cloud Shell][9] to build the container image from the sample code repo.  
+  * The sample code for this tutorial is in a GitHub repo that you will fork and clone locally. To set up a CI/CD workflow with [GitHub Actions][6] you'll need a GitHub account.
+  * You can still follow along with this tutorial without a GitHub account, working locally or in the [Azure Cloud Shell][9] to build the container image from the sample code repo.  
 
 ## Revisions and CI/CD 
 
@@ -57,9 +57,7 @@ To make code changes and push them to the container, you create a new container 
 
 ## Authentication and security
 
-In this tutorial, you'll build a Docker container image directly in Azure and deploy it to Azure Container Apps. Container Apps run in the context of an environment, which is supported by a virtual network (VNET). Azure Virtual Networks (VNet) are fundamental building block for your private network in Azure. Container Apps allows you to expose your container app to the public web by enabling ingress. 
-
-When you initially configure a container in Container Apps, you configure which container image to use from Azure Container Registry. You can create new revisions that use different versions of that image or a new image. Revisions are useful, for example, when you're making code changes or doing A/B testing. 
+In this tutorial, you'll build a Docker container image directly in Azure and deploy it to Azure Container Apps. Container Apps run in the context of an environment, which is supported by an Azure Virtual Networks (VNet). VNets are a fundamental building block for your private network in Azure. Container Apps allows you to expose your container app to the public web by enabling ingress. 
 
 To set up continuous integration and continuous delivery (CI/CD), you connect to a GitHub account, repository, and branch. In addition, you create an Azure Active Directory service principal (or using an existing) context with role-based access control.
 
