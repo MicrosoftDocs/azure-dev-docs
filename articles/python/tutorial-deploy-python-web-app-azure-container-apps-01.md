@@ -13,7 +13,7 @@ ms.author: jejohn
 
 This tutorial shows you how to containerize a Python web app and deploy it to [Azure Container Apps][2]. The provided sample web app will be containerized and the container image stored in [Azure Container Registry][3]. Azure Container Apps is configured to pull the container image from Container Registry. The sample app connects to an [Azure Database for PostgreSQL][4] to demonstrate communication between Container Apps and other Azure resources. 
 
-There are many options to build and deploy cloud native and containerized Python web apps on Azure. If you're starting off with containers, deploying your web app as a container to either Azure App Service or Azure Container Apps is a good first step. This tutorial covers Azure Container Apps. Deploying a Python web app as a container to Azure App Service is covered in the tutorial [Containerized Python web app on App Service](./tutorial-containerize-deploy-python-web-app-azure-01.md). Other options such as Azure Container Instance and Azure Kubernetes Service are covered in the article [Comparing Container Apps with other Azure container options][5].
+There are many options to build and deploy cloud native and containerized Python web apps on Azure. This tutorial covers Azure Container Apps. Container Apps are good for running general purpose containers, especially for applications that span many microservices deployed in containers. In this tutorial, you'll create one container. To deploy a Python web app as a container to Azure App Service, see [Containerized Python web app on App Service](./tutorial-containerize-deploy-python-web-app-azure-01.md).
 
 In this tutorial you will:
 
@@ -48,7 +48,7 @@ The components supporting this tutorial and shown in the diagram above are:
   * Service Connector is used during the configuration of Azure Container Apps to generate environment variables containing connection information for PostgreSQL.
 
 * [GitHub][1]
-  * The sample code for this tutorial is in a GitHub repo that you will fork and clone locally. To set up a CI/CD workflow with [GitHub Actions][6] you'll need a GitHub account.
+  * The sample code for this tutorial is in a GitHub repo that you'll fork and clone locally. To set up a CI/CD workflow with [GitHub Actions][6], you'll need a GitHub account.
   * You can still follow along with this tutorial without a GitHub account, working locally or in the [Azure Cloud Shell][9] to build the container image from the sample code repo.  
 
 ## Revisions and CI/CD 
@@ -89,7 +89,6 @@ The Python sample app is a restaurant review app that saves restaurant and revie
 [2]: /azure/container-apps/
 [3]: /azure/container-registry
 [4]: /azure/postgresql/
-[5]: /azure/container-apps/compare-options
 [6]: https://docs.github.com/actions
 [7]: https://github.com/
 [8]: /azure/service-connector/
