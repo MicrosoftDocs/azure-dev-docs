@@ -2,7 +2,7 @@
 title: Upload file to Storage
 description: Create an Azure Function API, which uploads a file to Azure Storage.
 ms.topic: how-to
-ms.date: 07/26/2022
+ms.date: 09/06/2022
 ms.custom: devx-track-js
 #intent: How to locally develop a file-upload serverless function then deploy that function to Azure. 
 ---
@@ -16,7 +16,7 @@ This article shows you how to create an Azure Function API, which uploads a file
 ## Solution architecture considerations
 
 > [!CAUTION]
->The Azure Function **file upload limit is 100 MB**. If you need to upload larger files, consider either a browser-based approach or a server app. 
+>The Azure Function **file upload limit is 100 MB**. If you need to upload larger files, consider either a browser-based approach such as [Static web apps](/azure/static-web-apps) or a server-based solution such as [Azure App Service](/azure/app-service/). 
 
 This sample:
 * Uploads a file to an Azure Function
@@ -26,7 +26,7 @@ This sample:
 
     :::image type="content" source="../../media/azure-function-file-upload-binding/azure-architecure.png" alt-text="Architectural diagram of browser uploading file to Azure Function App then connecting to Azure Storage in two ways: out binding and SDK.":::
 
-While you can replace the _out_ binding with more code to upload the file to Blob storage, you can't replace the SDK with any _out_ binding to generate the SAS token URL. As you move from beginning code for this functionality to more complex code, you will replace the _out_ binding with [SDK upload calls](/azure/storage/blobs/storage-blob-upload-javascript#upload-by-blob-client).
+While you can replace the _out_ binding with more code to upload the file to Blob storage, you can't replace the SDK with any _out_ binding to generate the SAS token URL. As you move from beginning code for this functionality to more complex code, you'll replace the _out_ binding with [SDK upload calls](/azure/storage/blobs/storage-blob-upload-javascript#upload-by-blob-client).
 
 ## Prepare your development environment
 
