@@ -36,7 +36,7 @@ The components supporting this tutorial and shown in the diagram above are:
   * Container Apps pull Docker image from Azure Container Registry. Revisions to container images trigger an update to the deployed container. You can also configure GitHub changes to trigger the update. 
 
 * [Azure Container Registry][3]
-  * Azure Container Registry enables you to work with Docker images and its components in Azure. It provides a registry that's close to your deployments in Azure and that gives you control over access, making it possible to use your Azure Active Directory groups and permissions.
+  * Azure Container Registry enables you to work with Docker images in Azure. It provides a registry that's close to your deployments in Azure and that gives you control over access, making it possible to use your Azure Active Directory groups and permissions to control access to the container images.
   * In this tutorial, the registry source is Azure Container Registry, but you can also use Docker Hub or a private registry with minor modifications.
 
 * [Azure Database for PostgreSQL][4]
@@ -59,9 +59,9 @@ To make code changes and push them to the container, you create a new container 
 
 In this tutorial, you'll build a Docker container image directly in Azure and deploy it to Azure Container Apps. Container Apps run in the context of an environment, which is supported by an Azure Virtual Networks (VNet). VNets are a fundamental building block for your private network in Azure. Container Apps allows you to expose your container app to the public web by enabling ingress. 
 
-To set up continuous integration and continuous delivery (CI/CD), you connect to a GitHub account, repository, and branch. In addition, you create an Azure Active Directory service principal (or using an existing) context with role-based access control.
+To set up continuous integration and continuous delivery (CI/CD), you'll connect Container App to a GitHub account, repository, and branch. In addition, you'll create an Azure Active Directory service principal (or using an existing) context with role-based access control.
 
-The tutorial sample web app uses PostgreSQL to store data. The sample code connects to PostgreSQL via a connection string. The connection string is stored securely using an [Azure Service Connector](/azure/service-connector/overview), which helps you connect Azure compute services to other backing services. During the configuration of the Container App, the tutorial walks you through the service connector.
+The tutorial sample web app uses PostgreSQL to store data. The sample code connects to PostgreSQL via a connection string. During the configuration of the Container App, the tutorial walks you through the service connector.
 
 ## Prerequisites
 
@@ -72,12 +72,12 @@ To complete this tutorial, you'll need:
   * Azure Container App environment
   * Azure Database for PostgreSQL
 
-* [Visual Studio Code][16] or [Azure CLI][17], depending on what tool you'll use.
-  * For Visual Studio Code, you'll need the [Container Apps extension][13].
+* [Visual Studio Code][16] or [Azure CLI][17], depending on what tool you'll use
+  * For Visual Studio Code, you'll need the [Container Apps extension][13]
 
 * Python packages:
-  * [pyscopg2-binary][12] for connecting to Mongo DB.
-  * [Flask][10] or [Django][11] as a web framework.
+  * [pyscopg2-binary][12] for connecting to PostgreSQL
+  * [Flask][10] or [Django][11] as a web framework
 
 ## Sample app
 
