@@ -40,7 +40,7 @@ There are two common ways to configure Log4j: through an external properties fil
 
 ### Using a property file
 
-You can place a flat properties file named *log4j2.properties* in the */src/main/resource* directory of the project. This file should take the following form:
+You can place a flat properties file named *log4j2.properties* in the */src/main/resources* directory of the project. This file should take the following form:
 
 ```properties
 appender.console.type = Console
@@ -58,7 +58,7 @@ rootLogger.appenderRef.stdout.ref = STDOUT
 
 ### Using an XML file
 
-You can place an XML file named *log4j2.xml* in the */src/main/resource* directory of the project. This file should take the following form:
+You can place an XML file named *log4j2.xml* in the */src/main/resources* directory of the project. This file should take the following form:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>

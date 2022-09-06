@@ -1,6 +1,6 @@
 ---
-title: 'Deploy a Python web app to Azure with managed identity: create a web app'
-description: Create the Azure App Service that the Python (Django or Flask) web app is deployed to and configure managed identity.
+title: Create a Python web app in App Service with managed identity
+description: Create an Azure App Service that a Python (Django or Flask) web app can be deployed to and configure App Service with managed identity.
 author: jessmjohnson
 ms.author: jejohn
 ms.devlang: python
@@ -10,7 +10,7 @@ ms.prod: azure-python
 ms.custom: devx-track-python, devx-track-azurecli, vscode-azure-extension-update-completed
 ---
 
-# Create an Azure App Service and enable managed identity
+# Create a Python web app in App Service and enable managed identity
 
 This article is part of a tutorial about deploying a Python app to Azure App Service. The web app uses managed identity to authenticate to other Azure resources. In this article, you'll create an Azure App Service to host a Python web app and create a system assigned managed identity for the web app. The managed identity is authenticated with Azure AD, so you don’t have to store credentials in code when accessing other Azure resources.
 

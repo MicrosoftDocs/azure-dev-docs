@@ -43,13 +43,13 @@
     - name: Configure a startup file
       href: configure-python-web-app-on-app-service.md
   - name: Set up CI/CD
-    href: /azure/devops/pipelines/ecosystems/python-webapp
+    href: /azure/devops/pipelines/ecosystems/python-webapp?toc=/azure/developer/python/toc.json&bc=/azure/developer/breadcrumb/toc.json
   - name: Add sign in
-    href: /azure/active-directory/develop/quickstart-v2-python-webapp
+    href: zure/active-directory/develop/web-app-quickstart?toc=/azure/developer/python/toc.json&bc=/azure/developer/breadcrumb/toc.json
   - name: Store and retrieve secrets
-    href: /azure/key-vault/quick-create-python
+    href: /azure/key-vault/secrets/quick-create-python?toc=/azure/developer/python/toc.json&bc=/azure/developer/breadcrumb/toc.json
   - name: Set up Azure monitor
-    href: /azure/azure-monitor/app/opencensus-python
+    href: /azure/azure-monitor/app/opencensus-python?toc=/azure/developer/python/toc.json&bc=/azure/developer/breadcrumb/toc.json
 
 - name: Serverless solutions
   items:

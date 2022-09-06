@@ -7,7 +7,7 @@ metadata:
   ms.date: 07/11/2022
   ms.topic: conceptual
   ms.custom: devx-track-azdevcli
-  ms.prod: azure
+  ms.service: azure-dev-cli
 title: Azure Developer CLI Preview FAQ
 summary: This article answers commonly asked questions about Azure Developer CLI.
 sections:
@@ -65,13 +65,13 @@ sections:
 
       - question: Where can I find what resources are provisioned in Azure?
         answer: |
-          Go to https://portal.azure.com and then look for your resource group, which is `<your-environment-name>-rg`. 
+          Go to https://portal.azure.com and then look for your resource group, which is `rg-<your-environment-name>`. 
 
       - question: How do I find more information about Azure errors?
         answer: |
           We use Bicep templates, which are found under `<your-project-directory-name>/infra`, to provision Azure resources. If there are issues, we include the error message in the CLI output. 	
           
-          You can also go to https://portal.azure.com and then look for your resource group, which is `<your-environment-name>-rg`. If any of the deployments fail, select the error link to get more information.
+          You can also go to https://portal.azure.com and then look for your resource group, which is `rg-<your-environment-name>`. If any of the deployments fail, select the error link to get more information.
           
           For other resources, see [Troubleshoot common Azure deployment errors - Azure Resource Manager](/azure/azure-resource-manager/troubleshooting/common-deployment-errors).
 

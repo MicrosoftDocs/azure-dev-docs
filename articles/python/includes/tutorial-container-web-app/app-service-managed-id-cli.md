@@ -53,7 +53,7 @@ $CREDENTIAL
 
 ---
 
-**Step 3.** Use the application scope credential to create a webhook with the [az acr webhook create](/azure/acr/webhook#az-acr-webhook-create) command.
+**Step 3.** Use the application scope credential to create a webhook with the [az acr webhook create](/cli/azure/acr/webhook#az-acr-webhook-create) command.
 
 #### [bash](#tab/terminal-bash)
 

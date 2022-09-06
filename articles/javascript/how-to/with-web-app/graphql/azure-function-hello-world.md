@@ -2,7 +2,7 @@
 title: Deploy GraphQL API as Azure Function on Azure
 description: Learn how to deploy a `Hello World` GraphQL API to Azure in an Azure Function.  
 ms.topic: how-to
-ms.date: 08/05/2022
+ms.date: 08/16/2022
 ms.custom: devx-track-js
 ---
 
@@ -72,7 +72,7 @@ Make sure the following are installed on your local developer workstation:
 1. Run the sample:
 
     ```bash
-    npm start
+    npm run start:local
     ```
 
     If your computer pops up a window from a security app asking for permission to run, allow the app. 
@@ -203,6 +203,7 @@ Use the following troubleshooting guide to resolve any issues.
 |--|--|
 |cURL command doesn't return anything|In VS Code, expand the Azure Function resource in the Azure explorer. Under the Files node, make sure all your local files have been moved to the remote location and the `/dist` folder has been generated. If the files aren't present, redeploy the app and watch the deployment output for any errors. If the files do exist, run the cURL command again, adding `--verbose` to the end of the command to see what status code is returned.|
 |API doesn't return anything - but the code is correct.|The Azure Function returns the Apollo server's results if the `./graphql/function.json` correctly states the name of the return binding as `$return`. If you played with the function.json file, make sure the http binding name is reset to the value of `$return`. Another possible issue is if you changed `authLevel`, also found in the `function.json` file from `anonymous` to another value, you need to either change the value back to `anonymous` or correctly pass in the authentication when you use the API.|
+|Can't connect to Apollo playground from deployed Azure Function|Use the following npm command with your own function name to debug the connection: `npx diagnose-endpoint@1.1.0 --endpoint=https://YOUR-FUNCTION-NAME.azurewebsites.net/api/graphql/`. |
 
 Did you run into an issue not described in the preceding table? Open an issue to let us know. 
 

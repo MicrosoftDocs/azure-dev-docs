@@ -1,5 +1,6 @@
 items:
   - name: Introduction to Azure for Developers
+    href: index.yml
     items:
     - name: Azure for developers overview
       href: azure-developer-overview.md
