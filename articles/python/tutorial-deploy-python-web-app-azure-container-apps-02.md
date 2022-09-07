@@ -151,6 +151,9 @@ These steps require the [Docker extension][6] for VS Code.
 
 ### [Azure CLI](#tab/azure-cli)
 
+Azure CLI commands can be run in the [Azure Cloud Shell][4] or on a workstation with the [Azure CLI][7] installed.
+
+
 * az group create
 * az acr create
 * az acr build (az acr login)
@@ -165,3 +168,4 @@ These steps require the [Docker extension][6] for VS Code.
 [4]: https://shell.azure.com/
 [5]: https://docs.microsoft.com/cli/azure/acr#az-acr-build
 [6]: https://code.visualstudio.com/docs/containers/overview
+[7]: https://docs.microsoft.com/cli/azure/install-azure-cli
