@@ -17,7 +17,7 @@ In this part of the tutorial, you learn how to build containerized Python web ap
 
 The service diagram shown below highlights the components covered in this article.
 
-## Get sample app
+## Get the sample app
 
 Go to the repository for one of the sample app framework version ([Django][1] or Flask[2]) and fork the repository.
 
@@ -88,19 +88,16 @@ Sign in to [Azure portal][3] to complete these steps.
     :::column-end:::
 :::row-end:::
 :::row:::
-    :::column span="2":::
+    :::column span="1":::
         **Step 5.** Use the [az acr build][5] command to build the image.
 
-        Specify the registry name and resource group you created above. For `\<repo-path>`, choose either the [Django][1] or Flask[2] repo path.
+        Specify the registry name and resource group you created above. For `\<repo-path>`, choose either the [Django][1] or [Flask][2] repo path.
 
         ```azurecli
         az acr build -r <registry-name> -g <resource-group> -t msdocspythoncontainerwebapp:latest <repo-path>
         ```
 
         In the registry, confirm the image was built.
-    :::column-end:::
-    :::column:::
-        TBD
     :::column-end:::
 :::row-end:::
 
