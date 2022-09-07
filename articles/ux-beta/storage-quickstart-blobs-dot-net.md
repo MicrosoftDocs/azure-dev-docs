@@ -30,7 +30,7 @@ Additional resources:
 - [API reference documentation](/dotnet/api/azure.storage.blobs)
 - [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Blobs)
 - [Package (NuGet)](https://www.nuget.org/packages/Azure.Storage.Blobs)
-- [Samples](/azure/storage/common/storage-samples-dotnet?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json#blob-samples)
+- [Samples](/azure/storage/common/storage-samples-dotnet?toc=/azure/storage/blobs/toc.json#blob-samples)
 
 ## Prerequisites
 
