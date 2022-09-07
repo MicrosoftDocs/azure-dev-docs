@@ -241,7 +241,7 @@ This content is primarily from Developer Advocates as well as other members of t
 |[Wassim Chegham][Wassim]|Azure Static Web Apps CLI|**French** - [YouTube video:Tartine & Tech](https://www.youtube.com/watch?v=0L2XS6INmwE) [Slides](https://slides.com/wassimchegham/a-look-at-the-new-azure-static-web-apps-cli-swa-conf)|
 |[Glaucia Lemos][Glaucia]|How do I debug API REST Node.js App in VS Code?!|**Portuguese** - [YouTube](https://youtu.be/Lb20EoDja50)|
 |[Aaron Powell][Aaron]|SUPERCHARGING A WEB DEVS TOOLBOX|[Microsoft Reactor Video](https://www.aaron-powell.com/posts/2021-06-03-supercharging-a-web-devs-toolbox/)|
-|[David Smith][David]|Build a simple website using HTML, CSS, and JavaScript|[Microsoft Learn module](/learn/modules/build-simple-website/)|
+|[David Smith][David]|Build a simple website using HTML, CSS, and JavaScript|[Learn module](/learn/modules/build-simple-website/)|
 
 
 ## 2021 May
@@ -319,7 +319,7 @@ This content is primarily from Developer Advocates as well as other members of t
 |--|--|--|
 |[Aaron Powell][Aaron]|Building dual-screen web experiences with React|[Blog](https://devblogs.microsoft.com/surface-duo/dual-screen-react-web/)|
 |[Asim Hussain][Asim]|Adopting Azure serverless architectures to help reduce CO2 emissions – Part 2 (Extending to the Edge)|[Blog](https://aka.ms/adopting-azure-serverless?WT.mc_id=green-12146-cxa)|
-|[Chris Noring][Chris]|Node.js Learn Module: Create a Node HTTP Server|[Microsoft Learn Module](/learn/modules/build-web-api-nodejs-express/)|
+|[Chris Noring][Chris]|Node.js Learn Module: Create a Node HTTP Server|[Learn Module](/learn/modules/build-web-api-nodejs-express/)|
 |[Chris Noring][Chris]|Game engine developing Hex grid based educational games|[GitHub repo](https://github.com/softchris/hex-game)|
 |[Glaucia Lemos][Glaucia]|Backend Developer Guide 2021 - What should I know?|**Portuguese​** - [YouTube](https://www.youtube.com/channel/UC2Qzw5aqCBk_z0lWJnumWQQ) and [Blog](https://dev.to/glaucia86/guia-para-pessoas-desenvolvedoras-back-end-2021-o-que-eu-preciso-saber-10c6)| 
 |[Glaucia Lemos][Glaucia]|JWT + Node + Mongo+ Vue Project|[YouTube Vide0 #1](https://youtu.be/JmUSx5wXU68), [YouTube Video #2](https://youtu.be/Vr-UMoAv8pk), [YouTube Video #3](https://youtu.be/6u4aM2eT-gg)|
