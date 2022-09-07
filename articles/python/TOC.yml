@@ -97,7 +97,7 @@
           href: tutorial-deploy-containers-04.md
         - name: 5. Clean up resources
           href: tutorial-deploy-containers-05.md
-    - name: Deploy containerized web app
+    - name: Deploy to App Service
       items:
         - name: 1. Overview
           href: tutorial-containerize-deploy-python-web-app-azure-01.md
@@ -109,6 +109,10 @@
           href: tutorial-containerize-deploy-python-web-app-azure-04.md
         - name: 5. Clean up resources
           href: tutorial-containerize-deploy-python-web-app-azure-05.md
+    - name: Deploy to Container Apps
+      items:
+        - name: Build and deploy to Container Apps
+          href: tutorial-deploy-python-web-app-azure-container-apps-02.md
     - name: Deploy a Kubernetes cluster
       href: /azure/aks/learn/quick-kubernetes-deploy-cli?toc=/azure/developer/python/toc.json&bc=/azure/developer/python/breadcrumb/toc.json
 
