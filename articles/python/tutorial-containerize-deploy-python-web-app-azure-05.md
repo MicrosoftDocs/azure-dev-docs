@@ -61,9 +61,9 @@ After completing this tutorial, here are some next steps you can take to build u
 
 * Create reusable infrastructure as code with [Azure Developer CLI (azd) Preview](/azure/developer/azure-developer-cli/overview). 
 
-## 3. Related Microsoft Learn modules
+## 3. Related Learn modules
 
-The following are some Microsoft Learn modules that explore the technologies and themes covered in this tutorial:
+The following are some Learn modules that explore the technologies and themes covered in this tutorial:
 
 * [Introduction to Python](/learn/modules/intro-to-python/)
 
