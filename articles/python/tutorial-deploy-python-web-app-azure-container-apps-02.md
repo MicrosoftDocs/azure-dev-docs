@@ -43,7 +43,91 @@ Go to the repository for one of the sample app framework version ([Django][1] or
 
 ## Build container image from web app code
 
+### [Azure portal](#tab/azure-portal)
+
+Sign in to [Azure portal][3] to complete these steps.
+
+:::row:::
+    :::column span="2":::
+        **Step 1.** In the portal search at the top of the screen, search for "container registries" and go **Container registries** service.
+    :::column-end:::
+    :::column:::
+        TBD
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="2":::
+        **Step 2.** Select **+ Create** to start the create process.
+    :::column-end:::
+    :::column:::
+        TBD
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="2":::
+        **Step 3.** Fill out the form and specify.
+        * **Resource group** &rarr; Create a new one with name "pythoncontainer-rg".
+        * **Registry name** &rarr; The registry name must be unique within Azure, and contain 5-50 alphanumeric characters. 
+        * **Location** &rarr; If you are using an existing resource group, select the location to match. Otherwise, the location is where the resource group is created that contains the registry.
+        * **SKU** &rarr; Select **Standard**.
+
+        When finished, select **Review + create**. After the validation is complete, select **Create**.
+    :::column-end:::
+    :::column:::
+        TBD
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="2":::
+        **Step 4.** Open [Azure Cloud Shell][4].
+
+        You can also open Azure Cloud Shell selecting the Cloud Shell icon in the top menu bar of any portal window.
+    :::column-end:::
+    :::column:::
+        TBD
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="2":::
+        **Step 5.** Use the [az acr build][5] command to build the image.
+
+        Specify the registry name and resource group you created above. For `\<repo-path>`, choose either the [Django][1] or Flask[2] repo path.
+
+        ```azurecli
+        az acr build -r <registry-name> -g <resource-group> -t msdocspythoncontainerwebapp:latest <repo-path>
+        ```
+
+        In the registry, confirm the image was built.
+    :::column-end:::
+    :::column:::
+        TBD
+    :::column-end:::
+:::row-end:::
+
+
+### [VS Code](#tab/vscode-aztools)
+
+(Path slightly different. Registry and resource group created in process of creating image.)
+* Select F1 or CTRL+SHIFT+P to open the command palette. (Or right-click Dockerfile)
+* Enter name of image.
+* Create new registry during process.
+    * Select a SKU
+* Create resource group during process.
+    * Enter name
+    * Enter location
+
+### [Azure CLI](#tab/azure-cli)
+
+* az group create
+* az acr create
+* az acr build (az acr login)
+* az acr repository list
+
+---
 
     
 [1]: https://github.com/Azure-Samples/msdocs-python-django-azure-container-app
 [2]: https://github.com/Azure-Samples/msdocs-python-flask-azure-container-app
+[3]: https://portal.azure.com/
+[4]: https://shell.azure.com/
+[5]: https://docs.microsoft.com/en-us/cli/azure/acr#az-acr-build
