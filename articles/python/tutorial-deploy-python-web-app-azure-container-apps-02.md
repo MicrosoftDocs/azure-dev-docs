@@ -43,6 +43,7 @@ Go to the repository for one of the sample app framework version ([Django][1] or
 
 ## Build container image from web app code
 
+After following these steps, you'll have a Azure Container Registry and a Docker container image built from the sample code. 
 ### [Azure portal](#tab/azure-portal)
 
 Sign in to [Azure portal][3] to complete these steps.
@@ -66,9 +67,9 @@ Sign in to [Azure portal][3] to complete these steps.
 :::row:::
     :::column span="2":::
         **Step 3.** Fill out the form and specify.
-        * **Resource group** &rarr; Create a new one with name "pythoncontainer-rg".
+        * **Resource group** &rarr; Create a new one named *pythoncontainer-rg*.
         * **Registry name** &rarr; The registry name must be unique within Azure, and contain 5-50 alphanumeric characters. 
-        * **Location** &rarr; If you are using an existing resource group, select the location to match. Otherwise, the location is where the resource group is created that contains the registry.
+        * **Location** &rarr; Select a location to match. 
         * **SKU** &rarr; Select **Standard**.
 
         When finished, select **Review + create**. After the validation is complete, select **Create**.
@@ -104,14 +105,49 @@ Sign in to [Azure portal][3] to complete these steps.
 
 ### [VS Code](#tab/vscode-aztools)
 
-(Path slightly different. Registry and resource group created in process of creating image.)
-* Select F1 or CTRL+SHIFT+P to open the command palette. (Or right-click Dockerfile)
-* Enter name of image.
-* Create new registry during process.
-    * Select a SKU
-* Create resource group during process.
-    * Enter name
-    * Enter location
+These steps require the [Docker extension][6] for VS Code.
+
+:::row:::
+    :::column span="2":::
+        **Step 1.** Select **F1** or **CTRL+SHIFT+P** to open the command palette.
+        * Type "images".
+        * Select the task **Docker Images: Build Image in Azure**
+        Alternatively, right-click the *Dockerfile* and select **Build Image in Azure**. This UI action starts the same create registry task.
+    :::column-end:::
+    :::column:::
+        TBD
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="2":::
+        **Step 2.** Follow the prompts to create a registry, a resource group, and build the image.
+        * **Tag image as** &rarr; Enter *pythoncontainer:{{.Run.ID}}*.
+        * **Create new registry...** &rarr; Select this option to create new registry.
+        * **Registry name** &rarr; The registry name must be unique within Azure, and contain 5-50 alphanumeric characters. 
+        * **Select a SKU** &rarr; Select **Standard**.
+        * **Create a new resource group** &rarr; Select this option to create resource group.
+        * **Resource group** &rarr; Create a new one named *pythoncontainer-rg*.
+        * **Location** &rarr; Select a location.
+    :::column-end:::
+    :::column:::
+        TBD
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="2":::
+        **Step 3.** Confirm the registry name
+        * **Registry name** &rarr; The registry name must be unique within Azure, and contain 5-50 alphanumeric characters. 
+        * **SKU** &rarr; Select **Standard**.
+        * **Resource group** &rarr; Create a new one named *pythoncontainer-rg*.
+        * **Location** &rarr; Select a location.
+        * **Select OS** &rarr; Select **Linux**.
+    :::column-end:::
+    :::column:::
+        TBD
+    :::column-end:::
+:::row-end:::
+
+
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -127,4 +163,5 @@ Sign in to [Azure portal][3] to complete these steps.
 [2]: https://github.com/Azure-Samples/msdocs-python-flask-azure-container-app
 [3]: https://portal.azure.com/
 [4]: https://shell.azure.com/
-[5]: https://docs.microsoft.com/en-us/cli/azure/acr#az-acr-build
+[5]: https://docs.microsoft.com/cli/azure/acr#az-acr-build
+[6]: https://code.visualstudio.com/docs/containers/overview
