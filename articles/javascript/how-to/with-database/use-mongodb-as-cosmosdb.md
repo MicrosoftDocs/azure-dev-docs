@@ -2,8 +2,8 @@
 title: Use JavaScript on Azure Cosmos DB with MongoDB
 description: To create or move your mongoDB database to Azure, you need a Cosmos DB resource. 
 ms.topic: how-to
-ms.date: 08/02/2021
-ms.custom: devx-track-js, devx-track-azurecli
+ms.date: 09/01/2022
+ms.custom: devx-track-js, devx-track-azurecli, vscode-azure-extension-update-completed
 ---
 
 # Develop a JavaScript application with MongoDB on Azure
@@ -12,6 +12,10 @@ To create, move, or use a mongoDB database to Azure, you need a Cosmos DB resour
 
 
 # [VS Code extension](#tab/vscode)
+
+To Use the VSCode extension for Cosmos DB, install the following: 
+
+* [Azure Databases](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb)
 
 [!INCLUDE [VSCode extension for Cosmos DB databases](../../includes/vscode-extension-mongodb.md)]
 

@@ -2,9 +2,9 @@
 title: Use a container registry from Visual Studio Code
 description: Part 2, set up a suitable container registry for your app image. 
 ms.topic: how-to
-ms.date: 08/16/2021
-ms.custom: devx-track-js
-# Verified full run: diberry 08/16/2021
+ms.date: 09/02/2022
+ms.custom: devx-track-js, vscode-azure-extension-update-completed 
+# Verified full run: diberry 09/02/2022
 ---
 
 # 2. Set up Azure Container registry
@@ -25,7 +25,6 @@ This tutorial uses [Azure Container Registry](https://azure.microsoft.com/servic
 
    |Prompt|Value|
    |--|--|
-   |**Select Registry Provider**|Select **Azure**|
    |**Registry name**|Enter a name that is unique in Azure and contains from 5 to 50 alphanumeric characters.|
    |**SKU**|**Basic**|
    |**Resource group**|Create a new resource group that is unique within your subscription. Create all remaining Azure resources in this resource group.|
@@ -35,6 +34,8 @@ This tutorial uses [Azure Container Registry](https://azure.microsoft.com/servic
 
    ![Confirmation in Visual Studio Code that the registry was created](../../media/deploy-containers/registry-created.jpg)
 
+1. If you receive an error that the namespace `Microsoft.ContainerRegistry` is not registered, run the following Azure CLI command to register the namespace: `az provider register --namespace Microsoft.ContainerRegistry`.
+
 1. Open **Docker** Explorer. Ensure that the registry endpoint you just set up is visible under **Registries**.
 
    ![Verification that the registry appears in Docker Explorer](../../media/deploy-containers/docker-explorer-registry.jpg)
@@ -43,7 +44,13 @@ This tutorial uses [Azure Container Registry](https://azure.microsoft.com/servic
 
 While you can see your Azure registries in the Docker extension, you can't push images to them until you sign in to Container Registry.
 
-1. In Visual Studio, select **Ctrl**+**`** to open the integrated terminal.
+1. In Visual Studio, open the Integrated Terminal (<kbd>Ctrl</kbd> + <kbd>`</kbd>) to open the integrated terminal.
+
+1. Run the following Azure CLI command to sign in to Azure CLI. 
+
+    ```azurecli
+    az login 
+    ```
 
 1. Run the following Azure CLI command to sign in to Container Registry. Replace `<your-registry-name>` with the name of the registry you created.
 

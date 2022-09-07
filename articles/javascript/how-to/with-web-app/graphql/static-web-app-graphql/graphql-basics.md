@@ -2,7 +2,7 @@
 title: GraphQL basics
 description: Learn fundamental GraphQL concepts
 ms.topic: how-to
-ms.date: 07/26/2021
+ms.date: 08/09/2022
 ms.custom: devx-track-js
 ---
 
@@ -14,4 +14,5 @@ In this article, you learn the basics of GraphQL, such as how to retrieve and ch
 
 ## Next steps
 
-* [Local development of a GraphQL API with Azure Functions](local-development.md)
+> [!div class="nextstepaction"]
+> [Local TypeScript development](local-development.md)

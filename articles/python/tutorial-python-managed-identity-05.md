@@ -1,13 +1,13 @@
 ---
-title: 'Deploy a Python web app to Azure with managed identity: create a PostgreSQL database'
-description: Create the Azure Database for PostgreSQL services that the deployed Python (Django or Flask) web app will access in Azure using managed identity.
-author: jess-johnson-msft
+title: Create a PostgreSQL database with managed identity
+description: Create an Azure Database for PostgreSQL services that a deployed Python (Django or Flask) web app can access in Azure using managed identity.
+author: jessmjohnson
 ms.author: jejohn
 ms.devlang: python
 ms.topic: tutorial
-ms.date: 07/20/2022
+ms.date: 08/10/2022
 ms.prod: azure-python
-ms.custom: devx-track-python, devx-track-azurecli
+ms.custom: devx-track-python, devx-track-azurecli, vscode-azure-extension-update-completed
 ---
 
 # Create an Azure Database for PostgreSQL and configure managed identity
@@ -45,7 +45,7 @@ Follow these steps to create your Azure Database for PostgreSQL resource using t
 |:----------------|-----------:|
 | [!INCLUDE [Open Azure Extension - Database in VS Code](<./includes/python-web-app-managed-identity/create-postgres-service-visual-studio-code-1.md>)] | :::image type="content" source="./media/python-web-app-managed-identity/create-postgres-service-visual-studio-code-1-240px.png" lightbox="./media/python-web-app-managed-identity/create-postgres-service-visual-studio-code-1.png" alt-text="A screenshot showing how to open Azure Extension for Database in VS Code." ::: |
 | [!INCLUDE [Create database server in VS Code](<./includes/python-web-app-managed-identity/create-postgres-service-visual-studio-code-2.md>)] | :::image type="content" source="./media/python-web-app-managed-identity/create-postgres-service-visual-studio-code-2-240px.gif" alt-text="A screenshot showing prompts for creating a database server in VSCode." lightbox="./media/python-web-app-managed-identity/create-postgres-service-visual-studio-code-2.gif"::: |
-| [!INCLUDE [Azure portal - create new resource](<./includes/python-web-app-managed-identity/create-postgres-service-visual-studio-code-3.md>)] | :::image type="content" source="./media/python-web-app-managed-identity/create-postgres-service-visual-studio-code-3-240px.gif" alt-text="A screenshot how to create a firewall rule for a PostgreSQL database in VS Code." lightbox="./media/python-web-app-managed-identity/create-postgres-service-visual-studio-code-3.gif"::: :::image type="content" source="./media/python-web-app-managed-identity/create-postgres-service-visual-studio-code-3b-240px.png" alt-text="A screenshot showing confirmation dialog to add local IP address as a firewall rule for a PostgreSQL database in VS Code." lightbox="./media/python-web-app-managed-identity/create-postgres-service-visual-studio-code-3b.png"::: |
+| [!INCLUDE [Finish create database server in VS Code](<./includes/python-web-app-managed-identity/create-postgres-service-visual-studio-code-2.5.md>)] | |
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -73,7 +73,7 @@ In this step, you'll add firewall rules that allow:
 
 | Instructions    | Screenshot |
 |:----------------|-----------:|
-| [!INCLUDE [Azure portal - create firewall rule](<./includes/python-web-app-managed-identity/create-postgres-service-visual-studio-code-4.md>)] | :::image type="content" source="./media/python-web-app-managed-identity/create-postgres-service-visual-studio-code-4-240px.png" alt-text="A screenshot showing how to create a database for a PostgreSQL database in the VS Code." lightbox="./media/python-web-app-managed-identity/create-postgres-service-visual-studio-code-4.png"::: |
+| [!INCLUDE [Azure portal - create new resource](<./includes/python-web-app-managed-identity/create-postgres-service-visual-studio-code-3.md>)] | :::image type="content" source="./media/python-web-app-managed-identity/create-postgres-service-visual-studio-code-3-240px.gif" alt-text="A screenshot how to create a firewall rule for a PostgreSQL database in VS Code." lightbox="./media/python-web-app-managed-identity/create-postgres-service-visual-studio-code-3.gif"::: :::image type="content" source="./media/python-web-app-managed-identity/create-postgres-service-visual-studio-code-3b-240px.png" alt-text="A screenshot showing confirmation dialog to add local IP address as a firewall rule for a PostgreSQL database in VS Code." lightbox="./media/python-web-app-managed-identity/create-postgres-service-visual-studio-code-3b.png"::: |
 | [!INCLUDE [Azure portal - create firewall rule](<./includes/python-web-app-managed-identity/create-postgres-service-visual-studio-code-5.md>)] |  |
 
 ### [Azure CLI](#tab/azure-cli)
@@ -83,6 +83,8 @@ In this step, you'll add firewall rules that allow:
 ---
 
 ## 3. Create a database
+
+### [psql](#tab/create-database-psql)
 
 In your local environment, or anywhere you can use the PostgreSQL interactive terminal [psql](https://www.postgresql.org/docs/13/app-psql.html) such as the [Azure Cloud Shell](/azure/cloud-shell/overview), connect to the PostgreSQL database server to create the `restaurant` database. 
 
@@ -106,6 +108,14 @@ CREATE DATABASE restaurant;
 The semicolon (";") at the end of the command is necessary. To verify that the `restaurant` database was successfully created, use the command `\c restaurant` to change the prompt from `postgres=>` (default) to the `restaurant->`. Type `\?` to show help or `\q` to quit.
 
 You can also create a database using [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio) or any other IDE, and Visual Studio Code with the [Azure Tools extension pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack) installed.
+
+### [VS Code](#tab/create-database-vscode-aztools)
+
+| Instructions    | Screenshot |
+|:----------------|-----------:|
+| [!INCLUDE [Azure portal - create firewall rule](<./includes/python-web-app-managed-identity/create-postgres-service-visual-studio-code-4.md>)] | :::image type="content" source="./media/python-web-app-managed-identity/create-postgres-service-visual-studio-code-4-240px.png" alt-text="A screenshot showing how to create a database for a PostgreSQL database in the VS Code." lightbox="./media/python-web-app-managed-identity/create-postgres-service-visual-studio-code-4.png"::: |
+
+---
 
 ## 4. Configure managed identity for PostgreSQL
 
@@ -131,4 +141,4 @@ The role you'll create is the role used by the web app (App Service) to connect 
 ## Next step
 
 > [!div class="nextstepaction"]
-> [Deploy to the Python app to Azure >>>](./tutorial-python-managed-identity-06.md)
+> [Deploy to the Python app to Azure](./tutorial-python-managed-identity-06.md)

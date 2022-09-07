@@ -1,16 +1,16 @@
 ---
-title: 'Deploy a Python web app to Azure with managed identity: create a storage account'
-description: Create the storage account that the deployed Python (Django or Flask) web app will access in Azure using managed identity.
-author: jess-johnson-msft
+title: Create an Azure storage account with managed identity
+description: Create a storage account that a deployed Python (Django or Flask) web app can access in Azure using managed identity.
+author: jessmjohnson
 ms.author: jejohn
 ms.devlang: python
 ms.topic: tutorial
 ms.date: 07/20/2022
 ms.prod: azure-python
-ms.custom: devx-track-python, devx-track-azurecli
+ms.custom: devx-track-python, devx-track-azurecli, vscode-azure-extension-update-completed
 ---
 
-# Create an Azure storage account and configure a role for the managed identity
+# Create an Azure storage account and configure a role for managed identity
 
 This article is part of a tutorial about deploying a Python app to Azure App Service. The web app uses managed identity to authenticate to other Azure resources. In this article, you'll create an Azure Blob Storage account to store images saved by the sample app.
 

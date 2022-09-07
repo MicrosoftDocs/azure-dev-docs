@@ -10,4 +10,4 @@ Azure Spring Apps offers specific versions of Java and specific versions of Spri
 
 [!INCLUDE [note-obtain-your-current-java-version](note-obtain-your-current-java-version.md)]
 
-For supported versions of Java, Spring Boot, and Spring Cloud, as well instructions for updating, see [Prepare an application for deployment in Azure Spring Apps](/azure/spring-cloud/how-to-prepare-app-deployment).
+For supported versions of Java, Spring Boot, and Spring Cloud, as well instructions for updating, see [Prepare an application for deployment in Azure Spring Apps](/azure/spring-apps/how-to-prepare-app-deployment).

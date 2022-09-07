@@ -129,13 +129,13 @@ In this section, you download and test the example.
 
 1. Run [terraform init](https://www.terraform.io/docs/commands/init.html) to initialize the working directory.
 
-    ```cmd
+    ```console
     terraform init
     ```
     
 1. Run [terraform validate](https://www.terraform.io/docs/commands/validate.html) to validate the syntax of the configuration files.
 
-    ```cmd
+    ```console
     terraform validate
     ```
     
@@ -146,7 +146,7 @@ In this section, you download and test the example.
 
 1. Run [terraform plan](https://www.terraform.io/docs/commands/plan.html) to create an execution plan.
 
-    ```cmd
+    ```console
     terraform plan -out main.tfplan
     ```
 
@@ -158,13 +158,13 @@ In this section, you download and test the example.
     
 1. Run [docker pull](https://docs.docker.com/engine/reference/commandline/pull/) to download the terraform-compliance image.
 
-    ```cmd
+    ```console
     docker pull eerkunt/terraform-compliance
     ```
     
 1. Run [docker run](https://docs.docker.com/engine/reference/commandline/run/) to run the tests in a docker container.
 
-    ```cmd
+    ```console
     docker run --rm -v $PWD:/target -it eerkunt/terraform-compliance -f features -p main.tfplan.json
     ```
 
@@ -194,13 +194,13 @@ In this section, you download and test the example.
 
 1. Run `terraform validate` again to verify the syntax.
 
-    ```cmd
+    ```console
     terraform validate
     ```
     
 1. Run `terraform plan` again to create a new execution plan.
 
-    ```cmd
+    ```console
     terraform plan -out main.tfplan
     ```
 
@@ -212,7 +212,7 @@ In this section, you download and test the example.
 
 1. Run [docker run](https://docs.docker.com/engine/reference/commandline/run/) again to test the configuration. If the full spec has been implemented, the test succeeds.
 
-    ```cmd
+    ```console
     docker run --rm -v $PWD:/target -it eerkunt/terraform-compliance -f features -p main.tfplan.json
     ```
     
@@ -221,7 +221,7 @@ In this section, you download and test the example.
 
 1. Run [terraform apply](https://www.terraform.io/docs/commands/apply.html) to apply the execution plan.
 
-    ```cmd
+    ```console
     terraform apply main.tfplan -target=random_uuid.uuid
     ```
 

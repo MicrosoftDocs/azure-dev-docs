@@ -81,7 +81,7 @@
         "java/**/*.md": "karlerickson",
         "java/**/*.yml": "karlerickson",
         "go/**/*.md": "Duffney",
-        "python/**/*.md": "jess-johnson-msft",
+        "python/**/*.md": "jessmjohnson",
         "ansible/**/*.md": "TomArcherMsft",
         "chef/**/*.md": "TomArcherMsft",
         "jenkins/**/*.md": "TomArcherMsft",

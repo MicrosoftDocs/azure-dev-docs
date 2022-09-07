@@ -1,5 +1,12 @@
 {
     "redirections": [
+      { "source_path": "articles/javascript/how-to/with-web-app/graphql/get-started.md",
+        "redirect_url": "/azure/developer/javascript/how-to/with-web-app/graphql/azure-function-hello-world" 
+      },
+      {
+        "source_path": "articles/javascript/how-to/with-web-app/add-authentication-to-web-app.md",
+        "redirect_url": "/azure/app-service/scenario-secure-app-authentication-app-service-as-user"
+      },
       {
         "source_path": "articles/javascript/tutorial-vscode-serverless-node-01.md",
         "redirect_url": "/azure/developer/javascript/tutorial/azure-function-cosmos-db-mongo-api"
@@ -1239,6 +1246,10 @@
       {
         "source_path": "articles/python/tutorial-deploy-app-service-on-linux-07.md",
         "redirect_url": "/azure/app-service/quickstart-python"
+      },
+      {
+        "source_path": "articles/terraform/create-linux-virtual-machine-with-infrastructure.md",
+        "redirect_url": "/azure/virtual-machines/linux/quick-create-terraform"
       }
     ]
   }

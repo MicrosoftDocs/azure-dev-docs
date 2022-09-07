@@ -15,7 +15,7 @@ metadata:
   ms.topic: landing-page
   ms.collection: collection
   ms.technology: azure
-  ms.service: multiple
+  ms.service: devtest-lab
   robots: noindex
 landingContent:
   - title: Tutorial lab

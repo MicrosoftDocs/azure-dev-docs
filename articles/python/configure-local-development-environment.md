@@ -3,7 +3,7 @@ title: Configure your local Python environment for Azure development
 description: How to set up a local Python dev environment for working with Azure.
 ms.date: 06/28/2022
 ms.topic: conceptual
-ms.custom: devx-track-python
+ms.custom: devx-track-python, vscode-azure-extension-update-completed
 ---
 
 # Configure your local Python dev environment for Azure

@@ -43,13 +43,13 @@
     - name: Configure a startup file
       href: configure-python-web-app-on-app-service.md
   - name: Set up CI/CD
-    href: /azure/devops/pipelines/ecosystems/python-webapp
+    href: /azure/devops/pipelines/ecosystems/python-webapp?toc=/azure/developer/python/toc.json&bc=/azure/developer/breadcrumb/toc.json
   - name: Add sign in
-    href: /azure/active-directory/develop/quickstart-v2-python-webapp
+    href: /azure/active-directory/develop/web-app-quickstart?toc=/azure/developer/python/toc.json&bc=/azure/developer/breadcrumb/toc.json
   - name: Store and retrieve secrets
-    href: /azure/key-vault/quick-create-python
+    href: /azure/key-vault/secrets/quick-create-python?toc=/azure/developer/python/toc.json&bc=/azure/developer/breadcrumb/toc.json
   - name: Set up Azure monitor
-    href: /azure/azure-monitor/app/opencensus-python
+    href: /azure/azure-monitor/app/opencensus-python?toc=/azure/developer/python/toc.json&bc=/azure/developer/breadcrumb/toc.json
 
 - name: Serverless solutions
   items:
@@ -97,8 +97,20 @@
           href: tutorial-deploy-containers-04.md
         - name: 5. Clean up resources
           href: tutorial-deploy-containers-05.md
+    - name: Deploy containerized web app
+      items:
+        - name: 1. Overview
+          href: tutorial-containerize-deploy-python-web-app-azure-01.md
+        - name: 2. Build and test container locally
+          href: tutorial-containerize-deploy-python-web-app-azure-02.md
+        - name: 3. Build container in Azure
+          href: tutorial-containerize-deploy-python-web-app-azure-03.md
+        - name: 4. Deploy container App Service
+          href: tutorial-containerize-deploy-python-web-app-azure-04.md
+        - name: 5. Clean up resources
+          href: tutorial-containerize-deploy-python-web-app-azure-05.md
     - name: Deploy a Kubernetes cluster
-      href: /azure/aks/kubernetes-walkthrough
+      href: /azure/aks/learn/quick-kubernetes-deploy-cli?toc=/azure/developer/python/toc.json&bc=/azure/developer/python/breadcrumb/toc.json
 
 - name: Data science solutions
   items:

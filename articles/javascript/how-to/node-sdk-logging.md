@@ -1,8 +1,8 @@
 ---
-title: Logging, metrics, telemetry in Azure
+title: JavaScript Logging, metrics, telemetry in Azure
 description: Learn about logging options in Azure
 ms.topic: how-to
-ms.date: 05/06/2021
+ms.date: 08/08/2022
 ms.custom: devx-track-js
 ---
 
@@ -74,7 +74,7 @@ traces
 
 ## Configure web app log streaming
 
-View log stream of hosted resources available in the resource's Monitoring section of the Azure portal. Configure them with the App service log configuration.
+View log stream of hosted resources available in the resource's Monitoring section of the Azure portal. Configure them with the App service (Windows) log configuration.
 
 :::image type="content" source="../media/logging-metrics/configue-azure-app-service-logs-in-azure-portal.png" alt-text="View log stream of hosted resources available in the resource's Monitoring section of the Azure portal.":::
 

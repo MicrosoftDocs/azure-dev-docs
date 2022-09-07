@@ -1,7 +1,7 @@
 ---
 title: Configure your local JavaScript environment for Azure development
 description: How to set up a local JavaScript dev environment for working with Azure, including an editor, the Azure SDK libraries, optional tools, and the necessary credentials for library authentication.
-ms.date: 07/28/2021
+ms.date: 08/09/2022
 ms.topic: how-to
 ms.custom: devx-track-js, azure-sdk-javascript-ai-text-analytics-5.0.0
 ---
@@ -42,17 +42,13 @@ The following common local workstation installations are recommended to help wit
 |Name|Description|
 |--|--|
 |[Azure CLI](/cli/azure/get-started-with-azure-cli)|Local or cloud-based CLI to create and use Azure resources.|
+|[Azure Developer CLI](../../azure-developer-cli/overview.md?tabs=nodejs)|Developer-centric command-line tool for building cloud apps in developer workflow.|
 |[Visual Studio Code extensions for Azure](../node-azure-tools.md#visual-studio-code-extensions) |VS Code extensions to the IDE.|
 |[Git](https://git-scm.com/downloads) or [Git for Windows](https://gitforwindows.org/)| Command-line tools for source control. You can use a different source control tool if you prefer. |
 
 ## One-time configuration for authentication
 
 To use the same authentication code in local development and the remote Azure hosting environment, use the [DefaultAzureCredential](/javascript/api/overview/azure/identity-readme#defaultazurecredential).
-
-To use the same code in all environments: 
-
-* For **local development**, [create a service principal](../core/nodejs-sdk-azure-authenticate.md) to create and manage Azure resources _without_ using your personal account. 
-* For **Azure hosting**, [learn more](https://github.com/Azure/azure-sdk-for-js/blob/main/documentation/using-azure-identity.md#getting-started).  
 
 ## Working with Azure and the Azure SDK client libraries
 

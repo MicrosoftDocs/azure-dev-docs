@@ -1,5 +1,5 @@
 ---
-author: jess-johnson-msft
+author: jessmjohnson
 ms.author: jejohn
 ms.topic: include
 ms.date: 06/01/2022
@@ -19,7 +19,7 @@ A series of prompts will guide you through the process of creating the database.
 
    Enter a name for the database server that's unique across all Azure (the database server's URL becomes `https://<server-name>.postgres.database.azure.com`). Allowed characters are `A`-`Z`, `0`-`9`, and `-`. For example: *msdocs-web-app-postgres-database-\<unique-id>*.<br><br>
 
-1. Select the **B1 Basic** SKU (1 vCore, 2 GiB Memory, 5 GB storage).
+1. Select the **B1 Basic** SKU (1 vCore, 2 GiB Memory, 5-GB storage).
 
 1. Create an administrator user name.
 

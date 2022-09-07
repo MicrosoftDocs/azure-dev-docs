@@ -31,7 +31,7 @@ In this article, we will code a sample application. If you want to go faster, th
 Generate the application on the command line by entering:
 
 ```bash
-curl https://start.spring.io/starter.tgz -d dependencies=web,data-jpa,postgresql -d baseDir=azure-database-workshop -d bootVersion=2.7.2 -d javaVersion=17 | tar -xzvf -
+curl https://start.spring.io/starter.tgz -d dependencies=web,data-jpa,postgresql -d baseDir=azure-database-workshop -d bootVersion=2.7.3 -d javaVersion=17 | tar -xzvf -
 ```
 
 ### Configure Spring Boot to use Azure Database for PostgreSQL

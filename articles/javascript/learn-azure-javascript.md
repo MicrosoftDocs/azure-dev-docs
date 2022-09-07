@@ -54,7 +54,7 @@ Use the Microsoft Learn platform or a Microsoft Learning Partner to expand your 
 
 ## JavaScript on Azure
 
-The following Microsoft Learn modules teach you how to use Azure with JavaScript:
+The following Learn modules teach you how to use Azure with JavaScript:
 
 ### Azure DevOps
 

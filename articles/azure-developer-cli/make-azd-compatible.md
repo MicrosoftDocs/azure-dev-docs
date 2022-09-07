@@ -128,7 +128,7 @@ For samples, refer to [sample Azure App Service Bicep files](/azure/app-service/
 
    For example:
 
-    ```json
+    ```bicep
     targetScope = 'subscription'
 
     @minLength(1)
@@ -144,7 +144,7 @@ For samples, refer to [sample Azure App Service Bicep files](/azure/app-service/
     param principalId string = ''
 
     resource resourceGroup 'Microsoft.Resources/resourceGroups@2020-06-01' = {
-        name: '${name}-rg'
+        name: 'rg-${name}'
         location: location
         tags: tags
     }
@@ -175,8 +175,8 @@ For samples, refer to [sample Azure App Service Bicep files](/azure/app-service/
 1. Create a file named `resources.bicep`.
 
 1. Declare the following parameters:
-
-    ```json
+    
+    ```bicep
     param location string
     param principalId string = ''
     param resourceToken string
@@ -184,10 +184,10 @@ For samples, refer to [sample Azure App Service Bicep files](/azure/app-service/
     param sku string = 'S1' 
     param linuxFxVersion string = 'PYTHON|3.8'
     ```
+    
+1. Add the following code, to add a tag named azd-service-name with the value of web to your Azure resource. `azd` uses this tag to determine what resource to deploy your application to. The value should match the name of your service as defined in [azure.yaml](#update-azureyaml).
 
-1. Add the following code, replacing `web` with the name of your service.
-
-    ```json
+    ```bicep
     tags: union(tags, {
       'azd-service-name': 'web'
       })
@@ -195,7 +195,7 @@ For samples, refer to [sample Azure App Service Bicep files](/azure/app-service/
 
 1. Add the following code for zip deployment.
 
-    ```json
+    ```bicep
     resource appSettings 'config' = {
       name: 'appsettings'
       properties: {
@@ -206,7 +206,7 @@ For samples, refer to [sample Azure App Service Bicep files](/azure/app-service/
 
 1. The following code represents a complete `resources.bicep` file that creates an Azure App Service for hosting a Python web app:
 
-    ```json
+    ```bicep
     param location string
     param principalId string = ''
     param resourceToken string
@@ -257,12 +257,9 @@ For samples, refer to [sample Azure App Service Bicep files](/azure/app-service/
     ```bash
     azd provision
     ```
-
-    **Key points**
-
-    After you run `azd provision`:
-
-    - The Azure resources are created under the resource group `<environment_name>-rg`.
+   
+    **Key points:**
+    - After you run `azd provision`, the Azure resources are created under the resource group `rg-<environment_name>`.
     - The web end point is added to `.env` file in the project's `.azure/<environment_name>` directory.
 
 ## Update azure.yaml
@@ -315,7 +312,7 @@ Your project is now compatible with Azure Developer CLI and can be used as a tem
 
 1. Copy the **azure-dev.yml** file from any [azd template](./azd-templates.md) (for example, [todo-nodejs-mongo template](https://github.com/Azure-Samples/todo-nodejs-mongo/blob/main/.github/workflows/azure-dev.yml)) and paste as new file into the `.github/workflows` directory.
 
-1. Run the following command to push updates to the repository. The GitHub Action workflow is triggered because of the update.
+1. Run the following command to push updates to the repository. The GitHub Actions workflow is triggered because of the update.
 
     ```bash
     azd pipeline config    

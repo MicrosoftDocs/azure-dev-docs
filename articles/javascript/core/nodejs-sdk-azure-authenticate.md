@@ -1,5 +1,5 @@
 ---
-title: Authenticate to Azure with SDK
+title: Authenticate JavaScript to Azure with SDK
 description: To authenticate to Azure, create a service principal to use the Azure SDKs for JavaScript.
 ms.topic: how-to
 ms.date: 10/26/2021

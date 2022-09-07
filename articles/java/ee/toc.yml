@@ -1,6 +1,13 @@
 - name: Java EE, Jakarta EE, and MicroProfile on Azure documentation
   href: index.yml
   items:
+  - name: Quickstart
+    expanded: false
+    items:
+      - name: Oracle WebLogic Server on AKS
+        href: weblogic-server-azure-kubernetes-service.md 
+      - name: Traditional WebSphere on Azure VMs
+        href: traditional-websphere-application-server-virtual-machines.md
   - name: Java application servers on Azure
     expanded: true
     items:
