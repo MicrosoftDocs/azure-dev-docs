@@ -15,7 +15,7 @@ This article is part of a tutorial about how to containerize and deploy a Python
 
 In this part of the tutorial, you learn how to build containerized Python web app from a sample app (Django or Flask version). You build the container image in the cloud and deploy it to Azure Container Apps.  A [Service Connector][9] enables the container to connect to an [Azure Database for PostgreSQL - Flexible Server][10] instance, where the sample app stores data.
 
-The service diagram shown below highlights the components covered in this article.
+The service diagram shown below highlights the components covered in this article, namely building and deploying a container image.
 
 :::image type="content" source="./media/tutorial-container-apps/service-diagram-overview-for-tutorial-deploy-python-azure-container-apps-deploy.png" alt-text="A screenshot of the services in the Tutorial - Deploy a Python App on Azure Container Apps. Section highlighted is what is covered in this article." lightbox="./media/tutorial-container-apps/service-diagram-overview-for-tutorial-deploy-python-azure-container-apps-deploy.png":::
 
