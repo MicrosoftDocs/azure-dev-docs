@@ -11,9 +11,9 @@ ms.author: jejohn
 
 # Build and deploy a Python web app with Azure Container Apps and PostgreSQL
 
-This article is part of a tutorial about how to containerize and deploy a Python web app to Azure Container Apps. Container Apps enable you to deploy containerized apps without managing complex infrastructure. 
+This article is part of a tutorial about how to containerize and deploy a Python web app to [Azure Container Apps][8]. Container Apps enable you to deploy containerized apps without managing complex infrastructure. 
 
-In this part of the tutorial, you learn how to build containerized Python web app from a sample app (Django or Flask version). You build the container image in the cloud and deploy it to Azure Container Apps.  A Service Connector enables the container to connect to an Azure Database for PostgreSQL - Flexible Server instance, where the sample app stores data.
+In this part of the tutorial, you learn how to build containerized Python web app from a sample app (Django or Flask version). You build the container image in the cloud and deploy it to Azure Container Apps.  A [Service Connector][9] enables the container to connect to an [Azure Database for PostgreSQL - Flexible Server][10] instance, where the sample app stores data.
 
 The service diagram shown below highlights the components covered in this article.
 
@@ -44,13 +44,14 @@ Go to the repository of the sample app ([Django][1] or [Flask][2]) and fork the 
 ## Build container image from web app code
 
 After following these steps, you'll have an Azure Container Registry and a Docker container image built from the sample code. 
+
 ### [Azure portal](#tab/azure-portal)
 
 Sign in to [Azure portal][3] to complete these steps.
 
 :::row:::
     :::column span="2":::
-        **Step 1.** In the portal search at the top of the screen, search for "container registries" and go **Container registries** service.
+        **Step 1.** In the portal search at the top of the screen, search for "container registries" and select the **Container Registries** service in the results.
     :::column-end:::
     :::column:::
         TBD
@@ -147,8 +148,6 @@ These steps require the [Docker extension][6] for VS Code.
     :::column-end:::
 :::row-end:::
 
-
-
 ### [Azure CLI](#tab/azure-cli)
 
 Azure CLI commands can be run in the [Azure Cloud Shell][4] or on a workstation with the [Azure CLI][7] installed.
@@ -216,9 +215,119 @@ Azure CLI commands can be run in the [Azure Cloud Shell][4] or on a workstation 
 
 ## Create a PostgreSQL Flexible Server
 
-## Create a Container Apps environment
+## Deploy web app to Container Apps
 
-## Create a container app and deploy web app
+Container apps are deployed to Container Apps environments, which act as a secure boundary. These steps will create both the environment and the container inside the environment, as well as configure the environment so that the website is visible externally.
+
+### [Azure portal](#tab/azure-portal)
+
+:::row:::
+    :::column span="2":::
+        **Step 1.** In the portal search at the top of the screen, search for "container apss" and select the **Container Apps** service in the results.
+    :::column-end:::
+    :::column:::
+        TBD
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="2":::
+        **Step 2.** Select **+ Create** to start the create process.
+    :::column-end:::
+    :::column:::
+        TBD
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="2":::
+        **Step 3.** Specify the **Basics** of the container app.
+        
+        * **Resource group** &rarr; Use the group created earlier and contains the Azure Container Registry.
+        
+        * **Container app name** &rarr; *python-container-app*.
+        
+        * **Region** &rarr; Use the same region/location as the resource group.
+        
+    :::column-end:::
+    :::column:::
+        TBD
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="2":::
+        **Step 4.** Select **+ Create New Environment** to create a new environment.
+        
+        * **Environment name** &rarr; *python-container-env".
+        
+        * **Zone redundancy** &rarr; **disabled**.
+        
+        * Select **Create** to finish and return to previous container **Basics**.
+
+    :::column-end:::
+    :::column:::
+        TBD
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="2":::
+        **Step 5.** Configure App Settings.
+        
+        * **Use quickstart image** &rarr; Unselect checkbox (disabled).
+        
+        * **Name** &rarr; *container1*.
+        	
+        * **Image Source** &rarr; Select *Azure Container Registry*.
+        
+        * **Registry** &rarr; Select the name of registry created earlier.
+        
+        * **Image name** &rarr; Select *msdocspythoncontainerwebapp* (the name of the image you created earlier).
+        
+        * **Image tag** &rarr; Select *latest*.
+        
+    :::column-end:::
+    :::column:::
+        TBD
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="2":::
+        **Step 6.** Configure HTTP Ingress.
+        
+        * **HTTP Ingress** &rarr;  Select checkbox (enabled).
+        
+        * **Ingress traffic** &rarr; Select **Limited to Container Apps environment**.
+        
+        * **Target port**&rarr; Set to 8000 (Django) or 5000 (Flask).
+        
+    :::column-end:::
+    :::column:::
+        TBD
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="2":::
+        **Step 7.** Review and create.
+
+        * Select **Review and create**.
+        * Select **Create** to create the container app.
+        
+    :::column-end:::
+    :::column:::
+        TBD
+    :::column-end:::
+:::row-end:::
+
+
+### [VS Code](#tab/vscode-aztools)
+
+These steps require the [Azure Container Apps extension][11] for VS Code.
+
+TBD
+
+### [Azure CLI](#tab/azure-cli)
+
+TBD
+---
+
 
 ## Verify website
 
@@ -234,3 +343,7 @@ Azure CLI commands can be run in the [Azure Cloud Shell][4] or on a workstation 
 [5]: /cli/azure/acr#az-acr-build
 [6]: https://code.visualstudio.com/docs/containers/overview
 [7]: /cli/azure/install-azure-cli
+[8]: /azure/container-apps/overview
+[9]: /azure/service-connector/overview
+[10]: /azure/postgresql/flexible-server/overview
+[11]: https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurecontainerapps
