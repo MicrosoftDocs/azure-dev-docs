@@ -19,7 +19,7 @@ The service diagram shown below highlights the components covered in this articl
 
 ## Get the sample app
 
-Go to the repository for one of the sample app framework version ([Django][1] or Flask[2]) and fork the repository.
+Go to the repository of the sample app ([Django][1] or [Flask][2]) and fork the repository.
 
 1. Select the Fork button at the top of the sample app repo to fork the repo to your account.
 
@@ -43,7 +43,7 @@ Go to the repository for one of the sample app framework version ([Django][1] or
 
 ## Build container image from web app code
 
-After following these steps, you'll have a Azure Container Registry and a Docker container image built from the sample code. 
+After following these steps, you'll have an Azure Container Registry and a Docker container image built from the sample code. 
 ### [Azure portal](#tab/azure-portal)
 
 Sign in to [Azure portal][3] to complete these steps.
@@ -178,7 +178,7 @@ Azure CLI commands can be run in the [Azure Cloud Shell][4] or on a workstation 
 :::row-end:::
 :::row:::
     :::column span="1":::
-        **Step 3.** Log in to the registry using the [az acr login](/cli/azure/acr#az-acr-login) command.
+        **Step 3.** Sign in to the registry using the [az acr login](/cli/azure/acr#az-acr-login) command.
 
         ```azurecli
         az acr login -n <registry-name>
