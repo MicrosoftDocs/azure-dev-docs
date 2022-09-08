@@ -98,7 +98,7 @@ Sign in to [Azure portal][3] to complete these steps.
         Specify the registry name and resource group you created above. For `\<repo-path>`, choose either the [Django][1] or [Flask][2] repo path.
 
         ```azurecli
-        az acr build -r <registry-name> -g <res-group> -t msdocspythoncontainerwebapp:latest <repo-path>
+        az acr build -r <registry-name> -g <res-group> -t pythoncontainer:latest <repo-path>
         ```
 
         In the registry, confirm the image was built.
@@ -124,7 +124,7 @@ These steps require the [Docker extension][6] for VS Code.
 :::row:::
     :::column span="2":::
         **Step 2.** Follow the prompts to create a registry, a resource group, and build the image.
-        * **Tag image as** &rarr; Enter *pythoncontainer:{{.Run.ID}}*.
+        * **Tag image as** &rarr; Enter *pythoncontainer:lastest*.
         * **Create new registry...** &rarr; Select this option to create new registry.
         * **Registry name** &rarr; The registry name must be unique within Azure, and contain 5-50 alphanumeric characters. 
         * **Select a SKU** &rarr; Select **Standard**.
@@ -217,6 +217,8 @@ Azure CLI commands can be run in the [Azure Cloud Shell][4] or on a workstation 
 
 ## Create a PostgreSQL Flexible Server
 
+TBD
+
 ## Deploy web app to Container Apps
 
 Container apps are deployed to Container Apps environments, which act as a secure boundary. These steps will create both the environment and the container inside the environment, as well as configure the environment so that the website is visible externally.
@@ -271,17 +273,19 @@ Container apps are deployed to Container Apps environments, which act as a secur
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 5.** Configure App Settings.
+        **Step 5.** On the **Basics** page, select **Next: App Settings** to go to configure app settings.
+
+        On the **App settings** page:
         
         * **Use quickstart image** &rarr; Unselect checkbox (disabled).
         
-        * **Name** &rarr; *container1*.
+        * **Name** &rarr; *containerweb*.
         	
         * **Image Source** &rarr; Select *Azure Container Registry*.
         
-        * **Registry** &rarr; Select the name of registry created earlier.
+        * **Registry** &rarr; Select the name of registry you created earlier.
         
-        * **Image name** &rarr; Select *msdocspythoncontainerwebapp* (the name of the image you created earlier).
+        * **Image name** &rarr; Select *pythoncontainer* (the name of the image you built).
         
         * **Image tag** &rarr; Select *latest*.
         
@@ -381,7 +385,7 @@ TBD
         az containerapp create \
         --name my-container-app \
         --resource-group pythoncontainer-rg \
-        --image msdocspythoncontainerwebapp \
+        --image pythoncontainer \
         --environment python-container-env \
         --registry-server <registry-server-name> \
         --registry-username <registry-username> \
@@ -400,8 +404,8 @@ TBD
 
 ## Troubleshoot deployment
 
-* Website not working. 
-  * Check ingress.
+* Website isn't working. 
+  * Check ingress setting of the container.
   * Check configuration settings created by Service Connector.
 * Container not working.
   * Is correct target port set?
