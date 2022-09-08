@@ -159,10 +159,10 @@ Azure CLI commands can be run in the [Azure Cloud Shell][4] or on a workstation 
         **Step 1.** Create a resource group with the [az group create](/cli/azure/group#az-group-create) command.
 
         ```azurecli
-        az group create -n <res-group> -l <location>
+        az group create -n pythoncontainer-rg -l <location>
         ```
 
-        *\<res-group>* is the resource group name. *\<location>* is one of the Azure location values from the command `az account list-locations -o table`.
+        *\<location>* is one of the Azure location values from the command `az account list-locations -o table`.
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -170,7 +170,7 @@ Azure CLI commands can be run in the [Azure Cloud Shell][4] or on a workstation 
         **Step 2.** Create a container registry with the [az acr create](/cli/azure/acr#az-acr-create) command.
 
         ```azurecli
-        az acr create -g <res-group> -n <registry-name> --sku Basic
+        az acr create -g pythoncontainer-rg -n <registry-name> --sku Basic
         ```
 
         *\<registry-name>* must be unique within Azure, and contain 5-50 alphanumeric characters.
@@ -351,25 +351,12 @@ TBD
 :::row:::
     :::column span="1":::
 
-**Step 3.** Install or upgrade the extension for Azure Container Apps.
-
-```azurecli
-az extension add --name containerapp --upgrade
-```
-
-    :::column-end:::
-:::row-end:::
-:::row:::
-    :::column span="1":::
-
-**Step 4.** Define environment variables used in subsequent commands 
-
-```azurecli
-RES_GROUP="my-container-apps"
-LOCATION="canadacentral"
-CONTAINERAPPS_ENVIRONMENT="my-environment"
-```
-
+        **Step 3.** Install or upgrade the extension for Azure Container Apps.
+        
+        ```azurecli
+        az extension add --name containerapp --upgrade
+        ```
+        
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -378,26 +365,27 @@ CONTAINERAPPS_ENVIRONMENT="my-environment"
 
         ```azurecli
         az containerapp env create \
-        --name $CONTAINERAPPS_ENVIRONMENT \
-        --resource-group $RESOURCE_GROUP \
-        --location $LOCATION
+        --name python-container-env \
+        --resource-group pythoncontainer-rg \
+        --location <location>
         ```
+        *\<location>* is one of the Azure location values from the command `az account list-locations -o table`.
 
     :::column-end:::
 :::row-end:::
 :::row:::
     :::column span="1":::
-        **Step 6.** Create a container app.
+        **Step 6.** Create a container app in the environment.
 
         ```azurecli
         az containerapp create \
         --name my-container-app \
-        --resource-group $RESOURCE_GROUP \
-        --image $CONTAINER_IMAGE_NAME \
-        --environment $CONTAINERAPPS_ENVIRONMENT \
-        --registry-server $REGISTRY_SERVER \
-        --registry-username $REGISTRY_USERNAME \
-        --registry-password $REGISTRY_PASSWORD
+        --resource-group pythoncontainer-rg \
+        --image msdocspythoncontainerwebapp \
+        --environment python-container-env \
+        --registry-server <registry-server-name> \
+        --registry-username <registry-username> \
+        --registry-password <registry-password>
         ```
 
     :::column-end:::
@@ -406,6 +394,7 @@ CONTAINERAPPS_ENVIRONMENT="my-environment"
 ---
 
 ## User Service Connector to connect container web app to PostgreSQL
+
 
 ## Verify website
 
