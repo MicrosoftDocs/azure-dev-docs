@@ -214,6 +214,18 @@ Azure CLI commands can be run in the [Azure Cloud Shell][4] or on a workstation 
 
 ---
 
+## Create a PostgreSQL Flexible Server
+
+## Create a Container Apps environment
+
+## Create a container app and deploy web app
+
+## Verify website
+
+## Troubleshoot deployment
+
+
+
     
 [1]: https://github.com/Azure-Samples/msdocs-python-django-azure-container-app
 [2]: https://github.com/Azure-Samples/msdocs-python-flask-azure-container-app
