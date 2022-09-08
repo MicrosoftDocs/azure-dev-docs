@@ -17,6 +17,8 @@ In this part of the tutorial, you learn how to build containerized Python web ap
 
 The service diagram shown below highlights the components covered in this article.
 
+:::image type="content" source="./media/tutorial-container-apps/service-diagram-overview-for-tutorial-deploy-python-azure-container-apps-deploy.png" alt-text="A screenshot of the services in the Tutorial - Deploy a Python App on Azure Container Apps. Section highlighted is what is covered in this article." lightbox="./media/tutorial-container-apps/service-diagram-overview-for-tutorial-deploy-python-azure-container-apps-deploy.png":::
+
 ## Get the sample app
 
 Go to the repository of the sample app ([Django][1] or [Flask][2]) and fork the repository.
