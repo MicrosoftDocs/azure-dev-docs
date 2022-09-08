@@ -153,11 +153,64 @@ These steps require the [Docker extension][6] for VS Code.
 
 Azure CLI commands can be run in the [Azure Cloud Shell][4] or on a workstation with the [Azure CLI][7] installed.
 
+:::row:::
+    :::column span="1":::
+        **Step 1.** Create a resource group with the [az group create](/cli/azure/group#az-group-create) command.
 
-* az group create
-* az acr create
-* az acr build (az acr login)
-* az acr repository list
+        ```azurecli
+        az group create -n <resource-group> -l <location>
+        ```
+
+        *\<resource-group>* is the resource group name. *\<location>* is one of the Azure location values from the command `az account list-locations -o table`.
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="1":::
+        **Step 2.** Create a container registry with the [az acr create](/cli/azure/acr#az-acr-create) command.
+
+        ```azurecli
+        az acr create -g <resource-group> -n <registry-name> --sku Basic
+        ```
+
+        *\<registry-name>* must be unique within Azure, and contain 5-50 alphanumeric characters.
+
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="1":::
+        **Step 3.** Log in to the registry using the [az acr login](/cli/azure/acr#az-acr-login) command.
+
+        ```azurecli
+        az acr login -n <registry-name>
+        ```
+        
+        The above command adds "azurecr.io" to the name to create the fully qualified registry name. If successful, you'll see the message "Login Succeeded". If you're accessing the registry from a subscription different from the one in which the registry was created, use the `--suffix` switch.
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="1":::
+        **Step 4.** Build the image with the [az acr build](/cli/azure/acr#az-acr-build) command.
+
+        ```azurecli
+        az acr build -r <registry-name> -g <resource-group> -t msdocspythoncontainerwebapp:latest .
+        ```
+        
+        Note:
+
+        * The dot (".") at the end of the command indicates the location of the source code to build. If you aren't running this command in the sample app root directory, specify the path to the code.
+
+        * If you leave out the `-t` (same as `--image`) option, the command queues a local context build without pushing it to the registry. Building without pushing can be useful to check that the image builds.
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="1":::
+        **Step 5.** Confirm the container image was created with the [az acr repository list](/cli/azure/acr/repository#az-acr-repository-list) command.
+
+        ```azurecli
+        az acr repository list -n <registry-name>
+        ```
+        :::column-end:::
+:::row-end:::
 
 ---
 
