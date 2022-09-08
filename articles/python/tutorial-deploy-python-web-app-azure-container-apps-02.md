@@ -219,6 +219,6 @@ Azure CLI commands can be run in the [Azure Cloud Shell][4] or on a workstation 
 [2]: https://github.com/Azure-Samples/msdocs-python-flask-azure-container-app
 [3]: https://portal.azure.com/
 [4]: https://shell.azure.com/
-[5]: https://docs.microsoft.com/cli/azure/acr#az-acr-build
+[5]: /cli/azure/acr#az-acr-build
 [6]: https://code.visualstudio.com/docs/containers/overview
-[7]: https://docs.microsoft.com/cli/azure/install-azure-cli
+[7]: /cli/azure/install-azure-cli
