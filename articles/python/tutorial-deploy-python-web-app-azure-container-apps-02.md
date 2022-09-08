@@ -250,22 +250,9 @@ Container apps are deployed to Container Apps environments, which act as a secur
         * **Container app name** &rarr; *python-container-app*.
         
         * **Region** &rarr; Use the same region/location as the resource group.
-        
-    :::column-end:::
-    :::column:::
-        TBD
-    :::column-end:::
-:::row-end:::
-:::row:::
-    :::column span="2":::
-        **Step 4.** Select **+ Create New Environment** to create a new environment.
-        
-        * **Environment name** &rarr; *python-container-env".
-        
-        * **Zone redundancy** &rarr; **disabled**.
-        
-        * Select **Create** to finish and return to previous container **Basics**.
 
+        * **Container Apps Environment** &rarr; Accept the suggested name for a new environment.
+        
     :::column-end:::
     :::column:::
         TBD
@@ -273,7 +260,7 @@ Container apps are deployed to Container Apps environments, which act as a secur
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 5.** On the **Basics** page, select **Next: App Settings** to go to configure app settings.
+        **Step 4.** On the **Basics** page, select **Next: App Settings** to go to configure app settings.
 
         On the **App settings** page:
         
@@ -296,7 +283,7 @@ Container apps are deployed to Container Apps environments, which act as a secur
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 6.** Configure HTTP Ingress.
+        **Step 5.** Configure HTTP Ingress.
         
         * **HTTP Ingress** &rarr;  Select checkbox (enabled).
         
@@ -311,7 +298,7 @@ Container apps are deployed to Container Apps environments, which act as a secur
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 7.** Review and create.
+        **Step 6.** Review and create.
 
         * Select **Review and create**.
         * Select **Create** to create the container app.
@@ -383,7 +370,7 @@ TBD
 
         ```azurecli
         az containerapp create \
-        --name my-container-app \
+        --name python-container-app \
         --resource-group pythoncontainer-rg \
         --image pythoncontainer \
         --environment python-container-env \
@@ -399,8 +386,41 @@ TBD
 
 ## User Service Connector to connect container web app to PostgreSQL
 
+### [Azure portal](#tab/azure-portal-connector)
+
+Go to resource *python-container-app*.
+
+Select service connector and create connector.
+
+Configure connector:
+* Container = *containerweb*.
+* Service type = **DB for PostgreSQL Flexible Server"
+* Connection name = use suggested name
+* PostgreSQL flexible server = use one created earlier
+* PostgresQL database = restaurant_reviews
+* Client type = None (to get correct variables)
+
+Next: Authentication.
+
+* Connection string.
+* username
+* password
+
+Networking
+
+* Configure firewall rules to enable access to target
+
+Refresh Service Connector to see the new connection.
+What gets created?
+
+
+
+### [Azure CLI](#tab/azure-cli-connector)
+
 
 ## Verify website
+
+How to find Application Url in portal, vscode, and CLI.
 
 ## Troubleshoot deployment
 
