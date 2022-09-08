@@ -95,7 +95,7 @@ Sign in to [Azure portal][3] to complete these steps.
         Specify the registry name and resource group you created above. For `\<repo-path>`, choose either the [Django][1] or [Flask][2] repo path.
 
         ```azurecli
-        az acr build -r <registry-name> -g <resource-group> -t msdocspythoncontainerwebapp:latest <repo-path>
+        az acr build -r <registry-name> -g <res-group> -t msdocspythoncontainerwebapp:latest <repo-path>
         ```
 
         In the registry, confirm the image was built.
@@ -158,10 +158,10 @@ Azure CLI commands can be run in the [Azure Cloud Shell][4] or on a workstation 
         **Step 1.** Create a resource group with the [az group create](/cli/azure/group#az-group-create) command.
 
         ```azurecli
-        az group create -n <resource-group> -l <location>
+        az group create -n <res-group> -l <location>
         ```
 
-        *\<resource-group>* is the resource group name. *\<location>* is one of the Azure location values from the command `az account list-locations -o table`.
+        *\<res-group>* is the resource group name. *\<location>* is one of the Azure location values from the command `az account list-locations -o table`.
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -169,7 +169,7 @@ Azure CLI commands can be run in the [Azure Cloud Shell][4] or on a workstation 
         **Step 2.** Create a container registry with the [az acr create](/cli/azure/acr#az-acr-create) command.
 
         ```azurecli
-        az acr create -g <resource-group> -n <registry-name> --sku Basic
+        az acr create -g <res-group> -n <registry-name> --sku Basic
         ```
 
         *\<registry-name>* must be unique within Azure, and contain 5-50 alphanumeric characters.
@@ -192,7 +192,7 @@ Azure CLI commands can be run in the [Azure Cloud Shell][4] or on a workstation 
         **Step 4.** Build the image with the [az acr build](/cli/azure/acr#az-acr-build) command.
 
         ```azurecli
-        az acr build -r <registry-name> -g <resource-group> -t msdocspythoncontainerwebapp:latest .
+        az acr build -r <registry-name> -g <res-group> -t msdocspythoncontainerwebapp:latest .
         ```
         
         Note:
