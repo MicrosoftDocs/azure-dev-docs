@@ -27,7 +27,7 @@ Following this tutorial, you'll be set up for Continuous Integration (CI) and Co
  
 The service diagram supporting this tutorial shows how your local environment, GitHub repositories, and different Azure services are used in the tutorial.
 
-:::image type="content" source="./media/tutorial-container-apps/service-diagram-overview-for-tutorial-deploy-python-azure-container-apps.png" alt-text="A screenshot of the services using in the Tutorial - Deploy a Python App on Azure Container Apps." lightbox="./media/tutorial-container-apps/service-diagram-overview-for-tutorial-deploy-python-azure-container-apps.png":::
+:::image type="content" source="./media/tutorial-container-apps/service-diagram-overview-for-tutorial-deploy-python-azure-container-apps.png" alt-text="A screenshot of the environments and services used in the Tutorial - Deploy a Python App on Azure Container Apps." lightbox="./media/tutorial-container-apps/service-diagram-overview-for-tutorial-deploy-python-azure-container-apps.png":::
 
 The components supporting this tutorial and shown in the diagram above are:
 
