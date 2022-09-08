@@ -326,14 +326,19 @@ TBD
 ### [Azure CLI](#tab/azure-cli)
 
 TBD
----
 
+---
 
 ## Verify website
 
 ## Troubleshoot deployment
 
-
+* Website not working. 
+  * Check ingress.
+  * Check configuration settings created by Service Connector.
+* Container not working.
+  * Is correct target port set?
+  * Was the correct image used for the container?
 
     
 [1]: https://github.com/Azure-Samples/msdocs-python-django-azure-container-app
