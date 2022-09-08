@@ -405,6 +405,8 @@ CONTAINERAPPS_ENVIRONMENT="my-environment"
 
 ---
 
+## User Service Connector to connect container web app to PostgreSQL
+
 ## Verify website
 
 ## Troubleshoot deployment
