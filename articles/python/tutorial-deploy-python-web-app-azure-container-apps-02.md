@@ -325,7 +325,81 @@ TBD
 
 ### [Azure CLI](#tab/azure-cli)
 
-TBD
+
+:::row:::
+    :::column:::
+
+    **Step 1.** Sign in to Azure and authenticate, if needed.
+
+    ```azurecli
+    az login
+    ```
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="1":::
+        **Step 2.** Install the extension for Azure Container Apps.
+
+        ```azurecli
+        az extension add --name containerapp --upgrade
+        ```
+
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="1":::
+
+**Step 3.** Install or upgrade the extension for Azure Container Apps.
+
+```azurecli
+az extension add --name containerapp --upgrade
+```
+
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="1":::
+
+**Step 4.** Define environment variables used in subsequent commands 
+
+```azurecli
+RES_GROUP="my-container-apps"
+LOCATION="canadacentral"
+CONTAINERAPPS_ENVIRONMENT="my-environment"
+```
+
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="1":::
+        **Step 5.** Create a Container Apps environment.
+
+        ```azurecli
+        az containerapp env create \
+        --name $CONTAINERAPPS_ENVIRONMENT \
+        --resource-group $RESOURCE_GROUP \
+        --location $LOCATION
+        ```
+
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="1":::
+        **Step 6.** Create a container app.
+
+        ```azurecli
+        az containerapp create \
+        --name my-container-app \
+        --resource-group $RESOURCE_GROUP \
+        --image $CONTAINER_IMAGE_NAME \
+        --environment $CONTAINERAPPS_ENVIRONMENT \
+        --registry-server $REGISTRY_SERVER \
+        --registry-username $REGISTRY_USERNAME \
+        --registry-password $REGISTRY_PASSWORD
+        ```
+
+    :::column-end:::
+:::row-end:::
 
 ---
 
