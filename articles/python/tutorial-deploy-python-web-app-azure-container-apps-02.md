@@ -101,7 +101,7 @@ Sign in to [Azure portal][3] to complete these steps.
         az acr build -r <registry-name> -g <res-group> -t pythoncontainer:latest <repo-path>
         ```
 
-        In the registry, confirm the image was built.
+        Go to the registry and confirm the image shows up.
     :::column-end:::
 :::row-end:::
 
@@ -287,7 +287,7 @@ Container apps are deployed to Container Apps environments, which act as a secur
         
         * **HTTP Ingress** &rarr;  Select checkbox (enabled).
         
-        * **Ingress traffic** &rarr; Select **Limited to Container Apps environment**.
+        * **Ingress traffic** &rarr; Select **Accepting traffice from anywhere**.
         
         * **Target port**&rarr; Set to 8000 (Django) or 5000 (Flask).
         
@@ -321,28 +321,16 @@ TBD
 
 :::row:::
     :::column:::
-
-    **Step 1.** Sign in to Azure and authenticate, if needed.
-
-    ```azurecli
-    az login
-    ```
-    :::column-end:::
-:::row-end:::
-:::row:::
-    :::column span="1":::
-        **Step 2.** Install the extension for Azure Container Apps.
+        **Step 1.** Sign in to Azure and authenticate, if needed.
 
         ```azurecli
-        az extension add --name containerapp --upgrade
+        az login
         ```
-
     :::column-end:::
 :::row-end:::
 :::row:::
     :::column span="1":::
-
-        **Step 3.** Install or upgrade the extension for Azure Container Apps.
+        **Step 2.** Install or upgrade the extension for Azure Container Apps withe [az extension add][14] command.
         
         ```azurecli
         az extension add --name containerapp --upgrade
@@ -352,7 +340,7 @@ TBD
 :::row-end:::
 :::row:::
     :::column span="1":::
-        **Step 5.** Create a Container Apps environment.
+        **Step 3.** Create a Container Apps environment with the [az containerapp env create][13] command.
 
         ```azurecli
         az containerapp env create \
@@ -366,7 +354,7 @@ TBD
 :::row-end:::
 :::row:::
     :::column span="1":::
-        **Step 6.** Create a container app in the environment.
+        **Step 4.** Create a container app in the environment with the [az containerapp create][12] command.
 
         ```azurecli
         az containerapp create \
@@ -384,39 +372,30 @@ TBD
 
 ---
 
-## User Service Connector to connect container web app to PostgreSQL
+## Add environment variables that specify how to connect to PostgreSQL
 
-### [Azure portal](#tab/azure-portal-connector)
+### [Azure portal](#tab/azure-portal)
 
-Go to resource *python-container-app*.
+Add these environment variables: 
 
-Select service connector and create connector.
+AZURE_POSTGRESQL_HOST=<host-name>.postgres.database.azure.com
 
-Configure connector:
-* Container = *containerweb*.
-* Service type = **DB for PostgreSQL Flexible Server"
-* Connection name = use suggested name
-* PostgreSQL flexible server = use one created earlier
-* PostgresQL database = restaurant_reviews
-* Client type = None (to get correct variables)
+AZURE_POSTGRESQL_DATABASE=<database-name>
 
-Next: Authentication.
+AZURE_POSTGRESQL_USERNAME=<db-username>
 
-* Connection string.
-* username
-* password
+AZURE_POSTGRESQL_PASSWORD=<db-password>
 
-Networking
+RUNNING_IN_PRODUCTION=1
 
-* Configure firewall rules to enable access to target
 
-Refresh Service Connector to see the new connection.
-What gets created?
+### [VS Code](#tab/vscode-aztools)
 
 
 
-### [Azure CLI](#tab/azure-cli-connector)
+### [Azure CLI](#tab/azure-cli)
 
+---
 
 ## Verify website
 
@@ -424,13 +403,18 @@ How to find Application Url in portal, vscode, and CLI.
 
 ## Troubleshoot deployment
 
-* Website isn't working. 
-  * Check ingress setting of the container.
-  * Check configuration settings created by Service Connector.
-* Container not working.
-  * Is correct target port set?
-  * Was the correct image used for the container?
+* Image doesn't appear in the Azure Container Registry.
+  * Check that output of the Azure CLI command or VS Code Output and look for messages to confirm success.
+  * Check that the name of the registry was specified correctly in your build command with the Azure CLI or in the VS Code prompts.
+  * Make sure your credentials haven't expired. For example, with Azure CLI, run `az login`. In VS Code, find the target registry in the Docker extension and refresh.
 
+* Website returns "Bad Request (400)".
+  * Check the environment variables passed in to the container. The error is indicative of not being able to connect to the PostgreSQL instance.
+  * Check that there is a container environment variable `RUNNING_IN_PRODUCTION` set to 1. 
+
+* Website returns "Not Found (404)".
+  * Check the **Application Url** one the **Overview** page for the container. If the Url containers "internal", the ingress is not set correctly.
+  * Go to the **Ingress** resource of the container and make sure **HTTP Ingress** is enabled and **Accepting traffice from anywhere** is selected..
     
 [1]: https://github.com/Azure-Samples/msdocs-python-django-azure-container-app
 [2]: https://github.com/Azure-Samples/msdocs-python-flask-azure-container-app
@@ -443,3 +427,6 @@ How to find Application Url in portal, vscode, and CLI.
 [9]: /azure/service-connector/overview
 [10]: /azure/postgresql/flexible-server/overview
 [11]: https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurecontainerapps
+[12]: /cli/azure/containerapp#az-containerapp-create
+[13]: /cli/azure/containerapp/env#az-containerapp-env-create
+[14]: /cli/azure/extension#az-extension-add
