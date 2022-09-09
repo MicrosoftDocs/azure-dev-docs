@@ -314,7 +314,16 @@ Container apps are deployed to Container Apps environments, which act as a secur
 
 These steps require the [Azure Container Apps extension][11] for VS Code.
 
-TBD
+Use "Container Create" task.
+
+Can do update passing in .env variable file.
+
+AZURE_POSTGRESQL_HOST=<host-name>.postgres.database.azure.com
+AZURE_POSTGRESQL_DATABASE=<database-name>
+AZURE_POSTGRESQL_USERNAME=<db-username>
+AZURE_POSTGRESQL_PASSWORD=<db-password>
+RUNNING_IN_PRODUCTION=1
+
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -369,24 +378,35 @@ TBD
 
     :::column-end:::
 :::row-end:::
+:::row:::
+    :::column span="1":::
+        **Step 5.** Add environment variables for the container with the  [az containerapp up][15] command.
+
+        ```azurecli        
+        az containerapp up  \
+        --name python-container-app \
+        --resource-group pythoncontainer-rg \
+        --image pythoncontainer \
+        --environment python-container-env \
+        --env-vars <env-variable-string>
+        ```
+
+        Where \<env-variable-string> contains:
+
+        * AZURE_POSTGRESQL_HOST=<host-name>.postgres.database.azure.com
+        * AZURE_POSTGRESQL_DATABASE=<database-name>
+        * AZURE_POSTGRESQL_USERNAME=<db-username>
+        * AZURE_POSTGRESQL_PASSWORD=<db-password>
+        * RUNNING_IN_PRODUCTION=1
+
+    :::column-end:::
+:::row-end:::
 
 ---
 
 ## Add environment variables that specify how to connect to PostgreSQL
 
 ### [Azure portal](#tab/azure-portal)
-
-Add these environment variables: 
-
-AZURE_POSTGRESQL_HOST=<host-name>.postgres.database.azure.com
-
-AZURE_POSTGRESQL_DATABASE=<database-name>
-
-AZURE_POSTGRESQL_USERNAME=<db-username>
-
-AZURE_POSTGRESQL_PASSWORD=<db-password>
-
-RUNNING_IN_PRODUCTION=1
 
 
 ### [VS Code](#tab/vscode-aztools)
@@ -430,3 +450,4 @@ How to find Application Url in portal, vscode, and CLI.
 [12]: /cli/azure/containerapp#az-containerapp-create
 [13]: /cli/azure/containerapp/env#az-containerapp-env-create
 [14]: /cli/azure/extension#az-extension-add
+[15]: /cli/azure/containerapp#az-containerapp-up
