@@ -501,24 +501,24 @@ These steps require the [Azure Container Apps extension][11] for VS Code.
 
 ## Troubleshoot deployment
 
-* If you can't find the Application Url to access the website.
+* You forgot the Application Url to access the website.
   * In the Azure portal, go to the **Overview** page of the Container App and look for the **Application Url**.
   * In VS Code, go to the Azure extension and select the **Container Apps** section. Expand the subscription, expand the container environment, and when you find the container app, right-click **python-container-app** and select **Browse**.
-  * In Azure CLI, 
+  * With Azure CLI, use the command `az containerapp show -g <res-group> -n python-container-app --query properties.configuration.ingress.fqdn`.
 
 * Image doesn't appear in the Azure Container Registry.
-  * Check that output of the Azure CLI command or VS Code Output and look for messages to confirm success.
+  * Check the output of the Azure CLI command or VS Code Output and look for messages to confirm success.
   * Check that the name of the registry was specified correctly in your build command with the Azure CLI or in the VS Code prompts.
-  * Make sure your credentials haven't expired. For example, with Azure CLI, run `az login`. In VS Code, find the target registry in the Docker extension and refresh.
+  * Make sure your credentials haven't expired. For example, in VS Code, find the target registry in the Docker extension and refresh. In Azure CLI, run `az login`.
 
 * Website returns "Bad Request (400)".
-  * Check the environment variables passed in to the container. The error is indicative of not being able to connect to the PostgreSQL instance.
-  * Check that there's a container environment variable `RUNNING_IN_PRODUCTION` set to 1. 
+  * Check the PostgreSQL environment variables passed in to the container. This error often indicates that the Python code can't connect to the PostgreSQL instance.
+  * Check that there's a container environment variable `RUNNING_IN_PRODUCTION` and it is set to 1.
 
 * Website returns "Not Found (404)".
-  * Check the **Application Url** on the **Overview** page for the container. If the Application Url contains the word "internal", the ingress isn't set correctly.
+  * Check the **Application Url** on the **Overview** page for the container. If the Application Url contains the word "internal", then ingress isn't set correctly.
   * Go to the **Ingress** resource of the container and make sure **HTTP Ingress** is enabled and **Accepting traffic from anywhere** is selected.
-    
+
 [1]: https://github.com/Azure-Samples/msdocs-python-django-azure-container-app
 [2]: https://github.com/Azure-Samples/msdocs-python-flask-azure-container-app
 [3]: https://portal.azure.com/
