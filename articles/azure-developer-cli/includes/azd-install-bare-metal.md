@@ -31,3 +31,21 @@ curl -fsSL https://aka.ms/install-azd.sh | bash
 ```
 
 ---
+
+## Uninstall `azd`
+
+To uninstall the `azd`:
+
+### [Windows](#tab/windows)
+
+```bash
+powershell -ex AllSigned -c "Invoke-RestMethod 'https://aka.ms/uninstall-azd.ps1' | Invoke-Expression"
+```
+
+### [Linux/MacOS](#tab/linuxmac)
+
+```bash
+curl -fsSL https://aka.ms/uninstall-azd.sh | bash 
+```
+
+---

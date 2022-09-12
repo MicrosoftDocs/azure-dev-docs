@@ -4,7 +4,7 @@ description: Learn how to get started with Azure Developer CLI with a template f
 keywords: azure developer cli, azd
 author: hhunter-ms
 ms.author: hannahhunter
-ms.date: 08/19/2022
+ms.date: 09/12/2022
 ms.topic: quickstart
 ms.service: azure-dev-cli
 ms.custom: devx-track-azdevcli
@@ -22,16 +22,16 @@ Let's put the basic Azure Developer CLI (`azd`) commands to the test and run one
 
 Upon completion, you'll get the code in your development environment and be able to run commands to build, deploy, and monitor the app in Azure.
 
+Select your preferred environment to continue:
+
+## [BareMetal](#tab/baremetal)
+
 ### Pre-requisites
 
 - [Install the Azure Developer CLI](./install-azd.md).
 - An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Node.js with npm (v 16.13.1 LTS)](https://nodejs.org/)
 - [Review the architecture diagram and the Azure resources you'll deploy in the Node.js template README](https://github.com/Azure-Samples/todo-nodejs-mongo/blob/main/README.md).
-
-Select your preferred environment to continue:
-
-## [BareMetal](#tab/baremetal)
 
 ### Run `up` command
 
@@ -85,6 +85,12 @@ Upon successful completion of the `azd up` command:
 ## [DevContainer](#tab/devcontainer)
 
 A [DevContainer](https://code.visualstudio.com/docs/remote/containers) is a Docker image that includes all of the prerequisites you need to run this app on your local machine. You can find the specification for this app's DevContainer [here](https://github.com/Azure-Samples/todo-nodejs-mongo/blob/main/.devcontainer/Dockerfile).
+
+### Pre-requisites
+
+- [Install the Azure Developer CLI](./install-azd.md).
+- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- [Review the architecture diagram and the Azure resources you'll deploy in the Node.js template README](https://github.com/Azure-Samples/todo-nodejs-mongo/blob/main/README.md).
 
 ### Initialize Project
 
@@ -157,6 +163,10 @@ Let's put the basic Azure Developer CLI (`azd`) commands to the test and run one
 
 Upon completion, you'll get the code in your development environment and be able to run commands to build, deploy, and monitor the app in Azure.
 
+Select your preferred environment to continue:
+
+## [BareMetal](#tab/baremetal)
+
 ### Pre-requisites
 
 - [Install the Azure Developer CLI](./install-azd.md).
@@ -164,10 +174,6 @@ Upon completion, you'll get the code in your development environment and be able
 - [Python 3.8+](https://www.python.org/downloads/)
 - [Node.js with npm (v 16.13.1 LTS)](https://nodejs.org/)
 - [Review the architecture diagram and the Azure resources you'll deploy in the Python template README](https://github.com/Azure-Samples/todo-python-mongo/blob/main/README.md).
-
-Select your preferred environment to continue:
-
-## [BareMetal](#tab/baremetal)
 
 ### Create and activate a Python virtual environment
 
@@ -225,6 +231,12 @@ Upon successful completion of the `azd up` command:
 ## [DevContainer](#tab/devcontainer)
 
 A [DevContainer](https://code.visualstudio.com/docs/remote/containers) is a Docker image that includes all of the prerequisites you need to run this app on your local machine. You can find the specification for this app's DevContainer [here](https://github.com/Azure-Samples/todo-python-mongo/blob/main/.devcontainer/Dockerfile).
+
+### Pre-requisites
+
+- [Install the Azure Developer CLI](./install-azd.md).
+- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- [Review the architecture diagram and the Azure resources you'll deploy in the Python template README](https://github.com/Azure-Samples/todo-python-mongo/blob/main/README.md).
 
 ### Initialize Project
 
@@ -297,16 +309,16 @@ Let's put the basic Azure Developer CLI (`azd`) commands to the test and run one
 
 Upon completion, you'll get the code in your development environment and be able to run commands to build, deploy, and monitor the app in Azure.
 
+Select your preferred environment to continue:
+
+## [BareMetal](#tab/baremetal)
+
 ### Pre-requisites
 
 - [Install the Azure Developer CLI](./install-azd.md).
 - An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [.NET SDK 6.0](https://dotnet.microsoft.com/en-us/download/dotnet/6.0)
 - [Review the architecture diagram and the Azure resources you'll deploy in the C# template README](https://github.com/Azure-Samples/todo-csharp-cosmos-sql/blob/main/README.md).
-
-Select your preferred environment to continue:
-
-## [BareMetal](#tab/baremetal)
 
 ### Run `up` command
 
@@ -360,6 +372,12 @@ Upon successful completion of the `azd up` command:
 ## [DevContainer](#tab/devcontainer)
 
 A [DevContainer](https://code.visualstudio.com/docs/remote/containers) is a Docker image that includes all of the prerequisites you need to run this app on your local machine. You can find the specification for this app's DevContainer [here](https://github.com/Azure-Samples/todo-csharp-cosmos-sql/blob/main/.devcontainer/Dockerfile).
+
+### Pre-requisites
+
+- [Install the Azure Developer CLI](./install-azd.md).
+- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- [Review the architecture diagram and the Azure resources you'll deploy in the C# template README](https://github.com/Azure-Samples/todo-csharp-cosmos-sql/blob/main/README.md).
 
 ### Initialize Project
 
