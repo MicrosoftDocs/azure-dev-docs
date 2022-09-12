@@ -291,6 +291,16 @@ TBD
 
 ---
 
+## Create a database
+
+### [psql](#tab/psql-db)
+
+TBD
+
+### [VS Code](#tab/vscode-aztools-db)
+
+---
+
 ## Deploy web app to Container Apps
 
 Container apps are deployed to Container Apps environments, which act as a secure boundary. These steps will create both the environment and the container inside the environment, and configure the environment so that the website is visible externally.
