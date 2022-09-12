@@ -23,7 +23,7 @@ Variable substitution only works for keys predefined in the object hierarchy. Yo
 
 ## Use the variable substitution action
 
-This example walks through replacing values in `employee.json` using the [variable substitution action](https://github.com/marketplace/actions/variable-substitution-w-splitchar).
+This example walks through replacing values in `employee.json` using the [variable substitution action](https://github.com/microsoft/variable-substitution).
 
 1. Create `employee.json` at the root level of your repository.
 
