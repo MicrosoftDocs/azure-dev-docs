@@ -250,12 +250,9 @@ Container apps are deployed to Container Apps environments, which act as a secur
     :::column span="2":::
         **Step 3.** Specify the **Basics** of the container app.
         
-        * **Resource group** &rarr; Use the group created earlier and contains the Azure Container Registry.
-        
-        * **Container app name** &rarr; *python-container-app*.
-        
+        * **Resource group** &rarr; Use the group created earlier and contains the Azure Container Registry.        
+        * **Container app name** &rarr; *python-container-app*.        
         * **Region** &rarr; Use the same region/location as the resource group.
-
         * **Container Apps Environment** &rarr; Enter *python-container-env*.
         
     :::column-end:::
@@ -269,16 +266,11 @@ Container apps are deployed to Container Apps environments, which act as a secur
 
         On the **App settings** page:
         
-        * **Use quickstart image** &rarr; Unselect checkbox.
-        
+        * **Use quickstart image** &rarr; Unselect checkbox.        
         * **Name** &rarr; *python-container-app*.
-        	
-        * **Image Source** &rarr; Select *Azure Container Registry*.
-        
-        * **Registry** &rarr; Select the name of registry you created earlier.
-        
+        * **Image Source** &rarr; Select *Azure Container Registry*.        
+        * **Registry** &rarr; Select the name of registry you created earlier.        
         * **Image name** &rarr; Select *pythoncontainer* (the name of the image you built).
-        
         * **Image tag** &rarr; Select *latest*.
         
     :::column-end:::
@@ -290,10 +282,8 @@ Container apps are deployed to Container Apps environments, which act as a secur
     :::column span="2":::
         **Step 5.** Configure HTTP Ingress.
         
-        * **HTTP Ingress** &rarr;  Select checkbox (enabled).
-        
-        * **Ingress traffic** &rarr; Select **Accepting traffic from anywhere**.
-        
+        * **HTTP Ingress** &rarr;  Select checkbox (enabled).        
+        * **Ingress traffic** &rarr; Select **Accepting traffic from anywhere**.        
         * **Target port**&rarr; Set to 8000 (Django) or 5000 (Flask).
         
     :::column-end:::
@@ -306,7 +296,6 @@ Container apps are deployed to Container Apps environments, which act as a secur
         **Step 6.** Review and create.
 
         * Select **Review and create** to go to review page.
-
         * Select **Create** to create the container app.
         
     :::column-end:::
@@ -319,7 +308,6 @@ Container apps are deployed to Container Apps environments, which act as a secur
         **Step 7.** Get the Application Url for the website.
 
         * Go the newly created container app and select the **Overview** resource.
-
         * Under **Essentials** find the **Application Url**.
         
     :::column-end:::
@@ -476,7 +464,7 @@ These steps require the [Azure Container Apps extension][11] for VS Code.
         --query properties.configuration.ingress.fqdn
         ```
 
-        Where \<env-variable-string> is string composed space-separated values in key="value" format with the following values.
+        `<env-variable-string>` is a string composed of space-separated values in the key="value" format with the following values.
 
         * AZURE_POSTGRESQL_HOST=\<host-name>.postgres.database.azure.com
         * AZURE_POSTGRESQL_DATABASE=restaurants_reviews
@@ -484,7 +472,7 @@ These steps require the [Azure Container Apps extension][11] for VS Code.
         * AZURE_POSTGRESQL_PASSWORD=\<db-password>
         * RUNNING_IN_PRODUCTION=1
 
-        For example, `--env-vars AZURE_POSTGRESQL_HOST="myserver.postgres.database.azure.com" AZURE_POSTGRESQL_DATABASE="restaurants_review" AZURE_POSTGRESQL_USERNAME="demoadmin" AZURE_POSTGRESQL_PASSWORD="somepassword" RUNNING_IN_PRODUCTION="1"`.
+        Here's an example: `--env-vars AZURE_POSTGRESQL_HOST="myserver.postgres.database.azure.com" AZURE_POSTGRESQL_DATABASE="restaurants_review" AZURE_POSTGRESQL_USERNAME="demoadmin" AZURE_POSTGRESQL_PASSWORD="somepassword" RUNNING_IN_PRODUCTION="1"`.
 
     :::column-end:::
 :::row-end:::
