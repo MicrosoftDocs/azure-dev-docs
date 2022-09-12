@@ -167,7 +167,7 @@ Azure CLI commands can be run in the [Azure Cloud Shell][4] or on a workstation 
         az group create -n pythoncontainer-rg -l <location>
         ```
 
-        *\<location>* is one of the Azure location values from the command `az account list-locations -o table`. In the output, use the values from the *Name* column.
+        *\<location>* is one of the Azure location *Name* values from the output of the command `az account list-locations -o table`.
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -366,7 +366,7 @@ RUNNING_IN_PRODUCTION=1
         --resource-group pythoncontainer-rg \
         --location <location>
         ```
-        *\<location>* is one of the Azure location values from the command `az account list-locations -o table`.
+        *\<location>* is one of the Azure location *Name* values from the output of the command `az account list-locations -o table`.
 
     :::column-end:::
 :::row-end:::
@@ -400,12 +400,12 @@ RUNNING_IN_PRODUCTION=1
         --env-vars <env-variable-string>
         ```
 
-        Where \<env-variable-string> contains:
+        Where \<env-variable-string> is string composed space-separated values in 'key=value' format. Define the following:
 
-        * AZURE_POSTGRESQL_HOST=<host-name>.postgres.database.azure.com
-        * AZURE_POSTGRESQL_DATABASE=<database-name>
-        * AZURE_POSTGRESQL_USERNAME=<db-username>
-        * AZURE_POSTGRESQL_PASSWORD=<db-password>
+        * AZURE_POSTGRESQL_HOST=\<host-name>.postgres.database.azure.com
+        * AZURE_POSTGRESQL_DATABASE=\<database-name>
+        * AZURE_POSTGRESQL_USERNAME=\<db-username>
+        * AZURE_POSTGRESQL_PASSWORD=\<db-password>
         * RUNNING_IN_PRODUCTION=1
 
     :::column-end:::
