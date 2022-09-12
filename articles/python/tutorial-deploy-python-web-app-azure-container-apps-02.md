@@ -29,19 +29,19 @@ Go to the repository of the sample app ([Django][1] or [Flask][2]) and fork the 
 
 **Step 3.** Use the following git command to clone your forked repo into the *python-code-to-cloud* folder:
 
-    ```bash
-    # Django
-    git clone https://github.com/$GITHUB_USERNAME/msdocs-python-django-azure-container-app.git python-code-to-cloud
-    
-    # Flask
-    # git clone https://github.com/$GITHUB_USERNAME/msdocs-python-flask-azure-container-app.git python-code-to-cloud
-    ```
+```bash
+# Django
+git clone https://github.com/$GITHUB_USERNAME/msdocs-python-django-azure-container-app.git python-code-to-cloud
+
+# Flask
+# git clone https://github.com/$GITHUB_USERNAME/msdocs-python-flask-azure-container-app.git python-code-to-cloud
+```
 
 **Step 4.** Change directory:
 
-    ```bash
-    cd python-code-to-cloud
-    ```
+```bash
+cd python-code-to-cloud
+```
 
 ## Build container image from web app code
 
@@ -104,7 +104,6 @@ Sign in to [Azure portal][3] to complete these steps.
         Go to the registry and confirm the image shows up.
     :::column-end:::
 :::row-end:::
-
 
 ### [VS Code](#tab/vscode-aztools)
 
@@ -175,7 +174,7 @@ Azure CLI commands can be run in the [Azure Cloud Shell][4] or on a workstation 
         **Step 2.** Create a container registry with the [az acr create](/cli/azure/acr#az-acr-create) command.
 
         ```azurecli
-        az acr create -g pythoncontainer-rg -n <registry-name> --sku Basic
+        az acr create -g pythoncontainer-rg -n <registry-name> --sku Basic --admin-enabled
         ```
 
         *\<registry-name>* must be unique within Azure, and contain 5-50 alphanumeric characters.
@@ -372,57 +371,56 @@ RUNNING_IN_PRODUCTION=1
 :::row-end:::
 :::row:::
     :::column span="1":::
-        **Step 4.** Create a container app in the environment with the [az containerapp create][12] command.
+        **Step 4.** Get the login credentials for the Azure Container Registry.
+
+        ```azurecli
+        az acr credentials show -n <registry-name>
+        ```
+
+        Use the username and one of the passwords returned from the output of the above command.
+
+    :::column-end:::
+:::row-end:::
+
+:::row:::
+    :::column span="1":::
+        **Step 5.** Create a container app in the environment with the [az containerapp create][12] command.
 
         ```azurecli
         az containerapp create \
         --name python-container-app \
         --resource-group pythoncontainer-rg \
-        --image pythoncontainer \
+        --image <registry-name>.azurecr.io/pythoncontainer:latest \
         --environment python-container-env \
-        --registry-server <registry-server-name> \
+        --ingress external \
+        --target-port 8000 \
+        --registry-server <registry-name>.azurecr.io \
         --registry-username <registry-username> \
-        --registry-password <registry-password>
+        --registry-password <registry-password> \
+        --env-vars <env-variable-string>
+        --query properties.configuration.ingress.fqdn
         ```
+
+        Where \<env-variable-string> is string composed space-separated values in key="value" format with the following values.
+
+        * AZURE_POSTGRESQL_HOST=\<host-name>.postgres.database.azure.com
+        * AZURE_POSTGRESQL_DATABASE=restaurants_reviews
+        * AZURE_POSTGRESQL_USERNAME=demoadmin
+        * AZURE_POSTGRESQL_PASSWORD=\<db-password>
+        * RUNNING_IN_PRODUCTION=1
+
+        For example, `--env-vars AZURE_POSTGRESQL_HOST="myserver.postgres.database.azure.com" AZURE_POSTGRESQL_DATABASE="restaurants_review" AZURE_POSTGRESQL_USERNAME="demoadmin" AZURE_POSTGRESQL_PASSWORD="somepassword" RUNNING_IN_PRODUCTION="1"`.
 
     :::column-end:::
 :::row-end:::
 :::row:::
     :::column span="1":::
-        **Step 5.** Add environment variables for the container with the  [az containerapp up][15] command.
+        **Step 7.** Test the website.
 
-        ```azurecli        
-        az containerapp up  \
-        --name python-container-app \
-        --resource-group pythoncontainer-rg \
-        --image pythoncontainer \
-        --environment python-container-env \
-        --env-vars <env-variable-string>
-        ```
-
-        Where \<env-variable-string> is string composed space-separated values in 'key=value' format. Define the following:
-
-        * AZURE_POSTGRESQL_HOST=\<host-name>.postgres.database.azure.com
-        * AZURE_POSTGRESQL_DATABASE=\<database-name>
-        * AZURE_POSTGRESQL_USERNAME=\<db-username>
-        * AZURE_POSTGRESQL_PASSWORD=\<db-password>
-        * RUNNING_IN_PRODUCTION=1
+        The create command above outputs an application Url you can use to browse to. It will end in "azurecontainerapps.io".
 
     :::column-end:::
 :::row-end:::
-
----
-
-## Add environment variables that specify how to connect to PostgreSQL
-
-### [Azure portal](#tab/azure-portal)
-
-
-### [VS Code](#tab/vscode-aztools)
-
-
-
-### [Azure CLI](#tab/azure-cli)
 
 ---
 
