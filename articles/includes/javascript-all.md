@@ -262,7 +262,7 @@
 | @autorest/codemodel | npm [4.19.2](https://www.npmjs.com/package/@autorest/codemodel/v/4.19.2) |  |  |
 | @autorest/common | npm [1.5.4](https://www.npmjs.com/package/@autorest/common/v/1.5.4) |  |  |
 | @autorest/configuration | npm [1.10.1](https://www.npmjs.com/package/@autorest/configuration/v/1.10.1) |  |  |
-| @autorest/csharp | npm [3.0.0-beta.20220908.3](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20220908.3) |  |  |
+| @autorest/csharp | npm [3.0.0-beta.20220910.1](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20220910.1) |  |  |
 | @autorest/csharp-v3 | npm [3.0.0-beta.20201217.1](https://www.npmjs.com/package/@autorest/csharp-v3/v/3.0.0-beta.20201217.1) |  |  |
 | @autorest/extension-base | npm [3.5.0](https://www.npmjs.com/package/@autorest/extension-base/v/3.5.0) |  |  |
 | @autorest/fixer | npm [1.1.0](https://www.npmjs.com/package/@autorest/fixer/v/1.1.0) |  |  |
@@ -282,7 +282,7 @@
 | @azure/iot-modelsrepository | npm [1.0.0-beta.2](https://www.npmjs.com/package/@azure/iot-modelsrepository/v/1.0.0-beta.2) |  |  |
 | @azure/keyvault | npm [0.1.0](https://www.npmjs.com/package/@azure/keyvault/v/0.1.0) |  |  |
 | @azure/media-stream-library | npm [1.1.0-beta.4](https://www.npmjs.com/package/@azure/media-stream-library/v/1.1.0-beta.4) |  |  |
-| @azure/notification-hubs | npm [1.0.0-beta.3](https://www.npmjs.com/package/@azure/notification-hubs/v/1.0.0-beta.3) |  |  |
+| @azure/notification-hubs | npm [1.0.0-beta.4](https://www.npmjs.com/package/@azure/notification-hubs/v/1.0.0-beta.4) |  |  |
 | @azure/quantum-jobs | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure/quantum-jobs/v/1.0.0-beta.1) |  |  |
 | @azure/search | npm [11.0.0-preview.1](https://www.npmjs.com/package/@azure/search/v/11.0.0-preview.1) |  |  |
 | @azure/static-web-apps-cli | npm [1.0.2](https://www.npmjs.com/package/@azure/static-web-apps-cli/v/1.0.2) |  |  |
@@ -293,7 +293,7 @@
 | @azure-rest/arm-containerservice | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure-rest/arm-containerservice/v/1.0.0-beta.1) |  |  |
 | @azure-rest/arm-servicefabric | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure-rest/arm-servicefabric/v/1.0.0-beta.1) |  |  |
 | @azure-rest/core-client-lro | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure-rest/core-client-lro/v/1.0.0-beta.1) |  |  |
-| @azure-rest/iot-device-update | npm [1.0.0-beta.2](https://www.npmjs.com/package/@azure-rest/iot-device-update/v/1.0.0-beta.2) |  |  |
+| @azure-rest/iot-device-update | npm [1.0.0](https://www.npmjs.com/package/@azure-rest/iot-device-update/v/1.0.0) |  |  |
 | @azure-tools/adl-openapi | npm [0.3.2](https://www.npmjs.com/package/@azure-tools/adl-openapi/v/0.3.2) |  |  |
 | @azure-tools/adl-rest | npm [0.3.2](https://www.npmjs.com/package/@azure-tools/adl-rest/v/0.3.2) |  |  |
 | @azure-tools/adl-rpaas | npm [0.4.2](https://www.npmjs.com/package/@azure-tools/adl-rpaas/v/0.4.2) |  |  |
@@ -303,7 +303,7 @@
 | @azure-tools/cadl-autorest | npm [0.20.0](https://www.npmjs.com/package/@azure-tools/cadl-autorest/v/0.20.0) |  |  |
 | @azure-tools/cadl-azure-core | npm [0.7.0](https://www.npmjs.com/package/@azure-tools/cadl-azure-core/v/0.7.0) |  |  |
 | @azure-tools/cadl-azure-resource-manager | npm [0.10.0](https://www.npmjs.com/package/@azure-tools/cadl-azure-resource-manager/v/0.10.0) |  |  |
-| @azure-tools/cadl-csharp | npm [0.1.3](https://www.npmjs.com/package/@azure-tools/cadl-csharp/v/0.1.3) |  |  |
+| @azure-tools/cadl-csharp | npm [0.1.4](https://www.npmjs.com/package/@azure-tools/cadl-csharp/v/0.1.4) |  |  |
 | @azure-tools/cadl-openapi | npm [0.4.1](https://www.npmjs.com/package/@azure-tools/cadl-openapi/v/0.4.1) |  |  |
 | @azure-tools/cadl-providerhub | npm [0.21.0](https://www.npmjs.com/package/@azure-tools/cadl-providerhub/v/0.21.0) |  |  |
 | @azure-tools/cadl-providerhub-controller | npm [0.16.0](https://www.npmjs.com/package/@azure-tools/cadl-providerhub-controller/v/0.16.0) |  |  |
