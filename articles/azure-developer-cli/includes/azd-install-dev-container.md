@@ -2,7 +2,7 @@
 author: hhunter-ms
 ms.service: azure-dev-cli
 ms.topic: include
-ms.date: 08/05/2022
+ms.date: 09/12/2022
 ms.author: hannahhunter
 ---
 
@@ -29,6 +29,24 @@ powershell -ex AllSigned -c "Invoke-RestMethod 'https://aka.ms/install-azd.ps1' 
 
 ```bash
 curl -fsSL https://aka.ms/install-azd.sh | bash 
+```
+
+---
+
+## Uninstall `azd`
+
+To uninstall the `azd`:
+
+### [Windows](#tab/windows)
+
+```bash
+powershell -ex AllSigned -c "Invoke-RestMethod 'https://aka.ms/uninstall-azd.ps1' | Invoke-Expression"
+```
+
+### [Linux/MacOS](#tab/linuxmac)
+
+```bash
+curl -fsSL https://aka.ms/uninstall-azd.sh | bash 
 ```
 
 ---
