@@ -433,7 +433,7 @@ How to find Application Url in portal, VS Code, and CLI.
   * Check that there's a container environment variable `RUNNING_IN_PRODUCTION` set to 1. 
 
 * Website returns "Not Found (404)".
-  * Check the **Application Url** on the **Overview** page for the container. If the Url contains the word "internal", the ingress isn't set correctly.
+  * Check the **Application Url** on the **Overview** page for the container. If the Application Url contains the word "internal", the ingress isn't set correctly.
   * Go to the **Ingress** resource of the container and make sure **HTTP Ingress** is enabled and **Accepting traffic from anywhere** is selected..
     
 [1]: https://github.com/Azure-Samples/msdocs-python-django-azure-container-app
