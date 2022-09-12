@@ -124,7 +124,7 @@ These steps require the [Docker extension][6] for VS Code.
 :::row:::
     :::column span="2":::
         **Step 2.** Follow the prompts to create a registry, a resource group, and build the image.
-        * **Tag image as** &rarr; Enter *pythoncontainer:lastest*.
+        * **Tag image as** &rarr; Enter *pythoncontainer:latest*.
         * **Create new registry...** &rarr; Select this option to create new registry.
         * **Registry name** &rarr; The registry name must be unique within Azure, and contain 5-50 alphanumeric characters. 
         * **Select a SKU** &rarr; Select **Standard**.
@@ -434,7 +434,7 @@ How to find Application Url in portal, VS Code, and CLI.
 
 * Website returns "Not Found (404)".
   * Check the **Application Url** on the **Overview** page for the container. If the Application Url contains the word "internal", the ingress isn't set correctly.
-  * Go to the **Ingress** resource of the container and make sure **HTTP Ingress** is enabled and **Accepting traffic from anywhere** is selected..
+  * Go to the **Ingress** resource of the container and make sure **HTTP Ingress** is enabled and **Accepting traffic from anywhere** is selected.
     
 [1]: https://github.com/Azure-Samples/msdocs-python-django-azure-container-app
 [2]: https://github.com/Azure-Samples/msdocs-python-flask-azure-container-app
