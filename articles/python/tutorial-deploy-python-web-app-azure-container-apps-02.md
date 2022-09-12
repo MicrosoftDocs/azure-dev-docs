@@ -269,9 +269,9 @@ Container apps are deployed to Container Apps environments, which act as a secur
 
         On the **App settings** page:
         
-        * **Use quickstart image** &rarr; Unselect checkbox (disabled).
+        * **Use quickstart image** &rarr; Unselect checkbox.
         
-        * **Name** &rarr; *containerweb*.
+        * **Name** &rarr; *python-container-app*.
         	
         * **Image Source** &rarr; Select *Azure Container Registry*.
         
@@ -333,35 +333,10 @@ Container apps are deployed to Container Apps environments, which act as a secur
 These steps require the [Azure Container Apps extension][11] for VS Code.
 
 :::row:::
-    :::column span="2":::
-        **Step 1.** Start the container apps create task.
+    :::column span="1":::
+        **Step 1.** Create an *.env* file that you'll reference during the creation of the container app.
 
-        * Select **F1** or **CTRL+SHIFT+P** to open the command palette.
-        * Type "containers apps".
-        * Select the task **Azure Container Apps: Create Container App**
-        
-        Alternatively, you can open the Azure extension, find the **Container Apps** section and select **+** icon to start.
-
-    :::column-end:::
-    :::column:::
-        TBD
-    :::column-end:::
-:::row-end:::
-:::row:::
-    :::column span="2":::
-        **Step 2.** Follow the steps to create the container app.
-
-
-    :::column-end:::
-    :::column:::
-        TBD
-    :::column-end:::
-:::row-end:::
-:::row:::
-    :::column span="2":::
-        **Step 3.** Create environment variables for the container app.
-
-        Create an *.env* file with the following values:
+        In the sample repo there is an *.env.example* file you can start from. Create an *.env* file with the following values:
         
         ```bash
         AZURE_POSTGRESQL_HOST=<host-name>.postgres.database.azure.com
@@ -370,6 +345,64 @@ These steps require the [Azure Container Apps extension][11] for VS Code.
         AZURE_POSTGRESQL_PASSWORD=<db-password>
         RUNNING_IN_PRODUCTION=1
         ```
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="2":::
+        **Step 2.** Start the container apps create task.
+
+        * Select **F1** or **CTRL+SHIFT+P** to open the command palette.
+        * Type "containers apps".
+        * Select the task **Azure Container Apps: Create Container App**
+
+        Alternatively, you can open the Azure extension, find the **Container Apps** section and select **+** icon to start. 
+
+    :::column-end:::
+    :::column:::
+        TBD
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="2":::
+        **Step 3.** Follow the steps to create the container environment.
+
+        * **Select Container Apps environment** &rarr; Select **Create new Container Apps environment**.
+        * **Select a location for new resources** &rarr; Choose the same location that resource group you created previously.        
+    :::column-end:::
+    :::column:::
+        TBD
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="2":::
+        **Step 4.** After creating the environment, you should be prompted to create a container app.
+
+        * **Enter a new from the new container app** &rarr; Enter *python-container-app*.
+        * **Select a container registry** &rarr; Select **Azure Container Registries**.
+        * **Select an Azure Container Registry** &rarr; Select the name of the registry you create previously.
+        * **Select a repository** &rarr; Select **pythoncontainer**.
+        * **Select a tag** &rarr; Select **latest**.
+        * **Set with environment variables file** &rarr; Select the *.env* file you created above.
+        * **Enable ingress for applications** &rarr; Select **Enable**.
+        * **Select the HTTP traffic that the endpoint will accept** &rarr; Select **External**.
+        * **Port the container is listening on** &rarr; Set to 8000 (Django) or 5000 (Flask).
+
+        If you missed the prompt to create the container app, go to the Azure extension, Container Apps section, select the environment, right-click and select **Create Container App**.
+    :::column-end:::
+    :::column:::
+        TBD
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="2":::
+        **Step 5.** Browse to the website.
+
+        * Select **F1** or **CTRL+SHIFT+P** to open the command palette.
+        * Find and start the task **Azure Container Apps: Browse**.
+        * Select the container environment and container app you just created.
+
+        Alternatively, go to the Azure extension, Container Apps section, container environment and right-click the container app and select **Browse**.
+
     :::column-end:::
     :::column:::
         TBD
