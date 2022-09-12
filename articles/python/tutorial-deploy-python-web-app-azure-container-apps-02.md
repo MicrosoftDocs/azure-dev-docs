@@ -221,13 +221,13 @@ TBD
 
 ## Deploy web app to Container Apps
 
-Container apps are deployed to Container Apps environments, which act as a secure boundary. These steps will create both the environment and the container inside the environment, as well as configure the environment so that the website is visible externally.
+Container apps are deployed to Container Apps environments, which act as a secure boundary. These steps will create both the environment and the container inside the environment, and configure the environment so that the website is visible externally.
 
 ### [Azure portal](#tab/azure-portal)
 
 :::row:::
     :::column span="2":::
-        **Step 1.** In the portal search at the top of the screen, search for "container apss" and select the **Container Apps** service in the results.
+        **Step 1.** In the portal search at the top of the screen, search for "container apps" and select the **Container Apps** service in the results.
     :::column-end:::
     :::column:::
         TBD
@@ -419,7 +419,7 @@ RUNNING_IN_PRODUCTION=1
 
 ## Verify website
 
-How to find Application Url in portal, vscode, and CLI.
+How to find Application Url in portal, VS Code, and CLI.
 
 ## Troubleshoot deployment
 
@@ -430,11 +430,11 @@ How to find Application Url in portal, vscode, and CLI.
 
 * Website returns "Bad Request (400)".
   * Check the environment variables passed in to the container. The error is indicative of not being able to connect to the PostgreSQL instance.
-  * Check that there is a container environment variable `RUNNING_IN_PRODUCTION` set to 1. 
+  * Check that there's a container environment variable `RUNNING_IN_PRODUCTION` set to 1. 
 
 * Website returns "Not Found (404)".
-  * Check the **Application Url** one the **Overview** page for the container. If the Url containers "internal", the ingress is not set correctly.
-  * Go to the **Ingress** resource of the container and make sure **HTTP Ingress** is enabled and **Accepting traffice from anywhere** is selected..
+  * Check the **Application Url** on the **Overview** page for the container. If the Url contains the word "internal", the ingress isn't set correctly.
+  * Go to the **Ingress** resource of the container and make sure **HTTP Ingress** is enabled and **Accepting traffic from anywhere** is selected..
     
 [1]: https://github.com/Azure-Samples/msdocs-python-django-azure-container-app
 [2]: https://github.com/Azure-Samples/msdocs-python-flask-azure-container-app
