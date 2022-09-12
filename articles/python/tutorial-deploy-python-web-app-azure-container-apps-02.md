@@ -222,7 +222,74 @@ Azure CLI commands can be run in the [Azure Cloud Shell][4] or on a workstation 
 
 ## Create a PostgreSQL Flexible Server
 
+### [Azure portal](#tab/azure-portal)
+
+:::row:::
+    :::column span="2":::
+        **Step 1.** In the portal search at the top of the screen, search for "postgres" and select the **Azure Database for PostgreSQL flexible servers** service in the results.
+    :::column-end:::
+    :::column:::
+        TBD
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="2":::
+        **Step 2.** Select **+ Create** to start the create process.
+    :::column-end:::
+    :::column:::
+        TBD
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="2":::
+        **Step 3.** Fill out the **Basics** form as follows:
+
+        * **Resource group** &rarr; The resource group you created for the Azure Container Registry.
+        * **Server name** &rarr; 
+        * **Region** &rarr; The same region you used for the resource group.
+        * **Admin username** &rarr; Use *demoadmin*.
+        * **Password** and **Confirm password** &rarr; A password that you'll use later when connecting the container app to this database.
+
+        All other settings, leave as defaults. When done, select **Networking** to go to the networking page.
+
+    :::column-end:::
+    :::column:::
+        TBD
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="2":::
+        **Step 3.** Fill out the **Networking** form as follows:
+
+        * **Connectivity method** &rarr; Select **Public access**.
+        * **Allow public access from any Azure service** &rarr; Select the checkbox, that is, allow access. 
+        * **Add current client IP address** &rarr; Select (add) if you plan on accessing the database from your local server.
+
+        All other settings, leave as defaults. Select **Review + Create**.
+
+    :::column-end:::
+    :::column:::
+        TBD
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="2":::
+        **Step 3.** Review the information and when satisfied, select **Create**.
+    :::column-end:::
+    :::column:::
+        TBD
+    :::column-end:::
+:::row-end:::
+
+### [VS Code](#tab/vscode-aztools)
+
 TBD
+
+### [Azure CLI](#tab/azure-cli)
+
+TBD
+
+---
 
 ## Deploy web app to Container Apps
 
