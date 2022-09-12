@@ -23,11 +23,11 @@ The service diagram shown below highlights the components covered in this articl
 
 Go to the repository of the sample app ([Django][1] or [Flask][2]) and fork the repository.
 
-1. Select the Fork button at the top of the sample app repo to fork the repo to your account.
+**Step 1.** Select the Fork button at the top of the sample app repo to fork the repo to your account.
 
-1. Now you can clone your fork of the sample repository.
+**Step 2.** Now you can clone your fork of the sample repository.
 
-1. Use the following git command to clone your forked repo into the *python-code-to-cloud* folder:
+**Step 3.** Use the following git command to clone your forked repo into the *python-code-to-cloud* folder:
 
     ```bash
     # Django
@@ -36,8 +36,8 @@ Go to the repository of the sample app ([Django][1] or [Flask][2]) and fork the 
     # Flask
     # git clone https://github.com/$GITHUB_USERNAME/msdocs-python-flask-azure-container-app.git python-code-to-cloud
     ```
-    
-1. Change directory:
+
+**Step 4.** Change directory:
 
     ```bash
     cd python-code-to-cloud
@@ -45,7 +45,7 @@ Go to the repository of the sample app ([Django][1] or [Flask][2]) and fork the 
 
 ## Build container image from web app code
 
-After following these steps, you'll have an Azure Container Registry and a Docker container image built from the sample code. 
+After following these steps, you'll have an Azure Container Registry and a Docker container image built from the sample code.
 
 ### [Azure portal](#tab/azure-portal)
 
@@ -75,7 +75,7 @@ Sign in to [Azure portal][3] to complete these steps.
         * **Location** &rarr; Select a location to match. 
         * **SKU** &rarr; Select **Standard**.
 
-        When finished, select **Review + create**. After the validation is complete, select **Create**.
+        When finished, select **Review + create**. After  validation is complete, select **Create**.
     :::column-end:::
     :::column:::
         TBD
@@ -93,7 +93,7 @@ Sign in to [Azure portal][3] to complete these steps.
 :::row-end:::
 :::row:::
     :::column span="1":::
-        **Step 5.** Use the [az acr build][5] command to build the image.
+        **Step 5.** Use the [az acr build][5] command to build the image from the repo.
 
         Specify the registry name and resource group you created above. For `\<repo-path>`, choose either the [Django][1] or [Flask][2] repo path.
 
@@ -113,9 +113,13 @@ These steps require the [Docker extension][6] for VS Code.
 :::row:::
     :::column span="2":::
         **Step 1.** Select **F1** or **CTRL+SHIFT+P** to open the command palette.
+        
         * Type "images".
-        * Select the task **Docker Images: Build Image in Azure**
+        * Select the task **Azure Container Registry: Build Image in Azure**
+        
         Alternatively, right-click the *Dockerfile* and select **Build Image in Azure**. This UI action starts the same create registry task.
+
+        If you don't see the **Build Image in Azure** task, check if you are signed into Azure.
     :::column-end:::
     :::column:::
         TBD
@@ -124,13 +128,16 @@ These steps require the [Docker extension][6] for VS Code.
 :::row:::
     :::column span="2":::
         **Step 2.** Follow the prompts to create a registry, a resource group, and build the image.
+        
         * **Tag image as** &rarr; Enter *pythoncontainer:latest*.
-        * **Create new registry...** &rarr; Select this option to create new registry.
+        * **Create new registry** &rarr; Select this option to create new registry.
         * **Registry name** &rarr; The registry name must be unique within Azure, and contain 5-50 alphanumeric characters. 
-        * **Select a SKU** &rarr; Select **Standard**.
+        * **Select a SKU** &rarr; Select **Basic**.
         * **Create a new resource group** &rarr; Select this option to create resource group.
-        * **Resource group** &rarr; Create a new one named *pythoncontainer-rg*.
-        * **Location** &rarr; Select a location.
+        * **Resource group** &rarr; Create a new resource group named *pythoncontainer-rg*.
+        * **Location** &rarr; Select a location and wait a few seconds for the final prompt for the base image OS.
+        * **Select OS** &rarr; Select **Linux**.
+        
     :::column-end:::
     :::column:::
         TBD
@@ -138,12 +145,10 @@ These steps require the [Docker extension][6] for VS Code.
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 3.** Confirm the registry name
-        * **Registry name** &rarr; The registry name must be unique within Azure, and contain 5-50 alphanumeric characters. 
-        * **SKU** &rarr; Select **Standard**.
-        * **Resource group** &rarr; Create a new one named *pythoncontainer-rg*.
-        * **Location** &rarr; Select a location.
-        * **Select OS** &rarr; Select **Linux**.
+        **Step 3.** Confirm the registry was created.
+        
+        Select the Docker extension and to the **Registries** section. Expand the Azure node to find the new Azure Container Registry.  
+      
     :::column-end:::
     :::column:::
         TBD
@@ -162,7 +167,7 @@ Azure CLI commands can be run in the [Azure Cloud Shell][4] or on a workstation 
         az group create -n pythoncontainer-rg -l <location>
         ```
 
-        *\<location>* is one of the Azure location values from the command `az account list-locations -o table`.
+        *\<location>* is one of the Azure location values from the command `az account list-locations -o table`. In the output, use the values from the *Name* column.
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -193,7 +198,7 @@ Azure CLI commands can be run in the [Azure Cloud Shell][4] or on a workstation 
         **Step 4.** Build the image with the [az acr build](/cli/azure/acr#az-acr-build) command.
 
         ```azurecli
-        az acr build -r <registry-name> -g <res-group> -t msdocspythoncontainerwebapp:latest .
+        az acr build -r <registry-name> -g <res-group> -t pythoncontainer:latest .
         ```
         
         Note:
@@ -287,7 +292,7 @@ Container apps are deployed to Container Apps environments, which act as a secur
         
         * **HTTP Ingress** &rarr;  Select checkbox (enabled).
         
-        * **Ingress traffic** &rarr; Select **Accepting traffice from anywhere**.
+        * **Ingress traffic** &rarr; Select **Accepting traffic from anywhere**.
         
         * **Target port**&rarr; Set to 8000 (Django) or 5000 (Flask).
         
@@ -300,7 +305,8 @@ Container apps are deployed to Container Apps environments, which act as a secur
     :::column span="2":::
         **Step 6.** Review and create.
 
-        * Select **Review and create**.
+        * Select **Review and create** to go to review page.
+
         * Select **Create** to create the container app.
         
     :::column-end:::
@@ -309,24 +315,27 @@ Container apps are deployed to Container Apps environments, which act as a secur
     :::column-end:::
 :::row-end:::
 
-
 ### [VS Code](#tab/vscode-aztools)
 
 These steps require the [Azure Container Apps extension][11] for VS Code.
 
-Use "Container Create" task.
+**Step 1:** Type **F1** or **CTRL+SHIFT+P** to open the command palette.
 
-Can do update passing in .env variable file.
+**Step 2:** Search for "Container Create" task and select ?.
 
+**Step 3:** Set environment variables by passing in an *.env* variable file.
+
+Use the following format for the *.env* file.
+
+```bash
 AZURE_POSTGRESQL_HOST=<host-name>.postgres.database.azure.com
 AZURE_POSTGRESQL_DATABASE=<database-name>
 AZURE_POSTGRESQL_USERNAME=<db-username>
 AZURE_POSTGRESQL_PASSWORD=<db-password>
 RUNNING_IN_PRODUCTION=1
-
+```
 
 ### [Azure CLI](#tab/azure-cli)
-
 
 :::row:::
     :::column:::
