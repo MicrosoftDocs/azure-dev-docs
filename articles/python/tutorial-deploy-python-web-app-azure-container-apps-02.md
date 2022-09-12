@@ -111,8 +111,9 @@ These steps require the [Docker extension][6] for VS Code.
 
 :::row:::
     :::column span="2":::
-        **Step 1.** Select **F1** or **CTRL+SHIFT+P** to open the command palette.
-        
+        **Step 1.** Start the build image task.
+
+        * Select **F1** or **CTRL+SHIFT+P** to open the command palette.
         * Type "images".
         * Select the task **Azure Container Registry: Build Image in Azure**
         
@@ -255,7 +256,7 @@ Container apps are deployed to Container Apps environments, which act as a secur
         
         * **Region** &rarr; Use the same region/location as the resource group.
 
-        * **Container Apps Environment** &rarr; Accept the suggested name for a new environment.
+        * **Container Apps Environment** &rarr; Enter *python-container-env*.
         
     :::column-end:::
     :::column:::
@@ -313,26 +314,67 @@ Container apps are deployed to Container Apps environments, which act as a secur
         TBD
     :::column-end:::
 :::row-end:::
+:::row:::
+    :::column span="2":::
+        **Step 7.** Get the Application Url for the website.
+
+        * Go the newly created container app and select the **Overview** resource.
+
+        * Under **Essentials** find the **Application Url**.
+        
+    :::column-end:::
+    :::column:::
+        TBD
+    :::column-end:::
+:::row-end:::
 
 ### [VS Code](#tab/vscode-aztools)
 
 These steps require the [Azure Container Apps extension][11] for VS Code.
 
-**Step 1:** Type **F1** or **CTRL+SHIFT+P** to open the command palette.
+:::row:::
+    :::column span="2":::
+        **Step 1.** Start the container apps create task.
 
-**Step 2:** Search for "Container Create" task and select ?.
+        * Select **F1** or **CTRL+SHIFT+P** to open the command palette.
+        * Type "containers apps".
+        * Select the task **Azure Container Apps: Create Container App**
+        
+        Alternatively, you can open the Azure extension, find the **Container Apps** section and select **+** icon to start.
 
-**Step 3:** Set environment variables by passing in an *.env* variable file.
+    :::column-end:::
+    :::column:::
+        TBD
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="2":::
+        **Step 2.** Follow the steps to create the container app.
 
-Use the following format for the *.env* file.
 
-```bash
-AZURE_POSTGRESQL_HOST=<host-name>.postgres.database.azure.com
-AZURE_POSTGRESQL_DATABASE=<database-name>
-AZURE_POSTGRESQL_USERNAME=<db-username>
-AZURE_POSTGRESQL_PASSWORD=<db-password>
-RUNNING_IN_PRODUCTION=1
-```
+    :::column-end:::
+    :::column:::
+        TBD
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="2":::
+        **Step 3.** Create environment variables for the container app.
+
+        Create an *.env* file with the following values:
+        
+        ```bash
+        AZURE_POSTGRESQL_HOST=<host-name>.postgres.database.azure.com
+        AZURE_POSTGRESQL_DATABASE=restaurants_reviews
+        AZURE_POSTGRESQL_USERNAME=demoadmin
+        AZURE_POSTGRESQL_PASSWORD=<db-password>
+        RUNNING_IN_PRODUCTION=1
+        ```
+    :::column-end:::
+    :::column:::
+        TBD
+    :::column-end:::
+:::row-end:::
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -417,18 +459,19 @@ RUNNING_IN_PRODUCTION=1
     :::column span="1":::
         **Step 7.** Test the website.
 
-        The create command above outputs an application Url you can use to browse to. It will end in "azurecontainerapps.io".
+        The create command above outputs an application Url you can use to browse to. The Url ends in "azurecontainerapps.io".
 
     :::column-end:::
 :::row-end:::
 
 ---
 
-## Verify website
-
-How to find Application Url in portal, VS Code, and CLI.
-
 ## Troubleshoot deployment
+
+* If you can't find the Application Url to access the website.
+  * In the Azure portal, go to the **Overview** page of the Container App and look for the **Application Url**.
+  * In VS Code, go to the Azure extension and select the **Container Apps** section. Expand the subscription, expand the container environment, and when you find the container app, right-click **python-container-app** and select **Browse**.
+  * In Azure CLI, 
 
 * Image doesn't appear in the Azure Container Registry.
   * Check that output of the Azure CLI command or VS Code Output and look for messages to confirm success.
