@@ -41,7 +41,7 @@
 | Core - Client - Rest | npm [1.0.0](https://www.npmjs.com/package/@azure-rest/core-client/v/1.0.0) |  | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/core-client_1.0.0/sdk/core/core-client-rest) |
 | Core - Client - Tracing | npm [1.0.1](https://www.npmjs.com/package/@azure/core-tracing/v/1.0.1) | [docs](/javascript/api/overview/azure/core-tracing-readme) | GitHub [1.0.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-tracing_1.0.1/sdk/core/core-tracing/) |
 | Core - Client - XML | npm [1.3.0](https://www.npmjs.com/package/@azure/core-xml/v/1.3.0) | [docs](/javascript/api/overview/azure/core-xml-readme) | GitHub [1.3.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-xml_1.3.0/sdk/core/core-xml/) |
-| Cosmos DB | npm [3.17.0](https://www.npmjs.com/package/@azure/cosmos/v/3.17.0) | [docs](/javascript/api/overview/azure/cosmos-readme) | GitHub [3.17.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/cosmos_3.17.0/sdk/cosmosdb/cosmos/) |
+| Cosmos DB | npm [3.17.1](https://www.npmjs.com/package/@azure/cosmos/v/3.17.1) | [docs](/javascript/api/overview/azure/cosmos-readme) | GitHub [3.17.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/cosmos_3.17.1/sdk/cosmosdb/cosmos/) |
 | Digital Twins Definition Language Parser | npm [1.0.0-beta.2](https://www.npmjs.com/package/@azure/dtdl-parser/v/1.0.0-beta.2) | [docs](/javascript/api/overview/azure/dtdl-parser-readme) | GitHub [1.0.0-beta.2](https://github.com/Azure/azure-sdk-for-js/tree/@azure/dtdl-parser_1.0.0-beta.2/sdk/digitaltwins/dtdl-parser/) |
 | Document Translation | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure-rest/ai-document-translator/v/1.0.0-beta.1) |  | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/ai-document-translator_1.0.0-beta.1/sdk/documenttranslator/ai-document-translator-rest) |
 | Event Grid | npm [4.10.0](https://www.npmjs.com/package/@azure/eventgrid/v/4.10.0) | [docs](/javascript/api/overview/azure/eventgrid-readme) | GitHub [4.10.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/eventgrid_4.10.0/sdk/eventgrid/eventgrid/) |
@@ -307,10 +307,10 @@
 | @azure-tools/cadl-openapi | npm [0.4.1](https://www.npmjs.com/package/@azure-tools/cadl-openapi/v/0.4.1) |  |  |
 | @azure-tools/cadl-providerhub | npm [0.21.0](https://www.npmjs.com/package/@azure-tools/cadl-providerhub/v/0.21.0) |  |  |
 | @azure-tools/cadl-providerhub-controller | npm [0.16.0](https://www.npmjs.com/package/@azure-tools/cadl-providerhub-controller/v/0.16.0) |  |  |
-| @azure-tools/cadl-ranch | npm [0.1.8](https://www.npmjs.com/package/@azure-tools/cadl-ranch/v/0.1.8) |  |  |
-| @azure-tools/cadl-ranch-api | npm [0.1.8](https://www.npmjs.com/package/@azure-tools/cadl-ranch-api/v/0.1.8) |  |  |
-| @azure-tools/cadl-ranch-expect | npm [0.1.8](https://www.npmjs.com/package/@azure-tools/cadl-ranch-expect/v/0.1.8) |  |  |
-| @azure-tools/cadl-ranch-specs | npm [0.1.10](https://www.npmjs.com/package/@azure-tools/cadl-ranch-specs/v/0.1.10) |  |  |
+| @azure-tools/cadl-ranch | npm [0.1.9](https://www.npmjs.com/package/@azure-tools/cadl-ranch/v/0.1.9) |  |  |
+| @azure-tools/cadl-ranch-api | npm [0.1.9](https://www.npmjs.com/package/@azure-tools/cadl-ranch-api/v/0.1.9) |  |  |
+| @azure-tools/cadl-ranch-expect | npm [0.1.9](https://www.npmjs.com/package/@azure-tools/cadl-ranch-expect/v/0.1.9) |  |  |
+| @azure-tools/cadl-ranch-specs | npm [0.1.11](https://www.npmjs.com/package/@azure-tools/cadl-ranch-specs/v/0.1.11) |  |  |
 | @azure-tools/cadl-rest | npm [0.4.1](https://www.npmjs.com/package/@azure-tools/cadl-rest/v/0.4.1) |  |  |
 | @azure-tools/cadl-rpaas | npm [0.11.0](https://www.npmjs.com/package/@azure-tools/cadl-rpaas/v/0.11.0) |  |  |
 | @azure-tools/cadl-rpaas-controller | npm [0.7.0](https://www.npmjs.com/package/@azure-tools/cadl-rpaas-controller/v/0.7.0) |  |  |
@@ -424,7 +424,7 @@
 | Core - Client - Rest | npm [1.0.0](https://www.npmjs.com/package/@azure-rest/core-client/v/1.0.0) |  | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/core-client_1.0.0/sdk/core/core-client-rest) |
 | Core - Client - Tracing | npm [1.0.1](https://www.npmjs.com/package/@azure/core-tracing/v/1.0.1) | [docs](/javascript/api/overview/azure/core-tracing-readme) | GitHub [1.0.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-tracing_1.0.1/sdk/core/core-tracing/) |
 | Core - Client - XML | npm [1.3.0](https://www.npmjs.com/package/@azure/core-xml/v/1.3.0) | [docs](/javascript/api/overview/azure/core-xml-readme) | GitHub [1.3.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-xml_1.3.0/sdk/core/core-xml/) |
-| Cosmos DB | npm [3.17.0](https://www.npmjs.com/package/@azure/cosmos/v/3.17.0) | [docs](/javascript/api/overview/azure/cosmos-readme) | GitHub [3.17.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/cosmos_3.17.0/sdk/cosmosdb/cosmos/) |
+| Cosmos DB | npm [3.17.1](https://www.npmjs.com/package/@azure/cosmos/v/3.17.1) | [docs](/javascript/api/overview/azure/cosmos-readme) | GitHub [3.17.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/cosmos_3.17.1/sdk/cosmosdb/cosmos/) |
 | Custom Image Search | npm [2.0.1](https://www.npmjs.com/package/@azure/cognitiveservices-customimagesearch/v/2.0.1) |  | GitHub [2.0.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/cognitiveservices/cognitiveservices-customimagesearch) |
 | Custom Search | npm [3.0.1](https://www.npmjs.com/package/@azure/cognitiveservices-customsearch/v/3.0.1) |  | GitHub [3.0.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/cognitiveservices/cognitiveservices-customsearch) |
 | Custom Vision Prediction | npm [5.1.2](https://www.npmjs.com/package/@azure/cognitiveservices-customvision-prediction/v/5.1.2) |  | GitHub [5.1.2](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/cognitiveservices/cognitiveservices-customvision-prediction) |
