@@ -21,9 +21,13 @@ The service diagram shown below highlights the components covered in this articl
 
 ## Get the sample app
 
+You can fork and clone the sample code to your developer environment. You can also download the code repo to your local machine without forking. However, you won't be able to set up CI/CD discussed later in the tutorial. 
+
+To fork and clone do the following:
+
 **Step 1.** Go to the repository of the sample app ([Django][1] or [Flask][2]) and select **Fork**.
 
-Follow the steps to fork the directory to your GitHub account. You can also download the code repo to your local machine without forking. However, you won't be able to set up CI/CD discussed later in the tutorial.
+Follow the steps to fork the directory to your GitHub account. 
 
 **Step 2.** Use the [git clone][21] command to clone the forked repo into the *python-code-to-cloud* folder:
 
@@ -47,11 +51,9 @@ After following these steps, you'll have an Azure Container Registry and a Docke
 
 ### [Azure portal](#tab/azure-portal)
 
-Sign in to [Azure portal][3] to complete these steps.
-
 :::row:::
     :::column span="2":::
-        **Step 1.** In the portal search at the top of the screen, search for "container registries" and select the **Container Registries** service in the results.
+        **Step 1.** In the [Azure portal][3], search for "container registries" and select the **Container Registries** service in the results.
     :::column-end:::
     :::column:::
         TBD
@@ -349,30 +351,32 @@ Azure CLI commands can be run in the [Azure Cloud Shell][4] or on a workstation 
 
 Run `az login` to sign in to  and follow these steps to create your Azure Database for PostgreSQL resource.
 
-**Step 1.** Run the [az postgres server create](/cli/azure/postgres/server#az-postgres-server-create) command to create the PostgreSQL server and database in Azure using the values below. It isn't uncommon for this command to run for a few minutes to complete.
+**Step 1.** Run the [az postgres flexible-server create][22] command to create the PostgreSQL server and database in Azure using the values below. It isn't uncommon for this command to run for a few minutes to complete.
 
 ```azurecli
-az postgres server create \
-   --resource-group <resource-group-name> \
+az postgres flexible-server create \
+   --resource-group <res-group> \
    --name <postgres-name>  \
    --location <location> \
    --admin-user <admin-user-name> \
    --admin-password <admin-password> \
-   --sku-name B_Gen5_1
+   --sku-name Standard_D48s_v3 \
+   --public-access 0.0.0.0 \
+   --public-access <your-workstation-ip>
 ```
 
-* `\<resource-group>` &rarr; Use the same resource group name in which you created the web app, for example `msdocs-web-app-rg`.
-* `\<progres-name>` &rarr; The PostgreSQL database server name. This name must be **unique across all Azure**. The server endpoint is `https://<server-name>.postgres.database.azure.com`). Allowed characters are `A`-`Z`, `0`-`9`, and `-`. For example, use "my-postgres-db-\<unique-id>".)
-* `\<location>` &rarr; Use the same location used for the web app. Change the location in the command above for your deployment.
-* `\<admin-user-name>` &rarr; Username for the administrator account. It can't be `azure_superuser`, `admin`, `administrator`, `root`, `guest`, or `public`. Use `demoadmin` for this tutorial.
-* `\<admin-password>` Password of the administrator user. It must contain 8 to 128 characters from three of the following categories: English uppercase letters, English lowercase letters, numbers, and non-alphanumeric characters.
+* `<res-group>` &rarr; Use the same resource group name in which you created the web app.
+* `<postgres-name>` &rarr; The PostgreSQL database server name. This name must be **unique across all Azure**. The server endpoint is "https://\<server-name>.postgres.database.azure.com"). Allowed characters are "A"-"Z", "0"-"9", and "-".
+* `<location>` &rarr; Use the same location used for the web app. Change the location in the command above for your deployment.
+* `<admin-user-name>` &rarr; Username for the administrator account. It can't be "azure_superuser", "admin", "administrator", "root", "guest", or "public". Use "demoadmin" for this tutorial.
+* `<admin-password>` Password of the administrator user. It must contain 8 to 128 characters from three of the following categories: English uppercase letters, English lowercase letters, numbers, and non-alphanumeric characters.
 
     > [!IMPORTANT]
-    > When creating usernames or passwords **do not** use the `$` character. Later you create environment variables with these values where the `$` character has special meaning within the Linux container used to run Python apps.
+    > When creating usernames or passwords **do not** use the "$" character. Later you create environment variables with these values where the "$" character has special meaning within the Linux container used to run Python apps.
 
-* *sku-name* &rarr; The name of the pricing tier and compute configuration, for example `B_Gen5_1`. Follow the convention {pricing tier}{compute generation}{vCores} set create this variable. For more information, see [Azure Database for PostgreSQL pricing](https://azure.microsoft.com/pricing/details/postgresql/server/). To list available SKUs, use `az postgres server list-skus --location`.
+* `<sku-name>` &rarr; The name of the pricing tier and compute configuration, for example "B_Gen5_1". Follow the convention {pricing tier}{compute generation}{vCores} set create this variable. For more information, see [Azure Database for PostgreSQL pricing](https://azure.microsoft.com/pricing/details/postgresql/server/). To list available SKUs, use `az postgres flexible-server list-skus --location <location>`.
 
-The above command is for the Bash shell. For other shell types, change the line continuation characters as appropriate. For example, for PowerShell, use back tick ('\`').
+The above command is for the Bash shell. For other shell types, change the line continuation characters as appropriate. For example, for PowerShell, use back tick ("\`").
 
 ---
 
@@ -421,7 +425,7 @@ The semicolon (";") at the end of the command is necessary. To verify that the `
 
 You can also connect to the PostgreSQL server and create a database using [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio) or any other IDE that supports PostgreSQL.
 
-## Deploy web app to Container Apps
+## Deploy the web app to Container Apps
 
 Container apps are deployed to Container Apps environments, which act as a secure boundary. These steps will create both the environment and the container inside the environment, and configure the environment so that the website is visible externally.
 
@@ -740,3 +744,4 @@ These steps require the [Azure Container Apps extension][11] for VS Code.
 [19]: /cli/azure/acr#az-acr-login
 [20]: /cli/azure/acr/repository#az-acr-repository-list
 [21]: https://git-scm.com/docs/git-clone
+[22]: /cli/azure/postgres/flexible-server#az-postgres-flexible-server-create
