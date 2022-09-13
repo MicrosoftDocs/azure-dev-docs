@@ -245,7 +245,7 @@ Azure CLI commands can be run in the [Azure Cloud Shell][4] or on a workstation 
         **Step 3.** Fill out the **Basics** form as follows:
 
         * **Resource group** &rarr; The resource group you created for the Azure Container Registry.
-        * **Server name** &rarr; Use *postgres-instance*.
+        * **Server name** &rarr; Enter a name for the database server that's unique across all Azure (the database server's URL becomes `https://<server-name>.postgres.database.azure.com`). Allowed characters are `A`-`Z`, `0`-`9`, and `-`. For example: *postgres-db-\<unique-id>*.
         * **Region** &rarr; The same region you used for the resource group.
         * **Admin username** &rarr; Use *demoadmin*.
         * **Password** and **Confirm password** &rarr; A password that you'll use later when connecting the container app to this database.
@@ -306,19 +306,19 @@ Azure CLI commands can be run in the [Azure Cloud Shell][4] or on a workstation 
         
         1. Specify a **name** for the server.
         
-           Enter a name for the database server that's unique across all Azure (the database server's URL becomes `https://<server-name>.postgres.database.azure.com`). Allowed characters are `A`-`Z`, `0`-`9`, and `-`. For example: *postgres-db-\<unique-id>*.<br><br>
+           Enter a name for the database server that's unique across all Azure (the database server's URL becomes `https://<server-name>.postgres.database.azure.com`). Allowed characters are `A`-`Z`, `0`-`9`, and `-`. For example: *postgres-db-\<unique-id>*.
         
         1. Select the **B1 Basic** SKU (1 vCore, 2 GiB Memory, 5-GB storage).
         
         1. Create an administrator user name.
         
-           This name for an administrator account on the database server. Record this name and password as you'll need them later in this tutorial.<br><br>
+           This name for an administrator account on the database server. Record this name and password as you'll need them later in this tutorial.
         
         1. Create a password for the administrator and confirm it.
         
         1. Select a user group to put the database in.
         
-           Use the same resource group that you created the App Service in.<br><br>
+           Use the same resource group that you created the App Service in.
         
         1. Select a location for the database.
         
@@ -332,7 +332,7 @@ Azure CLI commands can be run in the [Azure Cloud Shell][4] or on a workstation 
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 3.** Once the database is created, configure access from your local environment to the Azure Database for PostgreSQL server. 
+        **Step 3.** Once the database is created, configure access from your local environment to the Azure Database for PostgreSQL server.
 
         1. Open the Command Palette (**F1** or **Ctrl** + **Shift** + **P**).
         
@@ -350,8 +350,56 @@ Azure CLI commands can be run in the [Azure Cloud Shell][4] or on a workstation 
 
 ### [Azure CLI](#tab/azure-cli)
 
-TBD
+Run `az login` to sign in to  and follow these steps to create your Azure Database for PostgreSQL resource.
 
+**Step 1.** Run the [az postgres server create](/cli/azure/postgres/server#az-postgres-server-create) command to create the PostgreSQL server and database in Azure using the values below. It is not uncommon for this command to run for a few minutes to complete.
+
+#### [bash](#tab/terminal-bash)
+
+```azurecli
+RESOURCE_GROUP_NAME='msdocs-web-app-rg'
+DB_SERVER_NAME='postgres-db-<unique-id>'
+LOCATION='eastus'
+
+az postgres server create \
+   --resource-group $RESOURCE_GROUP_NAME \
+   --name $DB_SERVER_NAME  \
+   --location $LOCATION \
+   --admin-user <admin-user-name> \
+   --admin-password <admin-password> \
+   --sku-name B_Gen5_1
+```
+
+Enter a name for the database server that's unique across all Azure (the database server's URL becomes `https://<server-name>.postgres.database.azure.com`). Allowed characters are `A`-`Z`, `0`-`9`, and `-`. For example: *postgres-db-\<unique-id>*.
+
+#### [PowerShell terminal](#tab/terminal-powershell)
+
+```azurecli
+$RESOURCE_GROUP_NAME='msdocs-web-app-rg'
+$DB_SERVER_NAME='postgres-db-<unique-id>'
+$LOCATION='eastus'
+
+az postgres server create `
+   --resource-group $RESOURCE_GROUP_NAME `
+   --name $DB_SERVER_NAME  `
+   --location $LOCATION `
+   --admin-user <admin-user-name> `
+   --admin-password <admin-password> `
+   --sku-name B_Gen5_1 
+```
+
+---
+
+* *resource-group* &rarr; Use the same resource group name in which you created the web app, for example `msdocs-web-app-rg`.
+* *name* &rarr; The PostgreSQL database server name. This name must be **unique across all Azure** (the server endpoint becomes `https://<name>.postgres.database.azure.com`). Allowed characters are `A`-`Z`, `0`-`9`, and `-`. For example, use "msdocs-web-app-postgres-database-\<unique-id>".)
+* *location* &rarr; Use the same location used for the web app. Change the location in the command above for your deployment.
+* *admin-user* &rarr; Username for the administrator account. It can't be `azure_superuser`, `admin`, `administrator`, `root`, `guest`, or `public`. For example, `demoadmin` is okay.
+* *admin-password* Password of the administrator user. It must contain 8 to 128 characters from three of the following categories: English uppercase letters, English lowercase letters, numbers, and non-alphanumeric characters.
+
+    > [!IMPORTANT]
+    > When creating usernames or passwords **do not** use the `$` character. Later you create environment variables with these values where the `$` character has special meaning within the Linux container used to run Python apps.
+
+* *sku-name* &rarr; The name of the pricing tier and compute configuration, for example `B_Gen5_1`. Follow the convention {pricing tier}{compute generation}{vCores} set create this variable. For more information, see [Azure Database for PostgreSQL pricing](https://azure.microsoft.com/pricing/details/postgresql/server/). To list available SKUs, use `az postgres server list-skus --location`.
 ---
 
 ## Create a database
