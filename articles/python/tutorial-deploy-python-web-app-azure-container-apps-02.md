@@ -245,7 +245,7 @@ Azure CLI commands can be run in the [Azure Cloud Shell][4] or on a workstation 
         **Step 3.** Fill out the **Basics** form as follows:
 
         * **Resource group** &rarr; The resource group you created for the Azure Container Registry.
-        * **Server name** &rarr; 
+        * **Server name** &rarr; Use *postgres-instance*.
         * **Region** &rarr; The same region you used for the resource group.
         * **Admin username** &rarr; Use *demoadmin*.
         * **Password** and **Confirm password** &rarr; A password that you'll use later when connecting the container app to this database.
@@ -283,7 +283,70 @@ Azure CLI commands can be run in the [Azure Cloud Shell][4] or on a workstation 
 
 ### [VS Code](#tab/vscode-aztools)
 
-TBD
+:::row:::
+    :::column span="2":::
+        **Step 1.** Sign into Azure using the Visual Studio Code Azure Tools Extension and call the create task.
+
+        1. Select the **Azure** extension from the [activity bar](https://code.visualstudio.com/docs/getstarted/userinterface).
+
+        1. Under **RESOURCES**, expand your subscription. (Make sure you viewing resources by **Group by Resource Type**.)
+
+        1. Right-click **PostgreSQL servers** and select  **Create server**.
+
+    :::column-end:::
+    :::column:::
+        TBD
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="2":::
+        **Step X.** A series of prompts will guide you through the process of creating the database. Fill in the information as follows.
+
+        1. Select **PostgreSQL Flexible Server**.
+        
+        1. Specify a **name** for the server.
+        
+           Enter a name for the database server that's unique across all Azure (the database server's URL becomes `https://<server-name>.postgres.database.azure.com`). Allowed characters are `A`-`Z`, `0`-`9`, and `-`. For example: *postgres-db-\<unique-id>*.<br><br>
+        
+        1. Select the **B1 Basic** SKU (1 vCore, 2 GiB Memory, 5-GB storage).
+        
+        1. Create an administrator user name.
+        
+           This name for an administrator account on the database server. Record this name and password as you'll need them later in this tutorial.<br><br>
+        
+        1. Create a password for the administrator and confirm it.
+        
+        1. Select a user group to put the database in.
+        
+           Use the same resource group that you created the App Service in.<br><br>
+        
+        1. Select a location for the database.
+        
+           Select the same location as the resource group and App Service.
+        
+
+    :::column-end:::
+    :::column:::
+        TBD
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="2":::
+        **Step 3.** Once the database is created, configure access from your local environment to the Azure Database for PostgreSQL server. 
+
+        1. Open the Command Palette (**F1** or **Ctrl** + **Shift** + **P**).
+        
+        1. Search for and select **PostgreSQL: Configure Firewall**.  (Select a subscription if prompted.)
+        
+        1. Select the database you created above. If the database name doesn't appear in the list, it's likely it hasn't finished being created.
+        
+        1. Select **Yes** in the dialog box to add your IP address to the firewall rules of the PostgreSQL server.
+
+    :::column-end:::
+    :::column:::
+        TBD
+    :::column-end:::
+:::row-end:::
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -293,11 +356,42 @@ TBD
 
 ## Create a database
 
-### [psql](#tab/psql-db)
+The sample code requires a PostgreSQL database to store data in. In the previous step, you created a PostgreSQL database instance. In this step, you'll add the "restaurants_reviews" database.
 
-TBD
+### [psql](#tab/create-database-psql)
 
-### [VS Code](#tab/vscode-aztools-db)
+In your local environment, or anywhere you can use the PostgreSQL interactive terminal [psql](https://www.postgresql.org/docs/13/app-psql.html) such as the [Azure Cloud Shell](/azure/cloud-shell/overview), connect to the PostgreSQL database server to create the `restaurants_reviews` database.
+
+Start psql:
+
+```bash
+psql --host=<postgres-instance-name>.postgres.database.azure.com \
+     --port=5432 \
+     --username=demoadmin@<postgres-instance-name> \
+     --dbname=postgres
+```
+
+The command above will prompt you for the admin password. If you have trouble connecting, restart the database and try again. If you're connecting from your local environment, your IP address must be added to the firewall rule list for the database service.
+
+At the `postgres=>` prompt, create the database:
+
+```sql
+CREATE DATABASE restaurants_reviews;
+```
+
+The semicolon (";") at the end of the command is necessary. To verify that the `restaurants_reviews` database was successfully created, use the command `\c restaurants_reviews` to change the prompt from `postgres=>` (default) to the `restaurant->`. Type `\?` to show help or `\q` to quit.
+
+You can also create a database using [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio) or any other IDE, and Visual Studio Code with the [Azure Tools extension pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack) installed.
+
+### [VS Code](#tab/create-database-vscode-aztools)
+
+After the firewall rule allowing local access has been successfully added, you can create the `restaurants_reviews` database.
+
+**Step 1.** In the **Azure** extension, find the PostgreSQL Server you created, right-click it, and select **Create Database**.
+
+**Step 2.** At the prompt, enter *restaurants_reviews* as the **Database Name**.
+
+If you have trouble creating the database, the server may still be processing the firewall rule from the previous step. Wait a moment and try again.
 
 ---
 
@@ -382,7 +476,22 @@ Container apps are deployed to Container Apps environments, which act as a secur
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 7.** Get the Application Url for the website.
+        **Step 7.** Create container environment variables.
+
+        * AZURE_POSTGRESQL_HOST=\<postgres-instance-name>.postgres.database.azure.com
+        * AZURE_POSTGRESQL_DATABASE=restaurants_reviews
+        * AZURE_POSTGRESQL_USERNAME=demoadmin
+        * AZURE_POSTGRESQL_PASSWORD=\<db-password>
+        * RUNNING_IN_PRODUCTION=1
+
+    :::column-end:::
+    :::column:::
+        TBD
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="2":::
+        **Step 8.** Get the Application Url for the website.
 
         * Go the newly created container app and select the **Overview** resource.
         * Under **Essentials** find the **Application Url**.
@@ -404,7 +513,7 @@ These steps require the [Azure Container Apps extension][11] for VS Code.
         In the sample repo there is an *.env.example* file you can start from. Create an *.env* file with the following values:
         
         ```bash
-        AZURE_POSTGRESQL_HOST=<host-name>.postgres.database.azure.com
+        AZURE_POSTGRESQL_HOST=<postgres-instance-name>.postgres.database.azure.com
         AZURE_POSTGRESQL_DATABASE=restaurants_reviews
         AZURE_POSTGRESQL_USERNAME=demoadmin
         AZURE_POSTGRESQL_PASSWORD=<db-password>
@@ -543,13 +652,13 @@ These steps require the [Azure Container Apps extension][11] for VS Code.
 
         `<env-variable-string>` is a string composed of space-separated values in the key="value" format with the following values.
 
-        * AZURE_POSTGRESQL_HOST=\<host-name>.postgres.database.azure.com
+        * AZURE_POSTGRESQL_HOST=\<postgres-instance-name>.postgres.database.azure.com
         * AZURE_POSTGRESQL_DATABASE=restaurants_reviews
         * AZURE_POSTGRESQL_USERNAME=demoadmin
         * AZURE_POSTGRESQL_PASSWORD=\<db-password>
         * RUNNING_IN_PRODUCTION=1
 
-        Here's an example: `--env-vars AZURE_POSTGRESQL_HOST="myserver.postgres.database.azure.com" AZURE_POSTGRESQL_DATABASE="restaurants_review" AZURE_POSTGRESQL_USERNAME="demoadmin" AZURE_POSTGRESQL_PASSWORD="somepassword" RUNNING_IN_PRODUCTION="1"`.
+        Here's an example: `--env-vars AZURE_POSTGRESQL_HOST="my-postgres-instance.postgres.database.azure.com" AZURE_POSTGRESQL_DATABASE="restaurants_reviews" AZURE_POSTGRESQL_USERNAME="demoadmin" AZURE_POSTGRESQL_PASSWORD="somepassword" RUNNING_IN_PRODUCTION="1"`.
 
     :::column-end:::
 :::row-end:::
