@@ -519,10 +519,10 @@ Container apps are deployed to Container Apps environments, which act as a secur
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 8.** Get the Application Url for the website.
+        **Step 8.** Test the website.
 
         * Go the newly created container app and select the **Overview** resource.
-        * Under **Essentials** find the **Application Url**.
+        * Under **Essentials**, select **Application Url** to open the website in a browser.
         
     :::column-end:::
     :::column:::
@@ -597,7 +597,7 @@ These steps require the [Azure Container Apps extension][11] for VS Code.
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 5.** Browse to the website.
+        **Step 5.** Test the website.
 
         * Select **F1** or **CTRL+SHIFT+P** to open the command palette.
         * Find and start the task **Azure Container Apps: Browse**.
@@ -719,7 +719,7 @@ These steps require the [Azure Container Apps extension][11] for VS Code.
 
 * Website returns "Not Found (404)".
   * Check the **Application Url** on the **Overview** page for the container. If the Application Url contains the word "internal", then ingress isn't set correctly.
-  * Go to the **Ingress** resource of the container and make sure **HTTP Ingress** is enabled and **Accepting traffic from anywhere** is selected.
+  * Check the ingress of the container. For example, in Azure portal, go to the **Ingress** resource of the container and make sure **HTTP Ingress** is enabled and **Accepting traffic from anywhere** is selected.
 
 [1]: https://github.com/Azure-Samples/msdocs-python-django-azure-container-app
 [2]: https://github.com/Azure-Samples/msdocs-python-flask-azure-container-app
