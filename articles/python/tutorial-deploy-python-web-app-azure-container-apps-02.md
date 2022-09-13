@@ -347,14 +347,11 @@ Azure CLI commands can be run in the [Azure Cloud Shell][4] or on a workstation 
     :::column-end:::
 :::row-end:::
 :::row:::
-    :::column span="2":::
+    :::column span="1":::
         **Step 4.** Add a rule to allow your web app to access the PostgreSQL Flexible server.
 
         You also need to configure the database server's firewall to accept connections from all Azure resources. To complete this step in VS Code, open an [Azure Cloud Shell][25] in VS Code, or go to [Azure Cloud Shell][4] and follow the Azure CLI instructions. Or, use the Azure portal instructions.
         
-    :::column-end:::
-    :::column:::
-        TBD
     :::column-end:::
 :::row-end:::
 
@@ -385,9 +382,9 @@ az postgres flexible-server create \
     > [!IMPORTANT]
     > When creating usernames or passwords **do not** use the "$" character. Later you create environment variables with these values where the "$" character has special meaning within the Linux container used to run Python apps.
 
-* `<sku-name>` &rarr; The name of the pricing tier and compute configuration, for example "B_Gen5_1". Follow the convention {pricing tier}{compute generation}{vCores} set create this variable. For more information, see [Azure Database for PostgreSQL pricing][24]. To list available SKUs, use `az postgres flexible-server list-skus --location <location>`.
+* `<sku-name>` &rarr; The name of the pricing tier and compute configuration, for example "Standard_D2s_v3". For more information, see [Azure Database for PostgreSQL pricing][24]. To list available SKUs, use `az postgres flexible-server list-skus --location <location>`.
 
-* `<public-access>` &rarr; Specify twice. Once for your workstation address, which you can find from [WhatsMyIP][23]. And once with "0.0.0.0", which allows public access from any Azure service within Azure to this server.
+* `<public-access>` &rarr; Specify twice. Once for your workstation address, which you can find from [WhatsMyIP][23]. And once with "0.0.0.0-0.0.0.0", which allows public access from any Azure service within Azure to this server.
 
 The above command is for the Bash shell. For other shell types, change the line continuation characters as appropriate. For example, for PowerShell, use back tick ("\`").
 
