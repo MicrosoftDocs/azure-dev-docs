@@ -362,7 +362,7 @@ The sample code requires a PostgreSQL database to store data in. In the previous
 
 In your local environment, or anywhere you can use the PostgreSQL interactive terminal [psql](https://www.postgresql.org/docs/13/app-psql.html) such as the [Azure Cloud Shell](/azure/cloud-shell/overview), connect to the PostgreSQL database server to create the `restaurants_reviews` database.
 
-Start psql:
+**Step 1.** Start psql.
 
 ```bash
 psql --host=<postgres-instance-name>.postgres.database.azure.com \
@@ -373,7 +373,9 @@ psql --host=<postgres-instance-name>.postgres.database.azure.com \
 
 The command above will prompt you for the admin password. If you have trouble connecting, restart the database and try again. If you're connecting from your local environment, your IP address must be added to the firewall rule list for the database service.
 
-At the `postgres=>` prompt, create the database:
+**Step 2.** Create the database.
+
+At the `postgres=>` prompt type:
 
 ```sql
 CREATE DATABASE restaurants_reviews;
