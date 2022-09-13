@@ -226,7 +226,7 @@ Azure CLI commands can be run in the [Azure Cloud Shell][4] or on a workstation 
 
 :::row:::
     :::column span="2":::
-        **Step 1.** In the portal search at the top of the screen, search for "postgres" and select the **Azure Database for PostgreSQL flexible servers** service in the results.
+        **Step 1.** In [Azure portal](https://portal.azure.com/), search for "postgres" and select the **Azure Database for PostgreSQL flexible servers** service in the results.
     :::column-end:::
     :::column:::
         TBD
@@ -245,12 +245,12 @@ Azure CLI commands can be run in the [Azure Cloud Shell][4] or on a workstation 
         **Step 3.** Fill out the **Basics** form as follows:
 
         * **Resource group** &rarr; The resource group you created for the Azure Container Registry.
-        * **Server name** &rarr; Enter a name for the database server that's unique across all Azure (the database server's URL becomes `https://<server-name>.postgres.database.azure.com`). Allowed characters are `A`-`Z`, `0`-`9`, and `-`. For example: *postgres-db-\<unique-id>*.
+        * **Server name** &rarr; Enter a name for the database server that's unique across all Azure. The database server's URL becomes `https://<server-name>.postgres.database.azure.com`. Allowed characters are `A`-`Z`, `0`-`9`, and `-`. For example: *postgres-db-\<unique-id>*.
         * **Region** &rarr; The same region you used for the resource group.
         * **Admin username** &rarr; Use *demoadmin*.
         * **Password** and **Confirm password** &rarr; A password that you'll use later when connecting the container app to this database.
 
-        All other settings, leave as defaults. When done, select **Networking** to go to the networking page.
+        For all other settings, leave the defaults. When done, select **Networking** to go to the networking page.
 
     :::column-end:::
     :::column:::
@@ -265,7 +265,7 @@ Azure CLI commands can be run in the [Azure Cloud Shell][4] or on a workstation 
         * **Allow public access from any Azure service** &rarr; Select the checkbox, that is, allow access. 
         * **Add current client IP address** &rarr; Select (add) if you plan on accessing the database from your local server.
 
-        All other settings, leave as defaults. Select **Review + Create**.
+        For all other settings, leave the defaults. Select **Review + Create** to continue.
 
     :::column-end:::
     :::column:::
@@ -431,13 +431,16 @@ CREATE DATABASE restaurants_reviews;
 
 The semicolon (";") at the end of the command is necessary. To verify that the `restaurants_reviews` database was successfully created, use the command `\c restaurants_reviews` to change the prompt from `postgres=>` (default) to the `restaurant->`. Type `\?` to show help or `\q` to quit.
 
-You can also create a database using [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio) or any other IDE, and Visual Studio Code with the [Azure Tools extension pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack) installed.
+You can also connect to the PostgreSQL server and create a database using [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio) or any other IDE that supports PostgreSQL.
 
 ### [VS Code](#tab/create-database-vscode-aztools)
 
-After the firewall rule allowing local access has been successfully added, you can create the `restaurants_reviews` database.
+To follow these steps, install the [Azure Databases extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb).
 
 **Step 1.** In the **Azure** extension, find the PostgreSQL Server you created, right-click it, and select **Create Database**.
+
+After adding a firewall rule allowing local access to the database server, you can create the `restaurants_reviews` database. If you can't add the database, 
+
 
 **Step 2.** At the prompt, enter *restaurants_reviews* as the **Database Name**.
 
