@@ -346,6 +346,17 @@ Azure CLI commands can be run in the [Azure Cloud Shell][4] or on a workstation 
         TBD
     :::column-end:::
 :::row-end:::
+:::row:::
+    :::column span="2":::
+        **Step 4.** Add a rule to allow your web app to access the PostgreSQL Flexible server.
+
+        You also need to configure the database server's firewall to accept connections from all Azure resources. To complete this step in VS Code, open an [Azure Cloud Shell][25] in VS Code, or go to [Azure Cloud Shell][4] and follow the Azure CLI instructions. Or, use the Azure portal instructions.
+        
+    :::column-end:::
+    :::column:::
+        TBD
+    :::column-end:::
+:::row-end:::
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -361,7 +372,7 @@ az postgres flexible-server create \
    --admin-user <admin-user-name> \
    --admin-password <admin-password> \
    --sku-name Standard_D48s_v3 \
-   --public-access 0.0.0.0 \
+   --public-access 0.0.0.0-0.0.0.0 \
    --public-access <your-workstation-ip>
 ```
 
@@ -748,4 +759,5 @@ These steps require the [Azure Container Apps extension][11] for VS Code.
 [21]: https://git-scm.com/docs/git-clone
 [22]: /cli/azure/postgres/flexible-server#az-postgres-flexible-server-create
 [23]: https://www.whatsmyip.org/
-[24]: https://azure.microsoft.com/pricing/details/postgresql/server/
+[24]: https://azure.microsoft.com/pricing/details/postgresql/flexible-server/
+[25]: https://techcommunity.microsoft.com/t5/itops-talk-blog/how-to-use-cloud-shell-in-visual-studio-code/ba-p/663431
