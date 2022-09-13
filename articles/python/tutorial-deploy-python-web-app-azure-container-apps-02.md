@@ -354,29 +354,27 @@ Run `az login` to sign in to  and follow these steps to create your Azure Databa
 **Step 1.** Run the [az postgres server create](/cli/azure/postgres/server#az-postgres-server-create) command to create the PostgreSQL server and database in Azure using the values below. It is not uncommon for this command to run for a few minutes to complete.
 
 ```azurecli
-RESOURCE_GROUP_NAME='msdocs-web-app-rg'
-DB_SERVER_NAME='postgres-db-<unique-id>'
-LOCATION='eastus'
-
 az postgres server create \
-   --resource-group $RESOURCE_GROUP_NAME \
-   --name $DB_SERVER_NAME  \
-   --location $LOCATION \
+   --resource-group <resource-group-name> \
+   --name <postgres-name>  \
+   --location <location> \
    --admin-user <admin-user-name> \
    --admin-password <admin-password> \
    --sku-name B_Gen5_1
 ```
 
-* *resource-group* &rarr; Use the same resource group name in which you created the web app, for example `msdocs-web-app-rg`.
-* *name* &rarr; The PostgreSQL database server name. This name must be **unique across all Azure**. The server endpoint is `https://<server-name>.postgres.database.azure.com`). Allowed characters are `A`-`Z`, `0`-`9`, and `-`. For example, use "my-postgres-db-\<unique-id>".)
-* *location* &rarr; Use the same location used for the web app. Change the location in the command above for your deployment.
-* *admin-user* &rarr; Username for the administrator account. It can't be `azure_superuser`, `admin`, `administrator`, `root`, `guest`, or `public`. For example, `demoadmin` is okay.
-* *admin-password* Password of the administrator user. It must contain 8 to 128 characters from three of the following categories: English uppercase letters, English lowercase letters, numbers, and non-alphanumeric characters.
+* `\<resource-group>` &rarr; Use the same resource group name in which you created the web app, for example `msdocs-web-app-rg`.
+* `\<progres-name>` &rarr; The PostgreSQL database server name. This name must be **unique across all Azure**. The server endpoint is `https://<server-name>.postgres.database.azure.com`). Allowed characters are `A`-`Z`, `0`-`9`, and `-`. For example, use "my-postgres-db-\<unique-id>".)
+* `\<location>` &rarr; Use the same location used for the web app. Change the location in the command above for your deployment.
+* `\<admin-user-name>` &rarr; Username for the administrator account. It can't be `azure_superuser`, `admin`, `administrator`, `root`, `guest`, or `public`. Use `demoadmin` for this tutorial.
+* `\<admin-password>` Password of the administrator user. It must contain 8 to 128 characters from three of the following categories: English uppercase letters, English lowercase letters, numbers, and non-alphanumeric characters.
 
     > [!IMPORTANT]
     > When creating usernames or passwords **do not** use the `$` character. Later you create environment variables with these values where the `$` character has special meaning within the Linux container used to run Python apps.
 
 * *sku-name* &rarr; The name of the pricing tier and compute configuration, for example `B_Gen5_1`. Follow the convention {pricing tier}{compute generation}{vCores} set create this variable. For more information, see [Azure Database for PostgreSQL pricing](https://azure.microsoft.com/pricing/details/postgresql/server/). To list available SKUs, use `az postgres server list-skus --location`.
+
+The above command is is for the Bash shell. For other shell types changes the line continuation characters as appropriate. For example, for PowerShell, use back tick ('\`').
 
 ---
 
@@ -388,7 +386,7 @@ The sample code requires a PostgreSQL database to store data in. In the previous
 
 In your local environment, or anywhere you can use the PostgreSQL interactive terminal [psql][15] such as the [Azure Cloud Shell][4], connect to the PostgreSQL database server to create the `restaurants_reviews` database.
 
-**Step 1.** Start psql.
+**Step 1.** Connect to the database with psql.
 
 ```bash
 psql --host=<postgres-instance-name>.postgres.database.azure.com \
@@ -398,6 +396,20 @@ psql --host=<postgres-instance-name>.postgres.database.azure.com \
 ```
 
 The command above will prompt you for the admin password. If you have trouble connecting, restart the database and try again. If you're connecting from your local environment, your IP address must be added to the firewall rule list for the database service.
+
+### [Azure CLI](#tab/create-database-azure-cli)
+
+You can use the Azure CLI anywhere it is installed, including the Azure [Cloud Shell][4]. It's usually easier to use in the Cloud Shell because all the dependencies are included for you in the shell.
+
+**Step 1.** Use the [az posgres flexible-server connect][16] command to connect to the database.
+
+```sql
+az postgres flexible-server connect -n <postgres-instance-name> -u demoadmin -d postgres --interactive`
+```
+
+If asked to install the rdbms-connect extension, install it. The connect command will prompt you for a password.
+
+---
 
 **Step 2.** Create the database.
 
@@ -410,30 +422,6 @@ CREATE DATABASE restaurants_reviews;
 The semicolon (";") at the end of the command is necessary. To verify that the `restaurants_reviews` database was successfully created, use the command `\c restaurants_reviews` to change the prompt from `postgres=>` (default) to the `restaurants_reviews->`. Type `\?` to show help or `\q` to quit.
 
 You can also connect to the PostgreSQL server and create a database using [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio) or any other IDE that supports PostgreSQL.
-
-### [Azure CLI](#tab/create-database-azure-cli)
-
-You can use the Azure CLI anywhere it is installed, including the Azure [Cloud Shell][4]. It's usually easier to use in the Cloud Shell because all the dependencies are included for you in the shell.
-
-**Step 1.** Use the [az posgres flexible-server connect][16] command to connect to the database.
-
-```sql
-az postgres flexible-server connect -n <postgres-instance-name> -u demoadmin -d postgres --interactive`
-```
-
-If asked to install the rdbms-connect extension, install it. The connect command will prompte you for a password.
-
-**Step 2.** Create the database.
-
-At the `postgres=>` prompt type:
-
-```sql
-CREATE DATABASE restaurants_reviews;
-```
-
-The semicolon (";") at the end of the command is necessary. To verify that the `restaurants_reviews` database was successfully created, use the command `\c restaurants_reviews` to change the prompt from `postgres=>` (default) to the `restaurants_reviews->`. Type `\?` to show help or `\q` to quit.
-
----
 
 ## Deploy web app to Container Apps
 
