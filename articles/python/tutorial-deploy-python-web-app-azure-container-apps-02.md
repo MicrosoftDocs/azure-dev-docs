@@ -374,7 +374,9 @@ az postgres flexible-server create \
     > [!IMPORTANT]
     > When creating usernames or passwords **do not** use the "$" character. Later you create environment variables with these values where the "$" character has special meaning within the Linux container used to run Python apps.
 
-* `<sku-name>` &rarr; The name of the pricing tier and compute configuration, for example "B_Gen5_1". Follow the convention {pricing tier}{compute generation}{vCores} set create this variable. For more information, see [Azure Database for PostgreSQL pricing](https://azure.microsoft.com/pricing/details/postgresql/server/). To list available SKUs, use `az postgres flexible-server list-skus --location <location>`.
+* `<sku-name>` &rarr; The name of the pricing tier and compute configuration, for example "B_Gen5_1". Follow the convention {pricing tier}{compute generation}{vCores} set create this variable. For more information, see [Azure Database for PostgreSQL pricing][24]. To list available SKUs, use `az postgres flexible-server list-skus --location <location>`.
+
+* `<public-access>` &rarr; Specify twice. Once for your workstation address, which you can find from [WhatsMyIP][23]. And once with "0.0.0.0", which allows public access from any Azure service within Azure to this server.
 
 The above command is for the Bash shell. For other shell types, change the line continuation characters as appropriate. For example, for PowerShell, use back tick ("\`").
 
@@ -745,3 +747,5 @@ These steps require the [Azure Container Apps extension][11] for VS Code.
 [20]: /cli/azure/acr/repository#az-acr-repository-list
 [21]: https://git-scm.com/docs/git-clone
 [22]: /cli/azure/postgres/flexible-server#az-postgres-flexible-server-create
+[23]: https://www.whatsmyip.org/
+[24]: https://azure.microsoft.com/pricing/details/postgresql/server/
