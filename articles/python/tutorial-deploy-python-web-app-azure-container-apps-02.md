@@ -351,7 +351,7 @@ Azure CLI commands can be run in the [Azure Cloud Shell][4] or on a workstation 
 
 Run `az login` to sign in to  and follow these steps to create your Azure Database for PostgreSQL resource.
 
-**Step 1.** Run the [az postgres server create](/cli/azure/postgres/server#az-postgres-server-create) command to create the PostgreSQL server and database in Azure using the values below. It is not uncommon for this command to run for a few minutes to complete.
+**Step 1.** Run the [az postgres server create](/cli/azure/postgres/server#az-postgres-server-create) command to create the PostgreSQL server and database in Azure using the values below. It isn't uncommon for this command to run for a few minutes to complete.
 
 ```azurecli
 az postgres server create \
@@ -374,7 +374,7 @@ az postgres server create \
 
 * *sku-name* &rarr; The name of the pricing tier and compute configuration, for example `B_Gen5_1`. Follow the convention {pricing tier}{compute generation}{vCores} set create this variable. For more information, see [Azure Database for PostgreSQL pricing](https://azure.microsoft.com/pricing/details/postgresql/server/). To list available SKUs, use `az postgres server list-skus --location`.
 
-The above command is is for the Bash shell. For other shell types changes the line continuation characters as appropriate. For example, for PowerShell, use back tick ('\`').
+The above command is for the Bash shell. For other shell types, change the line continuation characters as appropriate. For example, for PowerShell, use back tick ('\`').
 
 ---
 
@@ -399,7 +399,7 @@ The command above will prompt you for the admin password. If you have trouble co
 
 ### [Azure CLI](#tab/create-database-azure-cli)
 
-You can use the Azure CLI anywhere it is installed, including the Azure [Cloud Shell][4]. It's usually easier to use in the Cloud Shell because all the dependencies are included for you in the shell.
+You can use the Azure CLI anywhere it's installed, including the Azure [Cloud Shell][4]. It's easier to use in the Cloud Shell because all the dependencies are included for you in the shell.
 
 **Step 1.** Use the [az posgres flexible-server connect][16] command to connect to the database.
 
@@ -715,7 +715,7 @@ These steps require the [Azure Container Apps extension][11] for VS Code.
 
 * Website returns "Bad Request (400)".
   * Check the PostgreSQL environment variables passed in to the container. This error often indicates that the Python code can't connect to the PostgreSQL instance.
-  * Check that there's a container environment variable `RUNNING_IN_PRODUCTION` and it is set to 1.
+  * Check that there's a container environment variable `RUNNING_IN_PRODUCTION` and it's set to 1.
 
 * Website returns "Not Found (404)".
   * Check the **Application Url** on the **Overview** page for the container. If the Application Url contains the word "internal", then ingress isn't set correctly.
