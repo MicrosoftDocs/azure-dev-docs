@@ -21,13 +21,11 @@ The service diagram shown below highlights the components covered in this articl
 
 ## Get the sample app
 
-Go to the repository of the sample app ([Django][1] or [Flask][2]) and fork the repository.
+**Step 1.** Go to the repository of the sample app ([Django][1] or [Flask][2]) and select **Fork**.
 
-**Step 1.** Select the Fork button at the top of the sample app repo to fork the repo to your account.
+Follow the steps to fork the directory to your GitHub account. You can also download the code repo to your local machine without forking. However, you won't be able to set up CI/CD discussed later in the tutorial.
 
-**Step 2.** Now you can clone your fork of the sample repository.
-
-**Step 3.** Use the following git command to clone your forked repo into the *python-code-to-cloud* folder:
+**Step 2.** Use the [git clone][21] command to clone the forked repo into the *python-code-to-cloud* folder:
 
 ```bash
 # Django
@@ -37,7 +35,7 @@ git clone https://github.com/$GITHUB_USERNAME/msdocs-python-django-azure-contain
 # git clone https://github.com/$GITHUB_USERNAME/msdocs-python-flask-azure-container-app.git python-code-to-cloud
 ```
 
-**Step 4.** Change directory:
+**Step 3.** Change directory.
 
 ```bash
 cd python-code-to-cloud
@@ -741,3 +739,4 @@ These steps require the [Azure Container Apps extension][11] for VS Code.
 [18]: /cli/azure/acr#az-acr-create
 [19]: /cli/azure/acr#az-acr-login
 [20]: /cli/azure/acr/repository#az-acr-repository-list
+[21]: https://git-scm.com/docs/git-clone
