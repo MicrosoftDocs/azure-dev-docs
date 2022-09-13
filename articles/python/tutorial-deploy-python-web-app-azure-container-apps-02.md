@@ -220,7 +220,7 @@ Azure CLI commands can be run in the [Azure Cloud Shell][4] or on a workstation 
 
 ---
 
-## Create a PostgreSQL Flexible Server
+## Create a PostgreSQL Flexible Server instance
 
 ### [Azure portal](#tab/azure-portal)
 
@@ -378,9 +378,9 @@ The above command is is for the Bash shell. For other shell types changes the li
 
 ---
 
-## Create a database
+## Create a database on the server
 
-The sample code requires a PostgreSQL database to store data in. In the previous step, you created a PostgreSQL database instance. In this step, you'll add the "restaurants_reviews" database.
+The sample code requires a PostgreSQL database to store data in. In the previous step, you created a PostgreSQL database instance.
 
 ### [psql](#tab/create-database-psql)
 
