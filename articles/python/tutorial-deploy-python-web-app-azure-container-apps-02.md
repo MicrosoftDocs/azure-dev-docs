@@ -408,7 +408,7 @@ The sample code requires a PostgreSQL database to store data in. In the previous
 
 ### [psql](#tab/create-database-psql)
 
-In your local environment, or anywhere you can use the PostgreSQL interactive terminal [psql](https://www.postgresql.org/docs/13/app-psql.html) such as the [Azure Cloud Shell](/azure/cloud-shell/overview), connect to the PostgreSQL database server to create the `restaurants_reviews` database.
+In your local environment, or anywhere you can use the PostgreSQL interactive terminal [psql][15] such as the [Azure Cloud Shell][4], connect to the PostgreSQL database server to create the `restaurants_reviews` database.
 
 **Step 1.** Start psql.
 
@@ -429,22 +429,31 @@ At the `postgres=>` prompt type:
 CREATE DATABASE restaurants_reviews;
 ```
 
-The semicolon (";") at the end of the command is necessary. To verify that the `restaurants_reviews` database was successfully created, use the command `\c restaurants_reviews` to change the prompt from `postgres=>` (default) to the `restaurant->`. Type `\?` to show help or `\q` to quit.
+The semicolon (";") at the end of the command is necessary. To verify that the `restaurants_reviews` database was successfully created, use the command `\c restaurants_reviews` to change the prompt from `postgres=>` (default) to the `restaurants_reviews->`. Type `\?` to show help or `\q` to quit.
 
 You can also connect to the PostgreSQL server and create a database using [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio) or any other IDE that supports PostgreSQL.
 
-### [VS Code](#tab/create-database-vscode-aztools)
+### [Azure CLI](#tab/create-database-azure-cli)
 
-To follow these steps, install the [Azure Databases extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb).
+You can use the Azure CLI anywhere it is installed, including the Azure [Cloud Shell][4]. It's usually easier to use in the Cloud Shell because all the dependencies are included for you in the shell.
 
-**Step 1.** In the **Azure** extension, find the PostgreSQL Server you created, right-click it, and select **Create Database**.
+**Step 1.** Use the [az posgres flexible-server connect][16] command to connect to the database.
 
-After adding a firewall rule allowing local access to the database server, you can create the `restaurants_reviews` database. If you can't add the database, 
+```sql
+az postgres flexible-server connect -n <postgres-instance-name> -u demoadmin -d postgres --interactive`
+```
 
+If asked to install the rdbms-connect extension, install it. The connect command will prompte you for a password.
 
-**Step 2.** At the prompt, enter *restaurants_reviews* as the **Database Name**.
+**Step 2.** Create the database.
 
-If you have trouble creating the database, the server may still be processing the firewall rule from the previous step. Wait a moment and try again.
+At the `postgres=>` prompt type:
+
+```sql
+CREATE DATABASE restaurants_reviews;
+```
+
+The semicolon (";") at the end of the command is necessary. To verify that the `restaurants_reviews` database was successfully created, use the command `\c restaurants_reviews` to change the prompt from `postgres=>` (default) to the `restaurants_reviews->`. Type `\?` to show help or `\q` to quit.
 
 ---
 
@@ -760,4 +769,5 @@ These steps require the [Azure Container Apps extension][11] for VS Code.
 [12]: /cli/azure/containerapp#az-containerapp-create
 [13]: /cli/azure/containerapp/env#az-containerapp-env-create
 [14]: /cli/azure/extension#az-extension-add
-[15]: /cli/azure/containerapp#az-containerapp-up
+[15]: https://www.postgresql.org/docs/13/app-psql.html
+[16]: /cli/azure/postgres/flexible-server#az-postgres-flexible-server-connect
