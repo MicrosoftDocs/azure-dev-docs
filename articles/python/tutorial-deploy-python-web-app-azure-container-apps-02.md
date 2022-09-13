@@ -161,7 +161,7 @@ Azure CLI commands can be run in the [Azure Cloud Shell][4] or on a workstation 
 
 :::row:::
     :::column span="1":::
-        **Step 1.** Create a resource group with the [az group create](/cli/azure/group#az-group-create) command.
+        **Step 1.** Create a resource group with the [az group create][17] command.
 
         ```azurecli
         az group create -n pythoncontainer-rg -l <location>
@@ -172,7 +172,7 @@ Azure CLI commands can be run in the [Azure Cloud Shell][4] or on a workstation 
 :::row-end:::
 :::row:::
     :::column span="1":::
-        **Step 2.** Create a container registry with the [az acr create](/cli/azure/acr#az-acr-create) command.
+        **Step 2.** Create a container registry with the [az acr create][18] command.
 
         ```azurecli
         az acr create -g pythoncontainer-rg -n <registry-name> --sku Basic --admin-enabled
@@ -184,7 +184,7 @@ Azure CLI commands can be run in the [Azure Cloud Shell][4] or on a workstation 
 :::row-end:::
 :::row:::
     :::column span="1":::
-        **Step 3.** Sign in to the registry using the [az acr login](/cli/azure/acr#az-acr-login) command.
+        **Step 3.** Sign in to the registry using the [az acr login][19] command.
 
         ```azurecli
         az acr login -n <registry-name>
@@ -195,7 +195,7 @@ Azure CLI commands can be run in the [Azure Cloud Shell][4] or on a workstation 
 :::row-end:::
 :::row:::
     :::column span="1":::
-        **Step 4.** Build the image with the [az acr build](/cli/azure/acr#az-acr-build) command.
+        **Step 4.** Build the image with the [az acr build][5] command.
 
         ```azurecli
         az acr build -r <registry-name> -g <res-group> -t pythoncontainer:latest .
@@ -210,7 +210,7 @@ Azure CLI commands can be run in the [Azure Cloud Shell][4] or on a workstation 
 :::row-end:::
 :::row:::
     :::column span="1":::
-        **Step 5.** Confirm the container image was created with the [az acr repository list](/cli/azure/acr/repository#az-acr-repository-list) command.
+        **Step 5.** Confirm the container image was created with the [az acr repository list][20] command.
 
         ```azurecli
         az acr repository list -n <registry-name>
@@ -226,7 +226,7 @@ Azure CLI commands can be run in the [Azure Cloud Shell][4] or on a workstation 
 
 :::row:::
     :::column span="2":::
-        **Step 1.** In [Azure portal](https://portal.azure.com/), search for "postgres" and select the **Azure Database for PostgreSQL flexible servers** service in the results.
+        **Step 1.** In [Azure portal][3], search for "postgres" and select the **Azure Database for PostgreSQL flexible servers** service in the results.
     :::column-end:::
     :::column:::
         TBD
@@ -737,3 +737,7 @@ These steps require the [Azure Container Apps extension][11] for VS Code.
 [14]: /cli/azure/extension#az-extension-add
 [15]: https://www.postgresql.org/docs/13/app-psql.html
 [16]: /cli/azure/postgres/flexible-server#az-postgres-flexible-server-connect
+[17]: /cli/azure/group#az-group-create
+[18]: /cli/azure/acr#az-acr-create
+[19]: /cli/azure/acr#az-acr-login
+[20]: /cli/azure/acr/repository#az-acr-repository-list
