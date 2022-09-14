@@ -164,7 +164,9 @@ Azure CLI commands can be run in the [Azure Cloud Shell][4] or on a workstation 
         **Step 1.** Create a resource group with the [az group create][17] command.
 
         ```azurecli
-        az group create -n pythoncontainer-rg -l <location>
+        az group create \
+           --name pythoncontainer-rg \
+           --location <location>
         ```
 
         *\<location>* is one of the Azure location *Name* values from the output of the command `az account list-locations -o table`.
@@ -175,7 +177,11 @@ Azure CLI commands can be run in the [Azure Cloud Shell][4] or on a workstation 
         **Step 2.** Create a container registry with the [az acr create][18] command.
 
         ```azurecli
-        az acr create -g pythoncontainer-rg -n <registry-name> --sku Basic --admin-enabled
+        az acr create \
+           --resource-group pythoncontainer-rg \
+           --name <registry-name> \
+           --sku Basic \
+           --admin-enabled
         ```
 
         *\<registry-name>* must be unique within Azure, and contain 5-50 alphanumeric characters.
@@ -187,7 +193,7 @@ Azure CLI commands can be run in the [Azure Cloud Shell][4] or on a workstation 
         **Step 3.** Sign in to the registry using the [az acr login][19] command.
 
         ```azurecli
-        az acr login -n <registry-name>
+        az acr login --name <registry-name>
         ```
         
         The above command adds "azurecr.io" to the name to create the fully qualified registry name. If successful, you'll see the message "Login Succeeded". If you're accessing the registry from a subscription different from the one in which the registry was created, use the `--suffix` switch.
@@ -198,7 +204,10 @@ Azure CLI commands can be run in the [Azure Cloud Shell][4] or on a workstation 
         **Step 4.** Build the image with the [az acr build][5] command.
 
         ```azurecli
-        az acr build -r <registry-name> -g <res-group> -t pythoncontainer:latest .
+        az acr build \
+           --registry <registry-name> \
+           --resource-group <res-group> \
+           --image pythoncontainer:latest .
         ```
         
         Note:
@@ -213,7 +222,7 @@ Azure CLI commands can be run in the [Azure Cloud Shell][4] or on a workstation 
         **Step 5.** Confirm the container image was created with the [az acr repository list][20] command.
 
         ```azurecli
-        az acr repository list -n <registry-name>
+        az acr repository list --name <registry-name>
         ```
         :::column-end:::
 :::row-end:::
@@ -368,7 +377,7 @@ az postgres flexible-server create \
    --location <location> \
    --admin-user <admin-user-name> \
    --admin-password <admin-password> \
-   --sku-name Standard_D48s_v3 \
+   --sku-name Standard_D2s_v3 \
    --public-access 0.0.0.0 
 ```
 
@@ -438,10 +447,13 @@ You can use the Azure CLI anywhere it's installed, including the Azure [Cloud Sh
 **Step 1** Use the [az postgres flexible-server db create][27] command to create a "restaurants_reviews" database.
 
 ```azurecli
-az postgres flexible-server db create -g <res-group> -s <postgres-instance-name> -d restaurants_reviews
+az postgres flexible-server db create \
+   --resource-group <res-group> \
+   --server-name <postgres-instance-name> \
+   --database-name restaurants_reviews
 ```
 
-Sepecify
+Where:
 
 * `<res-group>` &rarr; The name of the resource group that contains the PostgreSQL server.
 * `<postgres-instance-name>` &rarr; The name of the PostgreSQL server.
