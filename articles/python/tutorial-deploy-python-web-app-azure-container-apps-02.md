@@ -409,6 +409,16 @@ psql --host=<postgres-instance-name>.postgres.database.azure.com \
 
 The command above will prompt you for the admin password. If you have trouble connecting, restart the database and try again. If you're connecting from your local environment, your IP address must be added to the firewall rule list for the database service.
 
+**Step 2.** Create the database.
+
+At the `postgres=>` prompt type:
+
+```sql
+CREATE DATABASE restaurants_reviews;
+```
+
+The semicolon (";") at the end of the command is necessary. To verify that the `restaurants_reviews` database was successfully created, use the command `\c restaurants_reviews` to change the prompt from `postgres=>` (default) to the `restaurants_reviews->`. Type `\?` to show help or `\q` to quit.
+
 ### [VS Code](#tab/create-database-vscode-aztools)
 
 To follow these steps, install the [Azure Databases extension][26].
@@ -421,27 +431,22 @@ If you have trouble creating the database, the server may still be processing th
 
 ### [Azure CLI](#tab/create-database-azure-cli)
 
-You can use the Azure CLI anywhere it's installed, including the Azure [Cloud Shell][4]. It's easier to use in the Cloud Shell because all the dependencies are included for you in the shell.
+You can use the Azure CLI anywhere it's installed, including the Azure [Cloud Shell][4].
 
-**Step 1.** Use the [az posgres flexible-server connect][16] command to connect to the database.
+**Step 1** Use the [az postgres flexible-server db create][27] command to create a "restaurants_reviews" database.
 
-```sql
-az postgres flexible-server connect -n <postgres-instance-name> -u demoadmin -d postgres --interactive`
+```azurecli
+az postgres flexible-server db create -g <res-group> -s <postgres-instance-name> -d restaurants_reviews
 ```
 
-If asked to install the rdbms-connect extension, install it. The connect command will prompt you for a password.
+Sepecify
+
+* `<res-group>` &rarr; The name of the resource group that contains the PostgreSQL server.
+* `<postgres-instance-name> &rarr; The name of the PostgreSQL server.
+
+You could also use the [az postgres flexible-server connect][16] command to connect to the database and then work with [psl][15] commands. If you do this, we recommend using the Azure [Cloud Shell][4] because all the dependencies are included for you in the shell.
 
 ---
-
-**Step 2.** Create the database.
-
-At the `postgres=>` prompt type:
-
-```sql
-CREATE DATABASE restaurants_reviews;
-```
-
-The semicolon (";") at the end of the command is necessary. To verify that the `restaurants_reviews` database was successfully created, use the command `\c restaurants_reviews` to change the prompt from `postgres=>` (default) to the `restaurants_reviews->`. Type `\?` to show help or `\q` to quit.
 
 You can also connect to the PostgreSQL server and create a database using [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio) or any other IDE that supports PostgreSQL.
 
@@ -769,3 +774,4 @@ These steps require the [Azure Container Apps extension][11] for VS Code.
 [24]: https://azure.microsoft.com/pricing/details/postgresql/flexible-server/
 [25]: https://techcommunity.microsoft.com/t5/itops-talk-blog/how-to-use-cloud-shell-in-visual-studio-code/ba-p/663431
 [26]: https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb
+[27]: /cli/azure/postgres/flexible-server/db#az-postgres-flexible-server-db-create
