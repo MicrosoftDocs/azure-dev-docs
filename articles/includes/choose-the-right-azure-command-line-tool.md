@@ -88,7 +88,7 @@ Azure CLI syntax is similar to that of Bash scripting. If you work primarily wit
 Azure PowerShell is a PowerShell module. If you work primarily with Windows systems, Azure PowerShell is a natural fit. Commands follow a verb-noun naming scheme and
 data is returned as objects.
 
-Choose the tool that uses your experience and shortens your learning curve. Take advantage of [Microsoft learning](/learn/paths/manage-resources-in-azure) to become proficient at managing Azure at the command line.
+Choose the tool that uses your experience and shortens your learning curve. Take advantage of [Microsoft learning](/training/paths/manage-resources-in-azure) to become proficient at managing Azure at the command line.
 
 With that said, being open-minded will only improve your abilities. Use a different tool when it makes sense.
 

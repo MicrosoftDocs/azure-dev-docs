@@ -31,7 +31,7 @@ The sample Python app code doesn't change between the local development and Azur
 To complete this tutorial, you'll need:
 
 * An Azure account with an active subscription. If you don't have an Azure account, you [can create one for free](https://azure.microsoft.com/free/python).
-* Knowledge of Python with [Flask development](https://flask.palletsprojects.com/en/2.1.x/) or [Django development](/learn/paths/django-create-data-driven-websites/).
+* Knowledge of Python with [Flask development](https://flask.palletsprojects.com/en/2.1.x/) or [Django development](/training/paths/django-create-data-driven-websites/).
 * [Python 3.9](https://www.python.org/downloads/) installed locally.
 * [Azure Identity client library for Python](https://pypi.org/project/azure-identity/)and [Azure Blob Storage Client Library for Python](https://pypi.org/project/azure-storage-blob/).
 * Optionally, [PostgreSQL](https://www.postgresql.org/download/) installed locally.
