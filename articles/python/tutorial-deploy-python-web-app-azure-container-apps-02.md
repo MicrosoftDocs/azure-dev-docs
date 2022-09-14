@@ -21,7 +21,7 @@ The service diagram shown below highlights the components covered in this articl
 
 ## Get the sample app
 
-You can fork and clone the sample code to your developer environment. You can also download the code repo to your local machine without forking. However, you won't be able to set up CI/CD discussed later in the tutorial. 
+You can fork and clone the sample code to your developer environment. You can also download the code repo to your local machine without forking. However, you won't be able to set up CI/CD discussed later in the tutorial.
 
 To fork and clone do the following:
 
