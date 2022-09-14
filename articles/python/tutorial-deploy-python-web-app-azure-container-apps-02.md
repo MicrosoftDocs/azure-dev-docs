@@ -396,7 +396,7 @@ The sample code requires a PostgreSQL database to store data in. In the previous
 
 ### [psql](#tab/create-database-psql)
 
-In your local environment, or anywhere you can use the PostgreSQL interactive terminal [psql][15] such as the [Azure Cloud Shell][4], connect to the PostgreSQL database server to create the `restaurants_reviews` database.
+You can use the PostgreSQL interactive terminal [psql][15] in your local environment, or in the [Azure Cloud Shell][4] accessible in the Azure portal[3]. In these steps, you'll connect to the PostgreSQL database server to create the `restaurants_reviews` database.
 
 **Step 1.** Connect to the database with psql.
 
@@ -408,6 +408,16 @@ psql --host=<postgres-instance-name>.postgres.database.azure.com \
 ```
 
 The command above will prompt you for the admin password. If you have trouble connecting, restart the database and try again. If you're connecting from your local environment, your IP address must be added to the firewall rule list for the database service.
+
+### [VS Code](#tab/create-database-vscode-aztools)
+
+To follow these steps, install the [Azure Databases extension][26].
+
+**Step 1.** In the **Azure** extension, find the PostgreSQL Server you created, right-click it, and select **Create Database**.
+
+**Step 2.** At the prompt, enter *restaurants_reviews* as the **Database Name**.
+
+If you have trouble creating the database, the server may still be processing the firewall rule from the previous step. Wait a moment and try again. If you are prompted to enter credentials to access the database, use the "demoadmin" and password you used to create the database.
 
 ### [Azure CLI](#tab/create-database-azure-cli)
 
@@ -758,3 +768,4 @@ These steps require the [Azure Container Apps extension][11] for VS Code.
 [23]: https://www.whatsmyip.org/
 [24]: https://azure.microsoft.com/pricing/details/postgresql/flexible-server/
 [25]: https://techcommunity.microsoft.com/t5/itops-talk-blog/how-to-use-cloud-shell-in-visual-studio-code/ba-p/663431
+[26]: https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb
