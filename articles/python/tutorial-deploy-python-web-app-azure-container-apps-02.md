@@ -359,7 +359,7 @@ Azure CLI commands can be run in the [Azure Cloud Shell][4] or on a workstation 
 
 Run `az login` to sign in to  and follow these steps to create your Azure Database for PostgreSQL resource.
 
-**Step 1.** Run the [az postgres flexible-server create][22] command to create the PostgreSQL server and database in Azure using the values below. It isn't uncommon for this command to run for a few minutes to complete.
+**Step 1.** Use the [az postgres flexible-server create][22] command to create the PostgreSQL server and database in Azure using the values below. It isn't uncommon for this command to run for a few minutes to complete.
 
 ```azurecli
 az postgres flexible-server create \
@@ -369,8 +369,7 @@ az postgres flexible-server create \
    --admin-user <admin-user-name> \
    --admin-password <admin-password> \
    --sku-name Standard_D48s_v3 \
-   --public-access 0.0.0.0-0.0.0.0 \
-   --public-access <your-workstation-ip>
+   --public-access 0.0.0.0 
 ```
 
 * `<res-group>` &rarr; Use the same resource group name in which you created the web app.
@@ -384,9 +383,12 @@ az postgres flexible-server create \
 
 * `<sku-name>` &rarr; The name of the pricing tier and compute configuration, for example "Standard_D2s_v3". For more information, see [Azure Database for PostgreSQL pricing][24]. To list available SKUs, use `az postgres flexible-server list-skus --location <location>`.
 
-* `<public-access>` &rarr; Specify twice. Once for your workstation address, which you can find from [WhatsMyIP][23]. And once with "0.0.0.0-0.0.0.0", which allows public access from any Azure service within Azure to this server.
+* `<public-access>` &rarr; Use "0.0.0.0", which allows public access to the server from any Azure service, such as Container Apps.
 
-The above command is for the Bash shell. For other shell types, change the line continuation characters as appropriate. For example, for PowerShell, use back tick ("\`").
+The above commands is shown with the Bash shell. For other shell types, change the line continuation characters as appropriate. For example, for PowerShell, use back tick ("\`").
+
+> [!NOTE]
+> If you plan on working the PostgreSQL server from your local workstation with tools other than Azure CLI, you'll need to add a firewall rule with the [az postgres flexible-server firewall-rule create][28] command.
 
 ---
 
@@ -775,3 +777,4 @@ These steps require the [Azure Container Apps extension][11] for VS Code.
 [25]: https://techcommunity.microsoft.com/t5/itops-talk-blog/how-to-use-cloud-shell-in-visual-studio-code/ba-p/663431
 [26]: https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb
 [27]: /cli/azure/postgres/flexible-server/db#az-postgres-flexible-server-db-create
+[28]: /cli/azure/postgres/flexible-server/firewall-rule#az-postgres-flexible-server-firewall-rule-create
