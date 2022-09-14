@@ -392,11 +392,11 @@ The above command is for the Bash shell. For other shell types, change the line 
 
 ## Create a database on the server
 
-The sample code requires a PostgreSQL database to store data in. In the previous step, you created a PostgreSQL database instance.
+The sample code requires a PostgreSQL database to store data in. In the previous step, you created a PostgreSQL database server. Next, you'll connect to the PostgreSQL database server to create the `restaurants_reviews` database.
 
 ### [psql](#tab/create-database-psql)
 
-You can use the PostgreSQL interactive terminal [psql][15] in your local environment, or in the [Azure Cloud Shell][4] accessible in the Azure portal[3]. In these steps, you'll connect to the PostgreSQL database server to create the `restaurants_reviews` database.
+You can use the PostgreSQL interactive terminal [psql][15] in your local environment, or in the [Azure Cloud Shell][4] accessible in the [Azure portal][3]. 
 
 **Step 1.** Connect to the database with psql.
 
@@ -442,7 +442,7 @@ az postgres flexible-server db create -g <res-group> -s <postgres-instance-name>
 Sepecify
 
 * `<res-group>` &rarr; The name of the resource group that contains the PostgreSQL server.
-* `<postgres-instance-name> &rarr; The name of the PostgreSQL server.
+* `<postgres-instance-name>` &rarr; The name of the PostgreSQL server.
 
 You could also use the [az postgres flexible-server connect][16] command to connect to the database and then work with [psl][15] commands. If you do this, we recommend using the Azure [Cloud Shell][4] because all the dependencies are included for you in the shell.
 
