@@ -756,9 +756,9 @@ These steps require the [Azure Container Apps extension][11] for VS Code.
   * This can happen when you select an existing registry to use.
   * If you see the message "Error: failed to download context. Please check if the URL is incorrect." in the **Output** window, then refresh the registry in the Docker extension. To refresh, select the Docker extension, go to the Registries section, find the registry and select it.
 
-* Image doesn't appear in the Azure Container Registry.
+* Container image doesn't appear in the Azure Container Registry.
   * Check the output of the Azure CLI command or VS Code Output and look for messages to confirm success.
-  * Check that the name of the registry was specified correctly in your build command with the Azure CLI or in the VS Code prompts.
+  * Check that the name of the registry was specified correctly in your build command with the Azure CLI or in the VS Code task prompts.
   * Make sure your credentials haven't expired. For example, in VS Code, find the target registry in the Docker extension and refresh. In Azure CLI, run `az login`.
 
 * Website returns "Bad Request (400)".
