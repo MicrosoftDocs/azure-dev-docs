@@ -56,7 +56,7 @@ After following these steps, you'll have an Azure Container Registry and a Docke
         **Step 1.** In the [Azure portal][3], search for "container registries" and select the **Container Registries** service in the results.
     :::column-end:::
     :::column:::
-        TBD
+        :::image type="content" source="media/tutorial-container-apps/azure-portal-build-image-01.png" alt-text="Screenshot showing how to search for container registries services in Azure portal." lightbox="media/tutorial-container-apps/azure-portal-build-image-01.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
