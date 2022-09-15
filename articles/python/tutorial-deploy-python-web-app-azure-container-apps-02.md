@@ -770,8 +770,7 @@ These steps require the [Azure Container Apps extension][11] for VS Code.
   * Check the ingress of the container. For example, in Azure portal, go to the **Ingress** resource of the container and make sure **HTTP Ingress** is enabled and **Accepting traffic from anywhere** is selected.
 
 * Website doesn't start or you see "stream timeout" or nothing is returned.
-  * In the Azure portal, go to the Container App's Revision management resource.
-  * Check the **Provision Status**.
+  * In the Azure portal, go to the Container App's Revision management resource and check the **Provision Status** of the container.
     * If "Provisioning", then wait until it has completed.
     * If "Failed", then select the revision and view the console logs. Choose the order of the columns to show "Time Generated", "Stream_s", and "Log_s". Sort the logs by most-recent first and look for Python *stderr* and *stdout* messages in the "Stream_s" column. Python 'print' output will be *stdout* messages.
 
