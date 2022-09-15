@@ -71,8 +71,8 @@ After following these steps, you'll have an Azure Container Registry and a Docke
     :::column span="2":::
         **Step 3.** Fill out the form and specify.
         * **Resource group** &rarr; Create a new one named *pythoncontainer-rg*.
-        * **Registry name** &rarr; The registry name must be unique within Azure, and contain 5-50 alphanumeric characters. 
-        * **Location** &rarr; Select a location to match. 
+        * **Registry name** &rarr; The registry name must be unique within Azure, and contain 5-50 alphanumeric characters.
+        * **Location** &rarr; Select a location. 
         * **SKU** &rarr; Select **Standard**.
 
         When finished, select **Review + create**. After  validation is complete, select **Create**.
@@ -98,7 +98,9 @@ After following these steps, you'll have an Azure Container Registry and a Docke
         Specify the registry name and resource group you created above. For `\<repo-path>`, choose either the [Django][1] or [Flask][2] repo path.
 
         ```azurecli
-        az acr build -r <registry-name> -g <res-group> -t pythoncontainer:latest <repo-path>
+        az acr build --registry <registry-name> \
+           --resource-group pythoncontainer-rg \ 
+           --image pythoncontainer:latest <repo-path>
         ```
 
         Go to the registry and confirm the image shows up.
