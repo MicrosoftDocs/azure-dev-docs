@@ -95,7 +95,7 @@ After following these steps, you'll have an Azure Container Registry and a Docke
     :::column span="1":::
         **Step 5.** Use the [az acr build][5] command to build the image from the repo.
 
-        Specify the registry name and resource group you created above. For `\<repo-path>`, choose either the [Django][1] or [Flask][2] repo path.
+        Specify the registry name and resource group you created above. For `<repo-path>`, choose either the [Django][1] or [Flask][2] repo path.
 
         ```azurecli
         az acr build --registry <registry-name> \
@@ -103,7 +103,7 @@ After following these steps, you'll have an Azure Container Registry and a Docke
            --image pythoncontainer:latest <repo-path>
         ```
 
-        Go to the registry and confirm the image shows up.
+        Go to the registry's **Repositories** resource and confirm the image shows up.
     :::column-end:::
 :::row-end:::
 
