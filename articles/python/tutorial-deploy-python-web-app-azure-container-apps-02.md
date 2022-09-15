@@ -64,7 +64,7 @@ After following these steps, you'll have an Azure Container Registry and a Docke
         **Step 2.** Select **+ Create** to start the create process.
     :::column-end:::
     :::column:::
-        TBD
+        :::image type="content" source="media/tutorial-container-apps/azure-portal-build-image-02.png" alt-text="Screenshot showing how to start creating a new Azure Container Registry in Azure portal." lightbox="media/tutorial-container-apps/azure-portal-build-image-02.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -78,7 +78,7 @@ After following these steps, you'll have an Azure Container Registry and a Docke
         When finished, select **Review + create**. After  validation is complete, select **Create**.
     :::column-end:::
     :::column:::
-        TBD
+        :::image type="content" source="media/tutorial-container-apps/azure-portal-build-image-03.png" alt-text="Screenshot showing how to start specify a new Azure Container Registry in Azure portal." lightbox="media/tutorial-container-apps/azure-portal-build-image-03.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -88,7 +88,7 @@ After following these steps, you'll have an Azure Container Registry and a Docke
         You can also open Azure Cloud Shell selecting the Cloud Shell icon in the top menu bar of any portal window.
     :::column-end:::
     :::column:::
-        TBD
+        :::image type="content" source="media/tutorial-container-apps/azure-portal-build-image-04.png" alt-text="Screenshot showing how to access Azure Cloud Shell in Azure portal." lightbox="media/tutorial-container-apps/azure-portal-build-image-04.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
