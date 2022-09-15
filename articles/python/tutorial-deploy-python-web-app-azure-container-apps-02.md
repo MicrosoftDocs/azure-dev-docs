@@ -771,10 +771,9 @@ These steps require the [Azure Container Apps extension][11] for VS Code.
 
 * Website doesn't start or you see "stream timeout" or nothing is returned.
   * In the Azure portal, go to the Container App's Revision management resource.
-  * Check the **Provision Status**. 
+  * Check the **Provision Status**.
     * If "Provisioning", then wait until it has completed.
-    * If "Failed", then select the revision and view the console logs. Sort the logs by most-recent first and look for Python stderr messages. Choose the order of the columns to show "Time Generated", "Stream_S", and "Log_s" to quickly spot problems.
-
+    * If "Failed", then select the revision and view the console logs. Choose the order of the columns to show "Time Generated", "Stream_s", and "Log_s". Sort the logs by most-recent first and look for Python *stderr* and *stdout* messages in the "Stream_s" column. Python 'print' output will be *stdout* messages.
 
 [1]: https://github.com/Azure-Samples/msdocs-python-django-azure-container-app
 [2]: https://github.com/Azure-Samples/msdocs-python-flask-azure-container-app
