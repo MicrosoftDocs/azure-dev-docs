@@ -97,7 +97,7 @@ After following these steps, you'll have an Azure Container Registry and a Docke
 
         Specify the registry name and resource group you created above. For `<repo-path>`, choose either the [Django][1] or [Flask][2] repo path.
 
-        ```azurecli
+        ```bash
         az acr build --registry <registry-name> \
            --resource-group pythoncontainer-rg \ 
            --image pythoncontainer:latest <repo-path>
@@ -165,7 +165,7 @@ Azure CLI commands can be run in the [Azure Cloud Shell][4] or on a workstation 
     :::column span="1":::
         **Step 1.** Create a resource group with the [az group create][17] command.
 
-        ```azurecli
+        ```bash        
         az group create \
            --name pythoncontainer-rg \
            --location <location>
@@ -178,7 +178,7 @@ Azure CLI commands can be run in the [Azure Cloud Shell][4] or on a workstation 
     :::column span="1":::
         **Step 2.** Create a container registry with the [az acr create][18] command.
 
-        ```azurecli
+        ```bash
         az acr create \
            --resource-group pythoncontainer-rg \
            --name <registry-name> \
@@ -194,7 +194,7 @@ Azure CLI commands can be run in the [Azure Cloud Shell][4] or on a workstation 
     :::column span="1":::
         **Step 3.** Sign in to the registry using the [az acr login][19] command.
 
-        ```azurecli
+        ```bash
         az acr login --name <registry-name>
         ```
         
@@ -205,7 +205,7 @@ Azure CLI commands can be run in the [Azure Cloud Shell][4] or on a workstation 
     :::column span="1":::
         **Step 4.** Build the image with the [az acr build][5] command.
 
-        ```azurecli
+        ```bash
         az acr build \
            --registry <registry-name> \
            --resource-group <res-group> \
@@ -223,7 +223,7 @@ Azure CLI commands can be run in the [Azure Cloud Shell][4] or on a workstation 
     :::column span="1":::
         **Step 5.** Confirm the container image was created with the [az acr repository list][20] command.
 
-        ```azurecli
+        ```bash
         az acr repository list --name <registry-name>
         ```
         :::column-end:::
