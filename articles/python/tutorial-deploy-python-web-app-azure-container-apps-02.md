@@ -769,6 +769,13 @@ These steps require the [Azure Container Apps extension][11] for VS Code.
   * Check the **Application Url** on the **Overview** page for the container. If the Application Url contains the word "internal", then ingress isn't set correctly.
   * Check the ingress of the container. For example, in Azure portal, go to the **Ingress** resource of the container and make sure **HTTP Ingress** is enabled and **Accepting traffic from anywhere** is selected.
 
+* Website doesn't start or you see "stream timeout" or nothing is returned.
+  * In the Azure portal, go to the Container App's Revision management resource.
+  * Check the **Provision Status**. 
+    * If "Provisioning", then wait until it has completed.
+    * If "Failed", then select the revision and view the console logs. Sort the logs by most-recent first and look for Python stderr messages. Choose the order of the columns to show "Time Generated", "Stream_S", and "Log_s" to quickly spot problems.
+
+
 [1]: https://github.com/Azure-Samples/msdocs-python-django-azure-container-app
 [2]: https://github.com/Azure-Samples/msdocs-python-flask-azure-container-app
 [3]: https://portal.azure.com/
