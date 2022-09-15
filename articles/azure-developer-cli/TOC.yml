@@ -5,6 +5,8 @@
     href: overview.md
   - name: Get started
     href: get-started.md
+  - name: Use Terraform as IaC Provider
+    href: use-terraform-for-azd.md
   - name: Run and debug
     href: debug.md
   - name: Configure deployment pipeline
