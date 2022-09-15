@@ -84,7 +84,7 @@ sections:
       - question: Can I rerun this command?
         answer: |
           Yes.
-      - question: How does deploy find the Azure resource to deploy my code to?
+      - question: How does azd find the Azure resource to deploy my code to?
         answer: |
           During deploy, azd looks for a resource tagged with `azd-service-name` with a value that matches the name of your service from `azure.yaml`. It searches all resource groups tagged with `azd-env-name` with a value that matches your environment name.
 
