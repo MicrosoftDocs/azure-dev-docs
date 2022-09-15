@@ -210,7 +210,7 @@ Azure CLI commands can be run in the [Azure Cloud Shell][4] or on a workstation 
            --image pythoncontainer:latest .
         ```
         
-        Note:
+        Note that:
 
         * The dot (".") at the end of the command indicates the location of the source code to build. If you aren't running this command in the sample app root directory, specify the path to the code.
 
@@ -553,6 +553,9 @@ Container apps are deployed to Container Apps environments, which act as a secur
         * AZURE_POSTGRESQL_PASSWORD=\<db-password>
         * RUNNING_IN_PRODUCTION=1
 
+        > [!TIP]
+        > Instead of directly defining environment variables as shown above, you can use the [Service Connector][9]. Service Connector helps you connect to Azure compute services like Azure Container Apps, to other backing services by configuring connection information and generating and storing environment variables for you.
+        
     :::column-end:::
     :::column:::
         TBD
