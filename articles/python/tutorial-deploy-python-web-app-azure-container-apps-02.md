@@ -754,7 +754,7 @@ These steps require the [Azure Container Apps extension][11] for VS Code.
 
 * In VS Code, the **Build Image in Azure** task returns an error.
   * This can happen when you select an existing registry to use.
-  * If you see the message "Error: failed to download context. Please check if the URL is incorrect." in the **Output** window, then refresh the registry in the in the Docker extension. Select the Docker extension, go to the Registries section, find the registry and select it.
+  * If you see the message "Error: failed to download context. Please check if the URL is incorrect." in the **Output** window, then refresh the registry in the Docker extension. To refresh, select the Docker extension, go to the Registries section, find the registry and select it.
 
 * Image doesn't appear in the Azure Container Registry.
   * Check the output of the Azure CLI command or VS Code Output and look for messages to confirm success.
