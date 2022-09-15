@@ -752,6 +752,10 @@ These steps require the [Azure Container Apps extension][11] for VS Code.
   * In VS Code, go to the Azure extension and select the **Container Apps** section. Expand the subscription, expand the container environment, and when you find the container app, right-click **python-container-app** and select **Browse**.
   * With Azure CLI, use the command `az containerapp show -g <res-group> -n python-container-app --query properties.configuration.ingress.fqdn`.
 
+* In VS Code, the **Build Image in Azure** task returns an error.
+  * This can happen when you select an existing registry to use.
+  * If you see the message "Error: failed to download context. Please check if the URL is incorrect." in the **Output** window, then refresh the registry in the in the Docker extension. Select the Docker extension, go to the Registries section, find the registry and select it.
+
 * Image doesn't appear in the Azure Container Registry.
   * Check the output of the Azure CLI command or VS Code Output and look for messages to confirm success.
   * Check that the name of the registry was specified correctly in your build command with the Azure CLI or in the VS Code prompts.
