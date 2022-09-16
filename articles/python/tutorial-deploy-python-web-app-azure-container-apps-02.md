@@ -314,22 +314,22 @@ To follow these steps, install the [Azure Databases extension][26].
     :::column span="2":::
         **Step 2.** A series of prompts will guide you through the process of creating the database. Fill in the information as follows.
 
-        1. Select **PostgreSQL Flexible Server**.
+        * Select **PostgreSQL Flexible Server**.
         
-        1. Specify a **name** for the server.        
+        * Specify a **name** for the server.        
            Enter a name for the database server that's unique across all Azure (the database server's URL becomes `https://<server-name>.postgres.database.azure.com`). Allowed characters are `A`-`Z`, `0`-`9`, and `-`. For example: *postgres-db-\<unique-id>*.
         
-        1. Select the **B1 Basic** SKU (1 vCore, 2 GiB Memory, 5-GB storage).
+        * Select the **B1 Basic** SKU (1 vCore, 2 GiB Memory, 5-GB storage).
         
-        1. Create an administrator user name.
+        * Create an administrator user name.
            This name for an administrator account on the database server. Record this name and password as you'll need them later in this tutorial.
         
-        1. Create a password for the administrator and confirm it.
+        * Create a password for the administrator and confirm it.
         
-        1. Select a user group to put the database in.
+        * Select a user group to put the database in.
            Use the same resource group that you created the App Service in.
         
-        1. Select a location for the database.        
+        * Select a location for the database.        
            Select the same location as the resource group and App Service.
 
     :::column-end:::
@@ -341,13 +341,13 @@ To follow these steps, install the [Azure Databases extension][26].
     :::column span="2":::
         **Step 3.** Once the database is created, configure access from your local environment to the Azure Database for PostgreSQL server.
 
-        1. Open the Command Palette (**F1** or **Ctrl** + **Shift** + **P**).
+        * Open the Command Palette (**F1** or **Ctrl** + **Shift** + **P**).
         
-        1. Search for and select **PostgreSQL: Configure Firewall**.  (Select a subscription if prompted.)
+        * Search for and select **PostgreSQL: Configure Firewall**.  (Select a subscription if prompted.)
         
-        1. Select the database you created above. If the database name doesn't appear in the list, it's likely it hasn't finished being created.
+        * Select the database you created above. If the database name doesn't appear in the list, it's likely it hasn't finished being created.
         
-        1. Select **Yes** in the dialog box to add your IP address to the firewall rules of the PostgreSQL server.
+        * Select **Yes** in the dialog box to add your IP address to the firewall rules of the PostgreSQL server.
 
     :::column-end:::
     :::column:::
@@ -357,8 +357,7 @@ To follow these steps, install the [Azure Databases extension][26].
 :::row:::
     :::column span="1":::
         **Step 4.** Add a rule to allow your web app to access the PostgreSQL Flexible server.
-        You also need to configure the database server's firewall to accept connections from all Azure resources. To complete this step in VS Code, open an [Azure Cloud Shell][25] in VS Code, or go to [Azure Cloud Shell][4] and follow the Azure CLI instructions. Or, use the Azure portal instructions.
-        
+        You also need to configure the database server's firewall to accept connections from all Azure resources. To complete this step in VS Code, open an [Azure Cloud Shell][25] in VS Code, or go to [Azure Cloud Shell][4] and follow the Azure CLI instructions. Or, use the Azure portal instructions.        
     :::column-end:::
 :::row-end:::
 
