@@ -237,10 +237,10 @@ Azure CLI commands can be run in the [Azure Cloud Shell][4] or on a workstation 
 
 :::row:::
     :::column span="2":::
-        **Step 1.** In [Azure portal][3], search for "postgres" and select the **Azure Database for PostgreSQL flexible servers** service in the results.
+        **Step 1.** In [Azure portal][3], search for "postgres flexible" and select the **Azure Database for PostgreSQL flexible servers** service in the results.
     :::column-end:::
     :::column:::
-        TBD
+        :::image type="content" source="media/tutorial-container-apps/azure-portal-create-postgres-server-01.png" alt-text="Screenshot showing how to search for Azure PostgreSQL Flexible Server resources in Azure portal." lightbox="media/tutorial-container-apps/azure-portal-create-postgres-server-01.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -248,14 +248,14 @@ Azure CLI commands can be run in the [Azure Cloud Shell][4] or on a workstation 
         **Step 2.** Select **+ Create** to start the create process.
     :::column-end:::
     :::column:::
-        TBD
+        :::image type="content" source="media/tutorial-container-apps/azure-portal-create-postgres-server-02.png" alt-text="Screenshot showing how to create an Azure PostgreSQL Flexible Server instance in Azure portal." lightbox="media/tutorial-container-apps/azure-portal-create-postgres-server-02.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
     :::column span="2":::
         **Step 3.** Fill out the **Basics** form as follows:
 
-        * **Resource group** &rarr; The resource group you created for the Azure Container Registry.
+        * **Resource group** &rarr; The resource group used in this tutorial "pythoncontainer-rg".
         * **Server name** &rarr; Enter a name for the database server that's unique across all Azure. The database server's URL becomes `https://<server-name>.postgres.database.azure.com`. Allowed characters are `A`-`Z`, `0`-`9`, and `-`. For example: *postgres-db-\<unique-id>*.
         * **Region** &rarr; The same region you used for the resource group.
         * **Admin username** &rarr; Use *demoadmin*.
@@ -265,7 +265,7 @@ Azure CLI commands can be run in the [Azure Cloud Shell][4] or on a workstation 
 
     :::column-end:::
     :::column:::
-        TBD
+        :::image type="content" source="media/tutorial-container-apps/azure-portal-create-postgres-server-03.png" alt-text="Screenshot showing how to specify basic settings of an Azure PostgreSQL Flexible Server instance in Azure portal." lightbox="media/tutorial-container-apps/azure-portal-create-postgres-server-03.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -280,7 +280,7 @@ Azure CLI commands can be run in the [Azure Cloud Shell][4] or on a workstation 
 
     :::column-end:::
     :::column:::
-        TBD
+        :::image type="content" source="media/tutorial-container-apps/azure-portal-create-postgres-server-04.png" alt-text="Screenshot showing how to specify networking settings of an Azure PostgreSQL Flexible Server instance in Azure portal." lightbox="media/tutorial-container-apps/azure-portal-create-postgres-server-04.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -288,7 +288,7 @@ Azure CLI commands can be run in the [Azure Cloud Shell][4] or on a workstation 
         **Step 3.** Review the information and when satisfied, select **Create**.
     :::column-end:::
     :::column:::
-        TBD
+        :::image type="content" source="media/tutorial-container-apps/azure-portal-create-postgres-server-05.png" alt-text="Screenshot showing how to finsh creation of an Azure PostgreSQL Flexible Server instance in Azure portal." lightbox="media/tutorial-container-apps/azure-portal-create-postgres-server-05.png":::
     :::column-end:::
 :::row-end:::
 
