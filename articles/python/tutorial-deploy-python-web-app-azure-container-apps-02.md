@@ -311,28 +311,24 @@ Azure CLI commands can be run in the [Azure Cloud Shell][4] or on a workstation 
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step X.** A series of prompts will guide you through the process of creating the database. Fill in the information as follows.
+        **Step 2.** A series of prompts will guide you through the process of creating the database. Fill in the information as follows.
 
         1. Select **PostgreSQL Flexible Server**.
         
-        1. Specify a **name** for the server.
-        
+        1. Specify a **name** for the server.        
            Enter a name for the database server that's unique across all Azure (the database server's URL becomes `https://<server-name>.postgres.database.azure.com`). Allowed characters are `A`-`Z`, `0`-`9`, and `-`. For example: *postgres-db-\<unique-id>*.
         
         1. Select the **B1 Basic** SKU (1 vCore, 2 GiB Memory, 5-GB storage).
         
         1. Create an administrator user name.
-        
            This name for an administrator account on the database server. Record this name and password as you'll need them later in this tutorial.
         
         1. Create a password for the administrator and confirm it.
         
         1. Select a user group to put the database in.
-        
            Use the same resource group that you created the App Service in.
         
-        1. Select a location for the database.
-        
+        1. Select a location for the database.        
            Select the same location as the resource group and App Service.
 
     :::column-end:::
