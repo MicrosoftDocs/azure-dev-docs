@@ -33,10 +33,10 @@ Follow the steps to fork the directory to your GitHub account.
 
 ```bash
 # Django
-git clone https://github.com/$GITHUB_USERNAME/msdocs-python-django-azure-container-app.git python-code-to-cloud
+git clone https://github.com/$USERNAME/msdocs-python-django-azure-container-app.git python-code-to-cloud
 
 # Flask
-# git clone https://github.com/$GITHUB_USERNAME/msdocs-python-flask-azure-container-app.git python-code-to-cloud
+# git clone https://github.com/$USERNAME/msdocs-python-flask-azure-container-app.git python-code-to-cloud
 ```
 
 **Step 3.** Change directory.
