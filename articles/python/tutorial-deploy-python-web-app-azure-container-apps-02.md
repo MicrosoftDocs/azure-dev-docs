@@ -116,7 +116,7 @@ These steps require the [Docker extension][6] for VS Code.
         **Step 1.** Start the build image task.
 
         * Select **F1** or **CTRL+SHIFT+P** to open the command palette.
-        * Type "images".
+        * Type "Azure Container Registry".
         * Select the task **Azure Container Registry: Build Image in Azure**
         
         Alternatively, right-click the *Dockerfile* and select **Build Image in Azure**. This UI action starts the same create registry task.
