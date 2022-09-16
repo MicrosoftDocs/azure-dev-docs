@@ -38,7 +38,7 @@ Microsoft’s goal is to empower every developer to achieve more, and our commit
 
 [SQL Database JDBC driver]: /java/api/overview/azure/sql
 [MySQL JDBC driver]: https://dev.mysql.com/downloads/connector/j/
-[PostgreSQL JDBC driver]: https://jdbc.postgresql.org/download.html
+[PostgreSQL JDBC driver]: https://jdbc.postgresql.org/download/
 [MariaDB driver]: https://downloads.mariadb.org/connector-java/
 [Maven Repository: com.azure » azure-cosmos]: https://mvnrepository.com/artifact/com.azure/azure-cosmos
 [MongoDB Java Drivers]: https://mongodb.github.io/mongo-java-driver/

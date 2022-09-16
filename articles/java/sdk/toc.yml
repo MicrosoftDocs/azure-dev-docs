@@ -7,9 +7,9 @@
         - name: Get started with Apache Maven
           href: get-started-maven.md
         - name: Eclipse and IntelliJ integration
-          href: get-started-ide.md  
+          href: get-started-ide.md
         - name: Azure development using Java
-          href: get-started.md 
+          href: get-started.md
     - name: Libraries, drivers, and Spring modules
       href: libraries-drivers-modules.md
     - name: Concepts
@@ -62,7 +62,7 @@
         - name: IntelliJ
           href: ../toolkit-for-intellij/index.yml
         - name: Eclipse
-          href: ../toolkit-for-eclipse/index.yml  
+          href: ../toolkit-for-eclipse/index.yml
         - name: Spring
           href: ../spring-framework/spring-boot-starters-for-azure.md
         - name: MicroProfile
@@ -91,4 +91,4 @@
     - name: Package index
       href: azure-sdk-library-package-index.md
     - name: Reference
-      href: /java/api/overview/azure/?view=azure-java-stable
+      href: /java/api/overview/azure/
