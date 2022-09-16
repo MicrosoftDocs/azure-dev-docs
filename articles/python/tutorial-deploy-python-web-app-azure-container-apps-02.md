@@ -120,7 +120,7 @@ These steps require the [Docker extension][6] for VS Code.
         * Select the task **Azure Container Registry: Build Image in Azure**.      
                         
         If you don't see the **Build Image in Azure** task, check if you are signed into Azure. Alternatively, right-click the *Dockerfile* and select **Build Image in Azure**. 
-        This UI action starts the same create registry task. 
+        This UI action starts the same create registry task.
     :::column-end:::
     :::column:::
         :::image type="content" source="media/tutorial-container-apps/visual-studio-code-build-image-01.png" alt-text="Screenshot showing how to start creating a new Azure Container Registry in Visual Studio Code." lightbox="media/tutorial-container-apps/visual-studio-code-build-image-01.png":::
@@ -299,12 +299,12 @@ To follow these steps, install the [Azure Databases extension][26].
     :::column span="2":::
         **Step 1.** Start the PostgreSQL create task.
 
-        1. Select the **Azure** extension from the [activity bar](https://code.visualstudio.com/docs/getstarted/userinterface).
-
-        1. Under **RESOURCES**, expand your subscription. (Make sure you viewing resources by **Group by Resource Type**.)
-
-        1. Right-click **PostgreSQL servers** and select  **Create server**.
-
+        * Select **F1** or **CTRL+SHIFT+P** to open the command palette.
+        * Type "Azure Databases".
+        * Select the task **Azure Databases: Create Server**.      
+                        
+        Alternatively, select the **Azure** extension, **RESOURCES**, and expand your subscription. (Make sure you viewing resources by **Group by Resource Type**.). Then,
+        right-click **PostgreSQL servers** and select  **Create server**. This UI action starts the same create server task. 
     :::column-end:::
     :::column:::
         TBD
