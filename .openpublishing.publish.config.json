@@ -175,7 +175,7 @@
     {
       "path_to_root": "python-sample-vscode-flask-tutorial",
       "url": "https://github.com/microsoft/python-sample-vscode-flask-tutorial",
-      "branch": "main",
+      "branch": "master",
       "branch_mapping": {}
     },
     {
