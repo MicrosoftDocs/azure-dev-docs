@@ -208,7 +208,7 @@ Azure CLI commands can be run in the [Azure Cloud Shell][4] or on a workstation 
         ```bash
         az acr build \
            --registry <registry-name> \
-           --resource-group <res-group> \
+           --resource-group pythoncontainer-rg \
            --image pythoncontainer:latest .
         ```
         
@@ -374,7 +374,7 @@ Run `az login` to sign in to  and follow these steps to create your Azure Databa
 
 ```azurecli
 az postgres flexible-server create \
-   --resource-group <res-group> \
+   --resource-group pythoncontainer-rg \
    --name <postgres-name>  \
    --location <location> \
    --admin-user <admin-user-name> \
@@ -383,7 +383,7 @@ az postgres flexible-server create \
    --public-access 0.0.0.0 
 ```
 
-* `<res-group>` &rarr; Use the same resource group name in which you created the web app.
+* `pythoncontainer-rg` &rarr; The resource group name used in this tutorial. If you used a different name, change this value.
 * `<postgres-name>` &rarr; The PostgreSQL database server name. This name must be **unique across all Azure**. The server endpoint is "https://\<server-name>.postgres.database.azure.com"). Allowed characters are "A"-"Z", "0"-"9", and "-".
 * `<location>` &rarr; Use the same location used for the web app. Change the location in the command above for your deployment.
 * `<admin-user-name>` &rarr; Username for the administrator account. It can't be "azure_superuser", "admin", "administrator", "root", "guest", or "public". Use "demoadmin" for this tutorial.
@@ -450,14 +450,14 @@ You can use the Azure CLI anywhere it's installed, including the Azure [Cloud Sh
 
 ```azurecli
 az postgres flexible-server db create \
-   --resource-group <res-group> \
+   --resource-group pythoncontainer-rg \
    --server-name <postgres-instance-name> \
    --database-name restaurants_reviews
 ```
 
 Where:
 
-* `<res-group>` &rarr; The name of the resource group that contains the PostgreSQL server.
+* `pythoncontainer-rg` &rarr; The resource group name used in this tutorial. If you used a different name, change this value.
 * `<postgres-instance-name>` &rarr; The name of the PostgreSQL server.
 
 You could also use the [az postgres flexible-server connect][16] command to connect to the database and then work with [psl][15] commands. If you do this, we recommend using the Azure [Cloud Shell][4] because all the dependencies are included for you in the shell.
@@ -752,7 +752,7 @@ These steps require the [Azure Container Apps extension][11] for VS Code.
 * You forgot the Application Url to access the website.
   * In the Azure portal, go to the **Overview** page of the Container App and look for the **Application Url**.
   * In VS Code, go to the Azure extension and select the **Container Apps** section. Expand the subscription, expand the container environment, and when you find the container app, right-click **python-container-app** and select **Browse**.
-  * With Azure CLI, use the command `az containerapp show -g <res-group> -n python-container-app --query properties.configuration.ingress.fqdn`.
+  * With Azure CLI, use the command `az containerapp show -g pythoncontainer-rg -n python-container-app --query properties.configuration.ingress.fqdn`.
 
 * In VS Code, the **Build Image in Azure** task returns an error.
   * This can happen when you select an existing registry to use.
