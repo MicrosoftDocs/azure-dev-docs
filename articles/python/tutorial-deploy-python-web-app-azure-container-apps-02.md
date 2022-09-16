@@ -31,7 +31,7 @@ Follow the steps to fork the directory to your GitHub account.
 
 **Step 2.** Use the [git clone][21] command to clone the forked repo into the *python-code-to-cloud* folder:
 
-```
+```Git
 # Django
 git clone https://github.com/$USERNAME/msdocs-python-django-azure-container-app.git python-code-to-cloud
 
