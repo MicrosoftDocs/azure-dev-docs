@@ -288,7 +288,7 @@ Azure CLI commands can be run in the [Azure Cloud Shell][4] or on a workstation 
         **Step 3.** Review the information and when satisfied, select **Create**.
     :::column-end:::
     :::column:::
-        :::image type="content" source="media/tutorial-container-apps/azure-portal-create-postgres-server-05.png" alt-text="Screenshot showing how to finsh creation of an Azure PostgreSQL Flexible Server instance in Azure portal." lightbox="media/tutorial-container-apps/azure-portal-create-postgres-server-05.png":::
+        :::image type="content" source="media/tutorial-container-apps/azure-portal-create-postgres-server-05.png" alt-text="Screenshot showing how to finish creation of an Azure PostgreSQL Flexible Server instance in Azure portal." lightbox="media/tutorial-container-apps/azure-portal-create-postgres-server-05.png":::
     :::column-end:::
 :::row-end:::
 
