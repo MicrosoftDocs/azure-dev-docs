@@ -14,7 +14,7 @@
   - name: How-to guides
     items:
     - name: Use Terraform as IaC provider
-      href: debug.md
+      href: use-terraform-for-azd.md
     - name: Run and debug
       href: debug.md
     - name: Configure deployment pipeline

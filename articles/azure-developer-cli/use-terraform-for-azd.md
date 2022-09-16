@@ -19,7 +19,7 @@ By default, `azd` assumes Bicep as the IaC provider. Refer to the [Comparing Ter
 
 ## Configure Terraform as the IaC provider
 
-1. If you haven't already, [install and configure Terraform](/azure/developer/terraform/quickstart-configure?source=recommendations).
+1. If you haven't already, [install and configure Terraform](../terraform/quickstart-configure?source=recommendations).
 1. Open the `azure.yaml` file found in the root of your project and make sure you have the following lines to override the default, which is Bicep:
 
     ```yaml
@@ -51,7 +51,7 @@ Scenarios for enabling remote state:
 
 ## Enable remote state
 
-1. Make sure you [configure a remote state storage account](/azure/developer/terraform/store-state-in-azure-storage).
+1. Make sure you [configure a remote state storage account](../terraform/store-state-in-azure-storage).
 1. Add a new file called `provider.conf.json` in the `infra` folder.
 
     ```json
@@ -88,7 +88,7 @@ For example:
 
 ## See also
 
-- For more on remote state, see [store Terraform state in Azure Storage](/azure/developer/terraform/store-state-in-azure-storage).
+- For more on remote state, see [store Terraform state in Azure Storage](../terraform/store-state-in-azure-storage).
 - Template: [Todo Application with Node.js and Terraform](https://github.com/Azure-Samples/todo-nodejs-mongo-terraform)
 - Template: [Todo Application with Python and Terraform](https://github.com/Azure-Samples/todo-python-mongo-terraform)
 
