@@ -114,14 +114,13 @@ These steps require the [Docker extension][6] for VS Code.
 :::row:::
     :::column span="2":::
         **Step 1.** Start the build image task.
-
+        
         * Select **F1** or **CTRL+SHIFT+P** to open the command palette.
         * Type "Azure Container Registry".
-        * Select the task **Azure Container Registry: Build Image in Azure**
-        
-        Alternatively, right-click the *Dockerfile* and select **Build Image in Azure**. This UI action starts the same create registry task.
-
-        If you don't see the **Build Image in Azure** task, check if you are signed into Azure.
+        * Select the task **Azure Container Registry: Build Image in Azure**.      
+                        
+        If you don't see the **Build Image in Azure** task, check if you are signed into Azure. Alternatively, right-click the *Dockerfile* and select **Build Image in Azure**. 
+        This UI action starts the same create registry task. 
     :::column-end:::
     :::column:::
         :::image type="content" source="media/tutorial-container-apps/visual-studio-code-build-image-01.png" alt-text="Screenshot showing how to start creating a new Azure Container Registry in Visual Studio Code." lightbox="media/tutorial-container-apps/visual-studio-code-build-image-01.png":::
@@ -148,7 +147,7 @@ These steps require the [Docker extension][6] for VS Code.
 :::row:::
     :::column span="2":::
         **Step 3.** Confirm the registry was created.
-        
+
         Select the Docker extension and to the **Registries** section. Expand the Azure node to find the new Azure Container Registry.  
       
     :::column-end:::
@@ -294,9 +293,11 @@ Azure CLI commands can be run in the [Azure Cloud Shell][4] or on a workstation 
 
 ### [VS Code](#tab/vscode-aztools)
 
+To follow these steps, install the [Azure Databases extension][26].
+ 
 :::row:::
     :::column span="2":::
-        **Step 1.** Sign into Azure using the Visual Studio Code Azure Tools Extension and call the create task.
+        **Step 1.** Start the PostgreSQL create task.
 
         1. Select the **Azure** extension from the [activity bar](https://code.visualstudio.com/docs/getstarted/userinterface).
 
