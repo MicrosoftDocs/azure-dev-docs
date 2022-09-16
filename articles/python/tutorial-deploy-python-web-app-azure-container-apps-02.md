@@ -153,7 +153,7 @@ These steps require the [Docker extension][6] for VS Code.
       
     :::column-end:::
     :::column:::
-        TBD
+        :::image type="content" source="media/tutorial-container-apps/visual-studio-code-build-image-03.png" alt-text="Screenshot showing how to confirm the Azure Container Registry was created in Visual Studio Code." lightbox="media/tutorial-container-apps/visual-studio-code-build-image-03.png":::
     :::column-end:::
 :::row-end:::
 
