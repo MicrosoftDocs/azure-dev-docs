@@ -31,7 +31,7 @@ Follow the steps to fork the directory to your GitHub account.
 
 **Step 2.** Use the [git clone][21] command to clone the forked repo into the *python-code-to-cloud* folder:
 
-```bash
+```
 # Django
 git clone https://github.com/$USERNAME/msdocs-python-django-azure-container-app.git python-code-to-cloud
 
@@ -41,7 +41,7 @@ git clone https://github.com/$USERNAME/msdocs-python-django-azure-container-app.
 
 **Step 3.** Change directory.
 
-```bash
+```
 cd python-code-to-cloud
 ```
 
@@ -356,7 +356,6 @@ Azure CLI commands can be run in the [Azure Cloud Shell][4] or on a workstation 
 :::row:::
     :::column span="1":::
         **Step 4.** Add a rule to allow your web app to access the PostgreSQL Flexible server.
-
         You also need to configure the database server's firewall to accept connections from all Azure resources. To complete this step in VS Code, open an [Azure Cloud Shell][25] in VS Code, or go to [Azure Cloud Shell][4] and follow the Azure CLI instructions. Or, use the Azure portal instructions.
         
     :::column-end:::
@@ -368,7 +367,7 @@ Run `az login` to sign in to  and follow these steps to create your Azure Databa
 
 **Step 1.** Use the [az postgres flexible-server create][22] command to create the PostgreSQL server and database in Azure using the values below. It isn't uncommon for this command to run for a few minutes to complete.
 
-```azurecli
+```bash
 az postgres flexible-server create \
    --resource-group pythoncontainer-rg \
    --name <postgres-name>  \
@@ -444,7 +443,7 @@ You can use the Azure CLI anywhere it's installed, including the Azure [Cloud Sh
 
 **Step 1** Use the [az postgres flexible-server db create][27] command to create a "restaurants_reviews" database.
 
-```azurecli
+```bash
 az postgres flexible-server db create \
    --resource-group pythoncontainer-rg \
    --server-name <postgres-instance-name> \
@@ -582,7 +581,7 @@ These steps require the [Azure Container Apps extension][11] for VS Code.
 
         In the sample repo there is an *.env.example* file you can start from. Create an *.env* file with the following values:
         
-        ```bash
+        ```
         AZURE_POSTGRESQL_HOST=<postgres-instance-name>.postgres.database.azure.com
         AZURE_POSTGRESQL_DATABASE=restaurants_reviews
         AZURE_POSTGRESQL_USERNAME=demoadmin
@@ -659,7 +658,7 @@ These steps require the [Azure Container Apps extension][11] for VS Code.
     :::column:::
         **Step 1.** Sign in to Azure and authenticate, if needed.
 
-        ```azurecli
+        ```
         az login
         ```
     :::column-end:::
@@ -668,7 +667,7 @@ These steps require the [Azure Container Apps extension][11] for VS Code.
     :::column span="1":::
         **Step 2.** Install or upgrade the extension for Azure Container Apps withe [az extension add][14] command.
         
-        ```azurecli
+        ```
         az extension add --name containerapp --upgrade
         ```
         
@@ -678,7 +677,7 @@ These steps require the [Azure Container Apps extension][11] for VS Code.
     :::column span="1":::
         **Step 3.** Create a Container Apps environment with the [az containerapp env create][13] command.
 
-        ```azurecli
+        ```bash
         az containerapp env create \
         --name python-container-env \
         --resource-group pythoncontainer-rg \
@@ -692,7 +691,7 @@ These steps require the [Azure Container Apps extension][11] for VS Code.
     :::column span="1":::
         **Step 4.** Get the login credentials for the Azure Container Registry.
 
-        ```azurecli
+        ```
         az acr credentials show -n <registry-name>
         ```
 
@@ -705,7 +704,7 @@ These steps require the [Azure Container Apps extension][11] for VS Code.
     :::column span="1":::
         **Step 5.** Create a container app in the environment with the [az containerapp create][12] command.
 
-        ```azurecli
+        ```bash
         az containerapp create \
         --name python-container-app \
         --resource-group pythoncontainer-rg \
