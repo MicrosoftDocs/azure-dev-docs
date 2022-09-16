@@ -124,7 +124,7 @@ These steps require the [Docker extension][6] for VS Code.
         If you don't see the **Build Image in Azure** task, check if you are signed into Azure.
     :::column-end:::
     :::column:::
-        TBD
+        :::image type="content" source="media/tutorial-container-apps/viaual-studio-code-build-image-01.png" alt-text="Screenshot showing how to start creating a new Azure Container Registry in Visual Studio Code." lightbox="media/tutorial-container-apps/visual-studio-code-build-image-01.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -142,7 +142,7 @@ These steps require the [Docker extension][6] for VS Code.
         
     :::column-end:::
     :::column:::
-        TBD
+        :::image type="content" source="media/tutorial-container-apps/visual-studio-code-build-image-02.gif" alt-text="Screenshot showing how to start creating a new Azure Container Registry in Visual Studio Code." lightbox="media/tutorial-container-apps/visual-studio-code-build-image-02.gif":::
     :::column-end:::
 :::row-end:::
 :::row:::
