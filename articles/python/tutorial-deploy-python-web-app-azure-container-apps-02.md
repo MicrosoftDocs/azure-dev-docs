@@ -334,12 +334,14 @@ To follow these steps, install the [Azure Databases extension][26].
 
     :::column-end:::
     :::column:::
-        TBD
+        :::image type="content" source="media/tutorial-container-apps/visual-studio-code-create-postgres-server-02.png" alt-text="Screenshot showing how to complete the task to create an Azure PostgreSQL Flexible Server resources in Visual Studio Code." lightbox="media/tutorial-container-apps/visual-studio-code-create-postgres-server-02.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
     :::column span="2":::
         **Step 3.** Once the database is created, configure access from your local environment to the Azure Database for PostgreSQL server.
+
+        * Confirm that the database is not still being created by checking the **Azure: Activity Log**. Don't go on to the next step until the database is created.
 
         * Open the Command Palette (**F1** or **Ctrl** + **Shift** + **P**).
         
