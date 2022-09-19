@@ -307,7 +307,7 @@ To follow these steps, install the [Azure Databases extension][26].
         right-click **PostgreSQL servers** and select  **Create server**. This UI action starts the same create server task. 
     :::column-end:::
     :::column:::
-        :::image type="content" source="media/tutorial-container-apps/visual-studio-code-create-postgres-server-01.png" alt-text="Screenshot showing how to search for the task to create an Azure PostgreSQL Flexible Server resources in Visual Studio Code." lightbox="media/tutorial-container-apps/visual-studio-code-create-postgres-server-01.png":::
+        :::image type="content" source="media/tutorial-container-apps/visual-studio-code-create-postgres-server-01.png" alt-text="Screenshot showing how to search for the task to create an Azure PostgreSQL Flexible Server instance in Visual Studio Code." lightbox="media/tutorial-container-apps/visual-studio-code-create-postgres-server-01.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -334,14 +334,14 @@ To follow these steps, install the [Azure Databases extension][26].
 
     :::column-end:::
     :::column:::
-        :::image type="content" source="media/tutorial-container-apps/visual-studio-code-create-postgres-server-02.png" alt-text="Screenshot showing how to complete the task to create an Azure PostgreSQL Flexible Server resources in Visual Studio Code." lightbox="media/tutorial-container-apps/visual-studio-code-create-postgres-server-02.png":::
+        :::image type="content" source="media/tutorial-container-apps/visual-studio-code-create-postgres-server-02.gif" alt-text="Screenshot showing how to complete the task to create an Azure PostgreSQL Flexible Server instance in Visual Studio Code." lightbox="media/tutorial-container-apps/visual-studio-code-create-postgres-server-02.gif":::
     :::column-end:::
 :::row-end:::
 :::row:::
     :::column span="2":::
         **Step 3.** Once the database is created, configure access from your local environment to the Azure Database for PostgreSQL server.
 
-        * Confirm that the database is not still being created by checking the **Azure: Activity Log**. Don't go on to the next step until the database is created.
+        * Confirm that the creation of the database was successful by checking the **Azure: Activity Log** window. Don't go on to the next step until the database exists.
 
         * Open the Command Palette (**F1** or **Ctrl** + **Shift** + **P**).
         
@@ -353,12 +353,13 @@ To follow these steps, install the [Azure Databases extension][26].
 
     :::column-end:::
     :::column:::
-        TBD
+        :::image type="content" source="media/tutorial-container-apps/visual-studio-code-create-postgres-server-03.gif" alt-text="Screenshot showing how to add local workstation IP as firewall rule for Azure PostgreSQL Flexible Server instance in Visual Studio Code." lightbox="media/tutorial-container-apps/visual-studio-code-create-postgres-server-03.gif":::
     :::column-end:::
 :::row-end:::
 :::row:::
     :::column span="1":::
         **Step 4.** Add a rule to allow your web app to access the PostgreSQL Flexible server.
+
         You also need to configure the database server's firewall to accept connections from all Azure resources. To complete this step in VS Code, open an [Azure Cloud Shell][25] in VS Code, or go to [Azure Cloud Shell][4] and follow the Azure CLI instructions. Or, use the Azure portal instructions.        
     :::column-end:::
 :::row-end:::
