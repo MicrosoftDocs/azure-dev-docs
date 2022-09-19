@@ -553,7 +553,7 @@ Container apps are deployed to Container Apps *environments*, which act as a sec
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 6.** After the deployment finishes, select **Go to resource**.
+        **Step 5.** After the deployment finishes, select **Go to resource**.
     :::column-end:::
     :::column:::
         :::image type="content" source="media/tutorial-container-apps/azure-portal-create-container-app-05.png" alt-text="Screenshot showing the resource deployment complete page for an Azure Container Apps service in Azure portal." lightbox="media/tutorial-container-apps/azure-portal-create-container-app-05.png":::
@@ -561,7 +561,7 @@ Container apps are deployed to Container Apps *environments*, which act as a sec
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 7.** Create a *revision* of the container that contains environment variables.
+        **Step 6.** Create a *revision* of the container that contains environment variables.
 
         * Select the **Containers** resource of the newly created container.
         * Then, select **Edit and deploy**.
@@ -584,19 +584,20 @@ Container apps are deployed to Container Apps *environments*, which act as a sec
     :::column:::
         :::image type="content" source="media/tutorial-container-apps/azure-portal-create-container-app-06.png" alt-text="Screenshot showing how to edit a Azure Containers Apps container in Azure portal." lightbox="media/tutorial-container-apps/azure-portal-create-container-app-06.png":::
         :::image type="content" source="media/tutorial-container-apps/azure-portal-create-container-app-07.png" alt-text="Screenshot showing how to create a new Azure Container Apps container revision in Azure portal." lightbox="media/tutorial-container-apps/azure-portal-create-container-app-07.png":::
-        :::image type="content" source="media/tutorial-container-apps/azure-portal-create-container-app-08.png" alt-text="Screenshot showing how to add environment variables to an Azure container app revision in Azure portal." lightbox="media/tutorial-container-apps/azure-portal-create-container-app-08.png"::: 
+        :::image type="content" source="media/tutorial-container-apps/azure-portal-create-container-app-08.png" alt-text="Screenshot showing how to add environment variables to an Azure Container Apps revision in Azure portal." lightbox="media/tutorial-container-apps/azure-portal-create-container-app-08.png"::: 
+        :::image type="content" source="media/tutorial-container-apps/azure-portal-create-container-app-09.png" alt-text="Screenshot showing how to finish creating revision of an Azure Container Apps container in Azure portal." lightbox="media/tutorial-container-apps/azure-portal-create-container-app-09.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 8.** Test the website.
+        **Step 7.** Test the website.
 
-        * Go the newly created container app and select the **Overview** resource.
+        * Go to the container app's **Overview** resource.
         * Under **Essentials**, select **Application Url** to open the website in a browser.
         
     :::column-end:::
     :::column:::
-        TBD
+        :::image type="content" source="media/tutorial-container-apps/azure-portal-create-container-app-10.png" alt-text="Screenshot showing how to find the website Url of an Azure Container Apps container in Azure portal." lightbox="media/tutorial-container-apps/azure-portal-create-container-app-10.png":::
     :::column-end:::
 :::row-end:::
 
