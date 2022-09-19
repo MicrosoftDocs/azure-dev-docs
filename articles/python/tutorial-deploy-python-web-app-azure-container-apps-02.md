@@ -408,7 +408,7 @@ The sample code ([Django][1] or [Flask][2]) requires a PostgreSQL database to st
 
 ### [psql](#tab/create-database-psql)
 
-You can use the PostgreSQL interactive terminal [psql][15] in your local environment, or in the [Azure Cloud Shell][4] accessible in the [Azure portal][3]. 
+You can use the PostgreSQL interactive terminal [psql][15] in your local environment, or in the [Azure Cloud Shell][4], which is also accessible in the [Azure portal][3].
 
 **Step 1.** Connect to the database with psql.
 
