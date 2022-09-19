@@ -32,7 +32,7 @@ Once you've [installed Azure Developer CLI](./install-azd.md), the following ste
 The Azure Developer CLI works alongside [idiomatic application templates](./azd-templates.md) that include the scaffolding for monitoring and CI/CD for your application. We provide `azd` templates in three supported languages. Each template uses best practices and includes:
 
 - Application code
-- Infra-as-code files (written in Bicep) needed to provision the Azure resources
+- Infra-as-code files (Bicep or Terraform) needed to provision the Azure resources
 - An `azure.yaml` file that describes your application.
 
 [Learn more about the `azd` templates we provide and which template you should select.](./azd-templates.md#choose-a-template)

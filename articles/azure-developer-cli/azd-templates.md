@@ -14,7 +14,7 @@ ms.service: azure-dev-cli
 Azure Developer CLI templates are sample repositories created using the Azure Developer CLI conventions so that you can use `azd`. The `azd` templates extend beyond “Hello World!” to configure continuous integration and delivery (CI/CD) pipelines. These pipelines serve as the foundation from which you can build and customize for your own solutions. Each template includes:
 
 - Application code
-- Infra-as-code files (written in Bicep) needed to provision the Azure resources
+- Infra-as-code files (Bicep or Terraform) needed to provision the Azure resources
 - An `azure.yaml` file that describes your application
 
 These templates are extensible and customizable to your specific use case.
@@ -72,7 +72,7 @@ Refer to the README in any of the following Azure Developer CLI enabled template
 
 ## Authoring templates
 
-The Azure Developer CLI team plans to author more templates in the future to cover even more developer scenarios. If you author your own templates, you can add the `azd-templates` tag to your repository on GitHub. That way, other developers can find, fork, and build upon your template for their own use case.
+The Azure Developer CLI team plans to author more templates in the future to cover even more developer scenarios. If you author your own templates, you can add the `azd-templates` topic to your repository on GitHub. That way, other developers can find, fork, and build upon your template for their own use case.
 
 You can also open an issue on [our GitHub repository](https://github.com/Azure/azure-dev) if there’s a use case and template that you would like to see created.
 
