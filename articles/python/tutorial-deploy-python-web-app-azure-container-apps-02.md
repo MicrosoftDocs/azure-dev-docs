@@ -96,7 +96,7 @@ After following these steps, you'll have an Azure Container Registry and a Docke
         **Step 5.** Use the [az acr update][29] command to build and quickly enable the administrator user account for the registry.
 
         ```bash
-        az acr build --name <registry-name> \
+        az acr update --name <registry-name> \
            --resource-group pythoncontainer-rg \
            --admin-enabled true
         ```
