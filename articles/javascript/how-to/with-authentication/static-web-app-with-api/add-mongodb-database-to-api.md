@@ -628,7 +628,7 @@ validateAccessToken = async (accessToken) => {
     /**
      * Validates the token against issuer, audience, scope
      * and timestamp, though implementation and extent vary. For more information, visit:
-     * https://docs.microsoft.com/azure/active-directory/develop/access-tokens#validating-tokens
+     * https://learn.microsoft.com/azure/active-directory/develop/access-tokens#validating-tokens
      */
 
     const now = Math.round((new Date()).getTime() / 1000); // in UNIX format

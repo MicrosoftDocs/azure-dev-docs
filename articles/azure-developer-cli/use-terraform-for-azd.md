@@ -15,7 +15,7 @@ Azure Developer CLI (azd) Preview supports multiple infrastructure as code (IaC)
 - [Bicep](/azure/azure-resource-manager/bicep/overview?tabs=bicep)
 - [Terraform](../terraform/overview.md)
 
-By default, `azd` assumes Bicep as the IaC provider. Refer to the [Comparing Terraform and Bicep](/azure/developer/terraform/comparing-terraform-and-bicep?tabs=comparing-bicep-terraform-integration-features) article for help deciding which IaC provider is best for your project.
+By default, `azd` assumes Bicep as the IaC provider. Refer to the [Comparing Terraform and Bicep](../terraform/comparing-terraform-and-bicep.md?tabs=comparing-bicep-terraform-integration-features) article for help deciding which IaC provider is best for your project.
 
 ## Configure Terraform as the IaC provider
 

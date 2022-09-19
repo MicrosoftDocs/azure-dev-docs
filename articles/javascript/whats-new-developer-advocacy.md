@@ -11,9 +11,9 @@ This content is primarily from Developer Advocates as well as other members of t
 
 * [JavaScript Community Hub](/javascript) to see more from the community. 
 
-## Reoccurring events 
+## Recurring events 
 
-* [Microsoft Learn TV](/learn/tv/)
+* [Microsoft Learn Events](/events/)
 * [Web Wednesday - reoccurring](/Shows/Web-Wednesday/)
 
 ## Timeless
@@ -23,12 +23,12 @@ This content is primarily from Developer Advocates as well as other members of t
 |JS|Beginner's Series to: JavaScript|[Video series](/shows/Beginners-Series-to-JavaScript)|
 |JS|JavaScript 101 for Beginners|[Video series - **Portuguese**](https://github.com/glaucia86/js-101-beginners-ms)|
 |Node.js|Beginner's Series to: Node.js|[Video series](/shows/Beginners-Series-to-NodeJS/?WT.mc_id=nodebeginner-ch9-cxa)|
-|Node.js|Build JavaScript applications with Node.js|[Learn path](/learn/paths/build-javascript-applications-nodejs/)|
+|Node.js|Build JavaScript applications with Node.js|[Learning path](/training/paths/build-javascript-applications-nodejs/)|
 |Client web apps|Web Development for Beginners|[Curriculum on GitHub](https://dev.to/azure/announcing-a-free-curriculum-web-development-for-beginners-142k)|
 |Client web apps|Awesome Azure Static web apps|[Resource list](https://github.com/staticwebdev/awesome-azure-static-web-apps)|
 |Client web apps|Azure Tips and Tricks: Static Web Apps|[Beginner video series](https://aka.ms/StaticWebAppsTips)|
 |Client web apps|Static Web Apps Code to Scale|[Conference video series](/events/learn-tv-static-web-apps-code-to-scale/?WT.mc_ID=swa-124587-memckenn)|
-|Client web apps|Take your first steps with Vue.js|[Learn path](/learn/paths/vue-first-steps/?WT.mc_id=javascript-27683-cxa)|
+|Client web apps|Take your first steps with Vue.js|[Learning path](/training/paths/vue-first-steps/?WT.mc_id=javascript-27683-cxa)|
 |Client web apps|Beginner's Series to: Vue.js|[Beginner video series](https://youtu.be/LnngsOg014Y)|
 |Client web apps|Comparing Azure Static Web Apps vs Azure WebApps vs Azure Blob Storage Static Sites|[Blog post](https://devblogs.microsoft.com/devops/comparing-azure-static-web-apps-vs-azure-webapps-vs-azure-blob-storage-static-sites/)|
 |Microsoft Graph|Get started with Microsoft Graph and JavaScript|[Samples](https://developer.microsoft.com/graph/get-started/javascript)|
@@ -241,7 +241,7 @@ This content is primarily from Developer Advocates as well as other members of t
 |[Wassim Chegham][Wassim]|Azure Static Web Apps CLI|**French** - [YouTube video:Tartine & Tech](https://www.youtube.com/watch?v=0L2XS6INmwE) [Slides](https://slides.com/wassimchegham/a-look-at-the-new-azure-static-web-apps-cli-swa-conf)|
 |[Glaucia Lemos][Glaucia]|How do I debug API REST Node.js App in VS Code?!|**Portuguese** - [YouTube](https://youtu.be/Lb20EoDja50)|
 |[Aaron Powell][Aaron]|SUPERCHARGING A WEB DEVS TOOLBOX|[Microsoft Reactor Video](https://www.aaron-powell.com/posts/2021-06-03-supercharging-a-web-devs-toolbox/)|
-|[David Smith][David]|Build a simple website using HTML, CSS, and JavaScript|[Learn module](/learn/modules/build-simple-website/)|
+|[David Smith][David]|Build a simple website using HTML, CSS, and JavaScript|[Learn module](/training/modules/build-simple-website/)|
 
 
 ## 2021 May
@@ -319,7 +319,7 @@ This content is primarily from Developer Advocates as well as other members of t
 |--|--|--|
 |[Aaron Powell][Aaron]|Building dual-screen web experiences with React|[Blog](https://devblogs.microsoft.com/surface-duo/dual-screen-react-web/)|
 |[Asim Hussain][Asim]|Adopting Azure serverless architectures to help reduce CO2 emissions – Part 2 (Extending to the Edge)|[Blog](https://aka.ms/adopting-azure-serverless?WT.mc_id=green-12146-cxa)|
-|[Chris Noring][Chris]|Node.js Learn Module: Create a Node HTTP Server|[Learn Module](/learn/modules/build-web-api-nodejs-express/)|
+|[Chris Noring][Chris]|Node.js Learn module: Create a Node HTTP Server|[Learn module](/training/modules/build-web-api-nodejs-express/)|
 |[Chris Noring][Chris]|Game engine developing Hex grid based educational games|[GitHub repo](https://github.com/softchris/hex-game)|
 |[Glaucia Lemos][Glaucia]|Backend Developer Guide 2021 - What should I know?|**Portuguese​** - [YouTube](https://www.youtube.com/channel/UC2Qzw5aqCBk_z0lWJnumWQQ) and [Blog](https://dev.to/glaucia86/guia-para-pessoas-desenvolvedoras-back-end-2021-o-que-eu-preciso-saber-10c6)| 
 |[Glaucia Lemos][Glaucia]|JWT + Node + Mongo+ Vue Project|[YouTube Vide0 #1](https://youtu.be/JmUSx5wXU68), [YouTube Video #2](https://youtu.be/Vr-UMoAv8pk), [YouTube Video #3](https://youtu.be/6u4aM2eT-gg)|

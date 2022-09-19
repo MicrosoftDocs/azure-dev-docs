@@ -61,7 +61,7 @@ The [Azure CLI](/cli/azure/what-is-azure-cli) is a cross-platform command line t
 * Outputs results as JSON (by default). Results can also be formatted as YAML, an ASCII table or tab-separated values with no keys.
 * Provides the ability to query and shape output through the use of [JMESPath queries](https://jmespath.org/).
 
-Azure CLI commands are easily incorporated into popular scripting languages like [Bash](/learn/modules/bash-introduction/) giving you the ability to script common tasks.
+Azure CLI commands are easily incorporated into popular scripting languages like [Bash](/training/modules/bash-introduction/) giving you the ability to script common tasks.
 
 ```azurecli
 LOCATION='eastus'                                        
