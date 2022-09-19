@@ -56,7 +56,7 @@ This list is grouped by supported language. Each repository contains a complete 
 
 | Template      | App host | Tech stack	 | 
 | ----------- | ----------| ----------- | 
-| [Todo C# Cosmos DB (SQL)](https://github.com/Azure-Samples/todo-csharp-cosmos-sql) | [Azure App Service](/azure/app-service/) | [Azure Cosmos DB SQL API](/learn/modules/intro-to-azure-cosmos-db-core-api/), Bicep | 
+| [Todo C# Cosmos DB (SQL)](https://github.com/Azure-Samples/todo-csharp-cosmos-sql) | [Azure App Service](/azure/app-service/) | [Azure Cosmos DB SQL API](/training/modules/intro-to-azure-cosmos-db-core-api/), Bicep | 
 | [Todo C# Azure SQL Database](https://github.com/azure-samples/todo-csharp-sql) | [Azure App Service](/azure/app-service/) | [Azure SQL Database](/azure/azure-sql/database/sql-database-paas-overview), Bicep |
 
 ---

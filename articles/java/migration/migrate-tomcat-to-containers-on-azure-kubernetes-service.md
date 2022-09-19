@@ -189,7 +189,7 @@ sudo az acr login -n $acrName
 sudo docker push "${acrName}.azurecr.io/petclinic:1"
 ```
 
-For more in-depth information on building and storing container images in Azure, see the respective [Microsoft Learn course](/learn/modules/build-and-store-container-images/).
+For more information, see the Learn module for [Building and storing container images in Azure](/training/modules/build-and-store-container-images/).
 
 ### Provision a public IP address
 
