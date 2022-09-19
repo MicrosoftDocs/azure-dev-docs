@@ -767,6 +767,10 @@ These steps require the [Azure Container Apps extension][11] for VS Code.
   * This error can happen when you select an existing registry to use.
   * If you see the message "Error: failed to download context. Please check if the URL is incorrect." in the **Output** window, then refresh the registry in the Docker extension. To refresh, select the Docker extension, go to the Registries section, find the registry and select it.
 
+* In the Azure portal during the creation of a Container App you see an access error.
+  * This can happen when configuring which registry and image to use.
+  * If you see the error "Cannot access ACR '<name>.azurecr.io' because admin credentials on the ACR are disabled, then go to your Azure Container Registry and under the **Access keys** resource, ensure that **Admin user** is enabled.
+
 * Container image doesn't appear in the Azure Container Registry.
   * Check the output of the Azure CLI command or VS Code Output and look for messages to confirm success.
   * Check that the name of the registry was specified correctly in your build command with the Azure CLI or in the VS Code task prompts.
