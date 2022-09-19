@@ -57,6 +57,10 @@ sections:
         answer: |
           The azure.yaml file describes the apps and types of Azure resources that are included in the template.
 
+      - question: Can I use Azure Free Subscription?
+        answer: |
+          Yes. You can use Azure Free Subscription but each Azure location can only have one deployment. If you have already used the selected Azure location, you will see the deployment error: "InvalidTemplateDeployment: The template deployment '<env_name>' is not valid according to the validation procedure. The tracking id is '<tracking_id>'. See inner errors for details". You can select a different Azure location to fix the issue.
+
   - name: "Command: azd provision"
     questions:
       - question: How does the command know what resources to provision?
