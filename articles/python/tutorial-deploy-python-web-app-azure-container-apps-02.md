@@ -307,7 +307,7 @@ To follow these steps, install the [Azure Databases extension][26].
         right-click **PostgreSQL servers** and select  **Create server**. This UI action starts the same create server task. 
     :::column-end:::
     :::column:::
-        TBD
+        :::image type="content" source="media/tutorial-container-apps/visual-studio-code-create-postgres-server-01.png" alt-text="Screenshot showing how to search for the task to create an Azure PostgreSQL Flexible Server resources in Visual Studio Code." lightbox="media/tutorial-container-apps/visual-studio-code-create-postgres-server-01.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
