@@ -8,7 +8,7 @@ ms.custom: devx-track-js
 
 # Learn to develop with Azure and JavaScript 
 
-Use Microsoft Learning or a Microsoft learning partner to expand your understanding of Azure with JavaScript.
+Use Microsoft Learn or a Microsoft learning partner to expand your understanding of Azure with JavaScript.
 
 ## JavaScript
 
