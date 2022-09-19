@@ -23,7 +23,7 @@ The service diagram shown below highlights the components covered in this articl
 
 You can fork and clone the sample code to your developer environment. You can also download the code repo to your local machine without forking. However, you won't be able to set up CI/CD discussed later in the tutorial.
 
-To fork and clone do the following:
+To fork and clone:
 
 **Step 1.** Go to the repository of the sample app ([Django][1] or [Flask][2]) and select **Fork**.
 
@@ -93,7 +93,7 @@ After following these steps, you'll have an Azure Container Registry and a Docke
 :::row-end:::
 :::row:::
     :::column span="1":::
-        **Step 5.** Use the [az acr update][29] command to build quickly enable the administrator user account for the registry.
+        **Step 5.** Use the [az acr update][29] command to build and quickly enable the administrator user account for the registry.
 
         ```bash
         az acr build --name <registry-name> \
@@ -406,7 +406,7 @@ az postgres flexible-server create \
 
 * `<public-access>` &rarr; Use "0.0.0.0", which allows public access to the server from any Azure service, such as Container Apps.
 
-The above commands is shown with the Bash shell. For other shell types, change the line continuation characters as appropriate. For example, for PowerShell, use back tick ("\`").
+The above command is shown with the Bash shell. For other shell types, change the line continuation characters as appropriate. For example, for PowerShell, use back tick ("\`").
 
 > [!NOTE]
 > If you plan on working the PostgreSQL server from your local workstation with tools other than Azure CLI, you'll need to add a firewall rule with the [az postgres flexible-server firewall-rule create][28] command.
@@ -452,7 +452,7 @@ To follow these steps, you'll need the [Azure Databases extension][26].
 
 **Step 2.** At the prompt, enter *restaurants_reviews* as the **Database Name**.
 
-If you have trouble creating the database, the server may still be processing the firewall rule from the previous step. Wait a moment and try again. If you are prompted to enter credentials to access the database, use the "demoadmin" and password you used to create the database.
+If you have trouble creating the database, the server may still be processing the firewall rule from the previous step. Wait a moment and try again. If you're prompted to enter credentials to access the database, use the "demoadmin", and password you used to create the database.
 
 ### [Azure CLI](#tab/create-database-azure-cli)
 
@@ -551,7 +551,11 @@ Container apps are deployed to Container Apps *environments*, which act as a sec
 
         * Select the **Containers** resource of the newly created container.
         * Then, select **Edit and deploy**.
-        * On the **Create and deploy new revision** select the name of the container image, in this case *python-container-app*.
+        * On the **Create and deploy new revision** page, select the name of the container image, in this case *python-container-app*.
+        * On the **Edit container** page, create environment variables as discussed below and then select **Save**.
+        * Back on the **Create and deploy new revision** page, select **Create**.
+
+        Create the following environment variables:
 
         * AZURE_POSTGRESQL_HOST=\<postgres-instance-name>.postgres.database.azure.com
         * AZURE_POSTGRESQL_DATABASE=restaurants_reviews
@@ -564,9 +568,9 @@ Container apps are deployed to Container Apps *environments*, which act as a sec
         
     :::column-end:::
     :::column:::
-        :::image type="content" source="media/tutorial-container-apps/azure-portal-create-container-app-06.png" alt-text="Screenshot showing how to edit a container in the Azure Container Apps service in Azure portal." lightbox="media/tutorial-container-apps/azure-portal-create-container-app-06.png":::
-        :::image type="content" source="media/tutorial-container-apps/azure-portal-create-container-app-07.png" alt-text="Screenshot showing how to create a new container revision in the Azure Container Apps service in Azure portal." lightbox="media/tutorial-container-apps/azure-portal-create-container-app-07.png":::
-    :::column-end:::
+        :::image type="content" source="media/tutorial-container-apps/azure-portal-create-container-app-06.png" alt-text="Screenshot showing how to edit a Azure Containers Apps container in Azure portal." lightbox="media/tutorial-container-apps/azure-portal-create-container-app-06.png":::
+        :::image type="content" source="media/tutorial-container-apps/azure-portal-create-container-app-07.png" alt-text="Screenshot showing how to create a new Azure Container Apps container revision in Azure portal." lightbox="media/tutorial-container-apps/azure-portal-create-container-app-07.png":::
+        :::image type="content" source="media/tutorial-container-apps/azure-portal-create-container-app-08.png" alt-text="Screenshot showing how to add environment variables to an Azure container app revision in Azure portal." lightbox="media/tutorial-container-apps/azure-portal-create-container-app-08.png":::    :::column-end:::
 :::row-end:::
 :::row:::
     :::column span="2":::
@@ -760,7 +764,7 @@ These steps require the [Azure Container Apps extension][11] for VS Code.
   * With Azure CLI, use the command `az containerapp show -g pythoncontainer-rg -n python-container-app --query properties.configuration.ingress.fqdn`.
 
 * In VS Code, the **Build Image in Azure** task returns an error.
-  * This can happen when you select an existing registry to use.
+  * This error can happen when you select an existing registry to use.
   * If you see the message "Error: failed to download context. Please check if the URL is incorrect." in the **Output** window, then refresh the registry in the Docker extension. To refresh, select the Docker extension, go to the Registries section, find the registry and select it.
 
 * Container image doesn't appear in the Azure Container Registry.
