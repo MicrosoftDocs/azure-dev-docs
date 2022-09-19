@@ -22,7 +22,7 @@ Use this procedure for the following types of resources for Cosmos DB:
 1. Select the subscription where you want to create the database resource.
 1. Right-click **Azure Cosmos DB** and select **Create server**. 
 
-    :::image type="content" source="../media/with-database/visual-studio-code-create-cosmos-db-resource.png" alt-text="Partial screenshot of Visual Studio Code's Azure explorer with the first step of the creation process for a Cosmos D B resource shown.":::
+    :::image type="content" source="../media/with-database/visual-studio-code-create-cosmos-db-resource.png" alt-text="Screenshot of Visual Studio Code's Azure explorer with the first step of the creation process for a Cosmos DB resource shown.":::
 
 1. Following a procedure below based on your database server.
 
