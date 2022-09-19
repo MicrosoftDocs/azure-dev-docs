@@ -11,9 +11,9 @@ This content is primarily from Developer Advocates as well as other members of t
 
 * [JavaScript Community Hub](/javascript) to see more from the community. 
 
-## Reoccurring events 
+## Recurring events 
 
-* [Microsoft Learn TV](/training/tv/)
+* [Microsoft Learn Events](/events/)
 * [Web Wednesday - reoccurring](/Shows/Web-Wednesday/)
 
 ## Timeless
