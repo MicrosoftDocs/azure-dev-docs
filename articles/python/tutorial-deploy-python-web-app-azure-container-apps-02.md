@@ -491,7 +491,7 @@ Container apps are deployed to Container Apps *environments*, which act as a sec
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 3.** Specify the **Basics** of the container app.
+        **Step 3.** On the **Basics** page, specify the basic configuration of the container app.
         
         * **Resource group** &rarr; Use the group created earlier and contains the Azure Container Registry.        
         * **Container app name** &rarr; *python-container-app*.        
@@ -507,38 +507,29 @@ Container apps are deployed to Container Apps *environments*, which act as a sec
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 4.** Configure app settings for the container app.
+        **Step 4.** On the **App settings** page, continue configuring the container app.
         
         * **Use quickstart image** &rarr; Unselect checkbox.        
         * **Name** &rarr; *python-container-app*.
         * **Image Source** &rarr; Select *Azure Container Registry*.        
         * **Registry** &rarr; Select the name of registry you created earlier.        
         * **Image name** &rarr; Select *pythoncontainer* (the name of the image you built).
-        * **Image tag** &rarr; Select *latest*.
-        
-    :::column-end:::
-    :::column:::
-        TBD
-    :::column-end:::
-:::row-end:::
-:::row:::
-    :::column span="2":::
-        **Step 5.** Configure HTTP Ingress.
-        
+        * **Image tag** &rarr; Select *latest*.        
         * **HTTP Ingress** &rarr;  Select checkbox (enabled).        
         * **Ingress traffic** &rarr; Select **Accepting traffic from anywhere**.        
         * **Target port**&rarr; Set to 8000 (Django) or 5000 (Flask).
         
+        Select **Review and create** to go to review page.
+
     :::column-end:::
     :::column:::
-        TBD
+        :::image type="content" source="media/tutorial-container-apps/azure-portal-create-container-app-04.png" alt-text="Screenshot showing how to the configure app settings for an Azure Container Apps service in Azure portal." lightbox="media/tutorial-container-apps/azure-portal-create-container-app-04.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 6.** Review and create.
+        **Step 6.** Review and create
 
-        * Select **Review and create** to go to review page.
         * Select **Create** to create the container app.
         
     :::column-end:::
