@@ -71,7 +71,7 @@ SecretClient client = new SecretClientBuilder()
 
 ### Authenticate Azure management libraries
 
-The Azure management libraries use the same credential APIs as the Azure client libraries, but also require an [Azure subscription ID](/learn/modules/create-an-azure-account/4-multiple-subscriptions) to manage the Azure resources on that subscription.
+The Azure management libraries use the same credential APIs as the Azure client libraries, but also require an [Azure subscription ID](/training/modules/create-an-azure-account/4-multiple-subscriptions) to manage the Azure resources on that subscription.
 
 You can find the subscription IDs on the [Subscriptions page in the Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade). Alternatively, use the following [Azure CLI][azure_cli] command to get subscription IDs:
 

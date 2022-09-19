@@ -160,7 +160,7 @@ sudo az acr login --name $acrName
 sudo docker push "${acrName}.azurecr.io/petclinic:1"
 ```
 
-For more information, see [Build and store container images with Azure Container Registry](/learn/modules/build-and-store-container-images/).
+For more information, see [Build and store container images with Azure Container Registry](/training/modules/build-and-store-container-images/).
 
 ### Deploy to Azure Container Apps
 
