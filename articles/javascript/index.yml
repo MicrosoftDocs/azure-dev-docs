@@ -24,8 +24,8 @@ landingContent:
     linkLists:
       - linkListType: learn
         links:
-          - text: Learn TV
-            url: /training/tv/
+          - text: Microsoft Learn Events
+            url: /events/
           - text: JavaScript
             url: /Shows/Beginners-Series-to-JavaScript
           - text: JavaScript in Portuguese
