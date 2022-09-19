@@ -517,7 +517,7 @@ Container apps are deployed to Container Apps *environments*, which act as a sec
         * **Image tag** &rarr; Select *latest*.        
         * **HTTP Ingress** &rarr;  Select checkbox (enabled).        
         * **Ingress traffic** &rarr; Select **Accepting traffic from anywhere**.        
-        * **Target port**&rarr; Set to 8000 (Django) or 5000 (Flask).
+        * **Target port**&rarr; Set to 8000 for Django or 5000 for Flask.
         
         Select **Review and create** to go to review page.
 
