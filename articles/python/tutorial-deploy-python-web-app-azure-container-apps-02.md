@@ -626,9 +626,9 @@ These steps require the [Azure Container Apps extension][11] for VS Code.
 
         * Select **F1** or **CTRL+SHIFT+P** to open the command palette.
         * Type "containers apps".
-        * Select the task **Azure Container Apps: Create Container App**
+        * Select the task **Azure Container Apps: Create Container Apps: Create Container Apps Environment**
 
-        Alternatively, you can open the Azure extension, find the **Container Apps** section and select **+** icon to start. 
+        Alternatively, you can open the Azure extension and select **+** icon in the **Resources** section. 
 
     :::column-end:::
     :::column:::
@@ -639,20 +639,21 @@ These steps require the [Azure Container Apps extension][11] for VS Code.
     :::column span="2":::
         **Step 3.** Follow the steps to create the container environment.
 
-        * **Select Container Apps environment** &rarr; Select **Create new Container Apps environment**.
+        * **Select Container Apps environment** &rarr; Select **Create new Container Apps environment** and specify a name.
         * **Select a location for new resources** &rarr; Choose the same location that resource group you created previously.        
 
-        It can take several moments to create the environment. A notification shows the progress of the operation. Look for "Successfully create new Container Apps environment" before going to the next step.
+        It can take several moments to create the environment. A notification shows the progress of the operation. Look for "Successfully create new Container Apps environment" before going to the next step. The environment will be created in a resource group of the same name "python-container-env".
     :::column-end:::
     :::column:::
-        TBD
+        :::image type="content" source="media/tutorial-container-apps/visual-studio-code-create-container-app-02.gif" alt-text="Screenshot showing how to create an environment for Azure Container Apps in Visual Studio Code." lightbox="media/tutorial-container-apps/visual-studio-code-create-container-app-02.gif":::
     :::column-end:::
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 4.** After the environment is created, you'll be prompted to create a container app.
+        **Step 4.** After the environment is created, create a container app in it by finding the **Azure Container Apps: Create Container App** task in the command palette.
 
-        * **Enter a new from the new container app** &rarr; Enter *python-container-app*.
+        * **Select a resource** &rarr; Select the environment created above.
+        * **Enter a name for the new container app** &rarr; Enter *python-container-app*.
         * **Select a container registry** &rarr; Select **Azure Container Registries**.
         * **Select an Azure Container Registry** &rarr; Select the name of the registry you create previously.
         * **Select a repository** &rarr; Select **pythoncontainer**.
@@ -665,7 +666,7 @@ These steps require the [Azure Container Apps extension][11] for VS Code.
         If you missed the prompt to create the container app, go to the Azure extension, Container Apps section, select the environment, right-click and select **Create Container App**.
     :::column-end:::
     :::column:::
-        TBD
+        :::image type="content" source="media/tutorial-container-apps/visual-studio-code-create-container-app-03.gif" alt-text="Screenshot showing how to create an Azure Container app in an environment in Visual Studio Code." lightbox="media/tutorial-container-apps/visual-studio-code-create-container-app-03.gif":::
     :::column-end:::
 :::row-end:::
 :::row:::
