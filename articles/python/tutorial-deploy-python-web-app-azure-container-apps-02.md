@@ -609,7 +609,7 @@ These steps require the [Azure Container Apps extension][11] for VS Code.
     :::column span="1":::
         **Step 1.** Create an *.env* file that you'll reference during the creation of the container app.
 
-        In the sample repo there is an *.env.example* file you can start from. Create an *.env* file with the following values:
+        In the sample repo, there is an *.env.example* file you can start from. Create the *.env* file with the following values:
         
         ```
         AZURE_POSTGRESQL_HOST=<postgres-instance-name>.postgres.database.azure.com
