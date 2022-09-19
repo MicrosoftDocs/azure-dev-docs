@@ -641,6 +641,8 @@ These steps require the [Azure Container Apps extension][11] for VS Code.
 
         * **Select Container Apps environment** &rarr; Select **Create new Container Apps environment**.
         * **Select a location for new resources** &rarr; Choose the same location that resource group you created previously.        
+
+        It can take several moments to create the environment. A notification shows the progress of the operation.
     :::column-end:::
     :::column:::
         TBD
@@ -648,7 +650,7 @@ These steps require the [Azure Container Apps extension][11] for VS Code.
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 4.** After creating the environment, you should be prompted to create a container app.
+        **Step 4.** After the environment is created, you'll be prompted to create a container app.
 
         * **Enter a new from the new container app** &rarr; Enter *python-container-app*.
         * **Select a container registry** &rarr; Select **Azure Container Registries**.
