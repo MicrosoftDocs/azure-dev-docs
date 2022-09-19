@@ -404,7 +404,7 @@ The above commands is shown with the Bash shell. For other shell types, change t
 
 ## Create a database on the server
 
-The sample code requires a PostgreSQL database to store data in. In the previous step, you created a PostgreSQL database server. Next, you'll connect to the PostgreSQL database server to create the `restaurants_reviews` database.
+The sample code ([Django][1] or [Flask][2]) requires a PostgreSQL database to store restaurant reviews. In the previous step, you created a PostgreSQL database server. Next, you'll connect to the PostgreSQL database server to create the `restaurants_reviews` database.
 
 ### [psql](#tab/create-database-psql)
 
