@@ -496,18 +496,18 @@ Container apps are deployed to Container Apps *environments*, which act as a sec
         * **Resource group** &rarr; Use the group created earlier and contains the Azure Container Registry.        
         * **Container app name** &rarr; *python-container-app*.        
         * **Region** &rarr; Use the same region/location as the resource group.
-        * **Container Apps Environment** &rarr; Enter *python-container-env*.
+        * **Container Apps Environment** &rarr; Select **Create new** to create a new environment named *python-container-env*.
         
+        Select **Next: App settings** to continue configuration.        
+
     :::column-end:::
     :::column:::
-        TBD
+        :::image type="content" source="media/tutorial-container-apps/azure-portal-create-container-app-03.png" alt-text="Screenshot showing how to start the configure basic settings for an Azure Container Apps service in Azure portal." lightbox="media/tutorial-container-apps/azure-portal-create-container-app-03.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 4.** On the **Basics** page, select **Next: App Settings** to go to configure app settings.
-
-        On the **App settings** page:
+        **Step 4.** Configure app settings for the container app.
         
         * **Use quickstart image** &rarr; Unselect checkbox.        
         * **Name** &rarr; *python-container-app*.
