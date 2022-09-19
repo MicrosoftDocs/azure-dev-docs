@@ -41,6 +41,8 @@ For information on authoring your own template or “templatizing” an existing
 
 [Install the Azure Developer CLI](./install-azd.md) and then select your preferred programming language to choose a template.
 
+Refer to the README in any of the following Azure Developer CLI enabled templates for more instructions and information. 
+
 ### [Node.js](#tab/nodejs)
 
 | Template      | App host | Tech stack	 | 
@@ -65,21 +67,6 @@ For information on authoring your own template or “templatizing” an existing
 | ----------- | ----------| ----------- | 
 | [Todo C# Cosmos DB (SQL)](https://github.com/Azure-Samples/todo-csharp-cosmos-sql) | [Azure App Service](/azure/app-service/) | [Azure Cosmos DB SQL API](/learn/modules/intro-to-azure-cosmos-db-core-api/), Bicep | 
 | [Todo C# Azure SQL Database](https://github.com/azure-samples/todo-csharp-sql) | [Azure App Service](/azure/app-service/) | [Azure SQL Database](/azure/azure-sql/database/sql-database-paas-overview), Bicep |
-
----
-Refer to the README in any of the following Azure Developer CLI enabled templates for more instructions and information.
-
-## Run `azd up` on your selected template
-
-Once you've selected an azd template (or created your own), you can quickly get your app up and running on Azure with the Azure Developer CLI via the `azd up` command.
-
-## [BareMetal](#tab/baremetal)
-
-[!INCLUDE [run-azd-bare-metal](includes/run-azd-bare-metal.md)]
-
-## [DevContainer](#tab/devcontainer)
-
-[!INCLUDE [run-azd-dev-container](includes/run-azd-dev-container.md)]
 
 ---
 
