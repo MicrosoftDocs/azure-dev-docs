@@ -35,8 +35,6 @@ Select your preferred environment to continue:
 
 ### Run `up` command
 
-[Learn more about the `azd up` command](./azd-templates.md#run-azd-up-on-your-selected-template)
-
 1. In **File Explorer** or a terminal, create a new empty directory, and change into it.
 
 1. Run the following command:
@@ -118,8 +116,6 @@ Open the project in VS Code, hit F1 and choose: `Remote-Containers: Rebuild and 
 
 ### Run `up` command
 
-[Learn more about the `azd up` command.](./azd-templates.md#run-azd-up-on-your-selected-template)
-
 Run the following command:
 
 ```bash
@@ -180,8 +176,6 @@ Select your preferred environment to continue:
 In this guide, the app uses Python Virtual Environments to isolate Python package installations. Start by [creating and activating a virtual environment](https://docs.python.org/3/library/venv.html).
 
 ### Run `up` command
-
-[Learn more about the `azd up` command](./azd-templates.md#run-azd-up-on-your-selected-template)
 
 1. In **File Explorer** or a terminal, create a new empty directory, and change into it.
 
@@ -264,7 +258,6 @@ Open the project in VS Code, hit F1 and choose: `Remote-Containers: Rebuild and 
 
 ### Run `up` command
 
-[Learn more about the `azd up` command.](./azd-templates.md#run-azd-up-on-your-selected-template)
 
 Run the following command:
 
@@ -321,8 +314,6 @@ Select your preferred environment to continue:
 - [Review the architecture diagram and the Azure resources you'll deploy in the C# template README](https://github.com/Azure-Samples/todo-csharp-cosmos-sql/blob/main/README.md).
 
 ### Run `up` command
-
-[Learn more about the `azd up` command](./azd-templates.md#run-azd-up-on-your-selected-template)
 
 1. In **File Explorer** or a terminal, create a new empty directory, and change into it.
 
@@ -404,8 +395,6 @@ When you run the `azd init` command, you'll be prompted to provide the following
 Open the project in VS Code, hit F1 and choose: `Remote-Containers: Rebuild and Reopen in Container`
 
 ### Run `up` command
-
-[Learn more about the `azd up` command.](./azd-templates.md#run-azd-up-on-your-selected-template)
 
 Run the following command:
 
