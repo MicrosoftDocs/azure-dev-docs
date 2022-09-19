@@ -419,7 +419,9 @@ psql --host=<postgres-instance-name>.postgres.database.azure.com \
      --dbname=postgres
 ```
 
-The command above will prompt you for the admin password. If you have trouble connecting, restart the database and try again. If you're connecting from your local environment, your IP address must be added to the firewall rule list for the database service.
+Where `<postgres-instance-name>` is the name of the PostgreSQL server. The command above will prompt you for the admin password.
+
+If you have trouble connecting, restart the database and try again. If you're connecting from your local environment, your IP address must be added to the firewall rule list for the database service.
 
 **Step 2.** Create the database.
 
@@ -429,11 +431,11 @@ At the `postgres=>` prompt type:
 CREATE DATABASE restaurants_reviews;
 ```
 
-The semicolon (";") at the end of the command is necessary. To verify that the `restaurants_reviews` database was successfully created, use the command `\c restaurants_reviews` to change the prompt from `postgres=>` (default) to the `restaurants_reviews->`. Type `\?` to show help or `\q` to quit.
+The semicolon (";") at the end of the command is necessary. To verify that the database was successfully created, use the command `\c restaurants_reviews`. Type `\?` to show help or `\q` to quit.
 
 ### [VS Code](#tab/create-database-vscode-aztools)
 
-To follow these steps, install the [Azure Databases extension][26].
+To follow these steps, you'll need the [Azure Databases extension][26].
 
 **Step 1.** In the **Azure** extension, find the PostgreSQL Server you created, right-click it, and select **Create Database**.
 
@@ -463,11 +465,11 @@ You could also use the [az postgres flexible-server connect][16] command to conn
 
 ---
 
-You can also connect to the PostgreSQL server and create a database using [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio) or any other IDE that supports PostgreSQL.
+You can also connect to Azure PostgreSQL Flexible server and create a database using [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio) or any other IDE that supports PostgreSQL.
 
 ## Deploy the web app to Container Apps
 
-Container apps are deployed to Container Apps environments, which act as a secure boundary. These steps will create both the environment and the container inside the environment, and configure the environment so that the website is visible externally.
+Container apps are deployed to Container Apps *environments*, which act as a secure boundary. These steps will create both the environment and the container inside the environment, and configure the environment so that the website is visible externally.
 
 ### [Azure portal](#tab/azure-portal)
 
@@ -476,7 +478,7 @@ Container apps are deployed to Container Apps environments, which act as a secur
         **Step 1.** In the portal search at the top of the screen, search for "container apps" and select the **Container Apps** service in the results.
     :::column-end:::
     :::column:::
-        TBD
+        :::image type="content" source="media/tutorial-container-apps/azure-portal-create-container-app-01.png" alt-text="Screenshot showing how to search for the Azure Container Apps service in Azure portal." lightbox="media/tutorial-container-apps/azure-portal-create-container-app-01.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -484,7 +486,7 @@ Container apps are deployed to Container Apps environments, which act as a secur
         **Step 2.** Select **+ Create** to start the create process.
     :::column-end:::
     :::column:::
-        TBD
+        :::image type="content" source="media/tutorial-container-apps/azure-portal-create-container-app-02.png" alt-text="Screenshot showing how to start the create process for an Azure Container Apps service in Azure portal." lightbox="media/tutorial-container-apps/azure-portal-create-container-app-02.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
