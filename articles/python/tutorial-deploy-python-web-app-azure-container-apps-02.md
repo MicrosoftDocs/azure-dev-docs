@@ -632,7 +632,7 @@ These steps require the [Azure Container Apps extension][11] for VS Code.
 
     :::column-end:::
     :::column:::
-        TBD
+        :::image type="content" source="media/tutorial-container-apps/visual-studio-code-create-container-app-01.png" alt-text="Screenshot showing how to search for the Azure Container Apps create task in Visual Studio Code." lightbox="media/tutorial-container-apps/visual-studio-code-create-container-app-01.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -642,7 +642,7 @@ These steps require the [Azure Container Apps extension][11] for VS Code.
         * **Select Container Apps environment** &rarr; Select **Create new Container Apps environment**.
         * **Select a location for new resources** &rarr; Choose the same location that resource group you created previously.        
 
-        It can take several moments to create the environment. A notification shows the progress of the operation.
+        It can take several moments to create the environment. A notification shows the progress of the operation. Look for "Successfully create new Container Apps environment" before going to the next step.
     :::column-end:::
     :::column:::
         TBD
