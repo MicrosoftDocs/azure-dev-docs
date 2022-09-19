@@ -530,7 +530,7 @@ Container apps are deployed to Container Apps *environments*, which act as a sec
         * **Ingress traffic** &rarr; Select **Accepting traffic from anywhere**.        
         * **Target port**&rarr; Set to 8000 for Django or 5000 for Flask.
         
-        Select **Review and create** to go to review page.
+        Select **Review and create** to go to review page. After reviewing the settings, select **Create** to kick off deployment.
 
     :::column-end:::
     :::column:::
@@ -539,18 +539,19 @@ Container apps are deployed to Container Apps *environments*, which act as a sec
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 6.** Review and create
-
-        * Select **Create** to create the container app.
-        
+        **Step 6.** After the deployment finishes, select **Go to resource**.
     :::column-end:::
     :::column:::
-        TBD
+        :::image type="content" source="media/tutorial-container-apps/azure-portal-create-container-app-05.png" alt-text="Screenshot showing the resource deployment complete page for an Azure Container Apps service in Azure portal." lightbox="media/tutorial-container-apps/azure-portal-create-container-app-05.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 7.** Create container environment variables.
+        **Step 7.** Create a *revision* of the container that contains environment variables.
+
+        * Select the **Containers** resource of the newly created container.
+        * Then, select **Edit and deploy**.
+        * On the **Create and deploy new revision** select the name of the container image, in this case *python-container-app*.
 
         * AZURE_POSTGRESQL_HOST=\<postgres-instance-name>.postgres.database.azure.com
         * AZURE_POSTGRESQL_DATABASE=restaurants_reviews
@@ -563,7 +564,8 @@ Container apps are deployed to Container Apps *environments*, which act as a sec
         
     :::column-end:::
     :::column:::
-        TBD
+        :::image type="content" source="media/tutorial-container-apps/azure-portal-create-container-app-06.png" alt-text="Screenshot showing how to edit a container in the Azure Container Apps service in Azure portal." lightbox="media/tutorial-container-apps/azure-portal-create-container-app-06.png":::
+        :::image type="content" source="media/tutorial-container-apps/azure-portal-create-container-app-07.png" alt-text="Screenshot showing how to create a new container revision in the Azure Container Apps service in Azure portal." lightbox="media/tutorial-container-apps/azure-portal-create-container-app-07.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -666,7 +668,7 @@ These steps require the [Azure Container Apps extension][11] for VS Code.
     :::column:::
         **Step 1.** Sign in to Azure and authenticate, if needed.
 
-        ```
+        ```bash
         az login
         ```
     :::column-end:::
@@ -675,7 +677,7 @@ These steps require the [Azure Container Apps extension][11] for VS Code.
     :::column span="1":::
         **Step 2.** Install or upgrade the extension for Azure Container Apps withe [az extension add][14] command.
         
-        ```
+        ```bash
         az extension add --name containerapp --upgrade
         ```
         
@@ -699,7 +701,7 @@ These steps require the [Azure Container Apps extension][11] for VS Code.
     :::column span="1":::
         **Step 4.** Get the login credentials for the Azure Container Registry.
 
-        ```
+        ```bash
         az acr credentials show -n <registry-name>
         ```
 
