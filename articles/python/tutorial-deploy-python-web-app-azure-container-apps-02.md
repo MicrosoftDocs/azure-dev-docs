@@ -83,23 +83,24 @@ After following these steps, you'll have an Azure Container Registry and a Docke
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 4.** Open [Azure Cloud Shell][4] to finish configuration and building an image.
+        **Step 4.** Enable the administrator user account.
+
+        * In the Container registry you just created, go to the **Access Keys** resource.
+        * Select **Enabled** for the **Admin user**.
+
+    :::column-end:::
+    :::column:::
+        :::image type="content" source="media/tutorial-container-apps/azure-portal-build-image-05.png" alt-text="Screenshot showing how to set enable administrator user account for Azure Container Registry in Azure portal." lightbox="media/tutorial-container-apps/azure-portal-build-image-05.png":::
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="2":::
+        **Step 5.** Open [Azure Cloud Shell][4] to finish configuration and building an image.
 
         You can also open Azure Cloud Shell selecting the Cloud Shell icon in the top menu bar of any portal window.
     :::column-end:::
     :::column:::
         :::image type="content" source="media/tutorial-container-apps/azure-portal-build-image-04.png" alt-text="Screenshot showing how to access Azure Cloud Shell in Azure portal." lightbox="media/tutorial-container-apps/azure-portal-build-image-04.png":::
-    :::column-end:::
-:::row-end:::
-:::row:::
-    :::column span="1":::
-        **Step 5.** Use the [az acr update][29] command to build and quickly enable the administrator user account for the registry.
-
-        ```bash
-        az acr update --name <registry-name> \
-           --resource-group pythoncontainer-rg \
-           --admin-enabled true
-        ```
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -164,6 +165,19 @@ These steps require the [Docker extension][6] for VS Code.
     :::column-end:::
     :::column:::
         :::image type="content" source="media/tutorial-container-apps/visual-studio-code-build-image-03.png" alt-text="Screenshot showing how to confirm the Azure Container Registry was created in Visual Studio Code." lightbox="media/tutorial-container-apps/visual-studio-code-build-image-03.png":::
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="1":::
+        **Step 4.** Use the [az acr update][29] command to build and quickly enable the administrator user account for the registry. You can run the command in Visual Studio Code terminal window or the Azure [Cloud Shell][4].
+
+        ```bash
+        az acr update --name <registry-name> \
+           --resource-group pythoncontainer-rg \
+           --admin-enabled true
+        ```
+
+        Alternatively, select the registry in the Docker extension, right-click and select **Open in Portal** to enable the administrator user account. See the instructions for the portal.
     :::column-end:::
 :::row-end:::
 
