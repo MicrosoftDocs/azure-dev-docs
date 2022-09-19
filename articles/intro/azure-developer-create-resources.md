@@ -47,7 +47,7 @@ Developers using [Visual Studio Code](https://code.visualstudio.com) can manage 
 > [!div class="nextstepaction"]
 > [Download Azure Tools extension pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack)
 
-:::image type="content" source="./media/visual-studio-code-azure-tools-extension-800px.png" alt-text="A screenshot showing Visual Studio Code with the Azure Tools extension pack installed." lightbox="./media/visual-studio-code-azure-tools-extension.png":::
+:::image type="content" source="./media/visual-studio-code-azure-tools-extension.png" alt-text="A screenshot showing Visual Studio Code with the Azure Tools extension pack installed.":::
 
 ## Command line tools
 
