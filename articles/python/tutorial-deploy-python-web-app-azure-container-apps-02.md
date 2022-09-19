@@ -83,7 +83,7 @@ After following these steps, you'll have an Azure Container Registry and a Docke
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 4.** Open [Azure Cloud Shell][4].
+        **Step 4.** Open [Azure Cloud Shell][4] to finish configuration and building an image.
 
         You can also open Azure Cloud Shell selecting the Cloud Shell icon in the top menu bar of any portal window.
     :::column-end:::
@@ -93,7 +93,18 @@ After following these steps, you'll have an Azure Container Registry and a Docke
 :::row-end:::
 :::row:::
     :::column span="1":::
-        **Step 5.** Use the [az acr build][5] command to build the image from the repo.
+        **Step 5.** Use the [az acr update][29] command to build quickly enable the administrator user account for the registry.
+
+        ```bash
+        az acr build --name <registry-name> \
+           --resource-group pythoncontainer-rg \
+           --admin-enabled true
+        ```
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="1":::
+        **Step 6.** Use the [az acr build][5] command to build the image from the repo.
 
         Specify the registry name and resource group you created above. For `<repo-path>`, choose either the [Django][1] or [Flask][2] repo path.
 
@@ -796,3 +807,4 @@ These steps require the [Azure Container Apps extension][11] for VS Code.
 [26]: https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb
 [27]: /cli/azure/postgres/flexible-server/db#az-postgres-flexible-server-db-create
 [28]: /cli/azure/postgres/flexible-server/firewall-rule#az-postgres-flexible-server-firewall-rule-create
+[29]: /cli/azure/acr#az-acr-update
