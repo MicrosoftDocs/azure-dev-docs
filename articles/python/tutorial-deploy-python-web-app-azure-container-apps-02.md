@@ -673,15 +673,13 @@ These steps require the [Azure Container Apps extension][11] for VS Code.
     :::column span="2":::
         **Step 5.** Test the website.
 
-        * Select **F1** or **CTRL+SHIFT+P** to open the command palette.
-        * Find and start the task **Azure Container Apps: Browse**.
-        * Select the container environment and container app you just created.
+        * After the task completes, you'll see a notification with a **Browse** button to go to the website.
 
-        Alternatively, go to the Azure extension, Container Apps section, container environment and right-click the container app and select **Browse**.
+        If you miss the notification, go to the Azure extension, expand the Container Apps section, find and expand your container environment, and right-click the container app and select **Browse**.
 
     :::column-end:::
     :::column:::
-        TBD
+        :::image type="content" source="media/tutorial-container-apps/visual-studio-code-create-container-app-04.png" alt-text="Screenshot showing how to browse to an Azure Container app after it is created in Visual Studio Code." lightbox="media/tutorial-container-apps/visual-studio-code-create-container-app-04.png":::
     :::column-end:::
 :::row-end:::
 
