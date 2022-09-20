@@ -486,7 +486,7 @@ Where:
 * `pythoncontainer-rg` &rarr; The resource group name used in this tutorial. If you used a different name, change this value.
 * `<postgres-instance-name>` &rarr; The name of the PostgreSQL server.
 
-You could also use the [az postgres flexible-server connect][16] command to connect to the database and then work with [psl][15] commands. If you do this, we recommend using the Azure [Cloud Shell][4] because all the dependencies are included for you in the shell.
+You could also use the [az postgres flexible-server connect][16] command to connect to the database and then work with [psl][15] commands. If you work with psl, we recommend using the Azure [Cloud Shell][4] because all the dependencies are included for you in the shell.
 
 ---
 
@@ -584,12 +584,12 @@ Container apps are deployed to Container Apps [*environments*][30], which act as
         :::image type="content" source="media/tutorial-container-apps/azure-portal-create-container-app-08.png" alt-text="Screenshot showing how to add environment variables to an Azure Container Apps revision in Azure portal." lightbox="media/tutorial-container-apps/azure-portal-create-container-app-08.png"::: 
         :::image type="content" source="media/tutorial-container-apps/azure-portal-create-container-app-09.png" alt-text="Screenshot showing how to finish creating revision of an Azure Container Apps container in Azure portal." lightbox="media/tutorial-container-apps/azure-portal-create-container-app-09.png":::
     :::column-end:::
+:::row-end:::
 :::row:::
     :::column span="1":::
         > [!TIP]
         > Instead of directly defining environment variables as shown above, you can use the [Service Connector][9]. Service Connector helps you connect to Azure compute services like Azure Container Apps, to other backing services by configuring connection information and generating and storing environment variables for you.
     :::column-end:::
-:::row-end:::
 :::row-end:::
 :::row:::
     :::column span="2":::
@@ -788,10 +788,9 @@ An example of the sample website after adding a restaurant and two reviews shoul
   * With Azure CLI, use the command `az containerapp show -g pythoncontainer-rg -n python-container-app --query properties.configuration.ingress.fqdn`.
 
 * In VS Code, the **Build Image in Azure** task returns an error.
-  * This error can happen when you select an existing registry to use.
-  * If you see the message "Error: failed to download context. Please check if the URL is incorrect." in the **Output** window, then refresh the registry in the Docker extension. To refresh, select the Docker extension, go to the Registries section, find the registry and select it.
+  * If you see the message "Error: failed to download context. Please check if the URL is incorrect." in the VS Code **Output** window, then refresh the registry in the Docker extension. To refresh, select the Docker extension, go to the Registries section, find the registry and select it.
 
-* In the Azure portal during the creation of a Container App you see an access error.
+* In the Azure portal during the creation of a Container App, you see an access error.
   * If you see the error "Cannot access ACR '\<name>.azurecr.io' because admin credentials on the ACR are disabled, then go to your Azure Container Registry and under the **Access keys** resource, ensure that **Admin user** is enabled.
 
 * Container image doesn't appear in the Azure Container Registry.
@@ -801,15 +800,15 @@ An example of the sample website after adding a restaurant and two reviews shoul
 
 * Website returns "Bad Request (400)".
   * Check the PostgreSQL environment variables passed in to the container. This error often indicates that the Python code can't connect to the PostgreSQL instance.
-  * Check that there's a container environment variable `RUNNING_IN_PRODUCTION` and it's set to 1. The sample code used in this tutorial requires this environment variable.
+  * The sample code used in this tutorial requires the container environment variable `RUNNING_IN_PRODUCTION` set to any value like "1".
 
 * Website returns "Not Found (404)".
   * Check the **Application Url** on the **Overview** page for the container. If the Application Url contains the word "internal", then ingress isn't set correctly.
   * Check the ingress of the container. For example, in Azure portal, go to the **Ingress** resource of the container and make sure **HTTP Ingress** is enabled and **Accepting traffic from anywhere** is selected.
 
-* Website doesn't start or you see "stream timeout" or nothing is returned.
+* Website doesn't start, you see "stream timeout", or nothing is returned.
   * In the Azure portal, go to the Container App's Revision management resource and check the **Provision Status** of the container.
-    * If "Provisioning", then wait until it has completed.
+    * If "Provisioning", then wait until provisioning has completed.
     * If "Failed", then select the revision and view the console logs. Choose the order of the columns to show "Time Generated", "Stream_s", and "Log_s". Sort the logs by most-recent first and look for Python *stderr* and *stdout* messages in the "Stream_s" column. Python 'print' output will be *stdout* messages.
 
 [1]: https://github.com/Azure-Samples/msdocs-python-django-azure-container-app
