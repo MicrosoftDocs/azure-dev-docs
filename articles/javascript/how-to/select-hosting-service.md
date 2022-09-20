@@ -14,7 +14,7 @@ Hosting options and deployment scenarios include several services and tools for 
 
 Use the following table to select a hosting service for most common app needs. 
 
-For a complete overview of different hosting options, see [Decision tree for Azure compute services](/azure/architecture/guide/technology-choices/compute-decision-tree) and the [Core Cloud Services - Azure compute options](/learn/modules/intro-to-azure-compute) module.
+For a complete overview of different hosting options, see [Decision tree for Azure compute services](/azure/architecture/guide/technology-choices/compute-decision-tree) and the [Core Cloud Services - Azure compute options](/training/modules/intro-to-azure-compute) module.
 
 
 | Service |App type supported| Suggested for |

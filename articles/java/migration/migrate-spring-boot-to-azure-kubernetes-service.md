@@ -181,7 +181,7 @@ Push the image to your Azure container registry:
 docker push ${MY_ACR}.azurecr.io/${MY_APP_NAME}
 ```
 
-For more in-depth information on building and storing container images in Azure, see the Learn module [Build and store container images with Azure Container Registry](/learn/modules/build-and-store-container-images/).
+For more in-depth information on building and storing container images in Azure, see the Learn module [Build and store container images with Azure Container Registry](/training/modules/build-and-store-container-images/).
 
 If you used our [Spring Boot Container Quickstart GitHub repo](https://github.com/Azure/spring-boot-container-quickstart), you can also include a custom keystore that will be added to your JVM upon startup. This addition will occur if you put the keystore file at */opt/spring-boot/mycert.crt*. You can do so by adding the file directly to the Dockerfile, or by using the Azure Key Vault Provider for Secrets Store CSI Driver, as mentioned previously.
 

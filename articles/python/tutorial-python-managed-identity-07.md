@@ -66,18 +66,18 @@ After completing this tutorial, here are some next steps you can take to build u
 
 The following are some Learn modules that explore the technologies and themes covered in this tutorial:
 
-* [Introduction to Python](/learn/modules/intro-to-python/)
+* [Introduction to Python](/training/modules/intro-to-python/)
 
-* [Get started with Django](/learn/modules/django-get-started/)
+* [Get started with Django](/training/modules/django-get-started/)
 
-* [Create views and templates in Django](/learn/modules/django-views-templates/)
+* [Create views and templates in Django](/training/modules/django-views-templates/)
 
-* [Create data-driven websites by using the Python framework Django](/learn/paths/django-create-data-driven-websites/)
+* [Create data-driven websites by using the Python framework Django](/training/paths/django-create-data-driven-websites/)
 
-* [Deploy a Django application to Azure by using PostgreSQL](/learn/modules/django-deployment/)
+* [Deploy a Django application to Azure by using PostgreSQL](/training/modules/django-deployment/)
 
-* [Azure Database for PostgreSQL](/learn/paths/introduction-to-azure-postgres/)
+* [Azure Database for PostgreSQL](/training/paths/introduction-to-azure-postgres/)
 
-* [Create and connect to an Azure Database for PostgreSQL](/learn/modules/create-connect-to-postgres/)
+* [Create and connect to an Azure Database for PostgreSQL](/training/modules/create-connect-to-postgres/)
 
-* [Explore Azure Blob storage](/learn/modules/explore-azure-blob-storage/)
+* [Explore Azure Blob storage](/training/modules/explore-azure-blob-storage/)
