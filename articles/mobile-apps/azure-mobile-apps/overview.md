@@ -24,7 +24,7 @@ Azure Mobile Apps is designed to work with Azure App Service. Since it's based o
 
 With the Mobile Apps SDKs, you can:
 
-* **Build native and cross-platform apps**: Build cloud-enabled apps for Android, iOS, or Windows using native SDKs.
+* **Build native and cross-platform apps**: Build cloud-enabled apps for Android&trade;, iOS, or Windows using native SDKs.
 * **Connect to your enterprise systems**: Authenticate your users with Azure Active Directory, and connect to enterprise data stores.
 * **Build offline-ready apps with data sync**: Make your mobile workforce more productive by building apps that work offline. Use Azure Mobile Apps to sync data in the background.
 
@@ -32,13 +32,13 @@ With the Mobile Apps SDKs, you can:
 
 The following features are important to cloud-enabled mobile development:
 
-* **Authentication and authorization**: Use Azure Mobile Apps to sign-in users using social and enterprise provides.  Azure App Service supports Azure Active Directory, Facebook, Google, Microsoft, Twitter, and OpenID Connect.  Azure Mobile Apps supports any authentication scheme that is supported by ASP.NET Core.
+* **Authentication and authorization**: Use Azure Mobile Apps to sign-in users using social and enterprise provides.  Azure App Service supports Azure Active Directory, Facebook&trade;, Google&reg;, Microsoft, Twitter&reg;, and OpenID Connect&reg;.  Azure Mobile Apps supports any authentication scheme that is supported by ASP.NET Core.
 
-* **Data access**: Azure Mobile Apps provides a mobile-friendly OData v4 data source that's linked to a compatible database via Entity Framework Core. Any compatible database can be used, including Azure SQL, Cosmos DB, or an on-premises Microsoft SQL Server.
+* **Data access**: Azure Mobile Apps provides a mobile-friendly OData v4 data source that's linked to a compatible database via Entity Framework Core. Any compatible database can be used including Azure SQL, Cosmos DB, or an on-premises Microsoft SQL Server.
 
 * **Offline sync**: Build robust and responsive mobile applications that operate with an offline dataset. You can sync this dataset automatically with service, and handle conflicts with ease.
 
-* **Client SDKs**: There's a complete set of client SDKs that cover cross-platform development ([.NET](howto/client/dotnet.md), and [Apache Cordova](howto/client/cordova.md)). Each client SDK is available with an MIT license and is open-source.
+* **Client SDKs**: There's a complete set of client SDKs that cover cross-platform development ([.NET](howto/client/dotnet.md), and [Apache Cordova](howto/client/cordova.md)&trade;). Each client SDK is available with an MIT license and is open-source.
 
 ## Azure App Service features
 
