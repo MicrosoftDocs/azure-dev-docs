@@ -778,7 +778,7 @@ These steps require the [Azure Container Apps extension][11] for VS Code.
 
 An example of the sample website after adding a restaurant and two reviews should look like the following image.
 
-:::image type="content" source="media/tutorial-container-apps/final-website-example-400px.png" alt-text="Screenshot showing an example of the sample website built in this tutorial." lightbox="media/tutorial-container-apps/final-website-example-400px.png":::
+:::image type="content" source="media/tutorial-container-apps/final-website-example-400px.png" alt-text="Screenshot showing an example of the sample website built in this tutorial." lightbox="media/tutorial-container-apps/final-website-example.png":::
 
 ## Troubleshoot deployment
 
