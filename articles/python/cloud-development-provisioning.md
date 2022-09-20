@@ -1,7 +1,7 @@
 ---
 title: Provisioning, accessing, and managing resources on Azure
 description: An overview the methods used to work with Azure resources, including the Azure portal, the Azure CLI, and the Azure libraries (SDK).
-ms.date: 02/16/2021
+ms.date: 09/20/2021
 ms.topic: conceptual
 ms.custom: devx-track-python, devx-track-azurecli
 ---
@@ -29,11 +29,11 @@ Within this developer center, we primarily show how to provision resources using
 
 ## Azure portal
 
-The [Azure portal](https://portal.azure.com) is Azure's fully customizable, browser-based user interface through which you can provision and manage resources with all Azure services. To access the portal, you must first sign in using a Microsoft Account and then create a free Azure account with a subscription. (Once signed in, you can select the **?** icon and select **Launch guided tour** for a simple walkthrough of the main portal features.)
+The [Azure portal](https://portal.azure.com) is Azure's fully customizable, browser-based user interface through which you can provision and manage resources with all Azure services. To access the portal, you must first sign in using a Microsoft Account, and then create a free Azure account with a subscription.
 
 **Pros**: The user interface makes it easy to explore services and all their various configuration options. Setting configuration values is secure because no information is stored on the local workstation.
 
-**Cons**: Working with the portal is a manual process and cannot be easily automated. To remember what you did to change a configuration, for example, you generally record your steps in a separate document.
+**Cons**: Working with the portal is a manual process and can't be easily automated. To remember what you did to change a configuration, for example, you generally record your steps in a separate document.
 
 ## Azure CLI
 
@@ -41,7 +41,7 @@ The [Azure CLI](/cli/azure/) is Azure's [open source](https://github.com/Azure/a
   
 **Pros**: Easily automated through scripts and processing of output. Provides higher-level commands that provision multiple resources together for common tasks, such as deploying a web app. Scripts can be managed in source control.
 
-**Cons**: Steeper learning curve than using the portal, and commands are subject to bugs. Error messages are not always helpful.
+**Cons**: Steeper learning curve than using the portal, and commands are subject to bugs. Error messages aren't always helpful.
 
 You can also use the [Azure PowerShell](/powershell/) module in place of the Azure CLI, although the Azure CLI's Linux-style commands are typically more familiar to Python developers.
 
@@ -57,11 +57,11 @@ For developers, the Azure libraries (sometimes referred to as the Azure SDKs) pr
 
 **Pros**: Precise control over all operations, including a much more direct means of using output from one operation as input to another as compared to the Azure CLI. For Python developers, allows working within familiar language paradigms rather than using the CLI. Can also be used from application code to automate detailed management scenarios.
   
-**Cons**: Operations that can be done with one CLI command typically require multiple lines of code, all of which is subject to bugs. Does not provide higher-level operations like the Azure CLI.
+**Cons**: Operations that can be done with one CLI command typically require multiple lines of code, all of which is subject to bugs. Doesn't provide higher-level operations like the Azure CLI.
 
 ## Automatic on-demand provisioning
 
-Many Azure services allow you to configure scaling characteristics to meet variable demand, in which case Azure can automatically provision additional resources when needed and de-allocate them as appropriate. Such automatic scaling is one of the key advantages of a cloud platform that's backed by the resources of multiple data centers. Instead of designing your environment for peak demand, paying for capacity you wouldn't typically be utilizing, you can design the environment for baseline or average usage and pay for additional capability only when necessary.
+Many Azure services allow you to configure scaling characteristics to meet variable demand, in which case Azure can automatically provision extra resources when needed and de-allocate them as appropriate. Such automatic scaling is one of the key advantages of a cloud platform that's backed by the resources of multiple data centers. Instead of designing your environment for peak demand, paying for capacity you wouldn't typically be utilizing, you can design the environment for baseline or average usage and pay for extra capability only when necessary.
 
 For more information, see [Autoscaling](/azure/architecture/best-practices/auto-scaling) in the Azure Architecture Center.
 
@@ -69,7 +69,7 @@ For more information, see [Autoscaling](/azure/architecture/best-practices/auto-
 
 Within Azure's resource model, you can imagine that, over time, you'll be provisioning many different resources across many Azure services for different applications. There are three levels of hierarchy that you can use to organize these resources:
 
-1. **Subscriptions**: each Azure subscription has its own billing account and often represents a distinct team or department within an organization. In general, you provision all the resources you need for any given application within the same subscription so they can benefit from features like shared authentication. However, because all resources can be accessed through public URLs and the necessary authorization tokens, it's certainly possible to spread resources across multiple subscriptions.
+1. **Subscriptions**: each Azure subscription has its own billing account and often represents a distinct team or department within an organization. In general, you provision all the resources you need for any given application within the same subscription so they can benefit from features like shared authentication. However, because all resources can be accessed through public URLs and the necessary authorization tokens, it's possible to spread resources across multiple subscriptions.
 
 1. **Resource groups**: within a subscription, resource groups are containers for other resources, which you can then manage as a group. (For this reason, a resource group typically relates to a specific project.) Whenever you provision a resource, in fact, you must specify the group to which it belongs. Your first step with a new project is usually to create an appropriate resource group. And by deleting the resource group you de-allocate all of its contained resources rather than having to delete each resource individually. Trust us when we say that neglecting to organize your resource groups can lead to many headaches later on when you don't remember which resource belongs to which project!
 
