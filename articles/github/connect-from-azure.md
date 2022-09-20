@@ -4,7 +4,7 @@ description: Resources to connect to GitHub from Azure and other services
 author: N-Usha 
 ms.author: ushan 
 ms.topic: reference
-ms.service: azure-dev-cli 
+ms.service: azure 
 ms.date: 11/30/2021
 ms.custom: github-actions-azure, devx-track-azurecli
 ---
