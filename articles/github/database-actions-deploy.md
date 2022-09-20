@@ -4,7 +4,7 @@ description: Support to deploy databases from GitHub to Azure
 author: juliakm 
 ms.author: jukullam 
 ms.topic: reference
-ms.service: deployment-manager
+ms.service: azure
 ms.date: 11/19/2020
 ms.custom: github-actions-azure
 ---
