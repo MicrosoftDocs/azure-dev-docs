@@ -24,22 +24,22 @@ landingContent:
     linkLists:
       - linkListType: learn
         links:
-          - text: Learn TV
-            url: /learn/tv/
+          - text: Microsoft Learn Events
+            url: /events/
           - text: JavaScript
             url: /Shows/Beginners-Series-to-JavaScript
           - text: JavaScript in Portuguese
             url: https://www.youtube.com/watch?v=SXBNpzjusgY
           - text: Simple website using HTML, CSS, and JavaScript
-            url: /learn/modules/build-simple-website/
+            url: /training/modules/build-simple-website/
           - text: React
-            url: /learn/modules/react-get-started/
+            url: /training/modules/react-get-started/
           - text: Node.js
-            url: /learn/paths/build-javascript-applications-nodejs/
+            url: /training/paths/build-javascript-applications-nodejs/
           - text: Azure Fundamentals
-            url: /learn/modules/intro-to-azure-fundamentals/
+            url: /training/modules/intro-to-azure-fundamentals/
           - text: Azure Static Web Apps
-            url: /learn/paths/azure-static-web-apps/
+            url: /training/paths/azure-static-web-apps/
   - title: New to Azure?
     linkLists:
       - linkListType: get-started

@@ -29,7 +29,7 @@ In this tutorial, you'll complete these tasks:
 
 ## Provision a service instance and launch a Java Spring application
 
-We use [Piggy Metrics](https://github.com/Azure-Samples/piggymetrics) as the sample Microsoft service application and follow the same steps in [Quickstart: Launch a Java Spring application using the Azure CLI](/azure/spring-apps/quickstart-deploy-infrastructure-vnet-azure-cli) to provision the service instance and set up the applications. If you've already gone through the same process, you can skip to the next section. Otherwise, included in the following are the Azure CLI commands. Refer to [Quickstart: Launch a Java Spring application using the Azure CLI](/azure/spring-apps/spring-cloud-quickstart-launch-app-cli) to get more information.
+We use [Piggy Metrics](https://github.com/Azure-Samples/piggymetrics) as the sample Microsoft service application and follow the same steps in [Quickstart: Launch a Java Spring application using the Azure CLI](/azure/spring-apps/quickstart-deploy-infrastructure-vnet-azure-cli) to provision the service instance and set up the applications. If you've already gone through the same process, you can skip to the next section. Otherwise, included in the following are the Azure CLI commands. Refer to [Quickstart: Launch a Java Spring application using the Azure CLI](/azure/spring-apps/quickstart?tabs=Azure-CLI) to get more information.
 
 Your local machine needs to meet the same prerequisite as the Jenkins build server. Make sure the following are installed to build and deploy the microservice applications:
 
