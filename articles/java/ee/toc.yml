@@ -27,11 +27,9 @@
       - name: WebSphere Liberty/Open Liberty on Azure Red Hat OpenShift (ARO)
         href: /azure/openshift/howto-deploy-java-liberty-app?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/breadcrumb/toc.json
       - name: WebSphere Liberty/Open Liberty on AKS
-        href: /azure/aks/howto-deploy-java-liberty-app?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/breadcrumb/toc.json
+        href: howto-deploy-java-liberty-app-manual.md
       - name: JCache with WebSphere/Open Liberty
         href: how-to-deploy-java-liberty-jcache.md
-      - name: Java app with PostgreSQL to WebSphere Liberty/Open Liberty on AKS
-        href: /azure/aks/howto-deploy-java-liberty-app-with-postgresql?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/breadcrumb/toc.json
       - name: Payara Micro on Azure App Service
         href: ../eclipse-microprofile/deploy-microprofile-payara-micro-java-app-with-maven-plugin.md?bc=/azure/developer/breadcrumb/toc.json&toc=/azure/developer/java/ee/toc.json
       - name: Traditional WebSphere on Azure VMs

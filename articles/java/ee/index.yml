@@ -42,9 +42,7 @@ landingContent:
           - text: Java app with WebSphere Liberty/Open Liberty to Azure Red Hat OpenShift (ARO)
             url: /azure/openshift/howto-deploy-java-liberty-app?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/breadcrumb/toc.json
           - text: Java app with WebSphere Liberty/Open Liberty to AKS
-            url: /azure/aks/howto-deploy-java-liberty-app?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/breadcrumb/toc.json
-          - text: Java app with PostgreSQL to WebSphere Liberty/Open Liberty on AKS
-            url: /azure/aks/howto-deploy-java-liberty-app-with-postgresql?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/breadcrumb/toc.json
+            url: howto-deploy-java-liberty-app-manual.md
           - text: Java app with JBoss EAP to Azure Red Hat OpenShift (ARO)
             url: /azure/openshift/howto-deploy-java-jboss-enterprise-application-platform-app?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/breadcrumb/toc.json
           - text: Java EE JCache with WebSphere/Open Liberty

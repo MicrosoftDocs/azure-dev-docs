@@ -56,7 +56,7 @@ Find new and updated content for JavaScript and TypeScript developers.
 
 |Name|Description|
 |---------------------------------------|--|
-|[Learn module](/learn/modules/javascript-deploy-expressjs-app-service-with-database/): Deploy Express.js web app with MongoDB database to Azure App Service|Learn how to create, configure and deploy an Express.js (Node.js) web app with a MongoDB database to Azure App Service. The [sample code snippets](https://github.com/Azure-Samples/AzureStorageSnippets/tree/master/blobs/howto/JavaScript/NodeJS-v12/dev-guide) are available in GitHub as runnable Node.js files.|
+|[Learn module](/training/modules/javascript-deploy-expressjs-app-service-with-database/): Deploy Express.js web app with MongoDB database to Azure App Service|Learn how to create, configure and deploy an Express.js (Node.js) web app with a MongoDB database to Azure App Service. The [sample code snippets](https://github.com/Azure-Samples/AzureStorageSnippets/tree/master/blobs/howto/JavaScript/NodeJS-v12/dev-guide) are available in GitHub as runnable Node.js files.|
 |Azure SDK for JavaScript|* [Install packages](./sdk/azure-sdk-install.md?tabs=npm-install%2cnpm-install-version%2cnpm-list%2cnpm-uninstall)<br>* [Authentication Overview](./sdk/authentication/overview.md)<br>* [Authentication in local development with service principals](./sdk/authentication/local-development-environment-service-principal.md?tabs=azure-portal)<br>* [Authentication in local development with developer account](./sdk/authentication/local-development-environment-developer-account.md?tabs=azure-portal%2csign-in-vscode)<br>* [Authentication in Azure-hosted apps](./sdk/authentication/azure-hosted-apps.md?tabs=azure-portal%2cazure-app-service)<br>* [JS Tutorial: Authentication in on-premises app](./sdk/authentication/on-premises-apps.md?tabs=azure-portal)|
 |[Docs tutorial: Upload and analyze a file with Azure Functions and Blob Storage](/azure/storage/blobs/blob-upload-function-trigger-javascript?tabs=storage-resource-visual-studio-code%2Ccomputer-vision-azure-portal)|In this tutorial, you'll learn how to upload an image to Azure Blob Storage and process it using Azure Functions and Computer Vision. You'll also learn how to implement Azure Function triggers and bindings as part of this process. Together, these services will analyze an uploaded image that contains text, extract the text out of it, and then store the text in a database row for later analysis or other purposes. The [sample code](https://github.com/Azure-Samples/msdocs-storage-bind-function-service/tree/main/javascript) is available in GitHub.|
 
@@ -75,7 +75,7 @@ Find new and updated content for JavaScript and TypeScript developers.
 
 |Name|Description|
 |---------------------------------------|--|
-|[Learn module](/learn/modules/javascript-deploy-expressjs-app-service/): Deploy Express.js to Azure App Service|Create Azure service resources for an Express.js web app. Configure, secure, and deploy the web app. Review the logs after deployment. Full [sample code](https://github.com/Azure-Samples/msdocs-javascript-nodejs-server/) available.|
+|[Learn module](/training/modules/javascript-deploy-expressjs-app-service/): Deploy Express.js to Azure App Service|Create Azure service resources for an Express.js web app. Configure, secure, and deploy the web app. Review the logs after deployment. Full [sample code](https://github.com/Azure-Samples/msdocs-javascript-nodejs-server/) available.|
 
 ### Updated in March
 
@@ -339,9 +339,9 @@ Find new and updated content for JavaScript and TypeScript developers.
 
 |Name|
 |---------------------------------------|
-|Static Web App, JavaScript, CodeTour: Use basketball stats to optimize game play with Visual Studio Code, inspired by SPACE JAM: A NEW LEGACY - [Learn](/learn/paths/optimize-basketball-games-with-machine-learning/)|
-|Build a simple website using HTML, CSS, and JavaScript - [Learn](/learn/modules/build-simple-website/)|
-|Use Visual Studio Code to build a JavaScript and Vue.js dashboard with a Serverless API powered by Azure Functions and Node.js. - [Learn](/learn/modules/build-api-azure-functions)|
+|Static Web App, JavaScript, CodeTour: Use basketball stats to optimize game play with Visual Studio Code, inspired by SPACE JAM: A NEW LEGACY - [Learn](/training/paths/optimize-basketball-games-with-machine-learning/)|
+|Build a simple website using HTML, CSS, and JavaScript - [Learn](/training/modules/build-simple-website/)|
+|Use Visual Studio Code to build a JavaScript and Vue.js dashboard with a Serverless API powered by Azure Functions and Node.js. - [Learn](/training/modules/build-api-azure-functions)|
 
 ## 2020 November
 

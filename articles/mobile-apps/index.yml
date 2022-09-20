@@ -33,7 +33,7 @@ landingContent:
       - linkListType: learn
         links:
           - text: Build mobile apps with .NET MAUI
-            url: /learn/paths/build-apps-with-dotnet-maui/
+            url: /training/paths/build-apps-with-dotnet-maui/
       - linkListType: video
         links:
           - text: Build an entire mobile app with Azure
@@ -59,7 +59,7 @@ landingContent:
       - linkListType: learn
         links:
           - text: Consume a RESTful Web Service with Xamarin
-            url: /learn/modules/consume-rest-services
+            url: /training/modules/consume-rest-services
 
   # Card (optional)
   - title: Save data
