@@ -494,7 +494,7 @@ You can also connect to Azure PostgreSQL Flexible server and create a database u
 
 ## Deploy the web app to Container Apps
 
-Container apps are deployed to Container Apps *environments*, which act as a secure boundary. These steps will create both the environment and the container inside the environment, and configure the environment so that the website is visible externally.
+Container apps are deployed to Container Apps [*environments*][30], which act as a secure boundary. The steps below create the environment, a container inside the environment, and configure the container so that the website is visible externally.
 
 ### [Azure portal](#tab/azure-portal)
 
@@ -566,7 +566,7 @@ Container apps are deployed to Container Apps *environments*, which act as a sec
         * Select the **Containers** resource of the newly created container.
         * Then, select **Edit and deploy**.
         * On the **Create and deploy new revision** page, select the name of the container image, in this case *python-container-app*.
-        * On the **Edit container** page, create environment variables as discussed below and then select **Save**.
+        * On the **Edit container** page, create environment variables as shown below and then select **Save**.
         * Back on the **Create and deploy new revision** page, select **Create**.
 
         Create the following environment variables:
@@ -576,9 +576,6 @@ Container apps are deployed to Container Apps *environments*, which act as a sec
         * AZURE_POSTGRESQL_USERNAME=demoadmin
         * AZURE_POSTGRESQL_PASSWORD=\<db-password>
         * RUNNING_IN_PRODUCTION=1
-
-        > [!TIP]
-        > Instead of directly defining environment variables as shown above, you can use the [Service Connector][9]. Service Connector helps you connect to Azure compute services like Azure Container Apps, to other backing services by configuring connection information and generating and storing environment variables for you.
         
     :::column-end:::
     :::column:::
@@ -587,6 +584,12 @@ Container apps are deployed to Container Apps *environments*, which act as a sec
         :::image type="content" source="media/tutorial-container-apps/azure-portal-create-container-app-08.png" alt-text="Screenshot showing how to add environment variables to an Azure Container Apps revision in Azure portal." lightbox="media/tutorial-container-apps/azure-portal-create-container-app-08.png"::: 
         :::image type="content" source="media/tutorial-container-apps/azure-portal-create-container-app-09.png" alt-text="Screenshot showing how to finish creating revision of an Azure Container Apps container in Azure portal." lightbox="media/tutorial-container-apps/azure-portal-create-container-app-09.png":::
     :::column-end:::
+:::row:::
+    :::column span="1":::
+        > [!TIP]
+        > Instead of directly defining environment variables as shown above, you can use the [Service Connector][9]. Service Connector helps you connect to Azure compute services like Azure Container Apps, to other backing services by configuring connection information and generating and storing environment variables for you.
+    :::column-end:::
+:::row-end:::
 :::row-end:::
 :::row:::
     :::column span="2":::
@@ -775,7 +778,7 @@ These steps require the [Azure Container Apps extension][11] for VS Code.
 
 An example of the sample website after adding a restaurant and two reviews should look like the following image.
 
-:::image type="content" source="media/tutorial-container-apps/final-website-example.png" alt-text="Screenshot showing an example of the sample website built in this tutorial." lightbox="media/tutorial-container-apps/final-website-example.png":::
+:::image type="content" source="media/tutorial-container-apps/final-website-example-400px.png" alt-text="Screenshot showing an example of the sample website built in this tutorial." lightbox="media/tutorial-container-apps/final-website-example-400px.png":::
 
 ## Troubleshoot deployment
 
@@ -838,3 +841,4 @@ An example of the sample website after adding a restaurant and two reviews shoul
 [27]: /cli/azure/postgres/flexible-server/db#az-postgres-flexible-server-db-create
 [28]: /cli/azure/postgres/flexible-server/firewall-rule#az-postgres-flexible-server-firewall-rule-create
 [29]: /cli/azure/acr#az-acr-update
+[30]: /azure/container-apps/environment
