@@ -11,7 +11,7 @@ ms.service: azure-dev-cli
 
 # Azure Developer CLI templates (preview)
 
-Azure Developer CLI templates are sample repositories created using the Azure Developer CLI conventions so that you can use `azd`. The `azd` templates extend beyond “Hello World!” to configure continuous integration and delivery (CI/CD) pipelines. These pipelines serve as the foundation from which you can build and customize for your own solutions. Each template includes:
+Azure Developer CLI templates are sample repositories created using the Azure Developer CLI conventions so that you can use `azd`. The `azd` templates extend beyond “Hello World!” to provision Azure resources, configure continuous integration and delivery (CI/CD) pipelines, and more. These templates serve as the foundation from which you can build and customize for your own solutions. Each template includes:
 
 - Application code
 - Infra-as-code files (Bicep or Terraform) needed to provision the Azure resources
@@ -41,6 +41,12 @@ For information on authoring your own template or “templatizing” an existing
 
 [Install the Azure Developer CLI](./install-azd.md) and then select your preferred programming language to choose a template.
 
+You can also run the following command to list all supported, azd-compatible templates.
+
+```bash
+azd template list
+```
+
 Refer to the README in any of the following Azure Developer CLI enabled templates for more instructions and information. 
 
 ### [Node.js](#tab/nodejs)
@@ -69,6 +75,8 @@ Refer to the README in any of the following Azure Developer CLI enabled template
 | [Todo C# Azure SQL Database](https://github.com/azure-samples/todo-csharp-sql) | [Azure App Service](/azure/app-service/) | [Azure SQL Database](/azure/azure-sql/database/sql-database-paas-overview), Bicep |
 
 ---
+
+For more community contributed templates, [browse GitHub using `azd-templates` as the topic]( https://github.com/topics/azd-templates).
 
 ## Authoring templates
 
