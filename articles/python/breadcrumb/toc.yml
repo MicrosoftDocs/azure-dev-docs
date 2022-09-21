@@ -13,21 +13,6 @@
       tocHref: /azure/developer/python
       topicHref: /azure/developer/python/index
       items:
-      - name: Tutorial
-        tocHref: /azure/developer/python/tutorial-python-managed-identity-02
-        topicHref: /azure/developer/python/tutorial-python-managed-identity-01
-      - name: Tutorial
-        tocHref: /azure/developer/python/tutorial-python-managed-identity-03
-        topicHref: /azure/developer/python/tutorial-python-managed-identity-01
-      - name: Tutorial
-        tocHref: /azure/developer/python/tutorial-python-managed-identity-04
-        topicHref: /azure/developer/python/tutorial-python-managed-identity-01
-      - name: Tutorial
-        tocHref: /azure/developer/python/tutorial-python-managed-identity-05
-        topicHref: /azure/developer/python/tutorial-python-managed-identity-01
-      - name: Tutorial
-        tocHref: /azure/developer/python/tutorial-python-managed-identity-06
-        topicHref: /azure/developer/python/tutorial-python-managed-identity-01
-      - name: Tutorial
-        tocHref: /azure/developer/python/tutorial-python-managed-identity-07
+      - name: Managed ID Tutorial
+        tocHref: /azure/developer/python/tutorial-python-managed-identity
         topicHref: /azure/developer/python/tutorial-python-managed-identity-01
