@@ -13,6 +13,12 @@
       tocHref: /azure/developer/python
       topicHref: /azure/developer/python/index
       items:
-      - name: Managed Identity Tutorial
+      - name: Tutorial - Overview
         tocHref: /azure/developer/python/tutorial-python-managed-identity-01
         topicHref: /azure/developer/python/index
+      - name: Tutorial - Local
+        tocHref: /azure/developer/python/tutorial-python-managed-identity-02
+        topicHref: /azure/developer/python/tutorial-python-managed-identity-01
+      - name: Tutorial - Web App
+        tocHref: /azure/developer/python/tutorial-python-managed-identity-03
+        topicHref: /azure/developer/python/tutorial-python-managed-identity-01
