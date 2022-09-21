@@ -21,7 +21,7 @@
   - name: Django/Flask web app + database + auth
     items:
     - name: 1. Overview
-      href: tutorial-python-managed-identity-01.md?toc=/azure/developer/python/toc.json&bc=/azure/developer/python/breadcrumb/toc.json
+      href: tutorial-python-managed-identity-01.md
     - name: 2. Run the web app locally
       href: tutorial-python-managed-identity-02.md?toc=/azure/developer/python/toc.json&bc=/azure/developer/python/breadcrumb/toc.json
     - name: 3. Create an App Service
