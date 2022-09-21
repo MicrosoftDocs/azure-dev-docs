@@ -29,11 +29,11 @@
     - name: 4. Create a storage account
       href: tutorial-python-managed-identity-04.md?toc=/azure/developer/python/toc.json&bc=/azure/developer/python/breadcrumb/toc.json
     - name: 5. Create a PostgreSQL database
-      href: tutorial-python-managed-identity-05.md
+      href: tutorial-python-managed-identity-05.md?toc=/azure/developer/python/toc.json&bc=/azure/developer/python/breadcrumb/toc.json
     - name: 6. Deploy the web app to Azure
-      href: tutorial-python-managed-identity-06.md
+      href: tutorial-python-managed-identity-06.md?toc=/azure/developer/python/toc.json&bc=/azure/developer/python/breadcrumb/toc.json
     - name: 7. Clean up resources
-      href: tutorial-python-managed-identity-07.md
+      href: tutorial-python-managed-identity-07.md?toc=/azure/developer/python/toc.json&bc=/azure/developer/python/breadcrumb/toc.json
   - name: Static websites
     href: how-to-create-static-sites.md
   - name: Configure web apps
