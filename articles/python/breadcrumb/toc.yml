@@ -15,10 +15,13 @@
       items:
       - name: Tutorial - Overview
         tocHref: /azure/developer/python/tutorial-python-managed-identity-01
-        topicHref: /azure/developer/python/index
+        topicHref: /azure/developer/python/tutorial-python-managed-identity-01
       - name: Tutorial - Local
         tocHref: /azure/developer/python/tutorial-python-managed-identity-02
         topicHref: /azure/developer/python/tutorial-python-managed-identity-01
       - name: Tutorial - Web App
         tocHref: /azure/developer/python/tutorial-python-managed-identity-03
+        topicHref: /azure/developer/python/tutorial-python-managed-identity-01
+      - name: Tutorial - Storage
+        tocHref: /azure/developer/python/tutorial-python-managed-identity-04
         topicHref: /azure/developer/python/tutorial-python-managed-identity-01
