@@ -4,7 +4,7 @@ description: Visual Studio and Visual Studio Code resources to deploy apps from 
 author: N-Usha 
 ms.author: ushan 
 ms.topic: reference
-ms.service: azure 
+ms.service: azure
 ms.date: 05/05/2020
 ---
 
