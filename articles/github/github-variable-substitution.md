@@ -4,7 +4,7 @@ description: GitHub Action for substituting variables in parameterized files
 author: juliakm
 ms.author: jukullam 
 ms.topic: conceptual
-ms.service: azure 
+ms.service: azure
 ms.date: 01/25/2021
 ms.custom: github-actions-azure
 ---
