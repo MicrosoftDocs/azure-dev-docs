@@ -120,9 +120,6 @@
         tocHref: /azure/developer/python/sdk
         topicHref: /azure/developer/python/sdk/index
       - name: Managed ID Tutorial
-        tocHref: /azure/developer/python/tutorial-python-managed-identity-01
-        topicHref: /azure/developer/python/tutorial-python-managed-identity-01
-      - name: Managed ID Tutorial
         tocHref: /azure/developer/python/tutorial-python-managed-identity-02
         topicHref: /azure/developer/python/tutorial-python-managed-identity-01
       - name: Managed ID Tutorial
