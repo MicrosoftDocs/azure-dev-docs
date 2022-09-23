@@ -168,12 +168,16 @@ git checkout change-branch
 **Step 2.** Make a change and push change to branch.
 
 ```Bash
-git push branch to origin (not remote)
+git push branch to origin
 git commit -a "Some change"
 git push
 ```
 
 **Step 3.** Create a pull request and merge changes into *main* branch
+
+```bash
+
+```
 
 ## Troubleshooting
 
