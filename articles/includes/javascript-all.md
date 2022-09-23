@@ -310,11 +310,11 @@
 | @azure-tools/cadl-providerhub | npm [0.21.0](https://www.npmjs.com/package/@azure-tools/cadl-providerhub/v/0.21.0) |  |  |
 | @azure-tools/cadl-providerhub-controller | npm [0.16.0](https://www.npmjs.com/package/@azure-tools/cadl-providerhub-controller/v/0.16.0) |  |  |
 | @azure-tools/cadl-python | npm [0.2.2](https://www.npmjs.com/package/@azure-tools/cadl-python/v/0.2.2) |  |  |
-| @azure-tools/cadl-ranch | npm [0.1.9](https://www.npmjs.com/package/@azure-tools/cadl-ranch/v/0.1.9) |  |  |
+| @azure-tools/cadl-ranch | npm [0.2.0](https://www.npmjs.com/package/@azure-tools/cadl-ranch/v/0.2.0) |  |  |
 | @azure-tools/cadl-ranch-api | npm [0.1.9](https://www.npmjs.com/package/@azure-tools/cadl-ranch-api/v/0.1.9) |  |  |
-| @azure-tools/cadl-ranch-coverage-sdk | npm [0.1.0](https://www.npmjs.com/package/@azure-tools/cadl-ranch-coverage-sdk/v/0.1.0) |  |  |
+| @azure-tools/cadl-ranch-coverage-sdk | npm [0.1.1](https://www.npmjs.com/package/@azure-tools/cadl-ranch-coverage-sdk/v/0.1.1) |  |  |
 | @azure-tools/cadl-ranch-expect | npm [0.1.9](https://www.npmjs.com/package/@azure-tools/cadl-ranch-expect/v/0.1.9) |  |  |
-| @azure-tools/cadl-ranch-specs | npm [0.1.12](https://www.npmjs.com/package/@azure-tools/cadl-ranch-specs/v/0.1.12) |  |  |
+| @azure-tools/cadl-ranch-specs | npm [0.2.0](https://www.npmjs.com/package/@azure-tools/cadl-ranch-specs/v/0.2.0) |  |  |
 | @azure-tools/cadl-rest | npm [0.4.1](https://www.npmjs.com/package/@azure-tools/cadl-rest/v/0.4.1) |  |  |
 | @azure-tools/cadl-rpaas | npm [0.11.0](https://www.npmjs.com/package/@azure-tools/cadl-rpaas/v/0.11.0) |  |  |
 | @azure-tools/cadl-rpaas-controller | npm [0.7.0](https://www.npmjs.com/package/@azure-tools/cadl-rpaas-controller/v/0.7.0) |  |  |
@@ -326,6 +326,7 @@
 | @azure-tools/oav-traffic-converter | npm [0.1.0](https://www.npmjs.com/package/@azure-tools/oav-traffic-converter/v/0.1.0) |  |  |
 | @azure-tools/prettier-plugin-adl | npm [0.1.4](https://www.npmjs.com/package/@azure-tools/prettier-plugin-adl/v/0.1.4) |  |  |
 | @azure-tools/prettier-plugin-cadl | npm [0.2.1](https://www.npmjs.com/package/@azure-tools/prettier-plugin-cadl/v/0.2.1) |  |  |
+| @azure-tools/python-generator-core | npm [0.1.0](https://www.npmjs.com/package/@azure-tools/python-generator-core/v/0.1.0) |  |  |
 | @azure-tools/sdk-generation-lib | npm [1.0.4](https://www.npmjs.com/package/@azure-tools/sdk-generation-lib/v/1.0.4) |  |  |
 | @azure-tools/test-credential | npm [1.0.0](https://www.npmjs.com/package/@azure-tools/test-credential/v/1.0.0) |  |  |
 | @azure-tools/test-recorder | npm [2.0.0](https://www.npmjs.com/package/@azure-tools/test-recorder/v/2.0.0) |  |  |
