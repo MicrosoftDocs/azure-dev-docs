@@ -23,9 +23,9 @@ The service diagram shown below highlights the components covered in this articl
 
 Required:
 
-* Followed the previous article in this tutorial or have a similar resources already deployed.
+* Have the resources created in the previous article of this tutorial, which include an [Azure Container Registry][9] and a container app in [Azure Container Apps][8].
 
-* Have a GitHub account where you forked the sample rep (([Django][1] or [Flask][2])) to.
+* A GitHub account where you forked the sample rep (([Django][1] or [Flask][2])) and that you can connect to from Azure Container Apps.
 
 ## Set up continuous deployment for the container
 
@@ -144,7 +144,7 @@ Azure CLI commands can be run in the [Azure Cloud Shell][4] or on a workstation 
 
 ---
 
-## Create a branch in the forked repo locally and make a change
+## Create a code change to start Github workflow
 
 **Step 1.** Create a branch to work in and check it out.
 
@@ -192,5 +192,6 @@ Website doesn't show change
 [4]: https://shell.azure.com/
 [7]: /cli/azure/install-azure-cli
 [8]: /azure/container-apps/overview
+[9]: /azure/container-registry/container-registry-intro
 [10]: /cli/azure/ad/sp#az-ad-sp-create-for-rbac
 [11]: /cli/azure/containerapp/github-action#az-containerapp-github-action-add
