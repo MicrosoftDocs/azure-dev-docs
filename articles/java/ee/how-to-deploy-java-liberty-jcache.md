@@ -5,7 +5,7 @@ author: KarlErickson
 ms.author: jiangma
 ms.service: container-service
 ms.topic: how-to
-ms.date: 05/31/2022
+ms.date: 09/21/2022
 keywords: java, jakartaee, javaee, microprofile, open-liberty, websphere-liberty, aks, kubernetes, jcache, redisson
 ms.custom: template-how-to, devx-track-java, devx-track-javaee, devx-track-javaee-liberty, devx-track-javaee-liberty-aks
 #Customer intent: As a Java developer, I want to build a Java, Java EE, Jakarta EE, or MicroProfile application with JCache session enabled and deploy it on Azure Kubernetes Service cluster so that customers can store session data in the Azure Cache for Redis for session management.
@@ -176,10 +176,10 @@ Follow the steps in this section to build and containerize the sample applicatio
 
 ### Check out the application
 
-Clone the sample code for this guide. The sample is in the [open-liberty-on-aks](https://github.com/Azure-Samples/open-liberty-on-aks) repository on GitHub. There are a few samples in the repository. This article was written against the sample at git tag `20220429`. We'll use *javaee-app-jcache*. Here's the file structure of the application.
+Clone the sample code for this guide. The sample is in the [open-liberty-on-aks](https://github.com/Azure-Samples/open-liberty-on-aks) repository on GitHub. There are a few samples in the repository. This article was written against the sample at git tag `20220921`. We'll use *java-app-jcache*. Here's the file structure of the application.
 
 ```text
-javaee-app-jcache/
+java-app-jcache/
 ├── pom.xml
 └── src
     └── main
@@ -212,7 +212,7 @@ In the *redisson* directory, the *redisson-config.yaml* file is used to configur
 
 To deploy and run your Liberty application on the AKS cluster, use the following steps to containerize your application as a Docker image. You can use [Open Liberty container images](https://github.com/OpenLiberty/ci.docker) or [WebSphere Liberty container images](https://github.com/WASdev/ci.docker).
 
-1. Change directory to *javaee-app-jcache* of your local clone.
+1. Change directory to *java-app-jcache* of your local clone.
 1. Run `mvn clean package` to package the application.
 1. Run `mvn -Predisson validate` to copy the Redisson configuration file to the specified location. This step inserts the values of the environment variables `REDISCACHEHOSTNAME` and `REDISCACHEKEY` into the *redisson-config.yaml* file, which is referenced by the *server.xml* file.
 1. Run `mvn liberty:dev` to test the application. If the test is successful, you should see `The defaultServer server is ready to run a smarter planet.` in the command output.
@@ -253,7 +253,7 @@ To deploy and run your Liberty application on the AKS cluster, use the following
 
 Follow the steps in this section to deploy the containerized sample application on the AKS cluster.
 
-1. Verify the current working directory is *javaee-app-jcache/target* in your local clone.
+1. Verify the current working directory is *java-app-jcache/target* in your local clone.
 1. Use the following commands to create a secret with Redisson configuration information. With this secret, the application can connect to the created Azure Cache for Redis instance.
 
    ```azurecli-interactive
