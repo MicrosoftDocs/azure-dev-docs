@@ -15,7 +15,7 @@ This article is part of a tutorial about how to containerize and deploy a Python
 
 In this part of the tutorial, you learn how to configure continuous deployment or delivery (CD) for the container app. CD is part of the DevOps concept of continuous integration / continuous delivery (CI/CD), automation of your software development workflow.
 
-The service diagram shown below highlights the components covered in this article, namely configuration of the CI/CD cycle.
+The service diagram shown below highlights the components covered in this article, configuration of the CI/CD cycle.
 
 :::image type="content" source="./media/tutorial-container-apps/service-diagram-overview-for-tutorial-deploy-python-azure-container-apps-cicd.png" alt-text="A screenshot of the services in the Tutorial - Deploy a Python App on Azure Container Apps. Section highlighted is are parts related to continuous integration - continuous delivery (CI/CD)." lightbox="./media/tutorial-container-apps/service-diagram-overview-for-tutorial-deploy-python-azure-container-apps-cicd.png":::
 
@@ -148,18 +148,18 @@ Azure CLI commands can be run in the [Azure Cloud Shell][4] or on a workstation 
 
 **Step 1.** Create a branch to work in and check it out.
 
-    ```Bash
-    git branch -b changes
-    git checkout change-branch
-    ```
+```Bash
+git branch -b changes
+git checkout change-branch
+```
 
 **Step 2.** Make a change and push change to branch.
 
-    ```Bash
-    git push branch to origin (not remote)
-    git commit -a "Some change"
-    git push
-    ```
+```Bash
+git push branch to origin (not remote)
+git commit -a "Some change"
+git push
+```
 
 **Step 3.** Create a pull request and merge changes into *main* branch
 
