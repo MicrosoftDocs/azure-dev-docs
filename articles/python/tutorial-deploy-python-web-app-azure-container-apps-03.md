@@ -176,7 +176,7 @@ git push
 **Step 3.** Create a pull request and merge changes into *main* branch
 
 ```bash
-
+git request-pull main <repo-url> changes
 ```
 
 ## Troubleshooting
