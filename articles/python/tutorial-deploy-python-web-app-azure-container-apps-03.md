@@ -21,15 +21,19 @@ The service diagram shown below highlights the components covered in this articl
 
 ## Prerequisites
 
-Required:
+To follow set up continuous deployment you'll need:
 
-* Have the resources created in the previous article of this tutorial, which include an [Azure Container Registry][9] and a container app in [Azure Container Apps][8].
+* The resources created in the previous article of this tutorial, which include an [Azure Container Registry][9] and a container app in [Azure Container Apps][8].
 
-* A GitHub account where you forked the sample rep (([Django][1] or [Flask][2])) and that you can connect to from Azure Container Apps.
+* A GitHub account where you forked the sample code ([Django][1] or [Flask][2]) and that you can connect to from Azure Container Apps.
+
+* [Git][14] installed locally.
 
 ## Set up continuous deployment for the container
 
-What happens here? We replace pull of container image from registry (one time) to continuous deployment.
+In a previous article of this tutorial, you created and configured a container app in Azure Container Apps. Part of the configuration was pulling a Docker image from an Azure Container Registry. The container image is pulled from the registry when creating a container [*revision*][5], such as when you first set up the container app.
+
+In the steps below, you'll set up continuous deployment, which means a new container image is created based on a defined trigger. The trigger in this tutorial is pull requests (PR) to a *main* branch of a specified repository. The new container image is pushed to the Azure Container Registry and the container app is updated to use the new image.
 
 ### [Azure portal](#tab/azure-portal)
 
@@ -144,9 +148,17 @@ Azure CLI commands can be run in the [Azure Cloud Shell][4] or on a workstation 
 
 ---
 
+In the steps to set up continuous deployment, a [*service principal*][6] is needed to access and modify Azure resources. If you followed the steps for the portal, the service principal was set up automatically for you. If you followed the steps for the Azure CLI, you explicitly created the service principal first before setting up continuous deployment.
+
+Access to resources is restricted by the roles assigned to the service principal, giving you control over which resources can be accessed and at which level. In the steps above, that role was the built-in [*Contributor*][12] role and it was assigned to the resource group containing the container app.
+
 ## Create a code change to start Github workflow
 
+In this section, you'll make a small change to your forked copy of the sample repository and confirm that the change is automatically deployed to the web site.
+
 **Step 1.** Create a branch to work in and check it out.
+
+If you haven't already, make a [fork][13] of the sample repository (([Django][1] or [Flask][2])). Then, create a branch and checkout that branch.
 
 ```Bash
 git branch -b changes
@@ -190,8 +202,13 @@ Website doesn't show change
 [2]: https://github.com/Azure-Samples/msdocs-python-flask-azure-container-app
 [3]: https://portal.azure.com/
 [4]: https://shell.azure.com/
+[5]: /azure/container-apps/revisions
+[6]: /azure/active-directory/develop/howto-create-service-principal-portal
 [7]: /cli/azure/install-azure-cli
 [8]: /azure/container-apps/overview
 [9]: /azure/container-registry/container-registry-intro
 [10]: /cli/azure/ad/sp#az-ad-sp-create-for-rbac
 [11]: /cli/azure/containerapp/github-action#az-containerapp-github-action-add
+[12]: /azure/role-based-access-control/built-in-roles#general
+[13]: /get-started/quickstart/fork-a-repo
+[14]: https://git-scm.com/
