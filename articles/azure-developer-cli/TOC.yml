@@ -13,7 +13,7 @@
       href: get-started.md
   - name: How-to guides
     items:
-    - name: Use Terraform as IaC provider
+    - name: Switch to Terraform as IaC provider
       href: use-terraform-for-azd.md
     - name: Run and debug
       href: debug.md
