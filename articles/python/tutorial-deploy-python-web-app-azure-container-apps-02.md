@@ -19,6 +19,8 @@ The service diagram shown below highlights the components covered in this articl
 
 :::image type="content" source="./media/tutorial-container-apps/service-diagram-overview-for-tutorial-deploy-python-azure-container-apps-deploy.png" alt-text="A screenshot of the services in the Tutorial - Deploy a Python App on Azure Container Apps. Section highlighted is what is covered in this article." lightbox="./media/tutorial-container-apps/service-diagram-overview-for-tutorial-deploy-python-azure-container-apps-deploy.png":::
 
+Command in this tutorial are shown with the Bash shell. For other shell types, change the line continuation characters as appropriate. For example, for PowerShell, use back tick ("\`").
+
 ## Get the sample app
 
 Fork and clone the sample code to your developer environment.
@@ -107,7 +109,7 @@ After following these steps, you'll have an Azure Container Registry that contai
     :::column span="1":::
         **Step 6.** Use the [az acr build][5] command to build the image from the repo.
 
-        Specify the registry name `<registry-name>` and resource group you created above. For `<repo-path>`, choose either the [Django][1] or [Flask][2] repo path.
+        Specify the registry name *\<registry-name>* and resource group you created above. For *\<repo-path>*, choose either the [Django][1] or [Flask][2] repo path.
 
         ```bash
         az acr build --registry <registry-name> \
@@ -256,6 +258,8 @@ Azure CLI commands can be run in the [Azure Cloud Shell][4] or on a workstation 
 
 ## Create a PostgreSQL Flexible Server instance
 
+The sample app ([Django][1] or [Flask][2]) uses a PostgreSQL database. In the steps below, you'll create the server that will contain the database.
+
 ### [Azure portal](#tab/azure-portal)
 
 :::row:::
@@ -276,7 +280,7 @@ Azure CLI commands can be run in the [Azure Cloud Shell][4] or on a workstation 
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 3.** Fill out the **Basics** form as follows:
+        **Step 3.** Fill out the **Basics** settings as follows:
 
         * **Resource group** &rarr; The resource group used in this tutorial "pythoncontainer-rg".
         * **Server name** &rarr; Enter a name for the database server that's unique across all Azure. The database server's URL becomes `https://<server-name>.postgres.database.azure.com`. Allowed characters are `A`-`Z`, `0`-`9`, and `-`. For example: *postgres-db-\<unique-id>*.
@@ -293,7 +297,7 @@ Azure CLI commands can be run in the [Azure Cloud Shell][4] or on a workstation 
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 3.** Fill out the **Networking** form as follows:
+        **Step 3.** Fill out the **Networking** settings as follows:
 
         * **Connectivity method** &rarr; Select **Public access**.
         * **Allow public access from any Azure service** &rarr; Select the checkbox, that is, allow access. 
@@ -317,8 +321,8 @@ Azure CLI commands can be run in the [Azure Cloud Shell][4] or on a workstation 
 
 ### [VS Code](#tab/vscode-aztools)
 
-To follow these steps, install the [Azure Databases extension][26].
- 
+To follow these steps require the [Azure Databases extension][26] for VS Code.
+
 :::row:::
     :::column span="2":::
         **Step 1.** Start the PostgreSQL create task.
@@ -338,23 +342,20 @@ To follow these steps, install the [Azure Databases extension][26].
     :::column span="2":::
         **Step 2.** A series of prompts will guide you through the process of creating the database. Fill in the information as follows.
 
-        * Select **PostgreSQL Flexible Server**.
-        
-        * Specify a **name** for the server.        
+        * **Select an Azure Database Server** &rarr; Select **PostgreSQL Flexible Server**.
+
+        * **Server name** &rarr; Specify a **name** for the server.
            Enter a name for the database server that's unique across all Azure (the database server's URL becomes `https://<server-name>.postgres.database.azure.com`). Allowed characters are `A`-`Z`, `0`-`9`, and `-`. For example: *postgres-db-\<unique-id>*.
+
+        * **Select the Postgres SKU and options** &rarr; Select the **B1 Basic** SKU (1 vCore, 2 GiB Memory, 5-GB storage).
+
+        * **Administrator Username** &rarr; Create an administrator user name. This name for an administrator account on the database server. Record this name and password as you'll need them later in this tutorial.
+
+        * **Administrator Password** &rarr; Create a password for the administrator and confirm it.
+
+        * **Select a resource group for new resources** &rarr; Select a user group to put the database in. Use the same resource group that you created the App Service in.
         
-        * Select the **B1 Basic** SKU (1 vCore, 2 GiB Memory, 5-GB storage).
-        
-        * Create an administrator user name.
-           This name for an administrator account on the database server. Record this name and password as you'll need them later in this tutorial.
-        
-        * Create a password for the administrator and confirm it.
-        
-        * Select a user group to put the database in.
-           Use the same resource group that you created the App Service in.
-        
-        * Select a location for the database.        
-           Select the same location as the resource group and App Service.
+        * **Select a location for new resources** &rarr; Select the same location as the resource group and App Service.
 
     :::column-end:::
     :::column:::
@@ -365,7 +366,7 @@ To follow these steps, install the [Azure Databases extension][26].
     :::column span="2":::
         **Step 3.** Once the database is created, configure access from your local environment to the Azure Database for PostgreSQL server.
 
-        * Confirm that the creation of the database was successful by checking the **Azure: Activity Log** window. Don't go on to the next step until the database exists.
+        First, confirm that the database was created by checking the **Azure: Activity Log** window. When you are sure the database exists then:
 
         * Open the Command Palette (**F1** or **Ctrl** + **Shift** + **P**).
         
@@ -393,24 +394,24 @@ To follow these steps, install the [Azure Databases extension][26].
 
 Run `az login` to sign in to  and follow these steps to create your Azure Database for PostgreSQL resource.
 
-**Step 1.** Use the [az postgres flexible-server create][22] command to create the PostgreSQL server and database in Azure using the values below. It isn't uncommon for this command to run for a few minutes to complete.
+**Step 1.** Use the [az postgres flexible-server create][22] command to create the PostgreSQL server in Azure. It isn't uncommon for this command to run for a few minutes to complete.
 
 ```bash
 az postgres flexible-server create \
    --resource-group pythoncontainer-rg \
-   --name <postgres-name>  \
+   --name <postgres-server-name>  \
    --location <location> \
-   --admin-user <admin-user-name> \
+   --admin-user <admin-username> \
    --admin-password <admin-password> \
    --sku-name Standard_D2s_v3 \
    --public-access 0.0.0.0 
 ```
 
-* `pythoncontainer-rg` &rarr; The resource group name used in this tutorial. If you used a different name, change this value.
-* `<postgres-name>` &rarr; The PostgreSQL database server name. This name must be **unique across all Azure**. The server endpoint is "https://\<server-name>.postgres.database.azure.com"). Allowed characters are "A"-"Z", "0"-"9", and "-".
-* `<location>` &rarr; Use the same location used for the web app. Change the location in the command above for your deployment.
-* `<admin-user-name>` &rarr; Username for the administrator account. It can't be "azure_superuser", "admin", "administrator", "root", "guest", or "public". Use "demoadmin" for this tutorial.
-* `<admin-password>` Password of the administrator user. It must contain 8 to 128 characters from three of the following categories: English uppercase letters, English lowercase letters, numbers, and non-alphanumeric characters.
+* "pythoncontainer-rg" &rarr; The resource group name used in this tutorial. If you used a different name, change this value.
+* *\<postgres-server-name>* &rarr; The PostgreSQL database server name. This name must be **unique across all Azure**. The server endpoint is "https://\<postgres-server-name>.postgres.database.azure.com"). Allowed characters are "A"-"Z", "0"-"9", and "-".
+* *\<location>* &rarr; Use the same location used for the web app. *\<location>* is one of the Azure location *Name* values from the output of the command `az account list-locations -o table`.
+* *\<admin-username>* &rarr; Username for the administrator account. It can't be "azure_superuser", "admin", "administrator", "root", "guest", or "public". Use "demoadmin" for this tutorial.
+* *\<admin-password>* Password of the administrator user. It must contain 8 to 128 characters from three of the following categories: English uppercase letters, English lowercase letters, numbers, and non-alphanumeric characters.
 
     > [!IMPORTANT]
     > When creating usernames or passwords **do not** use the "$" character. Later you create environment variables with these values where the "$" character has special meaning within the Linux container used to run Python apps.
@@ -419,8 +420,6 @@ az postgres flexible-server create \
 
 * `<public-access>` &rarr; Use "0.0.0.0", which allows public access to the server from any Azure service, such as Container Apps.
 
-The above command is shown with the Bash shell. For other shell types, change the line continuation characters as appropriate. For example, for PowerShell, use back tick ("\`").
-
 > [!NOTE]
 > If you plan on working the PostgreSQL server from your local workstation with tools other than Azure CLI, you'll need to add a firewall rule with the [az postgres flexible-server firewall-rule create][28] command.
 
@@ -428,7 +427,7 @@ The above command is shown with the Bash shell. For other shell types, change th
 
 ## Create a database on the server
 
-The sample code ([Django][1] or [Flask][2]) requires a PostgreSQL database to store restaurant reviews. In the previous step, you created a PostgreSQL database server. Next, you'll connect to the PostgreSQL database server to create the `restaurants_reviews` database.
+The sample code ([Django][1] or [Flask][2]) requires a PostgreSQL database to store restaurant reviews. In the previous step, you created a PostgreSQL database in the PostgreSQL server you created. 
 
 ### [psql](#tab/create-database-psql)
 
@@ -437,13 +436,13 @@ You can use the PostgreSQL interactive terminal [psql][15] in your local environ
 **Step 1.** Connect to the database with psql.
 
 ```bash
-psql --host=<postgres-instance-name>.postgres.database.azure.com \
+psql --host=<postgres-server-name>.postgres.database.azure.com \
      --port=5432 \
-     --username=demoadmin@<postgres-instance-name> \
+     --username=demoadmin@<postgres-server-name> \
      --dbname=postgres
 ```
 
-Where `<postgres-instance-name>` is the name of the PostgreSQL server. The command above will prompt you for the admin password.
+Where *\<postgres-server-name>* is the name of the PostgreSQL server. The command above will prompt you for the admin password.
 
 If you have trouble connecting, restart the database and try again. If you're connecting from your local environment, your IP address must be added to the firewall rule list for the database service.
 
@@ -459,7 +458,7 @@ The semicolon (";") at the end of the command is necessary. To verify that the d
 
 ### [VS Code](#tab/create-database-vscode-aztools)
 
-To follow these steps, you'll need the [Azure Databases extension][26].
+To follow these steps require the [Azure Databases extension][26] for VS Code.
 
 **Step 1.** In the **Azure** extension, find the PostgreSQL Server you created, right-click it, and select **Create Database**.
 
@@ -476,14 +475,14 @@ You can use the Azure CLI anywhere it's installed, including the Azure [Cloud Sh
 ```bash
 az postgres flexible-server db create \
    --resource-group pythoncontainer-rg \
-   --server-name <postgres-instance-name> \
+   --server-name <postgres-server-name> \
    --database-name restaurants_reviews
 ```
 
 Where:
 
-* `pythoncontainer-rg` &rarr; The resource group name used in this tutorial. If you used a different name, change this value.
-* `<postgres-instance-name>` &rarr; The name of the PostgreSQL server.
+* "pythoncontainer-rg" &rarr; The resource group name used in this tutorial. If you used a different name, change this value.
+* `<postgres-server-name>` &rarr; The name of the PostgreSQL server.
 
 You could also use the [az postgres flexible-server connect][16] command to connect to the database and then work with [psl][15] commands. If you work with psl, we recommend using the Azure [Cloud Shell][4] because all the dependencies are included for you in the shell.
 
