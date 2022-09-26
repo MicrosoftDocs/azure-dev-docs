@@ -56,10 +56,11 @@ For help on migrating your applications to use passwordless connections, see the
 For additional help on configuring your applications to use passwordless connections, see the following articles:
 
 - Java with JDBC:
-  - [SQL](../java/spring-framework/deploy-passwordless-spring-database-app?tabs=sqlserver&toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json)
+  - [SQL](../java/spring-framework/deploy-passwordless-spring-database-app.md?tabs=sqlserver&toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json)
   - [MySQL](../java/spring-framework/configure-spring-data-jdbc-with-azure-mysql.md?tabs=passwordless&toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json)
   - [PostgreSQL](../java/spring-framework/configure-spring-data-jdbc-with-azure-postgresql.md?tabs=passwordless&toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json)
 - Java with JPA:
+  - [SQL](../java/spring-framework/deploy-passwordless-spring-database-app.md?tabs=sqlserver&toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json)
   - [MySQL](../java/spring-framework/configure-spring-data-jpa-with-azure-mysql.md?tabs=passwordless&toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json)
   - [PostgreSQL](../java/spring-framework/configure-spring-data-jpa-with-azure-postgresql.md?tabs=passwordless&toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json)
 - [Java with Kafka](../java/spring-framework/configure-spring-cloud-stream-binder-java-app-kafka-azure-event-hub.md?tabs=passwordless&toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json)

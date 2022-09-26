@@ -41,13 +41,15 @@ items:
               - name: JDBC
                 items:
                   - name: SQL
-                    href: ../java/spring-framework/deploy-passwordless-spring-database-app?tabs=sqlserver&toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
+                    href: ../java/spring-framework/deploy-passwordless-spring-database-app.md?tabs=sqlserver&toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
                   - name: MySQL
                     href: ../java/spring-framework/configure-spring-data-jdbc-with-azure-mysql.md?tabs=passwordless&toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
                   - name: PostgreSQL
                     href: ../java/spring-framework/configure-spring-data-jdbc-with-azure-postgresql.md?tabs=passwordless&toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
               - name: JPA
                 items:
+                  - name: SQL
+                    href: ../java/spring-framework/deploy-passwordless-spring-database-app.md?tabs=sqlserver&toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
                   - name: MySQL
                     href: ../java/spring-framework/configure-spring-data-jpa-with-azure-mysql.md?tabs=passwordless&toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
                   - name: PostgreSQL
