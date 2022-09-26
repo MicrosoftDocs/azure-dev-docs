@@ -56,11 +56,11 @@ For help on migrating your applications to use passwordless connections, see the
 For additional help on configuring your applications to use passwordless connections, see the following articles:
 
 - Java with JDBC:
-  - [SQL](../java/spring-framework/configure-spring-data-jdbc-with-azure-sql-server.md?tabs=passwordless&toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json)
+  - [SQL](../java/spring-framework/deploy-passwordless-spring-database-app.md?tabs=sqlserver&toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json)
   - [MySQL](../java/spring-framework/configure-spring-data-jdbc-with-azure-mysql.md?tabs=passwordless&toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json)
   - [PostgreSQL](../java/spring-framework/configure-spring-data-jdbc-with-azure-postgresql.md?tabs=passwordless&toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json)
 - Java with JPA:
-  - [SQL](../java/spring-framework/configure-spring-data-jpa-with-azure-sql-server.md?tabs=passwordless&toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json)
+  - [SQL](../java/spring-framework/deploy-passwordless-spring-database-app.md?tabs=sqlserver&toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json)
   - [MySQL](../java/spring-framework/configure-spring-data-jpa-with-azure-mysql.md?tabs=passwordless&toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json)
   - [PostgreSQL](../java/spring-framework/configure-spring-data-jpa-with-azure-postgresql.md?tabs=passwordless&toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json)
 - [Java with Kafka](../java/spring-framework/configure-spring-cloud-stream-binder-java-app-kafka-azure-event-hub.md?tabs=passwordless&toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json)
@@ -73,6 +73,6 @@ For hands-on demonstrations, see the following quickstarts and tutorials:
   - [Java JDBC with PostgreSQL](/azure/postgresql/single-server/connect-java?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json)
   - [Azure Spring Apps](../java/spring-framework/deploy-passwordless-spring-database-app.md?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json)
   - [Azure Spring Apps with PostgreSQL](/azure/spring-apps/how-to-bind-postgres?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json)
-  - [App Service with PostgreSQL](/azure/app-service/tutorial-java-tomcat-connect-mi-postgres-database?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json)
-  - [Container Apps with PostgreSQL](/azure/container-apps/tutorial-java-quarkus-connect-mi-postgres-database?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json)
+  - [App Service with PostgreSQL](/azure/app-service/tutorial-java-tomcat-connect-managed-identity-postgresql-database?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json)
+  - [Container Apps with PostgreSQL](/azure/container-apps/tutorial-java-quarkus-connect-managed-identity-postgresql-database?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json)
 - [.NET with Blob Storage](/azure/storage/blobs/storage-quickstart-blobs-dotnet?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json)
