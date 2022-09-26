@@ -97,19 +97,21 @@ Your team is responsible on a continual basis for the tasks indicated with "&#x1
 > [!NOTE]
 > This isn't an exhaustive list of responsibilities.
 
-| Destination&nbsp;→<br><br>Task&nbsp;↓                                       | App<br>Service | Azure<br>Spring<br>Apps | Azure<br>Container<br>Apps | AKS         | Virtual<br>Machines |
-|-----------------------------------------------------------------------------|----------------|-------------------------|----------------------------|-------------|---------------------|
-| Updating libraries<br>(including vulnerability remediation)                 | &#x1F449;      | &#x1F449;               | &#x1F449;                  | &#x1F449;   | &#x1F449;           |
-| Updating the application server<br>(including vulnerability remediation)    | ![Azure][1]    | ![Azure][1]             | &#x1F449;                  | &#x1F449;   | &#x1F449;           |
-| Updating the Java Runtime<br>(including vulnerability remediation)          | ![Azure][1]    | ![Azure][1]             | &#x1F449;                  | &#x1F449;   | &#x1F449;           |
-| Triggering Kubernetes updates<br>(performed by Azure with a manual trigger) | N/A            | ![Azure][1]             | ![Azure][1]                | &#x1F449;   | N/A                 |
-| Reconciling non-backward-compatible Kubernetes API changes                  | N/A            | ![Azure][1]             | ![Azure][1]                | &#x1F449;   | N/A                 |
-| Updating container base image<br>(including vulnerability remediation)      | N/A            | ![Azure][1]             | &#x1F449;                  | &#x1F449;   | N/A                 |
-| Updating the operating system<br>(including vulnerability remediation)      | ![Azure][1]    | ![Azure][1]             | &#x1F449;                  | ![Azure][1] | &#x1F449;           |
-| Detecting and restarting failed instances                                   | ![Azure][1]    | ![Azure][1]             | ![Azure][1]                | ![Azure][1] | &#x1F449;           |
-| Implementing draining and rolling restart for updates                       | ![Azure][1]    | ![Azure][1]             | ![Azure][1]                | ![Azure][1] | &#x1F449;           |
-| Infrastructure management                                                   | ![Azure][1]    | ![Azure][1]             | ![Azure][1]                | &#x1F449;   | &#x1F449;           |
-| Monitoring and alert management                                             | &#x1F449;      | &#x1F449;               | &#x1F449;                  | &#x1F449;   | &#x1F449;           |
+| Destination&nbsp;→<br><br>Task&nbsp;↓                                       | App<br>Service | Azure<br>Spring<br>Apps | Azure<br>Container<br>Apps | AKS                     | Virtual<br>Machines |
+|-----------------------------------------------------------------------------|----------------|-------------------------|----------------------------|-------------------------|---------------------|
+| Updating libraries<br>(including vulnerability remediation)                 | &#x1F449;      | &#x1F449;               | &#x1F449;                  | &#x1F449;               | &#x1F449;           |
+| Updating the application server<br>(including vulnerability remediation)    | ![Azure][1]    | ![Azure][1]             | &#x1F449;                  | &#x1F449;               | &#x1F449;           |
+| Updating the Java Runtime<br>(including vulnerability remediation)          | ![Azure][1]    | ![Azure][1]             | &#x1F449;                  | &#x1F449;               | &#x1F449;           |
+| Triggering Kubernetes updates<br>(performed by Azure with a manual trigger) | N/A            | ![Azure][1]             | ![Azure][1]                | &#x1F449;               | N/A                 |
+| Reconciling non-backward-compatible Kubernetes API changes                  | N/A            | ![Azure][1]             | ![Azure][1]                | &#x1F449;               | N/A                 |
+| Updating container base image<br>(including vulnerability remediation)      | N/A            | ![Azure][1]             | &#x1F449;                  | &#x1F449;               | N/A                 |
+| Updating the operating system<br>(including vulnerability remediation)      | ![Azure][1]    | ![Azure][1]             | ![Azure][1]                | ![Azure][1]<sup>1</sup> | &#x1F449;           |
+| Detecting and restarting failed instances                                   | ![Azure][1]    | ![Azure][1]             | ![Azure][1]                | ![Azure][1]             | &#x1F449;           |
+| Implementing draining and rolling restart for updates                       | ![Azure][1]    | ![Azure][1]             | ![Azure][1]                | ![Azure][1]             | &#x1F449;           |
+| Infrastructure management                                                   | ![Azure][1]    | ![Azure][1]             | ![Azure][1]                | &#x1F449;               | &#x1F449;           |
+| Monitoring and alert management                                             | &#x1F449;      | &#x1F449;               | &#x1F449;                  | &#x1F449;               | &#x1F449;           |
+
+<sup>1</sup> Some security updates might require node reboots, which are not done automatically. For more information, see [Apply security and kernel updates to Linux nodes in Azure Kubernetes Service (AKS)](/azure/aks/node-updates-kured).
 
 If you deploy the servlet container (such as Spring Boot) as part of your application, you should consider it a library and, as such, it's always your responsibility.
 
