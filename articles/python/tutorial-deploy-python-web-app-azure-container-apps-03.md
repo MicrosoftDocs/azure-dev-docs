@@ -113,7 +113,7 @@ Azure CLI commands can be run in the [Azure Cloud Shell][4] or on a workstation 
         ```
 
         Where 
-        * *\<app-name>* is TBD.
+        * *\<app-name>* is an optional name for the service principal.
         * *\<subscription-ID>* is TBD.
         * *\<resource-group-name>* is TBD.
 
@@ -137,11 +137,11 @@ Azure CLI commands can be run in the [Azure Cloud Shell][4] or on a workstation 
         ```
 
         Where:
-        * *\<resource-group-name>* is TBD
+        * *\<resource-group-name>* is the name of the resource group.If you are following this tutorial, it is "pythoncontainer-rg".
         * *\<registry-name>* must be unique within Azure, and contain 5-50 alphanumeric characters.
         * *\<client-id>* is a value from the previous `az ad sp create-for-rbac` command. The ID is a GUID of the form 00000000-0000-0000-0000-00000000.
         * *\<tenant-id>* is a value from the previous `az ad sp create-for-rbac` command. The ID is a GUID of the form 00000000-0000-0000-0000-00000000.
-        * *\<client-secret> is a value from the previous `az ad sp create-for-rbac` command.
+        * *\<client-secret>* is a value from the previous `az ad sp create-for-rbac` command.
 
     :::column-end:::
 :::row-end:::
@@ -150,7 +150,7 @@ Azure CLI commands can be run in the [Azure Cloud Shell][4] or on a workstation 
 
 In the steps to set up continuous deployment, a [*service principal*][6] is needed to access and modify Azure resources. If you followed the steps for the portal, the service principal was set up automatically for you. If you followed the steps for the Azure CLI, you explicitly created the service principal first before setting up continuous deployment.
 
-Access to resources is restricted by the roles assigned to the service principal, giving you control over which resources can be accessed and at which level. In the steps above, that role was the built-in [*Contributor*][12] role and it was assigned to the resource group containing the container app.
+Access to resources is restricted by the roles assigned to the service principal, giving you control over which resources can be accessed and at which level. In the steps above, that role used is the built-in [*Contributor*][12] role, and it was assigned to the resource group containing the container app.
 
 ## Create a code change to start GitHub workflow
 
@@ -181,26 +181,26 @@ git request-pull main <repo-url> changes
 
 ## Troubleshooting
 
-Continuous deployment problems using the CLI
+Continuous deployment problems using the Azure CLI and the `az ad sp create-for-rba` command.
 
-* Error occurred in request., InvalidSchema: No connection adapters were found  => NEED MSYS_NO_PATHCONV=1
-* More than one application have the same display name 'myApp'
+* You receive an error containing "InvalidSchema: No connection adapters were found".
+  * Check the shell you're running in. If using Bash shell, set the MSYS_NO_PATHCONV variables as follows `export MSYS_NO_PATHCONV=1`. For more information, see the GitHub issue [Unable to create service principal with Azure CLI from git bash shell, no connection adapters were found.][15].
+
+* You receive an error containing "More than one application have the same display name".
+  * This error indicates the name is already taken for the service principal. Choose another name or leave off the `--name` argument and a GUID will be automatically generated as a name.
 
 GitHub Action failed.
 
-* If you set up continuous deployment for the container app, the workflow file is created automatically for you.
-* Check the Actions tab of the repo and at a glance you can see if a workflow has failed.
-* For a failed workflow, view it's workflow file. 
-* There should be two jobs "build" and "deploy".
-* For a failed job look at the output of the job's tasks to look for problems.
+* If you set up continuous deployment for the container app, the workflow file (.github/workflows/\<workflow-name>.yml) is created automatically for you. To check the workflow, go to the **Actions** tab of the repo and at a glance you can see if a workflow has failed.
+* If there's a failed workflow, drill into its workflow file. There should be two jobs "build" and "deploy". For a failed job, look at the output of the job's tasks to look for problems.
 
-Website doesn't show change
+Website doesn't show changes you merged in the *main* branch.
 
 * In GitHub - Check that the GitHub workflow ran and that you checked the change into the branch that trickers the workflow.
 * In Azure portal - Check the Azure Container Registry to see if a new container image was created with a timestamp after your change.
 * In Azure portal - Check the logs of container app. If there was a programming error, you'll see it here.
   * Go to the Container App | Revision Management | \<active container> | Revision details | Console logs
-  * Choose the order of the columns to show "Time Generated", "Stream_s", and "Log_s". Sort the logs by most-recent first and look for Python stderr and stdout messages in the "Stream_s" column. Python 'print' output will be stdout messages.
+  * Choose the order of the columns to show "Time Generated", "Stream_s", and "Log_s". Sort the logs by most-recent first and look for Python *stderr* and *stdout* messages in the "Stream_s" column. Python 'print' output will be *stdout* messages.
 
 [1]: https://github.com/Azure-Samples/msdocs-python-django-azure-container-app
 [2]: https://github.com/Azure-Samples/msdocs-python-flask-azure-container-app
@@ -216,3 +216,4 @@ Website doesn't show change
 [12]: /azure/role-based-access-control/built-in-roles#general
 [13]: /get-started/quickstart/fork-a-repo
 [14]: https://git-scm.com/
+[15]: https://github.com/Azure/azure-cli/issues/16317
