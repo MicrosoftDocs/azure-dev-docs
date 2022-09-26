@@ -31,11 +31,12 @@ Each template was written for hosts such as:
 
 - Azure App Service
 - Azure Container Apps
-- Azure Static Web Apps + Function Apps
+- Azure Static Web Apps
+- Azure Function Apps
 
 Check back for our growing list of templates.
 
-For information on authoring your own template or “templatizing” an existing application, [read our guide on making your template `azd`compatible](./make-azd-compatible.md).
+For information on authoring your own template or “templatizing” an existing application, [read our guide on making your template `azd`-compatible](./make-azd-compatible.md).
 
 ## Choose a template
 

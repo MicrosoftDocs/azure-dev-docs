@@ -9,7 +9,7 @@
       href: install-azd.md
     - name: Choose an azd template
       href: azd-templates.md
-    - name: Run an azd template
+    - name: Deploy an azd template
       href: get-started.md
   - name: How-to guides
     items:
