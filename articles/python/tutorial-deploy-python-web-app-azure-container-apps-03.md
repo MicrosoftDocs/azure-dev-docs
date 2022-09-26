@@ -15,17 +15,17 @@ This article is part of a tutorial about how to containerize and deploy a Python
 
 In this part of the tutorial, you learn how to configure continuous deployment or delivery (CD) for the container app. CD is part of the DevOps concept of continuous integration / continuous delivery (CI/CD), automation of your software development workflow.
 
-The service diagram shown below highlights the components covered in this article, configuration of the CI/CD cycle.
+The service diagram shown below highlights the components covered in this article: configuration of the CI/CD cycle.
 
-:::image type="content" source="./media/tutorial-container-apps/service-diagram-overview-for-tutorial-deploy-python-azure-container-apps-cicd.png" alt-text="A screenshot of the services in the Tutorial - Deploy a Python App on Azure Container Apps. Section highlighted is are parts related to continuous integration - continuous delivery (CI/CD)." lightbox="./media/tutorial-container-apps/service-diagram-overview-for-tutorial-deploy-python-azure-container-apps-cicd.png":::
+:::image type="content" source="./media/tutorial-container-apps/service-diagram-overview-for-tutorial-deploy-python-azure-container-apps-cicd.png" alt-text="A screenshot of the services in the Tutorial - Deploy a Python App on Azure Container Apps. Sections highlighted are parts related to continuous integration - continuous delivery (CI/CD)." lightbox="./media/tutorial-container-apps/service-diagram-overview-for-tutorial-deploy-python-azure-container-apps-cicd.png":::
 
 ## Prerequisites
 
-To follow set up continuous deployment you'll need:
+To follow set up continuous deployment, you'll need:
 
-* The resources created in the previous article of this tutorial, which include an [Azure Container Registry][9] and a container app in [Azure Container Apps][8].
+* The resources created in the previous article of this tutorial, which includes an [Azure Container Registry][9] and a container app in [Azure Container Apps][8].
 
-* A GitHub account where you forked the sample code ([Django][1] or [Flask][2]) and that you can connect to from Azure Container Apps.
+* A GitHub account where you forked the sample code ([Django][1] or [Flask][2]) and you can connect to from Azure Container Apps.
 
 * [Git][14] installed locally.
 
@@ -33,13 +33,13 @@ To follow set up continuous deployment you'll need:
 
 In a previous article of this tutorial, you created and configured a container app in Azure Container Apps. Part of the configuration was pulling a Docker image from an Azure Container Registry. The container image is pulled from the registry when creating a container [*revision*][5], such as when you first set up the container app.
 
-In the steps below, you'll set up continuous deployment, which means a new container image is created based on a defined trigger. The trigger in this tutorial is pull requests (PR) to a *main* branch of a specified repository. The new container image is pushed to the Azure Container Registry and the container app is updated to use the new image.
+In the steps below, you'll set up continuous deployment, which means a new container image is created based on a defined trigger. The trigger in this tutorial is a pull request (PR) to a *main* branch of your repository. With a new PR, a new container image is built and pushed to the Azure Container Registry, and the container app is updated to use the new image.
 
 ### [Azure portal](#tab/azure-portal)
 
 :::row:::
     :::column span="2":::
-        **Step 1.** In the [Azure portal][3], go to the Container App you want to configure continuous deployment and select the **Continuous deployment** resource.
+        **Step 1.** In the [Azure portal][3], go to the Container App you want to configure continuous deployment for and select the **Continuous deployment** resource.
     :::column-end:::
     :::column:::
         TBD
@@ -152,7 +152,7 @@ In the steps to set up continuous deployment, a [*service principal*][6] is need
 
 Access to resources is restricted by the roles assigned to the service principal, giving you control over which resources can be accessed and at which level. In the steps above, that role was the built-in [*Contributor*][12] role and it was assigned to the resource group containing the container app.
 
-## Create a code change to start Github workflow
+## Create a code change to start GitHub workflow
 
 In this section, you'll make a small change to your forked copy of the sample repository and confirm that the change is automatically deployed to the web site.
 
@@ -197,8 +197,8 @@ GitHub Action failed.
 Website doesn't show change
 
 * In GitHub - Check that the GitHub workflow ran and that you checked the change into the branch that trickers the workflow.
-* In Azure Portal - Check the Azure Container Registry to see if a new container image was created with a timestamp after your change.
-* In Azure Portal - Check the logs of container app. If there was a programming error, you'll see it here.
+* In Azure portal - Check the Azure Container Registry to see if a new container image was created with a timestamp after your change.
+* In Azure portal - Check the logs of container app. If there was a programming error, you'll see it here.
   * Go to the Container App | Revision Management | \<active container> | Revision details | Console logs
   * Choose the order of the columns to show "Time Generated", "Stream_s", and "Log_s". Sort the logs by most-recent first and look for Python stderr and stdout messages in the "Stream_s" column. Python 'print' output will be stdout messages.
 
