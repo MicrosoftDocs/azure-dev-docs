@@ -25,9 +25,9 @@ To follow set up continuous deployment, you'll need:
 
 * The resources created in the previous article of this tutorial, which includes an [Azure Container Registry][9] and a container app in [Azure Container Apps][8].
 
-* A GitHub account where you forked the sample code ([Django][1] or [Flask][2]) and you can connect to from Azure Container Apps.
+* A GitHub account where you forked the sample code ([Django][1] or [Flask][2]) and you can connect to from Azure Container Apps. (If you downloaded the sample code instead of forking, make sure you push your local repo to your GitHub account.)
 
-* [Git][14] installed locally.
+* Optionally, [Git][14] installed locally to make code changes locally and push to your repo in GitHub. Alternatively, you can make the changes directly in GitHub with a patch.
 
 ## Set up continuous deployment for the container
 
@@ -161,8 +161,7 @@ In this section, you'll make a small change to your forked copy of the sample re
 If you haven't already, make a [fork][13] of the sample repository (([Django][1] or [Flask][2])). Then, create a branch and checkout that branch.
 
 ```Bash
-git branch -b changes
-git checkout change-branch
+git checkout -b changes-branch
 ```
 
 **Step 2.** Make a change and push change to branch.
