@@ -31,7 +31,7 @@ In this article, we will code a sample application. If you want to go faster, th
 Generate the application on the command line by running the following command:
 
 ```bash
-curl https://start.spring.io/starter.tgz -d dependencies=web,data-jdbc,sqlserver -d baseDir=azure-database-workshop -d bootVersion=2.7.3 -d javaVersion=17 | tar -xzvf -
+curl https://start.spring.io/starter.tgz -d dependencies=web,data-jdbc,sqlserver -d baseDir=azure-database-workshop -d bootVersion=2.7.3 -d javaVersion=1.8 | tar -xzvf -
 ```
 
 ### Configure Spring Boot to use Azure SQL Database
@@ -41,17 +41,16 @@ Open the *src/main/resources/application.properties* file, and add the following
 ```properties
 logging.level.org.springframework.jdbc.core=DEBUG
 
-spring.datasource.url=jdbc:sqlserver://$AZ_DATABASE_NAME.database.windows.net:1433;database=demo;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;
-spring.datasource.username=spring@$AZ_DATABASE_NAME
-spring.datasource.password=$AZ_SQL_SERVER_PASSWORD
+spring.datasource.url=jdbc:sqlserver://${AZ_DATABASE_NAME}.database.windows.net:1433;database=demo;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;
+spring.datasource.username=spring@${AZ_DATABASE_NAME}
+spring.datasource.password=${AZ_SQL_SERVER_PASSWORD}
 
-spring.datasource.initialization-mode=always
+spring.sql.init.mode=always
 ```
 
-Replace the two `$AZ_DATABASE_NAME` variables and the `$AZ_SQL_SERVER_PASSWORD` variable with the values that you configured at the beginning of this article.
 
 > [!WARNING]
-> The configuration property `spring.datasource.initialization-mode=always` means that Spring Boot will automatically generate a database schema, using the `schema.sql` file that we will create later, each time the server is started. This is great for testing, but remember that this will delete your data at each restart, so you shouldn't use it in production.
+> The configuration property `spring.sql.init.mode=always` means that Spring Boot will automatically generate a database schema, using the `schema.sql` file that we will create later, each time the server is started. This is great for testing, but remember that this will delete your data at each restart, so you shouldn't use it in production.
 
 You should now be able to start your application by using the provided Maven wrapper as follows:
 
