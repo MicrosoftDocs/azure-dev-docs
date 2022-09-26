@@ -161,20 +161,30 @@ In this section, you'll make a small change to your forked copy of the sample re
 If you haven't already, make a [fork][13] of the sample repository (([Django][1] or [Flask][2])). Then, create a branch and checkout that branch.
 
 ```Bash
+git checkout master
+git pull
+git push
 git checkout -b changes-branch
+git merge master
 ```
 
-**Step 2.** Make a change and push change to branch.
+**Step 2.** Make a change.
+
+Go to the *./templates/base.html* file and change the phrase "Azure Restaurant Review" to "Azure Restaurant Review - Redeployed".
+
+**Step 2.** Commit and push the change to GitHub.
+
+Then commit and push the changes.
 
 ```Bash
-git push branch to origin
-git commit -a "Some change"
-git push
+git commit -a -m "Redeploy with title change."
+git push --set-upstream origin change-branch
 ```
+First time using git, may need to set global variables "user.name" and "user.email". See the help for [git-config][16].
 
 **Step 3.** Create a pull request and merge changes into *main* branch
 
-```bash
+```Bash
 git request-pull main <repo-url> changes
 ```
 
@@ -192,6 +202,7 @@ GitHub Action failed.
 
 * If you set up continuous deployment for the container app, the workflow file (.github/workflows/\<workflow-name>.yml) is created automatically for you. To check the workflow, go to the **Actions** tab of the repo and at a glance you can see if a workflow has failed.
 * If there's a failed workflow, drill into its workflow file. There should be two jobs "build" and "deploy". For a failed job, look at the output of the job's tasks to look for problems.
+* If you see an error message with "TLS handshake timeout", run the workflow manually by selecting **Trigger auto deployment** under the **Actions** tab of the repo to see if this is a temporary issue.
 
 Website doesn't show changes you merged in the *main* branch.
 
@@ -216,3 +227,4 @@ Website doesn't show changes you merged in the *main* branch.
 [13]: /get-started/quickstart/fork-a-repo
 [14]: https://git-scm.com/
 [15]: https://github.com/Azure/azure-cli/issues/16317
+[16]: https://git-scm.com/docs/git-config
