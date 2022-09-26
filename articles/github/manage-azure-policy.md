@@ -5,7 +5,7 @@ author: raiyanalam
 ms.custom: github-actions-azure
 ms.author: moala 
 ms.topic: reference
-ms.service: azure 
+ms.service: azure-policy 
 ms.date: 10/27/2020
 ---
 
