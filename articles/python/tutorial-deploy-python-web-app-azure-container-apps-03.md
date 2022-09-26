@@ -158,7 +158,7 @@ In this section, you'll make a small change to your forked copy of the sample re
 
 **Step 1.** Create a branch to work in and check it out.
 
-If you haven't already, make a [fork][13] of the sample repository (([Django][1] or [Flask][2])). Then, create a branch and checkout that branch.
+If you haven't already, make a [fork][13] of the sample repository (([Django][1] or [Flask][2])). Then, create a branch and check out that branch.
 
 ```Bash
 git checkout master
