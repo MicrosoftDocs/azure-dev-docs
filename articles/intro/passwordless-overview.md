@@ -73,6 +73,6 @@ For hands-on demonstrations, see the following quickstarts and tutorials:
   - [Java JDBC with PostgreSQL](/azure/postgresql/single-server/connect-java?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json)
   - [Azure Spring Apps](../java/spring-framework/deploy-passwordless-spring-database-app.md?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json)
   - [Azure Spring Apps with PostgreSQL](/azure/spring-apps/how-to-bind-postgres?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json)
-  - [App Service with PostgreSQL](/azure/app-service/tutorial-java-tomcat-connect-mi-postgres-database?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json)
-  - [Container Apps with PostgreSQL](/azure/container-apps/tutorial-java-quarkus-connect-mi-postgres-database?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json)
+  - [App Service with PostgreSQL](/azure/app-service/tutorial-java-tomcat-connect-managed-identity-postgresql-database?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json)
+  - [Container Apps with PostgreSQL](/azure/container-apps/tutorial-java-quarkus-connect-managed-identity-postgresql-database?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json)
 - [.NET with Blob Storage](/azure/storage/blobs/storage-quickstart-blobs-dotnet?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json)

@@ -69,9 +69,9 @@ items:
               - name: Azure Spring Apps with PostgreSQL
                 href: /azure/spring-apps/how-to-bind-postgres?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
               - name: App Service with PostgreSQL
-                href: /azure/app-service/tutorial-java-tomcat-connect-mi-postgres-database?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
+                href: /azure/app-service/tutorial-java-tomcat-connect-managed-identity-postgresql-database?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
               - name: Container Apps with PostgreSQL
-                href: /azure/container-apps/tutorial-java-quarkus-connect-mi-postgres-database?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
+                href: /azure/container-apps/tutorial-java-quarkus-connect-managed-identity-postgresql-database?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
       - name: .NET
         items:
           - name: Configure
