@@ -17,6 +17,8 @@ az group delete \
 
 ## Next steps
 
+To learn more about deploying a Spring Data application to Azure Spring Apps and using managed identity, see [Tutorial: Deploy a Spring application to Azure Spring Apps with a passwordless connection to an Azure database](../deploy-passwordless-spring-database-app.md).
+
 To learn more about Spring and Azure, continue to the Spring on Azure documentation center.
 
 > [!div class="nextstepaction"]
