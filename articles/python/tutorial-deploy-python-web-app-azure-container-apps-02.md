@@ -13,21 +13,21 @@ ms.author: jejohn
 
 This article is part of a tutorial about how to containerize and deploy a Python web app to [Azure Container Apps][8]. Container Apps enable you to deploy containerized apps without managing complex infrastructure. 
 
-In this part of the tutorial, you learn how to containerize a Python sample web app (Django or Flask). You'll build the container image in the cloud and deploy it to Azure Container Apps. You'll define environment variables that enable the container to connect to an [Azure Database for PostgreSQL - Flexible Server][10] instance, where the sample app stores data.
+In this part of the tutorial, you learn how to containerize and deploy a Python sample web app (Django or Flask). Specifically, you'll build the container image in the cloud and deploy it to Azure Container Apps. You'll define environment variables that enable the container to connect to an [Azure Database for PostgreSQL - Flexible Server][10] instance, where the sample app stores data.
 
-The service diagram shown below highlights the components covered in this article, namely building and deploying a container image.
+The service diagram shown below highlights the components covered in this article: building and deploying a container image.
 
 :::image type="content" source="./media/tutorial-container-apps/service-diagram-overview-for-tutorial-deploy-python-azure-container-apps-deploy.png" alt-text="A screenshot of the services in the Tutorial - Deploy a Python App on Azure Container Apps. Section highlighted is what is covered in this article." lightbox="./media/tutorial-container-apps/service-diagram-overview-for-tutorial-deploy-python-azure-container-apps-deploy.png":::
 
 ## Get the sample app
 
-You can fork and clone the sample code to your developer environment. You can also download the code repo to your local machine without forking. However, you won't be able to set up CI/CD discussed later in the tutorial.
+Fork and clone the sample code to your developer environment.
 
 To fork and clone:
 
 **Step 1.** Go to the repository of the sample app ([Django][1] or [Flask][2]) and select **Fork**.
 
-Follow the steps to fork the directory to your GitHub account. 
+Follow the steps to fork the directory to your GitHub account. You can also download the code repo directly to your local machine without forking or a GitHub account, however, you won't be able to set up CI/CD discussed later in the tutorial
 
 **Step 2.** Use the [git clone][21] command to clone the forked repo into the *python-code-to-cloud* folder:
 
@@ -45,9 +45,9 @@ git clone https://github.com/$USERNAME/msdocs-python-django-azure-container-app.
 cd python-code-to-cloud
 ```
 
-## Build container image from web app code
+## Build a container image from web app code
 
-After following these steps, you'll have an Azure Container Registry and a Docker container image built from the sample code.
+After following these steps, you'll have an Azure Container Registry that contains a Docker container image built from the sample code.
 
 ### [Azure portal](#tab/azure-portal)
 
@@ -107,7 +107,7 @@ After following these steps, you'll have an Azure Container Registry and a Docke
     :::column span="1":::
         **Step 6.** Use the [az acr build][5] command to build the image from the repo.
 
-        Specify the registry name and resource group you created above. For `<repo-path>`, choose either the [Django][1] or [Flask][2] repo path.
+        Specify the registry name `<registry-name>` and resource group you created above. For `<repo-path>`, choose either the [Django][1] or [Flask][2] repo path.
 
         ```bash
         az acr build --registry <registry-name> \
@@ -130,9 +130,8 @@ These steps require the [Docker extension][6] for VS Code.
         * Select **F1** or **CTRL+SHIFT+P** to open the command palette.
         * Type "Azure Container Registry".
         * Select the task **Azure Container Registry: Build Image in Azure**.      
-                        
-        If you don't see the **Build Image in Azure** task, check if you are signed into Azure. Alternatively, right-click the *Dockerfile* and select **Build Image in Azure**. 
-        This UI action starts the same create registry task.
+
+        Alternatively, right-click the *Dockerfile* and select **Build Image in Azure**. This UI action starts the same create registry task. If you don't see the **Build Image Azure** task, check if you are signed into Azure.
     :::column-end:::
     :::column:::
         :::image type="content" source="media/tutorial-container-apps/visual-studio-code-build-image-01.png" alt-text="Screenshot showing how to start creating a new Azure Container Registry in Visual Studio Code." lightbox="media/tutorial-container-apps/visual-studio-code-build-image-01.png":::
@@ -169,7 +168,7 @@ These steps require the [Docker extension][6] for VS Code.
 :::row-end:::
 :::row:::
     :::column span="1":::
-        **Step 4.** Use the [az acr update][29] command to build and quickly enable the administrator user account for the registry. You can run the command in Visual Studio Code terminal window or the Azure [Cloud Shell][4].
+        **Step 4.** Use the [az acr update][29] command to enable the administrator user account for the registry. You can run the command in Visual Studio Code terminal window or the Azure [Cloud Shell][4].
 
         ```bash
         az acr update --name <registry-name> \
@@ -177,7 +176,7 @@ These steps require the [Docker extension][6] for VS Code.
            --admin-enabled true
         ```
 
-        Alternatively, select the registry in the Docker extension, right-click and select **Open in Portal** to enable the administrator user account. See the instructions for the portal.
+        Alternatively, select the registry in the Docker extension, right-click and select **Open in Portal** to enable the administrator user account. See the instructions int the portal tab of this article.
     :::column-end:::
 :::row-end:::
 
