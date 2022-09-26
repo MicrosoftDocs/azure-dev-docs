@@ -62,6 +62,8 @@ items:
                 href: /azure/mysql/single-server/connect-java?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
               - name: JDBC with PostgreSQL
                 href: /azure/postgresql/single-server/connect-java?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
+              - name: Kafka with Event Hubs
+                href: /azure/event-hubs/event-hubs-quickstart-kafka-enabled-event-hubs?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json
           - name: Tutorials
             items:
               - name: Azure Spring Apps

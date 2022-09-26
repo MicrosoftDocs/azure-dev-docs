@@ -30,3 +30,6 @@
         - name: Introduction
           tocHref: /azure/spring-apps
           topicHref: /azure/developer/intro/index
+        - name: Introduction
+          tocHref: /azure/event-hubs
+          topicHref: /azure/developer/intro/index

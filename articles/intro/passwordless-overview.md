@@ -75,4 +75,5 @@ For hands-on demonstrations, see the following quickstarts and tutorials:
   - [Azure Spring Apps with PostgreSQL](/azure/spring-apps/how-to-bind-postgres?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json)
   - [App Service with PostgreSQL](/azure/app-service/tutorial-java-tomcat-connect-managed-identity-postgresql-database?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json)
   - [Container Apps with PostgreSQL](/azure/container-apps/tutorial-java-quarkus-connect-managed-identity-postgresql-database?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json)
+  - [Kafka with Event Hubs](/azure/event-hubs/event-hubs-quickstart-kafka-enabled-event-hubs?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json)
 - [.NET with Blob Storage](/azure/storage/blobs/storage-quickstart-blobs-dotnet?toc=/azure/developer/intro/toc.json&bc=/azure/developer/intro/breadcrumb/toc.json)
