@@ -181,7 +181,7 @@ git request-pull main <repo-url> changes
 
 ## Troubleshooting
 
-Continuous deployment problems using the Azure CLI and the `az ad sp create-for-rba` command.
+Errors setting up a service principal with the Azure CLI `az ad sp create-for-rba` command.
 
 * You receive an error containing "InvalidSchema: No connection adapters were found".
   * Check the shell you're running in. If using Bash shell, set the MSYS_NO_PATHCONV variables as follows `export MSYS_NO_PATHCONV=1`. For more information, see the GitHub issue [Unable to create service principal with Azure CLI from git bash shell, no connection adapters were found.][15].
