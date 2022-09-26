@@ -19,7 +19,7 @@ The service diagram shown below highlights the components covered in this articl
 
 :::image type="content" source="./media/tutorial-container-apps/service-diagram-overview-for-tutorial-deploy-python-azure-container-apps-deploy.png" alt-text="A screenshot of the services in the Tutorial - Deploy a Python App on Azure Container Apps. Section highlighted is what is covered in this article." lightbox="./media/tutorial-container-apps/service-diagram-overview-for-tutorial-deploy-python-azure-container-apps-deploy.png":::
 
-Command in this tutorial are shown with the Bash shell. For other shell types, change the line continuation characters as appropriate. For example, for PowerShell, use back tick ("\`").
+Command lines in this tutorial are shown in the Bash shell. For other shell types, change the line continuation characters as appropriate. For example, for PowerShell, use back tick ("\`").
 
 ## Get the sample app
 
@@ -321,7 +321,7 @@ The sample app ([Django][1] or [Flask][2]) uses a PostgreSQL database. In the st
 
 ### [VS Code](#tab/vscode-aztools)
 
-To follow these steps require the [Azure Databases extension][26] for VS Code.
+These steps require the [Azure Databases extension][26] for VS Code.
 
 :::row:::
     :::column span="2":::
@@ -458,7 +458,7 @@ The semicolon (";") at the end of the command is necessary. To verify that the d
 
 ### [VS Code](#tab/create-database-vscode-aztools)
 
-To follow these steps require the [Azure Databases extension][26] for VS Code.
+These steps require the [Azure Databases extension][26] for VS Code.
 
 **Step 1.** In the **Azure** extension, find the PostgreSQL Server you created, right-click it, and select **Create Database**.
 
@@ -567,12 +567,12 @@ Container apps are deployed to Container Apps [*environments*][30], which act as
         * On the **Edit container** page, create environment variables as shown below and then select **Save**.
         * Back on the **Create and deploy new revision** page, select **Create**.
 
-        Create the following environment variables:
+        Here are the following environment variables to create:
 
-        * AZURE_POSTGRESQL_HOST=\<postgres-instance-name>.postgres.database.azure.com
+        * AZURE_POSTGRESQL_HOST=\<postgres-server-name>.postgres.database.azure.com
         * AZURE_POSTGRESQL_DATABASE=restaurants_reviews
         * AZURE_POSTGRESQL_USERNAME=demoadmin
-        * AZURE_POSTGRESQL_PASSWORD=\<db-password>
+        * AZURE_POSTGRESQL_PASSWORD=\<admin-password>
         * RUNNING_IN_PRODUCTION=1
         
     :::column-end:::
@@ -613,7 +613,7 @@ These steps require the [Azure Container Apps extension][11] for VS Code.
         In the sample repo, there is an *.env.example* file you can start from. Create the *.env* file with the following values:
         
         ```
-        AZURE_POSTGRESQL_HOST=<postgres-instance-name>.postgres.database.azure.com
+        AZURE_POSTGRESQL_HOST=<postgres-server-name>.postgres.database.azure.com
         AZURE_POSTGRESQL_DATABASE=restaurants_reviews
         AZURE_POSTGRESQL_USERNAME=demoadmin
         AZURE_POSTGRESQL_PASSWORD=<db-password>
@@ -643,7 +643,7 @@ These steps require the [Azure Container Apps extension][11] for VS Code.
         * **Select Container Apps environment** &rarr; Select **Create new Container Apps environment** and specify a name.
         * **Select a location for new resources** &rarr; Choose the same location that resource group you created previously.        
 
-        It can take several moments to create the environment. A notification shows the progress of the operation. Look for "Successfully created new Container Apps environment" before going to the next step. The environment will be created in a resource group of the same name "python-container-env".
+        It will take several moments to create the environment. A notification shows the progress of the operation. Look for "Successfully created new Container Apps environment" before going to the next step. The environment will be created in a resource group of the same name "python-container-env".
     :::column-end:::
     :::column:::
         :::image type="content" source="media/tutorial-container-apps/visual-studio-code-create-container-app-02.gif" alt-text="Screenshot showing how to create an environment for Azure Container Apps in Visual Studio Code." lightbox="media/tutorial-container-apps/visual-studio-code-create-container-app-02.gif":::
@@ -676,7 +676,7 @@ These steps require the [Azure Container Apps extension][11] for VS Code.
 
         * After the task completes, you'll see a notification with a **Browse** button to go to the website.
 
-        If you miss the notification, go to the Azure extension, expand the Container Apps section, find and expand your container environment, and right-click the container app and select **Browse**.
+        If you miss the prompts to create the container after the environment creation, go to the Azure extension, expand the Container Apps section, find and expand your container environment, and right-click the container app and select **Browse**.
 
     :::column-end:::
     :::column:::
@@ -751,15 +751,15 @@ These steps require the [Azure Container Apps extension][11] for VS Code.
         --query properties.configuration.ingress.fqdn
         ```
 
-        `<env-variable-string>` is a string composed of space-separated values in the key="value" format with the following values.
+        *\<env-variable-string>* is a string composed of space-separated values in the key="value" format with the following values.
 
-        * AZURE_POSTGRESQL_HOST=\<postgres-instance-name>.postgres.database.azure.com
+        * AZURE_POSTGRESQL_HOST=\<postgres-server-name>.postgres.database.azure.com
         * AZURE_POSTGRESQL_DATABASE=restaurants_reviews
         * AZURE_POSTGRESQL_USERNAME=demoadmin
         * AZURE_POSTGRESQL_PASSWORD=\<db-password>
         * RUNNING_IN_PRODUCTION=1
 
-        Here's an example: `--env-vars AZURE_POSTGRESQL_HOST="my-postgres-instance.postgres.database.azure.com" AZURE_POSTGRESQL_DATABASE="restaurants_reviews" AZURE_POSTGRESQL_USERNAME="demoadmin" AZURE_POSTGRESQL_PASSWORD="somepassword" RUNNING_IN_PRODUCTION="1"`.
+        Here's an example: `--env-vars AZURE_POSTGRESQL_HOST="my-postgres-server.postgres.database.azure.com" AZURE_POSTGRESQL_DATABASE="restaurants_reviews" AZURE_POSTGRESQL_USERNAME="demoadmin" AZURE_POSTGRESQL_PASSWORD="somepassword" RUNNING_IN_PRODUCTION="1"`.
 
     :::column-end:::
 :::row-end:::
@@ -767,14 +767,14 @@ These steps require the [Azure Container Apps extension][11] for VS Code.
     :::column span="1":::
         **Step 7.** Test the website.
 
-        The create command above outputs an application Url you can use to browse to. The Url ends in "azurecontainerapps.io".
+        The create command above outputs an application Url you can use to browse to. The Url ends in "azurecontainerapps.io". Navigate to the Url.
 
     :::column-end:::
 :::row-end:::
 
 ---
 
-An example of the sample website after adding a restaurant and two reviews should look like the following image.
+Here's an example of the sample website after adding a restaurant and two reviews.
 
 :::image type="content" source="media/tutorial-container-apps/final-website-example-400px.png" alt-text="Screenshot showing an example of the sample website built in this tutorial." lightbox="media/tutorial-container-apps/final-website-example.png":::
 
@@ -788,16 +788,16 @@ An example of the sample website after adding a restaurant and two reviews shoul
 * In VS Code, the **Build Image in Azure** task returns an error.
   * If you see the message "Error: failed to download context. Please check if the URL is incorrect." in the VS Code **Output** window, then refresh the registry in the Docker extension. To refresh, select the Docker extension, go to the Registries section, find the registry and select it.
 
-* In the Azure portal during the creation of a Container App, you see an access error.
-  * If you see the error "Cannot access ACR '\<name>.azurecr.io' because admin credentials on the ACR are disabled, then go to your Azure Container Registry and under the **Access keys** resource, ensure that **Admin user** is enabled.
+* In the Azure portal during the creation of a Container App, you see an access error that contains "Cannot access ACR '\<name>.azurecr.io'".
+  * This can happen because admin credentials on the ACR are disabled. To check admin status, go to your Azure Container Registry, select the **Access keys** resource, and ensure that **Admin user** is enabled.
 
-* Container image doesn't appear in the Azure Container Registry.
+* Your container image doesn't appear in the Azure Container Registry.
   * Check the output of the Azure CLI command or VS Code Output and look for messages to confirm success.
   * Check that the name of the registry was specified correctly in your build command with the Azure CLI or in the VS Code task prompts.
   * Make sure your credentials haven't expired. For example, in VS Code, find the target registry in the Docker extension and refresh. In Azure CLI, run `az login`.
 
 * Website returns "Bad Request (400)".
-  * Check the PostgreSQL environment variables passed in to the container. This error often indicates that the Python code can't connect to the PostgreSQL instance.
+  * Check the PostgreSQL environment variables passed in to the container. The 400 error often indicates that the Python code can't connect to the PostgreSQL instance.
   * The sample code used in this tutorial requires the container environment variable `RUNNING_IN_PRODUCTION` set to any value like "1".
 
 * Website returns "Not Found (404)".
