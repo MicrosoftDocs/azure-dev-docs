@@ -33,7 +33,7 @@ To follow set up continuous deployment, you'll need:
 
 In a previous article of this tutorial, you created and configured a container app in Azure Container Apps. Part of the configuration was pulling a Docker image from an Azure Container Registry. The container image is pulled from the registry when creating a container [*revision*][5], such as when you first set up the container app.
 
-In the steps below, you'll set up continuous deployment, which means a new container image is created based on a defined trigger. The trigger in this tutorial is a pull request (PR) to a *main* branch of your repository. With a new PR, a new container image is built and pushed to the Azure Container Registry, and the container app is updated to use the new image.
+In the steps below, you'll set up continuous deployment, which means a new container image is created based on a defined trigger. The trigger in this tutorial is any change to the *main* branch of your repository, such as with a pull request (PR). When triggered, the workflow creates a new container image, pushes it to the Azure Container Registry, and updates the container app to use the new image.
 
 ### [Azure portal](#tab/azure-portal)
 
@@ -152,16 +152,54 @@ In the steps to set up continuous deployment, a [*service principal*][6] is need
 
 Access to resources is restricted by the roles assigned to the service principal, giving you control over which resources can be accessed and at which level. In the steps above, that role used is the built-in [*Contributor*][12] role, and it was assigned to the resource group containing the container app.
 
-## Create a code change to start GitHub workflow
+## Create a code change to start the GitHub workflow
 
 In this section, you'll make a small change to your forked copy of the sample repository and confirm that the change is automatically deployed to the web site.
 
+### [GitHub UI](#tab/git-github)
+
+:::row:::
+    :::column span="2":::
+        **Step 1.** Go to the GitHub repo.
+    :::column-end:::
+    :::column:::
+    TBD
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="2":::
+        **Step 2.** Make a change.
+
+        * Go to the  */templates/base.html* file.
+        * Select **Edit** and change the phrase "Azure Restaurant Review" to "Azure Restaurant Review - Redeployed".
+
+    :::column-end:::
+    :::column:::
+    TBD
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="2":::
+        **Step 3.** Commit the change directly to the *main* branch.
+
+        * On the bottom of the page, select the **Commit** button.
+
+        This will kick off the workflow action.
+
+    :::column-end:::
+    :::column:::
+    TBD
+    :::column-end:::
+:::row-end:::
+
+### [Git](#tab/git-commandline)
+
 **Step 1.** Create a branch to work in and check it out.
 
-If you haven't already, make a [fork][13] of the sample repository (([Django][1] or [Flask][2])). Then, starting in main, create a branch and check out that branch.
+If you haven't already, make a [fork][13] of the sample repository (([Django][1] or [Flask][2])). Then, makes ure you start in main.
 
 ```Bash
-git checkout -b changes-branch
+git checkout main
 ```
 
 **Step 2.** Make a change.
@@ -172,16 +210,16 @@ Go to the *./templates/base.html* file and change the phrase "Azure Restaurant R
 
 ```Bash
 git commit -a -m "Redeploy with title change."
-git push --set-upstream origin change-branch
+git push
 ```
 
-The first time using git, you may need to set global variables "user.name" and "user.email". See the help for [git-config][16].
+The first time using git, you may need to set global variables "user.name" and "user.email". See the help for [git-config][16]. 
 
-**Step 4.** Create a pull request and merge changes into *main* branch
+---
 
-```Bash
-git request-pull main <repo-url> changes
-```
+> [!NOTE]
+> We showed making a change directly in the *main* branch. In typical software workflows, you'll make a change in a branch other than *main*, push that change, and then create a pull request (PR) to the *main*.
+
 
 ## Troubleshooting
 
