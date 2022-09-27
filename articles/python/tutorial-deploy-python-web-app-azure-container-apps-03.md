@@ -255,8 +255,6 @@ This command prompts you to select a workflow and then gives an overview of rece
 gh workflow view --web
 ```
 
-This command prompts you to select a workflow and then opens the workflow in GitHub where you can see more information about the actions in the workflow.
-
 ---
 
 In the *.github/workflows/\<workflow-name>.yml* that was added to the repo, you'll see placeholders for sensitive information (credentials) that's needed for the build action and the container app update action. The sensitive information is stored in the repository **Settings** under **Security**/**Actions**.
