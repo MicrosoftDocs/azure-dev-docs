@@ -158,31 +158,26 @@ In this section, you'll make a small change to your forked copy of the sample re
 
 **Step 1.** Create a branch to work in and check it out.
 
-If you haven't already, make a [fork][13] of the sample repository (([Django][1] or [Flask][2])). Then, create a branch and check out that branch.
+If you haven't already, make a [fork][13] of the sample repository (([Django][1] or [Flask][2])). Then, starting in main, create a branch and check out that branch.
 
 ```Bash
-git checkout main
-git pull
-git push
 git checkout -b changes-branch
-git merge master
 ```
 
 **Step 2.** Make a change.
 
 Go to the *./templates/base.html* file and change the phrase "Azure Restaurant Review" to "Azure Restaurant Review - Redeployed".
 
-**Step 2.** Commit and push the change to GitHub.
-
-Then commit and push the changes.
+**Step 3.** Commit and push the change to GitHub.
 
 ```Bash
 git commit -a -m "Redeploy with title change."
 git push --set-upstream origin change-branch
 ```
-First time using git, may need to set global variables "user.name" and "user.email". See the help for [git-config][16].
 
-**Step 3.** Create a pull request and merge changes into *main* branch
+The first time using git, you may need to set global variables "user.name" and "user.email". See the help for [git-config][16].
+
+**Step 4.** Create a pull request and merge changes into *main* branch
 
 ```Bash
 git request-pull main <repo-url> changes
