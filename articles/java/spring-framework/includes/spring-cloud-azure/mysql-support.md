@@ -73,6 +73,8 @@ Add the following dependency to your project. This will automatically include th
 ```
 
 > [!NOTE]
+> If you want to use passwordless connections, you must add dependency version `4.5.0-beta.1`.
+>
 > Remember to add the BOM `spring-cloud-azure-dependencies` along with the above dependency. For more information, see the [Getting started](#getting-started) section.
 
 ### Basic usage

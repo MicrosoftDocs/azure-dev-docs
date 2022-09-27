@@ -171,7 +171,7 @@ Then, use the following command to open the server's firewall to your WSL-based 
 ```azurecli
 az postgres server firewall-rule create \
     --resource-group $AZ_RESOURCE_GROUP \
-    --name $AZ_DATABASE_NAME-database-allow-local-ip \
+    --name $AZ_DATABASE_NAME-database-allow-local-ip-wsl \
     --server $AZ_DATABASE_NAME \
     --start-ip-address $AZ_WSL_IP_ADDRESS \
     --end-ip-address $AZ_WSL_IP_ADDRESS \
