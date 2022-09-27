@@ -156,7 +156,7 @@ Access to resources is restricted by the roles assigned to the service principal
 
 In this section, you'll make a small change to your forked copy of the sample repository and confirm that the change is automatically deployed to the web site.
 
-If you haven't already, make a [fork][13] of the sample repository (([Django][1] or [Flask][2])). You can make your code change directly in [GitHub][17] or locally from a command line with [Git][14].
+If you haven't already, make a [fork][13] of the sample repository ([Django][1] or [Flask][2]). You can make your code change directly in [GitHub][17] or locally from a command line with [Git][14].
 
 ### [GitHub](#tab/git-github)
 
@@ -257,13 +257,13 @@ gh workflow view --web
 
 ---
 
-In the *.github/workflows/\<workflow-name>.yml* that was added to the repo, you'll see placeholders for sensitive information (credentials) that's needed for the build action and the container app update action. The sensitive information is stored in the repository **Settings** under **Security**/**Actions**.
+In the *.github/workflows/\<workflow-name>.yml* workflow file that was added to the repo, you'll see placeholders for credentials that are needed for the build and container app update actions. The credential information is stored securely in the repository **Settings** under **Security**/**Actions**.
 
 :::image type="content" source="media/tutorial-container-apps/github-repo-action-secrets.png" alt-text="Screenshot showing how to see where GitHub Action secrets are stored in GitHub." lightbox="media/tutorial-container-apps/github-repo-action-secrets.png":::
 
 For more information, see [Encrypted secrets][19] in the GitHub documentation.
 
-When you set up continuous deployment, you authorized Azure Container Apps as an authorized OAuth Apps. This is how the GitHub Workflow YML file was written to *.github/workflows/\<workflow-name>.yml*. You can revoke this permission by going to the settings of your GitHub user profile. Under **Integrations**/**Applications**, you can see the authorized apps.
+When you set up continuous deployment, you authorized Azure Container Apps as an authorized OAuth Apps. This is how the GitHub Workflow YML file was written to *.github/workflows/\<workflow-name>.yml*. You can revoke this permission by going to the settings of your GitHub user profile. Under **Integrations**/**Applications**, you can see your authorized apps.
 
 :::image type="content" source="media/tutorial-container-apps/github-authorized-oauth-apps.png" alt-text="Screenshot showing how to see the authorized apps for a user in GitHub." lightbox="media/tutorial-container-apps/github-authorized-oauth-apps.png":::
 
