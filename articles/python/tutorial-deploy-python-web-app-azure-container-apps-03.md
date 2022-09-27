@@ -29,7 +29,7 @@ To follow set up continuous deployment, you'll need:
 
 * Optionally, [Git][14] installed locally to make code changes locally and push to your repo in GitHub. Alternatively, you can make the changes directly in GitHub with a patch.
 
-## Set up continuous deployment for the container
+## Configure CD for the container
 
 In a previous article of this tutorial, you created and configured a container app in Azure Container Apps. Part of the configuration was pulling a Docker image from an Azure Container Registry. The container image is pulled from the registry when creating a container [*revision*][5], such as when you first set up the container app.
 
@@ -152,15 +152,17 @@ In the steps to set up continuous deployment, a [*service principal*][6] is need
 
 Access to resources is restricted by the roles assigned to the service principal, giving you control over which resources can be accessed and at which level. In the steps above, that role used is the built-in [*Contributor*][12] role, and it was assigned to the resource group containing the container app.
 
-## Create a code change to start the GitHub workflow
+## Change code to kick off the GitHub workflow
 
 In this section, you'll make a small change to your forked copy of the sample repository and confirm that the change is automatically deployed to the web site.
+
+If you haven't already, make a [fork][13] of the sample repository (([Django][1] or [Flask][2])). You can make your code change directly in the [GitHub UI][17] or locally using [Git][14] commands.
 
 ### [GitHub UI](#tab/git-github)
 
 :::row:::
     :::column span="2":::
-        **Step 1.** Go to the GitHub repo.
+        **Step 1.** Make sure you start in main.
     :::column-end:::
     :::column:::
     TBD
@@ -184,7 +186,7 @@ In this section, you'll make a small change to your forked copy of the sample re
 
         * On the bottom of the page, select the **Commit** button.
 
-        This will kick off the workflow action.
+        The commit kicks off the workflow action.
 
     :::column-end:::
     :::column:::
@@ -192,11 +194,9 @@ In this section, you'll make a small change to your forked copy of the sample re
     :::column-end:::
 :::row-end:::
 
-### [Git](#tab/git-commandline)
+### [Command line](#tab/git-commandline)
 
-**Step 1.** Create a branch to work in and check it out.
-
-If you haven't already, make a [fork][13] of the sample repository (([Django][1] or [Flask][2])). Then, makes ure you start in main.
+**Step 1.**  Make sure you start in main.
 
 ```Bash
 git checkout main
@@ -213,13 +213,14 @@ git commit -a -m "Redeploy with title change."
 git push
 ```
 
-The first time using git, you may need to set global variables "user.name" and "user.email". See the help for [git-config][16]. 
+The first time using git, you may need to set global variables "user.name" and "user.email". See the help for [git-config][16].
+
+The push of changes to the *main* branch kicks off the GitHub Workflow.
 
 ---
 
 > [!NOTE]
-> We showed making a change directly in the *main* branch. In typical software workflows, you'll make a change in a branch other than *main*, push that change, and then create a pull request (PR) to the *main*.
-
+> We showed making a change directly in the *main* branch. In typical software workflows, you'll make a change in a branch other than *main* and then create a pull request (PR) to merge those change into the *main*.
 
 ## Troubleshooting
 
@@ -261,3 +262,4 @@ Website doesn't show changes you merged in the *main* branch.
 [14]: https://git-scm.com/
 [15]: https://github.com/Azure/azure-cli/issues/16317
 [16]: https://git-scm.com/docs/git-config
+[17]: https://github.com/
