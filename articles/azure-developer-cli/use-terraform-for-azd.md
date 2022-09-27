@@ -11,7 +11,7 @@ ms.custom: devx-track-azdevcli
 
 # Use Terraform as an infrastructure as code tool for Azure Developer CLI (azd) Preview
 
-Azure Developer CLI (azd) Preview supports multiple infrastructure as code (IaC) providers, including:  
+Azure Developer CLI (azd) Preview supports multiple infrastructures as code (IaC) providers, including:  
 - [Bicep](/azure/azure-resource-manager/bicep/overview?tabs=bicep)
 - [Terraform](../terraform/overview.md)
 

@@ -90,7 +90,7 @@ A [DevContainer](https://code.visualstudio.com/docs/remote/containers) is a Dock
 - An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Review the architecture diagram and the Azure resources you'll deploy in the Node.js template README](https://github.com/Azure-Samples/todo-nodejs-mongo/blob/main/README.md).
 
-### Initialize Project
+### Initialize project
 
 1. Open a terminal, create a new empty directory, and change into it.
 
@@ -232,7 +232,7 @@ A [DevContainer](https://code.visualstudio.com/docs/remote/containers) is a Dock
 - An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Review the architecture diagram and the Azure resources you'll deploy in the Python template README](https://github.com/Azure-Samples/todo-python-mongo/blob/main/README.md).
 
-### Initialize Project
+### Initialize project
 
 1. Open a terminal, create a new empty directory, and change into it.
 
@@ -370,7 +370,7 @@ A [DevContainer](https://code.visualstudio.com/docs/remote/containers) is a Dock
 - An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Review the architecture diagram and the Azure resources you'll deploy in the C# template README](https://github.com/Azure-Samples/todo-csharp-cosmos-sql/blob/main/README.md).
 
-### Initialize Project
+### Initialize project
 
 1. Open a terminal, create a new empty directory, and change into it.
 
