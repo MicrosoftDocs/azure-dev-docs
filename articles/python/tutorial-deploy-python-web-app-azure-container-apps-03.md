@@ -1,6 +1,6 @@
 ---
 title: Configure CI/CD for a Python web app in Azure Container Apps
-description: Set up CI/CD for a Python web app container in Azure Container Apps using a GitHub workflow (with actions) triggered on merged PRs to the main branch of a repo.
+description: Set up CI/CD for a Python web app container in Azure Container Apps using GitHub Actions triggered on changes (like PRs( to the main branch of a repo.
 ms.topic: conceptual
 ms.date: 09/21/2022
 ms.custom: devx-track-python
@@ -13,7 +13,7 @@ ms.author: jejohn
 
 This article is part of a tutorial about how to containerize and deploy a Python web app to [Azure Container Apps][8]. Container Apps enable you to deploy containerized apps without managing complex infrastructure.
 
-In this part of the tutorial, you learn how to configure continuous deployment or delivery (CD) for the container app. CD is part of the DevOps concept of continuous integration / continuous delivery (CI/CD), automation of your software development workflow.
+In this part of the tutorial, you learn how to configure continuous deployment or delivery (CD) for the container app. CD is part of the DevOps concept of continuous integration / continuous delivery (CI/CD), automation of your software development workflow. Specifically, you use [GitHub Actions][20] for continuous deployment.
 
 The service diagram shown below highlights the components covered in this article: configuration of the CI/CD cycle.
 
@@ -121,7 +121,7 @@ Azure CLI commands can be run in the [Azure Cloud Shell][4] or on a workstation 
 :::row-end:::
 :::row:::
     :::column span="1":::
-        **Step 2.** Configure a GitHub workflow with [az containerapp github-action add][11] command.
+        **Step 2.** Configure a GitHub Action with [az containerapp github-action add][11] command.
 
         ```bash
         az containerapp github-action add \
@@ -152,13 +152,13 @@ In the steps to set up continuous deployment, a [*service principal*][6] is need
 
 Access to resources is restricted by the roles assigned to the service principal, giving you control over which resources can be accessed and at which level. In the steps above, that role used is the built-in [*Contributor*][12] role, and it was assigned to the resource group containing the container app.
 
-## Redeploy web app with GitHub workflow
+## Redeploy web app with GitHub Actions
 
 In this section, you'll make a small change to your forked copy of the sample repository and confirm that the change is automatically deployed to the web site.
 
 If you haven't already, make a [fork][13] of the sample repository (([Django][1] or [Flask][2])). You can make your code change directly in [GitHub][17] or locally from a command line with [Git][14].
 
-### [GitHub UI](#tab/git-github)
+### [GitHub](#tab/git-github)
 
 :::row:::
     :::column span="2":::
@@ -186,7 +186,7 @@ If you haven't already, make a [fork][13] of the sample repository (([Django][1]
 
         * On the bottom of the page, select the **Commit** button.
 
-        The commit kicks off the workflow action.
+        The commit kicks off the GitHub Actions workflow.
 
     :::column-end:::
     :::column:::
@@ -217,18 +217,18 @@ git push
 
 The first time using git, you may need to set global variables "user.name" and "user.email". See the help for [git-config][16].
 
-The push of changes to the *main* branch kicks off the GitHub Workflow.
+The push of changes to the *main* branch kicks off the GitHub Actions workflow.
 
 ---
 
 > [!NOTE]
 > We showed making a change directly in the *main* branch. In typical software workflows, you'll make a change in a branch other than *main* and then create a pull request (PR) to merge those change into *main*.
 
-## Workflow details
+## GitHub Actions workflow details
 
-You can view GitHub Workflow history in [GitHub][17] or locally using [GitHub CLI][18] commands.
+You can view GitHub Actions workflow history in [GitHub][17] or using [GitHub CLI][18] commands.
 
-### [GitHub UI](#tab/git-github)
+### [GitHub](#tab/git-github)
 
 :::row:::
     :::column span="2":::
@@ -279,7 +279,7 @@ Errors setting up a service principal with the Azure CLI `az ad sp create-for-rb
 * You receive an error containing "More than one application have the same display name".
   * This error indicates the name is already taken for the service principal. Choose another name or leave off the `--name` argument and a GUID will be automatically generated as a name.
 
-GitHub Action failed.
+GitHub Actions workflow failed.
 
 * If you set up continuous deployment for the container app, the workflow file (*.github/workflows/\<workflow-name>.yml*) is created automatically for you. To check the workflow, go to the **Actions** tab of the repo and at a glance you can see if a workflow has failed.
 * If there's a failed workflow, drill into its workflow file. There should be two jobs "build" and "deploy". For a failed job, look at the output of the job's tasks to look for problems.
@@ -287,7 +287,7 @@ GitHub Action failed.
 
 Website doesn't show changes you merged in the *main* branch.
 
-* In GitHub - Check that the GitHub workflow ran and that you checked the change into the branch that trickers the workflow.
+* In GitHub - Check that the GitHub Actions workflow ran and that you checked the change into the branch that trickers the workflow.
 * In Azure portal - Check the Azure Container Registry to see if a new container image was created with a timestamp after your change.
 * In Azure portal - Check the logs of container app. If there was a programming error, you'll see it here.
   * Go to the Container App | Revision Management | \<active container> | Revision details | Console logs
@@ -312,3 +312,4 @@ Website doesn't show changes you merged in the *main* branch.
 [17]: https://github.com/
 [18]: https://cli.github.com/
 [19]: https://docs.github.com/actions/security-guides/encrypted-secrets
+[20]: /azure/developer/github/github-actions
