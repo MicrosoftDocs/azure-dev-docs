@@ -259,6 +259,16 @@ This command prompts you to select a workflow and then opens the workflow in Git
 
 ---
 
+In the *.github/workflows/\<workflow-name>.yml* that was added to the repo, you'll see placeholders for sensitive information (credentials) that's needed for the build action and the container app update action. The sensitive information is stored in the repository **Settings** under **Security**/**Actions**.
+
+:::image type="content" source="media/tutorial-container-apps/github-repo-action-secrets.png" alt-text="Screenshot showing how to see where GitHub Action secrets are stored in GitHub." lightbox="media/tutorial-container-apps/github-repo-action-secrets.png":::
+
+For more information, see [Encrypted secrets][19] in the GitHub documentation.
+
+When you set up continuous deployment, you authorized Azure Container Apps as an authorized OAuth Apps. This is how the GitHub Workflow YML file was written to *.github/workflows/\<workflow-name>.yml*. You can revoke this permission by going to the settings of your GitHub user profile. Under **Integrations**/**Applications**, you can see the authorized apps.
+
+:::image type="content" source="media/tutorial-container-apps/github-authorized-oauth-apps.png" alt-text="Screenshot showing how to see the authorized apps for a user in GitHub." lightbox="media/tutorial-container-apps/github-authorized-oauth-apps.png":::
+
 ## Troubleshooting
 
 Errors setting up a service principal with the Azure CLI `az ad sp create-for-rba` command.
@@ -271,7 +281,7 @@ Errors setting up a service principal with the Azure CLI `az ad sp create-for-rb
 
 GitHub Action failed.
 
-* If you set up continuous deployment for the container app, the workflow file (.github/workflows/\<workflow-name>.yml) is created automatically for you. To check the workflow, go to the **Actions** tab of the repo and at a glance you can see if a workflow has failed.
+* If you set up continuous deployment for the container app, the workflow file (*.github/workflows/\<workflow-name>.yml*) is created automatically for you. To check the workflow, go to the **Actions** tab of the repo and at a glance you can see if a workflow has failed.
 * If there's a failed workflow, drill into its workflow file. There should be two jobs "build" and "deploy". For a failed job, look at the output of the job's tasks to look for problems.
 * If you see an error message with "TLS handshake timeout", run the workflow manually by selecting **Trigger auto deployment** under the **Actions** tab of the repo to see if this is a temporary issue.
 
@@ -301,3 +311,4 @@ Website doesn't show changes you merged in the *main* branch.
 [16]: https://git-scm.com/docs/git-config
 [17]: https://github.com/
 [18]: https://cli.github.com/
+[19]: https://docs.github.com/actions/security-guides/encrypted-secrets
