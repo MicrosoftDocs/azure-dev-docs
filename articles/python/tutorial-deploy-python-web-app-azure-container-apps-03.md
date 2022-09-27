@@ -152,7 +152,7 @@ In the steps to set up continuous deployment, a [*service principal*][6] is need
 
 Access to resources is restricted by the roles assigned to the service principal, giving you control over which resources can be accessed and at which level. In the steps above, that role used is the built-in [*Contributor*][12] role, and it was assigned to the resource group containing the container app.
 
-## Change code to kick off the GitHub workflow
+## Redeploy web app with GitHub workflow
 
 In this section, you'll make a small change to your forked copy of the sample repository and confirm that the change is automatically deployed to the web site.
 
@@ -224,7 +224,7 @@ The push of changes to the *main* branch kicks off the GitHub Workflow.
 > [!NOTE]
 > We showed making a change directly in the *main* branch. In typical software workflows, you'll make a change in a branch other than *main* and then create a pull request (PR) to merge those change into *main*.
 
-## Details of workflow
+## Workflow details
 
 You can view GitHub Workflow history in [GitHub][17] or locally using [GitHub CLI][18] commands.
 
