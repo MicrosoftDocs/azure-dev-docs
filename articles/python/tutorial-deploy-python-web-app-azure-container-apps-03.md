@@ -21,9 +21,9 @@ The service diagram shown below highlights the components covered in this articl
 
 ## Prerequisites
 
-To follow set up continuous deployment, you'll need:
+To set up continuous deployment, you'll need:
 
-* The resources created in the previous article of this tutorial, which includes an [Azure Container Registry][9] and a container app in [Azure Container Apps][8].
+* The resources created in the previous article of this tutorial series, which includes an [Azure Container Registry][9] and a container app in [Azure Container Apps][8].
 
 * A GitHub account where you forked the sample code ([Django][1] or [Flask][2]) and you can connect to from Azure Container Apps. (If you downloaded the sample code instead of forking, make sure you push your local repo to your GitHub account.)
 
@@ -33,7 +33,7 @@ To follow set up continuous deployment, you'll need:
 
 In a previous article of this tutorial, you created and configured a container app in Azure Container Apps. Part of the configuration was pulling a Docker image from an Azure Container Registry. The container image is pulled from the registry when creating a container [*revision*][5], such as when you first set up the container app.
 
-In the steps below, you'll set up continuous deployment, which means a new container image is created based on a defined trigger. The trigger in this tutorial is any change to the *main* branch of your repository, such as with a pull request (PR). When triggered, the workflow creates a new container image, pushes it to the Azure Container Registry, and updates the container app to use the new image.
+In the steps below, you'll set up continuous deployment, which means a new container image is created based on a defined trigger. The trigger in this tutorial is any change to the *main* branch of a repository, such as with a pull request (PR). When triggered, the workflow creates a new container image, pushes it to the Azure Container Registry, and updates the container app to use the new image.
 
 ### [Azure portal](#tab/azure-portal)
 
@@ -112,10 +112,12 @@ Azure CLI commands can be run in the [Azure Cloud Shell][4] or on a workstation 
         --scopes "/subscriptions/<subscription-ID>/resourceGroups/<resource-group-name>"
         ```
 
-        Where 
-        * *\<app-name>* is an optional name for the service principal.
-        * *\<subscription-ID>* is TBD.
-        * *\<resource-group-name>* is TBD.
+        Where: 
+        * *\<app-name>* is an optional name for the service principal. If you leave off the `--name` option, a GUID is generated as the name. The downside of the auto-generated GUID is that it's harder to find in the Azure Active Directory.
+        * *\<subscription-ID>* is the GUID that uniquely identifies your subscription in Azure.
+        * *\<resource-group-name>* is the name of a resource group that contains the Azure Container Registry. Role-based access control (RBAC) is on the resource group level.
+
+        Save the output of this command for the next step.
 
     :::column-end:::
 :::row-end:::
@@ -139,9 +141,9 @@ Azure CLI commands can be run in the [Azure Cloud Shell][4] or on a workstation 
         Where:
         * *\<resource-group-name>* is the name of the resource group.If you are following this tutorial, it is "pythoncontainer-rg".
         * *\<registry-name>* must be unique within Azure, and contain 5-50 alphanumeric characters.
-        * *\<client-id>* is a value from the previous `az ad sp create-for-rbac` command. The ID is a GUID of the form 00000000-0000-0000-0000-00000000.
-        * *\<tenant-id>* is a value from the previous `az ad sp create-for-rbac` command. The ID is a GUID of the form 00000000-0000-0000-0000-00000000.
-        * *\<client-secret>* is a value from the previous `az ad sp create-for-rbac` command.
+        * *\<client-id>* is a value from the previous `az ad sp` command. The ID is a GUID of the form 00000000-0000-0000-0000-00000000.
+        * *\<tenant-id>* is a value from the previous `az ad sp` command. The ID is a GUID of the form 00000000-0000-0000-0000-00000000.
+        * *\<client-secret>* is a value from the previous `az ad sp` command.
 
     :::column-end:::
 :::row-end:::
