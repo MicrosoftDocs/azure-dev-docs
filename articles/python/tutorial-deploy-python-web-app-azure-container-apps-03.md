@@ -162,10 +162,10 @@ If you haven't already, make a [fork][13] of the sample repository (([Django][1]
 
 :::row:::
     :::column span="2":::
-        **Step 1.** Make sure you start in main.
+        **Step 1.** Go to your fork of the sample repository and start in the *main* branch.
     :::column-end:::
     :::column:::
-    TBD
+        :::image type="content" source="media/tutorial-container-apps/github-view-repo.png" alt-text="Screenshot showing how a fork of the sample repo and starting in the main branch." lightbox="media/tutorial-container-apps/github-view-repo.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -177,7 +177,7 @@ If you haven't already, make a [fork][13] of the sample repository (([Django][1]
 
     :::column-end:::
     :::column:::
-    TBD
+        :::image type="content" source="media/tutorial-container-apps/github-edit-file.png" alt-text="Screenshot showing how to make a change in a template file in the fork of the sample repo." lightbox="media/tutorial-container-apps/github-edit-file.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -190,17 +190,19 @@ If you haven't already, make a [fork][13] of the sample repository (([Django][1]
 
     :::column-end:::
     :::column:::
-    TBD
+        :::image type="content" source="media/tutorial-container-apps/github-commit-change.png" alt-text="Screenshot showing how to commit a change in a template file in the fork of the sample repo." lightbox="media/tutorial-container-apps/github-commit-change.png":::
     :::column-end:::
 :::row-end:::
 
 ### [Command line](#tab/git-commandline)
 
-**Step 1.**  Make sure you start in main.
+**Step 1.** Make sure you start in *main* locally.
 
 ```Bash
 git checkout main
 ```
+
+If you haven't already, use `git clone` to pull your repository locally and change directory to the repository.
 
 **Step 2.** Make a change.
 
@@ -220,7 +222,7 @@ The push of changes to the *main* branch kicks off the GitHub Workflow.
 ---
 
 > [!NOTE]
-> We showed making a change directly in the *main* branch. In typical software workflows, you'll make a change in a branch other than *main* and then create a pull request (PR) to merge those change into the *main*.
+> We showed making a change directly in the *main* branch. In typical software workflows, you'll make a change in a branch other than *main* and then create a pull request (PR) to merge those change into *main*.
 
 ## Troubleshooting
 
