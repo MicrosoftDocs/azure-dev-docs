@@ -156,7 +156,7 @@ Access to resources is restricted by the roles assigned to the service principal
 
 In this section, you'll make a small change to your forked copy of the sample repository and confirm that the change is automatically deployed to the web site.
 
-If you haven't already, make a [fork][13] of the sample repository (([Django][1] or [Flask][2])). You can make your code change directly in the [GitHub UI][17] or locally using [Git][14] commands.
+If you haven't already, make a [fork][13] of the sample repository (([Django][1] or [Flask][2])). You can make your code change directly in [GitHub][17] or locally from a command line with [Git][14].
 
 ### [GitHub UI](#tab/git-github)
 
@@ -165,7 +165,7 @@ If you haven't already, make a [fork][13] of the sample repository (([Django][1]
         **Step 1.** Go to your fork of the sample repository and start in the *main* branch.
     :::column-end:::
     :::column:::
-        :::image type="content" source="media/tutorial-container-apps/github-view-repo.png" alt-text="Screenshot showing how a fork of the sample repo and starting in the main branch." lightbox="media/tutorial-container-apps/github-view-repo.png":::
+        :::image type="content" source="media/tutorial-container-apps/github-view-repo.png" alt-text="Screenshot showing a fork of the sample repo and starting in the main branch." lightbox="media/tutorial-container-apps/github-view-repo.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -196,7 +196,7 @@ If you haven't already, make a [fork][13] of the sample repository (([Django][1]
 
 ### [Command line](#tab/git-commandline)
 
-**Step 1.** Make sure you start in *main* locally.
+**Step 1.** Start in *main*.
 
 ```Bash
 git checkout main
@@ -223,6 +223,41 @@ The push of changes to the *main* branch kicks off the GitHub Workflow.
 
 > [!NOTE]
 > We showed making a change directly in the *main* branch. In typical software workflows, you'll make a change in a branch other than *main* and then create a pull request (PR) to merge those change into *main*.
+
+## Details of workflow
+
+You can view GitHub Workflow history in [GitHub][17] or locally using [GitHub CLI][18] commands.
+
+### [GitHub UI](#tab/git-github)
+
+:::row:::
+    :::column span="2":::
+        **Step 1.** Go to your fork of the sample repository and open the **Actions** tab.
+    :::column-end:::
+    :::column:::
+        :::image type="content" source="media/tutorial-container-apps/github-check-action.png" alt-text="Screenshot showing how to view GitHub Actions for a repo and look at workflows." lightbox="media/tutorial-container-apps/github-check-action.png":::
+    :::column-end:::
+:::row-end:::
+
+### [Command line](#tab/git-commandline)
+
+**Step 1.** Pick a workflow to show a summary of.
+
+```Bash
+gh workflow view
+```
+
+This command prompts you to select a workflow and then gives an overview of recent runs of that workflow. The first time using `gh` you may be prompted to authentication. Follow the GitHub CLI prompts to authenticate.
+
+**Step 2.** Go to GitHub for details of run of workflow.
+
+```bash
+gh workflow view --web
+```
+
+This command prompts you to select a workflow and then opens the workflow in GitHub where you can see more information about the actions in the workflow.
+
+---
 
 ## Troubleshooting
 
@@ -265,3 +300,4 @@ Website doesn't show changes you merged in the *main* branch.
 [15]: https://github.com/Azure/azure-cli/issues/16317
 [16]: https://git-scm.com/docs/git-config
 [17]: https://github.com/
+[18]: https://cli.github.com/
