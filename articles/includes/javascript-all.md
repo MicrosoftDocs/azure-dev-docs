@@ -310,7 +310,7 @@
 | @azure-tools/cadl-openapi | npm [0.4.1](https://www.npmjs.com/package/@azure-tools/cadl-openapi/v/0.4.1) |  |  |
 | @azure-tools/cadl-providerhub | npm [0.21.0](https://www.npmjs.com/package/@azure-tools/cadl-providerhub/v/0.21.0) |  |  |
 | @azure-tools/cadl-providerhub-controller | npm [0.16.0](https://www.npmjs.com/package/@azure-tools/cadl-providerhub-controller/v/0.16.0) |  |  |
-| @azure-tools/cadl-python | npm [0.2.3](https://www.npmjs.com/package/@azure-tools/cadl-python/v/0.2.3) |  |  |
+| @azure-tools/cadl-python | npm [0.2.5](https://www.npmjs.com/package/@azure-tools/cadl-python/v/0.2.5) |  |  |
 | @azure-tools/cadl-ranch | npm [0.2.0](https://www.npmjs.com/package/@azure-tools/cadl-ranch/v/0.2.0) |  |  |
 | @azure-tools/cadl-ranch-api | npm [0.1.9](https://www.npmjs.com/package/@azure-tools/cadl-ranch-api/v/0.1.9) |  |  |
 | @azure-tools/cadl-ranch-coverage-sdk | npm [0.1.1](https://www.npmjs.com/package/@azure-tools/cadl-ranch-coverage-sdk/v/0.1.1) |  |  |
@@ -322,7 +322,7 @@
 | @azure-tools/cadl-vs | npm [0.3.0](https://www.npmjs.com/package/@azure-tools/cadl-vs/v/0.3.0) |  |  |
 | @azure-tools/json | npm [1.2.2](https://www.npmjs.com/package/@azure-tools/json/v/1.2.2) |  |  |
 | @azure-tools/jsonschema | npm [1.2.1](https://www.npmjs.com/package/@azure-tools/jsonschema/v/1.2.1) |  |  |
-| @azure-tools/js-sdk-release-tools | npm [2.4.2](https://www.npmjs.com/package/@azure-tools/js-sdk-release-tools/v/2.4.2) |  |  |
+| @azure-tools/js-sdk-release-tools | npm [2.4.3](https://www.npmjs.com/package/@azure-tools/js-sdk-release-tools/v/2.4.3) |  |  |
 | @azure-tools/mock-service-host | npm [0.1.17](https://www.npmjs.com/package/@azure-tools/mock-service-host/v/0.1.17) |  |  |
 | @azure-tools/oav-traffic-converter | npm [0.1.0](https://www.npmjs.com/package/@azure-tools/oav-traffic-converter/v/0.1.0) |  |  |
 | @azure-tools/prettier-plugin-adl | npm [0.1.4](https://www.npmjs.com/package/@azure-tools/prettier-plugin-adl/v/0.1.4) |  |  |
