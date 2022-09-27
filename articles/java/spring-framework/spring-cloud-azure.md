@@ -48,6 +48,10 @@ This article provides reference documentation for Spring Cloud Azure 4.3.0.
 
 [!INCLUDE [spring-native-support.md](includes/spring-cloud-azure/spring-native-support.md)]
 
+[!INCLUDE [mysql-support.md](includes/spring-cloud-azure/mysql-support.md)]
+
+[!INCLUDE [postgresql-support.md](includes/spring-cloud-azure/postgresql-support.md)]
+
 [!INCLUDE [kafka-support.md](includes/spring-cloud-azure/kafka-support.md)]
 
 [!INCLUDE [redis-support.md](includes/spring-cloud-azure/redis-support.md)]

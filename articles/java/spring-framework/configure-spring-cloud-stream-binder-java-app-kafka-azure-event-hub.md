@@ -2,8 +2,7 @@
 title: Use Spring Kafka with Azure Event Hubs
 description: Shows you how to configure a Java-based Spring Cloud Stream Binder to use Apache Kafka with Azure Event Hubs. 
 services: event-hubs
-documentationcenter: java
-ms.date: 07/22/2022
+ms.date: 09/27/2022
 ms.service: event-hubs
 ms.topic: article
 ms.custom: devx-track-java
@@ -11,18 +10,59 @@ ms.custom: devx-track-java
 
 # Use Spring Kafka with Azure Event Hubs
 
-This article shows you how to configure a Java-based Spring Cloud Stream Binder to use [Apache Kafka](http://kafka.apache.org) with Azure Event Hubs. In this article, you'll create the project by using Spring Initializr and deploy to Azure Spring Apps using Managed Identity.
+This article shows you how to configure a Java-based Spring Cloud Stream Binder to use [Azure Event Hubs for Kafka](https://learn.microsoft.com/azure/event-hubs/event-hubs-for-kafka-ecosystem-overview) sending and receiving messages with Azure Event Hubs.
 
-By using [Apache Kafka](http://kafka.apache.org) with Azure Event Hubs, you can take advantage of Spring Cloud Azure to use various types of credentials for authentication. For more information, see [Spring Cloud Azure authentication](./spring-cloud-azure.md?tabs=maven#spring-cloud-azure-authentication).
+In this article, we'll include two authentication methods: Azure Active Directory (Azure AD) authentication and Shared Access Signatures (SAS) authentication. The **Passwordless** tab shows the Azure AD authentication and the **Connection string** tab shows the SAS authentication.
+
+Azure AD authentication is a mechanism for connecting to Azure Event Hubs for Kafka using identities defined in Azure AD. With Azure AD authentication, you can manage database user identities and other Microsoft services in a central location, which simplifies permission management.
+
+SAS authentication uses the connection string of your Azure Event Hubs namespace for the delegated access to Event Hubs for Kafka. If you choose to use Shared Access Signatures as credentials, you'll need to manage the connection string by yourself.
 
 ## Prerequisites
 
-* An Azure subscription; if you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or sign up for a [free Azure account](https://azure.microsoft.com/pricing/free-trial/).
-* A supported Java Development Kit (JDK). For more information about the JDKs available for use when developing on Azure, see [Java support on Azure and Azure Stack](../fundamentals/java-support-on-azure.md).
-* [Apache Maven](http://maven.apache.org/), version 3.0 or later.
+- An Azure account. If you don't have one, [get a free trial](https://azure.microsoft.com/free/).
+- [Azure Cloud Shell](/azure/cloud-shell/quickstart) or [Azure CLI](/cli/azure/install-azure-cli) 2.37.0 or above required. We recommend Azure Cloud Shell so you'll be logged in automatically and have access to all the tools you'll need.
+- If you're using a Windows machine and want to run the samples locally, install and use the latest [Windows Subsystem for Linux (WSL)](/windows/wsl/install).
+- A supported [Java Development Kit](../fundamentals/java-support-on-azure.md), version 8 or above. (17 or above preferred. A JDK is included in Azure Cloud Shell). We recommend installing the [Microsoft Build of OpenJDK](/java/openjdk/install).
+- Apache's [Maven](http://maven.apache.org/), version 3 or later.
+- A [Git](https://git-scm.com/downloads) client.
+- [cURL](https://curl.haxx.se) or a similar HTTP utility to test functionality.
 
 > [!IMPORTANT]
 > Spring Boot version 2.5 or higher is required to complete the steps in this article.
+
+## Prepare the working environment
+
+First, set up some environment variables. In [Azure Cloud Shell](https://shell.azure.com/), run the following commands:
+
+```bash
+export AZ_RESOURCE_GROUP=eventhubs-workshop
+export AZ_EVENTHUBS_NAMESPACE_NAME=my-eventhubs-namespace
+export AZ_EVENTHUB_NAME=my-eventhub
+export AZ_LOCATION=<YOUR_AZURE_REGION>
+```
+
+Replace the `<YOUR_AZURE_REGION>` placeholder with the Azure region you'll use. You can use `eastus` by default, but we recommend that you configure a region closer to where you live. You can see the full list of available regions by entering `az account list-locations`.
+
+Next, sign to your Azure account:
+
+```bash
+az login
+```
+
+Then, use the following command to set your current subscription context. Replace `ssssssss-ssss-ssss-ssss-ssssssssssss` with the GUID for the subscription you want to use with Azure:
+
+```azurecli
+az account set --subscription ssssssss-ssss-ssss-ssss-ssssssssssss
+```
+
+Run the following command to create a resource group:
+
+```azurecli
+az group create \
+    --name $AZ_RESOURCE_GROUP \
+    --location $AZ_LOCATION
+```
 
 ## Create an Azure Event Hubs instance
 
@@ -30,310 +70,265 @@ The following sections describe how to create an Azure Event Hubs namespace and 
 
 ### Create an Azure Event Hubs namespace
 
-First, use the following steps to create a namespace.
+Run the following command to create the namespace:
 
-1. Browse to the [Azure portal](https://portal.azure.com) and sign in.
-
-1. Select **Create a resource**, then **Search the Marketplace**, then search for *Event Hubs*.
-
-1. Select **Create**.
-
-   :::image type="content" source="media/configure-spring-cloud-stream-binder-java-app-kafka-azure-event-hub/create-kafka-event-hub-01.png" alt-text="Screenshot of Azure portal showing Event Hubs creation page." lightbox="media/configure-spring-cloud-stream-binder-java-app-kafka-azure-event-hub/create-kafka-event-hub-01.png":::
-
-1. On the **Create Namespace** page, enter the following information:
-
-   * Choose the **Subscription** you want to use for your namespace.
-   * Specify whether to create a new **Resource group** for your namespace, or choose an existing resource group.
-   * Enter a unique **Namespace name**, which will become part of the URI for your event hub namespace. For example: if you entered *wingtiptoys-space* for the **Name**, the URI would be `wingtiptoys-space.servicebus.windows.net`.
-   * Specify the **Location** for your event hub namespace.
-   * Specify the **Pricing tier**, which will limit your usage scenarios.
-   * You can also specify the **Throughput units** for the namespace.
-
-   :::image type="content" source="media/configure-spring-cloud-stream-binder-java-app-kafka-azure-event-hub/create-kafka-event-hub-02.png" alt-text="Screenshot of Azure portal showing Event Hubs Create Namespace page." lightbox="media/configure-spring-cloud-stream-binder-java-app-kafka-azure-event-hub/create-kafka-event-hub-02.png":::
-
-1. When you've specified the options listed above, select **Review + Create**.
-
-1. Review the specification and select **Create** to create your namespace.
+```azurecli
+az eventhubs namespace create \
+    --resource-group $AZ_RESOURCE_GROUP \
+    --name $AZ_EVENTHUBS_NAMESPACE_NAME \
+    --location $AZ_LOCATION
+```
 
 ### Create an Azure Event Hubs instance in your namespace
 
-After your namespace is deployed, use the following steps to create an event hub in the namespace.
+After your namespace is deployed, run the following command to create an event hub in your namespace.
 
-1. Navigate to the namespace created in the previous step.
+```azurecli
+az eventhubs eventhub create \
+    --resource-group $AZ_RESOURCE_GROUP \
+    --name $AZ_EVENTHUB_NAME \
+    --namespace-name $AZ_EVENTHUBS_NAMESPACE_NAME
+```
 
-1. Select **Event Hub** in top menu bar.
+### Prepare credentials
 
-1. Name the event hub.
-
-1. Select **Create**.
-
-   :::image type="content" source="media/configure-spring-cloud-stream-binder-java-app-kafka-azure-event-hub/create-kafka-event-hub-05.png" alt-text="Screenshot of Azure portal showing create event hub page." lightbox="media/configure-spring-cloud-stream-binder-java-app-kafka-azure-event-hub/create-kafka-event-hub-05.png":::
-
-## Grant permissions
+#### [Passwordless (Recommended)](#tab/passwordless)
 
 Azure Event Hubs supports using Azure Active Directory (Azure AD) to authorize requests to Event Hubs resources. With Azure AD, you can use Azure role-based access control (Azure RBAC) to grant permissions to a security principal, which may be a user, or an application service principal.
 
-For this sample to run locally, be sure your user account has authenticated via Azure Toolkit for IntelliJ, Visual Studio Code Azure Account plugin, or Azure CLI. Also, be sure the account has been granted sufficient permissions.
+If you want to run this sample locally with Azure AD authentication, be sure your user account has authenticated via Azure Toolkit for IntelliJ, Visual Studio Code Azure Account plugin, or Azure CLI. Also, be sure the account has been granted sufficient permissions.
 
 > [!NOTE]
-> You need to set the data plane access role: `Azure Event Hubs Data Sender` and `Azure Event Hubs Data Receiver`.
+> You need to set the following data plane access roles: `Azure Event Hubs Data Sender` and `Azure Event Hubs Data Receiver`.
 
-For example, to authenticate using the Azure CLI, use the following steps:
+To authenticate using the Azure CLI, use the following steps.
 
-1. Optionally, sign out and delete some authentication files to remove any lingering credentials by using the following command:
-
-   ```azurecli
-   az logout
-   rm ~/.azure/accessTokens.json
-   rm ~/.azure/azureProfile.json
-   ```
-
-1. Sign in to your Azure account by using the following command:
+1. First, use the following command to get the resource ID for your Azure Event Hubs namespace:
 
    ```azurecli
-   az login
+   export AZURE_RESOURCE_ID=$(az resource show \
+       --resource-group $AZ_RESOURCE_GROUP \
+       --name $AZ_EVENTHUBS_NAMESPACE_NAME \
+       --resource-type Microsoft.EventHub/Namespaces \
+       --query "id" \
+       --output tsv)
    ```
 
-   Follow the instructions to complete the sign-in process.
-
-1. List your subscriptions by using the following command:
+1. Second, use the following command to get your user object ID of your Azure CLI user account:
 
    ```azurecli
-   az account list
+   export AZURE_ACCOUNT_ID=$(az ad signed-in-user show \
+       --query "id" --output tsv)
    ```
 
-   Azure will return a list of your subscriptions, each of which will look similar to the following example. Copy the `id` value for the subscription that you want to use.
-
-   ```json
-   [
-     {
-       "cloudName": "AzureCloud",
-       "id": "ssssssss-ssss-ssss-ssss-ssssssssssss",
-       "name": "Converted Windows Azure MSDN - Visual Studio Ultimate",
-       "state": "Enabled",
-       "tenantId": "tttttttt-tttt-tttt-tttt-tttttttttttt",
-       "user": {
-         "name": "contoso@microsoft.com",
-         "type": "user"
-       }
-     }
-   ]
-   ```
-
-1. Use the following command and specify the GUID for the subscription you want to use with Azure:
+1. Then, use the following commands to assign the `Azure Event Hubs Data Sender` and `Azure Event Hubs Data Receiver` roles to your account.
 
    ```azurecli
-   az account set --subscription <your-account-ID>
+   az role assignment create \
+       --assignee $AZURE_ACCOUNT_ID \
+       --role "Azure Event Hubs Data Receiver" \
+       --scope $AZURE_RESOURCE_ID
+   
+   az role assignment create \
+       --assignee $AZURE_ACCOUNT_ID \
+       --role "Azure Event Hubs Data Sender" \
+       --scope $AZURE_RESOURCE_ID
    ```
 
 For more information about granting access roles, see [Authorize access to Event Hubs resources using Azure Active Directory](/azure/event-hubs/authorize-access-azure-active-directory).
 
-## Create a Spring Boot application
+#### [Connection string](#tab/connection-string)
 
-Use the following steps to create an application.
+Run the following command to get the connection string of your Event Hubs namespace.
 
-1. Browse to [Spring Initializr](https://start.spring.io).
+```azurecli
+export AZ_EVENTHUBS_CONNECTION_STRING=$(az eventhubs namespace authorization-rule keys list \
+    --resource-group $AZ_RESOURCE_GROUP \
+    --namespace-name $AZ_EVENTHUBS_NAMESPACE_NAME \
+    --name RootManageSharedAccessKey \
+    --query "primaryConnectionString" \
+    --output tsv)
+```
 
-1. Specify the following options:
+---
 
-   * Generate a **Maven** project with **Java**.
-   * Specify a **Spring Boot** version that is equal to **2.7.3**.
-   * Specify the **Group** and **Artifact** names for your application.
-   * Select **8** or **11** for the Java version.
-   * Add the **Web**, **Azure Support**, **Cloud Stream**, and **Spring for Apache Kafka** dependencies.
+## Code the application
 
-     :::image type="content" source="media/spring-initializer/2.7.0/mvn-java8-azure-web-cloud-stream-kafka.png" alt-text="Screenshot of Spring Initializr with options highlighted." lightbox="media/spring-initializer/2.7.0/mvn-java8-azure-web-cloud-stream-kafka.png":::
+### Generate the application by using Spring Initializr
 
-   > [!NOTE]
-   > Spring Initializr uses the **Group** and **Artifact** names to create the package name; for example: *com.wingtiptoys.kafka*.
+Generate the application on the command line by using the following command:
 
-1. When you've specified the options listed above, select **Generate Project**.
+```bash
+curl https://start.spring.io/starter.tgz -d dependencies=web,kafka,cloud-stream,azure-support -d baseDir=azure-eventhubs-workshop -d bootVersion=2.7.3 -d javaVersion=8 | tar -xzvf -
+```
 
-1. When prompted, download the project to a path on your local computer.
+### Configure Spring Boot to use Azure Event Hubs for Kafka
 
-1. After you've extracted the files on your local system, your Spring Boot application will be ready for editing.
+Open the *src/main/resources/application.properties* file, then add the following contents:
 
-## Update configuration
+#### [Passwordless (Recommended)](#tab/passwordless)
 
-1. Add an *application.yaml* in the *resources* directory of your app; for example:
+```properties
+spring.cloud.stream.kafka.binder.brokers=${AZ_EVENTHUBS_NAMESPACE_NAME}.servicebus.windows.net:9093
+spring.cloud.stream.function.definition=consume;supply
+spring.cloud.stream.bindings.consume-in-0.destination=${AZ_EVENTHUB_NAME}
+spring.cloud.stream.bindings.consume-in-0.group=$Default
+spring.cloud.stream.bindings.supply-out-0.destination=${AZ_EVENTHUB_NAME}
+```
 
-   *C:\SpringBoot\kafka\src\main\resources\application.yaml*
+> [!NOTE]
+> If you're using version `spring-cloud-azure-dependencies:4.3.0`, then you should add the property `spring.cloud.stream.binders.<kafka-binder-name>.environment.spring.main.sources` with the value `com.azure.spring.cloud.autoconfigure.kafka.AzureKafkaSpringCloudStreamConfiguration`. This property setting is used for adding Spring Cloud Azure configuration for `KafkaBinderConfigurationPropertiesBeanPostProcessor` for each particular binder. The `kafka-binder-name` by default is `kafka` in a single kafka binder application.
+>
+> The added configuration `AzureKafkaSpringCloudStreamConfiguration` specifies the OAuth security parameters for `KafkaBinderConfigurationProperties`. These parameters are used in `KafkaOAuth2AuthenticateCallbackHandler` to take the Spring Cloud Azure token credentials. The configuration is used in the following scenarios:
+>
+> - When you run the application locally for development purposes, it will read the credential from local environments like IntelliJ, Visual Studio Code, or Azure CLI.
+> - When the application is deployed to Azure AD enabled hosting environments, like Azure Spring Apps, it will load the Azure AD credentialS from the environment.
+>
+> For version since `spring-cloud-azure-dependencies:4.4.0`, this property will be added automatically for each Kafka binder environment, so there's no need for you to add it manually.
 
-   -or-
+The following table describes the fields in the configuration:
 
-   */users/example/home/kafka/src/main/resources/application.yaml*
+| Field                                                   | Description                                                                                                                                                                                  |
+|---------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `spring.cloud.stream.kafka.binder.brokers`              | Specifies the Azure Event Hubs endpoint.                                                                                                                                                     |
+| `spring.cloud.stream.bindings.consume-in-0.destination` | Specifies the input destination event hub, which for this tutorial is the hub you created earlier.                                                                                           |
+| `spring.cloud.stream.bindings.consume-in-0.group `      | Specifies a Consumer Group from Azure Event Hubs, which you can set to `$Default` in order to use the basic consumer group that was created when you created your Azure Event Hubs instance. |
+| `spring.cloud.stream.bindings.supply-out-0.destination` | Specifies the output destination event hub, which for this tutorial is the same as the input destination.                                                                                    |
 
-2. Open the *application.yaml* file in a text editor, add the following lines, and then replace the sample values with the appropriate properties for your event hub:
+#### [Connection string](#tab/connection-string)
 
-   ```yaml
-   spring:
-     cloud:
-       stream:
-         kafka:
-           binder: 
-             brokers: <NAMESPACENAME>.servicebus.windows.net:9093
-         function:
-           definition: consume;supply
-         bindings:
-           consume-in-0:
-             destination: wingtiptoyshub
-             group: $Default
-           supply-out-0:
-             destination: wingtiptoyshub
-         binders:
-           kafka:
-             environment:
-               spring:
-                 main:
-                   sources: com.azure.spring.cloud.autoconfigure.kafka.AzureKafkaSpringCloudStreamConfiguration
-   ```
+```properties
+spring.cloud.azure.eventhubs.connection-string=${AZ_EVENTHUBS_CONNECTION_STRING}
+spring.cloud.stream.function.definition=consume;supply
+spring.cloud.stream.bindings.consume-in-0.destination=${AZ_EVENTHUB_NAME}
+spring.cloud.stream.bindings.consume-in-0.group=$Default
+spring.cloud.stream.bindings.supply-out-0.destination=${AZ_EVENTHUB_NAME}
 
-   The property `spring.cloud.stream.binders.kafka.environment.spring.main.sources` is used for adding Spring Cloud Azure configuration for `KafkaBinderConfigurationPropertiesBeanPostProcessor` for each particular binder. The configuration specifies the OAuth security parameters for `KafkaBinderConfigurationProperties`, which is used in `KafkaOAuth2AuthenticateCallbackHandler` to take the Spring Cloud Azure token credentials. The configuration is used in the following scenarios:
+```
 
-   * When you run the application locally for development purposes, it will read the credential from local environments like IntelliJ, Visual Studio Code, or Azure CLI.
-   * When the application is deployed to Azure Managed Identity enabled hosting environments, like Azure Spring Apps, it will load the credential from the Managed Identity.
+> [!NOTE]
+> Support of connection string credentials has been deprecated from version `4.3.0`.
 
-   The following table describes the fields in the configuration:
+The following table describes the fields in the configuration:
 
-   | Field                                                               | Description                                                                                                                                                                                                           |
-   |---------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-   | `spring.cloud.stream.kafka.binder.brokers`                          | Specifies the Azure Event Hubs endpoint.                                                                                                                                                                              |
-   | `spring.cloud.stream.bindings.consume-in-0.destination`             | Specifies the input destination Azure Event Hubs, which for this tutorial is the hub you created earlier.                                                                                                             |
-   | `spring.cloud.stream.bindings.consume-in-0.group `                  | Specifies a Consumer Group from Azure Event Hubs, which you can set to `$Default` in order to use the basic consumer group that was created when you created your Azure Event Hubs instance.                          |
-   | `spring.cloud.stream.bindings.supply-out-0.destination`             | Specifies the output destination Azure Event Hubs, which for this tutorial is the same as the input destination.                                                                                                      |
-   | `spring.cloud.stream.binders.kafka.environment.spring.main.sources` | Specifies more configurations for the particular binder. The value should be `com.azure.spring.cloud.autoconfigure.kafka.AzureKafkaSpringCloudStreamConfiguration` to enable the whole OAuth authentication workflow. |
+| Field                                                   | Description                                                                                                                                                                                  |
+|---------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `spring.cloud.azure.eventhubs.connection-string`        | Specifies the connection string of your Azure Event Hubs namespace.                                                                                                                          |
+| `spring.cloud.stream.bindings.consume-in-0.destination` | Specifies the input destination event hub, which for this tutorial is the hub you created earlier.                                                                                           |
+| `spring.cloud.stream.bindings.consume-in-0.group `      | Specifies a Consumer Group from Azure Event Hubs, which you can set to `$Default` in order to use the basic consumer group that was created when you created your Azure Event Hubs instance. |
+| `spring.cloud.stream.bindings.supply-out-0.destination` | Specifies the output destination event hub, which for this tutorial is the same as the input destination.                                                                                    |
 
-   > [!NOTE]
-   > If you enable automatic topic creation, be sure to add the configuration item `spring.cloud.stream.kafka.binder.replicationFactor`, with the value set to at least 1. For more information, see [Spring Cloud Stream Kafka Binder Reference Guide](https://docs.spring.io/spring-cloud-stream-binder-kafka/docs/3.1.2/reference/html/spring-cloud-stream-binder-kafka.html).
+---
 
-3. Save and close the *application.yaml* file.
+> [!NOTE]
+> If you enable automatic topic creation, be sure to add the configuration item `spring.cloud.stream.kafka.binder.replicationFactor`, with the value set to at least *1*. For more information, see [Spring Cloud Stream Kafka Binder Reference Guide](https://docs.spring.io/spring-cloud-stream-binder-kafka/docs/3.1.2/reference/html/spring-cloud-stream-binder-kafka.html).
 
-## Produce and consume messages
+### Produce and consume messages
 
-In this section, you create the necessary Java classes for sending events to your event hub.
+Next, add the Java code that will send and receive events with your event hub.
 
-### Modify the main application class
+#### Modify the main application class
 
-1. Locate the main application Java file in the package directory of your app; for example:
+Open the main application Java file in a text editor, and add the following lines to the file:
 
-   *C:\SpringBoot\kafka\src\main\java\com\wingtiptoys\kafka\EventhubApplication.java*
+```java
+package com.example.demo;
 
-   -or-
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
+import org.springframework.messaging.Message;
+import reactor.core.publisher.Flux;
+import reactor.core.publisher.Sinks;
 
-   */users/example/home/kafka/src/main/java/com/wingtiptoys/kafka/EventhubApplication.java*
+import java.util.function.Consumer;
+import java.util.function.Supplier;
 
-1. Open the main application Java file in a text editor, and add the following lines to the file:
+@SpringBootApplication
+public class DemoApplication {
 
-   ```java
-   package com.wingtiptoys.kafka;
-   
-   import org.slf4j.Logger;
-   import org.slf4j.LoggerFactory;
-   import org.springframework.boot.SpringApplication;
-   import org.springframework.boot.autoconfigure.SpringBootApplication;
-   import org.springframework.context.annotation.Bean;
-   import org.springframework.messaging.Message;
-   import reactor.core.publisher.Flux;
-   import reactor.core.publisher.Sinks;
-   
-   import java.util.function.Consumer;
-   import java.util.function.Supplier;
-   
-   @SpringBootApplication
-   public class KafkaApplication {
-   
-       private static final Logger LOGGER = LoggerFactory.getLogger(KafkaApplication.class);
-   
-       public static void main(String[] args) {
-           SpringApplication.run(KafkaApplication.class, args);
-       }
-   
-       @Bean
-       public Sinks.Many<Message<String>> many() {
-           return Sinks.many().unicast().onBackpressureBuffer();
-       }
-   
-       @Bean
-       public Supplier<Flux<Message<String>>> supply(Sinks.Many<Message<String>> many) {
-           return () -> many.asFlux()
-                            .doOnNext(m -> LOGGER.info("Manually sending message {}", m))
-                            .doOnError(t -> LOGGER.error("Error encountered", t));
-       }
-   
-       @Bean
-       public Consumer<Message<String>> consume() {
-           return message -> LOGGER.info("New message received: '{}'", message.getPayload());
-       }
-   }
-   ```
+    private static final Logger LOGGER = LoggerFactory.getLogger(DemoApplication.class);
 
-1. Save and close the main application Java file.
+    public static void main(String[] args) {
+        SpringApplication.run(DemoApplication.class, args);
+    }
 
-### Create a new class for the source connector
+    @Bean
+    public Sinks.Many<Message<String>> many() {
+        return Sinks.many().unicast().onBackpressureBuffer();
+    }
 
-1. Create a new Java file named *KafkaSource.java* in the package directory of your app, then open the file in a text editor and add the following lines:
+    @Bean
+    public Supplier<Flux<Message<String>>> supply(Sinks.Many<Message<String>> many) {
+        return () -> many.asFlux()
+                         .doOnNext(m -> LOGGER.info("Manually sending message {}", m))
+                         .doOnError(t -> LOGGER.error("Error encountered", t));
+    }
 
-   ```java
-   package com.wingtiptoys.kafka;
-   
-   import org.springframework.beans.factory.annotation.Autowired;
-   import org.springframework.messaging.Message;
-   import org.springframework.messaging.support.GenericMessage;
-   import org.springframework.web.bind.annotation.PostMapping;
-   import org.springframework.web.bind.annotation.RequestParam;
-   import org.springframework.web.bind.annotation.RestController;
-   import reactor.core.publisher.Sinks;
-   
-   @RestController
-   public class KafkaSource {
-   
-       @Autowired
-       private Sinks.Many<Message<String>> many;
-   
-       @PostMapping("/messages")
-       public String sendMessage(@RequestParam String message) {
-           many.emitNext(new GenericMessage<>(message), Sinks.EmitFailureHandler.FAIL_FAST);
-           return message;
-       }
-   }
-   ```
+    @Bean
+    public Consumer<Message<String>> consume() {
+        return message -> LOGGER.info("New message received: '{}'", message.getPayload());
+    }
+}
+```
 
-1. Save and close the *KafkaSource.java* file.
+#### Create a new class for the source connector
 
-## Build and test
+Create a new Java file named *KafkaSource.java* in the package directory of your app. Open the file in a text editor and add the following lines:
 
-1. Open a command prompt and change directory to the folder where your *pom.xml* file is located; for example:
+```java
+package com.example.demo;
 
-   ```cmd
-   cd C:\SpringBoot\kafka
-   ```
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.messaging.Message;
+import org.springframework.messaging.support.GenericMessage;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+import reactor.core.publisher.Sinks;
 
-   -or-
+@RestController
+public class KafkaSource {
 
-   ```bash
-   cd /users/example/home/kafka
-   ```
+    @Autowired
+    private Sinks.Many<Message<String>> many;
 
-1. Build your Spring Boot application with Maven and run it; for example:
+    @PostMapping("/messages")
+    public String sendMessage(@RequestParam String message) {
+        many.emitNext(new GenericMessage<>(message), Sinks.EmitFailureHandler.FAIL_FAST);
+        return message;
+    }
+}
+```
+
+## Test the application
+
+Use the following steps to test the application.
+
+1. Open a command prompt and change directory to the folder where your *pom.xml* file is located.
+
+1. Use the following commands to build your Spring Boot application with Maven and run it.
 
    ```shell
    mvn clean package -Dmaven.test.skip=true
    mvn spring-boot:run
    ```
 
-1. Once your application is running, you can use *curl* to test your application; for example:
+1. After your application is running, use the following command to test it:
 
    ```shell
    curl -X POST http://localhost:8080/messages?message=hello
    ```
 
-   You should see "hello" posted to your application's logs. For example:
+   You should see "hello" posted to your application's logs, as shown in the following example output:
 
    ```output
-   2021-06-02 14:47:13.956  INFO 23984 --- [oundedElastic-1] o.a.kafka.common.utils.AppInfoParser     : Kafka version: 2.6.0
+   2021-06-02 14:47:13.956  INFO 23984 --- [oundedElastic-1] o.a.kafka.common.utils.AppInfoParser     : Kafka version: 3.0.1
    2021-06-02 14:47:13.957  INFO 23984 --- [oundedElastic-1] o.a.kafka.common.utils.AppInfoParser     : Kafka commitId: 62abe01bee039651
    2021-06-02 14:47:13.957  INFO 23984 --- [oundedElastic-1] o.a.kafka.common.utils.AppInfoParser     : Kafka startTimeMs: 1622616433956
-   2021-06-02 14:47:16.668  INFO 23984 --- [container-0-C-1] com.wingtiptoys.kafka.KafkaApplication   : New message received: 'hello'
+   2021-06-02 14:47:16.668  INFO 23984 --- [container-0-C-1] com.example.demo.DemoApplication   : New message received: 'hello'
    ```
 
 ## Deploy to Azure Spring Apps
@@ -359,13 +354,10 @@ To learn more about Spring and Azure, continue to the Spring on Azure documentat
 
 For more information about Azure support for event hub Stream Binder and Apache Kafka, see the following articles:
 
-* [What is Azure Event Hubs?](/azure/event-hubs/event-hubs-about)
-
-* [Azure Event Hubs for Apache Kafka](/azure/event-hubs/event-hubs-for-kafka-ecosystem-overview)
-
-* [Create an Event Hubs namespace and an event hub using the Azure portal](/azure/event-hubs/event-hubs-create)
-
-* [Create Apache Kafka enabled event hubs](/azure/event-hubs/event-hubs-create-kafka-enabled)
+- [What is Azure Event Hubs?](/azure/event-hubs/event-hubs-about)
+- [Azure Event Hubs for Apache Kafka](/azure/event-hubs/event-hubs-for-kafka-ecosystem-overview)
+- [Create an Event Hubs namespace and an event hub using the Azure portal](/azure/event-hubs/event-hubs-create)
+- [Create Apache Kafka enabled event hubs](/azure/event-hubs/event-hubs-create-kafka-enabled)
 
 For more information about using Azure with Java, see the [Azure for Java Developers] and the [Working with Azure DevOps and Java](/azure/devops/).
 
