@@ -243,7 +243,7 @@ You can view GitHub Actions workflow history in [GitHub][17] or using [GitHub CL
 
 ### [Command line](#tab/git-commandline)
 
-**Step 1.** Pick a workflow to show a summary of.
+**Step 1.** Get a summary of your workflow.
 
 ```Bash
 gh workflow view
