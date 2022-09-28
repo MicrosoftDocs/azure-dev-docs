@@ -42,18 +42,21 @@ In the steps below, you'll set up continuous deployment, which means a new conta
         **Step 1.** In the [Azure portal][3], go to the Container App you want to configure continuous deployment for and select the **Continuous deployment** resource.
     :::column-end:::
     :::column:::
-        TBD
+        :::image type="content" source="media/tutorial-container-apps/azure-portal-continuous-deployment-signin-github.png" alt-text="Screenshot showing the continuous deployment resource of a Container App and where to sign in with GitHub." lightbox="media/tutorial-container-apps/azure-portal-continuous-deployment-signin-github.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 2.** Sign into GitHub to authorize Azure Container Apps as an application that access the repo.
+        **Step 2.** Authorize Azure Container Apps to access the repo.
 
-        Access can always be revoked by going to the repo's security section.
+        * Select **Sign in with GitHub**.
+        * In the authorization pop up, select **AuthorizeAppService**.
+
+        Container App access to the repo can be revoked by going to the repo's security section and revoking access.
 
     :::column-end:::
     :::column:::
-        TBD
+        :::image type="content" source="media/tutorial-container-apps/azure-portal-continuous-deployment-authorize-github.png" alt-text="Screenshot showing authorizing Container App to access your repo." lightbox="media/tutorial-container-apps/azure-portal-continuous-deployment-authorize-github.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
