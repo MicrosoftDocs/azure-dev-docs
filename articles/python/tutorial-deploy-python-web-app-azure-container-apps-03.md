@@ -259,13 +259,13 @@ gh workflow view --web
 
 ---
 
-In the *.github/workflows/\<workflow-name>.yml* workflow file that was added to the repo, you'll see placeholders for credentials that are needed for the build and container app update actions. The credential information is stored securely in the repository **Settings** under **Security**/**Actions**.
+In the *.github/workflows/\<workflow-name>.yml* workflow file that was added to the repo, you'll see placeholders for credentials that are needed for the build and container app update jobs of the workflow. The credential information is stored encrypted in the repository **Settings** under **Security**/**Actions**.
 
 :::image type="content" source="media/tutorial-container-apps/github-repo-action-secrets.png" alt-text="Screenshot showing how to see where GitHub Action secrets are stored in GitHub." lightbox="media/tutorial-container-apps/github-repo-action-secrets.png":::
 
 If the credential information changes, you can update it here. For example, if the Azure Container Registry passwords are regenerated, you'll need to update the PYTHONCONTAINERAPP_REGISTRY_PASSWORD value shown above. For more information, see [Encrypted secrets][19] in the GitHub documentation.
 
-When you set up continuous deployment, you authorized Azure Container Apps as an authorized OAuth Apps. This is how the GitHub Actions YML file was written to *.github/workflows/\<workflow-name>.yml*. You can revoke this permission by going to the settings of your GitHub user profile. Under **Integrations**/**Applications**, you can see your authorized apps.
+When you set up continuous deployment, you authorized Azure Container Apps as an authorized OAuth Apps. This is how the GitHub Actions YML file is written to *.github/workflows/\<workflow-name>.yml* when you set up continuous deployment. You can revoke this permission by going to the settings of your GitHub user profile. Under **Integrations**/**Applications**, you can see your authorized apps.
 
 :::image type="content" source="media/tutorial-container-apps/github-authorized-oauth-apps.png" alt-text="Screenshot showing how to see the authorized apps for a user in GitHub." lightbox="media/tutorial-container-apps/github-authorized-oauth-apps.png":::
 
@@ -281,15 +281,16 @@ Errors setting up a service principal with the Azure CLI `az ad sp create-for-rb
 
 GitHub Actions workflow failed.
 
-* If you set up continuous deployment for the container app, the workflow file (*.github/workflows/\<workflow-name>.yml*) is created automatically for you. To check the workflow, go to the **Actions** tab of the repo and at a glance you can see if a workflow has failed.
+* To check a workflow's status, go to the **Actions** tab of the repo.
 * If there's a failed workflow, drill into its workflow file. There should be two jobs "build" and "deploy". For a failed job, look at the output of the job's tasks to look for problems.
 * If you see an error message with "TLS handshake timeout", run the workflow manually by selecting **Trigger auto deployment** under the **Actions** tab of the repo to see if this is a temporary issue.
+* If you set up continuous deployment for the container app as shown in this tutorial, the workflow file (*.github/workflows/\<workflow-name>.yml*) is created automatically for you. You shouldn't need to modify this file for this tutorial. If you did, revert your changes and try the workflow.
 
 Website doesn't show changes you merged in the *main* branch.
 
-* In GitHub - Check that the GitHub Actions workflow ran and that you checked the change into the branch that trickers the workflow.
-* In Azure portal - Check the Azure Container Registry to see if a new container image was created with a timestamp after your change.
-* In Azure portal - Check the logs of container app. If there was a programming error, you'll see it here.
+* In GitHub: check that the GitHub Actions workflow ran and that you checked the change into the branch that triggers the workflow.
+* In Azure portal: check the Azure Container Registry to see if a new container image was created with a timestamp after your change to the branch.
+* In Azure portal: check the logs of container app. If there is a programming error, you'll see it here.
   * Go to the Container App | Revision Management | \<active container> | Revision details | Console logs
   * Choose the order of the columns to show "Time Generated", "Stream_s", and "Log_s". Sort the logs by most-recent first and look for Python *stderr* and *stdout* messages in the "Stream_s" column. Python 'print' output will be *stdout* messages.
 
