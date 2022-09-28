@@ -236,6 +236,25 @@ public class AadOAuth2LoginSecurityConfig extends AadWebSecurityConfigurerAdapte
 }
 ```
 
+###### Connecting to Azure AD via proxy
+
+To connect Azure AD via proxy, provide a `RestTemplateCustomizer` bean like the one shown in the following example: 
+
+```java
+@Configuration
+class DemoConfiguration {
+    @Bean
+    public RestTemplateCustomizer proxyRestTemplateCustomizer() {
+        return (RestTemplate restTemplate) -> {
+            Proxy proxy = new Proxy(Proxy.Type.HTTP, new InetSocketAddress(PROXY_SERVER_HOST, PROXY_SERVER_PORT));
+            SimpleClientHttpRequestFactory requestFactory = new SimpleClientHttpRequestFactory();
+            requestFactory.setProxy(proxy);
+            restTemplate.setRequestFactory(requestFactory);
+        };
+    }
+}
+```
+
 ##### Samples
 
 Sample project: [aad-web-application](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/spring-cloud-azure_4.4.0/aad/spring-cloud-azure-starter-active-directory/web-client-access-resource-server/aad-web-application).
@@ -621,6 +640,10 @@ spring:
               - ${WEB_API_B_APP_ID_URL}/.default
             authorization-grant-type: client_credentials
 ```
+
+###### Connecting to Azure AD via proxy
+
+To connect Azure AD via proxy, provide a `RestTemplateCustomizer` bean. For more information, see the [Connecting to Azure AD via proxy](#connecting-to-azure-ad-via-proxy) section.
 
 ##### Samples
 
