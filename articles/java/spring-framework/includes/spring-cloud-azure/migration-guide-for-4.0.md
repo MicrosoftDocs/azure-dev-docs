@@ -1,5 +1,5 @@
 ---
-ms.date: 06/30/2022
+ms.date: 09/28/2022
 author: KarlErickson
 ms.author: v-yonghuiye
 ---
@@ -67,7 +67,7 @@ We used to ship two BOMs for our libraries, the `azure-spring-boot-bom` and `azu
 </dependencyManagement>
 ```
 
-The version for spring-cloud-azure-dependencies is 4.3.0.
+The version for spring-cloud-azure-dependencies is 4.4.0.
 
 ### Artifact changes: renamed / added / deleted
 

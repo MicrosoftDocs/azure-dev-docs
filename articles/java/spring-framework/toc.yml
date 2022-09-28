@@ -82,11 +82,11 @@
             href: /azure/azure-app-configuration/use-feature-flags-spring-boot?toc=/azure/developer/java/spring-framework/toc.json&bc=/azure/developer/breadcrumb/toc.json
   - name: Tutorials
     items:
-      - name: Deploy to App Service and Azure Spring Apps
-        href: https://spring.io/guides/gs/spring-boot-for-azure/
+      - name: Deploy to Azure Spring Apps
+        href: /azure/spring-apps/quickstart?toc=/azure/developer/java/spring-framework/toc.json&bc=/azure/developer/breadcrumb/toc.json
       - name: Deploy to Kubernetes
         href: deploy-spring-boot-java-app-on-kubernetes.md
-      - name: Deploy to Web App for Containers
+      - name: Deploy to Azure App Service
         href: deploy-spring-boot-java-app-on-linux.md
       - name: Azure Redis Cache
         href: configure-spring-boot-initializer-java-app-with-redis-cache.md
@@ -97,6 +97,8 @@
       - name: Migrate to use passwordless connections
         expanded: true
         items:
+          - name: Azure Database for SQL server
+            href: migrate-sql-database-to-passwordless-connection.md
           - name: Azure Database for MySQL
             href: migrate-mysql-to-passwordless-connection.md
           - name: Azure Database for PostgreSQL
