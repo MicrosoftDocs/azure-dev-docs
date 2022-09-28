@@ -80,28 +80,17 @@ In the steps below, you'll set up continuous deployment, which means a new conta
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 4.** Configure the Azure Container Registry where new container images will be pushed to.
+        **Step 4.** Review the continuous deployment information.
 
-        * **Name** &rarr; Specify the registry name.
-        * **Image** &rarr; If following along in this tutorial, we've used "python-container-app".
+        After the continuous deployment is configured, you can find a link to the GitHub Actions workflow file created for you. Azure Container Apps checked the file in. The continuous deployment creation process also automatically:
 
+        * Created a [*service principal*][21].
+        * Added the service principal to the resource group containing the container app, with "Contributor" role.
+
+        The GitHub Actions workflow uses this service principal to update the container app when triggered.
     :::column-end:::
     :::column:::
-        TBD
-    :::column-end:::
-:::row-end:::
-:::row:::
-    :::column span="2":::
-        **Step 5.** Select **Create deployment** to configure.
-
-        A few things are done automatically:
-
-        * A [*service principal*][21] is created.
-        * The service principal is added to the resource group containing the Container App, with role "Contributor".
-
-    :::column-end:::
-    :::column:::
-    TBD
+        :::image type="content" source="media/tutorial-container-apps/azure-portal-continuous-deployment-configuration-finish.png" alt-text="Screenshot showing the an Azure Container App configured for continuous deployment with GitHub Actions." lightbox="media/tutorial-container-apps/azure-portal-continuous-deployment-configuration-finish.png":::
     :::column-end:::
 :::row-end:::
 
