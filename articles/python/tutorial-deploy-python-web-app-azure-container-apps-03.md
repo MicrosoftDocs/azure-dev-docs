@@ -221,6 +221,8 @@ The push of changes to the *main* branch kicks off the GitHub Actions workflow.
 
 ## GitHub Actions workflow details
 
+### Viewing workflow history
+
 You can view GitHub Actions workflow history in [GitHub][17] or using [GitHub CLI][18] commands.
 
 ### [GitHub](#tab/git-github)
@@ -252,11 +254,15 @@ gh workflow view --web
 
 ---
 
+### Workflow secrets
+
 In the *.github/workflows/\<workflow-name>.yml* workflow file that was added to the repo, you'll see placeholders for credentials that are needed for the build and container app update jobs of the workflow. The credential information is stored encrypted in the repository **Settings** under **Security**/**Actions**.
 
 :::image type="content" source="media/tutorial-container-apps/github-repo-action-secrets.png" alt-text="Screenshot showing how to see where GitHub Actions secrets are stored in GitHub." lightbox="media/tutorial-container-apps/github-repo-action-secrets.png":::
 
 If credential information changes, you can update it here. For example, if the Azure Container Registry passwords are regenerated, you'll need to update the REGISTRY_PASSWORD value. For more information, see [Encrypted secrets][19] in the GitHub documentation.
+
+### OAuth authorized apps
 
 When you set up continuous deployment, you authorized Azure Container Apps as an authorized OAuth App. Container Apps uses the authorized access to create a GitHub Actions YML file in *.github/workflows/\<workflow-name>.yml* when you set up continuous deployment. You can revoke this permission by going to the settings of your GitHub user profile. Under **Integrations**/**Applications**, you can see your authorized apps.
 
