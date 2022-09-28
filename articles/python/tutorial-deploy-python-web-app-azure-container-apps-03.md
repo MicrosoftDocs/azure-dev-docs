@@ -263,7 +263,7 @@ In the *.github/workflows/\<workflow-name>.yml* workflow file that was added to 
 
 :::image type="content" source="media/tutorial-container-apps/github-repo-action-secrets.png" alt-text="Screenshot showing how to see where GitHub Action secrets are stored in GitHub." lightbox="media/tutorial-container-apps/github-repo-action-secrets.png":::
 
-If the credential information changes, you can update it here. For example, if the Azure Container Registry passwords are regenerated, you'll need to update the PYTHONCONTAINERAPP_REGISTRY_PASSWORD value shown above. For more information, see [Encrypted secrets][19] in the GitHub documentation.
+If the credential information changes, you can update it here. For example, if the Azure Container Registry passwords are regenerated, you'll need to update the REGISTRY_PASSWORD value. For more information, see [Encrypted secrets][19] in the GitHub documentation.
 
 When you set up continuous deployment, you authorized Azure Container Apps as an authorized OAuth Apps. This is how the GitHub Actions YML file is written to *.github/workflows/\<workflow-name>.yml* when you set up continuous deployment. You can revoke this permission by going to the settings of your GitHub user profile. Under **Integrations**/**Applications**, you can see your authorized apps.
 
