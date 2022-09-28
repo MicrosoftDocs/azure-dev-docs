@@ -1,7 +1,7 @@
 ---
 title: Spring Boot Starter for Azure Active Directory developer's guide
 description: This guide describes the features, issues, workarounds, and diagnostic steps to be aware of when you use the Azure Active Directory starter.
-ms.date: 07/22/2022
+ms.date: 09/28/2022
 ms.service: active-directory
 ms.topic: article
 author: KarlErickson
@@ -66,7 +66,7 @@ To use the Azure AD starter in this scenario, use the following steps:
    <dependency>
        <groupId>com.azure.spring</groupId>
        <artifactId>spring-cloud-azure-starter-active-directory</artifactId>
-       <version>4.3.0</version>
+       <version>4.4.0</version>
    </dependency>
    <dependency>
        <groupId>org.springframework.boot</groupId>
@@ -125,7 +125,7 @@ To use the Azure AD starter in this scenario, use the following steps:
    <dependency>
        <groupId>com.azure.spring</groupId>
        <artifactId>spring-cloud-azure-starter-active-directory</artifactId>
-       <version>4.3.0</version>
+       <version>4.4.0</version>
    </dependency>
    <dependency>
        <groupId>org.springframework.boot</groupId>
@@ -169,7 +169,7 @@ To use the Azure AD starter in this scenario, use the following steps:
 
    Here, `graph` is the client ID configured in the previous step. `OAuth2AuthorizedClient` contains the access token, which is used to access the resource server.
 
-For a complete sample demonstrating this scenario, see [spring-cloud-azure-starter-active-directory sample: aad-web-application](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/spring-cloud-azure_4.3.0/aad/spring-cloud-azure-starter-active-directory/web-client-access-resource-server/aad-web-application).
+For a complete sample demonstrating this scenario, see [spring-cloud-azure-starter-active-directory sample: aad-web-application](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/spring-cloud-azure_4.4.0/aad/spring-cloud-azure-starter-active-directory/web-client-access-resource-server/aad-web-application).
 
 ### Protect a resource server/API
 
@@ -183,7 +183,7 @@ To use the Azure AD starter in this scenario, use the following steps:
    <dependency>
        <groupId>com.azure.spring</groupId>
        <artifactId>spring-cloud-azure-starter-active-directory</artifactId>
-       <version>4.3.0</version>
+       <version>4.4.0</version>
    </dependency>
    <dependency>
        <groupId>org.springframework.boot</groupId>
@@ -232,7 +232,7 @@ To use the Azure AD starter in this scenario, use the following steps:
    }
    ```
 
-For a complete sample demonstrating this scenario, see [spring-cloud-azure-starter-active-directory sample: aad-resource-server](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/spring-cloud-azure_4.3.0/aad/spring-cloud-azure-starter-active-directory/web-client-access-resource-server/aad-resource-server).
+For a complete sample demonstrating this scenario, see [spring-cloud-azure-starter-active-directory sample: aad-resource-server](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/spring-cloud-azure_4.4.0/aad/spring-cloud-azure-starter-active-directory/web-client-access-resource-server/aad-resource-server).
 
 ### Access other resource servers from a resource server
 
@@ -246,7 +246,7 @@ To use the Azure AD starter in this scenario, use the following steps:
    <dependency>
        <groupId>com.azure.spring</groupId>
        <artifactId>spring-cloud-azure-starter-active-directory</artifactId>
-       <version>4.3.0</version>
+       <version>4.4.0</version>
    </dependency>
    <dependency>
        <groupId>org.springframework.boot</groupId>
@@ -288,7 +288,7 @@ To use the Azure AD starter in this scenario, use the following steps:
    }
    ```
 
-For a complete sample demonstrating this scenario, see [spring-cloud-azure-starter-active-directory sample: aad-resource-server-obo](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/spring-cloud-azure_4.3.0/aad/spring-cloud-azure-starter-active-directory/web-client-access-resource-server/aad-resource-server-obo).
+For a complete sample demonstrating this scenario, see [spring-cloud-azure-starter-active-directory sample: aad-resource-server-obo](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/spring-cloud-azure_4.4.0/aad/spring-cloud-azure-starter-active-directory/web-client-access-resource-server/aad-resource-server-obo).
 
 ### Web application and resource server in one application
 
@@ -302,7 +302,7 @@ To use **aad-starter** in this scenario, follow these steps:
     <dependency>
         <groupId>com.azure.spring</groupId>
         <artifactId>spring-cloud-azure-starter-active-directory</artifactId>
-        <version>4.3.0</version>
+        <version>4.4.0</version>
     </dependency>
     <dependency>
         <groupId>org.springframework.boot</groupId>
