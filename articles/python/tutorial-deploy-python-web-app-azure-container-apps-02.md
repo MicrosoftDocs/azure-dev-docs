@@ -179,6 +179,12 @@ These steps require the [Docker extension][6] for VS Code.
         ```
 
         Alternatively, select the registry in the Docker extension, right-click and select **Open in Portal** to enable the administrator user account. See the instructions int the portal tab of this article.
+
+        You can view the credentials created for admin with:
+
+        ```bash
+        az acr credential show --name  <registry-name> --resource-group pythoncontainer-rg
+        ```
     :::column-end:::
 :::row-end:::
 
@@ -213,6 +219,11 @@ Azure CLI commands can be run in the [Azure Cloud Shell][4] or on a workstation 
 
         *\<registry-name>* must be unique within Azure, and contain 5-50 alphanumeric characters.
 
+        You can view the credentials created for admin with:
+
+        ```bash
+        az acr credential show --name  <registry-name> --resource-group pythoncontainer-rg
+        ```
     :::column-end:::
 :::row-end:::
 :::row:::
