@@ -82,12 +82,7 @@ In the steps below, you'll set up continuous deployment, which means a new conta
     :::column span="2":::
         **Step 4.** Review the continuous deployment information.
 
-        After the continuous deployment is configured, you can find a link to the GitHub Actions workflow file created for you. Azure Container Apps checked the file in. The continuous deployment creation process also automatically:
-
-        * Created a [*service principal*][21].
-        * Added the service principal to the resource group containing the container app, with "Contributor" role.
-
-        The GitHub Actions workflow uses this service principal to update the container app when triggered.
+        After the continuous deployment is configured, you can find a link to the GitHub Actions workflow file created for you. Azure Container Apps checked the file in.
     :::column-end:::
     :::column:::
         :::image type="content" source="media/tutorial-container-apps/azure-portal-continuous-deployment-configuration-finish.png" alt-text="Screenshot showing the an Azure Container App configured for continuous deployment with GitHub Actions." lightbox="media/tutorial-container-apps/azure-portal-continuous-deployment-configuration-finish.png":::
@@ -148,9 +143,9 @@ Azure CLI commands can be run in the [Azure Cloud Shell][4] or on a workstation 
 
 ---
 
-In the steps to set up continuous deployment, a [*service principal*][21] is needed to access and modify Azure resources. If you followed the steps for the portal, the service principal was set up automatically for you. If you followed the steps for the Azure CLI, you explicitly created the service principal first before setting up continuous deployment.
+In the configuration of continuous deployment, a [*service principal*][21] is used to enable GitHub Actions to access and modify Azure resources. Access to resources is restricted by the roles assigned to the service principal. The service principal was assigned the built-in [*Contributor*][12] role on the resource group containing the container app.
 
-Access to resources is restricted by the roles assigned to the service principal, giving you control over which resources can be accessed and at which level. In the steps above, that role used is the built-in [*Contributor*][12] role, and it was assigned to the resource group containing the container app.
+If you followed the steps for the portal, the service principal was created automatically for you. If you followed the steps for the Azure CLI, you explicitly created the service principal first before configuring continuous deployment.
 
 ## Redeploy web app with GitHub Actions
 
