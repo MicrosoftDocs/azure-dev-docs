@@ -269,7 +269,7 @@ When you set up continuous deployment, you authorized Azure Container Apps as an
 
 :::image type="content" source="media/tutorial-container-apps/github-authorized-oauth-apps.png" alt-text="Screenshot showing how to see the authorized apps for a user in GitHub." lightbox="media/tutorial-container-apps/github-authorized-oauth-apps.png":::
 
-## Troubleshooting
+## Troubleshooting and tips
 
 Errors setting up a service principal with the Azure CLI `az ad sp create-for-rba` command.
 
@@ -294,11 +294,26 @@ Website doesn't show changes you merged in the *main* branch.
   * Go to the Container App | Revision Management | \<active container> | Revision details | Console logs
   * Choose the order of the columns to show "Time Generated", "Stream_s", and "Log_s". Sort the logs by most-recent first and look for Python *stderr* and *stdout* messages in the "Stream_s" column. Python 'print' output will be *stdout* messages.
 
+How to stop continuous deployment.
+
+* Stopping continuous deployment means disconnecting your container app from your repo.
+* How to disconnect:
+  * In Azure portal: go the container app, select the **Continuous deployment** resource, select **Disconnect**.
+  * With the Azure CLI: use the [az containerapp github-action remove][6] command.
+* After disconnecting, in Azure:
+  * The container is left with last deployed container and you should reconnect the container app with the Azure Container Registry, so that new revisions pick up the latest image.
+  * Service principals created and used for continuous deployment are not deleted.
+* After disconnecting, in your GitHub repo:
+  * The *.github/workflows/\<workflow-name>.yml* file is removed from your repo.
+  * Secret keys aren't removed.
+
+
 [1]: https://github.com/Azure-Samples/msdocs-python-django-azure-container-app
 [2]: https://github.com/Azure-Samples/msdocs-python-flask-azure-container-app
 [3]: https://portal.azure.com/
 [4]: https://shell.azure.com/
 [5]: /azure/container-apps/revisions
+[6] /cli/azure/containerapp/github-action#az-containerapp-github-action-delete
 [7]: /cli/azure/install-azure-cli
 [8]: /azure/container-apps/overview
 [9]: /azure/container-registry/container-registry-intro
