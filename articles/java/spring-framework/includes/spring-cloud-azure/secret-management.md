@@ -75,7 +75,7 @@ Key Vault secret names support only characters in `[0-9a-zA-Z-]`. For more infor
 `.` isn't supported in secret names. If your application has a property name that contains `.`, such as `spring.datasource.url`, replace `.` with `-` when saving the secret in Azure Key Vault. For example, save `spring-datasource-url` in Azure Key Vault. In your application, you can still use `spring.datasource.url` to retrieve the property value.
 
 > [!NOTE]
-> This method cannot satisfy requirement like `spring.datasource-url`. When you save `spring-datasource-url` in Key Vault, only `spring.datasource.url` and `spring-datasource-url` is supported to retrieve the property value, but `spring.datasource-url` isn't supported. To handle this case, see the [Use property placeholders](#use-property-placeholders) section.
+> This method cannot satisfy a requirement like `spring.datasource-url`. When you save `spring-datasource-url` in Key Vault, only `spring.datasource.url` and `spring-datasource-url` is supported to retrieve the property value, but `spring.datasource-url` isn't supported. To handle this case, see the [Use property placeholders](#use-property-placeholders) section.
 
 ##### Use property placeholders
 
