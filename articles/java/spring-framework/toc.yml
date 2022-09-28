@@ -92,6 +92,17 @@
         href: configure-spring-boot-initializer-java-app-with-redis-cache.md
       - name: End-to-end App Service with MySQL
         href: spring-app-service-e2e.md
+      - name: Azure Spring Apps with passwordless connections to Azure database
+        href: deploy-passwordless-spring-database-app.md
+      - name: Migrate to use passwordless connections
+        expanded: true
+        items:
+          - name: Azure Database for MySQL
+            href: migrate-mysql-to-passwordless-connection.md
+          - name: Azure Database for PostgreSQL
+            href: migrate-postgresql-to-passwordless-connection.md
+          - name: Azure Event Hubs for Kafka
+            href: migrate-kafka-to-passwordless-connection.md
   - name: Samples
     items:
       - name: To Do List with Cosmos DB

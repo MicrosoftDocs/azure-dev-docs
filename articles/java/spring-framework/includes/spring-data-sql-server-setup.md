@@ -9,12 +9,12 @@ ms.author: judubois
 First, set up some environment variables by using the following commands:
 
 ```bash
-AZ_RESOURCE_GROUP=database-workshop
-AZ_DATABASE_NAME=<YOUR_DATABASE_NAME>
-AZ_LOCATION=<YOUR_AZURE_REGION>
-AZ_SQL_SERVER_USERNAME=spring
-AZ_SQL_SERVER_PASSWORD=<YOUR_AZURE_SQL_PASSWORD>
-AZ_LOCAL_IP_ADDRESS=<YOUR_LOCAL_IP_ADDRESS>
+export AZ_RESOURCE_GROUP=database-workshop
+export AZ_DATABASE_NAME=<YOUR_DATABASE_NAME>
+export AZ_LOCATION=<YOUR_AZURE_REGION>
+export AZ_SQL_SERVER_USERNAME=spring
+export AZ_SQL_SERVER_PASSWORD=<YOUR_AZURE_SQL_PASSWORD>
+export AZ_LOCAL_IP_ADDRESS=<YOUR_LOCAL_IP_ADDRESS>
 ```
 
 Replace the placeholders with the following values, which are used throughout this article:
@@ -90,7 +90,7 @@ Then, use the following command to open the server's firewall to your WSL-based 
 
 az sql server firewall-rule create \
     --resource-group $AZ_RESOURCE_GROUP \
-    --name $AZ_DATABASE_NAME-database-allow-local-ip \
+    --name $AZ_DATABASE_NAME-database-allow-local-ip-wsl \
     --server $AZ_DATABASE_NAME \
     --start-ip-address $AZ_WSL_IP_ADDRESS \
     --end-ip-address $AZ_WSL_IP_ADDRESS \

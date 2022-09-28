@@ -59,6 +59,7 @@
 | Language Text | npm [1.0.0](https://www.npmjs.com/package/@azure/ai-language-text/v/1.0.0) | [docs](/javascript/api/overview/azure/ai-language-text-readme) | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/ai-language-text_1.0.0/sdk/cognitivelanguage/ai-language-text/) |
 | Managed Private Endpoints | npm [1.0.0-beta.4](https://www.npmjs.com/package/@azure/synapse-managed-private-endpoints/v/1.0.0-beta.4) | [docs](/javascript/api/overview/azure/synapse-managed-private-endpoints-readme) | GitHub [1.0.0-beta.4](https://github.com/Azure/azure-sdk-for-js/tree/@azure/synapse-managed-private-endpoints_1.0.0-beta.4/sdk/synapse/synapse-managed-private-endpoints/) |
 | Metrics Advisor | npm [1.0.0](https://www.npmjs.com/package/@azure/ai-metrics-advisor/v/1.0.0) | [docs](/javascript/api/overview/azure/ai-metrics-advisor-readme) | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/ai-metrics-advisor_1.0.0/sdk/metricsadvisor/ai-metrics-advisor/) |
+| Microsoft Authentication Library | npm [1.14.0](https://www.npmjs.com/package/@azure/msal-node/v/1.14.0) |  | GitHub [1.14.0](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-node) |
 | Monitor OpenTelemetry Exporter | npm [1.0.0-beta.8](https://www.npmjs.com/package/@azure/monitor-opentelemetry-exporter/v/1.0.0-beta.8) | [docs](/javascript/api/overview/azure/monitor-opentelemetry-exporter-readme) | GitHub [1.0.0-beta.8](https://github.com/Azure/azure-sdk-for-js/tree/@azure/monitor-opentelemetry-exporter_1.0.0-beta.8/sdk/monitor/monitor-opentelemetry-exporter/) |
 | Monitor Query | npm [1.0.2](https://www.npmjs.com/package/@azure/monitor-query/v/1.0.2) | [docs](/javascript/api/overview/azure/monitor-query-readme) | GitHub [1.0.2](https://github.com/Azure/azure-sdk-for-js/tree/@azure/monitor-query_1.0.2/sdk/monitor/monitor-query/) |
 | Monitoring | npm [1.0.0-beta.2](https://www.npmjs.com/package/@azure/synapse-monitoring/v/1.0.0-beta.2) | [docs](/javascript/api/overview/azure/synapse-monitoring-readme) | GitHub [1.0.0-beta.2](https://github.com/Azure/azure-sdk-for-js/tree/@azure/synapse-monitoring_1.0.0-beta.2/sdk/synapse/synapse-monitoring/) |
@@ -265,7 +266,7 @@
 | @autorest/codemodel | npm [4.19.2](https://www.npmjs.com/package/@autorest/codemodel/v/4.19.2) |  |  |
 | @autorest/common | npm [1.5.4](https://www.npmjs.com/package/@autorest/common/v/1.5.4) |  |  |
 | @autorest/configuration | npm [1.10.1](https://www.npmjs.com/package/@autorest/configuration/v/1.10.1) |  |  |
-| @autorest/csharp | npm [3.0.0-beta.20220923.1](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20220923.1) |  |  |
+| @autorest/csharp | npm [3.0.0-beta.20220926.1](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20220926.1) |  |  |
 | @autorest/csharp-v3 | npm [3.0.0-beta.20201217.1](https://www.npmjs.com/package/@autorest/csharp-v3/v/3.0.0-beta.20201217.1) |  |  |
 | @autorest/extension-base | npm [3.5.0](https://www.npmjs.com/package/@autorest/extension-base/v/3.5.0) |  |  |
 | @autorest/fixer | npm [1.1.0](https://www.npmjs.com/package/@autorest/fixer/v/1.1.0) |  |  |
@@ -309,7 +310,7 @@
 | @azure-tools/cadl-openapi | npm [0.4.1](https://www.npmjs.com/package/@azure-tools/cadl-openapi/v/0.4.1) |  |  |
 | @azure-tools/cadl-providerhub | npm [0.21.0](https://www.npmjs.com/package/@azure-tools/cadl-providerhub/v/0.21.0) |  |  |
 | @azure-tools/cadl-providerhub-controller | npm [0.16.0](https://www.npmjs.com/package/@azure-tools/cadl-providerhub-controller/v/0.16.0) |  |  |
-| @azure-tools/cadl-python | npm [0.2.2](https://www.npmjs.com/package/@azure-tools/cadl-python/v/0.2.2) |  |  |
+| @azure-tools/cadl-python | npm [0.2.5](https://www.npmjs.com/package/@azure-tools/cadl-python/v/0.2.5) |  |  |
 | @azure-tools/cadl-ranch | npm [0.2.0](https://www.npmjs.com/package/@azure-tools/cadl-ranch/v/0.2.0) |  |  |
 | @azure-tools/cadl-ranch-api | npm [0.1.9](https://www.npmjs.com/package/@azure-tools/cadl-ranch-api/v/0.1.9) |  |  |
 | @azure-tools/cadl-ranch-coverage-sdk | npm [0.1.1](https://www.npmjs.com/package/@azure-tools/cadl-ranch-coverage-sdk/v/0.1.1) |  |  |
@@ -321,7 +322,7 @@
 | @azure-tools/cadl-vs | npm [0.3.0](https://www.npmjs.com/package/@azure-tools/cadl-vs/v/0.3.0) |  |  |
 | @azure-tools/json | npm [1.2.2](https://www.npmjs.com/package/@azure-tools/json/v/1.2.2) |  |  |
 | @azure-tools/jsonschema | npm [1.2.1](https://www.npmjs.com/package/@azure-tools/jsonschema/v/1.2.1) |  |  |
-| @azure-tools/js-sdk-release-tools | npm [2.4.2](https://www.npmjs.com/package/@azure-tools/js-sdk-release-tools/v/2.4.2) |  |  |
+| @azure-tools/js-sdk-release-tools | npm [2.4.3](https://www.npmjs.com/package/@azure-tools/js-sdk-release-tools/v/2.4.3) |  |  |
 | @azure-tools/mock-service-host | npm [0.1.17](https://www.npmjs.com/package/@azure-tools/mock-service-host/v/0.1.17) |  |  |
 | @azure-tools/oav-traffic-converter | npm [0.1.0](https://www.npmjs.com/package/@azure-tools/oav-traffic-converter/v/0.1.0) |  |  |
 | @azure-tools/prettier-plugin-adl | npm [0.1.4](https://www.npmjs.com/package/@azure-tools/prettier-plugin-adl/v/0.1.4) |  |  |
@@ -380,7 +381,7 @@
 | AutoRest - Go | npm [4.0.0-preview.44](https://www.npmjs.com/package/@autorest/go/v/4.0.0-preview.44) |  |  |
 | AutoRest - Modeler Four | npm [4.24.3](https://www.npmjs.com/package/@autorest/modelerfour/v/4.24.3) |  | GitHub [4.24.3](https://github.com/Azure/autorest.modelerfour) |
 | AutoRest - PowerShell | npm [3.0.494](https://www.npmjs.com/package/@autorest/powershell/v/3.0.494)<br>npm [4.0.0-dev.4](https://www.npmjs.com/package/@autorest/powershell/v/4.0.0-dev.4) |  | GitHub [3.0.494](https://github.com/Azure/autorest.powershell) |
-| AutoRest - Python | npm [6.1.7](https://www.npmjs.com/package/@autorest/python/v/6.1.7) |  | GitHub [6.1.7](https://github.com/Azure/autorest.python/tree/v5.1.0-preview.7) |
+| AutoRest - Python | npm [6.1.8](https://www.npmjs.com/package/@autorest/python/v/6.1.8) |  | GitHub [6.1.8](https://github.com/Azure/autorest.python/tree/v5.1.0-preview.7) |
 | AutoRest - Remodeler | npm [2.1.27](https://www.npmjs.com/package/@autorest/remodeler/v/2.1.27) |  | GitHub [2.1.27](https://github.com/Azure/autorest.remodeler) |
 | AutoRest - Test | npm [0.1.76](https://www.npmjs.com/package/@autorest/test/v/0.1.76) |  | GitHub [0.1.76](https://github.com/Azure/autorest.test) |
 | AutoRest - Test Server | npm [3.0.27](https://www.npmjs.com/package/@autorest/test-server/v/3.0.27) |  |  |
@@ -484,6 +485,7 @@
 | LUIS Runtime | npm [5.0.0](https://www.npmjs.com/package/@azure/cognitiveservices-luis-runtime/v/5.0.0) |  | GitHub [5.0.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/cognitiveservices/cognitiveservices-luis-runtime) |
 | Managed Private Endpoints | npm [1.0.0-beta.4](https://www.npmjs.com/package/@azure/synapse-managed-private-endpoints/v/1.0.0-beta.4) | [docs](/javascript/api/overview/azure/synapse-managed-private-endpoints-readme) | GitHub [1.0.0-beta.4](https://github.com/Azure/azure-sdk-for-js/tree/@azure/synapse-managed-private-endpoints_1.0.0-beta.4/sdk/synapse/synapse-managed-private-endpoints/) |
 | Metrics Advisor | npm [1.0.0](https://www.npmjs.com/package/@azure/ai-metrics-advisor/v/1.0.0) | [docs](/javascript/api/overview/azure/ai-metrics-advisor-readme) | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/ai-metrics-advisor_1.0.0/sdk/metricsadvisor/ai-metrics-advisor/) |
+| Microsoft Authentication Library | npm [1.14.0](https://www.npmjs.com/package/@azure/msal-node/v/1.14.0) |  | GitHub [1.14.0](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-node) |
 | Monitor OpenTelemetry Exporter | npm [1.0.0-beta.8](https://www.npmjs.com/package/@azure/monitor-opentelemetry-exporter/v/1.0.0-beta.8) | [docs](/javascript/api/overview/azure/monitor-opentelemetry-exporter-readme) | GitHub [1.0.0-beta.8](https://github.com/Azure/azure-sdk-for-js/tree/@azure/monitor-opentelemetry-exporter_1.0.0-beta.8/sdk/monitor/monitor-opentelemetry-exporter/) |
 | Monitor Query | npm [1.0.2](https://www.npmjs.com/package/@azure/monitor-query/v/1.0.2) | [docs](/javascript/api/overview/azure/monitor-query-readme) | GitHub [1.0.2](https://github.com/Azure/azure-sdk-for-js/tree/@azure/monitor-query_1.0.2/sdk/monitor/monitor-query/) |
 | Monitoring | npm [1.0.0-beta.2](https://www.npmjs.com/package/@azure/synapse-monitoring/v/1.0.0-beta.2) | [docs](/javascript/api/overview/azure/synapse-monitoring-readme) | GitHub [1.0.0-beta.2](https://github.com/Azure/azure-sdk-for-js/tree/@azure/synapse-monitoring_1.0.0-beta.2/sdk/synapse/synapse-monitoring/) |
@@ -495,7 +497,7 @@
 | News Search | npm [3.0.1](https://www.npmjs.com/package/@azure/cognitiveservices-newssearch/v/3.0.1) |  | GitHub [3.0.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/cognitiveservices/cognitiveservices-newssearch) |
 | Ng Deploy | npm [0.2.3](https://www.npmjs.com/package/@azure/ng-deploy/v/0.2.3) |  | GitHub [0.2.3](https://github.com/Azure/ng-deploy-azure) |
 | Node Red Contrib Azure IoT Hub Node | npm [0.5.3](https://www.npmjs.com/package/node-red-contrib-azureiothubnode/v/0.5.3) |  |  |
-| Oad | npm [0.9.7](https://www.npmjs.com/package/@azure/oad/v/0.9.7) |  | GitHub [0.9.7](https://github.com/Azure/openapi-diff) |
+| Oad | npm [0.10.0](https://www.npmjs.com/package/@azure/oad/v/0.10.0) |  | GitHub [0.10.0](https://github.com/Azure/openapi-diff) |
 | OpenAPI Markdown | npm [0.9.4](https://www.npmjs.com/package/@azure/openapi-markdown/v/0.9.4) |  | GitHub [0.9.4](https://github.com/Azure/openapi-markdown) |
 | Personalizer | npm [2.0.1](https://www.npmjs.com/package/@azure/cognitiveservices-personalizer/v/2.0.1) |  | GitHub [2.0.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/cognitiveservices/cognitiveservices-personalizer) |
 | Personalizer | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure-rest/ai-personalizer/v/1.0.0-beta.1) |  | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/ai-personalizer_1.0.0-beta.1/sdk/personalizer/ai-personalizer-rest) |
