@@ -27,7 +27,7 @@ To set up continuous deployment, you'll need:
 
 * A GitHub account where you forked the sample code ([Django][1] or [Flask][2]) and you can connect to from Azure Container Apps. (If you downloaded the sample code instead of forking, make sure you push your local repo to your GitHub account.)
 
-* Optionally, [Git][14] installed locally to make code changes locally and push to your repo in GitHub. Alternatively, you can make the changes directly in GitHub with a patch.
+* Optionally, [Git][14] installed in your development environment to make code changes and push to your repo in GitHub. Alternatively, you can make the changes directly in GitHub with a patch.
 
 ## Configure CD for the container
 
@@ -158,7 +158,7 @@ Access to resources is restricted by the roles assigned to the service principal
 
 In this section, you'll make a small change to your forked copy of the sample repository and confirm that the change is automatically deployed to the web site.
 
-If you haven't already, make a [fork][13] of the sample repository ([Django][1] or [Flask][2]). You can make your code change directly in [GitHub][17] or locally from a command line with [Git][14].
+If you haven't already, make a [fork][13] of the sample repository ([Django][1] or [Flask][2]). You can make your code change directly in [GitHub][17] or from you development environment from a command line with [Git][14].
 
 ### [GitHub](#tab/git-github)
 
@@ -186,9 +186,8 @@ If you haven't already, make a [fork][13] of the sample repository ([Django][1] 
     :::column span="2":::
         **Step 3.** Commit the change directly to the *main* branch.
 
-        * On the bottom of the page, select the **Commit** button.
-
-        The commit kicks off the GitHub Actions workflow.
+        * On the bottom of the page you editing, select the **Commit** button.
+        * The commit kicks off the GitHub Actions workflow.
 
     :::column-end:::
     :::column:::
@@ -202,9 +201,10 @@ If you haven't already, make a [fork][13] of the sample repository ([Django][1] 
 
 ```Bash
 git checkout main
+git pull
 ```
 
-If you haven't already, use `git clone` to pull your repository locally and change directory to the repository.
+If you haven't already, use `git clone` to pull your forked repository to your development environment and change directory to the repository.
 
 **Step 2.** Make a change.
 
@@ -217,14 +217,14 @@ git commit -a -m "Redeploy with title change."
 git push
 ```
 
-The first time using git, you may need to set global variables "user.name" and "user.email". See the help for [git-config][16].
+The first time using git, you may need to set global variables "user.name" and "user.email". For more information, see the help for [git-config][16].
 
 The push of changes to the *main* branch kicks off the GitHub Actions workflow.
 
 ---
 
 > [!NOTE]
-> We showed making a change directly in the *main* branch. In typical software workflows, you'll make a change in a branch other than *main* and then create a pull request (PR) to merge those change into *main*.
+> We showed making a change directly in the *main* branch. In typical software workflows, you'll make a change in a branch other than *main* and then create a pull request (PR) to merge those change into *main*. The PR will also kick off the workflow.
 
 ## GitHub Actions workflow details
 
@@ -265,7 +265,7 @@ In the *.github/workflows/\<workflow-name>.yml* workflow file that was added to 
 
 For more information, see [Encrypted secrets][19] in the GitHub documentation.
 
-When you set up continuous deployment, you authorized Azure Container Apps as an authorized OAuth Apps. This is how the GitHub Workflow YML file was written to *.github/workflows/\<workflow-name>.yml*. You can revoke this permission by going to the settings of your GitHub user profile. Under **Integrations**/**Applications**, you can see your authorized apps.
+When you set up continuous deployment, you authorized Azure Container Apps as an authorized OAuth Apps. This is how the GitHub Actions YML file was written to *.github/workflows/\<workflow-name>.yml*. You can revoke this permission by going to the settings of your GitHub user profile. Under **Integrations**/**Applications**, you can see your authorized apps.
 
 :::image type="content" source="media/tutorial-container-apps/github-authorized-oauth-apps.png" alt-text="Screenshot showing how to see the authorized apps for a user in GitHub." lightbox="media/tutorial-container-apps/github-authorized-oauth-apps.png":::
 
