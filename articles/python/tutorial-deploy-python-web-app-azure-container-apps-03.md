@@ -87,8 +87,8 @@ In the steps below, you'll set up continuous deployment, which means a new conta
 
         A few things are done automatically:
 
-        * service principal is created
-        * service principal is added to the resource group the Container App is in, with role "Contributor"
+        * A [*service principal*][21] is created.
+        * The service principal is added to the resource group containing the Container App, with role "Contributor".
 
     :::column-end:::
     :::column:::
@@ -102,7 +102,7 @@ Azure CLI commands can be run in the [Azure Cloud Shell][4] or on a workstation 
 
 :::row:::
     :::column span="1":::
-        **Step 1.** Create a service principal with the [az ad sp create-for-rbac][10] command.
+        **Step 1.** Create a [*service principal*][21] with the [az ad sp create-for-rbac][10] command.
 
         ```bash        
         export MSYS_NO_PATHCONV=1
@@ -113,11 +113,11 @@ Azure CLI commands can be run in the [Azure Cloud Shell][4] or on a workstation 
         ```
 
         Where: 
-        * *\<app-name>* is an optional name for the service principal. If you leave off the `--name` option, a GUID is generated as the name. The downside of the auto-generated GUID is that it's harder to find in the Azure Active Directory.
+        * *\<app-name>* is an optional display name for the service principal. If you leave off the `--name` option, a GUID is generated as the display name.
         * *\<subscription-ID>* is the GUID that uniquely identifies your subscription in Azure.
         * *\<resource-group-name>* is the name of a resource group that contains the Azure Container Registry. Role-based access control (RBAC) is on the resource group level.
 
-        Save the output of this command for the next step.
+        Save the output of this command for the next step, in  particular, the client ID and client secret.
 
     :::column-end:::
 :::row-end:::
@@ -150,7 +150,7 @@ Azure CLI commands can be run in the [Azure Cloud Shell][4] or on a workstation 
 
 ---
 
-In the steps to set up continuous deployment, a [*service principal*][6] is needed to access and modify Azure resources. If you followed the steps for the portal, the service principal was set up automatically for you. If you followed the steps for the Azure CLI, you explicitly created the service principal first before setting up continuous deployment.
+In the steps to set up continuous deployment, a [*service principal*][21] is needed to access and modify Azure resources. If you followed the steps for the portal, the service principal was set up automatically for you. If you followed the steps for the Azure CLI, you explicitly created the service principal first before setting up continuous deployment.
 
 Access to resources is restricted by the roles assigned to the service principal, giving you control over which resources can be accessed and at which level. In the steps above, that role used is the built-in [*Contributor*][12] role, and it was assigned to the resource group containing the container app.
 
@@ -263,7 +263,7 @@ In the *.github/workflows/\<workflow-name>.yml* workflow file that was added to 
 
 :::image type="content" source="media/tutorial-container-apps/github-repo-action-secrets.png" alt-text="Screenshot showing how to see where GitHub Action secrets are stored in GitHub." lightbox="media/tutorial-container-apps/github-repo-action-secrets.png":::
 
-For more information, see [Encrypted secrets][19] in the GitHub documentation.
+If the credential information changes, you can update it here. For example, if the Azure Container Registry passwords are regenerated, you'll need to update the PYTHONCONTAINERAPP_REGISTRY_PASSWORD value shown above. For more information, see [Encrypted secrets][19] in the GitHub documentation.
 
 When you set up continuous deployment, you authorized Azure Container Apps as an authorized OAuth Apps. This is how the GitHub Actions YML file was written to *.github/workflows/\<workflow-name>.yml*. You can revoke this permission by going to the settings of your GitHub user profile. Under **Integrations**/**Applications**, you can see your authorized apps.
 
@@ -277,7 +277,7 @@ Errors setting up a service principal with the Azure CLI `az ad sp create-for-rb
   * Check the shell you're running in. If using Bash shell, set the MSYS_NO_PATHCONV variables as follows `export MSYS_NO_PATHCONV=1`. For more information, see the GitHub issue [Unable to create service principal with Azure CLI from git bash shell, no connection adapters were found.][15].
 
 * You receive an error containing "More than one application have the same display name".
-  * This error indicates the name is already taken for the service principal. Choose another name or leave off the `--name` argument and a GUID will be automatically generated as a name.
+  * This error indicates the name is already taken for the service principal. Choose another name or leave off the `--name` argument and a GUID will be automatically generated as a display name.
 
 GitHub Actions workflow failed.
 
@@ -298,7 +298,6 @@ Website doesn't show changes you merged in the *main* branch.
 [3]: https://portal.azure.com/
 [4]: https://shell.azure.com/
 [5]: /azure/container-apps/revisions
-[6]: /azure/active-directory/develop/howto-create-service-principal-portal
 [7]: /cli/azure/install-azure-cli
 [8]: /azure/container-apps/overview
 [9]: /azure/container-registry/container-registry-intro
@@ -313,3 +312,4 @@ Website doesn't show changes you merged in the *main* branch.
 [18]: https://cli.github.com/
 [19]: https://docs.github.com/actions/security-guides/encrypted-secrets
 [20]: /azure/developer/github/github-actions
+[21]: /azure/active-directory/fundamentals/service-accounts-principal
