@@ -97,6 +97,8 @@
       - name: Migrate to use passwordless connections
         expanded: true
         items:
+          - name: Azure Database for SQL server
+            href: migrate-sql-database-to-passwordless-connection.md
           - name: Azure Database for MySQL
             href: migrate-mysql-to-passwordless-connection.md
           - name: Azure Database for PostgreSQL
