@@ -1,17 +1,18 @@
 ---
-title: Use Terraform as an infrastructure as code tool for Azure Developer CLI (azd) Preview 
+title: Use Terraform as an infrastructure as code tool for Azure Developer CLI (preview) 
 description: How to use Terraform as an infrastructure as code tool for Azure Developer CLI (azd) Preview.
 author: hhunter-ms
 ms.author: hannahhunter
-ms.date: 09/14/2022
+ms.date: 09/28/2022
 ms.service: azure-dev-cli
 ms.topic: conceptual
 ms.custom: devx-track-azdevcli
 ---
 
-# Use Terraform as an infrastructure as code tool for Azure Developer CLI (azd) Preview
+# Use Terraform as an infrastructure as code tool for Azure Developer CLI (preview)
 
 Azure Developer CLI (azd) Preview supports multiple infrastructures as code (IaC) providers, including:  
+
 - [Bicep](/azure/azure-resource-manager/bicep/overview?tabs=bicep)
 - [Terraform](../terraform/overview.md)
 
@@ -33,7 +34,7 @@ By default, `azd` assumes Bicep as the IaC provider. Refer to the [Comparing Ter
 > [!NOTE] 
 > Check out these two azd templates with Terraform as IaC Provider: [Node.js and Terraform](https://github.com/Azure-Samples/todo-nodejs-mongo-terraform) and [Python and Terraform](https://github.com/Azure-Samples/todo-python-mongo-terraform). 
 
-## azd pipeline config for Terraform
+## `azd pipeline config` for Terraform
 
 Terraform stores state about your managed infrastructure and configuration. Because of this state file, you need to enable remote state **before** you run `azd pipeline config` to set up your deployment pipeline in GitHub.
 
