@@ -61,7 +61,7 @@ In the steps below, you'll set up continuous deployment, which means a new conta
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 3.** After sign in with GitHub, configure the continuous deployment details.
+        **Step 3.** After sign-in with GitHub, configure the continuous deployment details.
 
         * **Organization** &rarr; Use your GitHub user name.
         * **Repository** &rarr; Select the fork of the sample app. (If you originally downloaded the sample code to your developer environment, push the repo to GitHub.)
@@ -121,7 +121,7 @@ Azure CLI commands can be run in the [Azure Cloud Shell][4] or on a workstation 
 :::row-end:::
 :::row:::
     :::column span="1":::
-        **Step 2.** Configure a GitHub Action with [az containerapp github-action add][11] command.
+        **Step 2.** Configure GitHub Actions with [az containerapp github-action add][11] command.
 
         ```bash
         az containerapp github-action add \
@@ -259,7 +259,7 @@ gh workflow view --web
 
 In the *.github/workflows/\<workflow-name>.yml* workflow file that was added to the repo, you'll see placeholders for credentials that are needed for the build and container app update jobs of the workflow. The credential information is stored encrypted in the repository **Settings** under **Security**/**Actions**.
 
-:::image type="content" source="media/tutorial-container-apps/github-repo-action-secrets.png" alt-text="Screenshot showing how to see where GitHub Action secrets are stored in GitHub." lightbox="media/tutorial-container-apps/github-repo-action-secrets.png":::
+:::image type="content" source="media/tutorial-container-apps/github-repo-action-secrets.png" alt-text="Screenshot showing how to see where GitHub Actions secrets are stored in GitHub." lightbox="media/tutorial-container-apps/github-repo-action-secrets.png":::
 
 If credential information changes, you can update it here. For example, if the Azure Container Registry passwords are regenerated, you'll need to update the REGISTRY_PASSWORD value. For more information, see [Encrypted secrets][19] in the GitHub documentation.
 
