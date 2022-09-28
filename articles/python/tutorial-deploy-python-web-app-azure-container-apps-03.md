@@ -42,7 +42,7 @@ In the steps below, you'll set up continuous deployment, which means a new conta
         **Step 1.** In the [Azure portal][3], go to the Container App you want to configure continuous deployment for and select the **Continuous deployment** resource.
     :::column-end:::
     :::column:::
-        :::image type="content" source="media/tutorial-container-apps/azure-portal-continuous-deployment-signin-github.png" alt-text="Screenshot showing the continuous deployment resource of a Container App and where to sign in with GitHub." lightbox="media/tutorial-container-apps/azure-portal-continuous-deployment-signin-github.png":::
+        :::image type="content" source="media/tutorial-container-apps/azure-portal-continuous-deployment-signin-github.png" alt-text="Screenshot showing the continuous deployment resource of a Container App and where to sign in with GitHub in Azure portal." lightbox="media/tutorial-container-apps/azure-portal-continuous-deployment-signin-github.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -56,20 +56,26 @@ In the steps below, you'll set up continuous deployment, which means a new conta
 
     :::column-end:::
     :::column:::
-        :::image type="content" source="media/tutorial-container-apps/azure-portal-continuous-deployment-authorize-github.png" alt-text="Screenshot showing authorizing Container App to access your repo." lightbox="media/tutorial-container-apps/azure-portal-continuous-deployment-authorize-github.png":::
+        :::image type="content" source="media/tutorial-container-apps/azure-portal-continuous-deployment-authorize-github.png" alt-text="Screenshot showing authorizing Container App to access your repo in Azure portal." lightbox="media/tutorial-container-apps/azure-portal-continuous-deployment-authorize-github.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 3.** Specify the repo details.
+        **Step 3.** After sign in with GitHub, configure the continuous deployment details.
 
-        * **Organization** &rarr; Your GitHub user name.
-        * **Repository** &rarr; A fork of the sample app that is under your user name.
-        * **Branch** &rarr; Select *main*. 
+        * **Organization** &rarr; Use your GitHub user name.
+        * **Repository** &rarr; Select the fork of the sample app. (If you originally downloaded the sample code to your developer environment, push the repo to GitHub.)
+        * **Branch** &rarr; Select *main*.
+        * **Repository source** &rarr; Select **Azure Container Registry**.
+        * **Registry** &rarr; Select the Azure Container Registry you created earlier in the tutorial.
+        * **Image** &rarr; Select the container image name. If you are following the tutorial, it's "python-container-app".
+        * **Service principal** &rarr; Leave **Create new** and let the creation process create a new service principal.
+
+        Select **Start continuous deployment** to finish the configuration.
 
     :::column-end:::
     :::column:::
-        TBD
+        :::image type="content" source="media/tutorial-container-apps/azure-portal-continuous-deployment-configuration.png" alt-text="Screenshot showing the configuration of an Azure Container App in Azure portal." lightbox="media/tutorial-container-apps/azure-portal-continuous-deployment-configuration.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
