@@ -293,7 +293,7 @@ Website doesn't show changes you merged in the *main* branch.
   * Go to the Container App | Revision Management | \<active container> | Revision details | Console logs
   * Choose the order of the columns to show "Time Generated", "Stream_s", and "Log_s". Sort the logs by most-recent first and look for Python *stderr* and *stdout* messages in the "Stream_s" column. Python 'print' output will be *stdout* messages.
 
-How to stop continuous deployment.
+What happens when I disconnect continuous deployment?
 
 * Stopping continuous deployment means disconnecting your container app from your repo.
 
@@ -302,13 +302,13 @@ How to stop continuous deployment.
   * With the Azure CLI: use the [az container app github-action remove][6] command.
 
 * After disconnecting, in Azure:
-  * The container is left with last deployed container and you should reconnect the container app with the Azure Container Registry, so that new revisions pick up the latest image.
+  * The container is left with last deployed container. You can reconnect the container app with the Azure Container Registry, so that new revisions pick up the latest image.
   * Service principals created and used for continuous deployment aren't deleted.
 
 * After disconnecting, in your GitHub repo:
   * The *.github/workflows/\<workflow-name>.yml* file is removed from your repo.
   * Secret keys aren't removed.
-  * Azure Container Apps remains as an Authorized OAuth App in your GitHub account.
+  * Azure Container Apps remains as an authorized OAuth App in your GitHub account.
 
 [1]: https://github.com/Azure-Samples/msdocs-python-django-azure-container-app
 [2]: https://github.com/Azure-Samples/msdocs-python-flask-azure-container-app
