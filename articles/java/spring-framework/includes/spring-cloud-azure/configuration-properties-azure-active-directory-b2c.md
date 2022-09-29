@@ -1,7 +1,7 @@
 ---
 author: KarlErickson
 ms.author: v-yonghuiye
-ms.date: 06/29/2022
+ms.date: 09/28/2022
 ---
 
 ## Azure Active Directory B2C properties

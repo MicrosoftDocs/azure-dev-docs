@@ -4,7 +4,7 @@ description: This guide describes the features, issues, workarounds, and diagnos
 author: KarlErickson
 ms.author: seal
 ms.topic: conceptual
-ms.date: 08/24/2022
+ms.date: 09/28/2022
 ms.custom: devx-track-java
 ---
 
@@ -188,15 +188,15 @@ or contact [opencode@microsoft.com][coc_contact] with any other questions or com
 [coc_faq]: https://opensource.microsoft.com/codeofconduct/faq/
 [coc_contact]: mailto:opencode@microsoft.com
 [azure_subscription]: https://azure.microsoft.com/free/
-[samples]: https://github.com/Azure/azure-sdk-for-java/tree/spring-cloud-azure_4.3.0/sdk/cosmos/azure-spring-data-cosmos/src/samples/java/com/azure/spring/data/cosmos
-[sample-for-multi-database]: https://github.com/Azure-Samples/azure-spring-boot-samples/tree/spring-cloud-azure_4.3.0/cosmos/azure-spring-data-cosmos/cosmos-multi-database-multi-account
-[sample-for-multi-database-single-account]: https://github.com/Azure-Samples/azure-spring-boot-samples/tree/spring-cloud-azure_4.3.0/cosmos/azure-spring-data-cosmos/cosmos-multi-database-single-account
+[samples]: https://github.com/Azure/azure-sdk-for-java/tree/spring-cloud-azure_4.4.0/sdk/cosmos/azure-spring-data-cosmos/src/samples/java/com/azure/spring/data/cosmos
+[sample-for-multi-database]: https://github.com/Azure-Samples/azure-spring-boot-samples/tree/spring-cloud-azure_4.4.0/cosmos/azure-spring-data-cosmos/cosmos-multi-database-multi-account
+[sample-for-multi-database-single-account]: https://github.com/Azure-Samples/azure-spring-boot-samples/tree/spring-cloud-azure_4.4.0/cosmos/azure-spring-data-cosmos/cosmos-multi-database-single-account
 [sql_api_query]: /azure/cosmos-db/sql-api-sql-query
 [local_emulator]: /azure/cosmos-db/local-emulator
 [local_emulator_export_ssl_certificates]: /azure/cosmos-db/local-emulator-export-ssl-certificates
 [spring_data_commons_id_annotation]: https://github.com/spring-projects/spring-data-commons/blob/main/src/main/java/org/springframework/data/annotation/Id.java
 [azure_cosmos_db_partition]: /azure/cosmos-db/partition-data
-[address_repository_it_test]: https://github.com/Azure/azure-sdk-for-java/blob/spring-cloud-azure_4.3.0/sdk/cosmos/azure-spring-data-cosmos-test/src/test/java/com/azure/spring/data/cosmos/repository/integration/AddressRepositoryIT.java
+[address_repository_it_test]: https://github.com/Azure/azure-sdk-for-java/blob/spring-cloud-azure_4.4.0/sdk/cosmos/azure-spring-data-cosmos-test/src/test/java/com/azure/spring/data/cosmos/repository/integration/AddressRepositoryIT.java
 [azure_spring_data_cosmos_docs]: /azure/cosmos-db/sql-api-sdk-java-spring-v3
 [spring_data_custom_query]: https://docs.spring.io/spring-data/commons/docs/current/reference/html/#repositories.query-methods.details
 [sql_queries_in_cosmos]: /azure/cosmos-db/tutorial-query-sql-api
