@@ -264,7 +264,7 @@ If credential information changes, you can update it here. For example, if the A
 
 ### OAuth authorized apps
 
-When you set up continuous deployment, you authorized Azure Container Apps as an authorized OAuth App. Container Apps uses the authorized access to create a GitHub Actions YML file in *.github/workflows/\<workflow-name>.yml* when you set up continuous deployment. You can revoke this permission by going to the settings of your GitHub user profile. Under **Integrations**/**Applications**, you can see your authorized apps.
+When you set up continuous deployment, you authorize Azure Container Apps as an authorized OAuth App for your GitHub account. Container Apps uses the authorized access to create a GitHub Actions YML file in *.github/workflows/\<workflow-name>.yml* when you set up continuous deployment. You can see your authorized apps and revoke permissions under **Integrations**/**Applications** of your account.
 
 :::image type="content" source="media/tutorial-container-apps/github-authorized-oauth-apps.png" alt-text="Screenshot showing how to see the authorized apps for a user in GitHub." lightbox="media/tutorial-container-apps/github-authorized-oauth-apps.png":::
 
