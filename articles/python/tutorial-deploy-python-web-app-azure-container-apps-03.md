@@ -295,20 +295,19 @@ Website doesn't show changes you merged in the *main* branch.
 
 What happens when I disconnect continuous deployment?
 
-* Stopping continuous deployment means disconnecting your container app from your repo.
+* Stopping continuous deployment means disconnecting your container app from your repo. To disconnect:
 
-* How to disconnect:
-  * In Azure portal: go the container app, select the **Continuous deployment** resource, select **Disconnect**.
-  * With the Azure CLI: use the [az container app github-action remove][6] command.
-
-* After disconnecting, in Azure:
-  * The container is left with last deployed container. You can reconnect the container app with the Azure Container Registry, so that new revisions pick up the latest image.
-  * Service principals created and used for continuous deployment aren't deleted.
+  * In Azure portal, go the container app, select the **Continuous deployment** resource, select **Disconnect**.
+  * With the Azure CLI, use the [az container app github-action remove][6] command.
 
 * After disconnecting, in your GitHub repo:
   * The *.github/workflows/\<workflow-name>.yml* file is removed from your repo.
   * Secret keys aren't removed.
-  * Azure Container Apps remains as an authorized OAuth App in your GitHub account.
+  * Azure Container Apps remains as an authorized OAuth App for your GitHub account.
+
+* After disconnecting, in Azure:
+  * The container is left with last deployed container. You can reconnect the container app with the Azure Container Registry, so that new container revisions pick up the latest image.
+  * Service principals created and used for continuous deployment aren't deleted.
 
 [1]: https://github.com/Azure-Samples/msdocs-python-django-azure-container-app
 [2]: https://github.com/Azure-Samples/msdocs-python-flask-azure-container-app
