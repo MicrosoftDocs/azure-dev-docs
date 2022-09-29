@@ -41,7 +41,7 @@ The following steps show you how to find the WLS with Admin Server offer and fil
 
 1. On the **Basics** pane, ensure the value shown in the **Subscription** field is the same one that has the roles listed in the prerequisites section.
 
-1. The offer must be deployed in an empty resource group. In the **Resource group** field, select **Create new** and fill in a value for the resource group. Because resource groups must be unique within a subscription, pick a unique name. An easy way to have unique names is to use a combination of your initials, todays date, and some identifier. For example, *ejb0802wls*.
+1. The offer must be deployed in an empty resource group. In the **Resource group** field, select **Create new** and fill in a value for the resource group. Because resource groups must be unique within a subscription, pick a unique name. An easy way to have unique names is to use a combination of your initials, today's date, and some identifier. For example, *ejb0802wls*.
 
 1. Under **Instance details**, select the region for the deployment. For a list of Azure regions how and where VMs operate, see [Regions for virtual machines in Azure](/azure/virtual-machines/regions).
 
@@ -93,7 +93,7 @@ The steps in this section show you how to create SSH key from the Azure portal a
 1. Fill in *ejb0802sshkey-for-wls-machine* for **Key pair name**.
 1. Under **SSH public key source**, select **Generate new key pair**.
 
-When you've completed the validation, select **Create**. You'll then get a pop-up window. Select **Download private key and create resource**. This will download the SSH key as a *.pem* file.
+When you've completed the validation, select **Create**. You'll then get a pop-up window. Select **Download private key and create resource**, which will download the SSH key as a *.pem* file.
 
 After the SSH key deployment completed, get back to the WLS deployment and follow these steps to provide values:
 
@@ -105,7 +105,7 @@ After the SSH key deployment completed, get back to the WLS deployment and follo
 
 This option allows you to private an SSH public key for VM authentication.
 
-If you don't have an SSH key, you can follow [Create an SSH key pair](/azure/virtual-machines/linux/mac-create-ssh-keys#create-an-ssh-key-pair) to create a key pair using RSA encryption and a bit length of 4096. Note that Azure currently supports SSH protocol 2 (SSH-2) RSA public-private key pairs with a minimum length of 2048 bits.
+If you don't have an SSH key, you can follow [Create an SSH key pair](/azure/virtual-machines/linux/mac-create-ssh-keys#create-an-ssh-key-pair) to create a key pair using RSA encryption and a bit length of 4096. Azure currently supports SSH protocol 2 (SSH-2) RSA public-private key pairs with a minimum length of 2048 bits.
 
 You can display your public key with the following `cat` command, replacing `~/.ssh/id_rsa.pub` with the path and filename of your own public key file if needed:
 
