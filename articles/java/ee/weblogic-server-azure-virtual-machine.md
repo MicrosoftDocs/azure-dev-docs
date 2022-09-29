@@ -27,13 +27,13 @@ This quickstart assumes a basic understanding of WLS concepts. For more informat
 
 The steps in this section direct you to deploy WLS on VM in the simplest possible way: using the [single node with an admin server](https://aka.ms/wls-vm-admin) offer. Other offers are available to meet different scenarios, including: [single node without an admin server](https://aka.ms/wls-vm-singlenode), [cluster](https://aka.ms/wls-vm-cluster), and [dynamic cluster](https://aka.ms/wls-vm-dynamic-cluster). For more information, see [What are solutions for running Oracle WebLogic Server on Azure Virtual Machines?](/azure/virtual-machines/workloads/oracle/oracle-weblogic).
 
-:::image type="content" source="media/weblogic-server-azure-virtual-machine/portal-start-experience.png" alt-text="Screenshot of Azure portal showing Create WebLogic Server With Admin Server.":::
+:::image type="content" source="media/weblogic-server-azure-virtual-machine/portal-start-experience.png" alt-text="Screenshot of Azure portal showing Create WebLogic Server With Admin Server." lightbox="media/weblogic-server-azure-virtual-machine/portal-start-experience.png":::
 
 The following steps show you how to find the WLS with Admin Server offer and fill out the **Basics** pane.
 
 1. In the search bar at the top of the portal, enter *weblogic*. In the auto-suggested search results, in the **Marketplace** section, select **Oracle WebLogic Server With Admin Server**.
 
-  :::image type="content" source="media/weblogic-server-azure-virtual-machine/search-weblogic-admin-offer-from-portal.png" alt-text="Screenshot of Azure portal showing WLS in search results.":::
+  :::image type="content" source="media/weblogic-server-azure-virtual-machine/search-weblogic-admin-offer-from-portal.png" alt-text="Screenshot of Azure portal showing WLS in search results." lightbox="media/weblogic-server-azure-virtual-machine/search-weblogic-admin-offer-from-portal.png":::
 
   You can also go directly to the offer with this [portal link](https://aka.ms/wls-vm-admin).
 
@@ -76,7 +76,7 @@ Follow these steps to provide values for the WLS deployment:
 
 When you've completed the offer validation, select **Create**. You'll then get a pop-up window. Select **Download private key and create resource**, which will download the SSH key as a *.pem* file.
 
-:::image type="content" source="media/weblogic-server-azure-virtual-machine/download-private-key-and-create-resources.png" alt-text="Screenshot of showing option to download private key and create resource.":::
+:::image type="content" source="media/weblogic-server-azure-virtual-machine/download-private-key-and-create-resources.png" alt-text="Screenshot showing the option to download private key and create resource.":::
 
 Once the *.pem* file is downloaded, you might want to move it somewhere on your computer where it's easy to reference from your SSH client.
 
@@ -146,7 +146,7 @@ If you navigated away from the **Deployment is in progress** page, the following
 1. In the left navigation pane, in the **Settings** section, select **Deployments**. You'll see an ordered list of the deployments to this resource group, with the most recent one first.
 1. Scroll to the oldest entry in this list. This entry corresponds to the deployment you started in the preceding section. Select the oldest deployment, as shown here.
 
-   :::image type="content" source="media/weblogic-server-azure-virtual-machine/resource-group-deployments.png" alt-text="Azure portal screenshot showing the resource group deployments list.":::
+   :::image type="content" source="media/weblogic-server-azure-virtual-machine/resource-group-deployments.png" alt-text="Azure portal screenshot showing the resource group deployments list." lightbox="media/weblogic-server-azure-virtual-machine/resource-group-deployments.png":::
 
 1. In the left panel, select **Outputs**. This list shows the output values from the deployment. Useful information is included in the outputs.
 1. The **sshCommand** value is the fully qualified, SSH command to connect the VM that runs WLS. Select the copy icon next to the field value to copy the link to your clipboard. Save this value aside for later.
@@ -166,7 +166,7 @@ Use the following steps to run a sample application in the WLS.
 
 1. Under **Change Center** on the top left corner, select **Lock & Edit**, as shown in the following screenshot.
 
-   :::image type="content" source="media/weblogic-server-azure-virtual-machine/admin-console-portal.png" alt-text="Screenshot of Oracle WebLogic Server Administration Console with Lock & Edit button highlighted.":::
+   :::image type="content" source="media/weblogic-server-azure-virtual-machine/admin-console-portal.png" alt-text="Screenshot of Oracle WebLogic Server Administration Console with Lock & Edit button highlighted." lightbox="media/weblogic-server-azure-virtual-machine/admin-console-portal.png":::
 
 1. Under **Domain Structure** on the left side, select **Deployments**.
 
