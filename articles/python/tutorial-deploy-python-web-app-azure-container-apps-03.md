@@ -309,6 +309,18 @@ What happens when I disconnect continuous deployment?
   * The container is left with last deployed container. You can reconnect the container app with the Azure Container Registry, so that new container revisions pick up the latest image.
   * Service principals created and used for continuous deployment aren't deleted.
 
+## Next steps
+
+After completing this tutorial, here are some next steps you can take.
+
+* If you are done with the tutorial and don't want to incur costs, remove the resources used. Removing the resource group removes all resources in the resource group and is the fastest way to remove all Azure resources used for your app. For steps on how to do delete, see [Containerize tutorial cleanup][25].
+
+* [Set scaling rules in Azure Container Apps][22]
+
+* [Bind custom domain names and certificates in Azure Container Apps][23]
+
+* [Monitor an app in Azure Container Apps][24]
+
 [1]: https://github.com/Azure-Samples/msdocs-python-django-azure-container-app
 [2]: https://github.com/Azure-Samples/msdocs-python-flask-azure-container-app
 [3]: https://portal.azure.com/
@@ -330,3 +342,7 @@ What happens when I disconnect continuous deployment?
 [19]: https://docs.github.com/actions/security-guides/encrypted-secrets
 [20]: /azure/developer/github/github-actions
 [21]: /azure/active-directory/fundamentals/service-accounts-principal
+[22]: /azure/container-apps/scale-app
+[23]: /azure/container-apps/custom-domains-certificates
+[24]: /azure/container-apps/monitor
+[25]: /azure/developer/python/tutorial-containerize-deploy-python-web-app-azure-05

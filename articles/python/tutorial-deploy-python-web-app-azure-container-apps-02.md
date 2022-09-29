@@ -820,6 +820,11 @@ Here's an example of the sample website after adding a restaurant and two review
     * If "Provisioning", then wait until provisioning has completed.
     * If "Failed", then select the revision and view the console logs. Choose the order of the columns to show "Time Generated", "Stream_s", and "Log_s". Sort the logs by most-recent first and look for Python *stderr* and *stdout* messages in the "Stream_s" column. Python 'print' output will be *stdout* messages.
 
+## Next step
+
+> [!div class="nextstepaction"]
+> [Configure continuous deployment](tutorial-deploy-python-web-app-azure-container-apps-03.md)
+
 [1]: https://github.com/Azure-Samples/msdocs-python-django-azure-container-app
 [2]: https://github.com/Azure-Samples/msdocs-python-flask-azure-container-app
 [3]: https://portal.azure.com/

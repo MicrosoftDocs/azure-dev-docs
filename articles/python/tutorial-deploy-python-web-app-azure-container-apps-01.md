@@ -85,6 +85,11 @@ The Python sample app is a restaurant review app that saves restaurant and revie
 
 :::image type="content" source="./media/tutorial-container-apps/containerization-of-python-web-app-sample-app-screenshot.png" alt-text="A screenshot of the sample app created from the Python containerized web app used in the Tutorial - Containerized Python App on Azure." lightbox="./media/tutorial-container-apps/containerization-of-python-web-app-sample-app-screenshot.png":::
 
+## Next step
+
+> [!div class="nextstepaction"]
+> [Build and deploy to Azure Container Apps](tutorial-deploy-python-web-app-azure-container-apps-02.md)
+
 [1]: https://www.docker.com/
 [2]: /azure/container-apps/
 [3]: /azure/container-registry
