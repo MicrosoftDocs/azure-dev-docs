@@ -311,9 +311,9 @@ What happens when I disconnect continuous deployment?
 
 ## Next steps
 
-After completing this tutorial, here are some next steps you can take.
+If you are done with the tutorial and don't want to incur costs, remove the resources used. Removing the resource group removes all resources in the resource group and is the fastest way to remove all Azure resources used for your app. For steps on how to do delete, see [Containerize tutorial cleanup][25].
 
-* If you are done with the tutorial and don't want to incur costs, remove the resources used. Removing the resource group removes all resources in the resource group and is the fastest way to remove all Azure resources used for your app. For steps on how to do delete, see [Containerize tutorial cleanup][25].
+If you plan on building on this tutorial, here are some next steps you can take.
 
 * [Set scaling rules in Azure Container Apps][22]
 
