@@ -29,7 +29,7 @@ To set up continuous deployment, you'll need:
 
 * Optionally, [Git][14] installed in your development environment to make code changes and push to your repo in GitHub. Alternatively, you can make the changes directly in GitHub with a patch.
 
-## Configure CD for the container
+## Configure CD for a container
 
 In a previous article of this tutorial, you created and configured a container app in Azure Container Apps. Part of the configuration was pulling a Docker image from an Azure Container Registry. The container image is pulled from the registry when creating a container [*revision*][5], such as when you first set up the container app.
 
@@ -219,7 +219,7 @@ The push of changes to the *main* branch kicks off the GitHub Actions workflow.
 > [!NOTE]
 > We showed making a change directly in the *main* branch. In typical software workflows, you'll make a change in a branch other than *main* and then create a pull request (PR) to merge those change into *main*. The PR will also kick off the workflow.
 
-## GitHub Actions workflow details
+## GitHub Actions workflow
 
 ### Viewing workflow history
 
