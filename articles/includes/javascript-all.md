@@ -232,7 +232,7 @@
 | Resource Management - Scvmm | npm [1.0.0-beta.2](https://www.npmjs.com/package/@azure/arm-scvmm/v/1.0.0-beta.2) | [docs](/javascript/api/overview/azure/arm-scvmm-readme) | GitHub [1.0.0-beta.2](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-scvmm_1.0.0-beta.2/sdk/scvmm/arm-scvmm/) |
 | Resource Management - Search | npm [3.0.1](https://www.npmjs.com/package/@azure/arm-search/v/3.0.1) | [docs](/javascript/api/overview/azure/arm-search-readme) | GitHub [3.0.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/search/arm-search) |
 | Resource Management - Security | npm [5.0.0](https://www.npmjs.com/package/@azure/arm-security/v/5.0.0)<br>npm [6.0.0-beta.1](https://www.npmjs.com/package/@azure/arm-security/v/6.0.0-beta.1) | [docs](/javascript/api/overview/azure/arm-security-readme) | GitHub [5.0.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/security/arm-security) |
-| Resource Management - Securityinsight | npm [1.0.0-beta.4](https://www.npmjs.com/package/@azure/arm-securityinsight/v/1.0.0-beta.4) | [docs](/javascript/api/overview/azure/arm-securityinsight-readme) | GitHub [1.0.0-beta.4](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-securityinsight_1.0.0-beta.4/sdk/securityinsight/arm-securityinsight/) |
+| Resource Management - Securityinsight | npm [1.0.0-beta.5](https://www.npmjs.com/package/@azure/arm-securityinsight/v/1.0.0-beta.5) | [docs](/javascript/api/overview/azure/arm-securityinsight-readme) | GitHub [1.0.0-beta.5](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-securityinsight_1.0.0-beta.5/sdk/securityinsight/arm-securityinsight/) |
 | Resource Management - Serial Console | npm [2.0.1](https://www.npmjs.com/package/@azure/arm-serialconsole/v/2.0.1) | [docs](/javascript/api/overview/azure/arm-serialconsole-readme) | GitHub [2.0.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/serialconsole/arm-serialconsole) |
 | Resource Management - Service Bus | npm [6.0.0](https://www.npmjs.com/package/@azure/arm-servicebus/v/6.0.0) | [docs](/javascript/api/overview/azure/arm-servicebus-readme) | GitHub [6.0.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/servicebus/arm-servicebus) |
 | Resource Management - Service Fabric Mesh | npm [2.2.1](https://www.npmjs.com/package/@azure/arm-servicefabricmesh/v/2.2.1)<br>npm [3.0.0-beta.3](https://www.npmjs.com/package/@azure/arm-servicefabricmesh/v/3.0.0-beta.3) | [docs](/javascript/api/overview/azure/arm-servicefabricmesh-readme) | GitHub [2.2.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/servicefabricmesh/arm-servicefabricmesh) |
@@ -266,7 +266,7 @@
 | @autorest/codemodel | npm [4.19.2](https://www.npmjs.com/package/@autorest/codemodel/v/4.19.2) |  |  |
 | @autorest/common | npm [1.5.4](https://www.npmjs.com/package/@autorest/common/v/1.5.4) |  |  |
 | @autorest/configuration | npm [1.10.1](https://www.npmjs.com/package/@autorest/configuration/v/1.10.1) |  |  |
-| @autorest/csharp | npm [3.0.0-beta.20220926.1](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20220926.1) |  |  |
+| @autorest/csharp | npm [3.0.0-beta.20220927.1](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20220927.1) |  |  |
 | @autorest/csharp-v3 | npm [3.0.0-beta.20201217.1](https://www.npmjs.com/package/@autorest/csharp-v3/v/3.0.0-beta.20201217.1) |  |  |
 | @autorest/extension-base | npm [3.5.0](https://www.npmjs.com/package/@autorest/extension-base/v/3.5.0) |  |  |
 | @autorest/fixer | npm [1.1.0](https://www.npmjs.com/package/@autorest/fixer/v/1.1.0) |  |  |
@@ -294,6 +294,7 @@
 | @azure/video-analyzer-widgets | npm [2.0.6](https://www.npmjs.com/package/@azure/video-analyzer-widgets/v/2.0.6) |  |  |
 | @azure/video-indexer-widgets | npm [1.0.0](https://www.npmjs.com/package/@azure/video-indexer-widgets/v/1.0.0) |  |  |
 | @azure-rest/arm-appservice | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure-rest/arm-appservice/v/1.0.0-beta.1) |  |  |
+| @azure-rest/arm-compute | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure-rest/arm-compute/v/1.0.0-beta.1) |  |  |
 | @azure-rest/arm-containerservice | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure-rest/arm-containerservice/v/1.0.0-beta.1) |  |  |
 | @azure-rest/arm-servicefabric | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure-rest/arm-servicefabric/v/1.0.0-beta.1) |  |  |
 | @azure-rest/core-client-lro | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure-rest/core-client-lro/v/1.0.0-beta.1) |  |  |
@@ -311,11 +312,11 @@
 | @azure-tools/cadl-providerhub | npm [0.21.0](https://www.npmjs.com/package/@azure-tools/cadl-providerhub/v/0.21.0) |  |  |
 | @azure-tools/cadl-providerhub-controller | npm [0.16.0](https://www.npmjs.com/package/@azure-tools/cadl-providerhub-controller/v/0.16.0) |  |  |
 | @azure-tools/cadl-python | npm [0.2.5](https://www.npmjs.com/package/@azure-tools/cadl-python/v/0.2.5) |  |  |
-| @azure-tools/cadl-ranch | npm [0.2.0](https://www.npmjs.com/package/@azure-tools/cadl-ranch/v/0.2.0) |  |  |
+| @azure-tools/cadl-ranch | npm [0.2.1](https://www.npmjs.com/package/@azure-tools/cadl-ranch/v/0.2.1) |  |  |
 | @azure-tools/cadl-ranch-api | npm [0.1.9](https://www.npmjs.com/package/@azure-tools/cadl-ranch-api/v/0.1.9) |  |  |
 | @azure-tools/cadl-ranch-coverage-sdk | npm [0.1.1](https://www.npmjs.com/package/@azure-tools/cadl-ranch-coverage-sdk/v/0.1.1) |  |  |
-| @azure-tools/cadl-ranch-expect | npm [0.1.9](https://www.npmjs.com/package/@azure-tools/cadl-ranch-expect/v/0.1.9) |  |  |
-| @azure-tools/cadl-ranch-specs | npm [0.2.0](https://www.npmjs.com/package/@azure-tools/cadl-ranch-specs/v/0.2.0) |  |  |
+| @azure-tools/cadl-ranch-expect | npm [0.1.10](https://www.npmjs.com/package/@azure-tools/cadl-ranch-expect/v/0.1.10) |  |  |
+| @azure-tools/cadl-ranch-specs | npm [0.3.0](https://www.npmjs.com/package/@azure-tools/cadl-ranch-specs/v/0.3.0) |  |  |
 | @azure-tools/cadl-rest | npm [0.4.1](https://www.npmjs.com/package/@azure-tools/cadl-rest/v/0.4.1) |  |  |
 | @azure-tools/cadl-rpaas | npm [0.11.0](https://www.npmjs.com/package/@azure-tools/cadl-rpaas/v/0.11.0) |  |  |
 | @azure-tools/cadl-rpaas-controller | npm [0.7.0](https://www.npmjs.com/package/@azure-tools/cadl-rpaas-controller/v/0.7.0) |  |  |
@@ -697,7 +698,7 @@
 | Resource Management - Scvmm | npm [1.0.0-beta.2](https://www.npmjs.com/package/@azure/arm-scvmm/v/1.0.0-beta.2) | [docs](/javascript/api/overview/azure/arm-scvmm-readme) | GitHub [1.0.0-beta.2](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-scvmm_1.0.0-beta.2/sdk/scvmm/arm-scvmm/) |
 | Resource Management - Search | npm [3.0.1](https://www.npmjs.com/package/@azure/arm-search/v/3.0.1) | [docs](/javascript/api/overview/azure/arm-search-readme) | GitHub [3.0.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/search/arm-search) |
 | Resource Management - Security | npm [5.0.0](https://www.npmjs.com/package/@azure/arm-security/v/5.0.0)<br>npm [6.0.0-beta.1](https://www.npmjs.com/package/@azure/arm-security/v/6.0.0-beta.1) | [docs](/javascript/api/overview/azure/arm-security-readme) | GitHub [5.0.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/security/arm-security) |
-| Resource Management - Securityinsight | npm [1.0.0-beta.4](https://www.npmjs.com/package/@azure/arm-securityinsight/v/1.0.0-beta.4) | [docs](/javascript/api/overview/azure/arm-securityinsight-readme) | GitHub [1.0.0-beta.4](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-securityinsight_1.0.0-beta.4/sdk/securityinsight/arm-securityinsight/) |
+| Resource Management - Securityinsight | npm [1.0.0-beta.5](https://www.npmjs.com/package/@azure/arm-securityinsight/v/1.0.0-beta.5) | [docs](/javascript/api/overview/azure/arm-securityinsight-readme) | GitHub [1.0.0-beta.5](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-securityinsight_1.0.0-beta.5/sdk/securityinsight/arm-securityinsight/) |
 | Resource Management - Serial Console | npm [2.0.1](https://www.npmjs.com/package/@azure/arm-serialconsole/v/2.0.1) | [docs](/javascript/api/overview/azure/arm-serialconsole-readme) | GitHub [2.0.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/serialconsole/arm-serialconsole) |
 | Resource Management - Service Bus | npm [6.0.0](https://www.npmjs.com/package/@azure/arm-servicebus/v/6.0.0) | [docs](/javascript/api/overview/azure/arm-servicebus-readme) | GitHub [6.0.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/servicebus/arm-servicebus) |
 | Resource Management - Service Fabric Mesh | npm [2.2.1](https://www.npmjs.com/package/@azure/arm-servicefabricmesh/v/2.2.1)<br>npm [3.0.0-beta.3](https://www.npmjs.com/package/@azure/arm-servicefabricmesh/v/3.0.0-beta.3) | [docs](/javascript/api/overview/azure/arm-servicefabricmesh-readme) | GitHub [2.2.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/servicefabricmesh/arm-servicefabricmesh) |
