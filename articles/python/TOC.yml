@@ -113,6 +113,8 @@
       items:
         - name: Overview
           href: tutorial-deploy-python-web-app-azure-container-apps-01.md
+        - name: Build and deploy a container app
+          href: tutorial-deploy-python-web-app-azure-container-apps-02.md
     - name: Deploy a Kubernetes cluster
       href: /azure/aks/learn/quick-kubernetes-deploy-cli?toc=/azure/developer/python/toc.json&bc=/azure/developer/python/breadcrumb/toc.json
 
