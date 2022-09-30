@@ -45,7 +45,8 @@ A mac is required to compile the iOS version.
 
 ::: zone pivot="vs2022-mac"
 
-* [Visual Studio 2022 for Mac](/visualstudio/mac/installation?view=vsmac-2022&preserve-view=true)
+* [Visual Studio 2022 for Mac](https://visualstudio.microsoft.com/vs/mac/preview/)
+  * Version 17.3 does not support .NET MAUI.  Please use the Preview (17.4) version of Visual Studio 2022 for Mac.
 * An [Azure account](https://azure.microsoft.com/pricing/free-trial).
 * The [Azure CLI](/cli/azure/install-azure-cli).
   * Sign in with `az login` and select an appropriate subscription before starting.
@@ -144,6 +145,36 @@ Once the app has started, you'll see an empty list and a text box to add items i
 
 ::: zone pivot="vs2022-mac"
 
+1. In the solutions explorer, expand the `maui` folder.
+2. Right-click the `TodoApp.MAUI` project and select **Set as Startup Project**.
+3. In the top bar, select an appropriate Android emulator:
+
+   ![Screenshot showing how to set the run configuration for a dot net maui for Android app.](./media/mac-android-configuration.png)
+
+4. If no Android emulators are available, you need to create one.  For more information, see [Android emulator setup](/xamarin/android/get-started/installation/android-emulator/).  To create a new Android emulator:
+
+   * Select **Tools** > **Device Manager**.
+   * Select **+ New Device**.
+   * Select the following options on the left-hand side:
+     * Name: `quickstart`
+     * Base Device: **Pixel 5**
+     * Processor: **arm64-v8A**
+     * OS: **Android 11.0 - API 30**
+     * Google APIs: **Checked**
+   * Select **Create**.
+   * If necessary, accept the license agreement.  The image will then be downloaded.
+   * Once the **Play** button appears, press **Play**.
+
+5. Press **F5** to build and run the project.
+
+Once the app has started, you'll see an empty list and a text box to add items in the emulator.  You can:
+
+* Enter some text in the box, then press Enter to insert a new item.
+* Select an item to set or clear the completed flag.
+* Press the refresh icon to reload data from the service.
+
+![Screenshot of the running Android app showing the to do list.](./media/android-running-app.png)
+
 ::: zone-end
 
 ::: zone pivot="vs2022-windows"
@@ -155,6 +186,8 @@ Once the app has started, you'll see an empty list and a text box to add items i
 3. In the top bar, select **Windows Machine**.
 
    ![Screenshot showing how to set the run configuration for a dot net maui for windows app.](./media/win-windows-configuration.png)
+
+   If you do not see an Android device, select **Manage Android Devices...**
 
 4. Press **F5** to build and run the project.
 
@@ -172,6 +205,21 @@ Once the app has started, you'll see an empty list and a text box to add items i
 
 ## Build and run the iOS app
 
+1. In the solutions explorer, expand the `maui` folder.
+2. Right-click the `TodoApp.MAUI` project and select **Set as Startup Project**.
+3. In the top bar, select an appropriate iOS simulator:
+
+   ![Screenshot showing how to set the run configuration for a dot net maui for iOS app.](./media/mac-ios-configuration.png)
+
+4. Press **F5** to build and run the project.
+
+Once the app has started, you'll see an empty list and a text box to add items in the emulator.  You can:
+
+* Enter some text in the box, then press Enter to insert a new item.
+* Select an item to set or clear the completed flag.
+* Press the refresh icon to reload data from the service.
+
+![Screenshot of the running iOS app showing the to do list.](./media/ios-running-app.png)
 
 ::: zone-end
 
