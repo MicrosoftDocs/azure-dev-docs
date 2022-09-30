@@ -19,7 +19,7 @@ In this tutorial you'll:
 
 * Build a [Docker][1] container image from a Python web app and store the image in [Azure Container Registry][3].
 * Configure [Azure Container Apps][2] to host the container image.
-* Set up a [GitHub Actions][6] workflow that updates the container image when changes are checked into a specified GitHub repo and branch. *This step is optional.*
+* Set up a [GitHub Actions][6] workflow that creates a new container image and updates the container app when changes are checked into a specified GitHub repo and branch. *This step is optional.*
 
 Following this tutorial, you'll be set up for Continuous Integration (CI) and Continuous Deployment (CD) of a Python web app to Azure.
 
@@ -49,15 +49,17 @@ The components supporting this tutorial and shown in the diagram above are:
 
 ## Revisions and CI/CD
 
-To make code changes and push them to the container, you create a new container image with the change. Then, you push the image to Container Registry, and create a new [revision](/azure/container-apps/revisions) of the container app. To automate this process, an optional step in the tutorial shows you how to build a continuous integration and continuous delivery (CI/CD) pipeline with GitHub actions. The pipeline automatically builds and deploys your code to the Container App. 
+To make code changes and push them to a container app, create a new container image with the changes and push the image to Azure Container Registry. Then, create a new [revision](/azure/container-apps/revisions) of the container app that uses the new container image.
+
+To automate this process, an optional step in the tutorial shows you how to build a continuous integration and continuous deployment (CI/CD) pipeline with [GitHub Actions][6]. A GitHub Actions workflow automatically builds and deploys your code to the Azure Container Apps when changes are made to a specified GitHub repository.
 
 ## Authentication and security
 
-In this tutorial, you'll build a Docker container image directly in Azure and deploy it to Azure Container Apps. Container Apps run in the context of an environment, which is supported by an Azure Virtual Networks (VNet). VNets are a fundamental building block for your private network in Azure. Container Apps allows you to expose your container app to the public web by enabling ingress. 
+In this tutorial, you'll build a Docker container image directly in Azure and deploy it to Azure Container Apps. Container Apps run in the context of an [*environment*][18], which is supported by an [Azure Virtual Networks (VNet)][19]. VNets are a fundamental building block for your private network in Azure. Container Apps allows you to expose your container app to the public web by enabling ingress.
 
-To set up continuous integration and continuous delivery (CI/CD), you'll connect Container App to a GitHub account, repository, and branch. In addition, you'll create an Azure Active Directory service principal (or using an existing) context with role-based access control.
+To set up continuous integration and continuous delivery (CI/CD), you'll authorize Azure Container Apps as an [OAuth App][20] for your GitHub account. As an OAuth App, Container Apps writes a GitHub Actions workflow file to your repo with information about Azure resources and jobs to update them. The workflow updates Azure resources using credentials of an Azure Active Directory service principal (or existing one) with role-based access for Container Apps and username and password for Azure Container Registry. Credentials are stored securely in your GitHub repo.
 
-The tutorial sample web app uses PostgreSQL to store data. The sample code connects to PostgreSQL via a connection string. During the configuration of the Container App, the tutorial walks you through the service connector.
+Finally, the tutorial sample web app stores data in a PostgreSQL database. The sample code connects to PostgreSQL via a connection string. During the configuration of the Container App, the tutorial walks you through setting up environment variables containing connection information. You can also use an Azure Service Connector to accomplish the same thing.
 
 ## Prerequisites
 
@@ -65,7 +67,7 @@ To complete this tutorial, you'll need:
 
 * An Azure account where you can create:
   * Azure Container Registry
-  * Azure Container App environment
+  * Azure Container Apps environment
   * Azure Database for PostgreSQL
 
 * [Visual Studio Code][16] or [Azure CLI][17], depending on what tool you'll use
@@ -74,7 +76,7 @@ To complete this tutorial, you'll need:
 
 * Python packages:
   * [pyscopg2-binary][12] for connecting to PostgreSQL.
-  * [Flask][10] or [Django][11] \web framework.
+  * [Flask][10] or [Django][11] web framework.
 
 ## Sample app
 
@@ -101,3 +103,6 @@ The Python sample app is a restaurant review app that saves restaurant and revie
 [13]: https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurecontainerapps
 [16]: https://code.visualstudio.com/
 [17]: /cli/azure/what-is-azure-cli
+[18]: /azure/container-apps/environment
+[19]: /azure/virtual-network/virtual-networks-overview
+[20]: https://docs.github.com/authentication/keeping-your-account-and-data-secure/authorizing-oauth-apps
