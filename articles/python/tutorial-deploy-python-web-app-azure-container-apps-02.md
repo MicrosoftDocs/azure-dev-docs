@@ -114,7 +114,7 @@ After following these steps, you'll have an Azure Container Registry that contai
         ```
         Specify the registry name *\<registry-name>* and resource group you created above. For *\<repo-path>*, choose either the [Django][1] or [Flask][2] repo path.
 
-        Go to the registry's **Repositories** resource and confirm the image shows up.
+        After the command completes, go to the registry's **Repositories** resource and confirm the image shows up.
     :::column-end:::
 :::row-end:::
 
@@ -248,6 +248,8 @@ Azure CLI commands can be run in the [Azure Cloud Shell][4] or on a workstation 
         Note that:
 
         * The dot (".") at the end of the command indicates the location of the source code to build. If you aren't running this command in the sample app root directory, specify the path to the code.
+
+        * If you are running the command in Azure Cloud Shell, use `git clone` to pull the repo into the Cloud Shell environment first and change directory into the root of the project so that dot (".") is interpreted correctly.
 
         * If you leave out the `-t` (same as `--image`) option, the command queues a local context build without pushing it to the registry. Building without pushing can be useful to check that the image builds.
     :::column-end:::
