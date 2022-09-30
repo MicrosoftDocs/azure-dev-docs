@@ -18,7 +18,7 @@ The samples are located in the *samples* folder within the extracted files.  The
 
   ![Screenshot of the file explorer for the solution.](~/mobile-apps/azure-mobile-apps/media/quickstart/mac/deploy-sample-sln.png)
 
-When you open the sample for the first time, notice that certain projects aren't available.  For instance,Windows-specific projects (such as WPF and UWP) can't be compiled with Visual Studio 2022 for Mac.
+When you open the sample for the first time, notice that certain projects aren't available.  For example, Windows-specific projects (such as WPF and UWP) can't be compiled with Visual Studio 2022 for Mac.
 
 You can unload any project you aren't working with.  Expand the `windows` folder in the solution explorer.
 
