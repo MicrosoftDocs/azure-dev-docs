@@ -87,8 +87,7 @@
         "jenkins/**/*.md": "TomArcherMsft",
         "terraform/**/*.md": "TomArcherMsft",
         "javascript/**/*.md": "diberry",
-        "javascript/**/*.yml": "diberry",
-        "lab/**/*.md": "diberry"
+        "javascript/**/*.yml": "diberry"
       },
       "manager": {
         "**/*.md": "mcleans",
@@ -106,8 +105,7 @@
         "jenkins/**/*.md": "tarcher",
         "terraform/**/*.md": "tarcher",
         "javascript/**/*.md": "diberry",
-        "javascript/**/*.yml": "diberry",
-        "lab/**/*.md": "diberry"
+        "javascript/**/*.yml": "diberry"
       },
       "ms.devlang": {
         "java/**/*.md": "java",
@@ -122,8 +120,7 @@
         "ansible/**/*.md": "ansible",
         "chef/**/*.md": "chef",
         "jenkins/**/*.md": "jenkins",
-        "terraform/**/*.md": "terraform",
-        "lab/**/*.md": "azure"
+        "terraform/**/*.md": "terraform"
       },
       
       "titleSuffix": {
@@ -131,7 +128,6 @@
         "chef/**/*.yml" : "Chef",
         "jenkins/**/*.yml" : "Jenkins",
         "terraform/**/*.yml" : "Terraform",
-        "lab/**/*.md": "Dev Experience Lab",
         "javascript/**/*.md": "Azure"
         
       },
@@ -140,9 +136,6 @@
           "enable_tutorial_feedback"
         ],
         "javascript/tutorial/**/*": [
-          "enable_tutorial_feedback"
-        ],
-        "lab/**/*": [
           "enable_tutorial_feedback"
         ]
       },
