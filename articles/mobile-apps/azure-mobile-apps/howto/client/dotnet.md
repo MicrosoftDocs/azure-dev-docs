@@ -120,7 +120,7 @@ Part of the offline synchronization process involves pushing queued operations t
 
 #### SerializerSettings
 
-If you've changed the serializer settings on the datasync server, you'll also need to make the same changes to the `SerializerSettings` on
+If you've changed the serializer settings on the data sync server, you'll also need to make the same changes to the `SerializerSettings` on
 the client.  This option allows you to specify your own serializer settings.
 
 #### TableEndpointResolver
@@ -140,7 +140,7 @@ var options = new DatasyncClientOptions
 
 #### UserAgent
 
-The datasync client generates a suitable User-Agent header value based on the version of the library and the platform information.  Some developers
+The data sync client generates a suitable User-Agent header value based on the version of the library and the platform information.  Some developers
 feel this leaks information.  You can set the `UserAgent` property to any valid header value.
 
 ## Work with remote tables
@@ -551,7 +551,7 @@ Use the `client.PendingOperations` property to read the number of operations wai
 
 ### Run complex SQLite queries
 
-If you need to do complex SQL queries against the offline database, you can do so using the `ExecuteQueryAsync()` method.  For example, to do a `SQL JOIN` statement, define the return value form, then use `ExecuteQueryAsync()`:
+If you need to do complex SQL queries against the offline database, you can do so using the `ExecuteQueryAsync()` method.  For example, to do a `SQL JOIN` statement, define a `JObject` that shows the structure of the return value, then use `ExecuteQueryAsync()`:
 
 ``` csharp
 var definition = new JObject() 
