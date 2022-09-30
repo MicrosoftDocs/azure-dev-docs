@@ -107,13 +107,12 @@ After following these steps, you'll have an Azure Container Registry that contai
     :::column span="1":::
         **Step 6.** Use the [az acr build][5] command to build the image from the repo.
 
-        Specify the registry name *\<registry-name>* and resource group you created above. For *\<repo-path>*, choose either the [Django][1] or [Flask][2] repo path.
-
         ```bash
         az acr build --registry <registry-name> \
            --resource-group pythoncontainer-rg \ 
            --image pythoncontainer:latest <repo-path>
         ```
+        Specify the registry name *\<registry-name>* and resource group you created above. For *\<repo-path>*, choose either the [Django][1] or [Flask][2] repo path.
 
         Go to the registry's **Repositories** resource and confirm the image shows up.
     :::column-end:::
