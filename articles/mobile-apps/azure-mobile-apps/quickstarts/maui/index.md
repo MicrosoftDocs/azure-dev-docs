@@ -23,7 +23,7 @@ To complete this tutorial, you need:
 
 ::: zone pivot="vs2022-windows"
 
-* [Visual Studio 2022](/visualstudio/install/install-visual-studio?view=vs-2022&preserve-view=true) with the following workloads.
+* [Visual Studio 2022](/visualstudio/install/install-visual-studio?view=vs-2022&preserve-view=true) with the following workloads:
   * ASP.NET and web development
   * Azure development
   * Mobile development with .NET
@@ -49,7 +49,7 @@ A mac is required to compile the iOS version.
 * An [Azure account](https://azure.microsoft.com/pricing/free-trial).
 * The [Azure CLI](/cli/azure/install-azure-cli).
   * Sign in with `az login` and select an appropriate subscription before starting.
-* Install [XCode](https://itunes.apple.com/us/app/xcode/id497799835?mt=12)
+* Install [XCode](https://itunes.apple.com/us/app/xcode/id497799835?mt=12) v14.0 or later.
   * Open Xcode after installing so that it can add any extra required components.
   * Once open, select **XCode Preferences...** > **Components**, and install an iOS simulator.
 
@@ -168,13 +168,10 @@ Once the app has started, you'll see an empty list and a text box to add items i
 
 ::: zone-end
 
+::: zone pivot="vs2022-mac"
+
 ## Build and run the iOS app
 
-::: zone pivot="vs2022-windows"
-
-::: zone-end
-
-::: zone pivot="vs2022-mac"
 
 ::: zone-end
 
