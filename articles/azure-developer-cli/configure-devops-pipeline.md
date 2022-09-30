@@ -19,15 +19,20 @@ In this article, you'll push [Todo Application with Node.js and Azure Cosmos DB 
 - [Run `azd up` for the Node.js template](./get-started.md).
 - [Visual Studio Code](https://code.visualstudio.com/download) installed.
 
-[All templates](./azd-templates.md) include a GitHub Actions and Azure DevOps pipeline configuration file called `azure-dev.yml`, located in the `.github/workflow` directory and `azdo/pipeline` directory respectively. This configuration file deploys your app whenever code is pushed to the main branch.
+[All templates](./azd-templates.md) include a default GitHub Actions and Azure DevOps pipeline configuration file called `azure-dev.yml`. This configuration file provisions your Azure resources and deploy your code to the main branch. You can find `azure-dev.yml`:
+
+ - **For GitHub Actions:** in the `.github/workflow` directory.
+ - **For Azure DevOps:** in the `azdo/pipeline` directory. 
+ 
+You can use the configuration file as-is or modify it to suit your needs.
 
 Select your preferred pipeline provider to continue:
 
-## [GitHub Action](#tab/GitHub)
+## [GitHub Actions](#tab/GitHub)
 
-### Configure a DevOps pipeline
+### Authorize GitHub to deploy to Azure
 
-To configure the pipeline, you need to give GitHub permission to deploy to Azure on your behalf. Authorize GitHub by creating an Azure service principle stored in a GitHub secret named `AZURE_CREDENTIALS`.
+To configure the workflow, you need to give GitHub permission to deploy to Azure on your behalf. Authorize GitHub by creating an Azure service principle stored in a GitHub secret named `AZURE_CREDENTIALS`.
 
 1. Run the following command to create the Azure service principle and configure the pipeline:
 
@@ -76,11 +81,8 @@ To configure the pipeline, you need to give GitHub permission to deploy to Azure
 
 ## [Azure DevOps](#tab/azdo)
 
-### Configure a DevOps pipeline
 
-You will find a default Azure DevOps pipeline file in `./.azdo/pipelines/azure-dev.yml`. It will provision your Azure resources and deploy your code upon pushes and pull requests.
 
-You can use the file as-is or modify it to suit your needs.
 
 ### Create or use an existing Azure DevOps Organization
 
@@ -88,15 +90,15 @@ To run a pipeline in Azure DevOps, you'll need an Azure DevOps organization. You
 
 ### Create a Personal Access Token
 
-The Azure Developer CLI relies on an Azure DevOps Personal Access Token (PAT) to configure an Azure DevOps project. For instructions, refer to steps in [Use personal access tokens](/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate).
+The Azure Developer CLI relies on an Azure DevOps Personal Access Token (PAT) to configure an Azure DevOps project. [Create a new Azure DevOps PAT](/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate#create-a-pat).
 
-You will need the following scopes:
+When creating your PAT, set the following scopes:
 - Agent Pools (read, manage)
 - Build (read and execute)
 - Code (full)
 - Project and team (read, write and manage)
 - Release (read, write, execute and manage)
-- Service Endpoints (read, query and manage
+- Service Connections (read, query and manage)
 
 ### Invoke the Pipeline configure command
 
@@ -119,15 +121,37 @@ You will need the following scopes:
    azd pipeline config
    ````
 
-1. Supply the PAT. When prompted about storing the PAT in the .env file, specify `y` if you want to do so. If you say no, you will need to supply the value every time you run `azd pipeline config`. The recommended approach, is to export PAT as a system environment variable by running the following command:
+1. Provide your answers to the following prompts:
+
+    **Personal Access Token (PAT)**   
+          - Copy/paste your PAT. If using this approach, you'll need to supply the value every time you run `azd pipeline config`.
+          - Export your PAT as a system environment by running the following command (recommended):
 
    ```bash
    export AZURE_DEVOPS_EXT_PAT=<PAT>
    ```
 
-1. Next, provide the organization. An entry `AZURE_DEVOPS_ORG_NAME="<your Azure DevOps Org Name>"` is automatically added to the .env file for the current environment. 
+   **Please enter an Azure DevOps Organization Name**  
+   
+   Type [your AzDo organization](#create-or-use-an-existing-azure-devops-organization). Once you hit enter, `AZURE_DEVOPS_ORG_NAME="<your Azure DevOps Org Name>"` is automatically added to the .env file for the current environment. 
 
-1. You can verify that it is working by going to the Azure DevOps portal (https://dev.azure.com) and finding the project you just created.
+   **A remote named "origin" was not found. Would you like to configure one?**
+   
+   Yes
+   
+   **How would you like to configure your project?**
+   
+   Create a new Azure DevOps Project
+   
+   **Enter the name for your new Azure DevOps Project OR Hit enter to use this name: (<default name>)**
+   
+   Select **Enter**, or create a unique project name.
+   
+   **Would you  like to commit and push your local changes to start the configured CI pipeline?**
+   
+   Yes
+
+1. Navigate to your Azure DevOps portal (https://dev.azure.com) to find your project and verify the build.
 
 ### Make and push a code change
 
