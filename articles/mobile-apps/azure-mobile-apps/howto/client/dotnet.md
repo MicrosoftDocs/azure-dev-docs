@@ -116,7 +116,7 @@ The `OfflineStore` is used when configuring offline data access.  For more infor
 
 #### ParallelOperations
 
-Part of the offline synchronization process involves pushing queued operations to the remote server.  When the push operation is triggered, the operations are submitted in the order they were received.  You can, optionally, use up to eight threads to push these operations.  Parallel operations uses more resources on both client and server to complete the operation faster.  The order in which operations arrive at the server can't be guaranteed when using multiple threads. 
+Part of the offline synchronization process involves pushing queued operations to the remote server.  When the push operation is triggered, the operations are submitted in the order they were received.  You can, optionally, use up to eight threads to push these operations.  Parallel operations use more resources on both client and server to complete the operation faster.  The order in which operations arrive at the server can't be guaranteed when using multiple threads. 
 
 #### SerializerSettings
 
@@ -454,7 +454,7 @@ var dbPath = $"{Filesystem.AppDataDirectory}/todoitems.db";
 var store = new OfflineSQLiteStore($"file:/{dbPath}?mode=rwc");
 ```
 
-If you are using .NET MAUI, you can use the [.NET MAUI File System Helpers](/dotnet/maui/platform-integration/storage/file-system-helpers) to construct a path: For example:
+If you're using .NET MAUI, you can use the [.NET MAUI File System Helpers](/dotnet/maui/platform-integration/storage/file-system-helpers) to construct a path: For example:
 
 ``` csharp
 var dbPath = $"{Filesystem.AppDataDirectory}/todoitems.db";
@@ -819,7 +819,7 @@ public class SynchronizationEventArgs
 }
 ```
 
-The properties within `args` will be `null` or `-1` when they are not relevant to the synchronization event.
+The properties within `args` will be `null` or `-1` when the property isn't relevant to the synchronization event.
 
 <!-- NuGet Packages -->
 [Microsoft.Datasync.Client]: https://www.nuget.org/packages/Microsoft.Datasync.Client
