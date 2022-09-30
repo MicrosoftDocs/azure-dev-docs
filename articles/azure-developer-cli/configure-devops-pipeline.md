@@ -16,7 +16,7 @@ In this article, you'll push [Todo Application with Node.js and Azure Cosmos DB 
 ## Prerequisites
 
 - [Install the Azure Developer CLI](install-azd.md).
-- [Deploy `azd up` for the Node.js template](./get-started.md).
+- [Deploy the Node.js template](./get-started.md).
 - [Visual Studio Code](https://code.visualstudio.com/download) installed.
 
 [All templates](./azd-templates.md) include a default GitHub Actions and Azure DevOps pipeline configuration file called `azure-dev.yml`. This configuration file provisions your Azure resources and deploy your code to the main branch. You can find `azure-dev.yml`:
@@ -123,13 +123,8 @@ When creating your PAT, set the following scopes:
 
 1. Provide your answers to the following prompts:
 
-    **Personal Access Token (PAT)**   
-          - Copy/paste your PAT. If using this approach, you'll need to supply the value every time you run `azd pipeline config`.
-          - Export your PAT as a system environment by running the following command (recommended):
-
-   ```bash
-   export AZURE_DEVOPS_EXT_PAT=<PAT>
-   ```
+   **Personal Access Token (PAT)**   
+   Copy/paste your PAT. 
 
    **Please enter an Azure DevOps Organization Name**  
    
