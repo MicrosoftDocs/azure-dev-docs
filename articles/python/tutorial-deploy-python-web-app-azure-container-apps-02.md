@@ -13,7 +13,7 @@ ms.author: jejohn
 
 This article is part of a tutorial about how to containerize and deploy a Python web app to [Azure Container Apps][8]. Container Apps enable you to deploy containerized apps without managing complex infrastructure. 
 
-In this part of the tutorial, you learn how to containerize and deploy a Python sample web app (Django or Flask). Specifically, you'll build the container image in the cloud and deploy it to Azure Container Apps. You'll define environment variables that enable the container to connect to an [Azure Database for PostgreSQL - Flexible Server][10] instance, where the sample app stores data.
+In this part of the tutorial, you learn how to containerize and deploy a Python sample web app (Django or Flask). Specifically, you'll build the container image in the cloud and deploy it to Azure Container Apps. You'll define environment variables that enable the container app to connect to an [Azure Database for PostgreSQL - Flexible Server][10] instance, where the sample app stores data.
 
 The service diagram shown below highlights the components covered in this article: building and deploying a container image.
 
