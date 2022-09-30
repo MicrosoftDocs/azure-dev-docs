@@ -10,7 +10,7 @@ ms.author: adhal
 
 # How to use the Azure Mobile Apps client library for .NET
 
-This guide shows you how to perform common scenarios using the .NET client library for Azure Mobile Apps. Use the .NET client library in iOS, Android, .NET MAUI, Windows (WPF, UWP, Windows App SDK with WinUI 3), or Xamarin/Xamarin.Forms applications.  
+This guide shows you how to perform common scenarios using the .NET client library for Azure Mobile Apps. Use the .NET client library in iOS, Android, .NET MAUI, Windows (WPF, UWP, Windows App SDK with WinUI 3), or Xamarin applications.  
 
 If you're new to Azure Mobile Apps, consider first completing one of the quickstart tutorials:
 
@@ -20,7 +20,7 @@ If you're new to Azure Mobile Apps, consider first completing one of the quickst
 * [Xamarin.Forms](../../quickstarts/xamarin-forms/index.md)
 
 > [!NOTE]
-> This article covers the latest (v5.0.0) edition of the Microsoft Datasync Framework.  For older clients, see the [v4.2.0 documentation](./dotnet-v4.md).
+> This article covers the latest (v5.0) edition of the Microsoft Datasync Framework.  For older clients, see the [v4.2.0 documentation](./dotnet-v4.md).
 
 ## Supported platforms
 
@@ -547,6 +547,8 @@ var tablesToPush = new string[] { "TodoItem", "Notes" };
 await client.PushTables(tablesToPush);
 ```
 
+Use the `client.PendingOperations` property to read the number of operations waiting to be pushed to the remote service.  This property is `null` when no offline store has been configured.
+
 ### Run complex SQLite queries
 
 If you need to do complex SQL queries against the offline database, you can do so using the `ExecuteQueryAsync()` method.  For example, to do a `SQL JOIN` statement, define the return value form, then use `ExecuteQueryAsync()`:
@@ -780,6 +782,44 @@ public class LoggingHandler : DelegatingHandler
     }
 }
 ```
+
+### Monitor synchronization events
+
+When a synchronization event happens, the event is published to the `client.SynchronizationProgress` event delegate.  This can be used to monitor the progress of the synchronization process.  Define a synchronization event handler as follows:
+
+```csharp
+client.SynchronizationProgress += (sender, args) => {
+    // args is of type SynchronizationEventArgs
+};
+```
+
+The `SynchronizationEventArgs` type is defined as follows:
+
+```csharp
+public enum SynchronizationEventType
+{
+    PushStarted,
+    ItemWillBePushed,
+    ItemWasPushed,
+    PushFinished,
+    PullStarted,
+    ItemWillBeStored,
+    ItemWasStored,
+    PullFinished
+}
+
+public class SynchronizationEventArgs
+{
+    public SynchronizationEventType EventType { get; }
+    public string ItemId { get; }
+    public long ItemsProcessed { get; } 
+    public long QueueLength { get; }
+    public string TableName { get; }
+    public bool IsSuccessful { get; }
+}
+```
+
+The properties within `args` will be `null` or `-1` when they are not relevant to the synchronization event.
 
 <!-- NuGet Packages -->
 [Microsoft.Datasync.Client]: https://www.nuget.org/packages/Microsoft.Datasync.Client
