@@ -402,7 +402,7 @@ These steps require the [Azure Databases extension][26] for VS Code.
 
 ### [Azure CLI](#tab/azure-cli)
 
-Run `az login` to sign in to  and follow these steps to create your Azure Database for PostgreSQL resource.
+Azure CLI commands can be run in the [Azure Cloud Shell][4] or on a workstation with the [Azure CLI][7] installed.
 
 **Step 1.** Use the [az postgres flexible-server create][22] command to create the PostgreSQL server in Azure. It isn't uncommon for this command to run for a few minutes to complete.
 
