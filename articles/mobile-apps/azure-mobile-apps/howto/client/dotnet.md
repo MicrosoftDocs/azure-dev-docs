@@ -95,13 +95,7 @@ Examples of delegating handlers are provided for [logging](#enable-request-loggi
 
 #### IdGenerator
 
-When an entity is added to an offline table, it must have an ID.  An ID will be generated if one isn't provided.  The `IdGenerator` option allows you to tailor the ID that is generated.  By default, a globally unique ID is generated.
-
-#### InstallationId
-
-A custom header `X-ZUMO-INSTALLATION-ID` is sent with each request to identify the combination of the application on a specific device.  This header can be recorded in logs and allows you to determine the number of distinct installations for your app.  By default, an installation ID is generated for you and saved in persistent storage when the app is first launched.  However, you can modify the `InstallationId` property to set your own installation ID.  If set to the blank string, the header isn't sent to the server.
-
-For example, the following setting will generate a string that includes the table name and a GUID:
+When an entity is added to an offline table, it must have an ID.  An ID will be generated if one isn't provided.  The `IdGenerator` option allows you to tailor the ID that is generated.  By default, a globally unique ID is generated. For example, the following setting will generate a string that includes the table name and a GUID:
 
 ``` csharp
 var options = new DatasyncClientOptions 
@@ -109,6 +103,10 @@ var options = new DatasyncClientOptions
     IdGenerator = (table) => $"{table}-{Guid.NewGuid().ToString("D").ToUpperInvariant()}"
 }
 ```
+
+#### InstallationId
+
+A custom header `X-ZUMO-INSTALLATION-ID` is sent with each request to identify the combination of the application on a specific device.  This header can be recorded in logs and allows you to determine the number of distinct installations for your app.  By default, an installation ID is generated for you and saved in persistent storage when the app is first launched.  However, you can modify the `InstallationId` property to set your own installation ID.  If set to the blank string, the header isn't sent to the server.
 
 #### OfflineStore
 
@@ -140,8 +138,7 @@ var options = new DatasyncClientOptions
 
 #### UserAgent
 
-The data sync client generates a suitable User-Agent header value based on the version of the library and the platform information.  Some developers
-feel this leaks information.  You can set the `UserAgent` property to any valid header value.
+The data sync client generates a suitable User-Agent header value based on the version of the library and the platform information.  Some developers feel the user agent header leaks information about the client.  You can set the `UserAgent` property to any valid header value.
 
 ## Work with remote tables
 
