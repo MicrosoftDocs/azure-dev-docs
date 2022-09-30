@@ -1,5 +1,20 @@
 {
     "redirections": [
+      { "source_path": "articles/lab/index.yml",
+        "redirect_url": "/azure/developer/python" 
+      },
+      { "source_path": "articles/lab/quickstart-python-flask.md",
+        "redirect_url": "/azure/developer/python" 
+      },
+      { "source_path": "articles/lab/quickstart-python-flask-minimized.md",
+        "redirect_url": "/azure/developer/python" 
+      },
+      { "source_path": "articles/lab/quickstart-python-flask-multipage.yml",
+        "redirect_url": "/azure/developer/python" 
+      },
+      { "source_path": "articles/lab/tool-tip-metrics.md",
+        "redirect_url": "/azure/developer/python" 
+      },
       { "source_path": "articles/javascript/how-to/with-web-app/graphql/get-started.md",
         "redirect_url": "/azure/developer/javascript/how-to/with-web-app/graphql/azure-function-hello-world" 
       },
