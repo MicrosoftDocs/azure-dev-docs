@@ -437,7 +437,7 @@ az postgres flexible-server create \
 
 ## Create a database on the server
 
-The sample code ([Django][1] or [Flask][2]) requires a PostgreSQL database to store restaurant reviews. In the previous step, you created a PostgreSQL database in the PostgreSQL server you created. 
+The sample code ([Django][1] or [Flask][2]) requires a PostgreSQL database to store restaurant reviews. At this point, you have a PostgreSQL server and now you need to create a database on the server.
 
 ### [psql](#tab/create-database-psql)
 
