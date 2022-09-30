@@ -12,8 +12,6 @@ ms.author: adhal
 
 In this tutorial, you add Microsoft authentication to your app using Azure Active Directory. Before completing this tutorial, ensure you've [created the project and deployed the backend](./index.md).
 
-> This tutorial currently supports a limited set of platforms.  Specifically, the iOS platform is not covered at the moment.
-
 > [!TIP]
 > Although we use Azure Active Directory for authentication, you can use any authentication library you wish with Azure Mobile Apps. 
 
