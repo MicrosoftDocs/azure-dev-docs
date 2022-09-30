@@ -30,7 +30,7 @@ In this tutorial, you learn how to:
 
 ## Create an Elastic on Azure instance
 
-Elastic on Azure is a service you can get from the Azure Marketplace and deploy with the Azure portal. You have two options for deploying Elastic on Azure: Elasticsearch managed service and Elasticsearch (Self-Managed). Elasticsearch managed service uses a Pay as you Go license model. Elasticsearch (Self-Managed) uses a Bring Your Own License (BYOL) license model. The BYOL model gives users the option to add more Elastic Stack features through an Elastic subscription purchased directly from Elastic. Choose the right Elasticsearch offer to suit your technical and business needs. Either option works with WLS. The steps in the next sections will show how to provision Elastic on Azure with either option.
+Elastic on Azure is a service you can get from Azure Marketplace and deploy with the Azure portal. You have two options for deploying Elastic on Azure: Elasticsearch managed service and Elasticsearch (Self-Managed). Elasticsearch managed service uses a Pay as you Go license model. Elasticsearch (Self-Managed) uses a Bring Your Own License (BYOL) license model. The BYOL model gives users the option to add more Elastic Stack features through an Elastic subscription purchased directly from Elastic. Choose the right Elasticsearch offer to suit your technical and business needs. Either option works with WLS. The steps in the next sections will show how to provision Elastic on Azure with either option.
 
 ### Elasticsearch managed service
 
