@@ -95,9 +95,9 @@ After following these steps, you'll have an Azure Container Registry that contai
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 5.** Open [Azure Cloud Shell][4] to finish configuration and building an image.
+        **Step 5.** Select the Azure Cloud Shell icon in the top menu bar to finish configuration and building an image.
 
-        You can also open Azure Cloud Shell selecting the Cloud Shell icon in the top menu bar of any portal window.
+        You can also go directly to [Azure Cloud Shell][4].
     :::column-end:::
     :::column:::
         :::image type="content" source="media/tutorial-container-apps/azure-portal-build-image-04.png" alt-text="Screenshot showing how to access Azure Cloud Shell in Azure portal." lightbox="media/tutorial-container-apps/azure-portal-build-image-04.png":::
