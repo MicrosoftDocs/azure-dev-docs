@@ -192,7 +192,7 @@ To store the password for the certificate, follow these steps:
 1. Under **Name**, enter `myCertSecretPassword`, or whatever name you like.
 1. Under **Value**, enter the password for the certificate.
 1. Leave the remaining values at their defaults and select **Create**.
-1. you'll be returned to the **Secrets** page.
+1. You'll be returned to the **Secrets** page.
 
 #### Identify the Key Vault
 
