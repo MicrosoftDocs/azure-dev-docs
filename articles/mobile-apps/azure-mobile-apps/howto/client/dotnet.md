@@ -785,7 +785,7 @@ public class LoggingHandler : DelegatingHandler
 
 ### Monitor synchronization events
 
-When a synchronization event happens, the event is published to the `client.SynchronizationProgress` event delegate.  This can be used to monitor the progress of the synchronization process.  Define a synchronization event handler as follows:
+When a synchronization event happens, the event is published to the `client.SynchronizationProgress` event delegate.  The events can be used to monitor the progress of the synchronization process.  Define a synchronization event handler as follows:
 
 ```csharp
 client.SynchronizationProgress += (sender, args) => {
