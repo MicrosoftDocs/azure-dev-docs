@@ -2,13 +2,25 @@
 title: "What's new for JavaScript docs"
 description: "What's new in JavaScript docs in the Developer Center"
 ms.topic: how-to
-ms.date: 08/29/2022
+ms.date: 09/30/2022
 
 ---
 
 # JavaScript docs: What's new
 
 Find new and updated content for JavaScript and TypeScript developers.
+
+## 2022 September
+
+### Updated in September
+
+|Name|Description|
+|---------------------------------------|--|
+|Cosmos DB Core (SQL) - Quickstart| Updated [quickstart](/azure/cosmos-db/sql/create-sql-api-nodejs?tabs=azure-cli%2Cwindows) for top tasks and support documentation with code [samples](https://github.com/Azure-Samples/cosmos-db-sql-api-javascript-samples/tree/main/001-quickstart).|
+|Cosmos DB Core (SQL) - Training module|Visual Studio Code + Cosmos DB SDK - Updated [Build a Node.js app for Azure Cosmos DB in Visual Studio Code](/training/modules/build-node-cosmos-app-vscode). Updates include more code [samples](https://github.com/Azure-Samples/cosmos-db-sql-api-javascript-samples/tree/main/training/build-node-cosmos-app-vscode) using @azure/cosmos with queries using keywords such as LIKE, JOIN, WHERE.|
+|Docs - Blob Storage| Added [Connect with passwordless authentication to Azure](/azure/storage/blobs/storage-blob-javascript-get-started#connect-with-passwordless-authentication-to-azure)|
+|Docs - Blob Storage| Added [Get URL for container or blob](/azure/storage/blobs/storage-blob-get-url-javascript) - thanks to contribution from @Scottlexium. |
+
 
 ## 2022 August
 
