@@ -4,7 +4,7 @@ description: This article helps you configure Visual Studio Code for Go developm
 ms.date: 11/11/2021
 ms.topic: quickstart
 ms.custom: devx-track-go
-ms.author: jduffney
+ms.author: mcleans
 ---
 
 # Configure Visual Studio Code for Go development
