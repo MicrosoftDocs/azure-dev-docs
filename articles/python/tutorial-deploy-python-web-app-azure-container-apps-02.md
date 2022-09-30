@@ -11,7 +11,7 @@ ms.author: jejohn
 
 # Build and deploy a Python web app with Azure Container Apps and PostgreSQL
 
-This article is part of a tutorial about how to containerize and deploy a Python web app to [Azure Container Apps][8]. Container Apps enable you to deploy containerized apps without managing complex infrastructure. 
+This article is part of a tutorial about how to containerize and deploy a Python web app to [Azure Container Apps][8]. Container Apps enable you to deploy containerized apps without managing complex infrastructure.
 
 In this part of the tutorial, you learn how to containerize and deploy a Python sample web app (Django or Flask). Specifically, you'll build the container image in the cloud and deploy it to Azure Container Apps. You'll define environment variables that enable the container app to connect to an [Azure Database for PostgreSQL - Flexible Server][10] instance, where the sample app stores data.
 
@@ -25,26 +25,24 @@ Command lines in this tutorial are shown in the Bash shell. For other shell type
 
 Fork and clone the sample code to your developer environment.
 
-To fork and clone:
+**Step 1.** Go to the GitHub repository of the sample app ([Django][1] or [Flask][2]) and select **Fork**.
 
-**Step 1.** Go to the repository of the sample app ([Django][1] or [Flask][2]) and select **Fork**.
-
-Follow the steps to fork the directory to your GitHub account. You can also download the code repo directly to your local machine without forking or a GitHub account, however, you won't be able to set up CI/CD discussed later in the tutorial
+Follow the steps to fork the directory to your GitHub account. You can also download the code repo directly to your local machine without forking or a GitHub account, however, you won't be able to set up CI/CD discussed later in the tutorial.
 
 **Step 2.** Use the [git clone][21] command to clone the forked repo into the *python-code-to-cloud* folder:
 
 ```bash
 # Django
-git clone https://github.com/$USERNAME/msdocs-python-django-azure-container-app.git python-code-to-cloud
+git clone https://github.com/$USERNAME/msdocs-python-django-azure-container-app.git pythoncontainer
 
 # Flask
-# git clone https://github.com/$USERNAME/msdocs-python-flask-azure-container-app.git python-code-to-cloud
+# git clone https://github.com/$USERNAME/msdocs-python-flask-azure-container-app.git pythoncontainer
 ```
 
 **Step 3.** Change directory.
 
 ```bash
-cd python-code-to-cloud
+cd pythoncontainer
 ```
 
 ## Build a container image from web app code
