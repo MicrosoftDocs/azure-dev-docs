@@ -474,7 +474,7 @@ These steps require the [Azure Databases extension][26] for VS Code.
 
 **Step 2.** At the prompt, enter *restaurants_reviews* as the **Database Name**.
 
-If you have trouble creating the database, the server may still be processing the firewall rule from the previous step. Wait a moment and try again. If you're prompted to enter credentials to access the database, use the "demoadmin", and password you used to create the database.
+If you have trouble creating the database, the server may still be processing the firewall rule from the previous step. Wait a moment and try again. If you're prompted to enter credentials to access the database, use the "demoadmin" username and password you used to create the database.
 
 ### [Azure CLI](#tab/create-database-azure-cli)
 
@@ -596,7 +596,7 @@ Container apps are deployed to Container Apps [*environments*][30], which act as
 :::row:::
     :::column span="1":::
         > [!TIP]
-        > Instead of directly defining environment variables as shown above, you can use the [Service Connector][9]. Service Connector helps you connect to Azure compute services like Azure Container Apps, to other backing services by configuring connection information and generating and storing environment variables for you.
+        > Instead of directly defining environment variables as shown above, you can use the [Service Connector][9]. Service Connector helps you connect to Azure compute services like Azure Container Apps, to other backing services by configuring connection information and generating and storing environment variables for you. If you use a service connector, make sure you synchronize the environment variables in the sample code to the environment variables created with Service Connector.
     :::column-end:::
 :::row-end:::
 :::row:::
