@@ -23,6 +23,8 @@ This guide, and the corresponding Azure Marketplace Offers, are a starting point
 
 It's better to stick as close to pure "lift and shift" as possible, accounting for the necessary changes as detailed in this guide. Define what you mean by "migration complete" so that you know when you've reached this milestone. When you've reached your "migration complete", you can take a snapshot of your Virtual Machines as described in [Create a snapshot](/azure/virtual-machines/windows/snapshot-copy-managed-disk). After you've verified that you can successfully restore from your snapshot, it's safer to do the improvements without fear of losing the migration progress you've achieved thus far.
 
+[!INCLUDE [vm-aks-tradeoffs-wls](includes/vm-aks-tradeoffs-wls.md)]
+
 ### Determine whether the pre-built Marketplace offers are a good starting point
 
 Oracle and Microsoft have partnered to bring a set of Azure solution templates to the Azure Marketplace to provide a solid starting point for migrating to Azure. Consult the [Oracle Fusion Middleware](https://docs.oracle.com/en/middleware/standalone/weblogic-server/wlazu/) documentation for the list of offers and choose the one that most closely matches your existing deployment. You can see the list of offers in the overview article [What is Oracle WebLogic Server on Azure?](/azure/virtual-machines/workloads/oracle/oracle-weblogic)

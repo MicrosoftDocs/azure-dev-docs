@@ -5,7 +5,7 @@ summary: Recommended strategies for migrating Java applications to Azure.
 
 metadata:
   title: Java to Azure migration guidance documentation
-  description: Discover recommended migration strategies for java migration. Move Java, Tomcat, WildFly, WebSphere, JBoss, and WebLogic applications to Azure with ease. 
+  description: Discover recommended migration strategies for java migration. Move Java, Tomcat, WildFly, WebSphere, JBoss EAP, and WebLogic Server applications to Azure with ease. 
   keywords: migration strategies, migration strategy, java migration
   author: KarlErickson
   ms.author: karler
@@ -49,23 +49,25 @@ landingContent:
           - text: "Tutorial: Containerized Tomcat to AKS"
             url: /azure/migrate/tutorial-app-containerization-java-kubernetes?toc=/azure/developer/java/migration/toc.json&bc=/azure/developer/breadcrumb/toc.json
 
-  - title: Migrate WebLogic to Azure
+  - title: Migrate WebLogic Server to Azure
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: WebLogic to WildFly on AKS
+          - text: WebLogic Server to WildFly on AKS
             url: migrate-weblogic-to-wildfly-on-azure-kubernetes-service.md
-          - text: WebLogic to Azure Virtual Machines
+          - text: WebLogic Server to WildFly on AKS
+            url: migrate-weblogic-to-wildfly-on-azure-kubernetes-service.md
+          - text: WebLogic Server to Azure Virtual Machines
             url: migrate-weblogic-to-virtual-machines.md
-          - text: WebLogic with Azure AD via LDAP
+          - text: WebLogic Server with Azure AD via LDAP
             url: migrate-weblogic-with-aad-ldap.md
           - text: "Tutorial: WebLogic on AKS to custom VNET"
             url: migrate-weblogic-to-aks-within-an-existing-vnet.md
-          - text: "Tutorial: WebLogic with App Gateway"
+          - text: "Tutorial: WebLogic Server with App Gateway"
             url: migrate-weblogic-with-app-gateway.md
-          - text: "Tutorial: WebLogic with Elastic on Azure"
+          - text: "Tutorial: WebLogic Server with Elastic on Azure"
             url: migrate-weblogic-with-elk.md
-          - text: WebLogic to JBoss EAP on App Service
+          - text: WebLogic Server to JBoss EAP on App Service
             url: migrate-weblogic-to-jboss-eap-on-azure-app-service.md
   - title: Migrate WildFly to Azure
     linkLists:
