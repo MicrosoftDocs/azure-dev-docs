@@ -124,7 +124,12 @@ When creating your PAT, set the following scopes:
 1. Provide your answers to the following prompts:
 
    **Personal Access Token (PAT)**   
-   Copy/paste your PAT. 
+   - Copy/paste your PAT. 
+   - Export your PAT as a system environment by running the following command. Otherwise, you will be prompted every time you set up an Azure Pipeline:
+
+      ```bash
+      export AZURE_DEVOPS_EXT_PAT=<PAT>
+      ```
 
    **Please enter an Azure DevOps Organization Name**  
    
