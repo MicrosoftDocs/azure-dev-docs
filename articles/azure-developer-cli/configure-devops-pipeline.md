@@ -34,7 +34,7 @@ Select your preferred pipeline provider to continue:
 
 To configure the workflow, you need to give GitHub permission to deploy to Azure on your behalf. Authorize GitHub by creating an Azure service principle stored in a GitHub secret named `AZURE_CREDENTIALS`.
 
-1. Run the following command to create the Azure service principle and configure the pipeline:
+1. Run the following command to create the Azure service principal and configure the pipeline:
 
     ```bash
     azd pipeline config
@@ -163,7 +163,9 @@ When creating your PAT, set the following scopes:
 
 1. Save the file.
 
-1. Commit your change. Committing the change starts the Azure DevOps pipeline to deploy the update.
+1. Create a branch and commit your change. The `main` branch in Azure DevOps is protected from directly pushing. You need to push the changes from a new branch and create a `Pull Request` in Azure DevOps. The pull request will automatically start the pipeline and prevent from merging if the pipeline fails.
+
+1. Approve and merge your pull request to start the pipeline again.
 
    :::image type="content" source="media/configure-devops-pipeline/commit-changes-to-github.png" alt-text="Screenshot of steps required to make and commit change to test file.":::
 
