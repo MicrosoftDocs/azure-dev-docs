@@ -11,15 +11,15 @@ ms.author: jejohn
 
 # Overview: Deploy a Python web app on Azure Container Apps
 
-This tutorial shows you how to containerize a Python web app and deploy it to [Azure Container Apps][2]. A sample web app will be containerized and its container image stored in [Azure Container Registry][3]. Azure Container Apps is configured to pull the container image from Container Registry. The sample app connects to an [Azure Database for PostgreSQL][4] to demonstrate communication between Container Apps and other Azure resources.
+This tutorial shows you how to containerize a Python web app and deploy it to [Azure Container Apps][2]. A sample web app will be containerized and the Docker image stored in [Azure Container Registry][3]. Azure Container Apps is configured to pull the Docker image from Container Registry and create a container. The sample app connects to an [Azure Database for PostgreSQL][4] to demonstrate communication between Container Apps and other Azure resources.
 
 There are several options to build and deploy cloud native and containerized Python web apps on Azure. This tutorial covers Azure Container Apps. Container Apps are good for running general purpose containers, especially for applications that span many microservices deployed in containers. In this tutorial, you'll create one container. To deploy a Python web app as a container to Azure App Service, see [Containerized Python web app on App Service](./tutorial-containerize-deploy-python-web-app-azure-01.md).
 
 In this tutorial you'll:
 
-* Build a [Docker][1] container image from a Python web app and store the image in [Azure Container Registry][3].
-* Configure [Azure Container Apps][2] to host the container image.
-* Set up a [GitHub Actions][6] workflow that creates a new container image and updates the container app when changes are checked into a specified GitHub repo and branch. *This step is optional.*
+* Build a [Docker][1] image from a Python web app and store the image in [Azure Container Registry][3].
+* Configure [Azure Container Apps][2] to host the Docker image.
+* Set up a [GitHub Action][6] that updates the container with a new Docker image triggered by changes to your GitHub repository. *This last step is optional.*
 
 Following this tutorial, you'll be set up for Continuous Integration (CI) and Continuous Deployment (CD) of a Python web app to Azure.
 
@@ -33,10 +33,10 @@ The components supporting this tutorial and shown in the diagram above are:
 
 * [Azure Container Apps][2]
   * Azure Container Apps enables you to run microservices and containerized applications on a serverless platform. A serverless platform means that you enjoy the benefits of running containers with minimal configuration. With Azure Container Apps, your applications can dynamically scale based on characteristics such as HTTP traffic, event-driven processing, or CPU or memory load.
-  * Container Apps pulls Docker images from Azure Container Registry. Revisions to container images trigger an update to the deployed container. You can also configure GitHub Actions.
+  * Container Apps pulls Docker images from Azure Container Registry. Changes to container images trigger an update to the deployed container. You can also configure GitHub Actions to trigger updates.
 
 * [Azure Container Registry][3]
-  * Azure Container Registry enables you to work with Docker images in Azure. It provides a registry that's close to your deployments in Azure and that gives you control over access, making it possible to use your Azure Active Directory groups and permissions to control access to the container images.
+  * Azure Container Registry enables you to work with Docker images in Azure. Because Container Registry is close to your deployments in Azure, you have control over access, making it possible to use your Azure Active Directory groups and permissions to control access to Docker images.
   * In this tutorial, the registry source is Azure Container Registry, but you can also use Docker Hub or a private registry with minor modifications.
 
 * [Azure Database for PostgreSQL][4]
@@ -49,7 +49,7 @@ The components supporting this tutorial and shown in the diagram above are:
 
 ## Revisions and CI/CD
 
-To make code changes and push them to a container app, create a new container image with the changes and push the image to Azure Container Registry. Then, create a new [revision](/azure/container-apps/revisions) of the container app that uses the new container image.
+To make code changes and push them to a container, you create a new Docker image with your change. Then, you push the image to Container Registry, and create a new [revision](/azure/container-apps/revisions) of the container app. To automate this process, an optional step in the tutorial shows you how to build a continuous integration and continuous delivery (CI/CD) pipeline with GitHub actions. The pipeline automatically builds and deploys your code to the Container App.
 
 To automate this process, an optional step in the tutorial shows you how to build a continuous integration and continuous deployment (CI/CD) pipeline with [GitHub Actions][6]. A GitHub Actions workflow automatically builds and deploys your code to the Azure Container Apps when changes are made to a specified GitHub repository.
 
