@@ -173,7 +173,7 @@ When creating your PAT, set the following scopes:
    - Your commit
    - Azure Pipeline
    
-   :::image type="content" source="media/configure-devops-pipeline/azdo-pipeline-after-test-update.png" alt-text="Screenshot of GitHub workflow running after test update.":::
+   :::image type="content" source="media/configure-devops-pipeline/azure-devops-pipeline-after-test-update.png" alt-text="Screenshot of GitHub workflow running after test update.":::
 
 1. Visit the web frontend URL to inspect the update.
 
