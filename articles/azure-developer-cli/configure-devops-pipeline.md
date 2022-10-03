@@ -143,7 +143,7 @@ When creating your PAT, set the following scopes:
    
    Create a new Azure DevOps Project
    
-   **Enter the name for your new Azure DevOps Project OR Hit enter to use this name: (<default name>)**
+   **Enter the name for your new Azure DevOps Project OR Hit enter to use this name: ( {default name} )**
    
    Select **Enter**, or create a unique project name.
    
