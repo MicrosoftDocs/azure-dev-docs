@@ -1,9 +1,7 @@
 ---
- author: Duffney
  ms.service: azure
  ms.topic: include
  ms.date: 05/12/2021
- ms.author: jduffney
 ---
 
 # Choose the right Azure command-line tool

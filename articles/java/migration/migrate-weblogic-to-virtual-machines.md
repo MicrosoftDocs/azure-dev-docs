@@ -11,7 +11,7 @@ ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-wls, devx-track
 
 # Migrate WebLogic Server applications to Azure Virtual Machines
 
-This guide describes what you should be aware of when you want to migrate an existing WebLogic application to run on Azure Virtual Machines.  For an overview of available WebLogic Server solutions in the Azure Marketplace see [What are solutions for running Oracle WebLogic Server on Azure Virtual Machines?](/azure/virtual-machines/workloads/oracle/oracle-weblogic)
+This guide describes what you should be aware of when you want to migrate an existing WebLogic application to run on Azure Virtual Machines. For an overview of available WebLogic Server solutions in Azure Marketplace, see [What are solutions for running Oracle WebLogic Server on Azure Virtual Machines?](/azure/virtual-machines/workloads/oracle/oracle-weblogic)
 
 ## Pre-migration
 
@@ -25,9 +25,9 @@ It's better to stick as close to pure "lift and shift" as possible, accounting f
 
 [!INCLUDE [vm-aks-tradeoffs-wls](includes/vm-aks-tradeoffs-wls.md)]
 
-### Determine whether the pre-built Marketplace offers are a good starting point
+### Determine whether the pre-built Azure Marketplace offers are a good starting point
 
-Oracle and Microsoft have partnered to bring a set of Azure solution templates to the Azure Marketplace to provide a solid starting point for migrating to Azure. Consult the [Oracle Fusion Middleware](https://docs.oracle.com/en/middleware/standalone/weblogic-server/wlazu/) documentation for the list of offers and choose the one that most closely matches your existing deployment. You can see the list of offers in the overview article [What is Oracle WebLogic Server on Azure?](/azure/virtual-machines/workloads/oracle/oracle-weblogic)
+Oracle and Microsoft have partnered to bring a set of Azure solution templates to Azure Marketplace to provide a solid starting point for migrating to Azure. Consult the [Oracle Fusion Middleware](https://docs.oracle.com/en/middleware/standalone/weblogic-server/wlazu/) documentation for the list of offers and choose the one that most closely matches your existing deployment. You can see the list of offers in the overview article [What is Oracle WebLogic Server on Azure?](/azure/virtual-machines/workloads/oracle/oracle-weblogic)
 
 If none of the existing offers are a good starting point, you'll have to reproduce the deployment by hand using Azure Virtual Machine resources. For more information, see [What is IaaS?](https://azure.microsoft.com/overview/what-is-iaas/).
 

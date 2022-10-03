@@ -20,9 +20,9 @@ To ensure a successful migration, before you start, complete the assessment and 
 
 [!INCLUDE [vm-aks-tradeoffs-wls](includes/vm-aks-tradeoffs-wls.md)]
 
-### Determine whether the pre-built Marketplace offer is a good starting point
+### Determine whether the pre-built Azure Marketplace offer is a good starting point
 
-Once you've decided that AKS is the appropriate deployment target, you must accept that the Oracle WLS Kubernetes operator (the operator) is the only way to run WLS on Kubernetes. After accepting this fact, you must decide whether or not the pre-built [Azure Marketplace offer](https://aka.ms/wlsaks) is a good starting point. Here are some things to consider about the pre-built Marketplace offer.
+Once you've decided that AKS is the appropriate deployment target, you must accept that the Oracle WLS Kubernetes operator (the operator) is the only way to run WLS on Kubernetes. After accepting this fact, you must decide whether or not the pre-built [Azure Marketplace offer](https://aka.ms/wlsaks) is a good starting point. Here are some things to consider about the pre-built Azure Marketplace offer.
 
 - This offer was created by Oracle and Microsoft to allow you to quickly provision WLS on AKS using the *Model in Image* domain home source type. This concept is explained in more detail below.
 - At a high level, the offer automates the following steps for you.
@@ -32,11 +32,11 @@ Once you've decided that AKS is the appropriate deployment target, you must acce
   - Use the operator to run the whole thing. The operator will invoke WebLogic Deploy Tooling (WDT) to stand up WebLogic environments and perform domain lifecycle operations in a repeatable fashion based on a metadata model. The reference documentation for WDT is hosted by [Oracle](https://aka.ms/wls-wdt).
 - Though the pre-built offer does provide numerous Azure service integrations, such as App Gateway, Elastic logging, Database integration, and more, it does make many simplifying assumptions. These assumptions make the offer not as flexible as mastering and using the operator yourself.
 
-If you don't use the pre-built Marketplace offer, you must learn how to use the operator directly. Mastering the operator is beyond the scope of this article. The complete documentation for the WLS Kubernetes Operator is available at [Oracle](https://aka.ms/wlsoperator).
+If you don't use the pre-built Azure Marketplace offer, you must learn how to use the operator directly. Mastering the operator is beyond the scope of this article. The complete documentation for the WLS Kubernetes Operator is available at [Oracle](https://aka.ms/wlsoperator).
 
-The remainder of this section provides some considerations for deciding to use the pre-built Marketplace offer or using the operator directly.
+The remainder of this section provides some considerations for deciding to use the pre-built Azure Marketplace offer or using the operator directly.
 
-First, you have to understand the concept of the WLS "domain". A domain is a logically related group of WLS resources. For the canonical definition of WLS domain, see [the Oracle documentation](https://aka.ms/javaee/wls/domains). Running WLS on AKS requires deciding how AKS deals with domains. The various choices are referred to as "domain home source type". The WLS Kubernetes operator supports three choices of domain home source type. The pre-built Marketplace offer uses the first one in this table.
+First, you have to understand the concept of the WLS "domain". A domain is a logically related group of WLS resources. For the canonical definition of WLS domain, see [the Oracle documentation](https://aka.ms/javaee/wls/domains). Running WLS on AKS requires deciding how AKS deals with domains. The various choices are referred to as "domain home source type". The WLS Kubernetes operator supports three choices of domain home source type. The pre-built Azure Marketplace offer uses the first one in this table.
 
 | Domain home source type | Description                                                                                                                   | Positive aspects                                                                                                                                                                                                            | Negative aspects                                                                                                                                                                                                                 |
 |-------------------------|-------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -46,11 +46,11 @@ First, you have to understand the concept of the WLS "domain". A domain is a log
 
 The operator documentation also includes a useful table comparing the various options. For more information, see [Choose a domain home source type](https://aka.ms/wls-aks-docs-domain-home-source-type).
 
-To get a feel for the pre-built Marketplace offer, see [Quickstart: Deploy WebLogic Server on Azure Kubernetes Service using the Azure portal](../ee/weblogic-server-azure-kubernetes-service.md). For the reference documentation on the pre-built Marketplace offer, see [Oracle](https://aka.ms/wls-aks-docs).
+To get a feel for the pre-built Azure Marketplace offer, see [Quickstart: Deploy WebLogic Server on Azure Kubernetes Service using the Azure portal](../ee/weblogic-server-azure-kubernetes-service.md). For the reference documentation on the pre-built Azure Marketplace offer, see [Oracle](https://aka.ms/wls-aks-docs).
 
 To get a feel for using the operator directly, try the samples in [the operator documentation](https://aka.ms/wls-aks-samples).
 
-Now that you've been introduced to the various ways to handle WLS domains on AKS, you're better able to choose whether to use the pre-built Marketplace offer or to do it yourself using the operator directly.
+Now that you've been introduced to the various ways to handle WLS domains on AKS, you're better able to choose whether to use the pre-built Azure Marketplace offer or to do it yourself using the operator directly.
 
 ### Determine whether the WebLogic version is compatible
 
@@ -63,7 +63,7 @@ Your existing WLS version must be one of the versions supported by the operator.
 > [!NOTE]
 > Get a support entitlement from Oracle before going to production. Failure to do so results in running insecure images that are not patched for critical security flaws. For more information on Oracle's critical patch updates, see [Critical Patch Updates, Security Alerts and Bulletins](https://www.oracle.com/security-alerts/).
 
-The pre-built Marketplace offer allows you to select the WLS images from OCR and Azure Container Registry (ACR), and thus implicitly supports all of the versions available from OCR. If you direct the offer to pull an image from ACR, make sure it's derived from one of the supported versions listed in OCR.
+The pre-built Azure Marketplace offer allows you to select the WLS images from OCR and Azure Container Registry (ACR), and thus implicitly supports all of the versions available from OCR. If you direct the offer to pull an image from ACR, make sure it's derived from one of the supported versions listed in OCR.
 
 [!INCLUDE [inventory-server-capacity-aks](includes/inventory-server-capacity-aks.md)]
 
@@ -73,29 +73,29 @@ Once you have a solid inventory of secrets, consult the operator documentation r
 
 [!INCLUDE [inventory-all-certificates](includes/inventory-all-certificates.md)]
 
-Once you have a solid inventory of certificates, you can install them directly with the pre-built Marketplace offer. For more information, see [TLS/SSL configuration](https://aka.ms/wls-aks-docs#tlsssl-configuration). If you're using the operator directly, see [Updating operator external certificates](https://aka.ms/wlsoperator-certificates).
+Once you have a solid inventory of certificates, you can install them directly with the pre-built Azure Marketplace offer. For more information, see [TLS/SSL configuration](https://aka.ms/wls-aks-docs#tlsssl-configuration). If you're using the operator directly, see [Updating operator external certificates](https://aka.ms/wlsoperator-certificates).
 
 [!INCLUDE [validate-that-the-supported-java-version-works-correctly-weblogic](includes/validate-that-the-supported-java-version-works-correctly-weblogic.md)]
 
 [!INCLUDE [inventory-jndi-resources](includes/inventory-jndi-resources.md)]
 
-If you're using the pre-built Marketplace offer, the set of JNDI resources you can customize at deployment time is limited to what's supported by the offer. Search for *JNDI* in the [offer documentation](https://aka.ms/wls-aks-docs). If you're using the operator directly, the JDNI resources can be defined depending on your chosen domain home source type. For *Domain in PV*, you can set them the usual way, with WLST or with the admin console. For *Domain in Image* or *Model in Image*, see [Typical overrides](https://aka.ms/wlsoperator-configoverrides#typical-overrides).
+If you're using the pre-built Azure Marketplace offer, the set of JNDI resources you can customize at deployment time is limited to what's supported by the offer. Search for *JNDI* in the [offer documentation](https://aka.ms/wls-aks-docs). If you're using the operator directly, the JDNI resources can be defined depending on your chosen domain home source type. For *Domain in PV*, you can set them the usual way, with WLST or with the admin console. For *Domain in Image* or *Model in Image*, see [Typical overrides](https://aka.ms/wlsoperator-configoverrides#typical-overrides).
 
 [!INCLUDE [inspect-your-domain-configuration](includes/inspect-your-domain-configuration.md)]
 
-The pre-built Marketplace offer automatically creates a domain resource. If you're using the operator directly, you can completely customize how your domain is represented. For complete information, see [Domain resource](https://aka.ms/wlsoperator-domainresource).
+The pre-built Azure Marketplace offer automatically creates a domain resource. If you're using the operator directly, you can completely customize how your domain is represented. For complete information, see [Domain resource](https://aka.ms/wlsoperator-domainresource).
 
 [!INCLUDE [determine-whether-session-replication-is-used](includes/determine-whether-session-replication-is-used.md)]
 
-The pre-built Marketplace offer supports session affinity via the Application Gateway ingress controller. When deploying the offer, select **Enable cookie based affinity**. Look for cookie based affinity in [the documentation for the offer](https://aka.ms/wls-aks-docs#networking).
+The pre-built Azure Marketplace offer supports session affinity via the Application Gateway ingress controller. When deploying the offer, select **Enable cookie based affinity**. Look for cookie based affinity in [the documentation for the offer](https://aka.ms/wls-aks-docs#networking).
 
 [!INCLUDE [document-datasources](includes/document-datasources.md)]
 
-The pre-built Marketplace offer has support for most popular databases. For more information, see [Database](https://aka.ms/wls-aks-docs#database). For *Domain in PV*, you can set them the usual way, with WLST or with the admin console. For *Domain in Image* or *Model in Image*, see [Typical overrides](https://aka.ms/wlsoperator-configoverrides#typical-overrides).
+The pre-built Azure Marketplace offer has support for most popular databases. For more information, see [Database](https://aka.ms/wls-aks-docs#database). For *Domain in PV*, you can set them the usual way, with WLST or with the admin console. For *Domain in Image* or *Model in Image*, see [Typical overrides](https://aka.ms/wlsoperator-configoverrides#typical-overrides).
 
 [!INCLUDE [determine-whether-weblogic-has-been-customized](includes/determine-whether-weblogic-has-been-customized.md)]
 
-These customizations need to be captured in the container image being run by AKS. In the case of the pre-built Marketplace offer, such customizations are best handled by creating a custom container image and making it available in Azure Container Registry, then pointing to that registry at deployment time. For more information, see [Image selection](https://aka.ms/wls-aks-docs#image-selection). If you're using the operator directly, see [JVM memory and Java option environment variables](https://aka.ms/wlsoperator-domainresource#jvm-memory-and-java-option-environment-variables).
+These customizations need to be captured in the container image being run by AKS. In the case of the pre-built Azure Marketplace offer, such customizations are best handled by creating a custom container image and making it available in Azure Container Registry, then pointing to that registry at deployment time. For more information, see [Image selection](https://aka.ms/wls-aks-docs#image-selection). If you're using the operator directly, see [JVM memory and Java option environment variables](https://aka.ms/wlsoperator-domainresource#jvm-memory-and-java-option-environment-variables).
 
 [!INCLUDE [determine-whether-management-over-rest-is-used](includes/determine-whether-management-over-rest-is-used.md)]
 
@@ -111,7 +111,7 @@ These libraries can be handled using the same techniques as described in [Determ
 
 [!INCLUDE [determine-whether-osgi-bundles-are-used](includes/determine-whether-osgi-bundles-are-used.md)]
 
-You can include them in the WAR or EAR supplied to the pre-built Marketplace offer or using the operator directly.
+You can include them in the WAR or EAR supplied to the pre-built Azure Marketplace offer or using the operator directly.
 
 [!INCLUDE [determine-whether-your-application-contains-os-specific-code](includes/determine-whether-your-application-contains-os-specific-code.md)]
 
@@ -119,13 +119,13 @@ WLS on AKS runs on Oracle Linux. Any OS-specific code must be compatible with Or
 
 [!INCLUDE [determine-whether-oracle-service-bus-is-in-use](includes/determine-whether-oracle-service-bus-is-in-use.md)]
 
-OSB isn't directly supported in the pre-built Marketplace offer. If you must use OSB, you must use the operator directly.
+OSB isn't directly supported in the pre-built Azure Marketplace offer. If you must use OSB, you must use the operator directly.
 
 [!INCLUDE [determine-whether-your-application-is-composed-of-multiple-wars](includes/determine-whether-your-application-is-composed-of-multiple-wars.md)]
 
 [!INCLUDE [determine-whether-your-application-is-packaged-as-an-ear](includes/determine-whether-your-application-is-packaged-as-an-ear.md)]
 
-The pre-built Marketplace offer supports WARs and EARs. Using the operator directly also supports WARs and EARs.
+The pre-built Azure Marketplace offer supports WARs and EARs. Using the operator directly also supports WARs and EARs.
 
 [!INCLUDE [identify-all-outside-processes-and-daemons-running-on-the-production-servers](includes/identify-all-outside-processes-and-daemons-running-on-the-production-servers.md)]
 
@@ -135,7 +135,7 @@ The only domain home source type that's compatible with use of WLST is *Domain i
 
 ### Determine whether and how the file system is used
 
-Kubernetes deals with filesystems with persistent volumes (PV). Mounting persistent volumes is supported in the pre-built Marketplace offer, and when using the operator directly. If you're using *Domain in PV*, the filesystem is a central aspect of configuration.
+Kubernetes deals with filesystems with persistent volumes (PV). Mounting persistent volumes is supported in the pre-built Azure Marketplace offer, and when using the operator directly. If you're using *Domain in PV*, the filesystem is a central aspect of configuration.
 
 [!INCLUDE [static-content](includes/static-content.md)]
 
@@ -159,7 +159,7 @@ If your application is using local EJB, you'll need to migrate them to clustered
 
 ### Account for load-balancing requirements
 
-The best way to account for load balancing is to use the App Gateway integration provided by the built-in Marketplace offer. For more information, see [Tutorial: Migrate a WebLogic Server cluster to Azure with Azure Application Gateway as a load balancer](/azure/developer/java/migration/migrate-weblogic-with-app-gateway).
+The best way to account for load balancing is to use the App Gateway integration provided by the built-in Azure Marketplace offer. For more information, see [Tutorial: Migrate a WebLogic Server cluster to Azure with Azure Application Gateway as a load balancer](/azure/developer/java/migration/migrate-weblogic-with-app-gateway).
 
 ### Determine whether the Java EE Application Client feature is used
 
@@ -184,7 +184,7 @@ After the patch is applied, see [Enabling unknown host access](https://aka.ms/wl
 
 ## Migration
 
-The steps in this section assume that your analysis has lead you to decide to use the pre-built Marketplace offer.
+The steps in this section assume that your analysis has lead you to decide to use the pre-built Azure Marketplace offer.
 
 ### Provision the offer
 
