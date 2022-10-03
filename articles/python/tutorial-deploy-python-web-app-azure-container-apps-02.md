@@ -736,7 +736,7 @@ These steps require the [Azure Container Apps extension][11] for VS Code.
 :::row-end:::
 :::row:::
     :::column span="1":::
-        **Step 4.** Get the sign in credentials for the Azure Container Registry.
+        **Step 4.** Get the sign-in credentials for the Azure Container Registry.
 
         ```bash
         az acr credentials show -n <registry-name>
@@ -813,7 +813,7 @@ Here's an example of the sample website after adding a restaurant and two review
 
 * Website returns "Bad Request (400)".
   * Check the PostgreSQL environment variables passed in to the container. The 400 error often indicates that the Python code can't connect to the PostgreSQL instance.
-  * The sample code used in this tutorial checks for the existenceof  the container environment variable `RUNNING_IN_PRODUCTION`, which can be set to any value like "1".
+  * The sample code used in this tutorial checks for the existence of  the container environment variable `RUNNING_IN_PRODUCTION`, which can be set to any value like "1".
 
 * Website returns "Not Found (404)".
   * Check the **Application Url** on the **Overview** page for the container. If the Application Url contains the word "internal", then ingress isn't set correctly.
