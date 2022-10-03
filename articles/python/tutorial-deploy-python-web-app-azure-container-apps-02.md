@@ -804,7 +804,7 @@ Here's an example of the sample website after adding a restaurant and two review
   * If you see the message "Error: failed to download context. Please check if the URL is incorrect." in the VS Code **Output** window, then refresh the registry in the Docker extension. To refresh, select the Docker extension, go to the Registries section, find the registry and select it.
 
 * In the Azure portal during the creation of a Container App, you see an access error that contains "Cannot access ACR '\<name>.azurecr.io'".
-  * This error occurs when admin credentials on the ACR are disabled. To check admin status, go to your Azure Container Registry, select the **Access keys** resource, and ensure that **Admin user** is enabled.
+  * This error occurs when admin credentials on the ACR are disabled. To check admin status in the portal, go to your Azure Container Registry, select the **Access keys** resource, and ensure that **Admin user** is enabled.
 
 * Your container image doesn't appear in the Azure Container Registry.
   * Check the output of the Azure CLI command or VS Code Output and look for messages to confirm success.
@@ -813,7 +813,7 @@ Here's an example of the sample website after adding a restaurant and two review
 
 * Website returns "Bad Request (400)".
   * Check the PostgreSQL environment variables passed in to the container. The 400 error often indicates that the Python code can't connect to the PostgreSQL instance.
-  * The sample code used in this tutorial requires the container environment variable `RUNNING_IN_PRODUCTION` set to any value like "1".
+  * The sample code used in this tutorial checks for the existenceof  the container environment variable `RUNNING_IN_PRODUCTION`, which can be set to any value like "1".
 
 * Website returns "Not Found (404)".
   * Check the **Application Url** on the **Overview** page for the container. If the Application Url contains the word "internal", then ingress isn't set correctly.
