@@ -21,7 +21,7 @@ In this tutorial, you learn how to:
 > * Create an Elastic on Azure instance
 > * Deploy WLS with integration to Elastic on Azure
 > * Create an index in Kibana that enables searching the WebLogic Server logs
-> * Search WebLogic logs from Kibana
+> * Search WebLogic Server logs from Kibana
 
 ## Prerequisites
 
@@ -30,7 +30,7 @@ In this tutorial, you learn how to:
 
 ## Create an Elastic on Azure instance
 
-Elastic on Azure is a service you can get from the Azure Marketplace and deploy with the Azure portal. You have two options for deploying Elastic on Azure: Elasticsearch managed service and Elasticsearch (Self-Managed). Elasticsearch managed service uses a Pay as you Go license model. Elasticsearch (Self-Managed) uses a Bring Your Own License (BYOL) license model. The BYOL model gives users the option to add more Elastic Stack features through an Elastic subscription purchased directly from Elastic. Choose the right Elasticsearch offer to suit your technical and business needs. Either option works with WLS. The steps in the next sections will show how to provision Elastic on Azure with either option.
+Elastic on Azure is a service you can get from Azure Marketplace and deploy with the Azure portal. You have two options for deploying Elastic on Azure: Elasticsearch managed service and Elasticsearch (Self-Managed). Elasticsearch managed service uses a Pay as you Go license model. Elasticsearch (Self-Managed) uses a Bring Your Own License (BYOL) license model. The BYOL model gives users the option to add more Elastic Stack features through an Elastic subscription purchased directly from Elastic. Choose the right Elasticsearch offer to suit your technical and business needs. Either option works with WLS. The steps in the next sections will show how to provision Elastic on Azure with either option.
 
 ### Elasticsearch managed service
 
@@ -128,7 +128,7 @@ After you've successfully deployed WLS with ELK integration, follow the steps is
 
    :::image type="content" source="media/migrate-weblogic-with-elk/kibana-index-04.png" alt-text="The final Create index pattern button.":::
 
-## Search WebLogic logs from Kibana
+## Search WebLogic Server logs from Kibana
 
 After you've successfully created the index, you can finally search the WLS logs using Kibana. Follow the steps in this section to get started searching the logs.
 
@@ -162,7 +162,7 @@ Follow the same steps as in the preceding section to delete Elastic on Azure, bu
 
 ## Next steps
 
-Continue your migration journey by exploring WebLogic to Azure Virtual Machines.
+Continue your migration journey by exploring WebLogic Server to Azure Virtual Machines.
 
 > [!div class="nextstepaction"]
-> [WebLogic to Azure Virtual Machines](./migrate-weblogic-to-virtual-machines.md)
+> [WebLogic Server to Azure Virtual Machines](./migrate-weblogic-to-virtual-machines.md)

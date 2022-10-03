@@ -4,7 +4,6 @@ description: Azure has over 100 services, but these are the 8 services most freq
 ms.date: 11/08/2021
 ms.topic: conceptual
 ms.custom: devx-track-go
-ms.author: jduffney
 ---
 
 # Key Azure services for Go developers

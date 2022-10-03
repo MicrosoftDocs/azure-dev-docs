@@ -1,10 +1,8 @@
 ---
 title: include file
 description: include file
-author: duffney
 ms.topic: include
 ms.date: 08/10/2021
-ms.author: jduffney
 ---
 
 ## Troubleshooting
