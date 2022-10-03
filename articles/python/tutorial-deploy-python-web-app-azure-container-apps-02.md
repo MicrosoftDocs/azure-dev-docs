@@ -11,7 +11,7 @@ ms.author: jejohn
 
 # Build and deploy a Python web app with Azure Container Apps and PostgreSQL
 
-This article is part of a tutorial about how to containerize and deploy a Python web app to [Azure Container Apps][8]. Container Apps enable you to deploy containerized apps without managing complex infrastructure.
+This article is part of a tutorial about how to containerize and deploy a Python web app to [Azure Container Apps][8]. Container Apps enables you to deploy containerized apps without managing complex infrastructure.
 
 In this part of the tutorial, you learn how to containerize and deploy a Python sample web app (Django or Flask). Specifically, you'll build the container image in the cloud and deploy it to Azure Container Apps. You'll define environment variables that enable the container app to connect to an [Azure Database for PostgreSQL - Flexible Server][10] instance, where the sample app stores data.
 
@@ -19,7 +19,8 @@ The service diagram shown below highlights the components covered in this articl
 
 :::image type="content" source="./media/tutorial-container-apps/service-diagram-overview-for-tutorial-deploy-python-azure-container-apps-deploy.png" alt-text="A screenshot of the services in the Tutorial - Deploy a Python App on Azure Container Apps. Section highlighted is what is covered in this article." lightbox="./media/tutorial-container-apps/service-diagram-overview-for-tutorial-deploy-python-azure-container-apps-deploy.png":::
 
-Command lines in this tutorial are shown in the Bash shell. For other shell types, change the line continuation characters as appropriate. For example, for PowerShell, use back tick ("\`").
+> [!NOTE]
+> Command lines in this tutorial are shown in the Bash shell. For other shell types, change the line continuation characters as appropriate. For example, for PowerShell, use back tick ("\`").
 
 ## Get the sample app
 
@@ -29,20 +30,20 @@ Fork and clone the sample code to your developer environment.
 
 Follow the steps to fork the directory to your GitHub account. You can also download the code repo directly to your local machine without forking or a GitHub account, however, you won't be able to set up CI/CD discussed later in the tutorial.
 
-**Step 2.** Use the [git clone][21] command to clone the forked repo into the *python-code-to-cloud* folder:
+**Step 2.** Use the [git clone][21] command to clone the forked repo into the *python-container* folder:
 
 ```bash
 # Django
-git clone https://github.com/$USERNAME/msdocs-python-django-azure-container-app.git pythoncontainer
+git clone https://github.com/$USERNAME/msdocs-python-django-azure-container-app.git python-container
 
 # Flask
-# git clone https://github.com/$USERNAME/msdocs-python-flask-azure-container-app.git pythoncontainer
+# git clone https://github.com/$USERNAME/msdocs-python-flask-azure-container-app.git python-container
 ```
 
 **Step 3.** Change directory.
 
 ```bash
-cd pythoncontainer
+cd python-container
 ```
 
 ## Build a container image from web app code
@@ -112,7 +113,7 @@ After following these steps, you'll have an Azure Container Registry that contai
            --resource-group pythoncontainer-rg \ 
            --image pythoncontainer:latest <repo-path>
         ```
-        Specify the registry name *\<registry-name>* and resource group you created above. For *\<repo-path>*, choose either the [Django][1] or [Flask][2] repo path.
+        Specify *\<registry-name>* as the name of the registry you created. For *\<repo-path>*, choose either the [Django][1] or [Flask][2] repo path.
 
         After the command completes, go to the registry's **Repositories** resource and confirm the image shows up.
     :::column-end:::
@@ -180,7 +181,9 @@ These steps require the [Docker extension][6] for VS Code.
         You can view the credentials created for admin with:
 
         ```bash
-        az acr credential show --name  <registry-name> --resource-group pythoncontainer-rg
+        az acr credential show \
+           --name  <registry-name> \
+           --resource-group pythoncontainer-rg
         ```
     :::column-end:::
 :::row-end:::
