@@ -222,17 +222,15 @@ The push of changes to the *main* branch kicks off the GitHub Actions workflow.
 > [!NOTE]
 > We showed making a change directly in the *main* branch. In typical software workflows, you'll make a change in a branch other than *main* and then create a pull request (PR) to merge those change into *main*. PRs also kick off the workflow.
 
-## GitHub Actions workflow
+## About GitHub Actions
 
 ### Viewing workflow history
-
-You can view GitHub Actions workflow history in [GitHub][17] or using [GitHub CLI][18] commands.
 
 ### [GitHub](#tab/git-github)
 
 :::row:::
     :::column span="2":::
-        **Step 1.** Go to your fork of the sample repository and open the **Actions** tab.
+        **Step 1.** On [GitHub][17], go to your fork of the sample repository and open the **Actions** tab.
     :::column-end:::
     :::column:::
         :::image type="content" source="media/tutorial-container-apps/github-check-action.png" alt-text="Screenshot showing how to view GitHub Actions for a repo and look at workflows." lightbox="media/tutorial-container-apps/github-check-action.png":::
@@ -240,6 +238,8 @@ You can view GitHub Actions workflow history in [GitHub][17] or using [GitHub CL
 :::row-end:::
 
 ### [Command line](#tab/git-commandline)
+
+These steps use the [GitHub CLI][18].
 
 **Step 1.** Get a summary of your workflow.
 
@@ -267,7 +267,7 @@ If credential information changes, you can update it here. For example, if the A
 
 ### OAuth authorized apps
 
-When you set up continuous deployment, you authorize Azure Container Apps as an authorized OAuth App for your GitHub account. Container Apps uses the authorized access to create a GitHub Actions YML file in *.github/workflows/\<workflow-name>.yml* when you set up continuous deployment. You can see your authorized apps and revoke permissions under **Integrations**/**Applications** of your account.
+When you set up continuous deployment, you authorize Azure Container Apps as an authorized OAuth App for your GitHub account. Container Apps uses the authorized access to create a GitHub Actions YML file in *.github/workflows/\<workflow-name>.yml*. You can see your authorized apps and revoke permissions under **Integrations**/**Applications** of your account.
 
 :::image type="content" source="media/tutorial-container-apps/github-authorized-oauth-apps.png" alt-text="Screenshot showing how to see the authorized apps for a user in GitHub." lightbox="media/tutorial-container-apps/github-authorized-oauth-apps.png":::
 
@@ -285,14 +285,14 @@ GitHub Actions workflow failed.
 
 * To check a workflow's status, go to the **Actions** tab of the repo.
 * If there's a failed workflow, drill into its workflow file. There should be two jobs "build" and "deploy". For a failed job, look at the output of the job's tasks to look for problems.
-* If you see an error message with "TLS handshake timeout", run the workflow manually by selecting **Trigger auto deployment** under the **Actions** tab of the repo to see if timeout is a temporary issue.
+* If you see an error message with "TLS handshake timeout", run the workflow manually by selecting **Trigger auto deployment** under the **Actions** tab of the repo to see if the timeout is a temporary issue.
 * If you set up continuous deployment for the container app as shown in this tutorial, the workflow file (*.github/workflows/\<workflow-name>.yml*) is created automatically for you. You shouldn't need to modify this file for this tutorial. If you did, revert your changes and try the workflow.
 
 Website doesn't show changes you merged in the *main* branch.
 
 * In GitHub: check that the GitHub Actions workflow ran and that you checked the change into the branch that triggers the workflow.
-* In Azure portal: check the Azure Container Registry to see if a new container image was created with a timestamp after your change to the branch.
-* In Azure portal: check the logs of container app. If there's a programming error, you'll see it here.
+* In Azure portal: check the Azure Container Registry to see if a new Docker image was created with a timestamp after your change to the branch.
+* In Azure portal: check the logs of the container app. If there's a programming error, you'll see it here.
   * Go to the Container App | Revision Management | \<active container> | Revision details | Console logs
   * Choose the order of the columns to show "Time Generated", "Stream_s", and "Log_s". Sort the logs by most-recent first and look for Python *stderr* and *stdout* messages in the "Stream_s" column. Python 'print' output will be *stdout* messages.
 
@@ -314,7 +314,7 @@ What happens when I disconnect continuous deployment?
 
 ## Next steps
 
-If you're done with the tutorial and don't want to incur costs, remove the resources used. Removing a resource group removes all resources in the group and is the fastest way to remove resources. For an example of how to remove resource groups, see [Containerize tutorial cleanup][25].
+If you're done with the tutorial and don't want to incur extra costs, remove the resources used. Removing a resource group removes all resources in the group and is the fastest way to remove resources. For an example of how to remove resource groups, see [Containerize tutorial cleanup][25].
 
 If you plan on building on this tutorial, here are some next steps you can take.
 
