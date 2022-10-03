@@ -111,7 +111,7 @@ Azure CLI commands can be run in the [Azure Cloud Shell][4] or on a workstation 
         Where: 
         * *\<app-name>* is an optional display name for the service principal. If you leave off the `--name` option, a GUID is generated as the display name.
         * *\<subscription-ID>* is the GUID that uniquely identifies your subscription in Azure.
-        * *\<resource-group-name>* is the name of a resource group that contains the Azure Container Registry. Role-based access control (RBAC) is on the resource group level.
+        * *\<resource-group-name>* is the name of a resource group that contains the Azure Container Apps container. Role-based access control (RBAC) is on the resource group level.
 
         Save the output of this command for the next step, in  particular, the client ID and client secret.
 
@@ -135,10 +135,10 @@ Azure CLI commands can be run in the [Azure Cloud Shell][4] or on a workstation 
         ```
 
         Where:
-        * *\<resource-group-name>* is the name of the resource group.If you are following this tutorial, it is "pythoncontainer-rg".
-        * *\<registry-name>* must be unique within Azure, and contain 5-50 alphanumeric characters.
+        * *\<resource-group-name>* is the name of the resource group. If you are following this tutorial, it is "pythoncontainer-rg".
+        * *\<registry-name>* is an existing registry you created for this tutorial, or one that you can use.
         * *\<client-id>* is a value from the previous `az ad sp` command. The ID is a GUID of the form 00000000-0000-0000-0000-00000000.
-        * *\<tenant-id>* is a value from the previous `az ad sp` command. The ID is a GUID of the form 00000000-0000-0000-0000-00000000.
+        * *\<tenant-id>* is a value from the previous `az ad sp` command. The ID is also a GUID similar to the client id.
         * *\<client-secret>* is a value from the previous `az ad sp` command.
 
     :::column-end:::
@@ -148,11 +148,11 @@ Azure CLI commands can be run in the [Azure Cloud Shell][4] or on a workstation 
 
 In the configuration of continuous deployment, a [*service principal*][21] is used to enable GitHub Actions to access and modify Azure resources. Access to resources is restricted by the roles assigned to the service principal. The service principal was assigned the built-in [*Contributor*][12] role on the resource group containing the container app.
 
-If you followed the steps for the portal, the service principal was created automatically for you. If you followed the steps for the Azure CLI, you explicitly created the service principal first before configuring continuous deployment.
+If you followed the steps for the portal, the service principal was automatically created for you. If you followed the steps for the Azure CLI, you explicitly created the service principal first before configuring continuous deployment.
 
 ## Redeploy web app with GitHub Actions
 
-In this section, you'll make a small change to your forked copy of the sample repository and confirm that the change is automatically deployed to the web site.
+In this section, you'll make a change to your forked copy of the sample repository and confirm that the change is automatically deployed to the web site.
 
 If you haven't already, make a [fork][13] of the sample repository ([Django][1] or [Flask][2]). You can make your code change directly in [GitHub][17] or in your development environment from a command line with [Git][14].
 
@@ -193,14 +193,14 @@ If you haven't already, make a [fork][13] of the sample repository ([Django][1] 
 
 ### [Command line](#tab/git-commandline)
 
+If you haven't already, use `git clone` to pull your forked repository to your development environment and change directory to the repository.
+
 **Step 1.** Start in *main*.
 
 ```Bash
 git checkout main
 git pull
 ```
-
-If you haven't already, use `git clone` to pull your forked repository to your development environment and change directory to the repository.
 
 **Step 2.** Make a change.
 
@@ -220,7 +220,7 @@ The push of changes to the *main* branch kicks off the GitHub Actions workflow.
 ---
 
 > [!NOTE]
-> We showed making a change directly in the *main* branch. In typical software workflows, you'll make a change in a branch other than *main* and then create a pull request (PR) to merge those change into *main*. The PR will also kick off the workflow.
+> We showed making a change directly in the *main* branch. In typical software workflows, you'll make a change in a branch other than *main* and then create a pull request (PR) to merge those change into *main*. PRs also kick off the workflow.
 
 ## GitHub Actions workflow
 
@@ -314,7 +314,7 @@ What happens when I disconnect continuous deployment?
 
 ## Next steps
 
-If you are done with the tutorial and don't want to incur costs, remove the resources used. Removing a resource group removes all resources in the group and is the fastest way to remove resources. For an example on how to remove resource groups, see [Containerize tutorial cleanup][25].
+If you're done with the tutorial and don't want to incur costs, remove the resources used. Removing a resource group removes all resources in the group and is the fastest way to remove resources. For an example of how to remove resource groups, see [Containerize tutorial cleanup][25].
 
 If you plan on building on this tutorial, here are some next steps you can take.
 
