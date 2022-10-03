@@ -222,13 +222,15 @@ Azure CLI commands can be run in the [Azure Cloud Shell][4] or on a workstation 
         You can view the credentials created for admin with:
 
         ```bash
-        az acr credential show --name  <registry-name> --resource-group pythoncontainer-rg
+        az acr credential show \
+           --name <registry-name> \
+           --resource-group pythoncontainer-rg
         ```
     :::column-end:::
 :::row-end:::
 :::row:::
     :::column span="1":::
-        **Step 3.** Sign in to the registry using the [az acr login][19] command.
+        **Step 3.** Sign in to the registry using the [az acr sign in][19] command.
 
         ```bash
         az acr login --name <registry-name>
@@ -252,7 +254,7 @@ Azure CLI commands can be run in the [Azure Cloud Shell][4] or on a workstation 
 
         * The dot (".") at the end of the command indicates the location of the source code to build. If you aren't running this command in the sample app root directory, specify the path to the code.
 
-        * If you are running the command in Azure Cloud Shell, use `git clone` to pull the repo into the Cloud Shell environment first and change directory into the root of the project so that dot (".") is interpreted correctly.
+        * If you are running the command in Azure Cloud Shell, use `git clone` to first pull the repo into the Cloud Shell environment first and change directory into the root of the project so that dot (".") is interpreted correctly.
 
         * If you leave out the `-t` (same as `--image`) option, the command queues a local context build without pushing it to the registry. Building without pushing can be useful to check that the image builds.
     :::column-end:::
@@ -271,7 +273,7 @@ Azure CLI commands can be run in the [Azure Cloud Shell][4] or on a workstation 
 
 ## Create a PostgreSQL Flexible Server instance
 
-The sample app ([Django][1] or [Flask][2]) uses a PostgreSQL database. In the steps below, you'll create the server that will contain the database.
+The sample app ([Django][1] or [Flask][2]) stores restaurant review data in a PostgreSQL database. In these steps, you'll create the server that will contain the database.
 
 ### [Azure portal](#tab/azure-portal)
 
@@ -440,11 +442,11 @@ az postgres flexible-server create \
 
 ## Create a database on the server
 
-The sample code ([Django][1] or [Flask][2]) requires a PostgreSQL database to store restaurant reviews. At this point, you have a PostgreSQL server and now you need to create a database on the server.
+At this point, you have a PostgreSQL server and now you'll create a database on the server.
 
 ### [psql](#tab/create-database-psql)
 
-You can use the PostgreSQL interactive terminal [psql][15] in your local environment, or in the [Azure Cloud Shell][4], which is also accessible in the [Azure portal][3].
+You can use the PostgreSQL interactive terminal [psql][15] in your local environment, or in the [Azure Cloud Shell][4], which is also accessible in the [Azure portal][3]. When working with psql, it is often easier to use the [Cloud Shell][4] because all the dependencies are included for you in the shell.
 
 **Step 1.** Connect to the database with psql.
 
@@ -457,7 +459,7 @@ psql --host=<postgres-server-name>.postgres.database.azure.com \
 
 Where *\<postgres-server-name>* is the name of the PostgreSQL server. The command above will prompt you for the admin password.
 
-If you have trouble connecting, restart the database and try again. If you're connecting from your local environment, your IP address must be added to the firewall rule list for the database service.
+If you have trouble connecting, restart the database and try again. If you're connecting from your local environment, your IP address must be added to the firewall rule list for the database service. 
 
 **Step 2.** Create the database.
 
@@ -477,7 +479,7 @@ These steps require the [Azure Databases extension][26] for VS Code.
 
 **Step 2.** At the prompt, enter *restaurants_reviews* as the **Database Name**.
 
-If you have trouble creating the database, the server may still be processing the firewall rule from the previous step. Wait a moment and try again. If you're prompted to enter credentials to access the database, use the "demoadmin" username and password you used to create the database.
+If you have trouble creating the database, the server may still be processing the firewall rule from the previous step. Wait a moment and try again. If you're prompted to enter credentials to access the database, use the "demoadmin" username, and password you used to create the database.
 
 ### [Azure CLI](#tab/create-database-azure-cli)
 
@@ -497,7 +499,7 @@ Where:
 * "pythoncontainer-rg" &rarr; The resource group name used in this tutorial. If you used a different name, change this value.
 * `<postgres-server-name>` &rarr; The name of the PostgreSQL server.
 
-You could also use the [az postgres flexible-server connect][16] command to connect to the database and then work with [psl][15] commands. If you work with psl, we recommend using the Azure [Cloud Shell][4] because all the dependencies are included for you in the shell.
+You could also use the [az postgres flexible-server connect][16] command to connect to the database and then work with [psql][15] commands. When working with psql, it is often easier to use the Azure [Cloud Shell][4] because all the dependencies are included for you in the shell.
 
 ---
 
@@ -505,7 +507,7 @@ You can also connect to Azure PostgreSQL Flexible server and create a database u
 
 ## Deploy the web app to Container Apps
 
-Container apps are deployed to Container Apps [*environments*][30], which act as a secure boundary. The steps below create the environment, a container inside the environment, and configure the container so that the website is visible externally.
+Container apps are deployed to Container Apps [*environments*][30], which act as a secure boundary. In the following steps, you'll create the environment, a container inside the environment, and configure the container so that the website is visible externally.
 
 ### [Azure portal](#tab/azure-portal)
 
@@ -572,7 +574,7 @@ Container apps are deployed to Container Apps [*environments*][30], which act as
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 6.** Create a *revision* of the container that contains environment variables.
+        **Step 6.** Create a [*revision*][31] of the container that contains environment variables.
 
         * Select the **Containers** resource of the newly created container.
         * Then, select **Edit and deploy**.
@@ -599,7 +601,7 @@ Container apps are deployed to Container Apps [*environments*][30], which act as
 :::row:::
     :::column span="1":::
         > [!TIP]
-        > Instead of directly defining environment variables as shown above, you can use the [Service Connector][9]. Service Connector helps you connect to Azure compute services like Azure Container Apps, to other backing services by configuring connection information and generating and storing environment variables for you. If you use a service connector, make sure you synchronize the environment variables in the sample code to the environment variables created with Service Connector.
+        > Instead of defining environment variables as shown above, you can use [Service Connector][9]. Service Connector helps you connect to Azure compute services to other backing services by configuring connection information and generating and storing environment variables for you. If you use a service connector, make sure you synchronize the environment variables in the sample code to the environment variables created with Service Connector.
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -734,7 +736,7 @@ These steps require the [Azure Container Apps extension][11] for VS Code.
 :::row-end:::
 :::row:::
     :::column span="1":::
-        **Step 4.** Get the login credentials for the Azure Container Registry.
+        **Step 4.** Get the sign in credentials for the Azure Container Registry.
 
         ```bash
         az acr credentials show -n <registry-name>
@@ -802,7 +804,7 @@ Here's an example of the sample website after adding a restaurant and two review
   * If you see the message "Error: failed to download context. Please check if the URL is incorrect." in the VS Code **Output** window, then refresh the registry in the Docker extension. To refresh, select the Docker extension, go to the Registries section, find the registry and select it.
 
 * In the Azure portal during the creation of a Container App, you see an access error that contains "Cannot access ACR '\<name>.azurecr.io'".
-  * This can happen because admin credentials on the ACR are disabled. To check admin status, go to your Azure Container Registry, select the **Access keys** resource, and ensure that **Admin user** is enabled.
+  * This error occurs when admin credentials on the ACR are disabled. To check admin status, go to your Azure Container Registry, select the **Access keys** resource, and ensure that **Admin user** is enabled.
 
 * Your container image doesn't appear in the Azure Container Registry.
   * Check the output of the Azure CLI command or VS Code Output and look for messages to confirm success.
@@ -857,3 +859,4 @@ Here's an example of the sample website after adding a restaurant and two review
 [28]: /cli/azure/postgres/flexible-server/firewall-rule#az-postgres-flexible-server-firewall-rule-create
 [29]: /cli/azure/acr#az-acr-update
 [30]: /azure/container-apps/environment
+[31]: /azure/container-apps/revisions
