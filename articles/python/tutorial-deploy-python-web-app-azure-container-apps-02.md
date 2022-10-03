@@ -20,7 +20,7 @@ The service diagram shown below highlights the components covered in this articl
 :::image type="content" source="./media/tutorial-container-apps/service-diagram-overview-for-tutorial-deploy-python-azure-container-apps-deploy.png" alt-text="A screenshot of the services in the Tutorial - Deploy a Python App on Azure Container Apps. Section highlighted is what is covered in this article." lightbox="./media/tutorial-container-apps/service-diagram-overview-for-tutorial-deploy-python-azure-container-apps-deploy.png":::
 
 > [!NOTE]
-> Command lines in this tutorial are shown in the Bash shell. For other shell types, change the line continuation characters as appropriate. For example, for PowerShell, use back tick ("\`").
+> Command lines in this tutorial are shown in the Bash shell, on multiple lines for clarity. For other shell types, change the line continuation characters as appropriate. For example, for PowerShell, use back tick ("\`"). Or, remove the continuation characters and enter the command on one line.
 
 ## Get the sample app
 

@@ -11,29 +11,32 @@ ms.author: jejohn
 
 # Configure continuous deployment for a Python web app in Azure Container Apps
 
-This article is part of a tutorial about how to containerize and deploy a Python web app to [Azure Container Apps][8]. Container Apps enable you to deploy containerized apps without managing complex infrastructure.
+This article is part of a tutorial about how to containerize and deploy a Python web app to [Azure Container Apps][8]. Container Apps enables you to deploy containerized apps without managing complex infrastructure.
 
-In this part of the tutorial, you learn how to configure continuous deployment or delivery (CD) for the container app. CD is part of the DevOps concept of continuous integration / continuous delivery (CI/CD), automation of your software development workflow. Specifically, you use [GitHub Actions][20] for continuous deployment.
+In this part of the tutorial, you learn how to configure continuous deployment or delivery (CD) for the container app. CD is part of the DevOps practice of continuous integration / continuous delivery (CI/CD), which is automation of your app development workflow. Specifically, you use [GitHub Actions][20] for continuous deployment.
 
-The service diagram shown below highlights the components covered in this article: configuration of the CI/CD cycle.
+The service diagram shown below highlights the components covered in this article: configuration of CI/CD.
 
 :::image type="content" source="./media/tutorial-container-apps/service-diagram-overview-for-tutorial-deploy-python-azure-container-apps-cicd.png" alt-text="A screenshot of the services in the Tutorial - Deploy a Python App on Azure Container Apps. Sections highlighted are parts related to continuous integration - continuous delivery (CI/CD)." lightbox="./media/tutorial-container-apps/service-diagram-overview-for-tutorial-deploy-python-azure-container-apps-cicd.png":::
+
+> [!NOTE]
+> Command lines in this tutorial are shown in the Bash shell, on multiple lines for clarity. For other shell types, change the line continuation characters as appropriate. For example, for PowerShell, use back tick ("\`"). Or, remove the continuation characters and enter the command on one line.
 
 ## Prerequisites
 
 To set up continuous deployment, you'll need:
 
-* The resources created in the previous article of this tutorial series, which includes an [Azure Container Registry][9] and a container app in [Azure Container Apps][8].
+* The resources and their configuration created in the [previous article][./tutorial-deploy-python-web-app-azure-container-apps-02.md] of this tutorial series, which includes an [Azure Container Registry][9] and a container app in [Azure Container Apps][8].
 
 * A GitHub account where you forked the sample code ([Django][1] or [Flask][2]) and you can connect to from Azure Container Apps. (If you downloaded the sample code instead of forking, make sure you push your local repo to your GitHub account.)
 
-* Optionally, [Git][14] installed in your development environment to make code changes and push to your repo in GitHub. Alternatively, you can make the changes directly in GitHub with a patch.
+* Optionally, [Git][14] installed in your development environment to make code changes and push to your repo in GitHub. Alternatively, you can make the changes directly in GitHub.
 
 ## Configure CD for a container
 
 In a previous article of this tutorial, you created and configured a container app in Azure Container Apps. Part of the configuration was pulling a Docker image from an Azure Container Registry. The container image is pulled from the registry when creating a container [*revision*][5], such as when you first set up the container app.
 
-In the steps below, you'll set up continuous deployment, which means a new container image and container revision are created based on a defined trigger. The trigger in this tutorial is any change to the *main* branch of a repository, such as with a pull request (PR). When triggered, the workflow creates a new container image, pushes it to the Azure Container Registry, and updates the container app to a new revision using the new image.
+In the steps below, you'll set up continuous deployment, which means a new Docker image and container revision are created based on a trigger. The trigger in this tutorial is any change to the *main* branch of your repository, such as with a pull request (PR). When triggered, the workflow creates a new Docker image, pushes it to the Azure Container Registry, and updates the container app to a new revision using the new image.
 
 ### [Azure portal](#tab/azure-portal)
 
@@ -47,12 +50,12 @@ In the steps below, you'll set up continuous deployment, which means a new conta
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 2.** Authorize Azure Container Apps to access the repo.
+        **Step 2.** Authorize Azure Container Apps to access your GitHub account.
 
         * Select **Sign in with GitHub**.
         * In the authorization pop up, select **AuthorizeAppService**.
 
-        Container App access to the repo can be revoked by going to the repo's security section and revoking access.
+        Container App access to the GitHub accont can be revoked by going to the your account's security section and revoking access.
 
     :::column-end:::
     :::column:::
@@ -68,7 +71,7 @@ In the steps below, you'll set up continuous deployment, which means a new conta
         * **Branch** &rarr; Select *main*.
         * **Repository source** &rarr; Select **Azure Container Registry**.
         * **Registry** &rarr; Select the Azure Container Registry you created earlier in the tutorial.
-        * **Image** &rarr; Select the container image name. If you are following the tutorial, it's "python-container-app".
+        * **Image** &rarr; Select the Docker image name. If you are following the tutorial, it's "python-container-app".
         * **Service principal** &rarr; Leave **Create new** and let the creation process create a new service principal.
 
         Select **Start continuous deployment** to finish the configuration.
@@ -82,7 +85,7 @@ In the steps below, you'll set up continuous deployment, which means a new conta
     :::column span="2":::
         **Step 4.** Review the continuous deployment information.
 
-        After the continuous deployment is configured, you can find a link to the GitHub Actions workflow file created for you. Azure Container Apps checked the file in.
+        After the continuous deployment is configured, you can find a link to the GitHub Actions workflow file created. Azure Container Apps checked the file in to your repo.
     :::column-end:::
     :::column:::
         :::image type="content" source="media/tutorial-container-apps/azure-portal-continuous-deployment-configuration-finish.png" alt-text="Screenshot showing the an Azure Container App configured for continuous deployment with GitHub Actions." lightbox="media/tutorial-container-apps/azure-portal-continuous-deployment-configuration-finish.png":::
