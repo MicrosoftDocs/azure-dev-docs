@@ -32,7 +32,7 @@ Select your preferred pipeline provider to continue:
 
 ### Authorize GitHub to deploy to Azure
 
-To configure the workflow, you need to give GitHub permission to deploy to Azure on your behalf. Authorize GitHub by creating an Azure service principle stored in a GitHub secret named `AZURE_CREDENTIALS`.
+To configure the workflow, you need to give GitHub permission to deploy to Azure on your behalf. Authorize GitHub by creating an Azure service principal stored in a GitHub secret named `AZURE_CREDENTIALS`.
 
 1. Run the following command to create the Azure service principal and configure the pipeline:
 
