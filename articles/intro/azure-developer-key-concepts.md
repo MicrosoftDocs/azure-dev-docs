@@ -27,7 +27,7 @@ Not every Azure service is available in every region.  The [Products available b
 
 ## Azure resource group
 
-A Resource Group in Azure is a logical container to group Azure Resources together.  Ever Azure resource must belong to one and only one resource group.
+A Resource Group in Azure is a logical container to group Azure Resources together.  Every Azure resource must belong to one and only one resource group.
 
 Resource groups are most often used to group together all of the Azure resources needed for a solution in Azure.  For example, say you've a web application deployed to Azure App Service that uses a SQL database, Azure Storage, and also Azure Key Vault.  It's common practice to put all of the Azure resources needed for this solution into a single resource group.  
 
