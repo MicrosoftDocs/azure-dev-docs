@@ -295,6 +295,7 @@ Website doesn't show changes you merged in the *main* branch.
 * In Azure portal: check the logs of the container app. If there's a programming error, you'll see it here.
   * Go to the Container App | Revision Management | \<active container> | Revision details | Console logs
   * Choose the order of the columns to show "Time Generated", "Stream_s", and "Log_s". Sort the logs by most-recent first and look for Python *stderr* and *stdout* messages in the "Stream_s" column. Python 'print' output will be *stdout* messages.
+* With the Azure CLI, use the [az containerapp logs show][26] command.
 
 What happens when I disconnect continuous deployment?
 
@@ -349,3 +350,4 @@ If you plan on building on this tutorial, here are some next steps you can take.
 [23]: /azure/container-apps/custom-domains-certificates
 [24]: /azure/container-apps/monitor
 [25]: /azure/developer/python/tutorial-containerize-deploy-python-web-app-azure-05
+[26]: /cli/azure/containerapp/logs#az-containerapp-logs-show
