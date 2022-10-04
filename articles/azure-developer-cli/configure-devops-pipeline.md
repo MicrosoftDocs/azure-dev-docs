@@ -36,7 +36,7 @@ To configure the workflow, you need to give GitHub permission to deploy to Azure
 
 1. Run the following command to create the Azure service principal and configure the pipeline:
 
-    ```bash
+    ```azure-dev-cli
     azd pipeline config
     ```
 
@@ -111,13 +111,13 @@ When creating your PAT, set the following scopes:
 
 1. Run the following command to configure an Azure DevOps Project and Repository with a deployment Pipeline.
 
-   ``` bash
+   ``` azure-dev-cli
    azd pipeline config --provider azdo
    ````
    
    If you did the configuration update in Step 1, you can omit the `--provider` flag:
 
-   ``` bash
+   ``` azure-dev-cli
    azd pipeline config
    ````
 
@@ -127,7 +127,7 @@ When creating your PAT, set the following scopes:
    - Copy/paste your PAT. 
    - Export your PAT as a system environment by running the following command. Otherwise, you will be prompted every time you set up an Azure Pipeline:
 
-      ```bash
+      ```azure-dev-cli
       export AZURE_DEVOPS_EXT_PAT=<PAT>
       ```
 
@@ -181,7 +181,7 @@ When creating your PAT, set the following scopes:
 
 When you no longer need the Azure resources created in this article, run the following command:
 
-``` bash
+``` azure-dev-cli
 azd down
 ```
 

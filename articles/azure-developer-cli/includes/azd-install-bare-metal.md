@@ -2,7 +2,7 @@
 author: hhunter-ms
 ms.service: azure-dev-cli
 ms.topic: include
-ms.date: 09/12/2022
+ms.date: 10/04/2022
 ms.author: hannahhunter
 ---
 
@@ -20,13 +20,13 @@ Before you get started using `azd`, ensure you have:
 
 ### [Windows](#tab/windows)
 
-```bash
+```azure-dev-cli
 powershell -ex AllSigned -c "Invoke-RestMethod 'https://aka.ms/install-azd.ps1' | Invoke-Expression"
 ```
 
 ### [Linux/MacOS](#tab/linuxmac)
 
-```bash
+```azure-dev-cli
 curl -fsSL https://aka.ms/install-azd.sh | bash 
 ```
 
@@ -38,13 +38,13 @@ To uninstall the `azd`:
 
 ### [Windows](#tab/windows)
 
-```bash
+```azure-dev-cli
 powershell -ex AllSigned -c "Invoke-RestMethod 'https://aka.ms/uninstall-azd.ps1' | Invoke-Expression"
 ```
 
 ### [Linux/MacOS](#tab/linuxmac)
 
-```bash
+```azure-dev-cli
 curl -fsSL https://aka.ms/uninstall-azd.sh | bash 
 ```
 

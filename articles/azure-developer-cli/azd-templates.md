@@ -44,7 +44,7 @@ For information on authoring your own template or “templatizing” an existing
 
 You can also run the following command to list all supported, azd-compatible templates.
 
-```bash
+```azure-dev-cli
 azd template list
 ```
 

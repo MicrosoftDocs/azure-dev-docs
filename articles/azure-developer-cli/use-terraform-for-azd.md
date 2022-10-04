@@ -77,7 +77,7 @@ Scenarios for enabling remote state:
 1. Run `azd env set <key> <value>` to add configuration in the `.env` file. 
 For example: 
  
-    ```bash
+    ```azure-dev-cli
     azd env set RS_STORAGE_ACCOUNT your_storage_account_name
     azd env set RS_CONTAINER_NAME your_terraform_container_name
     azd env set RS_RESOURCE_GROUP your_storage_account_resource_group
