@@ -10,7 +10,7 @@ ms.author: hannahhunter
 
 Run the `azd up` command with the `--template` flag. 
 
-```azure-dev-cli
+```azdeveloper
 azd up --template <TEMPLATE>
 ```
 

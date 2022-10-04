@@ -20,13 +20,13 @@ Before you get started using `azd`, ensure you have:
 
 ### [Windows](#tab/windows)
 
-```azure-dev-cli
+```azdeveloper
 powershell -ex AllSigned -c "Invoke-RestMethod 'https://aka.ms/install-azd.ps1' | Invoke-Expression"
 ```
 
 ### [Linux/MacOS](#tab/linuxmac)
 
-```azure-dev-cli
+```azdeveloper
 curl -fsSL https://aka.ms/install-azd.sh | bash 
 ```
 
@@ -38,13 +38,13 @@ To uninstall the `azd`:
 
 ### [Windows](#tab/windows)
 
-```azure-dev-cli
+```azdeveloper
 powershell -ex AllSigned -c "Invoke-RestMethod 'https://aka.ms/uninstall-azd.ps1' | Invoke-Expression"
 ```
 
 ### [Linux/MacOS](#tab/linuxmac)
 
-```azure-dev-cli
+```azdeveloper
 curl -fsSL https://aka.ms/uninstall-azd.sh | bash 
 ```
 

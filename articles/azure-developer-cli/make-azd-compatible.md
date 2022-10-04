@@ -49,7 +49,7 @@ All `azd` templates have the same file structure, based on `azd` conventions. Th
 
 1. Run the following command to clone the [Python Flask web app](/azure/app-service/quickstart-python?tabs=flask%2Cwindows%2Cazure-portal%2Cterminal-bash%2Cvscode-deploy%2Cdeploy-instructions-azportal%2Cdeploy-instructions-zip-azcli):
 
-    ```azure-dev-cli
+    ```azdeveloper
     git clone https://github.com/Azure-Samples/msdocs-python-flask-webapp-quickstart
     ```
 
@@ -63,7 +63,7 @@ All `azd` templates have the same file structure, based on `azd` conventions. Th
 
 1. Run the following command to initialize the project. 
 
-    ```azure-dev-cli
+    ```azdeveloper
     azd init
     ```
 
@@ -254,7 +254,7 @@ For samples, refer to [sample Azure App Service Bicep files](/azure/app-service/
 
 1. Run the following command to provision the Azure resources.
 
-    ```azure-dev-cli
+    ```azdeveloper
     azd provision
     ```
    
@@ -290,7 +290,7 @@ To deploy the app, `azd` needs to know more about your app. Specify the app's so
 
 1. Run the following command to deploy the app to Azure:
 
-    ```azure-dev-cli
+    ```azdeveloper
     azd deploy
     ```
 
@@ -314,7 +314,7 @@ Your project is now compatible with Azure Developer CLI and can be used as a tem
 
 1. Run the following command to push updates to the repository. The GitHub Actions workflow is triggered because of the update.
 
-    ```azure-dev-cli
+    ```azdeveloper
     azd pipeline config    
     ```
 
@@ -333,7 +333,7 @@ Your project is now compatible with Azure Developer CLI and can be used as a tem
 
 When you no longer need the resources created in this article, run the following command:
 
-``` azure-dev-cli
+``` azdeveloper
 azd down
 ```
 

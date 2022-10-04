@@ -12,7 +12,7 @@ ms.author: hannahhunter
 1. Change into the new empty directory.
 1. Run the following command to initialize the project:
 
-   ```azure-dev-cli
+   ```azdeveloper
    azd init --template <TEMPLATE>
    ```
 
@@ -35,7 +35,7 @@ When you run the `azd up` command, you'll be prompted to provide the following i
 
 In the terminal, run the `azd up` command with the `--template` flag.
 
-```azure-dev-cli
+```azdeveloper
 azd up --template <TEMPLATE>
 ```
 

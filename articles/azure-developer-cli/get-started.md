@@ -39,7 +39,7 @@ Select your preferred environment to continue:
 
 1. Run the following command:
 
-```azure-dev-cli
+```azdeveloper
 azd up --template todo-nodejs-mongo
 ```
 
@@ -96,7 +96,7 @@ A [DevContainer](https://code.visualstudio.com/docs/remote/containers) is a Dock
 
 1. Run the following command to initialize the project:
 
-   ```azure-dev-cli
+   ```azdeveloper
    azd init --template todo-nodejs-mongo
    ```
 
@@ -118,7 +118,7 @@ Open the project in VS Code, hit F1 and choose: `Remote-Containers: Rebuild and 
 
 Run the following command:
 
-```azure-dev-cli
+```azdeveloper
 azd up
 ```
 
@@ -181,7 +181,7 @@ In this guide, the app uses Python Virtual Environments to isolate Python packag
 
 1. Run the following command:
 
-```azure-dev-cli
+```azdeveloper
 azd up --template todo-python-mongo
 ```
 
@@ -238,7 +238,7 @@ A [DevContainer](https://code.visualstudio.com/docs/remote/containers) is a Dock
 
 1. Run the following command to initialize the project:
 
-   ```azure-dev-cli
+   ```azdeveloper
    azd init --template todo-python-mongo
    ```
 
@@ -261,7 +261,7 @@ Open the project in VS Code, hit F1 and choose: `Remote-Containers: Rebuild and 
 
 Run the following command:
 
-```azure-dev-cli
+```azdeveloper
 azd up
 ```
 
@@ -319,7 +319,7 @@ Select your preferred environment to continue:
 
 1. Run the following command:
 
-```azure-dev-cli
+```azdeveloper
 azd up --template todo-csharp-cosmos-sql
 ```
 
@@ -376,7 +376,7 @@ A [DevContainer](https://code.visualstudio.com/docs/remote/containers) is a Dock
 
 1. Run the following command to initialize the project:
 
-   ```azure-dev-cli
+   ```azdeveloper
    azd init --template todo-csharp-cosmos-sql
    ```
 
@@ -398,7 +398,7 @@ Open the project in VS Code, hit F1 and choose: `Remote-Containers: Rebuild and 
 
 Run the following command:
 
-```azure-dev-cli
+```azdeveloper
 azd up
 ```
 
@@ -435,7 +435,7 @@ Upon successful completion of the `azd up` command:
 
 When you no longer need the resources created in this article, run the following command to power down the app:
 
-```azure-dev-cli
+```azdeveloper
 azd down
 ```
 
