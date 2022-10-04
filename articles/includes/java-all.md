@@ -538,9 +538,9 @@
 | Functions - Archetype | Maven [1.50](https://search.maven.org/artifact/com.microsoft.azure/azure-functions-archetype/1.50/jar/) |  |  |
 | Functions - DurableTask | Maven [1.0.0-beta.1](https://search.maven.org/artifact/com.microsoft/durabletask-azure-functions/1.0.0-beta.1/jar/) |  |  |
 | Functions - Java Core | Maven [1.0.0-beta-3](https://search.maven.org/artifact/com.microsoft.azure/azure-functions-java-core/1.0.0-beta-3/jar/) |  |  |
+| Functions - Java Library | Maven [2.1.0](https://search.maven.org/artifact/com.microsoft.azure.functions/azure-functions-java-library/2.1.0/jar/) |  |  |
 | Functions - Java Library Cosmos DB Cassandra | Maven [1.0.0](https://search.maven.org/artifact/com.microsoft.azure.functions/azure-functions-java-library-cosmosdbcassandra/1.0.0/jar/) |  |  |
 | Functions - Java Library SignalR | Maven [1.0.0](https://search.maven.org/artifact/com.microsoft.azure.functions/azure-functions-java-library-signalr/1.0.0/jar/) |  |  |
-| Functions - Java Llibrary | Maven [2.1.0](https://search.maven.org/artifact/com.microsoft.azure.functions/azure-functions-java-library/2.1.0/jar/) |  |  |
 | Functions - Kotlin Archetype | Maven [1.23](https://search.maven.org/artifact/com.microsoft.azure/azure-functions-kotlin-archetype/1.23/jar/) |  |  |
 | Functions - Maven Plugin | Maven [1.21.0](https://search.maven.org/artifact/com.microsoft.azure/azure-functions-maven-plugin/1.21.0/jar/) |  |  |
 | Gateway - Java Binding | Maven [1.1.0](https://search.maven.org/artifact/com.microsoft.azure.gateway/gateway-java-binding/1.1.0/jar/) |  |  |
