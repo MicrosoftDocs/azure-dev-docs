@@ -10,7 +10,7 @@ ms.author: hannahhunter
 
 Run the `azd up` command with the `--template` flag. 
 
-```bash
+```azdeveloper
 azd up --template <TEMPLATE>
 ```
 
