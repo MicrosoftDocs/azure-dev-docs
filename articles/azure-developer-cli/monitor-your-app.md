@@ -42,7 +42,7 @@ To help with monitoring apps, `azd` provides a `monitor` command whose parameter
 
 When you no longer need the resources created in this article, do the following steps:
 
-``` bash
+```azdeveloper
 azd down
 ```
 
