@@ -341,6 +341,7 @@
 | @cadl-lang/html-program-viewer | npm [0.3.0](https://www.npmjs.com/package/@cadl-lang/html-program-viewer/v/0.3.0) |  |  |
 | @cadl-lang/internal-build-utils | npm [0.3.1](https://www.npmjs.com/package/@cadl-lang/internal-build-utils/v/0.3.1) |  |  |
 | @cadl-lang/library-linter | npm [0.2.0](https://www.npmjs.com/package/@cadl-lang/library-linter/v/0.2.0) |  |  |
+| @cadl-lang/lint | npm [0.1.0](https://www.npmjs.com/package/@cadl-lang/lint/v/0.1.0) |  |  |
 | @cadl-lang/openapi | npm [0.12.0](https://www.npmjs.com/package/@cadl-lang/openapi/v/0.12.0) |  |  |
 | @cadl-lang/openapi3 | npm [0.15.0](https://www.npmjs.com/package/@cadl-lang/openapi3/v/0.15.0) |  |  |
 | @cadl-lang/prettier-plugin-cadl | npm [0.5.15](https://www.npmjs.com/package/@cadl-lang/prettier-plugin-cadl/v/0.5.15) |  |  |

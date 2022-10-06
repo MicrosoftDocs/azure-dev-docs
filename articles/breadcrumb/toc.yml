@@ -43,18 +43,6 @@
       - name: Java EE, Jakarta EE, and MicroProfile
         tocHref: /azure/developer/java/ee
         topicHref: /azure/developer/java/ee/index
-      - name: Java EE, Jakarta EE, and MicroProfile
-        tocHref: /azure/virtual-machines/workloads/oracle
-        topicHref: /azure/developer/java/ee/index
-      - name: Java EE, Jakarta EE, and MicroProfile
-        tocHref: /azure/virtual-machines/workloads/redhat
-        topicHref: /azure/developer/java/ee/index
-      - name: Java EE, Jakarta EE, and MicroProfile
-        tocHref: /azure/openshift
-        topicHref: /azure/developer/java/ee/index
-      - name: Java EE, Jakarta EE, and MicroProfile
-        tocHref: /azure/aks
-        topicHref: /azure/developer/java/ee/index
       - name: Learning resources
         tocHref: /azure/developer/java/learning-resources
         topicHref: /azure/developer/java/learning-resources/index
@@ -63,15 +51,6 @@
         topicHref: /azure/developer/java/eclipse-microprofile/index
       - name: Migration
         tocHref: /azure/developer/java/migration
-        topicHref: /azure/developer/java/migration/index
-      - name: Migration
-        tocHref: /azure/migrate
-        topicHref: /azure/developer/java/migration/index
-      - name: Migration
-        tocHref: /azure/virtual-machines/workloads/redhat
-        topicHref: /azure/developer/java/migration/index
-      - name: Migration
-        tocHref: /java/openjdk/
         topicHref: /azure/developer/java/migration/index
       - name: Quickstarts
         tocHref: /azure/developer/java/quickstarts
@@ -82,26 +61,14 @@
       - name: Spring Cloud Azure
         tocHref: /azure/developer/java/spring-framework
         topicHref: /azure/developer/java/spring-framework/index
-      - name: Spring Cloud Azure
-        tocHref: /azure/azure-app-configuration
-        topicHref: /azure/developer/java/spring-framework/index
-      - name: Spring Cloud Azure
-        tocHref: /azure/spring-apps
-        topicHref: /azure/developer/java/spring-framework/index
       - name: Toolkit for Eclipse
         tocHref: /azure/developer/java/toolkit-for-eclipse
         topicHref: /azure/developer/java/toolkit-for-eclipse/index
       - name: Toolkit for IntelliJ
         tocHref: /azure/developer/java/toolkit-for-intellij
         topicHref: /azure/developer/java/toolkit-for-intellij/index
-      - name: Toolkit for IntelliJ
-        tocHref: /azure/azure-functions
-        topicHref: /azure/developer/java/toolkit-for-intellij/index
       - name: Tools
         tocHref: /azure/developer/java/fundamentals
-        topicHref: /azure/developer/java/fundamentals/index
-      - name: Tools
-        tocHref: /java/openjdk
         topicHref: /azure/developer/java/fundamentals/index
     - name: JavaScript
       tocHref: /azure/developer/javascript

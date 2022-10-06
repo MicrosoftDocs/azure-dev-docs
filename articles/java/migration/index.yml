@@ -47,7 +47,7 @@ landingContent:
           - text: Tomcat to Azure Spring Apps
             url: migrate-tomcat-to-azure-spring-cloud.md
           - text: "Tutorial: Containerized Tomcat to AKS"
-            url: /azure/migrate/tutorial-app-containerization-java-kubernetes?toc=/azure/developer/java/migration/toc.json&bc=/azure/developer/breadcrumb/toc.json
+            url: /azure/migrate/tutorial-app-containerization-java-kubernetes?toc=/azure/developer/java/migration/toc.json&bc=/azure/developer/java/migration/breadcrumb/toc.json
 
   - title: Migrate WebLogic Server to Azure
     linkLists:
@@ -90,6 +90,6 @@ landingContent:
           - text: JBoss EAP to Azure App Service
             url: migrate-jboss-eap-to-jboss-eap-on-azure-app-service.md
           - text: JBoss EAP to Azure VMs
-            url: /azure/virtual-machines/workloads/redhat/jboss-eap-on-azure-migration?toc=/azure/developer/java/migration/toc.json&bc=/azure/developer/breadcrumb/toc.json
+            url: /azure/virtual-machines/workloads/redhat/jboss-eap-on-azure-migration?toc=/azure/developer/java/migration/toc.json&bc=/azure/developer/java/migration/breadcrumb/toc.json
           - text: JBoss EAP to WildFly on AKS
             url: migrate-jboss-eap-to-wildfly-on-azure-kubernetes-service.md
