@@ -94,7 +94,7 @@
       - name: Deploy machine learning models
         href: quickstarts-machine-learning.md
 
-- name: Containers solutions
+- name: Containers 
   items:
     - name: Using Visual Studio Code
       items:
