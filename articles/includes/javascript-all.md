@@ -33,7 +33,7 @@
 | Core - Client - Client | npm [1.6.1](https://www.npmjs.com/package/@azure/core-client/v/1.6.1) | [docs](/javascript/api/overview/azure/core-client-readme) | GitHub [1.6.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-client_1.6.1/sdk/core/core-client/) |
 | Core - Client - Client Paging | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure-rest/core-client-paging/v/1.0.0-beta.1) |  | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/core-client-paging_1.0.0-beta.1/sdk/core/core-client-paging-rest) |
 | Core - Client - Core Rest Pipeline | npm [1.9.2](https://www.npmjs.com/package/@azure/core-rest-pipeline/v/1.9.2) | [docs](/javascript/api/overview/azure/core-rest-pipeline-readme) | GitHub [1.9.2](https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-rest-pipeline_1.9.2/sdk/core/core-rest-pipeline/) |
-| Core - Client - Core Utils | npm [1.1.0](https://www.npmjs.com/package/@azure/core-util/v/1.1.0) | [docs](/javascript/api/overview/azure/core-util-readme) | GitHub [1.1.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-util_1.1.0/sdk/core/core-util/) |
+| Core - Client - Core Utils | npm [1.1.1](https://www.npmjs.com/package/@azure/core-util/v/1.1.1) | [docs](/javascript/api/overview/azure/core-util-readme) | GitHub [1.1.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-util_1.1.1/sdk/core/core-util/) |
 | Core - Client - HTTP | npm [2.2.7](https://www.npmjs.com/package/@azure/core-http/v/2.2.7) | [docs](/javascript/api/overview/azure/core-http-readme) | GitHub [2.2.7](https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-http_2.2.7/sdk/core/core-http/) |
 | Core - Client - Http Compat | npm [1.3.0](https://www.npmjs.com/package/@azure/core-http-compat/v/1.3.0) | [docs](/javascript/api/overview/azure/core-http-compat-readme) | GitHub [1.3.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-http-compat_1.3.0/sdk/core/core-http-compat/) |
 | Core - Client - Logger | npm [1.0.3](https://www.npmjs.com/package/@azure/logger/v/1.0.3) | [docs](/javascript/api/overview/azure/logger-readme) | GitHub [1.0.3](https://github.com/Azure/azure-sdk-for-js/tree/@azure/logger_1.0.3/sdk/core/logger/) |
@@ -266,7 +266,7 @@
 | @autorest/codemodel | npm [4.19.2](https://www.npmjs.com/package/@autorest/codemodel/v/4.19.2) |  |  |
 | @autorest/common | npm [1.5.4](https://www.npmjs.com/package/@autorest/common/v/1.5.4) |  |  |
 | @autorest/configuration | npm [1.10.1](https://www.npmjs.com/package/@autorest/configuration/v/1.10.1) |  |  |
-| @autorest/csharp | npm [3.0.0-beta.20220930.1](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20220930.1) |  |  |
+| @autorest/csharp | npm [3.0.0-beta.20221007.1](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20221007.1) |  |  |
 | @autorest/csharp-v3 | npm [3.0.0-beta.20201217.1](https://www.npmjs.com/package/@autorest/csharp-v3/v/3.0.0-beta.20201217.1) |  |  |
 | @autorest/extension-base | npm [3.5.0](https://www.npmjs.com/package/@autorest/extension-base/v/3.5.0) |  |  |
 | @autorest/fixer | npm [1.1.0](https://www.npmjs.com/package/@autorest/fixer/v/1.1.0) |  |  |
@@ -289,7 +289,7 @@
 | @azure/notification-hubs | npm [1.0.0-beta.5](https://www.npmjs.com/package/@azure/notification-hubs/v/1.0.0-beta.5) |  |  |
 | @azure/quantum-jobs | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure/quantum-jobs/v/1.0.0-beta.1) |  |  |
 | @azure/search | npm [11.0.0-preview.1](https://www.npmjs.com/package/@azure/search/v/11.0.0-preview.1) |  |  |
-| @azure/static-web-apps-cli | npm [1.0.2](https://www.npmjs.com/package/@azure/static-web-apps-cli/v/1.0.2) |  |  |
+| @azure/static-web-apps-cli | npm [1.0.3](https://www.npmjs.com/package/@azure/static-web-apps-cli/v/1.0.3) |  |  |
 | @azure/video-analyzer-player | npm [1.0.4](https://www.npmjs.com/package/@azure/video-analyzer-player/v/1.0.4)<br>npm [1.1.0-beta.8](https://www.npmjs.com/package/@azure/video-analyzer-player/v/1.1.0-beta.8) |  |  |
 | @azure/video-analyzer-widgets | npm [2.0.6](https://www.npmjs.com/package/@azure/video-analyzer-widgets/v/2.0.6) |  |  |
 | @azure/video-indexer-widgets | npm [1.0.0](https://www.npmjs.com/package/@azure/video-indexer-widgets/v/1.0.0) |  |  |
@@ -305,6 +305,7 @@
 | @azure-tools/adl-rpaas-controller | npm [0.1.1](https://www.npmjs.com/package/@azure-tools/adl-rpaas-controller/v/0.1.1) |  |  |
 | @azure-tools/adl-vs | npm [0.2.0](https://www.npmjs.com/package/@azure-tools/adl-vs/v/0.2.0) |  |  |
 | @azure-tools/cadl | npm [0.16.0](https://www.npmjs.com/package/@azure-tools/cadl/v/0.16.0) |  |  |
+| @azure-tools/cadl-apiview | npm [0.1.0](https://www.npmjs.com/package/@azure-tools/cadl-apiview/v/0.1.0) |  |  |
 | @azure-tools/cadl-autorest | npm [0.20.0](https://www.npmjs.com/package/@azure-tools/cadl-autorest/v/0.20.0) |  |  |
 | @azure-tools/cadl-azure-core | npm [0.7.0](https://www.npmjs.com/package/@azure-tools/cadl-azure-core/v/0.7.0) |  |  |
 | @azure-tools/cadl-azure-resource-manager | npm [0.10.0](https://www.npmjs.com/package/@azure-tools/cadl-azure-resource-manager/v/0.10.0) |  |  |
@@ -424,7 +425,7 @@
 | Core - Client - Client | npm [1.6.1](https://www.npmjs.com/package/@azure/core-client/v/1.6.1) | [docs](/javascript/api/overview/azure/core-client-readme) | GitHub [1.6.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-client_1.6.1/sdk/core/core-client/) |
 | Core - Client - Client Paging | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure-rest/core-client-paging/v/1.0.0-beta.1) |  | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/core-client-paging_1.0.0-beta.1/sdk/core/core-client-paging-rest) |
 | Core - Client - Core Rest Pipeline | npm [1.9.2](https://www.npmjs.com/package/@azure/core-rest-pipeline/v/1.9.2) | [docs](/javascript/api/overview/azure/core-rest-pipeline-readme) | GitHub [1.9.2](https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-rest-pipeline_1.9.2/sdk/core/core-rest-pipeline/) |
-| Core - Client - Core Utils | npm [1.1.0](https://www.npmjs.com/package/@azure/core-util/v/1.1.0) | [docs](/javascript/api/overview/azure/core-util-readme) | GitHub [1.1.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-util_1.1.0/sdk/core/core-util/) |
+| Core - Client - Core Utils | npm [1.1.1](https://www.npmjs.com/package/@azure/core-util/v/1.1.1) | [docs](/javascript/api/overview/azure/core-util-readme) | GitHub [1.1.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-util_1.1.1/sdk/core/core-util/) |
 | Core - Client - HTTP | npm [2.2.7](https://www.npmjs.com/package/@azure/core-http/v/2.2.7) | [docs](/javascript/api/overview/azure/core-http-readme) | GitHub [2.2.7](https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-http_2.2.7/sdk/core/core-http/) |
 | Core - Client - Http Compat | npm [1.3.0](https://www.npmjs.com/package/@azure/core-http-compat/v/1.3.0) | [docs](/javascript/api/overview/azure/core-http-compat-readme) | GitHub [1.3.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-http-compat_1.3.0/sdk/core/core-http-compat/) |
 | Core - Client - Https | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure/core-https/v/1.0.0-beta.1) |  |  |
