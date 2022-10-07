@@ -53,8 +53,8 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: WebLogic Server to WildFly on AKS
-            url: migrate-weblogic-to-wildfly-on-azure-kubernetes-service.md
+          - text: WebLogic Server to AKS
+            url: migrate-weblogic-to-azure-kubernetes-service.md
           - text: WebLogic Server to WildFly on AKS
             url: migrate-weblogic-to-wildfly-on-azure-kubernetes-service.md
           - text: WebLogic Server to Azure Virtual Machines
@@ -90,6 +90,6 @@ landingContent:
           - text: JBoss EAP to Azure App Service
             url: migrate-jboss-eap-to-jboss-eap-on-azure-app-service.md
           - text: JBoss EAP to Azure VMs
-            url: /azure/virtual-machines/workloads/redhat/jboss-eap-on-azure-migration?toc=/azure/developer/java/migration/toc.json&bc=/azure/developer/java/migration/breadcrumb/toc.json
+            url: migrate-jboss-eap-to-jboss-eap-on-azure-vms.md
           - text: JBoss EAP to WildFly on AKS
             url: migrate-jboss-eap-to-wildfly-on-azure-kubernetes-service.md

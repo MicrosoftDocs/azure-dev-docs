@@ -2,7 +2,7 @@
   href: index.yml
   items:
   - name: Quickstart
-    expanded: false
+    expanded: true
     items:
       - name: WebLogic Server on Azure VM
         href: weblogic-server-azure-virtual-machine.md
@@ -10,6 +10,8 @@
         href: weblogic-server-azure-kubernetes-service.md 
       - name: Traditional WebSphere on Azure VMs
         href: traditional-websphere-application-server-virtual-machines.md
+      - name: Red Hat JBoss EAP Server on Azure VM
+        href: jboss-eap-single-server-azure-vm.md
   - name: Java application servers on Azure
     expanded: true
     items:
