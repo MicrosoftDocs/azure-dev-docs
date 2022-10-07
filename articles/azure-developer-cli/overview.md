@@ -27,9 +27,9 @@ Once you've [installed Azure Developer CLI](./install-azd.md), the following ste
 1. Get the code and deploy the template by [running `azd up`](./get-started.md).
 1. Customize the app to meet your needs.
 
-## Azure Friday demo
+## Introductory video
 
-> [!VIDEO https://youtu.be/VTk-FhJyo7s]
+> [!VIDEO https://www.youtube.com/embed/VTk-FhJyo7s]
 
 ## Azure Developer CLI templates
 
