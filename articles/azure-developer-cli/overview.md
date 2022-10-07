@@ -3,7 +3,7 @@ title: What is the Azure Developer CLI (preview)?
 description: Overview of the features and capabilities of the Azure Developer CLI that helps developers be more productive when building and deploying apps to Azure.
 author: hhunter-ms
 ms.author: hannahhunter
-ms.date: 09/12/2022
+ms.date: 10/07/2022
 ms.service: azure-dev-cli
 ms.topic: conceptual
 ms.custom: devx-track-azdevcli
@@ -26,6 +26,10 @@ Once you've [installed Azure Developer CLI](./install-azd.md), the following ste
 1. Select an [Azure Developer CLI template](./azd-templates.md#choose-a-template).
 1. Get the code and deploy the template by [running `azd up`](./get-started.md).
 1. Customize the app to meet your needs.
+
+## Introductory video
+
+> [!VIDEO https://www.youtube.com/embed/VTk-FhJyo7s]
 
 ## Azure Developer CLI templates
 
