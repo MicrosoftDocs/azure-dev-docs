@@ -81,8 +81,12 @@ landingContent:
             url: ../migration/migrate-weblogic-with-app-gateway.md?bc=/azure/developer/java/ee/breadcrumb/toc.json&toc=/azure/developer/java/ee/toc.json
           - text: WebLogic with Elastic on Azure
             url: ../migration/migrate-weblogic-with-elk.md?bc=/azure/developer/java/ee/breadcrumb/toc.json&toc=/azure/developer/java/ee/toc.json
-  - title: Migrate JBoss EAP to App Service
+  - title: Migrate JBoss EAP to Azure
     linkLists:
+      - linkListType: quickstart
+        links:
+        - text: Red Hat JBoss EAP Server on Azure VM
+          url: jboss-eap-single-server-azure-vm.md
       - linkListType: how-to-guide
         links:
           - text: JBoss EAP to Azure App Service

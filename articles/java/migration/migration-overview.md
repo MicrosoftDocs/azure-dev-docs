@@ -45,7 +45,7 @@ These services are packaged into multiple applications with the *.jar* extension
 
 ### Java EE applications
 
-Java EE applications (also referred to as J2EE applications or, more recently, Jakarta EE applications) can contain some, all, or none of the elements of web applications. These applications can also contain and consume many additional components as defined by the [Jakarta EE specification](https://jakarta.ee/specifications/platform/).
+Java EE applications (also referred to as J2EE applications or, more recently, Jakarta EE applications) can contain some, all, or none of the elements of web applications. These applications can also contain and consume many more components as defined by the [Jakarta EE specification](https://jakarta.ee/specifications/platform/).
 
 Java EE applications can be packaged as archives with the *.ear* extension (EAR files) or as archives with the *.war* extension (WAR files).
 
@@ -55,7 +55,7 @@ Applications that rely only on features provided by the Java EE specification (t
 
 ### Web applications
 
-Web applications run inside a [Servlet](https://jakarta.ee/specifications/servlet/) container. Some of these applications use servlet APIs directly, while many use additional frameworks that encapsulate servlet APIs, such as Apache Struts, Spring MVC, JavaServer Faces (JSF), and others.
+Web applications run inside a [Servlet](https://jakarta.ee/specifications/servlet/) container. Some of these applications use servlet APIs directly, while many use other frameworks that encapsulate servlet APIs, such as Apache Struts, Spring MVC, JavaServer Faces (JSF), and others.
 
 Web applications are packaged into archives with the *.war* extension (WAR files).
 
@@ -74,7 +74,7 @@ The following sections show you which service destinations meet your application
 
 ### Hosting options grid
 
-Use the following grid to identify potential destinations for your application type. As you can see, AKS and Virtual Machines support all application types, but they require your team to take on more responsibilities, as shown in the next section.
+Use the following grid to identify potential destinations for your application type. As you can see, Azure Kubernetes Service (AKS) and Azure Virtual Machines support all application types, but they require your team to take on more responsibilities, as shown in the next section.
 
 | Destination&nbsp;→<br><br>Application&nbsp;type&nbsp;↓                              | App<br>Service<br>Java SE | App<br>Service<br>Tomcat | App<br>Service<br>JBoss EAP | Azure<br>Spring<br>Apps | Azure Container Apps | AKS           | Virtual<br>Machines |
 |-------------------------------------------------------------------------------------|---------------------------|--------------------------|-----------------------------|-------------------------|----------------------|---------------|---------------------|
@@ -113,7 +113,7 @@ Tasks indicated with ![Azure][1] are managed entirely or mostly by Azure. Your t
 | Infrastructure management                                                   | ![Azure][1]    | ![Azure][1]             | &#x1F449;                  | &#x1F449;               | &#x1F449;           |
 | Monitoring and alert management                                             | &#x1F449;      | &#x1F449;               | &#x1F449;                  | &#x1F449;               |                     |
 
-<sup>1</sup> Some security updates might require node reboots, which are not done automatically. For more information, see [Apply security and kernel updates to Linux nodes in Azure Kubernetes Service (AKS)](/azure/aks/node-updates-kured).
+<sup>1</sup> Some security updates might require node reboots, which aren't done automatically. For more information, see [Apply security and kernel updates to Linux nodes in Azure Kubernetes Service (AKS)](/azure/aks/node-updates-kured).
 
 If you deploy the servlet container (such as Spring Boot) as part of your application, you should consider it a library and, as such, it's always your responsibility.
 
@@ -149,12 +149,12 @@ If you'd like to migrate a Web app on Tomcat to Azure Spring Apps, first convert
 
 Use the rows below to find your Java EE application type running on a specific app server. Use the columns to find the Azure service destination that will host your application.
 
-| Destination&nbsp;→<br><br>App server&nbsp;↓ | App<br>Service<br>Java SE | App<br>Service<br>Tomcat | App<br>Service<br>JBoss EAP | Azure<br>Container<br>Apps | Azure<br>Spring<br>Apps  | AKS           | Virtual Machines    |
+| Destination&nbsp;→<br><br>App server&nbsp;↓ | App<br>Service<br>Java SE | App<br>Service<br>Tomcat | App<br>Service<br>JBoss EAP | Azure<br>Container<br>Apps | Azure<br>Spring<br>Apps  | AKS           | Virtual<br>Machines |
 |---------------------------------------------|---------------------------|--------------------------|-----------------------------|----------------------------|--------------------------|---------------|---------------------|
 | WildFly /<br>JBoss AS                       | N/A                       | N/A                      | [guidance][18]              | N/A                        | N/A                      | [guidance][9] | guidance<br>planned |
 | Oracle WebLogic Server                      | N/A                       | N/A                      | [guidance][19]              | N/A                        | N/A                      | [guidance][6] | [guidance][4]       |
 | IBM WebSphere                               | N/A                       | N/A                      | [guidance][20]              | N/A                        | N/A                      | [guidance][7] | guidance<br>planned |
-| Red Hat JBoss EAP                           | N/A                       | N/A                      | [guidance][18]              | N/A                        | N/A                      | [guidance][8] | guidance<br>planned |
+| Red Hat JBoss EAP                           | N/A                       | N/A                      | [guidance][18]              | N/A                        | N/A                      | [guidance][8] | [guidance][24]      |
 
 <!-- reference links, for use with tables -->
 [1]: media/migration-overview/logo_azure.svg
@@ -180,3 +180,4 @@ Use the rows below to find your Java EE application type running on a specific a
 [21]: migrate-spring-boot-to-azure-container-apps.md
 [22]: migrate-tomcat-to-containers-on-azure-kubernetes-service.md
 [23]: https://azure.microsoft.com/global-infrastructure/services/?products=container-apps
+[24]: migrate-jboss-eap-to-jboss-eap-on-azure-vms.md
