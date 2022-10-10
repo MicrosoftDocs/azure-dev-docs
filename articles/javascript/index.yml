@@ -114,7 +114,7 @@ landingContent:
           - text: Speech to text
             url: /azure/cognitive-services/speech-service/get-started-speech-to-text?tabs=windows%2Cterminal&pivots=programming-language-javascript
           - text: Text to speech
-            url: ./tutorial/convert-text-to-speech-cognitive-services
+            url: ./tutorial/convert-text-to-speech-cognitive-services.md
           - text: Image analysis
 
             url: tutorial/static-web-app-image-analysis.md
