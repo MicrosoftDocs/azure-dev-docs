@@ -29,6 +29,7 @@ Use training from Microsoft or a Microsoft partner to expand your understanding 
 
 * [Path: Take your first steps with Vue.js](/training/paths/vue-first-steps/)
 * [Path: Explore Microsoft Graph scenarios for JavaScript development](/training/paths/m365-msgraph-scenarios/)
+* [Module: Migrate from Express.js to serverless](/training/modules/shift-nodejs-express-apis-serverless/)
 * [Module: Deploy an Express.js app to App Service](/learn/modules/javascript-deploy-expressjs-app-service)
 * [Module: Deploy Express.js web app with MongoDB database to Azure App Service](/learn/modules/javascript-deploy-expressjs-app-service-with-database)
 * [Module: Build a basic cloud-native service using PostgreSQL and Node.js](/training/modules/cloud-native-build-basic-service/)
@@ -56,7 +57,11 @@ Use training from Microsoft or a Microsoft partner to expand your understanding 
 
 ## JavaScript on Azure
 
-The following Learn modules teach you how to use Azure with JavaScript:
+The following training teach you how to use Azure with JavaScript:
+
+### Learning paths
+
+* [Build serverless, full stack applications in Azure](/training/paths/build-serverless-full-stack-apps-azure/)
 
 ### Azure DevOps
 
@@ -117,4 +122,4 @@ Take one of these offerings from a [partner](/certifications/partners).
 
 ## Next steps
 
-* Use [Microsoft Learn training](/training/) to learn and improve your JavaScript skills on Azure.
+* Use [Microsoft training](/training/) to learn and improve your JavaScript skills on Azure.
