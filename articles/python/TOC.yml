@@ -97,6 +97,8 @@
           href: tutorial-deploy-containers-04.md
         - name: 5. Clean up resources
           href: tutorial-deploy-containers-05.md
+    - name: Python containers in Azure
+      href: containers-in-azure-overview-python.md
     - name: Deploy containerized web app
       items:
         - name: 1. Overview
