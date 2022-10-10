@@ -23,7 +23,7 @@ In this tutorial you'll:
 
 Following this tutorial, you'll be set up for Continuous Integration (CI) and Continuous Deployment (CD) of a Python web app to Azure.
 
-## Service Overview
+## Service overview
 
 The service diagram supporting this tutorial shows how your local environment, GitHub repositories, and Azure services are used in the tutorial.
 
