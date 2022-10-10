@@ -20,32 +20,15 @@ metadata:
   ms.prod: azure-nodejs
   ms.custom: 2020Aug21Redesign, devx-track-js
 landingContent:
-  - title: Learn JavaScript
-    linkLists:
-      - linkListType: learn
-        links:
-          - text: Microsoft Learn Events
-            url: /events/
-          - text: JavaScript
-            url: /Shows/Beginners-Series-to-JavaScript
-          - text: JavaScript in Portuguese
-            url: https://www.youtube.com/watch?v=SXBNpzjusgY
-          - text: Simple website using HTML, CSS, and JavaScript
-            url: /training/modules/build-simple-website/
-          - text: React
-            url: /training/modules/react-get-started/
-          - text: Node.js
-            url: /training/paths/build-javascript-applications-nodejs/
-          - text: Azure Fundamentals
-            url: /training/modules/intro-to-azure-fundamentals/
-          - text: Azure Static Web Apps
-            url: /training/paths/azure-static-web-apps/
+        
   - title: New to Azure?
     linkLists:
       - linkListType: get-started
         links:
           - text: What is Azure?
             url: core/what-is-azure-for-javascript-development.md
+          - text: Azure Fundamentals
+            url: /training/modules/intro-to-azure-fundamentals/            
           - text: Install Node.js
             url: core/install-nodejs-develop-azure-sdk-project.md
           - text: Set up development environment
@@ -62,12 +45,14 @@ landingContent:
             url: https://devblogs.microsoft.com/azure-sdk/
           - text: Top tasks for JavaScript developers
             url: how-to/common-javascript-tasks.md
-  - title: Deploy and host
+  - title: Host web apps
     linkLists:
       - linkListType: tutorial
         links:
           - text: Getting started
             url: how-to/deploy-web-app.md
+          - text: Azure Static Web Apps
+            url: /training/paths/azure-static-web-apps/            
           - text: Static Web App upload image to Storage
             url: tutorial/browser-file-upload-azure-storage-blob.md
           - text: "Azure Function"
@@ -98,33 +83,40 @@ landingContent:
             url: /azure/active-directory/develop/tutorial-v2-react
           - text: "Express.js: Add Application Insights logging"
             url: tutorial/nodejs-virtual-machine-vm/azure-monitor-application-insights-nodejs-expressjs-code.md#edit-indexjs-for-logging-with-azure-monitor-application-insights
-  - title: Data
+
+  - title: Web + Data
     linkLists:
       - linkListType: quickstart
         links:
-          - text: MongoDB
+          - text: Databases on Azure
+            url: /how-to/with-database/getting-started
+          - text: GraphQL on Azure
+            url: /azure/developer/javascript/how-to/with-web-app/graphql/azure-function-hello-world?tabs=visualstudiocode
+          - text: Full stack serverless with Mongoose
+            url: /azure/static-web-apps/add-mongoose
+          - text: Serverless APIs with MongoDB
+            url: /developer/javascript/tutorial/azure-function-cosmos-db-mongo-api?tabs=visualstudiocode
+          - text: Express.js + MongoDB (training)
+            url: /training/modules/javascript-deploy-expressjs-app-service-with-database
+          - text: Express.js + MongoDB (docs)
             url: /azure/app-service/tutorial-nodejs-mongodb-app?tabs=azure-portal%2Cterminal-bash%2Cvscode-deploy%2Cdeploy-instructions-azportal%2Cdeploy-zip-linux-mac%2Cdeploy-instructions--zip-azcli
-          - text: MySql
-            url: /azure/mysql/connect-nodejs
-          - text: PostgreSQL
-            url: /azure/postgresql/connect-nodejs
-          - text: Redis Cache
-            url: /azure/azure-cache-for-redis/cache-nodejs-get-started?toc=/azure/developer/javascript/toc.json&bc=/
-          - text: SQL Server
-            url: /azure/azure-sql/database/connect-query-nodejs
-          - text: Store files
-            url: /azure/storage/blobs/storage-quickstart-blobs-nodejs?toc=/azure/developer/javascript/toc.json&bc=/azure/developer/breadcrumb/toc.json
+
   - title: AI/ML
     linkLists:
       - linkListType: quickstart
         links:
           - text: Add search to website
             url: /azure/search/tutorial-javascript-overview
+          - text: Language detection
+            url: /azure/cognitive-services/language-service/language-detection/quickstart?pivots=programming-language-javascript
+          - text: Key phrase extraction
+            url: /azure/cognitive-services/language-service/key-phrase-extraction/quickstart?pivots=programming-language-javascript
           - text: Speech to text
-            url: /azure/cognitive-services/speech-service/quickstarts/speech-to-text-from-file?tabs=linux%2Cbrowser%2Cwindowsinstall&pivots=programming-language-javascript
-          - text: Translate text
-            url: /azure/cognitive-services/translator/quickstart-translator?pivots=programming-language-javascript
-          - text: Detect objects in an image
+            url: /azure/cognitive-services/speech-service/get-started-speech-to-text?tabs=windows%2Cterminal&pivots=programming-language-javascript
+          - text: Text to speech
+            url: ./tutorial/convert-text-to-speech-cognitive-services
+          - text: Image analysis
+
             url: tutorial/static-web-app-image-analysis.md
   - title: Use Azure client libraries (SDK)
     linkLists:
@@ -136,7 +128,9 @@ landingContent:
             url: https://azure.github.io/azure-sdk/releases/latest/index.html#javascript
           - text: Reference Documentation
             url: /javascript/api/overview/azure/
-          - text: JS/TS samples
+          - text: Azure SDK for JS
+            url: https://github.com/Azure/azure-sdk-for-js
+          - text: Samples browser
             url: /samples/browse/?languages=javascript%2Cnodejs%2Ctypescript
   - title: Developer tools
     linkLists:
@@ -146,6 +140,8 @@ landingContent:
             url: https://code.visualstudio.com/docs/languages/javascript
           - text: Azure Command-Line Interface (CLI)
             url: /cli/azure/install-azure-cli
+          - text: Azure Developer CLI (preview)
+            url: /azure/developer/azure-developer-cli/overview
           - text: Windows Terminal
             url: https://aka.ms/terminal
           - text: Windows Subsystem for Linux (WSL)
