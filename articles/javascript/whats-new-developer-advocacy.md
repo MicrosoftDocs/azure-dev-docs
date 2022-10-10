@@ -33,7 +33,7 @@ This content is primarily from Developer Advocates as well as other members of t
 |Client web apps|Comparing Azure Static Web Apps vs Azure WebApps vs Azure Blob Storage Static Sites|[Blog post](https://devblogs.microsoft.com/devops/comparing-azure-static-web-apps-vs-azure-webapps-vs-azure-blob-storage-static-sites/)|
 |Microsoft Graph|Get started with Microsoft Graph and JavaScript|[Samples](https://developer.microsoft.com/graph/get-started/javascript)|
 
-## Web + DB training with Videos
+## Web + DB training with videos
 
 A real study case application how to apply Node.Js with:
 
