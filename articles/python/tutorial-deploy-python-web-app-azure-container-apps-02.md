@@ -34,10 +34,10 @@ Follow the steps to fork the directory to your GitHub account. You can also down
 
 ```bash
 # Django
-git clone https://github.com/$USERNAME/msdocs-python-django-azure-container-app.git python-container
+git clone https://github.com/$USERNAME/msdocs-python-django-azure-container-apps.git python-container
 
 # Flask
-# git clone https://github.com/$USERNAME/msdocs-python-flask-azure-container-app.git python-container
+# git clone https://github.com/$USERNAME/msdocs-python-flask-azure-container-apps.git python-container
 ```
 
 **Step 3.** Change directory.
@@ -830,8 +830,8 @@ Here's an example of the sample website after adding a restaurant and two review
 > [!div class="nextstepaction"]
 > [Configure continuous deployment](tutorial-deploy-python-web-app-azure-container-apps-03.md)
 
-[1]: https://github.com/Azure-Samples/msdocs-python-django-azure-container-app
-[2]: https://github.com/Azure-Samples/msdocs-python-flask-azure-container-app
+[1]: https://github.com/Azure-Samples/msdocs-python-django-azure-container-apps
+[2]: https://github.com/Azure-Samples/msdocs-python-flask-azure-container-apps
 [3]: https://portal.azure.com/
 [4]: https://shell.azure.com/
 [5]: /cli/azure/acr#az-acr-build

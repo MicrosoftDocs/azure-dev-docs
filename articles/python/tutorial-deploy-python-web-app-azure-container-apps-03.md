@@ -325,8 +325,8 @@ If you plan on building on this tutorial, here are some next steps you can take.
 
 * [Monitor an app in Azure Container Apps][24]
 
-[1]: https://github.com/Azure-Samples/msdocs-python-django-azure-container-app
-[2]: https://github.com/Azure-Samples/msdocs-python-flask-azure-container-app
+[1]: https://github.com/Azure-Samples/msdocs-python-django-azure-container-apps
+[2]: https://github.com/Azure-Samples/msdocs-python-flask-azure-container-apps
 [3]: https://portal.azure.com/
 [4]: https://shell.azure.com/
 [5]: /azure/container-apps/revisions
