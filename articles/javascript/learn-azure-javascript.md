@@ -1,14 +1,14 @@
 ---
-title: Learn to develop with Azure and JavaScript 
-description: Use Microsoft Learn platform to expand your understanding of Azure with JavaScript.
+title: Training with Azure and JavaScript 
+description: Use Microsoft's training platform to expand your understanding of Azure with JavaScript.
 ms.topic: how-to
-ms.date: 01/05/2022
+ms.date: 10/10/2022
 ms.custom: devx-track-js
 ---
 
-# Learn to develop with Azure and JavaScript 
+# Training with Azure and JavaScript 
 
-Use Microsoft Learn or a Microsoft learning partner to expand your understanding of Azure with JavaScript.
+Use training from Microsoft or a Microsoft partner to expand your understanding of Azure with JavaScript.
 
 ## JavaScript
 
@@ -29,6 +29,8 @@ Use Microsoft Learn or a Microsoft learning partner to expand your understanding
 
 * [Path: Take your first steps with Vue.js](/training/paths/vue-first-steps/)
 * [Path: Explore Microsoft Graph scenarios for JavaScript development](/training/paths/m365-msgraph-scenarios/)
+* [Module: Deploy an Express.js app to App Service](/learn/modules/javascript-deploy-expressjs-app-service)
+* [Module: Deploy Express.js web app with MongoDB database to Azure App Service](/learn/modules/javascript-deploy-expressjs-app-service-with-database)
 * [Module: Build a basic cloud-native service using PostgreSQL and Node.js](/training/modules/cloud-native-build-basic-service/)
 * [Module: Download and upload files in a JavaScript app with Microsoft Graph](/training/modules/msgraph-manage-files/)
 
