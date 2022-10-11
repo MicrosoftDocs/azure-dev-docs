@@ -219,7 +219,7 @@ To use the [Docker plugin][22] in PyCharm to create and run a container from a D
         You can also go to **File** \> **Settings** \> **Plugins**.
     :::column-end:::
     :::column:::
-        :::image type="content" source="media/containers-overview/pycharm-plugin-add.png" alt-text="Screenshot showing how to search for the Azure Container Apps service in Azure portal." lightbox="media/containers-overview/pycharm-plugin-add.png":::
+        :::image type="content" source="media/containers-overview/pycharm-plugin-add.png" alt-text="Screenshot showing how to add plugins in PyCharm.." lightbox="media/containers-overview/pycharm-plugin-add.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -227,7 +227,7 @@ To use the [Docker plugin][22] in PyCharm to create and run a container from a D
         **Step 2**: Search **Marketplace** for the Docker plugin and add it.
     :::column-end:::
     :::column:::
-        :::image type="content" source="media/containers-overview/pycharm-plugin-services.png" alt-text="Screenshot showing how to search for the Azure Container Apps service in Azure portal." lightbox="media/containers-overview/pycharm-plugin-services.png":::
+        :::image type="content" source="media/containers-overview/pycharm-plugin-services.png" alt-text="Screenshot showing how to see Docker plugin in Services window of PyCharm." lightbox="media/containers-overview/pycharm-plugin-services.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -235,7 +235,7 @@ To use the [Docker plugin][22] in PyCharm to create and run a container from a D
         **Step 3**: Under the **Services**, select **Docker**, expand images, right-click an image run it as a container.
     :::column-end:::
     :::column:::
-        :::image type="content" source="media/containers-overview/pycharm-plugin-start-container.png" alt-text="Screenshot showing how to search for the Azure Container Apps service in Azure portal." lightbox="media/containers-overview/pycharm-plugin-start-container.png":::
+        :::image type="content" source="media/containers-overview/pycharm-plugin-start-container.png" alt-text="Screenshot showing how to start container from Docker image in PyCharm." lightbox="media/containers-overview/pycharm-plugin-start-container.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
