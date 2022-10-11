@@ -11,9 +11,9 @@ ms.author: jejohn
 
 # Overview of Python Container Apps in Azure
 
-This article describes how to go from Python project code (e.g., a web app) to a deployed Docker container in Azure. Discussed are the general process of containerization, deployment options for containers in Azure, and Python-specific configuration of containers in Azure.
+This article describes how to go from Python project code (for example, a web app) to a deployed Docker container in Azure. Discussed are the general process of containerization, deployment options for containers in Azure, and Python-specific configuration of containers in Azure.
 
-The nature of Docker containers is that the process of creating a Docker image from code and deploying that image to a container in Azure is the same across languages. The language-specific considerations - for Python in this case - are in the containerization process in Azure, in particular the Dockerfile structure and the any configuration around Python web frameworks used.
+The nature of Docker containers is that the process of creating a Docker image from code and deploying that image to a container in Azure is the same across languages. The language-specific considerations - for Python in this case - are in the containerization process in Azure, in particular the Dockerfile structure and any configuration around Python web frameworks used.
 
 ## Example container workflows
 
@@ -35,6 +35,7 @@ For Python development, some typical workflows for moving from code to container
 1. Deploy: To Azure service from registry.
 
 **Azure** - All in the cloud, using Azure Cloud Shell to build code from GitHub repo.
+
 1. Start: In Azure Cloud Shell
 1. Build: Azure CLI, Docker
 1. Push: To registry like Azure Container Registry, Docker Hub, etc.
@@ -52,17 +53,17 @@ Python container apps are supported in the following services.
 
 [Azure Container Apps (ACA)][5] is a fully managed serverless container service for containers. Container Apps provides many application-specific concepts on top of containers, including certificates, revisions, scale, and environments. Container Apps are a good for web applications including web sites and web APIs. For an example, see …
 
-[Azure Container Instances (ACI)][6] is a serverless offering, billed on consumption rather than provisioned resources. Concepts like scale, load balancing, and certificates are not provided with ACI containers, and ACI is a lower-level "building block" option compared to ACA. For an example, see the tutorial [Create a container image for deployment to Azure Container Instances][7]. The tutorial is not Python-specific, but the concepts show apply to all languages.
+[Azure Container Instances (ACI)][6] is a serverless offering, billed on consumption rather than provisioned resources. Concepts like scale, load balancing, and certificates aren't provided with ACI containers, and ACI is a lower-level "building block" option compared to ACA. For an example, see the tutorial [Create a container image for deployment to Azure Container Instances][7]. The tutorial isn't Python-specific, but the concepts show apply to all languages.
 
 [Azure Kubernetes Service (AKS)][8] is an open source container and cluster management tool that is often referred to as an orchestration system. For an example, see the tutorial, [Deploy an Azure Kubernetes Service cluster using the Azure CLI][9].
 
 [Azure Functions][10] is an event-driven, serverless functions-as-a-service solution, optimized for running event-driven applications using the functions programming model. Azure Functions shares many characteristics with Azure Container Apps around scale and integration with events, but is optimized for ephemeral functions deployed as either code or containers. For an example, see [Create a function on Linux using a custom container][11].
 
-Other container solutions are shown in the comparison topic, [Comparing Container Apps with other Azure container options][12].
+Other container solutions are shown in the comparison article, [Comparing Container Apps with other Azure container options][12].
 
 ## Virtual environments and containers
 
-When you are running a Python project in a dev environment, using a virtual environment is a common way of managing dependencies and ensuring reproducibility of your project setup. A virtual environment has a Python interpreter, libraries, and scripts installed that are required by the project code running in that environment. Dependencies for Python projects are managed through the *requirements.txt* file.
+When you're running a Python project in a dev environment, using a virtual environment is a common way of managing dependencies and ensuring reproducibility of your project setup. A virtual environment has a Python interpreter, libraries, and scripts installed that are required by the project code running in that environment. Dependencies for Python projects are managed through the *requirements.txt* file.
 
 You can think of Docker containers as providing similar capabilities as virtual environments, but with further improvements in reproducibility and portability as a Docker container can be run anywhere containers can be run, regardless of OS.
 
@@ -78,7 +79,7 @@ Web frameworks have default ports on which they listen for web requests. When wo
 | ------------------------ | ----------------------- |
 | Web App for Containers | By default, App Service assumes your custom container is listening on either port 80 or port 8080. If your container listens to a different port, set the WEBSITES_PORT app setting in your App Service app. For more information, see [Configure a custom container for Azure App Service][14]. |
 | Azure Containers Apps | Azure Container Apps allows you to expose your container app to the public web, to your VNET, or to other container apps within your environment by enabling ingress. Set the ingress `targetPort` to the port your container listens to for incoming requests. Application ingress endpoint is always exposed on port 443. For more information, see [Set up HTTPS or TCP ingress in Azure Container Apps][15]. |
-| Azure Container Instances, Azure Kubernetes | Set port during creation of a container. You need to ensure your solution has a web framework, application server (e.g., gunicorn, uvicorn), and web server (e.g., nginx). For example, you can create two containers, one container with a web framework and application server, and another framework with a web server. The two containers communicate on one port, and the web server container exposes 80/443 for external requests. |
+| Azure Container Instances, Azure Kubernetes | Set port during creation of a container. You need to ensure your solution has a web framework, application server (for example, gunicorn, uvicorn), and web server (for example, nginx). For example, you can create two containers, one container with a web framework and application server, and another framework with a web server. The two containers communicate on one port, and the web server container exposes 80/443 for external requests. |
 
 ## Dockerfile instructions for Python
 
@@ -128,16 +129,139 @@ CMD ["gunicorn", "--bind", "0.0.0.0:5000", "wsgi:app"]
 
 You can create a Dockerfile by hand or create it automatically with VS Code and the Docker extension. For more information, see [Generating Docker files][20].
 
-The Docker build command is part of the Docker CLI. When you use IDE's like VS Code or PyCharm, the UI commands for working with Docker images call the build command for you and automate specifying options.
+The Docker build command is part of the Docker CLI. When you use IDEs like VS Code or PyCharm, the UI commands for working with Docker images call the build command for you and automate specifying options.
 
 ## Working with Docker images and containers
 
 ### VS Code and PyCharm
 
-Working in an integrated development environment (IDE) with containers is not strictly necessary but can simplify a lot of container-related tasks.
+Working in an integrated development environment (IDE) with containers isn't strictly necessary but can simplify many container-related tasks.
+
+#### [VS Code](#tab/vscode-ide)
+
+Visual Studio Code provides Docker support with the [Docker extension][21], you can:
+
+* Add Docker files, including a Dockerfile and compose file, to your workspace automatically that are tailored for your Python project.
+
+* Download and build Docker images.
+  * Build images your developer environment or build Docker images in Azure (Docker not required).
+
+* Create and run Docker containers from pulled image or directly from a Dockerfile.
+
+* Run multicontainer applications with Docker Compose.
+
+* Connect and work with container registries like Azure Container Registry and Docker Hub, GitLab, or any other private registry.
+
+The following image shows running a container in Visual Studio Code.
+
+:::image type="content" source="media/containers-overview/vs-code-running-container-example.png" alt-text="Screenshot showing an example of running a container in VS Code." lightbox="media/containers-overview/vs-code-running-container-example.png":::
+
+To connect your account and use the Docker extension in VS Code:
+
+**Step 1**: Navigate to the Azure Explorer
+
+[IMAGE]
+
+**Step 2**: Select **Sign in to Azure** and follow the prompts.
+
+[IMAGE]
+
+**Step 3**: Go to **Extensions** and add the Docker extension.
+
+[IMAGE]
+
+**Step 4**: Navigate to the Docker extension and confirm it's connected to Azure
+
+[IMAGE]
+
+If you have trouble accessing your Azure subscription this may be because you are behind a proxy. To resolve this issue, see [Network Connections in Visual Studio Code][23].
+
+#### [PyCharm](#tab/pycharm-ide)
+
+PyCharm provides Docker support with the [Docker plugin][22], where you can:
+
+* Download and build Docker images.
+
+* Create and run Docker containers from pulled images or directly from a Dockerfile.
+
+* Run multicontainer applications with Docker Compose
+
+* Connect and work with container registries like Docker Hub, GitLab, JetBrains Space, Docker V2, and other self-hosted Docker registries.
+
+The following image shows running a container in PyCharm.
+
+:::image type="content" source="media/containers-overview/pycharm-running-container-example.png" alt-text="Screenshot showing an example of running a container in VS Code." lightbox="media/containers-overview/pycharm-running-container-example.png":::
+
+To use the Docker extension in PyCharm:
+
+**Step 1**: Go the **CTRL** + **ALT**  + **S** to bring up plugins and add Docker.
+
+[IMAGE]
+
+**Step 2**: Go to the Docker plugin.
+
+[IMAGE]
+
+---
 
 ### Azure CLI and Docker CLI
 
+Instead of, or often along with an IDE, you can work with Docker images and containers using [Azure CLI][24] and [Docker CLI][25]. Both VS Code and PyCharm have terminals where you can run these CLIs.
+
+Using a CLI is useful when you want finer control over build/run arguments and for automation. For example, the following command shows how to use the Azure CLI to specify the Docker image name.
+
+```bash
+az acr build --registry <registry-name> \
+  --resource-group <resource-group> \
+  --target pythoncontainerwebapp:latest .
+```
+
+As another example, consider the following command that shows how to use the Docker CLI to run a Docker container that communicates to a MongoDB instance in your dev environment, outside the container. The different values to complete the command are often easier to automate when specified in a command line and you can share commands.
+
+```bash
+docker run --rm -it \
+  --publish <port>:<port> --publish 27017:27017 \
+  --add-host mongoservice:<your-server-IP-address> \
+  --env CONNECTION_STRING=mongodb://mongoservice:27017 \
+  --env DB_NAME=<database-name> \
+  --env COLLECTION_NAME=<collection-name> \
+  containermongo:latest  
+```
+
+For more information on this scenario, see [Build and test a containerized Python web app locally][26].
+
+### Environment variables in containers
+
+Python projects often make use of environment variables to pass data to code. For example, you might specify database connection information in an environment variable so that different users of the code can set the value differently. Or, when deploying the project to production, the database connection can be changed to refer to a production instance.  
+
+Packages like [python-dotenv][27] are often used to key-value pairs from an *.env* file and set them as environment variables. This is useful when running in a virtual environment but isn't recommended when working with containers because you don't want to copy the *.env* file into the container, especially if the file has sensitive information and the container will be made public.
+
+Containers can accept environment variables passed or hardwired into the Dockerfile and built in the Docker image,  passed in with the Docker build command, or passed in with the Docker run command. The first two options at the build phase have the same drawback as noted above with *.env* file, namely that you're hardcoding potentially sensitive information into the Docker image. For example, you can inspect a container created from the Docker image with the command [docker container inspect][28].
+
+The third option of passing in environment variables with the Docker run command is better in that the values aren't hardcoded into the image. Another way to handle secrets is to use the [BuildKit][29] functionality of Docker.
+
+Here's an example of passing environment variables using the Docker CLI run command and using the "--env" option.
+
+```bash
+# PORT=8000 for Django and 5000 for Flask
+export PORT=<port-number>
+
+docker run --rm -it \
+  --publish $PORT:$PORT \
+  --env CONNECTION_STRING=<connection-info> \
+  --env DB_NAME=<database-name> \
+  <dockerimagename:tag>
+```
+
+If you're using VS Code or PyCharm, there are tasks, and UI that you typically work with but in the end runs a command like the one shown above.
+
+Finally, specifying environment variables in your dev environment is slightly different when deploying the container to Azure. For example:
+
+* For Web App for Containers, you configure application settings during configuration of App Service. These settings are available to your app code as environment variables and accessed using the standard [os.environ][30] pattern. You can change values after initial deployment when needed. For more information, see [Access app settings as environment variables][31].
+
+* For Azure Container Apps, you configure environment variables during initial configuration of the container app. Subsequent modification of environment variables creates a [*revision*][32] of the container.  In addition, Azure Container Apps allows you to define secrets at the application level and then reference them in environment variables. For more information, see [Manage secrets in Azure Container Apps][33].
+
+As another option, you can use [Service Connector][34] to help you connect Azure compute services to other backing services. This service configures the network settings and connection information (for example, generating environment variables) between compute services and target backing services in management plane.
 
 [1]: https://github.com/features/codespaces
 [2]: https://code.visualstudio.com/docs/remote/containers
@@ -159,3 +283,17 @@ Working in an integrated development environment (IDE) with containers is not st
 [18]: https://docs.docker.com/engine/reference/builder/#run
 [19]: https://docs.docker.com/engine/reference/builder/#cmd
 [20]: https://code.visualstudio.com/docs/containers/overview#_generating-docker-files
+[21]: https://code.visualstudio.com/docs/containers/overview
+[22]: https://plugins.jetbrains.com/plugin/7724-docker
+[23]: https://code.visualstudio.com/docs/setup/network
+[24]: https://learn.microsoft.com/en-us/cli/azure/install-azure-cli
+[25]: https://docs.docker.com/engine/reference/commandline/cli/
+[26]: ./tutorial-containerize-deploy-python-web-app-azure-02.md
+[27]: https://pypi.org/project/python-dotenv/
+[28]: https://docs.docker.com/engine/reference/commandline/container_inspect/
+[29]: https://docs.docker.com/develop/develop-images/build_enhancements/
+[30]: https://docs.python.org/3/library/os.html#os.environ
+[31]: /azure/app-service/configure-language-python#access-app-settings-as-environment-variables
+[32]: /azure/container-apps/revisions
+[33]: /azure/container-apps/manage-secrets
+[34]: /azure/service-connector/overview
