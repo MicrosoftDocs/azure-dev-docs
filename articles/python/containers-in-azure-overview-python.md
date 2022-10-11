@@ -232,13 +232,19 @@ For more information on this scenario, see [Build and test a containerized Pytho
 
 ### Environment variables in containers
 
-Python projects often make use of environment variables to pass data to code. For example, you might specify database connection information in an environment variable so that different users of the code can set the value differently. Or, when deploying the project to production, the database connection can be changed to refer to a production instance.  
+Python projects often make use of environment variables to pass data to code. For example, you might specify database connection information in an environment variable so that different users of the code can set the value differently. Or, when deploying the project to production, the database connection can be changed to refer to a production database instance.  
 
 Packages like [python-dotenv][27] are often used to key-value pairs from an *.env* file and set them as environment variables. This is useful when running in a virtual environment but isn't recommended when working with containers because you don't want to copy the *.env* file into the container, especially if the file has sensitive information and the container will be made public.
 
-Containers can accept environment variables passed or hardwired into the Dockerfile and built in the Docker image,  passed in with the Docker build command, or passed in with the Docker run command. The first two options at the build phase have the same drawback as noted above with *.env* file, namely that you're hardcoding potentially sensitive information into the Docker image. For example, you can inspect a container created from the Docker image with the command [docker container inspect][28].
+Containers can accept environment variables:
 
-The third option of passing in environment variables with the Docker run command is better in that the values aren't hardcoded into the image. Another way to handle secrets is to use the [BuildKit][29] functionality of Docker.
+1. Hardwired in the Dockerfile.
+1. Passed in during the build of the Docker image.
+1. Passed in with the Docker run command.
+
+The first two options at the build phase have the same drawback as noted above with *.env* file, namely that you're hardcoding potentially sensitive information into the Docker image. You can inspect a container created from the Docker image with the command [docker container inspect][28].
+
+The third option of passing in environment variables with the Docker run command is an improvement in that the values aren't hardcoded into the image. Another way to handle secrets is to use the [BuildKit][29] functionality of Docker.
 
 Here's an example of passing environment variables using the Docker CLI run command and using the "--env" option.
 
