@@ -261,7 +261,7 @@ docker run --rm -it \
 
 If you're using VS Code or PyCharm, there are tasks, and UI that you typically work with but in the end runs a command like the one shown above.
 
-Finally, specifying environment variables in your dev environment is slightly different when deploying the container to Azure. For example:
+Finally, specifying environment variables  when deploying a container in Azure is different than using environment variables in your dev environment. For example:
 
 * For Web App for Containers, you configure application settings during configuration of App Service. These settings are available to your app code as environment variables and accessed using the standard [os.environ][30] pattern. You can change values after initial deployment when needed. For more information, see [Access app settings as environment variables][31].
 
