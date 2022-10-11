@@ -447,7 +447,7 @@ At this point, you have a PostgreSQL server and now you'll create a database on 
 
 ### [psql](#tab/create-database-psql)
 
-You can use the PostgreSQL interactive terminal [psql][15] in your local environment, or in the [Azure Cloud Shell][4], which is also accessible in the [Azure portal][3]. When working with psql, it is often easier to use the [Cloud Shell][4] because all the dependencies are included for you in the shell.
+You can use the PostgreSQL interactive terminal [psql][15] in your local environment, or in the [Azure Cloud Shell][4], which is also accessible in the [Azure portal][3]. When working with psql, it's often easier to use the [Cloud Shell][4] because all the dependencies are included for you in the shell.
 
 **Step 1.** Connect to the database with psql.
 
@@ -500,7 +500,7 @@ Where:
 * "pythoncontainer-rg" &rarr; The resource group name used in this tutorial. If you used a different name, change this value.
 * `<postgres-server-name>` &rarr; The name of the PostgreSQL server.
 
-You could also use the [az postgres flexible-server connect][16] command to connect to the database and then work with [psql][15] commands. When working with psql, it is often easier to use the Azure [Cloud Shell][4] because all the dependencies are included for you in the shell.
+You could also use the [az postgres flexible-server connect][16] command to connect to the database and then work with [psql][15] commands. When working with psql, it's often easier to use the Azure [Cloud Shell][4] because all the dependencies are included for you in the shell.
 
 ---
 
@@ -607,7 +607,7 @@ Container apps are deployed to Container Apps [*environments*][30], which act as
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 7.** Django only, migrate and create database schema. (In the Flask sample app, it is done automatically).
+        **Step 7.** Django only, migrate and create database schema. (In the Flask sample app, it's done automatically).
         * Go to the **Monitoring** - **Console** resource of the container app.
         * Choose a startup command and select **Connect**.
         * At the shell prompt, type `python manage.py migrate`.
@@ -701,7 +701,7 @@ These steps require the [Azure Container Apps extension][11] for VS Code.
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 5.** For Django only, migrate and create database schema. (In the Flask sample app, it is done automatically).
+        **Step 5.** For Django only, migrate and create database schema. (In the Flask sample app, it's done automatically).
 
         * Go to the **Azure** extension, expand the **Container Apps** section, find and expand your container environment, and right-click the container your created and select **Open Console in Portal**.
         * Choose a startup command and select **Connect**.
@@ -808,7 +808,7 @@ These steps require the [Azure Container Apps extension][11] for VS Code.
 :::row-end:::
 :::row:::
     :::column span="1":::
-        **Step 7.** For Django only, migrate and create database schema. (In the Flask sample app, it is done automatically).
+        **Step 7.** For Django only, migrate and create database schema. (In the Flask sample app, it's done automatically).
 
         Connect with the [az containerapp exec][31] command:
 
