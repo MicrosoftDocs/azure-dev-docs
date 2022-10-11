@@ -13,7 +13,7 @@ ms.author: jejohn
 
 This article describes how to go from Python project code (for example, a web app) to a deployed Docker container in Azure. Discussed are the general process of containerization, deployment options for containers in Azure, and Python-specific configuration of containers in Azure.
 
-The nature of Docker containers is that the process of creating a Docker image from code and deploying that image to a container in Azure is the same across languages. The language-specific considerations - for Python in this case - are in the containerization process in Azure, in particular the Dockerfile structure and any configuration around Python web frameworks used.
+The nature of Docker containers is that creating a Docker image from code and deploying that image to a container in Azure is the same across languages. The language-specific considerations - Python in this case - are in the configuration setting during the containerization process in Azure, in particular the Dockerfile structure and any configuration supporting Python web frameworks such as [Django][35], [Flask][36], and [FastAPI][37].
 
 ## Example container workflows
 
@@ -73,7 +73,7 @@ Container images become containers at runtime. A container contains your Python 
 
 ## Container settings for web frameworks
 
-Web frameworks have default ports on which they listen for web requests. When working with some Azure container solutions, you need to specify the port your container is listening on that will receive traffic. For Django, it's port 8000. For Flask, it's port 5000 or 5002. For Fast API ([uvicorn][13]), it's port 8000.
+Web frameworks have default ports on which they listen for web requests. When working with some Azure container solutions, you need to specify the port your container is listening on that will receive traffic. For [Django][35], it's port 8000. For [Flask][36], it's port 5000 or 5002. For [FastAPI][37] ([uvicorn][13]), it's port 8000.
 
 | Azure Container Solution | How to set web app port |
 | ------------------------ | ----------------------- |
@@ -98,7 +98,7 @@ The Docker build command builds Docker images from a Dockerfile and a context. A
 docker build --rm --pull  --file "Dockerfile"  --tag "mywebapp:latest"  .
 ```
 
-The build process can refer to any of the files in the context. For example, your build can use a COPY instruction to reference a file in the context. Here's an example of a Dockerfile for a Python project using the Flask framework:
+The build process can refer to any of the files in the context. For example, your build can use a COPY instruction to reference a file in the context. Here's an example of a Dockerfile for a Python project using the [Flask][36] framework:
 
 ```Dockerfile
 FROM python:3.8-slim
@@ -297,3 +297,6 @@ As another option, you can use [Service Connector][34] to help you connect Azure
 [32]: /azure/container-apps/revisions
 [33]: /azure/container-apps/manage-secrets
 [34]: /azure/service-connector/overview
+[35]: https://www.djangoproject.com/
+[36]: https://flask.palletsprojects.com/en/2.2.x/
+[37]: https://fastapi.tiangolo.com/
