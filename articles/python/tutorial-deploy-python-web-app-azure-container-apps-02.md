@@ -149,7 +149,8 @@ These steps require the [Docker extension][6] for VS Code.
         * **Resource group** &rarr; Create a new resource group named *pythoncontainer-rg*.
         * **Location** &rarr; Select a location and wait a few seconds for the final prompt for the base image OS.
         * **Select OS** &rarr; Select **Linux**.
-        
+
+        If you see an error in the **Output** window, see the [Troubleshooting section](#troubleshoot-deployment).
     :::column-end:::
     :::column:::
         :::image type="content" source="media/tutorial-container-apps/visual-studio-code-build-image-02.gif" alt-text="Screenshot showing how to specify configuration of a new Azure Container Registry in Visual Studio Code." lightbox="media/tutorial-container-apps/visual-studio-code-build-image-02.gif":::
@@ -642,7 +643,7 @@ These steps require the [Azure Container Apps extension][11] for VS Code.
 
         * Select **F1** or **CTRL+SHIFT+P** to open the command palette.
         * Type "containers apps".
-        * Select the task **Azure Container Apps: Create Container Apps: Create Container Apps Environment**
+        * Select the task **Azure Container Apps: Create Container Apps Environment**
 
         Alternatively, you can open the Azure extension and select **+** icon in the **Resources** section. 
 
@@ -679,7 +680,7 @@ These steps require the [Azure Container Apps extension][11] for VS Code.
         * **Select the HTTP traffic that the endpoint will accept** &rarr; Select **External**.
         * **Port the container is listening on** &rarr; Set to 8000 (Django) or 5000 (Flask).
 
-        If you missed the prompt to create the container app, go to the Azure extension, Container Apps section, select the environment, right-click and select **Create Container App**.
+        To start the container task, you can also go to the Azure extension, Container Apps section, select the environment, right-click and select **Create Container App**.
     :::column-end:::
     :::column:::
         :::image type="content" source="media/tutorial-container-apps/visual-studio-code-create-container-app-03.gif" alt-text="Screenshot showing how to create an Azure Container app in an environment in Visual Studio Code." lightbox="media/tutorial-container-apps/visual-studio-code-create-container-app-03.gif":::
@@ -802,6 +803,7 @@ Here's an example of the sample website after adding a restaurant and two review
 
 * In VS Code, the **Build Image in Azure** task returns an error.
   * If you see the message "Error: failed to download context. Please check if the URL is incorrect." in the VS Code **Output** window, then refresh the registry in the Docker extension. To refresh, select the Docker extension, go to the Registries section, find the registry and select it.
+  * If you run the **Build Image in Azure** task again, check to see if your registry from a previous run exists and if so, use it.
 
 * In the Azure portal during the creation of a Container App, you see an access error that contains "Cannot access ACR '\<name>.azurecr.io'".
   * This error occurs when admin credentials on the ACR are disabled. To check admin status in the portal, go to your Azure Container Registry, select the **Access keys** resource, and ensure that **Admin user** is enabled.
