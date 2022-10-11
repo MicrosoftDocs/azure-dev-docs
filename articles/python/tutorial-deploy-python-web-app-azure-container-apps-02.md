@@ -703,7 +703,7 @@ These steps require the [Azure Container Apps extension][11] for VS Code.
     :::column span="2":::
         **Step 5.** For Django only, migrate and create database schema. (In the Flask sample app, it is done automatically).
 
-        * Go to the **Azure** extension, expand the **Container Apps* section, find and expand your container environment, and right-click the container your created and select **Open Console in Portal**.
+        * Go to the **Azure** extension, expand the **Container Apps** section, find and expand your container environment, and right-click the container your created and select **Open Console in Portal**.
         * Choose a startup command and select **Connect**.
         * At the shell prompt, type `python manage.py migrate`.
 
@@ -812,11 +812,11 @@ These steps require the [Azure Container Apps extension][11] for VS Code.
 
         * Connect with the [az containerapp exec][31] command:
 
-```bash
-    az containerapp exec \
-        --name python-container-app 
-        --resource-group containerenv44 
-```
+        ```bash
+            az containerapp exec \
+                --name python-container-app \
+                --resource-group pythoncontainer-rg
+        ```
 
         * At the shell command prompt type `python manage.py migrate`.
 
