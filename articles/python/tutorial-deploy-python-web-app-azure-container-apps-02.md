@@ -447,7 +447,7 @@ At this point, you have a PostgreSQL server and now you'll create a database on 
 
 ### [psql](#tab/create-database-psql)
 
-You can use the PostgreSQL interactive terminal [psql][15] in your local environment, or in the [Azure Cloud Shell][4], which is also accessible in the [Azure portal][3]. When working with psql, it is often easier to use the [Cloud Shell][4] because all the dependencies are included for you in the shell.
+You can use the PostgreSQL interactive terminal [psql][15] in your local environment, or in the [Azure Cloud Shell][4], which is also accessible in the [Azure portal][3]. When working with psql, it's often easier to use the [Cloud Shell][4] because all the dependencies are included for you in the shell.
 
 **Step 1.** Connect to the database with psql.
 
@@ -500,7 +500,7 @@ Where:
 * "pythoncontainer-rg" &rarr; The resource group name used in this tutorial. If you used a different name, change this value.
 * `<postgres-server-name>` &rarr; The name of the PostgreSQL server.
 
-You could also use the [az postgres flexible-server connect][16] command to connect to the database and then work with [psql][15] commands. When working with psql, it is often easier to use the Azure [Cloud Shell][4] because all the dependencies are included for you in the shell.
+You could also use the [az postgres flexible-server connect][16] command to connect to the database and then work with [psql][15] commands. When working with psql, it's often easier to use the Azure [Cloud Shell][4] because all the dependencies are included for you in the shell.
 
 ---
 
@@ -607,7 +607,20 @@ Container apps are deployed to Container Apps [*environments*][30], which act as
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 7.** Test the website.
+        **Step 7.** Django only, migrate and create database schema. (In the Flask sample app, it's done automatically, and you can skip this step.)
+        * Go to the **Monitoring** - **Console** resource of the container app.
+        * Choose a startup command and select **Connect**.
+        * At the shell prompt, type `python manage.py migrate`.
+
+        You don't need to migrate for revisions of the container.
+    :::column-end:::
+    :::column:::
+        :::image type="content" source="media/tutorial-container-apps/azure-portal-create-container-app-11.png" alt-text="Screenshot showing how to connect to an Azure Container Apps container in Azure portal." lightbox="media/tutorial-container-apps/azure-portal-create-container-app-11.png":::
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="2":::
+        **Step 8.** Test the website.
 
         * Go to the container app's **Overview** resource.
         * Under **Essentials**, select **Application Url** to open the website in a browser.
@@ -688,11 +701,25 @@ These steps require the [Azure Container Apps extension][11] for VS Code.
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 5.** Test the website.
+        **Step 5.** For Django only, migrate and create database schema. (In the Flask sample app, it's done automatically, and you can skip this step.)
 
-        * After the task completes, you'll see a notification with a **Browse** button to go to the website.
+        * Go to the **Azure** extension, expand the **Container Apps** section, find and expand your container environment, and right-click the container your created and select **Open Console in Portal**.
+        * Choose a startup command and select **Connect**.
+        * At the shell prompt, type `python manage.py migrate`.
 
-        If you miss the prompts to create the container after the environment creation, go to the Azure extension, expand the Container Apps section, find and expand your container environment, and right-click the container app and select **Browse**.
+        You don't need to migrate for revisions of the container.
+    :::column-end:::
+    :::column:::
+        :::image type="content" source="media/tutorial-container-apps/azure-portal-create-container-app-11.png" alt-text="Screenshot showing how to connect to an Azure Container Apps container in Azure portal." lightbox="media/tutorial-container-apps/azure-portal-create-container-app-11.png":::
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="2":::
+        **Step 6.** Test the website.
+
+        * After the create container task completes, you'll see a notification with a **Browse** button to go to the website.
+
+        If you miss the notification, go to the **Azure** extension, expand the **Container Apps** section, find and expand your container environment, and right-click the container app and select **Browse**.
 
     :::column-end:::
     :::column:::
@@ -781,7 +808,24 @@ These steps require the [Azure Container Apps extension][11] for VS Code.
 :::row-end:::
 :::row:::
     :::column span="1":::
-        **Step 7.** Test the website.
+        **Step 7.** For Django only, migrate and create database schema. (In the Flask sample app, it's done automatically, and you can skip this step.)
+
+        Connect with the [az containerapp exec][31] command:
+
+        ```bash
+            az containerapp exec \
+                --name python-container-app \
+                --resource-group pythoncontainer-rg
+        ```
+
+        Then, at the shell command prompt type `python manage.py migrate`.
+
+        You don't need to migrate for revisions of the container.
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="1":::
+        **Step 8.** Test the website.
 
         The create command above outputs an application Url you can use to browse to. The Url ends in "azurecontainerapps.io". Navigate to the Url.
 
@@ -822,10 +866,12 @@ Here's an example of the sample website after adding a restaurant and two review
   * Check the ingress of the container. For example, in Azure portal, go to the **Ingress** resource of the container and make sure **HTTP Ingress** is enabled and **Accepting traffic from anywhere** is selected.
 
 * Website doesn't start, you see "stream timeout", or nothing is returned.
-  * In the Azure portal, go to the Container App's Revision management resource and check the **Provision Status** of the container.
-    * If "Provisioning", then wait until provisioning has completed.
-    * If "Failed", then select the revision and view the console logs. Choose the order of the columns to show "Time Generated", "Stream_s", and "Log_s". Sort the logs by most-recent first and look for Python *stderr* and *stdout* messages in the "Stream_s" column. Python 'print' output will be *stdout* messages.
-  * With the Azure CLI, use the [az containerapp logs show][32] command.
+  * Check the logs.
+    * In the Azure portal, go to the Container App's Revision management resource and check the **Provision Status** of the container.
+      * If "Provisioning", then wait until provisioning has completed.
+      * If "Failed", then select the revision and view the console logs. Choose the order of the columns to show "Time Generated", "Stream_s", and "Log_s". Sort the logs by most-recent first and look for Python *stderr* and *stdout* messages in the "Stream_s" column. Python 'print' output will be *stdout* messages.
+    * With the Azure CLI, use the [az containerapp logs show][32] command.
+  * If using the Django framework, check to see if the *restaurants_reviews* tables exist in the database. If not, use a console to access the container and run `python manage.py migrate`.
 
 ## Next step
 
@@ -864,3 +910,4 @@ Here's an example of the sample website after adding a restaurant and two review
 [30]: /azure/container-apps/environment
 [31]: /azure/container-apps/revisions
 [32]: /cli/azure/containerapp/logs#az-containerapp-logs-show
+[33]: /cli/azure/containerapp#az-containerapp-exec
