@@ -139,7 +139,7 @@ Working in an integrated development environment (IDE) with containers isn't str
 
 #### [VS Code](#tab/vscode-ide)
 
-Visual Studio Code provides Docker support with the [Docker extension][21], you can:
+With Visual Studio Code and the [Docker extension][21] you can:
 
 * Add Docker files, including a Dockerfile and compose file, to your workspace automatically that are tailored for your Python project.
 
@@ -170,7 +170,7 @@ To connect your account and use the Docker extension in VS Code:
 
 [IMAGE]
 
-**Step 4**: Navigate to the Docker extension and confirm it's connected to Azure
+**Step 4**: Navigate to the Docker extension and confirm it's connected to Azure.
 
 [IMAGE]
 
@@ -192,15 +192,48 @@ The following image shows running a container in PyCharm.
 
 :::image type="content" source="media/containers-overview/pycharm-running-container-example.png" alt-text="Screenshot showing an example of running a container in VS Code." lightbox="media/containers-overview/pycharm-running-container-example.png":::
 
-To use the Docker extension in PyCharm:
+To use the Docker extension in PyCharm to connect to Docker running in your dev environment:
 
-**Step 1**: Go the **CTRL** + **ALT**  + **S** to bring up plugins and add Docker.
+:::row:::
+    :::column span="2":::
+        **Step 1**: Use **CTRL** + **ALT**  + **S** to bring up the **Plugins** setting.
+    :::column-end:::
+    :::column:::
+        :::image type="content" source="media/containers-overview/pycharm-plugin-add.png" alt-text="Screenshot showing how to search for the Azure Container Apps service in Azure portal." lightbox="media/containers-overview/pycharm-plugin-add.png":::
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="2":::
+        **Step 2**: Search **Marketplace** for the Docker plugin and add it.
+    :::column-end:::
+    :::column:::
+        :::image type="content" source="media/containers-overview/pycharm-plugin-services.png" alt-text="Screenshot showing how to search for the Azure Container Apps service in Azure portal." lightbox="media/containers-overview/pycharm-plugin-services.png":::
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="2":::
+        **Step 2**: Search **Marketplace** for the Docker plugin and add it.
+    :::column-end:::
+    :::column:::
+        :::image type="content" source="media/containers-overview/pycharm-plugin-start-container.png" alt-text="Screenshot showing how to search for the Azure Container Apps service in Azure portal." lightbox="media/containers-overview/pycharm-plugin-start-container.png":::
+    :::column-end:::
+:::row-end:::
 
-[IMAGE]
+**Step 1**: Use **CTRL** + **ALT**  + **S** to bring up the **Plugins** setting.
 
-**Step 2**: Go to the Docker plugin.
+You can also go to **File** \> **Settings** \> **Plugins**.
 
-[IMAGE]
+[IMAGE 1]
+
+**Step 2**: Search **Marketplace** for the Docker plugin and add it.
+
+[IMAGE 2]
+
+**Step 3**: Under the **Services**, select **Docker**, right-click and select **Connect** if necessary.
+
+You can now work with images, including creating a container from an image as shown below.
+
+[IMAGE 3]
 
 ---
 
