@@ -137,22 +137,20 @@ The Docker build command is part of the Docker CLI. When you use IDEs like VS Co
 
 Working in an integrated development environment (IDE) with containers isn't strictly necessary but can simplify many container-related tasks.
 
-#### [VS Code](#tab/vscode-ide)
-
-With Visual Studio Code and the [Docker extension][21] you can:
-
-* Add Docker files, including a Dockerfile and compose file, to your workspace automatically that are tailored for your Python project.
+* (VS Code only) Add Docker files, including a Dockerfile and compose file, to your workspace automatically that are tailored for your Python project.
 
 * Download and build Docker images.
-  * Build images your developer environment or build Docker images in Azure (Docker not required).
+  * (VS Code only) Build images your developer environment or build Docker images in Azure (Docker not required).
 
 * Create and run Docker containers from pulled image or directly from a Dockerfile.
 
-* Run multicontainer applications with Docker Compose.
+* Run multicontainer applications with Docker Compose
 
-* Connect and work with container registries like Azure Container Registry and Docker Hub, GitLab, or any other private registry.
+* Connect and work with container registries like Docker Hub, GitLab, JetBrains Space, Docker V2, and other self-hosted Docker registries.
 
-To sign into the Azure extension and then install  the Docker extension to create and run a container from a Docker image:
+#### [VS Code](#tab/vscode-ide)
+
+To sign into the Azure extension and then install the [Docker extension][21] to create and run a container from a Docker image:
 
 :::row:::
     :::column span="2":::
@@ -212,17 +210,7 @@ If you have trouble accessing your Azure subscription this may be because you ar
 
 #### [PyCharm](#tab/pycharm-ide)
 
-PyCharm provides Docker support with the [Docker plugin][22], where you can:
-
-* Download and build Docker images.
-
-* Create and run Docker containers from pulled images or directly from a Dockerfile.
-
-* Run multicontainer applications with Docker Compose
-
-* Connect and work with container registries like Docker Hub, GitLab, JetBrains Space, Docker V2, and other self-hosted Docker registries.
-
-To use the Docker plugin in PyCharm to create and run a container from a Docker image:
+To use the [Docker plugin][22] in PyCharm to create and run a container from a Docker image:
 
 :::row:::
     :::column span="2":::
