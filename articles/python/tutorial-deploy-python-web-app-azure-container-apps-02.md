@@ -810,7 +810,7 @@ These steps require the [Azure Container Apps extension][11] for VS Code.
     :::column span="1":::
         **Step 7.** For Django only, migrate and create database schema. (In the Flask sample app, it is done automatically).
 
-        * Connect with the [az containerapp exec][31] command:
+        Connect with the [az containerapp exec][31] command:
 
         ```bash
             az containerapp exec \
@@ -818,7 +818,7 @@ These steps require the [Azure Container Apps extension][11] for VS Code.
                 --resource-group pythoncontainer-rg
         ```
 
-        * At the shell command prompt type `python manage.py migrate`.
+        Then, at the shell command prompt type `python manage.py migrate`.
 
         You don't need to migrate for revisions of the container.
     :::column-end:::
@@ -866,10 +866,12 @@ Here's an example of the sample website after adding a restaurant and two review
   * Check the ingress of the container. For example, in Azure portal, go to the **Ingress** resource of the container and make sure **HTTP Ingress** is enabled and **Accepting traffic from anywhere** is selected.
 
 * Website doesn't start, you see "stream timeout", or nothing is returned.
-  * In the Azure portal, go to the Container App's Revision management resource and check the **Provision Status** of the container.
-    * If "Provisioning", then wait until provisioning has completed.
-    * If "Failed", then select the revision and view the console logs. Choose the order of the columns to show "Time Generated", "Stream_s", and "Log_s". Sort the logs by most-recent first and look for Python *stderr* and *stdout* messages in the "Stream_s" column. Python 'print' output will be *stdout* messages.
-  * With the Azure CLI, use the [az containerapp logs show][32] command.
+  * Check the logs.
+    * In the Azure portal, go to the Container App's Revision management resource and check the **Provision Status** of the container.
+      * If "Provisioning", then wait until provisioning has completed.
+      * If "Failed", then select the revision and view the console logs. Choose the order of the columns to show "Time Generated", "Stream_s", and "Log_s". Sort the logs by most-recent first and look for Python *stderr* and *stdout* messages in the "Stream_s" column. Python 'print' output will be *stdout* messages.
+    * With the Azure CLI, use the [az containerapp logs show][32] command.
+  * If using the Django framework, check to see if the *restaurants_reviews* tables exist in the database. If not, use a console to access the container and run `python manage.py migrate`.
 
 ## Next step
 
