@@ -152,27 +152,61 @@ With Visual Studio Code and the [Docker extension][21] you can:
 
 * Connect and work with container registries like Azure Container Registry and Docker Hub, GitLab, or any other private registry.
 
-The following image shows running a container in Visual Studio Code.
+To sign into the Azure extension and then install  the Docker extension to create and run a container from a Docker image:
 
-:::image type="content" source="media/containers-overview/vs-code-running-container-example.png" alt-text="Screenshot showing an example of running a container in VS Code." lightbox="media/containers-overview/vs-code-running-container-example.png":::
+:::row:::
+    :::column span="2":::
+        **Step 1**: Use **CTRL** + **ALT**  + **A** to go to the **Azure** extension.
 
-To connect your account and use the Docker extension in VS Code:
+        You can also select the **Azure** icon on the VS Code extensions bar.
+    :::column-end:::
+    :::column:::
+        TBD
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="2":::
+        **Step 2**: If required, select **Sign in to Azure** and follow the prompts.
 
-**Step 1**: Navigate to the Azure Explorer
+    :::column-end:::
+    :::column:::
+        TBD
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="2":::
+        **Step 3**: Use **CTRL** + **ALT**  + **X** to open **Extensions**.
 
-[IMAGE]
-
-**Step 2**: Select **Sign in to Azure** and follow the prompts.
-
-[IMAGE]
-
-**Step 3**: Go to **Extensions** and add the Docker extension.
-
-[IMAGE]
-
-**Step 4**: Navigate to the Docker extension and confirm it's connected to Azure.
-
-[IMAGE]
+        You can also select the **Extensions** icon on the VS Code extensions bar.
+    :::column-end:::
+    :::column:::
+        TBD
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="2":::
+        **Step 4**: Search for *Docker* in the Marketplace and install.
+    :::column-end:::
+    :::column:::
+        TBD
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="2":::
+        **Step 5**: Navigate to the Docker extension.
+    :::column-end:::
+    :::column:::
+        TBD
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="2":::
+        **Step 6**: Run an image.
+    :::column-end:::
+    :::column:::
+        :::image type="content" source="media/containers-overview/vs-code-running-container-example.png" alt-text="Screenshot showing an example of running a container in VS Code." lightbox="media/containers-overview/vs-code-running-container-example.png":::
+    :::column-end:::
+:::row-end:::
 
 If you have trouble accessing your Azure subscription this may be because you are behind a proxy. To resolve this issue, see [Network Connections in Visual Studio Code][23].
 
@@ -188,7 +222,7 @@ PyCharm provides Docker support with the [Docker plugin][22], where you can:
 
 * Connect and work with container registries like Docker Hub, GitLab, JetBrains Space, Docker V2, and other self-hosted Docker registries.
 
-To use the Docker extension in PyCharm to create and run a container from a Docker image:
+To use the Docker plugin in PyCharm to create and run a container from a Docker image:
 
 :::row:::
     :::column span="2":::
