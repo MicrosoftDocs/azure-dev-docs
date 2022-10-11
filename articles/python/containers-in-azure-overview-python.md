@@ -15,7 +15,7 @@ This article describes how to go from Python project code (for example, a web ap
 
 The nature of Docker containers is that creating a Docker image from code and deploying that image to a container in Azure is the same across languages. The language-specific considerations - Python in this case - are in the configuration setting during the containerization process in Azure, in particular the Dockerfile structure and any configuration supporting Python web frameworks such as [Django][35], [Flask][36], and [FastAPI][37].
 
-## Example container workflows
+## Container workflow scenarios
 
 For Python development, some typical workflows for moving from code to container are:
 
