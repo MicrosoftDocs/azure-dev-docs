@@ -19,26 +19,26 @@ The nature of Docker containers is that creating a Docker image from code and de
 
 For Python development, some typical workflows for moving from code to container are:
 
-**Dev environment** and building Docker image build in this environment.
+**Dev environment** and building Docker images in this environment.
 
-1. Start: Dev environment code repo (with Docker).
+1. Code: git clone code to dev environment (with Docker).
 1. Build: Use Docker, VS Code (with extensions), PyCharm (with plugin).
 1. Run: In dev environment in Docker container.
-1. Push: To registry like Azure Container Registry, Docker Hub, or private registries.
+1. Push: To registry like Azure Container Registry, Docker Hub, or private registry.
 1. Deploy: To Azure service from registry.
 
 **Hybrid** - Start in dev environment but image is built in Azure, without the need to install Docker.
 
-1. Start: Dev environment code repo (without Docker, build in Azure Cloud).
+1. Code: git clone code to dev environment (without Docker, build in Azure Cloud).
 1. Build: VS Code (with extensions), Azure CLI
 1. Push: Azure Container Registry
 1. Deploy: To Azure service from registry.
 
 **Azure** - All in the cloud, using Azure Cloud Shell to build code from GitHub repo.
 
-1. Start: In Azure Cloud Shell
-1. Build: Azure CLI, Docker
-1. Push: To registry like Azure Container Registry, Docker Hub, etc.
+1. Code: git clone GitHub to Azure Cloud Shell.
+1. Build: In Azure Cloud Shell, use Azure CLI or Docker CLI.
+1. Push: To registry like Azure Container Registry, Docker Hub, or private registry.
 1. Deploy: To Azure service from registry.
 
 The end goal of these workflows is a container running in one of the Azure resources supporting Docker containers as listed in the next section.
@@ -83,7 +83,7 @@ Web frameworks have default ports on which they listen for web requests. When wo
 
 ## Dockerfile instructions for Python
 
-A Dockerfile is a text file that contains instructions for building a Docker image. The first line states the base image to begin with and then is followed by instructions to install required programs, copy files, and other instructions to create a working environment. For example, some Python-specific values for key Dockerfile instructions are:
+A Dockerfile is a text file that contains instructions for building a Docker image. The first line states the base image to begin with and then is followed by instructions to install required programs, copy files, and other instructions to create a working environment. For example, some Python-specific examples for key Dockerfile instructions show in the table below.
 
 | Instruction | Purpose | Example |
 | ----------- | ------- | ------- |
@@ -206,7 +206,7 @@ To use the Docker extension in PyCharm:
 
 ### Azure CLI and Docker CLI
 
-Instead of, or often along with an IDE, you can work with Docker images and containers using [Azure CLI][24] and [Docker CLI][25]. Both VS Code and PyCharm have terminals where you can run these CLIs.
+You can also work with Docker images and containers using the [Azure CLI][24] and [Docker CLI][25]. Both VS Code and PyCharm have terminals where you can run these CLIs.
 
 Using a CLI is useful when you want finer control over build/run arguments and for automation. For example, the following command shows how to use the Azure CLI to specify the Docker image name.
 
