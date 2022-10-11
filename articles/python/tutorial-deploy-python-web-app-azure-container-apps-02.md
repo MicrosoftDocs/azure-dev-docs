@@ -607,7 +607,7 @@ Container apps are deployed to Container Apps [*environments*][30], which act as
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 7.** Django only, migrate and create database schema. (In the Flask sample app, it's done automatically).
+        **Step 7.** Django only, migrate and create database schema. (In the Flask sample app, it's done automatically, and you can skip this step.)
         * Go to the **Monitoring** - **Console** resource of the container app.
         * Choose a startup command and select **Connect**.
         * At the shell prompt, type `python manage.py migrate`.
@@ -701,7 +701,7 @@ These steps require the [Azure Container Apps extension][11] for VS Code.
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 5.** For Django only, migrate and create database schema. (In the Flask sample app, it's done automatically).
+        **Step 5.** For Django only, migrate and create database schema. (In the Flask sample app, it's done automatically, and you can skip this step.)
 
         * Go to the **Azure** extension, expand the **Container Apps** section, find and expand your container environment, and right-click the container your created and select **Open Console in Portal**.
         * Choose a startup command and select **Connect**.
@@ -808,7 +808,7 @@ These steps require the [Azure Container Apps extension][11] for VS Code.
 :::row-end:::
 :::row:::
     :::column span="1":::
-        **Step 7.** For Django only, migrate and create database schema. (In the Flask sample app, it's done automatically).
+        **Step 7.** For Django only, migrate and create database schema. (In the Flask sample app, it's done automatically, and you can skip this step.)
 
         Connect with the [az containerapp exec][31] command:
 
