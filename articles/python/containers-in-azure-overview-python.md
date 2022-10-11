@@ -266,7 +266,7 @@ As another option, you can use [Service Connector][34] to help you connect Azure
 [1]: https://github.com/features/codespaces
 [2]: https://code.visualstudio.com/docs/remote/containers
 [3]: https://azure.microsoft.com/products/app-service/containers/
-[4]: ./tutorial-containerize-deploy-python-web-app-azure-01
+[4]: ./tutorial-containerize-deploy-python-web-app-azure-01.md
 [5]: https://azure.microsoft.com/products/container-apps/
 [6]: https://azure.microsoft.com/products/container-instances
 [7]: /azure/container-instances/container-instances-tutorial-prepare-app
@@ -286,7 +286,7 @@ As another option, you can use [Service Connector][34] to help you connect Azure
 [21]: https://code.visualstudio.com/docs/containers/overview
 [22]: https://plugins.jetbrains.com/plugin/7724-docker
 [23]: https://code.visualstudio.com/docs/setup/network
-[24]: https://learn.microsoft.com/en-us/cli/azure/install-azure-cli
+[24]: /cli/azure/install-azure-cli
 [25]: https://docs.docker.com/engine/reference/commandline/cli/
 [26]: ./tutorial-containerize-deploy-python-web-app-azure-02.md
 [27]: https://pypi.org/project/python-dotenv/
