@@ -188,15 +188,13 @@ PyCharm provides Docker support with the [Docker plugin][22], where you can:
 
 * Connect and work with container registries like Docker Hub, GitLab, JetBrains Space, Docker V2, and other self-hosted Docker registries.
 
-The following image shows running a container in PyCharm.
-
-:::image type="content" source="media/containers-overview/pycharm-running-container-example.png" alt-text="Screenshot showing an example of running a container in VS Code." lightbox="media/containers-overview/pycharm-running-container-example.png":::
-
-To use the Docker extension in PyCharm to connect to Docker running in your dev environment:
+To use the Docker extension in PyCharm to create and run a container from a Docker image:
 
 :::row:::
     :::column span="2":::
         **Step 1**: Use **CTRL** + **ALT**  + **S** to bring up the **Plugins** setting.
+
+        You can also go to **File** \> **Settings** \> **Plugins**.
     :::column-end:::
     :::column:::
         :::image type="content" source="media/containers-overview/pycharm-plugin-add.png" alt-text="Screenshot showing how to search for the Azure Container Apps service in Azure portal." lightbox="media/containers-overview/pycharm-plugin-add.png":::
@@ -212,28 +210,20 @@ To use the Docker extension in PyCharm to connect to Docker running in your dev 
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 2**: Search **Marketplace** for the Docker plugin and add it.
+        **Step 3**: Under the **Services**, select **Docker**, expand images, right-click an image run it as a container.
     :::column-end:::
     :::column:::
         :::image type="content" source="media/containers-overview/pycharm-plugin-start-container.png" alt-text="Screenshot showing how to search for the Azure Container Apps service in Azure portal." lightbox="media/containers-overview/pycharm-plugin-start-container.png":::
     :::column-end:::
 :::row-end:::
-
-**Step 1**: Use **CTRL** + **ALT**  + **S** to bring up the **Plugins** setting.
-
-You can also go to **File** \> **Settings** \> **Plugins**.
-
-[IMAGE 1]
-
-**Step 2**: Search **Marketplace** for the Docker plugin and add it.
-
-[IMAGE 2]
-
-**Step 3**: Under the **Services**, select **Docker**, right-click and select **Connect** if necessary.
-
-You can now work with images, including creating a container from an image as shown below.
-
-[IMAGE 3]
+:::row:::
+    :::column span="2":::
+        **Step 4**: Monitor the output in the **Log** window.
+    :::column-end:::
+    :::column:::
+        :::image type="content" source="media/containers-overview/pycharm-running-container-example.png" alt-text="Screenshot showing an example of running a container in VS Code." lightbox="media/containers-overview/pycharm-running-container-example.png":::
+    :::column-end:::
+:::row-end:::
 
 ---
 
