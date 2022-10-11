@@ -57,7 +57,7 @@ Use training from Microsoft or a Microsoft partner to expand your understanding 
 
 ## JavaScript on Azure
 
-The following training teach you how to use Azure with JavaScript:
+The following training teaches you how to use Azure with JavaScript:
 
 ### Learning paths
 
