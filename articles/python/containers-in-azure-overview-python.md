@@ -19,7 +19,7 @@ The nature of Docker containers is that creating a Docker image from code and de
 
 For Python development, some typical workflows for moving from code to container are:
 
-|Scenario|Description|Steps|
+|Scenario|Description|Workflow|
 |--------|-----------|-----|
 |**Dev environment**|Build Docker images in your dev environment.|Code: git clone code to dev environment (with Docker). <br><br> Build: Use Docker, VS Code (with extensions), PyCharm (with plugin). <br><br> Run: In dev environment in Docker container. <br><br> Push: To registry like Azure Container Registry, Docker Hub, or private registry. <br><br> Deploy: To Azure service from registry.|
 |**Hybrid**|From your dev environment build Docker image in Azure, without Docker installed.|Code: git clone code to dev environment (without Docker, build in Azure Cloud).<br><br> Build: VS Code (with extensions), Azure CLI. <br><br> Push: Azure Container Registry <br><br> Deploy: To Azure service from registry.|
