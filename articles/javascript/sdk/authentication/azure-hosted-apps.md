@@ -1,7 +1,7 @@
 ---
 title: Authenticating Azure-hosted JavaScript apps to Azure resources with the Azure SDK for JavaScript
 description: This article covers how to configure authentication for JavaScript apps to Azure services when the app is hosted in an Azure service like Azure App Service, Azure Functions, or Azure Virtual Machines.
-ms.date: 05/16/2022
+ms.date: 10/11/2022
 ms.topic: how-to
 ms.custom: devx-track-js
 ---
@@ -147,4 +147,4 @@ const blobServiceClient = new BlobServiceClient(
 );
 ```
 
-When the above code is run on your local workstation during local development, it will look in the environment variables for an application service principal or at VS Code, the Azure CLI, or Azure PowerShell for a set of developer credentials, either of which can be used to authenticate the app to Azure resources during local development.  In this way, this same code can be used to authenticate your app to Azure resources during both local development and when deployed to Azure.
+When the above code is run on your local workstation during local development, the SDK method, _DefaultAzureCredential()_, looks in the environment variables for an application service principal or at VS Code, the Azure CLI, or Azure PowerShell for a set of developer credentials, either of which can be used to authenticate the app to Azure resources during local development.  In this way, this same code can be used to authenticate your app to Azure resources during both local development and when deployed to Azure.
