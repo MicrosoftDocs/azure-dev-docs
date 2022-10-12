@@ -73,7 +73,15 @@ Container images become containers at runtime. A container contains your Python 
 
 ## Container settings for web frameworks
 
-Web frameworks have default ports on which they listen for web requests. When working with some Azure container solutions, you need to specify the port your container is listening on that will receive traffic. For [Django][35], it's port 8000. For [Flask][36], it's port 5000 or 5002. For [FastAPI][37] ([uvicorn][13]), it's port 8000.
+Web frameworks have default ports on which they listen for web requests. When working with some Azure container solutions, you need to specify the port your container is listening on that will receive traffic.
+
+| Web Framework  | Port |
+| -------------- | ---- |
+| [Django][35] | 8000 |
+| [Flask][36] | 5000 or 5002 |
+| [FastAPI][37] ([uvicorn][13]) | 8000 |
+
+The follow table shows how to set the port for difference Azure container solutions.
 
 | Azure Container Solution | How to set web app port |
 | ------------------------ | ----------------------- |
