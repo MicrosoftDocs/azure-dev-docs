@@ -85,18 +85,6 @@
 
 - name: Containers solutions
   items:
-    - name: Using Visual Studio Code
-      items:
-        - name: 1. Configure your environment
-          href: tutorial-deploy-containers-01.md
-        - name: 2. Deploy the container image
-          href: tutorial-deploy-containers-02.md
-        - name: 3. Make changes and redeploy
-          href: tutorial-deploy-containers-03.md
-        - name: 4. Stream logs
-          href: tutorial-deploy-containers-04.md
-        - name: 5. Clean up resources
-          href: tutorial-deploy-containers-05.md
     - name: Python containers in Azure
       href: containers-in-azure-overview-python.md
     - name: Deploy to App Service
