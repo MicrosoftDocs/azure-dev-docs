@@ -154,12 +154,13 @@ The Docker build command is part of the Docker CLI. When you use IDEs like VS Co
 
 ### VS Code and PyCharm
 
-Working in an integrated development environment (IDE) with containers isn't strictly necessary but can simplify many container-related tasks.
+Working in an integrated development environment (IDE) with containers isn't strictly necessary but can simplify many container-related tasks. Here are some of the things you can do with VS Code and PyCharm.
 
 * (VS Code only) Add Docker files, including a Dockerfile and compose file, to your workspace automatically that are tailored for your Python project.
 
 * Download and build Docker images.
-  * (VS Code only) Build images your developer environment or build Docker images in Azure (Docker not required).
+  * Build images in developer environment.
+  * Build Docker images in Azure without Docker installed in dev environment. For PyCharm, use Azure CLI to do this.
 
 * Create and run Docker containers from pulled image or directly from a Dockerfile.
 
@@ -169,7 +170,7 @@ Working in an integrated development environment (IDE) with containers isn't str
 
 #### [VS Code](#tab/vscode-ide)
 
-To sign into the Azure extension and then install the [Docker extension][21] to create and run a container from a Docker image:
+Sign into the Azure extension and then install the [Docker extension][21] to create and run a container from a Docker image.
 
 :::row:::
     :::column span="2":::
@@ -229,7 +230,7 @@ If you have trouble accessing your Azure subscription, this may be because you a
 
 #### [PyCharm](#tab/pycharm-ide)
 
-To use the [Docker plugin][22] in PyCharm to create and run a container from a Docker image:
+Install thethe [Docker plugin][22] in PyCharm to create and run a container from a Docker image.
 
 :::row:::
     :::column span="2":::
@@ -244,6 +245,8 @@ To use the [Docker plugin][22] in PyCharm to create and run a container from a D
 :::row:::
     :::column span="2":::
         **Step 2**: Search **Marketplace** for the Docker plugin and add it.
+
+        If you are using Docker for Windows, enable connection to Docker via the TCP protocol. For more information, see [Enable Docker support][39].
     :::column-end:::
     :::column:::
         :::image type="content" source="media/containers-overview/pycharm-plugin-services.png" alt-text="Screenshot showing how to see Docker plugin in Services window of PyCharm." lightbox="media/containers-overview/pycharm-plugin-services.png":::
@@ -371,3 +374,4 @@ As another option, you can use [Service Connector][34] to help you connect Azure
 [36]: https://flask.palletsprojects.com/en/2.2.x/
 [37]: https://fastapi.tiangolo.com/
 [38]: https://docs.docker.com/engine/reference/builder/#copy
+[39]: https://www.jetbrains.com/help/pycharm/docker.html#enable_docker
