@@ -77,9 +77,9 @@ In summary, for containerizing Python projects, the key files are:
 
 | Project file | Description |
 |--------------| ----------- |
-|*requirements.txt* | Used during the building of the Docker image to get the correct dependencies into the container image.|
+|*requirements.txt* | Used during the building of the Docker image to get the correct dependencies into the image.|
 |*Dockerfile* | Used to specify how to build the Docker image. For more information, see the section [Dockerfile instructions for Python](#dockerfile-instructions-for-python).|
-|*.dockerignore* | Files and directories in *.dockerignore* are not copied to the Docker image with the `COPY` command in the *Dockerfile*. Excluding files helps the build performance, but should also be used to avoid adding sensitive information to the image where it can be inspected. The *.dockerignore* should contain lines to ignore *.env* and *.venv* (virtual environments).|
+|*.dockerignore* | Files and directories in *.dockerignore* are not copied to the Docker image with the `COPY` command in the *Dockerfile*. Excluding files helps the build performance, but should also be used to avoid adding sensitive information to the image where it can be inspected. For example, the *.dockerignore* should contain lines to ignore *.env* and *.venv* (virtual environments).|
 
 ## Container settings for web frameworks
 
@@ -280,7 +280,7 @@ az acr build --registry <registry-name> \
   --target pythoncontainerwebapp:latest .
 ```
 
-As another example, consider the following command that shows how to use the Docker CLI to run a Docker container that communicates to a MongoDB instance in your dev environment, outside the container. The different values to complete the command are often easier to automate when specified in a command line and you can share commands.
+As another example, consider the following command that shows how to use the Docker CLI to run a Docker container that communicates to a MongoDB instance in your dev environment, outside the container. The different values to complete the command are easier to automate when specified in a command line.
 
 ```bash
 docker run --rm -it \
