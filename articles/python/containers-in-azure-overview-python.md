@@ -65,17 +65,27 @@ Other container solutions are shown in the comparison article, [Comparing Contai
 
 When you're running a Python project in a dev environment, using a virtual environment is a common way of managing dependencies and ensuring reproducibility of your project setup. A virtual environment has a Python interpreter, libraries, and scripts installed that are required by the project code running in that environment. Dependencies for Python projects are managed through the *requirements.txt* file.
 
+With containers, virtual environments are not needed unless you are using them for testing or other reasons. Don't copy the virtual environment folder content into the Docker image. Use the *.dockerignore* file to exclude it.
+
 You can think of Docker containers as providing similar capabilities as virtual environments, but with further improvements in reproducibility and portability as a Docker container can be run anywhere containers can be run, regardless of OS.
 
 Containers are a lightweight, immutable infrastructure for application packaging and deployment. An application or service, its dependencies, and its configuration are packaged together as a container image. The containerized application can be tested as a unit and deployed as a container image instance to the host operating system.
 
-Container images become containers at runtime. A container contains your Python project code and everything that code needs to run. To get to that point, you need to build your Python project code into a Docker image and then create a container instance of the image to run. For containerizing Python projects, a *requirements.txt* file is still needed and is used during the building of the Docker image to get the correct dependencies into the container image. In addition, a *Dockerfile* is used to specify how to build the Docker image.
+Container images become containers at runtime. A container contains your Python project code and everything that code needs to run. To get to that point, you need to build your Python project code into a Docker image and then create a container instance of the image to run.
+
+In summary, for containerizing Python projects, the key files are:
+
+| Project file | Description |
+|--------------| ----------- |
+|*requirements.txt* | Used during the building of the Docker image to get the correct dependencies into the container image.|
+|*Dockerfile* | Used to specify how to build the Docker image. For more information, see the section [Dockerfile instructions for Python](#dockerfile-instructions-for-python).|
+|*.dockerignore* | Files and directories in *.dockerignore* are not copied to the Docker image with the `COPY` command in the *Dockerfile*. Excluding files helps the build performance, but should also be used to avoid adding sensitive information to the image where it can be inspected. The *.dockerignore* should contain lines to ignore *.env* and *.venv* (virtual environments).|
 
 ## Container settings for web frameworks
 
 Web frameworks have default ports on which they listen for web requests. When working with some Azure container solutions, you need to specify the port your container is listening on that will receive traffic.
 
-| Web Framework  | Port |
+| Web framework  | Port |
 | -------------- | ---- |
 | [Django][35] | 8000 |
 | [Flask][36] | 5000 or 5002 |
@@ -83,7 +93,7 @@ Web frameworks have default ports on which they listen for web requests. When wo
 
 The follow table shows how to set the port for difference Azure container solutions.
 
-| Azure Container Solution | How to set web app port |
+| Azure container solution | How to set web app port |
 | ------------------------ | ----------------------- |
 | Web App for Containers | By default, App Service assumes your custom container is listening on either port 80 or port 8080. If your container listens to a different port, set the WEBSITES_PORT app setting in your App Service app. For more information, see [Configure a custom container for Azure App Service][14]. |
 | Azure Containers Apps | Azure Container Apps allows you to expose your container app to the public web, to your VNET, or to other container apps within your environment by enabling ingress. Set the ingress `targetPort` to the port your container listens to for incoming requests. Application ingress endpoint is always exposed on port 443. For more information, see [Set up HTTPS or TCP ingress in Azure Container Apps][15]. |
@@ -97,6 +107,7 @@ A Dockerfile is a text file that contains instructions for building a Docker ima
 | ----------- | ------- | ------- |
 | [FROM][16] | Sets the base image for subsequent instructions. | `FROM python:3.8-slim` |
 | [EXPOSE][17] | Tells Docker that the container listens on the specified network ports at runtime. | `EXPOSE 5000` |
+| [COPY][38] | Copies files or directories from the specified source and adds them to the filesystem of the container at the specified destination path. | `COPY . /app` |
 | [RUN][18] | Runs a command inside the Docker image. For example, pull in dependencies. The command runs once at build time. | `RUN python -m pip install -r requirements.txt`|
 | [CMD][19] | The command provides the default for executing a container. There can only be one CMD instruction. | `CMD ["gunicorn", "--bind", "0.0.0.0:5000", "wsgi:app"]` |
 
@@ -359,3 +370,4 @@ As another option, you can use [Service Connector][34] to help you connect Azure
 [35]: https://www.djangoproject.com/
 [36]: https://flask.palletsprojects.com/en/2.2.x/
 [37]: https://fastapi.tiangolo.com/
+[38]: https://docs.docker.com/engine/reference/builder/#copy
