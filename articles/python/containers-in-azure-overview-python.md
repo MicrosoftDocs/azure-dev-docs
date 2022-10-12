@@ -79,7 +79,7 @@ In summary, for containerizing Python projects, the key files are:
 |--------------| ----------- |
 |*requirements.txt* | Used during the building of the Docker image to get the correct dependencies into the image.|
 |*Dockerfile* | Used to specify how to build the Docker image. For more information, see the section [Dockerfile instructions for Python](#dockerfile-instructions-for-python).|
-|*\.dockerignore* | Files and directories in *\.dockerignore* aren't copied to the Docker image with the `COPY` command in the *Dockerfile*. Excluding files helps the build performance, but should also be used to avoid adding sensitive information to the image where it can be inspected. For example, the *\.dockerignore* should contain lines to ignore *.env* and *.venv* (virtual environments).|
+|*\.dockerignore* | Files and directories in *\.dockerignore* aren't copied to the Docker image with the `COPY` command in the *Dockerfile*. The *\.dockerignore* file supports exclusion patterns similar to *\.gitignore* files. For more information, see [\.dockerignore file][40]. <br><br> Excluding files helps the build performance, but should also be used to avoid adding sensitive information to the image where it can be inspected. For example, the *\.dockerignore* should contain lines to ignore *.env* and *.venv* (virtual environments).|
 
 ## Container settings for web frameworks
 
@@ -375,3 +375,4 @@ As another option, you can use [Service Connector][34] to help you connect Azure
 [37]: https://fastapi.tiangolo.com/
 [38]: https://docs.docker.com/engine/reference/builder/#copy
 [39]: https://www.jetbrains.com/help/pycharm/docker.html#enable_docker
+[40]: https://docs.docker.com/engine/reference/builder/#dockerignore-file
