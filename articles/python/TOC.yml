@@ -85,7 +85,7 @@
 
 - name: Containers solutions
   items:
-    - name: Python containers in Azure
+    - name: Python containers overview
       href: containers-in-azure-overview-python.md
     - name: Deploy to App Service
       items:
