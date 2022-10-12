@@ -19,6 +19,42 @@ The nature of Docker containers is that creating a Docker image from code and de
 
 For Python development, some typical workflows for moving from code to container are:
 
+:::row:::
+    :::column span="2":::
+        **Dev environment** and building Docker images in this environment.
+    :::column-end:::
+    :::column:::
+        1. Code: git clone code to dev environment (with Docker).
+        1. Build: Use Docker, VS Code (with extensions), PyCharm (with plugin).
+        1. Run: In dev environment in Docker container.
+        1. Push: To registry like Azure Container Registry, Docker Hub, or private registry.
+        1. Deploy: To Azure service from registry.
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="2":::
+        **Hybrid** - Start in dev environment but image is built in Azure, without the need to install Docker.
+    :::column-end:::
+    :::column:::
+        1. Code: git clone code to dev environment (without Docker, build in Azure Cloud).
+        1. Build: VS Code (with extensions), Azure CLI
+        1. Push: Azure Container Registry
+        1. Deploy: To Azure service from registry.
+        :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="2":::
+        **Azure** - All in the cloud, using Azure Cloud Shell to build code from GitHub repo.
+    :::column-end:::
+    :::column:::
+        1. Code: git clone GitHub to Azure Cloud Shell.
+        1. Build: In Azure Cloud Shell, use Azure CLI or Docker CLI.
+        1. Push: To registry like Azure Container Registry, Docker Hub, or private registry.
+        1. Deploy: To Azure service from registry.
+    :::column-end:::
+:::row-end:::
+
+
 **Dev environment** and building Docker images in this environment.
 
 1. Code: git clone code to dev environment (with Docker).
@@ -170,7 +206,7 @@ Working in an integrated development environment (IDE) with containers isn't str
 
 #### [VS Code](#tab/vscode-ide)
 
-Sign into the Azure extension and then install the [Docker extension][21] to create and run a container from a Docker image.
+Install the [Azure extension][41] and the [Docker extension][21] to create and run a container from a Docker image.
 
 :::row:::
     :::column span="2":::
@@ -230,7 +266,7 @@ If you have trouble accessing your Azure subscription, it may be because you are
 
 #### [PyCharm](#tab/pycharm-ide)
 
-Install thethe [Docker plugin][22] in PyCharm to create and run a container from a Docker image.
+Install the [Docker plugin][22] in PyCharm to create and run a container from a Docker image.
 
 :::row:::
     :::column span="2":::
