@@ -21,7 +21,9 @@ For Python development, some typical workflows for moving from code to container
 
 :::row:::
     :::column span="2":::
-        **Dev environment** and building Docker images in this environment.
+        **Dev environment**.
+
+        Build Docker images in your dev environment.
     :::column-end:::
     :::column:::
         1. Code: git clone code to dev environment (with Docker).
@@ -33,7 +35,9 @@ For Python development, some typical workflows for moving from code to container
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Hybrid** - Start in dev environment but image is built in Azure, without the need to install Docker.
+        **Hybrid**
+
+        From your dev environment build Docker image in Azure, without Docker installed..
     :::column-end:::
     :::column:::
         1. Code: git clone code to dev environment (without Docker, build in Azure Cloud).
@@ -44,7 +48,9 @@ For Python development, some typical workflows for moving from code to container
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Azure** - All in the cloud, using Azure Cloud Shell to build code from GitHub repo.
+        **Azure**
+
+        All in the cloud, using Azure Cloud Shell to build code from GitHub repo.
     :::column-end:::
     :::column:::
         1. Code: git clone GitHub to Azure Cloud Shell.
@@ -161,24 +167,24 @@ FROM python:3.8-slim
 
 EXPOSE 5000
 
-# Keeps Python from generating .pyc files in the container
+# Keeps Python from generating .pyc files in the container.
 ENV PYTHONDONTWRITEBYTECODE=1
 
 # Turns off buffering for easier container logging
 ENV PYTHONUNBUFFERED=1
 
-# Install pip requirements
+# Install pip requirements.
 COPY requirements.txt .
 RUN python -m pip install -r requirements.txt
 
 WORKDIR /app
 COPY . /app
 
-# Creates a non-root user with an explicit UID and adds permission to access the /app folder
+# Creates a non-root user with an explicit UID and adds permission to access the /app folder.
 RUN adduser -u 5678 --disabled-password --gecos "" appuser && chown -R appuser /app
 USER appuser
 
-# Provides defaults for an executing container; can be overridden with Docker CLI when a container is running.
+# Provides defaults for an executing container; can be overridden with Docker CLI.
 CMD ["gunicorn", "--bind", "0.0.0.0:5000", "wsgi:app"]
 ```
 
@@ -200,7 +206,7 @@ Working in an integrated development environment (IDE) with containers isn't str
 
 * Create and run Docker containers from pulled image or directly from a Dockerfile.
 
-* Run multicontainer applications with Docker Compose
+* Run multicontainer applications with Docker Compose.
 
 * Connect and work with container registries like Docker Hub, GitLab, JetBrains Space, Docker V2, and other self-hosted Docker registries.
 
