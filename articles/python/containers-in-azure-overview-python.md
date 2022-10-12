@@ -65,13 +65,13 @@ Other container solutions are shown in the comparison article, [Comparing Contai
 
 When you're running a Python project in a dev environment, using a virtual environment is a common way of managing dependencies and ensuring reproducibility of your project setup. A virtual environment has a Python interpreter, libraries, and scripts installed that are required by the project code running in that environment. Dependencies for Python projects are managed through the *requirements.txt* file.
 
-With containers, virtual environments are not needed unless you are using them for testing or other reasons. Don't copy the virtual environment folder content into the Docker image. Use the *.dockerignore* file to exclude it.
+With containers, virtual environments aren't needed unless you're using them for testing or other reasons. Don't copy the virtual environment folder content into the Docker image. Use the *\.dockerignore* file to exclude it.
 
 You can think of Docker containers as providing similar capabilities as virtual environments, but with further improvements in reproducibility and portability as a Docker container can be run anywhere containers can be run, regardless of OS.
 
 Containers are a lightweight, immutable infrastructure for application packaging and deployment. An application or service, its dependencies, and its configuration are packaged together as a container image. The containerized application can be tested as a unit and deployed as a container image instance to the host operating system.
 
-Container images become containers at runtime. A container contains your Python project code and everything that code needs to run. To get to that point, you need to build your Python project code into a Docker image and then create a container instance of the image to run.
+Container images become containers at runtime. A container contains your Python project code and everything that code needs to run. To get to that point, you need to build your Python project code into a Docker image, and then create a container instance of the image to run.
 
 In summary, for containerizing Python projects, the key files are:
 
@@ -79,7 +79,7 @@ In summary, for containerizing Python projects, the key files are:
 |--------------| ----------- |
 |*requirements.txt* | Used during the building of the Docker image to get the correct dependencies into the image.|
 |*Dockerfile* | Used to specify how to build the Docker image. For more information, see the section [Dockerfile instructions for Python](#dockerfile-instructions-for-python).|
-|*.dockerignore* | Files and directories in *.dockerignore* are not copied to the Docker image with the `COPY` command in the *Dockerfile*. Excluding files helps the build performance, but should also be used to avoid adding sensitive information to the image where it can be inspected. For example, the *.dockerignore* should contain lines to ignore *.env* and *.venv* (virtual environments).|
+|*\.dockerignore* | Files and directories in *\.dockerignore* aren't copied to the Docker image with the `COPY` command in the *Dockerfile*. Excluding files helps the build performance, but should also be used to avoid adding sensitive information to the image where it can be inspected. For example, the *\.dockerignore* should contain lines to ignore *.env* and *.venv* (virtual environments).|
 
 ## Container settings for web frameworks
 
@@ -183,7 +183,7 @@ To sign into the Azure extension and then install the [Docker extension][21] to 
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 2**: If required, select **Sign in to Azure** and follow the prompts.
+        **Step 2**: If necessary, select **Sign in to Azure** and follow the prompts.
 
     :::column-end:::
     :::column:::
@@ -225,7 +225,7 @@ To sign into the Azure extension and then install the [Docker extension][21] to 
     :::column-end:::
 :::row-end:::
 
-If you have trouble accessing your Azure subscription this may be because you are behind a proxy. To resolve this issue, see [Network Connections in Visual Studio Code][23].
+If you have trouble accessing your Azure subscription, this may be because you are behind a proxy. To resolve connection issues, see [Network Connections in Visual Studio Code][23].
 
 #### [PyCharm](#tab/pycharm-ide)
 
@@ -298,7 +298,7 @@ For more information on this scenario, see [Build and test a containerized Pytho
 
 Python projects often make use of environment variables to pass data to code. For example, you might specify database connection information in an environment variable so that different users of the code can set the value differently. Or, when deploying the project to production, the database connection can be changed to refer to a production database instance.  
 
-Packages like [python-dotenv][27] are often used to key-value pairs from an *.env* file and set them as environment variables. This is useful when running in a virtual environment but isn't recommended when working with containers because you don't want to copy the *.env* file into the container, especially if the file has sensitive information and the container will be made public.
+Packages like [python-dotenv][27] are often used to key-value pairs from an *.env* file and set them as environment variables. An *.env* file is useful when running in a virtual environment but isn't recommended when working with containers. Typically, you won't want to copy the *.env* file into the Docker image, especially if the file has sensitive information and the container will be made public. Use the *\.dockerignore* file to exclude files from being copied into the Docker image. For more information, see [Virtual environments and containers](#virtual-environments-and-containers)
 
 Containers can accept environment variables:
 
