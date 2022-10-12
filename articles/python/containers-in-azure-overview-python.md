@@ -80,7 +80,7 @@ In summary, for containerizing Python projects, the key files are:
 |--------------| ----------- |
 |*requirements.txt* | Used during the building of the Docker image to get the correct dependencies into the image.|
 |*Dockerfile* | Used to specify how to build the Docker image. For more information, see the section [Dockerfile instructions for Python](#dockerfile-instructions-for-python).|
-|*\.dockerignore* | Files and directories in *\.dockerignore* aren't copied to the Docker image with the `COPY` command in the *Dockerfile*. The *\.dockerignore* file supports exclusion patterns similar to *\.gitignore* files. For more information, see [\.dockerignore file][40]. <br><br> Excluding files helps the build performance, but should also be used to avoid adding sensitive information to the image where it can be inspected. For example, the *\.dockerignore* should contain lines to ignore *.env* and *.venv* (virtual environments).|
+|*\.dockerignore* | Files and directories in *\.dockerignore* aren't copied to the Docker image with the `COPY` command in the *Dockerfile*. The *\.dockerignore* file supports exclusion patterns similar to *\.gitignore* files. For more information, see [\.dockerignore file][40]. <br><br> Excluding files helps the build performance, but should also be used to avoid adding sensitive information to the image where it can be inspected. For example, the *\.dockerignore* should contain lines to ignore *\.env* and *\.venv* (virtual environments).|
 
 ## Container settings for web frameworks
 
@@ -92,7 +92,7 @@ Web frameworks have default ports on which they listen for web requests. When wo
 | [Flask][36] | 5000 or 5002 |
 | [FastAPI][37] ([uvicorn][13]) | 8000 |
 
-The follow table shows how to set the port for difference Azure container solutions.
+The following table shows how to set the port for difference Azure container solutions.
 
 | Azure container solution | How to set web app port |
 | ------------------------ | ----------------------- |
@@ -102,7 +102,7 @@ The follow table shows how to set the port for difference Azure container soluti
 
 ## Dockerfile instructions for Python
 
-A Dockerfile is a text file that contains instructions for building a Docker image. The first line states the base image to begin with and then is followed by instructions to install required programs, copy files, and other instructions to create a working environment. For example, some Python-specific examples for key Dockerfile instructions show in the table below.
+A Dockerfile is a text file that contains instructions for building a Docker image. The first line states the base image to begin with. This line is followed by instructions to install required programs, copy files, and other instructions to create a working environment. For example, some Python-specific examples for key Dockerfile instructions show in the table below.
 
 | Instruction | Purpose | Example |
 | ----------- | ------- | ------- |
@@ -226,7 +226,7 @@ Sign into the Azure extension and then install the [Docker extension][21] to cre
     :::column-end:::
 :::row-end:::
 
-If you have trouble accessing your Azure subscription, this may be because you are behind a proxy. To resolve connection issues, see [Network Connections in Visual Studio Code][23].
+If you have trouble accessing your Azure subscription, it may be because you are behind a proxy. To resolve connection issues, see [Network Connections in Visual Studio Code][23].
 
 #### [PyCharm](#tab/pycharm-ide)
 
