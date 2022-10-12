@@ -139,11 +139,10 @@ WORKDIR /app
 COPY . /app
 
 # Creates a non-root user with an explicit UID and adds permission to access the /app folder
-# For more info, please refer to https://aka.ms/vscode-docker-python-configure-containers
 RUN adduser -u 5678 --disabled-password --gecos "" appuser && chown -R appuser /app
 USER appuser
 
-# During debugging, this entry point will be overridden. For more information, please refer to https://aka.ms/vscode-docker-python-debug
+# Provides defaults for an executing container; can be overridden with Docker CLI when a container is running.
 CMD ["gunicorn", "--bind", "0.0.0.0:5000", "wsgi:app"]
 ```
 
@@ -302,7 +301,7 @@ For more information on this scenario, see [Build and test a containerized Pytho
 
 Python projects often make use of environment variables to pass data to code. For example, you might specify database connection information in an environment variable so that different users of the code can set the value differently. Or, when deploying the project to production, the database connection can be changed to refer to a production database instance.  
 
-Packages like [python-dotenv][27] are often used to key-value pairs from an *.env* file and set them as environment variables. An *.env* file is useful when running in a virtual environment but isn't recommended when working with containers. Typically, you won't want to copy the *.env* file into the Docker image, especially if the file has sensitive information and the container will be made public. Use the *\.dockerignore* file to exclude files from being copied into the Docker image. For more information, see [Virtual environments and containers](#virtual-environments-and-containers)
+Packages like [python-dotenv][27] are often used to key-value pairs from an *.env* file and set them as environment variables. An *.env* file is useful when running in a virtual environment but isn't recommended when working with containers. Typically, you won't want to copy the *.env* file into the Docker image, especially if the file has sensitive information and the container will be made public. Use the *\.dockerignore* file to exclude files from being copied into the Docker image. For more information, see the section [Virtual environments and containers](#virtual-environments-and-containers) in this article.
 
 Containers can accept environment variables:
 
