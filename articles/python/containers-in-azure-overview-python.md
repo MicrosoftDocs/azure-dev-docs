@@ -65,7 +65,8 @@ Other container solutions are shown in the comparison article, [Comparing Contai
 
 When you're running a Python project in a dev environment, using a virtual environment is a common way of managing dependencies and ensuring reproducibility of your project setup. A virtual environment has a Python interpreter, libraries, and scripts installed that are required by the project code running in that environment. Dependencies for Python projects are managed through the *requirements.txt* file.
 
-With containers, virtual environments aren't needed unless you're using them for testing or other reasons. Don't copy the virtual environment folder content into the Docker image. Use the *\.dockerignore* file to exclude it.
+> [!TIP]
+> With containers, virtual environments aren't needed unless you're using them for testing or other reasons. If you use virtual environments, don't copy them into the Docker image. Use the *\.dockerignore* file to exclude them.
 
 You can think of Docker containers as providing similar capabilities as virtual environments, but with further improvements in reproducibility and portability as a Docker container can be run anywhere containers can be run, regardless of OS.
 
