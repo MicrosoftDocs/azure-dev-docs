@@ -166,7 +166,7 @@ Working in an integrated development environment (IDE) with containers isn't str
 
 * Download and build Docker images.
   * Build images in developer environment.
-  * Build Docker images in Azure without Docker installed in dev environment. For PyCharm, use Azure CLI to do this.
+  * Build Docker images in Azure without Docker installed in dev environment. For PyCharm, use the Azure CLI to build Azure.
 
 * Create and run Docker containers from pulled image or directly from a Dockerfile.
 
