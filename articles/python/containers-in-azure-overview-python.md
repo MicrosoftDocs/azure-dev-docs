@@ -25,28 +25,6 @@ For Python development, some typical workflows for moving from code to container
 |**Hybrid**|From your dev environment build Docker image in Azure, without Docker installed.|Code: git clone code to dev environment (without Docker, build in Azure Cloud).<br><br> Build: VS Code (with extensions), Azure CLI. <br><br> Push: Azure Container Registry <br><br> Deploy: To Azure service from registry.|
 |**Azure**|All in the cloud, using Azure Cloud Shell to build code from GitHub repo.| Code: git clone GitHub to Azure Cloud Shell.<br><br>Build: In Azure Cloud Shell, use Azure CLI or Docker CLI.<br><br>Push: To registry like Azure Container Registry, Docker Hub, or private registry.<br><br>Deploy: To Azure service from registry.|
 
-**Dev environment** and building Docker images in this environment.
-
-1. Code: git clone code to dev environment (with Docker).
-1. Build: Use Docker, VS Code (with extensions), PyCharm (with plugin).
-1. Run: In dev environment in Docker container.
-1. Push: To registry like Azure Container Registry, Docker Hub, or private registry.
-1. Deploy: To Azure service from registry.
-
-**Hybrid** - Start in dev environment but image is built in Azure, without the need to install Docker.
-
-1. Code: git clone code to dev environment (without Docker, build in Azure Cloud).
-1. Build: VS Code (with extensions), Azure CLI
-1. Push: Azure Container Registry
-1. Deploy: To Azure service from registry.
-
-**Azure** - All in the cloud, using Azure Cloud Shell to build code from GitHub repo.
-
-1. Code: git clone GitHub to Azure Cloud Shell.
-1. Build: In Azure Cloud Shell, use Azure CLI or Docker CLI.
-1. Push: To registry like Azure Container Registry, Docker Hub, or private registry.
-1. Deploy: To Azure service from registry.
-
 The end goal of these workflows is a container running in one of the Azure resources supporting Docker containers as listed in the next section.
 
 A "dev environment" can be your local workstation with Visual Studio Code or PyCharm, [Codespaces][1] (a development environment that's hosted in the cloud), or [Visual Studio Dev Containers][2] (a container as a development environment).
