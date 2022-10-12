@@ -37,7 +37,7 @@ For Python development, some typical workflows for moving from code to container
     :::column span="2":::
         **Hybrid**
 
-        From your dev environment build Docker image in Azure, without Docker installed..
+        From your dev environment build Docker image in Azure, without Docker installed.
     :::column-end:::
     :::column:::
         1. Code: git clone code to dev environment (without Docker, build in Azure Cloud).
@@ -60,6 +60,11 @@ For Python development, some typical workflows for moving from code to container
     :::column-end:::
 :::row-end:::
 
+|Scenario|Description|Steps|
+|--------|-----------|-----|
+|**Dev environment**|Build Docker images in your dev environment.|Code: git clone code to dev environment (with Docker). <br> Build: Use Docker, VS Code (with extensions), PyCharm (with plugin). <br> Run: In dev environment in Docker container. <br> Push: To registry like Azure Container Registry, Docker Hub, or private registry. <br> Deploy: To Azure service from registry.|
+|**Hybrid**|From your dev environment build Docker image in Azure, without Docker installed.|Code: git clone code to dev environment (without Docker, build in Azure Cloud).<br> Build: VS Code (with extensions), Azure CLI. <br> Push: Azure Container Registry <br> Deploy: To Azure service from registry.|
+|**Azure**|All in the cloud, using Azure Cloud Shell to build code from GitHub repo.| Code: git clone GitHub to Azure Cloud Shell.<br>Build: In Azure Cloud Shell, use Azure CLI or Docker CLI.<br>Push: To registry like Azure Container Registry, Docker Hub, or private registry.<br>Deploy: To Azure service from registry.|
 
 **Dev environment** and building Docker images in this environment.
 
