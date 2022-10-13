@@ -323,13 +323,15 @@ Here are several ways you can view logs when running a container in your dev env
 
 * In [Docker Desktop][44], you can also view logs for a running container.
 
-When running a container in Azure, how you view container logs depends on each service.
+When running a container in Azure, how you view container logs depends on the service. Here are several Azure services and how to access container logs in Azure portal.
 
 | Azure Resource | Access logs in Azure portal |
 | -------------- | --------------------------- |
 | Web App for Containers | Go to the **Diagnose and solve problems** resource to view logs. [Diagnostics][46] is an intelligent and interactive experience to help you troubleshoot your app with no configuration required. For a real-time view of logs, go to the **Monitoring** - **Log stream**. For more detailed log queries and configuration, see the other resources under **Monitoring**. |
 | Azure Container Apps | Go to the environment resource **Diagnose and solve problems** to troubleshoot environment problems. More often, you'll want to troubleshoot the container. In the container resource, under **Application** - **Revision management**, select the revision and from there you can view system and console logs. For more detailed log queries and configuration, see the other resources under **Monitoring**. |
 | Azure Container Instances | Go to the **Containers** resource and find the **Logs**. |
+
+For the same services, here are the Azure CLI commands to access logs.
 
 | Azure Resource | Azure CLI command to access logs |
 | -------------- | -------------------------------- |
