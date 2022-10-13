@@ -277,7 +277,7 @@ Packages like [python-dotenv][27] are often used to key-value pairs from an *.en
 
 You can pass environment variables to containers in a few ways:
 
-1. Defined in the *Dockerfile* as a [ENV][45] instruction.
+1. Defined in the *Dockerfile* as an [ENV][45] instruction.
 1. Passed in as `--build-arg` argument with the Docker [build][42] command.
 1. Passed in as  `--secret` argument with the Docker build command and [BuildKit][29] backend.
 1. Passed in as `--env` or `--env-file` arguments` with the Docker [run][43] command.
@@ -315,17 +315,17 @@ As another option, you can use [Service Connector][34] to help you connect Azure
 
 Viewing the logs for a container instance is helpful when troubleshooting issues with your container or the application it runs.
 
-When running a container in your dev environment, here are several ways you can view logs:
+Here are several ways you can view logs when running a container in your dev environment:
 
 * Running a container with VS Code or PyCharm (as shown in the section [VS Code and PyCharm](#vs-code-and-pycharm)) and you can see logs in terminal windows opened when Docker run executes.
 
-* If you are running Docker CLI [run][43] command with the interactive flag `-it`, you'll see output in the shell you started the command in.
+* If you're running Docker CLI [run][43] command with the interactive flag `-it`, you'll see output in the shell you started the command in.
 
 * In [Docker Desktop][44], you can also view logs for a running container.
 
 When running a container in Azure, how you view container logs depends on each service.
 
-| Azure Resource | Access logs in Azure Portal |
+| Azure Resource | Access logs in Azure portal |
 | -------------- | ----------- |
 | Web App for Containers | Go to the **Diagnose and solve problems** resource to view logs. [Diagnostics][46] is an intelligent and interactive experience to help you troubleshoot your app with no configuration required. <br><br>
 For a real-time view of logs, go to the **Monitoring** \> **Log stream**. <br><br>
@@ -339,7 +339,7 @@ For more detailed log queries and configuration, see the other resources under *
 | -------------- | ----------- |
 | Web App for Containers | [az webapp log][48] |
 | Azure Container Apps | [az containerapps logs][47] |
-[ Azure Container Instances | [az container logs] [49] |
+| Azure Container Instances | [az container logs] [49] |
 
 [1]: https://github.com/features/codespaces
 [2]: https://code.visualstudio.com/docs/remote/containers
