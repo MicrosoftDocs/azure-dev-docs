@@ -154,7 +154,7 @@ To set up VS Code and PyCharm to run a Docker container in your dev environment 
 
 #### [VS Code](#tab/vscode-ide)
 
-These steps assume you have already installed the [Azure Tools for VS Code][41].
+If you haven't already, install [Azure Tools for VS Code][41].
 
 :::row:::
     :::column span="2":::
@@ -271,22 +271,22 @@ For more information on this scenario, see [Build and test a containerized Pytho
 
 Python projects often make use of environment variables to pass data to code. For example, you might specify database connection information in an environment variable so that it can be easily changed during testing. Or, when deploying the project to production, the database connection can be changed to refer to a production database instance.  
 
-Packages like [python-dotenv][27] are often used to key-value pairs from an *.env* file and set them as environment variables. An *.env* file is useful when running in a virtual environment but isn't recommended when working with containers. **Typically, you don't want to copy the *.env* file into the Docker image, especially if the file has sensitive information and the container will be made public.** Use the *\.dockerignore* file to exclude files from being copied into the Docker image. For more information, see the section [Virtual environments and containers](#virtual-environments-and-containers) in this article.
+Packages like [python-dotenv][27] are often used to read key-value pairs from an *.env* file and set them as environment variables. An *.env* file is useful when running in a virtual environment but isn't recommended when working with containers. **Don't copy the *.env* file into the Docker image, especially if it has sensitive information and the container will be made public.** Use the *\.dockerignore* file to exclude files from being copied into the Docker image. For more information, see the section [Virtual environments and containers](#virtual-environments-and-containers) in this article.
 
 You can pass environment variables to containers in a few ways:
 
 1. Defined in the *Dockerfile* as an [ENV][45] instruction.
 1. Passed in as `--build-arg` argument with the Docker [build][42] command.
 1. Passed in as  `--secret` argument with the Docker build command and [BuildKit][29] backend.
-1. Passed in as `--env` or `--env-file` arguments` with the Docker [run][43] command.
+1. Passed in as `--env` or `--env-file` arguments with the Docker [run][43] command.
 
-The first two options have the same drawback as noted above with *\.env* files, namely that you're hardcoding potentially sensitive information into a Docker image. You can inspect a container created from the Docker image with the command [docker container inspect][28].
+The first two options have the same drawback as noted above with *\.env* files, namely that you're hardcoding potentially sensitive information into a Docker image. You can inspect a Docker image and see the environment variables, for example, with the command [docker image inspect][28].
 
 The third option with BuildKit allows you to pass secret information to be used in the *Dockerfile* for building docker images in a safe way that won't end up stored in the final image.
 
-The fourth option of passing in environment variables with the Docker run command means the Docker image doesn't contain the variables but the variables are still visible inspecting the container instance. This option may be acceptable when access to the container instance is controlled or in testing or dev scenarios.
+The fourth option of passing in environment variables with the Docker run command means the Docker image doesn't contain the variables but the variables are still visible inspecting the container instance (for example, with [docker container inspect][51]). This option may be acceptable when access to the container instance is controlled or in testing or dev scenarios.
 
-Here's an example of passing environment variables using the Docker CLI run command and using the "--env" option.
+Here's an example of passing environment variables using the Docker CLI run command and using the `--env` argument.
 
 ```bash
 # PORT=8000 for Django and 5000 for Flask
@@ -364,7 +364,7 @@ For the same services, here are the Azure CLI commands to access logs.
 [25]: https://docs.docker.com/engine/reference/commandline/cli/
 [26]: ./tutorial-containerize-deploy-python-web-app-azure-02.md
 [27]: https://pypi.org/project/python-dotenv/
-[28]: https://docs.docker.com/engine/reference/commandline/container_inspect/
+[28]: https://docs.docker.com/engine/reference/commandline/image_inspect/
 [29]: https://docs.docker.com/develop/develop-images/build_enhancements/
 [30]: https://docs.python.org/3/library/os.html#os.environ
 [31]: /azure/app-service/configure-language-python#access-app-settings-as-environment-variables
@@ -387,3 +387,4 @@ For the same services, here are the Azure CLI commands to access logs.
 [48]: /cli/azure/webapp/log
 [49]: /cli/azure/container#az-container-logs
 [50]: /cli/azure/acr#az-acr-build
+[51]: https://docs.docker.com/engine/reference/commandline/image_inspect/
