@@ -25,9 +25,9 @@ For Python development, some typical workflows for moving from code to container
 |**Hybrid**|From your dev environment build Docker image in Azure, without Docker installed.|Code: git clone code to dev environment (without Docker).<br><br> Build: VS Code (with extensions), Azure CLI. <br><br> Push: To Azure Container Registry <br><br> Deploy: To Azure service from registry.|
 |**Azure**|All in the cloud, using Azure Cloud Shell to build code from GitHub repo.| Code: git clone GitHub repo to Azure Cloud Shell.<br><br>Build: In Azure Cloud Shell, use Azure CLI or Docker CLI.<br><br>Push: To registry like Azure Container Registry, Docker Hub, or private registry.<br><br>Deploy: To Azure service from registry.|
 
-The end goal of these workflows is a container running in one of the Azure resources supporting Docker containers as listed in the next section.
+The end goal of these workflows is to have a container running in one of the Azure resources supporting Docker containers as listed in the next section.
 
-A "dev environment" can be your local workstation with Visual Studio Code or PyCharm, [Codespaces][1] (a development environment that's hosted in the cloud), or [Visual Studio Dev Containers][2] (a container as a development environment).
+A dev environment can be your local workstation with Visual Studio Code or PyCharm, [Codespaces][1] (a development environment that's hosted in the cloud), or [Visual Studio Dev Containers][2] (a container as a development environment).
 
 ## Deployment container options in Azure
 
@@ -82,7 +82,7 @@ The following table shows how to set the port for difference Azure container sol
 | Azure Containers Apps | Azure Container Apps allows you to expose your container app to the public web, to your VNET, or to other container apps within your environment by enabling ingress. Set the ingress `targetPort` to the port your container listens to for incoming requests. Application ingress endpoint is always exposed on port 443. For more information, see [Set up HTTPS or TCP ingress in Azure Container Apps][15]. |
 | Azure Container Instances, Azure Kubernetes | Set port during creation of a container. You need to ensure your solution has a web framework, application server (for example, gunicorn, uvicorn), and web server (for example, nginx). For example, you can create two containers, one container with a web framework and application server, and another framework with a web server. The two containers communicate on one port, and the web server container exposes 80/443 for external requests. |
 
-## Dockerfile instructions for Python
+## Dockerfile for Python
 
 A Dockerfile is a text file that contains instructions for building a Docker image. The first line states the base image to begin with. This line is followed by instructions to install required programs, copy files, and other instructions to create a working environment. For example, some Python-specific examples for key Dockerfile instructions show in the table below.
 
@@ -150,11 +150,11 @@ Working in an integrated development environment (IDE) with containers isn't str
 
 * (VS Code only) Add a *Dockerfile* and Docker compose files that are tailored for your Python project.
 
-To set up VS Code and PyCharm, and run a Docker container in your dev environment use the following steps.
+To set up VS Code and PyCharm to run a Docker container in your dev environment use the following steps.
 
 #### [VS Code](#tab/vscode-ide)
 
-Install the [Docker extension][21] to create and run a container from a Docker image. (If you haven't already, install [Azure Tools for VS Code][41].)
+These steps assume you have already installed the [Azure Tools for VS Code][41].
 
 :::row:::
     :::column span="2":::
@@ -163,6 +163,8 @@ Install the [Docker extension][21] to create and run a container from a Docker i
         You can also select the **Azure** icon on the VS Code extensions bar.
 
         If you are not signed in, select **Sign in to Azure** and follow the prompts.
+
+        If you have trouble accessing your Azure subscription, it may be because you are behind a proxy. To resolve connection issues, see [Network Connections in Visual Studio Code][23].
     :::column-end:::
     :::column:::
         :::image type="content" source="media/containers-overview/vs-code-azure-tools-sign-in.png" alt-text="Screenshot showing how to access Azure Tools in VS Code and sign in." lightbox="media/containers-overview/vs-code-azure-tools-sign-in.png":::
@@ -171,7 +173,7 @@ Install the [Docker extension][21] to create and run a container from a Docker i
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 2**: Use **CTRL** + **SHIFT**  + **X** to open **Extensions**, search for *Docker* and install the extension.
+        **Step 2**: Use **CTRL** + **SHIFT**  + **X** to open **Extensions**, search for the [Docker extension][21], and install the extension.
 
         You can also select the **Extensions** icon on the VS Code extensions bar.
     :::column-end:::
@@ -196,11 +198,7 @@ Install the [Docker extension][21] to create and run a container from a Docker i
     :::column-end:::
 :::row-end:::
 
-If you have trouble accessing your Azure subscription, it may be because you are behind a proxy. To resolve connection issues, see [Network Connections in Visual Studio Code][23].
-
 #### [PyCharm](#tab/pycharm-ide)
-
-Install the [Docker plugin][22] in PyCharm to create and run a container from a Docker image.
 
 :::row:::
     :::column span="2":::
@@ -214,7 +212,7 @@ Install the [Docker plugin][22] in PyCharm to create and run a container from a 
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 2**: Search **Marketplace** for the Docker plugin and add it.
+        **Step 2**: Search **Marketplace** for the [Docker plugin][22] and add it.
 
         If you are using Docker for Windows, enable connection to Docker via the TCP protocol. For more information, see [Enable Docker support][39].
     :::column-end:::
@@ -247,7 +245,7 @@ Install the [Docker plugin][22] in PyCharm to create and run a container from a 
 
 You can also work with Docker images and containers using the [Azure CLI][24] and [Docker CLI][25]. Both VS Code and PyCharm have terminals where you can run these CLIs.
 
-Using a CLI is useful when you want finer control over build/run arguments and for automation. For example, the following command shows how to use the Azure CLI to specify the Docker image name.
+Use a CLI when you want finer control over build and run arguments, and for automation. For example, the following command shows how to use the Azure CLI [az acr build][50] to specify the Docker image name.
 
 ```bash
 az acr build --registry <registry-name> \
@@ -255,7 +253,7 @@ az acr build --registry <registry-name> \
   --target pythoncontainerwebapp:latest .
 ```
 
-As another example, consider the following command that shows how to use the Docker CLI to run a Docker container that communicates to a MongoDB instance in your dev environment, outside the container. The different values to complete the command are easier to automate when specified in a command line.
+As another example, consider the following command that shows how to use the Docker CLI [run][43] command to run a Docker container that communicates to a MongoDB instance in your dev environment, outside the container. The different values to complete the command are easier to automate when specified in a command line.
 
 ```bash
 docker run --rm -it \
@@ -388,3 +386,4 @@ For the same services, here are the Azure CLI commands to access logs.
 [47]: /cli/azure/containerapp/logs
 [48]: /cli/azure/webapp/log
 [49]: /cli/azure/container#az-container-logs
+[50]: /cli/azure/acr#az-acr-build
