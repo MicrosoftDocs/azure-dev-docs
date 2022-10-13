@@ -327,11 +327,13 @@ When running a container in Azure, how you view container logs depends on each s
 
 |Azure Resource|Access logs in Azure Portal|
 |--------------|-----------|
-|Web App for Containers| Go to the **Diagnose and solve problems** resource to start. [Diagnostics][46] is an intelligent and interactive experience to help you troubleshoot your app with no configuration required. <br><br>
+|Web App for Containers| Go to the **Diagnose and solve problems** resource to view logs. [Diagnostics][46] is an intelligent and interactive experience to help you troubleshoot your app with no configuration required. <br><br>
 For a real-time view of logs, go to the **Monitoring** \> **Log stream**. <br><br>
-For more detailed log queries, see the other resources under **Monitoring**, including customized queries.|
-|Azure Container Apps| TBD |
-|Azure Container Instances| TBD |
+For more detailed log queries and configuration, see the other resources under **Monitoring**.|
+|Azure Container Apps| Go to the environment resource **Diagnose and solve problems** to troubleshoot environment problems. <br><br>
+More often, you'll want to troubleshoot the container. In the container resource, under **Application** \> **Revision management**, select the revision and from there you can view system and console logs. <br><br>
+For more detailed log queries and configuration, see the other resources under **Monitoring**.|
+|Azure Container Instances| Go to the **Containers** resource and find the **Logs**. |
 
 
 [1]: https://github.com/features/codespaces
