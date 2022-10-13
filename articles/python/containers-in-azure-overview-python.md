@@ -325,9 +325,11 @@ When running a container in your dev environment, here are several ways you can 
 
 When running a container in Azure, how you view container logs depends on each service.
 
-|Azure Resource|Access logs|
+|Azure Resource|Access logs in Azure Portal|
 |--------------|-----------|
-|Web App for Containers| TBD |
+|Web App for Containers| Go to the **Diagnose and solve problems** resource to start. [Diagnostics][46] is an intelligent and interactive experience to help you troubleshoot your app with no configuration required. <br><br>
+For a real-time view of logs, go to the **Monitoring** \> **Log stream**. <br><br>
+For more detailed log queries, see the other resources under **Monitoring**, including customized queries.|
 |Azure Container Apps| TBD |
 |Azure Container Instances| TBD |
 
@@ -377,3 +379,4 @@ When running a container in Azure, how you view container logs depends on each s
 [43]: https://docs.docker.com/engine/reference/commandline/run/
 [44]: https://www.docker.com/products/docker-desktop/
 [45]: https://docs.docker.com/engine/reference/builder/#env
+[46]: /azure/app-service/overview-diagnostics
