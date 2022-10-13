@@ -335,6 +335,12 @@ More often, you'll want to troubleshoot the container. In the container resource
 For more detailed log queries and configuration, see the other resources under **Monitoring**. |
 | Azure Container Instances | Go to the **Containers** resource and find the **Logs**. |
 
+| Azure Resource | Azure CLI command to access logs |
+| -------------- | ----------- |
+| Web App for Containers | [az webapp log][48] |
+| Azure Container Apps | [az containerapps logs][47] |
+[ Azure Container Instances | [az container logs] [49] |
+
 [1]: https://github.com/features/codespaces
 [2]: https://code.visualstudio.com/docs/remote/containers
 [3]: https://azure.microsoft.com/products/app-service/containers/
@@ -381,3 +387,6 @@ For more detailed log queries and configuration, see the other resources under *
 [44]: https://www.docker.com/products/docker-desktop/
 [45]: https://docs.docker.com/engine/reference/builder/#env
 [46]: /azure/app-service/overview-diagnostics
+[47]: /cli/azure/containerapp/logs
+[48]: /cli/azure/webapp/log
+[49]: /cli/azure/container#az-container-logs
