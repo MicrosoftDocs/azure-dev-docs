@@ -337,6 +337,10 @@ For the same services, here are the Azure CLI commands to access logs.
 | Azure Container Apps | [az containerapps logs][47] |
 | Azure Container Instances | [az container logs][49] |
 
+There is also support for viewing logs in VS Code. You must have [Azure Tools for VS Code][41] installed. Each service will have a different way of viewing logs. Below is an example of viewing Web Apps for Containers (App Service) logs in VS Code.
+
+[IMAGE TBD]
+
 [1]: https://github.com/features/codespaces
 [2]: https://code.visualstudio.com/docs/remote/containers
 [3]: https://azure.microsoft.com/products/app-service/containers/
