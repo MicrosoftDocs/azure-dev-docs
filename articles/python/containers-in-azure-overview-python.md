@@ -52,7 +52,7 @@ When you're running a Python project in a dev environment, using a virtual envir
 > [!TIP]
 > With containers, virtual environments aren't needed unless you're using them for testing or other reasons. If you use virtual environments, don't copy them into the Docker image. Use the *\.dockerignore* file to exclude them.
 
-You can think of Docker containers as providing similar capabilities as virtual environments, but with further improvements in reproducibility and portability as a Docker container can be run anywhere containers can be run, regardless of OS.
+You can think of Docker containers as providing similar capabilities as virtual environments, but with further improvements in reproducibility and portability. Docker container can be run anywhere containers can be run, regardless of OS.
 
 A Docker container contains your Python project code and everything that code needs to run. To get to that point, you need to build your Python project code into a Docker image, and then create container, a runnable instance of that image.
 
@@ -150,7 +150,7 @@ Working in an integrated development environment (IDE) with containers isn't str
 
 * (VS Code only) Add a *Dockerfile* and Docker compose files that are tailored for your Python project.
 
-To set up VS Code and PyCharm to run a Docker container in you dev environment use the following steps.
+To set up VS Code and PyCharm and run a Docker container in your dev environment use the following steps.
 
 #### [VS Code](#tab/vscode-ide)
 
@@ -158,15 +158,16 @@ Install the [Docker extension][21] to create and run a container from a Docker i
 
 :::row:::
     :::column span="2":::
-        **Step 1**: Use **SHIFT** + **ALT**  + **A** to open the **Azure** extension and confirm you are connected to Azure.
+        **Step 1**: Use **SHIFT** + **ALT**  + **A** to open the **Azure** extension and confirm you're connected to Azure.
 
         You can also select the **Azure** icon on the VS Code extensions bar.
 
         If you are not signed in, select **Sign in to Azure** and follow the prompts.
     :::column-end:::
     :::column:::
-        :::image type="content" source="media/containers-overview/vs-code-azure-tools-sign-in.png" alt-text="Screenshot showing how to add plugins in PyCharm.." lightbox="media/containers-overview/vs-code-azure-tools-sign-in.png":::
-        :::image type="content" source="media/containers-overview/vs-code-azure-tools-signed-in.png" alt-text="Screenshot showing how to add plugins in PyCharm.." lightbox="media/containers-overview/vs-code-azure-tools-signed-in.png":::    :::column-end:::
+        :::image type="content" source="media/containers-overview/vs-code-azure-tools-sign-in.png" alt-text="Screenshot showing how to access Azure Tools in VS Code and sign in." lightbox="media/containers-overview/vs-code-azure-tools-sign-in.png":::
+        :::image type="content" source="media/containers-overview/vs-code-azure-tools-signed-in.png" alt-text="Screenshot showing how Azure Tools looks once signed in." lightbox="media/containers-overview/vs-code-azure-tools-signed-in.png":::
+    :::column-end:::
 :::row-end:::
 :::row:::
     :::column span="2":::
@@ -175,7 +176,7 @@ Install the [Docker extension][21] to create and run a container from a Docker i
         You can also select the **Extensions** icon on the VS Code extensions bar.
     :::column-end:::
     :::column:::
-        :::image type="content" source="media/containers-overview/vs-code-add-docker-extension.png" alt-text="Screenshot showing how to add plugins in PyCharm.." lightbox="media/containers-overview/vs-code-add-docker-extension.png":::
+        :::image type="content" source="media/containers-overview/vs-code-add-docker-extension.png" alt-text="Screenshot showing how to add Docker extension to VS Code." lightbox="media/containers-overview/vs-code-add-docker-extension.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -183,12 +184,12 @@ Install the [Docker extension][21] to create and run a container from a Docker i
         **Step 3**: Select the **Docker** icon in the  extension bar, expand images, and right-click an image run it as a container.
     :::column-end:::
     :::column:::
-        :::image type="content" source="media/containers-overview/vs-code-docker-extension-run-image.png" alt-text="Screenshot showing how to add plugins in PyCharm.." lightbox="media/containers-overview/vs-code-docker-extension-run-image.png":::
+        :::image type="content" source="media/containers-overview/vs-code-docker-extension-run-image.png" alt-text="Screenshot showing how to use the Docker extension in VS Code to run a container from a Docker image." lightbox="media/containers-overview/vs-code-docker-extension-run-image.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 4**: Monitor te output in the **Logs** window.
+        **Step 4**: Monitor the Docker run output in the **Terminal** window.
     :::column-end:::
     :::column:::
         :::image type="content" source="media/containers-overview/vs-code-running-container-example.png" alt-text="Screenshot showing an example of running a container in VS Code." lightbox="media/containers-overview/vs-code-running-container-example.png":::
@@ -208,7 +209,7 @@ Install the [Docker plugin][22] in PyCharm to create and run a container from a 
         You can also go to **File** \> **Settings** \> **Plugins**.
     :::column-end:::
     :::column:::
-        :::image type="content" source="media/containers-overview/pycharm-plugin-add.png" alt-text="Screenshot showing how to add plugins in PyCharm.." lightbox="media/containers-overview/pycharm-plugin-add.png":::
+        :::image type="content" source="media/containers-overview/pycharm-plugin-add.png" alt-text="Screenshot showing how to add plugins in PyCharm." lightbox="media/containers-overview/pycharm-plugin-add.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
