@@ -21,9 +21,9 @@ For Python development, some typical workflows for moving from code to container
 
 |Scenario|Description|Workflow|
 |--------|-----------|-----|
-|**Dev environment**|Build Docker images in your dev environment.|Code: git clone code to dev environment (with Docker). <br><br> Build: Use Docker, VS Code (with extensions), PyCharm (with plugin). <br><br> Run: In dev environment in Docker container. <br><br> Push: To registry like Azure Container Registry, Docker Hub, or private registry. <br><br> Deploy: To Azure service from registry.|
-|**Hybrid**|From your dev environment build Docker image in Azure, without Docker installed.|Code: git clone code to dev environment (without Docker, build in Azure Cloud).<br><br> Build: VS Code (with extensions), Azure CLI. <br><br> Push: Azure Container Registry <br><br> Deploy: To Azure service from registry.|
-|**Azure**|All in the cloud, using Azure Cloud Shell to build code from GitHub repo.| Code: git clone GitHub to Azure Cloud Shell.<br><br>Build: In Azure Cloud Shell, use Azure CLI or Docker CLI.<br><br>Push: To registry like Azure Container Registry, Docker Hub, or private registry.<br><br>Deploy: To Azure service from registry.|
+|**Dev**|Build Docker images in your dev environment.|Code: git clone code to dev environment (with Docker). <br><br> Build: Use Docker CLI, VS Code (with extensions), PyCharm (with plugin). <br><br> Run: In dev environment in a Docker container. <br><br> Push: To a registry like Azure Container Registry, Docker Hub, or private registry. <br><br> Deploy: To Azure service from registry.|
+|**Hybrid**|From your dev environment build Docker image in Azure, without Docker installed.|Code: git clone code to dev environment (without Docker).<br><br> Build: VS Code (with extensions), Azure CLI. <br><br> Push: To Azure Container Registry <br><br> Deploy: To Azure service from registry.|
+|**Azure**|All in the cloud, using Azure Cloud Shell to build code from GitHub repo.| Code: git clone GitHub repo to Azure Cloud Shell.<br><br>Build: In Azure Cloud Shell, use Azure CLI or Docker CLI.<br><br>Push: To registry like Azure Container Registry, Docker Hub, or private registry.<br><br>Deploy: To Azure service from registry.|
 
 The end goal of these workflows is a container running in one of the Azure resources supporting Docker containers as listed in the next section.
 
@@ -54,11 +54,9 @@ When you're running a Python project in a dev environment, using a virtual envir
 
 You can think of Docker containers as providing similar capabilities as virtual environments, but with further improvements in reproducibility and portability as a Docker container can be run anywhere containers can be run, regardless of OS.
 
-Containers are a lightweight, immutable infrastructure for application packaging and deployment. An application or service, its dependencies, and its configuration are packaged together as a container image. The containerized application can be tested as a unit and deployed as a container image instance to the host operating system.
+A Docker container contains your Python project code and everything that code needs to run. To get to that point, you need to build your Python project code into a Docker image, and then create container, a runnable instance of that image.
 
-Container images become containers at runtime. A container contains your Python project code and everything that code needs to run. To get to that point, you need to build your Python project code into a Docker image, and then create a container instance of the image to run.
-
-In summary, for containerizing Python projects, the key files are:
+For containerizing Python projects, the key files are:
 
 | Project file | Description |
 |--------------| ----------- |
