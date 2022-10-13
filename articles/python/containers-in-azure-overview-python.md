@@ -165,17 +165,17 @@ Install the [Docker extension][21] to create and run a container from a Docker i
         If you are not signed in, select **Sign in to Azure** and follow the prompts.
     :::column-end:::
     :::column:::
-        TBD
-    :::column-end:::
+        :::image type="content" source="media/containers-overview/vs-code-azure-tools-sign-in.png" alt-text="Screenshot showing how to add plugins in PyCharm.." lightbox="media/containers-overview/vs-code-azure-tools-sign-in.png":::
+        :::image type="content" source="media/containers-overview/vs-code-azure-tools-signed-in.png" alt-text="Screenshot showing how to add plugins in PyCharm.." lightbox="media/containers-overview/vs-code-azure-tools-signed-in.png":::    :::column-end:::
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 2**: Use **CTRL** + **SHIFT**  + **X** to open **Extensions**, search for *Docker* and install the extension..
+        **Step 2**: Use **CTRL** + **SHIFT**  + **X** to open **Extensions**, search for *Docker* and install the extension.
 
         You can also select the **Extensions** icon on the VS Code extensions bar.
     :::column-end:::
     :::column:::
-        TBD
+        :::image type="content" source="media/containers-overview/vs-code-add-docker-extension.png" alt-text="Screenshot showing how to add plugins in PyCharm.." lightbox="media/containers-overview/vs-code-add-docker-extension.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -183,7 +183,7 @@ Install the [Docker extension][21] to create and run a container from a Docker i
         **Step 3**: Select the **Docker** icon in the  extension bar, expand images, and right-click an image run it as a container.
     :::column-end:::
     :::column:::
-        TBD
+        :::image type="content" source="media/containers-overview/vs-code-docker-extension-run-image.png" alt-text="Screenshot showing how to add plugins in PyCharm.." lightbox="media/containers-overview/vs-code-docker-extension-run-image.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
