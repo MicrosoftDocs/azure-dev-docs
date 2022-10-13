@@ -311,7 +311,7 @@ Finally, specifying environment variables  when deploying a container in Azure i
 
 As another option, you can use [Service Connector][34] to help you connect Azure compute services to other backing services. This service configures the network settings and connection information (for example, generating environment variables) between compute services and target backing services in management plane.
 
-## Containers logs
+## Viewing container logs
 
 Viewing the logs for a container instance is helpful when troubleshooting issues with your container or the application it runs.
 
