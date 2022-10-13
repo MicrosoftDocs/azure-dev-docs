@@ -138,8 +138,6 @@ The Docker build command is part of the Docker CLI. When you use IDEs like VS Co
 
 Working in an integrated development environment (IDE) with containers isn't strictly necessary but can simplify many container-related tasks. Here are some of the things you can do with VS Code and PyCharm.
 
-* (VS Code only) Add Docker files, including a Dockerfile and compose file, to your workspace automatically that are tailored for your Python project.
-
 * Download and build Docker images.
   * Build images in developer environment.
   * Build Docker images in Azure without Docker installed in dev environment. For PyCharm, use the Azure CLI to build Azure.
@@ -150,9 +148,13 @@ Working in an integrated development environment (IDE) with containers isn't str
 
 * Connect and work with container registries like Docker Hub, GitLab, JetBrains Space, Docker V2, and other self-hosted Docker registries.
 
+* (VS Code only) Add Docker files, including a Dockerfile and compose file, to your workspace automatically that are tailored for your Python project.
+
+To set up VS Code and PyCharm to run Docker container in you dev environment:
+
 #### [VS Code](#tab/vscode-ide)
 
-Install the [Azure extension][41] and the [Docker extension][21] to create and run a container from a Docker image.
+Install [Azure Tools for VS Code][41] and the [Docker extension][21] to create and run a container from a Docker image.
 
 :::row:::
     :::column span="2":::
@@ -358,3 +360,4 @@ As another option, you can use [Service Connector][34] to help you connect Azure
 [38]: https://docs.docker.com/engine/reference/builder/#copy
 [39]: https://www.jetbrains.com/help/pycharm/docker.html#enable_docker
 [40]: https://docs.docker.com/engine/reference/builder/#dockerignore-file
+[41]: https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack
