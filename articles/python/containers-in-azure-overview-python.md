@@ -148,28 +148,21 @@ Working in an integrated development environment (IDE) with containers isn't str
 
 * Connect and work with container registries like Docker Hub, GitLab, JetBrains Space, Docker V2, and other self-hosted Docker registries.
 
-* (VS Code only) Add Docker files, including a Dockerfile and compose file, to your workspace automatically that are tailored for your Python project.
+* (VS Code only) Add a *Dockerfile* and Docker compose files that are tailored for your Python project.
 
-To set up VS Code and PyCharm to run Docker container in you dev environment:
+To set up VS Code and PyCharm to run a Docker container in you dev environment use the following steps.
 
 #### [VS Code](#tab/vscode-ide)
 
-Install [Azure Tools for VS Code][41] and the [Docker extension][21] to create and run a container from a Docker image.
+Install the [Docker extension][21] to create and run a container from a Docker image. (If you haven't already, install [Azure Tools for VS Code][41].)
 
 :::row:::
     :::column span="2":::
-        **Step 1**: Use **CTRL** + **ALT**  + **A** to go to the **Azure** extension.
+        **Step 1**: Use **SHIFT** + **ALT**  + **A** to open the **Azure** extension and confirm you are connected to Azure.
 
         You can also select the **Azure** icon on the VS Code extensions bar.
-    :::column-end:::
-    :::column:::
-        TBD
-    :::column-end:::
-:::row-end:::
-:::row:::
-    :::column span="2":::
-        **Step 2**: If necessary, select **Sign in to Azure** and follow the prompts.
 
+        If you are not signed in, select **Sign in to Azure** and follow the prompts.
     :::column-end:::
     :::column:::
         TBD
@@ -177,7 +170,7 @@ Install [Azure Tools for VS Code][41] and the [Docker extension][21] to create a
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 3**: Use **CTRL** + **ALT**  + **X** to open **Extensions**.
+        **Step 2**: Use **CTRL** + **SHIFT**  + **X** to open **Extensions**, search for *Docker* and install the extension..
 
         You can also select the **Extensions** icon on the VS Code extensions bar.
     :::column-end:::
@@ -187,7 +180,7 @@ Install [Azure Tools for VS Code][41] and the [Docker extension][21] to create a
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 4**: Search for *Docker* in the Marketplace and install.
+        **Step 3**: Select the **Docker** icon in the  extension bar, expand images, and right-click an image run it as a container.
     :::column-end:::
     :::column:::
         TBD
@@ -195,15 +188,7 @@ Install [Azure Tools for VS Code][41] and the [Docker extension][21] to create a
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 5**: Navigate to the Docker extension.
-    :::column-end:::
-    :::column:::
-        TBD
-    :::column-end:::
-:::row-end:::
-:::row:::
-    :::column span="2":::
-        **Step 6**: Run an image.
+        **Step 4**: Monitor te output in the **Logs** window.
     :::column-end:::
     :::column:::
         :::image type="content" source="media/containers-overview/vs-code-running-container-example.png" alt-text="Screenshot showing an example of running a container in VS Code." lightbox="media/containers-overview/vs-code-running-container-example.png":::
@@ -239,6 +224,8 @@ Install the [Docker plugin][22] in PyCharm to create and run a container from a 
 :::row:::
     :::column span="2":::
         **Step 3**: Under the **Services**, select **Docker**, expand images, right-click an image run it as a container.
+
+        This assumes you already have built a Docker image and it appears in Docker.
     :::column-end:::
     :::column:::
         :::image type="content" source="media/containers-overview/pycharm-plugin-start-container.png" alt-text="Screenshot showing how to start container from Docker image in PyCharm." lightbox="media/containers-overview/pycharm-plugin-start-container.png":::
