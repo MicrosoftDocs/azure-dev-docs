@@ -273,11 +273,11 @@ For more information on this scenario, see [Build and test a containerized Pytho
 
 Python projects often make use of environment variables to pass data to code. For example, you might specify database connection information in an environment variable so that it can be easily changed during testing. Or, when deploying the project to production, the database connection can be changed to refer to a production database instance.  
 
-Packages like [python-dotenv][27] are often used to key-value pairs from an *.env* file and set them as environment variables. An *.env* file is useful when running in a virtual environment but isn't recommended when working with containers. Typically, you won't want to copy the *.env* file into the Docker image, especially if the file has sensitive information and the container will be made public. Use the *\.dockerignore* file to exclude files from being copied into the Docker image. For more information, see the section [Virtual environments and containers](#virtual-environments-and-containers) in this article.
+Packages like [python-dotenv][27] are often used to key-value pairs from an *.env* file and set them as environment variables. An *.env* file is useful when running in a virtual environment but isn't recommended when working with containers. **Typically, you don't want to copy the *.env* file into the Docker image, especially if the file has sensitive information and the container will be made public.** Use the *\.dockerignore* file to exclude files from being copied into the Docker image. For more information, see the section [Virtual environments and containers](#virtual-environments-and-containers) in this article.
 
 You can pass environment variables to containers in a few ways:
 
-1. Hardwired in the *Dockerfile*.
+1. Defined in the *Dockerfile* as a [ENV][45] instruction.
 1. Passed in as `--build-arg` argument with the Docker [build][42] command.
 1. Passed in as  `--secret` argument with the Docker build command and [BuildKit][29] backend.
 1. Passed in as `--env` or `--env-file` arguments` with the Docker [run][43] command.
@@ -310,6 +310,27 @@ Finally, specifying environment variables  when deploying a container in Azure i
 * For Azure Container Apps, you configure environment variables during initial configuration of the container app. Subsequent modification of environment variables creates a [*revision*][32] of the container.  In addition, Azure Container Apps allows you to define secrets at the application level and then reference them in environment variables. For more information, see [Manage secrets in Azure Container Apps][33].
 
 As another option, you can use [Service Connector][34] to help you connect Azure compute services to other backing services. This service configures the network settings and connection information (for example, generating environment variables) between compute services and target backing services in management plane.
+
+## Containers logs
+
+Viewing the logs for a container instance is helpful when troubleshooting issues with your container or the application it runs.
+
+When running a container in your dev environment, here are several ways you can view logs:
+
+* Running a container with VS Code or PyCharm (as shown in the section [VS Code and PyCharm](#vs-code-and-pycharm)) and you can see logs in terminal windows opened when Docker run executes.
+
+* If you are running Docker CLI [run][43] command with the interactive flag `-it`, you'll see output in the shell you started the command in.
+
+* In [Docker Desktop][44], you can also view logs for a running container.
+
+When running a container in Azure, how you view container logs depends on each service.
+
+|Azure Resource|Access logs|
+|--------------|-----------|
+|Web App for Containers| TBD |
+|Azure Container Apps| TBD |
+|Azure Container Instances| TBD |
+
 
 [1]: https://github.com/features/codespaces
 [2]: https://code.visualstudio.com/docs/remote/containers
@@ -354,3 +375,5 @@ As another option, you can use [Service Connector][34] to help you connect Azure
 [41]: https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack
 [42]: https://docs.docker.com/engine/reference/commandline/build/
 [43]: https://docs.docker.com/engine/reference/commandline/run/
+[44]: https://www.docker.com/products/docker-desktop/
+[45]: https://docs.docker.com/engine/reference/builder/#env
