@@ -325,7 +325,7 @@ A local Python Function project is needed to build and execute our function duri
     func new --name demo_relational_data_cloudetl --template "HTTP trigger" --authlevel "anonymous"
     ```
 
-    **Troubleshooting**: If you get an error `Functions version 2 is not supported for runtime python with version 3.7 and os linux. Supported functions versions are ['4', '3'].`, you need to update your [azure-functions-core-tools](https://www.npmjs.com/package/azure-functions-core-tools) using the command `npm i -g azure-functions-core-tools@4 --unsafe-perm true`. In order to make sure all references to the previous version are removed, the best practice is to remove all files and folders created by `func init` and rerun that command then rerun this command `func new ...` show above. 
+    **Troubleshooting**: If you get an error `Functions version 2 is not supported for runtime python with version 3.7 and os linux. Supported functions versions are ['4', '3'].`, you need to update your [azure-functions-core-tools](https://www.npmjs.com/package/azure-functions-core-tools) using the command `npm i -g azure-functions-core-tools@4 --unsafe-perm true`. In order to make sure all references to the previous version are removed, the best practice is to remove all files and folders created by `func init` and rerun the steps in this section. 
 
 * **Step 4:** Check that the function was correctly created by running the function locally. Start the local Azure Functions runtime host from the _CloudETLDemo_Local_ folder:
 
