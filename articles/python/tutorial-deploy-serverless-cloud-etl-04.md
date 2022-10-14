@@ -303,7 +303,7 @@ Now add this new functionality to the overall solution by modifying the '*main*'
         std_date_format = '%Y-%m-%d'
 
         # List of columns relevant for analysis
-        cols = ['Segment', 'Country', 'Units Sold', 'Gross Sales', 'Date']
+        cols =  ['segment', 'country', 'units_sold', 'gross_sales', 'date']
 
         # List of columns to aggregate
         groupby_cols = ['segment', 'country', 'sale_year', 'sale_month']

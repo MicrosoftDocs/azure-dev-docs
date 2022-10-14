@@ -267,7 +267,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
     processed_file_prefix = 'financial_demo'
 
     # List of columns relevant for analysis
-    cols = ['Segment', 'Country', 'Units Sold', 'Gross Sales', 'Date']
+    cols =  ['segment', 'country', 'units_sold', 'gross_sales', 'date']
 
     # List of columns to aggregate
     groupby_cols = ['segment', 'country', 'sale_year', 'sale_month']
