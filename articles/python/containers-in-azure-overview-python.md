@@ -253,7 +253,7 @@ az acr build --registry <registry-name> \
   --target pythoncontainerwebapp:latest .
 ```
 
-As another example, consider the following command that shows how to use the Docker CLI [run][43] command to run a Docker container that communicates to a MongoDB instance in your dev environment not inside the container. The different values to complete the command are easier to automate when specified in a command line.
+As another example, consider the following command that shows how to use the Docker CLI [run][43] command.  The example show how to run a Docker container that communicates to a MongoDB instance in your dev environment, outside the container. The different values to complete the command are easier to automate when specified in a command line.
 
 ```bash
 docker run --rm -it \
