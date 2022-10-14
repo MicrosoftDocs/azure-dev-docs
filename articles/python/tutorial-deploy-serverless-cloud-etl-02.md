@@ -6,9 +6,7 @@ ms.custom: devx-track-python, devx-track-azurecli
 ms.devlang: python
 ms.topic: tutorial
 ms.prod: azure-python
-author: jessmjohnson
-ms.author: jejohn
-ms.date: 10/04/2021
+ms.date: 10/14/2022
 ---
 
 # Create resources for a cloud-based, serverless ETL solution using Python on Azure
