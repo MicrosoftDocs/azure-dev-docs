@@ -46,7 +46,11 @@ A mac is required to compile the iOS version.
 ::: zone pivot="vs2022-mac"
 
 * [Visual Studio 2022 for Mac](https://visualstudio.microsoft.com/vs/mac/preview/)
-  * Version 17.3 does not support .NET MAUI.  Please use the Preview (17.4) version of Visual Studio 2022 for Mac.
+  * Version 17.3 does not support .NET MAUI.  Please use the latest Preview (17.4) version of Visual Studio 2022 for Mac.
+  * Ensure that all workloads are installed and updated.
+    * Use `dotnet workload list` to show the installed workloads.  Ensure all MAUI workloads are installed.
+    * Use `dotnet workload install maui` to install the MAUI workloads.
+    * Use `dotnet workload update` to update the MAUI workloads.
 * An [Azure account](https://azure.microsoft.com/pricing/free-trial).
 * The [Azure CLI](/cli/azure/install-azure-cli).
   * Sign in with `az login` and select an appropriate subscription before starting.
