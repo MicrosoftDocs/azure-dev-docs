@@ -341,6 +341,11 @@ There's also support for viewing logs in VS Code. You must have [Azure Tools for
 
 :::image type="content" source="media/containers-overview/vs-code-logging-example.png" alt-text="Screenshot showing how to view logs in VS Code for Web Apps for Containers." lightbox="media/containers-overview/vs-code-logging-example.png":::
 
+## Next steps
+
+* [Deploy a containerized Python web app in Azure App Service](./tutorial-containerize-deploy-python-web-app-azure-01.md)
+* [Deploy a containerized Python web app in Azure Container Apps](./tutorial-deploy-python-web-app-azure-container-apps-01.md)
+
 [1]: https://github.com/features/codespaces
 [2]: https://code.visualstudio.com/docs/remote/containers
 [3]: https://azure.microsoft.com/products/app-service/containers/
