@@ -150,7 +150,7 @@ Working in an integrated development environment (IDE) with containers isn't str
 
 * (VS Code only) Add a *Dockerfile* and Docker compose files that are tailored for your Python project.
 
-To set up VS Code and PyCharm to run a Docker container in your dev environment use the following steps.
+To set up VS Code and PyCharm to run a Docker container in your dev environment, use the following steps.
 
 #### [VS Code](#tab/vscode-ide)
 
@@ -253,7 +253,7 @@ az acr build --registry <registry-name> \
   --target pythoncontainerwebapp:latest .
 ```
 
-As another example, consider the following command that shows how to use the Docker CLI [run][43] command to run a Docker container that communicates to a MongoDB instance in your dev environment, outside the container. The different values to complete the command are easier to automate when specified in a command line.
+As another example, consider the following command that shows how to use the Docker CLI [run][43] command to run a Docker container that communicates to a MongoDB instance in your dev environment not inside the container. The different values to complete the command are easier to automate when specified in a command line.
 
 ```bash
 docker run --rm -it \
@@ -284,7 +284,7 @@ The first two options have the same drawback as noted above with *\.env* files, 
 
 The third option with BuildKit allows you to pass secret information to be used in the *Dockerfile* for building docker images in a safe way that won't end up stored in the final image.
 
-The fourth option of passing in environment variables with the Docker run command means the Docker image doesn't contain the variables but the variables are still visible inspecting the container instance (for example, with [docker container inspect][51]). This option may be acceptable when access to the container instance is controlled or in testing or dev scenarios.
+The fourth option of passing in environment variables with the Docker run command means the Docker image doesn't contain the variables. However, the variables are still visible inspecting the container instance (for example, with [docker container inspect][51]). This option may be acceptable when access to the container instance is controlled or in testing or dev scenarios.
 
 Here's an example of passing environment variables using the Docker CLI run command and using the `--env` argument.
 
@@ -311,9 +311,9 @@ As another option, you can use [Service Connector][34] to help you connect Azure
 
 ## Viewing container logs
 
-View container instance logs to view diagnostic messages output from code or to troubleshoot issues your container's code.
+View container instance logs to view diagnostic messages output from code and to troubleshoot issues in your container's code.
 
-Here are several ways you can view logs when running a container in your **dev environment**:
+Here are several ways you can view logs when running a container in your ***dev environment***:
 
 * Running a container with VS Code or PyCharm, as shown in the section [VS Code and PyCharm](#vs-code-and-pycharm)), you can see logs in terminal windows opened when Docker run executes.
 
@@ -321,13 +321,13 @@ Here are several ways you can view logs when running a container in your **dev e
 
 * In [Docker Desktop][44], you can also view logs for a running container.
 
-When running a container in **Azure**, how you view container logs depends on the service. Here are several Azure services and how to access container logs in Azure portal.
+When you deploy a container in ***Azure***, you also have access to container logs. Here are several Azure services and how to access container logs in Azure portal.
 
-| Azure Resource | Access logs in Azure portal |
+| Azure service | How to access logs in Azure portal |
 | -------------- | --------------------------- |
 | Web App for Containers | Go to the **Diagnose and solve problems** resource to view logs. [Diagnostics][46] is an intelligent and interactive experience to help you troubleshoot your app with no configuration required. For a real-time view of logs, go to the **Monitoring** - **Log stream**. For more detailed log queries and configuration, see the other resources under **Monitoring**. |
-| Azure Container Apps | Go to the environment resource **Diagnose and solve problems** to troubleshoot environment problems. More often, you'll want to troubleshoot the container. In the container resource, under **Application** - **Revision management**, select the revision and from there you can view system and console logs. For more detailed log queries and configuration, see the other resources under **Monitoring**. |
-| Azure Container Instances | Go to the **Containers** resource and find the **Logs**. |
+| Azure Container Apps | Go to the environment resource **Diagnose and solve problems** to troubleshoot environment problems. More often, you'll want to see container logs. In the container resource, under **Application** - **Revision management**, select the revision and from there you can view system and console logs. For more detailed log queries and configuration, see the resources under **Monitoring**. |
+| Azure Container Instances | Go to the **Containers** resource and select **Logs**. |
 
 For the same services listed above, here are the Azure CLI commands to access logs.
 
@@ -337,10 +337,9 @@ For the same services listed above, here are the Azure CLI commands to access lo
 | Azure Container Apps | [az containerapps logs][47] |
 | Azure Container Instances | [az container logs][49] |
 
-There is also support for viewing logs in VS Code. You must have [Azure Tools for VS Code][41] installed. Below is an example of viewing Web Apps for Containers (App Service) logs in VS Code.
+There's also support for viewing logs in VS Code. You must have [Azure Tools for VS Code][41] installed. Below is an example of viewing Web Apps for Containers (App Service) logs in VS Code.
 
 :::image type="content" source="media/containers-overview/vs-code-logging-example.png" alt-text="Screenshot showing how to view logs in VS Code for Web Apps for Containers." lightbox="media/containers-overview/vs-code-logging-example.png":::
-
 
 [1]: https://github.com/features/codespaces
 [2]: https://code.visualstudio.com/docs/remote/containers
