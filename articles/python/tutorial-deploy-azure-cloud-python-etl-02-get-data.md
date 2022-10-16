@@ -147,10 +147,10 @@ func start
 :::row:::
     :::column:::
         **Step 2.** Enter the following information in the portal dialogue:
-        1. **Name**: Enter `msdocs-bing-search` (*Names may contain alphanumeric characters and dashes (-) only*).
         1. **Subscription**: Select **your active subscription**.
-        1. **Pricing tier**: Select **Free F1** package, the free-tier for the purposes of this tutorial. The other packages are for the pay model. To view package options and pricing for the pay model, select **View full pricing details**.
         1. **Resource group**: Select **msdocs-python-cloud-etl-rg**, if this resource group doesn't exist, select **Create new**.
+        1. **Name**: Enter `msdocs-bing-search` (*Names may contain alphanumeric characters and dashes (-) only*).
+        1. **Pricing tier**: Select **Free F1** package, the free-tier for the purposes of this tutorial. The other packages are for the pay model. To view package options and pricing for the pay model, select **View full pricing details**.
         1. Select the **check the box** to indicate that you have read and understood the notice.
         1. Select **Create** to start the deployment process.
     :::column-end:::
@@ -283,7 +283,11 @@ az keyvault secret set \
 
 ## 4. Call the Bing News Search REST API
 
-**Step 1.** In the local Azure Function, create a new function definition to retrieve an Azure Key Vault secret value for the Bing Search subscription key.
+**Step 1.** Open the folder **msdocs-cloud-python-etl-proj** created by the Azure Function Core Tools in **Visual Studio Code**.
+
+**Step 2.** Open the `__init__.py` file under the function folder **msdocs-python-etl-httptrigger**.
+
+**Step 3.** In the local Azure Function, create a new function definition to retrieve an Azure Key Vault secret value for the Bing Search subscription key.
 
 ```python
 import logging
@@ -326,7 +330,7 @@ def get_key_vault_secret(key_vault_name, secret_name, azure_credential):
 
 <br/>
 
-**Step 2.** In the same local Azure Function, create a new function definition to call the Bing News Search API for specified search term with specified search results limit count.
+**Step 4.** In the same local Azure Function, create a new function definition to call the Bing News Search API for specified search term with specified search results limit count.
 
 ```python
 import requests
@@ -354,7 +358,7 @@ def call_bing_search_api(search_url, search_term, api_subscription_key):
 
 <br/>
 
-**Step 3.** Modify **main** function definition of the local HTTPTrigger Azure Function to call each new function defined in this tutorial.
+**Step 5.** Modify **main** function definition of the local HTTPTrigger Azure Function to call each new function defined in this tutorial.
 
 ```python
 ## Receives a func.request object and returns a value of type func.HttpRequest.
@@ -387,12 +391,6 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
         akv_name = os.environ["KEY_VAULT_NAME"]
         akv_secret_name = os.environ["BING_SEARCH_SUB_KEY_SECRET"]
 
-        # Generate hash value to append to result file name to provide uniqueness.
-        hash1 = ''.join(random.sample(string.ascii_letters + string.digits, 15))
-
-        # Generate JSON file blob URL
-        base_abs_blob_url = f"https://{abs_account_name}.blob.core.windows.net/{abs_source_container}/search_results-{search_term}-{hash1}.json"
-
         # Get Bing API Subscription Key stored in an Azure Key Vault secret.
         bing_api_subscription_key = get_key_vault_secret(key_vault_name=akv_name, secret_name=akv_secret_name, azure_credential=credential)
 
@@ -402,9 +400,6 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
                                 search_term=search_term,
                                 api_subscription_key=bing_api_subscription_key
         )
-
-        # Serialize search results object as a JSON formatted string.
-        results_json_str = json.dumps(news_search_results)
 
         return func.HttpResponse(
             f'Successfully executed Azure Function and retrieved the Bing News search results for {search_term}.',
@@ -416,6 +411,13 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
             status_code=500
         )
 ```
+
+**Step 6.** Create App Settings for the Azure resources.
+
+1. Navigate to the **Explorer** icon in the **Activity bar**.
+1. Open the **local.settings.json** in the **editor** pane.
+1. Add a key-value pair to store the Bing Search subscription key secret name by entering `, "BING_SEARCH_SUB_KEY_SECRET": "bing-search-sub-key1"`.
+1. Add another key-value pair to store the key vault name by entering `, "KEY_VAULT_NAME": "msdocs-python-etl-kv"`.
 
 ## Next step
 

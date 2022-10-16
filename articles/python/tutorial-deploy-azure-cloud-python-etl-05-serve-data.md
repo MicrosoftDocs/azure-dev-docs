@@ -97,84 +97,7 @@ az storage account create \
 
 ---
 
-## 2. Create processed data storage structure
-
-A container act as a file system directory to organize data files in an Azure Data Lake Store. Containers can store an unlimited amount of blobs, and a storage account can have an unlimited number of containers.
-
-Considerations must be made to ease security, efficient processing, and partitioning efforts when loading data into a data lake. Azure Data Lake Storage Gen 2 uses directories instead of the virtual folders in blob storage. Directories  allow for more precise security, control access, and directory level filesystem operations.
-
-### [Azure portal](#tab/azure-portal)
-
-:::row:::
-    :::column:::
-        **Step 1.** Once your deployment is complete, navigate to the new Data Lake resource by selecting the **Go to resource**.
-    :::column-end:::
-    :::column:::
-        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-adls-goto.png" alt-text="A screenshot showing how to go to the new Azure Storage Account using Azure portal." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-adls-goto.png":::
-    :::column-end:::
-:::row-end:::
-:::row:::
-    :::column:::
-        **Step 2.** In the **Data storage** section in the *left* panel, select **Containers** and select **+ Container** in the **Containers** pane.
-    :::column-end:::
-    :::column:::
-        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-adls-container.png" alt-text="A screenshot showing how to navigate to create a new Container using Azure portal." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-adls-container.png":::
-    :::column-end:::
-:::row-end:::
-:::row:::
-    :::column:::
-        **Step 3.** Configure the new container.
-        1. **Name**: Enter **msdocs-python-cloud-etl-processed**.
-        1. **Public access level**: Select **Private (no anonymous access)**.
-        1. Select the **Create** button.
-    :::column-end:::
-    :::column:::
-        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-adls-container-create.png" alt-text="A screenshot showing how to configure and create the Container using Azure portal." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-adls-container-create.png":::
-    :::column-end:::
-:::row-end:::
-:::row:::
-    :::column:::
-        **Step 4.** Create new directory.
-        1. Select **+ Add Directory**.
-        1. Enter **news-data**.
-        1. Select **Save**.
-    :::column-end:::
-    :::column:::
-        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-adls-directory.gif" alt-text="Animated screenshot showing how to create a directory in the Container using Azure portal." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-adls-directory.gif":::
-    :::column-end:::
-:::row-end:::
-
-### [Azure CLI](#tab/azure-cli)
-
-**Step 1:** Run *[az storage fs create](/cli/azure/storage/fs#az-storage-fs-create)* to create a file system in ADLS Gen 2. A file system contains files and folders, similarly to how a container in Azure Blob Storage contains blobs.
-
-```azurecli
-# Create a file system in ADLS Gen2
-az storage fs create \
-    --name msdocs-python-cloud-etl-processed \
-    --account-name msdocspythonetladls \
-    --auth-mode login
-```
-
- **Step 2.** Run *[az storage fs directory create](/cli/azure/storage/fs/directory)* to create the directory (folder) in the newly created file system to land our processed data.
-
-```azurecli
-# Create a directory in ADLS Gen2 file system
-az storage fs directory create \
-    --name news-data \
-    --file-system msdocs-python-cloud-etl-processed \
-    --account-name msdocspythonetladls \
-    --auth-mode login
-```
-
----
-
->[!NOTE]
-> It is very easy to turn a data lake into a data swamp. So, it is important to govern the data that resides in your data lake.
->
-> [Azure Purview](/azure/purview/) is a unified data governance service that helps you manage and govern your on-premises, multi-cloud, and software-as-a-service (SaaS) data. Easily create a holistic, up-to-date map of your data landscape with automated data discovery, sensitive data classification, and end-to-end data lineage.
-
-## 3. Assign data lake Access Controls
+## 2. Assign data lake Access Controls
 
 In development, the account used to log into Azure requires the *Storage Blob Data Contributor* role assignment to grant read/write/delete permissions to Blob storage resources. In production, we'll use the service principal created by the managed identity for the hosting service.
 
@@ -229,18 +152,92 @@ A managed identity is assigned a role in Azure with the [az role assignment crea
 # Assign the 'Storage Blob Data Contributor' role to your user
 az role assignment create \
     --role "Storage Blob Data Contributor" \
-    --assignee <YOUR USER SIGN-IN NAME> \
+    --assignee <YOUR USER PRINCIPAL NAME> \
     --scope "/subscriptions/<YOUR-SUBSCRIPTION-ID>/resourceGroups/msdocs-python-cloud-etl-rg/providers/Microsoft.Storage/storageAccounts/msdocspythoncloudetladls"
 ```
 
 >[!NOTE]
->*account-email* is your user account email for running the local function.
 >*managed-identity-id* is the managed identity ID of the Azure Function App. If needed, return to the Function App **Identity** page to get this ID.
 
 ---
 
 >[!IMPORTANT]
 >Role assignment creation could take a minute to apply in Azure. It is recommended to wait a moment before running the next command in this article.
+
+## 3. Create processed data storage structure
+
+A container act as a file system directory to organize data files in an Azure Data Lake Store. Containers can store an unlimited amount of blobs, and a storage account can have an unlimited number of containers.
+
+Considerations must be made to ease security, efficient processing, and partitioning efforts when loading data into a data lake. Azure Data Lake Storage Gen 2 uses directories instead of the virtual folders in blob storage. Directories  allow for more precise security, control access, and directory level filesystem operations.
+
+### [Azure portal](#tab/azure-portal)
+
+:::row:::
+    :::column:::
+        **Step 1.** Once your deployment is complete, navigate to the new Data Lake resource by selecting the **Go to resource**.
+    :::column-end:::
+    :::column:::
+        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-adls-goto.png" alt-text="A screenshot showing how to go to the new Azure Storage Account using Azure portal." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-adls-goto.png":::
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column:::
+        **Step 2.** In the **Data storage** section in the *left* panel, select **Containers** and select **+ Container** in the **Containers** pane.
+    :::column-end:::
+    :::column:::
+        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-adls-container.png" alt-text="A screenshot showing how to navigate to create a new Container using Azure portal." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-adls-container.png":::
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column:::
+        **Step 3.** Configure the new container.
+        1. **Name**: Enter **msdocs-python-cloud-etl-processed**.
+        1. **Public access level**: Select **Private (no anonymous access)**.
+        1. Select the **Create** button.
+    :::column-end:::
+    :::column:::
+        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-adls-container-create.png" alt-text="A screenshot showing how to configure and create the Container using Azure portal." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-adls-container-create.png":::
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column:::
+        **Step 4.** Create new directory.
+        1. Select **+ Add Directory**.
+        1. Enter **news-data**.
+        1. Select **Save**.
+    :::column-end:::
+    :::column:::
+        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-adls-directory.gif" alt-text="Animated screenshot showing how to create a directory in the Container using Azure portal." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-adls-directory.gif":::
+    :::column-end:::
+:::row-end:::
+
+### [Azure CLI](#tab/azure-cli)
+
+**Step 1:** Run *[az storage fs create](/cli/azure/storage/fs#az-storage-fs-create)* to create a file system in ADLS Gen 2. A file system contains files and folders, similarly to how a container in Azure Blob Storage contains blobs.
+
+```azurecli
+# Create a file system in ADLS Gen2
+az storage fs create \
+    --name msdocs-python-cloud-etl-processed \
+    --account-name msdocspythonetladls
+```
+
+ **Step 2.** Run *[az storage fs directory create](/cli/azure/storage/fs/directory)* to create the directory (folder) in the newly created file system to land our processed data.
+
+```azurecli
+# Create a directory in ADLS Gen2 file system
+az storage fs directory create \
+    --name news-data \
+    --file-system msdocs-python-cloud-etl-processed \
+    --account-name msdocspythonetladls 
+```
+
+---
+
+>[!NOTE]
+> It is very easy to turn a data lake into a data swamp. So, it is important to govern the data that resides in your data lake.
+>
+> [Azure Purview](/azure/purview/) is a unified data governance service that helps you manage and govern your on-premises, multi-cloud, and software-as-a-service (SaaS) data. Easily create a holistic, up-to-date map of your data landscape with automated data discovery, sensitive data classification, and end-to-end data lineage.
 
 ## 4. Load processed data into Azure Data Lake Store
 

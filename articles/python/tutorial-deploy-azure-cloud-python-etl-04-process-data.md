@@ -62,7 +62,7 @@ To sign in to your Azure Account, **press F1** and type in **Azure: Sign in** (o
 ```bash
 cd MSDocsCloudPythonETLProj
 
-func new --name msdocs-cloud-python-etl-blobtrigger --template "azure blob storage trigger" --authlevel "function"
+func new --name msdocs-cloud-python-etl-blobtrigger --template "azure blob storage trigger"
 ```
 
 ---
@@ -73,7 +73,8 @@ In the local BlobTrigger Azure Function, create a new function definition to cle
 
 ```python
 import html
-import BeautifulSoup
+import re
+from bs4 import BeautifulSoup
 
 # Strip HTML tags from a string.
 def remove_html_tags(html_text):
@@ -96,7 +97,6 @@ The text data in the Bing News result set can be used to analyze and solve busin
 In the same local BlobTrigger Azure Function, create a new function definition to normalize the article content text news search results data from the Blob.
 
 ```python
-import re
 import json
 
 def normalize_text(text_string):

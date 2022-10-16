@@ -159,7 +159,7 @@ To assign access control roles for an Azure resource, you **must** use the Azure
 # Assign the 'Storage Blob Data Contributor' role to your user
 az role assignment create \
     --role "Storage Blob Data Contributor" \
-    --assignee <YOUR USER SIGN-IN NAME> \
+    --assignee <YOUR USER PRINCIPAL NAME> \
     --scope "/subscriptions/<YOUR-SUBSCRIPTION-ID>/resourceGroups/msdocs-python-cloud-etl-rg/providers/Microsoft.Storage/storageAccounts/msdocspythoncloudetlabs"
 ```
 
@@ -225,7 +225,7 @@ Create a container for *news-source* data in the storage account with the [az st
 az storage container create \
     --name 'msdocs-python-cloud-etl-news-source' \
     --public-access blob \
-    --account-name 'msdocs-python-cloud-etl-rg' \
+    --account-name 'msdocspythoncloudetlabs' \
     --auth-mode login
 ```
 
@@ -239,7 +239,6 @@ az storage container create \
 1. Open the **local.settings.json** in the **editor** pane.
 1. Add a key-value pair to store the **Azure Storage Account** name by entering `, "ABS_ACCOUNT_NAME": "msdocspythoncloudetlabs"`.
 1. Add another key-value pair to store the container name by entering `, "ABS_SRC_CONTAINER": "msdocs-python-cloud-etl-news-source"`.
-1. Add another key-value pair to store the key vault name by entering `, "KEY_VAULT_NAME": "msdocs-python-etl-kv"`.
 
 :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-vscode-function-app-settings.png" alt-text="A screenshot showing how to add App Settings for Azure Storage information to the local.settings.json file in Visual Studio Code." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-vscode-function-app-settings.png":::
 
