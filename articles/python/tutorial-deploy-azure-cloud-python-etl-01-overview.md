@@ -15,7 +15,7 @@ ms.author: jejohn
 
 This tutorial series will guide you through creating and deploying a serverless, cloud *Extract, Transform, and Load* (ETL) Python solution to Azure.
 
-:::image type="content" source="./media/tutorial-deploy-cloud-python-etl/deploy-azure-cloud-python-etl-architecture.svg" alt-text="Deploy Serverless, Azure Cloud Python ETL Solution Architecture Diagram" lightbox="./media/tutorial-deploy-cloud-python-etl/deploy-azure-cloud-python-etl-architecture.svg" border="false":::
+:::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/deploy-azure-cloud-python-etl-architecture.svg" alt-text="Deploy Serverless, Azure Cloud Python ETL Solution Architecture Diagram" lightbox="./media/tutorial-deploy-cloud-python-etl/deploy-azure-cloud-python-etl-architecture.svg" border="false":::
 
 ## Prerequisites for the tutorial
 

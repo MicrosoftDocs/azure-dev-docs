@@ -15,7 +15,7 @@ ms.author: jejohn
 
 This tutorial,
 
-:::image type="content" source="./media/tutorial-deploy-cloud-python-etl/deploy-azure-cloud-python-etl-architecture.svg" alt-text="Deploy Serverless, Azure Cloud Python ETL Solution Architecture Diagram" lightbox="./media/tutorial-deploy-cloud-python-etl/deploy-azure-cloud-python-etl-architecture.svg":::
+:::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/deploy-azure-cloud-python-etl-architecture.svg" alt-text="Deploy Serverless, Azure Cloud Python ETL Solution Architecture Diagram" lightbox="./media/tutorial-deploy-azure-cloud-python-etl/deploy-azure-cloud-python-etl-architecture.svg":::
 
 ## 1. Deploy local Function project to Azure
 
@@ -135,7 +135,7 @@ There are several ways archive data using Python and Azure, however for this tut
         1. Select the types of blobs for which the rule is to be applied, and specify whether to include blob snapshots or versions.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-deploy-cloud-python-etl/azure-cloud-python-etl-portal-lifecycle-mgmt-details.png" alt-text="A screenshot navigating configuring storage lifecycle management details tab." lightbox="./media/tutorial-deploy-cloud-python-etl/azure-cloud-python-etl-portal-lifecycle-mgmt-details.png":::
+        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-lifecycle-mgmt-details.png" alt-text="A screenshot navigating configuring storage lifecycle management details tab." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-lifecycle-mgmt-details.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -148,7 +148,7 @@ There are several ways archive data using Python and Azure, however for this tut
         1. Select **Next**.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-deploy-cloud-python-etl/azure-cloud-python-etl-portal-lifecycle-mgmt-base-blobs.png" alt-text="A screenshot navigating configuring storage lifecycle management Base blob tab." lightbox="./media/tutorial-deploy-cloud-python-etl/azure-cloud-python-etl-portal-lifecycle-mgmt-base-blobs.png":::
+        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-lifecycle-mgmt-base-blobs.png" alt-text="A screenshot navigating configuring storage lifecycle management Base blob tab." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-lifecycle-mgmt-base-blobs.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -160,7 +160,7 @@ There are several ways archive data using Python and Azure, however for this tut
         1. Select the **Add** button to add the new policy.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-deploy-cloud-python-etl/azure-cloud-python-etl-portal-lifecycle-mgmt-filter-set.png" alt-text="A screenshot navigating configuring storage lifecycle management Filter set tab." lightbox="./media/tutorial-deploy-cloud-python-etl/azure-cloud-python-etl-portal-lifecycle-mgmt-filter-set.png":::
+        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-lifecycle-mgmt-filter-set.png" alt-text="A screenshot navigating configuring storage lifecycle management Filter set tab." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-lifecycle-mgmt-filter-set.png":::
     :::column-end:::
 :::row-end:::
 

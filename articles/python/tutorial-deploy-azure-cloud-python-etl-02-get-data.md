@@ -15,7 +15,7 @@ ms.author: jejohn
 
 In this tutorial, you'll create a local [Azure Function](/products/functions/) in Python that responds to HTTP requests. The Azure Function uses the [Bing News Search REST API](/bing/apis/bing-news-search-api) to get news articles for a specified search-term and stores the data as a JSON file in [Azure Blob Storage](/products/storage/blobs/).
 
-:::image type="content" source="./media/tutorial-deploy-cloud-python-etl/deploy-azure-cloud-python-etl-architecture.svg" alt-text="Deploy Serverless, Azure Cloud Python ETL Solution Architecture Diagram" lightbox="./media/tutorial-deploy-cloud-python-etl/deploy-azure-cloud-python-etl-architecture.svg" border="false":::
+:::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/deploy-azure-cloud-python-etl-architecture.svg" alt-text="Deploy Serverless, Azure Cloud Python ETL Solution Architecture Diagram" lightbox="./media/tutorial-deploy-azure-cloud-python-etl/deploy-azure-cloud-python-etl-architecture.svg" border="false":::
 
 ## Prerequisites
 
@@ -57,7 +57,7 @@ For Python functions, you can create an Azure Function App in the Azure portal o
         1. When prompted, choose **Create new project**.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-deploy-cloud-python-etl/azure-cloud-python-etl-vscode-create-new-function.png" alt-text="A screenshot showing how to create a new local function project in Visual Studio Code." lightbox="./media/tutorial-deploy-cloud-python-etl/azure-cloud-python-etl-vscode-create-new-function.png":::
+        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-vscode-create-new-function.png" alt-text="A screenshot showing how to create a new local function project in Visual Studio Code." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-vscode-create-new-function.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -71,7 +71,7 @@ For Python functions, you can create an Azure Function App in the Azure portal o
         1. **Select how you would like to open your project**: Choose **Add to workspace**.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-deploy-cloud-python-etl/azure-cloud-python-etl-vscode-configure-function.gif" alt-text="Animated screenshot showing how to configure the new local function in Visual Studio Code." lightbox="./media/tutorial-deploy-cloud-python-etl/azure-cloud-python-etl-vscode-configure-function.gif":::
+        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-vscode-configure-function.gif" alt-text="Animated screenshot showing how to configure the new local function in Visual Studio Code." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-vscode-configure-function.gif":::
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -79,7 +79,7 @@ For Python functions, you can create an Azure Function App in the Azure portal o
         **Step 3.** Run the function locally by pressing `F5` or the play icon.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-deploy-cloud-python-etl/azure-cloud-python-etl-vscode-run-function.png" alt-text="A screenshot showing how to build and run the new local function in Visual Studio Code." lightbox="./media/tutorial-deploy-cloud-python-etl/azure-cloud-python-etl-vscode-run-function.png":::
+        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-vscode-run-function.png" alt-text="A screenshot showing how to build and run the new local function in Visual Studio Code." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-vscode-run-function.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -91,7 +91,7 @@ For Python functions, you can create an Azure Function App in the Azure portal o
         1. Choose **Execute Function Now**.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-deploy-cloud-python-etl/azure-cloud-python-etl-vscode-execute-function.png" alt-text="A screenshot showing executing the new local function in Visual Studio Code." lightbox="./media/tutorial-deploy-cloud-python-etl/azure-cloud-python-etl-vscode-execute-function.png":::
+        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-vscode-execute-function.png" alt-text="A screenshot showing executing the new local function in Visual Studio Code." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-vscode-execute-function.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -99,7 +99,7 @@ For Python functions, you can create an Azure Function App in the Azure portal o
         **Step 5.** Test the sample functionality by entering the request message body value `{ "name": "<YOUR_NAME>"}` and press Enter.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-deploy-cloud-python-etl/azure-cloud-python-etl-vscode-test-new-function.gif" alt-text="A screenshot of testing the new local function in Visual Studio Code." lightbox="./media/tutorial-deploy-cloud-python-etl/azure-cloud-python-etl-vscode-test-new-function.gif":::
+        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-vscode-test-new-function.gif" alt-text="A screenshot of testing the new local function in Visual Studio Code." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-vscode-test-new-function.gif":::
     :::column-end:::
 :::row-end:::
 
@@ -127,7 +127,7 @@ func start
 
 **Step 4.** Test the local function by copying the URL from the `func start` output and paste it into your browser, appending `?name=<YOUR_NAME>` to the URL. The browser should display a response message that echoes back your query string value (YOUR_NAME).
 
-:::image type="content" source="./media/tutorial-deploy-cloud-python-etl/azure-cloud-python-etl-cli-test-local-function.png" alt-text="Test that the Local Function runs successfully and displays properly in your browser." lightbox="./media/tutorial-deploy-cloud-python-etl/azure-cloud-python-etl-cli-test-local-function.png" :::
+:::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-cli-test-local-function.png" alt-text="Test that the Local Function runs successfully and displays properly in your browser." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-cli-test-local-function.png" :::
 
 ---
 
@@ -141,7 +141,7 @@ func start
         1. Select **Bing Search** under **Marketplace** in the search results.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-deploy-cloud-python-etl/azure-cloud-python-etl-portal-bing-search.png" alt-text="Screenshot showing how to search in the Azure portal and find Bing Search in the Marketplace." lightbox="./media/tutorial-deploy-cloud-python-etl/azure-cloud-python-etl-portal-bing-search.png":::
+        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-bing-search.png" alt-text="Screenshot showing how to search in the Azure portal and find Bing Search in the Marketplace." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-bing-search.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -155,7 +155,7 @@ func start
         1. Select **Create** to start the deployment process.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-deploy-cloud-python-etl/azure-cloud-python-etl-portal-bing-search-config.png" alt-text="Screenshot showing successful Bing Search in the Azure portal." lightbox="./media/tutorial-deploy-cloud-python-etl/azure-cloud-python-etl-portal-bing-search-config.png":::
+        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-bing-search-config.png" alt-text="Screenshot showing successful Bing Search in the Azure portal." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-bing-search-config.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -163,7 +163,7 @@ func start
         **Step 3.** When the deployment process completes, select **Go to resource**.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-deploy-cloud-python-etl/azure-cloud-python-etl-portal-bing-search-deploy.png" alt-text="Screenshot showing how to configure Bing Search in the Azure portal." lightbox="./media/tutorial-deploy-cloud-python-etl/azure-cloud-python-etl-portal-bing-search-deploy.png":::
+        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-bing-search-deploy.png" alt-text="Screenshot showing how to configure Bing Search in the Azure portal." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-bing-search-deploy.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -174,7 +174,7 @@ func start
         1. Select the **Copy icon** to the *right* of **Key 1** to copy the subscription key to your clipboard.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-deploy-cloud-python-etl/azure-cloud-python-etl-portal-bing-search-keys.png" alt-text="Screenshot showing how to get your Bing Search subscription key and endpoint in the Azure portal." lightbox="./media/tutorial-deploy-cloud-python-etl/azure-cloud-python-etl-portal-bing-search-keys.png":::
+        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-bing-search-keys.png" alt-text="Screenshot showing how to get your Bing Search subscription key and endpoint in the Azure portal." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-bing-search-keys.png":::
     :::column-end:::
 :::row-end:::
 
@@ -195,7 +195,7 @@ Azure Key Vault is a centralized cloud solution for storing and managing sensiti
         1. Select the **+ Create** button in the **Key Vault** dialogue.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-deploy-cloud-python-etl/azure-cloud-python-etl-portal-key-vault-create.png" alt-text="Screenshot showing how to search in the Azure portal to find and create an Azure Key Vault service." lightbox="./media/tutorial-deploy-cloud-python-etl/azure-cloud-python-etl-portal-key-vault-create.png":::
+        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-key-vault-create.png" alt-text="Screenshot showing how to search in the Azure portal to find and create an Azure Key Vault service." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-key-vault-create.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -209,7 +209,7 @@ Azure Key Vault is a centralized cloud solution for storing and managing sensiti
         1. Select **Review + Create** to review  and validate the selected Azure Key Vault configuration.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-deploy-cloud-python-etl/azure-cloud-python-etl-portal-key-vault-configure.png" alt-text="Screenshot showing how to configure Azure Key Vault in the Azure portal." lightbox="./media/tutorial-deploy-cloud-python-etl/azure-cloud-python-etl-portal-key-vault-configure.png":::
+        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-key-vault-configure.png" alt-text="Screenshot showing how to configure Azure Key Vault in the Azure portal." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-key-vault-configure.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -217,7 +217,7 @@ Azure Key Vault is a centralized cloud solution for storing and managing sensiti
         **Step 3.** Select **Create** to accept the selected options and start the deployment process.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-deploy-cloud-python-etl/azure-cloud-python-etl-portal-key-vault-review.png" alt-text="Screenshot to review Azure Key Vault configuration in the Azure portal before creating the resource." lightbox="./media/tutorial-deploy-cloud-python-etl/azure-cloud-python-etl-portal-key-vault-review.png":::
+        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-key-vault-review.png" alt-text="Screenshot to review Azure Key Vault configuration in the Azure portal before creating the resource." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-key-vault-review.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -228,7 +228,7 @@ Azure Key Vault is a centralized cloud solution for storing and managing sensiti
         1. Select the **+ Generate/Import** button in the main panel.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-deploy-cloud-python-etl/azure-cloud-python-etl-portal-key-vault-create-secret.png" alt-text="Screenshot to show how to create a secret in the new Azure Key Vault in the Azure portal." lightbox="./media/tutorial-deploy-cloud-python-etl/azure-cloud-python-etl-portal-key-vault-create-secret.png":::
+        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-key-vault-create-secret.png" alt-text="Screenshot to show how to create a secret in the new Azure Key Vault in the Azure portal." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-key-vault-create-secret.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -239,7 +239,7 @@ Azure Key Vault is a centralized cloud solution for storing and managing sensiti
         1. Select **Create** to add this new secret to the **Azure Key Vault**.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-deploy-cloud-python-etl/azure-cloud-python-etl-portal-key-vault-configure-secret.png" alt-text="Screenshot to show how to configure a secret in the Azure Key Vault using the Azure portal." lightbox="./media/tutorial-deploy-cloud-python-etl/azure-cloud-python-etl-portal-key-vault-configure-secret.png":::
+        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-key-vault-configure-secret.png" alt-text="Screenshot to show how to configure a secret in the Azure Key Vault using the Azure portal." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-key-vault-configure-secret.png":::
     :::column-end:::
 :::row-end:::
 

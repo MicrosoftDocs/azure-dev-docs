@@ -17,7 +17,7 @@ This tutorial, loads the processed data into Azure Data Lake Storage (ADLS) Gen 
 
 The data is then archived into an Azure Blob Storage Container using Azure Storage lifecycle management policies.
 
-:::image type="content" source="./media/tutorial-deploy-cloud-python-etl/deploy-azure-cloud-python-etl-architecture.svg" alt-text="Deploy Serverless, Azure Cloud Python ETL Solution Architecture Diagram" lightbox="./media/tutorial-deploy-cloud-python-etl/deploy-azure-cloud-python-etl-architecture.svg" border="false":::
+:::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/deploy-azure-cloud-python-etl-architecture.svg" alt-text="Deploy Serverless, Azure Cloud Python ETL Solution Architecture Diagram" lightbox="./media/tutorial-deploy-azure-cloud-python-etl/deploy-azure-cloud-python-etl-architecture.svg" border="false":::
 
 ## 1. Create Azure Data Lake Storage
 
@@ -38,7 +38,7 @@ Follow these steps to create and configure the Azure Data Lake Storage resource.
         1. Select the **+ Create** button in the **Storage accounts** dialogue.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-deploy-cloud-python-etl/azure-cloud-python-etl-portal-blob-storage.png" alt-text="Screenshot showing how to search in the Azure portal and find Azure Storage Account service." lightbox="./media/tutorial-deploy-cloud-python-etl/azure-cloud-python-etl-portal-blob-storage.png":::
+        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-blob-storage.png" alt-text="Screenshot showing how to search in the Azure portal and find Azure Storage Account service." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-blob-storage.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -53,7 +53,7 @@ Follow these steps to create and configure the Azure Data Lake Storage resource.
         1. Select **Advanced** to proceed to continue configuring values for the resource.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-deploy-cloud-python-etl/azure-cloud-python-etl-portal-adls-configure.png" alt-text="A screenshot of configuring the new Azure Storage Account using Azure portal." lightbox="./media/tutorial-deploy-cloud-python-etl/azure-cloud-python-etl-portal-adls-configure.png":::
+        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-adls-configure.png" alt-text="A screenshot of configuring the new Azure Storage Account using Azure portal." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-adls-configure.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -64,7 +64,7 @@ Follow these steps to create and configure the Azure Data Lake Storage resource.
          1. Select **Review** to proceed to validate the configuration values before creating the resource.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-deploy-cloud-python-etl/azure-cloud-python-etl-portal-adls-configure2.png" alt-text="A screenshot of configuring the Azure Storage Account to enable Data Lake Storage Gen2 using Azure portal." lightbox="./media/tutorial-deploy-cloud-python-etl/azure-cloud-python-etl-portal-adls-configure2.png":::
+        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-adls-configure2.png" alt-text="A screenshot of configuring the Azure Storage Account to enable Data Lake Storage Gen2 using Azure portal." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-adls-configure2.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -72,7 +72,7 @@ Follow these steps to create and configure the Azure Data Lake Storage resource.
         **Step 4.** Select **Create** to accept the configured values, then proceed to validate and create the account.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-deploy-cloud-python-etl/azure-cloud-python-etl-portal-adls-review.png" alt-text="A screenshot of reviewing the configuration of the new Azure Storage Account using Azure portal." lightbox="./media/tutorial-deploy-cloud-python-etl/azure-cloud-python-etl-portal-adls-review.png":::
+        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-adls-review.png" alt-text="A screenshot of reviewing the configuration of the new Azure Storage Account using Azure portal." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-adls-review.png":::
     :::column-end:::
 :::row-end:::
 
@@ -110,7 +110,7 @@ Considerations must be made to ease security, efficient processing, and partitio
         **Step 1.** Once your deployment is complete, navigate to the new Data Lake resource by selecting the **Go to resource**.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-deploy-cloud-python-etl/azure-cloud-python-etl-portal-adls-goto.png" alt-text="A screenshot showing how to go to the new Azure Storage Account using Azure portal." lightbox="./media/tutorial-deploy-cloud-python-etl/azure-cloud-python-etl-portal-adls-goto.png":::
+        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-adls-goto.png" alt-text="A screenshot showing how to go to the new Azure Storage Account using Azure portal." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-adls-goto.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -118,7 +118,7 @@ Considerations must be made to ease security, efficient processing, and partitio
         **Step 2.** In the **Data storage** section in the *left* panel, select **Containers** and select **+ Container** in the **Containers** pane.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-deploy-cloud-python-etl/azure-cloud-python-etl-portal-adls-container.png" alt-text="A screenshot showing how to navigate to create a new Container using Azure portal." lightbox="./media/tutorial-deploy-cloud-python-etl/azure-cloud-python-etl-portal-adls-container.png":::
+        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-adls-container.png" alt-text="A screenshot showing how to navigate to create a new Container using Azure portal." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-adls-container.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -129,7 +129,7 @@ Considerations must be made to ease security, efficient processing, and partitio
         1. Select the **Create** button.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-deploy-cloud-python-etl/azure-cloud-python-etl-portal-adls-container-create.png" alt-text="A screenshot showing how to configure and create the Container using Azure portal." lightbox="./media/tutorial-deploy-cloud-python-etl/azure-cloud-python-etl-portal-adls-container-create.png":::
+        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-adls-container-create.png" alt-text="A screenshot showing how to configure and create the Container using Azure portal." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-adls-container-create.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -140,7 +140,7 @@ Considerations must be made to ease security, efficient processing, and partitio
         1. Select **Save**.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-deploy-cloud-python-etl/azure-cloud-python-etl-portal-adls-directory.gif" alt-text="Animated screenshot showing how to create a directory in the Container using Azure portal." lightbox="./media/tutorial-deploy-cloud-python-etl/azure-cloud-python-etl-portal-adls-directory.gif":::
+        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-adls-directory.gif" alt-text="Animated screenshot showing how to create a directory in the Container using Azure portal." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-adls-directory.gif":::
     :::column-end:::
 :::row-end:::
 
@@ -189,7 +189,7 @@ For information on assigning permissions at the resource or subscription level u
         1. Select **Add role assignment** button in the **Grant access to this resource** section.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-deploy-cloud-python-etl/azure-cloud-python-etl-portal-blob-storage-IAM.png" alt-text="A screenshot showing how to navigate to Access Control (IAM) role assignment. " lightbox="./media/tutorial-deploy-cloud-python-etl/azure-cloud-python-etl-portal-blob-storage-IAM.png":::
+        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-blob-storage-IAM.png" alt-text="A screenshot showing how to navigate to Access Control (IAM) role assignment. " lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-blob-storage-IAM.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -197,7 +197,7 @@ For information on assigning permissions at the resource or subscription level u
         **Step 2.** In the **Add role assignment** dialogue, search for and select **Storage Blob Data Contributor**.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-deploy-cloud-python-etl/azure-cloud-python-etl-portal-blob-storage-IAM-role.png" alt-text="A screenshot showing finding the Storage Blob Data Contributor in Access Control (IAM) role dialogue." lightbox="./media/tutorial-deploy-cloud-python-etl/azure-cloud-python-etl-portal-blob-storage-IAM-role.png":::
+        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-blob-storage-IAM-role.png" alt-text="A screenshot showing finding the Storage Blob Data Contributor in Access Control (IAM) role dialogue." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-blob-storage-IAM-role.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -209,7 +209,7 @@ For information on assigning permissions at the resource or subscription level u
         1. Select the **Select** button to add your user account as a member of this role.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-deploy-cloud-python-etl/azure-cloud-python-etl-portal-blob-storage-IAM-member.png" alt-text="A screenshot showing how your user account name to assign the role to." lightbox="./media/tutorial-deploy-cloud-python-etl/azure-cloud-python-etl-portal-blob-storage-IAM-member.png":::
+        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-blob-storage-IAM-member.png" alt-text="A screenshot showing how your user account name to assign the role to." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-blob-storage-IAM-member.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -217,7 +217,7 @@ For information on assigning permissions at the resource or subscription level u
         **Step 4.** Review the selected values and select **Review + Assign**.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-deploy-cloud-python-etl/azure-cloud-python-etl-portal-blob-storage-IAM-assign.png" alt-text="A screenshot of reviewing and creating the Access Control (IAM) role assignment. " lightbox="./media/tutorial-deploy-cloud-python-etl/azure-cloud-python-etl-portal-blob-storage-IAM-assign.png":::
+        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-blob-storage-IAM-assign.png" alt-text="A screenshot of reviewing and creating the Access Control (IAM) role assignment. " lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-portal-blob-storage-IAM-assign.png":::
     :::column-end:::
 :::row-end:::
 
@@ -254,7 +254,7 @@ Once the data is transformed into a format ideal for analysis, load the data int
 1. Add another key-value pair to store the container name by entering `, "AdLS_CONTAINER": "msdocs-python-cloud-etl-processed"`.
 1. Add another key-value pair to store the key vault name by entering `, "ADLS_DIR": "news-data"`.
 
-:::image type="content" source="./media/tutorial-deploy-cloud-python-etl/azure-cloud-python-etl-vscode-blobtrigger-function-app-settings.png" alt-text="A screenshot showing how to add App Settings for Azure Storage information to the local.settings.json file in Visual Studio Code." lightbox="./media/tutorial-deploy-cloud-python-etl/azure-cloud-python-etl-vscode-blobtrigger-function-app-settings.png":::
+:::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-vscode-blobtrigger-function-app-settings.png" alt-text="A screenshot showing how to add App Settings for Azure Storage information to the local.settings.json file in Visual Studio Code." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-vscode-blobtrigger-function-app-settings.png":::
 
 <br/>
 
@@ -407,19 +407,19 @@ def main(myblob: func.InputStream):
 1. Right-click (Windows) or Ctrl + Select (macOS) the **msdocs-cloud-python-etl-HttpTrigger** function.
 1. Choose **Execute Function Now**.
 
-:::image type="content" source="./media/tutorial-deploy-cloud-python-etl/azure-cloud-python-etl-vscode-execute-function.png" alt-text="A screenshot showing executing the new local function in Visual Studio Code." lightbox="./media/tutorial-deploy-cloud-python-etl/azure-cloud-python-etl-vscode-execute-function.png":::
+:::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-vscode-execute-function.png" alt-text="A screenshot showing executing the new local function in Visual Studio Code." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-vscode-execute-function.png":::
 
 <br/>
 
 **Step 4.** Test the new functionality by entering the request message body value `{ "search_term": "Azure"}` and press **Enter**.
 
-:::image type="content" source="./media/tutorial-deploy-cloud-python-etl/azure-cloud-python-etl-vscode-execute-http-function.gif" alt-text="Animated screenshot of testing the HTTPTrigger Azure Function in Visual Studio." lightbox="./media/tutorial-deploy-cloud-python-etl/azure-cloud-python-etl-vscode-execute-http-function.gif":::
+:::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-vscode-execute-http-function.gif" alt-text="Animated screenshot of testing the HTTPTrigger Azure Function in Visual Studio." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-vscode-execute-http-function.gif":::
 
 <br/>
 
 **Step 5.** Navigate to storage explorer in Visual Studio Code or the portal to see processed file.
 
-:::image type="content" source="./media/tutorial-deploy-cloud-python-etl/azure-cloud-python-etl-vscode-blobtrigger-function-output.gif" alt-text="Animated screenshot navigating to check the Azure Blob Trigger Function output in Visual Studio." lightbox="./media/tutorial-deploy-cloud-python-etl/azure-cloud-python-etl-vscode-blobtrigger-function-output.gif":::
+:::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-vscode-blobtrigger-function-output.gif" alt-text="Animated screenshot navigating to check the Azure Blob Trigger Function output in Visual Studio." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-vscode-blobtrigger-function-output.gif":::
 
 ## Next step
 

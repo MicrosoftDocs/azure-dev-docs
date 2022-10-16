@@ -15,7 +15,7 @@ ms.author: jejohn
 
 In this tutorial, you'll create a local [Azure Function](/products/functions/) in Python that responds to an Azure Blob Storage Trigger. The Azure Function uses the various Python libraries to clean and normalize the news articles results data stored as a JSON file in [Azure Blob Storage](/products/storage/blobs/).
 
-:::image type="content" source="./media/tutorial-deploy-cloud-python-etl/deploy-azure-cloud-python-etl-architecture.svg" alt-text="Deploy Serverless, Azure Cloud Python ETL Solution Architecture Diagram" lightbox="./media/tutorial-deploy-cloud-python-etl/deploy-azure-cloud-python-etl-architecture.svg" border="false":::
+:::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/deploy-azure-cloud-python-etl-architecture.svg" alt-text="Deploy Serverless, Azure Cloud Python ETL Solution Architecture Diagram" lightbox="./media/tutorial-deploy-azure-cloud-python-etl/deploy-azure-cloud-python-etl-architecture.svg" border="false":::
 
 ## 1. Create a local BlobTrigger Azure Function
 
@@ -35,7 +35,7 @@ To sign in to your Azure Account, **press F1** and type in **Azure: Sign in** (o
         1. Choose **Create Function** in the dropdown.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-deploy-cloud-python-etl/azure-cloud-python-etl-vscode-create-new-function.png" alt-text="A screenshot showing how to create a new local function project in Visual Studio Code." lightbox="./media/tutorial-deploy-cloud-python-etl/azure-cloud-python-etl-vscode-create-new-function.png":::
+        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-vscode-create-new-function.png" alt-text="A screenshot showing how to create a new local function project in Visual Studio Code." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-vscode-create-new-function.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -49,7 +49,7 @@ To sign in to your Azure Account, **press F1** and type in **Azure: Sign in** (o
         1. **Select how you would like to open your project**: Choose `Add to workspace`.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-deploy-cloud-python-etl/azure-cloud-python-etl-vscode-create-blobtrigger-function.gif" alt-text="Animated screenshot showing how to configure the new local function in Visual Studio Code." lightbox="./media/tutorial-deploy-cloud-python-etl/azure-cloud-python-etl-vscode-create-blobtrigger-function.gif":::
+        :::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-vscode-create-blobtrigger-function.gif" alt-text="Animated screenshot showing how to configure the new local function in Visual Studio Code." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-vscode-create-blobtrigger-function.gif":::
     :::column-end:::
 :::row-end:::
 
@@ -165,7 +165,7 @@ To properly test the local Azure Storage Blob Trigger function, the Azure HTTP T
 
 **Step 1.**  Test running the Azure Storage Blob Trigger function locally by pressing `F5` or the play icon while in the editor window of the **__init__.py** file.
 
-:::image type="content" source="./media/tutorial-deploy-cloud-python-etl/azure-cloud-python-etl-vscode-test-blobtrigger-function.png" alt-text="A screenshot showing how to build and run the functions in Visual Studio Code." lightbox="./media/tutorial-deploy-cloud-python-etl/azure-cloud-python-etl-vscode-test-blobtrigger-function.png":::
+:::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-vscode-test-blobtrigger-function.png" alt-text="A screenshot showing how to build and run the functions in Visual Studio Code." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-vscode-test-blobtrigger-function.png":::
 
 **Step 2.** Execute the function locally.
 
@@ -175,11 +175,11 @@ To properly test the local Azure Storage Blob Trigger function, the Azure HTTP T
 1. Choose **Execute Function Now**.
 1. At the prompt, enter the request message body value `{ "search_term": "Azure"}` and press Enter.
 
-:::image type="content" source="./media/tutorial-deploy-cloud-python-etl/azure-cloud-python-etl-vscode-test-process-blobtrigger-function.gif" alt-text="Animated screenshot of testing the BlobTrigger Azure Function in Visual Studio." lightbox="./media/tutorial-deploy-cloud-python-etl/azure-cloud-python-etl-vscode-test-process-blobtrigger-function.gif":::
+:::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-vscode-test-process-blobtrigger-function.gif" alt-text="Animated screenshot of testing the BlobTrigger Azure Function in Visual Studio." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-vscode-test-process-blobtrigger-function.gif":::
 
 **Step 3.** Review the logging output in the **Terminal** window. You'll see the Blob Trigger function execute after the JSON file was uploaded from the HTTP Trigger.
 
-:::image type="content" source="./media/tutorial-deploy-cloud-python-etl/azure-cloud-python-etl-vscode-output-blobtrigger-function.png" alt-text="A screenshot showing the logging output of both local functions in Visual Studio Code." lightbox="./media/tutorial-deploy-cloud-python-etl/azure-cloud-python-etl-vscode-output-blobtrigger-function.png":::
+:::image type="content" source="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-vscode-output-blobtrigger-function.png" alt-text="A screenshot showing the logging output of both local functions in Visual Studio Code." lightbox="./media/tutorial-deploy-azure-cloud-python-etl/azure-cloud-python-etl-vscode-output-blobtrigger-function.png":::
 
 ## Next step
 
