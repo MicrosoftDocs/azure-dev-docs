@@ -61,7 +61,7 @@ For containerizing Python projects, the key files are:
 | Project file | Description |
 |--------------| ----------- |
 |*requirements.txt* | Used during the building of the Docker image to get the correct dependencies into the image.|
-|*Dockerfile* | Used to specify how to build the Python Docker image. For more information, see the section [Dockerfile instructions for Python](#dockerfile-instructions-for-python).|
+|*Dockerfile* | Used to specify how to build the Python Docker image. For more information, see the section [Dockerfile instructions for Python](#python-dockerfile).|
 |*\.dockerignore* | Files and directories in *\.dockerignore* aren't copied to the Docker image with the `COPY` command in the *Dockerfile*. The *\.dockerignore* file supports exclusion patterns similar to *\.gitignore* files. For more information, see [\.dockerignore file][40]. <br><br> Excluding files helps image build performance, but should also be used to avoid adding sensitive information to the image where it can be inspected. For example, the *\.dockerignore* should contain lines to ignore *\.env* and *\.venv* (virtual environments).|
 
 ## Container settings for web frameworks
