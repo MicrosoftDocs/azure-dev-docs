@@ -61,8 +61,8 @@ For containerizing Python projects, the key files are:
 | Project file | Description |
 |--------------| ----------- |
 |*requirements.txt* | Used during the building of the Docker image to get the correct dependencies into the image.|
-|*Dockerfile* | Used to specify how to build the Docker image. For more information, see the section [Dockerfile instructions for Python](#dockerfile-instructions-for-python).|
-|*\.dockerignore* | Files and directories in *\.dockerignore* aren't copied to the Docker image with the `COPY` command in the *Dockerfile*. The *\.dockerignore* file supports exclusion patterns similar to *\.gitignore* files. For more information, see [\.dockerignore file][40]. <br><br> Excluding files helps the build performance, but should also be used to avoid adding sensitive information to the image where it can be inspected. For example, the *\.dockerignore* should contain lines to ignore *\.env* and *\.venv* (virtual environments).|
+|*Dockerfile* | Used to specify how to build the Python Docker image. For more information, see the section [Dockerfile instructions for Python](#dockerfile-instructions-for-python).|
+|*\.dockerignore* | Files and directories in *\.dockerignore* aren't copied to the Docker image with the `COPY` command in the *Dockerfile*. The *\.dockerignore* file supports exclusion patterns similar to *\.gitignore* files. For more information, see [\.dockerignore file][40]. <br><br> Excluding files helps image build performance, but should also be used to avoid adding sensitive information to the image where it can be inspected. For example, the *\.dockerignore* should contain lines to ignore *\.env* and *\.venv* (virtual environments).|
 
 ## Container settings for web frameworks
 
@@ -136,11 +136,11 @@ The Docker build command is part of the Docker CLI. When you use IDEs like VS Co
 
 ### VS Code and PyCharm
 
-Working in an integrated development environment (IDE) for Python container development isn't strictly necessary but can simplify many container-related tasks. Here are some of the things you can do with VS Code and PyCharm.
+Working in an integrated development environment (IDE) for Python container development isn't necessary but can simplify many container-related tasks. Here are some of the things you can do with VS Code and PyCharm.
 
 * Download and build Docker images.
   * Build images in your dev environment.
-  * Build Docker images in Azure without Docker installed in dev environment. For PyCharm, use the Azure CLI to build images in Azure.
+  * Build Docker images in Azure without Docker installed in dev environment. (For PyCharm, use the Azure CLI to build images in Azure.)
 
 * Create and run Docker containers from an existing image, a pulled image, or directly from a Dockerfile.
 
@@ -150,7 +150,7 @@ Working in an integrated development environment (IDE) for Python container deve
 
 * (VS Code only) Add a *Dockerfile* and Docker compose files that are tailored for your Python project.
 
-To set up VS Code and PyCharm to run a Docker container in your dev environment, use the following steps.
+To set up VS Code and PyCharm to run Docker containers in your dev environment, use the following steps.
 
 #### [VS Code](#tab/vscode-ide)
 
@@ -243,7 +243,7 @@ If you haven't already, install [Azure Tools for VS Code][41].
 
 ### Azure CLI and Docker CLI
 
-You can also work with Docker images and containers using the [Azure CLI][24] and [Docker CLI][25]. Both VS Code and PyCharm have terminals where you can run these CLIs.
+You can also work with Python Docker images and containers using the [Azure CLI][24] and [Docker CLI][25]. Both VS Code and PyCharm have terminals where you can run these CLIs.
 
 Use a CLI when you want finer control over build and run arguments, and for automation. For example, the following command shows how to use the Azure CLI [az acr build][50] to specify the Docker image name.
 
@@ -253,7 +253,7 @@ az acr build --registry <registry-name> \
   --target pythoncontainerwebapp:latest .
 ```
 
-As another example, consider the following command that shows how to use the Docker CLI [run][43] command.  The example show how to run a Docker container that communicates to a MongoDB instance in your dev environment, outside the container. The different values to complete the command are easier to automate when specified in a command line.
+As another example, consider the following command that shows how to use the Docker CLI [run][43] command.  The example show hows to run a Docker container that communicates to a MongoDB instance in your dev environment, outside the container. The different values to complete the command are easier to automate when specified in a command line.
 
 ```bash
 docker run --rm -it \
@@ -265,7 +265,7 @@ docker run --rm -it \
   containermongo:latest  
 ```
 
-For more information on this scenario, see [Build and test a containerized Python web app locally][26].
+For more information about this scenario, see [Build and test a containerized Python web app locally][26].
 
 ### Environment variables in containers
 
