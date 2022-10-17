@@ -1265,6 +1265,26 @@
       {
         "source_path": "articles/terraform/create-linux-virtual-machine-with-infrastructure.md",
         "redirect_url": "/azure/virtual-machines/linux/quick-create-terraform"
+      },
+      {
+        "source_path": "articles/python/tutorial-deploy-containers-01.md",
+        "redirect_url": "/azure/developer/python/containers-in-azure-overview-python"
+      },
+      {
+        "source_path": "articles/python/tutorial-deploy-containers-02.md",
+        "redirect_url": "/azure/developer/python/tutorial-containerize-deploy-python-web-app-azure-03"
+      },
+      {
+        "source_path": "articles/python/tutorial-deploy-containers-03.md",
+        "redirect_url": "/azure/developer/python/tutorial-containerize-deploy-python-web-app-azure-04"
+      },
+      {
+        "source_path": "articles/python/tutorial-deploy-containers-04.md",
+        "redirect_url": "/azure/developer/python/containers-in-azure-overview-python"
+      },
+      {
+        "source_path": "articles/python/tutorial-deploy-containers-05.md",
+        "redirect_url": "/azure/developer/python/containers-in-azure-overview-python"
       }
     ]
   }
