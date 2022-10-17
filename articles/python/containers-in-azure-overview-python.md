@@ -156,6 +156,13 @@ To set up VS Code and PyCharm to run Docker containers in your dev environment, 
 
 If you haven't already, install [Azure Tools for VS Code][41].
 
+| Instructions    | Screenshot |
+|:----------------|-----------:|
+| **Step 1**: Use **SHIFT** + **ALT**  + **A** to open the **Azure** extension and confirm you're connected to Azure. <br><br> You can also select the **Azure** icon on the VS Code extensions bar. <br><br> If you are not signed in, select **Sign in to Azure** and follow the prompts.<br><br> If you have trouble accessing your Azure subscription, it may be because you are behind a proxy. To resolve connection issues, see [Network Connections in Visual Studio Code][23]. | :::image type="content" source="media/containers-overview/vs-code-azure-tools-signed-in-small.png" alt-text="Screenshot showing how Azure Tools looks once signed in." lightbox="media/containers-overview/vs-code-azure-tools-signed-in.png"::: :::image type="content" source="media/containers-overview/vs-code-azure-tools-sign-in-small.png" alt-text="Screenshot showing how Azure Tools looks once signed in." lightbox="media/containers-overview/vs-code-azure-tools-sign-in.png":::|
+|**Step 2**: Use **CTRL** + **SHIFT**  + **X** to open **Extensions**, search for the [Docker extension][21], and install the extension.<br><br> You can also select the **Extensions** icon on the VS Code extensions bar.|:::image type="content" source="media/containers-overview/vs-code-add-docker-extension-small.png" alt-text="Screenshot showing how to add Docker extension to VS Code." lightbox="media/containers-overview/vs-code-add-docker-extension.png":::|
+|**Step 3**: Select the **Docker** icon in the  extension bar, expand images, and right-click an image run it as a container.|:::image type="content" source="media/containers-overview/vs-code-docker-extension-run-image-small.png" alt-text="Screenshot showing how to use the Docker extension in VS Code to run a container from a Docker image." lightbox="media/containers-overview/vs-code-docker-extension-run-image.png":::
+|**Step 4**: Monitor the Docker run output in the **Terminal** window.|:::image type="content" source="media/containers-overview/vs-code-running-container-example-small.png" alt-text="Screenshot showing an example of running a container in VS Code." lightbox="media/containers-overview/vs-code-running-container-example.png":::|
+
 :::row:::
     :::column span="2":::
         **Step 1**: Use **SHIFT** + **ALT**  + **A** to open the **Azure** extension and confirm you're connected to Azure.
