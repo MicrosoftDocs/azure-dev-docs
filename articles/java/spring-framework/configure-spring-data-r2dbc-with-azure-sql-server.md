@@ -3,7 +3,7 @@ title: Use Spring Data R2DBC with Azure SQL Database
 description: Learn how to use Spring Data R2DBC with an Azure SQL Database.
 documentationcenter: java
 ms.author: bbenz
-ms.date: 07/15/2022
+ms.date: 07/22/2022
 ms.service: sql-database
 ms.tgt_pltfrm: multiple
 author: KarlErickson
@@ -33,7 +33,7 @@ In this article, we will code a sample application. If you want to go faster, th
 Generate the application on the command line by running the following command:
 
 ```bash
-curl https://start.spring.io/starter.tgz -d dependencies=webflux,data-r2dbc -d baseDir=azure-database-workshop -d bootVersion=2.7.1 -d javaVersion=17 | tar -xzvf -
+curl https://start.spring.io/starter.tgz -d dependencies=webflux,data-r2dbc -d baseDir=azure-database-workshop -d bootVersion=2.7.4 -d javaVersion=17 | tar -xzvf -
 ```
 
 ### Add the reactive Azure SQL Database driver implementation

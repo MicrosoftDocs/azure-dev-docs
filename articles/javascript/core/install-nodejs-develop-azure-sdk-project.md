@@ -2,7 +2,7 @@
 title: Install Node.js for Azure SDK application development
 description: Learn how to install Node.js for common development scenarios with Azure.
 ms.topic: how-to
-ms.date: 07/28/2021
+ms.date: 08/09/2022
 ms.custom: devx-track-js
 ---
 

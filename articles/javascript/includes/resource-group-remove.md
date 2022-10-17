@@ -1,7 +1,7 @@
 ---
 ms.custom: devx-track-js, devx-track-azurecli
 ms.topic: include
-ms.date: 08/02/2021
+ms.date: 08/09/2022
 ---
 
 # [VS Code extension](#tab/vscode)

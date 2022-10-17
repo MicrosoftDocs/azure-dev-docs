@@ -1,12 +1,12 @@
 ---
 title: Send push notifications to React Native apps using Azure Notification Hubs via a backend service | Microsoft Docs
 description: Learn how to push notifications to React Native apps that use Azure Notification Hubs via a backend service. 
-author: alexeystrakh
+author: mikeparker104
 
 ms.service: mobile-services
 ms.topic: tutorial
 ms.date: 07/27/2020
-ms.author: alstrakh
+ms.author: miparker
 ---
 
 # Tutorial: Send push notifications to React Native apps using Azure Notification Hubs via a backend service  

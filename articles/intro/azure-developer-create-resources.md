@@ -2,15 +2,21 @@
 title: How do I create and manage resources in Azure?
 description: An overview of techniques that developers use to provision resources in Azure.
 keywords: azure portal, azure cli, azure powershell, azure sdk, azure rest apis
-ms.prod: azure
+ms.service: azure-devops
 ms.topic: overview
-ms.date: 03/28/2022
+ms.date: 08/04/2022
 ms.custom: overview
 ---
 
 # How do I create and manage resources in Azure?
 
-Azure provides a variety of tools to create and manage the Azure resources used by your application. Different tools are designed to support different use cases, and most Azure developers use a combination of different tools depending on the job they need to perform. For example, you might:
+Azure provides a variety of tools to create and manage the Azure resources used by your application. 
+
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE50C5I]
+
+
+Different tools are designed to support different use cases, and most Azure developers use a combination of different tools depending on the job they need to perform. For example, you might:
 
 * **Use a GUI tool like the Azure portal or the Azure Tools extension for VS Code** when prototyping Azure resources for a new application. GUI tools guide you through the process of creating new services and let you review and select the options for a service using drop-down menus and other graphical elements.
 
@@ -40,7 +46,7 @@ Developers using [Visual Studio Code](https://code.visualstudio.com) can manage 
 > [!div class="nextstepaction"]
 > [Download Azure Tools extension pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack)
 
-:::image type="content" source="./media/visual-studio-code-azure-tools-extension-800px.png" alt-text="A screenshot showing Visual Studio Code with the Azure Tools extension pack installed." lightbox="./media/visual-studio-code-azure-tools-extension.png":::
+:::image type="content" source="./media/visual-studio-code-azure-tools-extension.png" alt-text="A screenshot showing Visual Studio Code with the Azure Tools extension pack installed.":::
 
 ## Command line tools
 
@@ -54,7 +60,7 @@ The [Azure CLI](/cli/azure/what-is-azure-cli) is a cross-platform command line t
 * Outputs results as JSON (by default). Results can also be formatted as YAML, an ASCII table or tab-separated values with no keys.
 * Provides the ability to query and shape output through the use of [JMESPath queries](https://jmespath.org/).
 
-Azure CLI commands are easily incorporated into popular scripting languages like [Bash](/learn/modules/bash-introduction/) giving you the ability to script common tasks.
+Azure CLI commands are easily incorporated into popular scripting languages like [Bash](/training/modules/bash-introduction/) giving you the ability to script common tasks.
 
 ```azurecli
 LOCATION='eastus'                                        

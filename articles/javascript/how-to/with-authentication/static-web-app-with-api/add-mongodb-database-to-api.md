@@ -1,9 +1,9 @@
 ---
-title: "4: Add MongoDB to Static web app API"
+title: "4: Add MongoDB to Static JavaScript web app API"
 titleSuffix: Azure Developer Center
 description: In this article, learn to add a MongoDB database to the Static web app's API. 
 ms.topic: how-to
-ms.date: 07/12/2021
+ms.date: 08/09/2022
 ms.custom: devx-track-js
 ---
 
@@ -628,7 +628,7 @@ validateAccessToken = async (accessToken) => {
     /**
      * Validates the token against issuer, audience, scope
      * and timestamp, though implementation and extent vary. For more information, visit:
-     * https://docs.microsoft.com/azure/active-directory/develop/access-tokens#validating-tokens
+     * https://learn.microsoft.com/azure/active-directory/develop/access-tokens#validating-tokens
      */
 
     const now = Math.round((new Date()).getTime() / 1000); // in UNIX format

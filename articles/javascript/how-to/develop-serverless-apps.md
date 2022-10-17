@@ -153,7 +153,7 @@ Cosmos DB currently provides the following integration for functions:
 
 The [Azure Functions developer guide for JavaScript](/azure/azure-functions/functions-reference-node) is a good starting point. 
 
-Use the Microsoft Learn Module to learn how to [enable automatic updates in a web app using Azure functions and SignalR Service](/learn/modules/automatic-update-of-a-webapp-using-azure-functions-and-signalr/).
+Use the Learn module to learn how to [enable automatic updates in a web app using Azure functions and SignalR Service](/training/modules/automatic-update-of-a-webapp-using-azure-functions-and-signalr/).
 
 * [Run code on a timer](/azure/azure-functions/functions-create-scheduled-function)
 * [Run code when files are uploaded or updated in Azure Blob storage](/azure/storage/blobs/storage-upload-process-images?tabs=nodejsv10)

@@ -1,5 +1,5 @@
 ---
-author: jess-johnson-msft
+author: jessmjohnson
 ms.author: jejohn
 ms.topic: include
 ms.date: 06/01/2022
@@ -24,8 +24,8 @@ On the **Single server** page, fill out the form as follows:
 
 6. **Compute + storage** &rarr; Select **Configure server** to select a different Compute + storage plan, which is discussed below.
 
-7. **Admin username** &rarr; Enter an admin username following the portal suggestion.
+7. **Admin username** &rarr; Enter an admin username following the portal suggestions for naming.
 
 8. **Password** &rarr; Enter the admin password.
 
-9. **Confirm password** &rarr;
+9. **Confirm password** &rarr; Re-enter the admin password.

@@ -1,5 +1,5 @@
 ---
-title: Select Azure app hosting
+title: Select Azure app hosting for JavaScript
 description: Hosting options and deployment scenarios include several services and tools for Azure. Publish your app and serve it on Azure.  
 ms.topic: how-to
 ms.date: 08/19/2021
@@ -14,7 +14,7 @@ Hosting options and deployment scenarios include several services and tools for 
 
 Use the following table to select a hosting service for most common app needs. 
 
-For a complete overview of different hosting options, see [Decision tree for Azure compute services](/azure/architecture/guide/technology-choices/compute-decision-tree) and the [Core Cloud Services - Azure compute options](/learn/modules/intro-to-azure-compute) module on Microsoft Learn.
+For a complete overview of different hosting options, see [Decision tree for Azure compute services](/azure/architecture/guide/technology-choices/compute-decision-tree) and the [Core Cloud Services - Azure compute options](/training/modules/intro-to-azure-compute) module.
 
 
 | Service |App type supported| Suggested for |
@@ -51,7 +51,7 @@ These choices are tailored to specific use cases.
 | Service | Suggested for |
 |--|--|
 |[Storage](/azure/storage/blobs/storage-blob-static-website-how-to?tabs=azure-portal)|Azure Storage can also host a static web app. This is helpful if you need tight integration between robust Storage and your client application.|
-|[Content Delivery Network ](/azure/cdn/) (CDN)|Deliver pre-rendered websites. Cache static objects loaded from Azure Blob storage, a web application, or any publicly accessible web server, by using the closest point of presence (POP) server. Azure CDN can also accelerate dynamic content, which cannot be cached, by using various network and routing optimizations.|
+|[Content Delivery Network](/azure/cdn/) (CDN)|Deliver pre-rendered websites. Cache static objects loaded from Azure Blob storage, a web application, or any publicly accessible web server, by using the closest point of presence (POP) server. Azure CDN can also accelerate dynamic content, which cannot be cached, by using various network and routing optimizations.|
 
 ## Next steps
 

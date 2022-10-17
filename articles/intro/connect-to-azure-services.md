@@ -1,7 +1,7 @@
 ---
 title: Connect your app to Azure Services
 description: An overview of how to connect your applications to Azure.
-ms.prod: azure
+ms.service: azure-devops
 ms.topic: article
 ms.date: 03/28/2022
 ---
@@ -33,6 +33,10 @@ When possible, it is recommended to use the Azure SDK to access Azure services f
 ## Azure SDK
 
 The Azure SDK allows programmatic access to Azure services from .NET, Java, JavaScript, Python, and Go applications. Applications install the necessary packages from their respective package manager and then call methods to programmatically access Azure resources.
+
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE50C7t]
+
 
 More information about the Azure SDK for each language can be found in each language's developer center.
 

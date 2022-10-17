@@ -2,7 +2,7 @@
 title: What is Azure for JavaScript developers
 description: Azure concepts for JavaScript, TypeScript, and Node.js developers. 
 ms.topic: how-to
-ms.date: 07/28/2021
+ms.date: 08/09/2022
 ms.custom: devx-track-js
 ---
 

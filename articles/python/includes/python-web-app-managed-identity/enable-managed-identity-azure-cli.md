@@ -1,5 +1,5 @@
 ---
-author: jess-johnson-msft
+author: jessmjohnson
 ms.author: jejohn
 ms.topic: include
 ms.date: 06/01/2022
@@ -10,17 +10,21 @@ To enable managed identity for an Azure resource. use the [az webapp identity](/
 #### [bash](#tab/terminal-bash)
 
 ```azurecli
+APP_SERVICE_NAME='<web-app-name>'
+
 az webapp identity assign \
-    --resource-group <resource-group-name> \
-    --name <web-app-name>
+    --resource-group $RESOURCE_GROUP_NAME \
+    --name $APP_SERVICE_NAME
 ```
 
 #### [PowerShell terminal](#tab/terminal-powershell)
 
 ```azurecli
+$APP_SERVICE_NAME='<web-app-name>'
+
 az webapp identity assign `
-    --resource-group <resource-group-name> `
-    --name <web-app-name>
+    --resource-group $RESOURCE_GROUP_NAME `
+    --name $APP_SERVICE_NAME
 ```
 
 ---

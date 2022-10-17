@@ -1,7 +1,7 @@
 ---
 title: "Tutorial: Secure Spring Boot apps using Azure Key Vault certificates"
 description: In this tutorial, you secure your Spring Boot (including Azure Spring Apps) apps with TLS/SSL certificates using Azure Key Vault and managed identities for Azure resources.
-ms.date: 03/30/2022
+ms.date: 07/22/2022
 ms.service: key-vault
 ms.topic: tutorial
 ms.custom: devx-track-java, devx-track-azurecli
@@ -41,7 +41,7 @@ In this tutorial, you learn how to:
 - [Apache Maven](http://maven.apache.org/), version 3.0.
 
 > [!IMPORTANT]
-> Spring Boot version 2.5 or 2.6 is required to complete the steps in this article.
+> Spring Boot version 2.5 or higher is required to complete the steps in this article.
 
 ## Create a GNU/Linux VM with system-assigned managed identity
 
@@ -128,33 +128,6 @@ Use the following steps to create an Azure VM with a system-assigned managed ide
    sudo apt install msopenjdk-11
    ```
 
-   > [!NOTE]
-   > Another, faster way to get set up the certified Azul Zulu for Azure – Enterprise Edition VM image, which can avoid the installation of Azure SDK. For complete information about Azul Zulu for Azure, see [Download Java for Azure](https://www.azul.com/downloads/azure-only/zulu/).
-   > Run the following command to obtain the URN name.
-   >
-   > ```azurecli
-   >    az vm image list \
-   >        --offer Zulu \
-   >        --location <your region> \
-   >        --all | grep urn
-   > ```
-   >
-   > This command may take a while to complete. When the command completes, it produces output similar to the following lines. Select the value for JDK 11 on Ubuntu.
-   >
-   > ```output
-   > "urn": "azul:azul-zulu11-ubuntu-2004:zulu-jdk11-ubtu2004:20.11.0",
-   > ...
-   > "urn": "azul:azul-zulu8-ubuntu-2004:zulu-jdk8-ubtu2004:20.11.0",
-   > "urn": "azul:azul-zulu8-windows-2019:azul-zulu8-windows2019:20.11.0",
-   > ```
-   >
-   > Use the following command to accept the terms for the image to allow the VM to be created.
-   >
-   > ```azurecli
-   > az vm image terms accept --urn azul:azul-zulu11-ubuntu-2004:zulu-jdk11-ubtu2004:20.11.0
-   > ```
->
-
 ## Create and configure an Azure Key Vault
 
 Use the following steps to create an Azure Key Vault, and to grant permission for the VM's system-assigned managed identity to access the Key Vault for certificates.
@@ -201,7 +174,7 @@ To create the application, use the following steps:
 1. Select the choices as shown in the picture following this list.
     * **Project**: **Maven Project**
     * **Language**: **Java**
-    * **Spring Boot**: **2.5.10**
+    * **Spring Boot**: **2.7.4**
     * **Group**: *com.contoso* (You can put any valid Java package name here.)
     * **Artifact**: *ssltest* (You can put any valid Java class name here.)
     * **Packaging**: **Jar**

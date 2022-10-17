@@ -6,7 +6,7 @@ summary: Java EE, Jakarta EE, and MicroProfile are open specifications for Cloud
 metadata:
   title: Java EE, Jakarta EE, and MicroProfile
   description: Java EE, Jakarta EE, and MicroProfile are open specifications for Cloud Native Java. Learn how to combine the power of Azure with technologies based on these specifications with this documentation.
-  ms.service: azure
+  ms.service: azure-java
   ms.topic: landing-page
   author: KarlErickson
   ms.author: edburns
@@ -24,9 +24,9 @@ landingContent:
       - linkListType: overview
         links:
           - text: Oracle WebLogic Server on Azure VMs
-            url: /azure/virtual-machines/workloads/oracle/oracle-weblogic?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/breadcrumb/toc.json
+            url: /azure/virtual-machines/workloads/oracle/oracle-weblogic?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/ee/breadcrumb/toc.json
           - text: Oracle WebLogic Server on AKS
-            url: /azure/virtual-machines/workloads/oracle/weblogic-aks?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/breadcrumb/toc.json
+            url: /azure/virtual-machines/workloads/oracle/weblogic-aks?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/ee/breadcrumb/toc.json
           - text: IBM WebSphere products on Azure
             url: websphere-family.md
           - text: JBoss EAP on Azure
@@ -38,19 +38,17 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Java app with Helidon to Azure App Service
-            url: ../eclipse-microprofile/deploy-microprofile-helidon-java-app-with-maven-plugin.md?bc=/azure/developer/breadcrumb/toc.json&toc=/azure/developer/java/ee/toc.json
+            url: ../eclipse-microprofile/deploy-microprofile-helidon-java-app-with-maven-plugin.md?bc=/azure/developer/java/ee/breadcrumb/toc.json&toc=/azure/developer/java/ee/toc.json
           - text: Java app with WebSphere Liberty/Open Liberty to Azure Red Hat OpenShift (ARO)
-            url: /azure/openshift/howto-deploy-java-liberty-app?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/breadcrumb/toc.json
+            url: /azure/openshift/howto-deploy-java-liberty-app?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/ee/breadcrumb/toc.json
           - text: Java app with WebSphere Liberty/Open Liberty to AKS
-            url: /azure/aks/howto-deploy-java-liberty-app?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/breadcrumb/toc.json
-          - text: Java app with PostgreSQL to WebSphere Liberty/Open Liberty on AKS
-            url: /azure/aks/howto-deploy-java-liberty-app-with-postgresql?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/breadcrumb/toc.json
+            url: howto-deploy-java-liberty-app-manual.md
           - text: Java app with JBoss EAP to Azure Red Hat OpenShift (ARO)
-            url: /azure/openshift/howto-deploy-java-jboss-enterprise-application-platform-app?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/breadcrumb/toc.json
+            url: /azure/openshift/howto-deploy-java-jboss-enterprise-application-platform-app?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/ee/breadcrumb/toc.json
           - text: Java EE JCache with WebSphere/Open Liberty
             url: how-to-deploy-java-liberty-jcache.md
           - text: Java app with Payara Micro to Azure App Service
-            url: ../eclipse-microprofile/deploy-microprofile-payara-micro-java-app-with-maven-plugin.md?bc=/azure/developer/breadcrumb/toc.json&toc=/azure/developer/java/ee/toc.json
+            url: ../eclipse-microprofile/deploy-microprofile-payara-micro-java-app-with-maven-plugin.md?bc=/azure/developer/java/ee/breadcrumb/toc.json&toc=/azure/developer/java/ee/toc.json
           - text: Traditional WebSphere on Azure VMs
             url: traditional-websphere-application-server-virtual-machines.md
   - title: Code samples
@@ -67,22 +65,32 @@ landingContent:
             url: https://github.com/Azure-Samples/open-liberty-on-aks
   - title: Migrate WebLogic to Azure
     linkLists:
+      - linkListType: quickstart
+        links:
+        - text: WebLogic Server on Azure Virtual Machine
+          url: weblogic-server-azure-virtual-machine.md
+        - text: WebLogic Server on Azure Kubernetes Service
+          url: weblogic-server-azure-kubernetes-service.md
       - linkListType: how-to-guide
         links:
           - text: WebLogic to Azure Virtual Machines
-            url: ../migration/migrate-weblogic-to-virtual-machines.md?bc=/azure/developer/breadcrumb/toc.json&toc=/azure/developer/java/ee/toc.json
+            url: ../migration/migrate-weblogic-to-virtual-machines.md?bc=/azure/developer/java/ee/breadcrumb/toc.json&toc=/azure/developer/java/ee/toc.json
           - text: WebLogic with Azure AD via LDAP
-            url: ../migration/migrate-weblogic-with-aad-ldap.md?bc=/azure/developer/breadcrumb/toc.json&toc=/azure/developer/java/ee/toc.json
+            url: ../migration/migrate-weblogic-with-aad-ldap.md?bc=/azure/developer/java/ee/breadcrumb/toc.json&toc=/azure/developer/java/ee/toc.json
           - text: WebLogic with App Gateway
-            url: ../migration/migrate-weblogic-with-app-gateway.md?bc=/azure/developer/breadcrumb/toc.json&toc=/azure/developer/java/ee/toc.json
+            url: ../migration/migrate-weblogic-with-app-gateway.md?bc=/azure/developer/java/ee/breadcrumb/toc.json&toc=/azure/developer/java/ee/toc.json
           - text: WebLogic with Elastic on Azure
-            url: ../migration/migrate-weblogic-with-elk.md?bc=/azure/developer/breadcrumb/toc.json&toc=/azure/developer/java/ee/toc.json
-  - title: Migrate JBoss EAP to App Service
+            url: ../migration/migrate-weblogic-with-elk.md?bc=/azure/developer/java/ee/breadcrumb/toc.json&toc=/azure/developer/java/ee/toc.json
+  - title: Migrate JBoss EAP to Azure
     linkLists:
+      - linkListType: quickstart
+        links:
+        - text: Red Hat JBoss EAP Server on Azure VM
+          url: jboss-eap-single-server-azure-vm.md
       - linkListType: how-to-guide
         links:
           - text: JBoss EAP to Azure App Service
-            url: ../migration/migrate-jboss-eap-to-jboss-eap-on-azure-app-service.md?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/breadcrumb/toc.json
+            url: ../migration/migrate-jboss-eap-to-jboss-eap-on-azure-app-service.md?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/ee/breadcrumb/toc.json
   - title: Reference
     linkLists:
       - linkListType: reference

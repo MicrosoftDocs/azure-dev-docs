@@ -6,7 +6,7 @@ author: KarlErickson
 ms.author: karler
 ms.date: 07/31/2017
 ms.topic: article
-ms.service: multiple
+ms.service: container-service
 ms.custom: seo-java-july2019, seo-java-september2019, devx-track-java
 ---
 

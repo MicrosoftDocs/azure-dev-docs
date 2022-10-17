@@ -1,17 +1,17 @@
 ---
-title: Troubleshoot Azure Developer CLI Preview
-description: In this article, troubleshoot common problems that might occur when you're using Azure Developer CLI Preview.
+title: Troubleshoot Azure Developer CLI (preview)
+description: In this article, troubleshoot common problems that might occur when you're using Azure Developer CLI.
 author: hhunter-ms
 ms.author: hannahhunter
 keywords: azd, known issues, troubleshooting, azure developer cli
 ms.topic: troubleshooting
 ms.date: 07/11/2022
+ms.service: azure-dev-cli
 ms.custom: devx-track-azdevcli
-ms.prod: azure
 # Customer intent: As a developer, I'm looking for solutions to common problems that occur when I'm using Azure Developer CLI.
 ---
 
-# Troubleshoot Azure Developer CLI Preview
+# Troubleshoot Azure Developer CLI (preview)
 
 This article provides solutions to common problems that might arise when you're using Azure Developer CLI (azd) Preview.
 
@@ -53,7 +53,7 @@ The troubleshooting steps might differ, depending on the root cause.
 
 1. Go to the [Azure portal](https://portal.azure.com).
 
-1. Locate your resource group, which is \<your-environment-name>-rg.
+1. Locate your resource group, which is rg-\<your-environment-name>.
 
 1. Select **Deployments** to get more information.
 

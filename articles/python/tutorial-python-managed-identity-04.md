@@ -1,16 +1,16 @@
 ---
-title: 'Deploy a Python web app to Azure with managed identity: create a storage account'
-description: Create the storage account that the deployed Python (Django or Flask) web app will access in Azure using managed identity.
-author: jess-johnson-msft
+title: Create an Azure storage account with managed identity
+description: Create a storage account that a deployed Python (Django or Flask) web app can access in Azure using managed identity.
+author: jessmjohnson
 ms.author: jejohn
 ms.devlang: python
 ms.topic: tutorial
-ms.date: 06/01/2022
+ms.date: 07/20/2022
 ms.prod: azure-python
-ms.custom: devx-track-python, devx-track-azurecli
+ms.custom: devx-track-python, devx-track-azurecli, vscode-azure-extension-update-completed
 ---
 
-# Create an Azure storage account and configure a role for the managed identity
+# Create an Azure storage account and configure a role for managed identity
 
 This article is part of a tutorial about deploying a Python app to Azure App Service. The web app uses managed identity to authenticate to other Azure resources. In this article, you'll create an Azure Blob Storage account to store images saved by the sample app.
 
@@ -58,7 +58,7 @@ Create a container called *photos* in the storage account with the [az storage c
 
 ## 2. Assign data contributor role
 
-In this step, you'll assign a role to the managed identity. A role is a collection of permissions for a scope or set of resources. Specifically, you assign the *Storage Blob Data Contributor* role to the app's managed identity so that the web app can access the storage account. 
+In this step, you'll assign a role to a managed identity. A role is a collection of permissions for a scope or set of resources. Specifically, you assign the *Storage Blob Data Contributor* role to the app's managed identity so that the web app can access the storage account. 
 
 Grouping Azure resources into a single resource group is commonly done when developing applications that use Azure resources. Up to this point in the tutorial, the App Service and Storage Account you created should be in the same resource group. Therefore, you'll assign the storage role at the resource group level. 
 

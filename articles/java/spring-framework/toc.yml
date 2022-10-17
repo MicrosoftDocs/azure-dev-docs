@@ -71,27 +71,40 @@
         expanded: true
         items:
           - name: Create an app
-            href: /azure/azure-app-configuration/quickstart-java-spring-app?toc=/azure/developer/java/spring-framework/toc.json&bc=/azure/developer/breadcrumb/toc.json
+            href: /azure/azure-app-configuration/quickstart-java-spring-app?toc=/azure/developer/java/spring-framework/toc.json&bc=/azure/developer/java/spring-framework/breadcrumb/toc.json
           - name: Add feature flags
-            href: /azure/azure-app-configuration/quickstart-feature-flag-spring-boot?toc=/azure/developer/java/spring-framework/toc.json&bc=/azure/developer/breadcrumb/toc.json
+            href: /azure/azure-app-configuration/quickstart-feature-flag-spring-boot?toc=/azure/developer/java/spring-framework/toc.json&bc=/azure/developer/java/spring-framework/breadcrumb/toc.json
           - name: Use dynamic configuration
-            href: /azure/azure-app-configuration/enable-dynamic-configuration-java-spring-app?toc=/azure/developer/java/spring-framework/toc.json&bc=/azure/developer/breadcrumb/toc.json
+            href: /azure/azure-app-configuration/enable-dynamic-configuration-java-spring-app?toc=/azure/developer/java/spring-framework/toc.json&bc=/azure/developer/java/spring-framework/breadcrumb/toc.json
           - name: Use Key Vault references
-            href: /azure/azure-app-configuration/use-key-vault-references-spring-boot?toc=/azure/developer/java/spring-framework/toc.json&bc=/azure/developer/breadcrumb/toc.json
+            href: /azure/azure-app-configuration/use-key-vault-references-spring-boot?toc=/azure/developer/java/spring-framework/toc.json&bc=/azure/developer/java/spring-framework/breadcrumb/toc.json
           - name: Use feature flags
-            href: /azure/azure-app-configuration/use-feature-flags-spring-boot?toc=/azure/developer/java/spring-framework/toc.json&bc=/azure/developer/breadcrumb/toc.json
+            href: /azure/azure-app-configuration/use-feature-flags-spring-boot?toc=/azure/developer/java/spring-framework/toc.json&bc=/azure/developer/java/spring-framework/breadcrumb/toc.json
   - name: Tutorials
     items:
-      - name: Deploy to App Service and Azure Spring Apps
-        href: https://spring.io/guides/gs/spring-boot-for-azure/
+      - name: Deploy to Azure Spring Apps
+        href: /azure/spring-apps/quickstart?toc=/azure/developer/java/spring-framework/toc.json&bc=/azure/developer/java/spring-framework/breadcrumb/toc.json
       - name: Deploy to Kubernetes
         href: deploy-spring-boot-java-app-on-kubernetes.md
-      - name: Deploy to Web App for Containers
+      - name: Deploy to Azure App Service
         href: deploy-spring-boot-java-app-on-linux.md
       - name: Azure Redis Cache
         href: configure-spring-boot-initializer-java-app-with-redis-cache.md
       - name: End-to-end App Service with MySQL
         href: spring-app-service-e2e.md
+      - name: Azure Spring Apps with passwordless connections to Azure database
+        href: deploy-passwordless-spring-database-app.md
+      - name: Migrate to use passwordless connections
+        expanded: true
+        items:
+          - name: Azure Database for SQL server
+            href: migrate-sql-database-to-passwordless-connection.md
+          - name: Azure Database for MySQL
+            href: migrate-mysql-to-passwordless-connection.md
+          - name: Azure Database for PostgreSQL
+            href: migrate-postgresql-to-passwordless-connection.md
+          - name: Azure Event Hubs for Kafka
+            href: migrate-kafka-to-passwordless-connection.md
   - name: Samples
     items:
       - name: To Do List with Cosmos DB

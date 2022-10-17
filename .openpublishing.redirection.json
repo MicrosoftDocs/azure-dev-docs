@@ -1,5 +1,27 @@
 {
     "redirections": [
+      { "source_path": "articles/lab/index.yml",
+        "redirect_url": "/azure/developer/python" 
+      },
+      { "source_path": "articles/lab/quickstart-python-flask.md",
+        "redirect_url": "/azure/developer/python" 
+      },
+      { "source_path": "articles/lab/quickstart-python-flask-minimized.md",
+        "redirect_url": "/azure/developer/python" 
+      },
+      { "source_path": "articles/lab/quickstart-python-flask-multipage.yml",
+        "redirect_url": "/azure/developer/python" 
+      },
+      { "source_path": "articles/lab/tool-tip-metrics.md",
+        "redirect_url": "/azure/developer/python" 
+      },
+      { "source_path": "articles/javascript/how-to/with-web-app/graphql/get-started.md",
+        "redirect_url": "/azure/developer/javascript/how-to/with-web-app/graphql/azure-function-hello-world" 
+      },
+      {
+        "source_path": "articles/javascript/how-to/with-web-app/add-authentication-to-web-app.md",
+        "redirect_url": "/azure/app-service/scenario-secure-app-authentication-app-service-as-user"
+      },
       {
         "source_path": "articles/javascript/tutorial-vscode-serverless-node-01.md",
         "redirect_url": "/azure/developer/javascript/tutorial/azure-function-cosmos-db-mongo-api"
@@ -1239,6 +1261,30 @@
       {
         "source_path": "articles/python/tutorial-deploy-app-service-on-linux-07.md",
         "redirect_url": "/azure/app-service/quickstart-python"
+      },
+      {
+        "source_path": "articles/terraform/create-linux-virtual-machine-with-infrastructure.md",
+        "redirect_url": "/azure/virtual-machines/linux/quick-create-terraform"
+      },
+      {
+        "source_path": "articles/python/tutorial-deploy-containers-01.md",
+        "redirect_url": "/azure/developer/python/containers-in-azure-overview-python"
+      },
+      {
+        "source_path": "articles/python/tutorial-deploy-containers-02.md",
+        "redirect_url": "/azure/developer/python/tutorial-containerize-deploy-python-web-app-azure-03"
+      },
+      {
+        "source_path": "articles/python/tutorial-deploy-containers-03.md",
+        "redirect_url": "/azure/developer/python/tutorial-containerize-deploy-python-web-app-azure-04"
+      },
+      {
+        "source_path": "articles/python/tutorial-deploy-containers-04.md",
+        "redirect_url": "/azure/developer/python/containers-in-azure-overview-python"
+      },
+      {
+        "source_path": "articles/python/tutorial-deploy-containers-05.md",
+        "redirect_url": "/azure/developer/python/containers-in-azure-overview-python"
       }
     ]
   }

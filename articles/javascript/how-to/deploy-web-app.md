@@ -2,8 +2,8 @@
 title: Deployment options for Azure hosting
 description: Deploying your apps to Azure hosting services means moving a file or set of files to Azure to be served via an HTTP endpoint. 
 ms.topic: how-to
-ms.date: 08/19/2021
-ms.custom: seo-javascript-september2019, seo-javascript-october2019, devx-track-js, contperf-fy21q2
+ms.date: 08/31/2022
+ms.custom: seo-javascript-september2019, seo-javascript-october2019, devx-track-js, contperf-fy21q2, vscode-azure-extension-update-completed 
 ---
 
 # Deployment choices for your web app to Azure
@@ -38,7 +38,12 @@ Do not use deployment slots to mix deployment purposes. All deployment slots sha
 
 ## Deploy with Visual Studio Code
 
-To deploy or redeploy your App service app with Visual Studio Code, right-click your app service from the list of service in the App service extension, then select **Deploy to Web App...**. 
+To deploy or redeploy your App service app with Visual Studio Code, complete the following steps:
+
+1. Install the related Azure extensions, for example [AzureApp Service](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice) or [Azure Functions](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions).
+1. Open the Azure explorer. Select the Azure icon in the primary side bar or use the keyboard shortcut (<kbd>Shift</kbd> + <kbd>Alt</kbd> + <kbd>A</kbd>).
+1. In the Resources group, select your subscription and service.
+1. Right-click your service then select **Deploy to Web App...**. 
 
 :::image type="content" source="../media/azure-app-service-vscode-extensions/deploy-or-redeploy-app-service.png" alt-text="Deploy or redeploy to App service with Visual Studio Code":::
 
@@ -55,9 +60,9 @@ There are several ways to immediately see the files in your hosted Azure Web app
 
     :::image type="content" source="../media/deployment-methods/deploy-to-azure-web-app-view-files-in-portal-console-window.png" alt-text="In the Azure portal for your web app or function app, select `Console` from the `Development tools` menu.":::
 
-* View files in VS Code extension - select the Azure icon in the Activity bar then select your hosting resource under the service tree. The **Files** node provides a view of your remote files. 
+* View files in VS Code extension: - select the Azure icon in the Activity bar. In the Resources section, select your subscription and service. The **Files** node provides a view of your remote files. 
 
-    * [Azure App service](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice) and [Azure Functions app](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) extensions both provide a view of the remote files.
+    * [Azure App service](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice) and [Azure Functions](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) extensions both provide a view of the remote files.
 
     :::image type="content" source="../media/deployment-methods/deploy-to-azure-web-app-view-files-in-visual-studio-code-extension.png" alt-text="[Azure App service and Azure Functions app extensions both provide a view of the remote files.":::
 

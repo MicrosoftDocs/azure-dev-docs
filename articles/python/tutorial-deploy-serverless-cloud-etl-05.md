@@ -6,9 +6,7 @@ ms.custom: devx-track-python, devx-track-azurecli
 ms.devlang: python
 ms.topic: tutorial
 ms.prod: azure-python
-author: jess-johnson-msft
-ms.author: jejohn
-ms.date: 10/04/2021
+ms.date: 10/14/2022
 ---
 
 # Load relational data into Azure Data Lake Storage with Azure Functions
@@ -267,7 +265,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
     processed_file_prefix = 'financial_demo'
 
     # List of columns relevant for analysis
-    cols = ['Segment', 'Country', 'Units Sold', 'Gross Sales', 'Date']
+    cols =  ['segment', 'country', 'units_sold', 'gross_sales', 'date']
 
     # List of columns to aggregate
     groupby_cols = ['segment', 'country', 'sale_year', 'sale_month']

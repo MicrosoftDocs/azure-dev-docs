@@ -2,13 +2,50 @@
 title: "What's new for JavaScript docs"
 description: "What's new in JavaScript docs in the Developer Center"
 ms.topic: how-to
-ms.date: 06/24/2022
+ms.date: 09/30/2022
 
 ---
 
 # JavaScript docs: What's new
 
 Find new and updated content for JavaScript and TypeScript developers.
+
+## 2022 September
+
+### Updated in September
+
+|Name|Description|
+|---------------------------------------|--|
+|Cosmos DB Core (SQL) - Quickstart| Updated [quickstart](/azure/cosmos-db/sql/create-sql-api-nodejs?tabs=azure-cli%2Cwindows) for top tasks and support documentation with code [samples](https://github.com/Azure-Samples/cosmos-db-sql-api-javascript-samples/tree/main/001-quickstart).|
+|Cosmos DB Core (SQL) - Training module|Visual Studio Code + Cosmos DB SDK - Updated [Build a Node.js app for Azure Cosmos DB in Visual Studio Code](/training/modules/build-node-cosmos-app-vscode). Updates include more code [samples](https://github.com/Azure-Samples/cosmos-db-sql-api-javascript-samples/tree/main/training/build-node-cosmos-app-vscode) using @azure/cosmos with queries using keywords such as LIKE, JOIN, WHERE.|
+|Docs - Blob Storage| Added [Connect with passwordless authentication to Azure](/azure/storage/blobs/storage-blob-javascript-get-started#connect-with-passwordless-authentication-to-azure)|
+|Docs - Blob Storage| Added [Get URL for container or blob](/azure/storage/blobs/storage-blob-get-url-javascript) - thanks to contribution from @Scottlexium. |
+
+
+## 2022 August
+
+### Updated in August
+
+|Name|Description|
+|---------------------------------------|--|
+|GraphQL|Samples and procedures updated to latest frameworks:<br>* [Deploy a GraphQL API as an Azure Function](how-to/with-web-app/graphql/azure-function-hello-world.md)<br>* [Deploy a GraphQL API for CRUD mutations as an Azure Function](how-to/with-web-app/graphql/azure-function-crud-mutation.md) <br>* [Build and deploy a GraphQL static web app to Azure](how-to/with-web-app/graphql/static-web-app-graphql/introduction.md)|
+
+## 2022 July 
+
+### New in July
+
+|Name|Description|
+|---------------------------------------|--|
+|Azure Blob Storage|* [Create Account SAS tokens](/azure/storage/blobs/storage-blob-account-delegation-sas-create-javascript)<br>* [Create User SAS tokens](/azure/storage/blobs/storage-blob-create-user-delegation-sas-javascript)|
+
+
+### Updated in July
+
+|Name|Description|
+|---------------------------------------|--|
+|JavaScript Dev Center|[Upload file to Azure Blob Storage with an Azure Function](./how-to/with-web-app/azure-function-file-upload.md)<br><br>* Uploaded file URL returned from Blob Storage SDK in SAS token URL instead of constructing URL<br> * SAS token URL is an authorized URL with a time expiration<br>* Added architectural drawing for system<br>* Updated screenshots based on changes to Azure explorer |
+|Azure Blob Storage|Understand how to [upload with each Blob Storage blob client](/azure/storage/blobs/storage-blob-upload-javascript#upload-by-blob-client)|
+
 
 ## 2022 June
 
@@ -31,7 +68,7 @@ Find new and updated content for JavaScript and TypeScript developers.
 
 |Name|Description|
 |---------------------------------------|--|
-|[Learn module](/learn/modules/javascript-deploy-expressjs-app-service-with-database/): Deploy Express.js web app with MongoDB database to Azure App Service|Learn how to create, configure and deploy an Express.js (Node.js) web app with a MongoDB database to Azure App Service. The [sample code snippets](https://github.com/Azure-Samples/AzureStorageSnippets/tree/master/blobs/howto/JavaScript/NodeJS-v12/dev-guide) are available in GitHub as runnable Node.js files.|
+|[Learn module](/training/modules/javascript-deploy-expressjs-app-service-with-database/): Deploy Express.js web app with MongoDB database to Azure App Service|Learn how to create, configure and deploy an Express.js (Node.js) web app with a MongoDB database to Azure App Service. The [sample code snippets](https://github.com/Azure-Samples/AzureStorageSnippets/tree/master/blobs/howto/JavaScript/NodeJS-v12/dev-guide) are available in GitHub as runnable Node.js files.|
 |Azure SDK for JavaScript|* [Install packages](./sdk/azure-sdk-install.md?tabs=npm-install%2cnpm-install-version%2cnpm-list%2cnpm-uninstall)<br>* [Authentication Overview](./sdk/authentication/overview.md)<br>* [Authentication in local development with service principals](./sdk/authentication/local-development-environment-service-principal.md?tabs=azure-portal)<br>* [Authentication in local development with developer account](./sdk/authentication/local-development-environment-developer-account.md?tabs=azure-portal%2csign-in-vscode)<br>* [Authentication in Azure-hosted apps](./sdk/authentication/azure-hosted-apps.md?tabs=azure-portal%2cazure-app-service)<br>* [JS Tutorial: Authentication in on-premises app](./sdk/authentication/on-premises-apps.md?tabs=azure-portal)|
 |[Docs tutorial: Upload and analyze a file with Azure Functions and Blob Storage](/azure/storage/blobs/blob-upload-function-trigger-javascript?tabs=storage-resource-visual-studio-code%2Ccomputer-vision-azure-portal)|In this tutorial, you'll learn how to upload an image to Azure Blob Storage and process it using Azure Functions and Computer Vision. You'll also learn how to implement Azure Function triggers and bindings as part of this process. Together, these services will analyze an uploaded image that contains text, extract the text out of it, and then store the text in a database row for later analysis or other purposes. The [sample code](https://github.com/Azure-Samples/msdocs-storage-bind-function-service/tree/main/javascript) is available in GitHub.|
 
@@ -50,7 +87,7 @@ Find new and updated content for JavaScript and TypeScript developers.
 
 |Name|Description|
 |---------------------------------------|--|
-|[Learn module](/learn/modules/javascript-deploy-expressjs-app-service/): Deploy Express.js to Azure App Service|Create Azure service resources for an Express.js web app. Configure, secure, and deploy the web app. Review the logs after deployment. Full [sample code](https://github.com/Azure-Samples/msdocs-javascript-nodejs-server/) available.|
+|[Learn module](/training/modules/javascript-deploy-expressjs-app-service/): Deploy Express.js to Azure App Service|Create Azure service resources for an Express.js web app. Configure, secure, and deploy the web app. Review the logs after deployment. Full [sample code](https://github.com/Azure-Samples/msdocs-javascript-nodejs-server/) available.|
 
 ### Updated in March
 
@@ -181,8 +218,7 @@ Find new and updated content for JavaScript and TypeScript developers.
 
 |Name|Description|
 |---------------------------------------|--|
-|[Get started with GraphQL on Azure](./how-to/with-web-app/graphql/get-started.md)|Learn how to use a GraphQL API and deploy to Azure using the Apollo server in an Azure Function.|
-|[Deploy a GraphQL API as an Azure Function ](./how-to/with-web-app/graphql/azure-function-hello-world.md)|Learn how to build and deploy an Apollo server-based GraphQL API endpoint. This article includes a simple `Hello World` API for those very new to GraphQL, along with a simple CRUD operations API using mutations.|
+|[Deploy a GraphQL API as an Azure Function](./how-to/with-web-app/graphql/azure-function-hello-world.md)|Learn how to build and deploy an Apollo server-based GraphQL API endpoint. This article includes a simple `Hello World` API for those very new to GraphQL, along with a simple CRUD operations API using mutations.|
 |[How to authenticate users with Microsoft Authentication Library for React](./how-to/with-authentication/static-web-app-with-api/introduction.md)|Learn how to authenticate users with the Microsoft Authentication Library for React (MSAL React) and call an Azure service on behalf of the user.|
 
 ## 2021 June 
@@ -215,17 +251,11 @@ Find new and updated content for JavaScript and TypeScript developers.
 
 ## 2021 April
 
-### New in April
-
-|Name|
-|---------------------------------------|
-|[Add easy authentication to your Express.js web app](./how-to/with-web-app/add-authentication-to-web-app.md)<br><br>Add Microsoft authentication to your web app with an app registration and an Azure app service. The Azure app service provides an easy authentication ("easy auth") to your web app, doing most of the work for a simple authentication use case for you. |
-
 ### Updated in April
 
 |Name|
 |---------------------------------------|
-|[Set up development environment to use Azure SDK for JavaScript](./core/nodejs-sdk-azure-authenticate.md)<br><br>Use the **DefaultAzureCredential** to authenticate to the Azure cloud. Once your environment is correctly configured, you won't need to interactively login or store and manage credentials.|
+|[Set up development environment to use Azure SDK for JavaScript](./core/nodejs-sdk-azure-authenticate.md)<br><br>Use the **DefaultAzureCredential** to authenticate to the Azure cloud. Once your environment is correctly configured, you won't need to interactively log in or store and manage credentials.|
 |[Recommended actions for Monitor Azure resources](./how-to/node-sdk-logging.md)<br><br>When you create an Azure resource, configure proper monitoring, alerting, and logging. |
 |[View deployed files in App or Functions services](./how-to/deploy-web-app.md#view-files-in-azure-hosted-environment)<br><br>Quick and simple methods to view your deployed files in the Azure portal or VSCode.|
 
@@ -321,9 +351,9 @@ Find new and updated content for JavaScript and TypeScript developers.
 
 |Name|
 |---------------------------------------|
-|Static Web App, JavaScript, CodeTour: Use basketball stats to optimize game play with Visual Studio Code, inspired by SPACE JAM: A NEW LEGACY - [Learn](/learn/paths/optimize-basketball-games-with-machine-learning/)|
-|Build a simple website using HTML, CSS, and JavaScript - [Learn](/learn/modules/build-simple-website/)|
-|Use Visual Studio Code to build a JavaScript and Vue.js dashboard with a Serverless API powered by Azure Functions and Node.js. - [Learn](/learn/modules/build-api-azure-functions)|
+|Static Web App, JavaScript, CodeTour: Use basketball stats to optimize game play with Visual Studio Code, inspired by SPACE JAM: A NEW LEGACY - [Learn](/training/paths/optimize-basketball-games-with-machine-learning/)|
+|Build a simple website using HTML, CSS, and JavaScript - [Learn](/training/modules/build-simple-website/)|
+|Use Visual Studio Code to build a JavaScript and Vue.js dashboard with a Serverless API powered by Azure Functions and Node.js. - [Learn](/training/modules/build-api-azure-functions)|
 
 ## 2020 November
 

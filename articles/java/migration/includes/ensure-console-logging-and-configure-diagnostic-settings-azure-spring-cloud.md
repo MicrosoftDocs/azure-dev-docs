@@ -8,7 +8,7 @@ ms.date: 4/15/2020
 
 Configure your logging so that all output is routed to the console and not to files.
 
-After an application is deployed to Azure Spring Apps, [add a diagnostic setting](/azure/spring-cloud/diagnostic-services) to make logged events available for consumption, for example via Azure Monitor Log Analytics.
+After an application is deployed to Azure Spring Apps, [add a diagnostic setting](/azure/spring-apps/diagnostic-services) to make logged events available for consumption, for example via Azure Monitor Log Analytics.
 
 #### LogStash/ELK Stack
 

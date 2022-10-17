@@ -4,7 +4,7 @@ description: Create workflows within your repository to build, test, package, re
 author: N-Usha 
 ms.author: ushan 
 ms.topic: conceptual
-ms.service: azure 
+ms.service: azure
 ms.date: 03/19/2022
 ms.custom: github-actions-azure
 ---
@@ -88,7 +88,7 @@ Visit the [Marketplace for GitHub Actions for Azure](https://github.com/marketpl
 ## Next Steps
 
 > [!div class="nextstepaction"]
-> [Learning path, Automate your workflow with GitHub Actions](/learn/modules/github-actions-automate-tasks/)
+> [Learning path, Automate your workflow with GitHub Actions](/training/modules/github-actions-automate-tasks/)
 
 > [!div class="nextstepaction"]
 > [Learning Lab, Continuous Delivery with Azure](https://lab.github.com/githubtraining/github-actions:-continuous-delivery-with-azure)

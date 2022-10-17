@@ -1,5 +1,5 @@
 ---
-author: jess-johnson-msft
+author: jessmjohnson
 ms.author: jejohn
 ms.topic: include
 ms.date: 06/01/2022
@@ -11,7 +11,7 @@ ms.custom: devx-track-python
 
 #### [Windows](#tab/windows)
 
-```Cmd
+```powershell
 py -3.9 -m venv .venv
 .venv\scripts\activate
 ```

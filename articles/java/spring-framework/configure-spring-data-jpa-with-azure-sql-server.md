@@ -2,7 +2,7 @@
 title: Use Spring Data JPA with Azure SQL Database
 description: Learn how to use Spring Data JPA with an Azure SQL Database.
 documentationcenter: java
-ms.date: 07/15/2022
+ms.date: 07/22/2022
 ms.author: bbenz
 ms.service: sql-database
 ms.tgt_pltfrm: multiple
@@ -18,6 +18,8 @@ This article demonstrates creating a sample application that uses [Spring Data J
 
 [The Java Persistence API (JPA)](https://en.wikipedia.org/wiki/Java_Persistence_API) is the standard Java API for object-relational mapping.
 
+Azure SQL database also supports Azure Active Directory (Azure AD) authentication. Azure AD authentication is a mechanism for connecting to Azure SQL Database using identities defined in Azure AD. With Azure AD authentication, you can manage database user identities and other Microsoft services in a central location, which simplifies permission management. With Azure AD authentication, you can achieve passwordless connection. To learn more about deploying a Spring Data application to Azure Spring Apps and using managed identity, see [Tutorial: Deploy a Spring application to Azure Spring Apps with a passwordless connection to an Azure database](deploy-passwordless-spring-database-app.md?tabs=sqlserver).
+
 [!INCLUDE [spring-data-prerequisites.md](includes/spring-data-prerequisites.md)]
 
 ## Sample application
@@ -31,7 +33,7 @@ In this article, we will code a sample application. If you want to go faster, th
 Generate the application on the command line by entering:
 
 ```bash
-curl https://start.spring.io/starter.tgz -d dependencies=web,data-jpa,sqlserver -d baseDir=azure-database-workshop -d bootVersion=2.7.1 -d javaVersion=17 | tar -xzvf -
+curl https://start.spring.io/starter.tgz -d dependencies=web,data-jpa,sqlserver -d baseDir=azure-database-workshop -d bootVersion=2.7.4 -d javaVersion=1.8 | tar -xzvf -
 ```
 
 ### Configure Spring Boot to use Azure SQL Database
@@ -41,9 +43,9 @@ Open the *src/main/resources/application.properties* file, and add the following
 ```properties
 logging.level.org.hibernate.SQL=DEBUG
 
-spring.datasource.url=jdbc:sqlserver://$AZ_DATABASE_NAME.database.windows.net:1433;database=demo;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;
-spring.datasource.username=spring@$AZ_DATABASE_NAME
-spring.datasource.password=$AZ_SQL_SERVER_PASSWORD
+spring.datasource.url=jdbc:sqlserver://${AZ_DATABASE_NAME}.database.windows.net:1433;database=demo;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;
+spring.datasource.username=spring@${AZ_DATABASE_NAME}
+spring.datasource.password=${AZ_SQL_SERVER_PASSWORD}
 
 spring.jpa.show-sql=true
 spring.jpa.hibernate.ddl-auto=create-drop

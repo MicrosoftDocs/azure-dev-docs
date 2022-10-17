@@ -10,23 +10,31 @@ ms.author: adhal
 
 # How to use the Azure Mobile Apps client library for .NET
 
-This guide shows you how to perform common scenarios using the .NET client library for Azure Mobile Apps.  Use the .NET client library in Windows (WPF, UWP) or Xamarin (Native or Forms) applications.  If you're new to Azure Mobile Apps, consider first completing the [Quickstart for Xamarin.Forms](../../quickstarts/xamarin-forms/index.md) tutorial.  
+This guide shows you how to perform common scenarios using the .NET client library for Azure Mobile Apps. Use the .NET client library in iOS, Android, .NET MAUI, Windows (WPF, UWP, Windows App SDK with WinUI 3), or Xamarin applications.  
+
+If you're new to Azure Mobile Apps, consider first completing one of the quickstart tutorials:
+
+* [.NET MAUI](../../quickstarts/maui/index.md)
+* [Windows App SDK (WinUI 3)](../../quickstarts/winui/index.md)
+* [WPF](../../quickstarts/wpf/index.md)
+* [Xamarin.Forms](../../quickstarts/xamarin-forms/index.md)
 
 > [!NOTE]
-> This article covers the latest (v5.0.0) edition of the Microsoft Datasync Framework.  For older clients, see the [v4.2.0 documentation](./dotnet-v4.md).
+> This article covers the latest (v5.0) edition of the Microsoft Datasync Framework.  For older clients, see the [v4.2.0 documentation](./dotnet-v4.md).
 
 ## Supported platforms
 
-The .NET client library supports .NET Standard 2.0, .NET 6 and the following platforms:
+The .NET client library supports .NET Standard 2.0, .NET 6, and the following platforms:
 
-* Xamarin.Android above API level 19.
-* Xamarin.iOS version 8.0 and above.
+* .NET MAUI for Android, iOS, and Windows platforms.
+* Android above API level 19 (Xamarin and iOS for .NET).
+* iOS version 8.0 and above (Xamarin and Android for .NET).
 * Universal Windows Platform builds 19041 and above.
 * Windows Presentation Framework (WPF).
 * Windows App SDK (WinUI 3).
-* .NET MAUI for Android, iOS, and Windows platforms.
+* Xamarin.Forms
 
-Other platforms may work, but haven't been tested at this time.  The [TodoApp sample](https://github.com/Azure/azure-mobile-apps/tree/main/samples/TodoApp) contains an example of each tested platform.
+The [TodoApp sample](https://github.com/Azure/azure-mobile-apps/tree/main/samples/TodoApp) contains an example of each tested platform.
 
 ## Setup and Prerequisites
 
@@ -35,7 +43,7 @@ Add the following libraries from NuGet:
 * [Microsoft.Datasync.Client]
 * [Microsoft.Datasync.Client.SQLiteStore] if using offline tables.
 
-If using a platform project (for example, Xamarin.Forms), ensure you add the libraries to the platform project and any shared project.
+If using a platform project (for example, .NET MAUI), ensure you add the libraries to the platform project and any shared project.
 
 ## Create the service client
 
@@ -87,13 +95,7 @@ Examples of delegating handlers are provided for [logging](#enable-request-loggi
 
 #### IdGenerator
 
-When an entity is added to an offline table, it must have an ID.  An ID will be generated if one isn't provided.  The `IdGenerator` option allows you to tailor the ID that is generated.  By default, a globally unique ID is generated.
-
-#### InstallationId
-
-A custom header `X-ZUMO-INSTALLATION-ID` is sent with each request to identify the combination of the application on a specific device.  This header can be recorded in logs and allows you to determine the number of distinct installations for your app.  By default, an installation ID is generated for you and saved in persistent storage when the app is first launched.  However, you can modify the `InstallationId` property to set your own installation ID.  If set to the blank string, the header isn't sent to the server.
-
-For example, the following setting will generate a string that includes the table name and a GUID:
+When an entity is added to an offline table, it must have an ID.  An ID will be generated if one isn't provided.  The `IdGenerator` option allows you to tailor the ID that is generated.  By default, a globally unique ID is generated. For example, the following setting will generate a string that includes the table name and a GUID:
 
 ``` csharp
 var options = new DatasyncClientOptions 
@@ -102,17 +104,21 @@ var options = new DatasyncClientOptions
 }
 ```
 
+#### InstallationId
+
+A custom header `X-ZUMO-INSTALLATION-ID` is sent with each request to identify the combination of the application on a specific device.  This header can be recorded in logs and allows you to determine the number of distinct installations for your app.  By default, an installation ID is generated for you and saved in persistent storage when the app is first launched.  However, you can modify the `InstallationId` property to set your own installation ID.  If set to the blank string, the header isn't sent to the server.
+
 #### OfflineStore
 
 The `OfflineStore` is used when configuring offline data access.  For more information, see [Work with offline tables](#work-with-offline-tables).
 
 #### ParallelOperations
 
-Part of the offline synchronization process involves pushing queued operations to the remote server.  When the push operation is triggered, the operations are submitted in the order they were received.  You can, optionally, use up to eight threads to push these operations.  Parallel operations uses more resources on both client and server to complete the operation faster.  The order in which operations arrive at the server can't be guaranteed when using multiple threads. 
+Part of the offline synchronization process involves pushing queued operations to the remote server.  When the push operation is triggered, the operations are submitted in the order they were received.  You can, optionally, use up to eight threads to push these operations.  Parallel operations use more resources on both client and server to complete the operation faster.  The order in which operations arrive at the server can't be guaranteed when using multiple threads. 
 
 #### SerializerSettings
 
-If you've changed the serializer settings on the datasync server, you'll also need to make the same changes to the `SerializerSettings` on
+If you've changed the serializer settings on the data sync server, you'll also need to make the same changes to the `SerializerSettings` on
 the client.  This option allows you to specify your own serializer settings.
 
 #### TableEndpointResolver
@@ -132,8 +138,7 @@ var options = new DatasyncClientOptions
 
 #### UserAgent
 
-The datasync client generates a suitable User-Agent header value based on the version of the library and the platform information.  Some developers
-feel this leaks information.  You can set the `UserAgent` property to any valid header value.
+The data sync client generates a suitable User-Agent header value based on the version of the library and the platform information.  Some developers feel the user agent header leaks information about the client.  You can set the `UserAgent` property to any valid header value.
 
 ## Work with remote tables
 
@@ -446,6 +451,13 @@ var dbPath = $"{Filesystem.AppDataDirectory}/todoitems.db";
 var store = new OfflineSQLiteStore($"file:/{dbPath}?mode=rwc");
 ```
 
+If you're using .NET MAUI, you can use the [.NET MAUI File System Helpers](/dotnet/maui/platform-integration/storage/file-system-helpers) to construct a path: For example:
+
+``` csharp
+var dbPath = $"{Filesystem.AppDataDirectory}/todoitems.db";
+var store = new OfflineSQLiteStore($"file:/{dbPath}?mode=rwc");
+```
+
 ### Create an offline table
 
 A table reference can be obtained using the `GetOfflineTable<T>` method:
@@ -532,9 +544,11 @@ var tablesToPush = new string[] { "TodoItem", "Notes" };
 await client.PushTables(tablesToPush);
 ```
 
+Use the `client.PendingOperations` property to read the number of operations waiting to be pushed to the remote service.  This property is `null` when no offline store has been configured.
+
 ### Run complex SQLite queries
 
-If you need to do complex SQL queries against the offline database, you can do so using the `ExecuteQueryAsync()` method.  For example, to do a `SQL JOIN` statement, define the return value form, then use `ExecuteQueryAsync()`:
+If you need to do complex SQL queries against the offline database, you can do so using the `ExecuteQueryAsync()` method.  For example, to do a `SQL JOIN` statement, define a `JObject` that shows the structure of the return value, then use `ExecuteQueryAsync()`:
 
 ``` csharp
 var definition = new JObject() 
@@ -651,9 +665,9 @@ public async Task<AuthenticationToken> GetTokenAsync()
 
 For more information on integrating the Microsoft Identity Platform with ASP.NET 6, see the [Microsoft Identity Platform](/azure/active-directory/develop/v2-overview) documentation.
 
-### Use Xamarin.Essentials WebAuthenticator
+### Use Xamarin.Essentials or .NET MAUI WebAuthenticator
 
-For Azure App Service Authentication, you can use the [Xamarin.Essentials WebAuthenticator](/xamarin/essentials/web-authenticator) to get a token:
+For Azure App Service Authentication, you can use the [Xamarin.Essentials WebAuthenticator](/xamarin/essentials/web-authenticator) or [.NET MAUI WebAuthenticator](/dotnet/maui/platform-integration/communication/authentication) to get a token:
 
 ``` csharp
 Uri authEndpoint = new Uri(client.Endpoint, "/.auth/login/aad");
@@ -765,6 +779,44 @@ public class LoggingHandler : DelegatingHandler
     }
 }
 ```
+
+### Monitor synchronization events
+
+When a synchronization event happens, the event is published to the `client.SynchronizationProgress` event delegate.  The events can be used to monitor the progress of the synchronization process.  Define a synchronization event handler as follows:
+
+```csharp
+client.SynchronizationProgress += (sender, args) => {
+    // args is of type SynchronizationEventArgs
+};
+```
+
+The `SynchronizationEventArgs` type is defined as follows:
+
+```csharp
+public enum SynchronizationEventType
+{
+    PushStarted,
+    ItemWillBePushed,
+    ItemWasPushed,
+    PushFinished,
+    PullStarted,
+    ItemWillBeStored,
+    ItemWasStored,
+    PullFinished
+}
+
+public class SynchronizationEventArgs
+{
+    public SynchronizationEventType EventType { get; }
+    public string ItemId { get; }
+    public long ItemsProcessed { get; } 
+    public long QueueLength { get; }
+    public string TableName { get; }
+    public bool IsSuccessful { get; }
+}
+```
+
+The properties within `args` will be `null` or `-1` when the property isn't relevant to the synchronization event.
 
 <!-- NuGet Packages -->
 [Microsoft.Datasync.Client]: https://www.nuget.org/packages/Microsoft.Datasync.Client

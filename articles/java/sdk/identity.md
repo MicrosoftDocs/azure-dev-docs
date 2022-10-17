@@ -1,7 +1,7 @@
 ---
 title: Azure authentication with Java and Azure Identity
 description: An overview of the Azure SDK authentication and identity functionality
-ms.date: 02/02/2021
+ms.date: 10/17/2022
 ms.topic: conceptual
 ms.custom: devx-track-java
 author: KarlErickson
@@ -33,13 +33,13 @@ Follow the links above to learn more about the specifics of each of these authen
 
 ## Add the Maven dependencies
 
-To add the Maven dependency, include the following XML in the project's *pom.xml* file. Replace the *1.2.1* version number with the latest released version number shown on the [Microsoft Azure Client Library For Identity page](https://mvnrepository.com/artifact/com.azure/azure-identity).
+To add the Maven dependency, include the following XML in the project's *pom.xml* file. Replace `{version_number}` with the latest stable release's version number, as shown on the [Azure Identity library page](https://search.maven.org/artifact/com.azure/azure-identity).
 
 ```xml
 <dependency>
     <groupId>com.azure</groupId>
     <artifactId>azure-identity</artifactId>
-    <version>1.2.1</version>
+    <version>{version_number}</version>
 </dependency>
 ```
 
@@ -71,7 +71,7 @@ SecretClient client = new SecretClientBuilder()
 
 ### Authenticate Azure management libraries
 
-The Azure management libraries use the same credential APIs as the Azure client libraries, but also require an [Azure subscription ID](/learn/modules/create-an-azure-account/4-multiple-subscriptions) to manage the Azure resources on that subscription.
+The Azure management libraries use the same credential APIs as the Azure client libraries, but also require an [Azure subscription ID](/training/modules/create-an-azure-account/4-multiple-subscriptions) to manage the Azure resources on that subscription.
 
 You can find the subscription IDs on the [Subscriptions page in the Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade). Alternatively, use the following [Azure CLI][azure_cli] command to get subscription IDs:
 

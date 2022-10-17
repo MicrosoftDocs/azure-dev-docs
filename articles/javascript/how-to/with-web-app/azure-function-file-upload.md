@@ -2,7 +2,7 @@
 title: Upload file to Storage
 description: Create an Azure Function API, which uploads a file to Azure Storage.
 ms.topic: how-to
-ms.date: 01/24/2022
+ms.date: 09/06/2022
 ms.custom: devx-track-js
 #intent: How to locally develop a file-upload serverless function then deploy that function to Azure. 
 ---
@@ -15,23 +15,25 @@ This article shows you how to create an Azure Function API, which uploads a file
 
 ## Solution architecture considerations
 
-The Azure Function **file upload limit is 100 MB**. If you need to upload larger files, consider either a browser-based approach or a server app. 
+> [!CAUTION]
+>The Azure Function **file upload limit is 100 MB**. If you need to upload larger files, consider either a browser-based approach such as [Static web apps](/azure/static-web-apps) or a server-based solution such as [Azure App Service](/azure/app-service/). 
 
-This sample uses an **Azure Function _out_ binding** instead of the Azure Storage npm package. By using the binding, you have to configure your function to correctly use the outbound binding to move the file from this function to the storage resource _without writing code to interact with Azure Storage_. 
+This sample:
+* Uploads a file to an Azure Function
+* Uses **parse-multipart** npm package to get information about the uploaded file.
+* Uses **@azure/storage-blob** to generate a blob SAS token URL for the file. The URL should be handed back to a client or other service to read the file with authorization.
+* Uses a Function App **out** binding to upload the file to Blob Storage. This is the easiest way to get a file into blob storage. 
 
-The _out_ binding usage, used in this article, has some pros and cons:
+    :::image type="content" source="../../media/azure-function-file-upload-binding/azure-architecure.png" alt-text="Architectural diagram of browser uploading file to Azure Function App then connecting to Azure Storage in two ways: out binding and SDK.":::
 
-|Pros|Cons|
-|--|--|
-|* No code to write to move a file from the function to storage<br><br>* No npm dependency for storage|* function.json must be configured correctly<br><br>* Connection string to storage must be configured correctly in environment|
-
-The code required to read the uploaded file and convert it into a format that can be sent to storage is required, regardless if you use an out binding or an npm package to integrate with Azure Storage directly.
+While you can replace the _out_ binding with more code to upload the file to Blob storage, you can't replace the SDK with any _out_ binding to generate the SAS token URL. As you move from beginning code for this functionality to more complex code, you'll replace the _out_ binding with [SDK upload calls](/azure/storage/blobs/storage-blob-upload-javascript#upload-by-blob-client).
 
 ## Prepare your development environment
 
 Make sure the following are installed on your local developer workstation:
 
-- An Azure account with **an active subscription which you own**. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). Ownership is required to provide the correct Azure Active folder permissions to complete these steps.
+- An Azure account with **an active subscription which you own**. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
+    - Ownership is required to provide the correct Azure Active folder permissions to complete these steps. 
 - [Node.js LTS and npm](https://nodejs.org/en/download) - for local development.
 - [Visual Studio Code](https://code.visualstudio.com/) - to develop locally and to deploy to Azure. 
 - Visual Studio Code extensions:
@@ -43,9 +45,13 @@ Make sure the following are installed on your local developer workstation:
 
 A resource group holds both the Azure Function resource and the Azure Storage resource. Because both resources are in a single resource group, when you want to remove these resources, you remove the resource group. That action removes all resources in the resource group.
 
-1. In Visual Studio Code, select the Azure explorer, then select the **+** (Plus/Addition) icon under **Resource Groups**. 
+1. In Visual Studio Code, select the Azure explorer, then select the **+** (Plus/Addition) icon under **Resources**. 
 
-    :::image type="content" source="../../media/azure-function-file-upload-binding/visual-studio-code-create-resource-group.png" alt-text="Partial screenshot of Visual Studio Code's Azure Explorer showing the Resource Groups area with the Plus/Addition icon highlighted.":::
+    :::image type="content" source="../../media/azure-function-file-upload-binding/visual-studio-code-create-resource-group.png" alt-text="Partial screenshot of Visual Studio Code's Azure Explorer showing the Resources area with the Plus/Addition icon highlighted.":::
+
+1. Select **Create Resource Group** from the list of resources.
+
+    :::image type="content" source="../../media/azure-function-file-upload-binding/visual-studio-code-select-create-resource-group.png" alt-text="Partial screenshot of Visual Studio Code's Azure Explorer showing list of the resources with the `Create Resource Group` highlighted.":::
 
 1. Use the following table to finish creating the resource group:
 
@@ -54,13 +60,11 @@ A resource group holds both the Azure Function resource and the Azure Storage re
     |Enter the name of the new resource group.|`blob-storage-upload-function-group`|If you choose a different name, remember to use it as a replacement for this name when you see it in the rest of this article.|
     |Select a location for new resources. |Select a region close to you.||
 
-## <a name="#create-the-local-functions-app-with-the-visual-studio-code"></a>2. Create the local Functions app
+## <a name="#create-the-local-functions-app-with-the-visual-studio-code"></a>2. Create the local Function app
 
 1. Create a new folder on your local workstation, then open Visual Studio Code in this folder. 
 
-1. In Visual Studio Code, select the Azure explorer, then expand the **Azure Functions** explorer, then select the **Create New Project** command:
-
-    :::image type="content" source="../../media/azure-function-file-upload-binding/create-function-app-project.png" alt-text="Partial screenshot of Visual Studio Code to create a local Function project.":::
+1. In Visual Studio Code, open the **Command Palette** (View -> Command Palette | <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd>), then filter and select **Azure Function: Create New Project ...**
 
 1. Use the following table to finish creating the local Azure Function project:
 
@@ -138,11 +142,15 @@ Now that the basic project folder structure and files are in place, add local st
 
 1. Open the `./upload/index.ts` file and replace the contents with the following code:
 
-    :::code language="TypeScript" source="~/../js-e2e-azure-function-upload-file/upload/index.ts" range="35-102" highlight="72-88":::
+    :::code language="TypeScript" source="~/../js-e2e-azure-function-upload-file/upload/index.ts" range="35-134" highlight="68-88":::
 
     The `filename` query string parameter is required because the _out_ binding needs to know the name of the file to create. The `username` query string parameter is required because it becomes the Storage container (folder) name. For example, if the user name is `jsmith` and the file name is `test-file.txt`, the Storage location is `jsmith/test-file.txt`. 
 
     The code to read the file and send it to the out binding is highlighted.
+
+1. Create a new file named `azure-storage-blob-sas-url.ts`, then copy the following code into the file to generate a SAS token for the uploaded file. 
+
+    :::code language="TypeScript" source="~/../js-e2e-azure-function-upload-file/upload/azure-storage-blob-sas-url.ts" highlight="39-44":::
 
 ## <a name="#configure-the-function-to-connect-to-azure-storage"></a>6. Connect Azure Function to Azure Storage
 
@@ -174,41 +182,16 @@ Now that the basic project folder structure and files are in place, add local st
 
     :::code language="TEXT" source="~/../js-e2e-azure-function-upload-file/test-file.txt" :::
 
-1. In Visual Studio Code, open a new bash terminal at the root of the project to use the function API to upload the `test-file.txt`:
+1. In Visual Studio Code, open a new bash terminal at the root of the project to use the function API to upload the `test-file.txt`. Copy the bash script to the terminal and execute it.
 
-    ```bash
-    curl -X POST \
-    -F 'filename=@test-file.txt' \
-    -H 'Content-Type: text/plain' \
-    'http://localhost:7071/api/upload?filename=test-file.txt&username=jsmith' --verbose
-    ```
+    :::code language="bash" source="~/../js-e2e-azure-function-upload-file/upload.sh":::
 
 1. Check the response for a status code of 200:
 
-    ```console
-    Note: Unnecessary use of -X or --request, POST is already inferred.
-    *   Trying ::1:7071...
-    *   Trying 127.0.0.1:7071...
-    * Connected to localhost (127.0.0.1) port 7071 (#0)  
-    > POST /api/upload?filename=README.md&username=jsmith HTTP/1.1
-    > Host: localhost:7071
-    > User-Agent: curl/7.77.0
-    > Accept: */*
-    > Content-Length: 964
-    > Content-Type: multipart/form-data; boundary=------------------------549ebfc06c8f40ab
-    >
-    * We are completely uploaded and fine
-    * Mark bundle as not supporting multiuse
-    < HTTP/1.1 200 OK
-    < Date: Mon, 27 Sep 2021 16:53:56 GMT
-    < Content-Type: text/plain; charset=utf-8
-    < Server: Kestrel
-    < Transfer-Encoding: chunked
-    <
-    {
-      "string": "jsmith/README.md"
-    }* Connection #0 to host localhost left intact
-    ```
+    :::code language="console" source="~/../js-e2e-azure-function-upload-file/response.txt":::
+
+1. In the response JSON, the **url** property is the SAS token url for the file. It can be used to read the file.
+
 
 1. In Visual Studio Code, in the file explorer, expand the **azureStorage/_blobstorage_** folder and view the contents of the file. 
 
@@ -218,13 +201,13 @@ Now that the basic project folder structure and files are in place, add local st
 
 <a name="use-visual-studio-code-extension-to-deploy-to-hosting-environment"></a>
 
-## 8. Deploy to Azure with Visual Studio Code
+## 8. Create Function App resource 
 
-1. In Visual Studio Code, open the **Azure Explorer**, then right-click the deployment icon under **Functions** to deploy your app:
+1. In Visual Studio Code, select the Azure explorer, then right-click on **Function App**, then select **Create Function App in Azure (Advanced)**. 
 
-    :::image type="content" source="../../media/azure-function-file-upload-binding/visual-studio-code-function-deploy-app.png" alt-text="Partial screenshot of Visual Studio Code to deploy to Azure Functions command.":::
+    :::image type="content" source="../../media/azure-function-file-upload-binding/visual-studio-code-create-function-app-resource-advanced-selection.png" alt-text="Partial screenshot of Visual Studio Code's Azure Explorer showing the Resources area, Function App with the right-click menu item highlighted.":::
 
-    Alternately, you can deploy by opening the **Command Palette** (**F1**), entering `deploy to function app`, and running the **Azure Functions: Deploy to Function App** command.
+    Alternately, you can create a Function App by opening the **Command Palette** (**F1**), entering `Azure Functions:`, and running the **Azure Functions: Create Function App in Azure (Advanced)** command.
 
 1. Use the following table to complete the prompts to create a new Azure Function resource. 
 
@@ -242,13 +225,17 @@ Now that the basic project folder structure and files are in place, add local st
     |Select an Application Insights resource for your app.|+ Create new Application Insights resource.||
     |Enter an Application Insights resource for your app.|`blob-storage-upload-function-app-insights`||
 
-1. The Visual Studio Code **Output** panel for **Azure Functions** shows progress:
+1. The Visual Studio Code **Azure: Activity log** shows progress:
 
-    :::image type="content" source="../../media/azure-function-file-upload-binding/visual-studio-code-function-create-resource-output.png" alt-text="Screenshot of Visual Studio Code output window creating a function resource.":::
+    :::image type="content" source="../../media/azure-function-file-upload-binding/visual-studio-create-function-app-azure-activity-log.png" alt-text="Screenshot of Visual Studio Code output window creating a function resource.":::
 
-    When deploying, the entire Functions application is deployed, any changes to individual APIs are deployed at once.
+1. In Visual Studio Code, select the Azure explorer, then right-click on your new app in **Function App** resource area, then select **Deploy to Function app**. 
 
-## 9. Create an Azure Storage Resource
+1. Select the notification link to see the output of the deployment. 
+
+    When this is complete, your Function App isn't configured to use Azure Blob Storage yet. 
+
+## 10. Create an Azure Storage Resource
 
 1. In Visual Studio Code, select the Azure explorer, then right-click on your subscription under **Storage** to select **Create Storage Account (Advanced)**.
 1. Use the following table to finish creating the local Azure Function project:
@@ -263,102 +250,42 @@ Now that the basic project folder structure and files are in place, add local st
 <a name="copy-the-storage-connection-string-into-azure-function-application-setting"></a>
 <a name="copy-the-storage-connection-string-into-function-app-setting"></a>
 
-## 10. Set Storage connection string in Function app setting
+## 11. Set Storage connection string in Function app setting
 
 1. In Visual Studio Code, select the Azure explorer, then right-click on your new storage resource, and select **Copy Connection String**.
 1. Still in the Azure explorer, expand your Azure Function app, then expand the **Application Settings** node and right-click **AzureWebJobsStorage** to select **Edit Setting**.
 1. Paste in the Azure Storage connection string and press enter to complete the change. 
 
-## <a name="#verify-functions-app-is-available-with-browser"></a>11. Use cloud-based function
+    When **moving to production**, this connection string setting and its environment variable in the source code should be replaced [**DefaultAzureCredential**](/javascript/api/overview/azure/identity-readme#defaultazurecredential) in order to use credential-less authentication.
+
+## <a name="#verify-functions-app-is-available-with-browser"></a>12. Use cloud-based function
 
 Once deployment is completed and the _AzureWebJobsStorage_ app setting have been updated, test your Azure Function.
 
-1. Open a text file and copy in the following: 
+1. In Visual Studio Code, create a bash file named `upload-azure.sh` and copy the following code into the file.
+
+    :::code language="bash" source="~/../js-e2e-azure-function-upload-file/upload-azure.sh":::
+
+1. In Visual Studio Code, select the Azure explorer, then expand the node for your Function app, then expand **Functions**. Right-click the function name, `upload` and select **Copy Function Url**.
+1. In the `upload-azure.sh` bash file, paste your function url value into `FUNCTION_URL`.
+
+1. Execute that bash script in the terminal from the project's root folder:
 
     ```bash
-    curl -X POST \
-    -F 'filename=@test-file.txt' \
-    -H 'Content-Type: text/plain' \
-    'REPLACE-WITH-YOUR-FUNCTION-URL' --verbose
+    bash upload-azure.sh
     ```
 
+1. Check the response for a status code of 200:
 
-1. In Visual Studio Code, select the Azure explorer, then expand the node for your Functions app, then expand **Functions**. Right-click the function name, `upload` and select **Copy Function Url**:
+    :::code language="console" source="~/../js-e2e-azure-function-upload-file/response.cloud.txt":::
 
-    :::image type="content" source="../../media/azure-function-file-upload-binding/visual-studio-code-function-copy-url.png" alt-text="Screenshot of Visual Studio Code with Copy Function URL highlights in Azure Explorer for Functions.":::
-
-1. Paste the URL into a text file overwriting `REPLACE-WITH-YOUR-FUNCTION-URL`.
-1. Append the filename and username query string name/value pairs:
-
-    |Name|Value|
-    |--|--|
-    |username|`jsmith`|
-    |filename|`test-file.txt`|
-
-    The final cURL command format should be similar to the following, except for your own substitutions for username and function resource name:
-
-    ```bash
-    curl -X POST \
-    -F 'filename=@test-file.txt' \
-    -H 'Content-Type: text/plain' \
-    'https://blob-storage-upload-function-app-jsmith.azurewebsites.net/api/randomnumber?code=12345&filename=test-file.txt&username=jsmith' --verbose
-    ```
-
-    The value for `code` in your own URL will be a much longer value. 
-
-1. Copy the complete cURL command and run it in a Visual Studio Code bash terminal at the root of your function app to upload the root file, `test-file.txt`.
-
-    ```console
-    *   Trying 000.49.104.16:443...
-    * Connected to blob-storage-upload-function-app-jsmith.azurewebsites.net (20.49.104.16) port 443 (#0)
-    * ALPN, offering h2
-    * ALPN, offering http/1.1
-    * successfully set certificate verify locations:
-    *  CAfile: C:/Program Files/Git/mingw64/ssl/certs/ca-bundle.crt
-    *  CApath: none
-    * TLSv1.3 (OUT), TLS handshake, Client hello (1):
-    * TLSv1.3 (IN), TLS handshake, Server hello (2):
-    * TLSv1.2 (IN), TLS handshake, Certificate (11):
-    * TLSv1.2 (IN), TLS handshake, Server key exchange (12):
-    * TLSv1.2 (IN), TLS handshake, Server finished (14):
-    * TLSv1.2 (OUT), TLS handshake, Client key exchange (16):
-    * TLSv1.2 (OUT), TLS change cipher, Change cipher spec (1):
-    * TLSv1.2 (OUT), TLS handshake, Finished (20):
-    * TLSv1.2 (IN), TLS handshake, Finished (20):
-    * SSL connection using TLSv1.2 / ECDHE-RSA-AES256-GCM-SHA384
-    * ALPN, server did not agree to a protocol
-    * Server certificate:
-    *  subject: CN=*.azurewebsites.net
-    *  start date: Jul  7 18:20:52 2021 GMT
-    *  expire date: Jul  7 18:20:52 2022 GMT
-    *  subjectAltName: host "blob-storage-upload-function-app-jsmith.azurewebsites.net" matched cert's "*.azurewebsites.net"*  issuer: C=US; O=Microsoft Corporation; CN=Microsoft RSA TLS CA 02
-    *  SSL certificate verify ok.
-    > POST /api/upload?code=123456&filename=test-file.txt&username=jsmith HTTP/1.1
-    > Host: blob-storage-upload-function-app-jsmith.azurewebsites.net
-    > User-Agent: curl/7.75.0
-    > Accept: */*
-    > Content-Length: 566
-    > Content-Type: multipart/form-data; boundary=------------------------57d6fc242c9faa80
-    >
-    * We are completely uploaded and fine
-    * Mark bundle as not supporting multiuse
-    < HTTP/1.1 200 OK
-    < Transfer-Encoding: chunked
-    < Content-Type: text/plain; charset=utf-8
-    < Request-Context: appId=cid-v1:234a5745-1c92-46c6-84a3-6b4d6bb87e40
-    < Date: Tue, 28 Sep 2021 16:45:52 GMT
-    <
-    {
-      "string": "jsmith/test-file.txt"
-    }* Connection #0 to host blob-storage-upload-function-app-jsmith.azurewebsites.net left intact
-    ```
-
+1. In the response JSON, the **url** property is the SAS token url for the file. It can be used to read the file.
 
 1. In Visual Studio Code, open the Azure explorer, expand your Storage blob resource, under containers, and find the container name that matches your username value in the query string. 
 
     :::image type="content" source="../../media/azure-function-file-upload-binding/visual-studio-code-storage-container-file.png" alt-text="Screenshot of Visual Studio Code showing the Azure explorer's Storage node with the file uploaded.":::
 
-## 11. Query your Azure Function logs
+## 13. Query your Azure Function logs
 
 1. In Visual Studio Code, select the Azure explorer, then under **Functions**, right-click on your function app, then select **Open in Portal**.
 
@@ -383,23 +310,43 @@ Once deployment is completed and the _AzureWebJobsStorage_ app setting have been
 
 1. Select **Run**.
 
-    If the log doesn't display any results, it may be because there is a few minutes delay between the HTTP request to the Azure Function and the log availability in Kusto. Wait a few minutes and run the query again.
+    If the log doesn't display any results, it may be because there's a few minutes delay between the HTTP request to the Azure Function and the log availability in Kusto. Wait a few minutes and run the query again.
 
     :::image type="content" source="../../media/azure-function-file-upload-binding/azure-portal-function-application-insight-trace-message.png" alt-text="Browser screenshot showing Azure portal Kusto query result for Trace table." lightbox="../../media/azure-function-file-upload-binding/azure-portal-function-application-insight-trace-message.png":::
    
 
-## 12. Clean up Azure resources
+## 14. Clean up Azure resources
 
-1. In Visual Studio Code, in the Azure explorer, find the resource group name, `blob-storage-upload-function-group`, in the list.
-1. Right-click the resource group name and select **Delete**.
+1. In Visual Studio Code, in the Azure explorer, use the **Group by** feature to switch the Resources view to **Group by Resource Group**. 
 
-    :::image type="content" source="../../media/azure-function-file-upload-binding/visual-studio-code-resource-group-delete.png" alt-text="Use the Visual Studio Code extension, Azure Resource Groups, to delete the resource group and all resources within the group.":::
+    :::image type="content" source="../../media/azure-function-file-upload-binding/visual-studio-code-resource-group-by-resource-group.png" alt-text="Partial screenshot of Visual Studio Code showing how to use Azure extension to group by resource group.":::
+
+1. Find your resource group name, such as `blob-storage-upload-function-group`, in the list.
+1. Right-click the resource group name and select **Delete Resource Group**.
+
+    :::image type="content" source="../../media/azure-function-file-upload-binding/visual-studio-code-resource-group-delete.png" alt-text="Partial screenshot of Visual Studio Code, Azure extension, Azure Resource Groups, to delete the resource group and all resources within the group.":::
 
 ## Troubleshooting
 
-If you try to use this sample and run into an error regarding `split` from the `parse-multipart` library, verify that you are sending the `filename` property in your multiform data and that you are sending the `content-type` header into the function.NET
+* **SPLIT**: If you try to use this sample and run into an error regarding `split` from the `parse-multipart` library, verify that you're sending the `filename` property in your multiform data and that you're sending the `content-type` header into the function
+* **Debug in Dev Container**: If you run this app in its dev container in Visual Studio Code, make sure the Azure Function extensions in installed and _enabled_ in the dev container. You may have to rebuild the container.
 
 
 ## Next steps
 
-* [Create a resource group with an Azure Function API](./azure-function-resource-group-management/introduction.md)
+* Azure Functions
+    * Function [triggers and bindings](/azure/azure-functions/functions-triggers-bindings?tabs=javascript)
+    * [Azure Storage triggers and bindings](/azure/azure-functions/functions-bindings-storage-blob?tabs=in-process%2Cextensionv5%2Cextensionv3&pivots=programming-language-javascript)
+
+* Azure Storage
+    * Learn how to [write code](/azure/storage/blobs/storage-blob-javascript-get-started) with Azure Blob Storage SDK
+
+* Credential-less code
+    
+    * [How to use managed identity in Azure Functions](/azure/app-service/overview-managed-identity?toc=%2Fazure%2Fazure-functions%2Ftoc.json&tabs=portal%2Chttp)
+    * [Use DefaultAzureCredential with SDK](/azure/storage/blobs/storage-blob-javascript-get-started#connect-with-azure-ad) 
+    
+* Manage Azure resources with SDKs
+    * [Create a resource group with an Azure Function API](./azure-function-resource-group-management/introduction.md)
+    
+    

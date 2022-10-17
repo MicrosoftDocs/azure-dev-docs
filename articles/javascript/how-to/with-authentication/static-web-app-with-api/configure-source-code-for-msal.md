@@ -1,5 +1,5 @@
 ---
-title: "3: Create the local authenticated Static web app"
+title: "3: Create the local authenticated JavaScript Static web app"
 titleSuffix: Azure Developer Center
 description: In this article, learn to configure a Static web app and API to use the MSAL SDK to authenticate users both on the client app and on the Azure Function API. 
 ms.topic: how-to
@@ -146,7 +146,7 @@ You should have collected the following information from the [previous article i
     * Scopes you add here will be prompted for user consent during sign-in.
     * By default, MSAL.js will add OIDC scopes (openid, profile, email) to any login request.
     * For more information about OIDC scopes, visit: 
-    * https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent#openid-connect-scopes
+    * https://learn.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent#openid-connect-scopes
     */
     export const loginRequest = {
         scopes: []

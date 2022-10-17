@@ -23,14 +23,28 @@
 - name: Quickstarts
   expanded: true
   items:
-    - name: Create an Azure resource group
-      href: create-resource-group.md
-    - name: Create a Linux VM
-      href: create-linux-virtual-machine-with-infrastructure.md
-    - name: Learn how to use the AzAPI resource
-      href: get-started-azapi-resource.md
-    - name: Learn how to use the AzAPI update resource
-      href: get-started-azapi-update-resource.md
+    - name: Your first Terraform project
+      items:
+      - name: Create an Azure resource group
+        href: create-resource-group.md
+    - name: AzAPI provider
+      items:
+      - name: Learn how to use the AzAPI resource
+        href: get-started-azapi-resource.md
+      - name: Learn how to use the AzAPI update resource
+        href: get-started-azapi-update-resource.md
+    - name: Containers
+      items:
+        - name: Kubernetes cluster with AKS
+          href: create-k8s-cluster-with-tf-and-aks.md
+    - name: Database
+      items:
+        - name: MySQL Flexible Server
+          href: /azure/mysql/flexible-server/quickstart-create-terraform
+    - name: Virtual machines
+      items:
+      - name: Create a Linux VM
+        href: /azure/virtual-machines/linux/quick-create-terraform
 - name: Samples
   items:
     - name: Configuration templates
@@ -41,6 +55,12 @@
       href: best-practices-testing-overview.md
     - name: Comparing features of Terraform and Bicep
       href: comparing-terraform-and-bicep.md
+- name: Tutorials
+  items:
+    - name: Security
+      items:
+        - name: Azure Attestation
+          href: create-attestation-provider.md
 - name: How-to guides
   items:
     - name: Test Terraform projects
@@ -61,16 +81,12 @@
           href: provision-infrastructure-using-azure-deployment-slots.md
     - name: Containers
       items:
-        - name: Kubernetes cluster with AKS
-          href: create-k8s-cluster-with-tf-and-aks.md
         - name: Application Gateway ingress controller in AKS
           href: create-k8s-cluster-with-aks-applicationgateway-ingress.md
     - name: Database
       items:
         - name: Azure Cosmos DB
           href: deploy-azure-cosmos-db-to-azure-container-instances.md
-        - name: MySQL Flexible Server
-          href: /azure/mysql/flexible-server/quickstart-create-terraform
         - name: PostgreSQL Flexible Server Database
           href: deploy-postgresql-flexible-server-database.md
     - name: Networks
@@ -125,10 +141,6 @@
           href: create-vm-scaleset-network-disks-hcl.md
         - name: Virtual machine scale set from Packer image
           href: create-vm-scaleset-network-disks-using-packer-hcl.md
-    - name: Security
-      items:
-        - name: Azure Attestation
-          href: create-attestation-provider.md
 - name: Reference
   items:
     - name: Azure module registry
@@ -137,6 +149,8 @@
       href: https://aka.ms/terraform
     - name: Terraform AzAPI Provider
       href: https://registry.terraform.io/providers/Azure/azapi/latest/docs
+    - name: Terraform AzAPI resource type definitions
+      href: /azure/templates/
 - name: Resources
   items:
     - name: Azure & Terraform

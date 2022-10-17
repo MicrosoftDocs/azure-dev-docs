@@ -80,15 +80,14 @@
         "**/*.yml": "mcleanbyron",
         "java/**/*.md": "karlerickson",
         "java/**/*.yml": "karlerickson",
-        "go/**/*.md": "Duffney",
-        "python/**/*.md": "jess-johnson-msft",
+        "go/**/*.md": "mcleanbyron",
+        "python/**/*.md": "diberry",
         "ansible/**/*.md": "TomArcherMsft",
         "chef/**/*.md": "TomArcherMsft",
         "jenkins/**/*.md": "TomArcherMsft",
         "terraform/**/*.md": "TomArcherMsft",
         "javascript/**/*.md": "diberry",
-        "javascript/**/*.yml": "diberry",
-        "lab/**/*.md": "diberry"
+        "javascript/**/*.yml": "diberry"
       },
       "manager": {
         "**/*.md": "mcleans",
@@ -99,15 +98,14 @@
         "**/*.yml": "mcleans",
         "java/**/*.md": "karler",
         "java/**/*.yml": "karler",
-        "go/**/*.md": "jduffney",
-        "python/**/*.md": "jejohn",
+        "go/**/*.md": "mcleans",
+        "python/**/*.md": "diberry",
         "ansible/**/*.md": "tarcher",
         "chef/**/*.md": "tarcher",
         "jenkins/**/*.md": "tarcher",
         "terraform/**/*.md": "tarcher",
         "javascript/**/*.md": "diberry",
-        "javascript/**/*.yml": "diberry",
-        "lab/**/*.md": "diberry"
+        "javascript/**/*.yml": "diberry"
       },
       "ms.devlang": {
         "java/**/*.md": "java",
@@ -122,8 +120,7 @@
         "ansible/**/*.md": "ansible",
         "chef/**/*.md": "chef",
         "jenkins/**/*.md": "jenkins",
-        "terraform/**/*.md": "terraform",
-        "lab/**/*.md": "azure"
+        "terraform/**/*.md": "terraform"
       },
       
       "titleSuffix": {
@@ -131,7 +128,6 @@
         "chef/**/*.yml" : "Chef",
         "jenkins/**/*.yml" : "Jenkins",
         "terraform/**/*.yml" : "Terraform",
-        "lab/**/*.md": "Dev Experience Lab",
         "javascript/**/*.md": "Azure"
         
       },
@@ -141,9 +137,6 @@
         ],
         "javascript/tutorial/**/*": [
           "enable_tutorial_feedback"
-        ],
-        "lab/**/*": [
-          "enable_tutorial_feedback"
         ]
       },
       "ms.topic": {
@@ -152,7 +145,10 @@
       "ms.prod": {
         "python/**/*.md": "azure-python",
         "javascript/**/*.md": "azure-nodejs"
-      }      
+      },
+      "ROBOTS": {
+        "ux-beta/**/*.md": "NOINDEX"
+      }    
     },
     "template": [],
     "dest": {

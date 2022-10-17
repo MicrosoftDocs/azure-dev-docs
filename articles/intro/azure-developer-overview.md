@@ -2,9 +2,9 @@
 title: Azure for developers overview
 description: An overview of Azure from a developer's perspective.
 keywords: azure billing, azure portal
-ms.prod: azure
+ms.service: azure-devops
 ms.topic: overview
-ms.date: 03/28/2022
+ms.date: 08/04/2022
 ms.custom: overview
 ---
 
@@ -17,6 +17,10 @@ Azure supports the most popular programming languages in use today, including Py
 ## Application development scenarios on Azure
 
 You can incorporate Azure into your application in different ways depending on your needs.
+
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE50LmJ]
+
 
 - **Application hosting on Azure -** Azure can host your entire application stack from web applications and APIs to databases to storage services. Azure supports a variety of hosting models from fully managed services to containers to virtual machines. When using fully managed Azure services, your applications can take advantage of the scalability, high-availability, and security built in to Azure.
 
