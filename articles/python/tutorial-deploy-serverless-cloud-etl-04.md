@@ -6,9 +6,7 @@ ms.custom: devx-track-python, devx-track-azurecli
 ms.devlang: python
 ms.topic: tutorial
 ms.prod: azure-python
-author: jessmjohnson
-ms.author: jejohn
-ms.date: 10/04/2021
+ms.date: 10/14/2022
 ---
 # Transform relational data with Pandas and Azure Function Apps
 
@@ -303,7 +301,7 @@ Now add this new functionality to the overall solution by modifying the '*main*'
         std_date_format = '%Y-%m-%d'
 
         # List of columns relevant for analysis
-        cols = ['Segment', 'Country', 'Units Sold', 'Gross Sales', 'Date']
+        cols =  ['segment', 'country', 'units_sold', 'gross_sales', 'date']
 
         # List of columns to aggregate
         groupby_cols = ['segment', 'country', 'sale_year', 'sale_month']
