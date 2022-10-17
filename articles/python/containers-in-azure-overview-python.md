@@ -22,7 +22,7 @@ For Python container development, some typical workflows for moving from code to
 |Scenario|Description|Workflow|
 |--------|-----------|-----|
 |**Dev**|Build Python Docker images in your dev environment.|Code: git clone code to dev environment (with Docker installed). <br><br> Build: Use Docker CLI, VS Code (with extensions), PyCharm (with plugin). Described in section [Working with Python Docker images and containers](#working-with-python-docker-images-and-containers). <br><br> Run: In dev environment in a Docker container. <br><br> Push: To a registry like Azure Container Registry, Docker Hub, or private registry. <br><br> Deploy: To Azure service from registry.|
-|**Hybrid**|From your dev environment build Python Docker images in Azure.|Code: git clone code to dev environment (not necessary for Docker to be installed).<br><br> Build: VS Code (with extensions), Azure CLI. <br><br> Push: To Azure Container Registry <br><br> Deploy: To Azure service from registry.|
+|**Hybrid**|From your dev environment, build Python Docker images in Azure.|Code: git clone code to dev environment (not necessary for Docker to be installed).<br><br> Build: VS Code (with extensions), Azure CLI. <br><br> Push: To Azure Container Registry <br><br> Deploy: To Azure service from registry.|
 |**Azure**|All in the cloud; use Azure Cloud Shell to build Python Docker images code from GitHub repo.| Code: git clone GitHub repo to Azure Cloud Shell.<br><br>Build: In Azure Cloud Shell, use Azure CLI or Docker CLI.<br><br>Push: To registry like Azure Container Registry, Docker Hub, or private registry.<br><br>Deploy: To Azure service from registry.|
 
 The end goal of these workflows is to have a container running in one of the Azure resources supporting Docker containers as listed in the next section.
@@ -253,7 +253,7 @@ az acr build --registry <registry-name> \
   --target pythoncontainerwebapp:latest .
 ```
 
-As another example, consider the following command that shows how to use the Docker CLI [run][43] command.  The example show hows to run a Docker container that communicates to a MongoDB instance in your dev environment, outside the container. The different values to complete the command are easier to automate when specified in a command line.
+As another example, consider the following command that shows how to use the Docker CLI [run][43] command.  The example shows how to run a Docker container that communicates to a MongoDB instance in your dev environment, outside the container. The different values to complete the command are easier to automate when specified in a command line.
 
 ```bash
 docker run --rm -it \
@@ -299,7 +299,7 @@ docker run --rm -it \
   <dockerimagename:tag>
 ```
 
-If you're using VS Code or PyCharm, UI options you'll use to work with images and containers ultimately use Docker CLI commands like the one shown above.
+If you're using VS Code or PyCharm, the UI options for working with images and containers ultimately use Docker CLI commands like the one shown above.
 
 Finally, specifying environment variables  when deploying a container in Azure is different than using environment variables in your dev environment. For example:
 
