@@ -167,49 +167,10 @@ If you haven't already, install [Azure Tools for VS Code][41].
 
 | Instructions    | Screenshot |
 |:----------------|-----------:|
-|**Step 1**: Use **CTRL** + **ALT**  + **S** to bring up the **Plugins** setting.<br><br>You can also go to **File** \> **Settings** \> **Plugins**.|:::image type="content" source="media/containers-overview/pycharm-plugin-add-small.png" alt-text="Screenshot showing how to add plugins in PyCharm." lightbox="media/containers-overview/pycharm-plugin-add.png":::|
-|**Step 2**: Search **Marketplace** for the [Docker plugin][22] and add it.<br><br>If you are using Docker for Windows, enable connection to Docker via the TCP protocol. For more information, see [Enable Docker support][39].|:::image type="content" source="media/containers-overview/pycharm-plugin-services-small.png" alt-text="Screenshot showing how to see Docker plugin in Services window of PyCharm." lightbox="media/containers-overview/pycharm-plugin-services.png":::|
-|**Step 3**: Under the **Services**, select **Docker**, expand images, right-click an image run it as a container.<br><br>This assumes you already have built a Docker image and it appears in Docker.|:::image type="content" source="media/containers-overview/pycharm-plugin-start-container-small.png" alt-text="Screenshot showing how to start container from Docker image in PyCharm." lightbox="media/containers-overview/pycharm-plugin-start-container.png":::|
+|**Step 1**: Use **CTRL** + **ALT**  + **S** to bring up the **Plugins** setting.<br><br>You can also go to **File** \> **Settings** \> **Plugins**.|:::image type="content" source="media/containers-overview/pycharm-open-plugins-small.png" alt-text="Screenshot showing how to add plugins in PyCharm." lightbox="media/containers-overview/pycharm-open-plugins.png":::|
+|**Step 2**: Under **Marketplace**, search for the [Docker plugin][22], and add it.<br><br>If you are using Docker for Windows, enable connecting to Docker via the TCP protocol. For more information, see [Enable Docker support][39].|:::image type="content" source="media/containers-overview/pycharm-plugin-add-small.png" alt-text="Screenshot showing how to add plugins in PyCharm." lightbox="media/containers-overview/pycharm-plugin-add.png":::|
+|**Step 3**: Under the **Services**, select **Docker**, expand images, right-click an image and select **Create Container** to start a container.<br><br>This assumes you already have built a Docker image and it appears in Docker.|:::image type="content" source="media/containers-overview/pycharm-plugin-start-container-small.png" alt-text="Screenshot showing how to start container from Docker image in PyCharm." lightbox="media/containers-overview/pycharm-plugin-start-container.png":::|
 |**Step 4**: Monitor the output in the **Log** window.|:::image type="content" source="media/containers-overview/pycharm-running-container-example-small.png" alt-text="Screenshot showing an example of running a container in VS Code." lightbox="media/containers-overview/pycharm-running-container-example.png":::|
-
-:::row:::
-    :::column span="2":::
-        **Step 1**: Use **CTRL** + **ALT**  + **S** to bring up the **Plugins** setting.
-
-        You can also go to **File** \> **Settings** \> **Plugins**.
-    :::column-end:::
-    :::column:::
-        :::image type="content" source="media/containers-overview/pycharm-plugin-add.png" alt-text="Screenshot showing how to add plugins in PyCharm." lightbox="media/containers-overview/pycharm-plugin-add.png":::
-    :::column-end:::
-:::row-end:::
-:::row:::
-    :::column span="2":::
-        **Step 2**: Search **Marketplace** for the [Docker plugin][22] and add it.
-
-        If you are using Docker for Windows, enable connection to Docker via the TCP protocol. For more information, see [Enable Docker support][39].
-    :::column-end:::
-    :::column:::
-        :::image type="content" source="media/containers-overview/pycharm-plugin-services.png" alt-text="Screenshot showing how to see Docker plugin in Services window of PyCharm." lightbox="media/containers-overview/pycharm-plugin-services.png":::
-    :::column-end:::
-:::row-end:::
-:::row:::
-    :::column span="2":::
-        **Step 3**: Under the **Services**, select **Docker**, expand images, right-click an image run it as a container.
-
-        This assumes you already have built a Docker image and it appears in Docker.
-    :::column-end:::
-    :::column:::
-        :::image type="content" source="media/containers-overview/pycharm-plugin-start-container.png" alt-text="Screenshot showing how to start container from Docker image in PyCharm." lightbox="media/containers-overview/pycharm-plugin-start-container.png":::
-    :::column-end:::
-:::row-end:::
-:::row:::
-    :::column span="2":::
-        **Step 4**: Monitor the output in the **Log** window.
-    :::column-end:::
-    :::column:::
-        :::image type="content" source="media/containers-overview/pycharm-running-container-example.png" alt-text="Screenshot showing an example of running a container in VS Code." lightbox="media/containers-overview/pycharm-running-container-example.png":::
-    :::column-end:::
-:::row-end:::
 
 ---
 
