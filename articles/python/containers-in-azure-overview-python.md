@@ -271,13 +271,13 @@ For more information about this scenario, see [Build and test a containerized Py
 
 Python projects often make use of environment variables to pass data to code. For example, you might specify database connection information in an environment variable so that it can be easily changed during testing. Or, when deploying the project to production, the database connection can be changed to refer to a production database instance.  
 
-Packages like [python-dotenv][27] are often used to read key-value pairs from an *.env* file and set them as environment variables. An *.env* file is useful when running in a virtual environment but isn't recommended when working with containers. **Don't copy the *.env* file into the Docker image, especially if it has sensitive information and the container will be made public.** Use the *\.dockerignore* file to exclude files from being copied into the Docker image. For more information, see the section [Virtual environments and containers](#virtual-environments-and-containers) in this article.
+Packages like [python-dotenv][27] are often used to read key-value pairs from an *.env* file and set them as environment variables. An *.env* file is useful when running in a virtual environment but isn't recommended when working with containers. **Don't copy the *.env* file into the Docker image, especially if it contains sensitive information and the container will be made public.** Use the *\.dockerignore* file to exclude files from being copied into the Docker image. For more information, see the section [Virtual environments and containers](#virtual-environments-and-containers) in this article.
 
 You can pass environment variables to containers in a few ways:
 
-1. Defined in the *Dockerfile* as an [ENV][45] instruction.
-1. Passed in as `--build-arg` argument with the Docker [build][42] command.
-1. Passed in as  `--secret` argument with the Docker build command and [BuildKit][29] backend.
+1. Defined in the *Dockerfile* as [ENV][45] instructions.
+1. Passed in as `--build-arg` arguments with the Docker [build][42] command.
+1. Passed in as  `--secret` arguments with the Docker build command and [BuildKit][29] backend.
 1. Passed in as `--env` or `--env-file` arguments with the Docker [run][43] command.
 
 The first two options have the same drawback as noted above with *\.env* files, namely that you're hardcoding potentially sensitive information into a Docker image. You can inspect a Docker image and see the environment variables, for example, with the command [docker image inspect][28].
@@ -299,7 +299,7 @@ docker run --rm -it \
   <dockerimagename:tag>
 ```
 
-If you're using VS Code or PyCharm, there are tasks, and UI that you typically work with but in the end runs a command like the one shown above.
+If you're using VS Code or PyCharm, UI options you'll use to work with images and containers ultimately use Docker CLI commands like the one shown above.
 
 Finally, specifying environment variables  when deploying a container in Azure is different than using environment variables in your dev environment. For example:
 
@@ -311,11 +311,9 @@ As another option, you can use [Service Connector][34] to help you connect Azure
 
 ## Viewing container logs
 
-View container instance logs to view diagnostic messages output from code and to troubleshoot issues in your container's code.
+View container instance logs to see diagnostic messages output from code and to troubleshoot issues in your container's code. Here are several ways you can view logs when running a container in your ***dev environment***:
 
-Here are several ways you can view logs when running a container in your ***dev environment***:
-
-* Running a container with VS Code or PyCharm, as shown in the section [VS Code and PyCharm](#vs-code-and-pycharm)), you can see logs in terminal windows opened when Docker run executes.
+* Running a container with VS Code or PyCharm, as shown in the section [VS Code and PyCharm](#vs-code-and-pycharm), you can see logs in terminal windows opened when Docker run executes.
 
 * If you're using the Docker CLI [run][43] command with the interactive flag `-it`, you'll see output following the command.
 
@@ -331,7 +329,7 @@ When you deploy a container in ***Azure***, you also have access to container lo
 
 For the same services listed above, here are the Azure CLI commands to access logs.
 
-| Azure Resource | Azure CLI command to access logs |
+| Azure service | Azure CLI command to access logs |
 | -------------- | -------------------------------- |
 | Web App for Containers | [az webapp log][48] |
 | Azure Container Apps | [az containerapps logs][47] |
