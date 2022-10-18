@@ -3,6 +3,7 @@ title: Key Azure services for developers
 description: An overview of important services that developers use when building solutions on Azure.
 keywords: azure services
 ms.service: azure-devops
+ms.subservice: azure-devops-reference
 ms.topic: overview
 ms.date: 03/28/2022
 ms.custom: overview

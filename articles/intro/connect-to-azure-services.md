@@ -2,6 +2,7 @@
 title: Connect your app to Azure Services
 description: An overview of how to connect your applications to Azure.
 ms.service: azure-devops
+ms.subservice: azure-devops-reference
 ms.topic: article
 ms.date: 03/28/2022
 ---

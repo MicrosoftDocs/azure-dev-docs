@@ -14,6 +14,7 @@ metadata:
   ms.date: 04/08/2022
   ms.topic: landing-page
   ms.service: azure-devops
+  ms.subservice: azure-devops-reference
 landingContent:
   - title: Introduction to Azure for Developers
     linkLists:

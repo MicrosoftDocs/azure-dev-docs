@@ -3,6 +3,7 @@ title: How am I billed?
 description: A developer focused overview of how billing works on Azure.
 keywords: azure billing, azure portal
 ms.service: azure-devops
+ms.subservice: azure-devops-billing
 ms.topic: overview
 ms.date: 08/04/2022
 ms.custom: overview
