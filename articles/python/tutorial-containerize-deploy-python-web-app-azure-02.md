@@ -5,8 +5,6 @@ ms.topic: conceptual
 ms.date: 08/16/2022
 ms.custom: devx-track-python
 ms.prod: azure-python
-author: jessmjohnson
-ms.author: jejohn
 ---
 
 # Build and test a containerized Python web app locally
