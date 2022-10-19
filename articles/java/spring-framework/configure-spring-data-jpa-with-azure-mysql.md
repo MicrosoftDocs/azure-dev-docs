@@ -53,7 +53,7 @@ logging.level.org.hibernate.SQL=DEBUG
 
 spring.datasource.azure.passwordless-enabled=true
 spring.datasource.url=jdbc:mysql://${AZ_DATABASE_NAME}.mysql.database.azure.com:3306/demo?serverTimezone=UTC
-spring.datasource.username=${AZ_MYSQL_AD_NON_ADMIN_USERNAME}@${AZ_DATABASE_NAME}
+spring.datasource.username=${AZ_MYSQL_AD_NON_ADMIN_USERNAME}
 
 spring.jpa.show-sql=true
 spring.jpa.hibernate.ddl-auto=create-drop
@@ -66,7 +66,7 @@ spring.jpa.properties.hibernate.dialect =org.hibernate.dialect.MySQL8Dialect
 logging.level.org.hibernate.SQL=DEBUG
 
 spring.datasource.url=jdbc:mysql://${AZ_DATABASE_NAME}.mysql.database.azure.com:3306/demo?serverTimezone=UTC
-spring.datasource.username=${AZ_MYSQL_NON_ADMIN_USERNAME}@${AZ_DATABASE_NAME}
+spring.datasource.username=${AZ_MYSQL_NON_ADMIN_USERNAME}
 spring.datasource.password=${AZ_MYSQL_NON_ADMIN_PASSWORD}
 
 spring.jpa.show-sql=true

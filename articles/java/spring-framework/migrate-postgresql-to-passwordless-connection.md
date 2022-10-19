@@ -41,9 +41,9 @@ Although it's possible to connect to Azure Database for PostgreSQL with password
 
 With a passwordless connection, you can connect to Azure services without storing any credentials in the application, its configuration files, or in environment variables.
 
-To ensure that connections are passwordless, you must take into consideration both local development and the production environment. If a password is required in either place, then the application is not passwordless.
+To ensure that connections are passwordless, you must take into consideration both local development and the production environment. If a password is required in either place, then the application isn't passwordless.
 
-In your local development environment, you can authenticate with Azure CLI, Azure Powershell, Visual Studio, or Azure plugins for Visual Studio Code or IntelliJ. In this case, you can use that credential in your application instead of configuring properties.
+In your local development environment, you can authenticate with Azure CLI, Azure PowerShell, Visual Studio, or Azure plugins for Visual Studio Code or IntelliJ. In this case, you can use that credential in your application instead of configuring properties.
 
 When you deploy applications to an Azure hosting environment, such as a virtual machine, you can enable managed identity in that environment. Then, you won't need to provide credentials to connect to Azure services.
 
@@ -248,7 +248,7 @@ In this section, you'll execute two steps to enable your application to run in a
 > Azure also provides [Service Connector](/azure/service-connector/overview), which can help you connect your hosting service with PostgreSQL. With Service Connector to configure your hosting environment, you can omit the step of assigning roles to your managed identity because Service Connector will do it for you. The following section describes how to configure your Azure hosting environment in two ways: one via Service Connector and the other by configuring each hosting environment directly.
 
 > [!IMPORTANT]
-> Service Connector's commands require the latest [edge build of Azure CLI](https://github.com/Azure/azure-cli/blob/dev/doc/try_new_features_before_release.md). [Download and install the edge builds](https://github.com/Azure/azure-cli#edge-builds) for your platform.
+> Service Connector's commands require [Azure CLI](/cli/azure/install-azure-cli) 2.41.0 or above.
 
 #### Create the managed identity using the Azure portal
 
@@ -300,7 +300,7 @@ You can use Service Connector to create a connection between an Azure compute ho
 
 - Azure App Service
 - Azure Spring Cloud
-- Azure Container Apps (preview)
+- Azure Container Apps
 
 If you're using Azure App Service, use the `az webapp connection` command, as shown in the following example:
 
