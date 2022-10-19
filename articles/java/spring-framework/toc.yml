@@ -97,14 +97,14 @@
       - name: Migrate to use passwordless connections
         expanded: true
         items:
-          - name: Azure Database for SQL server
-            href: migrate-sql-database-to-passwordless-connection.md
           - name: Azure Database for MySQL
             href: migrate-mysql-to-passwordless-connection.md
           - name: Azure Database for PostgreSQL
             href: migrate-postgresql-to-passwordless-connection.md
           - name: Azure Event Hubs for Kafka
             href: migrate-kafka-to-passwordless-connection.md
+          - name: Azure SQL Database
+            href: migrate-sql-database-to-passwordless-connection.md
   - name: Samples
     items:
       - name: To Do List with Cosmos DB
