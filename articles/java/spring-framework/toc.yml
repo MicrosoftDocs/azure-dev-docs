@@ -107,10 +107,8 @@
             href: migrate-sql-database-to-passwordless-connection.md
   - name: Samples
     items:
-      - name: To Do List with Cosmos DB
-        href: https://github.com/Microsoft/todo-app-java-on-azure/
-      - name: To Do List with MySQL
-        href: https://github.com/Azure-Samples/mysql-spring-boot-todo
+      - name: Spring Cloud Azure Samples
+        href: https://github.com/Azure-Samples/azure-spring-boot-samples
       - name: Spring Initializr
         href: https://start.spring.io/
   - name: Reference
