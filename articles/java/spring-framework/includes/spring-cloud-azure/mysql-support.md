@@ -8,11 +8,11 @@ ms.author: v-yonghuiye
 
 [Azure Database for MySQL](https://azure.microsoft.com/services/mysql/) is a relational database service powered by the MySQL community edition. You can use either Single Server or Flexible Server to host a MySQL database in Azure. It's a fully managed database-as-a-service offering that can handle mission-critical workloads with predictable performance and dynamic scalability.
 
-From version `4.5.0-beta.1`, Spring Cloud Azure supports various types of credentials for authentication to Azure Database for MySQL single server.
+From version `4.5.0-beta.1`, Spring Cloud Azure supports various types of credentials for authentication to Azure Database for MySQL Flexible server.
 
 ### Supported MySQL version
 
-The current version of the starter should use Azure Database for MySQL Single Server version `5.7` or `8.0`.
+The current version of the starter should use Azure Database for MySQL Flexible Server version `5.7` or `8.0`.
 
 ### Core Features
 
@@ -94,7 +94,7 @@ The following sections show the classic Spring Boot application usage scenarios.
    spring:
      datasource:
        url: jdbc:mysql://${AZURE_MYSQL_SERVER_NAME}.mysql.database.azure.com:3306/${AZURE_MYSQL_DATABASE_NAME}
-       username: ${AZURE_MYSQL_AD_NON_ADMIN_USERNAME}@${AZURE_MYSQL_SERVER_NAME}
+       username: ${AZURE_MYSQL_AD_NON_ADMIN_USERNAME}
        azure:
          passwordless-enabled: true
    ```
@@ -127,7 +127,7 @@ The following sections show the classic Spring Boot application usage scenarios.
    1. Use the following command to run the SQL script to create the Azure AD non-admin user:
 
       ```bash
-      mysql -h $AZURE_MYSQL_SERVER_NAME.mysql.database.azure.com --user $CURRENT_USERNAME@$AZURE_MYSQL_SERVER_NAME --enable-cleartext-plugin --password=`az account get-access-token --resource-type oss-rdbms --output tsv --query accessToken` < create_ad_user_sp.sql
+      mysql -h $AZURE_MYSQL_SERVER_NAME.mysql.database.azure.com --user $CURRENT_USERNAME --enable-cleartext-plugin --password=`az account get-access-token --resource-type oss-rdbms --output tsv --query accessToken` < create_ad_user_sp.sql
       ```
 
    1. Now use the following command to remove the temporary SQL script file:
@@ -149,7 +149,7 @@ The following sections show the classic Spring Boot application usage scenarios.
            tenant-id: ${AZURE_TENANT_ID}
      datasource:
        url: jdbc:mysql://${AZURE_MYSQL_SERVER_NAME}.mysql.database.azure.com:3306/${AZURE_MYSQL_DATABASE_NAME}
-       username: ${AZURE_MYSQL_AD_SP_USERNAME}@${AZURE_MYSQL_SERVER_NAME}
+       username: ${AZURE_MYSQL_AD_SP_USERNAME}
        azure:
          passwordless-enabled: true
    ```
@@ -166,7 +166,7 @@ The following sections show the classic Spring Boot application usage scenarios.
    spring:
      datasource:
        url: jdbc:mysql://${AZURE_MYSQL_SERVER_NAME}.mysql.database.azure.com:3306/${AZURE_MYSQL_DATABASE_NAME}
-       username: ${AZURE_MYSQL_AD_MI_USERNAME}@${AZURE_MYSQL_SERVER_NAME}
+       username: ${AZURE_MYSQL_AD_MI_USERNAME}
        azure:
          passwordless-enabled: true
    ```

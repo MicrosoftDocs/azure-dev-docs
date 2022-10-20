@@ -10,11 +10,7 @@ ms.custom: devx-track-python
 
 [Previous part: Third-party API implementation](walkthrough-tutorial-authentication-03.md)
 
-The main app in our scenario is a simple Flask app that's deployed to Azure App Service. The app provides a public API endpoint named */api/v1/getcode*, which generates a code for some other purpose in the app (say, with two-factor authentication for human users).
-
-To see the endpoint in action, visit [https://msdocs-example-main-app.azurewebsites.net/api/v1/getcode](https://msdocs-example-main-app.azurewebsites.net/api/v1/getcode) in a browser or make a cURL request.
-
-The main app also provides a simple home page that displays a link to the API endpoint. You can see this part of the app on [https://msdocs-example-main-app.azurewebsites.net](https://msdocs-example-main-app.azurewebsites.net).
+The main app in our scenario is a simple Flask app that's deployed to Azure App Service. The app provides a public API endpoint named */api/v1/getcode*, which generates a code for some other purpose in the app (say, with two-factor authentication for human users). The main app also provides a simple home page that displays a link to the API endpoint.
 
 The sample's provisioning script performs the following steps:
 

@@ -5,8 +5,6 @@ ms.topic: conceptual
 ms.date: 09/21/2022
 ms.custom: devx-track-python
 ms.prod: azure-python
-author: jessmjohnson
-ms.author: jejohn
 ---
 
 # Configure continuous deployment for a Python web app in Azure Container Apps
