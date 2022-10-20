@@ -41,7 +41,7 @@
         - name: Hosting in Azure Storage
           href: /azure/storage/blobs/storage-blob-static-website?toc=/azure/developer/python/toc.json&bc=/azure/developer/breadcrumb/toc.json
         - name: Deploy from VS Code
-          href: /azure/developer/python/how-to-create-static-sites?toc=/azure/developer/python/toc.json&bc=/azure/developer/breadcrumb/toc.json
+          href: /azure/static-web-apps/getting-started?toc=/azure/developer/python/toc.json&bc=/azure/developer/breadcrumb/toc.json
     - name: Configure web apps
       items:
       - name: Set up web dev environment
